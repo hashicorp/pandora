@@ -64,8 +64,8 @@ func (c modelsTemplater) template(data ServiceGeneratorData) (*string, error) {
 		if fieldDetails.DateFormat != nil {
 			dateFormat := dateFormatString(*fieldDetails.DateFormat)
 
-			// Get{Name}AsTime method for getting *time.Time from a string
-			methods = append(methods, fmt.Sprintf("\tfunc (m *NestedItem) Get%sAsTime() (*time.Time, error) {", fieldName))
+			// List{Name}AsTime method for getting *time.Time from a string
+			methods = append(methods, fmt.Sprintf("\tfunc (m *NestedItem) List%sAsTime() (*time.Time, error) {", fieldName))
 			methods = append(methods, fmt.Sprintf("\t\treturn formatting.ParseAsDateFormat(m.%s, %q)", fieldName, dateFormat))
 			methods = append(methods, fmt.Sprintf("\t}\n"))
 

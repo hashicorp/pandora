@@ -14,6 +14,7 @@ namespace Pandora.Definitions.ResourceManager.Resources.v2018_05_01.ResourceGrou
             new Create(),
             new Delete(),
             new Get(),
+            new List(),
             new Update()
         };
         

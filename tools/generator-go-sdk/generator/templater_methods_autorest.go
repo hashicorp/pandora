@@ -195,8 +195,25 @@ func (c methodsAutoRestTemplater) listOperationTemplate(data ServiceGeneratorDat
 %[10]s
 
 // %[2]s ...
-func (c %[1]s) %[2]s(ctx context.Context, %[4]s) (%[2]sResponse, error) {
-	return c.usingToken%[2]s(ctx, %[8]s)
+func (c %[1]s) %[2]s(ctx context.Context, %[4]s) (resp %[2]sResponse, err error) {
+	req, err := c.%[2]sPreparer(ctx, %[8]s)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "%[3]s.%[1]s", "%[2]s", nil, "Failure preparing request")
+		return
+	}
+
+	resp.HttpResponse, err = c.Client.Send(req, azure.DoRetryWithRegistration(c.Client))
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "%[3]s.%[1]s", "%[2]s", resp.HttpResponse, "Failure sending request")
+		return
+	}
+
+	resp, err = c.%[2]sResponder(resp.HttpResponse)
+	if err != nil {
+		err = autorest.NewErrorWithError(err, "%[3]s.%[1]s", "%[2]s", resp.HttpResponse, "Failure responding to request")
+		return
+	}
+	return
 }
 
 // %[2]sCompleteMatchingPredicate retrieves all of the results into a single object
@@ -241,31 +258,6 @@ func (c %[1]s) %[2]sCompleteMatchingPredicate(ctx context.Context, %[4]s, predic
 		Items: items,
 	}
 	return out, nil
-}
-
-func (c %[1]s) usingToken%[2]s(ctx context.Context, %[4]s) (resp %[2]sResponse, err error) {
-	req, err := c.%[2]sPreparer(ctx, %[8]s)
-	if err != nil {
-		err = autorest.NewErrorWithError(err, "%[3]s.%[1]s", "%[2]s", nil, "Failure preparing request")
-		return
-	}
-
-	resp.HttpResponse, err = c.Client.Send(req, azure.DoRetryWithRegistration(c.Client))
-	if err != nil {
-		err = autorest.NewErrorWithError(err, "%[3]s.%[1]s", "%[2]s", resp.HttpResponse, "Failure sending request")
-		return
-	}
-
-	resp, err = c.%[2]sResponder(resp.HttpResponse)
-	if err != nil {
-		err = autorest.NewErrorWithError(err, "%[3]s.%[1]s", "%[2]s", resp.HttpResponse, "Failure responding to request")
-		return
-	}
-
-	resp.nextFunc = func(ctx context.Context, skipToken string) (%[2]sResponse, error) {
-		return c.usingToken%[2]s(ctx, %[8]s)
-	}
-	return
 }
 
 %[5]s
@@ -335,9 +327,6 @@ func (c methodsAutoRestTemplater) argumentsTemplate() string {
 	if len(c.operation.Options) > 0 {
 		args = append(args, "options")
 	}
-	if c.operation.FieldContainingPaginationDetails != nil {
-		args = append(args, "skipToken")
-	}
 	return strings.Join(args, ", ")
 }
 
@@ -352,9 +341,6 @@ func (c methodsAutoRestTemplater) argumentsTemplateForMethod() string {
 	if len(c.operation.Options) > 0 {
 		arguments = append(arguments, fmt.Sprintf("options %sOptions", c.operationName))
 	}
-	if c.operation.FieldContainingPaginationDetails != nil {
-		arguments = append(arguments, "skipToken string")
-	}
 	return strings.Join(arguments, ", ")
 }
 
@@ -367,65 +353,105 @@ func (c methodsAutoRestTemplater) preparerTemplate(data ServiceGeneratorData) st
 	arguments := c.argumentsTemplateForMethod()
 
 	steps := make([]string, 0)
+	listSteps := make([]string, 0)
 	if c.operation.ContentType != nil {
 		steps = append(steps, fmt.Sprintf("autorest.AsContentType(%q)", *c.operation.ContentType))
+		listSteps = append(listSteps, fmt.Sprintf("autorest.AsContentType(%q)", *c.operation.ContentType))
 	}
 	if strings.EqualFold(c.operation.Method, "Delete") {
 		steps = append(steps, "autorest.AsDelete()")
+		listSteps = append(listSteps, "autorest.AsDelete()")
 	}
 	if strings.EqualFold(c.operation.Method, "Head") {
 		steps = append(steps, "autorest.AsHead()")
+		listSteps = append(listSteps, "autorest.AsHead()")
 	}
 	if strings.EqualFold(c.operation.Method, "Get") {
 		steps = append(steps, "autorest.AsGet()")
+		listSteps = append(listSteps, "autorest.AsGet()")
 	}
 	if strings.EqualFold(c.operation.Method, "Patch") {
 		steps = append(steps, "autorest.AsPatch()")
+		listSteps = append(listSteps, "autorest.AsPatch()")
 	}
 	if strings.EqualFold(c.operation.Method, "Post") {
 		steps = append(steps, "autorest.AsPost()")
+		listSteps = append(listSteps, "autorest.AsPost()")
 	}
 	if strings.EqualFold(c.operation.Method, "Put") {
 		steps = append(steps, "autorest.AsPut()")
+		listSteps = append(listSteps, "autorest.AsPut()")
 	}
 	steps = append(steps, "autorest.WithBaseURL(c.baseUri)")
+	listSteps = append(listSteps, "autorest.WithBaseURL(c.baseUri)")
 
 	if c.operation.UriSuffix != nil {
-		steps = append(steps, fmt.Sprintf("autorest.WithPath(fmt.Sprintf(\"%%s%s\", id.ID()))", *c.operation.UriSuffix))
+		if c.operation.ResourceIdName != nil {
+			steps = append(steps, fmt.Sprintf("autorest.WithPath(fmt.Sprintf(\"%%s%s\", id.ID()))", *c.operation.UriSuffix))
+		} else {
+			steps = append(steps, fmt.Sprintf("autorest.WithPath(%q)", *c.operation.UriSuffix))
+		}
 	} else {
-		steps = append(steps, "autorest.WithPath(id.ID())")
+		if c.operation.ResourceIdName != nil {
+			steps = append(steps, "autorest.WithPath(id.ID())")
+		}
 	}
+	listSteps = append(listSteps, "autorest.WithPath(uri.Path)")
 
 	if c.operation.RequestObjectName != nil {
 		steps = append(steps, "autorest.WithJSON(input)")
+		listSteps = append(listSteps, "autorest.WithJSON(input)")
 	}
 	steps = append(steps, "autorest.WithQueryParameters(queryParameters)")
-
-	// TODO: a separate preparer for when this is a List too, a secondary Private one
+	listSteps = append(listSteps, "autorest.WithQueryParameters(queryParameters)")
 
 	optionsCode := ""
 	if len(c.operation.Options) > 0 {
 		optionsCode = `
 	for k, v := range options.toQueryString() {
 		queryParameters[k] = autorest.Encode("query", v)
-	}
-`
+	}`
 	}
 
-	return fmt.Sprintf(`
+	template := `
 // %[2]sPreparer prepares the %[2]s request.
 func (c %[1]s) %[2]sPreparer(ctx context.Context, %[3]s) (*http.Request, error) {
 	queryParameters := map[string]interface{}{
 		"api-version": %[5]s,
 	}
-
 %[6]s
 
 	preparer := autorest.CreatePreparer(
 		%[4]s)
 	return preparer.Prepare((&http.Request{}).WithContext(ctx))
 }
-`, data.serviceClientName, c.operationName, arguments, strings.Join(steps, ",\n\t\t"), apiVersion, optionsCode)
+`
+	if c.operation.FieldContainingPaginationDetails != nil {
+		template += `
+// %[2]sPreparerWithNextLink prepares the %[2]s request with the given nextLink token.
+func (c %[1]s) %[2]sPreparerWithNextLink(ctx context.Context, nextLink string) (*http.Request, error) {
+	uri, err := url.Parse(nextLink)
+	if err != nil {
+		return nil, fmt.Errorf("parsing nextLink %%q: %%+v", nextLink, err)
+	}
+	queryParameters := map[string]interface{}{}
+	for k, v := range uri.Query() {
+		if len(v) == 0 {
+			continue
+		}
+		val := v[0]
+		val = autorest.Encode("query", val)
+		queryParameters[k] = val
+	}
+
+	preparer := autorest.CreatePreparer(
+		%[7]s)
+	return preparer.Prepare((&http.Request{}).WithContext(ctx))
+}
+`
+	}
+
+	return fmt.Sprintf(template, data.serviceClientName, c.operationName, arguments, strings.Join(steps, ",\n\t\t"), apiVersion, optionsCode, strings.Join(listSteps, ",\n\t\t"))
 }
 
 func (c methodsAutoRestTemplater) responderTemplate(data ServiceGeneratorData) string {
@@ -447,6 +473,7 @@ func (c methodsAutoRestTemplater) responderTemplate(data ServiceGeneratorData) s
 	steps = append(steps, "autorest.ByClosing()")
 
 	if c.operation.FieldContainingPaginationDetails != nil {
+		argumentsCode := c.argumentsTemplate()
 		fields := make([]string, 0)
 		fields = append(fields, fmt.Sprintf("Values []%s `json:%q`", *c.operation.ResponseObjectName, "value"))
 		fields = append(fields, fmt.Sprintf("NextLink *string `json:%q`", *c.operation.FieldContainingPaginationDetails))
@@ -462,11 +489,34 @@ func (c %[1]s) %[2]sResponder(resp *http.Response) (result %[2]sResponse, err er
 		resp,
 		%[3]s)
 	result.HttpResponse = resp
-	result.Model = &page.Values
+	result.Model = &respObj.Values
 	result.nextLink = respObj.NextLink
+	if respObj.NextLink != nil {
+		result.nextPageFunc = func(ctx context.Context, nextLink string) (result %[2]sResponse, err error) {
+			req, err := c.%[2]sPreparerWithNextLink(ctx, nextLink)
+			if err != nil {
+				err = autorest.NewErrorWithError(err, "%[6]s.%[1]s", "%[2]s", nil, "Failure preparing request")
+				return
+			}
+		
+			result.HttpResponse, err = c.Client.Send(req, azure.DoRetryWithRegistration(c.Client))
+			if err != nil {
+				err = autorest.NewErrorWithError(err, "%[6]s.%[1]s", "%[2]s", result.HttpResponse, "Failure sending request")
+				return
+			}
+		
+			result, err = c.%[2]sResponder(result.HttpResponse)
+			if err != nil {
+				err = autorest.NewErrorWithError(err, "%[6]s.%[1]s", "%[2]s", result.HttpResponse, "Failure responding to request")
+				return
+			}
+
+			return
+		}
+	}
 	return
 }
-`, data.serviceClientName, c.operationName, strings.Join(steps, ",\n\t\t"), strings.Join(fields, "\n\t\t"))
+`, data.serviceClientName, c.operationName, strings.Join(steps, ",\n\t\t"), strings.Join(fields, "\n\t\t"), argumentsCode, data.packageName)
 	}
 
 	return fmt.Sprintf(`
@@ -508,7 +558,7 @@ type %[2]sCompleteResult struct {
 }
 
 func (r %[2]sResponse) HasMore() bool {
-	return r.skipToken != nil
+	return r.nextLink != nil
 }
 
 func (r %[2]sResponse) LoadMore(ctx context.Context) (resp %[2]sResponse, err error) {
@@ -516,12 +566,12 @@ func (r %[2]sResponse) LoadMore(ctx context.Context) (resp %[2]sResponse, err er
 		err = fmt.Errorf("no more pages returned")
 		return
 	}
-	return r.nextFunc(ctx, *r.skipToken)
+	return r.nextPageFunc(ctx, *r.nextLink)
 }
 `, *c.operation.ResponseObjectName, c.operationName)
 		paginationFields = fmt.Sprintf(`
-	skipToken *string
-	nextFunc func(ctx context.Context, skipToken string) (%[2]sResponse, error)
+	nextLink *string
+	nextPageFunc func(ctx context.Context, nextLink string) (%[2]sResponse, error)
 `, *c.operation.ResponseObjectName, c.operationName)
 
 		return fmt.Sprintf(`
