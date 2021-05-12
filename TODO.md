@@ -1,0 +1,23 @@
+Importer Bugs
+  - Nested models with generic names conflict (Data Protection)
+  - OAPIGen bug
+
+- Binary Data (e.g. []byte)
+  - Importer
+  - API
+  - Generator / SDK
+- UUID's
+  - Importer
+  - API
+  - Generator / SDK
+- List operations / pagination - probably can be just ListComplete
+  - Build by hand against RG's then port over
+- Discriminators (e.g. Data Protection / Data Factory)
+- Header values for OptionsObjects
+  - Also parsing values out of the headers if needs be (e.g. Storage)
+- Common Resource ID Types
+  - Resource Group ID
+  - Subscription ID
+  - Management Group ID
+- Generating the Service/Version Definition file
+- Finding Services and Versions via Reflection rather than hard-coding
