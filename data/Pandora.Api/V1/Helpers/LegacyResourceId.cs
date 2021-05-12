@@ -1,7 +1,7 @@
 using System.Text.Json.Serialization;
 using Pandora.Data.Models;
 
-namespace Pandora.Api.Components.Api.V1.Helpers
+namespace Pandora.Api.V1.Helpers
 {
     public class LegacyResourceId
     {

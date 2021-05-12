@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection.Metadata.Ecma335;
 using System.Text.Json.Serialization;
 using Microsoft.AspNetCore.Mvc;
+using Pandora.Api.V1.Helpers;
 using Pandora.Data.Models;
 using Pandora.Data.Repositories;
 
@@ -64,7 +64,7 @@ namespace Pandora.Api.V1.ResourceManagerOld
 
         private static SchemaToResourceIdMapping MapSchemaToResourceIDMapping(Data.Models.SchemaToResourceIdMapping input, string resourceUri)
         {
-            var selfReference = Helpers.SelfReference.To(resourceUri, input.ResourceIdType);
+            var selfReference = SelfReference.To(resourceUri, input.ResourceIdType);
             return new SchemaToResourceIdMapping
             {
                 ResourceIdReference = selfReference,

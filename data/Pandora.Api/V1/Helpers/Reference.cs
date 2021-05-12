@@ -1,4 +1,4 @@
-namespace Pandora.Api.Components.Api.V1.Helpers
+namespace Pandora.Api.V1.Helpers
 {
     public class Reference
     {
