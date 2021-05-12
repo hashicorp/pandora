@@ -10,8 +10,6 @@ Importer Bugs
   - Importer
   - API
   - Generator / SDK
-- List operations / pagination - probably can be just ListComplete
-  - Build by hand against RG's then port over
 - Discriminators (e.g. Data Protection / Data Factory)
 - Header values for OptionsObjects
   - Also parsing values out of the headers if needs be (e.g. Storage)
