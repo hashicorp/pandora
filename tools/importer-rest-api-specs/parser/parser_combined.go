@@ -704,6 +704,13 @@ func mapField(parentModelName, jsonName string, value spec.Schema, isRequired bo
 		}
 	}
 
+	// Some properties only specify AllOf, with no additional data, so...
+	if len(value.Type) == 0 && value.AdditionalProperties == nil && len(value.AllOf) > 0 {
+		field.Type = models.Object
+		fragmentName := fragmentNameFromReference(value.AllOf[0].Ref) // Yuk, this needs some work for AllOf > 1
+		field.ModelReference = fragmentName
+	}
+
 	if referenceType != nil {
 		if isConstant(constants, *referenceType) {
 			field.ConstantReference = referenceType

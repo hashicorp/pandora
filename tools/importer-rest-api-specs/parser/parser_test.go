@@ -14,7 +14,13 @@ import (
 )
 
 func TestParser(t *testing.T) {
-	swaggerDirectory := "/Users/tharvey/code/src/github.com/Azure/azure-rest-api-specs/specification"
+	apiSpecsPath := os.Getenv("AZURE_API_SPECS_PATH") // i.e. where to find github.com/Azure/azure-rest-api-specs
+	if apiSpecsPath == "" {                           // or make a best guess based on home dir...
+		apiSpecsPath, _ = os.UserHomeDir()
+		apiSpecsPath = apiSpecsPath + "/code/go"
+	}
+
+	swaggerDirectory := apiSpecsPath + "/github.com/Azure/azure-rest-api-specs/specification"
 	services, err := findResourceManagerServices(swaggerDirectory)
 	if err != nil {
 		t.Fatal(err)
