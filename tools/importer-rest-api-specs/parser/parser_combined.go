@@ -621,6 +621,89 @@ func mapField(parentModelName, jsonName string, value spec.Schema, isRequired bo
 		}
 	}
 
+	// Handle cases where there are _only_ additionalProperties?
+	if value.AdditionalProperties != nil && value.AdditionalProperties.Schema != nil{
+		if len(value.AdditionalProperties.Schema.Type) > 0 {
+			field.Type = normalizeType(value.AdditionalProperties.Schema.Type[0])
+
+			if field.Type == models.List {
+				if value.AdditionalProperties.Schema.Items == nil {
+					return nil, nil, fmt.Errorf("field %q is an array with no `items`", jsonName)
+				}
+				if value.AdditionalProperties.Schema.Items.Schema == nil {
+					return nil, nil, fmt.Errorf("field %q is an array with no `items.Schema`", jsonName)
+				}
+
+				// This is either an Array of a built-in type:
+				/*
+					Example:
+					"requiredZoneNames": {
+					  "type": "array",
+					  "items": {
+						"type": "string"
+					  },
+					  "readOnly": true,
+					  "description": "The list of required DNS zone names of the private link resource."
+					}
+				*/
+				if len(value.Items.Schema.Type) > 0 {
+					nestedElementType := normalizeType(value.AdditionalProperties.Schema.Items.Schema.Type[0])
+					field.ListElementType = &nestedElementType
+				} else {
+					// or it's an Array of Items (e.g. a Constant/Model) which should have a Fragment/Ref
+					/*
+						Example:
+						"privateEndpointConnections": {
+						  "description": "The list of private endpoint connections that are set up for this resource.",
+						  "type": "array",
+						  "readOnly": true,
+						  "items": {
+							"$ref": "#/definitions/PrivateEndpointConnectionReference"
+						  }
+						},
+					*/
+					fragment := fragmentNameFromReference(value.AdditionalProperties.Schema.Items.Schema.Ref)
+					if fragment != nil {
+						o := models.Object
+						field.ModelReference = fragment
+						field.ListElementType = &o
+						referenceType = fragment
+					}
+
+					if len(value.AdditionalProperties.Schema.Items.Schema.Properties) > 0 {
+						inlinedModel := inlinedModelName(parentModelName, jsonName)
+						field.Type = models.Object
+						field.ModelReference = &inlinedModel
+					}
+				}
+			}
+
+			if field.Type == models.String {
+				if strings.EqualFold(value.Format, "date-time") {
+					field.Type = models.DateTime
+					// TODO: handle there being a custom format - for now we assume these are all using RFC3339
+				}
+
+				constantName, err := parseConstantNameFromField(value)
+				if err != nil {
+					return nil, nil, fmt.Errorf("parsing constant %q: %+v", jsonName, err)
+				}
+				if constantName != nil {
+					field.Type = models.Object
+					field.ConstantReference = constantName
+
+					if len(value.Enum) > 0 {
+						constant, err := mapConstant(value)
+						if err != nil {
+							return nil, nil, fmt.Errorf("parsing constant from %q: %+v", *constantName, err)
+						}
+						allConstants[*constantName] = constant.details
+					}
+				}
+			}
+		}
+	}
+
 	if referenceType != nil {
 		if isConstant(constants, *referenceType) {
 			field.ConstantReference = referenceType
