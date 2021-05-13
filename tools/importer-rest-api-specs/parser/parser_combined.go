@@ -561,6 +561,12 @@ func mapField(parentModelName, jsonName string, value spec.Schema, isRequired bo
 					field.ListElementType = &o
 					referenceType = fragment
 				}
+
+				if len(value.Items.Schema.Properties) > 0 {
+					inlinedModel := inlinedModelName(parentModelName, jsonName)
+					field.Type = models.Object
+					field.ModelReference = &inlinedModel
+				}
 			}
 		}
 
