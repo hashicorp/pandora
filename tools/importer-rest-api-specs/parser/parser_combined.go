@@ -646,7 +646,7 @@ func mapField(parentModelName, jsonName string, value spec.Schema, isRequired bo
 					  "description": "The list of required DNS zone names of the private link resource."
 					}
 				*/
-				if len(value.Items.Schema.Type) > 0 {
+				if len(value.AdditionalProperties.Schema.Items.Schema.Type) > 0 {
 					nestedElementType := normalizeType(value.AdditionalProperties.Schema.Items.Schema.Type[0])
 					field.ListElementType = &nestedElementType
 				} else {
