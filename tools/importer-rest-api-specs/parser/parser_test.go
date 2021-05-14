@@ -14,7 +14,9 @@ import (
 )
 
 func TestParser(t *testing.T) {
-	swaggerDirectory := "/Users/tharvey/code/src/github.com/Azure/azure-rest-api-specs/specification"
+	apiSpecsPath := "../../../swagger"
+
+	swaggerDirectory := apiSpecsPath + "/specification"
 	services, err := findResourceManagerServices(swaggerDirectory)
 	if err != nil {
 		t.Fatal(err)
@@ -44,7 +46,7 @@ func TestParser(t *testing.T) {
 }
 
 func TestValidateAllSwaggersContainTypes(t *testing.T) {
-	swaggerDirectory := "/Users/tharvey/code/src/github.com/Azure/azure-rest-api-specs/specification"
+	swaggerDirectory := "../../swagger/specification"
 	services, err := findResourceManagerServices(swaggerDirectory)
 	if err != nil {
 		t.Fatal(err)
@@ -76,7 +78,7 @@ func TestValidateAllSwaggersContainTypes(t *testing.T) {
 }
 
 func TestValidateFindOAIGenParserBug(t *testing.T) {
-	swaggerDirectory := "/Users/tharvey/code/src/github.com/Azure/azure-rest-api-specs/specification"
+	swaggerDirectory := "../../swagger/specification"
 	services, err := findResourceManagerServices(swaggerDirectory)
 	if err != nil {
 		t.Fatal(err)
@@ -106,7 +108,7 @@ func TestValidateFindOAIGenParserBug(t *testing.T) {
 }
 
 func TestValidateFindUnknownBugs(t *testing.T) {
-	swaggerDirectory := "/Users/tharvey/code/src/github.com/Azure/azure-rest-api-specs/specification"
+	swaggerDirectory := "../../swagger/specification"
 	services, err := findResourceManagerServices(swaggerDirectory)
 	if err != nil {
 		t.Fatal(err)

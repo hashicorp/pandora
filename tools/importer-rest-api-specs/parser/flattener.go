@@ -26,7 +26,7 @@ func Load(directory string, fileName string, debugLogging bool) (*SwaggerDefinit
 	flattenedWithReferencesOpts := &analysis.FlattenOpts{
 		Minimal:      true,
 		Verbose:      true,
-		Expand:       false,
+		Expand:       true,
 		RemoveUnused: false,
 		//ContinueOnError: true,
 
@@ -44,7 +44,7 @@ func Load(directory string, fileName string, debugLogging bool) (*SwaggerDefinit
 	flattenedExpandedOpts := &analysis.FlattenOpts{
 		Minimal:      true,
 		Verbose:      true,
-		Expand:       false,
+		Expand:       true,
 		RemoveUnused: false,
 		//ContinueOnError: true,
 

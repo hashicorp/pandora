@@ -11,30 +11,43 @@ import (
 )
 
 func main() {
+	apiSpecsPath := "../../swagger"
 	input := []RunInput{
 		//{
 		//	RootNamespace:    "Pandora.Definitions.DataPlane",
-		//	OutputDirectory:  "/Users/tharvey/Desktop/pandora-definitions",
+		//	OutputDirectory:  "../../generated/pandora-definitions",
 		//	ServiceName:      "Synapse",
 		//	ApiVersion:       "2020-08-01-preview",
-		//	SwaggerDirectory: "/Users/tharvey/code/src/github.com/Azure/azure-rest-api-specs/specification/web/resource-manager/Microsoft.Web/stable/2020-12-01",
+		//	SwaggerDirectory: apiSpecsPath + "/specification/web/resource-manager/Microsoft.Web/stable/2020-12-01",
 		//	SwaggerFilePath:  "example-dp-synapse-roleDefinitions.json",
 		//},
 		//{
 		//	RootNamespace:   "Pandora.Definitions.DataPlane",
-		//	OutputDirectory: "/Users/tharvey/Desktop/pandora-definitions",
+		//	OutputDirectory: "../../generated/pandora-definitions",
 		//	ServiceName:     "AppConfiguration",
 		//	ApiVersion:      "1.0",
 		//	SwaggerFilePath: "example-dp-appconfiguration.json",
 		//},
+
+		// Attestation
+		{
+			RootNamespace:    "Pandora.Definitions.ResourceManager",
+			ServiceName:      "Attestation",
+			ApiVersion:       "2020-10-01",
+			OutputDirectory:  "../../generated/pandora-definitions",
+			SwaggerDirectory: apiSpecsPath + "/specification/attestation/resource-manager/Microsoft.Attestation/stable/2020-10-01",
+			SwaggerFiles: []string{
+				"attestation.json",
+			},
+		},
 
 		// AppConfiguration
 		//{
 		//	RootNamespace:    "Pandora.Definitions.ResourceManager",
 		//	ServiceName:      "AppConfiguration",
 		//	ApiVersion:       "2020-06-01",
-		//	OutputDirectory:  "/Users/tharvey/Desktop/pandora-definitions",
-		//	SwaggerDirectory: "/Users/tharvey/code/src/github.com/Azure/azure-rest-api-specs/specification/appconfiguration/resource-manager/Microsoft.AppConfiguration/stable/2020-06-01",
+		//	OutputDirectory:  "../../generated/pandora-definitions",
+		//	SwaggerDirectory: apiSpecsPath + "/specification/appconfiguration/resource-manager/Microsoft.AppConfiguration/stable/2020-06-01",
 		//	SwaggerFiles: []string{
 		//		"appconfiguration.json",
 		//	},
@@ -45,8 +58,8 @@ func main() {
 		//	RootNamespace:    "Pandora.Definitions.ResourceManager",
 		//	ServiceName:      "Batch",
 		//	ApiVersion:       "2020-03-01",
-		//	OutputDirectory:  "/Users/tharvey/Desktop/pandora-definitions",
-		//	SwaggerDirectory: "/Users/tharvey/code/src/github.com/Azure/azure-rest-api-specs/specification/batch/resource-manager/Microsoft.Batch/stable/2020-03-01/",
+		//	OutputDirectory:  "../../generated/pandora-definitions",
+		//	SwaggerDirectory: apiSpecsPath + "/specification/batch/resource-manager/Microsoft.Batch/stable/2020-03-01/",
 		//	SwaggerFiles: []string{
 		//		"BatchManagement.json",
 		//	},
@@ -57,8 +70,8 @@ func main() {
 		//	RootNamespace:    "Pandora.Definitions.ResourceManager",
 		//	ServiceName:      "Billing",
 		//	ApiVersion:       "2018-11-01-preview",
-		//	OutputDirectory:  "/Users/tharvey/Desktop/pandora-definitions",
-		//	SwaggerDirectory: "/Users/tharvey/code/src/github.com/Azure/azure-rest-api-specs/specification/billing/resource-manager/Microsoft.Billing/preview/2018-11-01-preview/",
+		//	OutputDirectory:  "../../generated/pandora-definitions",
+		//	SwaggerDirectory: apiSpecsPath + "/specification/billing/resource-manager/Microsoft.Billing/preview/2018-11-01-preview/",
 		//	SwaggerFiles: []string{
 		//		"billing.json",
 		//	},
@@ -69,8 +82,8 @@ func main() {
 		//	RootNamespace:    "Pandora.Definitions.ResourceManager",
 		//	ServiceName:      "Compute",
 		//	ApiVersion:       "2020-12-01",
-		//	OutputDirectory:  "/Users/tharvey/Desktop/pandora-definitions",
-		//	SwaggerDirectory: "/Users/tharvey/code/src/github.com/Azure/azure-rest-api-specs/specification/compute/resource-manager/Microsoft.Compute/stable/2020-12-01",
+		//	OutputDirectory:  "../../generated/pandora-definitions",
+		//	SwaggerDirectory: apiSpecsPath + "/specification/compute/resource-manager/Microsoft.Compute/stable/2020-12-01",
 		//	SwaggerFiles: []string{
 		//		"compute.json",
 		//		"disk.json",
@@ -79,72 +92,72 @@ func main() {
 		//},
 
 		// Data Protection (PSql)
-		//{
-		//	RootNamespace:    "Pandora.Definitions.ResourceManager",
-		//	ServiceName:      "DataProtection",
-		//	ApiVersion:       "2021-01-01",
-		//	OutputDirectory:  "/Users/tharvey/Desktop/pandora-definitions",
-		//	SwaggerDirectory: "/Users/tharvey/code/src/github.com/Azure/azure-rest-api-specs/specification/dataprotection/resource-manager/Microsoft.DataProtection/stable/2021-01-01",
-		//	SwaggerFiles: []string{
-		//		"dataprotection.json",
-		//	},
-		//},
+		{
+			RootNamespace:    "Pandora.Definitions.ResourceManager",
+			ServiceName:      "DataProtection",
+			ApiVersion:       "2021-01-01",
+			OutputDirectory:  "../../generated/pandora-definitions",
+			SwaggerDirectory: apiSpecsPath + "/specification/dataprotection/resource-manager/Microsoft.DataProtection/stable/2021-01-01",
+			SwaggerFiles: []string{
+				"dataprotection.json",
+			},
+		},
 
 		// Network (old)
-		//{
-		//	RootNamespace:    "Pandora.Definitions.ResourceManager",
-		//	ServiceName:      "Network",
-		//	ApiVersion:       "2017-11-01",
-		//	OutputDirectory:  "/Users/tharvey/Desktop/pandora-definitions",
-		//	SwaggerDirectory: "/Users/tharvey/code/src/github.com/Azure/azure-rest-api-specs/specification/network/resource-manager/Microsoft.Network/stable/2017-11-01",
-		//	SwaggerFiles: []string{
-		//		"publicIpAddress.json",
-		//	},
-		//},
+		{
+			RootNamespace:    "Pandora.Definitions.ResourceManager",
+			ServiceName:      "Network",
+			ApiVersion:       "2017-11-01",
+			OutputDirectory:  "../../generated/pandora-definitions",
+			SwaggerDirectory: apiSpecsPath + "/specification/network/resource-manager/Microsoft.Network/stable/2017-11-01",
+			SwaggerFiles: []string{
+				"publicIpAddress.json",
+			},
+		},
 
 		// Media
 		//{
 		//	RootNamespace:    "Pandora.Definitions.ResourceManager",
 		//	ServiceName:      "MediaServices",
 		//	ApiVersion:       "2021-05-01",
-		//	OutputDirectory:  "/Users/tharvey/Desktop/pandora-definitions",
-		//	SwaggerDirectory: "/Users/tharvey/code/src/github.com/Azure/azure-rest-api-specs/specification/mediaservices/resource-manager/Microsoft.Media/stable/2021-05-01",
+		//	OutputDirectory:  "../../generated/pandora-definitions",
+		//	SwaggerDirectory: apiSpecsPath + "/specification/mediaservices/resource-manager/Microsoft.Media/stable/2021-05-01",
 		//	SwaggerFiles: []string{
 		//		"Accounts.json",
 		//	},
 		//},
 
 		// Web
-		{
-			RootNamespace:    "Pandora.Definitions.ResourceManager",
-			ServiceName:      "Web",
-			ApiVersion:       "2020-12-01",
-			OutputDirectory:  "/Users/tharvey/Desktop/pandora-definitions",
-			SwaggerDirectory: "/Users/tharvey/code/src/github.com/Azure/azure-rest-api-specs/specification/web/resource-manager/Microsoft.Web/stable/2020-12-01",
-			SwaggerFiles: []string{
-				// NOTE: stripped out CommonDefinitions.json
-				"AppServiceEnvironments.json",
-				"AppServicePlans.json",
-				"Certificates.json",
-				"DeletedWebApps.json",
-				"Diagnostics.json",
-				"Global.json",
-				"Provider.json",
-				"Recommendations.json",
-				"ResourceHealthMetadata.json",
-				"ResourceProvider.json",
-				"StaticSites.json",
-				"WebApps.json",
-			},
-		},
+		//{
+		//	RootNamespace:    "Pandora.Definitions.ResourceManager",
+		//	ServiceName:      "Web",
+		//	ApiVersion:       "2020-12-01",
+		//	OutputDirectory:  "../../generated/pandora-definitions",
+		//	SwaggerDirectory: apiSpecsPath + "/specification/web/resource-manager/Microsoft.Web/stable/2020-12-01",
+		//	SwaggerFiles: []string{
+		//		// NOTE: stripped out CommonDefinitions.json
+		//		"AppServiceEnvironments.json",
+		//		"AppServicePlans.json",
+		//		"Certificates.json",
+		//		"DeletedWebApps.json",
+		//		"Diagnostics.json",
+		//		"Global.json",
+		//		"Provider.json",
+		//		"Recommendations.json",
+		//		"ResourceHealthMetadata.json",
+		//		"ResourceProvider.json",
+		//		"StaticSites.json",
+		//		"WebApps.json",
+		//	},
+		//},
 
 		//Network
 		//{
 		//	RootNamespace:    "Pandora.Definitions.ResourceManager",
 		//	ServiceName:      "Network",
 		//	ApiVersion:       "2020-08-01",
-		//	OutputDirectory:  "/Users/tharvey/Desktop/pandora-definitions",
-		//	SwaggerDirectory: "/Users/tharvey/code/src/github.com/Azure/azure-rest-api-specs/specification/network/resource-manager/Microsoft.Network/stable/2020-08-01",
+		//	OutputDirectory:  "../../generated/pandora-definitions",
+		//	SwaggerDirectory: apiSpecsPath + "/specification/network/resource-manager/Microsoft.Network/stable/2020-08-01",
 		//	SwaggerFiles: []string{
 		//		"applicationGateway.json",
 		//		"applicationSecurityGroup.json",
@@ -171,15 +184,15 @@ func main() {
 		//		"loadBalancer.json",
 		//		"natGateway.json",
 		//		"network.json",
-		//		//"networkInterface.json",
+		//		"networkInterface.json",
 		//		"networkProfile.json",
-		//		//"networkSecurityGroup.json",
+		//		"networkSecurityGroup.json",
 		//		"networkVirtualAppliance.json",
-		//		//"networkWatcher.json",
+		//		"networkWatcher.json",
 		//		"operation.json",
-		//		//"privateEndpoint.json",
-		//		//"privateLinkService.json",
-		//		//"publicIpAddress.json",
+		//		"privateEndpoint.json",
+		//		"privateLinkService.json",
+		//		"publicIpAddress.json",
 		//		"publicIpPrefix.json",
 		//		"routeFilter.json",
 		//		"routeTable.json",
@@ -220,7 +233,6 @@ type RunInput struct {
 
 func run(input RunInput) error {
 	debug := strings.TrimSpace(os.ExpandEnv("DEBUG")) != ""
-
 	permissions := os.FileMode(0777)
 	if err := os.MkdirAll(input.OutputDirectory, permissions); os.IsExist(err) {
 		if debug {

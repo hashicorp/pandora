@@ -17,9 +17,10 @@ type GeneratorInput struct {
 }
 
 func main() {
+	homeDir, _ := os.UserHomeDir()
 	input := GeneratorInput{
 		apiServerEndpoint: "http://localhost:5000",
-		outputDirectory:   "/Users/tharvey/Desktop/generated-sdk-dev",
+		outputDirectory:   homeDir + "/Desktop/generated-sdk-dev",
 		settings: generator.Settings{
 			Transport: generator.AutoRest,
 		},
