@@ -11,19 +11,14 @@ import (
 )
 
 func main() {
-	apiSpecsPath := os.Getenv("AZURE_API_SPECS_PATH") // i.e. where to find github.com/Azure/azure-rest-api-specs
-	if apiSpecsPath == "" {                           // or make a best guess based on home dir...
-		apiSpecsPath, _ = os.UserHomeDir()
-		apiSpecsPath = apiSpecsPath + "/code/go"
-	}
-	//"/Users/steve/code/go/src/github.com/Azure/azure-rest-api-specs/"
+	apiSpecsPath := "../../swagger"
 	input := []RunInput{
 		//{
 		//	RootNamespace:    "Pandora.Definitions.DataPlane",
 		//	OutputDirectory:  "../../generated/pandora-definitions",
 		//	ServiceName:      "Synapse",
 		//	ApiVersion:       "2020-08-01-preview",
-		//	SwaggerDirectory: apiSpecsPath + "/github.com/Azure/azure-rest-api-specs/specification/web/resource-manager/Microsoft.Web/stable/2020-12-01",
+		//	SwaggerDirectory: apiSpecsPath + "/specification/web/resource-manager/Microsoft.Web/stable/2020-12-01",
 		//	SwaggerFilePath:  "example-dp-synapse-roleDefinitions.json",
 		//},
 		//{
@@ -40,7 +35,7 @@ func main() {
 			ServiceName:      "Attestation",
 			ApiVersion:       "2020-10-01",
 			OutputDirectory:  "../../generated/pandora-definitions",
-			SwaggerDirectory: apiSpecsPath + "/github.com/Azure/azure-rest-api-specs/specification/attestation/resource-manager/Microsoft.Attestation/stable/2020-10-01",
+			SwaggerDirectory: apiSpecsPath + "/specification/attestation/resource-manager/Microsoft.Attestation/stable/2020-10-01",
 			SwaggerFiles: []string{
 				"attestation.json",
 			},
@@ -52,7 +47,7 @@ func main() {
 		//	ServiceName:      "AppConfiguration",
 		//	ApiVersion:       "2020-06-01",
 		//	OutputDirectory:  "../../generated/pandora-definitions",
-		//	SwaggerDirectory: apiSpecsPath + "/github.com/Azure/azure-rest-api-specs/specification/appconfiguration/resource-manager/Microsoft.AppConfiguration/stable/2020-06-01",
+		//	SwaggerDirectory: apiSpecsPath + "/specification/appconfiguration/resource-manager/Microsoft.AppConfiguration/stable/2020-06-01",
 		//	SwaggerFiles: []string{
 		//		"appconfiguration.json",
 		//	},
@@ -64,7 +59,7 @@ func main() {
 		//	ServiceName:      "Batch",
 		//	ApiVersion:       "2020-03-01",
 		//	OutputDirectory:  "../../generated/pandora-definitions",
-		//	SwaggerDirectory: apiSpecsPath + "/github.com/Azure/azure-rest-api-specs/specification/batch/resource-manager/Microsoft.Batch/stable/2020-03-01/",
+		//	SwaggerDirectory: apiSpecsPath + "/specification/batch/resource-manager/Microsoft.Batch/stable/2020-03-01/",
 		//	SwaggerFiles: []string{
 		//		"BatchManagement.json",
 		//	},
@@ -76,7 +71,7 @@ func main() {
 		//	ServiceName:      "Billing",
 		//	ApiVersion:       "2018-11-01-preview",
 		//	OutputDirectory:  "../../generated/pandora-definitions",
-		//	SwaggerDirectory: apiSpecsPath + "/github.com/Azure/azure-rest-api-specs/specification/billing/resource-manager/Microsoft.Billing/preview/2018-11-01-preview/",
+		//	SwaggerDirectory: apiSpecsPath + "/specification/billing/resource-manager/Microsoft.Billing/preview/2018-11-01-preview/",
 		//	SwaggerFiles: []string{
 		//		"billing.json",
 		//	},
@@ -88,7 +83,7 @@ func main() {
 		//	ServiceName:      "Compute",
 		//	ApiVersion:       "2020-12-01",
 		//	OutputDirectory:  "../../generated/pandora-definitions",
-		//	SwaggerDirectory: apiSpecsPath + "/github.com/Azure/azure-rest-api-specs/specification/compute/resource-manager/Microsoft.Compute/stable/2020-12-01",
+		//	SwaggerDirectory: apiSpecsPath + "/specification/compute/resource-manager/Microsoft.Compute/stable/2020-12-01",
 		//	SwaggerFiles: []string{
 		//		"compute.json",
 		//		"disk.json",
@@ -102,7 +97,7 @@ func main() {
 			ServiceName:      "DataProtection",
 			ApiVersion:       "2021-01-01",
 			OutputDirectory:  "../../generated/pandora-definitions",
-			SwaggerDirectory: apiSpecsPath + "/github.com/Azure/azure-rest-api-specs/specification/dataprotection/resource-manager/Microsoft.DataProtection/stable/2021-01-01",
+			SwaggerDirectory: apiSpecsPath + "/specification/dataprotection/resource-manager/Microsoft.DataProtection/stable/2021-01-01",
 			SwaggerFiles: []string{
 				"dataprotection.json",
 			},
@@ -114,7 +109,7 @@ func main() {
 			ServiceName:      "Network",
 			ApiVersion:       "2017-11-01",
 			OutputDirectory:  "../../generated/pandora-definitions",
-			SwaggerDirectory: apiSpecsPath + "/github.com/Azure/azure-rest-api-specs/specification/network/resource-manager/Microsoft.Network/stable/2017-11-01",
+			SwaggerDirectory: apiSpecsPath + "/specification/network/resource-manager/Microsoft.Network/stable/2017-11-01",
 			SwaggerFiles: []string{
 				"publicIpAddress.json",
 			},
@@ -126,7 +121,7 @@ func main() {
 		//	ServiceName:      "MediaServices",
 		//	ApiVersion:       "2021-05-01",
 		//	OutputDirectory:  "../../generated/pandora-definitions",
-		//	SwaggerDirectory: apiSpecsPath + "/github.com/Azure/azure-rest-api-specs/specification/mediaservices/resource-manager/Microsoft.Media/stable/2021-05-01",
+		//	SwaggerDirectory: apiSpecsPath + "/specification/mediaservices/resource-manager/Microsoft.Media/stable/2021-05-01",
 		//	SwaggerFiles: []string{
 		//		"Accounts.json",
 		//	},
@@ -138,7 +133,7 @@ func main() {
 		//	ServiceName:      "Web",
 		//	ApiVersion:       "2020-12-01",
 		//	OutputDirectory:  "../../generated/pandora-definitions",
-		//	SwaggerDirectory: apiSpecsPath + "/github.com/Azure/azure-rest-api-specs/specification/web/resource-manager/Microsoft.Web/stable/2020-12-01",
+		//	SwaggerDirectory: apiSpecsPath + "/specification/web/resource-manager/Microsoft.Web/stable/2020-12-01",
 		//	SwaggerFiles: []string{
 		//		// NOTE: stripped out CommonDefinitions.json
 		//		"AppServiceEnvironments.json",
@@ -162,7 +157,7 @@ func main() {
 		//	ServiceName:      "Network",
 		//	ApiVersion:       "2020-08-01",
 		//	OutputDirectory:  "../../generated/pandora-definitions",
-		//	SwaggerDirectory: apiSpecsPath + "/github.com/Azure/azure-rest-api-specs/specification/network/resource-manager/Microsoft.Network/stable/2020-08-01",
+		//	SwaggerDirectory: apiSpecsPath + "/specification/network/resource-manager/Microsoft.Network/stable/2020-08-01",
 		//	SwaggerFiles: []string{
 		//		"applicationGateway.json",
 		//		"applicationSecurityGroup.json",
