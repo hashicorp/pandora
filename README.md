@@ -1,6 +1,6 @@
 # Pandora
 
-## Project Structure
+## Project Structure
 
 - `./data` - contains the Azure API Definitions in the intermediate C# format.
 - `./docs` - contains documentation.
