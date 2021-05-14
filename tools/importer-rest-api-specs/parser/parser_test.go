@@ -14,7 +14,7 @@ import (
 )
 
 func TestParser(t *testing.T) {
-	apiSpecsPath := "../../swagger"
+	apiSpecsPath := "../../../swagger"
 
 	swaggerDirectory := apiSpecsPath + "/specification"
 	services, err := findResourceManagerServices(swaggerDirectory)
