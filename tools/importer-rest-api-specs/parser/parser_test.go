@@ -5,18 +5,21 @@ import (
 	"fmt"
 	"io/ioutil"
 	"log"
+	"net/http"
 	"os"
 	"path/filepath"
+	"reflect"
 	"sort"
 	"strings"
 	"testing"
 	"time"
+
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
-func TestParser(t *testing.T) {
-	apiSpecsPath := "../../../swagger"
+const swaggerDirectory = "../../../swagger/specification"
 
-	swaggerDirectory := apiSpecsPath + "/specification"
+func TestParser(t *testing.T) {
 	services, err := findResourceManagerServices(swaggerDirectory)
 	if err != nil {
 		t.Fatal(err)
@@ -46,7 +49,6 @@ func TestParser(t *testing.T) {
 }
 
 func TestValidateAllSwaggersContainTypes(t *testing.T) {
-	swaggerDirectory := "../../swagger/specification"
 	services, err := findResourceManagerServices(swaggerDirectory)
 	if err != nil {
 		t.Fatal(err)
@@ -78,7 +80,6 @@ func TestValidateAllSwaggersContainTypes(t *testing.T) {
 }
 
 func TestValidateFindOAIGenParserBug(t *testing.T) {
-	swaggerDirectory := "../../swagger/specification"
 	services, err := findResourceManagerServices(swaggerDirectory)
 	if err != nil {
 		t.Fatal(err)
@@ -108,7 +109,6 @@ func TestValidateFindOAIGenParserBug(t *testing.T) {
 }
 
 func TestValidateFindUnknownBugs(t *testing.T) {
-	swaggerDirectory := "../../swagger/specification"
 	services, err := findResourceManagerServices(swaggerDirectory)
 	if err != nil {
 		t.Fatal(err)
@@ -136,6 +136,621 @@ func TestValidateFindUnknownBugs(t *testing.T) {
 				}
 			})
 		}
+	}
+}
+
+func TestAssertParserCanParseAppConfiguration(t *testing.T) {
+	directory := fmt.Sprintf("%s/appconfiguration/resource-manager/Microsoft.AppConfiguration/stable/2020-06-01", swaggerDirectory)
+	fileName := "appconfiguration.json"
+
+	parsedFile, err := Load(directory, fileName, true)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	result, err := parsedFile.Parse("AppConfiguration", "2020-06-01")
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	var strPtr = func(in string) *string {
+		return &in
+	}
+
+	expected := models.AzureApiDefinition{
+		ServiceName: "AppConfiguration",
+		ApiVersion:  "2020-06-01",
+		Resources: map[string]models.AzureApiResource{
+			"ConfigurationStores": {
+				Constants: map[string]models.ConstantDetails{
+					"ActionsRequired": {
+						Values: map[string]string{
+							"None":     "None",
+							"Recreate": "Recreate",
+						},
+					},
+					"ConnectionStatus": {
+						Values: map[string]string{
+							"Approved":     "Approved",
+							"Disconnected": "Disconnected",
+							"Pending":      "Pending",
+							"Rejected":     "Rejected",
+						},
+					},
+					"IdentityType": {
+						Values: map[string]string{
+							"None":                       "None",
+							"SystemAssigned":             "SystemAssigned",
+							"SystemAssignedUserAssigned": "SystemAssigned, UserAssigned",
+							"UserAssigned":               "UserAssigned",
+						},
+					},
+					"ProvisioningState": {
+						Values: map[string]string{
+							"Canceled":  "Canceled",
+							"Creating":  "Creating",
+							"Deleting":  "Deleting",
+							"Failed":    "Failed",
+							"Succeeded": "Succeeded",
+							"Updating":  "Updating",
+						},
+					},
+					"PublicNetworkAccess": {
+						Values: map[string]string{
+							"Disabled": "Disabled",
+							"Enabled":  "Enabled",
+						},
+					},
+				},
+				Models: map[string]models.ModelDetails{
+					"AccessKey": {
+						Description: "",
+						Fields: map[string]models.FieldDefinition{
+							"Id": {
+								Type:     models.String,
+								JsonName: "id",
+							},
+							"Name": {
+								Type:     models.String,
+								JsonName: "name",
+							},
+							"Value": {
+								Type:     models.String,
+								JsonName: "value",
+							},
+							"ConnectionString": {
+								Type:      models.String,
+								JsonName:  "connectionString",
+								Sensitive: true,
+							},
+							"LastModified": {
+								Type:     models.DateTime,
+								JsonName: "lastModified",
+							},
+							"ReadOnly": {
+								Type:     models.Boolean,
+								JsonName: "readOnly",
+							},
+						},
+					},
+					"ConfigurationStore": {
+						Description: "",
+						Fields: map[string]models.FieldDefinition{
+							"Id": {
+								Type:     models.String,
+								JsonName: "id",
+							},
+							"Identity": {
+								Type:           models.Object,
+								ModelReference: strPtr("ResourceIdentity"),
+								JsonName:       "identity",
+							},
+							"Location": {
+								Type:     models.Location,
+								JsonName: "location",
+								Required: true,
+							},
+							"Name": {
+								Type:     models.String,
+								JsonName: "name",
+							},
+							"Properties": {
+								Type:           models.Object,
+								ModelReference: strPtr("ConfigurationStoreProperties"),
+								JsonName:       "properties",
+							},
+							"Sku": {
+								Type:           models.Object,
+								ModelReference: strPtr("Sku"),
+								JsonName:       "sku",
+								Required:       true,
+							},
+							"Tags": {
+								Type:     models.Tags,
+								JsonName: "tags",
+							},
+							"Type": {
+								Type:     models.String,
+								JsonName: "type",
+							},
+						},
+					},
+
+					"ConfigurationStoreProperties": {
+						Description: "",
+						Fields: map[string]models.FieldDefinition{
+							"CreationDate": {
+								Type:     models.DateTime,
+								JsonName: "creationDate",
+							},
+							"Encryption": {
+								Type:           models.Object,
+								ModelReference: strPtr("EncryptionProperties"),
+								JsonName:       "encryption",
+							},
+							"Endpoint": {
+								Type:     models.String,
+								JsonName: "endpoint",
+							},
+							"PrivateEndpointConnections": {
+								Type:           models.List,
+								ModelReference: strPtr("PrivateEndpointConnection"),
+								JsonName:       "privateEndpointConnections",
+							},
+							"ProvisioningState": {
+								Type:              models.Object,
+								ConstantReference: strPtr("ProvisioningState"),
+								JsonName:          "provisioningState",
+								ReadOnly:          true,
+							},
+							"PublicNetworkAccess": {
+								Type:              models.Object,
+								ConstantReference: strPtr("PublicNetworkAccess"),
+								JsonName:          "publicNetworkAccess",
+							},
+						},
+					},
+					"ConfigurationStoreUpdateParameters": {
+						Description: "",
+						Fields: map[string]models.FieldDefinition{
+							"Identity": {
+								Type:           models.Object,
+								JsonName:       "identity",
+								ModelReference: strPtr("ResourceIdentity"),
+							},
+							"Properties": {
+								Type:           models.Object,
+								ModelReference: strPtr("ConfigurationStorePropertiesUpdateParameters"),
+								JsonName:       "properties",
+							},
+							"Sku": {
+								Type:           models.Object,
+								ModelReference: strPtr("Sku"),
+								JsonName:       "sku",
+							},
+							"Tags": {
+								Type:     models.Tags,
+								JsonName: "tags",
+							},
+						},
+					},
+					"ConfigurationStorePropertiesUpdateParameters": {
+						Description: "",
+						Fields: map[string]models.FieldDefinition{
+							"Encryption": {
+								Type:           models.Object,
+								ModelReference: strPtr("EncryptionProperties"),
+								JsonName:       "encryption",
+							},
+							"PublicNetworkAccess": {
+								Type:              models.Object,
+								ConstantReference: strPtr("PublicNetworkAccess"),
+								JsonName:          "publicNetworkAccess",
+							},
+						},
+					},
+					"EncryptionProperties": {
+						Description: "",
+						Fields: map[string]models.FieldDefinition{
+							"KeyVaultProperties": {
+								Type:           models.Object,
+								ModelReference: strPtr("KeyVaultProperties"),
+								JsonName:       "keyVaultProperties",
+							},
+						},
+					},
+					"KeyVaultProperties": {
+						Description: "",
+						Fields: map[string]models.FieldDefinition{
+							"IdentityClientId": {
+								Type:     models.String,
+								JsonName: "identityClientId",
+							},
+							"KeyIdentifier": {
+								Type:     models.String,
+								JsonName: "keyIdentifier",
+							},
+						},
+					},
+					"PrivateEndpoint": {
+						Description: "",
+						Fields: map[string]models.FieldDefinition{
+							"Id": {
+								Type:     models.String,
+								JsonName: "id",
+							},
+						},
+					},
+					"PrivateEndpointConnection": {
+						Description: "",
+						Fields: map[string]models.FieldDefinition{
+							"Id": {
+								Type:     models.String,
+								JsonName: "id",
+							},
+							"Name": {
+								Type:     models.String,
+								JsonName: "name",
+							},
+							"Properties": {
+								Type:           models.Object,
+								ModelReference: strPtr("PrivateEndpointConnectionProperties"),
+								JsonName:       "properties",
+							},
+							"Type": {
+								Type:     models.String,
+								JsonName: "type",
+							},
+						},
+					},
+					"PrivateEndpointConnectionProperties": {
+						Description: "",
+						Fields: map[string]models.FieldDefinition{
+							"PrivateEndpoint": {
+								Type:           models.Object,
+								ModelReference: strPtr("PrivateEndpoint"),
+								JsonName:       "privateEndpoint",
+							},
+							"PrivateLinkServiceConnectionState": {
+								Type:           models.Object,
+								ModelReference: strPtr("PrivateLinkServiceConnectionState"),
+								JsonName:       "privateLinkServiceConnectionState",
+								Required:       true,
+							},
+							"ProvisioningState": {
+								Type:              models.Object,
+								ConstantReference: strPtr("ProvisioningState"),
+								JsonName:          "provisioningState",
+							},
+						},
+					},
+					"PrivateLinkServiceConnectionState": {
+						Description: "",
+						Fields: map[string]models.FieldDefinition{
+							"ActionsRequired": {
+								Type:              models.Object,
+								ConstantReference: strPtr("ActionsRequired"),
+								JsonName:          "actionsRequired",
+							},
+							"Description": {
+								Type:     models.String,
+								JsonName: "description",
+							},
+							"Status": {
+								Type:              models.Object,
+								ConstantReference: strPtr("ConnectionStatus"),
+								JsonName:          "status",
+							},
+						},
+					},
+					"ResourceIdentity": {
+						Description: "",
+						Fields: map[string]models.FieldDefinition{
+							"PrincipalId": {
+								Type:     models.String,
+								JsonName: "principalId",
+							},
+							"TenantId": {
+								Type:     models.String,
+								JsonName: "tenantId",
+							},
+							"Type": {
+								Type:              models.Object,
+								ConstantReference: strPtr("IdentityType"),
+								JsonName:          "type",
+							},
+							"UserAssignedIdentities": {
+								Type:           models.Dictionary,
+								ModelReference: strPtr("UserIdentity"),
+								JsonName:       "userAssignedIdentities",
+							},
+						},
+					},
+					"Sku": {
+						Description: "",
+						Fields: map[string]models.FieldDefinition{
+							"Name": {
+								Type:     models.String,
+								Required: true,
+								JsonName: "name",
+							},
+						},
+					},
+					"UserIdentity": {
+						Description: "",
+						Fields: map[string]models.FieldDefinition{
+							"ClientId": {
+								Type:     models.String,
+								JsonName: "clientId",
+							},
+							"PrincipalId": {
+								Type:     models.String,
+								JsonName: "principalId",
+							},
+						},
+					},
+				},
+				Operations: map[string]models.OperationDetails{
+					"Create": {
+						LongRunning:       true,
+						RequestObjectName: strPtr("ConfigurationStore"),
+						ResourceIdName:    strPtr("ConfigurationStore"),
+						Method:            http.MethodPut,
+						Options:           map[string]models.OperationOption{},
+						ApiVersion:        strPtr("2020-06-01"),
+						Uri:               "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AppConfiguration/configurationStores/{configStoreName}",
+					},
+					"Delete": {
+						LongRunning: true,
+						ExpectedStatusCodes: []int{
+							http.StatusNoContent,
+							http.StatusOK,
+							http.StatusAccepted,
+						},
+						ResourceIdName: strPtr("ConfigurationStore"),
+						Method:         http.MethodDelete,
+						Options:        map[string]models.OperationOption{},
+						ApiVersion:     strPtr("2020-06-01"),
+						Uri:            "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AppConfiguration/configurationStores/{configStoreName}",
+					},
+					"Get": {
+						ResponseObjectName: strPtr("ConfigurationStore"),
+						ResourceIdName:     strPtr("ConfigurationStore"),
+						Method:             http.MethodGet,
+						Options:            map[string]models.OperationOption{},
+						ApiVersion:         strPtr("2020-06-01"),
+						Uri:                "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AppConfiguration/configurationStores/{configStoreName}",
+					},
+					"ListKeys": {
+						FieldContainingPaginationDetails: strPtr("nextLink"),
+						ResponseObjectName:               strPtr("AccessKey"),
+						UriSuffix:                        strPtr("/listKeys"),
+						ResourceIdName:                   strPtr("ConfigurationStore"),
+						Method:                           http.MethodPost,
+						Options:                          map[string]models.OperationOption{},
+						ApiVersion:                       strPtr("2020-06-01"),
+						Uri:                              "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AppConfiguration/configurationStores/{configStoreName}/listKeys",
+					},
+					"Update": {
+						RequestObjectName: strPtr("ConfigurationStoreUpdateParameters"),
+						ResourceIdName:    strPtr("ConfigurationStore"),
+						Method:            http.MethodPatch,
+						Options:           map[string]models.OperationOption{},
+						ApiVersion:        strPtr("2020-06-01"),
+						Uri:               "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AppConfiguration/configurationStores/{configStoreName}",
+					},
+				},
+				ResourceIds: map[string]string{
+					"ConfigurationStore": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AppConfiguration/configurationStores/{configStoreName}",
+				},
+			},
+			"PrivateEndpointConnections": {
+				Constants: map[string]models.ConstantDetails{
+					"ActionsRequired": {
+						Values: map[string]string{
+							"None":     "None",
+							"Recreate": "Recreate",
+						},
+					},
+					"ConnectionStatus": {
+						Values: map[string]string{
+							"Approved":     "Approved",
+							"Disconnected": "Disconnected",
+							"Pending":      "Pending",
+							"Rejected":     "Rejected",
+						},
+					},
+					"ProvisioningState": {
+						Values: map[string]string{
+							"Canceled":  "Canceled",
+							"Creating":  "Creating",
+							"Deleting":  "Deleting",
+							"Failed":    "Failed",
+							"Succeeded": "Succeeded",
+							"Updating":  "Updating",
+						},
+					},
+				},
+				Models: map[string]models.ModelDetails{
+					"PrivateEndpoint": {
+						Description: "",
+						Fields: map[string]models.FieldDefinition{
+							"Id": {
+								Type:     models.String,
+								JsonName: "id",
+							},
+						},
+					},
+					"PrivateEndpointConnection": {
+						Description: "",
+						Fields: map[string]models.FieldDefinition{
+							"Id": {
+								Type:     models.String,
+								JsonName: "id",
+							},
+							"Name": {
+								Type:     models.String,
+								JsonName: "name",
+							},
+							"Properties": {
+								Type:           models.Object,
+								ModelReference: strPtr("PrivateEndpointConnectionProperties"),
+								JsonName:       "properties",
+							},
+							"Type": {
+								Type:     models.String,
+								JsonName: "type",
+							},
+						},
+					},
+					"PrivateEndpointConnectionProperties": {
+						Description: "",
+						Fields: map[string]models.FieldDefinition{
+							"PrivateEndpoint": {
+								Type:           models.Object,
+								ModelReference: strPtr("PrivateEndpoint"),
+								JsonName:       "privateEndpoint",
+							},
+							"PrivateLinkServiceConnectionState": {
+								Type:           models.Object,
+								ModelReference: strPtr("PrivateLinkServiceConnectionState"),
+								JsonName:       "privateLinkServiceConnectionState",
+								Required:       true,
+							},
+							"ProvisioningState": {
+								Type:              models.Object,
+								ConstantReference: strPtr("ProvisioningState"),
+								JsonName:          "provisioningState",
+							},
+						},
+					},
+					"PrivateLinkServiceConnectionState": {
+						Description: "",
+						Fields: map[string]models.FieldDefinition{
+							"ActionsRequired": {
+								Type:              models.Object,
+								ConstantReference: strPtr("ActionsRequired"),
+								JsonName:          "actionsRequired",
+							},
+							"Description": {
+								Type:     models.String,
+								JsonName: "description",
+							},
+							"Status": {
+								Type:              models.Object,
+								ConstantReference: strPtr("ConnectionStatus"),
+								JsonName:          "status",
+							},
+						},
+					},
+				},
+				Operations: map[string]models.OperationDetails{
+					"CreateOrUpdate": {
+						Method:            http.MethodPut,
+						LongRunning:       true,
+						RequestObjectName: strPtr("PrivateEndpointConnection"),
+						Options:           map[string]models.OperationOption{},
+						ResourceIdName:    strPtr("PrivateEndpointConnection"),
+						ApiVersion:        strPtr("2020-06-01"),
+						Uri:               "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AppConfiguration/configurationStores/{configStoreName}/privateEndpointConnections/{privateEndpointConnectionName}",
+					},
+					"Delete": {
+						Method:      http.MethodDelete,
+						LongRunning: true,
+						ExpectedStatusCodes: []int{
+							http.StatusOK,
+							http.StatusAccepted,
+							http.StatusNoContent,
+						},
+						Options:        map[string]models.OperationOption{},
+						ResourceIdName: strPtr("PrivateEndpointConnection"),
+						ApiVersion:     strPtr("2020-06-01"),
+						Uri:            "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AppConfiguration/configurationStores/{configStoreName}/privateEndpointConnections/{privateEndpointConnectionName}",
+					},
+					"Get": {
+						Method:             http.MethodGet,
+						ResponseObjectName: strPtr("PrivateEndpointConnection"),
+						Options:            map[string]models.OperationOption{},
+						ResourceIdName:     strPtr("PrivateEndpointConnection"),
+						ApiVersion:         strPtr("2020-06-01"),
+						Uri:                "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AppConfiguration/configurationStores/{configStoreName}/privateEndpointConnections/{privateEndpointConnectionName}",
+					},
+				},
+				ResourceIds: map[string]string{
+					"PrivateEndpointConnection": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AppConfiguration/configurationStores/{configStoreName}/privateEndpointConnections/{privateEndpointConnectionName}",
+				},
+			},
+			"PrivateLinkResources": {
+				Constants: map[string]models.ConstantDetails{},
+				Models: map[string]models.ModelDetails{
+					"PrivateLinkResource": {
+						Description: "",
+						Fields: map[string]models.FieldDefinition{
+							"Id": {
+								Type:     models.String,
+								JsonName: "id",
+							},
+							"Name": {
+								Type:     models.String,
+								JsonName: "name",
+							},
+							"Properties": {
+								Type:           models.Object,
+								ModelReference: strPtr("PrivateLinkResourceProperties"),
+								JsonName:       "properties",
+							},
+							"Type": {
+								Type:     models.String,
+								JsonName: "type",
+							},
+						},
+					},
+					"PrivateLinkResourceProperties": {
+						Description: "",
+						Fields: map[string]models.FieldDefinition{
+							"GroupId": {
+								Type:     models.String,
+								JsonName: "groupId",
+							},
+							"RequiredMembers": {
+								Type: models.List,
+								ListElementType: func() *models.FieldDefinitionType {
+									v := models.String
+									return &v
+								}(),
+								JsonName: "requiredMembers",
+							},
+							"RequiredZoneNames": {
+								Type: models.List,
+								ListElementType: func() *models.FieldDefinitionType {
+									v := models.String
+									return &v
+								}(),
+								JsonName: "requiredZoneNames",
+							},
+						},
+					},
+				},
+				Operations: map[string]models.OperationDetails{
+					"Get": {
+						ApiVersion:         strPtr("2020-06-01"),
+						ContentType:        "",
+						Method:             http.MethodGet,
+						ResponseObjectName: strPtr("PrivateLinkResource"),
+						ResourceIdName:     strPtr("PrivateLinkResource"),
+						Uri:                "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AppConfiguration/configurationStores/{configStoreName}/privateLinkResources/{groupName}",
+						Options:            map[string]models.OperationOption{},
+					},
+				},
+				ResourceIds: map[string]string{
+					"PrivateLinkResource": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AppConfiguration/configurationStores/{configStoreName}/privateLinkResources/{groupName}",
+				},
+			},
+		},
+	}
+
+	if !reflect.DeepEqual(*result, expected) {
+		t.Fatalf("Expected: %+v\n\nActual: %+v", expected, *result)
 	}
 }
 
