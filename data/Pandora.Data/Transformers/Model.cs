@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.VisualBasic;
 using Pandora.Data.Models;
 
 namespace Pandora.Data.Transformers
@@ -34,7 +35,7 @@ namespace Pandora.Data.Transformers
                 if (property.PropertyType.IsGenericType)
                 {
                     if (property.PropertyType.GetGenericTypeDefinition() != typeof(List<>)) {
-                        throw new NotSupportedException("Generic types have to be lists");
+                        throw new NotSupportedException(string.Format($"{input.FullName} - {property.Name}: Generic types have to be lists"));
                     }
                     
                     var innerType = property.PropertyType.GetGenericArguments()[0];

@@ -5,7 +5,7 @@ namespace Pandora.Definitions.ResourceManager.AppConfiguration
 {
     public class Service : ServiceDefinition
     {
-        public string Name => "appConfiguration";
+        public string Name => "AppConfiguration";
         public bool Generate => true;
         public string? ResourceProvider => "Microsoft.AppConfiguration";
         

@@ -30,8 +30,9 @@ namespace Pandora.Definitions.Operations
             return false;
         }
 
-        public HttpMethod Method()
+        public virtual HttpMethod Method()
         {
+            // these should be Get's but ListKeys operations can be Post's..
             return HttpMethod.Get;
         }
 
