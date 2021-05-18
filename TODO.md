@@ -2,6 +2,12 @@ Importer Bugs
   - Nested models with generic names conflict (Data Protection)
   - OAPIGen bug
 
+API
+  - Nilable Dates e.g. `DateTime?`
+  - Nilable Enums e.g. `ProvisioningState?`
+  - Maps of String:Object e.g. `Dictionary<string, UserIdentity>?`
+  - Operations can be long running with response objects (but they should likely be ignored)
+
 - Binary Data (e.g. []byte)
   - Importer
   - API
