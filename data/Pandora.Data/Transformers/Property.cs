@@ -55,6 +55,7 @@ namespace Pandora.Data.Transformers
                 definition.ConstantReference = elementDetails.ConstantType;
                 definition.ListElementType = elementDetails.ElementPropertyType;
                 definition.ModelReference = elementDetails.ModelType;
+                definition.IsTypeHint = elementDetails.IsTypeHint;
             }
 
             if (definition.PropertyType == PropertyType.Constant)
@@ -90,6 +91,7 @@ namespace Pandora.Data.Transformers
             public PropertyType? ElementPropertyType { get; set; }
             
             public string? ConstantType { get; set; }
+            public bool IsTypeHint { get; set; }
             public string? ModelType { get; set; }
         }
 
@@ -108,6 +110,7 @@ namespace Pandora.Data.Transformers
             {
                 details.ModelType = element.Name;
                 details.ElementPropertyType = PropertyType.Object;
+                details.IsTypeHint = element.IsAbstract;
             }
             
             if (elementPropertyType == PropertyType.List)
