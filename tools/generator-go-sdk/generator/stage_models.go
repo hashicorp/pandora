@@ -62,18 +62,17 @@ func (c modelsTemplater) template(data ServiceGeneratorData) (*string, error) {
 		}
 
 		if fieldDetails.DateFormat != nil {
-			// TODO: fix the classes here
 			dateFormat := dateFormatString(*fieldDetails.DateFormat)
 
 			// List{Name}AsTime method for getting *time.Time from a string
-			methods = append(methods, fmt.Sprintf("\tfunc (m *NestedItem) List%sAsTime() (*time.Time, error) {", fieldName))
-			methods = append(methods, fmt.Sprintf("\t\treturn formatting.ParseAsDateFormat(m.%s, %q)", fieldName, dateFormat))
+			methods = append(methods, fmt.Sprintf("\tfunc (o %[1]s) List%[2]sAsTime() (*time.Time, error) {", c.name, fieldName))
+			methods = append(methods, fmt.Sprintf("\t\treturn formatting.ParseAsDateFormat(o.%s, %q)", fieldName, dateFormat))
 			methods = append(methods, fmt.Sprintf("\t}\n"))
 
 			// Set{Name}AsTime method - for setting time.Time -> string
-			methods = append(methods, fmt.Sprintf("\tfunc (m *NestedItem) Set%sAsTime(input time.Time) {", fieldName))
+			methods = append(methods, fmt.Sprintf("\tfunc (o %[1]s) Set%[2]sAsTime(input time.Time) {", c.name, fieldName))
 			methods = append(methods, fmt.Sprintf("\t\tformatted := input.Format(%q)", dateFormat))
-			methods = append(methods, fmt.Sprintf("\t\tm.%s = &formatted", fieldName))
+			methods = append(methods, fmt.Sprintf("\t\to.%s = &formatted", fieldName))
 			methods = append(methods, fmt.Sprintf("\t}\n"))
 		}
 
