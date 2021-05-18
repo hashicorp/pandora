@@ -50,6 +50,17 @@ type ModelDetails struct {
 	// Fields is a map of key (FieldName) to value (FieldDetails) for the fields
 	// supported by this Model.
 	Fields map[string]FieldDetails `json:"fields"`
+
+	// ParentTypeName specifies the name of the Parent Type for this Model.
+	ParentTypeName *string `json:"parentTypeName"`
+
+	// TypeHintIn specifies the field containing the Type Hint (e.g. Discriminator
+	// value) signifying which type should be returned.
+	TypeHintIn *string `json:"typeHintIn"`
+
+	// TypeHintValue is the value which identifies that this Type should be used
+	// when the value in TypeHintIn matches this/
+	TypeHintValue *string `json:"typeHintValue"`
 }
 
 type FieldDetails struct {
@@ -65,6 +76,10 @@ type FieldDetails struct {
 
 	// ForceNew specifies that this value cannot be changed in the API after creation
 	ForceNew bool `json:"forceNew"`
+
+	// IsTypeHint specifies that this field contains a Type Hint, meaning that the Type returned
+	// can change depending upon the value of a nested field.
+	IsTypeHint bool `json:"isTypeHint"`
 
 	// JsonName is the name of the field within the JSON, which may be different
 	// to the Name used for this field, which can be more descriptive.
