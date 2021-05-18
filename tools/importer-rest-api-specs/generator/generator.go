@@ -58,6 +58,11 @@ func (g PandoraDefinitionGenerator) Generate(resourceName string, resource model
 		log.Printf("[DEBUG] Generating Models..")
 	}
 	for modelName, vals := range resource.Models {
+		if len(vals.Fields) == 0 {
+			// Some models are simply enums, and have no fields
+			continue
+		}
+
 		if g.debugLog {
 			log.Printf("Generating Model %q (in %s)", modelName, namespace)
 		}
@@ -66,8 +71,10 @@ func (g PandoraDefinitionGenerator) Generate(resourceName string, resource model
 			return fmt.Errorf("generating code for model %q in %q: %+v", modelName, namespace, err)
 		}
 		fileName := path.Join(workingDirectory, fmt.Sprintf("Model-%s.cs", modelName))
-		if err := g.writeToFile(fileName, *code); err != nil {
-			return fmt.Errorf("generating code for %q: %+v", modelName, err)
+		if *code != "" {
+			if err := g.writeToFile(fileName, *code); err != nil {
+				return fmt.Errorf("generating code for %q: %+v", modelName, err)
+			}
 		}
 	}
 
@@ -143,9 +150,9 @@ namespace %[1]s
 }
 
 func (g PandoraDefinitionGenerator) codeForModel(namespace string, modelName string, model models.ModelDetails) (*string, error) {
-	if len(model.Fields) == 0 {
-		return nil, fmt.Errorf("the model %q in namespace %q has no fields", modelName, namespace)
-	}
+	//if len(model.Fields) == 0 {
+	//	return nil, fmt.Errorf("the model %q in namespace %q has no fields", modelName, namespace)
+	//}
 
 	code := make([]string, 0)
 

@@ -29,10 +29,6 @@ func (r *AzureApiResource) Normalize() {
 		fields := make(map[string]FieldDefinition)
 		for fieldName, fieldVal := range v.Fields {
 			normalizedFieldName := cleanup.NormalizeName(fieldName)
-			if normalizedFieldName == "IpTags" {
-				normalizedFieldName = "IpTags"
-			}
-
 			if fieldVal.ConstantReference != nil {
 				normalized := cleanup.NormalizeName(*fieldVal.ConstantReference)
 				fieldVal.ConstantReference = &normalized
