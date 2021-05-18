@@ -120,7 +120,7 @@ func (c methodsAutoRestTemplater) methods(data ServiceGeneratorData) (*string, e
 		}
 
 		if c.operation.FieldContainingPaginationDetails != nil {
-			return nil, fmt.Errorf("pagination is not supported for POST Operations")
+			return c.listOperationTemplate(data)
 		}
 
 		return c.immediateOperationTemplate(data)

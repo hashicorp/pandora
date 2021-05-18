@@ -11,7 +11,9 @@ namespace Pandora.Definitions.ResourceManager.AppConfiguration.v2020_06_01
         
         public IEnumerable<ApiDefinition> Apis => new List<ApiDefinition>
         {
-            new Store.Definition()
+            new ConfigurationStores.Definition(),
+            new PrivateEndpointConnections.Definition(),
+            new PrivateLinkResources.Definition(),
         };
     }
 }
