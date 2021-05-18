@@ -9,8 +9,8 @@ namespace Pandora.Data.Models
         public string? DateFormat { get; set; }
         public object? Default { get; set; }
         public bool ForceNew { get; set; }
+        public bool IsTypeHint { get; set; }
         public string JsonName { get; set; }
-
         // ListElementType defines the inner type used for Lists
         // which is defined as when `PropertyType` is set to `List`.
         public PropertyType? ListElementType { get; set; }

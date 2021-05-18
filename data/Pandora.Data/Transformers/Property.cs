@@ -25,6 +25,7 @@ namespace Pandora.Data.Transformers
             var required = input.HasAttribute<RequiredAttribute>();
             var optional = input.HasAttribute<OptionalAttribute>();
             var forceNew = input.HasAttribute<ForceNewAttribute>();
+            var isTypeHint = input.PropertyType.IsAbstract;
             var propertyType = MapPropertyType(input.PropertyType);
             var validation = Validation.Map(input);
 
@@ -40,6 +41,7 @@ namespace Pandora.Data.Transformers
                 Required = required,
                 Optional = optional || !required,
                 ForceNew = forceNew,
+                IsTypeHint = isTypeHint,
                 PropertyType = propertyType,
                 Validation = validation,
             };

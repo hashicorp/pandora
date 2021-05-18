@@ -16,6 +16,7 @@ namespace Pandora.Definitions.ResourceManager.Pandamonium.v2020_01_01.Grouping
             new PostLongRunning(),
             new DeleteImmediate(),
             new DeleteLongRunning(),
+            new GetAnimals(),
             new GetImmediate(),
             new HeadImmediate(),
             new Restart(),
