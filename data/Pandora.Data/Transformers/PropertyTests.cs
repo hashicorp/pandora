@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Runtime.Versioning;
 using System.Text.Json.Serialization;
 using NUnit.Framework;
 using Pandora.Data.Models;
@@ -30,6 +31,17 @@ namespace Pandora.Data.Transformers
                 
                 switch (property.Name)
                 {
+                    case "AbstractType":
+                    {
+                        Assert.AreEqual("AbstractType", actual.Name);
+                        Assert.AreEqual("abstractType", actual.JsonName);
+                        Assert.AreEqual(PropertyType.Object, actual.PropertyType);
+                        Assert.IsTrue(actual.IsTypeHint);
+                        Assert.AreEqual(true, actual.Optional);
+                        Assert.AreEqual(false, actual.Required);
+                        continue;
+                    }
+                    
                     case "BasicBoolField":
                     {
                         Assert.AreEqual("BasicBoolField", actual.Name);
@@ -219,6 +231,10 @@ namespace Pandora.Data.Transformers
 
         private class Foo
         {
+            [JsonPropertyName("abstractType")]
+            [Optional]
+            public SomeParentType AbstractType { get; set; }
+            
             [JsonPropertyName("basicBoolField")]
             public bool BasicBoolField { get; set; }
             
@@ -303,6 +319,13 @@ namespace Pandora.Data.Transformers
         private class WithoutArgumentExample
         {
             public bool HasNoArgument { get; set; }
+        }
+        
+        private abstract class SomeParentType
+        {
+            [JsonPropertyName("objectType")]
+            [ProvidesTypeHint]
+            public string ObjectType { get; set; }
         }
     }
 }

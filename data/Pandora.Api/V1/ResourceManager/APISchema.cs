@@ -63,13 +63,25 @@ namespace Pandora.Api.V1.ResourceManager
         {
             [JsonPropertyName("fields")]
             public Dictionary<string, PropertyApiDefinition> Fields { get; set; }
+            
+            [JsonPropertyName("parentTypeName")]
+            public string? ParentTypeName { get; set; }
+            
+            [JsonPropertyName("typeHintIn")]
+            public string? TypeHintIn { get; set; }
+            
+            [JsonPropertyName("typeHintValue")]
+            public string? TypeHintValue { get; set; }
         }
 
         private static ModelApiDefinition MapModel(ModelDefinition model)
         {
             return new ModelApiDefinition
             {
-                Fields = model.Properties.ToDictionary(p => p.Name, MapProperty), 
+                Fields = model.Properties.ToDictionary(p => p.Name, MapProperty),
+                ParentTypeName = model.ParentTypeName,
+                TypeHintIn = model.TypeHintIn,
+                TypeHintValue = model.TypeHintValue,
             };
         }
 
@@ -80,13 +92,14 @@ namespace Pandora.Api.V1.ResourceManager
                 ConstantReferenceName = definition.ConstantReference,
                 DateFormat = definition.DateFormat,
                 Default = definition.Default,
+                IsTypeHint = definition.IsTypeHint,
+                ForceNew = definition.ForceNew,
                 JsonName = definition.JsonName,
                 ListElementType = MapListElementType(definition.ListElementType),
                 ModelReferenceName = definition.ModelReference,
                 Optional = definition.Optional,
                 PropertyType = MapApiPropertyType(definition.PropertyType),
                 Required = definition.Required,
-                ForceNew = definition.ForceNew,
                 Validation = ValidationApiDefinition.Map(definition.Validation),
             };
         }
@@ -169,6 +182,9 @@ namespace Pandora.Api.V1.ResourceManager
             [JsonPropertyName("forceNew")]
             public bool ForceNew { get; set; }
 
+            [JsonPropertyName("isTypeHint")]
+            public bool IsTypeHint { get; set; }
+            
             [JsonPropertyName("jsonName")]
             public string JsonName { get; set; }
 

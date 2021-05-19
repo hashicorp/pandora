@@ -119,6 +119,42 @@ namespace Pandora.Data.Transformers
             Assert.AreEqual("Field", actual.Skip(1).First().Properties.First().Name);
         }
 
+        [Test]
+        public static void TestMappingDiscriminatedTypes()
+        {
+            var actual = Model.Map(new AnimalsWrapper());
+            Assert.NotNull(actual);
+            Assert.AreEqual(4, actual.Count);
+
+            var wrapper = actual.FirstOrDefault(t => t.Name == "AnimalsWrapper");
+            Assert.NotNull(wrapper);
+            Assert.AreEqual(2, wrapper.Properties.Count);
+            Assert.Null(wrapper.ParentTypeName);
+            Assert.Null(wrapper.TypeHintIn);
+            Assert.Null(wrapper.TypeHintValue);
+
+            var animal = actual.FirstOrDefault(t => t.Name == "Animal");
+            Assert.NotNull(animal);
+            Assert.AreEqual(1, animal.Properties.Count);
+            Assert.Null(animal.ParentTypeName);
+            Assert.AreEqual("ObjectType", animal.TypeHintIn);
+            Assert.Null(animal.TypeHintValue);
+
+            var cat = actual.FirstOrDefault(t => t.Name == "Cat");
+            Assert.NotNull(cat);
+            Assert.AreEqual(2, cat.Properties.Count);
+            Assert.AreEqual("Animal", cat.ParentTypeName);
+            Assert.AreEqual("ObjectType", cat.TypeHintIn);
+            Assert.AreEqual("cat", cat.TypeHintValue);
+            
+            var dog = actual.FirstOrDefault(t => t.Name == "Dog");
+            Assert.NotNull(dog);
+            Assert.AreEqual(1, dog.Properties.Count);
+            Assert.AreEqual("Animal", dog.ParentTypeName);
+            Assert.AreEqual("ObjectType", dog.TypeHintIn);
+            Assert.AreEqual("dog", dog.TypeHintValue);
+        }
+
         private class Example
         {
             [JsonPropertyName("first")]
@@ -176,6 +212,34 @@ namespace Pandora.Data.Transformers
             [JsonPropertyName("field")]
             [Optional]
             public bool Field { get; set; }
+        }
+
+        private class AnimalsWrapper
+        {
+            [JsonPropertyName("animal")]
+            public Animal Animal { get; set; }
+            
+            [JsonPropertyName("animals")]
+            public List<Animal> Animals { get; set; }
+        }
+        
+        private abstract class Animal
+        {
+            [JsonPropertyName("objectType")]
+            [ProvidesTypeHint]
+            public string ObjectType { get; set; }
+        }
+
+        [ValueForType("cat")]
+        private class Cat : Animal
+        {
+            [JsonPropertyName("jumps")]
+            public bool Jumps { get; set; }
+        }
+
+        [ValueForType("dog")]
+        private class Dog : Animal
+        {
         }
     }
 }

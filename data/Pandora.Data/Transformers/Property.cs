@@ -25,6 +25,7 @@ namespace Pandora.Data.Transformers
             var required = input.HasAttribute<RequiredAttribute>();
             var optional = input.HasAttribute<OptionalAttribute>();
             var forceNew = input.HasAttribute<ForceNewAttribute>();
+            var isTypeHint = input.PropertyType.IsAbstract;
             var propertyType = MapPropertyType(input.PropertyType);
             var validation = Validation.Map(input);
 
@@ -40,6 +41,7 @@ namespace Pandora.Data.Transformers
                 Required = required,
                 Optional = optional || !required,
                 ForceNew = forceNew,
+                IsTypeHint = isTypeHint,
                 PropertyType = propertyType,
                 Validation = validation,
             };
@@ -53,6 +55,7 @@ namespace Pandora.Data.Transformers
                 definition.ConstantReference = elementDetails.ConstantType;
                 definition.ListElementType = elementDetails.ElementPropertyType;
                 definition.ModelReference = elementDetails.ModelType;
+                definition.IsTypeHint = elementDetails.IsTypeHint;
             }
 
             if (definition.PropertyType == PropertyType.Constant)
@@ -88,6 +91,7 @@ namespace Pandora.Data.Transformers
             public PropertyType? ElementPropertyType { get; set; }
             
             public string? ConstantType { get; set; }
+            public bool IsTypeHint { get; set; }
             public string? ModelType { get; set; }
         }
 
@@ -106,6 +110,7 @@ namespace Pandora.Data.Transformers
             {
                 details.ModelType = element.Name;
                 details.ElementPropertyType = PropertyType.Object;
+                details.IsTypeHint = element.IsAbstract;
             }
             
             if (elementPropertyType == PropertyType.List)
