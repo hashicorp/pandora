@@ -262,7 +262,7 @@ func TestParseModelMultipleTopLevelWithList(t *testing.T) {
 		t.Fatalf("expected person.Fields['Name'].JsonName to be 'name' but got %q", personName.JsonName)
 	}
 	animals, ok := person.Fields["Animals"]
-	if animals.Type != models.String {
+	if animals.Type != models.List {
 		t.Fatalf("expected person.Fields['Animals'] to be a List but got %q", string(animals.Type))
 	}
 	if animals.ModelReference == nil {
