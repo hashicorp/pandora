@@ -19,4 +19,6 @@ type SwaggerDefinition struct {
 	swaggerSpecWithReferences *analysis.Spec
 
 	swaggerSpecRaw *spec.Swagger
+
+	swaggerSpecExtendedRaw *spec.Swagger
 }

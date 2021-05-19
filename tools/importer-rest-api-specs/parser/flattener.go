@@ -59,7 +59,8 @@ func Load(directory string, fileName string, debugLogging bool) (*SwaggerDefinit
 	swaggerSpecExpanded := expandedSwaggerDoc.Analyzer
 	swaggerSpecWithReferences := swaggerDocWithReferences.Analyzer
 
-	swaggerSpecRaw := expandedSwaggerDoc.Spec()
+	swaggerSpecRaw := swaggerDocWithReferences.Spec()
+	swaggerSpecExpandedRaw := expandedSwaggerDoc.Spec()
 
 	return &SwaggerDefinition{
 		Name:                      serviceName,
@@ -67,5 +68,6 @@ func Load(directory string, fileName string, debugLogging bool) (*SwaggerDefinit
 		swaggerSpecExpanded:       swaggerSpecExpanded,
 		swaggerSpecWithReferences: swaggerSpecWithReferences,
 		swaggerSpecRaw:            swaggerSpecRaw,
+		swaggerSpecExtendedRaw:    swaggerSpecExpandedRaw,
 	}, nil
 }
