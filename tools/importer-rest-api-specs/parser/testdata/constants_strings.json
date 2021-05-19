@@ -1,0 +1,132 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Example",
+    "description": "Example",
+    "version": "2020-01-01"
+  },
+  "host": "management.mysite.com",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "security": [],
+  "securityDefinitions": {},
+  "paths": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}": {
+      "put": {
+        "tags": [
+          "Discriminator"
+        ],
+        "operationId": "Discriminator_Test",
+        "description": "Tests parsing of a model containing a Constant",
+        "parameters": [
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ResourceGroupParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "name": "parameters",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ExampleWrapper"
+            },
+            "description": "Wrapper class containing a Constant."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success.",
+            "schema": {
+              "$ref": "#/definitions/ExampleWrapper"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "ExampleWrapper": {
+      "description": "The Resource definition.",
+      "properties": {
+        "multiple": {
+          "description": "List of animals.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Animal"
+          }
+        },
+        "single": {
+          "$ref": "#/definitions/Animal"
+        }
+      },
+      "required": [
+        "single"
+      ],
+      "title": "ExampleWrapper",
+      "type": "object",
+      "x-ms-azure-resource": true
+    },
+    "Animal": {
+      "properties": {
+        "type": {
+          "description": "The type of animal.",
+          "$ref": "#/definitions/AnimalType"
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "title": "Animal",
+      "type": "object",
+      "x-ms-azure-resource": true
+    },
+    "AnimalType": {
+      "enum": [
+        "cat",
+        "dog",
+        "panda"
+      ],
+      "type": "string",
+      "x-ms-enum": {
+        "name": "AnimalType",
+        "modelAsString": true
+      }
+    }
+  },
+  "parameters": {
+    "ApiVersionParameter": {
+      "name": "api-version",
+      "in": "query",
+      "required": true,
+      "type": "string",
+      "description": "The API version to be used with the HTTP request."
+    },
+    "SubscriptionIdParameter": {
+      "name": "subscriptionId",
+      "in": "path",
+      "required": true,
+      "type": "string",
+      "description": "The subscription ID."
+    },
+    "ResourceGroupParameter": {
+      "name": "resourceGroupName",
+      "in": "path",
+      "required": true,
+      "type": "string",
+      "x-ms-parameter-location": "method",
+      "description": "The name of the resource group that contains the resource."
+    }
+  }
+}
