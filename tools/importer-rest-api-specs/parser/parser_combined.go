@@ -767,13 +767,6 @@ func mapField(parentModelName, jsonName string, value spec.Schema, isRequired bo
 		field.Type = models.Location
 	}
 
-	if field.Type == models.Object {
-		if fragment := fragmentNameFromReference(value.Ref); fragment == nil && value.Properties != nil {
-			//var v *string
-			//field.ModelReference = v
-		}
-	}
-
 	return &allConstants, &field, nil
 }
 

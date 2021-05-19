@@ -42,9 +42,9 @@ func Load(directory string, fileName string, debugLogging bool) (*SwaggerDefinit
 		return nil, fmt.Errorf("loading swagger file %q: %+v", filePath, err)
 	}
 	flattenedExpandedOpts := &analysis.FlattenOpts{
-		Minimal:      true,
+		Minimal:      false,
 		Verbose:      true,
-		Expand:       false,
+		Expand:       true,
 		RemoveUnused: false,
 		//ContinueOnError: true,
 
