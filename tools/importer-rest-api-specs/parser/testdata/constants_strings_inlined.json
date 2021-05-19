@@ -80,29 +80,26 @@
     },
     "Animal": {
       "properties": {
-        "type": {
-          "description": "The type of animal.",
-          "$ref": "#/definitions/AnimalType"
+        "animalType": {
+          "description": "The type of Animal this is, which is an Enum.",
+          "enum": [
+            "cat",
+            "dog",
+            "panda"
+          ],
+          "type": "string",
+          "x-ms-enum": {
+            "name": "AnimalType",
+            "modelAsString": true
+          }
         }
       },
       "required": [
-        "type"
+        "animalType"
       ],
       "title": "Animal",
       "type": "object",
       "x-ms-azure-resource": true
-    },
-    "AnimalType": {
-      "enum": [
-        "cat",
-        "dog",
-        "panda"
-      ],
-      "type": "string",
-      "x-ms-enum": {
-        "name": "AnimalType",
-        "modelAsString": true
-      }
     }
   },
   "parameters": {
