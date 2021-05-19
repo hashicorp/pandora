@@ -24,7 +24,7 @@
           "Discriminator"
         ],
         "operationId": "Discriminator_Test",
-        "description": "Tests parsing of a model containing a Constant",
+        "description": "Tests parsing of a simple model.",
         "parameters": [
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
@@ -40,16 +40,16 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/ExampleWrapper"
+              "$ref": "#/definitions/Example"
             },
-            "description": "Wrapper class containing a Constant."
+            "description": "Wrapper class."
           }
         ],
         "responses": {
           "200": {
             "description": "Success.",
             "schema": {
-              "$ref": "#/definitions/ExampleWrapper"
+              "$ref": "#/definitions/Example"
             }
           }
         }
@@ -57,52 +57,36 @@
     }
   },
   "definitions": {
-    "ExampleWrapper": {
+    "Example": {
       "description": "The Resource definition.",
       "properties": {
-        "multiple": {
-          "description": "List of animals.",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/Animal"
-          }
+        "name": {
+          "type": "string",
+          "description": "the name of this thing"
         },
-        "single": {
-          "$ref": "#/definitions/Animal"
+        "age": {
+          "type": "integer",
+          "description": "the age of this thing"
+        },
+        "enabled": {
+          "type": "boolean",
+          "description": "true or false"
+        },
+        "tags": {
+          "type": "object",
+          "description": "a key value pair",
+          "additionalProperties": {
+            "description": "the value",
+            "type": "string"
+          }
         }
       },
       "required": [
-        "single"
+        "name"
       ],
-      "title": "ExampleWrapper",
+      "title": "Example",
       "type": "object",
       "x-ms-azure-resource": true
-    },
-    "Animal": {
-      "properties": {
-        "type": {
-          "description": "The type of animal.",
-          "$ref": "#/definitions/AnimalType"
-        }
-      },
-      "required": [
-        "type"
-      ],
-      "title": "Animal",
-      "type": "object",
-      "x-ms-azure-resource": true
-    },
-    "AnimalType": {
-      "enum": [
-        "cat",
-        "dog",
-        "panda"
-      ],
-      "type": "string",
-      "x-ms-enum": {
-        "name": "AnimalType",
-        "modelAsString": true
-      }
     }
   },
   "parameters": {

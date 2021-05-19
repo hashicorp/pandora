@@ -1,0 +1,182 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Example",
+    "description": "Example",
+    "version": "2020-01-01"
+  },
+  "host": "management.mysite.com",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "security": [],
+  "securityDefinitions": {},
+  "paths": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}": {
+      "get": {
+        "tags": [
+          "Discriminator"
+        ],
+        "operationId": "Discriminator_Get",
+        "description": "Tests parsing of a simple model.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ResourceGroupParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "name": "parameters",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetExample"
+            },
+            "description": "Wrapper class."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success.",
+            "schema": {
+              "$ref": "#/definitions/GetExample"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Discriminator"
+        ],
+        "operationId": "Discriminator_Put",
+        "description": "Tests parsing of a simple model.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ResourceGroupParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "name": "parameters",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PutExample"
+            },
+            "description": "Wrapper class."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success.",
+            "schema": {
+              "$ref": "#/definitions/PutExample"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "GetExample": {
+      "description": "The Resource definition.",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "the name of this thing"
+        },
+        "age": {
+          "type": "integer",
+          "description": "the age of this thing"
+        },
+        "enabled": {
+          "type": "boolean",
+          "description": "true or false"
+        },
+        "tags": {
+          "type": "object",
+          "description": "a key value pair",
+          "additionalProperties": {
+            "description": "the value",
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "title": "GetExample",
+      "type": "object",
+      "x-ms-azure-resource": true
+    },
+    "PutExample": {
+      "description": "The Resource definition.",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "the name of this thing"
+        },
+        "age": {
+          "type": "integer",
+          "description": "the age of this thing"
+        },
+        "enabled": {
+          "type": "boolean",
+          "description": "true or false"
+        },
+        "tags": {
+          "type": "object",
+          "description": "a key value pair",
+          "additionalProperties": {
+            "description": "the value",
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "title": "PutExample",
+      "type": "object",
+      "x-ms-azure-resource": true
+    }
+  },
+  "parameters": {
+    "ApiVersionParameter": {
+      "name": "api-version",
+      "in": "query",
+      "required": true,
+      "type": "string",
+      "description": "The API version to be used with the HTTP request."
+    },
+    "SubscriptionIdParameter": {
+      "name": "subscriptionId",
+      "in": "path",
+      "required": true,
+      "type": "string",
+      "description": "The subscription ID."
+    },
+    "ResourceGroupParameter": {
+      "name": "resourceGroupName",
+      "in": "path",
+      "required": true,
+      "type": "string",
+      "x-ms-parameter-location": "method",
+      "description": "The name of the resource group that contains the resource."
+    }
+  }
+}
