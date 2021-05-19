@@ -3,7 +3,7 @@ package parser
 import "testing"
 
 func TestParseDiscriminatorsTopLevel(t *testing.T) {
-	parsed, err := Load("testdata/", "discriminators_simple.json", true)
+	parsed, err := Load("testdata/", "model_discriminators_simple.json", true)
 	if err != nil {
 		t.Fatalf("loading: %+v", err)
 	}
