@@ -195,3 +195,102 @@ func TestParseModelMultipleTopLevel(t *testing.T) {
 	}
 	validateModel(t, putExample)
 }
+
+func TestParseModelMultipleTopLevelWithList(t *testing.T) {
+	parsed, err := Load("testdata/", "model_multiple_list.json", true)
+	if err != nil {
+		t.Fatalf("loading: %+v", err)
+	}
+
+	result, err := parsed.Parse("Example", "2020-01-01")
+	if err != nil {
+		t.Fatalf("parsing: %+v", err)
+	}
+	if result == nil {
+		t.Fatal("result was nil")
+	}
+	if len(result.Resources) != 1 {
+		t.Fatalf("expected 1 resource but got %d", len(result.Resources))
+	}
+
+	resource, ok := result.Resources["Discriminator"]
+	if !ok {
+		t.Fatal("the Resource 'Discriminator' was not found")
+	}
+
+	// sanity checking
+	if len(resource.Constants) != 0 {
+		t.Fatalf("expected 0 constants but got %d", len(resource.Constants))
+	}
+	if len(resource.Models) != 2 {
+		t.Fatalf("expected 2 models but got %d", len(resource.Models))
+	}
+	if len(resource.Operations) != 1 {
+		t.Fatalf("expected 1 operation but got %d", len(resource.Operations))
+	}
+	if len(resource.ResourceIds) != 1 {
+		t.Fatalf("expected 1 Resource ID but got %d", len(resource.ResourceIds))
+	}
+
+	person, ok := resource.Models["Person"]
+	if !ok {
+		t.Fatalf("the Model `Person` was not found")
+	}
+	if len(person.Fields) != 2 {
+		t.Fatalf("expected person.Fields to have 2 fields but got %d", len(person.Fields))
+	}
+
+	personName, ok := person.Fields["Name"]
+	if !ok {
+		t.Fatalf("person.Fields['Name'] was missing")
+	}
+	if personName.Type != models.String {
+		t.Fatalf("expected person.Fields['Name'] to be a string but got %q", string(personName.Type))
+	}
+	if personName.JsonName != "name" {
+		t.Fatalf("expected person.Fields['Name'].JsonName to be 'name' but got %q", personName.JsonName)
+	}
+	animals, ok := person.Fields["Animals"]
+	if animals.Type != models.String {
+		t.Fatalf("expected person.Fields['Animals'] to be a List but got %q", string(animals.Type))
+	}
+	if animals.ModelReference == nil {
+		t.Fatalf("person.Fields['Animals'].ModelReference was nil")
+	}
+	if *animals.ModelReference != "Animal" {
+		t.Fatalf("person.Fields['Animals'].ModelReference should be 'Animal' but was %q", *animals.ModelReference)
+	}
+	if animals.JsonName != "animals" {
+		t.Fatalf("expected person.Fields['Animals'].JsonName to be 'animals' but got %q", animals.JsonName)
+	}
+
+	animalModel, ok := resource.Models["Animal"]
+	if !ok {
+		t.Fatal("expected resource.Models['Animal'] was not found")
+	}
+	if len(animalModel.Fields) != 2 {
+		t.Fatalf("expected resource.Models['Animal'].Fields to have 2 items but got %d", len(animalModel.Fields))
+	}
+
+	animalName, ok := animalModel.Fields["Name"]
+	if !ok {
+		t.Fatalf("animalModel.Fields['Name'] was missing")
+	}
+	if animalName.Type != models.String {
+		t.Fatalf("expected animalModel.Fields['Name'] to be a string but got %q", string(animalName.Type))
+	}
+	if animalName.JsonName != "name" {
+		t.Fatalf("expected animalModel.Fields['Name'].JsonName to be 'name' but got %q", animalName.JsonName)
+	}
+
+	animalAge, ok := animalModel.Fields["Age"]
+	if !ok {
+		t.Fatalf("animalModel.Fields['Age'] was missing")
+	}
+	if animalAge.Type != models.Integer {
+		t.Fatalf("expected animalModel.Fields['Age'] to be a string but got %q", string(animalAge.Type))
+	}
+	if animalAge.JsonName != "age" {
+		t.Fatalf("expected animalModel.Fields['Age'].JsonName to be 'age' but got %q", animalAge.JsonName)
+	}
+}
