@@ -79,6 +79,11 @@ type ModelDetails struct {
 	Description string
 	Fields      map[string]FieldDefinition
 
+	// @tombuildsstuff: placeholder until the other branch is merged
+	ParentTypeName *string
+	TypeHintIn     *string
+	TypeHintValue  *string
+
 	// TODO: include ReadOnly, which'll mean we need to generate this on a per-type basis if necessary
 }
 
