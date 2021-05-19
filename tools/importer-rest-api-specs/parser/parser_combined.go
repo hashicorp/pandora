@@ -446,9 +446,27 @@ func (d *SwaggerDefinition) findModelsForModel(name string, input spec.Schema, c
 
 func (d *SwaggerDefinition) findTopLevelModel(name string) (*spec.Schema, error) {
 	for modelName, model := range d.swaggerSpecRaw.Definitions {
-		//for _, model := range d.swaggerSpecExpanded.AllDefinitions()
 		if strings.EqualFold(modelName, name) {
 			return &model, nil
+		}
+	}
+
+	for modelName, model := range d.swaggerSpecExtendedRaw.Definitions {
+		if strings.EqualFold(modelName, name) {
+			return &model, nil
+		}
+	}
+
+	for _, model := range d.swaggerSpecExpanded.AllDefinitions() {
+		if strings.EqualFold(model.Name, name) {
+			return model.Schema, nil
+		}
+	}
+
+	for _, model := range d.swaggerSpecWithReferences.AllDefinitions() {
+		//for _, model := range d.swaggerSpecExpanded.AllDefinitions()
+		if strings.EqualFold(model.Name, name) {
+			return model.Schema, nil
 		}
 	}
 
@@ -622,7 +640,7 @@ func mapField(parentModelName, jsonName string, value spec.Schema, isRequired bo
 						}
 					} else {
 						// check if there's a fragment
-						fragmentName := fragmentNameFromReference(schema.Ref)
+						fragmentName = fragmentNameFromReference(schema.Ref)
 						if fragmentName != nil {
 							field.Type = "dictionary"
 							referenceType = fragmentName
@@ -658,8 +676,8 @@ func mapField(parentModelName, jsonName string, value spec.Schema, isRequired bo
 	}
 
 	// Handle cases where there are _only_ additionalProperties?
-	if value.AdditionalProperties != nil && value.AdditionalProperties.Schema != nil {
-		if len(value.AdditionalProperties.Schema.Type) > 0 {
+	if value.AdditionalProperties != nil && value.AdditionalProperties.Schema != nil{
+		if len(value.AdditionalProperties.Schema.Type) > 0 && field.Type != models.Tags{
 			field.Type = normalizeType(value.AdditionalProperties.Schema.Type[0])
 
 			if field.Type == models.List {
@@ -743,7 +761,7 @@ func mapField(parentModelName, jsonName string, value spec.Schema, isRequired bo
 	// Some properties only specify AllOf, with no additional data, so...
 	if len(value.Type) == 0 && value.AdditionalProperties == nil && len(value.AllOf) > 0 {
 		field.Type = models.Object
-		fragmentName := fragmentNameFromReference(value.AllOf[0].Ref) // TODO - can AllOf > 1?
+		fragmentName = fragmentNameFromReference(value.AllOf[0].Ref) // TODO - can AllOf > 1?
 		field.ModelReference = fragmentName
 	}
 
