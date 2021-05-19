@@ -2,6 +2,7 @@ package parser
 
 import (
 	"context"
+	"encoding/json"
 	"fmt"
 	"io/ioutil"
 	"log"
@@ -749,8 +750,17 @@ func TestAssertParserCanParseAppConfiguration(t *testing.T) {
 		},
 	}
 
-	if !reflect.DeepEqual(*result, expected) {
-		t.Fatalf("Expected: %+v\n\nActual: %+v", expected, *result)
+	expectedJson, err := json.Marshal(expected)
+	if err != nil {
+		t.Fatalf("%s", err)
+	}
+	actualJson, err := json.Marshal(*result)
+	if err != nil {
+		t.Fatalf("%s", err)
+	}
+
+	if !reflect.DeepEqual(expectedJson, actualJson) {
+		t.Fatalf("Expected: %s\n\nActual: %s", expectedJson, actualJson)
 	}
 }
 
