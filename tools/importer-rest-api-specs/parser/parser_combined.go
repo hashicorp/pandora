@@ -215,7 +215,8 @@ func (d *SwaggerDefinition) fieldsForModel(modelName string, input spec.Schema, 
 	// This model might just be an Enum list
 	if input.Type != nil && input.Type[0] == "string" && len(input.Enum) > 0 {
 		constant := models.ConstantDetails{
-			Values: map[string]string{},
+			Values:    map[string]string{},
+			FieldType: models.String,
 		}
 		for _, v := range input.Enum {
 			constant.Values[v.(string)] = v.(string)
@@ -505,7 +506,8 @@ func mapConstant(input spec.Schema) (*parsedConstant, error) {
 	return &parsedConstant{
 		name: *name,
 		details: models.ConstantDetails{
-			Values: keysAndValues,
+			Values:    keysAndValues,
+			FieldType: models.String, // TODO: support for other types
 		},
 	}, nil
 }
@@ -808,6 +810,7 @@ func mergeConstants(new models.ConstantDetails, existing *models.ConstantDetails
 		vals[key] = value
 	}
 	return models.ConstantDetails{
-		Values: vals,
+		Values:    vals,
+		FieldType: existing.FieldType,
 	}
 }

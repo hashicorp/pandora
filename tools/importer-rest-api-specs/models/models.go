@@ -72,7 +72,8 @@ type OperationOption struct {
 }
 
 type ConstantDetails struct {
-	Values map[string]string
+	Values    map[string]string
+	FieldType FieldDefinitionType
 }
 
 type ModelDetails struct {
