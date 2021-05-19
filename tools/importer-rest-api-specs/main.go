@@ -30,28 +30,28 @@ func main() {
 		//},
 
 		// Attestation
-		{
-			RootNamespace:    "Pandora.Definitions.ResourceManager",
-			ServiceName:      "Attestation",
-			ApiVersion:       "2020-10-01",
-			OutputDirectory:  "../../generated/pandora-definitions",
-			SwaggerDirectory: apiSpecsPath + "/specification/attestation/resource-manager/Microsoft.Attestation/stable/2020-10-01",
-			SwaggerFiles: []string{
-				"attestation.json",
-			},
-		},
-
-		// AppConfiguration
 		//{
 		//	RootNamespace:    "Pandora.Definitions.ResourceManager",
-		//	ServiceName:      "AppConfiguration",
-		//	ApiVersion:       "2020-06-01",
+		//	ServiceName:      "Attestation",
+		//	ApiVersion:       "2020-10-01",
 		//	OutputDirectory:  "../../generated/pandora-definitions",
-		//	SwaggerDirectory: apiSpecsPath + "/specification/appconfiguration/resource-manager/Microsoft.AppConfiguration/stable/2020-06-01",
+		//	SwaggerDirectory: apiSpecsPath + "/specification/attestation/resource-manager/Microsoft.Attestation/stable/2020-10-01",
 		//	SwaggerFiles: []string{
-		//		"appconfiguration.json",
+		//		"attestation.json",
 		//	},
 		//},
+
+		// AppConfiguration
+		{
+			RootNamespace:    "Pandora.Definitions.ResourceManager",
+			ServiceName:      "AppConfiguration",
+			ApiVersion:       "2020-06-01",
+			OutputDirectory:  "../../generated/pandora-definitions",
+			SwaggerDirectory: apiSpecsPath + "/specification/appconfiguration/resource-manager/Microsoft.AppConfiguration/stable/2020-06-01",
+			SwaggerFiles: []string{
+				"appconfiguration.json",
+			},
+		},
 
 		// Batch
 		//{
@@ -91,29 +91,69 @@ func main() {
 		//	},
 		//},
 
+		// Cosmos
+		//{
+		//	RootNamespace:    "Pandora.Definitions.ResourceManager",
+		//	ServiceName:      "Cosmosdb",
+		//	ApiVersion:       "2020-12-01",
+		//	OutputDirectory:  "../../generated/pandora-definitions",
+		//	// swagger/specification/cosmos-db/resource-manager/Microsoft.DocumentDB/stable/2021-01-15/cosmos-db.json
+		//	SwaggerDirectory: apiSpecsPath + "/specification/cosmos-db/resource-manager/Microsoft.DocumentDB/stable/2021-01-15",
+		//	SwaggerFiles: []string{
+		//		"cosmos-db.json",
+		//		"notebook.json",
+		//		"privateEndpointConnection.json",
+		//		"privateLinkResources.json",
+		//	},
+		//},
+
 		// Data Protection (PSql)
-		{
-			RootNamespace:    "Pandora.Definitions.ResourceManager",
-			ServiceName:      "DataProtection",
-			ApiVersion:       "2021-01-01",
-			OutputDirectory:  "../../generated/pandora-definitions",
-			SwaggerDirectory: apiSpecsPath + "/specification/dataprotection/resource-manager/Microsoft.DataProtection/stable/2021-01-01",
-			SwaggerFiles: []string{
-				"dataprotection.json",
-			},
-		},
+		//{
+		//	RootNamespace:    "Pandora.Definitions.ResourceManager",
+		//	ServiceName:      "DataProtection",
+		//	ApiVersion:       "2021-01-01",
+		//	OutputDirectory:  "../../generated/pandora-definitions",
+		//	SwaggerDirectory: apiSpecsPath + "/specification/dataprotection/resource-manager/Microsoft.DataProtection/stable/2021-01-01",
+		//	SwaggerFiles: []string{
+		//		"dataprotection.json",
+		//	},
+		//},
+
+		// Healthcare APIS
+		//{
+		//	RootNamespace:    "Pandora.Definitions.ResourceManager",
+		//	ServiceName:      "HealthcareApis",
+		//	ApiVersion:       "2021-01-01",
+		//	OutputDirectory:  "../../generated/pandora-definitions",
+		//	SwaggerDirectory: apiSpecsPath + "/specification/healthcareapis/resource-manager/Microsoft.HealthcareApis/stable/2021-01-11",
+		//	SwaggerFiles: []string{
+		//		"healthcare-apis.json",
+		//	},
+		//},
+
+		// Logic
+		//{
+		//	RootNamespace:    "Pandora.Definitions.ResourceManager",
+		//	ServiceName:      "Logic",
+		//	ApiVersion:       "2021-01-01",
+		//	OutputDirectory:  "../../generated/pandora-definitions",
+		//	SwaggerDirectory: apiSpecsPath + "/specification/logic/resource-manager/Microsoft.Logic/stable/2019-05-01",
+		//	SwaggerFiles: []string{
+		//		"logic.json",
+		//	},
+		//},
 
 		// Network (old)
-		{
-			RootNamespace:    "Pandora.Definitions.ResourceManager",
-			ServiceName:      "Network",
-			ApiVersion:       "2017-11-01",
-			OutputDirectory:  "../../generated/pandora-definitions",
-			SwaggerDirectory: apiSpecsPath + "/specification/network/resource-manager/Microsoft.Network/stable/2017-11-01",
-			SwaggerFiles: []string{
-				"publicIpAddress.json",
-			},
-		},
+		//{
+		//	RootNamespace:    "Pandora.Definitions.ResourceManager",
+		//	ServiceName:      "Network",
+		//	ApiVersion:       "2017-11-01",
+		//	OutputDirectory:  "../../generated/pandora-definitions",
+		//	SwaggerDirectory: apiSpecsPath + "/specification/network/resource-manager/Microsoft.Network/stable/2017-11-01",
+		//	SwaggerFiles: []string{
+		//		"publicIpAddress.json",
+		//	},
+		//},
 
 		// Media
 		//{
@@ -159,56 +199,56 @@ func main() {
 		//	OutputDirectory:  "../../generated/pandora-definitions",
 		//	SwaggerDirectory: apiSpecsPath + "/specification/network/resource-manager/Microsoft.Network/stable/2020-08-01",
 		//	SwaggerFiles: []string{
-		//		"applicationGateway.json",
-		//		"applicationSecurityGroup.json",
-		//		"availableDelegations.json",
-		//		"availableServiceAliases.json",
-		//		"azureFirewall.json",
-		//		"azureFirewallFqdnTag.json",
-		//		"azureWebCategory.json",
-		//		"bastionHost.json",
-		//		"checkDnsAvailability.json",
-		//		"cloudServiceNetworkInterface.json",
-		//		"cloudServicePublicIpAddress.json",
-		//		"customIpPrefix.json",
-		//		"ddosCustomPolicy.json",
-		//		"ddosProtectionPlan.json",
-		//		"dscpConfiguration.json",
-		//		"endpointService.json",
-		//		"expressRouteCircuit.json",
-		//		"expressRouteCrossConnection.json",
-		//		"expressRoutePort.json",
-		//		"firewallPolicy.json",
-		//		"ipAllocation.json",
-		//		"ipGroups.json",
-		//		"loadBalancer.json",
-		//		"natGateway.json",
-		//		"network.json",
+		//		//"applicationGateway.json",
+		//		//"applicationSecurityGroup.json",
+		//		//"availableDelegations.json",
+		//		//"availableServiceAliases.json",
+		//		//"azureFirewall.json",
+		//		//"azureFirewallFqdnTag.json",
+		//		//"azureWebCategory.json",
+		//		//"bastionHost.json",
+		//		//"checkDnsAvailability.json",
+		//		//"cloudServiceNetworkInterface.json",
+		//		//"cloudServicePublicIpAddress.json",
+		//		//"customIpPrefix.json",
+		//		//"ddosCustomPolicy.json",
+		//		//"ddosProtectionPlan.json",
+		//		//"dscpConfiguration.json",
+		//		//"endpointService.json",
+		//		//"expressRouteCircuit.json",
+		//		//"expressRouteCrossConnection.json",
+		//		//"expressRoutePort.json",
+		//		//"firewallPolicy.json",
+		//		//"ipAllocation.json",
+		//		//"ipGroups.json",
+		//		//"loadBalancer.json",
+		//		//"natGateway.json",
+		//		//"network.json",
 		//		"networkInterface.json",
-		//		"networkProfile.json",
-		//		"networkSecurityGroup.json",
-		//		"networkVirtualAppliance.json",
-		//		"networkWatcher.json",
-		//		"operation.json",
-		//		"privateEndpoint.json",
-		//		"privateLinkService.json",
-		//		"publicIpAddress.json",
-		//		"publicIpPrefix.json",
-		//		"routeFilter.json",
-		//		"routeTable.json",
-		//		"securityPartnerProvider.json",
-		//		"serviceCommunity.json",
-		//		"serviceEndpointPolicy.json",
-		//		"serviceTags.json",
-		//		"usage.json",
-		//		"virtualNetwork.json",
-		//		"virtualNetworkGateway.json",
-		//		"virtualNetworkTap.json",
-		//		"virtualRouter.json",
-		//		"virtualWan.json",
-		//		"vmssNetworkInterface.json",
-		//		"vmssPublicIpAddress.json",
-		//		"webapplicationfirewall.json",
+		//		//"networkProfile.json",
+		//		//"networkSecurityGroup.json",
+		//		//"networkVirtualAppliance.json",
+		//		//"networkWatcher.json",
+		//		//"operation.json",
+		//		//"privateEndpoint.json",
+		//		//"privateLinkService.json",
+		//		//"publicIpAddress.json",
+		//		//"publicIpPrefix.json",
+		//		//"routeFilter.json",
+		//		//"routeTable.json",
+		//		//"securityPartnerProvider.json",
+		//		//"serviceCommunity.json",
+		//		//"serviceEndpointPolicy.json",
+		//		//"serviceTags.json",
+		//		//"usage.json",
+		//		//"virtualNetwork.json",
+		//		//"virtualNetworkGateway.json",
+		//		//"virtualNetworkTap.json",
+		//		//"virtualRouter.json",
+		//		//"virtualWan.json",
+		//		//"vmssNetworkInterface.json",
+		//		//"vmssPublicIpAddress.json",
+		//		//"webapplicationfirewall.json",
 		//	},
 		//},
 	}
@@ -234,6 +274,7 @@ type RunInput struct {
 func run(input RunInput) error {
 	debug := strings.TrimSpace(os.ExpandEnv("DEBUG")) != ""
 	permissions := os.FileMode(0777)
+	// todo - Don't fix this or delete here, or we'll delete everything we've done up to now
 	if err := os.MkdirAll(input.OutputDirectory, permissions); os.IsExist(err) {
 		if debug {
 			log.Printf("Removing existing Directory at %q", input.OutputDirectory)
@@ -263,6 +304,7 @@ func run(input RunInput) error {
 			generator := generator.NewPandoraDefinitionGenerator(input.RootNamespace, input.ServiceName, input.ApiVersion, debug)
 			outputDirectory := generator.RecommendedWorkingDirectory(input.OutputDirectory, resourceName)
 			os.MkdirAll(outputDirectory, permissions)
+			// TODO - Need to delete api path here if it already exists.
 			if err := generator.Generate(resourceName, resource, outputDirectory); err != nil {
 				return fmt.Errorf("generating %s: %+v", resourceName, err)
 			}

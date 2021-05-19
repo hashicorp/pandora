@@ -191,6 +191,16 @@ func (d *SwaggerDefinition) constantsForModel(input spec.Schema) (*map[string]mo
 			}
 		}
 	}
+
+	// Some models are just Enums
+	if len(input.Enum) > 0 {
+		constant, err := mapConstant(input)
+		if err != nil {
+			return nil, fmt.Errorf("parsing constant: %+v", err)
+		}
+		output[constant.name] = constant.details
+	}
+
 	return &output, nil
 }
 
@@ -199,31 +209,42 @@ func (d *SwaggerDefinition) fieldsForModel(modelName string, input spec.Schema, 
 	for k, v := range constants {
 		allConstants[k] = v
 	}
+
 	fields := make(map[string]models.FieldDefinition)
+
+	// This model might just be an Enum list
+	if input.Type != nil && input.Type[0] == "string" && len(input.Enum) > 0 {
+		constant := models.ConstantDetails{
+			Values: map[string]string{},
+		}
+		for _, v := range input.Enum {
+			constant.Values[v.(string)] = v.(string)
+		}
+		allConstants[modelName] = constant
+	}
 
 	// models can inherit from other models, so we first need to pull those fields
 	for _, parent := range input.AllOf {
 		// these _should_ all be references, if they're not raise an error
 		fragmentName := fragmentNameFromReference(parent.Ref)
-		if fragmentName == nil {
-			return nil, nil, fmt.Errorf("missing fragment name for %+v", parent)
-		}
+		if fragmentName != nil {
+			//return nil, nil, fmt.Errorf("missing fragment name for %+v", parent)
+			// these _should_ all be top-level references..
+			model, err := d.findTopLevelModel(*fragmentName)
+			if err != nil {
+				return nil, nil, fmt.Errorf("retrieving model for inherited type %q: %+v", *fragmentName, err)
+			}
 
-		// these _should_ all be top-level references..
-		model, err := d.findTopLevelModel(*fragmentName)
-		if err != nil {
-			return nil, nil, fmt.Errorf("retrieving model for inherited type %q: %+v", *fragmentName, err)
-		}
-
-		inheritedConstants, inheritedFields, err := d.fieldsForModel(*fragmentName, *model, input.Required, constants)
-		if err != nil {
-			return nil, nil, fmt.Errorf("retrieving fields for inherited type %q: %+v", *fragmentName, err)
-		}
-		for k, v := range *inheritedConstants {
-			allConstants[k] = v
-		}
-		for k, v := range *inheritedFields {
-			fields[k] = v
+			inheritedConstants, inheritedFields, err := d.fieldsForModel(*fragmentName, *model, input.Required, constants)
+			if err != nil {
+				return nil, nil, fmt.Errorf("retrieving fields for inherited type %q: %+v", *fragmentName, err)
+			}
+			for k, v := range *inheritedConstants {
+				allConstants[k] = v
+			}
+			for k, v := range *inheritedFields {
+				fields[k] = v
+			}
 		}
 	}
 
@@ -478,10 +499,6 @@ func mapField(parentModelName, jsonName string, value spec.Schema, isRequired bo
 		allConstants[k] = v
 	}
 
-	if jsonName == "ipTags" {
-		jsonName = "ipTags"
-	}
-
 	field := models.FieldDefinition{
 		Required:          isRequired,
 		ReadOnly:          value.ReadOnly, // TODO: generator should handle this in some manner?
@@ -507,7 +524,7 @@ func mapField(parentModelName, jsonName string, value spec.Schema, isRequired bo
 	}
 
 	// models can also be nested within properties
-	if len(value.Enum) > 0 {
+	if len(value.Enum) > 0 && len(value.Type) > 0 && value.Type[0] != "string" {
 		inlinedModel := inlinedModelName(parentModelName, jsonName)
 		field.Type = models.Object
 		field.ConstantReference = &inlinedModel
@@ -707,7 +724,7 @@ func mapField(parentModelName, jsonName string, value spec.Schema, isRequired bo
 	// Some properties only specify AllOf, with no additional data, so...
 	if len(value.Type) == 0 && value.AdditionalProperties == nil && len(value.AllOf) > 0 {
 		field.Type = models.Object
-		fragmentName := fragmentNameFromReference(value.AllOf[0].Ref) // Yuk, this needs some work for AllOf > 1
+		fragmentName := fragmentNameFromReference(value.AllOf[0].Ref) // TODO - can AllOf > 1?
 		field.ModelReference = fragmentName
 	}
 

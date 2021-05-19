@@ -66,8 +66,10 @@ func (g PandoraDefinitionGenerator) Generate(resourceName string, resource model
 			return fmt.Errorf("generating code for model %q in %q: %+v", modelName, namespace, err)
 		}
 		fileName := path.Join(workingDirectory, fmt.Sprintf("Model-%s.cs", modelName))
-		if err := g.writeToFile(fileName, *code); err != nil {
-			return fmt.Errorf("generating code for %q: %+v", modelName, err)
+		if *code != "" {
+			if err := g.writeToFile(fileName, *code); err != nil {
+				return fmt.Errorf("generating code for %q: %+v", modelName, err)
+			}
 		}
 	}
 
