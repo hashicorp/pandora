@@ -476,13 +476,30 @@ func mapConstant(input spec.Schema) (*parsedConstant, error) {
 
 	keysAndValues := make(map[string]string)
 	for i, raw := range input.Enum {
-		value, ok := raw.(string)
-		if !ok {
-			return nil, fmt.Errorf("expected a string but got %+v for the %d value for %q", raw, i, *name)
+		if input.Type.Contains("string") {
+			value, ok := raw.(string)
+			if !ok {
+				return nil, fmt.Errorf("expected a string but got %+v for the %d value for %q", raw, i, *name)
+			}
+
+			normalizedName := cleanup.NormalizeName(value)
+			keysAndValues[normalizedName] = value
 		}
 
-		normalizedName := cleanup.NormalizeName(value)
-		keysAndValues[normalizedName] = value
+		if input.Type.Contains("integer") {
+			// this gets parsed out as a float64 even though it's an Integer :upside_down_smile:
+			value, ok := raw.(float64)
+			if !ok {
+				return nil, fmt.Errorf("expected an integer but got %+v for the %d value for %q", raw, i, *name)
+			}
+
+			// TODO: support as non-string types in time..
+
+			val := fmt.Sprintf("%.0f", value)
+			keysAndValues[val] = val
+		}
+
+		// TODO: also floats apparently, presumably booleans too?
 	}
 
 	return &parsedConstant{
@@ -639,7 +656,7 @@ func mapField(parentModelName, jsonName string, value spec.Schema, isRequired bo
 	}
 
 	// Handle cases where there are _only_ additionalProperties?
-	if value.AdditionalProperties != nil && value.AdditionalProperties.Schema != nil{
+	if value.AdditionalProperties != nil && value.AdditionalProperties.Schema != nil {
 		if len(value.AdditionalProperties.Schema.Type) > 0 {
 			field.Type = normalizeType(value.AdditionalProperties.Schema.Type[0])
 
