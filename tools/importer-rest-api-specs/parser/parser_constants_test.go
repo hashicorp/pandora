@@ -191,7 +191,7 @@ func TestParseConstantsIntegersTopLevelAsStrings(t *testing.T) {
 	}
 	v, ok = favouriteTable.Values["3"]
 	if !ok {
-		t.Fatalf("resource.Constants['TableNumber'] didn't contain the key 'Panda'")
+		t.Fatalf("resource.Constants['TableNumber'] didn't contain the key '3'")
 	}
 	if v != "3" {
 		t.Fatalf("expected the value for resource.Constants['TableNumber'].Values['3'] to be '3' but got %q", v)
