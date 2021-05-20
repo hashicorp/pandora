@@ -418,7 +418,7 @@ func TestParseConstantsFloatsTopLevelAsFloats(t *testing.T) {
 		t.Fatalf("expected 1 constant but got %d", len(resource.Constants))
 	}
 	if len(resource.Models) != 2 {
-		t.Fatalf("expected 4 models but got %d", len(resource.Models))
+		t.Fatalf("expected 2 models but got %d", len(resource.Models))
 	}
 	if len(resource.Operations) != 1 {
 		t.Fatalf("expected 1 operation but got %d", len(resource.Operations))
