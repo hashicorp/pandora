@@ -372,6 +372,11 @@ func (d *SwaggerDefinition) findModelsForModel(name string, input spec.Schema, c
 				fragmentName = fragmentNameFromReference(propVal.AdditionalProperties.Schema.Ref)
 			}
 		}
+		if len(propVal.Type) != 0 && propVal.Type[0] == "array" {
+			if propVal.Items.Schema != nil {
+				fragmentName = fragmentNameFromReference(propVal.Items.Schema.Ref)
+			}
+		}
 		if fragmentName != nil {
 			// referenced constants are pulled out elsewhere
 			if isConstant(constants, *fragmentName) {

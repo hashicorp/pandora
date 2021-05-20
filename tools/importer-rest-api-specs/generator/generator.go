@@ -167,9 +167,11 @@ func (g PandoraDefinitionGenerator) codeForModel(namespace string, modelName str
 		code = append(code, *fieldCode)
 	}
 
-	out := fmt.Sprintf(`using System.Collections.Generic;
+	out := fmt.Sprintf(`using System;
+using System.Collections.Generic;
 using System.Text.Json.Serialization;
 using Pandora.Definitions.Attributes;
+using Pandora.Definitions.CustomTypes;
 
 namespace %[1]s
 {
@@ -301,6 +303,7 @@ func (g PandoraDefinitionGenerator) codeForOperation(namespace string, operation
 	return fmt.Sprintf(`using Pandora.Definitions.Operations;
 using System.Collections.Generic;
 using System.Net;
+using Pandora.Definitions.Interfaces;
 
 namespace %[1]s
 {
