@@ -46,6 +46,9 @@ func (d *SwaggerDefinition) Parse(serviceName, apiVersion string) (*models.Azure
 		}
 	}
 
+	// remove any models we needed to process enums before Normalising
+	resources = removeModelsWithoutFields(resources)
+
 	// finally we should go through and normalize this data
 	resources = normalizeResources(resources)
 

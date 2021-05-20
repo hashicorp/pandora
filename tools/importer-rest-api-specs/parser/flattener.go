@@ -37,6 +37,9 @@ func Load(directory string, fileName string, debugLogging bool) (*SwaggerDefinit
 		return nil, fmt.Errorf("flattening swagger file with references %q: %+v", filePath, err)
 	}
 
+	swaggerSpecWithReferences := swaggerDocWithReferences.Analyzer
+	swaggerSpecWithReferencesRaw := swaggerDocWithReferences.Spec()
+
 	expandedSwaggerDoc, err := loads.Spec(filePath)
 	if err != nil {
 		return nil, fmt.Errorf("loading swagger file %q: %+v", filePath, err)
@@ -44,7 +47,7 @@ func Load(directory string, fileName string, debugLogging bool) (*SwaggerDefinit
 	flattenedExpandedOpts := &analysis.FlattenOpts{
 		Minimal:      false,
 		Verbose:      true,
-		Expand:       true,
+		Expand:       false,
 		RemoveUnused: false,
 		//ContinueOnError: true,
 
@@ -56,16 +59,16 @@ func Load(directory string, fileName string, debugLogging bool) (*SwaggerDefinit
 	}
 
 	serviceName := strings.Title(strings.TrimSuffix(fileName, ".json"))
-	swaggerSpecExpanded := expandedSwaggerDoc.Analyzer
-	swaggerSpecWithReferences := swaggerDocWithReferences.Analyzer
 
-	swaggerSpecRaw := expandedSwaggerDoc.Spec()
+	swaggerSpecExpanded := expandedSwaggerDoc.Analyzer
+	swaggerSpecExpandedRaw := expandedSwaggerDoc.Spec()
 
 	return &SwaggerDefinition{
 		Name:                      serviceName,
 		debugLog:                  debugLogging,
 		swaggerSpecExpanded:       swaggerSpecExpanded,
 		swaggerSpecWithReferences: swaggerSpecWithReferences,
-		swaggerSpecRaw:            swaggerSpecRaw,
+		swaggerSpecRaw:            swaggerSpecWithReferencesRaw,
+		swaggerSpecExtendedRaw:    swaggerSpecExpandedRaw,
 	}, nil
 }

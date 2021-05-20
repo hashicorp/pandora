@@ -117,3 +117,17 @@ func (n normalizer) resourceIds(input map[string]string) map[string]string {
 
 	return output
 }
+
+func removeModelsWithoutFields(input map[string]models.AzureApiResource) map[string]models.AzureApiResource {
+	output := make(map[string]models.AzureApiResource)
+	for resourceName, resource := range input {
+		for modelName, model := range resource.Models {
+			if len(model.Fields) == 0 {
+				delete(resource.Models, modelName)
+			}
+		}
+		output[resourceName] = resource
+	}
+
+	return output
+}
