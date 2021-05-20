@@ -280,7 +280,7 @@ func run(input RunInput) error {
 	os.RemoveAll(pathForAPI)
 	if err := os.MkdirAll(input.OutputDirectory, permissions); err != nil {
 		if debug {
-			log.Printf("Failed reating base output Directory at %q: %+v", input.OutputDirectory, err)
+			log.Printf("Failed removing existing base output Directory at %q: %+v", input.OutputDirectory, err)
 		}
 	}
 	if debug {
