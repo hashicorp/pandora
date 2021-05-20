@@ -486,6 +486,9 @@ func dotNetTypeNameForSimpleType(input models.FieldDefinitionType) (*string, err
 	case models.DateTime:
 		return nilableType("DateTime")
 
+	case models.Float:
+		return nilableType("float")
+
 	case models.Integer:
 		return nilableType("int")
 

@@ -24,7 +24,7 @@
           "Discriminator"
         ],
         "operationId": "Discriminator_Test",
-        "description": "Tests parsing of a simple model.",
+        "description": "Tests parsing of a model containing a Constant",
         "parameters": [
           {
             "$ref": "#/parameters/SubscriptionIdParameter"
@@ -40,16 +40,16 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/Example"
+              "$ref": "#/definitions/ExampleWrapper"
             },
-            "description": "Wrapper class."
+            "description": "Wrapper class containing a Constant."
           }
         ],
         "responses": {
           "200": {
             "description": "Success.",
             "schema": {
-              "$ref": "#/definitions/Example"
+              "$ref": "#/definitions/ExampleWrapper"
             }
           }
         }
@@ -57,39 +57,47 @@
     }
   },
   "definitions": {
-    "Example": {
+    "ExampleWrapper": {
       "description": "The Resource definition.",
       "properties": {
-        "name": {
-          "type": "string",
-          "description": "the name of this thing"
+        "multiple": {
+          "description": "List of people.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Person"
+          }
         },
-        "age": {
+        "single": {
+          "$ref": "#/definitions/Person"
+        }
+      },
+      "required": [
+        "single"
+      ],
+      "title": "ExampleWrapper",
+      "type": "object",
+      "x-ms-azure-resource": true
+    },
+    "Person": {
+      "properties": {
+        "favouriteTable": {
+          "description": "Preferred Table number.",
+          "enum": [
+            1,
+            2,
+            3
+          ],
           "type": "integer",
-          "description": "the age of this thing"
-        },
-        "enabled": {
-          "type": "boolean",
-          "description": "true or false"
-        },
-        "height": {
-          "type": "number",
-          "format": "float",
-          "description": "the height of this in cm"
-        },
-        "tags": {
-          "type": "object",
-          "description": "a key value pair",
-          "additionalProperties": {
-            "description": "the value",
-            "type": "string"
+          "x-ms-enum": {
+            "name": "TableNumber",
+            "modelAsString": false
           }
         }
       },
       "required": [
-        "name"
+        "favouriteTable"
       ],
-      "title": "Example",
+      "title": "Person",
       "type": "object",
       "x-ms-azure-resource": true
     }

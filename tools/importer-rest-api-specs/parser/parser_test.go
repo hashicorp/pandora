@@ -20,7 +20,7 @@ import (
 
 const swaggerDirectory = "../../../swagger/specification"
 
-func TestParser(t *testing.T) {
+func TestAllSwaggersUsingParser(t *testing.T) {
 	services, err := findResourceManagerServices(swaggerDirectory)
 	if err != nil {
 		t.Fatal(err)
@@ -49,7 +49,7 @@ func TestParser(t *testing.T) {
 	}
 }
 
-func TestValidateAllSwaggersContainTypes(t *testing.T) {
+func TestAllSwaggersValidateAllContainTypes(t *testing.T) {
 	services, err := findResourceManagerServices(swaggerDirectory)
 	if err != nil {
 		t.Fatal(err)
@@ -80,7 +80,7 @@ func TestValidateAllSwaggersContainTypes(t *testing.T) {
 	}
 }
 
-func TestValidateFindOAIGenParserBug(t *testing.T) {
+func TestAllSwaggersValidateFindOAIGenParserBug(t *testing.T) {
 	services, err := findResourceManagerServices(swaggerDirectory)
 	if err != nil {
 		t.Fatal(err)
@@ -109,7 +109,7 @@ func TestValidateFindOAIGenParserBug(t *testing.T) {
 	}
 }
 
-func TestValidateFindUnknownBugs(t *testing.T) {
+func TestAllSwaggersValidateFindUnknownBugs(t *testing.T) {
 	services, err := findResourceManagerServices(swaggerDirectory)
 	if err != nil {
 		t.Fatal(err)

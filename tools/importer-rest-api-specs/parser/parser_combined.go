@@ -215,7 +215,8 @@ func (d *SwaggerDefinition) fieldsForModel(modelName string, input spec.Schema, 
 	// This model might just be an Enum list
 	if input.Type != nil && input.Type[0] == "string" && len(input.Enum) > 0 {
 		constant := models.ConstantDetails{
-			Values: map[string]string{},
+			Values:    map[string]string{},
+			FieldType: models.String,
 		}
 		for _, v := range input.Enum {
 			constant.Values[v.(string)] = v.(string)
@@ -476,19 +477,37 @@ func mapConstant(input spec.Schema) (*parsedConstant, error) {
 
 	keysAndValues := make(map[string]string)
 	for i, raw := range input.Enum {
-		value, ok := raw.(string)
-		if !ok {
-			return nil, fmt.Errorf("expected a string but got %+v for the %d value for %q", raw, i, *name)
+		if input.Type.Contains("string") {
+			value, ok := raw.(string)
+			if !ok {
+				return nil, fmt.Errorf("expected a string but got %+v for the %d value for %q", raw, i, *name)
+			}
+
+			normalizedName := cleanup.NormalizeName(value)
+			keysAndValues[normalizedName] = value
 		}
 
-		normalizedName := cleanup.NormalizeName(value)
-		keysAndValues[normalizedName] = value
+		if input.Type.Contains("integer") {
+			// this gets parsed out as a float64 even though it's an Integer :upside_down_smile:
+			value, ok := raw.(float64)
+			if !ok {
+				return nil, fmt.Errorf("expected an integer but got %+v for the %d value for %q", raw, i, *name)
+			}
+
+			// TODO: support as non-string types in time..
+
+			val := fmt.Sprintf("%.0f", value)
+			keysAndValues[val] = val
+		}
+
+		// TODO: also floats apparently, presumably booleans too?
 	}
 
 	return &parsedConstant{
 		name: *name,
 		details: models.ConstantDetails{
-			Values: keysAndValues,
+			Values:    keysAndValues,
+			FieldType: models.String, // TODO: support for other types
 		},
 	}, nil
 }
@@ -639,7 +658,7 @@ func mapField(parentModelName, jsonName string, value spec.Schema, isRequired bo
 	}
 
 	// Handle cases where there are _only_ additionalProperties?
-	if value.AdditionalProperties != nil && value.AdditionalProperties.Schema != nil{
+	if value.AdditionalProperties != nil && value.AdditionalProperties.Schema != nil {
 		if len(value.AdditionalProperties.Schema.Type) > 0 {
 			field.Type = normalizeType(value.AdditionalProperties.Schema.Type[0])
 
@@ -784,13 +803,16 @@ func isConstant(constants map[string]models.ConstantDetails, name string) bool {
 
 func mergeConstants(new models.ConstantDetails, existing *models.ConstantDetails) models.ConstantDetails {
 	vals := make(map[string]string)
+	fieldType := models.String // safe default
 	if existing != nil {
 		vals = existing.Values
+		fieldType = existing.FieldType
 	}
 	for key, value := range new.Values {
 		vals[key] = value
 	}
 	return models.ConstantDetails{
-		Values: vals,
+		Values:    vals,
+		FieldType: fieldType,
 	}
 }

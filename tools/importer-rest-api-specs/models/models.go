@@ -72,7 +72,8 @@ type OperationOption struct {
 }
 
 type ConstantDetails struct {
-	Values map[string]string
+	Values    map[string]string
+	FieldType FieldDefinitionType
 }
 
 type ModelDetails struct {
@@ -112,6 +113,9 @@ const (
 	Object     FieldDefinitionType = "object"
 	String     FieldDefinitionType = "string"
 	Tags       FieldDefinitionType = "tags"
+
+	// TODO: support this in all of the places
+	Float FieldDefinitionType = "float"
 
 	Unknown FieldDefinitionType = "unknown"
 )

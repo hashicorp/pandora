@@ -46,8 +46,8 @@ func TestParseModelSingleTopLevel(t *testing.T) {
 	if !ok {
 		t.Fatalf("the Model `Example` was not found")
 	}
-	if len(example.Fields) != 4 {
-		t.Fatalf("expected example.Fields to have 4 fields but got %d", len(example.Fields))
+	if len(example.Fields) != 5 {
+		t.Fatalf("expected example.Fields to have 5 fields but got %d", len(example.Fields))
 	}
 
 	name, ok := example.Fields["Name"]
@@ -81,6 +81,17 @@ func TestParseModelSingleTopLevel(t *testing.T) {
 	}
 	if enabled.JsonName != "enabled" {
 		t.Fatalf("expected example.Fields['Enabled'].JsonName to be 'enabled' but got %q", enabled.JsonName)
+	}
+
+	height, ok := example.Fields["Height"]
+	if !ok {
+		t.Fatalf("example.Fields['Height'] was missing")
+	}
+	if height.Type != models.Float {
+		t.Fatalf("expected example.Fields['Height'] to be a float but got %q", string(height.Type))
+	}
+	if height.JsonName != "height" {
+		t.Fatalf("expected example.Fields['Height'].JsonName to be 'height' but got %q", height.JsonName)
 	}
 
 	tags, ok := example.Fields["Tags"]
