@@ -26,7 +26,7 @@ func (d *SwaggerDefinition) findOperationsForTag(tag *string, uriToDetails map[s
 			}
 
 			url := newOperationUri(uri)
-			if !url.isArmResourceId() || url.shouldBeIgnored() {
+			if url.shouldBeIgnored() {
 				continue
 			}
 

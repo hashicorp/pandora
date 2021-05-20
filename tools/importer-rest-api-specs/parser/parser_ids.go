@@ -134,8 +134,11 @@ func (d *SwaggerDefinition) findResourceIdsForTag(tag *string) (*parsedResourceI
 		uri := newOperationUri(v)
 		rid := parsedResourceIdForOperationUri(uri)
 
+		// copy the key so we don't capture the key being iterated upon
+		key := k
+
 		urisToDetails[uri.normalizedUri()] = idDetails{
-			resourceIdName: &k,
+			resourceIdName: &key,
 			suffix:         rid.suffix,
 		}
 	}
