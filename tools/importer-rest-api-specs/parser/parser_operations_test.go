@@ -581,42 +581,42 @@ func TestParseOperationSingleWithMultipleTags(t *testing.T) {
 		t.Fatalf("expected no ResourceIds but got %d", len(hello.ResourceIds))
 	}
 
-	world, ok := hello.Operations["HeadWorld"]
+	things, ok := hello.Operations["HeadThings"]
 	if !ok {
-		t.Fatalf("no resources were output with the name HeadWorld")
+		t.Fatalf("no resources were output with the name HeadThings")
 	}
-	if world.Method != "HEAD" {
-		t.Fatalf("expected a HEAD operation but got %q", world.Method)
+	if things.Method != "HEAD" {
+		t.Fatalf("expected a HEAD operation but got %q", things.Method)
 	}
-	if len(world.ExpectedStatusCodes) != 1 {
-		t.Fatalf("expected 1 status code but got %d", len(world.ExpectedStatusCodes))
+	if len(things.ExpectedStatusCodes) != 1 {
+		t.Fatalf("expected 1 status code but got %d", len(things.ExpectedStatusCodes))
 	}
-	if world.ExpectedStatusCodes[0] != 200 {
-		t.Fatalf("expected the status code to be 200 but got %d", world.ExpectedStatusCodes[0])
+	if things.ExpectedStatusCodes[0] != 200 {
+		t.Fatalf("expected the status code to be 200 but got %d", things.ExpectedStatusCodes[0])
 	}
-	if world.RequestObjectName != nil {
-		t.Fatalf("expected no request object but got %q", *world.RequestObjectName)
+	if things.RequestObjectName != nil {
+		t.Fatalf("expected no request object but got %q", *things.RequestObjectName)
 	}
-	if world.ResponseObjectName != nil {
-		t.Fatalf("expected no response object but got %q", *world.ResponseObjectName)
+	if things.ResponseObjectName != nil {
+		t.Fatalf("expected no response object but got %q", *things.ResponseObjectName)
 	}
-	if world.ResourceIdName != nil {
-		t.Fatalf("expected no ResourceId but got %q", *world.ResourceIdName)
+	if things.ResourceIdName != nil {
+		t.Fatalf("expected no ResourceId but got %q", *things.ResourceIdName)
 	}
-	if world.UriSuffix == nil {
-		t.Fatal("expected world.UriSuffix to have a value")
+	if things.UriSuffix == nil {
+		t.Fatal("expected things.UriSuffix to have a value")
 	}
-	if *world.UriSuffix != "/things" {
-		t.Fatalf("expected world.UriSuffix to be `/things` but got %q", *world.UriSuffix)
+	if *things.UriSuffix != "/things" {
+		t.Fatalf("expected things.UriSuffix to be `/things` but got %q", *things.UriSuffix)
 	}
-	if world.LongRunning {
+	if things.LongRunning {
 		t.Fatal("expected a non-long running operation but it was long running")
 	}
 
 	// then validate it in Other too
 	other, ok := result.Resources["Other"]
 	if !ok {
-		t.Fatalf("no resources were output with the tag Hello")
+		t.Fatalf("no resources were output with the tag Other")
 	}
 
 	if len(hello.Constants) != 0 {
@@ -632,35 +632,37 @@ func TestParseOperationSingleWithMultipleTags(t *testing.T) {
 		t.Fatalf("expected no ResourceIds but got %d", len(hello.ResourceIds))
 	}
 
-	world, ok = other.Operations["HeadWorld"]
+	// whilst the operation name should be `HeadThings`, since this is another Tag
+	// it's intentionally prefixed for when things cross boundaries (to avoid conflicts)
+	things, ok = other.Operations["HelloHeadThings"]
 	if !ok {
-		t.Fatalf("no resources were output with the name HeadWorld")
+		t.Fatalf("no resources were output with the name HelloHeadThings")
 	}
-	if world.Method != "HEAD" {
-		t.Fatalf("expected a HEAD operation but got %q", world.Method)
+	if things.Method != "HEAD" {
+		t.Fatalf("expected a HEAD operation but got %q", things.Method)
 	}
-	if len(world.ExpectedStatusCodes) != 1 {
-		t.Fatalf("expected 1 status code but got %d", len(world.ExpectedStatusCodes))
+	if len(things.ExpectedStatusCodes) != 1 {
+		t.Fatalf("expected 1 status code but got %d", len(things.ExpectedStatusCodes))
 	}
-	if world.ExpectedStatusCodes[0] != 200 {
-		t.Fatalf("expected the status code to be 200 but got %d", world.ExpectedStatusCodes[0])
+	if things.ExpectedStatusCodes[0] != 200 {
+		t.Fatalf("expected the status code to be 200 but got %d", things.ExpectedStatusCodes[0])
 	}
-	if world.RequestObjectName != nil {
-		t.Fatalf("expected no request object but got %q", *world.RequestObjectName)
+	if things.RequestObjectName != nil {
+		t.Fatalf("expected no request object but got %q", *things.RequestObjectName)
 	}
-	if world.ResponseObjectName != nil {
-		t.Fatalf("expected no response object but got %q", *world.ResponseObjectName)
+	if things.ResponseObjectName != nil {
+		t.Fatalf("expected no response object but got %q", *things.ResponseObjectName)
 	}
-	if world.ResourceIdName != nil {
-		t.Fatalf("expected no ResourceId but got %q", *world.ResourceIdName)
+	if things.ResourceIdName != nil {
+		t.Fatalf("expected no ResourceId but got %q", *things.ResourceIdName)
 	}
-	if world.UriSuffix == nil {
-		t.Fatal("expected world.UriSuffix to have a value")
+	if things.UriSuffix == nil {
+		t.Fatal("expected things.UriSuffix to have a value")
 	}
-	if *world.UriSuffix != "/things" {
-		t.Fatalf("expected world.UriSuffix to be `/things` but got %q", *world.UriSuffix)
+	if *things.UriSuffix != "/things" {
+		t.Fatalf("expected things.UriSuffix to be `/things` but got %q", *things.UriSuffix)
 	}
-	if world.LongRunning {
+	if things.LongRunning {
 		t.Fatal("expected a non-long running operation but it was long running")
 	}
 }
@@ -682,28 +684,29 @@ func TestParseOperationSingleWithNoTag(t *testing.T) {
 		t.Fatalf("expected 1 resource but got %d", len(result.Resources))
 	}
 
-	// this should get parsed out from the OperationId into the tag Hello
-	hello, ok := result.Resources["Hello"]
+	// since there's no tags, the Client name is used (in this case, 'Example')
+	example, ok := result.Resources["Example"]
 	if !ok {
-		t.Fatalf("no resources were output with the tag Hello")
+		t.Fatalf("no resources were output with the tag Example")
 	}
 
-	if len(hello.Constants) != 0 {
-		t.Fatalf("expected no Constants but got %d", len(hello.Constants))
+	if len(example.Constants) != 0 {
+		t.Fatalf("expected no Constants but got %d", len(example.Constants))
 	}
-	if len(hello.Models) != 0 {
-		t.Fatalf("expected no Models but got %d", len(hello.Models))
+	if len(example.Models) != 0 {
+		t.Fatalf("expected no Models but got %d", len(example.Models))
 	}
-	if len(hello.Operations) != 1 {
-		t.Fatalf("expected 1 Operation but got %d", len(hello.Operations))
+	if len(example.Operations) != 1 {
+		t.Fatalf("expected 1 Operation but got %d", len(example.Operations))
 	}
-	if len(hello.ResourceIds) != 0 {
-		t.Fatalf("expected no ResourceIds but got %d", len(hello.ResourceIds))
+	if len(example.ResourceIds) != 0 {
+		t.Fatalf("expected no ResourceIds but got %d", len(example.ResourceIds))
 	}
 
-	world, ok := hello.Operations["HeadWorld"]
+	// since the prefix doesn't match the Tag (since no tag) this gets a combined name
+	world, ok := example.Operations["HelloHeadWorld"]
 	if !ok {
-		t.Fatalf("no resources were output with the name HeadWorld")
+		t.Fatalf("no resources were output with the name HelloHeadWorld")
 	}
 	if world.Method != "HEAD" {
 		t.Fatalf("expected a HEAD operation but got %q", world.Method)
@@ -792,7 +795,7 @@ func TestParseOperationMultipleBasedOnTheSameResourceId(t *testing.T) {
 		t.Fatal("expected a ResourceId but was nil")
 	}
 	if *world.ResourceIdName != "ThingId" {
-		t.Fatalf("expected world.RessourceIdName to be 'Thing' but got %q", *world.ResourceIdName)
+		t.Fatalf("expected world.ResourceIdName to be 'Thing' but got %q", *world.ResourceIdName)
 	}
 	if world.UriSuffix != nil {
 		t.Fatalf("expected world.UriSuffix to be nil but got %q", *world.UriSuffix)
@@ -801,9 +804,9 @@ func TestParseOperationMultipleBasedOnTheSameResourceId(t *testing.T) {
 		t.Fatal("expected a non-long running operation but it was long running")
 	}
 
-	restart, ok := hello.Operations["HeadRestart"]
+	restart, ok := hello.Operations["RestartWorld"]
 	if !ok {
-		t.Fatalf("no resources were output with the name HeadRestart")
+		t.Fatalf("no resources were output with the name RestartWorld")
 	}
 	if restart.Method != "HEAD" {
 		t.Fatalf("expected a HEAD operation but got %q", restart.Method)

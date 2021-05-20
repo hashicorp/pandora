@@ -119,6 +119,8 @@ func (d *SwaggerDefinition) findResourcesForTag(tag *string) (*models.AzureApiRe
 
 func (d *SwaggerDefinition) findTags() []string {
 	tags := make(map[string]struct{})
+
+	// first we go through, assuming there are tags
 	for _, operation := range d.swaggerSpecExpanded.Operations() {
 		for _, details := range operation {
 			for _, tag := range details.Tags {

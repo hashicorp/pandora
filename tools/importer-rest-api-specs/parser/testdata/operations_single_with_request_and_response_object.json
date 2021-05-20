@@ -23,7 +23,7 @@
         "tags": [
           "Hello"
         ],
-        "operationId": "Hello_World",
+        "operationId": "Hello_PutWorld",
         "description": "A HEAD request with no body returned.",
         "parameters": [
           {
@@ -39,7 +39,9 @@
         "responses": {
           "200": {
             "description": "Success.",
-            "$ref": "#/definitions/Example"
+            "schema": {
+              "$ref": "#/definitions/Example"
+            }
           }
         }
       }
