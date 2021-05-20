@@ -10,6 +10,8 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser"
 )
 
+const outputDirectory = "../../generated/pandora-definitions"
+
 func main() {
 	apiSpecsPath := "../../swagger"
 	input := []RunInput{
@@ -274,17 +276,16 @@ type RunInput struct {
 func run(input RunInput) error {
 	debug := strings.TrimSpace(os.ExpandEnv("DEBUG")) != ""
 	permissions := os.FileMode(0777)
-	// todo - Don't fix this or delete here, or we'll delete everything we've done up to now
-	if err := os.MkdirAll(input.OutputDirectory, permissions); os.IsExist(err) {
+	pathForAPI := fmt.Sprintf("%s/%s/%s/v%s", input.OutputDirectory, input.RootNamespace, input.ServiceName, strings.ReplaceAll(input.ApiVersion, "-", "_"))
+	os.RemoveAll(pathForAPI)
+	if err := os.MkdirAll(input.OutputDirectory, permissions); err != nil {
 		if debug {
-			log.Printf("Removing existing Directory at %q", input.OutputDirectory)
+			log.Printf("Failed removing existing base output Directory at %q: %+v", input.OutputDirectory, err)
 		}
-		os.RemoveAll(input.OutputDirectory)
 	}
 	if debug {
 		log.Printf("Creating Directory at %q", input.OutputDirectory)
 	}
-	os.MkdirAll(input.OutputDirectory, permissions)
 
 	for _, file := range input.SwaggerFiles {
 		swaggerFile, err := parser.Load(input.SwaggerDirectory, file, debug)
