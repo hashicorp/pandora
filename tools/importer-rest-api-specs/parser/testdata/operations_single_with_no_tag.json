@@ -1,0 +1,37 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Example",
+    "description": "Example",
+    "version": "2020-01-01"
+  },
+  "host": "management.mysite.com",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "security": [],
+  "securityDefinitions": {},
+  "paths": {
+    "/things": {
+      "head": {
+        "tags": [],
+        "operationId": "Hello_World",
+        "description": "A HEAD request with no body returned.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success."
+          }
+        }
+      }
+    }
+  },
+  "definitions": {},
+  "parameters": {}
+}
