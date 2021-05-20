@@ -391,8 +391,3 @@ func TestParseModelMultipleTopLevelWithList(t *testing.T) {
 		t.Fatalf("expected animalModel.Fields['Age'].JsonName to be 'age' but got %q", animalAge.JsonName)
 	}
 }
-
-func TestParseModelMultipleTopLevelWithInlinedModel(t *testing.T) {
-	// TODO: implement me
-	t.Fail()
-}
