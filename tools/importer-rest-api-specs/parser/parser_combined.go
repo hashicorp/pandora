@@ -457,19 +457,6 @@ func (d *SwaggerDefinition) findTopLevelModel(name string) (*spec.Schema, error)
 		}
 	}
 
-	for _, model := range d.swaggerSpecExpanded.AllDefinitions() {
-		if strings.EqualFold(model.Name, name) {
-			return model.Schema, nil
-		}
-	}
-
-	for _, model := range d.swaggerSpecWithReferences.AllDefinitions() {
-		//for _, model := range d.swaggerSpecExpanded.AllDefinitions()
-		if strings.EqualFold(model.Name, name) {
-			return model.Schema, nil
-		}
-	}
-
 	return nil, fmt.Errorf("model %q was not found", name)
 }
 
@@ -676,8 +663,8 @@ func mapField(parentModelName, jsonName string, value spec.Schema, isRequired bo
 	}
 
 	// Handle cases where there are _only_ additionalProperties?
-	if value.AdditionalProperties != nil && value.AdditionalProperties.Schema != nil{
-		if len(value.AdditionalProperties.Schema.Type) > 0 && field.Type != models.Tags{
+	if value.AdditionalProperties != nil && value.AdditionalProperties.Schema != nil {
+		if len(value.AdditionalProperties.Schema.Type) > 0 && field.Type != models.Tags {
 			field.Type = normalizeType(value.AdditionalProperties.Schema.Type[0])
 
 			if field.Type == models.List {
