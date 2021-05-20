@@ -114,5 +114,8 @@ const (
 	String     FieldDefinitionType = "string"
 	Tags       FieldDefinitionType = "tags"
 
+	// TODO: support this in all of the places
+	Float FieldDefinitionType = "float"
+
 	Unknown FieldDefinitionType = "unknown"
 )

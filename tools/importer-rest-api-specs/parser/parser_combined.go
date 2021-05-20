@@ -803,14 +803,16 @@ func isConstant(constants map[string]models.ConstantDetails, name string) bool {
 
 func mergeConstants(new models.ConstantDetails, existing *models.ConstantDetails) models.ConstantDetails {
 	vals := make(map[string]string)
+	fieldType := models.String // safe default
 	if existing != nil {
 		vals = existing.Values
+		fieldType = existing.FieldType
 	}
 	for key, value := range new.Values {
 		vals[key] = value
 	}
 	return models.ConstantDetails{
 		Values:    vals,
-		FieldType: existing.FieldType,
+		FieldType: fieldType,
 	}
 }
