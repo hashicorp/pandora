@@ -170,7 +170,10 @@ func (g PandoraDefinitionGenerator) codeForModel(namespace string, modelName str
 	for _, fieldName := range sortedFieldNames {
 		// we should skip outputting this field if it's present on the parent
 		fieldInParent := false
-		if parentModel != nil {
+		if parentModel != nil && parentModel.TypeHintValue != nil {
+			// the importer flattens fields from parents/AllOf, since we don't use inheritance for that within the
+			// data layer - as such we only want to skip the fields when the parent type is output, e.g. when there's
+			// a discriminator involved
 			for name := range parentModel.Fields {
 				if strings.EqualFold(name, fieldName) {
 					fieldInParent = true
