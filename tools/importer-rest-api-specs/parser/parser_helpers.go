@@ -54,6 +54,20 @@ func normalizeType(input string) models.FieldDefinitionType {
 }
 
 func parseConstantNameFromField(field spec.Schema) (*string, error) {
+	details, err := parseConstantExtensionFromField(field)
+	if err != nil {
+		return nil, err
+	}
+
+	return &details.name, nil
+}
+
+type constantExtension struct {
+	name          string
+	modelAsString bool
+}
+
+func parseConstantExtensionFromField(field spec.Schema) (*constantExtension, error) {
 	// Constants should always have `x-ms-enum`
 	enumDetailsRaw, ok := field.Extensions["x-ms-enum"]
 	if !ok {
@@ -66,15 +80,28 @@ func parseConstantNameFromField(field spec.Schema) (*string, error) {
 	}
 
 	var enumName *string
+	modelAsString := true // assuming this can be omitted
 	for k, v := range enumDetails {
 		// presume inconsistencies in the data
 		if strings.EqualFold(k, "name") {
 			normalizedEnumName := cleanup.NormalizeName(v.(string))
 			enumName = &normalizedEnumName
 		}
+
+		if strings.EqualFold(k, "modelAsString") {
+			val, ok := v.(bool)
+			if !ok {
+				return nil, fmt.Errorf("expected a bool for `modelAsString` but got %+v", v)
+			}
+			modelAsString = val
+		}
 	}
 	if enumName == nil {
 		return nil, fmt.Errorf("enum details are missing a `name`")
 	}
-	return enumName, nil
+
+	return &constantExtension{
+		name:          *enumName,
+		modelAsString: modelAsString,
+	}, nil
 }

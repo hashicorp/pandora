@@ -214,14 +214,11 @@ func (d *SwaggerDefinition) fieldsForModel(modelName string, input spec.Schema, 
 
 	// This model might just be an Enum list
 	if input.Type != nil && input.Type[0] == "string" && len(input.Enum) > 0 {
-		constant := models.ConstantDetails{
-			Values:    map[string]string{},
-			FieldType: models.String,
+		constant, err := mapConstant(input)
+		if err != nil {
+			return nil, nil, fmt.Errorf("parsing constant %q: %+v", input.Title, err)
 		}
-		for _, v := range input.Enum {
-			constant.Values[v.(string)] = v.(string)
-		}
-		allConstants[modelName] = constant
+		allConstants[constant.name] = constant.details
 	}
 
 	// models can inherit from other models, so we first need to pull those fields
@@ -485,9 +482,21 @@ func mapConstant(input spec.Schema) (*parsedConstant, error) {
 		return nil, fmt.Errorf("reference was missing for constant: %+v", input)
 	}
 
+	constExtension, err := parseConstantExtensionFromField(input)
+	if err != nil {
+		return nil, fmt.Errorf("parsing `x-ms-enum` extension: %+v", err)
+	}
+
+	constantType := models.String
+	if input.Type.Contains("integer") {
+		constantType = models.Integer
+	} else if input.Type.Contains("number") {
+		constantType = models.Float
+	}
+
 	keysAndValues := make(map[string]string)
 	for i, raw := range input.Enum {
-		if input.Type.Contains("string") {
+		if constantType == models.String {
 			value, ok := raw.(string)
 			if !ok {
 				return nil, fmt.Errorf("expected a string but got %+v for the %d value for %q", raw, i, *name)
@@ -495,9 +504,10 @@ func mapConstant(input spec.Schema) (*parsedConstant, error) {
 
 			normalizedName := cleanup.NormalizeName(value)
 			keysAndValues[normalizedName] = value
+			continue
 		}
 
-		if input.Type.Contains("integer") {
+		if constantType == models.Integer {
 			// this gets parsed out as a float64 even though it's an Integer :upside_down_smile:
 			value, ok := raw.(float64)
 			if !ok {
@@ -508,16 +518,22 @@ func mapConstant(input spec.Schema) (*parsedConstant, error) {
 			key := keyValueForInteger(int64(value))
 			val := fmt.Sprintf("%d", int64(value))
 			keysAndValues[key] = val
+			continue
 		}
 
 		// TODO: also floats apparently, presumably booleans too?
+	}
+
+	// allows us to parse out the actual types above then force a string here if needed
+	if constExtension.modelAsString {
+		constantType = models.String
 	}
 
 	return &parsedConstant{
 		name: *name,
 		details: models.ConstantDetails{
 			Values:    keysAndValues,
-			FieldType: models.String, // TODO: support for other types
+			FieldType: constantType,
 		},
 	}, nil
 }
@@ -867,10 +883,13 @@ func (d *SwaggerDefinition) isConstant(constants map[string]models.ConstantDetai
 
 func mergeConstants(new models.ConstantDetails, existing *models.ConstantDetails) models.ConstantDetails {
 	vals := make(map[string]string)
-	fieldType := models.String // safe default
+	fieldType := models.Unknown
 	if existing != nil {
 		vals = existing.Values
 		fieldType = existing.FieldType
+	}
+	if fieldType == models.Unknown {
+		fieldType = new.FieldType
 	}
 	for key, value := range new.Values {
 		vals[key] = value
