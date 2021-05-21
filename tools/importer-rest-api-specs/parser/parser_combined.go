@@ -3,7 +3,9 @@ package parser
 import (
 	"fmt"
 	"log"
+	"math"
 	"sort"
+	"strconv"
 	"strings"
 
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/cleanup"
@@ -514,14 +516,31 @@ func mapConstant(input spec.Schema) (*parsedConstant, error) {
 				return nil, fmt.Errorf("expected an integer but got %+v for the %d value for %q", raw, i, *name)
 			}
 
-			// TODO: support as non-string types in time..
 			key := keyValueForInteger(int64(value))
 			val := fmt.Sprintf("%d", int64(value))
 			keysAndValues[key] = val
 			continue
 		}
 
-		// TODO: also floats apparently, presumably booleans too?
+		if constantType == models.Float {
+			value, ok := raw.(float64)
+			if !ok {
+				return nil, fmt.Errorf("expected an float but got %+v for the %d value for %q", raw, i, *name)
+			}
+
+			key, err := keyValueForFloat(value)
+			if err != nil {
+				return nil, fmt.Errorf("determining key for float %f: %+v", value, err)
+			}
+			val, err := stringValueForFloat(value)
+			if err != nil {
+				return nil, fmt.Errorf("determining value for float %f: %+v", value, err)
+			}
+			keysAndValues[*key] = *val
+			continue
+		}
+
+		return nil, fmt.Errorf("unsupported constant type %q", string(constantType))
 	}
 
 	// allows us to parse out the actual types above then force a string here if needed
@@ -541,6 +560,7 @@ func mapConstant(input spec.Schema) (*parsedConstant, error) {
 func keyValueForInteger(value int64) string {
 	s := fmt.Sprintf("%d", value)
 	vals := map[int32]string{
+		'-': "Negative",
 		'0': "Zero",
 		'1': "One",
 		'2': "Two",
@@ -562,6 +582,53 @@ func keyValueForInteger(value int64) string {
 	}
 
 	return out
+}
+
+func keyValueForFloat(value float64) (*string, error) {
+	stringified, err := stringValueForFloat(value)
+	if err != nil {
+		return nil, err
+	}
+
+	vals := map[int32]string{
+		'.': "Point",
+		'-': "Negative",
+		'0': "Zero",
+		'1': "One",
+		'2': "Two",
+		'3': "Three",
+		'4': "Four",
+		'5': "Five",
+		'6': "Six",
+		'7': "Seven",
+		'8': "Eight",
+		'9': "Nine",
+	}
+	out := ""
+	for _, c := range *stringified {
+		v, ok := vals[c]
+		if !ok {
+			panic(fmt.Sprintf("missing mapping for %q", string(c)))
+		}
+		out += v
+	}
+
+	return &out, nil
+}
+
+func stringValueForFloat(value float64) (*string, error) {
+	floored := math.Floor(value)
+	bits := fmt.Sprintf("%f", value-floored)
+	bits = strings.TrimPrefix(bits, "0.")
+	for strings.HasSuffix(bits, "0") {
+		bits = strings.TrimSuffix(bits, "0")
+	}
+	bitsInt, err := strconv.Atoi(bits)
+	if err != nil {
+		return nil, fmt.Errorf("parsing %q as an integer: %+v", bits, err)
+	}
+	output := fmt.Sprintf("%d.%d", int(floored), bitsInt)
+	return &output, nil
 }
 
 func (d *SwaggerDefinition) mapField(parentModelName, jsonName string, value spec.Schema, isRequired bool, constants map[string]models.ConstantDetails) (*map[string]models.ConstantDetails, *models.FieldDefinition, error) {
