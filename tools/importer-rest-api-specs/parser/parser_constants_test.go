@@ -832,15 +832,15 @@ func TestParseConstantsStringsTopLevel(t *testing.T) {
 	if len(animal.Fields) != 1 {
 		t.Fatalf("expected animal.Fields to have 1 field but got %d", len(animal.Fields))
 	}
-	animalTypeField, ok := animal.Fields["animalType"]
+	animalTypeField, ok := animal.Fields["Type"]
 	if !ok {
-		t.Fatal("animal.Fields['animalType'] did not exist")
+		t.Fatal("animal.Fields['Type'] did not exist")
 	}
 	if animalTypeField.ConstantReference == nil {
-		t.Fatal("animal.Fields['animalType'] had a nil ConstantReference")
+		t.Fatal("animal.Fields['Type'] had a nil ConstantReference")
 	}
 	if *animalTypeField.ConstantReference != "AnimalType" {
-		t.Fatalf("animal.Fields['animalType'] should be 'AnimalType' but was %q", *animalTypeField.ConstantReference)
+		t.Fatalf("animal.Fields['Type'] should be 'AnimalType' but was %q", *animalTypeField.ConstantReference)
 	}
 
 	animalType, ok := resource.Constants["AnimalType"]
@@ -924,15 +924,15 @@ func TestParseConstantsStringsInlined(t *testing.T) {
 	if len(animal.Fields) != 1 {
 		t.Fatalf("expected animal.Fields to have 1 field but got %d", len(animal.Fields))
 	}
-	animalTypeField, ok := animal.Fields["animalType"]
+	animalTypeField, ok := animal.Fields["Type"]
 	if !ok {
-		t.Fatal("animal.Fields['animalType'] did not exist")
+		t.Fatal("animal.Fields['Type'] did not exist")
 	}
 	if animalTypeField.ConstantReference == nil {
-		t.Fatal("animal.Fields['animalType'] had a nil ConstantReference")
+		t.Fatal("animal.Fields['Type'] had a nil ConstantReference")
 	}
 	if *animalTypeField.ConstantReference != "AnimalType" {
-		t.Fatalf("animal.Fields['animalType'] should be 'AnimalType' but was %q", *animalTypeField.ConstantReference)
+		t.Fatalf("animal.Fields['Type'] should be 'AnimalType' but was %q", *animalTypeField.ConstantReference)
 	}
 
 	animalType, ok := resource.Constants["AnimalType"]

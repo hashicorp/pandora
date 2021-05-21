@@ -252,7 +252,7 @@ func (d *SwaggerDefinition) fieldsForModel(modelName string, input spec.Schema, 
 	// then we get the simple thing of iterating over these fields
 	for propName, propVal := range input.Properties {
 		isRequired := fieldIsRequired(requiredKeys, propName)
-		consts, field, err := mapField(modelName, propName, propVal, isRequired, constants)
+		consts, field, err := d.mapField(modelName, propName, propVal, isRequired, constants)
 		if err != nil {
 			return nil, nil, fmt.Errorf("mapping field %q: %+v", modelName, err)
 		}
@@ -379,7 +379,7 @@ func (d *SwaggerDefinition) findModelsForModel(name string, input spec.Schema, c
 		}
 		if fragmentName != nil {
 			// referenced constants are pulled out elsewhere
-			if isConstant(constants, *fragmentName) {
+			if d.isConstant(constants, *fragmentName) {
 				continue
 			}
 
@@ -505,9 +505,9 @@ func mapConstant(input spec.Schema) (*parsedConstant, error) {
 			}
 
 			// TODO: support as non-string types in time..
-
-			val := fmt.Sprintf("%.0f", value)
-			keysAndValues[val] = val
+			key := keyValueForInteger(int64(value))
+			val := fmt.Sprintf("%d", int64(value))
+			keysAndValues[key] = val
 		}
 
 		// TODO: also floats apparently, presumably booleans too?
@@ -522,7 +522,33 @@ func mapConstant(input spec.Schema) (*parsedConstant, error) {
 	}, nil
 }
 
-func mapField(parentModelName, jsonName string, value spec.Schema, isRequired bool, constants map[string]models.ConstantDetails) (*map[string]models.ConstantDetails, *models.FieldDefinition, error) {
+func keyValueForInteger(value int64) string {
+	s := fmt.Sprintf("%d", value)
+	vals := map[int32]string{
+		'0': "Zero",
+		'1': "One",
+		'2': "Two",
+		'3': "Three",
+		'4': "Four",
+		'5': "Five",
+		'6': "Six",
+		'7': "Seven",
+		'8': "Eight",
+		'9': "Nine",
+	}
+	out := ""
+	for _, c := range s {
+		v, ok := vals[c]
+		if !ok {
+			panic(fmt.Sprintf("missing mapping for %q", string(c)))
+		}
+		out += v
+	}
+
+	return out
+}
+
+func (d *SwaggerDefinition) mapField(parentModelName, jsonName string, value spec.Schema, isRequired bool, constants map[string]models.ConstantDetails) (*map[string]models.ConstantDetails, *models.FieldDefinition, error) {
 	allConstants := make(map[string]models.ConstantDetails)
 	for k, v := range constants {
 		allConstants[k] = v
@@ -554,9 +580,16 @@ func mapField(parentModelName, jsonName string, value spec.Schema, isRequired bo
 
 	// models can also be nested within properties
 	if len(value.Enum) > 0 && len(value.Type) > 0 && value.Type[0] != "string" {
-		inlinedModel := inlinedModelName(parentModelName, jsonName)
+		constantName, err := parseConstantNameFromField(value)
 		field.Type = models.Object
-		field.ConstantReference = &inlinedModel
+		field.ConstantReference = constantName
+
+		// if it's inlined pull it out that way
+		constant, err := mapConstant(value)
+		if err != nil {
+			return nil, nil, fmt.Errorf("parsing constant: %+v", err)
+		}
+		allConstants[*constantName] = constant.details
 	}
 
 	if len(value.Type) > 0 {
@@ -758,8 +791,23 @@ func mapField(parentModelName, jsonName string, value spec.Schema, isRequired bo
 	}
 
 	if referenceType != nil {
-		if isConstant(constants, *referenceType) {
+		if d.isConstant(constants, *referenceType) {
 			field.ConstantReference = referenceType
+
+			// if this is a reference to a top-level type it can be missed so it's worth pulling this out explicitly too
+			if _, ok := allConstants[*referenceType]; !ok {
+				model, err := d.findTopLevelModel(*referenceType)
+				if err != nil {
+					return nil, nil, fmt.Errorf("finding top level constant %q: %+v", *referenceType, err)
+				}
+
+				constant, err := mapConstant(*model)
+				if err != nil {
+					return nil, nil, fmt.Errorf("populating top level constant %q: %+v", *referenceType, err)
+				}
+
+				allConstants[*referenceType] = constant.details
+			}
 		} else {
 			field.ModelReference = referenceType
 		}
@@ -799,16 +847,22 @@ func mapField(parentModelName, jsonName string, value spec.Schema, isRequired bo
 	return &allConstants, &field, nil
 }
 
-func isConstant(constants map[string]models.ConstantDetails, name string) bool {
-	isConstant := false
+func (d *SwaggerDefinition) isConstant(constants map[string]models.ConstantDetails, name string) bool {
 	// it must be either a constant or a model, but there'll be less constants to check
 	for constName := range constants {
 		if strings.EqualFold(constName, name) {
-			isConstant = true
-			break
+			return true
 		}
 	}
-	return isConstant
+
+	// if it's a top level model, we can assert that too
+	model, err := d.findTopLevelModel(name)
+	if err != nil || model == nil {
+		// intentional, since it may not be a top level model
+		return false
+	}
+
+	return len(model.Enum) > 0
 }
 
 func mergeConstants(new models.ConstantDetails, existing *models.ConstantDetails) models.ConstantDetails {
