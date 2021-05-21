@@ -36,7 +36,7 @@ func normalizeType(input string) models.FieldDefinitionType {
 	case "boolean":
 		return models.Boolean
 
-	case "int", "integer", "number":
+	case "int", "integer":
 		// NOTE: whilst there's some benefits to mirroring the API insofar as outputting
 		// either int32/int64 - from Terraform's perspective we treat them the same so we
 		// from a parsing/usability perspective they're similar enough that we can lean on
@@ -45,6 +45,13 @@ func normalizeType(input string) models.FieldDefinitionType {
 
 	case "object":
 		return models.Object
+
+	case "number":
+		// NOTE: whilst there's some benefits to mirroring the API insofar as outputting
+		// either float32/float64 - from Terraform's perspective we treat them the same so we
+		// from a parsing/usability perspective they're similar enough that we can lean on
+		// validation to limit this where necessary instead
+		return models.Float
 
 	case "string":
 		return models.String
@@ -57,6 +64,10 @@ func parseConstantNameFromField(field spec.Schema) (*string, error) {
 	details, err := parseConstantExtensionFromField(field)
 	if err != nil {
 		return nil, err
+	}
+
+	if details == nil {
+		return nil, nil
 	}
 
 	return &details.name, nil
