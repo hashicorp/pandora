@@ -21,7 +21,7 @@ func (d *SwaggerDefinition) parseOperations(input map[string]models.OperationDet
 	parsedConstants := make(map[string]models.ConstantDetails)
 	parsedModels := make(map[string]models.ModelDetails)
 
-	topLevelModelNames := d.findTopLevelModelNames(input)
+	topLevelModelNames := d.findModelsUsedByOperations(input)
 	for _, modelName := range topLevelModelNames {
 		if d.debugLog {
 			log.Printf("[DEBUG] Parsing Top-Level Model %q..", modelName)
@@ -45,10 +45,19 @@ func (d *SwaggerDefinition) parseOperations(input map[string]models.OperationDet
 			parsedModels[k] = v
 		}
 
-		parsedModels[modelName] = models.ModelDetails{
+		details := models.ModelDetails{
 			Description: "",
 			Fields:      parsedModel.fields,
 		}
+
+		nestedModel, ok := parsedModel.models[modelName]
+		if ok {
+			details.ParentTypeName = nestedModel.ParentTypeName
+			details.TypeHintIn = nestedModel.TypeHintIn
+			details.TypeHintValue = nestedModel.TypeHintValue
+		}
+
+		parsedModels[modelName] = details
 	}
 
 	return &parsedOperation{
@@ -81,7 +90,7 @@ func (r *result) append(other result) {
 	}
 }
 
-func (d *SwaggerDefinition) findTopLevelModelNames(operations map[string]models.OperationDetails) []string {
+func (d *SwaggerDefinition) findModelsUsedByOperations(operations map[string]models.OperationDetails) []string {
 	// first distinct them
 	distinct := make(map[string]struct{})
 	for _, operation := range operations {
