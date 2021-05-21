@@ -76,8 +76,8 @@ func TestParseConstantsIntegersTopLevelAsInts(t *testing.T) {
 	if favouriteTable.FieldType != models.Integer {
 		t.Fatalf("expected resource.Constants['TableNumber'].FieldType to be 'Integer' but got %q", favouriteTable.FieldType)
 	}
-	if len(favouriteTable.Values) != 3 {
-		t.Fatalf("expected resource.Constants['TableNumber'] to have 3 values but got %d", len(favouriteTable.Values))
+	if len(favouriteTable.Values) != 4 {
+		t.Fatalf("expected resource.Constants['TableNumber'] to have 4 values but got %d", len(favouriteTable.Values))
 	}
 	v, ok := favouriteTable.Values["One"]
 	if !ok {
@@ -99,6 +99,13 @@ func TestParseConstantsIntegersTopLevelAsInts(t *testing.T) {
 	}
 	if v != "3" {
 		t.Fatalf("expected the value for resource.Constants['TableNumber'].Values['Three'] to be '3' but got %q", v)
+	}
+	v, ok = favouriteTable.Values["FourFiveSixSeven"]
+	if !ok {
+		t.Fatalf("resource.Constants['TableNumber'] didn't contain the key 'FourFiveSixSeven'")
+	}
+	if v != "4567" {
+		t.Fatalf("expected the value for resource.Constants['TableNumber'].Values['FourFiveSixSeven'] to be '4567' but got %q", v)
 	}
 }
 
