@@ -271,33 +271,33 @@ func TestParseDiscriminatorsWithinDiscriminators(t *testing.T) {
 	if *bone.TypeHintValue != "bone" {
 		t.Fatalf("bone.TypeHintValue should be `bone` but it was %q", *bone.TypeHintValue)
 	}
-	if len(bone.Fields) != 3 {
+	if len(bone.Fields) != 2 {
 		t.Fatalf("expected resource.Models['Bone'] to have 2 fields but got %d", len(bone.Fields))
 	}
 
-	lazerBeam, ok := resource.Models["LazerBeam"]
+	laserBeam, ok := resource.Models["LaserBeam"]
 	if !ok {
 		t.Fatalf("the Model `LazerBeam` was not found")
 	}
-	if lazerBeam.ParentTypeName == nil {
-		t.Fatalf("lazerBeam.ParentTypeName should have a value but it doesn't")
+	if laserBeam.ParentTypeName == nil {
+		t.Fatalf("laserBeam.ParentTypeName should have a value but it doesn't")
 	}
-	if *lazerBeam.ParentTypeName != "Toy" {
-		t.Fatalf("lazerBeam.ParentTypeName should be `Toy` but it was %q", *lazerBeam.ParentTypeName)
+	if *laserBeam.ParentTypeName != "Toy" {
+		t.Fatalf("laserBeam.ParentTypeName should be `Toy` but it was %q", *laserBeam.ParentTypeName)
 	}
-	if lazerBeam.TypeHintIn == nil {
-		t.Fatal("lazerBeam.TypeHintIn should have a value but it doesn't")
+	if laserBeam.TypeHintIn == nil {
+		t.Fatal("laserBeam.TypeHintIn should have a value but it doesn't")
 	}
-	if *lazerBeam.TypeHintIn != "toyType" {
-		t.Fatalf("lazerBeam.TypeHintIn should be `toyType` but it was %q", *lazerBeam.TypeHintIn)
+	if *laserBeam.TypeHintIn != "toyType" {
+		t.Fatalf("laserBeam.TypeHintIn should be `toyType` but it was %q", *laserBeam.TypeHintIn)
 	}
-	if lazerBeam.TypeHintValue == nil {
-		t.Fatalf("lazerBeam.TypeHintValue should have a value but it doesn't")
+	if laserBeam.TypeHintValue == nil {
+		t.Fatalf("laserBeam.TypeHintValue should have a value but it doesn't")
 	}
-	if *lazerBeam.TypeHintValue != "lazer-beam" {
-		t.Fatalf("lazerBeam.TypeHintValue should be `lazer-beam` but it was %q", *lazerBeam.TypeHintValue)
+	if *laserBeam.TypeHintValue != "laser-beam" {
+		t.Fatalf("laserBeam.TypeHintValue should be `lazer-beam` but it was %q", *laserBeam.TypeHintValue)
 	}
-	if len(lazerBeam.Fields) != 3 {
-		t.Fatalf("expected resource.Models['LazerBeam'] to have 2 fields but got %d", len(lazerBeam.Fields))
+	if len(laserBeam.Fields) != 3 {
+		t.Fatalf("expected resource.Models['LazerBeam'] to have 3 fields but got %d", len(laserBeam.Fields))
 	}
 }

@@ -61,7 +61,16 @@ func (g PandoraDefinitionGenerator) Generate(resourceName string, resource model
 		if g.debugLog {
 			log.Printf("Generating Model %q (in %s)", modelName, namespace)
 		}
-		code, err := g.codeForModel(namespace, modelName, vals)
+
+		var parent *models.ModelDetails
+		if vals.ParentTypeName != nil {
+			p, ok := resource.Models[*vals.ParentTypeName]
+			if ok {
+				parent = &p
+			}
+		}
+
+		code, err := g.codeForModel(namespace, modelName, vals, parent)
 		if err != nil {
 			return fmt.Errorf("generating code for model %q in %q: %+v", modelName, namespace, err)
 		}
@@ -144,7 +153,7 @@ namespace %[1]s
 `, namespace, constantName, strings.Join(code, "\n\n"))
 }
 
-func (g PandoraDefinitionGenerator) codeForModel(namespace string, modelName string, model models.ModelDetails) (*string, error) {
+func (g PandoraDefinitionGenerator) codeForModel(namespace string, modelName string, model models.ModelDetails, parentModel *models.ModelDetails) (*string, error) {
 	if len(model.Fields) == 0 {
 		return nil, fmt.Errorf("the model %q in namespace %q has no fields", modelName, namespace)
 	}
@@ -159,12 +168,45 @@ func (g PandoraDefinitionGenerator) codeForModel(namespace string, modelName str
 	sort.Strings(sortedFieldNames)
 
 	for _, fieldName := range sortedFieldNames {
+		// we should skip outputting this field if it's present on the parent
+		fieldInParent := false
+		if parentModel != nil && parentModel.TypeHintValue != nil {
+			// the importer flattens fields from parents/AllOf, since we don't use inheritance for that within the
+			// data layer - as such we only want to skip the fields when the parent type is output, e.g. when there's
+			// a discriminator involved
+			for name := range parentModel.Fields {
+				if strings.EqualFold(name, fieldName) {
+					fieldInParent = true
+					break
+				}
+			}
+		}
+		if fieldInParent {
+			continue
+		}
+
 		field := model.Fields[fieldName]
-		fieldCode, err := g.codeForField("\t\t", fieldName, field)
+		isTypeHint := model.TypeHintIn != nil && strings.EqualFold(*model.TypeHintIn, fieldName)
+		fieldCode, err := g.codeForField("\t\t", fieldName, field, isTypeHint)
 		if err != nil {
 			return nil, fmt.Errorf("generating code for field %q: %+v", fieldName, err)
 		}
 		code = append(code, *fieldCode)
+	}
+
+	typeInformation := fmt.Sprintf("class %s", modelName)
+	if model.TypeHintIn != nil {
+		if model.ParentTypeName != nil {
+			typeInformation = fmt.Sprintf("%s : %s", typeInformation, *model.ParentTypeName)
+		} else {
+			// this is a discriminator/parent
+			typeInformation = fmt.Sprintf("abstract %s", typeInformation)
+		}
+	}
+
+	annotations := make([]string, 0)
+	if model.TypeHintValue != nil {
+		annotations = append(annotations, fmt.Sprintf("\t[ValueForType(%q)]", *model.TypeHintValue))
 	}
 
 	out := fmt.Sprintf(`using System;
@@ -175,16 +217,17 @@ using Pandora.Definitions.CustomTypes;
 
 namespace %[1]s
 {
-	internal class %[2]s
+%[4]s
+	internal %[2]s
 	{
 %[3]s
 	}
 }
-`, namespace, modelName, strings.Join(code, "\n\n"))
+`, namespace, typeInformation, strings.Join(code, "\n\n"), strings.Join(annotations, "\n"))
 	return &out, nil
 }
 
-func (g PandoraDefinitionGenerator) codeForField(indentation, fieldName string, field models.FieldDefinition) (*string, error) {
+func (g PandoraDefinitionGenerator) codeForField(indentation, fieldName string, field models.FieldDefinition, isTypeHint bool) (*string, error) {
 	fieldType, err := dotNetTypeNameForComplexType(field)
 	if err != nil {
 		return nil, err
@@ -198,6 +241,10 @@ func (g PandoraDefinitionGenerator) codeForField(indentation, fieldName string, 
 	}
 
 	lines = append(lines, fmt.Sprintf("%[1]s[JsonPropertyName(%[2]q)]", indentation, field.JsonName))
+
+	if isTypeHint {
+		lines = append(lines, fmt.Sprintf("%[1]s[ProvidesTypeHint]", indentation))
+	}
 
 	if field.Required {
 		lines = append(lines, fmt.Sprintf("%[1]s[Required]", indentation))
