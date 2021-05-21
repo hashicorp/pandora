@@ -79,26 +79,26 @@ func TestParseConstantsIntegersTopLevelAsInts(t *testing.T) {
 	if len(favouriteTable.Values) != 3 {
 		t.Fatalf("expected resource.Constants['TableNumber'] to have 3 values but got %d", len(favouriteTable.Values))
 	}
-	v, ok := favouriteTable.Values["1"]
+	v, ok := favouriteTable.Values["One"]
 	if !ok {
-		t.Fatalf("resource.Constants['TableNumber'] didn't contain the key '1'")
+		t.Fatalf("resource.Constants['TableNumber'] didn't contain the key 'One'")
 	}
 	if v != "1" {
-		t.Fatalf("expected the value for resource.Constants['TableNumber'].Values['1'] to be '1' but got %q", v)
+		t.Fatalf("expected the value for resource.Constants['TableNumber'].Values['One'] to be '1' but got %q", v)
 	}
-	v, ok = favouriteTable.Values["2"]
+	v, ok = favouriteTable.Values["Two"]
 	if !ok {
-		t.Fatalf("resource.Constants['TableNumber'] didn't contain the key '2'")
+		t.Fatalf("resource.Constants['TableNumber'] didn't contain the key 'Two'")
 	}
 	if v != "2" {
-		t.Fatalf("expected the value for resource.Constants['TableNumber'].Values['2'] to be '2' but got %q", v)
+		t.Fatalf("expected the value for resource.Constants['TableNumber'].Values['Two'] to be '2' but got %q", v)
 	}
-	v, ok = favouriteTable.Values["3"]
+	v, ok = favouriteTable.Values["Three"]
 	if !ok {
-		t.Fatalf("resource.Constants['TableNumber'] didn't contain the key 'Panda'")
+		t.Fatalf("resource.Constants['TableNumber'] didn't contain the key 'Three'")
 	}
 	if v != "3" {
-		t.Fatalf("expected the value for resource.Constants['TableNumber'].Values['3'] to be '3' but got %q", v)
+		t.Fatalf("expected the value for resource.Constants['TableNumber'].Values['Three'] to be '3' but got %q", v)
 	}
 }
 
@@ -175,26 +175,26 @@ func TestParseConstantsIntegersTopLevelAsStrings(t *testing.T) {
 	if len(favouriteTable.Values) != 3 {
 		t.Fatalf("expected resource.Constants['TableNumber'] to have 3 values but got %d", len(favouriteTable.Values))
 	}
-	v, ok := favouriteTable.Values["1"]
+	v, ok := favouriteTable.Values["One"]
 	if !ok {
-		t.Fatalf("resource.Constants['TableNumber'] didn't contain the key '1'")
+		t.Fatalf("resource.Constants['TableNumber'] didn't contain the key 'One'")
 	}
 	if v != "1" {
-		t.Fatalf("expected the value for resource.Constants['TableNumber'].Values['1'] to be '1' but got %q", v)
+		t.Fatalf("expected the value for resource.Constants['TableNumber'].Values['One'] to be '1' but got %q", v)
 	}
-	v, ok = favouriteTable.Values["2"]
+	v, ok = favouriteTable.Values["Two"]
 	if !ok {
-		t.Fatalf("resource.Constants['TableNumber'] didn't contain the key '2'")
+		t.Fatalf("resource.Constants['TableNumber'] didn't contain the key 'Two'")
 	}
 	if v != "2" {
-		t.Fatalf("expected the value for resource.Constants['TableNumber'].Values['2'] to be '2' but got %q", v)
+		t.Fatalf("expected the value for resource.Constants['TableNumber'].Values['Two'] to be '2' but got %q", v)
 	}
-	v, ok = favouriteTable.Values["3"]
+	v, ok = favouriteTable.Values["Three"]
 	if !ok {
-		t.Fatalf("resource.Constants['TableNumber'] didn't contain the key '3'")
+		t.Fatalf("resource.Constants['TableNumber'] didn't contain the key 'Three'")
 	}
 	if v != "3" {
-		t.Fatalf("expected the value for resource.Constants['TableNumber'].Values['3'] to be '3' but got %q", v)
+		t.Fatalf("expected the value for resource.Constants['TableNumber'].Values['Three'] to be '3' but got %q", v)
 	}
 }
 
@@ -271,26 +271,26 @@ func TestParseConstantsIntegersInlinedAsInts(t *testing.T) {
 	if len(favouriteTable.Values) != 3 {
 		t.Fatalf("expected resource.Constants['TableNumber'] to have 3 values but got %d", len(favouriteTable.Values))
 	}
-	v, ok := favouriteTable.Values["1"]
+	v, ok := favouriteTable.Values["One"]
 	if !ok {
-		t.Fatalf("resource.Constants['TableNumber'] didn't contain the key '1'")
+		t.Fatalf("resource.Constants['TableNumber'] didn't contain the key 'One'")
 	}
 	if v != "1" {
-		t.Fatalf("expected the value for resource.Constants['TableNumber'].Values['1'] to be '1' but got %q", v)
+		t.Fatalf("expected the value for resource.Constants['TableNumber'].Values['One'] to be '1' but got %q", v)
 	}
-	v, ok = favouriteTable.Values["2"]
+	v, ok = favouriteTable.Values["Two"]
 	if !ok {
-		t.Fatalf("resource.Constants['TableNumber'] didn't contain the key '2'")
+		t.Fatalf("resource.Constants['TableNumber'] didn't contain the key 'Two'")
 	}
 	if v != "2" {
-		t.Fatalf("expected the value for resource.Constants['TableNumber'].Values['2'] to be '2' but got %q", v)
+		t.Fatalf("expected the value for resource.Constants['TableNumber'].Values['Two'] to be '2' but got %q", v)
 	}
-	v, ok = favouriteTable.Values["3"]
+	v, ok = favouriteTable.Values["Three"]
 	if !ok {
-		t.Fatalf("expected the value for resource.Constants['TableNumber'].Values['3'] to be '3' but got %q", v)
+		t.Fatalf("expected the value for resource.Constants['TableNumber'].Values['Three'] to be '3' but got %q", v)
 	}
 	if v != "3" {
-		t.Fatalf("expected the value for resource.Constants['TableNumber'].Values['3'] to be '3' but got %q", v)
+		t.Fatalf("expected the value for resource.Constants['TableNumber'].Values['Three'] to be '3' but got %q", v)
 	}
 }
 
@@ -367,26 +367,26 @@ func TestParseConstantsIntegersInlinedAsStrings(t *testing.T) {
 	if len(favouriteTable.Values) != 3 {
 		t.Fatalf("expected resource.Constants['TableNumber'] to have 3 values but got %d", len(favouriteTable.Values))
 	}
-	v, ok := favouriteTable.Values["1"]
+	v, ok := favouriteTable.Values["One"]
 	if !ok {
-		t.Fatalf("resource.Constants['TableNumber'] didn't contain the key '1'")
+		t.Fatalf("resource.Constants['TableNumber'] didn't contain the key 'One'")
 	}
 	if v != "1" {
-		t.Fatalf("expected the value for resource.Constants['TableNumber'].Values['1'] to be '1' but got %q", v)
+		t.Fatalf("expected the value for resource.Constants['TableNumber'].Values['One'] to be '1' but got %q", v)
 	}
-	v, ok = favouriteTable.Values["2"]
+	v, ok = favouriteTable.Values["Two"]
 	if !ok {
-		t.Fatalf("resource.Constants['TableNumber'] didn't contain the key '2'")
+		t.Fatalf("resource.Constants['TableNumber'] didn't contain the key 'Two'")
 	}
 	if v != "2" {
-		t.Fatalf("expected the value for resource.Constants['TableNumber'].Values['2'] to be '2' but got %q", v)
+		t.Fatalf("expected the value for resource.Constants['TableNumber'].Values['Two'] to be '2' but got %q", v)
 	}
-	v, ok = favouriteTable.Values["3"]
+	v, ok = favouriteTable.Values["Three"]
 	if !ok {
-		t.Fatalf("expected the value for resource.Constants['TableNumber'].Values['3'] to be '3' but got %q", v)
+		t.Fatalf("expected the value for resource.Constants['TableNumber'].Values['Three'] to be '3' but got %q", v)
 	}
 	if v != "3" {
-		t.Fatalf("expected the value for resource.Constants['TableNumber'].Values['3'] to be '3' but got %q", v)
+		t.Fatalf("expected the value for resource.Constants['TableNumber'].Values['Three'] to be '3' but got %q", v)
 	}
 }
 
