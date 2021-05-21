@@ -3,7 +3,6 @@ package parser
 import (
 	"fmt"
 	"log"
-	"math"
 	"sort"
 	"strconv"
 	"strings"
@@ -528,15 +527,9 @@ func mapConstant(input spec.Schema) (*parsedConstant, error) {
 				return nil, fmt.Errorf("expected an float but got %+v for the %d value for %q", raw, i, *name)
 			}
 
-			key, err := keyValueForFloat(value)
-			if err != nil {
-				return nil, fmt.Errorf("determining key for float %f: %+v", value, err)
-			}
-			val, err := stringValueForFloat(value)
-			if err != nil {
-				return nil, fmt.Errorf("determining value for float %f: %+v", value, err)
-			}
-			keysAndValues[*key] = *val
+			key := keyValueForFloat(value)
+			val := stringValueForFloat(value)
+			keysAndValues[key] = val
 			continue
 		}
 
@@ -584,11 +577,8 @@ func keyValueForInteger(value int64) string {
 	return out
 }
 
-func keyValueForFloat(value float64) (*string, error) {
-	stringified, err := stringValueForFloat(value)
-	if err != nil {
-		return nil, err
-	}
+func keyValueForFloat(value float64) string {
+	stringified := stringValueForFloat(value)
 
 	vals := map[int32]string{
 		'.': "Point",
@@ -605,7 +595,7 @@ func keyValueForFloat(value float64) (*string, error) {
 		'9': "Nine",
 	}
 	out := ""
-	for _, c := range *stringified {
+	for _, c := range stringified {
 		v, ok := vals[c]
 		if !ok {
 			panic(fmt.Sprintf("missing mapping for %q", string(c)))
@@ -613,22 +603,11 @@ func keyValueForFloat(value float64) (*string, error) {
 		out += v
 	}
 
-	return &out, nil
+	return out
 }
 
-func stringValueForFloat(value float64) (*string, error) {
-	floored := math.Floor(value)
-	bits := fmt.Sprintf("%f", value-floored)
-	bits = strings.TrimPrefix(bits, "0.")
-	for strings.HasSuffix(bits, "0") {
-		bits = strings.TrimSuffix(bits, "0")
-	}
-	bitsInt, err := strconv.Atoi(bits)
-	if err != nil {
-		return nil, fmt.Errorf("parsing %q as an integer: %+v", bits, err)
-	}
-	output := fmt.Sprintf("%d.%d", int(floored), bitsInt)
-	return &output, nil
+func stringValueForFloat(value float64) string {
+	return strconv.FormatFloat(value, 'f', -1, 64)
 }
 
 func (d *SwaggerDefinition) mapField(parentModelName, jsonName string, value spec.Schema, isRequired bool, constants map[string]models.ConstantDetails) (*map[string]models.ConstantDetails, *models.FieldDefinition, error) {
