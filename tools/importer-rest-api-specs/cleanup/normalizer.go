@@ -15,6 +15,8 @@ func NormalizeName(input string) string {
 	output = strings.ReplaceAll(output, "-", "")
 	output = strings.ReplaceAll(output, ".", "")
 	output = strings.ReplaceAll(output, "/", "")
+	output = strings.ReplaceAll(output, ",", "")
+	output = strings.ReplaceAll(output, " ", "")
 	output = NormalizeSegment(output, false)
 	output = strings.Title(output)
 	return output
