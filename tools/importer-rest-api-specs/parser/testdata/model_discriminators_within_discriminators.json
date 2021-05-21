@@ -167,7 +167,7 @@
       "x-ms-discriminator-value": "bone"
     },
     "LaserBeam": {
-      "description": "A lazer beam is a kind of toy",
+      "description": "A laser beam is a kind of toy",
       "allOf": [
         {
           "$ref": "#/definitions/Toy"
@@ -176,16 +176,20 @@
       "properties": {
         "colour": {
           "type": "string",
-          "description": "The colour of this lazer beam"
+          "description": "The colour of this laser beam"
+        },
+        "intensity": {
+          "type": "integer",
+          "description": "The intensity of this laser beam"
         }
       },
       "required": [
         "toyType",
         "colour"
       ],
-      "title": "LazerBeam",
+      "title": "LaserBeam",
       "type": "object",
-      "x-ms-discriminator-value": "lazer-beam"
+      "x-ms-discriminator-value": "laser-beam"
     }
   },
   "parameters": {

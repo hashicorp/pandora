@@ -60,6 +60,30 @@ func (d *SwaggerDefinition) parseOperations(input map[string]models.OperationDet
 		parsedModels[modelName] = details
 	}
 
+	// now that we've processed all of the models within this operation, we need to find any implementations
+	// for any discriminators and ensure they're added too
+	for modelName, model := range parsedModels {
+		// if it's not a discriminator, there's nothing to find
+		if model.TypeHintIn == nil {
+			continue
+		}
+
+		if d.debugLog {
+			log.Printf("[DEBUG] Finding implementations of %q (discriminating on %q)..", modelName, *model.TypeHintIn)
+		}
+		implementations, err := d.findImplementationsOf(modelName)
+		if err != nil {
+			return nil, fmt.Errorf("finding implementations of %q (discriminating on %q): %+v", modelName, *model.TypeHintIn, err)
+		}
+
+		for k, v := range implementations.constants {
+			parsedConstants[k] = v
+		}
+		for k, v := range implementations.models {
+			parsedModels[k] = v
+		}
+	}
+
 	return &parsedOperation{
 		constants: parsedConstants,
 		models:    parsedModels,
@@ -73,6 +97,16 @@ type result struct {
 }
 
 func (r *result) append(other result) {
+	if r.constants == nil {
+		r.constants = make(map[string]models.ConstantDetails)
+	}
+	if r.fields == nil {
+		r.fields = make(map[string]models.FieldDefinition)
+	}
+	if r.models == nil {
+		r.models = make(map[string]models.ModelDetails)
+	}
+
 	for k, v := range other.constants {
 		var existing *models.ConstantDetails
 		if e, ok := r.constants[k]; ok {
@@ -450,10 +484,42 @@ func (d *SwaggerDefinition) findModelsForModel(name string, input spec.Schema, c
 		}
 	}
 
-	foundModels[name] = models.ModelDetails{
+	details := models.ModelDetails{
 		Description: "",
 		Fields:      *fields,
 	}
+
+	// if this is a Parent
+	if input.Discriminator != "" {
+		details.TypeHintIn = &input.Discriminator
+	}
+
+	// this would be an Implementation
+	if v, ok := input.Extensions.GetString("x-ms-discriminator-value"); ok {
+		details.TypeHintValue = &v
+
+		// so we need to find the parent details
+		for _, parentRaw := range input.AllOf {
+			fragmentName := fragmentNameFromReference(parentRaw.Ref)
+			if fragmentName == nil {
+				continue
+			}
+
+			parent, err := d.findTopLevelModel(*fragmentName)
+			if err != nil {
+				return nil, nil, fmt.Errorf("finding top level model %q: %+v", *fragmentName, err)
+			}
+
+			if parent.Discriminator == "" {
+				continue
+			}
+
+			details.ParentTypeName = fragmentName
+			details.TypeHintIn = &parent.Discriminator
+		}
+	}
+
+	foundModels[name] = details
 
 	return &allConstants, &foundModels, nil
 }
@@ -834,4 +900,43 @@ func mergeConstants(new models.ConstantDetails, existing *models.ConstantDetails
 		Values:    vals,
 		FieldType: fieldType,
 	}
+}
+
+func (d *SwaggerDefinition) findImplementationsOf(parentName string) (*result, error) {
+	out := result{}
+	for childName, value := range d.swaggerSpecExtendedRaw.Definitions {
+		if childName == parentName {
+			continue
+		}
+
+		// does it implement (AllOf) the base class
+		implementsParent := false
+		for _, parent := range value.AllOf {
+			fragmentName := fragmentNameFromReference(parent.Ref)
+			if fragmentName == nil {
+				continue
+			}
+
+			if *fragmentName == parentName {
+				implementsParent = true
+				break
+			}
+		}
+		if !implementsParent {
+			continue
+		}
+
+		if d.debugLog {
+			log.Printf("[DEBUG] Found %q implements %q", childName, parentName)
+		}
+
+		result, err := d.parseModel(childName, value)
+		if err != nil {
+			return nil, fmt.Errorf("parsing model %q: %+v", childName, err)
+		}
+
+		out.append(*result)
+	}
+
+	return &out, nil
 }

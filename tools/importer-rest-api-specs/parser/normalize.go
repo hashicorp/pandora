@@ -71,8 +71,11 @@ func (n normalizer) models(input map[string]models.ModelDetails) map[string]mode
 
 		normalizedModelName := cleanup.NormalizeName(key)
 		output[normalizedModelName] = models.ModelDetails{
-			Description: value.Description,
-			Fields:      normalizedFields,
+			Description:    value.Description,
+			Fields:         normalizedFields,
+			ParentTypeName: value.ParentTypeName,
+			TypeHintIn:     value.TypeHintIn,
+			TypeHintValue:  value.TypeHintValue,
 		}
 	}
 
