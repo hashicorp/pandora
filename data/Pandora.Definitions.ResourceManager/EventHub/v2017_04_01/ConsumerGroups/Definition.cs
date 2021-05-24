@@ -1,17 +1,18 @@
 using System.Collections.Generic;
 using Pandora.Definitions.Interfaces;
 
-namespace Pandora.Definitions.ResourceManager.EventHubs.v2018_01_01_preview.ConsumerGroup
+namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.ConsumerGroups
 {
     internal class Definition : ApiDefinition
     {
-        public string ApiVersion => "2018-01-01-preview";
-        public string Name => "consumerGroup";
+        public string ApiVersion => "v2017-04-01";
+        public string Name => "ConsumerGroups";
         public IEnumerable<ApiOperation> Operations => new List<ApiOperation>
         {
-            new Create(),
+            new CreateOrUpdate(),
             new Delete(),
             new Get(),
+            new ListByEventHub(),
         };
     }
 }
