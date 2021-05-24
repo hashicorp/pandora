@@ -9,6 +9,8 @@ import (
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
+// TODO: dynamic imports
+
 func (s *ServiceGenerator) models(data ServiceGeneratorData) error {
 	if len(data.models) == 0 {
 		return nil
@@ -105,7 +107,11 @@ func (c modelsTemplater) template(data ServiceGeneratorData) (*string, error) {
 
 		template := fmt.Sprintf(`package %[1]s
 
-import "github.com/hashicorp/go-azure-helpers/formatting"
+import (
+	"time"
+
+	"github.com/hashicorp/go-azure-helpers/formatting"
+)
 
 type %[2]s interface {
 }
@@ -129,7 +135,11 @@ type %[2]s interface {
 
 	template := fmt.Sprintf(`package %[1]s
 
-import "github.com/hashicorp/go-azure-helpers/formatting"
+import (
+	"time"
+
+	"github.com/hashicorp/go-azure-helpers/formatting"
+)
 
 type %[2]s struct {
 %[3]s

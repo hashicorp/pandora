@@ -51,7 +51,7 @@ func (i ServiceGeneratorInput) generatorData() ServiceGeneratorData {
 		operations:        i.ResourceDetails.Operations.Operations,
 		outputPath:        outputPath,
 		packageName:       resourcePackageName,
-		resourceIds:       i.VersionDetails.Details.ResourceIds,
+		resourceIds:       i.ResourceDetails.Schema.ResourceIds,
 		serviceClientName: fmt.Sprintf("%sClient", strings.Title(i.ResourceName)),
 	}
 }

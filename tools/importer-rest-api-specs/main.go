@@ -55,6 +55,50 @@ func main() {
 			},
 		},
 
+		// EventHubs (2018-01-01-preview and 2017-04-01)
+		{
+			RootNamespace:    "Pandora.Definitions.ResourceManager",
+			ServiceName:      "EventHub",
+			ApiVersion:       "2017-04-01",
+			OutputDirectory:  "../../generated/pandora-definitions",
+			SwaggerDirectory: apiSpecsPath + "/specification/eventhub/resource-manager/Microsoft.EventHub/stable/2017-04-01",
+			SwaggerFiles: []string{
+				"AuthorizationRules.json",
+				"CheckNameAvailability.json",
+				"consumergroups.json",
+				"disasterRecoveryConfigs.json",
+				"eventhubs.json",
+				"namespaces.json",
+				"networkRuleSets.json",
+				"operations.json",
+				"sku.json",
+			},
+		},
+		{
+			RootNamespace:    "Pandora.Definitions.ResourceManager",
+			ServiceName:      "EventHub",
+			ApiVersion:       "2018-01-01-preview",
+			OutputDirectory:  "../../generated/pandora-definitions",
+			SwaggerDirectory: apiSpecsPath + "/specification/eventhub/resource-manager/Microsoft.EventHub/preview/2018-01-01-preview",
+			SwaggerFiles: []string{
+				"AuthorizationRules.json",
+				"AvailableClusterRegions-preview.json",
+				"CheckNameAvailability.json",
+				"Clusters-preview.json",
+				"consumergroups.json",
+				"disasterRecoveryConfigs.json",
+				"eventhubs.json",
+				"ipfilterrules-preview.json",
+				"namespaces-preview.json",
+				"networkrulessets-preview.json",
+				"operations-preview.json",
+				"operations.json",
+				"quotaConfiguration-preview.json",
+				"sku.json",
+				"virtualnetworkrules-preview.json",
+			},
+		},
+
 		// Batch
 		//{
 		//	RootNamespace:    "Pandora.Definitions.ResourceManager",
