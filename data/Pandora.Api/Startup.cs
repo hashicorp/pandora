@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Pandora.Data;
 using Pandora.Data.Repositories;
 using Pandora.Definitions;
 using Pandora.Definitions.Interfaces;

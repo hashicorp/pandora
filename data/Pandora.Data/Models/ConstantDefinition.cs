@@ -8,6 +8,7 @@ namespace Pandora.Data.Models
         // (since the ARM API doesn't contain any, and integer enum's can instead be an integer with validation)
         
         public bool CaseInsensitive { get; set; }
+        public ConstantType Type { get; set; }
         public string Name { get; set; }
         public Dictionary<string, string> Values { get; set; }
     }

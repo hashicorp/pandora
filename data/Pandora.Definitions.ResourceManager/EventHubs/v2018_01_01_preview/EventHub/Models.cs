@@ -81,6 +81,7 @@ namespace Pandora.Definitions.ResourceManager.EventHubs.v2018_01_01_preview.Even
         public string ArchiveNameFormat { get; set; }
     }
 
+    [ConstantType(ConstantTypeAttribute.ConstantType.String)]
     internal enum Encoding
     {
         [Description("Avro")]

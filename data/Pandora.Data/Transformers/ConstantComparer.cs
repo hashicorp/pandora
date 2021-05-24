@@ -18,6 +18,11 @@ namespace Pandora.Data.Transformers
                 return false;
             }
 
+            if (a.Type != b.Type)
+            {
+                return false;
+            }
+
             if (a.Values.Count != b.Values.Count)
             {
                 return false;

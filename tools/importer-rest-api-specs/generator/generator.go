@@ -141,16 +141,37 @@ func (g PandoraDefinitionGenerator) codeForConstant(namespace, constantName stri
 		code = append(code, fmt.Sprintf("\t\t[Description(%q)]\n\t\t%s,", value, normalizedKey))
 	}
 
-	return fmt.Sprintf(`using System.ComponentModel;
+	attributes := make([]string, 0)
+	attributes = append(attributes, fmt.Sprintf("\t[ConstantType(%s)]", mapConstantFieldType(details.FieldType)))
+
+	return fmt.Sprintf(`using Pandora.Definitions.Attributes;
+using System.ComponentModel;
 
 namespace %[1]s
 {
+%[4]s
 	internal enum %[2]s
 	{
 %[3]s
 	}
 }
-`, namespace, constantName, strings.Join(code, "\n\n"))
+`, namespace, constantName, strings.Join(code, "\n\n"), strings.Join(attributes, "\n"))
+}
+
+func mapConstantFieldType(input models.ConstantFieldType) string {
+	if input == models.FloatConstant {
+		return "ConstantTypeAttribute.ConstantType.Float"
+	}
+
+	if input == models.IntegerConstant {
+		return "ConstantTypeAttribute.ConstantType.Integer"
+	}
+
+	if input == models.StringConstant {
+		return "ConstantTypeAttribute.ConstantType.String"
+	}
+
+	return "TODO"
 }
 
 func (g PandoraDefinitionGenerator) codeForModel(namespace string, modelName string, model models.ModelDetails, parentModel *models.ModelDetails) (*string, error) {

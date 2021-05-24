@@ -165,14 +165,14 @@ func TestAssertParserCanParseAppConfiguration(t *testing.T) {
 			"ConfigurationStores": {
 				Constants: map[string]models.ConstantDetails{
 					"ActionsRequired": {
-						FieldType: models.String,
+						FieldType: models.StringConstant,
 						Values: map[string]string{
 							"None":     "None",
 							"Recreate": "Recreate",
 						},
 					},
 					"ConnectionStatus": {
-						FieldType: models.String,
+						FieldType: models.StringConstant,
 						Values: map[string]string{
 							"Approved":     "Approved",
 							"Disconnected": "Disconnected",
@@ -181,7 +181,7 @@ func TestAssertParserCanParseAppConfiguration(t *testing.T) {
 						},
 					},
 					"IdentityType": {
-						FieldType: models.String,
+						FieldType: models.StringConstant,
 						Values: map[string]string{
 							"None":                       "None",
 							"SystemAssigned":             "SystemAssigned",
@@ -190,7 +190,7 @@ func TestAssertParserCanParseAppConfiguration(t *testing.T) {
 						},
 					},
 					"ProvisioningState": {
-						FieldType: models.String,
+						FieldType: models.StringConstant,
 						Values: map[string]string{
 							"Canceled":  "Canceled",
 							"Creating":  "Creating",
@@ -201,7 +201,7 @@ func TestAssertParserCanParseAppConfiguration(t *testing.T) {
 						},
 					},
 					"PublicNetworkAccess": {
-						FieldType: models.String,
+						FieldType: models.StringConstant,
 						Values: map[string]string{
 							"Disabled": "Disabled",
 							"Enabled":  "Enabled",
@@ -553,14 +553,14 @@ func TestAssertParserCanParseAppConfiguration(t *testing.T) {
 			"PrivateEndpointConnections": {
 				Constants: map[string]models.ConstantDetails{
 					"ActionsRequired": {
-						FieldType: models.String,
+						FieldType: models.StringConstant,
 						Values: map[string]string{
 							"None":     "None",
 							"Recreate": "Recreate",
 						},
 					},
 					"ConnectionStatus": {
-						FieldType: models.String,
+						FieldType: models.StringConstant,
 						Values: map[string]string{
 							"Approved":     "Approved",
 							"Disconnected": "Disconnected",
@@ -569,7 +569,7 @@ func TestAssertParserCanParseAppConfiguration(t *testing.T) {
 						},
 					},
 					"ProvisioningState": {
-						FieldType: models.String,
+						FieldType: models.StringConstant,
 						Values: map[string]string{
 							"Canceled":  "Canceled",
 							"Creating":  "Creating",

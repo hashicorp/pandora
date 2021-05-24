@@ -563,16 +563,16 @@ func mapConstant(input spec.Schema) (*parsedConstant, error) {
 		return nil, fmt.Errorf("parsing `x-ms-enum` extension: %+v", err)
 	}
 
-	constantType := models.String
+	constantType := models.StringConstant
 	if input.Type.Contains("integer") {
-		constantType = models.Integer
+		constantType = models.IntegerConstant
 	} else if input.Type.Contains("number") {
-		constantType = models.Float
+		constantType = models.FloatConstant
 	}
 
 	keysAndValues := make(map[string]string)
 	for i, raw := range input.Enum {
-		if constantType == models.String {
+		if constantType == models.StringConstant {
 			value, ok := raw.(string)
 			if !ok {
 				return nil, fmt.Errorf("expected a string but got %+v for the %d value for %q", raw, i, *name)
@@ -583,7 +583,7 @@ func mapConstant(input spec.Schema) (*parsedConstant, error) {
 			continue
 		}
 
-		if constantType == models.Integer {
+		if constantType == models.IntegerConstant {
 			// this gets parsed out as a float64 even though it's an Integer :upside_down_smile:
 			value, ok := raw.(float64)
 			if !ok {
@@ -596,7 +596,7 @@ func mapConstant(input spec.Schema) (*parsedConstant, error) {
 			continue
 		}
 
-		if constantType == models.Float {
+		if constantType == models.FloatConstant {
 			value, ok := raw.(float64)
 			if !ok {
 				return nil, fmt.Errorf("expected an float but got %+v for the %d value for %q", raw, i, *name)
@@ -613,7 +613,7 @@ func mapConstant(input spec.Schema) (*parsedConstant, error) {
 
 	// allows us to parse out the actual types above then force a string here if needed
 	if constExtension.modelAsString {
-		constantType = models.String
+		constantType = models.StringConstant
 	}
 
 	return &parsedConstant{
@@ -1004,12 +1004,12 @@ func (d *SwaggerDefinition) isConstant(constants map[string]models.ConstantDetai
 
 func mergeConstants(new models.ConstantDetails, existing *models.ConstantDetails) models.ConstantDetails {
 	vals := make(map[string]string)
-	fieldType := models.Unknown
+	fieldType := models.UnknownConstant
 	if existing != nil {
 		vals = existing.Values
 		fieldType = existing.FieldType
 	}
-	if fieldType == models.Unknown {
+	if fieldType == models.UnknownConstant {
 		fieldType = new.FieldType
 	}
 	for key, value := range new.Values {
