@@ -21,6 +21,7 @@ namespace Pandora.Definitions.ResourceManager.EventHubs.v2018_01_01_preview.Name
         public SkuTier Tier { get; set; }
     }
 
+    [ConstantType(ConstantTypeAttribute.ConstantType.String)]
     internal enum SkuTier
     {
         [Description("Basic")]

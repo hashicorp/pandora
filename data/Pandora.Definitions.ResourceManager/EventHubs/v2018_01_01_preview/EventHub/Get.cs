@@ -25,6 +25,7 @@ namespace Pandora.Definitions.ResourceManager.EventHubs.v2018_01_01_preview.Even
             public EntityStatus Status { get; set; }
         }
 
+        [ConstantType(ConstantTypeAttribute.ConstantType.String)]
         private enum EntityStatus
         {
             [Description("Active")]

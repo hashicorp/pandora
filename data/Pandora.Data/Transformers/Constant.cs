@@ -54,6 +54,7 @@ namespace Pandora.Data.Transformers
             }
             
             var caseInsensitive = IsCaseInsensitive(input);
+            var variableType = TypeForEnum(input);
             var values = ValuesForEnum(input);
 
             // this enum has to have a 'description' tag for each of the values
@@ -61,6 +62,7 @@ namespace Pandora.Data.Transformers
             {
                 Name = input.Name,
                 CaseInsensitive = caseInsensitive,
+                Type = variableType,
                 Values = values,
             };
         }
@@ -69,6 +71,31 @@ namespace Pandora.Data.Transformers
         {
             var caseInsensitiveAttribute = input.GetCustomAttribute<CaseInsensitiveDueToApiBugAttribute>();
             return caseInsensitiveAttribute != null;
+        }
+
+        private static ConstantType TypeForEnum(Type input)
+        {
+            var constantTypeAttribute = input.GetCustomAttribute<ConstantTypeAttribute>();
+            if (constantTypeAttribute == null)
+            {
+                throw new NotSupportedException($"The type {input.FullName} does not contain a [ConstantType] attribute");
+            }
+            return MapConstantType(constantTypeAttribute.Type);
+        }
+
+        private static ConstantType MapConstantType(Pandora.Definitions.Attributes.ConstantTypeAttribute.ConstantType input)
+        {
+            switch (input)
+            {
+                case ConstantTypeAttribute.ConstantType.Float:
+                    return ConstantType.Float;
+                case ConstantTypeAttribute.ConstantType.Integer:
+                    return ConstantType.Integer;
+                case ConstantTypeAttribute.ConstantType.String:
+                    return ConstantType.String;
+            }
+
+            throw new NotSupportedException($"unmapped constant type {input.ToString()}");
         }
 
         private static Dictionary<string, string> ValuesForEnum(Type input)
