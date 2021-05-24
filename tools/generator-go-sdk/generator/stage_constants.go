@@ -45,7 +45,7 @@ func (c constantsTemplater) template(data ServiceGeneratorData) (*string, error)
 	return &template, nil
 }
 
-func (c constantsTemplater) templateConstant(constantTypeName string, values resourcemanager.ConstantDetails) string {
+func (c constantsTemplater) templateConstant(constantName string, values resourcemanager.ConstantDetails) string {
 	valueKeys := make([]string, 0)
 	for key := range values.Values {
 		valueKeys = append(valueKeys, key)
@@ -56,17 +56,37 @@ func (c constantsTemplater) templateConstant(constantTypeName string, values res
 	for _, constantKey := range valueKeys {
 		constantValue := values.Values[constantKey]
 		template := "\t%[2]s%[1]s %[2]s = %[3]q" // \tMyConstantValue MyConstant = "Value"
-		lines = append(lines, fmt.Sprintf(template, constantKey, constantTypeName, constantValue))
+		if values.Type == resourcemanager.IntegerConstant || values.Type == resourcemanager.FloatConstant {
+			template = "\t%[2]s%[1]s %[2]s = %[3]s" // \tMyConstantValue MyConstant = 1.02
+		}
+		lines = append(lines, fmt.Sprintf(template, constantKey, constantName, constantValue))
 	}
 
 	//if values.CaseInsensitive {
 	//	// TODO: handle this needing a custom deserializer/serializer for rewriting
 	//}
 
-	return fmt.Sprintf(`type %s string
+	constantType := mapConstantTypeToGoType(values.Type)
+	return fmt.Sprintf(`type %[1]s %[2]s
 
 const (
-%s
+%[3]s
 )
-`, constantTypeName, strings.Join(lines, "\n"))
+`, constantName, constantType, strings.Join(lines, "\n"))
+}
+
+func mapConstantTypeToGoType(input resourcemanager.ConstantType) string {
+	if input == resourcemanager.FloatConstant {
+		return "float64"
+	}
+
+	if input == resourcemanager.IntegerConstant {
+		return "int64"
+	}
+
+	if input == resourcemanager.StringConstant {
+		return "string"
+	}
+
+	return "TODO"
 }
