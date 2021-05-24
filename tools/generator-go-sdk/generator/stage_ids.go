@@ -7,17 +7,17 @@ import (
 
 func (s *ServiceGenerator) ids(data ServiceGeneratorData) error {
 	for idName, idFormat := range data.resourceIds {
-		fileNamePrefix := strings.TrimSuffix(idName, "Id")
-		fileNamePrefix = strings.ToLower(fileNamePrefix)
+		nameWithoutSuffix := strings.TrimSuffix(idName, "Id") // we suffix 'Id' and 'ID' in places
+		fileNamePrefix := strings.ToLower(nameWithoutSuffix)
 		if err := s.writeToPath(fmt.Sprintf("id_%s.go", fileNamePrefix), idParserTemplater{
-			name:   idName,
+			name:   nameWithoutSuffix,
 			format: idFormat,
 		}, data); err != nil {
 			return fmt.Errorf("templating ids: %+v", err)
 		}
 
 		if err := s.writeToPath(fmt.Sprintf("id_%s_test.go", fileNamePrefix), idParserTestsTemplater{
-			name:   idName,
+			name:   nameWithoutSuffix,
 			format: idFormat,
 		}, data); err != nil {
 			return fmt.Errorf("templating tests for id: %+v", err)
