@@ -8,7 +8,7 @@ namespace Pandora.Definitions.ResourceManager
         public IEnumerable<ServiceDefinition> Services => new List<ServiceDefinition>
         {
             new AppConfiguration.Service(),
-            new EventHubs.Service(),
+            new EventHub.Service(),
             new Pandamonium.Service(),
             new Resources.Service(),
         };
