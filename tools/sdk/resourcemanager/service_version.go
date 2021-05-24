@@ -30,10 +30,6 @@ type ServiceVersionDetails struct {
 	// Resources is a key (Resource Name) value (ResourceSummary) pair of Resource
 	// supported by this Service Version
 	Resources map[string]ResourceSummary `json:"resources"`
-
-	// ResourceIds is a map of key (Resource Name) to value (Resource ID strings)
-	// used by this Service or it's API's
-	ResourceIds map[string]string `json:"resourceIds"`
 }
 
 type ResourceSummary struct {

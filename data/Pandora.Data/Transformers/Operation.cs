@@ -38,8 +38,8 @@ namespace Pandora.Data.Transformers
             var responseObject = input.ResponseObject();
             if (longRunning && responseObject != null)
             {
-                throw new NotSupportedException(
-                    "cannot be long running with a response object, lookup the object instead");
+                // disregard the response object since this shouldn't be useful
+                responseObject = null;
             }
 
             // TODO: tests covering this?

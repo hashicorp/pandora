@@ -55,7 +55,8 @@ namespace Pandora.Api.V1.ResourceManager
             return new ApiSchemaResponse
             {
                 Constants = api.Constants.ToDictionary(c => c.Name, ConstantApiDefinition.Map),
-                Models = api.Models.ToDictionary(m => m.Name, MapModel)
+                Models = api.Models.ToDictionary(m => m.Name, MapModel),
+                ResourceIds = api.ResourceIds.ToDictionary(id => id.Name, id => id.Format),
             };
         }
 
@@ -165,6 +166,9 @@ namespace Pandora.Api.V1.ResourceManager
 
             [JsonPropertyName("models")]
             public Dictionary<string, ModelApiDefinition> Models { get; set; }
+
+            [JsonPropertyName("resourceIds")]
+            public Dictionary<string, string> ResourceIds { get; set; }
         }
 
         private class PropertyApiDefinition

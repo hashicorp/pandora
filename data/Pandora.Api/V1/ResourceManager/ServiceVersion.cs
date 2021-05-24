@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.VisualBasic.CompilerServices;
 using Pandora.Data.Models;
 using Pandora.Data.Repositories;
+using Pandora.Data.Transformers;
 
 namespace Pandora.Api.V1.ResourceManager
 {
@@ -43,15 +44,9 @@ namespace Pandora.Api.V1.ResourceManager
         {
             return new ApiVersionResponse
             {
-                ResourceIds = MapResourceIds(version),
                 Resources = version.Apis.ToDictionary(a => a.Name, 
                     a => MapResourceForApiVersion(a, versionNumber, serviceName)),
             };
-        }
-
-        private static Dictionary<string, string> MapResourceIds(VersionDefinition version)
-        {
-            return version.Apis.SelectMany(api => api.ResourceIds).ToDictionary(id => id.Name, id => id.Format);
         }
 
         private static ApiTypeInformation MapResourceForApiVersion(ApiDefinition definition, string versionNumber, string serviceName)
@@ -64,10 +59,8 @@ namespace Pandora.Api.V1.ResourceManager
         }
     }
     
-    public class ApiVersionResponse {
-        [JsonPropertyName("resourceIds")]
-        public Dictionary<string, string> ResourceIds { get; set; }
-        
+    public class ApiVersionResponse
+    {
         [JsonPropertyName("resources")]
         public Dictionary<string, ApiTypeInformation> Resources { get; set; }
     }

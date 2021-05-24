@@ -44,8 +44,11 @@ namespace Pandora.Data.Transformers
                     }
 
                     var innerType = property.PropertyType.GetGenericArguments()[0];
-                    var mappedInner = MapObject(innerType);
-                    models.AddRange(mappedInner);
+                    if (!Helpers.IsNativeType(innerType)) // e.g. List<string>
+                    {
+                        var mappedInner = MapObject(innerType);
+                        models.AddRange(mappedInner);
+                    }
                 }
                 else if (property.PropertyType.IsClass && !property.PropertyType.IsEnum &&
                          !Helpers.IsNativeType(property.PropertyType) &&

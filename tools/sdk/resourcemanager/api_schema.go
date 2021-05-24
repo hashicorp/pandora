@@ -34,6 +34,10 @@ type ApiSchemaDetails struct {
 	// Models is a map of key (Model Name) to value (ModelDetails) describing
 	// each Model supported by this API version, used in either Requests or Responses
 	Models map[string]ModelDetails `json:"models"`
+
+	// ResourceIds is a map of key (Resource Name) to value (Resource ID strings)
+	// used by this API
+	ResourceIds map[string]string `json:"resourceIds"`
 }
 
 type ConstantDetails struct {
