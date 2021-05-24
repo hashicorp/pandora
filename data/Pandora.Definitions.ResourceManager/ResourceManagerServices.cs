@@ -9,7 +9,6 @@ namespace Pandora.Definitions.ResourceManager
         {
             new AppConfiguration.Service(),
             new EventHub.Service(),
-            new EventHubs.Service(),
             new Pandamonium.Service(),
             new Resources.Service(),
         };
