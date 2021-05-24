@@ -527,7 +527,6 @@ func (c %[1]s) %[2]sResponder(resp *http.Response) (result %[2]sResponse, err er
 		resp,
 		%[3]s)
 	result.HttpResponse = resp
-	result.nextLink = respObj.nextLink
 	return
 }
 `, data.serviceClientName, c.operationName, strings.Join(steps, ",\n\t\t"))
