@@ -41,6 +41,11 @@ type ConstantDetails struct {
 	// and should be rewritten on the Client side to be consistent
 	CaseInsensitive bool `json:"caseInsensitive"`
 
+	// Type specifies the backing type for this constant, whilst the name will
+	// always be a String, the backing values can be a Float/Integer/String
+	// albeit returned as a string to maintain formatting.
+	Type ConstantType `json:"type"`
+
 	// Values specifies a key (Display Name) to value (Constant Value) for the
 	// possible values for this Constant
 	Values map[string]string `json:"values"`
@@ -107,6 +112,14 @@ type FieldDetails struct {
 	// field, if any.
 	Validation *FieldValidationDetails `json:"validation"`
 }
+
+type ConstantType string
+
+const (
+	FloatConstant   ConstantType = "float"
+	IntegerConstant ConstantType = "int"
+	StringConstant  ConstantType = "string"
+)
 
 type DateFormat string
 
