@@ -9,6 +9,5 @@ namespace Pandora.Definitions.Interfaces
         public string? ResourceProvider { get; }
 
         public IEnumerable<TerraformResourceDefinition> Resources { get; }
-        public IEnumerable<ApiVersionDefinition> Versions { get; }
     }
 }

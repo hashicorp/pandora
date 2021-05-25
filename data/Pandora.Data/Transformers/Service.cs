@@ -1,9 +1,7 @@
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using Pandora.Definitions.Interfaces;
 using ServiceDefinition = Pandora.Data.Models.ServiceDefinition;
-using TerraformResourceDefinition = Pandora.Data.Models.TerraformResourceDefinition;
 
 namespace Pandora.Data.Transformers
 {
@@ -11,14 +9,15 @@ namespace Pandora.Data.Transformers
     {
         public static ServiceDefinition Map(Definitions.Interfaces.ServiceDefinition input)
         {
-            var versions = input.Versions.Select(Version.Map).OrderBy(v => v.Version).ToList();
-            if (versions.Count == 0)
+            var versions = Definitions.Discovery.Versions.WithinServiceDefinition(input);
+            var orderedVersions = versions.Select(Version.Map).OrderBy(v => v.Version).ToList();
+            if (orderedVersions.Count == 0)
             {
                 throw new NotSupportedException($"Service {input.Name} has no versions defined");
             }
             
             // protect against coding errors
-            var hasDuplicates = versions.Any(a => versions.Count(api => api.Version == a.Version) > 1);
+            var hasDuplicates = orderedVersions.Any(a => orderedVersions.Count(api => api.Version == a.Version) > 1);
             if (hasDuplicates)
             {
                 throw new NotSupportedException($"Service {input.Name} has duplicate versions defined");
@@ -51,7 +50,7 @@ namespace Pandora.Data.Transformers
                ResourceManager = input.ResourceProvider != null,
                ResourceProvider = input.ResourceProvider,
                Resources = mappedResources,
-               Versions = versions,
+               Versions = orderedVersions,
             };
         }
     }

@@ -10,10 +10,5 @@ namespace Pandora.Definitions.DataPlane.Kudu
         public string? ResourceProvider => null;
         
         public IEnumerable<TerraformResourceDefinition> Resources => new List<TerraformResourceDefinition>();
-
-        public IEnumerable<ApiVersionDefinition> Versions => new List<ApiVersionDefinition>
-        {
-            new Unversioned.Definition()
-        };
     }
 }
