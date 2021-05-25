@@ -578,7 +578,7 @@ func mapConstant(input spec.Schema) (*parsedConstant, error) {
 				return nil, fmt.Errorf("expected a string but got %+v for the %d value for %q", raw, i, *name)
 			}
 
-			normalizedName := cleanup.NormalizeName(value)
+			normalizedName := cleanup.NormalizeConstantKey(value)
 			keysAndValues[normalizedName] = value
 			continue
 		}
@@ -592,7 +592,8 @@ func mapConstant(input spec.Schema) (*parsedConstant, error) {
 
 			key := keyValueForInteger(int64(value))
 			val := fmt.Sprintf("%d", int64(value))
-			keysAndValues[key] = val
+			normalizedName := cleanup.NormalizeConstantKey(key)
+			keysAndValues[normalizedName] = val
 			continue
 		}
 
@@ -604,7 +605,8 @@ func mapConstant(input spec.Schema) (*parsedConstant, error) {
 
 			key := keyValueForFloat(value)
 			val := stringValueForFloat(value)
-			keysAndValues[key] = val
+			normalizedName := cleanup.NormalizeConstantKey(key)
+			keysAndValues[normalizedName] = val
 			continue
 		}
 
