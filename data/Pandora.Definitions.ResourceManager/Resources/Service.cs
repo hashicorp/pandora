@@ -15,10 +15,5 @@ namespace Pandora.Definitions.ResourceManager.Resources
             new ResourceGroupDataSource(),
             new ResourceGroupResource(),
         };
-
-        public IEnumerable<ApiVersionDefinition> Versions => new List<ApiVersionDefinition>
-        {
-            new v2018_05_01.Resources(),
-        };
     }
 }

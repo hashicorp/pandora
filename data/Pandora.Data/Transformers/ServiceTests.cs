@@ -15,13 +15,13 @@ namespace Pandora.Data.Transformers
         [TestCase]
         public static void MappingWithNoVersionsShouldFail()
         {
-            Assert.Throws<NotSupportedException>(() => Service.Map(new ServiceWithNoVersions()));
+            Assert.Throws<NotSupportedException>(() => Service.Map(new NoVersionsContainer.ServiceWithNoVersions()));
         }
 
         [TestCase]
         public static void MappingAResourceManagerService()
         {
-            var action = Service.Map(new FakeResourceManagerService());
+            var action = Service.Map(new ResourceManagerContainer.FakeResourceManagerService());
             Assert.NotNull(action);
             Assert.AreEqual("FakeResourceManager", action.Name);
             Assert.AreEqual(true, action.ResourceManager);
@@ -31,65 +31,63 @@ namespace Pandora.Data.Transformers
         [TestCase]
         public static void MappingANonResourceManagerService()
         {
-            var action = Service.Map(new FakeDataPlaneService());
+            var action = Service.Map(new FakeDataPlaneContainer.FakeDataPlaneService());
             Assert.NotNull(action);
             Assert.AreEqual("FakeDataPlane", action.Name);
             Assert.AreEqual(false, action.ResourceManager);
             Assert.Null(action.ResourceProvider);
         }
 
-        [TestCase]
-        public static void MappingAServiceContainingDuplicateVersionsShouldFail()
+        // since we look the versions up dynamically, putting these within their own class/namespace allows these to be discovered separately
+        private class FakeDataPlaneContainer
         {
-            Assert.Throws<NotSupportedException>(() => Service.Map(new FakeResourceManagerWithDuplicateVersionsService()));
-        }
-
-        private class ServiceWithNoVersions : ServiceDefinition
-        {
-            public string Name => "Bob";
-            public bool Generate => true;
-            public string? ResourceProvider => "Hello";
-            public IEnumerable<TerraformResourceDefinition> Resources => new List<TerraformResourceDefinition>();
-            public IEnumerable<ApiVersionDefinition> Versions => new List<ApiVersionDefinition>();
-        }
-
-        private class FakeDataPlaneService : ServiceDefinition
-        {
-            public string Name => "FakeDataPlane";
-            public bool Generate => true;
-            public string? ResourceProvider => null;
-            public IEnumerable<TerraformResourceDefinition> Resources => new List<TerraformResourceDefinition>();
-            public IEnumerable<ApiVersionDefinition> Versions => new List<ApiVersionDefinition> { new FakeApiVersion() };
-        }
-
-        private class FakeResourceManagerService : ServiceDefinition
-        {
-            public string Name => "FakeResourceManager";
-            public bool Generate => false;
-            public string? ResourceProvider => "Microsoft.Foo";
-            public IEnumerable<TerraformResourceDefinition> Resources => new List<TerraformResourceDefinition>();
-            public IEnumerable<ApiVersionDefinition> Versions => new List<ApiVersionDefinition> { new FakeApiVersion() };
-        }
-
-        private class FakeResourceManagerWithDuplicateVersionsService : ServiceDefinition
-        {
-            public string Name => "FakeResourceManager";
-            public bool Generate => false;
-            public string? ResourceProvider => "Microsoft.Foo";
-            public IEnumerable<TerraformResourceDefinition> Resources => new List<TerraformResourceDefinition>();
-            public IEnumerable<ApiVersionDefinition> Versions => new List<ApiVersionDefinition>
+            internal class FakeDataPlaneService : ServiceDefinition
             {
-                new FakeApiVersion(),
-                new FakeApiVersion()
-            };
+                public string Name => "FakeDataPlane";
+                public bool Generate => true;
+                public string? ResourceProvider => null;
+                public IEnumerable<TerraformResourceDefinition> Resources => new List<TerraformResourceDefinition>();
+            }
+            
+            // found via discovery/reflection
+            private class FakeApiVersion : ApiVersionDefinition
+            {
+                public string ApiVersion => "SomeVersion";
+                public bool Generate => true;
+                public bool Preview => true;
+                public IEnumerable<ApiDefinition> Apis => new List<ApiDefinition> { new FakeApiDefinition() };
+            }
         }
 
-        private class FakeApiVersion : ApiVersionDefinition
+        private class NoVersionsContainer
         {
-            public string ApiVersion => "SomeVersion";
-            public bool Generate => true;
-            public bool Preview => true;
-            public IEnumerable<ApiDefinition> Apis => new List<ApiDefinition> { new FakeApiDefinition() };
+            internal class ServiceWithNoVersions : ServiceDefinition
+            {
+                public string Name => "Bob";
+                public bool Generate => true;
+                public string? ResourceProvider => "Hello";
+                public IEnumerable<TerraformResourceDefinition> Resources => new List<TerraformResourceDefinition>();
+            }
+        }
+
+        private class ResourceManagerContainer
+        {
+            internal class FakeResourceManagerService : ServiceDefinition
+            {
+                public string Name => "FakeResourceManager";
+                public bool Generate => false;
+                public string? ResourceProvider => "Microsoft.Foo";
+                public IEnumerable<TerraformResourceDefinition> Resources => new List<TerraformResourceDefinition>();
+            }
+
+            // looks like this isn't used, but it is since it's found via Discovery (which is why this has to be internal)
+            private class FakeApiVersion : ApiVersionDefinition
+            {
+                public string ApiVersion => "SomeVersion";
+                public bool Generate => true;
+                public bool Preview => true;
+                public IEnumerable<ApiDefinition> Apis => new List<ApiDefinition> { new FakeApiDefinition() };
+            }
         }
         
         private class FakeApiDefinition : ApiDefinition
@@ -97,7 +95,6 @@ namespace Pandora.Data.Transformers
             public string ApiVersion => "2018-01-01";
             public string Name => "example";
             public IEnumerable<ApiOperation> Operations => new List<ApiOperation> { new FakeApiOperation() };
-            public Definitions.Interfaces.ResourceID ResourceId => new FakeResourceId();
         }
 
         private class FakeApiOperation : GetOperation
@@ -112,11 +109,6 @@ namespace Pandora.Data.Transformers
         {
             [JsonPropertyName("hello")]
             public bool Hello { get; set; }
-        }
-
-        private class FakeResourceId : Definitions.Interfaces.ResourceID
-        {
-            public string ID() => "/hello/{planet}";
         }
     }
 }

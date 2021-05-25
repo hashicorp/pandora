@@ -4,16 +4,11 @@ using Pandora.Definitions.Interfaces;
 
 namespace Pandora.Definitions.DataPlane.AppConfiguration
 {
-    public class Service : ServiceDefinition
-    {
-        public string Name => "AppConfiguration";
-        public bool Generate => true;
-        public string? ResourceProvider => null;
-        public IEnumerable<TerraformResourceDefinition> Resources => new List<TerraformResourceDefinition>();
-
-        public IEnumerable<ApiVersionDefinition> Versions => new List<ApiVersionDefinition>
-        {
-            new v1_0.Definition()
-        };
-    }
+    // public class Service : ServiceDefinition
+    // {
+    //     public string Name => "AppConfiguration";
+    //     public bool Generate => true;
+    //     public string? ResourceProvider => null;
+    //     public IEnumerable<TerraformResourceDefinition> Resources => new List<TerraformResourceDefinition>();
+    // }
 }

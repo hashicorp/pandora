@@ -9,9 +9,9 @@ namespace Pandora.Data.Repositories
     {
         private readonly List<ServiceDefinition> _services;
 
-        public ServiceReferencesRepository(IEnumerable<ServicesDefinition> services)
+        public ServiceReferencesRepository(IEnumerable<Definitions.Interfaces.ServiceDefinition> services)
         {
-            _services = services.SelectMany(s => s.Services.ToList()).Select(Transformers.Service.Map).ToList();
+            _services = services.Select(Transformers.Service.Map).ToList();
         }
 
         public ServiceDefinition GetByName(string name, bool resourceManager)
