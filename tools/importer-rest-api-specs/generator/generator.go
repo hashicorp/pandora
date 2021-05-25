@@ -342,12 +342,12 @@ func (g PandoraDefinitionGenerator) codeForOperation(namespace string, operation
 	if len(operation.Options) > 0 {
 		code = append(code, fmt.Sprintf(`		public override object? OptionsObject()
 		{
-			return new %[1]qOptions();
+			return new %[1]sOptions();
 		}`, operationName))
 
 		optionsCode = append(optionsCode, fmt.Sprintf("\n\tinternal class %sOptions", operationName))
+		optionsCode = append(optionsCode, "\t{")
 		for optionName, optionDetails := range operation.Options {
-			optionsCode = append(optionsCode, "\t{")
 			if optionDetails.QueryStringName != "" {
 				optionsCode = append(optionsCode, fmt.Sprintf("\t\t[QueryStringName(%q)]", optionDetails.QueryStringName))
 			}
@@ -355,7 +355,6 @@ func (g PandoraDefinitionGenerator) codeForOperation(namespace string, operation
 				optionsCode = append(optionsCode, "\t\t[Optional]")
 			}
 			optionsCode = append(optionsCode, fmt.Sprintf("\t\tpublic %s %s { get; set; }", optionDetails.FieldType, optionName))
-			optionsCode = append(optionsCode, "\t") // spacer
 		}
 		optionsCode = append(optionsCode, "\t}")
 	}
