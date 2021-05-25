@@ -850,7 +850,7 @@ func TestParseConstantsStringsTopLevel(t *testing.T) {
 	if animalType.FieldType != models.StringConstant {
 		t.Fatalf("expected animalType.FieldType to be a 'String' but got %q", animalType.FieldType)
 	}
-	if len(animalType.Values) != 3 {
+	if len(animalType.Values) != 4 {
 		t.Fatalf("expected resource.Constants['AnimalType'] to have 3 values but got %d", len(animalType.Values))
 	}
 	v, ok := animalType.Values["Cat"]
@@ -873,6 +873,13 @@ func TestParseConstantsStringsTopLevel(t *testing.T) {
 	}
 	if v != "panda" {
 		t.Fatalf("expected the value for resource.Constants['AnimalType'].Values['Panda'] to be 'panda' but got %q", v)
+	}
+	v, ok = animalType.Values["All"]
+	if !ok {
+		t.Fatalf("resource.Constants['AnimalType'] didn't contain the key 'All'")
+	}
+	if v != "*" {
+		t.Fatalf("expected the value for resource.Constants['AnimalType'].Values['All'] to be '*' but got %q", v)
 	}
 }
 
