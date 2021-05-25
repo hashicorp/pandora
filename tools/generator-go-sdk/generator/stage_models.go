@@ -24,7 +24,7 @@ func (s *ServiceGenerator) models(data ServiceGeneratorData) error {
 			name:  modelName,
 			model: model,
 		}
-		if err := s.writeToPath(fileName, gen, data); err != nil {
+		if err := s.writeToPath(data.outputPath, fileName, gen, data); err != nil {
 			return fmt.Errorf("templating model for %q: %+v", modelName, err)
 		}
 	}
