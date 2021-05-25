@@ -52,12 +52,19 @@ func (s *ServiceGenerator) Generate(input ServiceGeneratorInput) error {
 	}
 
 	runGoFmt(data.outputPath)
+	runGoImports(data.outputPath)
 
 	return nil
 }
 
 func runGoFmt(path string) {
 	cmd := exec.Command("gofmt", "-w", path)
+	_ = cmd.Start()
+	_ = cmd.Wait()
+}
+
+func runGoImports(path string) {
+	cmd := exec.Command("goimports", "-w", path)
 	_ = cmd.Start()
 	_ = cmd.Wait()
 }
