@@ -148,6 +148,8 @@ func dotNetTypeNameForComplexType(field models.FieldDefinition) (*string, error)
 				if *field.ListElementType == models.Object {
 					// not ideal, but it'll do for now since there's no definition for this
 					nestedType = "object"
+				} else if *field.ListElementType == models.List {
+					nestedType = "list"
 				} else {
 					nestedTypeName, err := dotNetTypeNameForSimpleType(*field.ListElementType)
 					if err != nil {

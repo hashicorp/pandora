@@ -4,13 +4,9 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
 	"log"
 	"net/http"
-	"os"
-	"path/filepath"
 	"reflect"
-	"sort"
 	"strings"
 	"testing"
 	"time"
@@ -21,7 +17,7 @@ import (
 const swaggerDirectory = "../../../swagger/specification"
 
 func TestAllSwaggersUsingParser(t *testing.T) {
-	services, err := findResourceManagerServices(swaggerDirectory)
+	services, err := FindResourceManagerServices(swaggerDirectory)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -50,7 +46,7 @@ func TestAllSwaggersUsingParser(t *testing.T) {
 }
 
 func TestAllSwaggersValidateAllContainTypes(t *testing.T) {
-	services, err := findResourceManagerServices(swaggerDirectory)
+	services, err := FindResourceManagerServices(swaggerDirectory)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -81,7 +77,7 @@ func TestAllSwaggersValidateAllContainTypes(t *testing.T) {
 }
 
 func TestAllSwaggersValidateFindOAIGenParserBug(t *testing.T) {
-	services, err := findResourceManagerServices(swaggerDirectory)
+	services, err := FindResourceManagerServices(swaggerDirectory)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -110,7 +106,7 @@ func TestAllSwaggersValidateFindOAIGenParserBug(t *testing.T) {
 }
 
 func TestAllSwaggersValidateFindUnknownBugs(t *testing.T) {
-	services, err := findResourceManagerServices(swaggerDirectory)
+	services, err := FindResourceManagerServices(swaggerDirectory)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -772,92 +768,8 @@ func TestAssertParserCanParseAppConfiguration(t *testing.T) {
 	}
 }
 
-type resourceManagerService struct {
-	Name            string
-	ApiVersionPaths map[string]string
-}
-
-func findResourceManagerServices(directory string) (*[]resourceManagerService, error) {
-	services := make(map[string]map[string]string, 0)
-	err := filepath.Walk(directory,
-		func(fullPath string, info os.FileInfo, err error) error {
-			if err != nil {
-				return err
-			}
-			if !info.IsDir() {
-				return nil
-			}
-
-			// appconfiguration/data-plane/Microsoft.AppConfiguration/stable/1.0
-			// vmware/resource-manager/Microsoft.AVS/{preview|stable}/{version}
-			relativePath := strings.TrimPrefix(fullPath, directory)
-			relativePath = strings.TrimPrefix(relativePath, "/")
-			trimmed := strings.TrimPrefix(relativePath, directory)
-			segments := strings.Split(trimmed, "/")
-			if len(segments) != 5 {
-				return nil
-			}
-
-			serviceName := segments[0]
-			serviceType := segments[1]
-			resourceProvider := segments[2]
-			serviceReleaseState := segments[3]
-			apiVersion := segments[4]
-			log.Printf("Service %q / Type %q / RP %q / Status %q / Version %q", serviceName, serviceType, resourceProvider, serviceReleaseState, apiVersion)
-			log.Printf("Path %q", fullPath)
-
-			existingPaths, ok := services[serviceName]
-			if !ok {
-				existingPaths = make(map[string]string, 0)
-			}
-			existingPaths[apiVersion] = fullPath
-			services[serviceName] = existingPaths
-			return nil
-		})
-	if err != nil {
-		return nil, err
-	}
-
-	serviceNames := make([]string, 0)
-	for serviceName := range services {
-		serviceNames = append(serviceNames, serviceName)
-	}
-	sort.Strings(serviceNames)
-	out := make([]resourceManagerService, 0)
-	for _, serviceName := range serviceNames {
-		paths := services[serviceName]
-		out = append(out, resourceManagerService{
-			Name:            serviceName,
-			ApiVersionPaths: paths,
-		})
-	}
-	return &out, nil
-}
-
-func swaggerFilesInDirectory(directory string) (*[]string, error) {
-	swaggerFiles := make([]string, 0)
-	dirContents, err := ioutil.ReadDir(directory)
-	if err != nil {
-		return nil, err
-	}
-
-	for _, file := range dirContents {
-		if file.IsDir() {
-			continue
-		}
-
-		extension := filepath.Ext(file.Name())
-		if strings.EqualFold(extension, ".json") {
-			filePath := filepath.Join(directory, file.Name())
-			swaggerFiles = append(swaggerFiles, filePath)
-		}
-	}
-
-	return &swaggerFiles, nil
-}
-
 func validateDirectory(serviceName, apiVersion, versionDirectory string) error {
-	swaggerFiles, err := swaggerFilesInDirectory(versionDirectory)
+	swaggerFiles, err := SwaggerFilesInDirectory(versionDirectory)
 	if err != nil {
 		return fmt.Errorf("parsing swagger files in %q: %+v", versionDirectory, err)
 	}
