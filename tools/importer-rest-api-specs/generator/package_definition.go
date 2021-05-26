@@ -35,5 +35,5 @@ namespace %[1]s
 		};
 	}
 }
-`, namespace, g.serviceName, g.apiVersion, strings.Join(lines, "\n"))
+`, namespace, g.data.ServiceName, g.data.ApiVersion, strings.Join(lines, "\n"))
 }
