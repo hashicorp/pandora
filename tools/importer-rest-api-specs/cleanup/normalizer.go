@@ -2,6 +2,13 @@ package cleanup
 
 import "strings"
 
+func NormalizeConstantKey(input string) string {
+	output := NormalizeName(input)
+	output = strings.ReplaceAll(output, "*", "Any")
+	// TODO: add more if we find them
+	return output
+}
+
 func NormalizeName(input string) string {
 	output := input
 
