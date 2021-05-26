@@ -32,9 +32,6 @@ type ServiceDetails struct {
 
 	// Versions is a summary of the Versions available for this Service
 	Versions map[string]ServiceVersion `json:"versions"`
-
-	// Terraform is a summary of Terraform related metadata
-	Terraform TerraformSummary `json:"terraform"`
 }
 
 type ServiceVersion struct {
@@ -46,20 +43,4 @@ type ServiceVersion struct {
 
 	// Uri is a reference to more details about this Service Version
 	Uri string `json:"uri"`
-}
-
-type TerraformObjectSummary struct {
-	// Generate specifies whether this should be generated
-	Generate bool `json:"generate"`
-
-	// Uri is a reference to more details about this Terraform Object
-	Uri string `json:"uri"`
-}
-
-type TerraformSummary struct {
-	// DataSources is a map of Terraform data source names to object summaries
-	DataSources map[string]TerraformObjectSummary `json:"dataSources"`
-
-	// Resources is a map of Terraform resource names to object summaries
-	Resources map[string]TerraformObjectSummary `json:"resources"`
 }

@@ -36,29 +36,7 @@ namespace Pandora.Api.V1.ResourceManager
         {
             return new ServiceDetailsResponse{
                 ResourceProvider = version.ResourceManager ? version.ResourceProvider! : null,
-                Terraform = MapTerraformResponse(version, serviceName),
                 Versions = version.Versions.ToDictionary(v => v.Version, v => MapVersion(v, serviceName))
-            };
-        }
-
-        private static TerraformResponse MapTerraformResponse(ServiceDefinition version, string serviceName)
-        {
-            var dataSources = version.DataSources.ToDictionary(ds => ds.ResourceLabel, r => MapResource(r, serviceName));
-            var resources = version.Resources.ToDictionary(r => r.ResourceLabel, r => MapResource(r, serviceName));
-            return new TerraformResponse
-            {
-                DataSources = dataSources,
-                Resources = resources,
-            };
-        }
-
-        private static TerraformObjectDetails MapResource(TerraformResourceDefinition definition, string serviceName)
-        {
-            var resourceTypeSegment = definition.IsDataSource ? "data-source" : "resource";
-            return new TerraformObjectDetails
-            {
-                Generate = definition.Generate,
-                Uri = $"/v1/resource-manager/services/{serviceName}/terraform-{resourceTypeSegment}/{definition.ResourceLabel}"
             };
         }
 
@@ -70,24 +48,6 @@ namespace Pandora.Api.V1.ResourceManager
                 Preview = version.Preview,
                 Uri = $"/v1/resource-manager/services/{serviceName}/{version.Version}"
             };
-        }
-
-        private class TerraformObjectDetails
-        {
-            [JsonPropertyName("generate")]
-            public bool Generate { get; set; }
-        
-            [JsonPropertyName("uri")]
-            public string Uri { get; set; }
-        }
-
-        private class TerraformResponse
-        {
-            [JsonPropertyName("dataSources")]
-            public Dictionary<string, TerraformObjectDetails> DataSources { get; set; }
-
-            [JsonPropertyName("resources")]
-            public Dictionary<string, TerraformObjectDetails> Resources { get; set; }
         }
 
         private class VersionDetails
@@ -109,9 +69,6 @@ namespace Pandora.Api.V1.ResourceManager
         
             [JsonPropertyName("versions")]
             public Dictionary<string, VersionDetails> Versions { get; set; }
-
-            [JsonPropertyName("terraform")]
-            public TerraformResponse Terraform { get; set; }
         }
     }
 }

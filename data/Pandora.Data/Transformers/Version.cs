@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using Pandora.Data.Models;
 using Pandora.Definitions;
+using Pandora.Definitions.Interfaces;
 
 namespace Pandora.Data.Transformers
 {
