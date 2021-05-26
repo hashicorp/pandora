@@ -74,7 +74,7 @@ func (g PandoraDefinitionGenerator) Generate(resourceName string, resource model
 		fileName := path.Join(workingDirectory, fmt.Sprintf("Model-%s.cs", modelName))
 		if *code != "" {
 			if err := writeToFile(fileName, *code); err != nil {
-				return fmt.Errorf("generating code for %q: %+v", modelName, err)
+				return fmt.Errorf("writing code for model %q: %+v", modelName, err)
 			}
 		}
 	}
@@ -89,7 +89,7 @@ func (g PandoraDefinitionGenerator) Generate(resourceName string, resource model
 		code := g.codeForOperation(namespace, operationName, operation)
 		fileName := path.Join(workingDirectory, fmt.Sprintf("Operation-%s.cs", operationName))
 		if err := writeToFile(fileName, code); err != nil {
-			return fmt.Errorf("generating code for %q: %+v", operationName, err)
+			return fmt.Errorf("writing code for operation %q: %+v", operationName, err)
 		}
 	}
 
@@ -103,11 +103,18 @@ func (g PandoraDefinitionGenerator) Generate(resourceName string, resource model
 		code := g.codeForResourceID(namespace, name, id)
 		fileName := path.Join(workingDirectory, fmt.Sprintf("ResourceId-%s.cs", name))
 		if err := writeToFile(fileName, code); err != nil {
-			return fmt.Errorf("generating code for %q: %+v", name, err)
+			return fmt.Errorf("writing code for Resource Id %q: %+v", name, err)
 		}
 	}
 
-	// TODO: also generate the Resource Definition
+	if g.debugLog {
+		log.Printf("[DEBUG] Generating Package Definition..")
+	}
+	packageDefinitionCode := g.codeForPackageDefinition(namespace, resource.Operations)
+	packageDefinitionFileName := path.Join(workingDirectory, "Definition.cs")
+	if err := writeToFile(packageDefinitionFileName, packageDefinitionCode); err != nil {
+		return fmt.Errorf("writing package definition for %q: %+v", packageDefinitionFileName, err)
+	}
 
 	return nil
 }
