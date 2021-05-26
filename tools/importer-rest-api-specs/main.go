@@ -5,8 +5,6 @@ import (
 	"log"
 	"os"
 	"strings"
-
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/generator"
 )
 
 const outputDirectory = "../../generated/pandora-definitions"
@@ -17,7 +15,7 @@ func main() {
 	input := []RunInput{
 		//{
 		//	RootNamespace:    "Pandora.Definitions.DataPlane",
-		//	OutputDirectory:  "../../generated/pandora-definitions",
+		//	OutputDirectory:  outputDirectory,
 		//	ServiceName:      "Synapse",
 		//	ApiVersion:       "2020-08-01-preview",
 		//	SwaggerDirectory: apiSpecsPath + "/specification/web/resource-manager/Microsoft.Web/stable/2020-12-01",
@@ -25,7 +23,7 @@ func main() {
 		//},
 		//{
 		//	RootNamespace:   "Pandora.Definitions.DataPlane",
-		//	OutputDirectory: "../../generated/pandora-definitions",
+		//	OutputDirectory: outputDirectory,
 		//	ServiceName:     "AppConfiguration",
 		//	ApiVersion:      "1.0",
 		//	SwaggerFilePath: "example-dp-appconfiguration.json",
@@ -36,7 +34,7 @@ func main() {
 		//	RootNamespace:    "Pandora.Definitions.ResourceManager",
 		//	ServiceName:      "Attestation",
 		//	ApiVersion:       "2020-10-01",
-		//	OutputDirectory:  "../../generated/pandora-definitions",
+		//	OutputDirectory:  outputDirectory,
 		//	SwaggerDirectory: apiSpecsPath + "/specification/attestation/resource-manager/Microsoft.Attestation/stable/2020-10-01",
 		//	SwaggerFiles: []string{
 		//		"attestation.json",
@@ -48,7 +46,7 @@ func main() {
 			RootNamespace:    "Pandora.Definitions.ResourceManager",
 			ServiceName:      "AppConfiguration",
 			ApiVersion:       "2020-06-01",
-			OutputDirectory:  "../../generated/pandora-definitions",
+			OutputDirectory:  outputDirectory,
 			SwaggerDirectory: apiSpecsPath + "/specification/appconfiguration/resource-manager/Microsoft.AppConfiguration/stable/2020-06-01",
 			SwaggerFiles: []string{
 				"appconfiguration.json",
@@ -60,7 +58,7 @@ func main() {
 			RootNamespace:    "Pandora.Definitions.ResourceManager",
 			ServiceName:      "EventHub",
 			ApiVersion:       "2017-04-01",
-			OutputDirectory:  "../../generated/pandora-definitions",
+			OutputDirectory:  outputDirectory,
 			SwaggerDirectory: apiSpecsPath + "/specification/eventhub/resource-manager/Microsoft.EventHub/stable/2017-04-01",
 			SwaggerFiles: []string{
 				"AuthorizationRules.json",
@@ -78,7 +76,7 @@ func main() {
 			RootNamespace:    "Pandora.Definitions.ResourceManager",
 			ServiceName:      "EventHub",
 			ApiVersion:       "2018-01-01-preview",
-			OutputDirectory:  "../../generated/pandora-definitions",
+			OutputDirectory:  outputDirectory,
 			SwaggerDirectory: apiSpecsPath + "/specification/eventhub/resource-manager/Microsoft.EventHub/preview/2018-01-01-preview",
 			SwaggerFiles: []string{
 				"AuthorizationRules.json",
@@ -104,7 +102,7 @@ func main() {
 		//	RootNamespace:    "Pandora.Definitions.ResourceManager",
 		//	ServiceName:      "Batch",
 		//	ApiVersion:       "2020-03-01",
-		//	OutputDirectory:  "../../generated/pandora-definitions",
+		//	OutputDirectory:  outputDirectory,
 		//	SwaggerDirectory: apiSpecsPath + "/specification/batch/resource-manager/Microsoft.Batch/stable/2020-03-01/",
 		//	SwaggerFiles: []string{
 		//		"BatchManagement.json",
@@ -116,7 +114,7 @@ func main() {
 		//	RootNamespace:    "Pandora.Definitions.ResourceManager",
 		//	ServiceName:      "Billing",
 		//	ApiVersion:       "2018-11-01-preview",
-		//	OutputDirectory:  "../../generated/pandora-definitions",
+		//	OutputDirectory:  outputDirectory,
 		//	SwaggerDirectory: apiSpecsPath + "/specification/billing/resource-manager/Microsoft.Billing/preview/2018-11-01-preview/",
 		//	SwaggerFiles: []string{
 		//		"billing.json",
@@ -128,7 +126,7 @@ func main() {
 		//	RootNamespace:    "Pandora.Definitions.ResourceManager",
 		//	ServiceName:      "Compute",
 		//	ApiVersion:       "2020-12-01",
-		//	OutputDirectory:  "../../generated/pandora-definitions",
+		//	OutputDirectory:  outputDirectory,
 		//	SwaggerDirectory: apiSpecsPath + "/specification/compute/resource-manager/Microsoft.Compute/stable/2020-12-01",
 		//	SwaggerFiles: []string{
 		//		"compute.json",
@@ -142,7 +140,7 @@ func main() {
 		//	RootNamespace:    "Pandora.Definitions.ResourceManager",
 		//	ServiceName:      "Cosmosdb",
 		//	ApiVersion:       "2020-12-01",
-		//	OutputDirectory:  "../../generated/pandora-definitions",
+		//	OutputDirectory:  outputDirectory,
 		//	// swagger/specification/cosmos-db/resource-manager/Microsoft.DocumentDB/stable/2021-01-15/cosmos-db.json
 		//	SwaggerDirectory: apiSpecsPath + "/specification/cosmos-db/resource-manager/Microsoft.DocumentDB/stable/2021-01-15",
 		//	SwaggerFiles: []string{
@@ -158,7 +156,7 @@ func main() {
 			RootNamespace:    "Pandora.Definitions.ResourceManager",
 			ServiceName:      "DataProtection",
 			ApiVersion:       "2021-01-01",
-			OutputDirectory:  "../../generated/pandora-definitions",
+			OutputDirectory:  outputDirectory,
 			SwaggerDirectory: apiSpecsPath + "/specification/dataprotection/resource-manager/Microsoft.DataProtection/stable/2021-01-01",
 			SwaggerFiles: []string{
 				"dataprotection.json",
@@ -170,7 +168,7 @@ func main() {
 		//	RootNamespace:    "Pandora.Definitions.ResourceManager",
 		//	ServiceName:      "HealthcareApis",
 		//	ApiVersion:       "2021-01-01",
-		//	OutputDirectory:  "../../generated/pandora-definitions",
+		//	OutputDirectory:  outputDirectory,
 		//	SwaggerDirectory: apiSpecsPath + "/specification/healthcareapis/resource-manager/Microsoft.HealthcareApis/stable/2021-01-11",
 		//	SwaggerFiles: []string{
 		//		"healthcare-apis.json",
@@ -182,7 +180,7 @@ func main() {
 		//	RootNamespace:    "Pandora.Definitions.ResourceManager",
 		//	ServiceName:      "Logic",
 		//	ApiVersion:       "2021-01-01",
-		//	OutputDirectory:  "../../generated/pandora-definitions",
+		//	OutputDirectory:  outputDirectory,
 		//	SwaggerDirectory: apiSpecsPath + "/specification/logic/resource-manager/Microsoft.Logic/stable/2019-05-01",
 		//	SwaggerFiles: []string{
 		//		"logic.json",
@@ -194,7 +192,7 @@ func main() {
 		//	RootNamespace:    "Pandora.Definitions.ResourceManager",
 		//	ServiceName:      "Network",
 		//	ApiVersion:       "2017-11-01",
-		//	OutputDirectory:  "../../generated/pandora-definitions",
+		//	OutputDirectory:  outputDirectory,
 		//	SwaggerDirectory: apiSpecsPath + "/specification/network/resource-manager/Microsoft.Network/stable/2017-11-01",
 		//	SwaggerFiles: []string{
 		//		"publicIpAddress.json",
@@ -206,7 +204,7 @@ func main() {
 		//	RootNamespace:    "Pandora.Definitions.ResourceManager",
 		//	ServiceName:      "MediaServices",
 		//	ApiVersion:       "2021-05-01",
-		//	OutputDirectory:  "../../generated/pandora-definitions",
+		//	OutputDirectory:  outputDirectory,
 		//	SwaggerDirectory: apiSpecsPath + "/specification/mediaservices/resource-manager/Microsoft.Media/stable/2021-05-01",
 		//	SwaggerFiles: []string{
 		//		"Accounts.json",
@@ -218,7 +216,7 @@ func main() {
 		//	RootNamespace:    "Pandora.Definitions.ResourceManager",
 		//	ServiceName:      "Web",
 		//	ApiVersion:       "2020-12-01",
-		//	OutputDirectory:  "../../generated/pandora-definitions",
+		//	OutputDirectory:  outputDirectory,
 		//	SwaggerDirectory: apiSpecsPath + "/specification/web/resource-manager/Microsoft.Web/stable/2020-12-01",
 		//	SwaggerFiles: []string{
 		//		// NOTE: stripped out CommonDefinitions.json
@@ -242,7 +240,7 @@ func main() {
 		//	RootNamespace:    "Pandora.Definitions.ResourceManager",
 		//	ServiceName:      "Network",
 		//	ApiVersion:       "2020-08-01",
-		//	OutputDirectory:  "../../generated/pandora-definitions",
+		//	OutputDirectory:  outputDirectory,
 		//	SwaggerDirectory: apiSpecsPath + "/specification/network/resource-manager/Microsoft.Network/stable/2020-08-01",
 		//	SwaggerFiles: []string{
 		//		//"applicationGateway.json",
@@ -326,35 +324,6 @@ func run(input RunInput) error {
 
 	if err := generateApiVersions(*data, input.OutputDirectory, input.RootNamespace, debug); err != nil {
 		return fmt.Errorf("generating API Versions: %+v", err)
-	}
-
-	return nil
-}
-
-func generateApiVersions(data []parsedData, workingDirectory, rootNamespace string, debug bool) error {
-	for _, item := range data {
-		// TODO: also generate the ServiceDefinition for this Service
-
-		data := generator.GenerationDataForService(item.ServiceName, item.ApiVersion, workingDirectory, rootNamespace)
-		generator := generator.NewPackageDefinitionGenerator(data, debug)
-
-		os.MkdirAll(data.WorkingDirectoryForApiVersion, permissions)
-		if err := generator.GenerateVersionDefinitionAndRecreateDirectory(item.Resources, data.WorkingDirectoryForApiVersion, permissions); err != nil {
-			return fmt.Errorf("generating Version Definition for Namespace %q: %+v", data.NamespaceForApiVersion, err)
-		}
-
-		for resourceName, resource := range item.Resources {
-			if debug {
-				log.Printf("Generating Resource at %q", resourceName)
-			}
-			outputDirectory := data.WorkingDirectoryForResource(resourceName)
-			os.MkdirAll(outputDirectory, permissions)
-			// TODO - Need to delete api path here if it already exists.
-			namespace := data.NamespaceForResource(resourceName)
-			if err := generator.GenerateResources(resourceName, namespace, resource, outputDirectory); err != nil {
-				return fmt.Errorf("generating Resource %q (Namespace %q): %+v", resourceName, namespace, err)
-			}
-		}
 	}
 
 	return nil
