@@ -342,11 +342,14 @@ func run(input RunInput) error {
 			return fmt.Errorf("parsing definition: %+v", err)
 		}
 
+		// TODO: also generate the ServiceDefinition for this Service
+		// TODO: also generate the ApiVersionDefinition for this API Version
+
 		for resourceName, resource := range definition.Resources {
 			if debug {
 				log.Printf("Generating Resource at %q", resourceName)
 			}
-			generator := generator.NewPandoraDefinitionGenerator(input.RootNamespace, input.ServiceName, input.ApiVersion, debug)
+			generator := generator.NewPackageDefinitionGenerator(input.RootNamespace, input.ServiceName, input.ApiVersion, debug)
 			outputDirectory := generator.RecommendedWorkingDirectory(input.OutputDirectory, resourceName)
 			os.MkdirAll(outputDirectory, permissions)
 			// TODO - Need to delete api path here if it already exists.
