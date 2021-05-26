@@ -7,10 +7,10 @@ import (
 	"strings"
 
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/generator"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser"
 )
 
 const outputDirectory = "../../generated/pandora-definitions"
+const permissions = os.FileMode(0755)
 
 func main() {
 	apiSpecsPath := "../../swagger"
@@ -319,47 +319,43 @@ type RunInput struct {
 
 func run(input RunInput) error {
 	debug := strings.TrimSpace(os.ExpandEnv("DEBUG")) != ""
-	permissions := os.FileMode(0777)
-	pathForAPI := fmt.Sprintf("%s/%s/%s/v%s", input.OutputDirectory, input.RootNamespace, input.ServiceName, strings.ReplaceAll(input.ApiVersion, "-", "_"))
-	os.RemoveAll(pathForAPI)
-	if err := os.MkdirAll(input.OutputDirectory, permissions); err != nil {
-		if debug {
-			log.Printf("Failed removing existing base output Directory at %q: %+v", input.OutputDirectory, err)
-		}
-	}
-	if debug {
-		log.Printf("Creating Directory at %q", input.OutputDirectory)
+	data, err := parseSwaggerFiles(input, debug)
+	if err != nil {
+		return fmt.Errorf("parsing Swagger files: %+v", err)
 	}
 
-	for _, file := range input.SwaggerFiles {
-		swaggerFile, err := parser.Load(input.SwaggerDirectory, file, debug)
-		if err != nil {
-			return fmt.Errorf("parsing file %q: %+v", file, err)
-		}
+	if err := generateApiVersions(*data, input.OutputDirectory, input.RootNamespace, debug); err != nil {
+		return fmt.Errorf("generating API Versions: %+v", err)
+	}
 
-		definition, err := swaggerFile.Parse(input.ServiceName, input.ApiVersion)
-		if err != nil {
-			return fmt.Errorf("parsing definition: %+v", err)
-		}
+	return nil
+}
 
+func generateApiVersions(data []parsedData, workingDirectory, rootNamespace string, debug bool) error {
+	for _, item := range data {
 		// TODO: also generate the ServiceDefinition for this Service
-		// TODO: also generate the ApiVersionDefinition for this API Version
 
-		for resourceName, resource := range definition.Resources {
+		data := generator.GenerationDataForService(item.ServiceName, item.ApiVersion, workingDirectory, rootNamespace)
+		generator := generator.NewPackageDefinitionGenerator(data, debug)
+
+		os.MkdirAll(data.WorkingDirectoryForApiVersion, permissions)
+		if err := generator.GenerateVersionDefinitionAndRecreateDirectory(item.Resources, data.WorkingDirectoryForApiVersion, permissions); err != nil {
+			return fmt.Errorf("generating Version Definition for Namespace %q: %+v", data.NamespaceForApiVersion, err)
+		}
+
+		for resourceName, resource := range item.Resources {
 			if debug {
 				log.Printf("Generating Resource at %q", resourceName)
 			}
-			generator := generator.NewPackageDefinitionGenerator(input.RootNamespace, input.ServiceName, input.ApiVersion, debug)
-			outputDirectory := generator.RecommendedWorkingDirectory(input.OutputDirectory, resourceName)
+			outputDirectory := data.WorkingDirectoryForResource(resourceName)
 			os.MkdirAll(outputDirectory, permissions)
 			// TODO - Need to delete api path here if it already exists.
-			if err := generator.Generate(resourceName, resource, outputDirectory); err != nil {
-				return fmt.Errorf("generating %s: %+v", resourceName, err)
+			namespace := data.NamespaceForResource(resourceName)
+			if err := generator.GenerateResources(resourceName, namespace, resource, outputDirectory); err != nil {
+				return fmt.Errorf("generating Resource %q (Namespace %q): %+v", resourceName, namespace, err)
 			}
 		}
 	}
-
-	log.Printf("Generated into: %s", input.OutputDirectory)
 
 	return nil
 }

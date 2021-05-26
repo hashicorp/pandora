@@ -9,25 +9,20 @@ import (
 )
 
 type PandoraDefinitionGenerator struct {
-	rootNamespace string
-	serviceName   string
-	apiVersion    string
-	debugLog      bool
+	data     GenerationData
+	debugLog bool
 }
 
-func NewPackageDefinitionGenerator(rootNamespace, serviceName, apiVersion string, debug bool) PandoraDefinitionGenerator {
+func NewPackageDefinitionGenerator(data GenerationData, debug bool) PandoraDefinitionGenerator {
 	return PandoraDefinitionGenerator{
-		rootNamespace: rootNamespace,
-		serviceName:   serviceName,
-		apiVersion:    apiVersion,
-		debugLog:      debug,
+		data:     data,
+		debugLog: debug,
 	}
 }
 
-func (g PandoraDefinitionGenerator) Generate(resourceName string, resource models.AzureApiResource, workingDirectory string) error {
-	namespace := g.namespace(resourceName)
+func (g PandoraDefinitionGenerator) GenerateResources(resourceName, namespace string, resource models.AzureApiResource, workingDirectory string) error {
 	if g.debugLog {
-		log.Printf("[DEBUG] Generating %q..", namespace)
+		log.Printf("[DEBUG] Generating %q (Resource %q)..", namespace, resourceName)
 	}
 
 	// TODO: we should duplicate the types depending on the operation
@@ -117,9 +112,4 @@ func (g PandoraDefinitionGenerator) Generate(resourceName string, resource model
 	}
 
 	return nil
-}
-
-func (g PandoraDefinitionGenerator) RecommendedWorkingDirectory(rootDirectory, resourceName string) string {
-	apiVersion := g.normalizeApiVersion()
-	return path.Join(rootDirectory, g.rootNamespace, g.serviceName, apiVersion, resourceName)
 }
