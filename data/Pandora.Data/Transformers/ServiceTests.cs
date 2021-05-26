@@ -10,8 +10,6 @@ namespace Pandora.Data.Transformers
 {
     public static class ServiceTests
     {
-        // TODO: tests with data sources/resources and duplicates etc
-        
         [TestCase]
         public static void MappingWithNoVersionsShouldFail()
         {
@@ -46,7 +44,6 @@ namespace Pandora.Data.Transformers
                 public string Name => "FakeDataPlane";
                 public bool Generate => true;
                 public string? ResourceProvider => null;
-                public IEnumerable<TerraformResourceDefinition> Resources => new List<TerraformResourceDefinition>();
             }
             
             // found via discovery/reflection
@@ -66,7 +63,6 @@ namespace Pandora.Data.Transformers
                 public string Name => "Bob";
                 public bool Generate => true;
                 public string? ResourceProvider => "Hello";
-                public IEnumerable<TerraformResourceDefinition> Resources => new List<TerraformResourceDefinition>();
             }
         }
 
@@ -77,7 +73,6 @@ namespace Pandora.Data.Transformers
                 public string Name => "FakeResourceManager";
                 public bool Generate => false;
                 public string? ResourceProvider => "Microsoft.Foo";
-                public IEnumerable<TerraformResourceDefinition> Resources => new List<TerraformResourceDefinition>();
             }
 
             // looks like this isn't used, but it is since it's found via Discovery (which is why this has to be internal)

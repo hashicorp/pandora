@@ -1,7 +1,6 @@
 using System.Collections.Generic;
-using Pandora.Definitions.Interfaces;
 
-namespace Pandora.Definitions
+namespace Pandora.Definitions.Interfaces
 {
     public interface ApiVersionDefinition
     {

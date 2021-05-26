@@ -1,6 +1,5 @@
 using System;
 using System.Linq;
-using Pandora.Definitions.Interfaces;
 using ServiceDefinition = Pandora.Data.Models.ServiceDefinition;
 
 namespace Pandora.Data.Transformers
@@ -23,33 +22,12 @@ namespace Pandora.Data.Transformers
                 throw new NotSupportedException($"Service {input.Name} has duplicate versions defined");
             }
 
-            var dataSources = input.Resources.Where(r => r.ResourceType == TerraformResourceType.DataSource).ToList();
-            // protect against coding errors
-            hasDuplicates = dataSources.Any(d => dataSources.Count(ds => d.ResourceName == ds.ResourceName) > 1);
-            if (hasDuplicates)
-            {
-                throw new NotSupportedException($"Service {input.Name} has duplicate data sources defined");
-            }
-            
-            var resources = input.Resources.Where(r => r.ResourceType == TerraformResourceType.Resource).ToList();
-            // protect against coding errors
-            hasDuplicates = resources.Any(r => resources.Count(rs => r.ResourceName == rs.ResourceName) > 1);
-            if (hasDuplicates)
-            {
-                throw new NotSupportedException($"Service {input.Name} has duplicate resources defined");
-            }
-
-            var mappedDataSources = dataSources.Select(TerraformResource.Map).ToList();
-            var mappedResources = resources.Select(TerraformResource.Map).ToList();
-
             return new ServiceDefinition
             {
-               DataSources = mappedDataSources,
                Generate = input.Generate,
                Name = input.Name,
                ResourceManager = input.ResourceProvider != null,
                ResourceProvider = input.ResourceProvider,
-               Resources = mappedResources,
                Versions = orderedVersions,
             };
         }

@@ -1,6 +1,6 @@
 using System;
 
-namespace Pandora.Definitions.Attributes
+namespace Pandora.Definitions.Attributes.Validation
 {
     public class MaxItemsAttribute : Attribute
     {
