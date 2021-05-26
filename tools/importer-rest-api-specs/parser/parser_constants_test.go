@@ -874,12 +874,12 @@ func TestParseConstantsStringsTopLevel(t *testing.T) {
 	if v != "panda" {
 		t.Fatalf("expected the value for resource.Constants['AnimalType'].Values['Panda'] to be 'panda' but got %q", v)
 	}
-	v, ok = animalType.Values["All"]
+	v, ok = animalType.Values["Any"]
 	if !ok {
-		t.Fatalf("resource.Constants['AnimalType'] didn't contain the key 'All'")
+		t.Fatalf("resource.Constants['AnimalType'] didn't contain the key 'Any'")
 	}
 	if v != "*" {
-		t.Fatalf("expected the value for resource.Constants['AnimalType'].Values['All'] to be '*' but got %q", v)
+		t.Fatalf("expected the value for resource.Constants['AnimalType'].Values['Any'] to be '*' but got %q", v)
 	}
 }
 
