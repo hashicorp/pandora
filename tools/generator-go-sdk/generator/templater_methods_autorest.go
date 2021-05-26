@@ -11,8 +11,6 @@ import (
 // TODO: should we expose a Description for each operation? seems not worthwhile
 // TODO: implement predicates
 
-// TODO: introduce a new Preparer for Lists which is Private and takes a nextLink in all cases
-
 var _ templater = methodsAutoRestTemplater{}
 
 type methodsAutoRestTemplater struct {
@@ -154,7 +152,7 @@ func (c methodsAutoRestTemplater) immediateOperationTemplate(data ServiceGenerat
 
 // %[2]s ...
 func (c %[1]s) %[2]s(ctx context.Context, %[4]s) (result %[2]sResponse, err error) {
-	req, err := c.%[2]sPreparer(ctx, %[8]s)
+	req, err := c.preparerFor%[2]s(ctx, %[8]s)
 	if err != nil {
 		err = autorest.NewErrorWithError(err, "%[3]s.%[1]s", "%[2]s", nil, "Failure preparing request")
 		return
@@ -166,7 +164,7 @@ func (c %[1]s) %[2]s(ctx context.Context, %[4]s) (result %[2]sResponse, err erro
 		return
 	}
 
-	result, err = c.%[2]sResponder(result.HttpResponse)
+	result, err = c.responderFor%[2]s(result.HttpResponse)
 	if err != nil {
 		err = autorest.NewErrorWithError(err, "%[3]s.%[1]s", "%[2]s", result.HttpResponse, "Failure responding to request")
 		return
@@ -197,7 +195,7 @@ func (c methodsAutoRestTemplater) listOperationTemplate(data ServiceGeneratorDat
 
 // %[2]s ...
 func (c %[1]s) %[2]s(ctx context.Context, %[4]s) (resp %[2]sResponse, err error) {
-	req, err := c.%[2]sPreparer(ctx, %[8]s)
+	req, err := c.preparerFor%[2]s(ctx, %[8]s)
 	if err != nil {
 		err = autorest.NewErrorWithError(err, "%[3]s.%[1]s", "%[2]s", nil, "Failure preparing request")
 		return
@@ -209,7 +207,7 @@ func (c %[1]s) %[2]s(ctx context.Context, %[4]s) (resp %[2]sResponse, err error)
 		return
 	}
 
-	resp, err = c.%[2]sResponder(resp.HttpResponse)
+	resp, err = c.responderFor%[2]s(resp.HttpResponse)
 	if err != nil {
 		err = autorest.NewErrorWithError(err, "%[3]s.%[1]s", "%[2]s", resp.HttpResponse, "Failure responding to request")
 		return
@@ -281,13 +279,13 @@ func (c methodsAutoRestTemplater) longRunningOperationTemplate(data ServiceGener
 
 // %[2]s ...
 func (c %[1]s) %[2]s(ctx context.Context, %[4]s) (result %[2]sResponse, err error) {
-	req, err := c.%[2]sPreparer(ctx, %[8]s)
+	req, err := c.preparerFor%[2]s(ctx, %[8]s)
 	if err != nil {
 		err = autorest.NewErrorWithError(err, "%[3]s.%[1]s", "%[2]s", nil, "Failure preparing request")
 		return
 	}
 
-	result, err = c.%[2]sSender(ctx, req)
+	result, err = c.senderFor%[2]s(ctx, req)
 	if err != nil {
 		err = autorest.NewErrorWithError(err, "%[3]s.%[1]s", "%[2]s", result.HttpResponse, "Failure sending request")
 		return
@@ -415,8 +413,8 @@ func (c methodsAutoRestTemplater) preparerTemplate(data ServiceGeneratorData) st
 	}
 
 	template := `
-// %[2]sPreparer prepares the %[2]s request.
-func (c %[1]s) %[2]sPreparer(ctx context.Context, %[3]s) (*http.Request, error) {
+// preparerFor%[2]s prepares the %[2]s request.
+func (c %[1]s) preparerFor%[2]s(ctx context.Context, %[3]s) (*http.Request, error) {
 	queryParameters := map[string]interface{}{
 		"api-version": %[5]s,
 	}
@@ -429,8 +427,8 @@ func (c %[1]s) %[2]sPreparer(ctx context.Context, %[3]s) (*http.Request, error) 
 `
 	if c.operation.FieldContainingPaginationDetails != nil {
 		template += `
-// %[2]sPreparerWithNextLink prepares the %[2]s request with the given nextLink token.
-func (c %[1]s) %[2]sPreparerWithNextLink(ctx context.Context, nextLink string) (*http.Request, error) {
+// preparerFor%[2]sWithNextLink prepares the %[2]s request with the given nextLink token.
+func (c %[1]s) preparerFor%[2]sWithNextLink(ctx context.Context, nextLink string) (*http.Request, error) {
 	uri, err := url.Parse(nextLink)
 	if err != nil {
 		return nil, fmt.Errorf("parsing nextLink %%q: %%+v", nextLink, err)
@@ -479,9 +477,9 @@ func (c methodsAutoRestTemplater) responderTemplate(data ServiceGeneratorData) s
 		fields = append(fields, fmt.Sprintf("Values []%s `json:%q`", *c.operation.ResponseObjectName, "value"))
 		fields = append(fields, fmt.Sprintf("NextLink *string `json:%q`", *c.operation.FieldContainingPaginationDetails))
 		return fmt.Sprintf(`
-// %[2]sResponder handles the response to the %[2]s request. The method always
+// responderFor%[2]s handles the response to the %[2]s request. The method always
 // closes the http.Response Body.
-func (c %[1]s) %[2]sResponder(resp *http.Response) (result %[2]sResponse, err error) {
+func (c %[1]s) responderFor%[2]s(resp *http.Response) (result %[2]sResponse, err error) {
 	type page struct {
 		%[4]s
 	}
@@ -494,7 +492,7 @@ func (c %[1]s) %[2]sResponder(resp *http.Response) (result %[2]sResponse, err er
 	result.nextLink = respObj.NextLink
 	if respObj.NextLink != nil {
 		result.nextPageFunc = func(ctx context.Context, nextLink string) (result %[2]sResponse, err error) {
-			req, err := c.%[2]sPreparerWithNextLink(ctx, nextLink)
+			req, err := c.preparerFor%[2]sWithNextLink(ctx, nextLink)
 			if err != nil {
 				err = autorest.NewErrorWithError(err, "%[6]s.%[1]s", "%[2]s", nil, "Failure preparing request")
 				return
@@ -506,7 +504,7 @@ func (c %[1]s) %[2]sResponder(resp *http.Response) (result %[2]sResponse, err er
 				return
 			}
 		
-			result, err = c.%[2]sResponder(result.HttpResponse)
+			result, err = c.responderFor%[2]s(result.HttpResponse)
 			if err != nil {
 				err = autorest.NewErrorWithError(err, "%[6]s.%[1]s", "%[2]s", result.HttpResponse, "Failure responding to request")
 				return
@@ -521,9 +519,9 @@ func (c %[1]s) %[2]sResponder(resp *http.Response) (result %[2]sResponse, err er
 	}
 
 	return fmt.Sprintf(`
-// %[2]sResponder handles the response to the %[2]s request. The method always
+// responderFor%[2]s handles the response to the %[2]s request. The method always
 // closes the http.Response Body.
-func (c %[1]s) %[2]sResponder(resp *http.Response) (result %[2]sResponse, err error) {
+func (c %[1]s) responderFor%[2]s(resp *http.Response) (result %[2]sResponse, err error) {
 	err = autorest.Respond(
 		resp,
 		%[3]s)
@@ -598,9 +596,9 @@ type %[1]sResponse struct {
 
 func (c methodsAutoRestTemplater) senderLongRunningOperationTemplate(data ServiceGeneratorData) string {
 	return fmt.Sprintf(`
-// %[2]sSender sends the %[2]s request. The method will close the
+// senderFor%[2]s sends the %[2]s request. The method will close the
 // http.Response Body if it receives an error.
-func (c %[1]s) %[2]sSender(ctx context.Context, req *http.Request) (future %[2]sResponse, err error) {
+func (c %[1]s) senderFor%[2]s(ctx context.Context, req *http.Request) (future %[2]sResponse, err error) {
 	var resp *http.Response
 	resp, err = c.Client.Send(req, azure.DoRetryWithRegistration(c.Client))
 	if err != nil {
