@@ -851,7 +851,7 @@ func TestParseConstantsStringsTopLevel(t *testing.T) {
 		t.Fatalf("expected animalType.FieldType to be a 'String' but got %q", animalType.FieldType)
 	}
 	if len(animalType.Values) != 4 {
-		t.Fatalf("expected resource.Constants['AnimalType'] to have 3 values but got %d", len(animalType.Values))
+		t.Fatalf("expected resource.Constants['AnimalType'] to have 4 values but got %d", len(animalType.Values))
 	}
 	v, ok := animalType.Values["Cat"]
 	if !ok {
