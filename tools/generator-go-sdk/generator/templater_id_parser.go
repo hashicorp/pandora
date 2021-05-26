@@ -309,8 +309,8 @@ func (id resourceIdParserData) codeForParser() string {
 	}
 	parserStatementsStr := strings.Join(parserStatements, "\n")
 	return fmt.Sprintf(`
-// %[1]sID parses a %[1]s ID into an %[1]sId struct 
-func %[1]sID(input string) (*%[1]sId, error) {
+// Parse%[1]sID parses a %[1]s ID into an %[1]sId struct 
+func Parse%[1]sID(input string) (*%[1]sId, error) {
 	id, err := resourceids.ParseAzureResourceID(input)
 	if err != nil {
 		return nil, err
@@ -373,10 +373,10 @@ func (id resourceIdParserData) codeForParserInsensitive() string {
 	}
 	parserStatementsStr := strings.Join(parserStatements, "\n")
 	return fmt.Sprintf(`
-// %[1]sIDInsensitively parses an %[1]s ID into an %[1]sId struct, insensitively
+// Parse%[1]sIDInsensitively parses an %[1]s ID into an %[1]sId struct, insensitively
 // This should only be used to parse an ID for rewriting to a consistent casing,
-// the %[1]sID method should be used instead for validation etc.
-func %[1]sIDInsensitively(input string) (*%[1]sId, error) {
+// the Parse%[1]sID method should be used instead for validation etc.
+func Parse%[1]sIDInsensitively(input string) (*%[1]sId, error) {
 	id, err := resourceids.ParseAzureResourceID(input)
 	if err != nil {
 		return nil, err
