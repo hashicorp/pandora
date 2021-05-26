@@ -188,7 +188,11 @@ func (c modelsTemplater) typeInformation(details resourcemanager.FieldDetails) (
 			if details.ModelReferenceName == nil {
 				return nil, fmt.Errorf("a ModelReferenceName must be configured when using a List")
 			}
-			typeName = *details.ModelReferenceName
+			typeInfo, err := typeInformationForNativeType(*details.ModelReferenceName)
+			if err != nil {
+				return nil, fmt.Errorf("determining type information for native type %q: %+v", *details.ModelReferenceName, err)
+			}
+			typeName = *typeInfo
 		}
 
 		info := fmt.Sprintf("[]%s", typeName)
@@ -210,10 +214,10 @@ func (c modelsTemplater) typeInformation(details resourcemanager.FieldDetails) (
 		}
 	}
 
-	return typeInformationForNativeType(details.Type)
+	return typeInformationForNativeType(string(details.Type))
 }
 
-func typeInformationForNativeType(fieldType resourcemanager.FieldType) (*string, error) {
+func typeInformationForNativeType(fieldType string) (*string, error) {
 	var v = func(val string) (*string, error) {
 		return &val, nil
 	}
