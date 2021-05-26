@@ -13,7 +13,7 @@ func (s *ServiceGenerator) constants(data ServiceGeneratorData) error {
 		return nil
 	}
 
-	if err := s.writeToPath("constants.go", constantsTemplater{}, data); err != nil {
+	if err := s.writeToPath(data.outputPath, "constants.go", constantsTemplater{}, data); err != nil {
 		return fmt.Errorf("templating constants: %+v", err)
 	}
 

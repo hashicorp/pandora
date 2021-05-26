@@ -35,14 +35,20 @@ func (s *ServiceGenerator) Generate(input ServiceGeneratorInput) error {
 	if err := cleanAndRecreateWorkingDirectory(data.outputPath); err != nil {
 		return fmt.Errorf("cleaning/recreating working directory %q: %+v", data.outputPath, err)
 	}
+	if data.useIdAliases {
+		if err := ensureWorkingDirectoryExists(data.idsOutputPath); err != nil {
+			return fmt.Errorf("ensuring the ids working directory %q exists: %+v", data.idsOutputPath, err)
+		}
+	}
 
 	stages := map[string]func(data ServiceGeneratorData) error{
-		"clients":   s.clients,
-		"constants": s.constants,
-		"ids":       s.ids,
-		"methods":   s.methods,
-		"models":    s.models,
-		"version":   s.version,
+		"clients":    s.clients,
+		"constants":  s.constants,
+		"ids":        s.ids,
+		"id-aliases": s.idAliases,
+		"methods":    s.methods,
+		"models":     s.models,
+		"version":    s.version,
 	}
 	for name, stage := range stages {
 		log.Printf("[DEBUG] Running Stage %q..", name)
@@ -67,6 +73,17 @@ func cleanAndRecreateWorkingDirectory(path string) error {
 	// TODO: make these less exciting
 	if err := os.MkdirAll(path, 0777); err != nil {
 		return fmt.Errorf("creating %q: %+v", path, err)
+	}
+
+	return nil
+}
+
+func ensureWorkingDirectoryExists(path string) error {
+	// TODO: make these less exciting
+	if err := os.MkdirAll(path, 0777); err != nil {
+		if !os.IsExist(err) {
+			return fmt.Errorf("creating %q: %+v", path, err)
+		}
 	}
 
 	return nil

@@ -9,12 +9,13 @@ import (
 var _ templater = idParserTemplater{}
 
 type idParserTemplater struct {
-	name   string
-	format string
+	name        string
+	format      string
+	packageName string
 }
 
 func (c idParserTemplater) template(data ServiceGeneratorData) (*string, error) {
-	rid, err := newResourceID(c.name, data.packageName, c.format)
+	rid, err := newResourceID(c.name, c.packageName, c.format)
 	if err != nil {
 		return nil, fmt.Errorf("scaffolding ID Parser for %q (%q): %+v", c.name, c.format, err)
 	}
