@@ -1,0 +1,78 @@
+package generator
+
+import (
+	"fmt"
+	"log"
+	"os"
+	"path"
+)
+
+func (g PandoraDefinitionGenerator) GenerateServiceDefinition() error {
+	resourceProvider := "TODO" // TODO: needs to be populated from the importer, we don't have it right now but we need a value
+
+	serviceDefinitionFilePath := path.Join(g.data.WorkingDirectoryForService, "ServiceDefinition.cs")
+	if g.debugLog {
+		log.Printf("[DEBUG] Generating Service Definition into %q..", serviceDefinitionFilePath)
+	}
+	code := codeForServiceDefinition(g.data.NamespaceForService, g.data.ServiceName, &resourceProvider)
+	if err := writeToFile(serviceDefinitionFilePath, code); err != nil {
+		return fmt.Errorf("generating Service Definition into %q: %+v", serviceDefinitionFilePath, err)
+	}
+
+	generationSettingsFilePath := path.Join(g.data.WorkingDirectoryForService, "ServiceDefinition-GenerationSettings.cs")
+	file, err := os.Stat(generationSettingsFilePath)
+	if err != nil && !os.IsNotExist(err) {
+		return fmt.Errorf("checking for an existing Service Definition Generation Settings file at %q: %+v", generationSettingsFilePath, err)
+	}
+
+	if file != nil && file.Size() > 0 {
+		if g.debugLog {
+			log.Printf("[DEBUG] Service Definition Generation Settings exist at %q - skipping", generationSettingsFilePath)
+		}
+		return nil
+	}
+
+	if g.debugLog {
+		log.Printf("[DEBUG] Creating Service Definition Generation Settings at %q", generationSettingsFilePath)
+	}
+	code = codeForServiceDefinitionGenerationSettings(g.data.NamespaceForService, g.data.ServiceName)
+	if err := writeToFile(generationSettingsFilePath, code); err != nil {
+		return fmt.Errorf("generating Service Definition Generation Settings into %q: %+v", generationSettingsFilePath, err)
+	}
+
+	return nil
+}
+
+func codeForServiceDefinitionGenerationSettings(namespace string, serviceName string) string {
+	return fmt.Sprintf(`using System.Collections.Generic;
+using Pandora.Definitions.Interfaces;
+
+namespace %[1]s
+{
+    public partial class Service : ServiceDefinition
+    {
+        public bool Generate => true;
+    }
+}
+`, namespace, serviceName)
+}
+
+func codeForServiceDefinition(namespace, serviceName string, resourceProvider *string) string {
+	rp := "null"
+	if resourceProvider != nil {
+		rp = fmt.Sprintf("%q", *resourceProvider)
+	}
+
+	return fmt.Sprintf(`using System.Collections.Generic;
+using Pandora.Definitions.Interfaces;
+
+namespace %[1]s
+{
+    public partial class Service : ServiceDefinition
+    {
+        public string Name => %[2]q;
+        public string? ResourceProvider => %[3]s;
+    }
+}
+`, namespace, serviceName, rp)
+}

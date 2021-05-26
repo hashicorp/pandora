@@ -17,22 +17,23 @@ type GenerationData struct {
 	WorkingDirectoryForApiVersion string
 }
 
-func GenerationDataForService(serviceName, apiVersion, rootDirectory, rootNamespace string) GenerationData {
-	normalizedApiVersion := normalizeApiVersion(apiVersion)
+func GenerationDataForService(serviceName, rootDirectory, rootNamespace string) GenerationData {
 	serviceNamespace := fmt.Sprintf("%s.%s", rootNamespace, strings.Title(serviceName))
-	versionNamespace := fmt.Sprintf("%s.%s", serviceNamespace, normalizedApiVersion)
-
 	serviceWorkingDirectory := path.Join(rootDirectory, strings.Title(serviceName))
-	versionWorkingDirectory := path.Join(serviceWorkingDirectory, normalizedApiVersion)
 
 	return GenerationData{
-		ServiceName:                   serviceName,
-		ApiVersion:                    apiVersion,
-		NamespaceForService:           serviceNamespace,
-		NamespaceForApiVersion:        versionNamespace,
-		WorkingDirectoryForService:    serviceWorkingDirectory,
-		WorkingDirectoryForApiVersion: versionWorkingDirectory,
+		ServiceName:                serviceName,
+		NamespaceForService:        serviceNamespace,
+		WorkingDirectoryForService: serviceWorkingDirectory,
 	}
+}
+
+func GenerationDataForServiceAndApiVersion(serviceName, apiVersion, rootDirectory, rootNamespace string) GenerationData {
+	normalizedApiVersion := normalizeApiVersion(apiVersion)
+	data := GenerationDataForService(serviceName, rootDirectory, rootNamespace)
+	data.NamespaceForApiVersion = fmt.Sprintf("%s.%s", data.NamespaceForService, normalizedApiVersion)
+	data.WorkingDirectoryForApiVersion = path.Join(data.WorkingDirectoryForService, normalizedApiVersion)
+	return data
 }
 
 func (d GenerationData) NamespaceForResource(resourceName string) string {

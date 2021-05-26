@@ -152,16 +152,16 @@ func main() {
 		//},
 
 		// Data Protection (PSql)
-		{
-			RootNamespace:    "Pandora.Definitions.ResourceManager",
-			ServiceName:      "DataProtection",
-			ApiVersion:       "2021-01-01",
-			OutputDirectory:  outputDirectory,
-			SwaggerDirectory: apiSpecsPath + "/specification/dataprotection/resource-manager/Microsoft.DataProtection/stable/2021-01-01",
-			SwaggerFiles: []string{
-				"dataprotection.json",
-			},
-		},
+		//{
+		//	RootNamespace:    "Pandora.Definitions.ResourceManager",
+		//	ServiceName:      "DataProtection",
+		//	ApiVersion:       "2021-01-01",
+		//	OutputDirectory:  outputDirectory,
+		//	SwaggerDirectory: apiSpecsPath + "/specification/dataprotection/resource-manager/Microsoft.DataProtection/stable/2021-01-01",
+		//	SwaggerFiles: []string{
+		//		"dataprotection.json",
+		//	},
+		//},
 
 		// Healthcare APIS
 		//{
@@ -317,11 +317,25 @@ type RunInput struct {
 
 func run(input RunInput) error {
 	debug := strings.TrimSpace(os.ExpandEnv("DEBUG")) != ""
+
+	if debug {
+		log.Printf("[STAGE] Parsing Swagger Files..")
+	}
 	data, err := parseSwaggerFiles(input, debug)
 	if err != nil {
 		return fmt.Errorf("parsing Swagger files: %+v", err)
 	}
 
+	if debug {
+		log.Printf("[STAGE] Generating Swagger Definitions..")
+	}
+	if err := generateServiceDefinitions(*data, input.OutputDirectory, input.RootNamespace, debug); err != nil {
+		return fmt.Errorf("generating Service Definitions: %+v", err)
+	}
+
+	if debug {
+		log.Printf("[STAGE] Generating API Definitions..")
+	}
 	if err := generateApiVersions(*data, input.OutputDirectory, input.RootNamespace, debug); err != nil {
 		return fmt.Errorf("generating API Versions: %+v", err)
 	}
