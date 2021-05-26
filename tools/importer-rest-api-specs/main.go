@@ -10,7 +10,7 @@ import (
 )
 
 const outputDirectory = "../../generated/pandora-definitions"
-const permissions = os.FileMode(0777) // TODO: fix these
+const permissions = os.FileMode(0755)
 
 func main() {
 	apiSpecsPath := "../../swagger"
