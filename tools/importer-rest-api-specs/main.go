@@ -328,18 +328,6 @@ func run(input RunInput) error {
 		return fmt.Errorf("generating API Versions: %+v", err)
 	}
 
-	pathForAPI := fmt.Sprintf("%s/%s/%s/v%s", input.OutputDirectory, input.RootNamespace, input.ServiceName, strings.ReplaceAll(input.ApiVersion, "-", "_"))
-	os.RemoveAll(pathForAPI)
-	if err := os.MkdirAll(input.OutputDirectory, permissions); err != nil {
-		if debug {
-			log.Printf("Failed removing existing base output Directory at %q: %+v", input.OutputDirectory, err)
-		}
-	}
-	if debug {
-		log.Printf("Creating Directory at %q", input.OutputDirectory)
-	}
-	log.Printf("Generated into: %s", input.OutputDirectory)
-
 	return nil
 }
 
