@@ -106,10 +106,11 @@ func (g PandoraDefinitionGenerator) codeForOperation(namespace string, operation
 	if operation.FieldContainingPaginationDetails != nil {
 		operationType = "List"
 	}
-	return fmt.Sprintf(`using Pandora.Definitions.Operations;
+	return fmt.Sprintf(`using Pandora.Definitions.Attributes;
+using Pandora.Definitions.Interfaces;
+using Pandora.Definitions.Operations;
 using System.Collections.Generic;
 using System.Net;
-using Pandora.Definitions.Interfaces;
 
 namespace %[1]s
 {
