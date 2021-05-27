@@ -138,6 +138,7 @@ const (
 	Boolean  FieldType = "Boolean"
 	Constant FieldType = "Constant"
 	DateTime FieldType = "DateTime"
+	Float    FieldType = "Float"
 	Integer  FieldType = "Integer"
 	List     FieldType = "List"
 	Location FieldType = "Location"
