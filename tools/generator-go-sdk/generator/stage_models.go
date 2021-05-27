@@ -222,12 +222,15 @@ func typeInformationForNativeType(fieldType string) (*string, error) {
 		return &val, nil
 	}
 
-	switch strings.ToLower(string(fieldType)) {
+	switch strings.ToLower(fieldType) {
 	case strings.ToLower(string(resourcemanager.Boolean)):
 		return v("bool")
 
 	case strings.ToLower(string(resourcemanager.DateTime)):
 		return v("string") // intentional since we have cast methods one way or the other
+
+	case strings.ToLower(string(resourcemanager.Float)):
+		return v("float64")
 
 	case strings.ToLower(string(resourcemanager.Location)):
 		return v("string")
@@ -247,7 +250,7 @@ func typeInformationForNativeType(fieldType string) (*string, error) {
 		// TODO: other types
 	}
 
-	return v(string(fieldType))
+	return v(fieldType)
 }
 
 func (c modelsTemplater) unmarshalerFunc() (*string, error) {
