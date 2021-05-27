@@ -43,28 +43,13 @@ func (g PandoraDefinitionGenerator) GenerateServiceDefinition() error {
 	return nil
 }
 
-func codeForServiceDefinitionGenerationSettings(namespace string, serviceName string) string {
-	return fmt.Sprintf(`using System.Collections.Generic;
-using Pandora.Definitions.Interfaces;
-
-namespace %[1]s
-{
-    public partial class Service : ServiceDefinition
-    {
-        public bool Generate => true;
-    }
-}
-`, namespace, serviceName)
-}
-
 func codeForServiceDefinition(namespace, serviceName string, resourceProvider *string) string {
 	rp := "null"
 	if resourceProvider != nil {
 		rp = fmt.Sprintf("%q", *resourceProvider)
 	}
 
-	return fmt.Sprintf(`using System.Collections.Generic;
-using Pandora.Definitions.Interfaces;
+	return fmt.Sprintf(`using Pandora.Definitions.Interfaces;
 
 namespace %[1]s
 {
@@ -75,4 +60,15 @@ namespace %[1]s
     }
 }
 `, namespace, serviceName, rp)
+}
+
+func codeForServiceDefinitionGenerationSettings(namespace string, serviceName string) string {
+	return fmt.Sprintf(`namespace %[1]s
+{
+    public partial class Service
+    {
+        public bool Generate => true;
+    }
+}
+`, namespace, serviceName)
 }

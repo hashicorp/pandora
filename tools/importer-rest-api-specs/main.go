@@ -152,16 +152,16 @@ func main() {
 		//},
 
 		// Data Protection (PSql)
-		//{
-		//	RootNamespace:    "Pandora.Definitions.ResourceManager",
-		//	ServiceName:      "DataProtection",
-		//	ApiVersion:       "2021-01-01",
-		//	OutputDirectory:  outputDirectory,
-		//	SwaggerDirectory: apiSpecsPath + "/specification/dataprotection/resource-manager/Microsoft.DataProtection/stable/2021-01-01",
-		//	SwaggerFiles: []string{
-		//		"dataprotection.json",
-		//	},
-		//},
+		{
+			RootNamespace:    "Pandora.Definitions.ResourceManager",
+			ServiceName:      "DataProtection",
+			ApiVersion:       "2021-01-01",
+			OutputDirectory:  outputDirectory,
+			SwaggerDirectory: apiSpecsPath + "/specification/dataprotection/resource-manager/Microsoft.DataProtection/stable/2021-01-01",
+			SwaggerFiles: []string{
+				"dataprotection.json",
+			},
+		},
 
 		// Healthcare APIS
 		//{

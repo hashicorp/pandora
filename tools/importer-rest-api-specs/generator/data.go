@@ -32,6 +32,7 @@ func GenerationDataForService(serviceName, rootDirectory, rootNamespace string) 
 func GenerationDataForServiceAndApiVersion(serviceName, apiVersion, rootDirectory, rootNamespace string) GenerationData {
 	normalizedApiVersion := normalizeApiVersion(apiVersion)
 	data := GenerationDataForService(serviceName, rootDirectory, rootNamespace)
+	data.ApiVersion = apiVersion
 	data.NamespaceForApiVersion = fmt.Sprintf("%s.%s", data.NamespaceForService, normalizedApiVersion)
 	data.WorkingDirectoryForApiVersion = path.Join(data.WorkingDirectoryForService, normalizedApiVersion)
 	return data
