@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser"
 	"log"
 	"os"
 	"sort"
@@ -136,4 +137,82 @@ func distinctServiceNames(input []parsedData) []string {
 	sort.Strings(names)
 
 	return names
+}
+
+func generateEverything() {
+	services, err := parser.FindResourceManagerServices(swaggerDirectory + "/specification")
+	if err != nil {
+		fmt.Printf("%s", err)
+		os.Exit(1)
+	}
+	loadFailures := make([]string, 0)
+	genFailures := make([]string, 0)
+	parseFailures := make([]string, 0)
+	for _, service := range *services {
+		for apiVersion, versionPath := range service.ApiVersionPaths {
+			swaggerFiles, err := parser.SwaggerFilesInDirectory(versionPath)
+			if err != nil {
+				fmt.Println(err.Error())
+			}
+
+			for _, f := range *swaggerFiles {
+				fileName := strings.TrimPrefix(f, versionPath)
+				fmt.Println(fmt.Sprintf("[DEBUG] loading %s%s (API Version: %s)", service.Name, fileName, apiVersion))
+				parsed, erl := parser.Load(versionPath, fileName, false)
+				if erl != nil {
+					loadAttempt := 0
+					MaxLoadFails := 5
+					for loadAttempt < MaxLoadFails {
+						parsed, erl = parser.Load(versionPath, fileName, false)
+						if erl != nil {
+							fmt.Println(fmt.Sprintf("failed loading %q (%s), attempt %d, error was: %s", fileName, service.Name, loadAttempt+1, erl.Error()))
+							loadAttempt++
+						}
+					}
+					if loadAttempt >= MaxLoadFails {
+						loadFailures = append(loadFailures, fmt.Sprintf("failed loading %q (%s) after %d attempts, giving up: %s", fileName, service.Name, loadAttempt, erl))
+						break
+					} else {
+						fmt.Println(fmt.Sprintf("succeeded loading %q (%s) on attempt %d", fileName, service.Name, loadAttempt))
+					}
+
+				}
+				fmt.Println(fmt.Sprintf("[DEBUG] parsing %s%s (API Version: %s)", service.Name, fileName, apiVersion))
+				def, erp := parsed.Parse(service.Name, apiVersion)
+				if erp != nil {
+					fmt.Println(erp.Error())
+					parseFailures = append(parseFailures, fmt.Sprintf("failed parsing %s: %s", service.Name, erp))
+					break
+				}
+
+				data := generator.GenerationDataForServiceAndApiVersion(service.Name, apiVersion, outputDirectory, RootNamespace)
+				generator := generator.NewPackageDefinitionGenerator(data, false)
+				for resourceName, resource := range def.Resources {
+					apiOutputDirectory := data.WorkingDirectoryForResource(resourceName)
+					os.MkdirAll(apiOutputDirectory, permissions)
+					fmt.Println(fmt.Sprintf("[DEBUG] Generating resource %s in service %s (API version: %s)", resourceName, def.ServiceName, def.ApiVersion))
+					namespace := data.NamespaceForResource(resourceName)
+					if err := generator.GenerateResources(resourceName, namespace, resource, apiOutputDirectory); err != nil {
+						fmt.Printf("generating %s: %+v", resourceName, err)
+						genFailures = append(genFailures, fmt.Sprintf("%s in %s", resourceName, apiOutputDirectory))
+					}
+				}
+			}
+		}
+	}
+	if len(loadFailures) > 0 {
+		for _, l := range loadFailures {
+			fmt.Println(fmt.Sprintf("Failed to load: %s", l))
+		}
+	}
+	if len(parseFailures) > 0 {
+		for _, p := range parseFailures {
+			fmt.Println(fmt.Sprintf("Failed to parse: %s", p))
+		}
+	}
+	if len(genFailures) > 0 {
+		for _, g := range genFailures {
+			fmt.Println(fmt.Sprintf("Failed to generate: %s", g))
+		}
+	}
 }

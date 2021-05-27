@@ -7,18 +7,24 @@ import (
 	"strings"
 )
 
-const outputDirectory = "../../generated/pandora-definitions"
-const permissions = os.FileMode(0755)
+const (
+	outputDirectory  = "../../generated/pandora-definitions"
+	swaggerDirectory = "../../swagger"
+	RootNamespace    = "Pandora.Definitions.ResourceManager"
+	permissions      = os.FileMode(0755)
+)
+
+// Use: `PANDORA_GEN_FOR_REALSIES=true go run main.go`
+// or, for redirecting to a file: `PANDORA_GEN_FOR_REALSIES=true go run main.go > ~/tmp/pandora_gen.log 2>&1`
 
 func main() {
-	apiSpecsPath := "../../swagger"
 	input := []RunInput{
 		//{
 		//	RootNamespace:    "Pandora.Definitions.DataPlane",
 		//	OutputDirectory:  outputDirectory,
 		//	ServiceName:      "Synapse",
 		//	ApiVersion:       "2020-08-01-preview",
-		//	SwaggerDirectory: apiSpecsPath + "/specification/web/resource-manager/Microsoft.Web/stable/2020-12-01",
+		//	SwaggerDirectory: swaggerDirectory + "/specification/web/resource-manager/Microsoft.Web/stable/2020-12-01",
 		//	SwaggerFilePath:  "example-dp-synapse-roleDefinitions.json",
 		//},
 		//{
@@ -35,7 +41,7 @@ func main() {
 		//	ServiceName:      "Attestation",
 		//	ApiVersion:       "2020-10-01",
 		//	OutputDirectory:  outputDirectory,
-		//	SwaggerDirectory: apiSpecsPath + "/specification/attestation/resource-manager/Microsoft.Attestation/stable/2020-10-01",
+		//	SwaggerDirectory: swaggerDirectory + "/specification/attestation/resource-manager/Microsoft.Attestation/stable/2020-10-01",
 		//	SwaggerFiles: []string{
 		//		"attestation.json",
 		//	},
@@ -43,11 +49,11 @@ func main() {
 
 		// AppConfiguration
 		{
-			RootNamespace:    "Pandora.Definitions.ResourceManager",
+			RootNamespace:    RootNamespace,
 			ServiceName:      "AppConfiguration",
 			ApiVersion:       "2020-06-01",
 			OutputDirectory:  outputDirectory,
-			SwaggerDirectory: apiSpecsPath + "/specification/appconfiguration/resource-manager/Microsoft.AppConfiguration/stable/2020-06-01",
+			SwaggerDirectory: swaggerDirectory + "/specification/appconfiguration/resource-manager/Microsoft.AppConfiguration/stable/2020-06-01",
 			SwaggerFiles: []string{
 				"appconfiguration.json",
 			},
@@ -55,11 +61,11 @@ func main() {
 
 		// EventHubs (2018-01-01-preview and 2017-04-01)
 		{
-			RootNamespace:    "Pandora.Definitions.ResourceManager",
+			RootNamespace:    RootNamespace,
 			ServiceName:      "EventHub",
 			ApiVersion:       "2017-04-01",
 			OutputDirectory:  outputDirectory,
-			SwaggerDirectory: apiSpecsPath + "/specification/eventhub/resource-manager/Microsoft.EventHub/stable/2017-04-01",
+			SwaggerDirectory: swaggerDirectory + "/specification/eventhub/resource-manager/Microsoft.EventHub/stable/2017-04-01",
 			SwaggerFiles: []string{
 				"AuthorizationRules.json",
 				"CheckNameAvailability.json",
@@ -73,11 +79,11 @@ func main() {
 			},
 		},
 		{
-			RootNamespace:    "Pandora.Definitions.ResourceManager",
+			RootNamespace:    RootNamespace,
 			ServiceName:      "EventHub",
 			ApiVersion:       "2018-01-01-preview",
 			OutputDirectory:  outputDirectory,
-			SwaggerDirectory: apiSpecsPath + "/specification/eventhub/resource-manager/Microsoft.EventHub/preview/2018-01-01-preview",
+			SwaggerDirectory: swaggerDirectory + "/specification/eventhub/resource-manager/Microsoft.EventHub/preview/2018-01-01-preview",
 			SwaggerFiles: []string{
 				"AuthorizationRules.json",
 				"AvailableClusterRegions-preview.json",
@@ -103,7 +109,7 @@ func main() {
 		//	ServiceName:      "Batch",
 		//	ApiVersion:       "2020-03-01",
 		//	OutputDirectory:  outputDirectory,
-		//	SwaggerDirectory: apiSpecsPath + "/specification/batch/resource-manager/Microsoft.Batch/stable/2020-03-01/",
+		//	SwaggerDirectory: swaggerDirectory + "/specification/batch/resource-manager/Microsoft.Batch/stable/2020-03-01/",
 		//	SwaggerFiles: []string{
 		//		"BatchManagement.json",
 		//	},
@@ -115,7 +121,7 @@ func main() {
 		//	ServiceName:      "Billing",
 		//	ApiVersion:       "2018-11-01-preview",
 		//	OutputDirectory:  outputDirectory,
-		//	SwaggerDirectory: apiSpecsPath + "/specification/billing/resource-manager/Microsoft.Billing/preview/2018-11-01-preview/",
+		//	SwaggerDirectory: swaggerDirectory + "/specification/billing/resource-manager/Microsoft.Billing/preview/2018-11-01-preview/",
 		//	SwaggerFiles: []string{
 		//		"billing.json",
 		//	},
@@ -127,7 +133,7 @@ func main() {
 		//	ServiceName:      "Compute",
 		//	ApiVersion:       "2020-12-01",
 		//	OutputDirectory:  outputDirectory,
-		//	SwaggerDirectory: apiSpecsPath + "/specification/compute/resource-manager/Microsoft.Compute/stable/2020-12-01",
+		//	SwaggerDirectory: swaggerDirectory + "/specification/compute/resource-manager/Microsoft.Compute/stable/2020-12-01",
 		//	SwaggerFiles: []string{
 		//		"compute.json",
 		//		"disk.json",
@@ -142,7 +148,7 @@ func main() {
 		//	ApiVersion:       "2020-12-01",
 		//	OutputDirectory:  outputDirectory,
 		//	// swagger/specification/cosmos-db/resource-manager/Microsoft.DocumentDB/stable/2021-01-15/cosmos-db.json
-		//	SwaggerDirectory: apiSpecsPath + "/specification/cosmos-db/resource-manager/Microsoft.DocumentDB/stable/2021-01-15",
+		//	SwaggerDirectory: swaggerDirectory + "/specification/cosmos-db/resource-manager/Microsoft.DocumentDB/stable/2021-01-15",
 		//	SwaggerFiles: []string{
 		//		"cosmos-db.json",
 		//		"notebook.json",
@@ -157,7 +163,7 @@ func main() {
 			ServiceName:      "DataProtection",
 			ApiVersion:       "2021-01-01",
 			OutputDirectory:  outputDirectory,
-			SwaggerDirectory: apiSpecsPath + "/specification/dataprotection/resource-manager/Microsoft.DataProtection/stable/2021-01-01",
+			SwaggerDirectory: swaggerDirectory + "/specification/dataprotection/resource-manager/Microsoft.DataProtection/stable/2021-01-01",
 			SwaggerFiles: []string{
 				"dataprotection.json",
 			},
@@ -169,7 +175,7 @@ func main() {
 		//	ServiceName:      "HealthcareApis",
 		//	ApiVersion:       "2021-01-01",
 		//	OutputDirectory:  outputDirectory,
-		//	SwaggerDirectory: apiSpecsPath + "/specification/healthcareapis/resource-manager/Microsoft.HealthcareApis/stable/2021-01-11",
+		//	SwaggerDirectory: swaggerDirectory + "/specification/healthcareapis/resource-manager/Microsoft.HealthcareApis/stable/2021-01-11",
 		//	SwaggerFiles: []string{
 		//		"healthcare-apis.json",
 		//	},
@@ -181,7 +187,7 @@ func main() {
 		//	ServiceName:      "Logic",
 		//	ApiVersion:       "2021-01-01",
 		//	OutputDirectory:  outputDirectory,
-		//	SwaggerDirectory: apiSpecsPath + "/specification/logic/resource-manager/Microsoft.Logic/stable/2019-05-01",
+		//	SwaggerDirectory: swaggerDirectory + "/specification/logic/resource-manager/Microsoft.Logic/stable/2019-05-01",
 		//	SwaggerFiles: []string{
 		//		"logic.json",
 		//	},
@@ -193,7 +199,7 @@ func main() {
 		//	ServiceName:      "Network",
 		//	ApiVersion:       "2017-11-01",
 		//	OutputDirectory:  outputDirectory,
-		//	SwaggerDirectory: apiSpecsPath + "/specification/network/resource-manager/Microsoft.Network/stable/2017-11-01",
+		//	SwaggerDirectory: swaggerDirectory + "/specification/network/resource-manager/Microsoft.Network/stable/2017-11-01",
 		//	SwaggerFiles: []string{
 		//		"publicIpAddress.json",
 		//	},
@@ -205,7 +211,7 @@ func main() {
 		//	ServiceName:      "MediaServices",
 		//	ApiVersion:       "2021-05-01",
 		//	OutputDirectory:  outputDirectory,
-		//	SwaggerDirectory: apiSpecsPath + "/specification/mediaservices/resource-manager/Microsoft.Media/stable/2021-05-01",
+		//	SwaggerDirectory: swaggerDirectory + "/specification/mediaservices/resource-manager/Microsoft.Media/stable/2021-05-01",
 		//	SwaggerFiles: []string{
 		//		"Accounts.json",
 		//	},
@@ -217,7 +223,7 @@ func main() {
 		//	ServiceName:      "Web",
 		//	ApiVersion:       "2020-12-01",
 		//	OutputDirectory:  outputDirectory,
-		//	SwaggerDirectory: apiSpecsPath + "/specification/web/resource-manager/Microsoft.Web/stable/2020-12-01",
+		//	SwaggerDirectory: swaggerDirectory + "/specification/web/resource-manager/Microsoft.Web/stable/2020-12-01",
 		//	SwaggerFiles: []string{
 		//		// NOTE: stripped out CommonDefinitions.json
 		//		"AppServiceEnvironments.json",
@@ -241,7 +247,7 @@ func main() {
 		//	ServiceName:      "Network",
 		//	ApiVersion:       "2020-08-01",
 		//	OutputDirectory:  outputDirectory,
-		//	SwaggerDirectory: apiSpecsPath + "/specification/network/resource-manager/Microsoft.Network/stable/2020-08-01",
+		//	SwaggerDirectory: swaggerDirectory + "/specification/network/resource-manager/Microsoft.Network/stable/2020-08-01",
 		//	SwaggerFiles: []string{
 		//		//"applicationGateway.json",
 		//		//"applicationSecurityGroup.json",
@@ -297,12 +303,17 @@ func main() {
 		//},
 	}
 
-	for _, v := range input {
-		if err := run(v); err != nil {
-			log.Printf("error: %+v", err)
-			os.Exit(1)
+	if !strings.EqualFold(os.Getenv("PANDORA_GENERATE_EVERYTHING"), "true") {
+		for _, v := range input {
+			if err := run(v); err != nil {
+				log.Printf("error: %+v", err)
+				os.Exit(1)
+			}
 		}
+	} else {
+		generateEverything()
 	}
+
 	os.Exit(0)
 }
 
