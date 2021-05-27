@@ -144,7 +144,7 @@ namespace Pandora.Data.Transformers
             {
                 return PropertyType.Tags;
             }
-            
+
             switch (propertyType)
             {
                 case "System.Boolean":
@@ -152,6 +152,11 @@ namespace Pandora.Data.Transformers
                 
                 case "System.DateTime":
                     return PropertyType.DateTime;
+                
+                case "System.Decimal":
+                case "System.Double":
+                case "System.Single":
+                    return PropertyType.Float;
 
                 case "System.Int32":
                     return PropertyType.Integer;

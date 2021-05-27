@@ -1,5 +1,3 @@
-using System.ComponentModel;
-
 namespace Pandora.Data.Models
 {
     public enum PropertyType
@@ -13,31 +11,15 @@ namespace Pandora.Data.Models
         // intentionally exists just to catch instances where this is undefined
         Unknown,
         
-        [Description("boolean")]
         Boolean,
-        
-        [Description("constant")]
         Constant,
-        
-        [Description("datetime")]
         DateTime,
-        
-        [Description("integer")]
+        Float,
         Integer,
-         
-        [Description("list")]
         List,
-        
-        [Description("location")]
         Location,
-        
-        [Description("object")]
         Object,
-        
-        [Description("tags")]
         Tags,
-        
-        [Description("string")]
         String,
     }
 }
