@@ -13,6 +13,8 @@ namespace Pandora.Data.Transformers
             {
                 typeof(bool),
                 typeof(byte),
+                typeof(DateTime),
+                typeof(float),
                 typeof(int),
                 typeof(object),
                 typeof(string),
