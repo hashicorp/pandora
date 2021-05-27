@@ -18,11 +18,12 @@ type GenerationData struct {
 }
 
 func GenerationDataForService(serviceName, rootDirectory, rootNamespace string) GenerationData {
-	serviceNamespace := fmt.Sprintf("%s.%s", rootNamespace, strings.Title(serviceName))
-	serviceWorkingDirectory := path.Join(rootDirectory, strings.Title(serviceName))
+	normalisedServiceName := strings.ReplaceAll(serviceName, "-", "")
+	serviceNamespace := fmt.Sprintf("%s.%s", rootNamespace, strings.Title(normalisedServiceName))
+	serviceWorkingDirectory := path.Join(rootDirectory, strings.Title(normalisedServiceName))
 
 	return GenerationData{
-		ServiceName:                serviceName,
+		ServiceName:                normalisedServiceName,
 		NamespaceForService:        serviceNamespace,
 		WorkingDirectoryForService: serviceWorkingDirectory,
 	}
