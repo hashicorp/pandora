@@ -119,7 +119,7 @@ func dotNetTypeNameForComplexType(field models.FieldDefinition) (*string, error)
 	}
 
 	switch field.Type {
-	case models.Boolean, models.DateTime, models.Integer, models.String:
+	case models.Boolean, models.DateTime, models.Float, models.Integer, models.String:
 		return dotNetTypeNameForSimpleType(field.Type)
 
 	case models.Dictionary:
