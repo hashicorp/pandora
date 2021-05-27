@@ -5,6 +5,7 @@ using System.Net;
 using System.Net.Http;
 using System.Text.Json.Serialization;
 using NUnit.Framework;
+using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Interfaces;
 using Pandora.Definitions.Operations;
 
@@ -558,30 +559,38 @@ namespace Pandora.Data.Transformers
 
         private class FakeWithDuplicateNestedConstants
         {
-            [JsonPropertyName("first")] public FakeWithConstant First { get; set; }
+            [JsonPropertyName("first")]
+            public FakeWithConstant First { get; set; }
 
-            [JsonPropertyName("second")] public FakeWithConstant Second { get; set; }
+            [JsonPropertyName("second")]
+            public FakeWithConstant Second { get; set; }
         }
 
         private class FakeWithNestedConstants
         {
-            [JsonPropertyName("first")] public FakeWithConstant First { get; set; }
+            [JsonPropertyName("first")]
+            public FakeWithConstant First { get; set; }
 
-            [JsonPropertyName("second")] public FakeSecondConstant Second { get; set; }
+            [JsonPropertyName("second")]
+            public FakeSecondConstant Second { get; set; }
         }
 
         private class FakeWithConstant
         {
-            [JsonPropertyName("constant")] public FakeConstant Constant { get; set; }
+            [JsonPropertyName("constant")]
+            public FakeConstant Constant { get; set; }
         }
 
         private class FakeWithDuplicateConstants
         {
-            [JsonPropertyName("first")] public FakeConstant First { get; set; }
+            [JsonPropertyName("first")]
+            public FakeConstant First { get; set; }
 
-            [JsonPropertyName("second")] public FakeConstant Second { get; set; }
+            [JsonPropertyName("second")]
+            public FakeConstant Second { get; set; }
         }
 
+        [ConstantType(ConstantTypeAttribute.ConstantType.String)]
         private enum FakeConstant
         {
             [System.ComponentModel.Description("first")]
@@ -591,6 +600,7 @@ namespace Pandora.Data.Transformers
             Second
         }
 
+        [ConstantType(ConstantTypeAttribute.ConstantType.String)]
         private enum FakeSecondConstant
         {
             [System.ComponentModel.Description("third")]
@@ -602,34 +612,32 @@ namespace Pandora.Data.Transformers
 
         private class FakeWithNested
         {
-            [JsonPropertyName("first")] public FakeModel First { get; }
+            [JsonPropertyName("first")]
+            public FakeModel First { get; }
 
-            [JsonPropertyName("second")] public FakeSecondModel Second { get; }
+            [JsonPropertyName("second")]
+            public FakeSecondModel Second { get; }
         }
 
         private class FakeWithDuplicateNestedTypes
         {
-            [JsonPropertyName("first")] public FakeModel First { get; }
+            [JsonPropertyName("first")]
+            public FakeModel First { get; }
 
-            [JsonPropertyName("second")] public FakeModel Second { get; }
+            [JsonPropertyName("second")]
+            public FakeModel Second { get; }
         }
 
         private class FakeModel
         {
-            [JsonPropertyName("example")] public bool Example { get; set; }
+            [JsonPropertyName("example")]
+            public bool Example { get; set; }
         }
 
         private class FakeSecondModel
         {
-            [JsonPropertyName("second")] public string Second { get; set; }
-        }
-
-        private class FakeResourceId : Definitions.Interfaces.ResourceID
-        {
-            public string ID()
-            {
-                return "/hello/{worldName}";
-            }
+            [JsonPropertyName("second")]
+            public string Second { get; set; }
         }
     }
 }

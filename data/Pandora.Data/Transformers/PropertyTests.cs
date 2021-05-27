@@ -17,7 +17,7 @@ namespace Pandora.Data.Transformers
         {
             foreach (var property in new WithoutArgumentExample().GetType().GetProperties())
             {
-                Assert.Throws<NotSupportedException>(() => Property.Map(property));
+                Assert.Throws<NotSupportedException>(() => Property.Map(property, typeof(WithoutArgumentExample).FullName!));
             }
         }
         
@@ -26,7 +26,7 @@ namespace Pandora.Data.Transformers
         {
             foreach (var property in new Foo().GetType().GetProperties())
             {
-                var actual = Property.Map(property);
+                var actual = Property.Map(property, typeof(Foo).FullName!);
                 Assert.NotNull(actual);
                 
                 switch (property.Name)
@@ -126,6 +126,33 @@ namespace Pandora.Data.Transformers
                         Assert.AreEqual(false, actual.Required);
                         continue;
                     }
+
+                    case "DateTime":
+                    {
+                        Assert.AreEqual("DateTime", actual.Name);
+                        Assert.AreEqual("dateTime", actual.JsonName);
+                        Assert.AreEqual(PropertyType.DateTime, actual.PropertyType);
+                        Assert.Null(actual.ListElementType);
+                        Assert.Null(actual.ConstantReference);
+                        Assert.Null(actual.ModelReference);
+                        Assert.AreEqual(true, actual.Optional);
+                        Assert.AreEqual(false, actual.Required);
+                        Assert.AreEqual("RFC3339", actual.DateFormat);
+                        continue;
+                    }
+
+                    case "Float":
+                    {
+                        Assert.AreEqual("Float", actual.Name);
+                        Assert.AreEqual("float", actual.JsonName);
+                        Assert.AreEqual(PropertyType.Float, actual.PropertyType);
+                        Assert.Null(actual.ListElementType);
+                        Assert.Null(actual.ConstantReference);
+                        Assert.Null(actual.ModelReference);
+                        Assert.AreEqual(true, actual.Optional);
+                        Assert.AreEqual(false, actual.Required);
+                        continue;
+                    }
                     
                     case "ListOfOtherEnum":
                     {
@@ -157,6 +184,82 @@ namespace Pandora.Data.Transformers
                     {
                         Assert.AreEqual("NestedObject", actual.Name);
                         Assert.AreEqual("nestedObject", actual.JsonName);
+                        Assert.AreEqual("NestedType", actual.ModelReference);
+                        Assert.AreEqual(true, actual.Optional);
+                        Assert.AreEqual(false, actual.Required);
+                        continue;
+                    }
+
+                    case "OptionalBool":
+                    {
+                        Assert.AreEqual("OptionalBool", actual.Name);
+                        Assert.AreEqual("optionalBool", actual.JsonName);
+                        Assert.AreEqual(PropertyType.Boolean, actual.PropertyType);
+                        Assert.Null(actual.ListElementType);
+                        Assert.Null(actual.ConstantReference);
+                        Assert.Null(actual.ModelReference);
+                        Assert.AreEqual(true, actual.Optional);
+                        Assert.AreEqual(false, actual.Required);
+                        continue;
+                    }
+
+                    case "OptionalConstant":
+                    {
+                        Assert.AreEqual("OptionalConstant", actual.Name);
+                        Assert.AreEqual("optionalConstant", actual.JsonName);
+                        Assert.AreEqual(PropertyType.Constant, actual.PropertyType);
+                        Assert.Null(actual.ListElementType);
+                        Assert.AreEqual("SomeEnum", actual.ConstantReference);
+                        Assert.Null(actual.ModelReference);
+                        Assert.AreEqual(true, actual.Optional);
+                        Assert.AreEqual(false, actual.Required);
+                        continue;
+                    }
+
+                    case "OptionalDateTime":
+                    {
+                        Assert.AreEqual("OptionalDateTime", actual.Name);
+                        Assert.AreEqual("optionalDateTime", actual.JsonName);
+                        Assert.AreEqual(PropertyType.DateTime, actual.PropertyType);
+                        Assert.Null(actual.ListElementType);
+                        Assert.Null(actual.ConstantReference);
+                        Assert.Null(actual.ModelReference);
+                        Assert.AreEqual(true, actual.Optional);
+                        Assert.AreEqual(false, actual.Required);
+                        Assert.AreEqual("RFC3339", actual.DateFormat);
+                        continue;
+                    }
+
+                    case "OptionalInt":
+                    {
+                        Assert.AreEqual("OptionalInt", actual.Name);
+                        Assert.AreEqual("optionalInt", actual.JsonName);
+                        Assert.AreEqual(PropertyType.Integer, actual.PropertyType);
+                        Assert.Null(actual.ListElementType);
+                        Assert.Null(actual.ConstantReference);
+                        Assert.Null(actual.ModelReference);
+                        Assert.AreEqual(true, actual.Optional);
+                        Assert.AreEqual(false, actual.Required);
+                        continue;
+                    }
+
+                    case "OptionalFloat":
+                    {
+                        Assert.AreEqual("OptionalFloat", actual.Name);
+                        Assert.AreEqual("optionalFloat", actual.JsonName);
+                        Assert.AreEqual(PropertyType.Float, actual.PropertyType);
+                        Assert.Null(actual.ListElementType);
+                        Assert.Null(actual.ConstantReference);
+                        Assert.Null(actual.ModelReference);
+                        Assert.AreEqual(true, actual.Optional);
+                        Assert.AreEqual(false, actual.Required);
+                        continue;
+                    }
+
+                    case "OptionalNestedObject":
+                    {
+                        Assert.AreEqual("OptionalNestedObject", actual.Name);
+                        Assert.AreEqual("optionalNestedObject", actual.JsonName);
                         Assert.AreEqual("NestedType", actual.ModelReference);
                         Assert.AreEqual(true, actual.Optional);
                         Assert.AreEqual(false, actual.Required);
@@ -261,6 +364,13 @@ namespace Pandora.Data.Transformers
             [Optional]
             public SomeEnum Constant { get; set; }
             
+            [DateFormat(DateFormatAttribute.DateFormat.RFC3339)]
+            [JsonPropertyName("dateTime")]
+            public DateTime DateTime { get; set; }
+            
+            [JsonPropertyName("float")]
+            public float Float { get; set; }
+            
             [JsonPropertyName("listOfOtherEnum")]
             [Optional]
             public List<SomeEnum> ListOfOtherEnum { get; set; }
@@ -273,6 +383,26 @@ namespace Pandora.Data.Transformers
             [Optional]
             public NestedType NestedObject { get; set; }
             
+            [JsonPropertyName("optionalBool")]
+            [Optional]
+            public bool? OptionalBool { get; set; }
+            
+            [JsonPropertyName("optionalConstant")]
+            [Optional]
+            public SomeEnum? OptionalConstant { get; set; }
+            
+            [DateFormat(DateFormatAttribute.DateFormat.RFC3339)]
+            [JsonPropertyName("optionalDateTime")]
+            [Optional]
+            public DateTime? OptionalDateTime { get; set; }
+            
+            [JsonPropertyName("optionalFloat")]
+            public float? OptionalFloat { get; set; }
+            
+            [JsonPropertyName("optionalInt")]
+            [Optional]
+            public int? OptionalInt { get; set; }
+            
             [JsonPropertyName("withDefaultValueInt")]
             [Optional(DefaultValue = 21)]
             public string WithDefaultValueInt { get; set; }
@@ -280,6 +410,10 @@ namespace Pandora.Data.Transformers
             [JsonPropertyName("withDefaultValueString")]
             [Optional(DefaultValue = "Hello")]
             public string WithDefaultValueString { get; set; }
+            
+            [JsonPropertyName("optionalNestedObject")]
+            [Optional]
+            public NestedType? OptionalNestedObject { get; set; }
             
             [JsonPropertyName("withForceNew")]
             [Optional]

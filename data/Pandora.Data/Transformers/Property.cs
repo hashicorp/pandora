@@ -12,7 +12,7 @@ namespace Pandora.Data.Transformers
 {
     public static class Property
     {
-        public static PropertyDefinition Map(PropertyInfo input)
+        public static PropertyDefinition Map(PropertyInfo input, string containingType)
         {
         //     // TODO: this needs to handle being a List of things
         //     if (input.GetType().IsAGenericList())
@@ -21,7 +21,7 @@ namespace Pandora.Data.Transformers
         //         // we need to iterate over the nested element
         //     }
         //     
-            var jsonName = input.JsonName();
+            var jsonName = input.JsonName(containingType);
             var required = input.HasAttribute<RequiredAttribute>();
             var optional = input.HasAttribute<OptionalAttribute>();
             var forceNew = input.HasAttribute<ForceNewAttribute>();
@@ -47,7 +47,7 @@ namespace Pandora.Data.Transformers
             };
             
             if (optional) {
-                definition.Default = GetDefaultValue(input);
+                definition.Default = GetDefaultValue(input, containingType);
             }
 
             if (definition.PropertyType == PropertyType.List) {
@@ -61,6 +61,11 @@ namespace Pandora.Data.Transformers
             if (definition.PropertyType == PropertyType.Constant)
             {
                 definition.ConstantReference = input.PropertyType.Name;
+                if (input.PropertyType.IsGenericType)
+                {
+                    var innerType = Nullable.GetUnderlyingType(input.PropertyType);
+                    definition.ConstantReference = innerType.Name;
+                }
             }
             
             if (definition.PropertyType == PropertyType.DateTime)
@@ -124,8 +129,13 @@ namespace Pandora.Data.Transformers
 
         private static PropertyType MapPropertyType(Type input)
         {
-            if (input.IsGenericType && input.GetGenericTypeDefinition() == typeof(List<>)) {
-                return PropertyType.List;
+            if (input.IsGenericType) {
+                if (input.GetGenericTypeDefinition() == typeof(List<>))
+                {
+                    return PropertyType.List;
+                }
+
+                return MapPropertyType(Nullable.GetUnderlyingType(input));
             }
 
             if (input.IsEnum) {
@@ -168,23 +178,23 @@ namespace Pandora.Data.Transformers
             return PropertyType.Object;
         }
 
-        private static object? GetDefaultValue(MemberInfo input)
+        private static object? GetDefaultValue(MemberInfo input, string containingType)
         {
             var optional = input.GetCustomAttribute<OptionalAttribute>();
             if (optional == null)
             {
-                throw new NotSupportedException($"missing `OptionalAttribute` for property {input.Name}");
+                throw new NotSupportedException($"missing `OptionalAttribute` for property {input.Name} in {containingType}");
             }
 
             return optional.DefaultValue;
         }
 
-        private static string JsonName(this MemberInfo info)
+        private static string JsonName(this MemberInfo info, string containingType)
         {
             var jsonName = info.GetCustomAttribute<JsonPropertyNameAttribute>();
             if (jsonName == null)
             {
-                throw new NotSupportedException($"missing `JsonPropertyName` for property {info.Name}");
+                throw new NotSupportedException($"missing `JsonPropertyName` for property {info.Name} in {containingType}");
             }
 
             return jsonName.Name;

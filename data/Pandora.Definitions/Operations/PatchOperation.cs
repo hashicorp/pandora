@@ -36,7 +36,7 @@ namespace Pandora.Definitions.Operations
             return HttpMethod.Patch;
         }
 
-        public object? OptionsObject()
+        public virtual object? OptionsObject()
         {
             // shouldn't be applicable for PATCHes 
             return null;

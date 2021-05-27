@@ -38,14 +38,21 @@ namespace Pandora.Data.Transformers
             {
                 if (property.PropertyType.IsGenericType)
                 {
-                    if (property.PropertyType.GetGenericTypeDefinition() != typeof(List<>))
+                    // if this is a list of some description, it has to be a List
+                    // otherwise it could be a nilable item (e.g. Int?, Float?, Enum?)
+                    var genericType = property.PropertyType.GetGenericTypeDefinition();
+                    if (genericType.IsAssignableTo(typeof(IEnumerable<>)))
                     {
-                        throw new NotSupportedException(string.Format($"{input.FullName} - {property.Name}: Generic types have to be lists"));
+                        if (property.PropertyType.GetGenericTypeDefinition() != typeof(List<>))
+                        {
+                            throw new NotSupportedException(
+                                string.Format($"{input.FullName} - {property.Name}: Generic types have to be lists"));
+                        }
                     }
 
                     var innerType = property.PropertyType.GetGenericArguments()[0];
-                    if (!Helpers.IsNativeType(innerType)) // e.g. List<string>
-                    {
+                    // e.g. List<string>
+                    if (!Helpers.IsNativeType(innerType)) {
                         var mappedInner = MapObject(innerType);
                         models.AddRange(mappedInner);
                     }
@@ -57,7 +64,7 @@ namespace Pandora.Data.Transformers
                     models.AddRange(MapObject(property.PropertyType));
                 }
 
-                var mappedProperty = Property.Map(property);
+                var mappedProperty = Property.Map(property, input.FullName!);
                 properties.Add(mappedProperty);
             }
 

@@ -36,7 +36,7 @@ namespace Pandora.Definitions.Operations
             return HttpMethod.Post;
         }
 
-        public object? OptionsObject()
+        public virtual object? OptionsObject()
         {
             // shouldn't be applicable for POST
             return null;
