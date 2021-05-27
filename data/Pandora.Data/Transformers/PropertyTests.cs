@@ -256,6 +256,16 @@ namespace Pandora.Data.Transformers
                         continue;
                     }
 
+                    case "OptionalNestedObject":
+                    {
+                        Assert.AreEqual("OptionalNestedObject", actual.Name);
+                        Assert.AreEqual("optionalNestedObject", actual.JsonName);
+                        Assert.AreEqual("NestedType", actual.ModelReference);
+                        Assert.AreEqual(true, actual.Optional);
+                        Assert.AreEqual(false, actual.Required);
+                        continue;
+                    }
+
                     case "WithDefaultValueInt":
                     {
                         Assert.AreEqual("WithDefaultValueInt", actual.Name);
@@ -400,6 +410,10 @@ namespace Pandora.Data.Transformers
             [JsonPropertyName("withDefaultValueString")]
             [Optional(DefaultValue = "Hello")]
             public string WithDefaultValueString { get; set; }
+            
+            [JsonPropertyName("optionalNestedObject")]
+            [Optional]
+            public NestedType? OptionalNestedObject { get; set; }
             
             [JsonPropertyName("withForceNew")]
             [Optional]

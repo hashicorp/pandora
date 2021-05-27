@@ -56,9 +56,17 @@ namespace Pandora.Data.Transformers
         }
 
         [TestCase]
-        public static void LongRunningOperationsCannotHaveAResponseObject()
+        public static void LongRunningOperationsWithAResponseObjectGetsIgnored()
         {
-            Assert.Throws<NotSupportedException>(() => Operation.Map(new LongRunningOperationWithResponseObject(), "2018-01-01", "MyApi"));
+            var actual = Operation.Map(new LongRunningOperationWithResponseObject(), "2018-01-01", "MyApi");
+            Assert.NotNull(actual);
+            Assert.AreEqual("2018-01-01", actual.ApiVersion);
+            Assert.AreEqual("MyApi", actual.ApiName);
+            Assert.AreEqual("LongRunningOperationWithResponseObject", actual.Name);
+            Assert.AreEqual("application/json", actual.ContentType);
+            Assert.AreEqual("DELETE", actual.Method);
+            Assert.AreEqual(true, actual.LongRunning);
+            Assert.Null(actual.ResponseObject);
         }
 
         [TestCase]

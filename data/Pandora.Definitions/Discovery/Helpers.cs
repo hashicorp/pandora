@@ -1,4 +1,6 @@
 using System;
+using System.Linq;
+using Microsoft.VisualBasic;
 
 namespace Pandora.Definitions.Discovery
 {
@@ -12,8 +14,9 @@ namespace Pandora.Definitions.Discovery
             var containingNamespace = input.Namespace;
             if (input.FullName.Contains("+"))
             {
+                var segments = Strings.Split(input.FullName, "+");
                 containingNamespace = input.FullName;
-                containingNamespace = containingNamespace!.Replace(input.GetType().Name, "");
+                containingNamespace = containingNamespace!.Replace(segments.Last(), "");
                 containingNamespace = containingNamespace.TrimEnd('+');
             }
 

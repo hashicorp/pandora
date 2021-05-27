@@ -66,7 +66,7 @@ namespace Pandora.Data.Transformers
             }
         }
 
-        private class ResourceManagerContainer
+        internal class ResourceManagerContainer
         {
             internal class FakeResourceManagerService : ServiceDefinition
             {
@@ -76,7 +76,7 @@ namespace Pandora.Data.Transformers
             }
 
             // looks like this isn't used, but it is since it's found via Discovery (which is why this has to be internal)
-            private class FakeApiVersion : ApiVersionDefinition
+            internal class FakeApiVersion : ApiVersionDefinition
             {
                 public string ApiVersion => "SomeVersion";
                 public bool Generate => true;
