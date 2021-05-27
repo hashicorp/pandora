@@ -24,6 +24,9 @@ namespace Pandora.Definitions.ResourceManager.Pandamonium.v2020_01_01.Grouping
     {
         [JsonPropertyName("barks")]
         public bool Barks { get; set; }
+        
+        [JsonPropertyName("length")]
+        public float Length { get; set; }
     }
 
     public class GetAnimalModel

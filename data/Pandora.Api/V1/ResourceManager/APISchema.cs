@@ -120,6 +120,9 @@ namespace Pandora.Api.V1.ResourceManager
                 case PropertyType.DateTime:
                     return ApiPropertyType.DateTime.ToString();
                 
+                case PropertyType.Float:
+                    return ApiPropertyType.Float.ToString();
+
                 case PropertyType.Integer:
                     return ApiPropertyType.Integer.ToString();
                 
@@ -217,6 +220,7 @@ namespace Pandora.Api.V1.ResourceManager
             Boolean,
             Constant,
             DateTime,
+            Float,
             Integer,
             List,
             Location,
