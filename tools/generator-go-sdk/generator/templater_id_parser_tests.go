@@ -116,7 +116,7 @@ func (id resourceIdParserData) testCodeForParser() string {
 	testCasesStr := strings.Join(testCases, "\n")
 	assignmentCheckStr := strings.Join(assignmentChecks, "\n")
 	return fmt.Sprintf(`
-func Test%[1]sID(t *testing.T) {
+func TestParse%[1]sID(t *testing.T) {
 	testData := []struct {
 		Input  string
 		Error  bool
@@ -128,7 +128,7 @@ func Test%[1]sID(t *testing.T) {
 	for _, v := range testData {
 		t.Logf("[DEBUG] Testing %%q", v.Input)
 
-		actual, err := %[1]sID(v.Input)
+		actual, err := Parse%[1]sID(v.Input)
 		if err != nil {
 			if v.Error {
 				continue
@@ -230,7 +230,7 @@ func (id resourceIdParserData) testCodeForParserInsensitive() string {
 	testCasesStr := strings.Join(testCases, "\n")
 	assignmentCheckStr := strings.Join(assignmentChecks, "\n")
 	return fmt.Sprintf(`
-func Test%[1]sIDInsensitively(t *testing.T) {
+func TestParse%[1]sIDInsensitively(t *testing.T) {
 	testData := []struct {
 		Input  string
 		Error  bool
@@ -242,7 +242,7 @@ func Test%[1]sIDInsensitively(t *testing.T) {
 	for _, v := range testData {
 		t.Logf("[DEBUG] Testing %%q", v.Input)
 
-		actual, err := %[1]sIDInsensitively(v.Input)
+		actual, err := Parse%[1]sIDInsensitively(v.Input)
 		if err != nil {
 			if v.Error {
 				continue
