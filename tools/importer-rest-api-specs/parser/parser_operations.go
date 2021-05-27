@@ -60,11 +60,14 @@ func (d *SwaggerDefinition) parseOperation(operationName, httpMethod string, uri
 	}
 
 	expectedStatusCodes := expectedStatusCodesForOperation(operationDetails)
-	requestObjectName := d.requestObjectForOperation(operationDetails, operationName)
-	responseObjectName := d.responseObjectForOperation(operationDetails, operationName)
+	paginationField := fieldContainingPaginationDetailsForOperation(operationDetails)
+	requestObjectName := d.requestObjectForOperation(operationDetails)
+	responseObjectName, err := d.responseObjectForOperation(operationDetails, paginationField != nil)
+	if err != nil {
+		return nil, fmt.Errorf("determining response operation for %q (method %q / uri %q): %+v", operationName, httpMethod, uri.normalizedUri(), err)
+	}
 	longRunning := operationIsLongRunning(operationDetails)
 	options := optionsForOperation(operationDetails)
-	paginationField := fieldContainingPaginationDetailsForOperation(operationDetails)
 
 	operationData := models.OperationDetails{
 		ApiVersion:                       nil, // TODO: investigate 'security' and other packages which use this
@@ -180,7 +183,7 @@ func operationShouldBeIgnored(input models.OperationDetails) bool {
 	return false
 }
 
-func (d *SwaggerDefinition) requestObjectForOperation(operationDetails *spec.Operation, operationName string) *string {
+func (d *SwaggerDefinition) requestObjectForOperation(operationDetails *spec.Operation) *string {
 	// find the same operation in the unexpanded swagger spec since we need the reference name
 	_, _, unexpandedOperation, found := d.swaggerSpecWithReferences.OperationForName(operationDetails.ID)
 	if !found {
@@ -215,11 +218,11 @@ func (d *SwaggerDefinition) requestObjectForOperation(operationDetails *spec.Ope
 	return nil
 }
 
-func (d *SwaggerDefinition) responseObjectForOperation(operationDetails *spec.Operation, operationName string) *string {
+func (d *SwaggerDefinition) responseObjectForOperation(operationDetails *spec.Operation, isListOperation bool) (*string, error) {
 	// find the same operation in the unexpanded swagger spec since we need the reference name
 	_, _, unexpandedOperation, found := d.swaggerSpecWithReferences.OperationForName(operationDetails.ID)
 	if !found {
-		return nil
+		return nil, nil
 	}
 
 	for statusCode, details := range unexpandedOperation.Responses.StatusCodeResponses {
@@ -244,11 +247,45 @@ func (d *SwaggerDefinition) responseObjectForOperation(operationDetails *spec.Op
 				v := normalizeModelName(*fragmentName)
 				fragmentName = &v
 			}
-			return fragmentName
+
+			// however if this is a List operation, that is, we have a skipToken, we should find the model
+			// and check for the `value` field to give us the real model
+			if isListOperation {
+				if fragmentName == nil {
+					return nil, fmt.Errorf("list operations must have a model, but this doesn't")
+				}
+
+				model, err := d.findTopLevelModel(*fragmentName)
+				if err != nil {
+					return nil, fmt.Errorf("retrieving model %q for list operation to find real model: %+v", *fragmentName, err)
+				}
+
+				parsedModel, err := d.parseModel(*fragmentName, *model)
+				if err != nil {
+					return nil, fmt.Errorf("parsing model %q for list operation to find real model: %+v", *fragmentName, err)
+				}
+
+				actualModelName := ""
+				for k, v := range parsedModel.fields {
+					if strings.EqualFold(k, "Value") {
+						if v.ModelReference == nil {
+							return nil, fmt.Errorf("parsing model %q for list operation to find real model: missing model reference for field 'value'", *fragmentName)
+						}
+						actualModelName = *v.ModelReference
+						break
+					}
+				}
+				if actualModelName == "" {
+					return nil, fmt.Errorf("parsing model %q for list operation to find real model: model did not contain a field 'value'", *fragmentName)
+				}
+				fragmentName = &actualModelName
+			}
+
+			return fragmentName, nil
 		}
 	}
 
-	return nil
+	return nil, nil
 }
 
 func expectedStatusCodesForOperation(operationDetails *spec.Operation) []int {
