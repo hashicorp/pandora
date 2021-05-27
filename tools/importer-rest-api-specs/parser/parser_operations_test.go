@@ -385,6 +385,94 @@ func TestParseOperationSingleWithResponseObject(t *testing.T) {
 	}
 }
 
+func TestParseOperationSingleWithList(t *testing.T) {
+	parsed, err := Load("testdata/", "operations_single_list.json", true)
+	if err != nil {
+		t.Fatalf("loading: %+v", err)
+	}
+
+	result, err := parsed.Parse("Example", "2020-01-01")
+	if err != nil {
+		t.Fatalf("parsing: %+v", err)
+	}
+	if result == nil {
+		t.Fatal("result was nil")
+	}
+	if len(result.Resources) != 1 {
+		t.Fatalf("expected 1 resource but got %d", len(result.Resources))
+	}
+
+	hello, ok := result.Resources["Hello"]
+	if !ok {
+		t.Fatalf("no resources were output with the tag Hello")
+	}
+
+	if len(hello.Constants) != 0 {
+		t.Fatalf("expected no Constants but got %d", len(hello.Constants))
+	}
+	if len(hello.Models) != 1 {
+		t.Fatalf("expected 1 Model but got %d", len(hello.Models))
+	}
+	if len(hello.Operations) != 1 {
+		t.Fatalf("expected 1 Operation but got %d", len(hello.Operations))
+	}
+	if len(hello.ResourceIds) != 0 {
+		t.Fatalf("expected no ResourceIds but got %d", len(hello.ResourceIds))
+	}
+
+	world, ok := hello.Operations["ListWorlds"]
+	if !ok {
+		t.Fatalf("no resources were output with the name ListWorlds")
+	}
+	if world.Method != "GET" {
+		t.Fatalf("expected a GET operation but got %q", world.Method)
+	}
+	if len(world.ExpectedStatusCodes) != 1 {
+		t.Fatalf("expected 1 status code but got %d", len(world.ExpectedStatusCodes))
+	}
+	if world.ExpectedStatusCodes[0] != 200 {
+		t.Fatalf("expected the status code to be 200 but got %d", world.ExpectedStatusCodes[0])
+	}
+	if world.RequestObjectName != nil {
+		t.Fatalf("expected no request object but got %q", *world.RequestObjectName)
+	}
+	if world.ResponseObjectName == nil {
+		t.Fatal("expected a response object but didn't get one")
+	}
+	if *world.ResponseObjectName != "World" {
+		t.Fatalf("expected the response object to be 'World' but got %q", *world.ResponseObjectName)
+	}
+	if world.FieldContainingPaginationDetails == nil {
+		t.Fatalf("expected there to be pagination details but there weren't")
+	}
+	if *world.FieldContainingPaginationDetails != "nextLink" {
+		t.Fatalf("expected the field containing pagination details to be 'nextLink' but got %q", *world.FieldContainingPaginationDetails)
+	}
+	if world.ResourceIdName != nil {
+		t.Fatalf("expected no ResourceId but got %q", *world.ResourceIdName)
+	}
+	if world.UriSuffix == nil {
+		t.Fatal("expected world.UriSuffix to have a value")
+	}
+	if *world.UriSuffix != "/worlds" {
+		t.Fatalf("expected world.UriSuffix to be `/worlds` but got %q", *world.UriSuffix)
+	}
+	if world.LongRunning {
+		t.Fatal("expected a non-long running operation but it was long running")
+	}
+	if len(world.Options) > 0 {
+		t.Fatalf("expected no options (since skipToken isn't directly configurable) but got %d options", len(world.Options))
+	}
+
+	worldModel, ok := hello.Models["World"]
+	if !ok {
+		t.Fatalf("expected there to be a model called World")
+	}
+	if len(worldModel.Fields) != 1 {
+		t.Fatalf("expected the model World to have 1 field but got %d", len(worldModel.Fields))
+	}
+}
+
 func TestParseOperationSingleWithLongRunningOperation(t *testing.T) {
 	parsed, err := Load("testdata/", "operations_single_long_running.json", true)
 	if err != nil {
