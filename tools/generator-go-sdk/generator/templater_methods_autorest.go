@@ -654,7 +654,7 @@ func Default%[1]sOptions() %[1]sOptions {
 } 
 
 func (o %[1]sOptions) toQueryString() map[string]interface{} {
-	out := make(map[string]interface{}, 0)
+	out := make(map[string]interface{})
 %[3]s
 	return out
 }
