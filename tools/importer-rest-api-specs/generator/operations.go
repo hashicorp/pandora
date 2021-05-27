@@ -61,10 +61,17 @@ func (g PandoraDefinitionGenerator) codeForOperation(namespace string, operation
 	}
 
 	if operation.ResponseObjectName != nil {
-		code = append(code, fmt.Sprintf(`		public override object? ResponseObject()
+		if operation.FieldContainingPaginationDetails == nil {
+			code = append(code, fmt.Sprintf(`		public override object? ResponseObject()
 		{
 			return new %[1]s();
 		}`, *operation.ResponseObjectName))
+		} else {
+			code = append(code, fmt.Sprintf(`		public override object NestedItemType()
+		{
+			return new %[1]s();
+		}`, *operation.ResponseObjectName))
+		}
 	}
 
 	optionsCode := make([]string, 0)
@@ -96,6 +103,9 @@ func (g PandoraDefinitionGenerator) codeForOperation(namespace string, operation
 	}
 
 	operationType := strings.Title(strings.ToLower(operation.Method))
+	if operation.FieldContainingPaginationDetails != nil {
+		operationType = "List"
+	}
 	return fmt.Sprintf(`using Pandora.Definitions.Operations;
 using System.Collections.Generic;
 using System.Net;
