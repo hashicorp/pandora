@@ -72,6 +72,27 @@ func (g PandoraDefinitionGenerator) codeForOperation(namespace string, operation
 			return new %[1]s();
 		}`, *operation.ResponseObjectName))
 		}
+	} else if operation.ResponseObjectType != nil { // We should only process this if the ref is missing
+		switch responseObjectType := *operation.ResponseObjectType; responseObjectType {
+		case "string":
+			code = append(code, fmt.Sprintf(`		public override %[1]s? ResponseObject()
+		{
+			return null;
+		}`, *operation.ResponseObjectType))
+		case "object", "file": // TODO - Be more specific here? Add type definition for `file`?
+			code = append(code, fmt.Sprintf(`		public override object? ResponseObject()
+		{
+			return null;
+		}`))
+		case "array":
+			if operation.FieldContainingPaginationDetails != nil {
+				code = append(code, fmt.Sprintf(`		public override List<%[1]s>? ResponseObject()
+		{
+			return null;
+		}`, *operation.FieldContainingPaginationDetails))
+
+			}
+		}
 	}
 
 	optionsCode := make([]string, 0)
@@ -90,7 +111,7 @@ func (g PandoraDefinitionGenerator) codeForOperation(namespace string, operation
 			if !optionDetails.Required {
 				optionsCode = append(optionsCode, "\t\t[Optional]")
 			}
-			optionsCode = append(optionsCode, fmt.Sprintf("\t\tpublic %s %s { get; set; }", optionDetails.FieldType, optionName))
+			optionsCode = append(optionsCode, fmt.Sprintf("\t\tpublic %s %s { get; set; }", normaliseTypeForDotNet(optionDetails.FieldType), optionName))
 		}
 		optionsCode = append(optionsCode, "\t}")
 	}

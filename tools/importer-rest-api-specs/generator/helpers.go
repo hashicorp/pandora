@@ -42,3 +42,15 @@ func writeToFile(fileName, fileContents string) error {
 	file.Close()
 	return nil
 }
+
+// Fix types in generated code - extend as more types found
+func normaliseTypeForDotNet(input string) string {
+	switch input {
+	case "boolean":
+		return "bool"
+	case "integer":
+		return "int"
+	default:
+		return input
+	}
+}

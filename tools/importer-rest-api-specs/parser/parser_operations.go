@@ -62,7 +62,7 @@ func (d *SwaggerDefinition) parseOperation(operationName, httpMethod string, uri
 	expectedStatusCodes := expectedStatusCodesForOperation(operationDetails)
 	paginationField := fieldContainingPaginationDetailsForOperation(operationDetails)
 	requestObjectName := d.requestObjectForOperation(operationDetails)
-	responseObjectName, err := d.responseObjectForOperation(operationDetails, paginationField != nil)
+	responseObjectName, responseObjectType, err := d.responseObjectForOperation(operationDetails, paginationField != nil)
 	if err != nil {
 		return nil, fmt.Errorf("determining response operation for %q (method %q / uri %q): %+v", operationName, httpMethod, uri.normalizedUri(), err)
 	}
@@ -79,6 +79,7 @@ func (d *SwaggerDefinition) parseOperation(operationName, httpMethod string, uri
 		Options:                          options,
 		RequestObjectName:                requestObjectName,
 		ResponseObjectName:               responseObjectName,
+		ResponseObjectType:               responseObjectType,
 		Uri:                              uri.normalizedUri(),
 		// TODO: add the Options to the generator
 	}
@@ -218,16 +219,17 @@ func (d *SwaggerDefinition) requestObjectForOperation(operationDetails *spec.Ope
 	return nil
 }
 
-func (d *SwaggerDefinition) responseObjectForOperation(operationDetails *spec.Operation, isListOperation bool) (*string, error) {
+func (d *SwaggerDefinition) responseObjectForOperation(operationDetails *spec.Operation, isListOperation bool) (*string, *string, error) {
 	// find the same operation in the unexpanded swagger spec since we need the reference name
 	_, _, unexpandedOperation, found := d.swaggerSpecWithReferences.OperationForName(operationDetails.ID)
 	if !found {
-		return nil, nil
+		return nil, nil, nil
 	}
 
 	for statusCode, details := range unexpandedOperation.Responses.StatusCodeResponses {
 		if operationIsASuccess(statusCode) {
 			var fragmentName *string
+			var responseType *string
 
 			// if it's a singular type
 			if details.ResponseProps.Schema != nil {
@@ -241,6 +243,11 @@ func (d *SwaggerDefinition) responseObjectForOperation(operationDetails *spec.Op
 				}
 			}
 
+			if details.ResponseProps.Schema != nil && details.ResponseProps.Schema.Type != nil {
+				responseType = &details.ResponseProps.Schema.Type[0]
+				return fragmentName, responseType, nil
+			}
+
 			// TODO: should we fall back to normalizing the name of this field? is that reliable?
 
 			if fragmentName != nil {
@@ -252,40 +259,44 @@ func (d *SwaggerDefinition) responseObjectForOperation(operationDetails *spec.Op
 			// and check for the `value` field to give us the real model
 			if isListOperation {
 				if fragmentName == nil {
-					return nil, fmt.Errorf("list operations must have a model, but this doesn't")
+					return nil, nil, fmt.Errorf("list operations must have a model, but this doesn't")
 				}
 
 				model, err := d.findTopLevelModel(*fragmentName)
 				if err != nil {
-					return nil, fmt.Errorf("retrieving model %q for list operation to find real model: %+v", *fragmentName, err)
+					return nil, nil, fmt.Errorf("retrieving model %q for list operation to find real model: %+v", *fragmentName, err)
 				}
 
 				parsedModel, err := d.parseModel(*fragmentName, *model)
 				if err != nil {
-					return nil, fmt.Errorf("parsing model %q for list operation to find real model: %+v", *fragmentName, err)
+					return nil, nil, fmt.Errorf("parsing model %q for list operation to find real model: %+v", *fragmentName, err)
 				}
 
 				actualModelName := ""
 				for k, v := range parsedModel.fields {
 					if strings.EqualFold(k, "Value") {
 						if v.ModelReference == nil {
-							return nil, fmt.Errorf("parsing model %q for list operation to find real model: missing model reference for field 'value'", *fragmentName)
+							if v.Type != "list" {
+								return nil, nil, fmt.Errorf("parsing model %q for list operation to find real model: missing model reference for field 'value'", *fragmentName)
+							}
+							// We don't have a referenced model, so this is just a list of the parent?
+							return fragmentName, nil, nil
 						}
 						actualModelName = *v.ModelReference
 						break
 					}
 				}
 				if actualModelName == "" {
-					return nil, fmt.Errorf("parsing model %q for list operation to find real model: model did not contain a field 'value'", *fragmentName)
+					return nil, nil, fmt.Errorf("parsing model %q for list operation to find real model: model did not contain a field 'value'", *fragmentName)
 				}
 				fragmentName = &actualModelName
 			}
 
-			return fragmentName, nil
+			return fragmentName, nil, nil
 		}
 	}
 
-	return nil, nil
+	return nil, nil, nil
 }
 
 func expectedStatusCodesForOperation(operationDetails *spec.Operation) []int {

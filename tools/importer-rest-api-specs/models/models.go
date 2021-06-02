@@ -56,6 +56,7 @@ type OperationDetails struct {
 	Method              string
 	RequestObjectName   *string
 	ResponseObjectName  *string
+	ResponseObjectType  *string
 	ResourceIdName      *string
 	Uri                 string
 

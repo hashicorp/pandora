@@ -14,8 +14,8 @@ const (
 	permissions      = os.FileMode(0755)
 )
 
-// Use: `PANDORA_GEN_FOR_REALSIES=true go run main.go`
-// or, for redirecting to a file: `PANDORA_GEN_FOR_REALSIES=true go run main.go > ~/tmp/pandora_gen.log 2>&1`
+// Use: `PANDORA_GENERATE_EVERYTHING=true go run main.go`
+// or, for redirecting to a file: `PANDORA_GENERATE_EVERYTHING=true go run main.go > ~/tmp/pandora_gen.log 2>&1`
 
 func main() {
 	input := []RunInput{
