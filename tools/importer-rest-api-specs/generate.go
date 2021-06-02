@@ -171,7 +171,7 @@ func generateEverything() {
 					}
 					if loadAttempt >= MaxLoadFails {
 						loadFailures = append(loadFailures, fmt.Sprintf("failed loading %q (%s) after %d attempts, giving up: %s", fileName, service.Name, loadAttempt, erl))
-						break
+						continue
 					} else {
 						fmt.Println(fmt.Sprintf("succeeded loading %q (%s) on attempt %d", fileName, service.Name, loadAttempt))
 					}
