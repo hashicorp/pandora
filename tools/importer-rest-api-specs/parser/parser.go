@@ -10,6 +10,7 @@ import (
 )
 
 var tagsToIgnore = map[string]struct{}{
+	"tags":       {},
 	"operations": {},
 	"usage":      {},
 }

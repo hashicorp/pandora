@@ -1,6 +1,8 @@
 package models
 
-import "github.com/hashicorp/pandora/tools/importer-rest-api-specs/cleanup"
+import (
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/cleanup"
+)
 
 type AzureApiDefinition struct {
 	ServiceName string
@@ -65,7 +67,7 @@ type OperationDetails struct {
 }
 
 type OperationOption struct {
-	FieldType       string
+	FieldType       FieldDefinitionType
 	QueryStringName string
 	// TODO: support Header names here too in time
 	Required bool
