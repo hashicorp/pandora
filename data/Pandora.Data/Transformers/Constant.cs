@@ -20,26 +20,30 @@ namespace Pandora.Data.Transformers
             var constantDefinitions = new List<ConstantDefinition>();
             foreach (var property in input.GetProperties())
             {
-                if (property.PropertyType.IsEnum)
+                var propertyType = property.PropertyType;
+                if (propertyType.IsGenericType && (propertyType.GetGenericTypeDefinition() == typeof(List<>) || propertyType.GetGenericTypeDefinition() == typeof(Nullable<>)))
                 {
-                    var definition = FromEnum(property.PropertyType);
+                    propertyType = propertyType.GetGenericArguments()[0];
+                }
+
+                if (propertyType.FullName == input.FullName)
+                {
+                    continue;
+                }
+
+                if (propertyType.IsEnum)
+                {
+                    var definition = FromEnum(propertyType);
                     constantDefinitions.Add(definition);
                     continue;
                 }
                 
-                // TODO: confirm nullable types
-                // if (propertyType.IsGenericType && propertyType.GetGenericTypeDefinition() == typeof(Nullable<>))
-                // {
-                //     // nullable type, check if the nested type is simple.
-                //     return IsSimple((type.GetGenericArguments()[0]).GetTypeInfo());
-                // }
-                
-                if (Helpers.IsNativeType(property.PropertyType) || Helpers.IsPandoraCustomType(property.PropertyType) || !property.PropertyType.IsClass)
+                if (Helpers.IsNativeType(propertyType) || Helpers.IsPandoraCustomType(propertyType) || !propertyType.IsClass)
                 {
                     continue;
                 }
                 
-                var innerConstants = FromObject(property.PropertyType);
+                var innerConstants = FromObject(propertyType);
                 constantDefinitions.AddRange(innerConstants);
             }
 
