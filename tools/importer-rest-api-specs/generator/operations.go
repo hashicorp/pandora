@@ -8,7 +8,7 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
-func (g PandoraDefinitionGenerator) codeForOperation(namespace string, operationName string, operation models.OperationDetails) string {
+func (g PandoraDefinitionGenerator) codeForOperation(namespace string, operationName string, operation models.OperationDetails) (*string, error) {
 	code := make([]string, 0)
 
 	if g.usesNonDefaultStatusCodes(operation) {
@@ -90,7 +90,11 @@ func (g PandoraDefinitionGenerator) codeForOperation(namespace string, operation
 			if !optionDetails.Required {
 				optionsCode = append(optionsCode, "\t\t[Optional]")
 			}
-			optionsCode = append(optionsCode, fmt.Sprintf("\t\tpublic %s %s { get; set; }", optionDetails.FieldType, optionName))
+			fieldType, err := dotNetTypeNameForSimpleType(optionDetails.FieldType)
+			if err != nil {
+				return nil, fmt.Errorf("")
+			}
+			optionsCode = append(optionsCode, fmt.Sprintf("\t\tpublic %s %s { get; set; }", *fieldType, optionName))
 		}
 		optionsCode = append(optionsCode, "\t}")
 	}
@@ -106,7 +110,7 @@ func (g PandoraDefinitionGenerator) codeForOperation(namespace string, operation
 	if operation.FieldContainingPaginationDetails != nil {
 		operationType = "List"
 	}
-	return fmt.Sprintf(`using Pandora.Definitions.Attributes;
+	output := fmt.Sprintf(`using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Interfaces;
 using Pandora.Definitions.Operations;
 using System.Collections.Generic;
@@ -120,6 +124,7 @@ namespace %[1]s
 	}%[5]s
 }
 `, namespace, operationName, operationType, strings.Join(code, "\n\n"), strings.Join(optionsCode, "\n"))
+	return &output, nil
 }
 
 func (g PandoraDefinitionGenerator) usesNonDefaultStatusCodes(operation models.OperationDetails) bool {

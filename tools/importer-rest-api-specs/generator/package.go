@@ -81,9 +81,12 @@ func (g PandoraDefinitionGenerator) GenerateResources(resourceName, namespace st
 		if g.debugLog {
 			log.Printf("Generating Operation %q (in %s)", operationName, namespace)
 		}
-		code := g.codeForOperation(namespace, operationName, operation)
+		code, err := g.codeForOperation(namespace, operationName, operation)
+		if err != nil {
+			return fmt.Errorf("generating code for operation %q in %q: %+v", operationName, namespace, err)
+		}
 		fileName := path.Join(workingDirectory, fmt.Sprintf("Operation-%s.cs", operationName))
-		if err := writeToFile(fileName, code); err != nil {
+		if err := writeToFile(fileName, *code); err != nil {
 			return fmt.Errorf("writing code for operation %q: %+v", operationName, err)
 		}
 	}

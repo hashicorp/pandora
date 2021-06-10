@@ -67,7 +67,10 @@ func (d *SwaggerDefinition) parseOperation(operationName, httpMethod string, uri
 		return nil, fmt.Errorf("determining response operation for %q (method %q / uri %q): %+v", operationName, httpMethod, uri.normalizedUri(), err)
 	}
 	longRunning := operationIsLongRunning(operationDetails)
-	options := optionsForOperation(operationDetails)
+	options, err := optionsForOperation(operationDetails)
+	if err != nil {
+		return nil, fmt.Errorf("building options for operation %q: %+v", operationName, err)
+	}
 
 	operationData := models.OperationDetails{
 		ApiVersion:                       nil, // TODO: investigate 'security' and other packages which use this
@@ -76,11 +79,10 @@ func (d *SwaggerDefinition) parseOperation(operationName, httpMethod string, uri
 		FieldContainingPaginationDetails: paginationField,
 		LongRunning:                      longRunning,
 		Method:                           strings.ToUpper(httpMethod),
-		Options:                          options,
+		Options:                          *options,
 		RequestObjectName:                requestObjectName,
 		ResponseObjectName:               responseObjectName,
 		Uri:                              uri.normalizedUri(),
-		// TODO: add the Options to the generator
 	}
 
 	if operation != nil {
@@ -95,7 +97,7 @@ func (d *SwaggerDefinition) parseOperation(operationName, httpMethod string, uri
 	return &operationData, nil
 }
 
-func optionsForOperation(input *spec.Operation) map[string]models.OperationOption {
+func optionsForOperation(input *spec.Operation) (*map[string]models.OperationOption, error) {
 	output := make(map[string]models.OperationOption)
 
 	for _, param := range input.Parameters {
@@ -120,15 +122,36 @@ func optionsForOperation(input *spec.Operation) map[string]models.OperationOptio
 			//./commerce/resource-manager/Microsoft.Commerce/preview/2015-06-01-preview/commerce.json-            "type": "string",
 			//./commerce/resource-manager/Microsoft.Commerce/preview/2015-06-01-preview/commerce.json:            "format": "date-time",
 			//./commerce/resource-manager/Microsoft.Commerce/preview/2015-06-01-preview/commerce.json-            "description": "The end of the time range to retrieve data for."
+			fieldType, err := determineFieldTypeForOption(param.Type)
+			if err != nil {
+				return nil, fmt.Errorf("determining field type for operation: %+v", err)
+			}
+
 			output[name] = models.OperationOption{
-				FieldType:       param.Type, // TODO: this'll likely need to be parsed but it's fine for now
+				FieldType:       *fieldType,
 				QueryStringName: param.Name,
 				Required:        param.Required,
 			}
 		}
 	}
 
-	return output
+	return &output, nil
+}
+
+func determineFieldTypeForOption(input string) (*models.FieldDefinitionType, error) {
+	var out models.FieldDefinitionType
+	switch strings.ToLower(input) {
+	case "boolean":
+		out = models.Boolean
+		return &out, nil
+	case "integer":
+		out = models.Integer
+		return &out, nil
+	case "string":
+		out = models.String
+		return &out, nil
+	}
+	return nil, fmt.Errorf("unsupported field type %q", input)
 }
 
 func fieldContainingPaginationDetailsForOperation(input *spec.Operation) *string {

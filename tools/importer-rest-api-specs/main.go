@@ -217,6 +217,18 @@ func main() {
 		//	},
 		//},
 
+		// Resources
+		{
+			RootNamespace:    "Pandora.Definitions.ResourceManager",
+			ServiceName:      "Resources",
+			ApiVersion:       "2020-06-01",
+			OutputDirectory:  outputDirectory,
+			SwaggerDirectory: swaggerDirectory + "/specification/resources/resource-manager/Microsoft.Resources/stable/2020-06-01",
+			SwaggerFiles: []string{
+				"resources.json",
+			},
+		},
+
 		// Web
 		//{
 		//	RootNamespace:    "Pandora.Definitions.ResourceManager",

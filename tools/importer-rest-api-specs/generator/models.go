@@ -175,9 +175,9 @@ func dotNetTypeNameForComplexType(field models.FieldDefinition) (*string, error)
 
 	// Custom Types exist for these
 	case models.Location:
-		return nilableType("Location")
+		return nilableType("CustomTypes.Location")
 	case models.Tags:
-		return nilableType("Tags")
+		return nilableType("CustomTypes.Tags")
 	}
 
 	return nil, fmt.Errorf(fmt.Sprintf("TODO: unsupported type %q", string(field.Type)))
