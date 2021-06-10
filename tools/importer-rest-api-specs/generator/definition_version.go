@@ -68,7 +68,12 @@ func (g PandoraDefinitionGenerator) GenerateVersionDefinitionAndRecreateDirector
 
 func codeForApiVersionDefinition(namespace, apiVersion string, isPreview bool, resources map[string]models.AzureApiResource) string {
 	names := make([]string, 0)
-	for name := range resources {
+	for name, value := range resources {
+		// skip ones which are filtered out
+		if len(value.Operations) == 0 {
+			continue
+		}
+
 		names = append(names, name)
 	}
 
