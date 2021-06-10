@@ -9,8 +9,33 @@ namespace Pandora.Data.Transformers
 {
     public static class ModelTests
     {
-        // TODO: nested duplicate
-        // TODO: lists
+        [TestCase]
+        public static void MappingAModelContainingSelfReferences()
+        {
+            var actual = Model.Map(new ExampleWithSelfReferences());
+            Assert.NotNull(actual);
+            Assert.AreEqual(1, actual.Count);
+            Assert.AreEqual("ExampleWithSelfReferences", actual.First().Name);
+            Assert.AreEqual(4, actual.First().Properties.Count);
+            
+            Assert.NotNull(actual.First().Properties.First(f => f.Name == "SelfReference").Name);
+            Assert.AreEqual(PropertyType.Object, actual.First().Properties.First(f => f.Name == "SelfReference").PropertyType);
+            Assert.AreEqual("ExampleWithSelfReferences", actual.First().Properties.First(f => f.Name == "SelfReference").ModelReference);
+            
+            Assert.NotNull(actual.First().Properties.First(f => f.Name == "NilableSelfReference").Name);
+            Assert.AreEqual(PropertyType.Object, actual.First().Properties.First(f => f.Name == "NilableSelfReference").PropertyType);
+            Assert.True(actual.First().Properties.First(f => f.Name == "NilableSelfReference").Optional);
+            Assert.AreEqual("ExampleWithSelfReferences", actual.First().Properties.First(f => f.Name == "NilableSelfReference").ModelReference);
+
+            Assert.NotNull(actual.First().Properties.First(f => f.Name == "ListOfReferences").Name);
+            Assert.AreEqual(PropertyType.List, actual.First().Properties.First(f => f.Name == "ListOfReferences").PropertyType);
+            Assert.AreEqual("ExampleWithSelfReferences", actual.First().Properties.First(f => f.Name == "ListOfReferences").ModelReference);
+
+            Assert.NotNull(actual.First().Properties.First(f => f.Name == "NilableListOfReferences").Name);
+            Assert.AreEqual(PropertyType.List, actual.First().Properties.First(f => f.Name == "NilableListOfReferences").PropertyType);
+            Assert.True(actual.First().Properties.First(f => f.Name == "NilableListOfReferences").Optional);
+            Assert.AreEqual("ExampleWithSelfReferences", actual.First().Properties.First(f => f.Name == "NilableListOfReferences").ModelReference);
+        }
 
         [TestCase]
         public static void MappingAModelContainingLists()
@@ -241,5 +266,20 @@ namespace Pandora.Data.Transformers
         private class Dog : Animal
         {
         }
+    }
+
+    public class ExampleWithSelfReferences
+    {
+        [JsonPropertyName("listOfReferences")]
+        public List<ExampleWithSelfReferences> ListOfReferences { get; set; }
+        
+        [JsonPropertyName("nilableListOfReferences")]
+        public List<ExampleWithSelfReferences>? NilableListOfReferences { get; set; }
+        
+        [JsonPropertyName("nilableSelfReference")]
+        public ExampleWithSelfReferences? NilableSelfReference { get; set; }
+        
+        [JsonPropertyName("selfReference")]
+        public ExampleWithSelfReferences SelfReference { get; set; }
     }
 }
