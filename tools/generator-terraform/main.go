@@ -128,7 +128,15 @@ resource "azurerm_resource_group" "test" {
 				},
 			},
 			Objects: &generator.Objects{
-				Constants: map[string]generator.ConstantDefinition{},
+				Constants: map[string]generator.ConstantDefinition{
+					"Names": {
+						FieldType: generator.StringConstant,
+						Values: map[string]string{
+							"Bob":   "bob",
+							"Chloe": "chloe",
+						},
+					},
+				},
 				Models: map[string]generator.ModelDefinition{
 					"Nested": {
 						Fields: map[string]generator.FieldDefinition{
@@ -137,6 +145,13 @@ resource "azurerm_resource_group" "test" {
 								Required: true,
 								ForceNew: true,
 								HclLabel: "name",
+							},
+							"ConstantValue": {
+								Type:              generator.FieldTypeDefinitionConstant,
+								Required:          true,
+								ForceNew:          true,
+								HclLabel:          "constant_value",
+								ConstantReference: strPtr("Names"),
 							},
 						},
 					},

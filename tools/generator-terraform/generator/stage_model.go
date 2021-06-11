@@ -97,6 +97,15 @@ func goTypeInformationForField(input FieldDefinition) (*string, error) {
 			typeName = "bool"
 			break
 		}
+	case FieldTypeDefinitionConstant:
+		{
+			if input.ConstantReference == nil {
+				return nil, fmt.Errorf("a ConstantReference must be specified for a Constant")
+			}
+
+			typeName = *input.ConstantReference
+			break
+		}
 
 	case FieldTypeDefinitionFloat:
 		{

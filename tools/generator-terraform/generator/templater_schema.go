@@ -29,7 +29,7 @@ func schemaForFields(input map[string]FieldDefinition, objects *Objects, isDataS
 		}
 
 		lines := make([]string, 0)
-		schemaType, err := terraformSchemaName(val.Type)
+		schemaType, err := terraformSchemaName(val, objects)
 		if err != nil {
 			return nil, fmt.Errorf("determining Terraform Schema Name for %q: %+v", val.HclLabel, err)
 		}
@@ -206,13 +206,37 @@ func schemaForField(input FieldDefinition, body string) string {
 	return fmt.Sprintf("%q: %s", input.HclLabel, body)
 }
 
-func terraformSchemaName(input FieldTypeDefinition) (*string, error) {
+func terraformSchemaName(input FieldDefinition, objects *Objects) (*string, error) {
 	var out = func(in string) (*string, error) {
 		return &in, nil
 	}
-	switch input {
+	switch input.Type {
 	case FieldTypeDefinitionBoolean:
 		return out("TypeBool")
+	case FieldTypeDefinitionConstant:
+		{
+			if input.ConstantReference == nil {
+				return nil, fmt.Errorf("a Constant must have a ConstantReference")
+			}
+			if objects == nil {
+				return nil, fmt.Errorf("details for Objects must be included when a Constant is used")
+			}
+			constant, ok := objects.Constants[*input.ConstantReference]
+			if !ok {
+				return nil, fmt.Errorf("a Constant was not found by the ConstantReference %q", *input.ConstantReference)
+			}
+			if constant.ModelAsString || constant.FieldType == StringConstant {
+				return out("TypeString")
+			}
+			switch constant.FieldType {
+			case IntegerConstant:
+				return out("TypeInteger")
+			case FloatConstant:
+				return out("TypeFloat")
+			default:
+				return nil, fmt.Errorf("unsupported Constant FieldType %q", constant.FieldType)
+			}
+		}
 	case FieldTypeDefinitionFloat:
 		return out("TypeFloat")
 	case FieldTypeDefinitionInteger:
@@ -226,7 +250,7 @@ func terraformSchemaName(input FieldTypeDefinition) (*string, error) {
 	case FieldTypeDefinitionString:
 		return out("TypeString")
 	}
-	return nil, fmt.Errorf("unsupported terraform schema name %q", input)
+	return nil, fmt.Errorf("unsupported terraform schema name %q", input.Type)
 }
 
 func sortSchemaFields(input map[string]FieldDefinition) []FieldDefinition {
