@@ -29,8 +29,12 @@ func (g Generator) Generate() error {
 	if g.debug {
 		log.Printf("[DEBUG] Ensuring working directory exists..")
 	}
-	ensureDirectoryExists(g.data.PackageWorkingDirectory)
-	removeGeneratedFiles(g.data.PackageWorkingDirectory, g.data.fileNamePrefix)
+	if err := ensureDirectoryExists(g.data.PackageWorkingDirectory); err != nil {
+		return fmt.Errorf("ensuring directory exists at %q: %+v", g.data.PackageWorkingDirectory, err)
+	}
+	if err := removeGeneratedFiles(g.data.PackageWorkingDirectory, g.data.fileNamePrefix); err != nil {
+		return fmt.Errorf("removing existing generated files within %q: %+v", g.data.PackageWorkingDirectory, err)
+	}
 
 	if g.debug {
 		log.Printf("[DEBUG] Running Generation..")
