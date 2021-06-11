@@ -118,6 +118,28 @@ resource "azurerm_resource_group" "test" {
 						Computed: true,
 						HclLabel: "tags",
 					},
+					"NestedObject": {
+						Type:           generator.FieldTypeDefinitionList,
+						HclLabel:       "nested_object",
+						MinItems:       intPtr(1),
+						MaxItems:       intPtr(1),
+						ModelReference: strPtr("Nested"),
+					},
+				},
+			},
+			Objects: &generator.Objects{
+				Constants: map[string]generator.ConstantDefinition{},
+				Models: map[string]generator.ModelDefinition{
+					"Nested": {
+						Fields: map[string]generator.FieldDefinition{
+							"Name": {
+								Type:     generator.FieldTypeDefinitionString,
+								Required: true,
+								ForceNew: true,
+								HclLabel: "name",
+							},
+						},
+					},
 				},
 			},
 

@@ -75,8 +75,11 @@ func (m modelStage) codeForModel(name string, fields map[string]FieldDefinition)
 	codeForFields := make([]string, 0)
 	for _, fieldName := range fieldNames {
 		field := fields[fieldName]
-		fieldType := "string" // TODO: make this dynamic
-		codeForFields = append(codeForFields, fmt.Sprintf("\t%[1]s %[2]s `tfschema:%[3]q`", fieldName, fieldType, field.HclLabel))
+		fieldType, err := goTypeInformationForField(field)
+		if err != nil {
+			return nil, fmt.Errorf("determining Go type information for field %q: %+v", fieldName, err)
+		}
+		codeForFields = append(codeForFields, fmt.Sprintf("\t%[1]s %[2]s `tfschema:%[3]q`", fieldName, *fieldType, field.HclLabel))
 	}
 
 	contents := fmt.Sprintf(`type %[1]s struct {
@@ -84,4 +87,70 @@ func (m modelStage) codeForModel(name string, fields map[string]FieldDefinition)
 }
 `, name, strings.Join(codeForFields, "\n"))
 	return &contents, nil
+}
+
+func goTypeInformationForField(input FieldDefinition) (*string, error) {
+	typeName := ""
+	switch input.Type {
+	case FieldTypeDefinitionBoolean:
+		{
+			typeName = "bool"
+			break
+		}
+
+	case FieldTypeDefinitionFloat:
+		{
+			typeName = "float64"
+			break
+		}
+
+	case FieldTypeDefinitionInteger:
+		{
+			typeName = "int64"
+			break
+		}
+
+	case FieldTypeDefinitionJson, FieldTypeDefinitionLocation, FieldTypeDefinitionResourceGroup, FieldTypeDefinitionString:
+		{
+			typeName = "string"
+			break
+		}
+
+	case FieldTypeDefinitionMap:
+		{
+			if input.ModelReference == nil {
+				return nil, fmt.Errorf("a Model Reference is required for a Map")
+			}
+
+			typeName = fmt.Sprintf("map[string]%s", *input.ModelReference)
+			break
+		}
+
+	case FieldTypeDefinitionList, FieldTypeDefinitionSet:
+		{
+			var innerType = input.ModelReference
+			if innerType == nil {
+				innerType = input.ConstantReference
+			}
+			if innerType == nil {
+				return nil, fmt.Errorf("either a Constant or Model Reference is needed for a List/Set")
+			}
+			typeName = fmt.Sprintf("[]%s", *innerType)
+			break
+		}
+
+	case FieldTypeDefinitionTags:
+		{
+			typeName = "map[string]string"
+			break
+		}
+
+	default:
+		return nil, fmt.Errorf("no Go Type information defined for type %q", input.Type)
+	}
+
+	if input.Optional {
+		typeName = fmt.Sprintf("*%s", typeName)
+	}
+	return &typeName, nil
 }

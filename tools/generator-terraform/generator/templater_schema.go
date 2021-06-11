@@ -29,8 +29,11 @@ func schemaForFields(input map[string]FieldDefinition, objects *Objects, isDataS
 		}
 
 		lines := make([]string, 0)
-		schemaType := terraformSchemaName(val.Type)
-		lines = append(lines, fmt.Sprintf("Type: pluginsdk.%s", schemaType))
+		schemaType, err := terraformSchemaName(val.Type)
+		if err != nil {
+			return nil, fmt.Errorf("determining Terraform Schema Name for %q: %+v", val.HclLabel, err)
+		}
+		lines = append(lines, fmt.Sprintf("Type: pluginsdk.%s", *schemaType))
 
 		if val.Required {
 			lines = append(lines, "Required: true")
@@ -76,7 +79,6 @@ func schemaForFields(input map[string]FieldDefinition, objects *Objects, isDataS
 				vals = append(vals, fmt.Sprintf("string(gosdk.%[1]s)", k))
 			}
 
-			// TODO: we can do validation for it
 			lines = append(lines, fmt.Sprintf(`
 				ValidateFunc: validation.StringInSlice([]string{
 %[1]s
@@ -204,9 +206,27 @@ func schemaForField(input FieldDefinition, body string) string {
 	return fmt.Sprintf("%q: %s", input.HclLabel, body)
 }
 
-func terraformSchemaName(input FieldTypeDefinition) string {
-	// TODO: implement me
-	return "string"
+func terraformSchemaName(input FieldTypeDefinition) (*string, error) {
+	var out = func(in string) (*string, error) {
+		return &in, nil
+	}
+	switch input {
+	case FieldTypeDefinitionBoolean:
+		return out("TypeBool")
+	case FieldTypeDefinitionFloat:
+		return out("TypeFloat")
+	case FieldTypeDefinitionInteger:
+		return out("TypeInt")
+	case FieldTypeDefinitionList:
+		return out("TypeList")
+	case FieldTypeDefinitionMap:
+		return out("TypeMap")
+	case FieldTypeDefinitionSet:
+		return out("TypeSet")
+	case FieldTypeDefinitionString:
+		return out("TypeString")
+	}
+	return nil, fmt.Errorf("unsupported terraform schema name %q", input)
 }
 
 func sortSchemaFields(input map[string]FieldDefinition) []FieldDefinition {
