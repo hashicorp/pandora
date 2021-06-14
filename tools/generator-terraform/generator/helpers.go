@@ -8,8 +8,8 @@ import (
 	"path/filepath"
 )
 
-func ensureDirectoryExists(directory string) {
-	os.MkdirAll(directory, 0755)
+func ensureDirectoryExists(directory string) error {
+	return os.MkdirAll(directory, 0755)
 }
 
 func fileExistsAtPath(filePath string) bool {
