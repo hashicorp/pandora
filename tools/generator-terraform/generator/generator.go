@@ -43,19 +43,18 @@ func (g Generator) Generate() error {
 	stages := map[string]stage{
 		"dataSourceDefinition": dataSourceDefinitionStage{},
 		"dataSourceRead":       dataSourceReadStage{},
+		"dataSourceSchema":     dataSourceSchemaStage{},
 		"dataSourceTests":      dataSourceTestsStage{},
+
+		"model": modelStage{},
 
 		"resourceDefinition": resourceDefinitionStage{},
 		"resourceCreate":     resourceCreateStage{},
 		"resourceDelete":     resourceDeleteStage{},
 		"resourceRead":       resourceReadStage{},
 		"resourceUpdate":     resourceUpdateStage{},
+		"resourceSchema":     resourceSchemaStage{},
 		"resourceTests":      resourceTestsStage{},
-
-		// TODO: finish implementing these
-		"dataSourceSchema": dataSourceSchemaStage{},
-		"resourceSchema":   resourceSchemaStage{},
-		"model":            modelStage{},
 
 		// TODO: implement this
 		// "validationFuncs": validationFuncsStage{},

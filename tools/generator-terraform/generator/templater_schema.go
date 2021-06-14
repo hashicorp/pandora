@@ -29,8 +29,11 @@ func schemaForFields(input map[string]FieldDefinition, objects *Objects, isDataS
 		}
 
 		lines := make([]string, 0)
-		schemaType := terraformSchemaName(val.Type)
-		lines = append(lines, fmt.Sprintf("Type: pluginsdk.%s", schemaType))
+		schemaType, err := terraformSchemaName(val, objects)
+		if err != nil {
+			return nil, fmt.Errorf("determining Terraform Schema Name for %q: %+v", val.HclLabel, err)
+		}
+		lines = append(lines, fmt.Sprintf("Type: pluginsdk.%s", *schemaType))
 
 		if val.Required {
 			lines = append(lines, "Required: true")
@@ -76,7 +79,6 @@ func schemaForFields(input map[string]FieldDefinition, objects *Objects, isDataS
 				vals = append(vals, fmt.Sprintf("string(gosdk.%[1]s)", k))
 			}
 
-			// TODO: we can do validation for it
 			lines = append(lines, fmt.Sprintf(`
 				ValidateFunc: validation.StringInSlice([]string{
 %[1]s
@@ -204,9 +206,51 @@ func schemaForField(input FieldDefinition, body string) string {
 	return fmt.Sprintf("%q: %s", input.HclLabel, body)
 }
 
-func terraformSchemaName(input FieldTypeDefinition) string {
-	// TODO: implement me
-	return "string"
+func terraformSchemaName(input FieldDefinition, objects *Objects) (*string, error) {
+	var out = func(in string) (*string, error) {
+		return &in, nil
+	}
+	switch input.Type {
+	case FieldTypeDefinitionBoolean:
+		return out("TypeBool")
+	case FieldTypeDefinitionConstant:
+		{
+			if input.ConstantReference == nil {
+				return nil, fmt.Errorf("a Constant must have a ConstantReference")
+			}
+			if objects == nil {
+				return nil, fmt.Errorf("details for Objects must be included when a Constant is used")
+			}
+			constant, ok := objects.Constants[*input.ConstantReference]
+			if !ok {
+				return nil, fmt.Errorf("a Constant was not found by the ConstantReference %q", *input.ConstantReference)
+			}
+			if constant.ModelAsString || constant.FieldType == StringConstant {
+				return out("TypeString")
+			}
+			switch constant.FieldType {
+			case IntegerConstant:
+				return out("TypeInteger")
+			case FloatConstant:
+				return out("TypeFloat")
+			default:
+				return nil, fmt.Errorf("unsupported Constant FieldType %q", constant.FieldType)
+			}
+		}
+	case FieldTypeDefinitionFloat:
+		return out("TypeFloat")
+	case FieldTypeDefinitionInteger:
+		return out("TypeInt")
+	case FieldTypeDefinitionList:
+		return out("TypeList")
+	case FieldTypeDefinitionMap:
+		return out("TypeMap")
+	case FieldTypeDefinitionSet:
+		return out("TypeSet")
+	case FieldTypeDefinitionString:
+		return out("TypeString")
+	}
+	return nil, fmt.Errorf("unsupported terraform schema name %q", input.Type)
 }
 
 func sortSchemaFields(input map[string]FieldDefinition) []FieldDefinition {

@@ -104,8 +104,9 @@ type Objects struct {
 }
 
 type ConstantDefinition struct {
-	Values    map[string]string
-	FieldType ConstantFieldType
+	FieldType     ConstantFieldType
+	ModelAsString bool
+	Values        map[string]string
 }
 
 type ConstantFieldType string
@@ -144,6 +145,7 @@ type FieldTypeDefinition string
 
 const (
 	FieldTypeDefinitionBoolean       FieldTypeDefinition = "Boolean"
+	FieldTypeDefinitionConstant      FieldTypeDefinition = "Constant"
 	FieldTypeDefinitionFloat         FieldTypeDefinition = "Float"
 	FieldTypeDefinitionInteger       FieldTypeDefinition = "Integer"
 	FieldTypeDefinitionJson          FieldTypeDefinition = "Json"
