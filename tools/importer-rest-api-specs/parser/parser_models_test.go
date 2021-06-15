@@ -402,3 +402,112 @@ func TestParseModelMultipleTopLevelWithList(t *testing.T) {
 		t.Fatalf("expected animalModel.Fields['Age'].JsonName to be 'age' but got %q", animalAge.JsonName)
 	}
 }
+
+func TestParseModelMultipleTopLevelInheritance(t *testing.T) {
+	parsed, err := Load("testdata/", "model_multiple_inheritance.json", true)
+	if err != nil {
+		t.Fatalf("loading: %+v", err)
+	}
+
+	result, err := parsed.Parse("Example", "2020-01-01")
+	if err != nil {
+		t.Fatalf("parsing: %+v", err)
+	}
+	if result == nil {
+		t.Fatal("result was nil")
+	}
+	if len(result.Resources) != 1 {
+		t.Fatalf("expected 1 resource but got %d", len(result.Resources))
+	}
+
+	resource, ok := result.Resources["Discriminator"]
+	if !ok {
+		t.Fatal("the Resource 'Discriminator' was not found")
+	}
+
+	// sanity checking
+	if len(resource.Constants) != 0 {
+		t.Fatalf("expected 0 constants but got %d", len(resource.Constants))
+	}
+	if len(resource.Models) != 1 {
+		t.Fatalf("expected 1 model but got %d", len(resource.Models))
+	}
+	if len(resource.Operations) != 1 {
+		t.Fatalf("expected 1 operation but got %d", len(resource.Operations))
+	}
+	if len(resource.ResourceIds) != 1 {
+		t.Fatalf("expected 1 Resource ID but got %d", len(resource.ResourceIds))
+	}
+
+	example, ok := resource.Models["Example"]
+	if !ok {
+		t.Fatalf("the Model `Example` was not found")
+	}
+	if len(example.Fields) != 5 {
+		t.Fatalf("expected example.Fields to have 5 fields but got %d", len(example.Fields))
+	}
+
+	name, ok := example.Fields["Name"]
+	if !ok {
+		t.Fatalf("example.Fields['Name'] was missing")
+	}
+	if name.Type != models.String {
+		t.Fatalf("expected example.Fields['Name'] to be a string but got %q", string(name.Type))
+	}
+	if name.JsonName != "name" {
+		t.Fatalf("expected example.Fields['Name'].JsonName to be 'name' but got %q", name.JsonName)
+	}
+	if !name.Required {
+		t.Fatalf("expected example.Fields['Name'].Required to be 'true'")
+	}
+
+	age, ok := example.Fields["Age"]
+	if !ok {
+		t.Fatalf("example.Fields['Age'] was missing")
+	}
+	if age.Type != models.Integer {
+		t.Fatalf("expected example.Fields['Age'] to be an integer but got %q", string(age.Type))
+	}
+	if age.JsonName != "age" {
+		t.Fatalf("expected example.Fields['Age'].JsonName to be 'age' but got %q", age.JsonName)
+	}
+
+	enabled, ok := example.Fields["Enabled"]
+	if !ok {
+		t.Fatalf("example.Fields['Enabled'] was missing")
+	}
+	if enabled.Type != models.Boolean {
+		t.Fatalf("expected example.Fields['Enabled'] to be a boolean but got %q", string(enabled.Type))
+	}
+	if enabled.JsonName != "enabled" {
+		t.Fatalf("expected example.Fields['Enabled'].JsonName to be 'enabled' but got %q", enabled.JsonName)
+	}
+	if !enabled.Required {
+		t.Fatalf("expected example.Fields['Enabled'].Required to be 'true'")
+	}
+
+	height, ok := example.Fields["Height"]
+	if !ok {
+		t.Fatalf("example.Fields['Height'] was missing")
+	}
+	if height.Type != models.Float {
+		t.Fatalf("expected example.Fields['Height'] to be a float but got %q", string(height.Type))
+	}
+	if height.JsonName != "height" {
+		t.Fatalf("expected example.Fields['Height'].JsonName to be 'height' but got %q", height.JsonName)
+	}
+
+	tags, ok := example.Fields["Tags"]
+	if !ok {
+		t.Fatalf("example.Fields['Tags'] was missing")
+	}
+	if tags.Type != models.Tags {
+		t.Fatalf("expected example.Fields['Tags'] to be Tags but got %q", string(tags.Type))
+	}
+	if tags.JsonName != "tags" {
+		t.Fatalf("expected example.Fields['Tags'].JsonName to be 'tags' but got %q", tags.JsonName)
+	}
+	if !tags.Required {
+		t.Fatalf("expected example.Fields['Tags'].Required to be 'true'")
+	}
+}
