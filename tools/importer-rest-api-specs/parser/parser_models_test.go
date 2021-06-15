@@ -471,6 +471,9 @@ func TestParseModelMultipleTopLevelInheritance(t *testing.T) {
 	if age.JsonName != "age" {
 		t.Fatalf("expected example.Fields['Age'].JsonName to be 'age' but got %q", age.JsonName)
 	}
+	if age.Required {
+		t.Fatalf("expected example.Fields['Age'].Required to be 'false'")
+	}
 
 	enabled, ok := example.Fields["Enabled"]
 	if !ok {
@@ -495,6 +498,9 @@ func TestParseModelMultipleTopLevelInheritance(t *testing.T) {
 	}
 	if height.JsonName != "height" {
 		t.Fatalf("expected example.Fields['Height'].JsonName to be 'height' but got %q", height.JsonName)
+	}
+	if height.Required {
+		t.Fatalf("expected example.Fields['Height'].Required to be 'false'")
 	}
 
 	tags, ok := example.Fields["Tags"]
