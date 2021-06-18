@@ -168,7 +168,7 @@ func (d *SwaggerDefinition) parseModel(name string, input spec.Schema) (*result,
 		return nil, fmt.Errorf("determining constants for model: %+v", err)
 	}
 
-	constants, fields, err := d.fieldsForModel(name, input, input.Required, *constants)
+	constants, fields, err := d.fieldsForModel(name, input, nil, *constants)
 	if err != nil {
 		return nil, fmt.Errorf("determining fields for model: %+v", err)
 	}
@@ -254,6 +254,19 @@ func (d *SwaggerDefinition) fieldsForModel(modelName string, input spec.Schema, 
 		allConstants[k] = v
 	}
 
+	// Merge the required keys of the current Schema with the passed in requiredKeys (e.g. from the inheriting Schema).
+	requiredKeysMap := map[string]struct{}{}
+	for _, v := range requiredKeys {
+		requiredKeysMap[v] = struct{}{}
+	}
+	for _, v := range input.Required {
+		requiredKeysMap[v] = struct{}{}
+	}
+	requiredKeys = make([]string, 0, len(requiredKeysMap))
+	for k := range requiredKeysMap {
+		requiredKeys = append(requiredKeys, k)
+	}
+
 	fields := make(map[string]models.FieldDefinition)
 
 	// This model might just be an Enum list
@@ -277,7 +290,7 @@ func (d *SwaggerDefinition) fieldsForModel(modelName string, input spec.Schema, 
 				return nil, nil, fmt.Errorf("retrieving model for inherited type %q: %+v", *fragmentName, err)
 			}
 
-			inheritedConstants, inheritedFields, err := d.fieldsForModel(*fragmentName, *model, input.Required, constants)
+			inheritedConstants, inheritedFields, err := d.fieldsForModel(*fragmentName, *model, requiredKeys, constants)
 			if err != nil {
 				return nil, nil, fmt.Errorf("retrieving fields for inherited type %q: %+v", *fragmentName, err)
 			}
@@ -385,7 +398,7 @@ func (d *SwaggerDefinition) findModelsForModel(name string, input spec.Schema, c
 	}
 
 	// add this model
-	consts, fields, err := d.fieldsForModel(name, input, input.Required, constants)
+	consts, fields, err := d.fieldsForModel(name, input, nil, constants)
 	if err != nil {
 		return nil, nil, fmt.Errorf("finding fields for %q: %+v", name, err)
 	}
@@ -696,7 +709,7 @@ func keyValueForFloat(value float64) string {
 	return out
 }
 
-func floatConstantFromString(input string) string{
+func floatConstantFromString(input string) string {
 	output := ""
 
 	vals := map[int32]string{
