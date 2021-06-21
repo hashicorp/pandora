@@ -19,6 +19,6 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2021_01_01_preview.Names
 		public ManagedServiceIdentityType? Type { get; set; }
 
 		[JsonPropertyName("userAssignedIdentities")]
-		public object? UserAssignedIdentities { get; set; }
+		public UserAssignedIdentityProperties? UserAssignedIdentities { get; set; }
 	}
 }
