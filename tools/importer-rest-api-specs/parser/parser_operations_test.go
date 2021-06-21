@@ -1,6 +1,8 @@
 package parser
 
-import "testing"
+import (
+	"testing"
+)
 
 func TestParseOperationsEmpty(t *testing.T) {
 	parsed, err := Load("testdata/", "operations_empty.json", true)
