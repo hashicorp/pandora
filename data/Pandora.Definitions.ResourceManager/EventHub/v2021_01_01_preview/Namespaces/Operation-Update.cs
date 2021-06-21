@@ -12,9 +12,9 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2021_01_01_preview.Names
 		{
 			return new List<HttpStatusCode>
 			{
-				HttpStatusCode.OK,
 				HttpStatusCode.Created,
 				HttpStatusCode.Accepted,
+				HttpStatusCode.OK,
 			};
 		}
 

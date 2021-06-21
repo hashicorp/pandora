@@ -17,5 +17,10 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2021_01_01_preview.Disas
 		{
 			return new DisasterRecoveryConfigId();
 		}
+
+		public override object? ResponseObject()
+		{
+			return new ArmDisasterRecovery();
+		}
 	}
 }
