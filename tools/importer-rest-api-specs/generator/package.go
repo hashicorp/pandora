@@ -108,7 +108,7 @@ func (g PandoraDefinitionGenerator) GenerateResources(resourceName, namespace st
 	if g.debugLog {
 		log.Printf("[DEBUG] Generating Package Definition..")
 	}
-	packageDefinitionCode := g.codeForPackageDefinition(namespace, resource.Operations)
+	packageDefinitionCode := g.codeForPackageDefinition(namespace, resourceName, resource.Operations)
 	packageDefinitionFileName := path.Join(workingDirectory, "Definition.cs")
 	if err := writeToFile(packageDefinitionFileName, packageDefinitionCode); err != nil {
 		return fmt.Errorf("writing package definition for %q: %+v", packageDefinitionFileName, err)
