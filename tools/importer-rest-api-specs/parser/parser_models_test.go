@@ -1,6 +1,7 @@
 package parser
 
 import (
+	"reflect"
 	"testing"
 
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
@@ -344,8 +345,8 @@ func TestParseModelMultipleTopLevelWithList(t *testing.T) {
 	if !ok {
 		t.Fatalf("the Model `Person` was not found")
 	}
-	if len(person.Fields) != 2 {
-		t.Fatalf("expected person.Fields to have 2 fields but got %d", len(person.Fields))
+	if len(person.Fields) != 3 {
+		t.Fatalf("expected person.Fields to have 3 fields but got %d", len(person.Fields))
 	}
 
 	personName, ok := person.Fields["Name"]
@@ -358,7 +359,11 @@ func TestParseModelMultipleTopLevelWithList(t *testing.T) {
 	if personName.JsonName != "name" {
 		t.Fatalf("expected person.Fields['Name'].JsonName to be 'name' but got %q", personName.JsonName)
 	}
+
 	animals, ok := person.Fields["Animals"]
+	if !ok {
+		t.Fatalf("person.Fields['Animals'] was missing")
+	}
 	if animals.Type != models.List {
 		t.Fatalf("expected person.Fields['Animals'] to be a List but got %q", string(animals.Type))
 	}
@@ -370,6 +375,29 @@ func TestParseModelMultipleTopLevelWithList(t *testing.T) {
 	}
 	if animals.JsonName != "animals" {
 		t.Fatalf("expected person.Fields['Animals'].JsonName to be 'animals' but got %q", animals.JsonName)
+	}
+	if animals.ListElementMin != nil {
+		t.Fatalf("expected person.Fields['Animals'].ListElementMin to be nil but got %v", *animals.ListElementMin)
+	}
+	if animals.ListElementMax != nil {
+		t.Fatalf("expected person.Fields['Animals'].ListElementMax to be nil but got %v", *animals.ListElementMax)
+	}
+	if animals.ListElementUnique == nil || *animals.ListElementUnique {
+		t.Fatalf("expected person.Fields['Animals'].ListElementUnique to be false but got %v", fieldValueOrNil(animals, "ListElementUnique"))
+	}
+
+	plants, ok := person.Fields["Plants"]
+	if !ok {
+		t.Fatalf("person.Fields['Plants'] was missing")
+	}
+	if plants.ListElementMin == nil || *plants.ListElementMin != 1 {
+		t.Fatalf("expected person.Fields['Plants'].ListElementMin to be 1 but got %v", fieldValueOrNil(plants, "ListElementMin"))
+	}
+	if plants.ListElementMax == nil || *plants.ListElementMax != 10 {
+		t.Fatalf("expected person.Fields['Plants'].ListElementMax to be 10 but got %v", fieldValueOrNil(plants, "ListElementMax"))
+	}
+	if plants.ListElementUnique == nil || !*plants.ListElementUnique {
+		t.Fatalf("expected person.Fields['Plants'].ListElementUnique to be true but got %v", fieldValueOrNil(plants, "ListElementUnique"))
 	}
 
 	animalModel, ok := resource.Models["Animal"]
@@ -389,6 +417,15 @@ func TestParseModelMultipleTopLevelWithList(t *testing.T) {
 	}
 	if animalName.JsonName != "name" {
 		t.Fatalf("expected animalModel.Fields['Name'].JsonName to be 'name' but got %q", animalName.JsonName)
+	}
+	if animalName.ListElementMin != nil {
+		t.Fatalf("expected person.Fields['Name'].ListElementMin to be nil but got %v", *animalName.ListElementMin)
+	}
+	if animalName.ListElementMax != nil {
+		t.Fatalf("expected person.Fields['Name'].ListElementMax to be nil but got %v", *animalName.ListElementMax)
+	}
+	if animalName.ListElementUnique != nil {
+		t.Fatalf("expected person.Fields['Name'].ListElementUnique to be nil but got %v", *animalName.ListElementUnique)
 	}
 
 	animalAge, ok := animalModel.Fields["Age"]
@@ -516,4 +553,13 @@ func TestParseModelMultipleTopLevelInheritance(t *testing.T) {
 	if !tags.Required {
 		t.Fatalf("expected example.Fields['Tags'].Required to be 'true'")
 	}
+}
+
+func fieldValueOrNil(obj interface{}, fieldName string) interface{} {
+	v := reflect.ValueOf(obj)
+	fv := v.FieldByName(fieldName)
+	if fv.IsNil() {
+		return nil
+	}
+	return fv.Elem().Interface()
 }
