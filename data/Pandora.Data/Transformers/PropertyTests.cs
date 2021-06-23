@@ -449,7 +449,7 @@ namespace Pandora.Data.Transformers
             [Optional]
             [MinItems(1)]
             [MaxItems(10)]
-            public List ListWithMinMaxItems {get; set; }
+            public List<int> ListWithMinMaxItems {get; set; }
         }
 
         public enum SomeEnum
