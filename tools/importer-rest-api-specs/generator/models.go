@@ -108,15 +108,11 @@ func (g PandoraDefinitionGenerator) codeForField(indentation, fieldName string, 
 		fieldType = &typeName
 	}
 
-	if field.ListElementMin != nil || field.ListElementMax != nil {
-		ranges := []string{}
-		if field.ListElementMin != nil {
-			ranges = append(ranges, fmt.Sprintf("StartRange = %d", *field.ListElementMin))
-		}
-		if field.ListElementMax != nil {
-			ranges = append(ranges, fmt.Sprintf("EndRange = %d", *field.ListElementMax))
-		}
-		lines = append(lines, fmt.Sprintf("%[1]s[FieldValidation(Type = FieldValidationType.Range, %[2]s)]", indentation, strings.Join(ranges, ", ")))
+	if field.ListElementMin != nil {
+		lines = append(lines, fmt.Sprintf("%[1]s[MinItems(%[2]d)]", indentation, *field.ListElementMin))
+	}
+	if field.ListElementMax != nil {
+		lines = append(lines, fmt.Sprintf("%[1]s[MaxItems(%[2]d)]", indentation, *field.ListElementMax))
 	}
 
 	lines = append(lines, fmt.Sprintf("%[1]spublic %[2]s %[3]s { get; set; }", indentation, *fieldType, strings.Title(fieldName)))

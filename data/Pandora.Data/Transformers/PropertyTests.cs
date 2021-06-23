@@ -6,6 +6,7 @@ using System.Text.Json.Serialization;
 using NUnit.Framework;
 using Pandora.Data.Models;
 using Pandora.Definitions.Attributes;
+using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
 namespace Pandora.Data.Transformers
@@ -326,6 +327,17 @@ namespace Pandora.Data.Transformers
                         continue;
                     }
 
+                    case "ListWithMinMaxItems":
+                    {
+                        Assert.AreEqual("ListWithMinMaxItems", actual.Name);
+                        Assert.AreEqual("listWithMinMaxItems", actual.JsonName);
+                        Assert.AreEqual(true, actual.Optional);
+                        Assert.AreEqual(false, actual.Required);
+                        Assert.AreEqual(1, actual.ListElementMinItems);
+                        Assert.AreEqual(10, actual.ListElementMaxItems);
+                        continue;
+                    }
+
                     default:
                         throw new NotSupportedException($"unhandled property {property.Name}");
                 }
@@ -432,6 +444,12 @@ namespace Pandora.Data.Transformers
             [JsonPropertyName("withRangeValidation")]
             [Optional]
             public int WithRangeValidation { get; set; }
+
+            [JsonPropertyName("listWithMinMaxItems")]
+            [Optional]
+            [MinItems(1)]
+            [MaxItems(10)]
+            public List ListWithMinMaxItems {get; set; }
         }
 
         public enum SomeEnum

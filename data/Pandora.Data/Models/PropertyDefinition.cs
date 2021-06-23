@@ -14,6 +14,8 @@ namespace Pandora.Data.Models
         // ListElementType defines the inner type used for Lists
         // which is defined as when `PropertyType` is set to `List`.
         public PropertyType? ListElementType { get; set; }
+        public int? ListElementMinItems {get; set; }
+        public int? ListElementMaxItems {get; set; }
         public string? ModelReference { get; set; }
         public string Name { get; set; }
         public bool Optional { get; set; }
