@@ -114,6 +114,46 @@ namespace Pandora.Data.Transformers
                         continue;
                     }
 
+                    case "BasicSystemAssignedIdentityField":
+                    {
+                        Assert.AreEqual("BasicSystemAssignedIdentityField", actual.Name);
+                        Assert.AreEqual("basicSystemAssignedIdentityField", actual.JsonName);
+                        Assert.AreEqual(PropertyType.SystemAssignedIdentity, actual.PropertyType);
+                        Assert.AreEqual(true, actual.Optional);
+                        Assert.AreEqual(false, actual.Required);
+                        continue;
+                    }
+
+                    case "BasicSystemUserAssignedIdentityField":
+                    {
+                        Assert.AreEqual("BasicSystemUserAssignedIdentityField", actual.Name);
+                        Assert.AreEqual("basicSystemUserAssignedIdentityField", actual.JsonName);
+                        Assert.AreEqual(PropertyType.SystemUserAssignedIdentity, actual.PropertyType);
+                        Assert.AreEqual(true, actual.Optional);
+                        Assert.AreEqual(false, actual.Required);
+                        continue;
+                    }
+
+                    case "BasicUserAssignedIdentityListField":
+                    {
+                        Assert.AreEqual("BasicUserAssignedIdentityListField", actual.Name);
+                        Assert.AreEqual("basicUserAssignedIdentityListField", actual.JsonName);
+                        Assert.AreEqual(PropertyType.UserAssignedIdentityList, actual.PropertyType);
+                        Assert.AreEqual(true, actual.Optional);
+                        Assert.AreEqual(false, actual.Required);
+                        continue;
+                    }
+
+                    case "BasicUserAssignedIdentityMapField":
+                    {
+                        Assert.AreEqual("BasicUserAssignedIdentityMapField", actual.Name);
+                        Assert.AreEqual("basicUserAssignedIdentityMapField", actual.JsonName);
+                        Assert.AreEqual(PropertyType.UserAssignedIdentityMap, actual.PropertyType);
+                        Assert.AreEqual(true, actual.Optional);
+                        Assert.AreEqual(false, actual.Required);
+                        continue;
+                    }
+
                     case "Constant":
                     {
                         Assert.AreEqual("Constant", actual.Name);
@@ -359,6 +399,18 @@ namespace Pandora.Data.Transformers
             
             [JsonPropertyName("basicTagsField")]
             public Tags BasicTagsField { get; set; }
+
+            [JsonPropertyName("basicSystemAssignedIdentityField")]
+            public SystemAssignedIdentity BasicSystemAssignedIdentityField {get; set;}
+
+            [JsonPropertyName("basicSystemUserAssignedIdentityField")]
+            public SystemUserAssignedIdentity BasicSystemUserAssignedIdentityField {get; set;}
+
+            [JsonPropertyName("basicUserAssignedIdentityListField")]
+            public UserAssignedIdentityList BasicUserAssignedIdentityListField {get; set;}
+
+            [JsonPropertyName("basicUserAssignedIdentityMapField")]
+            public UserAssignedIdentityMap BasicUserAssignedIdentityMapField {get; set;}
             
             [JsonPropertyName("constant")]
             [Optional]

@@ -115,15 +115,19 @@ type FieldDefinition struct {
 type FieldDefinitionType string
 
 const (
-	Boolean    FieldDefinitionType = "bool"
-	DateTime   FieldDefinitionType = "datetime"
-	Dictionary FieldDefinitionType = "dictionary"
-	Integer    FieldDefinitionType = "int"
-	Location   FieldDefinitionType = "location"
-	List       FieldDefinitionType = "list"
-	Object     FieldDefinitionType = "object"
-	String     FieldDefinitionType = "string"
-	Tags       FieldDefinitionType = "tags"
+	Boolean                    FieldDefinitionType = "bool"
+	DateTime                   FieldDefinitionType = "datetime"
+	Dictionary                 FieldDefinitionType = "dictionary"
+	Integer                    FieldDefinitionType = "int"
+	Location                   FieldDefinitionType = "location"
+	List                       FieldDefinitionType = "list"
+	Object                     FieldDefinitionType = "object"
+	String                     FieldDefinitionType = "string"
+	Tags                       FieldDefinitionType = "tags"
+	SystemAssignedIdentity     FieldDefinitionType = "system_assigned_identity"
+	SystemUserAssignedIdentity FieldDefinitionType = "system_user_assigned_identity"
+	UserAssignedIdentityList   FieldDefinitionType = "user_assigned_identity_list"
+	UserAssignedIdentityMap    FieldDefinitionType = "user_assigned_identity_map"
 
 	// TODO: support this in all of the places
 	Float FieldDefinitionType = "float"

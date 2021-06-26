@@ -155,6 +155,26 @@ namespace Pandora.Data.Transformers
                 return PropertyType.Tags;
             }
 
+            if (propertyType == typeof(SystemAssignedIdentity).FullName)
+            {
+                return PropertyType.SystemAssignedIdentity;
+            }
+
+            if (propertyType == typeof(SystemUserAssignedIdentity).FullName)
+            {
+                return PropertyType.SystemUserAssignedIdentity;
+            }
+
+            if (propertyType == typeof(UserAssignedIdentityList).FullName)
+            {
+                return PropertyType.UserAssignedIdentityList;
+            }
+
+            if (propertyType == typeof(UserAssignedIdentityMap).FullName)
+            {
+                return PropertyType.UserAssignedIdentityMap;
+            }
+
             switch (propertyType)
             {
                 case "System.Boolean":
