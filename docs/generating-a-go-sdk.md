@@ -202,7 +202,7 @@ to the following path within the provider:
 
 See [an example here](https://github.com/terraform-providers/terraform-provider-azurerm/tree/2190a425ebda271530a7a40fcb6d0d13110f1f1e/azurerm/internal/services/eventhub/sdk).
 
-Notably when using a Pandora SDK we don't need to generate the Resource ID Parsers within the AzureRM Provider, since these are instead located within the SDK. At this time we don't generate Terraform Validation functions within the Pandora SDK, but this is something we need to look into (either to generate these, or to write a generic validation function taking an ID Parsing function).
+Notably when using a Pandora SDK we don't need to generate the Resource ID Parsers within the AzureRM Provider, since these are instead located within the SDK. At this time we don't generate Terraform Validation functions within the Pandora SDK, [which is tracked in this issue](https://github.com/hashicorp/pandora/issues/103) (either to generate these, or to write a generic validation function taking an ID Parsing function).
 
 ### Notes
 
