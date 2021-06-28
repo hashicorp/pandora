@@ -60,12 +60,12 @@ namespace Pandora.Data.Transformers
 
                 if (input.HasAttribute<MinItemsAttribute>()) {
                     var attr = input.GetCustomAttribute<MinItemsAttribute>();
-                    definition.ListElementMinItems = attr.MinItems;
+                    definition.MinItems = attr.MinItems;
                 }
 
                 if (input.HasAttribute<MaxItemsAttribute>()) {
                     var attr = input.GetCustomAttribute<MaxItemsAttribute>();
-                    definition.ListElementMaxItems = attr.MaxItems;
+                    definition.MaxItems = attr.MaxItems;
                 }
             }
 

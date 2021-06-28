@@ -333,8 +333,8 @@ namespace Pandora.Data.Transformers
                         Assert.AreEqual("listWithMinMaxItems", actual.JsonName);
                         Assert.AreEqual(true, actual.Optional);
                         Assert.AreEqual(false, actual.Required);
-                        Assert.AreEqual(1, actual.ListElementMinItems);
-                        Assert.AreEqual(10, actual.ListElementMaxItems);
+                        Assert.AreEqual(1, actual.MinItems);
+                        Assert.AreEqual(10, actual.MaxItems);
                         continue;
                     }
 

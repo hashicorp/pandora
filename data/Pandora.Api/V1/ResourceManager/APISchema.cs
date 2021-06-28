@@ -97,6 +97,8 @@ namespace Pandora.Api.V1.ResourceManager
                 ForceNew = definition.ForceNew,
                 JsonName = definition.JsonName,
                 ListElementType = MapListElementType(definition.ListElementType),
+                MinItems = definition.MinItems,
+                MaxItems = definition.MaxItems,
                 ModelReferenceName = definition.ModelReference,
                 Optional = definition.Optional,
                 PropertyType = MapApiPropertyType(definition.PropertyType),
@@ -197,6 +199,12 @@ namespace Pandora.Api.V1.ResourceManager
 
             [JsonPropertyName("listElementType")]
             public string? ListElementType { get; set; }
+
+            [JsonPropertyName("minItems")]
+            public int? MinItems {get; set; }
+
+            [JsonPropertyName("maxItems")]
+            public int? MaxItems {get; set; }
         
             [JsonPropertyName("modelReferenceName")]
             public string ModelReferenceName { get; set; }
