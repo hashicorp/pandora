@@ -2,7 +2,7 @@
 
 ## Note
 
-This project **is a work-in-progress** - whilst the individual components work end-to-end - at this point these are several (intentionally) not automatically integrated and there are several manual steps involved.
+This project **is a work-in-progress** - whilst the individual components work end-to-end - at this point these are (intentionally) not automatically integrated and there are several manual steps involved.
 
 In addition, at the current time only Resource Manager service are supported - although we plan to support Microsoft Graph and the Resource Manager Data Plane API's in the future.
 
