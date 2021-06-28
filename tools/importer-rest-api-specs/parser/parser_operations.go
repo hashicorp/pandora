@@ -266,11 +266,9 @@ func (d *SwaggerDefinition) requestObjectForOperation(operationDetails *spec.Ope
 				}
 
 				// if it's taking a list
-				if param.Schema.Type.Contains("array") {
-					if param.Schema.Items != nil && param.Schema.Items.Schema != nil {
-						objectName = fragmentNameFromReference(param.Schema.Items.Schema.Ref)
-					}
-					// TODO: presumably we need the same inlined logic here?
+				if param.Schema.Items != nil && param.Schema.Items.Schema != nil {
+					objectName = fragmentNameFromReference(param.Schema.Items.Schema.Ref)
+					// @tombuildsstuff: appears you can't post a List of Items as a request param?
 				}
 			}
 
@@ -300,41 +298,58 @@ func (d *SwaggerDefinition) responseObjectForOperation(operationDetails *spec.Op
 		if operationIsASuccess(statusCode) {
 			var objectName *string
 
+			if details.ResponseProps.Schema == nil {
+				continue
+			}
+
 			// if it's a singular type
-			if details.ResponseProps.Schema != nil {
-				objectName = fragmentNameFromReference(details.ResponseProps.Schema.Ref)
+			objectName = fragmentNameFromReference(details.ResponseProps.Schema.Ref)
+			if objectName == nil {
+				if len(details.ResponseProps.Schema.Properties) == 0 && details.ResponseProps.Schema.Type.Contains("object") {
+					return nil, nil, fmt.Errorf("response model must either be a reference or an inlined model but got neither")
+				}
 
-				if objectName == nil {
-					if len(details.ResponseProps.Schema.Properties) == 0 {
-						return nil, nil, fmt.Errorf("response model must either be a reference or an inlined model but got neither")
-					}
+				nestedResult, err := d.parseModel(details.ResponseProps.Schema.Title, *details.ResponseProps.Schema)
+				if err != nil {
+					return nil, nil, fmt.Errorf("parsing object from inlined response model %q: %+v", details.ResponseProps.Schema.Title, err)
+				}
 
-					nestedResult, err := d.parseModel(details.ResponseProps.Schema.Title, *details.ResponseProps.Schema)
-					if err != nil {
-						return nil, nil, fmt.Errorf("parsing object from inlined response model %q: %+v", details.ResponseProps.Schema.Title, err)
+				if nestedResult != nil {
+					objectName = &details.ResponseProps.Schema.Title
+					result.models[details.ResponseProps.Schema.Title] = models.ModelDetails{
+						Description: "",
+						Fields:      nestedResult.fields,
 					}
-
-					if nestedResult != nil {
-						objectName = &details.ResponseProps.Schema.Title
-						result.models[details.ResponseProps.Schema.Title] = models.ModelDetails{
-							Description: "",
-							Fields:      nestedResult.fields,
-						}
-						result.append(*nestedResult)
-					}
+					result.append(*nestedResult)
 				}
 			}
 
 			// if it's taking a list
-			if details.ResponseProps.Schema != nil && details.ResponseProps.Schema.Type.Contains("array") {
+			if details.ResponseProps.Schema.Type.Contains("array") {
 				if details.ResponseProps.Schema.Items != nil && details.ResponseProps.Schema.Items.Schema != nil {
-					objectName = fragmentNameFromReference(details.ResponseProps.Schema.Items.Schema.Ref)
+					schema := details.ResponseProps.Schema.Items.Schema
+					objectName = fragmentNameFromReference(schema.Ref)
+					if objectName == nil {
+						if len(schema.Properties) == 0 {
+							return nil, nil, fmt.Errorf("response list model must either be a reference or an inlined model but got neither")
+						}
+
+						nestedResult, err := d.parseModel(schema.Title, *schema)
+						if err != nil {
+							return nil, nil, fmt.Errorf("parsing list object from inlined response model %q: %+v", schema.Title, err)
+						}
+
+						if nestedResult != nil {
+							objectName = &schema.Title
+							result.models[schema.Title] = models.ModelDetails{
+								Description: "",
+								Fields:      nestedResult.fields,
+							}
+							result.append(*nestedResult)
+						}
+					}
 				}
-
-				// TODO: presumably we need the same inlined logic here?
 			}
-
-			// TODO: should we fall back to normalizing the name of this field? is that reliable?
 
 			if objectName != nil {
 				v := normalizeModelName(*objectName)
