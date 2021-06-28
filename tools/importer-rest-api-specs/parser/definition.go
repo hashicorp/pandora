@@ -22,3 +22,4 @@ type SwaggerDefinition struct {
 
 	swaggerSpecExtendedRaw *spec.Swagger
 }
+

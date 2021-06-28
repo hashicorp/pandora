@@ -125,6 +125,7 @@ const (
 	String                     FieldDefinitionType = "string"
 	Tags                       FieldDefinitionType = "tags"
 	SystemAssignedIdentity     FieldDefinitionType = "system_assigned_identity"
+	// TODO: also differ user assigned identity for type array or object
 	SystemUserAssignedIdentity FieldDefinitionType = "system_user_assigned_identity"
 	UserAssignedIdentityList   FieldDefinitionType = "user_assigned_identity_list"
 	UserAssignedIdentityMap    FieldDefinitionType = "user_assigned_identity_map"
