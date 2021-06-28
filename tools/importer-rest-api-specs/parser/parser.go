@@ -104,7 +104,7 @@ func (d *SwaggerDefinition) findResourcesForTag(tag *string) (*models.AzureApiRe
 		result.append(*nestedResult)
 	}
 
-	nestedResult, err = d.parseOperations(*operations)
+	nestedResult, err = d.parseOperations(*operations, result)
 	if err != nil {
 		return nil, fmt.Errorf("parsing operations: %+v", err)
 	}

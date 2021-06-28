@@ -13,7 +13,7 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
-func (d *SwaggerDefinition) parseOperations(input map[string]models.OperationDetails) (*result, error) {
+func (d *SwaggerDefinition) parseOperations(input map[string]models.OperationDetails, inlinedModels result) (*result, error) {
 	result := result{
 		constants: map[string]models.ConstantDetails{},
 		models:    map[string]models.ModelDetails{},
@@ -24,9 +24,12 @@ func (d *SwaggerDefinition) parseOperations(input map[string]models.OperationDet
 		if d.debugLog {
 			log.Printf("[DEBUG] Parsing Top-Level Model %q..", modelName)
 		}
-		parsedModel, err := d.parseItemsFromModel(modelName)
+		parsedModel, err := d.parseItemsFromModel(modelName, inlinedModels)
 		if err != nil {
 			return nil, fmt.Errorf("parsing items from top-level model %q: %+v", modelName, err)
+		}
+		if parsedModel == nil {
+			continue
 		}
 
 		result.append(*parsedModel)
@@ -122,7 +125,11 @@ func (d *SwaggerDefinition) findModelsUsedByOperations(operations map[string]mod
 	return output
 }
 
-func (d *SwaggerDefinition) parseItemsFromModel(modelName string) (*result, error) {
+func (d *SwaggerDefinition) parseItemsFromModel(modelName string, inlinedModels result) (*result, error) {
+	// check if this is already parsed out from an inlined request/response model
+	if _, ok := inlinedModels.models[modelName]; ok {
+		return nil, nil
+	}
 	// this should be a top level model so let's find it, then pass it to the recursive funtime
 	model, err := d.findTopLevelModel(modelName)
 	if err != nil {
