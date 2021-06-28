@@ -8,7 +8,7 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
-func (g PandoraDefinitionGenerator) codeForPackageDefinition(namespace string, operations map[string]models.OperationDetails) string {
+func (g PandoraDefinitionGenerator) codeForPackageDefinition(namespace, resourceName string, operations map[string]models.OperationDetails) string {
 	operationNames := make([]string, 0)
 	for operation := range operations {
 		operationNames = append(operationNames, operation)
@@ -35,5 +35,5 @@ namespace %[1]s
 		};
 	}
 }
-`, namespace, g.data.ServiceName, g.data.ApiVersion, strings.Join(lines, "\n"))
+`, namespace, resourceName, g.data.ApiVersion, strings.Join(lines, "\n"))
 }

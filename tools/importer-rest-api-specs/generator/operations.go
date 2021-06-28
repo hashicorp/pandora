@@ -16,6 +16,7 @@ func (g PandoraDefinitionGenerator) codeForOperation(namespace string, operation
 		for _, sc := range operation.ExpectedStatusCodes {
 			statusCodes = append(statusCodes, fmt.Sprintf("\t\t\t\t%s,", g.dotnetNameForStatusCode(sc)))
 		}
+		sort.Strings(statusCodes)
 		code = append(code, fmt.Sprintf(`		public override IEnumerable<HttpStatusCode> ExpectedStatusCodes()
 		{
 			return new List<HttpStatusCode>

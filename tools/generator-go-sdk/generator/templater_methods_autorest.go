@@ -459,6 +459,8 @@ func (c methodsAutoRestTemplater) responderTemplate(data ServiceGeneratorData) s
 		statusCode := golangConstantForStatusCode(statusCodeInt)
 		expectedStatusCodes = append(expectedStatusCodes, statusCode)
 	}
+	// removes spurious changes in the output
+	sort.Strings(expectedStatusCodes)
 
 	steps := make([]string, 0)
 	steps = append(steps, fmt.Sprintf("azure.WithErrorUnlessStatusCode(%s)", strings.Join(expectedStatusCodes, ", ")))
