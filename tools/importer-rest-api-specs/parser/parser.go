@@ -125,7 +125,8 @@ func (d *SwaggerDefinition) findTags() []string {
 	for _, operation := range d.swaggerSpecExpanded.Operations() {
 		for _, details := range operation {
 			for _, tag := range details.Tags {
-				tags[tag] = struct{}{}
+				normalizedTag := normalizeTag(tag)
+				tags[normalizedTag] = struct{}{}
 			}
 		}
 	}
@@ -136,4 +137,13 @@ func (d *SwaggerDefinition) findTags() []string {
 	}
 	sort.Strings(out)
 	return out
+}
+
+func normalizeTag(input string) string {
+	// NOTE: we could be smarter here, but given this is a handful of cases it's
+	// probably prudent to hard-code these for now (and fix the swaggers as we
+	// come across them?)
+	output := input
+	output = strings.ReplaceAll(output, "NetWork", "Network")
+	return output
 }
