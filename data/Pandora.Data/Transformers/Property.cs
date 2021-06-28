@@ -6,6 +6,7 @@ using System.Reflection;
 using System.Text.Json.Serialization;
 using Pandora.Data.Models;
 using Pandora.Definitions.Attributes;
+using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
 namespace Pandora.Data.Transformers
@@ -56,6 +57,16 @@ namespace Pandora.Data.Transformers
                 definition.ListElementType = elementDetails.ElementPropertyType;
                 definition.ModelReference = elementDetails.ModelType;
                 definition.IsTypeHint = elementDetails.IsTypeHint;
+
+                if (input.HasAttribute<MinItemsAttribute>()) {
+                    var attr = input.GetCustomAttribute<MinItemsAttribute>();
+                    definition.MinItems = attr.MinItems;
+                }
+
+                if (input.HasAttribute<MaxItemsAttribute>()) {
+                    var attr = input.GetCustomAttribute<MaxItemsAttribute>();
+                    definition.MaxItems = attr.MaxItems;
+                }
             }
 
             if (definition.PropertyType == PropertyType.Constant)

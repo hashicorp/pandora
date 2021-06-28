@@ -108,6 +108,9 @@ type FieldDefinition struct {
 	Sensitive         bool
 	JsonName          string
 	ListElementType   *FieldDefinitionType
+	ListElementMin    *int64
+	ListElementMax    *int64
+	ListElementUnique *bool
 
 	// TODO: should we output Description here too?
 }

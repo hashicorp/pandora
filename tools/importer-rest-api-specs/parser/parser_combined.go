@@ -840,6 +840,10 @@ func (d *SwaggerDefinition) mapField(parentModelName, jsonName string, value spe
 					field.ModelReference = &inlinedModel
 				}
 			}
+
+			field.ListElementMin = value.MinItems
+			field.ListElementMax = value.MaxItems
+			field.ListElementUnique = &value.UniqueItems
 		}
 
 		// Maps of Things
@@ -948,6 +952,10 @@ func (d *SwaggerDefinition) mapField(parentModelName, jsonName string, value spe
 						field.ModelReference = &inlinedModel
 					}
 				}
+
+				field.ListElementMin = value.AdditionalItems.Schema.MinItems
+				field.ListElementMax = value.AdditionalItems.Schema.MaxItems
+				field.ListElementUnique = &value.AdditionalItems.Schema.UniqueItems
 			}
 
 			if field.Type == models.String {

@@ -108,6 +108,13 @@ func (g PandoraDefinitionGenerator) codeForField(indentation, fieldName string, 
 		fieldType = &typeName
 	}
 
+	if field.ListElementMin != nil {
+		lines = append(lines, fmt.Sprintf("%[1]s[MinItems(%[2]d)]", indentation, *field.ListElementMin))
+	}
+	if field.ListElementMax != nil {
+		lines = append(lines, fmt.Sprintf("%[1]s[MaxItems(%[2]d)]", indentation, *field.ListElementMax))
+	}
+
 	lines = append(lines, fmt.Sprintf("%[1]spublic %[2]s %[3]s { get; set; }", indentation, *fieldType, strings.Title(fieldName)))
 	out := strings.Join(lines, "\n")
 	return &out, nil
