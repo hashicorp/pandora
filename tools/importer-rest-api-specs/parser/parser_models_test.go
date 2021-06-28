@@ -517,3 +517,53 @@ func TestParseModelMultipleTopLevelInheritance(t *testing.T) {
 		t.Fatalf("expected example.Fields['Tags'].Required to be 'true'")
 	}
 }
+
+func TestParseModelIdentities(t *testing.T) {
+	parsed, err := Load("testdata/", "model_identities.json", true)
+	if err != nil {
+		t.Fatalf("loading: %+v", err)
+	}
+
+	result, err := parsed.Parse("Example", "2020-01-01")
+	if err != nil {
+		t.Fatalf("parsing: %+v", err)
+	}
+	if result == nil {
+		t.Fatal("result was nil")
+	}
+
+	resource, ok := result.Resources["Identity"]
+	if !ok {
+		t.Fatal("the Resource 'Identity' was not found")
+	}
+
+	identityCollection, ok := resource.Models["IdentityCollection"]
+	if !ok {
+		t.Fatalf("the Model `IdentityCollection` was not found")
+	}
+
+	sai, ok := identityCollection.Fields["SystemAssignedIdentity"]
+	if !ok {
+		t.Fatalf("example.Fields['SystemAssigndIdentity'] was missing")
+	}
+	if sai.Type != models.SystemAssignedIdentity {
+		t.Fatalf("expected example.Fields['SystemAssigndIdentity'] to be a %q but got %q", string(models.SystemAssignedIdentity), string(sai.Type))
+	}
+
+	uaiList, ok := identityCollection.Fields["UserAssignedIdentityList"]
+	if !ok {
+		t.Fatalf("example.Fields['UserAssignedIdentityList'] was missing")
+	}
+	if uaiList.Type != models.UserAssignedIdentityList {
+		t.Fatalf("expected example.Fields['UserAssignedIdentityList'] to be a %q but got %q", string(models.UserAssignedIdentityList), string(uaiList.Type))
+	}
+
+	// Uncomment this after: https://github.com/hashicorp/pandora/issues/96 is fixed.
+	//uaiMap, ok := identityCollection.Fields["UserAssignedIdentityMap"]
+	//if !ok {
+	//	t.Fatalf("example.Fields['UserAssignedIdentityMap'] was missing")
+	//}
+	//if uaiMap.Type != models.UserAssignedIdentityMap {
+	//	t.Fatalf("expected example.Fields['UserAssignedIdentityMap'] to be a %q but got %q", string(models.UserAssignedIdentityMap), string(uaiMap.Type))
+	//}
+}

@@ -1,8 +1,9 @@
 package parser
 
 import (
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"reflect"
+
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
 // customTypeMatcher tests whether a model matches the schema definition of a custom type.
@@ -12,6 +13,7 @@ type customTypeMatcher interface {
 	TypeName() models.FieldDefinitionType
 }
 
+// systemAssignedIdentityMatcher matches a model which only supports for SystemAssigned Identity
 type systemAssignedIdentityMatcher struct{}
 
 func (m systemAssignedIdentityMatcher) TypeName() models.FieldDefinitionType {
@@ -19,31 +21,34 @@ func (m systemAssignedIdentityMatcher) TypeName() models.FieldDefinitionType {
 }
 
 func (m systemAssignedIdentityMatcher) CustomTypeMatches(model models.ModelDetails, resource models.AzureApiResource) bool {
+	var (
+		typeOK        bool
+		principalIdOK bool
+		tenantIdOK    bool
+	)
+
 	for fieldName, field := range model.Fields {
 		switch fieldName {
-		case "type":
+		case "Type":
 			if !fieldIsIdentityTypeOfValue(field, resource.Constants, map[string]string{
-				"None":           "None",
 				"SystemAssigned": "SystemAssigned",
 			}) {
 				return false
 			}
-		case "principalId":
-			if !fieldReadOnlyString(field) {
-				return false
-			}
-		case "tenantId":
-			if !fieldReadOnlyString(field) {
-				return false
-			}
+			typeOK = true
+		case "PrincipalId":
+			principalIdOK = true
+		case "TenantId":
+			tenantIdOK = true
 		default:
 			return false
 		}
 	}
 
-	return true
+	return typeOK && principalIdOK && tenantIdOK
 }
 
+// userAssignedIdentityListMatcher matches a model which only supports for UserAssigned Identity, which is formed as an array.
 type userAssignedIdentityListMatcher struct{}
 
 func (m userAssignedIdentityListMatcher) TypeName() models.FieldDefinitionType {
@@ -51,67 +56,102 @@ func (m userAssignedIdentityListMatcher) TypeName() models.FieldDefinitionType {
 }
 
 func (m userAssignedIdentityListMatcher) CustomTypeMatches(model models.ModelDetails, resource models.AzureApiResource) bool {
+	var (
+		typeOK                  bool
+		userAssignedIdentitesOK bool
+	)
 	for fieldName, field := range model.Fields {
 		switch fieldName {
-		case "type":
+		case "Type":
 			if !fieldIsIdentityTypeOfValue(field, resource.Constants, map[string]string{
-				"None":         "None",
 				"UserAssigned": "UserAssigned",
 			}) {
 				return false
 			}
-		case "userAssignedIdentities":
-			{
-				if !fieldIsUserAssignedIdentitiesList(field, resource.Models) {
-					return false
-				}
+			typeOK = true
+		case "UserAssignedIdentities":
+			if field.Type != models.List {
+				return false
 			}
+			if field.ListElementType == nil || *field.ListElementType != models.String {
+				return false
+			}
+			userAssignedIdentitesOK = true
 		default:
 			return false
 		}
 	}
-
-	return true
+	// We didn't check for the 'typeOK' here for some poorly defined Swagger, e.g.:
+	// https://github.com/Azure/azure-rest-api-specs/blob/c803720c6bcfcb0fcf4c97f3463ec33a18f9e55c/specification/servicefabricmanagedclusters/resource-manager/Microsoft.ServiceFabricManagedClusters/stable/2021-05-01/nodetype.json#L763
+	_ = typeOK
+	return userAssignedIdentitesOK
 }
 
-func fieldIsUserAssignedIdentitiesList(model models.ModelDetails, resource models.AzureApiResource) bool {
+// userAssignedIdentityMapMatcher matches a model which only supports for UserAssigned Identity, which is formed as a map.
+type userAssignedIdentityMapMatcher struct{}
+
+func (m userAssignedIdentityMapMatcher) TypeName() models.FieldDefinitionType {
+	return models.UserAssignedIdentityMap
+}
+
+func (m userAssignedIdentityMapMatcher) CustomTypeMatches(model models.ModelDetails, resource models.AzureApiResource) bool {
+	var (
+		typeOK                  bool
+		userAssignedIdentitesOK bool
+	)
 	for fieldName, field := range model.Fields {
 		switch fieldName {
-		case "type":
+		case "Type":
 			if !fieldIsIdentityTypeOfValue(field, resource.Constants, map[string]string{
-				"None":         "None",
 				"UserAssigned": "UserAssigned",
 			}) {
 				return false
 			}
-		case "userAssignedIdentities":
+			typeOK = true
+		case "UserAssignedIdentities":
+			if field.Type != models.Object {
+				return false
+			}
 			if field.ModelReference == nil {
 				return false
 			}
-
-			model := resource.Models[*field.ModelReference]
-			for fieldName, field := range model.Fields {
-				switch fieldName {
-				// TODO:
-				default:
-					return false
-				}
+			model, ok := resource.Models[*field.ModelReference]
+			if !ok {
+				return false
 			}
+			if !m.userAssignedIdentityMatch(model, resource) {
+				return false
+			}
+			userAssignedIdentitesOK = true
 		default:
 			return false
 		}
 	}
+	return typeOK && userAssignedIdentitesOK
 }
 
-func fieldReadOnlyString(field models.FieldDefinition) bool {
-	if field.Type != models.String {
-		return false
+func (m userAssignedIdentityMapMatcher) userAssignedIdentityMatch(model models.ModelDetails, resource models.AzureApiResource) bool {
+	var (
+		principalIdOK bool
+		tenantIdOK    bool
+	)
+
+	for fieldName := range model.Fields {
+		switch fieldName {
+		case "PrincipalId":
+			principalIdOK = true
+		case "TenantId":
+			tenantIdOK = true
+		default:
+			return false
+		}
 	}
-	return field.ReadOnly
+
+	return principalIdOK && tenantIdOK
 }
 
 func fieldIsIdentityTypeOfValue(field models.FieldDefinition, constants map[string]models.ConstantDetails, expect map[string]string) bool {
-	if field.Type != models.String {
+	if field.Type != models.Object {
 		return false
 	}
 	if field.ConstantReference == nil {
@@ -121,12 +161,22 @@ func fieldIsIdentityTypeOfValue(field models.FieldDefinition, constants map[stri
 	if !ok {
 		return false
 	}
-	return reflect.DeepEqual(constant.FieldType, expect)
+	actual := map[string]string{}
+	for k, v := range constant.Values {
+		// Some model doesn't define a "None" as an enum value for identity type.
+		if k == "None" {
+			continue
+		}
+		actual[k] = v
+	}
+	return reflect.DeepEqual(actual, expect)
 }
 
 func (d *SwaggerDefinition) replaceCustomType(input map[string]models.AzureApiResource) {
 	matchers := []customTypeMatcher{
 		systemAssignedIdentityMatcher{},
+		userAssignedIdentityListMatcher{},
+		userAssignedIdentityMapMatcher{},
 	}
 
 	for resourceName, resource := range input {
@@ -140,7 +190,7 @@ func (d *SwaggerDefinition) replaceCustomType(input map[string]models.AzureApiRe
 
 				// Iterate over all the models' fields, modify any field referencing this model by nil set its ModelReference, and set its Type to the custom type.
 				// TODO: Do we need to remove the models that are only referenced by the "model" under iteration?
-				//  	 E.g. "identity" (the "model") might reference the "userAssignedIdentities" model exclusively.
+				//       E.g. the "model" might has reference to the "userAssignedIdentities" model.
 				for mName, m := range resource.Models {
 					// Skip current model that is deleted from the model set
 					if mName == modelName {
