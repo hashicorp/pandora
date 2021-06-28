@@ -134,7 +134,7 @@ Assuming that no changes are required to get this to compile, you should be able
 
 ### Note
 
-At the current time the only way to process a Service Definition  or API Version Definition through this Translation layer is to launch the API and hit the relevant URI (or run a code generator) - and at this time the errors returned are a little ambiguous (so you may need a debugger to isolate the specific field). This is a known issue tracked in https://github.com/hashicorp/pandora/issues/48 which will be fixed in the future - and likely a Unit Test will be introduced for each API Version Definition to verify that it maps correctly.
+At the current time the only way to process a Service Definition or API Version Definition through this Translation layer is to launch the API and hit the relevant URI (or run a code generator) - and at this time the errors returned are a little ambiguous (so you may need a debugger to isolate the specific field). This is a known issue tracked in https://github.com/hashicorp/pandora/issues/48 which will be fixed in the future - and likely a Unit Test will be introduced for each API Version Definition to verify that it maps correctly.
 
 Also any Nullability warnings which show up within the Data project can be safely ignored - this is a (generally sensible) flag which we need to disable in the `Pandora.Definitions.ResourceManager` project since we use nullable types to indicate Optional fields within the data, where this isn't applicable.
 
