@@ -13,14 +13,11 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
-type parsedOperation struct {
-	constants map[string]models.ConstantDetails
-	models    map[string]models.ModelDetails
-}
-
-func (d *SwaggerDefinition) parseOperations(input map[string]models.OperationDetails) (*parsedOperation, error) {
-	parsedConstants := make(map[string]models.ConstantDetails)
-	parsedModels := make(map[string]models.ModelDetails)
+func (d *SwaggerDefinition) parseOperations(input map[string]models.OperationDetails) (*result, error) {
+	result := result{
+		constants: map[string]models.ConstantDetails{},
+		models:    map[string]models.ModelDetails{},
+	}
 
 	topLevelModelNames := d.findModelsUsedByOperations(input)
 	for _, modelName := range topLevelModelNames {
@@ -32,20 +29,7 @@ func (d *SwaggerDefinition) parseOperations(input map[string]models.OperationDet
 			return nil, fmt.Errorf("parsing items from top-level model %q: %+v", modelName, err)
 		}
 
-		for k, v := range parsedModel.constants {
-			var existing *models.ConstantDetails
-			if e, ok := parsedConstants[k]; ok {
-				existing = &e
-			}
-
-			constant := mergeConstants(v, existing)
-			parsedConstants[k] = constant
-		}
-
-		for k, v := range parsedModel.models {
-			parsedModels[k] = v
-		}
-
+		result.append(*parsedModel)
 		details := models.ModelDetails{
 			Description: "",
 			Fields:      parsedModel.fields,
@@ -58,12 +42,12 @@ func (d *SwaggerDefinition) parseOperations(input map[string]models.OperationDet
 			details.TypeHintValue = nestedModel.TypeHintValue
 		}
 
-		parsedModels[modelName] = details
+		result.models[modelName] = details
 	}
 
 	// now that we've processed all of the models within this operation, we need to find any implementations
 	// for any discriminators and ensure they're added too
-	for modelName, model := range parsedModels {
+	for modelName, model := range result.models {
 		// if it's not a discriminator, there's nothing to find
 		if model.TypeHintIn == nil {
 			continue
@@ -77,18 +61,10 @@ func (d *SwaggerDefinition) parseOperations(input map[string]models.OperationDet
 			return nil, fmt.Errorf("finding implementations of %q (discriminating on %q): %+v", modelName, *model.TypeHintIn, err)
 		}
 
-		for k, v := range implementations.constants {
-			parsedConstants[k] = v
-		}
-		for k, v := range implementations.models {
-			parsedModels[k] = v
-		}
+		result.append(*implementations)
 	}
 
-	return &parsedOperation{
-		constants: parsedConstants,
-		models:    parsedModels,
-	}, nil
+	return &result, nil
 }
 
 type result struct {

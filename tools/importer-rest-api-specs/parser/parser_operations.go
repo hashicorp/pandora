@@ -12,8 +12,12 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
-func (d *SwaggerDefinition) findOperationsForTag(tag *string, uriToDetails map[string]idDetails) (*map[string]models.OperationDetails, error) {
+func (d *SwaggerDefinition) findOperationsForTag(tag *string, uriToDetails map[string]idDetails) (*map[string]models.OperationDetails, *result, error) {
 	out := make(map[string]models.OperationDetails, 0)
+	result := result{
+		constants: map[string]models.ConstantDetails{},
+		models:    map[string]models.ModelDetails{},
+	}
 	for httpMethod, operation := range d.swaggerSpecExpanded.Operations() {
 		for uri, operationDetails := range operation {
 			if !operationMatchesTag(operationDetails, tag) {
@@ -22,7 +26,7 @@ func (d *SwaggerDefinition) findOperationsForTag(tag *string, uriToDetails map[s
 
 			operationName := normalizeOperationName(operationDetails.ID, tag)
 			if existingVal, hasExisting := out[operationName]; hasExisting {
-				return nil, fmt.Errorf("duplicate operation ID %q - first %q %q - second %q %q", operationName, existingVal.Method, existingVal.Uri, httpMethod, uri)
+				return nil, nil, fmt.Errorf("duplicate operation ID %q - first %q %q - second %q %q", operationName, existingVal.Method, existingVal.Uri, httpMethod, uri)
 			}
 
 			url := newOperationUri(uri)
@@ -32,22 +36,25 @@ func (d *SwaggerDefinition) findOperationsForTag(tag *string, uriToDetails map[s
 
 			details, ok := uriToDetails[url.normalizedUri()]
 			if !ok {
-				return nil, fmt.Errorf("missing details for %q", url.normalizedUri())
+				return nil, nil, fmt.Errorf("missing details for %q", url.normalizedUri())
 			}
-			operationData, err := d.parseOperation(operationName, httpMethod, url, &details, operationDetails)
+			operationData, nestedResult, err := d.parseOperation(operationName, httpMethod, url, &details, operationDetails)
 			if err != nil {
-				return nil, fmt.Errorf("parsing operation %q: %+v", operationName, err)
+				return nil, nil, fmt.Errorf("parsing operation %q: %+v", operationName, err)
 			}
 
 			if operationData != nil {
 				out[operationName] = *operationData
 			}
+			if nestedResult != nil {
+				result.append(*nestedResult)
+			}
 		}
 	}
-	return &out, nil
+	return &out, &result, nil
 }
 
-func (d *SwaggerDefinition) parseOperation(operationName, httpMethod string, uri operationUri, operation *idDetails, operationDetails *spec.Operation) (*models.OperationDetails, error) {
+func (d *SwaggerDefinition) parseOperation(operationName, httpMethod string, uri operationUri, operation *idDetails, operationDetails *spec.Operation) (*models.OperationDetails, *result, error) {
 	contentType := "application/json"
 	if strings.EqualFold(httpMethod, "HEAD") || strings.EqualFold(httpMethod, "GET") {
 		if len(operationDetails.Consumes) > 0 {
@@ -59,17 +66,28 @@ func (d *SwaggerDefinition) parseOperation(operationName, httpMethod string, uri
 		}
 	}
 
+	result := result{
+		constants: map[string]models.ConstantDetails{},
+		models:    map[string]models.ModelDetails{},
+	}
+
 	expectedStatusCodes := expectedStatusCodesForOperation(operationDetails)
 	paginationField := fieldContainingPaginationDetailsForOperation(operationDetails)
-	requestObjectName := d.requestObjectForOperation(operationDetails)
-	responseObjectName, err := d.responseObjectForOperation(operationDetails, paginationField != nil)
+	requestObjectName, nestedResult := d.requestObjectForOperation(operationDetails)
+	if nestedResult != nil {
+		result.append(*nestedResult)
+	}
+	responseObjectName, nestedResult, err := d.responseObjectForOperation(operationDetails, paginationField != nil)
 	if err != nil {
-		return nil, fmt.Errorf("determining response operation for %q (method %q / uri %q): %+v", operationName, httpMethod, uri.normalizedUri(), err)
+		return nil, nil, fmt.Errorf("determining response operation for %q (method %q / uri %q): %+v", operationName, httpMethod, uri.normalizedUri(), err)
+	}
+	if nestedResult != nil {
+		result.append(*nestedResult)
 	}
 	longRunning := operationIsLongRunning(operationDetails)
 	options, err := optionsForOperation(operationDetails)
 	if err != nil {
-		return nil, fmt.Errorf("building options for operation %q: %+v", operationName, err)
+		return nil, nil, fmt.Errorf("building options for operation %q: %+v", operationName, err)
 	}
 
 	operationData := models.OperationDetails{
@@ -91,10 +109,10 @@ func (d *SwaggerDefinition) parseOperation(operationName, httpMethod string, uri
 	}
 
 	if operationShouldBeIgnored(operationData) {
-		return nil, nil
+		return nil, nil, nil
 	}
 
-	return &operationData, nil
+	return &operationData, &result, nil
 }
 
 func optionsForOperation(input *spec.Operation) (*map[string]models.OperationOption, error) {
@@ -206,13 +224,17 @@ func operationShouldBeIgnored(input models.OperationDetails) bool {
 	return false
 }
 
-func (d *SwaggerDefinition) requestObjectForOperation(operationDetails *spec.Operation) *string {
+func (d *SwaggerDefinition) requestObjectForOperation(operationDetails *spec.Operation) (*string, *result) {
 	// find the same operation in the unexpanded swagger spec since we need the reference name
 	_, _, unexpandedOperation, found := d.swaggerSpecWithReferences.OperationForName(operationDetails.ID)
 	if !found {
-		return nil
+		return nil, nil
 	}
 
+	result := result{
+		constants: map[string]models.ConstantDetails{},
+		models:    map[string]models.ModelDetails{},
+	}
 	for _, param := range unexpandedOperation.Parameters {
 		if strings.EqualFold(param.In, "body") {
 			var fragmentName *string
@@ -235,17 +257,17 @@ func (d *SwaggerDefinition) requestObjectForOperation(operationDetails *spec.Ope
 				v := normalizeModelName(*fragmentName)
 				fragmentName = &v
 			}
-			return fragmentName
+			return fragmentName, &result
 		}
 	}
-	return nil
+	return nil, nil
 }
 
-func (d *SwaggerDefinition) responseObjectForOperation(operationDetails *spec.Operation, isListOperation bool) (*string, error) {
+func (d *SwaggerDefinition) responseObjectForOperation(operationDetails *spec.Operation, isListOperation bool) (*string, *result, error) {
 	// find the same operation in the unexpanded swagger spec since we need the reference name
 	_, _, unexpandedOperation, found := d.swaggerSpecWithReferences.OperationForName(operationDetails.ID)
 	if !found {
-		return nil, nil
+		return nil, nil, nil
 	}
 
 	for statusCode, details := range unexpandedOperation.Responses.StatusCodeResponses {
@@ -275,40 +297,40 @@ func (d *SwaggerDefinition) responseObjectForOperation(operationDetails *spec.Op
 			// and check for the `value` field to give us the real model
 			if isListOperation {
 				if fragmentName == nil {
-					return nil, fmt.Errorf("list operations must have a model, but this doesn't")
+					return nil, nil, fmt.Errorf("list operations must have a model, but this doesn't")
 				}
 
 				model, err := d.findTopLevelModel(*fragmentName)
 				if err != nil {
-					return nil, fmt.Errorf("retrieving model %q for list operation to find real model: %+v", *fragmentName, err)
+					return nil, nil, fmt.Errorf("retrieving model %q for list operation to find real model: %+v", *fragmentName, err)
 				}
 
 				parsedModel, err := d.parseModel(*fragmentName, *model)
 				if err != nil {
-					return nil, fmt.Errorf("parsing model %q for list operation to find real model: %+v", *fragmentName, err)
+					return nil, nil, fmt.Errorf("parsing model %q for list operation to find real model: %+v", *fragmentName, err)
 				}
 
 				actualModelName := ""
 				for k, v := range parsedModel.fields {
 					if strings.EqualFold(k, "Value") {
 						if v.ModelReference == nil {
-							return nil, fmt.Errorf("parsing model %q for list operation to find real model: missing model reference for field 'value'", *fragmentName)
+							return nil, nil, fmt.Errorf("parsing model %q for list operation to find real model: missing model reference for field 'value'", *fragmentName)
 						}
 						actualModelName = *v.ModelReference
 						break
 					}
 				}
 				if actualModelName == "" {
-					return nil, fmt.Errorf("parsing model %q for list operation to find real model: model did not contain a field 'value'", *fragmentName)
+					return nil, nil, fmt.Errorf("parsing model %q for list operation to find real model: model did not contain a field 'value'", *fragmentName)
 				}
 				fragmentName = &actualModelName
 			}
 
-			return fragmentName, nil
+			return fragmentName, nil, nil
 		}
 	}
 
-	return nil, nil
+	return nil, nil, nil
 }
 
 func expectedStatusCodesForOperation(operationDetails *spec.Operation) []int {
