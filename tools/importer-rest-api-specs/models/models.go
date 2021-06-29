@@ -97,11 +97,11 @@ type ModelDetails struct {
 	TypeHintValue  *string
 
 	// TODO: include ReadOnly, which'll mean we need to generate this on a per-type basis if necessary
-	AdditionalProperties map[string]FieldDetails
 }
 
 type FieldDetails struct {
 	Type              FieldDefinitionType
+	DictValueType     *FieldDefinitionType
 	Required          bool
 	ReadOnly          bool
 	ConstantReference *string

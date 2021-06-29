@@ -1,0 +1,97 @@
+{
+  "paths": {
+    "/foo": {
+      "put": {
+        "tags": [
+          "Foo"
+        ],
+        "parameters": [
+          {
+            "name": "parameters",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Foo"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success.",
+            "schema": {
+              "$ref": "#/definitions/Foo"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Foo": {
+      "properties": {
+        "absent": {
+          "$ref": "#/definitions/absent"
+        },
+        "dictOfAny": {
+          "$ref": "#/definitions/dictOfAny"
+        },
+        "dictOfAny2": {
+          "$ref": "#/definitions/dictOfAny2"
+        },
+        "dictOfString": {
+          "$ref": "#/definitions/dictOfString"
+        },
+        "dictOfArrayOfString": {
+          "$ref": "#/definitions/dictOfArrayOfString"
+        },
+        "dictOfInlinedObject": {
+          "$ref": "#/definitions/dictOfInlinedObject"
+        },
+        "dictOfObjectRef": {
+          "$ref": "#/definitions/dictOfObjectRef"
+        }
+      }
+    },
+    "absent": {},
+    "dictOfAny": {
+      "additionalProperties": {}
+    },
+    "dictOfAny2": {
+      "additionalProperties": true
+    },
+    "dictOfString": {
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "dictOfArrayOfString": {
+      "additionalProperties": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "dictOfInlinedObject": {
+      "additionalProperties": {
+        "properties": {
+          "p1": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "dictOfObjectRef": {
+      "additionalProperties": {
+        "$ref": "#/definitions/obj"
+      }
+    },
+    "obj": {
+      "properties": {
+        "p1": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
