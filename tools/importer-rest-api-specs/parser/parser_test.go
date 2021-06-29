@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"os"
 	"reflect"
 	"strings"
 	"testing"
@@ -15,8 +16,13 @@ import (
 )
 
 const swaggerDirectory = "../../../swagger/specification"
+const runAllEnvVar = "ALL"
 
 func TestAllSwaggersUsingParser(t *testing.T) {
+	if os.Getenv(runAllEnvVar) == "" {
+		t.Skipf("skipping since %q is unset", runAllEnvVar)
+	}
+
 	services, err := FindResourceManagerServices(swaggerDirectory)
 	if err != nil {
 		t.Fatal(err)
@@ -46,6 +52,10 @@ func TestAllSwaggersUsingParser(t *testing.T) {
 }
 
 func TestAllSwaggersValidateAllContainTypes(t *testing.T) {
+	if os.Getenv(runAllEnvVar) == "" {
+		t.Skipf("skipping since %q is unset", runAllEnvVar)
+	}
+
 	services, err := FindResourceManagerServices(swaggerDirectory)
 	if err != nil {
 		t.Fatal(err)
@@ -77,6 +87,10 @@ func TestAllSwaggersValidateAllContainTypes(t *testing.T) {
 }
 
 func TestAllSwaggersValidateFindOAIGenParserBug(t *testing.T) {
+	if os.Getenv(runAllEnvVar) == "" {
+		t.Skipf("skipping since %q is unset", runAllEnvVar)
+	}
+
 	services, err := FindResourceManagerServices(swaggerDirectory)
 	if err != nil {
 		t.Fatal(err)
@@ -106,6 +120,10 @@ func TestAllSwaggersValidateFindOAIGenParserBug(t *testing.T) {
 }
 
 func TestAllSwaggersValidateFindUnknownBugs(t *testing.T) {
+	if os.Getenv(runAllEnvVar) == "" {
+		t.Skipf("skipping since %q is unset", runAllEnvVar)
+	}
+
 	services, err := FindResourceManagerServices(swaggerDirectory)
 	if err != nil {
 		t.Fatal(err)
@@ -137,6 +155,10 @@ func TestAllSwaggersValidateFindUnknownBugs(t *testing.T) {
 }
 
 func TestAssertParserCanParseAppConfiguration(t *testing.T) {
+	if os.Getenv(runAllEnvVar) == "" {
+		t.Skipf("skipping since %q is unset", runAllEnvVar)
+	}
+
 	directory := fmt.Sprintf("%s/appconfiguration/resource-manager/Microsoft.AppConfiguration/stable/2020-06-01", swaggerDirectory)
 	fileName := "appconfiguration.json"
 

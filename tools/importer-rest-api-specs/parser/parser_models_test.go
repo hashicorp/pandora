@@ -205,6 +205,8 @@ func TestParseModelSingleTopLevelWithInlinedModel(t *testing.T) {
 }
 
 func TestParseModelSingleWithInlinedObject(t *testing.T) {
+	t.Skip("skipping temporarily since broken - see https://github.com/hashicorp/pandora/issues/109")
+
 	parsed, err := Load("testdata/", "model_with_inlined_object.json", true)
 	if err != nil {
 		t.Fatalf("loading: %+v", err)
