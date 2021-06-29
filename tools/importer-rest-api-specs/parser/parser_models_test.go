@@ -454,6 +454,116 @@ func TestParseModelSingleWithReference(t *testing.T) {
 	}
 }
 
+func TestParseModelSingleWithReferenceToString(t *testing.T) {
+	parsed, err := Load("testdata/", "model_single_with_reference_string.json", true)
+	if err != nil {
+		t.Fatalf("loading: %+v", err)
+	}
+
+	result, err := parsed.Parse("Example", "2020-01-01")
+	if err != nil {
+		t.Fatalf("parsing: %+v", err)
+	}
+	if result == nil {
+		t.Fatal("result was nil")
+	}
+	if len(result.Resources) != 1 {
+		t.Fatalf("expected 1 resource but got %d", len(result.Resources))
+	}
+
+	hello, ok := result.Resources["Hello"]
+	if !ok {
+		t.Fatalf("no resources were output with the tag Hello")
+	}
+
+	if len(hello.Constants) != 0 {
+		t.Fatalf("expected no Constants but got %d", len(hello.Constants))
+	}
+	if len(hello.Models) != 2 {
+		t.Fatalf("expected 2 Models but got %d", len(hello.Models))
+	}
+	if len(hello.Operations) != 1 {
+		t.Fatalf("expected 1 Operation but got %d", len(hello.Operations))
+	}
+	if len(hello.ResourceIds) != 0 {
+		t.Fatalf("expected no ResourceIds but got %d", len(hello.ResourceIds))
+	}
+
+	world, ok := hello.Operations["GetWorld"]
+	if !ok {
+		t.Fatalf("no resources were output with the name GetWorld")
+	}
+	if world.Method != "GET" {
+		t.Fatalf("expected a GET operation but got %q", world.Method)
+	}
+	if len(world.ExpectedStatusCodes) != 1 {
+		t.Fatalf("expected 1 status code but got %d", len(world.ExpectedStatusCodes))
+	}
+	if world.ExpectedStatusCodes[0] != 200 {
+		t.Fatalf("expected the status code to be 200 but got %d", world.ExpectedStatusCodes[0])
+	}
+	if world.RequestObjectName != nil {
+		t.Fatalf("expected no request object but got %q", *world.RequestObjectName)
+	}
+	if world.ResponseObjectName == nil {
+		t.Fatal("expected a response object but didn't get one")
+	}
+	if *world.ResponseObjectName != "Example" {
+		t.Fatalf("expected the response object to be 'Example' but got %q", *world.ResponseObjectName)
+	}
+	if world.ResourceIdName != nil {
+		t.Fatalf("expected no ResourceId but got %q", *world.ResourceIdName)
+	}
+	if world.UriSuffix == nil {
+		t.Fatal("expected world.UriSuffix to have a value")
+	}
+	if *world.UriSuffix != "/things" {
+		t.Fatalf("expected world.UriSuffix to be `/things` but got %q", *world.UriSuffix)
+	}
+	if world.LongRunning {
+		t.Fatal("expected a non-long running operation but it was long running")
+	}
+
+	exampleModel, ok := hello.Models["Example"]
+	if !ok {
+		t.Fatalf("expected there to be a model called Example")
+	}
+	if len(exampleModel.Fields) != 2 {
+		t.Fatalf("expected the model Example to have 2 fields but got %d", len(exampleModel.Fields))
+	}
+	thingField, ok := exampleModel.Fields["ThingProps"]
+	if !ok {
+		t.Fatalf("expected the model Example to have a field ThingProps")
+	}
+	if thingField.Type != models.List {
+		t.Fatalf("expected ThingProps to be a List but got %q", string(thingField.Type))
+	}
+	if thingField.ModelReference == nil {
+		t.Fatalf("expected ThingProps to be a reference to ThingProperties but it was nil")
+	}
+	if *thingField.ModelReference != "ThingProperties" {
+		t.Fatalf("expected ThingProps to be a reference to ThingProperties but it was %q", *thingField.ModelReference)
+	}
+
+	thingModel, ok := hello.Models["ThingProperties"]
+	if !ok {
+		t.Fatalf("expected there to be a model called ThingProperties")
+	}
+	if len(thingModel.Fields) != 2 {
+		t.Fatalf("expected ThingProperties to have 2 fields")
+	}
+	fqdnField, ok := thingModel.Fields["FullyQualifiedDomainName"]
+	if !ok {
+		t.Fatalf("expected the model ThingProperties to have the field FullyQualifiedDomainName")
+	}
+	if fqdnField.Type != models.String {
+		t.Fatalf("expected the model ThingProperties field Identity to be a String but it was %q", string(fqdnField.Type))
+	}
+	if fqdnField.ModelReference != nil {
+		t.Fatalf("expected the model ThingProperties field Identity to have no model reference but it was %q", *fqdnField.ModelReference)
+	}
+}
+
 func TestParseModelMultipleTopLevel(t *testing.T) {
 	parsed, err := Load("testdata/", "model_multiple.json", true)
 	if err != nil {
