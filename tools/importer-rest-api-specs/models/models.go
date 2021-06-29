@@ -28,7 +28,7 @@ func (r *AzureApiResource) Normalize() {
 	normalizedModels := make(map[string]ModelDetails)
 	for k, v := range r.Models {
 		modelName := cleanup.NormalizeName(k)
-		fields := make(map[string]FieldDefinition)
+		fields := make(map[string]FieldDetails)
 		for fieldName, fieldVal := range v.Fields {
 			normalizedFieldName := cleanup.NormalizeName(fieldName)
 			if fieldVal.ConstantReference != nil {
@@ -89,7 +89,7 @@ const (
 
 type ModelDetails struct {
 	Description string
-	Fields      map[string]FieldDefinition
+	Fields      map[string]FieldDetails
 
 	// @tombuildsstuff: placeholder until the other branch is merged
 	ParentTypeName *string
@@ -97,9 +97,10 @@ type ModelDetails struct {
 	TypeHintValue  *string
 
 	// TODO: include ReadOnly, which'll mean we need to generate this on a per-type basis if necessary
+	AdditionalProperties map[string]FieldDetails
 }
 
-type FieldDefinition struct {
+type FieldDetails struct {
 	Type              FieldDefinitionType
 	Required          bool
 	ReadOnly          bool

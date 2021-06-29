@@ -13,10 +13,34 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
+type constantDetailsMap map[string]models.ConstantDetails
+
+func (m constantDetailsMap) merge(o constantDetailsMap) {
+	for k, v := range o {
+		m[k] = v
+	}
+}
+
+type fieldDetailsMap map[string]models.FieldDetails
+
+func (f fieldDetailsMap) merge(o fieldDetailsMap) {
+	for k, v := range o {
+		f[k] = v
+	}
+}
+
+type modelDetailsMap map[string]models.ModelDetails
+
+func (m modelDetailsMap) merge(o modelDetailsMap) {
+	for k, v := range o {
+		m[k] = v
+	}
+}
+
 func (d *SwaggerDefinition) parseOperations(input map[string]models.OperationDetails, inlinedModels result) (*result, error) {
 	result := result{
-		constants: map[string]models.ConstantDetails{},
-		models:    map[string]models.ModelDetails{},
+		constants: constantDetailsMap{},
+		models:    modelDetailsMap{},
 	}
 
 	topLevelModelNames := d.findModelsUsedByOperations(input)
@@ -71,20 +95,20 @@ func (d *SwaggerDefinition) parseOperations(input map[string]models.OperationDet
 }
 
 type result struct {
-	constants map[string]models.ConstantDetails
-	fields    map[string]models.FieldDefinition
-	models    map[string]models.ModelDetails
+	constants constantDetailsMap
+	fields    fieldDetailsMap
+	models    modelDetailsMap
 }
 
 func (r *result) append(other result) {
 	if r.constants == nil {
-		r.constants = make(map[string]models.ConstantDetails)
+		r.constants = make(constantDetailsMap)
 	}
 	if r.fields == nil {
-		r.fields = make(map[string]models.FieldDefinition)
+		r.fields = make(fieldDetailsMap)
 	}
 	if r.models == nil {
-		r.models = make(map[string]models.ModelDetails)
+		r.models = make(modelDetailsMap)
 	}
 
 	for k, v := range other.constants {
@@ -151,25 +175,34 @@ func (d *SwaggerDefinition) parseModel(name string, input spec.Schema) (*result,
 		return nil, fmt.Errorf("determining constants for model: %+v", err)
 	}
 
-	constants, fields, err := d.fieldsForModel(name, input, nil, *constants)
+	constants, fields, err := d.fieldsForModel(name, input, nil, constants)
 	if err != nil {
 		return nil, fmt.Errorf("determining fields for model: %+v", err)
 	}
 
-	constants, parsedModels, err := d.modelsForModel(name, input, *constants, *fields)
+	constants, parsedModels, err := d.modelsForModel(name, input, constants, fields)
 	if err != nil {
 		return nil, fmt.Errorf("determining models for model: %+v", err)
 	}
 
 	return &result{
-		constants: *constants,
-		fields:    *fields,
-		models:    *parsedModels,
+		constants: constants,
+		fields:    fields,
+		models:    parsedModels,
 	}, nil
 }
 
-func (d *SwaggerDefinition) constantsForModel(input spec.Schema) (*map[string]models.ConstantDetails, error) {
-	output := make(map[string]models.ConstantDetails, 0)
+func (d *SwaggerDefinition) constantsForModel(input spec.Schema) (constantDetailsMap, error) {
+	output := make(constantDetailsMap, 0)
+
+	// Some models are just Enums
+	if len(input.Enum) > 0 {
+		constant, err := mapConstant(input)
+		if err != nil {
+			return nil, fmt.Errorf("parsing constant: %+v", err)
+		}
+		output[constant.name] = constant.details
+	}
 
 	if len(input.AllOf) > 0 {
 		for _, parent := range input.AllOf {
@@ -188,9 +221,7 @@ func (d *SwaggerDefinition) constantsForModel(input spec.Schema) (*map[string]mo
 				return nil, fmt.Errorf("finding constants within parent model %q: %+v", *fragmentName, err)
 			}
 
-			for k, v := range *constantsWithinModel {
-				output[k] = v
-			}
+			output.merge(constantsWithinModel)
 		}
 	}
 
@@ -198,41 +229,35 @@ func (d *SwaggerDefinition) constantsForModel(input spec.Schema) (*map[string]mo
 		if d.debugLog {
 			log.Printf("[DEBUG] Processing Property %q..", propName)
 		}
-		if propVal.Enum != nil {
-			constant, err := mapConstant(propVal)
-			if err != nil {
-				return nil, fmt.Errorf("parsing constant from %q: %+v", propName, err)
-			}
-			output[constant.name] = constant.details
+		// models can contain nested models - either can contain constants, so around we go..
+		nestedConstants, err := d.constantsForModel(propVal)
+		if err != nil {
+			return nil, fmt.Errorf("finding nested constants within %q: %+v", propName, err)
 		}
 
-		// models can contain nested models - either can contain constants, so around we go..
-		if len(propVal.Properties) > 0 {
+		output.merge(nestedConstants)
+	}
+
+	if input.AdditionalProperties != nil && input.AdditionalProperties.Allows {
+		for propName, propVal := range input.AdditionalProperties.Schema.Properties {
+			if d.debugLog {
+				log.Printf("[DEBUG] Processing Additional Property %q..", propName)
+			}
+			// models can contain nested models - either can contain constants, so around we go..
 			nestedConstants, err := d.constantsForModel(propVal)
 			if err != nil {
 				return nil, fmt.Errorf("finding nested constants within %q: %+v", propName, err)
 			}
 
-			for k, v := range *nestedConstants {
-				output[k] = v
-			}
+			output.merge(nestedConstants)
 		}
 	}
 
-	// Some models are just Enums
-	if len(input.Enum) > 0 {
-		constant, err := mapConstant(input)
-		if err != nil {
-			return nil, fmt.Errorf("parsing constant: %+v", err)
-		}
-		output[constant.name] = constant.details
-	}
-
-	return &output, nil
+	return output, nil
 }
 
-func (d *SwaggerDefinition) fieldsForModel(modelName string, input spec.Schema, requiredKeys []string, constants map[string]models.ConstantDetails) (*map[string]models.ConstantDetails, *map[string]models.FieldDefinition, error) {
-	allConstants := make(map[string]models.ConstantDetails)
+func (d *SwaggerDefinition) fieldsForModel(modelName string, input spec.Schema, requiredKeys []string, constants constantDetailsMap) (constantDetailsMap, fieldDetailsMap, error) {
+	allConstants := make(constantDetailsMap)
 	for k, v := range constants {
 		allConstants[k] = v
 	}
@@ -250,7 +275,7 @@ func (d *SwaggerDefinition) fieldsForModel(modelName string, input spec.Schema, 
 		requiredKeys = append(requiredKeys, k)
 	}
 
-	fields := make(map[string]models.FieldDefinition)
+	fields := make(fieldDetailsMap)
 
 	// This model might just be an Enum list
 	if input.Type != nil && input.Type[0] == "string" && len(input.Enum) > 0 {
@@ -277,10 +302,10 @@ func (d *SwaggerDefinition) fieldsForModel(modelName string, input spec.Schema, 
 			if err != nil {
 				return nil, nil, fmt.Errorf("retrieving fields for inherited type %q: %+v", *fragmentName, err)
 			}
-			for k, v := range *inheritedConstants {
+			for k, v := range inheritedConstants {
 				allConstants[k] = v
 			}
-			for k, v := range *inheritedFields {
+			for k, v := range inheritedFields {
 				fields[k] = v
 			}
 		}
@@ -302,17 +327,17 @@ func (d *SwaggerDefinition) fieldsForModel(modelName string, input spec.Schema, 
 		fields[propName] = *field
 	}
 
-	return &allConstants, &fields, nil
+	return allConstants, fields, nil
 }
 
-func (d *SwaggerDefinition) modelsForModel(name string, input spec.Schema, constants map[string]models.ConstantDetails, fields map[string]models.FieldDefinition) (*map[string]models.ConstantDetails, *map[string]models.ModelDetails, error) {
-	allConstants := make(map[string]models.ConstantDetails, 0)
+func (d *SwaggerDefinition) modelsForModel(name string, input spec.Schema, constants constantDetailsMap, fields fieldDetailsMap) (constantDetailsMap, modelDetailsMap, error) {
+	allConstants := make(constantDetailsMap, 0)
 	for k, v := range constants {
 		allConstants[k] = v
 	}
 
-	allModels := make(map[string]models.ModelDetails, 0)
-	constantsWithinModel, modelsWithinModel, err := d.findModelsForModel(name, input, constants, map[string]models.ModelDetails{})
+	allModels := make(modelDetailsMap, 0)
+	constantsWithinModel, modelsWithinModel, err := d.findModelsForModel(name, input, constants, modelDetailsMap{})
 	if err != nil {
 		return nil, nil, err
 	}
@@ -352,15 +377,15 @@ func (d *SwaggerDefinition) modelsForModel(name string, input spec.Schema, const
 		}
 	}
 
-	return &allConstants, &allModels, nil
+	return allConstants, allModels, nil
 }
 
-func (d *SwaggerDefinition) findModelsForModel(name string, input spec.Schema, constants map[string]models.ConstantDetails, knownModels map[string]models.ModelDetails) (*map[string]models.ConstantDetails, *map[string]models.ModelDetails, error) {
-	allConstants := make(map[string]models.ConstantDetails)
+func (d *SwaggerDefinition) findModelsForModel(name string, input spec.Schema, constants constantDetailsMap, knownModels modelDetailsMap) (*constantDetailsMap, *modelDetailsMap, error) {
+	allConstants := make(constantDetailsMap)
 	for k, v := range constants {
 		allConstants[k] = v
 	}
-	foundModels := make(map[string]models.ModelDetails)
+	foundModels := make(modelDetailsMap)
 
 	// handles recursive models
 	for k := range knownModels {
@@ -369,8 +394,8 @@ func (d *SwaggerDefinition) findModelsForModel(name string, input spec.Schema, c
 		}
 	}
 
-	var allModels = func() map[string]models.ModelDetails {
-		all := make(map[string]models.ModelDetails)
+	var allModels = func() modelDetailsMap {
+		all := make(modelDetailsMap)
 		for k, v := range knownModels {
 			all[k] = v
 		}
@@ -385,13 +410,13 @@ func (d *SwaggerDefinition) findModelsForModel(name string, input spec.Schema, c
 	if err != nil {
 		return nil, nil, fmt.Errorf("finding fields for %q: %+v", name, err)
 	}
-	for constName, constVal := range *consts {
+	for constName, constVal := range consts {
 		allConstants[constName] = constVal
 	}
-	if len(*fields) > 0 {
+	if len(fields) > 0 {
 		foundModels[name] = models.ModelDetails{
 			Description: "",
-			Fields:      *fields,
+			Fields:      fields,
 		}
 	}
 
@@ -471,16 +496,16 @@ func (d *SwaggerDefinition) findModelsForModel(name string, input spec.Schema, c
 			}
 
 			// update the model name for this field
-			field := (*fields)[propName]
+			field := fields[propName]
 			field.ModelReference = &uniqueName
-			(*fields)[propName] = field
+			fields[propName] = field
 			continue
 		}
 	}
 
 	details := models.ModelDetails{
 		Description: "",
-		Fields:      *fields,
+		Fields:      fields,
 	}
 
 	// if this is a Parent
@@ -724,13 +749,13 @@ func stringValueForFloat(value float64) string {
 	return strconv.FormatFloat(value, 'f', -1, 64)
 }
 
-func (d *SwaggerDefinition) mapField(parentModelName, jsonName string, value spec.Schema, isRequired bool, constants map[string]models.ConstantDetails) (*map[string]models.ConstantDetails, *models.FieldDefinition, error) {
-	allConstants := make(map[string]models.ConstantDetails)
+func (d *SwaggerDefinition) mapField(parentModelName, jsonName string, value spec.Schema, isRequired bool, constants constantDetailsMap) (*constantDetailsMap, *models.FieldDetails, error) {
+	allConstants := make(constantDetailsMap)
 	for k, v := range constants {
 		allConstants[k] = v
 	}
 
-	field := models.FieldDefinition{
+	field := models.FieldDetails{
 		Required:          isRequired,
 		ReadOnly:          value.ReadOnly, // TODO: generator should handle this in some manner?
 		ConstantReference: nil,
@@ -1031,7 +1056,7 @@ func (d *SwaggerDefinition) mapField(parentModelName, jsonName string, value spe
 	return &allConstants, &field, nil
 }
 
-func (d *SwaggerDefinition) isConstant(constants map[string]models.ConstantDetails, name string) bool {
+func (d *SwaggerDefinition) isConstant(constants constantDetailsMap, name string) bool {
 	// it must be either a constant or a model, but there'll be less constants to check
 	for constName := range constants {
 		if strings.EqualFold(constName, name) {

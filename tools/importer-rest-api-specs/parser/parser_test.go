@@ -229,7 +229,7 @@ func TestAssertParserCanParseAppConfiguration(t *testing.T) {
 				Models: map[string]models.ModelDetails{
 					"AccessKey": {
 						Description: "",
-						Fields: map[string]models.FieldDefinition{
+						Fields: map[string]models.FieldDetails{
 							"Id": {
 								Type:     models.String,
 								JsonName: "id",
@@ -259,7 +259,7 @@ func TestAssertParserCanParseAppConfiguration(t *testing.T) {
 					},
 					"ConfigurationStore": {
 						Description: "",
-						Fields: map[string]models.FieldDefinition{
+						Fields: map[string]models.FieldDetails{
 							"Id": {
 								Type:     models.String,
 								JsonName: "id",
@@ -302,7 +302,7 @@ func TestAssertParserCanParseAppConfiguration(t *testing.T) {
 
 					"ConfigurationStoreProperties": {
 						Description: "",
-						Fields: map[string]models.FieldDefinition{
+						Fields: map[string]models.FieldDetails{
 							"CreationDate": {
 								Type:     models.DateTime,
 								JsonName: "creationDate",
@@ -336,7 +336,7 @@ func TestAssertParserCanParseAppConfiguration(t *testing.T) {
 					},
 					"ConfigurationStoreUpdateParameters": {
 						Description: "",
-						Fields: map[string]models.FieldDefinition{
+						Fields: map[string]models.FieldDetails{
 							"Identity": {
 								Type:           models.Object,
 								JsonName:       "identity",
@@ -360,7 +360,7 @@ func TestAssertParserCanParseAppConfiguration(t *testing.T) {
 					},
 					"ConfigurationStorePropertiesUpdateParameters": {
 						Description: "",
-						Fields: map[string]models.FieldDefinition{
+						Fields: map[string]models.FieldDetails{
 							"Encryption": {
 								Type:           models.Object,
 								ModelReference: strPtr("EncryptionProperties"),
@@ -375,7 +375,7 @@ func TestAssertParserCanParseAppConfiguration(t *testing.T) {
 					},
 					"EncryptionProperties": {
 						Description: "",
-						Fields: map[string]models.FieldDefinition{
+						Fields: map[string]models.FieldDetails{
 							"KeyVaultProperties": {
 								Type:           models.Object,
 								ModelReference: strPtr("KeyVaultProperties"),
@@ -385,7 +385,7 @@ func TestAssertParserCanParseAppConfiguration(t *testing.T) {
 					},
 					"KeyVaultProperties": {
 						Description: "",
-						Fields: map[string]models.FieldDefinition{
+						Fields: map[string]models.FieldDetails{
 							"IdentityClientId": {
 								Type:     models.String,
 								JsonName: "identityClientId",
@@ -398,7 +398,7 @@ func TestAssertParserCanParseAppConfiguration(t *testing.T) {
 					},
 					"PrivateEndpoint": {
 						Description: "",
-						Fields: map[string]models.FieldDefinition{
+						Fields: map[string]models.FieldDetails{
 							"Id": {
 								Type:     models.String,
 								JsonName: "id",
@@ -407,7 +407,7 @@ func TestAssertParserCanParseAppConfiguration(t *testing.T) {
 					},
 					"PrivateEndpointConnection": {
 						Description: "",
-						Fields: map[string]models.FieldDefinition{
+						Fields: map[string]models.FieldDetails{
 							"Id": {
 								Type:     models.String,
 								JsonName: "id",
@@ -429,7 +429,7 @@ func TestAssertParserCanParseAppConfiguration(t *testing.T) {
 					},
 					"PrivateEndpointConnectionProperties": {
 						Description: "",
-						Fields: map[string]models.FieldDefinition{
+						Fields: map[string]models.FieldDetails{
 							"PrivateEndpoint": {
 								Type:           models.Object,
 								ModelReference: strPtr("PrivateEndpoint"),
@@ -450,7 +450,7 @@ func TestAssertParserCanParseAppConfiguration(t *testing.T) {
 					},
 					"PrivateLinkServiceConnectionState": {
 						Description: "",
-						Fields: map[string]models.FieldDefinition{
+						Fields: map[string]models.FieldDetails{
 							"ActionsRequired": {
 								Type:              models.Object,
 								ConstantReference: strPtr("ActionsRequired"),
@@ -469,7 +469,7 @@ func TestAssertParserCanParseAppConfiguration(t *testing.T) {
 					},
 					"ResourceIdentity": {
 						Description: "",
-						Fields: map[string]models.FieldDefinition{
+						Fields: map[string]models.FieldDetails{
 							"PrincipalId": {
 								Type:     models.String,
 								JsonName: "principalId",
@@ -492,7 +492,7 @@ func TestAssertParserCanParseAppConfiguration(t *testing.T) {
 					},
 					"Sku": {
 						Description: "",
-						Fields: map[string]models.FieldDefinition{
+						Fields: map[string]models.FieldDetails{
 							"Name": {
 								Type:     models.String,
 								Required: true,
@@ -502,7 +502,7 @@ func TestAssertParserCanParseAppConfiguration(t *testing.T) {
 					},
 					"UserIdentity": {
 						Description: "",
-						Fields: map[string]models.FieldDefinition{
+						Fields: map[string]models.FieldDetails{
 							"ClientId": {
 								Type:     models.String,
 								JsonName: "clientId",
@@ -601,7 +601,7 @@ func TestAssertParserCanParseAppConfiguration(t *testing.T) {
 				Models: map[string]models.ModelDetails{
 					"PrivateEndpoint": {
 						Description: "",
-						Fields: map[string]models.FieldDefinition{
+						Fields: map[string]models.FieldDetails{
 							"Id": {
 								Type:     models.String,
 								JsonName: "id",
@@ -610,7 +610,7 @@ func TestAssertParserCanParseAppConfiguration(t *testing.T) {
 					},
 					"PrivateEndpointConnection": {
 						Description: "",
-						Fields: map[string]models.FieldDefinition{
+						Fields: map[string]models.FieldDetails{
 							"Id": {
 								Type:     models.String,
 								JsonName: "id",
@@ -632,7 +632,7 @@ func TestAssertParserCanParseAppConfiguration(t *testing.T) {
 					},
 					"PrivateEndpointConnectionProperties": {
 						Description: "",
-						Fields: map[string]models.FieldDefinition{
+						Fields: map[string]models.FieldDetails{
 							"PrivateEndpoint": {
 								Type:           models.Object,
 								ModelReference: strPtr("PrivateEndpoint"),
@@ -653,7 +653,7 @@ func TestAssertParserCanParseAppConfiguration(t *testing.T) {
 					},
 					"PrivateLinkServiceConnectionState": {
 						Description: "",
-						Fields: map[string]models.FieldDefinition{
+						Fields: map[string]models.FieldDetails{
 							"ActionsRequired": {
 								Type:              models.Object,
 								ConstantReference: strPtr("ActionsRequired"),
@@ -712,7 +712,7 @@ func TestAssertParserCanParseAppConfiguration(t *testing.T) {
 				Models: map[string]models.ModelDetails{
 					"PrivateLinkResource": {
 						Description: "",
-						Fields: map[string]models.FieldDefinition{
+						Fields: map[string]models.FieldDetails{
 							"Id": {
 								Type:     models.String,
 								JsonName: "id",
@@ -734,7 +734,7 @@ func TestAssertParserCanParseAppConfiguration(t *testing.T) {
 					},
 					"PrivateLinkResourceProperties": {
 						Description: "",
-						Fields: map[string]models.FieldDefinition{
+						Fields: map[string]models.FieldDetails{
 							"GroupId": {
 								Type:     models.String,
 								JsonName: "groupId",
