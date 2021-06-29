@@ -794,10 +794,10 @@ func TestParseModelSingleWithReferenceToString(t *testing.T) {
 		t.Fatalf("expected the model ThingProperties to have the field FullyQualifiedDomainName")
 	}
 	if fqdnField.Type != models.String {
-		t.Fatalf("expected the model ThingProperties field Identity to be a String but it was %q", string(fqdnField.Type))
+		t.Fatalf("expected the model ThingProperties field FullyQualifiedDomainName to be a String but it was %q", string(fqdnField.Type))
 	}
 	if fqdnField.ModelReference != nil {
-		t.Fatalf("expected the model ThingProperties field Identity to have no model reference but it was %q", *fqdnField.ModelReference)
+		t.Fatalf("expected the model ThingProperties field FullyQualifiedDomainName to have no model reference but it was %q", *fqdnField.ModelReference)
 	}
 }
 
