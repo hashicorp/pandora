@@ -341,7 +341,7 @@ func (d *SwaggerDefinition) fieldsForModel(modelName string, input spec.Schema, 
 				DictValueType: tptr(models.Object),
 			}
 		} else {
-			// This is kind of a weired piece of code that we reuse the mapField to map an `additionalProperties` block to the fieldDetails.
+			// This is kind of a weird piece of code that we reuse the mapField to map an `additionalProperties` block to the fieldDetails.
 			// For general fields, the `mapField()` resolves the type of the field. While applies to `additionalProperties`,
 			// it is resolving the type of the "value" in the dictionary.
 			// Also, `mapField()` will pull out the nested model to be a reference, which is named to be "{modelName}{jsonName}".
