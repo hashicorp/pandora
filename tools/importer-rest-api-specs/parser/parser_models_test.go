@@ -1404,12 +1404,12 @@ func TestParseModelIdentities(t *testing.T) {
 		t.Fatalf("expected example.Fields['UserAssignedIdentityList'] to be a %q but got %q", string(models.UserAssignedIdentityList), string(uaiList.Type))
 	}
 
-	// Uncomment this after: https://github.com/hashicorp/pandora/issues/96 is fixed.
-	//uaiMap, ok := identityCollection.Fields["UserAssignedIdentityMap"]
-	//if !ok {
-	//	t.Fatalf("example.Fields['UserAssignedIdentityMap'] was missing")
-	//}
-	//if uaiMap.Type != models.UserAssignedIdentityMap {
-	//	t.Fatalf("expected example.Fields['UserAssignedIdentityMap'] to be a %q but got %q", string(models.UserAssignedIdentityMap), string(uaiMap.Type))
-	//}
+
+	uaiMap, ok := identityCollection.Fields["UserAssignedIdentityMap"]
+	if !ok {
+		t.Fatalf("example.Fields['UserAssignedIdentityMap'] was missing")
+	}
+	if uaiMap.Type != models.UserAssignedIdentityMap {
+		t.Fatalf("expected example.Fields['UserAssignedIdentityMap'] to be a %q but got %q", string(models.UserAssignedIdentityMap), string(uaiMap.Type))
+	}
 }

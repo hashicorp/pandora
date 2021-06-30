@@ -1,22 +1,4 @@
 {
-  "swagger": "2.0",
-  "info": {
-    "title": "Example",
-    "description": "Example",
-    "version": "2020-01-01"
-  },
-  "host": "management.mysite.com",
-  "schemes": [
-    "https"
-  ],
-  "consumes": [
-    "application/json"
-  ],
-  "produces": [
-    "application/json"
-  ],
-  "security": [],
-  "securityDefinitions": {},
   "paths": {
     "/foo": {
       "put": {
@@ -24,7 +6,6 @@
           "Identity"
         ],
         "operationId": "Identity_Test",
-        "description": "Tests parsing of a simple model.",
         "parameters": [
           {
             "name": "parameters",
@@ -71,7 +52,7 @@
             "SystemAssigned"
           ],
           "x-ms-enum": {
-            "name": "IdentityType",
+            "name": "IdentityType1",
             "modelAsString": true
           }
         },
@@ -96,13 +77,31 @@
       }
     },
     "UserAssignedIdentityMap": {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "None",
+            "UserAssigned"
+          ],
+          "x-ms-enum": {
+            "name": "IdentityType2",
+            "modelAsString": true
+          }
+        },
+        "userAssignedIdentities": {
+          "$ref": "#/definitions/UserAssignedIdentityMapReal"
+        }
+      }
+    },
+    "UserAssignedIdentityMapReal": {
       "additionalProperties": {
         "type": "object",
         "properties": {
           "clientId": {
             "type": "string"
           },
-          "objectId": {
+          "principalId": {
             "type": "string"
           }
         }
