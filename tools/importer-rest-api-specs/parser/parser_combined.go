@@ -344,7 +344,7 @@ func (d *SwaggerDefinition) fieldsForModel(modelName string, input spec.Schema, 
 			// This is kind of a weired piece of code that we reuse the mapField to map an `additionalProperties` block to the fieldDetails.
 			// For general fields, the `mapField()` resolves the type of the field. While applies to `additionalProperties`,
 			// it is resolving the type of the "value" in the dictionary.
-			// Also, the `mapField()` pull out the nested model to be a reference, which is named to be f"{modelName}{jsonName}".
+			// Also, `mapField()` will pull out the nested model to be a reference, which is named to be "{modelName}{jsonName}".
 			// Hence, we'll manipulate the fieldDetails returned to reflect that.
 			consts, vfield, err := d.mapField(modelName, additionalPropertiesLit, *input.AdditionalProperties.Schema, false, constants)
 			if err != nil {
