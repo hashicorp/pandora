@@ -1,11 +1,17 @@
 package cleanup
 
-import "strings"
+import (
+	"strings"
+)
 
 func NormalizeConstantKey(input string) string {
-	output := NormalizeName(input)
+	output := input
+	output = StringifyNumberInput(output)
+
 	output = strings.ReplaceAll(output, "*", "Any")
 	// TODO: add more if we find them
+
+	output = NormalizeName(output)
 	return output
 }
 
@@ -65,4 +71,31 @@ func NormalizeSegment(input string, camelCase bool) string {
 	}
 
 	return input
+}
+
+func StringifyNumberInput(input string) string {
+	vals := map[int32]string{
+		'.': "Point",
+		'-': "Negative",
+		'0': "Zero",
+		'1': "One",
+		'2': "Two",
+		'3': "Three",
+		'4': "Four",
+		'5': "Five",
+		'6': "Six",
+		'7': "Seven",
+		'8': "Eight",
+		'9': "Nine",
+	}
+	output := ""
+	for _, c := range input {
+		v, ok := vals[c]
+		if !ok {
+			output += string(c)
+			continue
+		}
+		output += v
+	}
+	return output
 }
