@@ -54,7 +54,7 @@ func (n normalizer) models(input map[string]models.ModelDetails) map[string]mode
 	output := make(map[string]models.ModelDetails)
 
 	for key, value := range input {
-		normalizedFields := make(map[string]models.FieldDefinition)
+		normalizedFields := make(map[string]models.FieldDetails)
 		for fieldName, fieldVal := range value.Fields {
 			if v := fieldVal.ConstantReference; v != nil {
 				normalized := cleanup.NormalizeName(*v)

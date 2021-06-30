@@ -82,7 +82,7 @@ namespace %[1]s
 	return &out, nil
 }
 
-func (g PandoraDefinitionGenerator) codeForField(indentation, fieldName string, field models.FieldDefinition, isTypeHint bool) (*string, error) {
+func (g PandoraDefinitionGenerator) codeForField(indentation, fieldName string, field models.FieldDetails, isTypeHint bool) (*string, error) {
 	fieldType, err := dotNetTypeNameForComplexType(field)
 	if err != nil {
 		return nil, err
@@ -108,12 +108,19 @@ func (g PandoraDefinitionGenerator) codeForField(indentation, fieldName string, 
 		fieldType = &typeName
 	}
 
+	if field.ListElementMin != nil {
+		lines = append(lines, fmt.Sprintf("%[1]s[MinItems(%[2]d)]", indentation, *field.ListElementMin))
+	}
+	if field.ListElementMax != nil {
+		lines = append(lines, fmt.Sprintf("%[1]s[MaxItems(%[2]d)]", indentation, *field.ListElementMax))
+	}
+
 	lines = append(lines, fmt.Sprintf("%[1]spublic %[2]s %[3]s { get; set; }", indentation, *fieldType, strings.Title(fieldName)))
 	out := strings.Join(lines, "\n")
 	return &out, nil
 }
 
-func dotNetTypeNameForComplexType(field models.FieldDefinition) (*string, error) {
+func dotNetTypeNameForComplexType(field models.FieldDetails) (*string, error) {
 	var nilableType = func(input string) (*string, error) {
 		return &input, nil
 	}

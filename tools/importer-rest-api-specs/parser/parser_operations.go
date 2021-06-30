@@ -12,8 +12,12 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
-func (d *SwaggerDefinition) findOperationsForTag(tag *string, uriToDetails map[string]idDetails) (*map[string]models.OperationDetails, error) {
+func (d *SwaggerDefinition) findOperationsForTag(tag *string, uriToDetails map[string]idDetails) (*map[string]models.OperationDetails, *result, error) {
 	out := make(map[string]models.OperationDetails, 0)
+	result := result{
+		constants: map[string]models.ConstantDetails{},
+		models:    map[string]models.ModelDetails{},
+	}
 	for httpMethod, operation := range d.swaggerSpecExpanded.Operations() {
 		for uri, operationDetails := range operation {
 			if !operationMatchesTag(operationDetails, tag) {
@@ -22,7 +26,7 @@ func (d *SwaggerDefinition) findOperationsForTag(tag *string, uriToDetails map[s
 
 			operationName := normalizeOperationName(operationDetails.ID, tag)
 			if existingVal, hasExisting := out[operationName]; hasExisting {
-				return nil, fmt.Errorf("duplicate operation ID %q - first %q %q - second %q %q", operationName, existingVal.Method, existingVal.Uri, httpMethod, uri)
+				return nil, nil, fmt.Errorf("duplicate operation ID %q - first %q %q - second %q %q", operationName, existingVal.Method, existingVal.Uri, httpMethod, uri)
 			}
 
 			url := newOperationUri(uri)
@@ -32,22 +36,25 @@ func (d *SwaggerDefinition) findOperationsForTag(tag *string, uriToDetails map[s
 
 			details, ok := uriToDetails[url.normalizedUri()]
 			if !ok {
-				return nil, fmt.Errorf("missing details for %q", url.normalizedUri())
+				return nil, nil, fmt.Errorf("missing details for %q", url.normalizedUri())
 			}
-			operationData, err := d.parseOperation(operationName, httpMethod, url, &details, operationDetails)
+			operationData, nestedResult, err := d.parseOperation(operationName, httpMethod, url, &details, operationDetails)
 			if err != nil {
-				return nil, fmt.Errorf("parsing operation %q: %+v", operationName, err)
+				return nil, nil, fmt.Errorf("parsing operation %q: %+v", operationName, err)
 			}
 
 			if operationData != nil {
 				out[operationName] = *operationData
 			}
+			if nestedResult != nil {
+				result.append(*nestedResult)
+			}
 		}
 	}
-	return &out, nil
+	return &out, &result, nil
 }
 
-func (d *SwaggerDefinition) parseOperation(operationName, httpMethod string, uri operationUri, operation *idDetails, operationDetails *spec.Operation) (*models.OperationDetails, error) {
+func (d *SwaggerDefinition) parseOperation(operationName, httpMethod string, uri operationUri, operation *idDetails, operationDetails *spec.Operation) (*models.OperationDetails, *result, error) {
 	contentType := "application/json"
 	if strings.EqualFold(httpMethod, "HEAD") || strings.EqualFold(httpMethod, "GET") {
 		if len(operationDetails.Consumes) > 0 {
@@ -59,17 +66,31 @@ func (d *SwaggerDefinition) parseOperation(operationName, httpMethod string, uri
 		}
 	}
 
+	result := result{
+		constants: map[string]models.ConstantDetails{},
+		models:    map[string]models.ModelDetails{},
+	}
+
 	expectedStatusCodes := expectedStatusCodesForOperation(operationDetails)
 	paginationField := fieldContainingPaginationDetailsForOperation(operationDetails)
-	requestObjectName := d.requestObjectForOperation(operationDetails)
-	responseObjectName, err := d.responseObjectForOperation(operationDetails, paginationField != nil)
+	requestObjectName, nestedResult, err := d.requestObjectForOperation(operationDetails)
 	if err != nil {
-		return nil, fmt.Errorf("determining response operation for %q (method %q / uri %q): %+v", operationName, httpMethod, uri.normalizedUri(), err)
+		return nil, nil, fmt.Errorf("determining request operation for %q (method %q / uri %q): %+v", operationName, httpMethod, uri.normalizedUri(), err)
+	}
+	if nestedResult != nil {
+		result.append(*nestedResult)
+	}
+	responseObjectName, nestedResult, err := d.responseObjectForOperation(operationDetails, paginationField != nil)
+	if err != nil {
+		return nil, nil, fmt.Errorf("determining response operation for %q (method %q / uri %q): %+v", operationName, httpMethod, uri.normalizedUri(), err)
+	}
+	if nestedResult != nil {
+		result.append(*nestedResult)
 	}
 	longRunning := operationIsLongRunning(operationDetails)
 	options, err := optionsForOperation(operationDetails)
 	if err != nil {
-		return nil, fmt.Errorf("building options for operation %q: %+v", operationName, err)
+		return nil, nil, fmt.Errorf("building options for operation %q: %+v", operationName, err)
 	}
 
 	operationData := models.OperationDetails{
@@ -91,10 +112,10 @@ func (d *SwaggerDefinition) parseOperation(operationName, httpMethod string, uri
 	}
 
 	if operationShouldBeIgnored(operationData) {
-		return nil, nil
+		return nil, nil, nil
 	}
 
-	return &operationData, nil
+	return &operationData, &result, nil
 }
 
 func optionsForOperation(input *spec.Operation) (*map[string]models.OperationOption, error) {
@@ -206,109 +227,173 @@ func operationShouldBeIgnored(input models.OperationDetails) bool {
 	return false
 }
 
-func (d *SwaggerDefinition) requestObjectForOperation(operationDetails *spec.Operation) *string {
+func (d *SwaggerDefinition) requestObjectForOperation(operationDetails *spec.Operation) (*string, *result, error) {
 	// find the same operation in the unexpanded swagger spec since we need the reference name
 	_, _, unexpandedOperation, found := d.swaggerSpecWithReferences.OperationForName(operationDetails.ID)
 	if !found {
-		return nil
+		return nil, nil, nil
 	}
 
+	result := result{
+		constants: map[string]models.ConstantDetails{},
+		models:    map[string]models.ModelDetails{},
+	}
 	for _, param := range unexpandedOperation.Parameters {
 		if strings.EqualFold(param.In, "body") {
-			var fragmentName *string
+			var objectName *string
 
 			// if it's a singular type
 			if param.Schema != nil {
-				fragmentName = fragmentNameFromReference(param.Schema.Ref)
+				objectName = fragmentNameFromReference(param.Schema.Ref)
+				if objectName == nil {
+					if len(param.Schema.Properties) == 0 {
+						return nil, nil, fmt.Errorf("request model must either be a reference or an inlined model but got neither")
+					}
+
+					nestedResult, err := d.parseModel(param.Schema.Title, *param.Schema)
+					if err != nil {
+						return nil, nil, fmt.Errorf("parsing object from inlined request model %q: %+v", param.Schema.Title, err)
+					}
+
+					if nestedResult != nil {
+						objectName = &param.Schema.Title
+						result.models[param.Schema.Title] = models.ModelDetails{
+							Description: "",
+							Fields:      nestedResult.fields,
+						}
+						result.append(*nestedResult)
+					}
+				}
 
 				// if it's taking a list
-				if param.Schema.Type.Contains("array") {
-					if param.Schema.Items != nil && param.Schema.Items.Schema != nil {
-						fragmentName = fragmentNameFromReference(param.Schema.Items.Schema.Ref)
+				if param.Schema.Items != nil && param.Schema.Items.Schema != nil {
+					objectName = fragmentNameFromReference(param.Schema.Items.Schema.Ref)
+					// @tombuildsstuff: appears you can't post a List of Items as a request param?
+				}
+			}
+
+			if objectName != nil {
+				v := normalizeModelName(*objectName)
+				objectName = &v
+			}
+			return objectName, &result, nil
+		}
+	}
+
+	return nil, &result, nil
+}
+
+func (d *SwaggerDefinition) responseObjectForOperation(operationDetails *spec.Operation, isListOperation bool) (*string, *result, error) {
+	// find the same operation in the unexpanded swagger spec since we need the reference name
+	_, _, unexpandedOperation, found := d.swaggerSpecWithReferences.OperationForName(operationDetails.ID)
+	if !found {
+		return nil, nil, nil
+	}
+
+	result := result{
+		constants: map[string]models.ConstantDetails{},
+		models:    map[string]models.ModelDetails{},
+	}
+	for statusCode, details := range unexpandedOperation.Responses.StatusCodeResponses {
+		if operationIsASuccess(statusCode) {
+			var objectName *string
+
+			if details.ResponseProps.Schema == nil {
+				continue
+			}
+
+			// if it's a singular type
+			objectName = fragmentNameFromReference(details.ResponseProps.Schema.Ref)
+			if objectName == nil {
+				if len(details.ResponseProps.Schema.Properties) == 0 && details.ResponseProps.Schema.Type.Contains("object") {
+					return nil, nil, fmt.Errorf("response model must either be a reference or an inlined model but got neither")
+				}
+
+				nestedResult, err := d.parseModel(details.ResponseProps.Schema.Title, *details.ResponseProps.Schema)
+				if err != nil {
+					return nil, nil, fmt.Errorf("parsing object from inlined response model %q: %+v", details.ResponseProps.Schema.Title, err)
+				}
+
+				if nestedResult != nil {
+					objectName = &details.ResponseProps.Schema.Title
+					result.models[details.ResponseProps.Schema.Title] = models.ModelDetails{
+						Description: "",
+						Fields:      nestedResult.fields,
+					}
+					result.append(*nestedResult)
+				}
+			}
+
+			// if it's taking a list
+			if details.ResponseProps.Schema.Type.Contains("array") {
+				if details.ResponseProps.Schema.Items != nil && details.ResponseProps.Schema.Items.Schema != nil {
+					schema := details.ResponseProps.Schema.Items.Schema
+					objectName = fragmentNameFromReference(schema.Ref)
+					if objectName == nil {
+						if len(schema.Properties) == 0 {
+							return nil, nil, fmt.Errorf("response list model must either be a reference or an inlined model but got neither")
+						}
+
+						nestedResult, err := d.parseModel(schema.Title, *schema)
+						if err != nil {
+							return nil, nil, fmt.Errorf("parsing list object from inlined response model %q: %+v", schema.Title, err)
+						}
+
+						if nestedResult != nil {
+							objectName = &schema.Title
+							result.models[schema.Title] = models.ModelDetails{
+								Description: "",
+								Fields:      nestedResult.fields,
+							}
+							result.append(*nestedResult)
+						}
 					}
 				}
 			}
 
-			// TODO: should we fall back to normalizing the name of this field? is that reliable?
-
-			if fragmentName != nil {
-				v := normalizeModelName(*fragmentName)
-				fragmentName = &v
-			}
-			return fragmentName
-		}
-	}
-	return nil
-}
-
-func (d *SwaggerDefinition) responseObjectForOperation(operationDetails *spec.Operation, isListOperation bool) (*string, error) {
-	// find the same operation in the unexpanded swagger spec since we need the reference name
-	_, _, unexpandedOperation, found := d.swaggerSpecWithReferences.OperationForName(operationDetails.ID)
-	if !found {
-		return nil, nil
-	}
-
-	for statusCode, details := range unexpandedOperation.Responses.StatusCodeResponses {
-		if operationIsASuccess(statusCode) {
-			var fragmentName *string
-
-			// if it's a singular type
-			if details.ResponseProps.Schema != nil {
-				fragmentName = fragmentNameFromReference(details.ResponseProps.Schema.Ref)
-			}
-
-			// if it's taking a list
-			if details.ResponseProps.Schema != nil && details.ResponseProps.Schema.Type.Contains("array") {
-				if details.ResponseProps.Schema.Items != nil && details.ResponseProps.Schema.Items.Schema != nil {
-					fragmentName = fragmentNameFromReference(details.ResponseProps.Schema.Items.Schema.Ref)
-				}
-			}
-
-			// TODO: should we fall back to normalizing the name of this field? is that reliable?
-
-			if fragmentName != nil {
-				v := normalizeModelName(*fragmentName)
-				fragmentName = &v
+			if objectName != nil {
+				v := normalizeModelName(*objectName)
+				objectName = &v
 			}
 
 			// however if this is a List operation, that is, we have a skipToken, we should find the model
 			// and check for the `value` field to give us the real model
 			if isListOperation {
-				if fragmentName == nil {
-					return nil, fmt.Errorf("list operations must have a model, but this doesn't")
+				if objectName == nil {
+					return nil, nil, fmt.Errorf("list operations must have a model, but this doesn't")
 				}
 
-				model, err := d.findTopLevelModel(*fragmentName)
+				model, err := d.findTopLevelModel(*objectName)
 				if err != nil {
-					return nil, fmt.Errorf("retrieving model %q for list operation to find real model: %+v", *fragmentName, err)
+					return nil, nil, fmt.Errorf("retrieving model %q for list operation to find real model: %+v", *objectName, err)
 				}
 
-				parsedModel, err := d.parseModel(*fragmentName, *model)
+				parsedModel, err := d.parseModel(*objectName, *model)
 				if err != nil {
-					return nil, fmt.Errorf("parsing model %q for list operation to find real model: %+v", *fragmentName, err)
+					return nil, nil, fmt.Errorf("parsing model %q for list operation to find real model: %+v", *objectName, err)
 				}
 
 				actualModelName := ""
 				for k, v := range parsedModel.fields {
 					if strings.EqualFold(k, "Value") {
 						if v.ModelReference == nil {
-							return nil, fmt.Errorf("parsing model %q for list operation to find real model: missing model reference for field 'value'", *fragmentName)
+							return nil, nil, fmt.Errorf("parsing model %q for list operation to find real model: missing model reference for field 'value'", *objectName)
 						}
 						actualModelName = *v.ModelReference
 						break
 					}
 				}
 				if actualModelName == "" {
-					return nil, fmt.Errorf("parsing model %q for list operation to find real model: model did not contain a field 'value'", *fragmentName)
+					return nil, nil, fmt.Errorf("parsing model %q for list operation to find real model: model did not contain a field 'value'", *objectName)
 				}
-				fragmentName = &actualModelName
+				objectName = &actualModelName
 			}
 
-			return fragmentName, nil
+			return objectName, &result, nil
 		}
 	}
 
-	return nil, nil
+	return nil, &result, nil
 }
 
 func expectedStatusCodesForOperation(operationDetails *spec.Operation) []int {

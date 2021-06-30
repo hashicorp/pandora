@@ -150,7 +150,7 @@ func (m userAssignedIdentityMapMatcher) userAssignedIdentityMatch(model models.M
 	return principalIdOK && tenantIdOK
 }
 
-func fieldIsIdentityTypeOfValue(field models.FieldDefinition, constants map[string]models.ConstantDetails, expect map[string]string) bool {
+func fieldIsIdentityTypeOfValue(field models.FieldDetails, constants constantDetailsMap, expect map[string]string) bool {
 	if field.Type != models.Object {
 		return false
 	}
@@ -163,7 +163,7 @@ func fieldIsIdentityTypeOfValue(field models.FieldDefinition, constants map[stri
 	}
 	actual := map[string]string{}
 	for k, v := range constant.Values {
-		// Some model doesn't define a "None" as an enum value for identity type.
+		// Some model doesn't define a "None" as an enum value for identity type. So we will skip it for comparison.
 		if k == "None" {
 			continue
 		}

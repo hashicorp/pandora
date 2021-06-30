@@ -89,29 +89,40 @@ func (d *SwaggerDefinition) findResourcesForTag(tag *string) (*models.AzureApiRe
 		}
 	}
 
+	result := result{
+		constants: map[string]models.ConstantDetails{},
+		models:    map[string]models.ModelDetails{},
+	}
+
 	resourceIds, err := d.findResourceIdsForTag(tag)
 	if err != nil {
 		return nil, fmt.Errorf("finding resource ids: %+v", err)
 	}
 
-	operations, err := d.findOperationsForTag(tag, resourceIds.UriToDetails)
+	operations, nestedResult, err := d.findOperationsForTag(tag, resourceIds.UriToDetails)
 	if err != nil {
 		return nil, fmt.Errorf("finding operations: %+v", err)
 	}
+	if nestedResult != nil {
+		result.append(*nestedResult)
+	}
 
-	parsed, err := d.parseOperations(*operations)
+	nestedResult, err = d.parseOperations(*operations, result)
 	if err != nil {
 		return nil, fmt.Errorf("parsing operations: %+v", err)
 	}
+	if nestedResult != nil {
+		result.append(*nestedResult)
+	}
 
 	// if there's nothing here, there's no point generating a package
-	if len(*operations) == 0 && len(parsed.models) == 0 && len(parsed.constants) == 0 {
+	if len(*operations) == 0 && len(result.models) == 0 && len(result.constants) == 0 {
 		return nil, nil
 	}
 
 	resource := models.AzureApiResource{
-		Constants:   parsed.constants,
-		Models:      parsed.models,
+		Constants:   result.constants,
+		Models:      result.models,
 		Operations:  *operations,
 		ResourceIds: resourceIds.NamesToResourceIds,
 	}
@@ -128,7 +139,8 @@ func (d *SwaggerDefinition) findTags() []string {
 	for _, operation := range d.swaggerSpecExpanded.Operations() {
 		for _, details := range operation {
 			for _, tag := range details.Tags {
-				tags[tag] = struct{}{}
+				normalizedTag := normalizeTag(tag)
+				tags[normalizedTag] = struct{}{}
 			}
 		}
 	}
@@ -139,4 +151,13 @@ func (d *SwaggerDefinition) findTags() []string {
 	}
 	sort.Strings(out)
 	return out
+}
+
+func normalizeTag(input string) string {
+	// NOTE: we could be smarter here, but given this is a handful of cases it's
+	// probably prudent to hard-code these for now (and fix the swaggers as we
+	// come across them?)
+	output := input
+	output = strings.ReplaceAll(output, "NetWork", "Network")
+	return output
 }

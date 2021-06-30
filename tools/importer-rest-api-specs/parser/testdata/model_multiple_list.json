@@ -70,6 +70,13 @@
             "$ref": "#/definitions/Animal"
           },
           "description": "the animals this person has"
+        },
+        "plants": {
+          "type": "array",
+          "items": {},
+          "maxItems": 10,
+          "minItems": 1,
+          "uniqueItems": true
         }
       },
       "required": [
