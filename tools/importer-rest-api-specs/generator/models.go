@@ -82,7 +82,7 @@ namespace %[1]s
 	return &out, nil
 }
 
-func (g PandoraDefinitionGenerator) codeForField(indentation, fieldName string, field models.FieldDefinition, isTypeHint bool) (*string, error) {
+func (g PandoraDefinitionGenerator) codeForField(indentation, fieldName string, field models.FieldDetails, isTypeHint bool) (*string, error) {
 	fieldType, err := dotNetTypeNameForComplexType(field)
 	if err != nil {
 		return nil, err
@@ -120,7 +120,7 @@ func (g PandoraDefinitionGenerator) codeForField(indentation, fieldName string, 
 	return &out, nil
 }
 
-func dotNetTypeNameForComplexType(field models.FieldDefinition) (*string, error) {
+func dotNetTypeNameForComplexType(field models.FieldDetails) (*string, error) {
 	var nilableType = func(input string) (*string, error) {
 		return &input, nil
 	}
