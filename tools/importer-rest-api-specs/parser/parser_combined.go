@@ -618,7 +618,7 @@ func mapConstant(input spec.Schema) (*parsedConstant, error) {
 			// Some numbers are modelled as strings
 			if numVal, err := strconv.ParseFloat(value, 64); err == nil {
 				if strings.Contains(value, ".") {
-					normalizedName := cleanup.NormalizeConstantKey(floatConstantFromString(value))
+					normalizedName := cleanup.NormalizeConstantKey(value)
 					keysAndValues[normalizedName] = value
 					continue
 				} else {
@@ -707,59 +707,7 @@ func keyValueForInteger(value int64) string {
 
 func keyValueForFloat(value float64) string {
 	stringified := stringValueForFloat(value)
-
-	vals := map[int32]string{
-		'.': "Point",
-		'-': "Negative",
-		'0': "Zero",
-		'1': "One",
-		'2': "Two",
-		'3': "Three",
-		'4': "Four",
-		'5': "Five",
-		'6': "Six",
-		'7': "Seven",
-		'8': "Eight",
-		'9': "Nine",
-	}
-	out := ""
-	for _, c := range stringified {
-		v, ok := vals[c]
-		if !ok {
-			panic(fmt.Sprintf("missing mapping for %q", string(c)))
-		}
-		out += v
-	}
-
-	return out
-}
-
-func floatConstantFromString(input string) string {
-	output := ""
-
-	vals := map[int32]string{
-		'.': "Point",
-		'-': "Negative",
-		'0': "Zero",
-		'1': "One",
-		'2': "Two",
-		'3': "Three",
-		'4': "Four",
-		'5': "Five",
-		'6': "Six",
-		'7': "Seven",
-		'8': "Eight",
-		'9': "Nine",
-	}
-	for _, c := range input {
-		v, ok := vals[c]
-		if !ok {
-			panic(fmt.Sprintf("missing mapping for %q", string(c)))
-		}
-		output += v
-	}
-
-	return output
+	return cleanup.StringifyNumberInput(stringified)
 }
 
 func stringValueForFloat(value float64) string {
