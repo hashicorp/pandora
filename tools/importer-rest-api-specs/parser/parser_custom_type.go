@@ -64,7 +64,7 @@ func (d *SwaggerDefinition) replaceCustomType(input map[string]models.AzureApiRe
 							continue
 						}
 						// TODO: Do we need to remove the models that are only referenced by the "model" under iteration?
-						// Tracked by: https://github.com/hashicorp/pandora/pull/118
+						// Tracked by: https://github.com/hashicorp/pandora/pull/119
 						field.ModelReference = nil
 						field.Type = matcher.Name()
 						m.Fields[fieldName] = field
