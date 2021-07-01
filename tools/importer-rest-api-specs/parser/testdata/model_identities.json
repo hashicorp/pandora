@@ -44,6 +44,9 @@
         },
         "systemAssignedUserAssignedIdentityMap": {
           "$ref": "#/definitions/SystemAssignedUserAssignedIdentityMap"
+        },
+        "malformedIdentity": {
+            "$ref": "#/definitions/MalformedIdentity"
         }
       },
       "type": "object",
@@ -171,6 +174,30 @@
         },
         "userAssignedIdentities": {
           "$ref": "#/definitions/UserAssignedIdentityMapReal"
+        }
+      }
+    },
+    "MalformedIdentity": {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "None",
+            "SystemAssigned",
+            "UserAssigned"
+          ],
+          "x-ms-enum": {
+            "name": "IdentityType4",
+            "modelAsString": true
+          }
+        },
+        "principalId": {
+          "type": "string",
+          "readOnly": true
+        },
+        "tenantId": {
+          "type": "string",
+          "readOnly": true
         }
       }
     }

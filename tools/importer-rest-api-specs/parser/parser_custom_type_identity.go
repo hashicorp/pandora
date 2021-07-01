@@ -1,9 +1,34 @@
 package parser
 
 import (
+	"reflect"
+	"strings"
+
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/cleanup"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
+
+func fieldIsIdentityTypeOfValue(field models.FieldDetails, constants constantDetailsMap, expect map[string]string) bool {
+	if field.Type != models.Object {
+		return false
+	}
+	if field.ConstantReference == nil {
+		return false
+	}
+	constant, ok := constants[*field.ConstantReference]
+	if !ok {
+		return false
+	}
+	actual := map[string]string{}
+	for k, v := range constant.Values {
+		// Some model doesn't define a "None" as an enum value for identity type. So we will skip it for comparison.
+		if strings.EqualFold(k, "None") {
+			continue
+		}
+		actual[k] = v
+	}
+	return reflect.DeepEqual(actual, expect)
+}
 
 // systemAssignedIdentityMatcher matches a model which only supports for SystemAssigned Identity
 type systemAssignedIdentityMatcher struct{}
@@ -81,7 +106,7 @@ func (m userAssignedIdentityListMatcher) Match(model models.ModelDetails, resour
 }
 
 // userAssignedIdentityMapMatcher matches a model which only supports for UserAssigned Identity, whose userAssignedIdentities is formed as a map.
-type userAssignedIdentityMapMatcher struct{
+type userAssignedIdentityMapMatcher struct {
 	uaiMatcher userAssignedIdentitiesMapMatcher
 }
 
@@ -125,19 +150,18 @@ func (m userAssignedIdentityMapMatcher) Match(model models.ModelDetails, resourc
 	return typeOK && userAssignedIdentitiesOK
 }
 
-
 // systemAssignedUserAssignedIdentityListMatcher matches a model which supports both SystemAssigned Identity and UserAssigned Identity whose userAssignedIdentities is formed as an array.
 type systemAssignedUserAssignedIdentityListMatcher struct{}
 
-func (m systemAssignedUserAssignedIdentityListMatcher ) Name() models.FieldDefinitionType {
+func (m systemAssignedUserAssignedIdentityListMatcher) Name() models.FieldDefinitionType {
 	return models.SystemUserAssignedIdentityList
 }
 
 func (m systemAssignedUserAssignedIdentityListMatcher) Match(model models.ModelDetails, resource models.AzureApiResource) bool {
 	var (
-		typeOK        bool
-		principalIdOK bool
-		tenantIdOK    bool
+		typeOK                   bool
+		principalIdOK            bool
+		tenantIdOK               bool
 		userAssignedIdentitiesOK bool
 	)
 
@@ -145,8 +169,8 @@ func (m systemAssignedUserAssignedIdentityListMatcher) Match(model models.ModelD
 		switch fieldName {
 		case "Type":
 			if !fieldIsIdentityTypeOfValue(field, resource.Constants, map[string]string{
-				"SystemAssigned": "SystemAssigned",
-				"UserAssigned": "UserAssigned",
+				"SystemAssigned":             "SystemAssigned",
+				"UserAssigned":               "UserAssigned",
 				"SystemAssignedUserAssigned": "SystemAssigned, UserAssigned",
 			}) {
 				return false
@@ -174,19 +198,19 @@ func (m systemAssignedUserAssignedIdentityListMatcher) Match(model models.ModelD
 }
 
 // systemAssignedUserAssignedIdentityMapMatcher matches a model which supports both SystemAssigned Identity and UserAssigned Identity whose userAssignedIdentities is formed as a map.
-type systemAssignedUserAssignedIdentityMapMatcher struct{
+type systemAssignedUserAssignedIdentityMapMatcher struct {
 	uaiMatcher userAssignedIdentitiesMapMatcher
 }
 
-func (m systemAssignedUserAssignedIdentityMapMatcher ) Name() models.FieldDefinitionType {
+func (m systemAssignedUserAssignedIdentityMapMatcher) Name() models.FieldDefinitionType {
 	return models.SystemUserAssignedIdentityMap
 }
 
 func (m systemAssignedUserAssignedIdentityMapMatcher) Match(model models.ModelDetails, resource models.AzureApiResource) bool {
 	var (
-		typeOK        bool
-		principalIdOK bool
-		tenantIdOK    bool
+		typeOK                   bool
+		principalIdOK            bool
+		tenantIdOK               bool
 		userAssignedIdentitiesOK bool
 	)
 
@@ -194,8 +218,8 @@ func (m systemAssignedUserAssignedIdentityMapMatcher) Match(model models.ModelDe
 		switch fieldName {
 		case "Type":
 			if !fieldIsIdentityTypeOfValue(field, resource.Constants, map[string]string{
-				"SystemAssigned": "SystemAssigned",
-				"UserAssigned": "UserAssigned",
+				"SystemAssigned":             "SystemAssigned",
+				"UserAssigned":               "UserAssigned",
 				"SystemAssignedUserAssigned": "SystemAssigned, UserAssigned",
 			}) {
 				return false
@@ -229,10 +253,9 @@ func (m systemAssignedUserAssignedIdentityMapMatcher) Match(model models.ModelDe
 	return ret
 }
 
-
 // userAssignedIdentitiesMapMatcher matches the UserAssigned Identities which is formed as a map.
 // This is intended to be nested into customTypeMatcher(s) whose target model embedded a  UserAssignedIdentities in the form of map.
-type  userAssignedIdentitiesMapMatcher struct{}
+type userAssignedIdentitiesMapMatcher struct{}
 
 func (m userAssignedIdentitiesMapMatcher) Match(model models.ModelDetails, resource models.AzureApiResource) bool {
 	var (

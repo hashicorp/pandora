@@ -1419,4 +1419,12 @@ func TestParseModelIdentities(t *testing.T) {
 	if uaiMap.Type != models.UserAssignedIdentityMap {
 		t.Fatalf("expected example.Fields['UserAssignedIdentityMap'] to be a %q but got %q", string(models.UserAssignedIdentityMap), string(uaiMap.Type))
 	}
+
+	malformedIdentity, ok := identityCollection.Fields["MalformedIdentity"]
+	if !ok {
+		t.Fatalf("example.Fields['MalformedIdentity'] was missing")
+	}
+	if malformedIdentity.Type != models.Object {
+		t.Fatalf("expected example.Fields['MalformedIdentity'] to be a %q but got %q", string(models.Object), string(malformedIdentity.Type))
+	}
 }

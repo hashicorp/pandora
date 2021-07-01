@@ -1,8 +1,6 @@
 package parser
 
 import (
-	"reflect"
-
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
@@ -11,28 +9,6 @@ import (
 type customTypeMatcher interface {
 	Match(model models.ModelDetails, resource models.AzureApiResource) bool
 	Name() models.FieldDefinitionType
-}
-
-func fieldIsIdentityTypeOfValue(field models.FieldDetails, constants constantDetailsMap, expect map[string]string) bool {
-	if field.Type != models.Object {
-		return false
-	}
-	if field.ConstantReference == nil {
-		return false
-	}
-	constant, ok := constants[*field.ConstantReference]
-	if !ok {
-		return false
-	}
-	actual := map[string]string{}
-	for k, v := range constant.Values {
-		// Some model doesn't define a "None" as an enum value for identity type. So we will skip it for comparison.
-		if k == "None" {
-			continue
-		}
-		actual[k] = v
-	}
-	return reflect.DeepEqual(actual, expect)
 }
 
 func (d *SwaggerDefinition) replaceCustomType(input map[string]models.AzureApiResource) {
