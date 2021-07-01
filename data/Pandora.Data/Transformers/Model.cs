@@ -14,18 +14,27 @@ namespace Pandora.Data.Transformers
     {
         public static List<ModelDefinition> Map(object input)
         {
-            if (input.GetType().IsAGenericList())
+            try
             {
-                // TODO: implement me
-                throw new NotSupportedException("create a wrapper type");
-            }
+                if (input.GetType().IsAGenericList())
+                {
+                    // TODO: implement me
+                    throw new NotSupportedException("create a wrapper type");
+                }
             
-            return MapObject(input.GetType()).Distinct(new ModelComparer()).OrderBy(m => m.Name).ToList();
+                return MapObject(input.GetType()).Distinct(new ModelComparer()).OrderBy(m => m.Name).ToList();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Mapping Models from Model {input.GetType().FullName}", ex);
+            }
         }
 
         private static IEnumerable<ModelDefinition> MapObject(Type input)
         {
-            if (input.IsEnum)
+            try
+            {
+                if (input.IsEnum)
             {
                 return new List<ModelDefinition>();
             }
@@ -131,6 +140,11 @@ namespace Pandora.Data.Transformers
             
             models.Add(model);
             return models;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Mapping Model {input.FullName}", ex);
+            }
         }
     }
 }

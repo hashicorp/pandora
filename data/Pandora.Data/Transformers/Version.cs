@@ -10,27 +10,34 @@ namespace Pandora.Data.Transformers
     {
         public static VersionDefinition Map(ApiVersionDefinition input)
         {
-            var apis = input.Apis.ToList();
-            if (apis.Count == 0)
+            try
             {
-                throw new NotSupportedException($"Version {input.ApiVersion} has no operations");
-            }
+                var apis = input.Apis.ToList();
+                if (apis.Count == 0)
+                {
+                    throw new NotSupportedException($"Version {input.ApiVersion} has no operations");
+                }
             
-            // protect against coding errors
-            var duplicateOperations = apis.Any(a => apis.Count(api => api.GetType().FullName == a.GetType().FullName) > 1);
-            if (duplicateOperations)
-            {
-                throw new NotSupportedException($"Version {input.ApiVersion} has duplicate operations");
-            }
+                // protect against coding errors
+                var duplicateOperations = apis.Any(a => apis.Count(api => api.GetType().FullName == a.GetType().FullName) > 1);
+                if (duplicateOperations)
+                {
+                    throw new NotSupportedException($"Version {input.ApiVersion} has duplicate operations");
+                }
             
-            var apiDefinitions = input.Apis.Select(APIDefinition.Map).ToList();
-            return new VersionDefinition
+                var apiDefinitions = input.Apis.Select(APIDefinition.Map).ToList();
+                return new VersionDefinition
+                {
+                    Apis = apiDefinitions,
+                    Generate = input.Generate,
+                    Preview = input.Preview,
+                    Version = input.ApiVersion,
+                };
+            }
+            catch (Exception ex)
             {
-                Apis = apiDefinitions,
-                Generate = input.Generate,
-                Preview = input.Preview,
-                Version = input.ApiVersion,
-            };
+                throw new Exception($"Mapping API Version {input.GetType().FullName}", ex);
+            }
         }
     }
 }

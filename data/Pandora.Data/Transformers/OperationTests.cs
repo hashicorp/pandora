@@ -17,7 +17,7 @@ namespace Pandora.Data.Transformers
         [TestCase]
         public static void MappingAnOperationWithNoStatusCodesShouldFail()
         {
-            Assert.Throws<NotSupportedException>(() => Operation.Map(new OperationWithNoStatusCodes(), "2018-01-01", "MyApi"));
+            Assert.Throws<Exception>(() => Operation.Map(new OperationWithNoStatusCodes(), "2018-01-01", "MyApi"));
         }
 
         [TestCase]

@@ -58,7 +58,7 @@ namespace Pandora.Data.Transformers
         [TestCase]
         public void MappingFromTypeWhichIsNotAClassShouldFail()
         {
-            Assert.Throws<NotSupportedException>(() => Constant.FromObject(typeof(Example)));
+            Assert.Throws<Exception>(() => Constant.FromObject(typeof(Example)));
         }
         
         [TestCase]
@@ -116,19 +116,19 @@ namespace Pandora.Data.Transformers
         [TestCase]
         public void MappingWithoutAConstantTypeAttribute()
         {
-            Assert.Throws<NotSupportedException>(() => Constant.FromEnum(new EnumWithoutConstantType().GetType()));
+            Assert.Throws<Exception>(() => Constant.FromEnum(new EnumWithoutConstantType().GetType()));
         }
         
         [TestCase]
         public void MappingWithoutDescriptionsShouldFail()
         {
-            Assert.Throws<NotSupportedException>(() => Constant.FromEnum(new EnumMissingAttribute().GetType()));
+            Assert.Throws<Exception>(() => Constant.FromEnum(new EnumMissingAttribute().GetType()));
         }
         
         [TestCase]
         public void MappingAClassShouldFail()
         {
-            Assert.Throws<NotSupportedException>(() => Constant.FromEnum(new ClassWithoutEnum().GetType()));
+            Assert.Throws<Exception>(() => Constant.FromEnum(new ClassWithoutEnum().GetType()));
         }
 
         private class ClassWithoutEnum

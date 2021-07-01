@@ -12,63 +12,77 @@ namespace Pandora.Data.Transformers
     {
         public static List<ConstantDefinition> FromObject(Type input)
         {
-            if (!input.IsClass)
+            try
             {
-                throw new NotSupportedException("expected a class");
-            }
+                if (!input.IsClass)
+                {
+                    throw new NotSupportedException("expected a class");
+                }
             
-            var constantDefinitions = new List<ConstantDefinition>();
-            foreach (var property in input.GetProperties())
-            {
-                var propertyType = property.PropertyType;
-                if (propertyType.IsGenericType && (propertyType.GetGenericTypeDefinition() == typeof(List<>) || propertyType.GetGenericTypeDefinition() == typeof(Nullable<>)))
+                var constantDefinitions = new List<ConstantDefinition>();
+                foreach (var property in input.GetProperties())
                 {
-                    propertyType = propertyType.GetGenericArguments()[0];
+                    var propertyType = property.PropertyType;
+                    if (propertyType.IsGenericType && (propertyType.GetGenericTypeDefinition() == typeof(List<>) || propertyType.GetGenericTypeDefinition() == typeof(Nullable<>)))
+                    {
+                        propertyType = propertyType.GetGenericArguments()[0];
+                    }
+
+                    if (propertyType.FullName == input.FullName)
+                    {
+                        continue;
+                    }
+
+                    if (propertyType.IsEnum)
+                    {
+                        var definition = FromEnum(propertyType);
+                        constantDefinitions.Add(definition);
+                        continue;
+                    }
+                
+                    if (Helpers.IsNativeType(propertyType) || Helpers.IsPandoraCustomType(propertyType) || !propertyType.IsClass)
+                    {
+                        continue;
+                    }
+                
+                    var innerConstants = FromObject(propertyType);
+                    constantDefinitions.AddRange(innerConstants);
                 }
 
-                if (propertyType.FullName == input.FullName)
-                {
-                    continue;
-                }
-
-                if (propertyType.IsEnum)
-                {
-                    var definition = FromEnum(propertyType);
-                    constantDefinitions.Add(definition);
-                    continue;
-                }
-                
-                if (Helpers.IsNativeType(propertyType) || Helpers.IsPandoraCustomType(propertyType) || !propertyType.IsClass)
-                {
-                    continue;
-                }
-                
-                var innerConstants = FromObject(propertyType);
-                constantDefinitions.AddRange(innerConstants);
+                return constantDefinitions.Distinct(new ConstantComparer()).ToList();
             }
-
-            return constantDefinitions.Distinct(new ConstantComparer()).ToList();
+            catch (Exception ex)
+            {
+                throw new Exception($"Mapping Constant FromObject {input.FullName}", ex);
+            }
         }
         
         public static ConstantDefinition FromEnum(Type input)
         {
-            if (!input.IsEnum)
+            try
             {
-                throw new NotSupportedException("expected an enum");
-            }
+                if (!input.IsEnum)
+                {
+                    throw new NotSupportedException("expected an enum");
+                }
             
-            var caseInsensitive = IsCaseInsensitive(input);
-            var variableType = TypeForEnum(input);
-            var values = ValuesForEnum(input);
+                var caseInsensitive = IsCaseInsensitive(input);
+                var variableType = TypeForEnum(input);
+                var values = ValuesForEnum(input);
 
-            // this enum has to have a 'description' tag for each of the values
-            return new ConstantDefinition
+                // this enum has to have a 'description' tag for each of the values
+                return new ConstantDefinition
+                {
+                    Name = input.Name,
+                    CaseInsensitive = caseInsensitive,
+                    Type = variableType,
+                    Values = values,
+                };
+            }
+            catch (Exception ex)
             {
-                Name = input.Name,
-                CaseInsensitive = caseInsensitive,
-                Type = variableType,
-                Values = values,
-            };
+                throw new Exception($"Mapping Constant FromEnum {input.FullName}", ex);
+            }
         }
 
         private static bool IsCaseInsensitive(Type input)

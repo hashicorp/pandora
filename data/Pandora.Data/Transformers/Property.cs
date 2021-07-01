@@ -15,91 +15,98 @@ namespace Pandora.Data.Transformers
     {
         public static PropertyDefinition Map(PropertyInfo input, string containingType)
         {
-        //     // TODO: this needs to handle being a List of things
-        //     if (input.GetType().IsAGenericList())
-        //     {
-        //         var nested = input.GetType().GenericListElement();
-        //         // we need to iterate over the nested element
-        //     }
-        //     
-            var jsonName = input.JsonName(containingType);
-            var required = input.HasAttribute<RequiredAttribute>();
-            var optional = input.HasAttribute<OptionalAttribute>();
-            var forceNew = input.HasAttribute<ForceNewAttribute>();
-            var isTypeHint = input.PropertyType.IsAbstract;
-            var propertyType = MapPropertyType(input.PropertyType);
-            var validation = Validation.Map(input);
-
-            if (required && optional)
+            try
             {
-                throw new NotSupportedException($"{input.Name} cannot be both Required and Optional");
-            }
-
-            var definition = new PropertyDefinition
-            {
-                Name = input.Name,
-                JsonName = jsonName,
-                Required = required,
-                Optional = optional || !required,
-                ForceNew = forceNew,
-                IsTypeHint = isTypeHint,
-                PropertyType = propertyType,
-                Validation = validation,
-            };
+                // // TODO: this needs to handle being a List of things
+                // if (input.GetType().IsAGenericList())
+                // {
+                //     var nested = input.GetType().GenericListElement();
+                //     // we need to iterate over the nested element
+                // }
             
-            if (optional) {
-                definition.Default = GetDefaultValue(input, containingType);
-            }
+                var jsonName = input.JsonName(containingType);
+                var required = input.HasAttribute<RequiredAttribute>();
+                var optional = input.HasAttribute<OptionalAttribute>();
+                var forceNew = input.HasAttribute<ForceNewAttribute>();
+                var isTypeHint = input.PropertyType.IsAbstract;
+                var propertyType = MapPropertyType(input.PropertyType);
+                var validation = Validation.Map(input);
 
-            if (definition.PropertyType == PropertyType.List) {
-                var elementDetails = GetListElementDetails(input.PropertyType);
-                definition.ConstantReference = elementDetails.ConstantType;
-                definition.ListElementType = elementDetails.ElementPropertyType;
-                definition.ModelReference = elementDetails.ModelType;
-                definition.IsTypeHint = elementDetails.IsTypeHint;
-
-                if (input.HasAttribute<MinItemsAttribute>()) {
-                    var attr = input.GetCustomAttribute<MinItemsAttribute>();
-                    definition.MinItems = attr.MinItems;
-                }
-
-                if (input.HasAttribute<MaxItemsAttribute>()) {
-                    var attr = input.GetCustomAttribute<MaxItemsAttribute>();
-                    definition.MaxItems = attr.MaxItems;
-                }
-            }
-
-            if (definition.PropertyType == PropertyType.Constant)
-            {
-                definition.ConstantReference = input.PropertyType.Name;
-                if (input.PropertyType.IsGenericType)
+                if (required && optional)
                 {
-                    var innerType = Nullable.GetUnderlyingType(input.PropertyType);
-                    definition.ConstantReference = innerType.Name;
+                    throw new NotSupportedException($"{input.Name} cannot be both Required and Optional");
                 }
-            }
-            
-            if (definition.PropertyType == PropertyType.DateTime)
-            {
-                var hasDateFormat = input.HasAttribute<DateFormatAttribute>();
-                if (!hasDateFormat)
-                {
-                    throw new InvalidDataException($"DateTime {definition.Name} is missing a DateFormatAttribute");
-                }
-                var dateFormatAttr = input.GetCustomAttribute<DateFormatAttribute>();
-                definition.DateFormat = dateFormatAttr.Format;
-            }
-            
-            if (definition.PropertyType == PropertyType.Object)
-            {
-                // Raw Objects (which we express in C# as Object's should have no nested type)
-                if (input.PropertyType != typeof(object))
-                {
-                    definition.ModelReference = input.PropertyType.Name;
-                }
-            }
 
-            return definition;
+                var definition = new PropertyDefinition
+                {
+                    Name = input.Name,
+                    JsonName = jsonName,
+                    Required = required,
+                    Optional = optional || !required,
+                    ForceNew = forceNew,
+                    IsTypeHint = isTypeHint,
+                    PropertyType = propertyType,
+                    Validation = validation,
+                };
+                
+                if (optional) {
+                    definition.Default = GetDefaultValue(input, containingType);
+                }
+
+                if (definition.PropertyType == PropertyType.List) {
+                    var elementDetails = GetListElementDetails(input.PropertyType);
+                    definition.ConstantReference = elementDetails.ConstantType;
+                    definition.ListElementType = elementDetails.ElementPropertyType;
+                    definition.ModelReference = elementDetails.ModelType;
+                    definition.IsTypeHint = elementDetails.IsTypeHint;
+
+                    if (input.HasAttribute<MinItemsAttribute>()) {
+                        var attr = input.GetCustomAttribute<MinItemsAttribute>();
+                        definition.MinItems = attr.MinItems;
+                    }
+
+                    if (input.HasAttribute<MaxItemsAttribute>()) {
+                        var attr = input.GetCustomAttribute<MaxItemsAttribute>();
+                        definition.MaxItems = attr.MaxItems;
+                    }
+                }
+
+                if (definition.PropertyType == PropertyType.Constant)
+                {
+                    definition.ConstantReference = input.PropertyType.Name;
+                    if (input.PropertyType.IsGenericType)
+                    {
+                        var innerType = Nullable.GetUnderlyingType(input.PropertyType);
+                        definition.ConstantReference = innerType.Name;
+                    }
+                }
+                
+                if (definition.PropertyType == PropertyType.DateTime)
+                {
+                    var hasDateFormat = input.HasAttribute<DateFormatAttribute>();
+                    if (!hasDateFormat)
+                    {
+                        throw new InvalidDataException($"DateTime {definition.Name} is missing a DateFormatAttribute");
+                    }
+                    var dateFormatAttr = input.GetCustomAttribute<DateFormatAttribute>();
+                    definition.DateFormat = dateFormatAttr.Format;
+                }
+                
+                if (definition.PropertyType == PropertyType.Object)
+                {
+                    // Raw Objects (which we express in C# as Object's should have no nested type)
+                    if (input.PropertyType != typeof(object))
+                    {
+                        definition.ModelReference = input.PropertyType.Name;
+                    }
+                }
+
+                return definition;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Mapping Property {input.Name}", ex);
+            }
         }
 
         private class ListElementDetails

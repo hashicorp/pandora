@@ -10,33 +10,40 @@ namespace Pandora.Data.Transformers
     {
         public static List<OptionDefinition> Map(object input)
         {
-            if (input == null)
+            try
             {
-                return new List<OptionDefinition>();
-            }
-            
-            var definitions = new List<OptionDefinition>();
-
-            var props = input.GetType().GetProperties();
-            foreach (var property in props)
-            {
-                var definition = new OptionDefinition
+                if (input == null)
                 {
-                    Name = property.Name,
-                    Required = true,
-                    Type = MapOptionDefinitionType(property.PropertyType),
-                    QueryStringName = property.QueryStringName()
-                };
-
-                if (property.HasAttribute<OptionalAttribute>())
-                {
-                    definition.Required = false;
+                    return new List<OptionDefinition>();
                 }
-                
-                definitions.Add(definition);      
-            }
+            
+                var definitions = new List<OptionDefinition>();
 
-            return definitions;
+                var props = input.GetType().GetProperties();
+                foreach (var property in props)
+                {
+                    var definition = new OptionDefinition
+                    {
+                        Name = property.Name,
+                        Required = true,
+                        Type = MapOptionDefinitionType(property.PropertyType),
+                        QueryStringName = property.QueryStringName()
+                    };
+
+                    if (property.HasAttribute<OptionalAttribute>())
+                    {
+                        definition.Required = false;
+                    }
+                
+                    definitions.Add(definition);      
+                }
+
+                return definitions;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Mapping Options Object {input.GetType().FullName}", ex);
+            }
         }
 
         private static OptionDefinitionType MapOptionDefinitionType(Type propertyType)
