@@ -187,8 +187,10 @@ func dotNetTypeNameForComplexType(field models.FieldDetails) (*string, error) {
 		return nilableType("CustomTypes.Tags")
 	case models.SystemAssignedIdentity:
 		return nilableType("CustomTypes.SystemAssignedIdentity")
-	case models.SystemUserAssignedIdentity:
-		return nilableType("CustomTypes.SystemUserAssignedIdentity")
+	case models.SystemUserAssignedIdentityList:
+		return nilableType("CustomTypes.SystemUserAssignedIdentityList")
+	case models.SystemUserAssignedIdentityMap:
+		return nilableType("CustomTypes.SystemUserAssignedIdentityMap")
 	case models.UserAssignedIdentityList:
 		return nilableType("CustomTypes.UserAssignedIdentityList")
 	case models.UserAssignedIdentityMap:

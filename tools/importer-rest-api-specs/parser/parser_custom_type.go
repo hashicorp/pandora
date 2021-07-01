@@ -9,8 +9,8 @@ import (
 // customTypeMatcher tests whether a model matches the schema definition of a custom type.
 // Note that each implementation of customTypeMatcher should be mutually exclusive.
 type customTypeMatcher interface {
-	CustomTypeMatches(model models.ModelDetails, resource models.AzureApiResource) bool
-	TypeName() models.FieldDefinitionType
+	Match(model models.ModelDetails, resource models.AzureApiResource) bool
+	Name() models.FieldDefinitionType
 }
 
 func fieldIsIdentityTypeOfValue(field models.FieldDetails, constants constantDetailsMap, expect map[string]string) bool {
@@ -40,12 +40,14 @@ func (d *SwaggerDefinition) replaceCustomType(input map[string]models.AzureApiRe
 		systemAssignedIdentityMatcher{},
 		userAssignedIdentityListMatcher{},
 		userAssignedIdentityMapMatcher{},
+		systemAssignedUserAssignedIdentityListMatcher{},
+		systemAssignedUserAssignedIdentityMapMatcher{},
 	}
 
 	for resourceName, resource := range input {
 		for modelName, model := range resource.Models {
 			for _, matcher := range matchers {
-				if !matcher.CustomTypeMatches(model, resource) {
+				if !matcher.Match(model, resource) {
 					continue
 				}
 				// Remove the model from the model set
@@ -64,7 +66,7 @@ func (d *SwaggerDefinition) replaceCustomType(input map[string]models.AzureApiRe
 							continue
 						}
 						field.ModelReference = nil
-						field.Type = matcher.TypeName()
+						field.Type = matcher.Name()
 						m.Fields[fieldName] = field
 					}
 				}

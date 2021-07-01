@@ -38,6 +38,12 @@
         },
         "userAssignedIdentityMap": {
             "$ref": "#/definitions/UserAssignedIdentityMap"
+        },
+        "systemAssignedUserAssignedIdentityList": {
+          "$ref": "#/definitions/SystemAssignedUserAssignedIdentityList"
+        },
+        "systemAssignedUserAssignedIdentityMap": {
+          "$ref": "#/definitions/SystemAssignedUserAssignedIdentityMap"
         }
       },
       "type": "object",
@@ -104,6 +110,67 @@
           "principalId": {
             "type": "string"
           }
+        }
+      }
+    },
+    "SystemAssignedUserAssignedIdentityList": {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "None",
+            "SystemAssigned",
+            "UserAssigned",
+            "SystemAssigned, UserAssigned"
+
+          ],
+          "x-ms-enum": {
+            "name": "IdentityType3",
+            "modelAsString": true
+          }
+        },
+        "principalId": {
+          "type": "string",
+          "readOnly": true
+        },
+        "tenantId": {
+          "type": "string",
+          "readOnly": true
+        },
+        "userAssignedIdentities": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "SystemAssignedUserAssignedIdentityMap": {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "None",
+            "SystemAssigned",
+            "UserAssigned",
+            "SystemAssigned, UserAssigned"
+
+          ],
+          "x-ms-enum": {
+            "name": "IdentityType3",
+            "modelAsString": true
+          }
+        },
+        "principalId": {
+          "type": "string",
+          "readOnly": true
+        },
+        "tenantId": {
+          "type": "string",
+          "readOnly": true
+        },
+        "userAssignedIdentities": {
+          "$ref": "#/definitions/UserAssignedIdentityMapReal"
         }
       }
     }

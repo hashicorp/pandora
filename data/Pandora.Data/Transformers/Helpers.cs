@@ -29,7 +29,8 @@ namespace Pandora.Data.Transformers
                 typeof(Location),
                 typeof(Tags),
                 typeof(SystemAssignedIdentity),
-                typeof(SystemUserAssignedIdentity),
+                typeof(SystemUserAssignedIdentityList),
+                typeof(SystemUserAssignedIdentityMap),
                 typeof(UserAssignedIdentityList),
                 typeof(UserAssignedIdentityMap),
             };

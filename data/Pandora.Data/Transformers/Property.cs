@@ -171,9 +171,14 @@ namespace Pandora.Data.Transformers
                 return PropertyType.SystemAssignedIdentity;
             }
 
-            if (propertyType == typeof(SystemUserAssignedIdentity).FullName)
+            if (propertyType == typeof(SystemUserAssignedIdentityList).FullName)
             {
-                return PropertyType.SystemUserAssignedIdentity;
+                return PropertyType.SystemUserAssignedIdentityList;
+            }
+
+            if (propertyType == typeof(SystemUserAssignedIdentityMap).FullName)
+            {
+                return PropertyType.SystemUserAssignedIdentityMap;
             }
 
             if (propertyType == typeof(UserAssignedIdentityList).FullName)

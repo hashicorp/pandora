@@ -24,6 +24,7 @@ namespace Pandora.Data.Models
         UserAssignedIdentityMap,
         UserAssignedIdentityList,
         SystemAssignedIdentity,
-        SystemUserAssignedIdentity,
+        SystemUserAssignedIdentityList,
+        SystemUserAssignedIdentityMap,
     }
 }

@@ -1404,6 +1404,13 @@ func TestParseModelIdentities(t *testing.T) {
 		t.Fatalf("expected example.Fields['UserAssignedIdentityList'] to be a %q but got %q", string(models.UserAssignedIdentityList), string(uaiList.Type))
 	}
 
+	sauaiList, ok := identityCollection.Fields["SystemAssignedUserAssignedIdentityList"]
+	if !ok {
+		t.Fatalf("example.Fields['SystemAssignedUserAssignedIdentityList'] was missing")
+	}
+	if sauaiList.Type != models.SystemUserAssignedIdentityList {
+		t.Fatalf("expected example.Fields['SystemAssignedUserAssignedIdentityList'] to be a %q but got %q", string(models.SystemUserAssignedIdentityList), string(sauaiList.Type))
+	}
 
 	uaiMap, ok := identityCollection.Fields["UserAssignedIdentityMap"]
 	if !ok {

@@ -125,11 +125,21 @@ namespace Pandora.Data.Transformers
                         continue;
                     }
 
-                    case "BasicSystemUserAssignedIdentityField":
+                    case "BasicSystemUserAssignedIdentityListField":
                     {
-                        Assert.AreEqual("BasicSystemUserAssignedIdentityField", actual.Name);
-                        Assert.AreEqual("basicSystemUserAssignedIdentityField", actual.JsonName);
-                        Assert.AreEqual(PropertyType.SystemUserAssignedIdentity, actual.PropertyType);
+                        Assert.AreEqual("BasicSystemUserAssignedIdentityListField", actual.Name);
+                        Assert.AreEqual("basicSystemUserAssignedIdentityListField", actual.JsonName);
+                        Assert.AreEqual(PropertyType.SystemUserAssignedIdentityList, actual.PropertyType);
+                        Assert.AreEqual(true, actual.Optional);
+                        Assert.AreEqual(false, actual.Required);
+                        continue;
+                    }
+
+                    case "BasicSystemUserAssignedIdentityMapField":
+                    {
+                        Assert.AreEqual("BasicSystemUserAssignedIdentityMapField", actual.Name);
+                        Assert.AreEqual("basicSystemUserAssignedIdentityMapField", actual.JsonName);
+                        Assert.AreEqual(PropertyType.SystemUserAssignedIdentityMap, actual.PropertyType);
                         Assert.AreEqual(true, actual.Optional);
                         Assert.AreEqual(false, actual.Required);
                         continue;
@@ -415,8 +425,11 @@ namespace Pandora.Data.Transformers
             [JsonPropertyName("basicSystemAssignedIdentityField")]
             public SystemAssignedIdentity BasicSystemAssignedIdentityField {get; set;}
 
-            [JsonPropertyName("basicSystemUserAssignedIdentityField")]
-            public SystemUserAssignedIdentity BasicSystemUserAssignedIdentityField {get; set;}
+            [JsonPropertyName("basicSystemUserAssignedIdentityListField")]
+            public SystemUserAssignedIdentityList BasicSystemUserAssignedIdentityListField {get; set;}
+
+            [JsonPropertyName("basicSystemUserAssignedIdentityMapField")]
+            public SystemUserAssignedIdentityMap BasicSystemUserAssignedIdentityMapField {get; set;}
 
             [JsonPropertyName("basicUserAssignedIdentityListField")]
             public UserAssignedIdentityList BasicUserAssignedIdentityListField {get; set;}
