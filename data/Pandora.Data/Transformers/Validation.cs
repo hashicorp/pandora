@@ -9,18 +9,25 @@ namespace Pandora.Data.Transformers
     {
         public static Models.ValidationDefinition? Map(PropertyInfo input)
         {
-            var optional = input.GetCustomAttribute<FieldValidationAttribute>();
-            if (optional == null)
+            try
             {
-                return null;
-            }
+                var optional = input.GetCustomAttribute<FieldValidationAttribute>();
+                if (optional == null)
+                {
+                    return null;
+                }
 
-            var definition = optional.Definition();
-            return new Models.ValidationDefinition
+                var definition = optional.Definition();
+                return new Models.ValidationDefinition
+                {
+                    ValidationType = MapValidationType(definition.ValidationType),
+                    Values = definition.Values,
+                };
+            }
+            catch (Exception ex)
             {
-                ValidationType = MapValidationType(definition.ValidationType),
-                Values = definition.Values,
-            };
+                throw new Exception($"Mapping Validation {input.Name}", ex);
+            }
         }
         
 
