@@ -54,8 +54,6 @@ func (d *SwaggerDefinition) replaceCustomType(input map[string]models.AzureApiRe
 				delete(input[resourceName].Models, modelName)
 
 				// Iterate over all the models' fields, modify any field referencing this model by nil set its ModelReference, and set its Type to the custom type.
-				// TODO: Do we need to remove the models that are only referenced by the "model" under iteration?
-				//       E.g. the "model" might has reference to the "userAssignedIdentities" model.
 				for mName, m := range resource.Models {
 					// Skip current model that is deleted from the model set
 					if mName == modelName {
@@ -65,6 +63,8 @@ func (d *SwaggerDefinition) replaceCustomType(input map[string]models.AzureApiRe
 						if field.ModelReference == nil || *field.ModelReference != modelName {
 							continue
 						}
+						// TODO: Do we need to remove the models that are only referenced by the "model" under iteration?
+						// Tracked by: https://github.com/hashicorp/pandora/pull/118
 						field.ModelReference = nil
 						field.Type = matcher.Name()
 						m.Fields[fieldName] = field
