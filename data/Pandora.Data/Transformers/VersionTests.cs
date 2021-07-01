@@ -12,7 +12,7 @@ namespace Pandora.Data.Transformers
         [TestCase]
         public static void MappingAVersionWithoutAnyOperationsShouldFail()
         {
-            Assert.Throws<NotSupportedException>(() => Version.Map(new VersionDefinitionWithNoOperations()));
+            Assert.Throws<Exception>(() => Version.Map(new VersionDefinitionWithNoOperations()));
         }
 
         [TestCase]
@@ -29,7 +29,7 @@ namespace Pandora.Data.Transformers
         [TestCase]
         public static void MappingAVersionContainingADuplicateOperationTwiceShouldRaiseAnError()
         {
-            Assert.Throws<NotSupportedException>(() => Version.Map(new VersionDefinitionWithDuplicateOperations()));
+            Assert.Throws<Exception>(() => Version.Map(new VersionDefinitionWithDuplicateOperations()));
         }
 
         private class VersionDefinitionWithNoOperations : ApiVersionDefinition

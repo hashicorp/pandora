@@ -18,7 +18,7 @@ namespace Pandora.Data.Transformers
         {
             foreach (var property in new WithoutArgumentExample().GetType().GetProperties())
             {
-                Assert.Throws<NotSupportedException>(() => Property.Map(property, typeof(WithoutArgumentExample).FullName!));
+                Assert.Throws<Exception>(() => Property.Map(property, typeof(WithoutArgumentExample).FullName!));
             }
         }
         

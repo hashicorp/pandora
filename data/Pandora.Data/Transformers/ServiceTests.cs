@@ -13,7 +13,7 @@ namespace Pandora.Data.Transformers
         [TestCase]
         public static void MappingWithNoVersionsShouldFail()
         {
-            Assert.Throws<NotSupportedException>(() => Service.Map(new NoVersionsContainer.ServiceWithNoVersions()));
+            Assert.Throws<Exception>(() => Service.Map(new NoVersionsContainer.ServiceWithNoVersions()));
         }
 
         [TestCase]

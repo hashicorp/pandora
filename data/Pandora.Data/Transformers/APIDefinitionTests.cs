@@ -18,7 +18,7 @@ namespace Pandora.Data.Transformers
         [TestCase]
         public static void ApiVersionWithNoOperationsShouldFail()
         {
-            Assert.Throws<NotSupportedException>(() => APIDefinition.Map(new ApiVersionWithNoOperations()));
+            Assert.Throws<Exception>(() => APIDefinition.Map(new ApiVersionWithNoOperations()));
         }
 
         [TestCase]
