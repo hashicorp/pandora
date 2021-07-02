@@ -21,5 +21,10 @@ namespace Pandora.Data.Models
         Object,
         Tags,
         String,
+        UserAssignedIdentityMap,
+        UserAssignedIdentityList,
+        SystemAssignedIdentity,
+        SystemUserAssignedIdentityList,
+        SystemUserAssignedIdentityMap,
     }
 }

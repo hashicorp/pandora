@@ -188,6 +188,16 @@ func dotNetTypeNameForComplexType(field models.FieldDetails) (*string, error) {
 		return nilableType("CustomTypes.Location")
 	case models.Tags:
 		return nilableType("CustomTypes.Tags")
+	case models.SystemAssignedIdentity:
+		return nilableType("CustomTypes.SystemAssignedIdentity")
+	case models.SystemUserAssignedIdentityList:
+		return nilableType("CustomTypes.SystemUserAssignedIdentityList")
+	case models.SystemUserAssignedIdentityMap:
+		return nilableType("CustomTypes.SystemUserAssignedIdentityMap")
+	case models.UserAssignedIdentityList:
+		return nilableType("CustomTypes.UserAssignedIdentityList")
+	case models.UserAssignedIdentityMap:
+		return nilableType("CustomTypes.UserAssignedIdentityMap")
 	}
 
 	return nil, fmt.Errorf(fmt.Sprintf("TODO: unsupported type %q", string(field.Type)))

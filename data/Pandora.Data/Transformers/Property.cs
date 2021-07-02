@@ -173,6 +173,31 @@ namespace Pandora.Data.Transformers
                 return PropertyType.Tags;
             }
 
+            if (propertyType == typeof(SystemAssignedIdentity).FullName)
+            {
+                return PropertyType.SystemAssignedIdentity;
+            }
+
+            if (propertyType == typeof(SystemUserAssignedIdentityList).FullName)
+            {
+                return PropertyType.SystemUserAssignedIdentityList;
+            }
+
+            if (propertyType == typeof(SystemUserAssignedIdentityMap).FullName)
+            {
+                return PropertyType.SystemUserAssignedIdentityMap;
+            }
+
+            if (propertyType == typeof(UserAssignedIdentityList).FullName)
+            {
+                return PropertyType.UserAssignedIdentityList;
+            }
+
+            if (propertyType == typeof(UserAssignedIdentityMap).FullName)
+            {
+                return PropertyType.UserAssignedIdentityMap;
+            }
+
             switch (propertyType)
             {
                 case "System.Boolean":

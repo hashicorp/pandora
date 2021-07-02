@@ -28,7 +28,11 @@ namespace Pandora.Data.Transformers
             {
                 typeof(Location),
                 typeof(Tags),
-                // TODO: identity since these use dictionary[nested]
+                typeof(SystemAssignedIdentity),
+                typeof(SystemUserAssignedIdentityList),
+                typeof(SystemUserAssignedIdentityMap),
+                typeof(UserAssignedIdentityList),
+                typeof(UserAssignedIdentityMap),
             };
             return customTypes.Contains(input);
         }

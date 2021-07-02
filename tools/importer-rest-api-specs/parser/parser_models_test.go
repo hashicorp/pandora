@@ -1363,3 +1363,68 @@ func fieldValueOrNil(obj interface{}, fieldName string) interface{} {
 	}
 	return fv.Elem().Interface()
 }
+
+func TestParseModelIdentities(t *testing.T) {
+	parsed, err := Load("testdata/", "model_identities.json", true)
+	if err != nil {
+		t.Fatalf("loading: %+v", err)
+	}
+
+	result, err := parsed.Parse("Example", "2020-01-01")
+	if err != nil {
+		t.Fatalf("parsing: %+v", err)
+	}
+	if result == nil {
+		t.Fatal("result was nil")
+	}
+
+	resource, ok := result.Resources["Identity"]
+	if !ok {
+		t.Fatal("the Resource 'Identity' was not found")
+	}
+
+	identityCollection, ok := resource.Models["IdentityCollection"]
+	if !ok {
+		t.Fatalf("the Model `IdentityCollection` was not found")
+	}
+
+	sai, ok := identityCollection.Fields["SystemAssignedIdentity"]
+	if !ok {
+		t.Fatalf("example.Fields['SystemAssigndIdentity'] was missing")
+	}
+	if sai.Type != models.SystemAssignedIdentity {
+		t.Fatalf("expected example.Fields['SystemAssigndIdentity'] to be a %q but got %q", string(models.SystemAssignedIdentity), string(sai.Type))
+	}
+
+	uaiList, ok := identityCollection.Fields["UserAssignedIdentityList"]
+	if !ok {
+		t.Fatalf("example.Fields['UserAssignedIdentityList'] was missing")
+	}
+	if uaiList.Type != models.UserAssignedIdentityList {
+		t.Fatalf("expected example.Fields['UserAssignedIdentityList'] to be a %q but got %q", string(models.UserAssignedIdentityList), string(uaiList.Type))
+	}
+
+	sauaiList, ok := identityCollection.Fields["SystemAssignedUserAssignedIdentityList"]
+	if !ok {
+		t.Fatalf("example.Fields['SystemAssignedUserAssignedIdentityList'] was missing")
+	}
+	if sauaiList.Type != models.SystemUserAssignedIdentityList {
+		t.Fatalf("expected example.Fields['SystemAssignedUserAssignedIdentityList'] to be a %q but got %q", string(models.SystemUserAssignedIdentityList), string(sauaiList.Type))
+	}
+
+	uaiMap, ok := identityCollection.Fields["UserAssignedIdentityMap"]
+	if !ok {
+		t.Fatalf("example.Fields['UserAssignedIdentityMap'] was missing")
+	}
+	if uaiMap.Type != models.UserAssignedIdentityMap {
+		t.Fatalf("expected example.Fields['UserAssignedIdentityMap'] to be a %q but got %q", string(models.UserAssignedIdentityMap), string(uaiMap.Type))
+	}
+
+	malformedIdentity, ok := identityCollection.Fields["MalformedIdentity"]
+	if !ok {
+		t.Fatalf("example.Fields['MalformedIdentity'] was missing")
+	}
+	if malformedIdentity.Type != models.Object {
+		t.Fatalf("expected example.Fields['MalformedIdentity'] to be a %q but got %q", string(models.Object), string(malformedIdentity.Type))
+	}
+}

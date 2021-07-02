@@ -115,6 +115,56 @@ namespace Pandora.Data.Transformers
                         continue;
                     }
 
+                    case "BasicSystemAssignedIdentityField":
+                    {
+                        Assert.AreEqual("BasicSystemAssignedIdentityField", actual.Name);
+                        Assert.AreEqual("basicSystemAssignedIdentityField", actual.JsonName);
+                        Assert.AreEqual(PropertyType.SystemAssignedIdentity, actual.PropertyType);
+                        Assert.AreEqual(true, actual.Optional);
+                        Assert.AreEqual(false, actual.Required);
+                        continue;
+                    }
+
+                    case "BasicSystemUserAssignedIdentityListField":
+                    {
+                        Assert.AreEqual("BasicSystemUserAssignedIdentityListField", actual.Name);
+                        Assert.AreEqual("basicSystemUserAssignedIdentityListField", actual.JsonName);
+                        Assert.AreEqual(PropertyType.SystemUserAssignedIdentityList, actual.PropertyType);
+                        Assert.AreEqual(true, actual.Optional);
+                        Assert.AreEqual(false, actual.Required);
+                        continue;
+                    }
+
+                    case "BasicSystemUserAssignedIdentityMapField":
+                    {
+                        Assert.AreEqual("BasicSystemUserAssignedIdentityMapField", actual.Name);
+                        Assert.AreEqual("basicSystemUserAssignedIdentityMapField", actual.JsonName);
+                        Assert.AreEqual(PropertyType.SystemUserAssignedIdentityMap, actual.PropertyType);
+                        Assert.AreEqual(true, actual.Optional);
+                        Assert.AreEqual(false, actual.Required);
+                        continue;
+                    }
+
+                    case "BasicUserAssignedIdentityListField":
+                    {
+                        Assert.AreEqual("BasicUserAssignedIdentityListField", actual.Name);
+                        Assert.AreEqual("basicUserAssignedIdentityListField", actual.JsonName);
+                        Assert.AreEqual(PropertyType.UserAssignedIdentityList, actual.PropertyType);
+                        Assert.AreEqual(true, actual.Optional);
+                        Assert.AreEqual(false, actual.Required);
+                        continue;
+                    }
+
+                    case "BasicUserAssignedIdentityMapField":
+                    {
+                        Assert.AreEqual("BasicUserAssignedIdentityMapField", actual.Name);
+                        Assert.AreEqual("basicUserAssignedIdentityMapField", actual.JsonName);
+                        Assert.AreEqual(PropertyType.UserAssignedIdentityMap, actual.PropertyType);
+                        Assert.AreEqual(true, actual.Optional);
+                        Assert.AreEqual(false, actual.Required);
+                        continue;
+                    }
+
                     case "Constant":
                     {
                         Assert.AreEqual("Constant", actual.Name);
@@ -371,6 +421,21 @@ namespace Pandora.Data.Transformers
             
             [JsonPropertyName("basicTagsField")]
             public Tags BasicTagsField { get; set; }
+
+            [JsonPropertyName("basicSystemAssignedIdentityField")]
+            public SystemAssignedIdentity BasicSystemAssignedIdentityField {get; set;}
+
+            [JsonPropertyName("basicSystemUserAssignedIdentityListField")]
+            public SystemUserAssignedIdentityList BasicSystemUserAssignedIdentityListField {get; set;}
+
+            [JsonPropertyName("basicSystemUserAssignedIdentityMapField")]
+            public SystemUserAssignedIdentityMap BasicSystemUserAssignedIdentityMapField {get; set;}
+
+            [JsonPropertyName("basicUserAssignedIdentityListField")]
+            public UserAssignedIdentityList BasicUserAssignedIdentityListField {get; set;}
+
+            [JsonPropertyName("basicUserAssignedIdentityMapField")]
+            public UserAssignedIdentityMap BasicUserAssignedIdentityMapField {get; set;}
             
             [JsonPropertyName("constant")]
             [Optional]
