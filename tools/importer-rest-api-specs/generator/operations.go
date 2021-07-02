@@ -82,9 +82,17 @@ func (g PandoraDefinitionGenerator) codeForOperation(namespace string, operation
 			return new %[1]s.%[1]sOptions();
 		}`, operationName))
 
-		optionsCode = append(optionsCode, fmt.Sprintf("\n\t\tinternal class %sOptions", operationName))
+		optionsCode = append(optionsCode, fmt.Sprintf("\t\tinternal class %sOptions", operationName))
 		optionsCode = append(optionsCode, "\t\t{")
-		for optionName, optionDetails := range operation.Options {
+
+		sortedOptionsKeys := make([]string, 0)
+		for k := range operation.Options {
+			sortedOptionsKeys = append(sortedOptionsKeys, k)
+		}
+		sort.Strings(sortedOptionsKeys)
+
+		for _, optionName := range sortedOptionsKeys {
+			optionDetails := operation.Options[optionName]
 			if optionDetails.QueryStringName != "" {
 				optionsCode = append(optionsCode, fmt.Sprintf("\t\t\t[QueryStringName(%q)]", optionDetails.QueryStringName))
 			}
@@ -93,7 +101,7 @@ func (g PandoraDefinitionGenerator) codeForOperation(namespace string, operation
 			}
 			fieldType, err := dotNetTypeNameForSimpleType(optionDetails.FieldType)
 			if err != nil {
-				return nil, fmt.Errorf("")
+				return nil, err
 			}
 			optionsCode = append(optionsCode, fmt.Sprintf("\t\t\tpublic %s %s { get; set; }", *fieldType, optionName))
 		}
