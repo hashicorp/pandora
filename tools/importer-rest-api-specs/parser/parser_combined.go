@@ -240,7 +240,7 @@ func (d *SwaggerDefinition) constantsForModel(input spec.Schema) (constantDetail
 		output.merge(nestedConstants)
 	}
 
-	if input.AdditionalProperties != nil && input.AdditionalProperties.Allows {
+	if input.AdditionalProperties != nil && input.AdditionalProperties.Schema != nil && input.AdditionalProperties.Allows {
 		for propName, propVal := range input.AdditionalProperties.Schema.Properties {
 			if d.debugLog {
 				log.Printf("[DEBUG] Processing Additional Property %q..", propName)
@@ -926,9 +926,11 @@ func (d *SwaggerDefinition) mapField(parentModelName, jsonName string, value spe
 					}
 				}
 
-				field.ListElementMin = value.AdditionalItems.Schema.MinItems
-				field.ListElementMax = value.AdditionalItems.Schema.MaxItems
-				field.ListElementUnique = &value.AdditionalItems.Schema.UniqueItems
+				if value.AdditionalProperties.Schema.AdditionalItems != nil {
+					field.ListElementMin = value.AdditionalItems.Schema.MinItems
+					field.ListElementMax = value.AdditionalItems.Schema.MaxItems
+					field.ListElementUnique = &value.AdditionalItems.Schema.UniqueItems
+				}
 			}
 
 			if field.Type == models.String {
