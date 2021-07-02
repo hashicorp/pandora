@@ -138,7 +138,7 @@ func dotNetTypeNameForComplexType(field models.FieldDetails) (*string, error) {
 				return nilableType(fmt.Sprintf("Dictionary<string, %s>", *field.ModelReference))
 			}
 			if field.DictValueType != nil {
-				return nilableType(fmt.Sprintf("Dictionary<s%s>", *field.DictValueType))
+				return nilableType(fmt.Sprintf("Dictionary<%s>", *field.DictValueType))
 			}
 
 			// TODO: we could have keys of other types, but this is likely fine for now
