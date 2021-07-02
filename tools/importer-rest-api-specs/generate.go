@@ -2,18 +2,19 @@ package main
 
 import (
 	"fmt"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser"
 	"log"
 	"os"
 	"sort"
 	"strings"
 
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser"
+
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/generator"
 )
 
-func generateApiVersions(input []parsedData, workingDirectory, rootNamespace string, debug bool) error {
+func generateApiVersions(input []parsedData, workingDirectory, rootNamespace, swaggerGitSha string, debug bool) error {
 	for _, item := range input {
-		data := generator.GenerationDataForServiceAndApiVersion(item.ServiceName, item.ApiVersion, workingDirectory, rootNamespace)
+		data := generator.GenerationDataForServiceAndApiVersion(item.ServiceName, item.ApiVersion, workingDirectory, rootNamespace, swaggerGitSha)
 		generator := generator.NewPackageDefinitionGenerator(data, debug)
 
 		os.MkdirAll(data.WorkingDirectoryForApiVersion, permissions)
@@ -37,7 +38,7 @@ func generateApiVersions(input []parsedData, workingDirectory, rootNamespace str
 	return nil
 }
 
-func generateServiceDefinitions(input []parsedData, workingDirectory, rootNamespace string, debug bool) error {
+func generateServiceDefinitions(input []parsedData, workingDirectory, rootNamespace, swaggerGitSha string, debug bool) error {
 	// the same service may appear multiple times, so we first need to Distinct them
 	serviceNames := distinctServiceNames(input)
 
@@ -47,7 +48,7 @@ func generateServiceDefinitions(input []parsedData, workingDirectory, rootNamesp
 		if debug {
 			log.Printf("[DEBUG] Processing Service %q..", service)
 		}
-		data := generator.GenerationDataForService(service, workingDirectory, rootNamespace)
+		data := generator.GenerationDataForService(service, workingDirectory, rootNamespace, swaggerGitSha)
 		os.MkdirAll(data.WorkingDirectoryForService, permissions)
 
 		// clean up any files or directories which which aren't on the exclude list
@@ -139,7 +140,7 @@ func distinctServiceNames(input []parsedData) []string {
 	return names
 }
 
-func generateEverything() {
+func generateEverything(swaggerGitSha string) {
 	services, err := parser.FindResourceManagerServices(swaggerDirectory + "/specification")
 	if err != nil {
 		fmt.Printf("%s", err)
@@ -185,7 +186,7 @@ func generateEverything() {
 					break
 				}
 
-				data := generator.GenerationDataForServiceAndApiVersion(service.Name, apiVersion, outputDirectory, RootNamespace)
+				data := generator.GenerationDataForServiceAndApiVersion(service.Name, apiVersion, outputDirectory, RootNamespace, swaggerGitSha)
 				generator := generator.NewPackageDefinitionGenerator(data, false)
 				for resourceName, resource := range def.Resources {
 					apiOutputDirectory := data.WorkingDirectoryForResource(resourceName)

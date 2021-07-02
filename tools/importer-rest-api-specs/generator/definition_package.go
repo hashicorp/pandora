@@ -27,6 +27,8 @@ namespace %[1]s
 {
 	internal class Definition : ApiDefinition
 	{
+		// Generated from Swagger revision %[5]q 
+
 		public string ApiVersion => "%[3]s";
 		public string Name => "%[2]s";
 		public IEnumerable<ApiOperation> Operations => new List<ApiOperation>
@@ -35,5 +37,5 @@ namespace %[1]s
 		};
 	}
 }
-`, namespace, resourceName, g.data.ApiVersion, strings.Join(lines, "\n"))
+`, namespace, resourceName, g.data.ApiVersion, strings.Join(lines, "\n"), g.data.SwaggerGitSha)
 }
