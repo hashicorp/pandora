@@ -137,6 +137,9 @@ func dotNetTypeNameForComplexType(field models.FieldDetails) (*string, error) {
 			if field.ModelReference != nil {
 				return nilableType(fmt.Sprintf("Dictionary<string, %s>", *field.ModelReference))
 			}
+			if field.DictValueType != nil {
+				return nilableType(fmt.Sprintf("Dictionary<string, %s>", *field.DictValueType))
+			}
 
 			// TODO: we could have keys of other types, but this is likely fine for now
 			return nil, fmt.Errorf("the Dictionary has no Nested Element Type")
