@@ -79,25 +79,25 @@ func (g PandoraDefinitionGenerator) codeForOperation(namespace string, operation
 	if len(operation.Options) > 0 {
 		code = append(code, fmt.Sprintf(`		public override object? OptionsObject()
 		{
-			return new %[1]sOptions();
+			return new %[1]s.%[1]sOptions();
 		}`, operationName))
 
-		optionsCode = append(optionsCode, fmt.Sprintf("\n\tinternal class %sOptions", operationName))
-		optionsCode = append(optionsCode, "\t{")
+		optionsCode = append(optionsCode, fmt.Sprintf("\n\t\tinternal class %sOptions", operationName))
+		optionsCode = append(optionsCode, "\t\t{")
 		for optionName, optionDetails := range operation.Options {
 			if optionDetails.QueryStringName != "" {
-				optionsCode = append(optionsCode, fmt.Sprintf("\t\t[QueryStringName(%q)]", optionDetails.QueryStringName))
+				optionsCode = append(optionsCode, fmt.Sprintf("\t\t\t[QueryStringName(%q)]", optionDetails.QueryStringName))
 			}
 			if !optionDetails.Required {
-				optionsCode = append(optionsCode, "\t\t[Optional]")
+				optionsCode = append(optionsCode, "\t\t\t[Optional]")
 			}
 			fieldType, err := dotNetTypeNameForSimpleType(optionDetails.FieldType)
 			if err != nil {
 				return nil, fmt.Errorf("")
 			}
-			optionsCode = append(optionsCode, fmt.Sprintf("\t\tpublic %s %s { get; set; }", *fieldType, optionName))
+			optionsCode = append(optionsCode, fmt.Sprintf("\t\t\tpublic %s %s { get; set; }", *fieldType, optionName))
 		}
-		optionsCode = append(optionsCode, "\t}")
+		optionsCode = append(optionsCode, "\t\t}")
 	}
 
 	if operation.UriSuffix != nil {
@@ -122,7 +122,9 @@ namespace %[1]s
 	internal class %[2]s : %[3]sOperation
 	{
 %[4]s
-	}%[5]s
+
+%[5]s
+	}
 }
 `, namespace, operationName, operationType, strings.Join(code, "\n\n"), strings.Join(optionsCode, "\n"))
 	return &output, nil
