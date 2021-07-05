@@ -5,6 +5,8 @@ import (
 	"log"
 	"os"
 	"strings"
+
+	git "github.com/go-git/go-git/v5"
 )
 
 const (
@@ -332,18 +334,40 @@ func main() {
 		//},
 	}
 
+	swaggerGitSha, err := determineGitSha(swaggerDirectory)
+	if err != nil {
+		log.Printf("determining Git SHA at %q: %+v", swaggerDirectory, err)
+		os.Exit(1)
+	}
+
 	if !strings.EqualFold(os.Getenv("PANDORA_GENERATE_EVERYTHING"), "true") {
 		for _, v := range input {
-			if err := run(v); err != nil {
+			if err := run(v, *swaggerGitSha); err != nil {
 				log.Printf("error: %+v", err)
 				os.Exit(1)
 			}
 		}
 	} else {
-		generateEverything()
+		generateEverything(*swaggerGitSha)
 	}
 
 	os.Exit(0)
+}
+
+func determineGitSha(repositoryPath string) (*string, error) {
+	repo, err := git.PlainOpen(repositoryPath)
+	if err != nil {
+		return nil, err
+	}
+
+	ref, err := repo.Head()
+	if err != nil {
+		return nil, err
+	}
+
+	commit := ref.Hash().String()
+	log.Printf("[DEBUG] Swagger Repository Commit SHA is %q", commit)
+	return &commit, nil
 }
 
 type RunInput struct {
@@ -355,7 +379,7 @@ type RunInput struct {
 	SwaggerFiles     []string
 }
 
-func run(input RunInput) error {
+func run(input RunInput, swaggerGitSha string) error {
 	debug := strings.TrimSpace(os.ExpandEnv("DEBUG")) != ""
 
 	if debug {
@@ -369,14 +393,14 @@ func run(input RunInput) error {
 	if debug {
 		log.Printf("[STAGE] Generating Swagger Definitions..")
 	}
-	if err := generateServiceDefinitions(*data, input.OutputDirectory, input.RootNamespace, debug); err != nil {
+	if err := generateServiceDefinitions(*data, input.OutputDirectory, input.RootNamespace, swaggerGitSha, debug); err != nil {
 		return fmt.Errorf("generating Service Definitions: %+v", err)
 	}
 
 	if debug {
 		log.Printf("[STAGE] Generating API Definitions..")
 	}
-	if err := generateApiVersions(*data, input.OutputDirectory, input.RootNamespace, debug); err != nil {
+	if err := generateApiVersions(*data, input.OutputDirectory, input.RootNamespace, swaggerGitSha, debug); err != nil {
 		return fmt.Errorf("generating API Versions: %+v", err)
 	}
 
