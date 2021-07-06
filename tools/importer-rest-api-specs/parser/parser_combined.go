@@ -446,6 +446,23 @@ func (d *SwaggerDefinition) findModelsForModel(name string, input spec.Schema, c
 		properties[additionalPropertiesLit] = *input.AdditionalProperties.Schema
 	}
 
+	for _, field := range fields {
+		if field.ModelReference != nil {
+			topLevelModel, err := d.findTopLevelModel(*field.ModelReference)
+			if err != nil {
+				return nil, nil, fmt.Errorf("finding model %q: %+v", *field.ModelReference, err)
+			}
+			modelsKnownSoFar := allModels()
+			nestedConstants, nestedModels, err := d.findModelsForModel(*field.ModelReference, *topLevelModel, constants, modelsKnownSoFar)
+			if err != nil {
+				return nil, nil, fmt.Errorf("finding models for %q: %+v", *field.ModelReference, err)
+			}
+			allConstants.merge(*nestedConstants)
+			foundModels.merge(*nestedModels)
+			continue
+		}
+	}
+
 	for propName, propVal := range properties {
 		// inlined constants are pulled out elsewhere
 		if len(propVal.Enum) > 0 {
