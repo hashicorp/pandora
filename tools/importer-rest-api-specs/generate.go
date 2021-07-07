@@ -6,6 +6,7 @@ import (
 	"os"
 	"sort"
 	"strings"
+	"sync"
 
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/generator"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser"
@@ -146,6 +147,7 @@ func generateEverything(swaggerGitSha string) {
 		os.Exit(1)
 	}
 
+	var wg sync.WaitGroup
 	for _, service := range *services {
 		for apiVersion, versionPath := range service.ApiVersionPaths {
 			swaggerFiles, err := parser.SwaggerFilesInDirectory(versionPath)
@@ -172,10 +174,19 @@ func generateEverything(swaggerGitSha string) {
 				os.Exit(1)
 			}
 
-			if err := run(runInput, *swaggerGitSha); err != nil {
-				log.Printf("error: %+v", err)
-				continue
-			}
+			wg.Add(1)
+			go func(input RunInput, sha string) {
+				err := run(input, sha)
+				if err != nil {
+					log.Printf("error: %+v", err)
+				}
+				wg.Done()
+			}(runInput, *swaggerGitSha)
+			//if err := run(runInput, *swaggerGitSha); err != nil {
+			//	log.Printf("error: %+v", err)
+			//	continue
+			//}
 		}
 	}
+	wg.Wait()
 }
