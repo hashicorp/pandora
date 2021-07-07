@@ -168,12 +168,6 @@ func generateEverything(swaggerGitSha string) {
 				SwaggerFiles:     swaggerFilesTrimmed,
 			}
 
-			swaggerGitSha, err := determineGitSha(swaggerDirectory)
-			if err != nil {
-				log.Printf("determining Git SHA at %q: %+v", swaggerDirectory, err)
-				os.Exit(1)
-			}
-
 			wg.Add(1)
 			go func(input RunInput, sha string) {
 				err := run(input, sha)
@@ -181,11 +175,7 @@ func generateEverything(swaggerGitSha string) {
 					log.Printf("error: %+v", err)
 				}
 				wg.Done()
-			}(runInput, *swaggerGitSha)
-			//if err := run(runInput, *swaggerGitSha); err != nil {
-			//	log.Printf("error: %+v", err)
-			//	continue
-			//}
+			}(runInput, swaggerGitSha)
 		}
 	}
 	wg.Wait()
