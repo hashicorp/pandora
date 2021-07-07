@@ -170,11 +170,11 @@ func generateEverything(swaggerGitSha string) {
 
 			wg.Add(1)
 			go func(input RunInput, sha string) {
+				defer wg.Done()
 				err := run(input, sha)
 				if err != nil {
 					log.Printf("error: %+v", err)
 				}
-				wg.Done()
 			}(runInput, swaggerGitSha)
 		}
 	}
