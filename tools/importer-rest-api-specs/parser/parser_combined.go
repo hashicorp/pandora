@@ -240,7 +240,7 @@ func (d *SwaggerDefinition) constantsForModel(input spec.Schema) (constantDetail
 		output.merge(nestedConstants)
 	}
 
-	if input.AdditionalProperties != nil && input.AdditionalProperties.Schema != nil && input.AdditionalProperties.Allows {
+	if input.AdditionalProperties != nil && input.AdditionalProperties.Schema != nil {
 		for propName, propVal := range input.AdditionalProperties.Schema.Properties {
 			if d.debugLog {
 				log.Printf("[DEBUG] Processing Additional Property %q..", propName)
@@ -342,10 +342,9 @@ func (d *SwaggerDefinition) fieldsForModel(modelName string, input spec.Schema, 
 			}
 		} else {
 			// This is kind of a weird piece of code that we reuse the mapField to map an `additionalProperties` block to the fieldDetails.
-			// For general fields, the `mapField()` resolves the type of the field. While applies to `additionalProperties`,
-			// it is resolving the type of the "value" in the dictionary.
-			// Also, `mapField()` will pull out the nested model to be a reference, which is named to be "{modelName}{jsonName}".
+			// For general fields, the `mapField()` resolves the type of the field. While when applied to `additionalProperties`, it resolves the type of the "value" in the dictionary.
 			// Hence, we'll manipulate the fieldDetails returned to reflect that.
+			// Also, `mapField()` will pull out the nested model to be a reference, which is named to be "{modelName}{jsonName}".
 			consts, vfield, err := d.mapField(modelName, additionalPropertiesLit, *input.AdditionalProperties.Schema, false, constants)
 			if err != nil {
 				return nil, nil, fmt.Errorf("mapping additionalProperties: %+v", err)
