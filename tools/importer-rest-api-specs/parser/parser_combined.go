@@ -14,6 +14,7 @@ import (
 )
 
 const additionalPropertiesLit = "additionalProperties"
+const valueLit = "VALUE"
 
 type constantDetailsMap map[string]models.ConstantDetails
 
@@ -349,6 +350,7 @@ func (d *SwaggerDefinition) fieldsForModel(modelName string, input spec.Schema, 
 			if err != nil {
 				return nil, nil, fmt.Errorf("mapping additionalProperties: %+v", err)
 			}
+
 			field = vfield
 			field.DictValueType = tptr(field.Type)
 			field.Type = models.Dictionary
@@ -436,39 +438,39 @@ func (d *SwaggerDefinition) findModelsForModel(name string, input spec.Schema, c
 		}
 	}
 
-	// then iterate over the others
-	properties := map[string]spec.Schema{}
-	for k, v := range input.Properties {
-		properties[k] = v
-	}
-	if input.AdditionalProperties != nil && input.AdditionalProperties.Schema != nil {
-		properties[additionalPropertiesLit] = *input.AdditionalProperties.Schema
-	}
+	// then iterate over the fields
+	for fieldName, field := range fields {
+		// Constant references are pulled out elsewhere
+		if field.ConstantReference != nil {
+			continue
+		}
 
-	for _, field := range fields {
-		if field.ModelReference != nil {
-			topLevelModel, err := d.findTopLevelModel(*field.ModelReference)
-			if err != nil {
-				return nil, nil, fmt.Errorf("finding model %q: %+v", *field.ModelReference, err)
-			}
+		// For model references, ensure the model is exists.
+		// There are two cases at this point:
+		// 1. The model reference refers to a top level model: then we only need to recursively find models for that model.
+		// 2. The model reference is a placeholder that represents an inlined model.
+		// TODO
+		if len(propVal.Properties) > 0 {
+			// otherwise it should be an inlined block which can go through the recursive funtime
+			// however we have to make sure those names are unique
+			uniqueName := inlinedModelName(name, propName)
 			modelsKnownSoFar := allModels()
-			nestedConstants, nestedModels, err := d.findModelsForModel(*field.ModelReference, *topLevelModel, constants, modelsKnownSoFar)
+			nestedConstants, nestedModels, err := d.findModelsForModel(uniqueName, propVal, constants, modelsKnownSoFar)
 			if err != nil {
-				return nil, nil, fmt.Errorf("finding models for %q: %+v", *field.ModelReference, err)
+				return nil, nil, fmt.Errorf("finding models for %q: %+v", propName, err)
 			}
+
 			allConstants.merge(*nestedConstants)
 			foundModels.merge(*nestedModels)
-			continue
-		}
-	}
 
-	for propName, propVal := range properties {
-		// inlined constants are pulled out elsewhere
-		if len(propVal.Enum) > 0 {
+			// update the model name for this field
+			field := fields[propName]
+			field.ModelReference = &uniqueName
+			fields[propName] = field
 			continue
 		}
 
-		// if it's a reference to another property
+		// If it has a model reference
 		fragmentName := fragmentNameFromReference(propVal.Ref)
 		if fragmentName == nil {
 			if propVal.AdditionalProperties != nil && propVal.AdditionalProperties.Schema != nil {
@@ -480,6 +482,7 @@ func (d *SwaggerDefinition) findModelsForModel(name string, input spec.Schema, c
 				fragmentName = fragmentNameFromReference(propVal.Items.Schema.Ref)
 			}
 		}
+
 		if fragmentName != nil {
 			// referenced constants are pulled out elsewhere
 			if d.isConstant(constants, *fragmentName) {
@@ -511,27 +514,6 @@ func (d *SwaggerDefinition) findModelsForModel(name string, input spec.Schema, c
 			}
 			allConstants.merge(*nestedConstants)
 			foundModels.merge(*nestedModels)
-			continue
-		}
-
-		// when this model is defined inline
-		if len(propVal.Properties) > 0 {
-			// otherwise it should be an inlined block which can go through the recursive funtime
-			// however we have to make sure those names are unique
-			uniqueName := inlinedModelName(name, propName)
-			modelsKnownSoFar := allModels()
-			nestedConstants, nestedModels, err := d.findModelsForModel(uniqueName, propVal, constants, modelsKnownSoFar)
-			if err != nil {
-				return nil, nil, fmt.Errorf("finding models for %q: %+v", propName, err)
-			}
-
-			allConstants.merge(*nestedConstants)
-			foundModels.merge(*nestedModels)
-
-			// update the model name for this field
-			field := fields[propName]
-			field.ModelReference = &uniqueName
-			fields[propName] = field
 			continue
 		}
 	}
@@ -746,22 +728,63 @@ func (d *SwaggerDefinition) mapField(parentModelName, jsonName string, value spe
 		Type:              models.Unknown, // intentional to highlight any missing types
 	}
 
-	var referenceType *string
-	fragmentName := fragmentNameFromReference(value.Ref)
-	if fragmentName != nil {
+	// Field is a reference:
+	// - type: object
+	// - model reference / const reference: $ref
+	if fragmentName := fragmentNameFromReference(value.Ref); fragmentName != nil {
 		field.Type = models.Object
-		referenceType = fragmentName
+		if err := d.setFieldReference(field, *fragmentName, allConstants); err != nil {
+			return nil, nil, err
+		}
+		return allConstants, &field, nil
 	}
 
-	// models can be nested within properties
-	if len(value.Properties) > 0 {
+	// Field is an inlined model or a inherited model:
+	// - type: object
+	// - model reference: pull out the model of the additionalProperties
+	if len(value.Properties) > 0 || len(value.AllOf) > 0 {
 		inlinedModel := inlinedModelName(parentModelName, jsonName)
 		field.Type = models.Object
 		field.ModelReference = &inlinedModel
+		return allConstants, &field, nil
 	}
 
-	// models can also be nested within properties
-	if len(value.Enum) > 0 && len(value.Type) > 0 && value.Type[0] != "string" {
+	// Filed is a plain dictionary
+	// - type: dictionary
+	// - dict value type: <one of all possible types>
+	// - model reference (only when dict value is not primary type): pull out the model of the additionalProperties.
+	if len(value.Properties) == 0 && value.AdditionalProperties != nil && value.AdditionalProperties.Schema != nil {
+		field.Type = models.Dictionary
+
+		thisFieldModelName := inlinedModelName(parentModelName, jsonName)
+		consts, vfield, err := d.mapField(thisFieldModelName, valueLit, *value.AdditionalProperties.Schema, false, constants)
+		if err != nil {
+			return nil, nil, fmt.Errorf("mapping additionalProperties value for %s.%s: %+v", parentModelName, jsonName, err)
+		}
+		allConstants.merge(consts)
+
+		field.DictValueType = &vfield.Type
+
+		// In case the dictionary value type is not a primary type, pull out the model of the additionalProperties.
+		vt := *field.DictValueType
+		var vtIsPrimaryType bool
+		for _, t := range models.FieldDefinitionPrimaryTypes {
+			if t == vt {
+				vtIsPrimaryType = true
+				break
+			}
+		}
+		if !vtIsPrimaryType {
+			refName := inlinedModelName(thisFieldModelName, valueLit)
+			field.ModelReference = &refName
+		}
+		return allConstants, &field, nil
+	}
+
+	// Field is an inlined enum:
+	// - type: object
+	// - constant reference: pull out the inlined enum
+	if len(value.Enum) > 0 {
 		constantName, err := parseConstantNameFromField(value)
 		field.Type = models.Object
 		field.ConstantReference = constantName
@@ -772,13 +795,14 @@ func (d *SwaggerDefinition) mapField(parentModelName, jsonName string, value spe
 			return nil, nil, fmt.Errorf("parsing constant: %+v", err)
 		}
 		allConstants[*constantName] = constant.details
+		return allConstants, &field, nil
 	}
 
+	// At this point, Field is either a primary type or an array, both of them should have the "type" specified.
 	if len(value.Type) > 0 {
 		field.Type = normalizeType(value.Type[0])
 
-		// TODO: Discriminators, which are likely explicitly out of scope at this point
-
+		// Handle array
 		if field.Type == models.List {
 			if value.Items == nil {
 				return nil, nil, fmt.Errorf("field %q is an array with no `items`", jsonName)
@@ -787,256 +811,75 @@ func (d *SwaggerDefinition) mapField(parentModelName, jsonName string, value spe
 				return nil, nil, fmt.Errorf("field %q is an array with no `items.Schema`", jsonName)
 			}
 
-			// This is either an Array of a built-in type:
-			/*
-				Example:
-				"requiredZoneNames": {
-				  "type": "array",
-				  "items": {
-					"type": "string"
-				  },
-				  "readOnly": true,
-				  "description": "The list of required DNS zone names of the private link resource."
-				}
-			*/
-			if len(value.Items.Schema.Type) > 0 {
-				nestedElementType := normalizeType(value.Items.Schema.Type[0])
-				field.ListElementType = &nestedElementType
-			} else {
-				// or it's an Array of Items (e.g. a Constant/Model) which should have a Fragment/Ref
-				/*
-					Example:
-					"privateEndpointConnections": {
-					  "description": "The list of private endpoint connections that are set up for this resource.",
-					  "type": "array",
-					  "readOnly": true,
-					  "items": {
-						"$ref": "#/definitions/PrivateEndpointConnectionReference"
-					  }
-					},
-				*/
-				fragment := fragmentNameFromReference(value.Items.Schema.Ref)
-				if fragment != nil {
-					o := models.Object
-					field.ModelReference = fragment
-					field.ListElementType = &o
-					referenceType = fragment
-				}
-
-				if len(value.Items.Schema.Properties) > 0 {
-					inlinedModel := inlinedModelName(parentModelName, jsonName)
-					field.Type = models.Object
-					field.ModelReference = &inlinedModel
-				}
-			}
-
 			field.ListElementMin = value.MinItems
 			field.ListElementMax = value.MaxItems
 			field.ListElementUnique = &value.UniqueItems
-		}
 
-		// Maps of Things
-		if field.Type == models.Object {
-			if value.AdditionalProperties != nil {
-				if schema := value.AdditionalProperties.Schema; schema != nil {
-					if len(schema.Type) > 0 {
-						// map[string]string = Tags
-						if schema.Type.Contains("string") {
-							if strings.EqualFold(jsonName, "tags") {
-								field.Type = models.Tags
-							} else {
-								// it's some arbitrary list
-								field.Type = normalizeType(schema.Type[0])
-							}
-						}
-					} else {
-						// check if there's a fragment
-						fragmentName = fragmentNameFromReference(schema.Ref)
-						if fragmentName != nil {
-							field.Type = models.Dictionary
-							referenceType = fragmentName
-						}
-					}
+			thisFieldModelName := inlinedModelName(parentModelName, jsonName)
+			consts, vfield, err := d.mapField(thisFieldModelName, valueLit, *value.AdditionalProperties.Schema, false, constants)
+			if err != nil {
+				return nil, nil, fmt.Errorf("mapping array element of field %s.%s: %+v", parentModelName, jsonName, err)
+			}
+			allConstants.merge(consts)
+
+			field.ListElementType = &vfield.Type
+
+			// In case the array element value type is not a primary type, pull out the model of the element.
+			vt := *field.DictValueType
+			var vtIsPrimaryType bool
+			for _, t := range models.FieldDefinitionPrimaryTypes {
+				if t == vt {
+					vtIsPrimaryType = true
+					break
 				}
 			}
+			if !vtIsPrimaryType {
+				refName := inlinedModelName(thisFieldModelName, valueLit)
+				field.ModelReference = &refName
+			}
+			return allConstants, &field, nil
 		}
 
 		if field.Type == models.String {
+			if strings.EqualFold(field.JsonName, "location") {
+				field.Type = models.Location
+				return allConstants, &field, nil
+			}
+
 			if strings.EqualFold(value.Format, "date-time") {
 				field.Type = models.DateTime
 				// TODO: handle there being a custom format - for now we assume these are all using RFC3339
+				return allConstants, &field, nil
 			}
+		}
+	}
 
-			constantName, err := parseConstantNameFromField(value)
+	return nil, nil, fmt.Errorf("field %q is of invalid schema", jsonName)
+}
+
+// setFieldReference set either the model reference or the constant reference for a field
+func (d *SwaggerDefinition) setFieldReference(field models.FieldDetails, referenceType string, allConstants constantDetailsMap) error {
+	if d.isConstant(allConstants, referenceType) {
+		field.ConstantReference = &referenceType
+
+		// if this is a reference to a top-level type it can be missed so it's worth pulling this out explicitly too
+		if _, ok := allConstants[referenceType]; !ok {
+			model, err := d.findTopLevelModel(referenceType)
 			if err != nil {
-				return nil, nil, fmt.Errorf("parsing constant %q: %+v", jsonName, err)
+				return fmt.Errorf("finding top level constant %q: %+v", referenceType, err)
 			}
-			if constantName != nil {
-				field.Type = models.Object
-				field.ConstantReference = constantName
 
-				if len(value.Enum) > 0 {
-					constant, err := mapConstant(value)
-					if err != nil {
-						return nil, nil, fmt.Errorf("parsing constant from %q: %+v", *constantName, err)
-					}
-					allConstants[*constantName] = constant.details
-				}
+			constant, err := mapConstant(*model)
+			if err != nil {
+				return fmt.Errorf("populating top level constant %q: %+v", referenceType, err)
 			}
+
+			allConstants[referenceType] = constant.details
 		}
+	} else {
+		field.ModelReference = &referenceType
 	}
-
-	// Handle cases where there are _only_ additionalProperties?
-	if value.AdditionalProperties != nil && value.AdditionalProperties.Schema != nil {
-		if len(value.AdditionalProperties.Schema.Type) > 0 && field.Type != models.Tags {
-			field.Type = normalizeType(value.AdditionalProperties.Schema.Type[0])
-
-			if field.Type == models.List {
-				if value.AdditionalProperties.Schema.Items == nil {
-					return nil, nil, fmt.Errorf("field %q is an array with no `items`", jsonName)
-				}
-				if value.AdditionalProperties.Schema.Items.Schema == nil {
-					return nil, nil, fmt.Errorf("field %q is an array with no `items.Schema`", jsonName)
-				}
-
-				// This is either an Array of a built-in type:
-				/*
-					Example:
-					"requiredZoneNames": {
-					  "type": "array",
-					  "items": {
-						"type": "string"
-					  },
-					  "readOnly": true,
-					  "description": "The list of required DNS zone names of the private link resource."
-					}
-				*/
-				if len(value.AdditionalProperties.Schema.Items.Schema.Type) > 0 {
-					nestedElementType := normalizeType(value.AdditionalProperties.Schema.Items.Schema.Type[0])
-					field.ListElementType = &nestedElementType
-				} else {
-					// or it's an Array of Items (e.g. a Constant/Model) which should have a Fragment/Ref
-					/*
-						Example:
-						"privateEndpointConnections": {
-						  "description": "The list of private endpoint connections that are set up for this resource.",
-						  "type": "array",
-						  "readOnly": true,
-						  "items": {
-							"$ref": "#/definitions/PrivateEndpointConnectionReference"
-						  }
-						},
-					*/
-					fragment := fragmentNameFromReference(value.AdditionalProperties.Schema.Items.Schema.Ref)
-					if fragment != nil {
-						o := models.Object
-						field.ModelReference = fragment
-						field.ListElementType = &o
-						referenceType = fragment
-					}
-
-					if len(value.AdditionalProperties.Schema.Items.Schema.Properties) > 0 {
-						inlinedModel := inlinedModelName(parentModelName, jsonName)
-						field.Type = models.Object
-						field.ModelReference = &inlinedModel
-					}
-				}
-
-				if value.AdditionalProperties.Schema.AdditionalItems != nil {
-					field.ListElementMin = value.AdditionalItems.Schema.MinItems
-					field.ListElementMax = value.AdditionalItems.Schema.MaxItems
-					field.ListElementUnique = &value.AdditionalItems.Schema.UniqueItems
-				}
-			}
-
-			if field.Type == models.String {
-				if strings.EqualFold(value.Format, "date-time") {
-					field.Type = models.DateTime
-					// TODO: handle there being a custom format - for now we assume these are all using RFC3339
-				}
-
-				constantName, err := parseConstantNameFromField(value)
-				if err != nil {
-					return nil, nil, fmt.Errorf("parsing constant %q: %+v", jsonName, err)
-				}
-				if constantName != nil {
-					field.Type = models.Object
-					field.ConstantReference = constantName
-
-					if len(value.Enum) > 0 {
-						constant, err := mapConstant(value)
-						if err != nil {
-							return nil, nil, fmt.Errorf("parsing constant from %q: %+v", *constantName, err)
-						}
-						allConstants[*constantName] = constant.details
-					}
-				}
-			}
-		}
-	}
-
-	// Some properties only specify AllOf, with no additional data, so...
-	if len(value.Type) == 0 && value.AdditionalProperties == nil && len(value.AllOf) > 0 {
-		field.Type = models.Object
-		fragmentName = fragmentNameFromReference(value.AllOf[0].Ref) // TODO - can AllOf > 1?
-		field.ModelReference = fragmentName
-	}
-
-	if referenceType != nil {
-		if d.isConstant(constants, *referenceType) {
-			field.ConstantReference = referenceType
-
-			// if this is a reference to a top-level type it can be missed so it's worth pulling this out explicitly too
-			if _, ok := allConstants[*referenceType]; !ok {
-				model, err := d.findTopLevelModel(*referenceType)
-				if err != nil {
-					return nil, nil, fmt.Errorf("finding top level constant %q: %+v", *referenceType, err)
-				}
-
-				constant, err := mapConstant(*model)
-				if err != nil {
-					return nil, nil, fmt.Errorf("populating top level constant %q: %+v", *referenceType, err)
-				}
-
-				allConstants[*referenceType] = constant.details
-			}
-		} else {
-			field.ModelReference = referenceType
-		}
-	}
-
-	// sanity checking
-	if field.Type == models.Unknown {
-		// Apparently it's possible for these to be omitted
-		// we should raise these with MS to fix, but should we output `object` or omit the field for the moment?
-		// > "ArtifactProperties": {
-		// >   "type": "object",
-		// >   "additionalProperties": false,
-		// >   "description": "The artifact properties definition.",
-		// >   "properties": {
-		// >     "createdTime": {
-		// >       "type": "string",
-		// >       "format": "date-time",
-		// >       "description": "The artifact creation time."
-		// >     },
-		// >     "changedTime": {
-		// >       "type": "string",
-		// >         "format": "date-time",
-		// >         "description": "The artifact changed time."
-		// >       },
-		// >       "metadata": {}
-		// >     }
-		// >   },
-
-		return nil, nil, fmt.Errorf("field %q is missing a type", jsonName)
-	}
-
-	// kinda presumptuous, but probably fine.
-	if strings.EqualFold(field.JsonName, "location") && field.Type == models.String {
-		field.Type = models.Location
-	}
-
-	return allConstants, &field, nil
+	return nil
 }
 
 func (d *SwaggerDefinition) isConstant(constants constantDetailsMap, name string) bool {

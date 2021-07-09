@@ -139,3 +139,5 @@ const (
 
 	Unknown FieldDefinitionType = "unknown"
 )
+
+var FieldDefinitionPrimaryTypes = []FieldDefinitionType{Boolean, Integer, String, Float}
