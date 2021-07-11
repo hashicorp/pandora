@@ -1,6 +1,7 @@
 package models
 
 import (
+	"github.com/go-openapi/spec"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/cleanup"
 )
 
@@ -106,6 +107,10 @@ type FieldDetails struct {
 	ReadOnly          bool
 	ConstantReference *string
 	ModelReference    *string
+
+	// The schema that is referenced by either ConstantReference or ModelReference
+	ReferenceSchema *spec.Schema
+
 	Sensitive         bool
 	JsonName          string
 	ListElementType   *FieldDefinitionType

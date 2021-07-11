@@ -30,12 +30,137 @@
   "definitions": {
     "IdentityCollection": {
       "properties": {
-        "SystemAssignedUserAssignedIdentityMapInline": {
-          "$ref": "#/definitions/SystemAssignedUserAssignedIdentityMapInline"
+        "systemAssignedUserAssignedIdentityMap": {
+          "$ref": "#/definitions/SystemAssignedUserAssignedIdentityMap"
         }
       },
       "type": "object",
       "x-ms-azure-resource": true
+    },
+    "SystemAssignedIdentity": {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "None",
+            "SystemAssigned"
+          ],
+          "x-ms-enum": {
+            "name": "IdentityType1",
+            "modelAsString": true
+          }
+        },
+        "principalId": {
+          "type": "string",
+          "readOnly": true
+        },
+        "tenantId": {
+          "type": "string",
+          "readOnly": true
+        }
+      }
+    },
+    "UserAssignedIdentityList": {
+      "properties": {
+        "userAssignedIdentities": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "UserAssignedIdentityMap": {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "None",
+            "UserAssigned"
+          ],
+          "x-ms-enum": {
+            "name": "IdentityType2",
+            "modelAsString": true
+          }
+        },
+        "userAssignedIdentities": {
+          "$ref": "#/definitions/UserAssignedIdentityMapReal"
+        }
+      }
+    },
+    "UserAssignedIdentityMapReal": {
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "clientId": {
+            "type": "string"
+          },
+          "principalId": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "SystemAssignedUserAssignedIdentityList": {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "None",
+            "SystemAssigned",
+            "UserAssigned",
+            "SystemAssigned, UserAssigned"
+
+          ],
+          "x-ms-enum": {
+            "name": "IdentityType3",
+            "modelAsString": true
+          }
+        },
+        "principalId": {
+          "type": "string",
+          "readOnly": true
+        },
+        "tenantId": {
+          "type": "string",
+          "readOnly": true
+        },
+        "userAssignedIdentities": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "SystemAssignedUserAssignedIdentityMap": {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "None",
+            "SystemAssigned",
+            "UserAssigned",
+            "SystemAssigned, UserAssigned"
+
+          ],
+          "x-ms-enum": {
+            "name": "IdentityType3",
+            "modelAsString": true
+          }
+        },
+        "principalId": {
+          "type": "string",
+          "readOnly": true
+        },
+        "tenantId": {
+          "type": "string",
+          "readOnly": true
+        },
+        "userAssignedIdentities": {
+          "$ref": "#/definitions/UserAssignedIdentityMapReal"
+        }
+      }
     },
     "SystemAssignedUserAssignedIdentityMapInline": {
       "properties": {
@@ -54,7 +179,11 @@
             "UserAssigned",
             "SystemAssigned, UserAssigned",
             "None"
-          ]
+          ],
+          "x-ms-enum": {
+            "name": "IdentityType4",
+            "modelAsString": true
+          }
         },
         "userAssignedIdentities": {
           "additionalProperties": {
@@ -69,6 +198,30 @@
               }
             }
           }
+        }
+      }
+    },
+    "MalformedIdentity": {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "None",
+            "SystemAssigned",
+            "UserAssigned"
+          ],
+          "x-ms-enum": {
+            "name": "IdentityType5",
+            "modelAsString": true
+          }
+        },
+        "principalId": {
+          "type": "string",
+          "readOnly": true
+        },
+        "tenantId": {
+          "type": "string",
+          "readOnly": true
         }
       }
     }

@@ -183,7 +183,7 @@ func (d *SwaggerDefinition) parseModel(name string, input spec.Schema) (*result,
 		return nil, fmt.Errorf("determining fields for model: %+v", err)
 	}
 
-	constants, parsedModels, err := d.modelsForModel(name, input, constants, fields)
+	constants, parsedModels, err := d.modelsForModel(name, input, constants, nil)
 	if err != nil {
 		return nil, fmt.Errorf("determining models for model: %+v", err)
 	}
@@ -287,6 +287,7 @@ func (d *SwaggerDefinition) fieldsForModel(modelName string, input spec.Schema, 
 			return nil, nil, fmt.Errorf("parsing constant %q: %+v", input.Title, err)
 		}
 		allConstants[constant.name] = constant.details
+		return allConstants, nil, nil
 	}
 
 	// models can inherit from other models, so we first need to pull those fields
@@ -363,48 +364,7 @@ func (d *SwaggerDefinition) fieldsForModel(modelName string, input spec.Schema, 
 	return allConstants, fields, nil
 }
 
-func (d *SwaggerDefinition) modelsForModel(name string, input spec.Schema, constants constantDetailsMap, fields fieldDetailsMap) (constantDetailsMap, modelDetailsMap, error) {
-	allConstants := make(constantDetailsMap, 0)
-	for k, v := range constants {
-		allConstants[k] = v
-	}
-
-	allModels := make(modelDetailsMap, 0)
-	constantsWithinModel, modelsWithinModel, err := d.findModelsForModel(name, input, constants, modelDetailsMap{})
-	if err != nil {
-		return nil, nil, err
-	}
-	allConstants.merge(*constantsWithinModel)
-	allModels.merge(*modelsWithinModel)
-
-	for fieldName, field := range fields {
-		if field.ModelReference == nil {
-			continue
-		}
-
-		nestedModelName := *field.ModelReference
-		_, hasModel := allModels[nestedModelName]
-		if hasModel {
-			continue
-		}
-
-		topLevelModel, err := d.findTopLevelModel(nestedModelName)
-		if err != nil {
-			return nil, nil, fmt.Errorf("finding top level model %q for field %q in %q: %+v", nestedModelName, fieldName, name, err)
-		}
-
-		constantsHiddenInFields, modelsHiddenInFields, err := d.findModelsForModel(nestedModelName, *topLevelModel, constants, allModels)
-		if err != nil {
-			return nil, nil, fmt.Errorf("retrieving models within %q: %+v", nestedModelName, err)
-		}
-		allConstants.merge(*constantsHiddenInFields)
-		allModels.merge(*modelsHiddenInFields)
-	}
-
-	return allConstants, allModels, nil
-}
-
-func (d *SwaggerDefinition) findModelsForModel(name string, input spec.Schema, constants constantDetailsMap, knownModels modelDetailsMap) (*constantDetailsMap, *modelDetailsMap, error) {
+func (d *SwaggerDefinition) modelsForModel(name string, input spec.Schema, constants constantDetailsMap, knownModels modelDetailsMap) (constantDetailsMap, modelDetailsMap, error) {
 	allConstants := make(constantDetailsMap)
 	for k, v := range constants {
 		allConstants[k] = v
@@ -414,7 +374,7 @@ func (d *SwaggerDefinition) findModelsForModel(name string, input spec.Schema, c
 	// handles recursive models
 	for k := range knownModels {
 		if strings.EqualFold(k, name) {
-			return &allConstants, &foundModels, nil
+			return allConstants, foundModels, nil
 		}
 	}
 
@@ -439,83 +399,31 @@ func (d *SwaggerDefinition) findModelsForModel(name string, input spec.Schema, c
 	}
 
 	// then iterate over the fields
-	for fieldName, field := range fields {
-		// Constant references are pulled out elsewhere
-		if field.ConstantReference != nil {
+	for _, field := range fields {
+		// The ConstantReference is intentionally not handled here as it was pulled out elsewhere.
+		if field.ModelReference == nil {
 			continue
 		}
 
-		// For model references, ensure the model is exists.
-		// There are two cases at this point:
-		// 1. The model reference refers to a top level model: then we only need to recursively find models for that model.
-		// 2. The model reference is a placeholder that represents an inlined model.
-		// TODO
-		if len(propVal.Properties) > 0 {
-			// otherwise it should be an inlined block which can go through the recursive funtime
-			// however we have to make sure those names are unique
-			uniqueName := inlinedModelName(name, propName)
-			modelsKnownSoFar := allModels()
-			nestedConstants, nestedModels, err := d.findModelsForModel(uniqueName, propVal, constants, modelsKnownSoFar)
-			if err != nil {
-				return nil, nil, fmt.Errorf("finding models for %q: %+v", propName, err)
-			}
+		fragmentName := *field.ModelReference
 
-			allConstants.merge(*nestedConstants)
-			foundModels.merge(*nestedModels)
-
-			// update the model name for this field
-			field := fields[propName]
-			field.ModelReference = &uniqueName
-			fields[propName] = field
+		// Avoid circular reference.
+		if name == fragmentName {
 			continue
 		}
 
-		// If it has a model reference
-		fragmentName := fragmentNameFromReference(propVal.Ref)
-		if fragmentName == nil {
-			if propVal.AdditionalProperties != nil && propVal.AdditionalProperties.Schema != nil {
-				fragmentName = fragmentNameFromReference(propVal.AdditionalProperties.Schema.Ref)
-			}
-		}
-		if len(propVal.Type) != 0 && propVal.Type[0] == "array" {
-			if propVal.Items.Schema != nil {
-				fragmentName = fragmentNameFromReference(propVal.Items.Schema.Ref)
-			}
-		}
-
-		if fragmentName != nil {
-			// referenced constants are pulled out elsewhere
-			if d.isConstant(constants, *fragmentName) {
-				continue
-			}
-
-			// circular references
-			if name == *fragmentName {
-				continue
-			}
-
-			// have we already loaded this model?
-			allKnownModels := allModels()
-			if _, alreadyLoaded := allKnownModels[*fragmentName]; alreadyLoaded {
-				continue
-			}
-
-			// this should be a top level model, so go find it
-			topLevelModel, err := d.findTopLevelModel(*fragmentName)
-			if err != nil {
-				return nil, nil, fmt.Errorf("finding model %q: %+v", *fragmentName, err)
-			}
-
-			// then add any models nested within this one
-			modelsKnownSoFar := allModels()
-			nestedConstants, nestedModels, err := d.findModelsForModel(*fragmentName, *topLevelModel, constants, modelsKnownSoFar)
-			if err != nil {
-				return nil, nil, fmt.Errorf("finding models for %q: %+v", *fragmentName, err)
-			}
-			allConstants.merge(*nestedConstants)
-			foundModels.merge(*nestedModels)
+		// have we already loaded this model?
+		allKnownModels := allModels()
+		if _, alreadyLoaded := allKnownModels[fragmentName]; alreadyLoaded {
 			continue
 		}
+
+		nestedConstants, nestedModels, err := d.modelsForModel(fragmentName, *field.ReferenceSchema, constants, allKnownModels)
+		if err != nil {
+			return nil, nil, fmt.Errorf("finding models for %q: %+v", fragmentName, err)
+		}
+		allConstants.merge(nestedConstants)
+		foundModels.merge(nestedModels)
 	}
 
 	details := models.ModelDetails{
@@ -555,7 +463,7 @@ func (d *SwaggerDefinition) findModelsForModel(name string, input spec.Schema, c
 
 	foundModels[name] = details
 
-	return &allConstants, &foundModels, nil
+	return allConstants, foundModels, nil
 }
 
 func (d *SwaggerDefinition) findTopLevelModel(name string) (*spec.Schema, error) {
@@ -733,9 +641,10 @@ func (d *SwaggerDefinition) mapField(parentModelName, jsonName string, value spe
 	// - model reference / const reference: $ref
 	if fragmentName := fragmentNameFromReference(value.Ref); fragmentName != nil {
 		field.Type = models.Object
-		if err := d.setFieldReference(field, *fragmentName, allConstants); err != nil {
+		if err := d.setFieldReference(&field, *fragmentName, allConstants); err != nil {
 			return nil, nil, err
 		}
+
 		return allConstants, &field, nil
 	}
 
@@ -746,6 +655,7 @@ func (d *SwaggerDefinition) mapField(parentModelName, jsonName string, value spe
 		inlinedModel := inlinedModelName(parentModelName, jsonName)
 		field.Type = models.Object
 		field.ModelReference = &inlinedModel
+		field.ReferenceSchema = &value
 		return allConstants, &field, nil
 	}
 
@@ -777,6 +687,7 @@ func (d *SwaggerDefinition) mapField(parentModelName, jsonName string, value spe
 		if !vtIsPrimaryType {
 			refName := inlinedModelName(thisFieldModelName, valueLit)
 			field.ModelReference = &refName
+			field.ReferenceSchema = &value
 		}
 		return allConstants, &field, nil
 	}
@@ -788,6 +699,7 @@ func (d *SwaggerDefinition) mapField(parentModelName, jsonName string, value spe
 		constantName, err := parseConstantNameFromField(value)
 		field.Type = models.Object
 		field.ConstantReference = constantName
+		field.ReferenceSchema = &value
 
 		// if it's inlined pull it out that way
 		constant, err := mapConstant(value)
@@ -815,8 +727,10 @@ func (d *SwaggerDefinition) mapField(parentModelName, jsonName string, value spe
 			field.ListElementMax = value.MaxItems
 			field.ListElementUnique = &value.UniqueItems
 
+			// If the value schema is a ref, then
+
 			thisFieldModelName := inlinedModelName(parentModelName, jsonName)
-			consts, vfield, err := d.mapField(thisFieldModelName, valueLit, *value.AdditionalProperties.Schema, false, constants)
+			consts, vfield, err := d.mapField(thisFieldModelName, valueLit, *value.Items.Schema, false, constants)
 			if err != nil {
 				return nil, nil, fmt.Errorf("mapping array element of field %s.%s: %+v", parentModelName, jsonName, err)
 			}
@@ -825,7 +739,7 @@ func (d *SwaggerDefinition) mapField(parentModelName, jsonName string, value spe
 			field.ListElementType = &vfield.Type
 
 			// In case the array element value type is not a primary type, pull out the model of the element.
-			vt := *field.DictValueType
+			vt := *field.ListElementType
 			var vtIsPrimaryType bool
 			for _, t := range models.FieldDefinitionPrimaryTypes {
 				if t == vt {
@@ -836,6 +750,7 @@ func (d *SwaggerDefinition) mapField(parentModelName, jsonName string, value spe
 			if !vtIsPrimaryType {
 				refName := inlinedModelName(thisFieldModelName, valueLit)
 				field.ModelReference = &refName
+				field.ReferenceSchema = &value
 			}
 			return allConstants, &field, nil
 		}
@@ -852,32 +767,39 @@ func (d *SwaggerDefinition) mapField(parentModelName, jsonName string, value spe
 				return allConstants, &field, nil
 			}
 		}
+		return allConstants, &field, nil
 	}
 
 	return nil, nil, fmt.Errorf("field %q is of invalid schema", jsonName)
 }
 
-// setFieldReference set either the model reference or the constant reference for a field
-func (d *SwaggerDefinition) setFieldReference(field models.FieldDetails, referenceType string, allConstants constantDetailsMap) error {
-	if d.isConstant(allConstants, referenceType) {
-		field.ConstantReference = &referenceType
+// setFieldReference mutate the field by setting either the model reference or the constant reference for a field
+func (d *SwaggerDefinition) setFieldReference(field *models.FieldDetails, fragmentName string, allConstants constantDetailsMap) error {
+	model, err := d.findTopLevelModel(fragmentName)
+	if err != nil {
+		return fmt.Errorf("finding top level model %q: %+v", fragmentName, err)
+	}
+	field.ReferenceSchema = model
+
+	if d.isConstant(allConstants, fragmentName) {
+		field.ConstantReference = &fragmentName
 
 		// if this is a reference to a top-level type it can be missed so it's worth pulling this out explicitly too
-		if _, ok := allConstants[referenceType]; !ok {
-			model, err := d.findTopLevelModel(referenceType)
+		if _, ok := allConstants[fragmentName]; !ok {
+			model, err := d.findTopLevelModel(fragmentName)
 			if err != nil {
-				return fmt.Errorf("finding top level constant %q: %+v", referenceType, err)
+				return fmt.Errorf("finding top level constant %q: %+v", fragmentName, err)
 			}
 
 			constant, err := mapConstant(*model)
 			if err != nil {
-				return fmt.Errorf("populating top level constant %q: %+v", referenceType, err)
+				return fmt.Errorf("populating top level constant %q: %+v", fragmentName, err)
 			}
 
-			allConstants[referenceType] = constant.details
+			allConstants[fragmentName] = constant.details
 		}
 	} else {
-		field.ModelReference = &referenceType
+		field.ModelReference = &fragmentName
 	}
 	return nil
 }

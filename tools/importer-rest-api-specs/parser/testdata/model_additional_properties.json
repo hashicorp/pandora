@@ -49,6 +49,23 @@
         },
         "dictOfObjectRef": {
           "$ref": "#/definitions/dictOfObjectRef"
+        },
+        "dictOfStringInline": {
+          "additionalProperties": {
+            "type" : "string"
+          }
+        },
+        "dictOfObjectInline": {
+          "additionalProperties": {
+            "properties": {
+              "p1": {}
+            }
+          }
+        },
+        "dictOfObjectRefInline": {
+          "additionalProperties": {
+            "$ref": "#/definitions/obj"
+          }
         }
       }
     },

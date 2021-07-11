@@ -230,7 +230,10 @@ func (m systemAssignedUserAssignedIdentityMapMatcher) Match(model models.ModelDe
 		case "TenantId":
 			tenantIdOK = true
 		case "UserAssignedIdentities":
-			if field.Type != models.Object {
+			if field.Type != models.Dictionary {
+				return false
+			}
+			if field.DictValueType == nil || *field.DictValueType != models.Object {
 				return false
 			}
 			if field.ModelReference == nil {
