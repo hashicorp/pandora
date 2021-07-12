@@ -71,11 +71,12 @@ func (n normalizer) models(input map[string]models.ModelDetails) map[string]mode
 
 		normalizedModelName := cleanup.NormalizeName(key)
 		output[normalizedModelName] = models.ModelDetails{
-			Description:    value.Description,
-			Fields:         normalizedFields,
-			ParentTypeName: value.ParentTypeName,
-			TypeHintIn:     value.TypeHintIn,
-			TypeHintValue:  value.TypeHintValue,
+			Description:          value.Description,
+			Fields:               normalizedFields,
+			ParentTypeName:       value.ParentTypeName,
+			TypeHintIn:           value.TypeHintIn,
+			TypeHintValue:        value.TypeHintValue,
+			AdditionalProperties: value.AdditionalProperties,
 		}
 	}
 
@@ -125,7 +126,7 @@ func removeModelsWithoutFields(input map[string]models.AzureApiResource) map[str
 	output := make(map[string]models.AzureApiResource)
 	for resourceName, resource := range input {
 		for modelName, model := range resource.Models {
-			if len(model.Fields) == 0 {
+			if len(model.Fields) == 0 && model.AdditionalProperties == nil {
 				delete(resource.Models, modelName)
 			}
 		}

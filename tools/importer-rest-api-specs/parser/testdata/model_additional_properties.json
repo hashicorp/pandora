@@ -52,7 +52,7 @@
         },
         "dictOfStringInline": {
           "additionalProperties": {
-            "type" : "string"
+            "type": "string"
           }
         },
         "dictOfObjectInline": {
@@ -67,6 +67,20 @@
         "dictOfObjectRefInline": {
           "additionalProperties": {
             "$ref": "#/definitions/obj"
+          }
+        },
+        "objectWithAdditionalPropertiesInline": {
+          "properties": {
+            "p1": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": {
+            "properties": {
+              "p2": {
+                "type": "string"
+              }
+            }
           }
         }
       }

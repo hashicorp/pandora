@@ -44,8 +44,21 @@ func (r *AzureApiResource) Normalize() {
 
 			fields[normalizedFieldName] = fieldVal
 		}
-
 		v.Fields = fields
+
+		if v.AdditionalProperties != nil {
+			additionalProperties := *v.AdditionalProperties
+			if additionalProperties.ConstantReference != nil {
+				normalized := cleanup.NormalizeName(*additionalProperties.ConstantReference)
+				additionalProperties.ConstantReference = &normalized
+			}
+			if additionalProperties.ModelReference != nil {
+				normalized := cleanup.NormalizeName(*additionalProperties.ModelReference)
+				additionalProperties.ModelReference = &normalized
+			}
+			v.AdditionalProperties = &additionalProperties
+		}
+
 		normalizedModels[modelName] = v
 	}
 	r.Models = normalizedModels
@@ -97,18 +110,19 @@ type ModelDetails struct {
 	TypeHintIn     *string
 	TypeHintValue  *string
 
+	AdditionalProperties *FieldDetails
+
 	// TODO: include ReadOnly, which'll mean we need to generate this on a per-type basis if necessary
 }
 
 func (m ModelDetails) AsMap() (*FieldDetails, bool) {
-	if len(m.Fields) != 1 {
+	if len(m.Fields) != 0 {
 		return nil, false
 	}
-	field, ok := m.Fields["AdditionalProperties"]
-	if !ok {
+	if m.AdditionalProperties == nil {
 		return nil, false
 	}
-	return &field, true
+	return m.AdditionalProperties, true
 }
 
 type FieldDetails struct {

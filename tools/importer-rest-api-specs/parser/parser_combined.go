@@ -14,7 +14,6 @@ import (
 )
 
 const additionalPropertiesLit = "additionalProperties"
-const valueLit = "VALUE"
 
 type constantDetailsMap map[string]models.ConstantDetails
 
@@ -63,6 +62,7 @@ func (d *SwaggerDefinition) parseOperations(input map[string]models.OperationDet
 		details := models.ModelDetails{
 			Description: "",
 			Fields:      parsedModel.fields,
+			AdditionalProperties: parsedModel.additionalProperties,
 		}
 
 		nestedModel, ok := parsedModel.models[modelName]
@@ -98,9 +98,10 @@ func (d *SwaggerDefinition) parseOperations(input map[string]models.OperationDet
 }
 
 type result struct {
-	constants constantDetailsMap
-	fields    fieldDetailsMap
-	models    modelDetailsMap
+	constants            constantDetailsMap
+	fields               fieldDetailsMap
+	additionalProperties *models.FieldDetails
+	models               modelDetailsMap
 }
 
 func (r *result) append(other result) {
@@ -123,11 +124,11 @@ func (r *result) append(other result) {
 		constant := mergeConstants(v, existing)
 		r.constants[k] = constant
 	}
-	for k, v := range other.fields {
-		r.fields[k] = v
-	}
-	for k, v := range other.models {
-		r.models[k] = v
+	r.fields.merge(other.fields)
+	r.models.merge(other.models)
+
+	if other.additionalProperties != nil {
+		r.additionalProperties = other.additionalProperties
 	}
 }
 
@@ -178,7 +179,7 @@ func (d *SwaggerDefinition) parseModel(name string, input spec.Schema) (*result,
 		return nil, fmt.Errorf("determining constants for model: %+v", err)
 	}
 
-	constants, fields, err := d.fieldsForModel(name, input, nil, constants)
+	constants, fields, additionalProperties, err := d.fieldsForModel(name, input, nil, constants)
 	if err != nil {
 		return nil, fmt.Errorf("determining fields for model: %+v", err)
 	}
@@ -189,9 +190,10 @@ func (d *SwaggerDefinition) parseModel(name string, input spec.Schema) (*result,
 	}
 
 	return &result{
-		constants: constants,
-		fields:    fields,
-		models:    parsedModels,
+		constants:            constants,
+		fields:               fields,
+		models:               parsedModels,
+		additionalProperties: additionalProperties,
 	}, nil
 }
 
@@ -259,7 +261,7 @@ func (d *SwaggerDefinition) constantsForModel(input spec.Schema) (constantDetail
 	return output, nil
 }
 
-func (d *SwaggerDefinition) fieldsForModel(modelName string, input spec.Schema, requiredKeys []string, constants constantDetailsMap) (constantDetailsMap, fieldDetailsMap, error) {
+func (d *SwaggerDefinition) fieldsForModel(modelName string, input spec.Schema, requiredKeys []string, constants constantDetailsMap) (constantDetailsMap, fieldDetailsMap, *models.FieldDetails, error) {
 	allConstants := make(constantDetailsMap)
 	for k, v := range constants {
 		allConstants[k] = v
@@ -284,12 +286,13 @@ func (d *SwaggerDefinition) fieldsForModel(modelName string, input spec.Schema, 
 	if input.Type != nil && input.Type[0] == "string" && len(input.Enum) > 0 {
 		constant, err := mapConstant(input)
 		if err != nil {
-			return nil, nil, fmt.Errorf("parsing constant %q: %+v", input.Title, err)
+			return nil, nil, nil, fmt.Errorf("parsing constant %q: %+v", input.Title, err)
 		}
 		allConstants[constant.name] = constant.details
-		return allConstants, nil, nil
+		return allConstants, nil, nil, nil
 	}
 
+	var additionalPropertiesDetail *models.FieldDetails
 	// models can inherit from other models, so we first need to pull those fields
 	for _, parent := range input.AllOf {
 		// these _should_ all be references, if they're not raise an error
@@ -299,15 +302,20 @@ func (d *SwaggerDefinition) fieldsForModel(modelName string, input spec.Schema, 
 			// these _should_ all be top-level references..
 			model, err := d.findTopLevelModel(*fragmentName)
 			if err != nil {
-				return nil, nil, fmt.Errorf("retrieving model for inherited type %q: %+v", *fragmentName, err)
+				return nil, nil, nil, fmt.Errorf("retrieving model for inherited type %q: %+v", *fragmentName, err)
 			}
 
-			inheritedConstants, inheritedFields, err := d.fieldsForModel(*fragmentName, *model, requiredKeys, constants)
+			inheritedConstants, inheritedFields, additionalProperties, err := d.fieldsForModel(*fragmentName, *model, requiredKeys, constants)
 			if err != nil {
-				return nil, nil, fmt.Errorf("retrieving fields for inherited type %q: %+v", *fragmentName, err)
+				return nil, nil, nil, fmt.Errorf("retrieving fields for inherited type %q: %+v", *fragmentName, err)
 			}
 			allConstants.merge(inheritedConstants)
 			fields.merge(inheritedFields)
+
+			if additionalPropertiesDetail != nil {
+				return nil, nil, nil, fmt.Errorf("multiple additionalProperties inherited for %q", modelName)
+			}
+			additionalPropertiesDetail = additionalProperties
 		}
 	}
 
@@ -316,7 +324,7 @@ func (d *SwaggerDefinition) fieldsForModel(modelName string, input spec.Schema, 
 		isRequired := fieldIsRequired(requiredKeys, propName)
 		consts, field, err := d.mapField(modelName, propName, propVal, isRequired, constants)
 		if err != nil {
-			return nil, nil, fmt.Errorf("mapping field %q: %+v", modelName, err)
+			return nil, nil, nil, fmt.Errorf("mapping field %q: %+v", modelName, err)
 		}
 
 		allConstants.merge(consts)
@@ -325,20 +333,20 @@ func (d *SwaggerDefinition) fieldsForModel(modelName string, input spec.Schema, 
 		fields[propName] = *field
 	}
 
-	// In case current schema has additional properties defined, we'll add it to the fields.
+	// In case the current schema has additional properties defined
 	if input.AdditionalProperties != nil {
 		tptr := func(t models.FieldDefinitionType) *models.FieldDefinitionType {
 			return &t
 		}
 
-		var field *models.FieldDetails
+		var additionalProperties *models.FieldDetails
 
 		// TODO:There is a bug here that we will regard explicit false additionalProperties as a dict of free-form values.
 		// 		Which actually should mean there is no `additionalProperties` allowed.
 		// 		Differentiate between empty schema and explicit false after below issue got fixed:
 		//       https://github.com/go-openapi/spec/issues/148
 		if input.AdditionalProperties.Schema == nil {
-			field = &models.FieldDetails{
+			additionalProperties = &models.FieldDetails{
 				Type:          models.Dictionary,
 				DictValueType: tptr(models.Object),
 			}
@@ -349,19 +357,22 @@ func (d *SwaggerDefinition) fieldsForModel(modelName string, input spec.Schema, 
 			// Also, `mapField()` will pull out the nested model to be a reference, which is named to be "{modelName}{jsonName}".
 			consts, vfield, err := d.mapField(modelName, additionalPropertiesLit, *input.AdditionalProperties.Schema, false, constants)
 			if err != nil {
-				return nil, nil, fmt.Errorf("mapping additionalProperties: %+v", err)
+				return nil, nil, nil, fmt.Errorf("mapping additionalProperties: %+v", err)
 			}
 
-			field = vfield
-			field.DictValueType = tptr(field.Type)
-			field.Type = models.Dictionary
+			additionalProperties = vfield
+			additionalProperties.DictValueType = tptr(additionalProperties.Type)
+			additionalProperties.Type = models.Dictionary
 
 			allConstants.merge(consts)
 		}
-		fields[additionalPropertiesLit] = *field
+		if additionalPropertiesDetail != nil {
+			return nil, nil, nil, fmt.Errorf("multiple additionalProperties inherited for %q", modelName)
+		}
+		additionalPropertiesDetail = additionalProperties
 	}
 
-	return allConstants, fields, nil
+	return allConstants, fields, additionalPropertiesDetail, nil
 }
 
 func (d *SwaggerDefinition) modelsForModel(name string, input spec.Schema, constants constantDetailsMap, knownModels modelDetailsMap) (constantDetailsMap, modelDetailsMap, error) {
@@ -386,20 +397,22 @@ func (d *SwaggerDefinition) modelsForModel(name string, input spec.Schema, const
 	}
 
 	// add this model
-	consts, fields, err := d.fieldsForModel(name, input, nil, constants)
+	consts, fields, additionalProperties, err := d.fieldsForModel(name, input, nil, constants)
 	if err != nil {
 		return nil, nil, fmt.Errorf("finding fields for %q: %+v", name, err)
 	}
 	allConstants.merge(consts)
-	if len(fields) > 0 {
-		foundModels[name] = models.ModelDetails{
-			Description: "",
-			Fields:      fields,
-		}
+
+	var allFields []models.FieldDetails
+	for _, field := range fields {
+		allFields = append(allFields, field)
+	}
+	if additionalProperties != nil {
+		allFields = append(allFields, *additionalProperties)
 	}
 
 	// then iterate over the fields
-	for _, field := range fields {
+	for _, field := range allFields {
 		// The ConstantReference is intentionally not handled here as it was pulled out elsewhere.
 		if field.ModelReference == nil {
 			continue
@@ -429,6 +442,7 @@ func (d *SwaggerDefinition) modelsForModel(name string, input spec.Schema, const
 	details := models.ModelDetails{
 		Description: "",
 		Fields:      fields,
+		AdditionalProperties: additionalProperties,
 	}
 
 	// if this is a Parent
