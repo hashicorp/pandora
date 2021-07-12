@@ -4,7 +4,6 @@ import (
 	"reflect"
 	"strings"
 
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/cleanup"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
@@ -106,9 +105,7 @@ func (m userAssignedIdentityListMatcher) Match(model models.ModelDetails, resour
 }
 
 // userAssignedIdentityMapMatcher matches a model which only supports for UserAssigned Identity, whose userAssignedIdentities is formed as a map.
-type userAssignedIdentityMapMatcher struct {
-	uaiMatcher userAssignedIdentitiesMapMatcher
-}
+type userAssignedIdentityMapMatcher struct {}
 
 func (m userAssignedIdentityMapMatcher) Name() models.FieldDefinitionType {
 	return models.UserAssignedIdentityMap
@@ -129,20 +126,7 @@ func (m userAssignedIdentityMapMatcher) Match(model models.ModelDetails, resourc
 			}
 			typeOK = true
 		case "UserAssignedIdentities":
-			if field.Type != models.Object {
-				return false
-			}
-			if field.ModelReference == nil {
-				return false
-			}
-			model, ok := resource.Models[*field.ModelReference]
-			if !ok {
-				return false
-			}
-			if !m.uaiMatcher.Match(model, resource) {
-				return false
-			}
-			userAssignedIdentitiesOK = true
+			userAssignedIdentitiesOK =  matchUserAssignedIdentity(field, resource)
 		default:
 			return false
 		}
@@ -198,9 +182,7 @@ func (m systemAssignedUserAssignedIdentityListMatcher) Match(model models.ModelD
 }
 
 // systemAssignedUserAssignedIdentityMapMatcher matches a model which supports both SystemAssigned Identity and UserAssigned Identity whose userAssignedIdentities is formed as a map.
-type systemAssignedUserAssignedIdentityMapMatcher struct {
-	uaiMatcher userAssignedIdentitiesMapMatcher
-}
+type systemAssignedUserAssignedIdentityMapMatcher struct {}
 
 func (m systemAssignedUserAssignedIdentityMapMatcher) Name() models.FieldDefinitionType {
 	return models.SystemUserAssignedIdentityMap
@@ -230,23 +212,7 @@ func (m systemAssignedUserAssignedIdentityMapMatcher) Match(model models.ModelDe
 		case "TenantId":
 			tenantIdOK = true
 		case "UserAssignedIdentities":
-			if field.Type != models.Dictionary {
-				return false
-			}
-			if field.DictValueType == nil || *field.DictValueType != models.Object {
-				return false
-			}
-			if field.ModelReference == nil {
-				return false
-			}
-			model, ok := resource.Models[*field.ModelReference]
-			if !ok {
-				return false
-			}
-			if !m.uaiMatcher.Match(model, resource) {
-				return false
-			}
-			userAssignedIdentitiesOK = true
+			userAssignedIdentitiesOK =  matchUserAssignedIdentity(field, resource)
 		default:
 			return false
 		}
@@ -256,31 +222,43 @@ func (m systemAssignedUserAssignedIdentityMapMatcher) Match(model models.ModelDe
 	return ret
 }
 
-// userAssignedIdentitiesMapMatcher matches the UserAssigned Identities which is formed as a map.
-// This is intended to be nested into customTypeMatcher(s) whose target model embedded a  UserAssignedIdentities in the form of map.
-type userAssignedIdentitiesMapMatcher struct{}
 
-func (m userAssignedIdentitiesMapMatcher) Match(model models.ModelDetails, resource models.AzureApiResource) bool {
+func matchUserAssignedIdentity(field models.FieldDetails, resource models.AzureApiResource) bool {
+	// The field is either an inlined model or a ref to some other model.
+	if field.Type == models.Object && field.ModelReference != nil {
+		model, ok := resource.Models[*field.ModelReference]
+		if !ok {
+			return false
+		}
+
+		fieldPtr, ok := model.AsMap()
+		if !ok {
+			return false
+		}
+		field = *fieldPtr
+	}
+
+	if field.Type != models.Dictionary {
+		return false
+	}
+	if field.DictValueType == nil || *field.DictValueType != models.Object {
+		return false
+	}
+	if field.ModelReference == nil {
+		return false
+	}
+
+	uaimodel, ok := resource.Models[*field.ModelReference]
+	if !ok {
+		return false
+	}
+
 	var (
 		principalIdOK bool
 		clientId      bool
 	)
 
-	additionalProps, ok := model.Fields[cleanup.NormalizeName(additionalPropertiesLit)]
-	if !ok {
-		return false
-	}
-
-	if additionalProps.DictValueType == nil || *additionalProps.DictValueType != models.Object || additionalProps.ModelReference == nil {
-		return false
-	}
-
-	realModel, ok := resource.Models[*additionalProps.ModelReference]
-	if !ok {
-		return false
-	}
-
-	for fieldName := range realModel.Fields {
+	for fieldName := range uaimodel.Fields {
 		switch fieldName {
 		case "PrincipalId":
 			principalIdOK = true

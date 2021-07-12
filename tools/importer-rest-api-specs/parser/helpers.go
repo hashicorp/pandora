@@ -272,4 +272,3 @@ type ResourceManagerService struct {
 	Name            string
 	ApiVersionPaths map[string]string
 }
-

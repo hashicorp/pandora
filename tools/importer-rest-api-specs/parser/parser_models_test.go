@@ -1388,39 +1388,46 @@ func TestParseModelIdentities(t *testing.T) {
 		t.Fatalf("the Model `IdentityCollection` was not found")
 	}
 
-	//sai, ok := identityCollection.Fields["SystemAssignedIdentity"]
-	//if !ok {
-	//	t.Fatalf("example.Fields['SystemAssigndIdentity'] was missing")
-	//}
-	//if sai.Type != models.SystemAssignedIdentity {
-	//	t.Fatalf("expected example.Fields['SystemAssigndIdentity'] to be a %q but got %q", string(models.SystemAssignedIdentity), string(sai.Type))
-	//}
-	//
-	//uaiList, ok := identityCollection.Fields["UserAssignedIdentityList"]
-	//if !ok {
-	//	t.Fatalf("example.Fields['UserAssignedIdentityList'] was missing")
-	//}
-	//if uaiList.Type != models.UserAssignedIdentityList {
-	//	t.Fatalf("expected example.Fields['UserAssignedIdentityList'] to be a %q but got %q", string(models.UserAssignedIdentityList), string(uaiList.Type))
-	//}
-	//
-	//uaiMap, ok := identityCollection.Fields["UserAssignedIdentityMap"]
-	//if !ok {
-	//	t.Fatalf("example.Fields['UserAssignedIdentityMap'] was missing")
-	//}
-	//if uaiMap.Type != models.UserAssignedIdentityMap {
-	//	t.Fatalf("expected example.Fields['UserAssignedIdentityMap'] to be a %q but got %q", string(models.UserAssignedIdentityMap), string(uaiMap.Type))
-	//}
-	//
-	//
-	//sauaiList, ok := identityCollection.Fields["SystemAssignedUserAssignedIdentityList"]
-	//if !ok {
-	//	t.Fatalf("example.Fields['SystemAssignedUserAssignedIdentityList'] was missing")
-	//}
-	//if sauaiList.Type != models.SystemUserAssignedIdentityList {
-	//	t.Fatalf("expected example.Fields['SystemAssignedUserAssignedIdentityList'] to be a %q but got %q", string(models.SystemUserAssignedIdentityList), string(sauaiList.Type))
-	//}
-	//
+	sai, ok := identityCollection.Fields["SystemAssignedIdentity"]
+	if !ok {
+		t.Fatalf("example.Fields['SystemAssigndIdentity'] was missing")
+	}
+	if sai.Type != models.SystemAssignedIdentity {
+		t.Fatalf("expected example.Fields['SystemAssigndIdentity'] to be a %q but got %q", string(models.SystemAssignedIdentity), string(sai.Type))
+	}
+
+	uaiList, ok := identityCollection.Fields["UserAssignedIdentityList"]
+	if !ok {
+		t.Fatalf("example.Fields['UserAssignedIdentityList'] was missing")
+	}
+	if uaiList.Type != models.UserAssignedIdentityList {
+		t.Fatalf("expected example.Fields['UserAssignedIdentityList'] to be a %q but got %q", string(models.UserAssignedIdentityList), string(uaiList.Type))
+	}
+
+	uaiMap, ok := identityCollection.Fields["UserAssignedIdentityMap"]
+	if !ok {
+		t.Fatalf("example.Fields['UserAssignedIdentityMap'] was missing")
+	}
+	if uaiMap.Type != models.UserAssignedIdentityMap {
+		t.Fatalf("expected example.Fields['UserAssignedIdentityMap'] to be a %q but got %q", string(models.UserAssignedIdentityMap), string(uaiMap.Type))
+	}
+
+	uaiMapInline, ok := identityCollection.Fields["UserAssignedIdentityMapInline"]
+	if !ok {
+		t.Fatalf("example.Fields['UserAssignedIdentityMapInline'] was missing")
+	}
+	if uaiMapInline.Type != models.UserAssignedIdentityMap {
+		t.Fatalf("expected example.Fields['UserAssignedIdentityMapInline'] to be a %q but got %q", string(models.UserAssignedIdentityMap), string(uaiMapInline.Type))
+	}
+
+	sauaiList, ok := identityCollection.Fields["SystemAssignedUserAssignedIdentityList"]
+	if !ok {
+		t.Fatalf("example.Fields['SystemAssignedUserAssignedIdentityList'] was missing")
+	}
+	if sauaiList.Type != models.SystemUserAssignedIdentityList {
+		t.Fatalf("expected example.Fields['SystemAssignedUserAssignedIdentityList'] to be a %q but got %q", string(models.SystemUserAssignedIdentityList), string(sauaiList.Type))
+	}
+
 	sauaiMap, ok := identityCollection.Fields["SystemAssignedUserAssignedIdentityMap"]
 	if !ok {
 		t.Fatalf("example.Fields['SystemAssignedUserAssignedIdentityMap'] was missing")
@@ -1437,13 +1444,13 @@ func TestParseModelIdentities(t *testing.T) {
 		t.Fatalf("expected example.Fields['SystemAssignedUserAssignedIdentityMapInline'] to be a %q but got %q", string(models.SystemUserAssignedIdentityMap), string(sauaiMapInline.Type))
 	}
 
-	//malformedIdentity, ok := identityCollection.Fields["MalformedIdentity"]
-	//if !ok {
-	//	t.Fatalf("example.Fields['MalformedIdentity'] was missing")
-	//}
-	//if malformedIdentity.Type != models.Object {
-	//	t.Fatalf("expected example.Fields['MalformedIdentity'] to be a %q but got %q", string(models.Object), string(malformedIdentity.Type))
-	//}
+	malformedIdentity, ok := identityCollection.Fields["MalformedIdentity"]
+	if !ok {
+		t.Fatalf("example.Fields['MalformedIdentity'] was missing")
+	}
+	if malformedIdentity.Type != models.Object {
+		t.Fatalf("expected example.Fields['MalformedIdentity'] to be a %q but got %q", string(models.Object), string(malformedIdentity.Type))
+	}
 }
 
 func TestParseModelWithLocation(t *testing.T) {

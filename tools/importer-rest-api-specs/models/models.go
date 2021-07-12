@@ -100,6 +100,17 @@ type ModelDetails struct {
 	// TODO: include ReadOnly, which'll mean we need to generate this on a per-type basis if necessary
 }
 
+func (m ModelDetails) AsMap() (*FieldDetails, bool) {
+	if len(m.Fields) != 1 {
+		return nil, false
+	}
+	field, ok := m.Fields["AdditionalProperties"]
+	if !ok {
+		return nil, false
+	}
+	return &field, true
+}
+
 type FieldDetails struct {
 	Type              FieldDefinitionType
 	DictValueType     *FieldDefinitionType
@@ -124,20 +135,20 @@ type FieldDetails struct {
 type FieldDefinitionType string
 
 const (
-	Boolean                FieldDefinitionType = "bool"
-	DateTime               FieldDefinitionType = "datetime"
-	Dictionary             FieldDefinitionType = "dictionary"
-	Integer                FieldDefinitionType = "int"
-	Location               FieldDefinitionType = "location"
-	List                   FieldDefinitionType = "list"
-	Object                 FieldDefinitionType = "object"
-	String                 FieldDefinitionType = "string"
-	Tags                   FieldDefinitionType = "tags"
-	SystemAssignedIdentity FieldDefinitionType = "system_assigned_identity"
+	Boolean                        FieldDefinitionType = "bool"
+	DateTime                       FieldDefinitionType = "datetime"
+	Dictionary                     FieldDefinitionType = "dictionary"
+	Integer                        FieldDefinitionType = "int"
+	Location                       FieldDefinitionType = "location"
+	List                           FieldDefinitionType = "list"
+	Object                         FieldDefinitionType = "object"
+	String                         FieldDefinitionType = "string"
+	Tags                           FieldDefinitionType = "tags"
+	SystemAssignedIdentity         FieldDefinitionType = "system_assigned_identity"
 	SystemUserAssignedIdentityList FieldDefinitionType = "system_user_assigned_identity_list"
-	SystemUserAssignedIdentityMap FieldDefinitionType = "system_user_assigned_identity_map"
-	UserAssignedIdentityList   FieldDefinitionType = "user_assigned_identity_list"
-	UserAssignedIdentityMap    FieldDefinitionType = "user_assigned_identity_map"
+	SystemUserAssignedIdentityMap  FieldDefinitionType = "system_user_assigned_identity_map"
+	UserAssignedIdentityList       FieldDefinitionType = "user_assigned_identity_list"
+	UserAssignedIdentityMap        FieldDefinitionType = "user_assigned_identity_map"
 
 	// TODO: support this in all of the places
 	Float FieldDefinitionType = "float"

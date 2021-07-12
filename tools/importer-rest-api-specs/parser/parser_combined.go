@@ -666,29 +666,22 @@ func (d *SwaggerDefinition) mapField(parentModelName, jsonName string, value spe
 	if len(value.Properties) == 0 && value.AdditionalProperties != nil && value.AdditionalProperties.Schema != nil {
 		field.Type = models.Dictionary
 
-		thisFieldModelName := inlinedModelName(parentModelName, jsonName)
-		consts, vfield, err := d.mapField(thisFieldModelName, valueLit, *value.AdditionalProperties.Schema, false, constants)
+		consts, vfield, err := d.mapField(parentModelName, jsonName, *value.AdditionalProperties.Schema, isRequired, constants)
 		if err != nil {
 			return nil, nil, fmt.Errorf("mapping additionalProperties value for %s.%s: %+v", parentModelName, jsonName, err)
 		}
 		allConstants.merge(consts)
 
+		field = *vfield
 		field.DictValueType = &vfield.Type
+		field.Type = models.Dictionary
 
-		// In case the dictionary value type is not a primary type, pull out the model of the additionalProperties.
-		vt := *field.DictValueType
-		var vtIsPrimaryType bool
-		for _, t := range models.FieldDefinitionPrimaryTypes {
-			if t == vt {
-				vtIsPrimaryType = true
-				break
-			}
+		// Especially handling for "tags"
+		if jsonName == "tags" && *field.DictValueType == models.String {
+			field.Type = models.Tags
+			field.DictValueType = nil
 		}
-		if !vtIsPrimaryType {
-			refName := inlinedModelName(thisFieldModelName, valueLit)
-			field.ModelReference = &refName
-			field.ReferenceSchema = &value
-		}
+
 		return allConstants, &field, nil
 	}
 
@@ -723,35 +716,19 @@ func (d *SwaggerDefinition) mapField(parentModelName, jsonName string, value spe
 				return nil, nil, fmt.Errorf("field %q is an array with no `items.Schema`", jsonName)
 			}
 
-			field.ListElementMin = value.MinItems
-			field.ListElementMax = value.MaxItems
-			field.ListElementUnique = &value.UniqueItems
-
-			// If the value schema is a ref, then
-
-			thisFieldModelName := inlinedModelName(parentModelName, jsonName)
-			consts, vfield, err := d.mapField(thisFieldModelName, valueLit, *value.Items.Schema, false, constants)
+			consts, vfield, err := d.mapField(parentModelName, jsonName, *value.Items.Schema, isRequired, constants)
 			if err != nil {
 				return nil, nil, fmt.Errorf("mapping array element of field %s.%s: %+v", parentModelName, jsonName, err)
 			}
 			allConstants.merge(consts)
 
+			field = *vfield
+			field.Type = models.List
 			field.ListElementType = &vfield.Type
+			field.ListElementMin = value.MinItems
+			field.ListElementMax = value.MaxItems
+			field.ListElementUnique = &value.UniqueItems
 
-			// In case the array element value type is not a primary type, pull out the model of the element.
-			vt := *field.ListElementType
-			var vtIsPrimaryType bool
-			for _, t := range models.FieldDefinitionPrimaryTypes {
-				if t == vt {
-					vtIsPrimaryType = true
-					break
-				}
-			}
-			if !vtIsPrimaryType {
-				refName := inlinedModelName(thisFieldModelName, valueLit)
-				field.ModelReference = &refName
-				field.ReferenceSchema = &value
-			}
 			return allConstants, &field, nil
 		}
 

@@ -30,8 +30,29 @@
   "definitions": {
     "IdentityCollection": {
       "properties": {
+        "systemAssignedIdentity": {
+          "$ref": "#/definitions/SystemAssignedIdentity"
+        },
+        "userAssignedIdentityList": {
+          "$ref": "#/definitions/UserAssignedIdentityList"
+        },
+        "userAssignedIdentityMap": {
+          "$ref": "#/definitions/UserAssignedIdentityMap"
+        },
+        "userAssignedIdentityMapInline": {
+          "$ref": "#/definitions/UserAssignedIdentityMapInline"
+        },
+        "systemAssignedUserAssignedIdentityList": {
+          "$ref": "#/definitions/SystemAssignedUserAssignedIdentityList"
+        },
         "systemAssignedUserAssignedIdentityMap": {
           "$ref": "#/definitions/SystemAssignedUserAssignedIdentityMap"
+        },
+        "systemAssignedUserAssignedIdentityMapInline": {
+          "$ref": "#/definitions/SystemAssignedUserAssignedIdentityMapInline"
+        },
+        "malformedIdentity": {
+          "$ref": "#/definitions/MalformedIdentity"
         }
       },
       "type": "object",
@@ -88,6 +109,35 @@
         }
       }
     },
+    "UserAssignedIdentityMapInline": {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "None",
+            "UserAssigned"
+          ],
+          "x-ms-enum": {
+            "name": "IdentityType3",
+            "modelAsString": true
+          }
+        },
+        "userAssignedIdentities": {
+          "additionalProperties": {
+            "properties": {
+              "principalId": {
+                "type": "string",
+                "readOnly": true
+              },
+              "clientId": {
+                "type": "string",
+                "readOnly": true
+              }
+            }
+          }
+        }
+      }
+    },
     "UserAssignedIdentityMapReal": {
       "additionalProperties": {
         "type": "object",
@@ -113,7 +163,7 @@
 
           ],
           "x-ms-enum": {
-            "name": "IdentityType3",
+            "name": "IdentityType4",
             "modelAsString": true
           }
         },
@@ -145,7 +195,7 @@
 
           ],
           "x-ms-enum": {
-            "name": "IdentityType3",
+            "name": "IdentityType5",
             "modelAsString": true
           }
         },
@@ -181,7 +231,7 @@
             "None"
           ],
           "x-ms-enum": {
-            "name": "IdentityType4",
+            "name": "IdentityType6",
             "modelAsString": true
           }
         },
@@ -211,7 +261,7 @@
             "UserAssigned"
           ],
           "x-ms-enum": {
-            "name": "IdentityType5",
+            "name": "IdentityType7",
             "modelAsString": true
           }
         },
