@@ -259,7 +259,7 @@ func (d *SwaggerDefinition) requestObjectForOperation(operationDetails *spec.Ope
 						objectName = &param.Schema.Title
 						result.models[param.Schema.Title] = models.ModelDetails{
 							Description: "",
-							Fields:      nestedResult.fields,
+							Fields:      nestedResult.fields.toMapOfModels(),
 						}
 						result.append(*nestedResult)
 					}
@@ -318,7 +318,7 @@ func (d *SwaggerDefinition) responseObjectForOperation(operationDetails *spec.Op
 					objectName = &details.ResponseProps.Schema.Title
 					result.models[details.ResponseProps.Schema.Title] = models.ModelDetails{
 						Description: "",
-						Fields:      nestedResult.fields,
+						Fields:      nestedResult.fields.toMapOfModels(),
 					}
 					result.append(*nestedResult)
 				}
@@ -343,7 +343,7 @@ func (d *SwaggerDefinition) responseObjectForOperation(operationDetails *spec.Op
 							objectName = &schema.Title
 							result.models[schema.Title] = models.ModelDetails{
 								Description: "",
-								Fields:      nestedResult.fields,
+								Fields:      nestedResult.fields.toMapOfModels(),
 							}
 							result.append(*nestedResult)
 						}
@@ -376,10 +376,10 @@ func (d *SwaggerDefinition) responseObjectForOperation(operationDetails *spec.Op
 				actualModelName := ""
 				for k, v := range parsedModel.fields {
 					if strings.EqualFold(k, "Value") {
-						if v.ModelReference == nil {
+						if v.Details.ModelReference == nil {
 							return nil, nil, fmt.Errorf("parsing model %q for list operation to find real model: missing model reference for field 'value'", *objectName)
 						}
-						actualModelName = *v.ModelReference
+						actualModelName = *v.Details.ModelReference
 						break
 					}
 				}

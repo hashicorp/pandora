@@ -23,7 +23,25 @@ func (m constantDetailsMap) merge(o constantDetailsMap) {
 	}
 }
 
-type fieldDetailsMap map[string]models.FieldDetails
+type fieldDetails struct {
+	// Details is the Field itself
+	Details models.FieldDetails
+
+	// SwaggerReference is a reference to the Raw Swagger Schema which is
+	// referenced in either the ConstantReference or ModelReference within
+	// the Details field above
+	SwaggerReference *spec.Schema
+}
+
+type fieldDetailsMap map[string]fieldDetails
+
+func (f fieldDetailsMap) toMapOfModels() map[string]models.FieldDetails {
+	out := make(map[string]models.FieldDetails, len(f))
+	for k, v := range f {
+		out[k] = v.Details
+	}
+	return out
+}
 
 func (f fieldDetailsMap) merge(o fieldDetailsMap) {
 	for k, v := range o {
@@ -61,8 +79,10 @@ func (d *SwaggerDefinition) parseOperations(input map[string]models.OperationDet
 		result.append(*parsedModel)
 		details := models.ModelDetails{
 			Description: "",
-			Fields:      parsedModel.fields,
-			AdditionalProperties: parsedModel.additionalProperties,
+			Fields:      parsedModel.fields.toMapOfModels(),
+		}
+		if parsedModel.additionalProperties != nil {
+			details.AdditionalProperties = &parsedModel.additionalProperties.Details
 		}
 
 		nestedModel, ok := parsedModel.models[modelName]
@@ -100,7 +120,7 @@ func (d *SwaggerDefinition) parseOperations(input map[string]models.OperationDet
 type result struct {
 	constants            constantDetailsMap
 	fields               fieldDetailsMap
-	additionalProperties *models.FieldDetails
+	additionalProperties *fieldDetails
 	models               modelDetailsMap
 }
 
@@ -261,7 +281,7 @@ func (d *SwaggerDefinition) constantsForModel(input spec.Schema) (constantDetail
 	return output, nil
 }
 
-func (d *SwaggerDefinition) fieldsForModel(modelName string, input spec.Schema, requiredKeys []string, constants constantDetailsMap) (constantDetailsMap, fieldDetailsMap, *models.FieldDetails, error) {
+func (d *SwaggerDefinition) fieldsForModel(modelName string, input spec.Schema, requiredKeys []string, constants constantDetailsMap) (constantDetailsMap, fieldDetailsMap, *fieldDetails, error) {
 	allConstants := make(constantDetailsMap)
 	for k, v := range constants {
 		allConstants[k] = v
@@ -292,7 +312,7 @@ func (d *SwaggerDefinition) fieldsForModel(modelName string, input spec.Schema, 
 		return allConstants, nil, nil, nil
 	}
 
-	var additionalPropertiesDetail *models.FieldDetails
+	var additionalPropertiesDetail *fieldDetails
 	// models can inherit from other models, so we first need to pull those fields
 	for _, parent := range input.AllOf {
 		// these _should_ all be references, if they're not raise an error
@@ -339,16 +359,18 @@ func (d *SwaggerDefinition) fieldsForModel(modelName string, input spec.Schema, 
 			return &t
 		}
 
-		var additionalProperties *models.FieldDetails
+		var additionalProperties *fieldDetails
 
 		// TODO:There is a bug here that we will regard explicit false additionalProperties as a dict of free-form values.
 		// 		Which actually should mean there is no `additionalProperties` allowed.
 		// 		Differentiate between empty schema and explicit false after below issue got fixed:
 		//       https://github.com/go-openapi/spec/issues/148
 		if input.AdditionalProperties.Schema == nil {
-			additionalProperties = &models.FieldDetails{
-				Type:          models.Dictionary,
-				DictValueType: tptr(models.Object),
+			additionalProperties = &fieldDetails{
+				Details: models.FieldDetails{
+					Type:          models.Dictionary,
+					DictValueType: tptr(models.Object),
+				},
 			}
 		} else {
 			// This is kind of a weird piece of code that we reuse the mapField to map an `additionalProperties` block to the fieldDetails.
@@ -361,8 +383,8 @@ func (d *SwaggerDefinition) fieldsForModel(modelName string, input spec.Schema, 
 			}
 
 			additionalProperties = vfield
-			additionalProperties.DictValueType = tptr(additionalProperties.Type)
-			additionalProperties.Type = models.Dictionary
+			additionalProperties.Details.DictValueType = tptr(additionalProperties.Details.Type)
+			additionalProperties.Details.Type = models.Dictionary
 
 			allConstants.merge(consts)
 		}
@@ -403,7 +425,7 @@ func (d *SwaggerDefinition) modelsForModel(name string, input spec.Schema, const
 	}
 	allConstants.merge(consts)
 
-	var allFields []models.FieldDetails
+	var allFields []fieldDetails
 	for _, field := range fields {
 		allFields = append(allFields, field)
 	}
@@ -414,11 +436,11 @@ func (d *SwaggerDefinition) modelsForModel(name string, input spec.Schema, const
 	// then iterate over the fields
 	for _, field := range allFields {
 		// The ConstantReference is intentionally not handled here as it was pulled out elsewhere.
-		if field.ModelReference == nil {
+		if field.Details.ModelReference == nil {
 			continue
 		}
 
-		fragmentName := *field.ModelReference
+		fragmentName := *field.Details.ModelReference
 
 		// Avoid circular reference.
 		if name == fragmentName {
@@ -431,7 +453,7 @@ func (d *SwaggerDefinition) modelsForModel(name string, input spec.Schema, const
 			continue
 		}
 
-		nestedConstants, nestedModels, err := d.modelsForModel(fragmentName, *field.ReferenceSchema, constants, allKnownModels)
+		nestedConstants, nestedModels, err := d.modelsForModel(fragmentName, *field.SwaggerReference, constants, allKnownModels)
 		if err != nil {
 			return nil, nil, fmt.Errorf("finding models for %q: %+v", fragmentName, err)
 		}
@@ -441,8 +463,10 @@ func (d *SwaggerDefinition) modelsForModel(name string, input spec.Schema, const
 
 	details := models.ModelDetails{
 		Description: "",
-		Fields:      fields,
-		AdditionalProperties: additionalProperties,
+		Fields:      fields.toMapOfModels(),
+	}
+	if additionalProperties != nil {
+		details.AdditionalProperties = &additionalProperties.Details
 	}
 
 	// if this is a Parent
@@ -634,29 +658,56 @@ func stringValueForFloat(value float64) string {
 	return strconv.FormatFloat(value, 'f', -1, 64)
 }
 
-func (d *SwaggerDefinition) mapField(parentModelName, jsonName string, value spec.Schema, isRequired bool, constants constantDetailsMap) (constantDetailsMap, *models.FieldDetails, error) {
+func (d *SwaggerDefinition) mapField(parentModelName, jsonName string, value spec.Schema, isRequired bool, constants constantDetailsMap) (constantDetailsMap, *fieldDetails, error) {
 	allConstants := make(constantDetailsMap)
 	for k, v := range constants {
 		allConstants[k] = v
 	}
 
-	field := models.FieldDetails{
-		Required:          isRequired,
-		ReadOnly:          value.ReadOnly, // TODO: generator should handle this in some manner?
-		ConstantReference: nil,
-		ModelReference:    nil,
-		Sensitive:         false, // todo: this probably needs to be a predefined list, unless there's something we can parse
-		JsonName:          jsonName,
-		Type:              models.Unknown, // intentional to highlight any missing types
+	field := fieldDetails{
+		Details: models.FieldDetails{
+			Required:          isRequired,
+			ReadOnly:          value.ReadOnly, // TODO: generator should handle this in some manner?
+			ConstantReference: nil,
+			ModelReference:    nil,
+			Sensitive:         false, // todo: this probably needs to be a predefined list, unless there's something we can parse
+			JsonName:          jsonName,
+			Type:              models.Unknown, // intentional to highlight any missing types
+		},
+		SwaggerReference: nil,
 	}
 
 	// Field is a reference:
 	// - type: object
 	// - model reference / const reference: $ref
 	if fragmentName := fragmentNameFromReference(value.Ref); fragmentName != nil {
-		field.Type = models.Object
-		if err := d.setFieldReference(&field, *fragmentName, allConstants); err != nil {
-			return nil, nil, err
+		field.Details.Type = models.Object
+
+		model, err := d.findTopLevelModel(*fragmentName)
+		if err != nil {
+			return nil, nil, fmt.Errorf("finding top level model %q: %+v", *fragmentName, err)
+		}
+		field.SwaggerReference = model
+
+		if d.isConstant(allConstants, *fragmentName) {
+			field.Details.ConstantReference = fragmentName
+
+			// if this is a reference to a top-level type it can be missed so it's worth pulling this out explicitly too
+			if _, ok := allConstants[*fragmentName]; !ok {
+				model, err := d.findTopLevelModel(*fragmentName)
+				if err != nil {
+					return nil, nil, fmt.Errorf("finding top level constant %q: %+v", *fragmentName, err)
+				}
+
+				constant, err := mapConstant(*model)
+				if err != nil {
+					return nil, nil, fmt.Errorf("populating top level constant %q: %+v", *fragmentName, err)
+				}
+
+				allConstants[*fragmentName] = constant.details
+			}
+		} else {
+			field.Details.ModelReference = fragmentName
 		}
 
 		return allConstants, &field, nil
@@ -667,9 +718,9 @@ func (d *SwaggerDefinition) mapField(parentModelName, jsonName string, value spe
 	// - model reference: pull out the model of the additionalProperties
 	if len(value.Properties) > 0 || len(value.AllOf) > 0 {
 		inlinedModel := inlinedModelName(parentModelName, jsonName)
-		field.Type = models.Object
-		field.ModelReference = &inlinedModel
-		field.ReferenceSchema = &value
+		field.Details.Type = models.Object
+		field.Details.ModelReference = &inlinedModel
+		field.SwaggerReference = &value
 		return allConstants, &field, nil
 	}
 
@@ -678,7 +729,7 @@ func (d *SwaggerDefinition) mapField(parentModelName, jsonName string, value spe
 	// - dict value type: <one of all possible types>
 	// - model reference (only when dict value is not primary type): pull out the model of the additionalProperties.
 	if len(value.Properties) == 0 && value.AdditionalProperties != nil && value.AdditionalProperties.Schema != nil {
-		field.Type = models.Dictionary
+		field.Details.Type = models.Dictionary
 
 		consts, vfield, err := d.mapField(parentModelName, jsonName, *value.AdditionalProperties.Schema, isRequired, constants)
 		if err != nil {
@@ -687,13 +738,13 @@ func (d *SwaggerDefinition) mapField(parentModelName, jsonName string, value spe
 		allConstants.merge(consts)
 
 		field = *vfield
-		field.DictValueType = &vfield.Type
-		field.Type = models.Dictionary
+		field.Details.DictValueType = &vfield.Details.Type
+		field.Details.Type = models.Dictionary
 
 		// Especially handling for "tags"
-		if jsonName == "tags" && *field.DictValueType == models.String {
-			field.Type = models.Tags
-			field.DictValueType = nil
+		if jsonName == "tags" && *field.Details.DictValueType == models.String {
+			field.Details.Type = models.Tags
+			field.Details.DictValueType = nil
 		}
 
 		return allConstants, &field, nil
@@ -704,9 +755,8 @@ func (d *SwaggerDefinition) mapField(parentModelName, jsonName string, value spe
 	// - constant reference: pull out the inlined enum
 	if len(value.Enum) > 0 {
 		constantName, err := parseConstantNameFromField(value)
-		field.Type = models.Object
-		field.ConstantReference = constantName
-		field.ReferenceSchema = &value
+		field.Details.Type = models.Object
+		field.Details.ConstantReference = constantName
 
 		// if it's inlined pull it out that way
 		constant, err := mapConstant(value)
@@ -719,10 +769,10 @@ func (d *SwaggerDefinition) mapField(parentModelName, jsonName string, value spe
 
 	// At this point, Field is either a primary type or an array, both of them should have the "type" specified.
 	if len(value.Type) > 0 {
-		field.Type = normalizeType(value.Type[0])
+		field.Details.Type = normalizeType(value.Type[0])
 
 		// Handle array
-		if field.Type == models.List {
+		if field.Details.Type == models.List {
 			if value.Items == nil {
 				return nil, nil, fmt.Errorf("field %q is an array with no `items`", jsonName)
 			}
@@ -737,23 +787,23 @@ func (d *SwaggerDefinition) mapField(parentModelName, jsonName string, value spe
 			allConstants.merge(consts)
 
 			field = *vfield
-			field.Type = models.List
-			field.ListElementType = &vfield.Type
-			field.ListElementMin = value.MinItems
-			field.ListElementMax = value.MaxItems
-			field.ListElementUnique = &value.UniqueItems
+			field.Details.Type = models.List
+			field.Details.ListElementType = &vfield.Details.Type
+			field.Details.ListElementMin = value.MinItems
+			field.Details.ListElementMax = value.MaxItems
+			field.Details.ListElementUnique = &value.UniqueItems
 
 			return allConstants, &field, nil
 		}
 
-		if field.Type == models.String {
-			if strings.EqualFold(field.JsonName, "location") {
-				field.Type = models.Location
+		if field.Details.Type == models.String {
+			if strings.EqualFold(field.Details.JsonName, "location") {
+				field.Details.Type = models.Location
 				return allConstants, &field, nil
 			}
 
 			if strings.EqualFold(value.Format, "date-time") {
-				field.Type = models.DateTime
+				field.Details.Type = models.DateTime
 				// TODO: handle there being a custom format - for now we assume these are all using RFC3339
 				return allConstants, &field, nil
 			}
@@ -762,37 +812,6 @@ func (d *SwaggerDefinition) mapField(parentModelName, jsonName string, value spe
 	}
 
 	return nil, nil, fmt.Errorf("field %q is of invalid schema", jsonName)
-}
-
-// setFieldReference mutate the field by setting either the model reference or the constant reference for a field
-func (d *SwaggerDefinition) setFieldReference(field *models.FieldDetails, fragmentName string, allConstants constantDetailsMap) error {
-	model, err := d.findTopLevelModel(fragmentName)
-	if err != nil {
-		return fmt.Errorf("finding top level model %q: %+v", fragmentName, err)
-	}
-	field.ReferenceSchema = model
-
-	if d.isConstant(allConstants, fragmentName) {
-		field.ConstantReference = &fragmentName
-
-		// if this is a reference to a top-level type it can be missed so it's worth pulling this out explicitly too
-		if _, ok := allConstants[fragmentName]; !ok {
-			model, err := d.findTopLevelModel(fragmentName)
-			if err != nil {
-				return fmt.Errorf("finding top level constant %q: %+v", fragmentName, err)
-			}
-
-			constant, err := mapConstant(*model)
-			if err != nil {
-				return fmt.Errorf("populating top level constant %q: %+v", fragmentName, err)
-			}
-
-			allConstants[fragmentName] = constant.details
-		}
-	} else {
-		field.ModelReference = &fragmentName
-	}
-	return nil
 }
 
 func (d *SwaggerDefinition) isConstant(constants constantDetailsMap, name string) bool {
