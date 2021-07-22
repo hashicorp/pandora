@@ -7,10 +7,10 @@ namespace Pandora.Data.Models
         // presumably the generator would output interfaces/structs and a parser
         // which iterated over it until we found one that's valid
         // but we can ignore that for now until we need it 
-        
+
         // intentionally exists just to catch instances where this is undefined
         Unknown,
-        
+
         Boolean,
         Constant,
         DateTime,

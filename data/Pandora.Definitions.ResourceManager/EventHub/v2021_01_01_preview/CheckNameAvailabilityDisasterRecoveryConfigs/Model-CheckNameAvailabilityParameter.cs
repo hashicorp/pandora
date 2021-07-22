@@ -7,10 +7,10 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.EventHub.v2021_01_01_preview.CheckNameAvailabilityDisasterRecoveryConfigs
 {
 
-	internal class CheckNameAvailabilityParameter
-	{
-		[JsonPropertyName("name")]
-		[Required]
-		public string Name { get; set; }
-	}
+    internal class CheckNameAvailabilityParameter
+    {
+        [JsonPropertyName("name")]
+        [Required]
+        public string Name { get; set; }
+    }
 }

@@ -24,12 +24,12 @@ namespace Pandora.Definitions.ResourceManager.AppConfiguration.v2019_10_01.Store
             [Required]
             [ForceNew]
             public Location Location { get; set; }
-            
+
             [JsonPropertyName("sku")]
             [Required]
             [ForceNew]
             public Sku Sku { get; set; }
-            
+
             [JsonPropertyName("tags")]
             [Optional]
             public Tags Tags { get; set; }

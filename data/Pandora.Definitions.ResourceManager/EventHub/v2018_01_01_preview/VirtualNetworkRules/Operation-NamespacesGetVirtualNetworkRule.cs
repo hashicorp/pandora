@@ -5,16 +5,16 @@ using Pandora.Definitions.Interfaces;
 
 namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.VirtualNetworkRules
 {
-	internal class NamespacesGetVirtualNetworkRule : GetOperation
-	{
-		public override ResourceID? ResourceId()
-		{
-			return new VirtualnetworkruleId();
-		}
+    internal class NamespacesGetVirtualNetworkRule : GetOperation
+    {
+        public override ResourceID? ResourceId()
+        {
+            return new VirtualnetworkruleId();
+        }
 
-		public override object? ResponseObject()
-		{
-			return new VirtualNetworkRule();
-		}
-	}
+        public override object? ResponseObject()
+        {
+            return new VirtualNetworkRule();
+        }
+    }
 }

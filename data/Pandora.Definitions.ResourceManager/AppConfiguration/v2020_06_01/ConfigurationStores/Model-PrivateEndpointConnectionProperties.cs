@@ -4,16 +4,16 @@ using Pandora.Definitions.Attributes;
 
 namespace Pandora.Definitions.ResourceManager.AppConfiguration.v2020_06_01.ConfigurationStores
 {
-	internal class PrivateEndpointConnectionProperties
-	{
-		[JsonPropertyName("privateEndpoint")]
-		public PrivateEndpoint? PrivateEndpoint { get; set; }
+    internal class PrivateEndpointConnectionProperties
+    {
+        [JsonPropertyName("privateEndpoint")]
+        public PrivateEndpoint? PrivateEndpoint { get; set; }
 
-		[JsonPropertyName("privateLinkServiceConnectionState")]
-		[Required]
-		public PrivateLinkServiceConnectionState PrivateLinkServiceConnectionState { get; set; }
+        [JsonPropertyName("privateLinkServiceConnectionState")]
+        [Required]
+        public PrivateLinkServiceConnectionState PrivateLinkServiceConnectionState { get; set; }
 
-		[JsonPropertyName("provisioningState")]
-		public ProvisioningState ProvisioningState { get; set; }
-	}
+        [JsonPropertyName("provisioningState")]
+        public ProvisioningState ProvisioningState { get; set; }
+    }
 }

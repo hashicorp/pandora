@@ -9,7 +9,7 @@ namespace Pandora.Api.V1.Helpers
     {
         [JsonPropertyName("type")]
         public string Type { get; set; }
-        
+
         [JsonPropertyName("values")]
         public List<object>? Values { get; set; }
 
@@ -19,7 +19,7 @@ namespace Pandora.Api.V1.Helpers
             {
                 return null;
             }
-            
+
             return new ValidationApiDefinition
             {
                 Type = MapApiValidationType(input.ValidationType),
@@ -34,7 +34,7 @@ namespace Pandora.Api.V1.Helpers
                 case ValidationType.Range:
                     return ApiValidationType.Range.ToString();
             }
-            
+
             throw new NotImplementedException($"unsupported value {input.ToString()}");
         }
 

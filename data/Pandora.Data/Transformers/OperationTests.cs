@@ -240,13 +240,13 @@ namespace Pandora.Data.Transformers
                 return null;
             }
             public string? FieldContainingPaginationDetails() => null;
-            
+
             public Definitions.Interfaces.ResourceID? ResourceId() => null;
 
             public object? OptionsObject() => null;
-            public string? UriSuffix()=> null;
+            public string? UriSuffix() => null;
         }
-        
+
         private class OperationWithNoRequestOrResponseObjects : ApiOperation
         {
             public string? ContentType()
@@ -256,7 +256,7 @@ namespace Pandora.Data.Transformers
 
             public IEnumerable<HttpStatusCode> ExpectedStatusCodes()
             {
-                return new List<HttpStatusCode> {HttpStatusCode.OK};
+                return new List<HttpStatusCode> { HttpStatusCode.OK };
             }
 
             public bool LongRunning()
@@ -279,12 +279,12 @@ namespace Pandora.Data.Transformers
                 return null;
             }
             public string? FieldContainingPaginationDetails() => null;
-            
+
             public Definitions.Interfaces.ResourceID? ResourceId() => null;
             public object? OptionsObject() => null;
             public string? UriSuffix() => null;
         }
-        
+
         private class OperationWithMultipleStatusCodes : ApiOperation
         {
             public string? ContentType()
@@ -315,7 +315,7 @@ namespace Pandora.Data.Transformers
             {
                 return null;
             }
-            
+
             public Definitions.Interfaces.ResourceID? ResourceId() => null;
 
             public object? ResponseObject()
@@ -324,7 +324,7 @@ namespace Pandora.Data.Transformers
             }
             public string? FieldContainingPaginationDetails() => null;
             public object? OptionsObject() => null;
-            public string? UriSuffix()=> null;
+            public string? UriSuffix() => null;
         }
 
         private class LongRunningOperationWithResponseObject : ApiOperation
@@ -336,7 +336,7 @@ namespace Pandora.Data.Transformers
 
             public IEnumerable<HttpStatusCode> ExpectedStatusCodes()
             {
-                return new List<HttpStatusCode> {HttpStatusCode.OK};
+                return new List<HttpStatusCode> { HttpStatusCode.OK };
             }
 
             public bool LongRunning()
@@ -353,7 +353,7 @@ namespace Pandora.Data.Transformers
             {
                 return null;
             }
-            
+
             public Definitions.Interfaces.ResourceID? ResourceId() => null;
 
             public object? ResponseObject()
@@ -362,7 +362,7 @@ namespace Pandora.Data.Transformers
             }
             public string? FieldContainingPaginationDetails() => null;
             public object? OptionsObject() => null;
-            public string? UriSuffix()=> null;
+            public string? UriSuffix() => null;
         }
 
         private class OperationWithRequestObject : ApiOperation
@@ -374,7 +374,7 @@ namespace Pandora.Data.Transformers
 
             public IEnumerable<HttpStatusCode> ExpectedStatusCodes()
             {
-                return new List<HttpStatusCode> {HttpStatusCode.OK};
+                return new List<HttpStatusCode> { HttpStatusCode.OK };
             }
 
             public bool LongRunning()
@@ -391,7 +391,7 @@ namespace Pandora.Data.Transformers
             {
                 return new TestObject();
             }
-            
+
             public Definitions.Interfaces.ResourceID? ResourceId() => null;
 
             public object? ResponseObject()
@@ -400,7 +400,7 @@ namespace Pandora.Data.Transformers
             }
             public string? FieldContainingPaginationDetails() => null;
             public object? OptionsObject() => null;
-            public string? UriSuffix()=> null;
+            public string? UriSuffix() => null;
         }
 
         private class OperationWithResponseObject : ApiOperation
@@ -412,7 +412,7 @@ namespace Pandora.Data.Transformers
 
             public IEnumerable<HttpStatusCode> ExpectedStatusCodes()
             {
-                return new List<HttpStatusCode> {HttpStatusCode.OK};
+                return new List<HttpStatusCode> { HttpStatusCode.OK };
             }
 
             public bool LongRunning()
@@ -429,7 +429,7 @@ namespace Pandora.Data.Transformers
             {
                 return null;
             }
-            
+
             public Definitions.Interfaces.ResourceID? ResourceId() => null;
 
             public object? ResponseObject()
@@ -438,7 +438,7 @@ namespace Pandora.Data.Transformers
             }
             public string? FieldContainingPaginationDetails() => null;
             public object? OptionsObject() => null;
-            public string? UriSuffix()=> null;
+            public string? UriSuffix() => null;
         }
 
         private class OperationWithRequestAndResponseObject : ApiOperation
@@ -450,7 +450,7 @@ namespace Pandora.Data.Transformers
 
             public IEnumerable<HttpStatusCode> ExpectedStatusCodes()
             {
-                return new List<HttpStatusCode> {HttpStatusCode.OK};
+                return new List<HttpStatusCode> { HttpStatusCode.OK };
             }
 
             public bool LongRunning()
@@ -467,7 +467,7 @@ namespace Pandora.Data.Transformers
             {
                 return new TestObject();
             }
-            
+
             public Definitions.Interfaces.ResourceID? ResourceId() => null;
 
             public object? ResponseObject()
@@ -476,7 +476,7 @@ namespace Pandora.Data.Transformers
             }
             public string? FieldContainingPaginationDetails() => null;
             public object? OptionsObject() => null;
-            public string? UriSuffix()=> null;
+            public string? UriSuffix() => null;
         }
     }
 
@@ -488,19 +488,19 @@ namespace Pandora.Data.Transformers
         {
             HttpStatusCode.OK,
         };
-        
+
         public string? FieldContainingPaginationDetails() => null;
 
         public bool LongRunning() => false;
 
         public HttpMethod Method() => HttpMethod.Get;
-        
+
         public object? OptionsObject() => null;
-        
+
         public object? RequestObject() => null;
 
         public object? ResponseObject() => new FakeResponseObject();
-        
+
         public Definitions.Interfaces.ResourceID? ResourceId() => new FakeResourceId();
 
         public string? UriSuffix() => null;
@@ -529,7 +529,7 @@ namespace Pandora.Data.Transformers
 
         public IEnumerable<HttpStatusCode> ExpectedStatusCodes()
         {
-            return new List<HttpStatusCode> {HttpStatusCode.OK};
+            return new List<HttpStatusCode> { HttpStatusCode.OK };
         }
 
         public bool LongRunning() => false;
@@ -540,7 +540,7 @@ namespace Pandora.Data.Transformers
         }
 
         public object? RequestObject() => null;
-            
+
         public Definitions.Interfaces.ResourceID? ResourceId() => null;
 
         public object? ResponseObject() => null;
@@ -558,7 +558,7 @@ namespace Pandora.Data.Transformers
 
         public IEnumerable<HttpStatusCode> ExpectedStatusCodes()
         {
-            return new List<HttpStatusCode> {HttpStatusCode.OK};
+            return new List<HttpStatusCode> { HttpStatusCode.OK };
         }
 
         public bool LongRunning() => false;
@@ -569,7 +569,7 @@ namespace Pandora.Data.Transformers
         }
 
         public object? RequestObject() => null;
-            
+
         public Definitions.Interfaces.ResourceID? ResourceId() => null;
 
         public object? ResponseObject() => null;
@@ -581,13 +581,13 @@ namespace Pandora.Data.Transformers
         {
             [QueryStringName("first")]
             public string First { get; set; }
-            
+
             [QueryStringName("second")]
             [Optional]
             public int SecondVal { get; set; }
         }
     }
-    
+
     public class OperationWithPaginationDetails : ListOperation
     {
         public override string? FieldContainingPaginationDetails() => "@odata.foobar";

@@ -14,12 +14,12 @@ namespace Pandora.Definitions.ResourceManager.Pandamonium.v2020_01_01.Grouping
         {
             return "@odata.goes-bang";
         }
-        
+
         public class Foo
         {
             [JsonPropertyName("widget")]
             public string Widget { get; set; }
-            
+
             [JsonPropertyName("@odata.goes-bang")]
             public string ODataFunTime { get; set; }
         }

@@ -203,7 +203,7 @@ namespace Pandora.Data.Transformers
         {
             public string ApiVersion => "2018-01-01";
             public string Name => "ApiVersionWithASingleOperation";
-            public IEnumerable<ApiOperation> Operations => new List<ApiOperation> {new FakeOperation()};
+            public IEnumerable<ApiOperation> Operations => new List<ApiOperation> { new FakeOperation() };
         }
 
         private class ApiVersionWithAMultipleOperations : ApiDefinition
@@ -219,7 +219,7 @@ namespace Pandora.Data.Transformers
         {
             public string ApiVersion => "2018-01-01";
             public string Name => "ApiVersionWithARequestModel";
-            public IEnumerable<ApiOperation> Operations => new List<ApiOperation> {new FakeOperationWithRequestModel()};
+            public IEnumerable<ApiOperation> Operations => new List<ApiOperation> { new FakeOperationWithRequestModel() };
         }
 
         private class ApiVersionWithARequestAndResponseModel : ApiDefinition
@@ -237,7 +237,7 @@ namespace Pandora.Data.Transformers
             public string Name => "ApiVersionWithAResponseModel";
 
             public IEnumerable<ApiOperation> Operations =>
-                new List<ApiOperation> {new FakeOperationWithResponseModel()};
+                new List<ApiOperation> { new FakeOperationWithResponseModel() };
         }
 
         private class ApiVersionWithANestedResponseModel : ApiDefinition

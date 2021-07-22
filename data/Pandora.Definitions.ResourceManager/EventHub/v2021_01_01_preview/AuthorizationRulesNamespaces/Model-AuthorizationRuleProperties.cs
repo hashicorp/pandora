@@ -7,10 +7,10 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.EventHub.v2021_01_01_preview.AuthorizationRulesNamespaces
 {
 
-	internal class AuthorizationRuleProperties
-	{
-		[JsonPropertyName("rights")]
-		[Required]
-		public List<string> Rights { get; set; }
-	}
+    internal class AuthorizationRuleProperties
+    {
+        [JsonPropertyName("rights")]
+        [Required]
+        public List<string> Rights { get; set; }
+    }
 }

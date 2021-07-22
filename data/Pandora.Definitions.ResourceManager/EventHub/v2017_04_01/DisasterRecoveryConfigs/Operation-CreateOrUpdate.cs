@@ -5,21 +5,21 @@ using Pandora.Definitions.Interfaces;
 
 namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.DisasterRecoveryConfigs
 {
-	internal class CreateOrUpdate : PutOperation
-	{
-		public override object? RequestObject()
-		{
-			return new ArmDisasterRecovery();
-		}
+    internal class CreateOrUpdate : PutOperation
+    {
+        public override object? RequestObject()
+        {
+            return new ArmDisasterRecovery();
+        }
 
-		public override ResourceID? ResourceId()
-		{
-			return new DisasterRecoveryConfigId();
-		}
+        public override ResourceID? ResourceId()
+        {
+            return new DisasterRecoveryConfigId();
+        }
 
-		public override object? ResponseObject()
-		{
-			return new ArmDisasterRecovery();
-		}
-	}
+        public override object? ResponseObject()
+        {
+            return new ArmDisasterRecovery();
+        }
+    }
 }

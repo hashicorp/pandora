@@ -50,7 +50,7 @@ namespace Pandora.Definitions.Operations
             // this _should_ but doesn't have to be present
             return null;
         }
-        
+
         public virtual object? ResponseObject()
         {
             // we're not interested in the response from the Put in almost all cases

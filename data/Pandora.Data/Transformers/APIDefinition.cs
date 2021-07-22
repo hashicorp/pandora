@@ -64,7 +64,7 @@ namespace Pandora.Data.Transformers
             {
                 definitions.AddRange(Constant.FromObject(input.ResponseObject().GetType()));
             }
-            
+
             return definitions.Distinct(new ConstantComparer()).ToList();
         }
 
@@ -81,7 +81,7 @@ namespace Pandora.Data.Transformers
             {
                 definitions.AddRange(Model.Map(input.ResponseObject()));
             }
-            
+
             return definitions.Distinct(new ModelComparer()).ToList();
         }
     }

@@ -7,12 +7,12 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.EventHubs
 {
 
-	internal class EventHubListResult
-	{
-		[JsonPropertyName("nextLink")]
-		public string? NextLink { get; set; }
+    internal class EventHubListResult
+    {
+        [JsonPropertyName("nextLink")]
+        public string? NextLink { get; set; }
 
-		[JsonPropertyName("value")]
-		public List<Eventhub>? Value { get; set; }
-	}
+        [JsonPropertyName("value")]
+        public List<Eventhub>? Value { get; set; }
+    }
 }

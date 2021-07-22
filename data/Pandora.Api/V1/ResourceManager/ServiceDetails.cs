@@ -15,7 +15,7 @@ namespace Pandora.Api.V1.ResourceManager
         {
             _repo = repo;
         }
-        
+
         [Route("/v1/resource-manager/services/{serviceName}")]
         public IActionResult ResourceManager(string serviceName)
         {
@@ -25,7 +25,8 @@ namespace Pandora.Api.V1.ResourceManager
         private IActionResult ForService(string serviceName)
         {
             var service = _repo.GetByName(serviceName, true);
-            if (service == null) {
+            if (service == null)
+            {
                 return BadRequest("service not found");
             }
 
@@ -34,7 +35,8 @@ namespace Pandora.Api.V1.ResourceManager
 
         private static ServiceDetailsResponse MapResponse(ServiceDefinition version, string serviceName)
         {
-            return new ServiceDetailsResponse{
+            return new ServiceDetailsResponse
+            {
                 ResourceProvider = version.ResourceManager ? version.ResourceProvider! : null,
                 Versions = version.Versions.ToDictionary(v => v.Version, v => MapVersion(v, serviceName))
             };
@@ -54,10 +56,10 @@ namespace Pandora.Api.V1.ResourceManager
         {
             [JsonPropertyName("generate")]
             public bool Generate { get; set; }
-        
+
             [JsonPropertyName("preview")]
             public bool Preview { get; set; }
-        
+
             [JsonPropertyName("uri")]
             public string Uri { get; set; }
         }
@@ -66,7 +68,7 @@ namespace Pandora.Api.V1.ResourceManager
         {
             [JsonPropertyName("resourceProvider")]
             public string? ResourceProvider { get; set; }
-        
+
             [JsonPropertyName("versions")]
             public Dictionary<string, VersionDetails> Versions { get; set; }
         }

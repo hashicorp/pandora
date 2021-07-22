@@ -16,7 +16,7 @@ namespace Pandora.Data.Transformers
                 {
                     return new List<OptionDefinition>();
                 }
-            
+
                 var definitions = new List<OptionDefinition>();
 
                 var props = input.GetType().GetProperties();
@@ -34,8 +34,8 @@ namespace Pandora.Data.Transformers
                     {
                         definition.Required = false;
                     }
-                
-                    definitions.Add(definition);      
+
+                    definitions.Add(definition);
                 }
 
                 return definitions;
@@ -52,10 +52,10 @@ namespace Pandora.Data.Transformers
             {
                 case "System.Boolean":
                     return OptionDefinitionType.Boolean;
-                    
+
                 case "System.Int32":
                     return OptionDefinitionType.Integer;
-                
+
                 case "System.String":
                     return OptionDefinitionType.String;
             }

@@ -11,7 +11,7 @@ namespace Pandora.Definitions.ResourceManager.AppConfiguration.v2019_10_01.Store
         {
             return new ConfigurationStoreId();
         }
-        
+
         public override object? ResponseObject()
         {
             return new GetStore();
@@ -21,13 +21,13 @@ namespace Pandora.Definitions.ResourceManager.AppConfiguration.v2019_10_01.Store
         {
             [JsonPropertyName("location")]
             public Location Location { get; set; }
-            
+
             [JsonPropertyName("properties")]
             public GetStoreProperties Properties { get; set; }
-            
+
             [JsonPropertyName("sku")]
             public Sku Sku { get; set; }
-            
+
             [JsonPropertyName("tags")]
             public Tags Tags { get; set; }
         }

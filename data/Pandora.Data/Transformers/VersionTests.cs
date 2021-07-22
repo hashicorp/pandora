@@ -39,7 +39,7 @@ namespace Pandora.Data.Transformers
             public bool Preview => false;
             public IEnumerable<ApiDefinition> Apis => new List<ApiDefinition>();
         }
-        
+
         private class VersionDefinitionWithASingleOperation : ApiVersionDefinition
         {
             public string ApiVersion => "SomeVersion";
@@ -47,7 +47,7 @@ namespace Pandora.Data.Transformers
             public bool Preview => false;
             public IEnumerable<ApiDefinition> Apis => new List<ApiDefinition> { new SomeApiDefinition() };
         }
-        
+
         private class VersionDefinitionWithDuplicateOperations : ApiVersionDefinition
         {
             public string ApiVersion => "SomeVersion";
@@ -63,7 +63,7 @@ namespace Pandora.Data.Transformers
             public IEnumerable<ApiOperation> Operations => new List<ApiOperation> { new FakeApiOperation() };
             public Definitions.Interfaces.ResourceID ResourceId => new FakeResourceId();
         }
-        
+
         private class FakeApiOperation : GetOperation
         {
             public override object? ResponseObject()

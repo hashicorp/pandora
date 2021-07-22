@@ -14,7 +14,7 @@ namespace Pandora.Definitions.ResourceManager.AppConfiguration.v2019_10_01.Store
         {
             [Description("free")]
             Free,
-            
+
             [Description("standard")]
             Standard
         }

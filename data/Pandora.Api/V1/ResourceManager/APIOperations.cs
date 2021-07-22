@@ -24,16 +24,18 @@ namespace Pandora.Api.V1.ResourceManager
         {
             return ForService(serviceName, apiVersion, apiName);
         }
-        
+
         private IActionResult ForService(string serviceName, string apiVersion, string apiName)
         {
             var service = _repo.GetByName(serviceName, true);
-            if (service == null) {
+            if (service == null)
+            {
                 return BadRequest("service not found");
             }
 
             var version = service.Versions.FirstOrDefault(v => v.Version == apiVersion);
-            if (version == null) {
+            if (version == null)
+            {
                 return BadRequest($"version {apiVersion} was not found");
             }
 
@@ -52,7 +54,7 @@ namespace Pandora.Api.V1.ResourceManager
             {
                 ResourceProvider = service.ResourceProvider!,
             };
-            
+
             return new ApiOperationsResponse
             {
                 MetaData = metaData,
@@ -76,13 +78,13 @@ namespace Pandora.Api.V1.ResourceManager
             };
 
             operation.Options = MapOptions(definition.Options);
-            
+
             // we should only return this if it's a different API version than the original
             if (apiVersion != definition.ApiVersion)
             {
                 operation.ApiVersion = definition.ApiVersion;
             }
-            
+
             return operation;
         }
 
@@ -110,19 +112,20 @@ namespace Pandora.Api.V1.ResourceManager
             {
                 case OptionDefinitionType.Boolean:
                     return ApiOperationOptionType.Boolean.ToString();
-                
+
                 case OptionDefinitionType.Integer:
                     return ApiOperationOptionType.Integer.ToString();
-                
+
                 case OptionDefinitionType.String:
                     return ApiOperationOptionType.String.ToString();
-                
+
                 default:
                     throw new NotSupportedException($"unsupported operation type {input}");
             }
         }
 
-        public class ApiOperationsResponse {
+        public class ApiOperationsResponse
+        {
             [JsonPropertyName("operations")]
             public Dictionary<string, ApiOperationDefinition> Operations { get; set; }
 
@@ -134,38 +137,38 @@ namespace Pandora.Api.V1.ResourceManager
         {
             [JsonPropertyName("contentType")]
             public string? ContentType { get; set; }
-        
+
             [JsonPropertyName("expectedStatusCodes")]
             public List<int> ExpectedStatusCodes { get; set; }
-        
+
             [JsonPropertyName("longRunning")]
             public bool LongRunning { get; set; }
-        
+
             [JsonPropertyName("method")]
             public string Method { get; set; }
-        
+
             [JsonPropertyName("requestObjectName")]
             public string? RequestObjectName { get; set; }
-            
+
             [JsonPropertyName("resourceIdName")]
             public string? ResourceIdName { get; set; }
-        
+
             [JsonPropertyName("responseObjectName")]
             public string? ResponseObjectName { get; set; }
-            
+
             // ApiVersion specifies that a different API version should be used for
             // this than the Parent Service. Whilst bizarre, some Azure API's do this
             // rather than duplicating the API - which is unfortunate since it means
             // we have these mixed-version imports - but I digress.
             [JsonPropertyName("apiVersion")]
             public string? ApiVersion { get; set; }
-            
+
             [JsonPropertyName("uriSuffix")]
             public string UriSuffix { get; set; }
-            
+
             [JsonPropertyName("fieldContainingPaginationDetails")]
             public string FieldContainingPaginationDetails { get; set; }
-            
+
             [JsonPropertyName("options")]
             public Dictionary<string, ApiOperationOption> Options { get; set; }
         }
@@ -174,12 +177,12 @@ namespace Pandora.Api.V1.ResourceManager
         {
             [JsonPropertyName("fieldType")]
             public string FieldType { get; set; }
-            
+
             // TODO: header name too
-            
+
             [JsonPropertyName("queryStringName")]
             public string QueryStringName { get; set; }
-            
+
             [JsonPropertyName("required")]
             public bool Required { get; set; }
         }
@@ -195,7 +198,7 @@ namespace Pandora.Api.V1.ResourceManager
         {
             [JsonPropertyName("resourceProvider")]
             public string? ResourceProvider { get; set; }
-            
+
             // TODO: API Availability Details (e.g. GA in Public, PrivatePreview in China?)
         }
     }

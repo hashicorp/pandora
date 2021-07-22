@@ -24,7 +24,7 @@ namespace Pandora.Definitions.ResourceManager.Pandamonium.v2020_01_01.Grouping
     {
         [JsonPropertyName("barks")]
         public bool Barks { get; set; }
-        
+
         [JsonPropertyName("length")]
         public float Length { get; set; }
     }
@@ -33,7 +33,7 @@ namespace Pandora.Definitions.ResourceManager.Pandamonium.v2020_01_01.Grouping
     {
         [JsonPropertyName("animal")]
         public Animal Animal { get; set; }
-        
+
         [JsonPropertyName("animals")]
         public List<Animal> Animals { get; set; }
     }

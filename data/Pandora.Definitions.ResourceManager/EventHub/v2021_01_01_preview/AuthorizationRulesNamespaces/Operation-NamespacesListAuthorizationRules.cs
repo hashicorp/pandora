@@ -6,26 +6,26 @@ using System.Net;
 
 namespace Pandora.Definitions.ResourceManager.EventHub.v2021_01_01_preview.AuthorizationRulesNamespaces
 {
-	internal class NamespacesListAuthorizationRules : ListOperation
-	{
-		public override string? FieldContainingPaginationDetails()
-		{
-			return "nextLink";
-		}
+    internal class NamespacesListAuthorizationRules : ListOperation
+    {
+        public override string? FieldContainingPaginationDetails()
+        {
+            return "nextLink";
+        }
 
-		public override ResourceID? ResourceId()
-		{
-			return new NamespaceId();
-		}
+        public override ResourceID? ResourceId()
+        {
+            return new NamespaceId();
+        }
 
-		public override object NestedItemType()
-		{
-			return new AuthorizationRule();
-		}
+        public override object NestedItemType()
+        {
+            return new AuthorizationRule();
+        }
 
-		public override string? UriSuffix()
-		{
-			return "/authorizationRules";
-		}
-	}
+        public override string? UriSuffix()
+        {
+            return "/authorizationRules";
+        }
+    }
 }

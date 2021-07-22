@@ -11,7 +11,7 @@ namespace Pandora.Definitions.Attributes
         }
 
         public string Format { get; }
-        
+
         public DateFormatAttribute(DateFormat format)
         {
             Format = format.ToString();

@@ -7,27 +7,27 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.Namespaces
 {
 
-	internal class EHNamespace
-	{
-		[JsonPropertyName("id")]
-		public string? Id { get; set; }
+    internal class EHNamespace
+    {
+        [JsonPropertyName("id")]
+        public string? Id { get; set; }
 
-		[JsonPropertyName("location")]
-		public Location? Location { get; set; }
+        [JsonPropertyName("location")]
+        public Location? Location { get; set; }
 
-		[JsonPropertyName("name")]
-		public string? Name { get; set; }
+        [JsonPropertyName("name")]
+        public string? Name { get; set; }
 
-		[JsonPropertyName("properties")]
-		public EHNamespaceProperties? Properties { get; set; }
+        [JsonPropertyName("properties")]
+        public EHNamespaceProperties? Properties { get; set; }
 
-		[JsonPropertyName("sku")]
-		public Sku? Sku { get; set; }
+        [JsonPropertyName("sku")]
+        public Sku? Sku { get; set; }
 
-		[JsonPropertyName("tags")]
-		public Tags? Tags { get; set; }
+        [JsonPropertyName("tags")]
+        public Tags? Tags { get; set; }
 
-		[JsonPropertyName("type")]
-		public string? Type { get; set; }
-	}
+        [JsonPropertyName("type")]
+        public string? Type { get; set; }
+    }
 }

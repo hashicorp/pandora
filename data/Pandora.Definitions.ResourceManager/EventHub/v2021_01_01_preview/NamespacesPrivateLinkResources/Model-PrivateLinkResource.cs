@@ -7,18 +7,18 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.EventHub.v2021_01_01_preview.NamespacesPrivateLinkResources
 {
 
-	internal class PrivateLinkResource
-	{
-		[JsonPropertyName("id")]
-		public string? Id { get; set; }
+    internal class PrivateLinkResource
+    {
+        [JsonPropertyName("id")]
+        public string? Id { get; set; }
 
-		[JsonPropertyName("name")]
-		public string? Name { get; set; }
+        [JsonPropertyName("name")]
+        public string? Name { get; set; }
 
-		[JsonPropertyName("properties")]
-		public PrivateLinkResourceProperties? Properties { get; set; }
+        [JsonPropertyName("properties")]
+        public PrivateLinkResourceProperties? Properties { get; set; }
 
-		[JsonPropertyName("type")]
-		public string? Type { get; set; }
-	}
+        [JsonPropertyName("type")]
+        public string? Type { get; set; }
+    }
 }

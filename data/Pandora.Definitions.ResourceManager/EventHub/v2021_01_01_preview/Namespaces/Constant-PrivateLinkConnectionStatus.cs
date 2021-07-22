@@ -3,19 +3,19 @@ using System.ComponentModel;
 
 namespace Pandora.Definitions.ResourceManager.EventHub.v2021_01_01_preview.Namespaces
 {
-	[ConstantType(ConstantTypeAttribute.ConstantType.String)]
-	internal enum PrivateLinkConnectionStatus
-	{
-		[Description("Approved")]
-		Approved,
+    [ConstantType(ConstantTypeAttribute.ConstantType.String)]
+    internal enum PrivateLinkConnectionStatus
+    {
+        [Description("Approved")]
+        Approved,
 
-		[Description("Disconnected")]
-		Disconnected,
+        [Description("Disconnected")]
+        Disconnected,
 
-		[Description("Pending")]
-		Pending,
+        [Description("Pending")]
+        Pending,
 
-		[Description("Rejected")]
-		Rejected,
-	}
+        [Description("Rejected")]
+        Rejected,
+    }
 }

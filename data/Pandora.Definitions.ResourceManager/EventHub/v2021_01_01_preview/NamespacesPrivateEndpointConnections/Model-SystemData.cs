@@ -7,26 +7,26 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.EventHub.v2021_01_01_preview.NamespacesPrivateEndpointConnections
 {
 
-	internal class SystemData
-	{
-		[DateFormat(DateFormatAttribute.DateFormat.RFC3339)]
-		[JsonPropertyName("createdAt")]
-		public DateTime? CreatedAt { get; set; }
+    internal class SystemData
+    {
+        [DateFormat(DateFormatAttribute.DateFormat.RFC3339)]
+        [JsonPropertyName("createdAt")]
+        public DateTime? CreatedAt { get; set; }
 
-		[JsonPropertyName("createdBy")]
-		public string? CreatedBy { get; set; }
+        [JsonPropertyName("createdBy")]
+        public string? CreatedBy { get; set; }
 
-		[JsonPropertyName("createdByType")]
-		public CreatedByType? CreatedByType { get; set; }
+        [JsonPropertyName("createdByType")]
+        public CreatedByType? CreatedByType { get; set; }
 
-		[DateFormat(DateFormatAttribute.DateFormat.RFC3339)]
-		[JsonPropertyName("lastModifiedAt")]
-		public DateTime? LastModifiedAt { get; set; }
+        [DateFormat(DateFormatAttribute.DateFormat.RFC3339)]
+        [JsonPropertyName("lastModifiedAt")]
+        public DateTime? LastModifiedAt { get; set; }
 
-		[JsonPropertyName("lastModifiedBy")]
-		public string? LastModifiedBy { get; set; }
+        [JsonPropertyName("lastModifiedBy")]
+        public string? LastModifiedBy { get; set; }
 
-		[JsonPropertyName("lastModifiedByType")]
-		public CreatedByType? LastModifiedByType { get; set; }
-	}
+        [JsonPropertyName("lastModifiedByType")]
+        public CreatedByType? LastModifiedByType { get; set; }
+    }
 }

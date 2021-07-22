@@ -45,7 +45,7 @@ namespace Pandora.Data.Transformers
                 public bool Generate => true;
                 public string? ResourceProvider => null;
             }
-            
+
             // found via discovery/reflection
             private class FakeApiVersion : ApiVersionDefinition
             {
@@ -84,7 +84,7 @@ namespace Pandora.Data.Transformers
                 public IEnumerable<ApiDefinition> Apis => new List<ApiDefinition> { new FakeApiDefinition() };
             }
         }
-        
+
         private class FakeApiDefinition : ApiDefinition
         {
             public string ApiVersion => "2018-01-01";

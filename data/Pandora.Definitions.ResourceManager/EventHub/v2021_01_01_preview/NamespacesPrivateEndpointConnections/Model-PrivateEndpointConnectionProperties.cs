@@ -7,15 +7,15 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.EventHub.v2021_01_01_preview.NamespacesPrivateEndpointConnections
 {
 
-	internal class PrivateEndpointConnectionProperties
-	{
-		[JsonPropertyName("privateEndpoint")]
-		public PrivateEndpoint? PrivateEndpoint { get; set; }
+    internal class PrivateEndpointConnectionProperties
+    {
+        [JsonPropertyName("privateEndpoint")]
+        public PrivateEndpoint? PrivateEndpoint { get; set; }
 
-		[JsonPropertyName("privateLinkServiceConnectionState")]
-		public ConnectionState? PrivateLinkServiceConnectionState { get; set; }
+        [JsonPropertyName("privateLinkServiceConnectionState")]
+        public ConnectionState? PrivateLinkServiceConnectionState { get; set; }
 
-		[JsonPropertyName("provisioningState")]
-		public EndPointProvisioningState? ProvisioningState { get; set; }
-	}
+        [JsonPropertyName("provisioningState")]
+        public EndPointProvisioningState? ProvisioningState { get; set; }
+    }
 }

@@ -17,14 +17,14 @@ namespace Pandora.Data.Transformers
                 {
                     throw new NotSupportedException($"Version {input.ApiVersion} has no operations");
                 }
-            
+
                 // protect against coding errors
                 var duplicateOperations = apis.Any(a => apis.Count(api => api.GetType().FullName == a.GetType().FullName) > 1);
                 if (duplicateOperations)
                 {
                     throw new NotSupportedException($"Version {input.ApiVersion} has duplicate operations");
                 }
-            
+
                 var apiDefinitions = input.Apis.Select(APIDefinition.Map).ToList();
                 return new VersionDefinition
                 {

@@ -16,7 +16,7 @@ namespace Pandora.Data
         {
             ValidateAssemblyContainingServiceDefinitions(new DataPlaneServices());
         }
-        
+
         [TestCase]
         public void ValidateResourceManagerServiceDefinitions()
         {

@@ -6,16 +6,16 @@ using System.Net;
 
 namespace Pandora.Definitions.ResourceManager.EventHub.v2021_01_01_preview.ConsumerGroups
 {
-	internal class Get : GetOperation
-	{
-		public override ResourceID? ResourceId()
-		{
-			return new ConsumergroupId();
-		}
+    internal class Get : GetOperation
+    {
+        public override ResourceID? ResourceId()
+        {
+            return new ConsumergroupId();
+        }
 
-		public override object? ResponseObject()
-		{
-			return new ConsumerGroup();
-		}
-	}
+        public override object? ResponseObject()
+        {
+            return new ConsumerGroup();
+        }
+    }
 }
