@@ -142,6 +142,10 @@ func segmentIsUserSpecifiable(input string) bool {
 
 func fragmentNameFromReference(input spec.Ref) *string {
 	fragmentName := input.String()
+	return fragmentNameFromString(fragmentName)
+}
+
+func fragmentNameFromString(fragmentName string) *string {
 	if fragmentName != "" {
 		fragments := strings.Split(fragmentName, "/") // format #/definitions/ConfigurationStoreListResult
 		referenceName := fragments[len(fragments)-1]
@@ -268,4 +272,3 @@ type ResourceManagerService struct {
 	Name            string
 	ApiVersionPaths map[string]string
 }
-

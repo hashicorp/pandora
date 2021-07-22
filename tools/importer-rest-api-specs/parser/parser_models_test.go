@@ -1174,6 +1174,133 @@ func TestParseModelAdditionalProperties(t *testing.T) {
 		t.Fatal("the Resource 'Foo' was not found")
 	}
 
+	// Check for model Foo and its fields
+	foo, ok := resource.Models["Foo"]
+	if !ok {
+		t.Fatal("the Model `Foo` is was not found")
+	}
+
+	// Check for model Foo, field: DictOfStringInline
+	dictOfStringInlineField, ok := foo.Fields["DictOfStringInline"]
+	if !ok {
+		t.Fatalf("the Foo.DictOfStringInline was nil")
+	}
+	if dictOfStringInlineField.Type != models.Dictionary {
+		t.Fatalf("expect Foo.DictOfStringInline to be a dictionary, but got %q", string(dictOfStringInlineField.Type))
+	}
+	if dictOfStringInlineField.DictValueType == nil {
+		t.Fatalf("expect value of Foo.DictOfStringInline to be string, but got nil")
+	}
+	if *dictOfStringInlineField.DictValueType != models.String {
+		t.Fatalf("expect value of Foo.DictOfStringInline to be string, but got %q", string(*dictOfStringInlineField.DictValueType))
+	}
+
+	// Check for model Foo, field: DictOfObjectInline
+	dictOfObjectInlineField, ok := foo.Fields["DictOfObjectInline"]
+	if !ok {
+		t.Fatalf("the Foo.DictOfObjectInline was nil")
+	}
+	if dictOfObjectInlineField.Type != models.Dictionary {
+		t.Fatalf("expect Foo.DictOfObjectInline to be a dictionary, but got %q", string(dictOfObjectInlineField.Type))
+	}
+	if dictOfObjectInlineField.DictValueType == nil {
+		t.Fatalf("expect value of Foo.DictOfObjectInline to be object, but got nil")
+	}
+	if *dictOfObjectInlineField.DictValueType != models.Object {
+		t.Fatalf("expect value of Foo.DictOfObjectInline to be object, but got %q", string(*dictOfObjectInlineField.DictValueType))
+	}
+	if dictOfObjectInlineField.ModelReference == nil {
+		t.Fatalf("Foo.DictOfObjectInline has no model reference")
+	}
+	// Check for the pulled out model for the Foo.DictOfObjectInline
+	fooDictOfObjectInline, ok := resource.Models[*dictOfObjectInlineField.ModelReference]
+	if !ok {
+		t.Fatalf("FooDictOfObjectInline was not found")
+	}
+	fooDictOfObjectInlineP1, ok := fooDictOfObjectInline.Fields["P1"]
+	if !ok {
+		t.Fatalf("FooDictOfObjectInline.P1 was not found")
+	}
+	if fooDictOfObjectInlineP1.Type != models.String {
+		t.Fatalf("expect FooDictOfObjectInline.P1 to be a string, but got %q", string(fooDictOfObjectInlineP1.Type))
+	}
+
+	// Check for model Foo, field: DictOfObjectRefInline
+	dictOfObjectRefInline, ok := foo.Fields["DictOfObjectRefInline"]
+	if !ok {
+		t.Fatalf("the Foo.DictOfObjectRefInline was nil")
+	}
+	if dictOfObjectRefInline.Type != models.Dictionary {
+		t.Fatalf("expect Foo.DictOfObjectRefInline to be a dictionary, but got %q", string(dictOfObjectRefInline.Type))
+	}
+	if dictOfObjectRefInline.DictValueType == nil {
+		t.Fatalf("expect value of Foo.DictOfObjectRefInline to be object, but got nil")
+	}
+	if *dictOfObjectRefInline.DictValueType != models.Object {
+		t.Fatalf("expect value of Foo.DictOfObjectRefInline to be object, but got %q", string(*dictOfObjectRefInline.DictValueType))
+	}
+	if dictOfObjectRefInline.ModelReference == nil {
+		t.Fatalf("Foo.DictOfObjectRefInline has no model reference")
+	}
+	// Check of the pulled out model for the Foo.DictOfObjectRefInline
+	// This is tested in later steps.
+
+	// Check for model Foo, field: ObjectWithAdditionalPropertiesInline
+	objectWithAdditionalPropertiesInline, ok := foo.Fields["ObjectWithAdditionalPropertiesInline"]
+	if !ok {
+		t.Fatalf("the Foo.ObjectWithAdditionalPropertiesInline was nil")
+	}
+	if objectWithAdditionalPropertiesInline.Type != models.Object {
+		t.Fatalf("expect Foo.ObjectWithAdditionalPropertiesInline to be a object, but got %q", string(objectWithAdditionalPropertiesInline.Type))
+	}
+	if objectWithAdditionalPropertiesInline.ModelReference == nil {
+		t.Fatalf("Foo.ObjectWithAdditionalPropertiesInline has no model reference")
+	}
+	// Check for the pulled out model for the Foo.ObjectWithAdditionalPropertiesInline
+	fooObjectWithAdditionalPropertiesInline, ok := resource.Models["FooObjectWithAdditionalPropertiesInline"]
+	if !ok {
+		t.Fatalf("model FooObjectWithAdditionalPropertiesInline was not found")
+	}
+	if len(fooObjectWithAdditionalPropertiesInline.Fields) != 1 {
+		t.Fatalf("expect FooObjectWithAdditionalPropertiesInline has one field, but got %d", len(fooObjectWithAdditionalPropertiesInline.Fields))
+	}
+	fooObjectWithAdditionalPropertiesInlineP1, ok := fooObjectWithAdditionalPropertiesInline.Fields["P1"]
+	if !ok {
+		t.Fatalf(`FooObjectWithAdditionalPropertiesInline.Fields["P1"] not found`)
+	}
+	if fooObjectWithAdditionalPropertiesInlineP1.Type != models.String {
+		t.Fatalf(`expect FooObjectWithAdditionalPropertiesInline.Fields["P1"] to be a string, but got %q`, string(fooObjectWithAdditionalPropertiesInlineP1.Type))
+	}
+	if fooObjectWithAdditionalPropertiesInline.AdditionalProperties == nil {
+		t.Fatalf("FooObjectWithAdditionalPropertiesInline.AdditionalProperties was nil")
+	}
+	fooObjectWithAdditionalPropertiesInlineAdditionalProperties := *fooObjectWithAdditionalPropertiesInline.AdditionalProperties
+	if fooObjectWithAdditionalPropertiesInlineAdditionalProperties.Type != models.Dictionary {
+		t.Fatalf("expect FooObjectWithAdditionalPropertiesInline.AdditionalProperties to be a dictionary, but got %q", string(fooObjectWithAdditionalPropertiesInlineAdditionalProperties.Type))
+	}
+	if fooObjectWithAdditionalPropertiesInlineAdditionalProperties.DictValueType == nil {
+		t.Fatalf("expect value FooObjectWithAdditionalPropertiesInline.AdditionalProperties to be an object, but got nil")
+	}
+	if *fooObjectWithAdditionalPropertiesInlineAdditionalProperties.DictValueType != models.Object {
+		t.Fatalf("expect value FooObjectWithAdditionalPropertiesInline.AdditionalProperties to be an object, but got %q", string(*fooObjectWithAdditionalPropertiesInlineAdditionalProperties.DictValueType))
+	}
+	// Check for the pulled out model for the value of Foo.ObjectWithAdditionalPropertiesInline.AdditionalProperties
+	fooObjectWithAdditionalPropertiesInlineAdditionalPropertiesValue, ok := resource.Models["FooObjectWithAdditionalPropertiesInlineAdditionalProperties"]
+	if !ok {
+		t.Fatalf("model FooObjectWithAdditionalPropertiesInlineAdditionalProperties was not found")
+	}
+	if len(fooObjectWithAdditionalPropertiesInlineAdditionalPropertiesValue.Fields) != 1 {
+		t.Fatalf("expect FooObjectWithAdditionalPropertiesInlineAdditionalProperties has one field, but got %d", len(fooObjectWithAdditionalPropertiesInlineAdditionalPropertiesValue.Fields))
+	}
+	fooObjectWithAdditionalPropertiesInlineAdditionalPropertiesValueP2, ok := fooObjectWithAdditionalPropertiesInlineAdditionalPropertiesValue.Fields["P2"]
+	if !ok {
+		t.Fatalf(`FooObjectWithAdditionalPropertiesInlineAdditionalProperties["P2"] not found`)
+	}
+	if fooObjectWithAdditionalPropertiesInlineAdditionalPropertiesValueP2.Type != models.String {
+		t.Fatalf(`expect FooObjectWithAdditionalPropertiesInlineAdditionalProperties["P2"] to be a string, but got %q`,string(fooObjectWithAdditionalPropertiesInlineAdditionalPropertiesValueP2.Type))
+	}
+
+	// Check for absent models
 	if _, ok := resource.Models["Absent"]; ok {
 		t.Fatalf("the Model `Absent` is expected to be removed (as it has no fields), but it exists")
 	}
@@ -1182,115 +1309,105 @@ func TestParseModelAdditionalProperties(t *testing.T) {
 		t.Fatalf("the Model `False` is expected to be removed (as it has no fields), but it exists")
 	}
 
+	// Check for model DictOfAny
 	dictOfAny, ok := resource.Models["DictOfAny"]
 	if !ok {
 		t.Fatalf("the Model `DictOfAny` was not found")
 	}
-	if len(dictOfAny.Fields) != 1 {
-		t.Fatalf("expected dictOfAny.Fields to have 1 fields but got %d", len(dictOfAny.Fields))
-	}
-	dictOfAnyField, ok := dictOfAny.Fields["AdditionalProperties"]
-	if !ok {
-		t.Fatalf("dictOfAny.Fields['AdditionalProperties'] was missing")
+	dictOfAnyField := dictOfAny.AdditionalProperties
+	if dictOfAnyField == nil {
+		t.Fatalf("dictOfAny.AdditionalProperties was nil")
 	}
 	if dictOfAnyField.Type != models.Dictionary {
-		t.Fatalf("expected dictOfAny.Fields['AdditionalProperties'] to be a dict but got %q", string(dictOfAnyField.Type))
+		t.Fatalf("expected dictOfAny.AdditionalProperties to be a dict but got %q", string(dictOfAnyField.Type))
 	}
 	if dictOfAnyField.DictValueType == nil {
-		t.Fatalf("expected value of dictOfAny.Fields['AdditionalProperties'] to be a object but got nil")
+		t.Fatalf("expected value of dictOfAny.AdditionalProperties to be a object but got nil")
 	}
 	if *dictOfAnyField.DictValueType != models.Object {
-		t.Fatalf("expected value of dictOfAny.Fields['AdditionalProperties'] to be a object but got %q", string(*dictOfAnyField.DictValueType))
+		t.Fatalf("expected value of dictOfAny.AdditionalProperties to be a object but got %q", string(*dictOfAnyField.DictValueType))
 	}
 
+	// Check for model DictOfAny2
 	dictOfAny2, ok := resource.Models["DictOfAny2"]
 	if !ok {
 		t.Fatalf("the Model `DictOfAny2` was not found")
 	}
-	if len(dictOfAny2.Fields) != 1 {
-		t.Fatalf("expected dictOfAny2.Fields to have 1 fields but got %d", len(dictOfAny2.Fields))
-	}
-	dictOfAny2Field, ok := dictOfAny2.Fields["AdditionalProperties"]
-	if !ok {
-		t.Fatalf("dictOfAny2.Fields['AdditionalProperties'] was missing")
+	dictOfAny2Field := dictOfAny2.AdditionalProperties
+	if dictOfAnyField == nil {
+		t.Fatalf("dictOfAny2.AdditionalProperties was nil")
 	}
 	if dictOfAny2Field.Type != models.Dictionary {
-		t.Fatalf("expected dictOfAny2.Fields['AdditionalProperties'] to be a dict but got %q", string(dictOfAny2Field.Type))
+		t.Fatalf("expected dictOfAny2.AdditionalProperties to be a dict but got %q", string(dictOfAny2Field.Type))
 	}
 	if dictOfAny2Field.DictValueType == nil {
-		t.Fatalf("expected value of dictOfAny2.Fields['AdditionalProperties'] to be a object but got nil")
+		t.Fatalf("expected value of dictOfAny2.AdditionalProperties to be a object but got nil")
 	}
 	if *dictOfAny2Field.DictValueType != models.Object {
-		t.Fatalf("expected value of dictOfAny2.Fields['AdditionalProperties'] to be a object but got %q", string(*dictOfAny2Field.DictValueType))
+		t.Fatalf("expected value of dictOfAny2.AdditionalProperties to be a object but got %q", string(*dictOfAny2Field.DictValueType))
 	}
 
+	// Check for model DictOfString
 	dictOfString, ok := resource.Models["DictOfString"]
 	if !ok {
 		t.Fatalf("the Model `DictOfString` was not found")
 	}
-	if len(dictOfString.Fields) != 1 {
-		t.Fatalf("expected dictOfString.Fields to have 1 fields but got %d", len(dictOfString.Fields))
-	}
-	dictOfStringField, ok := dictOfString.Fields["AdditionalProperties"]
-	if !ok {
-		t.Fatalf("dictOfString.Fields['AdditionalProperties'] was missing")
+	dictOfStringField := dictOfString.AdditionalProperties
+	if dictOfStringField == nil {
+		t.Fatalf("dictOfString.AdditionalProperties was nil")
 	}
 	if dictOfStringField.Type != models.Dictionary {
-		t.Fatalf("expected dictOfString.Fields['AdditionalProperties'] to be a dict but got %q", string(dictOfStringField.Type))
+		t.Fatalf("expected dictOfString.AdditionalProperties to be a dict but got %q", string(dictOfStringField.Type))
 	}
 	if dictOfStringField.DictValueType == nil {
-		t.Fatalf("expected value of dictOfString.Fields['AdditionalProperties'] to be a string but got nil")
+		t.Fatalf("expected value of dictOfString.AdditionalProperties to be a string but got nil")
 	}
 	if *dictOfStringField.DictValueType != models.String {
-		t.Fatalf("expected value of dictOfString.Fields['AdditionalProperties'] to be a string but got %q", string(*dictOfStringField.DictValueType))
+		t.Fatalf("expected value of dictOfString.AdditionalProperties to be a string but got %q", string(*dictOfStringField.DictValueType))
 	}
 
+	// Check for model DictOfArrayOfString
 	dictOfArrayOfString, ok := resource.Models["DictOfArrayOfString"]
 	if !ok {
 		t.Fatalf("the Model `DictOfArrayOfString` was not found")
 	}
-	if len(dictOfArrayOfString.Fields) != 1 {
-		t.Fatalf("expected dictOfArrayOfString.Fields to have 1 fields but got %d", len(dictOfArrayOfString.Fields))
-	}
-	dictOfArrayOfStringField, ok := dictOfArrayOfString.Fields["AdditionalProperties"]
-	if !ok {
-		t.Fatalf("dictOfArrayOfString.Fields['AdditionalProperties'] was missing")
+	dictOfArrayOfStringField := dictOfArrayOfString.AdditionalProperties
+	if dictOfArrayOfStringField == nil {
+		t.Fatalf("dictOfArrayOfString.AdditionalProperties was nil")
 	}
 	if dictOfArrayOfStringField.Type != models.Dictionary {
-		t.Fatalf("expected dictOfArrayOfString.Fields['AdditionalProperties'] to be a dict but got %q", string(dictOfArrayOfStringField.Type))
+		t.Fatalf("expected dictOfArrayOfString.AdditionalProperties to be a dict but got %q", string(dictOfArrayOfStringField.Type))
 	}
 	if dictOfArrayOfStringField.DictValueType == nil {
-		t.Fatalf("expected value of dictOfArrayOfString.Fields['AdditionalProperties'] to be an array but got nil")
+		t.Fatalf("expected value of dictOfArrayOfString.AdditionalProperties to be an array but got nil")
 	}
 	if *dictOfArrayOfStringField.DictValueType != models.List {
-		t.Fatalf("expected value of dictOfArrayOfString.Fields['AdditionalProperties'] to be an array but got %q", string(*dictOfArrayOfStringField.DictValueType))
+		t.Fatalf("expected value of dictOfArrayOfString.AdditionalProperties to be an array but got %q", string(*dictOfArrayOfStringField.DictValueType))
 	}
 	if dictOfArrayOfStringField.ListElementType == nil {
-		t.Fatalf("expected element of value of dictOfArrayOfString.Fields['AdditionalProperties'] to be string but got nil")
+		t.Fatalf("expected element of value of dictOfArrayOfString.AdditionalProperties to be string but got nil")
 	}
 	if *dictOfArrayOfStringField.ListElementType != models.String {
-		t.Fatalf("expected element of value of dictOfArrayOfString.Fields['AdditionalProperties'] to be string but got %q", string(*dictOfArrayOfStringField.ListElementType))
+		t.Fatalf("expected element of value of dictOfArrayOfString.AdditionalProperties to be string but got %q", string(*dictOfArrayOfStringField.ListElementType))
 	}
 
+	// Check for model DictOfInlinedObject
 	dictOfInlinedObject, ok := resource.Models["DictOfInlinedObject"]
 	if !ok {
 		t.Fatalf("the Model `DictOfInlinedObject` was not found")
 	}
-	if len(dictOfInlinedObject.Fields) != 1 {
-		t.Fatalf("expected dictOfInlinedObject.Fields to have 1 fields but got %d", len(dictOfInlinedObject.Fields))
-	}
-	dictOfInlinedObjectField, ok := dictOfInlinedObject.Fields["AdditionalProperties"]
-	if !ok {
-		t.Fatalf("dictOfInlinedObject.Fields['AdditionalProperties'] was missing")
+	dictOfInlinedObjectField := dictOfInlinedObject.AdditionalProperties
+	if dictOfInlinedObjectField == nil {
+		t.Fatalf("dictOfInlinedObject.AdditionalProperties was nil")
 	}
 	if dictOfInlinedObjectField.Type != models.Dictionary {
-		t.Fatalf("expected dictOfInlinedObject.Fields['AdditionalProperties'] to be a dict but got %q", string(dictOfInlinedObjectField.Type))
+		t.Fatalf("expected dictOfInlinedObject.AdditionalProperties to be a dict but got %q", string(dictOfInlinedObjectField.Type))
 	}
 	if dictOfInlinedObjectField.DictValueType == nil {
-		t.Fatalf("expected value of dictOfInlinedObject.Fields['AdditionalProperties'] to be a object but got nil")
+		t.Fatalf("expected value of dictOfInlinedObject.AdditionalProperties to be a object but got nil")
 	}
 	if *dictOfInlinedObjectField.DictValueType != models.Object {
-		t.Fatalf("expected value of dictOfInlinedObject.Fields['AdditionalProperties'] to be a object but got %q", string(*dictOfInlinedObjectField.DictValueType))
+		t.Fatalf("expected value of dictOfInlinedObject.AdditionalProperties to be a object but got %q", string(*dictOfInlinedObjectField.DictValueType))
 	}
 	if dictOfInlinedObjectField.ModelReference == nil {
 		t.Fatalf("expected dictOfInlinedObject.ModelReference to be non-nil")
@@ -1313,25 +1430,23 @@ func TestParseModelAdditionalProperties(t *testing.T) {
 		t.Fatalf("expected dictOfInlinedObjectAdditionalProperties.Fields['P1'] to be a string but got %q", string(p1.Type))
 	}
 
+	// Check for model DictOfObjectRef
 	dictOfObjectRef, ok := resource.Models["DictOfObjectRef"]
 	if !ok {
 		t.Fatalf("the Model `DictOfObjectRef` was not found")
 	}
-	if len(dictOfObjectRef.Fields) != 1 {
-		t.Fatalf("expected dictOfObjectRef.Fields to have 1 fields but got %d", len(dictOfObjectRef.Fields))
-	}
-	dictOfObjectRefField, ok := dictOfObjectRef.Fields["AdditionalProperties"]
-	if !ok {
-		t.Fatalf("dictOfObjectRef.Fields['AdditionalProperties'] was missing")
+	dictOfObjectRefField := dictOfObjectRef.AdditionalProperties
+	if dictOfObjectRefField == nil {
+		t.Fatalf("dictOfObjectRef.AdditionalProperties was nil")
 	}
 	if dictOfObjectRefField.Type != models.Dictionary {
-		t.Fatalf("expected dictOfObjectRef.Fields['AdditionalProperties'] to be a dict but got %q", string(dictOfObjectRefField.Type))
+		t.Fatalf("expected dictOfObjectRef.AdditionalProperties to be a dict but got %q", string(dictOfObjectRefField.Type))
 	}
 	if dictOfObjectRefField.DictValueType == nil {
-		t.Fatalf("expected value of dictOfObjectRef.Fields['AdditionalProperties'] to be a object but got nil")
+		t.Fatalf("expected value of dictOfObjectRef.AdditionalProperties to be a object but got nil")
 	}
 	if *dictOfObjectRefField.DictValueType != models.Object {
-		t.Fatalf("expected value of dictOfObjectRef.Fields['AdditionalProperties'] to be a object but got %q", string(*dictOfObjectRefField.DictValueType))
+		t.Fatalf("expected value of dictOfObjectRef.AdditionalProperties to be a object but got %q", string(*dictOfObjectRefField.DictValueType))
 	}
 	if dictOfObjectRefField.ModelReference == nil {
 		t.Fatalf("expected dictOfObjectRef.ModelReference to be non-nil")
@@ -1404,14 +1519,6 @@ func TestParseModelIdentities(t *testing.T) {
 		t.Fatalf("expected example.Fields['UserAssignedIdentityList'] to be a %q but got %q", string(models.UserAssignedIdentityList), string(uaiList.Type))
 	}
 
-	sauaiList, ok := identityCollection.Fields["SystemAssignedUserAssignedIdentityList"]
-	if !ok {
-		t.Fatalf("example.Fields['SystemAssignedUserAssignedIdentityList'] was missing")
-	}
-	if sauaiList.Type != models.SystemUserAssignedIdentityList {
-		t.Fatalf("expected example.Fields['SystemAssignedUserAssignedIdentityList'] to be a %q but got %q", string(models.SystemUserAssignedIdentityList), string(sauaiList.Type))
-	}
-
 	uaiMap, ok := identityCollection.Fields["UserAssignedIdentityMap"]
 	if !ok {
 		t.Fatalf("example.Fields['UserAssignedIdentityMap'] was missing")
@@ -1420,11 +1527,76 @@ func TestParseModelIdentities(t *testing.T) {
 		t.Fatalf("expected example.Fields['UserAssignedIdentityMap'] to be a %q but got %q", string(models.UserAssignedIdentityMap), string(uaiMap.Type))
 	}
 
+	uaiMapInline, ok := identityCollection.Fields["UserAssignedIdentityMapInline"]
+	if !ok {
+		t.Fatalf("example.Fields['UserAssignedIdentityMapInline'] was missing")
+	}
+	if uaiMapInline.Type != models.UserAssignedIdentityMap {
+		t.Fatalf("expected example.Fields['UserAssignedIdentityMapInline'] to be a %q but got %q", string(models.UserAssignedIdentityMap), string(uaiMapInline.Type))
+	}
+
+	sauaiList, ok := identityCollection.Fields["SystemAssignedUserAssignedIdentityList"]
+	if !ok {
+		t.Fatalf("example.Fields['SystemAssignedUserAssignedIdentityList'] was missing")
+	}
+	if sauaiList.Type != models.SystemUserAssignedIdentityList {
+		t.Fatalf("expected example.Fields['SystemAssignedUserAssignedIdentityList'] to be a %q but got %q", string(models.SystemUserAssignedIdentityList), string(sauaiList.Type))
+	}
+
+	sauaiMap, ok := identityCollection.Fields["SystemAssignedUserAssignedIdentityMap"]
+	if !ok {
+		t.Fatalf("example.Fields['SystemAssignedUserAssignedIdentityMap'] was missing")
+	}
+	if sauaiMap.Type != models.SystemUserAssignedIdentityMap {
+		t.Fatalf("expected example.Fields['SystemAssignedUserAssignedIdentityMap'] to be a %q but got %q", string(models.SystemUserAssignedIdentityMap), string(sauaiMap.Type))
+	}
+
+	sauaiMapInline, ok := identityCollection.Fields["SystemAssignedUserAssignedIdentityMapInline"]
+	if !ok {
+		t.Fatalf("example.Fields['SystemAssignedUserAssignedIdentityMapInline'] was missing")
+	}
+	if sauaiMapInline.Type != models.SystemUserAssignedIdentityMap {
+		t.Fatalf("expected example.Fields['SystemAssignedUserAssignedIdentityMapInline'] to be a %q but got %q", string(models.SystemUserAssignedIdentityMap), string(sauaiMapInline.Type))
+	}
+
 	malformedIdentity, ok := identityCollection.Fields["MalformedIdentity"]
 	if !ok {
 		t.Fatalf("example.Fields['MalformedIdentity'] was missing")
 	}
 	if malformedIdentity.Type != models.Object {
 		t.Fatalf("expected example.Fields['MalformedIdentity'] to be a %q but got %q", string(models.Object), string(malformedIdentity.Type))
+	}
+}
+
+func TestParseModelWithLocation(t *testing.T) {
+	parsed, err := Load("testdata/", "model_with_location.json", true)
+	if err != nil {
+		t.Fatalf("loading: %+v", err)
+	}
+
+	result, err := parsed.Parse("Example", "2020-01-01")
+	if err != nil {
+		t.Fatalf("parsing: %+v", err)
+	}
+	if result == nil {
+		t.Fatal("result was nil")
+	}
+
+	resource, ok := result.Resources["Resource"]
+	if !ok {
+		t.Fatal("the Resource 'Resource' was not found")
+	}
+
+	model, ok := resource.Models["Model"]
+	if !ok {
+		t.Fatalf("the Model `Model` was not found")
+	}
+
+	field, ok := model.Fields["Location"]
+	if !ok {
+		t.Fatalf("example.Fields['Location'] was missing")
+	}
+	if field.Type != models.Location {
+		t.Fatalf("expected example.Fields['Location'] to be a %q but got %q", string(models.Location), string(field.Type))
 	}
 }
