@@ -16,7 +16,7 @@ namespace Pandora.Data.Transformers
                 {
                     throw new NotSupportedException($"Service {input.Name} has no versions defined");
                 }
-            
+
                 // protect against coding errors
                 var hasDuplicates = orderedVersions.Any(a => orderedVersions.Count(api => api.Version == a.Version) > 1);
                 if (hasDuplicates)

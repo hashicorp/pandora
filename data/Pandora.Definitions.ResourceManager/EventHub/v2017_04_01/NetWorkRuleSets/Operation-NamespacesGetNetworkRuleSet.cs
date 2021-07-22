@@ -5,21 +5,21 @@ using Pandora.Definitions.Interfaces;
 
 namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.NetWorkRuleSets
 {
-	internal class NamespacesGetNetworkRuleSet : GetOperation
-	{
-		public override ResourceID? ResourceId()
-		{
-			return new NamespaceId();
-		}
+    internal class NamespacesGetNetworkRuleSet : GetOperation
+    {
+        public override ResourceID? ResourceId()
+        {
+            return new NamespaceId();
+        }
 
-		public override object? ResponseObject()
-		{
-			return new NetworkRuleSet();
-		}
+        public override object? ResponseObject()
+        {
+            return new NetworkRuleSet();
+        }
 
-		public override string? UriSuffix()
-		{
-			return "/networkRuleSets/default";
-		}
-	}
+        public override string? UriSuffix()
+        {
+            return "/networkRuleSets/default";
+        }
+    }
 }

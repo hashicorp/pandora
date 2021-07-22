@@ -21,7 +21,7 @@ namespace Pandora.Data.Transformers
                     // TODO: implement me
                     throw new NotSupportedException("create a wrapper type");
                 }
-            
+
                 return MapObject(input.GetType()).Distinct(new ModelComparer()).OrderBy(m => m.Name).ToList();
             }
             catch (Exception ex)
@@ -35,111 +35,112 @@ namespace Pandora.Data.Transformers
             try
             {
                 if (input.IsEnum)
-            {
-                return new List<ModelDefinition>();
-            }
-
-            var models = new List<ModelDefinition>();
-            var properties = new List<PropertyDefinition>();
-
-            var props = input.GetProperties();
-            foreach (var property in props)
-            {
-                if (property.PropertyType.IsGenericType)
                 {
-                    // if this is a list of some description, it has to be a List
-                    // otherwise it could be a nilable item (e.g. Int?, Float?, Enum?)
-                    var genericType = property.PropertyType.GetGenericTypeDefinition();
-                    if (genericType.IsAssignableTo(typeof(IEnumerable<>)))
+                    return new List<ModelDefinition>();
+                }
+
+                var models = new List<ModelDefinition>();
+                var properties = new List<PropertyDefinition>();
+
+                var props = input.GetProperties();
+                foreach (var property in props)
+                {
+                    if (property.PropertyType.IsGenericType)
                     {
-                        if (property.PropertyType.GetGenericTypeDefinition() != typeof(List<>))
+                        // if this is a list of some description, it has to be a List
+                        // otherwise it could be a nilable item (e.g. Int?, Float?, Enum?)
+                        var genericType = property.PropertyType.GetGenericTypeDefinition();
+                        if (genericType.IsAssignableTo(typeof(IEnumerable<>)))
                         {
-                            throw new NotSupportedException(
-                                string.Format($"{input.FullName} - {property.Name}: Generic types have to be lists"));
+                            if (property.PropertyType.GetGenericTypeDefinition() != typeof(List<>))
+                            {
+                                throw new NotSupportedException(
+                                    string.Format($"{input.FullName} - {property.Name}: Generic types have to be lists"));
+                            }
+                        }
+
+                        var innerType = property.PropertyType.GetGenericArguments()[0];
+                        // e.g. List<string>
+                        if (!Helpers.IsNativeType(innerType))
+                        {
+                            if (innerType.FullName != input.FullName)
+                            {
+                                var mappedInner = MapObject(innerType);
+                                models.AddRange(mappedInner);
+                            }
+                        }
+                    }
+                    else if (property.PropertyType.IsClass && !property.PropertyType.IsEnum &&
+                             !Helpers.IsNativeType(property.PropertyType) &&
+                             !Helpers.IsPandoraCustomType(property.PropertyType))
+                    {
+                        if (property.PropertyType.FullName != input.FullName)
+                        {
+                            models.AddRange(MapObject(property.PropertyType));
                         }
                     }
 
-                    var innerType = property.PropertyType.GetGenericArguments()[0];
-                    // e.g. List<string>
-                    if (!Helpers.IsNativeType(innerType)) {
-                        if (innerType.FullName != input.FullName)
+                    var mappedProperty = Property.Map(property, input.FullName!);
+                    properties.Add(mappedProperty);
+                }
+
+                var model = new ModelDefinition
+                {
+                    Name = input.Name,
+                    Properties = properties.OrderBy(p => p.Name).ToList(),
+                };
+
+                // this is an abstract class, meaning it's a Discriminated Type
+                if (input.IsAbstract)
+                {
+                    // 1: sanity checking: ensure one, and only one, of the fields has the DiscriminatesUsing field
+                    var propsWithTypeHints = input.GetProperties().Where(p => p.HasAttribute<ProvidesTypeHintAttribute>()).ToList();
+                    if (propsWithTypeHints.Count != 1)
+                    {
+                        throw new NotSupportedException($"Exactly one attribute within {input.FullName} needs to contain the [ProvidesTypeHint] Attribute");
+                    }
+
+                    // 2: find all of the implementations for this type
+                    var allTypes = AppDomain.CurrentDomain.GetAssemblies().SelectMany(x => x.GetTypes());
+                    var implementations = allTypes.Where(t => t.IsAssignableTo(input) && !t.IsAbstract && !t.IsInterface).ToList();
+                    foreach (var implementation in implementations)
+                    {
+                        var mappedImplementations = MapObject(implementation);
+                        foreach (var mappedImpl in mappedImplementations)
                         {
-                            var mappedInner = MapObject(innerType);
-                            models.AddRange(mappedInner);
+                            // ensure the nested model contains the name of the parent type so this can be
+                            // easily mapped across later
+                            mappedImpl.ParentTypeName = input.Name;
+                            models.Add(mappedImpl);
                         }
                     }
+
+                    // 3: map the property containing the type hint across
+                    var propWithTypeHint = propsWithTypeHints.First();
+                    model.TypeHintIn = propWithTypeHint.Name;
                 }
-                else if (property.PropertyType.IsClass && !property.PropertyType.IsEnum &&
-                         !Helpers.IsNativeType(property.PropertyType) &&
-                         !Helpers.IsPandoraCustomType(property.PropertyType))
+
+                if (input.HasAttribute<ValueForTypeAttribute>())
                 {
-                    if (property.PropertyType.FullName != input.FullName)
+                    if (input.IsInterface)
                     {
-                        models.AddRange(MapObject(property.PropertyType));
+                        throw new NotSupportedException($"Interface {input.FullName} may not have a [ValueForType] attribute");
                     }
-                }
 
-                var mappedProperty = Property.Map(property, input.FullName!);
-                properties.Add(mappedProperty);
-            }
+                    var attr = input.GetCustomAttribute<ValueForTypeAttribute>();
+                    model.TypeHintValue = attr.Value;
 
-            var model = new ModelDefinition
-            {
-                Name = input.Name,
-                Properties = properties.OrderBy(p => p.Name).ToList(),
-            };
-
-            // this is an abstract class, meaning it's a Discriminated Type
-            if (input.IsAbstract)
-            {
-                // 1: sanity checking: ensure one, and only one, of the fields has the DiscriminatesUsing field
-                var propsWithTypeHints = input.GetProperties().Where(p => p.HasAttribute<ProvidesTypeHintAttribute>()).ToList();
-                if (propsWithTypeHints.Count != 1)
-                {
-                    throw new NotSupportedException($"Exactly one attribute within {input.FullName} needs to contain the [ProvidesTypeHint] Attribute");
-                }
-
-                // 2: find all of the implementations for this type
-                var allTypes = AppDomain.CurrentDomain.GetAssemblies().SelectMany(x => x.GetTypes());
-                var implementations = allTypes.Where(t => t.IsAssignableTo(input) && !t.IsAbstract && !t.IsInterface).ToList();
-                foreach (var implementation in implementations)
-                {
-                    var mappedImplementations = MapObject(implementation);
-                    foreach (var mappedImpl in mappedImplementations)
+                    var fieldContainingTypeHint = input.GetProperties().Where(p => p.HasAttribute<ProvidesTypeHintAttribute>()).ToList();
+                    if (fieldContainingTypeHint.Count != 1)
                     {
-                        // ensure the nested model contains the name of the parent type so this can be
-                        // easily mapped across later
-                        mappedImpl.ParentTypeName = input.Name;
-                        models.Add(mappedImpl);
+                        throw new NotSupportedException($"Exactly one attribute within {input.FullName} needs to contain the [ProvidesTypeHint] Attribute");
                     }
+                    var propWithTypeHint = fieldContainingTypeHint.First();
+                    model.TypeHintIn = propWithTypeHint.Name;
                 }
 
-                // 3: map the property containing the type hint across
-                var propWithTypeHint = propsWithTypeHints.First();
-                model.TypeHintIn = propWithTypeHint.Name;
-            }
-
-            if (input.HasAttribute<ValueForTypeAttribute>())
-            {
-                if (input.IsInterface)
-                {
-                    throw new NotSupportedException($"Interface {input.FullName} may not have a [ValueForType] attribute");
-                }
-
-                var attr = input.GetCustomAttribute<ValueForTypeAttribute>();
-                model.TypeHintValue = attr.Value;
-                
-                var fieldContainingTypeHint = input.GetProperties().Where(p => p.HasAttribute<ProvidesTypeHintAttribute>()).ToList();
-                if (fieldContainingTypeHint.Count != 1)
-                {
-                    throw new NotSupportedException($"Exactly one attribute within {input.FullName} needs to contain the [ProvidesTypeHint] Attribute");
-                }
-                var propWithTypeHint = fieldContainingTypeHint.First();
-                model.TypeHintIn = propWithTypeHint.Name;
-            }
-            
-            models.Add(model);
-            return models;
+                models.Add(model);
+                return models;
             }
             catch (Exception ex)
             {

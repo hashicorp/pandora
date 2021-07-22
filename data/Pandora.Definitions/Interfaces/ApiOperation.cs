@@ -8,15 +8,15 @@ namespace Pandora.Definitions.Interfaces
     {
         // TODO: Custom API Version
         // for when one operation uses a different API version to the others
-        
+
         string? ContentType();
-        
+
         IEnumerable<HttpStatusCode> ExpectedStatusCodes();
 
         string? FieldContainingPaginationDetails();
-        
+
         bool LongRunning();
-        
+
         HttpMethod Method();
 
         object? RequestObject();

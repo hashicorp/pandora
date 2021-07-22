@@ -6,41 +6,41 @@ using Pandora.Definitions.Interfaces;
 
 namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.ConsumerGroups
 {
-	internal class ListByEventHub : ListOperation
-	{
-		public override string? FieldContainingPaginationDetails()
-		{
-			return "nextLink";
-		}
+    internal class ListByEventHub : ListOperation
+    {
+        public override string? FieldContainingPaginationDetails()
+        {
+            return "nextLink";
+        }
 
-		public override ResourceID? ResourceId()
-		{
-			return new EventhubId();
-		}
+        public override ResourceID? ResourceId()
+        {
+            return new EventhubId();
+        }
 
-		public override object NestedItemType()
-		{
-			return new ConsumerGroup();
-		}
+        public override object NestedItemType()
+        {
+            return new ConsumerGroup();
+        }
 
-		public override object? OptionsObject()
-		{
-			return new ListByEventHubOptions();
-		}
+        public override object? OptionsObject()
+        {
+            return new ListByEventHubOptions();
+        }
 
-		public override string? UriSuffix()
-		{
-			return "/consumergroups";
-		}
-	}
-	internal class ListByEventHubOptions
-	{
-		[QueryStringName("$skip")]
-		[Optional]
-		public int Skip { get; set; }
-		
-		[QueryStringName("$top")]
-		[Optional]
-		public int Top { get; set; }
-	}
+        public override string? UriSuffix()
+        {
+            return "/consumergroups";
+        }
+    }
+    internal class ListByEventHubOptions
+    {
+        [QueryStringName("$skip")]
+        [Optional]
+        public int Skip { get; set; }
+
+        [QueryStringName("$top")]
+        [Optional]
+        public int Top { get; set; }
+    }
 }

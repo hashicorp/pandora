@@ -10,7 +10,7 @@ namespace Pandora.Api.V1.Helpers
             Name = resourceId.Name;
             Format = resourceId.Format;
         }
-        
+
         [JsonPropertyName("name")]
         public string Name { get; set; }
 

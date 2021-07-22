@@ -7,7 +7,7 @@ namespace Pandora.Data.Models
         public string Name { get; set; }
         public string ApiName { get; set; }
         public string ApiVersion { get; set; }
-        
+
         public string? ContentType { get; set; }
         public List<int> ExpectedStatusCodes { get; set; }
         public string? FieldContainingPaginationDetails { get; set; }

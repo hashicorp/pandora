@@ -5,16 +5,16 @@ using Pandora.Definitions.Interfaces;
 
 namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.DisasterRecoveryConfigs
 {
-	internal class Get : GetOperation
-	{
-		public override ResourceID? ResourceId()
-		{
-			return new DisasterRecoveryConfigId();
-		}
+    internal class Get : GetOperation
+    {
+        public override ResourceID? ResourceId()
+        {
+            return new DisasterRecoveryConfigId();
+        }
 
-		public override object? ResponseObject()
-		{
-			return new ArmDisasterRecovery();
-		}
-	}
+        public override object? ResponseObject()
+        {
+            return new ArmDisasterRecovery();
+        }
+    }
 }

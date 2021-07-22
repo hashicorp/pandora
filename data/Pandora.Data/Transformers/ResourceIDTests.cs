@@ -11,7 +11,7 @@ namespace Pandora.Data.Transformers
             var actual = ResourceID.Map(input);
             Assert.AreEqual("/hello/world", actual.Format);
         }
-        
+
         [TestCase]
         public static void MappingAResourceIDWithASingleSegment()
         {
@@ -19,7 +19,7 @@ namespace Pandora.Data.Transformers
             var actual = ResourceID.Map(input);
             Assert.AreEqual("/hello/{world}", actual.Format);
         }
-        
+
         [TestCase]
         public static void MappingAResourceIDWithMultipleSegments()
         {
@@ -36,7 +36,7 @@ namespace Pandora.Data.Transformers
             {
                 _format = format;
             }
-            
+
             public string ID()
             {
                 return _format;

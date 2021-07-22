@@ -6,41 +6,41 @@ using Pandora.Definitions.Interfaces;
 
 namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.EventHubs
 {
-	internal class ListByNamespace : ListOperation
-	{
-		public override string? FieldContainingPaginationDetails()
-		{
-			return "nextLink";
-		}
+    internal class ListByNamespace : ListOperation
+    {
+        public override string? FieldContainingPaginationDetails()
+        {
+            return "nextLink";
+        }
 
-		public override ResourceID? ResourceId()
-		{
-			return new NamespaceId();
-		}
+        public override ResourceID? ResourceId()
+        {
+            return new NamespaceId();
+        }
 
-		public override object NestedItemType()
-		{
-			return new Eventhub();
-		}
+        public override object NestedItemType()
+        {
+            return new Eventhub();
+        }
 
-		public override object? OptionsObject()
-		{
-			return new ListByNamespaceOptions();
-		}
+        public override object? OptionsObject()
+        {
+            return new ListByNamespaceOptions();
+        }
 
-		public override string? UriSuffix()
-		{
-			return "/eventhubs";
-		}
-	}
-	internal class ListByNamespaceOptions
-	{
-		[QueryStringName("$skip")]
-		[Optional]
-		public int Skip { get; set; }
-	
-		[QueryStringName("$top")]
-		[Optional]
-		public int Top { get; set; }
-	}
+        public override string? UriSuffix()
+        {
+            return "/eventhubs";
+        }
+    }
+    internal class ListByNamespaceOptions
+    {
+        [QueryStringName("$skip")]
+        [Optional]
+        public int Skip { get; set; }
+
+        [QueryStringName("$top")]
+        [Optional]
+        public int Top { get; set; }
+    }
 }

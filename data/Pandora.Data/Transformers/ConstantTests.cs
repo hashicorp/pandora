@@ -15,7 +15,7 @@ namespace Pandora.Data.Transformers
             var actual = Constant.FromObject(typeof(ClassWithoutEnum));
             Assert.AreEqual(0, actual.Count);
         }
-        
+
         [TestCase]
         public void MappingFromTypeWithAnEnumsReturnsThatEnum()
         {
@@ -54,13 +54,13 @@ namespace Pandora.Data.Transformers
             Assert.AreEqual("second", actual.First().Values["Second"]);
             Assert.AreEqual(false, actual.First().CaseInsensitive);
         }
-        
+
         [TestCase]
         public void MappingFromTypeWhichIsNotAClassShouldFail()
         {
             Assert.Throws<Exception>(() => Constant.FromObject(typeof(Example)));
         }
-        
+
         [TestCase]
         public void MappingABasicEnum()
         {
@@ -73,7 +73,7 @@ namespace Pandora.Data.Transformers
             Assert.AreEqual("first", actual.Values["First"]);
             Assert.AreEqual("second", actual.Values["Second"]);
         }
-        
+
         [TestCase]
         public void MappingWithACaseSensitiveAttribute()
         {
@@ -118,13 +118,13 @@ namespace Pandora.Data.Transformers
         {
             Assert.Throws<Exception>(() => Constant.FromEnum(new EnumWithoutConstantType().GetType()));
         }
-        
+
         [TestCase]
         public void MappingWithoutDescriptionsShouldFail()
         {
             Assert.Throws<Exception>(() => Constant.FromEnum(new EnumMissingAttribute().GetType()));
         }
-        
+
         [TestCase]
         public void MappingAClassShouldFail()
         {
@@ -149,7 +149,7 @@ namespace Pandora.Data.Transformers
         private class ClassWithNestedClasses
         {
             public ClassWithNestedClassContainingAnEnum First { get; set; }
-            
+
             public ClassWithNestedClassContainingAnEnum Second { get; set; }
         }
 
@@ -158,7 +158,7 @@ namespace Pandora.Data.Transformers
         {
             [System.ComponentModel.Description("first")]
             First,
-            
+
             [System.ComponentModel.Description("second")]
             Second
         }
@@ -169,7 +169,7 @@ namespace Pandora.Data.Transformers
         {
             [System.ComponentModel.Description("first")]
             First,
-            
+
             [System.ComponentModel.Description("second")]
             Second
         }
@@ -179,7 +179,7 @@ namespace Pandora.Data.Transformers
         {
             [System.ComponentModel.Description("1.0")]
             OnePointZero,
-            
+
             [System.ComponentModel.Description("2.20103")]
             TwoPointTwoZeroOneZeroThree,
         }
@@ -189,7 +189,7 @@ namespace Pandora.Data.Transformers
         {
             [System.ComponentModel.Description("1")]
             One,
-            
+
             [System.ComponentModel.Description("2")]
             Two,
         }
@@ -206,7 +206,7 @@ namespace Pandora.Data.Transformers
         {
             [System.ComponentModel.Description("first")]
             First,
-            
+
             // intentionally missing the description
             Second
         }

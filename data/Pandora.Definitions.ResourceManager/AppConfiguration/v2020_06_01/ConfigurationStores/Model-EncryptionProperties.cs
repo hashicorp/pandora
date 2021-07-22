@@ -4,9 +4,9 @@ using Pandora.Definitions.Attributes;
 
 namespace Pandora.Definitions.ResourceManager.AppConfiguration.v2020_06_01.ConfigurationStores
 {
-	internal class EncryptionProperties
-	{
-		[JsonPropertyName("keyVaultProperties")]
-		public KeyVaultProperties? KeyVaultProperties { get; set; }
-	}
+    internal class EncryptionProperties
+    {
+        [JsonPropertyName("keyVaultProperties")]
+        public KeyVaultProperties? KeyVaultProperties { get; set; }
+    }
 }

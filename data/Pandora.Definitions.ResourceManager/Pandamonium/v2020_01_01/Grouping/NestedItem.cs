@@ -10,19 +10,19 @@ namespace Pandora.Definitions.ResourceManager.Pandamonium.v2020_01_01.Grouping
         [DateFormat(DateFormatAttribute.DateFormat.RFC3339)]
         [JsonPropertyName("someDate")]
         public DateTime SomeDate { get; set; }
-        
+
         [JsonPropertyName("someObject")]
         public object SomeObject { get; set; }
-        
+
         [JsonPropertyName("uniqueId")]
         public string UniqueId { get; set; }
-        
+
         [JsonPropertyName("floatValue")]
         public FloatBasedEnum FloatValue { get; set; }
-        
+
         [JsonPropertyName("integerValue")]
         public IntegerBackedEnum IntValue { get; set; }
-        
+
         [JsonPropertyName("stringValue")]
         public StringBackedEnum StringValue { get; set; }
     }
@@ -32,7 +32,7 @@ namespace Pandora.Definitions.ResourceManager.Pandamonium.v2020_01_01.Grouping
     {
         [Description("1.1")]
         OnePointOne,
-        
+
         [Description("2.304")]
         TwoPointThreeZeroFour,
     }
@@ -42,7 +42,7 @@ namespace Pandora.Definitions.ResourceManager.Pandamonium.v2020_01_01.Grouping
     {
         [Description("1")]
         One,
-        
+
         [Description("2")]
         Two,
     }
@@ -52,7 +52,7 @@ namespace Pandora.Definitions.ResourceManager.Pandamonium.v2020_01_01.Grouping
     {
         [Description("First")]
         First,
-        
+
         [Description("Second")]
         Second
     }

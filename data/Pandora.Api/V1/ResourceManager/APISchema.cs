@@ -64,13 +64,13 @@ namespace Pandora.Api.V1.ResourceManager
         {
             [JsonPropertyName("fields")]
             public Dictionary<string, PropertyApiDefinition> Fields { get; set; }
-            
+
             [JsonPropertyName("parentTypeName")]
             public string? ParentTypeName { get; set; }
-            
+
             [JsonPropertyName("typeHintIn")]
             public string? TypeHintIn { get; set; }
-            
+
             [JsonPropertyName("typeHintValue")]
             public string? TypeHintValue { get; set; }
         }
@@ -112,37 +112,37 @@ namespace Pandora.Api.V1.ResourceManager
             switch (input)
             {
                 // TODO: Dates and Dictionaries
-                
+
                 case PropertyType.Boolean:
                     return ApiPropertyType.Boolean.ToString();
-                
+
                 case PropertyType.Constant:
                     return ApiPropertyType.Constant.ToString();
-                
+
                 case PropertyType.DateTime:
                     return ApiPropertyType.DateTime.ToString();
-                
+
                 case PropertyType.Float:
                     return ApiPropertyType.Float.ToString();
 
                 case PropertyType.Integer:
                     return ApiPropertyType.Integer.ToString();
-                
+
                 case PropertyType.List:
                     return ApiPropertyType.List.ToString();
-                
+
                 case PropertyType.Location:
                     return ApiPropertyType.Location.ToString();
-                
+
                 case PropertyType.Object:
                     return ApiPropertyType.Object.ToString();
-                
+
                 case PropertyType.String:
                     return ApiPropertyType.String.ToString();
-                
+
                 case PropertyType.Tags:
                     return ApiPropertyType.Tags.ToString();
-                
+
                 default:
                     throw new NotImplementedException($"unsupported value {input.ToString()}");
             }
@@ -180,20 +180,20 @@ namespace Pandora.Api.V1.ResourceManager
         {
             [JsonPropertyName("constantReferenceName")]
             public string ConstantReferenceName { get; set; }
-            
+
             [JsonPropertyName("dateFormat")]
             public string? DateFormat { get; set; }
-        
+
             [JsonPropertyName("default")]
             public object? Default { get; set; }
-            
+
             // TODO: should this be renamed Immutable?
             [JsonPropertyName("forceNew")]
             public bool ForceNew { get; set; }
 
             [JsonPropertyName("isTypeHint")]
             public bool IsTypeHint { get; set; }
-            
+
             [JsonPropertyName("jsonName")]
             public string JsonName { get; set; }
 
@@ -201,23 +201,23 @@ namespace Pandora.Api.V1.ResourceManager
             public string? ListElementType { get; set; }
 
             [JsonPropertyName("minItems")]
-            public int? MinItems {get; set; }
+            public int? MinItems { get; set; }
 
             [JsonPropertyName("maxItems")]
-            public int? MaxItems {get; set; }
-        
+            public int? MaxItems { get; set; }
+
             [JsonPropertyName("modelReferenceName")]
             public string ModelReferenceName { get; set; }
-        
+
             [JsonPropertyName("optional")]
             public bool Optional { get; set; }
-        
+
             [JsonPropertyName("required")]
             public bool Required { get; set; }
-            
+
             [JsonPropertyName("type")]
             public string PropertyType { get; set; }
-        
+
             [JsonPropertyName("validation")]
             public ValidationApiDefinition? Validation { get; set; }
         }

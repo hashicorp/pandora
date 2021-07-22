@@ -23,7 +23,7 @@ namespace Pandora.Data.Transformers
                 //     var nested = input.GetType().GenericListElement();
                 //     // we need to iterate over the nested element
                 // }
-            
+
                 var jsonName = input.JsonName(containingType);
                 var required = input.HasAttribute<RequiredAttribute>();
                 var optional = input.HasAttribute<OptionalAttribute>();
@@ -48,24 +48,28 @@ namespace Pandora.Data.Transformers
                     PropertyType = propertyType,
                     Validation = validation,
                 };
-                
-                if (optional) {
+
+                if (optional)
+                {
                     definition.Default = GetDefaultValue(input, containingType);
                 }
 
-                if (definition.PropertyType == PropertyType.List) {
+                if (definition.PropertyType == PropertyType.List)
+                {
                     var elementDetails = GetListElementDetails(input.PropertyType);
                     definition.ConstantReference = elementDetails.ConstantType;
                     definition.ListElementType = elementDetails.ElementPropertyType;
                     definition.ModelReference = elementDetails.ModelType;
                     definition.IsTypeHint = elementDetails.IsTypeHint;
 
-                    if (input.HasAttribute<MinItemsAttribute>()) {
+                    if (input.HasAttribute<MinItemsAttribute>())
+                    {
                         var attr = input.GetCustomAttribute<MinItemsAttribute>();
                         definition.MinItems = attr.MinItems;
                     }
 
-                    if (input.HasAttribute<MaxItemsAttribute>()) {
+                    if (input.HasAttribute<MaxItemsAttribute>())
+                    {
                         var attr = input.GetCustomAttribute<MaxItemsAttribute>();
                         definition.MaxItems = attr.MaxItems;
                     }
@@ -80,7 +84,7 @@ namespace Pandora.Data.Transformers
                         definition.ConstantReference = innerType.Name;
                     }
                 }
-                
+
                 if (definition.PropertyType == PropertyType.DateTime)
                 {
                     var hasDateFormat = input.HasAttribute<DateFormatAttribute>();
@@ -91,7 +95,7 @@ namespace Pandora.Data.Transformers
                     var dateFormatAttr = input.GetCustomAttribute<DateFormatAttribute>();
                     definition.DateFormat = dateFormatAttr.Format;
                 }
-                
+
                 if (definition.PropertyType == PropertyType.Object)
                 {
                     // Raw Objects (which we express in C# as Object's should have no nested type)
@@ -112,7 +116,7 @@ namespace Pandora.Data.Transformers
         private class ListElementDetails
         {
             public PropertyType? ElementPropertyType { get; set; }
-            
+
             public string? ConstantType { get; set; }
             public bool IsTypeHint { get; set; }
             public string? ModelType { get; set; }
@@ -122,7 +126,7 @@ namespace Pandora.Data.Transformers
         {
             var element = input.GenericListElement();
             var elementPropertyType = MapPropertyType(element);
-            
+
             var details = new ListElementDetails();
             if (element.IsEnum)
             {
@@ -135,19 +139,20 @@ namespace Pandora.Data.Transformers
                 details.ElementPropertyType = PropertyType.Object;
                 details.IsTypeHint = element.IsAbstract;
             }
-            
+
             if (elementPropertyType == PropertyType.List)
             {
                 throw new NotSupportedException("Lists cannot contain Lists");
             }
 
-            
+
             return details;
         }
 
         private static PropertyType MapPropertyType(Type input)
         {
-            if (input.IsGenericType) {
+            if (input.IsGenericType)
+            {
                 if (input.GetGenericTypeDefinition() == typeof(List<>))
                 {
                     return PropertyType.List;
@@ -156,10 +161,11 @@ namespace Pandora.Data.Transformers
                 return MapPropertyType(Nullable.GetUnderlyingType(input));
             }
 
-            if (input.IsEnum) {
+            if (input.IsEnum)
+            {
                 return PropertyType.Constant;
             }
-            
+
             // dynamic lookups can't be part of a switch statement
             // but required to handle refactoring
             var propertyType = input.ToString();
@@ -202,10 +208,10 @@ namespace Pandora.Data.Transformers
             {
                 case "System.Boolean":
                     return PropertyType.Boolean;
-                
+
                 case "System.DateTime":
                     return PropertyType.DateTime;
-                
+
                 case "System.Decimal":
                 case "System.Double":
                 case "System.Single":
@@ -213,7 +219,7 @@ namespace Pandora.Data.Transformers
 
                 case "System.Int32":
                     return PropertyType.Integer;
-                
+
                 case "System.String":
                     return PropertyType.String;
             }

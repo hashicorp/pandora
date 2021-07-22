@@ -3,16 +3,16 @@ using System.ComponentModel;
 
 namespace Pandora.Definitions.ResourceManager.EventHub.v2021_01_01_preview.DisasterRecoveryConfigs
 {
-	[ConstantType(ConstantTypeAttribute.ConstantType.String)]
-	internal enum RoleDisasterRecovery
-	{
-		[Description("Primary")]
-		Primary,
+    [ConstantType(ConstantTypeAttribute.ConstantType.String)]
+    internal enum RoleDisasterRecovery
+    {
+        [Description("Primary")]
+        Primary,
 
-		[Description("PrimaryNotReplicating")]
-		PrimaryNotReplicating,
+        [Description("PrimaryNotReplicating")]
+        PrimaryNotReplicating,
 
-		[Description("Secondary")]
-		Secondary,
-	}
+        [Description("Secondary")]
+        Secondary,
+    }
 }

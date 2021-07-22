@@ -18,7 +18,7 @@ namespace Pandora.Definitions.ResourceManager.Resources.v2018_05_01.ResourceGrou
         [JsonPropertyName("location")]
         [Required]
         public Location Location { get; set; }
-            
+
         [JsonPropertyName("tags")]
         [Optional]
         public Tags Tags { get; set; }

@@ -16,7 +16,7 @@ namespace Pandora.Api.V1.ResourceManager
         {
             _repo = repo;
         }
-        
+
         [HttpGet]
         [Route("/v1/resource-manager/services")]
         public IActionResult ResourceManager()
@@ -26,17 +26,18 @@ namespace Pandora.Api.V1.ResourceManager
                 Services = GetServices(true),
             });
         }
-    
-        public class ServicesResponse {
+
+        public class ServicesResponse
+        {
             [JsonPropertyName("services")]
             public Dictionary<string, ServiceReference> Services { get; set; }
         }
-    
+
         public class ServiceReference
         {
             [JsonPropertyName("generate")]
             public bool Generate { get; set; }
-        
+
             [JsonPropertyName("uri")]
             public string Uri { get; set; }
         }
@@ -53,7 +54,7 @@ namespace Pandora.Api.V1.ResourceManager
         private Dictionary<string, ServiceReference> GetServices(bool resourceManager)
         {
             return _repo.GetAll(resourceManager)
-                .ToDictionary(a => a.Name, ToServiceReference);            
+                .ToDictionary(a => a.Name, ToServiceReference);
         }
     }
 }

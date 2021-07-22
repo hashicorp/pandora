@@ -11,7 +11,7 @@ namespace Pandora.Definitions.Operations
         {
             return null;
         }
-        
+
         public virtual IEnumerable<HttpStatusCode> ExpectedStatusCodes()
         {
             return new List<HttpStatusCode>

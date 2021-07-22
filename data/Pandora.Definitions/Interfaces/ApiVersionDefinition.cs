@@ -9,7 +9,7 @@ namespace Pandora.Definitions.Interfaces
         string ApiVersion { get; }
         bool Generate { get; }
         bool Preview { get; }
-        
+
         IEnumerable<ApiDefinition> Apis { get; }
     }
 }

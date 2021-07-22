@@ -18,7 +18,7 @@ namespace Pandora.Data.Transformers
                 {
                     throw new NotSupportedException("expected a class");
                 }
-            
+
                 var constantDefinitions = new List<ConstantDefinition>();
                 foreach (var property in input.GetProperties())
                 {
@@ -39,12 +39,12 @@ namespace Pandora.Data.Transformers
                         constantDefinitions.Add(definition);
                         continue;
                     }
-                
+
                     if (Helpers.IsNativeType(propertyType) || Helpers.IsPandoraCustomType(propertyType) || !propertyType.IsClass)
                     {
                         continue;
                     }
-                
+
                     var innerConstants = FromObject(propertyType);
                     constantDefinitions.AddRange(innerConstants);
                 }
@@ -56,7 +56,7 @@ namespace Pandora.Data.Transformers
                 throw new Exception($"Mapping Constant FromObject {input.FullName}", ex);
             }
         }
-        
+
         public static ConstantDefinition FromEnum(Type input)
         {
             try
@@ -65,7 +65,7 @@ namespace Pandora.Data.Transformers
                 {
                     throw new NotSupportedException("expected an enum");
                 }
-            
+
                 var caseInsensitive = IsCaseInsensitive(input);
                 var variableType = TypeForEnum(input);
                 var values = ValuesForEnum(input);

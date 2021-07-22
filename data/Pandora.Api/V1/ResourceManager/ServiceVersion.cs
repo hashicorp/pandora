@@ -18,22 +18,24 @@ namespace Pandora.Api.V1.ResourceManager
         {
             _repo = repo;
         }
-        
+
         [Route("/v1/resource-manager/services/{serviceName}/{apiVersion}")]
         public IActionResult ResourceManager(string serviceName, string apiVersion)
         {
             return ForService(serviceName, apiVersion);
         }
-        
+
         private IActionResult ForService(string serviceName, string apiVersion)
         {
             var service = _repo.GetByName(serviceName, true);
-            if (service == null) {
+            if (service == null)
+            {
                 return BadRequest("service not found");
             }
- 
+
             var version = service.Versions.FirstOrDefault(v => v.Version == apiVersion);
-            if (version == null) {
+            if (version == null)
+            {
                 return BadRequest($"version {apiVersion} was not found");
             }
 
@@ -44,7 +46,7 @@ namespace Pandora.Api.V1.ResourceManager
         {
             return new ApiVersionResponse
             {
-                Resources = version.Apis.ToDictionary(a => a.Name, 
+                Resources = version.Apis.ToDictionary(a => a.Name,
                     a => MapResourceForApiVersion(a, versionNumber, serviceName)),
             };
         }
@@ -58,7 +60,7 @@ namespace Pandora.Api.V1.ResourceManager
             };
         }
     }
-    
+
     public class ApiVersionResponse
     {
         [JsonPropertyName("resources")]
@@ -69,7 +71,7 @@ namespace Pandora.Api.V1.ResourceManager
     {
         [JsonPropertyName("operationsUri")]
         public string OperationsUri { get; set; }
-        
+
         [JsonPropertyName("schemaUri")]
         public string SchemaUri { get; set; }
     }

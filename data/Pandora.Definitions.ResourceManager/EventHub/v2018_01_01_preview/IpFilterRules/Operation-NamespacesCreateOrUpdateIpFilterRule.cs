@@ -5,29 +5,29 @@ using Pandora.Definitions.Interfaces;
 
 namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.IpFilterRules
 {
-	internal class NamespacesCreateOrUpdateIpFilterRule : PutOperation
-	{
-		public override IEnumerable<HttpStatusCode> ExpectedStatusCodes()
-		{
-			return new List<HttpStatusCode>
-			{
-				HttpStatusCode.OK,
-			};
-		}
+    internal class NamespacesCreateOrUpdateIpFilterRule : PutOperation
+    {
+        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes()
+        {
+            return new List<HttpStatusCode>
+            {
+                HttpStatusCode.OK,
+            };
+        }
 
-		public override object? RequestObject()
-		{
-			return new IpFilterRule();
-		}
+        public override object? RequestObject()
+        {
+            return new IpFilterRule();
+        }
 
-		public override ResourceID? ResourceId()
-		{
-			return new IpfilterruleId();
-		}
+        public override ResourceID? ResourceId()
+        {
+            return new IpfilterruleId();
+        }
 
-		public override object? ResponseObject()
-		{
-			return new IpFilterRule();
-		}
-	}
+        public override object? ResponseObject()
+        {
+            return new IpFilterRule();
+        }
+    }
 }

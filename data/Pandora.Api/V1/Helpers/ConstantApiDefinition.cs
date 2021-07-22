@@ -8,13 +8,13 @@ namespace Pandora.Api.V1.Helpers
     {
         [JsonPropertyName("caseInsensitive")]
         public bool CaseInsensitive { get; set; }
-        
+
         [JsonPropertyName("type")]
         public string Type { get; set; }
-        
+
         [JsonPropertyName("values")]
         public Dictionary<string, string> Values { get; set; }
-        
+
         public static ConstantApiDefinition Map(ConstantDefinition definition)
         {
             return new ConstantApiDefinition
@@ -31,10 +31,10 @@ namespace Pandora.Api.V1.Helpers
             {
                 case ConstantType.Float:
                     return "float";
-                
+
                 case ConstantType.Integer:
                     return "int";
-                
+
                 case ConstantType.String:
                     return "string";
             }

@@ -7,12 +7,12 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.NamespacesPrivateEndpointConnections
 {
 
-	internal class ConnectionState
-	{
-		[JsonPropertyName("description")]
-		public string? Description { get; set; }
+    internal class ConnectionState
+    {
+        [JsonPropertyName("description")]
+        public string? Description { get; set; }
 
-		[JsonPropertyName("status")]
-		public PrivateLinkConnectionStatus Status { get; set; }
-	}
+        [JsonPropertyName("status")]
+        public PrivateLinkConnectionStatus Status { get; set; }
+    }
 }

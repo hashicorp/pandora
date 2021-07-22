@@ -16,7 +16,7 @@ namespace Pandora.Definitions.ResourceManager.Resources.v2018_05_01.ResourceGrou
     {
         [JsonPropertyName("name")]
         public string Name { get; set; }
-        
+
         [JsonPropertyName("location")]
         public Location Location { get; set; }
 

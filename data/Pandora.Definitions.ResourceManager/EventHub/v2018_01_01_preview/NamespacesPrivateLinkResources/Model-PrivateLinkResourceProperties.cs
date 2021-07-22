@@ -7,15 +7,15 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.NamespacesPrivateLinkResources
 {
 
-	internal class PrivateLinkResourceProperties
-	{
-		[JsonPropertyName("groupId")]
-		public string? GroupId { get; set; }
+    internal class PrivateLinkResourceProperties
+    {
+        [JsonPropertyName("groupId")]
+        public string? GroupId { get; set; }
 
-		[JsonPropertyName("requiredMembers")]
-		public List<string>? RequiredMembers { get; set; }
+        [JsonPropertyName("requiredMembers")]
+        public List<string>? RequiredMembers { get; set; }
 
-		[JsonPropertyName("requiredZoneNames")]
-		public List<string>? RequiredZoneNames { get; set; }
-	}
+        [JsonPropertyName("requiredZoneNames")]
+        public List<string>? RequiredZoneNames { get; set; }
+    }
 }

@@ -5,20 +5,20 @@ using Pandora.Definitions.Interfaces;
 
 namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.ConsumerGroups
 {
-	internal class Delete : DeleteOperation
-	{
-		public override IEnumerable<HttpStatusCode> ExpectedStatusCodes()
-		{
-			return new List<HttpStatusCode>
-			{
-				HttpStatusCode.OK,
-				HttpStatusCode.NoContent,
-			};
-		}
+    internal class Delete : DeleteOperation
+    {
+        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes()
+        {
+            return new List<HttpStatusCode>
+            {
+                HttpStatusCode.OK,
+                HttpStatusCode.NoContent,
+            };
+        }
 
-		public override ResourceID? ResourceId()
-		{
-			return new ConsumergroupId();
-		}
-	}
+        public override ResourceID? ResourceId()
+        {
+            return new ConsumergroupId();
+        }
+    }
 }

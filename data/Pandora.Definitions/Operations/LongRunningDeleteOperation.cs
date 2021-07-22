@@ -13,7 +13,7 @@ namespace Pandora.Definitions.Operations
                 HttpStatusCode.OK,
             };
         }
-        
+
         public override bool LongRunning()
         {
             return true;

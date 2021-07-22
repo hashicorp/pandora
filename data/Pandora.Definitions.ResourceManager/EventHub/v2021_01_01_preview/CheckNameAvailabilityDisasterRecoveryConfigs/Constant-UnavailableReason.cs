@@ -3,25 +3,25 @@ using System.ComponentModel;
 
 namespace Pandora.Definitions.ResourceManager.EventHub.v2021_01_01_preview.CheckNameAvailabilityDisasterRecoveryConfigs
 {
-	[ConstantType(ConstantTypeAttribute.ConstantType.String)]
-	internal enum UnavailableReason
-	{
-		[Description("InvalidName")]
-		InvalidName,
+    [ConstantType(ConstantTypeAttribute.ConstantType.String)]
+    internal enum UnavailableReason
+    {
+        [Description("InvalidName")]
+        InvalidName,
 
-		[Description("NameInLockdown")]
-		NameInLockdown,
+        [Description("NameInLockdown")]
+        NameInLockdown,
 
-		[Description("NameInUse")]
-		NameInUse,
+        [Description("NameInUse")]
+        NameInUse,
 
-		[Description("None")]
-		None,
+        [Description("None")]
+        None,
 
-		[Description("SubscriptionIsDisabled")]
-		SubscriptionIsDisabled,
+        [Description("SubscriptionIsDisabled")]
+        SubscriptionIsDisabled,
 
-		[Description("TooManyNamespaceInCurrentSubscription")]
-		TooManyNamespaceInCurrentSubscription,
-	}
+        [Description("TooManyNamespaceInCurrentSubscription")]
+        TooManyNamespaceInCurrentSubscription,
+    }
 }

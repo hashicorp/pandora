@@ -14,7 +14,7 @@ namespace Pandora.Data.Transformers
         {
             try
             {
-                var statusCodes = input.ExpectedStatusCodes().Select(sc => (int) sc).ToList();
+                var statusCodes = input.ExpectedStatusCodes().Select(sc => (int)sc).ToList();
                 if (statusCodes.Count == 0)
                 {
                     throw new NotSupportedException("a least one status code must be expected");
@@ -53,7 +53,7 @@ namespace Pandora.Data.Transformers
                         throw new NotSupportedException($"List operations must inherit from ListOperation but {input} doesn't");
                     }
 
-                    var nestedElementType = ((ListOperation) input).NestedItemType();
+                    var nestedElementType = ((ListOperation)input).NestedItemType();
                     if (nestedElementType == null)
                     {
                         throw new NotSupportedException("List operations must return a response object from NestedItemType()");
@@ -68,17 +68,17 @@ namespace Pandora.Data.Transformers
                 {
                     resourceIdName = input.ResourceId().GetType().Name;
                 }
-                
+
                 return new OperationDefinition
                 {
                     // note: these two shouldn't be in here but it's helpful for the terraform functions
                     // probably move this out in time
                     ApiName = apiName,
                     ApiVersion = apiVersion,
-                    
+
                     Name = input.GetType().Name,
                     Method = method,
-                    
+
                     ContentType = input.ContentType(),
                     ExpectedStatusCodes = statusCodes,
                     FieldContainingPaginationDetails = input.FieldContainingPaginationDetails(),

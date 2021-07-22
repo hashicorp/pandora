@@ -7,9 +7,9 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.EventHubsClustersNamespace
 {
 
-	internal class EHNamespaceIdContainer
-	{
-		[JsonPropertyName("id")]
-		public string? Id { get; set; }
-	}
+    internal class EHNamespaceIdContainer
+    {
+        [JsonPropertyName("id")]
+        public string? Id { get; set; }
+    }
 }

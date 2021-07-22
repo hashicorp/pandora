@@ -5,16 +5,16 @@ using Pandora.Definitions.Interfaces;
 
 namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.EventHubs
 {
-	internal class GetAuthorizationRule : GetOperation
-	{
-		public override ResourceID? ResourceId()
-		{
-			return new AuthorizationRuleId();
-		}
+    internal class GetAuthorizationRule : GetOperation
+    {
+        public override ResourceID? ResourceId()
+        {
+            return new AuthorizationRuleId();
+        }
 
-		public override object? ResponseObject()
-		{
-			return new AuthorizationRule();
-		}
-	}
+        public override object? ResponseObject()
+        {
+            return new AuthorizationRule();
+        }
+    }
 }

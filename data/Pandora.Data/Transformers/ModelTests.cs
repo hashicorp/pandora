@@ -17,11 +17,11 @@ namespace Pandora.Data.Transformers
             Assert.AreEqual(1, actual.Count);
             Assert.AreEqual("ExampleWithSelfReferences", actual.First().Name);
             Assert.AreEqual(4, actual.First().Properties.Count);
-            
+
             Assert.NotNull(actual.First().Properties.First(f => f.Name == "SelfReference").Name);
             Assert.AreEqual(PropertyType.Object, actual.First().Properties.First(f => f.Name == "SelfReference").PropertyType);
             Assert.AreEqual("ExampleWithSelfReferences", actual.First().Properties.First(f => f.Name == "SelfReference").ModelReference);
-            
+
             Assert.NotNull(actual.First().Properties.First(f => f.Name == "NilableSelfReference").Name);
             Assert.AreEqual(PropertyType.Object, actual.First().Properties.First(f => f.Name == "NilableSelfReference").PropertyType);
             Assert.True(actual.First().Properties.First(f => f.Name == "NilableSelfReference").Optional);
@@ -65,51 +65,51 @@ namespace Pandora.Data.Transformers
                 switch (property.Name)
                 {
                     case "First":
-                    {
-                        Assert.AreEqual("first", property.JsonName);
-                        Assert.AreEqual(PropertyType.Boolean, property.PropertyType);
-                        Assert.AreEqual(true, property.Required);
-                        continue;
-                    }
-                    
+                        {
+                            Assert.AreEqual("first", property.JsonName);
+                            Assert.AreEqual(PropertyType.Boolean, property.PropertyType);
+                            Assert.AreEqual(true, property.Required);
+                            continue;
+                        }
+
                     case "Second":
-                    {
-                        Assert.AreEqual("second", property.JsonName);
-                        Assert.AreEqual(PropertyType.String, property.PropertyType);
-                        Assert.AreEqual(true, property.Optional);
-                        continue;
-                    }
+                        {
+                            Assert.AreEqual("second", property.JsonName);
+                            Assert.AreEqual(PropertyType.String, property.PropertyType);
+                            Assert.AreEqual(true, property.Optional);
+                            continue;
+                        }
 
                     case "Random":
-                    {
-                        Assert.AreEqual("barrelRoll", property.JsonName);
-                        Assert.AreEqual(PropertyType.String, property.PropertyType);
-                        Assert.AreEqual(true, property.Optional);
-                        Assert.AreEqual("do a", property.Default);
-                        continue;
-                    }
+                        {
+                            Assert.AreEqual("barrelRoll", property.JsonName);
+                            Assert.AreEqual(PropertyType.String, property.PropertyType);
+                            Assert.AreEqual(true, property.Optional);
+                            Assert.AreEqual("do a", property.Default);
+                            continue;
+                        }
 
                     default:
-                    {
-                        Assert.Fail($"unexpected property {property.Name}");
-                        return;
-                    }
+                        {
+                            Assert.Fail($"unexpected property {property.Name}");
+                            return;
+                        }
                 }
             }
         }
-        
+
         [TestCase]
         public static void TestMapNestedModels()
         {
             var actual = Model.Map(new NestedWrapper());
             Assert.NotNull(actual);
             Assert.AreEqual(3, actual.Count);
-            
+
             // First
             Assert.AreEqual("First", actual.First().Name);
             Assert.AreEqual(1, actual.First().Properties.Count);
             Assert.AreEqual("Field", actual.First().Properties.First().Name);
-            
+
             // NestedWrapper
             Assert.AreEqual("NestedWrapper", actual.Skip(1).First().Name);
             Assert.AreEqual(2, actual.Skip(1).First().Properties.Count);
@@ -117,7 +117,7 @@ namespace Pandora.Data.Transformers
             Assert.AreEqual("First", actual.Skip(1).First().Properties.First().ModelReference);
             Assert.AreEqual("Second", actual.Skip(1).First().Properties.Skip(1).First().Name);
             Assert.AreEqual("Second", actual.Skip(1).First().Properties.Skip(1).First().ModelReference);
-            
+
             // Second
             Assert.AreEqual("Second", actual.Skip(2).First().Name);
             Assert.AreEqual(1, actual.Skip(2).First().Properties.Count);
@@ -129,7 +129,7 @@ namespace Pandora.Data.Transformers
             var actual = Model.Map(new DuplicateWrapper());
             Assert.NotNull(actual);
             Assert.AreEqual(2, actual.Count);
-            
+
             // DuplicateWrapper
             Assert.AreEqual("DuplicateWrapper", actual.First().Name);
             Assert.AreEqual(2, actual.First().Properties.Count);
@@ -137,7 +137,7 @@ namespace Pandora.Data.Transformers
             Assert.AreEqual("First", actual.First().Properties.First().ModelReference);
             Assert.AreEqual("Second", actual.First().Properties.Skip(1).First().Name);
             Assert.AreEqual("First", actual.First().Properties.Skip(1).First().ModelReference);
-            
+
             // First
             Assert.AreEqual("First", actual.Skip(1).First().Name);
             Assert.AreEqual(1, actual.Skip(1).First().Properties.Count);
@@ -171,7 +171,7 @@ namespace Pandora.Data.Transformers
             Assert.AreEqual("Animal", cat.ParentTypeName);
             Assert.AreEqual("ObjectType", cat.TypeHintIn);
             Assert.AreEqual("cat", cat.TypeHintValue);
-            
+
             var dog = actual.FirstOrDefault(t => t.Name == "Dog");
             Assert.NotNull(dog);
             Assert.AreEqual(1, dog.Properties.Count);
@@ -185,11 +185,11 @@ namespace Pandora.Data.Transformers
             [JsonPropertyName("first")]
             [Required]
             public bool First { get; set; }
-            
+
             [JsonPropertyName("second")]
             [Optional]
             public string Second { get; set; }
-            
+
             [JsonPropertyName("barrelRoll")]
             [Optional(DefaultValue = "do a")]
             public string Random { get; set; }
@@ -211,7 +211,7 @@ namespace Pandora.Data.Transformers
         {
             [JsonPropertyName("first")]
             public First First { get; set; }
-            
+
             [JsonPropertyName("second")]
             public First Second { get; set; }
         }
@@ -220,7 +220,7 @@ namespace Pandora.Data.Transformers
         {
             [JsonPropertyName("first")]
             public First First { get; set; }
-            
+
             [JsonPropertyName("second")]
             public Second Second { get; set; }
         }
@@ -243,11 +243,11 @@ namespace Pandora.Data.Transformers
         {
             [JsonPropertyName("animal")]
             public Animal Animal { get; set; }
-            
+
             [JsonPropertyName("animals")]
             public List<Animal> Animals { get; set; }
         }
-        
+
         private abstract class Animal
         {
             [JsonPropertyName("objectType")]
@@ -272,13 +272,13 @@ namespace Pandora.Data.Transformers
     {
         [JsonPropertyName("listOfReferences")]
         public List<ExampleWithSelfReferences> ListOfReferences { get; set; }
-        
+
         [JsonPropertyName("nilableListOfReferences")]
         public List<ExampleWithSelfReferences>? NilableListOfReferences { get; set; }
-        
+
         [JsonPropertyName("nilableSelfReference")]
         public ExampleWithSelfReferences? NilableSelfReference { get; set; }
-        
+
         [JsonPropertyName("selfReference")]
         public ExampleWithSelfReferences SelfReference { get; set; }
     }

@@ -6,7 +6,7 @@ namespace Pandora.Definitions.ResourceManager.Resources.v2018_05_01.ResourceGrou
     internal class Definition : ApiDefinition
     {
         public string ApiVersion => "2018-05-01";
-        
+
         public string Name => "resourceGroups";
 
         public IEnumerable<ApiOperation> Operations => new List<ApiOperation>
@@ -17,7 +17,7 @@ namespace Pandora.Definitions.ResourceManager.Resources.v2018_05_01.ResourceGrou
             new List(),
             new Update()
         };
-        
-        public ResourceID ResourceId => new ResourceGroupId();   
+
+        public ResourceID ResourceId => new ResourceGroupId();
     }
 }

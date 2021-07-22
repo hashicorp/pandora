@@ -29,7 +29,7 @@ namespace Pandora.Data.Transformers
                 throw new Exception($"Mapping Validation {input.Name}", ex);
             }
         }
-        
+
 
         private static ValidationType MapValidationType(FieldValidationType input)
         {
@@ -37,7 +37,7 @@ namespace Pandora.Data.Transformers
             {
                 case FieldValidationType.Range:
                     return ValidationType.Range;
-                
+
                 default:
                     throw new NotSupportedException($"unsupported validation type {input.ToString()}");
             }

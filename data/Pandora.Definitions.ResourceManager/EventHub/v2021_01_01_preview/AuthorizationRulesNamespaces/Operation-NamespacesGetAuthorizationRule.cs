@@ -6,16 +6,16 @@ using System.Net;
 
 namespace Pandora.Definitions.ResourceManager.EventHub.v2021_01_01_preview.AuthorizationRulesNamespaces
 {
-	internal class NamespacesGetAuthorizationRule : GetOperation
-	{
-		public override ResourceID? ResourceId()
-		{
-			return new AuthorizationRuleId();
-		}
+    internal class NamespacesGetAuthorizationRule : GetOperation
+    {
+        public override ResourceID? ResourceId()
+        {
+            return new AuthorizationRuleId();
+        }
 
-		public override object? ResponseObject()
-		{
-			return new AuthorizationRule();
-		}
-	}
+        public override object? ResponseObject()
+        {
+            return new AuthorizationRule();
+        }
+    }
 }

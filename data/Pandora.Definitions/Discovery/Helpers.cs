@@ -21,6 +21,6 @@ namespace Pandora.Definitions.Discovery
             }
 
             return containingNamespace;
-        } 
+        }
     }
 }

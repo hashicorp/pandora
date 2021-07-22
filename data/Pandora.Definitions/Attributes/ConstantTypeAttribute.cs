@@ -10,7 +10,7 @@ namespace Pandora.Definitions.Attributes
         {
             Type = type;
         }
-        
+
         public enum ConstantType
         {
             String = 1,
