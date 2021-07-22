@@ -140,11 +140,10 @@ func distinctServiceNames(input []parsedData) []string {
 	return names
 }
 
-func generateEverything(swaggerGitSha string) {
+func generateEverything(swaggerGitSha string) error {
 	services, err := parser.FindResourceManagerServices(swaggerDirectory + "/specification")
 	if err != nil {
-		fmt.Printf("%s", err)
-		os.Exit(1)
+		return err
 	}
 
 	var wg sync.WaitGroup
@@ -179,4 +178,5 @@ func generateEverything(swaggerGitSha string) {
 		}
 	}
 	wg.Wait()
+	return nil
 }

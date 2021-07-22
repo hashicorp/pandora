@@ -31,7 +31,7 @@ namespace %[1]s
 
 		public string ApiVersion => "%[3]s";
 		public string Name => "%[2]s";
-		public IEnumerable<ApiOperation> Operations => new List<ApiOperation>
+		public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
 		{
 %[4]s
 		};

@@ -260,6 +260,7 @@ func FindResourceManagerServices(directory string) (*[]ResourceManagerService, e
 	out := make([]ResourceManagerService, 0)
 	for _, serviceName := range serviceNames {
 		paths := services[serviceName]
+
 		out = append(out, ResourceManagerService{
 			Name:            serviceName,
 			ApiVersionPaths: paths,

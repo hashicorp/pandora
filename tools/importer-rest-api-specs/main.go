@@ -348,7 +348,10 @@ func main() {
 			}
 		}
 	} else {
-		generateEverything(*swaggerGitSha)
+		if err := generateEverything(*swaggerGitSha); err != nil {
+			log.Printf("error: %+v", err)
+			os.Exit(1)
+		}
 	}
 
 	os.Exit(0)
