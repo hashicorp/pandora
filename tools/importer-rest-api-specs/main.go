@@ -96,6 +96,17 @@ func main() {
 			},
 		},
 
+		{
+			RootNamespace:    RootNamespace,
+			ServiceName:      "ManagedIdentity",
+			ApiVersion:       "2018-11-30",
+			OutputDirectory:  outputDirectory,
+			SwaggerDirectory: swaggerDirectory + "/specification/msi/resource-manager/Microsoft.ManagedIdentity/stable/2018-11-30",
+			SwaggerFiles: []string{
+				"ManagedIdentity.json",
+			},
+		},
+
 		// ------------------------------------------------------------------
 		// NOTE: These are Development Placeholders so can be commented out
 		// ------------------------------------------------------------------
