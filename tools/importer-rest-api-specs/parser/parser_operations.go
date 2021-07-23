@@ -143,7 +143,7 @@ func optionsForOperation(input *spec.Operation) (*map[string]models.OperationOpt
 			//./commerce/resource-manager/Microsoft.Commerce/preview/2015-06-01-preview/commerce.json-            "type": "string",
 			//./commerce/resource-manager/Microsoft.Commerce/preview/2015-06-01-preview/commerce.json:            "format": "date-time",
 			//./commerce/resource-manager/Microsoft.Commerce/preview/2015-06-01-preview/commerce.json-            "description": "The end of the time range to retrieve data for."
-			fieldType, err := determineFieldTypeForOption(param.Type)
+			fieldType, err := determineFieldTypeForOption(param.Type, param.CollectionFormat)
 			if err != nil {
 				return nil, fmt.Errorf("determining field type for operation: %+v", err)
 			}
@@ -159,12 +159,20 @@ func optionsForOperation(input *spec.Operation) (*map[string]models.OperationOpt
 	return &output, nil
 }
 
-func determineFieldTypeForOption(input string) (*models.FieldDefinitionType, error) {
+func determineFieldTypeForOption(input string, collectionFormat string) (*models.FieldDefinitionType, error) {
 	var out models.FieldDefinitionType
 	switch strings.ToLower(input) {
 	case "boolean":
 		out = models.Boolean
 		return &out, nil
+	case "array":
+		{
+			// https://github.com/Azure/azure-rest-api-specs/blob/1b0ed8edd58bb7c9ade9a27430759527bd4eec8e/specification/trafficmanager/resource-manager/Microsoft.Network/stable/2018-03-01/trafficmanager.json#L735-L738
+			if strings.EqualFold(collectionFormat, "csv") {
+				out = models.String
+				return &out, nil
+			}
+		}
 	case "integer":
 		out = models.Integer
 		return &out, nil

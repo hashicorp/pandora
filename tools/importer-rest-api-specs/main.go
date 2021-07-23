@@ -21,6 +21,84 @@ const (
 
 func main() {
 	input := []RunInput{
+		// ------------------------------------------------------------------
+		// NOTE: These files are in production and should always be generated
+		// ------------------------------------------------------------------
+		// AppConfiguration
+		{
+			RootNamespace:    RootNamespace,
+			ServiceName:      "AppConfiguration",
+			ApiVersion:       "2020-06-01",
+			OutputDirectory:  outputDirectory,
+			SwaggerDirectory: swaggerDirectory + "/specification/appconfiguration/resource-manager/Microsoft.AppConfiguration/stable/2020-06-01",
+			SwaggerFiles: []string{
+				"appconfiguration.json",
+			},
+		},
+		// EventHubs (2021-01-01-preview, 2018-01-01-preview and 2017-04-01)
+		{
+			RootNamespace:    RootNamespace,
+			ServiceName:      "EventHub",
+			ApiVersion:       "2017-04-01",
+			OutputDirectory:  outputDirectory,
+			SwaggerDirectory: swaggerDirectory + "/specification/eventhub/resource-manager/Microsoft.EventHub/stable/2017-04-01",
+			SwaggerFiles: []string{
+				"AuthorizationRules.json",
+				"CheckNameAvailability.json",
+				"consumergroups.json",
+				"disasterRecoveryConfigs.json",
+				"eventhubs.json",
+				"namespaces.json",
+				"networkRuleSets.json",
+				"operations.json",
+				"sku.json",
+			},
+		},
+		{
+			RootNamespace:    RootNamespace,
+			ServiceName:      "EventHub",
+			ApiVersion:       "2018-01-01-preview",
+			OutputDirectory:  outputDirectory,
+			SwaggerDirectory: swaggerDirectory + "/specification/eventhub/resource-manager/Microsoft.EventHub/preview/2018-01-01-preview",
+			SwaggerFiles: []string{
+				"AuthorizationRules.json",
+				"AvailableClusterRegions-preview.json",
+				"CheckNameAvailability.json",
+				"Clusters-preview.json",
+				"consumergroups.json",
+				"disasterRecoveryConfigs.json",
+				"eventhubs.json",
+				"ipfilterrules-preview.json",
+				"namespaces-preview.json",
+				"networkrulessets-preview.json",
+				"operations-preview.json",
+				"operations.json",
+				"quotaConfiguration-preview.json",
+				"sku.json",
+				"virtualnetworkrules-preview.json",
+			},
+		},
+		{
+			RootNamespace:    RootNamespace,
+			ServiceName:      "EventHub",
+			ApiVersion:       "2021-01-01-preview",
+			OutputDirectory:  outputDirectory,
+			SwaggerDirectory: swaggerDirectory + "/specification/eventhub/resource-manager/Microsoft.EventHub/preview/2021-01-01-preview",
+			SwaggerFiles: []string{
+				"AuthorizationRules.json",
+				"CheckNameAvailability.json",
+				"consumergroups.json",
+				"disasterRecoveryConfigs.json",
+				"eventhubs.json",
+				"namespaces-preview.json",
+				"networkrulessets-preview.json",
+				"operations.json",
+			},
+		},
+
+		// ------------------------------------------------------------------
+		// NOTE: These are Development Placeholders so can be commented out
+		// ------------------------------------------------------------------
 		//{
 		//	RootNamespace:    "Pandora.Definitions.DataPlane",
 		//	OutputDirectory:  outputDirectory,
@@ -48,79 +126,6 @@ func main() {
 		//		"attestation.json",
 		//	},
 		//},
-
-		// AppConfiguration
-		//{
-		//	RootNamespace:    RootNamespace,
-		//	ServiceName:      "AppConfiguration",
-		//	ApiVersion:       "2020-06-01",
-		//	OutputDirectory:  outputDirectory,
-		//	SwaggerDirectory: swaggerDirectory + "/specification/appconfiguration/resource-manager/Microsoft.AppConfiguration/stable/2020-06-01",
-		//	SwaggerFiles: []string{
-		//		"appconfiguration.json",
-		//	},
-		//},
-
-		// EventHubs (2021-01-01-preview, 2018-01-01-preview and 2017-04-01)
-		//{
-		//	RootNamespace:    RootNamespace,
-		//	ServiceName:      "EventHub",
-		//	ApiVersion:       "2017-04-01",
-		//	OutputDirectory:  outputDirectory,
-		//	SwaggerDirectory: swaggerDirectory + "/specification/eventhub/resource-manager/Microsoft.EventHub/stable/2017-04-01",
-		//	SwaggerFiles: []string{
-		//		"AuthorizationRules.json",
-		//		"CheckNameAvailability.json",
-		//		"consumergroups.json",
-		//		"disasterRecoveryConfigs.json",
-		//		"eventhubs.json",
-		//		"namespaces.json",
-		//		"networkRuleSets.json",
-		//		"operations.json",
-		//		"sku.json",
-		//	},
-		//},
-		//{
-		//	RootNamespace:    RootNamespace,
-		//	ServiceName:      "EventHub",
-		//	ApiVersion:       "2018-01-01-preview",
-		//	OutputDirectory:  outputDirectory,
-		//	SwaggerDirectory: swaggerDirectory + "/specification/eventhub/resource-manager/Microsoft.EventHub/preview/2018-01-01-preview",
-		//	SwaggerFiles: []string{
-		//		"AuthorizationRules.json",
-		//		"AvailableClusterRegions-preview.json",
-		//		"CheckNameAvailability.json",
-		//		"Clusters-preview.json",
-		//		"consumergroups.json",
-		//		"disasterRecoveryConfigs.json",
-		//		"eventhubs.json",
-		//		"ipfilterrules-preview.json",
-		//		"namespaces-preview.json",
-		//		"networkrulessets-preview.json",
-		//		"operations-preview.json",
-		//		"operations.json",
-		//		"quotaConfiguration-preview.json",
-		//		"sku.json",
-		//		"virtualnetworkrules-preview.json",
-		//	},
-		//},
-		{
-			RootNamespace:    RootNamespace,
-			ServiceName:      "EventHub",
-			ApiVersion:       "2021-01-01-preview",
-			OutputDirectory:  outputDirectory,
-			SwaggerDirectory: swaggerDirectory + "/specification/eventhub/resource-manager/Microsoft.EventHub/preview/2021-01-01-preview",
-			SwaggerFiles: []string{
-				"AuthorizationRules.json",
-				"CheckNameAvailability.json",
-				"consumergroups.json",
-				"disasterRecoveryConfigs.json",
-				"eventhubs.json",
-				"namespaces-preview.json",
-				"networkrulessets-preview.json",
-				"operations.json",
-			},
-		},
 
 		// Batch
 		//{
