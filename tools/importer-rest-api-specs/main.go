@@ -95,6 +95,16 @@ func main() {
 				"operations.json",
 			},
 		},
+		{
+			RootNamespace:    RootNamespace,
+			ServiceName:      "Maps",
+			ApiVersion:       "2021-02-01",
+			OutputDirectory:  outputDirectory,
+			SwaggerDirectory: swaggerDirectory + "/specification/maps/resource-manager/Microsoft.Maps/stable/2021-02-01",
+			SwaggerFiles: []string{
+				"maps-management.json",
+			},
+		},
 
 		// ------------------------------------------------------------------
 		// NOTE: These are Development Placeholders so can be commented out
