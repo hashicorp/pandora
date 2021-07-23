@@ -167,6 +167,7 @@ func determineFieldTypeForOption(input string, collectionFormat string) (*models
 		return &out, nil
 	case "array":
 		{
+			// https://github.com/Azure/azure-rest-api-specs/blob/1b0ed8edd58bb7c9ade9a27430759527bd4eec8e/specification/trafficmanager/resource-manager/Microsoft.Network/stable/2018-03-01/trafficmanager.json#L735-L738
 			if strings.EqualFold(collectionFormat, "csv") {
 				out = models.String
 				return &out, nil
