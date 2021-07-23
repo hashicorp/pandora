@@ -143,6 +143,21 @@ namespace Pandora.Api.V1.ResourceManager
                 case PropertyType.Tags:
                     return ApiPropertyType.Tags.ToString();
 
+                case PropertyType.SystemAssignedIdentity:
+                    return ApiPropertyType.SystemAssignedIdentity.ToString();
+
+                case PropertyType.SystemUserAssignedIdentityList:
+                    return ApiPropertyType.SystemUserAssignedIdentityList.ToString();
+
+                case PropertyType.SystemUserAssignedIdentityMap:
+                    return ApiPropertyType.SystemUserAssignedIdentityMap.ToString();
+
+                case PropertyType.UserAssignedIdentityList:
+                    return ApiPropertyType.UserAssignedIdentityList.ToString();
+
+                case PropertyType.UserAssignedIdentityMap:
+                    return ApiPropertyType.UserAssignedIdentityMap.ToString();
+
                 default:
                     throw new NotImplementedException($"unsupported value {input.ToString()}");
             }
@@ -235,6 +250,11 @@ namespace Pandora.Api.V1.ResourceManager
             Object,
             Tags,
             String,
+            UserAssignedIdentityMap,
+            UserAssignedIdentityList,
+            SystemAssignedIdentity,
+            SystemUserAssignedIdentityList,
+            SystemUserAssignedIdentityMap,
         }
     }
 }
