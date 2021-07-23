@@ -155,7 +155,7 @@ func normalizeSegmentName(input string) string {
 	output = cleanup.NormalizeName(output)
 
 	// todo: something better than this
-	if strings.HasSuffix(output, "s") {
+	if strings.HasSuffix(output, "s") && !strings.HasSuffix(output, "ies") {
 		output = strings.TrimSuffix(output, "s")
 	}
 
