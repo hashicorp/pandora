@@ -95,6 +95,16 @@ func main() {
 				"operations.json",
 			},
 		},
+		{
+			RootNamespace:    "Pandora.Definitions.ResourceManager",
+			ServiceName:      "TrafficManager",
+			ApiVersion:       "2018-08-01",
+			OutputDirectory:  outputDirectory,
+			SwaggerDirectory: swaggerDirectory + "/specification/trafficmanager/resource-manager/Microsoft.Network/stable/2018-08-01",
+			SwaggerFiles: []string{
+				"trafficmanager.json",
+			},
+		},
 
 		// ------------------------------------------------------------------
 		// NOTE: These are Development Placeholders so can be commented out
