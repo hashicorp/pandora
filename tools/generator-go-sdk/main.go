@@ -71,13 +71,5 @@ func run(input GeneratorInput) error {
 		}
 	}
 
-	log.Printf("[DEBUG] Custom Type...")
-	generatorCustomType := generator.NewCustomTypeGenerator()
-	if err := generatorCustomType.Generate(generator.CustomTypeGeneratorInput{
-		OutputDirectory: input.outputDirectory,
-	}); err != nil {
-		return fmt.Errorf("generating custom types: %+v", err)
-	}
-
 	return nil
 }
