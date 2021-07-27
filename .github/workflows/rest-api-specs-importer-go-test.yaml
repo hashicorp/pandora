@@ -4,8 +4,9 @@ on:
   pull_request:
     types: ['opened', 'synchronize']
     paths:
-      - 'tools/importer-rest-api-specs/**'
       - '.github/workflows/**'
+      - 'swagger/**'
+      - 'tools/importer-rest-api-specs/**'
 
 jobs:
   test:
