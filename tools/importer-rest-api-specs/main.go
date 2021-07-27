@@ -105,7 +105,6 @@ func main() {
 				"maps-management.json",
 			},
 		},
-
 		{
 			RootNamespace:    RootNamespace,
 			ServiceName:      "ManagedIdentity",
@@ -114,6 +113,16 @@ func main() {
 			SwaggerDirectory: swaggerDirectory + "/specification/msi/resource-manager/Microsoft.ManagedIdentity/stable/2018-11-30",
 			SwaggerFiles: []string{
 				"ManagedIdentity.json",
+			},
+		},
+		{
+			RootNamespace:    RootNamespace,
+			ServiceName:      "VMware",
+			ApiVersion:       "2020-03-20",
+			OutputDirectory:  outputDirectory,
+			SwaggerDirectory: swaggerDirectory + "/specification/vmware/resource-manager/Microsoft.AVS/stable/2020-03-20",
+			SwaggerFiles: []string{
+				"vmware.json",
 			},
 		},
 
