@@ -12,7 +12,7 @@ If you've found a new bug or something that didn't generate as expected - please
 
 ## Step 1: Importing Swagger Data into Pandora's Data Format
 
-Swagger files which should be imported into Pandora's Data Format are currently hand-defined in `./tools/importer-rest-api-specs/main.go`.
+Swagger files which should be imported into Pandora's Data Format are currently hand-defined in [`./tools/importer-rest-api-specs/data.go`](https://github.com/hashicorp/pandora/blob/main/tools/importer-rest-api-specs/data.go#L12-L13).
 
 This example shows a new mapping:
 
@@ -97,6 +97,7 @@ For now, these Generated files need to be copied by hand into the Data project:
 * The Service Definition and API Version Definition are automatically discovered through reflection, as such simply including these files in the `Pandora.Data.ResourceManager` project ensures they get discovered.
 * API's within API Version Definitions (which are generated) are _not_ automatically discovered but _could_ be in the future.
 * The `importer-rest-api-specs` generator now outputs the Service Definition and API Version Definition as Partial Classes, meaning that the Generated can be re-created as needed whilst the Hand-Written components remain. This makes it possible to enable/disable generation of an API Version - or an entire Service - as necessary.
+* When the Swagger submodule is updated we run a unit test which validates all existing Swaggers we use for generation can still be imported.
 
 ## Step 2: Launching the Data API
 
@@ -203,6 +204,8 @@ to the following path within the provider:
 See [an example here](https://github.com/terraform-providers/terraform-provider-azurerm/tree/2190a425ebda271530a7a40fcb6d0d13110f1f1e/azurerm/internal/services/eventhub/sdk).
 
 Notably when using a Pandora SDK we don't need to generate the Resource ID Parsers within the AzureRM Provider, since these are instead located within the SDK. At this time we don't generate Terraform Validation functions within the Pandora SDK, [which is tracked in this issue](https://github.com/hashicorp/pandora/issues/103) (either to generate these, or to write a generic validation function taking an ID Parsing function).
+
+In the interim it's worth updating the existing (generated) validation function to use the ID Parser within the generated SDK - and removing the ID Generator from `resourceids.go` within the Service Package.
 
 ### Notes
 
