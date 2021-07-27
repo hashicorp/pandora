@@ -247,6 +247,21 @@ func typeInformationForNativeType(fieldType string) (*string, error) {
 	case strings.ToLower(string(resourcemanager.Tags)):
 		return v("map[string]string")
 
+	case strings.ToLower(string(resourcemanager.SystemAssignedIdentity)):
+		return v("identity.SystemAssignedIdentity")
+
+	case strings.ToLower(string(resourcemanager.UserAssignedIdentityList)):
+		return v("identity.UserAssignedIdentityList")
+
+	case strings.ToLower(string(resourcemanager.UserAssignedIdentityMap)):
+		return v("identity.UserAssignedIdentityMap")
+
+	case strings.ToLower(string(resourcemanager.SystemUserAssignedIdentityList)):
+		return v("identity.SystemUserAssignedIdentityList")
+
+	case strings.ToLower(string(resourcemanager.SystemUserAssignedIdentityMap)):
+		return v("identity.SystemUserAssignedIdentityMap")
+
 		// TODO: other types
 	}
 
