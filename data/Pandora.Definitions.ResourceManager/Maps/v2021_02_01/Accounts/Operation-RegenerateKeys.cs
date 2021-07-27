@@ -6,36 +6,36 @@ using System.Net;
 
 namespace Pandora.Definitions.ResourceManager.Maps.v2021_02_01.Accounts
 {
-	internal class RegenerateKeys : PostOperation
-	{
-		public override IEnumerable<HttpStatusCode> ExpectedStatusCodes()
-		{
-			return new List<HttpStatusCode>
-			{
-				HttpStatusCode.OK,
-			};
-		}
+    internal class RegenerateKeys : PostOperation
+    {
+        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes()
+        {
+            return new List<HttpStatusCode>
+            {
+                HttpStatusCode.OK,
+            };
+        }
 
-		public override object? RequestObject()
-		{
-			return new MapsKeySpecification();
-		}
+        public override object? RequestObject()
+        {
+            return new MapsKeySpecification();
+        }
 
-		public override ResourceID? ResourceId()
-		{
-			return new AccountId();
-		}
+        public override ResourceID? ResourceId()
+        {
+            return new AccountId();
+        }
 
-		public override object? ResponseObject()
-		{
-			return new MapsAccountKeys();
-		}
+        public override object? ResponseObject()
+        {
+            return new MapsAccountKeys();
+        }
 
-		public override string? UriSuffix()
-		{
-			return "/regenerateKey";
-		}
+        public override string? UriSuffix()
+        {
+            return "/regenerateKey";
+        }
 
 
-	}
+    }
 }

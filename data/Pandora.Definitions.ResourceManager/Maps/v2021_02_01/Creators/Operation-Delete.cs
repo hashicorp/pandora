@@ -6,22 +6,22 @@ using System.Net;
 
 namespace Pandora.Definitions.ResourceManager.Maps.v2021_02_01.Creators
 {
-	internal class Delete : DeleteOperation
-	{
-		public override IEnumerable<HttpStatusCode> ExpectedStatusCodes()
-		{
-			return new List<HttpStatusCode>
-			{
-				HttpStatusCode.NoContent,
-				HttpStatusCode.OK,
-			};
-		}
+    internal class Delete : DeleteOperation
+    {
+        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes()
+        {
+            return new List<HttpStatusCode>
+            {
+                HttpStatusCode.NoContent,
+                HttpStatusCode.OK,
+            };
+        }
 
-		public override ResourceID? ResourceId()
-		{
-			return new CreatorId();
-		}
+        public override ResourceID? ResourceId()
+        {
+            return new CreatorId();
+        }
 
 
-	}
+    }
 }

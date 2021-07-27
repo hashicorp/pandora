@@ -6,18 +6,18 @@ using System.Net;
 
 namespace Pandora.Definitions.ResourceManager.Maps.v2021_02_01.Accounts
 {
-	internal class Get : GetOperation
-	{
-		public override ResourceID? ResourceId()
-		{
-			return new AccountId();
-		}
+    internal class Get : GetOperation
+    {
+        public override ResourceID? ResourceId()
+        {
+            return new AccountId();
+        }
 
-		public override object? ResponseObject()
-		{
-			return new MapsAccount();
-		}
+        public override object? ResponseObject()
+        {
+            return new MapsAccount();
+        }
 
 
-	}
+    }
 }

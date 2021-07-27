@@ -8,18 +8,18 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.Maps.v2021_02_01.Accounts
 {
 
-	internal class MapsAccountUpdateParameters
-	{
-		[JsonPropertyName("kind")]
-		public Kind? Kind { get; set; }
+    internal class MapsAccountUpdateParameters
+    {
+        [JsonPropertyName("kind")]
+        public Kind? Kind { get; set; }
 
-		[JsonPropertyName("properties")]
-		public MapsAccountProperties? Properties { get; set; }
+        [JsonPropertyName("properties")]
+        public MapsAccountProperties? Properties { get; set; }
 
-		[JsonPropertyName("sku")]
-		public Sku? Sku { get; set; }
+        [JsonPropertyName("sku")]
+        public Sku? Sku { get; set; }
 
-		[JsonPropertyName("tags")]
-		public CustomTypes.Tags? Tags { get; set; }
-	}
+        [JsonPropertyName("tags")]
+        public CustomTypes.Tags? Tags { get; set; }
+    }
 }

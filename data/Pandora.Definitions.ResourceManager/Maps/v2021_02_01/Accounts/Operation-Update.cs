@@ -6,31 +6,31 @@ using System.Net;
 
 namespace Pandora.Definitions.ResourceManager.Maps.v2021_02_01.Accounts
 {
-	internal class Update : PatchOperation
-	{
-		public override IEnumerable<HttpStatusCode> ExpectedStatusCodes()
-		{
-			return new List<HttpStatusCode>
-			{
-				HttpStatusCode.OK,
-			};
-		}
+    internal class Update : PatchOperation
+    {
+        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes()
+        {
+            return new List<HttpStatusCode>
+            {
+                HttpStatusCode.OK,
+            };
+        }
 
-		public override object? RequestObject()
-		{
-			return new MapsAccountUpdateParameters();
-		}
+        public override object? RequestObject()
+        {
+            return new MapsAccountUpdateParameters();
+        }
 
-		public override ResourceID? ResourceId()
-		{
-			return new AccountId();
-		}
+        public override ResourceID? ResourceId()
+        {
+            return new AccountId();
+        }
 
-		public override object? ResponseObject()
-		{
-			return new MapsAccount();
-		}
+        public override object? ResponseObject()
+        {
+            return new MapsAccount();
+        }
 
 
-	}
+    }
 }
