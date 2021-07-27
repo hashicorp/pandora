@@ -8,12 +8,12 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.Maps.v2021_02_01.Creators
 {
 
-	internal class CreatorUpdateParameters
-	{
-		[JsonPropertyName("properties")]
-		public CreatorProperties? Properties { get; set; }
+    internal class CreatorUpdateParameters
+    {
+        [JsonPropertyName("properties")]
+        public CreatorProperties? Properties { get; set; }
 
-		[JsonPropertyName("tags")]
-		public CustomTypes.Tags? Tags { get; set; }
-	}
+        [JsonPropertyName("tags")]
+        public CustomTypes.Tags? Tags { get; set; }
+    }
 }

@@ -6,22 +6,22 @@ using System.Net;
 
 namespace Pandora.Definitions.ResourceManager.ManagedIdentity.v2018_11_30.ManagedIdentity
 {
-	internal class UserAssignedIdentitiesDelete : DeleteOperation
-	{
-		public override IEnumerable<HttpStatusCode> ExpectedStatusCodes()
-		{
-			return new List<HttpStatusCode>
-			{
-				HttpStatusCode.NoContent,
-				HttpStatusCode.OK,
-			};
-		}
+    internal class UserAssignedIdentitiesDelete : DeleteOperation
+    {
+        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes()
+        {
+            return new List<HttpStatusCode>
+            {
+                HttpStatusCode.NoContent,
+                HttpStatusCode.OK,
+            };
+        }
 
-		public override ResourceID? ResourceId()
-		{
-			return new UserAssignedIdentitiesId();
-		}
+        public override ResourceID? ResourceId()
+        {
+            return new UserAssignedIdentitiesId();
+        }
 
 
-	}
+    }
 }

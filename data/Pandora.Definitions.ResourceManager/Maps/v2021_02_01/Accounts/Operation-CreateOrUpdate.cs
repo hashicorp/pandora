@@ -6,23 +6,23 @@ using System.Net;
 
 namespace Pandora.Definitions.ResourceManager.Maps.v2021_02_01.Accounts
 {
-	internal class CreateOrUpdate : PutOperation
-	{
-		public override object? RequestObject()
-		{
-			return new MapsAccount();
-		}
+    internal class CreateOrUpdate : PutOperation
+    {
+        public override object? RequestObject()
+        {
+            return new MapsAccount();
+        }
 
-		public override ResourceID? ResourceId()
-		{
-			return new AccountId();
-		}
+        public override ResourceID? ResourceId()
+        {
+            return new AccountId();
+        }
 
-		public override object? ResponseObject()
-		{
-			return new MapsAccount();
-		}
+        public override object? ResponseObject()
+        {
+            return new MapsAccount();
+        }
 
 
-	}
+    }
 }
