@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"sort"
 	"strings"
+
+	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
 func (s *ServiceGenerator) predicates(data ServiceGeneratorData) error {
@@ -32,6 +34,7 @@ func (s *ServiceGenerator) predicates(data ServiceGeneratorData) error {
 
 	templater := predicateTemplater{
 		sortedModelNames: sortedModelNames,
+		models:           data.models,
 	}
 	if err := s.writeToPath(data.outputPath, "predicates.go", templater, data); err != nil {
 		return fmt.Errorf("templating predicate models: %+v", err)
@@ -42,12 +45,14 @@ func (s *ServiceGenerator) predicates(data ServiceGeneratorData) error {
 
 type predicateTemplater struct {
 	sortedModelNames []string
+	models           map[string]resourcemanager.ModelDetails
 }
 
 func (p predicateTemplater) template(data ServiceGeneratorData) (*string, error) {
 	output := make([]string, 0)
 	for _, modelName := range p.sortedModelNames {
-		templated, err := p.templateForModel(modelName)
+		model := data.models[modelName]
+		templated, err := p.templateForModel(modelName, model)
 		if err != nil {
 			return nil, err
 		}
@@ -61,18 +66,54 @@ func (p predicateTemplater) template(data ServiceGeneratorData) (*string, error)
 	return &template, nil
 }
 
-func (p predicateTemplater) templateForModel(name string) (*string, error) {
+func (p predicateTemplater) templateForModel(name string, model resourcemanager.ModelDetails) (*string, error) {
+	fieldNames := make([]string, 0)
+	for name, field := range model.Fields {
+		// TODO: add support for these, but this is fine to skip for now
+		if field.ListElementType != nil || field.ConstantReferenceName != nil || field.ModelReferenceName != nil {
+			continue
+		}
+
+		fieldNames = append(fieldNames, name)
+	}
+	sort.Strings(fieldNames)
+
+	matchLines := make([]string, 0)
+	structLines := make([]string, 0)
+	for _, fieldName := range fieldNames {
+		fieldVal := model.Fields[fieldName]
+
+		typeInfo, err := typeInformationForNativeType(string(fieldVal.Type))
+		if err != nil {
+			return nil, fmt.Errorf("determining type information for field %q in model %q with info %q: %+v", fieldName, name, string(fieldVal.Type), err)
+		}
+		structLines = append(structLines, fmt.Sprintf("\t %[1]s *%[2]s", fieldName, *typeInfo))
+
+		if fieldVal.Optional {
+			matchLines = append(matchLines, fmt.Sprintf(`
+	if p.%[1]s != nil && (input.%[1]s == nil && *p.%[1]s != *input.%[1]s) {
+	 	return false
+	}
+`, fieldName))
+		} else {
+			matchLines = append(matchLines, fmt.Sprintf(`
+	if p.%[1]s != nil && *p.%[1]s != input.%[1]s {
+	 	return false
+	}
+`, fieldName))
+		}
+	}
+
 	template := fmt.Sprintf(` 
 type %[1]sPredicate struct {
-	// TODO: implement me
+%[2]s
 }
+
 func (p %[1]sPredicate) Matches(input %[1]s) bool {
-	// TODO: implement me
-	// if p.Name != nil && input.Name != *p.Name {
-	// 	return false
-	// }
+%[3]s
+
 	return true
 }
-`, name)
+`, name, strings.Join(structLines, "\n"), strings.Join(matchLines, "\n"))
 	return &template, nil
 }
