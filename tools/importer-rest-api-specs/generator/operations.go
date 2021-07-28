@@ -127,7 +127,7 @@ using System.Net;
 
 namespace %[1]s
 {
-	internal class %[2]s : %[3]sOperation
+	internal class %[2]sOperation : %[3]sOperation
 	{
 %[4]s
 

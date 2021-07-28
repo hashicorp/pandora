@@ -17,7 +17,7 @@ func (g PandoraDefinitionGenerator) codeForPackageDefinition(namespace, resource
 
 	lines := make([]string, 0)
 	for _, operationName := range operationNames {
-		lines = append(lines, fmt.Sprintf("\t\t\tnew %s(),", operationName))
+		lines = append(lines, fmt.Sprintf("\t\t\tnew %sOperation(),", operationName))
 	}
 
 	return fmt.Sprintf(`using System.Collections.Generic;
