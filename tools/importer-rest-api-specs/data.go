@@ -107,6 +107,16 @@ func GenerationData() []RunInput {
 		},
 		{
 			RootNamespace:    RootNamespace,
+			ServiceName:      "Relay",
+			ApiVersion:       "2017-04-01",
+			OutputDirectory:  outputDirectory,
+			SwaggerDirectory: swaggerDirectory + "/specification/relay/resource-manager/Microsoft.Relay/stable/2017-04-01",
+			SwaggerFiles: []string{
+				"relay.json",
+			},
+		},
+		{
+			RootNamespace:    RootNamespace,
 			ServiceName:      "VMware",
 			ApiVersion:       "2020-03-20",
 			OutputDirectory:  outputDirectory,
