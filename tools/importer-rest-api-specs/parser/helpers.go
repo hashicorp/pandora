@@ -124,10 +124,6 @@ func (u operationUri) shouldBeIgnored() bool {
 	if strings.HasPrefix(strings.ToLower(uri), "/providers/") {
 		return true
 	}
-	// or /subscriptions/{subscriptionId}/providers/Microsoft.EnterpriseKnowledgeGraph/services
-	if v := strings.TrimPrefix(strings.ToLower(uri), "/subscriptions/{subscriptionid}"); strings.HasPrefix(v, "/providers/") {
-		return true
-	}
 	// LRO's shouldn't be directly exposed, ignore bad data
 	if strings.Contains(strings.ToLower(uri), "/operationresults/{operationid}") {
 		return true
