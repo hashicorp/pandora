@@ -6,6 +6,7 @@ using Pandora.Data.Repositories;
 using Pandora.Definitions.DataPlane;
 using Pandora.Definitions.Interfaces;
 using Pandora.Definitions.ResourceManager;
+using Pandora.Definitions.TestData;
 
 namespace Pandora.Data
 {
@@ -21,6 +22,12 @@ namespace Pandora.Data
         public void ValidateResourceManagerServiceDefinitions()
         {
             ValidateAssemblyContainingServiceDefinitions(new ResourceManagerServices());
+        }
+
+        [TestCase]
+        public void ValidateTestDataServiceDefinitions()
+        {
+            ValidateAssemblyContainingServiceDefinitions(new TestDataServices());
         }
 
         private static void ValidateAssemblyContainingServiceDefinitions(ServicesDefinition assemblyServiceDefinition)
