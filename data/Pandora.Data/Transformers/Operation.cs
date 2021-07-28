@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using Pandora.Data.Helpers;
 using Pandora.Data.Models;
 using Pandora.Definitions.Interfaces;
 using Pandora.Definitions.Operations;
@@ -69,6 +70,14 @@ namespace Pandora.Data.Transformers
                     resourceIdName = input.ResourceId().GetType().Name;
                 }
 
+                // Operation Names are now suffixed with `Operation` to avoid conflicts between Models and Operations
+                // with the same name - but we should trim that off
+                var operationName = input.GetType().Name;
+                if (operationName.EndsWith("Operation"))
+                {
+                    operationName = operationName.TrimSuffix("Operation");
+                }
+
                 return new OperationDefinition
                 {
                     // note: these two shouldn't be in here but it's helpful for the terraform functions
@@ -76,7 +85,7 @@ namespace Pandora.Data.Transformers
                     ApiName = apiName,
                     ApiVersion = apiVersion,
 
-                    Name = input.GetType().Name,
+                    Name = operationName,
                     Method = method,
 
                     ContentType = input.ContentType(),

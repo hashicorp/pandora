@@ -39,8 +39,8 @@ namespace Pandora.Data.Transformers
             Assert.NotNull(actual);
             Assert.AreEqual("ApiVersionWithAMultipleOperations", actual.Name);
             Assert.AreEqual(2, actual.Operations.Count);
-            Assert.AreEqual("FakeOperation", actual.Operations.First().Name);
-            Assert.AreEqual("FakeOtherOperation", actual.Operations.Skip(1).First().Name);
+            Assert.AreEqual("Fake", actual.Operations.First().Name);
+            Assert.AreEqual("FakeOther", actual.Operations.Skip(1).First().Name);
             Assert.AreEqual(0, actual.Constants.Count);
             Assert.AreEqual(0, actual.Models.Count);
         }
@@ -186,8 +186,8 @@ namespace Pandora.Data.Transformers
             Assert.NotNull(actual);
             Assert.AreEqual("ApiVersionWithAMultipleOperationsAndASharedModel", actual.Name);
             Assert.AreEqual(2, actual.Operations.Count);
-            Assert.AreEqual("FirstOperation", actual.Operations.First().Name);
-            Assert.AreEqual("SecondOperation", actual.Operations.Skip(1).First().Name);
+            Assert.AreEqual("First", actual.Operations.First().Name);
+            Assert.AreEqual("Second", actual.Operations.Skip(1).First().Name);
             Assert.AreEqual(0, actual.Constants.Count);
             Assert.AreEqual(3, actual.Models.Count);
         }
