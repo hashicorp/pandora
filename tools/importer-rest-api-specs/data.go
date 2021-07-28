@@ -14,6 +14,16 @@ func GenerationData() []RunInput {
 		// ------------------------------------------------------------------
 		// NOTE: These files are in production and should always be generated
 		// ------------------------------------------------------------------
+		{
+			RootNamespace:    RootNamespace,
+			ServiceName:      "AnalysisServices",
+			ApiVersion:       "2017-08-01",
+			OutputDirectory:  outputDirectory,
+			SwaggerDirectory: swaggerDirectory + "/specification/analysisservices/resource-manager/Microsoft.AnalysisServices/stable/2017-08-01",
+			SwaggerFiles: []string{
+				"analysisservices.json",
+			},
+		},
 		// AppConfiguration
 		{
 			RootNamespace:    RootNamespace,
