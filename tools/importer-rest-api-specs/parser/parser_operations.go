@@ -2,6 +2,7 @@ package parser
 
 import (
 	"fmt"
+	"log"
 	"net/http"
 	"strings"
 
@@ -31,6 +32,9 @@ func (d *SwaggerDefinition) findOperationsForTag(tag *string, uriToDetails map[s
 
 			url := newOperationUri(uri)
 			if url.shouldBeIgnored() {
+				if d.debugLog {
+					log.Printf("[DEBUG] Skipping URI %q", url.normalizedUri())
+				}
 				continue
 			}
 
