@@ -11,12 +11,14 @@ namespace Pandora.Definitions.ResourceManager.Relay.v2017_04_01.Namespaces
         public string Name => "Namespaces";
         public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
         {
+            new CheckNameAvailability(),
             new CreateOrUpdate(),
             new CreateOrUpdateAuthorizationRule(),
             new Delete(),
             new DeleteAuthorizationRule(),
             new Get(),
             new GetAuthorizationRule(),
+            new List(),
             new ListAuthorizationRules(),
             new ListByResourceGroup(),
             new ListKeys(),
