@@ -3,6 +3,7 @@ using System.Linq;
 using Pandora.Definitions.DataPlane;
 using Pandora.Definitions.Interfaces;
 using Pandora.Definitions.ResourceManager;
+using Pandora.Definitions.TestData;
 
 namespace Pandora.Data
 {
@@ -13,6 +14,9 @@ namespace Pandora.Data
             var servicesDefinitions = new List<ServicesDefinition>{
                 new DataPlaneServices(),
                 new ResourceManagerServices(),
+                
+                // NOTE: this can be useful during development for example scenarios so is intentionally commented out here
+                // new TestDataServices(),
             };
             return servicesDefinitions.SelectMany(Definitions.Discovery.Services.WithinServicesDefinition).ToList();
         }

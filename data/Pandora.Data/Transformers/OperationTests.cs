@@ -207,7 +207,7 @@ namespace Pandora.Data.Transformers
             Assert.AreEqual("FakeNestedType", actual.ResponseObject.GetType().Name);
             Assert.AreEqual("@odata.foobar", actual.FieldContainingPaginationDetails);
         }
-        
+
         [TestCase]
         public static void MappingAnOperationShouldTrimTheSuffixOfOperation()
         {
