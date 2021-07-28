@@ -6,7 +6,7 @@ using System.Net;
 
 namespace Pandora.Definitions.ResourceManager.Relay.v2017_04_01.Namespaces
 {
-    internal class ListKeys : PostOperation
+    internal class ListKeysOperation : Operations.PostOperation
     {
         public override IEnumerable<HttpStatusCode> ExpectedStatusCodes()
         {

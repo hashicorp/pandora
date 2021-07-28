@@ -6,7 +6,7 @@ using System.Net;
 
 namespace Pandora.Definitions.ResourceManager.Relay.v2017_04_01.Namespaces
 {
-    internal class ListByResourceGroup : ListOperation
+    internal class ListByResourceGroupOperation : Operations.ListOperation
     {
         public override string? FieldContainingPaginationDetails()
         {

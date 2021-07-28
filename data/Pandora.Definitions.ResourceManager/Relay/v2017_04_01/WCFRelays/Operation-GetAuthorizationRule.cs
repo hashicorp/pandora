@@ -6,7 +6,7 @@ using System.Net;
 
 namespace Pandora.Definitions.ResourceManager.Relay.v2017_04_01.WCFRelays
 {
-    internal class GetAuthorizationRule : GetOperation
+    internal class GetAuthorizationRuleOperation : Operations.GetOperation
     {
         public override ResourceID? ResourceId()
         {

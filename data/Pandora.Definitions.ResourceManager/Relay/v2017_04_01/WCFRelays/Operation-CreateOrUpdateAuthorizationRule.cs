@@ -6,7 +6,7 @@ using System.Net;
 
 namespace Pandora.Definitions.ResourceManager.Relay.v2017_04_01.WCFRelays
 {
-    internal class CreateOrUpdateAuthorizationRule : PutOperation
+    internal class CreateOrUpdateAuthorizationRuleOperation : Operations.PutOperation
     {
         public override IEnumerable<HttpStatusCode> ExpectedStatusCodes()
         {

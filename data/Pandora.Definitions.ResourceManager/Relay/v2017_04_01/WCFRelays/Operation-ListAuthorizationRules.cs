@@ -6,7 +6,7 @@ using System.Net;
 
 namespace Pandora.Definitions.ResourceManager.Relay.v2017_04_01.WCFRelays
 {
-    internal class ListAuthorizationRules : ListOperation
+    internal class ListAuthorizationRulesOperation : Operations.ListOperation
     {
         public override string? FieldContainingPaginationDetails()
         {

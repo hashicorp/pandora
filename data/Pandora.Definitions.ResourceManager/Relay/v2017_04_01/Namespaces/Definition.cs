@@ -11,19 +11,19 @@ namespace Pandora.Definitions.ResourceManager.Relay.v2017_04_01.Namespaces
         public string Name => "Namespaces";
         public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
         {
-            new CheckNameAvailability(),
-            new CreateOrUpdate(),
-            new CreateOrUpdateAuthorizationRule(),
-            new Delete(),
-            new DeleteAuthorizationRule(),
-            new Get(),
-            new GetAuthorizationRule(),
-            new List(),
-            new ListAuthorizationRules(),
-            new ListByResourceGroup(),
-            new ListKeys(),
-            new RegenerateKeys(),
-            new Update(),
+            new CheckNameAvailabilityOperation(),
+            new CreateOrUpdateOperation(),
+            new CreateOrUpdateAuthorizationRuleOperation(),
+            new DeleteOperation(),
+            new DeleteAuthorizationRuleOperation(),
+            new GetOperation(),
+            new GetAuthorizationRuleOperation(),
+            new ListOperation(),
+            new ListAuthorizationRulesOperation(),
+            new ListByResourceGroupOperation(),
+            new ListKeysOperation(),
+            new RegenerateKeysOperation(),
+            new UpdateOperation(),
         };
     }
 }

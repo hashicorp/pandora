@@ -6,7 +6,7 @@ using System.Net;
 
 namespace Pandora.Definitions.ResourceManager.Relay.v2017_04_01.WCFRelays
 {
-    internal class DeleteAuthorizationRule : DeleteOperation
+    internal class DeleteAuthorizationRuleOperation : Operations.DeleteOperation
     {
         public override IEnumerable<HttpStatusCode> ExpectedStatusCodes()
         {
