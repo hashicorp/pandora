@@ -183,7 +183,6 @@ func (c %[1]s) %[2]s(ctx context.Context, %[4]s) (result %[2]sResponse, err erro
 func (c methodsAutoRestTemplater) listOperationTemplate(data ServiceGeneratorData) (*string, error) {
 	argumentsMethodCode := c.argumentsTemplateForMethod()
 	argumentsCode := c.argumentsTemplate()
-	listPredicateCode := c.listPredicateTemplate()
 	optionsStruct := c.optionsStruct()
 	preparerCode := c.preparerTemplate(data)
 	responseStruct := c.responseStructTemplate()
@@ -191,7 +190,6 @@ func (c methodsAutoRestTemplater) listOperationTemplate(data ServiceGeneratorDat
 	templated := fmt.Sprintf(`
 %[7]s
 %[9]s
-%[10]s
 
 // %[2]s ...
 func (c %[1]s) %[2]s(ctx context.Context, %[4]s) (resp %[2]sResponse, err error) {
@@ -215,14 +213,14 @@ func (c %[1]s) %[2]s(ctx context.Context, %[4]s) (resp %[2]sResponse, err error)
 	return
 }
 
-// %[2]sCompleteMatchingPredicate retrieves all of the results into a single object
+// %[2]sComplete retrieves all of the results into a single object
 func (c %[1]s) %[2]sComplete(ctx context.Context, %[4]s) (%[2]sCompleteResult, error) {
-	return c.%[2]sCompleteMatchingPredicate(ctx, %[8]s, %[11]sPredicate{})
+	return c.%[2]sCompleteMatchingPredicate(ctx, %[8]s, %[10]sPredicate{})
 }
 
 // %[2]sCompleteMatchingPredicate retrieves all of the results and then applied the predicate
-func (c %[1]s) %[2]sCompleteMatchingPredicate(ctx context.Context, %[4]s, predicate %[11]sPredicate) (resp %[2]sCompleteResult, err error) {
-	items := make([]%[11]s, 0)
+func (c %[1]s) %[2]sCompleteMatchingPredicate(ctx context.Context, %[4]s, predicate %[10]sPredicate) (resp %[2]sCompleteResult, err error) {
+	items := make([]%[10]s, 0)
 
 	page, err := c.%[2]s(ctx, %[8]s)
 	if err != nil {
@@ -262,7 +260,7 @@ func (c %[1]s) %[2]sCompleteMatchingPredicate(ctx context.Context, %[4]s, predic
 %[5]s
 
 %[6]s
-`, data.serviceClientName, c.operationName, data.packageName, argumentsMethodCode, preparerCode, responderCode, responseStruct, argumentsCode, optionsStruct, listPredicateCode, *c.operation.ResponseObjectName)
+`, data.serviceClientName, c.operationName, data.packageName, argumentsMethodCode, preparerCode, responderCode, responseStruct, argumentsCode, optionsStruct, *c.operation.ResponseObjectName)
 	return &templated, nil
 }
 
@@ -661,21 +659,4 @@ func (o %[1]sOptions) toQueryString() map[string]interface{} {
 	return out
 }
 `, c.operationName, strings.Join(properties, "\n"), strings.Join(assignments, "\n"))
-}
-
-func (c methodsAutoRestTemplater) listPredicateTemplate() string {
-	return fmt.Sprintf(` 
-type %[1]sPredicate struct {
-	// TODO: implement me
-}
-
-func (p %[1]sPredicate) Matches(input %[1]s) bool {
-	// TODO: implement me
-	// if p.Name != nil && input.Name != *p.Name {
-	// 	return false
-	// }
-
-	return true
-}
-`, *c.operation.ResponseObjectName)
 }

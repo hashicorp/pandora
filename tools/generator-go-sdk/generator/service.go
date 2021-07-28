@@ -48,6 +48,7 @@ func (s *ServiceGenerator) Generate(input ServiceGeneratorInput) error {
 		"id-aliases": s.idAliases,
 		"methods":    s.methods,
 		"models":     s.models,
+		"predicates": s.predicates,
 		"version":    s.version,
 	}
 	for name, stage := range stages {
