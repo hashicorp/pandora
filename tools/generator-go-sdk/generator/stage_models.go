@@ -184,7 +184,14 @@ func (c modelsTemplater) typeInformation(details resourcemanager.FieldDetails) (
 		}
 
 		typeName := *details.ListElementType
-		if strings.EqualFold(*details.ListElementType, string(resourcemanager.Object)) {
+		if strings.EqualFold(typeName, string(resourcemanager.Constant)) {
+			if details.ConstantReferenceName == nil {
+				return nil, fmt.Errorf("a ConstantReferenceName must be configured for a List of Constants")
+			}
+			typeName = *details.ConstantReferenceName
+		}
+
+		if strings.EqualFold(typeName, string(resourcemanager.Object)) {
 			if details.ModelReferenceName == nil {
 				return nil, fmt.Errorf("a ModelReferenceName must be configured when using a List")
 			}
