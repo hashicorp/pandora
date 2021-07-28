@@ -74,6 +74,11 @@ func (p predicateTemplater) templateForModel(name string, model resourcemanager.
 			continue
 		}
 
+		// unsupported at this time - see https://github.com/hashicorp/pandora/issues/164
+		if field.Type == resourcemanager.Tags {
+			continue
+		}
+
 		fieldNames = append(fieldNames, name)
 	}
 	sort.Strings(fieldNames)
