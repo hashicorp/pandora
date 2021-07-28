@@ -207,6 +207,16 @@ namespace Pandora.Data.Transformers
             Assert.AreEqual("FakeNestedType", actual.ResponseObject.GetType().Name);
             Assert.AreEqual("@odata.foobar", actual.FieldContainingPaginationDetails);
         }
+        
+        [TestCase]
+        public static void MappingAnOperationShouldTrimTheSuffixOfOperation()
+        {
+            var actual = Operation.Map(new OperationSimpleOperation(), "2018-01-01", "MyApi");
+            Assert.NotNull(actual);
+            Assert.AreEqual("2018-01-01", actual.ApiVersion);
+            Assert.AreEqual("MyApi", actual.ApiName);
+            Assert.AreEqual("OperationSimple", actual.Name);
+        }
 
         private class OperationWithNoStatusCodes : ApiOperation
         {
@@ -478,6 +488,44 @@ namespace Pandora.Data.Transformers
             public object? OptionsObject() => null;
             public string? UriSuffix() => null;
         }
+    }
+
+    public class OperationSimpleOperation : ApiOperation
+    {
+        public string? ContentType()
+        {
+            return "application/json";
+        }
+
+        public IEnumerable<HttpStatusCode> ExpectedStatusCodes()
+        {
+            return new List<HttpStatusCode> { HttpStatusCode.OK };
+        }
+
+        public bool LongRunning()
+        {
+            return false;
+        }
+
+        public HttpMethod Method()
+        {
+            return HttpMethod.Put;
+        }
+
+        public object? RequestObject()
+        {
+            return new TestObject();
+        }
+
+        public Definitions.Interfaces.ResourceID? ResourceId() => null;
+
+        public object? ResponseObject()
+        {
+            return new TestObject();
+        }
+        public string? FieldContainingPaginationDetails() => null;
+        public object? OptionsObject() => null;
+        public string? UriSuffix() => "/hello";
     }
 
     public class OperationWithAResourceId : ApiOperation
