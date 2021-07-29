@@ -178,6 +178,34 @@ func dateFormatString(input resourcemanager.DateFormat) string {
 func (c modelsTemplater) typeInformation(details resourcemanager.FieldDetails) (*string, error) {
 	// TODO: again these are things which should be caught by the validator, so move these up
 	// but also leave these here since this is sanity checking a bad API
+	if strings.EqualFold(string(details.Type), string(resourcemanager.Dictionary)) {
+		if details.ListElementType == nil {
+			return nil, fmt.Errorf("a ListElementType must be configured for a Dictionary")
+		}
+
+		typeName := *details.ListElementType
+		if strings.EqualFold(typeName, string(resourcemanager.Constant)) {
+			if details.ConstantReferenceName == nil {
+				return nil, fmt.Errorf("a ConstantReferenceName must be configured for a Dictionary of Constants")
+			}
+			typeName = *details.ConstantReferenceName
+		}
+
+		if strings.EqualFold(typeName, string(resourcemanager.Object)) {
+			if details.ModelReferenceName == nil {
+				return nil, fmt.Errorf("a ModelReferenceName must be configured when using a Dictionary")
+			}
+			typeInfo, err := typeInformationForNativeType(*details.ModelReferenceName)
+			if err != nil {
+				return nil, fmt.Errorf("determining type information for native type %q: %+v", *details.ModelReferenceName, err)
+			}
+			typeName = *typeInfo
+		}
+
+		info := fmt.Sprintf("map[string]%s", typeName)
+		return &info, nil
+	}
+
 	if strings.EqualFold(string(details.Type), string(resourcemanager.List)) {
 		if details.ListElementType == nil {
 			return nil, fmt.Errorf("a ListElementType must be configured for a List")
