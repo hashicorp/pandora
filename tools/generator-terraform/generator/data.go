@@ -144,6 +144,7 @@ type FieldDefinition struct {
 type FieldTypeDefinition string
 
 const (
+	// TODO: support for Dictionaries/Identities
 	FieldTypeDefinitionBoolean       FieldTypeDefinition = "Boolean"
 	FieldTypeDefinitionConstant      FieldTypeDefinition = "Constant"
 	FieldTypeDefinitionFloat         FieldTypeDefinition = "Float"
