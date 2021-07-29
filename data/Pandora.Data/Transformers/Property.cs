@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.IO;
 using System.Reflection;
 using System.Text.Json.Serialization;
@@ -54,9 +53,17 @@ namespace Pandora.Data.Transformers
                     definition.Default = GetDefaultValue(input, containingType);
                 }
 
+                if (definition.PropertyType == PropertyType.Dictionary)
+                {
+                    var elementDetails = GetListElementDetailsForDictionary(input.PropertyType);
+                    definition.ConstantReference = elementDetails.ConstantType;
+                    definition.ListElementType = elementDetails.ElementPropertyType;
+                    definition.ModelReference = elementDetails.ModelType;
+                }
+
                 if (definition.PropertyType == PropertyType.List)
                 {
-                    var elementDetails = GetListElementDetails(input.PropertyType);
+                    var elementDetails = GetListElementDetailsForList(input.PropertyType);
                     definition.ConstantReference = elementDetails.ConstantType;
                     definition.ListElementType = elementDetails.ElementPropertyType;
                     definition.ModelReference = elementDetails.ModelType;
@@ -122,7 +129,7 @@ namespace Pandora.Data.Transformers
             public string? ModelType { get; set; }
         }
 
-        private static ListElementDetails GetListElementDetails(Type input)
+        private static ListElementDetails GetListElementDetailsForList(Type input)
         {
             var element = input.GenericListElement();
             var elementPropertyType = MapPropertyType(element);
@@ -140,12 +147,51 @@ namespace Pandora.Data.Transformers
                 details.IsTypeHint = element.IsAbstract;
             }
 
+            if (elementPropertyType == PropertyType.Dictionary)
+            {
+                throw new NotSupportedException("Lists cannot contain Dictionaries");
+            }
+
             if (elementPropertyType == PropertyType.List)
             {
                 throw new NotSupportedException("Lists cannot contain Lists");
             }
 
+            return details;
+        }
 
+        private static ListElementDetails GetListElementDetailsForDictionary(Type input)
+        {
+            var valueType = input.GenericDictionaryValueElement();
+            var valuePropertyType = MapPropertyType(valueType);
+
+            var details = new ListElementDetails();
+            if (valueType.IsEnum)
+            {
+                details.ConstantType = valueType.Name;
+                details.ElementPropertyType = PropertyType.Constant;
+            }
+            else
+            {
+                details.ModelType = valueType.Name;
+                details.ElementPropertyType = PropertyType.Object;
+            }
+
+            if (valueType.IsAbstract)
+            {
+                throw new NotSupportedException("Type Hints are not supported as a Dictionary Value at this time");
+            }
+
+            if (valuePropertyType == PropertyType.Dictionary)
+            {
+                throw new NotSupportedException("Dictionaries cannot have a Value of Dictionary");
+            }
+
+            if (valuePropertyType == PropertyType.List)
+            {
+                throw new NotSupportedException("Dictionaries cannot have a Value of Lists");
+            }
+            
             return details;
         }
 
@@ -153,6 +199,11 @@ namespace Pandora.Data.Transformers
         {
             if (input.IsGenericType)
             {
+                if (input.GetGenericTypeDefinition() == typeof(Dictionary<,>))
+                {
+                    return PropertyType.Dictionary;
+                }
+                
                 if (input.GetGenericTypeDefinition() == typeof(List<>))
                 {
                     return PropertyType.List;

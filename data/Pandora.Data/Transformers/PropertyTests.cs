@@ -4,6 +4,7 @@ using System.Data;
 using System.Runtime.Versioning;
 using System.Text.Json.Serialization;
 using NUnit.Framework;
+using NUnit.Framework.Interfaces;
 using Pandora.Data.Models;
 using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
@@ -19,6 +20,15 @@ namespace Pandora.Data.Transformers
             foreach (var property in new WithoutArgumentExample().GetType().GetProperties())
             {
                 Assert.Throws<Exception>(() => Property.Map(property, typeof(WithoutArgumentExample).FullName!));
+            }
+        }
+
+        [TestCase]
+        public static void MappingADictionaryOfIntegerStringShouldFail()
+        {
+            foreach (var property in new TypeContainingDictionaryIntegerString().GetType().GetProperties())
+            {
+                Assert.Throws<Exception>(() => Property.Map(property, typeof(TypeContainingDictionaryIntegerString).FullName!));
             }
         }
 
@@ -62,6 +72,21 @@ namespace Pandora.Data.Transformers
                             Assert.AreEqual(false, actual.Required);
                             continue;
                         }
+
+                    case "BasicDictionaryOfString":
+                    {
+                        Assert.AreEqual("BasicDictionaryOfString", actual.Name);
+                        Assert.AreEqual("basicDictionaryOfString", actual.JsonName);
+                        Assert.AreEqual(PropertyType.Dictionary, actual.PropertyType);
+                        Assert.NotNull(actual.ListElementType);
+                        Assert.Null(actual.ConstantReference);
+                        Assert.NotNull(actual.ModelReference);
+                        Assert.AreEqual(PropertyType.Object, actual.ListElementType);
+                        Assert.AreEqual("String", actual.ModelReference);
+                        Assert.AreEqual(true, actual.Optional);
+                        Assert.AreEqual(false, actual.Required);
+                        continue;
+                    }
 
                     case "BasicIntField":
                         {
@@ -191,6 +216,20 @@ namespace Pandora.Data.Transformers
                             Assert.AreEqual("RFC3339", actual.DateFormat);
                             continue;
                         }
+
+                    case "DictionaryOfAnObject":
+                    {
+                        Assert.AreEqual("DictionaryOfAnObject", actual.Name);
+                        Assert.AreEqual("dictionaryOfAnObject", actual.JsonName);
+                        Assert.AreEqual(PropertyType.Dictionary, actual.PropertyType);
+                        Assert.NotNull(actual.ListElementType);
+                        Assert.Null(actual.ConstantReference);
+                        Assert.NotNull(actual.ModelReference);
+                        Assert.AreEqual("SomeOtherType", actual.ModelReference);
+                        Assert.AreEqual(true, actual.Optional);
+                        Assert.AreEqual(false, actual.Required);
+                        continue;
+                    }
 
                     case "Float":
                         {
@@ -406,6 +445,9 @@ namespace Pandora.Data.Transformers
             [DateFormat(DateFormatAttribute.DateFormat.RFC3339)]
             [JsonPropertyName("basicDateField")]
             public DateTime BasicDateField { get; set; }
+            
+            [JsonPropertyName("basicDictionaryOfString")]
+            public Dictionary<string, string> BasicDictionaryOfString { get; set; }
 
             [JsonPropertyName("basicLocationField")]
             public Location BasicLocationField { get; set; }
@@ -472,6 +514,9 @@ namespace Pandora.Data.Transformers
             [JsonPropertyName("optionalDateTime")]
             [Optional]
             public DateTime? OptionalDateTime { get; set; }
+            
+            [JsonPropertyName("dictionaryOfAnObject")]
+            public Dictionary<string, SomeOtherType> DictionaryOfAnObject { get; set; }
 
             [JsonPropertyName("optionalFloat")]
             public float? OptionalFloat { get; set; }
@@ -543,6 +588,12 @@ namespace Pandora.Data.Transformers
             [JsonPropertyName("objectType")]
             [ProvidesTypeHint]
             public string ObjectType { get; set; }
+        }
+
+        private class TypeContainingDictionaryIntegerString
+        {
+            [JsonPropertyName("someDictionary")]
+            public Dictionary<int, string> SomeDictionary { get; set; }
         }
     }
 }

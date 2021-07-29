@@ -14,6 +14,7 @@ namespace Pandora.Data.Models
         Boolean,
         Constant,
         DateTime,
+        Dictionary,
         Float,
         Integer,
         List,

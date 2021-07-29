@@ -42,6 +42,11 @@ namespace Pandora.Data.Transformers
             return info.GetCustomAttribute<T>() != null;
         }
 
+        internal static bool IsAGenericDictionary(this Type input)
+        {
+            return input.IsGenericType && input.GetGenericTypeDefinition() == typeof(Dictionary<,>);
+        }
+
         internal static bool IsAGenericList(this Type input)
         {
             return input.IsGenericType && input.GetGenericTypeDefinition() == typeof(List<>);
@@ -55,6 +60,22 @@ namespace Pandora.Data.Transformers
             }
 
             return input.GetGenericArguments()[0];
+        }
+
+        internal static Type GenericDictionaryValueElement(this Type input)
+        {
+            if (!input.IsAGenericDictionary())
+            {
+                throw new NotSupportedException($"unsupported dictionary type {input.Name}");
+            }
+
+            var keyType = input.GetGenericArguments()[0];
+            if (keyType != typeof(string))
+            {
+                throw new NotSupportedException($"Dictionaries are only supported String keys at this time but got {keyType.FullName}");
+            }
+
+            return input.GetGenericArguments()[1];
         }
     }
 }
