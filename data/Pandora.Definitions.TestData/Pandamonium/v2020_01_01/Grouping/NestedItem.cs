@@ -3,7 +3,7 @@ using System.ComponentModel;
 using System.Text.Json.Serialization;
 using Pandora.Definitions.Attributes;
 
-namespace Pandora.Definitions.ResourceManager.Pandamonium.v2020_01_01.Grouping
+namespace Pandora.Definitions.TestData.Pandamonium.v2020_01_01.Grouping
 {
     public class NestedItem
     {
