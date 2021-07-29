@@ -111,8 +111,6 @@ namespace Pandora.Api.V1.ResourceManager
         {
             switch (input)
             {
-                // TODO: Dates and Dictionaries
-
                 case PropertyType.Boolean:
                     return ApiPropertyType.Boolean.ToString();
 
@@ -121,6 +119,9 @@ namespace Pandora.Api.V1.ResourceManager
 
                 case PropertyType.DateTime:
                     return ApiPropertyType.DateTime.ToString();
+
+                case PropertyType.Dictionary:
+                    return ApiPropertyType.Dictionary.ToString();
 
                 case PropertyType.Float:
                     return ApiPropertyType.Float.ToString();
@@ -170,10 +171,16 @@ namespace Pandora.Api.V1.ResourceManager
                 return null;
             }
 
+            if (input.Value == PropertyType.Dictionary)
+            {
+                // technically it could, but there's no examples of this in the ARM API I've seen
+                throw new NotSupportedException("A List/Dictionary Value cannot contain a Dictionary");
+            }
+
             if (input.Value == PropertyType.List)
             {
                 // technically it could, but there's no examples of this in the ARM API I've seen
-                throw new NotSupportedException("A List cannot contain a list");
+                throw new NotSupportedException("A List/Dictionary Value cannot contain a list");
             }
 
             return MapApiPropertyType(input.Value);
@@ -243,6 +250,7 @@ namespace Pandora.Api.V1.ResourceManager
             Boolean,
             Constant,
             DateTime,
+            Dictionary,
             Float,
             Integer,
             List,
