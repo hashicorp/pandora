@@ -1,6 +1,6 @@
 using Pandora.Definitions.Interfaces;
 
-namespace Pandora.Definitions.ResourceManager.Pandamonium
+namespace Pandora.Definitions.TestData.Pandamonium
 {
     public class Service : ServiceDefinition
     {
