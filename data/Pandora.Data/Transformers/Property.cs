@@ -191,7 +191,7 @@ namespace Pandora.Data.Transformers
             {
                 throw new NotSupportedException("Dictionaries cannot have a Value of Lists");
             }
-            
+
             return details;
         }
 
@@ -203,7 +203,7 @@ namespace Pandora.Data.Transformers
                 {
                     return PropertyType.Dictionary;
                 }
-                
+
                 if (input.GetGenericTypeDefinition() == typeof(List<>))
                 {
                     return PropertyType.List;

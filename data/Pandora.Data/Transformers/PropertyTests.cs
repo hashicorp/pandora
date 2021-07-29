@@ -74,19 +74,19 @@ namespace Pandora.Data.Transformers
                         }
 
                     case "BasicDictionaryOfString":
-                    {
-                        Assert.AreEqual("BasicDictionaryOfString", actual.Name);
-                        Assert.AreEqual("basicDictionaryOfString", actual.JsonName);
-                        Assert.AreEqual(PropertyType.Dictionary, actual.PropertyType);
-                        Assert.NotNull(actual.ListElementType);
-                        Assert.Null(actual.ConstantReference);
-                        Assert.NotNull(actual.ModelReference);
-                        Assert.AreEqual(PropertyType.Object, actual.ListElementType);
-                        Assert.AreEqual("String", actual.ModelReference);
-                        Assert.AreEqual(true, actual.Optional);
-                        Assert.AreEqual(false, actual.Required);
-                        continue;
-                    }
+                        {
+                            Assert.AreEqual("BasicDictionaryOfString", actual.Name);
+                            Assert.AreEqual("basicDictionaryOfString", actual.JsonName);
+                            Assert.AreEqual(PropertyType.Dictionary, actual.PropertyType);
+                            Assert.NotNull(actual.ListElementType);
+                            Assert.Null(actual.ConstantReference);
+                            Assert.NotNull(actual.ModelReference);
+                            Assert.AreEqual(PropertyType.Object, actual.ListElementType);
+                            Assert.AreEqual("String", actual.ModelReference);
+                            Assert.AreEqual(true, actual.Optional);
+                            Assert.AreEqual(false, actual.Required);
+                            continue;
+                        }
 
                     case "BasicIntField":
                         {
@@ -218,18 +218,18 @@ namespace Pandora.Data.Transformers
                         }
 
                     case "DictionaryOfAnObject":
-                    {
-                        Assert.AreEqual("DictionaryOfAnObject", actual.Name);
-                        Assert.AreEqual("dictionaryOfAnObject", actual.JsonName);
-                        Assert.AreEqual(PropertyType.Dictionary, actual.PropertyType);
-                        Assert.NotNull(actual.ListElementType);
-                        Assert.Null(actual.ConstantReference);
-                        Assert.NotNull(actual.ModelReference);
-                        Assert.AreEqual("SomeOtherType", actual.ModelReference);
-                        Assert.AreEqual(true, actual.Optional);
-                        Assert.AreEqual(false, actual.Required);
-                        continue;
-                    }
+                        {
+                            Assert.AreEqual("DictionaryOfAnObject", actual.Name);
+                            Assert.AreEqual("dictionaryOfAnObject", actual.JsonName);
+                            Assert.AreEqual(PropertyType.Dictionary, actual.PropertyType);
+                            Assert.NotNull(actual.ListElementType);
+                            Assert.Null(actual.ConstantReference);
+                            Assert.NotNull(actual.ModelReference);
+                            Assert.AreEqual("SomeOtherType", actual.ModelReference);
+                            Assert.AreEqual(true, actual.Optional);
+                            Assert.AreEqual(false, actual.Required);
+                            continue;
+                        }
 
                     case "Float":
                         {
@@ -445,7 +445,7 @@ namespace Pandora.Data.Transformers
             [DateFormat(DateFormatAttribute.DateFormat.RFC3339)]
             [JsonPropertyName("basicDateField")]
             public DateTime BasicDateField { get; set; }
-            
+
             [JsonPropertyName("basicDictionaryOfString")]
             public Dictionary<string, string> BasicDictionaryOfString { get; set; }
 
@@ -514,7 +514,7 @@ namespace Pandora.Data.Transformers
             [JsonPropertyName("optionalDateTime")]
             [Optional]
             public DateTime? OptionalDateTime { get; set; }
-            
+
             [JsonPropertyName("dictionaryOfAnObject")]
             public Dictionary<string, SomeOtherType> DictionaryOfAnObject { get; set; }
 
