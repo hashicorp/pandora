@@ -79,7 +79,7 @@ func (g PandoraDefinitionGenerator) codeForOperation(namespace string, operation
 	if len(operation.Options) > 0 {
 		code = append(code, fmt.Sprintf(`		public override object? OptionsObject()
 		{
-			return new %[1]s.%[1]sOptions();
+			return new %[1]sOperation.%[1]sOptions();
 		}`, operationName))
 
 		optionsCode = append(optionsCode, fmt.Sprintf("\t\tinternal class %sOptions", operationName))
