@@ -117,6 +117,17 @@ func GenerationData() []RunInput {
 		},
 		{
 			RootNamespace:    RootNamespace,
+			ServiceName:      "PowerBIDedicated",
+			ApiVersion:       "2021-01-01",
+			OutputDirectory:  outputDirectory,
+			SwaggerDirectory: swaggerDirectory + "/specification/powerbidedicated/resource-manager/Microsoft.PowerBIdedicated/stable/2021-01-01",
+			SwaggerFiles: []string{
+				"autoScaleVCores.json",
+				"powerbidedicated.json",
+			},
+		},
+		{
+			RootNamespace:    RootNamespace,
 			ServiceName:      "Relay",
 			ApiVersion:       "2017-04-01",
 			OutputDirectory:  outputDirectory,
