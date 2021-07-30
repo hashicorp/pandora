@@ -25,7 +25,7 @@ namespace Pandora.Definitions.ResourceManager.SignalR.v2020_05_01.SignalR
 
         public override string? UriSuffix()
         {
-            return "/providers/Microsoft.SignalRService/signalR";
+            return "/providers/Microsoft.SignalRService/SignalR";
         }
 
 
