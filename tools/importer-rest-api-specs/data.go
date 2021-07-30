@@ -127,6 +127,16 @@ func GenerationData() []RunInput {
 		},
 		{
 			RootNamespace:    RootNamespace,
+			ServiceName:      "SignalR",
+			ApiVersion:       "2020-05-01",
+			OutputDirectory:  outputDirectory,
+			SwaggerDirectory: swaggerDirectory + "/specification/signalr/resource-manager/Microsoft.SignalRService/stable/2020-05-01",
+			SwaggerFiles: []string{
+				"signalr.json",
+			},
+		},
+		{
+			RootNamespace:    RootNamespace,
 			ServiceName:      "VMware",
 			ApiVersion:       "2020-03-20",
 			OutputDirectory:  outputDirectory,
