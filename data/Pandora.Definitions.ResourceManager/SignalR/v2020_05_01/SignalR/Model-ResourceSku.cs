@@ -8,7 +8,7 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.SignalR.v2020_05_01.SignalR
 {
 
-    internal class ResourceSku
+    internal class ResourceSkuModel
     {
         [JsonPropertyName("capacity")]
         public int? Capacity { get; set; }
@@ -24,6 +24,6 @@ namespace Pandora.Definitions.ResourceManager.SignalR.v2020_05_01.SignalR
         public string? Size { get; set; }
 
         [JsonPropertyName("tier")]
-        public SignalRSkuTier? Tier { get; set; }
+        public SignalRSkuTierConstant? Tier { get; set; }
     }
 }

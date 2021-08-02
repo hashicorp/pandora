@@ -8,7 +8,7 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.SignalR.v2020_05_01.SignalR
 {
 
-    internal class SignalRKeys
+    internal class SignalRKeysModel
     {
         [JsonPropertyName("primaryConnectionString")]
         public string? PrimaryConnectionString { get; set; }

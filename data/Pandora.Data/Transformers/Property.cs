@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using System.Text.Json.Serialization;
+using Pandora.Data.Helpers;
 using Pandora.Data.Models;
 using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
@@ -110,6 +111,15 @@ namespace Pandora.Data.Transformers
                     {
                         definition.ModelReference = input.PropertyType.Name;
                     }
+                }
+
+                if (definition.ConstantReference != null)
+                {
+                    definition.ConstantReference = definition.ConstantReference.TrimSuffix("Constant");
+                }
+                if (definition.ModelReference != null)
+                {
+                    definition.ModelReference = definition.ModelReference.TrimSuffix("Model");
                 }
 
                 return definition;

@@ -8,13 +8,13 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.SignalR.v2020_05_01.SignalR
 {
 
-    internal class PrivateEndpointACL
+    internal class PrivateEndpointACLModel
     {
         [JsonPropertyName("allow")]
-        public List<SignalRRequestType>? Allow { get; set; }
+        public List<SignalRRequestTypeConstant>? Allow { get; set; }
 
         [JsonPropertyName("deny")]
-        public List<SignalRRequestType>? Deny { get; set; }
+        public List<SignalRRequestTypeConstant>? Deny { get; set; }
 
         [JsonPropertyName("name")]
         [Required]

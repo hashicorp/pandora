@@ -8,7 +8,7 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.SignalR.v2020_05_01.SignalR
 {
 
-    internal class SignalRUsage
+    internal class SignalRUsageModel
     {
         [JsonPropertyName("currentValue")]
         public int? CurrentValue { get; set; }
@@ -20,7 +20,7 @@ namespace Pandora.Definitions.ResourceManager.SignalR.v2020_05_01.SignalR
         public int? Limit { get; set; }
 
         [JsonPropertyName("name")]
-        public SignalRUsageName? Name { get; set; }
+        public SignalRUsageNameModel? Name { get; set; }
 
         [JsonPropertyName("unit")]
         public string? Unit { get; set; }

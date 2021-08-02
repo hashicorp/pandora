@@ -39,9 +39,12 @@ func (g PandoraDefinitionGenerator) GenerateResources(resourceName, namespace st
 		if g.debugLog {
 			log.Printf("Generating Constant %q (in %s)", constantName, namespace)
 		}
-		code := g.codeForConstant(namespace, constantName, vals)
+		code, err := g.codeForConstant(namespace, constantName, vals)
+		if err != nil {
+			return err
+		}
 		fileName := path.Join(workingDirectory, fmt.Sprintf("Constant-%s.cs", constantName))
-		if err := writeToFile(fileName, code); err != nil {
+		if err := writeToFile(fileName, *code); err != nil {
 			return fmt.Errorf("generating code for %q: %+v", constantName, err)
 		}
 	}
@@ -81,7 +84,7 @@ func (g PandoraDefinitionGenerator) GenerateResources(resourceName, namespace st
 		if g.debugLog {
 			log.Printf("Generating Operation %q (in %s)", operationName, namespace)
 		}
-		code, err := g.codeForOperation(namespace, operationName, operation)
+		code, err := g.codeForOperation(namespace, operationName, operation, resource)
 		if err != nil {
 			return fmt.Errorf("generating code for operation %q in %q: %+v", operationName, namespace, err)
 		}

@@ -8,7 +8,7 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.SignalR.v2020_05_01.SignalR
 {
 
-    internal class NameAvailability
+    internal class NameAvailabilityModel
     {
         [JsonPropertyName("message")]
         public string? Message { get; set; }

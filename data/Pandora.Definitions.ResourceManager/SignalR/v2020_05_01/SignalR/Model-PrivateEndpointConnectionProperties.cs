@@ -8,15 +8,15 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.SignalR.v2020_05_01.SignalR
 {
 
-    internal class PrivateEndpointConnectionProperties
+    internal class PrivateEndpointConnectionPropertiesModel
     {
         [JsonPropertyName("privateEndpoint")]
-        public PrivateEndpoint? PrivateEndpoint { get; set; }
+        public PrivateEndpointModel? PrivateEndpoint { get; set; }
 
         [JsonPropertyName("privateLinkServiceConnectionState")]
-        public PrivateLinkServiceConnectionState? PrivateLinkServiceConnectionState { get; set; }
+        public PrivateLinkServiceConnectionStateModel? PrivateLinkServiceConnectionState { get; set; }
 
         [JsonPropertyName("provisioningState")]
-        public ProvisioningState? ProvisioningState { get; set; }
+        public ProvisioningStateConstant? ProvisioningState { get; set; }
     }
 }

@@ -8,7 +8,7 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
-func (g PandoraDefinitionGenerator) codeForOperation(namespace string, operationName string, operation models.OperationDetails) (*string, error) {
+func (g PandoraDefinitionGenerator) codeForOperation(namespace string, operationName string, operation models.OperationDetails, resource models.AzureApiResource) (*string, error) {
 	code := make([]string, 0)
 
 	if g.usesNonDefaultStatusCodes(operation) {
@@ -42,10 +42,18 @@ func (g PandoraDefinitionGenerator) codeForOperation(namespace string, operation
 	}
 
 	if operation.RequestObjectName != nil {
+		requestOperationTypeName := *operation.RequestObjectName
+		if _, isConstant := resource.Constants[requestOperationTypeName]; isConstant {
+			requestOperationTypeName += "Constant"
+		}
+		if _, isModel := resource.Models[requestOperationTypeName]; isModel {
+			requestOperationTypeName += "Model"
+		}
+
 		code = append(code, fmt.Sprintf(`		public override object? RequestObject()
 		{
 			return new %[1]s();
-		}`, *operation.RequestObjectName))
+		}`, requestOperationTypeName))
 	} else if strings.EqualFold(operation.Method, "POST") || strings.EqualFold(operation.Method, "PUT") {
 		// Post and Put operations should have one but it's possible they don't
 		code = append(code, fmt.Sprintf(`		public override object? RequestObject()
@@ -62,16 +70,24 @@ func (g PandoraDefinitionGenerator) codeForOperation(namespace string, operation
 	}
 
 	if operation.ResponseObjectName != nil {
+		responseOperationTypeName := *operation.ResponseObjectName
+		if _, isConstant := resource.Constants[responseOperationTypeName]; isConstant {
+			responseOperationTypeName += "Constant"
+		}
+		if _, isModel := resource.Models[responseOperationTypeName]; isModel {
+			responseOperationTypeName += "Model"
+		}
+
 		if operation.FieldContainingPaginationDetails == nil {
 			code = append(code, fmt.Sprintf(`		public override object? ResponseObject()
 		{
 			return new %[1]s();
-		}`, *operation.ResponseObjectName))
+		}`, responseOperationTypeName))
 		} else {
 			code = append(code, fmt.Sprintf(`		public override object NestedItemType()
 		{
 			return new %[1]s();
-		}`, *operation.ResponseObjectName))
+		}`, responseOperationTypeName))
 		}
 	}
 

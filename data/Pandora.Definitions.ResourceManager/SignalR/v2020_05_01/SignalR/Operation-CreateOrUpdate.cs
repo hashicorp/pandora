@@ -25,7 +25,7 @@ namespace Pandora.Definitions.ResourceManager.SignalR.v2020_05_01.SignalR
 
         public override object? RequestObject()
         {
-            return new SignalRResource();
+            return new SignalRResourceModel();
         }
 
         public override ResourceID? ResourceId()
@@ -35,7 +35,7 @@ namespace Pandora.Definitions.ResourceManager.SignalR.v2020_05_01.SignalR
 
         public override object? ResponseObject()
         {
-            return new SignalRResource();
+            return new SignalRResourceModel();
         }
 
 

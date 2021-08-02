@@ -35,7 +35,6 @@ func GenerationData() []RunInput {
 				"appconfiguration.json",
 			},
 		},
-		// EventHubs (2021-01-01-preview, 2018-01-01-preview and 2017-04-01)
 		{
 			RootNamespace:    RootNamespace,
 			ServiceName:      "EventHub",
@@ -253,7 +252,19 @@ func GenerationData() []RunInput {
 		//		"dataprotection.json",
 		//	},
 		//},
-
+		//
+		// DataBoxEdge - blocked on #73
+		// {
+		//         RootNamespace:    RootNamespace,
+		//         ServiceName:      "DataBoxEdge",
+		//         ApiVersion:       "2020-12-01",
+		//         OutputDirectory:  outputDirectory,
+		//         SwaggerDirectory: swaggerDirectory + "/specification/databoxedge/resource-manager/Microsoft.DataBoxEdge/stable/2020-12-01",
+		//         SwaggerFiles: []string{
+		//                 "databoxedge.json",
+		//         },
+		// },
+		//
 		// Healthcare APIS
 		//{
 		//	RootNamespace:    "Pandora.Definitions.ResourceManager",

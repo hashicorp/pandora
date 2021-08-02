@@ -8,7 +8,7 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
-func (g PandoraDefinitionGenerator) codeForConstant(namespace, constantName string, details models.ConstantDetails) string {
+func (g PandoraDefinitionGenerator) codeForConstant(namespace, constantName string, details models.ConstantDetails) (*string, error) {
 	code := make([]string, 0)
 
 	sortedKeys := make([]string, 0)
@@ -24,36 +24,44 @@ func (g PandoraDefinitionGenerator) codeForConstant(namespace, constantName stri
 	}
 
 	attributes := make([]string, 0)
-	attributes = append(attributes, fmt.Sprintf("\t[ConstantType(%s)]", mapConstantFieldType(details.FieldType)))
+	constantFieldType, err := mapConstantFieldType(details.FieldType)
+	if err != nil {
+		return nil, fmt.Errorf("mapping constant field type %q: %+v", string(details.FieldType), err)
+	}
+	attributes = append(attributes, fmt.Sprintf("\t[ConstantType(%s)]", *constantFieldType))
 
-	return fmt.Sprintf(`using Pandora.Definitions.Attributes;
+	out := fmt.Sprintf(`using Pandora.Definitions.Attributes;
 using System.ComponentModel;
 
 namespace %[1]s
 {
 %[4]s
-	internal enum %[2]s
+	internal enum %[2]sConstant
 	{
 %[3]s
 	}
 }
 `, namespace, constantName, strings.Join(code, "\n\n"), strings.Join(attributes, "\n"))
+	return &out, nil
 }
 
-func mapConstantFieldType(input models.ConstantFieldType) string {
+func mapConstantFieldType(input models.ConstantFieldType) (*string, error) {
+	result := func(in string) (*string, error) {
+		return &in, nil
+	}
 	if input == models.FloatConstant {
-		return "ConstantTypeAttribute.ConstantType.Float"
+		return result("ConstantTypeAttribute.ConstantType.Float")
 	}
 
 	if input == models.IntegerConstant {
-		return "ConstantTypeAttribute.ConstantType.Integer"
+		return result("ConstantTypeAttribute.ConstantType.Integer")
 	}
 
 	if input == models.StringConstant {
-		return "ConstantTypeAttribute.ConstantType.String"
+		return result("ConstantTypeAttribute.ConstantType.String")
 	}
 
-	return "TODO"
+	return nil, fmt.Errorf("unmapped Constant Type %q", string(input))
 }
 
 func (g PandoraDefinitionGenerator) normalizeConstantKey(input string) string {

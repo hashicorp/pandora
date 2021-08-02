@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
+using Pandora.Data.Helpers;
 using Pandora.Data.Models;
 using Pandora.Definitions.Attributes;
 
@@ -66,6 +67,7 @@ namespace Pandora.Data.Transformers
                     throw new NotSupportedException("expected an enum");
                 }
 
+                var name = input.Name.TrimSuffix("Constant");
                 var caseInsensitive = IsCaseInsensitive(input);
                 var variableType = TypeForEnum(input);
                 var values = ValuesForEnum(input);
@@ -73,7 +75,7 @@ namespace Pandora.Data.Transformers
                 // this enum has to have a 'description' tag for each of the values
                 return new ConstantDefinition
                 {
-                    Name = input.Name,
+                    Name = name,
                     CaseInsensitive = caseInsensitive,
                     Type = variableType,
                     Values = values,

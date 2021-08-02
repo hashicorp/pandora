@@ -28,7 +28,7 @@ namespace Pandora.Definitions.ResourceManager.SignalR.v2020_05_01.SignalR
 
         public override object? ResponseObject()
         {
-            return new SignalRKeys();
+            return new SignalRKeysModel();
         }
 
         public override string? UriSuffix()
