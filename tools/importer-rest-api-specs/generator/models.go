@@ -49,10 +49,10 @@ func (g PandoraDefinitionGenerator) codeForModel(namespace string, modelName str
 		code = append(code, *fieldCode)
 	}
 
-	typeInformation := fmt.Sprintf("class %s", modelName)
+	typeInformation := fmt.Sprintf("class %sModel", modelName)
 	if model.TypeHintIn != nil {
 		if model.ParentTypeName != nil {
-			typeInformation = fmt.Sprintf("%s : %s", typeInformation, *model.ParentTypeName)
+			typeInformation = fmt.Sprintf("%s : %sModel", typeInformation, *model.ParentTypeName)
 		} else {
 			// this is a discriminator/parent
 			typeInformation = fmt.Sprintf("abstract %s", typeInformation)
@@ -133,10 +133,10 @@ func dotNetTypeNameForComplexType(field models.FieldDetails) (*string, error) {
 	case models.Dictionary:
 		{
 			if field.ConstantReference != nil {
-				return nilableType(fmt.Sprintf("Dictionary<string, %s>", *field.ConstantReference))
+				return nilableType(fmt.Sprintf("Dictionary<string, %sConstant>", *field.ConstantReference))
 			}
 			if field.ModelReference != nil {
-				return nilableType(fmt.Sprintf("Dictionary<string, %s>", *field.ModelReference))
+				return nilableType(fmt.Sprintf("Dictionary<string, %sModel>", *field.ModelReference))
 			}
 			if field.DictValueType != nil {
 				return nilableType(fmt.Sprintf("Dictionary<string, %s>", *field.DictValueType))
@@ -149,10 +149,10 @@ func dotNetTypeNameForComplexType(field models.FieldDetails) (*string, error) {
 	case models.List:
 		{
 			if field.ConstantReference != nil {
-				return nilableType(fmt.Sprintf("List<%s>", *field.ConstantReference))
+				return nilableType(fmt.Sprintf("List<%sConstant>", *field.ConstantReference))
 			}
 			if field.ModelReference != nil {
-				return nilableType(fmt.Sprintf("List<%s>", *field.ModelReference))
+				return nilableType(fmt.Sprintf("List<%sModel>", *field.ModelReference))
 			}
 			if field.ListElementType != nil {
 				nestedType := ""
@@ -175,10 +175,10 @@ func dotNetTypeNameForComplexType(field models.FieldDetails) (*string, error) {
 
 	case models.Object:
 		if field.ConstantReference != nil {
-			return nilableType(*field.ConstantReference)
+			return nilableType(fmt.Sprintf("%sConstant", *field.ConstantReference))
 		}
 		if field.ModelReference != nil {
-			return nilableType(*field.ModelReference)
+			return nilableType(fmt.Sprintf("%sModel", *field.ModelReference))
 		}
 
 		// for example JSON fields

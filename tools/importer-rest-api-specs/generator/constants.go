@@ -36,7 +36,7 @@ using System.ComponentModel;
 namespace %[1]s
 {
 %[4]s
-	internal enum %[2]s
+	internal enum %[2]sConstant
 	{
 %[3]s
 	}
