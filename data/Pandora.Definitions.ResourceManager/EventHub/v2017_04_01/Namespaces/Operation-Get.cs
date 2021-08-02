@@ -1,18 +1,19 @@
+using Pandora.Definitions.Attributes;
+using Pandora.Definitions.Interfaces;
 using Pandora.Definitions.Operations;
 using System.Collections.Generic;
 using System.Net;
-using Pandora.Definitions.Interfaces;
 
 namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.Namespaces
 {
-    internal class Get : GetOperation
+    internal class GetOperation : Operations.GetOperation
     {
         public override IEnumerable<HttpStatusCode> ExpectedStatusCodes()
         {
             return new List<HttpStatusCode>
             {
-                HttpStatusCode.OK,
                 HttpStatusCode.Created,
+                HttpStatusCode.OK,
             };
         }
 
@@ -23,7 +24,9 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.Namespaces
 
         public override object? ResponseObject()
         {
-            return new EHNamespace();
+            return new EHNamespaceModel();
         }
+
+
     }
 }

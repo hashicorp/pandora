@@ -8,16 +8,16 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.AnalysisServices.v2017_08_01.Servers
 {
 
-    internal class ErrorDetail
+    internal class ErrorDetailModel
     {
         [JsonPropertyName("additionalInfo")]
-        public List<ErrorAdditionalInfo>? AdditionalInfo { get; set; }
+        public List<ErrorAdditionalInfoModel>? AdditionalInfo { get; set; }
 
         [JsonPropertyName("code")]
         public string? Code { get; set; }
 
         [JsonPropertyName("details")]
-        public List<ErrorDetail>? Details { get; set; }
+        public List<ErrorDetailModel>? Details { get; set; }
 
         [JsonPropertyName("httpStatusCode")]
         public int? HttpStatusCode { get; set; }

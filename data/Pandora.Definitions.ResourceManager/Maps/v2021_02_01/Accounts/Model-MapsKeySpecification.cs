@@ -8,10 +8,10 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.Maps.v2021_02_01.Accounts
 {
 
-    internal class MapsKeySpecification
+    internal class MapsKeySpecificationModel
     {
         [JsonPropertyName("keyType")]
         [Required]
-        public KeyType KeyType { get; set; }
+        public KeyTypeConstant KeyType { get; set; }
     }
 }

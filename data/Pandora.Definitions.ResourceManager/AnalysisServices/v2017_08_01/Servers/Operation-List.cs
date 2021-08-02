@@ -15,7 +15,7 @@ namespace Pandora.Definitions.ResourceManager.AnalysisServices.v2017_08_01.Serve
 
         public override object? ResponseObject()
         {
-            return new AnalysisServicesServers();
+            return new AnalysisServicesServersModel();
         }
 
         public override string? UriSuffix()

@@ -8,7 +8,7 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.Relay.v2017_04_01.Namespaces
 {
 
-    internal class RelayNamespace
+    internal class RelayNamespaceModel
     {
         [JsonPropertyName("id")]
         public string? Id { get; set; }
@@ -21,10 +21,10 @@ namespace Pandora.Definitions.ResourceManager.Relay.v2017_04_01.Namespaces
         public string? Name { get; set; }
 
         [JsonPropertyName("properties")]
-        public RelayNamespaceProperties? Properties { get; set; }
+        public RelayNamespacePropertiesModel? Properties { get; set; }
 
         [JsonPropertyName("sku")]
-        public Sku? Sku { get; set; }
+        public SkuModel? Sku { get; set; }
 
         [JsonPropertyName("tags")]
         public CustomTypes.Tags? Tags { get; set; }

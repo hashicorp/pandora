@@ -8,7 +8,7 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.Relay.v2017_04_01.HybridConnections
 {
 
-    internal class HybridConnectionProperties
+    internal class HybridConnectionPropertiesModel
     {
         [DateFormat(DateFormatAttribute.DateFormat.RFC3339)]
         [JsonPropertyName("createdAt")]

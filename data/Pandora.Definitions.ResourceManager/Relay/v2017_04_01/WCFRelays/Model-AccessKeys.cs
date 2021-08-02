@@ -8,7 +8,7 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.Relay.v2017_04_01.WCFRelays
 {
 
-    internal class AccessKeys
+    internal class AccessKeysModel
     {
         [JsonPropertyName("keyName")]
         public string? KeyName { get; set; }

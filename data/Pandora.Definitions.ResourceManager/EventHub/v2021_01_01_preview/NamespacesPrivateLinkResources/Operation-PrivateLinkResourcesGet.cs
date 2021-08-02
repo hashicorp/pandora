@@ -6,7 +6,7 @@ using System.Net;
 
 namespace Pandora.Definitions.ResourceManager.EventHub.v2021_01_01_preview.NamespacesPrivateLinkResources
 {
-    internal class PrivateLinkResourcesGet : GetOperation
+    internal class PrivateLinkResourcesGetOperation : Operations.GetOperation
     {
         public override ResourceID? ResourceId()
         {
@@ -15,12 +15,14 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2021_01_01_preview.Names
 
         public override object? ResponseObject()
         {
-            return new PrivateLinkResourcesListResult();
+            return new PrivateLinkResourcesListResultModel();
         }
 
         public override string? UriSuffix()
         {
             return "/privateLinkResources";
         }
+
+
     }
 }

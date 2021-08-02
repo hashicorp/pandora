@@ -5,7 +5,7 @@ namespace Pandora.Definitions.ResourceManager.Relay.v2017_04_01.WCFRelays
 {
     internal class Definition : ApiDefinition
     {
-        // Generated from Swagger revision "552b277f9f8d2057a94dfc9c3e09c0d877c0ea30" 
+        // Generated from Swagger revision "d2183715d380084ff04313a73c8803d042fe91b9" 
 
         public string ApiVersion => "2017-04-01";
         public string Name => "WCFRelays";

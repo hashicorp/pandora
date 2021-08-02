@@ -18,7 +18,7 @@ namespace Pandora.Definitions.ResourceManager.Relay.v2017_04_01.Namespaces
 
         public override object? RequestObject()
         {
-            return new CheckNameAvailability();
+            return new CheckNameAvailabilityModel();
         }
 
         public override ResourceID? ResourceId()
@@ -28,7 +28,7 @@ namespace Pandora.Definitions.ResourceManager.Relay.v2017_04_01.Namespaces
 
         public override object? ResponseObject()
         {
-            return new CheckNameAvailabilityResult();
+            return new CheckNameAvailabilityResultModel();
         }
 
         public override string? UriSuffix()

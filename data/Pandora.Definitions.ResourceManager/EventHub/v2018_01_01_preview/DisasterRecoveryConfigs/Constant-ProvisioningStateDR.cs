@@ -4,7 +4,7 @@ using System.ComponentModel;
 namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.DisasterRecoveryConfigs
 {
     [ConstantType(ConstantTypeAttribute.ConstantType.String)]
-    internal enum ProvisioningStateDR
+    internal enum ProvisioningStateDRConstant
     {
         [Description("Accepted")]
         Accepted,

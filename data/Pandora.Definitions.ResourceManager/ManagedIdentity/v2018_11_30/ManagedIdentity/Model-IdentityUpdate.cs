@@ -8,7 +8,7 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.ManagedIdentity.v2018_11_30.ManagedIdentity
 {
 
-    internal class IdentityUpdate
+    internal class IdentityUpdateModel
     {
         [JsonPropertyName("id")]
         public string? Id { get; set; }
@@ -20,7 +20,7 @@ namespace Pandora.Definitions.ResourceManager.ManagedIdentity.v2018_11_30.Manage
         public string? Name { get; set; }
 
         [JsonPropertyName("properties")]
-        public UserAssignedIdentityProperties? Properties { get; set; }
+        public UserAssignedIdentityPropertiesModel? Properties { get; set; }
 
         [JsonPropertyName("tags")]
         public CustomTypes.Tags? Tags { get; set; }

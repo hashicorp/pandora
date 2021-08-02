@@ -6,7 +6,7 @@ using System.Net;
 
 namespace Pandora.Definitions.ResourceManager.EventHub.v2021_01_01_preview.EventHubs
 {
-    internal class GetAuthorizationRule : GetOperation
+    internal class GetAuthorizationRuleOperation : Operations.GetOperation
     {
         public override ResourceID? ResourceId()
         {
@@ -15,7 +15,9 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2021_01_01_preview.Event
 
         public override object? ResponseObject()
         {
-            return new AuthorizationRule();
+            return new AuthorizationRuleModel();
         }
+
+
     }
 }

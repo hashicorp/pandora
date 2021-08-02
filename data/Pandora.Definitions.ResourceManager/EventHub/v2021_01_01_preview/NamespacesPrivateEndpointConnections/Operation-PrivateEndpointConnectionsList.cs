@@ -6,7 +6,7 @@ using System.Net;
 
 namespace Pandora.Definitions.ResourceManager.EventHub.v2021_01_01_preview.NamespacesPrivateEndpointConnections
 {
-    internal class PrivateEndpointConnectionsList : ListOperation
+    internal class PrivateEndpointConnectionsListOperation : Operations.ListOperation
     {
         public override string? FieldContainingPaginationDetails()
         {
@@ -20,12 +20,14 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2021_01_01_preview.Names
 
         public override object NestedItemType()
         {
-            return new PrivateEndpointConnection();
+            return new PrivateEndpointConnectionModel();
         }
 
         public override string? UriSuffix()
         {
             return "/privateEndpointConnections";
         }
+
+
     }
 }

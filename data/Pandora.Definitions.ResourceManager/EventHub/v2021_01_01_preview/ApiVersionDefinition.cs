@@ -14,6 +14,7 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2021_01_01_preview
             new AuthorizationRulesEventHubs.Definition(),
             new AuthorizationRulesNamespaces.Definition(),
             new CheckNameAvailabilityDisasterRecoveryConfigs.Definition(),
+            new CheckNameAvailabilityNamespaces.Definition(),
             new ConsumerGroups.Definition(),
             new DisasterRecoveryConfigs.Definition(),
             new EventHubs.Definition(),

@@ -8,7 +8,7 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.Maps.v2021_02_01.Accounts
 {
 
-    internal class MapsAccountKeys
+    internal class MapsAccountKeysModel
     {
         [JsonPropertyName("primaryKey")]
         public string? PrimaryKey { get; set; }

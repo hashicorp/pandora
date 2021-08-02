@@ -8,10 +8,10 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.VMware.v2020_03_20.PrivateClouds
 {
 
-    internal class PrivateCloudUpdate
+    internal class PrivateCloudUpdateModel
     {
         [JsonPropertyName("properties")]
-        public PrivateCloudUpdateProperties? Properties { get; set; }
+        public PrivateCloudUpdatePropertiesModel? Properties { get; set; }
 
         [JsonPropertyName("tags")]
         public CustomTypes.Tags? Tags { get; set; }

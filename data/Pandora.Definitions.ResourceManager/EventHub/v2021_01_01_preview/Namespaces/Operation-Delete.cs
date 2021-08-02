@@ -6,15 +6,15 @@ using System.Net;
 
 namespace Pandora.Definitions.ResourceManager.EventHub.v2021_01_01_preview.Namespaces
 {
-    internal class Delete : DeleteOperation
+    internal class DeleteOperation : Operations.DeleteOperation
     {
         public override IEnumerable<HttpStatusCode> ExpectedStatusCodes()
         {
             return new List<HttpStatusCode>
             {
+                HttpStatusCode.Accepted,
                 HttpStatusCode.NoContent,
                 HttpStatusCode.OK,
-                HttpStatusCode.Accepted,
             };
         }
 
@@ -27,5 +27,7 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2021_01_01_preview.Names
         {
             return new NamespaceId();
         }
+
+
     }
 }

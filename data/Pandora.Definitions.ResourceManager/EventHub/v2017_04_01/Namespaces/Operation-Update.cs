@@ -1,25 +1,26 @@
+using Pandora.Definitions.Attributes;
+using Pandora.Definitions.Interfaces;
 using Pandora.Definitions.Operations;
 using System.Collections.Generic;
 using System.Net;
-using Pandora.Definitions.Interfaces;
 
 namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.Namespaces
 {
-    internal class Update : PatchOperation
+    internal class UpdateOperation : Operations.PatchOperation
     {
         public override IEnumerable<HttpStatusCode> ExpectedStatusCodes()
         {
             return new List<HttpStatusCode>
             {
-                HttpStatusCode.OK,
-                HttpStatusCode.Created,
                 HttpStatusCode.Accepted,
+                HttpStatusCode.Created,
+                HttpStatusCode.OK,
             };
         }
 
         public override object? RequestObject()
         {
-            return new EHNamespace();
+            return new EHNamespaceModel();
         }
 
         public override ResourceID? ResourceId()
@@ -29,7 +30,9 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.Namespaces
 
         public override object? ResponseObject()
         {
-            return new EHNamespace();
+            return new EHNamespaceModel();
         }
+
+
     }
 }

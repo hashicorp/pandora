@@ -6,11 +6,11 @@ using System.Net;
 
 namespace Pandora.Definitions.ResourceManager.ManagedIdentity.v2018_11_30.ManagedIdentity
 {
-    internal class UserAssignedIdentitiesCreateOrUpdate : PutOperation
+    internal class UserAssignedIdentitiesCreateOrUpdateOperation : Operations.PutOperation
     {
         public override object? RequestObject()
         {
-            return new Identity();
+            return new IdentityModel();
         }
 
         public override ResourceID? ResourceId()
@@ -20,7 +20,7 @@ namespace Pandora.Definitions.ResourceManager.ManagedIdentity.v2018_11_30.Manage
 
         public override object? ResponseObject()
         {
-            return new Identity();
+            return new IdentityModel();
         }
 
 

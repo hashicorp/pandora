@@ -15,7 +15,7 @@ namespace Pandora.Definitions.ResourceManager.PowerBIDedicated.v2021_01_01.Capac
 
         public override object? RequestObject()
         {
-            return new DedicatedCapacity();
+            return new DedicatedCapacityModel();
         }
 
         public override ResourceID? ResourceId()
@@ -25,7 +25,7 @@ namespace Pandora.Definitions.ResourceManager.PowerBIDedicated.v2021_01_01.Capac
 
         public override object? ResponseObject()
         {
-            return new DedicatedCapacity();
+            return new DedicatedCapacityModel();
         }
 
 

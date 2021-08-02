@@ -2,17 +2,18 @@ using System;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 using Pandora.Definitions.Attributes;
+using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.NetWorkRuleSets
+namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.NetworkRuleSets
 {
 
-    internal class NWRuleSetVirtualNetworkRules
+    internal class NWRuleSetVirtualNetworkRulesModel
     {
         [JsonPropertyName("ignoreMissingVnetServiceEndpoint")]
-        public bool IgnoreMissingVnetServiceEndpoint { get; set; }
+        public bool? IgnoreMissingVnetServiceEndpoint { get; set; }
 
         [JsonPropertyName("subnet")]
-        public Subnet? Subnet { get; set; }
+        public SubnetModel? Subnet { get; set; }
     }
 }

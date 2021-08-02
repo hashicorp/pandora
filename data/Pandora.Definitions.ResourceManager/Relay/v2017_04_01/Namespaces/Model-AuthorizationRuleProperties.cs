@@ -8,10 +8,10 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.Relay.v2017_04_01.Namespaces
 {
 
-    internal class AuthorizationRuleProperties
+    internal class AuthorizationRulePropertiesModel
     {
         [JsonPropertyName("rights")]
         [Required]
-        public List<AccessRights> Rights { get; set; }
+        public List<AccessRightsConstant> Rights { get; set; }
     }
 }

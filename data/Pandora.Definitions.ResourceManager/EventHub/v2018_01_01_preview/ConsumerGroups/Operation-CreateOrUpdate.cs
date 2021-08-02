@@ -1,11 +1,12 @@
+using Pandora.Definitions.Attributes;
+using Pandora.Definitions.Interfaces;
 using Pandora.Definitions.Operations;
 using System.Collections.Generic;
 using System.Net;
-using Pandora.Definitions.Interfaces;
 
 namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.ConsumerGroups
 {
-    internal class CreateOrUpdate : PutOperation
+    internal class CreateOrUpdateOperation : Operations.PutOperation
     {
         public override IEnumerable<HttpStatusCode> ExpectedStatusCodes()
         {
@@ -17,7 +18,7 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.Consu
 
         public override object? RequestObject()
         {
-            return new ConsumerGroup();
+            return new ConsumerGroupModel();
         }
 
         public override ResourceID? ResourceId()
@@ -27,7 +28,9 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.Consu
 
         public override object? ResponseObject()
         {
-            return new ConsumerGroup();
+            return new ConsumerGroupModel();
         }
+
+
     }
 }

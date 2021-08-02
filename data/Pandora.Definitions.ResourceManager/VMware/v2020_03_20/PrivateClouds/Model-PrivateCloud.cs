@@ -8,7 +8,7 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.VMware.v2020_03_20.PrivateClouds
 {
 
-    internal class PrivateCloud
+    internal class PrivateCloudModel
     {
         [JsonPropertyName("id")]
         public string? Id { get; set; }
@@ -22,11 +22,11 @@ namespace Pandora.Definitions.ResourceManager.VMware.v2020_03_20.PrivateClouds
 
         [JsonPropertyName("properties")]
         [Required]
-        public PrivateCloudProperties Properties { get; set; }
+        public PrivateCloudPropertiesModel Properties { get; set; }
 
         [JsonPropertyName("sku")]
         [Required]
-        public Sku Sku { get; set; }
+        public SkuModel Sku { get; set; }
 
         [JsonPropertyName("tags")]
         public CustomTypes.Tags? Tags { get; set; }

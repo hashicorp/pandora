@@ -18,7 +18,7 @@ namespace Pandora.Definitions.ResourceManager.AnalysisServices.v2017_08_01.Serve
 
         public override object? RequestObject()
         {
-            return new CheckServerNameAvailabilityParameters();
+            return new CheckServerNameAvailabilityParametersModel();
         }
 
         public override ResourceID? ResourceId()
@@ -28,7 +28,7 @@ namespace Pandora.Definitions.ResourceManager.AnalysisServices.v2017_08_01.Serve
 
         public override object? ResponseObject()
         {
-            return new CheckServerNameAvailabilityResult();
+            return new CheckServerNameAvailabilityResultModel();
         }
 
         public override string? UriSuffix()

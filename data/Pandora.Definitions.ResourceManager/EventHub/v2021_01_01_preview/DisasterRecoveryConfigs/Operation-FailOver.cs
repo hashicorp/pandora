@@ -6,7 +6,7 @@ using System.Net;
 
 namespace Pandora.Definitions.ResourceManager.EventHub.v2021_01_01_preview.DisasterRecoveryConfigs
 {
-    internal class FailOver : PostOperation
+    internal class FailOverOperation : Operations.PostOperation
     {
         public override IEnumerable<HttpStatusCode> ExpectedStatusCodes()
         {
@@ -30,5 +30,7 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2021_01_01_preview.Disas
         {
             return "/failover";
         }
+
+
     }
 }

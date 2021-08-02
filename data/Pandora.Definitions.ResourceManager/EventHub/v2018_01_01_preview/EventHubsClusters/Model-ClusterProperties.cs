@@ -2,12 +2,13 @@ using System;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 using Pandora.Definitions.Attributes;
+using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
 namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.EventHubsClusters
 {
 
-    internal class ClusterProperties
+    internal class ClusterPropertiesModel
     {
         [JsonPropertyName("createdAt")]
         public string? CreatedAt { get; set; }

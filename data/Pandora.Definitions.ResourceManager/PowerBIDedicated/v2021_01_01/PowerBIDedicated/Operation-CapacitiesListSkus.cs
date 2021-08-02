@@ -15,7 +15,7 @@ namespace Pandora.Definitions.ResourceManager.PowerBIDedicated.v2021_01_01.Power
 
         public override object? ResponseObject()
         {
-            return new SkuEnumerationForNewResourceResult();
+            return new SkuEnumerationForNewResourceResultModel();
         }
 
         public override string? UriSuffix()

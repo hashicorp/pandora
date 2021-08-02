@@ -6,7 +6,7 @@ using System.Net;
 
 namespace Pandora.Definitions.ResourceManager.EventHub.v2021_01_01_preview.NamespacesPrivateEndpointConnections
 {
-    internal class PrivateEndpointConnectionsGet : GetOperation
+    internal class PrivateEndpointConnectionsGetOperation : Operations.GetOperation
     {
         public override ResourceID? ResourceId()
         {
@@ -15,7 +15,9 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2021_01_01_preview.Names
 
         public override object? ResponseObject()
         {
-            return new PrivateEndpointConnection();
+            return new PrivateEndpointConnectionModel();
         }
+
+
     }
 }

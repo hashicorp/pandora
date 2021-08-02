@@ -8,7 +8,7 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.AnalysisServices.v2017_08_01.Servers
 {
 
-    internal class IPv4FirewallRule
+    internal class IPv4FirewallRuleModel
     {
         [JsonPropertyName("firewallRuleName")]
         public string? FirewallRuleName { get; set; }

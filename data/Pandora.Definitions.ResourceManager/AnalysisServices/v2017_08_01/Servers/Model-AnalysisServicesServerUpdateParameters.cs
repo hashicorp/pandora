@@ -8,13 +8,13 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.AnalysisServices.v2017_08_01.Servers
 {
 
-    internal class AnalysisServicesServerUpdateParameters
+    internal class AnalysisServicesServerUpdateParametersModel
     {
         [JsonPropertyName("properties")]
-        public AnalysisServicesServerMutableProperties? Properties { get; set; }
+        public AnalysisServicesServerMutablePropertiesModel? Properties { get; set; }
 
         [JsonPropertyName("sku")]
-        public ResourceSku? Sku { get; set; }
+        public ResourceSkuModel? Sku { get; set; }
 
         [JsonPropertyName("tags")]
         public CustomTypes.Tags? Tags { get; set; }

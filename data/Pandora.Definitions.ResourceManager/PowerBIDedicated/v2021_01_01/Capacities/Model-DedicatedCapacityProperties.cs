@@ -8,18 +8,18 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.PowerBIDedicated.v2021_01_01.Capacities
 {
 
-    internal class DedicatedCapacityProperties
+    internal class DedicatedCapacityPropertiesModel
     {
         [JsonPropertyName("administration")]
-        public DedicatedCapacityAdministrators? Administration { get; set; }
+        public DedicatedCapacityAdministratorsModel? Administration { get; set; }
 
         [JsonPropertyName("mode")]
-        public Mode? Mode { get; set; }
+        public ModeConstant? Mode { get; set; }
 
         [JsonPropertyName("provisioningState")]
-        public CapacityProvisioningState? ProvisioningState { get; set; }
+        public CapacityProvisioningStateConstant? ProvisioningState { get; set; }
 
         [JsonPropertyName("state")]
-        public State? State { get; set; }
+        public StateConstant? State { get; set; }
     }
 }

@@ -8,7 +8,7 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.Maps.v2021_02_01.Creators
 {
 
-    internal class Creator
+    internal class CreatorModel
     {
         [JsonPropertyName("id")]
         public string? Id { get; set; }
@@ -22,7 +22,7 @@ namespace Pandora.Definitions.ResourceManager.Maps.v2021_02_01.Creators
 
         [JsonPropertyName("properties")]
         [Required]
-        public CreatorProperties Properties { get; set; }
+        public CreatorPropertiesModel Properties { get; set; }
 
         [JsonPropertyName("tags")]
         public CustomTypes.Tags? Tags { get; set; }

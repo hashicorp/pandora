@@ -1,18 +1,16 @@
-using Pandora.Definitions.Operations;
+using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Interfaces;
+using Pandora.Definitions.Operations;
+using System.Collections.Generic;
+using System.Net;
 
 namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.Namespaces
 {
-    internal class ListByResourceGroup : ListOperation
+    internal class ListByResourceGroupOperation : Operations.ListOperation
     {
         public override string? FieldContainingPaginationDetails()
         {
             return "nextLink";
-        }
-
-        public override object NestedItemType()
-        {
-            return new EHNamespace();
         }
 
         public override ResourceID? ResourceId()
@@ -20,9 +18,16 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.Names
             return new ResourceGroupId();
         }
 
+        public override object NestedItemType()
+        {
+            return new EHNamespaceModel();
+        }
+
         public override string? UriSuffix()
         {
             return "/providers/Microsoft.EventHub/namespaces";
         }
+
+
     }
 }

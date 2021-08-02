@@ -6,14 +6,14 @@ using System.Net;
 
 namespace Pandora.Definitions.ResourceManager.EventHub.v2021_01_01_preview.AuthorizationRulesNamespaces
 {
-    internal class NamespacesDeleteAuthorizationRule : DeleteOperation
+    internal class NamespacesDeleteAuthorizationRuleOperation : Operations.DeleteOperation
     {
         public override IEnumerable<HttpStatusCode> ExpectedStatusCodes()
         {
             return new List<HttpStatusCode>
             {
-                HttpStatusCode.OK,
                 HttpStatusCode.NoContent,
+                HttpStatusCode.OK,
             };
         }
 
@@ -21,5 +21,7 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2021_01_01_preview.Autho
         {
             return new AuthorizationRuleId();
         }
+
+
     }
 }

@@ -8,9 +8,9 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.AnalysisServices.v2017_08_01.Servers
 {
 
-    internal class GatewayListStatusLive
+    internal class GatewayListStatusLiveModel
     {
         [JsonPropertyName("status")]
-        public Status? Status { get; set; }
+        public StatusConstant? Status { get; set; }
     }
 }

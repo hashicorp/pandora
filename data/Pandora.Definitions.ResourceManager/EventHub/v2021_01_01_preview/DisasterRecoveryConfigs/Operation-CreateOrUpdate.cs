@@ -6,11 +6,11 @@ using System.Net;
 
 namespace Pandora.Definitions.ResourceManager.EventHub.v2021_01_01_preview.DisasterRecoveryConfigs
 {
-    internal class CreateOrUpdate : PutOperation
+    internal class CreateOrUpdateOperation : Operations.PutOperation
     {
         public override object? RequestObject()
         {
-            return new ArmDisasterRecovery();
+            return new ArmDisasterRecoveryModel();
         }
 
         public override ResourceID? ResourceId()
@@ -20,7 +20,9 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2021_01_01_preview.Disas
 
         public override object? ResponseObject()
         {
-            return new ArmDisasterRecovery();
+            return new ArmDisasterRecoveryModel();
         }
+
+
     }
 }

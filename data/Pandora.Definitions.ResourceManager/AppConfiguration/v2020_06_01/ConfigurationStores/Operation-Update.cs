@@ -1,11 +1,12 @@
+using Pandora.Definitions.Attributes;
+using Pandora.Definitions.Interfaces;
 using Pandora.Definitions.Operations;
 using System.Collections.Generic;
 using System.Net;
-using Pandora.Definitions.Interfaces;
 
 namespace Pandora.Definitions.ResourceManager.AppConfiguration.v2020_06_01.ConfigurationStores
 {
-    internal class Update : PatchOperation
+    internal class UpdateOperation : Operations.PatchOperation
     {
         public override bool LongRunning()
         {
@@ -14,12 +15,19 @@ namespace Pandora.Definitions.ResourceManager.AppConfiguration.v2020_06_01.Confi
 
         public override object? RequestObject()
         {
-            return new ConfigurationStoreUpdateParameters();
+            return new ConfigurationStoreUpdateParametersModel();
         }
 
         public override ResourceID? ResourceId()
         {
             return new ConfigurationStoreId();
         }
+
+        public override object? ResponseObject()
+        {
+            return new ConfigurationStoreModel();
+        }
+
+
     }
 }

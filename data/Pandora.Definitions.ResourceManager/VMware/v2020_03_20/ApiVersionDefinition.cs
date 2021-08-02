@@ -13,6 +13,7 @@ namespace Pandora.Definitions.ResourceManager.VMware.v2020_03_20
             new Authorizations.Definition(),
             new Clusters.Definition(),
             new HcxEnterpriseSites.Definition(),
+            new Locations.Definition(),
             new PrivateClouds.Definition(),
         };
     }

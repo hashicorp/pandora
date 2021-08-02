@@ -1,15 +1,16 @@
+using Pandora.Definitions.Attributes;
+using Pandora.Definitions.Interfaces;
 using Pandora.Definitions.Operations;
 using System.Collections.Generic;
 using System.Net;
-using Pandora.Definitions.Interfaces;
 
 namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.DisasterRecoveryConfigs
 {
-    internal class CreateOrUpdate : PutOperation
+    internal class CreateOrUpdateOperation : Operations.PutOperation
     {
         public override object? RequestObject()
         {
-            return new ArmDisasterRecovery();
+            return new ArmDisasterRecoveryModel();
         }
 
         public override ResourceID? ResourceId()
@@ -19,7 +20,9 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.DisasterRecov
 
         public override object? ResponseObject()
         {
-            return new ArmDisasterRecovery();
+            return new ArmDisasterRecoveryModel();
         }
+
+
     }
 }

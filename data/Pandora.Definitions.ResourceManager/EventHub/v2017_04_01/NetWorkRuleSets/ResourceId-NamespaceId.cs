@@ -1,6 +1,6 @@
 using Pandora.Definitions.Interfaces;
 
-namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.NetWorkRuleSets
+namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.NetworkRuleSets
 {
     internal class NamespaceId : ResourceID
     {

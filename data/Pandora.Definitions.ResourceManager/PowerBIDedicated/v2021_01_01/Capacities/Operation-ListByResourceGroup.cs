@@ -15,7 +15,7 @@ namespace Pandora.Definitions.ResourceManager.PowerBIDedicated.v2021_01_01.Capac
 
         public override object? ResponseObject()
         {
-            return new DedicatedCapacities();
+            return new DedicatedCapacitiesModel();
         }
 
         public override string? UriSuffix()

@@ -8,7 +8,7 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.VMware.v2020_03_20.PrivateClouds
 {
 
-    internal class ManagementCluster
+    internal class ManagementClusterModel
     {
         [JsonPropertyName("clusterId")]
         public int? ClusterId { get; set; }
@@ -21,6 +21,6 @@ namespace Pandora.Definitions.ResourceManager.VMware.v2020_03_20.PrivateClouds
         public List<string>? Hosts { get; set; }
 
         [JsonPropertyName("provisioningState")]
-        public ClusterProvisioningState? ProvisioningState { get; set; }
+        public ClusterProvisioningStateConstant? ProvisioningState { get; set; }
     }
 }

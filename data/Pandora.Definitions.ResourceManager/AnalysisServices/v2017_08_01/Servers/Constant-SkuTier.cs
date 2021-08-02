@@ -4,7 +4,7 @@ using System.ComponentModel;
 namespace Pandora.Definitions.ResourceManager.AnalysisServices.v2017_08_01.Servers
 {
     [ConstantType(ConstantTypeAttribute.ConstantType.String)]
-    internal enum SkuTier
+    internal enum SkuTierConstant
     {
         [Description("Basic")]
         Basic,

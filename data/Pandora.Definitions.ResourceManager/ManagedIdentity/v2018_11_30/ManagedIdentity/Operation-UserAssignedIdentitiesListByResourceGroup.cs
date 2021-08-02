@@ -6,7 +6,7 @@ using System.Net;
 
 namespace Pandora.Definitions.ResourceManager.ManagedIdentity.v2018_11_30.ManagedIdentity
 {
-    internal class UserAssignedIdentitiesListByResourceGroup : ListOperation
+    internal class UserAssignedIdentitiesListByResourceGroupOperation : Operations.ListOperation
     {
         public override string? FieldContainingPaginationDetails()
         {
@@ -20,7 +20,7 @@ namespace Pandora.Definitions.ResourceManager.ManagedIdentity.v2018_11_30.Manage
 
         public override object NestedItemType()
         {
-            return new Identity();
+            return new IdentityModel();
         }
 
         public override string? UriSuffix()

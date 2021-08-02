@@ -1,20 +1,16 @@
+using Pandora.Definitions.Attributes;
+using Pandora.Definitions.Interfaces;
 using Pandora.Definitions.Operations;
 using System.Collections.Generic;
 using System.Net;
-using Pandora.Definitions.Interfaces;
 
 namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.AuthorizationRulesEventHubs
 {
-    internal class EventHubsListAuthorizationRules : ListOperation
+    internal class EventHubsListAuthorizationRulesOperation : Operations.ListOperation
     {
         public override string? FieldContainingPaginationDetails()
         {
             return "nextLink";
-        }
-
-        public override object NestedItemType()
-        {
-            return new AuthorizationRule();
         }
 
         public override ResourceID? ResourceId()
@@ -22,9 +18,16 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.Authorization
             return new EventhubId();
         }
 
+        public override object NestedItemType()
+        {
+            return new AuthorizationRuleModel();
+        }
+
         public override string? UriSuffix()
         {
             return "/authorizationRules";
         }
+
+
     }
 }

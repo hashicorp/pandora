@@ -1,11 +1,12 @@
+using Pandora.Definitions.Attributes;
+using Pandora.Definitions.Interfaces;
 using Pandora.Definitions.Operations;
 using System.Collections.Generic;
 using System.Net;
-using Pandora.Definitions.Interfaces;
 
 namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.VirtualNetworkRules
 {
-    internal class NamespacesCreateOrUpdateVirtualNetworkRule : PutOperation
+    internal class NamespacesCreateOrUpdateVirtualNetworkRuleOperation : Operations.PutOperation
     {
         public override IEnumerable<HttpStatusCode> ExpectedStatusCodes()
         {
@@ -17,7 +18,7 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.Virtu
 
         public override object? RequestObject()
         {
-            return new VirtualNetworkRule();
+            return new VirtualNetworkRuleModel();
         }
 
         public override ResourceID? ResourceId()
@@ -27,7 +28,9 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.Virtu
 
         public override object? ResponseObject()
         {
-            return new VirtualNetworkRule();
+            return new VirtualNetworkRuleModel();
         }
+
+
     }
 }

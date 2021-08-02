@@ -8,9 +8,9 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.VMware.v2020_03_20.Clusters
 {
 
-    internal class ClusterUpdate
+    internal class ClusterUpdateModel
     {
         [JsonPropertyName("properties")]
-        public ClusterUpdateProperties? Properties { get; set; }
+        public ClusterUpdatePropertiesModel? Properties { get; set; }
     }
 }

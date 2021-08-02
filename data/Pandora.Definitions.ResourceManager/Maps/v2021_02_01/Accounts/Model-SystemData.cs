@@ -8,7 +8,7 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.Maps.v2021_02_01.Accounts
 {
 
-    internal class SystemData
+    internal class SystemDataModel
     {
         [DateFormat(DateFormatAttribute.DateFormat.RFC3339)]
         [JsonPropertyName("createdAt")]
@@ -18,7 +18,7 @@ namespace Pandora.Definitions.ResourceManager.Maps.v2021_02_01.Accounts
         public string? CreatedBy { get; set; }
 
         [JsonPropertyName("createdByType")]
-        public CreatedByType? CreatedByType { get; set; }
+        public CreatedByTypeConstant? CreatedByType { get; set; }
 
         [DateFormat(DateFormatAttribute.DateFormat.RFC3339)]
         [JsonPropertyName("lastModifiedAt")]
@@ -28,6 +28,6 @@ namespace Pandora.Definitions.ResourceManager.Maps.v2021_02_01.Accounts
         public string? LastModifiedBy { get; set; }
 
         [JsonPropertyName("lastModifiedByType")]
-        public CreatedByType? LastModifiedByType { get; set; }
+        public CreatedByTypeConstant? LastModifiedByType { get; set; }
     }
 }

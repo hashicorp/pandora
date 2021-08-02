@@ -4,7 +4,7 @@ using System.ComponentModel;
 namespace Pandora.Definitions.ResourceManager.VMware.v2020_03_20.Authorizations
 {
     [ConstantType(ConstantTypeAttribute.ConstantType.String)]
-    internal enum ExpressRouteAuthorizationProvisioningState
+    internal enum ExpressRouteAuthorizationProvisioningStateConstant
     {
         [Description("Failed")]
         Failed,

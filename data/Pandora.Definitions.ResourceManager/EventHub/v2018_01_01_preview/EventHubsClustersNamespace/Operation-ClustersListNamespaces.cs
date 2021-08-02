@@ -1,23 +1,28 @@
-using Pandora.Definitions.Operations;
+using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Interfaces;
+using Pandora.Definitions.Operations;
+using System.Collections.Generic;
+using System.Net;
 
 namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.EventHubsClustersNamespace
 {
-    internal class ClustersListNamespaces : ListOperation
+    internal class ClustersListNamespacesOperation : Operations.GetOperation
     {
-        public override object NestedItemType()
-        {
-            return new EHNamespaceIdContainer();
-        }
-
         public override ResourceID? ResourceId()
         {
             return new ClusterId();
+        }
+
+        public override object? ResponseObject()
+        {
+            return new EHNamespaceIdListResultModel();
         }
 
         public override string? UriSuffix()
         {
             return "/namespaces";
         }
+
+
     }
 }

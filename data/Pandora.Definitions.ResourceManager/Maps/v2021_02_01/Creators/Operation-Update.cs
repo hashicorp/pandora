@@ -6,7 +6,7 @@ using System.Net;
 
 namespace Pandora.Definitions.ResourceManager.Maps.v2021_02_01.Creators
 {
-    internal class Update : PatchOperation
+    internal class UpdateOperation : Operations.PatchOperation
     {
         public override IEnumerable<HttpStatusCode> ExpectedStatusCodes()
         {
@@ -18,7 +18,7 @@ namespace Pandora.Definitions.ResourceManager.Maps.v2021_02_01.Creators
 
         public override object? RequestObject()
         {
-            return new CreatorUpdateParameters();
+            return new CreatorUpdateParametersModel();
         }
 
         public override ResourceID? ResourceId()
@@ -28,7 +28,7 @@ namespace Pandora.Definitions.ResourceManager.Maps.v2021_02_01.Creators
 
         public override object? ResponseObject()
         {
-            return new Creator();
+            return new CreatorModel();
         }
 
 

@@ -1,11 +1,12 @@
+using Pandora.Definitions.Attributes;
+using Pandora.Definitions.Interfaces;
 using Pandora.Definitions.Operations;
 using System.Collections.Generic;
 using System.Net;
-using Pandora.Definitions.Interfaces;
 
 namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.AuthorizationRulesNamespaces
 {
-    internal class NamespacesListKeys : PostOperation
+    internal class NamespacesListKeysOperation : Operations.PostOperation
     {
         public override IEnumerable<HttpStatusCode> ExpectedStatusCodes()
         {
@@ -27,12 +28,14 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.Authorization
 
         public override object? ResponseObject()
         {
-            return new AccessKeys();
+            return new AccessKeysModel();
         }
 
         public override string? UriSuffix()
         {
             return "/listKeys";
         }
+
+
     }
 }

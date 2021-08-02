@@ -1,19 +1,20 @@
+using Pandora.Definitions.Attributes;
+using Pandora.Definitions.Interfaces;
 using Pandora.Definitions.Operations;
 using System.Collections.Generic;
 using System.Net;
-using Pandora.Definitions.Interfaces;
 
 namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.EventHubsClusters
 {
-    internal class ClustersUpdate : PatchOperation
+    internal class ClustersUpdateOperation : Operations.PatchOperation
     {
         public override IEnumerable<HttpStatusCode> ExpectedStatusCodes()
         {
             return new List<HttpStatusCode>
             {
-                HttpStatusCode.OK,
-                HttpStatusCode.Created,
                 HttpStatusCode.Accepted,
+                HttpStatusCode.Created,
+                HttpStatusCode.OK,
             };
         }
 
@@ -24,12 +25,19 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.Event
 
         public override object? RequestObject()
         {
-            return new Cluster();
+            return new ClusterModel();
         }
 
         public override ResourceID? ResourceId()
         {
             return new ClusterId();
         }
+
+        public override object? ResponseObject()
+        {
+            return new ClusterModel();
+        }
+
+
     }
 }

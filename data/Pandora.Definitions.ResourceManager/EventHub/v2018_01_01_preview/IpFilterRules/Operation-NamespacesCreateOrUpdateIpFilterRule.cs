@@ -1,11 +1,12 @@
+using Pandora.Definitions.Attributes;
+using Pandora.Definitions.Interfaces;
 using Pandora.Definitions.Operations;
 using System.Collections.Generic;
 using System.Net;
-using Pandora.Definitions.Interfaces;
 
 namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.IpFilterRules
 {
-    internal class NamespacesCreateOrUpdateIpFilterRule : PutOperation
+    internal class NamespacesCreateOrUpdateIpFilterRuleOperation : Operations.PutOperation
     {
         public override IEnumerable<HttpStatusCode> ExpectedStatusCodes()
         {
@@ -17,7 +18,7 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.IpFil
 
         public override object? RequestObject()
         {
-            return new IpFilterRule();
+            return new IpFilterRuleModel();
         }
 
         public override ResourceID? ResourceId()
@@ -27,7 +28,9 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.IpFil
 
         public override object? ResponseObject()
         {
-            return new IpFilterRule();
+            return new IpFilterRuleModel();
         }
+
+
     }
 }

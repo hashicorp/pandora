@@ -8,7 +8,7 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.VMware.v2020_03_20.PrivateClouds
 {
 
-    internal class Circuit
+    internal class CircuitModel
     {
         [JsonPropertyName("expressRouteID")]
         public string? ExpressRouteID { get; set; }

@@ -6,7 +6,7 @@ using System.Net;
 
 namespace Pandora.Definitions.ResourceManager.VMware.v2020_03_20.Clusters
 {
-    internal class Update : PatchOperation
+    internal class UpdateOperation : Operations.PatchOperation
     {
         public override bool LongRunning()
         {
@@ -15,7 +15,7 @@ namespace Pandora.Definitions.ResourceManager.VMware.v2020_03_20.Clusters
 
         public override object? RequestObject()
         {
-            return new ClusterUpdate();
+            return new ClusterUpdateModel();
         }
 
         public override ResourceID? ResourceId()
@@ -25,7 +25,7 @@ namespace Pandora.Definitions.ResourceManager.VMware.v2020_03_20.Clusters
 
         public override object? ResponseObject()
         {
-            return new Cluster();
+            return new ClusterModel();
         }
 
 

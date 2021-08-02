@@ -1,11 +1,12 @@
+using Pandora.Definitions.Attributes;
+using Pandora.Definitions.Interfaces;
 using Pandora.Definitions.Operations;
 using System.Collections.Generic;
 using System.Net;
-using Pandora.Definitions.Interfaces;
 
 namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.AuthorizationRulesEventHubs
 {
-    internal class EventHubsCreateOrUpdateAuthorizationRule : PutOperation
+    internal class EventHubsCreateOrUpdateAuthorizationRuleOperation : Operations.PutOperation
     {
         public override IEnumerable<HttpStatusCode> ExpectedStatusCodes()
         {
@@ -17,7 +18,7 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.Authorization
 
         public override object? RequestObject()
         {
-            return new AuthorizationRule();
+            return new AuthorizationRuleModel();
         }
 
         public override ResourceID? ResourceId()
@@ -27,7 +28,9 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.Authorization
 
         public override object? ResponseObject()
         {
-            return new AuthorizationRule();
+            return new AuthorizationRuleModel();
         }
+
+
     }
 }

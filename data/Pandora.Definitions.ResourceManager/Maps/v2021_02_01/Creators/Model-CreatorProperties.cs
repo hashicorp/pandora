@@ -8,7 +8,7 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.Maps.v2021_02_01.Creators
 {
 
-    internal class CreatorProperties
+    internal class CreatorPropertiesModel
     {
         [JsonPropertyName("provisioningState")]
         public string? ProvisioningState { get; set; }

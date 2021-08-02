@@ -8,7 +8,7 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.Relay.v2017_04_01.Namespaces
 {
 
-    internal class CheckNameAvailability
+    internal class CheckNameAvailabilityModel
     {
         [JsonPropertyName("name")]
         [Required]

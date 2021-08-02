@@ -8,7 +8,7 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.VMware.v2020_03_20.Clusters
 {
 
-    internal class Cluster
+    internal class ClusterModel
     {
         [JsonPropertyName("id")]
         public string? Id { get; set; }
@@ -18,11 +18,11 @@ namespace Pandora.Definitions.ResourceManager.VMware.v2020_03_20.Clusters
 
         [JsonPropertyName("properties")]
         [Required]
-        public ClusterProperties Properties { get; set; }
+        public ClusterPropertiesModel Properties { get; set; }
 
         [JsonPropertyName("sku")]
         [Required]
-        public Sku Sku { get; set; }
+        public SkuModel Sku { get; set; }
 
         [JsonPropertyName("type")]
         public string? Type { get; set; }

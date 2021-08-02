@@ -8,13 +8,13 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.Relay.v2017_04_01.Namespaces
 {
 
-    internal class Sku
+    internal class SkuModel
     {
         [JsonPropertyName("name")]
         [Required]
-        public SkuName Name { get; set; }
+        public SkuNameConstant Name { get; set; }
 
         [JsonPropertyName("tier")]
-        public SkuTier? Tier { get; set; }
+        public SkuTierConstant? Tier { get; set; }
     }
 }

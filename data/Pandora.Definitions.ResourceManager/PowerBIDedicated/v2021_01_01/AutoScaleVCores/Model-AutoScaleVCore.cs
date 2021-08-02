@@ -8,7 +8,7 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.PowerBIDedicated.v2021_01_01.AutoScaleVCores
 {
 
-    internal class AutoScaleVCore
+    internal class AutoScaleVCoreModel
     {
         [JsonPropertyName("id")]
         public string? Id { get; set; }
@@ -21,14 +21,14 @@ namespace Pandora.Definitions.ResourceManager.PowerBIDedicated.v2021_01_01.AutoS
         public string? Name { get; set; }
 
         [JsonPropertyName("properties")]
-        public AutoScaleVCoreProperties? Properties { get; set; }
+        public AutoScaleVCorePropertiesModel? Properties { get; set; }
 
         [JsonPropertyName("sku")]
         [Required]
-        public AutoScaleVCoreSku Sku { get; set; }
+        public AutoScaleVCoreSkuModel Sku { get; set; }
 
         [JsonPropertyName("systemData")]
-        public SystemData? SystemData { get; set; }
+        public SystemDataModel? SystemData { get; set; }
 
         [JsonPropertyName("tags")]
         public CustomTypes.Tags? Tags { get; set; }

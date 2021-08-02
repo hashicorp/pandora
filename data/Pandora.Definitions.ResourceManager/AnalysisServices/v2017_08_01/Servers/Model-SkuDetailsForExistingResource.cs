@@ -8,12 +8,12 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.AnalysisServices.v2017_08_01.Servers
 {
 
-    internal class SkuDetailsForExistingResource
+    internal class SkuDetailsForExistingResourceModel
     {
         [JsonPropertyName("resourceType")]
         public string? ResourceType { get; set; }
 
         [JsonPropertyName("sku")]
-        public ResourceSku? Sku { get; set; }
+        public ResourceSkuModel? Sku { get; set; }
     }
 }

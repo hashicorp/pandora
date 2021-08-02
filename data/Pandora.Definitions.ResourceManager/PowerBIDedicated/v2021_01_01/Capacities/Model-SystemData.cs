@@ -8,7 +8,7 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.PowerBIDedicated.v2021_01_01.Capacities
 {
 
-    internal class SystemData
+    internal class SystemDataModel
     {
         [DateFormat(DateFormatAttribute.DateFormat.RFC3339)]
         [JsonPropertyName("createdAt")]
@@ -18,7 +18,7 @@ namespace Pandora.Definitions.ResourceManager.PowerBIDedicated.v2021_01_01.Capac
         public string? CreatedBy { get; set; }
 
         [JsonPropertyName("createdByType")]
-        public IdentityType? CreatedByType { get; set; }
+        public IdentityTypeConstant? CreatedByType { get; set; }
 
         [DateFormat(DateFormatAttribute.DateFormat.RFC3339)]
         [JsonPropertyName("lastModifiedAt")]
@@ -28,6 +28,6 @@ namespace Pandora.Definitions.ResourceManager.PowerBIDedicated.v2021_01_01.Capac
         public string? LastModifiedBy { get; set; }
 
         [JsonPropertyName("lastModifiedByType")]
-        public IdentityType? LastModifiedByType { get; set; }
+        public IdentityTypeConstant? LastModifiedByType { get; set; }
     }
 }

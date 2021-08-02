@@ -1,11 +1,12 @@
+using Pandora.Definitions.Attributes;
+using Pandora.Definitions.Interfaces;
 using Pandora.Definitions.Operations;
 using System.Collections.Generic;
 using System.Net;
-using Pandora.Definitions.Interfaces;
 
 namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.NetworkRuleSets
 {
-    internal class NamespacesGetNetworkRuleSet : GetOperation
+    internal class NamespacesGetNetworkRuleSetOperation : Operations.GetOperation
     {
         public override ResourceID? ResourceId()
         {
@@ -14,12 +15,14 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.Netwo
 
         public override object? ResponseObject()
         {
-            return new NetworkRuleSet();
+            return new NetworkRuleSetModel();
         }
 
         public override string? UriSuffix()
         {
             return "/networkRuleSets/default";
         }
+
+
     }
 }

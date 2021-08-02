@@ -4,7 +4,7 @@ using System.ComponentModel;
 namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.CheckNameAvailabilityDisasterRecoveryConfigs
 {
     [ConstantType(ConstantTypeAttribute.ConstantType.String)]
-    internal enum UnavailableReason
+    internal enum UnavailableReasonConstant
     {
         [Description("InvalidName")]
         InvalidName,

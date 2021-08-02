@@ -8,7 +8,7 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.Relay.v2017_04_01.HybridConnections
 {
 
-    internal class HybridConnection
+    internal class HybridConnectionModel
     {
         [JsonPropertyName("id")]
         public string? Id { get; set; }
@@ -17,7 +17,7 @@ namespace Pandora.Definitions.ResourceManager.Relay.v2017_04_01.HybridConnection
         public string? Name { get; set; }
 
         [JsonPropertyName("properties")]
-        public HybridConnectionProperties? Properties { get; set; }
+        public HybridConnectionPropertiesModel? Properties { get; set; }
 
         [JsonPropertyName("type")]
         public string? Type { get; set; }

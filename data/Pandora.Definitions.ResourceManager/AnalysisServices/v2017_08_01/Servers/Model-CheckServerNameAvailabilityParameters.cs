@@ -8,7 +8,7 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.AnalysisServices.v2017_08_01.Servers
 {
 
-    internal class CheckServerNameAvailabilityParameters
+    internal class CheckServerNameAvailabilityParametersModel
     {
         [JsonPropertyName("name")]
         public string? Name { get; set; }

@@ -6,7 +6,7 @@ using System.Net;
 
 namespace Pandora.Definitions.ResourceManager.EventHub.v2021_01_01_preview.DisasterRecoveryConfigs
 {
-    internal class Delete : DeleteOperation
+    internal class DeleteOperation : Operations.DeleteOperation
     {
         public override IEnumerable<HttpStatusCode> ExpectedStatusCodes()
         {
@@ -20,5 +20,7 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2021_01_01_preview.Disas
         {
             return new DisasterRecoveryConfigId();
         }
+
+
     }
 }

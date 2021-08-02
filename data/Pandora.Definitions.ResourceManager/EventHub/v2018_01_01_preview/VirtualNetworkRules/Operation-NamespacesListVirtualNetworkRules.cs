@@ -1,20 +1,16 @@
+using Pandora.Definitions.Attributes;
+using Pandora.Definitions.Interfaces;
 using Pandora.Definitions.Operations;
 using System.Collections.Generic;
 using System.Net;
-using Pandora.Definitions.Interfaces;
 
 namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.VirtualNetworkRules
 {
-    internal class NamespacesListVirtualNetworkRules : ListOperation
+    internal class NamespacesListVirtualNetworkRulesOperation : Operations.ListOperation
     {
         public override string? FieldContainingPaginationDetails()
         {
             return "nextLink";
-        }
-
-        public override object NestedItemType()
-        {
-            return new VirtualNetworkRule();
         }
 
         public override ResourceID? ResourceId()
@@ -22,9 +18,16 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.Virtu
             return new NamespaceId();
         }
 
+        public override object NestedItemType()
+        {
+            return new VirtualNetworkRuleModel();
+        }
+
         public override string? UriSuffix()
         {
             return "/virtualnetworkrules";
         }
+
+
     }
 }

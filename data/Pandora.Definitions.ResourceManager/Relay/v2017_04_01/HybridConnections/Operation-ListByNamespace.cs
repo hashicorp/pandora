@@ -20,7 +20,7 @@ namespace Pandora.Definitions.ResourceManager.Relay.v2017_04_01.HybridConnection
 
         public override object NestedItemType()
         {
-            return new HybridConnection();
+            return new HybridConnectionModel();
         }
 
         public override string? UriSuffix()

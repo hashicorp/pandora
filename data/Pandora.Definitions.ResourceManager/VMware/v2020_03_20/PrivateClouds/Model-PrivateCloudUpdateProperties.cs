@@ -8,15 +8,15 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.VMware.v2020_03_20.PrivateClouds
 {
 
-    internal class PrivateCloudUpdateProperties
+    internal class PrivateCloudUpdatePropertiesModel
     {
         [JsonPropertyName("identitySources")]
-        public List<IdentitySource>? IdentitySources { get; set; }
+        public List<IdentitySourceModel>? IdentitySources { get; set; }
 
         [JsonPropertyName("internet")]
-        public InternetEnum? Internet { get; set; }
+        public InternetEnumConstant? Internet { get; set; }
 
         [JsonPropertyName("managementCluster")]
-        public ManagementCluster? ManagementCluster { get; set; }
+        public ManagementClusterModel? ManagementCluster { get; set; }
     }
 }

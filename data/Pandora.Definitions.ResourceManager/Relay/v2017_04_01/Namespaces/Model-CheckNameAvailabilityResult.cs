@@ -8,7 +8,7 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.Relay.v2017_04_01.Namespaces
 {
 
-    internal class CheckNameAvailabilityResult
+    internal class CheckNameAvailabilityResultModel
     {
         [JsonPropertyName("message")]
         public string? Message { get; set; }
@@ -17,6 +17,6 @@ namespace Pandora.Definitions.ResourceManager.Relay.v2017_04_01.Namespaces
         public bool? NameAvailable { get; set; }
 
         [JsonPropertyName("reason")]
-        public UnavailableReason? Reason { get; set; }
+        public UnavailableReasonConstant? Reason { get; set; }
     }
 }

@@ -1,11 +1,12 @@
+using Pandora.Definitions.Attributes;
+using Pandora.Definitions.Interfaces;
 using Pandora.Definitions.Operations;
 using System.Collections.Generic;
 using System.Net;
-using Pandora.Definitions.Interfaces;
 
 namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.VirtualNetworkRules
 {
-    internal class NamespacesGetVirtualNetworkRule : GetOperation
+    internal class NamespacesGetVirtualNetworkRuleOperation : Operations.GetOperation
     {
         public override ResourceID? ResourceId()
         {
@@ -14,7 +15,9 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.Virtu
 
         public override object? ResponseObject()
         {
-            return new VirtualNetworkRule();
+            return new VirtualNetworkRuleModel();
         }
+
+
     }
 }

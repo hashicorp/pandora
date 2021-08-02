@@ -8,12 +8,12 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.PowerBIDedicated.v2021_01_01.Capacities
 {
 
-    internal class DedicatedCapacityMutableProperties
+    internal class DedicatedCapacityMutablePropertiesModel
     {
         [JsonPropertyName("administration")]
-        public DedicatedCapacityAdministrators? Administration { get; set; }
+        public DedicatedCapacityAdministratorsModel? Administration { get; set; }
 
         [JsonPropertyName("mode")]
-        public Mode? Mode { get; set; }
+        public ModeConstant? Mode { get; set; }
     }
 }

@@ -8,7 +8,7 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.Relay.v2017_04_01.Namespaces
 {
 
-    internal class AuthorizationRule
+    internal class AuthorizationRuleModel
     {
         [JsonPropertyName("id")]
         public string? Id { get; set; }
@@ -18,7 +18,7 @@ namespace Pandora.Definitions.ResourceManager.Relay.v2017_04_01.Namespaces
 
         [JsonPropertyName("properties")]
         [Required]
-        public AuthorizationRuleProperties Properties { get; set; }
+        public AuthorizationRulePropertiesModel Properties { get; set; }
 
         [JsonPropertyName("type")]
         public string? Type { get; set; }

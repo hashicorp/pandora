@@ -8,7 +8,7 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.PowerBIDedicated.v2021_01_01.AutoScaleVCores
 {
 
-    internal class AutoScaleVCoreProperties
+    internal class AutoScaleVCorePropertiesModel
     {
         [JsonPropertyName("capacityLimit")]
         public int? CapacityLimit { get; set; }
@@ -17,6 +17,6 @@ namespace Pandora.Definitions.ResourceManager.PowerBIDedicated.v2021_01_01.AutoS
         public string? CapacityObjectId { get; set; }
 
         [JsonPropertyName("provisioningState")]
-        public VCoreProvisioningState? ProvisioningState { get; set; }
+        public VCoreProvisioningStateConstant? ProvisioningState { get; set; }
     }
 }

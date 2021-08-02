@@ -6,15 +6,15 @@ using System.Net;
 
 namespace Pandora.Definitions.ResourceManager.EventHub.v2021_01_01_preview.NamespacesPrivateEndpointConnections
 {
-    internal class PrivateEndpointConnectionsDelete : DeleteOperation
+    internal class PrivateEndpointConnectionsDeleteOperation : Operations.DeleteOperation
     {
         public override IEnumerable<HttpStatusCode> ExpectedStatusCodes()
         {
             return new List<HttpStatusCode>
             {
-                HttpStatusCode.OK,
                 HttpStatusCode.Accepted,
                 HttpStatusCode.NoContent,
+                HttpStatusCode.OK,
             };
         }
 
@@ -27,5 +27,7 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2021_01_01_preview.Names
         {
             return new PrivateEndpointConnectionId();
         }
+
+
     }
 }

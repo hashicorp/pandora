@@ -2,12 +2,13 @@ using System;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 using Pandora.Definitions.Attributes;
+using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
 namespace Pandora.Definitions.ResourceManager.EventHub.v2021_01_01_preview.CheckNameAvailabilityDisasterRecoveryConfigs
 {
 
-    internal class CheckNameAvailabilityResult
+    internal class CheckNameAvailabilityResultModel
     {
         [JsonPropertyName("message")]
         public string? Message { get; set; }
@@ -16,6 +17,6 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2021_01_01_preview.Check
         public bool? NameAvailable { get; set; }
 
         [JsonPropertyName("reason")]
-        public UnavailableReason? Reason { get; set; }
+        public UnavailableReasonConstant? Reason { get; set; }
     }
 }

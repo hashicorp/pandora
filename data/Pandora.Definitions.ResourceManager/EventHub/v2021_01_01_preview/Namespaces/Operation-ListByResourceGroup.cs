@@ -6,7 +6,7 @@ using System.Net;
 
 namespace Pandora.Definitions.ResourceManager.EventHub.v2021_01_01_preview.Namespaces
 {
-    internal class ListByResourceGroup : ListOperation
+    internal class ListByResourceGroupOperation : Operations.ListOperation
     {
         public override string? FieldContainingPaginationDetails()
         {
@@ -20,12 +20,14 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2021_01_01_preview.Names
 
         public override object NestedItemType()
         {
-            return new EHNamespace();
+            return new EHNamespaceModel();
         }
 
         public override string? UriSuffix()
         {
             return "/providers/Microsoft.EventHub/namespaces";
         }
+
+
     }
 }

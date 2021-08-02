@@ -8,10 +8,10 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.PowerBIDedicated.v2021_01_01.AutoScaleVCores
 {
 
-    internal class AutoScaleVCoreListResult
+    internal class AutoScaleVCoreListResultModel
     {
         [JsonPropertyName("value")]
         [Required]
-        public List<AutoScaleVCore> Value { get; set; }
+        public List<AutoScaleVCoreModel> Value { get; set; }
     }
 }

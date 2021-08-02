@@ -6,7 +6,7 @@ using System.Net;
 
 namespace Pandora.Definitions.ResourceManager.Maps.v2021_02_01.Accounts
 {
-    internal class ListKeys : PostOperation
+    internal class ListKeysOperation : Operations.PostOperation
     {
         public override IEnumerable<HttpStatusCode> ExpectedStatusCodes()
         {
@@ -28,7 +28,7 @@ namespace Pandora.Definitions.ResourceManager.Maps.v2021_02_01.Accounts
 
         public override object? ResponseObject()
         {
-            return new MapsAccountKeys();
+            return new MapsAccountKeysModel();
         }
 
         public override string? UriSuffix()
