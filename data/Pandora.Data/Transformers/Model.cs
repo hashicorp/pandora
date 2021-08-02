@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection;
 using NUnit.Framework.Constraints;
 using NUnit.Framework.Internal;
+using Pandora.Data.Helpers;
 using Pandora.Data.Models;
 using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Interfaces;
@@ -84,9 +85,10 @@ namespace Pandora.Data.Transformers
                     properties.Add(mappedProperty);
                 }
 
+                var name = input.Name.TrimSuffix("Model");
                 var model = new ModelDefinition
                 {
-                    Name = input.Name,
+                    Name = name,
                     Properties = properties.OrderBy(p => p.Name).ToList(),
                 };
 
@@ -110,7 +112,7 @@ namespace Pandora.Data.Transformers
                         {
                             // ensure the nested model contains the name of the parent type so this can be
                             // easily mapped across later
-                            mappedImpl.ParentTypeName = input.Name;
+                            mappedImpl.ParentTypeName = input.Name.TrimSuffix("Model");
                             models.Add(mappedImpl);
                         }
                     }

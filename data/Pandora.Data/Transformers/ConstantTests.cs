@@ -58,13 +58,13 @@ namespace Pandora.Data.Transformers
         [TestCase]
         public void MappingFromTypeWhichIsNotAClassShouldFail()
         {
-            Assert.Throws<Exception>(() => Constant.FromObject(typeof(Example)));
+            Assert.Throws<Exception>(() => Constant.FromObject(typeof(ExampleConstant)));
         }
 
         [TestCase]
         public void MappingABasicEnum()
         {
-            var actual = Constant.FromEnum(new Example().GetType());
+            var actual = Constant.FromEnum(new ExampleConstant().GetType());
             Assert.NotNull(actual);
             Assert.AreEqual(false, actual.CaseInsensitive);
             Assert.AreEqual(ConstantType.String, actual.Type);
@@ -138,7 +138,7 @@ namespace Pandora.Data.Transformers
 
         private class ClassWithSingleEnum
         {
-            public Example Prop { get; set; }
+            public ExampleConstant Prop { get; set; }
         }
 
         private class ClassWithNestedClassContainingAnEnum
@@ -154,7 +154,7 @@ namespace Pandora.Data.Transformers
         }
 
         [ConstantType(ConstantTypeAttribute.ConstantType.String)]
-        private enum Example
+        private enum ExampleConstant
         {
             [System.ComponentModel.Description("first")]
             First,

@@ -31,8 +31,8 @@ namespace Pandora.Data.Transformers
             Assert.AreEqual("application/json", actual.ContentType);
             Assert.AreEqual("DELETE", actual.Method);
             Assert.AreEqual(false, actual.LongRunning);
-            Assert.Null(actual.RequestObject);
-            Assert.Null(actual.ResponseObject);
+            Assert.Null(actual.RequestObjectName);
+            Assert.Null(actual.ResponseObjectName);
             Assert.AreEqual(1, actual.ExpectedStatusCodes.Count);
             Assert.AreEqual(200, actual.ExpectedStatusCodes.First());
         }
@@ -48,8 +48,8 @@ namespace Pandora.Data.Transformers
             Assert.AreEqual("application/json", actual.ContentType);
             Assert.AreEqual("DELETE", actual.Method);
             Assert.AreEqual(false, actual.LongRunning);
-            Assert.Null(actual.RequestObject);
-            Assert.Null(actual.ResponseObject);
+            Assert.Null(actual.RequestObjectName);
+            Assert.Null(actual.ResponseObjectName);
             Assert.AreEqual(2, actual.ExpectedStatusCodes.Count);
             Assert.AreEqual(200, actual.ExpectedStatusCodes.First());
             Assert.AreEqual(201, actual.ExpectedStatusCodes.Skip(1).First());
@@ -66,7 +66,7 @@ namespace Pandora.Data.Transformers
             Assert.AreEqual("application/json", actual.ContentType);
             Assert.AreEqual("DELETE", actual.Method);
             Assert.AreEqual(true, actual.LongRunning);
-            Assert.Null(actual.ResponseObject);
+            Assert.Null(actual.ResponseObjectName);
         }
 
         [TestCase]
@@ -80,11 +80,11 @@ namespace Pandora.Data.Transformers
             Assert.AreEqual("application/json", actual.ContentType);
             Assert.AreEqual("PUT", actual.Method);
             Assert.AreEqual(false, actual.LongRunning);
-            Assert.NotNull(actual.RequestObject);
-            Assert.Null(actual.ResponseObject);
+            Assert.NotNull(actual.RequestObjectName);
+            Assert.Null(actual.ResponseObjectName);
             Assert.AreEqual(1, actual.ExpectedStatusCodes.Count);
             Assert.AreEqual(200, actual.ExpectedStatusCodes.First());
-            Assert.AreEqual("TestObject", actual.RequestObject.GetType().Name);
+            Assert.AreEqual("TestObject", actual.RequestObjectName);
         }
 
         [TestCase]
@@ -98,11 +98,11 @@ namespace Pandora.Data.Transformers
             Assert.AreEqual("application/json", actual.ContentType);
             Assert.AreEqual("GET", actual.Method);
             Assert.AreEqual(false, actual.LongRunning);
-            Assert.Null(actual.RequestObject);
-            Assert.NotNull(actual.ResponseObject);
+            Assert.Null(actual.RequestObjectName);
+            Assert.NotNull(actual.ResponseObjectName);
             Assert.AreEqual(1, actual.ExpectedStatusCodes.Count);
             Assert.AreEqual(200, actual.ExpectedStatusCodes.First());
-            Assert.AreEqual("FakeResponseObject", actual.ResponseObject.GetType().Name);
+            Assert.AreEqual("FakeResponseObject", actual.ResponseObjectName);
             Assert.AreEqual("FakeResourceId", actual.ResourceIdName);
         }
 
@@ -117,11 +117,11 @@ namespace Pandora.Data.Transformers
             Assert.AreEqual("application/json", actual.ContentType);
             Assert.AreEqual("GET", actual.Method);
             Assert.AreEqual(false, actual.LongRunning);
-            Assert.Null(actual.RequestObject);
-            Assert.NotNull(actual.ResponseObject);
+            Assert.Null(actual.RequestObjectName);
+            Assert.NotNull(actual.ResponseObjectName);
             Assert.AreEqual(1, actual.ExpectedStatusCodes.Count);
             Assert.AreEqual(200, actual.ExpectedStatusCodes.First());
-            Assert.AreEqual("TestObject", actual.ResponseObject.GetType().Name);
+            Assert.AreEqual("TestObject", actual.ResponseObjectName);
         }
 
         [TestCase]
@@ -135,12 +135,12 @@ namespace Pandora.Data.Transformers
             Assert.AreEqual("application/json", actual.ContentType);
             Assert.AreEqual("PUT", actual.Method);
             Assert.AreEqual(false, actual.LongRunning);
-            Assert.NotNull(actual.RequestObject);
-            Assert.NotNull(actual.ResponseObject);
+            Assert.NotNull(actual.RequestObjectName);
+            Assert.NotNull(actual.ResponseObjectName);
             Assert.AreEqual(1, actual.ExpectedStatusCodes.Count);
             Assert.AreEqual(200, actual.ExpectedStatusCodes.First());
-            Assert.AreEqual("TestObject", actual.RequestObject.GetType().Name);
-            Assert.AreEqual("TestObject", actual.ResponseObject.GetType().Name);
+            Assert.AreEqual("TestObject", actual.RequestObjectName);
+            Assert.AreEqual("TestObject", actual.ResponseObjectName);
         }
 
         [TestCase]
@@ -154,8 +154,8 @@ namespace Pandora.Data.Transformers
             Assert.AreEqual("application/json", actual.ContentType);
             Assert.AreEqual("POST", actual.Method);
             Assert.AreEqual(false, actual.LongRunning);
-            Assert.Null(actual.RequestObject);
-            Assert.Null(actual.ResponseObject);
+            Assert.Null(actual.RequestObjectName);
+            Assert.Null(actual.ResponseObjectName);
             Assert.AreEqual(1, actual.ExpectedStatusCodes.Count);
             Assert.AreEqual(200, actual.ExpectedStatusCodes.First());
             Assert.AreEqual(0, actual.Options.Count);
@@ -173,8 +173,8 @@ namespace Pandora.Data.Transformers
             Assert.AreEqual("application/json", actual.ContentType);
             Assert.AreEqual("POST", actual.Method);
             Assert.AreEqual(false, actual.LongRunning);
-            Assert.Null(actual.RequestObject);
-            Assert.Null(actual.ResponseObject);
+            Assert.Null(actual.RequestObjectName);
+            Assert.Null(actual.ResponseObjectName);
             Assert.AreEqual(1, actual.ExpectedStatusCodes.Count);
             Assert.AreEqual(200, actual.ExpectedStatusCodes.First());
             Assert.AreEqual(2, actual.Options.Count);
@@ -199,12 +199,12 @@ namespace Pandora.Data.Transformers
             Assert.AreEqual("application/json; charset=utf-8", actual.ContentType);
             Assert.AreEqual("GET", actual.Method);
             Assert.AreEqual(false, actual.LongRunning);
-            Assert.Null(actual.RequestObject);
-            Assert.NotNull(actual.ResponseObject);
+            Assert.Null(actual.RequestObjectName);
+            Assert.NotNull(actual.ResponseObjectName);
             Assert.AreEqual(1, actual.ExpectedStatusCodes.Count);
             Assert.AreEqual(200, actual.ExpectedStatusCodes.First());
             Assert.AreEqual(0, actual.Options.Count);
-            Assert.AreEqual("FakeNestedType", actual.ResponseObject.GetType().Name);
+            Assert.AreEqual("FakeNestedType", actual.ResponseObjectName);
             Assert.AreEqual("@odata.foobar", actual.FieldContainingPaginationDetails);
         }
 

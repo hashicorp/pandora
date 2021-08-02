@@ -10,6 +10,26 @@ namespace Pandora.Data.Transformers
     public static class ModelTests
     {
         [TestCase]
+        public static void MappingAModelShouldRemoveSuffixes()
+        {
+            var actual = Model.Map(new ExampleWithSuffixesModel());
+            Assert.NotNull(actual);
+            Assert.AreEqual(2, actual.Count);
+            var model = actual.First(a => a.Name == "ExampleWithSuffixes");
+            Assert.NotNull(actual.First(a => a.Name == "Second"));
+
+            Assert.AreEqual("ExampleWithSuffixes", model.Name);
+            Assert.AreEqual(4, model.Properties.Count);
+            Assert.NotNull(model.Properties.First(p => p.Name == "Bool"));
+            Assert.NotNull(model.Properties.First(p => p.Name == "Int"));
+            Assert.NotNull(model.Properties.First(p => p.Name == "SecondProp"));
+            Assert.NotNull(model.Properties.First(p => p.Name == "String"));
+
+            var secondModel = model.Properties.First(p => p.Name == "SecondProp");
+            Assert.AreEqual("Second", secondModel.ModelReference);
+        }
+
+        [TestCase]
         public static void MappingAModelContainingSelfReferences()
         {
             var actual = Model.Map(new ExampleWithSelfReferences());
@@ -266,6 +286,28 @@ namespace Pandora.Data.Transformers
         private class Dog : Animal
         {
         }
+    }
+
+    public class ExampleWithSuffixesModel
+    {
+        [JsonPropertyName("bool")]
+        public bool Bool { get; set; }
+
+        [JsonPropertyName("int")]
+        public int Int { get; set; }
+
+        [JsonPropertyName("secondProp")]
+        public SecondModel SecondProp { get; set; }
+
+        [JsonPropertyName("string")]
+        public string String { get; set; }
+    }
+
+    public class SecondModel
+    {
+        [JsonPropertyName("field")]
+        [Optional]
+        public bool Field { get; set; }
     }
 
     public class ExampleWithSelfReferences

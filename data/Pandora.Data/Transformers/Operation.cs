@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using Microsoft.VisualBasic;
 using Pandora.Data.Helpers;
 using Pandora.Data.Models;
 using Pandora.Definitions.Interfaces;
@@ -37,12 +38,24 @@ namespace Pandora.Data.Transformers
                 }
 
                 var longRunning = input.LongRunning();
-                var requestObject = input.RequestObject();
-                var responseObject = input.ResponseObject();
-                if (longRunning && responseObject != null)
+                string? requestObjectName = null;
+                if (input.RequestObject() != null)
+                {
+                    requestObjectName = input.RequestObject().GetType().Name;
+                    requestObjectName = RemoveSuffixFromTypeName(requestObjectName);
+                }
+
+                string? responseObjectName = null;
+                if (input.ResponseObject() != null)
+                {
+                    responseObjectName = input.ResponseObject().GetType().Name;
+                    responseObjectName = RemoveSuffixFromTypeName(responseObjectName);
+                }
+
+                if (longRunning && responseObjectName != null)
                 {
                     // disregard the response object since this shouldn't be useful
-                    responseObject = null;
+                    responseObjectName = null;
                 }
 
                 // TODO: tests covering this?
@@ -60,7 +73,8 @@ namespace Pandora.Data.Transformers
                         throw new NotSupportedException("List operations must return a response object from NestedItemType()");
                     }
 
-                    responseObject = nestedElementType;
+                    responseObjectName = nestedElementType.GetType().Name;
+                    responseObjectName = RemoveSuffixFromTypeName(responseObjectName);
                 }
 
                 var options = Options.Map(input.OptionsObject());
@@ -93,9 +107,9 @@ namespace Pandora.Data.Transformers
                     FieldContainingPaginationDetails = input.FieldContainingPaginationDetails(),
                     LongRunning = longRunning,
                     Options = options,
-                    RequestObject = requestObject,
+                    RequestObjectName = requestObjectName,
                     ResourceIdName = resourceIdName,
-                    ResponseObject = responseObject,
+                    ResponseObjectName = responseObjectName,
                     UriSuffix = input.UriSuffix(),
                 };
             }
@@ -103,6 +117,18 @@ namespace Pandora.Data.Transformers
             {
                 throw new Exception($"Mapping Operation {input.GetType().FullName}", ex);
             }
+        }
+
+        private static string? RemoveSuffixFromTypeName(string? input)
+        {
+            if (input == null)
+            {
+                return null;
+            }
+
+            input = input.TrimSuffix("Constant");
+            input = input.TrimSuffix("Model");
+            return input;
         }
     }
 }

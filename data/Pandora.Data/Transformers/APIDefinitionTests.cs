@@ -55,7 +55,7 @@ namespace Pandora.Data.Transformers
             Assert.AreEqual("FakeOperationWithRequestModel", actual.Operations.First().Name);
             Assert.AreEqual(0, actual.Constants.Count);
             Assert.AreEqual(1, actual.Models.Count);
-            Assert.AreEqual("FakeModel", actual.Models.First().Name);
+            Assert.AreEqual("Fake", actual.Models.First().Name);
         }
 
         [TestCase]
@@ -68,8 +68,8 @@ namespace Pandora.Data.Transformers
             Assert.AreEqual("FakeOperationWithRequestAndResponseModel", actual.Operations.First().Name);
             Assert.AreEqual(0, actual.Constants.Count);
             Assert.AreEqual(2, actual.Models.Count);
-            Assert.AreEqual("FakeModel", actual.Models.First().Name);
-            Assert.AreEqual("FakeSecondModel", actual.Models.Skip(1).First().Name);
+            Assert.AreEqual("Fake", actual.Models.First().Name);
+            Assert.AreEqual("FakeSecond", actual.Models.Skip(1).First().Name);
         }
 
         [TestCase]
@@ -82,7 +82,7 @@ namespace Pandora.Data.Transformers
             Assert.AreEqual("FakeOperationWithResponseModel", actual.Operations.First().Name);
             Assert.AreEqual(0, actual.Constants.Count);
             Assert.AreEqual(1, actual.Models.Count);
-            Assert.AreEqual("FakeModel", actual.Models.First().Name);
+            Assert.AreEqual("Fake", actual.Models.First().Name);
         }
 
         [TestCase]
@@ -95,8 +95,8 @@ namespace Pandora.Data.Transformers
             Assert.AreEqual("FakeOperationWithANestedResponseModel", actual.Operations.First().Name);
             Assert.AreEqual(0, actual.Constants.Count);
             Assert.AreEqual(3, actual.Models.Count);
-            Assert.AreEqual("FakeModel", actual.Models.First().Name);
-            Assert.AreEqual("FakeSecondModel", actual.Models.Skip(1).First().Name);
+            Assert.AreEqual("Fake", actual.Models.First().Name);
+            Assert.AreEqual("FakeSecond", actual.Models.Skip(1).First().Name);
             Assert.AreEqual("FakeWithNested", actual.Models.Skip(2).First().Name);
         }
 
@@ -110,7 +110,7 @@ namespace Pandora.Data.Transformers
             Assert.AreEqual("FakeOperationWithADuplicateNestedResponseModel", actual.Operations.First().Name);
             Assert.AreEqual(0, actual.Constants.Count);
             Assert.AreEqual(2, actual.Models.Count);
-            Assert.AreEqual("FakeModel", actual.Models.First().Name);
+            Assert.AreEqual("Fake", actual.Models.First().Name);
             Assert.AreEqual("FakeWithDuplicateNestedTypes", actual.Models.Skip(1).First().Name);
         }
 
@@ -123,7 +123,7 @@ namespace Pandora.Data.Transformers
             Assert.AreEqual(1, actual.Operations.Count);
             Assert.AreEqual("FakeOperationWithRequestModelAndConstant", actual.Operations.First().Name);
             Assert.AreEqual(1, actual.Constants.Count);
-            Assert.AreEqual("FakeConstant", actual.Constants.First().Name);
+            Assert.AreEqual("Fake", actual.Constants.First().Name);
             Assert.AreEqual(1, actual.Models.Count);
             Assert.AreEqual("FakeWithConstant", actual.Models.First().Name);
         }
@@ -137,7 +137,7 @@ namespace Pandora.Data.Transformers
             Assert.AreEqual(1, actual.Operations.Count);
             Assert.AreEqual("FakeOperationWithRequestModelAndDuplicateConstants", actual.Operations.First().Name);
             Assert.AreEqual(1, actual.Constants.Count);
-            Assert.AreEqual("FakeConstant", actual.Constants.First().Name);
+            Assert.AreEqual("Fake", actual.Constants.First().Name);
             Assert.AreEqual(1, actual.Models.Count);
             Assert.AreEqual("FakeWithDuplicateConstants", actual.Models.First().Name);
         }
@@ -151,8 +151,8 @@ namespace Pandora.Data.Transformers
             Assert.AreEqual(1, actual.Operations.Count);
             Assert.AreEqual("FakeOperationWithRequestModelAndNestedConstants", actual.Operations.First().Name);
             Assert.AreEqual(2, actual.Constants.Count);
-            Assert.AreEqual("FakeConstant", actual.Constants.First().Name);
-            Assert.AreEqual("FakeSecondConstant", actual.Constants.Skip(1).First().Name);
+            Assert.AreEqual("Fake", actual.Constants.First().Name);
+            Assert.AreEqual("FakeSecond", actual.Constants.Skip(1).First().Name);
             Assert.AreEqual(2, actual.Models.Count);
             Assert.AreEqual("FakeWithConstant", actual.Models.First().Name);
             Assert.AreEqual("FakeWithNestedConstants", actual.Models.Skip(1).First().Name);
@@ -167,7 +167,7 @@ namespace Pandora.Data.Transformers
             Assert.AreEqual(1, actual.Operations.Count);
             Assert.AreEqual("FakeOperationWithRequestModelAndDuplicateNestedConstants", actual.Operations.First().Name);
             Assert.AreEqual(1, actual.Constants.Count);
-            Assert.AreEqual("FakeConstant", actual.Constants.First().Name);
+            Assert.AreEqual("Fake", actual.Constants.First().Name);
             Assert.AreEqual(2, actual.Models.Count);
             Assert.AreEqual("FakeWithConstant", actual.Models.First().Name);
             Assert.AreEqual("FakeWithDuplicateNestedConstants", actual.Models.Skip(1).First().Name);

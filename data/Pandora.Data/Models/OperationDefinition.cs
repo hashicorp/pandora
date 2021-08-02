@@ -14,9 +14,9 @@ namespace Pandora.Data.Models
         public bool LongRunning { get; set; }
         public string Method { get; set; }
         public List<OptionDefinition> Options { get; set; }
-        public object? RequestObject { get; set; }
+        public string? RequestObjectName { get; set; }
         public string? ResourceIdName { get; set; }
-        public object? ResponseObject { get; set; }
+        public string? ResponseObjectName { get; set; }
         public string? UriSuffix { get; set; }
     }
 }
