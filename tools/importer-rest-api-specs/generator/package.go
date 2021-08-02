@@ -84,7 +84,7 @@ func (g PandoraDefinitionGenerator) GenerateResources(resourceName, namespace st
 		if g.debugLog {
 			log.Printf("Generating Operation %q (in %s)", operationName, namespace)
 		}
-		code, err := g.codeForOperation(namespace, operationName, operation)
+		code, err := g.codeForOperation(namespace, operationName, operation, resource)
 		if err != nil {
 			return fmt.Errorf("generating code for operation %q in %q: %+v", operationName, namespace, err)
 		}
