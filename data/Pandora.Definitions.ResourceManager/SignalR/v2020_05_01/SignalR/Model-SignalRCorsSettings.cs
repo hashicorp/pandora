@@ -8,7 +8,7 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.SignalR.v2020_05_01.SignalR
 {
 
-    internal class SignalRCorsSettings
+    internal class SignalRCorsSettingsModel
     {
         [JsonPropertyName("allowedOrigins")]
         public List<string>? AllowedOrigins { get; set; }

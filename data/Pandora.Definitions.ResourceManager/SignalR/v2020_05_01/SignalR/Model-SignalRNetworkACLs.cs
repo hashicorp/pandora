@@ -8,15 +8,15 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.SignalR.v2020_05_01.SignalR
 {
 
-    internal class SignalRNetworkACLs
+    internal class SignalRNetworkACLsModel
     {
         [JsonPropertyName("defaultAction")]
-        public ACLAction? DefaultAction { get; set; }
+        public ACLActionConstant? DefaultAction { get; set; }
 
         [JsonPropertyName("privateEndpoints")]
-        public List<PrivateEndpointACL>? PrivateEndpoints { get; set; }
+        public List<PrivateEndpointACLModel>? PrivateEndpoints { get; set; }
 
         [JsonPropertyName("publicNetwork")]
-        public NetworkACL? PublicNetwork { get; set; }
+        public NetworkACLModel? PublicNetwork { get; set; }
     }
 }

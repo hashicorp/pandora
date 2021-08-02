@@ -20,7 +20,7 @@ namespace Pandora.Definitions.ResourceManager.SignalR.v2020_05_01.SignalR
 
         public override object NestedItemType()
         {
-            return new SignalRUsage();
+            return new SignalRUsageModel();
         }
 
         public override string? UriSuffix()

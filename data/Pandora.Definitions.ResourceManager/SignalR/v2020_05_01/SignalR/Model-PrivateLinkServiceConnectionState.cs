@@ -8,7 +8,7 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.SignalR.v2020_05_01.SignalR
 {
 
-    internal class PrivateLinkServiceConnectionState
+    internal class PrivateLinkServiceConnectionStateModel
     {
         [JsonPropertyName("actionsRequired")]
         public string? ActionsRequired { get; set; }
@@ -17,6 +17,6 @@ namespace Pandora.Definitions.ResourceManager.SignalR.v2020_05_01.SignalR
         public string? Description { get; set; }
 
         [JsonPropertyName("status")]
-        public PrivateLinkServiceConnectionStatus? Status { get; set; }
+        public PrivateLinkServiceConnectionStatusConstant? Status { get; set; }
     }
 }

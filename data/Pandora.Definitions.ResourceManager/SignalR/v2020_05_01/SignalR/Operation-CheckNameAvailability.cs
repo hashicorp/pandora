@@ -18,7 +18,7 @@ namespace Pandora.Definitions.ResourceManager.SignalR.v2020_05_01.SignalR
 
         public override object? RequestObject()
         {
-            return new NameAvailabilityParameters();
+            return new NameAvailabilityParametersModel();
         }
 
         public override ResourceID? ResourceId()
@@ -28,7 +28,7 @@ namespace Pandora.Definitions.ResourceManager.SignalR.v2020_05_01.SignalR
 
         public override object? ResponseObject()
         {
-            return new NameAvailability();
+            return new NameAvailabilityModel();
         }
 
         public override string? UriSuffix()

@@ -8,16 +8,16 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.SignalR.v2020_05_01.SignalR
 {
 
-    internal class SignalRProperties
+    internal class SignalRPropertiesModel
     {
         [JsonPropertyName("cors")]
-        public SignalRCorsSettings? Cors { get; set; }
+        public SignalRCorsSettingsModel? Cors { get; set; }
 
         [JsonPropertyName("externalIP")]
         public string? ExternalIP { get; set; }
 
         [JsonPropertyName("features")]
-        public List<SignalRFeature>? Features { get; set; }
+        public List<SignalRFeatureModel>? Features { get; set; }
 
         [JsonPropertyName("hostName")]
         public string? HostName { get; set; }
@@ -26,13 +26,13 @@ namespace Pandora.Definitions.ResourceManager.SignalR.v2020_05_01.SignalR
         public string? HostNamePrefix { get; set; }
 
         [JsonPropertyName("networkACLs")]
-        public SignalRNetworkACLs? NetworkACLs { get; set; }
+        public SignalRNetworkACLsModel? NetworkACLs { get; set; }
 
         [JsonPropertyName("privateEndpointConnections")]
-        public List<PrivateEndpointConnection>? PrivateEndpointConnections { get; set; }
+        public List<PrivateEndpointConnectionModel>? PrivateEndpointConnections { get; set; }
 
         [JsonPropertyName("provisioningState")]
-        public ProvisioningState? ProvisioningState { get; set; }
+        public ProvisioningStateConstant? ProvisioningState { get; set; }
 
         [JsonPropertyName("publicPort")]
         public int? PublicPort { get; set; }
@@ -41,7 +41,7 @@ namespace Pandora.Definitions.ResourceManager.SignalR.v2020_05_01.SignalR
         public int? ServerPort { get; set; }
 
         [JsonPropertyName("upstream")]
-        public ServerlessUpstreamSettings? Upstream { get; set; }
+        public ServerlessUpstreamSettingsModel? Upstream { get; set; }
 
         [JsonPropertyName("version")]
         public string? Version { get; set; }

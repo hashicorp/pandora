@@ -8,13 +8,13 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.SignalR.v2020_05_01.SignalR
 {
 
-    internal class SignalRResource
+    internal class SignalRResourceModel
     {
         [JsonPropertyName("id")]
         public string? Id { get; set; }
 
         [JsonPropertyName("kind")]
-        public ServiceKind? Kind { get; set; }
+        public ServiceKindConstant? Kind { get; set; }
 
         [JsonPropertyName("location")]
         public CustomTypes.Location? Location { get; set; }
@@ -23,10 +23,10 @@ namespace Pandora.Definitions.ResourceManager.SignalR.v2020_05_01.SignalR
         public string? Name { get; set; }
 
         [JsonPropertyName("properties")]
-        public SignalRProperties? Properties { get; set; }
+        public SignalRPropertiesModel? Properties { get; set; }
 
         [JsonPropertyName("sku")]
-        public ResourceSku? Sku { get; set; }
+        public ResourceSkuModel? Sku { get; set; }
 
         [JsonPropertyName("tags")]
         public CustomTypes.Tags? Tags { get; set; }

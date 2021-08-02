@@ -8,9 +8,9 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.SignalR.v2020_05_01.SignalR
 {
 
-    internal class ServerlessUpstreamSettings
+    internal class ServerlessUpstreamSettingsModel
     {
         [JsonPropertyName("templates")]
-        public List<UpstreamTemplate>? Templates { get; set; }
+        public List<UpstreamTemplateModel>? Templates { get; set; }
     }
 }

@@ -8,11 +8,11 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.SignalR.v2020_05_01.SignalR
 {
 
-    internal class SignalRFeature
+    internal class SignalRFeatureModel
     {
         [JsonPropertyName("flag")]
         [Required]
-        public FeatureFlags Flag { get; set; }
+        public FeatureFlagsConstant Flag { get; set; }
 
         [JsonPropertyName("properties")]
         public Dictionary<string, string>? Properties { get; set; }

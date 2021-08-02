@@ -8,9 +8,9 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.SignalR.v2020_05_01.SignalR
 {
 
-    internal class RegenerateKeyParameters
+    internal class RegenerateKeyParametersModel
     {
         [JsonPropertyName("keyType")]
-        public KeyType? KeyType { get; set; }
+        public KeyTypeConstant? KeyType { get; set; }
     }
 }
