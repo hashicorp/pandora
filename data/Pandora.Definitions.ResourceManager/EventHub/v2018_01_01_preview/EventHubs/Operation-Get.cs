@@ -4,18 +4,18 @@ using Pandora.Definitions.Operations;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.EventHub.v2021_01_01_preview.EventHubs
+namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.EventHubs
 {
-    internal class GetAuthorizationRuleOperation : Operations.GetOperation
+    internal class GetOperation : Operations.GetOperation
     {
         public override ResourceID? ResourceId()
         {
-            return new AuthorizationRuleId();
+            return new EventhubId();
         }
 
         public override object? ResponseObject()
         {
-            return new AuthorizationRuleModel();
+            return new EventhubModel();
         }
 
 

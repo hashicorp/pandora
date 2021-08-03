@@ -4,9 +4,9 @@ using Pandora.Definitions.Operations;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.EventHub.v2021_01_01_preview.EventHubs
+namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.EventHubs
 {
-    internal class DeleteAuthorizationRuleOperation : Operations.DeleteOperation
+    internal class DeleteOperation : Operations.DeleteOperation
     {
         public override IEnumerable<HttpStatusCode> ExpectedStatusCodes()
         {
@@ -19,7 +19,7 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2021_01_01_preview.Event
 
         public override ResourceID? ResourceId()
         {
-            return new AuthorizationRuleId();
+            return new EventhubId();
         }
 
 

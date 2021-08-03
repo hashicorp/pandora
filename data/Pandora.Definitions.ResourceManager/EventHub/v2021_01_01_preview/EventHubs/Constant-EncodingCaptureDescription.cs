@@ -4,15 +4,12 @@ using System.ComponentModel;
 namespace Pandora.Definitions.ResourceManager.EventHub.v2021_01_01_preview.EventHubs
 {
     [ConstantType(ConstantTypeAttribute.ConstantType.String)]
-    internal enum AccessRightsConstant
+    internal enum EncodingCaptureDescriptionConstant
     {
-        [Description("Listen")]
-        Listen,
+        [Description("Avro")]
+        Avro,
 
-        [Description("Manage")]
-        Manage,
-
-        [Description("Send")]
-        Send,
+        [Description("AvroDeflate")]
+        AvroDeflate,
     }
 }

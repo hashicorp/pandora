@@ -11,8 +11,10 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2021_01_01_preview.Event
         public string Name => "EventHubs";
         public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
         {
-            new DeleteAuthorizationRuleOperation(),
-            new GetAuthorizationRuleOperation(),
+            new CreateOrUpdateOperation(),
+            new DeleteOperation(),
+            new GetOperation(),
+            new ListByNamespaceOperation(),
         };
     }
 }

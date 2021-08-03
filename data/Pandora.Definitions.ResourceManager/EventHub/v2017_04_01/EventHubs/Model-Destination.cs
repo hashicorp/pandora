@@ -8,10 +8,12 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.EventHubs
 {
 
-    internal class AuthorizationRulePropertiesModel
+    internal class DestinationModel
     {
-        [JsonPropertyName("rights")]
-        [Required]
-        public List<AccessRightsConstant> Rights { get; set; }
+        [JsonPropertyName("name")]
+        public string? Name { get; set; }
+
+        [JsonPropertyName("properties")]
+        public DestinationPropertiesModel? Properties { get; set; }
     }
 }
