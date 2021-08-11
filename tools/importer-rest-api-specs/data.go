@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 type RunInput struct {
 	RootNamespace    string
 	ServiceName      string
@@ -9,37 +11,49 @@ type RunInput struct {
 	SwaggerFiles     []string
 }
 
+type ResourceManagerInput struct {
+	ServiceName      string
+	ApiVersion       string
+	SwaggerDirectory string
+	SwaggerFiles     []string
+}
+
+func (rmi ResourceManagerInput) ToRunInput() RunInput {
+	return RunInput{
+		RootNamespace:    "Pandora.Definitions.ResourceManager",
+		ServiceName:      rmi.ServiceName,
+		ApiVersion:       rmi.ApiVersion,
+		OutputDirectory:  fmt.Sprintf("%s/Pandora.Definitions.ResourceManager/", outputDirectory),
+		SwaggerDirectory: rmi.SwaggerDirectory,
+		SwaggerFiles:     rmi.SwaggerFiles,
+	}
+}
+
 func GenerationData() []RunInput {
 	return []RunInput{
 		// ------------------------------------------------------------------
 		// NOTE: These files are in production and should always be generated
 		// ------------------------------------------------------------------
-		{
-			RootNamespace:    RootNamespace,
+		ResourceManagerInput{
 			ServiceName:      "AnalysisServices",
 			ApiVersion:       "2017-08-01",
-			OutputDirectory:  outputDirectory,
 			SwaggerDirectory: swaggerDirectory + "/specification/analysisservices/resource-manager/Microsoft.AnalysisServices/stable/2017-08-01",
 			SwaggerFiles: []string{
 				"analysisservices.json",
 			},
-		},
+		}.ToRunInput(),
 		// AppConfiguration
-		{
-			RootNamespace:    RootNamespace,
+		ResourceManagerInput{
 			ServiceName:      "AppConfiguration",
 			ApiVersion:       "2020-06-01",
-			OutputDirectory:  outputDirectory,
 			SwaggerDirectory: swaggerDirectory + "/specification/appconfiguration/resource-manager/Microsoft.AppConfiguration/stable/2020-06-01",
 			SwaggerFiles: []string{
 				"appconfiguration.json",
 			},
-		},
-		{
-			RootNamespace:    RootNamespace,
+		}.ToRunInput(),
+		ResourceManagerInput{
 			ServiceName:      "EventHub",
 			ApiVersion:       "2017-04-01",
-			OutputDirectory:  outputDirectory,
 			SwaggerDirectory: swaggerDirectory + "/specification/eventhub/resource-manager/Microsoft.EventHub/stable/2017-04-01",
 			SwaggerFiles: []string{
 				"AuthorizationRules.json",
@@ -52,12 +66,10 @@ func GenerationData() []RunInput {
 				"operations.json",
 				"sku.json",
 			},
-		},
-		{
-			RootNamespace:    RootNamespace,
+		}.ToRunInput(),
+		ResourceManagerInput{
 			ServiceName:      "EventHub",
 			ApiVersion:       "2018-01-01-preview",
-			OutputDirectory:  outputDirectory,
 			SwaggerDirectory: swaggerDirectory + "/specification/eventhub/resource-manager/Microsoft.EventHub/preview/2018-01-01-preview",
 			SwaggerFiles: []string{
 				"AuthorizationRules.json",
@@ -76,12 +88,10 @@ func GenerationData() []RunInput {
 				"sku.json",
 				"virtualnetworkrules-preview.json",
 			},
-		},
-		{
-			RootNamespace:    RootNamespace,
+		}.ToRunInput(),
+		ResourceManagerInput{
 			ServiceName:      "EventHub",
 			ApiVersion:       "2021-01-01-preview",
-			OutputDirectory:  outputDirectory,
 			SwaggerDirectory: swaggerDirectory + "/specification/eventhub/resource-manager/Microsoft.EventHub/preview/2021-01-01-preview",
 			SwaggerFiles: []string{
 				"AuthorizationRules.json",
@@ -93,72 +103,61 @@ func GenerationData() []RunInput {
 				"networkrulessets-preview.json",
 				"operations.json",
 			},
-		},
-		{
-			RootNamespace:    RootNamespace,
+		}.ToRunInput(),
+		ResourceManagerInput{
 			ServiceName:      "Maps",
 			ApiVersion:       "2021-02-01",
-			OutputDirectory:  outputDirectory,
 			SwaggerDirectory: swaggerDirectory + "/specification/maps/resource-manager/Microsoft.Maps/stable/2021-02-01",
 			SwaggerFiles: []string{
 				"maps-management.json",
 			},
-		},
-		{
-			RootNamespace:    RootNamespace,
+		}.ToRunInput(),
+		ResourceManagerInput{
 			ServiceName:      "ManagedIdentity",
 			ApiVersion:       "2018-11-30",
-			OutputDirectory:  outputDirectory,
 			SwaggerDirectory: swaggerDirectory + "/specification/msi/resource-manager/Microsoft.ManagedIdentity/stable/2018-11-30",
 			SwaggerFiles: []string{
 				"ManagedIdentity.json",
 			},
-		},
-		{
-			RootNamespace:    RootNamespace,
+		}.ToRunInput(),
+		ResourceManagerInput{
 			ServiceName:      "PowerBIDedicated",
 			ApiVersion:       "2021-01-01",
-			OutputDirectory:  outputDirectory,
 			SwaggerDirectory: swaggerDirectory + "/specification/powerbidedicated/resource-manager/Microsoft.PowerBIdedicated/stable/2021-01-01",
 			SwaggerFiles: []string{
 				"autoScaleVCores.json",
 				"powerbidedicated.json",
 			},
-		},
-		{
-			RootNamespace:    RootNamespace,
+		}.ToRunInput(),
+		ResourceManagerInput{
 			ServiceName:      "Relay",
 			ApiVersion:       "2017-04-01",
-			OutputDirectory:  outputDirectory,
 			SwaggerDirectory: swaggerDirectory + "/specification/relay/resource-manager/Microsoft.Relay/stable/2017-04-01",
 			SwaggerFiles: []string{
 				"relay.json",
 			},
-		},
-		{
-			RootNamespace:    RootNamespace,
+		}.ToRunInput(),
+		ResourceManagerInput{
 			ServiceName:      "SignalR",
 			ApiVersion:       "2020-05-01",
-			OutputDirectory:  outputDirectory,
 			SwaggerDirectory: swaggerDirectory + "/specification/signalr/resource-manager/Microsoft.SignalRService/stable/2020-05-01",
 			SwaggerFiles: []string{
 				"signalr.json",
 			},
-		},
-		{
-			RootNamespace:    RootNamespace,
+		}.ToRunInput(),
+		ResourceManagerInput{
 			ServiceName:      "VMware",
 			ApiVersion:       "2020-03-20",
-			OutputDirectory:  outputDirectory,
 			SwaggerDirectory: swaggerDirectory + "/specification/vmware/resource-manager/Microsoft.AVS/stable/2020-03-20",
 			SwaggerFiles: []string{
 				"vmware.json",
 			},
-		},
+		}.ToRunInput(),
 
 		// ------------------------------------------------------------------
 		// NOTE: These are Development Placeholders so can be commented out
 		// ------------------------------------------------------------------
+		// TODO: Data Plane input
 		//{
 		//	RootNamespace:    "Pandora.Definitions.DataPlane",
 		//	OutputDirectory:  outputDirectory,
@@ -166,71 +165,61 @@ func GenerationData() []RunInput {
 		//	ApiVersion:       "2020-08-01-preview",
 		//	SwaggerDirectory: swaggerDirectory + "/specification/web/resource-manager/Microsoft.Web/stable/2020-12-01",
 		//	SwaggerFilePath:  "example-dp-synapse-roleDefinitions.json",
-		//},
+		//}
 		//{
 		//	RootNamespace:   "Pandora.Definitions.DataPlane",
 		//	OutputDirectory: outputDirectory,
 		//	ServiceName:     "AppConfiguration",
 		//	ApiVersion:      "1.0",
 		//	SwaggerFilePath: "example-dp-appconfiguration.json",
-		//},
+		//}
 
 		// Attestation
-		//{
-		//	RootNamespace:    "Pandora.Definitions.ResourceManager",
+		// ResourceManagerInput{
 		//	ServiceName:      "Attestation",
 		//	ApiVersion:       "2020-10-01",
-		//	OutputDirectory:  outputDirectory,
 		//	SwaggerDirectory: swaggerDirectory + "/specification/attestation/resource-manager/Microsoft.Attestation/stable/2020-10-01",
 		//	SwaggerFiles: []string{
 		//		"attestation.json",
 		//	},
-		//},
+		//}.ToRunInput(),
 
 		// Batch
-		//{
-		//	RootNamespace:    "Pandora.Definitions.ResourceManager",
+		// ResourceManagerInput{
 		//	ServiceName:      "Batch",
 		//	ApiVersion:       "2020-03-01",
-		//	OutputDirectory:  outputDirectory,
 		//	SwaggerDirectory: swaggerDirectory + "/specification/batch/resource-manager/Microsoft.Batch/stable/2020-03-01/",
 		//	SwaggerFiles: []string{
 		//		"BatchManagement.json",
 		//	},
-		//},
+		//}.ToRunInput(),
 
 		// Billing
-		//{
-		//	RootNamespace:    "Pandora.Definitions.ResourceManager",
+		// ResourceManagerInput{
 		//	ServiceName:      "Billing",
 		//	ApiVersion:       "2018-11-01-preview",
-		//	OutputDirectory:  outputDirectory,
 		//	SwaggerDirectory: swaggerDirectory + "/specification/billing/resource-manager/Microsoft.Billing/preview/2018-11-01-preview/",
 		//	SwaggerFiles: []string{
 		//		"billing.json",
 		//	},
-		//},
+		//}.ToRunInput(),
 
 		// Compute
-		//{
-		//	RootNamespace:    "Pandora.Definitions.ResourceManager",
+		// ResourceManagerInput{
 		//	ServiceName:      "Compute",
 		//	ApiVersion:       "2020-12-01",
-		//	OutputDirectory:  outputDirectory,
 		//	SwaggerDirectory: swaggerDirectory + "/specification/compute/resource-manager/Microsoft.Compute/stable/2020-12-01",
 		//	SwaggerFiles: []string{
 		//		"compute.json",
 		//		"disk.json",
 		//		"runCommands.json",
 		//	},
-		//},
+		//}.ToRunInput(),
 
 		// Cosmos
-		//{
-		//	RootNamespace:    "Pandora.Definitions.ResourceManager",
+		// ResourceManagerInput{
 		//	ServiceName:      "Cosmosdb",
 		//	ApiVersion:       "2020-12-01",
-		//	OutputDirectory:  outputDirectory,
 		//	// swagger/specification/cosmos-db/resource-manager/Microsoft.DocumentDB/stable/2021-01-15/cosmos-db.json
 		//	SwaggerDirectory: swaggerDirectory + "/specification/cosmos-db/resource-manager/Microsoft.DocumentDB/stable/2021-01-15",
 		//	SwaggerFiles: []string{
@@ -239,98 +228,82 @@ func GenerationData() []RunInput {
 		//		"privateEndpointConnection.json",
 		//		"privateLinkResources.json",
 		//	},
-		//},
+		//}.ToRunInput(),
 
 		// Data Protection (PSql)
-		//{
-		//	RootNamespace:    "Pandora.Definitions.ResourceManager",
+		// ResourceManagerInput{
 		//	ServiceName:      "DataProtection",
 		//	ApiVersion:       "2021-01-01",
-		//	OutputDirectory:  outputDirectory,
 		//	SwaggerDirectory: swaggerDirectory + "/specification/dataprotection/resource-manager/Microsoft.DataProtection/stable/2021-01-01",
 		//	SwaggerFiles: []string{
 		//		"dataprotection.json",
 		//	},
-		//},
+		//}.ToRunInput(),
 		//
 		// DataBoxEdge - blocked on #73
-		// {
-		//         RootNamespace:    RootNamespace,
+		// ResourceManagerInput{
 		//         ServiceName:      "DataBoxEdge",
 		//         ApiVersion:       "2020-12-01",
-		//         OutputDirectory:  outputDirectory,
 		//         SwaggerDirectory: swaggerDirectory + "/specification/databoxedge/resource-manager/Microsoft.DataBoxEdge/stable/2020-12-01",
 		//         SwaggerFiles: []string{
 		//                 "databoxedge.json",
 		//         },
-		// },
+		// }.ToRunInput(),
 		//
 		// Healthcare APIS
-		//{
-		//	RootNamespace:    "Pandora.Definitions.ResourceManager",
+		// ResourceManagerInput{
 		//	ServiceName:      "HealthcareApis",
 		//	ApiVersion:       "2021-01-01",
-		//	OutputDirectory:  outputDirectory,
 		//	SwaggerDirectory: swaggerDirectory + "/specification/healthcareapis/resource-manager/Microsoft.HealthcareApis/stable/2021-01-11",
 		//	SwaggerFiles: []string{
 		//		"healthcare-apis.json",
 		//	},
-		//},
+		//}.ToRunInput(),
 
 		// Logic
-		//{
-		//	RootNamespace:    "Pandora.Definitions.ResourceManager",
+		// ResourceManagerInput{
 		//	ServiceName:      "Logic",
 		//	ApiVersion:       "2021-01-01",
-		//	OutputDirectory:  outputDirectory,
 		//	SwaggerDirectory: swaggerDirectory + "/specification/logic/resource-manager/Microsoft.Logic/stable/2019-05-01",
 		//	SwaggerFiles: []string{
 		//		"logic.json",
 		//	},
-		//},
+		//}.ToRunInput(),
 
 		// Network (old)
-		//{
-		//	RootNamespace:    "Pandora.Definitions.ResourceManager",
+		// ResourceManagerInput{
 		//	ServiceName:      "Network",
 		//	ApiVersion:       "2017-11-01",
-		//	OutputDirectory:  outputDirectory,
 		//	SwaggerDirectory: swaggerDirectory + "/specification/network/resource-manager/Microsoft.Network/stable/2017-11-01",
 		//	SwaggerFiles: []string{
 		//		"publicIpAddress.json",
 		//	},
-		//},
+		//}.ToRunInput(),
 
 		// Media
-		//{
-		//	RootNamespace:    "Pandora.Definitions.ResourceManager",
+		// ResourceManagerInput{
 		//	ServiceName:      "MediaServices",
 		//	ApiVersion:       "2021-05-01",
-		//	OutputDirectory:  outputDirectory,
 		//	SwaggerDirectory: swaggerDirectory + "/specification/mediaservices/resource-manager/Microsoft.Media/stable/2021-05-01",
 		//	SwaggerFiles: []string{
 		//		"Accounts.json",
 		//	},
-		//},
+		//}.ToRunInput(),
 
 		// Resources
-		//{
-		//	RootNamespace:    "Pandora.Definitions.ResourceManager",
+		// ResourceManagerInput{
 		//	ServiceName:      "Resources",
 		//	ApiVersion:       "2020-06-01",
-		//	OutputDirectory:  outputDirectory,
 		//	SwaggerDirectory: swaggerDirectory + "/specification/resources/resource-manager/Microsoft.Resources/stable/2020-06-01",
 		//	SwaggerFiles: []string{
 		//		"resources.json",
 		//	},
-		//},
+		//}.ToRunInput(),
 
 		// Web
-		//{
-		//	RootNamespace:    "Pandora.Definitions.ResourceManager",
+		// ResourceManagerInput{
 		//	ServiceName:      "Web",
 		//	ApiVersion:       "2020-12-01",
-		//	OutputDirectory:  outputDirectory,
 		//	SwaggerDirectory: swaggerDirectory + "/specification/web/resource-manager/Microsoft.Web/stable/2020-12-01",
 		//	SwaggerFiles: []string{
 		//		// NOTE: stripped out CommonDefinitions.json
@@ -347,14 +320,12 @@ func GenerationData() []RunInput {
 		//		"StaticSites.json",
 		//		"WebApps.json",
 		//	},
-		//},
+		//}.ToRunInput(),
 
 		//Network
-		//{
-		//	RootNamespace:    "Pandora.Definitions.ResourceManager",
+		// ResourceManagerInput{
 		//	ServiceName:      "Network",
 		//	ApiVersion:       "2020-08-01",
-		//	OutputDirectory:  outputDirectory,
 		//	SwaggerDirectory: swaggerDirectory + "/specification/network/resource-manager/Microsoft.Network/stable/2020-08-01",
 		//	SwaggerFiles: []string{
 		//		//"applicationGateway.json",
@@ -408,6 +379,6 @@ func GenerationData() []RunInput {
 		//		//"vmssPublicIpAddress.json",
 		//		//"webapplicationfirewall.json",
 		//	},
-		//},
+		//}.ToRunInput(),
 	}
 }
