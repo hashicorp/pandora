@@ -13,7 +13,9 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.EventHubs
         {
             new CreateOrUpdateOperation(),
             new DeleteOperation(),
+            new DeleteAuthorizationRuleOperation(),
             new GetOperation(),
+            new GetAuthorizationRuleOperation(),
             new ListByNamespaceOperation(),
         };
     }
