@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 type RunInput struct {
 	RootNamespace    string
 	ServiceName      string
@@ -23,7 +21,7 @@ func (rmi ResourceManagerInput) ToRunInput() RunInput {
 		RootNamespace:    "Pandora.Definitions.ResourceManager",
 		ServiceName:      rmi.ServiceName,
 		ApiVersion:       rmi.ApiVersion,
-		OutputDirectory:  fmt.Sprintf("%s/Pandora.Definitions.ResourceManager/", outputDirectory),
+		OutputDirectory:  outputDirectory,
 		SwaggerDirectory: rmi.SwaggerDirectory,
 		SwaggerFiles:     rmi.SwaggerFiles,
 	}
