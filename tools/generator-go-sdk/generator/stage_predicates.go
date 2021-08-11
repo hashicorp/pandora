@@ -68,14 +68,25 @@ func (p predicateTemplater) template(data ServiceGeneratorData) (*string, error)
 
 func (p predicateTemplater) templateForModel(name string, model resourcemanager.ModelDetails) (*string, error) {
 	fieldNames := make([]string, 0)
+
+	// unsupported at this time - see https://github.com/hashicorp/pandora/issues/164
+	// TODO: look to add support for these, as below
+	customTypesToIgnore := map[resourcemanager.FieldType]struct{}{
+		resourcemanager.SystemAssignedIdentity:         {},
+		resourcemanager.SystemUserAssignedIdentityMap:  {},
+		resourcemanager.SystemUserAssignedIdentityList: {},
+		resourcemanager.UserAssignedIdentityMap:        {},
+		resourcemanager.UserAssignedIdentityList:       {},
+		resourcemanager.Tags:                           {},
+	}
+
 	for name, field := range model.Fields {
 		// TODO: add support for these, but this is fine to skip for now
 		if field.ListElementType != nil || field.ConstantReferenceName != nil || field.ModelReferenceName != nil {
 			continue
 		}
 
-		// unsupported at this time - see https://github.com/hashicorp/pandora/issues/164
-		if field.Type == resourcemanager.Tags {
+		if _, ok := customTypesToIgnore[field.Type]; ok {
 			continue
 		}
 
