@@ -5,7 +5,7 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.DisasterRecov
 {
     internal class Definition : ApiDefinition
     {
-        // Generated from Swagger revision "d2183715d380084ff04313a73c8803d042fe91b9" 
+        // Generated from Swagger revision "fbb7ba76937668739778ac2272b9a607ea0511fc" 
 
         public string ApiVersion => "2017-04-01";
         public string Name => "DisasterRecoveryConfigs";
