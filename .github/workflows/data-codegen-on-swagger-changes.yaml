@@ -1,0 +1,48 @@
+name: Regenerate API Data with New Changes after PR Merge
+on:
+  pull_request:
+    types: [closed]
+
+jobs:
+  regenerate-api-data:
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.merged == true
+    strategy:
+      fail-fast: true
+    permissions:
+      issues: write
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: recursive
+
+      - uses: actions/setup-go@v2
+        with:
+          go-version: '1.16.x'
+
+      - name: build and run importer-rest-api-specs
+      - run: |
+          cd ./tools/importer-rest-api-specs
+          make tools
+          make build
+          make import
+
+      - name: then commit the diff
+        run: |
+          if [[ $(git status --porcelain | wc -l) -gt 0 ]]; then
+            git checkout -b data/regeneration-from-${{ github.sha }}
+            git add --all
+            git config user.name "GitHub Actions"
+            git config user.email "<>"
+            git commit -m "data: regenerating based on the latest Swagger"
+            git push origin data/regeneration-from-${{ github.sha }}
+          fi
+
+      - name: create pull request
+          uses: repo-sync/pull-request@v2
+          with:
+            source_branch: "data/regeneration-from-${{ github.sha }}"
+            destination_branch: "main"
+            pr_title: "Data: regenerating based on ${{ github.sha }}"
+            pr_body: "This PR is automatically generated based on the commit ${{ github.ref }}"
+            github_token: ${{ secrets.GITHUB_TOKEN }}
