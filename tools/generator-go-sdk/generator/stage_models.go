@@ -139,6 +139,7 @@ import (
 	"time"
 
 	"github.com/hashicorp/go-azure-helpers/formatting"
+	"github.com/hashicorp/terraform-provider-azurerm/internal/identity"
 )
 
 type %[2]s struct {
