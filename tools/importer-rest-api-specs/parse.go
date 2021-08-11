@@ -93,6 +93,8 @@ func (d parsedData) combineResourcesWith(other map[string]models.AzureApiResourc
 			return nil, fmt.Errorf("combining resource ids: %+v", err)
 		}
 		existing.ResourceIds = *resourceIds
+
+		resources[k] = existing
 	}
 
 	return &resources, nil
