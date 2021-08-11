@@ -8,7 +8,7 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.Relay.v2017_04_01.WCFRelays
 {
 
-    internal class WcfRelayProperties
+    internal class WcfRelayPropertiesModel
     {
         [DateFormat(DateFormatAttribute.DateFormat.RFC3339)]
         [JsonPropertyName("createdAt")]
@@ -21,7 +21,7 @@ namespace Pandora.Definitions.ResourceManager.Relay.v2017_04_01.WCFRelays
         public int? ListenerCount { get; set; }
 
         [JsonPropertyName("relayType")]
-        public Relaytype? RelayType { get; set; }
+        public RelaytypeConstant? RelayType { get; set; }
 
         [JsonPropertyName("requiresClientAuthorization")]
         public bool? RequiresClientAuthorization { get; set; }

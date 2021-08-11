@@ -18,7 +18,7 @@ namespace Pandora.Definitions.ResourceManager.PowerBIDedicated.v2021_01_01.Capac
 
         public override object? RequestObject()
         {
-            return new CheckCapacityNameAvailabilityParameters();
+            return new CheckCapacityNameAvailabilityParametersModel();
         }
 
         public override ResourceID? ResourceId()
@@ -28,7 +28,7 @@ namespace Pandora.Definitions.ResourceManager.PowerBIDedicated.v2021_01_01.Capac
 
         public override object? ResponseObject()
         {
-            return new CheckCapacityNameAvailabilityResult();
+            return new CheckCapacityNameAvailabilityResultModel();
         }
 
         public override string? UriSuffix()

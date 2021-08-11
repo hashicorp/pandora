@@ -4,7 +4,7 @@ using System.ComponentModel;
 namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.AuthorizationRulesNamespaces
 {
     [ConstantType(ConstantTypeAttribute.ConstantType.String)]
-    internal enum KeyType
+    internal enum KeyTypeConstant
     {
         [Description("PrimaryKey")]
         PrimaryKey,

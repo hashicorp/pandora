@@ -6,7 +6,7 @@ using System.Net;
 
 namespace Pandora.Definitions.ResourceManager.VMware.v2020_03_20.HcxEnterpriseSites
 {
-    internal class Delete : DeleteOperation
+    internal class DeleteOperation : Operations.DeleteOperation
     {
         public override IEnumerable<HttpStatusCode> ExpectedStatusCodes()
         {

@@ -2,25 +2,26 @@ using System;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 using Pandora.Definitions.Attributes;
+using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
 namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.Namespaces
 {
 
-    internal class EHNamespaceProperties
+    internal class EHNamespacePropertiesModel
     {
         [DateFormat(DateFormatAttribute.DateFormat.RFC3339)]
         [JsonPropertyName("createdAt")]
-        public DateTime CreatedAt { get; set; }
+        public DateTime? CreatedAt { get; set; }
 
         [JsonPropertyName("isAutoInflateEnabled")]
-        public bool IsAutoInflateEnabled { get; set; }
+        public bool? IsAutoInflateEnabled { get; set; }
 
         [JsonPropertyName("kafkaEnabled")]
-        public bool KafkaEnabled { get; set; }
+        public bool? KafkaEnabled { get; set; }
 
         [JsonPropertyName("maximumThroughputUnits")]
-        public int MaximumThroughputUnits { get; set; }
+        public int? MaximumThroughputUnits { get; set; }
 
         [JsonPropertyName("metricId")]
         public string? MetricId { get; set; }
@@ -33,6 +34,6 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.Namespaces
 
         [DateFormat(DateFormatAttribute.DateFormat.RFC3339)]
         [JsonPropertyName("updatedAt")]
-        public DateTime UpdatedAt { get; set; }
+        public DateTime? UpdatedAt { get; set; }
     }
 }

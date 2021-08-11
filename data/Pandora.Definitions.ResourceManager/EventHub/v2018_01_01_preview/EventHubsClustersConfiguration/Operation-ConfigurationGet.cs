@@ -1,11 +1,12 @@
+using Pandora.Definitions.Attributes;
+using Pandora.Definitions.Interfaces;
 using Pandora.Definitions.Operations;
 using System.Collections.Generic;
 using System.Net;
-using Pandora.Definitions.Interfaces;
 
 namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.EventHubsClustersConfiguration
 {
-    internal class ConfigurationGet : GetOperation
+    internal class ConfigurationGetOperation : Operations.GetOperation
     {
         public override ResourceID? ResourceId()
         {
@@ -14,12 +15,14 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.Event
 
         public override object? ResponseObject()
         {
-            return new ClusterQuotaConfigurationProperties();
+            return new ClusterQuotaConfigurationPropertiesModel();
         }
 
         public override string? UriSuffix()
         {
             return "/quotaConfiguration/default";
         }
+
+
     }
 }

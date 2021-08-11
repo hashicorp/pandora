@@ -18,7 +18,7 @@ namespace Pandora.Definitions.ResourceManager.Relay.v2017_04_01.WCFRelays
 
         public override object? RequestObject()
         {
-            return new AuthorizationRule();
+            return new AuthorizationRuleModel();
         }
 
         public override ResourceID? ResourceId()
@@ -28,7 +28,7 @@ namespace Pandora.Definitions.ResourceManager.Relay.v2017_04_01.WCFRelays
 
         public override object? ResponseObject()
         {
-            return new AuthorizationRule();
+            return new AuthorizationRuleModel();
         }
 
 

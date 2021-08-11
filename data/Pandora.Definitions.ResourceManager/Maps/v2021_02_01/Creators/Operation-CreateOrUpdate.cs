@@ -6,11 +6,11 @@ using System.Net;
 
 namespace Pandora.Definitions.ResourceManager.Maps.v2021_02_01.Creators
 {
-    internal class CreateOrUpdate : PutOperation
+    internal class CreateOrUpdateOperation : Operations.PutOperation
     {
         public override object? RequestObject()
         {
-            return new Creator();
+            return new CreatorModel();
         }
 
         public override ResourceID? ResourceId()
@@ -20,7 +20,7 @@ namespace Pandora.Definitions.ResourceManager.Maps.v2021_02_01.Creators
 
         public override object? ResponseObject()
         {
-            return new Creator();
+            return new CreatorModel();
         }
 
 

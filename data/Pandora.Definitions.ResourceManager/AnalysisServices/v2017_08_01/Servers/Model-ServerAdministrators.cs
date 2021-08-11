@@ -8,7 +8,7 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.AnalysisServices.v2017_08_01.Servers
 {
 
-    internal class ServerAdministrators
+    internal class ServerAdministratorsModel
     {
         [JsonPropertyName("members")]
         public List<string>? Members { get; set; }

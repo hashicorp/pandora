@@ -8,13 +8,13 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.Maps.v2021_02_01.Accounts
 {
 
-    internal class MapsAccount
+    internal class MapsAccountModel
     {
         [JsonPropertyName("id")]
         public string? Id { get; set; }
 
         [JsonPropertyName("kind")]
-        public Kind? Kind { get; set; }
+        public KindConstant? Kind { get; set; }
 
         [JsonPropertyName("location")]
         [Required]
@@ -24,14 +24,14 @@ namespace Pandora.Definitions.ResourceManager.Maps.v2021_02_01.Accounts
         public string? Name { get; set; }
 
         [JsonPropertyName("properties")]
-        public MapsAccountProperties? Properties { get; set; }
+        public MapsAccountPropertiesModel? Properties { get; set; }
 
         [JsonPropertyName("sku")]
         [Required]
-        public Sku Sku { get; set; }
+        public SkuModel Sku { get; set; }
 
         [JsonPropertyName("systemData")]
-        public SystemData? SystemData { get; set; }
+        public SystemDataModel? SystemData { get; set; }
 
         [JsonPropertyName("tags")]
         public CustomTypes.Tags? Tags { get; set; }

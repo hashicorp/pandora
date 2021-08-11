@@ -5,7 +5,7 @@ namespace Pandora.Definitions.ResourceManager.AnalysisServices.v2017_08_01.Serve
 {
     internal class Definition : ApiDefinition
     {
-        // Generated from Swagger revision "552b277f9f8d2057a94dfc9c3e09c0d877c0ea30" 
+        // Generated from Swagger revision "fbb7ba76937668739778ac2272b9a607ea0511fc" 
 
         public string ApiVersion => "2017-08-01";
         public string Name => "Servers";

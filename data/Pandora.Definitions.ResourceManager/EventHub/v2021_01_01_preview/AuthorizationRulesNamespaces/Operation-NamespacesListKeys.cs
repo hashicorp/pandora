@@ -6,7 +6,7 @@ using System.Net;
 
 namespace Pandora.Definitions.ResourceManager.EventHub.v2021_01_01_preview.AuthorizationRulesNamespaces
 {
-    internal class NamespacesListKeys : PostOperation
+    internal class NamespacesListKeysOperation : Operations.PostOperation
     {
         public override IEnumerable<HttpStatusCode> ExpectedStatusCodes()
         {
@@ -28,12 +28,14 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2021_01_01_preview.Autho
 
         public override object? ResponseObject()
         {
-            return new AccessKeys();
+            return new AccessKeysModel();
         }
 
         public override string? UriSuffix()
         {
             return "/listKeys";
         }
+
+
     }
 }

@@ -8,12 +8,12 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.AnalysisServices.v2017_08_01.Servers
 {
 
-    internal class IPv4FirewallSettings
+    internal class IPv4FirewallSettingsModel
     {
         [JsonPropertyName("enablePowerBIService")]
         public bool? EnablePowerBIService { get; set; }
 
         [JsonPropertyName("firewallRules")]
-        public List<IPv4FirewallRule>? FirewallRules { get; set; }
+        public List<IPv4FirewallRuleModel>? FirewallRules { get; set; }
     }
 }

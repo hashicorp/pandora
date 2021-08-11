@@ -6,7 +6,7 @@ using System.Net;
 
 namespace Pandora.Definitions.ResourceManager.ManagedIdentity.v2018_11_30.ManagedIdentity
 {
-    internal class UserAssignedIdentitiesDelete : DeleteOperation
+    internal class UserAssignedIdentitiesDeleteOperation : Operations.DeleteOperation
     {
         public override IEnumerable<HttpStatusCode> ExpectedStatusCodes()
         {

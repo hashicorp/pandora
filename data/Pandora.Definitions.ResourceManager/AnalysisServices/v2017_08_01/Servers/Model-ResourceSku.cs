@@ -8,7 +8,7 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.AnalysisServices.v2017_08_01.Servers
 {
 
-    internal class ResourceSku
+    internal class ResourceSkuModel
     {
         [JsonPropertyName("capacity")]
         public int? Capacity { get; set; }
@@ -18,6 +18,6 @@ namespace Pandora.Definitions.ResourceManager.AnalysisServices.v2017_08_01.Serve
         public string Name { get; set; }
 
         [JsonPropertyName("tier")]
-        public SkuTier? Tier { get; set; }
+        public SkuTierConstant? Tier { get; set; }
     }
 }

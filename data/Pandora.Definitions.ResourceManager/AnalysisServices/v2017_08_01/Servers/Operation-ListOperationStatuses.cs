@@ -24,7 +24,7 @@ namespace Pandora.Definitions.ResourceManager.AnalysisServices.v2017_08_01.Serve
 
         public override object? ResponseObject()
         {
-            return new OperationStatus();
+            return new OperationStatusModel();
         }
 
 

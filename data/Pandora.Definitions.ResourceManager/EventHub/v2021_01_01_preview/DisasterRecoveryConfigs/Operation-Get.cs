@@ -6,7 +6,7 @@ using System.Net;
 
 namespace Pandora.Definitions.ResourceManager.EventHub.v2021_01_01_preview.DisasterRecoveryConfigs
 {
-    internal class Get : GetOperation
+    internal class GetOperation : Operations.GetOperation
     {
         public override ResourceID? ResourceId()
         {
@@ -15,7 +15,9 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2021_01_01_preview.Disas
 
         public override object? ResponseObject()
         {
-            return new ArmDisasterRecovery();
+            return new ArmDisasterRecoveryModel();
         }
+
+
     }
 }

@@ -8,7 +8,7 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.VMware.v2020_03_20.PrivateClouds
 {
 
-    internal class Endpoints
+    internal class EndpointsModel
     {
         [JsonPropertyName("hcxCloudManager")]
         public string? HcxCloudManager { get; set; }

@@ -1,11 +1,12 @@
+using Pandora.Definitions.Attributes;
+using Pandora.Definitions.Interfaces;
 using Pandora.Definitions.Operations;
 using System.Collections.Generic;
 using System.Net;
-using Pandora.Definitions.Interfaces;
 
 namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.AuthorizationRulesNamespaces
 {
-    internal class NamespacesGetAuthorizationRule : GetOperation
+    internal class NamespacesGetAuthorizationRuleOperation : Operations.GetOperation
     {
         public override ResourceID? ResourceId()
         {
@@ -14,7 +15,9 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.Autho
 
         public override object? ResponseObject()
         {
-            return new AuthorizationRule();
+            return new AuthorizationRuleModel();
         }
+
+
     }
 }

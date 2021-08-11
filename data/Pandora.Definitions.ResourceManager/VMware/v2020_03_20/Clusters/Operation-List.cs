@@ -6,7 +6,7 @@ using System.Net;
 
 namespace Pandora.Definitions.ResourceManager.VMware.v2020_03_20.Clusters
 {
-    internal class List : ListOperation
+    internal class ListOperation : Operations.ListOperation
     {
         public override string? FieldContainingPaginationDetails()
         {
@@ -20,7 +20,7 @@ namespace Pandora.Definitions.ResourceManager.VMware.v2020_03_20.Clusters
 
         public override object NestedItemType()
         {
-            return new Cluster();
+            return new ClusterModel();
         }
 
         public override string? UriSuffix()

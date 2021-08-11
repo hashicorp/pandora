@@ -8,9 +8,9 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.AnalysisServices.v2017_08_01.AnalysisServices
 {
 
-    internal class SkuEnumerationForNewResourceResult
+    internal class SkuEnumerationForNewResourceResultModel
     {
         [JsonPropertyName("value")]
-        public List<ResourceSku>? Value { get; set; }
+        public List<ResourceSkuModel>? Value { get; set; }
     }
 }

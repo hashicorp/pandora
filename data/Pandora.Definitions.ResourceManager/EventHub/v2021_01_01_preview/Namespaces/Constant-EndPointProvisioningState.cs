@@ -4,7 +4,7 @@ using System.ComponentModel;
 namespace Pandora.Definitions.ResourceManager.EventHub.v2021_01_01_preview.Namespaces
 {
     [ConstantType(ConstantTypeAttribute.ConstantType.String)]
-    internal enum EndPointProvisioningState
+    internal enum EndPointProvisioningStateConstant
     {
         [Description("Canceled")]
         Canceled,

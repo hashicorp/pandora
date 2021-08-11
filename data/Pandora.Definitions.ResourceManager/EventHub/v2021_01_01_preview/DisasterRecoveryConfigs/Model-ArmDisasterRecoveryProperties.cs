@@ -2,12 +2,13 @@ using System;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 using Pandora.Definitions.Attributes;
+using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
 namespace Pandora.Definitions.ResourceManager.EventHub.v2021_01_01_preview.DisasterRecoveryConfigs
 {
 
-    internal class ArmDisasterRecoveryProperties
+    internal class ArmDisasterRecoveryPropertiesModel
     {
         [JsonPropertyName("alternateName")]
         public string? AlternateName { get; set; }
@@ -19,9 +20,9 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2021_01_01_preview.Disas
         public int? PendingReplicationOperationsCount { get; set; }
 
         [JsonPropertyName("provisioningState")]
-        public ProvisioningStateDR? ProvisioningState { get; set; }
+        public ProvisioningStateDRConstant? ProvisioningState { get; set; }
 
         [JsonPropertyName("role")]
-        public RoleDisasterRecovery? Role { get; set; }
+        public RoleDisasterRecoveryConstant? Role { get; set; }
     }
 }

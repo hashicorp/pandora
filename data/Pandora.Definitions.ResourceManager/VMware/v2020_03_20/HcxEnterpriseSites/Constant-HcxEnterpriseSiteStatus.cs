@@ -4,7 +4,7 @@ using System.ComponentModel;
 namespace Pandora.Definitions.ResourceManager.VMware.v2020_03_20.HcxEnterpriseSites
 {
     [ConstantType(ConstantTypeAttribute.ConstantType.String)]
-    internal enum HcxEnterpriseSiteStatus
+    internal enum HcxEnterpriseSiteStatusConstant
     {
         [Description("Available")]
         Available,

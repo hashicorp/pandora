@@ -28,7 +28,7 @@ namespace Pandora.Definitions.ResourceManager.AnalysisServices.v2017_08_01.Serve
 
         public override object? ResponseObject()
         {
-            return new GatewayListStatusLive();
+            return new GatewayListStatusLiveModel();
         }
 
         public override string? UriSuffix()

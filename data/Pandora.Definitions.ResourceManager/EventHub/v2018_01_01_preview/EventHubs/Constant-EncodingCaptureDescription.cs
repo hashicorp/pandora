@@ -4,7 +4,7 @@ using System.ComponentModel;
 namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.EventHubs
 {
     [ConstantType(ConstantTypeAttribute.ConstantType.String)]
-    internal enum EncodingCaptureDescription
+    internal enum EncodingCaptureDescriptionConstant
     {
         [Description("Avro")]
         Avro,

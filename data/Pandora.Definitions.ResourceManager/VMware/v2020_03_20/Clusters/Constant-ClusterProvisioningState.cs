@@ -4,7 +4,7 @@ using System.ComponentModel;
 namespace Pandora.Definitions.ResourceManager.VMware.v2020_03_20.Clusters
 {
     [ConstantType(ConstantTypeAttribute.ConstantType.String)]
-    internal enum ClusterProvisioningState
+    internal enum ClusterProvisioningStateConstant
     {
         [Description("Cancelled")]
         Cancelled,

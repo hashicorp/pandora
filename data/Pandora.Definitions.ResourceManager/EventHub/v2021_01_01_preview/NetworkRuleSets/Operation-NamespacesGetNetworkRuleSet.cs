@@ -6,7 +6,7 @@ using System.Net;
 
 namespace Pandora.Definitions.ResourceManager.EventHub.v2021_01_01_preview.NetworkRuleSets
 {
-    internal class NamespacesGetNetworkRuleSet : GetOperation
+    internal class NamespacesGetNetworkRuleSetOperation : Operations.GetOperation
     {
         public override ResourceID? ResourceId()
         {
@@ -15,12 +15,14 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2021_01_01_preview.Netwo
 
         public override object? ResponseObject()
         {
-            return new NetworkRuleSet();
+            return new NetworkRuleSetModel();
         }
 
         public override string? UriSuffix()
         {
             return "/networkRuleSets/default";
         }
+
+
     }
 }

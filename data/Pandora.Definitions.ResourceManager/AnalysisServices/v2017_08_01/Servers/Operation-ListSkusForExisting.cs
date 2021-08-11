@@ -15,7 +15,7 @@ namespace Pandora.Definitions.ResourceManager.AnalysisServices.v2017_08_01.Serve
 
         public override object? ResponseObject()
         {
-            return new SkuEnumerationForExistingResourceResult();
+            return new SkuEnumerationForExistingResourceResultModel();
         }
 
         public override string? UriSuffix()

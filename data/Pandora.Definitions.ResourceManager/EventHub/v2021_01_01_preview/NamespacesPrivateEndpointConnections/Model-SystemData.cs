@@ -2,12 +2,13 @@ using System;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 using Pandora.Definitions.Attributes;
+using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
 namespace Pandora.Definitions.ResourceManager.EventHub.v2021_01_01_preview.NamespacesPrivateEndpointConnections
 {
 
-    internal class SystemData
+    internal class SystemDataModel
     {
         [DateFormat(DateFormatAttribute.DateFormat.RFC3339)]
         [JsonPropertyName("createdAt")]
@@ -17,7 +18,7 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2021_01_01_preview.Names
         public string? CreatedBy { get; set; }
 
         [JsonPropertyName("createdByType")]
-        public CreatedByType? CreatedByType { get; set; }
+        public CreatedByTypeConstant? CreatedByType { get; set; }
 
         [DateFormat(DateFormatAttribute.DateFormat.RFC3339)]
         [JsonPropertyName("lastModifiedAt")]
@@ -27,6 +28,6 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2021_01_01_preview.Names
         public string? LastModifiedBy { get; set; }
 
         [JsonPropertyName("lastModifiedByType")]
-        public CreatedByType? LastModifiedByType { get; set; }
+        public CreatedByTypeConstant? LastModifiedByType { get; set; }
     }
 }

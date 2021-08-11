@@ -8,9 +8,9 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.PowerBIDedicated.v2021_01_01.Capacities
 {
 
-    internal class SkuEnumerationForExistingResourceResult
+    internal class SkuEnumerationForExistingResourceResultModel
     {
         [JsonPropertyName("value")]
-        public List<SkuDetailsForExistingResource>? Value { get; set; }
+        public List<SkuDetailsForExistingResourceModel>? Value { get; set; }
     }
 }

@@ -1,11 +1,12 @@
+using Pandora.Definitions.Attributes;
+using Pandora.Definitions.Interfaces;
 using Pandora.Definitions.Operations;
 using System.Collections.Generic;
 using System.Net;
-using Pandora.Definitions.Interfaces;
 
 namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.AuthorizationRulesEventHubs
 {
-    internal class EventHubsListKeys : PostOperation
+    internal class EventHubsListKeysOperation : Operations.PostOperation
     {
         public override IEnumerable<HttpStatusCode> ExpectedStatusCodes()
         {
@@ -27,12 +28,14 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.Autho
 
         public override object? ResponseObject()
         {
-            return new AccessKeys();
+            return new AccessKeysModel();
         }
 
         public override string? UriSuffix()
         {
             return "/listKeys";
         }
+
+
     }
 }

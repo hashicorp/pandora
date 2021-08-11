@@ -1,19 +1,29 @@
-using System;
-using System.Net.Http;
-using System.Text.Json.Serialization;
 using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Interfaces;
 using Pandora.Definitions.Operations;
+using System.Collections.Generic;
+using System.Net;
 
 namespace Pandora.Definitions.ResourceManager.AppConfiguration.v2020_06_01.ConfigurationStores
 {
-    // hand-written for the moment
-
-    public class ListKeys : ListOperation
+    internal class ListKeysOperation : Operations.ListOperation
     {
-        public override object NestedItemType()
+        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes()
         {
-            return new AccessKey();
+            return new List<HttpStatusCode>
+            {
+                HttpStatusCode.OK,
+            };
+        }
+
+        public override string? FieldContainingPaginationDetails()
+        {
+            return "nextLink";
+        }
+
+        public override object? RequestObject()
+        {
+            return null;
         }
 
         public override ResourceID? ResourceId()
@@ -21,35 +31,16 @@ namespace Pandora.Definitions.ResourceManager.AppConfiguration.v2020_06_01.Confi
             return new ConfigurationStoreId();
         }
 
+        public override object NestedItemType()
+        {
+            return new ApiKeyModel();
+        }
+
         public override string? UriSuffix()
         {
-            return "/listKeys";
+            return "/ListKeys";
         }
-        public override HttpMethod Method()
-        {
-            return HttpMethod.Post;
-        }
-    }
 
-    internal class AccessKey
-    {
-        [JsonPropertyName("id")]
-        public string ID { get; set; }
 
-        [JsonPropertyName("name")]
-        public string Name { get; set; }
-
-        [JsonPropertyName("value")]
-        public string Value { get; set; }
-
-        [JsonPropertyName("connectionString")]
-        public string ConnectionString { get; set; }
-
-        [JsonPropertyName("lastModified")]
-        [DateFormat(DateFormatAttribute.DateFormat.RFC3339)]
-        public DateTime LastModified { get; set; }
-
-        [JsonPropertyName("readOnly")]
-        public bool ReadOnly { get; set; }
     }
 }

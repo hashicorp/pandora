@@ -8,10 +8,10 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.Maps.v2021_02_01.Creators
 {
 
-    internal class CreatorUpdateParameters
+    internal class CreatorUpdateParametersModel
     {
         [JsonPropertyName("properties")]
-        public CreatorProperties? Properties { get; set; }
+        public CreatorPropertiesModel? Properties { get; set; }
 
         [JsonPropertyName("tags")]
         public CustomTypes.Tags? Tags { get; set; }

@@ -20,7 +20,7 @@ namespace Pandora.Definitions.ResourceManager.Relay.v2017_04_01.Namespaces
 
         public override object NestedItemType()
         {
-            return new RelayNamespace();
+            return new RelayNamespaceModel();
         }
 
         public override string? UriSuffix()

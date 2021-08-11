@@ -8,13 +8,13 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.PowerBIDedicated.v2021_01_01.AutoScaleVCores
 {
 
-    internal class AutoScaleVCoreUpdateParameters
+    internal class AutoScaleVCoreUpdateParametersModel
     {
         [JsonPropertyName("properties")]
-        public AutoScaleVCoreMutableProperties? Properties { get; set; }
+        public AutoScaleVCoreMutablePropertiesModel? Properties { get; set; }
 
         [JsonPropertyName("sku")]
-        public AutoScaleVCoreSku? Sku { get; set; }
+        public AutoScaleVCoreSkuModel? Sku { get; set; }
 
         [JsonPropertyName("tags")]
         public CustomTypes.Tags? Tags { get; set; }

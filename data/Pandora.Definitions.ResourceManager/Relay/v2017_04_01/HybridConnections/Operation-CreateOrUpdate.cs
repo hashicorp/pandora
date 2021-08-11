@@ -18,7 +18,7 @@ namespace Pandora.Definitions.ResourceManager.Relay.v2017_04_01.HybridConnection
 
         public override object? RequestObject()
         {
-            return new HybridConnection();
+            return new HybridConnectionModel();
         }
 
         public override ResourceID? ResourceId()
@@ -28,7 +28,7 @@ namespace Pandora.Definitions.ResourceManager.Relay.v2017_04_01.HybridConnection
 
         public override object? ResponseObject()
         {
-            return new HybridConnection();
+            return new HybridConnectionModel();
         }
 
 

@@ -6,7 +6,7 @@ using System.Net;
 
 namespace Pandora.Definitions.ResourceManager.EventHub.v2021_01_01_preview.Namespaces
 {
-    internal class Get : GetOperation
+    internal class GetOperation : Operations.GetOperation
     {
         public override ResourceID? ResourceId()
         {
@@ -15,7 +15,9 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2021_01_01_preview.Names
 
         public override object? ResponseObject()
         {
-            return new EHNamespace();
+            return new EHNamespaceModel();
         }
+
+
     }
 }

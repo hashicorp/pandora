@@ -6,7 +6,7 @@ using System.Net;
 
 namespace Pandora.Definitions.ResourceManager.Maps.v2021_02_01.Accounts
 {
-    internal class Get : GetOperation
+    internal class GetOperation : Operations.GetOperation
     {
         public override ResourceID? ResourceId()
         {
@@ -15,7 +15,7 @@ namespace Pandora.Definitions.ResourceManager.Maps.v2021_02_01.Accounts
 
         public override object? ResponseObject()
         {
-            return new MapsAccount();
+            return new MapsAccountModel();
         }
 
 

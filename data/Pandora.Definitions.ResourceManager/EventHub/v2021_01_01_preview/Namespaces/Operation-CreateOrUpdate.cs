@@ -6,15 +6,15 @@ using System.Net;
 
 namespace Pandora.Definitions.ResourceManager.EventHub.v2021_01_01_preview.Namespaces
 {
-    internal class CreateOrUpdate : PutOperation
+    internal class CreateOrUpdateOperation : Operations.PutOperation
     {
         public override IEnumerable<HttpStatusCode> ExpectedStatusCodes()
         {
             return new List<HttpStatusCode>
             {
-                HttpStatusCode.OK,
-                HttpStatusCode.Created,
                 HttpStatusCode.Accepted,
+                HttpStatusCode.Created,
+                HttpStatusCode.OK,
             };
         }
 
@@ -25,7 +25,7 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2021_01_01_preview.Names
 
         public override object? RequestObject()
         {
-            return new EHNamespace();
+            return new EHNamespaceModel();
         }
 
         public override ResourceID? ResourceId()
@@ -35,7 +35,9 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2021_01_01_preview.Names
 
         public override object? ResponseObject()
         {
-            return new EHNamespace();
+            return new EHNamespaceModel();
         }
+
+
     }
 }

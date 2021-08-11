@@ -2,12 +2,13 @@ using System;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 using Pandora.Definitions.Attributes;
+using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
 namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.AuthorizationRulesNamespaces
 {
 
-    internal class AccessKeys
+    internal class AccessKeysModel
     {
         [JsonPropertyName("aliasPrimaryConnectionString")]
         public string? AliasPrimaryConnectionString { get; set; }

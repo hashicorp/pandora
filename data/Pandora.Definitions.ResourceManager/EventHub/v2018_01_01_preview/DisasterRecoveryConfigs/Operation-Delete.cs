@@ -1,11 +1,12 @@
+using Pandora.Definitions.Attributes;
+using Pandora.Definitions.Interfaces;
 using Pandora.Definitions.Operations;
 using System.Collections.Generic;
 using System.Net;
-using Pandora.Definitions.Interfaces;
 
 namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.DisasterRecoveryConfigs
 {
-    internal class Delete : DeleteOperation
+    internal class DeleteOperation : Operations.DeleteOperation
     {
         public override IEnumerable<HttpStatusCode> ExpectedStatusCodes()
         {
@@ -19,5 +20,7 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.Disas
         {
             return new DisasterRecoveryConfigId();
         }
+
+
     }
 }

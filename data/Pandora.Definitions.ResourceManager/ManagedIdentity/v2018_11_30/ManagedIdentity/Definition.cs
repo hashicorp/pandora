@@ -5,18 +5,19 @@ namespace Pandora.Definitions.ResourceManager.ManagedIdentity.v2018_11_30.Manage
 {
     internal class Definition : ApiDefinition
     {
-        // Generated from Swagger revision "e7682aa897902920f3a95b2f358b6f7729d18666" 
+        // Generated from Swagger revision "fbb7ba76937668739778ac2272b9a607ea0511fc" 
 
         public string ApiVersion => "2018-11-30";
         public string Name => "ManagedIdentity";
         public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
         {
-            new SystemAssignedIdentitiesGetByScope(),
-            new UserAssignedIdentitiesCreateOrUpdate(),
-            new UserAssignedIdentitiesDelete(),
-            new UserAssignedIdentitiesGet(),
-            new UserAssignedIdentitiesListByResourceGroup(),
-            new UserAssignedIdentitiesUpdate(),
+            new SystemAssignedIdentitiesGetByScopeOperation(),
+            new UserAssignedIdentitiesCreateOrUpdateOperation(),
+            new UserAssignedIdentitiesDeleteOperation(),
+            new UserAssignedIdentitiesGetOperation(),
+            new UserAssignedIdentitiesListByResourceGroupOperation(),
+            new UserAssignedIdentitiesListBySubscriptionOperation(),
+            new UserAssignedIdentitiesUpdateOperation(),
         };
     }
 }

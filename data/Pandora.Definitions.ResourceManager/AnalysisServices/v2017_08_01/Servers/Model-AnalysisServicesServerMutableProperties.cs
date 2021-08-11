@@ -8,27 +8,27 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.AnalysisServices.v2017_08_01.Servers
 {
 
-    internal class AnalysisServicesServerMutableProperties
+    internal class AnalysisServicesServerMutablePropertiesModel
     {
         [JsonPropertyName("asAdministrators")]
-        public ServerAdministrators? AsAdministrators { get; set; }
+        public ServerAdministratorsModel? AsAdministrators { get; set; }
 
         [JsonPropertyName("backupBlobContainerUri")]
         public string? BackupBlobContainerUri { get; set; }
 
         [JsonPropertyName("gatewayDetails")]
-        public GatewayDetails? GatewayDetails { get; set; }
+        public GatewayDetailsModel? GatewayDetails { get; set; }
 
         [JsonPropertyName("ipV4FirewallSettings")]
-        public IPv4FirewallSettings? IpV4FirewallSettings { get; set; }
+        public IPv4FirewallSettingsModel? IpV4FirewallSettings { get; set; }
 
         [JsonPropertyName("managedMode")]
-        public ManagedMode? ManagedMode { get; set; }
+        public ManagedModeConstant? ManagedMode { get; set; }
 
         [JsonPropertyName("querypoolConnectionMode")]
-        public ConnectionMode? QuerypoolConnectionMode { get; set; }
+        public ConnectionModeConstant? QuerypoolConnectionMode { get; set; }
 
         [JsonPropertyName("serverMonitorMode")]
-        public ServerMonitorMode? ServerMonitorMode { get; set; }
+        public ServerMonitorModeConstant? ServerMonitorMode { get; set; }
     }
 }

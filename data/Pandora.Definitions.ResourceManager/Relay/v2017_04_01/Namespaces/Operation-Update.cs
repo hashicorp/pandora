@@ -10,7 +10,7 @@ namespace Pandora.Definitions.ResourceManager.Relay.v2017_04_01.Namespaces
     {
         public override object? RequestObject()
         {
-            return new RelayUpdateParameters();
+            return new RelayUpdateParametersModel();
         }
 
         public override ResourceID? ResourceId()
@@ -20,7 +20,7 @@ namespace Pandora.Definitions.ResourceManager.Relay.v2017_04_01.Namespaces
 
         public override object? ResponseObject()
         {
-            return new RelayNamespace();
+            return new RelayNamespaceModel();
         }
 
 

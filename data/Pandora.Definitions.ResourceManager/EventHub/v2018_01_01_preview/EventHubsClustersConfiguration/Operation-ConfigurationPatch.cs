@@ -1,25 +1,26 @@
+using Pandora.Definitions.Attributes;
+using Pandora.Definitions.Interfaces;
 using Pandora.Definitions.Operations;
 using System.Collections.Generic;
 using System.Net;
-using Pandora.Definitions.Interfaces;
 
 namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.EventHubsClustersConfiguration
 {
-    internal class ConfigurationPatch : PatchOperation
+    internal class ConfigurationPatchOperation : Operations.PatchOperation
     {
         public override IEnumerable<HttpStatusCode> ExpectedStatusCodes()
         {
             return new List<HttpStatusCode>
             {
                 HttpStatusCode.Accepted,
-                HttpStatusCode.OK,
                 HttpStatusCode.Created,
+                HttpStatusCode.OK,
             };
         }
 
         public override object? RequestObject()
         {
-            return new ClusterQuotaConfigurationProperties();
+            return new ClusterQuotaConfigurationPropertiesModel();
         }
 
         public override ResourceID? ResourceId()
@@ -29,12 +30,14 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.Event
 
         public override object? ResponseObject()
         {
-            return new ClusterQuotaConfigurationProperties();
+            return new ClusterQuotaConfigurationPropertiesModel();
         }
 
         public override string? UriSuffix()
         {
             return "/quotaConfiguration/default";
         }
+
+
     }
 }

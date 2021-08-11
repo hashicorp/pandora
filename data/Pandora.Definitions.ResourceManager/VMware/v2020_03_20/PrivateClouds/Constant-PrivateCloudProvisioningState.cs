@@ -4,7 +4,7 @@ using System.ComponentModel;
 namespace Pandora.Definitions.ResourceManager.VMware.v2020_03_20.PrivateClouds
 {
     [ConstantType(ConstantTypeAttribute.ConstantType.String)]
-    internal enum PrivateCloudProvisioningState
+    internal enum PrivateCloudProvisioningStateConstant
     {
         [Description("Building")]
         Building,

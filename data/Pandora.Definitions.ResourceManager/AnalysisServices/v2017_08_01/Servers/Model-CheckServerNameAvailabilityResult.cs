@@ -8,7 +8,7 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.AnalysisServices.v2017_08_01.Servers
 {
 
-    internal class CheckServerNameAvailabilityResult
+    internal class CheckServerNameAvailabilityResultModel
     {
         [JsonPropertyName("message")]
         public string? Message { get; set; }

@@ -8,13 +8,13 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.PowerBIDedicated.v2021_01_01.PowerBIDedicated
 {
 
-    internal class CapacitySku
+    internal class CapacitySkuModel
     {
         [JsonPropertyName("name")]
         [Required]
         public string Name { get; set; }
 
         [JsonPropertyName("tier")]
-        public CapacitySkuTier? Tier { get; set; }
+        public CapacitySkuTierConstant? Tier { get; set; }
     }
 }

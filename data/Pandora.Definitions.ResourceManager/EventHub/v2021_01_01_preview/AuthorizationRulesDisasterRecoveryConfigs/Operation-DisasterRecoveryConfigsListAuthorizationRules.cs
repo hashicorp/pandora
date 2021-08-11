@@ -6,7 +6,7 @@ using System.Net;
 
 namespace Pandora.Definitions.ResourceManager.EventHub.v2021_01_01_preview.AuthorizationRulesDisasterRecoveryConfigs
 {
-    internal class DisasterRecoveryConfigsListAuthorizationRules : ListOperation
+    internal class DisasterRecoveryConfigsListAuthorizationRulesOperation : Operations.ListOperation
     {
         public override string? FieldContainingPaginationDetails()
         {
@@ -20,12 +20,14 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2021_01_01_preview.Autho
 
         public override object NestedItemType()
         {
-            return new AuthorizationRule();
+            return new AuthorizationRuleModel();
         }
 
         public override string? UriSuffix()
         {
             return "/authorizationRules";
         }
+
+
     }
 }

@@ -6,11 +6,11 @@ using System.Net;
 
 namespace Pandora.Definitions.ResourceManager.VMware.v2020_03_20.HcxEnterpriseSites
 {
-    internal class CreateOrUpdate : PutOperation
+    internal class CreateOrUpdateOperation : Operations.PutOperation
     {
         public override object? RequestObject()
         {
-            return new HcxEnterpriseSite();
+            return new HcxEnterpriseSiteModel();
         }
 
         public override ResourceID? ResourceId()
@@ -20,7 +20,7 @@ namespace Pandora.Definitions.ResourceManager.VMware.v2020_03_20.HcxEnterpriseSi
 
         public override object? ResponseObject()
         {
-            return new HcxEnterpriseSite();
+            return new HcxEnterpriseSiteModel();
         }
 
 

@@ -8,12 +8,12 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.VMware.v2020_03_20.HcxEnterpriseSites
 {
 
-    internal class HcxEnterpriseSiteProperties
+    internal class HcxEnterpriseSitePropertiesModel
     {
         [JsonPropertyName("activationKey")]
         public string? ActivationKey { get; set; }
 
         [JsonPropertyName("status")]
-        public HcxEnterpriseSiteStatus? Status { get; set; }
+        public HcxEnterpriseSiteStatusConstant? Status { get; set; }
     }
 }

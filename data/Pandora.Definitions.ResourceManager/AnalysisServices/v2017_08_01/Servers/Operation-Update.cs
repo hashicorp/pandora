@@ -24,7 +24,7 @@ namespace Pandora.Definitions.ResourceManager.AnalysisServices.v2017_08_01.Serve
 
         public override object? RequestObject()
         {
-            return new AnalysisServicesServerUpdateParameters();
+            return new AnalysisServicesServerUpdateParametersModel();
         }
 
         public override ResourceID? ResourceId()
@@ -34,7 +34,7 @@ namespace Pandora.Definitions.ResourceManager.AnalysisServices.v2017_08_01.Serve
 
         public override object? ResponseObject()
         {
-            return new AnalysisServicesServer();
+            return new AnalysisServicesServerModel();
         }
 
 

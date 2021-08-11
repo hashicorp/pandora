@@ -1,12 +1,12 @@
+using Pandora.Definitions.Attributes;
+using Pandora.Definitions.Interfaces;
 using Pandora.Definitions.Operations;
 using System.Collections.Generic;
 using System.Net;
-using Pandora.Definitions.Attributes;
-using Pandora.Definitions.Interfaces;
 
 namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.EventHubs
 {
-    internal class ListByNamespace : ListOperation
+    internal class ListByNamespaceOperation : Operations.ListOperation
     {
         public override string? FieldContainingPaginationDetails()
         {
@@ -20,28 +20,27 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.EventHubs
 
         public override object NestedItemType()
         {
-            return new Eventhub();
+            return new EventhubModel();
         }
 
         public override object? OptionsObject()
         {
-            return new ListByNamespaceOptions();
+            return new ListByNamespaceOperation.ListByNamespaceOptions();
         }
 
         public override string? UriSuffix()
         {
             return "/eventhubs";
         }
-    }
-    internal class ListByNamespaceOptions
-    {
-        [QueryStringName("$skip")]
-        [Optional]
-        public int Skip { get; set; }
 
-        [QueryStringName("$top")]
-        [Optional]
-        public int Top { get; set; }
-
+        internal class ListByNamespaceOptions
+        {
+            [QueryStringName("$skip")]
+            [Optional]
+            public int Skip { get; set; }
+            [QueryStringName("$top")]
+            [Optional]
+            public int Top { get; set; }
+        }
     }
 }

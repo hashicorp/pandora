@@ -8,7 +8,7 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.Maps.v2021_02_01.Accounts
 {
 
-    internal class MapsAccountProperties
+    internal class MapsAccountPropertiesModel
     {
         [JsonPropertyName("disableLocalAuth")]
         public bool? DisableLocalAuth { get; set; }

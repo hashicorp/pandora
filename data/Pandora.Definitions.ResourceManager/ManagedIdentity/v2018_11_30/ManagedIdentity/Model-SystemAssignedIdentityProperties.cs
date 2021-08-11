@@ -8,7 +8,7 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.ManagedIdentity.v2018_11_30.ManagedIdentity
 {
 
-    internal class SystemAssignedIdentityProperties
+    internal class SystemAssignedIdentityPropertiesModel
     {
         [JsonPropertyName("clientId")]
         public string? ClientId { get; set; }

@@ -18,7 +18,7 @@ namespace Pandora.Definitions.ResourceManager.PowerBIDedicated.v2021_01_01.AutoS
 
         public override object? RequestObject()
         {
-            return new AutoScaleVCoreUpdateParameters();
+            return new AutoScaleVCoreUpdateParametersModel();
         }
 
         public override ResourceID? ResourceId()
@@ -28,7 +28,7 @@ namespace Pandora.Definitions.ResourceManager.PowerBIDedicated.v2021_01_01.AutoS
 
         public override object? ResponseObject()
         {
-            return new AutoScaleVCore();
+            return new AutoScaleVCoreModel();
         }
 
 

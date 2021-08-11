@@ -6,7 +6,7 @@ using System.Net;
 
 namespace Pandora.Definitions.ResourceManager.VMware.v2020_03_20.PrivateClouds
 {
-    internal class ListAdminCredentials : PostOperation
+    internal class ListAdminCredentialsOperation : Operations.PostOperation
     {
         public override IEnumerable<HttpStatusCode> ExpectedStatusCodes()
         {
@@ -28,7 +28,7 @@ namespace Pandora.Definitions.ResourceManager.VMware.v2020_03_20.PrivateClouds
 
         public override object? ResponseObject()
         {
-            return new AdminCredentials();
+            return new AdminCredentialsModel();
         }
 
         public override string? UriSuffix()

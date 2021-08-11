@@ -6,7 +6,7 @@ using System.Net;
 
 namespace Pandora.Definitions.ResourceManager.EventHub.v2021_01_01_preview.DisasterRecoveryConfigs
 {
-    internal class List : ListOperation
+    internal class ListOperation : Operations.ListOperation
     {
         public override string? FieldContainingPaginationDetails()
         {
@@ -20,12 +20,14 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2021_01_01_preview.Disas
 
         public override object NestedItemType()
         {
-            return new ArmDisasterRecovery();
+            return new ArmDisasterRecoveryModel();
         }
 
         public override string? UriSuffix()
         {
             return "/disasterRecoveryConfigs";
         }
+
+
     }
 }

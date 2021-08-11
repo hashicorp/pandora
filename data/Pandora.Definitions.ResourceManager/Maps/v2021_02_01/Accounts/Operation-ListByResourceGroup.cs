@@ -6,7 +6,7 @@ using System.Net;
 
 namespace Pandora.Definitions.ResourceManager.Maps.v2021_02_01.Accounts
 {
-    internal class ListByResourceGroup : ListOperation
+    internal class ListByResourceGroupOperation : Operations.ListOperation
     {
         public override string? FieldContainingPaginationDetails()
         {
@@ -20,7 +20,7 @@ namespace Pandora.Definitions.ResourceManager.Maps.v2021_02_01.Accounts
 
         public override object NestedItemType()
         {
-            return new MapsAccount();
+            return new MapsAccountModel();
         }
 
         public override string? UriSuffix()

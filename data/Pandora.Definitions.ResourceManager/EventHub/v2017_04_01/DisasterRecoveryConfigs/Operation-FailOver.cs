@@ -1,11 +1,12 @@
+using Pandora.Definitions.Attributes;
+using Pandora.Definitions.Interfaces;
 using Pandora.Definitions.Operations;
 using System.Collections.Generic;
 using System.Net;
-using Pandora.Definitions.Interfaces;
 
 namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.DisasterRecoveryConfigs
 {
-    internal class FailOver : PostOperation
+    internal class FailOverOperation : Operations.PostOperation
     {
         public override IEnumerable<HttpStatusCode> ExpectedStatusCodes()
         {
@@ -29,5 +30,7 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.DisasterRecov
         {
             return "/failover";
         }
+
+
     }
 }

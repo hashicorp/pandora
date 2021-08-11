@@ -1,18 +1,16 @@
-using Pandora.Definitions.Operations;
+using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Interfaces;
+using Pandora.Definitions.Operations;
+using System.Collections.Generic;
+using System.Net;
 
 namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.EventHubsClusters
 {
-    internal class ClustersListByResourceGroup : ListOperation
+    internal class ClustersListByResourceGroupOperation : Operations.ListOperation
     {
         public override string? FieldContainingPaginationDetails()
         {
             return "nextLink";
-        }
-
-        public override object NestedItemType()
-        {
-            return new Cluster();
         }
 
         public override ResourceID? ResourceId()
@@ -20,9 +18,16 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.Event
             return new ResourceGroupId();
         }
 
+        public override object NestedItemType()
+        {
+            return new ClusterModel();
+        }
+
         public override string? UriSuffix()
         {
             return "/providers/Microsoft.EventHub/clusters";
         }
+
+
     }
 }

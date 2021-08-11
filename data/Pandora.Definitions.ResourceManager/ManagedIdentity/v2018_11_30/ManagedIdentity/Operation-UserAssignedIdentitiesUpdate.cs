@@ -6,7 +6,7 @@ using System.Net;
 
 namespace Pandora.Definitions.ResourceManager.ManagedIdentity.v2018_11_30.ManagedIdentity
 {
-    internal class UserAssignedIdentitiesUpdate : PatchOperation
+    internal class UserAssignedIdentitiesUpdateOperation : Operations.PatchOperation
     {
         public override IEnumerable<HttpStatusCode> ExpectedStatusCodes()
         {
@@ -18,7 +18,7 @@ namespace Pandora.Definitions.ResourceManager.ManagedIdentity.v2018_11_30.Manage
 
         public override object? RequestObject()
         {
-            return new IdentityUpdate();
+            return new IdentityUpdateModel();
         }
 
         public override ResourceID? ResourceId()
@@ -28,7 +28,7 @@ namespace Pandora.Definitions.ResourceManager.ManagedIdentity.v2018_11_30.Manage
 
         public override object? ResponseObject()
         {
-            return new Identity();
+            return new IdentityModel();
         }
 
 

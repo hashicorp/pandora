@@ -6,7 +6,7 @@ using System.Net;
 
 namespace Pandora.Definitions.ResourceManager.VMware.v2020_03_20.PrivateClouds
 {
-    internal class Update : PatchOperation
+    internal class UpdateOperation : Operations.PatchOperation
     {
         public override bool LongRunning()
         {
@@ -15,7 +15,7 @@ namespace Pandora.Definitions.ResourceManager.VMware.v2020_03_20.PrivateClouds
 
         public override object? RequestObject()
         {
-            return new PrivateCloudUpdate();
+            return new PrivateCloudUpdateModel();
         }
 
         public override ResourceID? ResourceId()
@@ -25,7 +25,7 @@ namespace Pandora.Definitions.ResourceManager.VMware.v2020_03_20.PrivateClouds
 
         public override object? ResponseObject()
         {
-            return new PrivateCloud();
+            return new PrivateCloudModel();
         }
 
 

@@ -8,7 +8,7 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.PowerBIDedicated.v2021_01_01.Capacities
 {
 
-    internal class CheckCapacityNameAvailabilityParameters
+    internal class CheckCapacityNameAvailabilityParametersModel
     {
         [JsonPropertyName("name")]
         public string? Name { get; set; }

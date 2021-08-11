@@ -6,7 +6,7 @@ using System.Net;
 
 namespace Pandora.Definitions.ResourceManager.EventHub.v2021_01_01_preview.AuthorizationRulesNamespaces
 {
-    internal class NamespacesCreateOrUpdateAuthorizationRule : PutOperation
+    internal class NamespacesCreateOrUpdateAuthorizationRuleOperation : Operations.PutOperation
     {
         public override IEnumerable<HttpStatusCode> ExpectedStatusCodes()
         {
@@ -18,7 +18,7 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2021_01_01_preview.Autho
 
         public override object? RequestObject()
         {
-            return new AuthorizationRule();
+            return new AuthorizationRuleModel();
         }
 
         public override ResourceID? ResourceId()
@@ -28,7 +28,9 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2021_01_01_preview.Autho
 
         public override object? ResponseObject()
         {
-            return new AuthorizationRule();
+            return new AuthorizationRuleModel();
         }
+
+
     }
 }

@@ -8,7 +8,7 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.Relay.v2017_04_01.Namespaces
 {
 
-    internal class RelayNamespaceProperties
+    internal class RelayNamespacePropertiesModel
     {
         [DateFormat(DateFormatAttribute.DateFormat.RFC3339)]
         [JsonPropertyName("createdAt")]
@@ -18,7 +18,7 @@ namespace Pandora.Definitions.ResourceManager.Relay.v2017_04_01.Namespaces
         public string? MetricId { get; set; }
 
         [JsonPropertyName("provisioningState")]
-        public ProvisioningStateEnum? ProvisioningState { get; set; }
+        public ProvisioningStateEnumConstant? ProvisioningState { get; set; }
 
         [JsonPropertyName("serviceBusEndpoint")]
         public string? ServiceBusEndpoint { get; set; }

@@ -5,7 +5,7 @@ namespace Pandora.Definitions.ResourceManager.PowerBIDedicated.v2021_01_01.AutoS
 {
     internal class Definition : ApiDefinition
     {
-        // Generated from Swagger revision "74dbcfee45a6634d0043e478aba324796d98940c" 
+        // Generated from Swagger revision "fbb7ba76937668739778ac2272b9a607ea0511fc" 
 
         public string ApiVersion => "2021-01-01";
         public string Name => "AutoScaleVCores";

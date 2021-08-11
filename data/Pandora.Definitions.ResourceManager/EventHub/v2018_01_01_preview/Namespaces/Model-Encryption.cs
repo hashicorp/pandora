@@ -2,17 +2,18 @@ using System;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 using Pandora.Definitions.Attributes;
+using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
 namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.Namespaces
 {
 
-    internal class Encryption
+    internal class EncryptionModel
     {
         [JsonPropertyName("keySource")]
-        public KeySource KeySource { get; set; }
+        public KeySourceConstant? KeySource { get; set; }
 
         [JsonPropertyName("keyVaultProperties")]
-        public List<KeyVaultProperties>? KeyVaultProperties { get; set; }
+        public List<KeyVaultPropertiesModel>? KeyVaultProperties { get; set; }
     }
 }

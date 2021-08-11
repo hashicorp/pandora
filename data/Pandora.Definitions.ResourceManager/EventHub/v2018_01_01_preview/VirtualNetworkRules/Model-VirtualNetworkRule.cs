@@ -2,12 +2,13 @@ using System;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 using Pandora.Definitions.Attributes;
+using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
 namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.VirtualNetworkRules
 {
 
-    internal class VirtualNetworkRule
+    internal class VirtualNetworkRuleModel
     {
         [JsonPropertyName("id")]
         public string? Id { get; set; }
@@ -16,7 +17,7 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.Virtu
         public string? Name { get; set; }
 
         [JsonPropertyName("properties")]
-        public VirtualNetworkRuleProperties? Properties { get; set; }
+        public VirtualNetworkRulePropertiesModel? Properties { get; set; }
 
         [JsonPropertyName("type")]
         public string? Type { get; set; }

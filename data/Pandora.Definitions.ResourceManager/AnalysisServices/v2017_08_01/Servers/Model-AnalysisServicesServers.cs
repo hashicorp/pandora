@@ -8,10 +8,10 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.AnalysisServices.v2017_08_01.Servers
 {
 
-    internal class AnalysisServicesServers
+    internal class AnalysisServicesServersModel
     {
         [JsonPropertyName("value")]
         [Required]
-        public List<AnalysisServicesServer> Value { get; set; }
+        public List<AnalysisServicesServerModel> Value { get; set; }
     }
 }

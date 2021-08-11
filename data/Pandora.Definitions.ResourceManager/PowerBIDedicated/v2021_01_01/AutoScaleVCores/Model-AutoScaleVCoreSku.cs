@@ -8,7 +8,7 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.PowerBIDedicated.v2021_01_01.AutoScaleVCores
 {
 
-    internal class AutoScaleVCoreSku
+    internal class AutoScaleVCoreSkuModel
     {
         [JsonPropertyName("capacity")]
         public int? Capacity { get; set; }
@@ -18,6 +18,6 @@ namespace Pandora.Definitions.ResourceManager.PowerBIDedicated.v2021_01_01.AutoS
         public string Name { get; set; }
 
         [JsonPropertyName("tier")]
-        public VCoreSkuTier? Tier { get; set; }
+        public VCoreSkuTierConstant? Tier { get; set; }
     }
 }

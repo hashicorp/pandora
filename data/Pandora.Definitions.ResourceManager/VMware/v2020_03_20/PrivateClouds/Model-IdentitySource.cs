@@ -8,7 +8,7 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.VMware.v2020_03_20.PrivateClouds
 {
 
-    internal class IdentitySource
+    internal class IdentitySourceModel
     {
         [JsonPropertyName("alias")]
         public string? Alias { get; set; }
@@ -35,7 +35,7 @@ namespace Pandora.Definitions.ResourceManager.VMware.v2020_03_20.PrivateClouds
         public string? SecondaryServer { get; set; }
 
         [JsonPropertyName("ssl")]
-        public SslEnum? Ssl { get; set; }
+        public SslEnumConstant? Ssl { get; set; }
 
         [JsonPropertyName("username")]
         public string? Username { get; set; }

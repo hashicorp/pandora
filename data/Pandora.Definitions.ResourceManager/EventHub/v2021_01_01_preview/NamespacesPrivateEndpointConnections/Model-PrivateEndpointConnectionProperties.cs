@@ -2,20 +2,21 @@ using System;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 using Pandora.Definitions.Attributes;
+using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
 namespace Pandora.Definitions.ResourceManager.EventHub.v2021_01_01_preview.NamespacesPrivateEndpointConnections
 {
 
-    internal class PrivateEndpointConnectionProperties
+    internal class PrivateEndpointConnectionPropertiesModel
     {
         [JsonPropertyName("privateEndpoint")]
-        public PrivateEndpoint? PrivateEndpoint { get; set; }
+        public PrivateEndpointModel? PrivateEndpoint { get; set; }
 
         [JsonPropertyName("privateLinkServiceConnectionState")]
-        public ConnectionState? PrivateLinkServiceConnectionState { get; set; }
+        public ConnectionStateModel? PrivateLinkServiceConnectionState { get; set; }
 
         [JsonPropertyName("provisioningState")]
-        public EndPointProvisioningState? ProvisioningState { get; set; }
+        public EndPointProvisioningStateConstant? ProvisioningState { get; set; }
     }
 }

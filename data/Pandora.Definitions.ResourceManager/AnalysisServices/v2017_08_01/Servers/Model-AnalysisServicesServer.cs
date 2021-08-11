@@ -8,7 +8,7 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.AnalysisServices.v2017_08_01.Servers
 {
 
-    internal class AnalysisServicesServer
+    internal class AnalysisServicesServerModel
     {
         [JsonPropertyName("id")]
         public string? Id { get; set; }
@@ -21,11 +21,11 @@ namespace Pandora.Definitions.ResourceManager.AnalysisServices.v2017_08_01.Serve
         public string? Name { get; set; }
 
         [JsonPropertyName("properties")]
-        public AnalysisServicesServerProperties? Properties { get; set; }
+        public AnalysisServicesServerPropertiesModel? Properties { get; set; }
 
         [JsonPropertyName("sku")]
         [Required]
-        public ResourceSku Sku { get; set; }
+        public ResourceSkuModel Sku { get; set; }
 
         [JsonPropertyName("tags")]
         public CustomTypes.Tags? Tags { get; set; }

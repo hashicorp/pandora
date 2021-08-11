@@ -14,5 +14,8 @@ namespace Pandora.Definitions.ResourceManager.SignalR.v2020_05_01.SignalR
 
         [Description("ServerConnection")]
         ServerConnection,
+
+        [Description("Trace")]
+        Trace,
     }
 }

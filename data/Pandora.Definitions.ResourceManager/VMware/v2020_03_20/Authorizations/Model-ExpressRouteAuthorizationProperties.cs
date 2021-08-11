@@ -8,7 +8,7 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.VMware.v2020_03_20.Authorizations
 {
 
-    internal class ExpressRouteAuthorizationProperties
+    internal class ExpressRouteAuthorizationPropertiesModel
     {
         [JsonPropertyName("expressRouteAuthorizationId")]
         public string? ExpressRouteAuthorizationId { get; set; }
@@ -17,6 +17,6 @@ namespace Pandora.Definitions.ResourceManager.VMware.v2020_03_20.Authorizations
         public string? ExpressRouteAuthorizationKey { get; set; }
 
         [JsonPropertyName("provisioningState")]
-        public ExpressRouteAuthorizationProvisioningState? ProvisioningState { get; set; }
+        public ExpressRouteAuthorizationProvisioningStateConstant? ProvisioningState { get; set; }
     }
 }

@@ -1,11 +1,12 @@
+using Pandora.Definitions.Attributes;
+using Pandora.Definitions.Interfaces;
 using Pandora.Definitions.Operations;
 using System.Collections.Generic;
 using System.Net;
-using Pandora.Definitions.Interfaces;
 
 namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.AuthorizationRulesDisasterRecoveryConfigs
 {
-    internal class DisasterRecoveryConfigsGetAuthorizationRule : GetOperation
+    internal class DisasterRecoveryConfigsGetAuthorizationRuleOperation : Operations.GetOperation
     {
         public override ResourceID? ResourceId()
         {
@@ -14,7 +15,9 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.Authorization
 
         public override object? ResponseObject()
         {
-            return new AuthorizationRule();
+            return new AuthorizationRuleModel();
         }
+
+
     }
 }

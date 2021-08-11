@@ -28,7 +28,7 @@ namespace Pandora.Definitions.ResourceManager.Relay.v2017_04_01.WCFRelays
 
         public override object? ResponseObject()
         {
-            return new AccessKeys();
+            return new AccessKeysModel();
         }
 
         public override string? UriSuffix()

@@ -1,11 +1,12 @@
+using Pandora.Definitions.Attributes;
+using Pandora.Definitions.Interfaces;
 using Pandora.Definitions.Operations;
 using System.Collections.Generic;
 using System.Net;
-using Pandora.Definitions.Interfaces;
 
 namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.CheckNameAvailabilityDisasterRecoveryConfigs
 {
-    internal class DisasterRecoveryConfigsCheckNameAvailability : PostOperation
+    internal class DisasterRecoveryConfigsCheckNameAvailabilityOperation : Operations.PostOperation
     {
         public override IEnumerable<HttpStatusCode> ExpectedStatusCodes()
         {
@@ -17,7 +18,7 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.Check
 
         public override object? RequestObject()
         {
-            return new CheckNameAvailabilityParameter();
+            return new CheckNameAvailabilityParameterModel();
         }
 
         public override ResourceID? ResourceId()
@@ -27,12 +28,14 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.Check
 
         public override object? ResponseObject()
         {
-            return new CheckNameAvailabilityResult();
+            return new CheckNameAvailabilityResultModel();
         }
 
         public override string? UriSuffix()
         {
             return "/disasterRecoveryConfigs/checkNameAvailability";
         }
+
+
     }
 }

@@ -4,7 +4,7 @@ using System.ComponentModel;
 namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.Namespaces
 {
     [ConstantType(ConstantTypeAttribute.ConstantType.String)]
-    internal enum SkuName
+    internal enum SkuNameConstant
     {
         [Description("Basic")]
         Basic,

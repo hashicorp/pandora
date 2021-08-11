@@ -8,39 +8,39 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.AnalysisServices.v2017_08_01.Servers
 {
 
-    internal class AnalysisServicesServerProperties
+    internal class AnalysisServicesServerPropertiesModel
     {
         [JsonPropertyName("asAdministrators")]
-        public ServerAdministrators? AsAdministrators { get; set; }
+        public ServerAdministratorsModel? AsAdministrators { get; set; }
 
         [JsonPropertyName("backupBlobContainerUri")]
         public string? BackupBlobContainerUri { get; set; }
 
         [JsonPropertyName("gatewayDetails")]
-        public GatewayDetails? GatewayDetails { get; set; }
+        public GatewayDetailsModel? GatewayDetails { get; set; }
 
         [JsonPropertyName("ipV4FirewallSettings")]
-        public IPv4FirewallSettings? IpV4FirewallSettings { get; set; }
+        public IPv4FirewallSettingsModel? IpV4FirewallSettings { get; set; }
 
         [JsonPropertyName("managedMode")]
-        public ManagedMode? ManagedMode { get; set; }
+        public ManagedModeConstant? ManagedMode { get; set; }
 
         [JsonPropertyName("provisioningState")]
-        public ProvisioningState? ProvisioningState { get; set; }
+        public ProvisioningStateConstant? ProvisioningState { get; set; }
 
         [JsonPropertyName("querypoolConnectionMode")]
-        public ConnectionMode? QuerypoolConnectionMode { get; set; }
+        public ConnectionModeConstant? QuerypoolConnectionMode { get; set; }
 
         [JsonPropertyName("serverFullName")]
         public string? ServerFullName { get; set; }
 
         [JsonPropertyName("serverMonitorMode")]
-        public ServerMonitorMode? ServerMonitorMode { get; set; }
+        public ServerMonitorModeConstant? ServerMonitorMode { get; set; }
 
         [JsonPropertyName("sku")]
-        public ResourceSku? Sku { get; set; }
+        public ResourceSkuModel? Sku { get; set; }
 
         [JsonPropertyName("state")]
-        public State? State { get; set; }
+        public StateConstant? State { get; set; }
     }
 }

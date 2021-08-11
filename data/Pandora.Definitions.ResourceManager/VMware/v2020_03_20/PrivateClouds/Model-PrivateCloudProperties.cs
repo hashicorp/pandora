@@ -8,23 +8,23 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.VMware.v2020_03_20.PrivateClouds
 {
 
-    internal class PrivateCloudProperties
+    internal class PrivateCloudPropertiesModel
     {
         [JsonPropertyName("circuit")]
-        public Circuit? Circuit { get; set; }
+        public CircuitModel? Circuit { get; set; }
 
         [JsonPropertyName("endpoints")]
-        public Endpoints? Endpoints { get; set; }
+        public EndpointsModel? Endpoints { get; set; }
 
         [JsonPropertyName("identitySources")]
-        public List<IdentitySource>? IdentitySources { get; set; }
+        public List<IdentitySourceModel>? IdentitySources { get; set; }
 
         [JsonPropertyName("internet")]
-        public InternetEnum? Internet { get; set; }
+        public InternetEnumConstant? Internet { get; set; }
 
         [JsonPropertyName("managementCluster")]
         [Required]
-        public ManagementCluster ManagementCluster { get; set; }
+        public ManagementClusterModel ManagementCluster { get; set; }
 
         [JsonPropertyName("managementNetwork")]
         public string? ManagementNetwork { get; set; }
@@ -43,7 +43,7 @@ namespace Pandora.Definitions.ResourceManager.VMware.v2020_03_20.PrivateClouds
         public string? ProvisioningNetwork { get; set; }
 
         [JsonPropertyName("provisioningState")]
-        public PrivateCloudProvisioningState? ProvisioningState { get; set; }
+        public PrivateCloudProvisioningStateConstant? ProvisioningState { get; set; }
 
         [JsonPropertyName("vcenterCertificateThumbprint")]
         public string? VcenterCertificateThumbprint { get; set; }

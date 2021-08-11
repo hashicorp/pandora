@@ -8,10 +8,10 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.PowerBIDedicated.v2021_01_01.Capacities
 {
 
-    internal class DedicatedCapacities
+    internal class DedicatedCapacitiesModel
     {
         [JsonPropertyName("value")]
         [Required]
-        public List<DedicatedCapacity> Value { get; set; }
+        public List<DedicatedCapacityModel> Value { get; set; }
     }
 }

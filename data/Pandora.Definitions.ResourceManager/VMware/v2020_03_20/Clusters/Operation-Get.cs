@@ -6,7 +6,7 @@ using System.Net;
 
 namespace Pandora.Definitions.ResourceManager.VMware.v2020_03_20.Clusters
 {
-    internal class Get : GetOperation
+    internal class GetOperation : Operations.GetOperation
     {
         public override ResourceID? ResourceId()
         {
@@ -15,7 +15,7 @@ namespace Pandora.Definitions.ResourceManager.VMware.v2020_03_20.Clusters
 
         public override object? ResponseObject()
         {
-            return new Cluster();
+            return new ClusterModel();
         }
 
 

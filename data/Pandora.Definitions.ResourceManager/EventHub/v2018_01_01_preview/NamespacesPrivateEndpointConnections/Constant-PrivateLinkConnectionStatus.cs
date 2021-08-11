@@ -4,7 +4,7 @@ using System.ComponentModel;
 namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.NamespacesPrivateEndpointConnections
 {
     [ConstantType(ConstantTypeAttribute.ConstantType.String)]
-    internal enum PrivateLinkConnectionStatus
+    internal enum PrivateLinkConnectionStatusConstant
     {
         [Description("Approved")]
         Approved,
