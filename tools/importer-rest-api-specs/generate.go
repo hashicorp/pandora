@@ -159,7 +159,7 @@ func generateEverything(swaggerGitSha string) error {
 			}
 
 			runInput := RunInput{
-				RootNamespace:    RootNamespace,
+				RootNamespace:    "Pandora.Definitions.ResourceManager",
 				ServiceName:      service.Name,
 				ApiVersion:       apiVersion,
 				OutputDirectory:  outputDirectory,

@@ -14,14 +14,12 @@ If you've found a new bug or something that didn't generate as expected - please
 
 Swagger files which should be imported into Pandora's Data Format are currently hand-defined in [`./tools/importer-rest-api-specs/data.go`](https://github.com/hashicorp/pandora/blob/main/tools/importer-rest-api-specs/data.go#L12-L13).
 
-This example shows a new mapping:
+This example shows a new mapping for a Resource Manager Service:
 
 ```go
-		{
-			ApiVersion:       "2021-01-01-preview",
-			OutputDirectory:  outputDirectory,
-			RootNamespace:    RootNamespace,
+		ResourceManagerInput{
 			ServiceName:      "EventHub",
+			ApiVersion:       "2021-01-01-preview",
 			SwaggerDirectory: swaggerDirectory + "/specification/eventhub/resource-manager/Microsoft.EventHub/preview/2021-01-01-preview",
 			SwaggerFiles: []string{
 				"AuthorizationRules.json",
@@ -33,14 +31,12 @@ This example shows a new mapping:
 				"networkrulessets-preview.json",
 				"operations.json",
 			},
-		},
+		}.ToRunInput(),
 ```
 
 Those fields are:
 
 * `ApiVersion` - the version of this API (e.g. `2020-01-01` or `2020-01-01-preview`).
-* `OutputDirectory` - the directory where the generated Data files should be created. This should be set to the variable `outputDirectory` for now (which defaults to `./generated/pandora-definitions` in the root of the repository).
-* `RootNamespace` - for Resource Manager this should be the constant `RootNamespace` (which is `Pandora.Definitions.ResourceManager`). Data Plane services are not supported at this time.
 * `ServiceName` - the name of this Service, e.g. EventHub, Resources etc.
 * `SwaggerDirectory` - the path to the directory containing the Swagger files for this service within the Git Submodule (which contains the Swagger data).
 * `SwaggerFiles` - a list of Swagger files within this directory which should be parsed.
@@ -50,47 +46,43 @@ Once the new mapping exists, build and run the `./tools/importer-rest-api-specs`
 
 ```sh
 $ cd ./tools/importer-rest-api-specs
-$ go build . && ./importer-rest-api-specs
+$ make tools
+$ make build
+$ make import
 ```
 
-This will parse the Swagger files, transform them as necessary and eventually output `*.cs` files into the Output Directory specified above.
+This will parse the Swagger files, transform them as necessary and eventually output `*.cs` files into the `./data` folder.
 
 Each Service and API version gets output to it's own directory, for example:
 
 ```
- $ tree generated -d
-generated
-└── pandora-definitions
-    └── Pandora.Definitions.ResourceManager
-        ├── EventHub
-        │   └── v2021_01_01_preview
-        │       ├── AuthorizationRulesDisasterRecoveryConfigs
-        │       ├── AuthorizationRulesEventHubs
-        │       ├── AuthorizationRulesNamespaces
-        │       ├── CheckNameAvailabilityDisasterRecoveryConfigs
-        │       ├── ConsumerGroups
-        │       ├── DisasterRecoveryConfigs
-        │       ├── EventHubs
-        │       ├── Namespaces
-        │       ├── NamespacesPrivateEndpointConnections
-        │       ├── NamespacesPrivateLinkResources
-        │       └── NetworkRuleSets
-        ├── PostgresqlHSC
-        │   └── v2020_10_05_privatepreview
-        │       ├── Configurations
-        │       ├── FirewallRules
-        │       ├── Roles
-        │       ├── ServerGroups
-        │       └── Servers
-        └── ResourcesAuthorization
-            └── v2020_09_01
-                └── PolicyAssignments
+ $ tree data -d
+data
+├── Pandora.Definitions.ResourceManager
+│   ├── AnalysisServices
+│   │   └── v2017_08_01
+│   │       ├── AnalysisServices
+│   │       └── Servers
+│   ├── AppConfiguration
+│   │   └── v2020_06_01
+│   │       ├── ConfigurationStores
+│   │       ├── PrivateEndpointConnections
+│   │       └── PrivateLinkResources
+│   ├── EventHub
+│   │   ├── v2017_04_01
+│   │   │   ├── AuthorizationRulesDisasterRecoveryConfigs
+│   │   │   ├── AuthorizationRulesEventHubs
+│   │   │   ├── AuthorizationRulesNamespaces
+│   │   │   ├── CheckNameAvailabilityDisasterRecoveryConfigs
+│   │   │   ├── CheckNameAvailabilityNamespaces
+│   │   │   ├── ConsumerGroups
+│   │   │   ├── DisasterRecoveryConfigs
+│   │   │   ├── EventHubs
+│   │   │   ├── MessagingPlan
+│   │   │   ├── Namespaces
+│   │   │   ├── NetworkRuleSets
+│   │   │   └── Regions
 ```
-
-For now, these Generated files need to be copied by hand into the Data project:
-
-* For a new service (e.g. EventHub) we can move the `./generated/pandora-definitions/Pandora.Definitions.ResourceManager/EventHub` folder to `./data/Pandora.Definitions.ResourceManager/`.
-* When adding a new API version to an existing Service (for example `EventHub` -> `2021-01-01-preview`) we can move the folder `./generated/pandora-definitions/Pandora.Definitions.ResourceManager/EventHub/2021-01-01-preview` to `./data/Pandora.Definitions.ResourceManager/EventHub`.
 
 ### Notes
 

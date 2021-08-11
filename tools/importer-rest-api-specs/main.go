@@ -10,9 +10,8 @@ import (
 )
 
 const (
-	outputDirectory  = "../../generated/pandora-definitions"
+	outputDirectory  = "../../data/"
 	swaggerDirectory = "../../swagger"
-	RootNamespace    = "Pandora.Definitions.ResourceManager"
 	permissions      = os.FileMode(0755)
 )
 
