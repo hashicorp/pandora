@@ -10,7 +10,8 @@ jobs:
     strategy:
       fail-fast: true
     permissions:
-      issues: write
+      contents: write
+      pull-requests: write
     steps:
       - uses: actions/checkout@v2
         with:
