@@ -66,6 +66,14 @@ func GenerationData() []RunInput {
 			},
 		}.ToRunInput(),
 		ResourceManagerInput{
+			ServiceName:      "CustomProviders",
+			ApiVersion:       "2018-09-01-preview",
+			SwaggerDirectory: swaggerDirectory + "/specification/customproviders/resource-manager/Microsoft.CustomProviders/preview/2018-09-01-preview",
+			SwaggerFiles: []string{
+				"customproviders.json",
+			},
+		}.ToRunInput(),
+		ResourceManagerInput{
 			ServiceName:      "EventHub",
 			ApiVersion:       "2018-01-01-preview",
 			SwaggerDirectory: swaggerDirectory + "/specification/eventhub/resource-manager/Microsoft.EventHub/preview/2018-01-01-preview",
