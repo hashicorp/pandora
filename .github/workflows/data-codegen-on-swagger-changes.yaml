@@ -21,7 +21,7 @@ jobs:
           go-version: '1.16.x'
 
       - name: build and run importer-rest-api-specs
-      - run: |
+        run: |
           cd ./tools/importer-rest-api-specs
           make tools
           make build
@@ -35,11 +35,11 @@ jobs:
           ./scripts/conditionally-commit-codegen-changes.sh
           git push origin data/regeneration-from-${{ github.sha }}
 
-      - name: create pull request
-          uses: repo-sync/pull-request@v2
-          with:
-            source_branch: "data/regeneration-from-${{ github.sha }}"
-            destination_branch: "main"
-            pr_title: "Data: regenerating based on ${{ github.sha }}"
-            pr_body: "This PR is automatically generated based on the commit ${{ github.ref }}"
-            github_token: ${{ secrets.GITHUB_TOKEN }}
+      - name: then open a pull request
+        uses: repo-sync/pull-request@v2
+        with:
+          source_branch: "data/regeneration-from-${{ github.sha }}"
+          destination_branch: "main"
+          pr_title: "Data: regenerating based on ${{ github.sha }}"
+          pr_body: "This PR is automatically generated based on the commit ${{ github.ref }}"
+          github_token: ${{ secrets.GITHUB_TOKEN }}
