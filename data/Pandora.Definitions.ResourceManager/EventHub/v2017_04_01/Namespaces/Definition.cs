@@ -5,7 +5,7 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.Namespaces
 {
     internal class Definition : ApiDefinition
     {
-        // Generated from Swagger revision "fbb7ba76937668739778ac2272b9a607ea0511fc" 
+        // Generated from Swagger revision "70626b932d16a97361673e0bcba7570284fe0813" 
 
         public string ApiVersion => "2017-04-01";
         public string Name => "Namespaces";
