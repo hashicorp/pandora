@@ -50,6 +50,14 @@ func GenerationData() []RunInput {
 			},
 		}.ToRunInput(),
 		ResourceManagerInput{
+			ServiceName:      "Attestation",
+			ApiVersion:       "2020-10-01",
+			SwaggerDirectory: swaggerDirectory + "/specification/attestation/resource-manager/Microsoft.Attestation/stable/2020-10-01",
+			SwaggerFiles: []string{
+				"attestation.json",
+			},
+		}.ToRunInput(),
+		ResourceManagerInput{
 			ServiceName:      "EventHub",
 			ApiVersion:       "2017-04-01",
 			SwaggerDirectory: swaggerDirectory + "/specification/eventhub/resource-manager/Microsoft.EventHub/stable/2017-04-01",
@@ -63,14 +71,6 @@ func GenerationData() []RunInput {
 				"networkRuleSets.json",
 				"operations.json",
 				"sku.json",
-			},
-		}.ToRunInput(),
-		ResourceManagerInput{
-			ServiceName:      "CustomProviders",
-			ApiVersion:       "2018-09-01-preview",
-			SwaggerDirectory: swaggerDirectory + "/specification/customproviders/resource-manager/Microsoft.CustomProviders/preview/2018-09-01-preview",
-			SwaggerFiles: []string{
-				"customproviders.json",
 			},
 		}.ToRunInput(),
 		ResourceManagerInput{
@@ -180,16 +180,6 @@ func GenerationData() []RunInput {
 		//	SwaggerFilePath: "example-dp-appconfiguration.json",
 		//}
 
-		// Attestation
-		// ResourceManagerInput{
-		//	ServiceName:      "Attestation",
-		//	ApiVersion:       "2020-10-01",
-		//	SwaggerDirectory: swaggerDirectory + "/specification/attestation/resource-manager/Microsoft.Attestation/stable/2020-10-01",
-		//	SwaggerFiles: []string{
-		//		"attestation.json",
-		//	},
-		//}.ToRunInput(),
-
 		// Batch
 		// ResourceManagerInput{
 		//	ServiceName:      "Batch",
@@ -233,6 +223,16 @@ func GenerationData() []RunInput {
 		//		"notebook.json",
 		//		"privateEndpointConnection.json",
 		//		"privateLinkResources.json",
+		//	},
+		//}.ToRunInput(),
+
+		//ResourceManagerInput{
+		//	// Blocked on https://github.com/hashicorp/pandora/issues/204
+		//	ServiceName:      "CustomProviders",
+		//	ApiVersion:       "2018-09-01-preview",
+		//	SwaggerDirectory: swaggerDirectory + "/specification/customproviders/resource-manager/Microsoft.CustomProviders/preview/2018-09-01-preview",
+		//	SwaggerFiles: []string{
+		//		"customproviders.json",
 		//	},
 		//}.ToRunInput(),
 

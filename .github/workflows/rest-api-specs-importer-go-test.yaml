@@ -20,4 +20,6 @@ jobs:
       - uses: actions/setup-go@v2
         with:
           go-version: '1.16.6'
-      - run: cd ./tools/importer-rest-api-specs && go test -v ./...
+      - run: |
+          cd ./tools/importer-rest-api-specs
+          make test
