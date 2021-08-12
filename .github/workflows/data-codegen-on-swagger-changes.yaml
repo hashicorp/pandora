@@ -42,5 +42,5 @@ jobs:
           source_branch: "data/regeneration-from-${{ github.sha }}"
           destination_branch: "main"
           pr_title: "Data: regenerating based on ${{ github.sha }}"
-          pr_body: "This PR is automatically generated based on the commit ${{ github.ref }}"
+          pr_body: "This PR is automatically generated based on the commit ${{ github.sha }}"
           github_token: ${{ secrets.GITHUB_TOKEN }}
