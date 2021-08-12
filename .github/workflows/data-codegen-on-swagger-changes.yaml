@@ -36,9 +36,14 @@ jobs:
           git config user.name "GitHub Actions"
           git config user.email "<>"
           ./scripts/conditionally-commit-codegen-changes.sh
+
+      - name: then conditionally push the branch
+        id: push-branch
+        if: ${{ steps.commit.outputs.has_changes_to_push == 'true' }}
+        run: |
           git push origin data/regeneration-from-${{ github.sha }}
 
-      - name: then open a pull request
+      - name: then conditionally open a pull request
         uses: repo-sync/pull-request@v2
         id: open-pr
         if: ${{ steps.commit.outputs.has_changes_to_push == 'true' }}
