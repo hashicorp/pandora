@@ -77,7 +77,7 @@ func (r *AzureApiResource) findUnusedConstants() []string {
 
 func (r *AzureApiResource) findUnusedModels() []string {
 	unusedModels := make([]string, 0)
-	for modelName, _ := range r.Models {
+	for modelName, model := range r.Models {
 		if modelName == "ResourceIdentity" {
 			modelName = "ResourceIdentity"
 		}
@@ -100,16 +100,28 @@ func (r *AzureApiResource) findUnusedModels() []string {
 
 		// or on other models
 		usedInAModel := false
-		for thisModelName, model := range r.Models {
+		for thisModelName, thisModel := range r.Models {
 			if thisModelName == modelName {
 				continue
 			}
 
-			for _, field := range model.Fields {
+			for _, field := range thisModel.Fields {
 				if field.ModelReference != nil && *field.ModelReference == modelName {
 					usedInAModel = true
 					break
 				}
+			}
+
+			if thisModel.ParentTypeName != nil && *thisModel.ParentTypeName == modelName {
+				// if this model inherits from the main type (e.g. discriminated) then it
+				// should be kept
+				usedInAModel = true
+				break
+			}
+			if model.ParentTypeName != nil && *model.ParentTypeName == thisModelName {
+				// likewise if it's the inverse
+				usedInAModel = true
+				break
 			}
 		}
 		if usedInAModel {
