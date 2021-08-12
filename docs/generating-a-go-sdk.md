@@ -190,10 +190,10 @@ The Generated SDK's get copied from:
 to the following path within the provider:
 
 ```
-./azurerm/internal/services/eventhub/sdk/{resources}
+./azurerm/internal/services/eventhub/sdk/{version}/{resources}
 ```
 
-See [an example here](https://github.com/terraform-providers/terraform-provider-azurerm/tree/2190a425ebda271530a7a40fcb6d0d13110f1f1e/azurerm/internal/services/eventhub/sdk).
+See [an example here](https://github.com/hashicorp/terraform-provider-azurerm/blob/8b8b5710bb4576e58fdeceda1dbad811d8eb9ef8/internal/services/analysisservices/sdk).
 
 Notably when using a Pandora SDK we don't need to generate the Resource ID Parsers within the AzureRM Provider, since these are instead located within the SDK. At this time we don't generate Terraform Validation functions within the Pandora SDK, [which is tracked in this issue](https://github.com/hashicorp/pandora/issues/103) (either to generate these, or to write a generic validation function taking an ID Parsing function).
 
