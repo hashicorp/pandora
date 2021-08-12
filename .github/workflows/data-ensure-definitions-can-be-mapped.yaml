@@ -1,0 +1,19 @@
+---
+name: Verify API Definitions can be Mapped
+on:
+  pull_request:
+    types: ['opened', 'synchronize']
+    paths:
+      - '.github/workflows/**'
+      - 'data/**'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: true
+    steps:
+      - uses: actions/checkout@v2
+      - run: |
+          cd ./data
+          make test
