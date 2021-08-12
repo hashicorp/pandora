@@ -43,6 +43,14 @@ func (r *AzureApiResource) findUnusedConstants() []string {
 				}
 			}
 
+			// is this referenced as a dictionary
+			if model.AdditionalProperties != nil {
+				if model.AdditionalProperties.ConstantReference != nil && *model.AdditionalProperties.ConstantReference == constantName {
+					usedInAModel = true
+					break
+				}
+			}
+
 			if usedInAModel {
 				break
 			}
@@ -122,6 +130,14 @@ func (r *AzureApiResource) findUnusedModels() []string {
 				// likewise if it's the inverse
 				usedInAModel = true
 				break
+			}
+
+			// is this referenced as a dictionary
+			if thisModel.AdditionalProperties != nil {
+				if thisModel.AdditionalProperties.ModelReference != nil && *thisModel.AdditionalProperties.ModelReference == modelName {
+					usedInAModel = true
+					break
+				}
 			}
 		}
 		if usedInAModel {
