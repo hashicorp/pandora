@@ -56,7 +56,7 @@ func NormalizeSegment(input string, camelCase bool) string {
 		"resourcegroups":         "resourceGroups",
 		"serverfarms":            "serverFarms",
 		"siteextensions":         "siteExtensions",
-		"signalr":                "SignalR", // @tombuildsstuff: compatibility with existing resources - remove this in favour of signalR in time.
+		"signalr":                "SignalR", // @tombuildsstuff: compatibility with existing resources - TODO: remove this in favour of signalR in time.
 		"sourcecontrols":         "sourceControls",
 		"trafficmanagerprofiles": "trafficManagerProfiles",
 		"triggeredwebjobs":       "triggeredWebJobs",
