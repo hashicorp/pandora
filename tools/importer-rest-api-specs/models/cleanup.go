@@ -86,9 +86,6 @@ func (r *AzureApiResource) findUnusedConstants() []string {
 func (r *AzureApiResource) findUnusedModels() []string {
 	unusedModels := make([]string, 0)
 	for modelName, model := range r.Models {
-		if modelName == "ResourceIdentity" {
-			modelName = "ResourceIdentity"
-		}
 		// models are either referenced by operations
 		usedInAnOperation := false
 		for _, operation := range r.Operations {
