@@ -60,8 +60,8 @@ func normalizeType(input string) models.FieldDefinitionType {
 	panic(fmt.Sprintf("unsupported type conversion %q", input))
 }
 
-func parseConstantNameFromField(field spec.Schema) (*string, error) {
-	details, err := parseConstantExtensionFromField(field)
+func parseConstantNameFromExtension(field spec.Extensions) (*string, error) {
+	details, err := parseConstantExtensionFromExtension(field)
 	if err != nil {
 		return nil, err
 	}
@@ -78,9 +78,9 @@ type constantExtension struct {
 	modelAsString bool
 }
 
-func parseConstantExtensionFromField(field spec.Schema) (*constantExtension, error) {
+func parseConstantExtensionFromExtension(field spec.Extensions) (*constantExtension, error) {
 	// Constants should always have `x-ms-enum`
-	enumDetailsRaw, ok := field.Extensions["x-ms-enum"]
+	enumDetailsRaw, ok := field["x-ms-enum"]
 	if !ok {
 		return nil, nil
 	}

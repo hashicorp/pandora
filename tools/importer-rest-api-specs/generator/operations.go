@@ -115,11 +115,22 @@ func (g PandoraDefinitionGenerator) codeForOperation(namespace string, operation
 			if !optionDetails.Required {
 				optionsCode = append(optionsCode, "\t\t\t[Optional]")
 			}
-			fieldType, err := dotNetTypeNameForSimpleType(optionDetails.FieldType)
-			if err != nil {
-				return nil, err
+
+			typeName := ""
+			if optionDetails.FieldType != nil {
+				fieldType, err := dotNetTypeNameForSimpleType(*optionDetails.FieldType)
+				if err != nil {
+					return nil, err
+				}
+				typeName = *fieldType
 			}
-			optionsCode = append(optionsCode, fmt.Sprintf("\t\t\tpublic %s %s { get; set; }", *fieldType, optionName))
+			if optionDetails.ConstantObjectName != nil {
+				typeName = *optionDetails.ConstantObjectName
+			}
+			if typeName == "" {
+				return nil, fmt.Errorf("missing a FieldType or ConstantObjectName for Option %q", optionName)
+			}
+			optionsCode = append(optionsCode, fmt.Sprintf("\t\t\tpublic %s %s { get; set; }", typeName, optionName))
 		}
 		optionsCode = append(optionsCode, "\t\t}")
 	}

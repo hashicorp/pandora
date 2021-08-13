@@ -1362,3 +1362,72 @@ func TestParseConstantsStringsInlinedAsNonStrings(t *testing.T) {
 		t.Fatalf("expected the value for resource.Constants['AnimalType'].Values['Panda'] to be 'panda' but got %q", v)
 	}
 }
+
+func TestParseConstantsFromParameters(t *testing.T) {
+	parsed, err := Load("testdata/", "constants_in_operation_parameters.json", true)
+	if err != nil {
+		t.Fatalf("loading: %+v", err)
+	}
+
+	result, err := parsed.Parse("Example", "2020-01-01")
+	if err != nil {
+		t.Fatalf("parsing: %+v", err)
+	}
+	if result == nil {
+		t.Fatal("result was nil")
+	}
+	if len(result.Resources) != 1 {
+		t.Fatalf("expected 1 resource but got %d", len(result.Resources))
+	}
+
+	resource, ok := result.Resources["ConstantFunTime"]
+	if !ok {
+		t.Fatal("the Resource 'ConstantFunTime' was not found")
+	}
+
+	// sanity checking
+	if len(resource.Constants) != 1 {
+		t.Fatalf("expected 1 constant but got %d", len(resource.Constants))
+	}
+	if len(resource.Models) != 0 {
+		t.Fatalf("expected 0 models but got %d", len(resource.Models))
+	}
+	if len(resource.Operations) != 1 {
+		t.Fatalf("expected 1 operation but got %d", len(resource.Operations))
+	}
+	if len(resource.ResourceIds) != 1 {
+		t.Fatalf("expected 1 Resource ID but got %d", len(resource.ResourceIds))
+	}
+
+	favouriteTable, ok := resource.Constants["MediaType"]
+	if !ok {
+		t.Fatalf("resource.Constants['TableNumber'] was not found")
+	}
+	if favouriteTable.FieldType != models.StringConstant {
+		t.Fatalf("expected resource.Constants['TableNumber'].FieldType to be 'String' but got %q", favouriteTable.FieldType)
+	}
+	if len(favouriteTable.Values) != 3 {
+		t.Fatalf("expected resource.Constants['TableNumber'] to have 3 values but got %d", len(favouriteTable.Values))
+	}
+	v, ok := favouriteTable.Values["EightTrack"]
+	if !ok {
+		t.Fatalf("resource.Constants['MediaType'] didn't contain the key 'One'")
+	}
+	if v != "8Track" {
+		t.Fatalf("expected the value for resource.Constants['MediaType'].Values['EightTrack'] to be '8Track' but got %q", v)
+	}
+	v, ok = favouriteTable.Values["Cassette"]
+	if !ok {
+		t.Fatalf("resource.Constants['MediaType'] didn't contain the key 'Cassette'")
+	}
+	if v != "Cassette" {
+		t.Fatalf("expected the value for resource.Constants['MediaType'].Values['Cassette'] to be 'Cassette' but got %q", v)
+	}
+	v, ok = favouriteTable.Values["Vinyl"]
+	if !ok {
+		t.Fatalf("resource.Constants['MediaType'] didn't contain the key 'Vinyl'")
+	}
+	if v != "Vinyl" {
+		t.Fatalf("expected the value for resource.Constants['MediaType'].Values['Vinyl'] to be 'Vinyl' but got %q", v)
+	}
+}

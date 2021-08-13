@@ -222,7 +222,7 @@ func (d *SwaggerDefinition) constantsForModel(input spec.Schema) (constantDetail
 
 	// Some models are just Enums
 	if len(input.Enum) > 0 {
-		constant, err := mapConstant(input)
+		constant, err := mapConstant(input.Type, input.Enum, input.Extensions)
 		if err != nil {
 			return nil, fmt.Errorf("parsing constant: %+v", err)
 		}
@@ -304,7 +304,7 @@ func (d *SwaggerDefinition) fieldsForModel(modelName string, input spec.Schema, 
 
 	// This model might just be an Enum list
 	if input.Type != nil && input.Type[0] == "string" && len(input.Enum) > 0 {
-		constant, err := mapConstant(input)
+		constant, err := mapConstant(input.Type, input.Enum, input.Extensions)
 		if err != nil {
 			return nil, nil, nil, fmt.Errorf("parsing constant %q: %+v", input.Title, err)
 		}
@@ -525,35 +525,30 @@ type parsedConstant struct {
 	details models.ConstantDetails
 }
 
-func mapConstant(input spec.Schema) (*parsedConstant, error) {
-	if input.Ref.String() != "" {
-		// @tombuildsstuff: I've not seen any examples of this, I don't think?
-		return nil, fmt.Errorf("constant references are not supported")
-	}
-
+func mapConstant(typeVal spec.StringOrArray, values []interface{}, extensions spec.Extensions) (*parsedConstant, error) {
 	// the name needs to come from the `x-ms-enum` extension
-	name, err := parseConstantNameFromField(input)
+	name, err := parseConstantNameFromExtension(extensions)
 	if err != nil {
 		return nil, err
 	}
 	if name == nil {
-		return nil, fmt.Errorf("reference was missing for constant: %+v", input)
+		return nil, fmt.Errorf("reference was missing")
 	}
 
-	constExtension, err := parseConstantExtensionFromField(input)
+	constExtension, err := parseConstantExtensionFromExtension(extensions)
 	if err != nil {
 		return nil, fmt.Errorf("parsing `x-ms-enum` extension: %+v", err)
 	}
 
 	constantType := models.StringConstant
-	if input.Type.Contains("integer") {
+	if typeVal.Contains("integer") {
 		constantType = models.IntegerConstant
-	} else if input.Type.Contains("number") {
+	} else if typeVal.Contains("number") {
 		constantType = models.FloatConstant
 	}
 
 	keysAndValues := make(map[string]string)
-	for i, raw := range input.Enum {
+	for i, raw := range values {
 		if constantType == models.StringConstant {
 			value, ok := raw.(string)
 			if !ok {
@@ -699,7 +694,7 @@ func (d *SwaggerDefinition) mapField(parentModelName, jsonName string, value spe
 					return nil, nil, fmt.Errorf("finding top level constant %q: %+v", *fragmentName, err)
 				}
 
-				constant, err := mapConstant(*model)
+				constant, err := mapConstant(model.Type, model.Enum, model.Extensions)
 				if err != nil {
 					return nil, nil, fmt.Errorf("populating top level constant %q: %+v", *fragmentName, err)
 				}
@@ -754,12 +749,12 @@ func (d *SwaggerDefinition) mapField(parentModelName, jsonName string, value spe
 	// - type: object
 	// - constant reference: pull out the inlined enum
 	if len(value.Enum) > 0 {
-		constantName, err := parseConstantNameFromField(value)
+		constantName, err := parseConstantNameFromExtension(value.Extensions)
 		field.Details.Type = models.Object
 		field.Details.ConstantReference = constantName
 
 		// if it's inlined pull it out that way
-		constant, err := mapConstant(value)
+		constant, err := mapConstant(value.Type, value.Enum, value.Extensions)
 		if err != nil {
 			return nil, nil, fmt.Errorf("parsing constant: %+v", err)
 		}
