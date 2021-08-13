@@ -8,7 +8,7 @@ namespace Pandora.Data.Transformers
 {
     public static class Options
     {
-        public static List<OptionDefinition> Map(object input)
+        public static List<OptionDefinition> Map(Type? input)
         {
             try
             {
@@ -19,7 +19,7 @@ namespace Pandora.Data.Transformers
 
                 var definitions = new List<OptionDefinition>();
 
-                var props = input.GetType().GetProperties();
+                var props = input.GetProperties();
                 foreach (var property in props)
                 {
                     var definition = new OptionDefinition
