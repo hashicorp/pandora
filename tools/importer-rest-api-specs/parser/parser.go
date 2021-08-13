@@ -53,8 +53,11 @@ func (d *SwaggerDefinition) Parse(serviceName, apiVersion string) (*models.Azure
 	// we should go through and normalize this data
 	resources = normalizeResources(resources)
 
-	// finally handle customized types for models
+	// handle customized types for models
 	d.replaceCustomType(resources)
+
+	// then remove anything that's been replaced
+	d.removeUnusedModelsAndConstants(resources)
 
 	return &models.AzureApiDefinition{
 		ServiceName: serviceName,
@@ -127,6 +130,7 @@ func (d *SwaggerDefinition) findResourcesForTag(tag *string) (*models.AzureApiRe
 		ResourceIds: resourceIds.NamesToResourceIds,
 	}
 
+	// first Normalize the names, meaning `foo` -> `Foo` for consistency
 	resource.Normalize()
 
 	return &resource, nil

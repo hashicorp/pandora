@@ -19,6 +19,9 @@ const (
 // or, for redirecting to a file: `PANDORA_GEN_FOR_REALSIES=true go run main.go > ~/tmp/pandora_gen.log 2>&1`
 
 func main() {
+	// works around the OAIGen bug
+	os.Setenv("OAIGEN_DEDUPE", "false")
+
 	input := GenerationData()
 
 	swaggerGitSha, err := determineGitSha(swaggerDirectory)
