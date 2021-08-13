@@ -134,6 +134,14 @@ func (g PandoraDefinitionGenerator) codeForOperation(namespace string, operation
 	operationType := strings.Title(strings.ToLower(operation.Method))
 	if operation.FieldContainingPaginationDetails != nil {
 		operationType = "List"
+		// since this is a List operation we need to additionally output the HttpMethod
+		// since it's possible that these are non-standard (e.g. AppConfig 2020-06-01 ListKeys
+		// is a POST not a GET for a List operation)
+		method := dotNetNameForHttpMethod(operation.Method)
+		code = append(code, fmt.Sprintf(`		public override System.Net.Http.HttpMethod Method() 
+        {
+            return System.Net.Http.%s;
+        }`, method))
 	}
 	output := fmt.Sprintf(`using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Interfaces;
@@ -152,6 +160,31 @@ namespace %[1]s
 }
 `, namespace, operationName, operationType, strings.Join(code, "\n\n"), strings.Join(optionsCode, "\n"))
 	return &output, nil
+}
+
+func dotNetNameForHttpMethod(method string) string {
+	switch strings.ToUpper(method) {
+	case "DELETE":
+		return "HttpMethod.Delete"
+
+	case "GET":
+		return "HttpMethod.Get"
+
+	case "HEAD":
+		return "HttpMethod.Head"
+
+	case "PATCH":
+		return "HttpMethod.Patch"
+
+	case "POST":
+		return "HttpMethod.Post"
+
+	case "PUT":
+		return "HttpMethod.Put"
+
+	default:
+		return fmt.Sprintf("TODO (unimplemented %q)", method)
+	}
 }
 
 func (g PandoraDefinitionGenerator) usesNonDefaultStatusCodes(operation models.OperationDetails) bool {
