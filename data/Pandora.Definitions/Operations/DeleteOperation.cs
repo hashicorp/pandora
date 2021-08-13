@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
@@ -35,13 +36,13 @@ namespace Pandora.Definitions.Operations
             return HttpMethod.Delete;
         }
 
-        public virtual object? OptionsObject()
+        public virtual Type? OptionsObject()
         {
             // could, but generally doesn't exist for deletion
             return null;
         }
 
-        public virtual object? RequestObject()
+        public virtual Type? RequestObject()
         {
             // almost all API's don't have a request object at delete time
             return null;
@@ -53,7 +54,7 @@ namespace Pandora.Definitions.Operations
             return null;
         }
 
-        public virtual object? ResponseObject()
+        public virtual Type? ResponseObject()
         {
             // we're not interested in the response object in delete operations
             // in most cases

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
@@ -36,13 +37,13 @@ namespace Pandora.Definitions.Operations
             return HttpMethod.Head;
         }
 
-        public virtual object? OptionsObject()
+        public virtual Type? OptionsObject()
         {
             // could, but generally doesn't exist for heads
             return null;
         }
 
-        public virtual object? RequestObject()
+        public virtual Type? RequestObject()
         {
             // by default Head operations should have no request object
             return null;
@@ -54,7 +55,7 @@ namespace Pandora.Definitions.Operations
             return null;
         }
 
-        public object? ResponseObject()
+        public Type? ResponseObject()
         {
             // by default Head operations should have no response object
             return null;

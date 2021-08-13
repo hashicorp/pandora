@@ -66,9 +66,9 @@ namespace Pandora.Data.Transformers
 
         private class FakeApiOperation : GetOperation
         {
-            public override object? ResponseObject()
+            public override Type? ResponseObject()
             {
-                return new SomeObject();
+                return typeof(SomeObject);
             }
 
             private class SomeObject

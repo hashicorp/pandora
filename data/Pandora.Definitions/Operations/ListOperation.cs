@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
@@ -36,15 +37,15 @@ namespace Pandora.Definitions.Operations
             return HttpMethod.Get;
         }
 
-        public abstract object NestedItemType();
+        public abstract Type NestedItemType();
 
-        public virtual object? OptionsObject()
+        public virtual Type? OptionsObject()
         {
             // could, but generally doesn't exist for gets
             return null;
         }
 
-        public virtual object? RequestObject()
+        public virtual Type? RequestObject()
         {
             // by default Get models should have no request object
             return null;
@@ -56,7 +57,7 @@ namespace Pandora.Definitions.Operations
             return null;
         }
 
-        public object? ResponseObject()
+        public Type? ResponseObject()
         {
             // TODO: hack this in?
             return NestedItemType();
