@@ -1,6 +1,7 @@
 using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Interfaces;
 using Pandora.Definitions.Operations;
+using System;
 using System.Collections.Generic;
 using System.Net;
 
@@ -13,9 +14,9 @@ namespace Pandora.Definitions.ResourceManager.AppConfiguration.v2020_06_01.Priva
             return true;
         }
 
-        public override object? RequestObject()
+        public override Type? RequestObject()
         {
-            return new PrivateEndpointConnectionModel();
+            return typeof(PrivateEndpointConnectionModel);
         }
 
         public override ResourceID? ResourceId()
@@ -23,9 +24,9 @@ namespace Pandora.Definitions.ResourceManager.AppConfiguration.v2020_06_01.Priva
             return new PrivateEndpointConnectionId();
         }
 
-        public override object? ResponseObject()
+        public override Type? ResponseObject()
         {
-            return new PrivateEndpointConnectionModel();
+            return typeof(PrivateEndpointConnectionModel);
         }
 
 

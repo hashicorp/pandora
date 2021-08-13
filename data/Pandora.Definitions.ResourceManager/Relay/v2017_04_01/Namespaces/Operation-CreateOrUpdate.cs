@@ -1,6 +1,7 @@
 using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Interfaces;
 using Pandora.Definitions.Operations;
+using System;
 using System.Collections.Generic;
 using System.Net;
 
@@ -13,9 +14,9 @@ namespace Pandora.Definitions.ResourceManager.Relay.v2017_04_01.Namespaces
             return true;
         }
 
-        public override object? RequestObject()
+        public override Type? RequestObject()
         {
-            return new RelayNamespaceModel();
+            return typeof(RelayNamespaceModel);
         }
 
         public override ResourceID? ResourceId()
@@ -23,9 +24,9 @@ namespace Pandora.Definitions.ResourceManager.Relay.v2017_04_01.Namespaces
             return new NamespaceId();
         }
 
-        public override object? ResponseObject()
+        public override Type? ResponseObject()
         {
-            return new RelayNamespaceModel();
+            return typeof(RelayNamespaceModel);
         }
 
 

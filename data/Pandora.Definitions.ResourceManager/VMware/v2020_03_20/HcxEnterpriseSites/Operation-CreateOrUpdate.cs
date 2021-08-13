@@ -1,6 +1,7 @@
 using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Interfaces;
 using Pandora.Definitions.Operations;
+using System;
 using System.Collections.Generic;
 using System.Net;
 
@@ -8,9 +9,9 @@ namespace Pandora.Definitions.ResourceManager.VMware.v2020_03_20.HcxEnterpriseSi
 {
     internal class CreateOrUpdateOperation : Operations.PutOperation
     {
-        public override object? RequestObject()
+        public override Type? RequestObject()
         {
-            return new HcxEnterpriseSiteModel();
+            return typeof(HcxEnterpriseSiteModel);
         }
 
         public override ResourceID? ResourceId()
@@ -18,9 +19,9 @@ namespace Pandora.Definitions.ResourceManager.VMware.v2020_03_20.HcxEnterpriseSi
             return new HcxEnterpriseSiteId();
         }
 
-        public override object? ResponseObject()
+        public override Type? ResponseObject()
         {
-            return new HcxEnterpriseSiteModel();
+            return typeof(HcxEnterpriseSiteModel);
         }
 
 

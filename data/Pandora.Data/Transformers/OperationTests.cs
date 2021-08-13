@@ -240,12 +240,12 @@ namespace Pandora.Data.Transformers
                 return HttpMethod.Delete;
             }
 
-            public object? RequestObject()
+            public Type? RequestObject()
             {
                 return null;
             }
 
-            public object? ResponseObject()
+            public Type? ResponseObject()
             {
                 return null;
             }
@@ -253,7 +253,7 @@ namespace Pandora.Data.Transformers
 
             public Definitions.Interfaces.ResourceID? ResourceId() => null;
 
-            public object? OptionsObject() => null;
+            public Type? OptionsObject() => null;
             public string? UriSuffix() => null;
         }
 
@@ -279,19 +279,19 @@ namespace Pandora.Data.Transformers
                 return HttpMethod.Delete;
             }
 
-            public object? RequestObject()
+            public Type? RequestObject()
             {
                 return null;
             }
 
-            public object? ResponseObject()
+            public Type? ResponseObject()
             {
                 return null;
             }
             public string? FieldContainingPaginationDetails() => null;
 
             public Definitions.Interfaces.ResourceID? ResourceId() => null;
-            public object? OptionsObject() => null;
+            public Type? OptionsObject() => null;
             public string? UriSuffix() => null;
         }
 
@@ -321,19 +321,19 @@ namespace Pandora.Data.Transformers
                 return HttpMethod.Delete;
             }
 
-            public object? RequestObject()
+            public Type? RequestObject()
             {
                 return null;
             }
 
             public Definitions.Interfaces.ResourceID? ResourceId() => null;
 
-            public object? ResponseObject()
+            public Type? ResponseObject()
             {
                 return null;
             }
             public string? FieldContainingPaginationDetails() => null;
-            public object? OptionsObject() => null;
+            public Type? OptionsObject() => null;
             public string? UriSuffix() => null;
         }
 
@@ -359,19 +359,19 @@ namespace Pandora.Data.Transformers
                 return HttpMethod.Delete;
             }
 
-            public object? RequestObject()
+            public Type? RequestObject()
             {
                 return null;
             }
 
             public Definitions.Interfaces.ResourceID? ResourceId() => null;
 
-            public object? ResponseObject()
+            public Type? ResponseObject()
             {
-                return new TestObject();
+                return typeof(TestObject);
             }
             public string? FieldContainingPaginationDetails() => null;
-            public object? OptionsObject() => null;
+            public Type? OptionsObject() => null;
             public string? UriSuffix() => null;
         }
 
@@ -397,19 +397,19 @@ namespace Pandora.Data.Transformers
                 return HttpMethod.Put;
             }
 
-            public object? RequestObject()
+            public Type? RequestObject()
             {
-                return new TestObject();
+                return typeof(TestObject);
             }
 
             public Definitions.Interfaces.ResourceID? ResourceId() => null;
 
-            public object? ResponseObject()
+            public Type? ResponseObject()
             {
                 return null;
             }
             public string? FieldContainingPaginationDetails() => null;
-            public object? OptionsObject() => null;
+            public Type? OptionsObject() => null;
             public string? UriSuffix() => null;
         }
 
@@ -435,19 +435,19 @@ namespace Pandora.Data.Transformers
                 return HttpMethod.Get;
             }
 
-            public object? RequestObject()
+            public Type? RequestObject()
             {
                 return null;
             }
 
             public Definitions.Interfaces.ResourceID? ResourceId() => null;
 
-            public object? ResponseObject()
+            public Type? ResponseObject()
             {
-                return new TestObject();
+                return typeof(TestObject);
             }
             public string? FieldContainingPaginationDetails() => null;
-            public object? OptionsObject() => null;
+            public Type? OptionsObject() => null;
             public string? UriSuffix() => null;
         }
 
@@ -473,19 +473,19 @@ namespace Pandora.Data.Transformers
                 return HttpMethod.Put;
             }
 
-            public object? RequestObject()
+            public Type? RequestObject()
             {
-                return new TestObject();
+                return typeof(TestObject);
             }
 
             public Definitions.Interfaces.ResourceID? ResourceId() => null;
 
-            public object? ResponseObject()
+            public Type? ResponseObject()
             {
-                return new TestObject();
+                return typeof(TestObject);
             }
             public string? FieldContainingPaginationDetails() => null;
-            public object? OptionsObject() => null;
+            public Type? OptionsObject() => null;
             public string? UriSuffix() => null;
         }
     }
@@ -512,19 +512,19 @@ namespace Pandora.Data.Transformers
             return HttpMethod.Put;
         }
 
-        public object? RequestObject()
+        public Type? RequestObject()
         {
-            return new TestObject();
+            return typeof(TestObject);
         }
 
         public Definitions.Interfaces.ResourceID? ResourceId() => null;
 
-        public object? ResponseObject()
+        public Type? ResponseObject()
         {
-            return new TestObject();
+            return typeof(TestObject);
         }
         public string? FieldContainingPaginationDetails() => null;
-        public object? OptionsObject() => null;
+        public Type? OptionsObject() => null;
         public string? UriSuffix() => "/hello";
     }
 
@@ -543,11 +543,11 @@ namespace Pandora.Data.Transformers
 
         public HttpMethod Method() => HttpMethod.Get;
 
-        public object? OptionsObject() => null;
+        public Type? OptionsObject() => null;
 
-        public object? RequestObject() => null;
+        public Type? RequestObject() => null;
 
-        public object? ResponseObject() => new FakeResponseObject();
+        public Type? ResponseObject() => typeof(FakeResponseObject);
 
         public Definitions.Interfaces.ResourceID? ResourceId() => new FakeResourceId();
 
@@ -587,13 +587,13 @@ namespace Pandora.Data.Transformers
             return HttpMethod.Post;
         }
 
-        public object? RequestObject() => null;
+        public Type? RequestObject() => null;
 
         public Definitions.Interfaces.ResourceID? ResourceId() => null;
 
-        public object? ResponseObject() => null;
+        public Type? ResponseObject() => null;
         public string? FieldContainingPaginationDetails() => null;
-        public object? OptionsObject() => null;
+        public Type? OptionsObject() => null;
         public string? UriSuffix() => "/shutdown";
     }
 
@@ -616,13 +616,13 @@ namespace Pandora.Data.Transformers
             return HttpMethod.Post;
         }
 
-        public object? RequestObject() => null;
+        public Type? RequestObject() => null;
 
         public Definitions.Interfaces.ResourceID? ResourceId() => null;
 
-        public object? ResponseObject() => null;
+        public Type? ResponseObject() => null;
         public string? FieldContainingPaginationDetails() => null;
-        public object? OptionsObject() => new NestedOptionsObject();
+        public Type? OptionsObject() => typeof(NestedOptionsObject);
         public string? UriSuffix() => null;
 
         public class NestedOptionsObject
@@ -639,7 +639,7 @@ namespace Pandora.Data.Transformers
     public class OperationWithPaginationDetails : ListOperation
     {
         public override string? FieldContainingPaginationDetails() => "@odata.foobar";
-        public override object NestedItemType() => new FakeNestedType();
+        public override Type NestedItemType() => typeof(FakeNestedType);
 
         public class FakeNestedType
         {

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
@@ -37,13 +38,13 @@ namespace Pandora.Definitions.Operations
             return HttpMethod.Put;
         }
 
-        public virtual object? OptionsObject()
+        public virtual Type? OptionsObject()
         {
             // shouldn't be applicable for PUTs
             return null;
         }
 
-        public abstract object? RequestObject();
+        public abstract Type? RequestObject();
 
         public virtual ResourceID? ResourceId()
         {
@@ -51,7 +52,7 @@ namespace Pandora.Definitions.Operations
             return null;
         }
 
-        public virtual object? ResponseObject()
+        public virtual Type? ResponseObject()
         {
             // we're not interested in the response from the Put in almost all cases
             return null;

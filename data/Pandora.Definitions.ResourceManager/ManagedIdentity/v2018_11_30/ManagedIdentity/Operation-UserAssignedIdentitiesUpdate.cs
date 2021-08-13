@@ -1,6 +1,7 @@
 using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Interfaces;
 using Pandora.Definitions.Operations;
+using System;
 using System.Collections.Generic;
 using System.Net;
 
@@ -16,9 +17,9 @@ namespace Pandora.Definitions.ResourceManager.ManagedIdentity.v2018_11_30.Manage
             };
         }
 
-        public override object? RequestObject()
+        public override Type? RequestObject()
         {
-            return new IdentityUpdateModel();
+            return typeof(IdentityUpdateModel);
         }
 
         public override ResourceID? ResourceId()
@@ -26,9 +27,9 @@ namespace Pandora.Definitions.ResourceManager.ManagedIdentity.v2018_11_30.Manage
             return new UserAssignedIdentitiesId();
         }
 
-        public override object? ResponseObject()
+        public override Type? ResponseObject()
         {
-            return new IdentityModel();
+            return typeof(IdentityModel);
         }
 
 

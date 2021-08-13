@@ -13,17 +13,17 @@ namespace Pandora.Data.Transformers
 {
     public static class Model
     {
-        public static List<ModelDefinition> Map(object input)
+        public static List<ModelDefinition> Map(Type input)
         {
             try
             {
-                if (input.GetType().IsAGenericList())
+                if (input.IsAGenericList())
                 {
                     // TODO: implement me
                     throw new NotSupportedException("create a wrapper type");
                 }
 
-                return MapObject(input.GetType()).Distinct(new ModelComparer()).OrderBy(m => m.Name).ToList();
+                return MapObject(input).Distinct(new ModelComparer()).OrderBy(m => m.Name).ToList();
             }
             catch (Exception ex)
             {

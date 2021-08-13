@@ -1,6 +1,7 @@
 using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Interfaces;
 using Pandora.Definitions.Operations;
+using System;
 using System.Collections.Generic;
 using System.Net;
 
@@ -18,9 +19,9 @@ namespace Pandora.Definitions.ResourceManager.VMware.v2020_03_20.Authorizations
             return new PrivateCloudId();
         }
 
-        public override object NestedItemType()
+        public override Type NestedItemType()
         {
-            return new ExpressRouteAuthorizationModel();
+            return typeof(ExpressRouteAuthorizationModel);
         }
 
         public override string? UriSuffix()

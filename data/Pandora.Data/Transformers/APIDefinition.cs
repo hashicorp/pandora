@@ -57,12 +57,12 @@ namespace Pandora.Data.Transformers
 
             if (input.RequestObject() != null)
             {
-                definitions.AddRange(Constant.FromObject(input.RequestObject().GetType()));
+                definitions.AddRange(Constant.FromObject(input.RequestObject()));
             }
 
             if (input.ResponseObject() != null)
             {
-                definitions.AddRange(Constant.FromObject(input.ResponseObject().GetType()));
+                definitions.AddRange(Constant.FromObject(input.ResponseObject()));
             }
 
             return definitions.Distinct(new ConstantComparer()).ToList();

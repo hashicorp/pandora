@@ -1,6 +1,7 @@
 using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Interfaces;
 using Pandora.Definitions.Operations;
+using System;
 using System.Collections.Generic;
 using System.Net;
 
@@ -18,9 +19,9 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.Namespaces
             };
         }
 
-        public override object? RequestObject()
+        public override Type? RequestObject()
         {
-            return new EHNamespaceModel();
+            return typeof(EHNamespaceModel);
         }
 
         public override ResourceID? ResourceId()
@@ -28,9 +29,9 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.Namespaces
             return new NamespaceId();
         }
 
-        public override object? ResponseObject()
+        public override Type? ResponseObject()
         {
-            return new EHNamespaceModel();
+            return typeof(EHNamespaceModel);
         }
 
 

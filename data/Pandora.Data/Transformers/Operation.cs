@@ -40,14 +40,14 @@ namespace Pandora.Data.Transformers
                 string? requestObjectName = null;
                 if (input.RequestObject() != null)
                 {
-                    requestObjectName = input.RequestObject().GetType().Name;
+                    requestObjectName = input.RequestObject().Name;
                     requestObjectName = RemoveSuffixFromTypeName(requestObjectName);
                 }
 
                 string? responseObjectName = null;
                 if (input.ResponseObject() != null)
                 {
-                    responseObjectName = input.ResponseObject().GetType().Name;
+                    responseObjectName = input.ResponseObject().Name;
                     responseObjectName = RemoveSuffixFromTypeName(responseObjectName);
                 }
 
@@ -72,7 +72,7 @@ namespace Pandora.Data.Transformers
                         throw new NotSupportedException("List operations must return a response object from NestedItemType()");
                     }
 
-                    responseObjectName = nestedElementType.GetType().Name;
+                    responseObjectName = nestedElementType.Name;
                     responseObjectName = RemoveSuffixFromTypeName(responseObjectName);
                 }
 

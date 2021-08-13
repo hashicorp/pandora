@@ -1,6 +1,7 @@
 using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Interfaces;
 using Pandora.Definitions.Operations;
+using System;
 using System.Collections.Generic;
 using System.Net;
 
@@ -16,9 +17,9 @@ namespace Pandora.Definitions.ResourceManager.PowerBIDedicated.v2021_01_01.Capac
             };
         }
 
-        public override object? RequestObject()
+        public override Type? RequestObject()
         {
-            return new CheckCapacityNameAvailabilityParametersModel();
+            return typeof(CheckCapacityNameAvailabilityParametersModel);
         }
 
         public override ResourceID? ResourceId()
@@ -26,9 +27,9 @@ namespace Pandora.Definitions.ResourceManager.PowerBIDedicated.v2021_01_01.Capac
             return new LocationId();
         }
 
-        public override object? ResponseObject()
+        public override Type? ResponseObject()
         {
-            return new CheckCapacityNameAvailabilityResultModel();
+            return typeof(CheckCapacityNameAvailabilityResultModel);
         }
 
         public override string? UriSuffix()

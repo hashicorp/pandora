@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
@@ -36,13 +37,13 @@ namespace Pandora.Definitions.Operations
             return HttpMethod.Patch;
         }
 
-        public virtual object? OptionsObject()
+        public virtual Type? OptionsObject()
         {
             // shouldn't be applicable for PATCHes 
             return null;
         }
 
-        public abstract object? RequestObject();
+        public abstract Type? RequestObject();
 
         public virtual ResourceID? ResourceId()
         {
@@ -50,7 +51,7 @@ namespace Pandora.Definitions.Operations
             return null;
         }
 
-        public virtual object? ResponseObject()
+        public virtual Type? ResponseObject()
         {
             // we're not interested in the response from the Patch in almost all cases
             return null;

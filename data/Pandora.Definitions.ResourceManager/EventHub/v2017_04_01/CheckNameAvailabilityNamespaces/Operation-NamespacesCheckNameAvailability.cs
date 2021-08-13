@@ -1,6 +1,7 @@
 using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Interfaces;
 using Pandora.Definitions.Operations;
+using System;
 using System.Collections.Generic;
 using System.Net;
 
@@ -16,9 +17,9 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.CheckNameAvai
             };
         }
 
-        public override object? RequestObject()
+        public override Type? RequestObject()
         {
-            return new CheckNameAvailabilityParameterModel();
+            return typeof(CheckNameAvailabilityParameterModel);
         }
 
         public override ResourceID? ResourceId()
@@ -26,9 +27,9 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.CheckNameAvai
             return new SubscriptionId();
         }
 
-        public override object? ResponseObject()
+        public override Type? ResponseObject()
         {
-            return new CheckNameAvailabilityResultModel();
+            return typeof(CheckNameAvailabilityResultModel);
         }
 
         public override string? UriSuffix()

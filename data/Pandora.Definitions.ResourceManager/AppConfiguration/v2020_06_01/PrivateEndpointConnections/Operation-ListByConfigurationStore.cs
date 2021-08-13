@@ -1,6 +1,7 @@
 using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Interfaces;
 using Pandora.Definitions.Operations;
+using System;
 using System.Collections.Generic;
 using System.Net;
 
@@ -18,9 +19,9 @@ namespace Pandora.Definitions.ResourceManager.AppConfiguration.v2020_06_01.Priva
             return new ConfigurationStoreId();
         }
 
-        public override object NestedItemType()
+        public override Type NestedItemType()
         {
-            return new PrivateEndpointConnectionModel();
+            return typeof(PrivateEndpointConnectionModel);
         }
 
         public override string? UriSuffix()

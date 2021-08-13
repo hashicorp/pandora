@@ -1,6 +1,7 @@
 using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Interfaces;
 using Pandora.Definitions.Operations;
+using System;
 using System.Collections.Generic;
 using System.Net;
 
@@ -16,7 +17,7 @@ namespace Pandora.Definitions.ResourceManager.VMware.v2020_03_20.Locations
             };
         }
 
-        public override object? RequestObject()
+        public override Type? RequestObject()
         {
             return null;
         }
@@ -26,9 +27,9 @@ namespace Pandora.Definitions.ResourceManager.VMware.v2020_03_20.Locations
             return new LocationId();
         }
 
-        public override object? ResponseObject()
+        public override Type? ResponseObject()
         {
-            return new TrialModel();
+            return typeof(TrialModel);
         }
 
         public override string? UriSuffix()

@@ -1,6 +1,7 @@
 using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Interfaces;
 using Pandora.Definitions.Operations;
+using System;
 using System.Collections.Generic;
 using System.Net;
 
@@ -16,9 +17,9 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.Consu
             };
         }
 
-        public override object? RequestObject()
+        public override Type? RequestObject()
         {
-            return new ConsumerGroupModel();
+            return typeof(ConsumerGroupModel);
         }
 
         public override ResourceID? ResourceId()
@@ -26,9 +27,9 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.Consu
             return new ConsumergroupId();
         }
 
-        public override object? ResponseObject()
+        public override Type? ResponseObject()
         {
-            return new ConsumerGroupModel();
+            return typeof(ConsumerGroupModel);
         }
 
 

@@ -12,7 +12,7 @@ namespace Pandora.Data.Transformers
         [TestCase]
         public static void MappingAModelShouldRemoveSuffixes()
         {
-            var actual = Model.Map(new ExampleWithSuffixesModel());
+            var actual = Model.Map(typeof(ExampleWithSuffixesModel));
             Assert.NotNull(actual);
             Assert.AreEqual(2, actual.Count);
             var model = actual.First(a => a.Name == "ExampleWithSuffixes");
@@ -32,7 +32,7 @@ namespace Pandora.Data.Transformers
         [TestCase]
         public static void MappingAModelContainingSelfReferences()
         {
-            var actual = Model.Map(new ExampleWithSelfReferences());
+            var actual = Model.Map(typeof(ExampleWithSelfReferences));
             Assert.NotNull(actual);
             Assert.AreEqual(1, actual.Count);
             Assert.AreEqual("ExampleWithSelfReferences", actual.First().Name);
@@ -60,7 +60,7 @@ namespace Pandora.Data.Transformers
         [TestCase]
         public static void MappingAModelContainingLists()
         {
-            var actual = Model.Map(new ExampleWithList());
+            var actual = Model.Map(typeof(ExampleWithList));
             Assert.NotNull(actual);
             Assert.AreEqual(2, actual.Count);
             Assert.AreEqual("ExampleWithList", actual.First().Name);
@@ -74,7 +74,7 @@ namespace Pandora.Data.Transformers
         [TestCase]
         public static void TestMapModel()
         {
-            var actual = Model.Map(new Example());
+            var actual = Model.Map(typeof(Example));
             Assert.NotNull(actual);
             Assert.AreEqual(1, actual.Count);
             Assert.AreEqual("Example", actual.First().Name);
@@ -121,7 +121,7 @@ namespace Pandora.Data.Transformers
         [TestCase]
         public static void TestMapNestedModels()
         {
-            var actual = Model.Map(new NestedWrapper());
+            var actual = Model.Map(typeof(NestedWrapper));
             Assert.NotNull(actual);
             Assert.AreEqual(3, actual.Count);
 
@@ -146,7 +146,7 @@ namespace Pandora.Data.Transformers
         [TestCase]
         public static void TestMapDuplicateModels()
         {
-            var actual = Model.Map(new DuplicateWrapper());
+            var actual = Model.Map(typeof(DuplicateWrapper));
             Assert.NotNull(actual);
             Assert.AreEqual(2, actual.Count);
 
@@ -167,7 +167,7 @@ namespace Pandora.Data.Transformers
         [Test]
         public static void TestMappingDiscriminatedTypes()
         {
-            var actual = Model.Map(new AnimalsWrapper());
+            var actual = Model.Map(typeof(AnimalsWrapper));
             Assert.NotNull(actual);
             Assert.AreEqual(4, actual.Count);
 

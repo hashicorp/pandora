@@ -1,6 +1,7 @@
 using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Interfaces;
 using Pandora.Definitions.Operations;
+using System;
 using System.Collections.Generic;
 using System.Net;
 
@@ -16,9 +17,9 @@ namespace Pandora.Definitions.ResourceManager.Relay.v2017_04_01.WCFRelays
             };
         }
 
-        public override object? RequestObject()
+        public override Type? RequestObject()
         {
-            return new RegenerateAccessKeyParametersModel();
+            return typeof(RegenerateAccessKeyParametersModel);
         }
 
         public override ResourceID? ResourceId()
@@ -26,9 +27,9 @@ namespace Pandora.Definitions.ResourceManager.Relay.v2017_04_01.WCFRelays
             return new AuthorizationRuleId();
         }
 
-        public override object? ResponseObject()
+        public override Type? ResponseObject()
         {
-            return new AccessKeysModel();
+            return typeof(AccessKeysModel);
         }
 
         public override string? UriSuffix()

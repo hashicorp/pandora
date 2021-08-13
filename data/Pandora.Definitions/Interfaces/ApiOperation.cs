@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
@@ -19,12 +20,12 @@ namespace Pandora.Definitions.Interfaces
 
         HttpMethod Method();
 
-        object? RequestObject();
+        Type? RequestObject();
 
-        object? ResponseObject();
+        Type? ResponseObject();
 
         // OptionsObject describes the Options application to this Operation, for example filtering or sorting
-        object? OptionsObject();
+        Type? OptionsObject();
 
         ResourceID? ResourceId();
 

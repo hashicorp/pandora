@@ -50,13 +50,13 @@ func (g PandoraDefinitionGenerator) codeForOperation(namespace string, operation
 			requestOperationTypeName += "Model"
 		}
 
-		code = append(code, fmt.Sprintf(`		public override object? RequestObject()
+		code = append(code, fmt.Sprintf(`		public override Type? RequestObject()
 		{
-			return new %[1]s();
+			return typeof(%[1]s);
 		}`, requestOperationTypeName))
 	} else if strings.EqualFold(operation.Method, "POST") || strings.EqualFold(operation.Method, "PUT") {
 		// Post and Put operations should have one but it's possible they don't
-		code = append(code, fmt.Sprintf(`		public override object? RequestObject()
+		code = append(code, fmt.Sprintf(`		public override Type? RequestObject()
 		{
 			return null;
 		}`))
@@ -79,23 +79,23 @@ func (g PandoraDefinitionGenerator) codeForOperation(namespace string, operation
 		}
 
 		if operation.FieldContainingPaginationDetails == nil {
-			code = append(code, fmt.Sprintf(`		public override object? ResponseObject()
+			code = append(code, fmt.Sprintf(`		public override Type? ResponseObject()
 		{
-			return new %[1]s();
+			return typeof(%[1]s);
 		}`, responseOperationTypeName))
 		} else {
-			code = append(code, fmt.Sprintf(`		public override object NestedItemType()
+			code = append(code, fmt.Sprintf(`		public override Type NestedItemType()
 		{
-			return new %[1]s();
+			return typeof(%[1]s);
 		}`, responseOperationTypeName))
 		}
 	}
 
 	optionsCode := make([]string, 0)
 	if len(operation.Options) > 0 {
-		code = append(code, fmt.Sprintf(`		public override object? OptionsObject()
+		code = append(code, fmt.Sprintf(`		public override Type? OptionsObject()
 		{
-			return new %[1]sOperation.%[1]sOptions();
+			return typeof(%[1]sOperation.%[1]sOptions);
 		}`, operationName))
 
 		optionsCode = append(optionsCode, fmt.Sprintf("\t\tinternal class %sOptions", operationName))
@@ -148,6 +148,7 @@ func (g PandoraDefinitionGenerator) codeForOperation(namespace string, operation
 	output := fmt.Sprintf(`using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Interfaces;
 using Pandora.Definitions.Operations;
+using System;
 using System.Collections.Generic;
 using System.Net;
 

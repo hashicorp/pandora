@@ -1,6 +1,7 @@
 using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Interfaces;
 using Pandora.Definitions.Operations;
+using System;
 using System.Collections.Generic;
 using System.Net;
 
@@ -16,9 +17,9 @@ namespace Pandora.Definitions.ResourceManager.Relay.v2017_04_01.HybridConnection
             };
         }
 
-        public override object? RequestObject()
+        public override Type? RequestObject()
         {
-            return new HybridConnectionModel();
+            return typeof(HybridConnectionModel);
         }
 
         public override ResourceID? ResourceId()
@@ -26,9 +27,9 @@ namespace Pandora.Definitions.ResourceManager.Relay.v2017_04_01.HybridConnection
             return new HybridConnectionId();
         }
 
-        public override object? ResponseObject()
+        public override Type? ResponseObject()
         {
-            return new HybridConnectionModel();
+            return typeof(HybridConnectionModel);
         }
 
 

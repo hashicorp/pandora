@@ -1,6 +1,7 @@
 using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Interfaces;
 using Pandora.Definitions.Operations;
+using System;
 using System.Collections.Generic;
 using System.Net;
 
@@ -18,14 +19,14 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.Event
             return new NamespaceId();
         }
 
-        public override object NestedItemType()
+        public override Type NestedItemType()
         {
-            return new EventhubModel();
+            return typeof(EventhubModel);
         }
 
-        public override object? OptionsObject()
+        public override Type? OptionsObject()
         {
-            return new ListByNamespaceOperation.ListByNamespaceOptions();
+            return typeof(ListByNamespaceOperation.ListByNamespaceOptions);
         }
 
         public override string? UriSuffix()
