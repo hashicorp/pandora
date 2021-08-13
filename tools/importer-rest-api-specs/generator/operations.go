@@ -137,11 +137,13 @@ func (g PandoraDefinitionGenerator) codeForOperation(namespace string, operation
 		// since this is a List operation we need to additionally output the HttpMethod
 		// since it's possible that these are non-standard (e.g. AppConfig 2020-06-01 ListKeys
 		// is a POST not a GET for a List operation)
-		method := dotNetNameForHttpMethod(operation.Method)
-		code = append(code, fmt.Sprintf(`		public override System.Net.Http.HttpMethod Method() 
+		if !strings.EqualFold(operation.Method, "GET") {
+			method := dotNetNameForHttpMethod(operation.Method)
+			code = append(code, fmt.Sprintf(`		public override System.Net.Http.HttpMethod Method() 
         {
             return System.Net.Http.%s;
         }`, method))
+		}
 	}
 	output := fmt.Sprintf(`using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Interfaces;
