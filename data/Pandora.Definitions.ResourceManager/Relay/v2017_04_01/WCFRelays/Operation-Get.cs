@@ -1,6 +1,7 @@
 using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Interfaces;
 using Pandora.Definitions.Operations;
+using System;
 using System.Collections.Generic;
 using System.Net;
 
@@ -22,9 +23,9 @@ namespace Pandora.Definitions.ResourceManager.Relay.v2017_04_01.WCFRelays
             return new WcfRelayId();
         }
 
-        public override object? ResponseObject()
+        public override Type? ResponseObject()
         {
-            return new WcfRelayModel();
+            return typeof(WcfRelayModel);
         }
 
 

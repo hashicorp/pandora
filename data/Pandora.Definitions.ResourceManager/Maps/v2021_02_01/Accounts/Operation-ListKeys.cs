@@ -1,6 +1,7 @@
 using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Interfaces;
 using Pandora.Definitions.Operations;
+using System;
 using System.Collections.Generic;
 using System.Net;
 
@@ -16,7 +17,7 @@ namespace Pandora.Definitions.ResourceManager.Maps.v2021_02_01.Accounts
             };
         }
 
-        public override object? RequestObject()
+        public override Type? RequestObject()
         {
             return null;
         }
@@ -26,9 +27,9 @@ namespace Pandora.Definitions.ResourceManager.Maps.v2021_02_01.Accounts
             return new AccountId();
         }
 
-        public override object? ResponseObject()
+        public override Type? ResponseObject()
         {
-            return new MapsAccountKeysModel();
+            return typeof(MapsAccountKeysModel);
         }
 
         public override string? UriSuffix()

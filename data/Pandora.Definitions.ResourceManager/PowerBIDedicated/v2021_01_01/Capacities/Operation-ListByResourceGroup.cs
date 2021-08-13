@@ -1,6 +1,7 @@
 using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Interfaces;
 using Pandora.Definitions.Operations;
+using System;
 using System.Collections.Generic;
 using System.Net;
 
@@ -13,9 +14,9 @@ namespace Pandora.Definitions.ResourceManager.PowerBIDedicated.v2021_01_01.Capac
             return new ResourceGroupId();
         }
 
-        public override object? ResponseObject()
+        public override Type? ResponseObject()
         {
-            return new DedicatedCapacitiesModel();
+            return typeof(DedicatedCapacitiesModel);
         }
 
         public override string? UriSuffix()

@@ -1,6 +1,7 @@
 using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Interfaces;
 using Pandora.Definitions.Operations;
+using System;
 using System.Collections.Generic;
 using System.Net;
 
@@ -18,14 +19,14 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.ConsumerGroup
             return new EventhubId();
         }
 
-        public override object NestedItemType()
+        public override Type NestedItemType()
         {
-            return new ConsumerGroupModel();
+            return typeof(ConsumerGroupModel);
         }
 
-        public override object? OptionsObject()
+        public override Type? OptionsObject()
         {
-            return new ListByEventHubOperation.ListByEventHubOptions();
+            return typeof(ListByEventHubOperation.ListByEventHubOptions);
         }
 
         public override string? UriSuffix()

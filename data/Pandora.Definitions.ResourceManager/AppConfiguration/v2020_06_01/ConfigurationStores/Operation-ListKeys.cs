@@ -1,6 +1,7 @@
 using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Interfaces;
 using Pandora.Definitions.Operations;
+using System;
 using System.Collections.Generic;
 using System.Net;
 
@@ -21,7 +22,7 @@ namespace Pandora.Definitions.ResourceManager.AppConfiguration.v2020_06_01.Confi
             return "nextLink";
         }
 
-        public override object? RequestObject()
+        public override Type? RequestObject()
         {
             return null;
         }
@@ -31,9 +32,9 @@ namespace Pandora.Definitions.ResourceManager.AppConfiguration.v2020_06_01.Confi
             return new ConfigurationStoreId();
         }
 
-        public override object NestedItemType()
+        public override Type NestedItemType()
         {
-            return new ApiKeyModel();
+            return typeof(ApiKeyModel);
         }
 
         public override string? UriSuffix()

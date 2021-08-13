@@ -1,6 +1,7 @@
 using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Interfaces;
 using Pandora.Definitions.Operations;
+using System;
 using System.Collections.Generic;
 using System.Net;
 
@@ -16,9 +17,9 @@ namespace Pandora.Definitions.ResourceManager.SignalR.v2020_05_01.SignalR
             };
         }
 
-        public override object? RequestObject()
+        public override Type? RequestObject()
         {
-            return new NameAvailabilityParametersModel();
+            return typeof(NameAvailabilityParametersModel);
         }
 
         public override ResourceID? ResourceId()
@@ -26,9 +27,9 @@ namespace Pandora.Definitions.ResourceManager.SignalR.v2020_05_01.SignalR
             return new LocationId();
         }
 
-        public override object? ResponseObject()
+        public override Type? ResponseObject()
         {
-            return new NameAvailabilityModel();
+            return typeof(NameAvailabilityModel);
         }
 
         public override string? UriSuffix()

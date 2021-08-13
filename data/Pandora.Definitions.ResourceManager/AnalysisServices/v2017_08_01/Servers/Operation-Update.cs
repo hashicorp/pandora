@@ -1,6 +1,7 @@
 using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Interfaces;
 using Pandora.Definitions.Operations;
+using System;
 using System.Collections.Generic;
 using System.Net;
 
@@ -22,9 +23,9 @@ namespace Pandora.Definitions.ResourceManager.AnalysisServices.v2017_08_01.Serve
             return true;
         }
 
-        public override object? RequestObject()
+        public override Type? RequestObject()
         {
-            return new AnalysisServicesServerUpdateParametersModel();
+            return typeof(AnalysisServicesServerUpdateParametersModel);
         }
 
         public override ResourceID? ResourceId()
@@ -32,9 +33,9 @@ namespace Pandora.Definitions.ResourceManager.AnalysisServices.v2017_08_01.Serve
             return new ServerId();
         }
 
-        public override object? ResponseObject()
+        public override Type? ResponseObject()
         {
-            return new AnalysisServicesServerModel();
+            return typeof(AnalysisServicesServerModel);
         }
 
 

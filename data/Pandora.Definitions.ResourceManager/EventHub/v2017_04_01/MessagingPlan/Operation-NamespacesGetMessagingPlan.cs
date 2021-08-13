@@ -1,6 +1,7 @@
 using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Interfaces;
 using Pandora.Definitions.Operations;
+using System;
 using System.Collections.Generic;
 using System.Net;
 
@@ -13,9 +14,9 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.MessagingPlan
             return new NamespaceId();
         }
 
-        public override object? ResponseObject()
+        public override Type? ResponseObject()
         {
-            return new MessagingPlanModel();
+            return typeof(MessagingPlanModel);
         }
 
         public override string? UriSuffix()

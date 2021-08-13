@@ -1,6 +1,7 @@
 using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Interfaces;
 using Pandora.Definitions.Operations;
+using System;
 using System.Collections.Generic;
 using System.Net;
 
@@ -16,9 +17,9 @@ namespace Pandora.Definitions.ResourceManager.AppConfiguration.v2020_06_01.Confi
             };
         }
 
-        public override object? RequestObject()
+        public override Type? RequestObject()
         {
-            return new RegenerateKeyParametersModel();
+            return typeof(RegenerateKeyParametersModel);
         }
 
         public override ResourceID? ResourceId()
@@ -26,9 +27,9 @@ namespace Pandora.Definitions.ResourceManager.AppConfiguration.v2020_06_01.Confi
             return new ConfigurationStoreId();
         }
 
-        public override object? ResponseObject()
+        public override Type? ResponseObject()
         {
-            return new ApiKeyModel();
+            return typeof(ApiKeyModel);
         }
 
         public override string? UriSuffix()
