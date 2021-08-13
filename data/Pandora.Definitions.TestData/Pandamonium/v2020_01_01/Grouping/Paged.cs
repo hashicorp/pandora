@@ -1,3 +1,4 @@
+using System;
 using System.Text.Json.Serialization;
 using Pandora.Definitions.Operations;
 
@@ -5,9 +6,9 @@ namespace Pandora.Definitions.TestData.Pandamonium.v2020_01_01.Grouping
 {
     public class Paged : ListOperation
     {
-        public override object NestedItemType()
+        public override Type NestedItemType()
         {
-            return new Foo();
+            return typeof(Foo);
         }
 
         public override string? FieldContainingPaginationDetails()

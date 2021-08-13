@@ -1,3 +1,4 @@
+using System;
 using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Operations;
 
@@ -5,9 +6,9 @@ namespace Pandora.Definitions.TestData.Pandamonium.v2020_01_01.Grouping
 {
     public class DeleteImmediate : DeleteOperation
     {
-        public override object? OptionsObject()
+        public override Type? OptionsObject()
         {
-            return new DeleteImmediateOptions();
+            return typeof(DeleteImmediateOptions);
         }
     }
 

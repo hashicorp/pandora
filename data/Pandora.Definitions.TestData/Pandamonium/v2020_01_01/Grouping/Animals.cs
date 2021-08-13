@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 using Pandora.Definitions.Attributes;
@@ -40,9 +41,9 @@ namespace Pandora.Definitions.TestData.Pandamonium.v2020_01_01.Grouping
 
     public class GetAnimals : GetOperation
     {
-        public override object? ResponseObject()
+        public override Type? ResponseObject()
         {
-            return new GetAnimalModel();
+            return typeof(GetAnimalModel);
         }
     }
 }
