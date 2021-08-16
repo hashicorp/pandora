@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -190,6 +191,21 @@ namespace Pandora.Data.Transformers
             Assert.AreEqual("Second", actual.Operations.Skip(1).First().Name);
             Assert.AreEqual(0, actual.Constants.Count);
             Assert.AreEqual(3, actual.Models.Count);
+        }
+
+        [TestCase]
+        public static void MappingAnApiWhichContainsAConstantWithinOptions()
+        {
+            var actual = APIDefinition.Map(new ApiVersionWithAConstantWithinOptions());
+            Assert.NotNull(actual);
+            Assert.AreEqual("ApiVersionWithAConstantWithinOptions", actual.Name);
+            Assert.AreEqual(1, actual.Operations.Count);
+            Assert.AreEqual("Example", actual.Operations.First().Name);
+            Assert.AreEqual(1, actual.Constants.Count);
+            Assert.AreEqual(0, actual.Models.Count);
+
+            var constant = actual.Constants.First(c => c.Name == "ConstantHiddenInOptions");
+            Assert.NotNull(constant);
         }
 
         private class ApiVersionWithNoOperations : ApiDefinition
@@ -641,6 +657,41 @@ namespace Pandora.Data.Transformers
         {
             [JsonPropertyName("second")]
             public string Second { get; set; }
+        }
+    }
+
+    public class ApiVersionWithAConstantWithinOptions : ApiDefinition
+    {
+        public string ApiVersion => "2018-01-01";
+        public string Name => "ApiVersionWithAConstantWithinOptions";
+
+        public IEnumerable<ApiOperation> Operations => new List<ApiOperation>
+        {
+            new ExampleOperation()
+        };
+
+        public class ExampleOperation : HeadOperation
+        {
+            public override Type? OptionsObject()
+            {
+                return typeof(ExampleOptionsObject);
+            }
+
+            public class ExampleOptionsObject
+            {
+                [QueryStringName("someVal")]
+                public ConstantHiddenInOptions SomeVal { get; set; }
+            }
+        }
+
+        [ConstantType(ConstantTypeAttribute.ConstantType.String)]
+        public enum ConstantHiddenInOptions
+        {
+            [System.ComponentModel.Description("First")]
+            First,
+
+            [System.ComponentModel.Description("Second")]
+            Second,
         }
     }
 }

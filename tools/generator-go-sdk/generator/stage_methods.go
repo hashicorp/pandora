@@ -15,6 +15,7 @@ func (s *ServiceGenerator) methods(data ServiceGeneratorData) error {
 		gen := methodsAutoRestTemplater{
 			operationName: operationName,
 			operation:     operation,
+			constants:     data.constants,
 		}
 		if err := s.writeToPath(data.outputPath, fileName, gen, data); err != nil {
 			return fmt.Errorf("templating methods (using autorest): %+v", err)

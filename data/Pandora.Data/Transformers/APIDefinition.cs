@@ -44,7 +44,7 @@ namespace Pandora.Data.Transformers
 
             if (input.ResourceId() != null)
             {
-                var mapped = ResourceID.Map(input.ResourceId());
+                var mapped = ResourceID.Map(input.ResourceId()!);
                 output.Add(mapped);
             }
 
@@ -57,12 +57,18 @@ namespace Pandora.Data.Transformers
 
             if (input.RequestObject() != null)
             {
-                definitions.AddRange(Constant.FromObject(input.RequestObject()));
+                definitions.AddRange(Constant.FromObject(input.RequestObject()!));
             }
 
             if (input.ResponseObject() != null)
             {
-                definitions.AddRange(Constant.FromObject(input.ResponseObject()));
+                definitions.AddRange(Constant.FromObject(input.ResponseObject()!));
+            }
+
+            // pull out any constants which are referenced against the Options block
+            if (input.OptionsObject() != null)
+            {
+                definitions.AddRange(Constant.FromObject(input.OptionsObject()!));
             }
 
             return definitions.Distinct(new ConstantComparer()).ToList();
@@ -74,12 +80,12 @@ namespace Pandora.Data.Transformers
 
             if (input.RequestObject() != null)
             {
-                definitions.AddRange(Model.Map(input.RequestObject()));
+                definitions.AddRange(Model.Map(input.RequestObject()!));
             }
 
             if (input.ResponseObject() != null)
             {
-                definitions.AddRange(Model.Map(input.ResponseObject()));
+                definitions.AddRange(Model.Map(input.ResponseObject()!));
             }
 
             return definitions.Distinct(new ModelComparer()).ToList();

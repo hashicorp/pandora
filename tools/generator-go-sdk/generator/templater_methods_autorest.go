@@ -16,6 +16,7 @@ var _ templater = methodsAutoRestTemplater{}
 type methodsAutoRestTemplater struct {
 	operation     resourcemanager.ApiOperation
 	operationName string
+	constants     map[string]resourcemanager.ConstantDetails
 }
 
 func (c methodsAutoRestTemplater) template(data ServiceGeneratorData) (*string, error) {
@@ -619,8 +620,16 @@ func (c methodsAutoRestTemplater) optionsStruct() string {
 	assignments := make([]string, 0)
 
 	for optionName, option := range c.operation.Options {
-		var optionTypeName = func(input resourcemanager.OperationFieldType) string {
-			switch input {
+		var optionTypeName = func(input resourcemanager.ApiOperationOption) string {
+			if input.FieldType == resourcemanager.OperationFieldTypeConstant {
+				if input.ConstantName == nil {
+					panic(fmt.Errorf("missing ConstantName for Option Constant %s", optionName))
+				}
+
+				return *input.ConstantName
+			}
+
+			switch input.FieldType {
 			case resourcemanager.OperationFieldTypeBoolean:
 				return "bool"
 			case resourcemanager.OperationFieldTypeInteger:
@@ -632,7 +641,7 @@ func (c methodsAutoRestTemplater) optionsStruct() string {
 			}
 		}
 
-		optionType := optionTypeName(option.FieldType)
+		optionType := optionTypeName(option)
 		properties = append(properties, fmt.Sprintf("%s *%s", optionName, optionType))
 		assignments = append(assignments, fmt.Sprintf(`
 	if o.%[1]s != nil {
@@ -651,7 +660,7 @@ type %[1]sOptions struct {
 
 func Default%[1]sOptions() %[1]sOptions {
 	return %[1]sOptions{}
-} 
+}
 
 func (o %[1]sOptions) toQueryString() map[string]interface{} {
 	out := make(map[string]interface{})
