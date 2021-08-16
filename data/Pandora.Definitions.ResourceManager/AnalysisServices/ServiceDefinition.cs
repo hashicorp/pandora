@@ -5,6 +5,6 @@ namespace Pandora.Definitions.ResourceManager.AnalysisServices
     public partial class Service : ServiceDefinition
     {
         public string Name => "AnalysisServices";
-        public string? ResourceProvider => "TODO";
+        public string? ResourceProvider => "Microsoft.AnalysisServices";
     }
 }

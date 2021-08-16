@@ -12,9 +12,9 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser"
 )
 
-func generateApiVersions(input []parsedData, workingDirectory, rootNamespace, swaggerGitSha string, debug bool) error {
+func generateApiVersions(input []parsedData, workingDirectory, rootNamespace, swaggerGitSha string, resourceProvider *string, debug bool) error {
 	for _, item := range input {
-		data := generator.GenerationDataForServiceAndApiVersion(item.ServiceName, item.ApiVersion, workingDirectory, rootNamespace, swaggerGitSha)
+		data := generator.GenerationDataForServiceAndApiVersion(item.ServiceName, item.ApiVersion, workingDirectory, rootNamespace, swaggerGitSha, resourceProvider)
 		generator := generator.NewPackageDefinitionGenerator(data, debug)
 
 		os.MkdirAll(data.WorkingDirectoryForApiVersion, permissions)
@@ -38,7 +38,7 @@ func generateApiVersions(input []parsedData, workingDirectory, rootNamespace, sw
 	return nil
 }
 
-func generateServiceDefinitions(input []parsedData, workingDirectory, rootNamespace, swaggerGitSha string, debug bool) error {
+func generateServiceDefinitions(input []parsedData, workingDirectory, rootNamespace, swaggerGitSha string, resourceProvider *string, debug bool) error {
 	// the same service may appear multiple times, so we first need to Distinct them
 	serviceNames := distinctServiceNames(input)
 
@@ -48,7 +48,7 @@ func generateServiceDefinitions(input []parsedData, workingDirectory, rootNamesp
 		if debug {
 			log.Printf("[DEBUG] Processing Service %q..", service)
 		}
-		data := generator.GenerationDataForService(service, workingDirectory, rootNamespace, swaggerGitSha)
+		data := generator.GenerationDataForService(service, workingDirectory, rootNamespace, swaggerGitSha, resourceProvider)
 		os.MkdirAll(data.WorkingDirectoryForService, permissions)
 
 		// clean up any files or directories which which aren't on the exclude list
@@ -163,6 +163,7 @@ func generateEverything(swaggerGitSha string) error {
 				ServiceName:      service.Name,
 				ApiVersion:       apiVersion,
 				OutputDirectory:  outputDirectory,
+				ResourceProvider: &service.ResourceProvider,
 				SwaggerDirectory: versionPath,
 				SwaggerFiles:     swaggerFilesTrimmed,
 			}
