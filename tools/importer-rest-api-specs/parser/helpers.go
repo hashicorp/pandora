@@ -241,6 +241,10 @@ func FindResourceManagerServices(directory string) (*[]ResourceManagerService, e
 			log.Printf("Service %q / Type %q / RP %q / Status %q / Version %q", serviceName, serviceType, resourceProvider, serviceReleaseState, apiVersion)
 			log.Printf("Path %q", fullPath)
 
+			if !strings.EqualFold(serviceType, "resource-manager") {
+				return nil
+			}
+
 			existingPaths, ok := services[serviceName]
 			if !ok {
 				existingPaths = resourceManagerService{
