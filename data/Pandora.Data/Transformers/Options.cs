@@ -54,7 +54,7 @@ namespace Pandora.Data.Transformers
             {
                 return null;
             }
-            
+
             return input?.Name.TrimSuffix("Constant");
         }
 
@@ -64,7 +64,7 @@ namespace Pandora.Data.Transformers
             {
                 return OptionDefinitionType.Constant;
             }
-            
+
             switch (propertyType.ToString())
             {
                 case "System.Boolean":

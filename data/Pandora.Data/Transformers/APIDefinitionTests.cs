@@ -683,13 +683,13 @@ namespace Pandora.Data.Transformers
                 public ConstantHiddenInOptions SomeVal { get; set; }
             }
         }
-        
+
         [ConstantType(ConstantTypeAttribute.ConstantType.String)]
         public enum ConstantHiddenInOptions
         {
             [System.ComponentModel.Description("First")]
             First,
-            
+
             [System.ComponentModel.Description("Second")]
             Second,
         }

@@ -7,7 +7,7 @@ namespace Pandora.Data.Models
         public string Name { get; set; }
 
         public OptionDefinitionType Type { get; set; }
-        
+
         public string? ConstantType { get; set; }
 
         // NOTE: whilst in properties it makes sense to differentiate between Required and Optional
@@ -24,7 +24,7 @@ namespace Pandora.Data.Models
 
         [Description("boolean")]
         Boolean,
-        
+
         [Description("constant")]
         Constant,
 

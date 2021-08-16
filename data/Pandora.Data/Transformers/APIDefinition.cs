@@ -64,7 +64,7 @@ namespace Pandora.Data.Transformers
             {
                 definitions.AddRange(Constant.FromObject(input.ResponseObject()!));
             }
-            
+
             // pull out any constants which are referenced against the Options block
             if (input.OptionsObject() != null)
             {

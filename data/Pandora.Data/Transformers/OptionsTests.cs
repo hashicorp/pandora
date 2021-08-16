@@ -25,13 +25,13 @@ namespace Pandora.Data.Transformers
             Assert.AreEqual(someBool.QueryStringName, "someBool");
             Assert.AreEqual(someBool.Type, OptionDefinitionType.Boolean);
             Assert.Null(someBool.ConstantType);
-            
+
             var someInt = actual.First(o => o.Name == "SomeInt");
             Assert.False(someInt.Required);
             Assert.AreEqual(someInt.QueryStringName, "someInt");
             Assert.AreEqual(someInt.Type, OptionDefinitionType.Integer);
             Assert.Null(someInt.ConstantType);
-            
+
             var someString = actual.First(o => o.Name == "SomeString");
             Assert.True(someString.Required);
             Assert.AreEqual(someString.QueryStringName, "someString");
@@ -44,7 +44,7 @@ namespace Pandora.Data.Transformers
         {
             var actual = Options.Map(typeof(OptionsObjectContainingAConstant));
             Assert.AreEqual(actual.Count, 2);
-            
+
             var someString = actual.First(o => o.Name == "SomeString");
             Assert.True(someString.Required);
             Assert.AreEqual(someString.QueryStringName, "someString");
@@ -66,11 +66,11 @@ namespace Pandora.Data.Transformers
         {
             [QueryStringName("someBool")]
             public bool SomeBool { get; set; }
-            
+
             [QueryStringName("someInt")]
             [Optional]
             public int SomeInt { get; set; }
-            
+
             [QueryStringName("someString")]
             public string SomeString { get; set; }
         }
@@ -79,11 +79,11 @@ namespace Pandora.Data.Transformers
         {
             [QueryStringName("someConst")]
             public SomeOtherConstant SomeConst { get; set; }
-            
+
             [QueryStringName("someString")]
             public string SomeString { get; set; }
         }
-        
+
         private enum SomeOtherConstant
         {
         }

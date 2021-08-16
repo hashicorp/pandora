@@ -114,7 +114,7 @@ namespace Pandora.Api.V1.ResourceManager
             {
                 case OptionDefinitionType.Boolean:
                     return ApiOperationOptionType.Boolean.ToString();
-                
+
                 case OptionDefinitionType.Constant:
                     return ApiOperationOptionType.Constant.ToString();
 
@@ -182,10 +182,10 @@ namespace Pandora.Api.V1.ResourceManager
         {
             [JsonPropertyName("constantName")]
             public string? ConstantName { get; set; }
-            
+
             [JsonPropertyName("fieldType")]
             public string FieldType { get; set; }
-            
+
             // TODO: header name too
 
             [JsonPropertyName("queryStringName")]

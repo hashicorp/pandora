@@ -184,7 +184,7 @@ namespace Pandora.Data.Transformers
             Assert.AreEqual(true, firstOption.Required);
             Assert.AreEqual(OptionDefinitionType.String, firstOption.Type);
             Assert.AreEqual("first", firstOption.QueryStringName);
-            
+
             var secondOption = actual.Options.First(o => o.Name == "SecondVal");
             Assert.AreEqual(false, secondOption.Required);
             Assert.AreEqual(OptionDefinitionType.Integer, secondOption.Type);
@@ -643,7 +643,7 @@ namespace Pandora.Data.Transformers
             [QueryStringName("second")]
             [Optional]
             public int SecondVal { get; set; }
-            
+
             [QueryStringName("constantOption")]
             public SomeConstant ConstantOption { get; set; }
         }
@@ -653,7 +653,7 @@ namespace Pandora.Data.Transformers
         {
             [System.ComponentModel.Description("first")]
             FirstVal,
-            
+
             [System.ComponentModel.Description("second")]
             SecondVal
         }
