@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text.Json.Serialization;
 using Microsoft.AspNetCore.Mvc;
 using Pandora.Api.V1.Helpers;
+using Pandora.Data.Helpers;
 using Pandora.Data.Models;
 using Pandora.Data.Repositories;
 
@@ -98,6 +99,7 @@ namespace Pandora.Api.V1.ResourceManager
                 output[definition.Name] = new ApiOperationOption
                 {
                     FieldType = fieldType,
+                    ConstantName = definition.ConstantType,
                     QueryStringName = definition.QueryStringName,
                     Required = definition.Required,
                 };
@@ -112,6 +114,9 @@ namespace Pandora.Api.V1.ResourceManager
             {
                 case OptionDefinitionType.Boolean:
                     return ApiOperationOptionType.Boolean.ToString();
+                
+                case OptionDefinitionType.Constant:
+                    return ApiOperationOptionType.Constant.ToString();
 
                 case OptionDefinitionType.Integer:
                     return ApiOperationOptionType.Integer.ToString();
@@ -175,9 +180,12 @@ namespace Pandora.Api.V1.ResourceManager
 
         public class ApiOperationOption
         {
+            [JsonPropertyName("constantName")]
+            public string? ConstantName { get; set; }
+            
             [JsonPropertyName("fieldType")]
             public string FieldType { get; set; }
-
+            
             // TODO: header name too
 
             [JsonPropertyName("queryStringName")]
@@ -190,6 +198,7 @@ namespace Pandora.Api.V1.ResourceManager
         public enum ApiOperationOptionType
         {
             Boolean,
+            Constant,
             Integer,
             String
         }

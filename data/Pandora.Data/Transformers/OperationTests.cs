@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -177,7 +178,7 @@ namespace Pandora.Data.Transformers
             Assert.Null(actual.ResponseObjectName);
             Assert.AreEqual(1, actual.ExpectedStatusCodes.Count);
             Assert.AreEqual(200, actual.ExpectedStatusCodes.First());
-            Assert.AreEqual(2, actual.Options.Count);
+            Assert.AreEqual(3, actual.Options.Count);
 
             var firstOption = actual.Options.First(o => o.Name == "First");
             Assert.AreEqual(true, firstOption.Required);
@@ -188,6 +189,13 @@ namespace Pandora.Data.Transformers
             Assert.AreEqual(false, secondOption.Required);
             Assert.AreEqual(OptionDefinitionType.Integer, secondOption.Type);
             Assert.AreEqual("second", secondOption.QueryStringName);
+
+            var constantOption = actual.Options.First(o => o.Name == "ConstantOption");
+            Assert.AreEqual(true, constantOption.Required);
+            Assert.AreEqual(OptionDefinitionType.Constant, constantOption.Type);
+            Assert.NotNull(constantOption.ConstantType);
+            Assert.AreEqual("Some", constantOption.ConstantType);
+            Assert.AreEqual("constantOption", constantOption.QueryStringName);
         }
 
         [TestCase]
@@ -635,6 +643,19 @@ namespace Pandora.Data.Transformers
             [QueryStringName("second")]
             [Optional]
             public int SecondVal { get; set; }
+            
+            [QueryStringName("constantOption")]
+            public SomeConstant ConstantOption { get; set; }
+        }
+
+        [ConstantType(ConstantTypeAttribute.ConstantType.String)]
+        public enum SomeConstant
+        {
+            [System.ComponentModel.Description("first")]
+            FirstVal,
+            
+            [System.ComponentModel.Description("second")]
+            SecondVal
         }
     }
 
