@@ -20,6 +20,7 @@ This example shows a new mapping for a Resource Manager Service:
 		ResourceManagerInput{
 			ServiceName:      "EventHub",
 			ApiVersion:       "2021-01-01-preview",
+			ResourceProvider: "Microsoft.EventHub",
 			SwaggerDirectory: swaggerDirectory + "/specification/eventhub/resource-manager/Microsoft.EventHub/preview/2021-01-01-preview",
 			SwaggerFiles: []string{
 				"AuthorizationRules.json",
@@ -38,9 +39,10 @@ Those fields are:
 
 * `ApiVersion` - the version of this API (e.g. `2020-01-01` or `2020-01-01-preview`).
 * `ServiceName` - the name of this Service, e.g. EventHub, Resources etc.
+* `ResourceProvider` - the name of the Resource Provider (e.g. `Microsoft.FooBar`)
 * `SwaggerDirectory` - the path to the directory containing the Swagger files for this service within the Git Submodule (which contains the Swagger data).
 * `SwaggerFiles` - a list of Swagger files within this directory which should be parsed.
-	* Note: these are intentionally not automatically discovered (yet) to be able to selectively exclude files as necessary (although this functionality exists within the codebase).
+    * Note: these are intentionally not automatically discovered (yet) to be able to selectively exclude files as necessary (although this functionality exists within the codebase).
 
 Once the new mapping exists, build and run the `./tools/importer-rest-api-specs` project:
 
