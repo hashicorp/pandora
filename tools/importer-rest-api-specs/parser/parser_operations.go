@@ -92,6 +92,15 @@ func (d *SwaggerDefinition) parseOperation(operationName, httpMethod string, uri
 		result.append(*nestedResult)
 	}
 	longRunning := operationIsLongRunning(operationDetails)
+
+	nestedResult, err = constantsInOperationParameters(operationDetails)
+	if err != nil {
+		return nil, nil, fmt.Errorf("parsing constants within operation parameters: %+v", err)
+	}
+	if nestedResult != nil {
+		result.append(*nestedResult)
+	}
+
 	options, err := optionsForOperation(operationDetails)
 	if err != nil {
 		return nil, nil, fmt.Errorf("building options for operation %q: %+v", operationName, err)
@@ -122,6 +131,29 @@ func (d *SwaggerDefinition) parseOperation(operationName, httpMethod string, uri
 	return &operationData, &result, nil
 }
 
+func constantsInOperationParameters(input *spec.Operation) (*result, error) {
+	out := result{
+		constants: map[string]models.ConstantDetails{},
+	}
+
+	for _, param := range input.Parameters {
+		if param.Enum == nil {
+			continue
+		}
+
+		types := []string{
+			param.Type,
+		}
+		constant, err := mapConstant(types, param.Enum, param.Extensions)
+		if err != nil {
+			return nil, fmt.Errorf("mapping %q: %+v", param.Name, err)
+		}
+		out.constants[constant.name] = constant.details
+	}
+
+	return &out, nil
+}
+
 func optionsForOperation(input *spec.Operation) (*map[string]models.OperationOption, error) {
 	output := make(map[string]models.OperationOption)
 
@@ -140,6 +172,12 @@ func optionsForOperation(input *spec.Operation) (*map[string]models.OperationOpt
 		// TODO: support parsing/generating these from Headers too
 		if strings.EqualFold(param.In, "query") {
 			name := cleanup.NormalizeName(param.Name)
+
+			option := models.OperationOption{
+				QueryStringName: param.Name,
+				Required:        param.Required,
+			}
+
 			// looks like these can be dates etc too
 			// ./commerce/resource-manager/Microsoft.Commerce/preview/2015-06-01-preview/commerce.json-            "name": "reportedEndTime",
 			//./commerce/resource-manager/Microsoft.Commerce/preview/2015-06-01-preview/commerce.json-            "in": "query",
@@ -151,12 +189,25 @@ func optionsForOperation(input *spec.Operation) (*map[string]models.OperationOpt
 			if err != nil {
 				return nil, fmt.Errorf("determining field type for operation: %+v", err)
 			}
-
-			output[name] = models.OperationOption{
-				FieldType:       *fieldType,
-				QueryStringName: param.Name,
-				Required:        param.Required,
+			if fieldType != nil {
+				option.FieldType = fieldType
 			}
+
+			if param.Enum != nil {
+				constantName, err := parseConstantNameFromExtension(param.Extensions)
+				if err != nil {
+					return nil, fmt.Errorf("parsing constant name from extension for option %q: %+v", param.Name, err)
+				}
+				if constantName == nil {
+					return nil, fmt.Errorf("missing x-ms-enum for option %q", param.Name)
+				}
+
+				option.ConstantObjectName = constantName
+			}
+			// TODO: FieldType within the struct should become a pointer
+			// TODO: Add ConstantName *string to the struct
+
+			output[name] = option
 		}
 	}
 

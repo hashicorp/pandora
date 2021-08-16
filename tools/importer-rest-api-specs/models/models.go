@@ -30,8 +30,9 @@ type OperationDetails struct {
 }
 
 type OperationOption struct {
-	FieldType       FieldDefinitionType
-	QueryStringName string
+	FieldType          *FieldDefinitionType
+	ConstantObjectName *string
+	QueryStringName    string
 	// TODO: support Header names here too in time
 	Required bool
 }
