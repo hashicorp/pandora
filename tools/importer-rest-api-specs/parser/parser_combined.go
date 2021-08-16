@@ -806,7 +806,7 @@ func (d *SwaggerDefinition) mapField(parentModelName, jsonName string, value spe
 		return allConstants, &field, nil
 	}
 
-	return nil, nil, fmt.Errorf("field %q is of invalid schema", jsonName)
+	return nil, nil, fmt.Errorf("the schema for the field %q is invalid", jsonName)
 }
 
 func (d *SwaggerDefinition) isConstant(constants constantDetailsMap, name string) bool {
