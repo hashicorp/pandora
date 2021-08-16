@@ -79,6 +79,7 @@ type ApiOperation struct {
 }
 
 type ApiOperationOption struct {
+	ConstantName    *string            `json:"constantName,omitempty"`
 	FieldType       OperationFieldType `json:"fieldType"`
 	QueryStringName string             `json:"queryStringName"`
 	Required        bool               `json:"required"`
@@ -93,7 +94,8 @@ type MetaData struct {
 type OperationFieldType string
 
 const (
-	OperationFieldTypeBoolean OperationFieldType = "Boolean"
-	OperationFieldTypeInteger OperationFieldType = "Integer"
-	OperationFieldTypeString  OperationFieldType = "String"
+	OperationFieldTypeBoolean  OperationFieldType = "Boolean"
+	OperationFieldTypeConstant OperationFieldType = "Constant"
+	OperationFieldTypeInteger  OperationFieldType = "Integer"
+	OperationFieldTypeString   OperationFieldType = "String"
 )
