@@ -7,11 +7,13 @@ type RunInput struct {
 	OutputDirectory  string
 	SwaggerDirectory string
 	SwaggerFiles     []string
+	ResourceProvider *string
 }
 
 type ResourceManagerInput struct {
 	ServiceName      string
 	ApiVersion       string
+	ResourceProvider string
 	SwaggerDirectory string
 	SwaggerFiles     []string
 }
@@ -21,6 +23,7 @@ func (rmi ResourceManagerInput) ToRunInput() RunInput {
 		RootNamespace:    "Pandora.Definitions.ResourceManager",
 		ServiceName:      rmi.ServiceName,
 		ApiVersion:       rmi.ApiVersion,
+		ResourceProvider: &rmi.ResourceProvider,
 		OutputDirectory:  outputDirectory,
 		SwaggerDirectory: rmi.SwaggerDirectory,
 		SwaggerFiles:     rmi.SwaggerFiles,
@@ -35,6 +38,7 @@ func GenerationData() []RunInput {
 		ResourceManagerInput{
 			ServiceName:      "AnalysisServices",
 			ApiVersion:       "2017-08-01",
+			ResourceProvider: "Microsoft.AnalysisServices",
 			SwaggerDirectory: swaggerDirectory + "/specification/analysisservices/resource-manager/Microsoft.AnalysisServices/stable/2017-08-01",
 			SwaggerFiles: []string{
 				"analysisservices.json",
@@ -44,6 +48,7 @@ func GenerationData() []RunInput {
 		ResourceManagerInput{
 			ServiceName:      "AppConfiguration",
 			ApiVersion:       "2020-06-01",
+			ResourceProvider: "Microsoft.AppConfiguration",
 			SwaggerDirectory: swaggerDirectory + "/specification/appconfiguration/resource-manager/Microsoft.AppConfiguration/stable/2020-06-01",
 			SwaggerFiles: []string{
 				"appconfiguration.json",
@@ -52,6 +57,7 @@ func GenerationData() []RunInput {
 		ResourceManagerInput{
 			ServiceName:      "Attestation",
 			ApiVersion:       "2020-10-01",
+			ResourceProvider: "Microsoft.Attestation",
 			SwaggerDirectory: swaggerDirectory + "/specification/attestation/resource-manager/Microsoft.Attestation/stable/2020-10-01",
 			SwaggerFiles: []string{
 				"attestation.json",
@@ -60,6 +66,7 @@ func GenerationData() []RunInput {
 		ResourceManagerInput{
 			ServiceName:      "EventHub",
 			ApiVersion:       "2017-04-01",
+			ResourceProvider: "Microsoft.EventHub",
 			SwaggerDirectory: swaggerDirectory + "/specification/eventhub/resource-manager/Microsoft.EventHub/stable/2017-04-01",
 			SwaggerFiles: []string{
 				"AuthorizationRules.json",
@@ -76,6 +83,7 @@ func GenerationData() []RunInput {
 		ResourceManagerInput{
 			ServiceName:      "EventHub",
 			ApiVersion:       "2018-01-01-preview",
+			ResourceProvider: "Microsoft.EventHub",
 			SwaggerDirectory: swaggerDirectory + "/specification/eventhub/resource-manager/Microsoft.EventHub/preview/2018-01-01-preview",
 			SwaggerFiles: []string{
 				"AuthorizationRules.json",
@@ -98,6 +106,7 @@ func GenerationData() []RunInput {
 		ResourceManagerInput{
 			ServiceName:      "EventHub",
 			ApiVersion:       "2021-01-01-preview",
+			ResourceProvider: "Microsoft.EventHub",
 			SwaggerDirectory: swaggerDirectory + "/specification/eventhub/resource-manager/Microsoft.EventHub/preview/2021-01-01-preview",
 			SwaggerFiles: []string{
 				"AuthorizationRules.json",
@@ -113,6 +122,7 @@ func GenerationData() []RunInput {
 		ResourceManagerInput{
 			ServiceName:      "Maps",
 			ApiVersion:       "2021-02-01",
+			ResourceProvider: "Microsoft.Maps",
 			SwaggerDirectory: swaggerDirectory + "/specification/maps/resource-manager/Microsoft.Maps/stable/2021-02-01",
 			SwaggerFiles: []string{
 				"maps-management.json",
@@ -121,6 +131,7 @@ func GenerationData() []RunInput {
 		ResourceManagerInput{
 			ServiceName:      "ManagedIdentity",
 			ApiVersion:       "2018-11-30",
+			ResourceProvider: "Microsoft.ManagedIdentity",
 			SwaggerDirectory: swaggerDirectory + "/specification/msi/resource-manager/Microsoft.ManagedIdentity/stable/2018-11-30",
 			SwaggerFiles: []string{
 				"ManagedIdentity.json",
@@ -129,6 +140,7 @@ func GenerationData() []RunInput {
 		ResourceManagerInput{
 			ServiceName:      "PowerBIDedicated",
 			ApiVersion:       "2021-01-01",
+			ResourceProvider: "Microsoft.PowerBIdedicated",
 			SwaggerDirectory: swaggerDirectory + "/specification/powerbidedicated/resource-manager/Microsoft.PowerBIdedicated/stable/2021-01-01",
 			SwaggerFiles: []string{
 				"autoScaleVCores.json",
@@ -138,6 +150,7 @@ func GenerationData() []RunInput {
 		ResourceManagerInput{
 			ServiceName:      "Relay",
 			ApiVersion:       "2017-04-01",
+			ResourceProvider: "Microsoft.Relay",
 			SwaggerDirectory: swaggerDirectory + "/specification/relay/resource-manager/Microsoft.Relay/stable/2017-04-01",
 			SwaggerFiles: []string{
 				"relay.json",
@@ -146,6 +159,7 @@ func GenerationData() []RunInput {
 		ResourceManagerInput{
 			ServiceName:      "SignalR",
 			ApiVersion:       "2020-05-01",
+			ResourceProvider: "Microsoft.SignalRService",
 			SwaggerDirectory: swaggerDirectory + "/specification/signalr/resource-manager/Microsoft.SignalRService/stable/2020-05-01",
 			SwaggerFiles: []string{
 				"signalr.json",
@@ -154,6 +168,7 @@ func GenerationData() []RunInput {
 		ResourceManagerInput{
 			ServiceName:      "VMware",
 			ApiVersion:       "2020-03-20",
+			ResourceProvider: "Microsoft.AVS",
 			SwaggerDirectory: swaggerDirectory + "/specification/vmware/resource-manager/Microsoft.AVS/stable/2020-03-20",
 			SwaggerFiles: []string{
 				"vmware.json",

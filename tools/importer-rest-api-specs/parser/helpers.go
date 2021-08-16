@@ -207,8 +207,13 @@ func SwaggerFilesInDirectory(directory string) (*[]string, error) {
 	return &swaggerFiles, nil
 }
 
+type resourceManagerService struct {
+	apiVersions      map[string]string
+	resourceProvider string
+}
+
 func FindResourceManagerServices(directory string) (*[]ResourceManagerService, error) {
-	services := make(map[string]map[string]string, 0)
+	services := make(map[string]resourceManagerService, 0)
 	err := filepath.Walk(directory,
 		func(fullPath string, info os.FileInfo, err error) error {
 			if err != nil {
@@ -238,10 +243,14 @@ func FindResourceManagerServices(directory string) (*[]ResourceManagerService, e
 
 			existingPaths, ok := services[serviceName]
 			if !ok {
-				existingPaths = make(map[string]string, 0)
+				existingPaths = resourceManagerService{
+					resourceProvider: resourceProvider,
+					apiVersions:      map[string]string{},
+				}
 			}
-			existingPaths[apiVersion] = fullPath
+			existingPaths.apiVersions[apiVersion] = fullPath
 			services[serviceName] = existingPaths
+
 			return nil
 		})
 	if err != nil {
@@ -258,14 +267,16 @@ func FindResourceManagerServices(directory string) (*[]ResourceManagerService, e
 		paths := services[serviceName]
 
 		out = append(out, ResourceManagerService{
-			Name:            serviceName,
-			ApiVersionPaths: paths,
+			Name:             serviceName,
+			ApiVersionPaths:  paths.apiVersions,
+			ResourceProvider: paths.resourceProvider,
 		})
 	}
 	return &out, nil
 }
 
 type ResourceManagerService struct {
-	Name            string
-	ApiVersionPaths map[string]string
+	Name             string
+	ApiVersionPaths  map[string]string
+	ResourceProvider string
 }

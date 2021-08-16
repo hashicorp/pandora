@@ -77,14 +77,14 @@ func run(input RunInput, swaggerGitSha string) error {
 	if debug {
 		log.Printf("[STAGE] Generating Swagger Definitions..")
 	}
-	if err := generateServiceDefinitions(*data, input.OutputDirectory, input.RootNamespace, swaggerGitSha, debug); err != nil {
+	if err := generateServiceDefinitions(*data, input.OutputDirectory, input.RootNamespace, swaggerGitSha, input.ResourceProvider, debug); err != nil {
 		return fmt.Errorf("generating Service Definitions: %+v", err)
 	}
 
 	if debug {
 		log.Printf("[STAGE] Generating API Definitions..")
 	}
-	if err := generateApiVersions(*data, input.OutputDirectory, input.RootNamespace, swaggerGitSha, debug); err != nil {
+	if err := generateApiVersions(*data, input.OutputDirectory, input.RootNamespace, swaggerGitSha, input.ResourceProvider, debug); err != nil {
 		return fmt.Errorf("generating API Versions: %+v", err)
 	}
 

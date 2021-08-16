@@ -8,13 +8,11 @@ import (
 )
 
 func (g PandoraDefinitionGenerator) GenerateServiceDefinition() error {
-	resourceProvider := "TODO" // TODO: needs to be populated from the importer, we don't have it right now but we need a value
-
 	serviceDefinitionFilePath := path.Join(g.data.WorkingDirectoryForService, "ServiceDefinition.cs")
 	if g.debugLog {
 		log.Printf("[DEBUG] Generating Service Definition into %q..", serviceDefinitionFilePath)
 	}
-	code := codeForServiceDefinition(g.data.NamespaceForService, g.data.ServiceName, &resourceProvider)
+	code := codeForServiceDefinition(g.data.NamespaceForService, g.data.ServiceName, g.data.ResourceProvider)
 	if err := writeToFile(serviceDefinitionFilePath, code); err != nil {
 		return fmt.Errorf("generating Service Definition into %q: %+v", serviceDefinitionFilePath, err)
 	}
