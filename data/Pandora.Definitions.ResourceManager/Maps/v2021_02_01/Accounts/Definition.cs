@@ -5,7 +5,7 @@ namespace Pandora.Definitions.ResourceManager.Maps.v2021_02_01.Accounts
 {
     internal class Definition : ApiDefinition
     {
-        // Generated from Swagger revision "1e9e2b41c471029b643e58f65caccdd0492a1576" 
+        // Generated from Swagger revision "9593dd087d60017b83cfc590ffea5d7374a3f734" 
 
         public string ApiVersion => "2021-02-01";
         public string Name => "Accounts";
