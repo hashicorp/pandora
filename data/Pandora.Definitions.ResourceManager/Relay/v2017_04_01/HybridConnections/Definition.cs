@@ -5,7 +5,7 @@ namespace Pandora.Definitions.ResourceManager.Relay.v2017_04_01.HybridConnection
 {
     internal class Definition : ApiDefinition
     {
-        // Generated from Swagger revision "1e9e2b41c471029b643e58f65caccdd0492a1576" 
+        // Generated from Swagger revision "9593dd087d60017b83cfc590ffea5d7374a3f734" 
 
         public string ApiVersion => "2017-04-01";
         public string Name => "HybridConnections";

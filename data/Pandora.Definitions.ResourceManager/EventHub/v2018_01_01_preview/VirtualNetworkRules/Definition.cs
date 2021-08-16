@@ -5,7 +5,7 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.Virtu
 {
     internal class Definition : ApiDefinition
     {
-        // Generated from Swagger revision "1e9e2b41c471029b643e58f65caccdd0492a1576" 
+        // Generated from Swagger revision "9593dd087d60017b83cfc590ffea5d7374a3f734" 
 
         public string ApiVersion => "2018-01-01-preview";
         public string Name => "VirtualNetworkRules";
