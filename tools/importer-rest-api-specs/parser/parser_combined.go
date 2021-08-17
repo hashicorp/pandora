@@ -402,17 +402,17 @@ func (d *SwaggerDefinition) modelsForModel(name string, input spec.Schema, const
 	for k, v := range constants {
 		allConstants[k] = v
 	}
-	foundModels := make(modelDetailsMap)
+	foundModels := make(modelDetailsMap, 0)
 
 	// handles recursive models
-	for k := range knownModels {
-		if strings.EqualFold(k, name) {
+	for k, v := range knownModels {
+		if strings.EqualFold(k, name) && !v.IsEmpty() {
 			return allConstants, foundModels, nil
 		}
 	}
 
 	var allModels = func() modelDetailsMap {
-		all := make(modelDetailsMap)
+		all := make(modelDetailsMap, 0)
 		all.merge(knownModels)
 		all.merge(foundModels)
 		return all
@@ -432,6 +432,8 @@ func (d *SwaggerDefinition) modelsForModel(name string, input spec.Schema, const
 	if additionalProperties != nil {
 		allFields = append(allFields, *additionalProperties)
 	}
+
+	modelsToFind := make(map[string]fieldDetails, 0)
 
 	// then iterate over the fields
 	for _, field := range allFields {
@@ -453,7 +455,26 @@ func (d *SwaggerDefinition) modelsForModel(name string, input spec.Schema, const
 			continue
 		}
 
-		nestedConstants, nestedModels, err := d.modelsForModel(fragmentName, *field.SwaggerReference, constants, allKnownModels)
+		// are we already intending on finding this fragment?
+		if _, ok := modelsToFind[fragmentName]; ok {
+			continue
+		}
+
+		modelsToFind[fragmentName] = field
+	}
+
+	// now we know which models should be found, add a temporary
+	allKnownAndUnknownModels := make(modelDetailsMap)
+	allKnownAndUnknownModels.merge(allModels())
+	for k := range modelsToFind {
+		allKnownAndUnknownModels[k] = models.ModelDetails{
+			// whilst this looks weird this is purely a placeholder so we avoid circular references
+		}
+	}
+
+	// now we have a canonical list of them, iterate over to find any nested models
+	for fragmentName, field := range modelsToFind {
+		nestedConstants, nestedModels, err := d.modelsForModel(fragmentName, *field.SwaggerReference, constants, allKnownAndUnknownModels)
 		if err != nil {
 			return nil, nil, fmt.Errorf("finding models for %q: %+v", fragmentName, err)
 		}
