@@ -5,7 +5,7 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2021_01_01_preview.Autho
 {
     internal class Definition : ApiDefinition
     {
-        // Generated from Swagger revision "9593dd087d60017b83cfc590ffea5d7374a3f734" 
+        // Generated from Swagger revision "e68d33c8165c51219c4643eead40efd6a9ab7bd2" 
 
         public string ApiVersion => "2021-01-01-preview";
         public string Name => "AuthorizationRulesDisasterRecoveryConfigs";
