@@ -64,6 +64,16 @@ func GenerationData() []RunInput {
 			},
 		}.ToRunInput(),
 		ResourceManagerInput{
+			ServiceName:      "CostManagement",
+			ApiVersion:       "2021-01-01",
+			ResourceProvider: "Microsoft.CostManagement",
+			SwaggerDirectory: swaggerDirectory + "/specification/cost-management/resource-manager/Microsoft.CostManagement/stable/2021-01-01",
+			SwaggerFiles: []string{
+				"costmanagement.exports.json",
+				"costmanagement.generatedetailedcostreport.json",
+			},
+		}.ToRunInput(),
+		ResourceManagerInput{
 			ServiceName:      "EventHub",
 			ApiVersion:       "2017-04-01",
 			ResourceProvider: "Microsoft.EventHub",
