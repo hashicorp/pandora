@@ -212,7 +212,7 @@ type resourceManagerService struct {
 	resourceProvider string
 }
 
-func FindResourceManagerServices(directory string, justLatestVersion bool) (*[]ResourceManagerService, error) {
+func FindResourceManagerServices(directory string, justLatestVersion, debug bool) (*[]ResourceManagerService, error) {
 	services := make(map[string]resourceManagerService, 0)
 	err := filepath.Walk(directory,
 		func(fullPath string, info os.FileInfo, err error) error {
@@ -238,8 +238,11 @@ func FindResourceManagerServices(directory string, justLatestVersion bool) (*[]R
 			resourceProvider := segments[2]
 			serviceReleaseState := segments[3]
 			apiVersion := segments[4]
-			log.Printf("Service %q / Type %q / RP %q / Status %q / Version %q", serviceName, serviceType, resourceProvider, serviceReleaseState, apiVersion)
-			log.Printf("Path %q", fullPath)
+
+			if debug {
+				log.Printf("Service %q / Type %q / RP %q / Status %q / Version %q", serviceName, serviceType, resourceProvider, serviceReleaseState, apiVersion)
+				log.Printf("Path %q", fullPath)
+			}
 
 			if !strings.EqualFold(serviceType, "resource-manager") {
 				return nil

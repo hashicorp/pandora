@@ -141,7 +141,7 @@ func distinctServiceNames(input []parsedData) []string {
 }
 
 func generateAllResourceManagerServices(swaggerGitSha string, justLatestVersion bool) error {
-	services, err := parser.FindResourceManagerServices(swaggerDirectory+"/specification", justLatestVersion)
+	services, err := parser.FindResourceManagerServices(swaggerDirectory+"/specification", justLatestVersion, false)
 	if err != nil {
 		return err
 	}
@@ -152,6 +152,7 @@ func generateAllResourceManagerServices(swaggerGitSha string, justLatestVersion 
 			swaggerFiles, err := parser.SwaggerFilesInDirectory(versionPath)
 			if err != nil {
 				fmt.Println(err.Error())
+				continue
 			}
 			swaggerFilesTrimmed := make([]string, 0)
 			for _, swaggerFile := range *swaggerFiles {
@@ -170,11 +171,16 @@ func generateAllResourceManagerServices(swaggerGitSha string, justLatestVersion 
 
 			wg.Add(1)
 			go func(input RunInput, sha string) {
-				defer wg.Done()
-				err := run(input, sha)
+				err := run(input, sha, false)
 				if err != nil {
-					log.Printf("error: %+v", err)
+					log.Printf("❌ Service %q - Api Version %q", input.ServiceName, input.ApiVersion)
+					log.Printf("     💥 Error: %+v", err)
+					wg.Done()
+					return
 				}
+
+				log.Printf("✅ Service %q - Api Version %q", input.ServiceName, input.ApiVersion)
+				wg.Done()
 			}(runInput, swaggerGitSha)
 		}
 	}

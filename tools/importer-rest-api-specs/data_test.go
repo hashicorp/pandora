@@ -16,7 +16,7 @@ func TestExistingDataCanBeGenerated(t *testing.T) {
 	for _, data := range input {
 		t.Run(fmt.Sprintf("%s-%s", data.ServiceName, data.ApiVersion), func(t *testing.T) {
 			generationData := data
-			if err := run(generationData, *swaggerGitSha); err != nil {
+			if err := run(generationData, *swaggerGitSha, true); err != nil {
 				t.Fatalf("error: %+v", err)
 			}
 		})
