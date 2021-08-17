@@ -75,6 +75,12 @@ func (m ModelDetails) AsMap() (*FieldDetails, bool) {
 	return m.AdditionalProperties, true
 }
 
+// IsEmpty defines if this is an empty/placeholder object - which can be useful for determining
+// if this object will be replaced later in the process
+func (m ModelDetails) IsEmpty() bool {
+	return len(m.Fields) == 0 && m.Description == "" && m.AdditionalProperties == nil && m.TypeHintIn == nil && m.TypeHintValue == nil && m.ParentTypeName == nil
+}
+
 type FieldDetails struct {
 	Type              FieldDefinitionType
 	DictValueType     *FieldDefinitionType

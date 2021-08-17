@@ -1,0 +1,91 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Example",
+    "description": "Example",
+    "version": "2020-01-01"
+  },
+  "host": "management.mysite.com",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "security": [],
+  "securityDefinitions": {},
+  "paths": {
+    "/houses": {
+      "get": {
+        "tags": [
+          "Hello"
+        ],
+        "operationId": "Hello_GetHouse",
+        "description": "Returns information about a House.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success.",
+            "schema": {
+              "$ref": "#/definitions/House"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "House": {
+      "properties": {
+        "address": {
+          "type": "string"
+        },
+        "residents": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Human"
+          },
+          "description": "A list of Human"
+        }
+      },
+      "type": "object",
+      "title": "House"
+    },
+    "Animal": {
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The name for this Animal"
+        },
+        "favouriteHuman": {
+          "$ref": "#/definitions/Human"
+        }
+      },
+      "description": "An animal, surprisingly.",
+      "type": "object",
+      "title": "Animal"
+    },
+    "Human": {
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The name for this Animal"
+        },
+        "pets": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Animal"
+          },
+          "description": "A list of Pets"
+        }
+      },
+      "description": "An animal, surprisingly.",
+      "type": "object",
+      "title": "Human"
+    }
+  },
+  "parameters": {}
+}
