@@ -149,6 +149,15 @@ func GenerationData() []RunInput {
 		}.ToRunInput(),
 		ResourceManagerInput{
 			ServiceName:      "Purview",
+			ApiVersion:       "2020-12-01-preview",
+			ResourceProvider: "Microsoft.Purview",
+			SwaggerDirectory: swaggerDirectory + "/specification/purview/resource-manager/Microsoft.Purview/preview/2020-12-01-preview",
+			SwaggerFiles: []string{
+				"purview.json",
+			},
+		}.ToRunInput(),
+		ResourceManagerInput{
+			ServiceName:      "Purview",
 			ApiVersion:       "2021-07-01",
 			ResourceProvider: "Microsoft.Purview",
 			SwaggerDirectory: swaggerDirectory + "/specification/purview/resource-manager/Microsoft.Purview/stable/2021-07-01",
@@ -175,9 +184,9 @@ func GenerationData() []RunInput {
 			},
 		}.ToRunInput(),
 		ResourceManagerInput{
-			ServiceName: "VMware",
-			ApiVersion:  "2020-03-20",
-
+			ServiceName:      "VMware",
+			ApiVersion:       "2020-03-20",
+			ResourceProvider: "Microsoft.AVS",
 			SwaggerDirectory: swaggerDirectory + "/specification/vmware/resource-manager/Microsoft.AVS/stable/2020-03-20",
 			SwaggerFiles: []string{
 				"vmware.json",
