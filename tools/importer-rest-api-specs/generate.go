@@ -140,8 +140,8 @@ func distinctServiceNames(input []parsedData) []string {
 	return names
 }
 
-func generateEverything(swaggerGitSha string) error {
-	services, err := parser.FindResourceManagerServices(swaggerDirectory + "/specification")
+func generateAllResourceManagerServices(swaggerGitSha string, justLatestVersion bool) error {
+	services, err := parser.FindResourceManagerServices(swaggerDirectory+"/specification", justLatestVersion)
 	if err != nil {
 		return err
 	}

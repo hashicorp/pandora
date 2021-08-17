@@ -38,7 +38,8 @@ func main() {
 			}
 		}
 	} else {
-		if err := generateEverything(*swaggerGitSha); err != nil {
+		justLatestVersion := true
+		if err := generateAllResourceManagerServices(*swaggerGitSha, justLatestVersion); err != nil {
 			log.Printf("error: %+v", err)
 			os.Exit(1)
 		}
