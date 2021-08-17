@@ -212,7 +212,7 @@ type resourceManagerService struct {
 	resourceProvider string
 }
 
-func FindResourceManagerServices(directory string) (*[]ResourceManagerService, error) {
+func FindResourceManagerServices(directory string, justLatestVersion bool) (*[]ResourceManagerService, error) {
 	services := make(map[string]resourceManagerService, 0)
 	err := filepath.Walk(directory,
 		func(fullPath string, info os.FileInfo, err error) error {
@@ -270,11 +270,25 @@ func FindResourceManagerServices(directory string) (*[]ResourceManagerService, e
 	for _, serviceName := range serviceNames {
 		paths := services[serviceName]
 
-		out = append(out, ResourceManagerService{
+		sortedApiVersions := make([]string, 0)
+		for k := range paths.apiVersions {
+			sortedApiVersions = append(sortedApiVersions, k)
+		}
+		sort.Strings(sortedApiVersions)
+
+		newestApiVersion := sortedApiVersions[len(sortedApiVersions)-1]
+
+		service := ResourceManagerService{
 			Name:             serviceName,
 			ApiVersionPaths:  paths.apiVersions,
 			ResourceProvider: paths.resourceProvider,
-		})
+		}
+		if justLatestVersion {
+			service.ApiVersionPaths = map[string]string{
+				newestApiVersion: paths.apiVersions[newestApiVersion],
+			}
+		}
+		out = append(out, service)
 	}
 	return &out, nil
 }
