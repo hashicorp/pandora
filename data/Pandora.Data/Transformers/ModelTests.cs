@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices.ComTypes;
 using System.Text.Json.Serialization;
 using NUnit.Framework;
 using Pandora.Data.Models;
@@ -9,6 +11,23 @@ namespace Pandora.Data.Transformers
 {
     public static class ModelTests
     {
+        [TestCase]
+        public static void MappingABuildInTypeShouldReturnNothing()
+        {
+            var builtInTypes = new List<Type>
+            {
+                typeof(string),
+                typeof(int),
+                typeof(bool),
+            };
+
+            foreach (var type in builtInTypes)
+            {
+                var actual = Model.Map(type);
+                Assert.AreEqual(actual.Count, 0);                
+            }
+        }
+        
         [TestCase]
         public static void MappingAModelShouldRemoveSuffixes()
         {

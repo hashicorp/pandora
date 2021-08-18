@@ -23,6 +23,12 @@ namespace Pandora.Data.Transformers
                     throw new NotSupportedException("create a wrapper type");
                 }
 
+                if (Helpers.IsNativeType(input))
+                {
+                    // there's no types to parse out here
+                    return new List<ModelDefinition>();
+                }
+
                 return MapObject(input).Distinct(new ModelComparer()).OrderBy(m => m.Name).ToList();
             }
             catch (Exception ex)
