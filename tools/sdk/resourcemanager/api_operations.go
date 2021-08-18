@@ -85,6 +85,7 @@ type ApiOperationOption struct {
 }
 
 type ApiObjectDefinition struct {
+	NestedItem    *ApiOperationDetails    `json:"nestedItem,omitempty"`
 	ReferenceName *string                 `json:"referenceName,omitempty"`
 	Type          ApiObjectDefinitionType `json:"type"`
 }
