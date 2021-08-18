@@ -96,11 +96,16 @@ namespace Pandora.Api.V1.ResourceManager
                 return null;
             }
 
-            return new ApiObjectDefinition
+            var definition = new ApiObjectDefinition
             {
                 ReferenceName = input.ReferenceName,
                 Type = MapApiObjectType(input.Type)
             };
+            if (input.NestedItem != null)
+            {
+                definition.NestedItem = MapObjectDefinition(input.NestedItem);
+            }
+            return definition;
         }
 
         private static string MapApiObjectType(ObjectType input)
@@ -128,6 +133,9 @@ namespace Pandora.Api.V1.ResourceManager
 
         public class ApiObjectDefinition
         {
+            [JsonPropertyName("nestedItem")]
+            public ApiObjectDefinition? NestedItem { get; set; }
+            
             [JsonPropertyName("referenceName")]
             public string? ReferenceName { get; set; }
             
