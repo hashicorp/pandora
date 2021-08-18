@@ -12,7 +12,7 @@ namespace Pandora.Data.Transformers
     public static class ModelTests
     {
         [TestCase]
-        public static void MappingABuildInTypeShouldReturnNothing()
+        public static void MappingABuiltInTypeShouldReturnNothing()
         {
             var builtInTypes = new List<Type>
             {
