@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Text.Json.Serialization;
 using NUnit.Framework;
 using Pandora.Data.Models;
@@ -19,13 +20,34 @@ namespace Pandora.Data.Transformers
             var actual = ObjectDefinition.Map(typeof(bool));
             Assert.AreEqual(ObjectType.Boolean, actual.Type);
             Assert.Null(actual.ReferenceName);
+            Assert.Null(actual.NestedItem);
         }
 
         [TestCase]
-        public static void MappingADictionary()
+        [Ignore("WIP - this PR is large enough as it is")]
+        public static void MappingADictionaryOfAnObject()
         {
-            // TODO: this'll also need an ItemType property
-            Assert.Fail("not implemented");
+            var actual = ObjectDefinition.Map(typeof(Dictionary<string, SomeModel>));
+            Assert.AreEqual(ObjectType.Dictionary, actual.Type);
+            Assert.Null(actual.ReferenceName);
+            Assert.NotNull(actual.NestedItem);
+            Assert.AreEqual(ObjectType.Reference, actual.NestedItem!.Type);
+            Assert.NotNull(actual.NestedItem!.ReferenceName);
+            Assert.AreEqual("Some", actual.NestedItem!.ReferenceName);
+            Assert.Null(actual.NestedItem!.NestedItem);
+        }
+
+        [TestCase]
+        [Ignore("WIP - this PR is large enough as it is")]
+        public static void MappingADictionaryOfString()
+        {
+            var actual = ObjectDefinition.Map(typeof(Dictionary<string, string>));
+            Assert.AreEqual(ObjectType.Dictionary, actual.Type);
+            Assert.Null(actual.ReferenceName);
+            Assert.NotNull(actual.NestedItem);
+            Assert.AreEqual(ObjectType.String, actual.NestedItem!.Type);
+            Assert.Null(actual.NestedItem!.ReferenceName);
+            Assert.Null(actual.NestedItem!.NestedItem);
         }
 
         [TestCase]
@@ -35,6 +57,7 @@ namespace Pandora.Data.Transformers
             Assert.AreEqual(ObjectType.Reference, actual.Type);
             Assert.NotNull(actual.ReferenceName);
             Assert.AreEqual("Some", actual.ReferenceName);
+            Assert.Null(actual.NestedItem);
         }
 
         [TestCase]
@@ -43,6 +66,7 @@ namespace Pandora.Data.Transformers
             var actual = ObjectDefinition.Map(typeof(float));
             Assert.AreEqual(ObjectType.Float, actual.Type);
             Assert.Null(actual.ReferenceName);
+            Assert.Null(actual.NestedItem);
         }
 
         [TestCase]
@@ -51,13 +75,34 @@ namespace Pandora.Data.Transformers
             var actual = ObjectDefinition.Map(typeof(int));
             Assert.AreEqual(ObjectType.Integer, actual.Type);
             Assert.Null(actual.ReferenceName);
+            Assert.Null(actual.NestedItem);
         }
 
         [TestCase]
-        public static void MappingAList()
+        [Ignore("WIP - this PR is large enough as it is")]
+        public static void MappingAListOfObject()
         {
-            // TODO: this'll also need an ItemType property
-            Assert.Fail("not implemented");
+            var actual = ObjectDefinition.Map(typeof(List<SomeModel>));
+            Assert.AreEqual(ObjectType.List, actual.Type);
+            Assert.Null(actual.ReferenceName);
+            Assert.NotNull(actual.NestedItem);
+            Assert.AreEqual(ObjectType.Reference, actual.NestedItem!.Type);
+            Assert.NotNull(actual.NestedItem!.ReferenceName);
+            Assert.AreEqual("Some", actual.NestedItem!.ReferenceName);
+            Assert.Null(actual.NestedItem!.NestedItem);
+        }
+
+        [TestCase]
+        [Ignore("WIP - this PR is large enough as it is")]
+        public static void MappingAListOfString()
+        {
+            var actual = ObjectDefinition.Map(typeof(List<string>));
+            Assert.AreEqual(ObjectType.List, actual.Type);
+            Assert.Null(actual.ReferenceName);
+            Assert.NotNull(actual.NestedItem);
+            Assert.AreEqual(ObjectType.String, actual.NestedItem!.Type);
+            Assert.Null(actual.NestedItem!.ReferenceName);
+            Assert.Null(actual.NestedItem!.NestedItem);
         }
 
         [TestCase]
@@ -67,6 +112,7 @@ namespace Pandora.Data.Transformers
             Assert.AreEqual(ObjectType.Reference, actual.Type);
             Assert.NotNull(actual.ReferenceName);
             Assert.AreEqual("Some", actual.ReferenceName);
+            Assert.Null(actual.NestedItem);
         }
 
         [TestCase]
@@ -75,6 +121,7 @@ namespace Pandora.Data.Transformers
             var actual = ObjectDefinition.Map(typeof(string));
             Assert.AreEqual(ObjectType.String, actual.Type);
             Assert.Null(actual.ReferenceName);
+            Assert.Null(actual.NestedItem);
         }
 
         private class SomeModel
