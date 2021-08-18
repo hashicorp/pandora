@@ -205,8 +205,6 @@ func TestParseModelSingleTopLevelWithInlinedModel(t *testing.T) {
 }
 
 func TestParseModelSingleWithInlinedObject(t *testing.T) {
-	t.Skip("skipping temporarily since broken - see https://github.com/hashicorp/pandora/issues/109")
-
 	parsed, err := Load("testdata/", "model_with_inlined_object.json", true)
 	if err != nil {
 		t.Fatalf("loading: %+v", err)
@@ -308,19 +306,21 @@ func TestParseModelSingleWithInlinedObject(t *testing.T) {
 	if !ok {
 		t.Fatalf("expected the model ThingProperties to have the field UserAssignedIdentities")
 	}
-	if uaiField.Type != models.Object {
-		t.Fatalf("expected the model ThingProperties field UserAssignedIdentities to be an Object but it was %q", string(uaiField.Type))
+	if uaiField.Type != models.Dictionary {
+		t.Fatalf("expected the model ThingProperties field UserAssignedIdentities to be a Dictionary but it was %q", string(uaiField.Type))
 	}
 	if uaiField.ModelReference == nil {
 		t.Fatalf("expected the model ThingProperties field UserAssignedIdentities to have a model reference but it was nil")
 	}
-	if *uaiField.ModelReference != "UserAssignedIdentities" {
-		t.Fatalf("expected the model ThingProperties field UserAssignedIdentities model reference to be `UserAssignedIdentities` but it was %q", *uaiField.ModelReference)
+
+	// NOTE: this gets transformed at the end of the parsing phase, so whilst this is a weird name it's intentional
+	if *uaiField.ModelReference != "ThingPropertiesUserAssignedIdentities" {
+		t.Fatalf("expected the model ThingProperties field UserAssignedIdentities model reference to be `ThingPropertiesUserAssignedIdentities` but it was %q", *uaiField.ModelReference)
 	}
 
-	uaiModel, ok := hello.Models["UserAssignedIdentities"]
+	uaiModel, ok := hello.Models["ThingPropertiesUserAssignedIdentities"]
 	if !ok {
-		t.Fatalf("expected there to be a model called UserAssignedIdentities")
+		t.Fatalf("expected there to be a model called ThingPropertiesUserAssignedIdentities")
 	}
 	if len(uaiModel.Fields) != 2 {
 		t.Fatalf("expected the model UserAssignedIdentities to have 2 fields but got %d", len(uaiModel.Fields))
