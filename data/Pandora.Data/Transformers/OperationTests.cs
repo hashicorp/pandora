@@ -1,14 +1,11 @@
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using System.Net;
-using System.Net.Http;
 using System.Text.Json.Serialization;
 using NUnit.Framework;
 using Pandora.Data.Models;
 using Pandora.Definitions.Attributes;
-using Pandora.Definitions.Interfaces;
 using Pandora.Definitions.Operations;
 
 namespace Pandora.Data.Transformers
@@ -64,7 +61,6 @@ namespace Pandora.Data.Transformers
             Assert.AreEqual("2018-01-01", actual.ApiVersion);
             Assert.AreEqual("MyApi", actual.ApiName);
             Assert.AreEqual("LongRunningOperationWithResponseObject", actual.Name);
-            Assert.AreEqual("application/json", actual.ContentType);
             Assert.AreEqual("DELETE", actual.Method);
             Assert.AreEqual(true, actual.LongRunning);
             Assert.Null(actual.ResponseObject);
@@ -78,15 +74,52 @@ namespace Pandora.Data.Transformers
             Assert.AreEqual("2018-01-01", actual.ApiVersion);
             Assert.AreEqual("MyApi", actual.ApiName);
             Assert.AreEqual("OperationWithRequestObject", actual.Name);
-            Assert.AreEqual("application/json", actual.ContentType);
             Assert.AreEqual("PUT", actual.Method);
             Assert.AreEqual(false, actual.LongRunning);
             Assert.NotNull(actual.RequestObject);
             Assert.Null(actual.ResponseObject);
-            Assert.AreEqual(1, actual.ExpectedStatusCodes.Count);
-            Assert.AreEqual(200, actual.ExpectedStatusCodes.First());
             Assert.AreEqual("TestObject", actual.RequestObject!.ReferenceName);
             Assert.AreEqual(ObjectType.Reference, actual.RequestObject!.Type);
+        }
+
+        [TestCase]
+        public static void MappingAnOperationWithASimpleTypeAsAResponseObject()
+        {
+            var actual = Operation.Map(new OperationWithASimpleTypeAsAResponseObject(), "2018-01-01", "MyApi");
+            Assert.NotNull(actual);
+            Assert.AreEqual("2018-01-01", actual.ApiVersion);
+            Assert.AreEqual("MyApi", actual.ApiName);
+            Assert.AreEqual("OperationWithASimpleTypeAsAResponseObject", actual.Name);
+            Assert.AreEqual("GET", actual.Method);
+            Assert.AreEqual(false, actual.LongRunning);
+            Assert.Null(actual.RequestObject);
+            Assert.NotNull(actual.ResponseObject);
+            Assert.AreEqual(1, actual.ExpectedStatusCodes.Count);
+            Assert.AreEqual(200, actual.ExpectedStatusCodes.First());
+            Assert.AreEqual(ObjectType.String, actual.ResponseObject!.Type);
+            Assert.Null(actual.ResponseObject!.ReferenceName);
+        }
+
+        [TestCase]
+        public static void MappingAnOperationWithAListOfStringsAsAResponseObject()
+        {
+            var actual = Operation.Map(new OperationWithAListOfStringsAsAResponseObject(), "2018-01-01", "MyApi");
+            Assert.NotNull(actual);
+            Assert.AreEqual("2018-01-01", actual.ApiVersion);
+            Assert.AreEqual("MyApi", actual.ApiName);
+            Assert.AreEqual("OperationWithAListOfStringsAsAResponseObject", actual.Name);
+            Assert.AreEqual("GET", actual.Method);
+            Assert.AreEqual(false, actual.LongRunning);
+            Assert.Null(actual.RequestObject);
+            Assert.NotNull(actual.ResponseObject);
+            Assert.AreEqual(1, actual.ExpectedStatusCodes.Count);
+            Assert.AreEqual(200, actual.ExpectedStatusCodes.First());
+            Assert.AreEqual(ObjectType.List, actual.ResponseObject!.Type);
+            Assert.Null(actual.ResponseObject!.ReferenceName);
+            Assert.NotNull(actual.ResponseObject!.NestedItem);
+            Assert.AreEqual(ObjectType.String, actual.ResponseObject!.NestedItem!.Type);
+            Assert.Null(actual.ResponseObject!.NestedItem!.ReferenceName);
+            Assert.Null(actual.ResponseObject!.NestedItem!.NestedItem);
         }
 
         [TestCase]
@@ -97,13 +130,10 @@ namespace Pandora.Data.Transformers
             Assert.AreEqual("2018-01-01", actual.ApiVersion);
             Assert.AreEqual("MyApi", actual.ApiName);
             Assert.AreEqual("OperationWithAResourceId", actual.Name);
-            Assert.AreEqual("application/json", actual.ContentType);
             Assert.AreEqual("GET", actual.Method);
             Assert.AreEqual(false, actual.LongRunning);
             Assert.Null(actual.RequestObject);
             Assert.NotNull(actual.ResponseObject);
-            Assert.AreEqual(1, actual.ExpectedStatusCodes.Count);
-            Assert.AreEqual(200, actual.ExpectedStatusCodes.First());
             Assert.AreEqual("FakeResponseObject", actual.ResponseObject!.ReferenceName);
             Assert.AreEqual(ObjectType.Reference, actual.ResponseObject!.Type);
             Assert.AreEqual("FakeResourceId", actual.ResourceIdName);
@@ -117,7 +147,6 @@ namespace Pandora.Data.Transformers
             Assert.AreEqual("2018-01-01", actual.ApiVersion);
             Assert.AreEqual("MyApi", actual.ApiName);
             Assert.AreEqual("OperationWithResponseObject", actual.Name);
-            Assert.AreEqual("application/json", actual.ContentType);
             Assert.AreEqual("GET", actual.Method);
             Assert.AreEqual(false, actual.LongRunning);
             Assert.Null(actual.RequestObject);
@@ -137,15 +166,12 @@ namespace Pandora.Data.Transformers
             Assert.AreEqual("2018-01-01", actual.ApiVersion);
             Assert.AreEqual("MyApi", actual.ApiName);
             Assert.AreEqual("OperationWithRequestAndResponseObject", actual.Name);
-            Assert.AreEqual("application/json", actual.ContentType);
             Assert.AreEqual("PUT", actual.Method);
             Assert.AreEqual(false, actual.LongRunning);
             Assert.NotNull(actual.RequestObject);
             Assert.NotNull(actual.RequestObject!.ReferenceName);
             Assert.NotNull(actual.ResponseObject);
             Assert.NotNull(actual.ResponseObject!.ReferenceName);
-            Assert.AreEqual(1, actual.ExpectedStatusCodes.Count);
-            Assert.AreEqual(200, actual.ExpectedStatusCodes.First());
             Assert.AreEqual("TestObject", actual.RequestObject!.ReferenceName);
             Assert.AreEqual(ObjectType.Reference, actual.RequestObject!.Type);
             Assert.AreEqual("TestObject", actual.ResponseObject!.ReferenceName);
@@ -160,7 +186,6 @@ namespace Pandora.Data.Transformers
             Assert.AreEqual("2018-01-01", actual.ApiVersion);
             Assert.AreEqual("MyApi", actual.ApiName);
             Assert.AreEqual("OperationWithASuffix", actual.Name);
-            Assert.AreEqual("application/json", actual.ContentType);
             Assert.AreEqual("POST", actual.Method);
             Assert.AreEqual(false, actual.LongRunning);
             Assert.Null(actual.RequestObject);
@@ -179,13 +204,11 @@ namespace Pandora.Data.Transformers
             Assert.AreEqual("2018-01-01", actual.ApiVersion);
             Assert.AreEqual("MyApi", actual.ApiName);
             Assert.AreEqual("OperationWithOptions", actual.Name);
-            Assert.AreEqual("application/json", actual.ContentType);
             Assert.AreEqual("POST", actual.Method);
             Assert.AreEqual(false, actual.LongRunning);
             Assert.Null(actual.ResponseObject);
             Assert.Null(actual.ResponseObject);
-            Assert.AreEqual(1, actual.ExpectedStatusCodes.Count);
-            Assert.AreEqual(200, actual.ExpectedStatusCodes.First());
+
             Assert.AreEqual(3, actual.Options.Count);
 
             var firstOption = actual.Options.First(o => o.Name == "First");
@@ -238,91 +261,30 @@ namespace Pandora.Data.Transformers
             Assert.AreEqual("OperationSimple", actual.Name);
         }
 
-        private class OperationWithNoStatusCodes : ApiOperation
+        private class OperationWithNoStatusCodes : DeleteOperation
         {
-            public string? ContentType()
-            {
-                return "application/json";
-            }
-
-            public IEnumerable<HttpStatusCode> ExpectedStatusCodes()
+            public override IEnumerable<HttpStatusCode> ExpectedStatusCodes()
             {
                 return new List<HttpStatusCode>();
             }
-
-            public bool LongRunning()
-            {
-                return false;
-            }
-
-            public HttpMethod Method()
-            {
-                return HttpMethod.Delete;
-            }
-
-            public Type? RequestObject()
-            {
-                return null;
-            }
-
-            public Type? ResponseObject()
-            {
-                return null;
-            }
-            public string? FieldContainingPaginationDetails() => null;
-
-            public Definitions.Interfaces.ResourceID? ResourceId() => null;
-
-            public Type? OptionsObject() => null;
-            public string? UriSuffix() => null;
         }
 
-        private class OperationWithNoRequestOrResponseObjects : ApiOperation
+        private class OperationWithNoRequestOrResponseObjects : DeleteOperation
         {
-            public string? ContentType()
+            public override string? ContentType()
+            {
+                return "application/json";
+            }
+        }
+
+        private class OperationWithMultipleStatusCodes : DeleteOperation
+        {
+            public override string? ContentType()
             {
                 return "application/json";
             }
 
-            public IEnumerable<HttpStatusCode> ExpectedStatusCodes()
-            {
-                return new List<HttpStatusCode> { HttpStatusCode.OK };
-            }
-
-            public bool LongRunning()
-            {
-                return false;
-            }
-
-            public HttpMethod Method()
-            {
-                return HttpMethod.Delete;
-            }
-
-            public Type? RequestObject()
-            {
-                return null;
-            }
-
-            public Type? ResponseObject()
-            {
-                return null;
-            }
-            public string? FieldContainingPaginationDetails() => null;
-
-            public Definitions.Interfaces.ResourceID? ResourceId() => null;
-            public Type? OptionsObject() => null;
-            public string? UriSuffix() => null;
-        }
-
-        private class OperationWithMultipleStatusCodes : ApiOperation
-        {
-            public string? ContentType()
-            {
-                return "application/json";
-            }
-
-            public IEnumerable<HttpStatusCode> ExpectedStatusCodes()
+            public override IEnumerable<HttpStatusCode> ExpectedStatusCodes()
             {
                 return new List<HttpStatusCode>
                 {
@@ -330,248 +292,61 @@ namespace Pandora.Data.Transformers
                     HttpStatusCode.Created
                 };
             }
-
-            public bool LongRunning()
-            {
-                return false;
-            }
-
-            public HttpMethod Method()
-            {
-                return HttpMethod.Delete;
-            }
-
-            public Type? RequestObject()
-            {
-                return null;
-            }
-
-            public Definitions.Interfaces.ResourceID? ResourceId() => null;
-
-            public Type? ResponseObject()
-            {
-                return null;
-            }
-            public string? FieldContainingPaginationDetails() => null;
-            public Type? OptionsObject() => null;
-            public string? UriSuffix() => null;
         }
 
-        private class LongRunningOperationWithResponseObject : ApiOperation
+        private class LongRunningOperationWithResponseObject : LongRunningDeleteOperation
         {
-            public string? ContentType()
-            {
-                return "application/json";
-            }
-
-            public IEnumerable<HttpStatusCode> ExpectedStatusCodes()
-            {
-                return new List<HttpStatusCode> { HttpStatusCode.OK };
-            }
-
-            public bool LongRunning()
-            {
-                return true;
-            }
-
-            public HttpMethod Method()
-            {
-                return HttpMethod.Delete;
-            }
-
-            public Type? RequestObject()
-            {
-                return null;
-            }
-
-            public Definitions.Interfaces.ResourceID? ResourceId() => null;
-
-            public Type? ResponseObject()
-            {
-                return typeof(TestObject);
-            }
-            public string? FieldContainingPaginationDetails() => null;
-            public Type? OptionsObject() => null;
-            public string? UriSuffix() => null;
+            public override Type? ResponseObject() => typeof(TestObject);
         }
 
-        private class OperationWithRequestObject : ApiOperation
+        private class OperationWithRequestObject : PutOperation
         {
-            public string? ContentType()
-            {
-                return "application/json";
-            }
-
-            public IEnumerable<HttpStatusCode> ExpectedStatusCodes()
-            {
-                return new List<HttpStatusCode> { HttpStatusCode.OK };
-            }
-
-            public bool LongRunning()
-            {
-                return false;
-            }
-
-            public HttpMethod Method()
-            {
-                return HttpMethod.Put;
-            }
-
-            public Type? RequestObject()
-            {
-                return typeof(TestObject);
-            }
-
-            public Definitions.Interfaces.ResourceID? ResourceId() => null;
-
-            public Type? ResponseObject()
-            {
-                return null;
-            }
-            public string? FieldContainingPaginationDetails() => null;
-            public Type? OptionsObject() => null;
-            public string? UriSuffix() => null;
+            public override Type? RequestObject() => typeof(TestObject);
         }
 
-        private class OperationWithResponseObject : ApiOperation
+        private class OperationWithResponseObject : GetOperation
         {
-            public string? ContentType()
-            {
-                return "application/json";
-            }
-
-            public IEnumerable<HttpStatusCode> ExpectedStatusCodes()
-            {
-                return new List<HttpStatusCode> { HttpStatusCode.OK };
-            }
-
-            public bool LongRunning()
-            {
-                return false;
-            }
-
-            public HttpMethod Method()
-            {
-                return HttpMethod.Get;
-            }
-
-            public Type? RequestObject()
-            {
-                return null;
-            }
-
-            public Definitions.Interfaces.ResourceID? ResourceId() => null;
-
-            public Type? ResponseObject()
-            {
-                return typeof(TestObject);
-            }
-            public string? FieldContainingPaginationDetails() => null;
-            public Type? OptionsObject() => null;
-            public string? UriSuffix() => null;
+            public override Type? ResponseObject() => typeof(TestObject);
         }
 
-        private class OperationWithRequestAndResponseObject : ApiOperation
+        private class OperationWithRequestAndResponseObject : PutOperation
         {
-            public string? ContentType()
-            {
-                return "application/json";
-            }
+            public override Type? RequestObject() => typeof(TestObject);
 
-            public IEnumerable<HttpStatusCode> ExpectedStatusCodes()
-            {
-                return new List<HttpStatusCode> { HttpStatusCode.OK };
-            }
-
-            public bool LongRunning()
-            {
-                return false;
-            }
-
-            public HttpMethod Method()
-            {
-                return HttpMethod.Put;
-            }
-
-            public Type? RequestObject()
-            {
-                return typeof(TestObject);
-            }
-
-            public Definitions.Interfaces.ResourceID? ResourceId() => null;
-
-            public Type? ResponseObject()
-            {
-                return typeof(TestObject);
-            }
-            public string? FieldContainingPaginationDetails() => null;
-            public Type? OptionsObject() => null;
-            public string? UriSuffix() => null;
+            public override Type? ResponseObject() => typeof(TestObject);
         }
     }
 
-    public class OperationSimpleOperation : ApiOperation
+    public class OperationWithAListOfStringsAsAResponseObject : GetOperation
     {
-        public string? ContentType()
+        public override Type? ResponseObject()
         {
-            return "application/json";
+            return typeof(List<string>);
         }
-
-        public IEnumerable<HttpStatusCode> ExpectedStatusCodes()
-        {
-            return new List<HttpStatusCode> { HttpStatusCode.OK };
-        }
-
-        public bool LongRunning()
-        {
-            return false;
-        }
-
-        public HttpMethod Method()
-        {
-            return HttpMethod.Put;
-        }
-
-        public Type? RequestObject()
-        {
-            return typeof(TestObject);
-        }
-
-        public Definitions.Interfaces.ResourceID? ResourceId() => null;
-
-        public Type? ResponseObject()
-        {
-            return typeof(TestObject);
-        }
-        public string? FieldContainingPaginationDetails() => null;
-        public Type? OptionsObject() => null;
-        public string? UriSuffix() => "/hello";
     }
 
-    public class OperationWithAResourceId : ApiOperation
+    public class OperationWithASimpleTypeAsAResponseObject : GetOperation
     {
-        public string? ContentType() => "application/json";
-
-        public IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+        public override Type? ResponseObject()
         {
-            HttpStatusCode.OK,
-        };
+            return typeof(string);
+        }
+    }
 
-        public string? FieldContainingPaginationDetails() => null;
+    public class OperationSimpleOperation : PutOperation
+    {
+        public override Type? RequestObject() => typeof(TestObject);
 
-        public bool LongRunning() => false;
+        public override Type? ResponseObject() => typeof(TestObject);
 
-        public HttpMethod Method() => HttpMethod.Get;
+        public override string? UriSuffix() => "/hello";
+    }
 
-        public Type? OptionsObject() => null;
+    public class OperationWithAResourceId : GetOperation
+    {
+        public override Type? ResponseObject() => typeof(FakeResponseObject);
 
-        public Type? RequestObject() => null;
-
-        public Type? ResponseObject() => typeof(FakeResponseObject);
-
-        public Definitions.Interfaces.ResourceID? ResourceId() => new FakeResourceId();
-
-        public string? UriSuffix() => null;
+        public override Definitions.Interfaces.ResourceID? ResourceId() => new FakeResourceId();
 
         public class FakeResponseObject
         {
@@ -588,62 +363,17 @@ namespace Pandora.Data.Transformers
         }
     }
 
-    public class OperationWithASuffix : ApiOperation
+    public class OperationWithASuffix : PostOperation
     {
-        public string? ContentType()
-        {
-            return "application/json";
-        }
+        public override Type? RequestObject() => null;
 
-        public IEnumerable<HttpStatusCode> ExpectedStatusCodes()
-        {
-            return new List<HttpStatusCode> { HttpStatusCode.OK };
-        }
-
-        public bool LongRunning() => false;
-
-        public HttpMethod Method()
-        {
-            return HttpMethod.Post;
-        }
-
-        public Type? RequestObject() => null;
-
-        public Definitions.Interfaces.ResourceID? ResourceId() => null;
-
-        public Type? ResponseObject() => null;
-        public string? FieldContainingPaginationDetails() => null;
-        public Type? OptionsObject() => null;
-        public string? UriSuffix() => "/shutdown";
+        public override string? UriSuffix() => "/shutdown";
     }
 
-    public class OperationWithOptions : ApiOperation
+    public class OperationWithOptions : PostOperation
     {
-        public string? ContentType()
-        {
-            return "application/json";
-        }
-
-        public IEnumerable<HttpStatusCode> ExpectedStatusCodes()
-        {
-            return new List<HttpStatusCode> { HttpStatusCode.OK };
-        }
-
-        public bool LongRunning() => false;
-
-        public HttpMethod Method()
-        {
-            return HttpMethod.Post;
-        }
-
-        public Type? RequestObject() => null;
-
-        public Definitions.Interfaces.ResourceID? ResourceId() => null;
-
-        public Type? ResponseObject() => null;
-        public string? FieldContainingPaginationDetails() => null;
-        public Type? OptionsObject() => typeof(NestedOptionsObject);
-        public string? UriSuffix() => null;
+        public override Type? OptionsObject() => typeof(NestedOptionsObject);
+        public override Type? RequestObject() => null;
 
         public class NestedOptionsObject
         {
