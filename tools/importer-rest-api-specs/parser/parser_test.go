@@ -23,7 +23,7 @@ func TestAllSwaggersUsingParser(t *testing.T) {
 		t.Skipf("skipping since %q is unset", runAllEnvVar)
 	}
 
-	services, err := FindResourceManagerServices(swaggerDirectory, false)
+	services, err := FindResourceManagerServices(swaggerDirectory, false, true)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -56,7 +56,7 @@ func TestAllSwaggersValidateAllContainTypes(t *testing.T) {
 		t.Skipf("skipping since %q is unset", runAllEnvVar)
 	}
 
-	services, err := FindResourceManagerServices(swaggerDirectory, false)
+	services, err := FindResourceManagerServices(swaggerDirectory, false, true)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -91,7 +91,7 @@ func TestAllSwaggersValidateFindOAIGenParserBug(t *testing.T) {
 		t.Skipf("skipping since %q is unset", runAllEnvVar)
 	}
 
-	services, err := FindResourceManagerServices(swaggerDirectory, false)
+	services, err := FindResourceManagerServices(swaggerDirectory, false, true)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -124,7 +124,7 @@ func TestAllSwaggersValidateFindUnknownBugs(t *testing.T) {
 		t.Skipf("skipping since %q is unset", runAllEnvVar)
 	}
 
-	services, err := FindResourceManagerServices(swaggerDirectory, false)
+	services, err := FindResourceManagerServices(swaggerDirectory, false, true)
 	if err != nil {
 		t.Fatal(err)
 	}

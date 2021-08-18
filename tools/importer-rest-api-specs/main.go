@@ -31,8 +31,9 @@ func main() {
 	}
 
 	if !strings.EqualFold(os.Getenv("PANDORA_GENERATE_EVERYTHING"), "true") {
+		debug := strings.TrimSpace(os.Getenv("DEBUG")) != ""
 		for _, v := range input {
-			if err := run(v, *swaggerGitSha); err != nil {
+			if err := run(v, *swaggerGitSha, debug); err != nil {
 				log.Printf("error: %+v", err)
 				os.Exit(1)
 			}
@@ -64,9 +65,7 @@ func determineGitSha(repositoryPath string) (*string, error) {
 	return &commit, nil
 }
 
-func run(input RunInput, swaggerGitSha string) error {
-	debug := strings.TrimSpace(os.ExpandEnv("DEBUG")) != ""
-
+func run(input RunInput, swaggerGitSha string, debug bool) error {
 	if debug {
 		log.Printf("[STAGE] Parsing Swagger Files..")
 	}
