@@ -177,7 +177,14 @@ namespace Pandora.Data.Transformers
         [TestCase]
         public static void MappingAnApiVersionWithMultipleOperationsAndASharedConstant()
         {
-            // TODO: implement this....?
+            var actual = APIDefinition.Map(new ApiVersionWithAMultipleOperationsAndASharedConstant());
+            Assert.NotNull(actual);
+            Assert.AreEqual("ApiVersionWithAMultipleOperationsAndASharedConstant", actual.Name);
+            Assert.AreEqual(2, actual.Operations.Count);
+            Assert.AreEqual("First", actual.Operations.First().Name);
+            Assert.AreEqual("Second", actual.Operations.Skip(1).First().Name);
+            Assert.AreEqual(1, actual.Constants.Count);
+            Assert.AreEqual(2, actual.Models.Count);
         }
 
         [TestCase]
@@ -308,6 +315,56 @@ namespace Pandora.Data.Transformers
 
             public IEnumerable<ApiOperation> Operations => new List<ApiOperation>
                 {new FakeOperationWithRequestModelAndDuplicateNestedConstants()};
+        }
+
+        private class ApiVersionWithAMultipleOperationsAndASharedConstant : ApiDefinition
+        {
+            public string ApiVersion => "2018-01-01";
+            public string Name => "ApiVersionWithAMultipleOperationsAndASharedConstant";
+
+            public IEnumerable<ApiOperation> Operations => new List<ApiOperation>
+            {
+                new FirstOperation(),
+                new SecondOperation(),
+            };
+
+            private class FirstOperation : PutOperation
+            {
+                public override Type? RequestObject()
+                {
+                    return typeof(FirstObject);
+                }
+            }
+
+            private class SecondOperation : GetOperation
+            {
+                public override Type? ResponseObject()
+                {
+                    return typeof(SecondObject);
+                }
+            }
+
+            private class FirstObject
+            {
+                [JsonPropertyName("someConst")]
+                public SomeConstant SomeObject { get; set; }
+            }
+
+            private class SecondObject
+            {
+                [JsonPropertyName("someConst")]
+                public SomeConstant SomeConst { get; set; }
+            }
+
+            [ConstantType(ConstantTypeAttribute.ConstantType.String)]
+            private enum SomeConstant
+            {
+                [System.ComponentModel.Description("hello")]
+                Hello,
+                
+                [System.ComponentModel.Description("world")]
+                World
+            }
         }
 
         private class ApiVersionWithAMultipleOperationsAndASharedModel : ApiDefinition
