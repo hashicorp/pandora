@@ -24,10 +24,10 @@ namespace Pandora.Data.Transformers
             foreach (var type in builtInTypes)
             {
                 var actual = Model.Map(type);
-                Assert.AreEqual(actual.Count, 0);                
+                Assert.AreEqual(actual.Count, 0);
             }
         }
-        
+
         [TestCase]
         public static void MappingAModelShouldRemoveSuffixes()
         {

@@ -69,7 +69,7 @@ namespace Pandora.Data.Transformers
                     {
                         throw new NotSupportedException("List operations must return a response object from NestedItemType()");
                     }
-                    
+
                     responseObject = ObjectDefinition.Map(nestedElementType);
                 }
 
@@ -105,7 +105,7 @@ namespace Pandora.Data.Transformers
                     Options = options,
                     ResourceIdName = resourceIdName,
                     UriSuffix = input.UriSuffix(),
-                    
+
                     RequestObject = requestObject,
                     ResponseObject = responseObject,
                 };

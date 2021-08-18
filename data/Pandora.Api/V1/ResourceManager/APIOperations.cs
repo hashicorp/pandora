@@ -135,10 +135,10 @@ namespace Pandora.Api.V1.ResourceManager
         {
             [JsonPropertyName("nestedItem")]
             public ApiObjectDefinition? NestedItem { get; set; }
-            
+
             [JsonPropertyName("referenceName")]
             public string? ReferenceName { get; set; }
-            
+
             [JsonPropertyName("type")]
             public string? Type { get; set; }
         }
@@ -222,7 +222,7 @@ namespace Pandora.Api.V1.ResourceManager
 
             [JsonPropertyName("resourceIdName")]
             public string? ResourceIdName { get; set; }
-            
+
             [JsonPropertyName("responseObject")]
             public ApiObjectDefinition? ResponseObject { get; set; }
 

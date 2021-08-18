@@ -160,7 +160,7 @@ namespace Pandora.Data.Transformers
         {
             [System.ComponentModel.Description("first")]
             First,
-            
+
             [System.ComponentModel.Description("second")]
             Second,
         }
