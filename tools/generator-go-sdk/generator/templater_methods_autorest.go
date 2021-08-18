@@ -152,8 +152,8 @@ func (c methodsAutoRestTemplater) immediateOperationTemplate(data ServiceGenerat
 %[9]s
 
 // %[2]s ...
-func (c %[1]s) %[2]s(ctx context.Context, %[4]s) (result %[2]sResponse, err error) {
-	req, err := c.preparerFor%[2]s(ctx, %[8]s)
+func (c %[1]s) %[2]s(ctx context.Context %[4]s) (result %[2]sResponse, err error) {
+	req, err := c.preparerFor%[2]s(ctx %[8]s)
 	if err != nil {
 		err = autorest.NewErrorWithError(err, "%[3]s.%[1]s", "%[2]s", nil, "Failure preparing request")
 		return
@@ -188,13 +188,15 @@ func (c methodsAutoRestTemplater) listOperationTemplate(data ServiceGeneratorDat
 	preparerCode := c.preparerTemplate(data)
 	responseStruct := c.responseStructTemplate()
 	responderCode := c.responderTemplate(data)
+	typeName := c.typeName(*c.operation.ResponseObject)
+
 	templated := fmt.Sprintf(`
 %[7]s
 %[9]s
 
 // %[2]s ...
-func (c %[1]s) %[2]s(ctx context.Context, %[4]s) (resp %[2]sResponse, err error) {
-	req, err := c.preparerFor%[2]s(ctx, %[8]s)
+func (c %[1]s) %[2]s(ctx context.Context %[4]s) (resp %[2]sResponse, err error) {
+	req, err := c.preparerFor%[2]s(ctx %[8]s)
 	if err != nil {
 		err = autorest.NewErrorWithError(err, "%[3]s.%[1]s", "%[2]s", nil, "Failure preparing request")
 		return
@@ -215,15 +217,15 @@ func (c %[1]s) %[2]s(ctx context.Context, %[4]s) (resp %[2]sResponse, err error)
 }
 
 // %[2]sComplete retrieves all of the results into a single object
-func (c %[1]s) %[2]sComplete(ctx context.Context, %[4]s) (%[2]sCompleteResult, error) {
-	return c.%[2]sCompleteMatchingPredicate(ctx, %[8]s, %[10]sPredicate{})
+func (c %[1]s) %[2]sComplete(ctx context.Context %[4]s) (%[2]sCompleteResult, error) {
+	return c.%[2]sCompleteMatchingPredicate(ctx %[8]s, %[10]sPredicate{})
 }
 
 // %[2]sCompleteMatchingPredicate retrieves all of the results and then applied the predicate
-func (c %[1]s) %[2]sCompleteMatchingPredicate(ctx context.Context, %[4]s, predicate %[10]sPredicate) (resp %[2]sCompleteResult, err error) {
+func (c %[1]s) %[2]sCompleteMatchingPredicate(ctx context.Context %[4]s, predicate %[10]sPredicate) (resp %[2]sCompleteResult, err error) {
 	items := make([]%[10]s, 0)
 
-	page, err := c.%[2]s(ctx, %[8]s)
+	page, err := c.%[2]s(ctx %[8]s)
 	if err != nil {
 		err = fmt.Errorf("loading the initial page: %%+v", err)
 		return
@@ -261,7 +263,7 @@ func (c %[1]s) %[2]sCompleteMatchingPredicate(ctx context.Context, %[4]s, predic
 %[5]s
 
 %[6]s
-`, data.serviceClientName, c.operationName, data.packageName, argumentsMethodCode, preparerCode, responderCode, responseStruct, argumentsCode, optionsStruct, *c.operation.ResponseObject.ReferenceName)
+`, data.serviceClientName, c.operationName, data.packageName, argumentsMethodCode, preparerCode, responderCode, responseStruct, argumentsCode, optionsStruct, typeName)
 	return &templated, nil
 }
 
@@ -277,8 +279,8 @@ func (c methodsAutoRestTemplater) longRunningOperationTemplate(data ServiceGener
 %[9]s
 
 // %[2]s ...
-func (c %[1]s) %[2]s(ctx context.Context, %[4]s) (result %[2]sResponse, err error) {
-	req, err := c.preparerFor%[2]s(ctx, %[8]s)
+func (c %[1]s) %[2]s(ctx context.Context %[4]s) (result %[2]sResponse, err error) {
+	req, err := c.preparerFor%[2]s(ctx %[8]s)
 	if err != nil {
 		err = autorest.NewErrorWithError(err, "%[3]s.%[1]s", "%[2]s", nil, "Failure preparing request")
 		return
@@ -294,8 +296,8 @@ func (c %[1]s) %[2]s(ctx context.Context, %[4]s) (result %[2]sResponse, err erro
 }
 
 // %[2]sThenPoll performs %[2]s then polls until it's completed
-func (c %[1]s) %[2]sThenPoll(ctx context.Context, %[4]s) error {
-	result, err := c.%[2]s(ctx, %[8]s)
+func (c %[1]s) %[2]sThenPoll(ctx context.Context %[4]s) error {
+	result, err := c.%[2]s(ctx %[8]s)
 	if err != nil {
 		return fmt.Errorf("performing %[2]s: %%+v", err)
 	}
@@ -315,7 +317,7 @@ func (c %[1]s) %[2]sThenPoll(ctx context.Context, %[4]s) error {
 }
 
 func (c methodsAutoRestTemplater) argumentsTemplate() string {
-	args := []string{}
+	args := make([]string, 0)
 	if c.operation.ResourceIdName != nil {
 		args = append(args, "id")
 	}
@@ -325,21 +327,30 @@ func (c methodsAutoRestTemplater) argumentsTemplate() string {
 	if len(c.operation.Options) > 0 {
 		args = append(args, "options")
 	}
-	return strings.Join(args, ", ")
+	if len(args) == 0 {
+		return ""
+	}
+
+	return fmt.Sprintf(", %s", strings.Join(args, ", "))
 }
 
 func (c methodsAutoRestTemplater) argumentsTemplateForMethod() string {
-	arguments := []string{}
+	arguments := make([]string, 0)
 	if c.operation.ResourceIdName != nil {
 		arguments = append(arguments, fmt.Sprintf("id %s", *c.operation.ResourceIdName))
 	}
 	if c.operation.RequestObject != nil {
-		arguments = append(arguments, fmt.Sprintf("input %s", *c.operation.RequestObject.ReferenceName))
+		typeName := c.typeName(*c.operation.RequestObject)
+		arguments = append(arguments, fmt.Sprintf("input %s", typeName))
 	}
 	if len(c.operation.Options) > 0 {
 		arguments = append(arguments, fmt.Sprintf("options %sOptions", c.operationName))
 	}
-	return strings.Join(arguments, ", ")
+	if len(arguments) == 0 {
+		return ""
+	}
+
+	return fmt.Sprintf(", %s", strings.Join(arguments, ", "))
 }
 
 func (c methodsAutoRestTemplater) preparerTemplate(data ServiceGeneratorData) string {
@@ -413,7 +424,7 @@ func (c methodsAutoRestTemplater) preparerTemplate(data ServiceGeneratorData) st
 
 	template := `
 // preparerFor%[2]s prepares the %[2]s request.
-func (c %[1]s) preparerFor%[2]s(ctx context.Context, %[3]s) (*http.Request, error) {
+func (c %[1]s) preparerFor%[2]s(ctx context.Context %[3]s) (*http.Request, error) {
 	queryParameters := map[string]interface{}{
 		"api-version": %[5]s,
 	}
@@ -473,9 +484,10 @@ func (c methodsAutoRestTemplater) responderTemplate(data ServiceGeneratorData) s
 	steps = append(steps, "autorest.ByClosing()")
 
 	if c.operation.FieldContainingPaginationDetails != nil {
-		argumentsCode := c.argumentsTemplate()
+		typeName := c.typeName(*c.operation.ResponseObject)
+
 		fields := make([]string, 0)
-		fields = append(fields, fmt.Sprintf("Values []%s `json:%q`", *c.operation.ResponseObject.ReferenceName, "value"))
+		fields = append(fields, fmt.Sprintf("Values []%s `json:%q`", typeName, "value"))
 		fields = append(fields, fmt.Sprintf("NextLink *string `json:%q`", *c.operation.FieldContainingPaginationDetails))
 		return fmt.Sprintf(`
 // responderFor%[2]s handles the response to the %[2]s request. The method always
@@ -495,19 +507,19 @@ func (c %[1]s) responderFor%[2]s(resp *http.Response) (result %[2]sResponse, err
 		result.nextPageFunc = func(ctx context.Context, nextLink string) (result %[2]sResponse, err error) {
 			req, err := c.preparerFor%[2]sWithNextLink(ctx, nextLink)
 			if err != nil {
-				err = autorest.NewErrorWithError(err, "%[6]s.%[1]s", "%[2]s", nil, "Failure preparing request")
+				err = autorest.NewErrorWithError(err, "%[5]s.%[1]s", "%[2]s", nil, "Failure preparing request")
 				return
 			}
 		
 			result.HttpResponse, err = c.Client.Send(req, azure.DoRetryWithRegistration(c.Client))
 			if err != nil {
-				err = autorest.NewErrorWithError(err, "%[6]s.%[1]s", "%[2]s", result.HttpResponse, "Failure sending request")
+				err = autorest.NewErrorWithError(err, "%[5]s.%[1]s", "%[2]s", result.HttpResponse, "Failure sending request")
 				return
 			}
 		
 			result, err = c.responderFor%[2]s(result.HttpResponse)
 			if err != nil {
-				err = autorest.NewErrorWithError(err, "%[6]s.%[1]s", "%[2]s", result.HttpResponse, "Failure responding to request")
+				err = autorest.NewErrorWithError(err, "%[5]s.%[1]s", "%[2]s", result.HttpResponse, "Failure responding to request")
 				return
 			}
 
@@ -516,7 +528,7 @@ func (c %[1]s) responderFor%[2]s(resp *http.Response) (result %[2]sResponse, err
 	}
 	return
 }
-`, data.serviceClientName, c.operationName, strings.Join(steps, ",\n\t\t"), strings.Join(fields, "\n\t\t"), argumentsCode, data.packageName)
+`, data.serviceClientName, c.operationName, strings.Join(steps, ",\n\t\t"), strings.Join(fields, "\n\t\t"), data.packageName)
 	}
 
 	return fmt.Sprintf(`
@@ -532,13 +544,47 @@ func (c %[1]s) responderFor%[2]s(resp *http.Response) (result %[2]sResponse, err
 `, data.serviceClientName, c.operationName, strings.Join(steps, ",\n\t\t"))
 }
 
+func (c methodsAutoRestTemplater) typeName(input resourcemanager.ApiObjectDefinition) string {
+	if input.Type == resourcemanager.ApiObjectDefinitionReference {
+		return *input.ReferenceName
+	}
+
+	if input.Type == resourcemanager.ApiObjectDefinitionDictionary {
+		typeName := c.typeName(*input.NestedItem)
+		return fmt.Sprintf(`map[string]%s`, typeName)
+	}
+
+	if input.Type == resourcemanager.ApiObjectDefinitionList {
+		typeName := c.typeName(*input.NestedItem)
+		return fmt.Sprintf(`[]%s`, typeName)
+	}
+
+	if input.Type == resourcemanager.ApiObjectDefinitionBoolean {
+		return "bool"
+	}
+	if input.Type == resourcemanager.ApiObjectDefinitionFloat {
+		return "float64"
+	}
+	if input.Type == resourcemanager.ApiObjectDefinitionInteger {
+		return "int64"
+	}
+	if input.Type == resourcemanager.ApiObjectDefinitionString {
+		return "string"
+	}
+
+	panic(fmt.Sprintf("unimplemented object definition type %q", string(input.Type)))
+}
+
 func (c methodsAutoRestTemplater) responseStructTemplate() string {
 	model := ""
-	if c.operation.ResponseObject.ReferenceName != nil {
+	typeName := ""
+	if c.operation.ResponseObject != nil {
+		typeName = c.typeName(*c.operation.ResponseObject)
+
 		if c.operation.FieldContainingPaginationDetails != nil {
-			model = fmt.Sprintf("Model *[]%s", *c.operation.ResponseObject.ReferenceName)
+			model = fmt.Sprintf("Model *[]%s", typeName)
 		} else {
-			model = fmt.Sprintf("Model *%s", *c.operation.ResponseObject.ReferenceName)
+			model = fmt.Sprintf("Model *%s", typeName)
 		}
 	}
 
@@ -567,11 +613,11 @@ func (r %[2]sResponse) LoadMore(ctx context.Context) (resp %[2]sResponse, err er
 	}
 	return r.nextPageFunc(ctx, *r.nextLink)
 }
-`, *c.operation.ResponseObject.ReferenceName, c.operationName)
+`, typeName, c.operationName)
 		paginationFields = fmt.Sprintf(`
 	nextLink *string
-	nextPageFunc func(ctx context.Context, nextLink string) (%[2]sResponse, error)
-`, *c.operation.ResponseObject.ReferenceName, c.operationName)
+	nextPageFunc func(ctx context.Context, nextLink string) (%[1]sResponse, error)
+`, c.operationName)
 
 		return fmt.Sprintf(`
 type %[1]sResponse struct {
