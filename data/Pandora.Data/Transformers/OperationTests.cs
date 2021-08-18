@@ -90,6 +90,46 @@ namespace Pandora.Data.Transformers
         }
 
         [TestCase]
+        public static void MappingAnOperationWithASimpleTypeAsAResponseObject()
+        {
+            var actual = Operation.Map(new OperationWithASimpleTypeAsAResponseObject(), "2018-01-01", "MyApi");
+            Assert.NotNull(actual);
+            Assert.AreEqual("2018-01-01", actual.ApiVersion);
+            Assert.AreEqual("MyApi", actual.ApiName);
+            Assert.AreEqual("OperationWithASimpleTypeAsAResponseObject", actual.Name);
+            Assert.AreEqual("GET", actual.Method);
+            Assert.AreEqual(false, actual.LongRunning);
+            Assert.Null(actual.RequestObject);
+            Assert.NotNull(actual.ResponseObject);
+            Assert.AreEqual(1, actual.ExpectedStatusCodes.Count);
+            Assert.AreEqual(200, actual.ExpectedStatusCodes.First());
+            Assert.AreEqual(ObjectType.String, actual.ResponseObject!.Type);
+            Assert.Null(actual.ResponseObject!.ReferenceName);
+        }
+
+        [TestCase]
+        public static void MappingAnOperationWithAListOfStringsAsAResponseObject()
+        {
+            var actual = Operation.Map(new OperationWithAListOfStringsAsAResponseObject(), "2018-01-01", "MyApi");
+            Assert.NotNull(actual);
+            Assert.AreEqual("2018-01-01", actual.ApiVersion);
+            Assert.AreEqual("MyApi", actual.ApiName);
+            Assert.AreEqual("OperationWithAListOfStringsAsAResponseObject", actual.Name);
+            Assert.AreEqual("GET", actual.Method);
+            Assert.AreEqual(false, actual.LongRunning);
+            Assert.Null(actual.RequestObject);
+            Assert.NotNull(actual.ResponseObject);
+            Assert.AreEqual(1, actual.ExpectedStatusCodes.Count);
+            Assert.AreEqual(200, actual.ExpectedStatusCodes.First());
+            Assert.AreEqual(ObjectType.List, actual.ResponseObject!.Type);
+            Assert.Null(actual.ResponseObject!.ReferenceName);
+            Assert.NotNull(actual.ResponseObject!.NestedItem);
+            Assert.AreEqual(ObjectType.String, actual.ResponseObject!.NestedItem!.Type);
+            Assert.Null(actual.ResponseObject!.NestedItem!.ReferenceName);
+            Assert.Null(actual.ResponseObject!.NestedItem!.NestedItem);
+        }
+
+        [TestCase]
         public static void MappingAnOperationWithAResourceID()
         {
             var actual = Operation.Map(new OperationWithAResourceId(), "2018-01-01", "MyApi");
@@ -507,6 +547,22 @@ namespace Pandora.Data.Transformers
             public string? FieldContainingPaginationDetails() => null;
             public Type? OptionsObject() => null;
             public string? UriSuffix() => null;
+        }
+    }
+
+    public class OperationWithAListOfStringsAsAResponseObject : GetOperation
+    {
+        public override Type? ResponseObject()
+        {
+            return typeof(List<string>);
+        }
+    }
+
+    public class OperationWithASimpleTypeAsAResponseObject : GetOperation
+    {
+        public override Type? ResponseObject()
+        {
+            return typeof(string);
         }
     }
 
