@@ -1,14 +1,15 @@
 using System;
+using System.Collections.Generic;
 using System.Text.Json.Serialization;
 using Pandora.Definitions.Operations;
 
 namespace Pandora.Definitions.TestData.Pandamonium.v2020_01_01.Grouping
 {
-    public class Paged : ListOperation
+    public class PagedListOfStringsImmediate : ListOperation
     {
         public override Type NestedItemType()
         {
-            return typeof(Foo);
+            return typeof(List<string>);
         }
 
         public override string? FieldContainingPaginationDetails()
@@ -19,12 +20,6 @@ namespace Pandora.Definitions.TestData.Pandamonium.v2020_01_01.Grouping
         public override string? UriSuffix()
         {
             return "/list-things";
-        }
-
-        public class Foo
-        {
-            [JsonPropertyName("widget")]
-            public string Widget { get; set; }
         }
     }
 }

@@ -19,8 +19,8 @@ namespace Pandora.Data.Transformers
             {
                 if (input.IsAGenericList())
                 {
-                    // TODO: implement me
-                    throw new NotSupportedException("create a wrapper type");
+                    var valueType = input.GenericListElement();
+                    return Map(valueType);
                 }
 
                 if (Helpers.IsNativeType(input))
@@ -33,7 +33,7 @@ namespace Pandora.Data.Transformers
             }
             catch (Exception ex)
             {
-                throw new Exception($"Mapping Models from Model {input.GetType().FullName}", ex);
+                throw new Exception($"Mapping Models from Model {input.FullName}", ex);
             }
         }
 
