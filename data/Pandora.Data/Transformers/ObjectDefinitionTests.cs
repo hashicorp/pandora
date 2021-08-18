@@ -24,7 +24,6 @@ namespace Pandora.Data.Transformers
         }
 
         [TestCase]
-        [Ignore("WIP - this PR is large enough as it is")]
         public static void MappingADictionaryOfAnObject()
         {
             var actual = ObjectDefinition.Map(typeof(Dictionary<string, SomeModel>));
@@ -38,7 +37,6 @@ namespace Pandora.Data.Transformers
         }
 
         [TestCase]
-        [Ignore("WIP - this PR is large enough as it is")]
         public static void MappingADictionaryOfString()
         {
             var actual = ObjectDefinition.Map(typeof(Dictionary<string, string>));
@@ -79,7 +77,6 @@ namespace Pandora.Data.Transformers
         }
 
         [TestCase]
-        [Ignore("WIP - this PR is large enough as it is")]
         public static void MappingAListOfObject()
         {
             var actual = ObjectDefinition.Map(typeof(List<SomeModel>));
@@ -93,7 +90,21 @@ namespace Pandora.Data.Transformers
         }
 
         [TestCase]
-        [Ignore("WIP - this PR is large enough as it is")]
+        public static void MappingAListOfListOfAnObject()
+        {
+            var actual = ObjectDefinition.Map(typeof(List<List<SomeModel>>));
+            Assert.AreEqual(ObjectType.List, actual.Type);
+            Assert.Null(actual.ReferenceName);
+            Assert.NotNull(actual.NestedItem);
+            Assert.AreEqual(ObjectType.List, actual.NestedItem!.Type);
+            Assert.Null(actual.NestedItem!.ReferenceName);
+            Assert.NotNull(actual.NestedItem!.NestedItem);
+            Assert.AreEqual(ObjectType.Reference, actual.NestedItem!.NestedItem!.Type);
+            Assert.AreEqual("Some", actual.NestedItem!.NestedItem!.ReferenceName);
+            Assert.Null(actual.NestedItem!.NestedItem!.NestedItem);
+        }
+
+        [TestCase]
         public static void MappingAListOfString()
         {
             var actual = ObjectDefinition.Map(typeof(List<string>));
@@ -103,6 +114,21 @@ namespace Pandora.Data.Transformers
             Assert.AreEqual(ObjectType.String, actual.NestedItem!.Type);
             Assert.Null(actual.NestedItem!.ReferenceName);
             Assert.Null(actual.NestedItem!.NestedItem);
+        }
+
+        [TestCase]
+        public static void MappingAListOfListOfString()
+        {
+            var actual = ObjectDefinition.Map(typeof(List<List<string>>));
+            Assert.AreEqual(ObjectType.List, actual.Type);
+            Assert.Null(actual.ReferenceName);
+            Assert.NotNull(actual.NestedItem);
+            Assert.AreEqual(ObjectType.List, actual.NestedItem!.Type);
+            Assert.Null(actual.NestedItem!.ReferenceName);
+            Assert.NotNull(actual.NestedItem!.NestedItem);
+            Assert.AreEqual(ObjectType.String, actual.NestedItem!.NestedItem!.Type);
+            Assert.Null(actual.NestedItem!.NestedItem!.ReferenceName);
+            Assert.Null(actual.NestedItem!.NestedItem!.NestedItem);
         }
 
         [TestCase]

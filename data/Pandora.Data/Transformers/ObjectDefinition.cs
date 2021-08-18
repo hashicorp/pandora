@@ -21,10 +21,31 @@ namespace Pandora.Data.Transformers
                 };
             }
 
-            // TODO: tests and support for built-in types and lists etc
+            if (input.IsAGenericDictionary())
+            {
+                // at this time we only support keys which are strings, so we're only concerned with the Value Type here
+                var valueType = input.GenericDictionaryValueElement();
+                var nestedItem = Map(valueType);
+                return new Models.ObjectDefinition
+                {
+                    Type = ObjectType.Dictionary,
+                    NestedItem = nestedItem,
+                };
+            }
+
+            if (input.IsAGenericList())
+            {
+                var valueType = input.GenericListElement();
+                var nestedItem = Map(valueType);
+                return new Models.ObjectDefinition
+                {
+                    Type = ObjectType.List,
+                    NestedItem = nestedItem,
+                };
+            }
+
             var responseObjectName = input.Name;
             responseObjectName = RemoveSuffixFromTypeName(responseObjectName);
-            
             return new Models.ObjectDefinition
             {
                 Type = ObjectType.Reference,
