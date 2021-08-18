@@ -49,7 +49,7 @@ func (c methodsAutoRestTemplater) methods(data ServiceGeneratorData) (*string, e
 
 	switch strings.ToUpper(c.operation.Method) {
 	case "DELETE":
-		if c.operation.RequestObjectName != nil {
+		if c.operation.RequestObject != nil {
 			// TODO: maybe implement this
 			return nil, fmt.Errorf("`DELETE` operations do not support Request objects at this time")
 		}
@@ -68,11 +68,11 @@ func (c methodsAutoRestTemplater) methods(data ServiceGeneratorData) (*string, e
 			return nil, fmt.Errorf("`GET` operations cannot be long-running")
 		}
 
-		if c.operation.RequestObjectName != nil {
+		if c.operation.RequestObject != nil {
 			return nil, fmt.Errorf("`GET` operations do not support Request objects at this time")
 		}
 
-		if c.operation.ResponseObjectName == nil {
+		if c.operation.ResponseObject == nil {
 			return nil, fmt.Errorf("`GET` operations must have a Response object")
 		}
 
@@ -86,10 +86,10 @@ func (c methodsAutoRestTemplater) methods(data ServiceGeneratorData) (*string, e
 		if c.operation.LongRunning {
 			return nil, fmt.Errorf("`HEAD` operations cannot be long running")
 		}
-		if c.operation.RequestObjectName != nil {
+		if c.operation.RequestObject != nil {
 			return nil, fmt.Errorf("`HEAD` operations cannot have request objects")
 		}
-		if c.operation.ResponseObjectName != nil {
+		if c.operation.ResponseObject != nil {
 			return nil, fmt.Errorf("`HEAD` operations cannot have response objects")
 		}
 
@@ -100,7 +100,7 @@ func (c methodsAutoRestTemplater) methods(data ServiceGeneratorData) (*string, e
 		return c.immediateOperationTemplate(data)
 
 	case "PATCH":
-		if c.operation.RequestObjectName == nil {
+		if c.operation.RequestObject == nil {
 			return nil, fmt.Errorf("`PATCH` operations must have a Request Object")
 		}
 
@@ -261,7 +261,7 @@ func (c %[1]s) %[2]sCompleteMatchingPredicate(ctx context.Context, %[4]s, predic
 %[5]s
 
 %[6]s
-`, data.serviceClientName, c.operationName, data.packageName, argumentsMethodCode, preparerCode, responderCode, responseStruct, argumentsCode, optionsStruct, *c.operation.ResponseObjectName)
+`, data.serviceClientName, c.operationName, data.packageName, argumentsMethodCode, preparerCode, responderCode, responseStruct, argumentsCode, optionsStruct, *c.operation.ResponseObject.ReferenceName)
 	return &templated, nil
 }
 
@@ -319,7 +319,7 @@ func (c methodsAutoRestTemplater) argumentsTemplate() string {
 	if c.operation.ResourceIdName != nil {
 		args = append(args, "id")
 	}
-	if c.operation.RequestObjectName != nil {
+	if c.operation.RequestObject != nil {
 		args = append(args, "input")
 	}
 	if len(c.operation.Options) > 0 {
@@ -333,8 +333,8 @@ func (c methodsAutoRestTemplater) argumentsTemplateForMethod() string {
 	if c.operation.ResourceIdName != nil {
 		arguments = append(arguments, fmt.Sprintf("id %s", *c.operation.ResourceIdName))
 	}
-	if c.operation.RequestObjectName != nil {
-		arguments = append(arguments, fmt.Sprintf("input %s", *c.operation.RequestObjectName))
+	if c.operation.RequestObject != nil {
+		arguments = append(arguments, fmt.Sprintf("input %s", *c.operation.RequestObject.ReferenceName))
 	}
 	if len(c.operation.Options) > 0 {
 		arguments = append(arguments, fmt.Sprintf("options %sOptions", c.operationName))
@@ -396,7 +396,7 @@ func (c methodsAutoRestTemplater) preparerTemplate(data ServiceGeneratorData) st
 	}
 	listSteps = append(listSteps, "autorest.WithPath(uri.Path)")
 
-	if c.operation.RequestObjectName != nil {
+	if c.operation.RequestObject != nil {
 		steps = append(steps, "autorest.WithJSON(input)")
 		listSteps = append(listSteps, "autorest.WithJSON(input)")
 	}
@@ -463,7 +463,7 @@ func (c methodsAutoRestTemplater) responderTemplate(data ServiceGeneratorData) s
 
 	steps := make([]string, 0)
 	steps = append(steps, fmt.Sprintf("azure.WithErrorUnlessStatusCode(%s)", strings.Join(expectedStatusCodes, ", ")))
-	if c.operation.ResponseObjectName != nil {
+	if c.operation.ResponseObject != nil {
 		if c.operation.FieldContainingPaginationDetails != nil {
 			steps = append(steps, "autorest.ByUnmarshallingJSON(&respObj)")
 		} else {
@@ -475,7 +475,7 @@ func (c methodsAutoRestTemplater) responderTemplate(data ServiceGeneratorData) s
 	if c.operation.FieldContainingPaginationDetails != nil {
 		argumentsCode := c.argumentsTemplate()
 		fields := make([]string, 0)
-		fields = append(fields, fmt.Sprintf("Values []%s `json:%q`", *c.operation.ResponseObjectName, "value"))
+		fields = append(fields, fmt.Sprintf("Values []%s `json:%q`", *c.operation.ResponseObject.ReferenceName, "value"))
 		fields = append(fields, fmt.Sprintf("NextLink *string `json:%q`", *c.operation.FieldContainingPaginationDetails))
 		return fmt.Sprintf(`
 // responderFor%[2]s handles the response to the %[2]s request. The method always
@@ -534,11 +534,11 @@ func (c %[1]s) responderFor%[2]s(resp *http.Response) (result %[2]sResponse, err
 
 func (c methodsAutoRestTemplater) responseStructTemplate() string {
 	model := ""
-	if c.operation.ResponseObjectName != nil {
+	if c.operation.ResponseObject.ReferenceName != nil {
 		if c.operation.FieldContainingPaginationDetails != nil {
-			model = fmt.Sprintf("Model *[]%s", *c.operation.ResponseObjectName)
+			model = fmt.Sprintf("Model *[]%s", *c.operation.ResponseObject.ReferenceName)
 		} else {
-			model = fmt.Sprintf("Model *%s", *c.operation.ResponseObjectName)
+			model = fmt.Sprintf("Model *%s", *c.operation.ResponseObject.ReferenceName)
 		}
 	}
 
@@ -567,11 +567,11 @@ func (r %[2]sResponse) LoadMore(ctx context.Context) (resp %[2]sResponse, err er
 	}
 	return r.nextPageFunc(ctx, *r.nextLink)
 }
-`, *c.operation.ResponseObjectName, c.operationName)
+`, *c.operation.ResponseObject.ReferenceName, c.operationName)
 		paginationFields = fmt.Sprintf(`
 	nextLink *string
 	nextPageFunc func(ctx context.Context, nextLink string) (%[2]sResponse, error)
-`, *c.operation.ResponseObjectName, c.operationName)
+`, *c.operation.ResponseObject.ReferenceName, c.operationName)
 
 		return fmt.Sprintf(`
 type %[1]sResponse struct {

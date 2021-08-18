@@ -48,16 +48,15 @@ type ApiOperation struct {
 	// Method is the HTTP Method used for this operation, e.g. GET, POST, PATCH
 	Method string `json:"method"`
 
-	// RequestObjectName is the optional name of the Object which must be specified
-	// in the request
-	RequestObjectName *string `json:"requestObjectName"`
+	// RequestObject defines the optional Object which must be specified in the Request
+	RequestObject *ApiObjectDefinition `json:"requestObject"`
 
 	// ResourceIdName is the optional name of the Resource ID type used for this
 	// operation, used either on it's own or in conjunction with the `suffix`
 	ResourceIdName *string `json:"resourceIdName"`
 
-	// ResponseObjectName is the optional name of the Object returned in the response
-	ResponseObjectName *string `json:"responseObjectName"`
+	// RequestObject defines the optional Object which can be returned in the Response
+	ResponseObject *ApiObjectDefinition `json:"requestObject"`
 
 	// ApiVersion is an optional field specifying the Custom API Version which should
 	// be used for this API Operation. Whilst bizarre, some Azure API's do this
@@ -84,6 +83,24 @@ type ApiOperationOption struct {
 	QueryStringName string             `json:"queryStringName"`
 	Required        bool               `json:"required"`
 }
+
+type ApiObjectDefinition struct {
+	NestedItem    *ApiOperationDetails    `json:"nestedItem,omitempty"`
+	ReferenceName *string                 `json:"referenceName,omitempty"`
+	Type          ApiObjectDefinitionType `json:"type"`
+}
+
+type ApiObjectDefinitionType string
+
+const (
+	ApiObjectDefinitionBoolean    ApiObjectDefinitionType = "Boolean"
+	ApiObjectDefinitionDictionary ApiObjectDefinitionType = "Dictionary"
+	ApiObjectDefinitionInteger    ApiObjectDefinitionType = "Integer"
+	ApiObjectDefinitionFloat      ApiObjectDefinitionType = "Float"
+	ApiObjectDefinitionList       ApiObjectDefinitionType = "List"
+	ApiObjectDefinitionReference  ApiObjectDefinitionType = "Reference"
+	ApiObjectDefinitionString     ApiObjectDefinitionType = "String"
+)
 
 type MetaData struct {
 	// ResourceProvider is the name of the Azure Resource Provider which must be

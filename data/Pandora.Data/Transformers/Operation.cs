@@ -37,24 +37,22 @@ namespace Pandora.Data.Transformers
                 }
 
                 var longRunning = input.LongRunning();
-                string? requestObjectName = null;
+                Models.ObjectDefinition? requestObject = null;
                 if (input.RequestObject() != null)
                 {
-                    requestObjectName = input.RequestObject().Name;
-                    requestObjectName = RemoveSuffixFromTypeName(requestObjectName);
+                    requestObject = ObjectDefinition.Map(input.RequestObject()!);
                 }
 
-                string? responseObjectName = null;
+                Models.ObjectDefinition? responseObject = null;
                 if (input.ResponseObject() != null)
                 {
-                    responseObjectName = input.ResponseObject().Name;
-                    responseObjectName = RemoveSuffixFromTypeName(responseObjectName);
+                    responseObject = ObjectDefinition.Map(input.ResponseObject()!);
                 }
 
-                if (longRunning && responseObjectName != null)
+                if (longRunning && responseObject != null)
                 {
                     // disregard the response object since this shouldn't be useful
-                    responseObjectName = null;
+                    responseObject = null;
                 }
 
                 // TODO: tests covering this?
@@ -72,8 +70,7 @@ namespace Pandora.Data.Transformers
                         throw new NotSupportedException("List operations must return a response object from NestedItemType()");
                     }
 
-                    responseObjectName = nestedElementType.Name;
-                    responseObjectName = RemoveSuffixFromTypeName(responseObjectName);
+                    responseObject = ObjectDefinition.Map(nestedElementType);
                 }
 
                 var options = Options.Map(input.OptionsObject());
@@ -106,28 +103,17 @@ namespace Pandora.Data.Transformers
                     FieldContainingPaginationDetails = input.FieldContainingPaginationDetails(),
                     LongRunning = longRunning,
                     Options = options,
-                    RequestObjectName = requestObjectName,
                     ResourceIdName = resourceIdName,
-                    ResponseObjectName = responseObjectName,
                     UriSuffix = input.UriSuffix(),
+
+                    RequestObject = requestObject,
+                    ResponseObject = responseObject,
                 };
             }
             catch (Exception ex)
             {
                 throw new Exception($"Mapping Operation {input.GetType().FullName}", ex);
             }
-        }
-
-        private static string? RemoveSuffixFromTypeName(string? input)
-        {
-            if (input == null)
-            {
-                return null;
-            }
-
-            input = input.TrimSuffix("Constant");
-            input = input.TrimSuffix("Model");
-            return input;
         }
     }
 }

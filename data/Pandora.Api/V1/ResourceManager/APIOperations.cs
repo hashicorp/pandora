@@ -71,11 +71,11 @@ namespace Pandora.Api.V1.ResourceManager
                 Method = definition.Method,
                 LongRunning = definition.LongRunning,
                 ExpectedStatusCodes = definition.ExpectedStatusCodes,
-                RequestObjectName = definition.RequestObjectName,
-                ResponseObjectName = definition.ResponseObjectName,
                 ResourceIdName = definition.ResourceIdName,
                 UriSuffix = definition.UriSuffix,
                 FieldContainingPaginationDetails = definition.FieldContainingPaginationDetails,
+                RequestObject = MapObjectDefinition(definition.RequestObject),
+                ResponseObject = MapObjectDefinition(definition.ResponseObject),
             };
 
             operation.Options = MapOptions(definition.Options);
@@ -87,6 +87,71 @@ namespace Pandora.Api.V1.ResourceManager
             }
 
             return operation;
+        }
+
+        private static ApiObjectDefinition? MapObjectDefinition(ObjectDefinition? input)
+        {
+            if (input == null)
+            {
+                return null;
+            }
+
+            var definition = new ApiObjectDefinition
+            {
+                ReferenceName = input.ReferenceName,
+                Type = MapApiObjectType(input.Type)
+            };
+            if (input.NestedItem != null)
+            {
+                definition.NestedItem = MapObjectDefinition(input.NestedItem);
+            }
+            return definition;
+        }
+
+        private static string MapApiObjectType(ObjectType input)
+        {
+            switch (input)
+            {
+                case ObjectType.Boolean:
+                    return ApiObjectType.Boolean.ToString();
+                case ObjectType.Dictionary:
+                    return ApiObjectType.Dictionary.ToString();
+                case ObjectType.Float:
+                    return ApiObjectType.Float.ToString();
+                case ObjectType.Integer:
+                    return ApiObjectType.Integer.ToString();
+                case ObjectType.List:
+                    return ApiObjectType.List.ToString();
+                case ObjectType.Reference:
+                    return ApiObjectType.Reference.ToString();
+                case ObjectType.String:
+                    return ApiObjectType.String.ToString();
+            }
+
+            throw new NotSupportedException($"Unsupported ObjectType {input}");
+        }
+
+        public class ApiObjectDefinition
+        {
+            [JsonPropertyName("nestedItem")]
+            public ApiObjectDefinition? NestedItem { get; set; }
+
+            [JsonPropertyName("referenceName")]
+            public string? ReferenceName { get; set; }
+
+            [JsonPropertyName("type")]
+            public string? Type { get; set; }
+        }
+
+        public enum ApiObjectType
+        {
+            Boolean,
+            Dictionary,
+            Integer,
+            Float,
+            List,
+            Reference,
+            String
         }
 
         private static Dictionary<string, ApiOperationOption> MapOptions(List<OptionDefinition> input)
@@ -152,14 +217,14 @@ namespace Pandora.Api.V1.ResourceManager
             [JsonPropertyName("method")]
             public string Method { get; set; }
 
-            [JsonPropertyName("requestObjectName")]
-            public string? RequestObjectName { get; set; }
+            [JsonPropertyName("requestObject")]
+            public ApiObjectDefinition? RequestObject { get; set; }
 
             [JsonPropertyName("resourceIdName")]
             public string? ResourceIdName { get; set; }
 
-            [JsonPropertyName("responseObjectName")]
-            public string? ResponseObjectName { get; set; }
+            [JsonPropertyName("responseObject")]
+            public ApiObjectDefinition? ResponseObject { get; set; }
 
             // ApiVersion specifies that a different API version should be used for
             // this than the Parent Service. Whilst bizarre, some Azure API's do this

@@ -15,11 +15,15 @@ func (s *ServiceGenerator) predicates(data ServiceGeneratorData) error {
 			continue
 		}
 
-		if operation.ResponseObjectName == nil {
+		if operation.ResponseObject == nil {
 			continue
 		}
 
-		modelNames[*operation.ResponseObjectName] = struct{}{}
+		if operation.ResponseObject.ReferenceName == nil {
+			continue
+		}
+
+		modelNames[*operation.ResponseObject.ReferenceName] = struct{}{}
 	}
 
 	sortedModelNames := make([]string, 0)

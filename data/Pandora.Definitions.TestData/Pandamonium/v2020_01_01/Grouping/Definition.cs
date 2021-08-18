@@ -18,6 +18,7 @@ namespace Pandora.Definitions.TestData.Pandamonium.v2020_01_01.Grouping
             new DeleteLongRunning(),
             new GetAnimals(),
             new GetImmediate(),
+            new GetStringImmediate(),
             new HeadImmediate(),
             new Restart(),
             new Paged(),
