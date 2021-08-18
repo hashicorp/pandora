@@ -141,6 +141,17 @@ func constantsInOperationParameters(input *spec.Operation) (*result, error) {
 			continue
 		}
 
+		// these are (currently) handled elsewhere, so we're good for now
+		if strings.EqualFold(param.Name, "$skipToken") {
+			// NOTE: we may also need to do the odata ones, media has an example
+			continue
+		}
+
+		// handled elsewhere
+		if strings.EqualFold(param.Name, "api-version") {
+			continue
+		}
+
 		types := []string{
 			param.Type,
 		}
