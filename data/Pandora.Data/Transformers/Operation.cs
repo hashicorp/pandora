@@ -37,13 +37,13 @@ namespace Pandora.Data.Transformers
                 }
 
                 var longRunning = input.LongRunning();
-                ObjectDefinition? requestObject = null;
+                Models.ObjectDefinition? requestObject = null;
                 if (input.RequestObject() != null)
                 {
                     requestObject = ObjectDefinition.Map(input.RequestObject()!);
                 }
 
-                ObjectDefinition? responseObject = null;
+                Models.ObjectDefinition? responseObject = null;
                 if (input.ResponseObject() != null)
                 {
                     responseObject = ObjectDefinition.Map(input.ResponseObject()!);
