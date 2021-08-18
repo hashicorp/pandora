@@ -16,9 +16,22 @@ namespace Pandora.Data.Transformers
         {
             var builtInTypes = new List<Type>
             {
-                typeof(string),
-                typeof(int),
                 typeof(bool),
+                typeof(int),
+                typeof(float),
+                typeof(string),
+                typeof(Dictionary<string, bool>),
+                typeof(Dictionary<string, int>),
+                typeof(Dictionary<string, float>),
+                typeof(Dictionary<string, string>),
+                typeof(List<bool>),
+                typeof(List<int>),
+                typeof(List<float>),
+                typeof(List<string>),
+                typeof(List<List<bool>>),
+                typeof(List<List<int>>),
+                typeof(List<List<float>>),
+                typeof(List<List<string>>),
             };
 
             foreach (var type in builtInTypes)
@@ -26,6 +39,30 @@ namespace Pandora.Data.Transformers
                 var actual = Model.Map(type);
                 Assert.AreEqual(actual.Count, 0);
             }
+        }
+
+        [TestCase]
+        public static void MappingADictionaryOfAModelShouldReturnJustTheModel()
+        {
+            // contents are verified below, as long as we have it we're good
+            var actual = Model.Map(typeof(Dictionary<string, Example>));
+            Assert.AreEqual(1, actual.Count);
+        }
+
+        [TestCase]
+        public static void MappingAListOfAModelShouldReturnJustTheModel()
+        {
+            // contents are verified below, as long as we have it we're good
+            var actual = Model.Map(typeof(List<Example>));
+            Assert.AreEqual(1, actual.Count);
+        }
+
+        [TestCase]
+        public static void MappingAListOfAListOfAModelShouldReturnJustTheModel()
+        {
+            // contents are verified below, as long as we have it we're good
+            var actual = Model.Map(typeof(List<List<Example>>));
+            Assert.AreEqual(1, actual.Count);
         }
 
         [TestCase]

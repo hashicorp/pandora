@@ -17,6 +17,11 @@ namespace Pandora.Data.Transformers
         {
             try
             {
+                if (input.IsAGenericDictionary())
+                {
+                    var valueType = input.GenericDictionaryValueElement();
+                    return Map(valueType);
+                }
                 if (input.IsAGenericList())
                 {
                     var valueType = input.GenericListElement();
