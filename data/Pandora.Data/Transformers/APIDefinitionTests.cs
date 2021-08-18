@@ -361,7 +361,7 @@ namespace Pandora.Data.Transformers
             {
                 [System.ComponentModel.Description("hello")]
                 Hello,
-                
+
                 [System.ComponentModel.Description("world")]
                 World
             }
