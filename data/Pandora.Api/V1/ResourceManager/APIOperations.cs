@@ -71,11 +71,13 @@ namespace Pandora.Api.V1.ResourceManager
                 Method = definition.Method,
                 LongRunning = definition.LongRunning,
                 ExpectedStatusCodes = definition.ExpectedStatusCodes,
-                RequestObjectName = definition.RequestObjectName,
-                ResponseObjectName = definition.ResponseObjectName,
                 ResourceIdName = definition.ResourceIdName,
                 UriSuffix = definition.UriSuffix,
                 FieldContainingPaginationDetails = definition.FieldContainingPaginationDetails,
+                
+                // TODO: these should be converted into an object with the const name too
+                RequestObjectName = definition.RequestObject?.ReferenceName,
+                ResponseObjectName = definition.ResponseObject?.ReferenceName,
             };
 
             operation.Options = MapOptions(definition.Options);
