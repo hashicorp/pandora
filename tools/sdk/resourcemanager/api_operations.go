@@ -55,8 +55,8 @@ type ApiOperation struct {
 	// operation, used either on it's own or in conjunction with the `suffix`
 	ResourceIdName *string `json:"resourceIdName"`
 
-	// RequestObject defines the optional Object which can be returned in the Response
-	ResponseObject *ApiObjectDefinition `json:"requestObject"`
+	// ResponseObject defines the optional Object which can be returned in the Response
+	ResponseObject *ApiObjectDefinition `json:"responseObject"`
 
 	// ApiVersion is an optional field specifying the Custom API Version which should
 	// be used for this API Operation. Whilst bizarre, some Azure API's do this
@@ -85,7 +85,7 @@ type ApiOperationOption struct {
 }
 
 type ApiObjectDefinition struct {
-	NestedItem    *ApiOperationDetails    `json:"nestedItem,omitempty"`
+	NestedItem    *ApiObjectDefinition    `json:"nestedItem,omitempty"`
 	ReferenceName *string                 `json:"referenceName,omitempty"`
 	Type          ApiObjectDefinitionType `json:"type"`
 }
