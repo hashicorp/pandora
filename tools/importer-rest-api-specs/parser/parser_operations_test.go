@@ -642,6 +642,8 @@ func TestParseOperationSingleWithResponseObjectInlinedList(t *testing.T) {
 }
 
 func TestParseOperationSingleRequestingWithABool(t *testing.T) {
+	t.Skip("Skipping until #85 is fully implemented")
+
 	parsed, err := Load("testdata/", "operations_single_requesting_with_a_bool.json", true)
 	if err != nil {
 		t.Fatalf("loading: %+v", err)
@@ -716,6 +718,8 @@ func TestParseOperationSingleRequestingWithABool(t *testing.T) {
 }
 
 func TestParseOperationSingleRequestingWithAInteger(t *testing.T) {
+	t.Skip("Skipping until #85 is fully implemented")
+
 	parsed, err := Load("testdata/", "operations_single_requesting_with_a_int.json", true)
 	if err != nil {
 		t.Fatalf("loading: %+v", err)
@@ -790,6 +794,8 @@ func TestParseOperationSingleRequestingWithAInteger(t *testing.T) {
 }
 
 func TestParseOperationSingleRequestingWithADictionaryOfStrings(t *testing.T) {
+	t.Skip("Skipping until #85 is fully implemented")
+
 	parsed, err := Load("testdata/", "operations_single_requesting_with_a_dictionary_of_strings.json", true)
 	if err != nil {
 		t.Fatalf("loading: %+v", err)
@@ -873,6 +879,8 @@ func TestParseOperationSingleRequestingWithADictionaryOfStrings(t *testing.T) {
 }
 
 func TestParseOperationSingleRequestingWithAListOfStrings(t *testing.T) {
+	t.Skip("Skipping until #85 is fully implemented")
+
 	parsed, err := Load("testdata/", "operations_single_requesting_with_a_list_of_strings.json", true)
 	if err != nil {
 		t.Fatalf("loading: %+v", err)
@@ -958,7 +966,79 @@ func TestParseOperationSingleRequestingWithAListOfStrings(t *testing.T) {
 // Models are already tested above
 
 func TestParseOperationSingleRequestingWithAString(t *testing.T) {
-	t.Fatalf("not yet implemented")
+	t.Skip("Skipping until #85 is fully implemented")
+
+	parsed, err := Load("testdata/", "operations_single_requesting_with_a_string.json", true)
+	if err != nil {
+		t.Fatalf("loading: %+v", err)
+	}
+
+	result, err := parsed.Parse("Example", "2020-01-01")
+	if err != nil {
+		t.Fatalf("parsing: %+v", err)
+	}
+	if result == nil {
+		t.Fatal("result was nil")
+	}
+	if len(result.Resources) != 1 {
+		t.Fatalf("expected 1 resource but got %d", len(result.Resources))
+	}
+
+	hello, ok := result.Resources["Hello"]
+	if !ok {
+		t.Fatalf("no resources were output with the tag Hello")
+	}
+
+	if len(hello.Constants) != 0 {
+		t.Fatalf("expected no Constants but got %d", len(hello.Constants))
+	}
+	if len(hello.Models) != 0 {
+		t.Fatalf("expected No Models but got %d", len(hello.Models))
+	}
+	if len(hello.Operations) != 1 {
+		t.Fatalf("expected 1 Operation but got %d", len(hello.Operations))
+	}
+	if len(hello.ResourceIds) != 0 {
+		t.Fatalf("expected no ResourceIds but got %d", len(hello.ResourceIds))
+	}
+
+	world, ok := hello.Operations["PutWorld"]
+	if !ok {
+		t.Fatalf("no resources were output with the name PutWorld")
+	}
+	if world.Method != "PUT" {
+		t.Fatalf("expected a PUT operation but got %q", world.Method)
+	}
+	if len(world.ExpectedStatusCodes) != 1 {
+		t.Fatalf("expected 1 status code but got %d", len(world.ExpectedStatusCodes))
+	}
+	if world.ExpectedStatusCodes[0] != 200 {
+		t.Fatalf("expected the status code to be 200 but got %d", world.ExpectedStatusCodes[0])
+	}
+	if world.RequestObject == nil {
+		t.Fatal("expected a request object but was nil")
+	}
+	if world.RequestObject.Type != models.ObjectDefinitionString {
+		t.Fatalf("expected the request object to be a string but got %q", string(world.RequestObject.Type))
+	}
+	if world.RequestObject.ReferenceName != nil {
+		t.Fatalf("expected the request object to be null but got %q", *world.RequestObject.ReferenceName)
+	}
+	if world.ResponseObject != nil {
+		t.Fatalf("expected no response object but got %+v", *world.ResponseObject)
+	}
+	if world.ResourceIdName != nil {
+		t.Fatalf("expected no ResourceId but got %q", *world.ResourceIdName)
+	}
+	if world.UriSuffix == nil {
+		t.Fatal("expected world.UriSuffix to have a value")
+	}
+	if *world.UriSuffix != "/things" {
+		t.Fatalf("expected world.UriSuffix to be `/things` but got %q", *world.UriSuffix)
+	}
+	if world.LongRunning {
+		t.Fatal("expected a non-long running operation but it was long running")
+	}
 }
 
 func TestParseOperationSingleReturningABool(t *testing.T) {
@@ -1258,6 +1338,8 @@ func TestParseOperationSingleReturningAString(t *testing.T) {
 }
 
 func TestParseOperationSingleReturningADictionaryOfAModel(t *testing.T) {
+	t.Skip("Skipping until #81 is fully implemented")
+
 	parsed, err := Load("testdata/", "operations_single_returning_a_dictionary_of_strings.json", true)
 	if err != nil {
 		t.Fatalf("loading: %+v", err)
@@ -1341,6 +1423,8 @@ func TestParseOperationSingleReturningADictionaryOfAModel(t *testing.T) {
 }
 
 func TestParseOperationSingleReturningADictionaryOfStrings(t *testing.T) {
+	t.Skip("Skipping until #81 is fully implemented")
+
 	parsed, err := Load("testdata/", "operations_single_returning_a_dictionary_of_strings.json", true)
 	if err != nil {
 		t.Fatalf("loading: %+v", err)
@@ -1507,6 +1591,8 @@ func TestParseOperationSingleReturningAListOfIntegers(t *testing.T) {
 }
 
 func TestParseOperationSingleReturningAListOfAModel(t *testing.T) {
+	t.Skip("Skipping until #81 is fully implemented")
+
 	parsed, err := Load("testdata/", "operations_single_returning_a_list_of_model.json", true)
 	if err != nil {
 		t.Fatalf("loading: %+v", err)
@@ -1676,6 +1762,8 @@ func TestParseOperationSingleReturningAListOfStrings(t *testing.T) {
 }
 
 func TestParseOperationSingleReturningAListOfListOfAModel(t *testing.T) {
+	t.Skip("Skipping until #81 is fully implemented")
+
 	parsed, err := Load("testdata/", "operations_single_returning_a_list_of_list_of_model.json", true)
 	if err != nil {
 		t.Fatalf("loading: %+v", err)
@@ -1771,6 +1859,8 @@ func TestParseOperationSingleReturningAListOfListOfAModel(t *testing.T) {
 }
 
 func TestParseOperationSingleReturningAListOfListOfStrings(t *testing.T) {
+	t.Skip("Skipping until #81 is fully implemented")
+
 	parsed, err := Load("testdata/", "operations_single_returning_a_list_of_list_of_strings.json", true)
 	if err != nil {
 		t.Fatalf("loading: %+v", err)
