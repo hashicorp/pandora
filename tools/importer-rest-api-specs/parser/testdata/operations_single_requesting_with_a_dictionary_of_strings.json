@@ -18,25 +18,30 @@
   "security": [],
   "securityDefinitions": {},
   "paths": {
-    "/worlds/favourite": {
-      "get": {
+    "/things": {
+      "put": {
         "tags": [
           "Hello"
         ],
-        "summary": "Returns a dictionary of a model from the API",
-        "description": "Description for returns a dictionary of a model from the API.",
-        "operationId": "Hello_GimmeADictionaryOfAModel",
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "OK",
+        "operationId": "Hello_PutWorld",
+        "description": "A PUT request with no body returned.",
+        "parameters": [
+          {
+            "name": "parameters",
+            "in": "body",
+            "required": true,
             "schema": {
               "type": "object",
               "additionalProperties": {
                 "type": "string"
-              },
-              "description": "A dictionary of Person."
-            }
+              }
+            },
+            "description": "Example request object."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success."
           }
         }
       }
