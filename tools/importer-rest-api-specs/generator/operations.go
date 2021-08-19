@@ -196,6 +196,56 @@ func dotNetNameForHttpMethod(method string) string {
 }
 
 func typeNameForObjectDefinition(input models.ObjectDefinition, resource models.AzureApiResource) (*string, error) {
+	if input.Type == models.ObjectDefinitionDictionary {
+		typeName := ""
+		// either it's a nested Dictionary (e.g. Dictionary<string, string>)
+		if input.NestedItem != nil {
+			nestedType, err := typeNameForObjectDefinition(*input.NestedItem, resource)
+			if err != nil {
+				return nil, fmt.Errorf("determining nested type: %+v", err)
+			}
+
+			typeName = *nestedType
+		}
+
+		// or it's got a reference (e.g. Dictionary<string, Model>)
+		if input.ReferenceName != nil {
+			typeName = *input.ReferenceName
+		}
+
+		if typeName == "" {
+			return nil, fmt.Errorf("missing a reference or nested item for nested dictionary item")
+		}
+
+		out := fmt.Sprintf("Dictionary<string, %s>", typeName)
+		return &out, nil
+	}
+
+	if input.Type == models.ObjectDefinitionList {
+		typeName := ""
+		// either it's a nested List (e.g. List<string>, List<List<string>>)
+		if input.NestedItem != nil {
+			nestedType, err := typeNameForObjectDefinition(*input.NestedItem, resource)
+			if err != nil {
+				return nil, fmt.Errorf("determining nested type: %+v", err)
+			}
+
+			typeName = *nestedType
+		}
+
+		// or it's got a reference (e.g. List<Model>)
+		if input.ReferenceName != nil {
+			typeName = *input.ReferenceName
+		}
+
+		if typeName == "" {
+			return nil, fmt.Errorf("missing a reference or nested item for nested list item")
+		}
+
+		out := fmt.Sprintf("List<%s>", typeName)
+		return &out, nil
+	}
+
 	if input.Type == models.ObjectDefinitionReference {
 		if input.ReferenceName == nil {
 			return nil, fmt.Errorf("missing constant/model reference")
@@ -211,8 +261,6 @@ func typeNameForObjectDefinition(input models.ObjectDefinition, resource models.
 
 		return &output, nil
 	}
-
-	// TODO: support Lists/Types
 
 	var out string
 	switch input.Type {
