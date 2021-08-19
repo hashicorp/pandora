@@ -362,6 +362,38 @@ func (d *SwaggerDefinition) requestObjectForOperation(operationDetails *spec.Ope
 	return nil, &result, nil
 }
 
+func parseNativeType(input *spec.Schema) *models.ObjectDefinition {
+	if input == nil {
+		return nil
+	}
+
+	if input.Type.Contains("bool") {
+		return &models.ObjectDefinition{
+			Type: models.ObjectDefinitionBoolean,
+		}
+	}
+
+	if input.Type.Contains("integer") {
+		return &models.ObjectDefinition{
+			Type: models.ObjectDefinitionInteger,
+		}
+	}
+
+	if input.Type.Contains("number") {
+		return &models.ObjectDefinition{
+			Type: models.ObjectDefinitionFloat,
+		}
+	}
+
+	if input.Type.Contains("string") {
+		return &models.ObjectDefinition{
+			Type: models.ObjectDefinitionString,
+		}
+	}
+
+	return nil
+}
+
 func (d *SwaggerDefinition) responseObjectForOperation(operationDetails *spec.Operation, isListOperation bool) (*models.ObjectDefinition, *result, error) {
 	// find the same operation in the unexpanded swagger spec since we need the reference name
 	_, _, unexpandedOperation, found := d.swaggerSpecWithReferences.OperationForName(operationDetails.ID)
@@ -381,32 +413,8 @@ func (d *SwaggerDefinition) responseObjectForOperation(operationDetails *spec.Op
 				continue
 			}
 
-			if details.ResponseProps.Schema.Type.Contains("bool") {
-				out := models.ObjectDefinition{
-					Type: models.ObjectDefinitionBoolean,
-				}
-				return &out, &result, nil
-			}
-
-			if details.ResponseProps.Schema.Type.Contains("integer") {
-				out := models.ObjectDefinition{
-					Type: models.ObjectDefinitionInteger,
-				}
-				return &out, &result, nil
-			}
-
-			if details.ResponseProps.Schema.Type.Contains("number") {
-				out := models.ObjectDefinition{
-					Type: models.ObjectDefinitionFloat,
-				}
-				return &out, &result, nil
-			}
-
-			if details.ResponseProps.Schema.Type.Contains("string") {
-				out := models.ObjectDefinition{
-					Type: models.ObjectDefinitionString,
-				}
-				return &out, &result, nil
+			if nativeType := parseNativeType(details.ResponseProps.Schema); nativeType != nil {
+				return nativeType, &result, nil
 			}
 
 			// if it's a singular type
@@ -431,28 +439,40 @@ func (d *SwaggerDefinition) responseObjectForOperation(operationDetails *spec.Op
 				}
 			}
 
+			// TODO: what about a dictionary?
+
 			// if it's taking a list
 			if details.ResponseProps.Schema.Type.Contains("array") {
-				if details.ResponseProps.Schema.Items != nil && details.ResponseProps.Schema.Items.Schema != nil {
-					schema := details.ResponseProps.Schema.Items.Schema
-					objectName = fragmentNameFromReference(schema.Ref)
-					if objectName == nil {
-						if len(schema.Properties) == 0 {
-							return nil, nil, fmt.Errorf("response list model must either be a reference or an inlined model but got neither")
+				if details.ResponseProps.Schema.Items != nil {
+					if nativeType := parseNativeType(details.ResponseProps.Schema.Items.Schema); nativeType != nil {
+						out := &models.ObjectDefinition{
+							Type:       models.ObjectDefinitionList,
+							NestedItem: nativeType,
 						}
+						return out, &result, nil
+					}
 
-						nestedResult, err := d.parseModel(schema.Title, *schema)
-						if err != nil {
-							return nil, nil, fmt.Errorf("parsing list object from inlined response model %q: %+v", schema.Title, err)
-						}
-
-						if nestedResult != nil {
-							objectName = &schema.Title
-							result.models[schema.Title] = models.ModelDetails{
-								Description: "",
-								Fields:      nestedResult.fields.toMapOfModels(),
+					if details.ResponseProps.Schema.Items.Schema != nil {
+						schema := details.ResponseProps.Schema.Items.Schema
+						objectName = fragmentNameFromReference(schema.Ref)
+						if objectName == nil {
+							if len(schema.Properties) == 0 {
+								return nil, nil, fmt.Errorf("response list model must either be a reference or an inlined model but got neither")
 							}
-							result.append(*nestedResult)
+
+							nestedResult, err := d.parseModel(schema.Title, *schema)
+							if err != nil {
+								return nil, nil, fmt.Errorf("parsing list object from inlined response model %q: %+v", schema.Title, err)
+							}
+
+							if nestedResult != nil {
+								objectName = &schema.Title
+								result.models[schema.Title] = models.ModelDetails{
+									Description: "",
+									Fields:      nestedResult.fields.toMapOfModels(),
+								}
+								result.append(*nestedResult)
+							}
 						}
 					}
 				}
