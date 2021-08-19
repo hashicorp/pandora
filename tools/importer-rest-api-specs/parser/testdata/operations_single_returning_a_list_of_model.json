@@ -1,0 +1,58 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Example",
+    "description": "Example",
+    "version": "2020-01-01"
+  },
+  "host": "management.mysite.com",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "security": [],
+  "securityDefinitions": {},
+  "paths": {
+    "/worlds/favourite": {
+      "get": {
+        "tags": [
+          "Hello"
+        ],
+        "summary": "Returns a list of people from the API",
+        "description": "Description for returns a list of people values from the API.",
+        "operationId": "GimmeAListOfModel",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "description": "The list of favourite worlds.",
+              "type": "array",
+              "readOnly": true,
+              "items": {
+                "$ref": "#/definitions/Person"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Person": {
+      "properties": {
+        "name": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "Person"
+    }
+  },
+  "parameters": {}
+}
