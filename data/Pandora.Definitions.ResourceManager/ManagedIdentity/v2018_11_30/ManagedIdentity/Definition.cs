@@ -5,7 +5,7 @@ namespace Pandora.Definitions.ResourceManager.ManagedIdentity.v2018_11_30.Manage
 {
     internal class Definition : ApiDefinition
     {
-        // Generated from Swagger revision "60d6c393c7e71b45ebe0976a35fd7a5841993159" 
+        // Generated from Swagger revision "b2bddfe2e59b5b14e559e0433b6e6d057bcff95d" 
 
         public string ApiVersion => "2018-11-30";
         public string Name => "ManagedIdentity";
