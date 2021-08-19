@@ -381,6 +381,34 @@ func (d *SwaggerDefinition) responseObjectForOperation(operationDetails *spec.Op
 				continue
 			}
 
+			if details.ResponseProps.Schema.Type.Contains("bool") {
+				out := models.ObjectDefinition{
+					Type: models.ObjectDefinitionBoolean,
+				}
+				return &out, &result, nil
+			}
+
+			if details.ResponseProps.Schema.Type.Contains("integer") {
+				out := models.ObjectDefinition{
+					Type: models.ObjectDefinitionInteger,
+				}
+				return &out, &result, nil
+			}
+
+			if details.ResponseProps.Schema.Type.Contains("number") {
+				out := models.ObjectDefinition{
+					Type: models.ObjectDefinitionFloat,
+				}
+				return &out, &result, nil
+			}
+
+			if details.ResponseProps.Schema.Type.Contains("string") {
+				out := models.ObjectDefinition{
+					Type: models.ObjectDefinitionString,
+				}
+				return &out, &result, nil
+			}
+
 			// if it's a singular type
 			objectName = fragmentNameFromReference(details.ResponseProps.Schema.Ref)
 			if objectName == nil {

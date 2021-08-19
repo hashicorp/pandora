@@ -212,6 +212,27 @@ func typeNameForObjectDefinition(input models.ObjectDefinition, resource models.
 		return &output, nil
 	}
 
+	// TODO: support Lists/Types
+
+	var out string
+	switch input.Type {
+	case models.ObjectDefinitionBoolean:
+		out = "bool"
+
+	case models.ObjectDefinitionFloat:
+		out = "float"
+
+	case models.ObjectDefinitionInteger:
+		out = "int"
+
+	case models.ObjectDefinitionString:
+		out = "string"
+	}
+
+	if out != "" {
+		return &out, nil
+	}
+
 	return nil, fmt.Errorf("unimplemented object definition type")
 }
 
