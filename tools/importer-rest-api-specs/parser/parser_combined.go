@@ -156,11 +156,11 @@ func (d *SwaggerDefinition) findModelsUsedByOperations(operations map[string]mod
 	// first distinct them
 	distinct := make(map[string]struct{})
 	for _, operation := range operations {
-		if operation.RequestObjectName != nil {
-			distinct[*operation.RequestObjectName] = struct{}{}
+		if operation.RequestObject != nil && operation.RequestObject.Type == models.ObjectDefinitionReference && operation.RequestObject.ReferenceName != nil {
+			distinct[*operation.RequestObject.ReferenceName] = struct{}{}
 		}
-		if operation.ResponseObjectName != nil {
-			distinct[*operation.ResponseObjectName] = struct{}{}
+		if operation.ResponseObject != nil && operation.ResponseObject.Type == models.ObjectDefinitionReference && operation.ResponseObject.ReferenceName != nil {
+			distinct[*operation.ResponseObject.ReferenceName] = struct{}{}
 		}
 	}
 

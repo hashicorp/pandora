@@ -89,14 +89,14 @@ func (n normalizer) operations(input map[string]models.OperationDetails) map[str
 	for key, value := range input {
 		normalizedKey := cleanup.NormalizeName(key)
 
-		if v := value.RequestObjectName; v != nil {
-			normalized := cleanup.NormalizeName(*v)
-			value.RequestObjectName = &normalized
+		if v := value.RequestObject; v != nil && v.Type == models.ObjectDefinitionReference {
+			normalized := cleanup.NormalizeName(*v.ReferenceName)
+			value.RequestObject.ReferenceName = &normalized
 		}
 
-		if v := value.ResponseObjectName; v != nil {
-			normalized := cleanup.NormalizeName(*v)
-			value.ResponseObjectName = &normalized
+		if v := value.ResponseObject; v != nil && v.Type == models.ObjectDefinitionReference {
+			normalized := cleanup.NormalizeName(*v.ReferenceName)
+			value.ResponseObject.ReferenceName = &normalized
 		}
 
 		//for opKey, opVal := range value.Options {

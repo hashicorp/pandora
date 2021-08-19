@@ -77,14 +77,14 @@ func (d *SwaggerDefinition) parseOperation(operationName, httpMethod string, uri
 
 	expectedStatusCodes := expectedStatusCodesForOperation(operationDetails)
 	paginationField := fieldContainingPaginationDetailsForOperation(operationDetails)
-	requestObjectName, nestedResult, err := d.requestObjectForOperation(operationDetails)
+	requestObject, nestedResult, err := d.requestObjectForOperation(operationDetails)
 	if err != nil {
 		return nil, nil, fmt.Errorf("determining request operation for %q (method %q / uri %q): %+v", operationName, httpMethod, uri.normalizedUri(), err)
 	}
 	if nestedResult != nil {
 		result.append(*nestedResult)
 	}
-	responseObjectName, nestedResult, err := d.responseObjectForOperation(operationDetails, paginationField != nil)
+	responseObject, nestedResult, err := d.responseObjectForOperation(operationDetails, paginationField != nil)
 	if err != nil {
 		return nil, nil, fmt.Errorf("determining response operation for %q (method %q / uri %q): %+v", operationName, httpMethod, uri.normalizedUri(), err)
 	}
@@ -114,8 +114,8 @@ func (d *SwaggerDefinition) parseOperation(operationName, httpMethod string, uri
 		LongRunning:                      longRunning,
 		Method:                           strings.ToUpper(httpMethod),
 		Options:                          *options,
-		RequestObjectName:                requestObjectName,
-		ResponseObjectName:               responseObjectName,
+		RequestObject:                    requestObject,
+		ResponseObject:                   responseObject,
 		Uri:                              uri.normalizedUri(),
 	}
 
@@ -293,7 +293,7 @@ func operationShouldBeIgnored(input models.OperationDetails) bool {
 	// Example: the 'GetSubscriptionOperationWithAsyncResponse' in Web, which returns the
 	// result of a LRO - but in our case that's handled elsewhere so we don't need it
 	if strings.EqualFold(input.Method, "GET") {
-		if len(input.ExpectedStatusCodes) == 1 && input.ExpectedStatusCodes[0] == http.StatusNoContent && input.ResponseObjectName == nil {
+		if len(input.ExpectedStatusCodes) == 1 && input.ExpectedStatusCodes[0] == http.StatusNoContent && input.ResponseObject == nil {
 			return true
 		}
 	}
@@ -301,7 +301,7 @@ func operationShouldBeIgnored(input models.OperationDetails) bool {
 	return false
 }
 
-func (d *SwaggerDefinition) requestObjectForOperation(operationDetails *spec.Operation) (*string, *result, error) {
+func (d *SwaggerDefinition) requestObjectForOperation(operationDetails *spec.Operation) (*models.ObjectDefinition, *result, error) {
 	// find the same operation in the unexpanded swagger spec since we need the reference name
 	_, _, unexpandedOperation, found := d.swaggerSpecWithReferences.OperationForName(operationDetails.ID)
 	if !found {
@@ -346,18 +346,23 @@ func (d *SwaggerDefinition) requestObjectForOperation(operationDetails *spec.Ope
 				}
 			}
 
+			var out *models.ObjectDefinition
 			if objectName != nil {
 				v := normalizeModelName(*objectName)
 				objectName = &v
+				out = &models.ObjectDefinition{
+					Type:          models.ObjectDefinitionReference,
+					ReferenceName: objectName,
+				}
 			}
-			return objectName, &result, nil
+			return out, &result, nil
 		}
 	}
 
 	return nil, &result, nil
 }
 
-func (d *SwaggerDefinition) responseObjectForOperation(operationDetails *spec.Operation, isListOperation bool) (*string, *result, error) {
+func (d *SwaggerDefinition) responseObjectForOperation(operationDetails *spec.Operation, isListOperation bool) (*models.ObjectDefinition, *result, error) {
 	// find the same operation in the unexpanded swagger spec since we need the reference name
 	_, _, unexpandedOperation, found := d.swaggerSpecWithReferences.OperationForName(operationDetails.ID)
 	if !found {
@@ -463,7 +468,15 @@ func (d *SwaggerDefinition) responseObjectForOperation(operationDetails *spec.Op
 				objectName = &actualModelName
 			}
 
-			return objectName, &result, nil
+			var out *models.ObjectDefinition
+			if objectName != nil {
+				out = &models.ObjectDefinition{
+					Type:          models.ObjectDefinitionReference,
+					ReferenceName: objectName,
+				}
+			}
+
+			return out, &result, nil
 		}
 	}
 

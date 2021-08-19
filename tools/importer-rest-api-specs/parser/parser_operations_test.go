@@ -2,6 +2,8 @@ package parser
 
 import (
 	"testing"
+
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
 func TestParseOperationsEmpty(t *testing.T) {
@@ -70,11 +72,11 @@ func TestParseOperationSingleWithTag(t *testing.T) {
 	if world.ExpectedStatusCodes[0] != 200 {
 		t.Fatalf("expected the status code to be 200 but got %d", world.ExpectedStatusCodes[0])
 	}
-	if world.RequestObjectName != nil {
-		t.Fatalf("expected no request object but got %q", *world.RequestObjectName)
+	if world.RequestObject != nil {
+		t.Fatalf("expected no request object but got %+v", *world.RequestObject)
 	}
-	if world.ResponseObjectName != nil {
-		t.Fatalf("expected no response object but got %q", *world.ResponseObjectName)
+	if world.ResponseObject != nil {
+		t.Fatalf("expected no response object but got %+v", *world.ResponseObject)
 	}
 	if world.ResourceIdName != nil {
 		t.Fatalf("expected no ResourceId but got %q", *world.ResourceIdName)
@@ -138,11 +140,11 @@ func TestParseOperationSingleWithTagAndResourceId(t *testing.T) {
 	if world.ExpectedStatusCodes[0] != 200 {
 		t.Fatalf("expected the status code to be 200 but got %d", world.ExpectedStatusCodes[0])
 	}
-	if world.RequestObjectName != nil {
-		t.Fatalf("expected no request object but got %q", *world.RequestObjectName)
+	if world.RequestObject != nil {
+		t.Fatalf("expected no request object but got %+v", *world.RequestObject)
 	}
-	if world.ResponseObjectName != nil {
-		t.Fatalf("expected no response object but got %q", *world.ResponseObjectName)
+	if world.ResponseObject != nil {
+		t.Fatalf("expected no response object but got %+v", *world.ResponseObject)
 	}
 	if world.ResourceIdName == nil {
 		t.Fatal("expected a ResourceId but was nil")
@@ -206,11 +208,11 @@ func TestParseOperationSingleWithTagAndResourceIdSuffix(t *testing.T) {
 	if world.ExpectedStatusCodes[0] != 200 {
 		t.Fatalf("expected the status code to be 200 but got %d", world.ExpectedStatusCodes[0])
 	}
-	if world.RequestObjectName != nil {
-		t.Fatalf("expected no request object but got %q", *world.RequestObjectName)
+	if world.RequestObject != nil {
+		t.Fatalf("expected no request object but got %+v", *world.RequestObject)
 	}
-	if world.ResponseObjectName != nil {
-		t.Fatalf("expected no response object but got %q", *world.ResponseObjectName)
+	if world.ResponseObject != nil {
+		t.Fatalf("expected no response object but got %+v", *world.ResponseObject)
 	}
 	if world.ResourceIdName == nil {
 		t.Fatal("expected a ResourceId but was nil")
@@ -277,14 +279,17 @@ func TestParseOperationSingleWithRequestObject(t *testing.T) {
 	if world.ExpectedStatusCodes[0] != 200 {
 		t.Fatalf("expected the status code to be 200 but got %d", world.ExpectedStatusCodes[0])
 	}
-	if world.RequestObjectName == nil {
+	if world.RequestObject == nil {
 		t.Fatal("expected a request object but was nil")
 	}
-	if *world.RequestObjectName != "Example" {
-		t.Fatalf("expected the request object to be 'Example' but got %q", *world.RequestObjectName)
+	if world.RequestObject.Type != models.ObjectDefinitionReference {
+		t.Fatalf("expected the request object to be a reference but got %q", string(world.RequestObject.Type))
 	}
-	if world.ResponseObjectName != nil {
-		t.Fatalf("expected no response object but got %q", *world.ResponseObjectName)
+	if *world.RequestObject.ReferenceName != "Example" {
+		t.Fatalf("expected the request object to be 'Example' but got %q", *world.RequestObject.ReferenceName)
+	}
+	if world.ResponseObject != nil {
+		t.Fatalf("expected no response object but got %+v", *world.ResponseObject)
 	}
 	if world.ResourceIdName != nil {
 		t.Fatalf("expected no ResourceId but got %q", *world.ResourceIdName)
@@ -356,14 +361,17 @@ func TestParseOperationSingleWithRequestObjectInlined(t *testing.T) {
 	if world.ExpectedStatusCodes[0] != 200 {
 		t.Fatalf("expected the status code to be 200 but got %d", world.ExpectedStatusCodes[0])
 	}
-	if world.RequestObjectName == nil {
+	if world.RequestObject == nil {
 		t.Fatal("expected a request object but was nil")
 	}
-	if *world.RequestObjectName != "Example" {
-		t.Fatalf("expected the request object to be 'Example' but got %q", *world.RequestObjectName)
+	if world.RequestObject.Type != models.ObjectDefinitionReference {
+		t.Fatalf("expected the request object to be a reference but got %q", string(world.RequestObject.Type))
 	}
-	if world.ResponseObjectName != nil {
-		t.Fatalf("expected no response object but got %q", *world.ResponseObjectName)
+	if *world.RequestObject.ReferenceName != "Example" {
+		t.Fatalf("expected the request object to be 'Example' but got %q", *world.RequestObject.ReferenceName)
+	}
+	if world.ResponseObject != nil {
+		t.Fatalf("expected no response object but got %+v", *world.ResponseObject)
 	}
 	if world.ResourceIdName != nil {
 		t.Fatalf("expected no ResourceId but got %q", *world.ResourceIdName)
@@ -435,14 +443,17 @@ func TestParseOperationSingleWithResponseObject(t *testing.T) {
 	if world.ExpectedStatusCodes[0] != 200 {
 		t.Fatalf("expected the status code to be 200 but got %d", world.ExpectedStatusCodes[0])
 	}
-	if world.RequestObjectName != nil {
-		t.Fatalf("expected no request object but got %q", *world.RequestObjectName)
+	if world.RequestObject != nil {
+		t.Fatalf("expected no request object but got %+v", *world.RequestObject)
 	}
-	if world.ResponseObjectName == nil {
+	if world.ResponseObject == nil {
 		t.Fatal("expected a response object but didn't get one")
 	}
-	if *world.ResponseObjectName != "Example" {
-		t.Fatalf("expected the response object to be 'Example' but got %q", *world.ResponseObjectName)
+	if world.ResponseObject.Type != models.ObjectDefinitionReference {
+		t.Fatalf("expected the response object to be a reference but got %q", string(world.ResponseObject.Type))
+	}
+	if *world.ResponseObject.ReferenceName != "Example" {
+		t.Fatalf("expected the response object to be 'Example' but got %q", *world.ResponseObject.ReferenceName)
 	}
 	if world.ResourceIdName != nil {
 		t.Fatalf("expected no ResourceId but got %q", *world.ResourceIdName)
@@ -514,14 +525,17 @@ func TestParseOperationSingleWithResponseObjectInlined(t *testing.T) {
 	if world.ExpectedStatusCodes[0] != 200 {
 		t.Fatalf("expected the status code to be 200 but got %d", world.ExpectedStatusCodes[0])
 	}
-	if world.RequestObjectName != nil {
-		t.Fatalf("expected no request object but got %q", *world.RequestObjectName)
+	if world.RequestObject != nil {
+		t.Fatalf("expected no request object but got %+v", *world.RequestObject)
 	}
-	if world.ResponseObjectName == nil {
+	if world.ResponseObject == nil {
 		t.Fatal("expected a response object but didn't get one")
 	}
-	if *world.ResponseObjectName != "Example" {
-		t.Fatalf("expected the response object to be 'Example' but got %q", *world.ResponseObjectName)
+	if world.ResponseObject.Type != models.ObjectDefinitionReference {
+		t.Fatalf("expected the response object to be a reference but got %q", string(world.ResponseObject.Type))
+	}
+	if *world.ResponseObject.ReferenceName != "Example" {
+		t.Fatalf("expected the response object to be 'Example' but got %q", *world.ResponseObject.ReferenceName)
 	}
 	if world.ResourceIdName != nil {
 		t.Fatalf("expected no ResourceId but got %q", *world.ResourceIdName)
@@ -593,14 +607,17 @@ func TestParseOperationSingleWithResponseObjectInlinedList(t *testing.T) {
 	if world.ExpectedStatusCodes[0] != 200 {
 		t.Fatalf("expected the status code to be 200 but got %d", world.ExpectedStatusCodes[0])
 	}
-	if world.RequestObjectName != nil {
-		t.Fatalf("expected no request object but got %q", *world.RequestObjectName)
+	if world.RequestObject != nil {
+		t.Fatalf("expected no request object but got %+v", *world.RequestObject)
 	}
-	if world.ResponseObjectName == nil {
+	if world.ResponseObject == nil {
 		t.Fatal("expected a response object but didn't get one")
 	}
-	if *world.ResponseObjectName != "Example" {
-		t.Fatalf("expected the response object to be 'Example' but got %q", *world.ResponseObjectName)
+	if world.ResponseObject.Type != models.ObjectDefinitionReference {
+		t.Fatalf("expected the response object to be a reference but got %q", string(world.ResponseObject.Type))
+	}
+	if *world.ResponseObject.ReferenceName != "Example" {
+		t.Fatalf("expected the response object to be 'Example' but got %q", *world.ResponseObject.ReferenceName)
 	}
 	if world.ResourceIdName != nil {
 		t.Fatalf("expected no ResourceId but got %q", *world.ResourceIdName)
@@ -624,7 +641,11 @@ func TestParseOperationSingleWithResponseObjectInlinedList(t *testing.T) {
 	}
 }
 
+// TODO: bool, dictionary, int, float, list, list of list
+
 func TestParseOperationSingleReturningAString(t *testing.T) {
+	t.Skipf("not yet implemented")
+
 	parsed, err := Load("testdata/", "operations_single_returning_a_string.json", true)
 	if err != nil {
 		t.Fatalf("loading: %+v", err)
@@ -672,15 +693,18 @@ func TestParseOperationSingleReturningAString(t *testing.T) {
 	if world.ExpectedStatusCodes[0] != 200 {
 		t.Fatalf("expected the status code to be 200 but got %d", world.ExpectedStatusCodes[0])
 	}
-	if world.RequestObjectName != nil {
-		t.Fatalf("expected no request object but got %q", *world.RequestObjectName)
+	if world.RequestObject != nil {
+		t.Fatalf("expected no request object but got %+v", *world.RequestObject)
 	}
-	if world.ResponseObjectName != nil {
-		t.Fatalf("expected no response object but got %q", *world.ResponseObjectName)
+	if world.ResponseObject == nil {
+		t.Fatalf("expected a response object but got none")
 	}
-
-	// TODO: handle this being an Object with the type hidden inside
-
+	if world.ResponseObject.Type != models.ObjectDefinitionString {
+		t.Fatalf("expected the response object to be a string but got %q", string(world.ResponseObject.Type))
+	}
+	if world.ResponseObject.ReferenceName != nil {
+		t.Fatalf("expected the response object to have no reference but got %q", *world.ResponseObject.ReferenceName)
+	}
 	if world.ResourceIdName != nil {
 		t.Fatalf("expected no ResourceId but got %q", *world.ResourceIdName)
 	}
@@ -743,14 +767,17 @@ func TestParseOperationSingleWithList(t *testing.T) {
 	if world.ExpectedStatusCodes[0] != 200 {
 		t.Fatalf("expected the status code to be 200 but got %d", world.ExpectedStatusCodes[0])
 	}
-	if world.RequestObjectName != nil {
-		t.Fatalf("expected no request object but got %q", *world.RequestObjectName)
+	if world.RequestObject != nil {
+		t.Fatalf("expected no request object but got %+v", *world.RequestObject)
 	}
-	if world.ResponseObjectName == nil {
+	if world.ResponseObject == nil {
 		t.Fatal("expected a response object but didn't get one")
 	}
-	if *world.ResponseObjectName != "World" {
-		t.Fatalf("expected the response object to be 'World' but got %q", *world.ResponseObjectName)
+	if world.ResponseObject.Type != models.ObjectDefinitionReference {
+		t.Fatalf("expected the response object to be a reference but got %q", string(world.ResponseObject.Type))
+	}
+	if *world.ResponseObject.ReferenceName != "World" {
+		t.Fatalf("expected the response object to be 'World' but got %q", *world.ResponseObject.ReferenceName)
 	}
 	if world.FieldContainingPaginationDetails == nil {
 		t.Fatalf("expected there to be pagination details but there weren't")
@@ -831,14 +858,17 @@ func TestParseOperationSingleWithLongRunningOperation(t *testing.T) {
 	if world.ExpectedStatusCodes[0] != 200 {
 		t.Fatalf("expected the status code to be 200 but got %d", world.ExpectedStatusCodes[0])
 	}
-	if world.RequestObjectName == nil {
+	if world.RequestObject == nil {
 		t.Fatal("expected a request object but didn't get one")
 	}
-	if *world.RequestObjectName != "Example" {
-		t.Fatalf("expected the request object to be 'Example' but got %q", *world.RequestObjectName)
+	if world.RequestObject.Type != models.ObjectDefinitionReference {
+		t.Fatalf("expected the request object to be a reference but got %q", string(world.RequestObject.Type))
 	}
-	if world.ResponseObjectName != nil {
-		t.Fatalf("expected no response object but got %q", *world.ResponseObjectName)
+	if *world.RequestObject.ReferenceName != "Example" {
+		t.Fatalf("expected the request object to be 'Example' but got %q", *world.RequestObject.ReferenceName)
+	}
+	if world.ResponseObject != nil {
+		t.Fatalf("expected no response object but got %+v", *world.ResponseObject)
 	}
 	if world.ResourceIdName != nil {
 		t.Fatalf("expected no ResourceId but got %q", *world.ResourceIdName)
@@ -910,17 +940,23 @@ func TestParseOperationSingleWithRequestAndResponseObject(t *testing.T) {
 	if world.ExpectedStatusCodes[0] != 200 {
 		t.Fatalf("expected the status code to be 200 but got %d", world.ExpectedStatusCodes[0])
 	}
-	if world.RequestObjectName == nil {
+	if world.RequestObject == nil {
 		t.Fatal("expected a request object but didn't get one")
 	}
-	if *world.RequestObjectName != "Example" {
-		t.Fatalf("expected the request object to be 'Example' but got %q", *world.RequestObjectName)
+	if world.RequestObject.Type != models.ObjectDefinitionReference {
+		t.Fatalf("expected the request object to be a reference but got %q", string(world.RequestObject.Type))
 	}
-	if world.ResponseObjectName == nil {
+	if *world.RequestObject.ReferenceName != "Example" {
+		t.Fatalf("expected the request object to be 'Example' but got %q", *world.RequestObject.ReferenceName)
+	}
+	if world.ResponseObject == nil {
 		t.Fatal("expected a response object but didn't get one")
 	}
-	if *world.ResponseObjectName != "Example" {
-		t.Fatalf("expected the response object to be 'Example' but got %q", *world.ResponseObjectName)
+	if world.ResponseObject.Type != models.ObjectDefinitionReference {
+		t.Fatalf("expected the response object to be a reference but got %q", string(world.ResponseObject.Type))
+	}
+	if *world.ResponseObject.ReferenceName != "Example" {
+		t.Fatalf("expected the response object to be 'Example' but got %q", *world.ResponseObject.ReferenceName)
 	}
 	if world.ResourceIdName != nil {
 		t.Fatalf("expected no ResourceId but got %q", *world.ResourceIdName)
@@ -992,11 +1028,11 @@ func TestParseOperationSingleWithMultipleTags(t *testing.T) {
 	if things.ExpectedStatusCodes[0] != 200 {
 		t.Fatalf("expected the status code to be 200 but got %d", things.ExpectedStatusCodes[0])
 	}
-	if things.RequestObjectName != nil {
-		t.Fatalf("expected no request object but got %q", *things.RequestObjectName)
+	if things.RequestObject != nil {
+		t.Fatalf("expected no request object but got %+v", *things.RequestObject)
 	}
-	if things.ResponseObjectName != nil {
-		t.Fatalf("expected no response object but got %q", *things.ResponseObjectName)
+	if things.ResponseObject != nil {
+		t.Fatalf("expected no response object but got %+v", *things.ResponseObject)
 	}
 	if things.ResourceIdName != nil {
 		t.Fatalf("expected no ResourceId but got %q", *things.ResourceIdName)
@@ -1045,11 +1081,11 @@ func TestParseOperationSingleWithMultipleTags(t *testing.T) {
 	if things.ExpectedStatusCodes[0] != 200 {
 		t.Fatalf("expected the status code to be 200 but got %d", things.ExpectedStatusCodes[0])
 	}
-	if things.RequestObjectName != nil {
-		t.Fatalf("expected no request object but got %q", *things.RequestObjectName)
+	if things.RequestObject != nil {
+		t.Fatalf("expected no request object but got %+v", *things.RequestObject)
 	}
-	if things.ResponseObjectName != nil {
-		t.Fatalf("expected no response object but got %q", *things.ResponseObjectName)
+	if things.ResponseObject != nil {
+		t.Fatalf("expected no response object but got %+v", *things.ResponseObject)
 	}
 	if things.ResourceIdName != nil {
 		t.Fatalf("expected no ResourceId but got %q", *things.ResourceIdName)
@@ -1115,11 +1151,11 @@ func TestParseOperationSingleWithNoTag(t *testing.T) {
 	if world.ExpectedStatusCodes[0] != 200 {
 		t.Fatalf("expected the status code to be 200 but got %d", world.ExpectedStatusCodes[0])
 	}
-	if world.RequestObjectName != nil {
-		t.Fatalf("expected no request object but got %q", *world.RequestObjectName)
+	if world.RequestObject != nil {
+		t.Fatalf("expected no request object but got %+v", *world.RequestObject)
 	}
-	if world.ResponseObjectName != nil {
-		t.Fatalf("expected no response object but got %q", *world.ResponseObjectName)
+	if world.ResponseObject != nil {
+		t.Fatalf("expected no response object but got %+v", *world.ResponseObject)
 	}
 	if world.ResourceIdName != nil {
 		t.Fatalf("expected no ResourceId but got %q", *world.ResourceIdName)
@@ -1183,11 +1219,11 @@ func TestParseOperationMultipleBasedOnTheSameResourceId(t *testing.T) {
 	if world.ExpectedStatusCodes[0] != 200 {
 		t.Fatalf("expected the status code to be 200 but got %d", world.ExpectedStatusCodes[0])
 	}
-	if world.RequestObjectName != nil {
-		t.Fatalf("expected no request object but got %q", *world.RequestObjectName)
+	if world.RequestObject != nil {
+		t.Fatalf("expected no request object but got %+v", *world.RequestObject)
 	}
-	if world.ResponseObjectName != nil {
-		t.Fatalf("expected no response object but got %q", *world.ResponseObjectName)
+	if world.ResponseObject != nil {
+		t.Fatalf("expected no response object but got %+v", *world.ResponseObject)
 	}
 	if world.ResourceIdName == nil {
 		t.Fatal("expected a ResourceId but was nil")
@@ -1215,11 +1251,11 @@ func TestParseOperationMultipleBasedOnTheSameResourceId(t *testing.T) {
 	if restart.ExpectedStatusCodes[0] != 200 {
 		t.Fatalf("expected the status code to be 200 but got %d", restart.ExpectedStatusCodes[0])
 	}
-	if restart.RequestObjectName != nil {
-		t.Fatalf("expected no request object but got %q", *restart.RequestObjectName)
+	if restart.RequestObject != nil {
+		t.Fatalf("expected no request object but got %+v", *restart.RequestObject)
 	}
-	if restart.ResponseObjectName != nil {
-		t.Fatalf("expected no response object but got %q", *restart.ResponseObjectName)
+	if restart.ResponseObject != nil {
+		t.Fatalf("expected no response object but got %+v", *restart.ResponseObject)
 	}
 	if restart.ResourceIdName == nil {
 		t.Fatal("expected a ResourceId but was nil")
