@@ -5,7 +5,7 @@ namespace Pandora.Definitions.ResourceManager.SignalR.v2020_05_01.SignalR
 {
     internal class Definition : ApiDefinition
     {
-        // Generated from Swagger revision "60d6c393c7e71b45ebe0976a35fd7a5841993159" 
+        // Generated from Swagger revision "b2bddfe2e59b5b14e559e0433b6e6d057bcff95d" 
 
         public string ApiVersion => "2020-05-01";
         public string Name => "SignalR";
