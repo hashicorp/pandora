@@ -5,7 +5,7 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.Consu
 {
     internal class Definition : ApiDefinition
     {
-        // Generated from Swagger revision "b2bddfe2e59b5b14e559e0433b6e6d057bcff95d" 
+        // Generated from Swagger revision "3257aacc47c2a03b7964cbb5c6a07ec9f2f232ee" 
 
         public string ApiVersion => "2018-01-01-preview";
         public string Name => "ConsumerGroups";
