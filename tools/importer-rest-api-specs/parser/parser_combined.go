@@ -107,7 +107,7 @@ func (d *SwaggerDefinition) parseOperations(input map[string]models.OperationDet
 		if d.debugLog {
 			log.Printf("[DEBUG] Finding implementations of %q (discriminating on %q)..", modelName, *model.TypeHintIn)
 		}
-		implementations, err := d.findImplementationsOf(modelName)
+		implementations, err := d.findImplementationsOf(modelName, map[string]models.ModelDetails{})
 		if err != nil {
 			return nil, fmt.Errorf("finding implementations of %q (discriminating on %q): %+v", modelName, *model.TypeHintIn, err)
 		}
@@ -495,7 +495,7 @@ func (d *SwaggerDefinition) modelsForModel(name string, input spec.Schema, const
 	if input.Discriminator != "" {
 		details.TypeHintIn = &input.Discriminator
 
-		implementations, err := d.findImplementationsOf(name)
+		implementations, err := d.findImplementationsOf(name, allKnownAndUnknownModels)
 		if err != nil {
 			return nil, nil, fmt.Errorf("finding implementations of %q: %+v", name, err)
 		}
@@ -878,10 +878,14 @@ func mergeConstants(new models.ConstantDetails, existing *models.ConstantDetails
 	}
 }
 
-func (d *SwaggerDefinition) findImplementationsOf(parentName string) (*result, error) {
+func (d *SwaggerDefinition) findImplementationsOf(parentName string, knownModels modelDetailsMap) (*result, error) {
 	out := result{}
 	for childName, value := range d.swaggerSpecExtendedRaw.Definitions {
 		if childName == parentName {
+			continue
+		}
+		// plz avoid infinite recursion
+		if _, ok := knownModels[childName]; ok {
 			continue
 		}
 
