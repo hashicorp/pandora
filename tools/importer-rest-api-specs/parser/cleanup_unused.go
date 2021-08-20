@@ -101,15 +101,16 @@ func (d *SwaggerDefinition) findUnusedModels(input models.AzureApiResource) []st
 		// models are either referenced by operations
 		usedInAnOperation := false
 		for _, operation := range input.Operations {
-			if operation.RequestObject != nil && operation.RequestObject.Type == models.ObjectDefinitionReference && *operation.RequestObject.ReferenceName == modelName {
+			if d.modelIsUsedInObjectDefinition(modelName, operation.RequestObject) {
 				usedInAnOperation = true
 				break
 			}
 
-			if operation.ResponseObject != nil && operation.ResponseObject.Type == models.ObjectDefinitionReference && *operation.ResponseObject.ReferenceName == modelName {
+			if d.modelIsUsedInObjectDefinition(modelName, operation.ResponseObject) {
 				usedInAnOperation = true
 				break
 			}
+
 			// TODO: can these be in Options in the future too? confirm as a part of #19
 		}
 		if usedInAnOperation {
@@ -157,4 +158,23 @@ func (d *SwaggerDefinition) findUnusedModels(input models.AzureApiResource) []st
 		unusedModels = append(unusedModels, modelName)
 	}
 	return unusedModels
+}
+
+func (d *SwaggerDefinition) modelIsUsedInObjectDefinition(modelName string, definition *models.ObjectDefinition) bool {
+	if definition == nil {
+		return false
+	}
+
+	if definition.Type == models.ObjectDefinitionList || definition.Type == models.ObjectDefinitionDictionary {
+		// this should be caught elsewhere, but rather than panic returning false will mean this is stripped out
+		// which shows as a compiler error, which should give us _all_ of the operations where this is an issue
+		// so we can account for it
+		if definition.NestedItem == nil {
+			return false
+		}
+
+		return d.modelIsUsedInObjectDefinition(modelName, definition.NestedItem)
+	}
+
+	return definition.ReferenceName != nil && *definition.ReferenceName == modelName
 }

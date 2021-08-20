@@ -613,11 +613,20 @@ func TestParseOperationSingleWithResponseObjectInlinedList(t *testing.T) {
 	if world.ResponseObject == nil {
 		t.Fatal("expected a response object but didn't get one")
 	}
-	if world.ResponseObject.Type != models.ObjectDefinitionReference {
-		t.Fatalf("expected the response object to be a reference but got %q", string(world.ResponseObject.Type))
+	if world.ResponseObject.Type != models.ObjectDefinitionList {
+		t.Fatalf("expected the response object to be a List but got %q", string(world.ResponseObject.Type))
 	}
-	if *world.ResponseObject.ReferenceName != "Example" {
-		t.Fatalf("expected the response object to be 'Example' but got %q", *world.ResponseObject.ReferenceName)
+	if world.ResponseObject.ReferenceName != nil {
+		t.Fatalf("expected the response object reference to be nil but got %q", *world.ResponseObject.ReferenceName)
+	}
+	if world.ResponseObject.NestedItem == nil {
+		t.Fatal("expected the response object to have a nested item but it didn't")
+	}
+	if world.ResponseObject.NestedItem.Type != models.ObjectDefinitionReference {
+		t.Fatalf("expected the response objects nested item to be a reference but got %q", string(world.ResponseObject.NestedItem.Type))
+	}
+	if *world.ResponseObject.NestedItem.ReferenceName != "Example" {
+		t.Fatalf("expected the response objects nested item reference to be 'Example' but got %q", *world.ResponseObject.NestedItem.ReferenceName)
 	}
 	if world.ResourceIdName != nil {
 		t.Fatalf("expected no ResourceId but got %q", *world.ResourceIdName)
@@ -642,8 +651,6 @@ func TestParseOperationSingleWithResponseObjectInlinedList(t *testing.T) {
 }
 
 func TestParseOperationSingleRequestingWithABool(t *testing.T) {
-	t.Skip("Skipping until #85 is fully implemented")
-
 	parsed, err := Load("testdata/", "operations_single_requesting_with_a_bool.json", true)
 	if err != nil {
 		t.Fatalf("loading: %+v", err)
@@ -718,8 +725,6 @@ func TestParseOperationSingleRequestingWithABool(t *testing.T) {
 }
 
 func TestParseOperationSingleRequestingWithAInteger(t *testing.T) {
-	t.Skip("Skipping until #85 is fully implemented")
-
 	parsed, err := Load("testdata/", "operations_single_requesting_with_a_int.json", true)
 	if err != nil {
 		t.Fatalf("loading: %+v", err)
@@ -794,8 +799,6 @@ func TestParseOperationSingleRequestingWithAInteger(t *testing.T) {
 }
 
 func TestParseOperationSingleRequestingWithADictionaryOfStrings(t *testing.T) {
-	t.Skip("Skipping until #85 is fully implemented")
-
 	parsed, err := Load("testdata/", "operations_single_requesting_with_a_dictionary_of_strings.json", true)
 	if err != nil {
 		t.Fatalf("loading: %+v", err)
@@ -879,8 +882,6 @@ func TestParseOperationSingleRequestingWithADictionaryOfStrings(t *testing.T) {
 }
 
 func TestParseOperationSingleRequestingWithAListOfStrings(t *testing.T) {
-	t.Skip("Skipping until #85 is fully implemented")
-
 	parsed, err := Load("testdata/", "operations_single_requesting_with_a_list_of_strings.json", true)
 	if err != nil {
 		t.Fatalf("loading: %+v", err)
@@ -966,8 +967,6 @@ func TestParseOperationSingleRequestingWithAListOfStrings(t *testing.T) {
 // Models are already tested above
 
 func TestParseOperationSingleRequestingWithAString(t *testing.T) {
-	t.Skip("Skipping until #85 is fully implemented")
-
 	parsed, err := Load("testdata/", "operations_single_requesting_with_a_string.json", true)
 	if err != nil {
 		t.Fatalf("loading: %+v", err)
@@ -1338,8 +1337,6 @@ func TestParseOperationSingleReturningAString(t *testing.T) {
 }
 
 func TestParseOperationSingleReturningADictionaryOfAModel(t *testing.T) {
-	t.Skip("Skipping until #81 is fully implemented")
-
 	parsed, err := Load("testdata/", "operations_single_returning_a_dictionary_of_strings.json", true)
 	if err != nil {
 		t.Fatalf("loading: %+v", err)
@@ -1423,8 +1420,6 @@ func TestParseOperationSingleReturningADictionaryOfAModel(t *testing.T) {
 }
 
 func TestParseOperationSingleReturningADictionaryOfStrings(t *testing.T) {
-	t.Skip("Skipping until #81 is fully implemented")
-
 	parsed, err := Load("testdata/", "operations_single_returning_a_dictionary_of_strings.json", true)
 	if err != nil {
 		t.Fatalf("loading: %+v", err)
@@ -1591,8 +1586,6 @@ func TestParseOperationSingleReturningAListOfIntegers(t *testing.T) {
 }
 
 func TestParseOperationSingleReturningAListOfAModel(t *testing.T) {
-	t.Skip("Skipping until #81 is fully implemented")
-
 	parsed, err := Load("testdata/", "operations_single_returning_a_list_of_model.json", true)
 	if err != nil {
 		t.Fatalf("loading: %+v", err)
@@ -1762,8 +1755,6 @@ func TestParseOperationSingleReturningAListOfStrings(t *testing.T) {
 }
 
 func TestParseOperationSingleReturningAListOfListOfAModel(t *testing.T) {
-	t.Skip("Skipping until #81 is fully implemented")
-
 	parsed, err := Load("testdata/", "operations_single_returning_a_list_of_list_of_model.json", true)
 	if err != nil {
 		t.Fatalf("loading: %+v", err)
@@ -1835,8 +1826,8 @@ func TestParseOperationSingleReturningAListOfListOfAModel(t *testing.T) {
 	if world.ResponseObject.NestedItem.NestedItem == nil {
 		t.Fatalf("expected the response objects nested items nested item to have a valid but it didn't")
 	}
-	if world.ResponseObject.NestedItem.NestedItem.Type != models.ObjectDefinitionString {
-		t.Fatalf("expected the response objects nested item to be a string but got %q", string(world.ResponseObject.NestedItem.NestedItem.Type))
+	if world.ResponseObject.NestedItem.NestedItem.Type != models.ObjectDefinitionReference {
+		t.Fatalf("expected the response objects nested item to be a reference but got %q", string(world.ResponseObject.NestedItem.NestedItem.Type))
 	}
 	if world.ResponseObject.NestedItem.NestedItem.ReferenceName == nil {
 		t.Fatalf("expected the response objects nested items nested item to have a reference but didn't get one")
@@ -1859,8 +1850,6 @@ func TestParseOperationSingleReturningAListOfListOfAModel(t *testing.T) {
 }
 
 func TestParseOperationSingleReturningAListOfListOfStrings(t *testing.T) {
-	t.Skip("Skipping until #81 is fully implemented")
-
 	parsed, err := Load("testdata/", "operations_single_returning_a_list_of_list_of_strings.json", true)
 	if err != nil {
 		t.Fatalf("loading: %+v", err)

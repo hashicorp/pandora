@@ -308,55 +308,245 @@ func (d *SwaggerDefinition) requestObjectForOperation(operationDetails *spec.Ope
 		return nil, nil, nil
 	}
 
+	for paramName, param := range unexpandedOperation.Parameters {
+		if strings.EqualFold(param.In, "body") {
+			objectDefinition, result, err := d.parseObjectDefinition(param.Schema)
+			if err != nil {
+				return nil, nil, fmt.Errorf("parsing request object for parameter %q: %+v", paramName, err)
+			}
+			if objectDefinition != nil {
+				return objectDefinition, result, nil
+			}
+
+			//var objectName *string
+			//
+			//// if it's a singular type
+			//if param.Schema != nil {
+			//	objectName = fragmentNameFromReference(param.Schema.Ref)
+			//	if objectName == nil {
+			//		if len(param.Schema.Properties) == 0 {
+			//			return nil, nil, fmt.Errorf("request model must either be a reference or an inlined model but got neither")
+			//		}
+			//
+			//		nestedResult, err := d.parseModel(param.Schema.Title, *param.Schema)
+			//		if err != nil {
+			//			return nil, nil, fmt.Errorf("parsing object from inlined request model %q: %+v", param.Schema.Title, err)
+			//		}
+			//
+			//		if nestedResult != nil {
+			//			objectName = &param.Schema.Title
+			//			result.models[param.Schema.Title] = models.ModelDetails{
+			//				Description: "",
+			//				Fields:      nestedResult.fields.toMapOfModels(),
+			//			}
+			//			result.append(*nestedResult)
+			//		}
+			//	}
+			//
+			//	// if it's taking a list
+			//	if param.Schema.Items != nil && param.Schema.Items.Schema != nil {
+			//		objectName = fragmentNameFromReference(param.Schema.Items.Schema.Ref)
+			//		// @tombuildsstuff: appears you can't post a List of Items as a request param?
+			//	}
+			//}
+			//
+			//var out *models.ObjectDefinition
+			//if objectName != nil {
+			//	v := normalizeModelName(*objectName)
+			//	objectName = &v
+			//	out = &models.ObjectDefinition{
+			//		Type:          models.ObjectDefinitionReference,
+			//		ReferenceName: objectName,
+			//	}
+			//}
+			//return out, &result, nil
+		}
+	}
+
+	return nil, &result{}, nil
+}
+
+func (d *SwaggerDefinition) responseObjectForOperation(operationDetails *spec.Operation, isListOperation bool) (*models.ObjectDefinition, *result, error) {
+	// find the same operation in the unexpanded swagger spec since we need the reference name
+	_, _, unexpandedOperation, found := d.swaggerSpecWithReferences.OperationForName(operationDetails.ID)
+	if !found {
+		return nil, nil, nil
+	}
+
+	for statusCode, details := range unexpandedOperation.Responses.StatusCodeResponses {
+		if operationIsASuccess(statusCode) {
+			if details.ResponseProps.Schema == nil {
+				continue
+			}
+
+			objectDefinition, result, err := d.parseObjectDefinition(details.ResponseProps.Schema)
+			if err != nil {
+				return nil, nil, fmt.Errorf("parsing response object from status code %d: %+v", statusCode, err)
+			}
+			if objectDefinition != nil {
+				return objectDefinition, result, nil
+			}
+
+			//// TODO: what about a dictionary?
+			//
+			//// if it's taking a list
+			//if details.ResponseProps.Schema.Type.Contains("array") {
+			//	if details.ResponseProps.Schema.Items != nil {
+			//		if nativeType := parseNativeType(details.ResponseProps.Schema.Items.Schema); nativeType != nil {
+			//			out = &models.ObjectDefinition{
+			//				Type:       models.ObjectDefinitionList,
+			//				NestedItem: nativeType,
+			//			}
+			//		}
+			//
+			//		if details.ResponseProps.Schema.Items.Schema != nil {
+			//			schema := details.ResponseProps.Schema.Items.Schema
+			//			objectName = fragmentNameFromReference(schema.Ref)
+			//			if objectName == nil {
+			//				if len(schema.Properties) == 0 {
+			//					return nil, nil, fmt.Errorf("response list model must either be a reference or an inlined model but got neither")
+			//				}
+			//
+			//				nestedResult, err := d.parseModel(schema.Title, *schema)
+			//				if err != nil {
+			//					return nil, nil, fmt.Errorf("parsing list object from inlined response model %q: %+v", schema.Title, err)
+			//				}
+			//
+			//				if nestedResult != nil {
+			//					objectName = &schema.Title
+			//					result.models[schema.Title] = models.ModelDetails{
+			//						Description: "",
+			//						Fields:      nestedResult.fields.toMapOfModels(),
+			//					}
+			//					result.append(*nestedResult)
+			//				}
+			//			}
+			//		}
+			//	}
+			//}
+			//
+			//if objectName != nil {
+			//	v := normalizeModelName(*objectName)
+			//	objectName = &v
+			//}
+			//
+
+			// NOTE: List operations need to be handled differently since we want the object not the wrapper
+
+			//// however if this is a List operation, that is, we have a skipToken, we should find the model
+			//// and check for the `value` field to give us the real model
+			//if isListOperation {
+			//	if objectName == nil {
+			//		return nil, nil, fmt.Errorf("list operations must have a model, but this doesn't")
+			//	}
+			//
+			//	model, err := d.findTopLevelModel(*objectName)
+			//	if err != nil {
+			//		return nil, nil, fmt.Errorf("retrieving model %q for list operation to find real model: %+v", *objectName, err)
+			//	}
+			//
+			//	parsedModel, err := d.parseModel(*objectName, *model)
+			//	if err != nil {
+			//		return nil, nil, fmt.Errorf("parsing model %q for list operation to find real model: %+v", *objectName, err)
+			//	}
+			//
+			//	actualModelName := ""
+			//	for k, v := range parsedModel.fields {
+			//		if strings.EqualFold(k, "Value") {
+			//			if v.Details.ModelReference == nil {
+			//				return nil, nil, fmt.Errorf("parsing model %q for list operation to find real model: missing model reference for field 'value'", *objectName)
+			//			}
+			//			actualModelName = *v.Details.ModelReference
+			//			break
+			//		}
+			//	}
+			//	if actualModelName == "" {
+			//		return nil, nil, fmt.Errorf("parsing model %q for list operation to find real model: model did not contain a field 'value'", *objectName)
+			//	}
+			//	objectName = &actualModelName
+			//}
+			//
+			//if objectName != nil {
+			//	out = &models.ObjectDefinition{
+			//		Type:          models.ObjectDefinitionReference,
+			//		ReferenceName: objectName,
+			//	}
+			//}
+			//
+			//return out, &result, nil
+		}
+	}
+
+	return nil, &result{}, nil
+}
+
+func (d *SwaggerDefinition) parseObjectDefinition(input *spec.Schema) (*models.ObjectDefinition, *result, error) {
 	result := result{
 		constants: map[string]models.ConstantDetails{},
 		models:    map[string]models.ModelDetails{},
 	}
-	for _, param := range unexpandedOperation.Parameters {
-		if strings.EqualFold(param.In, "body") {
-			var objectName *string
 
-			// if it's a singular type
-			if param.Schema != nil {
-				objectName = fragmentNameFromReference(param.Schema.Ref)
-				if objectName == nil {
-					if len(param.Schema.Properties) == 0 {
-						return nil, nil, fmt.Errorf("request model must either be a reference or an inlined model but got neither")
-					}
+	// if it's a simple type, there'll be no other objects
+	if nativeType := parseNativeType(input); nativeType != nil {
+		return nativeType, &result, nil
+	}
 
-					nestedResult, err := d.parseModel(param.Schema.Title, *param.Schema)
-					if err != nil {
-						return nil, nil, fmt.Errorf("parsing object from inlined request model %q: %+v", param.Schema.Title, err)
-					}
-
-					if nestedResult != nil {
-						objectName = &param.Schema.Title
-						result.models[param.Schema.Title] = models.ModelDetails{
-							Description: "",
-							Fields:      nestedResult.fields.toMapOfModels(),
-						}
-						result.append(*nestedResult)
-					}
-				}
-
-				// if it's taking a list
-				if param.Schema.Items != nil && param.Schema.Items.Schema != nil {
-					objectName = fragmentNameFromReference(param.Schema.Items.Schema.Ref)
-					// @tombuildsstuff: appears you can't post a List of Items as a request param?
-				}
-			}
-
-			var out *models.ObjectDefinition
-			if objectName != nil {
-				v := normalizeModelName(*objectName)
-				objectName = &v
-				out = &models.ObjectDefinition{
-					Type:          models.ObjectDefinitionReference,
-					ReferenceName: objectName,
-				}
-			}
-			return out, &result, nil
+	// if it's a reference to a model, return that
+	if objectName := fragmentNameFromReference(input.Ref); objectName != nil {
+		// TODO: #99 - handle top level items being other types than Objects
+		topLevelObject, err := d.findTopLevelModel(*objectName)
+		if err != nil {
+			return nil, nil, fmt.Errorf("finding top level model %q: %+v", *objectName, err)
 		}
+		nestedResult, err := d.parseModel(topLevelObject.Title, *topLevelObject)
+		if err != nil {
+			return nil, nil, fmt.Errorf("parsing object from referenced model %q: %+v", input.Title, err)
+		}
+		if nestedResult == nil {
+			return nil, nil, fmt.Errorf("parsing object from inlined response model %q: no model returned", input.Title)
+		}
+
+		result.append(*nestedResult)
+		return &models.ObjectDefinition{
+			Type:          models.ObjectDefinitionReference,
+			ReferenceName: objectName,
+		}, &result, nil
+	}
+
+	// if it's an inlined model, pull it out and return that
+	if len(input.Properties) > 0 && input.Type.Contains("object") {
+		nestedResult, err := d.parseModel(input.Title, *input)
+		if err != nil {
+			return nil, nil, fmt.Errorf("parsing object from inlined model %q: %+v", input.Title, err)
+		}
+		if nestedResult == nil {
+			return nil, nil, fmt.Errorf("parsing object from inlined response model %q: no model returned", input.Title)
+		}
+
+		result.append(*nestedResult)
+		return &models.ObjectDefinition{
+			Type:          models.ObjectDefinitionReference,
+			ReferenceName: &input.Title,
+		}, &result, nil
+	}
+
+	// TODO: if it's a nested item, then we need to pull out the value and do the run-around with the nested item
+	// TODO: if it's a List, we need to do a nested run-around with the nested item
+
+	if input.Type.Contains("array") && input.Items.Schema != nil {
+		nestedItem, nestedResult, err := d.parseObjectDefinition(input.Items.Schema)
+		if err != nil {
+			return nil, nil, fmt.Errorf("parsing nested item for array: %+v", err)
+		}
+		if nestedItem == nil {
+			return nil, nil, fmt.Errorf("parsing nested item for array: no nested item returned")
+		}
+
+		result.append(*nestedResult)
+		return &models.ObjectDefinition{
+			Type:       models.ObjectDefinitionList,
+			NestedItem: nestedItem,
+		}, &result, nil
 	}
 
 	return nil, &result, nil
@@ -367,7 +557,7 @@ func parseNativeType(input *spec.Schema) *models.ObjectDefinition {
 		return nil
 	}
 
-	if input.Type.Contains("bool") {
+	if input.Type.Contains("bool") || input.Type.Contains("boolean") {
 		return &models.ObjectDefinition{
 			Type: models.ObjectDefinitionBoolean,
 		}
@@ -392,143 +582,6 @@ func parseNativeType(input *spec.Schema) *models.ObjectDefinition {
 	}
 
 	return nil
-}
-
-func (d *SwaggerDefinition) responseObjectForOperation(operationDetails *spec.Operation, isListOperation bool) (*models.ObjectDefinition, *result, error) {
-	// find the same operation in the unexpanded swagger spec since we need the reference name
-	_, _, unexpandedOperation, found := d.swaggerSpecWithReferences.OperationForName(operationDetails.ID)
-	if !found {
-		return nil, nil, nil
-	}
-
-	result := result{
-		constants: map[string]models.ConstantDetails{},
-		models:    map[string]models.ModelDetails{},
-	}
-	for statusCode, details := range unexpandedOperation.Responses.StatusCodeResponses {
-		if operationIsASuccess(statusCode) {
-			var objectName *string
-
-			if details.ResponseProps.Schema == nil {
-				continue
-			}
-
-			if nativeType := parseNativeType(details.ResponseProps.Schema); nativeType != nil {
-				return nativeType, &result, nil
-			}
-
-			// if it's a singular type
-			objectName = fragmentNameFromReference(details.ResponseProps.Schema.Ref)
-			if objectName == nil {
-				if len(details.ResponseProps.Schema.Properties) == 0 && details.ResponseProps.Schema.Type.Contains("object") {
-					return nil, nil, fmt.Errorf("response model must either be a reference or an inlined model but got neither")
-				}
-
-				nestedResult, err := d.parseModel(details.ResponseProps.Schema.Title, *details.ResponseProps.Schema)
-				if err != nil {
-					return nil, nil, fmt.Errorf("parsing object from inlined response model %q: %+v", details.ResponseProps.Schema.Title, err)
-				}
-
-				if nestedResult != nil {
-					objectName = &details.ResponseProps.Schema.Title
-					result.models[details.ResponseProps.Schema.Title] = models.ModelDetails{
-						Description: "",
-						Fields:      nestedResult.fields.toMapOfModels(),
-					}
-					result.append(*nestedResult)
-				}
-			}
-
-			// TODO: what about a dictionary?
-
-			// if it's taking a list
-			if details.ResponseProps.Schema.Type.Contains("array") {
-				if details.ResponseProps.Schema.Items != nil {
-					if nativeType := parseNativeType(details.ResponseProps.Schema.Items.Schema); nativeType != nil {
-						out := &models.ObjectDefinition{
-							Type:       models.ObjectDefinitionList,
-							NestedItem: nativeType,
-						}
-						return out, &result, nil
-					}
-
-					if details.ResponseProps.Schema.Items.Schema != nil {
-						schema := details.ResponseProps.Schema.Items.Schema
-						objectName = fragmentNameFromReference(schema.Ref)
-						if objectName == nil {
-							if len(schema.Properties) == 0 {
-								return nil, nil, fmt.Errorf("response list model must either be a reference or an inlined model but got neither")
-							}
-
-							nestedResult, err := d.parseModel(schema.Title, *schema)
-							if err != nil {
-								return nil, nil, fmt.Errorf("parsing list object from inlined response model %q: %+v", schema.Title, err)
-							}
-
-							if nestedResult != nil {
-								objectName = &schema.Title
-								result.models[schema.Title] = models.ModelDetails{
-									Description: "",
-									Fields:      nestedResult.fields.toMapOfModels(),
-								}
-								result.append(*nestedResult)
-							}
-						}
-					}
-				}
-			}
-
-			if objectName != nil {
-				v := normalizeModelName(*objectName)
-				objectName = &v
-			}
-
-			// however if this is a List operation, that is, we have a skipToken, we should find the model
-			// and check for the `value` field to give us the real model
-			if isListOperation {
-				if objectName == nil {
-					return nil, nil, fmt.Errorf("list operations must have a model, but this doesn't")
-				}
-
-				model, err := d.findTopLevelModel(*objectName)
-				if err != nil {
-					return nil, nil, fmt.Errorf("retrieving model %q for list operation to find real model: %+v", *objectName, err)
-				}
-
-				parsedModel, err := d.parseModel(*objectName, *model)
-				if err != nil {
-					return nil, nil, fmt.Errorf("parsing model %q for list operation to find real model: %+v", *objectName, err)
-				}
-
-				actualModelName := ""
-				for k, v := range parsedModel.fields {
-					if strings.EqualFold(k, "Value") {
-						if v.Details.ModelReference == nil {
-							return nil, nil, fmt.Errorf("parsing model %q for list operation to find real model: missing model reference for field 'value'", *objectName)
-						}
-						actualModelName = *v.Details.ModelReference
-						break
-					}
-				}
-				if actualModelName == "" {
-					return nil, nil, fmt.Errorf("parsing model %q for list operation to find real model: model did not contain a field 'value'", *objectName)
-				}
-				objectName = &actualModelName
-			}
-
-			var out *models.ObjectDefinition
-			if objectName != nil {
-				out = &models.ObjectDefinition{
-					Type:          models.ObjectDefinitionReference,
-					ReferenceName: objectName,
-				}
-			}
-
-			return out, &result, nil
-		}
-	}
-
-	return nil, &result, nil
 }
 
 func expectedStatusCodesForOperation(operationDetails *spec.Operation) []int {

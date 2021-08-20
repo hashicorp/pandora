@@ -13,12 +13,18 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
+// TODO: refactor all of these to return `result`s where possible
+
 const additionalPropertiesLit = "additionalProperties"
 
 type constantDetailsMap map[string]models.ConstantDetails
 
 func (m constantDetailsMap) merge(o constantDetailsMap) {
 	for k, v := range o {
+		if k == "" {
+			continue
+		}
+
 		m[k] = v
 	}
 }
@@ -45,6 +51,9 @@ func (f fieldDetailsMap) toMapOfModels() map[string]models.FieldDetails {
 
 func (f fieldDetailsMap) merge(o fieldDetailsMap) {
 	for k, v := range o {
+		if k == "" {
+			continue
+		}
 		f[k] = v
 	}
 }
@@ -53,6 +62,10 @@ type modelDetailsMap map[string]models.ModelDetails
 
 func (m modelDetailsMap) merge(o modelDetailsMap) {
 	for k, v := range o {
+		if k == "" {
+			continue
+		}
+
 		m[k] = v
 	}
 }
@@ -493,6 +506,16 @@ func (d *SwaggerDefinition) modelsForModel(name string, input spec.Schema, const
 	// if this is a Parent
 	if input.Discriminator != "" {
 		details.TypeHintIn = &input.Discriminator
+
+		implementations, err := d.findImplementationsOf(name)
+		if err != nil {
+			return nil, nil, fmt.Errorf("finding implementations of %q: %+v", name, err)
+		}
+
+		if implementations != nil {
+			constants.merge(implementations.constants)
+			foundModels.merge(implementations.models)
+		}
 	}
 
 	// this would be an Implementation
