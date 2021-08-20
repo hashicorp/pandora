@@ -41,19 +41,16 @@ func (g PandoraDefinitionGenerator) codeForOperation(namespace string, operation
 		}`)
 	}
 
-	if operation.RequestObjectName != nil {
-		requestOperationTypeName := *operation.RequestObjectName
-		if _, isConstant := resource.Constants[requestOperationTypeName]; isConstant {
-			requestOperationTypeName += "Constant"
-		}
-		if _, isModel := resource.Models[requestOperationTypeName]; isModel {
-			requestOperationTypeName += "Model"
+	if operation.RequestObject != nil {
+		requestOperationTypeName, err := typeNameForObjectDefinition(*operation.RequestObject, resource)
+		if err != nil {
+			return nil, fmt.Errorf("determining type name for Request Object: %+v", err)
 		}
 
 		code = append(code, fmt.Sprintf(`		public override Type? RequestObject()
 		{
 			return typeof(%[1]s);
-		}`, requestOperationTypeName))
+		}`, *requestOperationTypeName))
 	} else if strings.EqualFold(operation.Method, "POST") || strings.EqualFold(operation.Method, "PUT") {
 		// Post and Put operations should have one but it's possible they don't
 		code = append(code, fmt.Sprintf(`		public override Type? RequestObject()
@@ -69,25 +66,22 @@ func (g PandoraDefinitionGenerator) codeForOperation(namespace string, operation
 		}`, *operation.ResourceIdName))
 	}
 
-	if operation.ResponseObjectName != nil {
-		responseOperationTypeName := *operation.ResponseObjectName
-		if _, isConstant := resource.Constants[responseOperationTypeName]; isConstant {
-			responseOperationTypeName += "Constant"
-		}
-		if _, isModel := resource.Models[responseOperationTypeName]; isModel {
-			responseOperationTypeName += "Model"
+	if operation.ResponseObject != nil {
+		responseOperationTypeName, err := typeNameForObjectDefinition(*operation.ResponseObject, resource)
+		if err != nil {
+			return nil, fmt.Errorf("determining type name for Response Object: %+v", err)
 		}
 
 		if operation.FieldContainingPaginationDetails == nil {
 			code = append(code, fmt.Sprintf(`		public override Type? ResponseObject()
 		{
 			return typeof(%[1]s);
-		}`, responseOperationTypeName))
+		}`, *responseOperationTypeName))
 		} else {
 			code = append(code, fmt.Sprintf(`		public override Type NestedItemType()
 		{
 			return typeof(%[1]s);
-		}`, responseOperationTypeName))
+		}`, *responseOperationTypeName))
 		}
 	}
 
@@ -199,6 +193,95 @@ func dotNetNameForHttpMethod(method string) string {
 	default:
 		return fmt.Sprintf("TODO (unimplemented %q)", method)
 	}
+}
+
+func typeNameForObjectDefinition(input models.ObjectDefinition, resource models.AzureApiResource) (*string, error) {
+	if input.Type == models.ObjectDefinitionDictionary {
+		typeName := ""
+		// either it's a nested Dictionary (e.g. Dictionary<string, string>)
+		if input.NestedItem != nil {
+			nestedType, err := typeNameForObjectDefinition(*input.NestedItem, resource)
+			if err != nil {
+				return nil, fmt.Errorf("determining nested type: %+v", err)
+			}
+
+			typeName = *nestedType
+		}
+
+		// or it's got a reference (e.g. Dictionary<string, Model>)
+		if input.ReferenceName != nil {
+			typeName = *input.ReferenceName
+		}
+
+		if typeName == "" {
+			return nil, fmt.Errorf("missing a reference or nested item for nested dictionary item")
+		}
+
+		out := fmt.Sprintf("Dictionary<string, %s>", typeName)
+		return &out, nil
+	}
+
+	if input.Type == models.ObjectDefinitionList {
+		typeName := ""
+		// either it's a nested List (e.g. List<string>, List<List<string>>)
+		if input.NestedItem != nil {
+			nestedType, err := typeNameForObjectDefinition(*input.NestedItem, resource)
+			if err != nil {
+				return nil, fmt.Errorf("determining nested type: %+v", err)
+			}
+
+			typeName = *nestedType
+		}
+
+		// or it's got a reference (e.g. List<Model>)
+		if input.ReferenceName != nil {
+			typeName = *input.ReferenceName
+		}
+
+		if typeName == "" {
+			return nil, fmt.Errorf("missing a reference or nested item for nested list item")
+		}
+
+		out := fmt.Sprintf("List<%s>", typeName)
+		return &out, nil
+	}
+
+	if input.Type == models.ObjectDefinitionReference {
+		if input.ReferenceName == nil {
+			return nil, fmt.Errorf("missing constant/model reference")
+		}
+
+		output := *input.ReferenceName
+		if _, isConstant := resource.Constants[output]; isConstant {
+			output += "Constant"
+		}
+		if _, isModel := resource.Models[output]; isModel {
+			output += "Model"
+		}
+
+		return &output, nil
+	}
+
+	var out string
+	switch input.Type {
+	case models.ObjectDefinitionBoolean:
+		out = "bool"
+
+	case models.ObjectDefinitionFloat:
+		out = "float"
+
+	case models.ObjectDefinitionInteger:
+		out = "int"
+
+	case models.ObjectDefinitionString:
+		out = "string"
+	}
+
+	if out != "" {
+		return &out, nil
+	}
+
+	return nil, fmt.Errorf("unimplemented object definition type")
 }
 
 func (g PandoraDefinitionGenerator) usesNonDefaultStatusCodes(operation models.OperationDetails) bool {

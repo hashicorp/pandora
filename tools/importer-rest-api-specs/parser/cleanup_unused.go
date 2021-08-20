@@ -65,12 +65,12 @@ func (d *SwaggerDefinition) findUnusedConstants(input models.AzureApiResource) [
 
 		usedInAnOperation := false
 		for _, operation := range input.Operations {
-			if operation.RequestObjectName != nil && *operation.RequestObjectName == constantName {
+			if operation.RequestObject != nil && operation.RequestObject.Type == models.ObjectDefinitionReference && *operation.RequestObject.ReferenceName == constantName {
 				usedInAnOperation = true
 				break
 			}
 
-			if operation.ResponseObjectName != nil && *operation.ResponseObjectName == constantName {
+			if operation.ResponseObject != nil && operation.ResponseObject.Type == models.ObjectDefinitionReference && *operation.ResponseObject.ReferenceName == constantName {
 				usedInAnOperation = true
 				break
 			}
@@ -101,11 +101,12 @@ func (d *SwaggerDefinition) findUnusedModels(input models.AzureApiResource) []st
 		// models are either referenced by operations
 		usedInAnOperation := false
 		for _, operation := range input.Operations {
-			if operation.RequestObjectName != nil && *operation.RequestObjectName == modelName {
+			if operation.RequestObject != nil && operation.RequestObject.Type == models.ObjectDefinitionReference && *operation.RequestObject.ReferenceName == modelName {
 				usedInAnOperation = true
 				break
 			}
-			if operation.ResponseObjectName != nil && *operation.ResponseObjectName == modelName {
+
+			if operation.ResponseObject != nil && operation.ResponseObject.Type == models.ObjectDefinitionReference && *operation.ResponseObject.ReferenceName == modelName {
 				usedInAnOperation = true
 				break
 			}
