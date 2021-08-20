@@ -383,97 +383,44 @@ func (d *SwaggerDefinition) responseObjectForOperation(operationDetails *spec.Op
 			if err != nil {
 				return nil, nil, fmt.Errorf("parsing response object from status code %d: %+v", statusCode, err)
 			}
+
+			// NOTE: List operations need to be handled differently since we want the object not the wrapper
+			if isListOperation {
+				if objectDefinition == nil {
+					return nil, nil, fmt.Errorf("list operations must have a return object, but this doesn't")
+				}
+				if objectDefinition.Type != models.ObjectDefinitionReference {
+					return nil, nil, fmt.Errorf("TODO: add support for %q - list operations only support references at this time", string(objectDefinition.Type))
+				}
+
+				// find the real object and then return that instead
+				modelName := *objectDefinition.ReferenceName
+				model, ok := result.models[modelName]
+				if !ok {
+					return nil, nil, fmt.Errorf("the model %q was not found", modelName)
+				}
+
+				actualModelName := ""
+				for k, v := range model.Fields {
+					if strings.EqualFold(k, "Value") {
+						if v.ModelReference == nil {
+							return nil, nil, fmt.Errorf("parsing model %q for list operation to find real model: missing model reference for field 'value'", modelName)
+						}
+						actualModelName = *v.ModelReference
+						break
+					}
+				}
+
+				if actualModelName == "" {
+					return nil, nil, fmt.Errorf("parsing model %q for list operation to find real model: model did not contain a field 'value'", modelName)
+				}
+
+				objectDefinition.ReferenceName = &actualModelName
+			}
+
 			if objectDefinition != nil {
 				return objectDefinition, result, nil
 			}
-
-			//// TODO: what about a dictionary?
-			//
-			//// if it's taking a list
-			//if details.ResponseProps.Schema.Type.Contains("array") {
-			//	if details.ResponseProps.Schema.Items != nil {
-			//		if nativeType := parseNativeType(details.ResponseProps.Schema.Items.Schema); nativeType != nil {
-			//			out = &models.ObjectDefinition{
-			//				Type:       models.ObjectDefinitionList,
-			//				NestedItem: nativeType,
-			//			}
-			//		}
-			//
-			//		if details.ResponseProps.Schema.Items.Schema != nil {
-			//			schema := details.ResponseProps.Schema.Items.Schema
-			//			objectName = fragmentNameFromReference(schema.Ref)
-			//			if objectName == nil {
-			//				if len(schema.Properties) == 0 {
-			//					return nil, nil, fmt.Errorf("response list model must either be a reference or an inlined model but got neither")
-			//				}
-			//
-			//				nestedResult, err := d.parseModel(schema.Title, *schema)
-			//				if err != nil {
-			//					return nil, nil, fmt.Errorf("parsing list object from inlined response model %q: %+v", schema.Title, err)
-			//				}
-			//
-			//				if nestedResult != nil {
-			//					objectName = &schema.Title
-			//					result.models[schema.Title] = models.ModelDetails{
-			//						Description: "",
-			//						Fields:      nestedResult.fields.toMapOfModels(),
-			//					}
-			//					result.append(*nestedResult)
-			//				}
-			//			}
-			//		}
-			//	}
-			//}
-			//
-			//if objectName != nil {
-			//	v := normalizeModelName(*objectName)
-			//	objectName = &v
-			//}
-			//
-
-			// NOTE: List operations need to be handled differently since we want the object not the wrapper
-
-			//// however if this is a List operation, that is, we have a skipToken, we should find the model
-			//// and check for the `value` field to give us the real model
-			//if isListOperation {
-			//	if objectName == nil {
-			//		return nil, nil, fmt.Errorf("list operations must have a model, but this doesn't")
-			//	}
-			//
-			//	model, err := d.findTopLevelModel(*objectName)
-			//	if err != nil {
-			//		return nil, nil, fmt.Errorf("retrieving model %q for list operation to find real model: %+v", *objectName, err)
-			//	}
-			//
-			//	parsedModel, err := d.parseModel(*objectName, *model)
-			//	if err != nil {
-			//		return nil, nil, fmt.Errorf("parsing model %q for list operation to find real model: %+v", *objectName, err)
-			//	}
-			//
-			//	actualModelName := ""
-			//	for k, v := range parsedModel.fields {
-			//		if strings.EqualFold(k, "Value") {
-			//			if v.Details.ModelReference == nil {
-			//				return nil, nil, fmt.Errorf("parsing model %q for list operation to find real model: missing model reference for field 'value'", *objectName)
-			//			}
-			//			actualModelName = *v.Details.ModelReference
-			//			break
-			//		}
-			//	}
-			//	if actualModelName == "" {
-			//		return nil, nil, fmt.Errorf("parsing model %q for list operation to find real model: model did not contain a field 'value'", *objectName)
-			//	}
-			//	objectName = &actualModelName
-			//}
-			//
-			//if objectName != nil {
-			//	out = &models.ObjectDefinition{
-			//		Type:          models.ObjectDefinitionReference,
-			//		ReferenceName: objectName,
-			//	}
-			//}
-			//
-			//return out, &result, nil
 		}
 	}
 
