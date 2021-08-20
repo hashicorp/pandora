@@ -445,7 +445,7 @@ func (d *SwaggerDefinition) parseObjectDefinition(input *spec.Schema) (*models.O
 		if err != nil {
 			return nil, nil, fmt.Errorf("finding top level model %q: %+v", *objectName, err)
 		}
-		nestedResult, err := d.parseModel(topLevelObject.Title, *topLevelObject)
+		nestedResult, err := d.parseModel(*objectName, *topLevelObject)
 		if err != nil {
 			return nil, nil, fmt.Errorf("parsing object from referenced model %q: %+v", input.Title, err)
 		}
