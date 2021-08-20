@@ -9,19 +9,13 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.Autho
 {
     internal class NamespacesDeleteAuthorizationRuleOperation : Operations.DeleteOperation
     {
-        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes()
+        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
-            return new List<HttpStatusCode>
-            {
                 HttpStatusCode.NoContent,
                 HttpStatusCode.OK,
-            };
-        }
+        };
 
-        public override ResourceID? ResourceId()
-        {
-            return new AuthorizationRuleId();
-        }
+        public override ResourceID? ResourceId() => new AuthorizationRuleId();
 
 
     }

@@ -9,35 +9,20 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2021_01_01_preview.Names
 {
     internal class CreateOrUpdateOperation : Operations.PutOperation
     {
-        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes()
+        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
-            return new List<HttpStatusCode>
-            {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.Created,
                 HttpStatusCode.OK,
-            };
-        }
+        };
 
-        public override bool LongRunning()
-        {
-            return true;
-        }
+        public override bool LongRunning() => true;
 
-        public override Type? RequestObject()
-        {
-            return typeof(EHNamespaceModel);
-        }
+        public override Type? RequestObject() => typeof(EHNamespaceModel);
 
-        public override ResourceID? ResourceId()
-        {
-            return new NamespaceId();
-        }
+        public override ResourceID? ResourceId() => new NamespaceId();
 
-        public override Type? ResponseObject()
-        {
-            return typeof(EHNamespaceModel);
-        }
+        public override Type? ResponseObject() => typeof(EHNamespaceModel);
 
 
     }

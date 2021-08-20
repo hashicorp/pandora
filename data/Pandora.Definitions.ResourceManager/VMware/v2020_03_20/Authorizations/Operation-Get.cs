@@ -9,15 +9,9 @@ namespace Pandora.Definitions.ResourceManager.VMware.v2020_03_20.Authorizations
 {
     internal class GetOperation : Operations.GetOperation
     {
-        public override ResourceID? ResourceId()
-        {
-            return new AuthorizationId();
-        }
+        public override ResourceID? ResourceId() => new AuthorizationId();
 
-        public override Type? ResponseObject()
-        {
-            return typeof(ExpressRouteAuthorizationModel);
-        }
+        public override Type? ResponseObject() => typeof(ExpressRouteAuthorizationModel);
 
 
     }

@@ -9,24 +9,15 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.Namespaces
 {
     internal class GetOperation : Operations.GetOperation
     {
-        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes()
+        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
-            return new List<HttpStatusCode>
-            {
                 HttpStatusCode.Created,
                 HttpStatusCode.OK,
-            };
-        }
+        };
 
-        public override ResourceID? ResourceId()
-        {
-            return new NamespaceId();
-        }
+        public override ResourceID? ResourceId() => new NamespaceId();
 
-        public override Type? ResponseObject()
-        {
-            return typeof(EHNamespaceModel);
-        }
+        public override Type? ResponseObject() => typeof(EHNamespaceModel);
 
 
     }

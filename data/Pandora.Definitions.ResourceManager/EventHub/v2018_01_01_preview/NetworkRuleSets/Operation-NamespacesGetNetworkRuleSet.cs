@@ -9,20 +9,11 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.Netwo
 {
     internal class NamespacesGetNetworkRuleSetOperation : Operations.GetOperation
     {
-        public override ResourceID? ResourceId()
-        {
-            return new NamespaceId();
-        }
+        public override ResourceID? ResourceId() => new NamespaceId();
 
-        public override Type? ResponseObject()
-        {
-            return typeof(NetworkRuleSetModel);
-        }
+        public override Type? ResponseObject() => typeof(NetworkRuleSetModel);
 
-        public override string? UriSuffix()
-        {
-            return "/networkRuleSets/default";
-        }
+        public override string? UriSuffix() => "/networkRuleSets/default";
 
 
     }

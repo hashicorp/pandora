@@ -9,15 +9,9 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.Virtu
 {
     internal class NamespacesGetVirtualNetworkRuleOperation : Operations.GetOperation
     {
-        public override ResourceID? ResourceId()
-        {
-            return new VirtualnetworkruleId();
-        }
+        public override ResourceID? ResourceId() => new VirtualnetworkruleId();
 
-        public override Type? ResponseObject()
-        {
-            return typeof(VirtualNetworkRuleModel);
-        }
+        public override Type? ResponseObject() => typeof(VirtualNetworkRuleModel);
 
 
     }

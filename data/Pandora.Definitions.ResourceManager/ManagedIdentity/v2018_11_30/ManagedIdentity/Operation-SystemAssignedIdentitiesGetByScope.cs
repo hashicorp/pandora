@@ -9,15 +9,9 @@ namespace Pandora.Definitions.ResourceManager.ManagedIdentity.v2018_11_30.Manage
 {
     internal class SystemAssignedIdentitiesGetByScopeOperation : Operations.GetOperation
     {
-        public override Type? ResponseObject()
-        {
-            return typeof(SystemAssignedIdentityModel);
-        }
+        public override Type? ResponseObject() => typeof(SystemAssignedIdentityModel);
 
-        public override string? UriSuffix()
-        {
-            return "/{scope}/providers/Microsoft.ManagedIdentity/identities/default";
-        }
+        public override string? UriSuffix() => "/{scope}/providers/Microsoft.ManagedIdentity/identities/default";
 
 
     }

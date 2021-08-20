@@ -9,28 +9,16 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.Autho
 {
     internal class NamespacesCreateOrUpdateAuthorizationRuleOperation : Operations.PutOperation
     {
-        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes()
+        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
-            return new List<HttpStatusCode>
-            {
                 HttpStatusCode.OK,
-            };
-        }
+        };
 
-        public override Type? RequestObject()
-        {
-            return typeof(AuthorizationRuleModel);
-        }
+        public override Type? RequestObject() => typeof(AuthorizationRuleModel);
 
-        public override ResourceID? ResourceId()
-        {
-            return new AuthorizationRuleId();
-        }
+        public override ResourceID? ResourceId() => new AuthorizationRuleId();
 
-        public override Type? ResponseObject()
-        {
-            return typeof(AuthorizationRuleModel);
-        }
+        public override Type? ResponseObject() => typeof(AuthorizationRuleModel);
 
 
     }

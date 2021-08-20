@@ -9,35 +9,20 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.Event
 {
     internal class ClustersCreateOrUpdateOperation : Operations.PutOperation
     {
-        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes()
+        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
-            return new List<HttpStatusCode>
-            {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.Created,
                 HttpStatusCode.OK,
-            };
-        }
+        };
 
-        public override bool LongRunning()
-        {
-            return true;
-        }
+        public override bool LongRunning() => true;
 
-        public override Type? RequestObject()
-        {
-            return typeof(ClusterModel);
-        }
+        public override Type? RequestObject() => typeof(ClusterModel);
 
-        public override ResourceID? ResourceId()
-        {
-            return new ClusterId();
-        }
+        public override ResourceID? ResourceId() => new ClusterId();
 
-        public override Type? ResponseObject()
-        {
-            return typeof(ClusterModel);
-        }
+        public override Type? ResponseObject() => typeof(ClusterModel);
 
 
     }

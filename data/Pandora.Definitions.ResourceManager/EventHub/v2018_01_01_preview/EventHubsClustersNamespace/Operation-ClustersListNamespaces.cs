@@ -9,20 +9,11 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.Event
 {
     internal class ClustersListNamespacesOperation : Operations.GetOperation
     {
-        public override ResourceID? ResourceId()
-        {
-            return new ClusterId();
-        }
+        public override ResourceID? ResourceId() => new ClusterId();
 
-        public override Type? ResponseObject()
-        {
-            return typeof(EHNamespaceIdListResultModel);
-        }
+        public override Type? ResponseObject() => typeof(EHNamespaceIdListResultModel);
 
-        public override string? UriSuffix()
-        {
-            return "/namespaces";
-        }
+        public override string? UriSuffix() => "/namespaces";
 
 
     }

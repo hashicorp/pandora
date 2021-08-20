@@ -9,20 +9,11 @@ namespace Pandora.Definitions.ResourceManager.Attestation.v2020_10_01.Attestatio
 {
     internal class GetDefaultByLocationOperation : Operations.GetOperation
     {
-        public override ResourceID? ResourceId()
-        {
-            return new LocationId();
-        }
+        public override ResourceID? ResourceId() => new LocationId();
 
-        public override Type? ResponseObject()
-        {
-            return typeof(AttestationProviderModel);
-        }
+        public override Type? ResponseObject() => typeof(AttestationProviderModel);
 
-        public override string? UriSuffix()
-        {
-            return "/defaultProvider";
-        }
+        public override string? UriSuffix() => "/defaultProvider";
 
 
     }

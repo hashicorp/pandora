@@ -9,25 +9,13 @@ namespace Pandora.Definitions.ResourceManager.Purview.v2021_07_01.Account
 {
     internal class CreateOrUpdateOperation : Operations.PutOperation
     {
-        public override bool LongRunning()
-        {
-            return true;
-        }
+        public override bool LongRunning() => true;
 
-        public override Type? RequestObject()
-        {
-            return typeof(AccountModel);
-        }
+        public override Type? RequestObject() => typeof(AccountModel);
 
-        public override ResourceID? ResourceId()
-        {
-            return new AccountId();
-        }
+        public override ResourceID? ResourceId() => new AccountId();
 
-        public override Type? ResponseObject()
-        {
-            return typeof(AccountModel);
-        }
+        public override Type? ResponseObject() => typeof(AccountModel);
 
 
     }

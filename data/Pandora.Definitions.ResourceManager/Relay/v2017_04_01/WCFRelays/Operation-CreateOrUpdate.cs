@@ -9,28 +9,16 @@ namespace Pandora.Definitions.ResourceManager.Relay.v2017_04_01.WCFRelays
 {
     internal class CreateOrUpdateOperation : Operations.PutOperation
     {
-        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes()
+        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
-            return new List<HttpStatusCode>
-            {
                 HttpStatusCode.OK,
-            };
-        }
+        };
 
-        public override Type? RequestObject()
-        {
-            return typeof(WcfRelayModel);
-        }
+        public override Type? RequestObject() => typeof(WcfRelayModel);
 
-        public override ResourceID? ResourceId()
-        {
-            return new WcfRelayId();
-        }
+        public override ResourceID? ResourceId() => new WcfRelayId();
 
-        public override Type? ResponseObject()
-        {
-            return typeof(WcfRelayModel);
-        }
+        public override Type? ResponseObject() => typeof(WcfRelayModel);
 
 
     }

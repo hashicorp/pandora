@@ -9,30 +9,15 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.Event
 {
     internal class ListByNamespaceOperation : Operations.ListOperation
     {
-        public override string? FieldContainingPaginationDetails()
-        {
-            return "nextLink";
-        }
+        public override string? FieldContainingPaginationDetails() => "nextLink";
 
-        public override ResourceID? ResourceId()
-        {
-            return new NamespaceId();
-        }
+        public override ResourceID? ResourceId() => new NamespaceId();
 
-        public override Type NestedItemType()
-        {
-            return typeof(EventhubModel);
-        }
+        public override Type NestedItemType() => typeof(EventhubModel);
 
-        public override Type? OptionsObject()
-        {
-            return typeof(ListByNamespaceOperation.ListByNamespaceOptions);
-        }
+        public override Type? OptionsObject() => typeof(ListByNamespaceOperation.ListByNamespaceOptions);
 
-        public override string? UriSuffix()
-        {
-            return "/eventhubs";
-        }
+        public override string? UriSuffix() => "/eventhubs";
 
         internal class ListByNamespaceOptions
         {

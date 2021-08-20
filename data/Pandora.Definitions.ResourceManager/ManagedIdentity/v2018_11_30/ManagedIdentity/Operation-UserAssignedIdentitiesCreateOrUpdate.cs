@@ -9,20 +9,11 @@ namespace Pandora.Definitions.ResourceManager.ManagedIdentity.v2018_11_30.Manage
 {
     internal class UserAssignedIdentitiesCreateOrUpdateOperation : Operations.PutOperation
     {
-        public override Type? RequestObject()
-        {
-            return typeof(IdentityModel);
-        }
+        public override Type? RequestObject() => typeof(IdentityModel);
 
-        public override ResourceID? ResourceId()
-        {
-            return new UserAssignedIdentitiesId();
-        }
+        public override ResourceID? ResourceId() => new UserAssignedIdentitiesId();
 
-        public override Type? ResponseObject()
-        {
-            return typeof(IdentityModel);
-        }
+        public override Type? ResponseObject() => typeof(IdentityModel);
 
 
     }

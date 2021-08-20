@@ -9,20 +9,11 @@ namespace Pandora.Definitions.ResourceManager.Attestation.v2020_10_01.PrivateEnd
 {
     internal class ListOperation : Operations.GetOperation
     {
-        public override ResourceID? ResourceId()
-        {
-            return new AttestationProviderId();
-        }
+        public override ResourceID? ResourceId() => new AttestationProviderId();
 
-        public override Type? ResponseObject()
-        {
-            return typeof(PrivateEndpointConnectionListResultModel);
-        }
+        public override Type? ResponseObject() => typeof(PrivateEndpointConnectionListResultModel);
 
-        public override string? UriSuffix()
-        {
-            return "/privateEndpointConnections";
-        }
+        public override string? UriSuffix() => "/privateEndpointConnections";
 
 
     }

@@ -9,20 +9,11 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2021_01_01_preview.Names
 {
     internal class PrivateEndpointConnectionsCreateOrUpdateOperation : Operations.PutOperation
     {
-        public override Type? RequestObject()
-        {
-            return typeof(PrivateEndpointConnectionModel);
-        }
+        public override Type? RequestObject() => typeof(PrivateEndpointConnectionModel);
 
-        public override ResourceID? ResourceId()
-        {
-            return new PrivateEndpointConnectionId();
-        }
+        public override ResourceID? ResourceId() => new PrivateEndpointConnectionId();
 
-        public override Type? ResponseObject()
-        {
-            return typeof(PrivateEndpointConnectionModel);
-        }
+        public override Type? ResponseObject() => typeof(PrivateEndpointConnectionModel);
 
 
     }

@@ -9,28 +9,16 @@ namespace Pandora.Definitions.ResourceManager.Maps.v2021_02_01.Accounts
 {
     internal class UpdateOperation : Operations.PatchOperation
     {
-        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes()
+        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
-            return new List<HttpStatusCode>
-            {
                 HttpStatusCode.OK,
-            };
-        }
+        };
 
-        public override Type? RequestObject()
-        {
-            return typeof(MapsAccountUpdateParametersModel);
-        }
+        public override Type? RequestObject() => typeof(MapsAccountUpdateParametersModel);
 
-        public override ResourceID? ResourceId()
-        {
-            return new AccountId();
-        }
+        public override ResourceID? ResourceId() => new AccountId();
 
-        public override Type? ResponseObject()
-        {
-            return typeof(MapsAccountModel);
-        }
+        public override Type? ResponseObject() => typeof(MapsAccountModel);
 
 
     }

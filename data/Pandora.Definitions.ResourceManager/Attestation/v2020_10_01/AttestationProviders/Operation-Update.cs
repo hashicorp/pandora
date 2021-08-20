@@ -9,28 +9,16 @@ namespace Pandora.Definitions.ResourceManager.Attestation.v2020_10_01.Attestatio
 {
     internal class UpdateOperation : Operations.PatchOperation
     {
-        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes()
+        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
-            return new List<HttpStatusCode>
-            {
                 HttpStatusCode.OK,
-            };
-        }
+        };
 
-        public override Type? RequestObject()
-        {
-            return typeof(AttestationServicePatchParamsModel);
-        }
+        public override Type? RequestObject() => typeof(AttestationServicePatchParamsModel);
 
-        public override ResourceID? ResourceId()
-        {
-            return new AttestationProviderId();
-        }
+        public override ResourceID? ResourceId() => new AttestationProviderId();
 
-        public override Type? ResponseObject()
-        {
-            return typeof(AttestationProviderModel);
-        }
+        public override Type? ResponseObject() => typeof(AttestationProviderModel);
 
 
     }

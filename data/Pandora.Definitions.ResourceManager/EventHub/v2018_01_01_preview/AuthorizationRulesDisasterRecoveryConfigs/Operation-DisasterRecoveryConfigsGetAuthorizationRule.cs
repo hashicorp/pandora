@@ -9,15 +9,9 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.Autho
 {
     internal class DisasterRecoveryConfigsGetAuthorizationRuleOperation : Operations.GetOperation
     {
-        public override ResourceID? ResourceId()
-        {
-            return new AuthorizationRuleId();
-        }
+        public override ResourceID? ResourceId() => new AuthorizationRuleId();
 
-        public override Type? ResponseObject()
-        {
-            return typeof(AuthorizationRuleModel);
-        }
+        public override Type? ResponseObject() => typeof(AuthorizationRuleModel);
 
 
     }

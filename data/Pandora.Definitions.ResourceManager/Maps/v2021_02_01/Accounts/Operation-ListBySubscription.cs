@@ -9,25 +9,13 @@ namespace Pandora.Definitions.ResourceManager.Maps.v2021_02_01.Accounts
 {
     internal class ListBySubscriptionOperation : Operations.ListOperation
     {
-        public override string? FieldContainingPaginationDetails()
-        {
-            return "nextLink";
-        }
+        public override string? FieldContainingPaginationDetails() => "nextLink";
 
-        public override ResourceID? ResourceId()
-        {
-            return new SubscriptionId();
-        }
+        public override ResourceID? ResourceId() => new SubscriptionId();
 
-        public override Type NestedItemType()
-        {
-            return typeof(MapsAccountModel);
-        }
+        public override Type NestedItemType() => typeof(MapsAccountModel);
 
-        public override string? UriSuffix()
-        {
-            return "/providers/Microsoft.Maps/accounts";
-        }
+        public override string? UriSuffix() => "/providers/Microsoft.Maps/accounts";
 
 
     }

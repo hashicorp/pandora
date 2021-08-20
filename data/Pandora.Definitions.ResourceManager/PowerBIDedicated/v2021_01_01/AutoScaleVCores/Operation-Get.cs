@@ -9,15 +9,9 @@ namespace Pandora.Definitions.ResourceManager.PowerBIDedicated.v2021_01_01.AutoS
 {
     internal class GetOperation : Operations.GetOperation
     {
-        public override ResourceID? ResourceId()
-        {
-            return new AutoScaleVCoreId();
-        }
+        public override ResourceID? ResourceId() => new AutoScaleVCoreId();
 
-        public override Type? ResponseObject()
-        {
-            return typeof(AutoScaleVCoreModel);
-        }
+        public override Type? ResponseObject() => typeof(AutoScaleVCoreModel);
 
 
     }

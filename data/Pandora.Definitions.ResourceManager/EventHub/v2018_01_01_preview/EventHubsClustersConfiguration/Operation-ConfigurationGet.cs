@@ -9,20 +9,11 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.Event
 {
     internal class ConfigurationGetOperation : Operations.GetOperation
     {
-        public override ResourceID? ResourceId()
-        {
-            return new ClusterId();
-        }
+        public override ResourceID? ResourceId() => new ClusterId();
 
-        public override Type? ResponseObject()
-        {
-            return typeof(ClusterQuotaConfigurationPropertiesModel);
-        }
+        public override Type? ResponseObject() => typeof(ClusterQuotaConfigurationPropertiesModel);
 
-        public override string? UriSuffix()
-        {
-            return "/quotaConfiguration/default";
-        }
+        public override string? UriSuffix() => "/quotaConfiguration/default";
 
 
     }

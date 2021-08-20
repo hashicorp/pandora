@@ -9,19 +9,13 @@ namespace Pandora.Definitions.ResourceManager.Attestation.v2020_10_01.PrivateEnd
 {
     internal class DeleteOperation : Operations.DeleteOperation
     {
-        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes()
+        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
-            return new List<HttpStatusCode>
-            {
                 HttpStatusCode.NoContent,
                 HttpStatusCode.OK,
-            };
-        }
+        };
 
-        public override ResourceID? ResourceId()
-        {
-            return new PrivateEndpointConnectionId();
-        }
+        public override ResourceID? ResourceId() => new PrivateEndpointConnectionId();
 
 
     }

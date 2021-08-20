@@ -9,25 +9,13 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.Virtu
 {
     internal class NamespacesListVirtualNetworkRulesOperation : Operations.ListOperation
     {
-        public override string? FieldContainingPaginationDetails()
-        {
-            return "nextLink";
-        }
+        public override string? FieldContainingPaginationDetails() => "nextLink";
 
-        public override ResourceID? ResourceId()
-        {
-            return new NamespaceId();
-        }
+        public override ResourceID? ResourceId() => new NamespaceId();
 
-        public override Type NestedItemType()
-        {
-            return typeof(VirtualNetworkRuleModel);
-        }
+        public override Type NestedItemType() => typeof(VirtualNetworkRuleModel);
 
-        public override string? UriSuffix()
-        {
-            return "/virtualnetworkrules";
-        }
+        public override string? UriSuffix() => "/virtualnetworkrules";
 
 
     }

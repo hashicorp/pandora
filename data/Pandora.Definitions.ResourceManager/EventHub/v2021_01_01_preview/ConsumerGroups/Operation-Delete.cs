@@ -9,19 +9,13 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2021_01_01_preview.Consu
 {
     internal class DeleteOperation : Operations.DeleteOperation
     {
-        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes()
+        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
-            return new List<HttpStatusCode>
-            {
                 HttpStatusCode.NoContent,
                 HttpStatusCode.OK,
-            };
-        }
+        };
 
-        public override ResourceID? ResourceId()
-        {
-            return new ConsumergroupId();
-        }
+        public override ResourceID? ResourceId() => new ConsumergroupId();
 
 
     }

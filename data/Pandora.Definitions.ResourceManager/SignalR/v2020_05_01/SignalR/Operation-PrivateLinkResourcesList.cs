@@ -9,25 +9,13 @@ namespace Pandora.Definitions.ResourceManager.SignalR.v2020_05_01.SignalR
 {
     internal class PrivateLinkResourcesListOperation : Operations.ListOperation
     {
-        public override string? FieldContainingPaginationDetails()
-        {
-            return "nextLink";
-        }
+        public override string? FieldContainingPaginationDetails() => "nextLink";
 
-        public override ResourceID? ResourceId()
-        {
-            return new SignalRId();
-        }
+        public override ResourceID? ResourceId() => new SignalRId();
 
-        public override Type NestedItemType()
-        {
-            return typeof(PrivateLinkResourceModel);
-        }
+        public override Type NestedItemType() => typeof(PrivateLinkResourceModel);
 
-        public override string? UriSuffix()
-        {
-            return "/privateLinkResources";
-        }
+        public override string? UriSuffix() => "/privateLinkResources";
 
 
     }

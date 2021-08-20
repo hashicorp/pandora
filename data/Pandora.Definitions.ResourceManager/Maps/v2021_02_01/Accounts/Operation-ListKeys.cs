@@ -9,33 +9,18 @@ namespace Pandora.Definitions.ResourceManager.Maps.v2021_02_01.Accounts
 {
     internal class ListKeysOperation : Operations.PostOperation
     {
-        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes()
+        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
-            return new List<HttpStatusCode>
-            {
                 HttpStatusCode.OK,
-            };
-        }
+        };
 
-        public override Type? RequestObject()
-        {
-            return null;
-        }
+        public override Type? RequestObject() => null;
 
-        public override ResourceID? ResourceId()
-        {
-            return new AccountId();
-        }
+        public override ResourceID? ResourceId() => new AccountId();
 
-        public override Type? ResponseObject()
-        {
-            return typeof(MapsAccountKeysModel);
-        }
+        public override Type? ResponseObject() => typeof(MapsAccountKeysModel);
 
-        public override string? UriSuffix()
-        {
-            return "/listKeys";
-        }
+        public override string? UriSuffix() => "/listKeys";
 
 
     }

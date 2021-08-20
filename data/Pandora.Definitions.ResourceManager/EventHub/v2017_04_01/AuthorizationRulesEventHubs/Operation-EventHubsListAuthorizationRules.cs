@@ -9,25 +9,13 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.Authorization
 {
     internal class EventHubsListAuthorizationRulesOperation : Operations.ListOperation
     {
-        public override string? FieldContainingPaginationDetails()
-        {
-            return "nextLink";
-        }
+        public override string? FieldContainingPaginationDetails() => "nextLink";
 
-        public override ResourceID? ResourceId()
-        {
-            return new EventhubId();
-        }
+        public override ResourceID? ResourceId() => new EventhubId();
 
-        public override Type NestedItemType()
-        {
-            return typeof(AuthorizationRuleModel);
-        }
+        public override Type NestedItemType() => typeof(AuthorizationRuleModel);
 
-        public override string? UriSuffix()
-        {
-            return "/authorizationRules";
-        }
+        public override string? UriSuffix() => "/authorizationRules";
 
 
     }

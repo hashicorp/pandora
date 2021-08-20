@@ -9,20 +9,11 @@ namespace Pandora.Definitions.ResourceManager.AnalysisServices.v2017_08_01.Analy
 {
     internal class ServersListSkusForNewOperation : Operations.GetOperation
     {
-        public override ResourceID? ResourceId()
-        {
-            return new SubscriptionId();
-        }
+        public override ResourceID? ResourceId() => new SubscriptionId();
 
-        public override Type? ResponseObject()
-        {
-            return typeof(SkuEnumerationForNewResourceResultModel);
-        }
+        public override Type? ResponseObject() => typeof(SkuEnumerationForNewResourceResultModel);
 
-        public override string? UriSuffix()
-        {
-            return "/providers/Microsoft.AnalysisServices/skus";
-        }
+        public override string? UriSuffix() => "/providers/Microsoft.AnalysisServices/skus";
 
 
     }

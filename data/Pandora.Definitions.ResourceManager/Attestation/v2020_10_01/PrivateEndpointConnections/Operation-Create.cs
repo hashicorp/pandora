@@ -9,28 +9,16 @@ namespace Pandora.Definitions.ResourceManager.Attestation.v2020_10_01.PrivateEnd
 {
     internal class CreateOperation : Operations.PutOperation
     {
-        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes()
+        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
-            return new List<HttpStatusCode>
-            {
                 HttpStatusCode.OK,
-            };
-        }
+        };
 
-        public override Type? RequestObject()
-        {
-            return typeof(PrivateEndpointConnectionModel);
-        }
+        public override Type? RequestObject() => typeof(PrivateEndpointConnectionModel);
 
-        public override ResourceID? ResourceId()
-        {
-            return new PrivateEndpointConnectionId();
-        }
+        public override ResourceID? ResourceId() => new PrivateEndpointConnectionId();
 
-        public override Type? ResponseObject()
-        {
-            return typeof(PrivateEndpointConnectionModel);
-        }
+        public override Type? ResponseObject() => typeof(PrivateEndpointConnectionModel);
 
 
     }

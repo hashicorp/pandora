@@ -9,25 +9,13 @@ namespace Pandora.Definitions.ResourceManager.Purview.v2021_07_01.PrivateEndpoin
 {
     internal class ListByAccountOperation : Operations.ListOperation
     {
-        public override string? FieldContainingPaginationDetails()
-        {
-            return "nextLink";
-        }
+        public override string? FieldContainingPaginationDetails() => "nextLink";
 
-        public override ResourceID? ResourceId()
-        {
-            return new AccountId();
-        }
+        public override ResourceID? ResourceId() => new AccountId();
 
-        public override Type NestedItemType()
-        {
-            return typeof(PrivateEndpointConnectionModel);
-        }
+        public override Type NestedItemType() => typeof(PrivateEndpointConnectionModel);
 
-        public override string? UriSuffix()
-        {
-            return "/privateEndpointConnections";
-        }
+        public override string? UriSuffix() => "/privateEndpointConnections";
 
 
     }

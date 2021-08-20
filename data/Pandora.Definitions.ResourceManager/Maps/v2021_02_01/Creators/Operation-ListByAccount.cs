@@ -9,25 +9,13 @@ namespace Pandora.Definitions.ResourceManager.Maps.v2021_02_01.Creators
 {
     internal class ListByAccountOperation : Operations.ListOperation
     {
-        public override string? FieldContainingPaginationDetails()
-        {
-            return "nextLink";
-        }
+        public override string? FieldContainingPaginationDetails() => "nextLink";
 
-        public override ResourceID? ResourceId()
-        {
-            return new AccountId();
-        }
+        public override ResourceID? ResourceId() => new AccountId();
 
-        public override Type NestedItemType()
-        {
-            return typeof(CreatorModel);
-        }
+        public override Type NestedItemType() => typeof(CreatorModel);
 
-        public override string? UriSuffix()
-        {
-            return "/creators";
-        }
+        public override string? UriSuffix() => "/creators";
 
 
     }

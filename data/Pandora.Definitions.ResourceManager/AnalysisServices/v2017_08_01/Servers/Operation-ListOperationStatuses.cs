@@ -9,24 +9,15 @@ namespace Pandora.Definitions.ResourceManager.AnalysisServices.v2017_08_01.Serve
 {
     internal class ListOperationStatusesOperation : Operations.GetOperation
     {
-        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes()
+        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
-            return new List<HttpStatusCode>
-            {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.OK,
-            };
-        }
+        };
 
-        public override ResourceID? ResourceId()
-        {
-            return new OperationstatuseId();
-        }
+        public override ResourceID? ResourceId() => new OperationstatuseId();
 
-        public override Type? ResponseObject()
-        {
-            return typeof(OperationStatusModel);
-        }
+        public override Type? ResponseObject() => typeof(OperationStatusModel);
 
 
     }

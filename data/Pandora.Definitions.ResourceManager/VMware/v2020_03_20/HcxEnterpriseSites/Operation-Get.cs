@@ -9,15 +9,9 @@ namespace Pandora.Definitions.ResourceManager.VMware.v2020_03_20.HcxEnterpriseSi
 {
     internal class GetOperation : Operations.GetOperation
     {
-        public override ResourceID? ResourceId()
-        {
-            return new HcxEnterpriseSiteId();
-        }
+        public override ResourceID? ResourceId() => new HcxEnterpriseSiteId();
 
-        public override Type? ResponseObject()
-        {
-            return typeof(HcxEnterpriseSiteModel);
-        }
+        public override Type? ResponseObject() => typeof(HcxEnterpriseSiteModel);
 
 
     }

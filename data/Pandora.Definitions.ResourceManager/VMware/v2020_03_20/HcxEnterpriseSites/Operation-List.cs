@@ -9,25 +9,13 @@ namespace Pandora.Definitions.ResourceManager.VMware.v2020_03_20.HcxEnterpriseSi
 {
     internal class ListOperation : Operations.ListOperation
     {
-        public override string? FieldContainingPaginationDetails()
-        {
-            return "nextLink";
-        }
+        public override string? FieldContainingPaginationDetails() => "nextLink";
 
-        public override ResourceID? ResourceId()
-        {
-            return new PrivateCloudId();
-        }
+        public override ResourceID? ResourceId() => new PrivateCloudId();
 
-        public override Type NestedItemType()
-        {
-            return typeof(HcxEnterpriseSiteModel);
-        }
+        public override Type NestedItemType() => typeof(HcxEnterpriseSiteModel);
 
-        public override string? UriSuffix()
-        {
-            return "/hcxEnterpriseSites";
-        }
+        public override string? UriSuffix() => "/hcxEnterpriseSites";
 
 
     }
