@@ -9,19 +9,13 @@ namespace Pandora.Definitions.ResourceManager.ManagedIdentity.v2018_11_30.Manage
 {
     internal class UserAssignedIdentitiesDeleteOperation : Operations.DeleteOperation
     {
-        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes()
+        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
-            return new List<HttpStatusCode>
-            {
                 HttpStatusCode.NoContent,
                 HttpStatusCode.OK,
-            };
-        }
+        };
 
-        public override ResourceID? ResourceId()
-        {
-            return new UserAssignedIdentitiesId();
-        }
+        public override ResourceID? ResourceId() => new UserAssignedIdentitiesId();
 
 
     }

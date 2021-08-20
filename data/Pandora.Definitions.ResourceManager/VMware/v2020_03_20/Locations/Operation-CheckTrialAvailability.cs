@@ -9,33 +9,18 @@ namespace Pandora.Definitions.ResourceManager.VMware.v2020_03_20.Locations
 {
     internal class CheckTrialAvailabilityOperation : Operations.PostOperation
     {
-        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes()
+        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
-            return new List<HttpStatusCode>
-            {
                 HttpStatusCode.OK,
-            };
-        }
+        };
 
-        public override Type? RequestObject()
-        {
-            return null;
-        }
+        public override Type? RequestObject() => null;
 
-        public override ResourceID? ResourceId()
-        {
-            return new LocationId();
-        }
+        public override ResourceID? ResourceId() => new LocationId();
 
-        public override Type? ResponseObject()
-        {
-            return typeof(TrialModel);
-        }
+        public override Type? ResponseObject() => typeof(TrialModel);
 
-        public override string? UriSuffix()
-        {
-            return "/checkTrialAvailability";
-        }
+        public override string? UriSuffix() => "/checkTrialAvailability";
 
 
     }

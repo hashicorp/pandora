@@ -9,28 +9,16 @@ namespace Pandora.Definitions.ResourceManager.Relay.v2017_04_01.HybridConnection
 {
     internal class CreateOrUpdateOperation : Operations.PutOperation
     {
-        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes()
+        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
-            return new List<HttpStatusCode>
-            {
                 HttpStatusCode.OK,
-            };
-        }
+        };
 
-        public override Type? RequestObject()
-        {
-            return typeof(HybridConnectionModel);
-        }
+        public override Type? RequestObject() => typeof(HybridConnectionModel);
 
-        public override ResourceID? ResourceId()
-        {
-            return new HybridConnectionId();
-        }
+        public override ResourceID? ResourceId() => new HybridConnectionId();
 
-        public override Type? ResponseObject()
-        {
-            return typeof(HybridConnectionModel);
-        }
+        public override Type? ResponseObject() => typeof(HybridConnectionModel);
 
 
     }

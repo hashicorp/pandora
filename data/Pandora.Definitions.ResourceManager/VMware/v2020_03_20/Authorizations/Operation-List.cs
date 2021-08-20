@@ -9,25 +9,13 @@ namespace Pandora.Definitions.ResourceManager.VMware.v2020_03_20.Authorizations
 {
     internal class ListOperation : Operations.ListOperation
     {
-        public override string? FieldContainingPaginationDetails()
-        {
-            return "nextLink";
-        }
+        public override string? FieldContainingPaginationDetails() => "nextLink";
 
-        public override ResourceID? ResourceId()
-        {
-            return new PrivateCloudId();
-        }
+        public override ResourceID? ResourceId() => new PrivateCloudId();
 
-        public override Type NestedItemType()
-        {
-            return typeof(ExpressRouteAuthorizationModel);
-        }
+        public override Type NestedItemType() => typeof(ExpressRouteAuthorizationModel);
 
-        public override string? UriSuffix()
-        {
-            return "/authorizations";
-        }
+        public override string? UriSuffix() => "/authorizations";
 
 
     }

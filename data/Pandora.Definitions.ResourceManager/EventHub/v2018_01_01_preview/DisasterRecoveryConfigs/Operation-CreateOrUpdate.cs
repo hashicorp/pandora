@@ -9,20 +9,11 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.Disas
 {
     internal class CreateOrUpdateOperation : Operations.PutOperation
     {
-        public override Type? RequestObject()
-        {
-            return typeof(ArmDisasterRecoveryModel);
-        }
+        public override Type? RequestObject() => typeof(ArmDisasterRecoveryModel);
 
-        public override ResourceID? ResourceId()
-        {
-            return new DisasterRecoveryConfigId();
-        }
+        public override ResourceID? ResourceId() => new DisasterRecoveryConfigId();
 
-        public override Type? ResponseObject()
-        {
-            return typeof(ArmDisasterRecoveryModel);
-        }
+        public override Type? ResponseObject() => typeof(ArmDisasterRecoveryModel);
 
 
     }

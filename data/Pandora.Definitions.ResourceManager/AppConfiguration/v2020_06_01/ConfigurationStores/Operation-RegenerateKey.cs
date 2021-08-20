@@ -9,33 +9,18 @@ namespace Pandora.Definitions.ResourceManager.AppConfiguration.v2020_06_01.Confi
 {
     internal class RegenerateKeyOperation : Operations.PostOperation
     {
-        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes()
+        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
-            return new List<HttpStatusCode>
-            {
                 HttpStatusCode.OK,
-            };
-        }
+        };
 
-        public override Type? RequestObject()
-        {
-            return typeof(RegenerateKeyParametersModel);
-        }
+        public override Type? RequestObject() => typeof(RegenerateKeyParametersModel);
 
-        public override ResourceID? ResourceId()
-        {
-            return new ConfigurationStoreId();
-        }
+        public override ResourceID? ResourceId() => new ConfigurationStoreId();
 
-        public override Type? ResponseObject()
-        {
-            return typeof(ApiKeyModel);
-        }
+        public override Type? ResponseObject() => typeof(ApiKeyModel);
 
-        public override string? UriSuffix()
-        {
-            return "/RegenerateKey";
-        }
+        public override string? UriSuffix() => "/RegenerateKey";
 
 
     }

@@ -9,25 +9,13 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.Regions
 {
     internal class ListBySkuOperation : Operations.ListOperation
     {
-        public override string? FieldContainingPaginationDetails()
-        {
-            return "nextLink";
-        }
+        public override string? FieldContainingPaginationDetails() => "nextLink";
 
-        public override ResourceID? ResourceId()
-        {
-            return new SkuId();
-        }
+        public override ResourceID? ResourceId() => new SkuId();
 
-        public override Type NestedItemType()
-        {
-            return typeof(MessagingRegionsModel);
-        }
+        public override Type NestedItemType() => typeof(MessagingRegionsModel);
 
-        public override string? UriSuffix()
-        {
-            return "/regions";
-        }
+        public override string? UriSuffix() => "/regions";
 
 
     }

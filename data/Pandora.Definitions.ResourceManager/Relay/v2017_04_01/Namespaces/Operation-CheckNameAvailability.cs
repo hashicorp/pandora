@@ -9,33 +9,18 @@ namespace Pandora.Definitions.ResourceManager.Relay.v2017_04_01.Namespaces
 {
     internal class CheckNameAvailabilityOperation : Operations.PostOperation
     {
-        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes()
+        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
-            return new List<HttpStatusCode>
-            {
                 HttpStatusCode.OK,
-            };
-        }
+        };
 
-        public override Type? RequestObject()
-        {
-            return typeof(CheckNameAvailabilityModel);
-        }
+        public override Type? RequestObject() => typeof(CheckNameAvailabilityModel);
 
-        public override ResourceID? ResourceId()
-        {
-            return new SubscriptionId();
-        }
+        public override ResourceID? ResourceId() => new SubscriptionId();
 
-        public override Type? ResponseObject()
-        {
-            return typeof(CheckNameAvailabilityResultModel);
-        }
+        public override Type? ResponseObject() => typeof(CheckNameAvailabilityResultModel);
 
-        public override string? UriSuffix()
-        {
-            return "/providers/Microsoft.Relay/checkNameAvailability";
-        }
+        public override string? UriSuffix() => "/providers/Microsoft.Relay/checkNameAvailability";
 
 
     }

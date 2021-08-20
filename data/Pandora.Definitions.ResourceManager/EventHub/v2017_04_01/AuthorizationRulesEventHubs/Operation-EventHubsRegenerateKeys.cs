@@ -9,33 +9,18 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.Authorization
 {
     internal class EventHubsRegenerateKeysOperation : Operations.PostOperation
     {
-        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes()
+        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
-            return new List<HttpStatusCode>
-            {
                 HttpStatusCode.OK,
-            };
-        }
+        };
 
-        public override Type? RequestObject()
-        {
-            return typeof(RegenerateAccessKeyParametersModel);
-        }
+        public override Type? RequestObject() => typeof(RegenerateAccessKeyParametersModel);
 
-        public override ResourceID? ResourceId()
-        {
-            return new AuthorizationRuleId();
-        }
+        public override ResourceID? ResourceId() => new AuthorizationRuleId();
 
-        public override Type? ResponseObject()
-        {
-            return typeof(AccessKeysModel);
-        }
+        public override Type? ResponseObject() => typeof(AccessKeysModel);
 
-        public override string? UriSuffix()
-        {
-            return "/regenerateKeys";
-        }
+        public override string? UriSuffix() => "/regenerateKeys";
 
 
     }

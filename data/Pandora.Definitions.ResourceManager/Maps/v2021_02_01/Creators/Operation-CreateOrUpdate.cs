@@ -9,20 +9,11 @@ namespace Pandora.Definitions.ResourceManager.Maps.v2021_02_01.Creators
 {
     internal class CreateOrUpdateOperation : Operations.PutOperation
     {
-        public override Type? RequestObject()
-        {
-            return typeof(CreatorModel);
-        }
+        public override Type? RequestObject() => typeof(CreatorModel);
 
-        public override ResourceID? ResourceId()
-        {
-            return new CreatorId();
-        }
+        public override ResourceID? ResourceId() => new CreatorId();
 
-        public override Type? ResponseObject()
-        {
-            return typeof(CreatorModel);
-        }
+        public override Type? ResponseObject() => typeof(CreatorModel);
 
 
     }

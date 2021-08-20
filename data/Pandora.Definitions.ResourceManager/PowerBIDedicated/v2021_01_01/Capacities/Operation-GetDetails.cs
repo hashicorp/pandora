@@ -9,15 +9,9 @@ namespace Pandora.Definitions.ResourceManager.PowerBIDedicated.v2021_01_01.Capac
 {
     internal class GetDetailsOperation : Operations.GetOperation
     {
-        public override ResourceID? ResourceId()
-        {
-            return new CapacitiesId();
-        }
+        public override ResourceID? ResourceId() => new CapacitiesId();
 
-        public override Type? ResponseObject()
-        {
-            return typeof(DedicatedCapacityModel);
-        }
+        public override Type? ResponseObject() => typeof(DedicatedCapacityModel);
 
 
     }

@@ -9,20 +9,11 @@ namespace Pandora.Definitions.ResourceManager.AnalysisServices.v2017_08_01.Serve
 {
     internal class ListSkusForExistingOperation : Operations.GetOperation
     {
-        public override ResourceID? ResourceId()
-        {
-            return new ServerId();
-        }
+        public override ResourceID? ResourceId() => new ServerId();
 
-        public override Type? ResponseObject()
-        {
-            return typeof(SkuEnumerationForExistingResourceResultModel);
-        }
+        public override Type? ResponseObject() => typeof(SkuEnumerationForExistingResourceResultModel);
 
-        public override string? UriSuffix()
-        {
-            return "/skus";
-        }
+        public override string? UriSuffix() => "/skus";
 
 
     }

@@ -9,25 +9,13 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2021_01_01_preview.Names
 {
     internal class PrivateEndpointConnectionsListOperation : Operations.ListOperation
     {
-        public override string? FieldContainingPaginationDetails()
-        {
-            return "nextLink";
-        }
+        public override string? FieldContainingPaginationDetails() => "nextLink";
 
-        public override ResourceID? ResourceId()
-        {
-            return new NamespaceId();
-        }
+        public override ResourceID? ResourceId() => new NamespaceId();
 
-        public override Type NestedItemType()
-        {
-            return typeof(PrivateEndpointConnectionModel);
-        }
+        public override Type NestedItemType() => typeof(PrivateEndpointConnectionModel);
 
-        public override string? UriSuffix()
-        {
-            return "/privateEndpointConnections";
-        }
+        public override string? UriSuffix() => "/privateEndpointConnections";
 
 
     }

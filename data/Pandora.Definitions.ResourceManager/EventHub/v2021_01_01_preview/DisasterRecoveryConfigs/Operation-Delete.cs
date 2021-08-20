@@ -9,18 +9,12 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2021_01_01_preview.Disas
 {
     internal class DeleteOperation : Operations.DeleteOperation
     {
-        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes()
+        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
-            return new List<HttpStatusCode>
-            {
                 HttpStatusCode.OK,
-            };
-        }
+        };
 
-        public override ResourceID? ResourceId()
-        {
-            return new DisasterRecoveryConfigId();
-        }
+        public override ResourceID? ResourceId() => new DisasterRecoveryConfigId();
 
 
     }

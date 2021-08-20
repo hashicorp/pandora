@@ -9,33 +9,18 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.CheckNameAvai
 {
     internal class DisasterRecoveryConfigsCheckNameAvailabilityOperation : Operations.PostOperation
     {
-        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes()
+        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
-            return new List<HttpStatusCode>
-            {
                 HttpStatusCode.OK,
-            };
-        }
+        };
 
-        public override Type? RequestObject()
-        {
-            return typeof(CheckNameAvailabilityParameterModel);
-        }
+        public override Type? RequestObject() => typeof(CheckNameAvailabilityParameterModel);
 
-        public override ResourceID? ResourceId()
-        {
-            return new NamespaceId();
-        }
+        public override ResourceID? ResourceId() => new NamespaceId();
 
-        public override Type? ResponseObject()
-        {
-            return typeof(CheckNameAvailabilityResultModel);
-        }
+        public override Type? ResponseObject() => typeof(CheckNameAvailabilityResultModel);
 
-        public override string? UriSuffix()
-        {
-            return "/disasterRecoveryConfigs/checkNameAvailability";
-        }
+        public override string? UriSuffix() => "/disasterRecoveryConfigs/checkNameAvailability";
 
 
     }

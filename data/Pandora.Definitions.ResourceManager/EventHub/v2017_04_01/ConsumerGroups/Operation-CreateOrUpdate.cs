@@ -9,28 +9,16 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.ConsumerGroup
 {
     internal class CreateOrUpdateOperation : Operations.PutOperation
     {
-        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes()
+        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
-            return new List<HttpStatusCode>
-            {
                 HttpStatusCode.OK,
-            };
-        }
+        };
 
-        public override Type? RequestObject()
-        {
-            return typeof(ConsumerGroupModel);
-        }
+        public override Type? RequestObject() => typeof(ConsumerGroupModel);
 
-        public override ResourceID? ResourceId()
-        {
-            return new ConsumergroupId();
-        }
+        public override ResourceID? ResourceId() => new ConsumergroupId();
 
-        public override Type? ResponseObject()
-        {
-            return typeof(ConsumerGroupModel);
-        }
+        public override Type? ResponseObject() => typeof(ConsumerGroupModel);
 
 
     }

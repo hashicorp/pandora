@@ -9,15 +9,9 @@ namespace Pandora.Definitions.ResourceManager.Purview.v2021_07_01.PrivateLinkRes
 {
     internal class GetByGroupIdOperation : Operations.GetOperation
     {
-        public override ResourceID? ResourceId()
-        {
-            return new PrivateLinkResourceId();
-        }
+        public override ResourceID? ResourceId() => new PrivateLinkResourceId();
 
-        public override Type? ResponseObject()
-        {
-            return typeof(PrivateLinkResourceModel);
-        }
+        public override Type? ResponseObject() => typeof(PrivateLinkResourceModel);
 
 
     }

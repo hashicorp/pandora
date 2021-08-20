@@ -9,15 +9,9 @@ namespace Pandora.Definitions.ResourceManager.AppConfiguration.v2020_06_01.Priva
 {
     internal class GetOperation : Operations.GetOperation
     {
-        public override ResourceID? ResourceId()
-        {
-            return new PrivateLinkResourceId();
-        }
+        public override ResourceID? ResourceId() => new PrivateLinkResourceId();
 
-        public override Type? ResponseObject()
-        {
-            return typeof(PrivateLinkResourceModel);
-        }
+        public override Type? ResponseObject() => typeof(PrivateLinkResourceModel);
 
 
     }

@@ -9,19 +9,13 @@ namespace Pandora.Definitions.ResourceManager.Maps.v2021_02_01.Accounts
 {
     internal class DeleteOperation : Operations.DeleteOperation
     {
-        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes()
+        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
-            return new List<HttpStatusCode>
-            {
                 HttpStatusCode.NoContent,
                 HttpStatusCode.OK,
-            };
-        }
+        };
 
-        public override ResourceID? ResourceId()
-        {
-            return new AccountId();
-        }
+        public override ResourceID? ResourceId() => new AccountId();
 
 
     }

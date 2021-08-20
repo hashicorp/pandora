@@ -9,34 +9,19 @@ namespace Pandora.Definitions.ResourceManager.AnalysisServices.v2017_08_01.Serve
 {
     internal class UpdateOperation : Operations.PatchOperation
     {
-        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes()
+        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
-            return new List<HttpStatusCode>
-            {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.OK,
-            };
-        }
+        };
 
-        public override bool LongRunning()
-        {
-            return true;
-        }
+        public override bool LongRunning() => true;
 
-        public override Type? RequestObject()
-        {
-            return typeof(AnalysisServicesServerUpdateParametersModel);
-        }
+        public override Type? RequestObject() => typeof(AnalysisServicesServerUpdateParametersModel);
 
-        public override ResourceID? ResourceId()
-        {
-            return new ServerId();
-        }
+        public override ResourceID? ResourceId() => new ServerId();
 
-        public override Type? ResponseObject()
-        {
-            return typeof(AnalysisServicesServerModel);
-        }
+        public override Type? ResponseObject() => typeof(AnalysisServicesServerModel);
 
 
     }

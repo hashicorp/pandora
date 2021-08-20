@@ -9,25 +9,13 @@ namespace Pandora.Definitions.ResourceManager.Relay.v2017_04_01.Namespaces
 {
     internal class ListAuthorizationRulesOperation : Operations.ListOperation
     {
-        public override string? FieldContainingPaginationDetails()
-        {
-            return "nextLink";
-        }
+        public override string? FieldContainingPaginationDetails() => "nextLink";
 
-        public override ResourceID? ResourceId()
-        {
-            return new NamespaceId();
-        }
+        public override ResourceID? ResourceId() => new NamespaceId();
 
-        public override Type NestedItemType()
-        {
-            return typeof(AuthorizationRuleModel);
-        }
+        public override Type NestedItemType() => typeof(AuthorizationRuleModel);
 
-        public override string? UriSuffix()
-        {
-            return "/authorizationRules";
-        }
+        public override string? UriSuffix() => "/authorizationRules";
 
 
     }

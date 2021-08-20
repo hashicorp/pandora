@@ -9,28 +9,16 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.DisasterRecov
 {
     internal class BreakPairingOperation : Operations.PostOperation
     {
-        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes()
+        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
-            return new List<HttpStatusCode>
-            {
                 HttpStatusCode.OK,
-            };
-        }
+        };
 
-        public override Type? RequestObject()
-        {
-            return null;
-        }
+        public override Type? RequestObject() => null;
 
-        public override ResourceID? ResourceId()
-        {
-            return new DisasterRecoveryConfigId();
-        }
+        public override ResourceID? ResourceId() => new DisasterRecoveryConfigId();
 
-        public override string? UriSuffix()
-        {
-            return "/breakPairing";
-        }
+        public override string? UriSuffix() => "/breakPairing";
 
 
     }

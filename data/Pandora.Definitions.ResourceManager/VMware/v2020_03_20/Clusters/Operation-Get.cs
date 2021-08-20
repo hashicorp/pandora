@@ -9,15 +9,9 @@ namespace Pandora.Definitions.ResourceManager.VMware.v2020_03_20.Clusters
 {
     internal class GetOperation : Operations.GetOperation
     {
-        public override ResourceID? ResourceId()
-        {
-            return new ClusterId();
-        }
+        public override ResourceID? ResourceId() => new ClusterId();
 
-        public override Type? ResponseObject()
-        {
-            return typeof(ClusterModel);
-        }
+        public override Type? ResponseObject() => typeof(ClusterModel);
 
 
     }

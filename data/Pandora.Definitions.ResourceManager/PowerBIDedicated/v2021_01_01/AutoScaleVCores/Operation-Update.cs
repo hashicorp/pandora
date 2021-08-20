@@ -9,28 +9,16 @@ namespace Pandora.Definitions.ResourceManager.PowerBIDedicated.v2021_01_01.AutoS
 {
     internal class UpdateOperation : Operations.PatchOperation
     {
-        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes()
+        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
-            return new List<HttpStatusCode>
-            {
                 HttpStatusCode.OK,
-            };
-        }
+        };
 
-        public override Type? RequestObject()
-        {
-            return typeof(AutoScaleVCoreUpdateParametersModel);
-        }
+        public override Type? RequestObject() => typeof(AutoScaleVCoreUpdateParametersModel);
 
-        public override ResourceID? ResourceId()
-        {
-            return new AutoScaleVCoreId();
-        }
+        public override ResourceID? ResourceId() => new AutoScaleVCoreId();
 
-        public override Type? ResponseObject()
-        {
-            return typeof(AutoScaleVCoreModel);
-        }
+        public override Type? ResponseObject() => typeof(AutoScaleVCoreModel);
 
 
     }

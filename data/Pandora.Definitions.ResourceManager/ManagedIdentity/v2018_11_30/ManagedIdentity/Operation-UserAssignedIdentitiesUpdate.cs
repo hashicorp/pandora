@@ -9,28 +9,16 @@ namespace Pandora.Definitions.ResourceManager.ManagedIdentity.v2018_11_30.Manage
 {
     internal class UserAssignedIdentitiesUpdateOperation : Operations.PatchOperation
     {
-        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes()
+        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
-            return new List<HttpStatusCode>
-            {
                 HttpStatusCode.OK,
-            };
-        }
+        };
 
-        public override Type? RequestObject()
-        {
-            return typeof(IdentityUpdateModel);
-        }
+        public override Type? RequestObject() => typeof(IdentityUpdateModel);
 
-        public override ResourceID? ResourceId()
-        {
-            return new UserAssignedIdentitiesId();
-        }
+        public override ResourceID? ResourceId() => new UserAssignedIdentitiesId();
 
-        public override Type? ResponseObject()
-        {
-            return typeof(IdentityModel);
-        }
+        public override Type? ResponseObject() => typeof(IdentityModel);
 
 
     }

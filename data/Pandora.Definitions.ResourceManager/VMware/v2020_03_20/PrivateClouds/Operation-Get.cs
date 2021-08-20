@@ -9,15 +9,9 @@ namespace Pandora.Definitions.ResourceManager.VMware.v2020_03_20.PrivateClouds
 {
     internal class GetOperation : Operations.GetOperation
     {
-        public override ResourceID? ResourceId()
-        {
-            return new PrivateCloudId();
-        }
+        public override ResourceID? ResourceId() => new PrivateCloudId();
 
-        public override Type? ResponseObject()
-        {
-            return typeof(PrivateCloudModel);
-        }
+        public override Type? ResponseObject() => typeof(PrivateCloudModel);
 
 
     }

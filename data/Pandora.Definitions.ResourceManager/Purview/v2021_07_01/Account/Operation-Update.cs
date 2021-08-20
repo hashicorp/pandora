@@ -9,34 +9,19 @@ namespace Pandora.Definitions.ResourceManager.Purview.v2021_07_01.Account
 {
     internal class UpdateOperation : Operations.PatchOperation
     {
-        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes()
+        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
-            return new List<HttpStatusCode>
-            {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.OK,
-            };
-        }
+        };
 
-        public override bool LongRunning()
-        {
-            return true;
-        }
+        public override bool LongRunning() => true;
 
-        public override Type? RequestObject()
-        {
-            return typeof(AccountUpdateParametersModel);
-        }
+        public override Type? RequestObject() => typeof(AccountUpdateParametersModel);
 
-        public override ResourceID? ResourceId()
-        {
-            return new AccountId();
-        }
+        public override ResourceID? ResourceId() => new AccountId();
 
-        public override Type? ResponseObject()
-        {
-            return typeof(AccountModel);
-        }
+        public override Type? ResponseObject() => typeof(AccountModel);
 
 
     }

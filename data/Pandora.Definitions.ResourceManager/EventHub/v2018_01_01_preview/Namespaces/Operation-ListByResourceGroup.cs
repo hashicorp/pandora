@@ -9,25 +9,13 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.Names
 {
     internal class ListByResourceGroupOperation : Operations.ListOperation
     {
-        public override string? FieldContainingPaginationDetails()
-        {
-            return "nextLink";
-        }
+        public override string? FieldContainingPaginationDetails() => "nextLink";
 
-        public override ResourceID? ResourceId()
-        {
-            return new ResourceGroupId();
-        }
+        public override ResourceID? ResourceId() => new ResourceGroupId();
 
-        public override Type NestedItemType()
-        {
-            return typeof(EHNamespaceModel);
-        }
+        public override Type NestedItemType() => typeof(EHNamespaceModel);
 
-        public override string? UriSuffix()
-        {
-            return "/providers/Microsoft.EventHub/namespaces";
-        }
+        public override string? UriSuffix() => "/providers/Microsoft.EventHub/namespaces";
 
 
     }

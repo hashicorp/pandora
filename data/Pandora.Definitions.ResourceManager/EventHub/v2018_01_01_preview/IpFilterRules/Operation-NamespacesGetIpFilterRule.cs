@@ -9,15 +9,9 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.IpFil
 {
     internal class NamespacesGetIpFilterRuleOperation : Operations.GetOperation
     {
-        public override ResourceID? ResourceId()
-        {
-            return new IpfilterruleId();
-        }
+        public override ResourceID? ResourceId() => new IpfilterruleId();
 
-        public override Type? ResponseObject()
-        {
-            return typeof(IpFilterRuleModel);
-        }
+        public override Type? ResponseObject() => typeof(IpFilterRuleModel);
 
 
     }

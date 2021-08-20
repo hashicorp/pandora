@@ -9,25 +9,13 @@ namespace Pandora.Definitions.ResourceManager.ManagedIdentity.v2018_11_30.Manage
 {
     internal class UserAssignedIdentitiesListByResourceGroupOperation : Operations.ListOperation
     {
-        public override string? FieldContainingPaginationDetails()
-        {
-            return "nextLink";
-        }
+        public override string? FieldContainingPaginationDetails() => "nextLink";
 
-        public override ResourceID? ResourceId()
-        {
-            return new ResourceGroupId();
-        }
+        public override ResourceID? ResourceId() => new ResourceGroupId();
 
-        public override Type NestedItemType()
-        {
-            return typeof(IdentityModel);
-        }
+        public override Type NestedItemType() => typeof(IdentityModel);
 
-        public override string? UriSuffix()
-        {
-            return "/providers/Microsoft.ManagedIdentity/userAssignedIdentities";
-        }
+        public override string? UriSuffix() => "/providers/Microsoft.ManagedIdentity/userAssignedIdentities";
 
 
     }

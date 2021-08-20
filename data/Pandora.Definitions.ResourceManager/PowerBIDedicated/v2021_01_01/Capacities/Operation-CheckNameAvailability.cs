@@ -9,33 +9,18 @@ namespace Pandora.Definitions.ResourceManager.PowerBIDedicated.v2021_01_01.Capac
 {
     internal class CheckNameAvailabilityOperation : Operations.PostOperation
     {
-        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes()
+        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
-            return new List<HttpStatusCode>
-            {
                 HttpStatusCode.OK,
-            };
-        }
+        };
 
-        public override Type? RequestObject()
-        {
-            return typeof(CheckCapacityNameAvailabilityParametersModel);
-        }
+        public override Type? RequestObject() => typeof(CheckCapacityNameAvailabilityParametersModel);
 
-        public override ResourceID? ResourceId()
-        {
-            return new LocationId();
-        }
+        public override ResourceID? ResourceId() => new LocationId();
 
-        public override Type? ResponseObject()
-        {
-            return typeof(CheckCapacityNameAvailabilityResultModel);
-        }
+        public override Type? ResponseObject() => typeof(CheckCapacityNameAvailabilityResultModel);
 
-        public override string? UriSuffix()
-        {
-            return "/checkNameAvailability";
-        }
+        public override string? UriSuffix() => "/checkNameAvailability";
 
 
     }

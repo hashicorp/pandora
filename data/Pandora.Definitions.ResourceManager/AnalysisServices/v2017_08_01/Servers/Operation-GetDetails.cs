@@ -9,15 +9,9 @@ namespace Pandora.Definitions.ResourceManager.AnalysisServices.v2017_08_01.Serve
 {
     internal class GetDetailsOperation : Operations.GetOperation
     {
-        public override ResourceID? ResourceId()
-        {
-            return new ServerId();
-        }
+        public override ResourceID? ResourceId() => new ServerId();
 
-        public override Type? ResponseObject()
-        {
-            return typeof(AnalysisServicesServerModel);
-        }
+        public override Type? ResponseObject() => typeof(AnalysisServicesServerModel);
 
 
     }

@@ -9,15 +9,9 @@ namespace Pandora.Definitions.ResourceManager.Relay.v2017_04_01.Namespaces
 {
     internal class GetAuthorizationRuleOperation : Operations.GetOperation
     {
-        public override ResourceID? ResourceId()
-        {
-            return new AuthorizationRuleId();
-        }
+        public override ResourceID? ResourceId() => new AuthorizationRuleId();
 
-        public override Type? ResponseObject()
-        {
-            return typeof(AuthorizationRuleModel);
-        }
+        public override Type? ResponseObject() => typeof(AuthorizationRuleModel);
 
 
     }

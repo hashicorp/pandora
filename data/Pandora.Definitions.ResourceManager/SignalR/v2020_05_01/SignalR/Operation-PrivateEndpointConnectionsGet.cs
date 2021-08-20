@@ -9,15 +9,9 @@ namespace Pandora.Definitions.ResourceManager.SignalR.v2020_05_01.SignalR
 {
     internal class PrivateEndpointConnectionsGetOperation : Operations.GetOperation
     {
-        public override ResourceID? ResourceId()
-        {
-            return new PrivateEndpointConnectionId();
-        }
+        public override ResourceID? ResourceId() => new PrivateEndpointConnectionId();
 
-        public override Type? ResponseObject()
-        {
-            return typeof(PrivateEndpointConnectionModel);
-        }
+        public override Type? ResponseObject() => typeof(PrivateEndpointConnectionModel);
 
 
     }

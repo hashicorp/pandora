@@ -9,33 +9,18 @@ namespace Pandora.Definitions.ResourceManager.SignalR.v2020_05_01.SignalR
 {
     internal class ListKeysOperation : Operations.PostOperation
     {
-        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes()
+        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
-            return new List<HttpStatusCode>
-            {
                 HttpStatusCode.OK,
-            };
-        }
+        };
 
-        public override Type? RequestObject()
-        {
-            return null;
-        }
+        public override Type? RequestObject() => null;
 
-        public override ResourceID? ResourceId()
-        {
-            return new SignalRId();
-        }
+        public override ResourceID? ResourceId() => new SignalRId();
 
-        public override Type? ResponseObject()
-        {
-            return typeof(SignalRKeysModel);
-        }
+        public override Type? ResponseObject() => typeof(SignalRKeysModel);
 
-        public override string? UriSuffix()
-        {
-            return "/listKeys";
-        }
+        public override string? UriSuffix() => "/listKeys";
 
 
     }

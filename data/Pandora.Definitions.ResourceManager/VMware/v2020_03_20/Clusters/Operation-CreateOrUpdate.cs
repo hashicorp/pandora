@@ -9,25 +9,13 @@ namespace Pandora.Definitions.ResourceManager.VMware.v2020_03_20.Clusters
 {
     internal class CreateOrUpdateOperation : Operations.PutOperation
     {
-        public override bool LongRunning()
-        {
-            return true;
-        }
+        public override bool LongRunning() => true;
 
-        public override Type? RequestObject()
-        {
-            return typeof(ClusterModel);
-        }
+        public override Type? RequestObject() => typeof(ClusterModel);
 
-        public override ResourceID? ResourceId()
-        {
-            return new ClusterId();
-        }
+        public override ResourceID? ResourceId() => new ClusterId();
 
-        public override Type? ResponseObject()
-        {
-            return typeof(ClusterModel);
-        }
+        public override Type? ResponseObject() => typeof(ClusterModel);
 
 
     }

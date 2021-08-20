@@ -9,25 +9,16 @@ namespace Pandora.Definitions.ResourceManager.VMware.v2020_03_20.Authorizations
 {
     internal class DeleteOperation : Operations.DeleteOperation
     {
-        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes()
+        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
-            return new List<HttpStatusCode>
-            {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.NoContent,
                 HttpStatusCode.OK,
-            };
-        }
+        };
 
-        public override bool LongRunning()
-        {
-            return true;
-        }
+        public override bool LongRunning() => true;
 
-        public override ResourceID? ResourceId()
-        {
-            return new AuthorizationId();
-        }
+        public override ResourceID? ResourceId() => new AuthorizationId();
 
 
     }

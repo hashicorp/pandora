@@ -9,20 +9,11 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.Names
 {
     internal class PrivateLinkResourcesGetOperation : Operations.GetOperation
     {
-        public override ResourceID? ResourceId()
-        {
-            return new NamespaceId();
-        }
+        public override ResourceID? ResourceId() => new NamespaceId();
 
-        public override Type? ResponseObject()
-        {
-            return typeof(PrivateLinkResourcesListResultModel);
-        }
+        public override Type? ResponseObject() => typeof(PrivateLinkResourcesListResultModel);
 
-        public override string? UriSuffix()
-        {
-            return "/privateLinkResources";
-        }
+        public override string? UriSuffix() => "/privateLinkResources";
 
 
     }

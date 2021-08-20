@@ -9,20 +9,11 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.MessagingPlan
 {
     internal class NamespacesGetMessagingPlanOperation : Operations.GetOperation
     {
-        public override ResourceID? ResourceId()
-        {
-            return new NamespaceId();
-        }
+        public override ResourceID? ResourceId() => new NamespaceId();
 
-        public override Type? ResponseObject()
-        {
-            return typeof(MessagingPlanModel);
-        }
+        public override Type? ResponseObject() => typeof(MessagingPlanModel);
 
-        public override string? UriSuffix()
-        {
-            return "/messagingplan";
-        }
+        public override string? UriSuffix() => "/messagingplan";
 
 
     }

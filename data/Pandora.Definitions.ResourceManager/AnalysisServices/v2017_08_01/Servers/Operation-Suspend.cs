@@ -9,34 +9,19 @@ namespace Pandora.Definitions.ResourceManager.AnalysisServices.v2017_08_01.Serve
 {
     internal class SuspendOperation : Operations.PostOperation
     {
-        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes()
+        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
-            return new List<HttpStatusCode>
-            {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.OK,
-            };
-        }
+        };
 
-        public override bool LongRunning()
-        {
-            return true;
-        }
+        public override bool LongRunning() => true;
 
-        public override Type? RequestObject()
-        {
-            return null;
-        }
+        public override Type? RequestObject() => null;
 
-        public override ResourceID? ResourceId()
-        {
-            return new ServerId();
-        }
+        public override ResourceID? ResourceId() => new ServerId();
 
-        public override string? UriSuffix()
-        {
-            return "/suspend";
-        }
+        public override string? UriSuffix() => "/suspend";
 
 
     }
