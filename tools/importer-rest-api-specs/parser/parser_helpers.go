@@ -4,11 +4,9 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/cleanup"
-
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
-
 	"github.com/go-openapi/spec"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/cleanup"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
 func fieldIsRequired(required []string, key string) bool {
