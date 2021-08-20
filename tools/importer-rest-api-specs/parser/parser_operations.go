@@ -513,8 +513,8 @@ func (d *SwaggerDefinition) parseObjectDefinition(input *spec.Schema) (*models.O
 		}, &result, nil
 	}
 
-	// if it's an inlined model, pull it out and return that
-	if len(input.Properties) > 0 && input.Type.Contains("object") {
+	if input.Type.Contains("object") && len(input.Properties) > 0 {
+		// if it's an inlined model, pull it out and return that
 		nestedResult, err := d.parseModel(input.Title, *input)
 		if err != nil {
 			return nil, nil, fmt.Errorf("parsing object from inlined model %q: %+v", input.Title, err)
@@ -530,8 +530,21 @@ func (d *SwaggerDefinition) parseObjectDefinition(input *spec.Schema) (*models.O
 		}, &result, nil
 	}
 
-	// TODO: if it's a nested item, then we need to pull out the value and do the run-around with the nested item
-	// TODO: if it's a List, we need to do a nested run-around with the nested item
+	if input.Type.Contains("object") && input.AdditionalProperties.Schema != nil {
+		// it'll be a Dictionary, so pull out the nested item and return that
+		nestedItem, nestedResult, err := d.parseObjectDefinition(input.AdditionalProperties.Schema)
+		if err != nil {
+			return nil, nil, fmt.Errorf("parsing nested item for dictionary: %+v", err)
+		}
+		if nestedItem == nil {
+			return nil, nil, fmt.Errorf("parsing nested item for dictionary: no nested item returned")
+		}
+		result.append(*nestedResult)
+		return &models.ObjectDefinition{
+			Type:       models.ObjectDefinitionDictionary,
+			NestedItem: nestedItem,
+		}, &result, nil
+	}
 
 	if input.Type.Contains("array") && input.Items.Schema != nil {
 		nestedItem, nestedResult, err := d.parseObjectDefinition(input.Items.Schema)
