@@ -5,7 +5,7 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.EventHubs
 {
     internal class Definition : ApiDefinition
     {
-        // Generated from Swagger revision "b2bddfe2e59b5b14e559e0433b6e6d057bcff95d" 
+        // Generated from Swagger revision "3257aacc47c2a03b7964cbb5c6a07ec9f2f232ee" 
 
         public string ApiVersion => "2017-04-01";
         public string Name => "EventHubs";
