@@ -98,9 +98,10 @@ func (d *SwaggerDefinition) findUnusedConstants(input models.AzureApiResource) [
 func (d *SwaggerDefinition) findUnusedModels(input models.AzureApiResource) []string {
 	unusedModels := make([]string, 0)
 	for modelName, model := range input.Models {
-		if modelName == "" {
-			panic("empty model name")
-		}
+                if (modelName == "") {
+                        unusedModels = append(unusedModels, modelName)
+                        continue
+                }
 
 		// models are either referenced by operations
 		usedInAnOperation := false
