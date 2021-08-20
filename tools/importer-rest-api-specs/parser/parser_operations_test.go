@@ -1337,7 +1337,7 @@ func TestParseOperationSingleReturningAString(t *testing.T) {
 }
 
 func TestParseOperationSingleReturningADictionaryOfAModel(t *testing.T) {
-	parsed, err := Load("testdata/", "operations_single_returning_a_dictionary_of_strings.json", true)
+	parsed, err := Load("testdata/", "operations_single_returning_a_dictionary_of_model.json", true)
 	if err != nil {
 		t.Fatalf("loading: %+v", err)
 	}
@@ -1361,8 +1361,8 @@ func TestParseOperationSingleReturningADictionaryOfAModel(t *testing.T) {
 	if len(hello.Constants) != 0 {
 		t.Fatalf("expected no Constants but got %d", len(hello.Constants))
 	}
-	if len(hello.Models) != 0 {
-		t.Fatalf("expected No Models but got %d", len(hello.Models))
+	if len(hello.Models) != 1 {
+		t.Fatalf("expected 1 Models but got %d", len(hello.Models))
 	}
 	if len(hello.Operations) != 1 {
 		t.Fatalf("expected 1 Operation but got %d", len(hello.Operations))
