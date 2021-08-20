@@ -21,10 +21,6 @@ type constantDetailsMap map[string]models.ConstantDetails
 
 func (m constantDetailsMap) merge(o constantDetailsMap) {
 	for k, v := range o {
-		if k == "" {
-			continue
-		}
-
 		m[k] = v
 	}
 }
@@ -51,9 +47,6 @@ func (f fieldDetailsMap) toMapOfModels() map[string]models.FieldDetails {
 
 func (f fieldDetailsMap) merge(o fieldDetailsMap) {
 	for k, v := range o {
-		if k == "" {
-			continue
-		}
 		f[k] = v
 	}
 }
@@ -62,10 +55,6 @@ type modelDetailsMap map[string]models.ModelDetails
 
 func (m modelDetailsMap) merge(o modelDetailsMap) {
 	for k, v := range o {
-		if k == "" {
-			continue
-		}
-
 		m[k] = v
 	}
 }
