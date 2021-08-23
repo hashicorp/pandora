@@ -3,6 +3,7 @@ package parser
 import "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 
 func (d *SwaggerDefinition) removeUnusedModelsAndConstants(resources map[string]models.AzureApiResource) {
+	// TODO: there's potentially an issue here when discriminators are involved, see RecoveryServices Backup
 	for _, resource := range resources {
 		unusedModels := d.findUnusedModels(resource)
 		for len(unusedModels) > 0 {
