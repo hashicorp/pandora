@@ -1,0 +1,60 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Example",
+    "description": "Example",
+    "version": "2020-01-01"
+  },
+  "host": "management.mysite.com",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "security": [],
+  "securityDefinitions": {},
+  "paths": {
+    "/worlds": {
+      "get": {
+        "tags": [
+          "Hello"
+        ],
+        "operationId": "Hello_ListWorlds",
+        "description": "A List operation, which is a HTTP GET with a $skiptoken.",
+        "parameters": [
+          {
+            "name": "$skiptoken",
+            "description": "skipToken Filter.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success.",
+            "schema": {
+              "$ref": "#/definitions/World"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "World": {
+      "properties": {
+        "name": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "World"
+    }
+  },
+  "parameters": {}
+}
