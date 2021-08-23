@@ -881,6 +881,11 @@ func mergeConstants(new models.ConstantDetails, existing *models.ConstantDetails
 
 func (d *SwaggerDefinition) findImplementationsOf(parentName string, knownModels modelDetailsMap) (*result, error) {
 	out := result{}
+	// plz avoid infinite recursion
+	if _, ok := knownModels[parentName]; ok {
+		return &out, nil
+	}
+
 	for childName, value := range d.swaggerSpecExtendedRaw.Definitions {
 		if childName == parentName {
 			continue
