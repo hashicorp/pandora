@@ -32,166 +32,197 @@ func (rmi ResourceManagerInput) ToRunInput() RunInput {
 
 func GenerationData() []RunInput {
 	return []RunInput{
+		//ResourceManagerInput{
+		//	ServiceName:      "RecoveryServices",
+		//	ApiVersion:       "2021-03-01",
+		//	ResourceProvider: "Microsoft.RecoveryServices",
+		//	SwaggerDirectory: swaggerDirectory + "/specification/recoveryservices/resource-manager/Microsoft.RecoveryServices/stable/2021-03-01",
+		//	SwaggerFiles: []string{
+		//		"registeredidentities.json",
+		//		"replicationusages.json",
+		//		"vaults.json",
+		//		"vaultusages.json",
+		//	},
+		//}.ToRunInput(),
+		//ResourceManagerInput{
+		//	ServiceName:      "Backup",
+		//	ApiVersion:       "2021-03-01",
+		//	ResourceProvider: "Microsoft.RecoveryServices",
+		//	SwaggerDirectory: swaggerDirectory + "/specification/recoveryservicesbackup/resource-manager/Microsoft.RecoveryServices/stable/2021-03-01",
+		//	SwaggerFiles:     []string{
+		//		"bms.json",
+		//	},
+		//}.ToRunInput(),
+		ResourceManagerInput{
+			ServiceName:      "SiteRecovery",
+			ApiVersion:       "2021-03-01",
+			ResourceProvider: "Microsoft.RecoveryServices",
+			SwaggerDirectory: swaggerDirectory + "/specification/recoveryservicessiterecovery/resource-manager/Microsoft.RecoveryServices/stable/2021-03-01",
+			SwaggerFiles: []string{
+				"service.json",
+			},
+		}.ToRunInput(),
+
 		// ------------------------------------------------------------------
 		// NOTE: These files are in production and should always be generated
 		// ------------------------------------------------------------------
-		ResourceManagerInput{
-			ServiceName:      "AnalysisServices",
-			ApiVersion:       "2017-08-01",
-			ResourceProvider: "Microsoft.AnalysisServices",
-			SwaggerDirectory: swaggerDirectory + "/specification/analysisservices/resource-manager/Microsoft.AnalysisServices/stable/2017-08-01",
-			SwaggerFiles: []string{
-				"analysisservices.json",
-			},
-		}.ToRunInput(),
-		// AppConfiguration
-		ResourceManagerInput{
-			ServiceName:      "AppConfiguration",
-			ApiVersion:       "2020-06-01",
-			ResourceProvider: "Microsoft.AppConfiguration",
-			SwaggerDirectory: swaggerDirectory + "/specification/appconfiguration/resource-manager/Microsoft.AppConfiguration/stable/2020-06-01",
-			SwaggerFiles: []string{
-				"appconfiguration.json",
-			},
-		}.ToRunInput(),
-		ResourceManagerInput{
-			ServiceName:      "Attestation",
-			ApiVersion:       "2020-10-01",
-			ResourceProvider: "Microsoft.Attestation",
-			SwaggerDirectory: swaggerDirectory + "/specification/attestation/resource-manager/Microsoft.Attestation/stable/2020-10-01",
-			SwaggerFiles: []string{
-				"attestation.json",
-			},
-		}.ToRunInput(),
-		ResourceManagerInput{
-			ServiceName:      "EventHub",
-			ApiVersion:       "2017-04-01",
-			ResourceProvider: "Microsoft.EventHub",
-			SwaggerDirectory: swaggerDirectory + "/specification/eventhub/resource-manager/Microsoft.EventHub/stable/2017-04-01",
-			SwaggerFiles: []string{
-				"AuthorizationRules.json",
-				"CheckNameAvailability.json",
-				"consumergroups.json",
-				"disasterRecoveryConfigs.json",
-				"eventhubs.json",
-				"namespaces.json",
-				"networkRuleSets.json",
-				"operations.json",
-				"sku.json",
-			},
-		}.ToRunInput(),
-		ResourceManagerInput{
-			ServiceName:      "EventHub",
-			ApiVersion:       "2018-01-01-preview",
-			ResourceProvider: "Microsoft.EventHub",
-			SwaggerDirectory: swaggerDirectory + "/specification/eventhub/resource-manager/Microsoft.EventHub/preview/2018-01-01-preview",
-			SwaggerFiles: []string{
-				"AuthorizationRules.json",
-				"AvailableClusterRegions-preview.json",
-				"CheckNameAvailability.json",
-				"Clusters-preview.json",
-				"consumergroups.json",
-				"disasterRecoveryConfigs.json",
-				"eventhubs.json",
-				"ipfilterrules-preview.json",
-				"namespaces-preview.json",
-				"networkrulessets-preview.json",
-				"operations-preview.json",
-				"operations.json",
-				"quotaConfiguration-preview.json",
-				"sku.json",
-				"virtualnetworkrules-preview.json",
-			},
-		}.ToRunInput(),
-		ResourceManagerInput{
-			ServiceName:      "EventHub",
-			ApiVersion:       "2021-01-01-preview",
-			ResourceProvider: "Microsoft.EventHub",
-			SwaggerDirectory: swaggerDirectory + "/specification/eventhub/resource-manager/Microsoft.EventHub/preview/2021-01-01-preview",
-			SwaggerFiles: []string{
-				"AuthorizationRules.json",
-				"CheckNameAvailability.json",
-				"consumergroups.json",
-				"disasterRecoveryConfigs.json",
-				"eventhubs.json",
-				"namespaces-preview.json",
-				"networkrulessets-preview.json",
-				"operations.json",
-			},
-		}.ToRunInput(),
-		ResourceManagerInput{
-			ServiceName:      "Maps",
-			ApiVersion:       "2021-02-01",
-			ResourceProvider: "Microsoft.Maps",
-			SwaggerDirectory: swaggerDirectory + "/specification/maps/resource-manager/Microsoft.Maps/stable/2021-02-01",
-			SwaggerFiles: []string{
-				"maps-management.json",
-			},
-		}.ToRunInput(),
-		ResourceManagerInput{
-			ServiceName:      "ManagedIdentity",
-			ApiVersion:       "2018-11-30",
-			ResourceProvider: "Microsoft.ManagedIdentity",
-			SwaggerDirectory: swaggerDirectory + "/specification/msi/resource-manager/Microsoft.ManagedIdentity/stable/2018-11-30",
-			SwaggerFiles: []string{
-				"ManagedIdentity.json",
-			},
-		}.ToRunInput(),
-		ResourceManagerInput{
-			ServiceName:      "PowerBIDedicated",
-			ApiVersion:       "2021-01-01",
-			ResourceProvider: "Microsoft.PowerBIdedicated",
-			SwaggerDirectory: swaggerDirectory + "/specification/powerbidedicated/resource-manager/Microsoft.PowerBIdedicated/stable/2021-01-01",
-			SwaggerFiles: []string{
-				"autoScaleVCores.json",
-				"powerbidedicated.json",
-			},
-		}.ToRunInput(),
-		ResourceManagerInput{
-			ServiceName:      "Purview",
-			ApiVersion:       "2020-12-01-preview",
-			ResourceProvider: "Microsoft.Purview",
-			SwaggerDirectory: swaggerDirectory + "/specification/purview/resource-manager/Microsoft.Purview/preview/2020-12-01-preview",
-			SwaggerFiles: []string{
-				"purview.json",
-			},
-		}.ToRunInput(),
-		ResourceManagerInput{
-			ServiceName:      "Purview",
-			ApiVersion:       "2021-07-01",
-			ResourceProvider: "Microsoft.Purview",
-			SwaggerDirectory: swaggerDirectory + "/specification/purview/resource-manager/Microsoft.Purview/stable/2021-07-01",
-			SwaggerFiles: []string{
-				"purview.json",
-			},
-		}.ToRunInput(),
-		ResourceManagerInput{
-			ServiceName:      "Relay",
-			ApiVersion:       "2017-04-01",
-			ResourceProvider: "Microsoft.Relay",
-			SwaggerDirectory: swaggerDirectory + "/specification/relay/resource-manager/Microsoft.Relay/stable/2017-04-01",
-			SwaggerFiles: []string{
-				"relay.json",
-			},
-		}.ToRunInput(),
-		ResourceManagerInput{
-			ServiceName:      "SignalR",
-			ApiVersion:       "2020-05-01",
-			ResourceProvider: "Microsoft.SignalRService",
-			SwaggerDirectory: swaggerDirectory + "/specification/signalr/resource-manager/Microsoft.SignalRService/stable/2020-05-01",
-			SwaggerFiles: []string{
-				"signalr.json",
-			},
-		}.ToRunInput(),
-		ResourceManagerInput{
-			ServiceName:      "VMware",
-			ApiVersion:       "2020-03-20",
-			ResourceProvider: "Microsoft.AVS",
-			SwaggerDirectory: swaggerDirectory + "/specification/vmware/resource-manager/Microsoft.AVS/stable/2020-03-20",
-			SwaggerFiles: []string{
-				"vmware.json",
-			},
-		}.ToRunInput(),
+		//ResourceManagerInput{
+		//	ServiceName:      "AnalysisServices",
+		//	ApiVersion:       "2017-08-01",
+		//	ResourceProvider: "Microsoft.AnalysisServices",
+		//	SwaggerDirectory: swaggerDirectory + "/specification/analysisservices/resource-manager/Microsoft.AnalysisServices/stable/2017-08-01",
+		//	SwaggerFiles: []string{
+		//		"analysisservices.json",
+		//	},
+		//}.ToRunInput(),
+		//// AppConfiguration
+		//ResourceManagerInput{
+		//	ServiceName:      "AppConfiguration",
+		//	ApiVersion:       "2020-06-01",
+		//	ResourceProvider: "Microsoft.AppConfiguration",
+		//	SwaggerDirectory: swaggerDirectory + "/specification/appconfiguration/resource-manager/Microsoft.AppConfiguration/stable/2020-06-01",
+		//	SwaggerFiles: []string{
+		//		"appconfiguration.json",
+		//	},
+		//}.ToRunInput(),
+		//ResourceManagerInput{
+		//	ServiceName:      "Attestation",
+		//	ApiVersion:       "2020-10-01",
+		//	ResourceProvider: "Microsoft.Attestation",
+		//	SwaggerDirectory: swaggerDirectory + "/specification/attestation/resource-manager/Microsoft.Attestation/stable/2020-10-01",
+		//	SwaggerFiles: []string{
+		//		"attestation.json",
+		//	},
+		//}.ToRunInput(),
+		//ResourceManagerInput{
+		//	ServiceName:      "EventHub",
+		//	ApiVersion:       "2017-04-01",
+		//	ResourceProvider: "Microsoft.EventHub",
+		//	SwaggerDirectory: swaggerDirectory + "/specification/eventhub/resource-manager/Microsoft.EventHub/stable/2017-04-01",
+		//	SwaggerFiles: []string{
+		//		"AuthorizationRules.json",
+		//		"CheckNameAvailability.json",
+		//		"consumergroups.json",
+		//		"disasterRecoveryConfigs.json",
+		//		"eventhubs.json",
+		//		"namespaces.json",
+		//		"networkRuleSets.json",
+		//		"operations.json",
+		//		"sku.json",
+		//	},
+		//}.ToRunInput(),
+		//ResourceManagerInput{
+		//	ServiceName:      "EventHub",
+		//	ApiVersion:       "2018-01-01-preview",
+		//	ResourceProvider: "Microsoft.EventHub",
+		//	SwaggerDirectory: swaggerDirectory + "/specification/eventhub/resource-manager/Microsoft.EventHub/preview/2018-01-01-preview",
+		//	SwaggerFiles: []string{
+		//		"AuthorizationRules.json",
+		//		"AvailableClusterRegions-preview.json",
+		//		"CheckNameAvailability.json",
+		//		"Clusters-preview.json",
+		//		"consumergroups.json",
+		//		"disasterRecoveryConfigs.json",
+		//		"eventhubs.json",
+		//		"ipfilterrules-preview.json",
+		//		"namespaces-preview.json",
+		//		"networkrulessets-preview.json",
+		//		"operations-preview.json",
+		//		"operations.json",
+		//		"quotaConfiguration-preview.json",
+		//		"sku.json",
+		//		"virtualnetworkrules-preview.json",
+		//	},
+		//}.ToRunInput(),
+		//ResourceManagerInput{
+		//	ServiceName:      "EventHub",
+		//	ApiVersion:       "2021-01-01-preview",
+		//	ResourceProvider: "Microsoft.EventHub",
+		//	SwaggerDirectory: swaggerDirectory + "/specification/eventhub/resource-manager/Microsoft.EventHub/preview/2021-01-01-preview",
+		//	SwaggerFiles: []string{
+		//		"AuthorizationRules.json",
+		//		"CheckNameAvailability.json",
+		//		"consumergroups.json",
+		//		"disasterRecoveryConfigs.json",
+		//		"eventhubs.json",
+		//		"namespaces-preview.json",
+		//		"networkrulessets-preview.json",
+		//		"operations.json",
+		//	},
+		//}.ToRunInput(),
+		//ResourceManagerInput{
+		//	ServiceName:      "Maps",
+		//	ApiVersion:       "2021-02-01",
+		//	ResourceProvider: "Microsoft.Maps",
+		//	SwaggerDirectory: swaggerDirectory + "/specification/maps/resource-manager/Microsoft.Maps/stable/2021-02-01",
+		//	SwaggerFiles: []string{
+		//		"maps-management.json",
+		//	},
+		//}.ToRunInput(),
+		//ResourceManagerInput{
+		//	ServiceName:      "ManagedIdentity",
+		//	ApiVersion:       "2018-11-30",
+		//	ResourceProvider: "Microsoft.ManagedIdentity",
+		//	SwaggerDirectory: swaggerDirectory + "/specification/msi/resource-manager/Microsoft.ManagedIdentity/stable/2018-11-30",
+		//	SwaggerFiles: []string{
+		//		"ManagedIdentity.json",
+		//	},
+		//}.ToRunInput(),
+		//ResourceManagerInput{
+		//	ServiceName:      "PowerBIDedicated",
+		//	ApiVersion:       "2021-01-01",
+		//	ResourceProvider: "Microsoft.PowerBIdedicated",
+		//	SwaggerDirectory: swaggerDirectory + "/specification/powerbidedicated/resource-manager/Microsoft.PowerBIdedicated/stable/2021-01-01",
+		//	SwaggerFiles: []string{
+		//		"autoScaleVCores.json",
+		//		"powerbidedicated.json",
+		//	},
+		//}.ToRunInput(),
+		//ResourceManagerInput{
+		//	ServiceName:      "Purview",
+		//	ApiVersion:       "2020-12-01-preview",
+		//	ResourceProvider: "Microsoft.Purview",
+		//	SwaggerDirectory: swaggerDirectory + "/specification/purview/resource-manager/Microsoft.Purview/preview/2020-12-01-preview",
+		//	SwaggerFiles: []string{
+		//		"purview.json",
+		//	},
+		//}.ToRunInput(),
+		//ResourceManagerInput{
+		//	ServiceName:      "Purview",
+		//	ApiVersion:       "2021-07-01",
+		//	ResourceProvider: "Microsoft.Purview",
+		//	SwaggerDirectory: swaggerDirectory + "/specification/purview/resource-manager/Microsoft.Purview/stable/2021-07-01",
+		//	SwaggerFiles: []string{
+		//		"purview.json",
+		//	},
+		//}.ToRunInput(),
+		//ResourceManagerInput{
+		//	ServiceName:      "Relay",
+		//	ApiVersion:       "2017-04-01",
+		//	ResourceProvider: "Microsoft.Relay",
+		//	SwaggerDirectory: swaggerDirectory + "/specification/relay/resource-manager/Microsoft.Relay/stable/2017-04-01",
+		//	SwaggerFiles: []string{
+		//		"relay.json",
+		//	},
+		//}.ToRunInput(),
+		//ResourceManagerInput{
+		//	ServiceName:      "SignalR",
+		//	ApiVersion:       "2020-05-01",
+		//	ResourceProvider: "Microsoft.SignalRService",
+		//	SwaggerDirectory: swaggerDirectory + "/specification/signalr/resource-manager/Microsoft.SignalRService/stable/2020-05-01",
+		//	SwaggerFiles: []string{
+		//		"signalr.json",
+		//	},
+		//}.ToRunInput(),
+		//ResourceManagerInput{
+		//	ServiceName:      "VMware",
+		//	ApiVersion:       "2020-03-20",
+		//	ResourceProvider: "Microsoft.AVS",
+		//	SwaggerDirectory: swaggerDirectory + "/specification/vmware/resource-manager/Microsoft.AVS/stable/2020-03-20",
+		//	SwaggerFiles: []string{
+		//		"vmware.json",
+		//	},
+		//}.ToRunInput(),
 
 		// ------------------------------------------------------------------
 		// NOTE: These are Development Placeholders so can be commented out
