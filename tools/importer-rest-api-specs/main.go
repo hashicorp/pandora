@@ -30,8 +30,8 @@ func main() {
 		os.Exit(1)
 	}
 
+	debug := strings.TrimSpace(os.Getenv("DEBUG")) != ""
 	if !strings.EqualFold(os.Getenv("PANDORA_GENERATE_EVERYTHING"), "true") {
-		debug := strings.TrimSpace(os.Getenv("DEBUG")) != ""
 		for _, v := range input {
 			if err := run(v, *swaggerGitSha, debug); err != nil {
 				log.Printf("error: %+v", err)
@@ -40,7 +40,7 @@ func main() {
 		}
 	} else {
 		justLatestVersion := true
-		if err := generateAllResourceManagerServices(*swaggerGitSha, justLatestVersion); err != nil {
+		if err := generateAllResourceManagerServices(*swaggerGitSha, justLatestVersion, debug); err != nil {
 			log.Printf("error: %+v", err)
 			os.Exit(1)
 		}
