@@ -1,4 +1,4 @@
-package parser
+package legacy
 
 import (
 	"fmt"
@@ -17,7 +17,7 @@ func (d *SwaggerDefinition) findOperationsForTag(tag *string, uriToDetails map[s
 		constants: map[string]models.ConstantDetails{},
 		models:    map[string]models.ModelDetails{},
 	}
-	for httpMethod, operation := range d.swaggerSpecExpanded.Operations() {
+	for httpMethod, operation := range d.SwaggerSpecExpanded.Operations() {
 		for uri, operationDetails := range operation {
 			if !operationMatchesTag(operationDetails, tag) {
 				continue
@@ -30,7 +30,7 @@ func (d *SwaggerDefinition) findOperationsForTag(tag *string, uriToDetails map[s
 
 			url := newOperationUri(uri)
 			if url.shouldBeIgnored() {
-				if d.debugLog {
+				if d.DebugLog {
 					log.Printf("[DEBUG] Skipping URI %q", url.normalizedUri())
 				}
 				continue
@@ -319,7 +319,7 @@ func operationShouldBeIgnored(input models.OperationDetails) bool {
 
 func (d *SwaggerDefinition) requestObjectForOperation(operationDetails *spec.Operation) (*models.ObjectDefinition, *result, error) {
 	// find the same operation in the unexpanded swagger spec since we need the reference name
-	_, _, unexpandedOperation, found := d.swaggerSpecWithReferences.OperationForName(operationDetails.ID)
+	_, _, unexpandedOperation, found := d.SwaggerSpecWithReferences.OperationForName(operationDetails.ID)
 	if !found {
 		return nil, nil, nil
 	}
@@ -385,7 +385,7 @@ func (d *SwaggerDefinition) requestObjectForOperation(operationDetails *spec.Ope
 type operationResponseObjectResult struct {
 	objectDefinition *models.ObjectDefinition
 	paginationFieldName *string
-	result result
+	result              result
 }
 
 func (d *SwaggerDefinition) responseObjectForOperation(operationDetails *spec.Operation, isListOperation bool) (*operationResponseObjectResult, error) {
@@ -393,7 +393,7 @@ func (d *SwaggerDefinition) responseObjectForOperation(operationDetails *spec.Op
 		result: result{},
 	}
 	// find the same operation in the unexpanded swagger spec since we need the reference name
-	_, _, unexpandedOperation, found := d.swaggerSpecWithReferences.OperationForName(operationDetails.ID)
+	_, _, unexpandedOperation, found := d.SwaggerSpecWithReferences.OperationForName(operationDetails.ID)
 	if !found {
 		return nil, nil
 	}

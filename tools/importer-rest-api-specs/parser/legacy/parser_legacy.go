@@ -1,4 +1,4 @@
-package parser
+package legacy
 
 import (
 	"fmt"
@@ -11,59 +11,6 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/cleanup"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
-
-
-func (d *SwaggerDefinition) parseLegacy(serviceName, apiVersion string) (*models.AzureApiDefinition, error) {
-	resources := make(map[string]models.AzureApiResource, 0)
-
-	tags := d.findTags()
-	// first we assume everything has a tag
-	for _, tag := range tags {
-		if tagShouldBeIgnored(tag) {
-			continue
-		}
-
-		resource, err := d.findResourcesForTag(&tag)
-		if err != nil {
-			return nil, fmt.Errorf("finding resources for tag %q: %+v", tag, err)
-		}
-
-		if resource != nil {
-			resources[tag] = *resource
-		}
-	}
-
-	// however some things don't, so we then need to iterate over any without them
-	if _, shouldIgnore := tagsToIgnore[strings.ToLower(serviceName)]; !shouldIgnore {
-		resource, err := d.findResourcesForTag(nil)
-		if err != nil {
-			return nil, fmt.Errorf("finding resources for tag %q: %+v", serviceName, err)
-		}
-
-		if resource != nil {
-			resources[serviceName] = *resource
-		}
-	}
-
-	// remove any models we needed to process enums before Normalising
-	resources = removeModelsWithoutFields(resources)
-
-	// we should go through and normalize this data
-	resources = normalizeResources(resources)
-
-	// handle customized types for models
-	d.replaceCustomType(resources)
-
-	// then remove anything that's been replaced
-	d.removeUnusedModelsAndConstants(resources)
-
-	return &models.AzureApiDefinition{
-		ServiceName: serviceName,
-		ApiVersion:  apiVersion,
-		Resources:   resources,
-	}, nil
-}
-
 
 // TODO: refactor all of these to return `result`s where possible
 
@@ -119,7 +66,7 @@ func (d *SwaggerDefinition) parseOperations(input map[string]models.OperationDet
 
 	topLevelModelNames := d.findModelsUsedByOperations(input)
 	for _, modelName := range topLevelModelNames {
-		if d.debugLog {
+		if d.DebugLog {
 			log.Printf("[DEBUG] Parsing Top-Level Model %q..", modelName)
 		}
 		parsedModel, err := d.parseItemsFromModel(modelName, inlinedModels)
@@ -157,7 +104,7 @@ func (d *SwaggerDefinition) parseOperations(input map[string]models.OperationDet
 			continue
 		}
 
-		if d.debugLog {
+		if d.DebugLog {
 			log.Printf("[DEBUG] Finding implementations of %q (discriminating on %q)..", modelName, *model.TypeHintIn)
 		}
 		implementations, err := d.findImplementationsOf(modelName, map[string]models.ModelDetails{})
@@ -305,7 +252,7 @@ func (d *SwaggerDefinition) constantsForModel(input spec.Schema) (constantDetail
 	}
 
 	for propName, propVal := range input.Properties {
-		if d.debugLog {
+		if d.DebugLog {
 			log.Printf("[DEBUG] Processing Property %q..", propName)
 		}
 		// models can contain nested models - either can contain constants, so around we go..
@@ -319,7 +266,7 @@ func (d *SwaggerDefinition) constantsForModel(input spec.Schema) (constantDetail
 
 	if input.AdditionalProperties != nil && input.AdditionalProperties.Schema != nil {
 		for propName, propVal := range input.AdditionalProperties.Schema.Properties {
-			if d.debugLog {
+			if d.DebugLog {
 				log.Printf("[DEBUG] Processing Additional Property %q..", propName)
 			}
 			// models can contain nested models - either can contain constants, so around we go..
@@ -591,13 +538,13 @@ func (d *SwaggerDefinition) modelsForModel(name string, input spec.Schema, const
 }
 
 func (d *SwaggerDefinition) findTopLevelModel(name string) (*spec.Schema, error) {
-	for modelName, model := range d.swaggerSpecRaw.Definitions {
+	for modelName, model := range d.SwaggerSpecRaw.Definitions {
 		if strings.EqualFold(modelName, name) {
 			return &model, nil
 		}
 	}
 
-	for modelName, model := range d.swaggerSpecExtendedRaw.Definitions {
+	for modelName, model := range d.SwaggerSpecExtendedRaw.Definitions {
 		if strings.EqualFold(modelName, name) {
 			return &model, nil
 		}
@@ -939,7 +886,7 @@ func (d *SwaggerDefinition) findImplementationsOf(parentName string, knownModels
 		return &out, nil
 	}
 
-	for childName, value := range d.swaggerSpecExtendedRaw.Definitions {
+	for childName, value := range d.SwaggerSpecExtendedRaw.Definitions {
 		if childName == parentName {
 			continue
 		}
@@ -965,7 +912,7 @@ func (d *SwaggerDefinition) findImplementationsOf(parentName string, knownModels
 			continue
 		}
 
-		if d.debugLog {
+		if d.DebugLog {
 			log.Printf("[DEBUG] Found %q implements %q", childName, parentName)
 		}
 

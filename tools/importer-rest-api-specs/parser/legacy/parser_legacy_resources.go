@@ -1,4 +1,4 @@
-package parser
+package legacy
 
 import (
 	"fmt"
@@ -9,7 +9,7 @@ import (
 )
 
 func (d *SwaggerDefinition) findResourcesForTag(tag *string) (*models.AzureApiResource, error) {
-	if d.debugLog {
+	if d.DebugLog {
 		if tag != nil {
 			log.Printf("[DEBUG] Processing Operations with Tag %q..", *tag)
 		} else {
@@ -65,7 +65,7 @@ func (d *SwaggerDefinition) findTags() []string {
 	tags := make(map[string]struct{})
 
 	// first we go through, assuming there are tags
-	for _, operation := range d.swaggerSpecExpanded.Operations() {
+	for _, operation := range d.SwaggerSpecExpanded.Operations() {
 		for _, details := range operation {
 			for _, tag := range details.Tags {
 				normalizedTag := normalizeTag(tag)

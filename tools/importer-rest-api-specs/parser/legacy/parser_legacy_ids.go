@@ -1,4 +1,4 @@
-package parser
+package legacy
 
 import (
 	"fmt"
@@ -47,7 +47,7 @@ type idDetails struct {
 func (d *SwaggerDefinition) findResourceIdsForTag(tag *string) (*parsedResourceIDs, error) {
 	uniqueUris := make(map[string]parsedResourceId)
 	uniqueArmUris := make(map[string]struct{}, 0)
-	for _, operation := range d.swaggerSpecExpanded.Operations() {
+	for _, operation := range d.SwaggerSpecExpanded.Operations() {
 		for uri, operationDetails := range operation {
 			if !operationMatchesTag(operationDetails, tag) {
 				continue

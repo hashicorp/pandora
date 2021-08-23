@@ -1,4 +1,4 @@
-package parser
+package legacy
 
 import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"

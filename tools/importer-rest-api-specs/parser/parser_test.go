@@ -4,6 +4,7 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser/legacy"
 	"log"
 	"net/http"
 	"os"
@@ -23,7 +24,7 @@ func TestAllSwaggersUsingParser(t *testing.T) {
 		t.Skipf("skipping since %q is unset", runAllEnvVar)
 	}
 
-	services, err := FindResourceManagerServices(swaggerDirectory, false, true)
+	services, err := legacy.FindResourceManagerServices(swaggerDirectory, false, true)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -56,7 +57,7 @@ func TestAllSwaggersValidateAllContainTypes(t *testing.T) {
 		t.Skipf("skipping since %q is unset", runAllEnvVar)
 	}
 
-	services, err := FindResourceManagerServices(swaggerDirectory, false, true)
+	services, err := legacy.FindResourceManagerServices(swaggerDirectory, false, true)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -91,7 +92,7 @@ func TestAllSwaggersValidateFindOAIGenParserBug(t *testing.T) {
 		t.Skipf("skipping since %q is unset", runAllEnvVar)
 	}
 
-	services, err := FindResourceManagerServices(swaggerDirectory, false, true)
+	services, err := legacy.FindResourceManagerServices(swaggerDirectory, false, true)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -124,7 +125,7 @@ func TestAllSwaggersValidateFindUnknownBugs(t *testing.T) {
 		t.Skipf("skipping since %q is unset", runAllEnvVar)
 	}
 
-	services, err := FindResourceManagerServices(swaggerDirectory, false, true)
+	services, err := legacy.FindResourceManagerServices(swaggerDirectory, false, true)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -812,7 +813,7 @@ func TestAssertParserCanParseAppConfiguration(t *testing.T) {
 }
 
 func validateDirectory(serviceName, apiVersion, versionDirectory string) error {
-	swaggerFiles, err := SwaggerFilesInDirectory(versionDirectory)
+	swaggerFiles, err := legacy.SwaggerFilesInDirectory(versionDirectory)
 	if err != nil {
 		return fmt.Errorf("parsing swagger files in %q: %+v", versionDirectory, err)
 	}

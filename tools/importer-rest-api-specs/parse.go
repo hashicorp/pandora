@@ -2,15 +2,15 @@ package main
 
 import (
 	"fmt"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser/legacy"
 
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser"
 )
 
 func parseSwaggerFiles(input RunInput, debug bool) (*[]parsedData, error) {
 	parsed := make(map[string]parsedData, 0)
 	for _, file := range input.SwaggerFiles {
-		swaggerFile, err := parser.Load(input.SwaggerDirectory, file, debug)
+		swaggerFile, err := legacy.Load(input.SwaggerDirectory, file, debug)
 		if err != nil {
 			return nil, fmt.Errorf("parsing file %q: %+v", file, err)
 		}
