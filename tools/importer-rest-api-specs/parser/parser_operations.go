@@ -82,7 +82,8 @@ func (d *SwaggerDefinition) parseOperation(operationName, httpMethod string, uri
 	if nestedResult != nil {
 		result.append(*nestedResult)
 	}
-	responseObject, nestedResult, err := d.responseObjectForOperation(operationDetails, paginationField != nil)
+	isAListOperation := isListOperation(operationDetails)
+	responseObject, nestedResult, err := d.responseObjectForOperation(operationDetails, isAListOperation)
 	if err != nil {
 		return nil, nil, fmt.Errorf("determining response operation for %q (method %q / uri %q): %+v", operationName, httpMethod, uri.normalizedUri(), err)
 	}
@@ -127,6 +128,22 @@ func (d *SwaggerDefinition) parseOperation(operationName, httpMethod string, uri
 	}
 
 	return &operationData, &result, nil
+}
+
+func isListOperation(operation *spec.Operation) bool {
+	paginationField := fieldContainingPaginationDetailsForOperation(operation)
+	if paginationField != nil {
+		return true
+	}
+
+	// otherwise if we have a parameter of `$skiptoken` in the query, we assume that it is
+	for _, parameter := range operation.Parameters {
+		if strings.EqualFold(parameter.Name, "$skipToken") {
+			return true
+		}
+	}
+
+	return false
 }
 
 func constantsInOperationParameters(input *spec.Operation) (*result, error) {
