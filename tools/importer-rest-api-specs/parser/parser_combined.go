@@ -494,7 +494,7 @@ func (d *SwaggerDefinition) modelsForModel(name string, input spec.Schema, const
 	// if this is a Parent
 	if input.Discriminator != "" {
 		details.TypeHintIn = &input.Discriminator
-		if _, ok := allKnownAndUnknownModels[name]; !ok {
+		if m, ok := allKnownAndUnknownModels[name]; !ok || m.IsEmpty() {
 			implementations, err := d.findImplementationsOf(name, allKnownAndUnknownModels)
 			if err != nil {
 				return nil, nil, fmt.Errorf("finding implementations of %q: %+v", name, err)

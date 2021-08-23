@@ -444,12 +444,11 @@ func (d *SwaggerDefinition) responseObjectForOperation(operationDetails *spec.Op
 					}
 				}
 
-				if actualModelName == "" {
-					return nil, fmt.Errorf("parsing model %q for list operation to find real model: model did not contain a field 'value'", modelName)
+				// otherwise this isn't actually a list operation, it's bad data
+				if actualModelName != "" {
+					objectDefinition.ReferenceName = &actualModelName
+					output.objectDefinition = objectDefinition
 				}
-
-				objectDefinition.ReferenceName = &actualModelName
-				output.objectDefinition = objectDefinition
 			}
 		}
 	}
