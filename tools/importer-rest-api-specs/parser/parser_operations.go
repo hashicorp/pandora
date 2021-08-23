@@ -83,12 +83,13 @@ func (d *SwaggerDefinition) parseOperation(operationName, httpMethod string, uri
 		result.append(*nestedResult)
 	}
 	isAListOperation := isListOperation(operationDetails)
-	responseObject, nestedResult, err := d.responseObjectForOperation(operationDetails, isAListOperation)
+	responseResult, err := d.responseObjectForOperation(operationDetails, isAListOperation)
 	if err != nil {
 		return nil, nil, fmt.Errorf("determining response operation for %q (method %q / uri %q): %+v", operationName, httpMethod, uri.normalizedUri(), err)
 	}
-	if nestedResult != nil {
-		result.append(*nestedResult)
+	result.append(responseResult.result)
+	if paginationField == nil && responseResult.paginationFieldName != nil {
+		paginationField = responseResult.paginationFieldName
 	}
 	longRunning := operationIsLongRunning(operationDetails)
 
@@ -114,7 +115,7 @@ func (d *SwaggerDefinition) parseOperation(operationName, httpMethod string, uri
 		Method:                           strings.ToUpper(httpMethod),
 		Options:                          *options,
 		RequestObject:                    requestObject,
-		ResponseObject:                   responseObject,
+		ResponseObject:                   responseResult.objectDefinition,
 		Uri:                              uri.normalizedUri(),
 	}
 
@@ -381,11 +382,20 @@ func (d *SwaggerDefinition) requestObjectForOperation(operationDetails *spec.Ope
 	return nil, &result{}, nil
 }
 
-func (d *SwaggerDefinition) responseObjectForOperation(operationDetails *spec.Operation, isListOperation bool) (*models.ObjectDefinition, *result, error) {
+type operationResponseObjectResult struct {
+	objectDefinition *models.ObjectDefinition
+	paginationFieldName *string
+	result result
+}
+
+func (d *SwaggerDefinition) responseObjectForOperation(operationDetails *spec.Operation, isListOperation bool) (*operationResponseObjectResult, error) {
+	output := operationResponseObjectResult{
+		result: result{},
+	}
 	// find the same operation in the unexpanded swagger spec since we need the reference name
 	_, _, unexpandedOperation, found := d.swaggerSpecWithReferences.OperationForName(operationDetails.ID)
 	if !found {
-		return nil, nil, nil
+		return nil, nil
 	}
 
 	for statusCode, details := range unexpandedOperation.Responses.StatusCodeResponses {
@@ -396,50 +406,55 @@ func (d *SwaggerDefinition) responseObjectForOperation(operationDetails *spec.Op
 
 			objectDefinition, result, err := d.parseObjectDefinition(details.ResponseProps.Schema)
 			if err != nil {
-				return nil, nil, fmt.Errorf("parsing response object from status code %d: %+v", statusCode, err)
+				return nil, fmt.Errorf("parsing response object from status code %d: %+v", statusCode, err)
 			}
+			output.objectDefinition = objectDefinition
+			output.result.append(*result)
 
 			// NOTE: List operations need to be handled differently since we want the object not the wrapper
 			if isListOperation {
 				if objectDefinition == nil {
-					return nil, nil, fmt.Errorf("list operations must have a return object, but this doesn't")
+					return nil, fmt.Errorf("list operations must have a return object, but this doesn't")
 				}
 				if objectDefinition.Type != models.ObjectDefinitionReference {
-					return nil, nil, fmt.Errorf("TODO: add support for %q - list operations only support references at this time", string(objectDefinition.Type))
+					return nil, fmt.Errorf("TODO: add support for %q - list operations only support references at this time", string(objectDefinition.Type))
 				}
 
 				// find the real object and then return that instead
 				modelName := *objectDefinition.ReferenceName
 				model, ok := result.models[modelName]
 				if !ok {
-					return nil, nil, fmt.Errorf("the model %q was not found", modelName)
+					return nil, fmt.Errorf("the model %q was not found", modelName)
 				}
 
 				actualModelName := ""
 				for k, v := range model.Fields {
+					if strings.EqualFold(k, "nextLink") {
+						key := k // copy it locally so this isn't a reference to the moving key value
+						output.paginationFieldName = &key
+						continue
+					}
+
 					if strings.EqualFold(k, "Value") {
 						if v.ModelReference == nil {
-							return nil, nil, fmt.Errorf("parsing model %q for list operation to find real model: missing model reference for field 'value'", modelName)
+							return nil, fmt.Errorf("parsing model %q for list operation to find real model: missing model reference for field 'value'", modelName)
 						}
 						actualModelName = *v.ModelReference
-						break
+						continue
 					}
 				}
 
 				if actualModelName == "" {
-					return nil, nil, fmt.Errorf("parsing model %q for list operation to find real model: model did not contain a field 'value'", modelName)
+					return nil, fmt.Errorf("parsing model %q for list operation to find real model: model did not contain a field 'value'", modelName)
 				}
 
 				objectDefinition.ReferenceName = &actualModelName
-			}
-
-			if objectDefinition != nil {
-				return objectDefinition, result, nil
+				output.objectDefinition = objectDefinition
 			}
 		}
 	}
 
-	return nil, &result{}, nil
+	return &output, nil
 }
 
 func (d *SwaggerDefinition) parseObjectDefinition(input *spec.Schema) (*models.ObjectDefinition, *result, error) {

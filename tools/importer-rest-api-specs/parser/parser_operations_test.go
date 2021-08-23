@@ -2033,8 +2033,6 @@ func TestParseOperationSingleWithList(t *testing.T) {
 }
 
 func TestParseOperationSingleWithListWithoutPageable(t *testing.T) {
-	t.Skip("not yet implemented")
-
 	// all List operations should have an `x-ms-pageable` attribute, but some don't due to bad data
 	// as such this checks we can duck-type it out
 	parsed, err := Load("testdata/", "operations_single_list_without_pageable.json", true)
