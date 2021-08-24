@@ -54,14 +54,23 @@ func GenerationData() []RunInput {
 		//	},
 		//}.ToRunInput(),
 		ResourceManagerInput{
-			ServiceName:      "SiteRecovery",
-			ApiVersion:       "2021-03-01",
-			ResourceProvider: "Microsoft.RecoveryServices",
-			SwaggerDirectory: swaggerDirectory + "/specification/recoveryservicessiterecovery/resource-manager/Microsoft.RecoveryServices/stable/2021-03-01",
+			ServiceName:      "DNS",
+			ApiVersion:       "2018-05-01",
+			ResourceProvider: "Microsoft.Network",
+			SwaggerDirectory: swaggerDirectory + "/specification/dns/resource-manager/Microsoft.Network/stable/2018-05-01",
 			SwaggerFiles: []string{
-				"service.json",
+				"dns.json",
 			},
 		}.ToRunInput(),
+		//ResourceManagerInput{
+		//	ServiceName:      "SiteRecovery",
+		//	ApiVersion:       "2021-03-01",
+		//	ResourceProvider: "Microsoft.RecoveryServices",
+		//	SwaggerDirectory: swaggerDirectory + "/specification/recoveryservicessiterecovery/resource-manager/Microsoft.RecoveryServices/stable/2021-03-01",
+		//	SwaggerFiles: []string{
+		//		"service.json",
+		//	},
+		//}.ToRunInput(),
 
 		// ------------------------------------------------------------------
 		// NOTE: These files are in production and should always be generated

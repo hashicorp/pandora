@@ -39,7 +39,7 @@ func (d *SwaggerDefinition) parseResourcesWithinSwaggerTag(tag *string) (*models
 	resource := models.AzureApiResource{
 		Constants:   result.constants,
 		Models:      result.models,
-		Operations: map[string]models.OperationDetails{},
+		Operations:  map[string]models.OperationDetails{},
 		ResourceIds: map[string]string{},
 		//Operations:  *operations,
 		//ResourceIds: resourceIds.NamesToResourceIds,

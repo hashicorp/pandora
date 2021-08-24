@@ -142,20 +142,6 @@ func (u operationUri) normalizedUri() string {
 	return fmt.Sprintf("/%s", strings.Join(u.segments, "/"))
 }
 
-func (u operationUri) isArmResourceId() bool {
-	if len(u.segments)%2 != 0 {
-		return false
-	}
-
-	for _, segment := range u.segments {
-		if segment == "resourceGroups" {
-			return true
-		}
-	}
-
-	return false
-}
-
 func (u operationUri) findTopLevelArmResourceId() *string {
 	for i := len(u.segments) - 1; i > 0; i-- {
 		segment := u.segments[i]
