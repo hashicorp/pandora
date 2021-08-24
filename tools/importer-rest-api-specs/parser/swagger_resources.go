@@ -40,7 +40,7 @@ func (d *SwaggerDefinition) parseResourcesWithinSwaggerTag(tag *string) (*models
 		Constants:   result.constants,
 		Models:      result.models,
 		Operations:  map[string]models.OperationDetails{},
-		ResourceIds: map[string]string{},
+		ResourceIds: map[string]string{}, // TODO: when we're further along this'll want to change
 		//Operations:  *operations,
 		//ResourceIds: resourceIds.NamesToResourceIds,
 	}
