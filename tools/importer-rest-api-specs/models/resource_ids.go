@@ -9,16 +9,13 @@ type ParsedResourceId struct {
 	// Constants are a map[Name]ConstantDetails for the Constants used in this Resource ID
 	Constants map[string]ConstantDetails
 
-	// Name is the unique identifier for this Resource Id
-	Name string
-
 	// Segments are an ordered list of segments which comprise this Resource ID
 	Segments []ResourceIdSegment
 }
 
 func (pri ParsedResourceId) String() string {
 	// only used for debug purposes
-	return pri.Name + " - " + normalizedResourceId(pri.Segments)
+	return normalizedResourceId(pri.Segments)
 }
 
 func (pri ParsedResourceId) UserSpecifiableSegmentNames() []string {

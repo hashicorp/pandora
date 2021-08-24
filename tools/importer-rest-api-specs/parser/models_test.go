@@ -461,8 +461,6 @@ func TestParseModelSingleWithReference(t *testing.T) {
 }
 
 func TestParseModelSingleWithReferenceToArray(t *testing.T) {
-	t.Skip("Skipping until https://github.com/hashicorp/pandora/issues/99 is implemented")
-
 	parsed, err := Load("testdata/", "model_single_with_reference_array.json", true)
 	if err != nil {
 		t.Fatalf("loading: %+v", err)
@@ -576,8 +574,6 @@ func TestParseModelSingleWithReferenceToArray(t *testing.T) {
 }
 
 func TestParseModelSingleWithReferenceToConstant(t *testing.T) {
-	t.Skip("Skipping until https://github.com/hashicorp/pandora/issues/99 is implemented")
-
 	parsed, err := Load("testdata/", "model_single_with_reference_constant.json", true)
 	if err != nil {
 		t.Fatalf("loading: %+v", err)
@@ -702,8 +698,6 @@ func TestParseModelSingleWithReferenceToConstant(t *testing.T) {
 }
 
 func TestParseModelSingleWithReferenceToString(t *testing.T) {
-	t.Skip("Skipping until https://github.com/hashicorp/pandora/issues/99 is implemented")
-
 	parsed, err := Load("testdata/", "model_single_with_reference_string.json", true)
 	if err != nil {
 		t.Fatalf("loading: %+v", err)
