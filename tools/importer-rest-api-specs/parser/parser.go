@@ -54,9 +54,6 @@ func (d *SwaggerDefinition) Parse(serviceName, apiVersion string) (*models.Azure
 		}
 	}
 
-	// now that we've got everything, let's go through and pull out any missing models
-	// this intentionally wants to be done as a `for` loop to avoid infinite loops
-
 	return &models.AzureApiDefinition{
 		ServiceName: serviceName,
 		ApiVersion:  apiVersion,
