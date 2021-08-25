@@ -23,7 +23,7 @@ func (d *SwaggerDefinition) parseModel(name string, input spec.Schema) (*parseRe
 	result.append(*nestedResult)
 
 	// 2. iterate over the fields and find all of the fields for this model
-	fields, nestedResult, err := d.fieldsForModel(name, input, result)
+	fields, additionalProperties, nestedResult, err := d.fieldsForModel(name, input, result)
 	if err != nil {
 		return nil, fmt.Errorf("finding fields for model: %+v", err)
 	}
@@ -32,7 +32,7 @@ func (d *SwaggerDefinition) parseModel(name string, input spec.Schema) (*parseRe
 	// 3. finally build this model directly
 	// Notably, we **DO NOT** load models used by this models here - this is handled once we
 	// know all the models which we want to load - to avoid infinite loops
-	model, err := d.modelDetailsFromObject(name, input, *fields)
+	model, err := d.modelDetailsFromObject(input, *fields, additionalProperties)
 	if err != nil {
 		return nil, fmt.Errorf("populating model details for %q: %+v", name, err)
 	}
@@ -109,22 +109,69 @@ func (d *SwaggerDefinition) findConstantsWithinModel(input spec.Schema) (*parseR
 	return &result, nil
 }
 
-func (d *SwaggerDefinition) fieldsForModel(name string, input spec.Schema, known parseResult) (*map[string]models.FieldDetails, *parseResult, error) {
+type fieldDetails struct {
+	// Details is the Field itself
+	Details models.FieldDetails
+
+	// SwaggerReference is a reference to the Raw Swagger Schema which is
+	// referenced in either the ConstantReference or ModelReference within
+	// the Details field above
+	SwaggerReference *spec.Schema
+}
+
+func (d *SwaggerDefinition) fieldsForModel(name string, input spec.Schema, known parseResult) (*map[string]models.FieldDetails, *fieldDetails, *parseResult, error) {
 	fields := make(map[string]models.FieldDetails, 0)
 	result := parseResult{
 		constants: map[string]models.ConstantDetails{},
 		models:    map[string]models.ModelDetails{},
 	}
+	var additionalDetails *fieldDetails
 
-	return &fields, &result, nil
+	// TODO: if we have a parent type pull that out but *DO NOT* retrieve children here
+
+	return &fields, additionalDetails, &result, nil
 }
 
-func (d *SwaggerDefinition) modelDetailsFromObject(name string, input spec.Schema, fields map[string]models.FieldDetails) (*models.ModelDetails, error) {
-	return &models.ModelDetails{
+func (d *SwaggerDefinition) modelDetailsFromObject(input spec.Schema, fields map[string]models.FieldDetails, additionalProperties *fieldDetails) (*models.ModelDetails, error) {
+	details := models.ModelDetails{
 		Description: "",
 		Fields:      fields,
-		// TODO: others
-	}, nil
+	}
+	if additionalProperties != nil {
+		details.AdditionalProperties = &additionalProperties.Details
+	}
+
+	// if this is a Parent
+	if input.Discriminator != "" {
+		details.TypeHintIn = &input.Discriminator
+	}
+
+	// this would be an Implementation
+	if v, ok := input.Extensions.GetString("x-ms-discriminator-value"); ok {
+		details.TypeHintValue = &v
+
+		// so we need to find the parent details
+		for _, parentRaw := range input.AllOf {
+			fragmentName := fragmentNameFromReference(parentRaw.Ref)
+			if fragmentName == nil {
+				continue
+			}
+
+			parent, err := d.findTopLevelObject(*fragmentName)
+			if err != nil {
+				return nil, fmt.Errorf("finding top level object %q: %+v", *fragmentName, err)
+			}
+
+			if parent.Discriminator == "" {
+				continue
+			}
+
+			details.ParentTypeName = fragmentName
+			details.TypeHintIn = &parent.Discriminator
+		}
+	}
+
+	return &details, nil
 }
 
 func (d *SwaggerDefinition) findTopLevelObject(name string) (*spec.Schema, error) {
