@@ -75,10 +75,17 @@ func normalizedResourceId(segments []ResourceIdSegment) string {
 }
 
 type ResourceIdSegment struct {
-	Type              SegmentType
+	// Type specifies the Segment Type, such as a Constant/UserSpecified
+	Type SegmentType
+
+	// ConstantReference is the name of the Constant that this Segment uses - if Type is `Constant`
 	ConstantReference *string
-	FixedValue        *string
-	Name              string
+
+	// FixedValue is a fixed/static value for this segment when Type is `Static`
+	FixedValue *string
+
+	// Name is the name of this segment, for example `ResourceGroups` or `VirtualMachine` in Title Case.
+	Name string
 }
 
 type SegmentType string
