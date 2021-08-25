@@ -5,7 +5,7 @@ namespace Pandora.Definitions.ResourceManager.VMware.v2020_03_20.PrivateClouds
 {
     internal class Definition : ApiDefinition
     {
-        // Generated from Swagger revision "3257aacc47c2a03b7964cbb5c6a07ec9f2f232ee" 
+        // Generated from Swagger revision "44017a20d8c022217b31e15643595fc7aff87926" 
 
         public string ApiVersion => "2020-03-20";
         public string Name => "PrivateClouds";
