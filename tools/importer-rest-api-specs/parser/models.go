@@ -1,33 +1,32 @@
 package parser
 
-import "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+import (
+	"fmt"
+	"strings"
 
-type parseResult struct {
-	constants map[string]models.ConstantDetails
-	models    map[string]models.ModelDetails
+	"github.com/go-openapi/spec"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+)
+
+func (d *SwaggerDefinition) parseModel(name string, schema spec.Schema) (*parseResult, error) {
+	return &parseResult{
+		constants: map[string]models.ConstantDetails{},
+		models:    map[string]models.ModelDetails{},
+	}, nil
 }
 
-func (r *parseResult) append(other parseResult) {
-	if r.constants == nil {
-		r.constants = make(map[string]models.ConstantDetails)
+func (d *SwaggerDefinition) findTopLevelObject(name string) (*spec.Schema, error) {
+	for modelName, model := range d.swaggerSpecRaw.Definitions {
+		if strings.EqualFold(modelName, name) {
+			return &model, nil
+		}
 	}
-	r.appendConstants(other.constants)
 
-	if r.models == nil {
-		r.models = make(map[string]models.ModelDetails)
+	for modelName, model := range d.swaggerSpecExtendedRaw.Definitions {
+		if strings.EqualFold(modelName, name) {
+			return &model, nil
+		}
 	}
-	r.appendModels(other.models)
-}
 
-func (r *parseResult) appendConstants(other map[string]models.ConstantDetails) {
-	for k, v := range other {
-		// TODO: merging of values
-		r.constants[k] = v
-	}
-}
-
-func (r *parseResult) appendModels(other map[string]models.ModelDetails) {
-	for k, v := range other {
-		r.models[k] = v
-	}
+	return nil, fmt.Errorf("the top level object %q was not found", name)
 }

@@ -2,9 +2,10 @@ package parser
 
 import (
 	"fmt"
+	"strings"
+
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser/legacy"
-	"strings"
 )
 
 var useLegacyParser = false
@@ -53,5 +54,12 @@ func (d *SwaggerDefinition) Parse(serviceName, apiVersion string) (*models.Azure
 		}
 	}
 
-	return &models.AzureApiDefinition{}, nil
+	// now that we've got everything, let's go through and pull out any missing models
+	// this intentionally wants to be done as a `for` loop to avoid infinite loops
+
+	return &models.AzureApiDefinition{
+		ServiceName: serviceName,
+		ApiVersion:  apiVersion,
+		Resources:   resources,
+	}, nil
 }

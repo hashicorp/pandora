@@ -19,12 +19,14 @@ func (d *SwaggerDefinition) parseResourcesWithinSwaggerTag(tag *string) (*models
 	}
 	result.append(resourceIds.nestedResult)
 
-	//operations, nestedResult, err := d.findOperationsForTag(tag, resourceIds.UriToDetails)
-	//if err != nil {
-	//	return nil, fmt.Errorf("finding operations: %+v", err)
-	//}
-	//result.append(*nestedResult)
-	//
+	operations, nestedResult, err := d.parseOperationsWithinTag(tag, resourceIds.resourceUrisToMetadata, result)
+	if err != nil {
+		return nil, fmt.Errorf("finding operations: %+v", err)
+	}
+	result.append(*nestedResult)
+
+	// now that we have a list of all of the operations, which models and constants do we need to find
+
 	//nestedResult, err = d.parseOperations(*operations, result)
 	//if err != nil {
 	//	return nil, fmt.Errorf("parsing operations: %+v", err)
@@ -32,14 +34,14 @@ func (d *SwaggerDefinition) parseResourcesWithinSwaggerTag(tag *string) (*models
 	//result.append(*nestedResult)
 
 	// if there's nothing here, there's no point generating a package
-	//if len(*operations) == 0 && len(result.models) == 0 && len(result.constants) == 0 {
-	//	return nil, nil
-	//}
+	if len(*operations) == 0 && len(result.models) == 0 && len(result.constants) == 0 {
+		return nil, nil
+	}
 
 	resource := models.AzureApiResource{
 		Constants:   result.constants,
 		Models:      result.models,
-		Operations:  map[string]models.OperationDetails{},
+		Operations:  *operations,
 		ResourceIds: map[string]string{}, // TODO: when we're further along this'll want to change
 		//Operations:  *operations,
 		//ResourceIds: resourceIds.NamesToResourceIds,
