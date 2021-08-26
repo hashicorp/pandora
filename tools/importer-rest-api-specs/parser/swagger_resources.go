@@ -213,6 +213,13 @@ func (d *SwaggerDefinition) determineObjectsRequiredButNotParsed(operations *map
 
 	out := make([]string, 0)
 	for k := range referencesToFind {
+		if _, exists := known.constants[k]; exists {
+			continue
+		}
+		if _, exists := known.models[k]; exists {
+			continue
+		}
+		
 		out = append(out, k)
 	}
 

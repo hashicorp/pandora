@@ -32,6 +32,15 @@ type ObjectDefinition struct {
 	NestedItem    *ObjectDefinition
 	ReferenceName *string
 	Type          ObjectDefinitionType
+
+	// Minimum is the minimum number of items which must be specified when this is a Dictionary/List element, if specified
+	Minimum *int
+
+	// Maximum is the maximum number of items which must be specified when this is a Dictionary/List element, if specified
+	Maximum *int
+
+	// UniqueItems specifies whether every item in this List/Dictionary must be unique
+	UniqueItems *bool
 }
 
 type ObjectDefinitionType string
@@ -94,15 +103,6 @@ type FieldDetails struct {
 
 	CustomFieldType  *CustomFieldType
 	ObjectDefinition *ObjectDefinition
-
-	// Minimum is the minimum number of items which must be specified when this is a Dictionary/List, if specified
-	Minimum *int
-
-	// Maximum is the maximum number of items which must be specified when this is a Dictionary/List, if specified
-	Maximum *int
-
-	// UniqueItems specifies whether every item in this List/Dictionary must be unique
-	UniqueItems *bool
 
 	// TODO: should we output Description here too?
 }

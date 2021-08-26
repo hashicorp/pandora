@@ -23,21 +23,21 @@ func (d *SwaggerDefinition) parseModel(name string, input spec.Schema) (*parseRe
 	result.append(*nestedResult)
 
 	// 2. iterate over the fields and find all of the fields for this model
-	fields, additionalProperties, nestedResult, err := d.fieldsForModel(name, input, result)
+	fields, nestedResult, err := d.fieldsForModel(name, input, result)
 	if err != nil {
 		return nil, fmt.Errorf("finding fields for model: %+v", err)
 	}
 	result.append(*nestedResult)
 
 	// if it's just got constants, we can skip it
-	if len(*fields) == 0 && additionalProperties == nil {
+	if len(*fields) == 0 {
 		return &result, nil
 	}
 
 	// 3. finally build this model directly
 	// Notably, we **DO NOT** load models used by this models here - this is handled once we
 	// know all the models which we want to load - to avoid infinite loops
-	model, err := d.modelDetailsFromObject(input, *fields, additionalProperties)
+	model, err := d.modelDetailsFromObject(input, *fields)
 	if err != nil {
 		return nil, fmt.Errorf("populating model details for %q: %+v", name, err)
 	}
@@ -47,11 +47,33 @@ func (d *SwaggerDefinition) parseModel(name string, input spec.Schema) (*parseRe
 }
 
 func (d *SwaggerDefinition) findConstantsWithinModel(input spec.Schema, known parseResult) (*parseResult, error) {
+	// NOTE: both Models and Fields are passed in here
 	result := parseResult{
 		constants: map[string]models.ConstantDetails{},
 		models:    map[string]models.ModelDetails{},
 	}
 	result.append(known)
+
+	if fragmentName := fragmentNameFromReference(input.Ref); fragmentName != nil {
+		topLevelObject, err := d.findTopLevelObject(*fragmentName)
+		if err != nil {
+			return nil, fmt.Errorf("finding top level object %q from reference: %+v", *fragmentName, err)
+		}
+
+		nestedResult, err := d.findConstantsWithinModel(*topLevelObject, result)
+		if err != nil {
+			return nil, fmt.Errorf("finding constants within reference %q: %+v", *fragmentName, err)
+		}
+		result.append(*nestedResult)
+	}
+
+	if len(input.Enum) > 0 {
+		constant, err := mapConstant(input.Type, input.Enum, input.Extensions)
+		if err != nil {
+			return nil, fmt.Errorf("parsing constant: %+v", err)
+		}
+		result.constants[constant.name] = constant.details
+	}
 
 	// Check any object that this model inherits from
 	if len(input.AllOf) > 0 {
@@ -89,7 +111,6 @@ func (d *SwaggerDefinition) findConstantsWithinModel(input spec.Schema, known pa
 		if err != nil {
 			return nil, fmt.Errorf("finding nested constants within %q: %+v", propName, err)
 		}
-
 		result.append(*nestedResult)
 	}
 
@@ -109,16 +130,6 @@ func (d *SwaggerDefinition) findConstantsWithinModel(input spec.Schema, known pa
 	}
 
 	return &result, nil
-}
-
-type fieldDetails struct {
-	// Details is the Field itself
-	Details models.FieldDetails
-
-	// SwaggerReference is a reference to the Raw Swagger Schema which is
-	// referenced in either the ConstantReference or ModelReference within
-	// the Details field above
-	SwaggerReference *spec.Schema
 }
 
 func (d *SwaggerDefinition) detailsForField(modelName string, propertyName string, value spec.Schema, isRequired bool, known parseResult) (*models.FieldDetails, *parseResult, error) {
@@ -152,7 +163,7 @@ func (d *SwaggerDefinition) detailsForField(modelName string, propertyName strin
 	}
 
 	// first get the object definition
-	objectDefinition, nestedResult, err := d.parseObjectDefinition(&value, resultWithPlaceholder)
+	objectDefinition, nestedResult, err := d.parseObjectDefinition(modelName, &value, resultWithPlaceholder)
 	if err != nil {
 		return nil, nil, fmt.Errorf("parsing object definition: %+v", err)
 	}
@@ -190,40 +201,40 @@ func determineCustomFieldType(field models.FieldDetails, definition models.Objec
 	return nil
 }
 
-func (d *SwaggerDefinition) fieldsForModel(modelName string, input spec.Schema, known parseResult) (*map[string]models.FieldDetails, *fieldDetails, *parseResult, error) {
+func (d *SwaggerDefinition) fieldsForModel(modelName string, input spec.Schema, known parseResult) (*map[string]models.FieldDetails, *parseResult, error) {
 	fields := make(map[string]models.FieldDetails, 0)
 	result := parseResult{
 		constants: map[string]models.ConstantDetails{},
 		models:    map[string]models.ModelDetails{},
 	}
 	result.append(known)
-	var additionalDetails *fieldDetails
+
+	requiredFields := make(map[string]struct{}, 0)
+	for _, k := range input.Required {
+		requiredFields[k] = struct{}{}
+	}
 
 	// models can inherit from other models, so let's get all of the parent fields here
 	for _, parent := range input.AllOf {
 		fragmentName := fragmentNameFromReference(parent.Ref)
 		if fragmentName == nil {
-			return nil, nil, nil, fmt.Errorf("parent %+v had no reference", parent)
+			return nil, nil, fmt.Errorf("parent %+v had no reference", parent)
 		}
 
 		topLevelObject, err := d.findTopLevelObject(*fragmentName)
 		if err != nil {
-			return nil, nil, nil, fmt.Errorf("parsing top level object %q: %+v", *fragmentName, err)
+			return nil, nil, fmt.Errorf("parsing top level object %q: %+v", *fragmentName, err)
+		}
+		for _, k := range topLevelObject.Required {
+			requiredFields[k] = struct{}{}
 		}
 
-		nestedFields, nestedAdditionalProps, nestedResult, err := d.fieldsForModel(*fragmentName, *topLevelObject, result)
+		nestedFields, nestedResult, err := d.fieldsForModel(*fragmentName, *topLevelObject, result)
 		if err != nil {
-			return nil, nil, nil, fmt.Errorf("finding fields for parent model %q: %+v", *fragmentName, err)
+			return nil, nil, fmt.Errorf("finding fields for parent model %q: %+v", *fragmentName, err)
 		}
 		for k, v := range *nestedFields {
 			fields[k] = v
-		}
-		if nestedAdditionalProps != nil {
-			if additionalDetails != nil {
-				return nil, nil, nil, fmt.Errorf("multiple additionalProperties inherited for %q", modelName)
-			}
-
-			additionalDetails = nestedAdditionalProps
 		}
 		if nestedResult != nil {
 			result.append(*nestedResult)
@@ -232,10 +243,10 @@ func (d *SwaggerDefinition) fieldsForModel(modelName string, input spec.Schema, 
 
 	// then we get the simple thing of iterating over these fields
 	for propName, propVal := range input.Properties {
-		isRequired := isFieldRequired(propName, input.Required)
+		isRequired := isFieldRequired(propName, requiredFields)
 		field, nestedResult, err := d.detailsForField(modelName, propName, propVal, isRequired, result)
 		if err != nil {
-			return nil, nil, nil, fmt.Errorf("mapping field %q for %q: %+v", propName, modelName, err)
+			return nil, nil, fmt.Errorf("mapping field %q for %q: %+v", propName, modelName, err)
 		}
 		if nestedResult != nil {
 			result.append(*nestedResult)
@@ -245,7 +256,7 @@ func (d *SwaggerDefinition) fieldsForModel(modelName string, input spec.Schema, 
 		fields[propName] = *field
 	}
 
-	return &fields, additionalDetails, &result, nil
+	return &fields, &result, nil
 }
 
 func (d *SwaggerDefinition) findTopLevelObject(name string) (*spec.Schema, error) {
@@ -264,7 +275,7 @@ func (d *SwaggerDefinition) findTopLevelObject(name string) (*spec.Schema, error
 	return nil, fmt.Errorf("the top level object %q was not found", name)
 }
 
-func (d *SwaggerDefinition) modelDetailsFromObject(input spec.Schema, fields map[string]models.FieldDetails, additionalProperties *fieldDetails) (*models.ModelDetails, error) {
+func (d *SwaggerDefinition) modelDetailsFromObject(input spec.Schema, fields map[string]models.FieldDetails) (*models.ModelDetails, error) {
 	details := models.ModelDetails{
 		Description: "",
 		Fields:      fields,
@@ -303,7 +314,7 @@ func (d *SwaggerDefinition) modelDetailsFromObject(input spec.Schema, fields map
 	return &details, nil
 }
 
-func (d SwaggerDefinition) parseObjectDefinition(input *spec.Schema, known parseResult) (*models.ObjectDefinition, *parseResult, error) {
+func (d SwaggerDefinition) parseObjectDefinition(modelName string, input *spec.Schema, known parseResult) (*models.ObjectDefinition, *parseResult, error) {
 	// find the object and any models and constants etc we can find
 	// however _don't_ look for discriminator implementations - since that should be done when we're completely done
 	result := parseResult{
@@ -312,11 +323,6 @@ func (d SwaggerDefinition) parseObjectDefinition(input *spec.Schema, known parse
 	}
 	result.append(known)
 
-	// if it's a simple type, there'll be no other objects
-	if nativeType := d.parseNativeType(input); nativeType != nil {
-		return nativeType, &result, nil
-	}
-
 	// if it's an enum then parse that out
 	if len(input.Enum) > 0 {
 		constant, err := mapConstant(input.Type, input.Enum, input.Extensions)
@@ -324,23 +330,32 @@ func (d SwaggerDefinition) parseObjectDefinition(input *spec.Schema, known parse
 			return nil, nil, fmt.Errorf("parsing constant: %+v", err)
 		}
 		result.constants[constant.name] = constant.details
-		return &models.ObjectDefinition{
+
+		definition := models.ObjectDefinition{
 			Type:          models.ObjectDefinitionReference,
 			ReferenceName: &constant.name,
-		}, &result, nil
+		}
+		if input.MaxItems != nil {
+			v := int(*input.MaxItems)
+			definition.Maximum = &v
+		}
+		if input.MinItems != nil {
+			v := int(*input.MinItems)
+			definition.Minimum = &v
+		}
+		v := input.UniqueItems
+		definition.UniqueItems = &v
+
+		return &definition, &result, nil
+	}
+
+	// if it's a simple type, there'll be no other objects
+	if nativeType := d.parseNativeType(input); nativeType != nil {
+		return nativeType, &result, nil
 	}
 
 	// if it's a reference to a model, return that
 	if objectName := fragmentNameFromReference(input.Ref); objectName != nil {
-		// if we already have this model, return here (to avoid circular references)
-		if _, alreadyParsedModel := result.models[*objectName]; alreadyParsedModel {
-			// at this point we can assume this is a reference?
-			return &models.ObjectDefinition{
-				Type:          models.ObjectDefinitionReference,
-				ReferenceName: objectName,
-			}, &result, nil
-		}
-
 		// first find the top level object
 		topLevelObject, err := d.findTopLevelObject(*objectName)
 		if err != nil {
@@ -348,29 +363,40 @@ func (d SwaggerDefinition) parseObjectDefinition(input *spec.Schema, known parse
 		}
 
 		// then call ourselves to work out what to do with it
-		return d.parseObjectDefinition(topLevelObject, result)
+		return d.parseObjectDefinition(*objectName, topLevelObject, result)
 	}
 
 	// if it's an inlined model, pull it out and return that
-	if input.Type.Contains("object") && len(input.Properties) > 0 {
-		nestedResult, err := d.parseModel(input.Title, *input)
+	if len(input.Properties) > 0 {
+		nestedResult, err := d.parseModel(modelName, *input)
 		if err != nil {
-			return nil, nil, fmt.Errorf("parsing object from inlined model %q: %+v", input.Title, err)
+			return nil, nil, fmt.Errorf("parsing object from inlined model %q: %+v", modelName, err)
 		}
 		if nestedResult == nil {
-			return nil, nil, fmt.Errorf("parsing object from inlined response model %q: no model returned", input.Title)
+			return nil, nil, fmt.Errorf("parsing object from inlined response model %q: no model returned", modelName)
 		}
-
 		result.append(*nestedResult)
-		return &models.ObjectDefinition{
+
+		definition := models.ObjectDefinition{
 			Type:          models.ObjectDefinitionReference,
-			ReferenceName: &input.Title,
-		}, &result, nil
+			ReferenceName: &modelName,
+		}
+		if input.MaxItems != nil {
+			v := int(*input.MaxItems)
+			definition.Maximum = &v
+		}
+		if input.MinItems != nil {
+			v := int(*input.MinItems)
+			definition.Minimum = &v
+		}
+		v := input.UniqueItems
+		definition.UniqueItems = &v
+		return &definition, &result, nil
 	}
 
 	if input.Type.Contains("object") && input.AdditionalProperties != nil && input.AdditionalProperties.Schema != nil {
 		// it'll be a Dictionary, so pull out the nested item and return that
-		nestedItem, nestedResult, err := d.parseObjectDefinition(input.AdditionalProperties.Schema, result)
+		nestedItem, nestedResult, err := d.parseObjectDefinition(input.AdditionalProperties.Schema.Title, input.AdditionalProperties.Schema, result)
 		if err != nil {
 			return nil, nil, fmt.Errorf("parsing nested item for dictionary: %+v", err)
 		}
@@ -385,7 +411,7 @@ func (d SwaggerDefinition) parseObjectDefinition(input *spec.Schema, known parse
 	}
 
 	if input.Type.Contains("array") && input.Items.Schema != nil {
-		nestedItem, nestedResult, err := d.parseObjectDefinition(input.Items.Schema, result)
+		nestedItem, nestedResult, err := d.parseObjectDefinition(input.Items.Schema.Title, input.Items.Schema, result)
 		if err != nil {
 			return nil, nil, fmt.Errorf("parsing nested item for array: %+v", err)
 		}
@@ -442,10 +468,10 @@ func (d SwaggerDefinition) parseNativeType(input *spec.Schema) *models.ObjectDef
 	return nil
 }
 
-func isFieldRequired(name string, required []string) bool {
-	for _, v := range required {
+func isFieldRequired(name string, required map[string]struct{}) bool {
+	for k, _ := range required {
 		// assume data inconsistencies
-		if strings.EqualFold(v, name) {
+		if strings.EqualFold(k, name) {
 			return true
 		}
 	}

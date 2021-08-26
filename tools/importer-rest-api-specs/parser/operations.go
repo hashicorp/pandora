@@ -360,7 +360,7 @@ func (p operationsParser) requestObjectForOperation(input parsedOperation, known
 
 	for _, param := range unexpandedOperation.Parameters {
 		if strings.EqualFold(param.In, "body") {
-			objectDefinition, result, err := p.swaggerDefinition.parseObjectDefinition(param.Schema, known)
+			objectDefinition, result, err := p.swaggerDefinition.parseObjectDefinition(param.Schema.Title, param.Schema, known)
 			if err != nil {
 				return nil, nil, fmt.Errorf("parsing request object for parameter %q: %+v", param.Name, err)
 			}
@@ -402,7 +402,7 @@ func (p operationsParser) responseObjectForOperation(input parsedOperation, isAL
 				continue
 			}
 
-			objectDefinition, nestedResult, err := p.swaggerDefinition.parseObjectDefinition(details.ResponseProps.Schema, result)
+			objectDefinition, nestedResult, err := p.swaggerDefinition.parseObjectDefinition(details.ResponseProps.Schema.Title, details.ResponseProps.Schema, result)
 			if err != nil {
 				return nil, nil, fmt.Errorf("parsing response object from status code %d: %+v", statusCode, err)
 			}
@@ -444,6 +444,9 @@ func (p operationsParser) responseObjectForOperation(input parsedOperation, isAL
 						}
 
 						actualModelName = *definition.ReferenceName
+
+						// we no longer need the wrapper, so we can remove that
+						delete(result.models, modelName)
 						continue
 					}
 				}

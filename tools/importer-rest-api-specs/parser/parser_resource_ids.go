@@ -368,21 +368,21 @@ func mapNamesToResourceIds(urisToNames map[string]string, urisToMetadata map[str
 			continue
 		}
 
-		// when there's a suffix, we need to output the full uri in the map
-		if metadata.uriSuffix != nil {
-			fullUri := uri + *metadata.uriSuffix
-			output[fullUri] = metadata
-			// and then output just the resource ID too (so we intentionally omit the continue here)
-		}
-
 		name, ok := urisToNames[metadata.resourceId.NormalizedResourceManagerResourceId()]
 		if !ok {
 			return nil, fmt.Errorf("Resource ID : Name mapping not found for %q", uri)
 		}
 
-		output[uri] = resourceUriMetadata{
+		output[metadata.resourceId.NormalizedResourceManagerResourceId()] = resourceUriMetadata{
 			resourceIdName: &name,
-			uriSuffix:      metadata.uriSuffix,
+			// intentionally don't map over the UriSuffix since this is handled above
+		}
+
+		// when there's a suffix, we need to output the full uri in the map too
+		if metadata.uriSuffix != nil {
+			fullUri := uri + *metadata.uriSuffix
+			metadata.resourceIdName = &name
+			output[fullUri] = metadata
 		}
 	}
 

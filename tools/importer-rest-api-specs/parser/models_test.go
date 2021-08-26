@@ -1,7 +1,6 @@
 package parser
 
 import (
-	"reflect"
 	"testing"
 
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
@@ -324,11 +323,14 @@ func TestParseModelSingleWithInlinedObject(t *testing.T) {
 	if thingField.ObjectDefinition.Type != models.ObjectDefinitionList {
 		t.Fatalf("expected ThingProps to be a List but got %q", string(thingField.ObjectDefinition.Type))
 	}
-	if thingField.ObjectDefinition.ReferenceName == nil {
+	if thingField.ObjectDefinition.NestedItem.Type != models.ObjectDefinitionReference {
+		t.Fatalf("expected ThingProps to be a List of References but got %q", string(thingField.ObjectDefinition.NestedItem.Type))
+	}
+	if thingField.ObjectDefinition.NestedItem.ReferenceName == nil {
 		t.Fatalf("expected ThingProps to be a reference to ThingProperties but it was nil")
 	}
-	if *thingField.ObjectDefinition.ReferenceName != "ThingProperties" {
-		t.Fatalf("expected ThingProps to be a reference to ThingProperties but it was %q", *thingField.ObjectDefinition.ReferenceName)
+	if *thingField.ObjectDefinition.NestedItem.ReferenceName != "ThingProperties" {
+		t.Fatalf("expected ThingProps to be a reference to ThingProperties but it was %q", *thingField.ObjectDefinition.NestedItem.ReferenceName)
 	}
 
 	thingModel, ok := hello.Models["ThingProperties"]
@@ -447,11 +449,14 @@ func TestParseModelSingleWithReference(t *testing.T) {
 	if thingField.ObjectDefinition.Type != models.ObjectDefinitionList {
 		t.Fatalf("expected ThingProps to be a List but got %q", string(thingField.ObjectDefinition.Type))
 	}
-	if thingField.ObjectDefinition.ReferenceName == nil {
+	if thingField.ObjectDefinition.NestedItem.Type != models.ObjectDefinitionReference {
+		t.Fatalf("expected ThingProps to be a List but got %q", string(thingField.ObjectDefinition.NestedItem.Type))
+	}
+	if thingField.ObjectDefinition.NestedItem.ReferenceName == nil {
 		t.Fatalf("expected ThingProps to be a reference to ThingProperties but it was nil")
 	}
-	if *thingField.ObjectDefinition.ReferenceName != "ThingProperties" {
-		t.Fatalf("expected ThingProps to be a reference to ThingProperties but it was %q", *thingField.ObjectDefinition.ReferenceName)
+	if *thingField.ObjectDefinition.NestedItem.ReferenceName != "ThingProperties" {
+		t.Fatalf("expected ThingProps to be a reference to ThingProperties but it was %q", *thingField.ObjectDefinition.NestedItem.ReferenceName)
 	}
 
 	thingModel, ok := hello.Models["ThingProperties"]
@@ -570,7 +575,10 @@ func TestParseModelSingleWithReferenceToArray(t *testing.T) {
 	if petsField.ObjectDefinition.Type != models.ObjectDefinitionList {
 		t.Fatalf("expected Pets to be a List but got %q", string(petsField.ObjectDefinition.Type))
 	}
-	if *petsField.ObjectDefinition.ReferenceName != "Pet" {
+	if petsField.ObjectDefinition.NestedItem.Type != models.ObjectDefinitionReference {
+		t.Fatalf("expected Pets to be a List of a Refernece but got a List of %q", string(petsField.ObjectDefinition.Type))
+	}
+	if *petsField.ObjectDefinition.NestedItem.ReferenceName != "Pet" {
 		t.Fatalf("expected ThingProps to be a reference to Pet but it was %q", *petsField.ObjectDefinition.ReferenceName)
 	}
 
@@ -680,11 +688,14 @@ func TestParseModelSingleWithReferenceToConstant(t *testing.T) {
 	if thingField.ObjectDefinition.Type != models.ObjectDefinitionList {
 		t.Fatalf("expected ThingProps to be a List but got %q", string(thingField.ObjectDefinition.Type))
 	}
-	if thingField.ObjectDefinition.ReferenceName == nil {
+	if thingField.ObjectDefinition.NestedItem.Type != models.ObjectDefinitionReference {
+		t.Fatalf("expected ThingProps to be a List of References but got a List of %q", string(thingField.ObjectDefinition.NestedItem.Type))
+	}
+	if thingField.ObjectDefinition.NestedItem.ReferenceName == nil {
 		t.Fatalf("expected ThingProps to be a reference to ThingProperties but it was nil")
 	}
-	if *thingField.ObjectDefinition.ReferenceName != "ThingProperties" {
-		t.Fatalf("expected ThingProps to be a reference to ThingProperties but it was %q", *thingField.ObjectDefinition.ReferenceName)
+	if *thingField.ObjectDefinition.NestedItem.ReferenceName != "ThingProperties" {
+		t.Fatalf("expected ThingProps to be a reference to ThingProperties but it was %q", *thingField.ObjectDefinition.NestedItem.ReferenceName)
 	}
 
 	thingModel, ok := hello.Models["ThingProperties"]
@@ -771,7 +782,7 @@ func TestParseModelSingleWithReferenceToString(t *testing.T) {
 	if world.ResponseObject.Type != models.ObjectDefinitionReference {
 		t.Fatalf("expected the response object to be a reference but it was %q", string(world.ResponseObject.Type))
 	}
-	if world.ResponseObject.ReferenceName != nil {
+	if *world.ResponseObject.ReferenceName != "Example" {
 		t.Fatalf("expected the response object to be 'Example' but got %q", *world.ResponseObject.ReferenceName)
 	}
 	if world.ResourceIdName != nil {
@@ -801,8 +812,11 @@ func TestParseModelSingleWithReferenceToString(t *testing.T) {
 	if thingField.ObjectDefinition.Type != models.ObjectDefinitionList {
 		t.Fatalf("expected ThingProps to be a List but got %q", string(thingField.ObjectDefinition.Type))
 	}
-	if *thingField.ObjectDefinition.ReferenceName != "ThingProperties" {
-		t.Fatalf("expected ThingProps to be a reference to ThingProperties but it was %q", *thingField.ObjectDefinition.ReferenceName)
+	if thingField.ObjectDefinition.NestedItem.Type != models.ObjectDefinitionReference {
+		t.Fatalf("expected ThingProps to be a List of References but got a List of %q", string(thingField.ObjectDefinition.Type))
+	}
+	if *thingField.ObjectDefinition.NestedItem.ReferenceName != "ThingProperties" {
+		t.Fatalf("expected ThingProps to be a reference to ThingProperties but it was %q", *thingField.ObjectDefinition.NestedItem.ReferenceName)
 	}
 
 	thingModel, ok := hello.Models["ThingProperties"]
@@ -826,7 +840,7 @@ func TestParseModelSingleWithReferenceToString(t *testing.T) {
 
 func TestParseModelWithCircularReferences(t *testing.T) {
 	t.Skipf("circular ref - look into later")
-	
+
 	parsed, err := Load("testdata/", "model_with_circular_reference.json", true)
 	if err != nil {
 		t.Fatalf("loading: %+v", err)
@@ -1031,34 +1045,49 @@ func TestParseModelMultipleTopLevelWithList(t *testing.T) {
 	if animals.ObjectDefinition.Type != models.ObjectDefinitionList {
 		t.Fatalf("expected person.Fields['Animals'] to be a List but got %q", string(animals.ObjectDefinition.Type))
 	}
-	if *animals.ObjectDefinition.ReferenceName != "Animal" {
-		t.Fatalf("person.Fields['Animals'].ModelReference should be 'Animal' but was %q", *animals.ObjectDefinition.ReferenceName)
+	if animals.ObjectDefinition.NestedItem.Type != models.ObjectDefinitionReference {
+		t.Fatalf("expected person.Fields['Animals'] to be a List but got %q", string(animals.ObjectDefinition.NestedItem.Type))
+	}
+	if *animals.ObjectDefinition.NestedItem.ReferenceName != "Animal" {
+		t.Fatalf("person.Fields['Animals'].ModelReference should be 'Animal' but was %q", *animals.ObjectDefinition.NestedItem.ReferenceName)
+	}
+	if animals.ObjectDefinition.NestedItem.Minimum != nil {
+		t.Fatalf("expected person.Fields['Animals'].ObjectDefinition.NestedItem.Minimum to be nil but got %v", *animals.ObjectDefinition.NestedItem.Minimum)
+	}
+	if animals.ObjectDefinition.NestedItem.Maximum != nil {
+		t.Fatalf("expected person.Fields['Animals'].ObjectDefinition.NestedItem.Maximum to be nil but got %v", *animals.ObjectDefinition.NestedItem.Maximum)
+	}
+	if animals.ObjectDefinition.NestedItem.UniqueItems == nil {
+		t.Fatalf("expected person.Fields['Animals'].ObjectDefinition.NestedItem.UniqueItems to be false but got nil")
+	}
+	if *animals.ObjectDefinition.NestedItem.UniqueItems {
+		t.Fatalf("expected person.Fields['Animals'].ObjectDefinition.NestedItem.UniqueItems to be false but got true")
 	}
 	if animals.JsonName != "animals" {
 		t.Fatalf("expected person.Fields['Animals'].JsonName to be 'animals' but got %q", animals.JsonName)
-	}
-	if animals.Minimum != nil {
-		t.Fatalf("expected person.Fields['Animals'].Minimum to be nil but got %v", *animals.Minimum)
-	}
-	if animals.Maximum != nil {
-		t.Fatalf("expected person.Fields['Animals'].Maximum to be nil but got %v", *animals.Maximum)
-	}
-	if animals.UniqueItems == nil || *animals.UniqueItems {
-		t.Fatalf("expected person.Fields['Animals'].UniqueItems to be false but got %v", fieldValueOrNil(animals, "UniqueItems"))
 	}
 
 	plants, ok := person.Fields["Plants"]
 	if !ok {
 		t.Fatalf("person.Fields['Plants'] was missing")
 	}
-	if plants.Minimum == nil || *plants.Minimum != 1 {
-		t.Fatalf("expected person.Fields['Plants'].Minimum to be 1 but got %v", fieldValueOrNil(plants, "Minimum"))
+	if plants.ObjectDefinition.NestedItem.Maximum == nil {
+		t.Fatalf("expected person.Fields['Plants'].Maximum to be 10 but got nil")
 	}
-	if plants.Maximum == nil || *plants.Maximum != 10 {
-		t.Fatalf("expected person.Fields['Plants'].Maximum to be 10 but got %v", fieldValueOrNil(plants, "Maximum"))
+	if *plants.ObjectDefinition.NestedItem.Maximum != 10 {
+		t.Fatalf("expected person.Fields['Plants'].Maximum to be 10 but got %d", *plants.ObjectDefinition.NestedItem.Maximum)
 	}
-	if plants.UniqueItems == nil || !*plants.UniqueItems {
-		t.Fatalf("expected person.Fields['Plants'].UniqueItems to be true but got %v", fieldValueOrNil(plants, "UniqueItems"))
+	if plants.ObjectDefinition.NestedItem.Minimum == nil {
+		t.Fatalf("expected person.Fields['Plants'].Minimum to be 1 but got nil")
+	}
+	if *plants.ObjectDefinition.NestedItem.Minimum != 1 {
+		t.Fatalf("expected person.Fields['Plants'].Minimum to be 1 but got %d", *plants.ObjectDefinition.NestedItem.Minimum)
+	}
+	if plants.ObjectDefinition.NestedItem.UniqueItems == nil {
+		t.Fatalf("expected person.Fields['Plants'].UniqueItems to be true but got nil")
+	}
+	if !*plants.ObjectDefinition.NestedItem.UniqueItems {
+		t.Fatalf("expected person.Fields['Plants'].UniqueItems to be true but got false")
 	}
 
 	animalModel, ok := resource.Models["Animal"]
@@ -1079,14 +1108,14 @@ func TestParseModelMultipleTopLevelWithList(t *testing.T) {
 	if animalName.JsonName != "name" {
 		t.Fatalf("expected animalModel.Fields['Name'].JsonName to be 'name' but got %q", animalName.JsonName)
 	}
-	if animalName.Minimum != nil {
-		t.Fatalf("expected person.Fields['Name'].Minimum to be nil but got %v", *animalName.Minimum)
+	if animalName.ObjectDefinition.NestedItem.Minimum != nil {
+		t.Fatalf("expected person.Fields['Name'].Minimum to be nil but got %v", *animalName.ObjectDefinition.NestedItem.Minimum)
 	}
-	if animalName.Maximum != nil {
-		t.Fatalf("expected person.Fields['Name'].Maximum to be nil but got %v", *animalName.Maximum)
+	if animalName.ObjectDefinition.NestedItem.Maximum != nil {
+		t.Fatalf("expected person.Fields['Name'].Maximum to be nil but got %v", *animalName.ObjectDefinition.NestedItem.Maximum)
 	}
-	if animalName.UniqueItems != nil {
-		t.Fatalf("expected person.Fields['Name'].UniqueItems to be nil but got %v", *animalName.UniqueItems)
+	if animalName.ObjectDefinition.NestedItem.UniqueItems != nil {
+		t.Fatalf("expected person.Fields['Name']..ObjectDefinition.NestedItemUniqueItems to be nil but got %v", *animalName.ObjectDefinition.NestedItem.UniqueItems)
 	}
 
 	animalAge, ok := animalModel.Fields["Age"]
@@ -1401,15 +1430,6 @@ func TestParseModelAdditionalProperties(t *testing.T) {
 	if p1.ObjectDefinition.Type != models.ObjectDefinitionString {
 		t.Fatalf("expected obj.Fields['P1'] to be a string but got %q", string(p1.ObjectDefinition.Type))
 	}
-}
-
-func fieldValueOrNil(obj interface{}, fieldName string) interface{} {
-	v := reflect.ValueOf(obj)
-	fv := v.FieldByName(fieldName)
-	if fv.IsNil() {
-		return nil
-	}
-	return fv.Elem().Interface()
 }
 
 func TestParseModelIdentities(t *testing.T) {

@@ -26,9 +26,6 @@ func mapConstant(typeVal spec.StringOrArray, values []interface{}, extensions sp
 	if err != nil {
 		return nil, fmt.Errorf("parsing `x-ms-enum` extension: %+v", err)
 	}
-	if constExtension == nil {
-		return nil, nil
-	}
 
 	constantType := models.StringConstant
 	if typeVal.Contains("integer") {
@@ -111,7 +108,7 @@ func parseConstantExtensionFromExtension(field spec.Extensions) (*constantExtens
 	// Constants should always have `x-ms-enum`
 	enumDetailsRaw, ok := field["x-ms-enum"]
 	if !ok {
-		return nil, nil
+		return nil, fmt.Errorf("constant is missing x-ms-enum")
 	}
 
 	enumDetails, ok := enumDetailsRaw.(map[string]interface{})

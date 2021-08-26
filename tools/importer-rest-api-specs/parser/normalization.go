@@ -11,6 +11,7 @@ func normalizeOperationName(operationId string, tag *string) string {
 	if tag != nil {
 		operationName = strings.TrimPrefix(operationName, *tag)
 	}
+	operationName = strings.ReplaceAll(operationName, "_", "")
 	operationName = strings.TrimPrefix(operationName, "Operations") // sanity checking
 	operationName = strings.TrimPrefix(operationName, "s")          // plurals
 	operationName = strings.TrimPrefix(operationName, "_")
