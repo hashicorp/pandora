@@ -32,7 +32,7 @@ func (d *SwaggerDefinition) parseResourcesWithinSwaggerTag(tag *string) (*models
 	}
 	result.append(*nestedResult)
 
-	// TODO: Actually parsing objects out Custom Type Switch-a-roo and Normalization
+	// TODO: Custom Type Switch-a-roo and clean up any unused
 
 	// if there's nothing here, there's no point generating a package
 	if len(*operations) == 0 && len(result.models) == 0 && len(result.constants) == 0 {
@@ -54,7 +54,7 @@ func (d *SwaggerDefinition) parseResourcesWithinSwaggerTag(tag *string) (*models
 	}
 
 	// first Normalize the names, meaning `foo` -> `Foo` for consistency
-	//resource.Normalize()
+	resource.Normalize()
 
 	return &resource, nil
 }
@@ -79,7 +79,7 @@ func (d *SwaggerDefinition) findNestedItemsYetToBeParsed(operations *map[string]
 
 			parsedAsAConstant, constErr := mapConstant(topLevelObject.Type, topLevelObject.Enum, topLevelObject.Extensions)
 			parsedAsAModel, modelErr := d.parseModel(referenceName, *topLevelObject)
-			if (constErr != nil && modelErr != nil) || (constErr == nil && modelErr == nil) {
+			if (constErr != nil && modelErr != nil) || (parsedAsAConstant == nil && parsedAsAModel == nil) {
 				return nil, fmt.Errorf("reference %q didn't parse as a Model or a Constant.\n\nConstant Error: %+v\n\nModel Error: %+v", referenceName, constErr, modelErr)
 			}
 
@@ -99,6 +99,26 @@ func (d *SwaggerDefinition) findNestedItemsYetToBeParsed(operations *map[string]
 
 func (d *SwaggerDefinition) determineObjectsRequiredButNotParsed(operations *map[string]models.OperationDetails, known parseResult) []string {
 	referencesToFind := make([]string, 0)
+
+	var objectsRequiredByModel = func(modelName string, model models.ModelDetails) []string {
+		out := make([]string, 0)
+		// if it's a model, we need to check all of the fields for this to find any constant or models
+		// that we don't know about
+		constantNamesToFind, modelNamesToFind := d.objectsUsedByModel(modelName, model)
+		for _, constantName := range constantNamesToFind {
+			if _, found := known.constants[constantName]; !found {
+				referencesToFind = append(referencesToFind, constantName)
+			}
+		}
+		for _, modelName := range modelNamesToFind {
+			if _, found := known.models[modelName]; !found {
+				referencesToFind = append(referencesToFind, modelName)
+			}
+		}
+
+		return out
+	}
+
 	for _, operation := range *operations {
 		if operation.RequestObject != nil {
 			topLevelRef := topLevelObjectDefinition(*operation.RequestObject)
@@ -111,19 +131,8 @@ func (d *SwaggerDefinition) determineObjectsRequiredButNotParsed(operations *map
 				if isModel {
 					modelName := *topLevelRef.ReferenceName
 					model := known.models[modelName]
-					// if it's a model, we need to check all of the fields for this to find any constant or models
-					// that we don't know about
-					constantNamesToFind, modelNamesToFind := d.objectsUsedByModel(modelName, model)
-					for _, constantName := range constantNamesToFind {
-						if _, found := known.constants[constantName]; !found {
-							referencesToFind = append(referencesToFind, constantName)
-						}
-					}
-					for _, modelName := range modelNamesToFind {
-						if _, found := known.models[modelName]; !found {
-							referencesToFind = append(referencesToFind, modelName)
-						}
-					}
+					missingReferencesInModel := objectsRequiredByModel(modelName, model)
+					referencesToFind = append(referencesToFind, missingReferencesInModel...)
 				}
 			}
 		}
@@ -141,17 +150,8 @@ func (d *SwaggerDefinition) determineObjectsRequiredButNotParsed(operations *map
 					// that we don't know about
 					modelName := *topLevelRef.ReferenceName
 					model := known.models[modelName]
-					constantNamesToFind, modelNamesToFind := d.objectsUsedByModel(modelName, model)
-					for _, constantName := range constantNamesToFind {
-						if _, found := known.constants[constantName]; !found {
-							referencesToFind = append(referencesToFind, constantName)
-						}
-					}
-					for _, modelName := range modelNamesToFind {
-						if _, found := known.models[modelName]; !found {
-							referencesToFind = append(referencesToFind, modelName)
-						}
-					}
+					missingReferencesInModel := objectsRequiredByModel(modelName, model)
+					referencesToFind = append(referencesToFind, missingReferencesInModel...)
 				}
 			}
 		}
@@ -165,7 +165,12 @@ func (d *SwaggerDefinition) determineObjectsRequiredButNotParsed(operations *map
 				referencesToFind = append(referencesToFind, *value.ConstantObjectName)
 			}
 		}
+	}
 
+	// then verify we have all of the models for the current models we know about
+	for modelName, model := range known.models {
+		missingReferencesInModel := objectsRequiredByModel(modelName, model)
+		referencesToFind = append(referencesToFind, missingReferencesInModel...)
 	}
 
 	return referencesToFind

@@ -361,11 +361,11 @@ func (p operationsParser) requestObjectForOperation(input parsedOperation) (*mod
 		return nil, nil, nil
 	}
 
-	for paramName, param := range unexpandedOperation.Parameters {
+	for _, param := range unexpandedOperation.Parameters {
 		if strings.EqualFold(param.In, "body") {
 			objectDefinition, result, err := p.parseObjectDefinition(param.Schema)
 			if err != nil {
-				return nil, nil, fmt.Errorf("parsing request object for parameter %q: %+v", paramName, err)
+				return nil, nil, fmt.Errorf("parsing request object for parameter %q: %+v", param.Name, err)
 			}
 			if objectDefinition != nil {
 				return objectDefinition, result, nil
@@ -590,5 +590,6 @@ func (d *SwaggerDefinition) findOperationsMatchingTag(tag *string) *[]parsedOper
 			})
 		}
 	}
+
 	return &result
 }

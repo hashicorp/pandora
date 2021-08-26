@@ -26,6 +26,9 @@ func mapConstant(typeVal spec.StringOrArray, values []interface{}, extensions sp
 	if err != nil {
 		return nil, fmt.Errorf("parsing `x-ms-enum` extension: %+v", err)
 	}
+	if constExtension == nil {
+		return nil, nil
+	}
 
 	constantType := models.StringConstant
 	if typeVal.Contains("integer") {
