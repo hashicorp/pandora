@@ -3,6 +3,7 @@ package parser
 import (
 	"fmt"
 	"log"
+	"strings"
 
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
@@ -91,31 +92,60 @@ func (d *SwaggerDefinition) findNestedItemsYetToBeParsed(operations *map[string]
 			}
 		}
 
-		referencesToFind = d.determineObjectsRequiredButNotParsed(operations, result)
+		remainingReferencesToFind := d.determineObjectsRequiredButNotParsed(operations, result)
+		if referencesAreTheSame(referencesToFind, remainingReferencesToFind) {
+			return nil, fmt.Errorf("the following references couldn't be found: %q", strings.Join(referencesToFind, ", "))
+		}
+		referencesToFind = remainingReferencesToFind
 	}
 
 	return &result, nil
 }
 
+func referencesAreTheSame(first []string, second []string) bool {
+	if len(first) != len(second) {
+		return false
+	}
+
+	// first load the existing keys
+	keys := make(map[string]struct{}, 0)
+	for _, key := range first {
+		keys[key] = struct{}{}
+	}
+
+	// then check the remaining ones
+	for _, key := range second {
+		if _, exists := keys[key]; !exists {
+			return false
+		}
+	}
+
+	return true
+}
+
 func (d *SwaggerDefinition) determineObjectsRequiredButNotParsed(operations *map[string]models.OperationDetails, known parseResult) []string {
-	referencesToFind := make([]string, 0)
+	referencesToFind := make(map[string]struct{}, 0)
 
 	var objectsRequiredByModel = func(modelName string, model models.ModelDetails) []string {
-		out := make([]string, 0)
+		result := make(map[string]struct{}, 0)
 		// if it's a model, we need to check all of the fields for this to find any constant or models
 		// that we don't know about
 		constantNamesToFind, modelNamesToFind := d.objectsUsedByModel(modelName, model)
 		for _, constantName := range constantNamesToFind {
 			if _, found := known.constants[constantName]; !found {
-				referencesToFind = append(referencesToFind, constantName)
+				result[constantName] = struct{}{}
 			}
 		}
 		for _, modelName := range modelNamesToFind {
 			if _, found := known.models[modelName]; !found {
-				referencesToFind = append(referencesToFind, modelName)
+				result[modelName] = struct{}{}
 			}
 		}
 
+		out := make([]string, 0)
+		for k := range result {
+			out = append(out, k)
+		}
 		return out
 	}
 
@@ -123,16 +153,18 @@ func (d *SwaggerDefinition) determineObjectsRequiredButNotParsed(operations *map
 		if operation.RequestObject != nil {
 			topLevelRef := topLevelObjectDefinition(*operation.RequestObject)
 			if topLevelRef.Type == models.ObjectDefinitionReference {
-				isConstant, isModel := isObjectKnown(*topLevelRef.ReferenceName, known)
-				if !isConstant && !isModel {
-					referencesToFind = append(referencesToFind, *topLevelRef.ReferenceName)
+				isKnownConstant, isKnownModel := isObjectKnown(*topLevelRef.ReferenceName, known)
+				if !isKnownConstant && !isKnownModel {
+					referencesToFind[*topLevelRef.ReferenceName] = struct{}{}
 				}
 
-				if isModel {
+				if isKnownModel {
 					modelName := *topLevelRef.ReferenceName
 					model := known.models[modelName]
 					missingReferencesInModel := objectsRequiredByModel(modelName, model)
-					referencesToFind = append(referencesToFind, missingReferencesInModel...)
+					for _, name := range missingReferencesInModel {
+						referencesToFind[name] = struct{}{}
+					}
 				}
 			}
 		}
@@ -140,18 +172,20 @@ func (d *SwaggerDefinition) determineObjectsRequiredButNotParsed(operations *map
 		if operation.ResponseObject != nil {
 			topLevelRef := topLevelObjectDefinition(*operation.ResponseObject)
 			if topLevelRef.Type == models.ObjectDefinitionReference {
-				isConstant, isModel := isObjectKnown(*topLevelRef.ReferenceName, known)
-				if !isConstant && !isModel {
-					referencesToFind = append(referencesToFind, *topLevelRef.ReferenceName)
+				isKnownConstant, isKnownModel := isObjectKnown(*topLevelRef.ReferenceName, known)
+				if !isKnownConstant && !isKnownModel {
+					referencesToFind[*topLevelRef.ReferenceName] = struct{}{}
 				}
 
-				if isModel {
+				if isKnownModel {
 					// if it's a model, we need to check all of the fields for this to find any constant or models
 					// that we don't know about
 					modelName := *topLevelRef.ReferenceName
 					model := known.models[modelName]
 					missingReferencesInModel := objectsRequiredByModel(modelName, model)
-					referencesToFind = append(referencesToFind, missingReferencesInModel...)
+					for _, name := range missingReferencesInModel {
+						referencesToFind[name] = struct{}{}
+					}
 				}
 			}
 		}
@@ -162,7 +196,7 @@ func (d *SwaggerDefinition) determineObjectsRequiredButNotParsed(operations *map
 			}
 
 			if _, isKnown := known.constants[*value.ConstantObjectName]; !isKnown {
-				referencesToFind = append(referencesToFind, *value.ConstantObjectName)
+				referencesToFind[*value.ConstantObjectName] = struct{}{}
 			}
 		}
 	}
@@ -170,46 +204,63 @@ func (d *SwaggerDefinition) determineObjectsRequiredButNotParsed(operations *map
 	// then verify we have all of the models for the current models we know about
 	for modelName, model := range known.models {
 		missingReferencesInModel := objectsRequiredByModel(modelName, model)
-		referencesToFind = append(referencesToFind, missingReferencesInModel...)
+		for _, name := range missingReferencesInModel {
+			referencesToFind[name] = struct{}{}
+		}
 	}
 
-	return referencesToFind
+	out := make([]string, 0)
+	for k := range referencesToFind {
+		out = append(out, k)
+	}
+
+	return out
 }
 
 func (d *SwaggerDefinition) objectsUsedByModel(modelName string, model models.ModelDetails) ([]string, []string) {
-	constantNames := make([]string, 0)
-	modelNames := make([]string, 0)
+	constantNames := make(map[string]struct{}, 0)
+	modelNames := make(map[string]struct{}, 0)
 
 	for _, field := range model.Fields {
 		if field.ConstantReference != nil {
-			constantNames = append(constantNames, *field.ConstantReference)
+			constantNames[*field.ConstantReference] = struct{}{}
 		}
 		if field.ModelReference != nil {
-			modelNames = append(modelNames, *field.ModelReference)
+			modelNames[*field.ModelReference] = struct{}{}
 		}
 	}
 
 	if model.AdditionalProperties != nil {
 		if model.AdditionalProperties.ConstantReference != nil {
-			constantNames = append(constantNames, *model.AdditionalProperties.ConstantReference)
+			constantNames[*model.AdditionalProperties.ConstantReference] = struct{}{}
 		}
 
 		if model.AdditionalProperties.ModelReference != nil {
-			modelNames = append(modelNames, *model.AdditionalProperties.ModelReference)
+			modelNames[*model.AdditionalProperties.ModelReference] = struct{}{}
 		}
 	}
 
 	if model.ParentTypeName != nil {
-		modelNames = append(modelNames, *model.ParentTypeName)
+		modelNames[*model.ParentTypeName] = struct{}{}
 	}
 
 	if model.TypeHintIn != nil {
 		// this must be a discriminator
 		modelNamesThatImplementThis := d.findModelNamesWhichImplement(modelName)
-		modelNames = append(modelNames, modelNamesThatImplementThis...)
+		for _, k := range modelNamesThatImplementThis {
+			modelNames[k] = struct{}{}
+		}
 	}
 
-	return constantNames, modelNames
+	constants := make([]string, 0)
+	for k := range constantNames {
+		constants = append(constants, k)
+	}
+	models := make([]string, 0)
+	for k := range modelNames {
+		models = append(models, k)
+	}
+	return constants, models
 }
 
 func (d *SwaggerDefinition) findModelNamesWhichImplement(parentName string) []string {
