@@ -162,6 +162,32 @@ func (d *SwaggerDefinition) detailsForField(modelName string, propertyName strin
 		resultWithPlaceholder.models[modelName] = models.ModelDetails{}
 	}
 
+	if len(value.Properties) > 0 {
+		// there's a nested model we need to pull out
+		inlinedName := inlinedModelName(modelName, propertyName)
+		nestedFields := make(map[string]models.FieldDetails, 0)
+		for propName, propVal := range value.Properties {
+			nestedFieldRequired := false
+			for _, field := range value.Required {
+				if strings.EqualFold(field, propName) {
+					nestedFieldRequired = true
+					break
+				}
+			}
+			nestedField, nestedResult, err := d.detailsForField(inlinedName, propName, propVal, nestedFieldRequired, result)
+			if err != nil {
+				return nil, nil, fmt.Errorf("parsing inlined model %q: %+v", inlinedName, err)
+			}
+			result.append(*nestedResult)
+			nestedFields[propName] = *nestedField
+		}
+		inlinedModelDetails, err := d.modelDetailsFromObject(value, nestedFields)
+		if err != nil {
+			return nil, nil, fmt.Errorf("building model details for inlined model %q: %+v", inlinedName, err)
+		}
+		result.models[inlinedName] = *inlinedModelDetails
+	}
+
 	// first get the object definition
 	objectDefinition, nestedResult, err := d.parseObjectDefinition(modelName, &value, resultWithPlaceholder)
 	if err != nil {
