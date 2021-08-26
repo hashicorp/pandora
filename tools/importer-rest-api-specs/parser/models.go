@@ -269,9 +269,6 @@ func (d *SwaggerDefinition) modelDetailsFromObject(input spec.Schema, fields map
 		Description: "",
 		Fields:      fields,
 	}
-	if additionalProperties != nil {
-		details.AdditionalProperties = &additionalProperties.Details
-	}
 
 	// if this is a Parent
 	if input.Discriminator != "" {
@@ -417,6 +414,8 @@ func (d SwaggerDefinition) parseNativeType(input *spec.Schema) *models.ObjectDef
 		}
 	}
 
+	// TODO: datetime ObjectDefinitionDateTime
+
 	if input.Type.Contains("integer") {
 		return &models.ObjectDefinition{
 			Type: models.ObjectDefinitionInteger,
@@ -430,6 +429,13 @@ func (d SwaggerDefinition) parseNativeType(input *spec.Schema) *models.ObjectDef
 	}
 
 	if input.Type.Contains("string") {
+		if strings.EqualFold(input.Format, "date-time") {
+			// TODO: handle there being a custom format - for now we assume these are all using RFC3339
+			return &models.ObjectDefinition{
+				Type: models.ObjectDefinitionDateTime,
+			}
+		}
+
 		return &models.ObjectDefinition{
 			Type: models.ObjectDefinitionString,
 		}

@@ -437,10 +437,16 @@ func (p operationsParser) responseObjectForOperation(input parsedOperation, isAL
 					}
 
 					if strings.EqualFold(k, "Value") {
-						if v.ModelReference == nil {
-							return nil, nil, fmt.Errorf("parsing model %q for list operation to find real model: missing model reference for field 'value'", modelName)
+						if v.ObjectDefinition == nil {
+							return nil, nil, fmt.Errorf("parsing model %q for list operation to find real model: missing object definition for field 'value'", modelName)
 						}
-						actualModelName = *v.ModelReference
+
+						definition := topLevelObjectDefinition(*v.ObjectDefinition)
+						if definition.ReferenceName == nil {
+							return nil, nil, fmt.Errorf("parsing model %q for list operation to find real model: top level object definition should be a reference but got %+v", modelName, definition)
+						}
+
+						actualModelName = *definition.ReferenceName
 						continue
 					}
 				}

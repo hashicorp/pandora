@@ -8,7 +8,7 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
-func (g PandoraDefinitionGenerator) codeForModel(namespace string, modelName string, model models.ModelDetails, parentModel *models.ModelDetails) (*string, error) {
+func (g PandoraDefinitionGenerator) codeForModel(namespace string, modelName string, model models.ModelDetails, parentModel *models.ModelDetails, knownConstants map[string]models.ConstantDetails, knownModels map[string]models.ModelDetails) (*string, error) {
 	if len(model.Fields) == 0 {
 		return nil, fmt.Errorf("the model %q in namespace %q has no fields", modelName, namespace)
 	}
@@ -42,7 +42,7 @@ func (g PandoraDefinitionGenerator) codeForModel(namespace string, modelName str
 
 		field := model.Fields[fieldName]
 		isTypeHint := model.TypeHintIn != nil && strings.EqualFold(*model.TypeHintIn, fieldName)
-		fieldCode, err := g.codeForField("\t\t", fieldName, field, isTypeHint)
+		fieldCode, err := g.codeForField("\t\t", fieldName, field, isTypeHint, knownConstants, knownModels)
 		if err != nil {
 			return nil, fmt.Errorf("generating code for field %q: %+v", fieldName, err)
 		}
@@ -83,15 +83,15 @@ namespace %[1]s
 	return &out, nil
 }
 
-func (g PandoraDefinitionGenerator) codeForField(indentation, fieldName string, field models.FieldDetails, isTypeHint bool) (*string, error) {
-	fieldType, err := dotNetTypeNameForComplexType(field)
+func (g PandoraDefinitionGenerator) codeForField(indentation, fieldName string, field models.FieldDetails, isTypeHint bool, constants map[string]models.ConstantDetails, knownModels map[string]models.ModelDetails) (*string, error) {
+	fieldType, err := dotNetTypeNameForComplexType(field, constants, knownModels)
 	if err != nil {
 		return nil, err
 	}
 
 	lines := make([]string, 0)
 
-	if field.Type == models.DateTime {
+	if field.ObjectDefinition != nil && field.ObjectDefinition.Type == models.ObjectDefinitionDateTime {
 		// TODO: support for custom date formats
 		lines = append(lines, fmt.Sprintf("%[1]s[DateFormat(DateFormatAttribute.DateFormat.RFC3339)]", indentation))
 	}
@@ -109,11 +109,11 @@ func (g PandoraDefinitionGenerator) codeForField(indentation, fieldName string, 
 		fieldType = &typeName
 	}
 
-	if field.ListElementMin != nil {
-		lines = append(lines, fmt.Sprintf("%[1]s[MinItems(%[2]d)]", indentation, *field.ListElementMin))
+	if field.Minimum != nil {
+		lines = append(lines, fmt.Sprintf("%[1]s[MinItems(%[2]d)]", indentation, *field.Minimum))
 	}
-	if field.ListElementMax != nil {
-		lines = append(lines, fmt.Sprintf("%[1]s[MaxItems(%[2]d)]", indentation, *field.ListElementMax))
+	if field.Maximum != nil {
+		lines = append(lines, fmt.Sprintf("%[1]s[MaxItems(%[2]d)]", indentation, *field.Maximum))
 	}
 
 	lines = append(lines, fmt.Sprintf("%[1]spublic %[2]s %[3]s { get; set; }", indentation, *fieldType, strings.Title(fieldName)))
@@ -121,87 +121,129 @@ func (g PandoraDefinitionGenerator) codeForField(indentation, fieldName string, 
 	return &out, nil
 }
 
-func dotNetTypeNameForComplexType(field models.FieldDetails) (*string, error) {
-	var nilableType = func(input string) (*string, error) {
-		return &input, nil
+func dotNetTypeNameForComplexType(field models.FieldDetails, constants map[string]models.ConstantDetails, models map[string]models.ModelDetails) (*string, error) {
+	if field.CustomFieldType != nil {
+		return dotNetTypeNameForCustomType(*field.CustomFieldType)
 	}
 
-	switch field.Type {
-	case models.Boolean, models.DateTime, models.Float, models.Integer, models.String:
-		return dotNetTypeNameForSimpleType(field.Type)
+	return dotNetNameForObjectDefinition(field.ObjectDefinition, constants, models)
+}
 
-	case models.Dictionary:
+func dotNetNameForObjectDefinition(input *models.ObjectDefinition, constants map[string]models.ConstantDetails, knownModels map[string]models.ModelDetails) (*string, error) {
+	if input == nil {
+		return nil, fmt.Errorf("missing object definition")
+	}
+
+	var nilableValue = func(in string) (*string, error) {
+		return &in, nil
+	}
+
+	switch input.Type {
+	case models.ObjectDefinitionDictionary:
 		{
-			if field.ConstantReference != nil {
-				return nilableType(fmt.Sprintf("Dictionary<string, %sConstant>", *field.ConstantReference))
-			}
-			if field.ModelReference != nil {
-				return nilableType(fmt.Sprintf("Dictionary<string, %sModel>", *field.ModelReference))
-			}
-			if field.DictValueType != nil {
-				return nilableType(fmt.Sprintf("Dictionary<string, %s>", *field.DictValueType))
-			}
-
-			// TODO: we could have keys of other types, but this is likely fine for now
-			return nil, fmt.Errorf("the Dictionary has no Nested Element Type")
-		}
-
-	case models.List:
-		{
-			if field.ConstantReference != nil {
-				return nilableType(fmt.Sprintf("List<%sConstant>", *field.ConstantReference))
-			}
-			if field.ModelReference != nil {
-				return nilableType(fmt.Sprintf("List<%sModel>", *field.ModelReference))
-			}
-			if field.ListElementType != nil {
-				nestedType := ""
-				if *field.ListElementType == models.Object {
-					// not ideal, but it'll do for now since there's no definition for this
-					nestedType = "object"
-				} else {
-					nestedTypeName, err := dotNetTypeNameForSimpleType(*field.ListElementType)
-					if err != nil {
-						return nil, fmt.Errorf("determining Type for nested Element %q: %+v", string(*field.ListElementType), err)
-					}
-					nestedType = *nestedTypeName
+			if input.ReferenceName != nil {
+				if _, isConstant := constants[*input.ReferenceName]; isConstant {
+					return nilableValue(fmt.Sprintf("Dictionary<string, %sConstant>", *input.ReferenceName))
+				}
+				if _, isModel := knownModels[*input.ReferenceName]; isModel {
+					return nilableValue(fmt.Sprintf("Dictionary<string, %sModel>", *input.ReferenceName))
 				}
 
-				return nilableType(fmt.Sprintf("List<%s>", nestedType))
+				return nil, fmt.Errorf("reference %q was not found as a constant or a model", *input.ReferenceName)
 			}
 
-			return nil, fmt.Errorf("the List has no Nested Element Type")
+			if input.NestedItem == nil {
+				return nil, fmt.Errorf("a dictionary must have a reference or a nested item but got neither")
+			}
+
+			innerType, err := dotNetNameForObjectDefinition(input.NestedItem, constants, knownModels)
+			if err != nil {
+				return nil, fmt.Errorf("determining inner type for object definition: %+v", err)
+			}
+			return nilableValue(fmt.Sprintf("Dictionary<string, %s>", *innerType))
 		}
 
-	case models.Object:
-		if field.ConstantReference != nil {
-			return nilableType(fmt.Sprintf("%sConstant", *field.ConstantReference))
-		}
-		if field.ModelReference != nil {
-			return nilableType(fmt.Sprintf("%sModel", *field.ModelReference))
+	case models.ObjectDefinitionList:
+		{
+			if input.ReferenceName != nil {
+				if _, isConstant := constants[*input.ReferenceName]; isConstant {
+					return nilableValue(fmt.Sprintf("List<%sConstant>", *input.ReferenceName))
+				}
+				if _, isModel := knownModels[*input.ReferenceName]; isModel {
+					return nilableValue(fmt.Sprintf("List<%sModel>", *input.ReferenceName))
+				}
+
+				return nil, fmt.Errorf("reference %q was not found as a constant or a model", *input.ReferenceName)
+			}
+
+			if input.NestedItem == nil {
+				return nil, fmt.Errorf("a list item must have a reference or a nested item but got neither")
+			}
+
+			innerType, err := dotNetNameForObjectDefinition(input.NestedItem, constants, knownModels)
+			if err != nil {
+				return nil, fmt.Errorf("determining inner type for object definition: %+v", err)
+			}
+			return nilableValue(fmt.Sprintf("List<%s>", *innerType))
 		}
 
-		// for example JSON fields
-		return nilableType("object")
+	case models.ObjectDefinitionReference:
+		{
+			if input.ReferenceName == nil {
+				return nil, fmt.Errorf("a reference must have a reference name but didn't get one")
+			}
 
-	// Custom Types exist for these
-	case models.Location:
+			return input.ReferenceName, nil
+		}
+
+	case models.ObjectDefinitionBoolean:
+		return nilableValue("bool")
+
+	case models.ObjectDefinitionDateTime:
+		return nilableValue("DateTime")
+
+	case models.ObjectDefinitionFloat:
+		return nilableValue("float")
+
+	case models.ObjectDefinitionInteger:
+		return nilableValue("int")
+
+	case models.ObjectDefinitionString:
+		return nilableValue("string")
+	}
+
+	return nil, fmt.Errorf("unmapped object definition value: %+v", *input)
+}
+
+func dotNetTypeNameForCustomType(input models.CustomFieldType) (*string, error) {
+	var nilableType = func(in string) (*string, error) {
+		return &in, nil
+	}
+
+	switch input {
+	case models.CustomFieldTypeLocation:
 		return nilableType("CustomTypes.Location")
-	case models.Tags:
+
+	case models.CustomFieldTypeTags:
 		return nilableType("CustomTypes.Tags")
-	case models.SystemAssignedIdentity:
+
+	case models.CustomFieldTypeSystemAssignedIdentity:
 		return nilableType("CustomTypes.SystemAssignedIdentity")
-	case models.SystemUserAssignedIdentityList:
+
+	case models.CustomFieldTypeSystemAssignedUserAssignedIdentityList:
 		return nilableType("CustomTypes.SystemUserAssignedIdentityList")
-	case models.SystemUserAssignedIdentityMap:
+
+	case models.CustomFieldTypeSystemAssignedUserAssignedIdentityMap:
 		return nilableType("CustomTypes.SystemUserAssignedIdentityMap")
-	case models.UserAssignedIdentityList:
+
+	case models.CustomFieldTypeUserAssignedIdentityList:
 		return nilableType("CustomTypes.UserAssignedIdentityList")
-	case models.UserAssignedIdentityMap:
+
+	case models.CustomFieldTypeUserAssignedIdentityMap:
 		return nilableType("CustomTypes.UserAssignedIdentityMap")
 	}
 
-	return nil, fmt.Errorf(fmt.Sprintf("TODO: unsupported type %q", string(field.Type)))
+	return nil, fmt.Errorf("unmapped Custom Type %q", string(input))
 }
 
 func dotNetTypeNameForSimpleType(input models.FieldDefinitionType) (*string, error) {

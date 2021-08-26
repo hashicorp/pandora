@@ -62,11 +62,14 @@ func TestParseConstantsIntegersTopLevelAsInts(t *testing.T) {
 	if !ok {
 		t.Fatal("animal.Fields['FavouriteTable'] did not exist")
 	}
-	if favouriteTableField.ConstantReference == nil {
-		t.Fatal("animal.Fields['FavouriteTable'] had a nil ConstantReference")
+	if favouriteTableField.ObjectDefinition == nil {
+		t.Fatal("animal.Fields['FavouriteTable'] had a nil ObjectDefinition")
 	}
-	if *favouriteTableField.ConstantReference != "TableNumber" {
-		t.Fatalf("animal.Fields['FavouriteTable'] should be 'FavouriteTable' but was %q", *favouriteTableField.ConstantReference)
+	if favouriteTableField.ObjectDefinition.Type != models.ObjectDefinitionReference {
+		t.Fatalf("animal.Fields['FavouriteTable'] should be a Reference but got %q", string(favouriteTableField.ObjectDefinition.Type))
+	}
+	if *favouriteTableField.ObjectDefinition.ReferenceName != "TableNumber" {
+		t.Fatalf("animal.Fields['FavouriteTable'] should be 'FavouriteTable' but was %q", *favouriteTableField.ObjectDefinition.ReferenceName)
 	}
 
 	favouriteTable, ok := resource.Constants["TableNumber"]
@@ -165,11 +168,14 @@ func TestParseConstantsIntegersTopLevelAsStrings(t *testing.T) {
 	if !ok {
 		t.Fatal("animal.Fields['FavouriteTable'] did not exist")
 	}
-	if favouriteTableField.ConstantReference == nil {
-		t.Fatal("animal.Fields['FavouriteTable'] had a nil ConstantReference")
+	if favouriteTableField.ObjectDefinition == nil {
+		t.Fatal("animal.Fields['FavouriteTable'] had a nil ObjectDefinition")
 	}
-	if *favouriteTableField.ConstantReference != "TableNumber" {
-		t.Fatalf("animal.Fields['FavouriteTable'].ConstantReference should be 'TableNumber' but was %q", *favouriteTableField.ConstantReference)
+	if favouriteTableField.ObjectDefinition.Type != models.ObjectDefinitionReference {
+		t.Fatalf("animal.Fields['FavouriteTable'] should be a Reference but got %q", string(favouriteTableField.ObjectDefinition.Type))
+	}
+	if *favouriteTableField.ObjectDefinition.ReferenceName != "TableNumber" {
+		t.Fatalf("animal.Fields['FavouriteTable'] should be 'FavouriteTable' but was %q", *favouriteTableField.ObjectDefinition.ReferenceName)
 	}
 
 	favouriteTable, ok := resource.Constants["TableNumber"]
@@ -261,11 +267,14 @@ func TestParseConstantsIntegersInlinedAsInts(t *testing.T) {
 	if !ok {
 		t.Fatal("animal.Fields['FavouriteTable'] did not exist")
 	}
-	if favouriteTableField.ConstantReference == nil {
-		t.Fatal("animal.Fields['FavouriteTable'] had a nil ConstantReference")
+	if favouriteTableField.ObjectDefinition == nil {
+		t.Fatal("animal.Fields['FavouriteTable'] had a nil ObjectDefinition")
 	}
-	if *favouriteTableField.ConstantReference != "TableNumber" {
-		t.Fatalf("animal.Fields['FavouriteTable'].ConstantReference should be 'FavouriteTable' but was %q", *favouriteTableField.ConstantReference)
+	if favouriteTableField.ObjectDefinition.Type != models.ObjectDefinitionReference {
+		t.Fatalf("animal.Fields['FavouriteTable'] should be a Reference but got %q", string(favouriteTableField.ObjectDefinition.Type))
+	}
+	if *favouriteTableField.ObjectDefinition.ReferenceName != "TableNumber" {
+		t.Fatalf("animal.Fields['FavouriteTable'] should be 'FavouriteTable' but was %q", *favouriteTableField.ObjectDefinition.ReferenceName)
 	}
 
 	favouriteTable, ok := resource.Constants["TableNumber"]
@@ -357,11 +366,14 @@ func TestParseConstantsIntegersInlinedAsStrings(t *testing.T) {
 	if !ok {
 		t.Fatal("animal.Fields['FavouriteTable'] did not exist")
 	}
-	if favouriteTableField.ConstantReference == nil {
-		t.Fatal("animal.Fields['FavouriteTable'] had a nil ConstantReference")
+	if favouriteTableField.ObjectDefinition == nil {
+		t.Fatal("animal.Fields['FavouriteTable'] had a nil ObjectDefinition")
 	}
-	if *favouriteTableField.ConstantReference != "TableNumber" {
-		t.Fatalf("animal.Fields['FavouriteTable'].ConstantReference should be 'TableNumber' but was %q", *favouriteTableField.ConstantReference)
+	if favouriteTableField.ObjectDefinition.Type != models.ObjectDefinitionReference {
+		t.Fatalf("animal.Fields['FavouriteTable'] should be a Reference but got %q", string(favouriteTableField.ObjectDefinition.Type))
+	}
+	if *favouriteTableField.ObjectDefinition.ReferenceName != "TableNumber" {
+		t.Fatalf("animal.Fields['FavouriteTable'] should be 'FavouriteTable' but was %q", *favouriteTableField.ObjectDefinition.ReferenceName)
 	}
 
 	favouriteTable, ok := resource.Constants["TableNumber"]
@@ -453,11 +465,14 @@ func TestParseConstantsFloatsTopLevelAsFloats(t *testing.T) {
 	if !ok {
 		t.Fatal("animal.Fields['FavouriteTable'] did not exist")
 	}
-	if favouriteTableField.ConstantReference == nil {
-		t.Fatal("animal.Fields['FavouriteTable'] had a nil ConstantReference")
+	if favouriteTableField.ObjectDefinition == nil {
+		t.Fatal("animal.Fields['FavouriteTable'] had a nil ObjectDefinition")
 	}
-	if *favouriteTableField.ConstantReference != "TableNumber" {
-		t.Fatalf("animal.Fields['FavouriteTable'].ConstantReference should be 'TableNumber' but was %q", *favouriteTableField.ConstantReference)
+	if favouriteTableField.ObjectDefinition.Type != models.ObjectDefinitionReference {
+		t.Fatalf("animal.Fields['FavouriteTable'] should be a Reference but got %q", string(favouriteTableField.ObjectDefinition.Type))
+	}
+	if *favouriteTableField.ObjectDefinition.ReferenceName != "TableNumber" {
+		t.Fatalf("animal.Fields['FavouriteTable'] should be 'FavouriteTable' but was %q", *favouriteTableField.ObjectDefinition.ReferenceName)
 	}
 
 	favouriteTable, ok := resource.Constants["TableNumber"]
@@ -549,11 +564,14 @@ func TestParseConstantsStringsTopLevelContainingFloats(t *testing.T) {
 	if !ok {
 		t.Fatal("animal.Fields['FavouriteTable'] did not exist")
 	}
-	if favouriteTableField.ConstantReference == nil {
-		t.Fatal("animal.Fields['FavouriteTable'] had a nil ConstantReference")
+	if favouriteTableField.ObjectDefinition == nil {
+		t.Fatal("animal.Fields['FavouriteTable'] had a nil ObjectDefinition")
 	}
-	if *favouriteTableField.ConstantReference != "TableNumber" {
-		t.Fatalf("animal.Fields['favouriteTable'].ConstantReference should be 'TableNumber' but was %q", *favouriteTableField.ConstantReference)
+	if favouriteTableField.ObjectDefinition.Type != models.ObjectDefinitionReference {
+		t.Fatalf("animal.Fields['FavouriteTable'] should be a Reference but got %q", string(favouriteTableField.ObjectDefinition.Type))
+	}
+	if *favouriteTableField.ObjectDefinition.ReferenceName != "TableNumber" {
+		t.Fatalf("animal.Fields['FavouriteTable'] should be 'FavouriteTable' but was %q", *favouriteTableField.ObjectDefinition.ReferenceName)
 	}
 
 	favouriteTable, ok := resource.Constants["TableNumber"]
@@ -645,11 +663,14 @@ func TestParseConstantsStringsInlinedContainingFloats(t *testing.T) {
 	if !ok {
 		t.Fatal("animal.Fields['FavouriteTable'] did not exist")
 	}
-	if favouriteTableField.ConstantReference == nil {
-		t.Fatal("animal.Fields['FavouriteTable'] had a nil ConstantReference")
+	if favouriteTableField.ObjectDefinition == nil {
+		t.Fatal("animal.Fields['FavouriteTable'] had a nil ObjectDefinition")
 	}
-	if *favouriteTableField.ConstantReference != "TableNumber" {
-		t.Fatalf("animal.Fields['FavouriteTable'].ConstantReference should be 'TableNumber' but was %q", *favouriteTableField.ConstantReference)
+	if favouriteTableField.ObjectDefinition.Type != models.ObjectDefinitionReference {
+		t.Fatalf("animal.Fields['FavouriteTable'] should be a Reference but got %q", string(favouriteTableField.ObjectDefinition.Type))
+	}
+	if *favouriteTableField.ObjectDefinition.ReferenceName != "TableNumber" {
+		t.Fatalf("animal.Fields['FavouriteTable'] should be 'FavouriteTable' but was %q", *favouriteTableField.ObjectDefinition.ReferenceName)
 	}
 
 	favouriteTable, ok := resource.Constants["TableNumber"]
@@ -741,11 +762,14 @@ func TestParseConstantsFloatsTopLevelAsStrings(t *testing.T) {
 	if !ok {
 		t.Fatal("animal.Fields['FavouriteTable'] did not exist")
 	}
-	if favouriteTableField.ConstantReference == nil {
-		t.Fatal("animal.Fields['FavouriteTable'] had a nil ConstantReference")
+	if favouriteTableField.ObjectDefinition == nil {
+		t.Fatal("animal.Fields['FavouriteTable'] had a nil ObjectDefinition")
 	}
-	if *favouriteTableField.ConstantReference != "TableNumber" {
-		t.Fatalf("animal.Fields['favouriteTable'].ConstantReference should be 'TableNumber' but was %q", *favouriteTableField.ConstantReference)
+	if favouriteTableField.ObjectDefinition.Type != models.ObjectDefinitionReference {
+		t.Fatalf("animal.Fields['FavouriteTable'] should be a Reference but got %q", string(favouriteTableField.ObjectDefinition.Type))
+	}
+	if *favouriteTableField.ObjectDefinition.ReferenceName != "TableNumber" {
+		t.Fatalf("animal.Fields['FavouriteTable'] should be 'FavouriteTable' but was %q", *favouriteTableField.ObjectDefinition.ReferenceName)
 	}
 
 	favouriteTable, ok := resource.Constants["TableNumber"]
@@ -837,11 +861,14 @@ func TestParseConstantsFloatsInlinedAsFloats(t *testing.T) {
 	if !ok {
 		t.Fatal("animal.Fields['FavouriteTable'] did not exist")
 	}
-	if favouriteTableField.ConstantReference == nil {
-		t.Fatal("animal.Fields['FavouriteTable'] had a nil ConstantReference")
+	if favouriteTableField.ObjectDefinition == nil {
+		t.Fatal("animal.Fields['FavouriteTable'] had a nil ObjectDefinition")
 	}
-	if *favouriteTableField.ConstantReference != "TableNumber" {
-		t.Fatalf("animal.Fields['FavouriteTable'].ConstantReference should be 'TableNumber' but was %q", *favouriteTableField.ConstantReference)
+	if favouriteTableField.ObjectDefinition.Type != models.ObjectDefinitionReference {
+		t.Fatalf("animal.Fields['FavouriteTable'] should be a Reference but got %q", string(favouriteTableField.ObjectDefinition.Type))
+	}
+	if *favouriteTableField.ObjectDefinition.ReferenceName != "TableNumber" {
+		t.Fatalf("animal.Fields['FavouriteTable'] should be 'FavouriteTable' but was %q", *favouriteTableField.ObjectDefinition.ReferenceName)
 	}
 
 	favouriteTable, ok := resource.Constants["TableNumber"]
@@ -933,11 +960,14 @@ func TestParseConstantsFloatsInlinedAsStrings(t *testing.T) {
 	if !ok {
 		t.Fatal("animal.Fields['FavouriteTable'] did not exist")
 	}
-	if favouriteTableField.ConstantReference == nil {
-		t.Fatal("animal.Fields['FavouriteTable'] had a nil ConstantReference")
+	if favouriteTableField.ObjectDefinition == nil {
+		t.Fatal("animal.Fields['FavouriteTable'] had a nil ObjectDefinition")
 	}
-	if *favouriteTableField.ConstantReference != "TableNumber" {
-		t.Fatalf("animal.Fields['favouriteTable'].ConstantReference should be 'TableNumber' but was %q", *favouriteTableField.ConstantReference)
+	if favouriteTableField.ObjectDefinition.Type != models.ObjectDefinitionReference {
+		t.Fatalf("animal.Fields['FavouriteTable'] should be a Reference but got %q", string(favouriteTableField.ObjectDefinition.Type))
+	}
+	if *favouriteTableField.ObjectDefinition.ReferenceName != "TableNumber" {
+		t.Fatalf("animal.Fields['FavouriteTable'] should be 'FavouriteTable' but was %q", *favouriteTableField.ObjectDefinition.ReferenceName)
 	}
 
 	favouriteTable, ok := resource.Constants["TableNumber"]
@@ -1028,11 +1058,14 @@ func TestParseConstantsStringsTopLevel(t *testing.T) {
 	if !ok {
 		t.Fatal("animal.Fields['Type'] did not exist")
 	}
-	if animalTypeField.ConstantReference == nil {
-		t.Fatal("animal.Fields['Type'] had a nil ConstantReference")
+	if animalTypeField.ObjectDefinition == nil {
+		t.Fatal("animal.Fields['Type'] had a nil ObjectDefinition")
 	}
-	if *animalTypeField.ConstantReference != "AnimalType" {
-		t.Fatalf("animal.Fields['Type'] should be 'AnimalType' but was %q", *animalTypeField.ConstantReference)
+	if animalTypeField.ObjectDefinition.Type != models.ObjectDefinitionReference {
+		t.Fatalf("animal.Fields['Type'] should be a Reference but got %q", string(animalTypeField.ObjectDefinition.Type))
+	}
+	if *animalTypeField.ObjectDefinition.ReferenceName != "AnimalType" {
+		t.Fatalf("animal.Fields['Type'] should be 'AnimalType' but was %q", *animalTypeField.ObjectDefinition.ReferenceName)
 	}
 
 	animalType, ok := resource.Constants["AnimalType"]
@@ -1133,11 +1166,14 @@ func TestParseConstantsStringsTopLevelAsNonStrings(t *testing.T) {
 	if !ok {
 		t.Fatal("animal.Fields['Type'] did not exist")
 	}
-	if animalTypeField.ConstantReference == nil {
-		t.Fatal("animal.Fields['Type'] had a nil ConstantReference")
+	if animalTypeField.ObjectDefinition == nil {
+		t.Fatal("animal.Fields['Type'] had a nil ObjectDefinition")
 	}
-	if *animalTypeField.ConstantReference != "AnimalType" {
-		t.Fatalf("animal.Fields['Type'] should be 'AnimalType' but was %q", *animalTypeField.ConstantReference)
+	if animalTypeField.ObjectDefinition.Type != models.ObjectDefinitionReference {
+		t.Fatalf("animal.Fields['Type'] should be a Reference but got %q", string(animalTypeField.ObjectDefinition.Type))
+	}
+	if *animalTypeField.ObjectDefinition.ReferenceName != "AnimalType" {
+		t.Fatalf("animal.Fields['Type'] should be 'AnimalType' but was %q", *animalTypeField.ObjectDefinition.ReferenceName)
 	}
 
 	animalType, ok := resource.Constants["AnimalType"]
@@ -1228,11 +1264,14 @@ func TestParseConstantsStringsInlined(t *testing.T) {
 	if !ok {
 		t.Fatal("animal.Fields['Type'] did not exist")
 	}
-	if animalTypeField.ConstantReference == nil {
-		t.Fatal("animal.Fields['Type'] had a nil ConstantReference")
+	if animalTypeField.ObjectDefinition == nil {
+		t.Fatal("animal.Fields['Type'] had a nil ObjectDefinition")
 	}
-	if *animalTypeField.ConstantReference != "AnimalType" {
-		t.Fatalf("animal.Fields['Type'] should be 'AnimalType' but was %q", *animalTypeField.ConstantReference)
+	if animalTypeField.ObjectDefinition.Type != models.ObjectDefinitionReference {
+		t.Fatalf("animal.Fields['Type'] should be a Reference but got %q", string(animalTypeField.ObjectDefinition.Type))
+	}
+	if *animalTypeField.ObjectDefinition.ReferenceName != "AnimalType" {
+		t.Fatalf("animal.Fields['Type'] should be 'AnimalType' but was %q", *animalTypeField.ObjectDefinition.ReferenceName)
 	}
 
 	animalType, ok := resource.Constants["AnimalType"]
@@ -1323,11 +1362,14 @@ func TestParseConstantsStringsInlinedAsNonStrings(t *testing.T) {
 	if !ok {
 		t.Fatal("animal.Fields['Type'] did not exist")
 	}
-	if animalTypeField.ConstantReference == nil {
-		t.Fatal("animal.Fields['Type'] had a nil ConstantReference")
+	if animalTypeField.ObjectDefinition == nil {
+		t.Fatal("animal.Fields['Type'] had a nil ObjectDefinition")
 	}
-	if *animalTypeField.ConstantReference != "AnimalType" {
-		t.Fatalf("animal.Fields['Type'] should be 'AnimalType' but was %q", *animalTypeField.ConstantReference)
+	if animalTypeField.ObjectDefinition.Type != models.ObjectDefinitionReference {
+		t.Fatalf("animal.Fields['Type'] should be a Reference but got %q", string(animalTypeField.ObjectDefinition.Type))
+	}
+	if *animalTypeField.ObjectDefinition.ReferenceName != "AnimalType" {
+		t.Fatalf("animal.Fields['Type'] should be 'AnimalType' but was %q", *animalTypeField.ObjectDefinition.ReferenceName)
 	}
 
 	animalType, ok := resource.Constants["AnimalType"]

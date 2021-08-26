@@ -5,24 +5,9 @@ import (
 	"strings"
 
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser/legacy"
 )
 
-var useLegacyParser = false
-
 func (d *SwaggerDefinition) Parse(serviceName, apiVersion string) (*models.AzureApiDefinition, error) {
-	if useLegacyParser {
-		innerDefinition := legacy.SwaggerDefinition{
-			Name:                      d.Name,
-			DebugLog:                  d.debugLog,
-			SwaggerSpecExpanded:       d.swaggerSpecExpanded,
-			SwaggerSpecWithReferences: d.swaggerSpecWithReferences,
-			SwaggerSpecRaw:            d.swaggerSpecRaw,
-			SwaggerSpecExtendedRaw:    d.swaggerSpecExtendedRaw,
-		}
-		return innerDefinition.Parse(serviceName, apiVersion)
-	}
-
 	resources := make(map[string]models.AzureApiResource, 0)
 
 	tags := d.findTags()

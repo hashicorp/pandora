@@ -38,6 +38,7 @@ type ObjectDefinitionType string
 
 const (
 	ObjectDefinitionBoolean    ObjectDefinitionType = "Boolean"
+	ObjectDefinitionDateTime   ObjectDefinitionType = "DateTime"
 	ObjectDefinitionDictionary ObjectDefinitionType = "Dictionary"
 	ObjectDefinitionInteger    ObjectDefinitionType = "Integer"
 	ObjectDefinitionFloat      ObjectDefinitionType = "Float"
@@ -77,25 +78,13 @@ type ModelDetails struct {
 	TypeHintIn     *string
 	TypeHintValue  *string
 
-	AdditionalProperties *FieldDetails
-
 	// TODO: include ReadOnly, which'll mean we need to generate this on a per-type basis if necessary
-}
-
-func (m ModelDetails) AsMap() (*FieldDetails, bool) {
-	if len(m.Fields) != 0 {
-		return nil, false
-	}
-	if m.AdditionalProperties == nil {
-		return nil, false
-	}
-	return m.AdditionalProperties, true
 }
 
 // IsEmpty defines if this is an empty/placeholder object - which can be useful for determining
 // if this object will be replaced later in the process
 func (m ModelDetails) IsEmpty() bool {
-	return len(m.Fields) == 0 && m.Description == "" && m.AdditionalProperties == nil && m.TypeHintIn == nil && m.TypeHintValue == nil && m.ParentTypeName == nil
+	return len(m.Fields) == 0 && m.Description == "" && m.TypeHintIn == nil && m.TypeHintValue == nil && m.ParentTypeName == nil
 }
 
 type FieldDetails struct {
@@ -104,19 +93,17 @@ type FieldDetails struct {
 	Sensitive bool
 	JsonName  string
 
-	// TODO: new fields
 	CustomFieldType  *CustomFieldType
 	ObjectDefinition *ObjectDefinition
 
-	// TODO: work through and remove these
-	ConstantReference *string
-	ModelReference    *string
-	Type              FieldDefinitionType
-	DictValueType     *FieldDefinitionType
-	ListElementType   *FieldDefinitionType
-	ListElementMin    *int64
-	ListElementMax    *int64
-	ListElementUnique *bool
+	// Minimum is the minimum number of items which must be specified when this is a Dictionary/List, if specified
+	Minimum *int
+
+	// Maximum is the maximum number of items which must be specified when this is a Dictionary/List, if specified
+	Maximum *int
+
+	// UniqueItems specifies whether every item in this List/Dictionary must be unique
+	UniqueItems *bool
 
 	// TODO: should we output Description here too?
 }

@@ -16,34 +16,29 @@ func (r *AzureApiResource) Normalize() {
 		fields := make(map[string]FieldDetails)
 		for fieldName, fieldVal := range v.Fields {
 			normalizedFieldName := cleanup.NormalizeName(fieldName)
-			if fieldVal.ConstantReference != nil {
-				normalized := cleanup.NormalizeName(*fieldVal.ConstantReference)
-				fieldVal.ConstantReference = &normalized
-			}
 
-			if fieldVal.ModelReference != nil {
-				normalized := cleanup.NormalizeName(*fieldVal.ModelReference)
-				fieldVal.ModelReference = &normalized
+			if fieldVal.ObjectDefinition != nil {
+				fieldVal.ObjectDefinition = normalizeObjectDefinition(*fieldVal.ObjectDefinition)
 			}
 
 			fields[normalizedFieldName] = fieldVal
 		}
 		v.Fields = fields
 
-		if v.AdditionalProperties != nil {
-			additionalProperties := *v.AdditionalProperties
-			if additionalProperties.ConstantReference != nil {
-				normalized := cleanup.NormalizeName(*additionalProperties.ConstantReference)
-				additionalProperties.ConstantReference = &normalized
-			}
-			if additionalProperties.ModelReference != nil {
-				normalized := cleanup.NormalizeName(*additionalProperties.ModelReference)
-				additionalProperties.ModelReference = &normalized
-			}
-			v.AdditionalProperties = &additionalProperties
-		}
-
 		normalizedModels[modelName] = v
 	}
 	r.Models = normalizedModels
+}
+
+func normalizeObjectDefinition(input ObjectDefinition) *ObjectDefinition {
+	if input.ReferenceName != nil {
+		normalized := cleanup.NormalizeName(*input.ReferenceName)
+		input.ReferenceName = &normalized
+	}
+
+	if input.NestedItem != nil {
+		input.NestedItem = normalizeObjectDefinition(*input.NestedItem)
+	}
+	
+	return &input
 }
