@@ -213,12 +213,6 @@ func (d *SwaggerDefinition) detailsForField(modelName string, propertyName strin
 }
 
 func determineCustomFieldType(field models.FieldDetails, definition models.ObjectDefinition, known parseResult) *models.CustomFieldType {
-	customFieldMatchers := []customFieldMatcher{
-		// NOTE: the ordering matters here
-		locationMatcher{},
-		tagsMatcher{},
-	}
-
 	for _, matcher := range customFieldMatchers {
 		if matcher.isMatch(field, definition, known) {
 			fieldType := matcher.customFieldType()
