@@ -161,26 +161,29 @@ func (p operationsParser) constantsInOperationParameters(input parsedOperation) 
 	return &out, nil
 }
 
-func (p operationsParser) determineFieldTypeForOption(input string, collectionFormat string) (*models.FieldDefinitionType, error) {
-	var out models.FieldDefinitionType
+func (p operationsParser) determineObjectDefinitionForOption(input string, collectionFormat string) (*models.ObjectDefinition, error) {
 	switch strings.ToLower(input) {
 	case "boolean":
-		out = models.Boolean
-		return &out, nil
+		return &models.ObjectDefinition{
+			Type: models.ObjectDefinitionBoolean,
+		}, nil
 	case "array":
 		{
 			// https://github.com/Azure/azure-rest-api-specs/blob/1b0ed8edd58bb7c9ade9a27430759527bd4eec8e/specification/trafficmanager/resource-manager/Microsoft.Network/stable/2018-03-01/trafficmanager.json#L735-L738
 			if strings.EqualFold(collectionFormat, "csv") {
-				out = models.String
-				return &out, nil
+				return &models.ObjectDefinition{
+					Type: models.ObjectDefinitionString,
+				}, nil
 			}
 		}
 	case "integer":
-		out = models.Integer
-		return &out, nil
+		return &models.ObjectDefinition{
+			Type: models.ObjectDefinitionInteger,
+		}, nil
 	case "string":
-		out = models.String
-		return &out, nil
+		return &models.ObjectDefinition{
+			Type: models.ObjectDefinitionString,
+		}, nil
 	}
 	return nil, fmt.Errorf("unsupported field type %q", input)
 }
@@ -297,13 +300,11 @@ func (p operationsParser) optionsForOperation(input parsedOperation) (*map[strin
 			//./commerce/resource-manager/Microsoft.Commerce/preview/2015-06-01-preview/commerce.json-            "type": "string",
 			//./commerce/resource-manager/Microsoft.Commerce/preview/2015-06-01-preview/commerce.json:            "format": "date-time",
 			//./commerce/resource-manager/Microsoft.Commerce/preview/2015-06-01-preview/commerce.json-            "description": "The end of the time range to retrieve data for."
-			fieldType, err := p.determineFieldTypeForOption(param.Type, param.CollectionFormat)
+			objectDefinition, err := p.determineObjectDefinitionForOption(param.Type, param.CollectionFormat)
 			if err != nil {
 				return nil, fmt.Errorf("determining field type for operation: %+v", err)
 			}
-			if fieldType != nil {
-				option.FieldType = fieldType
-			}
+			option.ObjectDefinition = objectDefinition
 
 			if param.Enum != nil {
 				constantName, err := parseConstantExtensionFromExtension(param.Extensions)
@@ -313,11 +314,7 @@ func (p operationsParser) optionsForOperation(input parsedOperation) (*map[strin
 				if constantName == nil {
 					return nil, fmt.Errorf("missing x-ms-enum for option %q", param.Name)
 				}
-
-				option.ConstantObjectName = &constantName.name
 			}
-			// TODO: FieldType within the struct should become a pointer
-			// TODO: Add ConstantName *string to the struct
 
 			output[name] = option
 		}

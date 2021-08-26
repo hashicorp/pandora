@@ -157,12 +157,12 @@ func (d *SwaggerDefinition) detailsForField(modelName string, propertyName strin
 		return nil, nil, fmt.Errorf("parsing object definition: %+v", err)
 	}
 	if nestedResult != nil {
-		result.append(*nestedResult)
-	}
+		if needsPlaceholder {
+			// remove the placeholder from the result
+			delete(nestedResult.models, modelName)
+		}
 
-	if needsPlaceholder {
-		// remove the placeholder from the result
-		delete(result.models, modelName)
+		result.append(*nestedResult)
 	}
 
 	// then work out if this is actually a custom type, based on the information we have
@@ -414,8 +414,6 @@ func (d SwaggerDefinition) parseNativeType(input *spec.Schema) *models.ObjectDef
 		}
 	}
 
-	// TODO: datetime ObjectDefinitionDateTime
-
 	if input.Type.Contains("integer") {
 		return &models.ObjectDefinition{
 			Type: models.ObjectDefinitionInteger,
@@ -453,47 +451,4 @@ func isFieldRequired(name string, required []string) bool {
 	}
 
 	return false
-}
-
-func normalizeType(input string) (*models.FieldDefinitionType, error) {
-	out := models.Unknown
-	switch strings.ToLower(input) {
-	case "array":
-		out = models.List
-		break
-
-	case "boolean":
-		out = models.Boolean
-		break
-
-	case "int", "integer":
-		// NOTE: whilst there's some benefits to mirroring the API insofar as outputting
-		// either int32/int64 - from Terraform's perspective we treat them the same so we
-		// from a parsing/usability perspective they're similar enough that we can lean on
-		// validation to limit this where necessary instead
-		out = models.Integer
-		break
-
-	case "object":
-		out = models.Object
-		break
-
-	case "number":
-		// NOTE: whilst there's some benefits to mirroring the API insofar as outputting
-		// either float32/float64 - from Terraform's perspective we treat them the same so we
-		// from a parsing/usability perspective they're similar enough that we can lean on
-		// validation to limit this where necessary instead
-		out = models.Float
-		break
-
-	case "string":
-		out = models.String
-		break
-	}
-
-	if out != models.Unknown {
-		return &out, nil
-	}
-
-	return nil, fmt.Errorf("unsupported type conversion %q", input)
 }

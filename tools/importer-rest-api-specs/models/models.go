@@ -48,9 +48,8 @@ const (
 )
 
 type OperationOption struct {
-	FieldType          *FieldDefinitionType
-	ConstantObjectName *string
-	QueryStringName    string
+	ObjectDefinition *ObjectDefinition
+	QueryStringName  string
 	// TODO: support Header names here too in time
 	Required bool
 }
@@ -119,29 +118,3 @@ const (
 	CustomFieldTypeUserAssignedIdentityMap                CustomFieldType = "user-assigned-identity-map"
 	CustomFieldTypeTags                                   CustomFieldType = "tags"
 )
-
-type FieldDefinitionType string
-
-const (
-	Boolean                        FieldDefinitionType = "bool"
-	DateTime                       FieldDefinitionType = "datetime"
-	Dictionary                     FieldDefinitionType = "dictionary"
-	Integer                        FieldDefinitionType = "int"
-	Location                       FieldDefinitionType = "location"
-	List                           FieldDefinitionType = "list"
-	Object                         FieldDefinitionType = "object"
-	String                         FieldDefinitionType = "string"
-	Tags                           FieldDefinitionType = "tags"
-	SystemAssignedIdentity         FieldDefinitionType = "system_assigned_identity"
-	SystemUserAssignedIdentityList FieldDefinitionType = "system_user_assigned_identity_list"
-	SystemUserAssignedIdentityMap  FieldDefinitionType = "system_user_assigned_identity_map"
-	UserAssignedIdentityList       FieldDefinitionType = "user_assigned_identity_list"
-	UserAssignedIdentityMap        FieldDefinitionType = "user_assigned_identity_map"
-
-	// TODO: support this in all of the places
-	Float FieldDefinitionType = "float"
-
-	Unknown FieldDefinitionType = "unknown"
-)
-
-var FieldDefinitionPrimaryTypes = []FieldDefinitionType{Boolean, Integer, String, Float}

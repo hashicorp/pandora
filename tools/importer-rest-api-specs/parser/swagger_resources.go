@@ -188,12 +188,17 @@ func (d *SwaggerDefinition) determineObjectsRequiredButNotParsed(operations *map
 		}
 
 		for _, value := range operation.Options {
-			if value.ConstantObjectName == nil {
+			if value.ObjectDefinition == nil {
 				continue
 			}
 
-			if _, isKnown := known.constants[*value.ConstantObjectName]; !isKnown {
-				referencesToFind[*value.ConstantObjectName] = struct{}{}
+			topLevelRef := topLevelObjectDefinition(*value.ObjectDefinition)
+			if topLevelRef.Type != models.ObjectDefinitionReference {
+				continue
+			}
+
+			if _, isKnown := known.constants[*topLevelRef.ReferenceName]; !isKnown {
+				referencesToFind[*topLevelRef.ReferenceName] = struct{}{}
 			}
 		}
 	}

@@ -245,28 +245,3 @@ func dotNetTypeNameForCustomType(input models.CustomFieldType) (*string, error) 
 
 	return nil, fmt.Errorf("unmapped Custom Type %q", string(input))
 }
-
-func dotNetTypeNameForSimpleType(input models.FieldDefinitionType) (*string, error) {
-	var nilableType = func(input string) (*string, error) {
-		return &input, nil
-	}
-
-	switch input {
-	case models.Boolean:
-		return nilableType("bool")
-
-	case models.DateTime:
-		return nilableType("DateTime")
-
-	case models.Float:
-		return nilableType("float")
-
-	case models.Integer:
-		return nilableType("int")
-
-	case models.String:
-		return nilableType("string")
-	}
-
-	return nil, fmt.Errorf("type %q is not a simple type", string(input))
-}

@@ -84,18 +84,15 @@ func (g PandoraDefinitionGenerator) codeForOperation(namespace string, operation
 			}
 
 			typeName := ""
-			if optionDetails.FieldType != nil {
-				fieldType, err := dotNetTypeNameForSimpleType(*optionDetails.FieldType)
+			if optionDetails.ObjectDefinition != nil {
+				fieldType, err := dotNetNameForObjectDefinition(optionDetails.ObjectDefinition, resource.Constants, resource.Models)
 				if err != nil {
 					return nil, err
 				}
 				typeName = *fieldType
 			}
-			if optionDetails.ConstantObjectName != nil {
-				typeName = *optionDetails.ConstantObjectName
-			}
 			if typeName == "" {
-				return nil, fmt.Errorf("missing a FieldType or ConstantObjectName for Option %q", optionName)
+				return nil, fmt.Errorf("missing an ObjectDefinition for Option %q", optionName)
 			}
 			optionsCode = append(optionsCode, fmt.Sprintf("\t\t\tpublic %s %s { get; set; }", typeName, optionName))
 		}
