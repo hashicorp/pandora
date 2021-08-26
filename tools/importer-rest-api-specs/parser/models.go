@@ -213,15 +213,17 @@ func (d *SwaggerDefinition) detailsForField(modelName string, propertyName strin
 }
 
 func determineCustomFieldType(field models.FieldDetails, definition models.ObjectDefinition, known parseResult) *models.CustomFieldType {
-	// TODO: use types for this
-	if strings.EqualFold(field.JsonName, "location") && definition.Type == models.ObjectDefinitionString {
-		v := models.CustomFieldTypeLocation
-		return &v
+	customFieldMatchers := []customFieldMatcher{
+		// NOTE: the ordering matters here
+		locationMatcher{},
+		tagsMatcher{},
 	}
 
-	if strings.EqualFold(field.JsonName, "tags") && definition.Type == models.ObjectDefinitionDictionary && definition.NestedItem.Type == models.ObjectDefinitionString {
-		v := models.CustomFieldTypeTags
-		return &v
+	for _, matcher := range customFieldMatchers {
+		if matcher.isMatch(field, definition, known) {
+			fieldType := matcher.customFieldType()
+			return &fieldType
+		}
 	}
 
 	return nil
