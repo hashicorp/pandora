@@ -303,12 +303,3 @@ func isObjectKnown(name string, known parseResult) (bool, bool) {
 	_, isModel := known.models[name]
 	return isConstant, isModel
 }
-
-// topLevelObjectDefinition returns the top level object definition, that is a Constant or Model (or simple type) directly
-func topLevelObjectDefinition(input models.ObjectDefinition) models.ObjectDefinition {
-	if input.NestedItem != nil {
-		return topLevelObjectDefinition(*input.NestedItem)
-	}
-
-	return input
-}

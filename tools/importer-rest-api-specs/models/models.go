@@ -99,15 +99,20 @@ func (m ModelDetails) IsEmpty() bool {
 }
 
 type FieldDetails struct {
-	Type              FieldDefinitionType
-	DictValueType     *FieldDefinitionType
-	Required          bool
-	ReadOnly          bool
+	Required  bool
+	ReadOnly  bool
+	Sensitive bool
+	JsonName  string
+
+	// TODO: new fields
+	CustomFieldType  *CustomFieldType
+	ObjectDefinition *ObjectDefinition
+
+	// TODO: work through and remove these
 	ConstantReference *string
 	ModelReference    *string
-
-	Sensitive         bool
-	JsonName          string
+	Type              FieldDefinitionType
+	DictValueType     *FieldDefinitionType
 	ListElementType   *FieldDefinitionType
 	ListElementMin    *int64
 	ListElementMax    *int64
@@ -115,6 +120,18 @@ type FieldDetails struct {
 
 	// TODO: should we output Description here too?
 }
+
+type CustomFieldType string
+
+const (
+	CustomFieldTypeLocation                               CustomFieldType = "location"
+	CustomFieldTypeSystemAssignedIdentity                 CustomFieldType = "system-assigned-identity"
+	CustomFieldTypeSystemAssignedUserAssignedIdentityList CustomFieldType = "system-assigned-user-assigned-identity-list"
+	CustomFieldTypeSystemAssignedUserAssignedIdentityMap  CustomFieldType = "system-assigned-user-assigned-identity-map"
+	CustomFieldTypeUserAssignedIdentityList               CustomFieldType = "user-assigned-identity-list"
+	CustomFieldTypeUserAssignedIdentityMap                CustomFieldType = "user-assigned-identity-map"
+	CustomFieldTypeTags                                   CustomFieldType = "tags"
+)
 
 type FieldDefinitionType string
 

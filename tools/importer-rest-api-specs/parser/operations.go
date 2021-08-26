@@ -69,7 +69,7 @@ func (p operationsParser) parseOperation(operation parsedOperation) (*models.Ope
 	contentType := p.determineContentType(operation)
 	expectedStatusCodes := p.expectedStatusCodesForOperation(operation)
 	paginationField := p.fieldContainingPaginationDetailsForOperation(operation)
-	requestObject, nestedResult, err := p.requestObjectForOperation(operation)
+	requestObject, nestedResult, err := p.requestObjectForOperation(operation, result)
 	if err != nil {
 		return nil, nil, fmt.Errorf("determining request operation for %q (method %q / uri %q): %+v", operation.name, operation.httpMethod, *normalizedUri, err)
 	}
@@ -77,7 +77,7 @@ func (p operationsParser) parseOperation(operation parsedOperation) (*models.Ope
 		result.append(*nestedResult)
 	}
 	isAListOperation := p.isListOperation(operation)
-	responseResult, nestedResult, err := p.responseObjectForOperation(operation, isAListOperation)
+	responseResult, nestedResult, err := p.responseObjectForOperation(operation, isAListOperation, result)
 	if err != nil {
 		return nil, nil, fmt.Errorf("determining response operation for %q (method %q / uri %q): %+v", operation.name, operation.httpMethod, *normalizedUri, err)
 	}
@@ -352,7 +352,7 @@ func (p operationsParser) normalizedUriForOperation(input parsedOperation) (*str
 	return nil, fmt.Errorf("%q was not found in the normalized uri list", input.uri)
 }
 
-func (p operationsParser) requestObjectForOperation(input parsedOperation) (*models.ObjectDefinition, *parseResult, error) {
+func (p operationsParser) requestObjectForOperation(input parsedOperation, known parseResult) (*models.ObjectDefinition, *parseResult, error) {
 	// all we should parse out is the top level object - nothing more.
 
 	// find the same operation in the unexpanded swagger spec since we need the reference name
@@ -363,7 +363,7 @@ func (p operationsParser) requestObjectForOperation(input parsedOperation) (*mod
 
 	for _, param := range unexpandedOperation.Parameters {
 		if strings.EqualFold(param.In, "body") {
-			objectDefinition, result, err := p.parseObjectDefinition(param.Schema)
+			objectDefinition, result, err := p.swaggerDefinition.parseObjectDefinition(param.Schema, known)
 			if err != nil {
 				return nil, nil, fmt.Errorf("parsing request object for parameter %q: %+v", param.Name, err)
 			}
@@ -385,12 +385,13 @@ func (p operationsParser) operationIsASuccess(statusCode int) bool {
 	return statusCode >= 200 && statusCode < 300
 }
 
-func (p operationsParser) responseObjectForOperation(input parsedOperation, isAListOperation bool) (*operationResponseObjectResult, *parseResult, error) {
+func (p operationsParser) responseObjectForOperation(input parsedOperation, isAListOperation bool, known parseResult) (*operationResponseObjectResult, *parseResult, error) {
 	output := operationResponseObjectResult{}
 	result := parseResult{
 		constants: map[string]models.ConstantDetails{},
 		models:    map[string]models.ModelDetails{},
 	}
+	result.append(known)
 
 	// find the same operation in the unexpanded swagger spec since we need the reference name
 	_, _, unexpandedOperation, found := p.swaggerDefinition.swaggerSpecWithReferences.OperationForName(input.operation.ID)
@@ -404,7 +405,7 @@ func (p operationsParser) responseObjectForOperation(input parsedOperation, isAL
 				continue
 			}
 
-			objectDefinition, nestedResult, err := p.parseObjectDefinition(details.ResponseProps.Schema)
+			objectDefinition, nestedResult, err := p.swaggerDefinition.parseObjectDefinition(details.ResponseProps.Schema, result)
 			if err != nil {
 				return nil, nil, fmt.Errorf("parsing response object from status code %d: %+v", statusCode, err)
 			}
@@ -454,115 +455,6 @@ func (p operationsParser) responseObjectForOperation(input parsedOperation, isAL
 	}
 
 	return &output, &result, nil
-}
-
-func (p operationsParser) parseObjectDefinition(input *spec.Schema) (*models.ObjectDefinition, *parseResult, error) {
-	// find the object and any models and constants etc we can find
-	// however _don't_ look for discriminator implementations - since that should be done when we're completely done
-	result := parseResult{
-		constants: map[string]models.ConstantDetails{},
-		models:    map[string]models.ModelDetails{},
-	}
-
-	// if it's a simple type, there'll be no other objects
-	if nativeType := p.parseNativeType(input); nativeType != nil {
-		return nativeType, &result, nil
-	}
-
-	// if it's a reference to a model, return that
-	if objectName := fragmentNameFromReference(input.Ref); objectName != nil {
-		// first find the top level object
-		topLevelObject, err := p.swaggerDefinition.findTopLevelObject(*objectName)
-		if err != nil {
-			return nil, nil, fmt.Errorf("finding top level model %q: %+v", *objectName, err)
-		}
-
-		// then call ourselves to work out what to do with it
-		return p.parseObjectDefinition(topLevelObject)
-	}
-
-	if input.Type.Contains("object") && len(input.Properties) > 0 {
-		// if it's an inlined model, pull it out and return that
-		nestedResult, err := p.swaggerDefinition.parseModel(input.Title, *input)
-		if err != nil {
-			return nil, nil, fmt.Errorf("parsing object from inlined model %q: %+v", input.Title, err)
-		}
-		if nestedResult == nil {
-			return nil, nil, fmt.Errorf("parsing object from inlined response model %q: no model returned", input.Title)
-		}
-
-		result.append(*nestedResult)
-		return &models.ObjectDefinition{
-			Type:          models.ObjectDefinitionReference,
-			ReferenceName: &input.Title,
-		}, &result, nil
-	}
-
-	if input.Type.Contains("object") && input.AdditionalProperties != nil && input.AdditionalProperties.Schema != nil {
-		// it'll be a Dictionary, so pull out the nested item and return that
-		nestedItem, nestedResult, err := p.parseObjectDefinition(input.AdditionalProperties.Schema)
-		if err != nil {
-			return nil, nil, fmt.Errorf("parsing nested item for dictionary: %+v", err)
-		}
-		if nestedItem == nil {
-			return nil, nil, fmt.Errorf("parsing nested item for dictionary: no nested item returned")
-		}
-		result.append(*nestedResult)
-		return &models.ObjectDefinition{
-			Type:       models.ObjectDefinitionDictionary,
-			NestedItem: nestedItem,
-		}, &result, nil
-	}
-
-	if input.Type.Contains("array") && input.Items.Schema != nil {
-		nestedItem, nestedResult, err := p.parseObjectDefinition(input.Items.Schema)
-		if err != nil {
-			return nil, nil, fmt.Errorf("parsing nested item for array: %+v", err)
-		}
-		if nestedItem == nil {
-			return nil, nil, fmt.Errorf("parsing nested item for array: no nested item returned")
-		}
-
-		result.append(*nestedResult)
-		return &models.ObjectDefinition{
-			Type:       models.ObjectDefinitionList,
-			NestedItem: nestedItem,
-		}, &result, nil
-	}
-
-	return nil, &result, nil
-}
-
-func (p operationsParser) parseNativeType(input *spec.Schema) *models.ObjectDefinition {
-	if input == nil {
-		return nil
-	}
-
-	if input.Type.Contains("bool") || input.Type.Contains("boolean") {
-		return &models.ObjectDefinition{
-			Type: models.ObjectDefinitionBoolean,
-		}
-	}
-
-	if input.Type.Contains("integer") {
-		return &models.ObjectDefinition{
-			Type: models.ObjectDefinitionInteger,
-		}
-	}
-
-	if input.Type.Contains("number") {
-		return &models.ObjectDefinition{
-			Type: models.ObjectDefinitionFloat,
-		}
-	}
-
-	if input.Type.Contains("string") {
-		return &models.ObjectDefinition{
-			Type: models.ObjectDefinitionString,
-		}
-	}
-
-	return nil
 }
 
 type parsedOperation struct {

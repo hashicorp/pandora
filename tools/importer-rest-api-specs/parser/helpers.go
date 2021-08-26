@@ -2,6 +2,7 @@ package parser
 
 import (
 	"fmt"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"strings"
 
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/cleanup"
@@ -58,4 +59,13 @@ func operationShouldBeIgnored(input string) bool {
 	}
 
 	return false
+}
+
+// topLevelObjectDefinition returns the top level object definition, that is a Constant or Model (or simple type) directly
+func topLevelObjectDefinition(input models.ObjectDefinition) models.ObjectDefinition {
+	if input.NestedItem != nil {
+		return topLevelObjectDefinition(*input.NestedItem)
+	}
+
+	return input
 }
