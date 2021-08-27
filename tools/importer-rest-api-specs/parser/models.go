@@ -162,6 +162,20 @@ func (d *SwaggerDefinition) detailsForField(modelName string, propertyName strin
 		resultWithPlaceholder.models[modelName] = models.ModelDetails{}
 	}
 
+	// first get the object definition
+	objectDefinition, nestedResult, err := d.parseObjectDefinition(modelName, &value, resultWithPlaceholder)
+	if err != nil {
+		return nil, nil, fmt.Errorf("parsing object definition: %+v", err)
+	}
+	if nestedResult != nil {
+		if needsPlaceholder {
+			// remove the placeholder from the result
+			delete(nestedResult.models, modelName)
+		}
+
+		result.append(*nestedResult)
+	}
+
 	if len(value.Properties) > 0 {
 		// there's a nested model we need to pull out
 		inlinedName := inlinedModelName(modelName, propertyName)
@@ -186,20 +200,9 @@ func (d *SwaggerDefinition) detailsForField(modelName string, propertyName strin
 			return nil, nil, fmt.Errorf("building model details for inlined model %q: %+v", inlinedName, err)
 		}
 		result.models[inlinedName] = *inlinedModelDetails
-	}
-
-	// first get the object definition
-	objectDefinition, nestedResult, err := d.parseObjectDefinition(modelName, &value, resultWithPlaceholder)
-	if err != nil {
-		return nil, nil, fmt.Errorf("parsing object definition: %+v", err)
-	}
-	if nestedResult != nil {
-		if needsPlaceholder {
-			// remove the placeholder from the result
-			delete(nestedResult.models, modelName)
-		}
-
-		result.append(*nestedResult)
+		// then swap out the reference
+		objectDefinition.Type = models.ObjectDefinitionReference
+		objectDefinition.ReferenceName = &inlinedName
 	}
 
 	// then work out if this is actually a custom type, based on the information we have

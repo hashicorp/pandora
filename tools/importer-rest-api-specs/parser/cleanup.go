@@ -29,7 +29,7 @@ func removeUnusedItems(operations map[string]models.OperationDetails, result par
 }
 
 func findUnusedConstants(operations map[string]models.OperationDetails, result parseResult) []string {
-	unusedConstants := make([]string, 0)
+	unusedConstants := make(map[string]struct{}, 0)
 	for constantName := range result.constants {
 		// constants are either housed inside a Model
 		usedInAModel := false
@@ -93,14 +93,19 @@ func findUnusedConstants(operations map[string]models.OperationDetails, result p
 			continue
 		}
 
-		unusedConstants = append(unusedConstants, constantName)
+		unusedConstants[constantName] = struct{}{}
 	}
 
-	return unusedConstants
+	out := make([]string, 0)
+	for k := range unusedConstants {
+		out = append(out, k)
+	}
+
+	return out
 }
 
 func findUnusedModels(operations map[string]models.OperationDetails, result parseResult) []string {
-	unusedModels := make([]string, 0)
+	unusedModels := make(map[string]struct{}, 0)
 	for modelName, model := range result.models {
 		// models are either referenced by operations
 		usedInAnOperation := false
@@ -179,7 +184,13 @@ func findUnusedModels(operations map[string]models.OperationDetails, result pars
 			continue
 		}
 
-		unusedModels = append(unusedModels, modelName)
+		unusedModels[modelName] = struct{}{}
 	}
-	return unusedModels
+
+	out := make([]string, 0)
+	for k := range unusedModels {
+		out = append(out, k)
+	}
+
+	return out
 }

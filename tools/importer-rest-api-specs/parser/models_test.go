@@ -167,6 +167,19 @@ func TestParseModelSingleTopLevelWithInlinedModel(t *testing.T) {
 	if len(example.Fields) != 2 {
 		t.Fatalf("expected example.Fields to have 2 fields but got %d", len(example.Fields))
 	}
+	propField, ok := example.Fields["Properties"]
+	if !ok {
+		t.Fatalf("expected Example to have a field named Properties")
+	}
+	if propField.ObjectDefinition == nil {
+		t.Fatalf("expected Example to be an ObjectDefinition but it wasn't")
+	}
+	if propField.ObjectDefinition.Type != models.ObjectDefinitionReference {
+		t.Fatalf("expected Example to be a Reference but it was %q", string(propField.ObjectDefinition.Type))
+	}
+	if *propField.ObjectDefinition.ReferenceName != "ExampleProperties" {
+		t.Fatalf("expected Example to be a Reference to `ExampleProperties` but it was %q", *propField.ObjectDefinition.ReferenceName)
+	}
 
 	exampleProperties, ok := resource.Models["ExampleProperties"]
 	if !ok {
