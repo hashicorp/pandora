@@ -256,6 +256,8 @@ func (d *SwaggerDefinition) fieldsForModel(modelName string, input spec.Schema, 
 			return nil, nil, fmt.Errorf("finding fields for parent model %q: %+v", *fragmentName, err)
 		}
 		for k, v := range *nestedFields {
+			isRequired := isFieldRequired(k, requiredFields)
+			v.Required = isRequired
 			fields[k] = v
 		}
 		if nestedResult != nil {
