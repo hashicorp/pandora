@@ -416,7 +416,7 @@ func (d SwaggerDefinition) parseObjectDefinition(modelName string, input *spec.S
 		return &definition, &result, nil
 	}
 
-	if input.Type.Contains("object") && input.AdditionalProperties != nil && input.AdditionalProperties.Schema != nil {
+	if input.AdditionalProperties != nil && input.AdditionalProperties.Schema != nil {
 		// it'll be a Dictionary, so pull out the nested item and return that
 		nestedItem, nestedResult, err := d.parseObjectDefinition(input.AdditionalProperties.Schema.Title, input.AdditionalProperties.Schema, result)
 		if err != nil {
