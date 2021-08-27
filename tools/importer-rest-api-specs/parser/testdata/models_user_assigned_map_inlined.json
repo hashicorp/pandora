@@ -1,0 +1,84 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Example",
+    "description": "Example",
+    "version": "2020-01-01"
+  },
+  "host": "management.mysite.com",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "security": [],
+  "securityDefinitions": {},
+  "paths": {
+    "/things": {
+      "get": {
+        "tags": [
+          "Hello"
+        ],
+        "operationId": "Hello_GetWorld",
+        "description": "A GET request with a body returned.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success.",
+            "schema": {
+              "$ref": "#/definitions/Example"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Example": {
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "identity": {
+          "$ref": "#/definitions/UserAssignedIdentityMap"
+        }
+      },
+      "type": "object",
+      "title": "Example"
+    },
+    "UserAssignedIdentityMap": {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "None",
+            "UserAssigned"
+          ],
+          "x-ms-enum": {
+            "name": "IdentityType3",
+            "modelAsString": true
+          }
+        },
+        "userAssignedIdentities": {
+          "additionalProperties": {
+            "properties": {
+              "principalId": {
+                "type": "string",
+                "readOnly": true
+              },
+              "clientId": {
+                "type": "string",
+                "readOnly": true
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "parameters": {}
+}

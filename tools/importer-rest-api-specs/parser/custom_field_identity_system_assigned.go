@@ -15,7 +15,7 @@ func (systemAssignedIdentityMatcher) customFieldType() models.CustomFieldType {
 	return models.CustomFieldTypeSystemAssignedIdentity
 }
 
-func (systemAssignedIdentityMatcher) isMatch(field models.FieldDetails, definition models.ObjectDefinition, known parseResult) bool {
+func (systemAssignedIdentityMatcher) isMatch(_ models.FieldDetails, definition models.ObjectDefinition, known parseResult) bool {
 	if definition.Type != models.ObjectDefinitionReference {
 		return false
 	}
