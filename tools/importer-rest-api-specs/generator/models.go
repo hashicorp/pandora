@@ -91,9 +91,19 @@ func (g PandoraDefinitionGenerator) codeForField(indentation, fieldName string, 
 
 	lines := make([]string, 0)
 
-	if field.ObjectDefinition != nil && field.ObjectDefinition.Type == models.ObjectDefinitionDateTime {
-		// TODO: support for custom date formats
-		lines = append(lines, fmt.Sprintf("%[1]s[DateFormat(DateFormatAttribute.DateFormat.RFC3339)]", indentation))
+	if field.ObjectDefinition != nil {
+		innerObjectDefinition := topLevelObjectDefinition(*field.ObjectDefinition)
+		if innerObjectDefinition.Minimum != nil {
+			lines = append(lines, fmt.Sprintf("%[1]s[MinItems(%[2]d)]", indentation, *innerObjectDefinition.Minimum))
+		}
+		if innerObjectDefinition.Maximum != nil {
+			lines = append(lines, fmt.Sprintf("%[1]s[MaxItems(%[2]d)]", indentation, *innerObjectDefinition.Maximum))
+		}
+
+		if field.ObjectDefinition.Type == models.ObjectDefinitionDateTime {
+			// TODO: support for custom date formats
+			lines = append(lines, fmt.Sprintf("%[1]s[DateFormat(DateFormatAttribute.DateFormat.RFC3339)]", indentation))
+		}
 	}
 
 	lines = append(lines, fmt.Sprintf("%[1]s[JsonPropertyName(%[2]q)]", indentation, field.JsonName))
@@ -107,13 +117,6 @@ func (g PandoraDefinitionGenerator) codeForField(indentation, fieldName string, 
 	} else {
 		typeName := fmt.Sprintf("%s?", *fieldType)
 		fieldType = &typeName
-	}
-
-	if field.Minimum != nil {
-		lines = append(lines, fmt.Sprintf("%[1]s[MinItems(%[2]d)]", indentation, *field.Minimum))
-	}
-	if field.Maximum != nil {
-		lines = append(lines, fmt.Sprintf("%[1]s[MaxItems(%[2]d)]", indentation, *field.Maximum))
 	}
 
 	lines = append(lines, fmt.Sprintf("%[1]spublic %[2]s %[3]s { get; set; }", indentation, *fieldType, strings.Title(fieldName)))
@@ -244,4 +247,13 @@ func dotNetTypeNameForCustomType(input models.CustomFieldType) (*string, error) 
 	}
 
 	return nil, fmt.Errorf("unmapped Custom Type %q", string(input))
+}
+
+// topLevelObjectDefinition returns the top level object definition, that is a Constant or Model (or simple type) directly
+func topLevelObjectDefinition(input models.ObjectDefinition) models.ObjectDefinition {
+	if input.NestedItem != nil {
+		return topLevelObjectDefinition(*input.NestedItem)
+	}
+
+	return input
 }

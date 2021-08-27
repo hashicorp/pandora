@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser/legacy"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser"
 	"log"
 	"os"
 	"sort"
@@ -141,7 +141,7 @@ func distinctServiceNames(input []parsedData) []string {
 }
 
 func generateAllResourceManagerServices(swaggerGitSha string, justLatestVersion, debug bool) error {
-	services, err := legacy.FindResourceManagerServices(swaggerDirectory+"/specification", justLatestVersion, false)
+	services, err := parser.FindResourceManagerServices(swaggerDirectory+"/specification", justLatestVersion, false)
 	if err != nil {
 		return err
 	}
@@ -149,7 +149,7 @@ func generateAllResourceManagerServices(swaggerGitSha string, justLatestVersion,
 	var wg sync.WaitGroup
 	for _, service := range *services {
 		for apiVersion, versionPath := range service.ApiVersionPaths {
-			swaggerFiles, err := legacy.SwaggerFilesInDirectory(versionPath)
+			swaggerFiles, err := parser.SwaggerFilesInDirectory(versionPath)
 			if err != nil {
 				fmt.Println(err.Error())
 				continue
