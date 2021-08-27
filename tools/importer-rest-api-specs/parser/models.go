@@ -441,6 +441,17 @@ func (d SwaggerDefinition) parseObjectDefinition(modelName string, input *spec.S
 			return nil, nil, fmt.Errorf("parsing nested item for array: no nested item returned")
 		}
 
+		if input.MaxItems != nil {
+			v := int(*input.MaxItems)
+			nestedItem.Maximum = &v
+		}
+		if input.MinItems != nil {
+			v := int(*input.MinItems)
+			nestedItem.Minimum = &v
+		}
+		v := input.UniqueItems
+		nestedItem.UniqueItems = &v
+
 		result.append(*nestedResult)
 		return &models.ObjectDefinition{
 			Type:       models.ObjectDefinitionList,

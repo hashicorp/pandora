@@ -1072,22 +1072,22 @@ func TestParseModelMultipleTopLevelWithList(t *testing.T) {
 		t.Fatalf("person.Fields['Plants'] was missing")
 	}
 	if plants.ObjectDefinition.NestedItem.Maximum == nil {
-		t.Fatalf("expected person.Fields['Plants'].Maximum to be 10 but got nil")
+		t.Fatalf("expected person.Fields['Plants'].ObjectDefinition.NestedItem.Maximum to be 10 but got nil")
 	}
 	if *plants.ObjectDefinition.NestedItem.Maximum != 10 {
-		t.Fatalf("expected person.Fields['Plants'].Maximum to be 10 but got %d", *plants.ObjectDefinition.NestedItem.Maximum)
+		t.Fatalf("expected person.Fields['Plants'].ObjectDefinition.NestedItem.Maximum to be 10 but got %d", *plants.ObjectDefinition.NestedItem.Maximum)
 	}
 	if plants.ObjectDefinition.NestedItem.Minimum == nil {
-		t.Fatalf("expected person.Fields['Plants'].Minimum to be 1 but got nil")
+		t.Fatalf("expected person.Fields['Plants'].ObjectDefinition.NestedItem.Minimum to be 1 but got nil")
 	}
 	if *plants.ObjectDefinition.NestedItem.Minimum != 1 {
-		t.Fatalf("expected person.Fields['Plants'].Minimum to be 1 but got %d", *plants.ObjectDefinition.NestedItem.Minimum)
+		t.Fatalf("expected person.Fields['Plants'].ObjectDefinition.NestedItem.Minimum to be 1 but got %d", *plants.ObjectDefinition.NestedItem.Minimum)
 	}
 	if plants.ObjectDefinition.NestedItem.UniqueItems == nil {
-		t.Fatalf("expected person.Fields['Plants'].UniqueItems to be true but got nil")
+		t.Fatalf("expected person.Fields['Plants'].ObjectDefinition.NestedItem.UniqueItems to be true but got nil")
 	}
 	if !*plants.ObjectDefinition.NestedItem.UniqueItems {
-		t.Fatalf("expected person.Fields['Plants'].UniqueItems to be true but got false")
+		t.Fatalf("expected person.Fields['Plants'].ObjectDefinition.NestedItem.UniqueItems to be true but got false")
 	}
 
 	animalModel, ok := resource.Models["Animal"]
@@ -1108,14 +1108,14 @@ func TestParseModelMultipleTopLevelWithList(t *testing.T) {
 	if animalName.JsonName != "name" {
 		t.Fatalf("expected animalModel.Fields['Name'].JsonName to be 'name' but got %q", animalName.JsonName)
 	}
-	if animalName.ObjectDefinition.NestedItem.Minimum != nil {
-		t.Fatalf("expected person.Fields['Name'].Minimum to be nil but got %v", *animalName.ObjectDefinition.NestedItem.Minimum)
+	if animalName.ObjectDefinition.Minimum != nil {
+		t.Fatalf("expected person.Fields['Name'].ObjectDefinition.Minimum to be nil but got %v", *animalName.ObjectDefinition.Minimum)
 	}
-	if animalName.ObjectDefinition.NestedItem.Maximum != nil {
-		t.Fatalf("expected person.Fields['Name'].Maximum to be nil but got %v", *animalName.ObjectDefinition.NestedItem.Maximum)
+	if animalName.ObjectDefinition.Maximum != nil {
+		t.Fatalf("expected person.Fields['Name'].ObjectDefinition.Maximum to be nil but got %v", *animalName.ObjectDefinition.Maximum)
 	}
-	if animalName.ObjectDefinition.NestedItem.UniqueItems != nil {
-		t.Fatalf("expected person.Fields['Name']..ObjectDefinition.NestedItemUniqueItems to be nil but got %v", *animalName.ObjectDefinition.NestedItem.UniqueItems)
+	if animalName.ObjectDefinition.UniqueItems != nil {
+		t.Fatalf("expected person.Fields['Name'].ObjectDefinition.UniqueItems to be nil but got %v", *animalName.ObjectDefinition.UniqueItems)
 	}
 
 	animalAge, ok := animalModel.Fields["Age"]
