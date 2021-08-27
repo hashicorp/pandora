@@ -373,11 +373,6 @@ func (d SwaggerDefinition) parseObjectDefinition(modelName string, input *spec.S
 		return &definition, &result, nil
 	}
 
-	// if it's a simple type, there'll be no other objects
-	if nativeType := d.parseNativeType(input); nativeType != nil {
-		return nativeType, &result, nil
-	}
-
 	// if it's a reference to a model, return that
 	if objectName := fragmentNameFromReference(input.Ref); objectName != nil {
 		// first find the top level object
@@ -459,6 +454,11 @@ func (d SwaggerDefinition) parseObjectDefinition(modelName string, input *spec.S
 			Type:       models.ObjectDefinitionList,
 			NestedItem: nestedItem,
 		}, &result, nil
+	}
+
+	// if it's a simple type, there'll be no other objects
+	if nativeType := d.parseNativeType(input); nativeType != nil {
+		return nativeType, &result, nil
 	}
 
 	return nil, nil, fmt.Errorf("unimplemented object definition")

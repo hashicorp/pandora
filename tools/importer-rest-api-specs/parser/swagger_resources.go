@@ -21,19 +21,22 @@ func (d *SwaggerDefinition) parseResourcesWithinSwaggerTag(tag *string) (*models
 	}
 	result.append(resourceIds.nestedResult)
 
+	// pull out the operations and any inlined/top-level constants/models
 	operations, nestedResult, err := d.parseOperationsWithinTag(tag, resourceIds.resourceUrisToMetadata, result)
 	if err != nil {
 		return nil, fmt.Errorf("finding operations: %+v", err)
 	}
 	result.append(*nestedResult)
 
+	// pull out all of the remaining models based on what we've got
 	nestedResult, err = d.findNestedItemsYetToBeParsed(operations, result)
 	if err != nil {
 		return nil, fmt.Errorf("finding nested items yet to be parsed: %+v", err)
 	}
 	result.append(*nestedResult)
 
-	// TODO: Custom Type Switch-a-roo and clean up any unused
+	// finally remove any models and constants which aren't referenced / have been replaced
+	result = removeUnusedItems(*operations, result)
 
 	// if there's nothing here, there's no point generating a package
 	if len(*operations) == 0 && len(result.models) == 0 && len(result.constants) == 0 {
@@ -219,7 +222,7 @@ func (d *SwaggerDefinition) determineObjectsRequiredButNotParsed(operations *map
 		if _, exists := known.models[k]; exists {
 			continue
 		}
-		
+
 		out = append(out, k)
 	}
 

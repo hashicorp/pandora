@@ -89,17 +89,12 @@ func (p operationsParser) parseOperation(operation parsedOperation) (*models.Ope
 	}
 	longRunning := p.operationIsLongRunning(operation)
 
-	nestedResult, err = p.constantsInOperationParameters(operation)
+	options, nestedResult, err := p.optionsForOperation(operation)
 	if err != nil {
-		return nil, nil, fmt.Errorf("parsing constants within operation parameters: %+v", err)
+		return nil, nil, fmt.Errorf("building options for operation %q: %+v", operation.name, err)
 	}
 	if nestedResult != nil {
 		result.append(*nestedResult)
-	}
-
-	options, err := p.optionsForOperation(operation)
-	if err != nil {
-		return nil, nil, fmt.Errorf("building options for operation %q: %+v", operation.name, err)
 	}
 
 	resourceId := p.resourceUriToMetaData[*normalizedUri]
@@ -125,40 +120,6 @@ func (p operationsParser) parseOperation(operation parsedOperation) (*models.Ope
 	}
 
 	return &operationData, &result, nil
-}
-
-func (p operationsParser) constantsInOperationParameters(input parsedOperation) (*parseResult, error) {
-	out := parseResult{
-		constants: map[string]models.ConstantDetails{},
-	}
-
-	for _, param := range input.operation.Parameters {
-		if param.Enum == nil {
-			continue
-		}
-
-		// these are (currently) handled elsewhere, so we're good for now
-		if strings.EqualFold(param.Name, "$skipToken") {
-			// NOTE: we may also need to do the odata ones, media has an example
-			continue
-		}
-
-		// handled elsewhere
-		if strings.EqualFold(param.Name, "api-version") {
-			continue
-		}
-
-		types := []string{
-			param.Type,
-		}
-		constant, err := mapConstant(types, param.Enum, param.Extensions)
-		if err != nil {
-			return nil, fmt.Errorf("mapping %q: %+v", param.Name, err)
-		}
-		out.constants[constant.name] = constant.details
-	}
-
-	return &out, nil
 }
 
 func (p operationsParser) determineObjectDefinitionForOption(input string, collectionFormat string) (*models.ObjectDefinition, error) {
@@ -269,8 +230,11 @@ func (p operationsParser) operationIsLongRunning(input parsedOperation) bool {
 	return val
 }
 
-func (p operationsParser) optionsForOperation(input parsedOperation) (*map[string]models.OperationOption, error) {
+func (p operationsParser) optionsForOperation(input parsedOperation) (*map[string]models.OperationOption, *parseResult, error) {
 	output := make(map[string]models.OperationOption)
+	result := parseResult{
+		constants: map[string]models.ConstantDetails{},
+	}
 
 	for _, param := range input.operation.Parameters {
 		// these are (currently) handled elsewhere, so we're good for now
@@ -302,17 +266,23 @@ func (p operationsParser) optionsForOperation(input parsedOperation) (*map[strin
 			//./commerce/resource-manager/Microsoft.Commerce/preview/2015-06-01-preview/commerce.json-            "description": "The end of the time range to retrieve data for."
 			objectDefinition, err := p.determineObjectDefinitionForOption(param.Type, param.CollectionFormat)
 			if err != nil {
-				return nil, fmt.Errorf("determining field type for operation: %+v", err)
+				return nil, nil, fmt.Errorf("determining field type for operation: %+v", err)
 			}
 			option.ObjectDefinition = objectDefinition
 
 			if param.Enum != nil {
-				constantName, err := parseConstantExtensionFromExtension(param.Extensions)
-				if err != nil {
-					return nil, fmt.Errorf("parsing constant name from extension for option %q: %+v", param.Name, err)
+				types := []string{
+					param.Type,
 				}
-				if constantName == nil {
-					return nil, fmt.Errorf("missing x-ms-enum for option %q", param.Name)
+				constant, err := mapConstant(types, param.Enum, param.Extensions)
+				if err != nil {
+					return nil, nil, fmt.Errorf("mapping %q: %+v", param.Name, err)
+				}
+				result.constants[constant.name] = constant.details
+
+				option.ObjectDefinition = &models.ObjectDefinition{
+					Type:          models.ObjectDefinitionReference,
+					ReferenceName: &constant.name,
 				}
 			}
 
@@ -320,7 +290,7 @@ func (p operationsParser) optionsForOperation(input parsedOperation) (*map[strin
 		}
 	}
 
-	return &output, nil
+	return &output, &result, nil
 }
 
 func (p operationsParser) operationShouldBeIgnored(input models.OperationDetails) bool {
