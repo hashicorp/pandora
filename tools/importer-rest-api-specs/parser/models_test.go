@@ -353,23 +353,6 @@ func TestParseModelSingleWithInlinedObject(t *testing.T) {
 	if len(thingModel.Fields) != 2 {
 		t.Fatalf("expected ThingProperties to have 2 fields")
 	}
-	uaiField, ok := thingModel.Fields["UserAssignedIdentities"]
-	if !ok {
-		t.Fatalf("expected the model ThingProperties to have the field UserAssignedIdentities")
-	}
-	if uaiField.CustomFieldType == nil {
-		t.Fatalf("expected UserAssignedIdentities to be a CustomFieldType but it was nil")
-	}
-	if *uaiField.CustomFieldType != models.CustomFieldTypeUserAssignedIdentityMap {
-		t.Fatalf("expected UserAssignedIdentities to be a CustomFieldTypeUserAssignedIdentityMap but it was %q", string(*uaiField.CustomFieldType))
-	}
-	if uaiField.ObjectDefinition != nil {
-		t.Fatalf("expected UserAssignedIdentities to have no ObjectDefinition but got %+v", *uaiField.ObjectDefinition)
-	}
-
-	if _, ok := hello.Models["ThingPropertiesUserAssignedIdentities"]; ok {
-		t.Fatalf("expected the model ThingPropertiesUserAssignedIdentities to be removed but it was present")
-	}
 }
 
 func TestParseModelSingleWithReference(t *testing.T) {
@@ -478,26 +461,6 @@ func TestParseModelSingleWithReference(t *testing.T) {
 	}
 	if len(thingModel.Fields) != 2 {
 		t.Fatalf("expected ThingProperties to have 2 fields")
-	}
-	identityField, ok := thingModel.Fields["Identity"]
-	if !ok {
-		t.Fatalf("expected the model ThingProperties to have the field Identity")
-	}
-	if identityField.CustomFieldType == nil {
-		t.Fatalf("expected the field Identity to be a CustomFieldType but it wasn't")
-	}
-	if identityField.ObjectDefinition != nil {
-		t.Fatalf("expected the field Identity to not have an ObjectDefinition but got %+v", identityField.ObjectDefinition)
-	}
-	if identityField.ObjectDefinition.Type != models.ObjectDefinitionReference {
-		t.Fatalf("expected the model ThingProperties field Identity to be an Reference but it was %q", string(identityField.ObjectDefinition.Type))
-	}
-	if *identityField.ObjectDefinition.ReferenceName != "UserAssignedIdentityProperties" {
-		t.Fatalf("expected the model ThingProperties field Identity's model reference to be `UserAssignedIdentityProperties` but it was %q", *identityField.ObjectDefinition.ReferenceName)
-	}
-
-	if _, hasModel := hello.Models["UserAssignedIdentityProperties"]; !hasModel {
-		t.Fatalf("expected the model UserAssignedIdentityProperties to be present but it wasn't")
 	}
 }
 
