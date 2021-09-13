@@ -137,7 +137,7 @@ func (d *SwaggerDefinition) determineObjectsRequiredButNotParsed(operations *map
 		for _, typeName := range typesToFind {
 			_, existingConstant := known.constants[typeName]
 			_, existingModel := known.models[typeName]
-			if !existingConstant && existingModel {
+			if !existingConstant && !existingModel {
 				result[typeName] = struct{}{}
 			}
 		}
