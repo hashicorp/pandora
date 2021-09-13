@@ -163,7 +163,7 @@ func (d *SwaggerDefinition) detailsForField(modelName string, propertyName strin
 	}
 
 	// first get the object definition
-	objectDefinition, nestedResult, err := d.parseObjectDefinition(modelName, &value, resultWithPlaceholder)
+	objectDefinition, nestedResult, err := d.parseObjectDefinition(modelName, propertyName, &value, resultWithPlaceholder)
 	if err != nil {
 		return nil, nil, fmt.Errorf("parsing object definition: %+v", err)
 	}
@@ -341,7 +341,7 @@ func (d *SwaggerDefinition) modelDetailsFromObject(input spec.Schema, fields map
 	return &details, nil
 }
 
-func (d SwaggerDefinition) parseObjectDefinition(modelName string, input *spec.Schema, known parseResult) (*models.ObjectDefinition, *parseResult, error) {
+func (d SwaggerDefinition) parseObjectDefinition(modelName, propertyName string, input *spec.Schema, known parseResult) (*models.ObjectDefinition, *parseResult, error) {
 	// find the object and any models and constants etc we can find
 	// however _don't_ look for discriminator implementations - since that should be done when we're completely done
 	result := parseResult{
@@ -385,7 +385,7 @@ func (d SwaggerDefinition) parseObjectDefinition(modelName string, input *spec.S
 		}
 
 		// then call ourselves to work out what to do with it
-		return d.parseObjectDefinition(*objectName, topLevelObject, result)
+		return d.parseObjectDefinition(*objectName, propertyName, topLevelObject, result)
 	}
 
 	// if it's an inlined model, pull it out and return that
@@ -418,7 +418,13 @@ func (d SwaggerDefinition) parseObjectDefinition(modelName string, input *spec.S
 
 	if input.AdditionalProperties != nil && input.AdditionalProperties.Schema != nil {
 		// it'll be a Dictionary, so pull out the nested item and return that
-		nestedItem, nestedResult, err := d.parseObjectDefinition(input.AdditionalProperties.Schema.Title, input.AdditionalProperties.Schema, result)
+		// however we need a name for this model
+		innerModelName := fmt.Sprintf("%sProperties", propertyName)
+		if input.AdditionalProperties.Schema.Title != "" {
+			innerModelName = input.AdditionalProperties.Schema.Title
+		}
+
+		nestedItem, nestedResult, err := d.parseObjectDefinition(innerModelName, propertyName, input.AdditionalProperties.Schema, result)
 		if err != nil {
 			return nil, nil, fmt.Errorf("parsing nested item for dictionary: %+v", err)
 		}
@@ -433,7 +439,7 @@ func (d SwaggerDefinition) parseObjectDefinition(modelName string, input *spec.S
 	}
 
 	if input.Type.Contains("array") && input.Items.Schema != nil {
-		nestedItem, nestedResult, err := d.parseObjectDefinition(input.Items.Schema.Title, input.Items.Schema, result)
+		nestedItem, nestedResult, err := d.parseObjectDefinition(input.Items.Schema.Title, propertyName, input.Items.Schema, result)
 		if err != nil {
 			return nil, nil, fmt.Errorf("parsing nested item for array: %+v", err)
 		}
