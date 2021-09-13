@@ -57,7 +57,7 @@ func (userAssignedIdentityMapMatcher) isMatch(_ models.FieldDetails, definition 
 					continue
 				}
 
-				if strings.EqualFold(innerName, "ClientId") {
+				if strings.EqualFold(innerName, "PrincipalId") {
 					if innerVal.ObjectDefinition == nil {
 						continue
 					}
