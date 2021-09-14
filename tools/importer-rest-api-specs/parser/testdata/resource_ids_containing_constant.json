@@ -1,0 +1,57 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Example",
+    "description": "Example",
+    "version": "2020-01-01"
+  },
+  "host": "management.mysite.com",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "security": [],
+  "securityDefinitions": {},
+  "paths": {
+    "/planets/{planetName}": {
+      "head": {
+        "tags": [
+          "Example"
+        ],
+        "operationId": "Example_OperationContainingAConstant",
+        "description": "This example is an operation containing a Constant",
+        "parameters": [
+          {
+            "name": "planetName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the planet.",
+            "enum": [
+              "Earth",
+              "Jupiter",
+              "Mars",
+              "Saturn"
+            ],
+            "x-ms-enum": {
+              "name": "Planet",
+              "modelAsString": false
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success."
+          }
+        }
+      }
+    }
+  },
+  "definitions": {},
+  "parameters": {}
+}
