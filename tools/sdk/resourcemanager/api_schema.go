@@ -40,6 +40,26 @@ type ApiSchemaDetails struct {
 	ResourceIds map[string]ResourceIdDefinition `json:"resourceIds"`
 }
 
+type ResourceConstantDetails struct {
+	Values    map[string]string `json:"values"`
+	FieldType ConstantType      `json:"field_type"`
+}
+
+type ConstantFieldType string
+
+type ResourceId struct {
+	// Constants are a map[Name]ResourceConstantDetails for the Constants used in this Resource ID
+	Constants map[string]ResourceConstantDetails `json:"constants"`
+
+	// Segments are an ordered list of segments which comprise this Resource ID
+	Segments []ResourceIdSegment `json:"segments"`
+
+	// Name holds the resource's name in the parser code. Should be in Title Case.
+	Name string `json:"name"`
+}
+
+type SegmentType string
+
 type ConstantDetails struct {
 	// CaseInsensitive specifies that this Constant can be returned insensitively
 	// and should be rewritten on the Client side to be consistent
@@ -192,5 +212,5 @@ const (
 	SubscriptionIdSegment ResourceIdSegmentType = "SubscriptionId"
 
 	// UserSpecifiableSegment specifies that this Segment is User-Specifiable
-	UserSpecifiableSegment ResourceIdSegmentType = "UserSpecifiable"
+	UserSpecifiableSegment ResourceIdSegmentType = "UserSpecified"
 )
