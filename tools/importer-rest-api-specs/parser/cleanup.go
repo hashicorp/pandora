@@ -1,8 +1,12 @@
 package parser
 
-import "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+import (
+	"strings"
+	
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+)
 
-func removeUnusedItems(operations map[string]models.OperationDetails, result parseResult) parseResult {
+func removeUnusedItems(operations map[string]models.OperationDetails, resourceIds map[string]models.ParsedResourceId, result parseResult) parseResult {
 	unusedModels := findUnusedModels(operations, result)
 	for len(unusedModels) > 0 {
 		// remove those models
@@ -14,7 +18,7 @@ func removeUnusedItems(operations map[string]models.OperationDetails, result par
 		unusedModels = findUnusedModels(operations, result)
 	}
 
-	unusedConstants := findUnusedConstants(operations, result)
+	unusedConstants := findUnusedConstants(operations, resourceIds, result)
 	for len(unusedConstants) > 0 {
 		// remove those constants
 		for _, constantName := range unusedConstants {
@@ -22,13 +26,13 @@ func removeUnusedItems(operations map[string]models.OperationDetails, result par
 		}
 
 		// then go around again
-		unusedConstants = findUnusedConstants(operations, result)
+		unusedConstants = findUnusedConstants(operations, resourceIds, result)
 	}
 
 	return result
 }
 
-func findUnusedConstants(operations map[string]models.OperationDetails, result parseResult) []string {
+func findUnusedConstants(operations map[string]models.OperationDetails, resourceIds map[string]models.ParsedResourceId, result parseResult) []string {
 	unusedConstants := make(map[string]struct{}, 0)
 	for constantName := range result.constants {
 		// constants are either housed inside a Model
@@ -90,6 +94,27 @@ func findUnusedConstants(operations map[string]models.OperationDetails, result p
 			}
 		}
 		if usedInAnOperation {
+			continue
+		}
+
+		usedInAResourceId := false
+		for _, rid := range resourceIds {
+			for _, segment := range rid.Segments {
+				if segment.ConstantReference == nil {
+					continue
+				}
+
+				if strings.EqualFold(*segment.ConstantReference, constantName) {
+					usedInAResourceId = true
+					break
+				}
+			}
+
+			if usedInAResourceId {
+				break
+			}
+		}
+		if usedInAResourceId {
 			continue
 		}
 
