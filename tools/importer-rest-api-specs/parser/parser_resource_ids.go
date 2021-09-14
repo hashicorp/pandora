@@ -214,6 +214,14 @@ func (d *SwaggerDefinition) parseResourceIdFromOperation(uri string, operationDe
 		}
 	}
 
+	if len(segments) > 0 && output.resourceIdName != nil {
+		// if the first segment is a Scope, prefix the name with 'Scoped'
+		if firstSegment := segments[0]; firstSegment.Type == models.ScopeSegment {
+			name := fmt.Sprintf("Scoped%s", *output.resourceIdName)
+			output.resourceIdName = &name
+		}
+	}
+
 	return &output, nil
 }
 
