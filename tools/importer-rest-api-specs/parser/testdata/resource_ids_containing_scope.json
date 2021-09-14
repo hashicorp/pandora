@@ -18,14 +18,29 @@
   "security": [],
   "securityDefinitions": {},
   "paths": {
-    "{scope}/providers/Microsoft.FooBar/virtualMachines/{virtualMachineName}": {
+    "/{scope}/providers/Microsoft.FooBar/virtualMachines/{virtualMachineName}": {
       "head": {
         "tags": [
           "Example"
         ],
         "operationId": "Example_OperationContainingAScope",
         "description": "This example is an operation containing a Scope",
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "scope",
+            "in": "path",
+            "description": "The sopce at which to query.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "virtualMachineName",
+            "in": "path",
+            "description": "The name of the virtual machine.",
+            "required": true,
+            "type": "string"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Success."

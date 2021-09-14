@@ -6,8 +6,6 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
-// TODO: Resource ID's containing a Scope should be named `Scoped{IDName}`
-
 func TestParseResourceIdBasic(t *testing.T) {
 	parsed, err := Load("testdata/", "resource_ids_basic.json", true)
 	if err != nil {
@@ -27,7 +25,7 @@ func TestParseResourceIdBasic(t *testing.T) {
 
 	hello, ok := result.Resources["Example"]
 	if !ok {
-		t.Fatalf("no resources were output with the tag Hello")
+		t.Fatalf("no resources were output with the tag Example")
 	}
 
 	if len(hello.Constants) != 0 {
@@ -89,7 +87,7 @@ func TestParseResourceIdContainingAConstant(t *testing.T) {
 
 	hello, ok := result.Resources["Example"]
 	if !ok {
-		t.Fatalf("no resources were output with the tag Hello")
+		t.Fatalf("no resources were output with the tag Example")
 	}
 
 	if len(hello.Constants) != 1 {
@@ -128,18 +126,18 @@ func TestParseResourceIdContainingAConstant(t *testing.T) {
 	}
 
 	// then check it's exposed in the operation itself
-	operation, ok := hello.Operations["Example_OperationContainingAConstant"]
+	operation, ok := hello.Operations["OperationContainingAConstant"]
 	if !ok {
-		t.Fatalf("expected there to be an Operation named Example_OperationContainingAConstant but didn't get one")
+		t.Fatalf("expected there to be an Operation named OperationContainingAConstant but didn't get one")
 	}
 	if operation.ResourceIdName == nil {
-		t.Fatalf("expected the ResourceIdName for the Operation Example_OperationContainingAConstant to have a value but didn't get one")
+		t.Fatalf("expected the ResourceIdName for the Operation OperationContainingAConstant to have a value but didn't get one")
 	}
 	if *operation.ResourceIdName != "PlanetId" {
-		t.Fatalf("expected the ResourceIdName for the Operation Example_OperationContainingAConstant to be PlanetId but got %q", *operation.ResourceIdName)
+		t.Fatalf("expected the ResourceIdName for the Operation OperationContainingAConstant to be PlanetId but got %q", *operation.ResourceIdName)
 	}
 	if operation.UriSuffix != nil {
-		t.Fatalf("expected the UriSuffix for the Operation Example_OperationContainingAConstant to have no value but got %q", *operation.UriSuffix)
+		t.Fatalf("expected the UriSuffix for the Operation OperationContainingAConstant to have no value but got %q", *operation.UriSuffix)
 	}
 }
 
@@ -162,7 +160,7 @@ func TestParseResourceIdContainingAScope(t *testing.T) {
 
 	hello, ok := result.Resources["Example"]
 	if !ok {
-		t.Fatalf("no resources were output with the tag Hello")
+		t.Fatalf("no resources were output with the tag Example")
 	}
 
 	if len(hello.Constants) != 0 {
@@ -179,7 +177,7 @@ func TestParseResourceIdContainingAScope(t *testing.T) {
 	}
 
 	// first check the ResourceId looks good
-	expectedValue := "{scope}/providers/Microsoft.FooBar/virtualMachines/{virtualMachineName}"
+	expectedValue := "/{scope}/providers/Microsoft.FooBar/virtualMachines/{virtualMachineName}" // NOTE: this has to have a leading slash to be valid in Swagger
 	actualValue, ok := hello.ResourceIds["ScopedVirtualMachineId"]
 	if !ok {
 		t.Fatalf("expected a ResourceId named ScopedVirtualMachineId but didn't get one")
@@ -224,7 +222,7 @@ func TestParseResourceIdWithJustUriSuffix(t *testing.T) {
 
 	example, ok := result.Resources["Example"]
 	if !ok {
-		t.Fatalf("no resources were output with the tag Hello")
+		t.Fatalf("no resources were output with the tag Example")
 	}
 
 	if len(example.Constants) != 0 {
@@ -275,7 +273,7 @@ func TestParseResourceIdWithResourceIdAndUriSuffix(t *testing.T) {
 
 	hello, ok := result.Resources["Example"]
 	if !ok {
-		t.Fatalf("no resources were output with the tag Hello")
+		t.Fatalf("no resources were output with the tag Example")
 	}
 
 	if len(hello.Constants) != 0 {
@@ -341,7 +339,7 @@ func TestParseResourceIdWithResourceIdAndUriSuffixForMultipleUris(t *testing.T) 
 
 	hello, ok := result.Resources["Example"]
 	if !ok {
-		t.Fatalf("no resources were output with the tag Hello")
+		t.Fatalf("no resources were output with the tag Example")
 	}
 
 	if len(hello.Constants) != 0 {

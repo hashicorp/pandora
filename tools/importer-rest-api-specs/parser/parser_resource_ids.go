@@ -214,14 +214,6 @@ func (d *SwaggerDefinition) parseResourceIdFromOperation(uri string, operationDe
 		}
 	}
 
-	if len(segments) > 0 && output.resourceIdName != nil {
-		// if the first segment is a Scope, prefix the name with 'Scoped'
-		if firstSegment := segments[0]; firstSegment.Type == models.ScopeSegment {
-			name := fmt.Sprintf("Scoped%s", *output.resourceIdName)
-			output.resourceIdName = &name
-		}
-	}
-
 	return &output, nil
 }
 
@@ -248,6 +240,13 @@ func determineNamesForResourceIds(urisToObjects map[string]resourceUriMetadata) 
 		}
 
 		lastSegment := userSpecifiableSegments[len(userSpecifiableSegments)-1]
+		lastSegment = strings.TrimSuffix(lastSegment, "Name")
+		if len(resourceId.resourceId.Segments) > 0 {
+			// if the first segment is a Scope, prefix the name with 'Scoped'
+			if firstSegment := resourceId.resourceId.Segments[0]; firstSegment.Type == models.ScopeSegment {
+				lastSegment = fmt.Sprintf("Scoped%s", normalizeSegmentName(lastSegment))
+			}
+		}
 		normalizedKey := normalizeSegmentName(lastSegment) + "Id"
 
 		if uris, existing := conflictingKeys[normalizedKey]; existing {
