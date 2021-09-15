@@ -23,6 +23,7 @@ func (d *SwaggerDefinition) Parse(serviceName, apiVersion string) (*models.Azure
 		}
 
 		if resource != nil {
+			tag = strings.ReplaceAll(tag, " ", "")
 			resources[tag] = *resource
 		}
 	}

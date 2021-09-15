@@ -196,7 +196,17 @@ func dotNetNameForObjectDefinition(input *models.ObjectDefinition, constants map
 				return nil, fmt.Errorf("a reference must have a reference name but didn't get one")
 			}
 
-			return input.ReferenceName, nil
+			// is this a constant or a model
+			if _, isConstant := constants[*input.ReferenceName]; isConstant {
+				val := fmt.Sprintf("%sConstant", *input.ReferenceName)
+				return &val, nil
+			}
+			if _, isModel := knownModels[*input.ReferenceName]; isModel {
+				val := fmt.Sprintf("%sModel", *input.ReferenceName)
+				return &val, nil
+			}
+
+			return nil, fmt.Errorf("the Reference %q wasn't found as a Constant or a Model", *input.ReferenceName)
 		}
 
 	case models.ObjectDefinitionBoolean:
