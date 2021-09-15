@@ -46,15 +46,15 @@ func operationMatchesTag(operation *spec.Operation, tag *string) bool {
 	return false
 }
 
-func operationShouldBeIgnored(input string) bool {
+func operationShouldBeIgnored(operationUri string) bool {
 	// we're not concerned with exposing the "operations" API's at this time - e.g.
 	// /providers/Microsoft.EnterpriseKnowledgeGraph/services
-	if strings.HasPrefix(strings.ToLower(input), "/providers/") {
+	if strings.HasPrefix(strings.ToLower(operationUri), "/providers/") {
 		return true
 	}
 
 	// LRO's shouldn't be directly exposed
-	if strings.Contains(strings.ToLower(input), "/operationresults/{operationid}") {
+	if strings.Contains(strings.ToLower(operationUri), "/operationresults/{operationid}") {
 		return true
 	}
 

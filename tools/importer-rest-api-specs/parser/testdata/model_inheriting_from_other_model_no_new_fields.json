@@ -1,0 +1,59 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Example",
+    "description": "Example",
+    "version": "2020-01-01"
+  },
+  "host": "management.mysite.com",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "security": [],
+  "securityDefinitions": {},
+  "paths": {
+    "/things": {
+      "get": {
+        "tags": [
+          "Hello"
+        ],
+        "operationId": "Hello_GetWorld",
+        "description": "A GET request with a body returned.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success.",
+            "schema": {
+              "$ref": "#/definitions/SecondObject"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "FirstObject": {
+      "properties": {
+        "name": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "FirstObject"
+    },
+    "SecondObject": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/FirstObject"
+        }
+      ]
+    }
+  },
+  "parameters": {}
+}

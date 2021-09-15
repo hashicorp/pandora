@@ -389,7 +389,8 @@ func (d SwaggerDefinition) parseObjectDefinition(modelName, propertyName string,
 	}
 
 	// if it's an inlined model, pull it out and return that
-	if len(input.Properties) > 0 {
+	// note: some models can just be references to other models
+	if len(input.Properties) > 0 || len(input.AllOf) > 0 {
 		nestedResult, err := d.parseModel(modelName, *input)
 		if err != nil {
 			return nil, nil, fmt.Errorf("parsing object from inlined model %q: %+v", modelName, err)
@@ -493,6 +494,12 @@ func (d SwaggerDefinition) parseNativeType(input *spec.Schema) *models.ObjectDef
 	if input.Type.Contains("number") {
 		return &models.ObjectDefinition{
 			Type: models.ObjectDefinitionFloat,
+		}
+	}
+
+	if input.Type.Contains("object") {
+		return &models.ObjectDefinition{
+			Type: models.ObjectDefinitionRawObject,
 		}
 	}
 

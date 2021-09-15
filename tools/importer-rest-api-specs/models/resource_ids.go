@@ -22,7 +22,7 @@ func (pri ParsedResourceId) UserSpecifiableSegmentNames() []string {
 	output := make([]string, 0)
 
 	for _, segment := range pri.Segments {
-		if segment.Type == ConstantSegment || segment.Type == ResourceGroupSegment || segment.Type == SubscriptionIdSegment || segment.Type == UserSpecifiedSegment {
+		if segment.Type == ConstantSegment || segment.Type == ResourceGroupSegment || segment.Type == ScopeSegment || segment.Type == SubscriptionIdSegment || segment.Type == UserSpecifiedSegment {
 			output = append(output, segment.Name)
 		}
 	}

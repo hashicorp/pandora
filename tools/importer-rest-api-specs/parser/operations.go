@@ -38,6 +38,11 @@ func (d *SwaggerDefinition) parseOperationsWithinTag(tag *string, resourceUriToM
 			log.Printf("[DEBUG] Operation - %s %q..", operation.httpMethod, operation.uri)
 		}
 
+		if operationShouldBeIgnored(operation.uri) {
+			log.Printf("[DEBUG] operation should be ignored - skipping..")
+			continue
+		}
+
 		parsedOperation, nestedResult, err := parser.parseOperation(operation)
 		if err != nil {
 			return nil, nil, fmt.Errorf("parsing %s operation %q: %+v", operation.httpMethod, operation.uri, err)
