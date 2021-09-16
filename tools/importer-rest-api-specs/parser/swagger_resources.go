@@ -35,6 +35,9 @@ func (d *SwaggerDefinition) parseResourcesWithinSwaggerTag(tag *string) (*models
 	}
 	result.append(*nestedResult)
 
+	// finally switch out any custom types (e.g. Identity)
+	result = switchOutCustomTypesAsNeeded(result)
+
 	// finally remove any models and constants which aren't referenced / have been replaced
 	result = removeUnusedItems(*operations, resourceIds.nameToResourceIDs, result)
 
@@ -61,6 +64,36 @@ func (d *SwaggerDefinition) parseResourcesWithinSwaggerTag(tag *string) (*models
 	resource.Normalize()
 
 	return &resource, nil
+}
+
+func switchOutCustomTypesAsNeeded(input parseResult) parseResult {
+	result := parseResult{
+		constants: map[string]models.ConstantDetails{},
+		models:    map[string]models.ModelDetails{},
+	}
+	result.append(input)
+
+	for modelName, model := range result.models {
+		fields := model.Fields
+		for fieldName, field := range model.Fields {
+			if field.CustomFieldType != nil || field.ObjectDefinition == nil {
+				continue
+			}
+
+			// work out if this is a custom type now that we have all of the models/constants
+			customFieldType := determineCustomFieldType(field, *field.ObjectDefinition, result)
+			if customFieldType != nil {
+				field.CustomFieldType = customFieldType
+				field.ObjectDefinition = nil
+			}
+
+			fields[fieldName] = field
+		}
+		model.Fields = fields
+		result.models[modelName] = model
+	}
+
+	return input
 }
 
 func (d *SwaggerDefinition) findNestedItemsYetToBeParsed(operations *map[string]models.OperationDetails, known parseResult) (*parseResult, error) {

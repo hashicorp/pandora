@@ -150,29 +150,12 @@ func (d *SwaggerDefinition) detailsForField(modelName string, propertyName strin
 		JsonName:  propertyName,
 	}
 
-	// add a placeholder for this model to avoid a circular reference
-	resultWithPlaceholder := parseResult{}
-	resultWithPlaceholder.append(result)
-
-	needsPlaceholder := true
-	if _, parsedModel := resultWithPlaceholder.models[modelName]; parsedModel {
-		needsPlaceholder = false
-	}
-	if needsPlaceholder {
-		resultWithPlaceholder.models[modelName] = models.ModelDetails{}
-	}
-
 	// first get the object definition
-	objectDefinition, nestedResult, err := d.parseObjectDefinition(modelName, propertyName, &value, resultWithPlaceholder)
+	objectDefinition, nestedResult, err := d.parseObjectDefinition(modelName, propertyName, &value, result)
 	if err != nil {
 		return nil, nil, fmt.Errorf("parsing object definition: %+v", err)
 	}
 	if nestedResult != nil {
-		if needsPlaceholder {
-			// remove the placeholder from the result
-			delete(nestedResult.models, modelName)
-		}
-
 		result.append(*nestedResult)
 	}
 
@@ -205,13 +188,10 @@ func (d *SwaggerDefinition) detailsForField(modelName string, propertyName strin
 		objectDefinition.ReferenceName = &inlinedName
 	}
 
-	// then work out if this is actually a custom type, based on the information we have
-	customFieldType := determineCustomFieldType(field, *objectDefinition, result)
-	if customFieldType != nil {
-		field.CustomFieldType = customFieldType
-	} else {
-		field.ObjectDefinition = objectDefinition
-	}
+	// Custom Types are determined once all of the models/constants have been pulled out at the end
+	// so just assign this for now
+	field.ObjectDefinition = objectDefinition
+
 	return &field, &result, err
 }
 
@@ -384,21 +364,42 @@ func (d SwaggerDefinition) parseObjectDefinition(modelName, propertyName string,
 			return nil, nil, fmt.Errorf("finding top level model %q: %+v", *objectName, err)
 		}
 
+		knownIncludingPlaceholder := parseResult{
+			constants: map[string]models.ConstantDetails{},
+			models:    map[string]models.ModelDetails{},
+		}
+		knownIncludingPlaceholder.append(result)
+		if *objectName != "" {
+			knownIncludingPlaceholder.models[*objectName] = models.ModelDetails{
+				// add a placeholder to avoid circular references
+			}
+		}
+
 		// then call ourselves to work out what to do with it
-		return d.parseObjectDefinition(*objectName, propertyName, topLevelObject, result)
+		objectDefinition, nestedResult, err := d.parseObjectDefinition(*objectName, propertyName, topLevelObject, knownIncludingPlaceholder)
+		if err != nil {
+			return nil, nil, err
+		}
+		if nestedResult != nil && *objectName != "" {
+			delete(nestedResult.models, *objectName)
+		}
+		return objectDefinition, nestedResult, nil
 	}
 
 	// if it's an inlined model, pull it out and return that
 	// note: some models can just be references to other models
 	if len(input.Properties) > 0 || len(input.AllOf) > 0 {
-		nestedResult, err := d.parseModel(modelName, *input)
-		if err != nil {
-			return nil, nil, fmt.Errorf("parsing object from inlined model %q: %+v", modelName, err)
+		// check for / avoid circular references
+		if _, ok := result.models[modelName]; !ok {
+			nestedResult, err := d.parseModel(modelName, *input)
+			if err != nil {
+				return nil, nil, fmt.Errorf("parsing object from inlined model %q: %+v", modelName, err)
+			}
+			if nestedResult == nil {
+				return nil, nil, fmt.Errorf("parsing object from inlined response model %q: no model returned", modelName)
+			}
+			result.append(*nestedResult)
 		}
-		if nestedResult == nil {
-			return nil, nil, fmt.Errorf("parsing object from inlined response model %q: no model returned", modelName)
-		}
-		result.append(*nestedResult)
 
 		definition := models.ObjectDefinition{
 			Type:          models.ObjectDefinitionReference,

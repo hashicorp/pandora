@@ -900,9 +900,6 @@ func TestParseModelSingleWithReferenceToString(t *testing.T) {
 }
 
 func TestParseModelWithCircularReferences(t *testing.T) {
-	t.Fatalf("circular ref - look into later")
-	t.Skip()
-
 	parsed, err := Load("testdata/", "model_with_circular_reference.json", true)
 	if err != nil {
 		t.Fatalf("loading: %+v", err)

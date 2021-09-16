@@ -394,9 +394,25 @@ func (p operationsParser) responseObjectForOperation(input parsedOperation, isAL
 				if objectDefinition.Type != models.ObjectDefinitionReference {
 					return nil, nil, fmt.Errorf("TODO: add support for %q - list operations only support references at this time", string(objectDefinition.Type))
 				}
+				if objectDefinition.ReferenceName == nil {
+					return nil, nil, fmt.Errorf("the reference name was nil for the nested object")
+				}
 
 				// find the real object and then return that instead
 				modelName := *objectDefinition.ReferenceName
+
+				// however it's not been parsed out yet, so we need to explicitly load it
+				topLevelObject, err := p.swaggerDefinition.findTopLevelObject(modelName)
+				if err != nil {
+					return nil, nil, fmt.Errorf("finding model %q for list item: %+v", modelName, err)
+				}
+				nestedResult, err := p.swaggerDefinition.parseModel(modelName, *topLevelObject)
+				if err != nil {
+					return nil, nil, fmt.Errorf("parsing model %q for list item: %+v", modelName, err)
+				}
+				result.append(*nestedResult)
+
+				// then look it up
 				model, ok := result.models[modelName]
 				if !ok {
 					return nil, nil, fmt.Errorf("the model %q was not found", modelName)
