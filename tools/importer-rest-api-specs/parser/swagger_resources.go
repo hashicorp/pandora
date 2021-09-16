@@ -35,7 +35,13 @@ func (d *SwaggerDefinition) parseResourcesWithinSwaggerTag(tag *string) (*models
 	}
 	result.append(*nestedResult)
 
-	// finally switch out any custom types (e.g. Identity)
+	// then pull out the embedded model for List operations (e.g. we don't want the wrapper type but the type for the `value` field)
+	operations, err = pullOutModelForListOperations(*operations, result)
+	if err != nil {
+		return nil, fmt.Errorf("pulling out model from list operations: %+v", err)
+	}
+
+	// then switch out any custom types (e.g. Identity)
 	result = switchOutCustomTypesAsNeeded(result)
 
 	// finally remove any models and constants which aren't referenced / have been replaced
@@ -64,6 +70,73 @@ func (d *SwaggerDefinition) parseResourcesWithinSwaggerTag(tag *string) (*models
 	resource.Normalize()
 
 	return &resource, nil
+}
+
+func pullOutModelForListOperations(input map[string]models.OperationDetails, known parseResult) (*map[string]models.OperationDetails, error) {
+	// List Operations return an object which contains a NextLink and a Value (which is the actual Object
+	// being paginated on) - so we want to replace the wrapper object with the Value so that these can be
+	// paginated correctly as needed.
+	output := make(map[string]models.OperationDetails)
+
+	for k, operation := range input {
+		if !operation.IsListOperation {
+			output[k] = operation
+			continue
+		}
+		if operation.ResponseObject == nil {
+			return nil, fmt.Errorf("a List Operation must have a Response Object but it was nil")
+		}
+		objectDefinition := *operation.ResponseObject
+		if objectDefinition.Type != models.ObjectDefinitionReference {
+			return nil, fmt.Errorf("TODO: add support for %q - list operations only support references at this time", string(objectDefinition.Type))
+		}
+		if objectDefinition.ReferenceName == nil {
+			return nil, fmt.Errorf("the reference name was nil for the nested object")
+		}
+
+		// find the real object and then return that instead
+		modelName := *objectDefinition.ReferenceName
+
+		// then look it up
+		model, ok := known.models[modelName]
+		if !ok {
+			return nil, fmt.Errorf("the model %q was not found", modelName)
+		}
+
+		actualModelName := ""
+		for k, v := range model.Fields {
+			if strings.EqualFold(k, "nextLink") {
+				key := k // copy it locally so this isn't a reference to the moving key value
+				operation.FieldContainingPaginationDetails = &key
+				continue
+			}
+
+			if strings.EqualFold(k, "Value") {
+				if v.ObjectDefinition == nil {
+					return nil, fmt.Errorf("parsing model %q for list operation to find real model: missing object definition for field 'value'", modelName)
+				}
+
+				definition := topLevelObjectDefinition(*v.ObjectDefinition)
+				if definition.ReferenceName == nil {
+					return nil, fmt.Errorf("parsing model %q for list operation to find real model: top level object definition should be a reference but got %+v", modelName, definition)
+				}
+
+				actualModelName = *definition.ReferenceName
+
+				continue
+			}
+		}
+
+		// otherwise this isn't actually a list operation, it's bad data
+		if actualModelName != "" {
+			objectDefinition.ReferenceName = &actualModelName
+			operation.ResponseObject = &objectDefinition
+		}
+
+		output[k] = operation
+	}
+
+	return &output, nil
 }
 
 func switchOutCustomTypesAsNeeded(input parseResult) parseResult {

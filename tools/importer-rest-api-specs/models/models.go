@@ -18,6 +18,7 @@ type OperationDetails struct {
 	ContentType                      string
 	ExpectedStatusCodes              []int
 	FieldContainingPaginationDetails *string
+	IsListOperation                  bool
 	LongRunning                      bool
 	Method                           string
 	Options                          map[string]OperationOption

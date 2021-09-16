@@ -111,15 +111,15 @@ func (p operationsParser) parseOperation(operation parsedOperation) (*models.Ope
 		ContentType:                      contentType,
 		ExpectedStatusCodes:              expectedStatusCodes,
 		FieldContainingPaginationDetails: paginationField,
+		IsListOperation:                  isAListOperation,
 		LongRunning:                      longRunning,
 		Method:                           strings.ToUpper(operation.httpMethod),
 		Options:                          *options,
 		RequestObject:                    requestObject,
+		ResourceIdName:                   resourceId.resourceIdName,
 		ResponseObject:                   responseResult.objectDefinition,
 		Uri:                              *normalizedUri,
-
-		ResourceIdName: resourceId.resourceIdName,
-		UriSuffix:      resourceId.uriSuffix,
+		UriSuffix:                        resourceId.uriSuffix,
 	}
 
 	if p.operationShouldBeIgnored(operationData) {
@@ -385,71 +385,6 @@ func (p operationsParser) responseObjectForOperation(input parsedOperation, isAL
 			}
 			output.objectDefinition = objectDefinition
 			result.append(*nestedResult)
-
-			// NOTE: List operations need to be handled differently since we want the object not the wrapper
-			if isAListOperation {
-				if objectDefinition == nil {
-					return nil, nil, fmt.Errorf("list operations must have a return object, but this doesn't")
-				}
-				if objectDefinition.Type != models.ObjectDefinitionReference {
-					return nil, nil, fmt.Errorf("TODO: add support for %q - list operations only support references at this time", string(objectDefinition.Type))
-				}
-				if objectDefinition.ReferenceName == nil {
-					return nil, nil, fmt.Errorf("the reference name was nil for the nested object")
-				}
-
-				// find the real object and then return that instead
-				modelName := *objectDefinition.ReferenceName
-
-				// however it's not been parsed out yet, so we need to explicitly load it
-				topLevelObject, err := p.swaggerDefinition.findTopLevelObject(modelName)
-				if err != nil {
-					return nil, nil, fmt.Errorf("finding model %q for list item: %+v", modelName, err)
-				}
-				nestedResult, err := p.swaggerDefinition.parseModel(modelName, *topLevelObject)
-				if err != nil {
-					return nil, nil, fmt.Errorf("parsing model %q for list item: %+v", modelName, err)
-				}
-				result.append(*nestedResult)
-
-				// then look it up
-				model, ok := result.models[modelName]
-				if !ok {
-					return nil, nil, fmt.Errorf("the model %q was not found", modelName)
-				}
-
-				actualModelName := ""
-				for k, v := range model.Fields {
-					if strings.EqualFold(k, "nextLink") {
-						key := k // copy it locally so this isn't a reference to the moving key value
-						output.paginationFieldName = &key
-						continue
-					}
-
-					if strings.EqualFold(k, "Value") {
-						if v.ObjectDefinition == nil {
-							return nil, nil, fmt.Errorf("parsing model %q for list operation to find real model: missing object definition for field 'value'", modelName)
-						}
-
-						definition := topLevelObjectDefinition(*v.ObjectDefinition)
-						if definition.ReferenceName == nil {
-							return nil, nil, fmt.Errorf("parsing model %q for list operation to find real model: top level object definition should be a reference but got %+v", modelName, definition)
-						}
-
-						actualModelName = *definition.ReferenceName
-
-						// we no longer need the wrapper, so we can remove that
-						delete(result.models, modelName)
-						continue
-					}
-				}
-
-				// otherwise this isn't actually a list operation, it's bad data
-				if actualModelName != "" {
-					objectDefinition.ReferenceName = &actualModelName
-					output.objectDefinition = objectDefinition
-				}
-			}
 		}
 	}
 
