@@ -91,7 +91,6 @@ func (d SwaggerDefinition) parseResourceIdsFromOperations(tag *string) (*map[str
 			// next, if it's based on a Resource ID, let's ensure that's added too
 			resourceUri := uri
 			if metadata.resourceId != nil {
-				//resourceUri = metadata.resourceId.NormalizedResourceId()
 				result.appendConstants(metadata.resourceId.Constants)
 
 				resourceManagerUri := metadata.resourceId.NormalizedResourceManagerResourceId()
@@ -272,14 +271,24 @@ func determineNamesForResourceIds(urisToObjects map[string]resourceUriMetadata) 
 		}
 
 		lastSegment := userSpecifiableSegments[len(userSpecifiableSegments)-1]
+
+		// however if this is an ARM Resource ID we should have Key-Value Pairs - in which case the name likely
+		// wants to come from the Key and not the Value
+		if len(resourceId.resourceId.Segments)%2 == 0 {
+			lastSegment = keyForUserSpecifiableSegment(lastSegment, resourceId.resourceId.Segments)
+		}
+
 		lastSegment = strings.TrimSuffix(lastSegment, "Name")
-		if len(resourceId.resourceId.Segments) > 0 {
+		if len(resourceId.resourceId.Segments) > 1 {
 			// if the first segment is a Scope, prefix the name with 'Scoped'
 			if firstSegment := resourceId.resourceId.Segments[0]; firstSegment.Type == models.ScopeSegment {
 				lastSegment = fmt.Sprintf("Scoped%s", normalizeSegmentName(lastSegment))
 			}
 		}
-		normalizedKey := normalizeSegmentName(lastSegment) + "Id"
+		normalizedKey := normalizeSegmentName(lastSegment)
+		if !strings.HasSuffix(normalizedKey, "Id") {
+			normalizedKey = normalizedKey + "Id"
+		}
 
 		if uris, existing := conflictingKeys[normalizedKey]; existing {
 			uris = append(uris, *resourceId.resourceId)
@@ -317,6 +326,18 @@ func determineNamesForResourceIds(urisToObjects map[string]resourceUriMetadata) 
 	return &uniqueNamesForUris, &urisToNames, nil
 }
 
+func keyForUserSpecifiableSegment(value string, segments []models.ResourceIdSegment) string {
+	index := -1
+	for i, segment := range segments {
+		if segment.Name == value {
+			index = i
+			break
+		}
+	}
+	v := segments[index-1]
+	return v.Name
+}
+
 // determineUniqueSegmentNames returns a map[name]uri
 func determineUniqueSegmentNames(input map[string][]models.ParsedResourceId) (*map[string]models.ParsedResourceId, error) {
 	identifiers := make(map[string]models.ParsedResourceId, 0)
@@ -328,11 +349,21 @@ func determineUniqueSegmentNames(input map[string][]models.ParsedResourceId) (*m
 				return nil, fmt.Errorf("insufficient segments to create a unique identifier from %+v", resourceId)
 			}
 
+			isResourceManagerId := len(resourceId.Segments)%2 == 0
+
 			// /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/hostingEnvironments/{name}/workerPools/{workerPoolName}/instances/{instance}
 			// /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/hostingEnvironments/{name}/multiRolePools/default/instances/{instance}
-			childName := names[len(names)-1] + "Id"
+			childName := names[len(names)-1]
+			if isResourceManagerId {
+				childName = keyForUserSpecifiableSegment(childName, resourceId.Segments)
+			}
+			childName += "Id"
+
 			// the names must already conflict or we wouldn't be here
 			parentName := names[len(names)-2]
+			if isResourceManagerId {
+				parentName = keyForUserSpecifiableSegment(parentName, resourceId.Segments)
+			}
 			key := fmt.Sprintf("%s%s", normalizeSegmentName(parentName), normalizeSegmentName(childName))
 
 			// check if we have an existing match for ParentChild
@@ -343,7 +374,10 @@ func determineUniqueSegmentNames(input map[string][]models.ParsedResourceId) (*m
 
 				// prefix the parent name
 				if len(names) >= 3 {
-					grandparentName := (names)[len(names)-3]
+					grandparentName := names[len(names)-3]
+					if isResourceManagerId {
+						grandparentName = keyForUserSpecifiableSegment(grandparentName, resourceId.Segments)
+					}
 					normalized := normalizeSegmentName(grandparentName)
 					key = fmt.Sprintf("%s%s", normalized, key)
 
@@ -358,8 +392,11 @@ func determineUniqueSegmentNames(input map[string][]models.ParsedResourceId) (*m
 
 							// prefix the grandparent name
 							if len(names) >= 4 {
-								grandparentName := (names)[len(names)-4]
-								normalized := normalizeSegmentName(grandparentName)
+								greatGrandParentName := (names)[len(names)-4]
+								if isResourceManagerId {
+									greatGrandParentName = keyForUserSpecifiableSegment(greatGrandParentName, resourceId.Segments)
+								}
+								normalized := normalizeSegmentName(greatGrandParentName)
 								key = fmt.Sprintf("%s%s", normalized, key)
 
 								if v, ok := keyHasConflicts(key, identifiers, proposed); ok {

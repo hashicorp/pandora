@@ -39,7 +39,9 @@ func (d *SwaggerDefinition) parseOperationsWithinTag(tag *string, resourceUriToM
 		}
 
 		if operationShouldBeIgnored(operation.uri) {
-			log.Printf("[DEBUG] operation should be ignored - skipping..")
+			if d.debugLog {
+				log.Printf("[DEBUG] operation should be ignored - skipping..")
+			}
 			continue
 		}
 
