@@ -45,7 +45,7 @@ func (d *SwaggerDefinition) Parse(serviceName, apiVersion string) (*models.Azure
 	}
 
 	return &models.AzureApiDefinition{
-		ServiceName: serviceName,
+		ServiceName: cleanup.NormalizeServiceName(serviceName),
 		ApiVersion:  apiVersion,
 		Resources:   resources,
 	}, nil

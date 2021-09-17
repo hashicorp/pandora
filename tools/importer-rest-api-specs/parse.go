@@ -21,8 +21,8 @@ func parseSwaggerFiles(input RunInput, debug bool) (*[]parsedData, error) {
 		}
 
 		data := parsedData{
-			ServiceName: input.ServiceName,
-			ApiVersion:  input.ApiVersion,
+			ServiceName: definition.ServiceName,
+			ApiVersion:  definition.ApiVersion,
 			Resources:   definition.Resources,
 		}
 

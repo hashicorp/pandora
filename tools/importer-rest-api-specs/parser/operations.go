@@ -88,7 +88,7 @@ func (p operationsParser) parseOperation(operation parsedOperation) (*models.Ope
 		result.append(*nestedResult)
 	}
 	isAListOperation := p.isListOperation(operation)
-	responseResult, nestedResult, err := p.responseObjectForOperation(operation, isAListOperation, result)
+	responseResult, nestedResult, err := p.responseObjectForOperation(operation, result)
 	if err != nil {
 		return nil, nil, fmt.Errorf("determining response operation for %q (method %q / uri %q): %+v", operation.name, operation.httpMethod, *normalizedUri, err)
 	}
@@ -363,7 +363,7 @@ func (p operationsParser) operationIsASuccess(statusCode int) bool {
 	return statusCode >= 200 && statusCode < 300
 }
 
-func (p operationsParser) responseObjectForOperation(input parsedOperation, isAListOperation bool, known parseResult) (*operationResponseObjectResult, *parseResult, error) {
+func (p operationsParser) responseObjectForOperation(input parsedOperation, known parseResult) (*operationResponseObjectResult, *parseResult, error) {
 	output := operationResponseObjectResult{}
 	result := parseResult{
 		constants: map[string]models.ConstantDetails{},

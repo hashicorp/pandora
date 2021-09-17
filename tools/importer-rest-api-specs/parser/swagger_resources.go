@@ -62,7 +62,6 @@ func (d *SwaggerDefinition) parseResourcesWithinSwaggerTag(tag *string) (*models
 		Models:      result.models,
 		Operations:  *operations,
 		ResourceIds: temporaryResourceIdMapForTestsToPass, // TODO: when we're further along this'll want to change
-		//Operations:  *operations,
 		//ResourceIds: resourceIds.NamesToResourceIds,
 	}
 

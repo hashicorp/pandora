@@ -24,20 +24,38 @@ func NormalizeName(input string) string {
 	// TODO: basic but fine for now, ultimately we should check this is a valid type name
 	// but tbh, the compiler will catch these when we generate them so that's a later problem
 	output = strings.TrimPrefix(output, "$")
-	output = strings.ReplaceAll(output, "-", "")
-	output = strings.ReplaceAll(output, "_", "")
-	output = strings.ReplaceAll(output, "-", "") // note: different to below
-	output = strings.ReplaceAll(output, "–", "") // note: different to above
-	output = strings.ReplaceAll(output, ".", "")
-	output = strings.ReplaceAll(output, ":", "")
-	output = strings.ReplaceAll(output, "/", "")
-	output = strings.ReplaceAll(output, ",", "")
-	output = strings.ReplaceAll(output, "(", "")
-	output = strings.ReplaceAll(output, ")", "")
-	output = strings.ReplaceAll(output, "[", "")
-	output = strings.ReplaceAll(output, "]", "")
-	output = strings.ReplaceAll(output, " ", "")
-	output = strings.ReplaceAll(output, "+", "")
+
+	// foreach of these characters, work through and Capitalize the segments as necessary
+	// e.g. `Azure-kusto` becomes `AzureKusto`
+	charactersToReplace := []string{
+		" ",
+		"_",
+		"-", // note: different to below
+		"–", // note: different to above
+		"_",
+		"[",
+		"]",
+		"(",
+		")",
+		"+",
+		",",
+		"/",
+		":",
+		"$",
+		"'",
+		".",
+	}
+	for _, find := range charactersToReplace {
+		split := strings.Split(output, find)
+		newVal := ""
+		for _, word := range split {
+			word = strings.ReplaceAll(word, find, "")
+			word = strings.Title(word)
+			newVal += word
+		}
+		output = newVal
+	}
+
 	output = NormalizeSegment(output, false)
 	output = strings.Title(output)
 	return output
@@ -70,23 +88,22 @@ func NormalizeSegmentName(input string) string {
 func NormalizeSegment(input string, camelCase bool) string {
 	fixed := map[string]string{
 		// these are intentionally camel-cased
-		"apiversion":          "apiVersion",
-		"appsettings":         "appSettings",
-		"artifacttypes":       "artifactTypes",
-		"authproviders":       "authProviders",
-		"connectionstrings":   "connectionStrings",
-		"configreferences":    "configReferences",
-		"continuouswebjobs":   "continuousWebJobs",
-		"functionappsettings": "functionAppSettings",
-		"hybridconnection":    "hybridConnection",
-		"mediaservice":        "mediaService",
-		"migratemysql":        "migrateMySql",
-		"operationresults":    "operationResults",
-		"premieraddons":       "premierAddons",
-		"resourcegroups":      "resourceGroups",
-		"serverfarms":         "serverFarms",
-		"siteextensions":      "siteExtensions",
-		//"signalr":                "SignalR", // @tombuildsstuff: compatibility with existing resources - TODO: remove this in favour of signalR in time.
+		"apiversion":             "apiVersion",
+		"appsettings":            "appSettings",
+		"artifacttypes":          "artifactTypes",
+		"authproviders":          "authProviders",
+		"connectionstrings":      "connectionStrings",
+		"configreferences":       "configReferences",
+		"continuouswebjobs":      "continuousWebJobs",
+		"functionappsettings":    "functionAppSettings",
+		"hybridconnection":       "hybridConnection",
+		"mediaservice":           "mediaService",
+		"migratemysql":           "migrateMySql",
+		"operationresults":       "operationResults",
+		"premieraddons":          "premierAddons",
+		"resourcegroups":         "resourceGroups",
+		"serverfarms":            "serverFarms",
+		"siteextensions":         "siteExtensions",
 		"sourcecontrols":         "sourceControls",
 		"subscriptions":          "subscriptions", // e.g. /Subscriptions -> /subscriptions
 		"trafficmanagerprofiles": "trafficManagerProfiles",
@@ -101,6 +118,24 @@ func NormalizeSegment(input string, camelCase bool) string {
 		} else {
 			return strings.Title(v)
 		}
+	}
+
+	return input
+}
+
+func NormalizeServiceName(input string) string {
+	fixed := map[string]string{
+		// NOTE: these are intentionally lower-cased
+		"analysisservices": "AnalysisServices",
+		"appconfiguration": "AppConfiguration",
+		"eventhub":         "EventHub",
+		"powerbidedicated": "PowerBIDedicated",
+		"signalr":          "SignalR",
+		"vmware":           "VMware",
+	}
+
+	if v, ok := fixed[strings.ToLower(input)]; ok {
+		return strings.Title(v)
 	}
 
 	return input
