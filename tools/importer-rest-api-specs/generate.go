@@ -173,13 +173,10 @@ func generateAllResourceManagerServices(swaggerGitSha string, justLatestVersion,
 			go func(input RunInput, sha string) {
 				err := run(input, sha, debug)
 				if err != nil {
-					log.Printf("❌ Service %q - Api Version %q", input.ServiceName, input.ApiVersion)
-					log.Printf("     💥 Error: %+v", err)
 					wg.Done()
 					return
 				}
 
-				log.Printf("✅ Service %q - Api Version %q", input.ServiceName, input.ApiVersion)
 				wg.Done()
 			}(runInput, swaggerGitSha)
 		}
