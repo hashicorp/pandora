@@ -412,8 +412,8 @@ func TestParseModelSingleInheritingFromObjectWithNoExtraFields(t *testing.T) {
 	if world.ResponseObject.Type != models.ObjectDefinitionReference {
 		t.Fatalf("expected the response object to be a reference but got %q", string(world.ResponseObject.Type))
 	}
-	if *world.ResponseObject.ReferenceName != "SecondObject" {
-		t.Fatalf("expected the response object to be 'SecondObject' but got %q", *world.ResponseObject.ReferenceName)
+	if *world.ResponseObject.ReferenceName != "FirstObject" {
+		t.Fatalf("expected the response object to be 'FirstObject' but got %q", *world.ResponseObject.ReferenceName)
 	}
 	if world.ResourceIdName != nil {
 		t.Fatalf("expected no ResourceId but got %q", *world.ResourceIdName)
@@ -428,14 +428,15 @@ func TestParseModelSingleInheritingFromObjectWithNoExtraFields(t *testing.T) {
 		t.Fatal("expected a non-long running operation but it was long running")
 	}
 
-	secondObject, ok := hello.Models["SecondObject"]
+	// whilst the response model references SecondObject, it's only inheriting from FirstObject, so it'll be switched out
+	firstObject, ok := hello.Models["FirstObject"]
 	if !ok {
-		t.Fatalf("expected there to be a model called SecondObject")
+		t.Fatalf("expected there to be a model called FirstObject")
 	}
-	if len(secondObject.Fields) != 1 {
-		t.Fatalf("expected the model SecondObject to have 1 field but got %d", len(secondObject.Fields))
+	if len(firstObject.Fields) != 1 {
+		t.Fatalf("expected the model SecondObject to have 1 field but got %d", len(firstObject.Fields))
 	}
-	if _, ok := secondObject.Fields["Name"]; !ok {
+	if _, ok := firstObject.Fields["Name"]; !ok {
 		t.Fatalf("expected the model SecondObject to have a field named `Name` but didn't get one")
 	}
 }
@@ -465,8 +466,8 @@ func TestParseModelSingleInheritingFromObjectWithNoExtraFieldsInlined(t *testing
 	if len(hello.Constants) != 0 {
 		t.Fatalf("expected no Constants but got %d", len(hello.Constants))
 	}
-	if len(hello.Models) != 1 {
-		t.Fatalf("expected 1 Model but got %d", len(hello.Models))
+	if len(hello.Models) != 2 {
+		t.Fatalf("expected 2 Model but got %d", len(hello.Models))
 	}
 	if len(hello.Operations) != 1 {
 		t.Fatalf("expected 1 Operation but got %d", len(hello.Operations))

@@ -389,6 +389,13 @@ func (d SwaggerDefinition) parseObjectDefinition(modelName, propertyName string,
 	// if it's an inlined model, pull it out and return that
 	// note: some models can just be references to other models
 	if len(input.Properties) > 0 || len(input.AllOf) > 0 {
+		// special-case: if the model has no properties and inherits from one model
+		// then just return that object instead, there's no point creating the wrapper type
+		if len(input.Properties) == 0 && len(input.AllOf) == 1 {
+			inheritedModel := input.AllOf[0]
+			return d.parseObjectDefinition(inheritedModel.Title, propertyName, &inheritedModel, result)
+		}
+
 		// check for / avoid circular references
 		if _, ok := result.models[modelName]; !ok {
 			nestedResult, err := d.parseModel(modelName, *input)
