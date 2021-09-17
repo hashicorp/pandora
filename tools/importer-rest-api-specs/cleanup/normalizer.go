@@ -26,8 +26,10 @@ func NormalizeName(input string) string {
 	output = strings.TrimPrefix(output, "$")
 	output = strings.ReplaceAll(output, "-", "")
 	output = strings.ReplaceAll(output, "_", "")
-	output = strings.ReplaceAll(output, "-", "")
+	output = strings.ReplaceAll(output, "-", "") // note: different to below
+	output = strings.ReplaceAll(output, "–", "") // note: different to above
 	output = strings.ReplaceAll(output, ".", "")
+	output = strings.ReplaceAll(output, ":", "")
 	output = strings.ReplaceAll(output, "/", "")
 	output = strings.ReplaceAll(output, ",", "")
 	output = strings.ReplaceAll(output, "(", "")
