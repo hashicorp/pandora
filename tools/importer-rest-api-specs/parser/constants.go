@@ -63,13 +63,13 @@ func mapConstant(typeVal spec.StringOrArray, fieldName string, values []interfac
 					normalizedName := cleanup.NormalizeConstantKey(value)
 					keysAndValues[normalizedName] = value
 					continue
-				} else {
-					key := keyValueForInteger(int64(numVal))
-					val := fmt.Sprintf("%d", int64(numVal))
-					normalizedName := cleanup.NormalizeConstantKey(key)
-					keysAndValues[normalizedName] = val
-					continue
 				}
+
+				key := keyValueForInteger(int64(numVal))
+				val := fmt.Sprintf("%d", int64(numVal))
+				normalizedName := cleanup.NormalizeConstantKey(key)
+				keysAndValues[normalizedName] = val
+				continue
 			}
 			normalizedName := cleanup.NormalizeConstantKey(value)
 			keysAndValues[normalizedName] = value
