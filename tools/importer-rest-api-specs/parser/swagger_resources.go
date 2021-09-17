@@ -103,7 +103,6 @@ func pullOutModelForListOperations(input map[string]models.OperationDetails, kno
 			return nil, fmt.Errorf("the model %q was not found", modelName)
 		}
 
-		actualModelName := ""
 		for k, v := range model.Fields {
 			if strings.EqualFold(k, "nextLink") {
 				key := k // copy it locally so this isn't a reference to the moving key value
@@ -116,21 +115,12 @@ func pullOutModelForListOperations(input map[string]models.OperationDetails, kno
 					return nil, fmt.Errorf("parsing model %q for list operation to find real model: missing object definition for field 'value'", modelName)
 				}
 
+				// switch out the reference
 				definition := topLevelObjectDefinition(*v.ObjectDefinition)
-				if definition.ReferenceName == nil {
-					return nil, fmt.Errorf("parsing model %q for list operation to find real model: top level object definition should be a reference but got %+v", modelName, definition)
-				}
-
-				actualModelName = *definition.ReferenceName
+				operation.ResponseObject = &definition
 
 				continue
 			}
-		}
-
-		// otherwise this isn't actually a list operation, it's bad data
-		if actualModelName != "" {
-			objectDefinition.ReferenceName = &actualModelName
-			operation.ResponseObject = &objectDefinition
 		}
 
 		output[k] = operation

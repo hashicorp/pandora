@@ -1,0 +1,57 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Example",
+    "description": "Example",
+    "version": "2020-01-01"
+  },
+  "host": "management.mysite.com",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "security": [],
+  "securityDefinitions": {},
+  "paths": {
+    "/worlds": {
+      "get": {
+        "tags": [
+          "Hello"
+        ],
+        "operationId": "Hello_RawObjectToMeToYou",
+        "description": "An operation sending and returning a raw object",
+        "parameters": [
+          {
+            "name": "parameters",
+            "in": "body",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/TopLevelRawObject"
+            },
+            "description": "Some description"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success.",
+            "schema": {
+              "$ref": "#/definitions/TopLevelRawObject"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "TopLevelRawObject": {
+      "description": "Some description",
+      "type": "object"
+    }
+  },
+  "parameters": {}
+}

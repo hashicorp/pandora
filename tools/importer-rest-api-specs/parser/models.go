@@ -54,18 +54,18 @@ func (d *SwaggerDefinition) findConstantsWithinModel(input spec.Schema, known pa
 	}
 	result.append(known)
 
-	if fragmentName := fragmentNameFromReference(input.Ref); fragmentName != nil {
-		topLevelObject, err := d.findTopLevelObject(*fragmentName)
-		if err != nil {
-			return nil, fmt.Errorf("finding top level object %q from reference: %+v", *fragmentName, err)
-		}
-
-		nestedResult, err := d.findConstantsWithinModel(*topLevelObject, result)
-		if err != nil {
-			return nil, fmt.Errorf("finding constants within reference %q: %+v", *fragmentName, err)
-		}
-		result.append(*nestedResult)
-	}
+	//if fragmentName := fragmentNameFromReference(input.Ref); fragmentName != nil {
+	//	topLevelObject, err := d.findTopLevelObject(*fragmentName)
+	//	if err != nil {
+	//		return nil, fmt.Errorf("finding top level object %q from reference: %+v", *fragmentName, err)
+	//	}
+	//
+	//	nestedResult, err := d.findConstantsWithinModel(*topLevelObject, result)
+	//	if err != nil {
+	//		return nil, fmt.Errorf("finding constants within reference %q: %+v", *fragmentName, err)
+	//	}
+	//	result.append(*nestedResult)
+	//}
 
 	if len(input.Enum) > 0 {
 		constant, err := mapConstant(input.Type, input.Enum, input.Extensions)
