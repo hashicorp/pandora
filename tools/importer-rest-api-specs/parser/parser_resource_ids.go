@@ -117,6 +117,10 @@ func (d *SwaggerDefinition) parseResourceIdFromOperation(uri string, operationDe
 		constants: map[string]models.ConstantDetails{},
 	}
 
+	if strings.Contains(uri, "SignalR") {
+		uri = fmt.Sprintf("%s", uri)
+	}
+
 	uriSegments := strings.Split(strings.TrimPrefix(uri, "/"), "/")
 	for _, uriSegment := range uriSegments {
 		normalizedSegment := cleanup.NormalizeSegment(uriSegment, true)

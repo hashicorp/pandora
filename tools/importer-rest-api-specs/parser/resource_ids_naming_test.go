@@ -231,6 +231,48 @@ var scopedMonitorResourceId = models.ParsedResourceId{
 		},
 	},
 }
+var signalRResourceId = models.ParsedResourceId{
+	Constants: map[string]models.ConstantDetails{},
+	Segments: []models.ResourceIdSegment{
+		{
+			Type:       models.StaticSegment,
+			FixedValue: strPtr("subscriptions"),
+			Name:       "subscriptions",
+		},
+		{
+			Name: "subscriptionId",
+			Type: models.SubscriptionIdSegment,
+		},
+		{
+			Type:       models.StaticSegment,
+			FixedValue: strPtr("resourceGroups"),
+			Name:       "resourceGroups",
+		},
+		{
+			Name: "resourceGroupName",
+			Type: models.ResourceGroupSegment,
+		},
+		{
+			Type:       models.StaticSegment,
+			FixedValue: strPtr("providers"),
+			Name:       "providers",
+		},
+		{
+			Type:       models.StaticSegment,
+			FixedValue: strPtr("Microsoft.SignalRService"),
+			Name:       "Microsoft.SignalRService",
+		},
+		{
+			Type:       models.StaticSegment,
+			FixedValue: strPtr("SignalR"),
+			Name:       "SignalR",
+		},
+		{
+			Name: "resourceName",
+			Type: models.UserSpecifiedSegment,
+		},
+	},
+}
 
 func TestResourceIDNamingEmpty(t *testing.T) {
 	actualNamesToIds, actualUrisToNames, err := determineNamesForResourceIds(map[string]resourceUriMetadata{})
@@ -1131,6 +1173,36 @@ func TestResourceIdNamingConflictingMultipleLevels(t *testing.T) {
 
 	if !reflect.DeepEqual(expectedUrisToNames, *actualUrisToNames) {
 		t.Fatalf("expected urisToNames to be:\n\n%+v\n\nbut got:\n%+v", expectedUrisToNames, *actualUrisToNames)
+	}
+}
+
+func TestResourceIdNamingSignalRId(t *testing.T) {
+	input := map[string]resourceUriMetadata{
+		"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.SignalRService/SignalR/{resourceName}": {
+			resourceIdName: nil,
+			resourceId:     &signalRResourceId,
+			uriSuffix:      nil,
+		},
+	}
+	expectedNamesToIds := map[string]models.ParsedResourceId{
+		"SignalRId": signalRResourceId,
+	}
+	expectedUrisToNames := map[string]string{
+		"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.SignalRService/SignalR/{resourceName}": "SignalRId",
+	}
+
+	actualNamesToIds, actualUrisToNames, err := determineNamesForResourceIds(input)
+	if err != nil {
+		t.Fatalf("error: %+v", err)
+		return
+	}
+
+	if !reflect.DeepEqual(expectedNamesToIds, *actualNamesToIds) {
+		t.Fatalf("expected namesToIds to be %+v but got %+v", expectedNamesToIds, *actualNamesToIds)
+	}
+
+	if !reflect.DeepEqual(expectedUrisToNames, *actualUrisToNames) {
+		t.Fatalf("expected urisToNames to be %+v but got %+v", expectedUrisToNames, *actualUrisToNames)
 	}
 }
 
