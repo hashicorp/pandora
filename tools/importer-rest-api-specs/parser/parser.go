@@ -40,7 +40,7 @@ func (d *SwaggerDefinition) Parse(serviceName, apiVersion string) (*models.Azure
 		if resource != nil {
 			normalizedTag := normalizeTag(serviceName)
 			normalizedTag = cleanup.NormalizeName(normalizedTag)
-			resources[serviceName] = *resource
+			resources[normalizedTag] = *resource
 		}
 	}
 
