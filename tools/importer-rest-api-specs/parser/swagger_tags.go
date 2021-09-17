@@ -18,8 +18,7 @@ func (d *SwaggerDefinition) findTags() []string {
 	for _, operation := range d.swaggerSpecExpanded.Operations() {
 		for _, details := range operation {
 			for _, tag := range details.Tags {
-				normalizedTag := normalizeTag(tag)
-				tags[normalizedTag] = struct{}{}
+				tags[tag] = struct{}{}
 			}
 		}
 	}

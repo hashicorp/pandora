@@ -24,6 +24,7 @@ func NormalizeName(input string) string {
 	// TODO: basic but fine for now, ultimately we should check this is a valid type name
 	// but tbh, the compiler will catch these when we generate them so that's a later problem
 	output = strings.TrimPrefix(output, "$")
+	output = strings.ReplaceAll(output, "-", "")
 	output = strings.ReplaceAll(output, "_", "")
 	output = strings.ReplaceAll(output, "-", "")
 	output = strings.ReplaceAll(output, ".", "")

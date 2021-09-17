@@ -2,6 +2,7 @@ package parser
 
 import (
 	"fmt"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/cleanup"
 	"strings"
 
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
@@ -23,8 +24,9 @@ func (d *SwaggerDefinition) Parse(serviceName, apiVersion string) (*models.Azure
 		}
 
 		if resource != nil {
-			tag = strings.ReplaceAll(tag, " ", "")
-			resources[tag] = *resource
+			normalizedTag := normalizeTag(tag)
+			normalizedTag = cleanup.NormalizeName(normalizedTag)
+			resources[normalizedTag] = *resource
 		}
 	}
 
