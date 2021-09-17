@@ -2,6 +2,7 @@ package parser
 
 import (
 	"fmt"
+	"log"
 	"strconv"
 	"strings"
 
@@ -9,6 +10,8 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/cleanup"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
+
+const allowConstantsWithoutXMSEnum = true
 
 type constantExtension struct {
 	name          string
@@ -20,11 +23,24 @@ type parsedConstant struct {
 	details models.ConstantDetails
 }
 
-func mapConstant(typeVal spec.StringOrArray, values []interface{}, extensions spec.Extensions) (*parsedConstant, error) {
+func mapConstant(typeVal spec.StringOrArray, fieldName string, values []interface{}, extensions spec.Extensions) (*parsedConstant, error) {
+	if len(values) == 0 {
+		return nil, fmt.Errorf("Enum in %q has no values", fieldName)
+	}
+
+	constantName := fieldName
+
 	// the name needs to come from the `x-ms-enum` extension
 	constExtension, err := parseConstantExtensionFromExtension(extensions)
 	if err != nil {
-		return nil, fmt.Errorf("parsing `x-ms-enum` extension: %+v", err)
+		if allowConstantsWithoutXMSEnum {
+			log.Printf("[DEBUG] Field %q had an invalid `x-ms-enum`: %+v", fieldName, err)
+		} else {
+			return nil, fmt.Errorf("parsing x-ms-enum: %+v", err)
+		}
+	}
+	if constExtension != nil {
+		constantName = constExtension.name
 	}
 
 	constantType := models.StringConstant
@@ -91,12 +107,12 @@ func mapConstant(typeVal spec.StringOrArray, values []interface{}, extensions sp
 	}
 
 	// allows us to parse out the actual types above then force a string here if needed
-	if constExtension.modelAsString {
+	if constExtension == nil || constExtension.modelAsString {
 		constantType = models.StringConstant
 	}
 
 	return &parsedConstant{
-		name: constExtension.name,
+		name: constantName,
 		details: models.ConstantDetails{
 			Values:    keysAndValues,
 			FieldType: constantType,

@@ -16,7 +16,7 @@ func (d *SwaggerDefinition) parseModel(name string, input spec.Schema) (*parseRe
 	}
 
 	// 1. find any constants used within this model
-	nestedResult, err := d.findConstantsWithinModel(input, result)
+	nestedResult, err := d.findConstantsWithinModel(name, input, result)
 	if err != nil {
 		return nil, fmt.Errorf("finding constants within model: %+v", err)
 	}
@@ -46,7 +46,7 @@ func (d *SwaggerDefinition) parseModel(name string, input spec.Schema) (*parseRe
 	return &result, nil
 }
 
-func (d *SwaggerDefinition) findConstantsWithinModel(input spec.Schema, known parseResult) (*parseResult, error) {
+func (d *SwaggerDefinition) findConstantsWithinModel(fieldName string, input spec.Schema, known parseResult) (*parseResult, error) {
 	// NOTE: both Models and Fields are passed in here
 	result := parseResult{
 		constants: map[string]models.ConstantDetails{},
@@ -54,21 +54,8 @@ func (d *SwaggerDefinition) findConstantsWithinModel(input spec.Schema, known pa
 	}
 	result.append(known)
 
-	//if fragmentName := fragmentNameFromReference(input.Ref); fragmentName != nil {
-	//	topLevelObject, err := d.findTopLevelObject(*fragmentName)
-	//	if err != nil {
-	//		return nil, fmt.Errorf("finding top level object %q from reference: %+v", *fragmentName, err)
-	//	}
-	//
-	//	nestedResult, err := d.findConstantsWithinModel(*topLevelObject, result)
-	//	if err != nil {
-	//		return nil, fmt.Errorf("finding constants within reference %q: %+v", *fragmentName, err)
-	//	}
-	//	result.append(*nestedResult)
-	//}
-
 	if len(input.Enum) > 0 {
-		constant, err := mapConstant(input.Type, input.Enum, input.Extensions)
+		constant, err := mapConstant(input.Type, fieldName, input.Enum, input.Extensions)
 		if err != nil {
 			return nil, fmt.Errorf("parsing constant: %+v", err)
 		}
@@ -93,7 +80,7 @@ func (d *SwaggerDefinition) findConstantsWithinModel(input spec.Schema, known pa
 				return nil, fmt.Errorf("finding top level model %q for constants: %+v", *fragmentName, err)
 			}
 
-			nestedResult, err := d.findConstantsWithinModel(*topLevelModel, result)
+			nestedResult, err := d.findConstantsWithinModel(*fragmentName, *topLevelModel, result)
 			if err != nil {
 				return nil, fmt.Errorf("finding constants within parent model %q: %+v", *fragmentName, err)
 			}
@@ -107,7 +94,7 @@ func (d *SwaggerDefinition) findConstantsWithinModel(input spec.Schema, known pa
 			log.Printf("[DEBUG] Processing Property %q..", propName)
 		}
 		// models can contain nested models - either can contain constants, so around we go..
-		nestedResult, err := d.findConstantsWithinModel(propVal, result)
+		nestedResult, err := d.findConstantsWithinModel(propName, propVal, result)
 		if err != nil {
 			return nil, fmt.Errorf("finding nested constants within %q: %+v", propName, err)
 		}
@@ -120,7 +107,7 @@ func (d *SwaggerDefinition) findConstantsWithinModel(input spec.Schema, known pa
 				log.Printf("[DEBUG] Processing Additional Property %q..", propName)
 			}
 			// models can contain nested models - either can contain constants, so around we go..
-			nestedConstants, err := d.findConstantsWithinModel(propVal, result)
+			nestedConstants, err := d.findConstantsWithinModel(propName, propVal, result)
 			if err != nil {
 				return nil, fmt.Errorf("finding nested constants within %q: %+v", propName, err)
 			}
@@ -332,7 +319,7 @@ func (d SwaggerDefinition) parseObjectDefinition(modelName, propertyName string,
 
 	// if it's an enum then parse that out
 	if len(input.Enum) > 0 {
-		constant, err := mapConstant(input.Type, input.Enum, input.Extensions)
+		constant, err := mapConstant(input.Type, propertyName, input.Enum, input.Extensions)
 		if err != nil {
 			return nil, nil, fmt.Errorf("parsing constant: %+v", err)
 		}

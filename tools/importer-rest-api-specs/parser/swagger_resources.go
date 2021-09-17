@@ -177,7 +177,7 @@ func (d *SwaggerDefinition) findNestedItemsYetToBeParsed(operations *map[string]
 				return nil, fmt.Errorf("finding top level object named %q: %+v", referenceName, err)
 			}
 
-			parsedAsAConstant, constErr := mapConstant(topLevelObject.Type, topLevelObject.Enum, topLevelObject.Extensions)
+			parsedAsAConstant, constErr := mapConstant(topLevelObject.Type, referenceName, topLevelObject.Enum, topLevelObject.Extensions)
 			parsedAsAModel, modelErr := d.parseModel(referenceName, *topLevelObject)
 			if (constErr != nil && modelErr != nil) || (parsedAsAConstant == nil && parsedAsAModel == nil) {
 				return nil, fmt.Errorf("reference %q didn't parse as a Model or a Constant.\n\nConstant Error: %+v\n\nModel Error: %+v", referenceName, constErr, modelErr)

@@ -57,6 +57,10 @@ func (d *SwaggerDefinition) parseOperationsWithinTag(tag *string, resourceUriToM
 			return nil, nil, fmt.Errorf("conflicting operations with the Name %q - first %q %q - second %q %q", operation.name, existing.Method, existing.Uri, parsedOperation.Method, parsedOperation.Uri)
 		}
 
+		if parsedOperation == nil {
+			continue
+		}
+
 		operations[operation.name] = *parsedOperation
 	}
 
@@ -281,7 +285,7 @@ func (p operationsParser) optionsForOperation(input parsedOperation) (*map[strin
 				types := []string{
 					param.Type,
 				}
-				constant, err := mapConstant(types, param.Enum, param.Extensions)
+				constant, err := mapConstant(types, param.Name, param.Enum, param.Extensions)
 				if err != nil {
 					return nil, nil, fmt.Errorf("mapping %q: %+v", param.Name, err)
 				}

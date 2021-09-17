@@ -161,7 +161,7 @@ func (d *SwaggerDefinition) parseResourceIdFromOperation(uri string, operationDe
 
 					if param.Enum != nil {
 						// then find the constant itself
-						constant, err := mapConstant([]string{param.Type}, param.Enum, param.Extensions)
+						constant, err := mapConstant([]string{param.Type}, param.Name, param.Enum, param.Extensions)
 						if err != nil {
 							return nil, fmt.Errorf("parsing constant from %q: %+v", uriSegment, err)
 						}
