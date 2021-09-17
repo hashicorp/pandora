@@ -792,11 +792,11 @@ func TestResourceIdNamingConflictingTwoLevels(t *testing.T) {
 	}
 	expectedNamesToIds := map[string]models.ParsedResourceId{
 		"VirtualMachineExtensionId": virtualMachineExtensionResourceId,
-		"VirtualNetworkExtensionId": virtualNetworkExtensionResourceId,
+		"ExtensionId":               virtualNetworkExtensionResourceId,
 	}
 	expectedUrisToNames := map[string]string{
 		"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{virtualMachineName}/extensions/{extensionName}": "VirtualMachineExtensionId",
-		"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/extensions/{extensionName}":                                      "VirtualNetworkExtensionId",
+		"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/extensions/{extensionName}":                                      "ExtensionId",
 	}
 
 	actualNamesToIds, actualUrisToNames, err := determineNamesForResourceIds(input)
@@ -806,11 +806,11 @@ func TestResourceIdNamingConflictingTwoLevels(t *testing.T) {
 	}
 
 	if !reflect.DeepEqual(expectedNamesToIds, *actualNamesToIds) {
-		t.Fatalf("expected namesToIds to be %+v but got %+v", expectedNamesToIds, *actualNamesToIds)
+		t.Fatalf("expected namesToIds to be:\n\n%+v\nbut got:\n\n%+v", expectedNamesToIds, *actualNamesToIds)
 	}
 
 	if !reflect.DeepEqual(expectedUrisToNames, *actualUrisToNames) {
-		t.Fatalf("expected urisToNames to be %+v but got %+v", expectedUrisToNames, *actualUrisToNames)
+		t.Fatalf("expected urisToNames to be\n\n%+v\nbut got:\n\n%+v", expectedUrisToNames, *actualUrisToNames)
 	}
 }
 
@@ -1107,16 +1107,16 @@ func TestResourceIdNamingConflictingMultipleLevels(t *testing.T) {
 		},
 	}
 	expectedNamesToIds := map[string]models.ParsedResourceId{
-		"WorkerPoolInstanceId":        workerPoolInstanceResourceId,
-		"MultiRolePoolInstanceId":     multiRolePoolInstanceResourceId,
-		"SlotInstanceProcessModuleId": slotInstanceProcessModuleResourceId,
-		"InstanceProcessModuleId":     instanceProcessModuleResourceId,
+		"WorkerPoolInstanceId": workerPoolInstanceResourceId,
+		"InstanceId":           multiRolePoolInstanceResourceId,
+		"ProcessModuleId":      slotInstanceProcessModuleResourceId,
+		"ModuleId":             instanceProcessModuleResourceId,
 	}
 	expectedUrisToNames := map[string]string{
 		"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/hostingEnvironments/{name}/workerPools/{workerPoolName}/instances/{instance}":                 "WorkerPoolInstanceId",
-		"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/hostingEnvironments/{name}/multiRolePools/default/instances/{instance}":                       "MultiRolePoolInstanceId",
-		"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot}/instances/{instanceId}/processes/{processId}/modules/{baseAddress}": "SlotInstanceProcessModuleId",
-		"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/instances/{instanceId}/processes/{processId}/modules/{baseAddress}":              "InstanceProcessModuleId",
+		"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/hostingEnvironments/{name}/multiRolePools/default/instances/{instance}":                       "InstanceId",
+		"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot}/instances/{instanceId}/processes/{processId}/modules/{baseAddress}": "ProcessModuleId",
+		"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/instances/{instanceId}/processes/{processId}/modules/{baseAddress}":              "ModuleId",
 	}
 
 	actualNamesToIds, actualUrisToNames, err := determineNamesForResourceIds(input)

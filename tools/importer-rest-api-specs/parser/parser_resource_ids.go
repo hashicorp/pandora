@@ -2,6 +2,7 @@ package parser
 
 import (
 	"fmt"
+	"sort"
 	"strings"
 
 	"github.com/go-openapi/spec"
@@ -248,12 +249,10 @@ func determineNamesForResourceIds(urisToObjects map[string]resourceUriMetadata) 
 	// we need all of them here to avoid conflicts, e.g. AuthorizationRule which can be a NamespaceAuthorizationRule
 	// or an EventHubAuthorizationRule, but is named AuthorizationRule in both
 
-	// now we need to go through and determine candidate names for these Resource ID's
-	// we can do this using the last user configurable segment
-	// first let's go through and determine if we have any conflicting 'key' segments
-	uniqueNamesForUris := make(map[string]models.ParsedResourceId) // map[name]uri
-	conflictingKeys := make(map[string][]models.ParsedResourceId)  // map[name]uris
-	for _, resourceId := range urisToObjects {
+	// Before we do anything else, let's go through remove any containing uri suffixes (since these are duplicated without
+	// where they contain a Resource ID - and then sort them short -> long for consistency
+	sortedUris := make([]string, 0)
+	for uri, resourceId := range urisToObjects {
 		// if it's just a suffix (e.g. root-level ListAll calls) iterate over it
 		if resourceId.resourceId == nil {
 			continue
@@ -265,173 +264,113 @@ func determineNamesForResourceIds(urisToObjects map[string]resourceUriMetadata) 
 			continue
 		}
 
-		userSpecifiableSegments := resourceId.resourceId.UserSpecifiableSegmentNames()
-		if len(userSpecifiableSegments) == 0 {
-			return nil, nil, fmt.Errorf("no user specifiable segments for %+v - this is not a resource id?", *resourceId.resourceId)
-		}
-
-		lastSegment := userSpecifiableSegments[len(userSpecifiableSegments)-1]
-
-		// however if this is an ARM Resource ID we should have Key-Value Pairs - in which case the name likely
-		// wants to come from the Key and not the Value
-		if len(resourceId.resourceId.Segments)%2 == 0 {
-			lastSegment = keyForUserSpecifiableSegment(lastSegment, resourceId.resourceId.Segments)
-		}
-
-		lastSegment = strings.TrimSuffix(lastSegment, "Name")
-		if len(resourceId.resourceId.Segments) > 1 {
-			// if the first segment is a Scope, prefix the name with 'Scoped'
-			if firstSegment := resourceId.resourceId.Segments[0]; firstSegment.Type == models.ScopeSegment {
-				lastSegment = fmt.Sprintf("Scoped%s", normalizeSegmentName(lastSegment))
-			}
-		}
-		normalizedKey := normalizeSegmentName(lastSegment)
-		if !strings.HasSuffix(normalizedKey, "Id") {
-			normalizedKey = normalizedKey + "Id"
-		}
-
-		if uris, existing := conflictingKeys[normalizedKey]; existing {
-			uris = append(uris, *resourceId.resourceId)
-			conflictingKeys[normalizedKey] = uris
-			continue
-		}
-
-		if existingUri, existing := uniqueNamesForUris[normalizedKey]; existing {
-			conflictingKeys[normalizedKey] = []models.ParsedResourceId{existingUri, *resourceId.resourceId}
-			delete(uniqueNamesForUris, normalizedKey)
-			continue
-		}
-
-		uniqueNamesForUris[normalizedKey] = *resourceId.resourceId
+		sortedUris = append(sortedUris, uri)
 	}
 
-	// at this stage uniqueNamesForUris contains the unique names : uris
-	// so we need to iterate over conflictingKeys and find unique names for those
-	if len(conflictingKeys) > 0 {
-		uniqueSegments, err := determineUniqueSegmentNames(conflictingKeys)
+	// sort these by length
+	sort.Slice(sortedUris, func(x, y int) bool {
+		return len(sortedUris[x]) < len(sortedUris[y])
+	})
+
+	candidateNamesToUris := make(map[string]models.ParsedResourceId, 0)
+	conflictingNamesToUris := make(map[string][]models.ParsedResourceId, 0)
+	for _, uri := range sortedUris {
+		resourceId := urisToObjects[uri]
+
+		// NOTE: these are returned sorted from right to left in URI's, since they're assumed to be hierarchical
+		segmentsAvailableForNaming := resourceId.resourceId.SegmentsAvailableForNaming()
+		if len(segmentsAvailableForNaming) == 0 {
+			return nil, nil, fmt.Errorf("the uri %q has no segments available for naming", segmentsAvailableForNaming)
+		}
+
+		candidateSegmentName := segmentsAvailableForNaming[0]
+		if resourceId.resourceId.Segments[0].Type == models.ScopeSegment && len(resourceId.resourceId.Segments) > 1 {
+			candidateSegmentName = fmt.Sprintf("Scoped%s", candidateSegmentName)
+		}
+
+		// if we have an existing conflicting key, let's add this to that
+		if uris, existing := conflictingNamesToUris[candidateSegmentName]; existing {
+			uris = append(uris, *resourceId.resourceId)
+			conflictingNamesToUris[candidateSegmentName] = uris
+			continue
+		}
+
+		// if there's an existing candidate name for this key, move both this URI and that one to the Conflicts
+		if existingUri, existing := candidateNamesToUris[candidateSegmentName]; existing {
+			conflictingNamesToUris[candidateSegmentName] = []models.ParsedResourceId{existingUri, *resourceId.resourceId}
+			delete(candidateNamesToUris, candidateSegmentName)
+			continue
+		}
+
+		// otherwise we have a candidate name we should be able to use, so let's run with it
+		candidateNamesToUris[candidateSegmentName] = *resourceId.resourceId
+	}
+
+	// now we need to fix the conflicts
+	for _, conflictingUris := range conflictingNamesToUris {
+		uniqueNames, err := determineUniqueNamesFor(conflictingUris, candidateNamesToUris)
 		if err != nil {
-			return nil, nil, fmt.Errorf("determining unique segment names: %+v", err)
+			uris := make([]string, 0)
+			for _, uri := range conflictingUris {
+				uris = append(uris, uri.String())
+			}
+
+			return nil, nil, fmt.Errorf("determining unique names for conflicting uri's %q: %+v", strings.Join(uris, " | "), err)
 		}
-		for k, v := range *uniqueSegments {
-			uniqueNamesForUris[k] = v
+
+		for k, v := range *uniqueNames {
+			candidateNamesToUris[k] = v
 		}
+	}
+
+	// now we have unique ID's, we should go through and suffix `Id` onto the end of each of them
+	outputNamesToUris := make(map[string]models.ParsedResourceId)
+	for k, v := range candidateNamesToUris {
+		key := fmt.Sprintf("%sId", k)
+		outputNamesToUris[key] = v
 	}
 
 	// finally compose a list of uris -> names so these are easier to map back
 	urisToNames := make(map[string]string, 0)
-	for k, v := range uniqueNamesForUris {
+	for k, v := range outputNamesToUris {
 		urisToNames[v.NormalizedResourceManagerResourceId()] = k
 	}
 
-	return &uniqueNamesForUris, &urisToNames, nil
+	return &outputNamesToUris, &urisToNames, nil
 }
 
-func keyForUserSpecifiableSegment(value string, segments []models.ResourceIdSegment) string {
-	index := -1
-	for i, segment := range segments {
-		if segment.Name == value {
-			index = i
-			break
-		}
-	}
-	v := segments[index-1]
-	return v.Name
-}
+func determineUniqueNamesFor(conflictingUris []models.ParsedResourceId, existingCandidateNames map[string]models.ParsedResourceId) (*map[string]models.ParsedResourceId, error) {
+	proposedNames := make(map[string]models.ParsedResourceId)
+	for _, resourceId := range conflictingUris {
+		availableSegments := resourceId.SegmentsAvailableForNaming()
 
-// determineUniqueSegmentNames returns a map[name]uri
-func determineUniqueSegmentNames(input map[string][]models.ParsedResourceId) (*map[string]models.ParsedResourceId, error) {
-	identifiers := make(map[string]models.ParsedResourceId, 0)
-	for _, uris := range input {
-		proposed := make(map[string]models.ParsedResourceId)
-		for _, resourceId := range uris {
-			names := resourceId.UserSpecifiableSegmentNames()
-			if len(names) < 2 {
-				return nil, fmt.Errorf("insufficient segments to create a unique identifier from %+v", resourceId)
-			}
+		proposedName := ""
+		uniqueNameFound := false
 
-			isResourceManagerId := len(resourceId.Segments)%2 == 0
-
-			// /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/hostingEnvironments/{name}/workerPools/{workerPoolName}/instances/{instance}
-			// /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/hostingEnvironments/{name}/multiRolePools/default/instances/{instance}
-			childName := names[len(names)-1]
-			if isResourceManagerId {
-				childName = keyForUserSpecifiableSegment(childName, resourceId.Segments)
-			}
-			childName += "Id"
-
-			// the names must already conflict or we wouldn't be here
-			parentName := names[len(names)-2]
-			if isResourceManagerId {
-				parentName = keyForUserSpecifiableSegment(parentName, resourceId.Segments)
-			}
-			key := fmt.Sprintf("%s%s", normalizeSegmentName(parentName), normalizeSegmentName(childName))
-
-			// check if we have an existing match for ParentChild
-			if v, ok := keyHasConflicts(key, identifiers, proposed); ok && *v != resourceId.NormalizedResourceManagerResourceId() {
-				if len(names) < 3 {
-					return nil, fmt.Errorf("need a third unique identifier to make %q unique", resourceId)
-				}
-
-				// prefix the parent name
-				if len(names) >= 3 {
-					grandparentName := names[len(names)-3]
-					if isResourceManagerId {
-						grandparentName = keyForUserSpecifiableSegment(grandparentName, resourceId.Segments)
-					}
-					normalized := normalizeSegmentName(grandparentName)
-					key = fmt.Sprintf("%s%s", normalized, key)
-
-					if v, ok := keyHasConflicts(key, identifiers, proposed); ok {
-						if *v != resourceId.NormalizedResourceManagerResourceId() {
-							// e.g. Web App Slots
-							// /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot}/instances/{instanceId}/processes/{processId}/modules/{baseAddress}
-							// /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/instances/{instanceId}/processes/{processId}/modules/{baseAddress}
-							if len(names) < 4 {
-								return nil, fmt.Errorf("need a fourth unique identifier to make %q unique", resourceId)
-							}
-
-							// prefix the grandparent name
-							if len(names) >= 4 {
-								greatGrandParentName := (names)[len(names)-4]
-								if isResourceManagerId {
-									greatGrandParentName = keyForUserSpecifiableSegment(greatGrandParentName, resourceId.Segments)
-								}
-								normalized := normalizeSegmentName(greatGrandParentName)
-								key = fmt.Sprintf("%s%s", normalized, key)
-
-								if v, ok := keyHasConflicts(key, identifiers, proposed); ok {
-									if *v != resourceId.NormalizedResourceManagerResourceId() {
-										return nil, fmt.Errorf("conflicting unique keys for %q - %q and %q conflict", key, *v, resourceId)
-									}
-								}
-							}
-						}
-					}
-				}
-			}
-
-			proposed[key] = resourceId
+		// matches the behaviour above
+		if resourceId.Segments[0].Type == models.ScopeSegment {
+			proposedName += "Scoped"
 		}
 
-		// at this point all of these must be unique, so let's add them to identifiers
-		for k, v := range proposed {
-			identifiers[k] = v
+		for _, segment := range availableSegments {
+			proposedName = fmt.Sprintf("%s%s", segment, proposedName)
+
+			_, hasConflictWithExisting := existingCandidateNames[proposedName]
+			_, hasConflictWithProposed := proposedNames[proposedName]
+			if !hasConflictWithProposed && !hasConflictWithExisting {
+				uniqueNameFound = true
+				break
+			}
 		}
-	}
-	return &identifiers, nil
-}
 
-func keyHasConflicts(key string, identifiers, proposed map[string]models.ParsedResourceId) (*string, bool) {
-	if v, ok := identifiers[key]; ok {
-		id := v.NormalizedResourceId()
-		return &id, true
-	}
-	if v, ok := proposed[key]; ok {
-		id := v.NormalizedResourceId()
-		return &id, true
+		if !uniqueNameFound {
+			return nil, fmt.Errorf("not enough segments in %q to determine a unique name", resourceId.String())
+		}
+
+		proposedNames[proposedName] = resourceId
 	}
 
-	return nil, false
+	return &proposedNames, nil
 }
 
 func mapNamesToResourceIds(urisToNames map[string]string, urisToMetadata map[string]resourceUriMetadata) (*map[string]resourceUriMetadata, error) {

@@ -19,19 +19,6 @@ func normalizeOperationName(operationId string, tag *string) string {
 	return operationName
 }
 
-func normalizeSegmentName(input string) string {
-	output := input
-	output = cleanup.NormalizeName(output)
-
-	// todo: something better than this
-	if strings.HasSuffix(output, "s") && !strings.HasSuffix(output, "ies") {
-		output = strings.TrimSuffix(output, "s")
-	}
-
-	output = strings.Title(output)
-	return output
-}
-
 func normalizeTag(input string) string {
 	// NOTE: we could be smarter here, but given this is a handful of cases it's
 	// probably prudent to hard-code these for now (and fix the swaggers as we

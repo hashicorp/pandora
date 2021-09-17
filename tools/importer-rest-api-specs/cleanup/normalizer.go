@@ -36,7 +36,30 @@ func NormalizeName(input string) string {
 	return output
 }
 
-// normalizeSegment normalizes the segments in the URI, since this data isn't normalized at review time :shrug:
+func NormalizeSegmentName(input string) string {
+	output := input
+	output = NormalizeSegment(output, true)
+	output = NormalizeName(output)
+
+	if strings.HasSuffix(output, "Name") {
+		output = strings.TrimSuffix(output, "Name")
+	}
+
+	// todo: something better than this
+	if strings.HasSuffix(output, "s") {
+		if !strings.HasSuffix(output, "ies") {
+			output = strings.TrimSuffix(output, "s")
+		}
+		if strings.HasSuffix(output, "sse") {
+			output = strings.TrimSuffix(output, "e")
+		}
+	}
+
+	output = strings.Title(output)
+	return output
+}
+
+// NormalizeSegment normalizes the segments in the URI, since this data isn't normalized at review time :shrug:
 func NormalizeSegment(input string, camelCase bool) string {
 	fixed := map[string]string{
 		// these are intentionally camel-cased
