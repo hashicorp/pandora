@@ -3,6 +3,7 @@ package parser
 import (
 	"fmt"
 	"log"
+	"reflect"
 	"strconv"
 	"strings"
 
@@ -77,10 +78,22 @@ func mapConstant(typeVal spec.StringOrArray, fieldName string, values []interfac
 		}
 
 		if constantType == models.IntegerConstant {
-			// this gets parsed out as a float64 even though it's an Integer :upside_down_smile:
+			// This gets parsed out as a float64 even though it's an Integer :upside_down_smile:
 			value, ok := raw.(float64)
 			if !ok {
-				return nil, fmt.Errorf("expected an integer but got %+v for the %d value for %q", raw, i, constExtension.name)
+				// Except sometimes it's actually a string. That's numberwang.
+				v, ok := raw.(string)
+				if !ok {
+					typeName := reflect.TypeOf(raw).Name()
+					return nil, fmt.Errorf("expected a float64/string but got type %q value %+v for at index %d for %q", typeName, raw, i, constExtension.name)
+				}
+
+				val, err := strconv.Atoi(v)
+				if err != nil {
+					return nil, fmt.Errorf("converting string value %q to an integer: %+v", v, err)
+				}
+
+				value = float64(val)
 			}
 
 			key := keyValueForInteger(int64(value))
