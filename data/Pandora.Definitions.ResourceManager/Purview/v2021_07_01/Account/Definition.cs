@@ -5,7 +5,7 @@ namespace Pandora.Definitions.ResourceManager.Purview.v2021_07_01.Account
 {
     internal class Definition : ApiDefinition
     {
-        // Generated from Swagger revision "e07d7900e7e02c9bb6caba0ee15f0e280e97b8f5" 
+        // Generated from Swagger revision "1c7df99f6a84335cfd7bf5be8c800d72c1dddbc2" 
 
         public string ApiVersion => "2021-07-01";
         public string Name => "Account";
