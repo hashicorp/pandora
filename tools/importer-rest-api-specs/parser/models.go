@@ -207,7 +207,7 @@ func (d *SwaggerDefinition) fieldsForModel(modelName string, input spec.Schema, 
 	}
 
 	// models can inherit from other models, so let's get all of the parent fields here
-	for _, parent := range input.AllOf {
+	for i, parent := range input.AllOf {
 		fragmentName := fragmentNameFromReference(parent.Ref)
 		if fragmentName == nil {
 			// sometimes this is bad data rather than a reference, so it should be skipped, example:
@@ -220,6 +220,55 @@ func (d *SwaggerDefinition) fieldsForModel(modelName string, input spec.Schema, 
 			//  >     "description": "AccessReviewDecisionUserIdentity"
 			//  >   }
 			//  > ],
+
+			// however sometimes these contain actual properties and should be parsed out:
+			// > "allOf": [
+			// >  {
+			// >    "$ref": "#/definitions/DigitalTwinsEndpointResourceProperties"
+			// >      },
+			// >      {
+			// >        "type": "object",
+			// >        "properties": {
+			// >          "TopicEndpoint": {
+			// >            "description": "EventGrid Topic Endpoint",
+			// >            "type": "string"
+			// >          },
+			// >          "accessKey1": {
+			// >            "x-ms-secret": true,
+			// >            "description": "EventGrid secondary accesskey. Will be obfuscated during read.",
+			// >            "type": "string",
+			// >          "x-nullable": true
+			// >         },
+			// >         "accessKey2": {
+			// >           "x-ms-secret": true,
+			// >           "description": "EventGrid secondary accesskey. Will be obfuscated during read.",
+			// >           "type": "string",
+			// >           "x-nullable": true
+			// >         }
+			// >       }
+			// >     }
+			// >   ]
+			// > },
+
+			if parent.Type.Contains("object") {
+				innerModelName := modelName
+				if parent.Title != "" {
+					innerModelName = parent.Title
+				}
+				parsedParent, nestedResult, err := d.fieldsForModel(innerModelName, parent, known)
+				if err != nil {
+					return nil, nil, fmt.Errorf("parsing fields within allOf model %q (index %d): %+v", innerModelName, i, err)
+				}
+				if nestedResult != nil {
+					result.append(*nestedResult)
+				}
+				if parsedParent != nil {
+					for k, v := range *parsedParent {
+						fields[k] = v
+					}
+				}
+			}
+
 			continue
 		}
 
