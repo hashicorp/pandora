@@ -37,6 +37,7 @@ func NormalizeName(input string) string {
 		"]",
 		"(",
 		")",
+		"@",
 		"+",
 		",",
 		"/",
