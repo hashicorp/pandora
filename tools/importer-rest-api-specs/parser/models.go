@@ -210,7 +210,17 @@ func (d *SwaggerDefinition) fieldsForModel(modelName string, input spec.Schema, 
 	for _, parent := range input.AllOf {
 		fragmentName := fragmentNameFromReference(parent.Ref)
 		if fragmentName == nil {
-			return nil, nil, fmt.Errorf("parent %+v had no reference", parent)
+			// sometimes this is bad data rather than a reference, so it should be skipped, example:
+			//  > "allOf": [
+			//  >   {
+			//  >     "$ref": "#/definitions/AccessReviewDecisionIdentity"
+			//  >   },
+			//  >   {
+			//  >     "type": "object",
+			//  >     "description": "AccessReviewDecisionUserIdentity"
+			//  >   }
+			//  > ],
+			continue
 		}
 
 		topLevelObject, err := d.findTopLevelObject(*fragmentName)

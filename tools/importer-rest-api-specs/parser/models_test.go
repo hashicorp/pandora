@@ -1003,6 +1003,50 @@ func TestParseModelSingleWithReferenceToString(t *testing.T) {
 	}
 }
 
+func TestParseModelSingleContainingAllOfToTypeObject(t *testing.T) {
+	parsed, err := Load("testdata/", "model_containing_allof_object_type.json", true)
+	if err != nil {
+		t.Fatalf("loading: %+v", err)
+	}
+
+	result, err := parsed.Parse("Example", "2020-01-01")
+	if err != nil {
+		t.Fatalf("parsing: %+v", err)
+	}
+	if result == nil {
+		t.Fatal("result was nil")
+	}
+	if len(result.Resources) != 1 {
+		t.Fatalf("expected 1 resource but got %d", len(result.Resources))
+	}
+
+	hello, ok := result.Resources["Hello"]
+	if !ok {
+		t.Fatalf("no resources were output with the tag Hello")
+	}
+
+	if len(hello.Constants) != 0 {
+		t.Fatalf("expected no Constants but got %d", len(hello.Constants))
+	}
+	if len(hello.Models) != 1 {
+		t.Fatalf("expected 1 Model but got %d", len(hello.Models))
+	}
+	if len(hello.Operations) != 1 {
+		t.Fatalf("expected 1 Operation but got %d", len(hello.Operations))
+	}
+	if len(hello.ResourceIds) != 0 {
+		t.Fatalf("expected no ResourceIds but got %d", len(hello.ResourceIds))
+	}
+
+	example, ok := hello.Models["Example"]
+	if !ok {
+		t.Fatalf("expected there to be a model named Example")
+	}
+	if len(example.Fields) != 2 {
+		t.Fatalf("expected the model Example to have 2 fields but got %d", len(example.Fields))
+	}
+}
+
 func TestParseModelWithCircularReferences(t *testing.T) {
 	parsed, err := Load("testdata/", "model_with_circular_reference.json", true)
 	if err != nil {
