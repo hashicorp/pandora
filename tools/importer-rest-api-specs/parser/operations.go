@@ -133,31 +133,70 @@ func (p operationsParser) parseOperation(operation parsedOperation) (*models.Ope
 	return &operationData, &result, nil
 }
 
-func (p operationsParser) determineObjectDefinitionForOption(input string, collectionFormat string) (*models.ObjectDefinition, error) {
-	switch strings.ToLower(input) {
+func (p operationsParser) determineObjectDefinitionForOption(input spec.Parameter) (*models.ObjectDefinition, error) {
+	if strings.EqualFold(input.Type, "array") {
+		// https://github.com/Azure/azure-rest-api-specs/blob/1b0ed8edd58bb7c9ade9a27430759527bd4eec8e/specification/trafficmanager/resource-manager/Microsoft.Network/stable/2018-03-01/trafficmanager.json#L735-L738
+		if input.Items == nil {
+			return nil, fmt.Errorf("an array/csv option type was specified with no items")
+		}
+
+		innerType, err := p.determineObjectDefinitionForOptionRaw(input.Items.Type, input.Items.CollectionFormat, input.Items.Format)
+		if err != nil {
+			return nil, fmt.Errorf("determining nested object definition for option: %+v", err)
+		}
+
+		if strings.EqualFold(input.CollectionFormat, "csv") {
+			return &models.ObjectDefinition{
+				Type:       models.ObjectDefinitionCsv,
+				NestedItem: innerType,
+			}, nil
+		}
+
+		return &models.ObjectDefinition{
+			Type:       models.ObjectDefinitionList,
+			NestedItem: innerType,
+		}, nil
+	}
+
+	return p.determineObjectDefinitionForOptionRaw(input.Type, input.CollectionFormat, input.Format)
+}
+
+func (p operationsParser) determineObjectDefinitionForOptionRaw(paramType string, collectionFormat string, format string) (*models.ObjectDefinition, error) {
+	switch strings.ToLower(paramType) {
+	case "array":
+		{
+			if strings.EqualFold(collectionFormat, "csv") {
+				return nil, fmt.Errorf("cannot contain a csv")
+			}
+
+			return nil, fmt.Errorf("cannot contain an array")
+		}
+
 	case "boolean":
 		return &models.ObjectDefinition{
 			Type: models.ObjectDefinitionBoolean,
 		}, nil
-	case "array":
-		{
-			// https://github.com/Azure/azure-rest-api-specs/blob/1b0ed8edd58bb7c9ade9a27430759527bd4eec8e/specification/trafficmanager/resource-manager/Microsoft.Network/stable/2018-03-01/trafficmanager.json#L735-L738
-			if strings.EqualFold(collectionFormat, "csv") {
-				return &models.ObjectDefinition{
-					Type: models.ObjectDefinitionString,
-				}, nil
-			}
-		}
+
 	case "integer":
 		return &models.ObjectDefinition{
 			Type: models.ObjectDefinitionInteger,
 		}, nil
+
+	case "number":
+		{
+			if strings.EqualFold(format, "double") {
+				return &models.ObjectDefinition{
+					Type: models.ObjectDefinitionFloat,
+				}, nil
+			}
+		}
+
 	case "string":
 		return &models.ObjectDefinition{
 			Type: models.ObjectDefinitionString,
 		}, nil
 	}
-	return nil, fmt.Errorf("unsupported field type %q", input)
+	return nil, fmt.Errorf("unsupported field type %q", paramType)
 }
 
 func (p operationsParser) determineContentType(operation parsedOperation) string {
@@ -275,7 +314,7 @@ func (p operationsParser) optionsForOperation(input parsedOperation) (*map[strin
 			//./commerce/resource-manager/Microsoft.Commerce/preview/2015-06-01-preview/commerce.json-            "type": "string",
 			//./commerce/resource-manager/Microsoft.Commerce/preview/2015-06-01-preview/commerce.json:            "format": "date-time",
 			//./commerce/resource-manager/Microsoft.Commerce/preview/2015-06-01-preview/commerce.json-            "description": "The end of the time range to retrieve data for."
-			objectDefinition, err := p.determineObjectDefinitionForOption(param.Type, param.CollectionFormat)
+			objectDefinition, err := p.determineObjectDefinitionForOption(param)
 			if err != nil {
 				return nil, nil, fmt.Errorf("determining field type for operation: %+v", err)
 			}

@@ -237,6 +237,12 @@ func typeNameForObjectDefinition(input models.ObjectDefinition, resource models.
 	case models.ObjectDefinitionInteger:
 		out = "int"
 
+	case models.ObjectDefinitionRawFile:
+		out = "byte[]"
+
+	case models.ObjectDefinitionRawObject:
+		out = "object"
+
 	case models.ObjectDefinitionString:
 		out = "string"
 	}

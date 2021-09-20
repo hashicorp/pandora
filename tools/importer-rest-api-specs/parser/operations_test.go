@@ -2813,6 +2813,132 @@ func TestParseOperationSingleWithNoTag(t *testing.T) {
 	}
 }
 
+func TestParseOperationSingleWithOptions(t *testing.T) {
+	parsed, err := Load("testdata/", "operations_single_with_options.json", true)
+	if err != nil {
+		t.Fatalf("loading: %+v", err)
+	}
+
+	result, err := parsed.Parse("Example", "2020-01-01")
+	if err != nil {
+		t.Fatalf("parsing: %+v", err)
+	}
+	if result == nil {
+		t.Fatal("result was nil")
+	}
+	if len(result.Resources) != 1 {
+		t.Fatalf("expected 1 resource but got %d", len(result.Resources))
+	}
+
+	hello, ok := result.Resources["Hello"]
+	if !ok {
+		t.Fatalf("no resources were output with the tag Hello")
+	}
+
+	if len(hello.Constants) != 0 {
+		t.Fatalf("expected no Constants but got %d", len(hello.Constants))
+	}
+	if len(hello.Models) != 0 {
+		t.Fatalf("expected no Models but got %d", len(hello.Models))
+	}
+	if len(hello.Operations) != 1 {
+		t.Fatalf("expected 1 Operation but got %d", len(hello.Operations))
+	}
+	if len(hello.ResourceIds) != 0 {
+		t.Fatalf("expected no ResourceIds but got %d", len(hello.ResourceIds))
+	}
+
+	world, ok := hello.Operations["HeadWorld"]
+	if !ok {
+		t.Fatalf("no resources were output with the name HeadWorld")
+	}
+	if world.Method != "HEAD" {
+		t.Fatalf("expected a HEAD operation but got %q", world.Method)
+	}
+	if len(world.ExpectedStatusCodes) != 1 {
+		t.Fatalf("expected 1 status code but got %d", len(world.ExpectedStatusCodes))
+	}
+	if world.ExpectedStatusCodes[0] != 200 {
+		t.Fatalf("expected the status code to be 200 but got %d", world.ExpectedStatusCodes[0])
+	}
+	if world.RequestObject != nil {
+		t.Fatalf("expected no request object but got %+v", *world.RequestObject)
+	}
+	if world.ResponseObject != nil {
+		t.Fatalf("expected no response object but got %+v", *world.ResponseObject)
+	}
+	if world.ResourceIdName != nil {
+		t.Fatalf("expected no ResourceId but got %q", *world.ResourceIdName)
+	}
+	if world.UriSuffix == nil {
+		t.Fatal("expected world.UriSuffix to have a value")
+	}
+	if *world.UriSuffix != "/things" {
+		t.Fatalf("expected world.UriSuffix to be `/things` but got %q", *world.UriSuffix)
+	}
+	if world.LongRunning {
+		t.Fatal("expected a non-long running operation but it was long running")
+	}
+
+	if len(world.Options) != 6 {
+		t.Fatalf("expected HeadWorld to have 6 options but got %d", len(world.Options))
+	}
+
+	boolOption, ok := world.Options["BoolValue"]
+	if !ok {
+		t.Fatalf("expected HeadWorld Options to contain 'BoolValue' but didn't get it")
+	}
+	if boolOption.ObjectDefinition.Type != models.ObjectDefinitionBoolean {
+		t.Fatalf("expected HeadWorld Option 'BoolValue' to be a Boolean but got %q", string(boolOption.ObjectDefinition.Type))
+	}
+
+	csvOfDoubleValueOption, ok := world.Options["CsvOfDoubleValue"]
+	if !ok {
+		t.Fatalf("expected HeadWorld Options to contain 'CsvOfDoubleValue' but didn't get it")
+	}
+	if csvOfDoubleValueOption.ObjectDefinition.Type != models.ObjectDefinitionCsv {
+		t.Fatalf("expected HeadWorld Option 'CsvOfDoubleValue' to be a Csv but got %q", string(csvOfDoubleValueOption.ObjectDefinition.Type))
+	}
+	if csvOfDoubleValueOption.ObjectDefinition.NestedItem.Type != models.ObjectDefinitionFloat {
+		t.Fatalf("expected HeadWorld Option 'CsvOfDoubleValue''s Nested Type to be a Float but got %q", string(csvOfDoubleValueOption.ObjectDefinition.NestedItem.Type))
+	}
+
+	csvOfStringOption, ok := world.Options["CsvOfStringValue"]
+	if !ok {
+		t.Fatalf("expected HeadWorld Options to contain 'CsvOfStringValue' but didn't get it")
+	}
+	if csvOfStringOption.ObjectDefinition.Type != models.ObjectDefinitionCsv {
+		t.Fatalf("expected HeadWorld Option 'CsvOfStringValue' to be a Csv but got %q", string(csvOfStringOption.ObjectDefinition.Type))
+	}
+	if csvOfStringOption.ObjectDefinition.NestedItem.Type != models.ObjectDefinitionString {
+		t.Fatalf("expected HeadWorld Option 'CsvOfStringValue''s Nested Type to be a String but got %q", string(csvOfStringOption.ObjectDefinition.NestedItem.Type))
+	}
+
+	doubleOption, ok := world.Options["DoubleValue"]
+	if !ok {
+		t.Fatalf("expected HeadWorld Options to contain 'DoubleValue' but didn't get it")
+	}
+	if doubleOption.ObjectDefinition.Type != models.ObjectDefinitionFloat {
+		t.Fatalf("expected HeadWorld Option 'DoubleValue' to be a Float but got %q", string(doubleOption.ObjectDefinition.Type))
+	}
+
+	intOption, ok := world.Options["IntValue"]
+	if !ok {
+		t.Fatalf("expected HeadWorld Options to contain 'IntValue' but didn't get it")
+	}
+	if intOption.ObjectDefinition.Type != models.ObjectDefinitionInteger {
+		t.Fatalf("expected HeadWorld Option 'IntValue' to be a Integer but got %q", string(intOption.ObjectDefinition.Type))
+	}
+
+	stringOption, ok := world.Options["StringValue"]
+	if !ok {
+		t.Fatalf("expected HeadWorld Options to contain 'StringValue' but didn't get it")
+	}
+	if stringOption.ObjectDefinition.Type != models.ObjectDefinitionString {
+		t.Fatalf("expected HeadWorld Option 'StringValue' to be a String but got %q", string(stringOption.ObjectDefinition.Type))
+	}
+}
+
 func TestParseOperationMultipleBasedOnTheSameResourceId(t *testing.T) {
 	parsed, err := Load("testdata/", "operations_multiple_same_resource_id.json", true)
 	if err != nil {

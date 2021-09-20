@@ -141,6 +141,8 @@ func dotNetNameForObjectDefinition(input *models.ObjectDefinition, constants map
 		return &in, nil
 	}
 
+	// TODO: @tombuildsstuff - CSV will need a custom type in the Data side, I think?
+
 	switch input.Type {
 	case models.ObjectDefinitionDictionary:
 		{
