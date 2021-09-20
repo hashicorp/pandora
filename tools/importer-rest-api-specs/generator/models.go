@@ -221,6 +221,9 @@ func dotNetNameForObjectDefinition(input *models.ObjectDefinition, constants map
 	case models.ObjectDefinitionInteger:
 		return nilableValue("int")
 
+	case models.ObjectDefinitionRawFile:
+		return nilableValue("byte[]")
+
 	case models.ObjectDefinitionRawObject:
 		return nilableValue("object")
 

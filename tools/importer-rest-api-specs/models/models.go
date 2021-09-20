@@ -53,6 +53,7 @@ const (
 	ObjectDefinitionInteger    ObjectDefinitionType = "Integer"
 	ObjectDefinitionFloat      ObjectDefinitionType = "Float"
 	ObjectDefinitionList       ObjectDefinitionType = "List"
+	ObjectDefinitionRawFile    ObjectDefinitionType = "RawFile"
 	ObjectDefinitionRawObject  ObjectDefinitionType = "RawObject"
 	ObjectDefinitionReference  ObjectDefinitionType = "Reference"
 	ObjectDefinitionString     ObjectDefinitionType = "String"

@@ -1188,6 +1188,80 @@ func TestParseOperationSingleReturningAFloat(t *testing.T) {
 	}
 }
 
+func TestParseOperationSingleReturningAFile(t *testing.T) {
+	parsed, err := Load("testdata/", "operations_single_returning_a_file.json", true)
+	if err != nil {
+		t.Fatalf("loading: %+v", err)
+	}
+
+	result, err := parsed.Parse("Example", "2020-01-01")
+	if err != nil {
+		t.Fatalf("parsing: %+v", err)
+	}
+	if result == nil {
+		t.Fatal("result was nil")
+	}
+	if len(result.Resources) != 1 {
+		t.Fatalf("expected 1 resource but got %d", len(result.Resources))
+	}
+
+	hello, ok := result.Resources["Hello"]
+	if !ok {
+		t.Fatalf("no resources were output with the tag Hello")
+	}
+
+	if len(hello.Constants) != 0 {
+		t.Fatalf("expected no Constants but got %d", len(hello.Constants))
+	}
+	if len(hello.Models) != 0 {
+		t.Fatalf("expected No Models but got %d", len(hello.Models))
+	}
+	if len(hello.Operations) != 1 {
+		t.Fatalf("expected 1 Operation but got %d", len(hello.Operations))
+	}
+	if len(hello.ResourceIds) != 0 {
+		t.Fatalf("expected no ResourceIds but got %d", len(hello.ResourceIds))
+	}
+
+	world, ok := hello.Operations["GimmeAFile"]
+	if !ok {
+		t.Fatalf("no resources were output with the name GimmeAFile")
+	}
+	if world.Method != "GET" {
+		t.Fatalf("expected a GET operation but got %q", world.Method)
+	}
+	if len(world.ExpectedStatusCodes) != 1 {
+		t.Fatalf("expected 1 status code but got %d", len(world.ExpectedStatusCodes))
+	}
+	if world.ExpectedStatusCodes[0] != 200 {
+		t.Fatalf("expected the status code to be 200 but got %d", world.ExpectedStatusCodes[0])
+	}
+	if world.RequestObject != nil {
+		t.Fatalf("expected no request object but got %+v", *world.RequestObject)
+	}
+	if world.ResponseObject == nil {
+		t.Fatalf("expected a response object but got none")
+	}
+	if world.ResponseObject.Type != models.ObjectDefinitionRawFile {
+		t.Fatalf("expected the response object to be a RawFile but got %q", string(world.ResponseObject.Type))
+	}
+	if world.ResponseObject.ReferenceName != nil {
+		t.Fatalf("expected the response object to have no reference but got %q", *world.ResponseObject.ReferenceName)
+	}
+	if world.ResourceIdName != nil {
+		t.Fatalf("expected no ResourceId but got %q", *world.ResourceIdName)
+	}
+	if world.UriSuffix == nil {
+		t.Fatal("expected world.UriSuffix to have a value")
+	}
+	if *world.UriSuffix != "/worlds/favourite" {
+		t.Fatalf("expected world.UriSuffix to be `/worlds/favourite` but got %q", *world.UriSuffix)
+	}
+	if world.LongRunning {
+		t.Fatal("expected a non-long running operation but it was long running")
+	}
+}
+
 func TestParseOperationSingleReturningAnInteger(t *testing.T) {
 	parsed, err := Load("testdata/", "operations_single_returning_an_integer.json", true)
 	if err != nil {

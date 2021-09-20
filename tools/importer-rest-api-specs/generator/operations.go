@@ -245,7 +245,7 @@ func typeNameForObjectDefinition(input models.ObjectDefinition, resource models.
 		return &out, nil
 	}
 
-	return nil, fmt.Errorf("unimplemented object definition type")
+	return nil, fmt.Errorf("unimplemented object definition type %q", string(input.Type))
 }
 
 func (g PandoraDefinitionGenerator) usesNonDefaultStatusCodes(operation models.OperationDetails) bool {
