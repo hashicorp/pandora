@@ -564,6 +564,7 @@ func (d SwaggerDefinition) parseNativeType(input *spec.Schema) *models.ObjectDef
 	}
 
 	if input.Type.Contains("string") {
+		// NOTE: it's possible that `input.Format` can be set to `date-time` on it's own
 		if strings.EqualFold(input.Format, "date-time") {
 			// TODO: handle there being a custom format - for now we assume these are all using RFC3339
 			return &models.ObjectDefinition{
@@ -573,6 +574,14 @@ func (d SwaggerDefinition) parseNativeType(input *spec.Schema) *models.ObjectDef
 
 		return &models.ObjectDefinition{
 			Type: models.ObjectDefinitionString,
+		}
+	}
+
+	// whilst all fields _should_ have a Type field, it's not guaranteed that they do
+	// NOTE: this is _intentionally_ not part of the Object comparison above
+	if len(input.Type) == 0 {
+		return &models.ObjectDefinition{
+			Type: models.ObjectDefinitionRawObject,
 		}
 	}
 

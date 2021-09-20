@@ -46,8 +46,8 @@ func TestParseModelSingleTopLevel(t *testing.T) {
 	if !ok {
 		t.Fatalf("the Model `Example` was not found")
 	}
-	if len(example.Fields) != 5 {
-		t.Fatalf("expected example.Fields to have 5 fields but got %d", len(example.Fields))
+	if len(example.Fields) != 6 {
+		t.Fatalf("expected example.Fields to have 6 fields but got %d", len(example.Fields))
 	}
 
 	name, ok := example.Fields["Name"]
@@ -122,6 +122,20 @@ func TestParseModelSingleTopLevel(t *testing.T) {
 	if tags.JsonName != "tags" {
 		t.Fatalf("expected example.Fields['Tags'].JsonName to be 'tags' but got %q", tags.JsonName)
 	}
+
+	value, ok := example.Fields["Value"]
+	if !ok {
+		t.Fatalf("example.Fields['Value'] was missing")
+	}
+	if value.ObjectDefinition == nil {
+		t.Fatalf("example.Fields['Value'] had no ObjectDefinition")
+	}
+	if value.ObjectDefinition.Type != models.ObjectDefinitionRawObject {
+		t.Fatalf("expected example.Fields['Value'] to be RawObject but got %q", string(value.ObjectDefinition.Type))
+	}
+	if value.JsonName != "value" {
+		t.Fatalf("expected example.Fields['Value'].JsonName to be 'value' but got %q", value.JsonName)
+	}
 }
 
 func TestParseModelSingleTopLevelWithInlinedModel(t *testing.T) {
@@ -185,8 +199,8 @@ func TestParseModelSingleTopLevelWithInlinedModel(t *testing.T) {
 	if !ok {
 		t.Fatalf("the Model `ExampleProperties` was not found")
 	}
-	if len(exampleProperties.Fields) != 4 {
-		t.Fatalf("expected exampleProperties.Fields to have 4 fields but got %d", len(example.Fields))
+	if len(exampleProperties.Fields) != 5 {
+		t.Fatalf("expected exampleProperties.Fields to have 5 fields but got %d", len(example.Fields))
 	}
 
 	nickName, ok := exampleProperties.Fields["Nickname"]
@@ -243,6 +257,20 @@ func TestParseModelSingleTopLevelWithInlinedModel(t *testing.T) {
 	}
 	if tags.JsonName != "tags" {
 		t.Fatalf("expected exampleProperties.Fields['Tags'].JsonName to be 'tags' but got %q", tags.JsonName)
+	}
+
+	value, ok := exampleProperties.Fields["Value"]
+	if !ok {
+		t.Fatalf("exampleProperties.Fields['Value'] was missing")
+	}
+	if value.ObjectDefinition == nil {
+		t.Fatalf("exampleProperties.Fields['Value'] had no ObjectDefinition")
+	}
+	if value.ObjectDefinition.Type != models.ObjectDefinitionRawObject {
+		t.Fatalf("expected exampleProperties.Fields['Value'] to be RawObject but got %q", string(value.ObjectDefinition.Type))
+	}
+	if value.JsonName != "value" {
+		t.Fatalf("expected exampleProperties.Fields['Value'].JsonName to be 'value' but got %q", value.JsonName)
 	}
 }
 
