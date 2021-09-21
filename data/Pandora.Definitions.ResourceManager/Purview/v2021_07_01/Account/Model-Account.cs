@@ -29,7 +29,7 @@ namespace Pandora.Definitions.ResourceManager.Purview.v2021_07_01.Account
         public AccountSkuModel? Sku { get; set; }
 
         [JsonPropertyName("systemData")]
-        public TrackedResourceSystemDataModel? SystemData { get; set; }
+        public SystemDataModel? SystemData { get; set; }
 
         [JsonPropertyName("tags")]
         public CustomTypes.Tags? Tags { get; set; }

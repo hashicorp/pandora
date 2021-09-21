@@ -24,7 +24,7 @@ namespace Pandora.Definitions.ResourceManager.Purview.v2020_12_01_preview.Accoun
         public string? CreatedByObjectId { get; set; }
 
         [JsonPropertyName("endpoints")]
-        public AccountPropertiesEndpointsModel? Endpoints { get; set; }
+        public AccountEndpointsModel? Endpoints { get; set; }
 
         [JsonPropertyName("friendlyName")]
         public string? FriendlyName { get; set; }
@@ -33,7 +33,7 @@ namespace Pandora.Definitions.ResourceManager.Purview.v2020_12_01_preview.Accoun
         public string? ManagedResourceGroupName { get; set; }
 
         [JsonPropertyName("managedResources")]
-        public AccountPropertiesManagedResourcesModel? ManagedResources { get; set; }
+        public ManagedResourcesModel? ManagedResources { get; set; }
 
         [JsonPropertyName("privateEndpointConnections")]
         public List<PrivateEndpointConnectionModel>? PrivateEndpointConnections { get; set; }
@@ -45,6 +45,6 @@ namespace Pandora.Definitions.ResourceManager.Purview.v2020_12_01_preview.Accoun
         public PublicNetworkAccessConstant? PublicNetworkAccess { get; set; }
 
         [JsonPropertyName("systemData")]
-        public AccountPropertiesSystemDataModel? SystemData { get; set; }
+        public SystemDataModel? SystemData { get; set; }
     }
 }

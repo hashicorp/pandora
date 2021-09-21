@@ -24,7 +24,7 @@ namespace Pandora.Definitions.ResourceManager.Purview.v2021_07_01.Account
         public string? CreatedByObjectId { get; set; }
 
         [JsonPropertyName("endpoints")]
-        public AccountPropertiesEndpointsModel? Endpoints { get; set; }
+        public AccountEndpointsModel? Endpoints { get; set; }
 
         [JsonPropertyName("friendlyName")]
         public string? FriendlyName { get; set; }
@@ -33,7 +33,7 @@ namespace Pandora.Definitions.ResourceManager.Purview.v2021_07_01.Account
         public string? ManagedResourceGroupName { get; set; }
 
         [JsonPropertyName("managedResources")]
-        public AccountPropertiesManagedResourcesModel? ManagedResources { get; set; }
+        public ManagedResourcesModel? ManagedResources { get; set; }
 
         [JsonPropertyName("privateEndpointConnections")]
         public List<PrivateEndpointConnectionModel>? PrivateEndpointConnections { get; set; }

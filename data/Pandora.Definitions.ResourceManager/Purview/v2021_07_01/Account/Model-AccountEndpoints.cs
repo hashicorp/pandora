@@ -8,7 +8,7 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.Purview.v2021_07_01.Account
 {
 
-    internal class AccountPropertiesEndpointsModel
+    internal class AccountEndpointsModel
     {
         [JsonPropertyName("catalog")]
         public string? Catalog { get; set; }
