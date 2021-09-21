@@ -2,6 +2,7 @@ package parser
 
 import (
 	"fmt"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/featureflags"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"strings"
 
@@ -56,6 +57,13 @@ func operationShouldBeIgnored(operationUri string) bool {
 	// LRO's shouldn't be directly exposed
 	if strings.Contains(strings.ToLower(operationUri), "/operationresults/") {
 		return true
+	}
+
+	// temporarily conditionally remove Scopes
+	if !featureflags.ParseResourcesContainingScopes {
+		if strings.Contains(strings.ToLower(operationUri), "/{scope}") {
+			return true
+		}
 	}
 
 	return false
