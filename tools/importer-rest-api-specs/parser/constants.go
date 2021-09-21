@@ -2,6 +2,7 @@ package parser
 
 import (
 	"fmt"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/featureflags"
 	"log"
 	"reflect"
 	"strconv"
@@ -11,8 +12,6 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/cleanup"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
-
-const allowConstantsWithoutXMSEnum = true
 
 type constantExtension struct {
 	name          string
@@ -34,7 +33,7 @@ func mapConstant(typeVal spec.StringOrArray, fieldName string, values []interfac
 	// the name needs to come from the `x-ms-enum` extension
 	constExtension, err := parseConstantExtensionFromExtension(extensions)
 	if err != nil {
-		if allowConstantsWithoutXMSEnum {
+		if featureflags.AllowConstantsWithoutXMSEnum {
 			log.Printf("[DEBUG] Field %q had an invalid `x-ms-enum`: %+v", fieldName, err)
 		} else {
 			return nil, fmt.Errorf("parsing x-ms-enum: %+v", err)
