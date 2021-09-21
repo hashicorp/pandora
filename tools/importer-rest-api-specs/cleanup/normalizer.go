@@ -65,7 +65,6 @@ func NormalizeName(input string) string {
 
 func NormalizeSegmentName(input string) string {
 	output := input
-	output = NormalizeSegment(output, true)
 	output = NormalizeName(output)
 
 	if strings.HasSuffix(output, "Name") {
@@ -125,6 +124,13 @@ func NormalizeSegment(input string, camelCase bool) string {
 	return input
 }
 
+func NormalizeResourceName(input string) string {
+	output := input
+	output = NormalizeName(output)
+	output = NormalizeServiceName(output)
+	return output
+}
+
 func NormalizeServiceName(input string) string {
 	fixed := map[string]string{
 		// NOTE: these are intentionally lower-cased
@@ -173,7 +179,7 @@ func NormalizeServiceName(input string) string {
 		"devtestlabs":                    "DevTestLabs",
 		"dfp":                            "DynamicsFraudProtection",
 		"digitaltwins":                   "DigitalTwins",
-		"Dnc":                            "Dnc", // TODO: determine proper naming for this
+		"dnc":                            "Dnc", // TODO: determine proper naming for this
 		"domainservices":                 "DomainServices",
 		"dynamicstelemetry":              "DynamicsTelemetry",
 		"edgeorder":                      "EdgeOrder",

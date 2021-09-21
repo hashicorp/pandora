@@ -98,7 +98,8 @@ func normalizedResourceId(segments []ResourceIdSegment) string {
 		switch segment.Type {
 		case StaticSegment:
 			{
-				components = append(components, *segment.FixedValue)
+				normalizedSegment := cleanup.NormalizeSegment(*segment.FixedValue, true)
+				components = append(components, normalizedSegment)
 				continue
 			}
 

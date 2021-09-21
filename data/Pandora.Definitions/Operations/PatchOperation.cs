@@ -42,7 +42,7 @@ namespace Pandora.Definitions.Operations
             // shouldn't be applicable for PATCHes 
             return null;
         }
-        
+
         public virtual Type? RequestObject()
         {
             // Almost all GET methods return an object, but there's a handful which don't.

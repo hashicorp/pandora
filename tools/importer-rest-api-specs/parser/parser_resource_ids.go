@@ -291,6 +291,7 @@ func determineNamesForResourceIds(urisToObjects map[string]resourceUriMetadata) 
 		if resourceId.resourceId.Segments[0].Type == models.ScopeSegment && len(resourceId.resourceId.Segments) > 1 {
 			candidateSegmentName = fmt.Sprintf("Scoped%s", candidateSegmentName)
 		}
+		candidateSegmentName = cleanup.NormalizeSegment(candidateSegmentName, false)
 
 		// if we have an existing conflicting key, let's add this to that
 		if uris, existing := conflictingNamesToUris[candidateSegmentName]; existing {
@@ -357,7 +358,7 @@ func determineUniqueNamesFor(conflictingUris []models.ParsedResourceId, existing
 		}
 
 		for _, segment := range availableSegments {
-			proposedName = fmt.Sprintf("%s%s", segment, proposedName)
+			proposedName = fmt.Sprintf("%s%s", cleanup.NormalizeSegment(segment, false), proposedName)
 
 			_, hasConflictWithExisting := existingCandidateNames[proposedName]
 			_, hasConflictWithProposed := proposedNames[proposedName]

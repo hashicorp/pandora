@@ -10,7 +10,7 @@ import (
 
 func (d *SwaggerDefinition) Parse(serviceName, apiVersion string) (*models.AzureApiDefinition, error) {
 	resources := make(map[string]models.AzureApiResource, 0)
-	
+
 	tags := d.findTags()
 	// first we assume everything has a tag
 	for _, tag := range tags {
@@ -25,7 +25,7 @@ func (d *SwaggerDefinition) Parse(serviceName, apiVersion string) (*models.Azure
 
 		if resource != nil {
 			normalizedTag := normalizeTag(tag)
-			normalizedTag = cleanup.NormalizeName(normalizedTag)
+			normalizedTag = cleanup.NormalizeResourceName(normalizedTag)
 			resources[normalizedTag] = *resource
 		}
 	}
@@ -39,7 +39,7 @@ func (d *SwaggerDefinition) Parse(serviceName, apiVersion string) (*models.Azure
 
 		if resource != nil {
 			normalizedTag := normalizeTag(serviceName)
-			normalizedTag = cleanup.NormalizeName(normalizedTag)
+			normalizedTag = cleanup.NormalizeResourceName(normalizedTag)
 			resources[normalizedTag] = *resource
 		}
 	}
