@@ -55,7 +55,12 @@ namespace Pandora.Definitions.Operations
             return null;
         }
 
-        public abstract Type? ResponseObject();
+        public virtual Type? ResponseObject()
+        {
+            // Almost all GET methods return an object, but there's a handful which don't.
+            // This is optional to account for those (and any Data Plane resources going forwards).
+            return null;
+        }
 
         public virtual string? UriSuffix()
         {

@@ -42,8 +42,13 @@ namespace Pandora.Definitions.Operations
             // shouldn't be applicable for PATCHes 
             return null;
         }
-
-        public abstract Type? RequestObject();
+        
+        public virtual Type? RequestObject()
+        {
+            // Almost all GET methods return an object, but there's a handful which don't.
+            // This is optional to account for those (and any Data Plane resources going forwards).
+            return null;
+        }
 
         public virtual ResourceID? ResourceId()
         {
