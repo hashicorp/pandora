@@ -30,8 +30,8 @@ func main() {
 		os.Exit(1)
 	}
 
+	debug := strings.TrimSpace(os.Getenv("DEBUG")) != ""
 	if !strings.EqualFold(os.Getenv("PANDORA_GENERATE_EVERYTHING"), "true") {
-		debug := strings.TrimSpace(os.Getenv("DEBUG")) != ""
 		for _, v := range input {
 			if err := run(v, *swaggerGitSha, debug); err != nil {
 				log.Printf("error: %+v", err)
@@ -40,7 +40,7 @@ func main() {
 		}
 	} else {
 		justLatestVersion := true
-		if err := generateAllResourceManagerServices(*swaggerGitSha, justLatestVersion); err != nil {
+		if err := generateAllResourceManagerServices(*swaggerGitSha, justLatestVersion, debug); err != nil {
 			log.Printf("error: %+v", err)
 			os.Exit(1)
 		}
@@ -66,27 +66,34 @@ func determineGitSha(repositoryPath string) (*string, error) {
 }
 
 func run(input RunInput, swaggerGitSha string, debug bool) error {
+	var errWrap = func(err error) error {
+		log.Printf("❌ Service %q - Api Version %q", input.ServiceName, input.ApiVersion)
+		log.Printf("     💥 Error: %+v", err)
+		return err
+	}
+
 	if debug {
 		log.Printf("[STAGE] Parsing Swagger Files..")
 	}
 	data, err := parseSwaggerFiles(input, debug)
 	if err != nil {
-		return fmt.Errorf("parsing Swagger files: %+v", err)
+		return errWrap(fmt.Errorf("parsing Swagger files: %+v", err))
 	}
 
 	if debug {
 		log.Printf("[STAGE] Generating Swagger Definitions..")
 	}
 	if err := generateServiceDefinitions(*data, input.OutputDirectory, input.RootNamespace, swaggerGitSha, input.ResourceProvider, debug); err != nil {
-		return fmt.Errorf("generating Service Definitions: %+v", err)
+		return errWrap(fmt.Errorf("generating Service Definitions: %+v", err))
 	}
 
 	if debug {
 		log.Printf("[STAGE] Generating API Definitions..")
 	}
 	if err := generateApiVersions(*data, input.OutputDirectory, input.RootNamespace, swaggerGitSha, input.ResourceProvider, debug); err != nil {
-		return fmt.Errorf("generating API Versions: %+v", err)
+		return errWrap(fmt.Errorf("generating API Versions: %+v", err))
 	}
 
+	log.Printf("✅ Service %q - Api Version %q", input.ServiceName, input.ApiVersion)
 	return nil
 }

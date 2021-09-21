@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser"
 	"log"
 	"os"
 	"sort"
@@ -9,7 +10,6 @@ import (
 	"sync"
 
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/generator"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser"
 )
 
 func generateApiVersions(input []parsedData, workingDirectory, rootNamespace, swaggerGitSha string, resourceProvider *string, debug bool) error {
@@ -140,7 +140,7 @@ func distinctServiceNames(input []parsedData) []string {
 	return names
 }
 
-func generateAllResourceManagerServices(swaggerGitSha string, justLatestVersion bool) error {
+func generateAllResourceManagerServices(swaggerGitSha string, justLatestVersion, debug bool) error {
 	services, err := parser.FindResourceManagerServices(swaggerDirectory+"/specification", justLatestVersion, false)
 	if err != nil {
 		return err
@@ -159,27 +159,26 @@ func generateAllResourceManagerServices(swaggerGitSha string, justLatestVersion 
 				swaggerFilesTrimmed = append(swaggerFilesTrimmed, strings.TrimPrefix(swaggerFile, versionPath))
 			}
 
+			// copy to avoid this being captured
+			resourceProvider := service.ResourceProvider
 			runInput := RunInput{
 				RootNamespace:    "Pandora.Definitions.ResourceManager",
 				ServiceName:      service.Name,
 				ApiVersion:       apiVersion,
 				OutputDirectory:  outputDirectory,
-				ResourceProvider: &service.ResourceProvider,
+				ResourceProvider: &resourceProvider,
 				SwaggerDirectory: versionPath,
 				SwaggerFiles:     swaggerFilesTrimmed,
 			}
 
 			wg.Add(1)
 			go func(input RunInput, sha string) {
-				err := run(input, sha, false)
+				err := run(input, sha, debug)
 				if err != nil {
-					log.Printf("❌ Service %q - Api Version %q", input.ServiceName, input.ApiVersion)
-					log.Printf("     💥 Error: %+v", err)
 					wg.Done()
 					return
 				}
 
-				log.Printf("✅ Service %q - Api Version %q", input.ServiceName, input.ApiVersion)
 				wg.Done()
 			}(runInput, swaggerGitSha)
 		}

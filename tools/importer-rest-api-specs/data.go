@@ -288,7 +288,17 @@ func GenerationData() []RunInput {
 		//                 "databoxedge.json",
 		//         },
 		// }.ToRunInput(),
-		//
+
+		//ResourceManagerInput{
+		//	ServiceName:      "DNS",
+		//	ApiVersion:       "2018-05-01",
+		//	ResourceProvider: "Microsoft.Network",
+		//	SwaggerDirectory: swaggerDirectory + "/specification/dns/resource-manager/Microsoft.Network/stable/2018-05-01",
+		//	SwaggerFiles: []string{
+		//		"dns.json",
+		//	},
+		//}.ToRunInput(),
+
 		// Healthcare APIS
 		// ResourceManagerInput{
 		//	ServiceName:      "HealthcareApis",

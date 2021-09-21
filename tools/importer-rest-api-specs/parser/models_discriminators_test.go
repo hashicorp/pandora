@@ -1,6 +1,8 @@
 package parser
 
-import "testing"
+import (
+	"testing"
+)
 
 func TestParseDiscriminatorsTopLevel(t *testing.T) {
 	parsed, err := Load("testdata/", "model_discriminators_simple.json", true)

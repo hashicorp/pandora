@@ -84,18 +84,15 @@ func (g PandoraDefinitionGenerator) codeForOperation(namespace string, operation
 			}
 
 			typeName := ""
-			if optionDetails.FieldType != nil {
-				fieldType, err := dotNetTypeNameForSimpleType(*optionDetails.FieldType)
+			if optionDetails.ObjectDefinition != nil {
+				fieldType, err := dotNetNameForObjectDefinition(optionDetails.ObjectDefinition, resource.Constants, resource.Models)
 				if err != nil {
 					return nil, err
 				}
 				typeName = *fieldType
 			}
-			if optionDetails.ConstantObjectName != nil {
-				typeName = *optionDetails.ConstantObjectName
-			}
 			if typeName == "" {
-				return nil, fmt.Errorf("missing a FieldType or ConstantObjectName for Option %q", optionName)
+				return nil, fmt.Errorf("missing an ObjectDefinition for Option %q", optionName)
 			}
 			optionsCode = append(optionsCode, fmt.Sprintf("\t\t\tpublic %s %s { get; set; }", typeName, optionName))
 		}
@@ -240,6 +237,12 @@ func typeNameForObjectDefinition(input models.ObjectDefinition, resource models.
 	case models.ObjectDefinitionInteger:
 		out = "int"
 
+	case models.ObjectDefinitionRawFile:
+		out = "byte[]"
+
+	case models.ObjectDefinitionRawObject:
+		out = "object"
+
 	case models.ObjectDefinitionString:
 		out = "string"
 	}
@@ -248,7 +251,7 @@ func typeNameForObjectDefinition(input models.ObjectDefinition, resource models.
 		return &out, nil
 	}
 
-	return nil, fmt.Errorf("unimplemented object definition type")
+	return nil, fmt.Errorf("unimplemented object definition type %q", string(input.Type))
 }
 
 func (g PandoraDefinitionGenerator) usesNonDefaultStatusCodes(operation models.OperationDetails) bool {

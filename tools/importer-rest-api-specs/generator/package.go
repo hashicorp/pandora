@@ -65,7 +65,7 @@ func (g PandoraDefinitionGenerator) GenerateResources(resourceName, namespace st
 			}
 		}
 
-		code, err := g.codeForModel(namespace, modelName, vals, parent)
+		code, err := g.codeForModel(namespace, modelName, vals, parent, resource.Constants, resource.Models)
 		if err != nil {
 			return fmt.Errorf("generating code for model %q in %q: %+v", modelName, namespace, err)
 		}
