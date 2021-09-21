@@ -15,7 +15,7 @@ namespace Pandora.Definitions.ResourceManager.SignalR.v2020_05_01.SignalR
 
         public override Type NestedItemType() => typeof(SignalRResourceModel);
 
-        public override string? UriSuffix() => "/providers/Microsoft.SignalRService/SignalR";
+        public override string? UriSuffix() => "/providers/Microsoft.SignalRService/signalR";
 
 
     }

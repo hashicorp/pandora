@@ -5,10 +5,10 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.Purview.v2021_07_01.Account
+namespace Pandora.Definitions.ResourceManager.Purview.v2020_12_01_preview.Account
 {
 
-    internal class TrackedResourceSystemDataModel
+    internal class SystemDataModel
     {
         [DateFormat(DateFormatAttribute.DateFormat.RFC3339)]
         [JsonPropertyName("createdAt")]

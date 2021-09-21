@@ -5,10 +5,10 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.Purview.v2020_12_01_preview.Account
+namespace Pandora.Definitions.ResourceManager.Purview.v2021_07_01.Account
 {
 
-    internal class AccountPropertiesManagedResourcesModel
+    internal class ManagedResourcesModel
     {
         [JsonPropertyName("eventHubNamespace")]
         public string? EventHubNamespace { get; set; }
