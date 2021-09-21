@@ -24,6 +24,8 @@ func normalizeTag(input string) string {
 	// probably prudent to hard-code these for now (and fix the swaggers as we
 	// come across them?)
 	output := input
+	output = strings.ReplaceAll(output, "EndPoint", "Endpoint")
 	output = strings.ReplaceAll(output, "NetWork", "Network")
+	output = strings.ReplaceAll(output, "Baremetalinfrastructure", "BareMetalInfrastructure")
 	return output
 }

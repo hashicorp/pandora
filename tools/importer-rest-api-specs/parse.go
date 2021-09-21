@@ -2,6 +2,8 @@ package main
 
 import (
 	"fmt"
+	"log"
+	"strings"
 
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser"
@@ -13,6 +15,14 @@ func parseSwaggerFiles(input RunInput, debug bool) (*[]parsedData, error) {
 		swaggerFile, err := parser.Load(input.SwaggerDirectory, file, debug)
 		if err != nil {
 			return nil, fmt.Errorf("parsing file %q: %+v", file, err)
+		}
+
+		// Some Services have been deprecated or should otherwise be ignored - check before proceeding
+		if serviceShouldBeIgnored(input.ServiceName) {
+			if debug {
+				log.Printf("[DEBUG] Skipping service %q", input.ServiceName)
+			}
+			continue
 		}
 
 		definition, err := swaggerFile.Parse(input.ServiceName, input.ApiVersion)
@@ -45,6 +55,20 @@ func parseSwaggerFiles(input RunInput, debug bool) (*[]parsedData, error) {
 		out = append(out, v)
 	}
 	return &out, nil
+}
+
+func serviceShouldBeIgnored(name string) bool {
+	servicesToIgnore := []string{
+		"Blockchain",
+		"DevSpaces",
+		"ServiceFabricMesh",
+	}
+	for _, v := range servicesToIgnore {
+		if strings.EqualFold(name, v) {
+			return true
+		}
+	}
+	return false
 }
 
 type parsedData struct {
