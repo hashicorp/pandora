@@ -159,12 +159,14 @@ func generateAllResourceManagerServices(swaggerGitSha string, justLatestVersion,
 				swaggerFilesTrimmed = append(swaggerFilesTrimmed, strings.TrimPrefix(swaggerFile, versionPath))
 			}
 
+			// copy to avoid this being captured
+			resourceProvider := service.ResourceProvider
 			runInput := RunInput{
 				RootNamespace:    "Pandora.Definitions.ResourceManager",
 				ServiceName:      service.Name,
 				ApiVersion:       apiVersion,
 				OutputDirectory:  outputDirectory,
-				ResourceProvider: &service.ResourceProvider,
+				ResourceProvider: &resourceProvider,
 				SwaggerDirectory: versionPath,
 				SwaggerFiles:     swaggerFilesTrimmed,
 			}
