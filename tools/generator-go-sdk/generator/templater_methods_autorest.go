@@ -72,10 +72,6 @@ func (c methodsAutoRestTemplater) methods(data ServiceGeneratorData) (*string, e
 			return nil, fmt.Errorf("`GET` operations do not support Request objects at this time")
 		}
 
-		if c.operation.ResponseObject == nil {
-			return nil, fmt.Errorf("`GET` operations must have a Response object")
-		}
-
 		if c.operation.FieldContainingPaginationDetails != nil {
 			return c.listOperationTemplate(data)
 		}
@@ -100,10 +96,6 @@ func (c methodsAutoRestTemplater) methods(data ServiceGeneratorData) (*string, e
 		return c.immediateOperationTemplate(data)
 
 	case "PATCH":
-		if c.operation.RequestObject == nil {
-			return nil, fmt.Errorf("`PATCH` operations must have a Request Object")
-		}
-
 		if c.operation.LongRunning {
 			return c.longRunningOperationTemplate(data)
 		}
