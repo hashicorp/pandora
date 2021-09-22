@@ -38,7 +38,9 @@ type ServiceGeneratorData struct {
 	// the available http operations
 	operations map[string]resourcemanager.ApiOperation
 
-	resourceIds map[string]string
+	// resourceIds is a map of key (resourceId name) to value (ResourceIdDefinition)
+	// describing the ResourceId's used in these http operations
+	resourceIds map[string]resourcemanager.ResourceIdDefinition
 
 	// the name of the service as a package (e.g. resources or eventhub)
 	servicePackageName string

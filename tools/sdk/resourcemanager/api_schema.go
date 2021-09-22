@@ -35,9 +35,9 @@ type ApiSchemaDetails struct {
 	// each Model supported by this API version, used in either Requests or Responses
 	Models map[string]ModelDetails `json:"models"`
 
-	// ResourceIds is a map of key (Resource Name) to value (Resource ID strings)
+	// ResourceIds is a map of key (Resource Name) to value (Resource ID Definitions)
 	// used by this API
-	ResourceIds map[string]string `json:"resourceIds"`
+	ResourceIds map[string]ResourceIdDefinition `json:"resourceIds"`
 }
 
 type ConstantDetails struct {
@@ -168,4 +168,55 @@ type FieldValidationType string
 const (
 	// RangeValidation specifies that this field must fall within a Range of pre-defined values
 	RangeValidation FieldValidationType = "Range"
+)
+
+type ResourceIdDefinition struct {
+	// ConstantNames is a list of Constants used by/in this ResourceId
+	ConstantNames []string `json:"constantNames"`
+
+	// Id is the full ResourceId as a string, for example:
+	// /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}
+	Id string `json:"id"`
+
+	// Segments is one or more segments present within this ResourceID, each Segment being
+	// for example a StaticSegment, ConstantSegment, UserSpecifiableSegment, etc.
+	Segments []ResourceIdSegment `json:"segments"`
+}
+
+type ResourceIdSegment struct {
+	// ConstantReference is the name of the Constant which this Segment is associated with
+	// this is only present when `Type` is `ConstantSegment`
+	ConstantReference *string `json:"constantReference,omitempty"`
+
+	// FixedValue is the Fixed/Static value for this segment - only present when `Type` is `StaticSegment`.
+	FixedValue *string `json:"fixedValue,omitempty"`
+
+	// Name is the camelCased name of this segment, which is normalized (and safe to use as a
+	// parameter/a field if necessary).
+	Name string `json:"name"`
+
+	// Type specifies the Type of Segment that this is, for example a `StaticSegment`
+	Type ResourceIdSegmentType `json:"type"`
+}
+
+type ResourceIdSegmentType string
+
+const (
+	// ConstantSegment specifies that this Segment is a Constant
+	ConstantSegment ResourceIdSegmentType = "Constant"
+
+	// ResourceGroupSegment specifies that this Segment is a Resource Group name
+	ResourceGroupSegment ResourceIdSegmentType = "ResourceGroup"
+
+	// ScopeSegment specifies that this Segment is a Scope
+	ScopeSegment ResourceIdSegmentType = "Scope"
+
+	// StaticSegment specifies that this Segment is a Static/Fixed Value
+	StaticSegment ResourceIdSegmentType = "Static"
+
+	// SubscriptionIdSegment specifies that this Segment is a Subscription ID
+	SubscriptionIdSegment ResourceIdSegmentType = "SubscriptionId"
+
+	// UserSpecifiableSegment specifies that this Segment is User-Specifiable
+	UserSpecifiableSegment ResourceIdSegmentType = "UserSpecifiable"
 )
