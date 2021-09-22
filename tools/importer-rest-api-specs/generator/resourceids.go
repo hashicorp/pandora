@@ -17,7 +17,8 @@ func (g PandoraDefinitionGenerator) codeForResourceID(namespace string, resource
 		segmentsCode = append(segmentsCode, *code)
 	}
 
-	code := fmt.Sprintf(`using Pandora.Definitions.Interfaces;
+	code := fmt.Sprintf(`using System.Collections.Generic;
+using Pandora.Definitions.Interfaces;
 
 namespace %[1]s
 {
@@ -47,7 +48,7 @@ func (g PandoraDefinitionGenerator) codeForResourceIDSegment(input models.Resour
 	indent := "                    "
 	lines := []string{
 		fmt.Sprintf("%sName = %q", indent, input.Name),
-		fmt.Sprintf("%sType = %q", indent, *typeName),
+		fmt.Sprintf("%sType = %s", indent, *typeName),
 	}
 
 	if input.ConstantReference != nil {
@@ -57,11 +58,11 @@ func (g PandoraDefinitionGenerator) codeForResourceIDSegment(input models.Resour
 		lines = append(lines, fmt.Sprintf("%sFixedValue = %q", indent, *input.FixedValue))
 	}
 
-	output := fmt.Sprintf(`new()
+	output := fmt.Sprintf(`                new()
                 {
 %[1]s
                 },
-`, strings.Join(lines, "\n"))
+`, strings.Join(lines, ",\n"))
 	return &output, nil
 }
 
