@@ -11,6 +11,7 @@ namespace Pandora.Definitions.ResourceManager.ManagedIdentity.v2018_11_30.Manage
         public string Name => "ManagedIdentity";
         public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
         {
+            new SystemAssignedIdentitiesGetByScopeOperation(),
             new UserAssignedIdentitiesCreateOrUpdateOperation(),
             new UserAssignedIdentitiesDeleteOperation(),
             new UserAssignedIdentitiesGetOperation(),

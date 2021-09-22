@@ -112,7 +112,7 @@ func (d parsedData) combineResourcesWith(other map[string]models.AzureApiResourc
 		}
 		existing.Operations = *operations
 
-		resourceIds, err := combineMaps(existing.ResourceIds, v.ResourceIds)
+		resourceIds, err := combineResourceIds(existing.ResourceIds, v.ResourceIds)
 		if err != nil {
 			return nil, fmt.Errorf("combining resource ids: %+v", err)
 		}
@@ -183,6 +183,26 @@ func combineOperations(first map[string]models.OperationDetails, second map[stri
 		_, ok := output[k]
 		if ok {
 			return nil, fmt.Errorf("duplicate operations named %q", k)
+		}
+
+		output[k] = v
+	}
+
+	return &output, nil
+}
+
+func combineResourceIds(first map[string]models.ParsedResourceId, second map[string]models.ParsedResourceId) (*map[string]models.ParsedResourceId, error) {
+	output := make(map[string]models.ParsedResourceId, 0)
+
+	for k, v := range first {
+		output[k] = v
+	}
+
+	for k, v := range second {
+		// if there's duplicate Resource ID's named the same thing in different Swaggers, this is likely a data issue
+		_, ok := output[k]
+		if ok {
+			return nil, fmt.Errorf("duplicate Resource ID named %q", k)
 		}
 
 		output[k] = v

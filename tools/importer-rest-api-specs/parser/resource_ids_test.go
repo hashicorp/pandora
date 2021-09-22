@@ -1,7 +1,9 @@
 package parser
 
 import (
+	"fmt"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/featureflags"
+	"reflect"
 	"testing"
 
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
@@ -44,13 +46,57 @@ func TestParseResourceIdBasic(t *testing.T) {
 
 	// first check the ResourceId looks good
 	expectedValue := "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.SomeResourceProvider/servers/{serverName}"
+	expectedResourceId := models.ParsedResourceId{
+		Constants: map[string]models.ConstantDetails{},
+		Segments: []models.ResourceIdSegment{
+			{
+				Type:       models.StaticSegment,
+				FixedValue: strPtr("subscriptions"),
+				Name:       "subscriptions",
+			},
+			{
+				Type: models.SubscriptionIdSegment,
+				Name: "subscriptionId",
+			},
+			{
+				Type:       models.StaticSegment,
+				FixedValue: strPtr("resourceGroups"),
+				Name:       "resourceGroups",
+			},
+			{
+				Type: models.ResourceGroupSegment,
+				Name: "resourceGroupName",
+			},
+			{
+				Type:       models.StaticSegment,
+				FixedValue: strPtr("providers"),
+				Name:       "providers",
+			},
+			{
+				Type:       models.StaticSegment,
+				FixedValue: strPtr("Microsoft.SomeResourceProvider"),
+				Name:       "microsoftSomeResourceProvider",
+			},
+			{
+				Type:       models.StaticSegment,
+				FixedValue: strPtr("servers"),
+				Name:       "servers",
+			},
+			{
+				Type: models.UserSpecifiedSegment,
+				Name: "serverName",
+			},
+		},
+	}
 	actualValue, ok := hello.ResourceIds["ServerId"]
 	if !ok {
 		t.Fatalf("expected a ResourceId named ServerId but didn't get one")
 	}
-	// TODO: update this to be the output type we expect
-	if actualValue != expectedValue {
-		t.Fatalf("expected the ServerId ResourceId to match %q but got %q", expectedValue, actualValue)
+	if actualValue.String() != expectedValue {
+		t.Fatalf("expected the ServerId ResourceId to match %q but got %q", expectedValue, actualValue.String())
+	}
+	if err := validateResourceId(actualValue, expectedValue, expectedResourceId); err != nil {
+		t.Fatalf(err.Error())
 	}
 
 	// then check it's exposed in the operation itself
@@ -105,14 +151,45 @@ func TestParseResourceIdContainingAConstant(t *testing.T) {
 	}
 
 	// first check the ResourceId looks good
+	expectedResourceId := models.ParsedResourceId{
+		Constants: map[string]models.ConstantDetails{
+			"Planet": {
+				FieldType: models.StringConstant,
+				Values: map[string]string{
+					"Earth":   "Earth",
+					"Jupiter": "Jupiter",
+					"Mars":    "Mars",
+					"Saturn":  "Saturn",
+				},
+			},
+		},
+		Segments: []models.ResourceIdSegment{
+			{
+				Type:       models.StaticSegment,
+				FixedValue: strPtr("planets"),
+				Name:       "planets",
+			},
+			{
+				Type:              models.ConstantSegment,
+				ConstantReference: strPtr("Planet"),
+				Name:              "planetName",
+			},
+		},
+	}
 	expectedValue := "/planets/{planetName}"
 	actualValue, ok := hello.ResourceIds["PlanetId"]
 	if !ok {
 		t.Fatalf("expected a ResourceId named PlanetId but didn't get one")
 	}
-	// TODO: update this to be the output type we expect
-	if actualValue != expectedValue {
+	if actualValue.String() != expectedValue {
 		t.Fatalf("expected the PlanetId ResourceId to match %q but got %q", expectedValue, actualValue)
+	}
+	if err := validateResourceId(actualValue, expectedValue, expectedResourceId); err != nil {
+		t.Fatalf(err.Error())
+	}
+
+	if _, ok := actualValue.Constants["Planet"]; !ok {
+		t.Fatalf("expected the ResourceId to have an embedded constant named Planet but didn't get one")
 	}
 
 	constant, ok := hello.Constants["Planet"]
@@ -182,14 +259,44 @@ func TestParseResourceIdContainingAScope(t *testing.T) {
 	}
 
 	// first check the ResourceId looks good
+	expectedResourceId := models.ParsedResourceId{
+		Constants: map[string]models.ConstantDetails{},
+		Segments: []models.ResourceIdSegment{
+			{
+				Type: models.ScopeSegment,
+				Name: "scope",
+			},
+			{
+				Type:       models.StaticSegment,
+				FixedValue: strPtr("providers"),
+				Name:       "providers",
+			},
+			{
+				Type:       models.StaticSegment,
+				FixedValue: strPtr("Microsoft.FooBar"),
+				Name:       "microsoftFooBar",
+			},
+			{
+				Type:       models.StaticSegment,
+				FixedValue: strPtr("virtualMachines"),
+				Name:       "virtualMachines",
+			},
+			{
+				Type: models.UserSpecifiedSegment,
+				Name: "virtualMachineName",
+			},
+		},
+	}
 	expectedValue := "/{scope}/providers/Microsoft.FooBar/virtualMachines/{virtualMachineName}" // NOTE: this has to have a leading slash to be valid in Swagger
 	actualValue, ok := hello.ResourceIds["ScopedVirtualMachineId"]
 	if !ok {
 		t.Fatalf("expected a ResourceId named ScopedVirtualMachineId but didn't get one")
 	}
-	// TODO: update this to be the output type we expect
-	if actualValue != expectedValue {
+	if actualValue.String() != expectedValue {
 		t.Fatalf("expected the ScopedVirtualMachineId ResourceId to match %q but got %q", expectedValue, actualValue)
+	}
+	if err := validateResourceId(actualValue, expectedValue, expectedResourceId); err != nil {
+		t.Fatalf(err.Error())
 	}
 
 	// then check it's exposed in the operation itself
@@ -295,14 +402,58 @@ func TestParseResourceIdWithResourceIdAndUriSuffix(t *testing.T) {
 	}
 
 	// first check the ResourceId looks good
+	expectedResourceId := models.ParsedResourceId{
+		Constants: map[string]models.ConstantDetails{},
+		Segments: []models.ResourceIdSegment{
+			{
+				Type:       models.StaticSegment,
+				FixedValue: strPtr("subscriptions"),
+				Name:       "subscriptions",
+			},
+			{
+				Type: models.SubscriptionIdSegment,
+				Name: "subscriptionId",
+			},
+			{
+				Type:       models.StaticSegment,
+				FixedValue: strPtr("resourceGroups"),
+				Name:       "resourceGroups",
+			},
+			{
+				Type: models.ResourceGroupSegment,
+				Name: "resourceGroupName",
+			},
+			{
+				Type:       models.StaticSegment,
+				FixedValue: strPtr("providers"),
+				Name:       "providers",
+			},
+			{
+				Type:       models.StaticSegment,
+				FixedValue: strPtr("Microsoft.SomeResourceProvider"),
+				Name:       "microsoftSomeResourceProvider",
+			},
+			{
+				Type:       models.StaticSegment,
+				FixedValue: strPtr("servers"),
+				Name:       "servers",
+			},
+			{
+				Type: models.UserSpecifiedSegment,
+				Name: "serverName",
+			},
+		},
+	}
 	expectedValue := "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.SomeResourceProvider/servers/{serverName}"
 	actualValue, ok := hello.ResourceIds["ServerId"]
 	if !ok {
 		t.Fatalf("expected a ResourceId named ServerId but didn't get one")
 	}
-	// TODO: update this to be the output type we expect
-	if actualValue != expectedValue {
+	if actualValue.String() != expectedValue {
 		t.Fatalf("expected the ServerId ResourceId to match %q but got %q", expectedValue, actualValue)
+	}
+	if err := validateResourceId(actualValue, expectedValue, expectedResourceId); err != nil {
+		t.Fatalf(err.Error())
 	}
 
 	// then check it's exposed in the operation itself
@@ -361,14 +512,58 @@ func TestParseResourceIdWithResourceIdAndUriSuffixForMultipleUris(t *testing.T) 
 	}
 
 	// first check the ResourceId looks good
+	expectedResourceId := models.ParsedResourceId{
+		Constants: map[string]models.ConstantDetails{},
+		Segments: []models.ResourceIdSegment{
+			{
+				Type:       models.StaticSegment,
+				FixedValue: strPtr("subscriptions"),
+				Name:       "subscriptions",
+			},
+			{
+				Type: models.SubscriptionIdSegment,
+				Name: "subscriptionId",
+			},
+			{
+				Type:       models.StaticSegment,
+				FixedValue: strPtr("resourceGroups"),
+				Name:       "resourceGroups",
+			},
+			{
+				Type: models.ResourceGroupSegment,
+				Name: "resourceGroupName",
+			},
+			{
+				Type:       models.StaticSegment,
+				FixedValue: strPtr("providers"),
+				Name:       "providers",
+			},
+			{
+				Type:       models.StaticSegment,
+				FixedValue: strPtr("Microsoft.SomeResourceProvider"),
+				Name:       "microsoftSomeResourceProvider",
+			},
+			{
+				Type:       models.StaticSegment,
+				FixedValue: strPtr("servers"),
+				Name:       "servers",
+			},
+			{
+				Type: models.UserSpecifiedSegment,
+				Name: "serverName",
+			},
+		},
+	}
 	expectedValue := "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.SomeResourceProvider/servers/{serverName}"
 	actualValue, ok := hello.ResourceIds["ServerId"]
 	if !ok {
 		t.Fatalf("expected a ResourceId named ServerId but didn't get one")
 	}
-	// TODO: update this to be the output type we expect
-	if actualValue != expectedValue {
+	if actualValue.String() != expectedValue {
 		t.Fatalf("expected the ServerId ResourceId to match %q but got %q", expectedValue, actualValue)
+	}
+	if err := validateResourceId(actualValue, expectedValue, expectedResourceId); err != nil {
+		t.Fatalf(err.Error())
 	}
 
 	// then check it's exposed in each of the operations itself
@@ -423,4 +618,67 @@ func TestParseResourceIdWithResourceIdAndUriSuffixForMultipleUris(t *testing.T) 
 	if *operation.UriSuffix != expectedSuffix {
 		t.Fatalf("expected the UriSuffix for the Operation Restart to be %q but got %q", expectedSuffix, *operation.UriSuffix)
 	}
+}
+
+func validateResourceId(actualValue models.ParsedResourceId, expectedString string, expected models.ParsedResourceId) error {
+	if actualValue.String() != expectedString {
+		return fmt.Errorf("expected the ResourceId to be %q but got %q", expectedString, actualValue.String())
+	}
+
+	if len(actualValue.Segments) != len(expected.Segments) {
+		return fmt.Errorf("expected the ResourceId to have %d segments but got %d", len(expected.Segments), len(actualValue.Segments))
+	}
+	for i, expectedSegment := range expected.Segments {
+		actualSegment := actualValue.Segments[i]
+
+		if expectedSegment.Type != actualSegment.Type {
+			return fmt.Errorf("expected the Segment at index %d to have the Type %q but got %q", i, string(expectedSegment.Type), string(actualSegment.Type))
+		}
+
+		if expectedSegment.Name != actualSegment.Name {
+			return fmt.Errorf("expected the Segment at index %d to have the Name %q but got %q", i, expectedSegment.Name, actualSegment.Name)
+		}
+
+		if expectedSegment.ConstantReference != nil || actualSegment.ConstantReference != nil {
+			if expectedSegment.ConstantReference == nil {
+				return fmt.Errorf("expected the Segment at index %d to not have a ConstantReference but got %q", i, *actualSegment.ConstantReference)
+			}
+			if actualSegment.ConstantReference == nil {
+				return fmt.Errorf("expected the Segment at index %d to have a ConstantReference but didn't get one", i)
+			}
+
+			if *expectedSegment.ConstantReference != *actualSegment.ConstantReference {
+				return fmt.Errorf("expected the Segment at index %d's ConstantReference to be %q but got %q", i, *expectedSegment.ConstantReference, *actualSegment.ConstantReference)
+			}
+		}
+
+		if expectedSegment.FixedValue != nil || actualSegment.FixedValue != nil {
+			if expectedSegment.FixedValue == nil {
+				return fmt.Errorf("expected the Segment at index %d to not have a FixedValue but got %q", i, *actualSegment.FixedValue)
+			}
+			if actualSegment.FixedValue == nil {
+				return fmt.Errorf("expected the Segment at index %d to have a FixedValue but didn't get one", i)
+			}
+
+			if *expectedSegment.FixedValue != *actualSegment.FixedValue {
+				return fmt.Errorf("expected the Segment at index %d's FixedValue to be %q but got %q", i, *expectedSegment.FixedValue, *actualSegment.FixedValue)
+			}
+		}
+	}
+
+	if len(actualValue.Constants) != len(expected.Constants) {
+		return fmt.Errorf("expected there to be %d constants but got %d", len(expected.Constants), len(actualValue.Constants))
+	}
+	for k, expectedConstant := range expected.Constants {
+		actualConstant, ok := actualValue.Constants[k]
+		if !ok {
+			return fmt.Errorf("actual didn't contain the constant %q", k)
+		}
+
+		if !reflect.DeepEqual(expectedConstant, actualConstant) {
+			return fmt.Errorf("Constant %q didn't match - expected:\n\n%+v\n\nActual:\n\n%+v", k, expectedConstant, actualConstant)
+		}
+	}
+
+	return nil
 }

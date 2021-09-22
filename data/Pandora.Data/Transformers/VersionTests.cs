@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using NUnit.Framework;
-using Pandora.Definitions;
 using Pandora.Definitions.Interfaces;
 using Pandora.Definitions.Operations;
 
@@ -79,6 +78,35 @@ namespace Pandora.Data.Transformers
         private class FakeResourceId : Definitions.Interfaces.ResourceID
         {
             public string ID() => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}";
+
+            public List<ResourceIDSegment> Segments()
+            {
+                return new List<ResourceIDSegment>
+                {
+                    new()
+                    {
+                        Type = ResourceIDSegmentType.Static,
+                        FixedValue = "subscriptions",
+                        Name = "subscriptions",
+                    },
+                    new()
+                    {
+                        Type = ResourceIDSegmentType.SubscriptionId,
+                        Name = "subscriptionId",
+                    },
+                    new()
+                    {
+                        Type = ResourceIDSegmentType.Static,
+                        FixedValue = "resourceGroups",
+                        Name = "resourceGroups",
+                    },
+                    new()
+                    {
+                        Type = ResourceIDSegmentType.ResourceGroup,
+                        Name = "resourceGroups",
+                    },
+                };
+            }
         }
     }
 }

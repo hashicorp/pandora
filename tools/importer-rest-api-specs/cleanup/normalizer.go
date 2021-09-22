@@ -4,26 +4,8 @@ import (
 	"strings"
 )
 
-func NormalizeConstantKey(input string) string {
+func RemoveInvalidCharacters(input string, titleCaseSegments bool) string {
 	output := input
-	output = StringifyNumberInput(output)
-
-	output = strings.ReplaceAll(output, "*", "Any")
-	// TODO: add more if we find them
-
-	output = NormalizeName(output)
-	return output
-}
-
-func NormalizeName(input string) string {
-	output := input
-
-	// we should probably iterate over the string and if we find one of these tokens
-	// then capitalize the next letter, but this is sufficient for now
-
-	// TODO: basic but fine for now, ultimately we should check this is a valid type name
-	// but tbh, the compiler will catch these when we generate them so that's a later problem
-	output = strings.TrimPrefix(output, "$")
 
 	// foreach of these characters, work through and Capitalize the segments as necessary
 	// e.g. `Azure-kusto` becomes `AzureKusto`
@@ -37,6 +19,8 @@ func NormalizeName(input string) string {
 		"]",
 		"(",
 		")",
+		"{",
+		"}",
 		"@",
 		"#",
 		"+",
@@ -52,12 +36,31 @@ func NormalizeName(input string) string {
 		newVal := ""
 		for _, word := range split {
 			word = strings.ReplaceAll(word, find, "")
-			word = strings.Title(word)
+			if titleCaseSegments {
+				word = strings.Title(word)
+			}
 			newVal += word
 		}
 		output = newVal
 	}
 
+	return output
+}
+
+func NormalizeConstantKey(input string) string {
+	output := input
+	output = StringifyNumberInput(output)
+
+	output = strings.ReplaceAll(output, "*", "Any")
+	// TODO: add more if we find them
+
+	output = NormalizeName(output)
+	return output
+}
+
+func NormalizeName(input string) string {
+	output := input
+	output = RemoveInvalidCharacters(output, true)
 	output = NormalizeSegment(output, false)
 	output = strings.Title(output)
 	return output
