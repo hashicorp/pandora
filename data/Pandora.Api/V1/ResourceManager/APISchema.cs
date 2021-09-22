@@ -56,7 +56,7 @@ namespace Pandora.Api.V1.ResourceManager
             {
                 Constants = api.Constants.ToDictionary(c => c.Name, ConstantApiDefinition.Map),
                 Models = api.Models.ToDictionary(m => m.Name, MapModel),
-                ResourceIds = api.ResourceIds.ToDictionary(id => id.Name, id => id.Format),
+                ResourceIds = api.ResourceIds.ToDictionary(id => id.Name, MapResourceId),
             };
         }
 
@@ -104,6 +104,17 @@ namespace Pandora.Api.V1.ResourceManager
                 PropertyType = MapApiPropertyType(definition.PropertyType),
                 Required = definition.Required,
                 Validation = ValidationApiDefinition.Map(definition.Validation),
+            };
+        }
+        
+        private static ResourceIdDefinition MapResourceId(Data.Models.ResourceIdDefinition id)
+        {
+            return new ResourceIdDefinition
+            {
+                // TODO: feed both Constant Names and Segments through
+                ConstantNames = new List<string>(),
+                Id = id.Format,
+                Segments = new List<ResourceIdSegmentDefinition>(),
             };
         }
 
@@ -195,7 +206,7 @@ namespace Pandora.Api.V1.ResourceManager
             public Dictionary<string, ModelApiDefinition> Models { get; set; }
 
             [JsonPropertyName("resourceIds")]
-            public Dictionary<string, string> ResourceIds { get; set; }
+            public Dictionary<string, ResourceIdDefinition> ResourceIds { get; set; }
         }
 
         private class PropertyApiDefinition
@@ -242,6 +253,33 @@ namespace Pandora.Api.V1.ResourceManager
 
             [JsonPropertyName("validation")]
             public ValidationApiDefinition? Validation { get; set; }
+        }
+
+        private class ResourceIdDefinition
+        {
+            [JsonPropertyName("constantNames")]
+            public List<string> ConstantNames { get; set; }
+            
+            [JsonPropertyName("id")]
+            public string Id { get; set; }
+
+            [JsonPropertyName("segments")]
+            public List<ResourceIdSegmentDefinition> Segments { get; set; }
+        }
+
+        private class ResourceIdSegmentDefinition
+        {
+            [JsonPropertyName("constantReference")]
+            public string? ConstantReference { get; set; }
+            
+            [JsonPropertyName("fixedValue")]
+            public string? FixedValue { get; set; }
+            
+            [JsonPropertyName("name")]
+            public string Name { get; set; }
+            
+            [JsonPropertyName("type")]
+            public string Type { get; set; }
         }
 
         private enum ApiPropertyType
