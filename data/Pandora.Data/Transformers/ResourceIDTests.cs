@@ -8,9 +8,9 @@ namespace Pandora.Data.Transformers
     {
         // TODO: add an Operation test in time for "With Constants" (when threading through the Mappings in the next PR)
         // to ensure constants get picked out
-        
+
         // TODO: more tests
-        
+
         [TestCase]
         public static void MappingAResourceIDWithNoSegments()
         {
@@ -34,7 +34,7 @@ namespace Pandora.Data.Transformers
             var actual = ResourceID.Map(expected);
             Assert.AreEqual("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}", actual.Format);
         }
-        
+
         private class HelloWorldStaticResourceId : Definitions.Interfaces.ResourceID
         {
             public string ID() => "/hello/world";
@@ -55,7 +55,7 @@ namespace Pandora.Data.Transformers
                 }
             };
         }
-        
+
         private class HelloWorldUserSpecifiableResourceId : Definitions.Interfaces.ResourceID
         {
             public string ID() => "/hello/{world}";
@@ -75,7 +75,7 @@ namespace Pandora.Data.Transformers
                 }
             };
         }
-        
+
         private class ResourceGroupResourceId : Definitions.Interfaces.ResourceID
         {
             public string ID() => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}";
