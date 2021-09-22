@@ -13,7 +13,7 @@ namespace Pandora.Definitions.TestData.Pandamonium.v2020_01_01.Grouping
             {
                 new()
                 {
-                    Name = "Subscriptions",
+                    Name = "subscriptions",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "subscriptions"
                 },
@@ -23,7 +23,7 @@ namespace Pandora.Definitions.TestData.Pandamonium.v2020_01_01.Grouping
                 },
                 new()
                 {
-                    Name = "ResourceGroups",
+                    Name = "resourceGroups",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "resourceGroups"
                 },
