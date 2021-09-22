@@ -101,9 +101,12 @@ func (g PandoraDefinitionGenerator) GenerateResources(resourceName, namespace st
 		if g.debugLog {
 			log.Printf("Generating Resource ID %q (in %s)", name, namespace)
 		}
-		code := g.codeForResourceID(namespace, name, id)
+		code, err := g.codeForResourceID(namespace, name, id)
+		if err != nil {
+			return fmt.Errorf("generating Resource ID %q in %q: %+v", name, namespace, err)
+		}
 		fileName := path.Join(workingDirectory, fmt.Sprintf("ResourceId-%s.cs", name))
-		if err := writeToFile(fileName, code); err != nil {
+		if err := writeToFile(fileName, *code); err != nil {
 			return fmt.Errorf("writing code for Resource Id %q: %+v", name, err)
 		}
 	}
