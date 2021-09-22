@@ -186,17 +186,17 @@ type ResourceIdDefinition struct {
 type ResourceIdSegment struct {
 	// ConstantReference is the name of the Constant which this Segment is associated with
 	// this is only present when `Type` is `ConstantSegment`
-	ConstantReference *string
+	ConstantReference *string `json:"constantReference,omitempty"`
 
 	// FixedValue is the Fixed/Static value for this segment - only present when `Type` is `StaticSegment`.
 	FixedValue *string `json:"fixedValue,omitempty"`
 
 	// Name is the camelCased name of this segment, which is normalized (and safe to use as a
 	// parameter/a field if necessary).
-	Name string
+	Name string `json:"name"`
 
 	// Type specifies the Type of Segment that this is, for example a `StaticSegment`
-	Type ResourceIdSegmentType
+	Type ResourceIdSegmentType `json:"type"`
 }
 
 type ResourceIdSegmentType string
