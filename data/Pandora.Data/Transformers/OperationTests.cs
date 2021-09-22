@@ -6,6 +6,7 @@ using System.Text.Json.Serialization;
 using NUnit.Framework;
 using Pandora.Data.Models;
 using Pandora.Definitions.Attributes;
+using Pandora.Definitions.Interfaces;
 using Pandora.Definitions.Operations;
 
 namespace Pandora.Data.Transformers
@@ -358,7 +359,20 @@ namespace Pandora.Data.Transformers
         {
             public string ID()
             {
-                return "hello";
+                return "/hello";
+            }
+
+            public List<ResourceIDSegment> Segments()
+            {
+                return new List<ResourceIDSegment>
+                {
+                    new()
+                    {
+                        Name = "hello",
+                        Type = ResourceIDSegmentType.Static,
+                        FixedValue = "hello",
+                    }
+                };
             }
         }
     }
