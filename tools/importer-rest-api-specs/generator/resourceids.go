@@ -1,8 +1,13 @@
 package generator
 
-import "fmt"
+import (
+	"fmt"
 
-func (g PandoraDefinitionGenerator) codeForResourceID(namespace string, resourceIdName string, resourceIdValue string) string {
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+)
+
+func (g PandoraDefinitionGenerator) codeForResourceID(namespace string, resourceIdName string, resourceIdValue models.ParsedResourceId) string {
+	// TODO: update to output the different segments
 	return fmt.Sprintf(`using Pandora.Definitions.Interfaces;
 
 namespace %[1]s
@@ -12,5 +17,5 @@ namespace %[1]s
 		public string ID() => "%[3]s";
 	}
 }
-`, namespace, resourceIdName, resourceIdValue)
+`, namespace, resourceIdName, resourceIdValue.String())
 }

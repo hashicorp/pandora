@@ -52,17 +52,11 @@ func (d *SwaggerDefinition) parseResourcesWithinSwaggerTag(tag *string) (*models
 		return nil, nil
 	}
 
-	temporaryResourceIdMapForTestsToPass := make(map[string]string, 0)
-	for k, v := range resourceIds.nameToResourceIDs {
-		temporaryResourceIdMapForTestsToPass[k] = v.NormalizedResourceManagerResourceId()
-	}
-
 	resource := models.AzureApiResource{
 		Constants:   result.constants,
 		Models:      result.models,
 		Operations:  *operations,
-		ResourceIds: temporaryResourceIdMapForTestsToPass, // TODO: when we're further along this'll want to change
-		//ResourceIds: resourceIds.NamesToResourceIds,
+		ResourceIds: resourceIds.nameToResourceIDs,
 	}
 
 	// first Normalize the names, meaning `foo` -> `Foo` for consistency

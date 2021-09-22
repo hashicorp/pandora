@@ -10,7 +10,7 @@ type AzureApiResource struct {
 	Constants   map[string]ConstantDetails
 	Models      map[string]ModelDetails
 	Operations  map[string]OperationDetails
-	ResourceIds map[string]string
+	ResourceIds map[string]ParsedResourceId
 }
 
 type OperationDetails struct {

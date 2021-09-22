@@ -117,17 +117,16 @@ func (d *SwaggerDefinition) parseResourceIdFromOperation(uri string, operationDe
 		constants: map[string]models.ConstantDetails{},
 	}
 
-	if strings.Contains(uri, "SignalR") {
-		uri = fmt.Sprintf("%s", uri)
-	}
-
 	uriSegments := strings.Split(strings.TrimPrefix(uri, "/"), "/")
 	for _, uriSegment := range uriSegments {
-		normalizedSegment := cleanup.NormalizeSegment(uriSegment, true)
-		normalizedSegment = strings.TrimSuffix(strings.TrimPrefix(normalizedSegment, "{"), "}")
+		originalSegment := uriSegment
+		normalizedSegment := cleanup.RemoveInvalidCharacters(uriSegment, false)
+		normalizedSegment = cleanup.NormalizeSegment(normalizedSegment, true)
+		// the names should always be camelCased, so let's be sure
+		normalizedSegment = fmt.Sprintf("%s%s", strings.ToLower(string(normalizedSegment[0])), normalizedSegment[1:])
 
 		// intentionally check the pre-cut version
-		if strings.HasPrefix(uriSegment, "{") && strings.HasSuffix(uriSegment, "}") {
+		if strings.HasPrefix(originalSegment, "{") && strings.HasSuffix(originalSegment, "}") {
 			if strings.EqualFold(normalizedSegment, "scope") {
 				segments = append(segments, models.ResourceIdSegment{
 					Type: models.ScopeSegment,
@@ -190,7 +189,7 @@ func (d *SwaggerDefinition) parseResourceIdFromOperation(uri string, operationDe
 		segments = append(segments, models.ResourceIdSegment{
 			Type:       models.StaticSegment,
 			Name:       normalizedSegment,
-			FixedValue: &normalizedSegment,
+			FixedValue: &originalSegment,
 		})
 	}
 
