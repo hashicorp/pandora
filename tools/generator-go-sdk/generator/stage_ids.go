@@ -14,12 +14,12 @@ func (s *ServiceGenerator) ids(data ServiceGeneratorData) error {
 		packageName = "ids"
 	}
 
-	for idName, idFormat := range data.resourceIds {
+	for idName, idDefinition := range data.resourceIds {
 		nameWithoutSuffix := strings.TrimSuffix(idName, "Id") // we suffix 'Id' and 'ID' in places
 		fileNamePrefix := strings.ToLower(nameWithoutSuffix)
 		if err := s.writeToPath(outputDirectory, fmt.Sprintf("id_%s.go", fileNamePrefix), idParserTemplater{
 			name:        nameWithoutSuffix,
-			format:      idFormat,
+			format:      idDefinition.Id,
 			packageName: packageName,
 		}, data); err != nil {
 			return fmt.Errorf("templating ids: %+v", err)
@@ -27,7 +27,7 @@ func (s *ServiceGenerator) ids(data ServiceGeneratorData) error {
 
 		if err := s.writeToPath(outputDirectory, fmt.Sprintf("id_%s_test.go", fileNamePrefix), idParserTestsTemplater{
 			name:        nameWithoutSuffix,
-			format:      idFormat,
+			format:      idDefinition.Id,
 			packageName: packageName,
 		}, data); err != nil {
 			return fmt.Errorf("templating tests for id: %+v", err)
