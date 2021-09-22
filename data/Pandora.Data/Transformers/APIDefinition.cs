@@ -18,10 +18,15 @@ namespace Pandora.Data.Transformers
                     throw new NotSupportedException($"API Version {input.GetType().Name} has no operations");
                 }
 
-                var constantDefinitions = operations.SelectMany(ConstantsForOperation).Distinct(new ConstantComparer()).ToList();
+                var constantDefinitions = operations.SelectMany(ConstantsForOperation).ToList();
                 var modelDefinitions = operations.SelectMany(ModelsForOperation).Distinct(new ModelComparer()).ToList();
                 var operationDefinitions = operations.Select(o => Operation.Map(o, input.ApiVersion, input.Name)).ToList();
                 var resourceIds = operations.SelectMany(ResourceIdsForOperation).Distinct(new ResourceIDComparer()).ToList();
+                
+                // append any constants found in the Resource ID's to the Constants list, then finally unique the Constants
+                constantDefinitions.AddRange(resourceIds.SelectMany(rid => rid.Constants).ToList());
+                constantDefinitions = constantDefinitions.Distinct(new ConstantComparer()).ToList();
+                
                 return new Models.ApiDefinition
                 {
                     ApiVersion = input.ApiVersion,

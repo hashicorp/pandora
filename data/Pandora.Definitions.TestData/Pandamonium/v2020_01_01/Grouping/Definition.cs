@@ -26,6 +26,5 @@ namespace Pandora.Definitions.TestData.Pandamonium.v2020_01_01.Grouping
             new PutLongRunning(),
             new PutStringImmediate(),
         };
-        public ResourceID ResourceId => new ExampleResourceId();
     }
 }
