@@ -56,7 +56,7 @@ namespace Pandora.Definitions.TestData.Pandamonium.v2020_01_01.Grouping
     {
         [Description("earth")]
         Earth,
-        
+
         [Description("mars")]
         Mars,
     }

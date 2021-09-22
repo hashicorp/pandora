@@ -107,7 +107,7 @@ namespace Pandora.Api.V1.ResourceManager
                 Validation = ValidationApiDefinition.Map(definition.Validation),
             };
         }
-        
+
         private static ResourceIdDefinition MapResourceId(Data.Models.ResourceIdDefinition id)
         {
             var uniqueConstantNames = id.Segments.Where(s => s.ConstantReference != null).Select(s => s.ConstantReference!).Distinct().ToList();
@@ -176,7 +176,7 @@ namespace Pandora.Api.V1.ResourceManager
                     throw new NotImplementedException($"unsupported value {input.ToString()}");
             }
         }
-        
+
         private static ResourceIdSegmentDefinition MapResourceIdSegment(Data.Models.ResourceIdSegmentDefinition input)
         {
             var segmentType = MapResourceIdSegmentType(input.Type);
@@ -195,22 +195,22 @@ namespace Pandora.Api.V1.ResourceManager
             {
                 case Data.Models.ResourceIdSegmentType.Constant:
                     return ResourceIdSegmentType.Constant.ToString();
-                
+
                 case Data.Models.ResourceIdSegmentType.ResourceGroup:
                     return ResourceIdSegmentType.ResourceGroup.ToString();
-                
+
                 case Data.Models.ResourceIdSegmentType.Scope:
                     return ResourceIdSegmentType.Scope.ToString();
-                
+
                 case Data.Models.ResourceIdSegmentType.Static:
                     return ResourceIdSegmentType.Static.ToString();
-                
+
                 case Data.Models.ResourceIdSegmentType.SubscriptionId:
                     return ResourceIdSegmentType.SubscriptionId.ToString();
-                
+
                 case Data.Models.ResourceIdSegmentType.UserSpecified:
                     return ResourceIdSegmentType.UserSpecified.ToString();
-                
+
                 default:
                     throw new NotImplementedException($"unsupported value {input.ToString()}");
             }
@@ -310,7 +310,7 @@ namespace Pandora.Api.V1.ResourceManager
         {
             [JsonPropertyName("constantNames")]
             public List<string> ConstantNames { get; set; }
-            
+
             [JsonPropertyName("id")]
             public string Id { get; set; }
 
@@ -322,13 +322,13 @@ namespace Pandora.Api.V1.ResourceManager
         {
             [JsonPropertyName("constantReference")]
             public string? ConstantReference { get; set; }
-            
+
             [JsonPropertyName("fixedValue")]
             public string? FixedValue { get; set; }
-            
+
             [JsonPropertyName("name")]
             public string Name { get; set; }
-            
+
             [JsonPropertyName("type")]
             public string Type { get; set; }
         }

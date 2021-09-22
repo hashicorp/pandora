@@ -204,7 +204,7 @@ namespace Pandora.Data.Transformers
                 }
             };
         }
-        
+
         private class ResourceIdContainingAConstant : Definitions.Interfaces.ResourceID
         {
             public string ID() => "/planets/{planetName}";
@@ -224,13 +224,13 @@ namespace Pandora.Data.Transformers
                     ConstantReference = typeof(PlanetName)
                 }
             };
-            
+
             [ConstantType(ConstantTypeAttribute.ConstantType.String)]
             private enum PlanetName
             {
                 [System.ComponentModel.Description("mars")]
                 Mars,
-                
+
                 [System.ComponentModel.Description("jupiter")]
                 Jupiter
             }

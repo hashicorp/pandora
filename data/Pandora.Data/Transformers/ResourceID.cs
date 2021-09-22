@@ -21,17 +21,17 @@ namespace Pandora.Data.Transformers
                     Name = segment.Name,
                     Type = type,
                 };
-                
+
                 if (segment.ConstantReference != null)
                 {
                     var mapped = Constant.FromEnum(segment.ConstantReference!);
                     constants.Add(mapped);
                     output.ConstantReference = mapped.Name;
                 }
-                
+
                 segments.Add(output);
             }
-            
+
             return new ResourceIdDefinition
             {
                 Name = input.GetType().Name,
@@ -47,22 +47,22 @@ namespace Pandora.Data.Transformers
             {
                 case ResourceIDSegmentType.Constant:
                     return ResourceIdSegmentType.Constant;
-                
+
                 case ResourceIDSegmentType.ResourceGroup:
                     return ResourceIdSegmentType.ResourceGroup;
-                
+
                 case ResourceIDSegmentType.Scope:
                     return ResourceIdSegmentType.Scope;
-                
+
                 case ResourceIDSegmentType.Static:
                     return ResourceIdSegmentType.Static;
-                
+
                 case ResourceIDSegmentType.SubscriptionId:
                     return ResourceIdSegmentType.SubscriptionId;
-                
+
                 case ResourceIDSegmentType.UserSpecified:
                     return ResourceIdSegmentType.UserSpecified;
-                
+
                 default:
                     throw new NotSupportedException($"unimplemented ResourceIDSegmentType {input.ToString()}");
             }
