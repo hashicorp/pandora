@@ -106,7 +106,7 @@ namespace Pandora.Api.V1.ResourceManager
                 Validation = ValidationApiDefinition.Map(definition.Validation),
             };
         }
-        
+
         private static ResourceIdDefinition MapResourceId(Data.Models.ResourceIdDefinition id)
         {
             return new ResourceIdDefinition
@@ -259,7 +259,7 @@ namespace Pandora.Api.V1.ResourceManager
         {
             [JsonPropertyName("constantNames")]
             public List<string> ConstantNames { get; set; }
-            
+
             [JsonPropertyName("id")]
             public string Id { get; set; }
 
@@ -271,13 +271,13 @@ namespace Pandora.Api.V1.ResourceManager
         {
             [JsonPropertyName("constantReference")]
             public string? ConstantReference { get; set; }
-            
+
             [JsonPropertyName("fixedValue")]
             public string? FixedValue { get; set; }
-            
+
             [JsonPropertyName("name")]
             public string Name { get; set; }
-            
+
             [JsonPropertyName("type")]
             public string Type { get; set; }
         }
