@@ -2,8 +2,9 @@ package models
 
 import (
 	"fmt"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/cleanup"
 	"strings"
+
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/cleanup"
 )
 
 type ParsedResourceId struct {

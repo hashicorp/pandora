@@ -7,16 +7,16 @@ type ResourceManagerServices struct {
 }
 
 type ResourceManagerService struct {
-	Details resourcemanager.ServiceSummary
+	Details  resourcemanager.ServiceSummary
 	Versions map[string]ServiceVersion
 }
 
 type ServiceVersion struct {
-	Details resourcemanager.ServiceVersionDetails
+	Details   resourcemanager.ServiceVersionDetails
 	Resources map[string]Resource
 }
 
 type Resource struct {
 	Operations resourcemanager.ApiOperationDetails
-	Schema resourcemanager.ApiSchemaDetails
+	Schema     resourcemanager.ApiSchemaDetails
 }

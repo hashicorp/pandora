@@ -1,10 +1,11 @@
 package main
 
 import (
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
-	"github.com/hashicorp/pandora/tools/sdk/services"
 	"log"
 	"os"
+
+	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+	"github.com/hashicorp/pandora/tools/sdk/services"
 )
 
 func main() {
@@ -58,4 +59,3 @@ func run(endpoint string) error {
 
 	return nil
 }
-

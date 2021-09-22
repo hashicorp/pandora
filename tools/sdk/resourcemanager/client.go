@@ -4,7 +4,7 @@ import "net/http"
 
 type Client struct {
 	endpoint string
-	client *http.Client
+	client   *http.Client
 }
 
 func NewClient(endpoint string) Client {

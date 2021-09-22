@@ -1,8 +1,9 @@
 package parser
 
 import (
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"strings"
+
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
 var _ customFieldMatcher = userAssignedIdentityMapMatcher{}
