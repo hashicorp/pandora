@@ -2,7 +2,6 @@ package parser
 
 import (
 	"fmt"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/featureflags"
 	"log"
 	"reflect"
 	"strconv"
@@ -10,6 +9,7 @@ import (
 
 	"github.com/go-openapi/spec"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/cleanup"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/featureflags"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 

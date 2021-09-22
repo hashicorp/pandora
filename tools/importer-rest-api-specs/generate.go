@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser"
 	"log"
 	"os"
 	"sort"
@@ -10,6 +9,7 @@ import (
 	"sync"
 
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/generator"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser"
 )
 
 func generateApiVersions(input []parsedData, workingDirectory, rootNamespace, swaggerGitSha string, resourceProvider *string, debug bool) error {

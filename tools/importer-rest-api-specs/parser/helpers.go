@@ -2,13 +2,12 @@ package parser
 
 import (
 	"fmt"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/featureflags"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"strings"
 
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/cleanup"
-
 	"github.com/go-openapi/spec"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/cleanup"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/featureflags"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
 func fragmentNameFromReference(input spec.Ref) *string {

@@ -2,10 +2,10 @@ package parser
 
 import (
 	"fmt"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/featureflags"
 	"reflect"
 	"testing"
 
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/featureflags"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 

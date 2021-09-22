@@ -44,7 +44,7 @@ func GetResourceManagerServices(client resourcemanager.Client) (*ResourceManager
 			}
 
 			serviceVersions[versionNumber] = ServiceVersion{
-				Details: *versionInfo,
+				Details:   *versionInfo,
 				Resources: resources,
 			}
 		}

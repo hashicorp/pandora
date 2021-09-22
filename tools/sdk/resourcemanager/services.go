@@ -26,7 +26,7 @@ func (c ServicesClient) Get() (*map[string]ServiceSummary, error) {
 
 	// TODO: handle this being a 404 etc
 
-	var response struct{
+	var response struct {
 		Services map[string]ServiceSummary `json:"services"`
 	}
 	if err := json.NewDecoder(resp.Body).Decode(&response); err != nil {
