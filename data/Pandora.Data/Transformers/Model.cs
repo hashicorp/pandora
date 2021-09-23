@@ -73,7 +73,13 @@ namespace Pandora.Data.Transformers
                             }
                         }
 
+                        // we're not concerned with the wrapper list/dictionary - just find the model
                         var innerType = property.PropertyType.GetGenericArguments()[0];
+                        while (innerType.IsGenericType)
+                        {
+                            innerType = innerType.GetGenericArguments()[0];
+                        }
+
                         // e.g. List<string>
                         if (!Helpers.IsNativeType(innerType))
                         {
