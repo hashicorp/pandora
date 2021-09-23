@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text.Json.Serialization;
 using NUnit.Framework;
 using Pandora.Data.Models;
+using Pandora.Definitions.CustomTypes;
 
 namespace Pandora.Data.Transformers
 {
@@ -21,6 +22,31 @@ namespace Pandora.Data.Transformers
             Assert.AreEqual(ObjectType.Boolean, actual.Type);
             Assert.Null(actual.ReferenceName);
             Assert.Null(actual.NestedItem);
+        }
+
+        [TestCase]
+        public static void MappingACsvOfAnObject()
+        {
+            var actual = ObjectDefinition.Map(typeof(Csv<SomeModel>));
+            Assert.AreEqual(ObjectType.Csv, actual.Type);
+            Assert.Null(actual.ReferenceName);
+            Assert.NotNull(actual.NestedItem);
+            Assert.AreEqual(ObjectType.Reference, actual.NestedItem!.Type);
+            Assert.NotNull(actual.NestedItem!.ReferenceName);
+            Assert.AreEqual("Some", actual.NestedItem!.ReferenceName);
+            Assert.Null(actual.NestedItem!.NestedItem);
+        }
+
+        [TestCase]
+        public static void MappingACsvOfStrings()
+        {
+            var actual = ObjectDefinition.Map(typeof(Csv<string>));
+            Assert.AreEqual(ObjectType.Csv, actual.Type);
+            Assert.Null(actual.ReferenceName);
+            Assert.NotNull(actual.NestedItem);
+            Assert.AreEqual(ObjectType.String, actual.NestedItem!.Type);
+            Assert.Null(actual.NestedItem!.ReferenceName);
+            Assert.Null(actual.NestedItem!.NestedItem);
         }
 
         [TestCase]

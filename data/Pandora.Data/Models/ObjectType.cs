@@ -4,6 +4,7 @@ namespace Pandora.Data.Models
     {
         Unknown,
         Boolean,
+        Csv, // TODO: thread through
         Dictionary,
         Integer,
         Float,

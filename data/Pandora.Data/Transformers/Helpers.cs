@@ -42,6 +42,21 @@ namespace Pandora.Data.Transformers
             return info.GetCustomAttribute<T>() != null;
         }
 
+        internal static bool IsAGenericCsv(this Type input)
+        {
+            return input.IsGenericType && input.GetGenericTypeDefinition() == typeof(Csv<>);
+        }
+
+        internal static Type GenericCsvElement(this Type input)
+        {
+            if (!input.IsAGenericCsv())
+            {
+                throw new NotSupportedException($"unsupported Csv Type {input.Name}");
+            }
+
+            return input.GetGenericArguments()[0];
+        }
+
         internal static bool IsAGenericDictionary(this Type input)
         {
             return input.IsGenericType && input.GetGenericTypeDefinition() == typeof(Dictionary<,>);

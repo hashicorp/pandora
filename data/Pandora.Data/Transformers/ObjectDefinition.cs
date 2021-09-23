@@ -21,6 +21,17 @@ namespace Pandora.Data.Transformers
                 };
             }
 
+            if (input.IsAGenericCsv())
+            {
+                var valueType = input.GenericCsvElement();
+                var nestedItem = Map(valueType);
+                return new Models.ObjectDefinition
+                {
+                    Type = ObjectType.Csv,
+                    NestedItem = nestedItem,
+                };
+            }
+
             if (input.IsAGenericDictionary())
             {
                 // at this time we only support keys which are strings, so we're only concerned with the Value Type here
