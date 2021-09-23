@@ -84,24 +84,6 @@ type ApiOperationOption struct {
 	Required        bool               `json:"required"`
 }
 
-type ApiObjectDefinition struct {
-	NestedItem    *ApiObjectDefinition    `json:"nestedItem,omitempty"`
-	ReferenceName *string                 `json:"referenceName,omitempty"`
-	Type          ApiObjectDefinitionType `json:"type"`
-}
-
-type ApiObjectDefinitionType string
-
-const (
-	ApiObjectDefinitionBoolean    ApiObjectDefinitionType = "Boolean"
-	ApiObjectDefinitionDictionary ApiObjectDefinitionType = "Dictionary"
-	ApiObjectDefinitionInteger    ApiObjectDefinitionType = "Integer"
-	ApiObjectDefinitionFloat      ApiObjectDefinitionType = "Float"
-	ApiObjectDefinitionList       ApiObjectDefinitionType = "List"
-	ApiObjectDefinitionReference  ApiObjectDefinitionType = "Reference"
-	ApiObjectDefinitionString     ApiObjectDefinitionType = "String"
-)
-
 type MetaData struct {
 	// ResourceProvider is the name of the Azure Resource Provider which must be
 	// registered to use this API Operation

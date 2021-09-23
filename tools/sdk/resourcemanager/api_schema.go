@@ -73,10 +73,6 @@ type ModelDetails struct {
 }
 
 type FieldDetails struct {
-	// ConstantReferenceName is an optional value specifying the Name of the Constant
-	// for this field
-	ConstantReferenceName *string `json:"constantReferenceName"`
-
 	// Default is an optional value which should be used as the default for this field
 	Default *interface{} `json:"default"`
 
@@ -94,12 +90,8 @@ type FieldDetails struct {
 	// to the Name used for this field, which can be more descriptive.
 	JsonName string `json:"jsonName"`
 
-	// ListElementType is an optional value the nested Type when 'Type' is set to 'List'
-	ListElementType *string `json:"ListElementType"`
-
-	// ModelReferenceName is an optional value specifying the Name of the Model
-	// for this field
-	ModelReferenceName *string `json:"modelReferenceName"`
+	// ObjectDefinition is the definition defining the Type of this field
+	ObjectDefinition ApiObjectDefinition `json:"objectDefinition"`
 
 	// Optional specifies that this field is Optional - since a field can either be
 	// Required or Optional, but not both.
@@ -108,9 +100,6 @@ type FieldDetails struct {
 	// Required specifies that this field is Required - since a field can either be
 	// Required or Optional, but not both.
 	Required bool `json:"required"`
-
-	// Type specifies the Type for this field, for example String, List etc.
-	Type FieldType `json:"type"`
 
 	// Validation is an optional value defining the Validation requirements for this
 	// field, if any.
@@ -130,27 +119,6 @@ type DateFormat string
 const (
 	RFC3339     DateFormat = "RFC3339"
 	RFC3339Nano DateFormat = "RFC3339Nano"
-)
-
-type FieldType string
-
-const (
-	Boolean                        FieldType = "Boolean"
-	Constant                       FieldType = "Constant"
-	DateTime                       FieldType = "DateTime"
-	Dictionary                     FieldType = "Dictionary"
-	Float                          FieldType = "Float"
-	Integer                        FieldType = "Integer"
-	List                           FieldType = "List"
-	Location                       FieldType = "Location"
-	Object                         FieldType = "Object"
-	Tags                           FieldType = "Tags"
-	String                         FieldType = "String"
-	SystemAssignedIdentity         FieldType = "SystemAssignedIdentity"
-	UserAssignedIdentityList       FieldType = "UserAssignedIdentityList"
-	UserAssignedIdentityMap        FieldType = "UserAssignedIdentityMap"
-	SystemUserAssignedIdentityList FieldType = "SystemUserAssignedIdentityList"
-	SystemUserAssignedIdentityMap  FieldType = "SystemUserAssignedIdentityMap"
 )
 
 type FieldValidationDetails struct {
