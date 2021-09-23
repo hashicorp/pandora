@@ -91,18 +91,13 @@ namespace Pandora.Api.V1.ResourceManager
         {
             return new PropertyApiDefinition
             {
-                ConstantReferenceName = definition.ConstantReference,
                 DateFormat = definition.DateFormat,
                 Default = definition.Default,
-                IsTypeHint = definition.IsTypeHint,
                 ForceNew = definition.ForceNew,
                 JsonName = definition.JsonName,
-                ListElementType = MapListElementType(definition.ListElementType),
-                MinItems = definition.MinItems,
-                MaxItems = definition.MaxItems,
-                ModelReferenceName = definition.ModelReference,
+                IsTypeHint = definition.IsTypeHint,
+                ObjectDefinition = ApiObjectDefinitionMapper.Map(definition.ObjectDefinition),
                 Optional = definition.Optional,
-                PropertyType = MapApiPropertyType(definition.PropertyType),
                 Required = definition.Required,
                 Validation = ValidationApiDefinition.Map(definition.Validation),
             };
@@ -118,63 +113,6 @@ namespace Pandora.Api.V1.ResourceManager
                 Id = id.IdString,
                 Segments = segments,
             };
-        }
-
-        private static string MapApiPropertyType(PropertyType input)
-        {
-            switch (input)
-            {
-                case PropertyType.Boolean:
-                    return ApiPropertyType.Boolean.ToString();
-
-                case PropertyType.Constant:
-                    return ApiPropertyType.Constant.ToString();
-
-                case PropertyType.DateTime:
-                    return ApiPropertyType.DateTime.ToString();
-
-                case PropertyType.Dictionary:
-                    return ApiPropertyType.Dictionary.ToString();
-
-                case PropertyType.Float:
-                    return ApiPropertyType.Float.ToString();
-
-                case PropertyType.Integer:
-                    return ApiPropertyType.Integer.ToString();
-
-                case PropertyType.List:
-                    return ApiPropertyType.List.ToString();
-
-                case PropertyType.Location:
-                    return ApiPropertyType.Location.ToString();
-
-                case PropertyType.Object:
-                    return ApiPropertyType.Object.ToString();
-
-                case PropertyType.String:
-                    return ApiPropertyType.String.ToString();
-
-                case PropertyType.Tags:
-                    return ApiPropertyType.Tags.ToString();
-
-                case PropertyType.SystemAssignedIdentity:
-                    return ApiPropertyType.SystemAssignedIdentity.ToString();
-
-                case PropertyType.SystemUserAssignedIdentityList:
-                    return ApiPropertyType.SystemUserAssignedIdentityList.ToString();
-
-                case PropertyType.SystemUserAssignedIdentityMap:
-                    return ApiPropertyType.SystemUserAssignedIdentityMap.ToString();
-
-                case PropertyType.UserAssignedIdentityList:
-                    return ApiPropertyType.UserAssignedIdentityList.ToString();
-
-                case PropertyType.UserAssignedIdentityMap:
-                    return ApiPropertyType.UserAssignedIdentityMap.ToString();
-
-                default:
-                    throw new NotImplementedException($"unsupported value {input.ToString()}");
-            }
         }
 
         private static ResourceIdSegmentDefinition MapResourceIdSegment(Data.Models.ResourceIdSegmentDefinition input)
@@ -226,28 +164,6 @@ namespace Pandora.Api.V1.ResourceManager
             UserSpecified
         }
 
-        private static string? MapListElementType(PropertyType? input)
-        {
-            if (input == null)
-            {
-                return null;
-            }
-
-            if (input.Value == PropertyType.Dictionary)
-            {
-                // technically it could, but there's no examples of this in the ARM API I've seen
-                throw new NotSupportedException("A List/Dictionary Value cannot contain a Dictionary");
-            }
-
-            if (input.Value == PropertyType.List)
-            {
-                // technically it could, but there's no examples of this in the ARM API I've seen
-                throw new NotSupportedException("A List/Dictionary Value cannot contain a list");
-            }
-
-            return MapApiPropertyType(input.Value);
-        }
-
         private class ApiSchemaResponse
         {
             [JsonPropertyName("constants")]
@@ -262,9 +178,6 @@ namespace Pandora.Api.V1.ResourceManager
 
         private class PropertyApiDefinition
         {
-            [JsonPropertyName("constantReferenceName")]
-            public string ConstantReferenceName { get; set; }
-
             [JsonPropertyName("dateFormat")]
             public string? DateFormat { get; set; }
 
@@ -281,26 +194,14 @@ namespace Pandora.Api.V1.ResourceManager
             [JsonPropertyName("jsonName")]
             public string JsonName { get; set; }
 
-            [JsonPropertyName("listElementType")]
-            public string? ListElementType { get; set; }
-
-            [JsonPropertyName("minItems")]
-            public int? MinItems { get; set; }
-
-            [JsonPropertyName("maxItems")]
-            public int? MaxItems { get; set; }
-
-            [JsonPropertyName("modelReferenceName")]
-            public string ModelReferenceName { get; set; }
+            [JsonPropertyName("objectDefinition")]
+            public ApiObjectDefinition ObjectDefinition { get; set; }
 
             [JsonPropertyName("optional")]
             public bool Optional { get; set; }
 
             [JsonPropertyName("required")]
             public bool Required { get; set; }
-
-            [JsonPropertyName("type")]
-            public string PropertyType { get; set; }
 
             [JsonPropertyName("validation")]
             public ValidationApiDefinition? Validation { get; set; }
@@ -331,27 +232,6 @@ namespace Pandora.Api.V1.ResourceManager
 
             [JsonPropertyName("type")]
             public string Type { get; set; }
-        }
-
-        private enum ApiPropertyType
-        {
-            // TODO: can we not back these with a string value in .net core
-            Boolean,
-            Constant,
-            DateTime,
-            Dictionary,
-            Float,
-            Integer,
-            List,
-            Location,
-            Object,
-            Tags,
-            String,
-            UserAssignedIdentityMap,
-            UserAssignedIdentityList,
-            SystemAssignedIdentity,
-            SystemUserAssignedIdentityList,
-            SystemUserAssignedIdentityMap,
         }
     }
 }

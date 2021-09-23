@@ -2,12 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using NUnit.Framework.Constraints;
-using NUnit.Framework.Internal;
 using Pandora.Data.Helpers;
 using Pandora.Data.Models;
 using Pandora.Definitions.Attributes;
-using Pandora.Definitions.Interfaces;
 
 namespace Pandora.Data.Transformers
 {
@@ -17,6 +14,11 @@ namespace Pandora.Data.Transformers
         {
             try
             {
+                if (input.IsAGenericCsv())
+                {
+                    var valueType = input.GenericCsvElement();
+                    return Map(valueType);
+                }
                 if (input.IsAGenericDictionary())
                 {
                     var valueType = input.GenericDictionaryValueElement();
@@ -28,7 +30,7 @@ namespace Pandora.Data.Transformers
                     return Map(valueType);
                 }
 
-                if (Helpers.IsNativeType(input))
+                if (Helpers.IsNativeType(input) || Helpers.IsPandoraCustomType(input))
                 {
                     // there's no types to parse out here
                     return new List<ModelDefinition>();
@@ -67,7 +69,7 @@ namespace Pandora.Data.Transformers
                             if (property.PropertyType.GetGenericTypeDefinition() != typeof(List<>))
                             {
                                 throw new NotSupportedException(
-                                    string.Format($"{input.FullName} - {property.Name}: Generic types have to be lists"));
+                                    string.Format($"{input.FullName} - {property.Name}: Generic lists types have to be List<T>"));
                             }
                         }
 
@@ -104,7 +106,7 @@ namespace Pandora.Data.Transformers
                 };
 
                 // this is an abstract class, meaning it's a Discriminated Type
-                if (input.IsAbstract)
+                if (input.IsAbstract && !input.IsInterface)
                 {
                     // 1: sanity checking: ensure one, and only one, of the fields has the DiscriminatesUsing field
                     var propsWithTypeHints = input.GetProperties().Where(p => p.HasAttribute<ProvidesTypeHintAttribute>()).ToList();

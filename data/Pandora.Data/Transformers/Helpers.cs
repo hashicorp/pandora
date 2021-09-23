@@ -12,7 +12,6 @@ namespace Pandora.Data.Transformers
             var nativeTypes = new List<Type>
             {
                 typeof(bool),
-                typeof(byte),
                 typeof(DateTime),
                 typeof(float),
                 typeof(int),
@@ -27,6 +26,7 @@ namespace Pandora.Data.Transformers
             var customTypes = new List<Type>
             {
                 typeof(Location),
+                typeof(RawFile),
                 typeof(Tags),
                 typeof(SystemAssignedIdentity),
                 typeof(SystemUserAssignedIdentityList),

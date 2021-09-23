@@ -50,6 +50,50 @@ namespace Pandora.Data.Transformers
         }
 
         [TestCase]
+        public static void MappingCustomTypes()
+        {
+            var actual = ObjectDefinition.Map(typeof(Location));
+            Assert.AreEqual(ObjectType.Location, actual.Type);
+            Assert.Null(actual.ReferenceName);
+            Assert.Null(actual.NestedItem);
+
+            actual = ObjectDefinition.Map(typeof(RawFile));
+            Assert.AreEqual(ObjectType.RawFile, actual.Type);
+            Assert.Null(actual.ReferenceName);
+            Assert.Null(actual.NestedItem);
+
+            actual = ObjectDefinition.Map(typeof(SystemAssignedIdentity));
+            Assert.AreEqual(ObjectType.SystemAssignedIdentity, actual.Type);
+            Assert.Null(actual.ReferenceName);
+            Assert.Null(actual.NestedItem);
+
+            actual = ObjectDefinition.Map(typeof(SystemUserAssignedIdentityList));
+            Assert.AreEqual(ObjectType.SystemUserAssignedIdentityList, actual.Type);
+            Assert.Null(actual.ReferenceName);
+            Assert.Null(actual.NestedItem);
+
+            actual = ObjectDefinition.Map(typeof(SystemUserAssignedIdentityMap));
+            Assert.AreEqual(ObjectType.SystemUserAssignedIdentityMap, actual.Type);
+            Assert.Null(actual.ReferenceName);
+            Assert.Null(actual.NestedItem);
+
+            actual = ObjectDefinition.Map(typeof(UserAssignedIdentityList));
+            Assert.AreEqual(ObjectType.UserAssignedIdentityList, actual.Type);
+            Assert.Null(actual.ReferenceName);
+            Assert.Null(actual.NestedItem);
+
+            actual = ObjectDefinition.Map(typeof(UserAssignedIdentityMap));
+            Assert.AreEqual(ObjectType.UserAssignedIdentityMap, actual.Type);
+            Assert.Null(actual.ReferenceName);
+            Assert.Null(actual.NestedItem);
+
+            actual = ObjectDefinition.Map(typeof(Tags));
+            Assert.AreEqual(ObjectType.Tags, actual.Type);
+            Assert.Null(actual.ReferenceName);
+            Assert.Null(actual.NestedItem);
+        }
+
+        [TestCase]
         public static void MappingADictionaryOfAnObject()
         {
             var actual = ObjectDefinition.Map(typeof(Dictionary<string, SomeModel>));
@@ -158,12 +202,48 @@ namespace Pandora.Data.Transformers
         }
 
         [TestCase]
+        public static void MappingAListOfListAListOfString()
+        {
+            var actual = ObjectDefinition.Map(typeof(List<List<List<string>>>));
+            Assert.AreEqual(ObjectType.List, actual.Type);
+            Assert.Null(actual.ReferenceName);
+            Assert.NotNull(actual.NestedItem);
+            Assert.AreEqual(ObjectType.List, actual.NestedItem!.Type);
+            Assert.Null(actual.NestedItem!.ReferenceName);
+            Assert.NotNull(actual.NestedItem!.NestedItem);
+            Assert.AreEqual(ObjectType.List, actual.NestedItem!.NestedItem!.Type);
+            Assert.Null(actual.NestedItem!.NestedItem!.ReferenceName);
+            Assert.NotNull(actual.NestedItem!.NestedItem!.NestedItem);
+            Assert.AreEqual(ObjectType.String, actual.NestedItem!.NestedItem!.NestedItem!.Type);
+            Assert.Null(actual.NestedItem!.NestedItem!.NestedItem!.ReferenceName);
+            Assert.Null(actual.NestedItem!.NestedItem!.NestedItem!.NestedItem);
+        }
+
+        [TestCase]
+        public static void MappingANullableType()
+        {
+            var actual = ObjectDefinition.Map(typeof(bool?));
+            Assert.AreEqual(ObjectType.Boolean, actual.Type);
+            Assert.Null(actual.ReferenceName);
+            Assert.Null(actual.NestedItem);
+        }
+
+        [TestCase]
         public static void MappingAnObject()
         {
             var actual = ObjectDefinition.Map(typeof(SomeModel));
             Assert.AreEqual(ObjectType.Reference, actual.Type);
             Assert.NotNull(actual.ReferenceName);
             Assert.AreEqual("Some", actual.ReferenceName);
+            Assert.Null(actual.NestedItem);
+        }
+
+        [TestCase]
+        public static void MappingARawObject()
+        {
+            var actual = ObjectDefinition.Map(typeof(object));
+            Assert.AreEqual(ObjectType.RawObject, actual.Type);
+            Assert.Null(actual.ReferenceName);
             Assert.Null(actual.NestedItem);
         }
 

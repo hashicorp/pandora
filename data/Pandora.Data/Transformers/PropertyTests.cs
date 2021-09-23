@@ -1,10 +1,7 @@
 using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Runtime.Versioning;
 using System.Text.Json.Serialization;
 using NUnit.Framework;
-using NUnit.Framework.Interfaces;
 using Pandora.Data.Models;
 using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
@@ -46,7 +43,8 @@ namespace Pandora.Data.Transformers
                         {
                             Assert.AreEqual("AbstractType", actual.Name);
                             Assert.AreEqual("abstractType", actual.JsonName);
-                            Assert.AreEqual(PropertyType.Object, actual.PropertyType);
+                            Assert.AreEqual(ObjectType.Reference, actual.ObjectDefinition.Type);
+                            Assert.AreEqual("SomeParentType", actual.ObjectDefinition.ReferenceName);
                             Assert.IsTrue(actual.IsTypeHint);
                             Assert.AreEqual(true, actual.Optional);
                             Assert.AreEqual(false, actual.Required);
@@ -57,7 +55,9 @@ namespace Pandora.Data.Transformers
                         {
                             Assert.AreEqual("BasicBoolField", actual.Name);
                             Assert.AreEqual("basicBoolField", actual.JsonName);
-                            Assert.AreEqual(PropertyType.Boolean, actual.PropertyType);
+                            Assert.AreEqual(ObjectType.Boolean, actual.ObjectDefinition.Type);
+                            Assert.Null(actual.ObjectDefinition.ReferenceName);
+                            Assert.Null(actual.ObjectDefinition.NestedItem);
                             Assert.AreEqual(true, actual.Optional);
                             Assert.AreEqual(false, actual.Required);
                             continue;
@@ -67,7 +67,9 @@ namespace Pandora.Data.Transformers
                         {
                             Assert.AreEqual("BasicDateField", actual.Name);
                             Assert.AreEqual("basicDateField", actual.JsonName);
-                            Assert.AreEqual(PropertyType.DateTime, actual.PropertyType);
+                            Assert.AreEqual(ObjectType.DateTime, actual.ObjectDefinition.Type);
+                            Assert.Null(actual.ObjectDefinition.ReferenceName);
+                            Assert.Null(actual.ObjectDefinition.NestedItem);
                             Assert.AreEqual(true, actual.Optional);
                             Assert.AreEqual(false, actual.Required);
                             continue;
@@ -77,12 +79,12 @@ namespace Pandora.Data.Transformers
                         {
                             Assert.AreEqual("BasicDictionaryOfString", actual.Name);
                             Assert.AreEqual("basicDictionaryOfString", actual.JsonName);
-                            Assert.AreEqual(PropertyType.Dictionary, actual.PropertyType);
-                            Assert.NotNull(actual.ListElementType);
-                            Assert.Null(actual.ConstantReference);
-                            Assert.NotNull(actual.ModelReference);
-                            Assert.AreEqual(PropertyType.Object, actual.ListElementType);
-                            Assert.AreEqual("String", actual.ModelReference);
+                            Assert.AreEqual(ObjectType.Dictionary, actual.ObjectDefinition.Type);
+                            Assert.Null(actual.ObjectDefinition.ReferenceName);
+                            Assert.NotNull(actual.ObjectDefinition.NestedItem);
+                            Assert.AreEqual(ObjectType.String, actual.ObjectDefinition.NestedItem.Type);
+                            Assert.Null(actual.ObjectDefinition.NestedItem.ReferenceName);
+                            Assert.Null(actual.ObjectDefinition.NestedItem.NestedItem);
                             Assert.AreEqual(true, actual.Optional);
                             Assert.AreEqual(false, actual.Required);
                             continue;
@@ -92,7 +94,9 @@ namespace Pandora.Data.Transformers
                         {
                             Assert.AreEqual("BasicIntField", actual.Name);
                             Assert.AreEqual("basicIntField", actual.JsonName);
-                            Assert.AreEqual(PropertyType.Integer, actual.PropertyType);
+                            Assert.AreEqual(ObjectType.Integer, actual.ObjectDefinition.Type);
+                            Assert.Null(actual.ObjectDefinition.ReferenceName);
+                            Assert.Null(actual.ObjectDefinition.NestedItem);
                             Assert.AreEqual(true, actual.Optional);
                             Assert.AreEqual(false, actual.Required);
                             continue;
@@ -102,7 +106,9 @@ namespace Pandora.Data.Transformers
                         {
                             Assert.AreEqual("BasicLocationField", actual.Name);
                             Assert.AreEqual("basicLocationField", actual.JsonName);
-                            Assert.AreEqual(PropertyType.Location, actual.PropertyType);
+                            Assert.AreEqual(ObjectType.Location, actual.ObjectDefinition.Type);
+                            Assert.Null(actual.ObjectDefinition.ReferenceName);
+                            Assert.Null(actual.ObjectDefinition.NestedItem);
                             Assert.AreEqual(true, actual.Optional);
                             Assert.AreEqual(false, actual.Required);
                             continue;
@@ -112,9 +118,9 @@ namespace Pandora.Data.Transformers
                         {
                             Assert.AreEqual("BasicObjectField", actual.Name);
                             Assert.AreEqual("basicObjectField", actual.JsonName);
-                            Assert.AreEqual(PropertyType.Object, actual.PropertyType);
-                            Assert.IsNull(actual.ConstantReference);
-                            Assert.IsNull(actual.ModelReference);
+                            Assert.AreEqual(ObjectType.RawObject, actual.ObjectDefinition.Type);
+                            Assert.Null(actual.ObjectDefinition.ReferenceName);
+                            Assert.Null(actual.ObjectDefinition.NestedItem);
                             Assert.AreEqual(true, actual.Optional);
                             Assert.AreEqual(false, actual.Required);
                             continue;
@@ -124,7 +130,9 @@ namespace Pandora.Data.Transformers
                         {
                             Assert.AreEqual("BasicStringField", actual.Name);
                             Assert.AreEqual("basicStringField", actual.JsonName);
-                            Assert.AreEqual(PropertyType.String, actual.PropertyType);
+                            Assert.AreEqual(ObjectType.String, actual.ObjectDefinition.Type);
+                            Assert.Null(actual.ObjectDefinition.ReferenceName);
+                            Assert.Null(actual.ObjectDefinition.NestedItem);
                             Assert.AreEqual(true, actual.Optional);
                             Assert.AreEqual(false, actual.Required);
                             continue;
@@ -134,7 +142,9 @@ namespace Pandora.Data.Transformers
                         {
                             Assert.AreEqual("BasicTagsField", actual.Name);
                             Assert.AreEqual("basicTagsField", actual.JsonName);
-                            Assert.AreEqual(PropertyType.Tags, actual.PropertyType);
+                            Assert.AreEqual(ObjectType.Tags, actual.ObjectDefinition.Type);
+                            Assert.Null(actual.ObjectDefinition.ReferenceName);
+                            Assert.Null(actual.ObjectDefinition.NestedItem);
                             Assert.AreEqual(true, actual.Optional);
                             Assert.AreEqual(false, actual.Required);
                             continue;
@@ -144,7 +154,9 @@ namespace Pandora.Data.Transformers
                         {
                             Assert.AreEqual("BasicSystemAssignedIdentityField", actual.Name);
                             Assert.AreEqual("basicSystemAssignedIdentityField", actual.JsonName);
-                            Assert.AreEqual(PropertyType.SystemAssignedIdentity, actual.PropertyType);
+                            Assert.AreEqual(ObjectType.SystemAssignedIdentity, actual.ObjectDefinition.Type);
+                            Assert.Null(actual.ObjectDefinition.ReferenceName);
+                            Assert.Null(actual.ObjectDefinition.NestedItem);
                             Assert.AreEqual(true, actual.Optional);
                             Assert.AreEqual(false, actual.Required);
                             continue;
@@ -154,7 +166,9 @@ namespace Pandora.Data.Transformers
                         {
                             Assert.AreEqual("BasicSystemUserAssignedIdentityListField", actual.Name);
                             Assert.AreEqual("basicSystemUserAssignedIdentityListField", actual.JsonName);
-                            Assert.AreEqual(PropertyType.SystemUserAssignedIdentityList, actual.PropertyType);
+                            Assert.AreEqual(ObjectType.SystemUserAssignedIdentityList, actual.ObjectDefinition.Type);
+                            Assert.Null(actual.ObjectDefinition.ReferenceName);
+                            Assert.Null(actual.ObjectDefinition.NestedItem);
                             Assert.AreEqual(true, actual.Optional);
                             Assert.AreEqual(false, actual.Required);
                             continue;
@@ -164,7 +178,9 @@ namespace Pandora.Data.Transformers
                         {
                             Assert.AreEqual("BasicSystemUserAssignedIdentityMapField", actual.Name);
                             Assert.AreEqual("basicSystemUserAssignedIdentityMapField", actual.JsonName);
-                            Assert.AreEqual(PropertyType.SystemUserAssignedIdentityMap, actual.PropertyType);
+                            Assert.AreEqual(ObjectType.SystemUserAssignedIdentityMap, actual.ObjectDefinition.Type);
+                            Assert.Null(actual.ObjectDefinition.ReferenceName);
+                            Assert.Null(actual.ObjectDefinition.NestedItem);
                             Assert.AreEqual(true, actual.Optional);
                             Assert.AreEqual(false, actual.Required);
                             continue;
@@ -174,7 +190,9 @@ namespace Pandora.Data.Transformers
                         {
                             Assert.AreEqual("BasicUserAssignedIdentityListField", actual.Name);
                             Assert.AreEqual("basicUserAssignedIdentityListField", actual.JsonName);
-                            Assert.AreEqual(PropertyType.UserAssignedIdentityList, actual.PropertyType);
+                            Assert.AreEqual(ObjectType.UserAssignedIdentityList, actual.ObjectDefinition.Type);
+                            Assert.Null(actual.ObjectDefinition.ReferenceName);
+                            Assert.Null(actual.ObjectDefinition.NestedItem);
                             Assert.AreEqual(true, actual.Optional);
                             Assert.AreEqual(false, actual.Required);
                             continue;
@@ -184,7 +202,9 @@ namespace Pandora.Data.Transformers
                         {
                             Assert.AreEqual("BasicUserAssignedIdentityMapField", actual.Name);
                             Assert.AreEqual("basicUserAssignedIdentityMapField", actual.JsonName);
-                            Assert.AreEqual(PropertyType.UserAssignedIdentityMap, actual.PropertyType);
+                            Assert.AreEqual(ObjectType.UserAssignedIdentityMap, actual.ObjectDefinition.Type);
+                            Assert.Null(actual.ObjectDefinition.ReferenceName);
+                            Assert.Null(actual.ObjectDefinition.NestedItem);
                             Assert.AreEqual(true, actual.Optional);
                             Assert.AreEqual(false, actual.Required);
                             continue;
@@ -194,10 +214,9 @@ namespace Pandora.Data.Transformers
                         {
                             Assert.AreEqual("Constant", actual.Name);
                             Assert.AreEqual("constant", actual.JsonName);
-                            Assert.AreEqual(PropertyType.Constant, actual.PropertyType);
-                            Assert.Null(actual.ListElementType);
-                            Assert.AreEqual("SomeEnum", actual.ConstantReference);
-                            Assert.Null(actual.ModelReference);
+                            Assert.AreEqual(ObjectType.Reference, actual.ObjectDefinition.Type);
+                            Assert.AreEqual("SomeEnum", actual.ObjectDefinition.ReferenceName);
+                            Assert.Null(actual.ObjectDefinition.NestedItem);
                             Assert.AreEqual(true, actual.Optional);
                             Assert.AreEqual(false, actual.Required);
                             continue;
@@ -207,10 +226,9 @@ namespace Pandora.Data.Transformers
                         {
                             Assert.AreEqual("DateTime", actual.Name);
                             Assert.AreEqual("dateTime", actual.JsonName);
-                            Assert.AreEqual(PropertyType.DateTime, actual.PropertyType);
-                            Assert.Null(actual.ListElementType);
-                            Assert.Null(actual.ConstantReference);
-                            Assert.Null(actual.ModelReference);
+                            Assert.AreEqual(ObjectType.DateTime, actual.ObjectDefinition.Type);
+                            Assert.Null(actual.ObjectDefinition.NestedItem);
+                            Assert.Null(actual.ObjectDefinition.ReferenceName);
                             Assert.AreEqual(true, actual.Optional);
                             Assert.AreEqual(false, actual.Required);
                             Assert.AreEqual("RFC3339", actual.DateFormat);
@@ -221,11 +239,12 @@ namespace Pandora.Data.Transformers
                         {
                             Assert.AreEqual("DictionaryOfAnObject", actual.Name);
                             Assert.AreEqual("dictionaryOfAnObject", actual.JsonName);
-                            Assert.AreEqual(PropertyType.Dictionary, actual.PropertyType);
-                            Assert.NotNull(actual.ListElementType);
-                            Assert.Null(actual.ConstantReference);
-                            Assert.NotNull(actual.ModelReference);
-                            Assert.AreEqual("SomeOtherType", actual.ModelReference);
+                            Assert.AreEqual(ObjectType.Dictionary, actual.ObjectDefinition.Type);
+                            Assert.Null(actual.ObjectDefinition.ReferenceName);
+                            Assert.NotNull(actual.ObjectDefinition.NestedItem);
+                            Assert.AreEqual(ObjectType.Reference, actual.ObjectDefinition.NestedItem.Type);
+                            Assert.AreEqual("SomeOtherType", actual.ObjectDefinition.NestedItem.ReferenceName);
+                            Assert.Null(actual.ObjectDefinition.NestedItem.NestedItem);
                             Assert.AreEqual(true, actual.Optional);
                             Assert.AreEqual(false, actual.Required);
                             continue;
@@ -235,10 +254,9 @@ namespace Pandora.Data.Transformers
                         {
                             Assert.AreEqual("Float", actual.Name);
                             Assert.AreEqual("float", actual.JsonName);
-                            Assert.AreEqual(PropertyType.Float, actual.PropertyType);
-                            Assert.Null(actual.ListElementType);
-                            Assert.Null(actual.ConstantReference);
-                            Assert.Null(actual.ModelReference);
+                            Assert.AreEqual(ObjectType.Float, actual.ObjectDefinition.Type);
+                            Assert.Null(actual.ObjectDefinition.ReferenceName);
+                            Assert.Null(actual.ObjectDefinition.NestedItem);
                             Assert.AreEqual(true, actual.Optional);
                             Assert.AreEqual(false, actual.Required);
                             continue;
@@ -248,10 +266,11 @@ namespace Pandora.Data.Transformers
                         {
                             Assert.AreEqual("ListOfOtherEnum", actual.Name);
                             Assert.AreEqual("listOfOtherEnum", actual.JsonName);
-                            Assert.AreEqual(PropertyType.List, actual.PropertyType);
-                            Assert.AreEqual(PropertyType.Constant, actual.ListElementType);
-                            Assert.AreEqual("SomeEnum", actual.ConstantReference);
-                            Assert.Null(actual.ModelReference);
+                            Assert.Null(actual.ObjectDefinition.ReferenceName);
+                            Assert.NotNull(actual.ObjectDefinition.NestedItem);
+                            Assert.AreEqual(ObjectType.Reference, actual.ObjectDefinition.NestedItem.Type);
+                            Assert.AreEqual("SomeEnum", actual.ObjectDefinition.NestedItem.ReferenceName);
+                            Assert.Null(actual.ObjectDefinition.NestedItem.NestedItem);
                             Assert.AreEqual(true, actual.Optional);
                             Assert.AreEqual(false, actual.Required);
                             continue;
@@ -261,10 +280,12 @@ namespace Pandora.Data.Transformers
                         {
                             Assert.AreEqual("ListOfOtherType", actual.Name);
                             Assert.AreEqual("listOfOtherType", actual.JsonName);
-                            Assert.AreEqual(PropertyType.List, actual.PropertyType);
-                            Assert.AreEqual(PropertyType.Object, actual.ListElementType);
-                            Assert.AreEqual("SomeOtherType", actual.ModelReference);
-                            Assert.Null(actual.ConstantReference);
+                            Assert.AreEqual(ObjectType.List, actual.ObjectDefinition.Type);
+                            Assert.Null(actual.ObjectDefinition.ReferenceName);
+                            Assert.NotNull(actual.ObjectDefinition.NestedItem);
+                            Assert.AreEqual(ObjectType.Reference, actual.ObjectDefinition.NestedItem.Type);
+                            Assert.AreEqual("SomeOtherType", actual.ObjectDefinition.NestedItem.ReferenceName);
+                            Assert.Null(actual.ObjectDefinition.NestedItem.NestedItem);
                             Assert.AreEqual(true, actual.Optional);
                             Assert.AreEqual(false, actual.Required);
                             continue;
@@ -274,7 +295,8 @@ namespace Pandora.Data.Transformers
                         {
                             Assert.AreEqual("NestedObject", actual.Name);
                             Assert.AreEqual("nestedObject", actual.JsonName);
-                            Assert.AreEqual("NestedType", actual.ModelReference);
+                            Assert.AreEqual(ObjectType.Reference, actual.ObjectDefinition.Type);
+                            Assert.AreEqual("NestedType", actual.ObjectDefinition.ReferenceName);
                             Assert.AreEqual(true, actual.Optional);
                             Assert.AreEqual(false, actual.Required);
                             continue;
@@ -284,10 +306,9 @@ namespace Pandora.Data.Transformers
                         {
                             Assert.AreEqual("OptionalBool", actual.Name);
                             Assert.AreEqual("optionalBool", actual.JsonName);
-                            Assert.AreEqual(PropertyType.Boolean, actual.PropertyType);
-                            Assert.Null(actual.ListElementType);
-                            Assert.Null(actual.ConstantReference);
-                            Assert.Null(actual.ModelReference);
+                            Assert.AreEqual(ObjectType.Boolean, actual.ObjectDefinition.Type);
+                            Assert.Null(actual.ObjectDefinition.ReferenceName);
+                            Assert.Null(actual.ObjectDefinition.NestedItem);
                             Assert.AreEqual(true, actual.Optional);
                             Assert.AreEqual(false, actual.Required);
                             continue;
@@ -297,10 +318,9 @@ namespace Pandora.Data.Transformers
                         {
                             Assert.AreEqual("OptionalConstant", actual.Name);
                             Assert.AreEqual("optionalConstant", actual.JsonName);
-                            Assert.AreEqual(PropertyType.Constant, actual.PropertyType);
-                            Assert.Null(actual.ListElementType);
-                            Assert.AreEqual("SomeEnum", actual.ConstantReference);
-                            Assert.Null(actual.ModelReference);
+                            Assert.AreEqual(ObjectType.Reference, actual.ObjectDefinition.Type);
+                            Assert.AreEqual("SomeEnum", actual.ObjectDefinition.ReferenceName);
+                            Assert.Null(actual.ObjectDefinition.NestedItem);
                             Assert.AreEqual(true, actual.Optional);
                             Assert.AreEqual(false, actual.Required);
                             continue;
@@ -310,10 +330,9 @@ namespace Pandora.Data.Transformers
                         {
                             Assert.AreEqual("OptionalDateTime", actual.Name);
                             Assert.AreEqual("optionalDateTime", actual.JsonName);
-                            Assert.AreEqual(PropertyType.DateTime, actual.PropertyType);
-                            Assert.Null(actual.ListElementType);
-                            Assert.Null(actual.ConstantReference);
-                            Assert.Null(actual.ModelReference);
+                            Assert.AreEqual(ObjectType.DateTime, actual.ObjectDefinition.Type);
+                            Assert.Null(actual.ObjectDefinition.ReferenceName);
+                            Assert.Null(actual.ObjectDefinition.NestedItem);
                             Assert.AreEqual(true, actual.Optional);
                             Assert.AreEqual(false, actual.Required);
                             Assert.AreEqual("RFC3339", actual.DateFormat);
@@ -324,10 +343,9 @@ namespace Pandora.Data.Transformers
                         {
                             Assert.AreEqual("OptionalInt", actual.Name);
                             Assert.AreEqual("optionalInt", actual.JsonName);
-                            Assert.AreEqual(PropertyType.Integer, actual.PropertyType);
-                            Assert.Null(actual.ListElementType);
-                            Assert.Null(actual.ConstantReference);
-                            Assert.Null(actual.ModelReference);
+                            Assert.AreEqual(ObjectType.Integer, actual.ObjectDefinition.Type);
+                            Assert.Null(actual.ObjectDefinition.ReferenceName);
+                            Assert.Null(actual.ObjectDefinition.NestedItem);
                             Assert.AreEqual(true, actual.Optional);
                             Assert.AreEqual(false, actual.Required);
                             continue;
@@ -337,10 +355,9 @@ namespace Pandora.Data.Transformers
                         {
                             Assert.AreEqual("OptionalFloat", actual.Name);
                             Assert.AreEqual("optionalFloat", actual.JsonName);
-                            Assert.AreEqual(PropertyType.Float, actual.PropertyType);
-                            Assert.Null(actual.ListElementType);
-                            Assert.Null(actual.ConstantReference);
-                            Assert.Null(actual.ModelReference);
+                            Assert.AreEqual(ObjectType.Float, actual.ObjectDefinition.Type);
+                            Assert.Null(actual.ObjectDefinition.ReferenceName);
+                            Assert.Null(actual.ObjectDefinition.NestedItem);
                             Assert.AreEqual(true, actual.Optional);
                             Assert.AreEqual(false, actual.Required);
                             continue;
@@ -350,7 +367,8 @@ namespace Pandora.Data.Transformers
                         {
                             Assert.AreEqual("OptionalNestedObject", actual.Name);
                             Assert.AreEqual("optionalNestedObject", actual.JsonName);
-                            Assert.AreEqual("NestedType", actual.ModelReference);
+                            Assert.AreEqual(ObjectType.Reference, actual.ObjectDefinition.Type);
+                            Assert.AreEqual("NestedType", actual.ObjectDefinition.ReferenceName);
                             Assert.AreEqual(true, actual.Optional);
                             Assert.AreEqual(false, actual.Required);
                             continue;
@@ -422,8 +440,8 @@ namespace Pandora.Data.Transformers
                             Assert.AreEqual("listWithMinMaxItems", actual.JsonName);
                             Assert.AreEqual(true, actual.Optional);
                             Assert.AreEqual(false, actual.Required);
-                            Assert.AreEqual(1, actual.MinItems);
-                            Assert.AreEqual(10, actual.MaxItems);
+                            Assert.AreEqual(1, actual.ObjectDefinition.Minimum);
+                            Assert.AreEqual(10, actual.ObjectDefinition.Maximum);
                             continue;
                         }
 
@@ -437,6 +455,7 @@ namespace Pandora.Data.Transformers
         {
             [JsonPropertyName("abstractType")]
             [Optional]
+            [ProvidesTypeHint]
             public SomeParentType AbstractType { get; set; }
 
             [JsonPropertyName("basicBoolField")]

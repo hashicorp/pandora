@@ -1,6 +1,7 @@
 using System;
 using Pandora.Data.Helpers;
 using Pandora.Data.Models;
+using Pandora.Definitions.CustomTypes;
 
 namespace Pandora.Data.Transformers
 {
@@ -13,12 +14,26 @@ namespace Pandora.Data.Transformers
                 throw new NotSupportedException("cannot map a null type");
             }
 
-            // TODO: support for DateTime, RawFile & RawObject
+            // if it's a nullable type (e.g. bool?) it's actually Nullable<bool> - pull out and map the actual type
+            if (input.IsGenericType && input.GetGenericTypeDefinition() == typeof(Nullable<>))
+            {
+                var actualType = input.GenericTypeArguments[0];
+                return Map(actualType);
+            }
+
             if (Helpers.IsNativeType(input))
             {
                 return new Models.ObjectDefinition
                 {
                     Type = MapBuiltInObjectType(input)
+                };
+            }
+
+            if (Helpers.IsPandoraCustomType(input))
+            {
+                return new Models.ObjectDefinition
+                {
+                    Type = MapPandoraCustomType(input)
                 };
             }
 
@@ -71,6 +86,10 @@ namespace Pandora.Data.Transformers
             {
                 return ObjectType.Boolean;
             }
+            if (input == typeof(DateTime))
+            {
+                return ObjectType.DateTime;
+            }
             if (input == typeof(float))
             {
                 return ObjectType.Float;
@@ -79,12 +98,54 @@ namespace Pandora.Data.Transformers
             {
                 return ObjectType.Integer;
             }
+            if (input == typeof(object))
+            {
+                return ObjectType.RawObject;
+            }
             if (input == typeof(string))
             {
                 return ObjectType.String;
             }
 
-            throw new NotSupportedException($"built-in type {input.FullName} is not supported");
+            throw new NotSupportedException($"built-in type {input.FullName} is not mapped");
+        }
+
+        private static ObjectType MapPandoraCustomType(Type input)
+        {
+            if (input == typeof(Location))
+            {
+                return ObjectType.Location;
+            }
+            if (input == typeof(RawFile))
+            {
+                return ObjectType.RawFile;
+            }
+            if (input == typeof(SystemAssignedIdentity))
+            {
+                return ObjectType.SystemAssignedIdentity;
+            }
+            if (input == typeof(SystemUserAssignedIdentityList))
+            {
+                return ObjectType.SystemUserAssignedIdentityList;
+            }
+            if (input == typeof(SystemUserAssignedIdentityMap))
+            {
+                return ObjectType.SystemUserAssignedIdentityMap;
+            }
+            if (input == typeof(UserAssignedIdentityList))
+            {
+                return ObjectType.UserAssignedIdentityList;
+            }
+            if (input == typeof(UserAssignedIdentityMap))
+            {
+                return ObjectType.UserAssignedIdentityMap;
+            }
+            if (input == typeof(Tags))
+            {
+                return ObjectType.Tags;
+            }
+
+            throw new NotSupportedException($"Pandora custom type {input.FullName} is not mapped");
         }
 
         private static string? RemoveSuffixFromTypeName(string? input)
