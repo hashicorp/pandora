@@ -143,8 +143,28 @@ func dotNetNameForObjectDefinition(input *models.ObjectDefinition, constants map
 
 	switch input.Type {
 	case models.ObjectDefinitionCsv:
-		// TODO: @tombuildsstuff - CSV will need a custom type in the Data side, I think? For now output a string
-		return nilableValue("string")
+		{
+			if input.ReferenceName != nil {
+				if _, isConstant := constants[*input.ReferenceName]; isConstant {
+					return nilableValue(fmt.Sprintf("Csv<%sConstant>", *input.ReferenceName))
+				}
+				if _, isModel := knownModels[*input.ReferenceName]; isModel {
+					return nilableValue(fmt.Sprintf("Csv<%sModel>", *input.ReferenceName))
+				}
+
+				return nil, fmt.Errorf("reference %q was not found as a constant or a model", *input.ReferenceName)
+			}
+
+			if input.NestedItem == nil {
+				return nil, fmt.Errorf("a Csv must have a reference or a nested item but got neither")
+			}
+
+			innerType, err := dotNetNameForObjectDefinition(input.NestedItem, constants, knownModels)
+			if err != nil {
+				return nil, fmt.Errorf("determining inner type for object definition: %+v", err)
+			}
+			return nilableValue(fmt.Sprintf("Csv<%s>", *innerType))
+		}
 
 	case models.ObjectDefinitionDictionary:
 		{
