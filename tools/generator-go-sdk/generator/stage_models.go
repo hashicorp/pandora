@@ -52,7 +52,7 @@ func (c modelsTemplater) template(data ServiceGeneratorData) (*string, error) {
 	for _, fieldName := range fields {
 		fieldDetails := c.model.Fields[fieldName]
 		fieldTypeName := "FIXME"
-		fieldTypeVal, err := c.typeInformation(fieldDetails)
+		fieldTypeVal, err := golangTypeNameForObjectDefinition(fieldDetails.ObjectDefinition)
 		if err != nil {
 			return nil, fmt.Errorf("determining type information for %q: %+v", fieldName, err)
 		}
@@ -176,134 +176,6 @@ func dateFormatString(input resourcemanager.DateFormat) string {
 	}
 }
 
-func (c modelsTemplater) typeInformation(details resourcemanager.FieldDetails) (*string, error) {
-	// TODO: again these are things which should be caught by the validator, so move these up
-	// but also leave these here since this is sanity checking a bad API
-	if strings.EqualFold(string(details.Type), string(resourcemanager.Dictionary)) {
-		if details.ListElementType == nil {
-			return nil, fmt.Errorf("a ListElementType must be configured for a Dictionary")
-		}
-
-		typeName := *details.ListElementType
-		if strings.EqualFold(typeName, string(resourcemanager.Constant)) {
-			if details.ConstantReferenceName == nil {
-				return nil, fmt.Errorf("a ConstantReferenceName must be configured for a Dictionary of Constants")
-			}
-			typeName = *details.ConstantReferenceName
-		}
-
-		if strings.EqualFold(typeName, string(resourcemanager.Object)) {
-			if details.ModelReferenceName == nil {
-				return nil, fmt.Errorf("a ModelReferenceName must be configured when using a Dictionary")
-			}
-			typeInfo, err := typeInformationForNativeType(*details.ModelReferenceName)
-			if err != nil {
-				return nil, fmt.Errorf("determining type information for native type %q: %+v", *details.ModelReferenceName, err)
-			}
-			typeName = *typeInfo
-		}
-
-		info := fmt.Sprintf("map[string]%s", typeName)
-		return &info, nil
-	}
-
-	if strings.EqualFold(string(details.Type), string(resourcemanager.List)) {
-		if details.ListElementType == nil {
-			return nil, fmt.Errorf("a ListElementType must be configured for a List")
-		}
-
-		typeName := *details.ListElementType
-		if strings.EqualFold(typeName, string(resourcemanager.Constant)) {
-			if details.ConstantReferenceName == nil {
-				return nil, fmt.Errorf("a ConstantReferenceName must be configured for a List of Constants")
-			}
-			typeName = *details.ConstantReferenceName
-		}
-
-		if strings.EqualFold(typeName, string(resourcemanager.Object)) {
-			if details.ModelReferenceName == nil {
-				return nil, fmt.Errorf("a ModelReferenceName must be configured when using a List")
-			}
-			typeInfo, err := typeInformationForNativeType(*details.ModelReferenceName)
-			if err != nil {
-				return nil, fmt.Errorf("determining type information for native type %q: %+v", *details.ModelReferenceName, err)
-			}
-			typeName = *typeInfo
-		}
-
-		info := fmt.Sprintf("[]%s", typeName)
-		return &info, nil
-	}
-
-	if strings.EqualFold(string(details.Type), string(resourcemanager.Constant)) {
-		if details.ConstantReferenceName == nil {
-			return nil, fmt.Errorf("a ConstantReferenceName must be configured for a Constant")
-		}
-		return details.ConstantReferenceName, nil
-	}
-
-	if strings.EqualFold(string(details.Type), string(resourcemanager.Object)) {
-		// Objects are either an Object of a Type (e.g. That Type) or an Object (e.g. a Raw/untyped object)
-		// raw is handled via the `native type` below
-		if details.ModelReferenceName != nil {
-			return details.ModelReferenceName, nil
-		}
-	}
-
-	return typeInformationForNativeType(string(details.Type))
-}
-
-func typeInformationForNativeType(fieldType string) (*string, error) {
-	var v = func(val string) (*string, error) {
-		return &val, nil
-	}
-
-	switch strings.ToLower(fieldType) {
-	case strings.ToLower(string(resourcemanager.Boolean)):
-		return v("bool")
-
-	case strings.ToLower(string(resourcemanager.DateTime)):
-		return v("string") // intentional since we have cast methods one way or the other
-
-	case strings.ToLower(string(resourcemanager.Float)):
-		return v("float64")
-
-	case strings.ToLower(string(resourcemanager.Location)):
-		return v("string")
-
-	case strings.ToLower(string(resourcemanager.Integer)):
-		return v("int64")
-
-	case strings.ToLower(string(resourcemanager.Object)):
-		return v("interface{}")
-
-	case strings.ToLower(string(resourcemanager.String)):
-		return v("string")
-
-	case strings.ToLower(string(resourcemanager.Tags)):
-		return v("map[string]string")
-
-	case strings.ToLower(string(resourcemanager.SystemAssignedIdentity)):
-		return v("identity.SystemAssignedIdentity")
-
-	case strings.ToLower(string(resourcemanager.UserAssignedIdentityList)):
-		return v("identity.UserAssignedIdentityList")
-
-	case strings.ToLower(string(resourcemanager.UserAssignedIdentityMap)):
-		return v("identity.UserAssignedIdentityMap")
-
-	case strings.ToLower(string(resourcemanager.SystemUserAssignedIdentityList)):
-		return v("identity.SystemUserAssignedIdentityList")
-
-	case strings.ToLower(string(resourcemanager.SystemUserAssignedIdentityMap)):
-		return v("identity.SystemUserAssignedIdentityMap")
-
-		// TODO: other types
-	}
-
-	return v(fieldType)
-}
-
 func (c modelsTemplater) unmarshalerFunc() (*string, error) {
 	sortedFields := make([]string, 0)
 	for fieldName := range c.model.Fields {
@@ -322,7 +194,7 @@ func (c modelsTemplater) unmarshalerFunc() (*string, error) {
 		}
 
 		fieldTypeName := "FIXME"
-		fieldTypeVal, err := c.typeInformation(fieldDetails)
+		fieldTypeVal, err := golangTypeNameForObjectDefinition(fieldDetails.ObjectDefinition)
 		if err != nil {
 			return nil, fmt.Errorf("determining type information for %q: %+v", fieldName, err)
 		}
@@ -344,7 +216,12 @@ func (c modelsTemplater) unmarshalerFunc() (*string, error) {
 			continue
 		}
 
-		if fieldDetails.Type == resourcemanager.List {
+		typeName, err := golangTypeNameForObjectDefinition(fieldDetails.ObjectDefinition)
+		if err != nil {
+			return nil, fmt.Errorf("determining golang type name: %+v", err)
+		}
+
+		if fieldDetails.ObjectDefinition.Type == resourcemanager.ListApiObjectDefinitionType {
 
 			structLine, err := c.structLineForField(fieldName, "[]json.RawMessage", fieldDetails)
 			if err != nil {
@@ -365,7 +242,7 @@ func (c modelsTemplater) unmarshalerFunc() (*string, error) {
 		}
 		c.%[1]s = %[2]ss
 	}
-`, fieldName, fieldDetails.JsonName, *fieldDetails.ModelReferenceName))
+`, fieldName, fieldDetails.JsonName, *typeName))
 			} else {
 				assignments = append(assignments, fmt.Sprintf(`
 	%[2]ss := make([]%[3]s, 0)
@@ -377,7 +254,7 @@ func (c modelsTemplater) unmarshalerFunc() (*string, error) {
 		%[2]ss = append(%[2]ss, %[2]s)
 	}
 	c.%[1]s = %[2]ss
-`, fieldName, fieldDetails.JsonName, *fieldDetails.ModelReferenceName))
+`, fieldName, fieldDetails.JsonName, *typeName))
 			}
 		} else {
 			structLine, err := c.structLineForField(fieldName, "json.RawMessage", fieldDetails)
@@ -395,7 +272,7 @@ func (c modelsTemplater) unmarshalerFunc() (*string, error) {
 		}
 		c.%[1]s = %[2]s
 	}
-`, fieldName, fieldDetails.JsonName, *fieldDetails.ModelReferenceName))
+`, fieldName, fieldDetails.JsonName, *typeName))
 			} else {
 				assignments = append(assignments, fmt.Sprintf(`
 	%[2]s, err := unmarshal%[3]s(intermediate.%[1]s)
@@ -403,7 +280,7 @@ func (c modelsTemplater) unmarshalerFunc() (*string, error) {
 		return fmt.Errorf("unmarshaling %[2]s: %%+v", err)
 	}
 	c.%[1]s = %[2]s
-`, fieldName, fieldDetails.JsonName, *fieldDetails.ModelReferenceName))
+`, fieldName, fieldDetails.JsonName, *typeName))
 			}
 		}
 	}

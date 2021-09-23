@@ -75,22 +75,22 @@ func (p predicateTemplater) templateForModel(name string, model resourcemanager.
 
 	// unsupported at this time - see https://github.com/hashicorp/pandora/issues/164
 	// TODO: look to add support for these, as below
-	customTypesToIgnore := map[resourcemanager.FieldType]struct{}{
-		resourcemanager.SystemAssignedIdentity:         {},
-		resourcemanager.SystemUserAssignedIdentityMap:  {},
-		resourcemanager.SystemUserAssignedIdentityList: {},
-		resourcemanager.UserAssignedIdentityMap:        {},
-		resourcemanager.UserAssignedIdentityList:       {},
-		resourcemanager.Tags:                           {},
+	customTypesToIgnore := map[resourcemanager.ApiObjectDefinitionType]struct{}{
+		resourcemanager.SystemAssignedIdentityApiObjectDefinitionType:         {},
+		resourcemanager.SystemUserAssignedIdentityMapApiObjectDefinitionType:  {},
+		resourcemanager.SystemUserAssignedIdentityListApiObjectDefinitionType: {},
+		resourcemanager.UserAssignedIdentityMapApiObjectDefinitionType:        {},
+		resourcemanager.UserAssignedIdentityListApiObjectDefinitionType:       {},
+		resourcemanager.TagsApiObjectDefinitionType:                           {},
 	}
 
 	for name, field := range model.Fields {
 		// TODO: add support for these, but this is fine to skip for now
-		if field.ListElementType != nil || field.ConstantReferenceName != nil || field.ModelReferenceName != nil {
+		if field.ObjectDefinition.ReferenceName != nil || field.ObjectDefinition.NestedItem != nil {
 			continue
 		}
 
-		if _, ok := customTypesToIgnore[field.Type]; ok {
+		if _, ok := customTypesToIgnore[field.ObjectDefinition.Type]; ok {
 			continue
 		}
 
@@ -103,9 +103,9 @@ func (p predicateTemplater) templateForModel(name string, model resourcemanager.
 	for _, fieldName := range fieldNames {
 		fieldVal := model.Fields[fieldName]
 
-		typeInfo, err := typeInformationForNativeType(string(fieldVal.Type))
+		typeInfo, err := golangTypeNameForObjectDefinition(fieldVal.ObjectDefinition)
 		if err != nil {
-			return nil, fmt.Errorf("determining type information for field %q in model %q with info %q: %+v", fieldName, name, string(fieldVal.Type), err)
+			return nil, fmt.Errorf("determining type information for field %q in model %q with info %q: %+v", fieldName, name, string(fieldVal.ObjectDefinition.Type), err)
 		}
 		structLines = append(structLines, fmt.Sprintf("\t %[1]s *%[2]s", fieldName, *typeInfo))
 
