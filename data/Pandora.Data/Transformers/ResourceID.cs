@@ -1,4 +1,7 @@
+using System;
+using System.Collections.Generic;
 using Pandora.Data.Models;
+using Pandora.Definitions.Interfaces;
 
 namespace Pandora.Data.Transformers
 {
@@ -6,11 +9,63 @@ namespace Pandora.Data.Transformers
     {
         public static ResourceIdDefinition Map(Definitions.Interfaces.ResourceID input)
         {
+            var constants = new List<ConstantDefinition>();
+            var segments = new List<ResourceIdSegmentDefinition>();
+
+            foreach (var segment in input.Segments())
+            {
+                var type = MapResourceIdSegmentType(segment.Type);
+                var output = new ResourceIdSegmentDefinition
+                {
+                    FixedValue = segment.FixedValue,
+                    Name = segment.Name,
+                    Type = type,
+                };
+
+                if (segment.ConstantReference != null)
+                {
+                    var mapped = Constant.FromEnum(segment.ConstantReference!);
+                    constants.Add(mapped);
+                    output.ConstantReference = mapped.Name;
+                }
+
+                segments.Add(output);
+            }
+
             return new ResourceIdDefinition
             {
                 Name = input.GetType().Name,
-                Format = input.ID(),
+                IdString = input.ID(),
+                Constants = constants,
+                Segments = segments,
             };
+        }
+
+        private static ResourceIdSegmentType MapResourceIdSegmentType(ResourceIDSegmentType input)
+        {
+            switch (input)
+            {
+                case ResourceIDSegmentType.Constant:
+                    return ResourceIdSegmentType.Constant;
+
+                case ResourceIDSegmentType.ResourceGroup:
+                    return ResourceIdSegmentType.ResourceGroup;
+
+                case ResourceIDSegmentType.Scope:
+                    return ResourceIdSegmentType.Scope;
+
+                case ResourceIDSegmentType.Static:
+                    return ResourceIdSegmentType.Static;
+
+                case ResourceIDSegmentType.SubscriptionId:
+                    return ResourceIdSegmentType.SubscriptionId;
+
+                case ResourceIDSegmentType.UserSpecified:
+                    return ResourceIdSegmentType.UserSpecified;
+
+                default:
+                    throw new NotSupportedException($"unimplemented ResourceIDSegmentType {input.ToString()}");
+            }
         }
     }
 }

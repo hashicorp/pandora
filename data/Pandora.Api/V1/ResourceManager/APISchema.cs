@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text.Json.Serialization;
@@ -109,12 +110,13 @@ namespace Pandora.Api.V1.ResourceManager
 
         private static ResourceIdDefinition MapResourceId(Data.Models.ResourceIdDefinition id)
         {
+            var uniqueConstantNames = id.Segments.Where(s => s.ConstantReference != null).Select(s => s.ConstantReference!).Distinct().ToList();
+            var segments = id.Segments.Select(MapResourceIdSegment).ToList();
             return new ResourceIdDefinition
             {
-                // TODO: feed both Constant Names and Segments through
-                ConstantNames = new List<string>(),
-                Id = id.Format,
-                Segments = new List<ResourceIdSegmentDefinition>(),
+                ConstantNames = uniqueConstantNames,
+                Id = id.IdString,
+                Segments = segments,
             };
         }
 
@@ -173,6 +175,55 @@ namespace Pandora.Api.V1.ResourceManager
                 default:
                     throw new NotImplementedException($"unsupported value {input.ToString()}");
             }
+        }
+
+        private static ResourceIdSegmentDefinition MapResourceIdSegment(Data.Models.ResourceIdSegmentDefinition input)
+        {
+            var segmentType = MapResourceIdSegmentType(input.Type);
+            return new ResourceIdSegmentDefinition
+            {
+                ConstantReference = input.ConstantReference,
+                FixedValue = input.FixedValue,
+                Name = input.Name,
+                Type = segmentType,
+            };
+        }
+
+        private static string MapResourceIdSegmentType(Data.Models.ResourceIdSegmentType input)
+        {
+            switch (input)
+            {
+                case Data.Models.ResourceIdSegmentType.Constant:
+                    return ResourceIdSegmentType.Constant.ToString();
+
+                case Data.Models.ResourceIdSegmentType.ResourceGroup:
+                    return ResourceIdSegmentType.ResourceGroup.ToString();
+
+                case Data.Models.ResourceIdSegmentType.Scope:
+                    return ResourceIdSegmentType.Scope.ToString();
+
+                case Data.Models.ResourceIdSegmentType.Static:
+                    return ResourceIdSegmentType.Static.ToString();
+
+                case Data.Models.ResourceIdSegmentType.SubscriptionId:
+                    return ResourceIdSegmentType.SubscriptionId.ToString();
+
+                case Data.Models.ResourceIdSegmentType.UserSpecified:
+                    return ResourceIdSegmentType.UserSpecified.ToString();
+
+                default:
+                    throw new NotImplementedException($"unsupported value {input.ToString()}");
+            }
+        }
+
+        public enum ResourceIdSegmentType
+        {
+            Constant,
+            ResourceGroup,
+            Scope,
+            Static,
+            SubscriptionId,
+            UserSpecified
         }
 
         private static string? MapListElementType(PropertyType? input)

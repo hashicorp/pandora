@@ -6,9 +6,11 @@ using System.Net;
 using System.Net.Http;
 using System.Text.Json.Serialization;
 using NUnit.Framework;
+using Pandora.Data.Models;
 using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Interfaces;
 using Pandora.Definitions.Operations;
+using ApiDefinition = Pandora.Definitions.Interfaces.ApiDefinition;
 
 namespace Pandora.Data.Transformers
 {
@@ -212,6 +214,21 @@ namespace Pandora.Data.Transformers
             Assert.AreEqual(0, actual.Models.Count);
 
             var constant = actual.Constants.First(c => c.Name == "ConstantHiddenInOptions");
+            Assert.NotNull(constant);
+        }
+
+        [TestCase]
+        public static void MappingAnApiWhichContainsAConstantWithinResourceId()
+        {
+            var actual = APIDefinition.Map(new ApiVersionWithConstantWithinResourceId());
+            Assert.NotNull(actual);
+            Assert.AreEqual("ApiVersionWithConstantWithinResourceId", actual.Name);
+            Assert.AreEqual(1, actual.Operations.Count);
+            Assert.AreEqual("Example", actual.Operations.First().Name);
+            Assert.AreEqual(1, actual.Constants.Count);
+            Assert.AreEqual(0, actual.Models.Count);
+
+            var constant = actual.Constants.First(c => c.Name == "ConstantHiddenInResourceId");
             Assert.NotNull(constant);
         }
 
@@ -714,6 +731,62 @@ namespace Pandora.Data.Transformers
         {
             [JsonPropertyName("second")]
             public string Second { get; set; }
+        }
+    }
+
+    public class ApiVersionWithConstantWithinResourceId : ApiDefinition
+    {
+        public string ApiVersion => "2018-01-01";
+        public string Name => "ApiVersionWithConstantWithinResourceId";
+
+        public IEnumerable<ApiOperation> Operations => new List<ApiOperation>
+        {
+            new ExampleOperation()
+        };
+
+        public class ExampleOperation : HeadOperation
+        {
+            public override Definitions.Interfaces.ResourceID? ResourceId()
+            {
+                return new ExampleResourceId();
+            }
+        }
+
+        public class ExampleResourceId : Definitions.Interfaces.ResourceID
+        {
+            public string ID()
+            {
+                return "/planets/{planetName}";
+            }
+
+            public List<ResourceIDSegment> Segments()
+            {
+                return new List<ResourceIDSegment>
+                {
+                    new ResourceIDSegment
+                    {
+                        Name = "planets",
+                        FixedValue = "planets",
+                        Type = ResourceIDSegmentType.Static,
+                    },
+                    new ResourceIDSegment
+                    {
+                        Name = "planetName",
+                        ConstantReference = typeof(ConstantHiddenInResourceId),
+                        Type = ResourceIDSegmentType.Constant,
+                    },
+                };
+            }
+        }
+
+        [ConstantType(ConstantTypeAttribute.ConstantType.String)]
+        public enum ConstantHiddenInResourceId
+        {
+            [System.ComponentModel.Description("First")]
+            First,
+
+            [System.ComponentModel.Description("Second")]
+            Second,
         }
     }
 
