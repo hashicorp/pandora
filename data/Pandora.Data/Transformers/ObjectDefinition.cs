@@ -13,6 +13,7 @@ namespace Pandora.Data.Transformers
                 throw new NotSupportedException("cannot map a null type");
             }
 
+            // TODO: support for DateTime, RawFile & RawObject
             if (Helpers.IsNativeType(input))
             {
                 return new Models.ObjectDefinition
