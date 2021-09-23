@@ -29,9 +29,12 @@ namespace Pandora.Api.V1.Helpers
         {
             switch (input)
             {
-                // TODO: support for Csv/DateTime/RawFile/RawObject
                 case ObjectType.Boolean:
                     return ApiObjectType.Boolean.ToString();
+                case ObjectType.Csv:
+                    return ApiObjectType.Csv.ToString();
+                case ObjectType.DateTime:
+                    return ApiObjectType.DateTime.ToString();
                 case ObjectType.Dictionary:
                     return ApiObjectType.Dictionary.ToString();
                 case ObjectType.Float:
@@ -40,10 +43,30 @@ namespace Pandora.Api.V1.Helpers
                     return ApiObjectType.Integer.ToString();
                 case ObjectType.List:
                     return ApiObjectType.List.ToString();
+                case ObjectType.RawObject:
+                    return ApiObjectType.RawObject.ToString();
                 case ObjectType.Reference:
                     return ApiObjectType.Reference.ToString();
                 case ObjectType.String:
                     return ApiObjectType.String.ToString();
+
+                // Custom Types
+                case ObjectType.Location:
+                    return ApiObjectType.Location.ToString();
+                case ObjectType.RawFile:
+                    return ApiObjectType.RawFile.ToString();
+                case ObjectType.SystemAssignedIdentity:
+                    return ApiObjectType.SystemAssignedIdentity.ToString();
+                case ObjectType.SystemUserAssignedIdentityList:
+                    return ApiObjectType.SystemUserAssignedIdentityList.ToString();
+                case ObjectType.SystemUserAssignedIdentityMap:
+                    return ApiObjectType.SystemUserAssignedIdentityMap.ToString();
+                case ObjectType.UserAssignedIdentityList:
+                    return ApiObjectType.UserAssignedIdentityList.ToString();
+                case ObjectType.UserAssignedIdentityMap:
+                    return ApiObjectType.UserAssignedIdentityMap.ToString();
+                case ObjectType.Tags:
+                    return ApiObjectType.Tags.ToString();
             }
 
             throw new NotSupportedException($"Unsupported ObjectType {input}");
@@ -65,11 +88,24 @@ namespace Pandora.Api.V1.Helpers
     public enum ApiObjectType
     {
         Boolean,
+        Csv,
+        DateTime,
         Dictionary,
         Integer,
         Float,
         List,
+        RawFile,
+        RawObject,
         Reference,
-        String
+        String,
+
+        // Custom Types
+        Location,
+        SystemAssignedIdentity,
+        SystemUserAssignedIdentityList,
+        SystemUserAssignedIdentityMap,
+        UserAssignedIdentityList,
+        UserAssignedIdentityMap,
+        Tags,
     }
 }
