@@ -33,7 +33,7 @@ func (g PandoraDefinitionGenerator) codeForOperation(namespace string, operation
 	}
 
 	if operation.RequestObject != nil {
-		requestOperationTypeName, err := typeNameForObjectDefinition(*operation.RequestObject, resource)
+		requestOperationTypeName, err := dotNetNameForObjectDefinition(operation.RequestObject, resource.Constants, resource.Models)
 		if err != nil {
 			return nil, fmt.Errorf("determining type name for Request Object: %+v", err)
 		}
@@ -49,7 +49,7 @@ func (g PandoraDefinitionGenerator) codeForOperation(namespace string, operation
 	}
 
 	if operation.ResponseObject != nil {
-		responseOperationTypeName, err := typeNameForObjectDefinition(*operation.ResponseObject, resource)
+		responseOperationTypeName, err := dotNetNameForObjectDefinition(operation.ResponseObject, resource.Constants, resource.Models)
 		if err != nil {
 			return nil, fmt.Errorf("determining type name for Response Object: %+v", err)
 		}
@@ -134,126 +134,6 @@ namespace %[1]s
 	return &output, nil
 }
 
-func dotNetNameForHttpMethod(method string) string {
-	switch strings.ToUpper(method) {
-	case "DELETE":
-		return "HttpMethod.Delete"
-
-	case "GET":
-		return "HttpMethod.Get"
-
-	case "HEAD":
-		return "HttpMethod.Head"
-
-	case "PATCH":
-		return "HttpMethod.Patch"
-
-	case "POST":
-		return "HttpMethod.Post"
-
-	case "PUT":
-		return "HttpMethod.Put"
-
-	default:
-		return fmt.Sprintf("TODO (unimplemented %q)", method)
-	}
-}
-
-func typeNameForObjectDefinition(input models.ObjectDefinition, resource models.AzureApiResource) (*string, error) {
-	if input.Type == models.ObjectDefinitionDictionary {
-		typeName := ""
-		// either it's a nested Dictionary (e.g. Dictionary<string, string>)
-		if input.NestedItem != nil {
-			nestedType, err := typeNameForObjectDefinition(*input.NestedItem, resource)
-			if err != nil {
-				return nil, fmt.Errorf("determining nested type: %+v", err)
-			}
-
-			typeName = *nestedType
-		}
-
-		// or it's got a reference (e.g. Dictionary<string, Model>)
-		if input.ReferenceName != nil {
-			typeName = *input.ReferenceName
-		}
-
-		if typeName == "" {
-			return nil, fmt.Errorf("missing a reference or nested item for nested dictionary item")
-		}
-
-		out := fmt.Sprintf("Dictionary<string, %s>", typeName)
-		return &out, nil
-	}
-
-	if input.Type == models.ObjectDefinitionList {
-		typeName := ""
-		// either it's a nested List (e.g. List<string>, List<List<string>>)
-		if input.NestedItem != nil {
-			nestedType, err := typeNameForObjectDefinition(*input.NestedItem, resource)
-			if err != nil {
-				return nil, fmt.Errorf("determining nested type: %+v", err)
-			}
-
-			typeName = *nestedType
-		}
-
-		// or it's got a reference (e.g. List<Model>)
-		if input.ReferenceName != nil {
-			typeName = *input.ReferenceName
-		}
-
-		if typeName == "" {
-			return nil, fmt.Errorf("missing a reference or nested item for nested list item")
-		}
-
-		out := fmt.Sprintf("List<%s>", typeName)
-		return &out, nil
-	}
-
-	if input.Type == models.ObjectDefinitionReference {
-		if input.ReferenceName == nil {
-			return nil, fmt.Errorf("missing constant/model reference")
-		}
-
-		output := *input.ReferenceName
-		if _, isConstant := resource.Constants[output]; isConstant {
-			output += "Constant"
-		}
-		if _, isModel := resource.Models[output]; isModel {
-			output += "Model"
-		}
-
-		return &output, nil
-	}
-
-	var out string
-	switch input.Type {
-	case models.ObjectDefinitionBoolean:
-		out = "bool"
-
-	case models.ObjectDefinitionFloat:
-		out = "float"
-
-	case models.ObjectDefinitionInteger:
-		out = "int"
-
-	case models.ObjectDefinitionRawFile:
-		out = "byte[]"
-
-	case models.ObjectDefinitionRawObject:
-		out = "object"
-
-	case models.ObjectDefinitionString:
-		out = "string"
-	}
-
-	if out != "" {
-		return &out, nil
-	}
-
-	return nil, fmt.Errorf("unimplemented object definition type %q", string(input.Type))
-}
-
 func (g PandoraDefinitionGenerator) usesNonDefaultStatusCodes(operation models.OperationDetails) bool {
 	defaultStatusCodes := map[string][]int{
 		"get":    {200},
@@ -301,5 +181,30 @@ func (g PandoraDefinitionGenerator) dotnetNameForStatusCode(input int) string {
 
 	default:
 		return fmt.Sprintf("TODO: support %d", input)
+	}
+}
+
+func dotNetNameForHttpMethod(method string) string {
+	switch strings.ToUpper(method) {
+	case "DELETE":
+		return "HttpMethod.Delete"
+
+	case "GET":
+		return "HttpMethod.Get"
+
+	case "HEAD":
+		return "HttpMethod.Head"
+
+	case "PATCH":
+		return "HttpMethod.Patch"
+
+	case "POST":
+		return "HttpMethod.Post"
+
+	case "PUT":
+		return "HttpMethod.Put"
+
+	default:
+		return fmt.Sprintf("TODO (unimplemented %q)", method)
 	}
 }
