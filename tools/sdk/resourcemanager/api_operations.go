@@ -82,7 +82,7 @@ type ApiOperationOption struct {
 	QueryStringName *string `json:"queryStringName,omitempty"`
 
 	// ObjectDefinition defines the Type of Object this Option is
-	ObjectDefinition *ApiObjectDefinition `json:"objectDefinition"`
+	ObjectDefinition ApiObjectDefinition `json:"objectDefinition"`
 
 	// Required specifies whether this Option must be specified in the Request
 	Required bool `json:"required"`
