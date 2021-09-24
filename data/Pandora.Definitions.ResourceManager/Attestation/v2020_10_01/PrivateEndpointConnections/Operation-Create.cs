@@ -1,4 +1,5 @@
 using Pandora.Definitions.Attributes;
+using Pandora.Definitions.CustomTypes;
 using Pandora.Definitions.Interfaces;
 using Pandora.Definitions.Operations;
 using System;
