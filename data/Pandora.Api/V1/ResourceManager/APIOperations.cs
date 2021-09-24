@@ -159,7 +159,7 @@ namespace Pandora.Api.V1.ResourceManager
         {
             // TODO: header name too
             [JsonPropertyName("queryStringName")]
-            public string QueryStringName { get; set; }
+            public string? QueryStringName { get; set; }
 
             [JsonPropertyName("objectDefinition")]
             public ApiObjectDefinition ObjectDefinition { get; set; }
