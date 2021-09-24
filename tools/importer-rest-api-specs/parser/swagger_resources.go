@@ -48,7 +48,7 @@ func (d *SwaggerDefinition) parseResourcesWithinSwaggerTag(tag *string) (*models
 	result = removeUnusedItems(*operations, resourceIds.nameToResourceIDs, result)
 
 	// if there's nothing here, there's no point generating a package
-	if len(*operations) == 0 && len(result.models) == 0 && len(result.constants) == 0 {
+	if len(*operations) == 0 {
 		return nil, nil
 	}
 
