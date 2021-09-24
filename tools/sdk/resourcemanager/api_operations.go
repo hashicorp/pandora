@@ -78,10 +78,14 @@ type ApiOperation struct {
 }
 
 type ApiOperationOption struct {
-	ConstantName    *string            `json:"constantName,omitempty"`
-	FieldType       OperationFieldType `json:"fieldType"`
-	QueryStringName string             `json:"queryStringName"`
-	Required        bool               `json:"required"`
+	// QueryStringName is the Key which should be used for this Option in the QueryString
+	QueryStringName *string `json:"queryStringName,omitempty"`
+
+	// ObjectDefinition defines the Type of Object this Option is
+	ObjectDefinition *ApiObjectDefinition `json:"objectDefinition"`
+
+	// Required specifies whether this Option must be specified in the Request
+	Required bool `json:"required"`
 }
 
 type MetaData struct {
@@ -89,12 +93,3 @@ type MetaData struct {
 	// registered to use this API Operation
 	ResourceProvider *string `json:"resourceProvider"`
 }
-
-type OperationFieldType string
-
-const (
-	OperationFieldTypeBoolean  OperationFieldType = "Boolean"
-	OperationFieldTypeConstant OperationFieldType = "Constant"
-	OperationFieldTypeInteger  OperationFieldType = "Integer"
-	OperationFieldTypeString   OperationFieldType = "String"
-)
