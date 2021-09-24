@@ -94,38 +94,16 @@ namespace Pandora.Api.V1.ResourceManager
 
             foreach (var definition in input)
             {
-                var fieldType = MapFieldType(definition.Type);
+                var objectDefinition = ApiObjectDefinitionMapper.Map(definition.ObjectDefinition);
                 output[definition.Name] = new ApiOperationOption
                 {
-                    FieldType = fieldType,
-                    ConstantName = definition.ConstantType,
                     QueryStringName = definition.QueryStringName,
+                    ObjectDefinition = objectDefinition,
                     Required = definition.Required,
                 };
             }
 
             return output;
-        }
-
-        private static string MapFieldType(OptionDefinitionType input)
-        {
-            switch (input)
-            {
-                case OptionDefinitionType.Boolean:
-                    return ApiOperationOptionType.Boolean.ToString();
-
-                case OptionDefinitionType.Constant:
-                    return ApiOperationOptionType.Constant.ToString();
-
-                case OptionDefinitionType.Integer:
-                    return ApiOperationOptionType.Integer.ToString();
-
-                case OptionDefinitionType.String:
-                    return ApiOperationOptionType.String.ToString();
-
-                default:
-                    throw new NotSupportedException($"unsupported operation type {input}");
-            }
         }
 
         public class ApiOperationsResponse
@@ -179,27 +157,15 @@ namespace Pandora.Api.V1.ResourceManager
 
         public class ApiOperationOption
         {
-            [JsonPropertyName("constantName")]
-            public string? ConstantName { get; set; }
-
-            [JsonPropertyName("fieldType")]
-            public string FieldType { get; set; }
-
             // TODO: header name too
-
             [JsonPropertyName("queryStringName")]
             public string QueryStringName { get; set; }
 
+            [JsonPropertyName("objectDefinition")]
+            public ApiObjectDefinition ObjectDefinition { get; set; }
+
             [JsonPropertyName("required")]
             public bool Required { get; set; }
-        }
-
-        public enum ApiOperationOptionType
-        {
-            Boolean,
-            Constant,
-            Integer,
-            String
         }
 
         public class OperationMetaData

@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Reflection;
-using Pandora.Data.Helpers;
 using Pandora.Data.Models;
 using Pandora.Definitions.Attributes;
 
@@ -27,8 +26,7 @@ namespace Pandora.Data.Transformers
                     {
                         Name = property.Name,
                         Required = true,
-                        Type = MapOptionDefinitionType(property.PropertyType),
-                        ConstantType = MapOptionConstant(property.PropertyType),
+                        ObjectDefinition = ObjectDefinition.Map(property.PropertyType),
                         QueryStringName = property.QueryStringName()
                     };
 
@@ -46,38 +44,6 @@ namespace Pandora.Data.Transformers
             {
                 throw new Exception($"Mapping Options Object {input.GetType().FullName}", ex);
             }
-        }
-
-        private static string? MapOptionConstant(Type? input)
-        {
-            if (!input.IsEnum)
-            {
-                return null;
-            }
-
-            return input?.Name.TrimSuffix("Constant");
-        }
-
-        private static OptionDefinitionType MapOptionDefinitionType(Type propertyType)
-        {
-            if (propertyType.IsEnum)
-            {
-                return OptionDefinitionType.Constant;
-            }
-
-            switch (propertyType.ToString())
-            {
-                case "System.Boolean":
-                    return OptionDefinitionType.Boolean;
-
-                case "System.Int32":
-                    return OptionDefinitionType.Integer;
-
-                case "System.String":
-                    return OptionDefinitionType.String;
-            }
-
-            throw new NotSupportedException($"Type {propertyType} needs to be implemented for Options");
         }
 
         private static string QueryStringName(this MemberInfo info)
