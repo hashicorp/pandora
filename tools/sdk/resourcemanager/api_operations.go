@@ -78,41 +78,18 @@ type ApiOperation struct {
 }
 
 type ApiOperationOption struct {
-	ConstantName    *string            `json:"constantName,omitempty"`
-	FieldType       OperationFieldType `json:"fieldType"`
-	QueryStringName string             `json:"queryStringName"`
-	Required        bool               `json:"required"`
+	// QueryStringName is the Key which should be used for this Option in the QueryString
+	QueryStringName *string `json:"queryStringName,omitempty"`
+
+	// ObjectDefinition defines the Type of Object this Option is
+	ObjectDefinition ApiObjectDefinition `json:"objectDefinition"`
+
+	// Required specifies whether this Option must be specified in the Request
+	Required bool `json:"required"`
 }
-
-type ApiObjectDefinition struct {
-	NestedItem    *ApiObjectDefinition    `json:"nestedItem,omitempty"`
-	ReferenceName *string                 `json:"referenceName,omitempty"`
-	Type          ApiObjectDefinitionType `json:"type"`
-}
-
-type ApiObjectDefinitionType string
-
-const (
-	ApiObjectDefinitionBoolean    ApiObjectDefinitionType = "Boolean"
-	ApiObjectDefinitionDictionary ApiObjectDefinitionType = "Dictionary"
-	ApiObjectDefinitionInteger    ApiObjectDefinitionType = "Integer"
-	ApiObjectDefinitionFloat      ApiObjectDefinitionType = "Float"
-	ApiObjectDefinitionList       ApiObjectDefinitionType = "List"
-	ApiObjectDefinitionReference  ApiObjectDefinitionType = "Reference"
-	ApiObjectDefinitionString     ApiObjectDefinitionType = "String"
-)
 
 type MetaData struct {
 	// ResourceProvider is the name of the Azure Resource Provider which must be
 	// registered to use this API Operation
 	ResourceProvider *string `json:"resourceProvider"`
 }
-
-type OperationFieldType string
-
-const (
-	OperationFieldTypeBoolean  OperationFieldType = "Boolean"
-	OperationFieldTypeConstant OperationFieldType = "Constant"
-	OperationFieldTypeInteger  OperationFieldType = "Integer"
-	OperationFieldTypeString   OperationFieldType = "String"
-)

@@ -12,7 +12,6 @@ namespace Pandora.Data.Transformers
             var nativeTypes = new List<Type>
             {
                 typeof(bool),
-                typeof(byte),
                 typeof(DateTime),
                 typeof(float),
                 typeof(int),
@@ -27,6 +26,7 @@ namespace Pandora.Data.Transformers
             var customTypes = new List<Type>
             {
                 typeof(Location),
+                typeof(RawFile),
                 typeof(Tags),
                 typeof(SystemAssignedIdentity),
                 typeof(SystemUserAssignedIdentityList),
@@ -40,6 +40,21 @@ namespace Pandora.Data.Transformers
         internal static bool HasAttribute<T>(this MemberInfo info) where T : Attribute
         {
             return info.GetCustomAttribute<T>() != null;
+        }
+
+        internal static bool IsAGenericCsv(this Type input)
+        {
+            return input.IsGenericType && input.GetGenericTypeDefinition() == typeof(Csv<>);
+        }
+
+        internal static Type GenericCsvElement(this Type input)
+        {
+            if (!input.IsAGenericCsv())
+            {
+                throw new NotSupportedException($"unsupported Csv Type {input.Name}");
+            }
+
+            return input.GetGenericArguments()[0];
         }
 
         internal static bool IsAGenericDictionary(this Type input)

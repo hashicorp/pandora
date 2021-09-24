@@ -6,6 +6,7 @@ using System.Text.Json.Serialization;
 using NUnit.Framework;
 using Pandora.Data.Models;
 using Pandora.Definitions.Attributes;
+using Pandora.Definitions.CustomTypes;
 
 namespace Pandora.Data.Transformers
 {
@@ -20,6 +21,10 @@ namespace Pandora.Data.Transformers
                 typeof(int),
                 typeof(float),
                 typeof(string),
+                typeof(Csv<bool>),
+                typeof(Csv<int>),
+                typeof(Csv<float>),
+                typeof(Csv<string>),
                 typeof(Dictionary<string, bool>),
                 typeof(Dictionary<string, int>),
                 typeof(Dictionary<string, float>),
@@ -32,6 +37,10 @@ namespace Pandora.Data.Transformers
                 typeof(List<List<int>>),
                 typeof(List<List<float>>),
                 typeof(List<List<string>>),
+                typeof(List<List<List<bool>>>),
+                typeof(List<List<List<int>>>),
+                typeof(List<List<List<float>>>),
+                typeof(List<List<List<string>>>),
             };
 
             foreach (var type in builtInTypes)
@@ -39,6 +48,14 @@ namespace Pandora.Data.Transformers
                 var actual = Model.Map(type);
                 Assert.AreEqual(actual.Count, 0);
             }
+        }
+
+        [TestCase]
+        public static void MappingACsvOfAModelShouldReturnJustTheModel()
+        {
+            // contents are verified below, as long as we have it we're good
+            var actual = Model.Map(typeof(Csv<Example>));
+            Assert.AreEqual(1, actual.Count);
         }
 
         [TestCase]
@@ -66,6 +83,14 @@ namespace Pandora.Data.Transformers
         }
 
         [TestCase]
+        public static void MappingAListOfAListOfAListOfAModelShouldReturnJustTheModel()
+        {
+            // contents are verified below, as long as we have it we're good
+            var actual = Model.Map(typeof(List<List<List<Example>>>));
+            Assert.AreEqual(1, actual.Count);
+        }
+
+        [TestCase]
         public static void MappingAModelShouldRemoveSuffixes()
         {
             var actual = Model.Map(typeof(ExampleWithSuffixesModel));
@@ -82,7 +107,7 @@ namespace Pandora.Data.Transformers
             Assert.NotNull(model.Properties.First(p => p.Name == "String"));
 
             var secondModel = model.Properties.First(p => p.Name == "SecondProp");
-            Assert.AreEqual("Second", secondModel.ModelReference);
+            Assert.AreEqual("Second", secondModel.ObjectDefinition.ReferenceName);
         }
 
         [TestCase]
@@ -94,23 +119,33 @@ namespace Pandora.Data.Transformers
             Assert.AreEqual("ExampleWithSelfReferences", actual.First().Name);
             Assert.AreEqual(4, actual.First().Properties.Count);
 
-            Assert.NotNull(actual.First().Properties.First(f => f.Name == "SelfReference").Name);
-            Assert.AreEqual(PropertyType.Object, actual.First().Properties.First(f => f.Name == "SelfReference").PropertyType);
-            Assert.AreEqual("ExampleWithSelfReferences", actual.First().Properties.First(f => f.Name == "SelfReference").ModelReference);
+            var selfReferenceProp = actual.First().Properties.First(f => f.Name == "SelfReference");
+            Assert.NotNull(selfReferenceProp.Name);
+            Assert.AreEqual(ObjectType.Reference, selfReferenceProp.ObjectDefinition.Type);
+            Assert.AreEqual("ExampleWithSelfReferences", selfReferenceProp.ObjectDefinition.ReferenceName);
 
-            Assert.NotNull(actual.First().Properties.First(f => f.Name == "NilableSelfReference").Name);
-            Assert.AreEqual(PropertyType.Object, actual.First().Properties.First(f => f.Name == "NilableSelfReference").PropertyType);
-            Assert.True(actual.First().Properties.First(f => f.Name == "NilableSelfReference").Optional);
-            Assert.AreEqual("ExampleWithSelfReferences", actual.First().Properties.First(f => f.Name == "NilableSelfReference").ModelReference);
+            var nilableSelfReferenceProp = actual.First().Properties.First(f => f.Name == "NilableSelfReference");
+            Assert.NotNull(nilableSelfReferenceProp.Name);
+            Assert.AreEqual(ObjectType.Reference, nilableSelfReferenceProp.ObjectDefinition.Type);
+            Assert.True(nilableSelfReferenceProp.Optional);
+            Assert.AreEqual("ExampleWithSelfReferences", nilableSelfReferenceProp.ObjectDefinition.ReferenceName);
 
-            Assert.NotNull(actual.First().Properties.First(f => f.Name == "ListOfReferences").Name);
-            Assert.AreEqual(PropertyType.List, actual.First().Properties.First(f => f.Name == "ListOfReferences").PropertyType);
-            Assert.AreEqual("ExampleWithSelfReferences", actual.First().Properties.First(f => f.Name == "ListOfReferences").ModelReference);
+            var listOfReferencesProp = actual.First().Properties.First(f => f.Name == "ListOfReferences");
+            Assert.NotNull(listOfReferencesProp.Name);
+            Assert.AreEqual(ObjectType.List, listOfReferencesProp.ObjectDefinition.Type);
+            Assert.Null(listOfReferencesProp.ObjectDefinition.ReferenceName);
+            Assert.AreEqual(ObjectType.Reference, listOfReferencesProp.ObjectDefinition.NestedItem.Type);
+            Assert.AreEqual("ExampleWithSelfReferences", listOfReferencesProp.ObjectDefinition.NestedItem.ReferenceName);
+            Assert.Null(listOfReferencesProp.ObjectDefinition.NestedItem.NestedItem);
 
-            Assert.NotNull(actual.First().Properties.First(f => f.Name == "NilableListOfReferences").Name);
-            Assert.AreEqual(PropertyType.List, actual.First().Properties.First(f => f.Name == "NilableListOfReferences").PropertyType);
-            Assert.True(actual.First().Properties.First(f => f.Name == "NilableListOfReferences").Optional);
-            Assert.AreEqual("ExampleWithSelfReferences", actual.First().Properties.First(f => f.Name == "NilableListOfReferences").ModelReference);
+            var nilableListOfReferencesProp = actual.First().Properties.First(f => f.Name == "NilableListOfReferences");
+            Assert.NotNull(nilableSelfReferenceProp.Name);
+            Assert.AreEqual(ObjectType.List, listOfReferencesProp.ObjectDefinition.Type);
+            Assert.Null(listOfReferencesProp.ObjectDefinition.ReferenceName);
+            Assert.AreEqual(ObjectType.Reference, listOfReferencesProp.ObjectDefinition.NestedItem.Type);
+            Assert.AreEqual("ExampleWithSelfReferences", nilableListOfReferencesProp.ObjectDefinition.NestedItem.ReferenceName);
+            Assert.Null(nilableListOfReferencesProp.ObjectDefinition.NestedItem.NestedItem);
+            Assert.True(nilableListOfReferencesProp.Optional);
         }
 
         [TestCase]
@@ -122,9 +157,125 @@ namespace Pandora.Data.Transformers
             Assert.AreEqual("ExampleWithList", actual.First().Name);
             Assert.AreEqual("OtherType", actual.Skip(1).First().Name);
             Assert.AreEqual(1, actual.First().Properties.Count);
-            Assert.AreEqual("OtherTypes", actual.First().Properties.First().Name);
-            Assert.AreEqual(PropertyType.List, actual.First().Properties.First().PropertyType);
-            Assert.AreEqual("OtherType", actual.First().Properties.First().ModelReference);
+
+            var prop = actual.First().Properties.First();
+            Assert.AreEqual("OtherTypes", prop.Name);
+            Assert.AreEqual(ObjectType.List, prop.ObjectDefinition.Type);
+            Assert.Null(prop.ObjectDefinition.ReferenceName);
+            Assert.AreEqual(ObjectType.Reference, prop.ObjectDefinition.NestedItem.Type);
+            Assert.AreEqual("OtherType", prop.ObjectDefinition.NestedItem.ReferenceName);
+            Assert.Null(prop.ObjectDefinition.NestedItem.NestedItem);
+        }
+
+        [TestCase]
+        public static void MappingAModelContainingNullableLists()
+        {
+            var actual = Model.Map(typeof(ExampleWithNullableList));
+            Assert.NotNull(actual);
+            Assert.AreEqual(2, actual.Count);
+            Assert.AreEqual("ExampleWithNullableList", actual.First().Name);
+            Assert.AreEqual("OtherType", actual.Skip(1).First().Name);
+            Assert.AreEqual(1, actual.First().Properties.Count);
+
+            var prop = actual.First().Properties.First();
+            Assert.AreEqual("OtherTypes", prop.Name);
+            Assert.AreEqual(ObjectType.List, prop.ObjectDefinition.Type);
+            Assert.Null(prop.ObjectDefinition.ReferenceName);
+            Assert.AreEqual(ObjectType.Reference, prop.ObjectDefinition.NestedItem.Type);
+            Assert.AreEqual("OtherType", prop.ObjectDefinition.NestedItem.ReferenceName);
+            Assert.Null(prop.ObjectDefinition.NestedItem.NestedItem);
+        }
+
+        [TestCase]
+        public static void MappingAModelContainingAListOfLists()
+        {
+            var actual = Model.Map(typeof(ExampleWithListOfLists));
+            Assert.NotNull(actual);
+            Assert.AreEqual(2, actual.Count);
+            Assert.AreEqual("ExampleWithListOfLists", actual.First().Name);
+            Assert.AreEqual("OtherType", actual.Skip(1).First().Name);
+            Assert.AreEqual(1, actual.First().Properties.Count);
+
+            var prop = actual.First().Properties.First();
+            Assert.AreEqual("OtherTypes", prop.Name);
+            Assert.AreEqual(ObjectType.List, prop.ObjectDefinition.Type);
+            Assert.Null(prop.ObjectDefinition.ReferenceName);
+            Assert.AreEqual(ObjectType.List, prop.ObjectDefinition.NestedItem.Type);
+            Assert.Null(prop.ObjectDefinition.NestedItem.ReferenceName);
+            Assert.AreEqual(ObjectType.Reference, prop.ObjectDefinition.NestedItem.NestedItem.Type);
+            Assert.AreEqual("OtherType", prop.ObjectDefinition.NestedItem.NestedItem.ReferenceName);
+            Assert.Null(prop.ObjectDefinition.NestedItem.NestedItem.NestedItem);
+        }
+
+        [TestCase]
+        public static void MappingAModelContainingNullableListOfLists()
+        {
+            var actual = Model.Map(typeof(ExampleWithNullableListOfLists));
+            Assert.NotNull(actual);
+            Assert.AreEqual(2, actual.Count);
+            Assert.AreEqual("ExampleWithNullableListOfLists", actual.First().Name);
+            Assert.AreEqual("OtherType", actual.Skip(1).First().Name);
+            Assert.AreEqual(1, actual.First().Properties.Count);
+
+            var prop = actual.First().Properties.First();
+            Assert.AreEqual("OtherTypes", prop.Name);
+            Assert.AreEqual(ObjectType.List, prop.ObjectDefinition.Type);
+            Assert.Null(prop.ObjectDefinition.ReferenceName);
+            Assert.AreEqual(ObjectType.List, prop.ObjectDefinition.NestedItem.Type);
+            Assert.Null(prop.ObjectDefinition.NestedItem.ReferenceName);
+            Assert.AreEqual(ObjectType.Reference, prop.ObjectDefinition.NestedItem.NestedItem.Type);
+            Assert.AreEqual("OtherType", prop.ObjectDefinition.NestedItem.NestedItem.ReferenceName);
+            Assert.Null(prop.ObjectDefinition.NestedItem.NestedItem.NestedItem);
+        }
+
+        [TestCase]
+        public static void MappingAModelContainingAListOfListsOfLists()
+        {
+            var actual = Model.Map(typeof(ExampleWithListOfListsOfLists));
+            Assert.NotNull(actual);
+            Assert.AreEqual(2, actual.Count);
+            Assert.AreEqual("ExampleWithListOfListsOfLists", actual.First().Name);
+            Assert.AreEqual("OtherType", actual.Skip(1).First().Name);
+            Assert.AreEqual(1, actual.First().Properties.Count);
+
+            var prop = actual.First().Properties.First();
+            Assert.AreEqual("OtherTypes", prop.Name);
+            Assert.AreEqual(ObjectType.List, prop.ObjectDefinition.Type);
+            Assert.Null(prop.ObjectDefinition.ReferenceName);
+            Assert.AreEqual(ObjectType.List, prop.ObjectDefinition.NestedItem.Type);
+            Assert.Null(prop.ObjectDefinition.NestedItem.ReferenceName);
+
+            Assert.AreEqual(ObjectType.List, prop.ObjectDefinition.NestedItem.NestedItem.Type);
+            Assert.Null(prop.ObjectDefinition.NestedItem.NestedItem.ReferenceName);
+
+            Assert.AreEqual(ObjectType.Reference, prop.ObjectDefinition.NestedItem.NestedItem.NestedItem.Type);
+            Assert.AreEqual("OtherType", prop.ObjectDefinition.NestedItem.NestedItem.NestedItem.ReferenceName);
+            Assert.Null(prop.ObjectDefinition.NestedItem.NestedItem.NestedItem.NestedItem);
+        }
+
+        [TestCase]
+        public static void MappingAModelContainingNullableListOfListsOfLists()
+        {
+            var actual = Model.Map(typeof(ExampleWithNullableListOfListsOfLists));
+            Assert.NotNull(actual);
+            Assert.AreEqual(2, actual.Count);
+            Assert.AreEqual("ExampleWithNullableListOfListsOfLists", actual.First().Name);
+            Assert.AreEqual("OtherType", actual.Skip(1).First().Name);
+            Assert.AreEqual(1, actual.First().Properties.Count);
+
+            var prop = actual.First().Properties.First();
+            Assert.AreEqual("OtherTypes", prop.Name);
+            Assert.AreEqual(ObjectType.List, prop.ObjectDefinition.Type);
+            Assert.Null(prop.ObjectDefinition.ReferenceName);
+            Assert.AreEqual(ObjectType.List, prop.ObjectDefinition.NestedItem.Type);
+            Assert.Null(prop.ObjectDefinition.NestedItem.ReferenceName);
+
+            Assert.AreEqual(ObjectType.List, prop.ObjectDefinition.NestedItem.NestedItem.Type);
+            Assert.Null(prop.ObjectDefinition.NestedItem.NestedItem.ReferenceName);
+
+            Assert.AreEqual(ObjectType.Reference, prop.ObjectDefinition.NestedItem.NestedItem.NestedItem.Type);
+            Assert.AreEqual("OtherType", prop.ObjectDefinition.NestedItem.NestedItem.NestedItem.ReferenceName);
+            Assert.Null(prop.ObjectDefinition.NestedItem.NestedItem.NestedItem.NestedItem);
         }
 
         [TestCase]
@@ -143,7 +294,7 @@ namespace Pandora.Data.Transformers
                     case "First":
                         {
                             Assert.AreEqual("first", property.JsonName);
-                            Assert.AreEqual(PropertyType.Boolean, property.PropertyType);
+                            Assert.AreEqual(ObjectType.Boolean, property.ObjectDefinition.Type);
                             Assert.AreEqual(true, property.Required);
                             continue;
                         }
@@ -151,7 +302,7 @@ namespace Pandora.Data.Transformers
                     case "Second":
                         {
                             Assert.AreEqual("second", property.JsonName);
-                            Assert.AreEqual(PropertyType.String, property.PropertyType);
+                            Assert.AreEqual(ObjectType.String, property.ObjectDefinition.Type);
                             Assert.AreEqual(true, property.Optional);
                             continue;
                         }
@@ -159,7 +310,7 @@ namespace Pandora.Data.Transformers
                     case "Random":
                         {
                             Assert.AreEqual("barrelRoll", property.JsonName);
-                            Assert.AreEqual(PropertyType.String, property.PropertyType);
+                            Assert.AreEqual(ObjectType.String, property.ObjectDefinition.Type);
                             Assert.AreEqual(true, property.Optional);
                             Assert.AreEqual("do a", property.Default);
                             continue;
@@ -190,9 +341,11 @@ namespace Pandora.Data.Transformers
             Assert.AreEqual("NestedWrapper", actual.Skip(1).First().Name);
             Assert.AreEqual(2, actual.Skip(1).First().Properties.Count);
             Assert.AreEqual("First", actual.Skip(1).First().Properties.First().Name);
-            Assert.AreEqual("First", actual.Skip(1).First().Properties.First().ModelReference);
+            Assert.AreEqual(ObjectType.Reference, actual.Skip(1).First().Properties.First().ObjectDefinition.Type);
+            Assert.AreEqual("First", actual.Skip(1).First().Properties.First().ObjectDefinition.ReferenceName);
             Assert.AreEqual("Second", actual.Skip(1).First().Properties.Skip(1).First().Name);
-            Assert.AreEqual("Second", actual.Skip(1).First().Properties.Skip(1).First().ModelReference);
+            Assert.AreEqual(ObjectType.Reference, actual.Skip(1).First().Properties.Skip(1).First().ObjectDefinition.Type);
+            Assert.AreEqual("Second", actual.Skip(1).First().Properties.Skip(1).First().ObjectDefinition.ReferenceName);
 
             // Second
             Assert.AreEqual("Second", actual.Skip(2).First().Name);
@@ -209,10 +362,15 @@ namespace Pandora.Data.Transformers
             // DuplicateWrapper
             Assert.AreEqual("DuplicateWrapper", actual.First().Name);
             Assert.AreEqual(2, actual.First().Properties.Count);
-            Assert.AreEqual("First", actual.First().Properties.First().Name);
-            Assert.AreEqual("First", actual.First().Properties.First().ModelReference);
-            Assert.AreEqual("Second", actual.First().Properties.Skip(1).First().Name);
-            Assert.AreEqual("First", actual.First().Properties.Skip(1).First().ModelReference);
+
+            var firstProp = actual.First().Properties.First();
+            Assert.AreEqual("First", firstProp.Name);
+            Assert.AreEqual(ObjectType.Reference, firstProp.ObjectDefinition.Type);
+            Assert.AreEqual("First", firstProp.ObjectDefinition.ReferenceName);
+            var secondProp = actual.First().Properties.Skip(1).First();
+            Assert.AreEqual("Second", secondProp.Name);
+            Assert.AreEqual(ObjectType.Reference, secondProp.ObjectDefinition.Type);
+            Assert.AreEqual("First", secondProp.ObjectDefinition.ReferenceName);
 
             // First
             Assert.AreEqual("First", actual.Skip(1).First().Name);
@@ -275,6 +433,36 @@ namespace Pandora.Data.Transformers
         {
             [JsonPropertyName("otherTypes")]
             public List<OtherType> OtherTypes { get; set; }
+        }
+
+        private class ExampleWithNullableList
+        {
+            [JsonPropertyName("otherTypes")]
+            public List<OtherType>? OtherTypes { get; set; }
+        }
+
+        private class ExampleWithListOfLists
+        {
+            [JsonPropertyName("otherTypes")]
+            public List<List<OtherType>> OtherTypes { get; set; }
+        }
+
+        private class ExampleWithNullableListOfLists
+        {
+            [JsonPropertyName("otherTypes")]
+            public List<List<OtherType>>? OtherTypes { get; set; }
+        }
+
+        private class ExampleWithListOfListsOfLists
+        {
+            [JsonPropertyName("otherTypes")]
+            public List<List<List<OtherType>>> OtherTypes { get; set; }
+        }
+
+        private class ExampleWithNullableListOfListsOfLists
+        {
+            [JsonPropertyName("otherTypes")]
+            public List<List<List<OtherType>>>? OtherTypes { get; set; }
         }
 
         private class OtherType

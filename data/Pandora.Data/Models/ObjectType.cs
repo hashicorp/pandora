@@ -4,11 +4,24 @@ namespace Pandora.Data.Models
     {
         Unknown,
         Boolean,
+        Csv,
+        DateTime,
         Dictionary,
         Integer,
         Float,
         List,
+        RawFile,
+        RawObject,
         Reference,
-        String
+        String,
+
+        // Custom Types
+        Location,
+        SystemAssignedIdentity,
+        SystemUserAssignedIdentityList,
+        SystemUserAssignedIdentityMap,
+        UserAssignedIdentityList,
+        UserAssignedIdentityMap,
+        Tags,
     }
 }

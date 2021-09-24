@@ -79,6 +79,10 @@ func run(input RunInput, swaggerGitSha string, debug bool) error {
 	if err != nil {
 		return errWrap(fmt.Errorf("parsing Swagger files: %+v", err))
 	}
+	if data != nil && len(*data) == 0 {
+		log.Printf("😵 Service %q / Api Version %q contains no resources, skipping.", input.ServiceName, input.ApiVersion)
+		return nil
+	}
 
 	if debug {
 		log.Printf("[STAGE] Generating Swagger Definitions..")

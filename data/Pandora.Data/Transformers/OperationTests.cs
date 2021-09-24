@@ -214,19 +214,19 @@ namespace Pandora.Data.Transformers
 
             var firstOption = actual.Options.First(o => o.Name == "First");
             Assert.AreEqual(true, firstOption.Required);
-            Assert.AreEqual(OptionDefinitionType.String, firstOption.Type);
+            Assert.AreEqual(ObjectType.String, firstOption.ObjectDefinition.Type);
             Assert.AreEqual("first", firstOption.QueryStringName);
 
             var secondOption = actual.Options.First(o => o.Name == "SecondVal");
             Assert.AreEqual(false, secondOption.Required);
-            Assert.AreEqual(OptionDefinitionType.Integer, secondOption.Type);
+            Assert.AreEqual(ObjectType.Integer, secondOption.ObjectDefinition.Type);
             Assert.AreEqual("second", secondOption.QueryStringName);
 
             var constantOption = actual.Options.First(o => o.Name == "ConstantOption");
             Assert.AreEqual(true, constantOption.Required);
-            Assert.AreEqual(OptionDefinitionType.Constant, constantOption.Type);
-            Assert.NotNull(constantOption.ConstantType);
-            Assert.AreEqual("Some", constantOption.ConstantType);
+            Assert.AreEqual(ObjectType.Reference, constantOption.ObjectDefinition.Type);
+            Assert.NotNull(constantOption.ObjectDefinition.ReferenceName);
+            Assert.AreEqual("Some", constantOption.ObjectDefinition.ReferenceName);
             Assert.AreEqual("constantOption", constantOption.QueryStringName);
         }
 

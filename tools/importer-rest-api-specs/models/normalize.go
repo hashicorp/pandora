@@ -57,6 +57,28 @@ func (r *AzureApiResource) Normalize() {
 
 		r.Operations[k] = v
 	}
+
+	for k, v := range r.ResourceIds {
+		segments := make([]ResourceIdSegment, 0)
+
+		normalizedConstants := make(map[string]ConstantDetails)
+		for k, constant := range v.Constants {
+			name := cleanup.NormalizeName(k)
+			normalizedConstants[name] = constant
+		}
+		v.Constants = normalizedConstants
+
+		for _, segment := range v.Segments {
+			if segment.ConstantReference != nil {
+				normalized := cleanup.NormalizeName(*segment.ConstantReference)
+				segment.ConstantReference = &normalized
+			}
+			segments = append(segments, segment)
+		}
+
+		v.Segments = segments
+		r.ResourceIds[k] = v
+	}
 }
 
 func normalizeObjectDefinition(input ObjectDefinition) *ObjectDefinition {

@@ -119,6 +119,11 @@ func (d *SwaggerDefinition) parseResourceIdFromOperation(uri string, operationDe
 
 	uriSegments := strings.Split(strings.TrimPrefix(uri, "/"), "/")
 	for _, uriSegment := range uriSegments {
+		// accounts for double-forward slashes at the start of some URI's
+		if uriSegment == "" {
+			continue
+		}
+
 		originalSegment := uriSegment
 		normalizedSegment := cleanup.RemoveInvalidCharacters(uriSegment, false)
 		normalizedSegment = cleanup.NormalizeSegment(normalizedSegment, true)

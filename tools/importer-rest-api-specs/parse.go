@@ -52,6 +52,14 @@ func parseSwaggerFiles(input RunInput, debug bool) (*[]parsedData, error) {
 
 	out := make([]parsedData, 0)
 	for _, v := range parsed {
+		// the Data API expects that an API Version will contain at least 1 Resource - avoid bad data here
+		if len(v.Resources) == 0 {
+			if debug {
+				log.Printf("[INFO] Service %q / Api Version %q contains no resources, skipping.", v.ServiceName, v.ApiVersion)
+			}
+			continue
+		}
+
 		out = append(out, v)
 	}
 	return &out, nil

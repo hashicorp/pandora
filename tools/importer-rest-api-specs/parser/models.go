@@ -557,6 +557,9 @@ func (d SwaggerDefinition) parseNativeType(input *spec.Schema) *models.ObjectDef
 		}
 	}
 
+	// TODO: Objects with Format of File are actually RawFiles..
+	// "type": "object",
+	// "format": "file"
 	if input.Type.Contains("object") {
 		return &models.ObjectDefinition{
 			Type: models.ObjectDefinitionRawObject,

@@ -48,7 +48,7 @@ type ObjectDefinitionType string
 
 const (
 	ObjectDefinitionBoolean    ObjectDefinitionType = "Boolean"
-	ObjectDefinitionCsv        ObjectDefinitionType = "Csv" // TODO: pipe through everywhere
+	ObjectDefinitionCsv        ObjectDefinitionType = "Csv"
 	ObjectDefinitionDateTime   ObjectDefinitionType = "DateTime"
 	ObjectDefinitionDictionary ObjectDefinitionType = "Dictionary"
 	ObjectDefinitionInteger    ObjectDefinitionType = "Integer"

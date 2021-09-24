@@ -133,12 +133,27 @@ func (c methodsAutoRestTemplater) methods(data ServiceGeneratorData) (*string, e
 }
 
 func (c methodsAutoRestTemplater) immediateOperationTemplate(data ServiceGeneratorData) (*string, error) {
-	argumentsMethodCode := c.argumentsTemplateForMethod()
+	argumentsMethodCode, err := c.argumentsTemplateForMethod()
+	if err != nil {
+		return nil, fmt.Errorf("building arguments for immediate operation: %+v", err)
+	}
 	argumentsCode := c.argumentsTemplate()
-	optionsStruct := c.optionsStruct()
-	preparerCode := c.preparerTemplate(data)
-	responseStruct := c.responseStructTemplate()
-	responderCode := c.responderTemplate(data)
+	optionsStruct, err := c.optionsStruct()
+	if err != nil {
+		return nil, fmt.Errorf("building options struct: %+v", err)
+	}
+	preparerCode, err := c.preparerTemplate(data)
+	if err != nil {
+		return nil, fmt.Errorf("building arguments for preparer template: %+v", err)
+	}
+	responseStruct, err := c.responseStructTemplate()
+	if err != nil {
+		return nil, fmt.Errorf("building response struct template: %+v", err)
+	}
+	responderCode, err := c.responderTemplate(data)
+	if err != nil {
+		return nil, fmt.Errorf("building responder template: %+v", err)
+	}
 	templated := fmt.Sprintf(`
 %[7]s
 %[9]s
@@ -169,18 +184,36 @@ func (c %[1]s) %[2]s(ctx context.Context %[4]s) (result %[2]sResponse, err error
 %[5]s
 
 %[6]s
-`, data.serviceClientName, c.operationName, data.packageName, argumentsMethodCode, preparerCode, responderCode, responseStruct, argumentsCode, optionsStruct)
+`, data.serviceClientName, c.operationName, data.packageName, *argumentsMethodCode, *preparerCode, *responderCode, *responseStruct, argumentsCode, *optionsStruct)
 	return &templated, nil
 }
 
 func (c methodsAutoRestTemplater) listOperationTemplate(data ServiceGeneratorData) (*string, error) {
-	argumentsMethodCode := c.argumentsTemplateForMethod()
+	argumentsMethodCode, err := c.argumentsTemplateForMethod()
+	if err != nil {
+		return nil, fmt.Errorf("building arguments for list operation: %+v", err)
+	}
 	argumentsCode := c.argumentsTemplate()
-	optionsStruct := c.optionsStruct()
-	preparerCode := c.preparerTemplate(data)
-	responseStruct := c.responseStructTemplate()
-	responderCode := c.responderTemplate(data)
-	typeName := c.typeName(*c.operation.ResponseObject)
+	optionsStruct, err := c.optionsStruct()
+	if err != nil {
+		return nil, fmt.Errorf("building options struct: %+v", err)
+	}
+	preparerCode, err := c.preparerTemplate(data)
+	if err != nil {
+		return nil, fmt.Errorf("building arguments for preparer template: %+v", err)
+	}
+	responseStruct, err := c.responseStructTemplate()
+	if err != nil {
+		return nil, fmt.Errorf("building response struct template: %+v", err)
+	}
+	responderCode, err := c.responderTemplate(data)
+	if err != nil {
+		return nil, fmt.Errorf("building responder template: %+v", err)
+	}
+	typeName, err := golangTypeNameForObjectDefinition(*c.operation.ResponseObject)
+	if err != nil {
+		return nil, fmt.Errorf("determining golang type name for response object: %+v", err)
+	}
 
 	templated := fmt.Sprintf(`
 %[7]s
@@ -255,16 +288,28 @@ func (c %[1]s) %[2]sCompleteMatchingPredicate(ctx context.Context %[4]s, predica
 %[5]s
 
 %[6]s
-`, data.serviceClientName, c.operationName, data.packageName, argumentsMethodCode, preparerCode, responderCode, responseStruct, argumentsCode, optionsStruct, typeName)
+`, data.serviceClientName, c.operationName, data.packageName, *argumentsMethodCode, *preparerCode, *responderCode, *responseStruct, argumentsCode, *optionsStruct, *typeName)
 	return &templated, nil
 }
 
 func (c methodsAutoRestTemplater) longRunningOperationTemplate(data ServiceGeneratorData) (*string, error) {
-	argumentsMethodCode := c.argumentsTemplateForMethod()
+	argumentsMethodCode, err := c.argumentsTemplateForMethod()
+	if err != nil {
+		return nil, fmt.Errorf("building arguments for long running template: %+v", err)
+	}
 	argumentsCode := c.argumentsTemplate()
-	optionsStruct := c.optionsStruct()
-	preparerCode := c.preparerTemplate(data)
-	responseStruct := c.responseStructTemplate()
+	optionsStruct, err := c.optionsStruct()
+	if err != nil {
+		return nil, fmt.Errorf("building options struct: %+v", err)
+	}
+	preparerCode, err := c.preparerTemplate(data)
+	if err != nil {
+		return nil, fmt.Errorf("building preparer template: %+v", err)
+	}
+	responseStruct, err := c.responseStructTemplate()
+	if err != nil {
+		return nil, fmt.Errorf("building response struct template: %+v", err)
+	}
 	senderCode := c.senderLongRunningOperationTemplate(data)
 	templated := fmt.Sprintf(`
 %[7]s
@@ -304,7 +349,7 @@ func (c %[1]s) %[2]sThenPoll(ctx context.Context %[4]s) error {
 %[5]s
 
 %[6]s
-`, data.serviceClientName, c.operationName, data.packageName, argumentsMethodCode, preparerCode, senderCode, responseStruct, argumentsCode, optionsStruct)
+`, data.serviceClientName, c.operationName, data.packageName, *argumentsMethodCode, *preparerCode, senderCode, *responseStruct, argumentsCode, *optionsStruct)
 	return &templated, nil
 }
 
@@ -326,32 +371,39 @@ func (c methodsAutoRestTemplater) argumentsTemplate() string {
 	return fmt.Sprintf(", %s", strings.Join(args, ", "))
 }
 
-func (c methodsAutoRestTemplater) argumentsTemplateForMethod() string {
+func (c methodsAutoRestTemplater) argumentsTemplateForMethod() (*string, error) {
 	arguments := make([]string, 0)
 	if c.operation.ResourceIdName != nil {
 		arguments = append(arguments, fmt.Sprintf("id %s", *c.operation.ResourceIdName))
 	}
 	if c.operation.RequestObject != nil {
-		typeName := c.typeName(*c.operation.RequestObject)
-		arguments = append(arguments, fmt.Sprintf("input %s", typeName))
+		typeName, err := golangTypeNameForObjectDefinition(*c.operation.RequestObject)
+		if err != nil {
+			return nil, fmt.Errorf("determining type name for request object: %+v", err)
+		}
+		arguments = append(arguments, fmt.Sprintf("input %s", *typeName))
 	}
 	if len(c.operation.Options) > 0 {
 		arguments = append(arguments, fmt.Sprintf("options %sOptions", c.operationName))
 	}
-	if len(arguments) == 0 {
-		return ""
-	}
 
-	return fmt.Sprintf(", %s", strings.Join(arguments, ", "))
+	out := fmt.Sprintf(", %s", strings.Join(arguments, ", "))
+	if len(arguments) == 0 {
+		out = ""
+	}
+	return &out, nil
 }
 
-func (c methodsAutoRestTemplater) preparerTemplate(data ServiceGeneratorData) string {
+func (c methodsAutoRestTemplater) preparerTemplate(data ServiceGeneratorData) (*string, error) {
 	apiVersion := "defaultApiVersion"
 	if c.operation.ApiVersion != nil {
 		apiVersion = fmt.Sprintf("%q", *c.operation.ApiVersion)
 	}
 
-	arguments := c.argumentsTemplateForMethod()
+	arguments, err := c.argumentsTemplateForMethod()
+	if err != nil {
+		return nil, fmt.Errorf("building arguments for preparer template: %+v", err)
+	}
 
 	steps := make([]string, 0)
 	listSteps := make([]string, 0)
@@ -452,10 +504,11 @@ func (c %[1]s) preparerFor%[2]sWithNextLink(ctx context.Context, nextLink string
 `
 	}
 
-	return fmt.Sprintf(template, data.serviceClientName, c.operationName, arguments, strings.Join(steps, ",\n\t\t"), apiVersion, optionsCode, strings.Join(listSteps, ",\n\t\t"))
+	output := fmt.Sprintf(template, data.serviceClientName, c.operationName, *arguments, strings.Join(steps, ",\n\t\t"), apiVersion, optionsCode, strings.Join(listSteps, ",\n\t\t"))
+	return &output, nil
 }
 
-func (c methodsAutoRestTemplater) responderTemplate(data ServiceGeneratorData) string {
+func (c methodsAutoRestTemplater) responderTemplate(data ServiceGeneratorData) (*string, error) {
 	expectedStatusCodes := make([]string, 0)
 	for _, statusCodeInt := range c.operation.ExpectedStatusCodes {
 		statusCode := golangConstantForStatusCode(statusCodeInt)
@@ -476,12 +529,15 @@ func (c methodsAutoRestTemplater) responderTemplate(data ServiceGeneratorData) s
 	steps = append(steps, "autorest.ByClosing()")
 
 	if c.operation.FieldContainingPaginationDetails != nil {
-		typeName := c.typeName(*c.operation.ResponseObject)
+		typeName, err := golangTypeNameForObjectDefinition(*c.operation.ResponseObject)
+		if err != nil {
+			return nil, fmt.Errorf("determining golang type name for response object: %+v", err)
+		}
 
 		fields := make([]string, 0)
-		fields = append(fields, fmt.Sprintf("Values []%s `json:%q`", typeName, "value"))
+		fields = append(fields, fmt.Sprintf("Values []%s `json:%q`", *typeName, "value"))
 		fields = append(fields, fmt.Sprintf("NextLink *string `json:%q`", *c.operation.FieldContainingPaginationDetails))
-		return fmt.Sprintf(`
+		output := fmt.Sprintf(`
 // responderFor%[2]s handles the response to the %[2]s request. The method always
 // closes the http.Response Body.
 func (c %[1]s) responderFor%[2]s(resp *http.Response) (result %[2]sResponse, err error) {
@@ -521,9 +577,10 @@ func (c %[1]s) responderFor%[2]s(resp *http.Response) (result %[2]sResponse, err
 	return
 }
 `, data.serviceClientName, c.operationName, strings.Join(steps, ",\n\t\t"), strings.Join(fields, "\n\t\t"), data.packageName)
+		return &output, nil
 	}
 
-	return fmt.Sprintf(`
+	output := fmt.Sprintf(`
 // responderFor%[2]s handles the response to the %[2]s request. The method always
 // closes the http.Response Body.
 func (c %[1]s) responderFor%[2]s(resp *http.Response) (result %[2]sResponse, err error) {
@@ -534,44 +591,18 @@ func (c %[1]s) responderFor%[2]s(resp *http.Response) (result %[2]sResponse, err
 	return
 }
 `, data.serviceClientName, c.operationName, strings.Join(steps, ",\n\t\t"))
+	return &output, nil
 }
 
-func (c methodsAutoRestTemplater) typeName(input resourcemanager.ApiObjectDefinition) string {
-	if input.Type == resourcemanager.ApiObjectDefinitionReference {
-		return *input.ReferenceName
-	}
-
-	if input.Type == resourcemanager.ApiObjectDefinitionDictionary {
-		typeName := c.typeName(*input.NestedItem)
-		return fmt.Sprintf(`map[string]%s`, typeName)
-	}
-
-	if input.Type == resourcemanager.ApiObjectDefinitionList {
-		typeName := c.typeName(*input.NestedItem)
-		return fmt.Sprintf(`[]%s`, typeName)
-	}
-
-	if input.Type == resourcemanager.ApiObjectDefinitionBoolean {
-		return "bool"
-	}
-	if input.Type == resourcemanager.ApiObjectDefinitionFloat {
-		return "float64"
-	}
-	if input.Type == resourcemanager.ApiObjectDefinitionInteger {
-		return "int64"
-	}
-	if input.Type == resourcemanager.ApiObjectDefinitionString {
-		return "string"
-	}
-
-	panic(fmt.Sprintf("unimplemented object definition type %q", string(input.Type)))
-}
-
-func (c methodsAutoRestTemplater) responseStructTemplate() string {
+func (c methodsAutoRestTemplater) responseStructTemplate() (*string, error) {
 	model := ""
 	typeName := ""
 	if c.operation.ResponseObject != nil {
-		typeName = c.typeName(*c.operation.ResponseObject)
+		golangTypeName, err := golangTypeNameForObjectDefinition(*c.operation.ResponseObject)
+		if err != nil {
+			return nil, fmt.Errorf("determing golang type name for response object: %+v", err)
+		}
+		typeName = *golangTypeName
 
 		if c.operation.FieldContainingPaginationDetails != nil {
 			model = fmt.Sprintf("Model *[]%s", typeName)
@@ -611,7 +642,7 @@ func (r %[2]sResponse) LoadMore(ctx context.Context) (resp %[2]sResponse, err er
 	nextPageFunc func(ctx context.Context, nextLink string) (%[1]sResponse, error)
 `, c.operationName)
 
-		return fmt.Sprintf(`
+		output := fmt.Sprintf(`
 type %[1]sResponse struct {
 	%[3]s
 	HttpResponse *http.Response
@@ -621,9 +652,10 @@ type %[1]sResponse struct {
 
 %[4]s
 `, c.operationName, model, lro, paginationCode, paginationFields)
+		return &output, nil
 	}
 
-	return fmt.Sprintf(`
+	output := fmt.Sprintf(`
 type %[1]sResponse struct {
 	%[3]s
 	HttpResponse *http.Response
@@ -631,6 +663,7 @@ type %[1]sResponse struct {
 }
 
 `, c.operationName, model, lro)
+	return &output, nil
 }
 
 func (c methodsAutoRestTemplater) senderLongRunningOperationTemplate(data ServiceGeneratorData) string {
@@ -649,49 +682,32 @@ func (c %[1]s) senderFor%[2]s(ctx context.Context, req *http.Request) (future %[
 `, data.serviceClientName, c.operationName)
 }
 
-func (c methodsAutoRestTemplater) optionsStruct() string {
+func (c methodsAutoRestTemplater) optionsStruct() (*string, error) {
 	if len(c.operation.Options) == 0 {
-		return ""
+		out := ""
+		return &out, nil
 	}
 
 	properties := make([]string, 0)
 	assignments := make([]string, 0)
 
 	for optionName, option := range c.operation.Options {
-		var optionTypeName = func(input resourcemanager.ApiOperationOption) string {
-			if input.FieldType == resourcemanager.OperationFieldTypeConstant {
-				if input.ConstantName == nil {
-					panic(fmt.Errorf("missing ConstantName for Option Constant %s", optionName))
-				}
-
-				return *input.ConstantName
-			}
-
-			switch input.FieldType {
-			case resourcemanager.OperationFieldTypeBoolean:
-				return "bool"
-			case resourcemanager.OperationFieldTypeInteger:
-				return "int64"
-			case resourcemanager.OperationFieldTypeString:
-				return "string"
-			default:
-				panic(fmt.Sprintf("the operation type %q is not implemented", input))
-			}
+		optionType, err := golangTypeNameForObjectDefinition(option.ObjectDefinition)
+		if err != nil {
+			return nil, fmt.Errorf("determining golang type name for option %q's ObjectDefinition: %+v", optionName, err)
 		}
-
-		optionType := optionTypeName(option)
-		properties = append(properties, fmt.Sprintf("%s *%s", optionName, optionType))
+		properties = append(properties, fmt.Sprintf("%s *%s", optionName, *optionType))
 		assignments = append(assignments, fmt.Sprintf(`
 	if o.%[1]s != nil {
 		out["%[2]s"] = *o.%[1]s
 	}
-`, optionName, option.QueryStringName))
+`, optionName, *option.QueryStringName))
 	}
 
 	sort.Strings(properties)
 	sort.Strings(assignments)
 
-	return fmt.Sprintf(`
+	out := fmt.Sprintf(`
 type %[1]sOptions struct {
 %[2]s
 }
@@ -706,4 +722,5 @@ func (o %[1]sOptions) toQueryString() map[string]interface{} {
 	return out
 }
 `, c.operationName, strings.Join(properties, "\n"), strings.Join(assignments, "\n"))
+	return &out, nil
 }

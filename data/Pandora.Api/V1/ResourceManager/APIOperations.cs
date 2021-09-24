@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text.Json.Serialization;
 using Microsoft.AspNetCore.Mvc;
 using Pandora.Api.V1.Helpers;
-using Pandora.Data.Helpers;
 using Pandora.Data.Models;
 using Pandora.Data.Repositories;
 
@@ -74,8 +73,8 @@ namespace Pandora.Api.V1.ResourceManager
                 ResourceIdName = definition.ResourceIdName,
                 UriSuffix = definition.UriSuffix,
                 FieldContainingPaginationDetails = definition.FieldContainingPaginationDetails,
-                RequestObject = MapObjectDefinition(definition.RequestObject),
-                ResponseObject = MapObjectDefinition(definition.ResponseObject),
+                RequestObject = ApiObjectDefinitionMapper.Map(definition.RequestObject),
+                ResponseObject = ApiObjectDefinitionMapper.Map(definition.ResponseObject),
             };
 
             operation.Options = MapOptions(definition.Options);
@@ -89,109 +88,22 @@ namespace Pandora.Api.V1.ResourceManager
             return operation;
         }
 
-        private static ApiObjectDefinition? MapObjectDefinition(ObjectDefinition? input)
-        {
-            if (input == null)
-            {
-                return null;
-            }
-
-            var definition = new ApiObjectDefinition
-            {
-                ReferenceName = input.ReferenceName,
-                Type = MapApiObjectType(input.Type)
-            };
-            if (input.NestedItem != null)
-            {
-                definition.NestedItem = MapObjectDefinition(input.NestedItem);
-            }
-            return definition;
-        }
-
-        private static string MapApiObjectType(ObjectType input)
-        {
-            switch (input)
-            {
-                case ObjectType.Boolean:
-                    return ApiObjectType.Boolean.ToString();
-                case ObjectType.Dictionary:
-                    return ApiObjectType.Dictionary.ToString();
-                case ObjectType.Float:
-                    return ApiObjectType.Float.ToString();
-                case ObjectType.Integer:
-                    return ApiObjectType.Integer.ToString();
-                case ObjectType.List:
-                    return ApiObjectType.List.ToString();
-                case ObjectType.Reference:
-                    return ApiObjectType.Reference.ToString();
-                case ObjectType.String:
-                    return ApiObjectType.String.ToString();
-            }
-
-            throw new NotSupportedException($"Unsupported ObjectType {input}");
-        }
-
-        public class ApiObjectDefinition
-        {
-            [JsonPropertyName("nestedItem")]
-            public ApiObjectDefinition? NestedItem { get; set; }
-
-            [JsonPropertyName("referenceName")]
-            public string? ReferenceName { get; set; }
-
-            [JsonPropertyName("type")]
-            public string? Type { get; set; }
-        }
-
-        public enum ApiObjectType
-        {
-            Boolean,
-            Dictionary,
-            Integer,
-            Float,
-            List,
-            Reference,
-            String
-        }
-
         private static Dictionary<string, ApiOperationOption> MapOptions(List<OptionDefinition> input)
         {
             var output = new Dictionary<string, ApiOperationOption>();
 
             foreach (var definition in input)
             {
-                var fieldType = MapFieldType(definition.Type);
+                var objectDefinition = ApiObjectDefinitionMapper.Map(definition.ObjectDefinition);
                 output[definition.Name] = new ApiOperationOption
                 {
-                    FieldType = fieldType,
-                    ConstantName = definition.ConstantType,
                     QueryStringName = definition.QueryStringName,
+                    ObjectDefinition = objectDefinition,
                     Required = definition.Required,
                 };
             }
 
             return output;
-        }
-
-        private static string MapFieldType(OptionDefinitionType input)
-        {
-            switch (input)
-            {
-                case OptionDefinitionType.Boolean:
-                    return ApiOperationOptionType.Boolean.ToString();
-
-                case OptionDefinitionType.Constant:
-                    return ApiOperationOptionType.Constant.ToString();
-
-                case OptionDefinitionType.Integer:
-                    return ApiOperationOptionType.Integer.ToString();
-
-                case OptionDefinitionType.String:
-                    return ApiOperationOptionType.String.ToString();
-
-                default:
-                    throw new NotSupportedException($"unsupported operation type {input}");
-            }
         }
 
         public class ApiOperationsResponse
@@ -245,27 +157,15 @@ namespace Pandora.Api.V1.ResourceManager
 
         public class ApiOperationOption
         {
-            [JsonPropertyName("constantName")]
-            public string? ConstantName { get; set; }
-
-            [JsonPropertyName("fieldType")]
-            public string FieldType { get; set; }
-
             // TODO: header name too
-
             [JsonPropertyName("queryStringName")]
-            public string QueryStringName { get; set; }
+            public string? QueryStringName { get; set; }
+
+            [JsonPropertyName("objectDefinition")]
+            public ApiObjectDefinition ObjectDefinition { get; set; }
 
             [JsonPropertyName("required")]
             public bool Required { get; set; }
-        }
-
-        public enum ApiOperationOptionType
-        {
-            Boolean,
-            Constant,
-            Integer,
-            String
         }
 
         public class OperationMetaData
