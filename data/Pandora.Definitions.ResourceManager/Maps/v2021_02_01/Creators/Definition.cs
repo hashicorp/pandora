@@ -5,7 +5,7 @@ namespace Pandora.Definitions.ResourceManager.Maps.v2021_02_01.Creators
 {
     internal class Definition : ApiDefinition
     {
-        // Generated from Swagger revision "fd7603f9a8acb1decf94f7770a0bfe7b78df9b20" 
+        // Generated from Swagger revision "28e60e3f539b44b60e7b4d6fa2cf4476519bcf93" 
 
         public string ApiVersion => "2021-02-01";
         public string Name => "Creators";
