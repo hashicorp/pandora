@@ -458,6 +458,42 @@ namespace Pandora.Data.Transformers
             Assert.Null(bone.TypeHintIn);
             Assert.Null(bone.TypeHintValue);
         }
+        
+        [Test]
+        public static void TestMappingAModelContainingACircularReference()
+        {
+            var actual = Model.Map(typeof(HumanWithCircularReference));
+            Assert.NotNull(actual);
+            Assert.AreEqual(2, actual.Count);
+
+            var human = actual.FirstOrDefault(t => t.Name == "HumanWithCircularReference");
+            Assert.NotNull(human);
+            Assert.AreEqual(2, human.Properties.Count);
+            Assert.Null(human.ParentTypeName);
+            Assert.Null(human.TypeHintIn);
+            Assert.Null(human.TypeHintValue);
+            var nameField = human.Properties.FirstOrDefault(p => p.Name == "Name");
+            Assert.NotNull(nameField);
+            Assert.AreEqual(ObjectType.String, nameField.ObjectDefinition.Type);
+            var animalField = human.Properties.FirstOrDefault(p => p.Name == "FavouriteAnimal");
+            Assert.NotNull(animalField);
+            Assert.AreEqual(ObjectType.Reference, animalField.ObjectDefinition.Type);
+            Assert.AreEqual("AnimalWithCircularReference", animalField.ObjectDefinition.Type);
+
+            var animal = actual.FirstOrDefault(t => t.Name == "AnimalWithCircularReference");
+            Assert.NotNull(animal);
+            Assert.AreEqual(2, animal.Properties.Count);
+            Assert.Null(animal.ParentTypeName);
+            Assert.Null(animal.TypeHintIn);
+            Assert.Null(animal.TypeHintValue);
+            nameField = animal.Properties.FirstOrDefault(p => p.Name == "Name");
+            Assert.NotNull(nameField);
+            Assert.AreEqual(ObjectType.String, nameField.ObjectDefinition.Type);
+            var humanField = animal.Properties.FirstOrDefault(p => p.Name == "FavouriteHuman");
+            Assert.NotNull(humanField);
+            Assert.AreEqual(ObjectType.Reference, humanField.ObjectDefinition.Type);
+            Assert.AreEqual("HumanWithCircularReference", humanField.ObjectDefinition.Type);
+        }
 
         private class Example
         {
@@ -575,8 +611,7 @@ namespace Pandora.Data.Transformers
         private class Dog : Animal
         {
         }
-
-
+        
         public class AnimalsWithBoneWrapper
         {
             [JsonPropertyName("animal")]
@@ -611,6 +646,24 @@ namespace Pandora.Data.Transformers
         {
             [JsonPropertyName("location")]
             public string Location { get; set; }
+        }
+        
+        public class HumanWithCircularReference
+        {
+            [JsonPropertyName("favouriteAnimal")]
+            public AnimalWithCircularReference FavouriteAnimal { get; set; }
+            
+            [JsonPropertyName("name")]
+            public string Name { get; set; }
+        }
+
+        public class AnimalWithCircularReference
+        {
+            [JsonPropertyName("favouriteHuman")]
+            public HumanWithCircularReference FavouriteHuman { get; set; }
+            
+            [JsonPropertyName("name")]
+            public string Name { get; set; }
         }
     }
 
