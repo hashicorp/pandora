@@ -5,6 +5,7 @@ using System.Reflection;
 using Pandora.Data.Helpers;
 using Pandora.Data.Models;
 using Pandora.Definitions.Attributes;
+using Pandora.Definitions.Operations;
 
 namespace Pandora.Data.Transformers
 {
@@ -147,7 +148,13 @@ namespace Pandora.Data.Transformers
                 return null;
             }
 
-            // TODO: if it's nilable pull that out and loop around as well?
+            // if it's nullable pull that out
+            if (Nullable.GetUnderlyingType(input) != null)
+            {
+                var genericArgs = input.GetGenericArguments();
+                var element = genericArgs[0];
+                return GetElementType(element);
+            }
 
             if (input.IsAGenericCsv())
             {

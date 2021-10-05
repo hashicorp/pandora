@@ -1,9 +1,6 @@
 using System;
 using System.Collections.Generic;
-using System.Diagnostics.Contracts;
-using System.IO.Enumeration;
 using System.Linq;
-using System.Runtime.InteropServices.ComTypes;
 using System.Text.Json.Serialization;
 using NUnit.Framework;
 using Pandora.Data.Models;
@@ -325,6 +322,17 @@ namespace Pandora.Data.Transformers
                         }
                 }
             }
+        }
+
+        [TestCase]
+        public static void TestMappingAModelContainingANullableConstant()
+        {
+            var actual = Model.Map(typeof(QuotaModel));
+            Assert.NotNull(actual);
+            Assert.AreEqual(1, actual.Count);
+
+            var quota = actual.FirstOrDefault(m => m.Name == "Quota");
+            Assert.AreEqual(2, quota.Properties.Count);
         }
 
         [TestCase]
@@ -666,6 +674,25 @@ namespace Pandora.Data.Transformers
 
             [JsonPropertyName("name")]
             public string Name { get; set; }
+        }
+        
+        internal class QuotaModel
+        {
+            [JsonPropertyName("hostsRemaining")]
+            public Dictionary<string, int>? HostsRemaining { get; set; }
+
+            [JsonPropertyName("quotaEnabled")]
+            public QuotaEnabledConstant? QuotaEnabled { get; set; }
+        }
+        
+        [ConstantType(ConstantTypeAttribute.ConstantType.String)]
+        internal enum QuotaEnabledConstant
+        {
+            [System.ComponentModel.Description("Disabled")]
+            Disabled,
+
+            [System.ComponentModel.Description("Enabled")]
+            Enabled,
         }
     }
 
