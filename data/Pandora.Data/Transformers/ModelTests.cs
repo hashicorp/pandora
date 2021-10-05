@@ -414,6 +414,51 @@ namespace Pandora.Data.Transformers
             Assert.AreEqual("dog", dog.TypeHintValue);
         }
 
+        [Test]
+        public static void TestMappingDiscriminatedTypesContainingAnotherType()
+        {
+            // This asserts that when we pull out the discriminated type, that only the discriminated
+            // types contain a reference to the parent type
+            var actual = Model.Map(typeof(AnimalsWithBoneWrapper));
+            Assert.NotNull(actual);
+            Assert.AreEqual(5, actual.Count);
+
+            var wrapper = actual.FirstOrDefault(t => t.Name == "AnimalsWithBoneWrapper");
+            Assert.NotNull(wrapper);
+            Assert.AreEqual(2, wrapper.Properties.Count);
+            Assert.Null(wrapper.ParentTypeName);
+            Assert.Null(wrapper.TypeHintIn);
+            Assert.Null(wrapper.TypeHintValue);
+
+            var animal = actual.FirstOrDefault(t => t.Name == "Animal2");
+            Assert.NotNull(animal);
+            Assert.AreEqual(1, animal.Properties.Count);
+            Assert.Null(animal.ParentTypeName);
+            Assert.AreEqual("ObjectType", animal.TypeHintIn);
+            Assert.Null(animal.TypeHintValue);
+
+            var cat = actual.FirstOrDefault(t => t.Name == "Cat2");
+            Assert.NotNull(cat);
+            Assert.AreEqual(2, cat.Properties.Count);
+            Assert.AreEqual("Animal2", cat.ParentTypeName);
+            Assert.AreEqual("ObjectType", cat.TypeHintIn);
+            Assert.AreEqual("cat", cat.TypeHintValue);
+
+            var dog = actual.FirstOrDefault(t => t.Name == "Dog2");
+            Assert.NotNull(dog);
+            Assert.AreEqual(2, dog.Properties.Count);
+            Assert.AreEqual("Animal2", dog.ParentTypeName);
+            Assert.AreEqual("ObjectType", dog.TypeHintIn);
+            Assert.AreEqual("dog", dog.TypeHintValue);
+
+            var bone = actual.FirstOrDefault(t => t.Name == "Bone");
+            Assert.NotNull(bone);
+            Assert.AreEqual(1, bone.Properties.Count);
+            Assert.Null(bone.ParentTypeName);
+            Assert.Null(bone.TypeHintIn);
+            Assert.Null(bone.TypeHintValue);
+        }
+
         private class Example
         {
             [JsonPropertyName("first")]
@@ -529,6 +574,43 @@ namespace Pandora.Data.Transformers
         [ValueForType("dog")]
         private class Dog : Animal
         {
+        }
+
+
+        public class AnimalsWithBoneWrapper
+        {
+            [JsonPropertyName("animal")]
+            public Animal2 Animal { get; set; }
+
+            [JsonPropertyName("animals")]
+            public List<Animal2> Animals { get; set; }
+        }
+
+        public abstract class Animal2
+        {
+            [JsonPropertyName("objectType")]
+            [ProvidesTypeHint]
+            public string ObjectType { get; set; }
+        }
+
+        [ValueForType("cat")]
+        public class Cat2 : Animal2
+        {
+            [JsonPropertyName("jumps")]
+            public bool Jumps { get; set; }
+        }
+
+        [ValueForType("dog")]
+        public class Dog2 : Animal2
+        {
+            [JsonPropertyName("bone")]
+            public Bone Bone { get; set; }
+        }
+
+        public class Bone
+        {
+            [JsonPropertyName("location")]
+            public string Location { get; set; }
         }
     }
 
