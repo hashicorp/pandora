@@ -19,8 +19,6 @@ namespace Pandora.Data.Transformers
                 var types = FindTypesWithinType(input, new List<Type>());
                 var mappedTypes = types.Select(t => MapTypeToModelDefinition(t, types));
                 return mappedTypes.Distinct(new ModelComparer()).OrderBy(m => m.Name).ToList();
-
-                // return MapObjectLegacy(input).Distinct(new ModelComparer()).OrderBy(m => m.Name).ToList();
             }
             catch (Exception ex)
             {
