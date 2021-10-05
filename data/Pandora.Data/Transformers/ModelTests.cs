@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
+using System.IO.Enumeration;
 using System.Linq;
 using System.Runtime.InteropServices.ComTypes;
 using System.Text.Json.Serialization;
@@ -46,7 +48,7 @@ namespace Pandora.Data.Transformers
             foreach (var type in builtInTypes)
             {
                 var actual = Model.Map(type);
-                Assert.AreEqual(actual.Count, 0);
+                Assert.AreEqual(0, actual.Count);
             }
         }
 
@@ -458,7 +460,7 @@ namespace Pandora.Data.Transformers
             Assert.Null(bone.TypeHintIn);
             Assert.Null(bone.TypeHintValue);
         }
-        
+
         [Test]
         public static void TestMappingAModelContainingACircularReference()
         {
@@ -478,7 +480,7 @@ namespace Pandora.Data.Transformers
             var animalField = human.Properties.FirstOrDefault(p => p.Name == "FavouriteAnimal");
             Assert.NotNull(animalField);
             Assert.AreEqual(ObjectType.Reference, animalField.ObjectDefinition.Type);
-            Assert.AreEqual("AnimalWithCircularReference", animalField.ObjectDefinition.Type);
+            Assert.AreEqual("AnimalWithCircularReference", animalField.ObjectDefinition.ReferenceName);
 
             var animal = actual.FirstOrDefault(t => t.Name == "AnimalWithCircularReference");
             Assert.NotNull(animal);
@@ -492,7 +494,7 @@ namespace Pandora.Data.Transformers
             var humanField = animal.Properties.FirstOrDefault(p => p.Name == "FavouriteHuman");
             Assert.NotNull(humanField);
             Assert.AreEqual(ObjectType.Reference, humanField.ObjectDefinition.Type);
-            Assert.AreEqual("HumanWithCircularReference", humanField.ObjectDefinition.Type);
+            Assert.AreEqual("HumanWithCircularReference", humanField.ObjectDefinition.ReferenceName);
         }
 
         private class Example
@@ -611,7 +613,7 @@ namespace Pandora.Data.Transformers
         private class Dog : Animal
         {
         }
-        
+
         public class AnimalsWithBoneWrapper
         {
             [JsonPropertyName("animal")]
@@ -647,12 +649,12 @@ namespace Pandora.Data.Transformers
             [JsonPropertyName("location")]
             public string Location { get; set; }
         }
-        
+
         public class HumanWithCircularReference
         {
             [JsonPropertyName("favouriteAnimal")]
             public AnimalWithCircularReference FavouriteAnimal { get; set; }
-            
+
             [JsonPropertyName("name")]
             public string Name { get; set; }
         }
@@ -661,7 +663,7 @@ namespace Pandora.Data.Transformers
         {
             [JsonPropertyName("favouriteHuman")]
             public HumanWithCircularReference FavouriteHuman { get; set; }
-            
+
             [JsonPropertyName("name")]
             public string Name { get; set; }
         }

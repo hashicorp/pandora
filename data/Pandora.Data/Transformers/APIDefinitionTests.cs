@@ -232,6 +232,32 @@ namespace Pandora.Data.Transformers
             Assert.NotNull(constant);
         }
 
+        [Test]
+        public static void MappingAnApiWhichReturnsADiscriminatedType()
+        {
+            var actual = APIDefinition.Map(new ApiVersionReturningADiscriminatedType());
+            Assert.NotNull(actual);
+            Assert.AreEqual("ApiVersionReturningADiscriminatedType", actual.Name);
+            Assert.AreEqual(1, actual.Operations.Count);
+            Assert.AreEqual("GetDog", actual.Operations.First().Name);
+            Assert.AreEqual(0, actual.Constants.Count);
+            Assert.AreEqual(2, actual.Models.Count);
+
+            var dog = actual.Models.FirstOrDefault(m => m.Name == "Doggy");
+            Assert.NotNull(dog);
+            Assert.AreEqual(2, dog.Properties.Count);
+            Assert.AreEqual("Barkasaurous", dog.ParentTypeName);
+            Assert.AreEqual("Dog", dog.TypeHintValue);
+            Assert.AreEqual("Type", dog.TypeHintIn);
+
+            var barkasaurous = actual.Models.FirstOrDefault(m => m.Name == "Barkasaurous");
+            Assert.NotNull(dog);
+            Assert.AreEqual(1, barkasaurous.Properties.Count);
+            Assert.Null(barkasaurous.ParentTypeName);
+            Assert.Null(barkasaurous.TypeHintValue);
+            Assert.AreEqual("Type", barkasaurous.TypeHintIn);
+        }
+
         private class ApiVersionWithNoOperations : ApiDefinition
         {
             public string ApiVersion => "2018-01-01";
@@ -732,36 +758,67 @@ namespace Pandora.Data.Transformers
             [JsonPropertyName("second")]
             public string Second { get; set; }
         }
-    }
 
-    public class ApiVersionWithConstantWithinResourceId : ApiDefinition
-    {
-        public string ApiVersion => "2018-01-01";
-        public string Name => "ApiVersionWithConstantWithinResourceId";
+        private class ApiVersionReturningADiscriminatedType : ApiDefinition
+        {
+            public string ApiVersion => "2018-01-01";
+            public string Name => "ApiVersionReturningADiscriminatedType";
+            public IEnumerable<ApiOperation> Operations => new List<ApiOperation>
+            {
+                new GetDogOperation(),
+            };
+        }
 
-        public IEnumerable<ApiOperation> Operations => new List<ApiOperation>
+        internal class GetDogOperation : GetOperation
+        {
+            public override Type? ResponseObject()
+            {
+                return typeof(Doggy);
+            }
+        }
+
+        internal abstract class Barkasaurous
+        {
+            [ProvidesTypeHint]
+            [JsonPropertyName("type")]
+            public string Type { get; set; }
+        }
+
+        [ValueForType("Dog")]
+        internal class Doggy : Barkasaurous
+        {
+            [JsonPropertyName("name")]
+            public string Name { get; set; }
+        }
+
+        public class ApiVersionWithConstantWithinResourceId : ApiDefinition
+        {
+            public string ApiVersion => "2018-01-01";
+            public string Name => "ApiVersionWithConstantWithinResourceId";
+
+            public IEnumerable<ApiOperation> Operations => new List<ApiOperation>
         {
             new ExampleOperation()
         };
 
-        public class ExampleOperation : HeadOperation
-        {
-            public override Definitions.Interfaces.ResourceID? ResourceId()
+            public class ExampleOperation : HeadOperation
             {
-                return new ExampleResourceId();
-            }
-        }
-
-        public class ExampleResourceId : Definitions.Interfaces.ResourceID
-        {
-            public string ID()
-            {
-                return "/planets/{planetName}";
+                public override Definitions.Interfaces.ResourceID? ResourceId()
+                {
+                    return new ExampleResourceId();
+                }
             }
 
-            public List<ResourceIDSegment> Segments()
+            public class ExampleResourceId : Definitions.Interfaces.ResourceID
             {
-                return new List<ResourceIDSegment>
+                public string ID()
+                {
+                    return "/planets/{planetName}";
+                }
+
+                public List<ResourceIDSegment> Segments()
+                {
+                    return new List<ResourceIDSegment>
                 {
                     new ResourceIDSegment
                     {
@@ -776,52 +833,53 @@ namespace Pandora.Data.Transformers
                         Type = ResourceIDSegmentType.Constant,
                     },
                 };
+                }
+            }
+
+            [ConstantType(ConstantTypeAttribute.ConstantType.String)]
+            public enum ConstantHiddenInResourceId
+            {
+                [System.ComponentModel.Description("First")]
+                First,
+
+                [System.ComponentModel.Description("Second")]
+                Second,
             }
         }
 
-        [ConstantType(ConstantTypeAttribute.ConstantType.String)]
-        public enum ConstantHiddenInResourceId
+        public class ApiVersionWithAConstantWithinOptions : ApiDefinition
         {
-            [System.ComponentModel.Description("First")]
-            First,
+            public string ApiVersion => "2018-01-01";
+            public string Name => "ApiVersionWithAConstantWithinOptions";
 
-            [System.ComponentModel.Description("Second")]
-            Second,
-        }
-    }
-
-    public class ApiVersionWithAConstantWithinOptions : ApiDefinition
-    {
-        public string ApiVersion => "2018-01-01";
-        public string Name => "ApiVersionWithAConstantWithinOptions";
-
-        public IEnumerable<ApiOperation> Operations => new List<ApiOperation>
+            public IEnumerable<ApiOperation> Operations => new List<ApiOperation>
         {
             new ExampleOperation()
         };
 
-        public class ExampleOperation : HeadOperation
-        {
-            public override Type? OptionsObject()
+            public class ExampleOperation : HeadOperation
             {
-                return typeof(ExampleOptionsObject);
+                public override Type? OptionsObject()
+                {
+                    return typeof(ExampleOptionsObject);
+                }
+
+                public class ExampleOptionsObject
+                {
+                    [QueryStringName("someVal")]
+                    public ConstantHiddenInOptions SomeVal { get; set; }
+                }
             }
 
-            public class ExampleOptionsObject
+            [ConstantType(ConstantTypeAttribute.ConstantType.String)]
+            public enum ConstantHiddenInOptions
             {
-                [QueryStringName("someVal")]
-                public ConstantHiddenInOptions SomeVal { get; set; }
+                [System.ComponentModel.Description("First")]
+                First,
+
+                [System.ComponentModel.Description("Second")]
+                Second,
             }
-        }
-
-        [ConstantType(ConstantTypeAttribute.ConstantType.String)]
-        public enum ConstantHiddenInOptions
-        {
-            [System.ComponentModel.Description("First")]
-            First,
-
-            [System.ComponentModel.Description("Second")]
-            Second,
         }
     }
 }

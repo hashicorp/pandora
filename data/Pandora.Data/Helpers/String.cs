@@ -2,7 +2,7 @@ namespace Pandora.Data.Helpers
 {
     public static class String
     {
-        public static string? RemoveSuffixFromTypeName(this string? input)
+        public static string? RemoveConstantSuffixFromTypeName(this string? input)
         {
             if (input == null)
             {
@@ -10,7 +10,29 @@ namespace Pandora.Data.Helpers
             }
 
             input = input.TrimSuffix("Constant");
+            return input;
+        }
+
+        public static string? RemoveModelSuffixFromTypeName(this string? input)
+        {
+            if (input == null)
+            {
+                return null;
+            }
+
             input = input.TrimSuffix("Model");
+            return input;
+        }
+
+        public static string? RemoveSuffixFromTypeName(this string? input)
+        {
+            if (input == null)
+            {
+                return null;
+            }
+
+            input = input.RemoveConstantSuffixFromTypeName();
+            input = input.RemoveModelSuffixFromTypeName();
             return input;
         }
 
