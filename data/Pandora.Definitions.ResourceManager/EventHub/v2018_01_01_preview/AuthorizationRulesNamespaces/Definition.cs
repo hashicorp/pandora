@@ -5,7 +5,7 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.Autho
 {
     internal class Definition : ApiDefinition
     {
-        // Generated from Swagger revision "28e60e3f539b44b60e7b4d6fa2cf4476519bcf93" 
+        // Generated from Swagger revision "191a721de644cc3f872f4fe9d676cf366083a106" 
 
         public string ApiVersion => "2018-01-01-preview";
         public string Name => "AuthorizationRulesNamespaces";
