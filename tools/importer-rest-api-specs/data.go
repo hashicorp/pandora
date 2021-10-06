@@ -120,6 +120,22 @@ func GenerationData() []RunInput {
 			},
 		}.ToRunInput(),
 		ResourceManagerInput{
+			ServiceName: "LabServices",
+			ApiVersion: "2021-10-01-preview",
+			ResourceProvider: "Microsoft.LabServices",
+			SwaggerDirectory: swaggerDirectory + "/specification/labservices/resource-manager/Microsoft.LabServices/preview/2021-10-01-preview",
+			SwaggerFiles: []string{
+				"Images.json",
+				"Labs.json",
+				"LabPlans.json",
+				"LabServices.json",
+				"OperationResults.json",
+				"Schedules.json",
+				"Users.json",
+				"VirtualMachines.json",
+			},
+		}.ToRunInput(),
+		ResourceManagerInput{
 			ServiceName:      "Maps",
 			ApiVersion:       "2021-02-01",
 			ResourceProvider: "Microsoft.Maps",
