@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using Microsoft.VisualStudio.TestPlatform.ObjectModel;
 using Pandora.Data.Helpers;
 using Pandora.Data.Models;
 using Pandora.Definitions.Attributes;
@@ -14,29 +15,10 @@ namespace Pandora.Data.Transformers
         {
             try
             {
-                if (input.IsAGenericCsv())
-                {
-                    var valueType = input.GenericCsvElement();
-                    return Map(valueType);
-                }
-                if (input.IsAGenericDictionary())
-                {
-                    var valueType = input.GenericDictionaryValueElement();
-                    return Map(valueType);
-                }
-                if (input.IsAGenericList())
-                {
-                    var valueType = input.GenericListElement();
-                    return Map(valueType);
-                }
-
-                if (Helpers.IsNativeType(input) || Helpers.IsPandoraCustomType(input))
-                {
-                    // there's no types to parse out here
-                    return new List<ModelDefinition>();
-                }
-
-                return MapObject(input).Distinct(new ModelComparer()).OrderBy(m => m.Name).ToList();
+                // first find all of the types within these types
+                var types = FindTypesWithinType(input, new List<Type>());
+                var mappedTypes = types.Select(t => MapTypeToModelDefinition(t, types));
+                return mappedTypes.Distinct(new ModelComparer()).OrderBy(m => m.Name).ToList();
             }
             catch (Exception ex)
             {
@@ -44,7 +26,263 @@ namespace Pandora.Data.Transformers
             }
         }
 
-        private static IEnumerable<ModelDefinition> MapObject(Type input)
+        private static List<Type> FindTypesWithinType(Type input, List<Type> knownTypes)
+        {
+            // find the top level model - if it's a List of a List or something find the Type
+            var innerType = GetElementType(input);
+            var foundTypes = new List<Type>();
+
+            // for example if it's a built-in, custom or enum type there's nothing to map
+            if (innerType == null)
+            {
+                return foundTypes;
+            }
+
+            foundTypes.Add(innerType);
+
+            // whilst this looks superflurous - discriminated types can be Request/Response objects so won't get
+            // pulled out the traditional way - and since these are de-duped below this is "fine"
+            var parentType = PullOutParentType(innerType, knownTypes);
+            if (parentType != null)
+            {
+                foundTypes.Add(parentType);
+            }
+
+            // find all of the types used by properties in this model
+            // NOTE: discriminated types within properties are discovered below
+            foreach (var property in innerType.GetProperties())
+            {
+                var elementType = GetElementType(property.PropertyType);
+                // for example if it's a built-in, custom or enum type there's nothing to map
+                if (elementType == null)
+                {
+                    continue;
+                }
+
+                foundTypes.Add(elementType);
+
+                // whilst this looks superflurous - discriminated types can be Request/Response objects so won't get
+                // pulled out the traditional way - and since these are de-duped below this is "fine"
+                parentType = PullOutParentType(elementType, knownTypes);
+                if (parentType != null)
+                {
+                    foundTypes.Add(parentType);
+                }
+            }
+
+            // now that we've got these, distinct them in-case the same type appears multiple types
+            foundTypes = foundTypes.Distinct(new TypeComparer()).OrderBy(t => t.FullName).ToList();
+
+            // find all of the implementations for these types
+            var implementations = FindImplementationsForTypes(foundTypes);
+            foreach (var implementation in implementations)
+            {
+                // pass the list of known models along to avoid circular references
+                var allTypes = new List<Type>();
+                allTypes.AddRange(knownTypes);
+                allTypes.AddRange(foundTypes);
+
+                // check to see if we've already looked up this type, if so, skip it.
+                // this avoids circular references.
+                if (allTypes.Any(t => t.FullName == implementation.FullName))
+                {
+                    continue;
+                }
+
+                var typesForImplementation = FindTypesWithinType(implementation, allTypes);
+                foundTypes.AddRange(typesForImplementation);
+            }
+
+            // finally re-distinct them
+            foundTypes = foundTypes.Distinct(new TypeComparer()).OrderBy(t => t.FullName).ToList();
+            return foundTypes;
+        }
+
+        private static Type? PullOutParentType(Type input, List<Type> knownTypes)
+        {
+            var attr = input.GetCustomAttribute<ValueForTypeAttribute>();
+            if (attr != null)
+            {
+                var baseType = GetElementType(input.BaseType);
+                if (baseType != null && knownTypes.All(t => t.FullName != input.BaseType.FullName))
+                {
+                    return baseType;
+                }
+            }
+
+            return null;
+        }
+
+        private static IEnumerable<Type> FindImplementationsForTypes(List<Type> input)
+        {
+            var newTypes = new List<Type>();
+            foreach (var type in input)
+            {
+                if (!type.IsAbstract)
+                {
+                    continue;
+                }
+
+                var implementations = ImplementationsForType(type);
+                foreach (var impl in implementations)
+                {
+                    // if we know about it, skip it
+                    if (input.Any(t => t.FullName == impl.FullName))
+                    {
+                        continue;
+                    }
+
+                    newTypes.Add(impl);
+
+                    var allTypes = new List<Type>();
+                    allTypes.AddRange(input);
+                    allTypes.AddRange(newTypes);
+
+                    // then find all of the types used by that type
+                    var typesUsedByImpl = FindTypesWithinType(impl, allTypes);
+                    newTypes.AddRange(typesUsedByImpl);
+                }
+            }
+
+            return newTypes;
+        }
+
+        /// <summary>
+        /// GetElementType returns the Element Type if this is a Csv/Dictionary/List - or input otherwise
+        /// for example `List<Model>` will return the Type `Model`. This'll be null if a built-in, custom
+        /// or Enum type is provided.
+        /// </summary>
+        private static Type? GetElementType(Type input)
+        {
+            if (input.IsEnum)
+            {
+                return null;
+            }
+
+            if (Helpers.IsNativeType(input) || Helpers.IsPandoraCustomType(input))
+            {
+                return null;
+            }
+
+            // if it's nullable pull that out
+            if (Nullable.GetUnderlyingType(input) != null)
+            {
+                var genericArgs = input.GetGenericArguments();
+                var element = genericArgs[0];
+                return GetElementType(element);
+            }
+
+            if (input.IsAGenericCsv())
+            {
+                var valueType = input.GenericCsvElement();
+                return GetElementType(valueType);
+            }
+            if (input.IsAGenericDictionary())
+            {
+                var valueType = input.GenericDictionaryValueElement();
+                return GetElementType(valueType);
+            }
+            if (input.IsAGenericList())
+            {
+                var valueType = input.GenericListElement();
+                return GetElementType(valueType);
+            }
+
+            return input;
+        }
+
+        /// <summary>
+        /// MapTypeToModelDefinition takes a top-level type (e.g. Model from List<Model>) and
+        /// returns a ModelDefinition for it
+        /// </summary>
+        private static ModelDefinition MapTypeToModelDefinition(Type input, List<Type> allTypes)
+        {
+            try
+            {
+                var properties = input.GetProperties().Select(p => Property.Map(p, input.FullName!)).ToList();
+
+                var name = input.Name.RemoveModelSuffixFromTypeName();
+                var model = new ModelDefinition
+                {
+                    Name = name,
+                    Properties = properties.OrderBy(p => p.Name).ToList(),
+                };
+
+                // if it's an Abstract class (e.g. Discriminated Parent Type) find the field
+                if (input.IsAbstract)
+                {
+                    // 1: sanity checking: ensure one, and only one, of the fields has the DiscriminatesUsing field
+                    var propsWithTypeHints = PropertiesContainingTypeHints(input);
+                    if (propsWithTypeHints.Count != 1)
+                    {
+                        throw new NotSupportedException($"Exactly one attribute within {input.FullName} needs to contain the [ProvidesTypeHint] Attribute");
+                    }
+                    model.TypeHintIn = propsWithTypeHints.First().Name;
+                }
+
+                // this is an Implementation of a Discriminator - so we should pull out the parent type & discriminator value
+                var attr = input.GetCustomAttribute<ValueForTypeAttribute>();
+                if (attr != null)
+                {
+                    // 1: ensure we've mapped the parent type out - the ProvidesTypeHint check will be performed above
+                    var baseTypeIsKnown = allTypes.FirstOrDefault(t => t.FullName == input.BaseType.FullName);
+                    if (baseTypeIsKnown == null)
+                    {
+                        throw new NotSupportedException($"Base Type {input.BaseType.FullName} for {input.FullName} was not found in the allTypes list");
+                    }
+
+                    // 2: sanity checking: ensure one, and only one, of the fields has the DiscriminatesUsing field
+                    var propsWithTypeHints = PropertiesContainingTypeHints(input.BaseType);
+                    if (propsWithTypeHints.Count != 1)
+                    {
+                        throw new NotSupportedException($"Exactly one attribute within {input.BaseType.FullName} needs to contain the [ProvidesTypeHint] Attribute");
+                    }
+                    model.TypeHintIn = propsWithTypeHints.First().Name;
+                    model.ParentTypeName = input.BaseType.Name.RemoveModelSuffixFromTypeName();
+
+                    if (attr == null)
+                    {
+                        throw new NotSupportedException($"Type {input.FullName} is missing a [ValueForType] Attribute");
+                    }
+
+                    model.TypeHintValue = attr.Value;
+                }
+
+                return model;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Mapping Model {input.FullName}", ex);
+            }
+        }
+
+        /// <summary>
+        /// ImplementationsForType finds all of the implementations for this type, which assumes that
+        /// this type is a Discriminator (represented as an Abstract Class) 
+        /// </summary>
+        private static List<Type> ImplementationsForType(Type input)
+        {
+            // 1: sanity checking: ensure one, and only one, of the fields has the DiscriminatesUsing field
+            var propsWithTypeHints = PropertiesContainingTypeHints(input);
+            if (propsWithTypeHints.Count != 1)
+            {
+                throw new NotSupportedException($"Exactly one attribute within {input.FullName} needs to contain the [ProvidesTypeHint] Attribute");
+            }
+
+            // 2: find all of the implementations for this type
+            var allTypes = AppDomain.CurrentDomain.GetAssemblies().SelectMany(x => x.GetTypes());
+            var implementations = allTypes.Where(t => t.IsAssignableTo(input) && !t.IsAbstract && !t.IsInterface).ToList();
+            return implementations;
+        }
+
+        private static List<PropertyInfo> PropertiesContainingTypeHints(Type input)
+        {
+            return input.GetProperties().Where(p => p.HasAttribute<ProvidesTypeHintAttribute>()).ToList();
+        }
+
+        // ---
+
+        private static IEnumerable<ModelDefinition> MapObjectLegacy(Type input)
         {
             try
             {
@@ -85,7 +323,7 @@ namespace Pandora.Data.Transformers
                         {
                             if (innerType.FullName != input.FullName)
                             {
-                                var mappedInner = MapObject(innerType);
+                                var mappedInner = MapObjectLegacy(innerType);
                                 models.AddRange(mappedInner);
                             }
                         }
@@ -96,7 +334,7 @@ namespace Pandora.Data.Transformers
                     {
                         if (property.PropertyType.FullName != input.FullName)
                         {
-                            models.AddRange(MapObject(property.PropertyType));
+                            models.AddRange(MapObjectLegacy(property.PropertyType));
                         }
                     }
 
@@ -126,13 +364,18 @@ namespace Pandora.Data.Transformers
                     var implementations = allTypes.Where(t => t.IsAssignableTo(input) && !t.IsAbstract && !t.IsInterface).ToList();
                     foreach (var implementation in implementations)
                     {
-                        var mappedImplementations = MapObject(implementation);
-                        foreach (var mappedImpl in mappedImplementations)
+                        var modelName = implementation.Name.RemoveSuffixFromTypeName();
+                        var mappedImplementations = MapObjectLegacy(implementation);
+
+                        foreach (var mappedImplementation in mappedImplementations)
                         {
-                            // ensure the nested model contains the name of the parent type so this can be
-                            // easily mapped across later
-                            mappedImpl.ParentTypeName = input.Name.TrimSuffix("Model");
-                            models.Add(mappedImpl);
+                            if (mappedImplementation.Name == modelName)
+                            {
+                                var parentName = input.Name.RemoveSuffixFromTypeName();
+                                mappedImplementation.ParentTypeName = parentName;
+                            }
+
+                            models.Add(mappedImplementation);
                         }
                     }
 

@@ -72,7 +72,7 @@ namespace Pandora.Data.Transformers
             }
 
             var responseObjectName = input.Name;
-            responseObjectName = RemoveSuffixFromTypeName(responseObjectName);
+            responseObjectName = responseObjectName.RemoveSuffixFromTypeName();
             return new Models.ObjectDefinition
             {
                 Type = ObjectType.Reference,
@@ -146,18 +146,6 @@ namespace Pandora.Data.Transformers
             }
 
             throw new NotSupportedException($"Pandora custom type {input.FullName} is not mapped");
-        }
-
-        private static string? RemoveSuffixFromTypeName(string? input)
-        {
-            if (input == null)
-            {
-                return null;
-            }
-
-            input = input.TrimSuffix("Constant");
-            input = input.TrimSuffix("Model");
-            return input;
         }
     }
 }

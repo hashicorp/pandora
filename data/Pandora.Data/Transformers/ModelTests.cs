@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.InteropServices.ComTypes;
 using System.Text.Json.Serialization;
 using NUnit.Framework;
 using Pandora.Data.Models;
@@ -46,7 +45,7 @@ namespace Pandora.Data.Transformers
             foreach (var type in builtInTypes)
             {
                 var actual = Model.Map(type);
-                Assert.AreEqual(actual.Count, 0);
+                Assert.AreEqual(0, actual.Count);
             }
         }
 
@@ -326,6 +325,17 @@ namespace Pandora.Data.Transformers
         }
 
         [TestCase]
+        public static void TestMappingAModelContainingANullableConstant()
+        {
+            var actual = Model.Map(typeof(QuotaModel));
+            Assert.NotNull(actual);
+            Assert.AreEqual(1, actual.Count);
+
+            var quota = actual.FirstOrDefault(m => m.Name == "Quota");
+            Assert.AreEqual(2, quota.Properties.Count);
+        }
+
+        [TestCase]
         public static void TestMapNestedModels()
         {
             var actual = Model.Map(typeof(NestedWrapper));
@@ -412,6 +422,87 @@ namespace Pandora.Data.Transformers
             Assert.AreEqual("Animal", dog.ParentTypeName);
             Assert.AreEqual("ObjectType", dog.TypeHintIn);
             Assert.AreEqual("dog", dog.TypeHintValue);
+        }
+
+        [Test]
+        public static void TestMappingDiscriminatedTypesContainingAnotherType()
+        {
+            // This asserts that when we pull out the discriminated type, that only the discriminated
+            // types contain a reference to the parent type
+            var actual = Model.Map(typeof(AnimalsWithBoneWrapper));
+            Assert.NotNull(actual);
+            Assert.AreEqual(5, actual.Count);
+
+            var wrapper = actual.FirstOrDefault(t => t.Name == "AnimalsWithBoneWrapper");
+            Assert.NotNull(wrapper);
+            Assert.AreEqual(2, wrapper.Properties.Count);
+            Assert.Null(wrapper.ParentTypeName);
+            Assert.Null(wrapper.TypeHintIn);
+            Assert.Null(wrapper.TypeHintValue);
+
+            var animal = actual.FirstOrDefault(t => t.Name == "Animal2");
+            Assert.NotNull(animal);
+            Assert.AreEqual(1, animal.Properties.Count);
+            Assert.Null(animal.ParentTypeName);
+            Assert.AreEqual("ObjectType", animal.TypeHintIn);
+            Assert.Null(animal.TypeHintValue);
+
+            var cat = actual.FirstOrDefault(t => t.Name == "Cat2");
+            Assert.NotNull(cat);
+            Assert.AreEqual(2, cat.Properties.Count);
+            Assert.AreEqual("Animal2", cat.ParentTypeName);
+            Assert.AreEqual("ObjectType", cat.TypeHintIn);
+            Assert.AreEqual("cat", cat.TypeHintValue);
+
+            var dog = actual.FirstOrDefault(t => t.Name == "Dog2");
+            Assert.NotNull(dog);
+            Assert.AreEqual(2, dog.Properties.Count);
+            Assert.AreEqual("Animal2", dog.ParentTypeName);
+            Assert.AreEqual("ObjectType", dog.TypeHintIn);
+            Assert.AreEqual("dog", dog.TypeHintValue);
+
+            var bone = actual.FirstOrDefault(t => t.Name == "Bone");
+            Assert.NotNull(bone);
+            Assert.AreEqual(1, bone.Properties.Count);
+            Assert.Null(bone.ParentTypeName);
+            Assert.Null(bone.TypeHintIn);
+            Assert.Null(bone.TypeHintValue);
+        }
+
+        [Test]
+        public static void TestMappingAModelContainingACircularReference()
+        {
+            var actual = Model.Map(typeof(HumanWithCircularReference));
+            Assert.NotNull(actual);
+            Assert.AreEqual(2, actual.Count);
+
+            var human = actual.FirstOrDefault(t => t.Name == "HumanWithCircularReference");
+            Assert.NotNull(human);
+            Assert.AreEqual(2, human.Properties.Count);
+            Assert.Null(human.ParentTypeName);
+            Assert.Null(human.TypeHintIn);
+            Assert.Null(human.TypeHintValue);
+            var nameField = human.Properties.FirstOrDefault(p => p.Name == "Name");
+            Assert.NotNull(nameField);
+            Assert.AreEqual(ObjectType.String, nameField.ObjectDefinition.Type);
+            var animalField = human.Properties.FirstOrDefault(p => p.Name == "FavouriteAnimal");
+            Assert.NotNull(animalField);
+            Assert.AreEqual(ObjectType.Reference, animalField.ObjectDefinition.Type);
+            Assert.AreEqual("AnimalWithCircularReference", animalField.ObjectDefinition.ReferenceName);
+
+            var animal = actual.FirstOrDefault(t => t.Name == "AnimalWithCircularReference");
+            Assert.NotNull(animal);
+            Assert.AreEqual(2, animal.Properties.Count);
+            Assert.Null(animal.ParentTypeName);
+            Assert.Null(animal.TypeHintIn);
+            Assert.Null(animal.TypeHintValue);
+            nameField = animal.Properties.FirstOrDefault(p => p.Name == "Name");
+            Assert.NotNull(nameField);
+            Assert.AreEqual(ObjectType.String, nameField.ObjectDefinition.Type);
+            var humanField = animal.Properties.FirstOrDefault(p => p.Name == "FavouriteHuman");
+            Assert.NotNull(humanField);
+            Assert.AreEqual(ObjectType.Reference, humanField.ObjectDefinition.Type);
+            Assert.AreEqual("HumanWithCircularReference", humanField.ObjectDefinition.ReferenceName);
         }
 
         private class Example
@@ -529,6 +620,79 @@ namespace Pandora.Data.Transformers
         [ValueForType("dog")]
         private class Dog : Animal
         {
+        }
+
+        public class AnimalsWithBoneWrapper
+        {
+            [JsonPropertyName("animal")]
+            public Animal2 Animal { get; set; }
+
+            [JsonPropertyName("animals")]
+            public List<Animal2> Animals { get; set; }
+        }
+
+        public abstract class Animal2
+        {
+            [JsonPropertyName("objectType")]
+            [ProvidesTypeHint]
+            public string ObjectType { get; set; }
+        }
+
+        [ValueForType("cat")]
+        public class Cat2 : Animal2
+        {
+            [JsonPropertyName("jumps")]
+            public bool Jumps { get; set; }
+        }
+
+        [ValueForType("dog")]
+        public class Dog2 : Animal2
+        {
+            [JsonPropertyName("bone")]
+            public Bone Bone { get; set; }
+        }
+
+        public class Bone
+        {
+            [JsonPropertyName("location")]
+            public string Location { get; set; }
+        }
+
+        public class HumanWithCircularReference
+        {
+            [JsonPropertyName("favouriteAnimal")]
+            public AnimalWithCircularReference FavouriteAnimal { get; set; }
+
+            [JsonPropertyName("name")]
+            public string Name { get; set; }
+        }
+
+        public class AnimalWithCircularReference
+        {
+            [JsonPropertyName("favouriteHuman")]
+            public HumanWithCircularReference FavouriteHuman { get; set; }
+
+            [JsonPropertyName("name")]
+            public string Name { get; set; }
+        }
+
+        internal class QuotaModel
+        {
+            [JsonPropertyName("hostsRemaining")]
+            public Dictionary<string, int>? HostsRemaining { get; set; }
+
+            [JsonPropertyName("quotaEnabled")]
+            public QuotaEnabledConstant? QuotaEnabled { get; set; }
+        }
+
+        [ConstantType(ConstantTypeAttribute.ConstantType.String)]
+        internal enum QuotaEnabledConstant
+        {
+            [System.ComponentModel.Description("Disabled")]
+            Disabled,
+
+            [System.ComponentModel.Description("Enabled")]
+            Enabled,
         }
     }
 
