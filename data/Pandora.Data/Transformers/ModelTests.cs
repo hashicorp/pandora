@@ -675,7 +675,7 @@ namespace Pandora.Data.Transformers
             [JsonPropertyName("name")]
             public string Name { get; set; }
         }
-        
+
         internal class QuotaModel
         {
             [JsonPropertyName("hostsRemaining")]
@@ -684,7 +684,7 @@ namespace Pandora.Data.Transformers
             [JsonPropertyName("quotaEnabled")]
             public QuotaEnabledConstant? QuotaEnabled { get; set; }
         }
-        
+
         [ConstantType(ConstantTypeAttribute.ConstantType.String)]
         internal enum QuotaEnabledConstant
         {

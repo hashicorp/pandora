@@ -2,10 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using Microsoft.VisualStudio.TestPlatform.ObjectModel;
 using Pandora.Data.Helpers;
 using Pandora.Data.Models;
 using Pandora.Definitions.Attributes;
-using Pandora.Definitions.Operations;
 
 namespace Pandora.Data.Transformers
 {
@@ -40,17 +40,12 @@ namespace Pandora.Data.Transformers
 
             foundTypes.Add(innerType);
 
-            // if it's a discriminator pull out it's parent type too
             // whilst this looks superflurous - discriminated types can be Request/Response objects so won't get
-            // pulled out the traditional way
-            var attr = innerType.GetCustomAttribute<ValueForTypeAttribute>();
-            if (attr != null)
+            // pulled out the traditional way - and since these are de-duped below this is "fine"
+            var parentType = PullOutParentType(innerType, knownTypes);
+            if (parentType != null)
             {
-                var baseType = GetElementType(innerType.BaseType);
-                if (baseType != null && knownTypes.All(t => t.FullName != innerType.BaseType.FullName))
-                {
-                    foundTypes.Add(baseType);
-                }
+                foundTypes.Add(parentType);
             }
 
             // find all of the types used by properties in this model
@@ -65,6 +60,14 @@ namespace Pandora.Data.Transformers
                 }
 
                 foundTypes.Add(elementType);
+
+                // whilst this looks superflurous - discriminated types can be Request/Response objects so won't get
+                // pulled out the traditional way - and since these are de-duped below this is "fine"
+                parentType = PullOutParentType(elementType, knownTypes);
+                if (parentType != null)
+                {
+                    foundTypes.Add(parentType);
+                }
             }
 
             // now that we've got these, distinct them in-case the same type appears multiple types
@@ -93,6 +96,21 @@ namespace Pandora.Data.Transformers
             // finally re-distinct them
             foundTypes = foundTypes.Distinct(new TypeComparer()).OrderBy(t => t.FullName).ToList();
             return foundTypes;
+        }
+
+        private static Type? PullOutParentType(Type input, List<Type> knownTypes)
+        {
+            var attr = input.GetCustomAttribute<ValueForTypeAttribute>();
+            if (attr != null)
+            {
+                var baseType = GetElementType(input.BaseType);
+                if (baseType != null && knownTypes.All(t => t.FullName != input.BaseType.FullName))
+                {
+                    return baseType;
+                }
+            }
+
+            return null;
         }
 
         private static IEnumerable<Type> FindImplementationsForTypes(List<Type> input)

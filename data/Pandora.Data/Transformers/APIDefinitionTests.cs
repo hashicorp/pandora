@@ -258,6 +258,46 @@ namespace Pandora.Data.Transformers
             Assert.AreEqual("Type", barkasaurous.TypeHintIn);
         }
 
+        [Test]
+        public static void MappingAnApiWhichReturnsAModelContainingAListOfADiscriminatedType()
+        {
+            var actual = APIDefinition.Map(new ApiVersionReturningAModelContainingAListOfADiscriminatedType());
+            Assert.NotNull(actual);
+            Assert.AreEqual("ApiVersionReturningAModelContainingAListOfADiscriminatedType", actual.Name);
+            Assert.AreEqual(1, actual.Operations.Count);
+            Assert.AreEqual("GetListOfDogs", actual.Operations.First().Name);
+            Assert.AreEqual(0, actual.Constants.Count);
+            Assert.AreEqual(3, actual.Models.Count);
+
+            var dogWrapper = actual.Models.FirstOrDefault(m => m.Name == "DogWrapper");
+            Assert.NotNull(dogWrapper);
+            Assert.AreEqual(1, dogWrapper.Properties.Count);
+            Assert.Null(dogWrapper.ParentTypeName);
+            Assert.Null(dogWrapper.TypeHintIn);
+            Assert.Null(dogWrapper.TypeHintValue);
+
+            var dog = actual.Models.FirstOrDefault(m => m.Name == "Doggy");
+            Assert.NotNull(dog);
+            Assert.AreEqual(2, dog.Properties.Count);
+            Assert.AreEqual("Barkasaurous", dog.ParentTypeName);
+            Assert.AreEqual("Dog", dog.TypeHintValue);
+            Assert.AreEqual("Type", dog.TypeHintIn);
+
+            var barkasaurous = actual.Models.FirstOrDefault(m => m.Name == "Barkasaurous");
+            Assert.NotNull(dog);
+            Assert.AreEqual(1, barkasaurous.Properties.Count);
+            Assert.Null(barkasaurous.ParentTypeName);
+            Assert.Null(barkasaurous.TypeHintValue);
+            Assert.AreEqual("Type", barkasaurous.TypeHintIn);
+        }
+
+        [Test]
+        public static void MappingAnApiWhichReturnsAModelContainingAListOfADiscriminatedTypeWithNoBaseTypeShouldReturnError()
+        {
+            // this handles the case of invalid data as seem in https://github.com/hashicorp/pandora/issues/73#issuecomment-935943146 
+            Assert.Throws<Exception>(() => APIDefinition.Map(new ApiVersionReturningAModelContainingAListOfADiscriminatedTypeWithNoBaseType()));
+        }
+
         private class ApiVersionWithNoOperations : ApiDefinition
         {
             public string ApiVersion => "2018-01-01";
@@ -791,6 +831,55 @@ namespace Pandora.Data.Transformers
             public string Name { get; set; }
         }
 
+        private class ApiVersionReturningAModelContainingAListOfADiscriminatedType : ApiDefinition
+        {
+            public string ApiVersion => "2018-01-01";
+            public string Name => "ApiVersionReturningAModelContainingAListOfADiscriminatedType";
+            public IEnumerable<ApiOperation> Operations => new List<ApiOperation>
+            {
+                new GetListOfDogs(),
+            };
+        }
+
+        private class GetListOfDogs : GetOperation
+        {
+            public override Type? ResponseObject()
+            {
+                return typeof(DogWrapper);
+            }
+        }
+
+        private class DogWrapper
+        {
+            [JsonPropertyName("doggies")]
+            public List<Doggy> Doggies { get; set; }
+        }
+
+        private class ApiVersionReturningAModelContainingAListOfADiscriminatedTypeWithNoBaseType : ApiDefinition
+        {
+            public string ApiVersion => "2018-01-01";
+            public string Name => "ApiVersionReturningAModelContainingAListOfADiscriminatedTypeWithNoBaseType";
+            public IEnumerable<ApiOperation> Operations => new List<ApiOperation>
+            {
+                new GetListOfUnicorns(),
+            };
+        }
+
+        private class GetListOfUnicorns : GetOperation
+        {
+            public override Type? ResponseObject()
+            {
+                return typeof(Unicorn);
+            }
+        }
+
+        [ValueForType("unicorn")]
+        private class Unicorn
+        {
+            [JsonPropertyName("name")]
+            public string Name { get; set; }
+        }
+
         public class ApiVersionWithConstantWithinResourceId : ApiDefinition
         {
             public string ApiVersion => "2018-01-01";
@@ -853,9 +942,9 @@ namespace Pandora.Data.Transformers
             public string Name => "ApiVersionWithAConstantWithinOptions";
 
             public IEnumerable<ApiOperation> Operations => new List<ApiOperation>
-        {
-            new ExampleOperation()
-        };
+            {
+                new ExampleOperation()
+            };
 
             public class ExampleOperation : HeadOperation
             {
