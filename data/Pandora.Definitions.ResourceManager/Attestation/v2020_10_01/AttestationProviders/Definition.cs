@@ -5,7 +5,7 @@ namespace Pandora.Definitions.ResourceManager.Attestation.v2020_10_01.Attestatio
 {
     internal class Definition : ApiDefinition
     {
-        // Generated from Swagger revision "28e60e3f539b44b60e7b4d6fa2cf4476519bcf93" 
+        // Generated from Swagger revision "191a721de644cc3f872f4fe9d676cf366083a106" 
 
         public string ApiVersion => "2020-10-01";
         public string Name => "AttestationProviders";
