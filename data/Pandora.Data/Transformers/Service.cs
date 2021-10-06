@@ -11,8 +11,8 @@ namespace Pandora.Data.Transformers
             try
             {
                 var versions = Definitions.Discovery.Versions.WithinServiceDefinition(input);
-                var orderedVersions = versions.Select(Version.Map).OrderBy(v => v.Version).ToList();
-                if (orderedVersions.Count == 0)
+                var orderedVersions = versions.Select(Version.Map).OrderBy(v => v.Version);
+                if (!orderedVersions.Any())
                 {
                     throw new NotSupportedException($"Service {input.Name} has no versions defined");
                 }
