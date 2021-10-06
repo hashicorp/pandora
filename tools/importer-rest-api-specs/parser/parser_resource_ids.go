@@ -132,7 +132,7 @@ func (d *SwaggerDefinition) parseResourceIdFromOperation(uri string, operationDe
 
 		// intentionally check the pre-cut version
 		if strings.HasPrefix(originalSegment, "{") && strings.HasSuffix(originalSegment, "}") {
-			if strings.EqualFold(normalizedSegment, "scope") {
+			if strings.EqualFold(normalizedSegment, "resourceId") || strings.EqualFold(normalizedSegment, "resourceScope") || strings.EqualFold(normalizedSegment, "scope") {
 				segments = append(segments, models.ResourceIdSegment{
 					Type: models.ScopeSegment,
 					Name: normalizedSegment,
