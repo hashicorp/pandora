@@ -591,12 +591,7 @@ func TestParseResourceIdWithResourceIdAndUriSuffixForMultipleUris(t *testing.T) 
 }
 
 func TestParseResourceIdContainingResourceProviderShouldGetTitleCased(t *testing.T) {
-	parsed, err := Load("testdata/", "resource_ids_lowercased_resource_provider.json", true)
-	if err != nil {
-		t.Fatalf("loading: %+v", err)
-	}
-
-	result, err := parsed.Parse("Example", "2020-01-01")
+	result, err := ParseSwaggerFileForTesting(t, "resource_ids_lowercased_resource_provider.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
