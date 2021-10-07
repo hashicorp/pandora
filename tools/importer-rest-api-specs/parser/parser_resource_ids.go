@@ -230,7 +230,7 @@ func (d *SwaggerDefinition) parseResourceIdFromOperation(uri string, operationDe
 	lastUserValueSegment := -1
 	for i, segment := range segments {
 		// everything else technically is a user configurable component
-		if segment.Type != models.StaticSegment {
+		if segment.Type != models.StaticSegment && segment.Type != models.ResourceProviderSegment {
 			lastUserValueSegment = i
 		}
 	}
@@ -247,7 +247,7 @@ func (d *SwaggerDefinition) parseResourceIdFromOperation(uri string, operationDe
 
 	allSegmentsAreStatic := true
 	for _, segment := range segments {
-		if segment.Type != models.StaticSegment {
+		if segment.Type != models.StaticSegment && segment.Type != models.ResourceProviderSegment {
 			allSegmentsAreStatic = false
 			break
 		}
