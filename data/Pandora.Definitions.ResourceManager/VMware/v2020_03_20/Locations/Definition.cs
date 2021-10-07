@@ -5,7 +5,7 @@ namespace Pandora.Definitions.ResourceManager.VMware.v2020_03_20.Locations
 {
     internal class Definition : ApiDefinition
     {
-        // Generated from Swagger revision "191a721de644cc3f872f4fe9d676cf366083a106" 
+        // Generated from Swagger revision "1ec9a8fe851a92ff4c241110cef58238ced59c6c" 
 
         public string ApiVersion => "2020-03-20";
         public string Name => "Locations";
