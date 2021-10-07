@@ -12,11 +12,11 @@ namespace Pandora.Definitions.ResourceManager.Relay.v2017_04_01.Namespaces
     {
         public override string? FieldContainingPaginationDetails() => "nextLink";
 
-        public override ResourceID? ResourceId() => new ResourceGroupId();
+        public override ResourceID? ResourceId() => new ResourceGroupProviderId();
 
         public override Type NestedItemType() => typeof(RelayNamespaceModel);
 
-        public override string? UriSuffix() => "/providers/Microsoft.Relay/namespaces";
+        public override string? UriSuffix() => "/namespaces";
 
 
     }

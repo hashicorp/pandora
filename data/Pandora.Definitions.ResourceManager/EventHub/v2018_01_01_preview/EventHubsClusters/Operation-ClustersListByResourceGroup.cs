@@ -12,11 +12,11 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.Event
     {
         public override string? FieldContainingPaginationDetails() => "nextLink";
 
-        public override ResourceID? ResourceId() => new ResourceGroupId();
+        public override ResourceID? ResourceId() => new ProviderId();
 
         public override Type NestedItemType() => typeof(ClusterModel);
 
-        public override string? UriSuffix() => "/providers/Microsoft.EventHub/clusters";
+        public override string? UriSuffix() => "/clusters";
 
 
     }

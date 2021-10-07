@@ -12,11 +12,11 @@ namespace Pandora.Definitions.ResourceManager.Purview.v2021_07_01.Account
     {
         public override string? FieldContainingPaginationDetails() => "nextLink";
 
-        public override ResourceID? ResourceId() => new ResourceGroupId();
+        public override ResourceID? ResourceId() => new ResourceGroupProviderId();
 
         public override Type NestedItemType() => typeof(AccountModel);
 
-        public override string? UriSuffix() => "/providers/Microsoft.Purview/accounts";
+        public override string? UriSuffix() => "/accounts";
 
 
     }

@@ -47,7 +47,7 @@ namespace Pandora.Definitions.ResourceManager.Relay.v2017_04_01.Namespaces
                 new()
                 {
                     Name = "microsoftRelay",
-                    Type = ResourceIDSegmentType.Static,
+                    Type = ResourceIDSegmentType.ResourceProvider,
                     FixedValue = "Microsoft.Relay"
                 },
 

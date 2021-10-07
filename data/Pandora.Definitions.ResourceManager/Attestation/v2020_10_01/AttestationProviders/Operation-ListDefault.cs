@@ -10,11 +10,11 @@ namespace Pandora.Definitions.ResourceManager.Attestation.v2020_10_01.Attestatio
 {
     internal class ListDefaultOperation : Operations.GetOperation
     {
-        public override ResourceID? ResourceId() => new SubscriptionId();
+        public override ResourceID? ResourceId() => new ProviderId();
 
         public override Type? ResponseObject() => typeof(AttestationProviderListResultModel);
 
-        public override string? UriSuffix() => "/providers/Microsoft.Attestation/defaultProviders";
+        public override string? UriSuffix() => "/defaultProviders";
 
 
     }

@@ -17,11 +17,11 @@ namespace Pandora.Definitions.ResourceManager.Purview.v2021_07_01.Provider
 
         public override Type? RequestObject() => typeof(CheckNameAvailabilityRequestModel);
 
-        public override ResourceID? ResourceId() => new SubscriptionId();
+        public override ResourceID? ResourceId() => new ProviderId();
 
         public override Type? ResponseObject() => typeof(CheckNameAvailabilityResultModel);
 
-        public override string? UriSuffix() => "/providers/Microsoft.Purview/checkNameAvailability";
+        public override string? UriSuffix() => "/checkNameAvailability";
 
 
     }

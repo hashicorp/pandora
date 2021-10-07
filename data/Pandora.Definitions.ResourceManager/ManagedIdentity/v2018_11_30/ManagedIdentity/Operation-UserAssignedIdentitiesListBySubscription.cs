@@ -12,11 +12,11 @@ namespace Pandora.Definitions.ResourceManager.ManagedIdentity.v2018_11_30.Manage
     {
         public override string? FieldContainingPaginationDetails() => "nextLink";
 
-        public override ResourceID? ResourceId() => new SubscriptionId();
+        public override ResourceID? ResourceId() => new ProviderId();
 
         public override Type NestedItemType() => typeof(IdentityModel);
 
-        public override string? UriSuffix() => "/providers/Microsoft.ManagedIdentity/userAssignedIdentities";
+        public override string? UriSuffix() => "/userAssignedIdentities";
 
 
     }

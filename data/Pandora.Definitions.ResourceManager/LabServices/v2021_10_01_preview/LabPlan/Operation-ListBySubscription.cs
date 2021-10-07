@@ -12,11 +12,11 @@ namespace Pandora.Definitions.ResourceManager.LabServices.v2021_10_01_preview.La
     {
         public override string? FieldContainingPaginationDetails() => "nextLink";
 
-        public override ResourceID? ResourceId() => new SubscriptionId();
+        public override ResourceID? ResourceId() => new ProviderId();
 
         public override Type NestedItemType() => typeof(LabPlanModel);
 
-        public override string? UriSuffix() => "/providers/Microsoft.LabServices/labPlans";
+        public override string? UriSuffix() => "/labPlans";
 
 
     }

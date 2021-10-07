@@ -12,11 +12,11 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2021_01_01_preview.Names
     {
         public override string? FieldContainingPaginationDetails() => "nextLink";
 
-        public override ResourceID? ResourceId() => new SubscriptionId();
+        public override ResourceID? ResourceId() => new ProviderId();
 
         public override Type NestedItemType() => typeof(EHNamespaceModel);
 
-        public override string? UriSuffix() => "/providers/Microsoft.EventHub/namespaces";
+        public override string? UriSuffix() => "/namespaces";
 
 
     }

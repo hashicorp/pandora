@@ -10,11 +10,11 @@ namespace Pandora.Definitions.ResourceManager.PowerBIDedicated.v2021_01_01.Capac
 {
     internal class ListOperation : Operations.GetOperation
     {
-        public override ResourceID? ResourceId() => new SubscriptionId();
+        public override ResourceID? ResourceId() => new ProviderId();
 
         public override Type? ResponseObject() => typeof(DedicatedCapacitiesModel);
 
-        public override string? UriSuffix() => "/providers/Microsoft.PowerBIDedicated/capacities";
+        public override string? UriSuffix() => "/capacities";
 
 
     }

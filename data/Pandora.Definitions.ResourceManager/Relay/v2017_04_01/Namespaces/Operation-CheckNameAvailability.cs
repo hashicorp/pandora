@@ -17,11 +17,11 @@ namespace Pandora.Definitions.ResourceManager.Relay.v2017_04_01.Namespaces
 
         public override Type? RequestObject() => typeof(CheckNameAvailabilityModel);
 
-        public override ResourceID? ResourceId() => new SubscriptionId();
+        public override ResourceID? ResourceId() => new ProviderId();
 
         public override Type? ResponseObject() => typeof(CheckNameAvailabilityResultModel);
 
-        public override string? UriSuffix() => "/providers/Microsoft.Relay/checkNameAvailability";
+        public override string? UriSuffix() => "/checkNameAvailability";
 
 
     }

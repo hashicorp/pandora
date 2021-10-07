@@ -17,11 +17,11 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.CheckNameAvai
 
         public override Type? RequestObject() => typeof(CheckNameAvailabilityParameterModel);
 
-        public override ResourceID? ResourceId() => new SubscriptionId();
+        public override ResourceID? ResourceId() => new ProviderId();
 
         public override Type? ResponseObject() => typeof(CheckNameAvailabilityResultModel);
 
-        public override string? UriSuffix() => "/providers/Microsoft.EventHub/checkNameAvailability";
+        public override string? UriSuffix() => "/checkNameAvailability";
 
 
     }
