@@ -19,7 +19,6 @@ namespace Pandora.Definitions.ResourceManager.AnalysisServices.v2017_08_01.Serve
             new ListOperation(),
             new ListByResourceGroupOperation(),
             new ListGatewayStatusOperation(),
-            new ListOperationStatusesOperation(),
             new ListSkusForExistingOperation(),
             new ResumeOperation(),
             new SuspendOperation(),
