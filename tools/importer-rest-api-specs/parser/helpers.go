@@ -57,6 +57,9 @@ func operationShouldBeIgnored(operationUri string) bool {
 	if strings.Contains(strings.ToLower(operationUri), "/operationresults/") {
 		return true
 	}
+	if strings.Contains(strings.ToLower(operationUri), "/operationstatuses/") {
+		return true
+	}
 
 	// temporarily conditionally remove Scopes
 	if !featureflags.ParseResourcesContainingScopes {
