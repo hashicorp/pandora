@@ -29,6 +29,16 @@ func removeUnusedItems(operations map[string]models.OperationDetails, resourceId
 		unusedConstants = findUnusedConstants(operations, resourceIds, result)
 	}
 
+	unusedResourceIds := findUnusedResourceIds(operations, resourceIds)
+	for len(unusedResourceIds) > 0 {
+		for _, resourceIdName := range unusedResourceIds {
+			delete(resourceIds, resourceIdName)
+		}
+
+		// then go around again
+		unusedResourceIds = findUnusedResourceIds(operations, resourceIds)
+	}
+
 	return result
 }
 
@@ -218,4 +228,29 @@ func findUnusedModels(operations map[string]models.OperationDetails, result pars
 	}
 
 	return out
+}
+
+func findUnusedResourceIds(operations map[string]models.OperationDetails, resourceIds map[string]models.ParsedResourceId) []string {
+	unusedResourceIds := make(map[string]struct{}, 0)
+
+	// first add everything
+	for name := range resourceIds {
+		unusedResourceIds[name] = struct{}{}
+	}
+
+	// then go through and remove the Resource ID if it's used
+	for _, operation := range operations {
+		if operation.ResourceIdName == nil {
+			continue
+		}
+
+		delete(unusedResourceIds, *operation.ResourceIdName)
+	}
+
+	output := make([]string, 0)
+	for name := range unusedResourceIds {
+		output = append(output, name)
+	}
+
+	return output
 }

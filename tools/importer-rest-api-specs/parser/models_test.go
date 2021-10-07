@@ -7,12 +7,7 @@ import (
 )
 
 func TestParseModelSingleTopLevel(t *testing.T) {
-	parsed, err := Load("testdata/", "model_single.json", true)
-	if err != nil {
-		t.Fatalf("loading: %+v", err)
-	}
-
-	result, err := parsed.Parse("Example", "2020-01-01")
+	result, err := ParseSwaggerFileForTesting(t, "model_single.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -139,12 +134,7 @@ func TestParseModelSingleTopLevel(t *testing.T) {
 }
 
 func TestParseModelSingleTopLevelWithInlinedModel(t *testing.T) {
-	parsed, err := Load("testdata/", "model_single_with_inlined_model.json", true)
-	if err != nil {
-		t.Fatalf("loading: %+v", err)
-	}
-
-	result, err := parsed.Parse("Example", "2020-01-01")
+	result, err := ParseSwaggerFileForTesting(t, "model_single_with_inlined_model.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -275,12 +265,7 @@ func TestParseModelSingleTopLevelWithInlinedModel(t *testing.T) {
 }
 
 func TestParseModelSingleWithInlinedObject(t *testing.T) {
-	parsed, err := Load("testdata/", "model_with_inlined_object.json", true)
-	if err != nil {
-		t.Fatalf("loading: %+v", err)
-	}
-
-	result, err := parsed.Parse("Example", "2020-01-01")
+	result, err := ParseSwaggerFileForTesting(t, "model_with_inlined_object.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -384,12 +369,7 @@ func TestParseModelSingleWithInlinedObject(t *testing.T) {
 }
 
 func TestParseModelSingleInheritingFromObjectWithNoExtraFields(t *testing.T) {
-	parsed, err := Load("testdata/", "model_inheriting_from_other_model_no_new_fields.json", true)
-	if err != nil {
-		t.Fatalf("loading: %+v", err)
-	}
-
-	result, err := parsed.Parse("Example", "2020-01-01")
+	result, err := ParseSwaggerFileForTesting(t, "model_inheriting_from_other_model_no_new_fields.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -470,12 +450,7 @@ func TestParseModelSingleInheritingFromObjectWithNoExtraFields(t *testing.T) {
 }
 
 func TestParseModelSingleInheritingFromObjectWithNoExtraFieldsInlined(t *testing.T) {
-	parsed, err := Load("testdata/", "model_inheriting_from_other_model_no_new_fields_inlined.json", true)
-	if err != nil {
-		t.Fatalf("loading: %+v", err)
-	}
-
-	result, err := parsed.Parse("Example", "2020-01-01")
+	result, err := ParseSwaggerFileForTesting(t, "model_inheriting_from_other_model_no_new_fields_inlined.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -573,12 +548,7 @@ func TestParseModelSingleInheritingFromObjectWithNoExtraFieldsInlined(t *testing
 }
 
 func TestParseModelSingleWithDateTimeNoType(t *testing.T) {
-	parsed, err := Load("testdata/", "model_single_datetime_no_type.json", true)
-	if err != nil {
-		t.Fatalf("loading: %+v", err)
-	}
-
-	result, err := parsed.Parse("Example", "2020-01-01")
+	result, err := ParseSwaggerFileForTesting(t, "model_single_datetime_no_type.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -632,12 +602,7 @@ func TestParseModelSingleWithDateTimeNoType(t *testing.T) {
 }
 
 func TestParseModelSingleWithReference(t *testing.T) {
-	parsed, err := Load("testdata/", "model_single_with_reference.json", true)
-	if err != nil {
-		t.Fatalf("loading: %+v", err)
-	}
-
-	result, err := parsed.Parse("Example", "2020-01-01")
+	result, err := ParseSwaggerFileForTesting(t, "model_single_with_reference.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -741,12 +706,7 @@ func TestParseModelSingleWithReference(t *testing.T) {
 }
 
 func TestParseModelSingleWithReferenceToArray(t *testing.T) {
-	parsed, err := Load("testdata/", "model_single_with_reference_array.json", true)
-	if err != nil {
-		t.Fatalf("loading: %+v", err)
-	}
-
-	result, err := parsed.Parse("Example", "2020-01-01")
+	result, err := ParseSwaggerFileForTesting(t, "model_single_with_reference_array.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -854,12 +814,7 @@ func TestParseModelSingleWithReferenceToArray(t *testing.T) {
 }
 
 func TestParseModelSingleWithReferenceToConstant(t *testing.T) {
-	parsed, err := Load("testdata/", "model_single_with_reference_constant.json", true)
-	if err != nil {
-		t.Fatalf("loading: %+v", err)
-	}
-
-	result, err := parsed.Parse("Example", "2020-01-01")
+	result, err := ParseSwaggerFileForTesting(t, "model_single_with_reference_constant.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -978,12 +933,7 @@ func TestParseModelSingleWithReferenceToConstant(t *testing.T) {
 }
 
 func TestParseModelSingleWithReferenceToString(t *testing.T) {
-	parsed, err := Load("testdata/", "model_single_with_reference_string.json", true)
-	if err != nil {
-		t.Fatalf("loading: %+v", err)
-	}
-
-	result, err := parsed.Parse("Example", "2020-01-01")
+	result, err := ParseSwaggerFileForTesting(t, "model_single_with_reference_string.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -1091,12 +1041,7 @@ func TestParseModelSingleWithReferenceToString(t *testing.T) {
 }
 
 func TestParseModelSingleContainingAllOfToTypeObject(t *testing.T) {
-	parsed, err := Load("testdata/", "model_containing_allof_object_type.json", true)
-	if err != nil {
-		t.Fatalf("loading: %+v", err)
-	}
-
-	result, err := parsed.Parse("Example", "2020-01-01")
+	result, err := ParseSwaggerFileForTesting(t, "model_containing_allof_object_type.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -1135,12 +1080,7 @@ func TestParseModelSingleContainingAllOfToTypeObject(t *testing.T) {
 }
 
 func TestParseModelSingleContainingAllOfToTypeObjectWithProperties(t *testing.T) {
-	parsed, err := Load("testdata/", "model_containing_allof_object_type_with_properties.json", true)
-	if err != nil {
-		t.Fatalf("loading: %+v", err)
-	}
-
-	result, err := parsed.Parse("Example", "2020-01-01")
+	result, err := ParseSwaggerFileForTesting(t, "model_containing_allof_object_type_with_properties.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -1179,12 +1119,7 @@ func TestParseModelSingleContainingAllOfToTypeObjectWithProperties(t *testing.T)
 }
 
 func TestParseModelWithCircularReferences(t *testing.T) {
-	parsed, err := Load("testdata/", "model_with_circular_reference.json", true)
-	if err != nil {
-		t.Fatalf("loading: %+v", err)
-	}
-
-	result, err := parsed.Parse("Example", "2020-01-01")
+	result, err := ParseSwaggerFileForTesting(t, "model_with_circular_reference.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -1215,12 +1150,7 @@ func TestParseModelWithCircularReferences(t *testing.T) {
 }
 
 func TestParseModelMultipleTopLevel(t *testing.T) {
-	parsed, err := Load("testdata/", "model_multiple.json", true)
-	if err != nil {
-		t.Fatalf("loading: %+v", err)
-	}
-
-	result, err := parsed.Parse("Example", "2020-01-01")
+	result, err := ParseSwaggerFileForTesting(t, "model_multiple.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -1322,12 +1252,7 @@ func TestParseModelMultipleTopLevel(t *testing.T) {
 }
 
 func TestParseModelMultipleTopLevelWithList(t *testing.T) {
-	parsed, err := Load("testdata/", "model_multiple_list.json", true)
-	if err != nil {
-		t.Fatalf("loading: %+v", err)
-	}
-
-	result, err := parsed.Parse("Example", "2020-01-01")
+	result, err := ParseSwaggerFileForTesting(t, "model_multiple_list.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -1469,12 +1394,7 @@ func TestParseModelMultipleTopLevelWithList(t *testing.T) {
 }
 
 func TestParseModelMultipleTopLevelInheritance(t *testing.T) {
-	parsed, err := Load("testdata/", "model_multiple_inheritance.json", true)
-	if err != nil {
-		t.Fatalf("loading: %+v", err)
-	}
-
-	result, err := parsed.Parse("Example", "2020-01-01")
+	result, err := ParseSwaggerFileForTesting(t, "model_multiple_inheritance.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -1590,12 +1510,7 @@ func TestParseModelMultipleTopLevelInheritance(t *testing.T) {
 }
 
 func TestParseModelWithLocation(t *testing.T) {
-	parsed, err := Load("testdata/", "model_with_location.json", true)
-	if err != nil {
-		t.Fatalf("loading: %+v", err)
-	}
-
-	result, err := parsed.Parse("Example", "2020-01-01")
+	result, err := ParseSwaggerFileForTesting(t, "model_with_location.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}

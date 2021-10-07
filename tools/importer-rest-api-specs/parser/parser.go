@@ -8,7 +8,7 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
-func (d *SwaggerDefinition) Parse(serviceName, apiVersion string) (*models.AzureApiDefinition, error) {
+func (d *SwaggerDefinition) parse(serviceName, apiVersion string, resourceIds resourceIdParseResult) (*models.AzureApiDefinition, error) {
 	resources := make(map[string]models.AzureApiResource, 0)
 
 	tags := d.findTags()
@@ -18,7 +18,7 @@ func (d *SwaggerDefinition) Parse(serviceName, apiVersion string) (*models.Azure
 			continue
 		}
 
-		resource, err := d.parseResourcesWithinSwaggerTag(&tag)
+		resource, err := d.parseResourcesWithinSwaggerTag(&tag, resourceIds)
 		if err != nil {
 			return nil, fmt.Errorf("finding resources for tag %q: %+v", tag, err)
 		}
@@ -32,7 +32,7 @@ func (d *SwaggerDefinition) Parse(serviceName, apiVersion string) (*models.Azure
 
 	// however some things don't, so we then need to iterate over any without them
 	if _, shouldIgnore := tagsToIgnore[strings.ToLower(serviceName)]; !shouldIgnore {
-		resource, err := d.parseResourcesWithinSwaggerTag(nil)
+		resource, err := d.parseResourcesWithinSwaggerTag(nil, resourceIds)
 		if err != nil {
 			return nil, fmt.Errorf("finding resources for tag %q: %+v", serviceName, err)
 		}
@@ -49,4 +49,12 @@ func (d *SwaggerDefinition) Parse(serviceName, apiVersion string) (*models.Azure
 		ApiVersion:  apiVersion,
 		Resources:   resources,
 	}, nil
+}
+
+func (d *SwaggerDefinition) ParseResourceIds() (*resourceIdParseResult, error) {
+	resourceIds, err := d.findResourceIds()
+	if err != nil {
+		return nil, fmt.Errorf("finding resource ids: %+v", err)
+	}
+	return resourceIds, nil
 }

@@ -12,7 +12,7 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser"
 )
 
-func generateApiVersions(input []parsedData, workingDirectory, rootNamespace, swaggerGitSha string, resourceProvider *string, debug bool) error {
+func generateApiVersions(input []parser.ParsedData, workingDirectory, rootNamespace, swaggerGitSha string, resourceProvider *string, debug bool) error {
 	for _, item := range input {
 		data := generator.GenerationDataForServiceAndApiVersion(item.ServiceName, item.ApiVersion, workingDirectory, rootNamespace, swaggerGitSha, resourceProvider)
 		generator := generator.NewPackageDefinitionGenerator(data, debug)
@@ -38,7 +38,7 @@ func generateApiVersions(input []parsedData, workingDirectory, rootNamespace, sw
 	return nil
 }
 
-func generateServiceDefinitions(input []parsedData, workingDirectory, rootNamespace, swaggerGitSha string, resourceProvider *string, debug bool) error {
+func generateServiceDefinitions(input []parser.ParsedData, workingDirectory, rootNamespace, swaggerGitSha string, resourceProvider *string, debug bool) error {
 	// the same service may appear multiple times, so we first need to Distinct them
 	serviceNames := distinctServiceNames(input)
 
@@ -118,7 +118,7 @@ func findFilesInDirectory(directory string, excludeList []string, debug bool) (*
 	return &files, nil
 }
 
-func distinctServiceNames(input []parsedData) []string {
+func distinctServiceNames(input []parser.ParsedData) []string {
 	distinctServiceNames := make(map[string]struct{})
 	apiVersionsForServices := make(map[string][]string)
 	for _, v := range input {

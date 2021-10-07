@@ -8,17 +8,13 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
-func (d *SwaggerDefinition) parseResourcesWithinSwaggerTag(tag *string) (*models.AzureApiResource, error) {
+func (d *SwaggerDefinition) parseResourcesWithinSwaggerTag(tag *string, resourceIds resourceIdParseResult) (*models.AzureApiResource, error) {
 	result := parseResult{
 		constants: map[string]models.ConstantDetails{},
 		models:    map[string]models.ModelDetails{},
 	}
 
 	// note that Resource ID's can contain Constants (used as segments)
-	resourceIds, err := d.findResourceIdsForTag(tag)
-	if err != nil {
-		return nil, fmt.Errorf("finding resource ids: %+v", err)
-	}
 	result.append(resourceIds.nestedResult)
 
 	// pull out the operations and any inlined/top-level constants/models

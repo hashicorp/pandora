@@ -41,7 +41,7 @@ func (pri ParsedResourceId) SegmentsAvailableForNaming() []string {
 	if len(segmentsWithoutScope)%2 == 0 && len(segmentsWithoutScope) > 0 {
 		availableSegments := make([]string, 0)
 		for _, segment := range segmentsWithoutScope {
-			if segment.Type == ConstantSegment || segment.Type == ResourceProviderSegment || segment.Type == StaticSegment {
+			if segment.Type == ConstantSegment || segment.Type == StaticSegment {
 				normalized := cleanup.NormalizeSegmentName(segment.Name)
 				availableSegments = append(availableSegments, normalized)
 			}

@@ -10,12 +10,7 @@ import (
 )
 
 func TestParseResourceIdBasic(t *testing.T) {
-	parsed, err := Load("testdata/", "resource_ids_basic.json", true)
-	if err != nil {
-		t.Fatalf("loading: %+v", err)
-	}
-
-	result, err := parsed.Parse("Example", "2020-01-01")
+	result, err := ParseSwaggerFileForTesting(t, "resource_ids_basic.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -116,12 +111,7 @@ func TestParseResourceIdBasic(t *testing.T) {
 }
 
 func TestParseResourceIdContainingAConstant(t *testing.T) {
-	parsed, err := Load("testdata/", "resource_ids_containing_constant.json", true)
-	if err != nil {
-		t.Fatalf("loading: %+v", err)
-	}
-
-	result, err := parsed.Parse("Example", "2020-01-01")
+	result, err := ParseSwaggerFileForTesting(t, "resource_ids_containing_constant.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -224,12 +214,7 @@ func TestParseResourceIdContainingAScope(t *testing.T) {
 		t.Skipf("Scopes are disabled via the Feature FLag - so this test will fail - skipping temporarily")
 	}
 
-	parsed, err := Load("testdata/", "resource_ids_containing_scope.json", true)
-	if err != nil {
-		t.Fatalf("loading: %+v", err)
-	}
-
-	result, err := parsed.Parse("Example", "2020-01-01")
+	result, err := ParseSwaggerFileForTesting(t, "resource_ids_containing_scope.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -316,12 +301,7 @@ func TestParseResourceIdContainingAScope(t *testing.T) {
 }
 
 func TestParseResourceIdWithJustUriSuffix(t *testing.T) {
-	parsed, err := Load("testdata/", "resource_ids_with_just_suffix.json", true)
-	if err != nil {
-		t.Fatalf("loading: %+v", err)
-	}
-
-	result, err := parsed.Parse("Example", "2020-01-01")
+	result, err := ParseSwaggerFileForTesting(t, "resource_ids_with_just_suffix.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -367,12 +347,7 @@ func TestParseResourceIdWithJustUriSuffix(t *testing.T) {
 }
 
 func TestParseResourceIdWithResourceIdAndUriSuffix(t *testing.T) {
-	parsed, err := Load("testdata/", "resource_ids_with_suffix.json", true)
-	if err != nil {
-		t.Fatalf("loading: %+v", err)
-	}
-
-	result, err := parsed.Parse("Example", "2020-01-01")
+	result, err := ParseSwaggerFileForTesting(t, "resource_ids_with_suffix.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -477,12 +452,7 @@ func TestParseResourceIdWithResourceIdAndUriSuffix(t *testing.T) {
 }
 
 func TestParseResourceIdWithResourceIdAndUriSuffixForMultipleUris(t *testing.T) {
-	parsed, err := Load("testdata/", "resource_ids_with_suffix_multiple_uris.json", true)
-	if err != nil {
-		t.Fatalf("loading: %+v", err)
-	}
-
-	result, err := parsed.Parse("Example", "2020-01-01")
+	result, err := ParseSwaggerFileForTesting(t, "resource_ids_with_suffix_multiple_uris.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}

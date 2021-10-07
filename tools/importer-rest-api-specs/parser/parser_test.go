@@ -155,21 +155,14 @@ func validateDirectory(serviceName, apiVersion, versionDirectory string) error {
 		return fmt.Errorf("parsing swagger files in %q: %+v", versionDirectory, err)
 	}
 
+	fileNames := make([]string, 0)
 	for _, file := range *swaggerFiles {
-		log.Printf("[DEBUG]    - File %q..", file)
-
 		fileName := strings.TrimPrefix(file, versionDirectory)
-		parsedFile, err := Load(versionDirectory, fileName, true)
-		if err != nil {
-			return err
-		}
+		fileNames = append(fileNames, fileName)
+	}
 
-		_, err = parsedFile.Parse(serviceName, apiVersion)
-		if err != nil {
-			return err
-		}
-
-		// TODO; something more useful with the result
+	if _, err := LoadAndParseFiles(versionDirectory, *swaggerFiles, serviceName, apiVersion, true); err != nil {
+		return err
 	}
 
 	return nil

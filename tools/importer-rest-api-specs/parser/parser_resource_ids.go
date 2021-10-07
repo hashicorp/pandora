@@ -21,6 +21,56 @@ type resourceIdParseResult struct {
 	resourceUrisToMetadata map[string]resourceUriMetadata
 }
 
+func (result *resourceIdParseResult) append(other resourceIdParseResult) error {
+	result.nestedResult.append(other.nestedResult)
+
+	out := make(map[string]resourceUriMetadata)
+	// intentional since this can be nil
+	for k, v := range result.resourceUrisToMetadata {
+		out[k] = v
+	}
+	for k, v := range other.resourceUrisToMetadata {
+		if existingVal, existing := out[k]; existing {
+			matches := false
+
+			if v.resourceId != nil && existingVal.resourceId != nil && v.resourceId.String() == existingVal.resourceId.String() {
+				matches = true
+			}
+			if v.uriSuffix != nil && existingVal.uriSuffix != nil && *v.uriSuffix == *existingVal.uriSuffix {
+				matches = true
+			}
+
+			if matches {
+				continue
+			}
+			return fmt.Errorf("conflicting Uris with the key %q (First %+v / Second %+v)", k, v, existingVal)
+		}
+
+		out[k] = v
+	}
+	result.resourceUrisToMetadata = out
+
+	return nil
+}
+
+func (result *resourceIdParseResult) generateNames() error {
+	// next determine names for these
+	namesToResourceUris, urisToNames, err := determineNamesForResourceIds(result.resourceUrisToMetadata)
+	if err != nil {
+		return fmt.Errorf("determining names for Resource ID's: %+v", err)
+	}
+	result.nameToResourceIDs = *namesToResourceUris
+
+	// finally go over the existing results and swap out the Resource ID objects for the Name which should be used
+	urisToMetadata, err := mapNamesToResourceIds(*urisToNames, result.resourceUrisToMetadata)
+	if err != nil {
+		return fmt.Errorf("mapping names back to Resource ID's: %+v", err)
+	}
+	result.resourceUrisToMetadata = *urisToMetadata
+
+	return nil
+}
+
 type resourceUriMetadata struct {
 	// resourceIdName is the name of the ResourceID object, available once the unique names have been
 	// identified (if there's a Resource ID)
@@ -33,7 +83,7 @@ type resourceUriMetadata struct {
 	uriSuffix *string
 }
 
-func (d *SwaggerDefinition) findResourceIdsForTag(tag *string) (*resourceIdParseResult, error) {
+func (d *SwaggerDefinition) findResourceIds() (*resourceIdParseResult, error) {
 	result := resourceIdParseResult{
 		nestedResult: parseResult{
 			constants: map[string]models.ConstantDetails{},
@@ -45,30 +95,17 @@ func (d *SwaggerDefinition) findResourceIdsForTag(tag *string) (*resourceIdParse
 
 	// first get a list of all of the Resource ID's present in these operations
 	// where a Suffix is present on a Resource ID, we'll have 2 entries for the Suffix and the Resource ID directly
-	urisToMetadata, nestedResult, err := d.parseResourceIdsFromOperations(tag)
+	urisToMetadata, nestedResult, err := d.parseResourceIds()
 	if err != nil {
 		return nil, fmt.Errorf("parsing Resource ID's from Operations: %+v", err)
 	}
-	result.nestedResult = *nestedResult
-
-	// next determine names for these
-	namesToResourceUris, urisToNames, err := determineNamesForResourceIds(*urisToMetadata)
-	if err != nil {
-		return nil, fmt.Errorf("determining names for Resource ID's: %+v", err)
-	}
-	result.nameToResourceIDs = *namesToResourceUris
-
-	// finally go over the existing results and swap out the Resource ID objects for the Name which should be used
-	urisToMetadata, err = mapNamesToResourceIds(*urisToNames, *urisToMetadata)
-	if err != nil {
-		return nil, fmt.Errorf("mapping names back to Resource ID's: %+v", err)
-	}
 	result.resourceUrisToMetadata = *urisToMetadata
+	result.nestedResult = *nestedResult
 
 	return &result, nil
 }
 
-func (d SwaggerDefinition) parseResourceIdsFromOperations(tag *string) (*map[string]resourceUriMetadata, *parseResult, error) {
+func (d SwaggerDefinition) parseResourceIds() (*map[string]resourceUriMetadata, *parseResult, error) {
 	result := parseResult{
 		constants: map[string]models.ConstantDetails{},
 	}
@@ -76,10 +113,6 @@ func (d SwaggerDefinition) parseResourceIdsFromOperations(tag *string) (*map[str
 
 	for _, operation := range d.swaggerSpecExpanded.Operations() {
 		for uri, operationDetails := range operation {
-			if !operationMatchesTag(operationDetails, tag) {
-				continue
-			}
-
 			if operationShouldBeIgnored(uri) {
 				continue
 			}
