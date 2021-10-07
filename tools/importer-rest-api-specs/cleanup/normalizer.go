@@ -134,6 +134,19 @@ func NormalizeResourceName(input string) string {
 	return output
 }
 
+func NormalizeResourceProviderName(input string) string {
+	// ResourceProviders are in the form `Microsoft.Compute` (or `microsoft.compute`)
+	// the only transformation we should make is to change the lowered -> Title Case
+	segments := strings.Split(input, ".")
+	output := make([]string, 0)
+
+	for _, segment := range segments {
+		output = append(output, strings.Title(segment))
+	}
+
+	return strings.Join(output, ".")
+}
+
 func NormalizeServiceName(input string) string {
 	fixed := map[string]string{
 		// NOTE: these are intentionally lower-cased
