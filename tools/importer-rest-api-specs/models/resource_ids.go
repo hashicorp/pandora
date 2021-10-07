@@ -41,7 +41,7 @@ func (pri ParsedResourceId) SegmentsAvailableForNaming() []string {
 	if len(segmentsWithoutScope)%2 == 0 && len(segmentsWithoutScope) > 0 {
 		availableSegments := make([]string, 0)
 		for _, segment := range segmentsWithoutScope {
-			if segment.Type == ConstantSegment || segment.Type == StaticSegment {
+			if segment.Type == ConstantSegment || segment.Type == ResourceProviderSegment || segment.Type == StaticSegment {
 				normalized := cleanup.NormalizeSegmentName(segment.Name)
 				availableSegments = append(availableSegments, normalized)
 			}
@@ -77,7 +77,7 @@ func (pri ParsedResourceId) NormalizedResourceManagerResourceId() string {
 	lastUserValueSegment := -1
 	for i, segment := range segments {
 		// everything else technically is a user configurable component
-		if segment.Type != StaticSegment {
+		if segment.Type != StaticSegment && segment.Type != ResourceProviderSegment {
 			lastUserValueSegment = i
 		}
 	}
