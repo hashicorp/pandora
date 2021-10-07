@@ -47,7 +47,7 @@ namespace Pandora.Definitions.ResourceManager.Attestation.v2020_10_01.Attestatio
                 new()
                 {
                     Name = "microsoftAttestation",
-                    Type = ResourceIDSegmentType.Static,
+                    Type = ResourceIDSegmentType.ResourceProvider,
                     FixedValue = "Microsoft.Attestation"
                 },
 

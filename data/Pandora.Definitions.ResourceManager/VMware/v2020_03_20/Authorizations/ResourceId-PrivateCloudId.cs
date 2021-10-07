@@ -47,7 +47,7 @@ namespace Pandora.Definitions.ResourceManager.VMware.v2020_03_20.Authorizations
                 new()
                 {
                     Name = "microsoftAVS",
-                    Type = ResourceIDSegmentType.Static,
+                    Type = ResourceIDSegmentType.ResourceProvider,
                     FixedValue = "Microsoft.AVS"
                 },
 

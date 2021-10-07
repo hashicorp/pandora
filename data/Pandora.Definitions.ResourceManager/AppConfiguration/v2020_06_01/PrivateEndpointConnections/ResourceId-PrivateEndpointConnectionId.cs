@@ -47,7 +47,7 @@ namespace Pandora.Definitions.ResourceManager.AppConfiguration.v2020_06_01.Priva
                 new()
                 {
                     Name = "microsoftAppConfiguration",
-                    Type = ResourceIDSegmentType.Static,
+                    Type = ResourceIDSegmentType.ResourceProvider,
                     FixedValue = "Microsoft.AppConfiguration"
                 },
 

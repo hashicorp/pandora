@@ -34,7 +34,7 @@ namespace Pandora.Definitions.ResourceManager.PowerBIDedicated.v2021_01_01.Capac
                 new()
                 {
                     Name = "microsoftPowerBIDedicated",
-                    Type = ResourceIDSegmentType.Static,
+                    Type = ResourceIDSegmentType.ResourceProvider,
                     FixedValue = "Microsoft.PowerBIDedicated"
                 },
 

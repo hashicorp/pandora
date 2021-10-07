@@ -47,7 +47,7 @@ namespace Pandora.Definitions.ResourceManager.Maps.v2021_02_01.Accounts
                 new()
                 {
                     Name = "microsoftMaps",
-                    Type = ResourceIDSegmentType.Static,
+                    Type = ResourceIDSegmentType.ResourceProvider,
                     FixedValue = "Microsoft.Maps"
                 },
 
