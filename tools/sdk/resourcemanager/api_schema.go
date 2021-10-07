@@ -176,6 +176,9 @@ const (
 	// ResourceGroupSegment specifies that this Segment is a Resource Group name
 	ResourceGroupSegment ResourceIdSegmentType = "ResourceGroup"
 
+	// ResourceProviderSegment specifies that this Segment is a Resource Provider
+	ResourceProviderSegment ResourceIdSegmentType = "ResourceProvider"
+
 	// ScopeSegment specifies that this Segment is a Scope
 	ScopeSegment ResourceIdSegmentType = "Scope"
 
