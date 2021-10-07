@@ -78,6 +78,9 @@ func (g PandoraDefinitionGenerator) codeForResourceIDSegmentType(input models.Se
 	case models.ResourceGroupSegment:
 		return out("ResourceIDSegmentType.ResourceGroup")
 
+	case models.ResourceProviderSegment:
+		return out("ResourceIDSegmentType.ResourceProvider")
+
 	case models.ScopeSegment:
 		return out("ResourceIDSegmentType.Scope")
 
