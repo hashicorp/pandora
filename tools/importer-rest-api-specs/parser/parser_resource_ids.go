@@ -202,10 +202,12 @@ func (d *SwaggerDefinition) parseResourceIdFromOperation(uri string, operationDe
 				}
 			}
 			if previousSegmentWasProvider {
+				// some ResourceProviders are defined in lower-case, let's fix that
+				resourceProviderValue := cleanup.NormalizeResourceProviderName(originalSegment)
 				segments = append(segments, models.ResourceIdSegment{
 					Type:       models.ResourceProviderSegment,
 					Name:       normalizedSegment,
-					FixedValue: &originalSegment,
+					FixedValue: &resourceProviderValue,
 				})
 				continue
 			}
