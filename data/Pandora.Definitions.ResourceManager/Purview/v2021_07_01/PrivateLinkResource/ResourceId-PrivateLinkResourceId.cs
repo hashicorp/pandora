@@ -47,7 +47,7 @@ namespace Pandora.Definitions.ResourceManager.Purview.v2021_07_01.PrivateLinkRes
                 new()
                 {
                     Name = "microsoftPurview",
-                    Type = ResourceIDSegmentType.Static,
+                    Type = ResourceIDSegmentType.ResourceProvider,
                     FixedValue = "Microsoft.Purview"
                 },
 

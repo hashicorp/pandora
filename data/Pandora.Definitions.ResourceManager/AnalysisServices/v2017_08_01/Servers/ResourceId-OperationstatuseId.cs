@@ -34,7 +34,7 @@ namespace Pandora.Definitions.ResourceManager.AnalysisServices.v2017_08_01.Serve
                 new()
                 {
                     Name = "microsoftAnalysisServices",
-                    Type = ResourceIDSegmentType.Static,
+                    Type = ResourceIDSegmentType.ResourceProvider,
                     FixedValue = "Microsoft.AnalysisServices"
                 },
 

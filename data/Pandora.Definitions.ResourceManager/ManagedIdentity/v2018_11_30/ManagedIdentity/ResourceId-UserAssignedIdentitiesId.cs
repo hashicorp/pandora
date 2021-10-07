@@ -47,7 +47,7 @@ namespace Pandora.Definitions.ResourceManager.ManagedIdentity.v2018_11_30.Manage
                 new()
                 {
                     Name = "microsoftManagedIdentity",
-                    Type = ResourceIDSegmentType.Static,
+                    Type = ResourceIDSegmentType.ResourceProvider,
                     FixedValue = "Microsoft.ManagedIdentity"
                 },
 

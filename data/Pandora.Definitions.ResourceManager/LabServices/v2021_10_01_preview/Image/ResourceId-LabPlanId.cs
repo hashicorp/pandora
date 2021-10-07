@@ -47,7 +47,7 @@ namespace Pandora.Definitions.ResourceManager.LabServices.v2021_10_01_preview.Im
                 new()
                 {
                     Name = "microsoftLabServices",
-                    Type = ResourceIDSegmentType.Static,
+                    Type = ResourceIDSegmentType.ResourceProvider,
                     FixedValue = "Microsoft.LabServices"
                 },
 

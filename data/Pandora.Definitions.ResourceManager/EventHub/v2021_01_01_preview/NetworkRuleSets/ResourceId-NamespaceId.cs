@@ -47,7 +47,7 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2021_01_01_preview.Netwo
                 new()
                 {
                     Name = "microsoftEventHub",
-                    Type = ResourceIDSegmentType.Static,
+                    Type = ResourceIDSegmentType.ResourceProvider,
                     FixedValue = "Microsoft.EventHub"
                 },
 
