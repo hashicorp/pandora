@@ -51,6 +51,9 @@ namespace Pandora.Data.Transformers
                 case ResourceIDSegmentType.ResourceGroup:
                     return ResourceIdSegmentType.ResourceGroup;
 
+                case ResourceIDSegmentType.ResourceProvider:
+                    return ResourceIdSegmentType.ResourceProvider;
+
                 case ResourceIDSegmentType.Scope:
                     return ResourceIdSegmentType.Scope;
 

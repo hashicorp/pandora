@@ -33,6 +33,7 @@ namespace Pandora.Definitions.Interfaces
         Static,
         Constant,
         ResourceGroup,
+        ResourceProvider,
         SubscriptionId,
         Scope,
         UserSpecified
