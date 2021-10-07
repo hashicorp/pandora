@@ -593,7 +593,7 @@ func (d SwaggerDefinition) parseNativeType(input *spec.Schema) *models.ObjectDef
 }
 
 func isFieldRequired(name string, required map[string]struct{}) bool {
-	for k, _ := range required {
+	for k := range required {
 		// assume data inconsistencies
 		if strings.EqualFold(k, name) {
 			return true

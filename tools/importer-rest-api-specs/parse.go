@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser"
 )
 

@@ -120,8 +120,8 @@ func GenerationData() []RunInput {
 			},
 		}.ToRunInput(),
 		ResourceManagerInput{
-			ServiceName: "LabServices",
-			ApiVersion: "2021-10-01-preview",
+			ServiceName:      "LabServices",
+			ApiVersion:       "2021-10-01-preview",
 			ResourceProvider: "Microsoft.LabServices",
 			SwaggerDirectory: swaggerDirectory + "/specification/labservices/resource-manager/Microsoft.LabServices/preview/2021-10-01-preview",
 			SwaggerFiles: []string{
