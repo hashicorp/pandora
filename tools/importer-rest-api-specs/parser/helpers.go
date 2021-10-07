@@ -63,6 +63,15 @@ func operationShouldBeIgnored(operationUri string) bool {
 		if strings.Contains(strings.ToLower(operationUri), "/{scope}") {
 			return true
 		}
+		if strings.Contains(strings.ToLower(operationUri), "/{resourcescope}") {
+			return true
+		}
+		if strings.Contains(strings.ToLower(operationUri), "/{resourceid}") {
+			return true
+		}
+		if strings.Contains(strings.ToLower(operationUri), "/{resourceuri}") {
+			return true
+		}
 	}
 
 	return false

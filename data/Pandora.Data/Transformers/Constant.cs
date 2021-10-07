@@ -129,7 +129,7 @@ namespace Pandora.Data.Transformers
                 if (description == null)
                 {
                     throw new NotSupportedException(
-                        $"Each value for the enum {input.Name} must implement the 'Description' attribute");
+                        $"Each value for the enum {input.Name} must implement the 'Description' attribute - but {val.ToString()} doesn't");
                 }
 
                 output.Add(val.ToString(), description.Description);

@@ -10,6 +10,6 @@ namespace Pandora.Data.Models
 
         public bool Preview { get; set; }
 
-        public List<ApiDefinition> Apis { get; set; }
+        public IEnumerable<ApiDefinition> Apis { get; set; }
     }
 }

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using NUnit.Framework;
 using Pandora.Definitions.Interfaces;
 using Pandora.Definitions.Operations;
@@ -22,7 +23,7 @@ namespace Pandora.Data.Transformers
             Assert.AreEqual("SomeVersion", actual.Version);
             Assert.AreEqual(true, actual.Generate);
             Assert.AreEqual(false, actual.Preview);
-            Assert.AreEqual(1, actual.Apis.Count);
+            Assert.AreEqual(1, actual.Apis.Count());
         }
 
         [TestCase]
