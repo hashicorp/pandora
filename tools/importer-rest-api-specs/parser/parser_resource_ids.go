@@ -191,6 +191,26 @@ func (d *SwaggerDefinition) parseResourceIdFromOperation(uri string, operationDe
 			continue
 		}
 
+		// if it's a Resource Provider
+		if strings.Contains(originalSegment, ".") {
+			previousSegmentWasProvider := false
+			if len(segments) > 0 {
+				lastSegment := segments[len(segments)-1]
+				// the segment before this one should be a static segment `providers`
+				if lastSegment.Type == models.StaticSegment && lastSegment.FixedValue != nil && strings.EqualFold(*lastSegment.FixedValue, "providers") {
+					previousSegmentWasProvider = true
+				}
+			}
+			if previousSegmentWasProvider {
+				segments = append(segments, models.ResourceIdSegment{
+					Type:       models.ResourceProviderSegment,
+					Name:       normalizedSegment,
+					FixedValue: &originalSegment,
+				})
+				continue
+			}
+		}
+
 		segments = append(segments, models.ResourceIdSegment{
 			Type:       models.StaticSegment,
 			Name:       normalizedSegment,

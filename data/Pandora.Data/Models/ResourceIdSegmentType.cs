@@ -5,6 +5,7 @@ namespace Pandora.Data.Models
         Unknown,
         Constant,
         ResourceGroup,
+        ResourceProvider,
         Scope,
         Static,
         SubscriptionId,

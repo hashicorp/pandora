@@ -89,6 +89,64 @@ namespace Pandora.Data.Transformers
         }
 
         [TestCase]
+        public static void MappingAVirtualMachineId()
+        {
+            var expected = new VirtualMachineResourceId();
+            var actual = ResourceID.Map(expected);
+            Assert.AreEqual("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Compute/virtualMachines/{virtualMachineName}", actual.IdString);
+            Assert.AreEqual(0, actual.Constants.Count);
+            Assert.AreEqual(8, actual.Segments.Count);
+
+            var subscriptionsSegment = actual.Segments.First();
+            Assert.AreEqual("subscriptions", subscriptionsSegment.Name);
+            Assert.AreEqual(ResourceIdSegmentType.Static, subscriptionsSegment.Type);
+            Assert.Null(subscriptionsSegment.ConstantReference);
+            Assert.AreEqual("subscriptions", subscriptionsSegment.FixedValue);
+
+            var subscriptionIdSegment = actual.Segments.Skip(1).First();
+            Assert.AreEqual("subscriptionId", subscriptionIdSegment.Name);
+            Assert.AreEqual(ResourceIdSegmentType.SubscriptionId, subscriptionIdSegment.Type);
+            Assert.Null(subscriptionIdSegment.ConstantReference);
+            Assert.Null(subscriptionIdSegment.FixedValue);
+
+            var resourceGroupsSegment = actual.Segments.Skip(2).First();
+            Assert.AreEqual("resourceGroups", resourceGroupsSegment.Name);
+            Assert.AreEqual(ResourceIdSegmentType.Static, resourceGroupsSegment.Type);
+            Assert.Null(resourceGroupsSegment.ConstantReference);
+            Assert.AreEqual("resourceGroups", resourceGroupsSegment.FixedValue);
+
+            var resourceGroupSegment = actual.Segments.Skip(3).First();
+            Assert.AreEqual("resourceGroup", resourceGroupSegment.Name);
+            Assert.AreEqual(ResourceIdSegmentType.ResourceGroup, resourceGroupSegment.Type);
+            Assert.Null(resourceGroupSegment.ConstantReference);
+            Assert.Null(resourceGroupSegment.FixedValue);
+
+            var providersSegment = actual.Segments.Skip(4).First();
+            Assert.AreEqual("providers", providersSegment.Name);
+            Assert.AreEqual(ResourceIdSegmentType.Static, providersSegment.Type);
+            Assert.Null(providersSegment.ConstantReference);
+            Assert.AreEqual("providers", providersSegment.FixedValue);
+
+            var microsoftComputeSegment = actual.Segments.Skip(5).First();
+            Assert.AreEqual("microsoftCompute", microsoftComputeSegment.Name);
+            Assert.AreEqual(ResourceIdSegmentType.ResourceProvider, microsoftComputeSegment.Type);
+            Assert.Null(microsoftComputeSegment.ConstantReference);
+            Assert.AreEqual("Microsoft.Compute", microsoftComputeSegment.FixedValue);
+
+            var virtualMachinesSegment = actual.Segments.Skip(6).First();
+            Assert.AreEqual("virtualMachines", virtualMachinesSegment.Name);
+            Assert.AreEqual(ResourceIdSegmentType.Static, virtualMachinesSegment.Type);
+            Assert.Null(virtualMachinesSegment.ConstantReference);
+            Assert.AreEqual("virtualMachines", virtualMachinesSegment.FixedValue);
+
+            var virtualMachineSegment = actual.Segments.Skip(7).First();
+            Assert.AreEqual("virtualMachineName", virtualMachineSegment.Name);
+            Assert.AreEqual(ResourceIdSegmentType.UserSpecified, virtualMachineSegment.Type);
+            Assert.Null(virtualMachineSegment.ConstantReference);
+            Assert.Null(virtualMachineSegment.FixedValue);
+        }
+
+        [TestCase]
         public static void MappingAResourceIDContainingAConstant()
         {
             var expected = new ResourceIdContainingAConstant();
@@ -171,6 +229,60 @@ namespace Pandora.Data.Transformers
                     Name = "world",
                     Type = ResourceIDSegmentType.UserSpecified,
                 }
+            };
+        }
+
+        private class VirtualMachineResourceId : Definitions.Interfaces.ResourceID
+        {
+            public string ID() => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Compute/virtualMachines/{virtualMachineName}";
+
+            public List<ResourceIDSegment> Segments() => new()
+            {
+                new ResourceIDSegment
+                {
+                    Name = "subscriptions",
+                    Type = ResourceIDSegmentType.Static,
+                    FixedValue = "subscriptions"
+                },
+                new ResourceIDSegment
+                {
+                    Name = "subscriptionId",
+                    Type = ResourceIDSegmentType.SubscriptionId,
+                },
+                new ResourceIDSegment
+                {
+                    Name = "resourceGroups",
+                    Type = ResourceIDSegmentType.Static,
+                    FixedValue = "resourceGroups"
+                },
+                new ResourceIDSegment
+                {
+                    Name = "resourceGroup",
+                    Type = ResourceIDSegmentType.ResourceGroup,
+                },
+                new ResourceIDSegment
+                {
+                    Name = "providers",
+                    Type = ResourceIDSegmentType.Static,
+                    FixedValue = "providers"
+                },
+                new ResourceIDSegment
+                {
+                    Name = "microsoftCompute",
+                    Type = ResourceIDSegmentType.ResourceProvider,
+                    FixedValue = "Microsoft.Compute"
+                },
+                new ResourceIDSegment
+                {
+                    Name = "virtualMachines",
+                    Type = ResourceIDSegmentType.Static,
+                    FixedValue = "virtualMachines"
+                },
+                new ResourceIDSegment
+                {
+                    Name = "virtualMachineName",
+                    Type = ResourceIDSegmentType.UserSpecified,
+                },
             };
         }
 

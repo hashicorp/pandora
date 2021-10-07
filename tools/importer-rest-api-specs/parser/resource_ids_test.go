@@ -73,7 +73,7 @@ func TestParseResourceIdBasic(t *testing.T) {
 				Name:       "providers",
 			},
 			{
-				Type:       models.StaticSegment,
+				Type:       models.ResourceProviderSegment,
 				FixedValue: strPtr("Microsoft.SomeResourceProvider"),
 				Name:       "microsoftSomeResourceProvider",
 			},
@@ -272,7 +272,7 @@ func TestParseResourceIdContainingAScope(t *testing.T) {
 				Name:       "providers",
 			},
 			{
-				Type:       models.StaticSegment,
+				Type:       models.ResourceProviderSegment,
 				FixedValue: strPtr("Microsoft.FooBar"),
 				Name:       "microsoftFooBar",
 			},
@@ -429,7 +429,7 @@ func TestParseResourceIdWithResourceIdAndUriSuffix(t *testing.T) {
 				Name:       "providers",
 			},
 			{
-				Type:       models.StaticSegment,
+				Type:       models.ResourceProviderSegment,
 				FixedValue: strPtr("Microsoft.SomeResourceProvider"),
 				Name:       "microsoftSomeResourceProvider",
 			},
@@ -539,7 +539,7 @@ func TestParseResourceIdWithResourceIdAndUriSuffixForMultipleUris(t *testing.T) 
 				Name:       "providers",
 			},
 			{
-				Type:       models.StaticSegment,
+				Type:       models.ResourceProviderSegment,
 				FixedValue: strPtr("Microsoft.SomeResourceProvider"),
 				Name:       "microsoftSomeResourceProvider",
 			},

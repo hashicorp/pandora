@@ -137,6 +137,9 @@ namespace Pandora.Api.V1.ResourceManager
                 case Data.Models.ResourceIdSegmentType.ResourceGroup:
                     return ResourceIdSegmentType.ResourceGroup.ToString();
 
+                case Data.Models.ResourceIdSegmentType.ResourceProvider:
+                    return ResourceIdSegmentType.ResourceProvider.ToString();
+
                 case Data.Models.ResourceIdSegmentType.Scope:
                     return ResourceIdSegmentType.Scope.ToString();
 
@@ -158,6 +161,7 @@ namespace Pandora.Api.V1.ResourceManager
         {
             Constant,
             ResourceGroup,
+            ResourceProvider,
             Scope,
             Static,
             SubscriptionId,

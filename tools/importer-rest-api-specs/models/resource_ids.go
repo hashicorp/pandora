@@ -97,7 +97,7 @@ func normalizedResourceId(segments []ResourceIdSegment) string {
 	components := make([]string, 0)
 	for _, segment := range segments {
 		switch segment.Type {
-		case StaticSegment:
+		case ResourceProviderSegment, StaticSegment:
 			{
 				normalizedSegment := cleanup.NormalizeSegment(*segment.FixedValue, true)
 				components = append(components, normalizedSegment)
@@ -134,10 +134,11 @@ type ResourceIdSegment struct {
 type SegmentType string
 
 const (
-	StaticSegment         SegmentType = "static"
-	ConstantSegment       SegmentType = "constant"
-	ResourceGroupSegment  SegmentType = "resource-group"
-	SubscriptionIdSegment SegmentType = "subscription-id"
-	ScopeSegment          SegmentType = "scope"
-	UserSpecifiedSegment  SegmentType = "user-specified"
+	StaticSegment           SegmentType = "static"
+	ConstantSegment         SegmentType = "constant"
+	ResourceGroupSegment    SegmentType = "resource-group"
+	ResourceProviderSegment SegmentType = "resource-provider"
+	SubscriptionIdSegment   SegmentType = "subscription-id"
+	ScopeSegment            SegmentType = "scope"
+	UserSpecifiedSegment    SegmentType = "user-specified"
 )
