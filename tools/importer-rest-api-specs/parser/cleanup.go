@@ -6,7 +6,7 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
-func removeUnusedItems(operations map[string]models.OperationDetails, resourceIds map[string]models.ParsedResourceId, result parseResult) parseResult {
+func removeUnusedItems(operations map[string]models.OperationDetails, resourceIds map[string]models.ParsedResourceId, result parseResult) (parseResult, map[string]models.ParsedResourceId) {
 	unusedModels := findUnusedModels(operations, result)
 	for len(unusedModels) > 0 {
 		// remove those models
@@ -29,17 +29,22 @@ func removeUnusedItems(operations map[string]models.OperationDetails, resourceId
 		unusedConstants = findUnusedConstants(operations, resourceIds, result)
 	}
 
-	unusedResourceIds := findUnusedResourceIds(operations, resourceIds)
+	resourceIdsForThisResource := make(map[string]models.ParsedResourceId, 0)
+	for k, v := range resourceIds {
+		resourceIdsForThisResource[k] = v
+	}
+
+	unusedResourceIds := findUnusedResourceIds(operations, resourceIdsForThisResource)
 	for len(unusedResourceIds) > 0 {
 		for _, resourceIdName := range unusedResourceIds {
-			delete(resourceIds, resourceIdName)
+			delete(resourceIdsForThisResource, resourceIdName)
 		}
 
 		// then go around again
-		unusedResourceIds = findUnusedResourceIds(operations, resourceIds)
+		unusedResourceIds = findUnusedResourceIds(operations, resourceIdsForThisResource)
 	}
 
-	return result
+	return result, resourceIdsForThisResource
 }
 
 func findUnusedConstants(operations map[string]models.OperationDetails, resourceIds map[string]models.ParsedResourceId, result parseResult) []string {
@@ -244,7 +249,13 @@ func findUnusedResourceIds(operations map[string]models.OperationDetails, resour
 			continue
 		}
 
-		delete(unusedResourceIds, *operation.ResourceIdName)
+		// since this hasn't been normalized yet, find the correct casing for the key to remove
+		for key := range unusedResourceIds {
+			if strings.EqualFold(*operation.ResourceIdName, key) {
+				delete(unusedResourceIds, key)
+			}
+		}
+
 	}
 
 	output := make([]string, 0)

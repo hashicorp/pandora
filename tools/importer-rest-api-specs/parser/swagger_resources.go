@@ -41,7 +41,7 @@ func (d *SwaggerDefinition) parseResourcesWithinSwaggerTag(tag *string, resource
 	result = switchOutCustomTypesAsNeeded(result)
 
 	// finally remove any models and constants which aren't referenced / have been replaced
-	result = removeUnusedItems(*operations, resourceIds.nameToResourceIDs, result)
+	constantsAndModels, resourceIdNamesToUris := removeUnusedItems(*operations, resourceIds.nameToResourceIDs, result)
 
 	// if there's nothing here, there's no point generating a package
 	if len(*operations) == 0 {
@@ -49,10 +49,10 @@ func (d *SwaggerDefinition) parseResourcesWithinSwaggerTag(tag *string, resource
 	}
 
 	resource := models.AzureApiResource{
-		Constants:   result.constants,
-		Models:      result.models,
+		Constants:   constantsAndModels.constants,
+		Models:      constantsAndModels.models,
 		Operations:  *operations,
-		ResourceIds: resourceIds.nameToResourceIDs,
+		ResourceIds: resourceIdNamesToUris,
 	}
 
 	// first Normalize the names, meaning `foo` -> `Foo` for consistency
