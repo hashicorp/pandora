@@ -95,7 +95,10 @@ func (d SwaggerDefinition) parseResourceIdsFromOperations(tag *string) (*map[str
 				result.appendConstants(metadata.resourceId.Constants)
 
 				resourceManagerUri := metadata.resourceId.NormalizedResourceManagerResourceId()
-				if resourceUri != resourceManagerUri {
+				if strings.EqualFold(resourceUri, resourceManagerUri) {
+					// if it's been rewritten (e.g. the RP name fixed) replace the original URI
+					resourceUri = resourceManagerUri
+				} else {
 					urisToMetaData[resourceManagerUri] = resourceUriMetadata{
 						resourceIdName: metadata.resourceIdName,
 						resourceId:     metadata.resourceId,
@@ -125,10 +128,7 @@ func (d *SwaggerDefinition) parseResourceIdFromOperation(uri string, operationDe
 		}
 
 		originalSegment := uriSegment
-		normalizedSegment := cleanup.RemoveInvalidCharacters(uriSegment, false)
-		normalizedSegment = cleanup.NormalizeSegment(normalizedSegment, true)
-		// the names should always be camelCased, so let's be sure
-		normalizedSegment = fmt.Sprintf("%s%s", strings.ToLower(string(normalizedSegment[0])), normalizedSegment[1:])
+		normalizedSegment := normalizeSegment(uriSegment)
 
 		// intentionally check the pre-cut version
 		if strings.HasPrefix(originalSegment, "{") && strings.HasSuffix(originalSegment, "}") {
@@ -204,6 +204,7 @@ func (d *SwaggerDefinition) parseResourceIdFromOperation(uri string, operationDe
 			if previousSegmentWasProvider {
 				// some ResourceProviders are defined in lower-case, let's fix that
 				resourceProviderValue := cleanup.NormalizeResourceProviderName(originalSegment)
+				normalizedSegment = normalizeSegment(resourceProviderValue)
 				segments = append(segments, models.ResourceIdSegment{
 					Type:       models.ResourceProviderSegment,
 					Name:       normalizedSegment,
@@ -271,6 +272,14 @@ func (d *SwaggerDefinition) parseResourceIdFromOperation(uri string, operationDe
 	}
 
 	return &output, nil
+}
+
+func normalizeSegment(input string) string {
+	output := cleanup.RemoveInvalidCharacters(input, false)
+	output = cleanup.NormalizeSegment(output, true)
+	// the names should always be camelCased, so let's be sure
+	output = fmt.Sprintf("%s%s", strings.ToLower(string(output[0])), output[1:])
+	return output
 }
 
 // determineNamesForResourceIds returns a map[name]ParsedResourceID and map[Uri]Name based on the Resource Manager URI's available
