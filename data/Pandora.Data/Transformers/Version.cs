@@ -24,7 +24,7 @@ namespace Pandora.Data.Transformers
                 {
                     throw new NotSupportedException($"Version {input.ApiVersion} has duplicate operations");
                 }
-                
+
                 var apiDefinitions = input.Apis.Select(APIDefinition.Map);
                 return new VersionDefinition
                 {
