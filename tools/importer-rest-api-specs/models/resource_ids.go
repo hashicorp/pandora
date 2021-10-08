@@ -30,7 +30,7 @@ func (pri ParsedResourceId) Matches(other ParsedResourceId) bool {
 		// /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Devices/provisioningServices/{resourceName}
 		// /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Devices/provisioningServices/{provisioningServiceName}
 		// as such providing they're both user specified segments (and the rest is the same) then they're the same
-		if first.Type == UserSpecifiedSegment {
+		if first.Type == ResourceGroupSegment || first.Type == SubscriptionIdSegment || first.Type == UserSpecifiedSegment {
 			continue
 		}
 

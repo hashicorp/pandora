@@ -349,7 +349,7 @@ func determineNamesForResourceIds(urisToObjects map[string]resourceUriMetadata) 
 	for _, uri := range sortedUris {
 		resourceId := urisToObjects[uri]
 
-		if aliasName := checkForAliasForUri(uri); aliasName != nil {
+		if aliasName := checkForAliasForUri(resourceId.resourceId); aliasName != nil {
 			candidateNamesToUris[*aliasName] = *resourceId.resourceId
 			continue
 		}
@@ -417,24 +417,58 @@ func determineNamesForResourceIds(urisToObjects map[string]resourceUriMetadata) 
 	return &outputNamesToUris, &urisToNames, nil
 }
 
-func checkForAliasForUri(uri string) *string {
-	out := ""
-
-	// TODO: these should be references to the alias in time
-
-	// NOTE: these intentionally omit the suffix `Id`
-	if strings.EqualFold(uri, "/subscriptions/{subscriptionId}") {
-		out = "Subscription"
-	}
-	if strings.EqualFold(uri, "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}") {
-		out = "ResourceGroup"
+func checkForAliasForUri(resourceId *models.ParsedResourceId) *string {
+	var ptr = func(in string) *string {
+		return &in
 	}
 
-	if out == "" {
-		return nil
+	aliasedIds := map[string]models.ParsedResourceId{
+		"Subscription": {
+			Constants: map[string]models.ConstantDetails{},
+			Segments: []models.ResourceIdSegment{
+				{
+					Type:       models.StaticSegment,
+					Name:       "subscriptions",
+					FixedValue: ptr("subscriptions"),
+				},
+				{
+					Type: models.SubscriptionIdSegment,
+					Name: "subscriptionId",
+				},
+			},
+		},
+		"ResourceGroup": {
+			Constants: map[string]models.ConstantDetails{},
+			Segments: []models.ResourceIdSegment{
+				{
+					Type:       models.StaticSegment,
+					Name:       "subscriptions",
+					FixedValue: ptr("subscriptions"),
+				},
+				{
+					Type: models.SubscriptionIdSegment,
+					Name: "subscriptionId",
+				},
+				{
+					Type:       models.StaticSegment,
+					Name:       "resourceGroups",
+					FixedValue: ptr("resourceGroups"),
+				},
+				{
+					Type: models.ResourceGroupSegment,
+					Name: "resourceGroupName",
+				},
+			},
+		},
 	}
 
-	return &out
+	for name, alias := range aliasedIds {
+		if resourceId.Matches(alias) {
+			return &name
+		}
+	}
+
+	return nil
 }
 
 func determineUniqueNamesFor(conflictingUris []models.ParsedResourceId, existingCandidateNames map[string]models.ParsedResourceId) (*map[string]models.ParsedResourceId, error) {
