@@ -33,7 +33,7 @@ func (result *resourceIdParseResult) append(other resourceIdParseResult) error {
 		if existingVal, existing := out[k]; existing {
 			matches := false
 
-			if v.resourceId != nil && existingVal.resourceId != nil && v.resourceId.String() == existingVal.resourceId.String() {
+			if v.resourceId != nil && existingVal.resourceId != nil && v.resourceId.Matches(*existingVal.resourceId) {
 				matches = true
 			}
 			if v.uriSuffix != nil && existingVal.uriSuffix != nil && *v.uriSuffix == *existingVal.uriSuffix {
@@ -455,7 +455,7 @@ func determineUniqueNamesFor(conflictingUris []models.ParsedResourceId, existing
 
 			uri, hasConflictWithExisting := existingCandidateNames[proposedName]
 			if hasConflictWithExisting {
-				if strings.EqualFold(uri.String(), resourceId.String()) {
+				if uri.Matches(resourceId) {
 					// it's this ID from a different type
 					hasConflictWithExisting = false
 				}
@@ -463,7 +463,7 @@ func determineUniqueNamesFor(conflictingUris []models.ParsedResourceId, existing
 
 			uri, hasConflictWithProposed := proposedNames[proposedName]
 			if hasConflictWithProposed {
-				if strings.EqualFold(uri.String(), resourceId.String()) {
+				if uri.Matches(resourceId) {
 					// it's this ID from a different type
 					hasConflictWithProposed = false
 				}

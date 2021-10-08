@@ -136,7 +136,7 @@ func combineResourceIds(first map[string]models.ParsedResourceId, second map[str
 	for k, v := range second {
 		// if there's duplicate Resource ID's named the same thing in different Swaggers, this is likely a data issue
 		otherVal, ok := output[k]
-		if ok && v.String() != otherVal.String() {
+		if ok && v.Matches(otherVal) {
 			return nil, fmt.Errorf("duplicate Resource ID named %q (First %q / Second %q)", k, v.String(), otherVal.String())
 		}
 

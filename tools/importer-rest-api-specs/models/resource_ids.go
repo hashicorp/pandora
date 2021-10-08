@@ -15,6 +15,57 @@ type ParsedResourceId struct {
 	Segments []ResourceIdSegment
 }
 
+func (pri ParsedResourceId) Matches(other ParsedResourceId) bool {
+	if len(pri.Segments) != len(other.Segments) {
+		return false
+	}
+
+	for i, first := range pri.Segments {
+		second := other.Segments[i]
+		if first.Type != second.Type {
+			return false
+		}
+
+		// Whilst these should match, it's possible that they don't but are the same e.g.
+		// /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Devices/provisioningServices/{resourceName}
+		// /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Devices/provisioningServices/{provisioningServiceName}
+		// as such providing they're both user specified segments (and the rest is the same) then they're the same
+		if first.Type == UserSpecifiedSegment {
+			continue
+		}
+
+		if first.Type == ConstantSegment {
+			if first.ConstantReference != nil && second.ConstantReference == nil {
+				return false
+			}
+			if first.ConstantReference == nil && second.ConstantReference != nil {
+				return false
+			}
+			if first.ConstantReference != nil && second.ConstantReference != nil && *first.ConstantReference != *second.ConstantReference {
+				return false
+			}
+		}
+
+		if first.Type == StaticSegment {
+			if first.FixedValue != nil && second.FixedValue == nil {
+				return false
+			}
+			if first.FixedValue == nil && second.FixedValue != nil {
+				return false
+			}
+			if first.FixedValue != nil && second.FixedValue != nil && *first.FixedValue != *second.FixedValue {
+				return false
+			}
+		}
+
+		if !strings.EqualFold(first.Name, second.Name) {
+			return false
+		}
+	}
+
+	return true
+}
+
 func (pri ParsedResourceId) String() string {
 	// only used for debug purposes
 	return normalizedResourceId(pri.Segments)
