@@ -92,10 +92,6 @@ func (pri ParsedResourceId) SegmentsAvailableForNaming() []string {
 	if len(segmentsWithoutScope)%2 == 0 && len(segmentsWithoutScope) > 0 {
 		availableSegments := make([]string, 0)
 		for _, segment := range segmentsWithoutScope {
-			if segment.Type == StaticSegment && staticSegmentShouldBeIgnored(*segment.FixedValue) {
-				continue
-			}
-
 			if segment.Type == ConstantSegment || segment.Type == StaticSegment {
 				normalized := cleanup.NormalizeSegmentName(segment.Name)
 				availableSegments = append(availableSegments, normalized)
@@ -108,10 +104,6 @@ func (pri ParsedResourceId) SegmentsAvailableForNaming() []string {
 	availableSegments := make([]string, 0)
 	for _, segment := range reversedSegments {
 		if segment.Type != UserSpecifiedSegment {
-			continue
-		}
-
-		if segment.Type == StaticSegment && staticSegmentShouldBeIgnored(*segment.FixedValue) {
 			continue
 		}
 
@@ -129,20 +121,6 @@ func (pri ParsedResourceId) SegmentsAvailableForNaming() []string {
 	}
 
 	return availableSegments
-}
-
-func staticSegmentShouldBeIgnored(input string) bool {
-	segmentsToIgnore := []string{
-		"providers",
-		"resourceGroups",
-		"subscriptions",
-	}
-	for _, segmentToIgnore := range segmentsToIgnore {
-		if strings.EqualFold(input, segmentToIgnore) {
-			return true
-		}
-	}
-	return false
 }
 
 func (pri ParsedResourceId) NormalizedResourceManagerResourceId() string {
