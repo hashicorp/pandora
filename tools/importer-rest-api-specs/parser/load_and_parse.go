@@ -2,7 +2,9 @@ package parser
 
 import (
 	"fmt"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/featureflags"
 	"log"
+	"os"
 	"strings"
 )
 
@@ -32,6 +34,12 @@ func LoadAndParseFiles(directory string, fileNames []string, serviceName, apiVer
 			return nil, fmt.Errorf("parsing Resource Ids from %q (Service %q / Api Version %q): %+v", file, serviceName, apiVersion, err)
 		}
 		resourceIdResult.append(*parsedResourceIds)
+	}
+
+	// conditionally output the Resource ID's to a file so that we can check if any segments require normalizing
+	// useful, but off by default
+	if featureflags.ShouldOutputResourceIdsToFile {
+		writeToFile(resourceIdResult.resourceUrisToMetadata)
 	}
 
 	// finally once we've got all of the Swagger files we need to generate names for the Resource ID Parsers
@@ -87,6 +95,23 @@ func LoadAndParseFiles(directory string, fileNames []string, serviceName, apiVer
 		out = append(out, v)
 	}
 	return &out, nil
+}
+
+func writeToFile(metadata map[string]resourceUriMetadata) {
+	f, err := os.OpenFile("resource-ids.txt", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
+	if err != nil {
+		return
+	}
+	defer f.Close()
+
+	for _, uri := range metadata {
+		if uri.resourceId == nil {
+			continue
+		}
+
+		resourceManagerUri := uri.resourceId.String()
+		f.Write([]byte(fmt.Sprintf("%s\n", resourceManagerUri)))
+	}
 }
 
 func serviceShouldBeIgnored(name string) bool {
