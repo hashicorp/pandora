@@ -173,20 +173,42 @@ func (d *SwaggerDefinition) parseResourceIdFromOperation(uri string, operationDe
 				continue
 			}
 
-			if strings.EqualFold(normalizedSegment, "subscriptionId") {
-				segments = append(segments, models.ResourceIdSegment{
-					Type: models.SubscriptionIdSegment,
-					Name: normalizedSegment,
-				})
-				continue
+			if strings.EqualFold(normalizedSegment, "subscription") || strings.EqualFold(normalizedSegment, "subscriptionId") {
+				previousSegmentWasSubscriptions := false
+				if len(segments) > 0 {
+					lastSegment := segments[len(segments)-1]
+					// the segment before this one should be a static segment `subscriptions`
+					if lastSegment.Type == models.StaticSegment && lastSegment.FixedValue != nil && strings.EqualFold(*lastSegment.FixedValue, "subscriptions") {
+						previousSegmentWasSubscriptions = true
+					}
+				}
+
+				if previousSegmentWasSubscriptions {
+					segments = append(segments, models.ResourceIdSegment{
+						Type: models.SubscriptionIdSegment,
+						Name: normalizedSegment,
+					})
+					continue
+				}
 			}
 
-			if strings.EqualFold(normalizedSegment, "resourceGroupName") {
-				segments = append(segments, models.ResourceIdSegment{
-					Type: models.ResourceGroupSegment,
-					Name: normalizedSegment,
-				})
-				continue
+			if strings.EqualFold(normalizedSegment, "resourceGroup") || strings.EqualFold(normalizedSegment, "resourceGroupName") {
+				previousSegmentWasResourceGroups := false
+				if len(segments) > 0 {
+					lastSegment := segments[len(segments)-1]
+					// the segment before this one should be a static segment `resourceGroups`
+					if lastSegment.Type == models.StaticSegment && lastSegment.FixedValue != nil && strings.EqualFold(*lastSegment.FixedValue, "resourceGroups") {
+						previousSegmentWasResourceGroups = true
+					}
+				}
+
+				if previousSegmentWasResourceGroups {
+					segments = append(segments, models.ResourceIdSegment{
+						Type: models.ResourceGroupSegment,
+						Name: normalizedSegment,
+					})
+					continue
+				}
 			}
 
 			isConstant := false
