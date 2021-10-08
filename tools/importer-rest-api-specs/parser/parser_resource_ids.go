@@ -349,10 +349,15 @@ func determineNamesForResourceIds(urisToObjects map[string]resourceUriMetadata) 
 	for _, uri := range sortedUris {
 		resourceId := urisToObjects[uri]
 
+		if aliasName := checkForAliasForUri(uri); aliasName != nil {
+			candidateNamesToUris[*aliasName] = *resourceId.resourceId
+			continue
+		}
+
 		// NOTE: these are returned sorted from right to left in URI's, since they're assumed to be hierarchical
 		segmentsAvailableForNaming := resourceId.resourceId.SegmentsAvailableForNaming()
 		if len(segmentsAvailableForNaming) == 0 {
-			return nil, nil, fmt.Errorf("the uri %q has no segments available for naming", segmentsAvailableForNaming)
+			return nil, nil, fmt.Errorf("the uri %q has no segments available for naming", uri)
 		}
 
 		candidateSegmentName := segmentsAvailableForNaming[0]
@@ -412,6 +417,26 @@ func determineNamesForResourceIds(urisToObjects map[string]resourceUriMetadata) 
 	return &outputNamesToUris, &urisToNames, nil
 }
 
+func checkForAliasForUri(uri string) *string {
+	out := ""
+
+	// TODO: these should be references to the alias in time
+
+	// NOTE: these intentionally omit the suffix `Id`
+	if strings.EqualFold(uri, "/subscriptions/{subscriptionId}") {
+		out = "Subscription"
+	}
+	if strings.EqualFold(uri, "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}") {
+		out = "ResourceGroup"
+	}
+
+	if out == "" {
+		return nil
+	}
+
+	return &out
+}
+
 func determineUniqueNamesFor(conflictingUris []models.ParsedResourceId, existingCandidateNames map[string]models.ParsedResourceId) (*map[string]models.ParsedResourceId, error) {
 	proposedNames := make(map[string]models.ParsedResourceId)
 	for _, resourceId := range conflictingUris {
@@ -428,8 +453,22 @@ func determineUniqueNamesFor(conflictingUris []models.ParsedResourceId, existing
 		for _, segment := range availableSegments {
 			proposedName = fmt.Sprintf("%s%s", cleanup.NormalizeSegment(segment, false), proposedName)
 
-			_, hasConflictWithExisting := existingCandidateNames[proposedName]
-			_, hasConflictWithProposed := proposedNames[proposedName]
+			uri, hasConflictWithExisting := existingCandidateNames[proposedName]
+			if hasConflictWithExisting {
+				if strings.EqualFold(uri.String(), resourceId.String()) {
+					// it's this ID from a different type
+					hasConflictWithExisting = false
+				}
+			}
+
+			uri, hasConflictWithProposed := proposedNames[proposedName]
+			if hasConflictWithProposed {
+				if strings.EqualFold(uri.String(), resourceId.String()) {
+					// it's this ID from a different type
+					hasConflictWithProposed = false
+				}
+			}
+
 			if !hasConflictWithProposed && !hasConflictWithExisting {
 				uniqueNameFound = true
 				break
@@ -437,7 +476,12 @@ func determineUniqueNamesFor(conflictingUris []models.ParsedResourceId, existing
 		}
 
 		if !uniqueNameFound {
-			return nil, fmt.Errorf("not enough segments in %q to determine a unique name", resourceId.String())
+			conflictingUri, hasConflict := existingCandidateNames[proposedName]
+			if !hasConflict {
+				conflictingUri, hasConflict = proposedNames[proposedName]
+			}
+
+			return nil, fmt.Errorf("not enough segments in %q to determine a unique name - conflicts with %q", resourceId.String(), conflictingUri.String())
 		}
 
 		proposedNames[proposedName] = resourceId
