@@ -15,6 +15,16 @@ type ParsedResourceId struct {
 	Segments []ResourceIdSegment
 }
 
+// ToTopLevelResourceId returns a ParsedResourceId without any static segments on the end
+// that is, just a Resource Manager ID
+func (pri ParsedResourceId) ToTopLevelResourceId() ParsedResourceId {
+	segments := pri.segmentsWithoutUriSuffix()
+	return ParsedResourceId{
+		Constants: pri.Constants,
+		Segments:  segments,
+	}
+}
+
 func (pri ParsedResourceId) Matches(other ParsedResourceId) bool {
 	if len(pri.Segments) != len(other.Segments) {
 		return false
@@ -124,6 +134,15 @@ func (pri ParsedResourceId) SegmentsAvailableForNaming() []string {
 }
 
 func (pri ParsedResourceId) NormalizedResourceManagerResourceId() string {
+	segments := pri.segmentsWithoutUriSuffix()
+	return normalizedResourceId(segments)
+}
+
+func (pri ParsedResourceId) NormalizedResourceId() string {
+	return normalizedResourceId(pri.Segments)
+}
+
+func (pri ParsedResourceId) segmentsWithoutUriSuffix() []ResourceIdSegment {
 	segments := pri.Segments
 	lastUserValueSegment := -1
 	for i, segment := range segments {
@@ -136,12 +155,7 @@ func (pri ParsedResourceId) NormalizedResourceManagerResourceId() string {
 		// remove any URI Suffix since this isn't relevant for the ID's
 		segments = segments[0 : lastUserValueSegment+1]
 	}
-
-	return normalizedResourceId(segments)
-}
-
-func (pri ParsedResourceId) NormalizedResourceId() string {
-	return normalizedResourceId(pri.Segments)
+	return segments
 }
 
 func normalizedResourceId(segments []ResourceIdSegment) string {

@@ -151,11 +151,13 @@ func NormalizeSegment(input string, camelCase bool) string {
 		"webjobs":                                 "webJobs",
 	}
 
-	if v, ok := fixed[strings.ToLower(input)]; ok {
-		if camelCase {
-			return v
-		} else {
-			return strings.Title(v)
+	for k, v := range fixed {
+		if strings.EqualFold(k, input) {
+			if camelCase {
+				return v
+			} else {
+				return strings.Title(v)
+			}
 		}
 	}
 

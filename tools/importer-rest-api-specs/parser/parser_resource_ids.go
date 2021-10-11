@@ -272,7 +272,7 @@ func (d *SwaggerDefinition) parseResourceIdFromOperation(uri string, operationDe
 		segments = append(segments, models.ResourceIdSegment{
 			Type:       models.StaticSegment,
 			Name:       normalizedSegment,
-			FixedValue: &originalSegment,
+			FixedValue: &normalizedSegment,
 		})
 	}
 
@@ -345,7 +345,7 @@ func determineNamesForResourceIds(urisToObjects map[string]resourceUriMetadata) 
 
 	// Before we do anything else, let's go through remove any containing uri suffixes (since these are duplicated without
 	// where they contain a Resource ID - and then sort them short -> long for consistency
-	sortedUris := make([]string, 0)
+	uniqueUris := make(map[string]struct{}, 0)
 	for uri, resourceId := range urisToObjects {
 		// if it's just a suffix (e.g. root-level ListAll calls) iterate over it
 		if resourceId.resourceId == nil {
@@ -358,10 +358,32 @@ func determineNamesForResourceIds(urisToObjects map[string]resourceUriMetadata) 
 			continue
 		}
 
-		sortedUris = append(sortedUris, uri)
+		// if the resourceid matches one that we've already got, then skip it
+		matches := false
+		for otherUri, otherResourceId := range urisToObjects {
+			if uri == otherUri || otherResourceId.resourceId == nil {
+				continue
+			}
+
+			if resourceId.resourceId.Matches(*otherResourceId.resourceId) {
+				if _, otherUriIsParsed := uniqueUris[otherUri]; otherUriIsParsed {
+					matches = true
+					break
+				}
+			}
+		}
+		if matches {
+			continue
+		}
+
+		uniqueUris[uri] = struct{}{}
 	}
 
 	// sort these by length
+	sortedUris := make([]string, 0)
+	for k := range uniqueUris {
+		sortedUris = append(sortedUris, k)
+	}
 	sort.Slice(sortedUris, func(x, y int) bool {
 		return len(sortedUris[x]) < len(sortedUris[y])
 	})
@@ -558,18 +580,41 @@ func mapNamesToResourceIds(urisToNames map[string]string, urisToMetadata map[str
 
 		name, ok := urisToNames[metadata.resourceId.NormalizedResourceManagerResourceId()]
 		if !ok {
-			return nil, fmt.Errorf("Resource ID : Name mapping not found for %q", uri)
+			// there must be a Resource ID for the same Uri with different user specifiable segments
+			// so we'll need to loop around urisToMetadata to find it, where the uri != this uri
+			for otherUri, otherMetadata := range urisToMetadata {
+				if otherUri == uri || otherMetadata.resourceId == nil {
+					continue
+				}
+
+				// is it the same Resource ID with a different casing - or is it the same without the uriSuffix
+				if metadata.resourceId.Matches(*otherMetadata.resourceId) {
+					otherName, ok := urisToNames[otherMetadata.resourceId.NormalizedResourceManagerResourceId()]
+					if !ok {
+						continue
+					}
+
+					name = otherName
+				}
+			}
+
+			if name == "" {
+				return nil, fmt.Errorf("Resource ID <-> Name mapping not found for %q", uri)
+			}
 		}
 
 		output[metadata.resourceId.NormalizedResourceManagerResourceId()] = resourceUriMetadata{
 			resourceIdName: &name,
-			// intentionally don't map over the UriSuffix since this is handled above
+			// intentionally don't map over the UriSuffix since this is handled below
 		}
 
 		// when there's a suffix, we need to output the full uri in the map too
 		if metadata.uriSuffix != nil {
 			metadata.resourceIdName = &name
-			output[uri] = metadata
+			output[uri] = resourceUriMetadata{
+				resourceIdName: &name,
+				uriSuffix:      metadata.uriSuffix,
+			}
 		}
 	}
 

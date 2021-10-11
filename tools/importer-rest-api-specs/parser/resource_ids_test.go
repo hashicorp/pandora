@@ -691,6 +691,125 @@ func TestParseResourceIdContainingResourceProviderShouldGetTitleCased(t *testing
 	}
 }
 
+func TestParseResourceIdContainingTheSameResourceIdWithDifferentSegments(t *testing.T) {
+	result, err := ParseSwaggerFileForTesting(t, "resource_ids_same_id_different_segment_casing.json")
+	if err != nil {
+		t.Fatalf("parsing: %+v", err)
+	}
+	if result == nil {
+		t.Fatal("result was nil")
+	}
+	if len(result.Resources) != 1 {
+		t.Fatalf("expected 1 resource but got %d", len(result.Resources))
+	}
+
+	hello, ok := result.Resources["Example"]
+	if !ok {
+		t.Fatalf("no resources were output with the tag Example")
+	}
+
+	if len(hello.Constants) != 0 {
+		t.Fatalf("expected no Constants but got %d", len(hello.Constants))
+	}
+	if len(hello.Models) != 0 {
+		t.Fatalf("expected no Models but got %d", len(hello.Models))
+	}
+	if len(hello.Operations) != 2 {
+		t.Fatalf("expected 2 Operation but got %d", len(hello.Operations))
+	}
+	if len(hello.ResourceIds) != 1 {
+		t.Fatalf("expected 1 ResourceId but got %d", len(hello.ResourceIds))
+	}
+
+	// first check the Server ResourceId looks good
+	expectedValue := "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.SomeResourceProvider/virtualMachines/{machineName}"
+	expectedResourceId := models.ParsedResourceId{
+		Constants: map[string]models.ConstantDetails{},
+		Segments: []models.ResourceIdSegment{
+			{
+				Type:       models.StaticSegment,
+				FixedValue: strPtr("subscriptions"),
+				Name:       "subscriptions",
+			},
+			{
+				Type: models.SubscriptionIdSegment,
+				Name: "subscriptionId",
+			},
+			{
+				Type:       models.StaticSegment,
+				FixedValue: strPtr("resourceGroups"),
+				Name:       "resourceGroups",
+			},
+			{
+				Type: models.ResourceGroupSegment,
+				Name: "resourceGroupName",
+			},
+			{
+				Type:       models.StaticSegment,
+				FixedValue: strPtr("providers"),
+				Name:       "providers",
+			},
+			{
+				Type:       models.ResourceProviderSegment,
+				FixedValue: strPtr("Microsoft.SomeResourceProvider"),
+				Name:       "microsoftSomeResourceProvider",
+			},
+			{
+				Type:       models.StaticSegment,
+				FixedValue: strPtr("virtualMachines"),
+				Name:       "virtualMachines",
+			},
+			{
+				Type: models.UserSpecifiedSegment,
+				Name: "machineName",
+			},
+		},
+	}
+	actualValue, ok := hello.ResourceIds["VirtualMachineId"]
+	if !ok {
+		t.Fatalf("expected a ResourceId named ServerId but didn't get one")
+	}
+	if actualValue.String() != expectedValue {
+		t.Fatalf("expected the VirtualMachineId ResourceId to match %q but got %q", expectedValue, actualValue.String())
+	}
+	if err := validateResourceId(actualValue, expectedValue, expectedResourceId); err != nil {
+		t.Fatalf(err.Error())
+	}
+
+	// then check it's exposed in the operation itself
+	operation, ok := hello.Operations["Test"]
+	if !ok {
+		t.Fatalf("expected there to be an Operation named Test but didn't get one")
+	}
+	if operation.ResourceIdName == nil {
+		t.Fatalf("expected the ResourceIdName for the Operation Test to have a value but didn't get one")
+	}
+	if *operation.ResourceIdName != "VirtualMachineId" {
+		t.Fatalf("expected the ResourceIdName for the Operation Test to be VirtualMachineId but got %q", *operation.ResourceIdName)
+	}
+	if operation.UriSuffix != nil {
+		t.Fatalf("expected the UriSuffix for the Operation Test to have no value but got %q", *operation.UriSuffix)
+	}
+
+	// then check it's exposed in the Restart operation itself
+	restartOperation, ok := hello.Operations["Restart"]
+	if !ok {
+		t.Fatalf("expected there to be an Operation named Restart but didn't get one")
+	}
+	if restartOperation.ResourceIdName == nil {
+		t.Fatalf("expected the ResourceIdName for the Operation Restart to have a value but didn't get one")
+	}
+	if *restartOperation.ResourceIdName != "VirtualMachineId" {
+		t.Fatalf("expected the ResourceIdName for the Operation Restart to be VirtualMachineId but got %q", *restartOperation.ResourceIdName)
+	}
+	if restartOperation.UriSuffix == nil {
+		t.Fatalf("expected the UriSuffix for the Operation Restart to have a value but got nil")
+	}
+	if *restartOperation.UriSuffix != "/restart" {
+		t.Fatalf("expected the UriSuffix for the Operation Restart to have be `/restart` but got %q", *restartOperation.UriSuffix)
+	}
+}
+
 func validateResourceId(actualValue models.ParsedResourceId, expectedString string, expected models.ParsedResourceId) error {
 	if actualValue.String() != expectedString {
 		return fmt.Errorf("expected the ResourceId to be %q but got %q", expectedString, actualValue.String())
