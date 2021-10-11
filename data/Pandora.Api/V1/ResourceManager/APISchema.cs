@@ -121,6 +121,7 @@ namespace Pandora.Api.V1.ResourceManager
             return new ResourceIdSegmentDefinition
             {
                 ConstantReference = input.ConstantReference,
+                ExampleValue = input.ExampleValue,
                 FixedValue = input.FixedValue,
                 Name = input.Name,
                 Type = segmentType,
@@ -228,6 +229,9 @@ namespace Pandora.Api.V1.ResourceManager
             [JsonPropertyName("constantReference")]
             public string? ConstantReference { get; set; }
 
+            [JsonPropertyName("exampleValue")]
+            public string ExampleValue { get; set; }
+            
             [JsonPropertyName("fixedValue")]
             public string? FixedValue { get; set; }
 

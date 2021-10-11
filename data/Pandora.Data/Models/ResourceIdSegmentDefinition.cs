@@ -4,6 +4,8 @@ namespace Pandora.Data.Models
     {
         public string? ConstantReference { get; set; }
 
+        public string ExampleValue { get; set; }
+        
         public string? FixedValue { get; set; }
 
         public string Name { get; set; }

@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using Pandora.Data.Helpers;
 using Pandora.Data.Models;
 using Pandora.Definitions.Interfaces;
 
@@ -29,6 +31,7 @@ namespace Pandora.Data.Transformers
                     output.ConstantReference = mapped.Name;
                 }
 
+                output.ExampleValue = GenerateExampleValue(output, constants);
                 segments.Add(output);
             }
 
@@ -39,6 +42,38 @@ namespace Pandora.Data.Transformers
                 Constants = constants,
                 Segments = segments,
             };
+        }
+
+        private static string GenerateExampleValue(ResourceIdSegmentDefinition input, List<ConstantDefinition> constants)
+        {
+            switch (input.Type)
+            {
+                case ResourceIdSegmentType.Constant:
+                {
+                    var constant = constants.First(c => c.Name == input.ConstantReference);
+                    var value = constant.Values.OrderBy(v => v.Key).First();
+                    return value.Value;
+                }
+                
+                case ResourceIdSegmentType.ResourceGroup:
+                    return "example-resource-group";
+                
+                case ResourceIdSegmentType.ResourceProvider:
+                case ResourceIdSegmentType.Static:
+                    return input.FixedValue!;
+                
+                case ResourceIdSegmentType.SubscriptionId:
+                    return "12345678-1234-9876-4563-123456789012";
+                
+                case ResourceIdSegmentType.Scope:
+                    return "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/some-resource-group";
+                
+                case ResourceIdSegmentType.UserSpecified:
+                    return input.Name.TrimSuffix("Name") + "Value";
+                
+                default:
+                    throw new NotSupportedException($"unimplemented segment type {input.Type.ToString()} for example value");
+            }
         }
 
         private static ResourceIdSegmentType MapResourceIdSegmentType(ResourceIDSegmentType input)
