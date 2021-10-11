@@ -13,6 +13,9 @@ const (
 	outputDirectory  = "../../data/"
 	swaggerDirectory = "../../swagger"
 	permissions      = os.FileMode(0755)
+
+	// only useful for testing without outputting everything
+	justParse = false
 )
 
 // Use: `PANDORA_GEN_FOR_REALSIES=true go run main.go`
@@ -81,6 +84,11 @@ func run(input RunInput, swaggerGitSha string, debug bool) error {
 	}
 	if data != nil && len(*data) == 0 {
 		log.Printf("😵 Service %q / Api Version %q contains no resources, skipping.", input.ServiceName, input.ApiVersion)
+		return nil
+	}
+
+	if justParse {
+		log.Printf("✅ Service %q - Api Version %q - Parsed Fine but skipping generation", input.ServiceName, input.ApiVersion)
 		return nil
 	}
 
