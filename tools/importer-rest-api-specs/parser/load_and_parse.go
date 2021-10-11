@@ -116,9 +116,10 @@ func writeToFile(metadata map[string]resourceUriMetadata) {
 
 func serviceShouldBeIgnored(name string) bool {
 	servicesToIgnore := []string{
-		"Blockchain",
-		"DevSpaces",
-		"ServiceFabricMesh",
+		"Blockchain",        // https://github.com/Azure-Samples/blockchain/blob/1b712d6d05cca8da17bdd1894de8c3d25905685d/abs/migration-guide.md
+		"DevSpaces",         // https://azure.microsoft.com/en-us/updates/azure-dev-spaces-is-retiring-on-31-october-2023/
+		"IoTSpaces",         // https://github.com/Azure/azure-rest-api-specs/pull/13993
+		"ServiceFabricMesh", // https://azure.microsoft.com/en-us/updates/azure-service-fabric-mesh-preview-retirement/
 	}
 	for _, v := range servicesToIgnore {
 		if strings.EqualFold(name, v) {
