@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using Microsoft.VisualStudio.TestPlatform.ObjectModel;
 using Pandora.Data.Helpers;
 using Pandora.Data.Models;
 using Pandora.Definitions.Attributes;
@@ -48,9 +47,56 @@ namespace Pandora.Data.Transformers
                 foundTypes.Add(parentType);
             }
 
+            var allTypes = new List<Type>();
+            allTypes.AddRange(knownTypes);
+            allTypes.AddRange(foundTypes);
+
+            // find all of the Types used within the Properties and any Discriminators applicable this Type, which we don't know about
+            var typesWithinProperties = FindTypesWithinPropertiesForType(innerType, allTypes);
+            foundTypes.AddRange(typesWithinProperties);
+            foundTypes = foundTypes.Distinct(new TypeComparer()).OrderBy(t => t.FullName).ToList();
+            
+            // now that we have all of the types for that type, let's iterate over _all_ of the types and process each of them
+            var processedTypes = new Dictionary<string, bool> { { innerType.FullName, true } };
+            while (true)
+            {
+                var typesToFind = foundTypes.Where(ft => !processedTypes.ContainsKey(ft.FullName)).ToList();
+                if (!typesToFind.Any())
+                {
+                    break;
+                }
+                
+                allTypes = new List<Type>();
+                allTypes.AddRange(knownTypes);
+                allTypes.AddRange(typesToFind);
+
+                var newlyFoundTypes = new List<Type>();
+                foreach (var type in typesToFind)
+                {
+                    processedTypes.Add(type.FullName, true);
+                    
+                    var nestedTypesWithinProperties = FindTypesWithinPropertiesForType(type, allTypes);
+                    foundTypes.AddRange(typesWithinProperties);
+                    foundTypes = foundTypes.Distinct(new TypeComparer()).OrderBy(t => t.FullName).ToList();
+                    newlyFoundTypes.AddRange(nestedTypesWithinProperties);
+                }
+                
+                foundTypes.AddRange(newlyFoundTypes);
+                foundTypes = foundTypes.Distinct(new TypeComparer()).OrderBy(t => t.FullName).ToList();
+            }
+
+            // finally re-distinct them
+            foundTypes = foundTypes.Distinct(new TypeComparer()).OrderBy(t => t.FullName).ToList();
+            return foundTypes;
+        }
+
+        private static List<Type> FindTypesWithinPropertiesForType(Type input, List<Type> knownTypes)
+        {
+            var foundTypes = new List<Type>();
+            
             // find all of the types used by properties in this model
             // NOTE: discriminated types within properties are discovered below
-            foreach (var property in innerType.GetProperties())
+            foreach (var property in input.GetProperties())
             {
                 var elementType = GetElementType(property.PropertyType);
                 // for example if it's a built-in, custom or enum type there's nothing to map
@@ -63,13 +109,13 @@ namespace Pandora.Data.Transformers
 
                 // whilst this looks superflurous - discriminated types can be Request/Response objects so won't get
                 // pulled out the traditional way - and since these are de-duped below this is "fine"
-                parentType = PullOutParentType(elementType, knownTypes);
+                var parentType = PullOutParentType(elementType, knownTypes);
                 if (parentType != null)
                 {
                     foundTypes.Add(parentType);
                 }
             }
-
+            
             // now that we've got these, distinct them in-case the same type appears multiple types
             foundTypes = foundTypes.Distinct(new TypeComparer()).OrderBy(t => t.FullName).ToList();
 
@@ -91,10 +137,10 @@ namespace Pandora.Data.Transformers
 
                 var typesForImplementation = FindTypesWithinType(implementation, allTypes);
                 foundTypes.AddRange(typesForImplementation);
+                // re-distinct them
+                foundTypes = foundTypes.Distinct(new TypeComparer()).OrderBy(t => t.FullName).ToList();
             }
 
-            // finally re-distinct them
-            foundTypes = foundTypes.Distinct(new TypeComparer()).OrderBy(t => t.FullName).ToList();
             return foundTypes;
         }
 
