@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/generator"
 	"log"
 	"os"
 	"strings"
@@ -93,16 +94,23 @@ func run(input RunInput, swaggerGitSha string, debug bool) error {
 	}
 
 	if debug {
+		log.Printf("[STAGE] Updating the Output Revision ID to %q", swaggerGitSha)
+	}
+	if err := generator.OutputRevisionId(input.OutputDirectory, input.RootNamespace, swaggerGitSha); err != nil {
+		return fmt.Errorf("outputting the Revision Id: %+v", err)
+	}
+
+	if debug {
 		log.Printf("[STAGE] Generating Swagger Definitions..")
 	}
-	if err := generateServiceDefinitions(*data, input.OutputDirectory, input.RootNamespace, swaggerGitSha, input.ResourceProvider, debug); err != nil {
+	if err := generateServiceDefinitions(*data, input.OutputDirectory, input.RootNamespace, input.ResourceProvider, debug); err != nil {
 		return errWrap(fmt.Errorf("generating Service Definitions: %+v", err))
 	}
 
 	if debug {
 		log.Printf("[STAGE] Generating API Definitions..")
 	}
-	if err := generateApiVersions(*data, input.OutputDirectory, input.RootNamespace, swaggerGitSha, input.ResourceProvider, debug); err != nil {
+	if err := generateApiVersions(*data, input.OutputDirectory, input.RootNamespace, input.ResourceProvider, debug); err != nil {
 		return errWrap(fmt.Errorf("generating API Versions: %+v", err))
 	}
 

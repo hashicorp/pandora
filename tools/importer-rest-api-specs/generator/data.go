@@ -9,7 +9,6 @@ import (
 type GenerationData struct {
 	ServiceName   string
 	ApiVersion    string
-	SwaggerGitSha string
 
 	NamespaceForService    string
 	NamespaceForApiVersion string
@@ -19,7 +18,7 @@ type GenerationData struct {
 	ResourceProvider              *string
 }
 
-func GenerationDataForService(serviceName, rootDirectory, rootNamespace, swaggerGitSha string, resourceProvider *string) GenerationData {
+func GenerationDataForService(serviceName, rootDirectory, rootNamespace string, resourceProvider *string) GenerationData {
 	normalisedServiceName := strings.ReplaceAll(serviceName, "-", "")
 	serviceNamespace := fmt.Sprintf("%s.%s", rootNamespace, strings.Title(normalisedServiceName))
 	serviceWorkingDirectory := path.Join(rootDirectory, rootNamespace, strings.Title(normalisedServiceName))
@@ -28,14 +27,13 @@ func GenerationDataForService(serviceName, rootDirectory, rootNamespace, swagger
 		NamespaceForService:        serviceNamespace,
 		ResourceProvider:           resourceProvider,
 		ServiceName:                normalisedServiceName,
-		SwaggerGitSha:              swaggerGitSha,
 		WorkingDirectoryForService: serviceWorkingDirectory,
 	}
 }
 
-func GenerationDataForServiceAndApiVersion(serviceName, apiVersion, rootDirectory, rootNamespace, swaggerGitSha string, resourceProvider *string) GenerationData {
+func GenerationDataForServiceAndApiVersion(serviceName, apiVersion, rootDirectory, rootNamespace string, resourceProvider *string) GenerationData {
 	normalizedApiVersion := normalizeApiVersion(apiVersion)
-	data := GenerationDataForService(serviceName, rootDirectory, rootNamespace, swaggerGitSha, resourceProvider)
+	data := GenerationDataForService(serviceName, rootDirectory, rootNamespace, resourceProvider)
 	data.ApiVersion = apiVersion
 	data.NamespaceForApiVersion = fmt.Sprintf("%s.%s", data.NamespaceForService, normalizedApiVersion)
 	data.WorkingDirectoryForApiVersion = path.Join(data.WorkingDirectoryForService, normalizedApiVersion)
