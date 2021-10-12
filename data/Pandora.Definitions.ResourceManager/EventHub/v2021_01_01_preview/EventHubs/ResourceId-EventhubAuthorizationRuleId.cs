@@ -1,11 +1,11 @@
 using System.Collections.Generic;
 using Pandora.Definitions.Interfaces;
 
-namespace Pandora.Definitions.ResourceManager.Relay.v2017_04_01.WCFRelays
+namespace Pandora.Definitions.ResourceManager.EventHub.v2021_01_01_preview.EventHubs
 {
-    internal class AuthorizationRuleId : ResourceID
+    internal class EventhubAuthorizationRuleId : ResourceID
     {
-        public string ID() => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Relay/namespaces/{namespaceName}/wcfRelays/{relayName}/authorizationRules/{authorizationRuleName}";
+        public string ID() => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/eventhubs/{eventHubName}/authorizationRules/{authorizationRuleName}";
 
         public List<ResourceIDSegment> Segments()
         {
@@ -46,9 +46,9 @@ namespace Pandora.Definitions.ResourceManager.Relay.v2017_04_01.WCFRelays
 
                 new()
                 {
-                    Name = "microsoftRelay",
+                    Name = "microsoftEventHub",
                     Type = ResourceIDSegmentType.ResourceProvider,
-                    FixedValue = "Microsoft.Relay"
+                    FixedValue = "Microsoft.EventHub"
                 },
 
                 new()
@@ -66,14 +66,14 @@ namespace Pandora.Definitions.ResourceManager.Relay.v2017_04_01.WCFRelays
 
                 new()
                 {
-                    Name = "wcfRelays",
+                    Name = "eventhubs",
                     Type = ResourceIDSegmentType.Static,
-                    FixedValue = "wcfRelays"
+                    FixedValue = "eventhubs"
                 },
 
                 new()
                 {
-                    Name = "relayName",
+                    Name = "eventHubName",
                     Type = ResourceIDSegmentType.UserSpecified
                 },
 

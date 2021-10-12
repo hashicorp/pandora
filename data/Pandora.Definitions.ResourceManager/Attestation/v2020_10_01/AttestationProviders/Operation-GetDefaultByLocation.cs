@@ -12,7 +12,7 @@ namespace Pandora.Definitions.ResourceManager.Attestation.v2020_10_01.Attestatio
     {
         public override ResourceID? ResourceId() => new LocationId();
 
-        public override Type? ResponseObject() => typeof(AttestationProviderModel);
+        public override Type? ResponseObject() => typeof(AttestationProvidersModel);
 
         public override string? UriSuffix() => "/defaultProvider";
 

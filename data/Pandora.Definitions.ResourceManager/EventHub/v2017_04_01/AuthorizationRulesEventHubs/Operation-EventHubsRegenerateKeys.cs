@@ -17,7 +17,7 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.Authorization
 
         public override Type? RequestObject() => typeof(RegenerateAccessKeyParametersModel);
 
-        public override ResourceID? ResourceId() => new AuthorizationRuleId();
+        public override ResourceID? ResourceId() => new EventhubAuthorizationRuleId();
 
         public override Type? ResponseObject() => typeof(AccessKeysModel);
 

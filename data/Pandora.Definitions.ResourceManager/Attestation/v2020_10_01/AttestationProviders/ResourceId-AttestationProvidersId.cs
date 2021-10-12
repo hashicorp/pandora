@@ -1,11 +1,11 @@
 using System.Collections.Generic;
 using Pandora.Definitions.Interfaces;
 
-namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.AuthorizationRulesEventHubs
+namespace Pandora.Definitions.ResourceManager.Attestation.v2020_10_01.AttestationProviders
 {
-    internal class AuthorizationRuleId : ResourceID
+    internal class AttestationProvidersId : ResourceID
     {
-        public string ID() => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/eventhubs/{eventHubName}/authorizationRules/{authorizationRuleName}";
+        public string ID() => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Attestation/attestationProviders/{providerName}";
 
         public List<ResourceIDSegment> Segments()
         {
@@ -46,47 +46,21 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.Authorization
 
                 new()
                 {
-                    Name = "microsoftEventHub",
+                    Name = "microsoftAttestation",
                     Type = ResourceIDSegmentType.ResourceProvider,
-                    FixedValue = "Microsoft.EventHub"
+                    FixedValue = "Microsoft.Attestation"
                 },
 
                 new()
                 {
-                    Name = "namespaces",
+                    Name = "attestationProviders",
                     Type = ResourceIDSegmentType.Static,
-                    FixedValue = "namespaces"
+                    FixedValue = "attestationProviders"
                 },
 
                 new()
                 {
-                    Name = "namespaceName",
-                    Type = ResourceIDSegmentType.UserSpecified
-                },
-
-                new()
-                {
-                    Name = "eventhubs",
-                    Type = ResourceIDSegmentType.Static,
-                    FixedValue = "eventhubs"
-                },
-
-                new()
-                {
-                    Name = "eventHubName",
-                    Type = ResourceIDSegmentType.UserSpecified
-                },
-
-                new()
-                {
-                    Name = "authorizationRules",
-                    Type = ResourceIDSegmentType.Static,
-                    FixedValue = "authorizationRules"
-                },
-
-                new()
-                {
-                    Name = "authorizationRuleName",
+                    Name = "providerName",
                     Type = ResourceIDSegmentType.UserSpecified
                 },
 

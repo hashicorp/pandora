@@ -17,7 +17,7 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.Consu
 
         public override Type? RequestObject() => typeof(ConsumerGroupModel);
 
-        public override ResourceID? ResourceId() => new ConsumergroupId();
+        public override ResourceID? ResourceId() => new ConsumerGroupId();
 
         public override Type? ResponseObject() => typeof(ConsumerGroupModel);
 

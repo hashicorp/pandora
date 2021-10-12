@@ -17,7 +17,7 @@ namespace Pandora.Definitions.ResourceManager.Relay.v2017_04_01.WCFRelays
 
         public override Type? RequestObject() => typeof(AuthorizationRuleModel);
 
-        public override ResourceID? ResourceId() => new AuthorizationRuleId();
+        public override ResourceID? ResourceId() => new WcfRelayAuthorizationRuleId();
 
         public override Type? ResponseObject() => typeof(AuthorizationRuleModel);
 

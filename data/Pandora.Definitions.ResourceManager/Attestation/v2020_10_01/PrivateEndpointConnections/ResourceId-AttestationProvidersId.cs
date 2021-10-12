@@ -1,11 +1,11 @@
 using System.Collections.Generic;
 using Pandora.Definitions.Interfaces;
 
-namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.ConsumerGroups
+namespace Pandora.Definitions.ResourceManager.Attestation.v2020_10_01.PrivateEndpointConnections
 {
-    internal class ConsumergroupId : ResourceID
+    internal class AttestationProvidersId : ResourceID
     {
-        public string ID() => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/eventhubs/{eventHubName}/consumergroups/{consumerGroupName}";
+        public string ID() => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Attestation/attestationProviders/{providerName}";
 
         public List<ResourceIDSegment> Segments()
         {
@@ -46,47 +46,21 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.Consu
 
                 new()
                 {
-                    Name = "microsoftEventHub",
+                    Name = "microsoftAttestation",
                     Type = ResourceIDSegmentType.ResourceProvider,
-                    FixedValue = "Microsoft.EventHub"
+                    FixedValue = "Microsoft.Attestation"
                 },
 
                 new()
                 {
-                    Name = "namespaces",
+                    Name = "attestationProviders",
                     Type = ResourceIDSegmentType.Static,
-                    FixedValue = "namespaces"
+                    FixedValue = "attestationProviders"
                 },
 
                 new()
                 {
-                    Name = "namespaceName",
-                    Type = ResourceIDSegmentType.UserSpecified
-                },
-
-                new()
-                {
-                    Name = "eventhubs",
-                    Type = ResourceIDSegmentType.Static,
-                    FixedValue = "eventhubs"
-                },
-
-                new()
-                {
-                    Name = "eventHubName",
-                    Type = ResourceIDSegmentType.UserSpecified
-                },
-
-                new()
-                {
-                    Name = "consumergroups",
-                    Type = ResourceIDSegmentType.Static,
-                    FixedValue = "consumergroups"
-                },
-
-                new()
-                {
-                    Name = "consumerGroupName",
+                    Name = "providerName",
                     Type = ResourceIDSegmentType.UserSpecified
                 },
 

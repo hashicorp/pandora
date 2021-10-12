@@ -23,7 +23,7 @@ namespace Pandora.Definitions.ResourceManager.AppConfiguration.v2020_06_01.Confi
 
         public override Type NestedItemType() => typeof(ApiKeyModel);
 
-        public override string? UriSuffix() => "/ListKeys";
+        public override string? UriSuffix() => "/listKeys";
 
         public override System.Net.Http.HttpMethod Method() => System.Net.Http.HttpMethod.Post;
 

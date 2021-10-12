@@ -1,11 +1,11 @@
 using System.Collections.Generic;
 using Pandora.Definitions.Interfaces;
 
-namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.AuthorizationRulesEventHubs
+namespace Pandora.Definitions.ResourceManager.Relay.v2017_04_01.HybridConnections
 {
-    internal class AuthorizationRuleId : ResourceID
+    internal class HybridConnectionAuthorizationRuleId : ResourceID
     {
-        public string ID() => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/eventhubs/{eventHubName}/authorizationRules/{authorizationRuleName}";
+        public string ID() => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Relay/namespaces/{namespaceName}/hybridConnections/{hybridConnectionName}/authorizationRules/{authorizationRuleName}";
 
         public List<ResourceIDSegment> Segments()
         {
@@ -46,9 +46,9 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.Autho
 
                 new()
                 {
-                    Name = "microsoftEventHub",
+                    Name = "microsoftRelay",
                     Type = ResourceIDSegmentType.ResourceProvider,
-                    FixedValue = "Microsoft.EventHub"
+                    FixedValue = "Microsoft.Relay"
                 },
 
                 new()
@@ -66,14 +66,14 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.Autho
 
                 new()
                 {
-                    Name = "eventhubs",
+                    Name = "hybridConnections",
                     Type = ResourceIDSegmentType.Static,
-                    FixedValue = "eventhubs"
+                    FixedValue = "hybridConnections"
                 },
 
                 new()
                 {
-                    Name = "eventHubName",
+                    Name = "hybridConnectionName",
                     Type = ResourceIDSegmentType.UserSpecified
                 },
 

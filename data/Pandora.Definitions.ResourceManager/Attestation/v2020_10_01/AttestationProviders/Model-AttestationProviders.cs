@@ -8,7 +8,7 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.Attestation.v2020_10_01.AttestationProviders
 {
 
-    internal class AttestationProviderModel
+    internal class AttestationProvidersModel
     {
         [JsonPropertyName("id")]
         public string? Id { get; set; }

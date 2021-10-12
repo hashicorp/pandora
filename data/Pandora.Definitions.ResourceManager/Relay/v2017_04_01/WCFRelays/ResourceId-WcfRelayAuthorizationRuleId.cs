@@ -1,11 +1,11 @@
 using System.Collections.Generic;
 using Pandora.Definitions.Interfaces;
 
-namespace Pandora.Definitions.ResourceManager.EventHub.v2021_01_01_preview.AuthorizationRulesDisasterRecoveryConfigs
+namespace Pandora.Definitions.ResourceManager.Relay.v2017_04_01.WCFRelays
 {
-    internal class AuthorizationRuleId : ResourceID
+    internal class WcfRelayAuthorizationRuleId : ResourceID
     {
-        public string ID() => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/disasterRecoveryConfigs/{alias}/authorizationRules/{authorizationRuleName}";
+        public string ID() => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Relay/namespaces/{namespaceName}/wcfRelays/{relayName}/authorizationRules/{authorizationRuleName}";
 
         public List<ResourceIDSegment> Segments()
         {
@@ -46,9 +46,9 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2021_01_01_preview.Autho
 
                 new()
                 {
-                    Name = "microsoftEventHub",
+                    Name = "microsoftRelay",
                     Type = ResourceIDSegmentType.ResourceProvider,
-                    FixedValue = "Microsoft.EventHub"
+                    FixedValue = "Microsoft.Relay"
                 },
 
                 new()
@@ -66,14 +66,14 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2021_01_01_preview.Autho
 
                 new()
                 {
-                    Name = "disasterRecoveryConfigs",
+                    Name = "wcfRelays",
                     Type = ResourceIDSegmentType.Static,
-                    FixedValue = "disasterRecoveryConfigs"
+                    FixedValue = "wcfRelays"
                 },
 
                 new()
                 {
-                    Name = "alias",
+                    Name = "relayName",
                     Type = ResourceIDSegmentType.UserSpecified
                 },
 

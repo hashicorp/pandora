@@ -21,7 +21,7 @@ namespace Pandora.Definitions.ResourceManager.AppConfiguration.v2020_06_01.Confi
 
         public override Type? ResponseObject() => typeof(ApiKeyModel);
 
-        public override string? UriSuffix() => "/RegenerateKey";
+        public override string? UriSuffix() => "/regenerateKey";
 
 
     }

@@ -17,7 +17,7 @@ namespace Pandora.Definitions.ResourceManager.Attestation.v2020_10_01.Attestatio
                 HttpStatusCode.OK,
         };
 
-        public override ResourceID? ResourceId() => new AttestationProviderId();
+        public override ResourceID? ResourceId() => new AttestationProvidersId();
 
 
     }

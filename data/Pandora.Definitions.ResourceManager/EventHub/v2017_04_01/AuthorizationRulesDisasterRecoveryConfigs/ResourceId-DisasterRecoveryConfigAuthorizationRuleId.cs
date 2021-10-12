@@ -1,11 +1,11 @@
 using System.Collections.Generic;
 using Pandora.Definitions.Interfaces;
 
-namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.ConsumerGroups
+namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.AuthorizationRulesDisasterRecoveryConfigs
 {
-    internal class ConsumergroupId : ResourceID
+    internal class DisasterRecoveryConfigAuthorizationRuleId : ResourceID
     {
-        public string ID() => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/eventhubs/{eventHubName}/consumergroups/{consumerGroupName}";
+        public string ID() => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/disasterRecoveryConfigs/{alias}/authorizationRules/{authorizationRuleName}";
 
         public List<ResourceIDSegment> Segments()
         {
@@ -66,27 +66,27 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.ConsumerGroup
 
                 new()
                 {
-                    Name = "eventhubs",
+                    Name = "disasterRecoveryConfigs",
                     Type = ResourceIDSegmentType.Static,
-                    FixedValue = "eventhubs"
+                    FixedValue = "disasterRecoveryConfigs"
                 },
 
                 new()
                 {
-                    Name = "eventHubName",
+                    Name = "alias",
                     Type = ResourceIDSegmentType.UserSpecified
                 },
 
                 new()
                 {
-                    Name = "consumergroups",
+                    Name = "authorizationRules",
                     Type = ResourceIDSegmentType.Static,
-                    FixedValue = "consumergroups"
+                    FixedValue = "authorizationRules"
                 },
 
                 new()
                 {
-                    Name = "consumerGroupName",
+                    Name = "authorizationRuleName",
                     Type = ResourceIDSegmentType.UserSpecified
                 },
 
