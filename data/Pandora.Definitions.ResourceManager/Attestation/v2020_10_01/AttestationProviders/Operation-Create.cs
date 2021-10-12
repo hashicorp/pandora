@@ -12,9 +12,9 @@ namespace Pandora.Definitions.ResourceManager.Attestation.v2020_10_01.Attestatio
     {
         public override Type? RequestObject() => typeof(AttestationServiceCreationParamsModel);
 
-        public override ResourceID? ResourceId() => new AttestationProviderId();
+        public override ResourceID? ResourceId() => new AttestationProvidersId();
 
-        public override Type? ResponseObject() => typeof(AttestationProviderModel);
+        public override Type? ResponseObject() => typeof(AttestationProvidersModel);
 
 
     }

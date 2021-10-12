@@ -14,6 +14,6 @@ namespace Pandora.Definitions.ResourceManager.Attestation.v2020_10_01.Attestatio
         public SystemDataModel? SystemData { get; set; }
 
         [JsonPropertyName("value")]
-        public List<AttestationProviderModel>? Value { get; set; }
+        public List<AttestationProvidersModel>? Value { get; set; }
     }
 }

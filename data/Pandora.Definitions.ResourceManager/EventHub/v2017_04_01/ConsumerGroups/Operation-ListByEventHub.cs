@@ -18,7 +18,7 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.ConsumerGroup
 
         public override Type? OptionsObject() => typeof(ListByEventHubOperation.ListByEventHubOptions);
 
-        public override string? UriSuffix() => "/consumergroups";
+        public override string? UriSuffix() => "/consumerGroups";
 
         internal class ListByEventHubOptions
         {

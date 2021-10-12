@@ -10,7 +10,7 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.ConsumerGroup
 {
     internal class GetOperation : Operations.GetOperation
     {
-        public override ResourceID? ResourceId() => new ConsumergroupId();
+        public override ResourceID? ResourceId() => new ConsumerGroupId();
 
         public override Type? ResponseObject() => typeof(ConsumerGroupModel);
 

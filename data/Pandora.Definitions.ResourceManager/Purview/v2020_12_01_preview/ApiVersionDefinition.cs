@@ -11,6 +11,7 @@ namespace Pandora.Definitions.ResourceManager.Purview.v2020_12_01_preview
         public IEnumerable<ApiDefinition> Apis => new List<ApiDefinition>
         {
             new Account.Definition(),
+            new DefaultAccount.Definition(),
             new PrivateEndpointConnection.Definition(),
             new PrivateLinkResource.Definition(),
             new Provider.Definition(),

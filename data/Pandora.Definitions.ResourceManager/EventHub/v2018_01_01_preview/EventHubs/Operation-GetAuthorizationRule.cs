@@ -10,7 +10,7 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.Event
 {
     internal class GetAuthorizationRuleOperation : Operations.GetOperation
     {
-        public override ResourceID? ResourceId() => new AuthorizationRuleId();
+        public override ResourceID? ResourceId() => new EventhubAuthorizationRuleId();
 
         public override Type? ResponseObject() => typeof(AuthorizationRuleModel);
 

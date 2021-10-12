@@ -16,7 +16,7 @@ namespace Pandora.Definitions.ResourceManager.Relay.v2017_04_01.WCFRelays
                 HttpStatusCode.OK,
         };
 
-        public override ResourceID? ResourceId() => new AuthorizationRuleId();
+        public override ResourceID? ResourceId() => new WcfRelayAuthorizationRuleId();
 
 
     }

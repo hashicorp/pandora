@@ -16,7 +16,7 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.Consu
                 HttpStatusCode.OK,
         };
 
-        public override ResourceID? ResourceId() => new ConsumergroupId();
+        public override ResourceID? ResourceId() => new ConsumerGroupId();
 
 
     }

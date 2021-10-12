@@ -1,11 +1,11 @@
 using System.Collections.Generic;
 using Pandora.Definitions.Interfaces;
 
-namespace Pandora.Definitions.ResourceManager.Relay.v2017_04_01.HybridConnections
+namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.ConsumerGroups
 {
-    internal class AuthorizationRuleId : ResourceID
+    internal class ConsumerGroupId : ResourceID
     {
-        public string ID() => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Relay/namespaces/{namespaceName}/hybridConnections/{hybridConnectionName}/authorizationRules/{authorizationRuleName}";
+        public string ID() => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/eventhubs/{eventHubName}/consumerGroups/{consumerGroupName}";
 
         public List<ResourceIDSegment> Segments()
         {
@@ -46,9 +46,9 @@ namespace Pandora.Definitions.ResourceManager.Relay.v2017_04_01.HybridConnection
 
                 new()
                 {
-                    Name = "microsoftRelay",
+                    Name = "microsoftEventHub",
                     Type = ResourceIDSegmentType.ResourceProvider,
-                    FixedValue = "Microsoft.Relay"
+                    FixedValue = "Microsoft.EventHub"
                 },
 
                 new()
@@ -66,27 +66,27 @@ namespace Pandora.Definitions.ResourceManager.Relay.v2017_04_01.HybridConnection
 
                 new()
                 {
-                    Name = "hybridConnections",
+                    Name = "eventhubs",
                     Type = ResourceIDSegmentType.Static,
-                    FixedValue = "hybridConnections"
+                    FixedValue = "eventhubs"
                 },
 
                 new()
                 {
-                    Name = "hybridConnectionName",
+                    Name = "eventHubName",
                     Type = ResourceIDSegmentType.UserSpecified
                 },
 
                 new()
                 {
-                    Name = "authorizationRules",
+                    Name = "consumerGroups",
                     Type = ResourceIDSegmentType.Static,
-                    FixedValue = "authorizationRules"
+                    FixedValue = "consumerGroups"
                 },
 
                 new()
                 {
-                    Name = "authorizationRuleName",
+                    Name = "consumerGroupName",
                     Type = ResourceIDSegmentType.UserSpecified
                 },
 

@@ -16,7 +16,7 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.Event
                 HttpStatusCode.OK,
         };
 
-        public override ResourceID? ResourceId() => new AuthorizationRuleId();
+        public override ResourceID? ResourceId() => new EventhubAuthorizationRuleId();
 
 
     }

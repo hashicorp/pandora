@@ -1,11 +1,11 @@
 using System.Collections.Generic;
 using Pandora.Definitions.Interfaces;
 
-namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.EventHubs
+namespace Pandora.Definitions.ResourceManager.EventHub.v2021_01_01_preview.ConsumerGroups
 {
-    internal class AuthorizationRuleId : ResourceID
+    internal class ConsumerGroupId : ResourceID
     {
-        public string ID() => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/eventhubs/{eventHubName}/authorizationRules/{authorizationRuleName}";
+        public string ID() => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/eventhubs/{eventHubName}/consumerGroups/{consumerGroupName}";
 
         public List<ResourceIDSegment> Segments()
         {
@@ -79,14 +79,14 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.EventHubs
 
                 new()
                 {
-                    Name = "authorizationRules",
+                    Name = "consumerGroups",
                     Type = ResourceIDSegmentType.Static,
-                    FixedValue = "authorizationRules"
+                    FixedValue = "consumerGroups"
                 },
 
                 new()
                 {
-                    Name = "authorizationRuleName",
+                    Name = "consumerGroupName",
                     Type = ResourceIDSegmentType.UserSpecified
                 },
 
