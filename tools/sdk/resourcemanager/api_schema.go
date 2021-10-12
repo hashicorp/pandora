@@ -156,6 +156,9 @@ type ResourceIdSegment struct {
 	// this is only present when `Type` is `ConstantSegment`
 	ConstantReference *string `json:"constantReference,omitempty"`
 
+	// ExampleValue is an example of a valid value for this segment
+	ExampleValue string `json:"exampleValue"`
+
 	// FixedValue is the Fixed/Static value for this segment - only present when `Type` is `StaticSegment`.
 	FixedValue *string `json:"fixedValue,omitempty"`
 

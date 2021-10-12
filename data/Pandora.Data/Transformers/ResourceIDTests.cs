@@ -24,12 +24,14 @@ namespace Pandora.Data.Transformers
             Assert.AreEqual(ResourceIdSegmentType.Static, helloSegment.Type);
             Assert.Null(helloSegment.ConstantReference);
             Assert.AreEqual("hello", helloSegment.FixedValue);
+            Assert.AreEqual("hello", helloSegment.ExampleValue);
 
             var worldSegment = actual.Segments.Skip(1).First();
             Assert.AreEqual("world", worldSegment.Name);
             Assert.AreEqual(ResourceIdSegmentType.Static, worldSegment.Type);
             Assert.Null(worldSegment.ConstantReference);
             Assert.AreEqual("world", worldSegment.FixedValue);
+            Assert.AreEqual("world", worldSegment.ExampleValue);
         }
 
         [TestCase]
@@ -46,12 +48,14 @@ namespace Pandora.Data.Transformers
             Assert.AreEqual(ResourceIdSegmentType.Static, helloSegment.Type);
             Assert.Null(helloSegment.ConstantReference);
             Assert.AreEqual("hello", helloSegment.FixedValue);
+            Assert.AreEqual("hello", helloSegment.ExampleValue);
 
             var worldSegment = actual.Segments.Skip(1).First();
             Assert.AreEqual("world", worldSegment.Name);
             Assert.AreEqual(ResourceIdSegmentType.UserSpecified, worldSegment.Type);
             Assert.Null(worldSegment.ConstantReference);
             Assert.Null(worldSegment.FixedValue);
+            Assert.AreEqual("worldValue", worldSegment.ExampleValue);
         }
 
         [TestCase]
@@ -68,24 +72,28 @@ namespace Pandora.Data.Transformers
             Assert.AreEqual(ResourceIdSegmentType.Static, subscriptionsSegment.Type);
             Assert.Null(subscriptionsSegment.ConstantReference);
             Assert.AreEqual("subscriptions", subscriptionsSegment.FixedValue);
+            Assert.AreEqual("subscriptions", subscriptionsSegment.ExampleValue);
 
             var subscriptionIdSegment = actual.Segments.Skip(1).First();
             Assert.AreEqual("subscriptionId", subscriptionIdSegment.Name);
             Assert.AreEqual(ResourceIdSegmentType.SubscriptionId, subscriptionIdSegment.Type);
             Assert.Null(subscriptionIdSegment.ConstantReference);
             Assert.Null(subscriptionIdSegment.FixedValue);
+            Assert.AreEqual("12345678-1234-9876-4563-123456789012", subscriptionIdSegment.ExampleValue);
 
             var resourceGroupsSegment = actual.Segments.Skip(2).First();
             Assert.AreEqual("resourceGroups", resourceGroupsSegment.Name);
             Assert.AreEqual(ResourceIdSegmentType.Static, resourceGroupsSegment.Type);
             Assert.Null(resourceGroupsSegment.ConstantReference);
             Assert.AreEqual("resourceGroups", resourceGroupsSegment.FixedValue);
+            Assert.AreEqual("resourceGroups", resourceGroupsSegment.ExampleValue);
 
             var resourceGroupSegment = actual.Segments.Skip(3).First();
             Assert.AreEqual("resourceGroup", resourceGroupSegment.Name);
             Assert.AreEqual(ResourceIdSegmentType.ResourceGroup, resourceGroupSegment.Type);
             Assert.Null(resourceGroupSegment.ConstantReference);
             Assert.Null(resourceGroupSegment.FixedValue);
+            Assert.AreEqual("example-resource-group", resourceGroupSegment.ExampleValue);
         }
 
         [TestCase]
@@ -102,48 +110,56 @@ namespace Pandora.Data.Transformers
             Assert.AreEqual(ResourceIdSegmentType.Static, subscriptionsSegment.Type);
             Assert.Null(subscriptionsSegment.ConstantReference);
             Assert.AreEqual("subscriptions", subscriptionsSegment.FixedValue);
+            Assert.AreEqual("subscriptions", subscriptionsSegment.ExampleValue);
 
             var subscriptionIdSegment = actual.Segments.Skip(1).First();
             Assert.AreEqual("subscriptionId", subscriptionIdSegment.Name);
             Assert.AreEqual(ResourceIdSegmentType.SubscriptionId, subscriptionIdSegment.Type);
             Assert.Null(subscriptionIdSegment.ConstantReference);
             Assert.Null(subscriptionIdSegment.FixedValue);
+            Assert.AreEqual("12345678-1234-9876-4563-123456789012", subscriptionIdSegment.ExampleValue);
 
             var resourceGroupsSegment = actual.Segments.Skip(2).First();
             Assert.AreEqual("resourceGroups", resourceGroupsSegment.Name);
             Assert.AreEqual(ResourceIdSegmentType.Static, resourceGroupsSegment.Type);
             Assert.Null(resourceGroupsSegment.ConstantReference);
             Assert.AreEqual("resourceGroups", resourceGroupsSegment.FixedValue);
+            Assert.AreEqual("resourceGroups", resourceGroupsSegment.ExampleValue);
 
             var resourceGroupSegment = actual.Segments.Skip(3).First();
             Assert.AreEqual("resourceGroup", resourceGroupSegment.Name);
             Assert.AreEqual(ResourceIdSegmentType.ResourceGroup, resourceGroupSegment.Type);
             Assert.Null(resourceGroupSegment.ConstantReference);
             Assert.Null(resourceGroupSegment.FixedValue);
+            Assert.AreEqual("example-resource-group", resourceGroupSegment.ExampleValue);
 
             var providersSegment = actual.Segments.Skip(4).First();
             Assert.AreEqual("providers", providersSegment.Name);
             Assert.AreEqual(ResourceIdSegmentType.Static, providersSegment.Type);
             Assert.Null(providersSegment.ConstantReference);
             Assert.AreEqual("providers", providersSegment.FixedValue);
+            Assert.AreEqual("providers", providersSegment.ExampleValue);
 
             var microsoftComputeSegment = actual.Segments.Skip(5).First();
             Assert.AreEqual("microsoftCompute", microsoftComputeSegment.Name);
             Assert.AreEqual(ResourceIdSegmentType.ResourceProvider, microsoftComputeSegment.Type);
             Assert.Null(microsoftComputeSegment.ConstantReference);
             Assert.AreEqual("Microsoft.Compute", microsoftComputeSegment.FixedValue);
+            Assert.AreEqual("Microsoft.Compute", microsoftComputeSegment.ExampleValue);
 
             var virtualMachinesSegment = actual.Segments.Skip(6).First();
             Assert.AreEqual("virtualMachines", virtualMachinesSegment.Name);
             Assert.AreEqual(ResourceIdSegmentType.Static, virtualMachinesSegment.Type);
             Assert.Null(virtualMachinesSegment.ConstantReference);
             Assert.AreEqual("virtualMachines", virtualMachinesSegment.FixedValue);
+            Assert.AreEqual("virtualMachines", virtualMachinesSegment.ExampleValue);
 
             var virtualMachineSegment = actual.Segments.Skip(7).First();
             Assert.AreEqual("virtualMachineName", virtualMachineSegment.Name);
             Assert.AreEqual(ResourceIdSegmentType.UserSpecified, virtualMachineSegment.Type);
             Assert.Null(virtualMachineSegment.ConstantReference);
             Assert.Null(virtualMachineSegment.FixedValue);
+            Assert.AreEqual("virtualMachineValue", virtualMachineSegment.ExampleValue);
         }
 
         [TestCase]
@@ -161,12 +177,14 @@ namespace Pandora.Data.Transformers
             Assert.AreEqual(ResourceIdSegmentType.Static, planetsSegment.Type);
             Assert.Null(planetsSegment.ConstantReference);
             Assert.AreEqual("planets", planetsSegment.FixedValue);
+            Assert.AreEqual("planets", planetsSegment.ExampleValue);
 
             var planetNameSegment = actual.Segments.Skip(1).First();
             Assert.AreEqual("planetName", planetNameSegment.Name);
             Assert.AreEqual(ResourceIdSegmentType.Constant, planetNameSegment.Type);
             Assert.AreEqual("PlanetName", planetNameSegment.ConstantReference);
             Assert.Null(planetNameSegment.FixedValue);
+            Assert.AreEqual("jupiter", planetNameSegment.ExampleValue);
         }
 
         [TestCase]
@@ -183,12 +201,14 @@ namespace Pandora.Data.Transformers
             Assert.AreEqual(ResourceIdSegmentType.Scope, scopeSegment.Type);
             Assert.Null(scopeSegment.ConstantReference);
             Assert.Null(scopeSegment.FixedValue);
+            Assert.AreEqual("/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/some-resource-group", scopeSegment.ExampleValue);
 
             var planetsSegment = actual.Segments.Skip(1).First();
             Assert.AreEqual("someOperation", planetsSegment.Name);
             Assert.AreEqual(ResourceIdSegmentType.Static, planetsSegment.Type);
             Assert.Null(planetsSegment.ConstantReference);
             Assert.AreEqual("someOperation", planetsSegment.FixedValue);
+            Assert.AreEqual("someOperation", planetsSegment.ExampleValue);
         }
 
         private class HelloWorldStaticResourceId : Definitions.Interfaces.ResourceID
