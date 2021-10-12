@@ -231,7 +231,7 @@ namespace Pandora.Api.V1.ResourceManager
 
             [JsonPropertyName("exampleValue")]
             public string ExampleValue { get; set; }
-            
+
             [JsonPropertyName("fixedValue")]
             public string? FixedValue { get; set; }
 
