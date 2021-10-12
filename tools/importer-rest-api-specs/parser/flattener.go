@@ -9,10 +9,10 @@ import (
 	"github.com/go-openapi/loads"
 )
 
-// Load loads the swagger document and flattens it to ensure this contains
+// load loads the swagger document and flattens it to ensure this contains
 // all of the properties within a single file, which makes this easier to parse-out
 // This can then be used with the Parser
-func Load(directory string, fileName string, debugLogging bool) (*SwaggerDefinition, error) {
+func load(directory string, fileName string, debugLogging bool) (*SwaggerDefinition, error) {
 	filePath := filepath.Join(directory, fileName)
 
 	// parsing this twice looks silly, so why are we doing this?

@@ -5,12 +5,7 @@ import (
 )
 
 func TestParseDiscriminatorsTopLevel(t *testing.T) {
-	parsed, err := Load("testdata/", "model_discriminators_simple.json", true)
-	if err != nil {
-		t.Fatalf("loading: %+v", err)
-	}
-
-	result, err := parsed.Parse("Example", "2020-01-01")
+	result, err := ParseSwaggerFileForTesting(t, "model_discriminators_simple.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -116,12 +111,7 @@ func TestParseDiscriminatorsTopLevel(t *testing.T) {
 }
 
 func TestParseDiscriminatorsWithinDiscriminators(t *testing.T) {
-	parsed, err := Load("testdata/", "model_discriminators_within_discriminators.json", true)
-	if err != nil {
-		t.Fatalf("loading: %+v", err)
-	}
-
-	result, err := parsed.Parse("Example", "2020-01-01")
+	result, err := ParseSwaggerFileForTesting(t, "model_discriminators_within_discriminators.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}

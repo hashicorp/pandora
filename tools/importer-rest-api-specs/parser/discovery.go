@@ -51,6 +51,10 @@ func FindResourceManagerServices(directory string, justLatestVersion, debug bool
 			if !strings.EqualFold(serviceType, "resource-manager") {
 				return nil
 			}
+			// ignore 'common' e.g. ./specification/streamanalytics/resource-manager/Microsoft.StreamAnalytics/common/v1/definitions.json
+			if !strings.EqualFold(serviceReleaseState, "stable") && !strings.EqualFold(serviceReleaseState, "preview") {
+				return nil
+			}
 
 			existingPaths, ok := services[serviceName]
 			if !ok {

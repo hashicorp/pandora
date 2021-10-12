@@ -7,12 +7,7 @@ import (
 )
 
 func TestParseOperationsEmpty(t *testing.T) {
-	parsed, err := Load("testdata/", "operations_empty.json", true)
-	if err != nil {
-		t.Fatalf("loading: %+v", err)
-	}
-
-	result, err := parsed.Parse("Example", "2020-01-01")
+	result, err := ParseSwaggerFileForTesting(t, "operations_empty.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -25,12 +20,7 @@ func TestParseOperationsEmpty(t *testing.T) {
 }
 
 func TestParseOperationSingleWithTag(t *testing.T) {
-	parsed, err := Load("testdata/", "operations_single_with_tag.json", true)
-	if err != nil {
-		t.Fatalf("loading: %+v", err)
-	}
-
-	result, err := parsed.Parse("Example", "2020-01-01")
+	result, err := ParseSwaggerFileForTesting(t, "operations_single_with_tag.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -93,12 +83,7 @@ func TestParseOperationSingleWithTag(t *testing.T) {
 }
 
 func TestParseOperationSingleWithTagAndResourceId(t *testing.T) {
-	parsed, err := Load("testdata/", "operations_single_with_tag_resource_id.json", true)
-	if err != nil {
-		t.Fatalf("loading: %+v", err)
-	}
-
-	result, err := parsed.Parse("Example", "2020-01-01")
+	result, err := ParseSwaggerFileForTesting(t, "operations_single_with_tag_resource_id.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -161,12 +146,7 @@ func TestParseOperationSingleWithTagAndResourceId(t *testing.T) {
 }
 
 func TestParseOperationSingleWithTagAndResourceIdSuffix(t *testing.T) {
-	parsed, err := Load("testdata/", "operations_single_with_tag_resource_id_suffix.json", true)
-	if err != nil {
-		t.Fatalf("loading: %+v", err)
-	}
-
-	result, err := parsed.Parse("Example", "2020-01-01")
+	result, err := ParseSwaggerFileForTesting(t, "operations_single_with_tag_resource_id_suffix.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -232,12 +212,7 @@ func TestParseOperationSingleWithTagAndResourceIdSuffix(t *testing.T) {
 }
 
 func TestParseOperationSingleWithRequestObject(t *testing.T) {
-	parsed, err := Load("testdata/", "operations_single_with_request_object.json", true)
-	if err != nil {
-		t.Fatalf("loading: %+v", err)
-	}
-
-	result, err := parsed.Parse("Example", "2020-01-01")
+	result, err := ParseSwaggerFileForTesting(t, "operations_single_with_request_object.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -314,12 +289,7 @@ func TestParseOperationSingleWithRequestObject(t *testing.T) {
 }
 
 func TestParseOperationSingleWithRequestObjectInlined(t *testing.T) {
-	parsed, err := Load("testdata/", "operations_single_with_request_object_inlined.json", true)
-	if err != nil {
-		t.Fatalf("loading: %+v", err)
-	}
-
-	result, err := parsed.Parse("Example", "2020-01-01")
+	result, err := ParseSwaggerFileForTesting(t, "operations_single_with_request_object_inlined.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -396,12 +366,7 @@ func TestParseOperationSingleWithRequestObjectInlined(t *testing.T) {
 }
 
 func TestParseOperationSingleWithResponseObject(t *testing.T) {
-	parsed, err := Load("testdata/", "operations_single_with_response_object.json", true)
-	if err != nil {
-		t.Fatalf("loading: %+v", err)
-	}
-
-	result, err := parsed.Parse("Example", "2020-01-01")
+	result, err := ParseSwaggerFileForTesting(t, "operations_single_with_response_object.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -478,12 +443,7 @@ func TestParseOperationSingleWithResponseObject(t *testing.T) {
 }
 
 func TestParseOperationSingleWithResponseObjectInlined(t *testing.T) {
-	parsed, err := Load("testdata/", "operations_single_with_response_object_inlined.json", true)
-	if err != nil {
-		t.Fatalf("loading: %+v", err)
-	}
-
-	result, err := parsed.Parse("Example", "2020-01-01")
+	result, err := ParseSwaggerFileForTesting(t, "operations_single_with_response_object_inlined.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -560,12 +520,7 @@ func TestParseOperationSingleWithResponseObjectInlined(t *testing.T) {
 }
 
 func TestParseOperationSingleWithResponseObjectInlinedList(t *testing.T) {
-	parsed, err := Load("testdata/", "operations_single_with_response_object_inlined_list.json", true)
-	if err != nil {
-		t.Fatalf("loading: %+v", err)
-	}
-
-	result, err := parsed.Parse("Example", "2020-01-01")
+	result, err := ParseSwaggerFileForTesting(t, "operations_single_with_response_object_inlined_list.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -651,12 +606,7 @@ func TestParseOperationSingleWithResponseObjectInlinedList(t *testing.T) {
 }
 
 func TestParseOperationSingleRequestingWithABool(t *testing.T) {
-	parsed, err := Load("testdata/", "operations_single_requesting_with_a_bool.json", true)
-	if err != nil {
-		t.Fatalf("loading: %+v", err)
-	}
-
-	result, err := parsed.Parse("Example", "2020-01-01")
+	result, err := ParseSwaggerFileForTesting(t, "operations_single_requesting_with_a_bool.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -725,12 +675,7 @@ func TestParseOperationSingleRequestingWithABool(t *testing.T) {
 }
 
 func TestParseOperationSingleRequestingWithAInteger(t *testing.T) {
-	parsed, err := Load("testdata/", "operations_single_requesting_with_a_int.json", true)
-	if err != nil {
-		t.Fatalf("loading: %+v", err)
-	}
-
-	result, err := parsed.Parse("Example", "2020-01-01")
+	result, err := ParseSwaggerFileForTesting(t, "operations_single_requesting_with_a_int.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -799,12 +744,7 @@ func TestParseOperationSingleRequestingWithAInteger(t *testing.T) {
 }
 
 func TestParseOperationSingleRequestingWithADictionaryOfStrings(t *testing.T) {
-	parsed, err := Load("testdata/", "operations_single_requesting_with_a_dictionary_of_strings.json", true)
-	if err != nil {
-		t.Fatalf("loading: %+v", err)
-	}
-
-	result, err := parsed.Parse("Example", "2020-01-01")
+	result, err := ParseSwaggerFileForTesting(t, "operations_single_requesting_with_a_dictionary_of_strings.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -882,12 +822,7 @@ func TestParseOperationSingleRequestingWithADictionaryOfStrings(t *testing.T) {
 }
 
 func TestParseOperationSingleRequestingWithAListOfStrings(t *testing.T) {
-	parsed, err := Load("testdata/", "operations_single_requesting_with_a_list_of_strings.json", true)
-	if err != nil {
-		t.Fatalf("loading: %+v", err)
-	}
-
-	result, err := parsed.Parse("Example", "2020-01-01")
+	result, err := ParseSwaggerFileForTesting(t, "operations_single_requesting_with_a_list_of_strings.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -967,12 +902,7 @@ func TestParseOperationSingleRequestingWithAListOfStrings(t *testing.T) {
 // Models are already tested above
 
 func TestParseOperationSingleRequestingWithAString(t *testing.T) {
-	parsed, err := Load("testdata/", "operations_single_requesting_with_a_string.json", true)
-	if err != nil {
-		t.Fatalf("loading: %+v", err)
-	}
-
-	result, err := parsed.Parse("Example", "2020-01-01")
+	result, err := ParseSwaggerFileForTesting(t, "operations_single_requesting_with_a_string.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -1041,12 +971,7 @@ func TestParseOperationSingleRequestingWithAString(t *testing.T) {
 }
 
 func TestParseOperationSingleReturningABool(t *testing.T) {
-	parsed, err := Load("testdata/", "operations_single_returning_a_bool.json", true)
-	if err != nil {
-		t.Fatalf("loading: %+v", err)
-	}
-
-	result, err := parsed.Parse("Example", "2020-01-01")
+	result, err := ParseSwaggerFileForTesting(t, "operations_single_returning_a_bool.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -1115,12 +1040,7 @@ func TestParseOperationSingleReturningABool(t *testing.T) {
 }
 
 func TestParseOperationSingleReturningAFloat(t *testing.T) {
-	parsed, err := Load("testdata/", "operations_single_returning_a_float.json", true)
-	if err != nil {
-		t.Fatalf("loading: %+v", err)
-	}
-
-	result, err := parsed.Parse("Example", "2020-01-01")
+	result, err := ParseSwaggerFileForTesting(t, "operations_single_returning_a_float.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -1189,12 +1109,7 @@ func TestParseOperationSingleReturningAFloat(t *testing.T) {
 }
 
 func TestParseOperationSingleReturningAFile(t *testing.T) {
-	parsed, err := Load("testdata/", "operations_single_returning_a_file.json", true)
-	if err != nil {
-		t.Fatalf("loading: %+v", err)
-	}
-
-	result, err := parsed.Parse("Example", "2020-01-01")
+	result, err := ParseSwaggerFileForTesting(t, "operations_single_returning_a_file.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -1263,12 +1178,7 @@ func TestParseOperationSingleReturningAFile(t *testing.T) {
 }
 
 func TestParseOperationSingleReturningAnInteger(t *testing.T) {
-	parsed, err := Load("testdata/", "operations_single_returning_an_integer.json", true)
-	if err != nil {
-		t.Fatalf("loading: %+v", err)
-	}
-
-	result, err := parsed.Parse("Example", "2020-01-01")
+	result, err := ParseSwaggerFileForTesting(t, "operations_single_returning_an_integer.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -1337,12 +1247,7 @@ func TestParseOperationSingleReturningAnInteger(t *testing.T) {
 }
 
 func TestParseOperationSingleReturningAString(t *testing.T) {
-	parsed, err := Load("testdata/", "operations_single_returning_a_string.json", true)
-	if err != nil {
-		t.Fatalf("loading: %+v", err)
-	}
-
-	result, err := parsed.Parse("Example", "2020-01-01")
+	result, err := ParseSwaggerFileForTesting(t, "operations_single_returning_a_string.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -1411,12 +1316,7 @@ func TestParseOperationSingleReturningAString(t *testing.T) {
 }
 
 func TestParseOperationSingleReturningATopLevelRawObject(t *testing.T) {
-	parsed, err := Load("testdata/", "operations_single_returning_a_top_level_raw_object.json", true)
-	if err != nil {
-		t.Fatalf("loading: %+v", err)
-	}
-
-	result, err := parsed.Parse("Example", "2020-01-01")
+	result, err := ParseSwaggerFileForTesting(t, "operations_single_returning_a_top_level_raw_object.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -1491,12 +1391,7 @@ func TestParseOperationSingleReturningATopLevelRawObject(t *testing.T) {
 }
 
 func TestParseOperationSingleReturningADictionaryOfAModel(t *testing.T) {
-	parsed, err := Load("testdata/", "operations_single_returning_a_dictionary_of_model.json", true)
-	if err != nil {
-		t.Fatalf("loading: %+v", err)
-	}
-
-	result, err := parsed.Parse("Example", "2020-01-01")
+	result, err := ParseSwaggerFileForTesting(t, "operations_single_returning_a_dictionary_of_model.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -1574,12 +1469,7 @@ func TestParseOperationSingleReturningADictionaryOfAModel(t *testing.T) {
 }
 
 func TestParseOperationSingleReturningADictionaryOfStrings(t *testing.T) {
-	parsed, err := Load("testdata/", "operations_single_returning_a_dictionary_of_strings.json", true)
-	if err != nil {
-		t.Fatalf("loading: %+v", err)
-	}
-
-	result, err := parsed.Parse("Example", "2020-01-01")
+	result, err := ParseSwaggerFileForTesting(t, "operations_single_returning_a_dictionary_of_strings.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -1657,12 +1547,7 @@ func TestParseOperationSingleReturningADictionaryOfStrings(t *testing.T) {
 }
 
 func TestParseOperationSingleReturningAListOfIntegers(t *testing.T) {
-	parsed, err := Load("testdata/", "operations_single_returning_a_list_of_ints.json", true)
-	if err != nil {
-		t.Fatalf("loading: %+v", err)
-	}
-
-	result, err := parsed.Parse("Example", "2020-01-01")
+	result, err := ParseSwaggerFileForTesting(t, "operations_single_returning_a_list_of_ints.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -1740,12 +1625,7 @@ func TestParseOperationSingleReturningAListOfIntegers(t *testing.T) {
 }
 
 func TestParseOperationSingleReturningAListOfAModel(t *testing.T) {
-	parsed, err := Load("testdata/", "operations_single_returning_a_list_of_model.json", true)
-	if err != nil {
-		t.Fatalf("loading: %+v", err)
-	}
-
-	result, err := parsed.Parse("Example", "2020-01-01")
+	result, err := ParseSwaggerFileForTesting(t, "operations_single_returning_a_list_of_model.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -1826,12 +1706,7 @@ func TestParseOperationSingleReturningAListOfAModel(t *testing.T) {
 }
 
 func TestParseOperationSingleReturningAListOfStrings(t *testing.T) {
-	parsed, err := Load("testdata/", "operations_single_returning_a_list_of_strings.json", true)
-	if err != nil {
-		t.Fatalf("loading: %+v", err)
-	}
-
-	result, err := parsed.Parse("Example", "2020-01-01")
+	result, err := ParseSwaggerFileForTesting(t, "operations_single_returning_a_list_of_strings.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -1909,12 +1784,7 @@ func TestParseOperationSingleReturningAListOfStrings(t *testing.T) {
 }
 
 func TestParseOperationSingleReturningAListOfListOfAModel(t *testing.T) {
-	parsed, err := Load("testdata/", "operations_single_returning_a_list_of_list_of_model.json", true)
-	if err != nil {
-		t.Fatalf("loading: %+v", err)
-	}
-
-	result, err := parsed.Parse("Example", "2020-01-01")
+	result, err := ParseSwaggerFileForTesting(t, "operations_single_returning_a_list_of_list_of_model.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -2004,12 +1874,7 @@ func TestParseOperationSingleReturningAListOfListOfAModel(t *testing.T) {
 }
 
 func TestParseOperationSingleReturningAListOfListOfStrings(t *testing.T) {
-	parsed, err := Load("testdata/", "operations_single_returning_a_list_of_list_of_strings.json", true)
-	if err != nil {
-		t.Fatalf("loading: %+v", err)
-	}
-
-	result, err := parsed.Parse("Example", "2020-01-01")
+	result, err := ParseSwaggerFileForTesting(t, "operations_single_returning_a_list_of_list_of_strings.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -2096,12 +1961,7 @@ func TestParseOperationSingleReturningAListOfListOfStrings(t *testing.T) {
 }
 
 func TestParseOperationSingleWithList(t *testing.T) {
-	parsed, err := Load("testdata/", "operations_single_list.json", true)
-	if err != nil {
-		t.Fatalf("loading: %+v", err)
-	}
-
-	result, err := parsed.Parse("Example", "2020-01-01")
+	result, err := ParseSwaggerFileForTesting(t, "operations_single_list.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -2189,12 +2049,7 @@ func TestParseOperationSingleWithList(t *testing.T) {
 func TestParseOperationSingleWithListWhichIsNotAList(t *testing.T) {
 	// all List operations should have an `x-ms-pageable` attribute, but some don't due to bad data
 	// as such this checks we can duck-type it out
-	parsed, err := Load("testdata/", "operations_single_list_which_is_not_a_list.json", true)
-	if err != nil {
-		t.Fatalf("loading: %+v", err)
-	}
-
-	result, err := parsed.Parse("Example", "2020-01-01")
+	result, err := ParseSwaggerFileForTesting(t, "operations_single_list_which_is_not_a_list.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -2277,12 +2132,7 @@ func TestParseOperationSingleWithListWhichIsNotAList(t *testing.T) {
 }
 
 func TestParseOperationSingleWithListReturningAListOfStrings(t *testing.T) {
-	parsed, err := Load("testdata/", "operations_single_list_of_strings.json", true)
-	if err != nil {
-		t.Fatalf("loading: %+v", err)
-	}
-
-	result, err := parsed.Parse("Example", "2020-01-01")
+	result, err := ParseSwaggerFileForTesting(t, "operations_single_list_of_strings.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -2362,12 +2212,7 @@ func TestParseOperationSingleWithListReturningAListOfStrings(t *testing.T) {
 func TestParseOperationSingleWithListWithoutPageable(t *testing.T) {
 	// all List operations should have an `x-ms-pageable` attribute, but some don't due to bad data
 	// as such this checks we can duck-type it out
-	parsed, err := Load("testdata/", "operations_single_list_without_pageable.json", true)
-	if err != nil {
-		t.Fatalf("loading: %+v", err)
-	}
-
-	result, err := parsed.Parse("Example", "2020-01-01")
+	result, err := ParseSwaggerFileForTesting(t, "operations_single_list_without_pageable.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -2453,12 +2298,7 @@ func TestParseOperationSingleWithListWithoutPageable(t *testing.T) {
 }
 
 func TestParseOperationSingleWithLongRunningOperation(t *testing.T) {
-	parsed, err := Load("testdata/", "operations_single_long_running.json", true)
-	if err != nil {
-		t.Fatalf("loading: %+v", err)
-	}
-
-	result, err := parsed.Parse("Example", "2020-01-01")
+	result, err := ParseSwaggerFileForTesting(t, "operations_single_long_running.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -2535,12 +2375,7 @@ func TestParseOperationSingleWithLongRunningOperation(t *testing.T) {
 }
 
 func TestParseOperationSingleWithRequestAndResponseObject(t *testing.T) {
-	parsed, err := Load("testdata/", "operations_single_with_request_and_response_object.json", true)
-	if err != nil {
-		t.Fatalf("loading: %+v", err)
-	}
-
-	result, err := parsed.Parse("Example", "2020-01-01")
+	result, err := ParseSwaggerFileForTesting(t, "operations_single_with_request_and_response_object.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -2623,12 +2458,7 @@ func TestParseOperationSingleWithRequestAndResponseObject(t *testing.T) {
 }
 
 func TestParseOperationSingleWithMultipleTags(t *testing.T) {
-	parsed, err := Load("testdata/", "operations_single_multiple_tags.json", true)
-	if err != nil {
-		t.Fatalf("loading: %+v", err)
-	}
-
-	result, err := parsed.Parse("Example", "2020-01-01")
+	result, err := ParseSwaggerFileForTesting(t, "operations_single_multiple_tags.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -2744,12 +2574,7 @@ func TestParseOperationSingleWithMultipleTags(t *testing.T) {
 }
 
 func TestParseOperationSingleWithNoTag(t *testing.T) {
-	parsed, err := Load("testdata/", "operations_single_with_no_tag.json", true)
-	if err != nil {
-		t.Fatalf("loading: %+v", err)
-	}
-
-	result, err := parsed.Parse("Example", "2020-01-01")
+	result, err := ParseSwaggerFileForTesting(t, "operations_single_with_no_tag.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -2814,12 +2639,7 @@ func TestParseOperationSingleWithNoTag(t *testing.T) {
 }
 
 func TestParseOperationSingleWithOptions(t *testing.T) {
-	parsed, err := Load("testdata/", "operations_single_with_options.json", true)
-	if err != nil {
-		t.Fatalf("loading: %+v", err)
-	}
-
-	result, err := parsed.Parse("Example", "2020-01-01")
+	result, err := ParseSwaggerFileForTesting(t, "operations_single_with_options.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -2940,12 +2760,7 @@ func TestParseOperationSingleWithOptions(t *testing.T) {
 }
 
 func TestParseOperationMultipleBasedOnTheSameResourceId(t *testing.T) {
-	parsed, err := Load("testdata/", "operations_multiple_same_resource_id.json", true)
-	if err != nil {
-		t.Fatalf("loading: %+v", err)
-	}
-
-	result, err := parsed.Parse("Example", "2020-01-01")
+	result, err := ParseSwaggerFileForTesting(t, "operations_multiple_same_resource_id.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}

@@ -8,12 +8,7 @@ import (
 
 func TestParseConstantsIntegersTopLevelAsInts(t *testing.T) {
 	// Enums can either be modelled as strings or not.. this is an Int that's output as an Integer.
-	parsed, err := Load("testdata/", "constants_integers_as_ints.json", true)
-	if err != nil {
-		t.Fatalf("loading: %+v", err)
-	}
-
-	result, err := parsed.Parse("Example", "2020-01-01")
+	result, err := ParseSwaggerFileForTesting(t, "constants_integers_as_ints.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -114,12 +109,7 @@ func TestParseConstantsIntegersTopLevelAsInts(t *testing.T) {
 
 func TestParseConstantsIntegersTopLevelAsStrings(t *testing.T) {
 	// Enums can either be modelled as strings or not.. this is an Int that's output as a String.
-	parsed, err := Load("testdata/", "constants_integers_as_strings.json", true)
-	if err != nil {
-		t.Fatalf("loading: %+v", err)
-	}
-
-	result, err := parsed.Parse("Example", "2020-01-01")
+	result, err := ParseSwaggerFileForTesting(t, "constants_integers_as_strings.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -213,12 +203,7 @@ func TestParseConstantsIntegersTopLevelAsStrings(t *testing.T) {
 
 func TestParseConstantsIntegersInlinedAsInts(t *testing.T) {
 	// Enums can either be modelled as strings or not.. this is an Int that's output as an Integer.
-	parsed, err := Load("testdata/", "constants_integers_as_ints_inlined.json", true)
-	if err != nil {
-		t.Fatalf("loading: %+v", err)
-	}
-
-	result, err := parsed.Parse("Example", "2020-01-01")
+	result, err := ParseSwaggerFileForTesting(t, "constants_integers_as_ints_inlined.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -312,12 +297,7 @@ func TestParseConstantsIntegersInlinedAsInts(t *testing.T) {
 
 func TestParseConstantsIntegersInlinedAsStrings(t *testing.T) {
 	// Enums can either be modelled as strings or not.. this is an Int that's output as a String.
-	parsed, err := Load("testdata/", "constants_integers_as_strings_inlined.json", true)
-	if err != nil {
-		t.Fatalf("loading: %+v", err)
-	}
-
-	result, err := parsed.Parse("Example", "2020-01-01")
+	result, err := ParseSwaggerFileForTesting(t, "constants_integers_as_strings_inlined.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -411,12 +391,7 @@ func TestParseConstantsIntegersInlinedAsStrings(t *testing.T) {
 
 func TestParseConstantsFloatsTopLevelAsFloats(t *testing.T) {
 	// Enums can either be modelled as strings or not.. this is an Float that's output as a Float.
-	parsed, err := Load("testdata/", "constants_floats_as_floats.json", true)
-	if err != nil {
-		t.Fatalf("loading: %+v", err)
-	}
-
-	result, err := parsed.Parse("Example", "2020-01-01")
+	result, err := ParseSwaggerFileForTesting(t, "constants_floats_as_floats.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -510,12 +485,7 @@ func TestParseConstantsFloatsTopLevelAsFloats(t *testing.T) {
 
 func TestParseConstantsStringsTopLevelContainingFloats(t *testing.T) {
 	// Enums can either be modelled as strings or not.. this is an Float that's output as a String.
-	parsed, err := Load("testdata/", "constants_strings_which_are_floats.json", true)
-	if err != nil {
-		t.Fatalf("loading: %+v", err)
-	}
-
-	result, err := parsed.Parse("Example", "2020-01-01")
+	result, err := ParseSwaggerFileForTesting(t, "constants_strings_which_are_floats.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -609,12 +579,7 @@ func TestParseConstantsStringsTopLevelContainingFloats(t *testing.T) {
 
 func TestParseConstantsStringsInlinedContainingFloats(t *testing.T) {
 	// Enums can either be modelled as strings or not.. this is an Float that's output as a Float.
-	parsed, err := Load("testdata/", "constants_floats_as_floats_inlined.json", true)
-	if err != nil {
-		t.Fatalf("loading: %+v", err)
-	}
-
-	result, err := parsed.Parse("Example", "2020-01-01")
+	result, err := ParseSwaggerFileForTesting(t, "constants_floats_as_floats_inlined.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -708,12 +673,7 @@ func TestParseConstantsStringsInlinedContainingFloats(t *testing.T) {
 
 func TestParseConstantsFloatsTopLevelAsStrings(t *testing.T) {
 	// Enums can either be modelled as strings or not.. this is an Float that's output as a String.
-	parsed, err := Load("testdata/", "constants_floats_as_strings.json", true)
-	if err != nil {
-		t.Fatalf("loading: %+v", err)
-	}
-
-	result, err := parsed.Parse("Example", "2020-01-01")
+	result, err := ParseSwaggerFileForTesting(t, "constants_floats_as_strings.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -807,12 +767,7 @@ func TestParseConstantsFloatsTopLevelAsStrings(t *testing.T) {
 
 func TestParseConstantsFloatsInlinedAsFloats(t *testing.T) {
 	// Enums can either be modelled as strings or not.. this is an Float that's output as a Float.
-	parsed, err := Load("testdata/", "constants_floats_as_floats_inlined.json", true)
-	if err != nil {
-		t.Fatalf("loading: %+v", err)
-	}
-
-	result, err := parsed.Parse("Example", "2020-01-01")
+	result, err := ParseSwaggerFileForTesting(t, "constants_floats_as_floats_inlined.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -906,12 +861,7 @@ func TestParseConstantsFloatsInlinedAsFloats(t *testing.T) {
 
 func TestParseConstantsFloatsInlinedAsStrings(t *testing.T) {
 	// Enums can either be modelled as strings or not.. this is an Float that's output as a String.
-	parsed, err := Load("testdata/", "constants_floats_as_strings_inlined.json", true)
-	if err != nil {
-		t.Fatalf("loading: %+v", err)
-	}
-
-	result, err := parsed.Parse("Example", "2020-01-01")
+	result, err := ParseSwaggerFileForTesting(t, "constants_floats_as_strings_inlined.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -1004,12 +954,7 @@ func TestParseConstantsFloatsInlinedAsStrings(t *testing.T) {
 }
 
 func TestParseConstantsStringsTopLevel(t *testing.T) {
-	parsed, err := Load("testdata/", "constants_strings.json", true)
-	if err != nil {
-		t.Fatalf("loading: %+v", err)
-	}
-
-	result, err := parsed.Parse("Example", "2020-01-01")
+	result, err := ParseSwaggerFileForTesting(t, "constants_strings.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -1112,12 +1057,7 @@ func TestParseConstantsStringsTopLevelAsNonStrings(t *testing.T) {
 	// whilst the value is "string", due to (what appears to be) bad data the
 	// "modelAsString" property can be set to false - as such we force it to
 	// a string either way, since that's what it is
-	parsed, err := Load("testdata/", "constants_strings_as_non_strings.json", true)
-	if err != nil {
-		t.Fatalf("loading: %+v", err)
-	}
-
-	result, err := parsed.Parse("Example", "2020-01-01")
+	result, err := ParseSwaggerFileForTesting(t, "constants_strings_as_non_strings.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -1210,12 +1150,7 @@ func TestParseConstantsStringsTopLevelAsNonStrings(t *testing.T) {
 }
 
 func TestParseConstantsStringsInlined(t *testing.T) {
-	parsed, err := Load("testdata/", "constants_strings_inlined.json", true)
-	if err != nil {
-		t.Fatalf("loading: %+v", err)
-	}
-
-	result, err := parsed.Parse("Example", "2020-01-01")
+	result, err := ParseSwaggerFileForTesting(t, "constants_strings_inlined.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -1308,12 +1243,7 @@ func TestParseConstantsStringsInlined(t *testing.T) {
 }
 
 func TestParseConstantsStringsInlinedAsNonStrings(t *testing.T) {
-	parsed, err := Load("testdata/", "constants_strings_inlined_as_non_strings.json", true)
-	if err != nil {
-		t.Fatalf("loading: %+v", err)
-	}
-
-	result, err := parsed.Parse("Example", "2020-01-01")
+	result, err := ParseSwaggerFileForTesting(t, "constants_strings_inlined_as_non_strings.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -1406,12 +1336,7 @@ func TestParseConstantsStringsInlinedAsNonStrings(t *testing.T) {
 }
 
 func TestParseConstantsFromParameters(t *testing.T) {
-	parsed, err := Load("testdata/", "constants_in_operation_parameters.json", true)
-	if err != nil {
-		t.Fatalf("loading: %+v", err)
-	}
-
-	result, err := parsed.Parse("Example", "2020-01-01")
+	result, err := ParseSwaggerFileForTesting(t, "constants_in_operation_parameters.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}

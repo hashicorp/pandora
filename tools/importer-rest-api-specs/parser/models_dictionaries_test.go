@@ -7,12 +7,7 @@ import (
 )
 
 func TestParseModelWithADictionaryOfIntegers(t *testing.T) {
-	parsed, err := Load("testdata/", "model_dictionary_of_integers.json", true)
-	if err != nil {
-		t.Fatalf("loading: %+v", err)
-	}
-
-	result, err := parsed.Parse("Example", "2020-01-01")
+	result, err := ParseSwaggerFileForTesting(t, "model_dictionary_of_integers.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -111,12 +106,7 @@ func TestParseModelWithADictionaryOfIntegers(t *testing.T) {
 }
 
 func TestParseModelWithADictionaryOfIntegersInlined(t *testing.T) {
-	parsed, err := Load("testdata/", "model_dictionary_of_integers_inlined.json", true)
-	if err != nil {
-		t.Fatalf("loading: %+v", err)
-	}
-
-	result, err := parsed.Parse("Example", "2020-01-01")
+	result, err := ParseSwaggerFileForTesting(t, "model_dictionary_of_integers_inlined.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -215,12 +205,7 @@ func TestParseModelWithADictionaryOfIntegersInlined(t *testing.T) {
 }
 
 func TestParseModelWithADictionaryOfAnObject(t *testing.T) {
-	parsed, err := Load("testdata/", "model_dictionary_of_object.json", true)
-	if err != nil {
-		t.Fatalf("loading: %+v", err)
-	}
-
-	result, err := parsed.Parse("Example", "2020-01-01")
+	result, err := ParseSwaggerFileForTesting(t, "model_dictionary_of_object.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -333,12 +318,7 @@ func TestParseModelWithADictionaryOfAnObject(t *testing.T) {
 }
 
 func TestParseModelWithADictionaryOfAnObjectInlined(t *testing.T) {
-	parsed, err := Load("testdata/", "model_dictionary_of_object_inlined.json", true)
-	if err != nil {
-		t.Fatalf("loading: %+v", err)
-	}
-
-	result, err := parsed.Parse("Example", "2020-01-01")
+	result, err := ParseSwaggerFileForTesting(t, "model_dictionary_of_object_inlined.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -451,12 +431,7 @@ func TestParseModelWithADictionaryOfAnObjectInlined(t *testing.T) {
 }
 
 func TestParseModelWithADictionaryOfString(t *testing.T) {
-	parsed, err := Load("testdata/", "model_dictionary_of_string.json", true)
-	if err != nil {
-		t.Fatalf("loading: %+v", err)
-	}
-
-	result, err := parsed.Parse("Example", "2020-01-01")
+	result, err := ParseSwaggerFileForTesting(t, "model_dictionary_of_string.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -555,12 +530,7 @@ func TestParseModelWithADictionaryOfString(t *testing.T) {
 }
 
 func TestParseModelWithADictionaryOfStringInlined(t *testing.T) {
-	parsed, err := Load("testdata/", "model_dictionary_of_string_inlined.json", true)
-	if err != nil {
-		t.Fatalf("loading: %+v", err)
-	}
-
-	result, err := parsed.Parse("Example", "2020-01-01")
+	result, err := ParseSwaggerFileForTesting(t, "model_dictionary_of_string_inlined.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}

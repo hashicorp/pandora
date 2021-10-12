@@ -15,6 +15,67 @@ type ParsedResourceId struct {
 	Segments []ResourceIdSegment
 }
 
+// ToTopLevelResourceId returns a ParsedResourceId without any static segments on the end
+// that is, just a Resource Manager ID
+func (pri ParsedResourceId) ToTopLevelResourceId() ParsedResourceId {
+	segments := pri.segmentsWithoutUriSuffix()
+	return ParsedResourceId{
+		Constants: pri.Constants,
+		Segments:  segments,
+	}
+}
+
+func (pri ParsedResourceId) Matches(other ParsedResourceId) bool {
+	if len(pri.Segments) != len(other.Segments) {
+		return false
+	}
+
+	for i, first := range pri.Segments {
+		second := other.Segments[i]
+		if first.Type != second.Type {
+			return false
+		}
+
+		// Whilst these should match, it's possible that they don't but are the same e.g.
+		// /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Devices/provisioningServices/{resourceName}
+		// /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Devices/provisioningServices/{provisioningServiceName}
+		// as such providing they're both user specified segments (and the rest is the same) then they're the same
+		if first.Type == ResourceGroupSegment || first.Type == SubscriptionIdSegment || first.Type == UserSpecifiedSegment {
+			continue
+		}
+
+		if first.Type == ConstantSegment {
+			if first.ConstantReference != nil && second.ConstantReference == nil {
+				return false
+			}
+			if first.ConstantReference == nil && second.ConstantReference != nil {
+				return false
+			}
+			if first.ConstantReference != nil && second.ConstantReference != nil && *first.ConstantReference != *second.ConstantReference {
+				return false
+			}
+		}
+
+		if first.Type == StaticSegment {
+			if first.FixedValue != nil && second.FixedValue == nil {
+				return false
+			}
+			if first.FixedValue == nil && second.FixedValue != nil {
+				return false
+			}
+			if first.FixedValue != nil && second.FixedValue != nil && *first.FixedValue != *second.FixedValue {
+				return false
+			}
+		}
+
+		if !strings.EqualFold(first.Name, second.Name) {
+			return false
+		}
+	}
+
+	return true
+}
+
 func (pri ParsedResourceId) String() string {
 	// only used for debug purposes
 	return normalizedResourceId(pri.Segments)
@@ -41,7 +102,7 @@ func (pri ParsedResourceId) SegmentsAvailableForNaming() []string {
 	if len(segmentsWithoutScope)%2 == 0 && len(segmentsWithoutScope) > 0 {
 		availableSegments := make([]string, 0)
 		for _, segment := range segmentsWithoutScope {
-			if segment.Type == ConstantSegment || segment.Type == ResourceProviderSegment || segment.Type == StaticSegment {
+			if segment.Type == ConstantSegment || segment.Type == StaticSegment {
 				normalized := cleanup.NormalizeSegmentName(segment.Name)
 				availableSegments = append(availableSegments, normalized)
 			}
@@ -73,6 +134,15 @@ func (pri ParsedResourceId) SegmentsAvailableForNaming() []string {
 }
 
 func (pri ParsedResourceId) NormalizedResourceManagerResourceId() string {
+	segments := pri.segmentsWithoutUriSuffix()
+	return normalizedResourceId(segments)
+}
+
+func (pri ParsedResourceId) NormalizedResourceId() string {
+	return normalizedResourceId(pri.Segments)
+}
+
+func (pri ParsedResourceId) segmentsWithoutUriSuffix() []ResourceIdSegment {
 	segments := pri.Segments
 	lastUserValueSegment := -1
 	for i, segment := range segments {
@@ -85,12 +155,7 @@ func (pri ParsedResourceId) NormalizedResourceManagerResourceId() string {
 		// remove any URI Suffix since this isn't relevant for the ID's
 		segments = segments[0 : lastUserValueSegment+1]
 	}
-
-	return normalizedResourceId(segments)
-}
-
-func (pri ParsedResourceId) NormalizedResourceId() string {
-	return normalizedResourceId(pri.Segments)
+	return segments
 }
 
 func normalizedResourceId(segments []ResourceIdSegment) string {

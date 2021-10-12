@@ -91,36 +91,73 @@ func NormalizeSegmentName(input string) string {
 // NormalizeSegment normalizes the segments in the URI, since this data isn't normalized at review time :shrug:
 func NormalizeSegment(input string, camelCase bool) string {
 	fixed := map[string]string{
-		// these are intentionally camel-cased
-		"apiversion":             "apiVersion",
-		"appsettings":            "appSettings",
-		"artifacttypes":          "artifactTypes",
-		"authproviders":          "authProviders",
-		"connectionstrings":      "connectionStrings",
-		"configreferences":       "configReferences",
-		"continuouswebjobs":      "continuousWebJobs",
-		"functionappsettings":    "functionAppSettings",
-		"hybridconnection":       "hybridConnection",
-		"mediaservice":           "mediaService",
-		"migratemysql":           "migrateMySql",
-		"operationresults":       "operationResults",
-		"premieraddons":          "premierAddons",
-		"resourcegroups":         "resourceGroups",
-		"serverfarms":            "serverFarms",
-		"siteextensions":         "siteExtensions",
-		"sourcecontrols":         "sourceControls",
-		"subscriptions":          "subscriptions", // e.g. /Subscriptions -> /subscriptions
-		"trafficmanagerprofiles": "trafficManagerProfiles",
-		"triggeredwebjobs":       "triggeredWebJobs",
-		"virtualmachines":        "virtualMachines",
-		"webjobs":                "webJobs",
+		// these are intentionally lower-case keys -> camelCased segments
+		"accounts":                          "accounts",
+		"apiversion":                        "apiVersion",
+		"appsettings":                       "appSettings",
+		"artifacttypes":                     "artifactTypes",
+		"attestationprovider":               "attestationProviders", // NOTE: this is a Swagger issue we need to fix too
+		"authorizationrules":                "authorizationRules",
+		"authproviders":                     "authProviders",
+		"azureasyncoperations":              "azureAsyncOperations",
+		"backupstorageconfig":               "backupStorageConfig",
+		"cdnwebapplicationfirewallpolicies": "cdnWebApplicationFirewallPolicies",
+		"channels":                          "channels",
+		"connectionstrings":                 "connectionStrings",
+		"configreferences":                  "configReferences",
+		"consumergroups":                    "consumerGroups",
+		"continuouswebjobs":                 "continuousWebJobs",
+		"customimages":                      "customImages",
+		"deletedservices":                   "deletedServices",
+		"dicomservices":                     "dicomServices",
+		"fhirdestinations":                  "fhirDestinations",
+		"fhirservices":                      "fhirServices",
+		"fileservers":                       "fileServers",
+		"iotconnectors":                     "iotConnectors",
+		"frontdoorwebapplicationfirewallpolicies": "frontDoorWebApplicationFirewallPolicies",
+		"functionappsettings":                     "functionAppSettings",
+		"hybridconnection":                        "hybridConnection",
+		"hypervsites":                             "hyperVSites",
+		"iothubkeys":                              "iotHubKeys",
+		"iothubs":                                 "iotHubs",
+		"iscsiservers":                            "iscsiServers",
+		"linkedservices":                          "linkedServices",
+		"mediaservices":                           "mediaServices",
+		"managementassociations":                  "managementAssociations",
+		"managementconfigurations":                "managementConfigurations",
+		"mastersites":                             "masterSites",
+		"mediaservice":                            "mediaService",
+		"migratemysql":                            "migrateMySql",
+		"notificationchannels":                    "notificationChannels",
+		"operationresults":                        "operationResults",
+		"pipelineruns":                            "pipelineRuns",
+		"policysets":                              "policySets",
+		"premieraddons":                           "premierAddons",
+		"resourcegroups":                          "resourceGroups",
+		"serverfarms":                             "serverFarms",
+		"servicefabrics":                          "serviceFabrics",
+		"servicerunners":                          "serviceRunners",
+		"siteextensions":                          "siteExtensions",
+		"sourcecontrols":                          "sourceControls",
+		"sparkconfigurations":                     "sparkConfigurations",
+		"spring":                                  "spring",
+		"subscriptions":                           "subscriptions", // e.g. /Subscriptions -> /subscriptions
+		"trafficmanagerprofiles":                  "trafficManagerProfiles",
+		"triggeredwebjobs":                        "triggeredWebJobs",
+		"vaultstorageconfig":                      "vaultStorageConfig",
+		"virtualnetworks":                         "virtualNetworks",
+		"virtualmachines":                         "virtualMachines",
+		"vmwaresites":                             "vmwareSites",
+		"webjobs":                                 "webJobs",
 	}
 
-	if v, ok := fixed[strings.ToLower(input)]; ok {
-		if camelCase {
-			return v
-		} else {
-			return strings.Title(v)
+	for k, v := range fixed {
+		if strings.EqualFold(k, input) {
+			if camelCase {
+				return v
+			} else {
+				return strings.Title(v)
+			}
 		}
 	}
 

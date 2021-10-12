@@ -6,7 +6,7 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
-func removeUnusedItems(operations map[string]models.OperationDetails, resourceIds map[string]models.ParsedResourceId, result parseResult) parseResult {
+func removeUnusedItems(operations map[string]models.OperationDetails, resourceIds map[string]models.ParsedResourceId, result parseResult) (parseResult, map[string]models.ParsedResourceId) {
 	unusedModels := findUnusedModels(operations, result)
 	for len(unusedModels) > 0 {
 		// remove those models
@@ -29,7 +29,22 @@ func removeUnusedItems(operations map[string]models.OperationDetails, resourceId
 		unusedConstants = findUnusedConstants(operations, resourceIds, result)
 	}
 
-	return result
+	resourceIdsForThisResource := make(map[string]models.ParsedResourceId, 0)
+	for k, v := range resourceIds {
+		resourceIdsForThisResource[k] = v
+	}
+
+	unusedResourceIds := findUnusedResourceIds(operations, resourceIdsForThisResource)
+	for len(unusedResourceIds) > 0 {
+		for _, resourceIdName := range unusedResourceIds {
+			delete(resourceIdsForThisResource, resourceIdName)
+		}
+
+		// then go around again
+		unusedResourceIds = findUnusedResourceIds(operations, resourceIdsForThisResource)
+	}
+
+	return result, resourceIdsForThisResource
 }
 
 func findUnusedConstants(operations map[string]models.OperationDetails, resourceIds map[string]models.ParsedResourceId, result parseResult) []string {
@@ -218,4 +233,35 @@ func findUnusedModels(operations map[string]models.OperationDetails, result pars
 	}
 
 	return out
+}
+
+func findUnusedResourceIds(operations map[string]models.OperationDetails, resourceIds map[string]models.ParsedResourceId) []string {
+	unusedResourceIds := make(map[string]struct{}, 0)
+
+	// first add everything
+	for name := range resourceIds {
+		unusedResourceIds[name] = struct{}{}
+	}
+
+	// then go through and remove the Resource ID if it's used
+	for _, operation := range operations {
+		if operation.ResourceIdName == nil {
+			continue
+		}
+
+		// since this hasn't been normalized yet, find the correct casing for the key to remove
+		for key := range unusedResourceIds {
+			if strings.EqualFold(*operation.ResourceIdName, key) {
+				delete(unusedResourceIds, key)
+			}
+		}
+
+	}
+
+	output := make([]string, 0)
+	for name := range unusedResourceIds {
+		output = append(output, name)
+	}
+
+	return output
 }

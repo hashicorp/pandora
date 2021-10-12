@@ -9,12 +9,7 @@ import (
 // TODO: one of each which doesn't match to confirm the negative case
 
 func TestModelsWithASystemAssignedIdentity(t *testing.T) {
-	parsed, err := Load("testdata/", "model_system_assigned.json", true)
-	if err != nil {
-		t.Fatalf("loading: %+v", err)
-	}
-
-	result, err := parsed.Parse("Example", "2020-01-01")
+	result, err := ParseSwaggerFileForTesting(t, "model_system_assigned.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -107,12 +102,7 @@ func TestModelsWithASystemAssignedIdentity(t *testing.T) {
 }
 
 func TestModelsWithASystemAssignedIdentityInlined(t *testing.T) {
-	parsed, err := Load("testdata/", "model_system_assigned_inlined.json", true)
-	if err != nil {
-		t.Fatalf("loading: %+v", err)
-	}
-
-	result, err := parsed.Parse("Example", "2020-01-01")
+	result, err := ParseSwaggerFileForTesting(t, "model_system_assigned_inlined.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -205,12 +195,7 @@ func TestModelsWithASystemAssignedIdentityInlined(t *testing.T) {
 }
 
 func TestModelsWithASystemAssignedUserAssignedListIdentity(t *testing.T) {
-	parsed, err := Load("testdata/", "model_system_assigned_user_assigned_list.json", true)
-	if err != nil {
-		t.Fatalf("loading: %+v", err)
-	}
-
-	result, err := parsed.Parse("Example", "2020-01-01")
+	result, err := ParseSwaggerFileForTesting(t, "model_system_assigned_user_assigned_list.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -303,12 +288,7 @@ func TestModelsWithASystemAssignedUserAssignedListIdentity(t *testing.T) {
 }
 
 func TestModelsWithASystemAssignedUserAssignedListIdentityInlined(t *testing.T) {
-	parsed, err := Load("testdata/", "model_system_assigned_user_assigned_list_inlined.json", true)
-	if err != nil {
-		t.Fatalf("loading: %+v", err)
-	}
-
-	result, err := parsed.Parse("Example", "2020-01-01")
+	result, err := ParseSwaggerFileForTesting(t, "model_system_assigned_user_assigned_list_inlined.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -401,12 +381,7 @@ func TestModelsWithASystemAssignedUserAssignedListIdentityInlined(t *testing.T) 
 }
 
 func TestModelsWithASystemAssignedUserAssignedMapIdentity(t *testing.T) {
-	parsed, err := Load("testdata/", "model_system_assigned_user_assigned_map.json", true)
-	if err != nil {
-		t.Fatalf("loading: %+v", err)
-	}
-
-	result, err := parsed.Parse("Example", "2020-01-01")
+	result, err := ParseSwaggerFileForTesting(t, "model_system_assigned_user_assigned_map.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -499,12 +474,7 @@ func TestModelsWithASystemAssignedUserAssignedMapIdentity(t *testing.T) {
 }
 
 func TestModelsWithASystemAssignedUserAssignedMapIdentityInlined(t *testing.T) {
-	parsed, err := Load("testdata/", "model_system_assigned_user_assigned_map_inlined.json", true)
-	if err != nil {
-		t.Fatalf("loading: %+v", err)
-	}
-
-	result, err := parsed.Parse("Example", "2020-01-01")
+	result, err := ParseSwaggerFileForTesting(t, "model_system_assigned_user_assigned_map_inlined.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -597,12 +567,7 @@ func TestModelsWithASystemAssignedUserAssignedMapIdentityInlined(t *testing.T) {
 }
 
 func TestModelsWithAUserAssignedListIdentity(t *testing.T) {
-	parsed, err := Load("testdata/", "model_user_assigned_list.json", true)
-	if err != nil {
-		t.Fatalf("loading: %+v", err)
-	}
-
-	result, err := parsed.Parse("Example", "2020-01-01")
+	result, err := ParseSwaggerFileForTesting(t, "model_user_assigned_list.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -695,12 +660,7 @@ func TestModelsWithAUserAssignedListIdentity(t *testing.T) {
 }
 
 func TestModelsWithAUserAssignedListIdentityInlined(t *testing.T) {
-	parsed, err := Load("testdata/", "model_user_assigned_list_inlined.json", true)
-	if err != nil {
-		t.Fatalf("loading: %+v", err)
-	}
-
-	result, err := parsed.Parse("Example", "2020-01-01")
+	result, err := ParseSwaggerFileForTesting(t, "model_user_assigned_list_inlined.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -793,12 +753,7 @@ func TestModelsWithAUserAssignedListIdentityInlined(t *testing.T) {
 }
 
 func TestModelsWithAUserAssignedMapIdentity(t *testing.T) {
-	parsed, err := Load("testdata/", "model_user_assigned_map.json", true)
-	if err != nil {
-		t.Fatalf("loading: %+v", err)
-	}
-
-	result, err := parsed.Parse("Example", "2020-01-01")
+	result, err := ParseSwaggerFileForTesting(t, "model_user_assigned_map.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -891,12 +846,7 @@ func TestModelsWithAUserAssignedMapIdentity(t *testing.T) {
 }
 
 func TestModelsWithAUserAssignedMapIdentityInlined(t *testing.T) {
-	parsed, err := Load("testdata/", "model_user_assigned_map_inlined.json", true)
-	if err != nil {
-		t.Fatalf("loading: %+v", err)
-	}
-
-	result, err := parsed.Parse("Example", "2020-01-01")
+	result, err := ParseSwaggerFileForTesting(t, "model_user_assigned_map_inlined.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
