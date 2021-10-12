@@ -49,28 +49,28 @@ namespace Pandora.Data.Transformers
             switch (input.Type)
             {
                 case ResourceIdSegmentType.Constant:
-                {
-                    var constant = constants.First(c => c.Name == input.ConstantReference);
-                    var value = constant.Values.OrderBy(v => v.Key).First();
-                    return value.Value;
-                }
-                
+                    {
+                        var constant = constants.First(c => c.Name == input.ConstantReference);
+                        var value = constant.Values.OrderBy(v => v.Key).First();
+                        return value.Value;
+                    }
+
                 case ResourceIdSegmentType.ResourceGroup:
                     return "example-resource-group";
-                
+
                 case ResourceIdSegmentType.ResourceProvider:
                 case ResourceIdSegmentType.Static:
                     return input.FixedValue!;
-                
+
                 case ResourceIdSegmentType.SubscriptionId:
                     return "12345678-1234-9876-4563-123456789012";
-                
+
                 case ResourceIdSegmentType.Scope:
                     return "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/some-resource-group";
-                
+
                 case ResourceIdSegmentType.UserSpecified:
                     return input.Name.TrimSuffix("Name") + "Value";
-                
+
                 default:
                     throw new NotSupportedException($"unimplemented segment type {input.Type.ToString()} for example value");
             }
