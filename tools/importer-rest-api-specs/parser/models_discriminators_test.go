@@ -293,3 +293,52 @@ func TestParseDiscriminatorsWithinDiscriminators(t *testing.T) {
 		t.Fatalf("expected resource.Models['LazerBeam'] to have 3 fields but got %d", len(laserBeam.Fields))
 	}
 }
+
+func TestParseDiscriminatorThatShouldntBe(t *testing.T) {
+	// Some Swagger files define top level types with a Discriminator value which don't inherit
+	// from anything. As such these aren't actually discriminated types but bad data - so we should
+	// look to ensure these are parsed out as a regular non-discriminated type.
+	result, err := ParseSwaggerFileForTesting(t, "model_discriminators_that_shouldnt_be.json")
+	if err != nil {
+		t.Fatalf("parsing: %+v", err)
+	}
+	if result == nil {
+		t.Fatal("result was nil")
+	}
+	if len(result.Resources) != 1 {
+		t.Fatalf("expected 1 resource but got %d", len(result.Resources))
+	}
+
+	resource, ok := result.Resources["Discriminator"]
+	if !ok {
+		t.Fatal("the Resource 'Discriminator' was not found")
+	}
+
+	// sanity checking
+	if len(resource.Constants) != 0 {
+		t.Fatalf("expected no constants but got %d", len(resource.Constants))
+	}
+	if len(resource.Models) != 1 {
+		t.Fatalf("expected 1 model but got %d", len(resource.Models))
+	}
+	if len(resource.Operations) != 1 {
+		t.Fatalf("expected 1 operation but got %d", len(resource.Operations))
+	}
+	if len(resource.ResourceIds) != 1 {
+		t.Fatalf("expected 1 Resource ID but got %d", len(resource.ResourceIds))
+	}
+
+	dog, ok := resource.Models["Dog"]
+	if !ok {
+		t.Fatalf("the Model `Dog` was not found")
+	}
+	if dog.ParentTypeName != nil {
+		t.Fatalf("dog.ParentTypeName should be nil but got %q", *dog.ParentTypeName)
+	}
+	if dog.TypeHintIn != nil {
+		t.Fatalf("dog.TypeHintIn should be nil but got %q", *dog.TypeHintIn)
+	}
+	if dog.TypeHintValue != nil {
+		t.Fatalf("dog.TypeHintValue should be nil but got %q", *dog.TypeHintValue)
+	}
+}

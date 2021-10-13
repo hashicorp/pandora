@@ -362,6 +362,11 @@ func (d *SwaggerDefinition) modelDetailsFromObject(input spec.Schema, fields map
 			details.ParentTypeName = fragmentName
 			details.TypeHintIn = &parent.Discriminator
 		}
+
+		// however if there's a Discriminator value defined but no parent type - this is bad data - so we should ignore it
+		if details.ParentTypeName == nil || details.TypeHintIn == nil {
+			details.TypeHintValue = nil
+		}
 	}
 
 	return &details, nil
