@@ -42,7 +42,7 @@ namespace Pandora.Data.Transformers
                         continue;
                     }
 
-                    if (Helpers.IsNativeType(propertyType) || Helpers.IsPandoraCustomType(propertyType) || !propertyType.IsClass)
+                    if (propertyType.IsNativeType() || propertyType.IsPandoraCustomType() || !propertyType.IsClass)
                     {
                         continue;
                     }

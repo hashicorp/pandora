@@ -322,7 +322,7 @@ namespace Pandora.Data.Transformers
                         }
 
                         // e.g. List<string>
-                        if (!Helpers.IsNativeType(innerType))
+                        if (!innerType.IsNativeType())
                         {
                             if (innerType.FullName != input.FullName)
                             {
@@ -332,8 +332,8 @@ namespace Pandora.Data.Transformers
                         }
                     }
                     else if (property.PropertyType.IsClass && !property.PropertyType.IsEnum &&
-                             !Helpers.IsNativeType(property.PropertyType) &&
-                             !Helpers.IsPandoraCustomType(property.PropertyType))
+                             !property.PropertyType.IsNativeType() &&
+                             !property.PropertyType.IsPandoraCustomType())
                     {
                         if (property.PropertyType.FullName != input.FullName)
                         {
