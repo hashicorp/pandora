@@ -120,7 +120,8 @@ namespace Pandora.Data.Transformers
             foundTypes = foundTypes.Distinct(new TypeComparer()).OrderBy(t => t.FullName).ToList();
 
             // find all of the implementations for these types
-            var implementations = FindImplementationsForTypes(foundTypes);
+            var typesToFindImplementationsFor = foundTypes.Where(t => knownTypes.All(kt => t.FullName != kt.FullName)).ToList();
+            var implementations = FindImplementationsForTypes(typesToFindImplementationsFor);
             foreach (var implementation in implementations)
             {
                 // pass the list of known models along to avoid circular references
