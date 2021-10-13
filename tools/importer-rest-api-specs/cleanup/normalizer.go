@@ -122,6 +122,7 @@ func NormalizeSegment(input string, camelCase bool) string {
 		"iothubs":                                 "iotHubs",
 		"iscsiservers":                            "iscsiServers",
 		"linkedservices":                          "linkedServices",
+		"managedclusters":                         "managedClusters",
 		"mediaservices":                           "mediaServices",
 		"managementassociations":                  "managementAssociations",
 		"managementconfigurations":                "managementConfigurations",
