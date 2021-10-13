@@ -24,9 +24,10 @@ namespace Pandora.Data.Transformers
                 foreach (var property in input.GetProperties())
                 {
                     var propertyType = property.PropertyType;
-                    if (propertyType.IsGenericType && (propertyType.GetGenericTypeDefinition() == typeof(List<>) || propertyType.GetGenericTypeDefinition() == typeof(Nullable<>)))
+                    var inner = propertyType.GetActualType();
+                    if (inner != null)
                     {
-                        propertyType = propertyType.GetGenericArguments()[0];
+                        propertyType = inner;
                     }
 
                     if (propertyType.FullName == input.FullName)

@@ -7,6 +7,7 @@ namespace Pandora.Data.Transformers
 {
     internal static class Helpers
     {
+        // TODO: move this lot into the Helpers package
         public static bool IsNativeType(Type input)
         {
             var nativeTypes = new List<Type>

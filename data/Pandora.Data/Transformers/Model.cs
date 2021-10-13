@@ -28,7 +28,7 @@ namespace Pandora.Data.Transformers
         private static List<Type> FindTypesWithinType(Type input, List<Type> knownTypes)
         {
             // find the top level model - if it's a List of a List or something find the Type
-            var innerType = GetElementType(input);
+            var innerType = input.GetActualType();
             var foundTypes = new List<Type>();
 
             // for example if it's a built-in, custom or enum type there's nothing to map
@@ -98,7 +98,7 @@ namespace Pandora.Data.Transformers
             // NOTE: discriminated types within properties are discovered below
             foreach (var property in input.GetProperties())
             {
-                var elementType = GetElementType(property.PropertyType);
+                var elementType = property.PropertyType.GetActualType();
                 // for example if it's a built-in, custom or enum type there's nothing to map
                 if (elementType == null)
                 {
@@ -150,7 +150,7 @@ namespace Pandora.Data.Transformers
             var attr = input.GetCustomAttribute<ValueForTypeAttribute>();
             if (attr != null)
             {
-                var baseType = GetElementType(input.BaseType);
+                var baseType = input.BaseType.GetActualType();
                 if (baseType != null && knownTypes.All(t => t.FullName != input.BaseType.FullName))
                 {
                     return baseType;
@@ -192,50 +192,6 @@ namespace Pandora.Data.Transformers
             }
 
             return newTypes;
-        }
-
-        /// <summary>
-        /// GetElementType returns the Element Type if this is a Csv/Dictionary/List - or input otherwise
-        /// for example `List<Model>` will return the Type `Model`. This'll be null if a built-in, custom
-        /// or Enum type is provided.
-        /// </summary>
-        private static Type? GetElementType(Type input)
-        {
-            if (input.IsEnum)
-            {
-                return null;
-            }
-
-            if (Helpers.IsNativeType(input) || Helpers.IsPandoraCustomType(input))
-            {
-                return null;
-            }
-
-            // if it's nullable pull that out
-            if (Nullable.GetUnderlyingType(input) != null)
-            {
-                var genericArgs = input.GetGenericArguments();
-                var element = genericArgs[0];
-                return GetElementType(element);
-            }
-
-            if (input.IsAGenericCsv())
-            {
-                var valueType = input.GenericCsvElement();
-                return GetElementType(valueType);
-            }
-            if (input.IsAGenericDictionary())
-            {
-                var valueType = input.GenericDictionaryValueElement();
-                return GetElementType(valueType);
-            }
-            if (input.IsAGenericList())
-            {
-                var valueType = input.GenericListElement();
-                return GetElementType(valueType);
-            }
-
-            return input;
         }
 
         /// <summary>
