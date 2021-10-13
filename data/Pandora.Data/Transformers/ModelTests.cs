@@ -504,6 +504,44 @@ namespace Pandora.Data.Transformers
             Assert.AreEqual(ObjectType.Reference, humanField.ObjectDefinition.Type);
             Assert.AreEqual("HumanWithCircularReference", humanField.ObjectDefinition.ReferenceName);
         }
+        
+        [TestCase]
+        public static void MappingAModelFiveLevelsDeep() {
+            var actual = Model.Map(typeof(FirstLevelModel));
+            Assert.NotNull(actual);
+            Assert.AreEqual(5, actual.Count);
+            Assert.AreEqual(5, actual.Select(a => a.Name).Distinct().Count());
+        }
+
+        private class FirstLevelModel
+        {
+            [JsonPropertyName("innerModel")]
+            public SecondLevelModel Inner { get; set; }
+        }
+
+        private class SecondLevelModel
+        {
+            [JsonPropertyName("innerModel")]
+            public ThirdLevelModel Inner { get; set; }
+        }
+
+        private class ThirdLevelModel
+        {
+            [JsonPropertyName("innerModel")]
+            public FourthLevelModel Inner { get; set; }
+        }
+
+        private class FourthLevelModel
+        {
+            [JsonPropertyName("innerModel")]
+            public FifthLevelModel Inner { get; set; }
+        }
+
+        private class FifthLevelModel
+        {
+            [JsonPropertyName("name")]
+            public string Name { get; set; }
+        }
 
         private class Example
         {
