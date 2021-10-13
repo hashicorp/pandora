@@ -15,8 +15,7 @@ func normalizeOperationName(operationId string, tag *string) string {
 	operationName = strings.TrimPrefix(operationName, "Operations") // sanity checking
 	operationName = strings.TrimPrefix(operationName, "s")          // plurals
 	operationName = strings.TrimPrefix(operationName, "_")
-	operationName = strings.TrimPrefix(operationName, ".")
-	operationName = cleanup.NormalizeSegment(operationName, false)
+	operationName = cleanup.NormalizeName(operationName)
 	return operationName
 }
 
