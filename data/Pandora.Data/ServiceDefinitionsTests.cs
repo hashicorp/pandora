@@ -4,6 +4,7 @@ using System.Linq;
 using NUnit.Framework;
 using Pandora.Data.Repositories;
 using Pandora.Definitions.DataPlane;
+using Pandora.Definitions.HandDefined;
 using Pandora.Definitions.Interfaces;
 using Pandora.Definitions.ResourceManager;
 using Pandora.Definitions.TestData;
@@ -16,6 +17,12 @@ namespace Pandora.Data
         public void ValidateDataPlaneServiceDefinitions()
         {
             ValidateAssemblyContainingServiceDefinitions(new DataPlaneServices());
+        }
+
+        [TestCase]
+        public void ValidateHandDefinedServiceDefinitions()
+        {
+            ValidateAssemblyContainingServiceDefinitions(new HandDefinedServices());
         }
 
         [TestCase]
