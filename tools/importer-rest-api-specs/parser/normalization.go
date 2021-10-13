@@ -8,7 +8,8 @@ import (
 
 func normalizeOperationName(operationId string, tag *string) string {
 	operationName := operationId
-	if tag != nil {
+	// in some cases the OperationId *is* the Tag, in this instance I guess we take that as ok?
+	if tag != nil && !strings.EqualFold(operationName, *tag) {
 		operationName = strings.TrimPrefix(operationName, *tag)
 	}
 	operationName = strings.ReplaceAll(operationName, "_", "")
