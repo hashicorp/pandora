@@ -25,6 +25,17 @@ func (r *AzureApiResource) Normalize() {
 		}
 		v.Fields = fields
 
+		if v.ParentTypeName != nil {
+			val := cleanup.NormalizeName(*v.ParentTypeName)
+			v.ParentTypeName = &val
+		}
+
+		// Discriminators can be `@type` which get normalized to `Type` so we need to normalize the field name here
+		if v.TypeHintIn != nil {
+			val := cleanup.NormalizeName(*v.TypeHintIn)
+			v.TypeHintIn = &val
+		}
+
 		normalizedModels[modelName] = v
 	}
 	r.Models = normalizedModels
