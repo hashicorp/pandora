@@ -124,7 +124,9 @@ namespace Pandora.Data.Transformers
             var values = input.GetEnumValues();
             foreach (var val in values)
             {
-                var enumValue = input.GetMember(val.ToString()).First();
+                // Some Enum's define `Equals` as a value, however all objects implement Equals too which apparently conflicts here
+                // so filter to the member on this specific Enum
+                var enumValue = input.GetMember(val.ToString()).First(m => m.DeclaringType == input);
                 var description = enumValue.GetCustomAttribute<DescriptionAttribute>();
                 if (description == null)
                 {

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using NUnit.Framework;
 using Pandora.Data.Models;
@@ -114,6 +115,20 @@ namespace Pandora.Data.Transformers
         }
 
         [TestCase]
+        public void MappingContainingEqualsShouldMapCorrectly()
+        {
+            var actual = Constant.FromEnum(new EnumContainingEquals().GetType());
+            Assert.NotNull(actual);
+            Assert.AreEqual(false, actual.CaseInsensitive);
+            Assert.AreEqual(ConstantType.String, actual.Type);
+            Assert.AreEqual("EnumContainingEquals", actual.Name);
+            Assert.AreEqual(3, actual.Values.Count);
+            Assert.AreEqual("equals", actual.Values["Equals"]);
+            Assert.AreEqual("multiply", actual.Values["Multiply"]);
+            Assert.AreEqual("subtract", actual.Values["Subtract"]);
+        }
+
+        [TestCase]
         public void MappingWithoutAConstantTypeAttribute()
         {
             Assert.Throws<Exception>(() => Constant.FromEnum(new EnumWithoutConstantType().GetType()));
@@ -209,6 +224,19 @@ namespace Pandora.Data.Transformers
 
             // intentionally missing the description
             Second
+        }
+
+        [ConstantType(ConstantTypeAttribute.ConstantType.String)]
+        private enum EnumContainingEquals
+        {
+            [System.ComponentModel.Description("equals")]
+            Equals,
+
+            [System.ComponentModel.Description("multiply")]
+            Multiply,
+
+            [System.ComponentModel.Description("subtract")]
+            Subtract,
         }
     }
 }
