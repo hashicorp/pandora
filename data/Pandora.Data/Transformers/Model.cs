@@ -55,7 +55,7 @@ namespace Pandora.Data.Transformers
             var typesWithinProperties = FindTypesWithinPropertiesForType(innerType, allTypes);
             foundTypes.AddRange(typesWithinProperties);
             foundTypes = foundTypes.Distinct(new TypeComparer()).OrderBy(t => t.FullName).ToList();
-            
+
             // now that we have all of the types for that type, let's iterate over _all_ of the types and process each of them
             var processedTypes = new Dictionary<string, bool> { { innerType.FullName, true } };
             while (true)
@@ -65,7 +65,7 @@ namespace Pandora.Data.Transformers
                 {
                     break;
                 }
-                
+
                 allTypes = new List<Type>();
                 allTypes.AddRange(knownTypes);
                 allTypes.AddRange(typesToFind);
@@ -74,13 +74,13 @@ namespace Pandora.Data.Transformers
                 foreach (var type in typesToFind)
                 {
                     processedTypes.Add(type.FullName, true);
-                    
+
                     var nestedTypesWithinProperties = FindTypesWithinPropertiesForType(type, allTypes);
                     foundTypes.AddRange(typesWithinProperties);
                     foundTypes = foundTypes.Distinct(new TypeComparer()).OrderBy(t => t.FullName).ToList();
                     newlyFoundTypes.AddRange(nestedTypesWithinProperties);
                 }
-                
+
                 foundTypes.AddRange(newlyFoundTypes);
                 foundTypes = foundTypes.Distinct(new TypeComparer()).OrderBy(t => t.FullName).ToList();
             }
@@ -93,7 +93,7 @@ namespace Pandora.Data.Transformers
         private static List<Type> FindTypesWithinPropertiesForType(Type input, List<Type> knownTypes)
         {
             var foundTypes = new List<Type>();
-            
+
             // find all of the types used by properties in this model
             // NOTE: discriminated types within properties are discovered below
             foreach (var property in input.GetProperties())
@@ -115,7 +115,7 @@ namespace Pandora.Data.Transformers
                     foundTypes.Add(parentType);
                 }
             }
-            
+
             // now that we've got these, distinct them in-case the same type appears multiple types
             foundTypes = foundTypes.Distinct(new TypeComparer()).OrderBy(t => t.FullName).ToList();
 

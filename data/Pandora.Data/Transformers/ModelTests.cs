@@ -504,9 +504,10 @@ namespace Pandora.Data.Transformers
             Assert.AreEqual(ObjectType.Reference, humanField.ObjectDefinition.Type);
             Assert.AreEqual("HumanWithCircularReference", humanField.ObjectDefinition.ReferenceName);
         }
-        
+
         [TestCase]
-        public static void MappingAModelFiveLevelsDeep() {
+        public static void MappingAModelFiveLevelsDeep()
+        {
             var actual = Model.Map(typeof(FirstLevelModel));
             Assert.NotNull(actual);
             Assert.AreEqual(5, actual.Count);
