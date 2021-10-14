@@ -64,6 +64,16 @@ func GenerationData() []RunInput {
 			},
 		}.ToRunInput(),
 		ResourceManagerInput{
+			ServiceName:      "Databricks",
+			ApiVersion:       "2021-04-01-preview",
+			ResourceProvider: "Microsoft.DataBricks",
+			SwaggerDirectory: swaggerDirectory + "/specification/databricks/resource-manager/Microsoft.Databricks/preview/2021-04-01-preview",
+			SwaggerFiles: []string{
+				"databricks.json",
+				"vnetpeering.json",
+			},
+		}.ToRunInput(),
+		ResourceManagerInput{
 			ServiceName:      "EventHub",
 			ApiVersion:       "2017-04-01",
 			ResourceProvider: "Microsoft.EventHub",
