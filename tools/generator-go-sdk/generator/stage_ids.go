@@ -7,14 +7,7 @@ import (
 
 func (s *ServiceGenerator) ids(data ServiceGeneratorData) error {
 	outputDirectory := data.outputPath
-	packageName := data.packageName
 
-	if data.useIdAliases {
-		outputDirectory = data.idsOutputPath
-		packageName = "ids"
-	}
-
-	filesCreated := map[string]int{}
 	for idName, resourceData := range data.resourceIds {
 		if len(resourceData.Segments) == 0 {
 			continue
@@ -36,31 +29,6 @@ func (s *ServiceGenerator) ids(data ServiceGeneratorData) error {
 			constantDetails: data.constants,
 		}
 		if err := s.writeToPath(outputDirectory, fmt.Sprintf("id_%s_test.go", fileNamePrefix), tpt, data); err != nil {
-			return fmt.Errorf("templating tests for id: %+v", err)
-		}
-
-		filesCreated[fileNamePrefix] = 1
-	}
-
-	for idName, idDefinition := range data.resourceIds {
-		nameWithoutSuffix := strings.TrimSuffix(idName, "Id") // we suffix 'Id' and 'ID' in places
-		fileNamePrefix := strings.ToLower(nameWithoutSuffix)
-		if _, ok := filesCreated[fileNamePrefix]; ok {
-			continue
-		}
-		if err := s.writeToPath(outputDirectory, fmt.Sprintf("id_%s.go", fileNamePrefix), idParserTemplater{
-			name:        nameWithoutSuffix,
-			format:      idDefinition.Id,
-			packageName: packageName,
-		}, data); err != nil {
-			return fmt.Errorf("templating ids: %+v", err)
-		}
-
-		if err := s.writeToPath(outputDirectory, fmt.Sprintf("id_%s_test.go", fileNamePrefix), idParserTestsTemplater{
-			name:        nameWithoutSuffix,
-			format:      idDefinition.Id,
-			packageName: packageName,
-		}, data); err != nil {
 			return fmt.Errorf("templating tests for id: %+v", err)
 		}
 	}
