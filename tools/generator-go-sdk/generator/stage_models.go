@@ -68,13 +68,25 @@ func (c modelsTemplater) template(data ServiceGeneratorData) (*string, error) {
 
 			// Get{Name}AsTime method for getting *time.Time from a string
 			methods = append(methods, fmt.Sprintf("\tfunc (o %[1]s) Get%[2]sAsTime() (*time.Time, error) {", c.name, fieldName))
-			methods = append(methods, fmt.Sprintf("\t\treturn formatting.ParseAsDateFormat(o.%s, %q)", fieldName, dateFormat))
+			if fieldDetails.Optional {
+				methods = append(methods, fmt.Sprintf("\t\tif o.%s == nil {", fieldName))
+				methods = append(methods, fmt.Sprintf("\t\t\treturn nil, nil"))
+				methods = append(methods, fmt.Sprintf("\t\t}"))
+				methods = append(methods, fmt.Sprintf("\t\treturn formatting.ParseAsDateFormat(o.%s, %q)", fieldName, dateFormat))
+			} else {
+				methods = append(methods, fmt.Sprintf("\t\treturn formatting.ParseAsDateFormat(&o.%s, %q)", fieldName, dateFormat))
+			}
+
 			methods = append(methods, fmt.Sprintf("\t}\n"))
 
 			// Set{Name}AsTime method - for setting time.Time -> string
 			methods = append(methods, fmt.Sprintf("\tfunc (o %[1]s) Set%[2]sAsTime(input time.Time) {", c.name, fieldName))
 			methods = append(methods, fmt.Sprintf("\t\tformatted := input.Format(%q)", dateFormat))
-			methods = append(methods, fmt.Sprintf("\t\to.%s = &formatted", fieldName))
+			if fieldDetails.Optional {
+				methods = append(methods, fmt.Sprintf("\t\to.%s = &formatted", fieldName))
+			} else {
+				methods = append(methods, fmt.Sprintf("\t\to.%s = formatted", fieldName))
+			}
 			methods = append(methods, fmt.Sprintf("\t}\n"))
 		}
 
