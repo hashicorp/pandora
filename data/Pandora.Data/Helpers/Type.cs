@@ -13,9 +13,9 @@ namespace Pandora.Data.Helpers
         /// for example `List<Model>` will return the Type `Model`. This'll be null if a built-in, custom
         /// or Enum type is provided.
         /// </summary>
-        internal static Type? GetActualType(this Type input)
+        internal static Type? GetActualType(this Type input, bool allowEnums)
         {
-            if (input.IsEnum)
+            if (!allowEnums && input.IsEnum)
             {
                 return null;
             }
@@ -30,23 +30,23 @@ namespace Pandora.Data.Helpers
             {
                 var genericArgs = input.GetGenericArguments();
                 var element = genericArgs[0];
-                return GetActualType(element);
+                return GetActualType(element, allowEnums);
             }
 
             if (input.IsAGenericCsv())
             {
                 var valueType = input.GenericCsvElement();
-                return GetActualType(valueType);
+                return GetActualType(valueType, allowEnums);
             }
             if (input.IsAGenericDictionary())
             {
                 var valueType = input.GenericDictionaryValueElement();
-                return GetActualType(valueType);
+                return GetActualType(valueType, allowEnums);
             }
             if (input.IsAGenericList())
             {
                 var valueType = input.GenericListElement();
-                return GetActualType(valueType);
+                return GetActualType(valueType, allowEnums);
             }
 
             return input;

@@ -25,10 +25,10 @@ namespace Pandora.Data.Transformers
             }
         }
 
-        private static List<Type> FindTypesWithinType(Type input, List<Type> knownTypes)
+        internal static List<Type> FindTypesWithinType(Type input, List<Type> knownTypes)
         {
             // find the top level model - if it's a List of a List or something find the Type
-            var innerType = input.GetActualType();
+            var innerType = input.GetActualType(false);
             var foundTypes = new List<Type>();
 
             // for example if it's a built-in, custom or enum type there's nothing to map
@@ -98,7 +98,7 @@ namespace Pandora.Data.Transformers
             // NOTE: discriminated types within properties are discovered below
             foreach (var property in input.GetProperties())
             {
-                var elementType = property.PropertyType.GetActualType();
+                var elementType = property.PropertyType.GetActualType(false);
                 // for example if it's a built-in, custom or enum type there's nothing to map
                 if (elementType == null)
                 {
@@ -150,7 +150,7 @@ namespace Pandora.Data.Transformers
             var attr = input.GetCustomAttribute<ValueForTypeAttribute>();
             if (attr != null)
             {
-                var baseType = input.BaseType.GetActualType();
+                var baseType = input.BaseType.GetActualType(false);
                 if (baseType != null && knownTypes.All(t => t.FullName != input.BaseType.FullName))
                 {
                     return baseType;

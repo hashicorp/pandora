@@ -62,18 +62,18 @@ namespace Pandora.Data.Transformers
 
             if (input.RequestObject() != null)
             {
-                definitions.AddRange(Constant.FromObject(input.RequestObject()!));
+                definitions.AddRange(Constant.WithinObject(input.RequestObject()!));
             }
 
             if (input.ResponseObject() != null)
             {
-                definitions.AddRange(Constant.FromObject(input.ResponseObject()!));
+                definitions.AddRange(Constant.WithinObject(input.ResponseObject()!));
             }
 
             // pull out any constants which are referenced against the Options block
             if (input.OptionsObject() != null)
             {
-                definitions.AddRange(Constant.FromObject(input.OptionsObject()!));
+                definitions.AddRange(Constant.WithinObject(input.OptionsObject()!));
             }
 
             return definitions.Distinct(new ConstantComparer()).ToList();

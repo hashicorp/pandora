@@ -1,77 +1,104 @@
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
+using System.Text.RegularExpressions;
+using NUnit.Framework;
 using Pandora.Data.Helpers;
 using Pandora.Data.Models;
 using Pandora.Definitions.Attributes;
+using DescriptionAttribute = System.ComponentModel.DescriptionAttribute;
 
 namespace Pandora.Data.Transformers
 {
     public static class Constant
     {
-        public static List<ConstantDefinition> FromObject(Type input)
+        public static List<ConstantDefinition> WithinObject(Type input)
         {
             try
             {
-                if (!input.IsClass)
+                var actualType = input.GetActualType(true);
+                if (actualType == null)
                 {
-                    throw new NotSupportedException("expected a class");
+                    return new List<ConstantDefinition>();
+                }
+                
+                if (actualType.IsEnum)
+                {
+                    return new List<ConstantDefinition>
+                    {
+                        FromEnum(input)
+                    };
                 }
 
-                var constantDefinitions = new List<ConstantDefinition>();
-                foreach (var property in input.GetProperties())
-                {
-                    var propertyType = property.PropertyType;
-                    var inner = propertyType.GetActualType();
-                    if (inner != null)
-                    {
-                        propertyType = inner;
-                    }
-
-                    if (propertyType.FullName == input.FullName)
-                    {
-                        continue;
-                    }
-
-                    if (propertyType.IsEnum)
-                    {
-                        var definition = FromEnum(propertyType);
-                        constantDefinitions.Add(definition);
-                        continue;
-                    }
-
-                    if (propertyType.IsNativeType() || propertyType.IsPandoraCustomType() || !propertyType.IsClass)
-                    {
-                        continue;
-                    }
-
-                    var innerConstants = FromObject(propertyType);
-                    constantDefinitions.AddRange(innerConstants);
-                }
-
-                return constantDefinitions.Distinct(new ConstantComparer()).ToList();
+                return WithinObject(input, new List<Type>());
             }
             catch (Exception ex)
             {
-                throw new Exception($"Mapping Constant FromObject {input.FullName}", ex);
+                throw new Exception($"Mapping Constants WithinObject {input.FullName}", ex);
             }
+        }
+
+        private static List<ConstantDefinition> WithinObject(Type input, List<Type> knownTypes)
+        {
+            if (!input.IsClass)
+            {
+                throw new NotSupportedException("expected a class");
+            }
+            
+            var found = new List<ConstantDefinition>();
+            var types = Model.FindTypesWithinType(input, knownTypes);
+            var allTypes = new List<Type>();
+            allTypes.AddRange(knownTypes);
+            allTypes.AddRange(types);
+            
+            foreach (var type in types)
+            {
+                var constantsWithinType = UsedByType(type);
+                found.AddRange(constantsWithinType);
+            }
+
+            return found.Distinct(new ConstantComparer()).ToList();
+        }
+        
+        private static List<ConstantDefinition> UsedByType(Type input)
+        {
+            var constants = new List<ConstantDefinition>();
+            
+            foreach (var property in input.GetProperties())
+            {
+                var actualType = property.PropertyType.GetActualType(true);
+                if (actualType == null)
+                {
+                    continue;
+                }
+                
+                if (!actualType.IsEnum)
+                {
+                    continue;
+                }
+                
+                var constant = FromEnum(property.PropertyType);
+                constants.Add(constant);
+            }
+
+            return constants;
         }
 
         public static ConstantDefinition FromEnum(Type input)
         {
             try
             {
-                if (!input.IsEnum)
+                var actualType = input.GetActualType(true);
+                if (actualType == null || !actualType.IsEnum)
                 {
                     throw new NotSupportedException("expected an enum");
                 }
-
-                var name = input.Name.TrimSuffix("Constant");
-                var caseInsensitive = IsCaseInsensitive(input);
-                var variableType = TypeForEnum(input);
-                var values = ValuesForEnum(input);
+                
+                var name = actualType.Name.TrimSuffix("Constant");
+                var caseInsensitive = IsCaseInsensitive(actualType);
+                var variableType = TypeForEnum(actualType);
+                var values = ValuesForEnum(actualType);
 
                 // this enum has to have a 'description' tag for each of the values
                 return new ConstantDefinition
