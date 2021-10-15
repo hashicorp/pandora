@@ -76,8 +76,8 @@ func TestParseDiscriminatorsTopLevel(t *testing.T) {
 	if cat.TypeHintIn == nil {
 		t.Fatal("cat.TypeHintIn should have a value but it doesn't")
 	}
-	if *cat.TypeHintIn != "animalType" {
-		t.Fatalf("cat.TypeHintIn should be `animalType` but it was %q", *cat.TypeHintIn)
+	if *cat.TypeHintIn != "AnimalType" {
+		t.Fatalf("cat.TypeHintIn should be `AnimalType` but it was %q", *cat.TypeHintIn)
 	}
 	if cat.TypeHintValue == nil {
 		t.Fatalf("cat.TypeHintValue should have a value but it doesn't")
@@ -99,8 +99,8 @@ func TestParseDiscriminatorsTopLevel(t *testing.T) {
 	if dog.TypeHintIn == nil {
 		t.Fatal("dog.TypeHintIn should have a value but it doesn't")
 	}
-	if *dog.TypeHintIn != "animalType" {
-		t.Fatalf("dog.TypeHintIn should be `animalType` but it was %q", *dog.TypeHintIn)
+	if *dog.TypeHintIn != "AnimalType" {
+		t.Fatalf("dog.TypeHintIn should be `AnimalType` but it was %q", *dog.TypeHintIn)
 	}
 	if dog.TypeHintValue == nil {
 		t.Fatalf("dog.TypeHintValue should have a value but it doesn't")
@@ -165,8 +165,8 @@ func TestParseDiscriminatorsWithinDiscriminators(t *testing.T) {
 	if animal.TypeHintIn == nil {
 		t.Fatal("animal.TypeHintIn should have a value but it doesn't")
 	}
-	if *animal.TypeHintIn != "animalType" {
-		t.Fatalf("toy.TypeHintIn should be 'animalType' but it was %q", *animal.TypeHintIn)
+	if *animal.TypeHintIn != "AnimalType" {
+		t.Fatalf("toy.TypeHintIn should be 'AnimalType' but it was %q", *animal.TypeHintIn)
 	}
 	if animal.TypeHintValue != nil {
 		t.Fatalf("animal.TypeHintValue should be nil but was %q", *animal.TypeHintValue)
@@ -185,8 +185,8 @@ func TestParseDiscriminatorsWithinDiscriminators(t *testing.T) {
 	if cat.TypeHintIn == nil {
 		t.Fatal("cat.TypeHintIn should have a value but it doesn't")
 	}
-	if *cat.TypeHintIn != "animalType" {
-		t.Fatalf("cat.TypeHintIn should be `animalType` but it was %q", *cat.TypeHintIn)
+	if *cat.TypeHintIn != "AnimalType" {
+		t.Fatalf("cat.TypeHintIn should be `AnimalType` but it was %q", *cat.TypeHintIn)
 	}
 	if cat.TypeHintValue == nil {
 		t.Fatalf("cat.TypeHintValue should have a value but it doesn't")
@@ -211,8 +211,8 @@ func TestParseDiscriminatorsWithinDiscriminators(t *testing.T) {
 	if dog.TypeHintIn == nil {
 		t.Fatal("dog.TypeHintIn should have a value but it doesn't")
 	}
-	if *dog.TypeHintIn != "animalType" {
-		t.Fatalf("dog.TypeHintIn should be `animalType` but it was %q", *dog.TypeHintIn)
+	if *dog.TypeHintIn != "AnimalType" {
+		t.Fatalf("dog.TypeHintIn should be `AnimalType` but it was %q", *dog.TypeHintIn)
 	}
 	if dog.TypeHintValue == nil {
 		t.Fatalf("dog.TypeHintValue should have a value but it doesn't")
@@ -234,8 +234,8 @@ func TestParseDiscriminatorsWithinDiscriminators(t *testing.T) {
 	if toy.TypeHintIn == nil {
 		t.Fatal("toy.TypeHintIn should have a value but it doesn't")
 	}
-	if *toy.TypeHintIn != "toyType" {
-		t.Fatalf("toy.TypeHintIn should be 'toyType' but it was %q", *toy.TypeHintIn)
+	if *toy.TypeHintIn != "ToyType" {
+		t.Fatalf("toy.TypeHintIn should be 'ToyType' but it was %q", *toy.TypeHintIn)
 	}
 	if toy.TypeHintValue != nil {
 		t.Fatalf("toy.TypeHintValue should be nil but was %q", *toy.TypeHintValue)
@@ -254,8 +254,8 @@ func TestParseDiscriminatorsWithinDiscriminators(t *testing.T) {
 	if bone.TypeHintIn == nil {
 		t.Fatal("bone.TypeHintIn should have a value but it doesn't")
 	}
-	if *bone.TypeHintIn != "toyType" {
-		t.Fatalf("bone.TypeHintIn should be `toyType` but it was %q", *bone.TypeHintIn)
+	if *bone.TypeHintIn != "ToyType" {
+		t.Fatalf("bone.TypeHintIn should be `ToyType` but it was %q", *bone.TypeHintIn)
 	}
 	if bone.TypeHintValue == nil {
 		t.Fatalf("bone.TypeHintValue should have a value but it doesn't")
@@ -280,8 +280,8 @@ func TestParseDiscriminatorsWithinDiscriminators(t *testing.T) {
 	if laserBeam.TypeHintIn == nil {
 		t.Fatal("laserBeam.TypeHintIn should have a value but it doesn't")
 	}
-	if *laserBeam.TypeHintIn != "toyType" {
-		t.Fatalf("laserBeam.TypeHintIn should be `toyType` but it was %q", *laserBeam.TypeHintIn)
+	if *laserBeam.TypeHintIn != "ToyType" {
+		t.Fatalf("laserBeam.TypeHintIn should be `ToyType` but it was %q", *laserBeam.TypeHintIn)
 	}
 	if laserBeam.TypeHintValue == nil {
 		t.Fatalf("laserBeam.TypeHintValue should have a value but it doesn't")
@@ -291,5 +291,103 @@ func TestParseDiscriminatorsWithinDiscriminators(t *testing.T) {
 	}
 	if len(laserBeam.Fields) != 3 {
 		t.Fatalf("expected resource.Models['LazerBeam'] to have 3 fields but got %d", len(laserBeam.Fields))
+	}
+}
+
+func TestParseDiscriminatedParentTypeThatShouldntBe(t *testing.T) {
+	// Some Swagger files define top level types with a Discriminator value which don't inherit
+	// from anything. As such these aren't actually discriminated types but bad data - so we should
+	// look to ensure these are parsed out as a regular non-discriminated type.
+	result, err := ParseSwaggerFileForTesting(t, "model_discriminators_parent_that_shouldnt_be.json")
+	if err != nil {
+		t.Fatalf("parsing: %+v", err)
+	}
+	if result == nil {
+		t.Fatal("result was nil")
+	}
+	if len(result.Resources) != 1 {
+		t.Fatalf("expected 1 resource but got %d", len(result.Resources))
+	}
+
+	resource, ok := result.Resources["Discriminator"]
+	if !ok {
+		t.Fatal("the Resource 'Discriminator' was not found")
+	}
+
+	// sanity checking
+	if len(resource.Constants) != 0 {
+		t.Fatalf("expected no constants but got %d", len(resource.Constants))
+	}
+	if len(resource.Models) != 1 {
+		t.Fatalf("expected 1 model but got %d", len(resource.Models))
+	}
+	if len(resource.Operations) != 1 {
+		t.Fatalf("expected 1 operation but got %d", len(resource.Operations))
+	}
+	if len(resource.ResourceIds) != 1 {
+		t.Fatalf("expected 1 Resource ID but got %d", len(resource.ResourceIds))
+	}
+
+	animal, ok := resource.Models["Animal"]
+	if !ok {
+		t.Fatalf("the Model `Animal` was not found")
+	}
+	if animal.ParentTypeName != nil {
+		t.Fatalf("animal.ParentTypeName should be nil but got %q", *animal.ParentTypeName)
+	}
+	if animal.TypeHintIn != nil {
+		t.Fatalf("animal.TypeHintIn should be nil but got %q", *animal.TypeHintIn)
+	}
+	if animal.TypeHintValue != nil {
+		t.Fatalf("animal.TypeHintValue should be nil but got %q", *animal.TypeHintValue)
+	}
+}
+
+func TestParseDiscriminatedChildTypeThatShouldntBe(t *testing.T) {
+	// Some Swagger files define top level types with a Discriminator value which don't inherit
+	// from anything. As such these aren't actually discriminated types but bad data - so we should
+	// look to ensure these are parsed out as a regular non-discriminated type.
+	result, err := ParseSwaggerFileForTesting(t, "model_discriminators_child_that_shouldnt_be.json")
+	if err != nil {
+		t.Fatalf("parsing: %+v", err)
+	}
+	if result == nil {
+		t.Fatal("result was nil")
+	}
+	if len(result.Resources) != 1 {
+		t.Fatalf("expected 1 resource but got %d", len(result.Resources))
+	}
+
+	resource, ok := result.Resources["Discriminator"]
+	if !ok {
+		t.Fatal("the Resource 'Discriminator' was not found")
+	}
+
+	// sanity checking
+	if len(resource.Constants) != 0 {
+		t.Fatalf("expected no constants but got %d", len(resource.Constants))
+	}
+	if len(resource.Models) != 1 {
+		t.Fatalf("expected 1 model but got %d", len(resource.Models))
+	}
+	if len(resource.Operations) != 1 {
+		t.Fatalf("expected 1 operation but got %d", len(resource.Operations))
+	}
+	if len(resource.ResourceIds) != 1 {
+		t.Fatalf("expected 1 Resource ID but got %d", len(resource.ResourceIds))
+	}
+
+	dog, ok := resource.Models["Dog"]
+	if !ok {
+		t.Fatalf("the Model `Dog` was not found")
+	}
+	if dog.ParentTypeName != nil {
+		t.Fatalf("dog.ParentTypeName should be nil but got %q", *dog.ParentTypeName)
+	}
+	if dog.TypeHintIn != nil {
+		t.Fatalf("dog.TypeHintIn should be nil but got %q", *dog.TypeHintIn)
+	}
+	if dog.TypeHintValue != nil {
+		t.Fatalf("dog.TypeHintValue should be nil but got %q", *dog.TypeHintValue)
 	}
 }

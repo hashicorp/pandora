@@ -21,7 +21,7 @@ namespace Pandora.Data.Transformers
                 return Map(actualType);
             }
 
-            if (Helpers.IsNativeType(input))
+            if (input.IsNativeType())
             {
                 return new Models.ObjectDefinition
                 {
@@ -29,7 +29,7 @@ namespace Pandora.Data.Transformers
                 };
             }
 
-            if (Helpers.IsPandoraCustomType(input))
+            if (input.IsPandoraCustomType())
             {
                 return new Models.ObjectDefinition
                 {

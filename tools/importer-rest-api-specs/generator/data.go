@@ -7,8 +7,8 @@ import (
 )
 
 type GenerationData struct {
-	ServiceName   string
-	ApiVersion    string
+	ServiceName string
+	ApiVersion  string
 
 	NamespaceForService    string
 	NamespaceForApiVersion string

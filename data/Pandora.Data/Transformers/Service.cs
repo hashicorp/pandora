@@ -18,10 +18,11 @@ namespace Pandora.Data.Transformers
                 }
 
                 // protect against coding errors
-                var hasDuplicates = orderedVersions.Any(a => orderedVersions.Count(api => api.Version == a.Version) > 1);
-                if (hasDuplicates)
+                var duplicates = orderedVersions.Where(v => orderedVersions.Count(api => v.Version == api.Version) > 1);
+                if (duplicates.Any())
                 {
-                    throw new NotSupportedException($"Service {input.Name} has duplicate versions defined");
+                    var duplicateVersions = string.Join(", ", duplicates.Select(v => v.Version).Distinct().Select(v => $"{v} has {duplicates.Count(d => d.Version == v)} duplicates").ToList());
+                    throw new NotSupportedException($"Service {input.Name} has duplicate versions defined: {duplicateVersions}");
                 }
 
                 return new ServiceDefinition

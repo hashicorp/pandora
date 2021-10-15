@@ -1,6 +1,9 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Reflection;
+using System.Text.Json.Serialization;
 using NUnit.Framework;
 using Pandora.Data.Models;
 using Pandora.Definitions.Attributes;
@@ -12,14 +15,14 @@ namespace Pandora.Data.Transformers
         [TestCase]
         public void MappingFromTypeWithNoEnumsReturnsNoEnums()
         {
-            var actual = Constant.FromObject(typeof(ClassWithoutEnum));
+            var actual = Constant.WithinObject(typeof(ClassWithoutEnum));
             Assert.AreEqual(0, actual.Count);
         }
 
         [TestCase]
         public void MappingFromTypeWithAnEnumsReturnsThatEnum()
         {
-            var actual = Constant.FromObject(typeof(ClassWithSingleEnum));
+            var actual = Constant.WithinObject(typeof(ClassWithSingleEnum));
             Assert.AreEqual(1, actual.Count);
             Assert.AreEqual("Example", actual.First().Name);
             Assert.AreEqual(ConstantType.String, actual.First().Type);
@@ -32,7 +35,7 @@ namespace Pandora.Data.Transformers
         [TestCase]
         public void MappingFromTypeWithANestedEnumReturnsThatEnum()
         {
-            var actual = Constant.FromObject(typeof(ClassWithNestedClassContainingAnEnum));
+            var actual = Constant.WithinObject(typeof(ClassWithNestedClassContainingAnEnum));
             Assert.AreEqual(1, actual.Count);
             Assert.AreEqual("Example", actual.First().Name);
             Assert.AreEqual(ConstantType.String, actual.First().Type);
@@ -45,7 +48,7 @@ namespace Pandora.Data.Transformers
         [TestCase]
         public void MappingFromTypeContainingTheSameEnumNestedTwiceExistsOnce()
         {
-            var actual = Constant.FromObject(typeof(ClassWithNestedClasses));
+            var actual = Constant.WithinObject(typeof(ClassWithNestedClasses));
             Assert.AreEqual(1, actual.Count);
             Assert.AreEqual("Example", actual.First().Name);
             Assert.AreEqual(ConstantType.String, actual.First().Type);
@@ -56,9 +59,26 @@ namespace Pandora.Data.Transformers
         }
 
         [TestCase]
-        public void MappingFromTypeWhichIsNotAClassShouldFail()
+        public void MappingAnEnumAsAnObjectShouldReturnTheEnum()
         {
-            Assert.Throws<Exception>(() => Constant.FromObject(typeof(ExampleConstant)));
+            var actual = Constant.WithinObject(typeof(ExampleConstant));
+            Assert.NotNull(actual);
+            Assert.AreEqual(1, actual.Count);
+            var exampleConstant = actual.First(c => c.Name == "Example");
+            Assert.AreEqual(false, exampleConstant.CaseInsensitive);
+            Assert.AreEqual(ConstantType.String, exampleConstant.Type);
+            Assert.AreEqual("Example", exampleConstant.Name);
+            Assert.AreEqual(2, exampleConstant.Values.Count);
+            Assert.AreEqual("first", exampleConstant.Values["First"]);
+            Assert.AreEqual("second", exampleConstant.Values["Second"]);
+        }
+
+        [TestCase]
+        public void MappingANonObjectShouldReturnNothing()
+        {
+            var actual = Constant.WithinObject(typeof(List<string>));
+            Assert.NotNull(actual);
+            Assert.AreEqual(0, actual.Count);
         }
 
         [TestCase]
@@ -111,6 +131,20 @@ namespace Pandora.Data.Transformers
             Assert.AreEqual(2, actual.Values.Count);
             Assert.AreEqual("1", actual.Values["One"]);
             Assert.AreEqual("2", actual.Values["Two"]);
+        }
+
+        [TestCase]
+        public void MappingContainingEqualsShouldMapCorrectly()
+        {
+            var actual = Constant.FromEnum(new EnumContainingEquals().GetType());
+            Assert.NotNull(actual);
+            Assert.AreEqual(false, actual.CaseInsensitive);
+            Assert.AreEqual(ConstantType.String, actual.Type);
+            Assert.AreEqual("EnumContainingEquals", actual.Name);
+            Assert.AreEqual(3, actual.Values.Count);
+            Assert.AreEqual("equals", actual.Values["Equals"]);
+            Assert.AreEqual("multiply", actual.Values["Multiply"]);
+            Assert.AreEqual("subtract", actual.Values["Subtract"]);
         }
 
         [TestCase]
@@ -209,6 +243,19 @@ namespace Pandora.Data.Transformers
 
             // intentionally missing the description
             Second
+        }
+
+        [ConstantType(ConstantTypeAttribute.ConstantType.String)]
+        private enum EnumContainingEquals
+        {
+            [System.ComponentModel.Description("equals")]
+            Equals,
+
+            [System.ComponentModel.Description("multiply")]
+            Multiply,
+
+            [System.ComponentModel.Description("subtract")]
+            Subtract,
         }
     }
 }

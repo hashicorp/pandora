@@ -37,7 +37,7 @@ func (d *SwaggerDefinition) parseModel(name string, input spec.Schema) (*parseRe
 	// 3. finally build this model directly
 	// Notably, we **DO NOT** load models used by this models here - this is handled once we
 	// know all the models which we want to load - to avoid infinite loops
-	model, err := d.modelDetailsFromObject(input, *fields)
+	model, err := d.modelDetailsFromObject(name, input, *fields)
 	if err != nil {
 		return nil, fmt.Errorf("populating model details for %q: %+v", name, err)
 	}
@@ -165,7 +165,7 @@ func (d *SwaggerDefinition) detailsForField(modelName string, propertyName strin
 			result.append(*nestedResult)
 			nestedFields[propName] = *nestedField
 		}
-		inlinedModelDetails, err := d.modelDetailsFromObject(value, nestedFields)
+		inlinedModelDetails, err := d.modelDetailsFromObject(inlinedName, value, nestedFields)
 		if err != nil {
 			return nil, nil, fmt.Errorf("building model details for inlined model %q: %+v", inlinedName, err)
 		}
@@ -328,7 +328,7 @@ func (d *SwaggerDefinition) findTopLevelObject(name string) (*spec.Schema, error
 	return nil, fmt.Errorf("the top level object %q was not found", name)
 }
 
-func (d *SwaggerDefinition) modelDetailsFromObject(input spec.Schema, fields map[string]models.FieldDetails) (*models.ModelDetails, error) {
+func (d *SwaggerDefinition) modelDetailsFromObject(modelName string, input spec.Schema, fields map[string]models.FieldDetails) (*models.ModelDetails, error) {
 	details := models.ModelDetails{
 		Description: "",
 		Fields:      fields,
@@ -337,6 +337,14 @@ func (d *SwaggerDefinition) modelDetailsFromObject(input spec.Schema, fields map
 	// if this is a Parent
 	if input.Discriminator != "" {
 		details.TypeHintIn = &input.Discriminator
+
+		// check that there's at least one implementation of this type - otherwise this this isn't a discriminated type
+		// but bad data we should ignore
+		implementations := d.findModelNamesWhichImplement(modelName)
+		hasAtLeastOneImplementation := len(implementations) > 0
+		if !hasAtLeastOneImplementation {
+			details.TypeHintIn = nil
+		}
 	}
 
 	// this would be an Implementation
@@ -361,6 +369,11 @@ func (d *SwaggerDefinition) modelDetailsFromObject(input spec.Schema, fields map
 
 			details.ParentTypeName = fragmentName
 			details.TypeHintIn = &parent.Discriminator
+		}
+
+		// however if there's a Discriminator value defined but no parent type - this is bad data - so we should ignore it
+		if details.ParentTypeName == nil || details.TypeHintIn == nil {
+			details.TypeHintValue = nil
 		}
 	}
 

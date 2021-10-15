@@ -1,13 +1,58 @@
 using System;
 using System.Collections.Generic;
 using System.Reflection;
+using Pandora.Data.Transformers;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Data.Transformers
+namespace Pandora.Data.Helpers
 {
-    internal static class Helpers
+    public static class TypeExtensions
     {
-        public static bool IsNativeType(Type input)
+        /// <summary>
+        /// GetActualType returns the Actual Type if this is a Csv/Dictionary/List - or input otherwise
+        /// for example `List<Model>` will return the Type `Model`. This'll be null if a built-in, custom
+        /// or Enum type is provided.
+        /// </summary>
+        internal static Type? GetActualType(this Type input, bool allowEnums)
+        {
+            if (!allowEnums && input.IsEnum)
+            {
+                return null;
+            }
+
+            if (input.IsNativeType() || input.IsPandoraCustomType())
+            {
+                return null;
+            }
+
+            // if it's nullable pull that out
+            if (Nullable.GetUnderlyingType(input) != null)
+            {
+                var genericArgs = input.GetGenericArguments();
+                var element = genericArgs[0];
+                return GetActualType(element, allowEnums);
+            }
+
+            if (input.IsAGenericCsv())
+            {
+                var valueType = input.GenericCsvElement();
+                return GetActualType(valueType, allowEnums);
+            }
+            if (input.IsAGenericDictionary())
+            {
+                var valueType = input.GenericDictionaryValueElement();
+                return GetActualType(valueType, allowEnums);
+            }
+            if (input.IsAGenericList())
+            {
+                var valueType = input.GenericListElement();
+                return GetActualType(valueType, allowEnums);
+            }
+
+            return input;
+        }
+
+        public static bool IsNativeType(this Type input)
         {
             var nativeTypes = new List<Type>
             {
@@ -21,7 +66,7 @@ namespace Pandora.Data.Transformers
             return nativeTypes.Contains(input);
         }
 
-        public static bool IsPandoraCustomType(Type input)
+        public static bool IsPandoraCustomType(this Type input)
         {
             var customTypes = new List<Type>
             {

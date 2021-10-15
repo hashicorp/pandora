@@ -2,6 +2,7 @@ package generator
 
 import (
 	"fmt"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/cleanup"
 	"sort"
 	"strings"
 
@@ -14,6 +15,8 @@ func (g PandoraDefinitionGenerator) codeForPackageDefinition(namespace, resource
 		operationNames = append(operationNames, operation)
 	}
 	sort.Strings(operationNames)
+
+	normalizedResourceName := cleanup.NormalizeName(resourceName)
 
 	lines := make([]string, 0)
 	for _, operationName := range operationNames {
@@ -35,5 +38,5 @@ namespace %[1]s
 		};
 	}
 }
-`, namespace, resourceName, g.data.ApiVersion, strings.Join(lines, "\n"))
+`, namespace, normalizedResourceName, g.data.ApiVersion, strings.Join(lines, "\n"))
 }

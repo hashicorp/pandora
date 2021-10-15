@@ -2,6 +2,7 @@ package generator
 
 import (
 	"fmt"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/cleanup"
 	"log"
 	"os"
 	"path"
@@ -12,7 +13,8 @@ func (g PandoraDefinitionGenerator) GenerateServiceDefinition() error {
 	if g.debugLog {
 		log.Printf("[DEBUG] Generating Service Definition into %q..", serviceDefinitionFilePath)
 	}
-	code := codeForServiceDefinition(g.data.NamespaceForService, g.data.ServiceName, g.data.ResourceProvider)
+	normalizedServiceName := cleanup.NormalizeName(g.data.ServiceName)
+	code := codeForServiceDefinition(g.data.NamespaceForService, normalizedServiceName, g.data.ResourceProvider)
 	if err := writeToFile(serviceDefinitionFilePath, code); err != nil {
 		return fmt.Errorf("generating Service Definition into %q: %+v", serviceDefinitionFilePath, err)
 	}
