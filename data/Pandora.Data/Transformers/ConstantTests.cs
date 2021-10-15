@@ -57,7 +57,7 @@ namespace Pandora.Data.Transformers
             Assert.AreEqual("second", actual.First().Values["Second"]);
             Assert.AreEqual(false, actual.First().CaseInsensitive);
         }
-        
+
         [TestCase]
         public void MappingAnEnumAsAnObjectShouldReturnTheEnum()
         {
@@ -80,7 +80,7 @@ namespace Pandora.Data.Transformers
             Assert.NotNull(actual);
             Assert.AreEqual(0, actual.Count);
         }
-        
+
         [TestCase]
         public void MappingABasicEnum()
         {

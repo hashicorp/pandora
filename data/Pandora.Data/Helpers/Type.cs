@@ -51,7 +51,7 @@ namespace Pandora.Data.Helpers
 
             return input;
         }
-        
+
         public static bool IsNativeType(this Type input)
         {
             var nativeTypes = new List<Type>
@@ -65,7 +65,7 @@ namespace Pandora.Data.Helpers
             };
             return nativeTypes.Contains(input);
         }
-        
+
         public static bool IsPandoraCustomType(this Type input)
         {
             var customTypes = new List<Type>
@@ -81,7 +81,7 @@ namespace Pandora.Data.Helpers
             };
             return customTypes.Contains(input);
         }
-        
+
         internal static bool HasAttribute<T>(this MemberInfo info) where T : Attribute
         {
             return info.GetCustomAttribute<T>() != null;

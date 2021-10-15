@@ -21,7 +21,7 @@ namespace Pandora.Definitions.Discovery
                 // we could move these for testing purposes, but it's beneficial to keep these together tbh
                 namespaceToSearchFor = containingNamespace;
             }
-            
+
             var versionDefinitionTypes = types.Where(t => t.IsAssignableTo(typeof(ApiVersionDefinition)) && t.FullName.StartsWith(namespaceToSearchFor)).ToList();
             var versionDefinitions = versionDefinitionTypes.Select(Activator.CreateInstance).Select(t => t as ApiVersionDefinition).ToList();
             return versionDefinitions;

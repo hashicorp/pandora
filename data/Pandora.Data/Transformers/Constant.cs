@@ -22,7 +22,7 @@ namespace Pandora.Data.Transformers
                 {
                     return new List<ConstantDefinition>();
                 }
-                
+
                 if (actualType.IsEnum)
                 {
                     return new List<ConstantDefinition>
@@ -45,13 +45,13 @@ namespace Pandora.Data.Transformers
             {
                 throw new NotSupportedException("expected a class");
             }
-            
+
             var found = new List<ConstantDefinition>();
             var types = Model.FindTypesWithinType(input, knownTypes);
             var allTypes = new List<Type>();
             allTypes.AddRange(knownTypes);
             allTypes.AddRange(types);
-            
+
             foreach (var type in types)
             {
                 var constantsWithinType = UsedByType(type);
@@ -60,11 +60,11 @@ namespace Pandora.Data.Transformers
 
             return found.Distinct(new ConstantComparer()).ToList();
         }
-        
+
         private static List<ConstantDefinition> UsedByType(Type input)
         {
             var constants = new List<ConstantDefinition>();
-            
+
             foreach (var property in input.GetProperties())
             {
                 var actualType = property.PropertyType.GetActualType(true);
@@ -72,12 +72,12 @@ namespace Pandora.Data.Transformers
                 {
                     continue;
                 }
-                
+
                 if (!actualType.IsEnum)
                 {
                     continue;
                 }
-                
+
                 var constant = FromEnum(property.PropertyType);
                 constants.Add(constant);
             }
@@ -94,7 +94,7 @@ namespace Pandora.Data.Transformers
                 {
                     throw new NotSupportedException("expected an enum");
                 }
-                
+
                 var name = actualType.Name.TrimSuffix("Constant");
                 var caseInsensitive = IsCaseInsensitive(actualType);
                 var variableType = TypeForEnum(actualType);
