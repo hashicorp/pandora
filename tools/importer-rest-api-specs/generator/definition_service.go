@@ -2,10 +2,11 @@ package generator
 
 import (
 	"fmt"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/cleanup"
 	"log"
 	"os"
 	"path"
+
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/cleanup"
 )
 
 func (g PandoraDefinitionGenerator) GenerateServiceDefinition() error {

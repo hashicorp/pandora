@@ -2,9 +2,10 @@ package generator
 
 import (
 	"fmt"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/cleanup"
 	"sort"
 	"strings"
+
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/cleanup"
 
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )

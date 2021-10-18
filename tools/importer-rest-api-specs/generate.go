@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"path/filepath"
 	"sort"
 	"strings"
 	"sync"
@@ -141,7 +142,8 @@ func distinctServiceNames(input []parser.ParsedData) []string {
 }
 
 func generateAllResourceManagerServices(swaggerGitSha string, justLatestVersion, debug bool) error {
-	services, err := parser.FindResourceManagerServices(swaggerDirectory+"/specification", justLatestVersion, false)
+	specsDirectory := filepath.Join(swaggerDirectory, "specification")
+	services, err := parser.FindResourceManagerServices(specsDirectory, false)
 	if err != nil {
 		return err
 	}
@@ -173,7 +175,7 @@ func generateAllResourceManagerServices(swaggerGitSha string, justLatestVersion,
 
 			wg.Add(1)
 			go func(input RunInput, sha string) {
-				err := run(input, sha, debug)
+				err := importService(input, sha, debug)
 				if err != nil {
 					wg.Done()
 					return
