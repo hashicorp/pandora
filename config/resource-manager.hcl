@@ -23,7 +23,7 @@ service "labservices" {
   name      = "LabServices"
   available = ["2021-10-01-preview"]
 }
-service "managedidentity" {
+service "msi" {
   name      = "ManagedIdentity"
   available = ["2018-11-30"]
 }
