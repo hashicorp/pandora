@@ -21,6 +21,22 @@ jobs:
         with:
           go-version: '1.16.x'
 
+      - name: build and run version-bumper
+        id: generate
+        run: |
+          cd ./tools/version-bumper
+          make tools
+          make build
+          make run
+
+      - name: then commit the diff
+        id: commit
+        run: |
+          git checkout -b data/regeneration-from-${{ github.sha }}
+          git config user.name "GitHub Actions"
+          git config user.email "<>"
+          ./scripts/conditionally-commit-codegen-changes.sh "config: regenerating based on the latest Swagger"
+
       - name: build and run importer-rest-api-specs
         id: generate
         run: |
@@ -35,7 +51,7 @@ jobs:
           git checkout -b data/regeneration-from-${{ github.sha }}
           git config user.name "GitHub Actions"
           git config user.email "<>"
-          ./scripts/conditionally-commit-codegen-changes.sh
+          ./scripts/conditionally-commit-codegen-changes.sh "data: regenerating based on the latest Swagger"
 
       - name: then conditionally push the branch
         id: push-branch
