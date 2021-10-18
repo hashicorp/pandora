@@ -12,37 +12,27 @@ If you've found a new bug or something that didn't generate as expected - please
 
 ## Step 1: Importing Swagger Data into Pandora's Data Format
 
-Swagger files which should be imported into Pandora's Data Format are currently hand-defined in [`./tools/importer-rest-api-specs/data.go`](https://github.com/hashicorp/pandora/blob/main/tools/importer-rest-api-specs/data.go#L12-L13).
+The Services and API Versions which should be imported into Pandora's Data Format are defined [in `./config/resource-manager.hcl`](https://github.com/hashicorp/pandora/blob/main/config/resource-manager.hcl).
 
-This example shows a new mapping for a Resource Manager Service:
+Each Service is defined using a `service` block, an example of this is shown below:
 
-```go
-		ResourceManagerInput{
-			ServiceName:      "EventHub",
-			ApiVersion:       "2021-01-01-preview",
-			ResourceProvider: "Microsoft.EventHub",
-			SwaggerDirectory: swaggerDirectory + "/specification/eventhub/resource-manager/Microsoft.EventHub/preview/2021-01-01-preview",
-			SwaggerFiles: []string{
-				"AuthorizationRules.json",
-				"CheckNameAvailability.json",
-				"consumergroups.json",
-				"disasterRecoveryConfigs.json",
-				"eventhubs.json",
-				"namespaces-preview.json",
-				"networkrulessets-preview.json",
-				"operations.json",
-			},
-		}.ToRunInput(),
+```hcl
+service "analysisservices" {
+  name      = "AnalysisServices"
+  available = ["2017-08-01"]
+  # Optional
+  # ignore = []
+}
 ```
 
-Those fields are:
+Those properties are:
 
-* `ApiVersion` - the version of this API (e.g. `2020-01-01` or `2020-01-01-preview`).
-* `ServiceName` - the name of this Service, e.g. EventHub, Resources etc.
-* `ResourceProvider` - the name of the Resource Provider (e.g. `Microsoft.FooBar`)
-* `SwaggerDirectory` - the path to the directory containing the Swagger files for this service within the Git Submodule (which contains the Swagger data).
-* `SwaggerFiles` - a list of Swagger files within this directory which should be parsed.
-    * Note: these are intentionally not automatically discovered (yet) to be able to selectively exclude files as necessary (although this functionality exists within the codebase).
+* The Label (`analysisservices`) - (Required) - The name of the Directory containing the Service within the Swagger `specifications` directory.
+* `name` - (Required) - A Normalized Version of the Service Name (generally, TitleCased with no spaces) used to uniquely identify this service.
+* `available` - (Required) - A list of API Versions which should be Imported into Pandora's Data Format.
+* `ignore` - (Optional) - A list of API Versions which should be Ignored by the `version-bumper` tool (detailed below) when automatically adding new API Versions for this Service.
+
+An automated tool (`./tools/version-bumper`) is run whenever the Git Submodule is updated to check for any new API Versions of existing Services - and will automatically send a PR to add support for this and also ensures that this file is formatted correctly (e.g. Services and API Versions are sorted).
 
 Once the new mapping exists, build and run the `./tools/importer-rest-api-specs` project:
 
