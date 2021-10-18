@@ -51,7 +51,7 @@ func (s ResourceManagerService) AvailableServices() (*[]AvailableService, error)
 			existingPaths, ok := services[serviceName]
 			if !ok {
 				existingPaths = AvailableService{
-					Name:      strings.Title(serviceName),
+					Name:      normalizeServiceName(serviceName),
 					Directory: serviceName,
 					Version:   []string{},
 				}
@@ -71,4 +71,12 @@ func (s ResourceManagerService) AvailableServices() (*[]AvailableService, error)
 	}
 
 	return &output, nil
+}
+
+func normalizeServiceName(input string) string {
+	output := input
+	output = strings.Title(output)
+	output = strings.ReplaceAll(output, ".", "")
+	output = strings.ReplaceAll(output, "-", "")
+	return output
 }
