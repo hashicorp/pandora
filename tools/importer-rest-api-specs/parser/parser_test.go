@@ -17,8 +17,10 @@ func TestAllSwaggersUsingParser(t *testing.T) {
 	if os.Getenv(runAllEnvVar) == "" {
 		t.Skipf("skipping since %q is unset", runAllEnvVar)
 	}
+	// works around the OAIGen bug
+	os.Setenv("OAIGEN_DEDUPE", "false")
 
-	services, err := FindResourceManagerServices(swaggerDirectory, false, true)
+	services, err := FindResourceManagerServices(swaggerDirectory, true)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -50,8 +52,10 @@ func TestAllSwaggersValidateAllContainTypes(t *testing.T) {
 	if os.Getenv(runAllEnvVar) == "" {
 		t.Skipf("skipping since %q is unset", runAllEnvVar)
 	}
+	// works around the OAIGen bug
+	os.Setenv("OAIGEN_DEDUPE", "false")
 
-	services, err := FindResourceManagerServices(swaggerDirectory, false, true)
+	services, err := FindResourceManagerServices(swaggerDirectory, true)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -85,8 +89,10 @@ func TestAllSwaggersValidateFindOAIGenParserBug(t *testing.T) {
 	if os.Getenv(runAllEnvVar) == "" {
 		t.Skipf("skipping since %q is unset", runAllEnvVar)
 	}
+	// works around the OAIGen bug
+	os.Setenv("OAIGEN_DEDUPE", "false")
 
-	services, err := FindResourceManagerServices(swaggerDirectory, false, true)
+	services, err := FindResourceManagerServices(swaggerDirectory, true)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -118,8 +124,10 @@ func TestAllSwaggersValidateFindUnknownBugs(t *testing.T) {
 	if os.Getenv(runAllEnvVar) == "" {
 		t.Skipf("skipping since %q is unset", runAllEnvVar)
 	}
+	// works around the OAIGen bug
+	os.Setenv("OAIGEN_DEDUPE", "false")
 
-	services, err := FindResourceManagerServices(swaggerDirectory, false, true)
+	services, err := FindResourceManagerServices(swaggerDirectory, true)
 	if err != nil {
 		t.Fatal(err)
 	}

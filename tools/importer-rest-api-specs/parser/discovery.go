@@ -16,7 +16,7 @@ type resourceManagerService struct {
 	resourceProvider string
 }
 
-func FindResourceManagerServices(directory string, justLatestVersion, debug bool) (*[]ResourceManagerService, error) {
+func FindResourceManagerServices(directory string, debug bool) (*map[string]ResourceManagerService, error) {
 	services := make(map[string]resourceManagerService, 0)
 	err := filepath.Walk(directory,
 		func(fullPath string, info os.FileInfo, err error) error {
@@ -77,7 +77,7 @@ func FindResourceManagerServices(directory string, justLatestVersion, debug bool
 		serviceNames = append(serviceNames, serviceName)
 	}
 	sort.Strings(serviceNames)
-	out := make([]ResourceManagerService, 0)
+	out := make(map[string]ResourceManagerService, 0)
 	for _, serviceName := range serviceNames {
 		paths := services[serviceName]
 
@@ -87,19 +87,11 @@ func FindResourceManagerServices(directory string, justLatestVersion, debug bool
 		}
 		sort.Strings(sortedApiVersions)
 
-		newestApiVersion := sortedApiVersions[len(sortedApiVersions)-1]
-
-		service := ResourceManagerService{
+		out[serviceName] = ResourceManagerService{
 			Name:             serviceName,
 			ApiVersionPaths:  paths.apiVersions,
 			ResourceProvider: paths.resourceProvider,
 		}
-		if justLatestVersion {
-			service.ApiVersionPaths = map[string]string{
-				newestApiVersion: paths.apiVersions[newestApiVersion],
-			}
-		}
-		out = append(out, service)
 	}
 	return &out, nil
 }
@@ -118,6 +110,7 @@ func SwaggerFilesInDirectory(directory string) (*[]string, error) {
 	}
 
 	for _, file := range dirContents {
+		// NOTE: some directories for some Services (e.g. DataFactory) need to be parsed
 		if file.IsDir() {
 			continue
 		}
