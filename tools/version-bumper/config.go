@@ -7,35 +7,17 @@ import (
 	"strings"
 	"time"
 
+	"github.com/hashicorp/pandora/tools/sdk/config"
+
 	"github.com/hashicorp/hcl/v2/gohcl"
 	"github.com/hashicorp/hcl/v2/hclwrite"
 )
 
-type Config struct {
-	// Services is a slice of Services which should be imported
-	Services []Service `hcl:"service,block"`
-}
-
-type Service struct {
-	// Directory is the name of the Swagger directory for this Service (e.g. appconfiguration)
-	Directory string `hcl:"directory,label"`
-
-	// Name is the normalized (title-case, no spaces etc) name for this Service (e.g. AppConfiguration)
-	Name string `hcl:"name"`
-
-	// Available is a list of the Versions for this Service which should be imported
-	Available []string `hcl:"available"`
-
-	// Ignore is a list of Versions which should be Ignored for this Service
-	// A version is automatically ignored if it's not defined in
-	Ignore *[]string `hcl:"ignore"`
-}
-
-func (c *Config) WriteToFile(filePath string) error {
-	c.sortServices()
+func writeToFile(config config.Config, filePath string) error {
+	config.Services = sortServices(config.Services)
 
 	newFile := hclwrite.NewEmptyFile()
-	gohcl.EncodeIntoBody(c, newFile.Body())
+	gohcl.EncodeIntoBody(&config, newFile.Body())
 	bytes := hclwrite.Format(newFile.Bytes())
 	os.Remove(filePath)
 	file, err := os.Create(filePath)
@@ -47,17 +29,17 @@ func (c *Config) WriteToFile(filePath string) error {
 	return nil
 }
 
-func (c *Config) sortServices() {
+func sortServices(input []config.Service) []config.Service {
 	names := make([]string, 0)
-	services := make(map[string]Service, 0)
-	for _, service := range c.Services {
+	services := make(map[string]config.Service, 0)
+	for _, service := range input {
 		names = append(names, service.Directory)
 		services[service.Directory] = service
 	}
 
 	sort.Strings(names)
 
-	output := make([]Service, 0)
+	output := make([]config.Service, 0)
 	for _, name := range names {
 		service := services[name]
 		sort.Strings(service.Available)
@@ -66,13 +48,13 @@ func (c *Config) sortServices() {
 		}
 		output = append(output, service)
 	}
-	c.Services = output
+	return output
 }
 
-func (c *Config) ReconcileWithAvailableServices(availableServices []AvailableService) error {
-	services := make(map[string]Service, 0)
+func reconcileWithAvailableServices(input config.Config, availableServices []AvailableService) (*config.Config, error) {
+	services := make(map[string]config.Service, 0)
 	// first add the existing services we know about
-	for _, service := range c.Services {
+	for _, service := range input.Services {
 		services[strings.ToLower(service.Directory)] = service
 	}
 
@@ -94,13 +76,13 @@ func (c *Config) ReconcileWithAvailableServices(availableServices []AvailableSer
 			}
 			latestVersion := latestVersionFrom(versions)
 
-			services[key] = Service{
+			services[key] = config.Service{
 				Directory: availableService.Directory,
 				Name:      strings.Title(availableService.Directory),
 				Available: []string{
 					latestVersion,
 				},
-				Ignore:    nil,
+				Ignore: nil,
 			}
 			continue
 		}
@@ -118,7 +100,7 @@ func (c *Config) ReconcileWithAvailableServices(availableServices []AvailableSer
 
 				isOlder, err := isVersionIsOlderThanExistingVersion(version, existingVersion)
 				if err != nil {
-					return err
+					return nil, err
 				}
 				if *isOlder {
 					versionIsOlderThanExistingVersion = true
@@ -158,12 +140,12 @@ func (c *Config) ReconcileWithAvailableServices(availableServices []AvailableSer
 		services[key] = existing
 	}
 
-	output := make([]Service, 0)
+	output := make([]config.Service, 0)
 	for _, service := range services {
 		output = append(output, service)
 	}
-	c.Services = output
-	return nil
+	input.Services = output
+	return &input, nil
 }
 
 func latestVersionFrom(input []string) string {

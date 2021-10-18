@@ -2,10 +2,11 @@ package main
 
 import (
 	"fmt"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/generator"
 	"log"
 	"os"
 	"strings"
+
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/generator"
 
 	git "github.com/go-git/go-git/v5"
 )

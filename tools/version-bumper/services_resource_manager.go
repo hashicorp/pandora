@@ -72,4 +72,3 @@ func (s ResourceManagerService) AvailableServices() (*[]AvailableService, error)
 
 	return &output, nil
 }
-

@@ -5,7 +5,7 @@ type ServiceLocator interface {
 }
 
 type AvailableService struct {
-	Name string
+	Name      string
 	Directory string
-	Version []string
+	Version   []string
 }

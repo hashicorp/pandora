@@ -2,10 +2,11 @@ package parser
 
 import (
 	"fmt"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/featureflags"
 	"log"
 	"os"
 	"strings"
+
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/featureflags"
 )
 
 func LoadAndParseFiles(directory string, fileNames []string, serviceName, apiVersion string, debugLogging bool) (*[]ParsedData, error) {
