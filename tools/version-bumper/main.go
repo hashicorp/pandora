@@ -6,7 +6,6 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/hashicorp/hcl/v2/hclsimple"
 	"github.com/hashicorp/pandora/tools/sdk/config"
 )
 
@@ -37,10 +36,9 @@ func run(directory string) error {
 		filePath := filepath.Join(directory, fmt.Sprintf("%s.hcl", name))
 
 		log.Printf("[DEBUG] Decoding config at %q..", filePath)
-		var config config.Config
-		err := hclsimple.DecodeFile(filePath, nil, &config)
+		config, err := config.LoadFromFile(filePath)
 		if err != nil {
-			return fmt.Errorf("parsing: %+v", err)
+			return err
 		}
 
 		if !onlyFormat {
@@ -53,15 +51,15 @@ func run(directory string) error {
 			}
 
 			log.Printf("[DEBUG] Reconciling the list defined in the Config with the Available Services..")
-			parsedConfig, err := reconcileWithAvailableServices(config, *availableServices)
+			parsedConfig, err := reconcileWithAvailableServices(*config, *availableServices)
 			if err != nil {
 				return fmt.Errorf("reconciling with available services: %+v", err)
 			}
-			config = *parsedConfig
+			config = parsedConfig
 		}
 
 		log.Printf("[DEBUG] Writing new config..")
-		if err := writeToFile(config, filePath); err != nil {
+		if err := writeToFile(*config, filePath); err != nil {
 			return fmt.Errorf("writing updated config to file: %+v", err)
 		}
 		log.Printf("[DEBUG] Finished update of %q.", name)
