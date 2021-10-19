@@ -432,12 +432,7 @@ func handleStaticSegment(segment resourcemanager.ResourceIdSegment, name string)
 		return "", fmt.Errorf("encountered an empty fixed value while processing a static segment. resource: %s, segment: %+v", name, segment)
 	}
 
-	var comparisonString string
-	if featureflags.CaseSensitiveComparisons {
-		comparisonString = fmt.Sprintf(`parts[idx] == %q`, *segment.FixedValue)
-	} else {
-		comparisonString = fmt.Sprintf(`!strings.EqualFold(parts[idx], %q)`, *segment.FixedValue)
-	}
+	comparisonString := getComparisonString(*segment.FixedValue, false)
 	return fmt.Sprintf(`
     if %s {
         return nil, fmt.Errorf("expected '%s' got %%q", parts[idx])
@@ -485,12 +480,13 @@ func handleConstantSegment(segment resourcemanager.ResourceIdSegment, resourceCo
 	default:
 		return "", fmt.Errorf("unsupported constant field type: %+v", resourceConstant.Type)
 	}
+	comparisonString := getComparisonString("enum", true)
 
 	out := fmt.Sprintf(`
     found := false
     enums := []string{%s}
     for _, enum := range(enums) {
-        if parts[idx] == enum {
+        if %s {
             found = true
             break
         }
@@ -498,6 +494,24 @@ func handleConstantSegment(segment resourcemanager.ResourceIdSegment, resourceCo
     if !found {
         return nil, fmt.Errorf("%%q is not a valid %%q value, it can be one of %%q", parts[idx], parts[idx-1], strings.Join(enums, ","))
     }
-    %s`, strings.Join(enums, ","), valueSnippet)
+    %s`, strings.Join(enums, ","), comparisonString, valueSnippet)
 	return out, nil
+}
+
+func getComparisonString(compareTo string, expectedEqual bool) string {
+	var comparisonString string
+	if featureflags.CaseSensitiveComparisons {
+		operator := "=="
+		if !expectedEqual {
+			operator = "!="
+		}
+		comparisonString = fmt.Sprintf(`parts[idx] %s %q`, operator, compareTo)
+	} else {
+		operator := ""
+		if !expectedEqual {
+			operator = "!"
+		}
+		comparisonString = fmt.Sprintf(`%sstrings.EqualFold(parts[idx], %q)`, operator, compareTo)
+	}
+	return comparisonString
 }
