@@ -9,6 +9,8 @@ import (
 	"strings"
 	"sync"
 
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/cleanup"
+
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/generator"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser"
 )
@@ -162,7 +164,7 @@ func generateAllResourceManagerServices(swaggerGitSha string, justLatestVersion,
 			}
 
 			// copy to avoid this being captured
-			resourceProvider := service.ResourceProvider
+			resourceProvider := cleanup.NormalizeResourceProviderName(service.ResourceProvider)
 			runInput := RunInput{
 				RootNamespace:    "Pandora.Definitions.ResourceManager",
 				ServiceName:      service.Name,
