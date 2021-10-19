@@ -1,3 +1,3 @@
 package featureflags
 
-const CaseSensitiveComparisons = false
+const CaseSensitiveComparisons = true

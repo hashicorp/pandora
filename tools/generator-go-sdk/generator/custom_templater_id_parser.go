@@ -127,7 +127,7 @@ func (r *resourceId) generateSegments() (string, error) {
 			if err != nil {
 				return "", fmt.Errorf("while generating segment: %+v", err)
 			}
-			snippets[segmentIdx] = fmt.Sprintf("%s\n%s", idxStr, snippet)
+			snippets[segmentIdx] = fmt.Sprintf("%s\n%s\n", idxStr, snippet)
 		}
 
 		if batch.StartIdx > 0 {
@@ -217,13 +217,14 @@ func (r *resourceId) generateStructMemberMap() map[string]string {
 
 func (r *resourceId) generateStruct() string {
 	structMemberMap := r.generateStructMemberMap()
-	out := []string{"{"}
+	structMembers := make([]string, 0)
 	for member, memberType := range structMemberMap {
-		out = append(out, fmt.Sprintf("%s %s", member, memberType))
+		structMembers = append(structMembers, fmt.Sprintf("%s %s", member, memberType))
 	}
-	out = append(out, fmt.Sprintf("ResourceProvidersUsed []string"))
-	out = append(out, "}")
-	return strings.Join(out, "\n")
+	return fmt.Sprintf(`{
+		ResourceProvidersUsed []string
+		%s
+	}`, strings.Join(structMembers, "\n"))
 }
 
 func (r *resourceId) generateNewFunction() string {
@@ -243,8 +244,8 @@ func (r *resourceId) generateNewFunction() string {
 		default:
 			k := titleCase(segment.Name)
 			if v, ok := structMemberMap[k]; ok {
-				names = append(names, fmt.Sprintf("%s %s", strings.ToLower(k), v))
-				out = append(out, fmt.Sprintf("%s: %s,", k, strings.ToLower(k)))
+				names = append(names, fmt.Sprintf("%s %s", segment.Name, v))
+				out = append(out, fmt.Sprintf("%s: %s,", k, segment.Name))
 			}
 		}
 	}

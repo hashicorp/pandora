@@ -44,7 +44,7 @@ func (i idCustomParserTestsTemplater) generateTests(packageName string) (string,
 }
 
 func (i idCustomParserTestsTemplater) generatePreamble(packageName string) (string, error) {
-	return fmt.Sprintf(` package %[1]s
+	return fmt.Sprintf(`package %[1]s
 
 import (
 	"testing"
@@ -115,7 +115,6 @@ func (i idCustomParserTestsTemplater) getTestCases(resourceName string) string {
 		case resourcemanager.ResourceProviderSegment:
 			continue
 		default:
-			//structMap[segment.Name] = segment.ExampleValue
 			structMap = append(structMap, fmt.Sprintf("%s: %q,", titleCase(segment.Name), segment.ExampleValue))
 		}
 
