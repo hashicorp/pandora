@@ -28,10 +28,8 @@ func (r resourceId) template(data ServiceGeneratorData) (*string, error) {
 	if err != nil {
 		return nil, fmt.Errorf("while generating parser: %+v", err)
 	}
-	stringMethods, err := r.generateResourceStrings()
-	if err != nil {
-		return nil, fmt.Errorf("while generating code for %q/%q: %+v ", data.packageName, r.name, err)
-	}
+	stringMethods := r.getResourceMethods()
+
 	out := fmt.Sprintf("%s\n%s", parserData, stringMethods)
 
 	return &out, nil
@@ -334,9 +332,10 @@ type %[2]s struct %[3]s
 	return o, nil
 }
 
-func (r *resourceId) getResourceMethods() (string, string, error) {
+func (r *resourceId) getResourceMethods() string {
 	output := make([]string, len(r.resource.Segments))
 	vars := make([]string, 0)
+
 	snippets := []string{
 		`segments := []string {`,
 	}
@@ -374,10 +373,13 @@ func (r *resourceId) getResourceMethods() (string, string, error) {
 	segmentsStr := strings.Join(segments, " / ")
 	return fmt.Sprintf("%%q: (%%s)", %q, segmentsStr)`, r.name))
 
-	url := fmt.Sprintf("/%s", strings.Join(output, "/"))
-
 	strRepresentation := strings.Join(snippets, "\n")
 
+	strFunc := fmt.Sprintf(`func (r %s) String() string {
+    %s    
+}`, r.name, strRepresentation)
+
+	url := fmt.Sprintf("/%s", strings.Join(output, "/"))
 	idMethodStr := fmt.Sprintf(`
 	output := fmt.Sprintf("%[1]s", %[2]s)
     re, err := regexp.Compile("/+")
@@ -386,24 +388,12 @@ func (r *resourceId) getResourceMethods() (string, string, error) {
     }
 	output = re.ReplaceAllString(output, "/")
 	return output`, url, strings.Join(vars, ","))
-	return idMethodStr, strRepresentation, nil
-}
-
-func (r *resourceId) generateResourceStrings() (string, error) {
-	url, strRepr, err := r.getResourceMethods()
-	if err != nil {
-		return "", fmt.Errorf("while generating resource string methods")
-	}
-	return fmt.Sprintf(`
-func (r %s) ID() string {
+	idFunc := fmt.Sprintf(`func (r %s) String() string {
     %s    
-}
+}`, r.name, idMethodStr)
 
-func (r %s) String() string {
-    %s
-}
-
-`, r.name, url, r.name, strRepr), nil
+	final := fmt.Sprintf("%s\n%s", idFunc, strFunc)
+	return final
 }
 
 func getSegmentIdx(curIdx int, batch SegmentBatch, totalSegments int) int {
