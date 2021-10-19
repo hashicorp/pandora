@@ -331,7 +331,6 @@ func (r *resourceId) getResourceMethods() string {
 	snippets := []string{
 		`segments := []string {`,
 	}
-
 	for idx, segment := range r.resource.Segments {
 		var snippetWorthy bool
 		switch segment.Type {
@@ -353,11 +352,8 @@ func (r *resourceId) getResourceMethods() string {
 			vars = append(vars, fmt.Sprintf(" r.%s", strings.Title(segment.Name)))
 		}
 		if snippetWorthy {
-			tmpStr := fmt.Sprintf(`
-		fmt.Sprintf("%[1]s %%q", r.%[1]s),
-`, strings.Title(segment.Name))
+			tmpStr := fmt.Sprintf(`fmt.Sprintf("%[1]s %%q", r.%[1]s),`, strings.Title(segment.Name))
 			snippets = append(snippets, tmpStr)
-
 		}
 	}
 
@@ -372,19 +368,18 @@ func (r *resourceId) getResourceMethods() string {
 }`, r.name, strRepresentation)
 
 	url := fmt.Sprintf("/%s", strings.Join(output, "/"))
-	idMethodStr := fmt.Sprintf(`
-	output := fmt.Sprintf("%[1]s", %[2]s)
+	idMethodStr := fmt.Sprintf(`output := fmt.Sprintf("%[1]s", %[2]s)
     re, err := regexp.Compile("/+")
     if err != nil {
         return output
     }
 	output = re.ReplaceAllString(output, "/")
 	return output`, url, strings.Join(vars, ","))
-	idFunc := fmt.Sprintf(`func (r %s) String() string {
+	idFunc := fmt.Sprintf(`func (r %s) ID() string {
     %s    
 }`, r.name, idMethodStr)
 
-	final := fmt.Sprintf("%s\n%s", idFunc, strFunc)
+	final := fmt.Sprintf("%s\n\n%s", idFunc, strFunc)
 	return final
 }
 
