@@ -37,7 +37,7 @@ func (r resourceId) template(data ServiceGeneratorData) (*string, error) {
 	return &out, nil
 }
 
-func (r *resourceId) getSegmentBatches() (map[int]string, []SegmentBatch, error) {
+func (r *resourceId) getSegmentBatches() (map[int]string, *[]SegmentBatch, error) {
 	out := make([]SegmentBatch, 0)
 	scopePositions := make(map[int]string, 0)
 	prevIdx := -1
@@ -82,7 +82,7 @@ func (r *resourceId) getSegmentBatches() (map[int]string, []SegmentBatch, error)
 		out = append(out, final)
 	}
 
-	return scopePositions, out, nil
+	return scopePositions, &out, nil
 }
 
 func (r *resourceId) generateSegments() (string, error) {
@@ -106,7 +106,12 @@ func (r *resourceId) generateSegments() (string, error) {
 		return "", fmt.Errorf("while extracting segment batches: %+v", err)
 	}
 
-	for position, batch := range segmentBatches {
+	if segmentBatches == nil {
+		return "", nil
+	}
+	batches := *segmentBatches
+
+	for position, batch := range batches {
 		if _, ok := scopePositions[position]; ok {
 			// first we process the non scope batches
 			// because we need to figure out their range
@@ -139,7 +144,7 @@ func (r *resourceId) generateSegments() (string, error) {
 	}
 
 	for scopePosition, scIdx := range scopePositions {
-		batch := segmentBatches[scopePosition]
+		batch := batches[scopePosition]
 		startIdx := batch.StartIdx
 		endIdx := batch.EndIdx
 
