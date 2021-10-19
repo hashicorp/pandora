@@ -54,12 +54,12 @@ import (
 
 var _ resourceid.Formatter = %[2]s{}
 
-`, packageName, titleCase(i.resourceName)), nil
+`, packageName, strings.Title(i.resourceName)), nil
 }
 
 func (i idCustomParserTestsTemplater) generateParserTest() (string, error) {
 	re, _ := regexp.Compile("Id$")
-	resourceName := re.ReplaceAllString(titleCase(i.resourceName), "ID")
+	resourceName := re.ReplaceAllString(strings.Title(i.resourceName), "ID")
 	paramVals, urlVals, err := i.getVals()
 	if err != nil {
 		return "", fmt.Errorf("while getting values for test generation: %+v", err)
@@ -115,7 +115,7 @@ func (i idCustomParserTestsTemplater) getTestCases(resourceName string) string {
 		case resourcemanager.ResourceProviderSegment:
 			continue
 		default:
-			structMap = append(structMap, fmt.Sprintf("%s: %q,", titleCase(segment.Name), segment.ExampleValue))
+			structMap = append(structMap, fmt.Sprintf("%s: %q,", strings.Title(segment.Name), segment.ExampleValue))
 		}
 
 	}
@@ -157,7 +157,7 @@ func (i idCustomParserTestsTemplater) getTestCaseChecks() string {
 			out = append(out, fmt.Sprintf(`
 if actual.%[1]s != v.Expected.%[1]s {
 	t.Fatalf("Expected %%q but got %%q for %[1]s", v.Expected.%[1]s, actual.%[1]s)
-}`, titleCase(segment.Name)))
+}`, strings.Title(segment.Name)))
 		}
 	}
 	return strings.Join(out, "\n")
@@ -165,7 +165,7 @@ if actual.%[1]s != v.Expected.%[1]s {
 
 func (i idCustomParserTestsTemplater) generateTestCases() string {
 	re, _ := regexp.Compile("Id$")
-	resourceName := re.ReplaceAllString(titleCase(i.resourceName), "ID")
+	resourceName := re.ReplaceAllString(strings.Title(i.resourceName), "ID")
 
 	testCases := i.getTestCases(resourceName)
 	testCaseChecks := i.getTestCaseChecks()
@@ -196,7 +196,7 @@ func Test%[1]s(t *testing.T) {
 
 	}
 }
-`, resourceName, titleCase(i.resourceName), testCases, testCaseChecks)
+`, resourceName, strings.Title(i.resourceName), testCases, testCaseChecks)
 
 	return out
 }

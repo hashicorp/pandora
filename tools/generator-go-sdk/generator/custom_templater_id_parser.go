@@ -153,7 +153,7 @@ func (r *resourceId) generateSegments() (string, error) {
 		}
 		for x := startIdx; x <= endIdx; x++ {
 			segmentIdx := getSegmentIdx(x, batch, len(segments))
-			snippets[x] = fmt.Sprintf(`output.%s = strings.Join(parts[%s], separator)`, titleCase(segments[segmentIdx].Name), scIdx)
+			snippets[x] = fmt.Sprintf(`output.%s = strings.Join(parts[%s], separator)`, strings.Title(segments[segmentIdx].Name), scIdx)
 		}
 	}
 	return strings.Join(snippets, "\n"), nil
@@ -185,7 +185,7 @@ func (r *resourceId) processNonScopeSegment(segment resourcemanager.ResourceIdSe
 	case resourcemanager.SubscriptionIdSegment:
 		fallthrough
 	case resourcemanager.UserSpecifiableSegment:
-		snippet = fmt.Sprintf(`output.%s = parts[idx]`, titleCase(segment.Name))
+		snippet = fmt.Sprintf(`output.%s = parts[idx]`, strings.Title(segment.Name))
 	default:
 		return "", fmt.Errorf("unknown segment type encountered: %+v", segment.Type)
 	}
@@ -214,7 +214,7 @@ func (r *resourceId) generateStructMemberMap() map[string]string {
 		case resourcemanager.SubscriptionIdSegment:
 			fallthrough
 		case resourcemanager.UserSpecifiableSegment:
-			structMemberMap[titleCase(segment.Name)] = memberType
+			structMemberMap[strings.Title(segment.Name)] = memberType
 		}
 	}
 	return structMemberMap
@@ -234,7 +234,7 @@ func (r *resourceId) generateStruct() string {
 
 func (r *resourceId) generateNewFunction() string {
 	re, _ := regexp.Compile("Id$")
-	IDname := re.ReplaceAllString(titleCase(r.name), "ID")
+	IDname := re.ReplaceAllString(strings.Title(r.name), "ID")
 	structMemberMap := r.generateStructMemberMap()
 	out := make([]string, 0)
 	names := make([]string, 0)
@@ -247,7 +247,7 @@ func (r *resourceId) generateNewFunction() string {
 		case resourcemanager.ResourceProviderSegment:
 			continue
 		default:
-			k := titleCase(segment.Name)
+			k := strings.Title(segment.Name)
 			if v, ok := structMemberMap[k]; ok {
 				names = append(names, fmt.Sprintf("%s %s", segment.Name, v))
 				out = append(out, fmt.Sprintf("%s: %s,", k, segment.Name))
@@ -257,8 +257,8 @@ func (r *resourceId) generateNewFunction() string {
 
 	out = append(out, "}\n}")
 	out = append([]string{
-		fmt.Sprintf(`func New%[1]s(%[2]s) %[3]s {`, IDname, strings.Join(names, ","), titleCase(r.name)),
-		fmt.Sprintf("return %s {", titleCase(r.name)),
+		fmt.Sprintf(`func New%[1]s(%[2]s) %[3]s {`, IDname, strings.Join(names, ","), strings.Title(r.name)),
+		fmt.Sprintf("return %s {", strings.Title(r.name)),
 	}, out...)
 	return strings.Join(out, "\n")
 }
@@ -359,12 +359,12 @@ func (r *resourceId) getResourceMethods() (string, string, error) {
 		case resourcemanager.UserSpecifiableSegment:
 			snippetWorthy = true
 			output[idx] = "%s"
-			vars = append(vars, fmt.Sprintf(" r.%s", titleCase(segment.Name)))
+			vars = append(vars, fmt.Sprintf(" r.%s", strings.Title(segment.Name)))
 		}
 		if snippetWorthy {
 			tmpStr := fmt.Sprintf(`
 		fmt.Sprintf("%[1]s %%q", r.%[1]s),
-`, titleCase(segment.Name))
+`, strings.Title(segment.Name))
 			snippets = append(snippets, tmpStr)
 
 		}
@@ -404,14 +404,6 @@ func (r %s) String() string {
 }
 
 `, r.name, url, r.name, strRepr), nil
-}
-
-func titleCase(input string) string {
-	if len(input) == 1 {
-		return strings.ToUpper(input)
-	}
-
-	return fmt.Sprintf("%s%s", strings.ToUpper(input[:1]), input[1:])
 }
 
 func getSegmentIdx(curIdx int, batch SegmentBatch, totalSegments int) int {
@@ -477,7 +469,7 @@ func handleConstantSegment(segment resourcemanager.ResourceIdSegment, resourceCo
     if err != nil {
         return nil, fmt.Errorf("failed to parse %%q as integer: %%+v", parts[idx], err)
     }
-    output.%s = num`, titleCase(segment.Name))
+    output.%s = num`, strings.Title(segment.Name))
 		}
 	case resourcemanager.FloatConstant:
 		{
@@ -486,10 +478,10 @@ func handleConstantSegment(segment resourcemanager.ResourceIdSegment, resourceCo
     if err != nil {
         return nil, fmt.Errorf("failed to parse %%q as float: %%+v", parts[idx], err)
     }
-    output.%s = num`, titleCase(segment.Name))
+    output.%s = num`, strings.Title(segment.Name))
 		}
 	case resourcemanager.StringConstant:
-		valueSnippet = fmt.Sprintf("output.%s = parts[idx]", titleCase(segment.Name))
+		valueSnippet = fmt.Sprintf("output.%s = parts[idx]", strings.Title(segment.Name))
 	default:
 		return "", fmt.Errorf("unsupported constant field type: %+v", resourceConstant.Type)
 	}
