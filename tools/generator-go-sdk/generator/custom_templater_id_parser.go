@@ -194,26 +194,18 @@ func (r *resourceId) generateStructMemberMap() map[string]string {
 	structMemberMap := make(map[string]string, 0)
 
 	for _, segment := range r.resource.Segments {
-		memberType := "string"
+		segmentType := string(resourcemanager.StringConstant)
 		switch segment.Type {
+		case resourcemanager.StaticSegment:
+			fallthrough
+		case resourcemanager.ResourceProviderSegment:
+			continue
 		case resourcemanager.ConstantSegment:
 			if constant, ok := r.constantDetails[*segment.ConstantReference]; ok {
-				if constant.Type == resourcemanager.IntegerConstant {
-					memberType = "int64"
-				} else if constant.Type == resourcemanager.FloatConstant {
-					memberType = "float64"
-				}
+				segmentType = string(constant.Type)
 			}
-			fallthrough
-		case resourcemanager.ScopeSegment:
-			fallthrough
-		case resourcemanager.ResourceGroupSegment:
-			fallthrough
-		case resourcemanager.SubscriptionIdSegment:
-			fallthrough
-		case resourcemanager.UserSpecifiableSegment:
-			structMemberMap[strings.Title(segment.Name)] = memberType
 		}
+		structMemberMap[strings.Title(segment.Name)] = segmentType
 	}
 	return structMemberMap
 }
