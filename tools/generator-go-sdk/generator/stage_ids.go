@@ -2,11 +2,25 @@ package generator
 
 import (
 	"fmt"
+	"os"
+	"path/filepath"
 	"strings"
 )
 
 func (s *ServiceGenerator) ids(data ServiceGeneratorData) error {
 	outputDirectory := data.outputPath
+
+	// For each package we first write the utils
+	// This is temporary until the util code gets merged to the azure-helpers repo
+	utilFilePath := filepath.Join(outputDirectory, "id_util.go")
+	// remove any existing file if it exists
+	_ = os.Remove(utilFilePath)
+	file, err := os.Create(utilFilePath)
+	if err != nil {
+		return fmt.Errorf("opening %q: %+v", utilFilePath, err)
+	}
+	defer file.Close()
+	_, _ = file.WriteString(fmt.Sprintf(utilString, data.packageName))
 
 	for idName, resourceData := range data.resourceIds {
 		if len(resourceData.Segments) == 0 {

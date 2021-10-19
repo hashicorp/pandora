@@ -24,6 +24,7 @@ type resourceId struct {
 }
 
 func (r resourceId) template(data ServiceGeneratorData) (*string, error) {
+
 	parserData, err := r.generateParser(data.packageName)
 	if err != nil {
 		return nil, fmt.Errorf("while generating parser: %+v", err)
@@ -125,7 +126,7 @@ func (r *resourceId) generateSegments() (string, error) {
 			} else {
 				segmentIdx = x
 			}
-			idxStr = fmt.Sprintf(`idx = output.getIdx(numParts, %d, %t)`, x, batch.Reverse)
+			idxStr = fmt.Sprintf(`idx = ap.GetIdx(ap.NumParts, %d, %t)`, x, batch.Reverse)
 			snippet, err := r.processNonScopeSegment(segments[segmentIdx])
 			if err != nil {
 				return "", fmt.Errorf("while generating segment: %+v", err)
@@ -136,7 +137,7 @@ func (r *resourceId) generateSegments() (string, error) {
 		if batch.StartIdx > 0 {
 			positionIdx := batch.StartIdx - 1
 			if _, ok := scopePositions[positionIdx]; ok {
-				scopePositions[positionIdx] = fmt.Sprintf(`%d:len(parts) - 1 - %d`, positionIdx, endIdx)
+				scopePositions[positionIdx] = fmt.Sprintf(`%d:len(ap.Parts) - 1 - %d`, positionIdx, endIdx)
 			}
 		}
 	}
@@ -151,7 +152,7 @@ func (r *resourceId) generateSegments() (string, error) {
 		}
 		for x := startIdx; x <= endIdx; x++ {
 			segmentIdx := getSegmentIdx(x, batch, len(segments))
-			snippets[x] = fmt.Sprintf(`output.%s = strings.Join(parts[%s], separator)`, strings.Title(segments[segmentIdx].Name), scIdx)
+			snippets[x] = fmt.Sprintf(`output.%s = strings.Join(ap.Parts[%s], ap.Separator)`, strings.Title(segments[segmentIdx].Name), scIdx)
 		}
 	}
 	return strings.Join(snippets, "\n"), nil
@@ -183,7 +184,7 @@ func (r *resourceId) processNonScopeSegment(segment resourcemanager.ResourceIdSe
 	case resourcemanager.SubscriptionIdSegment:
 		fallthrough
 	case resourcemanager.UserSpecifiableSegment:
-		snippet = fmt.Sprintf(`output.%s = parts[idx]`, strings.Title(segment.Name))
+		snippet = fmt.Sprintf(`output.%s = ap.Parts[idx]`, strings.Title(segment.Name))
 	default:
 		return "", fmt.Errorf("unknown segment type encountered: %+v", segment.Type)
 	}
@@ -285,32 +286,16 @@ type %[2]s struct %[3]s
 
 %[7]s
     // inputs
-    minLength := %[4]d
-    separator := %[5]q
     output := &%[2]s{}
-    separatorRe := fmt.Sprintf("%%s+", separator)
-    idx := 0
-
-
-	// Remove duplicate separators
-    re, err := regexp.Compile(separatorRe)
-    if err != nil {
-        return nil, fmt.Errorf("while compiling regexp %%q: %%+v", separatorRe, err)
-    }
-	id = re.ReplaceAllString(id, separator)
-	if id[0] == '/' {
-		id = id[1:]
+	apConfig := AzureParserConfig{
+		MinLength: %[4]d,
+		Separator: %[5]q,
 	}
-
-    parts := strings.Split(id, separator)
-
-
-    numParts := len(parts)
-    if numParts < minLength {
-        return nil, fmt.Errorf("invalid length for id: %%q, expected to find at least %%d parts, found %%d", id, minLength, numParts)
-    } else if numParts == 1 && parts[0] == "" {
-		return nil, fmt.Errorf("empty url found")
-    }
+	ap, err := NewAzureParser(apConfig, id)
+	if err != nil {
+		return nil, fmt.Errorf("while initialising AzureParser: %%+v", err)
+	}
+	idx := 0
 
     %[6]s
 
@@ -318,8 +303,7 @@ type %[2]s struct %[3]s
 }
 
 %[8]s
-%[9]s
-`, packageName, r.name, r.generateStruct(), minLength, separator, segments, scopedIdxSnippet, idxFunc(r.name), r.generateNewFunction())
+`, packageName, r.name, r.generateStruct(), minLength, separator, segments, scopedIdxSnippet, r.generateNewFunction())
 
 	return o, nil
 }
@@ -393,17 +377,6 @@ func getSegmentIdx(curIdx int, batch SegmentBatch, totalSegments int) int {
 	return segmentIdx
 }
 
-func idxFunc(typeName string) string {
-	return fmt.Sprintf(`
-func (r %s) getIdx(total, idx int, reverse bool) int {
-	if reverse {
-		return total - 1 - idx
-	}
-	return idx
-}
-`, typeName)
-}
-
 func handleStaticSegment(segment resourcemanager.ResourceIdSegment, name string) (string, error) {
 	if segment.FixedValue == nil {
 		return "", fmt.Errorf("encountered an empty fixed value while processing a static segment. resource: %s, segment: %+v", name, segment)
@@ -412,12 +385,12 @@ func handleStaticSegment(segment resourcemanager.ResourceIdSegment, name string)
 	comparisonString := getComparisonString(*segment.FixedValue, false)
 	return fmt.Sprintf(`
     if %s {
-        return nil, fmt.Errorf("expected '%s' got %%q", parts[idx])
+        return nil, fmt.Errorf("expected '%s' got %%q", ap.Parts[idx])
     }`, comparisonString, *segment.FixedValue), nil
 }
 
 func handleProviderSegment(segment resourcemanager.ResourceIdSegment, name string) (string, error) {
-	provSnippet := "output.ResourceProvidersUsed = append(output.ResourceProvidersUsed, parts[idx])"
+	provSnippet := "output.ResourceProvidersUsed = append(output.ResourceProvidersUsed, ap.Parts[idx])"
 	snippet, err := handleStaticSegment(segment, name)
 	if err != nil {
 		return "", err
@@ -437,23 +410,23 @@ func handleConstantSegment(segment resourcemanager.ResourceIdSegment, resourceCo
 	case resourcemanager.IntegerConstant:
 		{
 			valueSnippet = fmt.Sprintf(`
-    num, err := strconv.ParseInt(parts[idx], 10, 64)
+    num, err := strconv.ParseInt(ap.Parts[idx], 10, 64)
     if err != nil {
-        return nil, fmt.Errorf("failed to parse %%q as integer: %%+v", parts[idx], err)
+        return nil, fmt.Errorf("failed to parse %%q as integer: %%+v", ap.Parts[idx], err)
     }
     output.%s = num`, strings.Title(segment.Name))
 		}
 	case resourcemanager.FloatConstant:
 		{
 			valueSnippet = fmt.Sprintf(`
-    num, err := strconv.ParseFloat(parts[idx], 64)
+    num, err := strconv.ParseFloat(ap.Parts[idx], 64)
     if err != nil {
-        return nil, fmt.Errorf("failed to parse %%q as float: %%+v", parts[idx], err)
+        return nil, fmt.Errorf("failed to parse %%q as float: %%+v", ap.Parts[idx], err)
     }
     output.%s = num`, strings.Title(segment.Name))
 		}
 	case resourcemanager.StringConstant:
-		valueSnippet = fmt.Sprintf("output.%s = parts[idx]", strings.Title(segment.Name))
+		valueSnippet = fmt.Sprintf("output.%s = ap.Parts[idx]", strings.Title(segment.Name))
 	default:
 		return "", fmt.Errorf("unsupported constant field type: %+v", resourceConstant.Type)
 	}
@@ -469,7 +442,7 @@ func handleConstantSegment(segment resourcemanager.ResourceIdSegment, resourceCo
         }
     }
     if !found {
-        return nil, fmt.Errorf("%%q is not a valid %%q value, it can be one of %%q", parts[idx], parts[idx-1], strings.Join(enums, ","))
+        return nil, fmt.Errorf("%%q is not a valid %%q value, it can be one of %%q", ap.Parts[idx], ap.Parts[idx-1], strings.Join(enums, ","))
     }
     %s`, strings.Join(enums, ","), comparisonString, valueSnippet)
 	return out, nil
@@ -482,13 +455,13 @@ func getComparisonString(compareTo string, expectedEqual bool) string {
 		if !expectedEqual {
 			operator = "!="
 		}
-		comparisonString = fmt.Sprintf(`parts[idx] %s %q`, operator, compareTo)
+		comparisonString = fmt.Sprintf(`ap.Parts[idx] %s %q`, operator, compareTo)
 	} else {
 		operator := ""
 		if !expectedEqual {
 			operator = "!"
 		}
-		comparisonString = fmt.Sprintf(`%sstrings.EqualFold(parts[idx], %q)`, operator, compareTo)
+		comparisonString = fmt.Sprintf(`%sstrings.EqualFold(ap.Parts[idx], %q)`, operator, compareTo)
 	}
 	return comparisonString
 }
