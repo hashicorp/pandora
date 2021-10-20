@@ -56,4 +56,16 @@ func (a AzureParser) GetIdx(total, idx int, reverse bool) int {
 		return total - 1 - idx
 	}
 	return idx
-}`
+}
+
+func ExtractNameFromTitleCase(input string) string {
+    input = strings.Title(input)
+	re := regexp.MustCompile("[A-Z][^A-Z]*")
+	res := re.FindAllString(input, -1)
+	if res == nil {
+		return input
+	}
+	return strings.Join(res, " ")
+}
+
+`

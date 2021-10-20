@@ -336,7 +336,7 @@ func (r *resourceId) getResourceMethods() string {
 			vars = append(vars, fmt.Sprintf(" r.%s", strings.Title(segment.Name)))
 		}
 		if snippetWorthy {
-			tmpStr := fmt.Sprintf(`fmt.Sprintf("%[1]s %%q", r.%[1]s),`, strings.Title(segment.Name))
+			tmpStr := fmt.Sprintf(`fmt.Sprintf("%%s %%q", ExtractNameFromTitleCase(r.%[1]s), r.%[1]s),`, strings.Title(segment.Name))
 			snippets = append(snippets, tmpStr)
 		}
 	}
