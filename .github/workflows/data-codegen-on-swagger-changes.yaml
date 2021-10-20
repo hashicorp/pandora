@@ -52,14 +52,14 @@ jobs:
 
       - name: then conditionally push the branch
         id: push-branch
-        if: ${{ steps.commit.outputs.has_changes_to_push == 'true' }}
+        if: ${{ steps.commit-versions-config.outputs.has_changes_to_push == 'true' || steps.commit-imported-data.outputs.has_changes_to_push == 'true' }}
         run: |
           git push origin data/regeneration-from-${{ github.sha }}
 
       - name: then conditionally open a pull request
         uses: repo-sync/pull-request@v2
         id: open-pr
-        if: ${{ steps.commit.outputs.has_changes_to_push == 'true' }}
+        if: ${{ steps.commit-versions-config.outputs.has_changes_to_push == 'true' || steps.commit-imported-data.outputs.has_changes_to_push == 'true' }}
         with:
           source_branch: "data/regeneration-from-${{ github.sha }}"
           destination_branch: "main"
