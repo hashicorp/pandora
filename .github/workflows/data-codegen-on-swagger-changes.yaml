@@ -48,9 +48,6 @@ jobs:
       - name: then commit the diff
         id: commit-imported-data
         run: |
-          git checkout -b data/regeneration-from-${{ github.sha }}
-          git config user.name "GitHub Actions"
-          git config user.email "<>"
           ./scripts/conditionally-commit-codegen-changes.sh "data: regenerating based on the latest Swagger"
 
       - name: then conditionally push the branch
