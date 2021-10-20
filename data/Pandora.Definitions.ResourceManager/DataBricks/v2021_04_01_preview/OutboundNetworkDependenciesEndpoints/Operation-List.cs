@@ -6,9 +6,9 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.DataBricks.v2021_04_01_preview.GET
+namespace Pandora.Definitions.ResourceManager.DataBricks.v2021_04_01_preview.OutboundNetworkDependenciesEndpoints
 {
-    internal class OutboundNetworkDependenciesEndpointsListOperation : Operations.GetOperation
+    internal class ListOperation : Operations.GetOperation
     {
         public override ResourceID? ResourceId() => new WorkspaceId();
 

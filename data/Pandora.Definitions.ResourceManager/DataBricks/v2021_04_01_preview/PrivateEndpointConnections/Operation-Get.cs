@@ -6,9 +6,9 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.DataBricks.v2021_04_01_preview.GET
+namespace Pandora.Definitions.ResourceManager.DataBricks.v2021_04_01_preview.PrivateEndpointConnections
 {
-    internal class PrivateEndpointConnectionsGetOperation : Operations.GetOperation
+    internal class GetOperation : Operations.GetOperation
     {
         public override ResourceID? ResourceId() => new PrivateEndpointConnectionId();
 
