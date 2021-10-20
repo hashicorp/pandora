@@ -23,13 +23,13 @@ service "labservices" {
   name      = "LabServices"
   available = ["2021-10-01-preview"]
 }
-service "msi" {
-  name      = "ManagedIdentity"
-  available = ["2018-11-30"]
-}
 service "maps" {
   name      = "Maps"
   available = ["2021-02-01"]
+}
+service "msi" {
+  name      = "ManagedIdentity"
+  available = ["2018-11-30"]
 }
 service "powerbidedicated" {
   name      = "PowerBIDedicated"
