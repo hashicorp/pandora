@@ -273,6 +273,68 @@ var signalRResourceId = models.ParsedResourceId{
 		},
 	},
 }
+var trafficManagerProfileResourceId = models.ParsedResourceId{
+	Constants: map[string]models.ConstantDetails{
+		"EndpointType": {
+			FieldType: models.StringConstant,
+			Values: map[string]string{
+				"AzureEndpoints":    "azureEndpoints",
+				"ExternalEndpoints": "externalEndpoints",
+				"NestedEndpoints":   "nestedEndpoints",
+			},
+		},
+	},
+	Segments: []models.ResourceIdSegment{
+		{
+			Type:       models.StaticSegment,
+			FixedValue: strPtr("subscriptions"),
+			Name:       "subscriptions",
+		},
+		{
+			Type: models.SubscriptionIdSegment,
+			Name: "subscriptionId",
+		},
+		{
+			Type:       models.StaticSegment,
+			FixedValue: strPtr("resourceGroups"),
+			Name:       "resourceGroups",
+		},
+		{
+			Type: models.ResourceGroupSegment,
+			Name: "resourceGroupName",
+		},
+		{
+			Type:       models.StaticSegment,
+			FixedValue: strPtr("providers"),
+			Name:       "providers",
+		},
+		{
+			Type:       models.ResourceProviderSegment,
+			FixedValue: strPtr("Microsoft.Network"),
+			Name:       "microsoftNetwork",
+		},
+		{
+			Type:       models.StaticSegment,
+			FixedValue: strPtr("trafficManagerProfiles"),
+			Name:       "trafficManagerProfiles",
+		},
+		{
+			Type:       models.UserSpecifiedSegment,
+			FixedValue: strPtr("profileName"),
+			Name:       "profileName",
+		},
+		{
+			Type:              models.ConstantSegment,
+			ConstantReference: strPtr("EndpointType"),
+			Name:              "endpointType",
+		},
+		{
+			Type:       models.UserSpecifiedSegment,
+			FixedValue: strPtr("endpointName"),
+			Name:       "endpointName",
+		},
+	},
+}
 
 func TestResourceIDNamingEmpty(t *testing.T) {
 	actualNamesToIds, actualUrisToNames, err := determineNamesForResourceIds(map[string]resourceUriMetadata{})
@@ -1189,6 +1251,36 @@ func TestResourceIdNamingSignalRId(t *testing.T) {
 	}
 	expectedUrisToNames := map[string]string{
 		"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.SignalRService/SignalR/{resourceName}": "SignalRId",
+	}
+
+	actualNamesToIds, actualUrisToNames, err := determineNamesForResourceIds(input)
+	if err != nil {
+		t.Fatalf("error: %+v", err)
+		return
+	}
+
+	if !reflect.DeepEqual(expectedNamesToIds, *actualNamesToIds) {
+		t.Fatalf("expected namesToIds to be %+v but got %+v", expectedNamesToIds, *actualNamesToIds)
+	}
+
+	if !reflect.DeepEqual(expectedUrisToNames, *actualUrisToNames) {
+		t.Fatalf("expected urisToNames to be %+v but got %+v", expectedUrisToNames, *actualUrisToNames)
+	}
+}
+
+func TestResourceIdNamingTrafficManagerEndpoint(t *testing.T) {
+	input := map[string]resourceUriMetadata{
+		"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{profileName}/{endpointType}/{endpointName}": {
+			resourceIdName: nil,
+			resourceId:     &trafficManagerProfileResourceId,
+			uriSuffix:      nil,
+		},
+	}
+	expectedNamesToIds := map[string]models.ParsedResourceId{
+		"EndpointTypeId": trafficManagerProfileResourceId,
+	}
+	expectedUrisToNames := map[string]string{
+		"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{profileName}/{endpointType}/{endpointName}": "EndpointTypeId",
 	}
 
 	actualNamesToIds, actualUrisToNames, err := determineNamesForResourceIds(input)
