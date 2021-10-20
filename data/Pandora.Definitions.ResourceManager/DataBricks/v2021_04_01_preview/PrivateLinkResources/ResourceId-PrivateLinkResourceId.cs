@@ -1,11 +1,11 @@
 using System.Collections.Generic;
 using Pandora.Definitions.Interfaces;
 
-namespace Pandora.Definitions.ResourceManager.DataBricks.v2021_04_01_preview.GET
+namespace Pandora.Definitions.ResourceManager.DataBricks.v2021_04_01_preview.PrivateLinkResources
 {
-    internal class WorkspaceId : ResourceID
+    internal class PrivateLinkResourceId : ResourceID
     {
-        public string ID() => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Databricks/workspaces/{workspaceName}";
+        public string ID() => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Databricks/workspaces/{workspaceName}/privateLinkResources/{groupId}";
 
         public List<ResourceIDSegment> Segments()
         {
@@ -61,6 +61,19 @@ namespace Pandora.Definitions.ResourceManager.DataBricks.v2021_04_01_preview.GET
                 new()
                 {
                     Name = "workspaceName",
+                    Type = ResourceIDSegmentType.UserSpecified
+                },
+
+                new()
+                {
+                    Name = "privateLinkResources",
+                    Type = ResourceIDSegmentType.Static,
+                    FixedValue = "privateLinkResources"
+                },
+
+                new()
+                {
+                    Name = "groupId",
                     Type = ResourceIDSegmentType.UserSpecified
                 },
 
