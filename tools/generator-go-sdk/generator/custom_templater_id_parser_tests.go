@@ -47,6 +47,7 @@ func (i idCustomParserTestsTemplater) generatePreamble(packageName string) (stri
 	return fmt.Sprintf(`package %[1]s
 
 import (
+	"reflect"
 	"testing"
 
     "github.com/hashicorp/terraform-provider-azurerm/internal/resourceid"
@@ -58,7 +59,7 @@ var _ resourceid.Formatter = %[2]s{}
 }
 
 func (i idCustomParserTestsTemplater) generateParserTest() (string, error) {
-	re, _ := regexp.Compile("Id$")
+	re := regexp.MustCompile("Id$")
 	resourceName := re.ReplaceAllString(strings.Title(i.resourceName), "ID")
 	paramVals, urlVals, err := i.getVals()
 	if err != nil {
@@ -117,7 +118,10 @@ func (i idCustomParserTestsTemplater) getTestCases(resourceName string) string {
 		default:
 			structMap = append(structMap, fmt.Sprintf("%s: %q,", strings.Title(segment.Name), segment.ExampleValue))
 		}
-
+	}
+	rps := i.getResourceProviders()
+	if len(rps) > 0 {
+		structMap = append(structMap, fmt.Sprintf("ResourceProvidersUsed: []string{%s},", strings.Join(rps, ",")))
 	}
 
 	for idx := 0; idx < len(urlVals); idx++ {
@@ -130,7 +134,7 @@ func (i idCustomParserTestsTemplater) getTestCases(resourceName string) string {
 	}
 
 	fullUrl := strings.Join(urlVals, "/")
-	re, _ := regexp.Compile("/+")
+	re := regexp.MustCompile("/+")
 	fullUrl = re.ReplaceAllString(fullUrl, "/")
 	final := fmt.Sprintf(`
 	{
@@ -143,6 +147,19 @@ func (i idCustomParserTestsTemplater) getTestCases(resourceName string) string {
 
 	cases = append(cases, final)
 	return strings.Join(cases, "\n")
+}
+
+func (i idCustomParserTestsTemplater) getResourceProviders() []string {
+	out := make([]string, 0)
+	for _, segment := range i.resourceData.Segments {
+		if segment.Type != resourcemanager.ResourceProviderSegment {
+			continue
+		}
+		if segment.FixedValue != nil {
+			out = append(out, fmt.Sprintf("%q", *segment.FixedValue))
+		}
+	}
+	return out
 }
 
 func (i idCustomParserTestsTemplater) getTestCaseChecks() string {
@@ -160,6 +177,9 @@ if actual.%[1]s != v.Expected.%[1]s {
 }`, strings.Title(segment.Name)))
 		}
 	}
+	out = append(out, `if !reflect.DeepEqual(actual.ResourceProvidersUsed, v.Expected.ResourceProvidersUsed) {
+	t.Fatalf("Expected %q but got %q for ResourceProvidersUsed", v.Expected.ResourceProvidersUsed, actual.ResourceProvidersUsed)
+}`)
 	return strings.Join(out, "\n")
 }
 
