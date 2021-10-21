@@ -57,6 +57,9 @@ func operationShouldBeIgnored(operationUri string) bool {
 	}
 
 	// LRO's shouldn't be directly exposed
+	if strings.Contains(strings.ToLower(operationUri), "/azureasyncoperations/") {
+		return true
+	}
 	if strings.Contains(strings.ToLower(operationUri), "/operationresults/") {
 		return true
 	}
