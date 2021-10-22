@@ -120,6 +120,8 @@ func (c modelsTemplater) template(data ServiceGeneratorData) (*string, error) {
 		template := fmt.Sprintf(`package %[1]s
 
 import (
+	"encoding/json"
+	"fmt"
 	"time"
 
 	"github.com/hashicorp/go-azure-helpers/formatting"
@@ -148,6 +150,8 @@ type %[2]s interface {
 	template := fmt.Sprintf(`package %[1]s
 
 import (
+	"encoding/json"
+	"fmt"
 	"time"
 
 	"github.com/hashicorp/go-azure-helpers/formatting"
@@ -234,7 +238,6 @@ func (c modelsTemplater) unmarshalerFunc() (*string, error) {
 		}
 
 		if fieldDetails.ObjectDefinition.Type == resourcemanager.ListApiObjectDefinitionType {
-
 			structLine, err := c.structLineForField(fieldName, "[]json.RawMessage", fieldDetails)
 			if err != nil {
 				return nil, err
@@ -396,13 +399,10 @@ func (c modelsTemplater) marshalFuncForChildClass() (*string, error) {
 	sort.Strings(sortedFieldNames)
 
 	fields := make([]string, 0)
+	// NOTE: `c.model.TypeHintIn` is the Field Name not the Json Name
+	fields = append(fields, fmt.Sprintf("%q: %q,", *c.model.TypeHintIn, *c.model.TypeHintValue))
 	for _, key := range sortedFieldNames {
 		jsonName := c.model.Fields[key].JsonName
-		if key == *c.model.TypeHintIn {
-			fields = append(fields, fmt.Sprintf("%q: %q,", jsonName, *c.model.TypeHintValue))
-			continue
-		}
-
 		fields = append(fields, fmt.Sprintf("%q: o.%s,", jsonName, key))
 	}
 
