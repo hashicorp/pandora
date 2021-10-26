@@ -347,6 +347,7 @@ func (c modelsTemplater) codeForUnmarshalParentFunction(data ServiceGeneratorDat
 		if len(modelsImplementingThisClass) == 0 {
 			return nil, fmt.Errorf("model %q is a discriminated parent type with no implementations", c.name)
 		}
+		jsonFieldName := c.model.Fields[*c.model.TypeHintIn].JsonName
 		lines = append(lines, fmt.Sprintf(`
 func unmarshal%[1]sImplementation(input []byte) (%[1]s, error) {
 	var temp map[string]interface{}
@@ -358,7 +359,7 @@ func unmarshal%[1]sImplementation(input []byte) (%[1]s, error) {
 	if !ok {
 		return nil, fmt.Errorf("missing field '%[2]s' needed to discriminate %[1]s type")
 	}
-`, c.name, *c.model.TypeHintIn))
+`, c.name, jsonFieldName))
 
 		sort.Strings(modelsImplementingThisClass)
 		for _, implementationName := range modelsImplementingThisClass {
@@ -475,7 +476,7 @@ func (s *%[1]s) UnmarshalJSON(bytes []byte) error {`, c.name))
 
 				// TODO: handle the Dictionary Element being Optional if necessary
 				lines = append(lines, fmt.Sprintf(`
-	if v, ok := temp[%[2]q]; ok {
+	if v, ok := temp[%[5]q]; ok {
 		var dictionaryTemp map[string]json.RawMessage
 		if err := json.Unmarshal(v, &dictionaryTemp); err != nil {
 			return fmt.Errorf("unmarshaling %[1]s into dictionary map[string]json.RawMessage: %%+v", err)
@@ -490,7 +491,7 @@ func (s *%[1]s) UnmarshalJSON(bytes []byte) error {`, c.name))
 			output[key] = impl
 		}
 		s.%[1]s = %[4]soutput
-	}`, fieldName, *topLevelObjectDef.ReferenceName, c.name, assignmentPrefix))
+	}`, fieldName, *topLevelObjectDef.ReferenceName, c.name, assignmentPrefix, fieldDetails.JsonName))
 			}
 
 			if fieldDetails.ObjectDefinition.Type == resourcemanager.ListApiObjectDefinitionType {
@@ -510,7 +511,7 @@ func (s *%[1]s) UnmarshalJSON(bytes []byte) error {`, c.name))
 				// TODO: handle the List Element being Optional if necessary
 
 				lines = append(lines, fmt.Sprintf(`
-	if v, ok := temp[%[2]q]; ok {
+	if v, ok := temp[%[5]q]; ok {
 		var listTemp []json.RawMessage
 		if err := json.Unmarshal(v, &listTemp); err != nil {
 			return fmt.Errorf("unmarshaling %[1]s into list []json.RawMessage: %%+v", err)
@@ -525,18 +526,18 @@ func (s *%[1]s) UnmarshalJSON(bytes []byte) error {`, c.name))
 			output = append(output, impl)
 		}
 		s.%[1]s = %[4]soutput
-	}`, fieldName, *topLevelObjectDef.ReferenceName, c.name, assignmentPrefix))
+	}`, fieldName, *topLevelObjectDef.ReferenceName, c.name, assignmentPrefix, fieldDetails.JsonName))
 			}
 
 			if fieldDetails.ObjectDefinition.Type == resourcemanager.ReferenceApiObjectDefinitionType {
 				lines = append(lines, fmt.Sprintf(`
-	if v, ok := temp[%[2]q]; ok {
+	if v, ok := temp[%[4]q]; ok {
 		impl, err := unmarshal%[2]sImplementation(v)
 		if err != nil {
 			return fmt.Errorf("unmarshaling field '%[1]s' for '%[3]s': %%+v", err)
 		}
 		s.%[1]s = impl
-	}`, fieldName, *topLevelObjectDef.ReferenceName, c.name))
+	}`, fieldName, *topLevelObjectDef.ReferenceName, c.name, fieldDetails.JsonName))
 			}
 		}
 
