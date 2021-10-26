@@ -202,7 +202,7 @@ namespace Pandora.Data.Transformers
         {
             try
             {
-                var properties = input.GetProperties().Select(p => Property.Map(p, input.FullName!)).ToList();
+                var properties = input.GetProperties(BindingFlags.DeclaredOnly | BindingFlags.Instance | BindingFlags.Public).Select(p => Property.Map(p, input.FullName!)).ToList();
 
                 var name = input.Name.RemoveModelSuffixFromTypeName();
                 var model = new ModelDefinition

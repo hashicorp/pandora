@@ -411,14 +411,14 @@ namespace Pandora.Data.Transformers
 
             var cat = actual.FirstOrDefault(t => t.Name == "Cat");
             Assert.NotNull(cat);
-            Assert.AreEqual(2, cat.Properties.Count);
+            Assert.AreEqual(1, cat.Properties.Count);
             Assert.AreEqual("Animal", cat.ParentTypeName);
             Assert.AreEqual("ObjectType", cat.TypeHintIn);
             Assert.AreEqual("cat", cat.TypeHintValue);
 
             var dog = actual.FirstOrDefault(t => t.Name == "Dog");
             Assert.NotNull(dog);
-            Assert.AreEqual(1, dog.Properties.Count);
+            Assert.AreEqual(0, dog.Properties.Count);
             Assert.AreEqual("Animal", dog.ParentTypeName);
             Assert.AreEqual("ObjectType", dog.TypeHintIn);
             Assert.AreEqual("dog", dog.TypeHintValue);
@@ -449,14 +449,14 @@ namespace Pandora.Data.Transformers
 
             var cat = actual.FirstOrDefault(t => t.Name == "Cat2");
             Assert.NotNull(cat);
-            Assert.AreEqual(2, cat.Properties.Count);
+            Assert.AreEqual(1, cat.Properties.Count);
             Assert.AreEqual("Animal2", cat.ParentTypeName);
             Assert.AreEqual("ObjectType", cat.TypeHintIn);
             Assert.AreEqual("cat", cat.TypeHintValue);
 
             var dog = actual.FirstOrDefault(t => t.Name == "Dog2");
             Assert.NotNull(dog);
-            Assert.AreEqual(2, dog.Properties.Count);
+            Assert.AreEqual(1, dog.Properties.Count);
             Assert.AreEqual("Animal2", dog.ParentTypeName);
             Assert.AreEqual("ObjectType", dog.TypeHintIn);
             Assert.AreEqual("dog", dog.TypeHintValue);

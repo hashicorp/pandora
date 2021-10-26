@@ -105,3 +105,11 @@ func golangTypeNameForObjectDefinition(input resourcemanager.ApiObjectDefinition
 
 	return nil, fmt.Errorf("unimplemented object definition type %q", string(input.Type))
 }
+
+func topLevelObjectDefinition(input resourcemanager.ApiObjectDefinition) resourcemanager.ApiObjectDefinition {
+	if input.NestedItem != nil {
+		return topLevelObjectDefinition(*input.NestedItem)
+	}
+
+	return input
+}

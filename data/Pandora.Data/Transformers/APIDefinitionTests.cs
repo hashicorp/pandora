@@ -245,7 +245,7 @@ namespace Pandora.Data.Transformers
 
             var dog = actual.Models.FirstOrDefault(m => m.Name == "Doggy");
             Assert.NotNull(dog);
-            Assert.AreEqual(2, dog.Properties.Count);
+            Assert.AreEqual(1, dog.Properties.Count);
             Assert.AreEqual("Barkasaurous", dog.ParentTypeName);
             Assert.AreEqual("Dog", dog.TypeHintValue);
             Assert.AreEqual("Type", dog.TypeHintIn);
@@ -278,7 +278,7 @@ namespace Pandora.Data.Transformers
 
             var dog = actual.Models.FirstOrDefault(m => m.Name == "Doggy");
             Assert.NotNull(dog);
-            Assert.AreEqual(2, dog.Properties.Count);
+            Assert.AreEqual(1, dog.Properties.Count);
             Assert.AreEqual("Barkasaurous", dog.ParentTypeName);
             Assert.AreEqual("Dog", dog.TypeHintValue);
             Assert.AreEqual("Type", dog.TypeHintIn);
