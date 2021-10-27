@@ -4,12 +4,8 @@ import (
 	"fmt"
 	"log"
 	"os"
-	"path/filepath"
 	"sort"
 	"strings"
-	"sync"
-
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/cleanup"
 
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/generator"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser"
@@ -141,52 +137,4 @@ func distinctServiceNames(input []parser.ParsedData) []string {
 	sort.Strings(names)
 
 	return names
-}
-
-func generateAllResourceManagerServices(swaggerGitSha string, justLatestVersion, debug bool) error {
-	specsDirectory := filepath.Join(swaggerDirectory, "specification")
-	services, err := parser.FindResourceManagerServices(specsDirectory, false)
-	if err != nil {
-		return err
-	}
-
-	var wg sync.WaitGroup
-	for _, service := range *services {
-		for apiVersion, versionPath := range service.ApiVersionPaths {
-			swaggerFiles, err := parser.SwaggerFilesInDirectory(versionPath)
-			if err != nil {
-				fmt.Println(err.Error())
-				continue
-			}
-			swaggerFilesTrimmed := make([]string, 0)
-			for _, swaggerFile := range *swaggerFiles {
-				swaggerFilesTrimmed = append(swaggerFilesTrimmed, strings.TrimPrefix(swaggerFile, versionPath))
-			}
-
-			// copy to avoid this being captured
-			resourceProvider := cleanup.NormalizeResourceProviderName(service.ResourceProvider)
-			runInput := RunInput{
-				RootNamespace:    "Pandora.Definitions.ResourceManager",
-				ServiceName:      service.Name,
-				ApiVersion:       apiVersion,
-				OutputDirectory:  outputDirectory,
-				ResourceProvider: &resourceProvider,
-				SwaggerDirectory: versionPath,
-				SwaggerFiles:     swaggerFilesTrimmed,
-			}
-
-			wg.Add(1)
-			go func(input RunInput, sha string) {
-				err := importService(input, sha, debug)
-				if err != nil {
-					wg.Done()
-					return
-				}
-
-				wg.Done()
-			}(runInput, swaggerGitSha)
-		}
-	}
-	wg.Wait()
-	return nil
 }

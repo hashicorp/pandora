@@ -6,7 +6,6 @@ import (
 	"strings"
 
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser"
-
 	"github.com/hashicorp/pandora/tools/sdk/config"
 )
 

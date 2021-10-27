@@ -1,6 +1,7 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 	"log"
 	"os"
@@ -20,15 +21,27 @@ const (
 	justParse = false
 )
 
-// Use: `PANDORA_GEN_FOR_REALSIES=true go run main.go`
-// or, for redirecting to a file: `PANDORA_GEN_FOR_REALSIES=true go run main.go > ~/tmp/pandora_gen.log 2>&1`
-
 func main() {
 	// works around the OAIGen bug
 	os.Setenv("OAIGEN_DEDUPE", "false")
 
+	var dataApiEndpointVar string
+
+	f := flag.NewFlagSet("importer-rest-api-specs", flag.ExitOnError)
+	f.StringVar(&dataApiEndpointVar, "data-api", "", "The Data API Endpoint (e.g. --data-api=http://localhost:5000")
+	f.Parse(os.Args[1:])
+
+	var dataApiEndpoint *string
+	if dataApiEndpointVar == "" {
+		log.Printf("[DEBUG] No Data API Endpoint is specified - using local-only mode")
+		dataApiEndpoint = nil
+	} else {
+		log.Printf("[DEBUG] Using Data API Endpoint %q", dataApiEndpointVar)
+		dataApiEndpoint = &dataApiEndpointVar
+	}
+
 	debug := strings.TrimSpace(os.Getenv("DEBUG")) != ""
-	if err := run(swaggerDirectory, resourceManagerConfig, debug); err != nil {
+	if err := run(swaggerDirectory, resourceManagerConfig, dataApiEndpoint, debug); err != nil {
 		log.Printf("Error: %+v", err)
 		os.Exit(1)
 		return
@@ -37,7 +50,7 @@ func main() {
 	os.Exit(0)
 }
 
-func run(swaggerDirectory string, configFilePath string, debug bool) error {
+func run(swaggerDirectory, configFilePath string, dataApiEndpoint *string, debug bool) error {
 	input, err := GenerationData(configFilePath, swaggerDirectory, false)
 	if err != nil {
 		return fmt.Errorf("loading data: %+v", err)
@@ -52,7 +65,7 @@ func run(swaggerDirectory string, configFilePath string, debug bool) error {
 	for _, v := range *input {
 		wg.Add(1)
 		go func(v RunInput) {
-			if err := importService(v, *swaggerGitSha, debug); err != nil {
+			if err := importService(v, *swaggerGitSha, dataApiEndpoint, debug); err != nil {
 				log.Printf("importing Service %q / Version %q: %+v", v.ServiceName, v.ApiVersion, err)
 				wg.Done()
 				return

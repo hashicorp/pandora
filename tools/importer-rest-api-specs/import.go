@@ -4,11 +4,12 @@ import (
 	"fmt"
 	"log"
 
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/differ"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/generator"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser"
 )
 
-func importService(input RunInput, swaggerGitSha string, debug bool) error {
+func importService(input RunInput, swaggerGitSha string, dataApiEndpoint *string, debug bool) error {
 	var errWrap = func(err error) error {
 		log.Printf("❌ Service %q - Api Version %q", input.ServiceName, input.ApiVersion)
 		log.Printf("     💥 Error: %+v", err)
@@ -30,6 +31,23 @@ func importService(input RunInput, swaggerGitSha string, debug bool) error {
 	if justParse {
 		log.Printf("✅ Service %q - Api Version %q - Parsed Fine but skipping generation", input.ServiceName, input.ApiVersion)
 		return nil
+	}
+
+	if dataApiEndpoint != nil {
+		if debug {
+			log.Printf("[DEBUG] Retrieving Current Schema from Data API..")
+		}
+
+		differ := differ.NewDiffer(*dataApiEndpoint)
+		_, err := differ.RetrieveExistingService(input.ServiceName, input.ApiVersion)
+		if err != nil {
+			return fmt.Errorf("retrieving data for existing Service %q / Version %q from Data API: %+v", input.ServiceName, input.ApiVersion, err)
+		}
+
+		// TODO: handle this
+
+	} else {
+		log.Printf("[DEBUG] Skipping retrieving current schema from Data API..")
 	}
 
 	if debug {
@@ -58,6 +76,7 @@ func importService(input RunInput, swaggerGitSha string, debug bool) error {
 }
 
 func parseSwaggerFiles(input RunInput, debug bool) (*[]parser.ParsedData, error) {
+	// TODO: shouldn't this be returning a single `parser.ParsedData` here?
 	parseResult, err := parser.LoadAndParseFiles(input.SwaggerDirectory, input.SwaggerFiles, input.ServiceName, input.ApiVersion, debug)
 	if err != nil {
 		return nil, fmt.Errorf("parsing files in %q: %+v", input.SwaggerDirectory, err)
