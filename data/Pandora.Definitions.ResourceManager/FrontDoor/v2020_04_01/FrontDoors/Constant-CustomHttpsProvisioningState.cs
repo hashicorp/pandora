@@ -1,0 +1,24 @@
+using Pandora.Definitions.Attributes;
+using System.ComponentModel;
+
+namespace Pandora.Definitions.ResourceManager.FrontDoor.v2020_04_01.FrontDoors
+{
+    [ConstantType(ConstantTypeAttribute.ConstantType.String)]
+    internal enum CustomHttpsProvisioningStateConstant
+    {
+        [Description("Disabled")]
+        Disabled,
+
+        [Description("Disabling")]
+        Disabling,
+
+        [Description("Enabled")]
+        Enabled,
+
+        [Description("Enabling")]
+        Enabling,
+
+        [Description("Failed")]
+        Failed,
+    }
+}
