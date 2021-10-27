@@ -21,7 +21,7 @@ service "eventhub" {
 }
 service "frontdoor" {
   name      = "Frontdoor"
-  available = ["2020-05-01"]
+  available = ["2020-04-01", "2020-05-01"]
 }
 service "labservices" {
   name      = "LabServices"
