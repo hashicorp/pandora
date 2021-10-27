@@ -120,7 +120,7 @@ func (c modelsTemplater) methods(data ServiceGeneratorData) (*string, error) {
 	}
 	code = append(code, *dateFunctions)
 
-	marshalFunctions, err := c.codeForMarshalFunctions()
+	marshalFunctions, err := c.codeForMarshalFunctions(data)
 	if err != nil {
 		return nil, fmt.Errorf("generating marshal functions: %+v", err)
 	}
@@ -264,12 +264,26 @@ func (c modelsTemplater) codeForDateFunctions() (*string, error) {
 	return &output, nil
 }
 
-func (c modelsTemplater) codeForMarshalFunctions() (*string, error) {
+func (c modelsTemplater) codeForMarshalFunctions(data ServiceGeneratorData) (*string, error) {
 	output := ""
 
 	if c.model.TypeHintValue != nil {
 		if c.model.TypeHintIn == nil {
 			return nil, fmt.Errorf("model %q must contain a TypeHintIn when a TypeHintValue is present", c.name)
+		}
+		if c.model.ParentTypeName == nil {
+			return nil, fmt.Errorf("model %q must contain a ParentTypeName when a TypeHintValue is present", c.name)
+		}
+
+		parentModel, ok := data.models[*c.model.ParentTypeName]
+		if !ok {
+			return nil, fmt.Errorf("the parent model %q for model %q was not found", *c.model.ParentTypeName, c.name)
+		}
+
+		// the TypeHintIn field comes from the parent and so won't be output on the inherited items
+		field, ok := parentModel.Fields[*c.model.TypeHintIn]
+		if !ok {
+			return nil, fmt.Errorf("the field %q was not found on the parent model %q for model %q", *c.model.TypeHintIn, *c.model.ParentTypeName, c.name)
 		}
 
 		output = fmt.Sprintf(`
@@ -296,7 +310,7 @@ func (s %[1]s) MarshalJSON() ([]byte, error) {
 
 	return encoded, nil
 }
-`, c.name, *c.model.TypeHintIn, *c.model.TypeHintValue)
+`, c.name, field.JsonName, *c.model.TypeHintValue)
 	}
 
 	return &output, nil
