@@ -228,9 +228,9 @@ func (p operationsParser) determineContentType(operation parsedOperation) string
 func (p operationsParser) expectedStatusCodesForOperation(input parsedOperation) []int {
 	statusCodes := make([]int, 0)
 
-	for statusCode := range input.operation.Responses.StatusCodeResponses {
+	for statusCode, resp := range input.operation.Responses.StatusCodeResponses {
 		// sanity checking
-		if p.operationIsASuccess(statusCode) {
+		if p.operationIsASuccess(statusCode, resp) {
 			statusCodes = append(statusCodes, statusCode)
 		}
 	}
@@ -408,7 +408,15 @@ type operationResponseObjectResult struct {
 	paginationFieldName *string
 }
 
-func (p operationsParser) operationIsASuccess(statusCode int) bool {
+func (p operationsParser) operationIsASuccess(statusCode int, resp spec.Response) bool {
+	// Status Codes with the extension `x-ms-error-response` reference an error response
+	// which should be ignored in our case - as errors will instead be pulled out via the
+	// base layer
+	isErrorValue, exists := resp.Extensions.GetBool("x-ms-error-response")
+	if exists && isErrorValue {
+		return false
+	}
+
 	return statusCode >= 200 && statusCode < 300
 }
 
@@ -427,18 +435,20 @@ func (p operationsParser) responseObjectForOperation(input parsedOperation, know
 	}
 
 	for statusCode, details := range unexpandedOperation.Responses.StatusCodeResponses {
-		if p.operationIsASuccess(statusCode) {
-			if details.ResponseProps.Schema == nil {
-				continue
-			}
-
-			objectDefinition, nestedResult, err := p.swaggerDefinition.parseObjectDefinition(details.ResponseProps.Schema.Title, details.ResponseProps.Schema.Title, details.ResponseProps.Schema, result)
-			if err != nil {
-				return nil, nil, fmt.Errorf("parsing response object from status code %d: %+v", statusCode, err)
-			}
-			output.objectDefinition = objectDefinition
-			result.append(*nestedResult)
+		if !p.operationIsASuccess(statusCode, details) {
+			continue
 		}
+
+		if details.ResponseProps.Schema == nil {
+			continue
+		}
+
+		objectDefinition, nestedResult, err := p.swaggerDefinition.parseObjectDefinition(details.ResponseProps.Schema.Title, details.ResponseProps.Schema.Title, details.ResponseProps.Schema, result)
+		if err != nil {
+			return nil, nil, fmt.Errorf("parsing response object from status code %d: %+v", statusCode, err)
+		}
+		output.objectDefinition = objectDefinition
+		result.append(*nestedResult)
 	}
 
 	return &output, &result, nil
