@@ -23,7 +23,7 @@ func TestExistingDataCanBeGenerated(t *testing.T) {
 	for _, data := range *input {
 		t.Run(fmt.Sprintf("%s-%s", data.ServiceName, data.ApiVersion), func(t *testing.T) {
 			generationData := data
-			if err := importService(generationData, *swaggerGitSha, true); err != nil {
+			if err := importService(generationData, *swaggerGitSha, nil, true); err != nil {
 				t.Fatalf("error: %+v", err)
 			}
 		})
