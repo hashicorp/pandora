@@ -9,7 +9,7 @@ service "appconfiguration" {
 }
 service "applicationinsights" {
   name = "ApplicationInsights"
-  available = ["2020-02-02"]
+  available = ["2015-05-01", "2020-02-02"]
 }
 service "attestation" {
   name      = "Attestation"
