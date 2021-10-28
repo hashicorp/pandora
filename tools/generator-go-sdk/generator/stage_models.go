@@ -134,47 +134,6 @@ func (c modelsTemplater) methods(data ServiceGeneratorData) (*string, error) {
 
 	// TODO: validation functions (#58)
 
-	//requiresMarshalFunctionForImplementation := c.model.TypeHintIn != nil && c.model.TypeHintValue != nil
-	//requiresUnmarshalFunctionForImplementation := false
-
-	////requiresImplementationUnmarshalFunc := false
-	//for fieldName, fieldDetails := range c.model.Fields {
-	//	topLevelObject := topLevelObjectDefinition(fieldDetails.ObjectDefinition)
-	//	if topLevelObject.Type == resourcemanager.ReferenceApiObjectDefinitionType {
-	//		// if this is a Model, is that Model a TypeHint? (The Ref. can also be a Constant, so 'ok' can be false)
-	//		if model, ok := data.models[*topLevelObject.ReferenceName]; ok && model.TypeHintIn != nil {
-	//			a = true
-	//		}
-	//	}
-	//
-	//	// TODO: implement this
-	//	//if fieldDetails.IsTypeHint {
-	//	//	requiresUnmarshalFunc = true
-	//	//}
-	//}
-
-	// TODO: implement this (from above)
-	//if requiresImplementationUnmarshalFunc {
-	//
-	//}
-
-	//if requiresUnmarshalFunc {
-	//	unmarshalFunc, err := c.unmarshalerFunc()
-	//	if err != nil {
-	//		return nil, err
-	//	}
-	//	methods = append(methods, *unmarshalFunc)
-	//}
-	//
-	//if c.model.TypeHintIn != nil && c.model.ParentTypeName != nil {
-	//	// this'll only be an implementation/child so this can generate the marshaler func
-	//	marshalFunc, err := c.marshalFuncForChildClass()
-	//	if err != nil {
-	//		return nil, err
-	//	}
-	//	methods = append(methods, *marshalFunc)
-	//}
-
 	output := strings.Join(code, "\n")
 	return &output, nil
 }
@@ -297,13 +256,13 @@ func (s %[1]s) MarshalJSON() ([]byte, error) {
 		return nil, fmt.Errorf("marshaling %[1]s: %%+v", err)
 	}
 
-	var decoded map[string]string
+	var decoded map[string]interface{}
 	if err := json.Unmarshal(encoded, &decoded); err != nil {
 		return nil, fmt.Errorf("unmarshaling %[1]s: %%+v", err)
 	}
 	decoded[%[2]q] = %[3]q
 
-	encoded, err = json.Marshal(wrapped)
+	encoded, err = json.Marshal(decoded)
 	if err != nil {
 		return nil, fmt.Errorf("re-marshaling %[1]s: %%+v", err)
 	}
