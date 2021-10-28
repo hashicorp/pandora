@@ -321,8 +321,14 @@ func (c modelsTemplater) codeForUnmarshalParentFunction(data ServiceGeneratorDat
 			return nil, fmt.Errorf("model %q is a discriminated parent type with no implementations", c.name)
 		}
 		jsonFieldName := c.model.Fields[*c.model.TypeHintIn].JsonName
+		// NOTE: unmarshaling null returns an empty map, which'll mean the `ok` fails
+		// the 'type' field being omitted will also mean that `ok` is false
 		lines = append(lines, fmt.Sprintf(`
 func unmarshal%[1]sImplementation(input []byte) (%[1]s, error) {
+	if input == nil {
+		return nil, nil
+	}
+
 	var temp map[string]interface{}
 	if err := json.Unmarshal(input, &temp); err != nil {
 		return nil, fmt.Errorf("unmarshaling %[1]s into map[string]interface: %%+v", err)
@@ -330,7 +336,7 @@ func unmarshal%[1]sImplementation(input []byte) (%[1]s, error) {
 
 	value, ok := temp[%[2]q].(string)
 	if !ok {
-		return nil, fmt.Errorf("missing field '%[2]s' needed to discriminate %[1]s type")
+		return nil, nil
 	}
 `, c.name, jsonFieldName))
 
