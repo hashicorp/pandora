@@ -24,7 +24,6 @@ type resourceId struct {
 }
 
 func (r resourceId) template(data ServiceGeneratorData) (*string, error) {
-
 	parserData, err := r.generateParser(data.packageName)
 	if err != nil {
 		return nil, fmt.Errorf("while generating parser: %+v", err)
@@ -126,7 +125,7 @@ func (r *resourceId) generateSegments() (string, error) {
 			} else {
 				segmentIdx = x
 			}
-			idxStr = fmt.Sprintf(`idx = ap.GetIdx(ap.NumParts, %d, %t)`, x, batch.Reverse)
+			idxStr = fmt.Sprintf(`idx = ap.GetIndex(%d, %t)`, x, batch.Reverse)
 			snippet, err := r.processNonScopeSegment(segments[segmentIdx])
 			if err != nil {
 				return "", fmt.Errorf("while generating segment: %+v", err)
@@ -288,8 +287,8 @@ type %[2]s struct %[3]s
     // inputs
     output := &%[2]s{}
 	apConfig := AzureParserConfig{
-		MinLength: %[4]d,
-		Separator: %[5]q,
+		RequiredSegments: %[4]d,
+		Separator: 		  %[5]q,
 	}
 	ap, err := NewAzureParser(apConfig, id)
 	if err != nil {
