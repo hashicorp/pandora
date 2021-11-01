@@ -80,8 +80,9 @@ func (i idCustomParserTestsTemplater) generateParserTest() (string, error) {
 	expected := %[2]q
 	actual := New%[1]s(%[3]s).ID()
 	if actual != expected {
-	t.Fatalf("Expected %%q but got %%q", expected, actual)}}`, resourceName, url, params)
-
+		t.Fatalf("Expected %%q but got %%q", expected, actual)
+	}
+}`, resourceName, url, params)
 	return out, nil
 }
 
@@ -103,7 +104,7 @@ func (i idCustomParserTestsTemplater) getVals() ([]string, []string, error) {
 	return paramVals, urlVals, nil
 }
 
-func (i idCustomParserTestsTemplater) getTestCases(resourceName string) string {
+func (i idCustomParserTestsTemplater) getTestCases() string {
 	cases := make([]string, 0)
 	urlVals := make([]string, 0)
 	segments := i.resourceData.Segments
@@ -126,24 +127,28 @@ func (i idCustomParserTestsTemplater) getTestCases(resourceName string) string {
 
 	for idx := 0; idx < len(urlVals); idx++ {
 		testUrl := strings.Join(urlVals[0:idx], "/")
-		cases = append(cases, fmt.Sprintf(`
-		{
+		cases = append(cases, fmt.Sprintf(`{
+			// Incomplete URI
 			Input: "/%s",
 			Error: true,
 		},`, testUrl))
 	}
 
-	fullUrl := strings.Join(urlVals, "/")
-	re := regexp.MustCompile("/+")
-	fullUrl = re.ReplaceAllString(fullUrl, "/")
-	final := fmt.Sprintf(`
-	{
+	fullUrl := fmt.Sprintf("/%s", strings.Join(urlVals, "/"))
+	final := fmt.Sprintf(`{
+		// Valid URI
 		Input: "%s",
 		Expected: &%s{
 			%s
 		},
-	},
-`, fullUrl, i.resourceName, strings.Join(structMap, "\n"))
+	},`, fullUrl, i.resourceName, strings.Join(structMap, "\n"))
+
+	finalUriWithExtraSuffix := fmt.Sprintf("%s/extra", fullUrl)
+	cases = append(cases, fmt.Sprintf(`{
+			// Valid Uri with Extra segment 
+			Input: "%s",
+			Error: true,
+		},`, finalUriWithExtraSuffix))
 
 	cases = append(cases, final)
 	return strings.Join(cases, "\n")
@@ -187,7 +192,7 @@ func (i idCustomParserTestsTemplater) generateTestCases() string {
 	re, _ := regexp.Compile("Id$")
 	resourceName := re.ReplaceAllString(strings.Title(i.resourceName), "ID")
 
-	testCases := i.getTestCases(resourceName)
+	testCases := i.getTestCases()
 	testCaseChecks := i.getTestCaseChecks()
 	out := fmt.Sprintf(`
 func Test%[1]s(t *testing.T) {
