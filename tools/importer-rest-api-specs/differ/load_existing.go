@@ -405,7 +405,7 @@ func mapApiResourceIdSegmentType(input resourcemanager.ResourceIdSegmentType) (*
 		resourcemanager.ScopeSegment:            models.ScopeSegment,
 		resourcemanager.StaticSegment:           models.StaticSegment,
 		resourcemanager.SubscriptionIdSegment:   models.SubscriptionIdSegment,
-		resourcemanager.UserSpecifiableSegment:  models.UserSpecifiedSegment,
+		resourcemanager.UserSpecifiedSegment:    models.UserSpecifiedSegment,
 
 		// TODO: until #272 is merged
 		resourcemanager.ResourceIdSegmentType("UserSpecified"): models.UserSpecifiedSegment,

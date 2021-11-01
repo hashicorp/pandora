@@ -183,7 +183,7 @@ func (r *resourceId) processNonScopeSegment(segment resourcemanager.ResourceIdSe
 		fallthrough
 	case resourcemanager.SubscriptionIdSegment:
 		fallthrough
-	case resourcemanager.UserSpecifiableSegment:
+	case resourcemanager.UserSpecifiedSegment:
 		snippet = fmt.Sprintf(`output.%s = ap.Parts[idx]`, strings.Title(segment.Name))
 	default:
 		return "", fmt.Errorf("unknown segment type encountered: %+v", segment.Type)
@@ -330,7 +330,7 @@ func (r *resourceId) getResourceMethods() string {
 			fallthrough
 		case resourcemanager.ScopeSegment:
 			fallthrough
-		case resourcemanager.UserSpecifiableSegment:
+		case resourcemanager.UserSpecifiedSegment:
 			snippetWorthy = true
 			output[idx] = "%s"
 			vars = append(vars, fmt.Sprintf(" r.%s", strings.Title(segment.Name)))

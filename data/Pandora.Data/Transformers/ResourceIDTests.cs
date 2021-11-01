@@ -35,7 +35,7 @@ namespace Pandora.Data.Transformers
         }
 
         [TestCase]
-        public static void MappingAResourceIDWithASingleUserSpecifiableSegment()
+        public static void MappingAResourceIDWithASingleUserSpecifiedSegment()
         {
             var expected = new HelloWorldUserSpecifiableResourceId();
             var actual = ResourceID.Map(expected);
