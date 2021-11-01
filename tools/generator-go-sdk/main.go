@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"log"
 	"os"
-	"strings"
 
 	"github.com/hashicorp/pandora/tools/generator-go-sdk/generator"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
@@ -47,24 +46,6 @@ func run(input GeneratorInput) error {
 		log.Printf("[DEBUG] Service %q..", serviceName)
 		if !service.Details.Generate {
 			log.Printf("[DEBUG] .. is opted out of generation, skipping..")
-			continue
-		}
-
-		// temporarily until new Resource ID's are in
-		servicesToTemporarilyIgnore := []string{
-			"privateDns",
-			"dns",
-			"DataProtection",
-			"HDInsight",
-		}
-		skip := false
-		for _, serviceToIgnore := range servicesToTemporarilyIgnore {
-			if strings.EqualFold(serviceName, serviceToIgnore) {
-				skip = true
-				break
-			}
-		}
-		if skip {
 			continue
 		}
 
