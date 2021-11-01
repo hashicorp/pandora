@@ -15,6 +15,10 @@ service "databricks" {
   name      = "Databricks"
   available = ["2021-04-01-preview"]
 }
+service "dns" {
+  name      = "DNS"
+  available = ["2018-05-01"]
+}
 service "eventhub" {
   name      = "EventHub"
   available = ["2017-04-01", "2018-01-01-preview", "2021-01-01-preview"]
