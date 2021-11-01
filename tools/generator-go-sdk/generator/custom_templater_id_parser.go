@@ -343,7 +343,7 @@ func (r *resourceId) getResourceMethods() string {
 
 	snippets = append(snippets, fmt.Sprintf(`}
 	segmentsStr := strings.Join(segments, " / ")
-	return fmt.Sprintf("%%q: (%%s)", %q, segmentsStr)`, r.name))
+	return fmt.Sprintf("%%q: (%%s)", ExtractNameFromTitleCase(%q), segmentsStr)`, r.name))
 
 	strRepresentation := strings.Join(snippets, "\n")
 
