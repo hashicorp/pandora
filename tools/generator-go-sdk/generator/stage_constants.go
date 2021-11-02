@@ -52,18 +52,54 @@ func (c constantsTemplater) templateConstant(constantName string, values resourc
 	}
 	sort.Strings(valueKeys)
 
-	lines := make([]string, 0)
+	definitionLines := make([]string, 0)
+	valueLines := make([]string, 0)
+	parseValuesLines := make([]string, 0)
+
+	parseFunction := `
+	// it could be a new value - best effort convert this
+	v := input
+`
+	if values.Type == resourcemanager.FloatConstant {
+		parseFunction = `
+	v, err := strconv.ParseFloat(input, 64)
+	if err != nil {
+		return nil, fmt.Errorf("parsing %%q: %%+v", input, err)
+	}
+`
+	}
+	if values.Type == resourcemanager.IntegerConstant {
+		parseFunction = `
+	v, err := strconv.Atoi(input)
+	if err != nil {
+		return nil, fmt.Errorf("parsing %%q: %%+v", input, err)
+	}
+`
+	}
+
 	for _, constantKey := range valueKeys {
 		constantValue := values.Values[constantKey]
-		template := "\t%[2]s%[1]s %[2]s = %[3]q" // \tMyConstantValue MyConstant = "Value"
+		definitionTemplate := "\t%[2]s%[1]s %[2]s = %[3]q" // \tMyConstantValue MyConstant = "Value"
+		valueTemplate := "%q,"
+		parseValueTemplate := "%q: %q,"
+
 		if values.Type == resourcemanager.IntegerConstant || values.Type == resourcemanager.FloatConstant {
-			template = "\t%[2]s%[1]s %[2]s = %[3]s" // \tMyConstantValue MyConstant = 1.02
+			definitionTemplate = "\t%[2]s%[1]s %[2]s = %[3]s" // \tMyConstantValue MyConstant = 1.02
+			valueTemplate = `fmt.Sprintf("%%d", %[1]s),`
+			parseValueTemplate = "%q: %d,"
+
+			if values.Type == resourcemanager.FloatConstant {
+				valueTemplate = `fmt.Sprintf("%%f", %[1]s),`
+				parseValueTemplate = "%q: %f,"
+			}
 		}
-		lines = append(lines, fmt.Sprintf(template, constantKey, constantName, constantValue))
+		definitionLines = append(definitionLines, fmt.Sprintf(definitionTemplate, constantKey, constantName, constantValue))
+		valueLines = append(valueLines, fmt.Sprintf(valueTemplate, constantValue))
+		parseValuesLines = append(parseValuesLines, fmt.Sprintf(parseValueTemplate, strings.ToLower(constantKey), constantValue))
 	}
 
 	//if values.CaseInsensitive {
-	//	// TODO: handle this needing a custom deserializer/serializer for rewriting
+	//	// TODO: handle this needing a custom deserializer/serializer for rewriting (available in the Parse method)
 	//}
 
 	constantType := mapConstantTypeToGoType(values.Type)
@@ -72,7 +108,27 @@ func (c constantsTemplater) templateConstant(constantName string, values resourc
 const (
 %[3]s
 )
-`, constantName, constantType, strings.Join(lines, "\n"))
+
+func PossibleValuesFor%[1]s() []string {
+	return []string{
+		%[4]s
+	}
+}
+
+func parse%[1]s(input string) (*%[1]s, error) {
+	vals := map[string]%[1]s{
+		%[5]s
+	}
+	if v, ok := vals[strings.ToLower(input)]; ok {
+		return &v, nil
+	}
+
+	%[6]s
+
+	out := %[1]s(v)
+	return &out, nil
+}
+`, constantName, constantType, strings.Join(definitionLines, "\n"), strings.Join(valueLines, "\n"), strings.Join(parseValuesLines, "\n"), parseFunction)
 }
 
 func mapConstantTypeToGoType(input resourcemanager.ConstantType) string {

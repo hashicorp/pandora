@@ -406,9 +406,6 @@ func mapApiResourceIdSegmentType(input resourcemanager.ResourceIdSegmentType) (*
 		resourcemanager.StaticSegment:           models.StaticSegment,
 		resourcemanager.SubscriptionIdSegment:   models.SubscriptionIdSegment,
 		resourcemanager.UserSpecifiedSegment:    models.UserSpecifiedSegment,
-
-		// TODO: until #272 is merged
-		resourcemanager.ResourceIdSegmentType("UserSpecified"): models.UserSpecifiedSegment,
 	}
 	if v, ok := vals[input]; ok {
 		return &v, nil

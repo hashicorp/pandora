@@ -2,8 +2,9 @@ package generator
 
 import (
 	"fmt"
-	"regexp"
 	"strings"
+
+	"github.com/hashicorp/pandora/tools/generator-go-sdk/featureflags"
 
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
@@ -21,179 +22,124 @@ func (i idCustomParserTestsTemplater) template(data ServiceGeneratorData) (*stri
 	if err != nil {
 		return nil, fmt.Errorf("while generating parser tests: %+v", err)
 	}
-	return &res, nil
+	return res, nil
 }
 
-func (i idCustomParserTestsTemplater) generateTests(packageName string) (string, error) {
-	preamble, err := i.generatePreamble(packageName)
+func (i idCustomParserTestsTemplater) generateTests(packageName string) (*string, error) {
+	structName := strings.Title(i.resourceName)
+	structWithoutSuffix := strings.TrimSuffix(structName, "Id")
+	lines := make([]string, 0)
+
+	// New{Name}Id function test
+	newFunctionTest, err := i.generateNewFunctionTest(structWithoutSuffix)
 	if err != nil {
-		return "", err
+		return nil, fmt.Errorf("generating test for the New{Name}Id function: %+v", err)
+	}
+	lines = append(lines, *newFunctionTest)
+
+	// ID function test
+	idFunctionTest, err := i.generateIdFunctionTest(structWithoutSuffix)
+	if err != nil {
+		return nil, fmt.Errorf("generating test for the ID function: %+v", err)
+	}
+	lines = append(lines, *idFunctionTest)
+
+	// case-sensitive test
+	parseSensitiveTest, err := i.generateParseFunctionTest(structName, structWithoutSuffix, true)
+	if err != nil {
+		return nil, fmt.Errorf("generating test for the case-sensitive Parse function: %+v", err)
+	}
+	lines = append(lines, *parseSensitiveTest)
+
+	if featureflags.GenerateCaseInsensitiveFunctions {
+		// case-insensitive test
+		parseInsensitiveTest, err := i.generateParseFunctionTest(structName, structWithoutSuffix, false)
+		if err != nil {
+			return nil, fmt.Errorf("generating test for the case-insensitive Parse function: %+v", err)
+		}
+		lines = append(lines, *parseInsensitiveTest)
 	}
 
-	parserTest, err := i.generateParserTest()
-	if err != nil {
-		return "", err
-	}
-
-	resourceTest := i.generateTestCases()
-	if err != nil {
-		return "", err
-	}
-
-	return strings.Join([]string{preamble, parserTest, resourceTest}, "\n"), nil
-}
-
-func (i idCustomParserTestsTemplater) generatePreamble(packageName string) (string, error) {
-	return fmt.Sprintf(`package %[1]s
+	out := fmt.Sprintf(`package %[1]s
 
 import (
 	"reflect"
 	"testing"
 
-    "github.com/hashicorp/terraform-provider-azurerm/internal/resourceid"
+    "github.com/hashicorp/go-azure-helpers/resourcemanager/resourceids"
 )
 
-var _ resourceid.Formatter = %[2]s{}
+var _ resourceids.ResourceId = %[2]s{}
 
-`, packageName, strings.Title(i.resourceName)), nil
+%[3]s
+`, packageName, structName, strings.Join(lines, "\n"))
+	return &out, nil
 }
 
-func (i idCustomParserTestsTemplater) generateParserTest() (string, error) {
-	re := regexp.MustCompile("Id$")
-	resourceName := re.ReplaceAllString(strings.Title(i.resourceName), "ID")
-	paramVals, urlVals, err := i.getVals()
-	if err != nil {
-		return "", fmt.Errorf("while getting values for test generation: %+v", err)
-	}
-	url := fmt.Sprintf("/%s", strings.Join(urlVals, "/"))
-	params := strings.Join(paramVals, ",")
+func (i idCustomParserTestsTemplater) generateIdFunctionTest(structWithoutSuffix string) (*string, error) {
+	arguments := make([]string, 0)
 
-	// Remove duplicate separators
-	re, err = regexp.Compile("/+")
-	if err != nil {
-		return "", fmt.Errorf("while compiling regexp '/+': %+v", err)
-	}
-	url = re.ReplaceAllString(url, "/")
-	params = re.ReplaceAllString(params, "/")
+	exampleValues := make([]string, 0)
+	for _, segment := range i.resourceData.Segments {
+		if segment.Type != resourcemanager.ResourceProviderSegment && segment.Type != resourcemanager.StaticSegment {
+			arguments = append(arguments, fmt.Sprintf("%q", segment.ExampleValue))
+		}
 
-	out := fmt.Sprintf(`func TestParse%[1]s(t *testing.T) {
-	expected := %[2]q
-	actual := New%[1]s(%[3]s).ID()
+		exampleValues = append(exampleValues, segment.ExampleValue)
+	}
+	expectedUri := urlFromSegments(exampleValues)
+
+	out := fmt.Sprintf(`
+func TestFormat%[1]sID(t *testing.T) {
+	actual := New%[1]sID(%[2]s).ID()
+	expected := %[3]q
 	if actual != expected {
-		t.Fatalf("Expected %%q but got %%q", expected, actual)
-	}
-}`, resourceName, url, params)
-	return out, nil
+		t.Fatalf("Expected the Formatted ID to be %%q but got %%q", actual, expected)
+	} 
+}`, structWithoutSuffix, strings.Join(arguments, ", "), expectedUri)
+	return &out, nil
 }
 
-func (i idCustomParserTestsTemplater) getVals() ([]string, []string, error) {
-	urlVals := make([]string, 0)
-	paramVals := make([]string, 0)
+func (i idCustomParserTestsTemplater) generateNewFunctionTest(structWithoutSuffix string) (*string, error) {
+	arguments := make([]string, 0)
+	assertions := make([]string, 0)
+
 	for _, segment := range i.resourceData.Segments {
-		urlVals = append(urlVals, fmt.Sprintf("%s", segment.ExampleValue))
-		switch segment.Type {
-		case resourcemanager.ResourceProviderSegment:
-			fallthrough
-		case resourcemanager.StaticSegment:
-			continue
-		default:
-			paramVals = append(paramVals, fmt.Sprintf("%q", segment.ExampleValue))
-		}
-	}
-
-	return paramVals, urlVals, nil
-}
-
-func (i idCustomParserTestsTemplater) getTestCases() string {
-	cases := make([]string, 0)
-	urlVals := make([]string, 0)
-	segments := i.resourceData.Segments
-	structMap := make([]string, 0)
-	for _, segment := range segments {
-		urlVals = append(urlVals, segment.ExampleValue)
-		switch segment.Type {
-		case resourcemanager.StaticSegment:
-			fallthrough
-		case resourcemanager.ResourceProviderSegment:
-			continue
-		default:
-			structMap = append(structMap, fmt.Sprintf("%s: %q,", strings.Title(segment.Name), segment.ExampleValue))
-		}
-	}
-	rps := i.getResourceProviders()
-	if len(rps) > 0 {
-		structMap = append(structMap, fmt.Sprintf("ResourceProvidersUsed: []string{%s},", strings.Join(rps, ",")))
-	}
-
-	for idx := 0; idx < len(urlVals); idx++ {
-		testUrl := strings.Join(urlVals[0:idx], "/")
-		cases = append(cases, fmt.Sprintf(`{
-			// Incomplete URI
-			Input: "/%s",
-			Error: true,
-		},`, testUrl))
-	}
-
-	fullUrl := fmt.Sprintf("/%s", strings.Join(urlVals, "/"))
-	final := fmt.Sprintf(`{
-		// Valid URI
-		Input: "%s",
-		Expected: &%s{
-			%s
-		},
-	},`, fullUrl, i.resourceName, strings.Join(structMap, "\n"))
-
-	finalUriWithExtraSuffix := fmt.Sprintf("%s/extra", fullUrl)
-	cases = append(cases, fmt.Sprintf(`{
-			// Valid Uri with Extra segment 
-			Input: "%s",
-			Error: true,
-		},`, finalUriWithExtraSuffix))
-
-	cases = append(cases, final)
-	return strings.Join(cases, "\n")
-}
-
-func (i idCustomParserTestsTemplater) getResourceProviders() []string {
-	out := make([]string, 0)
-	for _, segment := range i.resourceData.Segments {
-		if segment.Type != resourcemanager.ResourceProviderSegment {
+		if segment.Type == resourcemanager.ResourceProviderSegment || segment.Type == resourcemanager.StaticSegment {
 			continue
 		}
-		if segment.FixedValue != nil {
-			out = append(out, fmt.Sprintf("%q", *segment.FixedValue))
-		}
+
+		arguments = append(arguments, fmt.Sprintf("%q", segment.ExampleValue))
+		assertions = append(assertions, fmt.Sprintf(`
+	if id.%[1]s != %[2]q {
+		t.Fatalf("Expected %%q but got %%q for Segment '%[1]s'", id.%[1]s, %[2]q)
+	}`, strings.Title(segment.Name), segment.ExampleValue))
 	}
-	return out
+
+	out := fmt.Sprintf(`
+func TestNew%[1]sID(t *testing.T) {
+	id := New%[1]sID(%[2]s)
+	%[3]s 
+}`, structWithoutSuffix, strings.Join(arguments, ", "), strings.Join(assertions, "\n"))
+	return &out, nil
 }
 
-func (i idCustomParserTestsTemplater) getTestCaseChecks() string {
-	out := make([]string, 0)
-	for _, segment := range i.resourceData.Segments {
-		switch segment.Type {
-		case resourcemanager.ResourceProviderSegment:
-			fallthrough
-		case resourcemanager.StaticSegment:
-			continue
-		default:
-			out = append(out, fmt.Sprintf(`
-if actual.%[1]s != v.Expected.%[1]s {
-	t.Fatalf("Expected %%q but got %%q for %[1]s", v.Expected.%[1]s, actual.%[1]s)
-}`, strings.Title(segment.Name)))
-		}
+func (i idCustomParserTestsTemplater) generateParseFunctionTest(structName, structWithoutSuffix string, caseSensitive bool) (*string, error) {
+	parseFunctionName := fmt.Sprintf("Parse%sID", structWithoutSuffix)
+	if !caseSensitive {
+		parseFunctionName += "Insensitively"
 	}
-	out = append(out, `if !reflect.DeepEqual(actual.ResourceProvidersUsed, v.Expected.ResourceProvidersUsed) {
-	t.Fatalf("Expected %q but got %q for ResourceProvidersUsed", v.Expected.ResourceProvidersUsed, actual.ResourceProvidersUsed)
-}`)
-	return strings.Join(out, "\n")
-}
 
-func (i idCustomParserTestsTemplater) generateTestCases() string {
-	re, _ := regexp.Compile("Id$")
-	resourceName := re.ReplaceAllString(strings.Title(i.resourceName), "ID")
+	testData, err := i.getTestCases(caseSensitive)
+	if err != nil {
+		return nil, fmt.Errorf("generating test cases: %+v", err)
+	}
 
-	testCases := i.getTestCases()
-	testCaseChecks := i.getTestCaseChecks()
+	assertions, err := i.getAssertions()
+	if err != nil {
+		return nil, fmt.Errorf("generating assertions: %+v", err)
+	}
+
 	out := fmt.Sprintf(`
 func Test%[1]s(t *testing.T) {
 	testData := []struct {
@@ -201,8 +147,8 @@ func Test%[1]s(t *testing.T) {
 		Error    bool
 		Expected *%[2]s
 	}{
-%[3]s
-   }
+		%[3]s
+	}
 	for _, v := range testData {
 		t.Logf("[DEBUG] Testing %%q", v.Input)
 
@@ -212,16 +158,154 @@ func Test%[1]s(t *testing.T) {
 				continue
 			}
 
-			t.Fatalf("Expect a value but got an error: %%s", err)
+			t.Fatalf("Expect a value but got an error: %%+v", err)
 		}
 		if v.Error {
 			t.Fatal("Expect an error but didn't get one")
 		}
-%[4]s
 
+		%[4]s
 	}
 }
-`, resourceName, strings.Title(i.resourceName), testCases, testCaseChecks)
+`, parseFunctionName, structName, *testData, *assertions)
+	return &out, nil
+}
 
-	return out
+func (i idCustomParserTestsTemplater) getTestCases(caseSensitive bool) (*string, error) {
+	cases := make([]string, 0)
+	urlVals := make([]string, 0)
+	structMap := make([]string, 0)
+	caseInsensitiveStructMap := make([]string, 0)
+
+	for _, segment := range i.resourceData.Segments {
+		urlVals = append(urlVals, segment.ExampleValue)
+
+		switch segment.Type {
+		case resourcemanager.StaticSegment:
+			fallthrough
+		case resourcemanager.ResourceProviderSegment:
+			continue
+		case resourcemanager.ConstantSegment:
+			{
+				structMap = append(structMap, fmt.Sprintf("%s: %q,", strings.Title(segment.Name), segment.ExampleValue))
+				// intentionally don't alternate the casing, since the constant gets fixed to the correct case
+				caseInsensitiveStructMap = append(caseInsensitiveStructMap, fmt.Sprintf("%s: %q,", strings.Title(segment.Name), segment.ExampleValue))
+			}
+
+		default:
+			{
+				structMap = append(structMap, fmt.Sprintf("%s: %q,", strings.Title(segment.Name), segment.ExampleValue))
+				caseInsensitiveStructMap = append(caseInsensitiveStructMap, fmt.Sprintf("%s: %q,", strings.Title(segment.Name), alternateCasingOnEveryLetter(segment.ExampleValue)))
+			}
+		}
+	}
+
+	for idx := 0; idx < len(urlVals); idx++ {
+		testUrl := urlFromSegments(urlVals[0:idx])
+
+		cases = append(cases, fmt.Sprintf(`{
+			// Incomplete URI
+			Input: "%s",
+			Error: true,
+		},`, testUrl))
+
+		// special-casing "" since there's no point making that case-insensitive..
+		if !caseSensitive && testUrl != "" {
+			// alternate the casing on every other letter
+			testUrl = alternateCasingOnEveryLetter(testUrl)
+			cases = append(cases, fmt.Sprintf(`{
+			// Incomplete URI (mIxEd CaSe since this is insensitive)
+			Input: "%s",
+			Error: true,
+		},`, testUrl))
+		}
+	}
+
+	fullUrl := urlFromSegments(urlVals)
+	cases = append(cases, fmt.Sprintf(`{
+		// Valid URI
+		Input: "%s",
+		Expected: &%s{
+			%s
+		},
+	},`, fullUrl, i.resourceName, strings.Join(structMap, "\n")))
+	cases = append(cases, fmt.Sprintf(`{
+		// Invalid (Valid Uri with Extra segment) 
+		Input: "%s/extra",
+		Error: true,
+	},`, fullUrl))
+
+	if !caseSensitive {
+		fullUrl = alternateCasingOnEveryLetter(fullUrl)
+		cases = append(cases, fmt.Sprintf(`{
+		// Valid URI (mIxEd CaSe since this is insensitive)
+		Input: "%s",
+		Expected: &%s{
+			%s
+		},
+	},`, fullUrl, i.resourceName, strings.Join(caseInsensitiveStructMap, "\n")))
+		cases = append(cases, fmt.Sprintf(`{
+		// Invalid (Valid Uri with Extra segment - mIxEd CaSe since this is insensitive)
+		Input: "%s/extra",
+		Error: true,
+	},`, fullUrl))
+	}
+
+	out := strings.Join(cases, "\n")
+	return &out, nil
+}
+
+func urlFromSegments(input []string) string {
+	output := ""
+	for _, v := range input {
+		// intentionally to handle scopes
+		if !strings.HasPrefix(v, "/") {
+			output += "/"
+		}
+		output += v
+	}
+	return output
+}
+
+func (i idCustomParserTestsTemplater) getAssertions() (*string, error) {
+	lines := make([]string, 0)
+	for _, segment := range i.resourceData.Segments {
+		switch segment.Type {
+		case resourcemanager.ResourceProviderSegment:
+			fallthrough
+		case resourcemanager.StaticSegment:
+			continue
+		default:
+			lines = append(lines, fmt.Sprintf(`
+if actual.%[1]s != v.Expected.%[1]s {
+	t.Fatalf("Expected %%q but got %%q for %[1]s", v.Expected.%[1]s, actual.%[1]s)
+}
+`, strings.Title(segment.Name)))
+		}
+	}
+	out := strings.Join(lines, "\n")
+	return &out, nil
+}
+
+func alternateCasingOnEveryLetter(input string) string {
+	output := ""
+	caps := false
+	for _, c := range input {
+		if c == '/' {
+			// for every segment restart
+			output += string(c)
+			caps = false
+			continue
+		}
+
+		if caps {
+			caps = false
+			output += strings.ToUpper(string(c))
+		} else {
+			caps = true
+			output += strings.ToLower(string(c))
+		}
+	}
+
+	return output
 }
