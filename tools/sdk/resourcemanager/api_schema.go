@@ -147,7 +147,7 @@ type ResourceIdDefinition struct {
 	Id string `json:"id"`
 
 	// Segments is one or more segments present within this ResourceID, each Segment being
-	// for example a StaticSegment, ConstantSegment, UserSpecifiableSegment, etc.
+	// for example a StaticSegment, ConstantSegment, UserSpecifiedSegment, etc.
 	Segments []ResourceIdSegment `json:"segments"`
 }
 
@@ -191,6 +191,6 @@ const (
 	// SubscriptionIdSegment specifies that this Segment is a Subscription ID
 	SubscriptionIdSegment ResourceIdSegmentType = "SubscriptionId"
 
-	// UserSpecifiableSegment specifies that this Segment is User-Specifiable
-	UserSpecifiableSegment ResourceIdSegmentType = "UserSpecifiable"
+	// UserSpecifiedSegment specifies that this Segment is User-Specifiable
+	UserSpecifiedSegment ResourceIdSegmentType = "UserSpecified"
 )
