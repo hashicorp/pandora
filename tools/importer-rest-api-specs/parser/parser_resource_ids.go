@@ -10,6 +10,14 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
+var knownSegmentsUsedForScope = []string{
+	"resourceId",
+	"resourceScope",
+	"resourceUri",
+	"scope",
+	"scopePath",
+}
+
 type resourceIdParseResult struct {
 	// nameToResourceIDs is a map[name]ParsedResourceID containing information about the Resource ID's
 	nameToResourceIDs map[string]models.ParsedResourceId
@@ -165,7 +173,14 @@ func (d *SwaggerDefinition) parseResourceIdFromOperation(uri string, operationDe
 
 		// intentionally check the pre-cut version
 		if strings.HasPrefix(originalSegment, "{") && strings.HasSuffix(originalSegment, "}") {
-			if strings.EqualFold(normalizedSegment, "resourceId") || strings.EqualFold(normalizedSegment, "resourceScope") || strings.EqualFold(normalizedSegment, "resourceUri") || strings.EqualFold(normalizedSegment, "scope") {
+			isScope := false
+			for _, scopeSegmentAlias := range knownSegmentsUsedForScope {
+				if strings.EqualFold(normalizedSegment, scopeSegmentAlias) {
+					isScope = true
+					break
+				}
+			}
+			if isScope {
 				segments = append(segments, models.ResourceIdSegment{
 					Type: models.ScopeSegment,
 					Name: normalizedSegment,
