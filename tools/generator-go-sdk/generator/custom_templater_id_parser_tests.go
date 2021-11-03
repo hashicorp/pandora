@@ -5,7 +5,6 @@ import (
 	"strings"
 
 	"github.com/hashicorp/pandora/tools/generator-go-sdk/featureflags"
-
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
@@ -255,18 +254,6 @@ func (i idCustomParserTestsTemplater) getTestCases(caseSensitive bool) (*string,
 	return &out, nil
 }
 
-func urlFromSegments(input []string) string {
-	output := ""
-	for _, v := range input {
-		// intentionally to handle scopes
-		if !strings.HasPrefix(v, "/") {
-			output += "/"
-		}
-		output += v
-	}
-	return output
-}
-
 func (i idCustomParserTestsTemplater) getAssertions() (*string, error) {
 	lines := make([]string, 0)
 	for _, segment := range i.resourceData.Segments {
@@ -285,27 +272,4 @@ if actual.%[1]s != v.Expected.%[1]s {
 	}
 	out := strings.Join(lines, "\n")
 	return &out, nil
-}
-
-func alternateCasingOnEveryLetter(input string) string {
-	output := ""
-	caps := false
-	for _, c := range input {
-		if c == '/' {
-			// for every segment restart
-			output += string(c)
-			caps = false
-			continue
-		}
-
-		if caps {
-			caps = false
-			output += strings.ToUpper(string(c))
-		} else {
-			caps = true
-			output += strings.ToLower(string(c))
-		}
-	}
-
-	return output
 }
