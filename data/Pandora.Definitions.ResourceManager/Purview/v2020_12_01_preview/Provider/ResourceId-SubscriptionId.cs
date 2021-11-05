@@ -5,12 +5,12 @@ namespace Pandora.Definitions.ResourceManager.Purview.v2020_12_01_preview.Provid
 {
     internal class SubscriptionId : ResourceID
     {
-        public string ID() => "/subscriptions/{subscriptionId}";
+        public string? CommonAlias => null;
 
-        public List<ResourceIDSegment> Segments()
+        public string ID => "/subscriptions/{subscriptionId}";
+
+        public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
         {
-            return new List<ResourceIDSegment>
-            {
                 new()
                 {
                     Name = "subscriptions",
@@ -24,7 +24,6 @@ namespace Pandora.Definitions.ResourceManager.Purview.v2020_12_01_preview.Provid
                     Type = ResourceIDSegmentType.SubscriptionId
                 },
 
-            };
-        }
+        };
     }
 }

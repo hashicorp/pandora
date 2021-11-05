@@ -5,12 +5,12 @@ namespace Pandora.Definitions.ResourceManager.VideoAnalyzer.v2021_05_01_preview.
 {
     internal class VideoAnalyzerId : ResourceID
     {
-        public string ID() => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Media/videoAnalyzers/{accountName}";
+        public string? CommonAlias => null;
 
-        public List<ResourceIDSegment> Segments()
+        public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Media/videoAnalyzers/{accountName}";
+
+        public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
         {
-            return new List<ResourceIDSegment>
-            {
                 new()
                 {
                     Name = "subscriptions",
@@ -64,7 +64,6 @@ namespace Pandora.Definitions.ResourceManager.VideoAnalyzer.v2021_05_01_preview.
                     Type = ResourceIDSegmentType.UserSpecified
                 },
 
-            };
-        }
+        };
     }
 }

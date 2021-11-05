@@ -5,12 +5,12 @@ namespace Pandora.Definitions.ResourceManager.AnalysisServices.v2017_08_01.Serve
 {
     internal class ServerId : ResourceID
     {
-        public string ID() => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AnalysisServices/servers/{serverName}";
+        public string? CommonAlias => null;
 
-        public List<ResourceIDSegment> Segments()
+        public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AnalysisServices/servers/{serverName}";
+
+        public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
         {
-            return new List<ResourceIDSegment>
-            {
                 new()
                 {
                     Name = "subscriptions",
@@ -64,7 +64,6 @@ namespace Pandora.Definitions.ResourceManager.AnalysisServices.v2017_08_01.Serve
                     Type = ResourceIDSegmentType.UserSpecified
                 },
 
-            };
-        }
+        };
     }
 }

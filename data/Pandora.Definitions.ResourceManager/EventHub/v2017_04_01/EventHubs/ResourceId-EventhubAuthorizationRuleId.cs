@@ -5,12 +5,12 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.EventHubs
 {
     internal class EventhubAuthorizationRuleId : ResourceID
     {
-        public string ID() => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/eventhubs/{eventHubName}/authorizationRules/{authorizationRuleName}";
+        public string? CommonAlias => null;
 
-        public List<ResourceIDSegment> Segments()
+        public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/eventhubs/{eventHubName}/authorizationRules/{authorizationRuleName}";
+
+        public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
         {
-            return new List<ResourceIDSegment>
-            {
                 new()
                 {
                     Name = "subscriptions",
@@ -90,7 +90,6 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.EventHubs
                     Type = ResourceIDSegmentType.UserSpecified
                 },
 
-            };
-        }
+        };
     }
 }

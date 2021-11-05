@@ -5,12 +5,12 @@ namespace Pandora.Definitions.ResourceManager.Attestation.v2020_10_01.PrivateEnd
 {
     internal class PrivateEndpointConnectionId : ResourceID
     {
-        public string ID() => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Attestation/attestationProviders/{providerName}/privateEndpointConnections/{privateEndpointConnectionName}";
+        public string? CommonAlias => null;
 
-        public List<ResourceIDSegment> Segments()
+        public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Attestation/attestationProviders/{providerName}/privateEndpointConnections/{privateEndpointConnectionName}";
+
+        public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
         {
-            return new List<ResourceIDSegment>
-            {
                 new()
                 {
                     Name = "subscriptions",
@@ -77,7 +77,6 @@ namespace Pandora.Definitions.ResourceManager.Attestation.v2020_10_01.PrivateEnd
                     Type = ResourceIDSegmentType.UserSpecified
                 },
 
-            };
-        }
+        };
     }
 }

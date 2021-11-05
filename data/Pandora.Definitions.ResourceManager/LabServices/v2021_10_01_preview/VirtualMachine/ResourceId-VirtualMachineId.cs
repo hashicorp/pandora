@@ -5,12 +5,12 @@ namespace Pandora.Definitions.ResourceManager.LabServices.v2021_10_01_preview.Vi
 {
     internal class VirtualMachineId : ResourceID
     {
-        public string ID() => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.LabServices/labs/{labName}/virtualMachines/{virtualMachineName}";
+        public string? CommonAlias => null;
 
-        public List<ResourceIDSegment> Segments()
+        public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.LabServices/labs/{labName}/virtualMachines/{virtualMachineName}";
+
+        public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
         {
-            return new List<ResourceIDSegment>
-            {
                 new()
                 {
                     Name = "subscriptions",
@@ -77,7 +77,6 @@ namespace Pandora.Definitions.ResourceManager.LabServices.v2021_10_01_preview.Vi
                     Type = ResourceIDSegmentType.UserSpecified
                 },
 
-            };
-        }
+        };
     }
 }

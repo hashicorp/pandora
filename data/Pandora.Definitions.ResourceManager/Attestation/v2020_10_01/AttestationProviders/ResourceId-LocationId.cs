@@ -5,12 +5,12 @@ namespace Pandora.Definitions.ResourceManager.Attestation.v2020_10_01.Attestatio
 {
     internal class LocationId : ResourceID
     {
-        public string ID() => "/subscriptions/{subscriptionId}/providers/Microsoft.Attestation/locations/{location}";
+        public string? CommonAlias => null;
 
-        public List<ResourceIDSegment> Segments()
+        public string ID => "/subscriptions/{subscriptionId}/providers/Microsoft.Attestation/locations/{location}";
+
+        public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
         {
-            return new List<ResourceIDSegment>
-            {
                 new()
                 {
                     Name = "subscriptions",
@@ -51,7 +51,6 @@ namespace Pandora.Definitions.ResourceManager.Attestation.v2020_10_01.Attestatio
                     Type = ResourceIDSegmentType.UserSpecified
                 },
 
-            };
-        }
+        };
     }
 }

@@ -14,7 +14,7 @@ namespace Pandora.Data.Transformers
             var constants = new List<ConstantDefinition>();
             var segments = new List<ResourceIdSegmentDefinition>();
 
-            foreach (var segment in input.Segments())
+            foreach (var segment in input.Segments)
             {
                 var type = MapResourceIdSegmentType(segment.Type);
                 var output = new ResourceIdSegmentDefinition
@@ -38,7 +38,8 @@ namespace Pandora.Data.Transformers
             return new ResourceIdDefinition
             {
                 Name = input.GetType().Name,
-                IdString = input.ID(),
+                IdString = input.ID,
+                CommonAlias = input.CommonAlias,
                 Constants = constants,
                 Segments = segments,
             };
