@@ -17,6 +17,11 @@ func (g PandoraDefinitionGenerator) codeForResourceID(namespace string, resource
 		segmentsCode = append(segmentsCode, *code)
 	}
 
+	commonAlias := "null"
+	if resourceIdValue.CommonAlias != nil {
+		commonAlias = fmt.Sprintf("%q", *resourceIdValue.CommonAlias)
+	}
+
 	code := fmt.Sprintf(`using System.Collections.Generic;
 using Pandora.Definitions.Interfaces;
 
@@ -24,18 +29,17 @@ namespace %[1]s
 {
 	internal class %[2]s : ResourceID
 	{
-		public string ID() => "%[3]s";
+		public string? CommonAlias => %[3]s;
 
-		public List<ResourceIDSegment> Segments()
-        {
-            return new List<ResourceIDSegment>
-            {
-%[4]s
-            };
-        }
+		public string ID => "%[4]s";
+
+		public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
+		{
+%[5]s
+		};
 	}
 }
-`, namespace, resourceIdName, resourceIdValue.String(), strings.Join(segmentsCode, "\n"))
+`, namespace, resourceIdName, commonAlias, resourceIdValue.String(), strings.Join(segmentsCode, "\n"))
 	return &code, nil
 }
 

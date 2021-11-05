@@ -369,8 +369,9 @@ func mapApiResourceIdDefinitionsToParsedResourceIds(input map[string]resourceman
 		}
 
 		output[k] = models.ParsedResourceId{
-			Constants: constantsUsed,
-			Segments:  *segments,
+			CommonAlias: v.CommonAlias,
+			Constants:   constantsUsed,
+			Segments:    *segments,
 		}
 	}
 
