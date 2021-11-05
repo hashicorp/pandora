@@ -357,23 +357,19 @@ namespace Pandora.Data.Transformers
 
         public class FakeResourceId : Definitions.Interfaces.ResourceID
         {
-            public string ID()
+            public string? CommonAlias => null;
+            
+            public string ID => "/hello";
+            
+            public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
             {
-                return "/hello";
-            }
-
-            public List<ResourceIDSegment> Segments()
-            {
-                return new List<ResourceIDSegment>
+                new()
                 {
-                    new()
-                    {
-                        Name = "hello",
-                        Type = ResourceIDSegmentType.Static,
-                        FixedValue = "hello",
-                    }
-                };
-            }
+                    Name = "hello",
+                    Type = ResourceIDSegmentType.Static,
+                    FixedValue = "hello",
+                }
+            };
         }
     }
 

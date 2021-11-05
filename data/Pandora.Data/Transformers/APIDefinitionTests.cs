@@ -900,14 +900,11 @@ namespace Pandora.Data.Transformers
 
             public class ExampleResourceId : Definitions.Interfaces.ResourceID
             {
-                public string ID()
-                {
-                    return "/planets/{planetName}";
-                }
+                public string? CommonAlias => null;
+                
+                public string ID => "/planets/{planetName}";
 
-                public List<ResourceIDSegment> Segments()
-                {
-                    return new List<ResourceIDSegment>
+                public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
                 {
                     new ResourceIDSegment
                     {
@@ -922,7 +919,6 @@ namespace Pandora.Data.Transformers
                         Type = ResourceIDSegmentType.Constant,
                     },
                 };
-                }
             }
 
             [ConstantType(ConstantTypeAttribute.ConstantType.String)]
