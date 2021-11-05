@@ -63,20 +63,23 @@ func (r resourceIdTemplater) structBody() (*string, error) {
 		lines = append(lines, fmt.Sprintf("%s %s", strings.Title(segment.Name), segmentType))
 	}
 
+	wordifiedName := wordifyString(r.name)
 	out := fmt.Sprintf(`
 var _ resourceids.ResourceId = %[1]s{}
 
+// %[1]s is a struct representing the Resource ID for a %[3]s
 type %[1]s struct {
 %[2]s
 }
-`, r.name, strings.Join(lines, "\n"))
+`, r.name, strings.Join(lines, "\n"), wordifiedName)
 	return &out, nil
 }
 
 func (r resourceIdTemplater) methods(data ServiceGeneratorData) (*string, error) {
 	nameWithoutSuffix := strings.TrimSuffix(r.name, "Id")
 
-	// NOTE: ordering is useful here for skimming the code, we do NewStruct -> Parse -> other Methods
+	// NOTE: ordering is useful here for skimming the code, we do Public -> Private
+	//	e.g. Struct -> NewStruct -> Parse -> Validate -> other Methods
 
 	methods := make([]string, 0)
 
@@ -103,6 +106,9 @@ func (r resourceIdTemplater) methods(data ServiceGeneratorData) (*string, error)
 
 		methods = append(methods, *functionBody)
 	}
+
+	// Validate function
+	methods = append(methods, r.validateFunction(nameWithoutSuffix))
 
 	// Id function
 	functionBody, err = r.idFunction(data)
@@ -185,13 +191,15 @@ func (r resourceIdTemplater) idFunction(data ServiceGeneratorData) (*string, err
 	// intentionally doing this and not using strings.Join to handle Scopes which are full Resource ID's
 	fmtString := urlFromSegments(fmtSegments)
 	segmentsString := strings.Join(segmentArguments, ", ")
+	wordifiedName := wordifyString(r.name)
 
 	out := fmt.Sprintf(`
+// ID returns the formatted %[4]s ID
 func (id %[1]s) ID() string {
 	fmtString := %[2]q
 	return fmt.Sprintf(fmtString, %[3]s)
 }
-`, r.name, fmtString, segmentsString)
+`, r.name, fmtString, segmentsString, wordifiedName)
 	return &out, nil
 }
 
@@ -227,7 +235,9 @@ func (r resourceIdTemplater) newFunction(nameWithoutSuffix string) (*string, err
 		}
 	}
 
-	out := fmt.Sprintf(`func New%[1]sID(%[3]s) %[2]s {
+	out := fmt.Sprintf(`
+// New%[1]sID returns a new %[2]s struct 
+func New%[1]sID(%[3]s) %[2]s {
 	return %[1]sId{
 		%[4]s
 	}
@@ -283,7 +293,15 @@ func (r resourceIdTemplater) parseFunction(nameWithoutSuffix string, caseSensiti
 		}
 	}
 
-	out := fmt.Sprintf(`func %[1]s(input string) (*%[2]s, error) {
+	description := fmt.Sprintf("// %[1]s parses 'input' into a %[2]s", functionName, r.name)
+	if !caseSensitive {
+		description = fmt.Sprintf(`
+// %[1]s parses 'input' case-insensitively into a %[2]s
+// note: this method should only be used for API response data and not user input`, functionName, r.name)
+	}
+
+	out := fmt.Sprintf(`%[5]s
+func %[1]s(input string) (*%[2]s, error) {
 	parser := resourceids.NewParserFromResourceIdType(%[2]s{})
 	parsed, err := parser.Parse(input, %[3]t)
 	if err != nil {
@@ -296,7 +314,7 @@ func (r resourceIdTemplater) parseFunction(nameWithoutSuffix string, caseSensiti
 	%[4]s
 
 	return &id, nil
-}`, functionName, r.name, !caseSensitive, strings.Join(lines, "\n"))
+}`, functionName, r.name, !caseSensitive, strings.Join(lines, "\n"), description)
 	return &out, nil
 }
 
@@ -357,13 +375,15 @@ func (r resourceIdTemplater) segmentsFunction() (*string, error) {
 		}
 	}
 
+	wordifiedName := wordifyString(r.name)
 	out := fmt.Sprintf(`
+// Segments returns a slice of Resource ID Segments which comprise this %[3]s ID
 func (id %[1]s) Segments() []resourceids.Segment {
 	return []resourceids.Segment{
 		%[2]s
 	}
 }
-`, r.name, strings.Join(lines, "\n"))
+`, r.name, strings.Join(lines, "\n"), wordifiedName)
 	return &out, nil
 }
 
@@ -399,11 +419,33 @@ func (r resourceIdTemplater) stringFunction(data ServiceGeneratorData) (*string,
 	}
 
 	wordifiedName := wordifyString(r.name)
-	out := fmt.Sprintf(`func (id %[1]s) String() string {
+	out := fmt.Sprintf(`
+// String returns a human-readable description of this %[3]s ID
+func (id %[1]s) String() string {
 	components := []string{
 		%[2]s
 	}
 	return fmt.Sprintf("%[3]s (%%s)", strings.Join(components, "\n"))  
 }`, r.name, strings.Join(componentsLines, "\n"), wordifiedName)
 	return &out, nil
+}
+
+func (r resourceIdTemplater) validateFunction(nameWithoutSuffix string) string {
+	wordifiedName := wordifyString(r.name)
+	return fmt.Sprintf(`
+// Validate%[1]sID checks that 'input' can be parsed as a %[2]s ID
+func Validate%[1]sID(input interface{}, key string) (warnings []string, errors []error) {
+	v, ok := input.(string)
+	if !ok {
+		errors = append(errors, fmt.Errorf("expected %%q to be a string", key))
+		return
+	}
+
+	if _, err := Parse%[1]sID(v); err != nil {
+		errors = append(errors, err)
+	}
+
+	return
+}
+`, nameWithoutSuffix, wordifiedName)
 }
