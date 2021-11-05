@@ -109,6 +109,7 @@ namespace Pandora.Api.V1.ResourceManager
             var segments = id.Segments.Select(MapResourceIdSegment).ToList();
             return new ResourceIdDefinition
             {
+                CommonAlias = id.CommonAlias,
                 ConstantNames = uniqueConstantNames,
                 Id = id.IdString,
                 Segments = segments,
@@ -214,6 +215,9 @@ namespace Pandora.Api.V1.ResourceManager
 
         private class ResourceIdDefinition
         {
+            [JsonPropertyName("commonAlias")]
+            public string? CommonAlias { get; set; }
+        
             [JsonPropertyName("constantNames")]
             public List<string> ConstantNames { get; set; }
 
