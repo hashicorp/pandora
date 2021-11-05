@@ -139,6 +139,10 @@ const (
 )
 
 type ResourceIdDefinition struct {
+	// CommonAlias is the alias used for this Resource ID, if this is a 'Common' Resource ID
+	// examples of a Common Resource ID include Resource Group ID's and Subscription ID's
+	CommonAlias *string `json:"commonAlias,omitempty"`
+
 	// ConstantNames is a list of Constants used by/in this ResourceId
 	ConstantNames []string `json:"constantNames"`
 
