@@ -8,7 +8,7 @@ namespace Pandora.Definitions.TestData.Pandamonium.v2020_01_01.Grouping
     public class ExampleResourceId : ResourceID
     {
         public string? CommonAlias => null;
-        
+
         public string ID => "/subscriptions/{subscriptionId}/resourceGroups/planets/{planetName}";
 
         public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>

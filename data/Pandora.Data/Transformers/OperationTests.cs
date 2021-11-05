@@ -358,9 +358,9 @@ namespace Pandora.Data.Transformers
         public class FakeResourceId : Definitions.Interfaces.ResourceID
         {
             public string? CommonAlias => null;
-            
+
             public string ID => "/hello";
-            
+
             public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
             {
                 new()

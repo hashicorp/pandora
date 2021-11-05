@@ -79,7 +79,7 @@ namespace Pandora.Data.Transformers
         private class FakeResourceId : Definitions.Interfaces.ResourceID
         {
             public string? CommonAlias => null;
-            
+
             public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}";
 
             public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>

@@ -7,10 +7,10 @@ namespace Pandora.Definitions.Interfaces
     {
         // CommonAlias is the name of the Common Resource ID that should be used for this Resource ID 
         string? CommonAlias { get; }
-        
+
         // ID is the Resource ID as a String
         string ID { get; }
-        
+
         // Segments is a list of ordered Segments present in this Resource ID
         List<ResourceIDSegment> Segments { get; }
     }

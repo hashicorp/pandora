@@ -901,7 +901,7 @@ namespace Pandora.Data.Transformers
             public class ExampleResourceId : Definitions.Interfaces.ResourceID
             {
                 public string? CommonAlias => null;
-                
+
                 public string ID => "/planets/{planetName}";
 
                 public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>

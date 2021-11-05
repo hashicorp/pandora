@@ -348,7 +348,7 @@ namespace Pandora.Data.Transformers
         private class ResourceIdContainingAConstant : Definitions.Interfaces.ResourceID
         {
             public string? CommonAlias => null;
-            
+
             public string ID => "/planets/{planetName}";
 
             public List<ResourceIDSegment> Segments => new()
@@ -381,7 +381,7 @@ namespace Pandora.Data.Transformers
         private class ResourceIdContainingAScope : Definitions.Interfaces.ResourceID
         {
             public string? CommonAlias => null;
-            
+
             public string ID => "/{scope}/someOperation";
 
             public List<ResourceIDSegment> Segments => new()

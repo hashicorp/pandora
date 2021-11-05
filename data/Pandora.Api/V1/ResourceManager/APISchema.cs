@@ -217,7 +217,7 @@ namespace Pandora.Api.V1.ResourceManager
         {
             [JsonPropertyName("commonAlias")]
             public string? CommonAlias { get; set; }
-        
+
             [JsonPropertyName("constantNames")]
             public List<string> ConstantNames { get; set; }
 
