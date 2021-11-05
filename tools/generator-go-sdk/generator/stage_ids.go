@@ -14,7 +14,7 @@ func (s *ServiceGenerator) ids(data ServiceGeneratorData) error {
 		}
 		nameWithoutSuffix := strings.TrimSuffix(idName, "Id") // we suffix 'Id' and 'ID' in places
 		fileNamePrefix := strings.ToLower(nameWithoutSuffix)
-		pt := resourceId{
+		pt := resourceIdTemplater{
 			name:            idName,
 			resource:        resourceData,
 			constantDetails: data.constants,
@@ -23,7 +23,7 @@ func (s *ServiceGenerator) ids(data ServiceGeneratorData) error {
 			return fmt.Errorf("templating ids: %+v", err)
 		}
 
-		tpt := idCustomParserTestsTemplater{
+		tpt := resourceIdTestsTemplater{
 			resourceName:    idName,
 			resourceData:    resourceData,
 			constantDetails: data.constants,

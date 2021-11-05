@@ -8,15 +8,15 @@ import (
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-var _ templater = resourceId{}
+var _ templater = resourceIdTemplater{}
 
-type resourceId struct {
+type resourceIdTemplater struct {
 	name            string
 	resource        resourcemanager.ResourceIdDefinition
 	constantDetails map[string]resourcemanager.ConstantDetails
 }
 
-func (r resourceId) template(data ServiceGeneratorData) (*string, error) {
+func (r resourceIdTemplater) template(data ServiceGeneratorData) (*string, error) {
 	structBody, err := r.structBody()
 	if err != nil {
 		return nil, fmt.Errorf("generating struct body: %+v", err)
@@ -42,7 +42,7 @@ import (
 	return &out, nil
 }
 
-func (r resourceId) structBody() (*string, error) {
+func (r resourceIdTemplater) structBody() (*string, error) {
 	lines := make([]string, 0)
 
 	for _, segment := range r.resource.Segments {
@@ -73,7 +73,7 @@ type %[1]s struct {
 	return &out, nil
 }
 
-func (r resourceId) methods(data ServiceGeneratorData) (*string, error) {
+func (r resourceIdTemplater) methods(data ServiceGeneratorData) (*string, error) {
 	nameWithoutSuffix := strings.TrimSuffix(r.name, "Id")
 
 	// NOTE: ordering is useful here for skimming the code, we do NewStruct -> Parse -> other Methods
@@ -129,7 +129,7 @@ func (r resourceId) methods(data ServiceGeneratorData) (*string, error) {
 	return &out, nil
 }
 
-func (r resourceId) idFunction(data ServiceGeneratorData) (*string, error) {
+func (r resourceIdTemplater) idFunction(data ServiceGeneratorData) (*string, error) {
 	fmtSegments := make([]string, 0)      // %s
 	segmentArguments := make([]string, 0) // id.Foo
 	for _, segment := range r.resource.Segments {
@@ -195,7 +195,7 @@ func (id %[1]s) ID() string {
 	return &out, nil
 }
 
-func (r resourceId) newFunction(nameWithoutSuffix string) (*string, error) {
+func (r resourceIdTemplater) newFunction(nameWithoutSuffix string) (*string, error) {
 	arguments := make([]string, 0)
 	lines := make([]string, 0)
 
@@ -235,7 +235,7 @@ func (r resourceId) newFunction(nameWithoutSuffix string) (*string, error) {
 	return &out, nil
 }
 
-func (r resourceId) parseFunction(nameWithoutSuffix string, caseSensitive bool) (*string, error) {
+func (r resourceIdTemplater) parseFunction(nameWithoutSuffix string, caseSensitive bool) (*string, error) {
 	functionName := fmt.Sprintf("Parse%[1]sID", nameWithoutSuffix)
 	if !caseSensitive {
 		functionName += "Insensitively"
@@ -300,7 +300,7 @@ func (r resourceId) parseFunction(nameWithoutSuffix string, caseSensitive bool) 
 	return &out, nil
 }
 
-func (r resourceId) segmentsFunction() (*string, error) {
+func (r resourceIdTemplater) segmentsFunction() (*string, error) {
 	lines := make([]string, 0)
 
 	for _, segment := range r.resource.Segments {
@@ -367,7 +367,7 @@ func (id %[1]s) Segments() []resourceids.Segment {
 	return &out, nil
 }
 
-func (r resourceId) stringFunction(data ServiceGeneratorData) (*string, error) {
+func (r resourceIdTemplater) stringFunction(data ServiceGeneratorData) (*string, error) {
 	componentsLines := make([]string, 0)
 	for _, segment := range r.resource.Segments {
 		switch segment.Type {

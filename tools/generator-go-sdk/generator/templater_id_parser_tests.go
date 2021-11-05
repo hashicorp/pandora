@@ -8,15 +8,15 @@ import (
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-var _ templater = idCustomParserTestsTemplater{}
+var _ templater = resourceIdTestsTemplater{}
 
-type idCustomParserTestsTemplater struct {
+type resourceIdTestsTemplater struct {
 	resourceName    string
 	resourceData    resourcemanager.ResourceIdDefinition
 	constantDetails map[string]resourcemanager.ConstantDetails
 }
 
-func (i idCustomParserTestsTemplater) template(data ServiceGeneratorData) (*string, error) {
+func (i resourceIdTestsTemplater) template(data ServiceGeneratorData) (*string, error) {
 	res, err := i.generateTests(data.packageName)
 	if err != nil {
 		return nil, fmt.Errorf("while generating parser tests: %+v", err)
@@ -24,7 +24,7 @@ func (i idCustomParserTestsTemplater) template(data ServiceGeneratorData) (*stri
 	return res, nil
 }
 
-func (i idCustomParserTestsTemplater) generateTests(packageName string) (*string, error) {
+func (i resourceIdTestsTemplater) generateTests(packageName string) (*string, error) {
 	structName := strings.Title(i.resourceName)
 	structWithoutSuffix := strings.TrimSuffix(structName, "Id")
 	lines := make([]string, 0)
@@ -75,7 +75,7 @@ var _ resourceids.ResourceId = %[2]s{}
 	return &out, nil
 }
 
-func (i idCustomParserTestsTemplater) generateIdFunctionTest(structWithoutSuffix string) (*string, error) {
+func (i resourceIdTestsTemplater) generateIdFunctionTest(structWithoutSuffix string) (*string, error) {
 	arguments := make([]string, 0)
 
 	exampleValues := make([]string, 0)
@@ -99,7 +99,7 @@ func TestFormat%[1]sID(t *testing.T) {
 	return &out, nil
 }
 
-func (i idCustomParserTestsTemplater) generateNewFunctionTest(structWithoutSuffix string) (*string, error) {
+func (i resourceIdTestsTemplater) generateNewFunctionTest(structWithoutSuffix string) (*string, error) {
 	arguments := make([]string, 0)
 	assertions := make([]string, 0)
 
@@ -123,7 +123,7 @@ func TestNew%[1]sID(t *testing.T) {
 	return &out, nil
 }
 
-func (i idCustomParserTestsTemplater) generateParseFunctionTest(structName, structWithoutSuffix string, caseSensitive bool) (*string, error) {
+func (i resourceIdTestsTemplater) generateParseFunctionTest(structName, structWithoutSuffix string, caseSensitive bool) (*string, error) {
 	parseFunctionName := fmt.Sprintf("Parse%sID", structWithoutSuffix)
 	if !caseSensitive {
 		parseFunctionName += "Insensitively"
@@ -170,7 +170,7 @@ func Test%[1]s(t *testing.T) {
 	return &out, nil
 }
 
-func (i idCustomParserTestsTemplater) getTestCases(caseSensitive bool) (*string, error) {
+func (i resourceIdTestsTemplater) getTestCases(caseSensitive bool) (*string, error) {
 	cases := make([]string, 0)
 	urlVals := make([]string, 0)
 	structMap := make([]string, 0)
@@ -254,7 +254,7 @@ func (i idCustomParserTestsTemplater) getTestCases(caseSensitive bool) (*string,
 	return &out, nil
 }
 
-func (i idCustomParserTestsTemplater) getAssertions() (*string, error) {
+func (i resourceIdTestsTemplater) getAssertions() (*string, error) {
 	lines := make([]string, 0)
 	for _, segment := range i.resourceData.Segments {
 		switch segment.Type {
