@@ -56,7 +56,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/hashicorp/go-azure-helpers/formatting"
+	"github.com/hashicorp/go-azure-helpers/lang/dates"
 	"github.com/hashicorp/terraform-provider-azurerm/internal/identity"
 )
 
@@ -201,9 +201,9 @@ func (c modelsTemplater) codeForDateFunctions() (*string, error) {
 			lines = append(lines, fmt.Sprintf("\t\tif o.%s == nil {", fieldName))
 			lines = append(lines, fmt.Sprintf("\t\t\treturn nil, nil"))
 			lines = append(lines, fmt.Sprintf("\t\t}"))
-			lines = append(lines, fmt.Sprintf("\t\treturn formatting.ParseAsDateFormat(o.%s, %q)", fieldName, dateFormat))
+			lines = append(lines, fmt.Sprintf("\t\treturn dates.ParseAsFormat(o.%s, %q)", fieldName, dateFormat))
 		} else {
-			lines = append(lines, fmt.Sprintf("\t\treturn formatting.ParseAsDateFormat(&o.%s, %q)", fieldName, dateFormat))
+			lines = append(lines, fmt.Sprintf("\t\treturn dates.ParseAsFormat(&o.%s, %q)", fieldName, dateFormat))
 		}
 
 		lines = append(lines, fmt.Sprintf("\t}\n"))

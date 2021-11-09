@@ -5,12 +5,12 @@ namespace Pandora.Definitions.ResourceManager.VMware.v2020_03_20.PrivateClouds
 {
     internal class SubscriptionId : ResourceID
     {
-        public string ID() => "/subscriptions/{subscriptionId}";
+        public string? CommonAlias => null;
 
-        public List<ResourceIDSegment> Segments()
+        public string ID => "/subscriptions/{subscriptionId}";
+
+        public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
         {
-            return new List<ResourceIDSegment>
-            {
                 new()
                 {
                     Name = "subscriptions",
@@ -24,7 +24,6 @@ namespace Pandora.Definitions.ResourceManager.VMware.v2020_03_20.PrivateClouds
                     Type = ResourceIDSegmentType.SubscriptionId
                 },
 
-            };
-        }
+        };
     }
 }

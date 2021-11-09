@@ -11,6 +11,10 @@ service "attestation" {
   name      = "Attestation"
   available = ["2020-10-01"]
 }
+service "cognitiveservices" {
+  name      = "Cognitive"
+  available = ["2021-04-30"]
+}
 service "databricks" {
   name      = "Databricks"
   available = ["2021-04-01-preview"]
@@ -22,6 +26,10 @@ service "datalake-analytics" {
 service "datalake-store" {
   name      = "DatalakeStore"
   available = ["2016-11-01"]
+}
+service "dns" {
+  name      = "DNS"
+  available = ["2018-05-01"]
 }
 service "eventhub" {
   name      = "EventHub"

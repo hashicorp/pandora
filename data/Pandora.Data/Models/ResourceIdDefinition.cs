@@ -6,6 +6,8 @@ namespace Pandora.Data.Models
     {
         public string Name { get; set; }
 
+        public string? CommonAlias { get; set; }
+
         public string IdString { get; set; }
 
         public List<ConstantDefinition> Constants { get; set; }

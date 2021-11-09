@@ -5,7 +5,6 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/featureflags"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
@@ -210,10 +209,6 @@ func TestParseResourceIdContainingAConstant(t *testing.T) {
 }
 
 func TestParseResourceIdContainingAScope(t *testing.T) {
-	if !featureflags.ParseResourcesContainingScopes {
-		t.Skipf("Scopes are disabled via the Feature FLag - so this test will fail - skipping temporarily")
-	}
-
 	result, err := ParseSwaggerFileForTesting(t, "resource_ids_containing_scope.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)

@@ -35,7 +35,7 @@ namespace Pandora.Data.Transformers
         }
 
         [TestCase]
-        public static void MappingAResourceIDWithASingleUserSpecifiableSegment()
+        public static void MappingAResourceIDWithASingleUserSpecifiedSegment()
         {
             var expected = new HelloWorldUserSpecifiableResourceId();
             var actual = ResourceID.Map(expected);
@@ -213,9 +213,11 @@ namespace Pandora.Data.Transformers
 
         private class HelloWorldStaticResourceId : Definitions.Interfaces.ResourceID
         {
-            public string ID() => "/hello/world";
+            public string? CommonAlias => null;
 
-            public List<ResourceIDSegment> Segments() => new()
+            public string ID => "/hello/world";
+
+            public List<ResourceIDSegment> Segments => new()
             {
                 new ResourceIDSegment
                 {
@@ -234,9 +236,11 @@ namespace Pandora.Data.Transformers
 
         private class HelloWorldUserSpecifiableResourceId : Definitions.Interfaces.ResourceID
         {
-            public string ID() => "/hello/{world}";
+            public string? CommonAlias => null;
 
-            public List<ResourceIDSegment> Segments() => new()
+            public string ID => "/hello/{world}";
+
+            public List<ResourceIDSegment> Segments => new()
             {
                 new ResourceIDSegment
                 {
@@ -254,9 +258,11 @@ namespace Pandora.Data.Transformers
 
         private class VirtualMachineResourceId : Definitions.Interfaces.ResourceID
         {
-            public string ID() => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Compute/virtualMachines/{virtualMachineName}";
+            public string? CommonAlias => null;
 
-            public List<ResourceIDSegment> Segments() => new()
+            public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Compute/virtualMachines/{virtualMachineName}";
+
+            public List<ResourceIDSegment> Segments => new()
             {
                 new ResourceIDSegment
                 {
@@ -308,9 +314,11 @@ namespace Pandora.Data.Transformers
 
         private class ResourceGroupResourceId : Definitions.Interfaces.ResourceID
         {
-            public string ID() => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}";
+            public string? CommonAlias => null;
 
-            public List<ResourceIDSegment> Segments() => new()
+            public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}";
+
+            public List<ResourceIDSegment> Segments => new()
             {
                 new ResourceIDSegment
                 {
@@ -339,9 +347,11 @@ namespace Pandora.Data.Transformers
 
         private class ResourceIdContainingAConstant : Definitions.Interfaces.ResourceID
         {
-            public string ID() => "/planets/{planetName}";
+            public string? CommonAlias => null;
 
-            public List<ResourceIDSegment> Segments() => new()
+            public string ID => "/planets/{planetName}";
+
+            public List<ResourceIDSegment> Segments => new()
             {
                 new ResourceIDSegment
                 {
@@ -370,9 +380,11 @@ namespace Pandora.Data.Transformers
 
         private class ResourceIdContainingAScope : Definitions.Interfaces.ResourceID
         {
-            public string ID() => "/{scope}/someOperation";
+            public string? CommonAlias => null;
 
-            public List<ResourceIDSegment> Segments() => new()
+            public string ID => "/{scope}/someOperation";
+
+            public List<ResourceIDSegment> Segments => new()
             {
                 new ResourceIDSegment
                 {

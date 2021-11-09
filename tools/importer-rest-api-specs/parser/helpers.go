@@ -6,7 +6,6 @@ import (
 
 	"github.com/go-openapi/spec"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/cleanup"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/featureflags"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
@@ -65,22 +64,6 @@ func operationShouldBeIgnored(operationUri string) bool {
 	}
 	if strings.Contains(strings.ToLower(operationUri), "/operationstatuses/") {
 		return true
-	}
-
-	// temporarily conditionally remove Scopes
-	if !featureflags.ParseResourcesContainingScopes {
-		if strings.Contains(strings.ToLower(operationUri), "/{scope}") {
-			return true
-		}
-		if strings.Contains(strings.ToLower(operationUri), "/{resourcescope}") {
-			return true
-		}
-		if strings.Contains(strings.ToLower(operationUri), "/{resourceid}") {
-			return true
-		}
-		if strings.Contains(strings.ToLower(operationUri), "/{resourceuri}") {
-			return true
-		}
 	}
 
 	return false

@@ -45,7 +45,6 @@ func (s *ServiceGenerator) Generate(input ServiceGeneratorInput) error {
 		"clients":    s.clients,
 		"constants":  s.constants,
 		"ids":        s.ids,
-		"id-aliases": s.idAliases,
 		"methods":    s.methods,
 		"models":     s.models,
 		"predicates": s.predicates,

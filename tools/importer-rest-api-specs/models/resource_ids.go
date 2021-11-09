@@ -8,6 +8,10 @@ import (
 )
 
 type ParsedResourceId struct {
+	// CommonAlias is the alias used for this Resource ID, if this is a 'Common' Resource ID
+	// examples of a Common Resource ID include Resource Group ID's and Subscription ID's
+	CommonAlias *string
+
 	// Constants are a map[Name]ConstantDetails for the Constants used in this Resource ID
 	Constants map[string]ConstantDetails
 
@@ -26,6 +30,15 @@ func (pri ParsedResourceId) ToTopLevelResourceId() ParsedResourceId {
 }
 
 func (pri ParsedResourceId) Matches(other ParsedResourceId) bool {
+	if (pri.CommonAlias != nil && other.CommonAlias == nil) || (pri.CommonAlias == nil && other.CommonAlias != nil) {
+		return false
+	}
+	if pri.CommonAlias != nil {
+		if *pri.CommonAlias != *other.CommonAlias {
+			return false
+		}
+	}
+
 	if len(pri.Segments) != len(other.Segments) {
 		return false
 	}

@@ -1,6 +1,34 @@
 package generator
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+
+	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+)
+
+func alternateCasingOnEveryLetter(input string) string {
+	output := ""
+	caps := false
+	for _, c := range input {
+		if c == '/' {
+			// for every segment restart
+			output += string(c)
+			caps = false
+			continue
+		}
+
+		if caps {
+			caps = false
+			output += strings.ToUpper(string(c))
+		} else {
+			caps = true
+			output += strings.ToLower(string(c))
+		}
+	}
+
+	return output
+}
 
 func golangConstantForStatusCode(statusCode int) string {
 	codes := map[int]string{
@@ -35,4 +63,47 @@ func golangConstantForStatusCode(statusCode int) string {
 	}
 
 	return fmt.Sprintf("%d // TODO: document me", statusCode)
+}
+
+func golangTypeNameForConstantType(input resourcemanager.ConstantType) (*string, error) {
+	segmentTypes := map[resourcemanager.ConstantType]string{
+		resourcemanager.IntegerConstant: "int64",
+		resourcemanager.FloatConstant:   "float64",
+		resourcemanager.StringConstant:  "string",
+	}
+	segmentType, ok := segmentTypes[input]
+	if !ok {
+		return nil, fmt.Errorf("constant type %q has no segmentTypes mapping", string(input))
+	}
+	return &segmentType, nil
+}
+
+func urlFromSegments(input []string) string {
+	output := ""
+	for _, v := range input {
+		// intentionally to handle scopes
+		if !strings.HasPrefix(v, "/") {
+			output += "/"
+		}
+		output += v
+	}
+	return output
+}
+
+// wordifyString takes an input PascalCased string and converts it to a more human-friendly variant
+// e.g. `ApplicationGroupId` -> `Application Group`
+func wordifyString(input string) string {
+	val := strings.Title(input)
+	val = strings.TrimSuffix(val, "Id")
+	output := ""
+
+	for _, c := range val {
+		character := string(c)
+		if strings.ToUpper(character) == character {
+			output += " "
+		}
+		output += character
+	}
+
+	return strings.TrimPrefix(output, " ")
 }

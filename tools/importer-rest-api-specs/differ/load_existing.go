@@ -369,8 +369,9 @@ func mapApiResourceIdDefinitionsToParsedResourceIds(input map[string]resourceman
 		}
 
 		output[k] = models.ParsedResourceId{
-			Constants: constantsUsed,
-			Segments:  *segments,
+			CommonAlias: v.CommonAlias,
+			Constants:   constantsUsed,
+			Segments:    *segments,
 		}
 	}
 
@@ -405,10 +406,7 @@ func mapApiResourceIdSegmentType(input resourcemanager.ResourceIdSegmentType) (*
 		resourcemanager.ScopeSegment:            models.ScopeSegment,
 		resourcemanager.StaticSegment:           models.StaticSegment,
 		resourcemanager.SubscriptionIdSegment:   models.SubscriptionIdSegment,
-		resourcemanager.UserSpecifiableSegment:  models.UserSpecifiedSegment,
-
-		// TODO: until #272 is merged
-		resourcemanager.ResourceIdSegmentType("UserSpecified"): models.UserSpecifiedSegment,
+		resourcemanager.UserSpecifiedSegment:    models.UserSpecifiedSegment,
 	}
 	if v, ok := vals[input]; ok {
 		return &v, nil

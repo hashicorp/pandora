@@ -5,12 +5,12 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.Regions
 {
     internal class SkuId : ResourceID
     {
-        public string ID() => "/subscriptions/{subscriptionId}/providers/Microsoft.EventHub/sku/{sku}";
+        public string? CommonAlias => null;
 
-        public List<ResourceIDSegment> Segments()
+        public string ID => "/subscriptions/{subscriptionId}/providers/Microsoft.EventHub/sku/{sku}";
+
+        public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
         {
-            return new List<ResourceIDSegment>
-            {
                 new()
                 {
                     Name = "subscriptions",
@@ -51,7 +51,6 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.Regions
                     Type = ResourceIDSegmentType.UserSpecified
                 },
 
-            };
-        }
+        };
     }
 }
