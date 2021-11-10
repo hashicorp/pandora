@@ -25,9 +25,11 @@ namespace Pandora.Definitions.ResourceManager.VideoAnalyzer.v2021_05_01_preview.
             [QueryStringName("$filter")]
             [Optional]
             public string Filter { get; set; }
+
             [QueryStringName("$orderby")]
             [Optional]
             public string Orderby { get; set; }
+
             [QueryStringName("$top")]
             [Optional]
             public int Top { get; set; }

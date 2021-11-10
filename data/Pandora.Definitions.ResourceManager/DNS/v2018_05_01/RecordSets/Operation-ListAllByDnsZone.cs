@@ -25,6 +25,7 @@ namespace Pandora.Definitions.ResourceManager.DNS.v2018_05_01.RecordSets
             [QueryStringName("$recordsetnamesuffix")]
             [Optional]
             public string Recordsetnamesuffix { get; set; }
+
             [QueryStringName("$top")]
             [Optional]
             public int Top { get; set; }
