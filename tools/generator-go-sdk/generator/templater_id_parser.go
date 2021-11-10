@@ -347,7 +347,7 @@ func (r resourceIdTemplater) segmentsFunction() (*string, error) {
 			}
 		case resourcemanager.ScopeSegment:
 			{
-				lines = append(lines, fmt.Sprintf("resourceids.ScopeSegment(%q),", segment.Name))
+				lines = append(lines, fmt.Sprintf("resourceids.ScopeSegment(%q, %q),", segment.Name, segment.ExampleValue))
 				continue
 			}
 		case resourcemanager.StaticSegment:
