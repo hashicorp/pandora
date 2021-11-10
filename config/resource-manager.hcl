@@ -63,6 +63,10 @@ service "relay" {
   name      = "Relay"
   available = ["2017-04-01"]
 }
+service "servicefabricmanagedclusters" {
+  name      = "ServiceFabric"
+  available = ["2021-05-01"]
+}
 service "signalr" {
   name      = "SignalR"
   available = ["2020-05-01"]
