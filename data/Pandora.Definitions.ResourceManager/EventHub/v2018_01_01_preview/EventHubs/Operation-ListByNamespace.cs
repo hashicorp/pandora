@@ -25,6 +25,7 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.Event
             [QueryStringName("$skip")]
             [Optional]
             public int Skip { get; set; }
+
             [QueryStringName("$top")]
             [Optional]
             public int Top { get; set; }

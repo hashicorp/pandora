@@ -27,8 +27,10 @@ namespace Pandora.Definitions.ResourceManager.Purview.v2020_12_01_preview.Defaul
             [QueryStringName("scope")]
             [Optional]
             public string Scope { get; set; }
+
             [QueryStringName("scopeTenantId")]
             public string ScopeTenantId { get; set; }
+
             [QueryStringName("scopeType")]
             public ScopeTypeConstant ScopeType { get; set; }
         }
