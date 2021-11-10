@@ -19,6 +19,14 @@ service "databricks" {
   name      = "Databricks"
   available = ["2021-04-01-preview"]
 }
+service "datalake-analytics" {
+  name      = "DatalakeAnalytics"
+  available = ["2016-11-01"]
+}
+service "datalake-store" {
+  name      = "DatalakeStore"
+  available = ["2016-11-01"]
+}
 service "dns" {
   name      = "DNS"
   available = ["2018-05-01"]
