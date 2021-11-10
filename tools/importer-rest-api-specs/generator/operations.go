@@ -74,7 +74,12 @@ func (g PandoraDefinitionGenerator) codeForOperation(namespace string, operation
 		}
 		sort.Strings(sortedOptionsKeys)
 
-		for _, optionName := range sortedOptionsKeys {
+		for i, optionName := range sortedOptionsKeys {
+			if i != 0 {
+				// ensure there's spacing between any options - whilst this looks weird we join lines with "\n"
+				optionsCode = append(optionsCode, "")
+			}
+
 			optionDetails := operation.Options[optionName]
 			if optionDetails.QueryStringName != "" {
 				optionsCode = append(optionsCode, fmt.Sprintf("\t\t\t[QueryStringName(%q)]", optionDetails.QueryStringName))
