@@ -378,7 +378,14 @@ func unmarshal%[1]sImplementation(input []byte) (%[1]s, error) {
 }
 
 func (c modelsTemplater) codeForUnmarshalStructFunction(data ServiceGeneratorData) (*string, error) {
+	// this is a parent, therefore there'll be no struct fields to check here
+	if c.model.TypeHintIn != nil && c.model.TypeHintValue == nil && c.model.ParentTypeName == nil {
+		out := ""
+		return &out, nil
+	}
+
 	lines := make([]string, 0)
+
 	// fields either require unmarshaling or can be explicitly assigned, determine which
 	fieldsRequiringAssignment := make([]string, 0)
 	fieldsRequiringUnmarshalling := make([]string, 0)
