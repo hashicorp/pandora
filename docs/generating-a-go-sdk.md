@@ -10,6 +10,13 @@ This will change in the future, as the workflows are confirmed over time - but t
 
 If you've found a new bug or something that didn't generate as expected - please open an issue so we can track/diagnose it.
 
+## Prerequisites
+
+The following is required for generating a go SDK
+
+* Golang 1.16.x
+* .NET 5.x
+
 ## Step 1: Importing Swagger Data into Pandora's Data Format
 
 The Services and API Versions which should be imported into Pandora's Data Format are defined [in `./config/resource-manager.hcl`](https://github.com/hashicorp/pandora/blob/main/config/resource-manager.hcl).
@@ -32,7 +39,13 @@ Those properties are:
 * `available` - (Required) - A list of API Versions which should be Imported into Pandora's Data Format.
 * `ignore` - (Optional) - A list of API Versions which should be Ignored by the `version-bumper` tool (detailed below) when automatically adding new API Versions for this Service.
 
-An automated tool (`./tools/version-bumper`) is run whenever the Git Submodule is updated to check for any new API Versions of existing Services - and will automatically send a PR to add support for this and also ensures that this file is formatted correctly (e.g. Services and API Versions are sorted).
+Pull in the Swagger data for the service by running:
+
+```sh
+git submodule init && git submodule update
+```
+
+**Note:** An automated tool (`./tools/version-bumper`) is run whenever the Git Submodule is updated to check for any new API Versions of existing Services - and will automatically send a PR to add support for this and also ensures that this file is formatted correctly (e.g. Services and API Versions are sorted).
 
 Once the new mapping exists, build and run the `./tools/importer-rest-api-specs` project:
 
