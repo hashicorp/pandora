@@ -64,7 +64,7 @@ service "relay" {
   available = ["2017-04-01"]
 }
 service "servicefabricmanagedclusters" {
-  name      = "ServiceFabric"
+  name      = "ServiceFabricManagedCluster"
   available = ["2021-05-01"]
 }
 service "signalr" {
