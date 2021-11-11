@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"sort"
 	"strings"
-	
+
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
@@ -64,7 +64,6 @@ func (c constantsTemplater) templateConstant(constantName string, values resourc
 		return nil, fmt.Errorf("generating parse function: %+v", err)
 	}
 
-
 	out := fmt.Sprintf(`%[1]s
 %[2]s
 %[3]s
@@ -112,7 +111,6 @@ func (c constantsTemplater) possibleValuesFunction(constantName string, values r
 	for _, constantKey := range valueKeys {
 		lines = append(lines, fmt.Sprintf("%s(%s%s),", typeName, constantName, constantKey))
 	}
-
 
 	return fmt.Sprintf(`
 func PossibleValuesFor%[1]s() []%[2]s {
