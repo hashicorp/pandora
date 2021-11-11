@@ -158,7 +158,7 @@ type %[1]s struct {
 func (c modelsTemplater) methods(data ServiceGeneratorData) (*string, error) {
 	code := make([]string, 0)
 
-	dateFunctions, err := c.codeForDateFunctions()
+	dateFunctions, err := c.codeForDateFunctions(data)
 	if err != nil {
 		return nil, fmt.Errorf("generating date functions: %+v", err)
 	}
@@ -221,7 +221,7 @@ func dateFormatString(input resourcemanager.DateFormat) string {
 	}
 }
 
-func (c modelsTemplater) codeForDateFunctions() (*string, error) {
+func (c modelsTemplater) codeForDateFunctions(data ServiceGeneratorData) (*string, error) {
 	fieldsRequiringDateFunctions := make([]string, 0)
 	for fieldName, fieldDetails := range c.model.Fields {
 		if fieldDetails.DateFormat != nil {
@@ -234,37 +234,77 @@ func (c modelsTemplater) codeForDateFunctions() (*string, error) {
 	for _, fieldName := range fieldsRequiringDateFunctions {
 		fieldDetails := c.model.Fields[fieldName]
 
-		dateFormat := dateFormatString(*fieldDetails.DateFormat)
+		dateFunction, err := c.dateFunctionForField(fieldName, fieldDetails)
+		if err != nil {
+			return nil, fmt.Errorf("generating Date functions for %q: %+v", fieldName, err)
+		}
+		lines = append(lines, *dateFunction)
+	}
 
-		lines := []string{
-			fmt.Sprintf("\tfunc (o %[1]s) Get%[2]sAsTime() (*time.Time, error) {", c.name, fieldName),
+	// then do the parent fields, if any
+	if c.model.ParentTypeName != nil {
+		fieldsRequiringDateFunctions = make([]string, 0)
+		parent, ok := data.models[*c.model.ParentTypeName]
+		if !ok {
+			return nil, fmt.Errorf("retrieving Parent Model %q for Model %q", *c.model.ParentTypeName, c.name)
+		}
+		for fieldName, fieldDetails := range parent.Fields {
+			if fieldDetails.DateFormat != nil {
+				fieldsRequiringDateFunctions = append(fieldsRequiringDateFunctions, fieldName)
+			}
 		}
 
-		// Get{Name}AsTime method for getting *time.Time from a string
-		if fieldDetails.Optional {
-			lines = append(lines, fmt.Sprintf("\t\tif o.%s == nil {", fieldName))
-			lines = append(lines, fmt.Sprintf("\t\t\treturn nil, nil"))
-			lines = append(lines, fmt.Sprintf("\t\t}"))
-			lines = append(lines, fmt.Sprintf("\t\treturn dates.ParseAsFormat(o.%s, %q)", fieldName, dateFormat))
-		} else {
-			lines = append(lines, fmt.Sprintf("\t\treturn dates.ParseAsFormat(&o.%s, %q)", fieldName, dateFormat))
-		}
+		sort.Strings(fieldsRequiringDateFunctions)
+		for _, fieldName := range fieldsRequiringDateFunctions {
+			fieldDetails := parent.Fields[fieldName]
 
-		lines = append(lines, fmt.Sprintf("\t}\n"))
-
-		// Set{Name}AsTime method - for setting time.Time -> string
-		lines = append(lines, fmt.Sprintf("\tfunc (o %[1]s) Set%[2]sAsTime(input time.Time) {", c.name, fieldName))
-		lines = append(lines, fmt.Sprintf("\t\tformatted := input.Format(%q)", dateFormat))
-		if fieldDetails.Optional {
-			lines = append(lines, fmt.Sprintf("\t\to.%s = &formatted", fieldName))
-		} else {
-			lines = append(lines, fmt.Sprintf("\t\to.%s = formatted", fieldName))
+			dateFunction, err := c.dateFunctionForField(fieldName, fieldDetails)
+			if err != nil {
+				return nil, fmt.Errorf("generating Date functions for Parent field %q: %+v", fieldName, err)
+			}
+			lines = append(lines, *dateFunction)
 		}
-		lines = append(lines, fmt.Sprintf("\t}\n"))
 	}
 
 	output := strings.Join(lines, "\n")
 	return &output, nil
+}
+
+func (c modelsTemplater) dateFunctionForField(fieldName string, fieldDetails resourcemanager.FieldDetails) (*string, error) {
+	if fieldDetails.DateFormat == nil {
+		return nil, fmt.Errorf("Date Field %q has no DateFormat", fieldName)
+	}
+
+	dateFormat := dateFormatString(*fieldDetails.DateFormat)
+
+	linesForField := []string{
+		fmt.Sprintf("\tfunc (o %[1]s) Get%[2]sAsTime() (*time.Time, error) {", c.name, fieldName),
+	}
+
+	// Get{Name}AsTime method for getting *time.Time from a string
+	if fieldDetails.Optional {
+		linesForField = append(linesForField, fmt.Sprintf("\t\tif o.%s == nil {", fieldName))
+		linesForField = append(linesForField, fmt.Sprintf("\t\t\treturn nil, nil"))
+		linesForField = append(linesForField, fmt.Sprintf("\t\t}"))
+		linesForField = append(linesForField, fmt.Sprintf("\t\treturn dates.ParseAsFormat(o.%s, %q)", fieldName, dateFormat))
+	} else {
+		linesForField = append(linesForField, fmt.Sprintf("\t\treturn dates.ParseAsFormat(&o.%s, %q)", fieldName, dateFormat))
+	}
+
+	linesForField = append(linesForField, fmt.Sprintf("\t}\n"))
+
+	// Set{Name}AsTime method - for setting time.Time -> string
+	linesForField = append(linesForField, fmt.Sprintf("\tfunc (o %[1]s) Set%[2]sAsTime(input time.Time) {", c.name, fieldName))
+	linesForField = append(linesForField, fmt.Sprintf("\t\tformatted := input.Format(%q)", dateFormat))
+	if fieldDetails.Optional {
+		linesForField = append(linesForField, fmt.Sprintf("\t\to.%s = &formatted", fieldName))
+	} else {
+		linesForField = append(linesForField, fmt.Sprintf("\t\to.%s = formatted", fieldName))
+	}
+	linesForField = append(linesForField, fmt.Sprintf("\t}\n"))
+
+	out := strings.Join(linesForField, "\n")
+	return &out, nil
 }
 
 func (c modelsTemplater) codeForMarshalFunctions(data ServiceGeneratorData) (*string, error) {
