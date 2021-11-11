@@ -103,6 +103,46 @@ func (c modelsTemplater) structCode(data ServiceGeneratorData) (*string, error) 
 		structLines = append(structLines, *structLine)
 	}
 
+	// then add any inherited fields
+	if c.model.ParentTypeName != nil {
+		parent, ok := data.models[*c.model.ParentTypeName]
+		if !ok {
+			return nil, fmt.Errorf("couldn't find Parent Model %q for Model %q", *c.model.ParentTypeName, c.name)
+		}
+
+		parentFields := make([]string, 0)
+		for fieldName := range parent.Fields {
+			parentFields = append(parentFields, fieldName)
+		}
+		sort.Strings(parentFields)
+
+		if len(parentFields) > 0 {
+			structLines = append(structLines, fmt.Sprintf("\n// Fields inherited from %s", *c.model.ParentTypeName))
+			for _, fieldName := range parentFields {
+				fieldDetails := parent.Fields[fieldName]
+				fieldTypeName := "FIXME"
+				fieldTypeVal, err := golangTypeNameForObjectDefinition(fieldDetails.ObjectDefinition)
+				if err != nil {
+					return nil, fmt.Errorf("determining type information for %q: %+v", fieldName, err)
+				}
+				fieldTypeName = *fieldTypeVal
+
+				structLine, err := c.structLineForField(fieldName, fieldTypeName, fieldDetails, data)
+				if err != nil {
+					return nil, err
+				}
+
+				// check this field isn't used as the discriminated value
+				if c.model.TypeHintIn != nil && *c.model.TypeHintIn == fieldName {
+					// this isn't user configurable (and is hard-coded) so there's no point outputting this
+					continue
+				}
+
+				structLines = append(structLines, *structLine)
+			}
+		}
+	}
+
 	out := fmt.Sprintf(`
 type %[1]s struct {
 %[2]s
