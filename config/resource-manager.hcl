@@ -15,6 +15,10 @@ service "cognitiveservices" {
   name      = "Cognitive"
   available = ["2021-04-30"]
 }
+service "cost-management" {
+  name      = "CostManagement"
+  available = ["2021-10-01"]
+}
 service "databricks" {
   name      = "Databricks"
   available = ["2021-04-01-preview"]
