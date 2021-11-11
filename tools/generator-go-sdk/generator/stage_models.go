@@ -104,7 +104,10 @@ func (c modelsTemplater) structCode(data ServiceGeneratorData) (*string, error) 
 	}
 
 	// then add any inherited fields
+	parentAssignmentInfo := ""
 	if c.model.ParentTypeName != nil {
+		parentAssignmentInfo = fmt.Sprintf("var _ %[1]s = %[2]s{}", *c.model.ParentTypeName, c.name)
+
 		parent, ok := data.models[*c.model.ParentTypeName]
 		if !ok {
 			return nil, fmt.Errorf("couldn't find Parent Model %q for Model %q", *c.model.ParentTypeName, c.name)
@@ -144,10 +147,11 @@ func (c modelsTemplater) structCode(data ServiceGeneratorData) (*string, error) 
 	}
 
 	out := fmt.Sprintf(`
+%[3]s
 type %[1]s struct {
 %[2]s
 }
-`, c.name, strings.Join(structLines, "\n"))
+`, c.name, strings.Join(structLines, "\n"), parentAssignmentInfo)
 	return &out, nil
 }
 
