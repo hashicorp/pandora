@@ -274,7 +274,10 @@ func (d *SwaggerDefinition) parseResourceIdFromOperation(uri string, operationDe
 			if previousSegmentWasProvider {
 				// some ResourceProviders are defined in lower-case, let's fix that
 				resourceProviderValue := cleanup.NormalizeResourceProviderName(originalSegment)
-				normalizedSegment = normalizeSegment(resourceProviderValue)
+
+				// prefix this with `static{name}` so that the segment is unique
+				// these aren't parsed out anyway, but we need unique names
+				normalizedSegment = normalizeSegment(fmt.Sprintf("static%s", strings.Title(resourceProviderValue)))
 				segments = append(segments, models.ResourceIdSegment{
 					Type:       models.ResourceProviderSegment,
 					Name:       normalizedSegment,
@@ -284,9 +287,12 @@ func (d *SwaggerDefinition) parseResourceIdFromOperation(uri string, operationDe
 			}
 		}
 
+		// prefix this with `static{name}` so that the segment is unique
+		// these aren't parsed out anyway, but we need unique names
+		normlizedName := normalizeSegment(fmt.Sprintf("static%s", strings.Title(normalizedSegment)))
 		segments = append(segments, models.ResourceIdSegment{
 			Type:       models.StaticSegment,
-			Name:       normalizedSegment,
+			Name:       normlizedName,
 			FixedValue: &normalizedSegment,
 		})
 	}
