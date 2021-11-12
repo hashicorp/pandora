@@ -10,9 +10,7 @@ namespace Pandora.Definitions.ResourceManager.DataBricks.v2021_04_01_preview
 
         public IEnumerable<ApiDefinition> Apis => new List<ApiDefinition>
         {
-            new DELETE.Definition(),
             new OutboundNetworkDependenciesEndpoints.Definition(),
-            new PUT.Definition(),
             new PrivateEndpointConnections.Definition(),
             new PrivateLinkResources.Definition(),
             new VNetPeering.Definition(),

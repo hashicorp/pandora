@@ -6,9 +6,9 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.DataBricks.v2021_04_01_preview.DELETE
+namespace Pandora.Definitions.ResourceManager.DataBricks.v2021_04_01_preview.PrivateEndpointConnections
 {
-    internal class PrivateEndpointConnectionsDeleteOperation : Operations.DeleteOperation
+    internal class DeleteOperation : Operations.DeleteOperation
     {
         public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
