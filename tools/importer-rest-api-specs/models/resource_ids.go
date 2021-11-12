@@ -117,6 +117,12 @@ func (pri ParsedResourceId) SegmentsAvailableForNaming() []string {
 		for _, segment := range segmentsWithoutScope {
 			if segment.Type == ConstantSegment || segment.Type == StaticSegment {
 				normalized := cleanup.NormalizeSegmentName(segment.Name)
+
+				// trim off the `Static` prefix if it's expected to be present
+				if segment.Type == ResourceProviderSegment || segment.Type == StaticSegment {
+					normalized = strings.TrimPrefix(normalized, "Static")
+				}
+
 				availableSegments = append(availableSegments, normalized)
 			}
 		}
@@ -132,6 +138,12 @@ func (pri ParsedResourceId) SegmentsAvailableForNaming() []string {
 
 		// otherwise use the names of any user specifiable segments
 		normalized := cleanup.NormalizeSegmentName(segment.Name)
+
+		// trim off the `Static` prefix if it's expected to be present
+		if segment.Type == ResourceProviderSegment || segment.Type == StaticSegment {
+			normalized = strings.TrimPrefix(normalized, "Static")
+		}
+
 		availableSegments = append(availableSegments, normalized)
 	}
 

@@ -59,6 +59,10 @@ func (i resourceIdTestsTemplater) generateTests(packageName string) (*string, er
 		lines = append(lines, *parseInsensitiveTest)
 	}
 
+	// Segments function test
+	segmentsTest := i.generateSegmentsFunctionTest(structName)
+	lines = append(lines, segmentsTest)
+
 	out := fmt.Sprintf(`package %[1]s
 
 import (
@@ -168,6 +172,24 @@ func Test%[1]s(t *testing.T) {
 }
 `, parseFunctionName, structName, *testData, *assertions)
 	return &out, nil
+}
+
+func (i resourceIdTestsTemplater) generateSegmentsFunctionTest(structName string) string {
+	return fmt.Sprintf(`
+func TestSegmentsFor%[1]s(t *testing.T) {
+	segments := %[1]s{}.Segments()
+	if len(segments) == 0 {
+		t.Fatalf("%[1]s has no segments")
+	}
+
+	uniqueNames := make(map[string]struct{}, 0)
+	for _, segment := range segments {
+		uniqueNames[segment.Name] = struct{}{}
+	}
+	if len(uniqueNames) != len(segments) {
+		t.Fatalf("Expected the Segments to be unique but got %%q unique segments and %%d total segments", len(uniqueNames), len(segments))
+	} 
+}`, structName)
 }
 
 func (i resourceIdTestsTemplater) getTestCases(caseSensitive bool) (*string, error) {

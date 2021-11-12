@@ -2,12 +2,11 @@ package parser
 
 import (
 	"fmt"
-	"sort"
-	"strings"
-
 	"github.com/go-openapi/spec"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/cleanup"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	"sort"
+	"strings"
 )
 
 var knownSegmentsUsedForScope = []string{
@@ -274,7 +273,10 @@ func (d *SwaggerDefinition) parseResourceIdFromOperation(uri string, operationDe
 			if previousSegmentWasProvider {
 				// some ResourceProviders are defined in lower-case, let's fix that
 				resourceProviderValue := cleanup.NormalizeResourceProviderName(originalSegment)
-				normalizedSegment = normalizeSegment(resourceProviderValue)
+
+				// prefix this with `static{name}` so that the segment is unique
+				// these aren't parsed out anyway, but we need unique names
+				normalizedSegment = normalizeSegment(fmt.Sprintf("static%s", strings.Title(resourceProviderValue)))
 				segments = append(segments, models.ResourceIdSegment{
 					Type:       models.ResourceProviderSegment,
 					Name:       normalizedSegment,
@@ -284,9 +286,12 @@ func (d *SwaggerDefinition) parseResourceIdFromOperation(uri string, operationDe
 			}
 		}
 
+		// prefix this with `static{name}` so that the segment is unique
+		// these aren't parsed out anyway, but we need unique names
+		normlizedName := normalizeSegment(fmt.Sprintf("static%s", strings.Title(normalizedSegment)))
 		segments = append(segments, models.ResourceIdSegment{
 			Type:       models.StaticSegment,
-			Name:       normalizedSegment,
+			Name:       normlizedName,
 			FixedValue: &normalizedSegment,
 		})
 	}
@@ -339,6 +344,17 @@ func (d *SwaggerDefinition) parseResourceIdFromOperation(uri string, operationDe
 			Constants: result.constants,
 			Segments:  segments,
 		}
+	}
+
+	// finally, validate that all of the segments have a unique name
+	uniqueNames := make(map[string]struct{}, 0)
+	for _, segment := range segments {
+		uniqueNames[segment.Name] = struct{}{}
+	}
+	if len(uniqueNames) != len(segments) {
+		// TODO: in time make these unique if needs be, but for now this is sufficient to raise them
+		diff := len(segments) - len(uniqueNames)
+		return nil, fmt.Errorf("%d segments have duplicate names (expected %d but got %d)", diff, len(segments), len(uniqueNames))
 	}
 
 	return &output, nil

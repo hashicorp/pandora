@@ -135,7 +135,7 @@ func TestParseOperationSingleWithTagAndResourceId(t *testing.T) {
 		t.Fatal("expected a ResourceId but was nil")
 	}
 	if *world.ResourceIdName != "ThingId" {
-		t.Fatalf("expected world.RessourceIdName to be 'Thing' but got %q", *world.ResourceIdName)
+		t.Fatalf("expected world.ResourceIdName to be 'Thing' but got %q", *world.ResourceIdName)
 	}
 	if world.UriSuffix != nil {
 		t.Fatalf("expected world.UriSuffix to be nil but got %q", *world.UriSuffix)

@@ -46,7 +46,7 @@ func TestParseResourceIdBasic(t *testing.T) {
 			{
 				Type:       models.StaticSegment,
 				FixedValue: strPtr("subscriptions"),
-				Name:       "subscriptions",
+				Name:       "staticSubscriptions",
 			},
 			{
 				Type: models.SubscriptionIdSegment,
@@ -55,7 +55,7 @@ func TestParseResourceIdBasic(t *testing.T) {
 			{
 				Type:       models.StaticSegment,
 				FixedValue: strPtr("resourceGroups"),
-				Name:       "resourceGroups",
+				Name:       "staticResourceGroups",
 			},
 			{
 				Type: models.ResourceGroupSegment,
@@ -64,17 +64,17 @@ func TestParseResourceIdBasic(t *testing.T) {
 			{
 				Type:       models.StaticSegment,
 				FixedValue: strPtr("providers"),
-				Name:       "providers",
+				Name:       "staticProviders",
 			},
 			{
 				Type:       models.ResourceProviderSegment,
 				FixedValue: strPtr("Microsoft.SomeResourceProvider"),
-				Name:       "microsoftSomeResourceProvider",
+				Name:       "staticMicrosoftSomeResourceProvider",
 			},
 			{
 				Type:       models.StaticSegment,
 				FixedValue: strPtr("servers"),
-				Name:       "servers",
+				Name:       "staticServers",
 			},
 			{
 				Type: models.UserSpecifiedSegment,
@@ -156,7 +156,7 @@ func TestParseResourceIdContainingAConstant(t *testing.T) {
 			{
 				Type:       models.StaticSegment,
 				FixedValue: strPtr("planets"),
-				Name:       "planets",
+				Name:       "staticPlanets",
 			},
 			{
 				Type:              models.ConstantSegment,
@@ -249,17 +249,17 @@ func TestParseResourceIdContainingAScope(t *testing.T) {
 			{
 				Type:       models.StaticSegment,
 				FixedValue: strPtr("providers"),
-				Name:       "providers",
+				Name:       "staticProviders",
 			},
 			{
 				Type:       models.ResourceProviderSegment,
 				FixedValue: strPtr("Microsoft.FooBar"),
-				Name:       "microsoftFooBar",
+				Name:       "staticMicrosoftFooBar",
 			},
 			{
 				Type:       models.StaticSegment,
 				FixedValue: strPtr("virtualMachines"),
-				Name:       "virtualMachines",
+				Name:       "staticVirtualMachines",
 			},
 			{
 				Type: models.UserSpecifiedSegment,
@@ -378,7 +378,7 @@ func TestParseResourceIdWithResourceIdAndUriSuffix(t *testing.T) {
 			{
 				Type:       models.StaticSegment,
 				FixedValue: strPtr("subscriptions"),
-				Name:       "subscriptions",
+				Name:       "staticSubscriptions",
 			},
 			{
 				Type: models.SubscriptionIdSegment,
@@ -387,7 +387,7 @@ func TestParseResourceIdWithResourceIdAndUriSuffix(t *testing.T) {
 			{
 				Type:       models.StaticSegment,
 				FixedValue: strPtr("resourceGroups"),
-				Name:       "resourceGroups",
+				Name:       "staticResourceGroups",
 			},
 			{
 				Type: models.ResourceGroupSegment,
@@ -396,17 +396,17 @@ func TestParseResourceIdWithResourceIdAndUriSuffix(t *testing.T) {
 			{
 				Type:       models.StaticSegment,
 				FixedValue: strPtr("providers"),
-				Name:       "providers",
+				Name:       "staticProviders",
 			},
 			{
 				Type:       models.ResourceProviderSegment,
 				FixedValue: strPtr("Microsoft.SomeResourceProvider"),
-				Name:       "microsoftSomeResourceProvider",
+				Name:       "staticMicrosoftSomeResourceProvider",
 			},
 			{
 				Type:       models.StaticSegment,
 				FixedValue: strPtr("servers"),
-				Name:       "servers",
+				Name:       "staticServers",
 			},
 			{
 				Type: models.UserSpecifiedSegment,
@@ -483,7 +483,7 @@ func TestParseResourceIdWithResourceIdAndUriSuffixForMultipleUris(t *testing.T) 
 			{
 				Type:       models.StaticSegment,
 				FixedValue: strPtr("subscriptions"),
-				Name:       "subscriptions",
+				Name:       "staticSubscriptions",
 			},
 			{
 				Type: models.SubscriptionIdSegment,
@@ -492,7 +492,7 @@ func TestParseResourceIdWithResourceIdAndUriSuffixForMultipleUris(t *testing.T) 
 			{
 				Type:       models.StaticSegment,
 				FixedValue: strPtr("resourceGroups"),
-				Name:       "resourceGroups",
+				Name:       "staticResourceGroups",
 			},
 			{
 				Type: models.ResourceGroupSegment,
@@ -501,17 +501,17 @@ func TestParseResourceIdWithResourceIdAndUriSuffixForMultipleUris(t *testing.T) 
 			{
 				Type:       models.StaticSegment,
 				FixedValue: strPtr("providers"),
-				Name:       "providers",
+				Name:       "staticProviders",
 			},
 			{
 				Type:       models.ResourceProviderSegment,
 				FixedValue: strPtr("Microsoft.SomeResourceProvider"),
-				Name:       "microsoftSomeResourceProvider",
+				Name:       "staticMicrosoftSomeResourceProvider",
 			},
 			{
 				Type:       models.StaticSegment,
 				FixedValue: strPtr("servers"),
-				Name:       "servers",
+				Name:       "staticServers",
 			},
 			{
 				Type: models.UserSpecifiedSegment,
@@ -623,7 +623,7 @@ func TestParseResourceIdContainingResourceProviderShouldGetTitleCased(t *testing
 			{
 				Type:       models.StaticSegment,
 				FixedValue: strPtr("subscriptions"),
-				Name:       "subscriptions",
+				Name:       "staticSubscriptions",
 			},
 			{
 				Type: models.SubscriptionIdSegment,
@@ -632,7 +632,7 @@ func TestParseResourceIdContainingResourceProviderShouldGetTitleCased(t *testing
 			{
 				Type:       models.StaticSegment,
 				FixedValue: strPtr("resourceGroups"),
-				Name:       "resourceGroups",
+				Name:       "staticResourceGroups",
 			},
 			{
 				Type: models.ResourceGroupSegment,
@@ -641,17 +641,17 @@ func TestParseResourceIdContainingResourceProviderShouldGetTitleCased(t *testing
 			{
 				Type:       models.StaticSegment,
 				FixedValue: strPtr("providers"),
-				Name:       "providers",
+				Name:       "staticProviders",
 			},
 			{
 				Type:       models.ResourceProviderSegment,
 				FixedValue: strPtr("Microsoft.SomeResourceProvider"),
-				Name:       "microsoftSomeResourceProvider",
+				Name:       "staticMicrosoftSomeResourceProvider",
 			},
 			{
 				Type:       models.StaticSegment,
 				FixedValue: strPtr("servers"),
-				Name:       "servers",
+				Name:       "staticServers",
 			},
 			{
 				Type: models.UserSpecifiedSegment,
@@ -724,7 +724,7 @@ func TestParseResourceIdContainingTheSameResourceIdWithDifferentSegments(t *test
 			{
 				Type:       models.StaticSegment,
 				FixedValue: strPtr("subscriptions"),
-				Name:       "subscriptions",
+				Name:       "staticSubscriptions",
 			},
 			{
 				Type: models.SubscriptionIdSegment,
@@ -733,7 +733,7 @@ func TestParseResourceIdContainingTheSameResourceIdWithDifferentSegments(t *test
 			{
 				Type:       models.StaticSegment,
 				FixedValue: strPtr("resourceGroups"),
-				Name:       "resourceGroups",
+				Name:       "staticResourceGroups",
 			},
 			{
 				Type: models.ResourceGroupSegment,
@@ -742,17 +742,17 @@ func TestParseResourceIdContainingTheSameResourceIdWithDifferentSegments(t *test
 			{
 				Type:       models.StaticSegment,
 				FixedValue: strPtr("providers"),
-				Name:       "providers",
+				Name:       "staticProviders",
 			},
 			{
 				Type:       models.ResourceProviderSegment,
 				FixedValue: strPtr("Microsoft.SomeResourceProvider"),
-				Name:       "microsoftSomeResourceProvider",
+				Name:       "staticMicrosoftSomeResourceProvider",
 			},
 			{
 				Type:       models.StaticSegment,
 				FixedValue: strPtr("virtualMachines"),
-				Name:       "virtualMachines",
+				Name:       "staticVirtualMachines",
 			},
 			{
 				Type: models.UserSpecifiedSegment,

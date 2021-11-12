@@ -13,7 +13,7 @@ var subscriptionResourceId = models.ParsedResourceId{
 		{
 			Type:       models.StaticSegment,
 			FixedValue: strPtr("subscriptions"),
-			Name:       "subscriptions",
+			Name:       "staticSubscriptions",
 		},
 		{
 			Name: "subscriptionId",
@@ -27,7 +27,7 @@ var resourceGroupResourceId = models.ParsedResourceId{
 		{
 			Type:       models.StaticSegment,
 			FixedValue: strPtr("subscriptions"),
-			Name:       "subscriptions",
+			Name:       "staticSubscriptions",
 		},
 		{
 			Name: "subscriptionId",
@@ -36,7 +36,7 @@ var resourceGroupResourceId = models.ParsedResourceId{
 		{
 			Type:       models.StaticSegment,
 			FixedValue: strPtr("resourceGroups"),
-			Name:       "resourceGroups",
+			Name:       "staticResourceGroups",
 		},
 		{
 			Name: "resourceGroupName",
@@ -50,7 +50,7 @@ var managementGroupResourceId = models.ParsedResourceId{
 		{
 			Type:       models.StaticSegment,
 			FixedValue: strPtr("providers"),
-			Name:       "providers",
+			Name:       "staticProviders",
 		},
 		{
 			Type:       models.ResourceProviderSegment,
@@ -60,7 +60,7 @@ var managementGroupResourceId = models.ParsedResourceId{
 		{
 			Type:       models.StaticSegment,
 			FixedValue: strPtr("managementGroups"),
-			Name:       "managementGroups",
+			Name:       "staticManagementGroups",
 		},
 		{
 			Name: "name",
@@ -74,7 +74,7 @@ var virtualMachineResourceId = models.ParsedResourceId{
 		{
 			Type:       models.StaticSegment,
 			FixedValue: strPtr("subscriptions"),
-			Name:       "subscriptions",
+			Name:       "staticSubscriptions",
 		},
 		{
 			Name: "subscriptionId",
@@ -83,7 +83,7 @@ var virtualMachineResourceId = models.ParsedResourceId{
 		{
 			Type:       models.StaticSegment,
 			FixedValue: strPtr("resourceGroups"),
-			Name:       "resourceGroups",
+			Name:       "staticResourceGroups",
 		},
 		{
 			Name: "resourceGroupName",
@@ -92,17 +92,17 @@ var virtualMachineResourceId = models.ParsedResourceId{
 		{
 			Type:       models.StaticSegment,
 			FixedValue: strPtr("providers"),
-			Name:       "providers",
+			Name:       "staticProviders",
 		},
 		{
 			Type:       models.ResourceProviderSegment,
 			FixedValue: strPtr("Microsoft.Compute"),
-			Name:       "Microsoft.Compute",
+			Name:       "staticMicrosoftCompute",
 		},
 		{
 			Type:       models.StaticSegment,
 			FixedValue: strPtr("virtualMachines"),
-			Name:       "virtualMachines",
+			Name:       "staticVirtualMachines",
 		},
 		{
 			Name: "virtualMachineName",
@@ -116,7 +116,7 @@ var virtualMachineExtensionResourceId = models.ParsedResourceId{
 		{
 			Type:       models.StaticSegment,
 			FixedValue: strPtr("subscriptions"),
-			Name:       "subscriptions",
+			Name:       "staticSubscriptions",
 		},
 		{
 			Name: "subscriptionId",
@@ -125,7 +125,7 @@ var virtualMachineExtensionResourceId = models.ParsedResourceId{
 		{
 			Type:       models.StaticSegment,
 			FixedValue: strPtr("resourceGroups"),
-			Name:       "resourceGroups",
+			Name:       "staticResourceGroups",
 		},
 		{
 			Name: "resourceGroupName",
@@ -134,17 +134,17 @@ var virtualMachineExtensionResourceId = models.ParsedResourceId{
 		{
 			Type:       models.StaticSegment,
 			FixedValue: strPtr("providers"),
-			Name:       "providers",
+			Name:       "staticProviders",
 		},
 		{
 			Type:       models.ResourceProviderSegment,
 			FixedValue: strPtr("Microsoft.Compute"),
-			Name:       "Microsoft.Compute",
+			Name:       "staticMicrosoftCompute",
 		},
 		{
 			Type:       models.StaticSegment,
 			FixedValue: strPtr("virtualMachines"),
-			Name:       "virtualMachines",
+			Name:       "staticVirtualMachines",
 		},
 		{
 			Name: "virtualMachineName",
@@ -153,7 +153,7 @@ var virtualMachineExtensionResourceId = models.ParsedResourceId{
 		{
 			Type:       models.StaticSegment,
 			FixedValue: strPtr("extensions"),
-			Name:       "extensions",
+			Name:       "staticExtensions",
 		},
 		{
 			Name: "extensionName",
@@ -167,7 +167,7 @@ var virtualNetworkExtensionResourceId = models.ParsedResourceId{
 		{
 			Type:       models.StaticSegment,
 			FixedValue: strPtr("subscriptions"),
-			Name:       "subscriptions",
+			Name:       "staticSubscriptions",
 		},
 		{
 			Name: "subscriptionId",
@@ -176,7 +176,7 @@ var virtualNetworkExtensionResourceId = models.ParsedResourceId{
 		{
 			Type:       models.StaticSegment,
 			FixedValue: strPtr("resourceGroups"),
-			Name:       "resourceGroups",
+			Name:       "staticResourceGroups",
 		},
 		{
 			Name: "resourceGroupName",
@@ -185,17 +185,17 @@ var virtualNetworkExtensionResourceId = models.ParsedResourceId{
 		{
 			Type:       models.StaticSegment,
 			FixedValue: strPtr("providers"),
-			Name:       "providers",
+			Name:       "staticProviders",
 		},
 		{
 			Type:       models.ResourceProviderSegment,
 			FixedValue: strPtr("Microsoft.Network"),
-			Name:       "Microsoft.Network",
+			Name:       "staticMicrosoftNetwork",
 		},
 		{
 			Type:       models.StaticSegment,
 			FixedValue: strPtr("extensions"),
-			Name:       "extensions",
+			Name:       "staticExtensions",
 		},
 		{
 			Name: "extensionName",
@@ -213,17 +213,17 @@ var scopedMonitorResourceId = models.ParsedResourceId{
 		{
 			Type:       models.StaticSegment,
 			FixedValue: strPtr("providers"),
-			Name:       "providers",
+			Name:       "staticProviders",
 		},
 		{
 			Type:       models.ResourceProviderSegment,
 			FixedValue: strPtr("Microsoft.Monitor"),
-			Name:       "Microsoft.Monitor",
+			Name:       "staticMicrosoftMonitor",
 		},
 		{
 			Type:       models.StaticSegment,
 			FixedValue: strPtr("extensions"),
-			Name:       "extensions",
+			Name:       "staticExtensions",
 		},
 		{
 			Name: "extensionName",
@@ -237,7 +237,7 @@ var signalRResourceId = models.ParsedResourceId{
 		{
 			Type:       models.StaticSegment,
 			FixedValue: strPtr("subscriptions"),
-			Name:       "subscriptions",
+			Name:       "staticSubscriptions",
 		},
 		{
 			Name: "subscriptionId",
@@ -246,7 +246,7 @@ var signalRResourceId = models.ParsedResourceId{
 		{
 			Type:       models.StaticSegment,
 			FixedValue: strPtr("resourceGroups"),
-			Name:       "resourceGroups",
+			Name:       "staticResourceGroups",
 		},
 		{
 			Name: "resourceGroupName",
@@ -255,21 +255,55 @@ var signalRResourceId = models.ParsedResourceId{
 		{
 			Type:       models.StaticSegment,
 			FixedValue: strPtr("providers"),
-			Name:       "providers",
+			Name:       "staticProviders",
 		},
 		{
 			Type:       models.ResourceProviderSegment,
 			FixedValue: strPtr("Microsoft.SignalRService"),
-			Name:       "Microsoft.SignalRService",
+			Name:       "staticMicrosoftSignalRService",
 		},
 		{
 			Type:       models.StaticSegment,
 			FixedValue: strPtr("SignalR"),
-			Name:       "SignalR",
+			Name:       "staticSignalR",
 		},
 		{
 			Name: "resourceName",
 			Type: models.UserSpecifiedSegment,
+		},
+	},
+}
+var eventHubSkuResourceId = models.ParsedResourceId{
+	Constants: map[string]models.ConstantDetails{},
+	Segments: []models.ResourceIdSegment{
+		{
+			Type:       models.StaticSegment,
+			FixedValue: strPtr("subscriptions"),
+			Name:       "staticSubscriptions",
+		},
+		{
+			Type: models.SubscriptionIdSegment,
+			Name: "subscriptionId",
+		},
+		{
+			Type:       models.StaticSegment,
+			FixedValue: strPtr("providers"),
+			Name:       "staticProviders",
+		},
+		{
+			Type:       models.ResourceProviderSegment,
+			FixedValue: strPtr("Microsoft.EventHub"),
+			Name:       "staticMicrosoftEventHub",
+		},
+		{
+			Type:       models.StaticSegment,
+			FixedValue: strPtr("sku"),
+			Name:       "staticSku",
+		},
+		{
+			Type:       models.UserSpecifiedSegment,
+			FixedValue: strPtr("sku"),
+			Name:       "sku",
 		},
 	},
 }
@@ -288,7 +322,7 @@ var trafficManagerProfileResourceId = models.ParsedResourceId{
 		{
 			Type:       models.StaticSegment,
 			FixedValue: strPtr("subscriptions"),
-			Name:       "subscriptions",
+			Name:       "staticSubscriptions",
 		},
 		{
 			Type: models.SubscriptionIdSegment,
@@ -297,7 +331,7 @@ var trafficManagerProfileResourceId = models.ParsedResourceId{
 		{
 			Type:       models.StaticSegment,
 			FixedValue: strPtr("resourceGroups"),
-			Name:       "resourceGroups",
+			Name:       "staticResourceGroups",
 		},
 		{
 			Type: models.ResourceGroupSegment,
@@ -306,7 +340,7 @@ var trafficManagerProfileResourceId = models.ParsedResourceId{
 		{
 			Type:       models.StaticSegment,
 			FixedValue: strPtr("providers"),
-			Name:       "providers",
+			Name:       "staticProviders",
 		},
 		{
 			Type:       models.ResourceProviderSegment,
@@ -316,7 +350,7 @@ var trafficManagerProfileResourceId = models.ParsedResourceId{
 		{
 			Type:       models.StaticSegment,
 			FixedValue: strPtr("trafficManagerProfiles"),
-			Name:       "trafficManagerProfiles",
+			Name:       "staticTrafficManagerProfiles",
 		},
 		{
 			Type:       models.UserSpecifiedSegment,
@@ -530,6 +564,36 @@ func TestResourceIDNamingManagementGroupIdAndSuffix(t *testing.T) {
 	}
 	expectedUrisToNames := map[string]string{
 		"/providers/Microsoft.Management/managementGroups/{name}": "ManagementGroupId",
+	}
+
+	actualNamesToIds, actualUrisToNames, err := determineNamesForResourceIds(input)
+	if err != nil {
+		t.Fatalf("error: %+v", err)
+		return
+	}
+
+	if !reflect.DeepEqual(expectedNamesToIds, *actualNamesToIds) {
+		t.Fatalf("expected namesToIds to be %+v but got %+v", expectedNamesToIds, *actualNamesToIds)
+	}
+
+	if !reflect.DeepEqual(expectedUrisToNames, *actualUrisToNames) {
+		t.Fatalf("expected urisToNames to be %+v but got %+v", expectedUrisToNames, *actualUrisToNames)
+	}
+}
+
+func TestResourceIDNamingEventHubSkuId(t *testing.T) {
+	input := map[string]resourceUriMetadata{
+		"/subscriptions/{subscriptionId}/providers/Microsoft.EventHub/sku/{sku}": {
+			resourceIdName: nil,
+			resourceId:     &eventHubSkuResourceId,
+			uriSuffix:      nil,
+		},
+	}
+	expectedNamesToIds := map[string]models.ParsedResourceId{
+		"SkuId": eventHubSkuResourceId,
+	}
+	expectedUrisToNames := map[string]string{
+		"/subscriptions/{subscriptionId}/providers/Microsoft.EventHub/sku/{sku}": "SkuId",
 	}
 
 	actualNamesToIds, actualUrisToNames, err := determineNamesForResourceIds(input)
