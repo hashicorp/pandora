@@ -273,6 +273,40 @@ var signalRResourceId = models.ParsedResourceId{
 		},
 	},
 }
+var eventHubSkuResourceId = models.ParsedResourceId{
+	Constants: map[string]models.ConstantDetails{},
+	Segments: []models.ResourceIdSegment{
+		{
+			Type:       models.StaticSegment,
+			FixedValue: strPtr("subscriptions"),
+			Name:       "staticSubscriptions",
+		},
+		{
+			Type: models.SubscriptionIdSegment,
+			Name: "subscriptionId",
+		},
+		{
+			Type:       models.StaticSegment,
+			FixedValue: strPtr("providers"),
+			Name:       "staticProviders",
+		},
+		{
+			Type:       models.ResourceProviderSegment,
+			FixedValue: strPtr("Microsoft.EventHub"),
+			Name:       "microsoftEventHub",
+		},
+		{
+			Type:       models.StaticSegment,
+			FixedValue: strPtr("sku"),
+			Name:       "staticSku",
+		},
+		{
+			Type:       models.UserSpecifiedSegment,
+			FixedValue: strPtr("sku"),
+			Name:       "sku",
+		},
+	},
+}
 var trafficManagerProfileResourceId = models.ParsedResourceId{
 	Constants: map[string]models.ConstantDetails{
 		"EndpointType": {
@@ -530,6 +564,36 @@ func TestResourceIDNamingManagementGroupIdAndSuffix(t *testing.T) {
 	}
 	expectedUrisToNames := map[string]string{
 		"/providers/Microsoft.Management/managementGroups/{name}": "ManagementGroupId",
+	}
+
+	actualNamesToIds, actualUrisToNames, err := determineNamesForResourceIds(input)
+	if err != nil {
+		t.Fatalf("error: %+v", err)
+		return
+	}
+
+	if !reflect.DeepEqual(expectedNamesToIds, *actualNamesToIds) {
+		t.Fatalf("expected namesToIds to be %+v but got %+v", expectedNamesToIds, *actualNamesToIds)
+	}
+
+	if !reflect.DeepEqual(expectedUrisToNames, *actualUrisToNames) {
+		t.Fatalf("expected urisToNames to be %+v but got %+v", expectedUrisToNames, *actualUrisToNames)
+	}
+}
+
+func TestResourceIDNamingEventHubSkuId(t *testing.T) {
+	input := map[string]resourceUriMetadata{
+		"/subscriptions/{subscriptionId}/providers/Microsoft.EventHub/sku/{sku}": {
+			resourceIdName: nil,
+			resourceId:     &eventHubSkuResourceId,
+			uriSuffix:      nil,
+		},
+	}
+	expectedNamesToIds := map[string]models.ParsedResourceId{
+		"SkuId": eventHubSkuResourceId,
+	}
+	expectedUrisToNames := map[string]string{
+		"/subscriptions/{subscriptionId}/providers/Microsoft.EventHub/sku/{sku}": "SkuId",
 	}
 
 	actualNamesToIds, actualUrisToNames, err := determineNamesForResourceIds(input)
