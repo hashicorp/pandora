@@ -13,7 +13,7 @@ namespace Pandora.Definitions.ResourceManager.LabServices.v2021_10_01_preview.La
         {
                 new()
                 {
-                    Name = "subscriptions",
+                    Name = "staticSubscriptions",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "subscriptions"
                 },

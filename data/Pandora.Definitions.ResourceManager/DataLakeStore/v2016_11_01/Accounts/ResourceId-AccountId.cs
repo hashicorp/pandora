@@ -13,7 +13,7 @@ namespace Pandora.Definitions.ResourceManager.DataLakeStore.v2016_11_01.Accounts
         {
                 new()
                 {
-                    Name = "subscriptions",
+                    Name = "staticSubscriptions",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "subscriptions"
                 },
@@ -26,7 +26,7 @@ namespace Pandora.Definitions.ResourceManager.DataLakeStore.v2016_11_01.Accounts
 
                 new()
                 {
-                    Name = "resourceGroups",
+                    Name = "staticResourceGroups",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "resourceGroups"
                 },
@@ -39,21 +39,21 @@ namespace Pandora.Definitions.ResourceManager.DataLakeStore.v2016_11_01.Accounts
 
                 new()
                 {
-                    Name = "providers",
+                    Name = "staticProviders",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "providers"
                 },
 
                 new()
                 {
-                    Name = "microsoftDataLakeStore",
+                    Name = "staticMicrosoftDataLakeStore",
                     Type = ResourceIDSegmentType.ResourceProvider,
                     FixedValue = "Microsoft.DataLakeStore"
                 },
 
                 new()
                 {
-                    Name = "accounts",
+                    Name = "staticAccounts",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "accounts"
                 },

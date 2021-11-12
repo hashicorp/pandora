@@ -13,7 +13,7 @@ namespace Pandora.Definitions.ResourceManager.LabServices.v2021_10_01_preview.Us
         {
                 new()
                 {
-                    Name = "subscriptions",
+                    Name = "staticSubscriptions",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "subscriptions"
                 },
@@ -26,7 +26,7 @@ namespace Pandora.Definitions.ResourceManager.LabServices.v2021_10_01_preview.Us
 
                 new()
                 {
-                    Name = "resourceGroups",
+                    Name = "staticResourceGroups",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "resourceGroups"
                 },
@@ -39,21 +39,21 @@ namespace Pandora.Definitions.ResourceManager.LabServices.v2021_10_01_preview.Us
 
                 new()
                 {
-                    Name = "providers",
+                    Name = "staticProviders",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "providers"
                 },
 
                 new()
                 {
-                    Name = "microsoftLabServices",
+                    Name = "staticMicrosoftLabServices",
                     Type = ResourceIDSegmentType.ResourceProvider,
                     FixedValue = "Microsoft.LabServices"
                 },
 
                 new()
                 {
-                    Name = "labs",
+                    Name = "staticLabs",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "labs"
                 },
@@ -66,7 +66,7 @@ namespace Pandora.Definitions.ResourceManager.LabServices.v2021_10_01_preview.Us
 
                 new()
                 {
-                    Name = "users",
+                    Name = "staticUsers",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "users"
                 },

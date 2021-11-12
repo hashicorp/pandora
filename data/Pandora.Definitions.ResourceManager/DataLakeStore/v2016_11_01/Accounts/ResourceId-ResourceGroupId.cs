@@ -13,7 +13,7 @@ namespace Pandora.Definitions.ResourceManager.DataLakeStore.v2016_11_01.Accounts
         {
                 new()
                 {
-                    Name = "subscriptions",
+                    Name = "staticSubscriptions",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "subscriptions"
                 },
@@ -26,7 +26,7 @@ namespace Pandora.Definitions.ResourceManager.DataLakeStore.v2016_11_01.Accounts
 
                 new()
                 {
-                    Name = "resourceGroups",
+                    Name = "staticResourceGroups",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "resourceGroups"
                 },

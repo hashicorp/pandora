@@ -13,7 +13,7 @@ namespace Pandora.Definitions.ResourceManager.Purview.v2021_07_01.PrivateLinkRes
         {
                 new()
                 {
-                    Name = "subscriptions",
+                    Name = "staticSubscriptions",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "subscriptions"
                 },
@@ -26,7 +26,7 @@ namespace Pandora.Definitions.ResourceManager.Purview.v2021_07_01.PrivateLinkRes
 
                 new()
                 {
-                    Name = "resourceGroups",
+                    Name = "staticResourceGroups",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "resourceGroups"
                 },
@@ -39,21 +39,21 @@ namespace Pandora.Definitions.ResourceManager.Purview.v2021_07_01.PrivateLinkRes
 
                 new()
                 {
-                    Name = "providers",
+                    Name = "staticProviders",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "providers"
                 },
 
                 new()
                 {
-                    Name = "microsoftPurview",
+                    Name = "staticMicrosoftPurview",
                     Type = ResourceIDSegmentType.ResourceProvider,
                     FixedValue = "Microsoft.Purview"
                 },
 
                 new()
                 {
-                    Name = "accounts",
+                    Name = "staticAccounts",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "accounts"
                 },
@@ -66,7 +66,7 @@ namespace Pandora.Definitions.ResourceManager.Purview.v2021_07_01.PrivateLinkRes
 
                 new()
                 {
-                    Name = "privateLinkResources",
+                    Name = "staticPrivateLinkResources",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "privateLinkResources"
                 },

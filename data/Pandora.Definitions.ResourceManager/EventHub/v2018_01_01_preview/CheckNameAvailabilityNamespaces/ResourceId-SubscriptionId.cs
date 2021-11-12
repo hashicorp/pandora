@@ -13,7 +13,7 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.Check
         {
                 new()
                 {
-                    Name = "subscriptions",
+                    Name = "staticSubscriptions",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "subscriptions"
                 },

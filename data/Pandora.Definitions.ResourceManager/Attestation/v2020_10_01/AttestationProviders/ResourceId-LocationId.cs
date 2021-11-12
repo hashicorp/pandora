@@ -13,7 +13,7 @@ namespace Pandora.Definitions.ResourceManager.Attestation.v2020_10_01.Attestatio
         {
                 new()
                 {
-                    Name = "subscriptions",
+                    Name = "staticSubscriptions",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "subscriptions"
                 },
@@ -26,21 +26,21 @@ namespace Pandora.Definitions.ResourceManager.Attestation.v2020_10_01.Attestatio
 
                 new()
                 {
-                    Name = "providers",
+                    Name = "staticProviders",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "providers"
                 },
 
                 new()
                 {
-                    Name = "microsoftAttestation",
+                    Name = "staticMicrosoftAttestation",
                     Type = ResourceIDSegmentType.ResourceProvider,
                     FixedValue = "Microsoft.Attestation"
                 },
 
                 new()
                 {
-                    Name = "locations",
+                    Name = "staticLocations",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "locations"
                 },

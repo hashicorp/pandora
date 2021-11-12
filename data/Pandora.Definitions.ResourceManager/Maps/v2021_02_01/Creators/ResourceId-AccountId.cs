@@ -13,7 +13,7 @@ namespace Pandora.Definitions.ResourceManager.Maps.v2021_02_01.Creators
         {
                 new()
                 {
-                    Name = "subscriptions",
+                    Name = "staticSubscriptions",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "subscriptions"
                 },
@@ -26,7 +26,7 @@ namespace Pandora.Definitions.ResourceManager.Maps.v2021_02_01.Creators
 
                 new()
                 {
-                    Name = "resourceGroups",
+                    Name = "staticResourceGroups",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "resourceGroups"
                 },
@@ -39,21 +39,21 @@ namespace Pandora.Definitions.ResourceManager.Maps.v2021_02_01.Creators
 
                 new()
                 {
-                    Name = "providers",
+                    Name = "staticProviders",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "providers"
                 },
 
                 new()
                 {
-                    Name = "microsoftMaps",
+                    Name = "staticMicrosoftMaps",
                     Type = ResourceIDSegmentType.ResourceProvider,
                     FixedValue = "Microsoft.Maps"
                 },
 
                 new()
                 {
-                    Name = "accounts",
+                    Name = "staticAccounts",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "accounts"
                 },

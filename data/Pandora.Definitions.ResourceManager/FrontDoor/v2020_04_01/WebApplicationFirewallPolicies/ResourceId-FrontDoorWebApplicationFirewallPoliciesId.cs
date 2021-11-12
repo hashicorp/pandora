@@ -13,7 +13,7 @@ namespace Pandora.Definitions.ResourceManager.FrontDoor.v2020_04_01.WebApplicati
         {
                 new()
                 {
-                    Name = "subscriptions",
+                    Name = "staticSubscriptions",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "subscriptions"
                 },
@@ -26,7 +26,7 @@ namespace Pandora.Definitions.ResourceManager.FrontDoor.v2020_04_01.WebApplicati
 
                 new()
                 {
-                    Name = "resourceGroups",
+                    Name = "staticResourceGroups",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "resourceGroups"
                 },
@@ -39,21 +39,21 @@ namespace Pandora.Definitions.ResourceManager.FrontDoor.v2020_04_01.WebApplicati
 
                 new()
                 {
-                    Name = "providers",
+                    Name = "staticProviders",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "providers"
                 },
 
                 new()
                 {
-                    Name = "microsoftNetwork",
+                    Name = "staticMicrosoftNetwork",
                     Type = ResourceIDSegmentType.ResourceProvider,
                     FixedValue = "Microsoft.Network"
                 },
 
                 new()
                 {
-                    Name = "frontDoorWebApplicationFirewallPolicies",
+                    Name = "staticFrontDoorWebApplicationFirewallPolicies",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "frontDoorWebApplicationFirewallPolicies"
                 },

@@ -13,7 +13,7 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.Regions
         {
                 new()
                 {
-                    Name = "subscriptions",
+                    Name = "staticSubscriptions",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "subscriptions"
                 },
@@ -26,21 +26,21 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.Regions
 
                 new()
                 {
-                    Name = "providers",
+                    Name = "staticProviders",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "providers"
                 },
 
                 new()
                 {
-                    Name = "microsoftEventHub",
+                    Name = "staticMicrosoftEventHub",
                     Type = ResourceIDSegmentType.ResourceProvider,
                     FixedValue = "Microsoft.EventHub"
                 },
 
                 new()
                 {
-                    Name = "sku",
+                    Name = "staticSku",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "sku"
                 },

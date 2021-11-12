@@ -13,7 +13,7 @@ namespace Pandora.Definitions.ResourceManager.VideoAnalyzer.v2021_05_01_preview.
         {
                 new()
                 {
-                    Name = "subscriptions",
+                    Name = "staticSubscriptions",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "subscriptions"
                 },
@@ -26,21 +26,21 @@ namespace Pandora.Definitions.ResourceManager.VideoAnalyzer.v2021_05_01_preview.
 
                 new()
                 {
-                    Name = "providers",
+                    Name = "staticProviders",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "providers"
                 },
 
                 new()
                 {
-                    Name = "microsoftMedia",
+                    Name = "staticMicrosoftMedia",
                     Type = ResourceIDSegmentType.ResourceProvider,
                     FixedValue = "Microsoft.Media"
                 },
 
                 new()
                 {
-                    Name = "locations",
+                    Name = "staticLocations",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "locations"
                 },

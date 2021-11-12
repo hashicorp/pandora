@@ -13,21 +13,21 @@ namespace Pandora.Definitions.ResourceManager.CostManagement.v2021_10_01.Views
         {
                 new()
                 {
-                    Name = "providers",
+                    Name = "staticProviders",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "providers"
                 },
 
                 new()
                 {
-                    Name = "microsoftCostManagement",
+                    Name = "staticMicrosoftCostManagement",
                     Type = ResourceIDSegmentType.ResourceProvider,
                     FixedValue = "Microsoft.CostManagement"
                 },
 
                 new()
                 {
-                    Name = "views",
+                    Name = "staticViews",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "views"
                 },

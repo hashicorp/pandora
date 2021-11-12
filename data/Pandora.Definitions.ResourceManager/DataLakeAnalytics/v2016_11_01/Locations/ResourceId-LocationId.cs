@@ -13,7 +13,7 @@ namespace Pandora.Definitions.ResourceManager.DataLakeAnalytics.v2016_11_01.Loca
         {
                 new()
                 {
-                    Name = "subscriptions",
+                    Name = "staticSubscriptions",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "subscriptions"
                 },
@@ -26,21 +26,21 @@ namespace Pandora.Definitions.ResourceManager.DataLakeAnalytics.v2016_11_01.Loca
 
                 new()
                 {
-                    Name = "providers",
+                    Name = "staticProviders",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "providers"
                 },
 
                 new()
                 {
-                    Name = "microsoftDataLakeAnalytics",
+                    Name = "staticMicrosoftDataLakeAnalytics",
                     Type = ResourceIDSegmentType.ResourceProvider,
                     FixedValue = "Microsoft.DataLakeAnalytics"
                 },
 
                 new()
                 {
-                    Name = "locations",
+                    Name = "staticLocations",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "locations"
                 },

@@ -13,7 +13,7 @@ namespace Pandora.Definitions.ResourceManager.PowerBIDedicated.v2021_01_01.Capac
         {
                 new()
                 {
-                    Name = "subscriptions",
+                    Name = "staticSubscriptions",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "subscriptions"
                 },
@@ -26,21 +26,21 @@ namespace Pandora.Definitions.ResourceManager.PowerBIDedicated.v2021_01_01.Capac
 
                 new()
                 {
-                    Name = "providers",
+                    Name = "staticProviders",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "providers"
                 },
 
                 new()
                 {
-                    Name = "microsoftPowerBIDedicated",
+                    Name = "staticMicrosoftPowerBIDedicated",
                     Type = ResourceIDSegmentType.ResourceProvider,
                     FixedValue = "Microsoft.PowerBIDedicated"
                 },
 
                 new()
                 {
-                    Name = "locations",
+                    Name = "staticLocations",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "locations"
                 },
