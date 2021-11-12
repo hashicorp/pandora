@@ -2,12 +2,11 @@ package parser
 
 import (
 	"fmt"
-	"sort"
-	"strings"
-
 	"github.com/go-openapi/spec"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/cleanup"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	"sort"
+	"strings"
 )
 
 var knownSegmentsUsedForScope = []string{
@@ -345,6 +344,17 @@ func (d *SwaggerDefinition) parseResourceIdFromOperation(uri string, operationDe
 			Constants: result.constants,
 			Segments:  segments,
 		}
+	}
+
+	// finally, validate that all of the segments have a unique name
+	uniqueNames := make(map[string]struct{}, 0)
+	for _, segment := range segments {
+		uniqueNames[segment.Name] = struct{}{}
+	}
+	if len(uniqueNames) != len(segments) {
+		// TODO: in time make these unique if needs be, but for now this is sufficient to raise them
+		diff := len(segments) - len(uniqueNames)
+		return nil, fmt.Errorf("%d segments have duplicate names (expected %d but got %d)", diff, len(segments), len(uniqueNames))
 	}
 
 	return &output, nil
