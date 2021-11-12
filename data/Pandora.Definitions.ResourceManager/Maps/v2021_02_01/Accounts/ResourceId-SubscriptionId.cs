@@ -13,7 +13,7 @@ namespace Pandora.Definitions.ResourceManager.Maps.v2021_02_01.Accounts
         {
                 new()
                 {
-                    Name = "subscriptions",
+                    Name = "staticSubscriptions",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "subscriptions"
                 },

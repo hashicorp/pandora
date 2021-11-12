@@ -13,7 +13,7 @@ namespace Pandora.Definitions.ResourceManager.DataBricks.v2021_04_01_preview.Wor
         {
                 new()
                 {
-                    Name = "subscriptions",
+                    Name = "staticSubscriptions",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "subscriptions"
                 },

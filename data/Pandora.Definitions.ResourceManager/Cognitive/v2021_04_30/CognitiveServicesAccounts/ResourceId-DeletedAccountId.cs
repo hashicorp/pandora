@@ -13,7 +13,7 @@ namespace Pandora.Definitions.ResourceManager.Cognitive.v2021_04_30.CognitiveSer
         {
                 new()
                 {
-                    Name = "subscriptions",
+                    Name = "staticSubscriptions",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "subscriptions"
                 },
@@ -26,21 +26,21 @@ namespace Pandora.Definitions.ResourceManager.Cognitive.v2021_04_30.CognitiveSer
 
                 new()
                 {
-                    Name = "providers",
+                    Name = "staticProviders",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "providers"
                 },
 
                 new()
                 {
-                    Name = "microsoftCognitiveServices",
+                    Name = "staticMicrosoftCognitiveServices",
                     Type = ResourceIDSegmentType.ResourceProvider,
                     FixedValue = "Microsoft.CognitiveServices"
                 },
 
                 new()
                 {
-                    Name = "locations",
+                    Name = "staticLocations",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "locations"
                 },
@@ -53,7 +53,7 @@ namespace Pandora.Definitions.ResourceManager.Cognitive.v2021_04_30.CognitiveSer
 
                 new()
                 {
-                    Name = "resourceGroups",
+                    Name = "staticResourceGroups",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "resourceGroups"
                 },
@@ -66,7 +66,7 @@ namespace Pandora.Definitions.ResourceManager.Cognitive.v2021_04_30.CognitiveSer
 
                 new()
                 {
-                    Name = "deletedAccounts",
+                    Name = "staticDeletedAccounts",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "deletedAccounts"
                 },

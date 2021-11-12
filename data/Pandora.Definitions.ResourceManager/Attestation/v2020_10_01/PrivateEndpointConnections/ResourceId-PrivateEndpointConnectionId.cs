@@ -13,7 +13,7 @@ namespace Pandora.Definitions.ResourceManager.Attestation.v2020_10_01.PrivateEnd
         {
                 new()
                 {
-                    Name = "subscriptions",
+                    Name = "staticSubscriptions",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "subscriptions"
                 },
@@ -26,7 +26,7 @@ namespace Pandora.Definitions.ResourceManager.Attestation.v2020_10_01.PrivateEnd
 
                 new()
                 {
-                    Name = "resourceGroups",
+                    Name = "staticResourceGroups",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "resourceGroups"
                 },
@@ -39,21 +39,21 @@ namespace Pandora.Definitions.ResourceManager.Attestation.v2020_10_01.PrivateEnd
 
                 new()
                 {
-                    Name = "providers",
+                    Name = "staticProviders",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "providers"
                 },
 
                 new()
                 {
-                    Name = "microsoftAttestation",
+                    Name = "staticMicrosoftAttestation",
                     Type = ResourceIDSegmentType.ResourceProvider,
                     FixedValue = "Microsoft.Attestation"
                 },
 
                 new()
                 {
-                    Name = "attestationProviders",
+                    Name = "staticAttestationProviders",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "attestationProviders"
                 },
@@ -66,7 +66,7 @@ namespace Pandora.Definitions.ResourceManager.Attestation.v2020_10_01.PrivateEnd
 
                 new()
                 {
-                    Name = "privateEndpointConnections",
+                    Name = "staticPrivateEndpointConnections",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "privateEndpointConnections"
                 },

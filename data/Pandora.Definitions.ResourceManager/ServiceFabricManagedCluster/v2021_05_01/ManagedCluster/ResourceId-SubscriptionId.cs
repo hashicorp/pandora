@@ -13,7 +13,7 @@ namespace Pandora.Definitions.ResourceManager.ServiceFabricManagedCluster.v2021_
         {
                 new()
                 {
-                    Name = "subscriptions",
+                    Name = "staticSubscriptions",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "subscriptions"
                 },

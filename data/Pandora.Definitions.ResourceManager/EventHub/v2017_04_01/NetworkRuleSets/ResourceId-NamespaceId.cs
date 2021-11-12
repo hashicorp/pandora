@@ -13,7 +13,7 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.NetworkRuleSe
         {
                 new()
                 {
-                    Name = "subscriptions",
+                    Name = "staticSubscriptions",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "subscriptions"
                 },
@@ -26,7 +26,7 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.NetworkRuleSe
 
                 new()
                 {
-                    Name = "resourceGroups",
+                    Name = "staticResourceGroups",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "resourceGroups"
                 },
@@ -39,21 +39,21 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.NetworkRuleSe
 
                 new()
                 {
-                    Name = "providers",
+                    Name = "staticProviders",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "providers"
                 },
 
                 new()
                 {
-                    Name = "microsoftEventHub",
+                    Name = "staticMicrosoftEventHub",
                     Type = ResourceIDSegmentType.ResourceProvider,
                     FixedValue = "Microsoft.EventHub"
                 },
 
                 new()
                 {
-                    Name = "namespaces",
+                    Name = "staticNamespaces",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "namespaces"
                 },

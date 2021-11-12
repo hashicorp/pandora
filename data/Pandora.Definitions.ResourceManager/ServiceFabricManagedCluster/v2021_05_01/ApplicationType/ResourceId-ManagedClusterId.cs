@@ -13,7 +13,7 @@ namespace Pandora.Definitions.ResourceManager.ServiceFabricManagedCluster.v2021_
         {
                 new()
                 {
-                    Name = "subscriptions",
+                    Name = "staticSubscriptions",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "subscriptions"
                 },
@@ -26,7 +26,7 @@ namespace Pandora.Definitions.ResourceManager.ServiceFabricManagedCluster.v2021_
 
                 new()
                 {
-                    Name = "resourceGroups",
+                    Name = "staticResourceGroups",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "resourceGroups"
                 },
@@ -39,21 +39,21 @@ namespace Pandora.Definitions.ResourceManager.ServiceFabricManagedCluster.v2021_
 
                 new()
                 {
-                    Name = "providers",
+                    Name = "staticProviders",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "providers"
                 },
 
                 new()
                 {
-                    Name = "microsoftServiceFabric",
+                    Name = "staticMicrosoftServiceFabric",
                     Type = ResourceIDSegmentType.ResourceProvider,
                     FixedValue = "Microsoft.ServiceFabric"
                 },
 
                 new()
                 {
-                    Name = "managedClusters",
+                    Name = "staticManagedClusters",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "managedClusters"
                 },

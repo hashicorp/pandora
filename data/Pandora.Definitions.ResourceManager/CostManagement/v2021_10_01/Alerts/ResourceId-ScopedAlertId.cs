@@ -19,21 +19,21 @@ namespace Pandora.Definitions.ResourceManager.CostManagement.v2021_10_01.Alerts
 
                 new()
                 {
-                    Name = "providers",
+                    Name = "staticProviders",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "providers"
                 },
 
                 new()
                 {
-                    Name = "microsoftCostManagement",
+                    Name = "staticMicrosoftCostManagement",
                     Type = ResourceIDSegmentType.ResourceProvider,
                     FixedValue = "Microsoft.CostManagement"
                 },
 
                 new()
                 {
-                    Name = "alerts",
+                    Name = "staticAlerts",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "alerts"
                 },

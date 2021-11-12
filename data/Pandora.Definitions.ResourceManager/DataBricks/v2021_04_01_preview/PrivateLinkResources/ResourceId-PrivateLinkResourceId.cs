@@ -13,7 +13,7 @@ namespace Pandora.Definitions.ResourceManager.DataBricks.v2021_04_01_preview.Pri
         {
                 new()
                 {
-                    Name = "subscriptions",
+                    Name = "staticSubscriptions",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "subscriptions"
                 },
@@ -26,7 +26,7 @@ namespace Pandora.Definitions.ResourceManager.DataBricks.v2021_04_01_preview.Pri
 
                 new()
                 {
-                    Name = "resourceGroups",
+                    Name = "staticResourceGroups",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "resourceGroups"
                 },
@@ -39,21 +39,21 @@ namespace Pandora.Definitions.ResourceManager.DataBricks.v2021_04_01_preview.Pri
 
                 new()
                 {
-                    Name = "providers",
+                    Name = "staticProviders",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "providers"
                 },
 
                 new()
                 {
-                    Name = "microsoftDatabricks",
+                    Name = "staticMicrosoftDatabricks",
                     Type = ResourceIDSegmentType.ResourceProvider,
                     FixedValue = "Microsoft.Databricks"
                 },
 
                 new()
                 {
-                    Name = "workspaces",
+                    Name = "staticWorkspaces",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "workspaces"
                 },
@@ -66,7 +66,7 @@ namespace Pandora.Definitions.ResourceManager.DataBricks.v2021_04_01_preview.Pri
 
                 new()
                 {
-                    Name = "privateLinkResources",
+                    Name = "staticPrivateLinkResources",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "privateLinkResources"
                 },

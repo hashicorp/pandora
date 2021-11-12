@@ -13,7 +13,7 @@ namespace Pandora.Definitions.ResourceManager.DataLakeAnalytics.v2016_11_01.Acco
         {
                 new()
                 {
-                    Name = "subscriptions",
+                    Name = "staticSubscriptions",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "subscriptions"
                 },

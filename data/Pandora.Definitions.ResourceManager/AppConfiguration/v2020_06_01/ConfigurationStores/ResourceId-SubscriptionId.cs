@@ -13,7 +13,7 @@ namespace Pandora.Definitions.ResourceManager.AppConfiguration.v2020_06_01.Confi
         {
                 new()
                 {
-                    Name = "subscriptions",
+                    Name = "staticSubscriptions",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "subscriptions"
                 },

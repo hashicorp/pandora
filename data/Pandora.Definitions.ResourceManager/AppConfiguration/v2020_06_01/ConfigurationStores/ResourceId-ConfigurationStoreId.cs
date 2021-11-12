@@ -13,7 +13,7 @@ namespace Pandora.Definitions.ResourceManager.AppConfiguration.v2020_06_01.Confi
         {
                 new()
                 {
-                    Name = "subscriptions",
+                    Name = "staticSubscriptions",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "subscriptions"
                 },
@@ -26,7 +26,7 @@ namespace Pandora.Definitions.ResourceManager.AppConfiguration.v2020_06_01.Confi
 
                 new()
                 {
-                    Name = "resourceGroups",
+                    Name = "staticResourceGroups",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "resourceGroups"
                 },
@@ -39,21 +39,21 @@ namespace Pandora.Definitions.ResourceManager.AppConfiguration.v2020_06_01.Confi
 
                 new()
                 {
-                    Name = "providers",
+                    Name = "staticProviders",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "providers"
                 },
 
                 new()
                 {
-                    Name = "microsoftAppConfiguration",
+                    Name = "staticMicrosoftAppConfiguration",
                     Type = ResourceIDSegmentType.ResourceProvider,
                     FixedValue = "Microsoft.AppConfiguration"
                 },
 
                 new()
                 {
-                    Name = "configurationStores",
+                    Name = "staticConfigurationStores",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "configurationStores"
                 },

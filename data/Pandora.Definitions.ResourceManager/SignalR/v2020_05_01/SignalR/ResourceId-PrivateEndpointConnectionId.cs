@@ -13,7 +13,7 @@ namespace Pandora.Definitions.ResourceManager.SignalR.v2020_05_01.SignalR
         {
                 new()
                 {
-                    Name = "subscriptions",
+                    Name = "staticSubscriptions",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "subscriptions"
                 },
@@ -26,7 +26,7 @@ namespace Pandora.Definitions.ResourceManager.SignalR.v2020_05_01.SignalR
 
                 new()
                 {
-                    Name = "resourceGroups",
+                    Name = "staticResourceGroups",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "resourceGroups"
                 },
@@ -39,21 +39,21 @@ namespace Pandora.Definitions.ResourceManager.SignalR.v2020_05_01.SignalR
 
                 new()
                 {
-                    Name = "providers",
+                    Name = "staticProviders",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "providers"
                 },
 
                 new()
                 {
-                    Name = "microsoftSignalRService",
+                    Name = "staticMicrosoftSignalRService",
                     Type = ResourceIDSegmentType.ResourceProvider,
                     FixedValue = "Microsoft.SignalRService"
                 },
 
                 new()
                 {
-                    Name = "signalR",
+                    Name = "staticSignalR",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "signalR"
                 },
@@ -66,7 +66,7 @@ namespace Pandora.Definitions.ResourceManager.SignalR.v2020_05_01.SignalR
 
                 new()
                 {
-                    Name = "privateEndpointConnections",
+                    Name = "staticPrivateEndpointConnections",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "privateEndpointConnections"
                 },

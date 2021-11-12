@@ -13,7 +13,7 @@ namespace Pandora.Definitions.ResourceManager.DNS.v2018_05_01.Zones
         {
                 new()
                 {
-                    Name = "subscriptions",
+                    Name = "staticSubscriptions",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "subscriptions"
                 },

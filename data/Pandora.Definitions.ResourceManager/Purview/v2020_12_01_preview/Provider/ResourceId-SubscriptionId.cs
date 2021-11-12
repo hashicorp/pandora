@@ -13,7 +13,7 @@ namespace Pandora.Definitions.ResourceManager.Purview.v2020_12_01_preview.Provid
         {
                 new()
                 {
-                    Name = "subscriptions",
+                    Name = "staticSubscriptions",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "subscriptions"
                 },

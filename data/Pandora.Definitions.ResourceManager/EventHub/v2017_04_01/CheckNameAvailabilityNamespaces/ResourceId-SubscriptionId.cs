@@ -13,7 +13,7 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.CheckNameAvai
         {
                 new()
                 {
-                    Name = "subscriptions",
+                    Name = "staticSubscriptions",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "subscriptions"
                 },

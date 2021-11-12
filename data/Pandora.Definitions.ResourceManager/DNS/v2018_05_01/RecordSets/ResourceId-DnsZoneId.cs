@@ -13,7 +13,7 @@ namespace Pandora.Definitions.ResourceManager.DNS.v2018_05_01.RecordSets
         {
                 new()
                 {
-                    Name = "subscriptions",
+                    Name = "staticSubscriptions",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "subscriptions"
                 },
@@ -26,7 +26,7 @@ namespace Pandora.Definitions.ResourceManager.DNS.v2018_05_01.RecordSets
 
                 new()
                 {
-                    Name = "resourceGroups",
+                    Name = "staticResourceGroups",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "resourceGroups"
                 },
@@ -39,21 +39,21 @@ namespace Pandora.Definitions.ResourceManager.DNS.v2018_05_01.RecordSets
 
                 new()
                 {
-                    Name = "providers",
+                    Name = "staticProviders",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "providers"
                 },
 
                 new()
                 {
-                    Name = "microsoftNetwork",
+                    Name = "staticMicrosoftNetwork",
                     Type = ResourceIDSegmentType.ResourceProvider,
                     FixedValue = "Microsoft.Network"
                 },
 
                 new()
                 {
-                    Name = "dnsZones",
+                    Name = "staticDnsZones",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "dnsZones"
                 },

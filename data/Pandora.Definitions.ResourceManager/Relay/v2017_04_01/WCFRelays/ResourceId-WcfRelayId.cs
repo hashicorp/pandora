@@ -13,7 +13,7 @@ namespace Pandora.Definitions.ResourceManager.Relay.v2017_04_01.WCFRelays
         {
                 new()
                 {
-                    Name = "subscriptions",
+                    Name = "staticSubscriptions",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "subscriptions"
                 },
@@ -26,7 +26,7 @@ namespace Pandora.Definitions.ResourceManager.Relay.v2017_04_01.WCFRelays
 
                 new()
                 {
-                    Name = "resourceGroups",
+                    Name = "staticResourceGroups",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "resourceGroups"
                 },
@@ -39,21 +39,21 @@ namespace Pandora.Definitions.ResourceManager.Relay.v2017_04_01.WCFRelays
 
                 new()
                 {
-                    Name = "providers",
+                    Name = "staticProviders",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "providers"
                 },
 
                 new()
                 {
-                    Name = "microsoftRelay",
+                    Name = "staticMicrosoftRelay",
                     Type = ResourceIDSegmentType.ResourceProvider,
                     FixedValue = "Microsoft.Relay"
                 },
 
                 new()
                 {
-                    Name = "namespaces",
+                    Name = "staticNamespaces",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "namespaces"
                 },
@@ -66,7 +66,7 @@ namespace Pandora.Definitions.ResourceManager.Relay.v2017_04_01.WCFRelays
 
                 new()
                 {
-                    Name = "wcfRelays",
+                    Name = "staticWcfRelays",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "wcfRelays"
                 },

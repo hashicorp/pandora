@@ -13,7 +13,7 @@ namespace Pandora.Definitions.ResourceManager.Cognitive.v2021_04_30.PrivateEndpo
         {
                 new()
                 {
-                    Name = "subscriptions",
+                    Name = "staticSubscriptions",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "subscriptions"
                 },
@@ -26,7 +26,7 @@ namespace Pandora.Definitions.ResourceManager.Cognitive.v2021_04_30.PrivateEndpo
 
                 new()
                 {
-                    Name = "resourceGroups",
+                    Name = "staticResourceGroups",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "resourceGroups"
                 },
@@ -39,21 +39,21 @@ namespace Pandora.Definitions.ResourceManager.Cognitive.v2021_04_30.PrivateEndpo
 
                 new()
                 {
-                    Name = "providers",
+                    Name = "staticProviders",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "providers"
                 },
 
                 new()
                 {
-                    Name = "microsoftCognitiveServices",
+                    Name = "staticMicrosoftCognitiveServices",
                     Type = ResourceIDSegmentType.ResourceProvider,
                     FixedValue = "Microsoft.CognitiveServices"
                 },
 
                 new()
                 {
-                    Name = "accounts",
+                    Name = "staticAccounts",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "accounts"
                 },

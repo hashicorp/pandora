@@ -13,7 +13,7 @@ namespace Pandora.Definitions.ResourceManager.VMware.v2020_03_20.Locations
         {
                 new()
                 {
-                    Name = "subscriptions",
+                    Name = "staticSubscriptions",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "subscriptions"
                 },
@@ -26,21 +26,21 @@ namespace Pandora.Definitions.ResourceManager.VMware.v2020_03_20.Locations
 
                 new()
                 {
-                    Name = "providers",
+                    Name = "staticProviders",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "providers"
                 },
 
                 new()
                 {
-                    Name = "microsoftAVS",
+                    Name = "staticMicrosoftAVS",
                     Type = ResourceIDSegmentType.ResourceProvider,
                     FixedValue = "Microsoft.AVS"
                 },
 
                 new()
                 {
-                    Name = "locations",
+                    Name = "staticLocations",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "locations"
                 },

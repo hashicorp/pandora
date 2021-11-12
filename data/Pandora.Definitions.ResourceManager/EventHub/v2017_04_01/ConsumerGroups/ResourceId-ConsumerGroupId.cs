@@ -13,7 +13,7 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.ConsumerGroup
         {
                 new()
                 {
-                    Name = "subscriptions",
+                    Name = "staticSubscriptions",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "subscriptions"
                 },
@@ -26,7 +26,7 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.ConsumerGroup
 
                 new()
                 {
-                    Name = "resourceGroups",
+                    Name = "staticResourceGroups",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "resourceGroups"
                 },
@@ -39,21 +39,21 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.ConsumerGroup
 
                 new()
                 {
-                    Name = "providers",
+                    Name = "staticProviders",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "providers"
                 },
 
                 new()
                 {
-                    Name = "microsoftEventHub",
+                    Name = "staticMicrosoftEventHub",
                     Type = ResourceIDSegmentType.ResourceProvider,
                     FixedValue = "Microsoft.EventHub"
                 },
 
                 new()
                 {
-                    Name = "namespaces",
+                    Name = "staticNamespaces",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "namespaces"
                 },
@@ -66,7 +66,7 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.ConsumerGroup
 
                 new()
                 {
-                    Name = "eventhubs",
+                    Name = "staticEventhubs",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "eventhubs"
                 },
@@ -79,7 +79,7 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.ConsumerGroup
 
                 new()
                 {
-                    Name = "consumerGroups",
+                    Name = "staticConsumerGroups",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "consumerGroups"
                 },

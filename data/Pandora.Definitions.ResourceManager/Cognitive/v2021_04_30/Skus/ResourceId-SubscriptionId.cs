@@ -13,7 +13,7 @@ namespace Pandora.Definitions.ResourceManager.Cognitive.v2021_04_30.Skus
         {
                 new()
                 {
-                    Name = "subscriptions",
+                    Name = "staticSubscriptions",
                     Type = ResourceIDSegmentType.Static,
                     FixedValue = "subscriptions"
                 },
