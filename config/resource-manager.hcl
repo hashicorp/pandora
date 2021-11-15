@@ -11,6 +11,10 @@ service "attestation" {
   name      = "Attestation"
   available = ["2020-10-01"]
 }
+service "communication" {
+  name      = "Communication"
+  available = ["2020-08-20"]
+}
 service "cognitiveservices" {
   name      = "Cognitive"
   available = ["2021-04-30"]
