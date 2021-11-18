@@ -5,6 +5,7 @@ import (
 	"github.com/go-openapi/spec"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/cleanup"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	"log"
 	"sort"
 	"strings"
 )
@@ -262,28 +263,18 @@ func (d *SwaggerDefinition) parseResourceIdFromOperation(uri string, operationDe
 
 		// if it's a Resource Provider
 		if strings.Contains(originalSegment, ".") {
-			previousSegmentWasProvider := false
-			if len(segments) > 0 {
-				lastSegment := segments[len(segments)-1]
-				// the segment before this one should be a static segment `providers`
-				if lastSegment.Type == models.StaticSegment && lastSegment.FixedValue != nil && strings.EqualFold(*lastSegment.FixedValue, "providers") {
-					previousSegmentWasProvider = true
-				}
-			}
-			if previousSegmentWasProvider {
-				// some ResourceProviders are defined in lower-case, let's fix that
-				resourceProviderValue := cleanup.NormalizeResourceProviderName(originalSegment)
+			// some ResourceProviders are defined in lower-case, let's fix that
+			resourceProviderValue := cleanup.NormalizeResourceProviderName(originalSegment)
 
-				// prefix this with `static{name}` so that the segment is unique
-				// these aren't parsed out anyway, but we need unique names
-				normalizedSegment = normalizeSegment(fmt.Sprintf("static%s", strings.Title(resourceProviderValue)))
-				segments = append(segments, models.ResourceIdSegment{
-					Type:       models.ResourceProviderSegment,
-					Name:       normalizedSegment,
-					FixedValue: &resourceProviderValue,
-				})
-				continue
-			}
+			// prefix this with `static{name}` so that the segment is unique
+			// these aren't parsed out anyway, but we need unique names
+			normalizedSegment = normalizeSegment(fmt.Sprintf("static%s", strings.Title(resourceProviderValue)))
+			segments = append(segments, models.ResourceIdSegment{
+				Type:       models.ResourceProviderSegment,
+				Name:       normalizedSegment,
+				FixedValue: &resourceProviderValue,
+			})
+			continue
 		}
 
 		// prefix this with `static{name}` so that the segment is unique
@@ -351,10 +342,38 @@ func (d *SwaggerDefinition) parseResourceIdFromOperation(uri string, operationDe
 	for _, segment := range segments {
 		uniqueNames[segment.Name] = struct{}{}
 	}
-	if len(uniqueNames) != len(segments) {
-		// TODO: in time make these unique if needs be, but for now this is sufficient to raise them
-		diff := len(segments) - len(uniqueNames)
-		return nil, fmt.Errorf("%d segments have duplicate names (expected %d but got %d)", diff, len(segments), len(uniqueNames))
+	if len(uniqueNames) != len(segments) && output.resourceId != nil {
+		log.Printf("[DEBUG] Determining Unique Names for Segments..")
+		uniquelyNamedSegments, err := determineUniqueNamesForSegments(segments)
+		if err != nil {
+			return nil, fmt.Errorf("determining unique names for the segments as multiple have the same key: %+v", err)
+		}
+
+		output.resourceId.Segments = *uniquelyNamedSegments
+	}
+
+	return &output, nil
+}
+
+func determineUniqueNamesForSegments(input []models.ResourceIdSegment) (*[]models.ResourceIdSegment, error) {
+	segmentNamesUsed := make(map[string]int, 0)
+
+	output := make([]models.ResourceIdSegment, 0)
+
+	for _, segment := range input {
+		existingCount, exists := segmentNamesUsed[segment.Name]
+		if !exists {
+			// mark the name as used and just append it
+			segmentNamesUsed[segment.Name] = 1
+			output = append(output, segment)
+			continue
+		}
+
+		existingCount++
+		segmentNamesUsed[segment.Name] = existingCount
+		// e.g. `item` then `item2`
+		segment.Name = fmt.Sprintf("%s%d", segment.Name, existingCount)
+		output = append(output, segment)
 	}
 
 	return &output, nil
