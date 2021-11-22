@@ -805,6 +805,111 @@ func TestParseResourceIdContainingTheSameResourceIdWithDifferentSegments(t *test
 	}
 }
 
+func TestParseResourceIdContainingTheSegmentsNamedTheSame(t *testing.T) {
+	result, err := ParseSwaggerFileForTesting(t, "resource_ids_multiple_segments_same_name.json")
+	if err != nil {
+		t.Fatalf("parsing: %+v", err)
+	}
+	if result == nil {
+		t.Fatal("result was nil")
+	}
+	if len(result.Resources) != 1 {
+		t.Fatalf("expected 1 resource but got %d", len(result.Resources))
+	}
+
+	hello, ok := result.Resources["Example"]
+	if !ok {
+		t.Fatalf("no resources were output with the tag Example")
+	}
+
+	if len(hello.Constants) != 0 {
+		t.Fatalf("expected no Constants but got %d", len(hello.Constants))
+	}
+	if len(hello.Models) != 0 {
+		t.Fatalf("expected no Models but got %d", len(hello.Models))
+	}
+	if len(hello.Operations) != 1 {
+		t.Fatalf("expected 1 Operation but got %d", len(hello.Operations))
+	}
+	if len(hello.ResourceIds) != 1 {
+		t.Fatalf("expected 1 ResourceId but got %d", len(hello.ResourceIds))
+	}
+
+	// first check the Billing Period ResourceId looks good
+	expectedValue := "/providers/Microsoft.Management/managementGroups/{managementGroupId}/providers/Microsoft.Billing/billingPeriods/{billingPeriodName}"
+	expectedResourceId := models.ParsedResourceId{
+		Constants: map[string]models.ConstantDetails{},
+		Segments: []models.ResourceIdSegment{
+			{
+				Type: models.StaticSegment,
+				Name: "staticProviders",
+				FixedValue: strPtr("providers"),
+			},
+			{
+				Type: models.ResourceProviderSegment,
+				Name: "staticMicrosoftManagement",
+				FixedValue: strPtr("Microsoft.Management"),
+			},
+			{
+				Type: models.StaticSegment,
+				Name: "staticManagementGroups",
+				FixedValue: strPtr("managementGroups"),
+			},
+			{
+				Type: models.UserSpecifiedSegment,
+				Name: "managementGroupId",
+			},
+			{
+				Type: models.StaticSegment,
+				Name: "staticProviders2",
+				FixedValue: strPtr("providers"),
+			},
+			{
+				Type: models.ResourceProviderSegment,
+				Name: "staticMicrosoftBilling",
+				FixedValue: strPtr("Microsoft.Billing"),
+			},
+			{
+				Type: models.StaticSegment,
+				Name: "staticBillingPeriods",
+				FixedValue: strPtr("billingPeriods"),
+			},
+			{
+				Type: models.UserSpecifiedSegment,
+				Name: "billingPeriodName",
+			},
+		},
+	}
+	actualValue, ok := hello.ResourceIds["BillingPeriodId"]
+	if !ok {
+		t.Fatalf("expected a ResourceId named BillingPeriodId but didn't get one")
+	}
+	if actualValue.String() != expectedValue {
+		t.Fatalf("expected the BillingPeriodId ResourceId to match %q but got %q", expectedValue, actualValue.String())
+	}
+	if err := validateResourceId(actualValue, expectedValue, expectedResourceId); err != nil {
+		t.Fatalf(err.Error())
+	}
+
+	// then check it's exposed in the operation itself
+	operation, ok := hello.Operations["Test"]
+	if !ok {
+		t.Fatalf("expected there to be an Operation named Test but didn't get one")
+	}
+	if operation.ResourceIdName == nil {
+		t.Fatalf("expected the ResourceIdName for the Operation Test to have a value but didn't get one")
+	}
+	if *operation.ResourceIdName != "BillingPeriodId" {
+		t.Fatalf("expected the ResourceIdName for the Operation Test to be VirtualMachineId but got %q", *operation.ResourceIdName)
+	}
+	if operation.UriSuffix == nil {
+		t.Fatalf("expected the UriSuffix for the Operation Test to have a value but didn't get one")
+	}
+	if *operation.UriSuffix != "/Microsoft.Consumption/aggregatedCost" {
+		t.Fatalf("expected the UriSuffix for the Operation Test to have be '/Microsoft.Consumption/aggregatedCost' but got %q", *operation.UriSuffix)
+	}
+}
+
 func validateResourceId(actualValue models.ParsedResourceId, expectedString string, expected models.ParsedResourceId) error {
 	if actualValue.String() != expectedString {
 		return fmt.Errorf("expected the ResourceId to be %q but got %q", expectedString, actualValue.String())
