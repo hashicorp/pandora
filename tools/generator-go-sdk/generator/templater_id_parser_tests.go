@@ -97,9 +97,10 @@ func TestFormat%[1]sID(t *testing.T) {
 	actual := New%[1]sID(%[2]s).ID()
 	expected := %[3]q
 	if actual != expected {
-		t.Fatalf("Expected the Formatted ID to be %%q but got %%q", actual, expected)
+		t.Fatalf("Expected the Formatted ID to be %%q but got %%q", expected, actual)
 	} 
-}`, structWithoutSuffix, strings.Join(arguments, ", "), expectedUri)
+}
+`, structWithoutSuffix, strings.Join(arguments, ", "), expectedUri)
 	return &out, nil
 }
 
@@ -242,6 +243,7 @@ func (i resourceIdTestsTemplater) getTestCases(caseSensitive bool) (*string, err
 		}
 	}
 
+	isSingleSegmentOnly := len(i.resourceData.Segments) == 1 && i.resourceData.Segments[0].Type == resourcemanager.ScopeSegment
 	fullUrl := urlFromSegments(urlVals)
 	cases = append(cases, fmt.Sprintf(`{
 		// Valid URI
@@ -250,11 +252,13 @@ func (i resourceIdTestsTemplater) getTestCases(caseSensitive bool) (*string, err
 			%s
 		},
 	},`, fullUrl, i.resourceName, strings.Join(structMap, "\n")))
-	cases = append(cases, fmt.Sprintf(`{
+	if !isSingleSegmentOnly {
+		cases = append(cases, fmt.Sprintf(`{
 		// Invalid (Valid Uri with Extra segment) 
 		Input: "%s/extra",
 		Error: true,
 	},`, fullUrl))
+	}
 
 	if !caseSensitive {
 		fullUrl = alternateCasingOnEveryLetter(fullUrl)
@@ -265,11 +269,13 @@ func (i resourceIdTestsTemplater) getTestCases(caseSensitive bool) (*string, err
 			%s
 		},
 	},`, fullUrl, i.resourceName, strings.Join(caseInsensitiveStructMap, "\n")))
-		cases = append(cases, fmt.Sprintf(`{
+		if !isSingleSegmentOnly {
+			cases = append(cases, fmt.Sprintf(`{
 		// Invalid (Valid Uri with Extra segment - mIxEd CaSe since this is insensitive)
 		Input: "%s/extra",
 		Error: true,
 	},`, fullUrl))
+		}
 	}
 
 	out := strings.Join(cases, "\n")
