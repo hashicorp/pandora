@@ -57,7 +57,7 @@ import (
 	"time"
 
 	"github.com/hashicorp/go-azure-helpers/lang/dates"
-	"github.com/hashicorp/terraform-provider-azurerm/internal/identity"
+	"github.com/hashicorp/go-azure-helpers/resourcemanager/identity"
 )
 
 %[2]s
