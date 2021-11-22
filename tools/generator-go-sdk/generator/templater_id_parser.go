@@ -139,7 +139,6 @@ func (r resourceIdTemplater) idFunction(data ServiceGeneratorData) (*string, err
 	fmtSegments := make([]string, 0)      // %s
 	segmentArguments := make([]string, 0) // id.Foo
 	for _, segment := range r.resource.Segments {
-
 		switch segment.Type {
 		case resourcemanager.ResourceProviderSegment, resourcemanager.StaticSegment:
 			{
@@ -178,6 +177,12 @@ func (r resourceIdTemplater) idFunction(data ServiceGeneratorData) (*string, err
 					return nil, fmt.Errorf("for constant %q: %+v", err, err)
 				}
 				segmentArguments = append(segmentArguments, fmt.Sprintf("%s(id.%s)", *segmentType, strings.Title(segment.Name)))
+			}
+
+		case resourcemanager.ScopeSegment:
+			{
+				fmtSegments = append(fmtSegments, "%s")
+				segmentArguments = append(segmentArguments, fmt.Sprintf("strings.TrimPrefix(id.%s, \"/\")", strings.Title(segment.Name)))
 			}
 
 		default:
