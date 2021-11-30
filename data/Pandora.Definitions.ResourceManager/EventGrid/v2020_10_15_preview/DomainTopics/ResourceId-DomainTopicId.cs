@@ -7,7 +7,7 @@ namespace Pandora.Definitions.ResourceManager.EventGrid.v2020_10_15_preview.Doma
     {
         public string? CommonAlias => null;
 
-        public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/domains/{domainName}/topics/{domainTopicName}";
+        public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/domains/{domainName}/topics/{topicName}";
 
         public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
         {
@@ -73,7 +73,7 @@ namespace Pandora.Definitions.ResourceManager.EventGrid.v2020_10_15_preview.Doma
 
                 new()
                 {
-                    Name = "domainTopicName",
+                    Name = "topicName",
                     Type = ResourceIDSegmentType.UserSpecified
                 },
 
