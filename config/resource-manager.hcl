@@ -39,10 +39,6 @@ service "dns" {
   name      = "DNS"
   available = ["2018-05-01"]
 }
-service "eventgrid" {
-  name      = "EventGrid"
-  available = ["2020-10-15-preview"]
-}
 service "eventhub" {
   name      = "EventHub"
   available = ["2017-04-01", "2018-01-01-preview", "2021-01-01-preview"]
