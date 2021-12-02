@@ -10,8 +10,8 @@ namespace Pandora.Definitions.ResourceManager.CostManagement.v2021_10_01.Views
 
     internal class ReportConfigDefinitionModel
     {
-        [JsonPropertyName("dataSet")]
-        public ReportConfigDatasetModel? DataSet { get; set; }
+        [JsonPropertyName("dataset")]
+        public ReportConfigDatasetModel? Dataset { get; set; }
 
         [JsonPropertyName("includeMonetaryCommitment")]
         public bool? IncludeMonetaryCommitment { get; set; }
