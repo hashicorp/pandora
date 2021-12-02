@@ -13,6 +13,9 @@ namespace Pandora.Definitions.ResourceManager.CostManagement.v2021_10_01.Alerts
         [JsonPropertyName("amount")]
         public float? Amount { get; set; }
 
+        [JsonPropertyName("companyName")]
+        public string? CompanyName { get; set; }
+
         [JsonPropertyName("contactEmails")]
         public List<string>? ContactEmails { get; set; }
 
@@ -24,6 +27,21 @@ namespace Pandora.Definitions.ResourceManager.CostManagement.v2021_10_01.Alerts
 
         [JsonPropertyName("currentSpend")]
         public float? CurrentSpend { get; set; }
+
+        [JsonPropertyName("departmentName")]
+        public string? DepartmentName { get; set; }
+
+        [JsonPropertyName("enrollmentEndDate")]
+        public string? EnrollmentEndDate { get; set; }
+
+        [JsonPropertyName("enrollmentNumber")]
+        public string? EnrollmentNumber { get; set; }
+
+        [JsonPropertyName("enrollmentStartDate")]
+        public string? EnrollmentStartDate { get; set; }
+
+        [JsonPropertyName("invoicingThreshold")]
+        public float? InvoicingThreshold { get; set; }
 
         [JsonPropertyName("meterFilter")]
         public List<object>? MeterFilter { get; set; }
