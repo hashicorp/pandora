@@ -68,7 +68,7 @@ service "purview" {
   available = ["2020-12-01-preview", "2021-07-01"]
 }
 service "redisenterprise" {
-  name = "RedisEnterprise"
+  name      = "RedisEnterprise"
   available = ["2021-08-01"]
 }
 service "relay" {
