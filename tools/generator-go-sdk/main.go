@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"path/filepath"
 
 	"github.com/hashicorp/pandora/tools/generator-go-sdk/generator"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
@@ -33,7 +34,7 @@ func main() {
 
 	if input.outputDirectory == "" {
 		homeDir, _ := os.UserHomeDir()
-		input.outputDirectory = homeDir + "/Desktop/generated-sdk-dev"
+		input.outputDirectory = filepath.Join(homeDir, "/Desktop/generated-sdk-dev")
 	}
 
 	if err := run(input); err != nil {
