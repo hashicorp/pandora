@@ -14,7 +14,7 @@ namespace Pandora.Definitions.ResourceManager.Purview.v2021_07_01.Account
         public string? Id { get; set; }
 
         [JsonPropertyName("identity")]
-        public CustomTypes.SystemAssignedIdentity? Identity { get; set; }
+        public IdentityModel? Identity { get; set; }
 
         [JsonPropertyName("location")]
         public CustomTypes.Location? Location { get; set; }
