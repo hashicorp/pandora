@@ -4,8 +4,8 @@ build:
 	dotnet build ./Pandora.sln
 
 fmt:
-    # note we're intentionally only using whitespace here since the others try
-    # to fix design issues, which are actually issues in the API Data
+	# note we're intentionally only using whitespace here since the others try
+	# to fix design issues, which are actually issues in the API Data
 	dotnet format whitespace --verbosity quiet Pandora.sln
 
 run: build
