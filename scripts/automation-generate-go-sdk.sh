@@ -1,15 +1,19 @@
 #!/bin/bash
 
+set -e
+
+DIR="$(cd "$(dirname "$0")" && pwd)/.."
+
 function buildAndInstallDependencies {
     echo "Installing the Go SDK Generator into the GOBIN.."
-    cd ./tools/generator-go-sdk
+    cd "${DIR}/tools/generator-go-sdk"
     go install .
-    cd ../../
+    cd "${DIR}"
 
     echo "Building Wrapper.."
-    cd ./tools/wrapper-go-sdk-generator
+    cd "${DIR}/tools/wrapper-go-sdk-generator"
     go build -o wrapper-go-sdk-generator
-    cd ../../
+    cd "${DIR}"
 }
 
 function runWrapper {
