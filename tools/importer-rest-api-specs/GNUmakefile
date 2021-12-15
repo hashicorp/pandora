@@ -8,11 +8,15 @@ fmt:
 
 import: build
 	./importer-rest-api-specs
-	dotnet format --fix-whitespace --fix-style --fix-analyzers --verbosity quiet ../../data/Pandora.sln
+    # note we're intentionally only using whitespace here since the others try
+    # to fix design issues, which are actually issues in the API Data
+	dotnet format whitespace --verbosity quiet ../../data/Pandora.sln
 
 import-with-api: build
 	./importer-rest-api-specs --data-api=http://localhost:5000
-	dotnet format --fix-whitespace --fix-style --fix-analyzers --verbosity quiet ../../data/Pandora.sln
+    # note we're intentionally only using whitespace here since the others try
+    # to fix design issues, which are actually issues in the API Data
+	dotnet format whitespace --verbosity quiet ../../data/Pandora.sln
 
 test: build
 	go test -v ./...
