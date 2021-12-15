@@ -16,6 +16,8 @@ var customFieldMatchers = []customFieldMatcher{
 	systemAssignedIdentityMatcher{},
 	systemAndUserAssignedIdentityListMatcher{},
 	systemAndUserAssignedIdentityMapMatcher{},
+	systemOrUserAssignedIdentityListMatcher{},
+	systemOrUserAssignedIdentityMapMatcher{},
 	tagsMatcher{},
 	userAssignedIdentityListMatcher{},
 	userAssignedIdentityMapMatcher{},
