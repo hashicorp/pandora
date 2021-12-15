@@ -194,8 +194,8 @@ func TestModelsWithASystemAssignedIdentityInlined(t *testing.T) {
 	}
 }
 
-func TestModelsWithASystemAssignedUserAssignedListIdentity(t *testing.T) {
-	result, err := ParseSwaggerFileForTesting(t, "model_system_assigned_user_assigned_list.json")
+func TestModelsWithASystemAndUserAssignedListIdentity(t *testing.T) {
+	result, err := ParseSwaggerFileForTesting(t, "model_system_and_user_assigned_list.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -279,16 +279,16 @@ func TestModelsWithASystemAssignedUserAssignedListIdentity(t *testing.T) {
 	if identityField.CustomFieldType == nil {
 		t.Fatalf("expected the field Identity to have a CustomFieldType")
 	}
-	if *identityField.CustomFieldType != models.CustomFieldTypeSystemAssignedUserAssignedIdentityList {
-		t.Fatalf("expected the field Identity to have a CustomFieldType of SystemAssignedUserAssignedIdentityList")
+	if *identityField.CustomFieldType != models.CustomFieldTypeSystemAndUserAssignedIdentityList {
+		t.Fatalf("expected the field Identity to have a CustomFieldType of SystemAndUserAssignedIdentityList")
 	}
 	if identityField.ObjectDefinition != nil {
 		t.Fatalf("expected the field Identity to have no ObjectDefinition")
 	}
 }
 
-func TestModelsWithASystemAssignedUserAssignedListIdentityInlined(t *testing.T) {
-	result, err := ParseSwaggerFileForTesting(t, "model_system_assigned_user_assigned_list_inlined.json")
+func TestModelsWithASystemAndUserAssignedListIdentityInlined(t *testing.T) {
+	result, err := ParseSwaggerFileForTesting(t, "model_system_and_user_assigned_list_inlined.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -372,16 +372,16 @@ func TestModelsWithASystemAssignedUserAssignedListIdentityInlined(t *testing.T) 
 	if identityField.CustomFieldType == nil {
 		t.Fatalf("expected the field Identity to have a CustomFieldType")
 	}
-	if *identityField.CustomFieldType != models.CustomFieldTypeSystemAssignedUserAssignedIdentityList {
-		t.Fatalf("expected the field Identity to have a CustomFieldType of SystemAssignedUserAssignedIdentityList")
+	if *identityField.CustomFieldType != models.CustomFieldTypeSystemAndUserAssignedIdentityList {
+		t.Fatalf("expected the field Identity to have a CustomFieldType of SystemAndUserAssignedIdentityList")
 	}
 	if identityField.ObjectDefinition != nil {
 		t.Fatalf("expected the field Identity to have no ObjectDefinition")
 	}
 }
 
-func TestModelsWithASystemAssignedUserAssignedMapIdentity(t *testing.T) {
-	result, err := ParseSwaggerFileForTesting(t, "model_system_assigned_user_assigned_map.json")
+func TestModelsWithASystemAndUserAssignedMapIdentity(t *testing.T) {
+	result, err := ParseSwaggerFileForTesting(t, "model_system_and_user_assigned_map.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -465,16 +465,16 @@ func TestModelsWithASystemAssignedUserAssignedMapIdentity(t *testing.T) {
 	if identityField.CustomFieldType == nil {
 		t.Fatalf("expected the field Identity to have a CustomFieldType")
 	}
-	if *identityField.CustomFieldType != models.CustomFieldTypeSystemAssignedUserAssignedIdentityMap {
-		t.Fatalf("expected the field Identity to have a CustomFieldType of SystemAssignedUserAssignedIdentityMap")
+	if *identityField.CustomFieldType != models.CustomFieldTypeSystemAndUserAssignedIdentityMap {
+		t.Fatalf("expected the field Identity to have a CustomFieldType of SystemAndUserAssignedIdentityMap")
 	}
 	if identityField.ObjectDefinition != nil {
 		t.Fatalf("expected the field Identity to have no ObjectDefinition")
 	}
 }
 
-func TestModelsWithASystemAssignedUserAssignedMapIdentityInlined(t *testing.T) {
-	result, err := ParseSwaggerFileForTesting(t, "model_system_assigned_user_assigned_map_inlined.json")
+func TestModelsWithASystemAndUserAssignedMapIdentityInlined(t *testing.T) {
+	result, err := ParseSwaggerFileForTesting(t, "model_system_and_user_assigned_map_inlined.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -558,8 +558,8 @@ func TestModelsWithASystemAssignedUserAssignedMapIdentityInlined(t *testing.T) {
 	if identityField.CustomFieldType == nil {
 		t.Fatalf("expected the field Identity to have a CustomFieldType")
 	}
-	if *identityField.CustomFieldType != models.CustomFieldTypeSystemAssignedUserAssignedIdentityMap {
-		t.Fatalf("expected the field Identity to have a CustomFieldType of SystemAssignedUserAssignedIdentityMap")
+	if *identityField.CustomFieldType != models.CustomFieldTypeSystemAndUserAssignedIdentityMap {
+		t.Fatalf("expected the field Identity to have a CustomFieldType of SystemAndUserAssignedIdentityMap")
 	}
 	if identityField.ObjectDefinition != nil {
 		t.Fatalf("expected the field Identity to have no ObjectDefinition")

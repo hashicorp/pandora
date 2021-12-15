@@ -14,8 +14,8 @@ type customFieldMatcher interface {
 var customFieldMatchers = []customFieldMatcher{
 	locationMatcher{},
 	systemAssignedIdentityMatcher{},
-	systemAssignedUserAssignedIdentityListMatcher{},
-	systemAssignedUserAssignedIdentityMapMatcher{},
+	systemAndUserAssignedIdentityListMatcher{},
+	systemAndUserAssignedIdentityMapMatcher{},
 	tagsMatcher{},
 	userAssignedIdentityListMatcher{},
 	userAssignedIdentityMapMatcher{},

@@ -6,15 +6,15 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
-var _ customFieldMatcher = systemAssignedUserAssignedIdentityListMatcher{}
+var _ customFieldMatcher = systemAndUserAssignedIdentityListMatcher{}
 
-type systemAssignedUserAssignedIdentityListMatcher struct{}
+type systemAndUserAssignedIdentityListMatcher struct{}
 
-func (systemAssignedUserAssignedIdentityListMatcher) customFieldType() models.CustomFieldType {
-	return models.CustomFieldTypeSystemAssignedUserAssignedIdentityList
+func (systemAndUserAssignedIdentityListMatcher) customFieldType() models.CustomFieldType {
+	return models.CustomFieldTypeSystemAndUserAssignedIdentityList
 }
 
-func (systemAssignedUserAssignedIdentityListMatcher) isMatch(field models.FieldDetails, definition models.ObjectDefinition, known parseResult) bool {
+func (systemAndUserAssignedIdentityListMatcher) isMatch(field models.FieldDetails, definition models.ObjectDefinition, known parseResult) bool {
 	if definition.Type != models.ObjectDefinitionReference {
 		return false
 	}
