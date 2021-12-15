@@ -94,13 +94,19 @@ func golangTypeNameForObjectDefinition(input resourcemanager.ApiObjectDefinition
 		return out("identity.UserAssignedList")
 
 	case resourcemanager.UserAssignedIdentityMapApiObjectDefinitionType:
-		return out("identity.UserAssignedList")
+		return out("identity.UserAssignedMap")
 
-	case resourcemanager.SystemUserAssignedIdentityListApiObjectDefinitionType:
-		return out("identity.SystemUserAssignedList")
+	case resourcemanager.SystemAndUserAssignedIdentityListApiObjectDefinitionType:
+		return out("identity.SystemAndUserAssignedList")
 
-	case resourcemanager.SystemUserAssignedIdentityMapApiObjectDefinitionType:
-		return out("identity.SystemUserAssignedList")
+	case resourcemanager.SystemAndUserAssignedIdentityMapApiObjectDefinitionType:
+		return out("identity.SystemAndUserAssignedMap")
+
+	case resourcemanager.SystemOrUserAssignedIdentityListApiObjectDefinitionType:
+		return out("identity.SystemOrUserAssignedList")
+
+	case resourcemanager.SystemOrUserAssignedIdentityMapApiObjectDefinitionType:
+		return out("identity.SystemOrUserAssignedMap")
 	}
 
 	return nil, fmt.Errorf("unimplemented object definition type %q", string(input.Type))
