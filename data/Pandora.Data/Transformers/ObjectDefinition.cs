@@ -124,13 +124,21 @@ namespace Pandora.Data.Transformers
             {
                 return ObjectType.SystemAssignedIdentity;
             }
-            if (input == typeof(SystemUserAssignedIdentityList))
+            if (input == typeof(SystemAndUserAssignedIdentityList))
             {
-                return ObjectType.SystemUserAssignedIdentityList;
+                return ObjectType.SystemAndUserAssignedIdentityList;
             }
-            if (input == typeof(SystemUserAssignedIdentityMap))
+            if (input == typeof(SystemAndUserAssignedIdentityMap))
             {
-                return ObjectType.SystemUserAssignedIdentityMap;
+                return ObjectType.SystemAndUserAssignedIdentityMap;
+            }
+            if (input == typeof(SystemOrUserAssignedIdentityList))
+            {
+                return ObjectType.SystemOrUserAssignedIdentityList;
+            }
+            if (input == typeof(SystemOrUserAssignedIdentityMap))
+            {
+                return ObjectType.SystemOrUserAssignedIdentityMap;
             }
             if (input == typeof(UserAssignedIdentityList))
             {

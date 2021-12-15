@@ -4,11 +4,19 @@ namespace Pandora.Definitions.CustomTypes
     {
     }
 
-    public class SystemUserAssignedIdentityList
+    public class SystemAndUserAssignedIdentityList
     {
     }
 
-    public class SystemUserAssignedIdentityMap
+    public class SystemAndUserAssignedIdentityMap
+    {
+    }
+
+    public class SystemOrUserAssignedIdentityList
+    {
+    }
+
+    public class SystemOrUserAssignedIdentityMap
     {
     }
 
