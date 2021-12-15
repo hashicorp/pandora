@@ -21,7 +21,7 @@ function runWrapper {
   local outputDirectory=$2
 
   echo "Running Wrapper.."
-  cd ./tools/wrapper-go-sdk-generator
+  cd "${DIR}/tools/wrapper-go-sdk-generator"
   ./wrapper-go-sdk-generator \
     -data-api-assembly-path="../../$dataApiAssemblyPath"\
     -output-dir="../../$outputDirectory"
