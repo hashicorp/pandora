@@ -22,11 +22,13 @@ const (
 	StringApiObjectDefinitionType     ApiObjectDefinitionType = "String"
 
 	// Custom Types
-	LocationApiObjectDefinitionType                       ApiObjectDefinitionType = "Location"
-	SystemAssignedIdentityApiObjectDefinitionType         ApiObjectDefinitionType = "SystemAssignedIdentity"
-	SystemUserAssignedIdentityListApiObjectDefinitionType ApiObjectDefinitionType = "SystemUserAssignedIdentityList"
-	SystemUserAssignedIdentityMapApiObjectDefinitionType  ApiObjectDefinitionType = "SystemUserAssignedIdentityMap"
-	UserAssignedIdentityListApiObjectDefinitionType       ApiObjectDefinitionType = "UserAssignedIdentityList"
-	UserAssignedIdentityMapApiObjectDefinitionType        ApiObjectDefinitionType = "UserAssignedIdentityMap"
-	TagsApiObjectDefinitionType                           ApiObjectDefinitionType = "Tags"
+	LocationApiObjectDefinitionType                          ApiObjectDefinitionType = "Location"
+	SystemAssignedIdentityApiObjectDefinitionType            ApiObjectDefinitionType = "SystemAssignedIdentity"
+	SystemAndUserAssignedIdentityListApiObjectDefinitionType ApiObjectDefinitionType = "SystemAndUserAssignedIdentityList"
+	SystemAndUserAssignedIdentityMapApiObjectDefinitionType  ApiObjectDefinitionType = "SystemAndUserAssignedIdentityMap"
+	SystemOrUserAssignedIdentityListApiObjectDefinitionType  ApiObjectDefinitionType = "SystemOrUserAssignedIdentityList"
+	SystemOrUserAssignedIdentityMapApiObjectDefinitionType   ApiObjectDefinitionType = "SystemOrUserAssignedIdentityMap"
+	UserAssignedIdentityListApiObjectDefinitionType          ApiObjectDefinitionType = "UserAssignedIdentityList"
+	UserAssignedIdentityMapApiObjectDefinitionType           ApiObjectDefinitionType = "UserAssignedIdentityMap"
+	TagsApiObjectDefinitionType                              ApiObjectDefinitionType = "Tags"
 )

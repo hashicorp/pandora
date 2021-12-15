@@ -6,15 +6,15 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
-var _ customFieldMatcher = systemAssignedUserAssignedIdentityListMatcher{}
+var _ customFieldMatcher = systemOrUserAssignedIdentityListMatcher{}
 
-type systemAssignedUserAssignedIdentityListMatcher struct{}
+type systemOrUserAssignedIdentityListMatcher struct{}
 
-func (systemAssignedUserAssignedIdentityListMatcher) customFieldType() models.CustomFieldType {
-	return models.CustomFieldTypeSystemAssignedUserAssignedIdentityList
+func (systemOrUserAssignedIdentityListMatcher) customFieldType() models.CustomFieldType {
+	return models.CustomFieldTypeSystemOrUserAssignedIdentityList
 }
 
-func (systemAssignedUserAssignedIdentityListMatcher) isMatch(field models.FieldDetails, definition models.ObjectDefinition, known parseResult) bool {
+func (systemOrUserAssignedIdentityListMatcher) isMatch(field models.FieldDetails, definition models.ObjectDefinition, known parseResult) bool {
 	if definition.Type != models.ObjectDefinitionReference {
 		return false
 	}
@@ -63,9 +63,8 @@ func (systemAssignedUserAssignedIdentityListMatcher) isMatch(field models.FieldD
 				continue
 			}
 			expected := map[string]string{
-				"SystemAssigned":             "SystemAssigned",
-				"SystemAssignedUserAssigned": "SystemAssigned, UserAssigned",
-				"UserAssigned":               "UserAssigned",
+				"SystemAssigned": "SystemAssigned",
+				"UserAssigned":   "UserAssigned",
 			}
 			hasMatchingType = validateIdentityConstantValues(constant, expected)
 			continue

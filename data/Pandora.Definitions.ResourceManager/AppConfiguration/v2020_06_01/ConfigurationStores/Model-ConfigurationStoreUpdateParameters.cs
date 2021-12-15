@@ -11,7 +11,7 @@ namespace Pandora.Definitions.ResourceManager.AppConfiguration.v2020_06_01.Confi
     internal class ConfigurationStoreUpdateParametersModel
     {
         [JsonPropertyName("identity")]
-        public CustomTypes.SystemUserAssignedIdentityMap? Identity { get; set; }
+        public CustomTypes.SystemAndUserAssignedIdentityMap? Identity { get; set; }
 
         [JsonPropertyName("properties")]
         public ConfigurationStorePropertiesUpdateParametersModel? Properties { get; set; }

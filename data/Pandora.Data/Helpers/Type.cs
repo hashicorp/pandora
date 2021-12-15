@@ -74,8 +74,10 @@ namespace Pandora.Data.Helpers
                 typeof(RawFile),
                 typeof(Tags),
                 typeof(SystemAssignedIdentity),
-                typeof(SystemUserAssignedIdentityList),
-                typeof(SystemUserAssignedIdentityMap),
+                typeof(SystemAndUserAssignedIdentityList),
+                typeof(SystemAndUserAssignedIdentityMap),
+                typeof(SystemOrUserAssignedIdentityList),
+                typeof(SystemOrUserAssignedIdentityMap),
                 typeof(UserAssignedIdentityList),
                 typeof(UserAssignedIdentityMap),
             };

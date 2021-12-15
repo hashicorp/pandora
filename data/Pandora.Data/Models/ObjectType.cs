@@ -18,8 +18,10 @@ namespace Pandora.Data.Models
         // Custom Types
         Location,
         SystemAssignedIdentity,
-        SystemUserAssignedIdentityList,
-        SystemUserAssignedIdentityMap,
+        SystemAndUserAssignedIdentityList,
+        SystemAndUserAssignedIdentityMap,
+        SystemOrUserAssignedIdentityList,
+        SystemOrUserAssignedIdentityMap,
         UserAssignedIdentityList,
         UserAssignedIdentityMap,
         Tags,

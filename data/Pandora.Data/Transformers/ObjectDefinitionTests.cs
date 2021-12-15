@@ -67,13 +67,23 @@ namespace Pandora.Data.Transformers
             Assert.Null(actual.ReferenceName);
             Assert.Null(actual.NestedItem);
 
-            actual = ObjectDefinition.Map(typeof(SystemUserAssignedIdentityList));
-            Assert.AreEqual(ObjectType.SystemUserAssignedIdentityList, actual.Type);
+            actual = ObjectDefinition.Map(typeof(SystemAndUserAssignedIdentityList));
+            Assert.AreEqual(ObjectType.SystemAndUserAssignedIdentityList, actual.Type);
             Assert.Null(actual.ReferenceName);
             Assert.Null(actual.NestedItem);
 
-            actual = ObjectDefinition.Map(typeof(SystemUserAssignedIdentityMap));
-            Assert.AreEqual(ObjectType.SystemUserAssignedIdentityMap, actual.Type);
+            actual = ObjectDefinition.Map(typeof(SystemAndUserAssignedIdentityMap));
+            Assert.AreEqual(ObjectType.SystemAndUserAssignedIdentityMap, actual.Type);
+            Assert.Null(actual.ReferenceName);
+            Assert.Null(actual.NestedItem);
+
+            actual = ObjectDefinition.Map(typeof(SystemOrUserAssignedIdentityList));
+            Assert.AreEqual(ObjectType.SystemOrUserAssignedIdentityList, actual.Type);
+            Assert.Null(actual.ReferenceName);
+            Assert.Null(actual.NestedItem);
+
+            actual = ObjectDefinition.Map(typeof(SystemOrUserAssignedIdentityMap));
+            Assert.AreEqual(ObjectType.SystemOrUserAssignedIdentityMap, actual.Type);
             Assert.Null(actual.ReferenceName);
             Assert.Null(actual.NestedItem);
 

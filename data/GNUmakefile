@@ -4,7 +4,9 @@ build:
 	dotnet build ./Pandora.sln
 
 fmt:
-	dotnet format --fix-whitespace --fix-style --fix-analyzers --verbosity quiet
+	# note we're intentionally only using whitespace here since the others try
+	# to fix design issues, which are actually issues in the API Data
+	dotnet format whitespace --verbosity quiet Pandora.sln
 
 run: build
 	dotnet Pandora.Api/bin/Debug/net6.0/Pandora.Api.dll

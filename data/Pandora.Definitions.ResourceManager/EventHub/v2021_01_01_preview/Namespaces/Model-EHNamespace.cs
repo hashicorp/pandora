@@ -14,7 +14,7 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2021_01_01_preview.Names
         public string? Id { get; set; }
 
         [JsonPropertyName("identity")]
-        public CustomTypes.SystemUserAssignedIdentityMap? Identity { get; set; }
+        public CustomTypes.SystemAndUserAssignedIdentityMap? Identity { get; set; }
 
         [JsonPropertyName("location")]
         public CustomTypes.Location? Location { get; set; }

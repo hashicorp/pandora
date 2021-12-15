@@ -252,13 +252,15 @@ func mapApiObjectDefinitionType(input resourcemanager.ApiObjectDefinitionType) (
 	}
 
 	customTypes := map[resourcemanager.ApiObjectDefinitionType]models.CustomFieldType{
-		resourcemanager.LocationApiObjectDefinitionType:                       models.CustomFieldTypeLocation,
-		resourcemanager.SystemAssignedIdentityApiObjectDefinitionType:         models.CustomFieldTypeSystemAssignedIdentity,
-		resourcemanager.SystemUserAssignedIdentityListApiObjectDefinitionType: models.CustomFieldTypeSystemAssignedUserAssignedIdentityList,
-		resourcemanager.SystemUserAssignedIdentityMapApiObjectDefinitionType:  models.CustomFieldTypeSystemAssignedUserAssignedIdentityMap,
-		resourcemanager.UserAssignedIdentityListApiObjectDefinitionType:       models.CustomFieldTypeUserAssignedIdentityList,
-		resourcemanager.UserAssignedIdentityMapApiObjectDefinitionType:        models.CustomFieldTypeUserAssignedIdentityMap,
-		resourcemanager.TagsApiObjectDefinitionType:                           models.CustomFieldTypeTags,
+		resourcemanager.LocationApiObjectDefinitionType:                          models.CustomFieldTypeLocation,
+		resourcemanager.SystemAssignedIdentityApiObjectDefinitionType:            models.CustomFieldTypeSystemAssignedIdentity,
+		resourcemanager.SystemAndUserAssignedIdentityListApiObjectDefinitionType: models.CustomFieldTypeSystemAndUserAssignedIdentityList,
+		resourcemanager.SystemAndUserAssignedIdentityMapApiObjectDefinitionType:  models.CustomFieldTypeSystemAndUserAssignedIdentityMap,
+		resourcemanager.SystemOrUserAssignedIdentityListApiObjectDefinitionType:  models.CustomFieldTypeSystemOrUserAssignedIdentityList,
+		resourcemanager.SystemOrUserAssignedIdentityMapApiObjectDefinitionType:   models.CustomFieldTypeSystemOrUserAssignedIdentityMap,
+		resourcemanager.UserAssignedIdentityListApiObjectDefinitionType:          models.CustomFieldTypeUserAssignedIdentityList,
+		resourcemanager.UserAssignedIdentityMapApiObjectDefinitionType:           models.CustomFieldTypeUserAssignedIdentityMap,
+		resourcemanager.TagsApiObjectDefinitionType:                              models.CustomFieldTypeTags,
 	}
 	if v, ok := customTypes[input]; ok {
 		return nil, &v, nil

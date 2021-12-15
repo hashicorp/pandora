@@ -57,10 +57,14 @@ namespace Pandora.Api.V1.Helpers
                     return ApiObjectType.RawFile.ToString();
                 case ObjectType.SystemAssignedIdentity:
                     return ApiObjectType.SystemAssignedIdentity.ToString();
-                case ObjectType.SystemUserAssignedIdentityList:
-                    return ApiObjectType.SystemUserAssignedIdentityList.ToString();
-                case ObjectType.SystemUserAssignedIdentityMap:
-                    return ApiObjectType.SystemUserAssignedIdentityMap.ToString();
+                case ObjectType.SystemAndUserAssignedIdentityList:
+                    return ApiObjectType.SystemAndUserAssignedIdentityList.ToString();
+                case ObjectType.SystemAndUserAssignedIdentityMap:
+                    return ApiObjectType.SystemAndUserAssignedIdentityMap.ToString();
+                case ObjectType.SystemOrUserAssignedIdentityList:
+                    return ApiObjectType.SystemOrUserAssignedIdentityList.ToString();
+                case ObjectType.SystemOrUserAssignedIdentityMap:
+                    return ApiObjectType.SystemOrUserAssignedIdentityMap.ToString();
                 case ObjectType.UserAssignedIdentityList:
                     return ApiObjectType.UserAssignedIdentityList.ToString();
                 case ObjectType.UserAssignedIdentityMap:
@@ -102,8 +106,10 @@ namespace Pandora.Api.V1.Helpers
         // Custom Types
         Location,
         SystemAssignedIdentity,
-        SystemUserAssignedIdentityList,
-        SystemUserAssignedIdentityMap,
+        SystemAndUserAssignedIdentityList,
+        SystemAndUserAssignedIdentityMap,
+        SystemOrUserAssignedIdentityList,
+        SystemOrUserAssignedIdentityMap,
         UserAssignedIdentityList,
         UserAssignedIdentityMap,
         Tags,
