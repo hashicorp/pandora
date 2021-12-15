@@ -256,6 +256,8 @@ func mapApiObjectDefinitionType(input resourcemanager.ApiObjectDefinitionType) (
 		resourcemanager.SystemAssignedIdentityApiObjectDefinitionType:            models.CustomFieldTypeSystemAssignedIdentity,
 		resourcemanager.SystemAndUserAssignedIdentityListApiObjectDefinitionType: models.CustomFieldTypeSystemAndUserAssignedIdentityList,
 		resourcemanager.SystemAndUserAssignedIdentityMapApiObjectDefinitionType:  models.CustomFieldTypeSystemAndUserAssignedIdentityMap,
+		resourcemanager.SystemOrUserAssignedIdentityListApiObjectDefinitionType:  models.CustomFieldTypeSystemOrUserAssignedIdentityList,
+		resourcemanager.SystemOrUserAssignedIdentityMapApiObjectDefinitionType:   models.CustomFieldTypeSystemOrUserAssignedIdentityMap,
 		resourcemanager.UserAssignedIdentityListApiObjectDefinitionType:          models.CustomFieldTypeUserAssignedIdentityList,
 		resourcemanager.UserAssignedIdentityMapApiObjectDefinitionType:           models.CustomFieldTypeUserAssignedIdentityMap,
 		resourcemanager.TagsApiObjectDefinitionType:                              models.CustomFieldTypeTags,
