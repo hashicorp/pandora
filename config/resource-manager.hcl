@@ -83,6 +83,10 @@ service "signalr" {
   name      = "SignalR"
   available = ["2020-05-01"]
 }
+service "storagepool" {
+  name      = "StoragePool"
+  available = ["2021-08-01"]
+}
 service "videoanalyzer" {
   name      = "VideoAnalyzer"
   available = ["2021-05-01-preview"]
