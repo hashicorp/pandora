@@ -10,6 +10,6 @@ namespace Pandora.Definitions.HandDefined.AADB2C.v2021_04_01_preview.Tenants
         Auths,
         
         [Description("mau")]
-        MAU
+        MonthlyActiveUsers
     }
 }

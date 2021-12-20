@@ -41,7 +41,7 @@ namespace Pandora.Definitions.HandDefined.AADB2C.v2021_04_01_preview.Tenants
             },
             new()
             {
-                Name = "Microsoft.AzureActiveDirectory",
+                Name = "microsoftAzureActiveDirectory",
                 Type = ResourceIDSegmentType.Static,
                 FixedValue = "Microsoft.AzureActiveDirectory"
             },

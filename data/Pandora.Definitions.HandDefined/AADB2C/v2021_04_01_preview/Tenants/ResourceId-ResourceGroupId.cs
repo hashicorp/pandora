@@ -33,11 +33,6 @@ namespace Pandora.Definitions.HandDefined.AADB2C.v2021_04_01_preview.Tenants
                 Name = "resourceGroup",
                 Type = ResourceIDSegmentType.ResourceGroup
             },
-            new()
-            {
-                Name = "directoryName",
-                Type = ResourceIDSegmentType.UserSpecified,
-            }
         };
     }
 }
