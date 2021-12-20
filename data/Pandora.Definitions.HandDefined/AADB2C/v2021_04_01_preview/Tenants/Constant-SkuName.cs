@@ -8,10 +8,10 @@ namespace Pandora.Definitions.HandDefined.AADB2C.v2021_04_01_preview.Tenants
     {
         [Description("PremiumP1")]
         PremiumP1,
-        
+
         [Description("PremiumP2")]
         PremiumP2,
-        
+
         [Description("Standard")]
         Standard
     }

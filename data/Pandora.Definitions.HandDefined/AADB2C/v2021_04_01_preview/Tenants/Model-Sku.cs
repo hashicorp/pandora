@@ -8,7 +8,7 @@ namespace Pandora.Definitions.HandDefined.AADB2C.v2021_04_01_preview.Tenants
         [JsonPropertyName("name")]
         [Required]
         public SkuName Name { get; set; }
-        
+
         [JsonPropertyName("tier")]
         [Required]
         public SkuTier Tier { get; set; }

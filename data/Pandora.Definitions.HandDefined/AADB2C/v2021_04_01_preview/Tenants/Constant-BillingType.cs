@@ -8,7 +8,7 @@ namespace Pandora.Definitions.HandDefined.AADB2C.v2021_04_01_preview.Tenants
     {
         [Description("auths")]
         Auths,
-        
+
         [Description("mau")]
         MonthlyActiveUsers
     }
