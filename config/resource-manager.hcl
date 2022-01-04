@@ -51,6 +51,10 @@ service "labservices" {
   name      = "LabServices"
   available = ["2021-10-01-preview"]
 }
+service "loadtestservice" {
+  name = "LoadTestService"
+  available = ["2021-12-01-preview"]
+}
 service "maps" {
   name      = "Maps"
   available = ["2021-02-01"]
