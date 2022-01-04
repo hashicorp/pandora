@@ -52,7 +52,7 @@ service "labservices" {
   available = ["2021-10-01-preview"]
 }
 service "loadtestservice" {
-  name = "LoadTestService"
+  name      = "LoadTestService"
   available = ["2021-12-01-preview"]
 }
 service "maps" {
