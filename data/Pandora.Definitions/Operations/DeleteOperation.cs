@@ -10,7 +10,7 @@ namespace Pandora.Definitions.Operations
     {
         public virtual string? ContentType()
         {
-            return null;
+            return "application/json; charset=utf-8";
         }
 
         public virtual IEnumerable<HttpStatusCode> ExpectedStatusCodes()
