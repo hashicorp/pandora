@@ -10,6 +10,9 @@ namespace Pandora.Definitions.ResourceManager.PowerBIDedicated.v2021_01_01.Power
 
     internal class CapacitySkuModel
     {
+        [JsonPropertyName("capacity")]
+        public int? Capacity { get; set; }
+
         [JsonPropertyName("name")]
         [Required]
         public string Name { get; set; }

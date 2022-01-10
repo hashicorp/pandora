@@ -10,6 +10,9 @@ namespace Pandora.Definitions.ResourceManager.PowerBIDedicated.v2021_01_01.Capac
 
     internal class SkuDetailsForExistingResourceModel
     {
+        [JsonPropertyName("resourceType")]
+        public string? ResourceType { get; set; }
+
         [JsonPropertyName("sku")]
         public CapacitySkuModel? Sku { get; set; }
     }

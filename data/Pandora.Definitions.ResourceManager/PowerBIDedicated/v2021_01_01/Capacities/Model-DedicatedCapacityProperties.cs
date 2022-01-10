@@ -13,6 +13,9 @@ namespace Pandora.Definitions.ResourceManager.PowerBIDedicated.v2021_01_01.Capac
         [JsonPropertyName("administration")]
         public DedicatedCapacityAdministratorsModel? Administration { get; set; }
 
+        [JsonPropertyName("friendlyName")]
+        public string? FriendlyName { get; set; }
+
         [JsonPropertyName("mode")]
         public ModeConstant? Mode { get; set; }
 
@@ -21,5 +24,8 @@ namespace Pandora.Definitions.ResourceManager.PowerBIDedicated.v2021_01_01.Capac
 
         [JsonPropertyName("state")]
         public StateConstant? State { get; set; }
+
+        [JsonPropertyName("tenantId")]
+        public string? TenantId { get; set; }
     }
 }
