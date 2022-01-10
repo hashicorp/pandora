@@ -14,8 +14,8 @@ namespace Pandora.Definitions.ResourceManager.CostManagement.v2021_10_01.Views
         [JsonPropertyName("and")]
         public List<ReportConfigFilterModel>? And { get; set; }
 
-        [JsonPropertyName("dimension")]
-        public ReportConfigComparisonExpressionModel? Dimension { get; set; }
+        [JsonPropertyName("dimensions")]
+        public ReportConfigComparisonExpressionModel? Dimensions { get; set; }
 
         [JsonPropertyName("not")]
         public ReportConfigFilterModel? Not { get; set; }
@@ -24,7 +24,7 @@ namespace Pandora.Definitions.ResourceManager.CostManagement.v2021_10_01.Views
         [JsonPropertyName("or")]
         public List<ReportConfigFilterModel>? Or { get; set; }
 
-        [JsonPropertyName("tag")]
-        public ReportConfigComparisonExpressionModel? Tag { get; set; }
+        [JsonPropertyName("tags")]
+        public ReportConfigComparisonExpressionModel? Tags { get; set; }
     }
 }
