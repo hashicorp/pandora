@@ -19,13 +19,13 @@ namespace Pandora.Api.V1.ResourceManager
             _repo = repo;
         }
 
-        [Route("/v1/resource-manager/services/{serviceName}/{apiVersion}/{apiName}/operations")]
-        public IActionResult ResourceManager(string serviceName, string apiVersion, string apiName)
+        [Route("/v1/resource-manager/services/{serviceName}/{apiVersion}/{resourceName}/operations")]
+        public IActionResult ResourceManager(string serviceName, string apiVersion, string resourceName)
         {
-            return ForService(serviceName, apiVersion, apiName);
+            return ForService(serviceName, apiVersion, resourceName);
         }
 
-        private IActionResult ForService(string serviceName, string apiVersion, string apiName)
+        private IActionResult ForService(string serviceName, string apiVersion, string resourceName)
         {
             var service = _repo.GetByName(serviceName, true);
             if (service == null)
@@ -39,10 +39,10 @@ namespace Pandora.Api.V1.ResourceManager
                 return BadRequest($"version {apiVersion} was not found");
             }
 
-            var api = version.Apis.FirstOrDefault(a => a.Name == apiName);
+            var api = version.Apis.FirstOrDefault(a => a.Name == resourceName);
             if (api == null)
             {
-                return BadRequest($"api {apiName} was not found");
+                return BadRequest($"resource {resourceName} was not found");
             }
 
             return new JsonResult(MapResponse(api, version, service));
