@@ -11,6 +11,10 @@ service "attestation" {
   name      = "Attestation"
   available = ["2020-10-01"]
 }
+service "chaos" {
+  name      = "ChaosStudio"
+  available = ["2021-09-15-preview"]
+}
 service "cognitiveservices" {
   name      = "Cognitive"
   available = ["2021-04-30"]
@@ -62,6 +66,10 @@ service "maps" {
 service "msi" {
   name      = "ManagedIdentity"
   available = ["2018-11-30"]
+}
+service "postgresqlhsc" {
+  name      = "PostgresqlHSC"
+  available = ["2020-10-05-privatepreview"]
 }
 service "powerbidedicated" {
   name      = "PowerBIDedicated"
