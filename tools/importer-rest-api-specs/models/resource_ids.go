@@ -187,11 +187,12 @@ func normalizedResourceId(segments []ResourceIdSegment) string {
 	components := make([]string, 0)
 	for _, segment := range segments {
 		switch segment.Type {
-		case ResourceProviderSegment: {
-			normalizedSegment := cleanup.NormalizeResourceProviderName(*segment.FixedValue)
-			components = append(components, normalizedSegment)
-			continue
-		}
+		case ResourceProviderSegment:
+			{
+				normalizedSegment := cleanup.NormalizeResourceProviderName(*segment.FixedValue)
+				components = append(components, normalizedSegment)
+				continue
+			}
 
 		case StaticSegment:
 			{
