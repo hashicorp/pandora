@@ -57,6 +57,11 @@ func (pri ParsedResourceId) Matches(other ParsedResourceId) bool {
 			continue
 		}
 
+		// With a Scope the key doesn't matter as much as that it's a Scope, so presuming the types match (above) we're good.
+		if first.Type == ScopeSegment {
+			continue
+		}
+
 		if first.Type == ConstantSegment {
 			if first.ConstantReference != nil && second.ConstantReference == nil {
 				return false

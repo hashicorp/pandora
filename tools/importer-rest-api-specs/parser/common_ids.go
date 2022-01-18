@@ -12,5 +12,8 @@ type commonIdMatcher interface {
 
 var commonIdTypes = []commonIdMatcher{
 	commonIdManagementGroupMatcher{},
-	// TODO: Resource Group, Subscription, Scope, UserAssignedIdentity
+	commonIdResourceGroupMatcher{},
+	commonIdSubscriptionMatcher{},
+	commonIdScopeMatcher{},
+	commonIdUserAssignedIdentity{},
 }

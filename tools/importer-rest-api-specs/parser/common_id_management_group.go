@@ -6,7 +6,7 @@ var _ commonIdMatcher = commonIdManagementGroupMatcher{}
 
 type commonIdManagementGroupMatcher struct{}
 
-func (c commonIdManagementGroupMatcher) isMatch(input models.ParsedResourceId) bool {
+func (commonIdManagementGroupMatcher) isMatch(input models.ParsedResourceId) bool {
 	var managementGroupId = models.ParsedResourceId{
 		Constants: map[string]models.ConstantDetails{},
 		Segments: []models.ResourceIdSegment{
@@ -34,6 +34,6 @@ func (c commonIdManagementGroupMatcher) isMatch(input models.ParsedResourceId) b
 	return managementGroupId.Matches(input)
 }
 
-func (c commonIdManagementGroupMatcher) name() string {
+func (commonIdManagementGroupMatcher) name() string {
 	return "ManagementGroup"
 }
