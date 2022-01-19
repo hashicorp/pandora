@@ -1,9 +1,8 @@
 using System;
 
-namespace Pandora.Definitions.Attributes
+namespace Pandora.Definitions.Attributes;
+
+public class OptionalAttribute : Attribute
 {
-    public class OptionalAttribute : Attribute
-    {
-        public object? DefaultValue { get; set; }
-    }
+    public object? DefaultValue { get; set; }
 }

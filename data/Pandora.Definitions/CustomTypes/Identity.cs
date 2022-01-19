@@ -1,30 +1,29 @@
-namespace Pandora.Definitions.CustomTypes
+namespace Pandora.Definitions.CustomTypes;
+
+public class SystemAssignedIdentity
 {
-    public class SystemAssignedIdentity
-    {
-    }
+}
 
-    public class SystemAndUserAssignedIdentityList
-    {
-    }
+public class SystemAndUserAssignedIdentityList
+{
+}
 
-    public class SystemAndUserAssignedIdentityMap
-    {
-    }
+public class SystemAndUserAssignedIdentityMap
+{
+}
 
-    public class SystemOrUserAssignedIdentityList
-    {
-    }
+public class SystemOrUserAssignedIdentityList
+{
+}
 
-    public class SystemOrUserAssignedIdentityMap
-    {
-    }
+public class SystemOrUserAssignedIdentityMap
+{
+}
 
-    public class UserAssignedIdentityList
-    {
-    }
+public class UserAssignedIdentityList
+{
+}
 
-    public class UserAssignedIdentityMap
-    {
-    }
+public class UserAssignedIdentityMap
+{
 }

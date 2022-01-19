@@ -1,6 +1,5 @@
-namespace Pandora.Definitions.CustomTypes
+namespace Pandora.Definitions.CustomTypes;
+
+public interface Csv<T>
 {
-    public interface Csv<T>
-    {
-    }
 }

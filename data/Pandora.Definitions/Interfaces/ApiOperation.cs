@@ -3,34 +3,33 @@ using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
 
-namespace Pandora.Definitions.Interfaces
+namespace Pandora.Definitions.Interfaces;
+
+public interface ApiOperation
 {
-    public interface ApiOperation
-    {
-        // TODO: Custom API Version
-        // for when one operation uses a different API version to the others
+    // TODO: Custom API Version
+    // for when one operation uses a different API version to the others
 
-        string? ContentType();
+    string? ContentType();
 
-        IEnumerable<HttpStatusCode> ExpectedStatusCodes();
+    IEnumerable<HttpStatusCode> ExpectedStatusCodes();
 
-        string? FieldContainingPaginationDetails();
+    string? FieldContainingPaginationDetails();
 
-        bool LongRunning();
+    bool LongRunning();
 
-        HttpMethod Method();
+    HttpMethod Method();
 
-        Type? RequestObject();
+    Type? RequestObject();
 
-        Type? ResponseObject();
+    Type? ResponseObject();
 
-        // OptionsObject describes the Options application to this Operation, for example filtering or sorting
-        Type? OptionsObject();
+    // OptionsObject describes the Options application to this Operation, for example filtering or sorting
+    Type? OptionsObject();
 
-        ResourceID? ResourceId();
+    ResourceID? ResourceId();
 
-        // UriSuffix is any suffix which should be applied to the URI, for example /start - to perform mutations
-        // on a given object
-        string? UriSuffix();
-    }
+    // UriSuffix is any suffix which should be applied to the URI, for example /start - to perform mutations
+    // on a given object
+    string? UriSuffix();
 }

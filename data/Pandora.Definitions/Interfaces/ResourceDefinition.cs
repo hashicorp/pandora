@@ -1,11 +1,10 @@
 using System.Collections.Generic;
 
-namespace Pandora.Definitions.Interfaces
-{
-    public interface ResourceDefinition
-    {
-        string Name { get; }
+namespace Pandora.Definitions.Interfaces;
 
-        IEnumerable<ApiOperation> Operations { get; }
-    }
+public interface ResourceDefinition
+{
+    string Name { get; }
+
+    IEnumerable<ApiOperation> Operations { get; }
 }

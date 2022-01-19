@@ -1,22 +1,21 @@
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.Operations
-{
-    public abstract class LongRunningPutOperation : PutOperation
-    {
-        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes()
-        {
-            return new List<HttpStatusCode>
-            {
-                HttpStatusCode.Accepted,
-                HttpStatusCode.Created,
-            };
-        }
+namespace Pandora.Definitions.Operations;
 
-        public override bool LongRunning()
+public abstract class LongRunningPutOperation : PutOperation
+{
+    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes()
+    {
+        return new List<HttpStatusCode>
         {
-            return true;
-        }
+            HttpStatusCode.Accepted,
+            HttpStatusCode.Created,
+        };
+    }
+
+    public override bool LongRunning()
+    {
+        return true;
     }
 }
