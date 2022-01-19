@@ -37,5 +37,5 @@ internal class Definition : ResourceDefinition
 %[3]s
 	};
 }
-`, namespace, normalizedResourceName, g.data.ApiVersion, strings.Join(lines, "\n"))
+`, namespace, normalizedResourceName, strings.Join(lines, "\n"))
 }
