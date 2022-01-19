@@ -99,6 +99,10 @@ service "storagepool" {
   name      = "StoragePool"
   available = ["2021-08-01"]
 }
+service "trafficmanager" {
+  name      = "TrafficManager"
+  available = ["2018-08-01"]
+}
 service "videoanalyzer" {
   name      = "VideoAnalyzer"
   available = ["2021-05-01-preview"]
