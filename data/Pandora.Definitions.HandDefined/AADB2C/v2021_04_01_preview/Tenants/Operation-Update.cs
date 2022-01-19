@@ -2,23 +2,22 @@
 using Pandora.Definitions.Interfaces;
 using Pandora.Definitions.Operations;
 
-namespace Pandora.Definitions.HandDefined.AADB2C.v2021_04_01_preview.Tenants
+namespace Pandora.Definitions.HandDefined.AADB2C.v2021_04_01_preview.Tenants;
+
+internal class Update : PatchOperation
 {
-    internal class Update : PatchOperation
+    public override Type? RequestObject()
     {
-        public override Type? RequestObject()
-        {
-            return typeof(UpdateTenantModel);
-        }
+        return typeof(UpdateTenantModel);
+    }
 
-        public override ResourceID? ResourceId()
-        {
-            return new B2CDirectoryId();
-        }
+    public override ResourceID? ResourceId()
+    {
+        return new B2CDirectoryId();
+    }
 
-        public override Type? ResponseObject()
-        {
-            return typeof(TenantModel);
-        }
+    public override Type? ResponseObject()
+    {
+        return typeof(TenantModel);
     }
 }
