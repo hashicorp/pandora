@@ -309,7 +309,6 @@ func mapApiOperationsToOperationDetails(input map[string]resourcemanager.ApiOper
 		}
 
 		output[k] = models.OperationDetails{
-			ApiVersion:                       v.ApiVersion,
 			ContentType:                      contentType,
 			ExpectedStatusCodes:              v.ExpectedStatusCodes,
 			FieldContainingPaginationDetails: v.FieldContainingPaginationDetails,

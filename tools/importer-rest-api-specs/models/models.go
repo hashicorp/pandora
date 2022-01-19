@@ -14,7 +14,6 @@ type AzureApiResource struct {
 }
 
 type OperationDetails struct {
-	ApiVersion                       *string
 	ContentType                      string
 	ExpectedStatusCodes              []int
 	FieldContainingPaginationDetails *string
