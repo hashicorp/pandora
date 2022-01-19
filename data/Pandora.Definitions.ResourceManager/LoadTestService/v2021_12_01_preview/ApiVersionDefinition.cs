@@ -8,7 +8,7 @@ namespace Pandora.Definitions.ResourceManager.LoadTestService.v2021_12_01_previe
         public string ApiVersion => "2021-12-01-preview";
         public bool Preview => true;
 
-        public IEnumerable<ResourceDefinition> Apis => new List<ResourceDefinition>
+        public IEnumerable<ResourceDefinition> Resources => new List<ResourceDefinition>
         {
             new LoadTests.Definition(),
         };

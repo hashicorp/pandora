@@ -9,7 +9,7 @@ namespace Pandora.Definitions.TestData.Pandamonium.v2020_01_01
         public bool Generate => true;
         public bool Preview => false;
 
-        public IEnumerable<ResourceDefinition> Apis => new List<ResourceDefinition>
+        public IEnumerable<ResourceDefinition> Resources => new List<ResourceDefinition>
         {
             new Grouping.Definition()
         };

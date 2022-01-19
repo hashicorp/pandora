@@ -10,6 +10,6 @@ namespace Pandora.Definitions.Interfaces
         bool Generate { get; }
         bool Preview { get; }
 
-        IEnumerable<ResourceDefinition> Apis { get; }
+        IEnumerable<ResourceDefinition> Resources { get; }
     }
 }

@@ -12,7 +12,7 @@ namespace Pandora.Data.Transformers
         {
             try
             {
-                var apis = input.Apis.ToList();
+                var apis = input.Resources.ToList();
                 if (apis.Count == 0)
                 {
                     throw new NotSupportedException($"Version {input.ApiVersion} has no operations");
@@ -25,7 +25,7 @@ namespace Pandora.Data.Transformers
                     throw new NotSupportedException($"Version {input.ApiVersion} has duplicate operations");
                 }
 
-                var apiDefinitions = input.Apis.Select(APIDefinition.Map);
+                var apiDefinitions = input.Resources.Select(APIDefinition.Map);
                 return new VersionDefinition
                 {
                     Apis = apiDefinitions,

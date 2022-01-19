@@ -8,7 +8,7 @@ namespace Pandora.Definitions.ResourceManager.SignalR.v2020_05_01
         public string ApiVersion => "2020-05-01";
         public bool Preview => false;
 
-        public IEnumerable<ResourceDefinition> Apis => new List<ResourceDefinition>
+        public IEnumerable<ResourceDefinition> Resources => new List<ResourceDefinition>
         {
             new SignalR.Definition(),
         };

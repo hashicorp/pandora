@@ -8,7 +8,7 @@ namespace Pandora.Definitions.ResourceManager.CostManagement.v2021_10_01
         public string ApiVersion => "2021-10-01";
         public bool Preview => false;
 
-        public IEnumerable<ResourceDefinition> Apis => new List<ResourceDefinition>
+        public IEnumerable<ResourceDefinition> Resources => new List<ResourceDefinition>
         {
             new Alerts.Definition(),
             new Dimensions.Definition(),

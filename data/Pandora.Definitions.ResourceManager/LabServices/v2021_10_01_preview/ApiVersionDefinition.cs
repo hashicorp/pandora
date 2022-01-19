@@ -8,7 +8,7 @@ namespace Pandora.Definitions.ResourceManager.LabServices.v2021_10_01_preview
         public string ApiVersion => "2021-10-01-preview";
         public bool Preview => true;
 
-        public IEnumerable<ResourceDefinition> Apis => new List<ResourceDefinition>
+        public IEnumerable<ResourceDefinition> Resources => new List<ResourceDefinition>
         {
             new Image.Definition(),
             new Lab.Definition(),

@@ -8,7 +8,7 @@ namespace Pandora.Definitions.ResourceManager.AppConfiguration.v2020_06_01
         public string ApiVersion => "2020-06-01";
         public bool Preview => false;
 
-        public IEnumerable<ResourceDefinition> Apis => new List<ResourceDefinition>
+        public IEnumerable<ResourceDefinition> Resources => new List<ResourceDefinition>
         {
             new ConfigurationStores.Definition(),
             new PrivateEndpointConnections.Definition(),

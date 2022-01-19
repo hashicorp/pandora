@@ -8,7 +8,7 @@ namespace Pandora.Definitions.ResourceManager.ServiceFabricManagedCluster.v2021_
         public string ApiVersion => "2021-05-01";
         public bool Preview => false;
 
-        public IEnumerable<ResourceDefinition> Apis => new List<ResourceDefinition>
+        public IEnumerable<ResourceDefinition> Resources => new List<ResourceDefinition>
         {
             new Application.Definition(),
             new ApplicationType.Definition(),

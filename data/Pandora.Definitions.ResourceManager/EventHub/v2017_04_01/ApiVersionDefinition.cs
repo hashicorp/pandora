@@ -8,7 +8,7 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01
         public string ApiVersion => "2017-04-01";
         public bool Preview => false;
 
-        public IEnumerable<ResourceDefinition> Apis => new List<ResourceDefinition>
+        public IEnumerable<ResourceDefinition> Resources => new List<ResourceDefinition>
         {
             new AuthorizationRulesDisasterRecoveryConfigs.Definition(),
             new AuthorizationRulesEventHubs.Definition(),

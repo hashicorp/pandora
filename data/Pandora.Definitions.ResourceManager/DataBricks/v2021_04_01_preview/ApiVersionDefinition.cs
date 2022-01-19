@@ -8,7 +8,7 @@ namespace Pandora.Definitions.ResourceManager.DataBricks.v2021_04_01_preview
         public string ApiVersion => "2021-04-01-preview";
         public bool Preview => true;
 
-        public IEnumerable<ResourceDefinition> Apis => new List<ResourceDefinition>
+        public IEnumerable<ResourceDefinition> Resources => new List<ResourceDefinition>
         {
             new OutboundNetworkDependenciesEndpoints.Definition(),
             new PrivateEndpointConnections.Definition(),
