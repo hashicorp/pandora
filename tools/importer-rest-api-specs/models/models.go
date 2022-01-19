@@ -30,9 +30,14 @@ type OperationDetails struct {
 }
 
 type ObjectDefinition struct {
-	NestedItem    *ObjectDefinition
+	// NestedItem is an optional nested ObjectDefinition when Type is a Dictionary or List
+	NestedItem *ObjectDefinition
+
+	// ReferenceName is the name of the Constant or Model that this is a reference to.
 	ReferenceName *string
-	Type          ObjectDefinitionType
+
+	// Type defines what kind of ObjectDefinition this is, such as a Reference, String or List.
+	Type ObjectDefinitionType
 
 	// Minimum is the minimum number of items which must be specified when this is a Dictionary/List element, if specified
 	Minimum *int
@@ -91,12 +96,6 @@ type ModelDetails struct {
 	TypeHintValue  *string
 
 	// TODO: include ReadOnly, which'll mean we need to generate this on a per-type basis if necessary
-}
-
-// IsEmpty defines if this is an empty/placeholder object - which can be useful for determining
-// if this object will be replaced later in the process
-func (m ModelDetails) IsEmpty() bool {
-	return len(m.Fields) == 0 && m.Description == "" && m.TypeHintIn == nil && m.TypeHintValue == nil && m.ParentTypeName == nil
 }
 
 type FieldDetails struct {

@@ -1,6 +1,8 @@
 package differ
 
-import "github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+import (
+	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+)
 
 type Differ struct {
 	client resourcemanager.Client

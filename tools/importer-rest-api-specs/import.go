@@ -39,13 +39,22 @@ func importService(input RunInput, swaggerGitSha string, dataApiEndpoint *string
 		}
 
 		differ := differ.NewDiffer(*dataApiEndpoint)
-		_, err := differ.RetrieveExistingService(input.ServiceName, input.ApiVersion)
+		existingApiDefinitions, err := differ.RetrieveExistingService(input.ServiceName, input.ApiVersion)
 		if err != nil {
 			return fmt.Errorf("retrieving data for existing Service %q / Version %q from Data API: %+v", input.ServiceName, input.ApiVersion, err)
 		}
 
-		// TODO: handle this
+		if debug {
+			log.Printf("[DEBUG] Applying Overrides from the Existing API Definitions to the Parsed Swagger Data..")
+		}
+		data, err = differ.ApplyFromExistingAPIDefinitions(*existingApiDefinitions, *data)
+		if err != nil {
+			return fmt.Errorf("applying Overrides from the existing API Definitions: %+v", err)
+		}
 
+		if debug {
+			log.Printf("[DEBUG] Applied Overrides from the Existing API Definitions to the Parsed Swagger Data.")
+		}
 	} else {
 		log.Printf("[DEBUG] Skipping retrieving current schema from Data API..")
 	}
