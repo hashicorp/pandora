@@ -3,57 +3,56 @@ using System.ComponentModel;
 using System.Text.Json.Serialization;
 using Pandora.Definitions.Attributes;
 
-namespace Pandora.Definitions.TestData.Pandamonium.v2020_01_01.Grouping
+namespace Pandora.Definitions.TestData.Pandamonium.v2020_01_01.Grouping;
+
+public class NestedItem
 {
-    public class NestedItem
-    {
-        [DateFormat(DateFormatAttribute.DateFormat.RFC3339)]
-        [JsonPropertyName("someDate")]
-        public DateTime SomeDate { get; set; }
+    [DateFormat(DateFormatAttribute.DateFormat.RFC3339)]
+    [JsonPropertyName("someDate")]
+    public DateTime SomeDate { get; set; }
 
-        [JsonPropertyName("someObject")]
-        public object SomeObject { get; set; }
+    [JsonPropertyName("someObject")]
+    public object SomeObject { get; set; }
 
-        [JsonPropertyName("uniqueId")]
-        public string UniqueId { get; set; }
+    [JsonPropertyName("uniqueId")]
+    public string UniqueId { get; set; }
 
-        [JsonPropertyName("floatValue")]
-        public FloatBasedEnum FloatValue { get; set; }
+    [JsonPropertyName("floatValue")]
+    public FloatBasedEnum FloatValue { get; set; }
 
-        [JsonPropertyName("integerValue")]
-        public IntegerBackedEnum IntValue { get; set; }
+    [JsonPropertyName("integerValue")]
+    public IntegerBackedEnum IntValue { get; set; }
 
-        [JsonPropertyName("stringValue")]
-        public StringBackedEnum StringValue { get; set; }
-    }
+    [JsonPropertyName("stringValue")]
+    public StringBackedEnum StringValue { get; set; }
+}
 
-    [ConstantType(ConstantTypeAttribute.ConstantType.Float)]
-    public enum FloatBasedEnum
-    {
-        [Description("1.1")]
-        OnePointOne,
+[ConstantType(ConstantTypeAttribute.ConstantType.Float)]
+public enum FloatBasedEnum
+{
+    [Description("1.1")]
+    OnePointOne,
 
-        [Description("2.304")]
-        TwoPointThreeZeroFour,
-    }
+    [Description("2.304")]
+    TwoPointThreeZeroFour,
+}
 
-    [ConstantType(ConstantTypeAttribute.ConstantType.Integer)]
-    public enum IntegerBackedEnum
-    {
-        [Description("1")]
-        One,
+[ConstantType(ConstantTypeAttribute.ConstantType.Integer)]
+public enum IntegerBackedEnum
+{
+    [Description("1")]
+    One,
 
-        [Description("2")]
-        Two,
-    }
+    [Description("2")]
+    Two,
+}
 
-    [ConstantType(ConstantTypeAttribute.ConstantType.String)]
-    public enum StringBackedEnum
-    {
-        [Description("First")]
-        First,
+[ConstantType(ConstantTypeAttribute.ConstantType.String)]
+public enum StringBackedEnum
+{
+    [Description("First")]
+    First,
 
-        [Description("Second")]
-        Second
-    }
+    [Description("Second")]
+    Second
 }

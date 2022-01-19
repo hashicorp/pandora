@@ -1,8 +1,7 @@
 ﻿using Pandora.Definitions.Interfaces;
 
-namespace Pandora.Definitions.TestData
+namespace Pandora.Definitions.TestData;
+
+public class TestDataServices : ServicesDefinition
 {
-    public class TestDataServices : ServicesDefinition
-    {
-    }
 }
