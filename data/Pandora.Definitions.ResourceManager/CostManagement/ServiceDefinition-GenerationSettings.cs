@@ -1,7 +1,6 @@
-namespace Pandora.Definitions.ResourceManager.CostManagement
+namespace Pandora.Definitions.ResourceManager.CostManagement;
+
+public partial class Service
 {
-    public partial class Service
-    {
-        public bool Generate => true;
-    }
+    public bool Generate => true;
 }

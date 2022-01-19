@@ -1,7 +1,6 @@
-namespace Pandora.Definitions.ResourceManager.Maps.v2021_02_01
+namespace Pandora.Definitions.ResourceManager.Maps.v2021_02_01;
+
+public partial class Definition
 {
-    public partial class Definition
-    {
-        public bool Generate => true;
-    }
+    public bool Generate => true;
 }

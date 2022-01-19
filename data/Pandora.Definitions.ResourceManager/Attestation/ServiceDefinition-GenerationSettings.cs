@@ -1,7 +1,6 @@
-namespace Pandora.Definitions.ResourceManager.Attestation
+namespace Pandora.Definitions.ResourceManager.Attestation;
+
+public partial class Service
 {
-    public partial class Service
-    {
-        public bool Generate => true;
-    }
+    public bool Generate => true;
 }

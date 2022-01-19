@@ -1,7 +1,6 @@
-namespace Pandora.Definitions.ResourceManager.PowerBIDedicated
+namespace Pandora.Definitions.ResourceManager.PowerBIDedicated;
+
+public partial class Service
 {
-    public partial class Service
-    {
-        public bool Generate => true;
-    }
+    public bool Generate => true;
 }

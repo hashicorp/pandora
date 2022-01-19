@@ -1,7 +1,6 @@
-namespace Pandora.Definitions.ResourceManager.PowerBIDedicated.v2021_01_01
+namespace Pandora.Definitions.ResourceManager.PowerBIDedicated.v2021_01_01;
+
+public partial class Definition
 {
-    public partial class Definition
-    {
-        public bool Generate => true;
-    }
+    public bool Generate => true;
 }

@@ -1,7 +1,6 @@
-namespace Pandora.Definitions.ResourceManager.Maps
+namespace Pandora.Definitions.ResourceManager.Maps;
+
+public partial class Service
 {
-    public partial class Service
-    {
-        public bool Generate => true;
-    }
+    public bool Generate => true;
 }

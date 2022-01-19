@@ -1,7 +1,6 @@
-namespace Pandora.Definitions.ResourceManager.Communication.v2020_08_20
+namespace Pandora.Definitions.ResourceManager.Communication.v2020_08_20;
+
+public partial class Definition
 {
-    public partial class Definition
-    {
-        public bool Generate => true;
-    }
+    public bool Generate => true;
 }

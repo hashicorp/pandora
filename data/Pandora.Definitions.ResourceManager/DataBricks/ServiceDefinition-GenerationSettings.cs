@@ -1,7 +1,6 @@
-namespace Pandora.Definitions.ResourceManager.DataBricks
+namespace Pandora.Definitions.ResourceManager.DataBricks;
+
+public partial class Service
 {
-    public partial class Service
-    {
-        public bool Generate => true;
-    }
+    public bool Generate => true;
 }

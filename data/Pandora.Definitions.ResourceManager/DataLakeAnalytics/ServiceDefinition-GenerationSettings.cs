@@ -1,7 +1,6 @@
-namespace Pandora.Definitions.ResourceManager.DataLakeAnalytics
+namespace Pandora.Definitions.ResourceManager.DataLakeAnalytics;
+
+public partial class Service
 {
-    public partial class Service
-    {
-        public bool Generate => true;
-    }
+    public bool Generate => true;
 }
