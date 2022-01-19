@@ -53,7 +53,7 @@ func importService(input RunInput, swaggerGitSha string, dataApiEndpoint *string
 		}
 
 		if debug {
-			log.Printf("[DEBUG] Applyied Overrides from the Existing API Definitions to the Parsed Swagger Data.")
+			log.Printf("[DEBUG] Applied Overrides from the Existing API Definitions to the Parsed Swagger Data.")
 		}
 	} else {
 		log.Printf("[DEBUG] Skipping retrieving current schema from Data API..")
