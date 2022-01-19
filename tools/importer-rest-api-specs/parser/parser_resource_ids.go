@@ -31,7 +31,9 @@ type resourceIdParseResult struct {
 }
 
 func (result *resourceIdParseResult) append(other resourceIdParseResult) error {
-	result.nestedResult.append(other.nestedResult)
+	if err := result.nestedResult.append(other.nestedResult); err != nil {
+		return fmt.Errorf("appending other nestedResult: %+v", err)
+	}
 
 	out := make(map[string]resourceUriMetadata)
 	// intentional since this can be nil
@@ -134,7 +136,9 @@ func (d SwaggerDefinition) parseResourceIds() (*map[string]resourceUriMetadata, 
 			// next, if it's based on a Resource ID, let's ensure that's added too
 			resourceUri := uri
 			if metadata.resourceId != nil {
-				result.appendConstants(metadata.resourceId.Constants)
+				if err := result.appendConstants(metadata.resourceId.Constants); err != nil {
+					return nil, nil, fmt.Errorf("appending constants from resource id for %s: %+v", uri, err)
+				}
 
 				resourceManagerUri := metadata.resourceId.NormalizedResourceManagerResourceId()
 				if strings.EqualFold(resourceUri, resourceManagerUri) {
