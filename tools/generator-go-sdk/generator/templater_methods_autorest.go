@@ -405,11 +405,6 @@ func (c methodsAutoRestTemplater) argumentsTemplateForMethod(data ServiceGenerat
 }
 
 func (c methodsAutoRestTemplater) preparerTemplate(data ServiceGeneratorData) (*string, error) {
-	apiVersion := "defaultApiVersion"
-	if c.operation.ApiVersion != nil {
-		apiVersion = fmt.Sprintf("%q", *c.operation.ApiVersion)
-	}
-
 	arguments, err := c.argumentsTemplateForMethod(data)
 	if err != nil {
 		return nil, fmt.Errorf("building arguments for preparer template: %+v", err)
@@ -480,9 +475,9 @@ func (c methodsAutoRestTemplater) preparerTemplate(data ServiceGeneratorData) (*
 // preparerFor%[2]s prepares the %[2]s request.
 func (c %[1]s) preparerFor%[2]s(ctx context.Context %[3]s) (*http.Request, error) {
 	queryParameters := map[string]interface{}{
-		"api-version": %[5]s,
+		"api-version": defaultApiVersion,
 	}
-%[6]s
+%[5]s
 
 	preparer := autorest.CreatePreparer(
 		%[4]s)
@@ -508,13 +503,13 @@ func (c %[1]s) preparerFor%[2]sWithNextLink(ctx context.Context, nextLink string
 	}
 
 	preparer := autorest.CreatePreparer(
-		%[7]s)
+		%[6]s)
 	return preparer.Prepare((&http.Request{}).WithContext(ctx))
 }
 `
 	}
 
-	output := fmt.Sprintf(template, data.serviceClientName, c.operationName, *arguments, strings.Join(steps, ",\n\t\t"), apiVersion, optionsCode, strings.Join(listSteps, ",\n\t\t"))
+	output := fmt.Sprintf(template, data.serviceClientName, c.operationName, *arguments, strings.Join(steps, ",\n\t\t"), optionsCode, strings.Join(listSteps, ",\n\t\t"))
 	return &output, nil
 }
 
