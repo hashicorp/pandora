@@ -3,7 +3,7 @@ using Pandora.Definitions.Interfaces;
 
 namespace Pandora.Definitions.ResourceManager.Purview.v2020_12_01_preview.DefaultAccount
 {
-    internal class Definition : ApiDefinition
+    internal class Definition : ResourceDefinition
     {
         public string Name => "DefaultAccount";
         public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>

@@ -3,7 +3,7 @@ using Pandora.Definitions.Interfaces;
 
 namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.CheckNameAvailabilityNamespaces
 {
-    internal class Definition : ApiDefinition
+    internal class Definition : ResourceDefinition
     {
         public string Name => "CheckNameAvailabilityNamespaces";
         public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>

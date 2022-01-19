@@ -3,7 +3,7 @@ using Pandora.Definitions.Interfaces;
 
 namespace Pandora.Definitions.ResourceManager.DataBricks.v2021_04_01_preview.Workspaces
 {
-    internal class Definition : ApiDefinition
+    internal class Definition : ResourceDefinition
     {
         public string Name => "Workspaces";
         public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>

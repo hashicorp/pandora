@@ -8,7 +8,7 @@ namespace Pandora.Data.Transformers
 {
     public static class APIDefinition
     {
-        public static Models.ApiDefinition Map(Definitions.Interfaces.ApiDefinition input)
+        public static Models.ApiDefinition Map(Definitions.Interfaces.ResourceDefinition input)
         {
             try
             {

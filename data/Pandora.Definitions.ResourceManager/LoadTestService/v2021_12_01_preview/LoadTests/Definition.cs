@@ -3,7 +3,7 @@ using Pandora.Definitions.Interfaces;
 
 namespace Pandora.Definitions.ResourceManager.LoadTestService.v2021_12_01_preview.LoadTests
 {
-    internal class Definition : ApiDefinition
+    internal class Definition : ResourceDefinition
     {
         public string Name => "LoadTests";
         public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>

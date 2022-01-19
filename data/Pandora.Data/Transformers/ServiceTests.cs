@@ -52,7 +52,7 @@ namespace Pandora.Data.Transformers
                 public string ApiVersion => "SomeVersion";
                 public bool Generate => true;
                 public bool Preview => true;
-                public IEnumerable<ApiDefinition> Apis => new List<ApiDefinition> { new FakeApiDefinition() };
+                public IEnumerable<ResourceDefinition> Apis => new List<ResourceDefinition> { new FakeResourceDefinition() };
             }
         }
 
@@ -81,11 +81,11 @@ namespace Pandora.Data.Transformers
                 public string ApiVersion => "SomeVersion";
                 public bool Generate => true;
                 public bool Preview => true;
-                public IEnumerable<ApiDefinition> Apis => new List<ApiDefinition> { new FakeApiDefinition() };
+                public IEnumerable<ResourceDefinition> Apis => new List<ResourceDefinition> { new FakeResourceDefinition() };
             }
         }
 
-        private class FakeApiDefinition : ApiDefinition
+        private class FakeResourceDefinition : ResourceDefinition
         {
             public string Name => "example";
             public IEnumerable<ApiOperation> Operations => new List<ApiOperation> { new FakeApiOperation() };

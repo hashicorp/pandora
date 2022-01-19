@@ -8,7 +8,7 @@ namespace Pandora.Definitions.ResourceManager.PostgreSqlHsc.v2020_10_05_privatep
         public string ApiVersion => "2020-10-05-privatepreview";
         public bool Preview => true;
 
-        public IEnumerable<ApiDefinition> Apis => new List<ApiDefinition>
+        public IEnumerable<ResourceDefinition> Apis => new List<ResourceDefinition>
         {
             new Configurations.Definition(),
             new FirewallRules.Definition(),

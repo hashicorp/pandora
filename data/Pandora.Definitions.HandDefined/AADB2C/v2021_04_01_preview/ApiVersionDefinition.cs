@@ -9,7 +9,7 @@ namespace Pandora.Definitions.HandDefined.AADB2C.v2021_04_01_preview
         public bool Generate => true;
         public bool Preview => true;
 
-        public IEnumerable<ApiDefinition> Apis => new List<ApiDefinition>
+        public IEnumerable<ResourceDefinition> Apis => new List<ResourceDefinition>
         {
             new Tenants.Definition(),
         };

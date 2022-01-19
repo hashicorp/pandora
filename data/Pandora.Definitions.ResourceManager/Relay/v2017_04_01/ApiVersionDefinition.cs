@@ -8,7 +8,7 @@ namespace Pandora.Definitions.ResourceManager.Relay.v2017_04_01
         public string ApiVersion => "2017-04-01";
         public bool Preview => false;
 
-        public IEnumerable<ApiDefinition> Apis => new List<ApiDefinition>
+        public IEnumerable<ResourceDefinition> Apis => new List<ResourceDefinition>
         {
             new HybridConnections.Definition(),
             new Namespaces.Definition(),

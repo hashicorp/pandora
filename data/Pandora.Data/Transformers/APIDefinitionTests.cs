@@ -10,7 +10,6 @@ using Pandora.Data.Models;
 using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Interfaces;
 using Pandora.Definitions.Operations;
-using ApiDefinition = Pandora.Definitions.Interfaces.ApiDefinition;
 
 namespace Pandora.Data.Transformers
 {
@@ -21,13 +20,13 @@ namespace Pandora.Data.Transformers
         [TestCase]
         public static void ApiVersionWithNoOperationsShouldFail()
         {
-            Assert.Throws<Exception>(() => APIDefinition.Map(new ApiVersionWithNoOperations()));
+            Assert.Throws<Exception>(() => APIDefinition.Map(new ResourceVersionWithNoOperations()));
         }
 
         [TestCase]
         public static void MappingAnApiVersionWithASingleOperation()
         {
-            var actual = APIDefinition.Map(new ApiVersionWithASingleOperation());
+            var actual = APIDefinition.Map(new ResourceVersionWithASingleOperation());
             Assert.NotNull(actual);
             Assert.AreEqual("ApiVersionWithASingleOperation", actual.Name);
             Assert.AreEqual(1, actual.Operations.Count);
@@ -38,7 +37,7 @@ namespace Pandora.Data.Transformers
         [TestCase]
         public static void MappingAnApiVersionWithMultipleOperations()
         {
-            var actual = APIDefinition.Map(new ApiVersionWithAMultipleOperations());
+            var actual = APIDefinition.Map(new ResourceVersionWithAMultipleOperations());
             Assert.NotNull(actual);
             Assert.AreEqual("ApiVersionWithAMultipleOperations", actual.Name);
             Assert.AreEqual(2, actual.Operations.Count);
@@ -51,7 +50,7 @@ namespace Pandora.Data.Transformers
         [TestCase]
         public static void MappingAnApiVersionContainingARequestModel()
         {
-            var actual = APIDefinition.Map(new ApiVersionWithARequestModel());
+            var actual = APIDefinition.Map(new ResourceVersionWithARequestModel());
             Assert.NotNull(actual);
             Assert.AreEqual("ApiVersionWithARequestModel", actual.Name);
             Assert.AreEqual(1, actual.Operations.Count);
@@ -64,7 +63,7 @@ namespace Pandora.Data.Transformers
         [TestCase]
         public static void MappingAnApiVersionContainingARequestAndResponseModel()
         {
-            var actual = APIDefinition.Map(new ApiVersionWithARequestAndResponseModel());
+            var actual = APIDefinition.Map(new ResourceVersionWithARequestAndResponseModel());
             Assert.NotNull(actual);
             Assert.AreEqual("ApiVersionWithARequestAndResponseModel", actual.Name);
             Assert.AreEqual(1, actual.Operations.Count);
@@ -78,7 +77,7 @@ namespace Pandora.Data.Transformers
         [TestCase]
         public static void MappingAnApiVersionContainingAResponseModel()
         {
-            var actual = APIDefinition.Map(new ApiVersionWithAResponseModel());
+            var actual = APIDefinition.Map(new ResourceVersionWithAResponseModel());
             Assert.NotNull(actual);
             Assert.AreEqual("ApiVersionWithAResponseModel", actual.Name);
             Assert.AreEqual(1, actual.Operations.Count);
@@ -91,7 +90,7 @@ namespace Pandora.Data.Transformers
         [TestCase]
         public static void MappingAnApiVersionContainingNestedModels()
         {
-            var actual = APIDefinition.Map(new ApiVersionWithANestedResponseModel());
+            var actual = APIDefinition.Map(new ResourceVersionWithANestedResponseModel());
             Assert.NotNull(actual);
             Assert.AreEqual("ApiVersionWithANestedResponseModel", actual.Name);
             Assert.AreEqual(1, actual.Operations.Count);
@@ -106,7 +105,7 @@ namespace Pandora.Data.Transformers
         [TestCase]
         public static void MappingAnApiVersionContainingDuplicateModelsAreDeDuped()
         {
-            var actual = APIDefinition.Map(new ApiVersionWithADuplicateNestedResponseModel());
+            var actual = APIDefinition.Map(new ResourceVersionWithADuplicateNestedResponseModel());
             Assert.NotNull(actual);
             Assert.AreEqual("ApiVersionWithADuplicateNestedResponseModel", actual.Name);
             Assert.AreEqual(1, actual.Operations.Count);
@@ -120,7 +119,7 @@ namespace Pandora.Data.Transformers
         [TestCase]
         public static void MappingAnApiVersionContainingConstants()
         {
-            var actual = APIDefinition.Map(new ApiVersionWithARequestModelAndConstant());
+            var actual = APIDefinition.Map(new ResourceVersionWithARequestModelAndConstant());
             Assert.NotNull(actual);
             Assert.AreEqual("ApiVersionWithARequestModelAndConstant", actual.Name);
             Assert.AreEqual(1, actual.Operations.Count);
@@ -134,7 +133,7 @@ namespace Pandora.Data.Transformers
         [TestCase]
         public static void MappingAnApiVersionContainingDuplicateConstants()
         {
-            var actual = APIDefinition.Map(new ApiVersionWithARequestModelAndDuplicateConstants());
+            var actual = APIDefinition.Map(new ResourceVersionWithARequestModelAndDuplicateConstants());
             Assert.NotNull(actual);
             Assert.AreEqual("ApiVersionWithARequestModelAndDuplicateConstants", actual.Name);
             Assert.AreEqual(1, actual.Operations.Count);
@@ -148,7 +147,7 @@ namespace Pandora.Data.Transformers
         [TestCase]
         public static void MappingAnApiVersionContainingNestedConstants()
         {
-            var actual = APIDefinition.Map(new ApiVersionWithARequestModelWithNestedConstants());
+            var actual = APIDefinition.Map(new ResourceVersionWithARequestModelWithNestedConstants());
             Assert.NotNull(actual);
             Assert.AreEqual("ApiVersionWithARequestModelWithNestedConstants", actual.Name);
             Assert.AreEqual(1, actual.Operations.Count);
@@ -164,7 +163,7 @@ namespace Pandora.Data.Transformers
         [TestCase]
         public static void MappingAnApiVersionContainingDuplicateNestedConstants()
         {
-            var actual = APIDefinition.Map(new ApiVersionWithARequestModelWithDuplicateNestedConstants());
+            var actual = APIDefinition.Map(new ResourceVersionWithARequestModelWithDuplicateNestedConstants());
             Assert.NotNull(actual);
             Assert.AreEqual("ApiVersionWithARequestModelWithDuplicateNestedConstants", actual.Name);
             Assert.AreEqual(1, actual.Operations.Count);
@@ -179,7 +178,7 @@ namespace Pandora.Data.Transformers
         [TestCase]
         public static void MappingAnApiVersionWithMultipleOperationsAndASharedConstant()
         {
-            var actual = APIDefinition.Map(new ApiVersionWithAMultipleOperationsAndASharedConstant());
+            var actual = APIDefinition.Map(new ResourceVersionWithAMultipleOperationsAndASharedConstant());
             Assert.NotNull(actual);
             Assert.AreEqual("ApiVersionWithAMultipleOperationsAndASharedConstant", actual.Name);
             Assert.AreEqual(2, actual.Operations.Count);
@@ -192,7 +191,7 @@ namespace Pandora.Data.Transformers
         [TestCase]
         public static void MappingAnApiVersionWithMultipleOperationsAndASharedModel()
         {
-            var actual = APIDefinition.Map(new ApiVersionWithAMultipleOperationsAndASharedModel());
+            var actual = APIDefinition.Map(new ResourceVersionWithAMultipleOperationsAndASharedModel());
             Assert.NotNull(actual);
             Assert.AreEqual("ApiVersionWithAMultipleOperationsAndASharedModel", actual.Name);
             Assert.AreEqual(2, actual.Operations.Count);
@@ -205,7 +204,7 @@ namespace Pandora.Data.Transformers
         [TestCase]
         public static void MappingAnApiWhichContainsAConstantWithinOptions()
         {
-            var actual = APIDefinition.Map(new ApiVersionWithAConstantWithinOptions());
+            var actual = APIDefinition.Map(new ResourceVersionWithAConstantWithinOptions());
             Assert.NotNull(actual);
             Assert.AreEqual("ApiVersionWithAConstantWithinOptions", actual.Name);
             Assert.AreEqual(1, actual.Operations.Count);
@@ -220,7 +219,7 @@ namespace Pandora.Data.Transformers
         [TestCase]
         public static void MappingAnApiWhichContainsAConstantWithinResourceId()
         {
-            var actual = APIDefinition.Map(new ApiVersionWithConstantWithinResourceId());
+            var actual = APIDefinition.Map(new ResourceVersionWithConstantWithinResourceId());
             Assert.NotNull(actual);
             Assert.AreEqual("ApiVersionWithConstantWithinResourceId", actual.Name);
             Assert.AreEqual(1, actual.Operations.Count);
@@ -235,7 +234,7 @@ namespace Pandora.Data.Transformers
         [Test]
         public static void MappingAnApiWhichReturnsADiscriminatedType()
         {
-            var actual = APIDefinition.Map(new ApiVersionReturningADiscriminatedType());
+            var actual = APIDefinition.Map(new ResourceVersionReturningADiscriminatedType());
             Assert.NotNull(actual);
             Assert.AreEqual("ApiVersionReturningADiscriminatedType", actual.Name);
             Assert.AreEqual(1, actual.Operations.Count);
@@ -261,7 +260,7 @@ namespace Pandora.Data.Transformers
         [Test]
         public static void MappingAnApiWhichReturnsAModelContainingAListOfADiscriminatedType()
         {
-            var actual = APIDefinition.Map(new ApiVersionReturningAModelContainingAListOfADiscriminatedType());
+            var actual = APIDefinition.Map(new ResourceVersionReturningAModelContainingAListOfADiscriminatedType());
             Assert.NotNull(actual);
             Assert.AreEqual("ApiVersionReturningAModelContainingAListOfADiscriminatedType", actual.Name);
             Assert.AreEqual(1, actual.Operations.Count);
@@ -295,22 +294,22 @@ namespace Pandora.Data.Transformers
         public static void MappingAnApiWhichReturnsAModelContainingAListOfADiscriminatedTypeWithNoBaseTypeShouldReturnError()
         {
             // this handles the case of invalid data as seem in https://github.com/hashicorp/pandora/issues/73#issuecomment-935943146 
-            Assert.Throws<Exception>(() => APIDefinition.Map(new ApiVersionReturningAModelContainingAListOfADiscriminatedTypeWithNoBaseType()));
+            Assert.Throws<Exception>(() => APIDefinition.Map(new ResourceVersionReturningAModelContainingAListOfADiscriminatedTypeWithNoBaseType()));
         }
 
-        private class ApiVersionWithNoOperations : ApiDefinition
+        private class ResourceVersionWithNoOperations : ResourceDefinition
         {
             public string Name => "ApiVersionWithNoOperations";
             public IEnumerable<ApiOperation> Operations => new List<ApiOperation>();
         }
 
-        private class ApiVersionWithASingleOperation : ApiDefinition
+        private class ResourceVersionWithASingleOperation : ResourceDefinition
         {
             public string Name => "ApiVersionWithASingleOperation";
             public IEnumerable<ApiOperation> Operations => new List<ApiOperation> { new FakeOperation() };
         }
 
-        private class ApiVersionWithAMultipleOperations : ApiDefinition
+        private class ResourceVersionWithAMultipleOperations : ResourceDefinition
         {
             public string Name => "ApiVersionWithAMultipleOperations";
 
@@ -318,13 +317,13 @@ namespace Pandora.Data.Transformers
                 {new FakeOperation(), new FakeOtherOperation()};
         }
 
-        private class ApiVersionWithARequestModel : ApiDefinition
+        private class ResourceVersionWithARequestModel : ResourceDefinition
         {
             public string Name => "ApiVersionWithARequestModel";
             public IEnumerable<ApiOperation> Operations => new List<ApiOperation> { new FakeOperationWithRequestModel() };
         }
 
-        private class ApiVersionWithARequestAndResponseModel : ApiDefinition
+        private class ResourceVersionWithARequestAndResponseModel : ResourceDefinition
         {
             public string Name => "ApiVersionWithARequestAndResponseModel";
 
@@ -332,7 +331,7 @@ namespace Pandora.Data.Transformers
                 {new FakeOperationWithRequestAndResponseModel()};
         }
 
-        private class ApiVersionWithAResponseModel : ApiDefinition
+        private class ResourceVersionWithAResponseModel : ResourceDefinition
         {
             public string Name => "ApiVersionWithAResponseModel";
 
@@ -340,7 +339,7 @@ namespace Pandora.Data.Transformers
                 new List<ApiOperation> { new FakeOperationWithResponseModel() };
         }
 
-        private class ApiVersionWithANestedResponseModel : ApiDefinition
+        private class ResourceVersionWithANestedResponseModel : ResourceDefinition
         {
             public string Name => "ApiVersionWithANestedResponseModel";
 
@@ -348,7 +347,7 @@ namespace Pandora.Data.Transformers
                 {new FakeOperationWithANestedResponseModel()};
         }
 
-        private class ApiVersionWithADuplicateNestedResponseModel : ApiDefinition
+        private class ResourceVersionWithADuplicateNestedResponseModel : ResourceDefinition
         {
             public string Name => "ApiVersionWithADuplicateNestedResponseModel";
 
@@ -356,7 +355,7 @@ namespace Pandora.Data.Transformers
                 {new FakeOperationWithADuplicateNestedResponseModel()};
         }
 
-        private class ApiVersionWithARequestModelAndConstant : ApiDefinition
+        private class ResourceVersionWithARequestModelAndConstant : ResourceDefinition
         {
             public string Name => "ApiVersionWithARequestModelAndConstant";
 
@@ -364,7 +363,7 @@ namespace Pandora.Data.Transformers
                 {new FakeOperationWithRequestModelAndConstant()};
         }
 
-        private class ApiVersionWithARequestModelAndDuplicateConstants : ApiDefinition
+        private class ResourceVersionWithARequestModelAndDuplicateConstants : ResourceDefinition
         {
             public string Name => "ApiVersionWithARequestModelAndDuplicateConstants";
 
@@ -372,7 +371,7 @@ namespace Pandora.Data.Transformers
                 {new FakeOperationWithRequestModelAndDuplicateConstants()};
         }
 
-        private class ApiVersionWithARequestModelWithNestedConstants : ApiDefinition
+        private class ResourceVersionWithARequestModelWithNestedConstants : ResourceDefinition
         {
             public string Name => "ApiVersionWithARequestModelWithNestedConstants";
 
@@ -380,7 +379,7 @@ namespace Pandora.Data.Transformers
                 {new FakeOperationWithRequestModelAndNestedConstants()};
         }
 
-        private class ApiVersionWithARequestModelWithDuplicateNestedConstants : ApiDefinition
+        private class ResourceVersionWithARequestModelWithDuplicateNestedConstants : ResourceDefinition
         {
             public string Name => "ApiVersionWithARequestModelWithDuplicateNestedConstants";
 
@@ -388,7 +387,7 @@ namespace Pandora.Data.Transformers
                 {new FakeOperationWithRequestModelAndDuplicateNestedConstants()};
         }
 
-        private class ApiVersionWithAMultipleOperationsAndASharedConstant : ApiDefinition
+        private class ResourceVersionWithAMultipleOperationsAndASharedConstant : ResourceDefinition
         {
             public string Name => "ApiVersionWithAMultipleOperationsAndASharedConstant";
 
@@ -437,7 +436,7 @@ namespace Pandora.Data.Transformers
             }
         }
 
-        private class ApiVersionWithAMultipleOperationsAndASharedModel : ApiDefinition
+        private class ResourceVersionWithAMultipleOperationsAndASharedModel : ResourceDefinition
         {
             public string Name => "ApiVersionWithAMultipleOperationsAndASharedModel";
 
@@ -785,7 +784,7 @@ namespace Pandora.Data.Transformers
             public string Second { get; set; }
         }
 
-        private class ApiVersionReturningADiscriminatedType : ApiDefinition
+        private class ResourceVersionReturningADiscriminatedType : ResourceDefinition
         {
             public string Name => "ApiVersionReturningADiscriminatedType";
             public IEnumerable<ApiOperation> Operations => new List<ApiOperation>
@@ -816,7 +815,7 @@ namespace Pandora.Data.Transformers
             public string Name { get; set; }
         }
 
-        private class ApiVersionReturningAModelContainingAListOfADiscriminatedType : ApiDefinition
+        private class ResourceVersionReturningAModelContainingAListOfADiscriminatedType : ResourceDefinition
         {
             public string Name => "ApiVersionReturningAModelContainingAListOfADiscriminatedType";
             public IEnumerable<ApiOperation> Operations => new List<ApiOperation>
@@ -839,7 +838,7 @@ namespace Pandora.Data.Transformers
             public List<Doggy> Doggies { get; set; }
         }
 
-        private class ApiVersionReturningAModelContainingAListOfADiscriminatedTypeWithNoBaseType : ApiDefinition
+        private class ResourceVersionReturningAModelContainingAListOfADiscriminatedTypeWithNoBaseType : ResourceDefinition
         {
             public string Name => "ApiVersionReturningAModelContainingAListOfADiscriminatedTypeWithNoBaseType";
             public IEnumerable<ApiOperation> Operations => new List<ApiOperation>
@@ -863,7 +862,7 @@ namespace Pandora.Data.Transformers
             public string Name { get; set; }
         }
 
-        public class ApiVersionWithConstantWithinResourceId : ApiDefinition
+        public class ResourceVersionWithConstantWithinResourceId : ResourceDefinition
         {
             public string Name => "ApiVersionWithConstantWithinResourceId";
 
@@ -914,7 +913,7 @@ namespace Pandora.Data.Transformers
             }
         }
 
-        public class ApiVersionWithAConstantWithinOptions : ApiDefinition
+        public class ResourceVersionWithAConstantWithinOptions : ResourceDefinition
         {
             public string Name => "ApiVersionWithAConstantWithinOptions";
 

@@ -8,7 +8,7 @@ namespace Pandora.Definitions.ResourceManager.RedisEnterprise.v2021_08_01
         public string ApiVersion => "2021-08-01";
         public bool Preview => false;
 
-        public IEnumerable<ApiDefinition> Apis => new List<ApiDefinition>
+        public IEnumerable<ResourceDefinition> Apis => new List<ResourceDefinition>
         {
             new Databases.Definition(),
             new OperationsStatus.Definition(),

@@ -37,7 +37,7 @@ namespace Pandora.Data.Transformers
             public string ApiVersion => "SomeVersion";
             public bool Generate => false;
             public bool Preview => false;
-            public IEnumerable<ApiDefinition> Apis => new List<ApiDefinition>();
+            public IEnumerable<ResourceDefinition> Apis => new List<ResourceDefinition>();
         }
 
         private class VersionDefinitionWithASingleOperation : ApiVersionDefinition
@@ -45,7 +45,7 @@ namespace Pandora.Data.Transformers
             public string ApiVersion => "SomeVersion";
             public bool Generate => true;
             public bool Preview => false;
-            public IEnumerable<ApiDefinition> Apis => new List<ApiDefinition> { new SomeApiDefinition() };
+            public IEnumerable<ResourceDefinition> Apis => new List<ResourceDefinition> { new SomeResourceDefinition() };
         }
 
         private class VersionDefinitionWithDuplicateOperations : ApiVersionDefinition
@@ -53,10 +53,10 @@ namespace Pandora.Data.Transformers
             public string ApiVersion => "SomeVersion";
             public bool Generate => true;
             public bool Preview => false;
-            public IEnumerable<ApiDefinition> Apis => new List<ApiDefinition> { new SomeApiDefinition(), new SomeApiDefinition() };
+            public IEnumerable<ResourceDefinition> Apis => new List<ResourceDefinition> { new SomeResourceDefinition(), new SomeResourceDefinition() };
         }
 
-        private class SomeApiDefinition : ApiDefinition
+        private class SomeResourceDefinition : ResourceDefinition
         {
             public string Name => "example";
             public IEnumerable<ApiOperation> Operations => new List<ApiOperation> { new FakeApiOperation() };

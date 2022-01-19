@@ -3,7 +3,7 @@ using Pandora.Definitions.Interfaces;
 
 namespace Pandora.Definitions.HandDefined.AADB2C.v2021_04_01_preview.Tenants
 {
-    internal class Definition : ApiDefinition
+    internal class Definition : ResourceDefinition
     {
         // https://docs.microsoft.com/en-us/rest/api/activedirectory/b2c-tenants
         public string Name => "Tenants";

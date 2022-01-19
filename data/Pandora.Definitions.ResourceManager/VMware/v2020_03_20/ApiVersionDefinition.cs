@@ -8,7 +8,7 @@ namespace Pandora.Definitions.ResourceManager.VMware.v2020_03_20
         public string ApiVersion => "2020-03-20";
         public bool Preview => false;
 
-        public IEnumerable<ApiDefinition> Apis => new List<ApiDefinition>
+        public IEnumerable<ResourceDefinition> Apis => new List<ResourceDefinition>
         {
             new Authorizations.Definition(),
             new Clusters.Definition(),

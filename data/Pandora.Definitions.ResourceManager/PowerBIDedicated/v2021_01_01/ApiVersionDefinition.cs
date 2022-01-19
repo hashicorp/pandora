@@ -8,7 +8,7 @@ namespace Pandora.Definitions.ResourceManager.PowerBIDedicated.v2021_01_01
         public string ApiVersion => "2021-01-01";
         public bool Preview => false;
 
-        public IEnumerable<ApiDefinition> Apis => new List<ApiDefinition>
+        public IEnumerable<ResourceDefinition> Apis => new List<ResourceDefinition>
         {
             new AutoScaleVCores.Definition(),
             new Capacities.Definition(),

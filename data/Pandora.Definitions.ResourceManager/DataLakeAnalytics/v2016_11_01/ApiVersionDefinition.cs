@@ -8,7 +8,7 @@ namespace Pandora.Definitions.ResourceManager.DataLakeAnalytics.v2016_11_01
         public string ApiVersion => "2016-11-01";
         public bool Preview => false;
 
-        public IEnumerable<ApiDefinition> Apis => new List<ApiDefinition>
+        public IEnumerable<ResourceDefinition> Apis => new List<ResourceDefinition>
         {
             new Accounts.Definition(),
             new ComputePolicies.Definition(),

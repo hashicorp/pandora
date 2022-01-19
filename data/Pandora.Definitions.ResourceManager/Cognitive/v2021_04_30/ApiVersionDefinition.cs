@@ -8,7 +8,7 @@ namespace Pandora.Definitions.ResourceManager.Cognitive.v2021_04_30
         public string ApiVersion => "2021-04-30";
         public bool Preview => false;
 
-        public IEnumerable<ApiDefinition> Apis => new List<ApiDefinition>
+        public IEnumerable<ResourceDefinition> Apis => new List<ResourceDefinition>
         {
             new CognitiveServicesAccounts.Definition(),
             new PrivateEndpointConnections.Definition(),
