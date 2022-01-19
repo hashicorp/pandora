@@ -1,8 +1,7 @@
 ﻿using Pandora.Definitions.Interfaces;
 
-namespace Pandora.Definitions.DataPlane
+namespace Pandora.Definitions.DataPlane;
+
+public class DataPlaneServices : ServicesDefinition
 {
-    public class DataPlaneServices : ServicesDefinition
-    {
-    }
 }
