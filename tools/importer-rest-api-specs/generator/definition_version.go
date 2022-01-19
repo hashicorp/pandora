@@ -81,7 +81,7 @@ func codeForApiVersionDefinition(namespace, apiVersion string, isPreview bool, r
 
 	lines := make([]string, 0)
 	for _, name := range names {
-		lines = append(lines, fmt.Sprintf("\t\t\tnew %s.Definition(),", name))
+		lines = append(lines, fmt.Sprintf("\t\tnew %s.Definition(),", name))
 	}
 
 	return fmt.Sprintf(`using System.Collections.Generic;
