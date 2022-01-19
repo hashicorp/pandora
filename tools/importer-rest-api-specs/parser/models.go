@@ -6,6 +6,7 @@ import (
 	"strings"
 
 	"github.com/go-openapi/spec"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/cleanup"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
@@ -507,7 +508,13 @@ func (d SwaggerDefinition) parseObjectDefinition(modelName, propertyName string,
 	}
 
 	if input.Type.Contains("array") && input.Items.Schema != nil {
-		nestedItem, nestedResult, err := d.parseObjectDefinition(input.Items.Schema.Title, propertyName, input.Items.Schema, result)
+		inlinedName := input.Items.Schema.Title
+		if inlinedName == "" {
+			// generate one based on the info we have
+			inlinedName = fmt.Sprintf("%s%sInlined", cleanup.NormalizeName(modelName), cleanup.NormalizeName(propertyName))
+		}
+
+		nestedItem, nestedResult, err := d.parseObjectDefinition(inlinedName, propertyName, input.Items.Schema, result)
 		if err != nil {
 			return nil, nil, fmt.Errorf("parsing nested item for array: %+v", err)
 		}
