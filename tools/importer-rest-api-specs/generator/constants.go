@@ -33,13 +33,12 @@ func (g PandoraDefinitionGenerator) codeForConstant(namespace, constantName stri
 	out := fmt.Sprintf(`using Pandora.Definitions.Attributes;
 using System.ComponentModel;
 
-namespace %[1]s
-{
+namespace %[1]s;
+
 %[4]s
-	internal enum %[2]sConstant
-	{
+internal enum %[2]sConstant
+{
 %[3]s
-	}
 }
 `, namespace, constantName, strings.Join(code, "\n\n"), strings.Join(attributes, "\n"))
 	return &out, nil

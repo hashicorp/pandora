@@ -27,17 +27,15 @@ func (g PandoraDefinitionGenerator) codeForPackageDefinition(namespace, resource
 	return fmt.Sprintf(`using System.Collections.Generic;
 using Pandora.Definitions.Interfaces;
 
-namespace %[1]s
+namespace %[1]s;
+
+internal class Definition : ResourceDefinition
 {
-	internal class Definition : ApiDefinition
+	public string Name => "%[2]s";
+	public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
 	{
-		public string ApiVersion => "%[3]s";
-		public string Name => "%[2]s";
-		public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
-		{
-%[4]s
-		};
-	}
+%[3]s
+	};
 }
 `, namespace, normalizedResourceName, g.data.ApiVersion, strings.Join(lines, "\n"))
 }

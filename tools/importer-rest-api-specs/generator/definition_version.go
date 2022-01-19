@@ -87,29 +87,26 @@ func codeForApiVersionDefinition(namespace, apiVersion string, isPreview bool, r
 	return fmt.Sprintf(`using System.Collections.Generic;
 using Pandora.Definitions.Interfaces;
 
-namespace %[1]s
+namespace %[1]s;
+public partial class Definition : ApiVersionDefinition
 {
-	public partial class Definition : ApiVersionDefinition
+	public string ApiVersion => %[2]q;
+	public bool Preview => %[3]t;
+	
+	public IEnumerable<ResourceDefinition> Resources => new List<ResourceDefinition>
 	{
-		public string ApiVersion => %[2]q;
-		public bool Preview => %[3]t;
-		
-		public IEnumerable<ApiDefinition> Apis => new List<ApiDefinition>
-		{
 %[4]s
-		};
-	}
+	};
 }
 `, namespace, apiVersion, isPreview, strings.Join(lines, "\n"))
 }
 
 func codeForApiVersionDefinitionSetting(namespace string) string {
-	return fmt.Sprintf(`namespace %[1]s
+	return fmt.Sprintf(`namespace %[1]s;
+
+public partial class Definition
 {
-	public partial class Definition
-	{
-		public bool Generate => true;
-	}
+	public bool Generate => true;
 }
 `, namespace)
 }

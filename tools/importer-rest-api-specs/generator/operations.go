@@ -127,14 +127,13 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace %[1]s
+namespace %[1]s;
+
+internal class %[2]sOperation : Operations.%[3]sOperation
 {
-	internal class %[2]sOperation : Operations.%[3]sOperation
-	{
 %[4]s
 
 %[5]s
-	}
 }
 `, namespace, operationName, operationType, strings.Join(code, "\n\n"), strings.Join(optionsCode, "\n"))
 	return &output, nil
