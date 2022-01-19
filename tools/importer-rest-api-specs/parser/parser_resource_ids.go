@@ -2,12 +2,13 @@ package parser
 
 import (
 	"fmt"
-	"github.com/go-openapi/spec"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/cleanup"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"log"
 	"sort"
 	"strings"
+
+	"github.com/go-openapi/spec"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/cleanup"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
 var knownSegmentsUsedForScope = []string{
@@ -512,10 +513,6 @@ func determineNamesForResourceIds(urisToObjects map[string]resourceUriMetadata) 
 }
 
 func checkForAliasForUri(resourceId *models.ParsedResourceId) *string {
-	var ptr = func(in string) *string {
-		return &in
-	}
-
 	aliasedIds := map[string]models.ParsedResourceId{
 		"Subscription": {
 			Constants: map[string]models.ConstantDetails{},
@@ -523,7 +520,7 @@ func checkForAliasForUri(resourceId *models.ParsedResourceId) *string {
 				{
 					Type:       models.StaticSegment,
 					Name:       "subscriptions",
-					FixedValue: ptr("subscriptions"),
+					FixedValue: toPtr("subscriptions"),
 				},
 				{
 					Type: models.SubscriptionIdSegment,
@@ -537,7 +534,7 @@ func checkForAliasForUri(resourceId *models.ParsedResourceId) *string {
 				{
 					Type:       models.StaticSegment,
 					Name:       "subscriptions",
-					FixedValue: ptr("subscriptions"),
+					FixedValue: toPtr("subscriptions"),
 				},
 				{
 					Type: models.SubscriptionIdSegment,
@@ -546,7 +543,7 @@ func checkForAliasForUri(resourceId *models.ParsedResourceId) *string {
 				{
 					Type:       models.StaticSegment,
 					Name:       "resourceGroups",
-					FixedValue: ptr("resourceGroups"),
+					FixedValue: toPtr("resourceGroups"),
 				},
 				{
 					Type: models.ResourceGroupSegment,

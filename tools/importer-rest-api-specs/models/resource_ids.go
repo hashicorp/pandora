@@ -57,6 +57,11 @@ func (pri ParsedResourceId) Matches(other ParsedResourceId) bool {
 			continue
 		}
 
+		// With a Scope the key doesn't matter as much as that it's a Scope, so presuming the types match (above) we're good.
+		if first.Type == ScopeSegment {
+			continue
+		}
+
 		if first.Type == ConstantSegment {
 			if first.ConstantReference != nil && second.ConstantReference == nil {
 				return false
@@ -187,11 +192,12 @@ func normalizedResourceId(segments []ResourceIdSegment) string {
 	components := make([]string, 0)
 	for _, segment := range segments {
 		switch segment.Type {
-		case ResourceProviderSegment: {
-			normalizedSegment := cleanup.NormalizeResourceProviderName(*segment.FixedValue)
-			components = append(components, normalizedSegment)
-			continue
-		}
+		case ResourceProviderSegment:
+			{
+				normalizedSegment := cleanup.NormalizeResourceProviderName(*segment.FixedValue)
+				components = append(components, normalizedSegment)
+				continue
+			}
 
 		case StaticSegment:
 			{

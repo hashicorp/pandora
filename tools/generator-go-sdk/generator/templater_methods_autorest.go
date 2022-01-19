@@ -35,6 +35,7 @@ import (
 
 	"github.com/Azure/go-autorest/autorest"
 	"github.com/Azure/go-autorest/autorest/azure"
+	"github.com/hashicorp/go-azure-helpers/resourcemanager/commonids"
 	"github.com/hashicorp/go-azure-helpers/polling"
 )
 
@@ -133,7 +134,7 @@ func (c methodsAutoRestTemplater) methods(data ServiceGeneratorData) (*string, e
 }
 
 func (c methodsAutoRestTemplater) immediateOperationTemplate(data ServiceGeneratorData) (*string, error) {
-	argumentsMethodCode, err := c.argumentsTemplateForMethod()
+	argumentsMethodCode, err := c.argumentsTemplateForMethod(data)
 	if err != nil {
 		return nil, fmt.Errorf("building arguments for immediate operation: %+v", err)
 	}
@@ -189,7 +190,7 @@ func (c %[1]s) %[2]s(ctx context.Context %[4]s) (result %[2]sResponse, err error
 }
 
 func (c methodsAutoRestTemplater) listOperationTemplate(data ServiceGeneratorData) (*string, error) {
-	argumentsMethodCode, err := c.argumentsTemplateForMethod()
+	argumentsMethodCode, err := c.argumentsTemplateForMethod(data)
 	if err != nil {
 		return nil, fmt.Errorf("building arguments for list operation: %+v", err)
 	}
@@ -293,7 +294,7 @@ func (c %[1]s) %[2]sCompleteMatchingPredicate(ctx context.Context %[4]s, predica
 }
 
 func (c methodsAutoRestTemplater) longRunningOperationTemplate(data ServiceGeneratorData) (*string, error) {
-	argumentsMethodCode, err := c.argumentsTemplateForMethod()
+	argumentsMethodCode, err := c.argumentsTemplateForMethod(data)
 	if err != nil {
 		return nil, fmt.Errorf("building arguments for long running template: %+v", err)
 	}
@@ -371,10 +372,19 @@ func (c methodsAutoRestTemplater) argumentsTemplate() string {
 	return fmt.Sprintf(", %s", strings.Join(args, ", "))
 }
 
-func (c methodsAutoRestTemplater) argumentsTemplateForMethod() (*string, error) {
+func (c methodsAutoRestTemplater) argumentsTemplateForMethod(data ServiceGeneratorData) (*string, error) {
 	arguments := make([]string, 0)
 	if c.operation.ResourceIdName != nil {
-		arguments = append(arguments, fmt.Sprintf("id %s", *c.operation.ResourceIdName))
+		idName := *c.operation.ResourceIdName
+		id, ok := data.resourceIds[idName]
+		if !ok {
+			return nil, fmt.Errorf("internal error: Resource ID %q was not found", idName)
+		}
+		if id.CommonAlias != nil {
+			idName = fmt.Sprintf("commonids.%sId", *id.CommonAlias)
+		}
+
+		arguments = append(arguments, fmt.Sprintf("id %s", idName))
 	}
 	if c.operation.RequestObject != nil {
 		typeName, err := golangTypeNameForObjectDefinition(*c.operation.RequestObject)
@@ -400,7 +410,7 @@ func (c methodsAutoRestTemplater) preparerTemplate(data ServiceGeneratorData) (*
 		apiVersion = fmt.Sprintf("%q", *c.operation.ApiVersion)
 	}
 
-	arguments, err := c.argumentsTemplateForMethod()
+	arguments, err := c.argumentsTemplateForMethod(data)
 	if err != nil {
 		return nil, fmt.Errorf("building arguments for preparer template: %+v", err)
 	}

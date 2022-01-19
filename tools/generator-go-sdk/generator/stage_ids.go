@@ -9,9 +9,10 @@ func (s *ServiceGenerator) ids(data ServiceGeneratorData) error {
 	outputDirectory := data.outputPath
 
 	for idName, resourceData := range data.resourceIds {
-		if len(resourceData.Segments) == 0 {
+		if resourceData.CommonAlias != nil || len(resourceData.Segments) == 0 {
 			continue
 		}
+
 		nameWithoutSuffix := strings.TrimSuffix(idName, "Id") // we suffix 'Id' and 'ID' in places
 		fileNamePrefix := strings.ToLower(nameWithoutSuffix)
 		pt := resourceIdTemplater{

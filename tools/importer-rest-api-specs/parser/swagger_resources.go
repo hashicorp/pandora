@@ -5,6 +5,7 @@ import (
 	"log"
 	"strings"
 
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/featureflags"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
@@ -40,8 +41,11 @@ func (d *SwaggerDefinition) parseResourcesWithinSwaggerTag(tag *string, resource
 	// then switch out any custom types (e.g. Identity)
 	result = switchOutCustomTypesAsNeeded(result)
 
+	// then switch out any common resource ids (e.g. Resource Group)
+	resourceIdNamesToUris := switchOutCommonResourceIDsAsNeeded(resourceIds.nameToResourceIDs)
+
 	// finally remove any models and constants which aren't referenced / have been replaced
-	constantsAndModels, resourceIdNamesToUris := removeUnusedItems(*operations, resourceIds.nameToResourceIDs, result)
+	constantsAndModels, resourceIdNamesToUris := removeUnusedItems(*operations, resourceIdNamesToUris, result)
 
 	// if there's nothing here, there's no point generating a package
 	if len(*operations) == 0 {
@@ -59,6 +63,28 @@ func (d *SwaggerDefinition) parseResourcesWithinSwaggerTag(tag *string, resource
 	resource.Normalize()
 
 	return &resource, nil
+}
+
+func switchOutCommonResourceIDsAsNeeded(namesToUris map[string]models.ParsedResourceId) map[string]models.ParsedResourceId {
+	if !featureflags.EnableCommonResourceIDs {
+		return namesToUris
+	}
+
+	output := make(map[string]models.ParsedResourceId)
+
+	for name, value := range namesToUris {
+		for _, commonId := range commonIdTypes {
+			if commonId.isMatch(value) {
+				commonAlias := commonId.name()
+				value.CommonAlias = &commonAlias
+				break
+			}
+		}
+
+		output[name] = value
+	}
+
+	return output
 }
 
 func pullOutModelForListOperations(input map[string]models.OperationDetails, known parseResult) (*map[string]models.OperationDetails, error) {

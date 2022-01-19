@@ -20,6 +20,9 @@ func (g PandoraDefinitionGenerator) codeForResourceID(namespace string, resource
 	commonAlias := "null"
 	if resourceIdValue.CommonAlias != nil {
 		commonAlias = fmt.Sprintf("%q", *resourceIdValue.CommonAlias)
+
+		// when there's a CommonAlias the Segments are unnecessary, so there's no need to output it.
+		segmentsCode = []string{}
 	}
 
 	code := fmt.Sprintf(`using System.Collections.Generic;
