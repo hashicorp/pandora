@@ -5,57 +5,56 @@ using Pandora.Data.Helpers;
 using Pandora.Data.Models;
 using Pandora.Definitions.Attributes;
 
-namespace Pandora.Data.Transformers
+namespace Pandora.Data.Transformers;
+
+public static class Options
 {
-    public static class Options
+    public static List<OptionDefinition> Map(Type? input)
     {
-        public static List<OptionDefinition> Map(Type? input)
+        try
         {
-            try
+            if (input == null)
             {
-                if (input == null)
+                return new List<OptionDefinition>();
+            }
+
+            var definitions = new List<OptionDefinition>();
+
+            var props = input.GetProperties();
+            foreach (var property in props)
+            {
+                var definition = new OptionDefinition
                 {
-                    return new List<OptionDefinition>();
+                    Name = property.Name,
+                    Required = true,
+                    ObjectDefinition = ObjectDefinition.Map(property.PropertyType),
+                    QueryStringName = property.QueryStringName()
+                };
+
+                if (property.HasAttribute<OptionalAttribute>())
+                {
+                    definition.Required = false;
                 }
 
-                var definitions = new List<OptionDefinition>();
-
-                var props = input.GetProperties();
-                foreach (var property in props)
-                {
-                    var definition = new OptionDefinition
-                    {
-                        Name = property.Name,
-                        Required = true,
-                        ObjectDefinition = ObjectDefinition.Map(property.PropertyType),
-                        QueryStringName = property.QueryStringName()
-                    };
-
-                    if (property.HasAttribute<OptionalAttribute>())
-                    {
-                        definition.Required = false;
-                    }
-
-                    definitions.Add(definition);
-                }
-
-                return definitions;
+                definitions.Add(definition);
             }
-            catch (Exception ex)
-            {
-                throw new Exception($"Mapping Options Object {input.GetType().FullName}", ex);
-            }
+
+            return definitions;
         }
-
-        private static string QueryStringName(this MemberInfo info)
+        catch (Exception ex)
         {
-            var attr = info.GetCustomAttribute<QueryStringName>();
-            if (attr == null)
-            {
-                throw new NotSupportedException($"missing `QueryStringName` for property {info.Name}");
-            }
-
-            return attr.Name;
+            throw new Exception($"Mapping Options Object {input.GetType().FullName}", ex);
         }
+    }
+
+    private static string QueryStringName(this MemberInfo info)
+    {
+        var attr = info.GetCustomAttribute<QueryStringName>();
+        if (attr == null)
+        {
+            throw new NotSupportedException($"missing `QueryStringName` for property {info.Name}");
+        }
+
+        return attr.Name;
     }
 }

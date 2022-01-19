@@ -1,9 +1,8 @@
-namespace Pandora.Data.Models
+namespace Pandora.Data.Models;
+
+public enum ConstantType
 {
-    public enum ConstantType
-    {
-        String = 1,
-        Integer = 2,
-        Float = 3,
-    }
+    String = 1,
+    Integer = 2,
+    Float = 3,
 }

@@ -1,7 +1,6 @@
-namespace Pandora.Data.Models
+namespace Pandora.Data.Models;
+
+public enum ValidationType
 {
-    public enum ValidationType
-    {
-        Range
-    }
+    Range
 }
