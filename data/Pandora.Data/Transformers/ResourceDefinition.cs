@@ -6,9 +6,9 @@ using Pandora.Definitions.Interfaces;
 
 namespace Pandora.Data.Transformers;
 
-public static class APIDefinition
+public static class ResourceDefinition
 {
-    public static Models.ApiDefinition Map(Definitions.Interfaces.ResourceDefinition input)
+    public static Models.ResourceDefinition Map(Definitions.Interfaces.ResourceDefinition input)
     {
         try
         {
@@ -27,7 +27,7 @@ public static class APIDefinition
             constantDefinitions.AddRange(resourceIds.SelectMany(rid => rid.Constants).ToList());
             constantDefinitions = constantDefinitions.Distinct(new ConstantComparer()).ToList();
 
-            return new Models.ApiDefinition
+            return new Models.ResourceDefinition
             {
                 Name = input.Name,
                 Constants = constantDefinitions,

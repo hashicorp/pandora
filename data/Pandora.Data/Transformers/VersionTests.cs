@@ -23,7 +23,7 @@ public static class VersionTests
         Assert.AreEqual("SomeVersion", actual.Version);
         Assert.AreEqual(true, actual.Generate);
         Assert.AreEqual(false, actual.Preview);
-        Assert.AreEqual(1, actual.Apis.Count());
+        Assert.AreEqual(1, actual.Resources.Count());
     }
 
     [TestCase]
@@ -37,7 +37,7 @@ public static class VersionTests
         public string ApiVersion => "SomeVersion";
         public bool Generate => false;
         public bool Preview => false;
-        public IEnumerable<ResourceDefinition> Resources => new List<ResourceDefinition>();
+        public IEnumerable<Definitions.Interfaces.ResourceDefinition> Resources => new List<Definitions.Interfaces.ResourceDefinition>();
     }
 
     private class VersionDefinitionWithASingleOperation : ApiVersionDefinition
@@ -45,7 +45,7 @@ public static class VersionTests
         public string ApiVersion => "SomeVersion";
         public bool Generate => true;
         public bool Preview => false;
-        public IEnumerable<ResourceDefinition> Resources => new List<ResourceDefinition> { new SomeResourceDefinition() };
+        public IEnumerable<Definitions.Interfaces.ResourceDefinition> Resources => new List<Definitions.Interfaces.ResourceDefinition> { new SomeResourceDefinition() };
     }
 
     private class VersionDefinitionWithDuplicateOperations : ApiVersionDefinition
@@ -53,10 +53,10 @@ public static class VersionTests
         public string ApiVersion => "SomeVersion";
         public bool Generate => true;
         public bool Preview => false;
-        public IEnumerable<ResourceDefinition> Resources => new List<ResourceDefinition> { new SomeResourceDefinition(), new SomeResourceDefinition() };
+        public IEnumerable<Definitions.Interfaces.ResourceDefinition> Resources => new List<Definitions.Interfaces.ResourceDefinition> { new SomeResourceDefinition(), new SomeResourceDefinition() };
     }
 
-    private class SomeResourceDefinition : ResourceDefinition
+    private class SomeResourceDefinition : Definitions.Interfaces.ResourceDefinition
     {
         public string Name => "example";
         public IEnumerable<ApiOperation> Operations => new List<ApiOperation> { new FakeApiOperation() };

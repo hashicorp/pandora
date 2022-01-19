@@ -39,7 +39,7 @@ public class ApiSchemaController : ControllerBase
             return BadRequest($"version {apiVersion} was not found");
         }
 
-        var api = version.Apis.FirstOrDefault(a => a.Name == resourceName);
+        var api = version.Resources.FirstOrDefault(a => a.Name == resourceName);
         if (api == null)
         {
             return BadRequest($"resource {resourceName} was not found");
@@ -48,13 +48,13 @@ public class ApiSchemaController : ControllerBase
         return new JsonResult(MapResponse(api, version, service, resourceManager));
     }
 
-    private static ApiSchemaResponse MapResponse(ApiDefinition api, VersionDefinition version, ServiceDefinition service, bool resourceManager)
+    private static ApiSchemaResponse MapResponse(ResourceDefinition resource, VersionDefinition version, ServiceDefinition service, bool resourceManager)
     {
         return new ApiSchemaResponse
         {
-            Constants = api.Constants.ToDictionary(c => c.Name, ConstantApiDefinition.Map),
-            Models = api.Models.ToDictionary(m => m.Name, MapModel),
-            ResourceIds = api.ResourceIds.ToDictionary(id => id.Name, MapResourceId),
+            Constants = resource.Constants.ToDictionary(c => c.Name, ConstantApiDefinition.Map),
+            Models = resource.Models.ToDictionary(m => m.Name, MapModel),
+            ResourceIds = resource.ResourceIds.ToDictionary(id => id.Name, MapResourceId),
         };
     }
 

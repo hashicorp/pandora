@@ -25,10 +25,10 @@ public static class Version
                 throw new NotSupportedException($"Version {input.ApiVersion} has duplicate operations");
             }
 
-            var apiDefinitions = input.Resources.Select(APIDefinition.Map);
+            var resourceDefinitions = input.Resources.Select(ResourceDefinition.Map);
             return new VersionDefinition
             {
-                Apis = apiDefinitions,
+                Resources = resourceDefinitions,
                 Generate = input.Generate,
                 Preview = input.Preview,
                 Version = input.ApiVersion,

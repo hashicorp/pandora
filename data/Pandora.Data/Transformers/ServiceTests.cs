@@ -52,7 +52,7 @@ public static class ServiceTests
             public string ApiVersion => "SomeVersion";
             public bool Generate => true;
             public bool Preview => true;
-            public IEnumerable<ResourceDefinition> Resources => new List<ResourceDefinition> { new FakeResourceDefinition() };
+            public IEnumerable<Definitions.Interfaces.ResourceDefinition> Resources => new List<Definitions.Interfaces.ResourceDefinition> { new FakeResourceDefinition() };
         }
     }
 
@@ -81,11 +81,11 @@ public static class ServiceTests
             public string ApiVersion => "SomeVersion";
             public bool Generate => true;
             public bool Preview => true;
-            public IEnumerable<ResourceDefinition> Resources => new List<ResourceDefinition> { new FakeResourceDefinition() };
+            public IEnumerable<Definitions.Interfaces.ResourceDefinition> Resources => new List<Definitions.Interfaces.ResourceDefinition> { new FakeResourceDefinition() };
         }
     }
 
-    private class FakeResourceDefinition : ResourceDefinition
+    private class FakeResourceDefinition : Definitions.Interfaces.ResourceDefinition
     {
         public string Name => "example";
         public IEnumerable<ApiOperation> Operations => new List<ApiOperation> { new FakeApiOperation() };

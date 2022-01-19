@@ -10,21 +10,22 @@ using Pandora.Data.Models;
 using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Interfaces;
 using Pandora.Definitions.Operations;
+using ResourceDefinition = Pandora.Definitions.Interfaces.ResourceDefinition;
 
 namespace Pandora.Data.Transformers;
 
-public static class APIDefinitionTests
+public static class ResourceDefinitionTests
 {
     [TestCase]
     public static void ApiVersionWithNoOperationsShouldFail()
     {
-        Assert.Throws<Exception>(() => APIDefinition.Map(new ResourceVersionWithNoOperations()));
+        Assert.Throws<Exception>(() => ResourceDefinition.Map(new ResourceVersionWithNoOperations()));
     }
 
     [TestCase]
     public static void MappingAnApiVersionWithASingleOperation()
     {
-        var actual = APIDefinition.Map(new ResourceVersionWithASingleOperation());
+        var actual = ResourceDefinition.Map(new ResourceVersionWithASingleOperation());
         Assert.NotNull(actual);
         Assert.AreEqual("ApiVersionWithASingleOperation", actual.Name);
         Assert.AreEqual(1, actual.Operations.Count);
@@ -35,7 +36,7 @@ public static class APIDefinitionTests
     [TestCase]
     public static void MappingAnApiVersionWithMultipleOperations()
     {
-        var actual = APIDefinition.Map(new ResourceVersionWithAMultipleOperations());
+        var actual = ResourceDefinition.Map(new ResourceVersionWithAMultipleOperations());
         Assert.NotNull(actual);
         Assert.AreEqual("ApiVersionWithAMultipleOperations", actual.Name);
         Assert.AreEqual(2, actual.Operations.Count);
@@ -48,7 +49,7 @@ public static class APIDefinitionTests
     [TestCase]
     public static void MappingAnApiVersionContainingARequestModel()
     {
-        var actual = APIDefinition.Map(new ResourceVersionWithARequestModel());
+        var actual = ResourceDefinition.Map(new ResourceVersionWithARequestModel());
         Assert.NotNull(actual);
         Assert.AreEqual("ApiVersionWithARequestModel", actual.Name);
         Assert.AreEqual(1, actual.Operations.Count);
@@ -61,7 +62,7 @@ public static class APIDefinitionTests
     [TestCase]
     public static void MappingAnApiVersionContainingARequestAndResponseModel()
     {
-        var actual = APIDefinition.Map(new ResourceVersionWithARequestAndResponseModel());
+        var actual = ResourceDefinition.Map(new ResourceVersionWithARequestAndResponseModel());
         Assert.NotNull(actual);
         Assert.AreEqual("ApiVersionWithARequestAndResponseModel", actual.Name);
         Assert.AreEqual(1, actual.Operations.Count);
@@ -75,7 +76,7 @@ public static class APIDefinitionTests
     [TestCase]
     public static void MappingAnApiVersionContainingAResponseModel()
     {
-        var actual = APIDefinition.Map(new ResourceVersionWithAResponseModel());
+        var actual = ResourceDefinition.Map(new ResourceVersionWithAResponseModel());
         Assert.NotNull(actual);
         Assert.AreEqual("ApiVersionWithAResponseModel", actual.Name);
         Assert.AreEqual(1, actual.Operations.Count);
@@ -88,7 +89,7 @@ public static class APIDefinitionTests
     [TestCase]
     public static void MappingAnApiVersionContainingNestedModels()
     {
-        var actual = APIDefinition.Map(new ResourceVersionWithANestedResponseModel());
+        var actual = ResourceDefinition.Map(new ResourceVersionWithANestedResponseModel());
         Assert.NotNull(actual);
         Assert.AreEqual("ApiVersionWithANestedResponseModel", actual.Name);
         Assert.AreEqual(1, actual.Operations.Count);
@@ -103,7 +104,7 @@ public static class APIDefinitionTests
     [TestCase]
     public static void MappingAnApiVersionContainingDuplicateModelsAreDeDuped()
     {
-        var actual = APIDefinition.Map(new ResourceVersionWithADuplicateNestedResponseModel());
+        var actual = ResourceDefinition.Map(new ResourceVersionWithADuplicateNestedResponseModel());
         Assert.NotNull(actual);
         Assert.AreEqual("ApiVersionWithADuplicateNestedResponseModel", actual.Name);
         Assert.AreEqual(1, actual.Operations.Count);
@@ -117,7 +118,7 @@ public static class APIDefinitionTests
     [TestCase]
     public static void MappingAnApiVersionContainingConstants()
     {
-        var actual = APIDefinition.Map(new ResourceVersionWithARequestModelAndConstant());
+        var actual = ResourceDefinition.Map(new ResourceVersionWithARequestModelAndConstant());
         Assert.NotNull(actual);
         Assert.AreEqual("ApiVersionWithARequestModelAndConstant", actual.Name);
         Assert.AreEqual(1, actual.Operations.Count);
@@ -131,7 +132,7 @@ public static class APIDefinitionTests
     [TestCase]
     public static void MappingAnApiVersionContainingDuplicateConstants()
     {
-        var actual = APIDefinition.Map(new ResourceVersionWithARequestModelAndDuplicateConstants());
+        var actual = ResourceDefinition.Map(new ResourceVersionWithARequestModelAndDuplicateConstants());
         Assert.NotNull(actual);
         Assert.AreEqual("ApiVersionWithARequestModelAndDuplicateConstants", actual.Name);
         Assert.AreEqual(1, actual.Operations.Count);
@@ -145,7 +146,7 @@ public static class APIDefinitionTests
     [TestCase]
     public static void MappingAnApiVersionContainingNestedConstants()
     {
-        var actual = APIDefinition.Map(new ResourceVersionWithARequestModelWithNestedConstants());
+        var actual = ResourceDefinition.Map(new ResourceVersionWithARequestModelWithNestedConstants());
         Assert.NotNull(actual);
         Assert.AreEqual("ApiVersionWithARequestModelWithNestedConstants", actual.Name);
         Assert.AreEqual(1, actual.Operations.Count);
@@ -161,7 +162,7 @@ public static class APIDefinitionTests
     [TestCase]
     public static void MappingAnApiVersionContainingDuplicateNestedConstants()
     {
-        var actual = APIDefinition.Map(new ResourceVersionWithARequestModelWithDuplicateNestedConstants());
+        var actual = ResourceDefinition.Map(new ResourceVersionWithARequestModelWithDuplicateNestedConstants());
         Assert.NotNull(actual);
         Assert.AreEqual("ApiVersionWithARequestModelWithDuplicateNestedConstants", actual.Name);
         Assert.AreEqual(1, actual.Operations.Count);
@@ -176,7 +177,7 @@ public static class APIDefinitionTests
     [TestCase]
     public static void MappingAnApiVersionWithMultipleOperationsAndASharedConstant()
     {
-        var actual = APIDefinition.Map(new ResourceVersionWithAMultipleOperationsAndASharedConstant());
+        var actual = ResourceDefinition.Map(new ResourceVersionWithAMultipleOperationsAndASharedConstant());
         Assert.NotNull(actual);
         Assert.AreEqual("ApiVersionWithAMultipleOperationsAndASharedConstant", actual.Name);
         Assert.AreEqual(2, actual.Operations.Count);
@@ -189,7 +190,7 @@ public static class APIDefinitionTests
     [TestCase]
     public static void MappingAnApiVersionWithMultipleOperationsAndASharedModel()
     {
-        var actual = APIDefinition.Map(new ResourceVersionWithAMultipleOperationsAndASharedModel());
+        var actual = ResourceDefinition.Map(new ResourceVersionWithAMultipleOperationsAndASharedModel());
         Assert.NotNull(actual);
         Assert.AreEqual("ApiVersionWithAMultipleOperationsAndASharedModel", actual.Name);
         Assert.AreEqual(2, actual.Operations.Count);
@@ -202,7 +203,7 @@ public static class APIDefinitionTests
     [TestCase]
     public static void MappingAnApiWhichContainsAConstantWithinOptions()
     {
-        var actual = APIDefinition.Map(new ResourceVersionWithAConstantWithinOptions());
+        var actual = ResourceDefinition.Map(new ResourceVersionWithAConstantWithinOptions());
         Assert.NotNull(actual);
         Assert.AreEqual("ApiVersionWithAConstantWithinOptions", actual.Name);
         Assert.AreEqual(1, actual.Operations.Count);
@@ -217,7 +218,7 @@ public static class APIDefinitionTests
     [TestCase]
     public static void MappingAnApiWhichContainsAConstantWithinResourceId()
     {
-        var actual = APIDefinition.Map(new ResourceVersionWithConstantWithinResourceId());
+        var actual = ResourceDefinition.Map(new ResourceVersionWithConstantWithinResourceId());
         Assert.NotNull(actual);
         Assert.AreEqual("ApiVersionWithConstantWithinResourceId", actual.Name);
         Assert.AreEqual(1, actual.Operations.Count);
@@ -232,7 +233,7 @@ public static class APIDefinitionTests
     [Test]
     public static void MappingAnApiWhichReturnsADiscriminatedType()
     {
-        var actual = APIDefinition.Map(new ResourceVersionReturningADiscriminatedType());
+        var actual = ResourceDefinition.Map(new ResourceVersionReturningADiscriminatedType());
         Assert.NotNull(actual);
         Assert.AreEqual("ApiVersionReturningADiscriminatedType", actual.Name);
         Assert.AreEqual(1, actual.Operations.Count);
@@ -258,7 +259,7 @@ public static class APIDefinitionTests
     [Test]
     public static void MappingAnApiWhichReturnsAModelContainingAListOfADiscriminatedType()
     {
-        var actual = APIDefinition.Map(new ResourceVersionReturningAModelContainingAListOfADiscriminatedType());
+        var actual = ResourceDefinition.Map(new ResourceVersionReturningAModelContainingAListOfADiscriminatedType());
         Assert.NotNull(actual);
         Assert.AreEqual("ApiVersionReturningAModelContainingAListOfADiscriminatedType", actual.Name);
         Assert.AreEqual(1, actual.Operations.Count);
@@ -292,22 +293,22 @@ public static class APIDefinitionTests
     public static void MappingAnApiWhichReturnsAModelContainingAListOfADiscriminatedTypeWithNoBaseTypeShouldReturnError()
     {
         // this handles the case of invalid data as seem in https://github.com/hashicorp/pandora/issues/73#issuecomment-935943146 
-        Assert.Throws<Exception>(() => APIDefinition.Map(new ResourceVersionReturningAModelContainingAListOfADiscriminatedTypeWithNoBaseType()));
+        Assert.Throws<Exception>(() => ResourceDefinition.Map(new ResourceVersionReturningAModelContainingAListOfADiscriminatedTypeWithNoBaseType()));
     }
 
-    private class ResourceVersionWithNoOperations : ResourceDefinition
+    private class ResourceVersionWithNoOperations : Definitions.Interfaces.ResourceDefinition
     {
         public string Name => "ApiVersionWithNoOperations";
         public IEnumerable<ApiOperation> Operations => new List<ApiOperation>();
     }
 
-    private class ResourceVersionWithASingleOperation : ResourceDefinition
+    private class ResourceVersionWithASingleOperation : Definitions.Interfaces.ResourceDefinition
     {
         public string Name => "ApiVersionWithASingleOperation";
         public IEnumerable<ApiOperation> Operations => new List<ApiOperation> { new FakeOperation() };
     }
 
-    private class ResourceVersionWithAMultipleOperations : ResourceDefinition
+    private class ResourceVersionWithAMultipleOperations : Definitions.Interfaces.ResourceDefinition
     {
         public string Name => "ApiVersionWithAMultipleOperations";
 
@@ -315,13 +316,13 @@ public static class APIDefinitionTests
             {new FakeOperation(), new FakeOtherOperation()};
     }
 
-    private class ResourceVersionWithARequestModel : ResourceDefinition
+    private class ResourceVersionWithARequestModel : Definitions.Interfaces.ResourceDefinition
     {
         public string Name => "ApiVersionWithARequestModel";
         public IEnumerable<ApiOperation> Operations => new List<ApiOperation> { new FakeOperationWithRequestModel() };
     }
 
-    private class ResourceVersionWithARequestAndResponseModel : ResourceDefinition
+    private class ResourceVersionWithARequestAndResponseModel : Definitions.Interfaces.ResourceDefinition
     {
         public string Name => "ApiVersionWithARequestAndResponseModel";
 
@@ -329,7 +330,7 @@ public static class APIDefinitionTests
             {new FakeOperationWithRequestAndResponseModel()};
     }
 
-    private class ResourceVersionWithAResponseModel : ResourceDefinition
+    private class ResourceVersionWithAResponseModel : Definitions.Interfaces.ResourceDefinition
     {
         public string Name => "ApiVersionWithAResponseModel";
 
@@ -337,7 +338,7 @@ public static class APIDefinitionTests
             new List<ApiOperation> { new FakeOperationWithResponseModel() };
     }
 
-    private class ResourceVersionWithANestedResponseModel : ResourceDefinition
+    private class ResourceVersionWithANestedResponseModel : Definitions.Interfaces.ResourceDefinition
     {
         public string Name => "ApiVersionWithANestedResponseModel";
 
@@ -345,7 +346,7 @@ public static class APIDefinitionTests
             {new FakeOperationWithANestedResponseModel()};
     }
 
-    private class ResourceVersionWithADuplicateNestedResponseModel : ResourceDefinition
+    private class ResourceVersionWithADuplicateNestedResponseModel : Definitions.Interfaces.ResourceDefinition
     {
         public string Name => "ApiVersionWithADuplicateNestedResponseModel";
 
@@ -353,7 +354,7 @@ public static class APIDefinitionTests
             {new FakeOperationWithADuplicateNestedResponseModel()};
     }
 
-    private class ResourceVersionWithARequestModelAndConstant : ResourceDefinition
+    private class ResourceVersionWithARequestModelAndConstant : Definitions.Interfaces.ResourceDefinition
     {
         public string Name => "ApiVersionWithARequestModelAndConstant";
 
@@ -361,7 +362,7 @@ public static class APIDefinitionTests
             {new FakeOperationWithRequestModelAndConstant()};
     }
 
-    private class ResourceVersionWithARequestModelAndDuplicateConstants : ResourceDefinition
+    private class ResourceVersionWithARequestModelAndDuplicateConstants : Definitions.Interfaces.ResourceDefinition
     {
         public string Name => "ApiVersionWithARequestModelAndDuplicateConstants";
 
@@ -369,7 +370,7 @@ public static class APIDefinitionTests
             {new FakeOperationWithRequestModelAndDuplicateConstants()};
     }
 
-    private class ResourceVersionWithARequestModelWithNestedConstants : ResourceDefinition
+    private class ResourceVersionWithARequestModelWithNestedConstants : Definitions.Interfaces.ResourceDefinition
     {
         public string Name => "ApiVersionWithARequestModelWithNestedConstants";
 
@@ -377,7 +378,7 @@ public static class APIDefinitionTests
             {new FakeOperationWithRequestModelAndNestedConstants()};
     }
 
-    private class ResourceVersionWithARequestModelWithDuplicateNestedConstants : ResourceDefinition
+    private class ResourceVersionWithARequestModelWithDuplicateNestedConstants : Definitions.Interfaces.ResourceDefinition
     {
         public string Name => "ApiVersionWithARequestModelWithDuplicateNestedConstants";
 
@@ -385,7 +386,7 @@ public static class APIDefinitionTests
             {new FakeOperationWithRequestModelAndDuplicateNestedConstants()};
     }
 
-    private class ResourceVersionWithAMultipleOperationsAndASharedConstant : ResourceDefinition
+    private class ResourceVersionWithAMultipleOperationsAndASharedConstant : Definitions.Interfaces.ResourceDefinition
     {
         public string Name => "ApiVersionWithAMultipleOperationsAndASharedConstant";
 
@@ -434,7 +435,7 @@ public static class APIDefinitionTests
         }
     }
 
-    private class ResourceVersionWithAMultipleOperationsAndASharedModel : ResourceDefinition
+    private class ResourceVersionWithAMultipleOperationsAndASharedModel : Definitions.Interfaces.ResourceDefinition
     {
         public string Name => "ApiVersionWithAMultipleOperationsAndASharedModel";
 
@@ -782,7 +783,7 @@ public static class APIDefinitionTests
         public string Second { get; set; }
     }
 
-    private class ResourceVersionReturningADiscriminatedType : ResourceDefinition
+    private class ResourceVersionReturningADiscriminatedType : Definitions.Interfaces.ResourceDefinition
     {
         public string Name => "ApiVersionReturningADiscriminatedType";
         public IEnumerable<ApiOperation> Operations => new List<ApiOperation>
@@ -813,7 +814,7 @@ public static class APIDefinitionTests
         public string Name { get; set; }
     }
 
-    private class ResourceVersionReturningAModelContainingAListOfADiscriminatedType : ResourceDefinition
+    private class ResourceVersionReturningAModelContainingAListOfADiscriminatedType : Definitions.Interfaces.ResourceDefinition
     {
         public string Name => "ApiVersionReturningAModelContainingAListOfADiscriminatedType";
         public IEnumerable<ApiOperation> Operations => new List<ApiOperation>
@@ -836,7 +837,7 @@ public static class APIDefinitionTests
         public List<Doggy> Doggies { get; set; }
     }
 
-    private class ResourceVersionReturningAModelContainingAListOfADiscriminatedTypeWithNoBaseType : ResourceDefinition
+    private class ResourceVersionReturningAModelContainingAListOfADiscriminatedTypeWithNoBaseType : Definitions.Interfaces.ResourceDefinition
     {
         public string Name => "ApiVersionReturningAModelContainingAListOfADiscriminatedTypeWithNoBaseType";
         public IEnumerable<ApiOperation> Operations => new List<ApiOperation>
@@ -860,7 +861,7 @@ public static class APIDefinitionTests
         public string Name { get; set; }
     }
 
-    public class ResourceVersionWithConstantWithinResourceId : ResourceDefinition
+    public class ResourceVersionWithConstantWithinResourceId : Definitions.Interfaces.ResourceDefinition
     {
         public string Name => "ApiVersionWithConstantWithinResourceId";
 
@@ -911,7 +912,7 @@ public static class APIDefinitionTests
         }
     }
 
-    public class ResourceVersionWithAConstantWithinOptions : ResourceDefinition
+    public class ResourceVersionWithAConstantWithinOptions : Definitions.Interfaces.ResourceDefinition
     {
         public string Name => "ApiVersionWithAConstantWithinOptions";
 

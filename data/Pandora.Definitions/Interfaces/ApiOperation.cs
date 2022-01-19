@@ -7,9 +7,6 @@ namespace Pandora.Definitions.Interfaces;
 
 public interface ApiOperation
 {
-    // TODO: Custom API Version
-    // for when one operation uses a different API version to the others
-
     string? ContentType();
 
     IEnumerable<HttpStatusCode> ExpectedStatusCodes();

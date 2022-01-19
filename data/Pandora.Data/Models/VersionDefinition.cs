@@ -10,5 +10,5 @@ public class VersionDefinition
 
     public bool Preview { get; set; }
 
-    public IEnumerable<ApiDefinition> Apis { get; set; }
+    public IEnumerable<ResourceDefinition> Resources { get; set; }
 }

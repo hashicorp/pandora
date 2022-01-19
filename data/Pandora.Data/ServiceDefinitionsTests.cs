@@ -71,7 +71,7 @@ public class ServiceDefinitionsTests
             foreach (var version in service.Versions)
             {
                 Console.WriteLine($"Validating that Service {service.Name} Version {version.Version} maps..");
-                var apis = version.Apis.ToList();
+                var apis = version.Resources.ToList();
                 if (apis.Count == 0)
                 {
                     throw new NotSupportedException($"Service {service.Name} / Version {version.Version} has no API's");

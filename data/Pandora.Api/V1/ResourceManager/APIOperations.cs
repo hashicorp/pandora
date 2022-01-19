@@ -38,7 +38,7 @@ public class ApiOperationsController : ControllerBase
             return BadRequest($"version {apiVersion} was not found");
         }
 
-        var api = version.Apis.FirstOrDefault(a => a.Name == resourceName);
+        var api = version.Resources.FirstOrDefault(a => a.Name == resourceName);
         if (api == null)
         {
             return BadRequest($"resource {resourceName} was not found");
@@ -47,7 +47,7 @@ public class ApiOperationsController : ControllerBase
         return new JsonResult(MapResponse(api, version, service));
     }
 
-    private static ApiOperationsResponse MapResponse(ApiDefinition api, VersionDefinition version, ServiceDefinition service)
+    private static ApiOperationsResponse MapResponse(ResourceDefinition resource, VersionDefinition version, ServiceDefinition service)
     {
         var metaData = new OperationMetaData
         {
@@ -57,7 +57,7 @@ public class ApiOperationsController : ControllerBase
         return new ApiOperationsResponse
         {
             MetaData = metaData,
-            Operations = api.Operations.ToDictionary(o => o.Name, o => MapOperation(o, version.Version))
+            Operations = resource.Operations.ToDictionary(o => o.Name, o => MapOperation(o, version.Version))
         };
     }
 

@@ -44,12 +44,12 @@ public class ServiceVersionController : ControllerBase
     {
         return new ApiVersionResponse
         {
-            Resources = version.Apis.ToDictionary(a => a.Name,
+            Resources = version.Resources.ToDictionary(a => a.Name,
                 a => MapResourceForApiVersion(a, versionNumber, serviceName)),
         };
     }
 
-    private static ApiTypeInformation MapResourceForApiVersion(ApiDefinition definition, string versionNumber, string serviceName)
+    private static ApiTypeInformation MapResourceForApiVersion(ResourceDefinition definition, string versionNumber, string serviceName)
     {
         return new ApiTypeInformation
         {

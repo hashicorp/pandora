@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace Pandora.Data.Models;
 
-public class ApiDefinition
+public class ResourceDefinition
 {
     public string Name { get; set; }
     public List<ConstantDefinition> Constants { get; set; }
