@@ -2,12 +2,13 @@ package parser
 
 import (
 	"fmt"
-	"github.com/go-openapi/spec"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/cleanup"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"log"
 	"sort"
 	"strings"
+
+	"github.com/go-openapi/spec"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/cleanup"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
 var knownSegmentsUsedForScope = []string{

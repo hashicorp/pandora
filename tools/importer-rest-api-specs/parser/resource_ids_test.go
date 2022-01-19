@@ -841,18 +841,18 @@ func TestParseResourceIdContainingTheSegmentsNamedTheSame(t *testing.T) {
 		Constants: map[string]models.ConstantDetails{},
 		Segments: []models.ResourceIdSegment{
 			{
-				Type: models.StaticSegment,
-				Name: "staticProviders",
+				Type:       models.StaticSegment,
+				Name:       "staticProviders",
 				FixedValue: strPtr("providers"),
 			},
 			{
-				Type: models.ResourceProviderSegment,
-				Name: "staticMicrosoftManagement",
+				Type:       models.ResourceProviderSegment,
+				Name:       "staticMicrosoftManagement",
 				FixedValue: strPtr("Microsoft.Management"),
 			},
 			{
-				Type: models.StaticSegment,
-				Name: "staticManagementGroups",
+				Type:       models.StaticSegment,
+				Name:       "staticManagementGroups",
 				FixedValue: strPtr("managementGroups"),
 			},
 			{
@@ -860,18 +860,18 @@ func TestParseResourceIdContainingTheSegmentsNamedTheSame(t *testing.T) {
 				Name: "managementGroupId",
 			},
 			{
-				Type: models.StaticSegment,
-				Name: "staticProviders2",
+				Type:       models.StaticSegment,
+				Name:       "staticProviders2",
 				FixedValue: strPtr("providers"),
 			},
 			{
-				Type: models.ResourceProviderSegment,
-				Name: "staticMicrosoftBilling",
+				Type:       models.ResourceProviderSegment,
+				Name:       "staticMicrosoftBilling",
 				FixedValue: strPtr("Microsoft.Billing"),
 			},
 			{
-				Type: models.StaticSegment,
-				Name: "staticBillingPeriods",
+				Type:       models.StaticSegment,
+				Name:       "staticBillingPeriods",
 				FixedValue: strPtr("billingPeriods"),
 			},
 			{
