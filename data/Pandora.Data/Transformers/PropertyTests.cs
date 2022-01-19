@@ -40,434 +40,434 @@ public static class PropertiesTests
             switch (property.Name)
             {
                 case "AbstractType":
-                {
-                    Assert.AreEqual("AbstractType", actual.Name);
-                    Assert.AreEqual("abstractType", actual.JsonName);
-                    Assert.AreEqual(ObjectType.Reference, actual.ObjectDefinition.Type);
-                    Assert.AreEqual("SomeParentType", actual.ObjectDefinition.ReferenceName);
-                    Assert.IsTrue(actual.IsTypeHint);
-                    Assert.AreEqual(true, actual.Optional);
-                    Assert.AreEqual(false, actual.Required);
-                    continue;
-                }
+                    {
+                        Assert.AreEqual("AbstractType", actual.Name);
+                        Assert.AreEqual("abstractType", actual.JsonName);
+                        Assert.AreEqual(ObjectType.Reference, actual.ObjectDefinition.Type);
+                        Assert.AreEqual("SomeParentType", actual.ObjectDefinition.ReferenceName);
+                        Assert.IsTrue(actual.IsTypeHint);
+                        Assert.AreEqual(true, actual.Optional);
+                        Assert.AreEqual(false, actual.Required);
+                        continue;
+                    }
 
                 case "BasicBoolField":
-                {
-                    Assert.AreEqual("BasicBoolField", actual.Name);
-                    Assert.AreEqual("basicBoolField", actual.JsonName);
-                    Assert.AreEqual(ObjectType.Boolean, actual.ObjectDefinition.Type);
-                    Assert.Null(actual.ObjectDefinition.ReferenceName);
-                    Assert.Null(actual.ObjectDefinition.NestedItem);
-                    Assert.AreEqual(true, actual.Optional);
-                    Assert.AreEqual(false, actual.Required);
-                    continue;
-                }
+                    {
+                        Assert.AreEqual("BasicBoolField", actual.Name);
+                        Assert.AreEqual("basicBoolField", actual.JsonName);
+                        Assert.AreEqual(ObjectType.Boolean, actual.ObjectDefinition.Type);
+                        Assert.Null(actual.ObjectDefinition.ReferenceName);
+                        Assert.Null(actual.ObjectDefinition.NestedItem);
+                        Assert.AreEqual(true, actual.Optional);
+                        Assert.AreEqual(false, actual.Required);
+                        continue;
+                    }
 
                 case "BasicDateField":
-                {
-                    Assert.AreEqual("BasicDateField", actual.Name);
-                    Assert.AreEqual("basicDateField", actual.JsonName);
-                    Assert.AreEqual(ObjectType.DateTime, actual.ObjectDefinition.Type);
-                    Assert.Null(actual.ObjectDefinition.ReferenceName);
-                    Assert.Null(actual.ObjectDefinition.NestedItem);
-                    Assert.AreEqual(true, actual.Optional);
-                    Assert.AreEqual(false, actual.Required);
-                    continue;
-                }
+                    {
+                        Assert.AreEqual("BasicDateField", actual.Name);
+                        Assert.AreEqual("basicDateField", actual.JsonName);
+                        Assert.AreEqual(ObjectType.DateTime, actual.ObjectDefinition.Type);
+                        Assert.Null(actual.ObjectDefinition.ReferenceName);
+                        Assert.Null(actual.ObjectDefinition.NestedItem);
+                        Assert.AreEqual(true, actual.Optional);
+                        Assert.AreEqual(false, actual.Required);
+                        continue;
+                    }
 
                 case "BasicDictionaryOfString":
-                {
-                    Assert.AreEqual("BasicDictionaryOfString", actual.Name);
-                    Assert.AreEqual("basicDictionaryOfString", actual.JsonName);
-                    Assert.AreEqual(ObjectType.Dictionary, actual.ObjectDefinition.Type);
-                    Assert.Null(actual.ObjectDefinition.ReferenceName);
-                    Assert.NotNull(actual.ObjectDefinition.NestedItem);
-                    Assert.AreEqual(ObjectType.String, actual.ObjectDefinition.NestedItem.Type);
-                    Assert.Null(actual.ObjectDefinition.NestedItem.ReferenceName);
-                    Assert.Null(actual.ObjectDefinition.NestedItem.NestedItem);
-                    Assert.AreEqual(true, actual.Optional);
-                    Assert.AreEqual(false, actual.Required);
-                    continue;
-                }
+                    {
+                        Assert.AreEqual("BasicDictionaryOfString", actual.Name);
+                        Assert.AreEqual("basicDictionaryOfString", actual.JsonName);
+                        Assert.AreEqual(ObjectType.Dictionary, actual.ObjectDefinition.Type);
+                        Assert.Null(actual.ObjectDefinition.ReferenceName);
+                        Assert.NotNull(actual.ObjectDefinition.NestedItem);
+                        Assert.AreEqual(ObjectType.String, actual.ObjectDefinition.NestedItem.Type);
+                        Assert.Null(actual.ObjectDefinition.NestedItem.ReferenceName);
+                        Assert.Null(actual.ObjectDefinition.NestedItem.NestedItem);
+                        Assert.AreEqual(true, actual.Optional);
+                        Assert.AreEqual(false, actual.Required);
+                        continue;
+                    }
 
                 case "BasicIntField":
-                {
-                    Assert.AreEqual("BasicIntField", actual.Name);
-                    Assert.AreEqual("basicIntField", actual.JsonName);
-                    Assert.AreEqual(ObjectType.Integer, actual.ObjectDefinition.Type);
-                    Assert.Null(actual.ObjectDefinition.ReferenceName);
-                    Assert.Null(actual.ObjectDefinition.NestedItem);
-                    Assert.AreEqual(true, actual.Optional);
-                    Assert.AreEqual(false, actual.Required);
-                    continue;
-                }
+                    {
+                        Assert.AreEqual("BasicIntField", actual.Name);
+                        Assert.AreEqual("basicIntField", actual.JsonName);
+                        Assert.AreEqual(ObjectType.Integer, actual.ObjectDefinition.Type);
+                        Assert.Null(actual.ObjectDefinition.ReferenceName);
+                        Assert.Null(actual.ObjectDefinition.NestedItem);
+                        Assert.AreEqual(true, actual.Optional);
+                        Assert.AreEqual(false, actual.Required);
+                        continue;
+                    }
 
                 case "BasicLocationField":
-                {
-                    Assert.AreEqual("BasicLocationField", actual.Name);
-                    Assert.AreEqual("basicLocationField", actual.JsonName);
-                    Assert.AreEqual(ObjectType.Location, actual.ObjectDefinition.Type);
-                    Assert.Null(actual.ObjectDefinition.ReferenceName);
-                    Assert.Null(actual.ObjectDefinition.NestedItem);
-                    Assert.AreEqual(true, actual.Optional);
-                    Assert.AreEqual(false, actual.Required);
-                    continue;
-                }
+                    {
+                        Assert.AreEqual("BasicLocationField", actual.Name);
+                        Assert.AreEqual("basicLocationField", actual.JsonName);
+                        Assert.AreEqual(ObjectType.Location, actual.ObjectDefinition.Type);
+                        Assert.Null(actual.ObjectDefinition.ReferenceName);
+                        Assert.Null(actual.ObjectDefinition.NestedItem);
+                        Assert.AreEqual(true, actual.Optional);
+                        Assert.AreEqual(false, actual.Required);
+                        continue;
+                    }
 
                 case "BasicObjectField":
-                {
-                    Assert.AreEqual("BasicObjectField", actual.Name);
-                    Assert.AreEqual("basicObjectField", actual.JsonName);
-                    Assert.AreEqual(ObjectType.RawObject, actual.ObjectDefinition.Type);
-                    Assert.Null(actual.ObjectDefinition.ReferenceName);
-                    Assert.Null(actual.ObjectDefinition.NestedItem);
-                    Assert.AreEqual(true, actual.Optional);
-                    Assert.AreEqual(false, actual.Required);
-                    continue;
-                }
+                    {
+                        Assert.AreEqual("BasicObjectField", actual.Name);
+                        Assert.AreEqual("basicObjectField", actual.JsonName);
+                        Assert.AreEqual(ObjectType.RawObject, actual.ObjectDefinition.Type);
+                        Assert.Null(actual.ObjectDefinition.ReferenceName);
+                        Assert.Null(actual.ObjectDefinition.NestedItem);
+                        Assert.AreEqual(true, actual.Optional);
+                        Assert.AreEqual(false, actual.Required);
+                        continue;
+                    }
 
                 case "BasicStringField":
-                {
-                    Assert.AreEqual("BasicStringField", actual.Name);
-                    Assert.AreEqual("basicStringField", actual.JsonName);
-                    Assert.AreEqual(ObjectType.String, actual.ObjectDefinition.Type);
-                    Assert.Null(actual.ObjectDefinition.ReferenceName);
-                    Assert.Null(actual.ObjectDefinition.NestedItem);
-                    Assert.AreEqual(true, actual.Optional);
-                    Assert.AreEqual(false, actual.Required);
-                    continue;
-                }
+                    {
+                        Assert.AreEqual("BasicStringField", actual.Name);
+                        Assert.AreEqual("basicStringField", actual.JsonName);
+                        Assert.AreEqual(ObjectType.String, actual.ObjectDefinition.Type);
+                        Assert.Null(actual.ObjectDefinition.ReferenceName);
+                        Assert.Null(actual.ObjectDefinition.NestedItem);
+                        Assert.AreEqual(true, actual.Optional);
+                        Assert.AreEqual(false, actual.Required);
+                        continue;
+                    }
 
                 case "BasicTagsField":
-                {
-                    Assert.AreEqual("BasicTagsField", actual.Name);
-                    Assert.AreEqual("basicTagsField", actual.JsonName);
-                    Assert.AreEqual(ObjectType.Tags, actual.ObjectDefinition.Type);
-                    Assert.Null(actual.ObjectDefinition.ReferenceName);
-                    Assert.Null(actual.ObjectDefinition.NestedItem);
-                    Assert.AreEqual(true, actual.Optional);
-                    Assert.AreEqual(false, actual.Required);
-                    continue;
-                }
+                    {
+                        Assert.AreEqual("BasicTagsField", actual.Name);
+                        Assert.AreEqual("basicTagsField", actual.JsonName);
+                        Assert.AreEqual(ObjectType.Tags, actual.ObjectDefinition.Type);
+                        Assert.Null(actual.ObjectDefinition.ReferenceName);
+                        Assert.Null(actual.ObjectDefinition.NestedItem);
+                        Assert.AreEqual(true, actual.Optional);
+                        Assert.AreEqual(false, actual.Required);
+                        continue;
+                    }
 
                 case "BasicSystemAssignedIdentityField":
-                {
-                    Assert.AreEqual("BasicSystemAssignedIdentityField", actual.Name);
-                    Assert.AreEqual("basicSystemAssignedIdentityField", actual.JsonName);
-                    Assert.AreEqual(ObjectType.SystemAssignedIdentity, actual.ObjectDefinition.Type);
-                    Assert.Null(actual.ObjectDefinition.ReferenceName);
-                    Assert.Null(actual.ObjectDefinition.NestedItem);
-                    Assert.AreEqual(true, actual.Optional);
-                    Assert.AreEqual(false, actual.Required);
-                    continue;
-                }
+                    {
+                        Assert.AreEqual("BasicSystemAssignedIdentityField", actual.Name);
+                        Assert.AreEqual("basicSystemAssignedIdentityField", actual.JsonName);
+                        Assert.AreEqual(ObjectType.SystemAssignedIdentity, actual.ObjectDefinition.Type);
+                        Assert.Null(actual.ObjectDefinition.ReferenceName);
+                        Assert.Null(actual.ObjectDefinition.NestedItem);
+                        Assert.AreEqual(true, actual.Optional);
+                        Assert.AreEqual(false, actual.Required);
+                        continue;
+                    }
 
                 case "BasicSystemAndUserAssignedIdentityListField":
-                {
-                    Assert.AreEqual("BasicSystemAndUserAssignedIdentityListField", actual.Name);
-                    Assert.AreEqual("basicSystemAndUserAssignedIdentityListField", actual.JsonName);
-                    Assert.AreEqual(ObjectType.SystemAndUserAssignedIdentityList, actual.ObjectDefinition.Type);
-                    Assert.Null(actual.ObjectDefinition.ReferenceName);
-                    Assert.Null(actual.ObjectDefinition.NestedItem);
-                    Assert.AreEqual(true, actual.Optional);
-                    Assert.AreEqual(false, actual.Required);
-                    continue;
-                }
+                    {
+                        Assert.AreEqual("BasicSystemAndUserAssignedIdentityListField", actual.Name);
+                        Assert.AreEqual("basicSystemAndUserAssignedIdentityListField", actual.JsonName);
+                        Assert.AreEqual(ObjectType.SystemAndUserAssignedIdentityList, actual.ObjectDefinition.Type);
+                        Assert.Null(actual.ObjectDefinition.ReferenceName);
+                        Assert.Null(actual.ObjectDefinition.NestedItem);
+                        Assert.AreEqual(true, actual.Optional);
+                        Assert.AreEqual(false, actual.Required);
+                        continue;
+                    }
 
                 case "BasicSystemAndUserAssignedIdentityMapField":
-                {
-                    Assert.AreEqual("BasicSystemAndUserAssignedIdentityMapField", actual.Name);
-                    Assert.AreEqual("basicSystemAndUserAssignedIdentityMapField", actual.JsonName);
-                    Assert.AreEqual(ObjectType.SystemAndUserAssignedIdentityMap, actual.ObjectDefinition.Type);
-                    Assert.Null(actual.ObjectDefinition.ReferenceName);
-                    Assert.Null(actual.ObjectDefinition.NestedItem);
-                    Assert.AreEqual(true, actual.Optional);
-                    Assert.AreEqual(false, actual.Required);
-                    continue;
-                }
+                    {
+                        Assert.AreEqual("BasicSystemAndUserAssignedIdentityMapField", actual.Name);
+                        Assert.AreEqual("basicSystemAndUserAssignedIdentityMapField", actual.JsonName);
+                        Assert.AreEqual(ObjectType.SystemAndUserAssignedIdentityMap, actual.ObjectDefinition.Type);
+                        Assert.Null(actual.ObjectDefinition.ReferenceName);
+                        Assert.Null(actual.ObjectDefinition.NestedItem);
+                        Assert.AreEqual(true, actual.Optional);
+                        Assert.AreEqual(false, actual.Required);
+                        continue;
+                    }
 
                 case "BasicSystemOrUserAssignedIdentityListField":
-                {
-                    Assert.AreEqual("BasicSystemOrUserAssignedIdentityListField", actual.Name);
-                    Assert.AreEqual("basicSystemOrUserAssignedIdentityListField", actual.JsonName);
-                    Assert.AreEqual(ObjectType.SystemOrUserAssignedIdentityList, actual.ObjectDefinition.Type);
-                    Assert.Null(actual.ObjectDefinition.ReferenceName);
-                    Assert.Null(actual.ObjectDefinition.NestedItem);
-                    Assert.AreEqual(true, actual.Optional);
-                    Assert.AreEqual(false, actual.Required);
-                    continue;
-                }
+                    {
+                        Assert.AreEqual("BasicSystemOrUserAssignedIdentityListField", actual.Name);
+                        Assert.AreEqual("basicSystemOrUserAssignedIdentityListField", actual.JsonName);
+                        Assert.AreEqual(ObjectType.SystemOrUserAssignedIdentityList, actual.ObjectDefinition.Type);
+                        Assert.Null(actual.ObjectDefinition.ReferenceName);
+                        Assert.Null(actual.ObjectDefinition.NestedItem);
+                        Assert.AreEqual(true, actual.Optional);
+                        Assert.AreEqual(false, actual.Required);
+                        continue;
+                    }
 
                 case "BasicSystemOrUserAssignedIdentityMapField":
-                {
-                    Assert.AreEqual("BasicSystemOrUserAssignedIdentityMapField", actual.Name);
-                    Assert.AreEqual("basicSystemOrUserAssignedIdentityMapField", actual.JsonName);
-                    Assert.AreEqual(ObjectType.SystemOrUserAssignedIdentityMap, actual.ObjectDefinition.Type);
-                    Assert.Null(actual.ObjectDefinition.ReferenceName);
-                    Assert.Null(actual.ObjectDefinition.NestedItem);
-                    Assert.AreEqual(true, actual.Optional);
-                    Assert.AreEqual(false, actual.Required);
-                    continue;
-                }
+                    {
+                        Assert.AreEqual("BasicSystemOrUserAssignedIdentityMapField", actual.Name);
+                        Assert.AreEqual("basicSystemOrUserAssignedIdentityMapField", actual.JsonName);
+                        Assert.AreEqual(ObjectType.SystemOrUserAssignedIdentityMap, actual.ObjectDefinition.Type);
+                        Assert.Null(actual.ObjectDefinition.ReferenceName);
+                        Assert.Null(actual.ObjectDefinition.NestedItem);
+                        Assert.AreEqual(true, actual.Optional);
+                        Assert.AreEqual(false, actual.Required);
+                        continue;
+                    }
 
                 case "BasicUserAssignedIdentityListField":
-                {
-                    Assert.AreEqual("BasicUserAssignedIdentityListField", actual.Name);
-                    Assert.AreEqual("basicUserAssignedIdentityListField", actual.JsonName);
-                    Assert.AreEqual(ObjectType.UserAssignedIdentityList, actual.ObjectDefinition.Type);
-                    Assert.Null(actual.ObjectDefinition.ReferenceName);
-                    Assert.Null(actual.ObjectDefinition.NestedItem);
-                    Assert.AreEqual(true, actual.Optional);
-                    Assert.AreEqual(false, actual.Required);
-                    continue;
-                }
+                    {
+                        Assert.AreEqual("BasicUserAssignedIdentityListField", actual.Name);
+                        Assert.AreEqual("basicUserAssignedIdentityListField", actual.JsonName);
+                        Assert.AreEqual(ObjectType.UserAssignedIdentityList, actual.ObjectDefinition.Type);
+                        Assert.Null(actual.ObjectDefinition.ReferenceName);
+                        Assert.Null(actual.ObjectDefinition.NestedItem);
+                        Assert.AreEqual(true, actual.Optional);
+                        Assert.AreEqual(false, actual.Required);
+                        continue;
+                    }
 
                 case "BasicUserAssignedIdentityMapField":
-                {
-                    Assert.AreEqual("BasicUserAssignedIdentityMapField", actual.Name);
-                    Assert.AreEqual("basicUserAssignedIdentityMapField", actual.JsonName);
-                    Assert.AreEqual(ObjectType.UserAssignedIdentityMap, actual.ObjectDefinition.Type);
-                    Assert.Null(actual.ObjectDefinition.ReferenceName);
-                    Assert.Null(actual.ObjectDefinition.NestedItem);
-                    Assert.AreEqual(true, actual.Optional);
-                    Assert.AreEqual(false, actual.Required);
-                    continue;
-                }
+                    {
+                        Assert.AreEqual("BasicUserAssignedIdentityMapField", actual.Name);
+                        Assert.AreEqual("basicUserAssignedIdentityMapField", actual.JsonName);
+                        Assert.AreEqual(ObjectType.UserAssignedIdentityMap, actual.ObjectDefinition.Type);
+                        Assert.Null(actual.ObjectDefinition.ReferenceName);
+                        Assert.Null(actual.ObjectDefinition.NestedItem);
+                        Assert.AreEqual(true, actual.Optional);
+                        Assert.AreEqual(false, actual.Required);
+                        continue;
+                    }
 
                 case "Constant":
-                {
-                    Assert.AreEqual("Constant", actual.Name);
-                    Assert.AreEqual("constant", actual.JsonName);
-                    Assert.AreEqual(ObjectType.Reference, actual.ObjectDefinition.Type);
-                    Assert.AreEqual("SomeEnum", actual.ObjectDefinition.ReferenceName);
-                    Assert.Null(actual.ObjectDefinition.NestedItem);
-                    Assert.AreEqual(true, actual.Optional);
-                    Assert.AreEqual(false, actual.Required);
-                    continue;
-                }
+                    {
+                        Assert.AreEqual("Constant", actual.Name);
+                        Assert.AreEqual("constant", actual.JsonName);
+                        Assert.AreEqual(ObjectType.Reference, actual.ObjectDefinition.Type);
+                        Assert.AreEqual("SomeEnum", actual.ObjectDefinition.ReferenceName);
+                        Assert.Null(actual.ObjectDefinition.NestedItem);
+                        Assert.AreEqual(true, actual.Optional);
+                        Assert.AreEqual(false, actual.Required);
+                        continue;
+                    }
 
                 case "DateTime":
-                {
-                    Assert.AreEqual("DateTime", actual.Name);
-                    Assert.AreEqual("dateTime", actual.JsonName);
-                    Assert.AreEqual(ObjectType.DateTime, actual.ObjectDefinition.Type);
-                    Assert.Null(actual.ObjectDefinition.NestedItem);
-                    Assert.Null(actual.ObjectDefinition.ReferenceName);
-                    Assert.AreEqual(true, actual.Optional);
-                    Assert.AreEqual(false, actual.Required);
-                    Assert.AreEqual("RFC3339", actual.DateFormat);
-                    continue;
-                }
+                    {
+                        Assert.AreEqual("DateTime", actual.Name);
+                        Assert.AreEqual("dateTime", actual.JsonName);
+                        Assert.AreEqual(ObjectType.DateTime, actual.ObjectDefinition.Type);
+                        Assert.Null(actual.ObjectDefinition.NestedItem);
+                        Assert.Null(actual.ObjectDefinition.ReferenceName);
+                        Assert.AreEqual(true, actual.Optional);
+                        Assert.AreEqual(false, actual.Required);
+                        Assert.AreEqual("RFC3339", actual.DateFormat);
+                        continue;
+                    }
 
                 case "DictionaryOfAnObject":
-                {
-                    Assert.AreEqual("DictionaryOfAnObject", actual.Name);
-                    Assert.AreEqual("dictionaryOfAnObject", actual.JsonName);
-                    Assert.AreEqual(ObjectType.Dictionary, actual.ObjectDefinition.Type);
-                    Assert.Null(actual.ObjectDefinition.ReferenceName);
-                    Assert.NotNull(actual.ObjectDefinition.NestedItem);
-                    Assert.AreEqual(ObjectType.Reference, actual.ObjectDefinition.NestedItem.Type);
-                    Assert.AreEqual("SomeOtherType", actual.ObjectDefinition.NestedItem.ReferenceName);
-                    Assert.Null(actual.ObjectDefinition.NestedItem.NestedItem);
-                    Assert.AreEqual(true, actual.Optional);
-                    Assert.AreEqual(false, actual.Required);
-                    continue;
-                }
+                    {
+                        Assert.AreEqual("DictionaryOfAnObject", actual.Name);
+                        Assert.AreEqual("dictionaryOfAnObject", actual.JsonName);
+                        Assert.AreEqual(ObjectType.Dictionary, actual.ObjectDefinition.Type);
+                        Assert.Null(actual.ObjectDefinition.ReferenceName);
+                        Assert.NotNull(actual.ObjectDefinition.NestedItem);
+                        Assert.AreEqual(ObjectType.Reference, actual.ObjectDefinition.NestedItem.Type);
+                        Assert.AreEqual("SomeOtherType", actual.ObjectDefinition.NestedItem.ReferenceName);
+                        Assert.Null(actual.ObjectDefinition.NestedItem.NestedItem);
+                        Assert.AreEqual(true, actual.Optional);
+                        Assert.AreEqual(false, actual.Required);
+                        continue;
+                    }
 
                 case "Float":
-                {
-                    Assert.AreEqual("Float", actual.Name);
-                    Assert.AreEqual("float", actual.JsonName);
-                    Assert.AreEqual(ObjectType.Float, actual.ObjectDefinition.Type);
-                    Assert.Null(actual.ObjectDefinition.ReferenceName);
-                    Assert.Null(actual.ObjectDefinition.NestedItem);
-                    Assert.AreEqual(true, actual.Optional);
-                    Assert.AreEqual(false, actual.Required);
-                    continue;
-                }
+                    {
+                        Assert.AreEqual("Float", actual.Name);
+                        Assert.AreEqual("float", actual.JsonName);
+                        Assert.AreEqual(ObjectType.Float, actual.ObjectDefinition.Type);
+                        Assert.Null(actual.ObjectDefinition.ReferenceName);
+                        Assert.Null(actual.ObjectDefinition.NestedItem);
+                        Assert.AreEqual(true, actual.Optional);
+                        Assert.AreEqual(false, actual.Required);
+                        continue;
+                    }
 
                 case "ListOfOtherEnum":
-                {
-                    Assert.AreEqual("ListOfOtherEnum", actual.Name);
-                    Assert.AreEqual("listOfOtherEnum", actual.JsonName);
-                    Assert.Null(actual.ObjectDefinition.ReferenceName);
-                    Assert.NotNull(actual.ObjectDefinition.NestedItem);
-                    Assert.AreEqual(ObjectType.Reference, actual.ObjectDefinition.NestedItem.Type);
-                    Assert.AreEqual("SomeEnum", actual.ObjectDefinition.NestedItem.ReferenceName);
-                    Assert.Null(actual.ObjectDefinition.NestedItem.NestedItem);
-                    Assert.AreEqual(true, actual.Optional);
-                    Assert.AreEqual(false, actual.Required);
-                    continue;
-                }
+                    {
+                        Assert.AreEqual("ListOfOtherEnum", actual.Name);
+                        Assert.AreEqual("listOfOtherEnum", actual.JsonName);
+                        Assert.Null(actual.ObjectDefinition.ReferenceName);
+                        Assert.NotNull(actual.ObjectDefinition.NestedItem);
+                        Assert.AreEqual(ObjectType.Reference, actual.ObjectDefinition.NestedItem.Type);
+                        Assert.AreEqual("SomeEnum", actual.ObjectDefinition.NestedItem.ReferenceName);
+                        Assert.Null(actual.ObjectDefinition.NestedItem.NestedItem);
+                        Assert.AreEqual(true, actual.Optional);
+                        Assert.AreEqual(false, actual.Required);
+                        continue;
+                    }
 
                 case "ListOfOtherType":
-                {
-                    Assert.AreEqual("ListOfOtherType", actual.Name);
-                    Assert.AreEqual("listOfOtherType", actual.JsonName);
-                    Assert.AreEqual(ObjectType.List, actual.ObjectDefinition.Type);
-                    Assert.Null(actual.ObjectDefinition.ReferenceName);
-                    Assert.NotNull(actual.ObjectDefinition.NestedItem);
-                    Assert.AreEqual(ObjectType.Reference, actual.ObjectDefinition.NestedItem.Type);
-                    Assert.AreEqual("SomeOtherType", actual.ObjectDefinition.NestedItem.ReferenceName);
-                    Assert.Null(actual.ObjectDefinition.NestedItem.NestedItem);
-                    Assert.AreEqual(true, actual.Optional);
-                    Assert.AreEqual(false, actual.Required);
-                    continue;
-                }
+                    {
+                        Assert.AreEqual("ListOfOtherType", actual.Name);
+                        Assert.AreEqual("listOfOtherType", actual.JsonName);
+                        Assert.AreEqual(ObjectType.List, actual.ObjectDefinition.Type);
+                        Assert.Null(actual.ObjectDefinition.ReferenceName);
+                        Assert.NotNull(actual.ObjectDefinition.NestedItem);
+                        Assert.AreEqual(ObjectType.Reference, actual.ObjectDefinition.NestedItem.Type);
+                        Assert.AreEqual("SomeOtherType", actual.ObjectDefinition.NestedItem.ReferenceName);
+                        Assert.Null(actual.ObjectDefinition.NestedItem.NestedItem);
+                        Assert.AreEqual(true, actual.Optional);
+                        Assert.AreEqual(false, actual.Required);
+                        continue;
+                    }
 
                 case "NestedObject":
-                {
-                    Assert.AreEqual("NestedObject", actual.Name);
-                    Assert.AreEqual("nestedObject", actual.JsonName);
-                    Assert.AreEqual(ObjectType.Reference, actual.ObjectDefinition.Type);
-                    Assert.AreEqual("NestedType", actual.ObjectDefinition.ReferenceName);
-                    Assert.AreEqual(true, actual.Optional);
-                    Assert.AreEqual(false, actual.Required);
-                    continue;
-                }
+                    {
+                        Assert.AreEqual("NestedObject", actual.Name);
+                        Assert.AreEqual("nestedObject", actual.JsonName);
+                        Assert.AreEqual(ObjectType.Reference, actual.ObjectDefinition.Type);
+                        Assert.AreEqual("NestedType", actual.ObjectDefinition.ReferenceName);
+                        Assert.AreEqual(true, actual.Optional);
+                        Assert.AreEqual(false, actual.Required);
+                        continue;
+                    }
 
                 case "OptionalBool":
-                {
-                    Assert.AreEqual("OptionalBool", actual.Name);
-                    Assert.AreEqual("optionalBool", actual.JsonName);
-                    Assert.AreEqual(ObjectType.Boolean, actual.ObjectDefinition.Type);
-                    Assert.Null(actual.ObjectDefinition.ReferenceName);
-                    Assert.Null(actual.ObjectDefinition.NestedItem);
-                    Assert.AreEqual(true, actual.Optional);
-                    Assert.AreEqual(false, actual.Required);
-                    continue;
-                }
+                    {
+                        Assert.AreEqual("OptionalBool", actual.Name);
+                        Assert.AreEqual("optionalBool", actual.JsonName);
+                        Assert.AreEqual(ObjectType.Boolean, actual.ObjectDefinition.Type);
+                        Assert.Null(actual.ObjectDefinition.ReferenceName);
+                        Assert.Null(actual.ObjectDefinition.NestedItem);
+                        Assert.AreEqual(true, actual.Optional);
+                        Assert.AreEqual(false, actual.Required);
+                        continue;
+                    }
 
                 case "OptionalConstant":
-                {
-                    Assert.AreEqual("OptionalConstant", actual.Name);
-                    Assert.AreEqual("optionalConstant", actual.JsonName);
-                    Assert.AreEqual(ObjectType.Reference, actual.ObjectDefinition.Type);
-                    Assert.AreEqual("SomeEnum", actual.ObjectDefinition.ReferenceName);
-                    Assert.Null(actual.ObjectDefinition.NestedItem);
-                    Assert.AreEqual(true, actual.Optional);
-                    Assert.AreEqual(false, actual.Required);
-                    continue;
-                }
+                    {
+                        Assert.AreEqual("OptionalConstant", actual.Name);
+                        Assert.AreEqual("optionalConstant", actual.JsonName);
+                        Assert.AreEqual(ObjectType.Reference, actual.ObjectDefinition.Type);
+                        Assert.AreEqual("SomeEnum", actual.ObjectDefinition.ReferenceName);
+                        Assert.Null(actual.ObjectDefinition.NestedItem);
+                        Assert.AreEqual(true, actual.Optional);
+                        Assert.AreEqual(false, actual.Required);
+                        continue;
+                    }
 
                 case "OptionalDateTime":
-                {
-                    Assert.AreEqual("OptionalDateTime", actual.Name);
-                    Assert.AreEqual("optionalDateTime", actual.JsonName);
-                    Assert.AreEqual(ObjectType.DateTime, actual.ObjectDefinition.Type);
-                    Assert.Null(actual.ObjectDefinition.ReferenceName);
-                    Assert.Null(actual.ObjectDefinition.NestedItem);
-                    Assert.AreEqual(true, actual.Optional);
-                    Assert.AreEqual(false, actual.Required);
-                    Assert.AreEqual("RFC3339", actual.DateFormat);
-                    continue;
-                }
+                    {
+                        Assert.AreEqual("OptionalDateTime", actual.Name);
+                        Assert.AreEqual("optionalDateTime", actual.JsonName);
+                        Assert.AreEqual(ObjectType.DateTime, actual.ObjectDefinition.Type);
+                        Assert.Null(actual.ObjectDefinition.ReferenceName);
+                        Assert.Null(actual.ObjectDefinition.NestedItem);
+                        Assert.AreEqual(true, actual.Optional);
+                        Assert.AreEqual(false, actual.Required);
+                        Assert.AreEqual("RFC3339", actual.DateFormat);
+                        continue;
+                    }
 
                 case "OptionalInt":
-                {
-                    Assert.AreEqual("OptionalInt", actual.Name);
-                    Assert.AreEqual("optionalInt", actual.JsonName);
-                    Assert.AreEqual(ObjectType.Integer, actual.ObjectDefinition.Type);
-                    Assert.Null(actual.ObjectDefinition.ReferenceName);
-                    Assert.Null(actual.ObjectDefinition.NestedItem);
-                    Assert.AreEqual(true, actual.Optional);
-                    Assert.AreEqual(false, actual.Required);
-                    continue;
-                }
+                    {
+                        Assert.AreEqual("OptionalInt", actual.Name);
+                        Assert.AreEqual("optionalInt", actual.JsonName);
+                        Assert.AreEqual(ObjectType.Integer, actual.ObjectDefinition.Type);
+                        Assert.Null(actual.ObjectDefinition.ReferenceName);
+                        Assert.Null(actual.ObjectDefinition.NestedItem);
+                        Assert.AreEqual(true, actual.Optional);
+                        Assert.AreEqual(false, actual.Required);
+                        continue;
+                    }
 
                 case "OptionalFloat":
-                {
-                    Assert.AreEqual("OptionalFloat", actual.Name);
-                    Assert.AreEqual("optionalFloat", actual.JsonName);
-                    Assert.AreEqual(ObjectType.Float, actual.ObjectDefinition.Type);
-                    Assert.Null(actual.ObjectDefinition.ReferenceName);
-                    Assert.Null(actual.ObjectDefinition.NestedItem);
-                    Assert.AreEqual(true, actual.Optional);
-                    Assert.AreEqual(false, actual.Required);
-                    continue;
-                }
+                    {
+                        Assert.AreEqual("OptionalFloat", actual.Name);
+                        Assert.AreEqual("optionalFloat", actual.JsonName);
+                        Assert.AreEqual(ObjectType.Float, actual.ObjectDefinition.Type);
+                        Assert.Null(actual.ObjectDefinition.ReferenceName);
+                        Assert.Null(actual.ObjectDefinition.NestedItem);
+                        Assert.AreEqual(true, actual.Optional);
+                        Assert.AreEqual(false, actual.Required);
+                        continue;
+                    }
 
                 case "OptionalNestedObject":
-                {
-                    Assert.AreEqual("OptionalNestedObject", actual.Name);
-                    Assert.AreEqual("optionalNestedObject", actual.JsonName);
-                    Assert.AreEqual(ObjectType.Reference, actual.ObjectDefinition.Type);
-                    Assert.AreEqual("NestedType", actual.ObjectDefinition.ReferenceName);
-                    Assert.AreEqual(true, actual.Optional);
-                    Assert.AreEqual(false, actual.Required);
-                    continue;
-                }
+                    {
+                        Assert.AreEqual("OptionalNestedObject", actual.Name);
+                        Assert.AreEqual("optionalNestedObject", actual.JsonName);
+                        Assert.AreEqual(ObjectType.Reference, actual.ObjectDefinition.Type);
+                        Assert.AreEqual("NestedType", actual.ObjectDefinition.ReferenceName);
+                        Assert.AreEqual(true, actual.Optional);
+                        Assert.AreEqual(false, actual.Required);
+                        continue;
+                    }
 
                 case "WithDefaultValueInt":
-                {
-                    Assert.AreEqual("WithDefaultValueInt", actual.Name);
-                    Assert.AreEqual("withDefaultValueInt", actual.JsonName);
-                    Assert.AreEqual(21, actual.Default);
-                    Assert.AreEqual(true, actual.Optional);
-                    Assert.AreEqual(false, actual.Required);
-                    continue;
-                }
+                    {
+                        Assert.AreEqual("WithDefaultValueInt", actual.Name);
+                        Assert.AreEqual("withDefaultValueInt", actual.JsonName);
+                        Assert.AreEqual(21, actual.Default);
+                        Assert.AreEqual(true, actual.Optional);
+                        Assert.AreEqual(false, actual.Required);
+                        continue;
+                    }
 
                 case "WithDefaultValueString":
-                {
-                    Assert.AreEqual("WithDefaultValueString", actual.Name);
-                    Assert.AreEqual("withDefaultValueString", actual.JsonName);
-                    Assert.AreEqual("Hello", actual.Default);
-                    Assert.AreEqual(true, actual.Optional);
-                    Assert.AreEqual(false, actual.Required);
-                    continue;
-                }
+                    {
+                        Assert.AreEqual("WithDefaultValueString", actual.Name);
+                        Assert.AreEqual("withDefaultValueString", actual.JsonName);
+                        Assert.AreEqual("Hello", actual.Default);
+                        Assert.AreEqual(true, actual.Optional);
+                        Assert.AreEqual(false, actual.Required);
+                        continue;
+                    }
 
                 case "WithForceNew":
-                {
-                    Assert.AreEqual("WithForceNew", actual.Name);
-                    Assert.AreEqual("withForceNew", actual.JsonName);
-                    Assert.AreEqual(true, actual.Optional);
-                    Assert.AreEqual(true, actual.ForceNew);
-                    Assert.AreEqual(false, actual.Required);
-                    continue;
-                }
+                    {
+                        Assert.AreEqual("WithForceNew", actual.Name);
+                        Assert.AreEqual("withForceNew", actual.JsonName);
+                        Assert.AreEqual(true, actual.Optional);
+                        Assert.AreEqual(true, actual.ForceNew);
+                        Assert.AreEqual(false, actual.Required);
+                        continue;
+                    }
 
                 case "WithOptional":
-                {
-                    Assert.AreEqual("WithOptional", actual.Name);
-                    Assert.AreEqual("withOptional", actual.JsonName);
-                    Assert.AreEqual(true, actual.Optional);
-                    Assert.AreEqual(false, actual.Required);
-                    continue;
-                }
+                    {
+                        Assert.AreEqual("WithOptional", actual.Name);
+                        Assert.AreEqual("withOptional", actual.JsonName);
+                        Assert.AreEqual(true, actual.Optional);
+                        Assert.AreEqual(false, actual.Required);
+                        continue;
+                    }
 
                 case "WithRequired":
-                {
-                    Assert.AreEqual("WithRequired", actual.Name);
-                    Assert.AreEqual("withRequired", actual.JsonName);
-                    Assert.AreEqual(false, actual.Optional);
-                    Assert.AreEqual(true, actual.Required);
-                    continue;
-                }
+                    {
+                        Assert.AreEqual("WithRequired", actual.Name);
+                        Assert.AreEqual("withRequired", actual.JsonName);
+                        Assert.AreEqual(false, actual.Optional);
+                        Assert.AreEqual(true, actual.Required);
+                        continue;
+                    }
 
                 case "WithRangeValidation":
-                {
-                    Assert.AreEqual("WithRangeValidation", actual.Name);
-                    Assert.AreEqual("withRangeValidation", actual.JsonName);
-                    Assert.AreEqual(true, actual.Optional);
-                    Assert.AreEqual(false, actual.Required);
-                    Assert.NotNull(actual.Validation);
-                    Assert.AreEqual(ValidationType.Range, actual.Validation.ValidationType);
-                    Assert.AreEqual(new List<object> { 1, 20 }, actual.Validation.Values);
-                    continue;
-                }
+                    {
+                        Assert.AreEqual("WithRangeValidation", actual.Name);
+                        Assert.AreEqual("withRangeValidation", actual.JsonName);
+                        Assert.AreEqual(true, actual.Optional);
+                        Assert.AreEqual(false, actual.Required);
+                        Assert.NotNull(actual.Validation);
+                        Assert.AreEqual(ValidationType.Range, actual.Validation.ValidationType);
+                        Assert.AreEqual(new List<object> { 1, 20 }, actual.Validation.Values);
+                        continue;
+                    }
 
                 case "ListWithMinMaxItems":
-                {
-                    Assert.AreEqual("ListWithMinMaxItems", actual.Name);
-                    Assert.AreEqual("listWithMinMaxItems", actual.JsonName);
-                    Assert.AreEqual(true, actual.Optional);
-                    Assert.AreEqual(false, actual.Required);
-                    Assert.AreEqual(1, actual.ObjectDefinition.Minimum);
-                    Assert.AreEqual(10, actual.ObjectDefinition.Maximum);
-                    continue;
-                }
+                    {
+                        Assert.AreEqual("ListWithMinMaxItems", actual.Name);
+                        Assert.AreEqual("listWithMinMaxItems", actual.JsonName);
+                        Assert.AreEqual(true, actual.Optional);
+                        Assert.AreEqual(false, actual.Required);
+                        Assert.AreEqual(1, actual.ObjectDefinition.Minimum);
+                        Assert.AreEqual(10, actual.ObjectDefinition.Maximum);
+                        continue;
+                    }
 
                 default:
                     throw new NotSupportedException($"unhandled property {property.Name}");

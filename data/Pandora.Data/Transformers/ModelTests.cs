@@ -291,35 +291,35 @@ public static class ModelTests
             switch (property.Name)
             {
                 case "First":
-                {
-                    Assert.AreEqual("first", property.JsonName);
-                    Assert.AreEqual(ObjectType.Boolean, property.ObjectDefinition.Type);
-                    Assert.AreEqual(true, property.Required);
-                    continue;
-                }
+                    {
+                        Assert.AreEqual("first", property.JsonName);
+                        Assert.AreEqual(ObjectType.Boolean, property.ObjectDefinition.Type);
+                        Assert.AreEqual(true, property.Required);
+                        continue;
+                    }
 
                 case "Second":
-                {
-                    Assert.AreEqual("second", property.JsonName);
-                    Assert.AreEqual(ObjectType.String, property.ObjectDefinition.Type);
-                    Assert.AreEqual(true, property.Optional);
-                    continue;
-                }
+                    {
+                        Assert.AreEqual("second", property.JsonName);
+                        Assert.AreEqual(ObjectType.String, property.ObjectDefinition.Type);
+                        Assert.AreEqual(true, property.Optional);
+                        continue;
+                    }
 
                 case "Random":
-                {
-                    Assert.AreEqual("barrelRoll", property.JsonName);
-                    Assert.AreEqual(ObjectType.String, property.ObjectDefinition.Type);
-                    Assert.AreEqual(true, property.Optional);
-                    Assert.AreEqual("do a", property.Default);
-                    continue;
-                }
+                    {
+                        Assert.AreEqual("barrelRoll", property.JsonName);
+                        Assert.AreEqual(ObjectType.String, property.ObjectDefinition.Type);
+                        Assert.AreEqual(true, property.Optional);
+                        Assert.AreEqual("do a", property.Default);
+                        continue;
+                    }
 
                 default:
-                {
-                    Assert.Fail($"unexpected property {property.Name}");
-                    return;
-                }
+                    {
+                        Assert.Fail($"unexpected property {property.Name}");
+                        return;
+                    }
             }
         }
     }

@@ -50,11 +50,11 @@ public static class ResourceID
         switch (input.Type)
         {
             case ResourceIdSegmentType.Constant:
-            {
-                var constant = constants.First(c => c.Name == input.ConstantReference);
-                var value = constant.Values.OrderBy(v => v.Key).First();
-                return value.Value;
-            }
+                {
+                    var constant = constants.First(c => c.Name == input.ConstantReference);
+                    var value = constant.Values.OrderBy(v => v.Key).First();
+                    return value.Value;
+                }
 
             case ResourceIdSegmentType.ResourceGroup:
                 return "example-resource-group";
