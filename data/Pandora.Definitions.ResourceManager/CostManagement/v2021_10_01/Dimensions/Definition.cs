@@ -5,7 +5,6 @@ namespace Pandora.Definitions.ResourceManager.CostManagement.v2021_10_01.Dimensi
 {
     internal class Definition : ApiDefinition
     {
-        public string ApiVersion => "2021-10-01";
         public string Name => "Dimensions";
         public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
         {

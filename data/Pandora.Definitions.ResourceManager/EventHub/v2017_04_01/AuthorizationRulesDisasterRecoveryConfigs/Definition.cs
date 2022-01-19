@@ -5,7 +5,6 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.Authorization
 {
     internal class Definition : ApiDefinition
     {
-        public string ApiVersion => "2017-04-01";
         public string Name => "AuthorizationRulesDisasterRecoveryConfigs";
         public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
         {

@@ -5,7 +5,6 @@ namespace Pandora.Definitions.TestData.Pandamonium.v2020_01_01.Grouping
 {
     public class Definition : ApiDefinition
     {
-        public string ApiVersion => "2020-01-01";
         public string Name => "Grouping";
         public IEnumerable<ApiOperation> Operations => new List<ApiOperation>
         {

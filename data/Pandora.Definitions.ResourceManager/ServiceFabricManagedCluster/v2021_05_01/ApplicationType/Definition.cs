@@ -5,7 +5,6 @@ namespace Pandora.Definitions.ResourceManager.ServiceFabricManagedCluster.v2021_
 {
     internal class Definition : ApiDefinition
     {
-        public string ApiVersion => "2021-05-01";
         public string Name => "ApplicationType";
         public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
         {

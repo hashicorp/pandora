@@ -300,21 +300,18 @@ namespace Pandora.Data.Transformers
 
         private class ApiVersionWithNoOperations : ApiDefinition
         {
-            public string ApiVersion => "2018-01-01";
             public string Name => "ApiVersionWithNoOperations";
             public IEnumerable<ApiOperation> Operations => new List<ApiOperation>();
         }
 
         private class ApiVersionWithASingleOperation : ApiDefinition
         {
-            public string ApiVersion => "2018-01-01";
             public string Name => "ApiVersionWithASingleOperation";
             public IEnumerable<ApiOperation> Operations => new List<ApiOperation> { new FakeOperation() };
         }
 
         private class ApiVersionWithAMultipleOperations : ApiDefinition
         {
-            public string ApiVersion => "2018-01-01";
             public string Name => "ApiVersionWithAMultipleOperations";
 
             public IEnumerable<ApiOperation> Operations => new List<ApiOperation>
@@ -323,14 +320,12 @@ namespace Pandora.Data.Transformers
 
         private class ApiVersionWithARequestModel : ApiDefinition
         {
-            public string ApiVersion => "2018-01-01";
             public string Name => "ApiVersionWithARequestModel";
             public IEnumerable<ApiOperation> Operations => new List<ApiOperation> { new FakeOperationWithRequestModel() };
         }
 
         private class ApiVersionWithARequestAndResponseModel : ApiDefinition
         {
-            public string ApiVersion => "2018-01-01";
             public string Name => "ApiVersionWithARequestAndResponseModel";
 
             public IEnumerable<ApiOperation> Operations => new List<ApiOperation>
@@ -339,7 +334,6 @@ namespace Pandora.Data.Transformers
 
         private class ApiVersionWithAResponseModel : ApiDefinition
         {
-            public string ApiVersion => "2018-01-01";
             public string Name => "ApiVersionWithAResponseModel";
 
             public IEnumerable<ApiOperation> Operations =>
@@ -348,7 +342,6 @@ namespace Pandora.Data.Transformers
 
         private class ApiVersionWithANestedResponseModel : ApiDefinition
         {
-            public string ApiVersion => "2018-01-01";
             public string Name => "ApiVersionWithANestedResponseModel";
 
             public IEnumerable<ApiOperation> Operations => new List<ApiOperation>
@@ -357,7 +350,6 @@ namespace Pandora.Data.Transformers
 
         private class ApiVersionWithADuplicateNestedResponseModel : ApiDefinition
         {
-            public string ApiVersion => "2018-01-01";
             public string Name => "ApiVersionWithADuplicateNestedResponseModel";
 
             public IEnumerable<ApiOperation> Operations => new List<ApiOperation>
@@ -366,7 +358,6 @@ namespace Pandora.Data.Transformers
 
         private class ApiVersionWithARequestModelAndConstant : ApiDefinition
         {
-            public string ApiVersion => "2018-01-01";
             public string Name => "ApiVersionWithARequestModelAndConstant";
 
             public IEnumerable<ApiOperation> Operations => new List<ApiOperation>
@@ -375,7 +366,6 @@ namespace Pandora.Data.Transformers
 
         private class ApiVersionWithARequestModelAndDuplicateConstants : ApiDefinition
         {
-            public string ApiVersion => "2018-01-01";
             public string Name => "ApiVersionWithARequestModelAndDuplicateConstants";
 
             public IEnumerable<ApiOperation> Operations => new List<ApiOperation>
@@ -384,7 +374,6 @@ namespace Pandora.Data.Transformers
 
         private class ApiVersionWithARequestModelWithNestedConstants : ApiDefinition
         {
-            public string ApiVersion => "2018-01-01";
             public string Name => "ApiVersionWithARequestModelWithNestedConstants";
 
             public IEnumerable<ApiOperation> Operations => new List<ApiOperation>
@@ -393,7 +382,6 @@ namespace Pandora.Data.Transformers
 
         private class ApiVersionWithARequestModelWithDuplicateNestedConstants : ApiDefinition
         {
-            public string ApiVersion => "2018-01-01";
             public string Name => "ApiVersionWithARequestModelWithDuplicateNestedConstants";
 
             public IEnumerable<ApiOperation> Operations => new List<ApiOperation>
@@ -402,7 +390,6 @@ namespace Pandora.Data.Transformers
 
         private class ApiVersionWithAMultipleOperationsAndASharedConstant : ApiDefinition
         {
-            public string ApiVersion => "2018-01-01";
             public string Name => "ApiVersionWithAMultipleOperationsAndASharedConstant";
 
             public IEnumerable<ApiOperation> Operations => new List<ApiOperation>
@@ -452,7 +439,6 @@ namespace Pandora.Data.Transformers
 
         private class ApiVersionWithAMultipleOperationsAndASharedModel : ApiDefinition
         {
-            public string ApiVersion => "2018-01-01";
             public string Name => "ApiVersionWithAMultipleOperationsAndASharedModel";
 
             public IEnumerable<ApiOperation> Operations => new List<ApiOperation>
@@ -801,7 +787,6 @@ namespace Pandora.Data.Transformers
 
         private class ApiVersionReturningADiscriminatedType : ApiDefinition
         {
-            public string ApiVersion => "2018-01-01";
             public string Name => "ApiVersionReturningADiscriminatedType";
             public IEnumerable<ApiOperation> Operations => new List<ApiOperation>
             {
@@ -833,7 +818,6 @@ namespace Pandora.Data.Transformers
 
         private class ApiVersionReturningAModelContainingAListOfADiscriminatedType : ApiDefinition
         {
-            public string ApiVersion => "2018-01-01";
             public string Name => "ApiVersionReturningAModelContainingAListOfADiscriminatedType";
             public IEnumerable<ApiOperation> Operations => new List<ApiOperation>
             {
@@ -857,7 +841,6 @@ namespace Pandora.Data.Transformers
 
         private class ApiVersionReturningAModelContainingAListOfADiscriminatedTypeWithNoBaseType : ApiDefinition
         {
-            public string ApiVersion => "2018-01-01";
             public string Name => "ApiVersionReturningAModelContainingAListOfADiscriminatedTypeWithNoBaseType";
             public IEnumerable<ApiOperation> Operations => new List<ApiOperation>
             {
@@ -882,7 +865,6 @@ namespace Pandora.Data.Transformers
 
         public class ApiVersionWithConstantWithinResourceId : ApiDefinition
         {
-            public string ApiVersion => "2018-01-01";
             public string Name => "ApiVersionWithConstantWithinResourceId";
 
             public IEnumerable<ApiOperation> Operations => new List<ApiOperation>
@@ -934,7 +916,6 @@ namespace Pandora.Data.Transformers
 
         public class ApiVersionWithAConstantWithinOptions : ApiDefinition
         {
-            public string ApiVersion => "2018-01-01";
             public string Name => "ApiVersionWithAConstantWithinOptions";
 
             public IEnumerable<ApiOperation> Operations => new List<ApiOperation>

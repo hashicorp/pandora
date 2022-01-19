@@ -64,7 +64,7 @@ namespace Pandora.Api.V1.ResourceManager
 
         private static ApiOperationDefinition MapOperation(OperationDefinition definition, string apiVersion)
         {
-            var operation = new ApiOperationDefinition
+            return new ApiOperationDefinition
             {
                 ContentType = definition.ContentType,
                 Method = definition.Method,
@@ -75,17 +75,8 @@ namespace Pandora.Api.V1.ResourceManager
                 FieldContainingPaginationDetails = definition.FieldContainingPaginationDetails,
                 RequestObject = ApiObjectDefinitionMapper.Map(definition.RequestObject),
                 ResponseObject = ApiObjectDefinitionMapper.Map(definition.ResponseObject),
+                Options = MapOptions(definition.Options),
             };
-
-            operation.Options = MapOptions(definition.Options);
-
-            // we should only return this if it's a different API version than the original
-            if (apiVersion != definition.ApiVersion)
-            {
-                operation.ApiVersion = definition.ApiVersion;
-            }
-
-            return operation;
         }
 
         private static Dictionary<string, ApiOperationOption> MapOptions(List<OptionDefinition> input)
@@ -137,13 +128,6 @@ namespace Pandora.Api.V1.ResourceManager
 
             [JsonPropertyName("responseObject")]
             public ApiObjectDefinition? ResponseObject { get; set; }
-
-            // ApiVersion specifies that a different API version should be used for
-            // this than the Parent Service. Whilst bizarre, some Azure API's do this
-            // rather than duplicating the API - which is unfortunate since it means
-            // we have these mixed-version imports - but I digress.
-            [JsonPropertyName("apiVersion")]
-            public string? ApiVersion { get; set; }
 
             [JsonPropertyName("uriSuffix")]
             public string UriSuffix { get; set; }

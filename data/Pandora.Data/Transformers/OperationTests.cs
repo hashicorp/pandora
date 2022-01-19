@@ -16,16 +16,14 @@ namespace Pandora.Data.Transformers
         [TestCase]
         public static void MappingAnOperationWithNoStatusCodesShouldFail()
         {
-            Assert.Throws<Exception>(() => Operation.Map(new OperationWithNoStatusCodes(), "2018-01-01", "MyApi"));
+            Assert.Throws<Exception>(() => Operation.Map(new OperationWithNoStatusCodes()));
         }
 
         [TestCase]
         public static void MappingAnOperationWithNoRequestOrResponseObjects()
         {
-            var actual = Operation.Map(new OperationWithNoRequestOrResponseObjects(), "2018-01-01", "MyApi");
+            var actual = Operation.Map(new OperationWithNoRequestOrResponseObjects());
             Assert.NotNull(actual);
-            Assert.AreEqual("2018-01-01", actual.ApiVersion);
-            Assert.AreEqual("MyApi", actual.ApiName);
             Assert.AreEqual("OperationWithNoRequestOrResponseObjects", actual.Name);
             Assert.AreEqual("application/json", actual.ContentType);
             Assert.AreEqual("DELETE", actual.Method);
@@ -39,10 +37,8 @@ namespace Pandora.Data.Transformers
         [TestCase]
         public static void MappingAnOperationWithMultipleStatusCodes()
         {
-            var actual = Operation.Map(new OperationWithMultipleStatusCodes(), "2018-01-01", "MyApi");
+            var actual = Operation.Map(new OperationWithMultipleStatusCodes());
             Assert.NotNull(actual);
-            Assert.AreEqual("2018-01-01", actual.ApiVersion);
-            Assert.AreEqual("MyApi", actual.ApiName);
             Assert.AreEqual("OperationWithMultipleStatusCodes", actual.Name);
             Assert.AreEqual("application/json", actual.ContentType);
             Assert.AreEqual("DELETE", actual.Method);
@@ -57,10 +53,8 @@ namespace Pandora.Data.Transformers
         [TestCase]
         public static void LongRunningOperationsWithAResponseObjectGetsIgnored()
         {
-            var actual = Operation.Map(new LongRunningOperationWithResponseObject(), "2018-01-01", "MyApi");
+            var actual = Operation.Map(new LongRunningOperationWithResponseObject());
             Assert.NotNull(actual);
-            Assert.AreEqual("2018-01-01", actual.ApiVersion);
-            Assert.AreEqual("MyApi", actual.ApiName);
             Assert.AreEqual("LongRunningOperationWithResponseObject", actual.Name);
             Assert.AreEqual("DELETE", actual.Method);
             Assert.AreEqual(true, actual.LongRunning);
@@ -70,10 +64,8 @@ namespace Pandora.Data.Transformers
         [TestCase]
         public static void MappingAnOperationWithARequestObject()
         {
-            var actual = Operation.Map(new OperationWithRequestObject(), "2018-01-01", "MyApi");
+            var actual = Operation.Map(new OperationWithRequestObject());
             Assert.NotNull(actual);
-            Assert.AreEqual("2018-01-01", actual.ApiVersion);
-            Assert.AreEqual("MyApi", actual.ApiName);
             Assert.AreEqual("OperationWithRequestObject", actual.Name);
             Assert.AreEqual("PUT", actual.Method);
             Assert.AreEqual(false, actual.LongRunning);
@@ -86,10 +78,8 @@ namespace Pandora.Data.Transformers
         [TestCase]
         public static void MappingAnOperationWithASimpleTypeAsAResponseObject()
         {
-            var actual = Operation.Map(new OperationWithASimpleTypeAsAResponseObject(), "2018-01-01", "MyApi");
+            var actual = Operation.Map(new OperationWithASimpleTypeAsAResponseObject());
             Assert.NotNull(actual);
-            Assert.AreEqual("2018-01-01", actual.ApiVersion);
-            Assert.AreEqual("MyApi", actual.ApiName);
             Assert.AreEqual("OperationWithASimpleTypeAsAResponseObject", actual.Name);
             Assert.AreEqual("GET", actual.Method);
             Assert.AreEqual(false, actual.LongRunning);
@@ -104,10 +94,8 @@ namespace Pandora.Data.Transformers
         [TestCase]
         public static void MappingAnOperationWithAListOfStringsAsAResponseObject()
         {
-            var actual = Operation.Map(new OperationWithAListOfStringsAsAResponseObject(), "2018-01-01", "MyApi");
+            var actual = Operation.Map(new OperationWithAListOfStringsAsAResponseObject());
             Assert.NotNull(actual);
-            Assert.AreEqual("2018-01-01", actual.ApiVersion);
-            Assert.AreEqual("MyApi", actual.ApiName);
             Assert.AreEqual("OperationWithAListOfStringsAsAResponseObject", actual.Name);
             Assert.AreEqual("GET", actual.Method);
             Assert.AreEqual(false, actual.LongRunning);
@@ -126,10 +114,8 @@ namespace Pandora.Data.Transformers
         [TestCase]
         public static void MappingAnOperationWithAResourceID()
         {
-            var actual = Operation.Map(new OperationWithAResourceId(), "2018-01-01", "MyApi");
+            var actual = Operation.Map(new OperationWithAResourceId());
             Assert.NotNull(actual);
-            Assert.AreEqual("2018-01-01", actual.ApiVersion);
-            Assert.AreEqual("MyApi", actual.ApiName);
             Assert.AreEqual("OperationWithAResourceId", actual.Name);
             Assert.AreEqual("GET", actual.Method);
             Assert.AreEqual(false, actual.LongRunning);
@@ -143,10 +129,8 @@ namespace Pandora.Data.Transformers
         [TestCase]
         public static void MappingAnOperationWithAResponseObject()
         {
-            var actual = Operation.Map(new OperationWithResponseObject(), "2018-01-01", "MyApi");
+            var actual = Operation.Map(new OperationWithResponseObject());
             Assert.NotNull(actual);
-            Assert.AreEqual("2018-01-01", actual.ApiVersion);
-            Assert.AreEqual("MyApi", actual.ApiName);
             Assert.AreEqual("OperationWithResponseObject", actual.Name);
             Assert.AreEqual("GET", actual.Method);
             Assert.AreEqual(false, actual.LongRunning);
@@ -162,10 +146,8 @@ namespace Pandora.Data.Transformers
         [TestCase]
         public static void MappingAnOperationWithARequestAndResponseObject()
         {
-            var actual = Operation.Map(new OperationWithRequestAndResponseObject(), "2018-01-01", "MyApi");
+            var actual = Operation.Map(new OperationWithRequestAndResponseObject());
             Assert.NotNull(actual);
-            Assert.AreEqual("2018-01-01", actual.ApiVersion);
-            Assert.AreEqual("MyApi", actual.ApiName);
             Assert.AreEqual("OperationWithRequestAndResponseObject", actual.Name);
             Assert.AreEqual("PUT", actual.Method);
             Assert.AreEqual(false, actual.LongRunning);
@@ -182,10 +164,8 @@ namespace Pandora.Data.Transformers
         [TestCase]
         public static void MappingAnOperationWithASuffix()
         {
-            var actual = Operation.Map(new OperationWithASuffix(), "2018-01-01", "MyApi");
+            var actual = Operation.Map(new OperationWithASuffix());
             Assert.NotNull(actual);
-            Assert.AreEqual("2018-01-01", actual.ApiVersion);
-            Assert.AreEqual("MyApi", actual.ApiName);
             Assert.AreEqual("OperationWithASuffix", actual.Name);
             Assert.AreEqual("POST", actual.Method);
             Assert.AreEqual(false, actual.LongRunning);
@@ -200,10 +180,8 @@ namespace Pandora.Data.Transformers
         [TestCase]
         public static void MappingAnOperationWithOptions()
         {
-            var actual = Operation.Map(new OperationWithOptions(), "2018-01-01", "MyApi");
+            var actual = Operation.Map(new OperationWithOptions());
             Assert.NotNull(actual);
-            Assert.AreEqual("2018-01-01", actual.ApiVersion);
-            Assert.AreEqual("MyApi", actual.ApiName);
             Assert.AreEqual("OperationWithOptions", actual.Name);
             Assert.AreEqual("POST", actual.Method);
             Assert.AreEqual(false, actual.LongRunning);
@@ -233,10 +211,8 @@ namespace Pandora.Data.Transformers
         [TestCase]
         public static void MappingAnOperationWithPaginationDetails()
         {
-            var actual = Operation.Map(new OperationWithPaginationDetails(), "2018-01-01", "MyApi");
+            var actual = Operation.Map(new OperationWithPaginationDetails());
             Assert.NotNull(actual);
-            Assert.AreEqual("2018-01-01", actual.ApiVersion);
-            Assert.AreEqual("MyApi", actual.ApiName);
             Assert.AreEqual("OperationWithPaginationDetails", actual.Name);
             Assert.AreEqual("application/json; charset=utf-8", actual.ContentType);
             Assert.AreEqual("GET", actual.Method);
@@ -255,10 +231,8 @@ namespace Pandora.Data.Transformers
         [TestCase]
         public static void MappingAnOperationShouldTrimTheSuffixOfOperation()
         {
-            var actual = Operation.Map(new OperationSimpleOperation(), "2018-01-01", "MyApi");
+            var actual = Operation.Map(new OperationSimpleOperation());
             Assert.NotNull(actual);
-            Assert.AreEqual("2018-01-01", actual.ApiVersion);
-            Assert.AreEqual("MyApi", actual.ApiName);
             Assert.AreEqual("OperationSimple", actual.Name);
         }
 

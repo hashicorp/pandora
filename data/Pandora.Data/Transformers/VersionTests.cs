@@ -58,7 +58,6 @@ namespace Pandora.Data.Transformers
 
         private class SomeApiDefinition : ApiDefinition
         {
-            public string ApiVersion => "2018-01-01";
             public string Name => "example";
             public IEnumerable<ApiOperation> Operations => new List<ApiOperation> { new FakeApiOperation() };
             public Definitions.Interfaces.ResourceID ResourceId => new FakeResourceId();

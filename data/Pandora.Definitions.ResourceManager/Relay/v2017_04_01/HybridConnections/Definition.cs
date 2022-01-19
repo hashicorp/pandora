@@ -5,7 +5,6 @@ namespace Pandora.Definitions.ResourceManager.Relay.v2017_04_01.HybridConnection
 {
     internal class Definition : ApiDefinition
     {
-        public string ApiVersion => "2017-04-01";
         public string Name => "HybridConnections";
         public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
         {

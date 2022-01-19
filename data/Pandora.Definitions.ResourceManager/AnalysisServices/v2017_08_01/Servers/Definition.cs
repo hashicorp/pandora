@@ -5,7 +5,6 @@ namespace Pandora.Definitions.ResourceManager.AnalysisServices.v2017_08_01.Serve
 {
     internal class Definition : ApiDefinition
     {
-        public string ApiVersion => "2017-08-01";
         public string Name => "Servers";
         public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
         {

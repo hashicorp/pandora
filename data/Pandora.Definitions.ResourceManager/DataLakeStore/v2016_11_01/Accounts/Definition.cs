@@ -5,7 +5,6 @@ namespace Pandora.Definitions.ResourceManager.DataLakeStore.v2016_11_01.Accounts
 {
     internal class Definition : ApiDefinition
     {
-        public string ApiVersion => "2016-11-01";
         public string Name => "Accounts";
         public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
         {

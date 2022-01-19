@@ -5,7 +5,6 @@ namespace Pandora.Definitions.ResourceManager.Cognitive.v2021_04_30.PrivateEndpo
 {
     internal class Definition : ApiDefinition
     {
-        public string ApiVersion => "2021-04-30";
         public string Name => "PrivateEndpointConnections";
         public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
         {

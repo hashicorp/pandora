@@ -5,7 +5,6 @@ namespace Pandora.Definitions.ResourceManager.Attestation.v2020_10_01.PrivateEnd
 {
     internal class Definition : ApiDefinition
     {
-        public string ApiVersion => "2020-10-01";
         public string Name => "PrivateEndpointConnections";
         public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
         {

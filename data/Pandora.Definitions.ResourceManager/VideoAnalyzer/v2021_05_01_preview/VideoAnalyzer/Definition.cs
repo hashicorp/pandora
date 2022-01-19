@@ -5,7 +5,6 @@ namespace Pandora.Definitions.ResourceManager.VideoAnalyzer.v2021_05_01_preview.
 {
     internal class Definition : ApiDefinition
     {
-        public string ApiVersion => "2021-05-01-preview";
         public string Name => "VideoAnalyzer";
         public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
         {

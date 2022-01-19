@@ -5,7 +5,6 @@ namespace Pandora.Definitions.ResourceManager.CostManagement.v2021_10_01.Views
 {
     internal class Definition : ApiDefinition
     {
-        public string ApiVersion => "2021-10-01";
         public string Name => "Views";
         public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
         {

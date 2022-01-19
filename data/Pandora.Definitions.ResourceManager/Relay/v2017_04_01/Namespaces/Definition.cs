@@ -5,7 +5,6 @@ namespace Pandora.Definitions.ResourceManager.Relay.v2017_04_01.Namespaces
 {
     internal class Definition : ApiDefinition
     {
-        public string ApiVersion => "2017-04-01";
         public string Name => "Namespaces";
         public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
         {

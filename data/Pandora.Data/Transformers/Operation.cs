@@ -11,7 +11,7 @@ namespace Pandora.Data.Transformers
 {
     public static class Operation
     {
-        public static OperationDefinition Map(ApiOperation input, string apiVersion, string apiName)
+        public static OperationDefinition Map(ApiOperation input)
         {
             try
             {
@@ -90,14 +90,8 @@ namespace Pandora.Data.Transformers
 
                 return new OperationDefinition
                 {
-                    // note: these two shouldn't be in here but it's helpful for the terraform functions
-                    // probably move this out in time
-                    ApiName = apiName,
-                    ApiVersion = apiVersion,
-
                     Name = operationName,
                     Method = method,
-
                     ContentType = input.ContentType(),
                     ExpectedStatusCodes = statusCodes,
                     FieldContainingPaginationDetails = input.FieldContainingPaginationDetails(),
@@ -105,7 +99,6 @@ namespace Pandora.Data.Transformers
                     Options = options,
                     ResourceIdName = resourceIdName,
                     UriSuffix = input.UriSuffix(),
-
                     RequestObject = requestObject,
                     ResponseObject = responseObject,
                 };

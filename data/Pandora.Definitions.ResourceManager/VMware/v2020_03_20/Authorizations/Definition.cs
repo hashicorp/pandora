@@ -5,7 +5,6 @@ namespace Pandora.Definitions.ResourceManager.VMware.v2020_03_20.Authorizations
 {
     internal class Definition : ApiDefinition
     {
-        public string ApiVersion => "2020-03-20";
         public string Name => "Authorizations";
         public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
         {

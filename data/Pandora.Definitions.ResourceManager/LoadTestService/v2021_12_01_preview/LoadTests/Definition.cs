@@ -5,7 +5,6 @@ namespace Pandora.Definitions.ResourceManager.LoadTestService.v2021_12_01_previe
 {
     internal class Definition : ApiDefinition
     {
-        public string ApiVersion => "2021-12-01-preview";
         public string Name => "LoadTests";
         public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
         {

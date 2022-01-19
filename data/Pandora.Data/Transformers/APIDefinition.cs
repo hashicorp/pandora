@@ -20,7 +20,7 @@ namespace Pandora.Data.Transformers
 
                 var constantDefinitions = operations.SelectMany(ConstantsForOperation).ToList();
                 var modelDefinitions = operations.SelectMany(ModelsForOperation).Distinct(new ModelComparer()).ToList();
-                var operationDefinitions = operations.Select(o => Operation.Map(o, input.ApiVersion, input.Name)).ToList();
+                var operationDefinitions = operations.Select(Operation.Map).ToList();
                 var resourceIds = operations.SelectMany(ResourceIdsForOperation).Distinct(new ResourceIDComparer()).ToList();
 
                 // append any constants found in the Resource ID's to the Constants list, then finally unique the Constants
@@ -29,7 +29,6 @@ namespace Pandora.Data.Transformers
 
                 return new Models.ApiDefinition
                 {
-                    ApiVersion = input.ApiVersion,
                     Name = input.Name,
                     Constants = constantDefinitions,
                     Models = modelDefinitions,

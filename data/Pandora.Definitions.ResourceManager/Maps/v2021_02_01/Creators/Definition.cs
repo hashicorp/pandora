@@ -5,7 +5,6 @@ namespace Pandora.Definitions.ResourceManager.Maps.v2021_02_01.Creators
 {
     internal class Definition : ApiDefinition
     {
-        public string ApiVersion => "2021-02-01";
         public string Name => "Creators";
         public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
         {

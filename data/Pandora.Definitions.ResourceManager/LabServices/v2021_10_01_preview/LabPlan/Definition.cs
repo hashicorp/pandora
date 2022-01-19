@@ -5,7 +5,6 @@ namespace Pandora.Definitions.ResourceManager.LabServices.v2021_10_01_preview.La
 {
     internal class Definition : ApiDefinition
     {
-        public string ApiVersion => "2021-10-01-preview";
         public string Name => "LabPlan";
         public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
         {

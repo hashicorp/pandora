@@ -5,7 +5,6 @@ namespace Pandora.Definitions.ResourceManager.PostgreSqlHsc.v2020_10_05_privatep
 {
     internal class Definition : ApiDefinition
     {
-        public string ApiVersion => "2020-10-05-privatepreview";
         public string Name => "Servers";
         public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
         {
