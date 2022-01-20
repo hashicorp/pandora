@@ -72,6 +72,8 @@ func (pri ParsedResourceId) Matches(other ParsedResourceId) bool {
 			if first.ConstantReference != nil && second.ConstantReference != nil && *first.ConstantReference != *second.ConstantReference {
 				return false
 			}
+
+			continue
 		}
 
 		if first.Type == StaticSegment {
@@ -84,6 +86,8 @@ func (pri ParsedResourceId) Matches(other ParsedResourceId) bool {
 			if first.FixedValue != nil && second.FixedValue != nil && *first.FixedValue != *second.FixedValue {
 				return false
 			}
+
+			continue
 		}
 
 		if !strings.EqualFold(first.Name, second.Name) {

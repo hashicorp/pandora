@@ -78,8 +78,11 @@ func switchOutCommonResourceIDsAsNeeded(namesToUris map[string]models.ParsedReso
 
 	output := make(map[string]models.ParsedResourceId)
 
-	for name, value := range namesToUris {
-		for _, commonId := range commonIdTypes {
+	for name := range namesToUris {
+		value := namesToUris[name]
+
+		for i := range commonIdTypes {
+			commonId := commonIdTypes[i]
 			if commonId.isMatch(value) {
 				commonAlias := commonId.name()
 				value.CommonAlias = &commonAlias
