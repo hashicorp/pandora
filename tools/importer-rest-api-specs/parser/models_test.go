@@ -1149,6 +1149,75 @@ func TestParseModelWithCircularReferences(t *testing.T) {
 	}
 }
 
+func TestParseModelInlinedWithNoName(t *testing.T) {
+	result, err := ParseSwaggerFileForTesting(t, "model_inlined_with_no_name.json")
+	if err != nil {
+		t.Fatalf("parsing: %+v", err)
+	}
+	if result == nil {
+		t.Fatal("result was nil")
+	}
+	if len(result.Resources) != 1 {
+		t.Fatalf("expected 1 resource but got %d", len(result.Resources))
+	}
+
+	resource, ok := result.Resources["Example"]
+	if !ok {
+		t.Fatal("the Resource 'Example' was not found")
+	}
+
+	// sanity checking
+	if len(resource.Constants) != 0 {
+		t.Fatalf("expected 0 constants but got %d", len(resource.Constants))
+	}
+	if len(resource.Models) != 2 {
+		t.Fatalf("expected 2 models but got %d", len(resource.Models))
+	}
+	if len(resource.Operations) != 1 {
+		t.Fatalf("expected 1 operation but got %d", len(resource.Operations))
+	}
+	if len(resource.ResourceIds) != 0 {
+		t.Fatalf("expected no Resource IDs but got %d", len(resource.ResourceIds))
+	}
+
+	test, ok := resource.Operations["Test"]
+	if !ok {
+		t.Fatalf("the operation Test was not found")
+	}
+	if test.ResponseObject == nil {
+		t.Fatalf("the operation Test had no response object")
+	}
+	if *test.ResponseObject.ReferenceName != "Container" {
+		t.Fatalf("expected the operation Test to have Response Model of `Container` but got %q", *test.ResponseObject.ReferenceName)
+	}
+
+	container, ok := resource.Models["Container"]
+	if !ok {
+		t.Fatalf("the model Container was not found")
+	}
+	field, ok := container.Fields["Planets"]
+	if !ok {
+		t.Fatalf("the field Planets was not found within the model Container")
+	}
+	if field.ObjectDefinition.Type != models.ObjectDefinitionList {
+		t.Fatalf("the field Planets within the model Container should be a List but got %q", string(field.ObjectDefinition.Type))
+	}
+	if field.ObjectDefinition.NestedItem.Type != models.ObjectDefinitionReference {
+		t.Fatalf("the field Planets within the model Container should be a List of a Reference but got %q", string(field.ObjectDefinition.NestedItem.Type))
+	}
+	if *field.ObjectDefinition.NestedItem.ReferenceName != "ContainerPlanetsInlined" {
+		t.Fatalf("the field Planets within the model Container should be a List of a Reference to ContainerPlanetsInlined but got %q", *field.ObjectDefinition.NestedItem.ReferenceName)
+	}
+
+	containerPlanet, ok := resource.Models["ContainerPlanetsInlined"]
+	if !ok {
+		t.Fatalf("the model ContainerPlanetsInlined was not found")
+	}
+	if len(containerPlanet.Fields) != 1 {
+		t.Fatalf("expected the model ContainerPlanetsInlined to have 1 field but got %d", len(containerPlanet.Fields))
+	}
+}
+
 func TestParseModelMultipleTopLevel(t *testing.T) {
 	result, err := ParseSwaggerFileForTesting(t, "model_multiple.json")
 	if err != nil {
