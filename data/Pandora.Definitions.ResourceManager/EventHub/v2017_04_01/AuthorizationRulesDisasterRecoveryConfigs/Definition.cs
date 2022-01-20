@@ -3,9 +3,8 @@ using Pandora.Definitions.Interfaces;
 
 namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.AuthorizationRulesDisasterRecoveryConfigs
 {
-    internal class Definition : ApiDefinition
+    internal class Definition : ResourceDefinition
     {
-        public string ApiVersion => "2017-04-01";
         public string Name => "AuthorizationRulesDisasterRecoveryConfigs";
         public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
         {

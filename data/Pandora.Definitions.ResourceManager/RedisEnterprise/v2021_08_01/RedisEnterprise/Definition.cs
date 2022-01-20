@@ -3,9 +3,8 @@ using Pandora.Definitions.Interfaces;
 
 namespace Pandora.Definitions.ResourceManager.RedisEnterprise.v2021_08_01.RedisEnterprise
 {
-    internal class Definition : ApiDefinition
+    internal class Definition : ResourceDefinition
     {
-        public string ApiVersion => "2021-08-01";
         public string Name => "RedisEnterprise";
         public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
         {

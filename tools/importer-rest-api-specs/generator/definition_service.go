@@ -52,24 +52,22 @@ func codeForServiceDefinition(namespace, serviceName string, resourceProvider *s
 
 	return fmt.Sprintf(`using Pandora.Definitions.Interfaces;
 
-namespace %[1]s
+namespace %[1]s;
+
+public partial class Service : ServiceDefinition
 {
-    public partial class Service : ServiceDefinition
-    {
-        public string Name => %[2]q;
-        public string? ResourceProvider => %[3]s;
-    }
+	public string Name => %[2]q;
+	public string? ResourceProvider => %[3]s;
 }
 `, namespace, serviceName, rp)
 }
 
 func codeForServiceDefinitionGenerationSettings(namespace string, serviceName string) string {
-	return fmt.Sprintf(`namespace %[1]s
+	return fmt.Sprintf(`namespace %[1]s;
+
+public partial class Service
 {
-    public partial class Service
-    {
-        public bool Generate => true;
-    }
+	public bool Generate => true;
 }
 `, namespace, serviceName)
 }

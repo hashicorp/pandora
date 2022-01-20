@@ -8,7 +8,7 @@ namespace Pandora.Definitions.ResourceManager.VideoAnalyzer.v2021_05_01_preview
         public string ApiVersion => "2021-05-01-preview";
         public bool Preview => true;
 
-        public IEnumerable<ApiDefinition> Apis => new List<ApiDefinition>
+        public IEnumerable<ResourceDefinition> Resources => new List<ResourceDefinition>
         {
             new VideoAnalyzer.Definition(),
         };

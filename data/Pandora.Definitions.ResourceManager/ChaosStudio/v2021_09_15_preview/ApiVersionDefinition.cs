@@ -8,7 +8,7 @@ namespace Pandora.Definitions.ResourceManager.ChaosStudio.v2021_09_15_preview
         public string ApiVersion => "2021-09-15-preview";
         public bool Preview => true;
 
-        public IEnumerable<ApiDefinition> Apis => new List<ApiDefinition>
+        public IEnumerable<ResourceDefinition> Resources => new List<ResourceDefinition>
         {
             new Capabilities.Definition(),
             new CapabilityTypes.Definition(),

@@ -1,8 +1,7 @@
 using System;
 
-namespace Pandora.Definitions.Attributes
+namespace Pandora.Definitions.Attributes;
+
+public class ForceNewAttribute : Attribute
 {
-    public class ForceNewAttribute : Attribute
-    {
-    }
 }

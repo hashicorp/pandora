@@ -3,9 +3,8 @@ using Pandora.Definitions.Interfaces;
 
 namespace Pandora.Definitions.ResourceManager.VideoAnalyzer.v2021_05_01_preview.VideoAnalyzer
 {
-    internal class Definition : ApiDefinition
+    internal class Definition : ResourceDefinition
     {
-        public string ApiVersion => "2021-05-01-preview";
         public string Name => "VideoAnalyzer";
         public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
         {

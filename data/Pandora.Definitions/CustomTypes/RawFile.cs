@@ -1,6 +1,5 @@
-namespace Pandora.Definitions.CustomTypes
+namespace Pandora.Definitions.CustomTypes;
+
+public class RawFile
 {
-    public class RawFile
-    {
-    }
 }

@@ -3,9 +3,8 @@ using Pandora.Definitions.Interfaces;
 
 namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.NetworkRuleSets
 {
-    internal class Definition : ApiDefinition
+    internal class Definition : ResourceDefinition
     {
-        public string ApiVersion => "2018-01-01-preview";
         public string Name => "NetworkRuleSets";
         public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
         {

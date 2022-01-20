@@ -3,9 +3,8 @@ using Pandora.Definitions.Interfaces;
 
 namespace Pandora.Definitions.ResourceManager.Relay.v2017_04_01.WCFRelays
 {
-    internal class Definition : ApiDefinition
+    internal class Definition : ResourceDefinition
     {
-        public string ApiVersion => "2017-04-01";
         public string Name => "WCFRelays";
         public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
         {

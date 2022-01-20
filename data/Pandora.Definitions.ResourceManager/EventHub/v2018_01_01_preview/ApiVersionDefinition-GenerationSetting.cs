@@ -1,7 +1,6 @@
-namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview
+namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview;
+
+public partial class Definition
 {
-    public partial class Definition
-    {
-        public bool Generate => true;
-    }
+    public bool Generate => true;
 }

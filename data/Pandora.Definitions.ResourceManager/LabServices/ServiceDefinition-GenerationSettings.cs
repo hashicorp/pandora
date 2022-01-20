@@ -1,7 +1,6 @@
-namespace Pandora.Definitions.ResourceManager.LabServices
+namespace Pandora.Definitions.ResourceManager.LabServices;
+
+public partial class Service
 {
-    public partial class Service
-    {
-        public bool Generate => true;
-    }
+    public bool Generate => true;
 }

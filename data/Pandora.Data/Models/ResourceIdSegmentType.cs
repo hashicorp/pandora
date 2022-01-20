@@ -1,14 +1,13 @@
-namespace Pandora.Data.Models
+namespace Pandora.Data.Models;
+
+public enum ResourceIdSegmentType
 {
-    public enum ResourceIdSegmentType
-    {
-        Unknown,
-        Constant,
-        ResourceGroup,
-        ResourceProvider,
-        Scope,
-        Static,
-        SubscriptionId,
-        UserSpecified
-    }
+    Unknown,
+    Constant,
+    ResourceGroup,
+    ResourceProvider,
+    Scope,
+    Static,
+    SubscriptionId,
+    UserSpecified
 }

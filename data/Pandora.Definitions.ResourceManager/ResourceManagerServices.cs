@@ -1,8 +1,7 @@
 using Pandora.Definitions.Interfaces;
 
-namespace Pandora.Definitions.ResourceManager
+namespace Pandora.Definitions.ResourceManager;
+
+public class ResourceManagerServices : ServicesDefinition
 {
-    public class ResourceManagerServices : ServicesDefinition
-    {
-    }
 }

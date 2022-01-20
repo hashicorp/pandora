@@ -58,12 +58,6 @@ type ApiOperation struct {
 	// ResponseObject defines the optional Object which can be returned in the Response
 	ResponseObject *ApiObjectDefinition `json:"responseObject"`
 
-	// ApiVersion is an optional field specifying the Custom API Version which should
-	// be used for this API Operation. Whilst bizarre, some Azure API's do this
-	// rather than duplicating the API - which is unfortunate since it means
-	// we have these mixed-version imports - but I digress.
-	ApiVersion *string `json:"apiVersion"`
-
 	// FieldContainingPaginationDetails is a reference to the field within the Response
 	// which contains the pagination details, that is a 'nextLink' or similar
 	FieldContainingPaginationDetails *string `json:"fieldContainingPaginationDetails"`

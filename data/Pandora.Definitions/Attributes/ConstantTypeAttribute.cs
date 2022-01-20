@@ -1,21 +1,20 @@
 using System;
 
-namespace Pandora.Definitions.Attributes
+namespace Pandora.Definitions.Attributes;
+
+public class ConstantTypeAttribute : Attribute
 {
-    public class ConstantTypeAttribute : Attribute
+    public ConstantType Type { get; }
+
+    public ConstantTypeAttribute(ConstantType type)
     {
-        public ConstantType Type { get; }
+        Type = type;
+    }
 
-        public ConstantTypeAttribute(ConstantType type)
-        {
-            Type = type;
-        }
-
-        public enum ConstantType
-        {
-            String = 1,
-            Integer = 2,
-            Float = 3,
-        }
+    public enum ConstantType
+    {
+        String = 1,
+        Integer = 2,
+        Float = 3,
     }
 }

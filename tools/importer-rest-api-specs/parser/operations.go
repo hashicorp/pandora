@@ -119,7 +119,6 @@ func (p operationsParser) parseOperation(operation parsedOperation) (*models.Ope
 	resourceId := p.resourceUriToMetaData[*normalizedUri]
 
 	operationData := models.OperationDetails{
-		ApiVersion:                       nil, // TODO: investigate 'security' and other packages which use this
 		ContentType:                      contentType,
 		ExpectedStatusCodes:              expectedStatusCodes,
 		FieldContainingPaginationDetails: paginationField,

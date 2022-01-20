@@ -8,7 +8,7 @@ namespace Pandora.Definitions.ResourceManager.AnalysisServices.v2017_08_01
         public string ApiVersion => "2017-08-01";
         public bool Preview => false;
 
-        public IEnumerable<ApiDefinition> Apis => new List<ApiDefinition>
+        public IEnumerable<ResourceDefinition> Resources => new List<ResourceDefinition>
         {
             new AnalysisServices.Definition(),
             new Servers.Definition(),

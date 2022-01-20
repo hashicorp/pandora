@@ -1,44 +1,43 @@
-namespace Pandora.Data.Helpers
+namespace Pandora.Data.Helpers;
+
+public static class String
 {
-    public static class String
+    public static string? RemoveConstantSuffixFromTypeName(this string? input)
     {
-        public static string? RemoveConstantSuffixFromTypeName(this string? input)
+        if (input == null)
         {
-            if (input == null)
-            {
-                return null;
-            }
-
-            input = input.TrimSuffix("Constant");
-            return input;
+            return null;
         }
 
-        public static string? RemoveModelSuffixFromTypeName(this string? input)
-        {
-            if (input == null)
-            {
-                return null;
-            }
+        input = input.TrimSuffix("Constant");
+        return input;
+    }
 
-            input = input.TrimSuffix("Model");
-            return input;
+    public static string? RemoveModelSuffixFromTypeName(this string? input)
+    {
+        if (input == null)
+        {
+            return null;
         }
 
-        public static string? RemoveSuffixFromTypeName(this string? input)
-        {
-            if (input == null)
-            {
-                return null;
-            }
+        input = input.TrimSuffix("Model");
+        return input;
+    }
 
-            input = input.RemoveConstantSuffixFromTypeName();
-            input = input.RemoveModelSuffixFromTypeName();
-            return input;
+    public static string? RemoveSuffixFromTypeName(this string? input)
+    {
+        if (input == null)
+        {
+            return null;
         }
 
-        public static string TrimSuffix(this string input, string suffix)
-        {
-            return !input.EndsWith(suffix) ? input : input.Substring(0, input.Length - suffix.Length);
-        }
+        input = input.RemoveConstantSuffixFromTypeName();
+        input = input.RemoveModelSuffixFromTypeName();
+        return input;
+    }
+
+    public static string TrimSuffix(this string input, string suffix)
+    {
+        return !input.EndsWith(suffix) ? input : input.Substring(0, input.Length - suffix.Length);
     }
 }

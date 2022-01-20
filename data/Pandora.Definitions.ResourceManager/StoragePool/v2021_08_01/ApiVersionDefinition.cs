@@ -8,7 +8,7 @@ namespace Pandora.Definitions.ResourceManager.StoragePool.v2021_08_01
         public string ApiVersion => "2021-08-01";
         public bool Preview => false;
 
-        public IEnumerable<ApiDefinition> Apis => new List<ApiDefinition>
+        public IEnumerable<ResourceDefinition> Resources => new List<ResourceDefinition>
         {
             new DiskPoolZones.Definition(),
             new DiskPools.Definition(),

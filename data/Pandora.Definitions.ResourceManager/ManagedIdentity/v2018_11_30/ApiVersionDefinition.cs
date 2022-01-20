@@ -8,7 +8,7 @@ namespace Pandora.Definitions.ResourceManager.ManagedIdentity.v2018_11_30
         public string ApiVersion => "2018-11-30";
         public bool Preview => false;
 
-        public IEnumerable<ApiDefinition> Apis => new List<ApiDefinition>
+        public IEnumerable<ResourceDefinition> Resources => new List<ResourceDefinition>
         {
             new ManagedIdentity.Definition(),
         };

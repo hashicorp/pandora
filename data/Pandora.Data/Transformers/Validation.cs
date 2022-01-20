@@ -3,44 +3,43 @@ using System.Reflection;
 using Pandora.Data.Models;
 using Pandora.Definitions.Attributes;
 
-namespace Pandora.Data.Transformers
+namespace Pandora.Data.Transformers;
+
+public static class Validation
 {
-    public static class Validation
+    public static Models.ValidationDefinition? Map(PropertyInfo input)
     {
-        public static Models.ValidationDefinition? Map(PropertyInfo input)
+        try
         {
-            try
+            var optional = input.GetCustomAttribute<FieldValidationAttribute>();
+            if (optional == null)
             {
-                var optional = input.GetCustomAttribute<FieldValidationAttribute>();
-                if (optional == null)
-                {
-                    return null;
-                }
+                return null;
+            }
 
-                var definition = optional.Definition();
-                return new Models.ValidationDefinition
-                {
-                    ValidationType = MapValidationType(definition.ValidationType),
-                    Values = definition.Values,
-                };
-            }
-            catch (Exception ex)
+            var definition = optional.Definition();
+            return new Models.ValidationDefinition
             {
-                throw new Exception($"Mapping Validation {input.Name}", ex);
-            }
+                ValidationType = MapValidationType(definition.ValidationType),
+                Values = definition.Values,
+            };
         }
-
-
-        private static ValidationType MapValidationType(FieldValidationType input)
+        catch (Exception ex)
         {
-            switch (input)
-            {
-                case FieldValidationType.Range:
-                    return ValidationType.Range;
+            throw new Exception($"Mapping Validation {input.Name}", ex);
+        }
+    }
 
-                default:
-                    throw new NotSupportedException($"unsupported validation type {input.ToString()}");
-            }
+
+    private static ValidationType MapValidationType(FieldValidationType input)
+    {
+        switch (input)
+        {
+            case FieldValidationType.Range:
+                return ValidationType.Range;
+
+            default:
+                throw new NotSupportedException($"unsupported validation type {input.ToString()}");
         }
     }
 }

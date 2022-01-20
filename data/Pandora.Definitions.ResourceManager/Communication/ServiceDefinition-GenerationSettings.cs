@@ -1,7 +1,6 @@
-namespace Pandora.Definitions.ResourceManager.Communication
+namespace Pandora.Definitions.ResourceManager.Communication;
+
+public partial class Service
 {
-    public partial class Service
-    {
-        public bool Generate => true;
-    }
+    public bool Generate => true;
 }

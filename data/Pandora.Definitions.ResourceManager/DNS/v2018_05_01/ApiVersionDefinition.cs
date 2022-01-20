@@ -8,7 +8,7 @@ namespace Pandora.Definitions.ResourceManager.DNS.v2018_05_01
         public string ApiVersion => "2018-05-01";
         public bool Preview => false;
 
-        public IEnumerable<ApiDefinition> Apis => new List<ApiDefinition>
+        public IEnumerable<ResourceDefinition> Resources => new List<ResourceDefinition>
         {
             new DNS.Definition(),
             new RecordSets.Definition(),

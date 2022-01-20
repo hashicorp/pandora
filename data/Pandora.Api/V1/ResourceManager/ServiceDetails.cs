@@ -5,72 +5,71 @@ using Microsoft.AspNetCore.Mvc;
 using Pandora.Data.Models;
 using Pandora.Data.Repositories;
 
-namespace Pandora.Api.V1.ResourceManager
+namespace Pandora.Api.V1.ResourceManager;
+
+[ApiController]
+public class ServiceDetailsController : ControllerBase
 {
-    [ApiController]
-    public class ServiceDetailsController : ControllerBase
+    private readonly IServiceReferencesRepository _repo;
+    public ServiceDetailsController(IServiceReferencesRepository repo)
     {
-        private readonly IServiceReferencesRepository _repo;
-        public ServiceDetailsController(IServiceReferencesRepository repo)
+        _repo = repo;
+    }
+
+    [Route("/v1/resource-manager/services/{serviceName}")]
+    public IActionResult ResourceManager(string serviceName)
+    {
+        return ForService(serviceName);
+    }
+
+    private IActionResult ForService(string serviceName)
+    {
+        var service = _repo.GetByName(serviceName, true);
+        if (service == null)
         {
-            _repo = repo;
+            return BadRequest("service not found");
         }
 
-        [Route("/v1/resource-manager/services/{serviceName}")]
-        public IActionResult ResourceManager(string serviceName)
+        return new JsonResult(MapResponse(service, serviceName));
+    }
+
+    private static ServiceDetailsResponse MapResponse(ServiceDefinition version, string serviceName)
+    {
+        return new ServiceDetailsResponse
         {
-            return ForService(serviceName);
-        }
+            ResourceProvider = version.ResourceManager ? version.ResourceProvider! : null,
+            Versions = version.Versions.ToDictionary(v => v.Version, v => MapVersion(v, serviceName))
+        };
+    }
 
-        private IActionResult ForService(string serviceName)
+    private static VersionDetails MapVersion(VersionDefinition version, string serviceName)
+    {
+        return new VersionDetails
         {
-            var service = _repo.GetByName(serviceName, true);
-            if (service == null)
-            {
-                return BadRequest("service not found");
-            }
+            Generate = version.Generate,
+            Preview = version.Preview,
+            Uri = $"/v1/resource-manager/services/{serviceName}/{version.Version}"
+        };
+    }
 
-            return new JsonResult(MapResponse(service, serviceName));
-        }
+    private class VersionDetails
+    {
+        [JsonPropertyName("generate")]
+        public bool Generate { get; set; }
 
-        private static ServiceDetailsResponse MapResponse(ServiceDefinition version, string serviceName)
-        {
-            return new ServiceDetailsResponse
-            {
-                ResourceProvider = version.ResourceManager ? version.ResourceProvider! : null,
-                Versions = version.Versions.ToDictionary(v => v.Version, v => MapVersion(v, serviceName))
-            };
-        }
+        [JsonPropertyName("preview")]
+        public bool Preview { get; set; }
 
-        private static VersionDetails MapVersion(VersionDefinition version, string serviceName)
-        {
-            return new VersionDetails
-            {
-                Generate = version.Generate,
-                Preview = version.Preview,
-                Uri = $"/v1/resource-manager/services/{serviceName}/{version.Version}"
-            };
-        }
+        [JsonPropertyName("uri")]
+        public string Uri { get; set; }
+    }
 
-        private class VersionDetails
-        {
-            [JsonPropertyName("generate")]
-            public bool Generate { get; set; }
+    private class ServiceDetailsResponse
+    {
+        [JsonPropertyName("resourceProvider")]
+        public string? ResourceProvider { get; set; }
 
-            [JsonPropertyName("preview")]
-            public bool Preview { get; set; }
-
-            [JsonPropertyName("uri")]
-            public string Uri { get; set; }
-        }
-
-        private class ServiceDetailsResponse
-        {
-            [JsonPropertyName("resourceProvider")]
-            public string? ResourceProvider { get; set; }
-
-            [JsonPropertyName("versions")]
-            public Dictionary<string, VersionDetails> Versions { get; set; }
-        }
+        [JsonPropertyName("versions")]
+        public Dictionary<string, VersionDetails> Versions { get; set; }
     }
 }

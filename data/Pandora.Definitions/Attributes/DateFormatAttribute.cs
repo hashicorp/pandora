@@ -1,20 +1,19 @@
 using System;
 
-namespace Pandora.Definitions.Attributes
+namespace Pandora.Definitions.Attributes;
+
+public class DateFormatAttribute : Attribute
 {
-    public class DateFormatAttribute : Attribute
+    public enum DateFormat
     {
-        public enum DateFormat
-        {
-            RFC3339,
-            RFC3339Nano
-        }
+        RFC3339,
+        RFC3339Nano
+    }
 
-        public string Format { get; }
+    public string Format { get; }
 
-        public DateFormatAttribute(DateFormat format)
-        {
-            Format = format.ToString();
-        }
+    public DateFormatAttribute(DateFormat format)
+    {
+        Format = format.ToString();
     }
 }

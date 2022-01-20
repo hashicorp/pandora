@@ -1,7 +1,6 @@
-namespace Pandora.Definitions.ResourceManager.Cognitive
+namespace Pandora.Definitions.ResourceManager.Cognitive;
+
+public partial class Service
 {
-    public partial class Service
-    {
-        public bool Generate => true;
-    }
+    public bool Generate => true;
 }

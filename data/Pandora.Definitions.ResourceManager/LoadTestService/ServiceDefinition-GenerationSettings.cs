@@ -1,7 +1,6 @@
-namespace Pandora.Definitions.ResourceManager.LoadTestService
+namespace Pandora.Definitions.ResourceManager.LoadTestService;
+
+public partial class Service
 {
-    public partial class Service
-    {
-        public bool Generate => true;
-    }
+    public bool Generate => true;
 }

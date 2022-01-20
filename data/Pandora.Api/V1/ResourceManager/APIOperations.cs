@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json.Serialization;
@@ -7,173 +6,156 @@ using Pandora.Api.V1.Helpers;
 using Pandora.Data.Models;
 using Pandora.Data.Repositories;
 
-namespace Pandora.Api.V1.ResourceManager
+namespace Pandora.Api.V1.ResourceManager;
+
+[ApiController]
+public class ApiOperationsController : ControllerBase
 {
-    [ApiController]
-    public class ApiOperationsController : ControllerBase
+    private readonly IServiceReferencesRepository _repo;
+
+    public ApiOperationsController(IServiceReferencesRepository repo)
     {
-        private readonly IServiceReferencesRepository _repo;
+        _repo = repo;
+    }
 
-        public ApiOperationsController(IServiceReferencesRepository repo)
+    [Route("/v1/resource-manager/services/{serviceName}/{apiVersion}/{resourceName}/operations")]
+    public IActionResult ResourceManager(string serviceName, string apiVersion, string resourceName)
+    {
+        return ForService(serviceName, apiVersion, resourceName);
+    }
+
+    private IActionResult ForService(string serviceName, string apiVersion, string resourceName)
+    {
+        var service = _repo.GetByName(serviceName, true);
+        if (service == null)
         {
-            _repo = repo;
+            return BadRequest("service not found");
         }
 
-        [Route("/v1/resource-manager/services/{serviceName}/{apiVersion}/{resourceName}/operations")]
-        public IActionResult ResourceManager(string serviceName, string apiVersion, string resourceName)
+        var version = service.Versions.FirstOrDefault(v => v.Version == apiVersion);
+        if (version == null)
         {
-            return ForService(serviceName, apiVersion, resourceName);
+            return BadRequest($"version {apiVersion} was not found");
         }
 
-        private IActionResult ForService(string serviceName, string apiVersion, string resourceName)
+        var api = version.Resources.FirstOrDefault(a => a.Name == resourceName);
+        if (api == null)
         {
-            var service = _repo.GetByName(serviceName, true);
-            if (service == null)
-            {
-                return BadRequest("service not found");
-            }
-
-            var version = service.Versions.FirstOrDefault(v => v.Version == apiVersion);
-            if (version == null)
-            {
-                return BadRequest($"version {apiVersion} was not found");
-            }
-
-            var api = version.Apis.FirstOrDefault(a => a.Name == resourceName);
-            if (api == null)
-            {
-                return BadRequest($"resource {resourceName} was not found");
-            }
-
-            return new JsonResult(MapResponse(api, version, service));
+            return BadRequest($"resource {resourceName} was not found");
         }
 
-        private static ApiOperationsResponse MapResponse(ApiDefinition api, VersionDefinition version, ServiceDefinition service)
+        return new JsonResult(MapResponse(api, version, service));
+    }
+
+    private static ApiOperationsResponse MapResponse(ResourceDefinition resource, VersionDefinition version, ServiceDefinition service)
+    {
+        var metaData = new OperationMetaData
         {
-            var metaData = new OperationMetaData
+            ResourceProvider = service.ResourceProvider!,
+        };
+
+        return new ApiOperationsResponse
+        {
+            MetaData = metaData,
+            Operations = resource.Operations.ToDictionary(o => o.Name, o => MapOperation(o, version.Version))
+        };
+    }
+
+    private static ApiOperationDefinition MapOperation(OperationDefinition definition, string apiVersion)
+    {
+        return new ApiOperationDefinition
+        {
+            ContentType = definition.ContentType,
+            Method = definition.Method,
+            LongRunning = definition.LongRunning,
+            ExpectedStatusCodes = definition.ExpectedStatusCodes,
+            ResourceIdName = definition.ResourceIdName,
+            UriSuffix = definition.UriSuffix,
+            FieldContainingPaginationDetails = definition.FieldContainingPaginationDetails,
+            RequestObject = ApiObjectDefinitionMapper.Map(definition.RequestObject),
+            ResponseObject = ApiObjectDefinitionMapper.Map(definition.ResponseObject),
+            Options = MapOptions(definition.Options),
+        };
+    }
+
+    private static Dictionary<string, ApiOperationOption> MapOptions(List<OptionDefinition> input)
+    {
+        var output = new Dictionary<string, ApiOperationOption>();
+
+        foreach (var definition in input)
+        {
+            var objectDefinition = ApiObjectDefinitionMapper.Map(definition.ObjectDefinition);
+            output[definition.Name] = new ApiOperationOption
             {
-                ResourceProvider = service.ResourceProvider!,
+                QueryStringName = definition.QueryStringName,
+                ObjectDefinition = objectDefinition,
+                Required = definition.Required,
             };
-
-            return new ApiOperationsResponse
-            {
-                MetaData = metaData,
-                Operations = api.Operations.ToDictionary(o => o.Name, o => MapOperation(o, version.Version))
-            };
         }
 
-        private static ApiOperationDefinition MapOperation(OperationDefinition definition, string apiVersion)
-        {
-            var operation = new ApiOperationDefinition
-            {
-                ContentType = definition.ContentType,
-                Method = definition.Method,
-                LongRunning = definition.LongRunning,
-                ExpectedStatusCodes = definition.ExpectedStatusCodes,
-                ResourceIdName = definition.ResourceIdName,
-                UriSuffix = definition.UriSuffix,
-                FieldContainingPaginationDetails = definition.FieldContainingPaginationDetails,
-                RequestObject = ApiObjectDefinitionMapper.Map(definition.RequestObject),
-                ResponseObject = ApiObjectDefinitionMapper.Map(definition.ResponseObject),
-            };
+        return output;
+    }
 
-            operation.Options = MapOptions(definition.Options);
+    public class ApiOperationsResponse
+    {
+        [JsonPropertyName("operations")]
+        public Dictionary<string, ApiOperationDefinition> Operations { get; set; }
 
-            // we should only return this if it's a different API version than the original
-            if (apiVersion != definition.ApiVersion)
-            {
-                operation.ApiVersion = definition.ApiVersion;
-            }
+        [JsonPropertyName("metaData")]
+        public OperationMetaData? MetaData { get; set; }
+    }
 
-            return operation;
-        }
+    public class ApiOperationDefinition
+    {
+        [JsonPropertyName("contentType")]
+        public string? ContentType { get; set; }
 
-        private static Dictionary<string, ApiOperationOption> MapOptions(List<OptionDefinition> input)
-        {
-            var output = new Dictionary<string, ApiOperationOption>();
+        [JsonPropertyName("expectedStatusCodes")]
+        public List<int> ExpectedStatusCodes { get; set; }
 
-            foreach (var definition in input)
-            {
-                var objectDefinition = ApiObjectDefinitionMapper.Map(definition.ObjectDefinition);
-                output[definition.Name] = new ApiOperationOption
-                {
-                    QueryStringName = definition.QueryStringName,
-                    ObjectDefinition = objectDefinition,
-                    Required = definition.Required,
-                };
-            }
+        [JsonPropertyName("longRunning")]
+        public bool LongRunning { get; set; }
 
-            return output;
-        }
+        [JsonPropertyName("method")]
+        public string Method { get; set; }
 
-        public class ApiOperationsResponse
-        {
-            [JsonPropertyName("operations")]
-            public Dictionary<string, ApiOperationDefinition> Operations { get; set; }
+        [JsonPropertyName("requestObject")]
+        public ApiObjectDefinition? RequestObject { get; set; }
 
-            [JsonPropertyName("metaData")]
-            public OperationMetaData? MetaData { get; set; }
-        }
+        [JsonPropertyName("resourceIdName")]
+        public string? ResourceIdName { get; set; }
 
-        public class ApiOperationDefinition
-        {
-            [JsonPropertyName("contentType")]
-            public string? ContentType { get; set; }
+        [JsonPropertyName("responseObject")]
+        public ApiObjectDefinition? ResponseObject { get; set; }
 
-            [JsonPropertyName("expectedStatusCodes")]
-            public List<int> ExpectedStatusCodes { get; set; }
+        [JsonPropertyName("uriSuffix")]
+        public string UriSuffix { get; set; }
 
-            [JsonPropertyName("longRunning")]
-            public bool LongRunning { get; set; }
+        [JsonPropertyName("fieldContainingPaginationDetails")]
+        public string FieldContainingPaginationDetails { get; set; }
 
-            [JsonPropertyName("method")]
-            public string Method { get; set; }
+        [JsonPropertyName("options")]
+        public Dictionary<string, ApiOperationOption> Options { get; set; }
+    }
 
-            [JsonPropertyName("requestObject")]
-            public ApiObjectDefinition? RequestObject { get; set; }
+    public class ApiOperationOption
+    {
+        // TODO: header name too
+        [JsonPropertyName("queryStringName")]
+        public string? QueryStringName { get; set; }
 
-            [JsonPropertyName("resourceIdName")]
-            public string? ResourceIdName { get; set; }
+        [JsonPropertyName("objectDefinition")]
+        public ApiObjectDefinition ObjectDefinition { get; set; }
 
-            [JsonPropertyName("responseObject")]
-            public ApiObjectDefinition? ResponseObject { get; set; }
+        [JsonPropertyName("required")]
+        public bool Required { get; set; }
+    }
 
-            // ApiVersion specifies that a different API version should be used for
-            // this than the Parent Service. Whilst bizarre, some Azure API's do this
-            // rather than duplicating the API - which is unfortunate since it means
-            // we have these mixed-version imports - but I digress.
-            [JsonPropertyName("apiVersion")]
-            public string? ApiVersion { get; set; }
+    public class OperationMetaData
+    {
+        [JsonPropertyName("resourceProvider")]
+        public string? ResourceProvider { get; set; }
 
-            [JsonPropertyName("uriSuffix")]
-            public string UriSuffix { get; set; }
-
-            [JsonPropertyName("fieldContainingPaginationDetails")]
-            public string FieldContainingPaginationDetails { get; set; }
-
-            [JsonPropertyName("options")]
-            public Dictionary<string, ApiOperationOption> Options { get; set; }
-        }
-
-        public class ApiOperationOption
-        {
-            // TODO: header name too
-            [JsonPropertyName("queryStringName")]
-            public string? QueryStringName { get; set; }
-
-            [JsonPropertyName("objectDefinition")]
-            public ApiObjectDefinition ObjectDefinition { get; set; }
-
-            [JsonPropertyName("required")]
-            public bool Required { get; set; }
-        }
-
-        public class OperationMetaData
-        {
-            [JsonPropertyName("resourceProvider")]
-            public string? ResourceProvider { get; set; }
-
-            // TODO: API Availability Details (e.g. GA in Public, PrivatePreview in China?)
-        }
+        // TODO: API Availability Details (e.g. GA in Public, PrivatePreview in China?)
     }
 }
