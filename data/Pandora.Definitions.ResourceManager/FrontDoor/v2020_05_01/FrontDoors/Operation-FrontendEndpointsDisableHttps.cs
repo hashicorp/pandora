@@ -6,24 +6,23 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.FrontDoor.v2020_05_01.FrontDoors
+namespace Pandora.Definitions.ResourceManager.FrontDoor.v2020_05_01.FrontDoors;
+
+internal class FrontendEndpointsDisableHttpsOperation : Operations.PostOperation
 {
-    internal class FrontendEndpointsDisableHttpsOperation : Operations.PostOperation
-    {
-        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.OK,
         };
 
-        public override bool LongRunning() => true;
+    public override bool LongRunning() => true;
 
-        public override Type? RequestObject() => null;
+    public override Type? RequestObject() => null;
 
-        public override ResourceID? ResourceId() => new FrontendEndpointId();
+    public override ResourceID? ResourceId() => new FrontendEndpointId();
 
-        public override string? UriSuffix() => "/disableHttps";
+    public override string? UriSuffix() => "/disableHttps";
 
 
-    }
 }

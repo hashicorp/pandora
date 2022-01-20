@@ -5,12 +5,11 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.VMware.v2020_03_20.Clusters
-{
+namespace Pandora.Definitions.ResourceManager.VMware.v2020_03_20.Clusters;
 
-    internal class ClusterUpdatePropertiesModel
-    {
-        [JsonPropertyName("clusterSize")]
-        public int? ClusterSize { get; set; }
-    }
+
+internal class ClusterUpdatePropertiesModel
+{
+    [JsonPropertyName("clusterSize")]
+    public int? ClusterSize { get; set; }
 }

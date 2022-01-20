@@ -6,23 +6,22 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.AuthorizationRulesEventHubs
+namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.AuthorizationRulesEventHubs;
+
+internal class EventHubsRegenerateKeysOperation : Operations.PostOperation
 {
-    internal class EventHubsRegenerateKeysOperation : Operations.PostOperation
-    {
-        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-        public override Type? RequestObject() => typeof(RegenerateAccessKeyParametersModel);
+    public override Type? RequestObject() => typeof(RegenerateAccessKeyParametersModel);
 
-        public override ResourceID? ResourceId() => new EventhubAuthorizationRuleId();
+    public override ResourceID? ResourceId() => new EventhubAuthorizationRuleId();
 
-        public override Type? ResponseObject() => typeof(AccessKeysModel);
+    public override Type? ResponseObject() => typeof(AccessKeysModel);
 
-        public override string? UriSuffix() => "/regenerateKeys";
+    public override string? UriSuffix() => "/regenerateKeys";
 
 
-    }
 }

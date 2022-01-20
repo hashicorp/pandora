@@ -6,18 +6,17 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.VideoAnalyzer.v2021_05_01_preview.VideoAnalyzer
+namespace Pandora.Definitions.ResourceManager.VideoAnalyzer.v2021_05_01_preview.VideoAnalyzer;
+
+internal class VideoAnalyzersDeleteOperation : Operations.DeleteOperation
 {
-    internal class VideoAnalyzersDeleteOperation : Operations.DeleteOperation
-    {
-        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.NoContent,
                 HttpStatusCode.OK,
         };
 
-        public override ResourceID? ResourceId() => new VideoAnalyzerId();
+    public override ResourceID? ResourceId() => new VideoAnalyzerId();
 
 
-    }
 }

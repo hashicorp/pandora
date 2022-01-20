@@ -1,16 +1,16 @@
 using System.Collections.Generic;
 using Pandora.Definitions.Interfaces;
 
-namespace Pandora.Definitions.ResourceManager.SignalR.v2020_05_01.SignalR
+namespace Pandora.Definitions.ResourceManager.SignalR.v2020_05_01.SignalR;
+
+internal class PrivateEndpointConnectionId : ResourceID
 {
-    internal class PrivateEndpointConnectionId : ResourceID
+    public string? CommonAlias => null;
+
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.SignalRService/signalR/{resourceName}/privateEndpointConnections/{privateEndpointConnectionName}";
+
+    public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
-        public string? CommonAlias => null;
-
-        public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.SignalRService/signalR/{resourceName}/privateEndpointConnections/{privateEndpointConnectionName}";
-
-        public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
-        {
                 new()
                 {
                     Name = "staticSubscriptions",
@@ -77,6 +77,5 @@ namespace Pandora.Definitions.ResourceManager.SignalR.v2020_05_01.SignalR
                     Type = ResourceIDSegmentType.UserSpecified
                 },
 
-        };
-    }
+    };
 }

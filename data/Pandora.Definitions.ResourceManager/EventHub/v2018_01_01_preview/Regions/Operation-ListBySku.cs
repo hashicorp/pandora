@@ -6,18 +6,17 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.Regions
+namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.Regions;
+
+internal class ListBySkuOperation : Operations.ListOperation
 {
-    internal class ListBySkuOperation : Operations.ListOperation
-    {
-        public override string? FieldContainingPaginationDetails() => "nextLink";
+    public override string? FieldContainingPaginationDetails() => "nextLink";
 
-        public override ResourceID? ResourceId() => new SkuId();
+    public override ResourceID? ResourceId() => new SkuId();
 
-        public override Type NestedItemType() => typeof(MessagingRegionsModel);
+    public override Type NestedItemType() => typeof(MessagingRegionsModel);
 
-        public override string? UriSuffix() => "/regions";
+    public override string? UriSuffix() => "/regions";
 
 
-    }
 }

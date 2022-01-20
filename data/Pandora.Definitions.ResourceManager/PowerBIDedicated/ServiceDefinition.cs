@@ -1,10 +1,9 @@
 using Pandora.Definitions.Interfaces;
 
-namespace Pandora.Definitions.ResourceManager.PowerBIDedicated
+namespace Pandora.Definitions.ResourceManager.PowerBIDedicated;
+
+public partial class Service : ServiceDefinition
 {
-    public partial class Service : ServiceDefinition
-    {
-        public string Name => "PowerBIDedicated";
-        public string? ResourceProvider => "Microsoft.PowerBIdedicated";
-    }
+    public string Name => "PowerBIDedicated";
+    public string? ResourceProvider => "Microsoft.PowerBIdedicated";
 }

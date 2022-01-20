@@ -5,21 +5,20 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.FrontDoor.v2020_05_01.FrontDoors
+namespace Pandora.Definitions.ResourceManager.FrontDoor.v2020_05_01.FrontDoors;
+
+
+internal class LoadBalancingSettingsPropertiesModel
 {
+    [JsonPropertyName("additionalLatencyMilliseconds")]
+    public int? AdditionalLatencyMilliseconds { get; set; }
 
-    internal class LoadBalancingSettingsPropertiesModel
-    {
-        [JsonPropertyName("additionalLatencyMilliseconds")]
-        public int? AdditionalLatencyMilliseconds { get; set; }
+    [JsonPropertyName("resourceState")]
+    public FrontDoorResourceStateConstant? ResourceState { get; set; }
 
-        [JsonPropertyName("resourceState")]
-        public FrontDoorResourceStateConstant? ResourceState { get; set; }
+    [JsonPropertyName("sampleSize")]
+    public int? SampleSize { get; set; }
 
-        [JsonPropertyName("sampleSize")]
-        public int? SampleSize { get; set; }
-
-        [JsonPropertyName("successfulSamplesRequired")]
-        public int? SuccessfulSamplesRequired { get; set; }
-    }
+    [JsonPropertyName("successfulSamplesRequired")]
+    public int? SuccessfulSamplesRequired { get; set; }
 }

@@ -1,21 +1,20 @@
 using Pandora.Definitions.Attributes;
 using System.ComponentModel;
 
-namespace Pandora.Definitions.ResourceManager.PostgreSqlHsc.v2020_10_05_privatepreview.Configurations
+namespace Pandora.Definitions.ResourceManager.PostgreSqlHsc.v2020_10_05_privatepreview.Configurations;
+
+[ConstantType(ConstantTypeAttribute.ConstantType.String)]
+internal enum ConfigurationDataTypeConstant
 {
-    [ConstantType(ConstantTypeAttribute.ConstantType.String)]
-    internal enum ConfigurationDataTypeConstant
-    {
-        [Description("Boolean")]
-        Boolean,
+    [Description("Boolean")]
+    Boolean,
 
-        [Description("Enumeration")]
-        Enumeration,
+    [Description("Enumeration")]
+    Enumeration,
 
-        [Description("Integer")]
-        Integer,
+    [Description("Integer")]
+    Integer,
 
-        [Description("Numeric")]
-        Numeric,
-    }
+    [Description("Numeric")]
+    Numeric,
 }

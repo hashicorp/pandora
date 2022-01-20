@@ -6,18 +6,17 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.FrontDoor.v2020_04_01.WebApplicationFirewallManagedRuleSets
+namespace Pandora.Definitions.ResourceManager.FrontDoor.v2020_04_01.WebApplicationFirewallManagedRuleSets;
+
+internal class ManagedRuleSetsListOperation : Operations.ListOperation
 {
-    internal class ManagedRuleSetsListOperation : Operations.ListOperation
-    {
-        public override string? FieldContainingPaginationDetails() => "nextLink";
+    public override string? FieldContainingPaginationDetails() => "nextLink";
 
-        public override ResourceID? ResourceId() => new SubscriptionId();
+    public override ResourceID? ResourceId() => new SubscriptionId();
 
-        public override Type NestedItemType() => typeof(ManagedRuleSetDefinitionModel);
+    public override Type NestedItemType() => typeof(ManagedRuleSetDefinitionModel);
 
-        public override string? UriSuffix() => "/providers/Microsoft.Network/frontDoorWebApplicationFirewallManagedRuleSets";
+    public override string? UriSuffix() => "/providers/Microsoft.Network/frontDoorWebApplicationFirewallManagedRuleSets";
 
 
-    }
 }

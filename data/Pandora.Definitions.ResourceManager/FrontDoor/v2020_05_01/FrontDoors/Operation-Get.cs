@@ -6,14 +6,13 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.FrontDoor.v2020_05_01.FrontDoors
+namespace Pandora.Definitions.ResourceManager.FrontDoor.v2020_05_01.FrontDoors;
+
+internal class GetOperation : Operations.GetOperation
 {
-    internal class GetOperation : Operations.GetOperation
-    {
-        public override ResourceID? ResourceId() => new FrontDoorId();
+    public override ResourceID? ResourceId() => new FrontDoorId();
 
-        public override Type? ResponseObject() => typeof(FrontDoorModel);
+    public override Type? ResponseObject() => typeof(FrontDoorModel);
 
 
-    }
 }

@@ -1,18 +1,17 @@
 using Pandora.Definitions.Attributes;
 using System.ComponentModel;
 
-namespace Pandora.Definitions.ResourceManager.ServiceFabricManagedCluster.v2021_05_01.ManagedCluster
+namespace Pandora.Definitions.ResourceManager.ServiceFabricManagedCluster.v2021_05_01.ManagedCluster;
+
+[ConstantType(ConstantTypeAttribute.ConstantType.String)]
+internal enum AddonFeaturesConstant
 {
-    [ConstantType(ConstantTypeAttribute.ConstantType.String)]
-    internal enum AddonFeaturesConstant
-    {
-        [Description("BackupRestoreService")]
-        BackupRestoreService,
+    [Description("BackupRestoreService")]
+    BackupRestoreService,
 
-        [Description("DnsService")]
-        DnsService,
+    [Description("DnsService")]
+    DnsService,
 
-        [Description("ResourceMonitorService")]
-        ResourceMonitorService,
-    }
+    [Description("ResourceMonitorService")]
+    ResourceMonitorService,
 }

@@ -5,12 +5,11 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.AnalysisServices.v2017_08_01.Servers
-{
+namespace Pandora.Definitions.ResourceManager.AnalysisServices.v2017_08_01.Servers;
 
-    internal class GatewayListStatusLiveModel
-    {
-        [JsonPropertyName("status")]
-        public StatusConstant? Status { get; set; }
-    }
+
+internal class GatewayListStatusLiveModel
+{
+    [JsonPropertyName("status")]
+    public StatusConstant? Status { get; set; }
 }

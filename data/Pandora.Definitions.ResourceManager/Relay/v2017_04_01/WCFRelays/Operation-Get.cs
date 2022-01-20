@@ -6,20 +6,19 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.Relay.v2017_04_01.WCFRelays
+namespace Pandora.Definitions.ResourceManager.Relay.v2017_04_01.WCFRelays;
+
+internal class GetOperation : Operations.GetOperation
 {
-    internal class GetOperation : Operations.GetOperation
-    {
-        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.NoContent,
                 HttpStatusCode.OK,
         };
 
-        public override ResourceID? ResourceId() => new WcfRelayId();
+    public override ResourceID? ResourceId() => new WcfRelayId();
 
-        public override Type? ResponseObject() => typeof(WcfRelayModel);
+    public override Type? ResponseObject() => typeof(WcfRelayModel);
 
 
-    }
 }

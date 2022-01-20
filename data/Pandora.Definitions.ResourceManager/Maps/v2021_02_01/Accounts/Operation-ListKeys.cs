@@ -6,23 +6,22 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.Maps.v2021_02_01.Accounts
+namespace Pandora.Definitions.ResourceManager.Maps.v2021_02_01.Accounts;
+
+internal class ListKeysOperation : Operations.PostOperation
 {
-    internal class ListKeysOperation : Operations.PostOperation
-    {
-        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-        public override Type? RequestObject() => null;
+    public override Type? RequestObject() => null;
 
-        public override ResourceID? ResourceId() => new AccountId();
+    public override ResourceID? ResourceId() => new AccountId();
 
-        public override Type? ResponseObject() => typeof(MapsAccountKeysModel);
+    public override Type? ResponseObject() => typeof(MapsAccountKeysModel);
 
-        public override string? UriSuffix() => "/listKeys";
+    public override string? UriSuffix() => "/listKeys";
 
 
-    }
 }

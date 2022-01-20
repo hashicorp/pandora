@@ -5,21 +5,20 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.FrontDoor.v2020_05_01.FrontDoors
+namespace Pandora.Definitions.ResourceManager.FrontDoor.v2020_05_01.FrontDoors;
+
+
+internal class CacheConfigurationModel
 {
+    [JsonPropertyName("cacheDuration")]
+    public string? CacheDuration { get; set; }
 
-    internal class CacheConfigurationModel
-    {
-        [JsonPropertyName("cacheDuration")]
-        public string? CacheDuration { get; set; }
+    [JsonPropertyName("dynamicCompression")]
+    public DynamicCompressionEnabledConstant? DynamicCompression { get; set; }
 
-        [JsonPropertyName("dynamicCompression")]
-        public DynamicCompressionEnabledConstant? DynamicCompression { get; set; }
+    [JsonPropertyName("queryParameterStripDirective")]
+    public FrontDoorQueryConstant? QueryParameterStripDirective { get; set; }
 
-        [JsonPropertyName("queryParameterStripDirective")]
-        public FrontDoorQueryConstant? QueryParameterStripDirective { get; set; }
-
-        [JsonPropertyName("queryParameters")]
-        public string? QueryParameters { get; set; }
-    }
+    [JsonPropertyName("queryParameters")]
+    public string? QueryParameters { get; set; }
 }

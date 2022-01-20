@@ -6,16 +6,15 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.PowerBIDedicated.v2021_01_01.Capacities
+namespace Pandora.Definitions.ResourceManager.PowerBIDedicated.v2021_01_01.Capacities;
+
+internal class ListSkusForCapacityOperation : Operations.GetOperation
 {
-    internal class ListSkusForCapacityOperation : Operations.GetOperation
-    {
-        public override ResourceID? ResourceId() => new CapacitiesId();
+    public override ResourceID? ResourceId() => new CapacitiesId();
 
-        public override Type? ResponseObject() => typeof(SkuEnumerationForExistingResourceResultModel);
+    public override Type? ResponseObject() => typeof(SkuEnumerationForExistingResourceResultModel);
 
-        public override string? UriSuffix() => "/skus";
+    public override string? UriSuffix() => "/skus";
 
 
-    }
 }

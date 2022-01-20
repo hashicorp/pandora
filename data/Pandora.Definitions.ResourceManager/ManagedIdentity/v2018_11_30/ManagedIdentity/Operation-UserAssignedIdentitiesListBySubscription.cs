@@ -6,18 +6,17 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.ManagedIdentity.v2018_11_30.ManagedIdentity
+namespace Pandora.Definitions.ResourceManager.ManagedIdentity.v2018_11_30.ManagedIdentity;
+
+internal class UserAssignedIdentitiesListBySubscriptionOperation : Operations.ListOperation
 {
-    internal class UserAssignedIdentitiesListBySubscriptionOperation : Operations.ListOperation
-    {
-        public override string? FieldContainingPaginationDetails() => "nextLink";
+    public override string? FieldContainingPaginationDetails() => "nextLink";
 
-        public override ResourceID? ResourceId() => new SubscriptionId();
+    public override ResourceID? ResourceId() => new SubscriptionId();
 
-        public override Type NestedItemType() => typeof(IdentityModel);
+    public override Type NestedItemType() => typeof(IdentityModel);
 
-        public override string? UriSuffix() => "/providers/Microsoft.ManagedIdentity/userAssignedIdentities";
+    public override string? UriSuffix() => "/providers/Microsoft.ManagedIdentity/userAssignedIdentities";
 
 
-    }
 }

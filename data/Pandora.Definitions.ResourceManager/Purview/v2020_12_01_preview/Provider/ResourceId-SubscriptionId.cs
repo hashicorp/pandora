@@ -1,16 +1,16 @@
 using System.Collections.Generic;
 using Pandora.Definitions.Interfaces;
 
-namespace Pandora.Definitions.ResourceManager.Purview.v2020_12_01_preview.Provider
+namespace Pandora.Definitions.ResourceManager.Purview.v2020_12_01_preview.Provider;
+
+internal class SubscriptionId : ResourceID
 {
-    internal class SubscriptionId : ResourceID
+    public string? CommonAlias => null;
+
+    public string ID => "/subscriptions/{subscriptionId}";
+
+    public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
-        public string? CommonAlias => null;
-
-        public string ID => "/subscriptions/{subscriptionId}";
-
-        public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
-        {
                 new()
                 {
                     Name = "staticSubscriptions",
@@ -24,6 +24,5 @@ namespace Pandora.Definitions.ResourceManager.Purview.v2020_12_01_preview.Provid
                     Type = ResourceIDSegmentType.SubscriptionId
                 },
 
-        };
-    }
+    };
 }

@@ -6,21 +6,20 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.AnalysisServices.v2017_08_01.Servers
+namespace Pandora.Definitions.ResourceManager.AnalysisServices.v2017_08_01.Servers;
+
+internal class DissociateGatewayOperation : Operations.PostOperation
 {
-    internal class DissociateGatewayOperation : Operations.PostOperation
-    {
-        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-        public override Type? RequestObject() => null;
+    public override Type? RequestObject() => null;
 
-        public override ResourceID? ResourceId() => new ServerId();
+    public override ResourceID? ResourceId() => new ServerId();
 
-        public override string? UriSuffix() => "/dissociateGateway";
+    public override string? UriSuffix() => "/dissociateGateway";
 
 
-    }
 }

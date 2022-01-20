@@ -5,15 +5,14 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.SignalR.v2020_05_01.SignalR
+namespace Pandora.Definitions.ResourceManager.SignalR.v2020_05_01.SignalR;
+
+
+internal class NetworkACLModel
 {
+    [JsonPropertyName("allow")]
+    public List<SignalRRequestTypeConstant>? Allow { get; set; }
 
-    internal class NetworkACLModel
-    {
-        [JsonPropertyName("allow")]
-        public List<SignalRRequestTypeConstant>? Allow { get; set; }
-
-        [JsonPropertyName("deny")]
-        public List<SignalRRequestTypeConstant>? Deny { get; set; }
-    }
+    [JsonPropertyName("deny")]
+    public List<SignalRRequestTypeConstant>? Deny { get; set; }
 }

@@ -5,12 +5,11 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.EventHub.v2021_01_01_preview.Namespaces
-{
+namespace Pandora.Definitions.ResourceManager.EventHub.v2021_01_01_preview.Namespaces;
 
-    internal class UserAssignedIdentityPropertiesModel
-    {
-        [JsonPropertyName("userAssignedIdentity")]
-        public string? UserAssignedIdentity { get; set; }
-    }
+
+internal class UserAssignedIdentityPropertiesModel
+{
+    [JsonPropertyName("userAssignedIdentity")]
+    public string? UserAssignedIdentity { get; set; }
 }

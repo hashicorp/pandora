@@ -6,14 +6,13 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.ChaosStudio.v2021_09_15_preview.Experiments
+namespace Pandora.Definitions.ResourceManager.ChaosStudio.v2021_09_15_preview.Experiments;
+
+internal class GetStatusOperation : Operations.GetOperation
 {
-    internal class GetStatusOperation : Operations.GetOperation
-    {
-        public override ResourceID? ResourceId() => new StatuseId();
+    public override ResourceID? ResourceId() => new StatuseId();
 
-        public override Type? ResponseObject() => typeof(ExperimentStatusModel);
+    public override Type? ResponseObject() => typeof(ExperimentStatusModel);
 
 
-    }
 }

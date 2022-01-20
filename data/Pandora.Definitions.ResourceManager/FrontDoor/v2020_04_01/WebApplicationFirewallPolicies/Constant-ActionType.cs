@@ -1,21 +1,20 @@
 using Pandora.Definitions.Attributes;
 using System.ComponentModel;
 
-namespace Pandora.Definitions.ResourceManager.FrontDoor.v2020_04_01.WebApplicationFirewallPolicies
+namespace Pandora.Definitions.ResourceManager.FrontDoor.v2020_04_01.WebApplicationFirewallPolicies;
+
+[ConstantType(ConstantTypeAttribute.ConstantType.String)]
+internal enum ActionTypeConstant
 {
-    [ConstantType(ConstantTypeAttribute.ConstantType.String)]
-    internal enum ActionTypeConstant
-    {
-        [Description("Allow")]
-        Allow,
+    [Description("Allow")]
+    Allow,
 
-        [Description("Block")]
-        Block,
+    [Description("Block")]
+    Block,
 
-        [Description("Log")]
-        Log,
+    [Description("Log")]
+    Log,
 
-        [Description("Redirect")]
-        Redirect,
-    }
+    [Description("Redirect")]
+    Redirect,
 }

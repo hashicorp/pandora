@@ -6,18 +6,17 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.RedisEnterprise.v2021_08_01.RedisEnterprise
+namespace Pandora.Definitions.ResourceManager.RedisEnterprise.v2021_08_01.RedisEnterprise;
+
+internal class DatabasesCreateOperation : Operations.PutOperation
 {
-    internal class DatabasesCreateOperation : Operations.PutOperation
-    {
-        public override bool LongRunning() => true;
+    public override bool LongRunning() => true;
 
-        public override Type? RequestObject() => typeof(DatabaseModel);
+    public override Type? RequestObject() => typeof(DatabaseModel);
 
-        public override ResourceID? ResourceId() => new DatabaseId();
+    public override ResourceID? ResourceId() => new DatabaseId();
 
-        public override Type? ResponseObject() => typeof(DatabaseModel);
+    public override Type? ResponseObject() => typeof(DatabaseModel);
 
 
-    }
 }

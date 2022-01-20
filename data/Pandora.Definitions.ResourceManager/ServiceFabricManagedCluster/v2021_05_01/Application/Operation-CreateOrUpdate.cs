@@ -6,24 +6,23 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.ServiceFabricManagedCluster.v2021_05_01.Application
+namespace Pandora.Definitions.ResourceManager.ServiceFabricManagedCluster.v2021_05_01.Application;
+
+internal class CreateOrUpdateOperation : Operations.PutOperation
 {
-    internal class CreateOrUpdateOperation : Operations.PutOperation
-    {
-        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.OK,
         };
 
-        public override bool LongRunning() => true;
+    public override bool LongRunning() => true;
 
-        public override Type? RequestObject() => typeof(ApplicationResourceModel);
+    public override Type? RequestObject() => typeof(ApplicationResourceModel);
 
-        public override ResourceID? ResourceId() => new ApplicationId();
+    public override ResourceID? ResourceId() => new ApplicationId();
 
-        public override Type? ResponseObject() => typeof(ApplicationResourceModel);
+    public override Type? ResponseObject() => typeof(ApplicationResourceModel);
 
 
-    }
 }

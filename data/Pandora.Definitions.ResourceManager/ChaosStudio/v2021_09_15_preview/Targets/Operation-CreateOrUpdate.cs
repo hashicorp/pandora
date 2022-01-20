@@ -6,21 +6,20 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.ChaosStudio.v2021_09_15_preview.Targets
+namespace Pandora.Definitions.ResourceManager.ChaosStudio.v2021_09_15_preview.Targets;
+
+internal class CreateOrUpdateOperation : Operations.PutOperation
 {
-    internal class CreateOrUpdateOperation : Operations.PutOperation
-    {
-        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-        public override Type? RequestObject() => typeof(TargetModel);
+    public override Type? RequestObject() => typeof(TargetModel);
 
-        public override ResourceID? ResourceId() => new TargetId();
+    public override ResourceID? ResourceId() => new TargetId();
 
-        public override Type? ResponseObject() => typeof(TargetModel);
+    public override Type? ResponseObject() => typeof(TargetModel);
 
 
-    }
 }

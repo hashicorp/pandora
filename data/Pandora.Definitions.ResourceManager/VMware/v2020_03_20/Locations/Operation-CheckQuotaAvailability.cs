@@ -6,23 +6,22 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.VMware.v2020_03_20.Locations
+namespace Pandora.Definitions.ResourceManager.VMware.v2020_03_20.Locations;
+
+internal class CheckQuotaAvailabilityOperation : Operations.PostOperation
 {
-    internal class CheckQuotaAvailabilityOperation : Operations.PostOperation
-    {
-        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-        public override Type? RequestObject() => null;
+    public override Type? RequestObject() => null;
 
-        public override ResourceID? ResourceId() => new LocationId();
+    public override ResourceID? ResourceId() => new LocationId();
 
-        public override Type? ResponseObject() => typeof(QuotaModel);
+    public override Type? ResponseObject() => typeof(QuotaModel);
 
-        public override string? UriSuffix() => "/checkQuotaAvailability";
+    public override string? UriSuffix() => "/checkQuotaAvailability";
 
 
-    }
 }

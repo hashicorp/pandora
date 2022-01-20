@@ -6,18 +6,17 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.AppConfiguration.v2020_06_01.PrivateEndpointConnections
+namespace Pandora.Definitions.ResourceManager.AppConfiguration.v2020_06_01.PrivateEndpointConnections;
+
+internal class ListByConfigurationStoreOperation : Operations.ListOperation
 {
-    internal class ListByConfigurationStoreOperation : Operations.ListOperation
-    {
-        public override string? FieldContainingPaginationDetails() => "nextLink";
+    public override string? FieldContainingPaginationDetails() => "nextLink";
 
-        public override ResourceID? ResourceId() => new ConfigurationStoreId();
+    public override ResourceID? ResourceId() => new ConfigurationStoreId();
 
-        public override Type NestedItemType() => typeof(PrivateEndpointConnectionModel);
+    public override Type NestedItemType() => typeof(PrivateEndpointConnectionModel);
 
-        public override string? UriSuffix() => "/privateEndpointConnections";
+    public override string? UriSuffix() => "/privateEndpointConnections";
 
 
-    }
 }

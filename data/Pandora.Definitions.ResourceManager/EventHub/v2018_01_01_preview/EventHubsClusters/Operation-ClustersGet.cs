@@ -6,14 +6,13 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.EventHubsClusters
+namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.EventHubsClusters;
+
+internal class ClustersGetOperation : Operations.GetOperation
 {
-    internal class ClustersGetOperation : Operations.GetOperation
-    {
-        public override ResourceID? ResourceId() => new ClusterId();
+    public override ResourceID? ResourceId() => new ClusterId();
 
-        public override Type? ResponseObject() => typeof(ClusterModel);
+    public override Type? ResponseObject() => typeof(ClusterModel);
 
 
-    }
 }

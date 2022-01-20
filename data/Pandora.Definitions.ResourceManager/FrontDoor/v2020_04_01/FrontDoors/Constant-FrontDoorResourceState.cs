@@ -1,27 +1,26 @@
 using Pandora.Definitions.Attributes;
 using System.ComponentModel;
 
-namespace Pandora.Definitions.ResourceManager.FrontDoor.v2020_04_01.FrontDoors
+namespace Pandora.Definitions.ResourceManager.FrontDoor.v2020_04_01.FrontDoors;
+
+[ConstantType(ConstantTypeAttribute.ConstantType.String)]
+internal enum FrontDoorResourceStateConstant
 {
-    [ConstantType(ConstantTypeAttribute.ConstantType.String)]
-    internal enum FrontDoorResourceStateConstant
-    {
-        [Description("Creating")]
-        Creating,
+    [Description("Creating")]
+    Creating,
 
-        [Description("Deleting")]
-        Deleting,
+    [Description("Deleting")]
+    Deleting,
 
-        [Description("Disabled")]
-        Disabled,
+    [Description("Disabled")]
+    Disabled,
 
-        [Description("Disabling")]
-        Disabling,
+    [Description("Disabling")]
+    Disabling,
 
-        [Description("Enabled")]
-        Enabled,
+    [Description("Enabled")]
+    Enabled,
 
-        [Description("Enabling")]
-        Enabling,
-    }
+    [Description("Enabling")]
+    Enabling,
 }

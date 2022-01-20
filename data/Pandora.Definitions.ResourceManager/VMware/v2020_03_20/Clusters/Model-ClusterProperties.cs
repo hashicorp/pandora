@@ -5,22 +5,21 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.VMware.v2020_03_20.Clusters
+namespace Pandora.Definitions.ResourceManager.VMware.v2020_03_20.Clusters;
+
+
+internal class ClusterPropertiesModel
 {
+    [JsonPropertyName("clusterId")]
+    public int? ClusterId { get; set; }
 
-    internal class ClusterPropertiesModel
-    {
-        [JsonPropertyName("clusterId")]
-        public int? ClusterId { get; set; }
+    [JsonPropertyName("clusterSize")]
+    [Required]
+    public int ClusterSize { get; set; }
 
-        [JsonPropertyName("clusterSize")]
-        [Required]
-        public int ClusterSize { get; set; }
+    [JsonPropertyName("hosts")]
+    public List<string>? Hosts { get; set; }
 
-        [JsonPropertyName("hosts")]
-        public List<string>? Hosts { get; set; }
-
-        [JsonPropertyName("provisioningState")]
-        public ClusterProvisioningStateConstant? ProvisioningState { get; set; }
-    }
+    [JsonPropertyName("provisioningState")]
+    public ClusterProvisioningStateConstant? ProvisioningState { get; set; }
 }

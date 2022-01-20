@@ -5,14 +5,13 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.FrontDoor.v2020_04_01.FrontDoors
-{
+namespace Pandora.Definitions.ResourceManager.FrontDoor.v2020_04_01.FrontDoors;
 
-    internal abstract class RouteConfigurationModel
-    {
-        [JsonPropertyName("@odata.type")]
-        [ProvidesTypeHint]
-        [Required]
-        public string OdataType { get; set; }
-    }
+
+internal abstract class RouteConfigurationModel
+{
+    [JsonPropertyName("@odata.type")]
+    [ProvidesTypeHint]
+    [Required]
+    public string OdataType { get; set; }
 }

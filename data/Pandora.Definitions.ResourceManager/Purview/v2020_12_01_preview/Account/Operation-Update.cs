@@ -6,24 +6,23 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.Purview.v2020_12_01_preview.Account
+namespace Pandora.Definitions.ResourceManager.Purview.v2020_12_01_preview.Account;
+
+internal class UpdateOperation : Operations.PatchOperation
 {
-    internal class UpdateOperation : Operations.PatchOperation
-    {
-        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.OK,
         };
 
-        public override bool LongRunning() => true;
+    public override bool LongRunning() => true;
 
-        public override Type? RequestObject() => typeof(AccountUpdateParametersModel);
+    public override Type? RequestObject() => typeof(AccountUpdateParametersModel);
 
-        public override ResourceID? ResourceId() => new AccountId();
+    public override ResourceID? ResourceId() => new AccountId();
 
-        public override Type? ResponseObject() => typeof(AccountModel);
+    public override Type? ResponseObject() => typeof(AccountModel);
 
 
-    }
 }

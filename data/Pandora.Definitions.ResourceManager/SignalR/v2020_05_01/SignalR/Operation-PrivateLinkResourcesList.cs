@@ -6,18 +6,17 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.SignalR.v2020_05_01.SignalR
+namespace Pandora.Definitions.ResourceManager.SignalR.v2020_05_01.SignalR;
+
+internal class PrivateLinkResourcesListOperation : Operations.ListOperation
 {
-    internal class PrivateLinkResourcesListOperation : Operations.ListOperation
-    {
-        public override string? FieldContainingPaginationDetails() => "nextLink";
+    public override string? FieldContainingPaginationDetails() => "nextLink";
 
-        public override ResourceID? ResourceId() => new SignalRId();
+    public override ResourceID? ResourceId() => new SignalRId();
 
-        public override Type NestedItemType() => typeof(PrivateLinkResourceModel);
+    public override Type NestedItemType() => typeof(PrivateLinkResourceModel);
 
-        public override string? UriSuffix() => "/privateLinkResources";
+    public override string? UriSuffix() => "/privateLinkResources";
 
 
-    }
 }

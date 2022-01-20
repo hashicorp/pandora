@@ -1,18 +1,17 @@
 using Pandora.Definitions.Attributes;
 using System.ComponentModel;
 
-namespace Pandora.Definitions.ResourceManager.SignalR.v2020_05_01.SignalR
+namespace Pandora.Definitions.ResourceManager.SignalR.v2020_05_01.SignalR;
+
+[ConstantType(ConstantTypeAttribute.ConstantType.String)]
+internal enum FeatureFlagsConstant
 {
-    [ConstantType(ConstantTypeAttribute.ConstantType.String)]
-    internal enum FeatureFlagsConstant
-    {
-        [Description("EnableConnectivityLogs")]
-        EnableConnectivityLogs,
+    [Description("EnableConnectivityLogs")]
+    EnableConnectivityLogs,
 
-        [Description("EnableMessagingLogs")]
-        EnableMessagingLogs,
+    [Description("EnableMessagingLogs")]
+    EnableMessagingLogs,
 
-        [Description("ServiceMode")]
-        ServiceMode,
-    }
+    [Description("ServiceMode")]
+    ServiceMode,
 }

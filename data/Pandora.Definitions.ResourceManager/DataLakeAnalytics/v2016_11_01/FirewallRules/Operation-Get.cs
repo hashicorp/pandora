@@ -6,14 +6,13 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.DataLakeAnalytics.v2016_11_01.FirewallRules
+namespace Pandora.Definitions.ResourceManager.DataLakeAnalytics.v2016_11_01.FirewallRules;
+
+internal class GetOperation : Operations.GetOperation
 {
-    internal class GetOperation : Operations.GetOperation
-    {
-        public override ResourceID? ResourceId() => new FirewallRuleId();
+    public override ResourceID? ResourceId() => new FirewallRuleId();
 
-        public override Type? ResponseObject() => typeof(FirewallRuleModel);
+    public override Type? ResponseObject() => typeof(FirewallRuleModel);
 
 
-    }
 }

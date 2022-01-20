@@ -6,20 +6,19 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.Namespaces
+namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.Namespaces;
+
+internal class GetOperation : Operations.GetOperation
 {
-    internal class GetOperation : Operations.GetOperation
-    {
-        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Created,
                 HttpStatusCode.OK,
         };
 
-        public override ResourceID? ResourceId() => new NamespaceId();
+    public override ResourceID? ResourceId() => new NamespaceId();
 
-        public override Type? ResponseObject() => typeof(EHNamespaceModel);
+    public override Type? ResponseObject() => typeof(EHNamespaceModel);
 
 
-    }
 }

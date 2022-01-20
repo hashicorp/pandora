@@ -1,10 +1,9 @@
 using Pandora.Definitions.Interfaces;
 
-namespace Pandora.Definitions.ResourceManager.SignalR
+namespace Pandora.Definitions.ResourceManager.SignalR;
+
+public partial class Service : ServiceDefinition
 {
-    public partial class Service : ServiceDefinition
-    {
-        public string Name => "SignalR";
-        public string? ResourceProvider => "Microsoft.SignalRService";
-    }
+    public string Name => "SignalR";
+    public string? ResourceProvider => "Microsoft.SignalRService";
 }

@@ -5,19 +5,18 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.PowerBIDedicated.v2021_01_01.AutoScaleVCores
+namespace Pandora.Definitions.ResourceManager.PowerBIDedicated.v2021_01_01.AutoScaleVCores;
+
+
+internal class AutoScaleVCoreSkuModel
 {
+    [JsonPropertyName("capacity")]
+    public int? Capacity { get; set; }
 
-    internal class AutoScaleVCoreSkuModel
-    {
-        [JsonPropertyName("capacity")]
-        public int? Capacity { get; set; }
+    [JsonPropertyName("name")]
+    [Required]
+    public string Name { get; set; }
 
-        [JsonPropertyName("name")]
-        [Required]
-        public string Name { get; set; }
-
-        [JsonPropertyName("tier")]
-        public VCoreSkuTierConstant? Tier { get; set; }
-    }
+    [JsonPropertyName("tier")]
+    public VCoreSkuTierConstant? Tier { get; set; }
 }

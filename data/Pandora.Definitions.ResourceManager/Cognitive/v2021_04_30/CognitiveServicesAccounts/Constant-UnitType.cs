@@ -1,30 +1,29 @@
 using Pandora.Definitions.Attributes;
 using System.ComponentModel;
 
-namespace Pandora.Definitions.ResourceManager.Cognitive.v2021_04_30.CognitiveServicesAccounts
+namespace Pandora.Definitions.ResourceManager.Cognitive.v2021_04_30.CognitiveServicesAccounts;
+
+[ConstantType(ConstantTypeAttribute.ConstantType.String)]
+internal enum UnitTypeConstant
 {
-    [ConstantType(ConstantTypeAttribute.ConstantType.String)]
-    internal enum UnitTypeConstant
-    {
-        [Description("Bytes")]
-        Bytes,
+    [Description("Bytes")]
+    Bytes,
 
-        [Description("BytesPerSecond")]
-        BytesPerSecond,
+    [Description("BytesPerSecond")]
+    BytesPerSecond,
 
-        [Description("Count")]
-        Count,
+    [Description("Count")]
+    Count,
 
-        [Description("CountPerSecond")]
-        CountPerSecond,
+    [Description("CountPerSecond")]
+    CountPerSecond,
 
-        [Description("Milliseconds")]
-        Milliseconds,
+    [Description("Milliseconds")]
+    Milliseconds,
 
-        [Description("Percent")]
-        Percent,
+    [Description("Percent")]
+    Percent,
 
-        [Description("Seconds")]
-        Seconds,
-    }
+    [Description("Seconds")]
+    Seconds,
 }

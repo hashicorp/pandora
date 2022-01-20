@@ -5,19 +5,18 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.Namespaces
+namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.Namespaces;
+
+
+internal class SkuModel
 {
+    [JsonPropertyName("capacity")]
+    public int? Capacity { get; set; }
 
-    internal class SkuModel
-    {
-        [JsonPropertyName("capacity")]
-        public int? Capacity { get; set; }
+    [JsonPropertyName("name")]
+    [Required]
+    public SkuNameConstant Name { get; set; }
 
-        [JsonPropertyName("name")]
-        [Required]
-        public SkuNameConstant Name { get; set; }
-
-        [JsonPropertyName("tier")]
-        public SkuTierConstant? Tier { get; set; }
-    }
+    [JsonPropertyName("tier")]
+    public SkuTierConstant? Tier { get; set; }
 }

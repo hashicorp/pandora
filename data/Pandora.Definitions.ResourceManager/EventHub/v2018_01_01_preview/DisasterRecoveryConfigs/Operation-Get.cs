@@ -6,14 +6,13 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.DisasterRecoveryConfigs
+namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.DisasterRecoveryConfigs;
+
+internal class GetOperation : Operations.GetOperation
 {
-    internal class GetOperation : Operations.GetOperation
-    {
-        public override ResourceID? ResourceId() => new DisasterRecoveryConfigId();
+    public override ResourceID? ResourceId() => new DisasterRecoveryConfigId();
 
-        public override Type? ResponseObject() => typeof(ArmDisasterRecoveryModel);
+    public override Type? ResponseObject() => typeof(ArmDisasterRecoveryModel);
 
 
-    }
 }

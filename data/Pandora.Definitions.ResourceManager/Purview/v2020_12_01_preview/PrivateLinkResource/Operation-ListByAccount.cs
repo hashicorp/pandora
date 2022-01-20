@@ -6,18 +6,17 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.Purview.v2020_12_01_preview.PrivateLinkResource
+namespace Pandora.Definitions.ResourceManager.Purview.v2020_12_01_preview.PrivateLinkResource;
+
+internal class ListByAccountOperation : Operations.ListOperation
 {
-    internal class ListByAccountOperation : Operations.ListOperation
-    {
-        public override string? FieldContainingPaginationDetails() => "nextLink";
+    public override string? FieldContainingPaginationDetails() => "nextLink";
 
-        public override ResourceID? ResourceId() => new AccountId();
+    public override ResourceID? ResourceId() => new AccountId();
 
-        public override Type NestedItemType() => typeof(PrivateLinkResourceModel);
+    public override Type NestedItemType() => typeof(PrivateLinkResourceModel);
 
-        public override string? UriSuffix() => "/privateLinkResources";
+    public override string? UriSuffix() => "/privateLinkResources";
 
 
-    }
 }

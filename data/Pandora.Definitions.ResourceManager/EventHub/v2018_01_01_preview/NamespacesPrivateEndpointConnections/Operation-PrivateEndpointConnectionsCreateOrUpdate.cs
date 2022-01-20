@@ -6,16 +6,15 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.NamespacesPrivateEndpointConnections
+namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.NamespacesPrivateEndpointConnections;
+
+internal class PrivateEndpointConnectionsCreateOrUpdateOperation : Operations.PutOperation
 {
-    internal class PrivateEndpointConnectionsCreateOrUpdateOperation : Operations.PutOperation
-    {
-        public override Type? RequestObject() => typeof(PrivateEndpointConnectionModel);
+    public override Type? RequestObject() => typeof(PrivateEndpointConnectionModel);
 
-        public override ResourceID? ResourceId() => new PrivateEndpointConnectionId();
+    public override ResourceID? ResourceId() => new PrivateEndpointConnectionId();
 
-        public override Type? ResponseObject() => typeof(PrivateEndpointConnectionModel);
+    public override Type? ResponseObject() => typeof(PrivateEndpointConnectionModel);
 
 
-    }
 }

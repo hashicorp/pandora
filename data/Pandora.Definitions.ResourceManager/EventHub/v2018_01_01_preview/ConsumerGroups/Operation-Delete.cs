@@ -6,18 +6,17 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.ConsumerGroups
+namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.ConsumerGroups;
+
+internal class DeleteOperation : Operations.DeleteOperation
 {
-    internal class DeleteOperation : Operations.DeleteOperation
-    {
-        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.NoContent,
                 HttpStatusCode.OK,
         };
 
-        public override ResourceID? ResourceId() => new ConsumerGroupId();
+    public override ResourceID? ResourceId() => new ConsumerGroupId();
 
 
-    }
 }

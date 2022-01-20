@@ -1,18 +1,17 @@
 using Pandora.Definitions.Attributes;
 using System.ComponentModel;
 
-namespace Pandora.Definitions.ResourceManager.FrontDoor.v2020_04_01.FrontDoors
+namespace Pandora.Definitions.ResourceManager.FrontDoor.v2020_04_01.FrontDoors;
+
+[ConstantType(ConstantTypeAttribute.ConstantType.String)]
+internal enum FrontDoorRedirectProtocolConstant
 {
-    [ConstantType(ConstantTypeAttribute.ConstantType.String)]
-    internal enum FrontDoorRedirectProtocolConstant
-    {
-        [Description("HttpOnly")]
-        HttpOnly,
+    [Description("HttpOnly")]
+    HttpOnly,
 
-        [Description("HttpsOnly")]
-        HttpsOnly,
+    [Description("HttpsOnly")]
+    HttpsOnly,
 
-        [Description("MatchRequest")]
-        MatchRequest,
-    }
+    [Description("MatchRequest")]
+    MatchRequest,
 }

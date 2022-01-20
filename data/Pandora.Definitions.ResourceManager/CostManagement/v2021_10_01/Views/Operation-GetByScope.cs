@@ -6,14 +6,13 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.CostManagement.v2021_10_01.Views
+namespace Pandora.Definitions.ResourceManager.CostManagement.v2021_10_01.Views;
+
+internal class GetByScopeOperation : Operations.GetOperation
 {
-    internal class GetByScopeOperation : Operations.GetOperation
-    {
-        public override ResourceID? ResourceId() => new ScopedViewId();
+    public override ResourceID? ResourceId() => new ScopedViewId();
 
-        public override Type? ResponseObject() => typeof(ViewModel);
+    public override Type? ResponseObject() => typeof(ViewModel);
 
 
-    }
 }

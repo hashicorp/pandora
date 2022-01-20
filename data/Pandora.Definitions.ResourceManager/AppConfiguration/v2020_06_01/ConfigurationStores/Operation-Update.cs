@@ -6,18 +6,17 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.AppConfiguration.v2020_06_01.ConfigurationStores
+namespace Pandora.Definitions.ResourceManager.AppConfiguration.v2020_06_01.ConfigurationStores;
+
+internal class UpdateOperation : Operations.PatchOperation
 {
-    internal class UpdateOperation : Operations.PatchOperation
-    {
-        public override bool LongRunning() => true;
+    public override bool LongRunning() => true;
 
-        public override Type? RequestObject() => typeof(ConfigurationStoreUpdateParametersModel);
+    public override Type? RequestObject() => typeof(ConfigurationStoreUpdateParametersModel);
 
-        public override ResourceID? ResourceId() => new ConfigurationStoreId();
+    public override ResourceID? ResourceId() => new ConfigurationStoreId();
 
-        public override Type? ResponseObject() => typeof(ConfigurationStoreModel);
+    public override Type? ResponseObject() => typeof(ConfigurationStoreModel);
 
 
-    }
 }

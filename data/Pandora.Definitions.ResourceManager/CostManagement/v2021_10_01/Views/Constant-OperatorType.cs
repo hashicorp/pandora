@@ -1,15 +1,14 @@
 using Pandora.Definitions.Attributes;
 using System.ComponentModel;
 
-namespace Pandora.Definitions.ResourceManager.CostManagement.v2021_10_01.Views
-{
-    [ConstantType(ConstantTypeAttribute.ConstantType.String)]
-    internal enum OperatorTypeConstant
-    {
-        [Description("Contains")]
-        Contains,
+namespace Pandora.Definitions.ResourceManager.CostManagement.v2021_10_01.Views;
 
-        [Description("In")]
-        In,
-    }
+[ConstantType(ConstantTypeAttribute.ConstantType.String)]
+internal enum OperatorTypeConstant
+{
+    [Description("Contains")]
+    Contains,
+
+    [Description("In")]
+    In,
 }

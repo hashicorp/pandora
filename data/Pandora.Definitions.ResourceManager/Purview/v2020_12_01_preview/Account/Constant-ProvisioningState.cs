@@ -1,36 +1,35 @@
 using Pandora.Definitions.Attributes;
 using System.ComponentModel;
 
-namespace Pandora.Definitions.ResourceManager.Purview.v2020_12_01_preview.Account
+namespace Pandora.Definitions.ResourceManager.Purview.v2020_12_01_preview.Account;
+
+[ConstantType(ConstantTypeAttribute.ConstantType.String)]
+internal enum ProvisioningStateConstant
 {
-    [ConstantType(ConstantTypeAttribute.ConstantType.String)]
-    internal enum ProvisioningStateConstant
-    {
-        [Description("Canceled")]
-        Canceled,
+    [Description("Canceled")]
+    Canceled,
 
-        [Description("Creating")]
-        Creating,
+    [Description("Creating")]
+    Creating,
 
-        [Description("Deleting")]
-        Deleting,
+    [Description("Deleting")]
+    Deleting,
 
-        [Description("Failed")]
-        Failed,
+    [Description("Failed")]
+    Failed,
 
-        [Description("Moving")]
-        Moving,
+    [Description("Moving")]
+    Moving,
 
-        [Description("SoftDeleted")]
-        SoftDeleted,
+    [Description("SoftDeleted")]
+    SoftDeleted,
 
-        [Description("SoftDeleting")]
-        SoftDeleting,
+    [Description("SoftDeleting")]
+    SoftDeleting,
 
-        [Description("Succeeded")]
-        Succeeded,
+    [Description("Succeeded")]
+    Succeeded,
 
-        [Description("Unknown")]
-        Unknown,
-    }
+    [Description("Unknown")]
+    Unknown,
 }

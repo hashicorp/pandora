@@ -1,16 +1,16 @@
 using System.Collections.Generic;
 using Pandora.Definitions.Interfaces;
 
-namespace Pandora.Definitions.ResourceManager.CostManagement.v2021_10_01.Exports
+namespace Pandora.Definitions.ResourceManager.CostManagement.v2021_10_01.Exports;
+
+internal class ScopedExportId : ResourceID
 {
-    internal class ScopedExportId : ResourceID
+    public string? CommonAlias => null;
+
+    public string ID => "/{scope}/providers/Microsoft.CostManagement/exports/{exportName}";
+
+    public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
-        public string? CommonAlias => null;
-
-        public string ID => "/{scope}/providers/Microsoft.CostManagement/exports/{exportName}";
-
-        public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
-        {
                 new()
                 {
                     Name = "scope",
@@ -44,6 +44,5 @@ namespace Pandora.Definitions.ResourceManager.CostManagement.v2021_10_01.Exports
                     Type = ResourceIDSegmentType.UserSpecified
                 },
 
-        };
-    }
+    };
 }

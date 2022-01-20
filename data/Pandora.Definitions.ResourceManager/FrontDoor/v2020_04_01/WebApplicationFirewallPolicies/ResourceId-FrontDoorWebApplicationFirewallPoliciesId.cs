@@ -1,16 +1,16 @@
 using System.Collections.Generic;
 using Pandora.Definitions.Interfaces;
 
-namespace Pandora.Definitions.ResourceManager.FrontDoor.v2020_04_01.WebApplicationFirewallPolicies
+namespace Pandora.Definitions.ResourceManager.FrontDoor.v2020_04_01.WebApplicationFirewallPolicies;
+
+internal class FrontDoorWebApplicationFirewallPoliciesId : ResourceID
 {
-    internal class FrontDoorWebApplicationFirewallPoliciesId : ResourceID
+    public string? CommonAlias => null;
+
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/frontDoorWebApplicationFirewallPolicies/{policyName}";
+
+    public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
-        public string? CommonAlias => null;
-
-        public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/frontDoorWebApplicationFirewallPolicies/{policyName}";
-
-        public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
-        {
                 new()
                 {
                     Name = "staticSubscriptions",
@@ -64,6 +64,5 @@ namespace Pandora.Definitions.ResourceManager.FrontDoor.v2020_04_01.WebApplicati
                     Type = ResourceIDSegmentType.UserSpecified
                 },
 
-        };
-    }
+    };
 }

@@ -6,24 +6,23 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.LabServices.v2021_10_01_preview.VirtualMachine
+namespace Pandora.Definitions.ResourceManager.LabServices.v2021_10_01_preview.VirtualMachine;
+
+internal class ResetPasswordOperation : Operations.PostOperation
 {
-    internal class ResetPasswordOperation : Operations.PostOperation
-    {
-        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.OK,
         };
 
-        public override bool LongRunning() => true;
+    public override bool LongRunning() => true;
 
-        public override Type? RequestObject() => typeof(ResetPasswordBodyModel);
+    public override Type? RequestObject() => typeof(ResetPasswordBodyModel);
 
-        public override ResourceID? ResourceId() => new VirtualMachineId();
+    public override ResourceID? ResourceId() => new VirtualMachineId();
 
-        public override string? UriSuffix() => "/resetPassword";
+    public override string? UriSuffix() => "/resetPassword";
 
 
-    }
 }

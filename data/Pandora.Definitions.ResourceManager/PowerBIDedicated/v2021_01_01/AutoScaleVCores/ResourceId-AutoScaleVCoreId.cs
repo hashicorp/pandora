@@ -1,16 +1,16 @@
 using System.Collections.Generic;
 using Pandora.Definitions.Interfaces;
 
-namespace Pandora.Definitions.ResourceManager.PowerBIDedicated.v2021_01_01.AutoScaleVCores
+namespace Pandora.Definitions.ResourceManager.PowerBIDedicated.v2021_01_01.AutoScaleVCores;
+
+internal class AutoScaleVCoreId : ResourceID
 {
-    internal class AutoScaleVCoreId : ResourceID
+    public string? CommonAlias => null;
+
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.PowerBIDedicated/autoScaleVCores/{vcoreName}";
+
+    public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
-        public string? CommonAlias => null;
-
-        public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.PowerBIDedicated/autoScaleVCores/{vcoreName}";
-
-        public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
-        {
                 new()
                 {
                     Name = "staticSubscriptions",
@@ -64,6 +64,5 @@ namespace Pandora.Definitions.ResourceManager.PowerBIDedicated.v2021_01_01.AutoS
                     Type = ResourceIDSegmentType.UserSpecified
                 },
 
-        };
-    }
+    };
 }

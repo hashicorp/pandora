@@ -6,24 +6,23 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.LabServices.v2021_10_01_preview.Lab
+namespace Pandora.Definitions.ResourceManager.LabServices.v2021_10_01_preview.Lab;
+
+internal class PublishOperation : Operations.PostOperation
 {
-    internal class PublishOperation : Operations.PostOperation
-    {
-        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.OK,
         };
 
-        public override bool LongRunning() => true;
+    public override bool LongRunning() => true;
 
-        public override Type? RequestObject() => null;
+    public override Type? RequestObject() => null;
 
-        public override ResourceID? ResourceId() => new LabId();
+    public override ResourceID? ResourceId() => new LabId();
 
-        public override string? UriSuffix() => "/publish";
+    public override string? UriSuffix() => "/publish";
 
 
-    }
 }

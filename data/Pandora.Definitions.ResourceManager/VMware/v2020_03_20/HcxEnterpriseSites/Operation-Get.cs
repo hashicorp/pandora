@@ -6,14 +6,13 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.VMware.v2020_03_20.HcxEnterpriseSites
+namespace Pandora.Definitions.ResourceManager.VMware.v2020_03_20.HcxEnterpriseSites;
+
+internal class GetOperation : Operations.GetOperation
 {
-    internal class GetOperation : Operations.GetOperation
-    {
-        public override ResourceID? ResourceId() => new HcxEnterpriseSiteId();
+    public override ResourceID? ResourceId() => new HcxEnterpriseSiteId();
 
-        public override Type? ResponseObject() => typeof(HcxEnterpriseSiteModel);
+    public override Type? ResponseObject() => typeof(HcxEnterpriseSiteModel);
 
 
-    }
 }

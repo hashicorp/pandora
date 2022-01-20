@@ -5,30 +5,29 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.FrontDoor.v2020_04_01.WebApplicationFirewallPolicies
+namespace Pandora.Definitions.ResourceManager.FrontDoor.v2020_04_01.WebApplicationFirewallPolicies;
+
+
+internal class WebApplicationFirewallPolicyModel
 {
+    [JsonPropertyName("etag")]
+    public string? Etag { get; set; }
 
-    internal class WebApplicationFirewallPolicyModel
-    {
-        [JsonPropertyName("etag")]
-        public string? Etag { get; set; }
+    [JsonPropertyName("id")]
+    public string? Id { get; set; }
 
-        [JsonPropertyName("id")]
-        public string? Id { get; set; }
+    [JsonPropertyName("location")]
+    public CustomTypes.Location? Location { get; set; }
 
-        [JsonPropertyName("location")]
-        public CustomTypes.Location? Location { get; set; }
+    [JsonPropertyName("name")]
+    public string? Name { get; set; }
 
-        [JsonPropertyName("name")]
-        public string? Name { get; set; }
+    [JsonPropertyName("properties")]
+    public WebApplicationFirewallPolicyPropertiesModel? Properties { get; set; }
 
-        [JsonPropertyName("properties")]
-        public WebApplicationFirewallPolicyPropertiesModel? Properties { get; set; }
+    [JsonPropertyName("tags")]
+    public CustomTypes.Tags? Tags { get; set; }
 
-        [JsonPropertyName("tags")]
-        public CustomTypes.Tags? Tags { get; set; }
-
-        [JsonPropertyName("type")]
-        public string? Type { get; set; }
-    }
+    [JsonPropertyName("type")]
+    public string? Type { get; set; }
 }

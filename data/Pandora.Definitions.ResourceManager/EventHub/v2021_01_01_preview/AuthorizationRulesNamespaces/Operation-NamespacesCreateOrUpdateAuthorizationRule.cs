@@ -6,21 +6,20 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.EventHub.v2021_01_01_preview.AuthorizationRulesNamespaces
+namespace Pandora.Definitions.ResourceManager.EventHub.v2021_01_01_preview.AuthorizationRulesNamespaces;
+
+internal class NamespacesCreateOrUpdateAuthorizationRuleOperation : Operations.PutOperation
 {
-    internal class NamespacesCreateOrUpdateAuthorizationRuleOperation : Operations.PutOperation
-    {
-        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-        public override Type? RequestObject() => typeof(AuthorizationRuleModel);
+    public override Type? RequestObject() => typeof(AuthorizationRuleModel);
 
-        public override ResourceID? ResourceId() => new AuthorizationRuleId();
+    public override ResourceID? ResourceId() => new AuthorizationRuleId();
 
-        public override Type? ResponseObject() => typeof(AuthorizationRuleModel);
+    public override Type? ResponseObject() => typeof(AuthorizationRuleModel);
 
 
-    }
 }

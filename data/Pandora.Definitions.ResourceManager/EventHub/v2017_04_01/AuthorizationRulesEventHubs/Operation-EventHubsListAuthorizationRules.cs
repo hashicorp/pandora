@@ -6,18 +6,17 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.AuthorizationRulesEventHubs
+namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.AuthorizationRulesEventHubs;
+
+internal class EventHubsListAuthorizationRulesOperation : Operations.ListOperation
 {
-    internal class EventHubsListAuthorizationRulesOperation : Operations.ListOperation
-    {
-        public override string? FieldContainingPaginationDetails() => "nextLink";
+    public override string? FieldContainingPaginationDetails() => "nextLink";
 
-        public override ResourceID? ResourceId() => new EventhubId();
+    public override ResourceID? ResourceId() => new EventhubId();
 
-        public override Type NestedItemType() => typeof(AuthorizationRuleModel);
+    public override Type NestedItemType() => typeof(AuthorizationRuleModel);
 
-        public override string? UriSuffix() => "/authorizationRules";
+    public override string? UriSuffix() => "/authorizationRules";
 
 
-    }
 }

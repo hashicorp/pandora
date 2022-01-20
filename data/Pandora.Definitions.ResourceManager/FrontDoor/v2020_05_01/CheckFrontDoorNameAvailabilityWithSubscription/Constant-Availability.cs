@@ -1,15 +1,14 @@
 using Pandora.Definitions.Attributes;
 using System.ComponentModel;
 
-namespace Pandora.Definitions.ResourceManager.FrontDoor.v2020_05_01.CheckFrontDoorNameAvailabilityWithSubscription
-{
-    [ConstantType(ConstantTypeAttribute.ConstantType.String)]
-    internal enum AvailabilityConstant
-    {
-        [Description("Available")]
-        Available,
+namespace Pandora.Definitions.ResourceManager.FrontDoor.v2020_05_01.CheckFrontDoorNameAvailabilityWithSubscription;
 
-        [Description("Unavailable")]
-        Unavailable,
-    }
+[ConstantType(ConstantTypeAttribute.ConstantType.String)]
+internal enum AvailabilityConstant
+{
+    [Description("Available")]
+    Available,
+
+    [Description("Unavailable")]
+    Unavailable,
 }

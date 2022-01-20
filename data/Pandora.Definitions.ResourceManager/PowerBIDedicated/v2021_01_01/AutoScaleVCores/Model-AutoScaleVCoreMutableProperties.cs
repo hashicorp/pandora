@@ -5,12 +5,11 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.PowerBIDedicated.v2021_01_01.AutoScaleVCores
-{
+namespace Pandora.Definitions.ResourceManager.PowerBIDedicated.v2021_01_01.AutoScaleVCores;
 
-    internal class AutoScaleVCoreMutablePropertiesModel
-    {
-        [JsonPropertyName("capacityLimit")]
-        public int? CapacityLimit { get; set; }
-    }
+
+internal class AutoScaleVCoreMutablePropertiesModel
+{
+    [JsonPropertyName("capacityLimit")]
+    public int? CapacityLimit { get; set; }
 }

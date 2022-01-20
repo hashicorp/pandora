@@ -6,20 +6,19 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.FrontDoor.v2020_05_01.FrontDoors
+namespace Pandora.Definitions.ResourceManager.FrontDoor.v2020_05_01.FrontDoors;
+
+internal class RulesEnginesDeleteOperation : Operations.DeleteOperation
 {
-    internal class RulesEnginesDeleteOperation : Operations.DeleteOperation
-    {
-        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.NoContent,
         };
 
-        public override bool LongRunning() => true;
+    public override bool LongRunning() => true;
 
-        public override ResourceID? ResourceId() => new RulesEngineId();
+    public override ResourceID? ResourceId() => new RulesEngineId();
 
 
-    }
 }

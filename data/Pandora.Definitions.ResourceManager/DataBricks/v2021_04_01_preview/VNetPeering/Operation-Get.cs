@@ -6,20 +6,19 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.DataBricks.v2021_04_01_preview.VNetPeering
+namespace Pandora.Definitions.ResourceManager.DataBricks.v2021_04_01_preview.VNetPeering;
+
+internal class GetOperation : Operations.GetOperation
 {
-    internal class GetOperation : Operations.GetOperation
-    {
-        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.NoContent,
                 HttpStatusCode.OK,
         };
 
-        public override ResourceID? ResourceId() => new VirtualNetworkPeeringId();
+    public override ResourceID? ResourceId() => new VirtualNetworkPeeringId();
 
-        public override Type? ResponseObject() => typeof(VirtualNetworkPeeringModel);
+    public override Type? ResponseObject() => typeof(VirtualNetworkPeeringModel);
 
 
-    }
 }

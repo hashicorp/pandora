@@ -6,14 +6,13 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.RedisEnterprise.v2021_08_01.Databases
+namespace Pandora.Definitions.ResourceManager.RedisEnterprise.v2021_08_01.Databases;
+
+internal class GetOperation : Operations.GetOperation
 {
-    internal class GetOperation : Operations.GetOperation
-    {
-        public override ResourceID? ResourceId() => new DatabaseId();
+    public override ResourceID? ResourceId() => new DatabaseId();
 
-        public override Type? ResponseObject() => typeof(DatabaseModel);
+    public override Type? ResponseObject() => typeof(DatabaseModel);
 
 
-    }
 }

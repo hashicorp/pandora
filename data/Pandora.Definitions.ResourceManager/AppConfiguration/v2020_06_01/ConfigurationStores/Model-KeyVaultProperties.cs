@@ -5,15 +5,14 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.AppConfiguration.v2020_06_01.ConfigurationStores
+namespace Pandora.Definitions.ResourceManager.AppConfiguration.v2020_06_01.ConfigurationStores;
+
+
+internal class KeyVaultPropertiesModel
 {
+    [JsonPropertyName("identityClientId")]
+    public string? IdentityClientId { get; set; }
 
-    internal class KeyVaultPropertiesModel
-    {
-        [JsonPropertyName("identityClientId")]
-        public string? IdentityClientId { get; set; }
-
-        [JsonPropertyName("keyIdentifier")]
-        public string? KeyIdentifier { get; set; }
-    }
+    [JsonPropertyName("keyIdentifier")]
+    public string? KeyIdentifier { get; set; }
 }

@@ -1,39 +1,38 @@
 using Pandora.Definitions.Attributes;
 using System.ComponentModel;
 
-namespace Pandora.Definitions.ResourceManager.ServiceFabricManagedCluster.v2021_05_01.ManagedCluster
+namespace Pandora.Definitions.ResourceManager.ServiceFabricManagedCluster.v2021_05_01.ManagedCluster;
+
+[ConstantType(ConstantTypeAttribute.ConstantType.String)]
+internal enum ManagedResourceProvisioningStateConstant
 {
-    [ConstantType(ConstantTypeAttribute.ConstantType.String)]
-    internal enum ManagedResourceProvisioningStateConstant
-    {
-        [Description("Canceled")]
-        Canceled,
+    [Description("Canceled")]
+    Canceled,
 
-        [Description("Created")]
-        Created,
+    [Description("Created")]
+    Created,
 
-        [Description("Creating")]
-        Creating,
+    [Description("Creating")]
+    Creating,
 
-        [Description("Deleted")]
-        Deleted,
+    [Description("Deleted")]
+    Deleted,
 
-        [Description("Deleting")]
-        Deleting,
+    [Description("Deleting")]
+    Deleting,
 
-        [Description("Failed")]
-        Failed,
+    [Description("Failed")]
+    Failed,
 
-        [Description("None")]
-        None,
+    [Description("None")]
+    None,
 
-        [Description("Other")]
-        Other,
+    [Description("Other")]
+    Other,
 
-        [Description("Succeeded")]
-        Succeeded,
+    [Description("Succeeded")]
+    Succeeded,
 
-        [Description("Updating")]
-        Updating,
-    }
+    [Description("Updating")]
+    Updating,
 }

@@ -6,21 +6,20 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.Cognitive.v2021_04_30.CognitiveServicesAccounts
+namespace Pandora.Definitions.ResourceManager.Cognitive.v2021_04_30.CognitiveServicesAccounts;
+
+internal class DeletedAccountsPurgeOperation : Operations.DeleteOperation
 {
-    internal class DeletedAccountsPurgeOperation : Operations.DeleteOperation
-    {
-        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.NoContent,
                 HttpStatusCode.OK,
         };
 
-        public override bool LongRunning() => true;
+    public override bool LongRunning() => true;
 
-        public override ResourceID? ResourceId() => new DeletedAccountId();
+    public override ResourceID? ResourceId() => new DeletedAccountId();
 
 
-    }
 }

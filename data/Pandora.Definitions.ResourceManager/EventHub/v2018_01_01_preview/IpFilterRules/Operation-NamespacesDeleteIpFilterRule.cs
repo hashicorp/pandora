@@ -6,18 +6,17 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.IpFilterRules
+namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.IpFilterRules;
+
+internal class NamespacesDeleteIpFilterRuleOperation : Operations.DeleteOperation
 {
-    internal class NamespacesDeleteIpFilterRuleOperation : Operations.DeleteOperation
-    {
-        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.NoContent,
                 HttpStatusCode.OK,
         };
 
-        public override ResourceID? ResourceId() => new IpfilterruleId();
+    public override ResourceID? ResourceId() => new IpfilterruleId();
 
 
-    }
 }

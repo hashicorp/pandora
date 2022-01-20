@@ -6,14 +6,13 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.AuthorizationRulesNamespaces
+namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.AuthorizationRulesNamespaces;
+
+internal class NamespacesGetAuthorizationRuleOperation : Operations.GetOperation
 {
-    internal class NamespacesGetAuthorizationRuleOperation : Operations.GetOperation
-    {
-        public override ResourceID? ResourceId() => new AuthorizationRuleId();
+    public override ResourceID? ResourceId() => new AuthorizationRuleId();
 
-        public override Type? ResponseObject() => typeof(AuthorizationRuleModel);
+    public override Type? ResponseObject() => typeof(AuthorizationRuleModel);
 
 
-    }
 }

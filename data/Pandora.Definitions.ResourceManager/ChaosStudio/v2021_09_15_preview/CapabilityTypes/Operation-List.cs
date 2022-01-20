@@ -6,25 +6,24 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.ChaosStudio.v2021_09_15_preview.CapabilityTypes
+namespace Pandora.Definitions.ResourceManager.ChaosStudio.v2021_09_15_preview.CapabilityTypes;
+
+internal class ListOperation : Operations.ListOperation
 {
-    internal class ListOperation : Operations.ListOperation
+    public override string? FieldContainingPaginationDetails() => "nextLink";
+
+    public override ResourceID? ResourceId() => new TargetTypeId();
+
+    public override Type NestedItemType() => typeof(CapabilityTypeModel);
+
+    public override Type? OptionsObject() => typeof(ListOperation.ListOptions);
+
+    public override string? UriSuffix() => "/capabilityTypes";
+
+    internal class ListOptions
     {
-        public override string? FieldContainingPaginationDetails() => "nextLink";
-
-        public override ResourceID? ResourceId() => new TargetTypeId();
-
-        public override Type NestedItemType() => typeof(CapabilityTypeModel);
-
-        public override Type? OptionsObject() => typeof(ListOperation.ListOptions);
-
-        public override string? UriSuffix() => "/capabilityTypes";
-
-        internal class ListOptions
-        {
-            [QueryStringName("continuationToken")]
-            [Optional]
-            public string ContinuationToken { get; set; }
-        }
+        [QueryStringName("continuationToken")]
+        [Optional]
+        public string ContinuationToken { get; set; }
     }
 }

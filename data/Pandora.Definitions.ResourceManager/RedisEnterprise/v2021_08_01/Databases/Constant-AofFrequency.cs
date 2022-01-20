@@ -1,15 +1,14 @@
 using Pandora.Definitions.Attributes;
 using System.ComponentModel;
 
-namespace Pandora.Definitions.ResourceManager.RedisEnterprise.v2021_08_01.Databases
-{
-    [ConstantType(ConstantTypeAttribute.ConstantType.String)]
-    internal enum AofFrequencyConstant
-    {
-        [Description("always")]
-        Always,
+namespace Pandora.Definitions.ResourceManager.RedisEnterprise.v2021_08_01.Databases;
 
-        [Description("1s")]
-        Ones,
-    }
+[ConstantType(ConstantTypeAttribute.ConstantType.String)]
+internal enum AofFrequencyConstant
+{
+    [Description("always")]
+    Always,
+
+    [Description("1s")]
+    Ones,
 }

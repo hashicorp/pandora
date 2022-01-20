@@ -5,12 +5,11 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.ServiceFabricManagedCluster.v2021_05_01.ApplicationTypeVersion
-{
+namespace Pandora.Definitions.ResourceManager.ServiceFabricManagedCluster.v2021_05_01.ApplicationTypeVersion;
 
-    internal class ApplicationTypeVersionUpdateParametersModel
-    {
-        [JsonPropertyName("tags")]
-        public CustomTypes.Tags? Tags { get; set; }
-    }
+
+internal class ApplicationTypeVersionUpdateParametersModel
+{
+    [JsonPropertyName("tags")]
+    public CustomTypes.Tags? Tags { get; set; }
 }

@@ -6,16 +6,15 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.Attestation.v2020_10_01.AttestationProviders
+namespace Pandora.Definitions.ResourceManager.Attestation.v2020_10_01.AttestationProviders;
+
+internal class CreateOperation : Operations.PutOperation
 {
-    internal class CreateOperation : Operations.PutOperation
-    {
-        public override Type? RequestObject() => typeof(AttestationServiceCreationParamsModel);
+    public override Type? RequestObject() => typeof(AttestationServiceCreationParamsModel);
 
-        public override ResourceID? ResourceId() => new AttestationProvidersId();
+    public override ResourceID? ResourceId() => new AttestationProvidersId();
 
-        public override Type? ResponseObject() => typeof(AttestationProvidersModel);
+    public override Type? ResponseObject() => typeof(AttestationProvidersModel);
 
 
-    }
 }

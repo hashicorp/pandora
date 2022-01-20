@@ -6,18 +6,17 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.Namespaces
+namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.Namespaces;
+
+internal class ListOperation : Operations.ListOperation
 {
-    internal class ListOperation : Operations.ListOperation
-    {
-        public override string? FieldContainingPaginationDetails() => "nextLink";
+    public override string? FieldContainingPaginationDetails() => "nextLink";
 
-        public override ResourceID? ResourceId() => new SubscriptionId();
+    public override ResourceID? ResourceId() => new SubscriptionId();
 
-        public override Type NestedItemType() => typeof(EHNamespaceModel);
+    public override Type NestedItemType() => typeof(EHNamespaceModel);
 
-        public override string? UriSuffix() => "/providers/Microsoft.EventHub/namespaces";
+    public override string? UriSuffix() => "/providers/Microsoft.EventHub/namespaces";
 
 
-    }
 }

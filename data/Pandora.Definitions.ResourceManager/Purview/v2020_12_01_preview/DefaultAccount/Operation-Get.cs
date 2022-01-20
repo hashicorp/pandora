@@ -6,27 +6,26 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.Purview.v2020_12_01_preview.DefaultAccount
+namespace Pandora.Definitions.ResourceManager.Purview.v2020_12_01_preview.DefaultAccount;
+
+internal class GetOperation : Operations.GetOperation
 {
-    internal class GetOperation : Operations.GetOperation
+    public override Type? ResponseObject() => typeof(DefaultAccountPayloadModel);
+
+    public override Type? OptionsObject() => typeof(GetOperation.GetOptions);
+
+    public override string? UriSuffix() => "/providers/Microsoft.Purview/getDefaultAccount";
+
+    internal class GetOptions
     {
-        public override Type? ResponseObject() => typeof(DefaultAccountPayloadModel);
+        [QueryStringName("scope")]
+        [Optional]
+        public string Scope { get; set; }
 
-        public override Type? OptionsObject() => typeof(GetOperation.GetOptions);
+        [QueryStringName("scopeTenantId")]
+        public string ScopeTenantId { get; set; }
 
-        public override string? UriSuffix() => "/providers/Microsoft.Purview/getDefaultAccount";
-
-        internal class GetOptions
-        {
-            [QueryStringName("scope")]
-            [Optional]
-            public string Scope { get; set; }
-
-            [QueryStringName("scopeTenantId")]
-            public string ScopeTenantId { get; set; }
-
-            [QueryStringName("scopeType")]
-            public ScopeTypeConstant ScopeType { get; set; }
-        }
+        [QueryStringName("scopeType")]
+        public ScopeTypeConstant ScopeType { get; set; }
     }
 }

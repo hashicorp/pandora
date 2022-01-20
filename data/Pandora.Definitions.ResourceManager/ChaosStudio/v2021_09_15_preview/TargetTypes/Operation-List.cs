@@ -6,25 +6,24 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.ChaosStudio.v2021_09_15_preview.TargetTypes
+namespace Pandora.Definitions.ResourceManager.ChaosStudio.v2021_09_15_preview.TargetTypes;
+
+internal class ListOperation : Operations.ListOperation
 {
-    internal class ListOperation : Operations.ListOperation
+    public override string? FieldContainingPaginationDetails() => "nextLink";
+
+    public override ResourceID? ResourceId() => new LocationId();
+
+    public override Type NestedItemType() => typeof(TargetTypeModel);
+
+    public override Type? OptionsObject() => typeof(ListOperation.ListOptions);
+
+    public override string? UriSuffix() => "/targetTypes";
+
+    internal class ListOptions
     {
-        public override string? FieldContainingPaginationDetails() => "nextLink";
-
-        public override ResourceID? ResourceId() => new LocationId();
-
-        public override Type NestedItemType() => typeof(TargetTypeModel);
-
-        public override Type? OptionsObject() => typeof(ListOperation.ListOptions);
-
-        public override string? UriSuffix() => "/targetTypes";
-
-        internal class ListOptions
-        {
-            [QueryStringName("continuationToken")]
-            [Optional]
-            public string ContinuationToken { get; set; }
-        }
+        [QueryStringName("continuationToken")]
+        [Optional]
+        public string ContinuationToken { get; set; }
     }
 }

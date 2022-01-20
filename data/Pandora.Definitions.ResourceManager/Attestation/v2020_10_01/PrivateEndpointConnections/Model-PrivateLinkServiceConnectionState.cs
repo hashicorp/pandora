@@ -5,18 +5,17 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.Attestation.v2020_10_01.PrivateEndpointConnections
+namespace Pandora.Definitions.ResourceManager.Attestation.v2020_10_01.PrivateEndpointConnections;
+
+
+internal class PrivateLinkServiceConnectionStateModel
 {
+    [JsonPropertyName("actionsRequired")]
+    public string? ActionsRequired { get; set; }
 
-    internal class PrivateLinkServiceConnectionStateModel
-    {
-        [JsonPropertyName("actionsRequired")]
-        public string? ActionsRequired { get; set; }
+    [JsonPropertyName("description")]
+    public string? Description { get; set; }
 
-        [JsonPropertyName("description")]
-        public string? Description { get; set; }
-
-        [JsonPropertyName("status")]
-        public PrivateEndpointServiceConnectionStatusConstant? Status { get; set; }
-    }
+    [JsonPropertyName("status")]
+    public PrivateEndpointServiceConnectionStatusConstant? Status { get; set; }
 }

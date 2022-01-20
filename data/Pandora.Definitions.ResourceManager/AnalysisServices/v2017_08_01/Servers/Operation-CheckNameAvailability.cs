@@ -6,23 +6,22 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.AnalysisServices.v2017_08_01.Servers
+namespace Pandora.Definitions.ResourceManager.AnalysisServices.v2017_08_01.Servers;
+
+internal class CheckNameAvailabilityOperation : Operations.PostOperation
 {
-    internal class CheckNameAvailabilityOperation : Operations.PostOperation
-    {
-        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-        public override Type? RequestObject() => typeof(CheckServerNameAvailabilityParametersModel);
+    public override Type? RequestObject() => typeof(CheckServerNameAvailabilityParametersModel);
 
-        public override ResourceID? ResourceId() => new LocationId();
+    public override ResourceID? ResourceId() => new LocationId();
 
-        public override Type? ResponseObject() => typeof(CheckServerNameAvailabilityResultModel);
+    public override Type? ResponseObject() => typeof(CheckServerNameAvailabilityResultModel);
 
-        public override string? UriSuffix() => "/checkNameAvailability";
+    public override string? UriSuffix() => "/checkNameAvailability";
 
 
-    }
 }

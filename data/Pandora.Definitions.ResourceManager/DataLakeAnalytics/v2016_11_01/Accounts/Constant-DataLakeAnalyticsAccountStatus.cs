@@ -1,42 +1,41 @@
 using Pandora.Definitions.Attributes;
 using System.ComponentModel;
 
-namespace Pandora.Definitions.ResourceManager.DataLakeAnalytics.v2016_11_01.Accounts
+namespace Pandora.Definitions.ResourceManager.DataLakeAnalytics.v2016_11_01.Accounts;
+
+[ConstantType(ConstantTypeAttribute.ConstantType.String)]
+internal enum DataLakeAnalyticsAccountStatusConstant
 {
-    [ConstantType(ConstantTypeAttribute.ConstantType.String)]
-    internal enum DataLakeAnalyticsAccountStatusConstant
-    {
-        [Description("Canceled")]
-        Canceled,
+    [Description("Canceled")]
+    Canceled,
 
-        [Description("Creating")]
-        Creating,
+    [Description("Creating")]
+    Creating,
 
-        [Description("Deleted")]
-        Deleted,
+    [Description("Deleted")]
+    Deleted,
 
-        [Description("Deleting")]
-        Deleting,
+    [Description("Deleting")]
+    Deleting,
 
-        [Description("Failed")]
-        Failed,
+    [Description("Failed")]
+    Failed,
 
-        [Description("Patching")]
-        Patching,
+    [Description("Patching")]
+    Patching,
 
-        [Description("Resuming")]
-        Resuming,
+    [Description("Resuming")]
+    Resuming,
 
-        [Description("Running")]
-        Running,
+    [Description("Running")]
+    Running,
 
-        [Description("Succeeded")]
-        Succeeded,
+    [Description("Succeeded")]
+    Succeeded,
 
-        [Description("Suspending")]
-        Suspending,
+    [Description("Suspending")]
+    Suspending,
 
-        [Description("Undeleting")]
-        Undeleting,
-    }
+    [Description("Undeleting")]
+    Undeleting,
 }

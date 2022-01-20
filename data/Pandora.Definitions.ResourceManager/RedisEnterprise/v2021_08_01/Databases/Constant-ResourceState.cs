@@ -1,45 +1,44 @@
 using Pandora.Definitions.Attributes;
 using System.ComponentModel;
 
-namespace Pandora.Definitions.ResourceManager.RedisEnterprise.v2021_08_01.Databases
+namespace Pandora.Definitions.ResourceManager.RedisEnterprise.v2021_08_01.Databases;
+
+[ConstantType(ConstantTypeAttribute.ConstantType.String)]
+internal enum ResourceStateConstant
 {
-    [ConstantType(ConstantTypeAttribute.ConstantType.String)]
-    internal enum ResourceStateConstant
-    {
-        [Description("CreateFailed")]
-        CreateFailed,
+    [Description("CreateFailed")]
+    CreateFailed,
 
-        [Description("Creating")]
-        Creating,
+    [Description("Creating")]
+    Creating,
 
-        [Description("DeleteFailed")]
-        DeleteFailed,
+    [Description("DeleteFailed")]
+    DeleteFailed,
 
-        [Description("Deleting")]
-        Deleting,
+    [Description("Deleting")]
+    Deleting,
 
-        [Description("DisableFailed")]
-        DisableFailed,
+    [Description("DisableFailed")]
+    DisableFailed,
 
-        [Description("Disabled")]
-        Disabled,
+    [Description("Disabled")]
+    Disabled,
 
-        [Description("Disabling")]
-        Disabling,
+    [Description("Disabling")]
+    Disabling,
 
-        [Description("EnableFailed")]
-        EnableFailed,
+    [Description("EnableFailed")]
+    EnableFailed,
 
-        [Description("Enabling")]
-        Enabling,
+    [Description("Enabling")]
+    Enabling,
 
-        [Description("Running")]
-        Running,
+    [Description("Running")]
+    Running,
 
-        [Description("UpdateFailed")]
-        UpdateFailed,
+    [Description("UpdateFailed")]
+    UpdateFailed,
 
-        [Description("Updating")]
-        Updating,
-    }
+    [Description("Updating")]
+    Updating,
 }

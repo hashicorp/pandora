@@ -5,13 +5,12 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.DataLakeAnalytics.v2016_11_01.FirewallRules
-{
+namespace Pandora.Definitions.ResourceManager.DataLakeAnalytics.v2016_11_01.FirewallRules;
 
-    internal class CreateOrUpdateFirewallRuleParametersModel
-    {
-        [JsonPropertyName("properties")]
-        [Required]
-        public CreateOrUpdateFirewallRulePropertiesModel Properties { get; set; }
-    }
+
+internal class CreateOrUpdateFirewallRuleParametersModel
+{
+    [JsonPropertyName("properties")]
+    [Required]
+    public CreateOrUpdateFirewallRulePropertiesModel Properties { get; set; }
 }

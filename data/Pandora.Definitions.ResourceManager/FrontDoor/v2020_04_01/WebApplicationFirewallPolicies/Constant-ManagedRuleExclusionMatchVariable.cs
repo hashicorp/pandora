@@ -1,21 +1,20 @@
 using Pandora.Definitions.Attributes;
 using System.ComponentModel;
 
-namespace Pandora.Definitions.ResourceManager.FrontDoor.v2020_04_01.WebApplicationFirewallPolicies
+namespace Pandora.Definitions.ResourceManager.FrontDoor.v2020_04_01.WebApplicationFirewallPolicies;
+
+[ConstantType(ConstantTypeAttribute.ConstantType.String)]
+internal enum ManagedRuleExclusionMatchVariableConstant
 {
-    [ConstantType(ConstantTypeAttribute.ConstantType.String)]
-    internal enum ManagedRuleExclusionMatchVariableConstant
-    {
-        [Description("QueryStringArgNames")]
-        QueryStringArgNames,
+    [Description("QueryStringArgNames")]
+    QueryStringArgNames,
 
-        [Description("RequestBodyPostArgNames")]
-        RequestBodyPostArgNames,
+    [Description("RequestBodyPostArgNames")]
+    RequestBodyPostArgNames,
 
-        [Description("RequestCookieNames")]
-        RequestCookieNames,
+    [Description("RequestCookieNames")]
+    RequestCookieNames,
 
-        [Description("RequestHeaderNames")]
-        RequestHeaderNames,
-    }
+    [Description("RequestHeaderNames")]
+    RequestHeaderNames,
 }

@@ -5,13 +5,12 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.AuthorizationRulesDisasterRecoveryConfigs
-{
+namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.AuthorizationRulesDisasterRecoveryConfigs;
 
-    internal class AuthorizationRulePropertiesModel
-    {
-        [JsonPropertyName("rights")]
-        [Required]
-        public List<AccessRightsConstant> Rights { get; set; }
-    }
+
+internal class AuthorizationRulePropertiesModel
+{
+    [JsonPropertyName("rights")]
+    [Required]
+    public List<AccessRightsConstant> Rights { get; set; }
 }

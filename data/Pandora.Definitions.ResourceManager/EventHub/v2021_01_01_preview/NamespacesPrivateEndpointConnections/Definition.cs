@@ -1,17 +1,16 @@
 using System.Collections.Generic;
 using Pandora.Definitions.Interfaces;
 
-namespace Pandora.Definitions.ResourceManager.EventHub.v2021_01_01_preview.NamespacesPrivateEndpointConnections
+namespace Pandora.Definitions.ResourceManager.EventHub.v2021_01_01_preview.NamespacesPrivateEndpointConnections;
+
+internal class Definition : ResourceDefinition
 {
-    internal class Definition : ResourceDefinition
+    public string Name => "NamespacesPrivateEndpointConnections";
+    public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
     {
-        public string Name => "NamespacesPrivateEndpointConnections";
-        public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
-        {
-            new PrivateEndpointConnectionsCreateOrUpdateOperation(),
-            new PrivateEndpointConnectionsDeleteOperation(),
-            new PrivateEndpointConnectionsGetOperation(),
-            new PrivateEndpointConnectionsListOperation(),
-        };
-    }
+        new PrivateEndpointConnectionsCreateOrUpdateOperation(),
+        new PrivateEndpointConnectionsDeleteOperation(),
+        new PrivateEndpointConnectionsGetOperation(),
+        new PrivateEndpointConnectionsListOperation(),
+    };
 }

@@ -6,14 +6,13 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.DataBricks.v2021_04_01_preview.Workspaces
+namespace Pandora.Definitions.ResourceManager.DataBricks.v2021_04_01_preview.Workspaces;
+
+internal class GetOperation : Operations.GetOperation
 {
-    internal class GetOperation : Operations.GetOperation
-    {
-        public override ResourceID? ResourceId() => new WorkspaceId();
+    public override ResourceID? ResourceId() => new WorkspaceId();
 
-        public override Type? ResponseObject() => typeof(WorkspaceModel);
+    public override Type? ResponseObject() => typeof(WorkspaceModel);
 
 
-    }
 }

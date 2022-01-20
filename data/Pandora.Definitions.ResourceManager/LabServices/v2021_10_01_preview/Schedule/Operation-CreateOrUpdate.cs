@@ -6,16 +6,15 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.LabServices.v2021_10_01_preview.Schedule
+namespace Pandora.Definitions.ResourceManager.LabServices.v2021_10_01_preview.Schedule;
+
+internal class CreateOrUpdateOperation : Operations.PutOperation
 {
-    internal class CreateOrUpdateOperation : Operations.PutOperation
-    {
-        public override Type? RequestObject() => typeof(ScheduleModel);
+    public override Type? RequestObject() => typeof(ScheduleModel);
 
-        public override ResourceID? ResourceId() => new ScheduleId();
+    public override ResourceID? ResourceId() => new ScheduleId();
 
-        public override Type? ResponseObject() => typeof(ScheduleModel);
+    public override Type? ResponseObject() => typeof(ScheduleModel);
 
 
-    }
 }

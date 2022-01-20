@@ -6,18 +6,17 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.DataBricks.v2021_04_01_preview.Workspaces
+namespace Pandora.Definitions.ResourceManager.DataBricks.v2021_04_01_preview.Workspaces;
+
+internal class CreateOrUpdateOperation : Operations.PutOperation
 {
-    internal class CreateOrUpdateOperation : Operations.PutOperation
-    {
-        public override bool LongRunning() => true;
+    public override bool LongRunning() => true;
 
-        public override Type? RequestObject() => typeof(WorkspaceModel);
+    public override Type? RequestObject() => typeof(WorkspaceModel);
 
-        public override ResourceID? ResourceId() => new WorkspaceId();
+    public override ResourceID? ResourceId() => new WorkspaceId();
 
-        public override Type? ResponseObject() => typeof(WorkspaceModel);
+    public override Type? ResponseObject() => typeof(WorkspaceModel);
 
 
-    }
 }

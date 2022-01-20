@@ -5,12 +5,11 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.LabServices.v2021_10_01_preview.Lab
-{
+namespace Pandora.Definitions.ResourceManager.LabServices.v2021_10_01_preview.Lab;
 
-    internal class VirtualMachineAdditionalCapabilitiesModel
-    {
-        [JsonPropertyName("installGpuDrivers")]
-        public EnableStateConstant? InstallGpuDrivers { get; set; }
-    }
+
+internal class VirtualMachineAdditionalCapabilitiesModel
+{
+    [JsonPropertyName("installGpuDrivers")]
+    public EnableStateConstant? InstallGpuDrivers { get; set; }
 }

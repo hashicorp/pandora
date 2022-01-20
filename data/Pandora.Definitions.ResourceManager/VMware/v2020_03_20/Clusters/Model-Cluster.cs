@@ -5,26 +5,25 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.VMware.v2020_03_20.Clusters
+namespace Pandora.Definitions.ResourceManager.VMware.v2020_03_20.Clusters;
+
+
+internal class ClusterModel
 {
+    [JsonPropertyName("id")]
+    public string? Id { get; set; }
 
-    internal class ClusterModel
-    {
-        [JsonPropertyName("id")]
-        public string? Id { get; set; }
+    [JsonPropertyName("name")]
+    public string? Name { get; set; }
 
-        [JsonPropertyName("name")]
-        public string? Name { get; set; }
+    [JsonPropertyName("properties")]
+    [Required]
+    public ClusterPropertiesModel Properties { get; set; }
 
-        [JsonPropertyName("properties")]
-        [Required]
-        public ClusterPropertiesModel Properties { get; set; }
+    [JsonPropertyName("sku")]
+    [Required]
+    public SkuModel Sku { get; set; }
 
-        [JsonPropertyName("sku")]
-        [Required]
-        public SkuModel Sku { get; set; }
-
-        [JsonPropertyName("type")]
-        public string? Type { get; set; }
-    }
+    [JsonPropertyName("type")]
+    public string? Type { get; set; }
 }

@@ -6,27 +6,26 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.DNS.v2018_05_01.RecordSets
+namespace Pandora.Definitions.ResourceManager.DNS.v2018_05_01.RecordSets;
+
+internal class ListByTypeOperation : Operations.ListOperation
 {
-    internal class ListByTypeOperation : Operations.ListOperation
+    public override string? FieldContainingPaginationDetails() => "nextLink";
+
+    public override ResourceID? ResourceId() => new ZoneId();
+
+    public override Type NestedItemType() => typeof(RecordSetModel);
+
+    public override Type? OptionsObject() => typeof(ListByTypeOperation.ListByTypeOptions);
+
+    internal class ListByTypeOptions
     {
-        public override string? FieldContainingPaginationDetails() => "nextLink";
+        [QueryStringName("$recordsetnamesuffix")]
+        [Optional]
+        public string Recordsetnamesuffix { get; set; }
 
-        public override ResourceID? ResourceId() => new ZoneId();
-
-        public override Type NestedItemType() => typeof(RecordSetModel);
-
-        public override Type? OptionsObject() => typeof(ListByTypeOperation.ListByTypeOptions);
-
-        internal class ListByTypeOptions
-        {
-            [QueryStringName("$recordsetnamesuffix")]
-            [Optional]
-            public string Recordsetnamesuffix { get; set; }
-
-            [QueryStringName("$top")]
-            [Optional]
-            public int Top { get; set; }
-        }
+        [QueryStringName("$top")]
+        [Optional]
+        public int Top { get; set; }
     }
 }

@@ -5,15 +5,14 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.CostManagement.v2021_10_01.GenerateDetailedCostReportOperationStatus
+namespace Pandora.Definitions.ResourceManager.CostManagement.v2021_10_01.GenerateDetailedCostReportOperationStatus;
+
+
+internal class ErrorDetailsModel
 {
+    [JsonPropertyName("code")]
+    public string? Code { get; set; }
 
-    internal class ErrorDetailsModel
-    {
-        [JsonPropertyName("code")]
-        public string? Code { get; set; }
-
-        [JsonPropertyName("message")]
-        public string? Message { get; set; }
-    }
+    [JsonPropertyName("message")]
+    public string? Message { get; set; }
 }

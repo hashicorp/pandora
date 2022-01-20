@@ -6,16 +6,15 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.DNS.v2018_05_01.Zones
+namespace Pandora.Definitions.ResourceManager.DNS.v2018_05_01.Zones;
+
+internal class CreateOrUpdateOperation : Operations.PutOperation
 {
-    internal class CreateOrUpdateOperation : Operations.PutOperation
-    {
-        public override Type? RequestObject() => typeof(ZoneModel);
+    public override Type? RequestObject() => typeof(ZoneModel);
 
-        public override ResourceID? ResourceId() => new DnsZoneId();
+    public override ResourceID? ResourceId() => new DnsZoneId();
 
-        public override Type? ResponseObject() => typeof(ZoneModel);
+    public override Type? ResponseObject() => typeof(ZoneModel);
 
 
-    }
 }

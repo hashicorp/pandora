@@ -1,36 +1,35 @@
 using Pandora.Definitions.Attributes;
 using System.ComponentModel;
 
-namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.EventHubs
+namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.EventHubs;
+
+[ConstantType(ConstantTypeAttribute.ConstantType.String)]
+internal enum EntityStatusConstant
 {
-    [ConstantType(ConstantTypeAttribute.ConstantType.String)]
-    internal enum EntityStatusConstant
-    {
-        [Description("Active")]
-        Active,
+    [Description("Active")]
+    Active,
 
-        [Description("Creating")]
-        Creating,
+    [Description("Creating")]
+    Creating,
 
-        [Description("Deleting")]
-        Deleting,
+    [Description("Deleting")]
+    Deleting,
 
-        [Description("Disabled")]
-        Disabled,
+    [Description("Disabled")]
+    Disabled,
 
-        [Description("ReceiveDisabled")]
-        ReceiveDisabled,
+    [Description("ReceiveDisabled")]
+    ReceiveDisabled,
 
-        [Description("Renaming")]
-        Renaming,
+    [Description("Renaming")]
+    Renaming,
 
-        [Description("Restoring")]
-        Restoring,
+    [Description("Restoring")]
+    Restoring,
 
-        [Description("SendDisabled")]
-        SendDisabled,
+    [Description("SendDisabled")]
+    SendDisabled,
 
-        [Description("Unknown")]
-        Unknown,
-    }
+    [Description("Unknown")]
+    Unknown,
 }

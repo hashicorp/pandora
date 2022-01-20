@@ -5,13 +5,12 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.RedisEnterprise.v2021_08_01.Databases
-{
+namespace Pandora.Definitions.ResourceManager.RedisEnterprise.v2021_08_01.Databases;
 
-    internal class ImportClusterParametersModel
-    {
-        [JsonPropertyName("sasUris")]
-        [Required]
-        public List<string> SasUris { get; set; }
-    }
+
+internal class ImportClusterParametersModel
+{
+    [JsonPropertyName("sasUris")]
+    [Required]
+    public List<string> SasUris { get; set; }
 }

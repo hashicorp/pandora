@@ -6,16 +6,15 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.NetworkRuleSets
+namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.NetworkRuleSets;
+
+internal class NamespacesGetNetworkRuleSetOperation : Operations.GetOperation
 {
-    internal class NamespacesGetNetworkRuleSetOperation : Operations.GetOperation
-    {
-        public override ResourceID? ResourceId() => new NamespaceId();
+    public override ResourceID? ResourceId() => new NamespaceId();
 
-        public override Type? ResponseObject() => typeof(NetworkRuleSetModel);
+    public override Type? ResponseObject() => typeof(NetworkRuleSetModel);
 
-        public override string? UriSuffix() => "/networkRuleSets/default";
+    public override string? UriSuffix() => "/networkRuleSets/default";
 
 
-    }
 }

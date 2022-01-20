@@ -5,35 +5,34 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.LabServices.v2021_10_01_preview.User
+namespace Pandora.Definitions.ResourceManager.LabServices.v2021_10_01_preview.User;
+
+
+internal class UserPropertiesModel
 {
+    [JsonPropertyName("additionalUsageQuota")]
+    public string? AdditionalUsageQuota { get; set; }
 
-    internal class UserPropertiesModel
-    {
-        [JsonPropertyName("additionalUsageQuota")]
-        public string? AdditionalUsageQuota { get; set; }
+    [JsonPropertyName("displayName")]
+    public string? DisplayName { get; set; }
 
-        [JsonPropertyName("displayName")]
-        public string? DisplayName { get; set; }
+    [JsonPropertyName("email")]
+    [Required]
+    public string Email { get; set; }
 
-        [JsonPropertyName("email")]
-        [Required]
-        public string Email { get; set; }
+    [DateFormat(DateFormatAttribute.DateFormat.RFC3339)]
+    [JsonPropertyName("invitationSent")]
+    public DateTime? InvitationSent { get; set; }
 
-        [DateFormat(DateFormatAttribute.DateFormat.RFC3339)]
-        [JsonPropertyName("invitationSent")]
-        public DateTime? InvitationSent { get; set; }
+    [JsonPropertyName("invitationState")]
+    public InvitationStateConstant? InvitationState { get; set; }
 
-        [JsonPropertyName("invitationState")]
-        public InvitationStateConstant? InvitationState { get; set; }
+    [JsonPropertyName("provisioningState")]
+    public ProvisioningStateConstant? ProvisioningState { get; set; }
 
-        [JsonPropertyName("provisioningState")]
-        public ProvisioningStateConstant? ProvisioningState { get; set; }
+    [JsonPropertyName("registrationState")]
+    public RegistrationStateConstant? RegistrationState { get; set; }
 
-        [JsonPropertyName("registrationState")]
-        public RegistrationStateConstant? RegistrationState { get; set; }
-
-        [JsonPropertyName("totalUsage")]
-        public string? TotalUsage { get; set; }
-    }
+    [JsonPropertyName("totalUsage")]
+    public string? TotalUsage { get; set; }
 }

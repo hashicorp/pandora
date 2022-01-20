@@ -1,15 +1,14 @@
 using Pandora.Definitions.Attributes;
 using System.ComponentModel;
 
-namespace Pandora.Definitions.ResourceManager.ServiceFabricManagedCluster.v2021_05_01.ManagedCluster
-{
-    [ConstantType(ConstantTypeAttribute.ConstantType.String)]
-    internal enum ClusterUpgradeModeConstant
-    {
-        [Description("Automatic")]
-        Automatic,
+namespace Pandora.Definitions.ResourceManager.ServiceFabricManagedCluster.v2021_05_01.ManagedCluster;
 
-        [Description("Manual")]
-        Manual,
-    }
+[ConstantType(ConstantTypeAttribute.ConstantType.String)]
+internal enum ClusterUpgradeModeConstant
+{
+    [Description("Automatic")]
+    Automatic,
+
+    [Description("Manual")]
+    Manual,
 }

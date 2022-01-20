@@ -6,16 +6,15 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.Cognitive.v2021_04_30.PrivateLinkResources
+namespace Pandora.Definitions.ResourceManager.Cognitive.v2021_04_30.PrivateLinkResources;
+
+internal class ListOperation : Operations.GetOperation
 {
-    internal class ListOperation : Operations.GetOperation
-    {
-        public override ResourceID? ResourceId() => new AccountId();
+    public override ResourceID? ResourceId() => new AccountId();
 
-        public override Type? ResponseObject() => typeof(PrivateLinkResourceListResultModel);
+    public override Type? ResponseObject() => typeof(PrivateLinkResourceListResultModel);
 
-        public override string? UriSuffix() => "/privateLinkResources";
+    public override string? UriSuffix() => "/privateLinkResources";
 
 
-    }
 }

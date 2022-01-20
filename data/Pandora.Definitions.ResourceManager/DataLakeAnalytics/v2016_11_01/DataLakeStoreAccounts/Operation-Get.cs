@@ -6,14 +6,13 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.DataLakeAnalytics.v2016_11_01.DataLakeStoreAccounts
+namespace Pandora.Definitions.ResourceManager.DataLakeAnalytics.v2016_11_01.DataLakeStoreAccounts;
+
+internal class GetOperation : Operations.GetOperation
 {
-    internal class GetOperation : Operations.GetOperation
-    {
-        public override ResourceID? ResourceId() => new DataLakeStoreAccountId();
+    public override ResourceID? ResourceId() => new DataLakeStoreAccountId();
 
-        public override Type? ResponseObject() => typeof(DataLakeStoreAccountInformationModel);
+    public override Type? ResponseObject() => typeof(DataLakeStoreAccountInformationModel);
 
 
-    }
 }

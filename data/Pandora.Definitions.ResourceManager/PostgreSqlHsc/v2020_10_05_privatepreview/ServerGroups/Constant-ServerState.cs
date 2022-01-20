@@ -1,33 +1,32 @@
 using Pandora.Definitions.Attributes;
 using System.ComponentModel;
 
-namespace Pandora.Definitions.ResourceManager.PostgreSqlHsc.v2020_10_05_privatepreview.ServerGroups
+namespace Pandora.Definitions.ResourceManager.PostgreSqlHsc.v2020_10_05_privatepreview.ServerGroups;
+
+[ConstantType(ConstantTypeAttribute.ConstantType.String)]
+internal enum ServerStateConstant
 {
-    [ConstantType(ConstantTypeAttribute.ConstantType.String)]
-    internal enum ServerStateConstant
-    {
-        [Description("Disabled")]
-        Disabled,
+    [Description("Disabled")]
+    Disabled,
 
-        [Description("Dropping")]
-        Dropping,
+    [Description("Dropping")]
+    Dropping,
 
-        [Description("Provisioning")]
-        Provisioning,
+    [Description("Provisioning")]
+    Provisioning,
 
-        [Description("Ready")]
-        Ready,
+    [Description("Ready")]
+    Ready,
 
-        [Description("Starting")]
-        Starting,
+    [Description("Starting")]
+    Starting,
 
-        [Description("Stopped")]
-        Stopped,
+    [Description("Stopped")]
+    Stopped,
 
-        [Description("Stopping")]
-        Stopping,
+    [Description("Stopping")]
+    Stopping,
 
-        [Description("Updating")]
-        Updating,
-    }
+    [Description("Updating")]
+    Updating,
 }

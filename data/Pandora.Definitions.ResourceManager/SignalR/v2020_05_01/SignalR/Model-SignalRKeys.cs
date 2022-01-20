@@ -5,21 +5,20 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.SignalR.v2020_05_01.SignalR
+namespace Pandora.Definitions.ResourceManager.SignalR.v2020_05_01.SignalR;
+
+
+internal class SignalRKeysModel
 {
+    [JsonPropertyName("primaryConnectionString")]
+    public string? PrimaryConnectionString { get; set; }
 
-    internal class SignalRKeysModel
-    {
-        [JsonPropertyName("primaryConnectionString")]
-        public string? PrimaryConnectionString { get; set; }
+    [JsonPropertyName("primaryKey")]
+    public string? PrimaryKey { get; set; }
 
-        [JsonPropertyName("primaryKey")]
-        public string? PrimaryKey { get; set; }
+    [JsonPropertyName("secondaryConnectionString")]
+    public string? SecondaryConnectionString { get; set; }
 
-        [JsonPropertyName("secondaryConnectionString")]
-        public string? SecondaryConnectionString { get; set; }
-
-        [JsonPropertyName("secondaryKey")]
-        public string? SecondaryKey { get; set; }
-    }
+    [JsonPropertyName("secondaryKey")]
+    public string? SecondaryKey { get; set; }
 }

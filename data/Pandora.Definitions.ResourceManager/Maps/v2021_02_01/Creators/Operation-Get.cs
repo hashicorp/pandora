@@ -6,14 +6,13 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.Maps.v2021_02_01.Creators
+namespace Pandora.Definitions.ResourceManager.Maps.v2021_02_01.Creators;
+
+internal class GetOperation : Operations.GetOperation
 {
-    internal class GetOperation : Operations.GetOperation
-    {
-        public override ResourceID? ResourceId() => new CreatorId();
+    public override ResourceID? ResourceId() => new CreatorId();
 
-        public override Type? ResponseObject() => typeof(CreatorModel);
+    public override Type? ResponseObject() => typeof(CreatorModel);
 
 
-    }
 }

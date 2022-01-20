@@ -1,12 +1,11 @@
 using Pandora.Definitions.Attributes;
 using System.ComponentModel;
 
-namespace Pandora.Definitions.ResourceManager.CostManagement.v2021_10_01.Forecast
+namespace Pandora.Definitions.ResourceManager.CostManagement.v2021_10_01.Forecast;
+
+[ConstantType(ConstantTypeAttribute.ConstantType.String)]
+internal enum QueryOperatorTypeConstant
 {
-    [ConstantType(ConstantTypeAttribute.ConstantType.String)]
-    internal enum QueryOperatorTypeConstant
-    {
-        [Description("In")]
-        In,
-    }
+    [Description("In")]
+    In,
 }

@@ -5,12 +5,11 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.EventHubsClustersConfiguration
-{
+namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.EventHubsClustersConfiguration;
 
-    internal class ClusterQuotaConfigurationPropertiesModel
-    {
-        [JsonPropertyName("settings")]
-        public Dictionary<string, string>? Settings { get; set; }
-    }
+
+internal class ClusterQuotaConfigurationPropertiesModel
+{
+    [JsonPropertyName("settings")]
+    public Dictionary<string, string>? Settings { get; set; }
 }

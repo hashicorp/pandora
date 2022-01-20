@@ -5,13 +5,12 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.PowerBIDedicated.v2021_01_01.Capacities
-{
+namespace Pandora.Definitions.ResourceManager.PowerBIDedicated.v2021_01_01.Capacities;
 
-    internal class DedicatedCapacitiesModel
-    {
-        [JsonPropertyName("value")]
-        [Required]
-        public List<DedicatedCapacityModel> Value { get; set; }
-    }
+
+internal class DedicatedCapacitiesModel
+{
+    [JsonPropertyName("value")]
+    [Required]
+    public List<DedicatedCapacityModel> Value { get; set; }
 }

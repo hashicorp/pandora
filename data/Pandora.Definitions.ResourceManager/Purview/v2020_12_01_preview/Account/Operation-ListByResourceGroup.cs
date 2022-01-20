@@ -6,18 +6,17 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.Purview.v2020_12_01_preview.Account
+namespace Pandora.Definitions.ResourceManager.Purview.v2020_12_01_preview.Account;
+
+internal class ListByResourceGroupOperation : Operations.ListOperation
 {
-    internal class ListByResourceGroupOperation : Operations.ListOperation
-    {
-        public override string? FieldContainingPaginationDetails() => "nextLink";
+    public override string? FieldContainingPaginationDetails() => "nextLink";
 
-        public override ResourceID? ResourceId() => new ResourceGroupId();
+    public override ResourceID? ResourceId() => new ResourceGroupId();
 
-        public override Type NestedItemType() => typeof(AccountModel);
+    public override Type NestedItemType() => typeof(AccountModel);
 
-        public override string? UriSuffix() => "/providers/Microsoft.Purview/accounts";
+    public override string? UriSuffix() => "/providers/Microsoft.Purview/accounts";
 
 
-    }
 }

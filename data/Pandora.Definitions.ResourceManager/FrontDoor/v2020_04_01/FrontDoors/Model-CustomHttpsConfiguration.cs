@@ -5,27 +5,26 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.FrontDoor.v2020_04_01.FrontDoors
+namespace Pandora.Definitions.ResourceManager.FrontDoor.v2020_04_01.FrontDoors;
+
+
+internal class CustomHttpsConfigurationModel
 {
+    [JsonPropertyName("certificateSource")]
+    [Required]
+    public FrontDoorCertificateSourceConstant CertificateSource { get; set; }
 
-    internal class CustomHttpsConfigurationModel
-    {
-        [JsonPropertyName("certificateSource")]
-        [Required]
-        public FrontDoorCertificateSourceConstant CertificateSource { get; set; }
+    [JsonPropertyName("frontDoorCertificateSourceParameters")]
+    public FrontDoorCertificateSourceParametersModel? FrontDoorCertificateSourceParameters { get; set; }
 
-        [JsonPropertyName("frontDoorCertificateSourceParameters")]
-        public FrontDoorCertificateSourceParametersModel? FrontDoorCertificateSourceParameters { get; set; }
+    [JsonPropertyName("keyVaultCertificateSourceParameters")]
+    public KeyVaultCertificateSourceParametersModel? KeyVaultCertificateSourceParameters { get; set; }
 
-        [JsonPropertyName("keyVaultCertificateSourceParameters")]
-        public KeyVaultCertificateSourceParametersModel? KeyVaultCertificateSourceParameters { get; set; }
+    [JsonPropertyName("minimumTlsVersion")]
+    [Required]
+    public MinimumTLSVersionConstant MinimumTlsVersion { get; set; }
 
-        [JsonPropertyName("minimumTlsVersion")]
-        [Required]
-        public MinimumTLSVersionConstant MinimumTlsVersion { get; set; }
-
-        [JsonPropertyName("protocolType")]
-        [Required]
-        public FrontDoorTlsProtocolTypeConstant ProtocolType { get; set; }
-    }
+    [JsonPropertyName("protocolType")]
+    [Required]
+    public FrontDoorTlsProtocolTypeConstant ProtocolType { get; set; }
 }

@@ -1,15 +1,14 @@
 using Pandora.Definitions.Attributes;
 using System.ComponentModel;
 
-namespace Pandora.Definitions.ResourceManager.CostManagement.v2021_10_01.Views
-{
-    [ConstantType(ConstantTypeAttribute.ConstantType.String)]
-    internal enum PivotTypeTypeConstant
-    {
-        [Description("Dimension")]
-        Dimension,
+namespace Pandora.Definitions.ResourceManager.CostManagement.v2021_10_01.Views;
 
-        [Description("TagKey")]
-        TagKey,
-    }
+[ConstantType(ConstantTypeAttribute.ConstantType.String)]
+internal enum PivotTypeTypeConstant
+{
+    [Description("Dimension")]
+    Dimension,
+
+    [Description("TagKey")]
+    TagKey,
 }

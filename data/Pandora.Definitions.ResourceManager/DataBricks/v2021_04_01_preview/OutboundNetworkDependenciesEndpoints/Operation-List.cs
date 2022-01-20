@@ -6,16 +6,15 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.DataBricks.v2021_04_01_preview.OutboundNetworkDependenciesEndpoints
+namespace Pandora.Definitions.ResourceManager.DataBricks.v2021_04_01_preview.OutboundNetworkDependenciesEndpoints;
+
+internal class ListOperation : Operations.GetOperation
 {
-    internal class ListOperation : Operations.GetOperation
-    {
-        public override ResourceID? ResourceId() => new WorkspaceId();
+    public override ResourceID? ResourceId() => new WorkspaceId();
 
-        public override Type? ResponseObject() => typeof(List<OutboundEnvironmentEndpointModel>);
+    public override Type? ResponseObject() => typeof(List<OutboundEnvironmentEndpointModel>);
 
-        public override string? UriSuffix() => "/outboundNetworkDependenciesEndpoints";
+    public override string? UriSuffix() => "/outboundNetworkDependenciesEndpoints";
 
 
-    }
 }

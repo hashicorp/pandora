@@ -6,18 +6,17 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.DataBricks.v2021_04_01_preview.VNetPeering
+namespace Pandora.Definitions.ResourceManager.DataBricks.v2021_04_01_preview.VNetPeering;
+
+internal class CreateOrUpdateOperation : Operations.PutOperation
 {
-    internal class CreateOrUpdateOperation : Operations.PutOperation
-    {
-        public override bool LongRunning() => true;
+    public override bool LongRunning() => true;
 
-        public override Type? RequestObject() => typeof(VirtualNetworkPeeringModel);
+    public override Type? RequestObject() => typeof(VirtualNetworkPeeringModel);
 
-        public override ResourceID? ResourceId() => new VirtualNetworkPeeringId();
+    public override ResourceID? ResourceId() => new VirtualNetworkPeeringId();
 
-        public override Type? ResponseObject() => typeof(VirtualNetworkPeeringModel);
+    public override Type? ResponseObject() => typeof(VirtualNetworkPeeringModel);
 
 
-    }
 }

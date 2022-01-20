@@ -1,36 +1,35 @@
 using Pandora.Definitions.Attributes;
 using System.ComponentModel;
 
-namespace Pandora.Definitions.ResourceManager.SignalR.v2020_05_01.SignalR
+namespace Pandora.Definitions.ResourceManager.SignalR.v2020_05_01.SignalR;
+
+[ConstantType(ConstantTypeAttribute.ConstantType.String)]
+internal enum ProvisioningStateConstant
 {
-    [ConstantType(ConstantTypeAttribute.ConstantType.String)]
-    internal enum ProvisioningStateConstant
-    {
-        [Description("Canceled")]
-        Canceled,
+    [Description("Canceled")]
+    Canceled,
 
-        [Description("Creating")]
-        Creating,
+    [Description("Creating")]
+    Creating,
 
-        [Description("Deleting")]
-        Deleting,
+    [Description("Deleting")]
+    Deleting,
 
-        [Description("Failed")]
-        Failed,
+    [Description("Failed")]
+    Failed,
 
-        [Description("Moving")]
-        Moving,
+    [Description("Moving")]
+    Moving,
 
-        [Description("Running")]
-        Running,
+    [Description("Running")]
+    Running,
 
-        [Description("Succeeded")]
-        Succeeded,
+    [Description("Succeeded")]
+    Succeeded,
 
-        [Description("Unknown")]
-        Unknown,
+    [Description("Unknown")]
+    Unknown,
 
-        [Description("Updating")]
-        Updating,
-    }
+    [Description("Updating")]
+    Updating,
 }

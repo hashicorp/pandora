@@ -5,12 +5,11 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.FrontDoor.v2020_04_01.FrontDoors
-{
+namespace Pandora.Definitions.ResourceManager.FrontDoor.v2020_04_01.FrontDoors;
 
-    internal class FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkModel
-    {
-        [JsonPropertyName("id")]
-        public string? Id { get; set; }
-    }
+
+internal class FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkModel
+{
+    [JsonPropertyName("id")]
+    public string? Id { get; set; }
 }

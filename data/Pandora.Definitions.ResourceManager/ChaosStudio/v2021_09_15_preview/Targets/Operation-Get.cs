@@ -6,14 +6,13 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.ChaosStudio.v2021_09_15_preview.Targets
+namespace Pandora.Definitions.ResourceManager.ChaosStudio.v2021_09_15_preview.Targets;
+
+internal class GetOperation : Operations.GetOperation
 {
-    internal class GetOperation : Operations.GetOperation
-    {
-        public override ResourceID? ResourceId() => new TargetId();
+    public override ResourceID? ResourceId() => new TargetId();
 
-        public override Type? ResponseObject() => typeof(TargetModel);
+    public override Type? ResponseObject() => typeof(TargetModel);
 
 
-    }
 }

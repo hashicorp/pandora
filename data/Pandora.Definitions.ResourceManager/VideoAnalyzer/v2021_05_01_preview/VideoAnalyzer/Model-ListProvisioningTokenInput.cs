@@ -5,14 +5,13 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.VideoAnalyzer.v2021_05_01_preview.VideoAnalyzer
-{
+namespace Pandora.Definitions.ResourceManager.VideoAnalyzer.v2021_05_01_preview.VideoAnalyzer;
 
-    internal class ListProvisioningTokenInputModel
-    {
-        [DateFormat(DateFormatAttribute.DateFormat.RFC3339)]
-        [JsonPropertyName("expirationDate")]
-        [Required]
-        public DateTime ExpirationDate { get; set; }
-    }
+
+internal class ListProvisioningTokenInputModel
+{
+    [DateFormat(DateFormatAttribute.DateFormat.RFC3339)]
+    [JsonPropertyName("expirationDate")]
+    [Required]
+    public DateTime ExpirationDate { get; set; }
 }

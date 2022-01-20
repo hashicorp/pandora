@@ -6,18 +6,17 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.Cognitive.v2021_04_30.CognitiveServicesAccounts
+namespace Pandora.Definitions.ResourceManager.Cognitive.v2021_04_30.CognitiveServicesAccounts;
+
+internal class AccountsListByResourceGroupOperation : Operations.ListOperation
 {
-    internal class AccountsListByResourceGroupOperation : Operations.ListOperation
-    {
-        public override string? FieldContainingPaginationDetails() => "nextLink";
+    public override string? FieldContainingPaginationDetails() => "nextLink";
 
-        public override ResourceID? ResourceId() => new ResourceGroupId();
+    public override ResourceID? ResourceId() => new ResourceGroupId();
 
-        public override Type NestedItemType() => typeof(AccountModel);
+    public override Type NestedItemType() => typeof(AccountModel);
 
-        public override string? UriSuffix() => "/providers/Microsoft.CognitiveServices/accounts";
+    public override string? UriSuffix() => "/providers/Microsoft.CognitiveServices/accounts";
 
 
-    }
 }

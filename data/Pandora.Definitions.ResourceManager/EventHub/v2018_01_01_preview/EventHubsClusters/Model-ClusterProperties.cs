@@ -5,21 +5,20 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.EventHubsClusters
+namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.EventHubsClusters;
+
+
+internal class ClusterPropertiesModel
 {
+    [JsonPropertyName("createdAt")]
+    public string? CreatedAt { get; set; }
 
-    internal class ClusterPropertiesModel
-    {
-        [JsonPropertyName("createdAt")]
-        public string? CreatedAt { get; set; }
+    [JsonPropertyName("metricId")]
+    public string? MetricId { get; set; }
 
-        [JsonPropertyName("metricId")]
-        public string? MetricId { get; set; }
+    [JsonPropertyName("status")]
+    public string? Status { get; set; }
 
-        [JsonPropertyName("status")]
-        public string? Status { get; set; }
-
-        [JsonPropertyName("updatedAt")]
-        public string? UpdatedAt { get; set; }
-    }
+    [JsonPropertyName("updatedAt")]
+    public string? UpdatedAt { get; set; }
 }

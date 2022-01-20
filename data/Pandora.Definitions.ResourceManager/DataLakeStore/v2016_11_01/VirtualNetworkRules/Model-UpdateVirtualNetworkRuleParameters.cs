@@ -5,12 +5,11 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.DataLakeStore.v2016_11_01.VirtualNetworkRules
-{
+namespace Pandora.Definitions.ResourceManager.DataLakeStore.v2016_11_01.VirtualNetworkRules;
 
-    internal class UpdateVirtualNetworkRuleParametersModel
-    {
-        [JsonPropertyName("properties")]
-        public UpdateVirtualNetworkRulePropertiesModel? Properties { get; set; }
-    }
+
+internal class UpdateVirtualNetworkRuleParametersModel
+{
+    [JsonPropertyName("properties")]
+    public UpdateVirtualNetworkRulePropertiesModel? Properties { get; set; }
 }

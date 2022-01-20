@@ -5,27 +5,26 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.EventHubs
+namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.EventHubs;
+
+
+internal class CaptureDescriptionModel
 {
+    [JsonPropertyName("destination")]
+    public DestinationModel? Destination { get; set; }
 
-    internal class CaptureDescriptionModel
-    {
-        [JsonPropertyName("destination")]
-        public DestinationModel? Destination { get; set; }
+    [JsonPropertyName("enabled")]
+    public bool? Enabled { get; set; }
 
-        [JsonPropertyName("enabled")]
-        public bool? Enabled { get; set; }
+    [JsonPropertyName("encoding")]
+    public EncodingCaptureDescriptionConstant? Encoding { get; set; }
 
-        [JsonPropertyName("encoding")]
-        public EncodingCaptureDescriptionConstant? Encoding { get; set; }
+    [JsonPropertyName("intervalInSeconds")]
+    public int? IntervalInSeconds { get; set; }
 
-        [JsonPropertyName("intervalInSeconds")]
-        public int? IntervalInSeconds { get; set; }
+    [JsonPropertyName("sizeLimitInBytes")]
+    public int? SizeLimitInBytes { get; set; }
 
-        [JsonPropertyName("sizeLimitInBytes")]
-        public int? SizeLimitInBytes { get; set; }
-
-        [JsonPropertyName("skipEmptyArchives")]
-        public bool? SkipEmptyArchives { get; set; }
-    }
+    [JsonPropertyName("skipEmptyArchives")]
+    public bool? SkipEmptyArchives { get; set; }
 }

@@ -5,12 +5,11 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.Attestation.v2020_10_01.PrivateEndpointConnections
-{
+namespace Pandora.Definitions.ResourceManager.Attestation.v2020_10_01.PrivateEndpointConnections;
 
-    internal class PrivateEndpointModel
-    {
-        [JsonPropertyName("id")]
-        public string? Id { get; set; }
-    }
+
+internal class PrivateEndpointModel
+{
+    [JsonPropertyName("id")]
+    public string? Id { get; set; }
 }

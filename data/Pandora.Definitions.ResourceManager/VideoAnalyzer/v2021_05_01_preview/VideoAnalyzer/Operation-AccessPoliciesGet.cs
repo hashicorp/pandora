@@ -6,14 +6,13 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.VideoAnalyzer.v2021_05_01_preview.VideoAnalyzer
+namespace Pandora.Definitions.ResourceManager.VideoAnalyzer.v2021_05_01_preview.VideoAnalyzer;
+
+internal class AccessPoliciesGetOperation : Operations.GetOperation
 {
-    internal class AccessPoliciesGetOperation : Operations.GetOperation
-    {
-        public override ResourceID? ResourceId() => new AccessPoliciesId();
+    public override ResourceID? ResourceId() => new AccessPoliciesId();
 
-        public override Type? ResponseObject() => typeof(AccessPolicyEntityModel);
+    public override Type? ResponseObject() => typeof(AccessPolicyEntityModel);
 
 
-    }
 }

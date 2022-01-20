@@ -5,19 +5,18 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.PowerBIDedicated.v2021_01_01.PowerBIDedicated
+namespace Pandora.Definitions.ResourceManager.PowerBIDedicated.v2021_01_01.PowerBIDedicated;
+
+
+internal class CapacitySkuModel
 {
+    [JsonPropertyName("capacity")]
+    public int? Capacity { get; set; }
 
-    internal class CapacitySkuModel
-    {
-        [JsonPropertyName("capacity")]
-        public int? Capacity { get; set; }
+    [JsonPropertyName("name")]
+    [Required]
+    public string Name { get; set; }
 
-        [JsonPropertyName("name")]
-        [Required]
-        public string Name { get; set; }
-
-        [JsonPropertyName("tier")]
-        public CapacitySkuTierConstant? Tier { get; set; }
-    }
+    [JsonPropertyName("tier")]
+    public CapacitySkuTierConstant? Tier { get; set; }
 }

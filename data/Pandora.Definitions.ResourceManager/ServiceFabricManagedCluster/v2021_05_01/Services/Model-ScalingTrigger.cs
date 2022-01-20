@@ -5,14 +5,13 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.ServiceFabricManagedCluster.v2021_05_01.Services
-{
+namespace Pandora.Definitions.ResourceManager.ServiceFabricManagedCluster.v2021_05_01.Services;
 
-    internal abstract class ScalingTriggerModel
-    {
-        [JsonPropertyName("kind")]
-        [ProvidesTypeHint]
-        [Required]
-        public ServiceScalingTriggerKindConstant Kind { get; set; }
-    }
+
+internal abstract class ScalingTriggerModel
+{
+    [JsonPropertyName("kind")]
+    [ProvidesTypeHint]
+    [Required]
+    public ServiceScalingTriggerKindConstant Kind { get; set; }
 }

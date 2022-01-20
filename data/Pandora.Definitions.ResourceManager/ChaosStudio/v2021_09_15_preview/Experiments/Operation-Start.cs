@@ -6,23 +6,22 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.ChaosStudio.v2021_09_15_preview.Experiments
+namespace Pandora.Definitions.ResourceManager.ChaosStudio.v2021_09_15_preview.Experiments;
+
+internal class StartOperation : Operations.PostOperation
 {
-    internal class StartOperation : Operations.PostOperation
-    {
-        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
         };
 
-        public override Type? RequestObject() => null;
+    public override Type? RequestObject() => null;
 
-        public override ResourceID? ResourceId() => new ExperimentId();
+    public override ResourceID? ResourceId() => new ExperimentId();
 
-        public override Type? ResponseObject() => typeof(ExperimentStartOperationResultModel);
+    public override Type? ResponseObject() => typeof(ExperimentStartOperationResultModel);
 
-        public override string? UriSuffix() => "/start";
+    public override string? UriSuffix() => "/start";
 
 
-    }
 }

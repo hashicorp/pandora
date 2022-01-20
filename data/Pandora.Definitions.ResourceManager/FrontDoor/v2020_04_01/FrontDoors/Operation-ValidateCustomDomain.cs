@@ -6,23 +6,22 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.FrontDoor.v2020_04_01.FrontDoors
+namespace Pandora.Definitions.ResourceManager.FrontDoor.v2020_04_01.FrontDoors;
+
+internal class ValidateCustomDomainOperation : Operations.PostOperation
 {
-    internal class ValidateCustomDomainOperation : Operations.PostOperation
-    {
-        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-        public override Type? RequestObject() => typeof(ValidateCustomDomainInputModel);
+    public override Type? RequestObject() => typeof(ValidateCustomDomainInputModel);
 
-        public override ResourceID? ResourceId() => new FrontDoorId();
+    public override ResourceID? ResourceId() => new FrontDoorId();
 
-        public override Type? ResponseObject() => typeof(ValidateCustomDomainOutputModel);
+    public override Type? ResponseObject() => typeof(ValidateCustomDomainOutputModel);
 
-        public override string? UriSuffix() => "/validateCustomDomain";
+    public override string? UriSuffix() => "/validateCustomDomain";
 
 
-    }
 }

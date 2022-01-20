@@ -5,30 +5,29 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.StoragePool.v2021_08_01.ResourceSkus
+namespace Pandora.Definitions.ResourceManager.StoragePool.v2021_08_01.ResourceSkus;
+
+
+internal class ResourceSkuInfoModel
 {
+    [JsonPropertyName("apiVersion")]
+    public string? ApiVersion { get; set; }
 
-    internal class ResourceSkuInfoModel
-    {
-        [JsonPropertyName("apiVersion")]
-        public string? ApiVersion { get; set; }
+    [JsonPropertyName("capabilities")]
+    public List<ResourceSkuCapabilityModel>? Capabilities { get; set; }
 
-        [JsonPropertyName("capabilities")]
-        public List<ResourceSkuCapabilityModel>? Capabilities { get; set; }
+    [JsonPropertyName("locationInfo")]
+    public ResourceSkuLocationInfoModel? LocationInfo { get; set; }
 
-        [JsonPropertyName("locationInfo")]
-        public ResourceSkuLocationInfoModel? LocationInfo { get; set; }
+    [JsonPropertyName("name")]
+    public string? Name { get; set; }
 
-        [JsonPropertyName("name")]
-        public string? Name { get; set; }
+    [JsonPropertyName("resourceType")]
+    public string? ResourceType { get; set; }
 
-        [JsonPropertyName("resourceType")]
-        public string? ResourceType { get; set; }
+    [JsonPropertyName("restrictions")]
+    public List<ResourceSkuRestrictionsModel>? Restrictions { get; set; }
 
-        [JsonPropertyName("restrictions")]
-        public List<ResourceSkuRestrictionsModel>? Restrictions { get; set; }
-
-        [JsonPropertyName("tier")]
-        public string? Tier { get; set; }
-    }
+    [JsonPropertyName("tier")]
+    public string? Tier { get; set; }
 }

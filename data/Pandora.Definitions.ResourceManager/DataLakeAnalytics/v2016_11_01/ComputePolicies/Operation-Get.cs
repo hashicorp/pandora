@@ -6,14 +6,13 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.DataLakeAnalytics.v2016_11_01.ComputePolicies
+namespace Pandora.Definitions.ResourceManager.DataLakeAnalytics.v2016_11_01.ComputePolicies;
+
+internal class GetOperation : Operations.GetOperation
 {
-    internal class GetOperation : Operations.GetOperation
-    {
-        public override ResourceID? ResourceId() => new ComputePoliciesId();
+    public override ResourceID? ResourceId() => new ComputePoliciesId();
 
-        public override Type? ResponseObject() => typeof(ComputePolicyModel);
+    public override Type? ResponseObject() => typeof(ComputePolicyModel);
 
 
-    }
 }

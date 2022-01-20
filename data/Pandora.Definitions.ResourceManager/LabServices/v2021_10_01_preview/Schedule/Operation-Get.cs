@@ -6,14 +6,13 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.LabServices.v2021_10_01_preview.Schedule
+namespace Pandora.Definitions.ResourceManager.LabServices.v2021_10_01_preview.Schedule;
+
+internal class GetOperation : Operations.GetOperation
 {
-    internal class GetOperation : Operations.GetOperation
-    {
-        public override ResourceID? ResourceId() => new ScheduleId();
+    public override ResourceID? ResourceId() => new ScheduleId();
 
-        public override Type? ResponseObject() => typeof(ScheduleModel);
+    public override Type? ResponseObject() => typeof(ScheduleModel);
 
 
-    }
 }

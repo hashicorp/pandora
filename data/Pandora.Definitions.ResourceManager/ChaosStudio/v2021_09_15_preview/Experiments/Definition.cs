@@ -1,24 +1,23 @@
 using System.Collections.Generic;
 using Pandora.Definitions.Interfaces;
 
-namespace Pandora.Definitions.ResourceManager.ChaosStudio.v2021_09_15_preview.Experiments
+namespace Pandora.Definitions.ResourceManager.ChaosStudio.v2021_09_15_preview.Experiments;
+
+internal class Definition : ResourceDefinition
 {
-    internal class Definition : ResourceDefinition
+    public string Name => "Experiments";
+    public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
     {
-        public string Name => "Experiments";
-        public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
-        {
-            new CancelOperation(),
-            new CreateOrUpdateOperation(),
-            new DeleteOperation(),
-            new GetOperation(),
-            new GetExecutionDetailsOperation(),
-            new GetStatusOperation(),
-            new ListOperation(),
-            new ListAllOperation(),
-            new ListAllStatusesOperation(),
-            new ListExecutionDetailsOperation(),
-            new StartOperation(),
-        };
-    }
+        new CancelOperation(),
+        new CreateOrUpdateOperation(),
+        new DeleteOperation(),
+        new GetOperation(),
+        new GetExecutionDetailsOperation(),
+        new GetStatusOperation(),
+        new ListOperation(),
+        new ListAllOperation(),
+        new ListAllStatusesOperation(),
+        new ListExecutionDetailsOperation(),
+        new StartOperation(),
+    };
 }

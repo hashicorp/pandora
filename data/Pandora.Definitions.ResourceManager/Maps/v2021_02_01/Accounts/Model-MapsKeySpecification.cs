@@ -5,13 +5,12 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.Maps.v2021_02_01.Accounts
-{
+namespace Pandora.Definitions.ResourceManager.Maps.v2021_02_01.Accounts;
 
-    internal class MapsKeySpecificationModel
-    {
-        [JsonPropertyName("keyType")]
-        [Required]
-        public KeyTypeConstant KeyType { get; set; }
-    }
+
+internal class MapsKeySpecificationModel
+{
+    [JsonPropertyName("keyType")]
+    [Required]
+    public KeyTypeConstant KeyType { get; set; }
 }

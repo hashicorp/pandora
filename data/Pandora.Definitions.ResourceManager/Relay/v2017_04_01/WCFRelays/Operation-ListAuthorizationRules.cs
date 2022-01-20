@@ -6,18 +6,17 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.Relay.v2017_04_01.WCFRelays
+namespace Pandora.Definitions.ResourceManager.Relay.v2017_04_01.WCFRelays;
+
+internal class ListAuthorizationRulesOperation : Operations.ListOperation
 {
-    internal class ListAuthorizationRulesOperation : Operations.ListOperation
-    {
-        public override string? FieldContainingPaginationDetails() => "nextLink";
+    public override string? FieldContainingPaginationDetails() => "nextLink";
 
-        public override ResourceID? ResourceId() => new WcfRelayId();
+    public override ResourceID? ResourceId() => new WcfRelayId();
 
-        public override Type NestedItemType() => typeof(AuthorizationRuleModel);
+    public override Type NestedItemType() => typeof(AuthorizationRuleModel);
 
-        public override string? UriSuffix() => "/authorizationRules";
+    public override string? UriSuffix() => "/authorizationRules";
 
 
-    }
 }

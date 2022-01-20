@@ -5,18 +5,17 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.LabServices.v2021_10_01_preview.Lab
+namespace Pandora.Definitions.ResourceManager.LabServices.v2021_10_01_preview.Lab;
+
+
+internal class LabNetworkProfileModel
 {
+    [JsonPropertyName("loadBalancerId")]
+    public string? LoadBalancerId { get; set; }
 
-    internal class LabNetworkProfileModel
-    {
-        [JsonPropertyName("loadBalancerId")]
-        public string? LoadBalancerId { get; set; }
+    [JsonPropertyName("publicIpId")]
+    public string? PublicIpId { get; set; }
 
-        [JsonPropertyName("publicIpId")]
-        public string? PublicIpId { get; set; }
-
-        [JsonPropertyName("subnetId")]
-        public string? SubnetId { get; set; }
-    }
+    [JsonPropertyName("subnetId")]
+    public string? SubnetId { get; set; }
 }

@@ -6,21 +6,20 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.IpFilterRules
+namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.IpFilterRules;
+
+internal class NamespacesCreateOrUpdateIpFilterRuleOperation : Operations.PutOperation
 {
-    internal class NamespacesCreateOrUpdateIpFilterRuleOperation : Operations.PutOperation
-    {
-        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-        public override Type? RequestObject() => typeof(IpFilterRuleModel);
+    public override Type? RequestObject() => typeof(IpFilterRuleModel);
 
-        public override ResourceID? ResourceId() => new IpfilterruleId();
+    public override ResourceID? ResourceId() => new IpfilterruleId();
 
-        public override Type? ResponseObject() => typeof(IpFilterRuleModel);
+    public override Type? ResponseObject() => typeof(IpFilterRuleModel);
 
 
-    }
 }

@@ -5,17 +5,16 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.ServiceFabricManagedCluster.v2021_05_01.Service
+namespace Pandora.Definitions.ResourceManager.ServiceFabricManagedCluster.v2021_05_01.Service;
+
+
+internal class ScalingPolicyModel
 {
+    [JsonPropertyName("scalingMechanism")]
+    [Required]
+    public ScalingMechanismModel ScalingMechanism { get; set; }
 
-    internal class ScalingPolicyModel
-    {
-        [JsonPropertyName("scalingMechanism")]
-        [Required]
-        public ScalingMechanismModel ScalingMechanism { get; set; }
-
-        [JsonPropertyName("scalingTrigger")]
-        [Required]
-        public ScalingTriggerModel ScalingTrigger { get; set; }
-    }
+    [JsonPropertyName("scalingTrigger")]
+    [Required]
+    public ScalingTriggerModel ScalingTrigger { get; set; }
 }

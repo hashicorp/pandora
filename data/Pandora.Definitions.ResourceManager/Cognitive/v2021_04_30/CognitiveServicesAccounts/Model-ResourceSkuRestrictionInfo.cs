@@ -5,15 +5,14 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.Cognitive.v2021_04_30.CognitiveServicesAccounts
+namespace Pandora.Definitions.ResourceManager.Cognitive.v2021_04_30.CognitiveServicesAccounts;
+
+
+internal class ResourceSkuRestrictionInfoModel
 {
+    [JsonPropertyName("locations")]
+    public List<string>? Locations { get; set; }
 
-    internal class ResourceSkuRestrictionInfoModel
-    {
-        [JsonPropertyName("locations")]
-        public List<string>? Locations { get; set; }
-
-        [JsonPropertyName("zones")]
-        public List<string>? Zones { get; set; }
-    }
+    [JsonPropertyName("zones")]
+    public List<string>? Zones { get; set; }
 }

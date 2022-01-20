@@ -5,12 +5,11 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.LabServices.v2021_10_01_preview.Schedule
-{
+namespace Pandora.Definitions.ResourceManager.LabServices.v2021_10_01_preview.Schedule;
 
-    internal class ScheduleUpdateModel
-    {
-        [JsonPropertyName("properties")]
-        public ScheduleUpdatePropertiesModel? Properties { get; set; }
-    }
+
+internal class ScheduleUpdateModel
+{
+    [JsonPropertyName("properties")]
+    public ScheduleUpdatePropertiesModel? Properties { get; set; }
 }

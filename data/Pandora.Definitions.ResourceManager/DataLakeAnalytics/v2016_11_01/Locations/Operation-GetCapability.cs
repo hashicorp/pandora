@@ -6,16 +6,15 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.DataLakeAnalytics.v2016_11_01.Locations
+namespace Pandora.Definitions.ResourceManager.DataLakeAnalytics.v2016_11_01.Locations;
+
+internal class GetCapabilityOperation : Operations.GetOperation
 {
-    internal class GetCapabilityOperation : Operations.GetOperation
-    {
-        public override ResourceID? ResourceId() => new LocationId();
+    public override ResourceID? ResourceId() => new LocationId();
 
-        public override Type? ResponseObject() => typeof(CapabilityInformationModel);
+    public override Type? ResponseObject() => typeof(CapabilityInformationModel);
 
-        public override string? UriSuffix() => "/capability";
+    public override string? UriSuffix() => "/capability";
 
 
-    }
 }

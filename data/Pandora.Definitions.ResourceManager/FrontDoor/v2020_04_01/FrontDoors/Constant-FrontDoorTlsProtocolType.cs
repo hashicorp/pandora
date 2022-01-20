@@ -1,12 +1,11 @@
 using Pandora.Definitions.Attributes;
 using System.ComponentModel;
 
-namespace Pandora.Definitions.ResourceManager.FrontDoor.v2020_04_01.FrontDoors
+namespace Pandora.Definitions.ResourceManager.FrontDoor.v2020_04_01.FrontDoors;
+
+[ConstantType(ConstantTypeAttribute.ConstantType.String)]
+internal enum FrontDoorTlsProtocolTypeConstant
 {
-    [ConstantType(ConstantTypeAttribute.ConstantType.String)]
-    internal enum FrontDoorTlsProtocolTypeConstant
-    {
-        [Description("ServerNameIndication")]
-        ServerNameIndication,
-    }
+    [Description("ServerNameIndication")]
+    ServerNameIndication,
 }

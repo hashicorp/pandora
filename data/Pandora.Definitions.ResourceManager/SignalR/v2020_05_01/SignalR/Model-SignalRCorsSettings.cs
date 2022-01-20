@@ -5,12 +5,11 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.SignalR.v2020_05_01.SignalR
-{
+namespace Pandora.Definitions.ResourceManager.SignalR.v2020_05_01.SignalR;
 
-    internal class SignalRCorsSettingsModel
-    {
-        [JsonPropertyName("allowedOrigins")]
-        public List<string>? AllowedOrigins { get; set; }
-    }
+
+internal class SignalRCorsSettingsModel
+{
+    [JsonPropertyName("allowedOrigins")]
+    public List<string>? AllowedOrigins { get; set; }
 }

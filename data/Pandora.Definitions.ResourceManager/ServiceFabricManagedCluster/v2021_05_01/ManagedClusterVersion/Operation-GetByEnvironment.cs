@@ -6,14 +6,13 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.ServiceFabricManagedCluster.v2021_05_01.ManagedClusterVersion
+namespace Pandora.Definitions.ResourceManager.ServiceFabricManagedCluster.v2021_05_01.ManagedClusterVersion;
+
+internal class GetByEnvironmentOperation : Operations.GetOperation
 {
-    internal class GetByEnvironmentOperation : Operations.GetOperation
-    {
-        public override ResourceID? ResourceId() => new EnvironmentManagedClusterVersionId();
+    public override ResourceID? ResourceId() => new EnvironmentManagedClusterVersionId();
 
-        public override Type? ResponseObject() => typeof(ManagedClusterCodeVersionResultModel);
+    public override Type? ResponseObject() => typeof(ManagedClusterCodeVersionResultModel);
 
 
-    }
 }

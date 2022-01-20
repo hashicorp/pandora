@@ -5,12 +5,11 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.Communication.v2020_08_20.CommunicationService
-{
+namespace Pandora.Definitions.ResourceManager.Communication.v2020_08_20.CommunicationService;
 
-    internal class LinkedNotificationHubModel
-    {
-        [JsonPropertyName("resourceId")]
-        public string? ResourceId { get; set; }
-    }
+
+internal class LinkedNotificationHubModel
+{
+    [JsonPropertyName("resourceId")]
+    public string? ResourceId { get; set; }
 }

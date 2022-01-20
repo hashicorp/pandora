@@ -5,24 +5,23 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.Relay.v2017_04_01.HybridConnections
+namespace Pandora.Definitions.ResourceManager.Relay.v2017_04_01.HybridConnections;
+
+
+internal class AccessKeysModel
 {
+    [JsonPropertyName("keyName")]
+    public string? KeyName { get; set; }
 
-    internal class AccessKeysModel
-    {
-        [JsonPropertyName("keyName")]
-        public string? KeyName { get; set; }
+    [JsonPropertyName("primaryConnectionString")]
+    public string? PrimaryConnectionString { get; set; }
 
-        [JsonPropertyName("primaryConnectionString")]
-        public string? PrimaryConnectionString { get; set; }
+    [JsonPropertyName("primaryKey")]
+    public string? PrimaryKey { get; set; }
 
-        [JsonPropertyName("primaryKey")]
-        public string? PrimaryKey { get; set; }
+    [JsonPropertyName("secondaryConnectionString")]
+    public string? SecondaryConnectionString { get; set; }
 
-        [JsonPropertyName("secondaryConnectionString")]
-        public string? SecondaryConnectionString { get; set; }
-
-        [JsonPropertyName("secondaryKey")]
-        public string? SecondaryKey { get; set; }
-    }
+    [JsonPropertyName("secondaryKey")]
+    public string? SecondaryKey { get; set; }
 }

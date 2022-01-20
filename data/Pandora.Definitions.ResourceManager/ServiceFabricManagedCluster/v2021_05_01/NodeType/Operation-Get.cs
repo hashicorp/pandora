@@ -6,14 +6,13 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.ServiceFabricManagedCluster.v2021_05_01.NodeType
+namespace Pandora.Definitions.ResourceManager.ServiceFabricManagedCluster.v2021_05_01.NodeType;
+
+internal class GetOperation : Operations.GetOperation
 {
-    internal class GetOperation : Operations.GetOperation
-    {
-        public override ResourceID? ResourceId() => new NodeTypeId();
+    public override ResourceID? ResourceId() => new NodeTypeId();
 
-        public override Type? ResponseObject() => typeof(NodeTypeModel);
+    public override Type? ResponseObject() => typeof(NodeTypeModel);
 
 
-    }
 }

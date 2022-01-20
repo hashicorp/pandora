@@ -1,15 +1,14 @@
 using Pandora.Definitions.Attributes;
 using System.ComponentModel;
 
-namespace Pandora.Definitions.ResourceManager.Purview.v2020_12_01_preview.Provider
-{
-    [ConstantType(ConstantTypeAttribute.ConstantType.String)]
-    internal enum ReasonConstant
-    {
-        [Description("AlreadyExists")]
-        AlreadyExists,
+namespace Pandora.Definitions.ResourceManager.Purview.v2020_12_01_preview.Provider;
 
-        [Description("Invalid")]
-        Invalid,
-    }
+[ConstantType(ConstantTypeAttribute.ConstantType.String)]
+internal enum ReasonConstant
+{
+    [Description("AlreadyExists")]
+    AlreadyExists,
+
+    [Description("Invalid")]
+    Invalid,
 }

@@ -5,18 +5,17 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.IpFilterRules
+namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.IpFilterRules;
+
+
+internal class IpFilterRulePropertiesModel
 {
+    [JsonPropertyName("action")]
+    public IPActionConstant? Action { get; set; }
 
-    internal class IpFilterRulePropertiesModel
-    {
-        [JsonPropertyName("action")]
-        public IPActionConstant? Action { get; set; }
+    [JsonPropertyName("filterName")]
+    public string? FilterName { get; set; }
 
-        [JsonPropertyName("filterName")]
-        public string? FilterName { get; set; }
-
-        [JsonPropertyName("ipMask")]
-        public string? IpMask { get; set; }
-    }
+    [JsonPropertyName("ipMask")]
+    public string? IpMask { get; set; }
 }

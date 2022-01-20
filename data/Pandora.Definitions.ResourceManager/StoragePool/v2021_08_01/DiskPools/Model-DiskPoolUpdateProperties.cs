@@ -5,12 +5,11 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.StoragePool.v2021_08_01.DiskPools
-{
+namespace Pandora.Definitions.ResourceManager.StoragePool.v2021_08_01.DiskPools;
 
-    internal class DiskPoolUpdatePropertiesModel
-    {
-        [JsonPropertyName("disks")]
-        public List<DiskModel>? Disks { get; set; }
-    }
+
+internal class DiskPoolUpdatePropertiesModel
+{
+    [JsonPropertyName("disks")]
+    public List<DiskModel>? Disks { get; set; }
 }

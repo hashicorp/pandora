@@ -6,18 +6,17 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.DataBricks.v2021_04_01_preview.VNetPeering
+namespace Pandora.Definitions.ResourceManager.DataBricks.v2021_04_01_preview.VNetPeering;
+
+internal class ListByWorkspaceOperation : Operations.ListOperation
 {
-    internal class ListByWorkspaceOperation : Operations.ListOperation
-    {
-        public override string? FieldContainingPaginationDetails() => "nextLink";
+    public override string? FieldContainingPaginationDetails() => "nextLink";
 
-        public override ResourceID? ResourceId() => new WorkspaceId();
+    public override ResourceID? ResourceId() => new WorkspaceId();
 
-        public override Type NestedItemType() => typeof(VirtualNetworkPeeringModel);
+    public override Type NestedItemType() => typeof(VirtualNetworkPeeringModel);
 
-        public override string? UriSuffix() => "/virtualNetworkPeerings";
+    public override string? UriSuffix() => "/virtualNetworkPeerings";
 
 
-    }
 }

@@ -1,15 +1,14 @@
 using Pandora.Definitions.Attributes;
 using System.ComponentModel;
 
-namespace Pandora.Definitions.ResourceManager.ServiceFabricManagedCluster.v2021_05_01.Services
-{
-    [ConstantType(ConstantTypeAttribute.ConstantType.String)]
-    internal enum ServiceCorrelationSchemeConstant
-    {
-        [Description("AlignedAffinity")]
-        AlignedAffinity,
+namespace Pandora.Definitions.ResourceManager.ServiceFabricManagedCluster.v2021_05_01.Services;
 
-        [Description("NonAlignedAffinity")]
-        NonAlignedAffinity,
-    }
+[ConstantType(ConstantTypeAttribute.ConstantType.String)]
+internal enum ServiceCorrelationSchemeConstant
+{
+    [Description("AlignedAffinity")]
+    AlignedAffinity,
+
+    [Description("NonAlignedAffinity")]
+    NonAlignedAffinity,
 }

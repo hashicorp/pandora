@@ -5,12 +5,11 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.Purview.v2021_07_01.Account
-{
+namespace Pandora.Definitions.ResourceManager.Purview.v2021_07_01.Account;
 
-    internal class CollectionAdminUpdateModel
-    {
-        [JsonPropertyName("objectId")]
-        public string? ObjectId { get; set; }
-    }
+
+internal class CollectionAdminUpdateModel
+{
+    [JsonPropertyName("objectId")]
+    public string? ObjectId { get; set; }
 }

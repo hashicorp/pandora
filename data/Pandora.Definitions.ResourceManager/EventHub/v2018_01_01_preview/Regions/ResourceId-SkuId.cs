@@ -1,16 +1,16 @@
 using System.Collections.Generic;
 using Pandora.Definitions.Interfaces;
 
-namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.Regions
+namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.Regions;
+
+internal class SkuId : ResourceID
 {
-    internal class SkuId : ResourceID
+    public string? CommonAlias => null;
+
+    public string ID => "/subscriptions/{subscriptionId}/providers/Microsoft.EventHub/sku/{sku}";
+
+    public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
-        public string? CommonAlias => null;
-
-        public string ID => "/subscriptions/{subscriptionId}/providers/Microsoft.EventHub/sku/{sku}";
-
-        public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
-        {
                 new()
                 {
                     Name = "staticSubscriptions",
@@ -51,6 +51,5 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.Regio
                     Type = ResourceIDSegmentType.UserSpecified
                 },
 
-        };
-    }
+    };
 }

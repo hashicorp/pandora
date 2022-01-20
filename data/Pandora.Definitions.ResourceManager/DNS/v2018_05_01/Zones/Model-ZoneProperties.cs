@@ -5,30 +5,29 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.DNS.v2018_05_01.Zones
+namespace Pandora.Definitions.ResourceManager.DNS.v2018_05_01.Zones;
+
+
+internal class ZonePropertiesModel
 {
+    [JsonPropertyName("maxNumberOfRecordSets")]
+    public int? MaxNumberOfRecordSets { get; set; }
 
-    internal class ZonePropertiesModel
-    {
-        [JsonPropertyName("maxNumberOfRecordSets")]
-        public int? MaxNumberOfRecordSets { get; set; }
+    [JsonPropertyName("maxNumberOfRecordsPerRecordSet")]
+    public int? MaxNumberOfRecordsPerRecordSet { get; set; }
 
-        [JsonPropertyName("maxNumberOfRecordsPerRecordSet")]
-        public int? MaxNumberOfRecordsPerRecordSet { get; set; }
+    [JsonPropertyName("nameServers")]
+    public List<string>? NameServers { get; set; }
 
-        [JsonPropertyName("nameServers")]
-        public List<string>? NameServers { get; set; }
+    [JsonPropertyName("numberOfRecordSets")]
+    public int? NumberOfRecordSets { get; set; }
 
-        [JsonPropertyName("numberOfRecordSets")]
-        public int? NumberOfRecordSets { get; set; }
+    [JsonPropertyName("registrationVirtualNetworks")]
+    public List<SubResourceModel>? RegistrationVirtualNetworks { get; set; }
 
-        [JsonPropertyName("registrationVirtualNetworks")]
-        public List<SubResourceModel>? RegistrationVirtualNetworks { get; set; }
+    [JsonPropertyName("resolutionVirtualNetworks")]
+    public List<SubResourceModel>? ResolutionVirtualNetworks { get; set; }
 
-        [JsonPropertyName("resolutionVirtualNetworks")]
-        public List<SubResourceModel>? ResolutionVirtualNetworks { get; set; }
-
-        [JsonPropertyName("zoneType")]
-        public ZoneTypeConstant? ZoneType { get; set; }
-    }
+    [JsonPropertyName("zoneType")]
+    public ZoneTypeConstant? ZoneType { get; set; }
 }

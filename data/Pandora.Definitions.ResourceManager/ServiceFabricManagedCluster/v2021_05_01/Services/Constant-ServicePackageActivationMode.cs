@@ -1,15 +1,14 @@
 using Pandora.Definitions.Attributes;
 using System.ComponentModel;
 
-namespace Pandora.Definitions.ResourceManager.ServiceFabricManagedCluster.v2021_05_01.Services
-{
-    [ConstantType(ConstantTypeAttribute.ConstantType.String)]
-    internal enum ServicePackageActivationModeConstant
-    {
-        [Description("ExclusiveProcess")]
-        ExclusiveProcess,
+namespace Pandora.Definitions.ResourceManager.ServiceFabricManagedCluster.v2021_05_01.Services;
 
-        [Description("SharedProcess")]
-        SharedProcess,
-    }
+[ConstantType(ConstantTypeAttribute.ConstantType.String)]
+internal enum ServicePackageActivationModeConstant
+{
+    [Description("ExclusiveProcess")]
+    ExclusiveProcess,
+
+    [Description("SharedProcess")]
+    SharedProcess,
 }

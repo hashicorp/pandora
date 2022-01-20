@@ -1,17 +1,16 @@
 using System.Collections.Generic;
 using Pandora.Definitions.Interfaces;
 
-namespace Pandora.Definitions.ResourceManager.FrontDoor.v2020_04_01.WebApplicationFirewallPolicies
+namespace Pandora.Definitions.ResourceManager.FrontDoor.v2020_04_01.WebApplicationFirewallPolicies;
+
+internal class Definition : ResourceDefinition
 {
-    internal class Definition : ResourceDefinition
+    public string Name => "WebApplicationFirewallPolicies";
+    public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
     {
-        public string Name => "WebApplicationFirewallPolicies";
-        public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
-        {
-            new PoliciesCreateOrUpdateOperation(),
-            new PoliciesDeleteOperation(),
-            new PoliciesGetOperation(),
-            new PoliciesListOperation(),
-        };
-    }
+        new PoliciesCreateOrUpdateOperation(),
+        new PoliciesDeleteOperation(),
+        new PoliciesGetOperation(),
+        new PoliciesListOperation(),
+    };
 }

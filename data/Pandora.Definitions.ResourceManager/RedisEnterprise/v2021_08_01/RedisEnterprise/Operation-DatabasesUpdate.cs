@@ -6,24 +6,23 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.RedisEnterprise.v2021_08_01.RedisEnterprise
+namespace Pandora.Definitions.ResourceManager.RedisEnterprise.v2021_08_01.RedisEnterprise;
+
+internal class DatabasesUpdateOperation : Operations.PatchOperation
 {
-    internal class DatabasesUpdateOperation : Operations.PatchOperation
-    {
-        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.OK,
         };
 
-        public override bool LongRunning() => true;
+    public override bool LongRunning() => true;
 
-        public override Type? RequestObject() => typeof(DatabaseUpdateModel);
+    public override Type? RequestObject() => typeof(DatabaseUpdateModel);
 
-        public override ResourceID? ResourceId() => new DatabaseId();
+    public override ResourceID? ResourceId() => new DatabaseId();
 
-        public override Type? ResponseObject() => typeof(DatabaseModel);
+    public override Type? ResponseObject() => typeof(DatabaseModel);
 
 
-    }
 }

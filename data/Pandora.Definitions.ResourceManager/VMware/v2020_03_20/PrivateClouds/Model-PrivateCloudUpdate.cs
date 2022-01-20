@@ -5,15 +5,14 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.VMware.v2020_03_20.PrivateClouds
+namespace Pandora.Definitions.ResourceManager.VMware.v2020_03_20.PrivateClouds;
+
+
+internal class PrivateCloudUpdateModel
 {
+    [JsonPropertyName("properties")]
+    public PrivateCloudUpdatePropertiesModel? Properties { get; set; }
 
-    internal class PrivateCloudUpdateModel
-    {
-        [JsonPropertyName("properties")]
-        public PrivateCloudUpdatePropertiesModel? Properties { get; set; }
-
-        [JsonPropertyName("tags")]
-        public CustomTypes.Tags? Tags { get; set; }
-    }
+    [JsonPropertyName("tags")]
+    public CustomTypes.Tags? Tags { get; set; }
 }

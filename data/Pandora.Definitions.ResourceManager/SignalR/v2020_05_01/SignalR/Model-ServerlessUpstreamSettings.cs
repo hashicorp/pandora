@@ -5,12 +5,11 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.SignalR.v2020_05_01.SignalR
-{
+namespace Pandora.Definitions.ResourceManager.SignalR.v2020_05_01.SignalR;
 
-    internal class ServerlessUpstreamSettingsModel
-    {
-        [JsonPropertyName("templates")]
-        public List<UpstreamTemplateModel>? Templates { get; set; }
-    }
+
+internal class ServerlessUpstreamSettingsModel
+{
+    [JsonPropertyName("templates")]
+    public List<UpstreamTemplateModel>? Templates { get; set; }
 }

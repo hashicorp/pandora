@@ -1,18 +1,17 @@
 using Pandora.Definitions.Attributes;
 using System.ComponentModel;
 
-namespace Pandora.Definitions.ResourceManager.DataLakeAnalytics.v2016_11_01.Accounts
+namespace Pandora.Definitions.ResourceManager.DataLakeAnalytics.v2016_11_01.Accounts;
+
+[ConstantType(ConstantTypeAttribute.ConstantType.String)]
+internal enum NestedResourceProvisioningStateConstant
 {
-    [ConstantType(ConstantTypeAttribute.ConstantType.String)]
-    internal enum NestedResourceProvisioningStateConstant
-    {
-        [Description("Canceled")]
-        Canceled,
+    [Description("Canceled")]
+    Canceled,
 
-        [Description("Failed")]
-        Failed,
+    [Description("Failed")]
+    Failed,
 
-        [Description("Succeeded")]
-        Succeeded,
-    }
+    [Description("Succeeded")]
+    Succeeded,
 }

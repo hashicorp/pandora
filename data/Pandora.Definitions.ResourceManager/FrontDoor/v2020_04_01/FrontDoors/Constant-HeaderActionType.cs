@@ -1,18 +1,17 @@
 using Pandora.Definitions.Attributes;
 using System.ComponentModel;
 
-namespace Pandora.Definitions.ResourceManager.FrontDoor.v2020_04_01.FrontDoors
+namespace Pandora.Definitions.ResourceManager.FrontDoor.v2020_04_01.FrontDoors;
+
+[ConstantType(ConstantTypeAttribute.ConstantType.String)]
+internal enum HeaderActionTypeConstant
 {
-    [ConstantType(ConstantTypeAttribute.ConstantType.String)]
-    internal enum HeaderActionTypeConstant
-    {
-        [Description("Append")]
-        Append,
+    [Description("Append")]
+    Append,
 
-        [Description("Delete")]
-        Delete,
+    [Description("Delete")]
+    Delete,
 
-        [Description("Overwrite")]
-        Overwrite,
-    }
+    [Description("Overwrite")]
+    Overwrite,
 }

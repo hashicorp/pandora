@@ -5,18 +5,17 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.LoadTestService.v2021_12_01_preview.LoadTests
+namespace Pandora.Definitions.ResourceManager.LoadTestService.v2021_12_01_preview.LoadTests;
+
+
+internal class LoadTestPropertiesModel
 {
+    [JsonPropertyName("dataPlaneURI")]
+    public string? DataPlaneURI { get; set; }
 
-    internal class LoadTestPropertiesModel
-    {
-        [JsonPropertyName("dataPlaneURI")]
-        public string? DataPlaneURI { get; set; }
+    [JsonPropertyName("description")]
+    public string? Description { get; set; }
 
-        [JsonPropertyName("description")]
-        public string? Description { get; set; }
-
-        [JsonPropertyName("provisioningState")]
-        public ResourceStateConstant? ProvisioningState { get; set; }
-    }
+    [JsonPropertyName("provisioningState")]
+    public ResourceStateConstant? ProvisioningState { get; set; }
 }

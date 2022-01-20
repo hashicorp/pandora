@@ -5,16 +5,15 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.VideoAnalyzer.v2021_05_01_preview.VideoAnalyzer
+namespace Pandora.Definitions.ResourceManager.VideoAnalyzer.v2021_05_01_preview.VideoAnalyzer;
+
+
+internal class VideoAnalyzerIdentityModel
 {
+    [JsonPropertyName("type")]
+    [Required]
+    public string Type { get; set; }
 
-    internal class VideoAnalyzerIdentityModel
-    {
-        [JsonPropertyName("type")]
-        [Required]
-        public string Type { get; set; }
-
-        [JsonPropertyName("userAssignedIdentities")]
-        public Dictionary<string, UserAssignedManagedIdentityModel>? UserAssignedIdentities { get; set; }
-    }
+    [JsonPropertyName("userAssignedIdentities")]
+    public Dictionary<string, UserAssignedManagedIdentityModel>? UserAssignedIdentities { get; set; }
 }

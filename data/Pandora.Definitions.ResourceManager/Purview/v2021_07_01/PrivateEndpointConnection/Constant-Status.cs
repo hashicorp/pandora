@@ -1,24 +1,23 @@
 using Pandora.Definitions.Attributes;
 using System.ComponentModel;
 
-namespace Pandora.Definitions.ResourceManager.Purview.v2021_07_01.PrivateEndpointConnection
+namespace Pandora.Definitions.ResourceManager.Purview.v2021_07_01.PrivateEndpointConnection;
+
+[ConstantType(ConstantTypeAttribute.ConstantType.String)]
+internal enum StatusConstant
 {
-    [ConstantType(ConstantTypeAttribute.ConstantType.String)]
-    internal enum StatusConstant
-    {
-        [Description("Approved")]
-        Approved,
+    [Description("Approved")]
+    Approved,
 
-        [Description("Disconnected")]
-        Disconnected,
+    [Description("Disconnected")]
+    Disconnected,
 
-        [Description("Pending")]
-        Pending,
+    [Description("Pending")]
+    Pending,
 
-        [Description("Rejected")]
-        Rejected,
+    [Description("Rejected")]
+    Rejected,
 
-        [Description("Unknown")]
-        Unknown,
-    }
+    [Description("Unknown")]
+    Unknown,
 }

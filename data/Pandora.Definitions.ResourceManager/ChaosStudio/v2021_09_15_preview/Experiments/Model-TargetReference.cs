@@ -5,17 +5,16 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.ChaosStudio.v2021_09_15_preview.Experiments
+namespace Pandora.Definitions.ResourceManager.ChaosStudio.v2021_09_15_preview.Experiments;
+
+
+internal class TargetReferenceModel
 {
+    [JsonPropertyName("id")]
+    [Required]
+    public string Id { get; set; }
 
-    internal class TargetReferenceModel
-    {
-        [JsonPropertyName("id")]
-        [Required]
-        public string Id { get; set; }
-
-        [JsonPropertyName("type")]
-        [Required]
-        public TargetReferenceTypeConstant Type { get; set; }
-    }
+    [JsonPropertyName("type")]
+    [Required]
+    public TargetReferenceTypeConstant Type { get; set; }
 }

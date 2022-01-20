@@ -1,10 +1,9 @@
 using Pandora.Definitions.Interfaces;
 
-namespace Pandora.Definitions.ResourceManager.VideoAnalyzer
+namespace Pandora.Definitions.ResourceManager.VideoAnalyzer;
+
+public partial class Service : ServiceDefinition
 {
-    public partial class Service : ServiceDefinition
-    {
-        public string Name => "VideoAnalyzer";
-        public string? ResourceProvider => "Microsoft.Media";
-    }
+    public string Name => "VideoAnalyzer";
+    public string? ResourceProvider => "Microsoft.Media";
 }

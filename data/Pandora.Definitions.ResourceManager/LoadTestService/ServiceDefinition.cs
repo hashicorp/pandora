@@ -1,10 +1,9 @@
 using Pandora.Definitions.Interfaces;
 
-namespace Pandora.Definitions.ResourceManager.LoadTestService
+namespace Pandora.Definitions.ResourceManager.LoadTestService;
+
+public partial class Service : ServiceDefinition
 {
-    public partial class Service : ServiceDefinition
-    {
-        public string Name => "LoadTestService";
-        public string? ResourceProvider => "Microsoft.LoadTestService";
-    }
+    public string Name => "LoadTestService";
+    public string? ResourceProvider => "Microsoft.LoadTestService";
 }

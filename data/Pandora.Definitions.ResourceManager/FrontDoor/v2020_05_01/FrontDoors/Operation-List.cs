@@ -6,18 +6,17 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.FrontDoor.v2020_05_01.FrontDoors
+namespace Pandora.Definitions.ResourceManager.FrontDoor.v2020_05_01.FrontDoors;
+
+internal class ListOperation : Operations.ListOperation
 {
-    internal class ListOperation : Operations.ListOperation
-    {
-        public override string? FieldContainingPaginationDetails() => "nextLink";
+    public override string? FieldContainingPaginationDetails() => "nextLink";
 
-        public override ResourceID? ResourceId() => new SubscriptionId();
+    public override ResourceID? ResourceId() => new SubscriptionId();
 
-        public override Type NestedItemType() => typeof(FrontDoorModel);
+    public override Type NestedItemType() => typeof(FrontDoorModel);
 
-        public override string? UriSuffix() => "/providers/Microsoft.Network/frontDoors";
+    public override string? UriSuffix() => "/providers/Microsoft.Network/frontDoors";
 
 
-    }
 }

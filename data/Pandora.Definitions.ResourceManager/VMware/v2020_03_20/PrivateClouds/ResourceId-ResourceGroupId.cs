@@ -1,16 +1,16 @@
 using System.Collections.Generic;
 using Pandora.Definitions.Interfaces;
 
-namespace Pandora.Definitions.ResourceManager.VMware.v2020_03_20.PrivateClouds
+namespace Pandora.Definitions.ResourceManager.VMware.v2020_03_20.PrivateClouds;
+
+internal class ResourceGroupId : ResourceID
 {
-    internal class ResourceGroupId : ResourceID
+    public string? CommonAlias => null;
+
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}";
+
+    public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
-        public string? CommonAlias => null;
-
-        public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}";
-
-        public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
-        {
                 new()
                 {
                     Name = "staticSubscriptions",
@@ -37,6 +37,5 @@ namespace Pandora.Definitions.ResourceManager.VMware.v2020_03_20.PrivateClouds
                     Type = ResourceIDSegmentType.ResourceGroup
                 },
 
-        };
-    }
+    };
 }

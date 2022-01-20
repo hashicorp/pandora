@@ -6,25 +6,24 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.VideoAnalyzer.v2021_05_01_preview.VideoAnalyzer
+namespace Pandora.Definitions.ResourceManager.VideoAnalyzer.v2021_05_01_preview.VideoAnalyzer;
+
+internal class VideosListOperation : Operations.ListOperation
 {
-    internal class VideosListOperation : Operations.ListOperation
+    public override string? FieldContainingPaginationDetails() => "@nextLink";
+
+    public override ResourceID? ResourceId() => new VideoAnalyzerId();
+
+    public override Type NestedItemType() => typeof(VideoEntityModel);
+
+    public override Type? OptionsObject() => typeof(VideosListOperation.VideosListOptions);
+
+    public override string? UriSuffix() => "/videos";
+
+    internal class VideosListOptions
     {
-        public override string? FieldContainingPaginationDetails() => "@nextLink";
-
-        public override ResourceID? ResourceId() => new VideoAnalyzerId();
-
-        public override Type NestedItemType() => typeof(VideoEntityModel);
-
-        public override Type? OptionsObject() => typeof(VideosListOperation.VideosListOptions);
-
-        public override string? UriSuffix() => "/videos";
-
-        internal class VideosListOptions
-        {
-            [QueryStringName("$top")]
-            [Optional]
-            public int Top { get; set; }
-        }
+        [QueryStringName("$top")]
+        [Optional]
+        public int Top { get; set; }
     }
 }

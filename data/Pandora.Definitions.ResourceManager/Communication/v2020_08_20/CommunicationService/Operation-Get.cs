@@ -6,14 +6,13 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.Communication.v2020_08_20.CommunicationService
+namespace Pandora.Definitions.ResourceManager.Communication.v2020_08_20.CommunicationService;
+
+internal class GetOperation : Operations.GetOperation
 {
-    internal class GetOperation : Operations.GetOperation
-    {
-        public override ResourceID? ResourceId() => new CommunicationServiceId();
+    public override ResourceID? ResourceId() => new CommunicationServiceId();
 
-        public override Type? ResponseObject() => typeof(CommunicationServiceResourceModel);
+    public override Type? ResponseObject() => typeof(CommunicationServiceResourceModel);
 
 
-    }
 }

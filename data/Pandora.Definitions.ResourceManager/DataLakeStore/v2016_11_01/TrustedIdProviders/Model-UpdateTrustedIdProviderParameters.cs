@@ -5,12 +5,11 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.DataLakeStore.v2016_11_01.TrustedIdProviders
-{
+namespace Pandora.Definitions.ResourceManager.DataLakeStore.v2016_11_01.TrustedIdProviders;
 
-    internal class UpdateTrustedIdProviderParametersModel
-    {
-        [JsonPropertyName("properties")]
-        public UpdateTrustedIdProviderPropertiesModel? Properties { get; set; }
-    }
+
+internal class UpdateTrustedIdProviderParametersModel
+{
+    [JsonPropertyName("properties")]
+    public UpdateTrustedIdProviderPropertiesModel? Properties { get; set; }
 }
