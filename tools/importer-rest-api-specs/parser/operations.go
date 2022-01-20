@@ -50,7 +50,9 @@ func (d *SwaggerDefinition) parseOperationsWithinTag(tag *string, resourceUriToM
 			return nil, nil, fmt.Errorf("parsing %s operation %q: %+v", operation.httpMethod, operation.uri, err)
 		}
 		if nestedResult != nil {
-			result.append(*nestedResult)
+			if err := result.append(*nestedResult); err != nil {
+				return nil, nil, fmt.Errorf("appending nestedResult: %+v", err)
+			}
 		}
 
 		if existing, hasExisting := operations[operation.name]; hasExisting {
@@ -85,7 +87,9 @@ func (p operationsParser) parseOperation(operation parsedOperation) (*models.Ope
 		return nil, nil, fmt.Errorf("determining request operation for %q (method %q / uri %q): %+v", operation.name, operation.httpMethod, *normalizedUri, err)
 	}
 	if nestedResult != nil {
-		result.append(*nestedResult)
+		if err := result.append(*nestedResult); err != nil {
+			return nil, nil, fmt.Errorf("appending nestedResult: %+v", err)
+		}
 	}
 	isAListOperation := p.isListOperation(operation)
 	responseResult, nestedResult, err := p.responseObjectForOperation(operation, result)
@@ -93,7 +97,9 @@ func (p operationsParser) parseOperation(operation parsedOperation) (*models.Ope
 		return nil, nil, fmt.Errorf("determining response operation for %q (method %q / uri %q): %+v", operation.name, operation.httpMethod, *normalizedUri, err)
 	}
 	if nestedResult != nil {
-		result.append(*nestedResult)
+		if err := result.append(*nestedResult); err != nil {
+			return nil, nil, fmt.Errorf("appending nestedResult: %+v", err)
+		}
 	}
 	if paginationField == nil && responseResult.paginationFieldName != nil {
 		paginationField = responseResult.paginationFieldName
@@ -105,7 +111,9 @@ func (p operationsParser) parseOperation(operation parsedOperation) (*models.Ope
 		return nil, nil, fmt.Errorf("building options for operation %q: %+v", operation.name, err)
 	}
 	if nestedResult != nil {
-		result.append(*nestedResult)
+		if err := result.append(*nestedResult); err != nil {
+			return nil, nil, fmt.Errorf("appending nestedResult: %+v", err)
+		}
 	}
 
 	resourceId := p.resourceUriToMetaData[*normalizedUri]

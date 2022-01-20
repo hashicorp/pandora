@@ -16,21 +16,27 @@ func (d *SwaggerDefinition) parseResourcesWithinSwaggerTag(tag *string, resource
 	}
 
 	// note that Resource ID's can contain Constants (used as segments)
-	result.append(resourceIds.nestedResult)
+	if err := result.append(resourceIds.nestedResult); err != nil {
+		return nil, fmt.Errorf("appending nestedResult from Constants: %+v", err)
+	}
 
 	// pull out the operations and any inlined/top-level constants/models
 	operations, nestedResult, err := d.parseOperationsWithinTag(tag, resourceIds.resourceUrisToMetadata, result)
 	if err != nil {
 		return nil, fmt.Errorf("finding operations: %+v", err)
 	}
-	result.append(*nestedResult)
+	if err := result.append(*nestedResult); err != nil {
+		return nil, fmt.Errorf("appending nestedResult from Operations: %+v", err)
+	}
 
 	// pull out all of the remaining models based on what we've got
 	nestedResult, err = d.findNestedItemsYetToBeParsed(operations, result)
 	if err != nil {
 		return nil, fmt.Errorf("finding nested items yet to be parsed: %+v", err)
 	}
-	result.append(*nestedResult)
+	if err := result.append(*nestedResult); err != nil {
+		return nil, fmt.Errorf("appending nestedResult from Models used by existing Items: %+v", err)
+	}
 
 	// then pull out the embedded model for List operations (e.g. we don't want the wrapper type but the type for the `value` field)
 	operations, err = pullOutModelForListOperations(*operations, result)
@@ -202,7 +208,9 @@ func (d *SwaggerDefinition) findNestedItemsYetToBeParsed(operations *map[string]
 				result.constants[parsedAsAConstant.name] = parsedAsAConstant.details
 			}
 			if parsedAsAModel != nil {
-				result.append(*parsedAsAModel)
+				if err := result.append(*parsedAsAModel); err != nil {
+					return nil, fmt.Errorf("appending model: %+v", err)
+				}
 			}
 		}
 
