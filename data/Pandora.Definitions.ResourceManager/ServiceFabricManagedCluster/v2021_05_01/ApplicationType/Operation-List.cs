@@ -6,18 +6,17 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.ServiceFabricManagedCluster.v2021_05_01.ApplicationType
+namespace Pandora.Definitions.ResourceManager.ServiceFabricManagedCluster.v2021_05_01.ApplicationType;
+
+internal class ListOperation : Operations.ListOperation
 {
-    internal class ListOperation : Operations.ListOperation
-    {
-        public override string? FieldContainingPaginationDetails() => "nextLink";
+    public override string? FieldContainingPaginationDetails() => "nextLink";
 
-        public override ResourceID? ResourceId() => new ManagedClusterId();
+    public override ResourceID? ResourceId() => new ManagedClusterId();
 
-        public override Type NestedItemType() => typeof(ApplicationTypeResourceModel);
+    public override Type NestedItemType() => typeof(ApplicationTypeResourceModel);
 
-        public override string? UriSuffix() => "/applicationTypes";
+    public override string? UriSuffix() => "/applicationTypes";
 
 
-    }
 }

@@ -6,14 +6,13 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.VMware.v2020_03_20.PrivateClouds
+namespace Pandora.Definitions.ResourceManager.VMware.v2020_03_20.PrivateClouds;
+
+internal class GetOperation : Operations.GetOperation
 {
-    internal class GetOperation : Operations.GetOperation
-    {
-        public override ResourceID? ResourceId() => new PrivateCloudId();
+    public override ResourceID? ResourceId() => new PrivateCloudId();
 
-        public override Type? ResponseObject() => typeof(PrivateCloudModel);
+    public override Type? ResponseObject() => typeof(PrivateCloudModel);
 
 
-    }
 }

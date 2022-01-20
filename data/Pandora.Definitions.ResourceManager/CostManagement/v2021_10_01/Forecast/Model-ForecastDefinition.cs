@@ -5,30 +5,29 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.CostManagement.v2021_10_01.Forecast
+namespace Pandora.Definitions.ResourceManager.CostManagement.v2021_10_01.Forecast;
+
+
+internal class ForecastDefinitionModel
 {
+    [JsonPropertyName("dataset")]
+    [Required]
+    public ForecastDatasetModel Dataset { get; set; }
 
-    internal class ForecastDefinitionModel
-    {
-        [JsonPropertyName("dataset")]
-        [Required]
-        public ForecastDatasetModel Dataset { get; set; }
+    [JsonPropertyName("includeActualCost")]
+    public bool? IncludeActualCost { get; set; }
 
-        [JsonPropertyName("includeActualCost")]
-        public bool? IncludeActualCost { get; set; }
+    [JsonPropertyName("includeFreshPartialCost")]
+    public bool? IncludeFreshPartialCost { get; set; }
 
-        [JsonPropertyName("includeFreshPartialCost")]
-        public bool? IncludeFreshPartialCost { get; set; }
+    [JsonPropertyName("timePeriod")]
+    public QueryTimePeriodModel? TimePeriod { get; set; }
 
-        [JsonPropertyName("timePeriod")]
-        public QueryTimePeriodModel? TimePeriod { get; set; }
+    [JsonPropertyName("timeframe")]
+    [Required]
+    public ForecastTimeframeTypeConstant Timeframe { get; set; }
 
-        [JsonPropertyName("timeframe")]
-        [Required]
-        public ForecastTimeframeTypeConstant Timeframe { get; set; }
-
-        [JsonPropertyName("type")]
-        [Required]
-        public ForecastTypeConstant Type { get; set; }
-    }
+    [JsonPropertyName("type")]
+    [Required]
+    public ForecastTypeConstant Type { get; set; }
 }

@@ -5,13 +5,12 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.VMware.v2020_03_20.Clusters
-{
+namespace Pandora.Definitions.ResourceManager.VMware.v2020_03_20.Clusters;
 
-    internal class SkuModel
-    {
-        [JsonPropertyName("name")]
-        [Required]
-        public string Name { get; set; }
-    }
+
+internal class SkuModel
+{
+    [JsonPropertyName("name")]
+    [Required]
+    public string Name { get; set; }
 }

@@ -5,15 +5,14 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.DataBricks.v2021_04_01_preview.OutboundNetworkDependenciesEndpoints
+namespace Pandora.Definitions.ResourceManager.DataBricks.v2021_04_01_preview.OutboundNetworkDependenciesEndpoints;
+
+
+internal class EndpointDependencyModel
 {
+    [JsonPropertyName("domainName")]
+    public string? DomainName { get; set; }
 
-    internal class EndpointDependencyModel
-    {
-        [JsonPropertyName("domainName")]
-        public string? DomainName { get; set; }
-
-        [JsonPropertyName("endpointDetails")]
-        public List<EndpointDetailModel>? EndpointDetails { get; set; }
-    }
+    [JsonPropertyName("endpointDetails")]
+    public List<EndpointDetailModel>? EndpointDetails { get; set; }
 }

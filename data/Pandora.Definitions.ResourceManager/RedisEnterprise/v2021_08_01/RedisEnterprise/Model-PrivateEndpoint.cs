@@ -5,12 +5,11 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.RedisEnterprise.v2021_08_01.RedisEnterprise
-{
+namespace Pandora.Definitions.ResourceManager.RedisEnterprise.v2021_08_01.RedisEnterprise;
 
-    internal class PrivateEndpointModel
-    {
-        [JsonPropertyName("id")]
-        public string? Id { get; set; }
-    }
+
+internal class PrivateEndpointModel
+{
+    [JsonPropertyName("id")]
+    public string? Id { get; set; }
 }

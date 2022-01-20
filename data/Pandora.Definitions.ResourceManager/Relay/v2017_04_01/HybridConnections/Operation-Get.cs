@@ -6,14 +6,13 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.Relay.v2017_04_01.HybridConnections
+namespace Pandora.Definitions.ResourceManager.Relay.v2017_04_01.HybridConnections;
+
+internal class GetOperation : Operations.GetOperation
 {
-    internal class GetOperation : Operations.GetOperation
-    {
-        public override ResourceID? ResourceId() => new HybridConnectionId();
+    public override ResourceID? ResourceId() => new HybridConnectionId();
 
-        public override Type? ResponseObject() => typeof(HybridConnectionModel);
+    public override Type? ResponseObject() => typeof(HybridConnectionModel);
 
 
-    }
 }

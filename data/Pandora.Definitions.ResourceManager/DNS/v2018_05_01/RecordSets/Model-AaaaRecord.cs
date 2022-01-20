@@ -5,12 +5,11 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.DNS.v2018_05_01.RecordSets
-{
+namespace Pandora.Definitions.ResourceManager.DNS.v2018_05_01.RecordSets;
 
-    internal class AaaaRecordModel
-    {
-        [JsonPropertyName("ipv6Address")]
-        public string? Ipv6Address { get; set; }
-    }
+
+internal class AaaaRecordModel
+{
+    [JsonPropertyName("ipv6Address")]
+    public string? Ipv6Address { get; set; }
 }

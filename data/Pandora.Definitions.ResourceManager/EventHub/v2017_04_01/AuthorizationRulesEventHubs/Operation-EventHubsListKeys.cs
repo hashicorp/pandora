@@ -6,23 +6,22 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.AuthorizationRulesEventHubs
+namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.AuthorizationRulesEventHubs;
+
+internal class EventHubsListKeysOperation : Operations.PostOperation
 {
-    internal class EventHubsListKeysOperation : Operations.PostOperation
-    {
-        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-        public override Type? RequestObject() => null;
+    public override Type? RequestObject() => null;
 
-        public override ResourceID? ResourceId() => new EventhubAuthorizationRuleId();
+    public override ResourceID? ResourceId() => new EventhubAuthorizationRuleId();
 
-        public override Type? ResponseObject() => typeof(AccessKeysModel);
+    public override Type? ResponseObject() => typeof(AccessKeysModel);
 
-        public override string? UriSuffix() => "/listKeys";
+    public override string? UriSuffix() => "/listKeys";
 
 
-    }
 }

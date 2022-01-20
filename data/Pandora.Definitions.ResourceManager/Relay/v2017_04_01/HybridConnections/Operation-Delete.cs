@@ -6,18 +6,17 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.Relay.v2017_04_01.HybridConnections
+namespace Pandora.Definitions.ResourceManager.Relay.v2017_04_01.HybridConnections;
+
+internal class DeleteOperation : Operations.DeleteOperation
 {
-    internal class DeleteOperation : Operations.DeleteOperation
-    {
-        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.NoContent,
                 HttpStatusCode.OK,
         };
 
-        public override ResourceID? ResourceId() => new HybridConnectionId();
+    public override ResourceID? ResourceId() => new HybridConnectionId();
 
 
-    }
 }

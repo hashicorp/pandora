@@ -1,15 +1,14 @@
 using Pandora.Definitions.Attributes;
 using System.ComponentModel;
 
-namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.AuthorizationRulesNamespaces
-{
-    [ConstantType(ConstantTypeAttribute.ConstantType.String)]
-    internal enum KeyTypeConstant
-    {
-        [Description("PrimaryKey")]
-        PrimaryKey,
+namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.AuthorizationRulesNamespaces;
 
-        [Description("SecondaryKey")]
-        SecondaryKey,
-    }
+[ConstantType(ConstantTypeAttribute.ConstantType.String)]
+internal enum KeyTypeConstant
+{
+    [Description("PrimaryKey")]
+    PrimaryKey,
+
+    [Description("SecondaryKey")]
+    SecondaryKey,
 }

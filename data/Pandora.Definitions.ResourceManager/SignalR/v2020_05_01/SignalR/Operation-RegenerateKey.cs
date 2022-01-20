@@ -6,25 +6,24 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.SignalR.v2020_05_01.SignalR
+namespace Pandora.Definitions.ResourceManager.SignalR.v2020_05_01.SignalR;
+
+internal class RegenerateKeyOperation : Operations.PostOperation
 {
-    internal class RegenerateKeyOperation : Operations.PostOperation
-    {
-        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Created,
         };
 
-        public override bool LongRunning() => true;
+    public override bool LongRunning() => true;
 
-        public override Type? RequestObject() => typeof(RegenerateKeyParametersModel);
+    public override Type? RequestObject() => typeof(RegenerateKeyParametersModel);
 
-        public override ResourceID? ResourceId() => new SignalRId();
+    public override ResourceID? ResourceId() => new SignalRId();
 
-        public override Type? ResponseObject() => typeof(SignalRKeysModel);
+    public override Type? ResponseObject() => typeof(SignalRKeysModel);
 
-        public override string? UriSuffix() => "/regenerateKey";
+    public override string? UriSuffix() => "/regenerateKey";
 
 
-    }
 }

@@ -6,14 +6,13 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.ServiceFabricManagedCluster.v2021_05_01.ManagedCluster
+namespace Pandora.Definitions.ResourceManager.ServiceFabricManagedCluster.v2021_05_01.ManagedCluster;
+
+internal class GetOperation : Operations.GetOperation
 {
-    internal class GetOperation : Operations.GetOperation
-    {
-        public override ResourceID? ResourceId() => new ManagedClusterId();
+    public override ResourceID? ResourceId() => new ManagedClusterId();
 
-        public override Type? ResponseObject() => typeof(ManagedClusterModel);
+    public override Type? ResponseObject() => typeof(ManagedClusterModel);
 
 
-    }
 }

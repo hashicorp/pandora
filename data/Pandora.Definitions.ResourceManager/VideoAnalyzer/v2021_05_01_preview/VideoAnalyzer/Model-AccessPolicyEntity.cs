@@ -5,24 +5,23 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.VideoAnalyzer.v2021_05_01_preview.VideoAnalyzer
+namespace Pandora.Definitions.ResourceManager.VideoAnalyzer.v2021_05_01_preview.VideoAnalyzer;
+
+
+internal class AccessPolicyEntityModel
 {
+    [JsonPropertyName("id")]
+    public string? Id { get; set; }
 
-    internal class AccessPolicyEntityModel
-    {
-        [JsonPropertyName("id")]
-        public string? Id { get; set; }
+    [JsonPropertyName("name")]
+    public string? Name { get; set; }
 
-        [JsonPropertyName("name")]
-        public string? Name { get; set; }
+    [JsonPropertyName("properties")]
+    public AccessPolicyPropertiesModel? Properties { get; set; }
 
-        [JsonPropertyName("properties")]
-        public AccessPolicyPropertiesModel? Properties { get; set; }
+    [JsonPropertyName("systemData")]
+    public SystemDataModel? SystemData { get; set; }
 
-        [JsonPropertyName("systemData")]
-        public SystemDataModel? SystemData { get; set; }
-
-        [JsonPropertyName("type")]
-        public string? Type { get; set; }
-    }
+    [JsonPropertyName("type")]
+    public string? Type { get; set; }
 }

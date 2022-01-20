@@ -6,31 +6,30 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.CostManagement.v2021_10_01.Forecast
+namespace Pandora.Definitions.ResourceManager.CostManagement.v2021_10_01.Forecast;
+
+internal class UsageOperation : Operations.PostOperation
 {
-    internal class UsageOperation : Operations.PostOperation
-    {
-        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.NoContent,
                 HttpStatusCode.OK,
         };
 
-        public override Type? RequestObject() => typeof(ForecastDefinitionModel);
+    public override Type? RequestObject() => typeof(ForecastDefinitionModel);
 
-        public override ResourceID? ResourceId() => new ScopeId();
+    public override ResourceID? ResourceId() => new ScopeId();
 
-        public override Type? ResponseObject() => typeof(QueryResultModel);
+    public override Type? ResponseObject() => typeof(QueryResultModel);
 
-        public override Type? OptionsObject() => typeof(UsageOperation.UsageOptions);
+    public override Type? OptionsObject() => typeof(UsageOperation.UsageOptions);
 
-        public override string? UriSuffix() => "/providers/Microsoft.CostManagement/forecast";
+    public override string? UriSuffix() => "/providers/Microsoft.CostManagement/forecast";
 
-        internal class UsageOptions
-        {
-            [QueryStringName("$filter")]
-            [Optional]
-            public string Filter { get; set; }
-        }
+    internal class UsageOptions
+    {
+        [QueryStringName("$filter")]
+        [Optional]
+        public string Filter { get; set; }
     }
 }

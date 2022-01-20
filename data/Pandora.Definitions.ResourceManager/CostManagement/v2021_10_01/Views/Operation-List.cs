@@ -6,16 +6,15 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.CostManagement.v2021_10_01.Views
+namespace Pandora.Definitions.ResourceManager.CostManagement.v2021_10_01.Views;
+
+internal class ListOperation : Operations.ListOperation
 {
-    internal class ListOperation : Operations.ListOperation
-    {
-        public override string? FieldContainingPaginationDetails() => "nextLink";
+    public override string? FieldContainingPaginationDetails() => "nextLink";
 
-        public override Type NestedItemType() => typeof(ViewModel);
+    public override Type NestedItemType() => typeof(ViewModel);
 
-        public override string? UriSuffix() => "/providers/Microsoft.CostManagement/views";
+    public override string? UriSuffix() => "/providers/Microsoft.CostManagement/views";
 
 
-    }
 }

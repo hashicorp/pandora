@@ -6,16 +6,15 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.CostManagement.v2021_10_01.Exports
+namespace Pandora.Definitions.ResourceManager.CostManagement.v2021_10_01.Exports;
+
+internal class GetExecutionHistoryOperation : Operations.GetOperation
 {
-    internal class GetExecutionHistoryOperation : Operations.GetOperation
-    {
-        public override ResourceID? ResourceId() => new ScopedExportId();
+    public override ResourceID? ResourceId() => new ScopedExportId();
 
-        public override Type? ResponseObject() => typeof(ExportExecutionListResultModel);
+    public override Type? ResponseObject() => typeof(ExportExecutionListResultModel);
 
-        public override string? UriSuffix() => "/runHistory";
+    public override string? UriSuffix() => "/runHistory";
 
 
-    }
 }

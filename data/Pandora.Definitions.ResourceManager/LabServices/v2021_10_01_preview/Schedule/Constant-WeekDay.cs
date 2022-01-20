@@ -1,30 +1,29 @@
 using Pandora.Definitions.Attributes;
 using System.ComponentModel;
 
-namespace Pandora.Definitions.ResourceManager.LabServices.v2021_10_01_preview.Schedule
+namespace Pandora.Definitions.ResourceManager.LabServices.v2021_10_01_preview.Schedule;
+
+[ConstantType(ConstantTypeAttribute.ConstantType.String)]
+internal enum WeekDayConstant
 {
-    [ConstantType(ConstantTypeAttribute.ConstantType.String)]
-    internal enum WeekDayConstant
-    {
-        [Description("Friday")]
-        Friday,
+    [Description("Friday")]
+    Friday,
 
-        [Description("Monday")]
-        Monday,
+    [Description("Monday")]
+    Monday,
 
-        [Description("Saturday")]
-        Saturday,
+    [Description("Saturday")]
+    Saturday,
 
-        [Description("Sunday")]
-        Sunday,
+    [Description("Sunday")]
+    Sunday,
 
-        [Description("Thursday")]
-        Thursday,
+    [Description("Thursday")]
+    Thursday,
 
-        [Description("Tuesday")]
-        Tuesday,
+    [Description("Tuesday")]
+    Tuesday,
 
-        [Description("Wednesday")]
-        Wednesday,
-    }
+    [Description("Wednesday")]
+    Wednesday,
 }

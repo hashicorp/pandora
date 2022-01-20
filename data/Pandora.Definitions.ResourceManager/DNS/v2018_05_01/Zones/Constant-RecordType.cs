@@ -1,39 +1,38 @@
 using Pandora.Definitions.Attributes;
 using System.ComponentModel;
 
-namespace Pandora.Definitions.ResourceManager.DNS.v2018_05_01.Zones
+namespace Pandora.Definitions.ResourceManager.DNS.v2018_05_01.Zones;
+
+[ConstantType(ConstantTypeAttribute.ConstantType.String)]
+internal enum RecordTypeConstant
 {
-    [ConstantType(ConstantTypeAttribute.ConstantType.String)]
-    internal enum RecordTypeConstant
-    {
-        [Description("A")]
-        A,
+    [Description("A")]
+    A,
 
-        [Description("AAAA")]
-        AAAA,
+    [Description("AAAA")]
+    AAAA,
 
-        [Description("CAA")]
-        CAA,
+    [Description("CAA")]
+    CAA,
 
-        [Description("CNAME")]
-        CNAME,
+    [Description("CNAME")]
+    CNAME,
 
-        [Description("MX")]
-        MX,
+    [Description("MX")]
+    MX,
 
-        [Description("NS")]
-        NS,
+    [Description("NS")]
+    NS,
 
-        [Description("PTR")]
-        PTR,
+    [Description("PTR")]
+    PTR,
 
-        [Description("SOA")]
-        SOA,
+    [Description("SOA")]
+    SOA,
 
-        [Description("SRV")]
-        SRV,
+    [Description("SRV")]
+    SRV,
 
-        [Description("TXT")]
-        TXT,
-    }
+    [Description("TXT")]
+    TXT,
 }

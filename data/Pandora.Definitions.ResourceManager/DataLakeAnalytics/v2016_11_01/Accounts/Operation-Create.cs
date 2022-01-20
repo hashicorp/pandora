@@ -6,18 +6,17 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.DataLakeAnalytics.v2016_11_01.Accounts
+namespace Pandora.Definitions.ResourceManager.DataLakeAnalytics.v2016_11_01.Accounts;
+
+internal class CreateOperation : Operations.PutOperation
 {
-    internal class CreateOperation : Operations.PutOperation
-    {
-        public override bool LongRunning() => true;
+    public override bool LongRunning() => true;
 
-        public override Type? RequestObject() => typeof(CreateDataLakeAnalyticsAccountParametersModel);
+    public override Type? RequestObject() => typeof(CreateDataLakeAnalyticsAccountParametersModel);
 
-        public override ResourceID? ResourceId() => new AccountId();
+    public override ResourceID? ResourceId() => new AccountId();
 
-        public override Type? ResponseObject() => typeof(DataLakeAnalyticsAccountModel);
+    public override Type? ResponseObject() => typeof(DataLakeAnalyticsAccountModel);
 
 
-    }
 }

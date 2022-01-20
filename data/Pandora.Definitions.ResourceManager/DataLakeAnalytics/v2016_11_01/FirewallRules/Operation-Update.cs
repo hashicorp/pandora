@@ -6,21 +6,20 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.DataLakeAnalytics.v2016_11_01.FirewallRules
+namespace Pandora.Definitions.ResourceManager.DataLakeAnalytics.v2016_11_01.FirewallRules;
+
+internal class UpdateOperation : Operations.PatchOperation
 {
-    internal class UpdateOperation : Operations.PatchOperation
-    {
-        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-        public override Type? RequestObject() => typeof(UpdateFirewallRuleParametersModel);
+    public override Type? RequestObject() => typeof(UpdateFirewallRuleParametersModel);
 
-        public override ResourceID? ResourceId() => new FirewallRuleId();
+    public override ResourceID? ResourceId() => new FirewallRuleId();
 
-        public override Type? ResponseObject() => typeof(FirewallRuleModel);
+    public override Type? ResponseObject() => typeof(FirewallRuleModel);
 
 
-    }
 }

@@ -1,15 +1,14 @@
 using Pandora.Definitions.Attributes;
 using System.ComponentModel;
 
-namespace Pandora.Definitions.ResourceManager.Relay.v2017_04_01.Namespaces
-{
-    [ConstantType(ConstantTypeAttribute.ConstantType.String)]
-    internal enum KeyTypeConstant
-    {
-        [Description("PrimaryKey")]
-        PrimaryKey,
+namespace Pandora.Definitions.ResourceManager.Relay.v2017_04_01.Namespaces;
 
-        [Description("SecondaryKey")]
-        SecondaryKey,
-    }
+[ConstantType(ConstantTypeAttribute.ConstantType.String)]
+internal enum KeyTypeConstant
+{
+    [Description("PrimaryKey")]
+    PrimaryKey,
+
+    [Description("SecondaryKey")]
+    SecondaryKey,
 }

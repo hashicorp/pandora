@@ -6,14 +6,13 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.FrontDoor.v2020_05_01.FrontDoors
+namespace Pandora.Definitions.ResourceManager.FrontDoor.v2020_05_01.FrontDoors;
+
+internal class RulesEnginesGetOperation : Operations.GetOperation
 {
-    internal class RulesEnginesGetOperation : Operations.GetOperation
-    {
-        public override ResourceID? ResourceId() => new RulesEngineId();
+    public override ResourceID? ResourceId() => new RulesEngineId();
 
-        public override Type? ResponseObject() => typeof(RulesEngineModel);
+    public override Type? ResponseObject() => typeof(RulesEngineModel);
 
 
-    }
 }

@@ -6,16 +6,15 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.PowerBIDedicated.v2021_01_01.AutoScaleVCores
+namespace Pandora.Definitions.ResourceManager.PowerBIDedicated.v2021_01_01.AutoScaleVCores;
+
+internal class ListByResourceGroupOperation : Operations.GetOperation
 {
-    internal class ListByResourceGroupOperation : Operations.GetOperation
-    {
-        public override ResourceID? ResourceId() => new ResourceGroupId();
+    public override ResourceID? ResourceId() => new ResourceGroupId();
 
-        public override Type? ResponseObject() => typeof(AutoScaleVCoreListResultModel);
+    public override Type? ResponseObject() => typeof(AutoScaleVCoreListResultModel);
 
-        public override string? UriSuffix() => "/providers/Microsoft.PowerBIDedicated/autoScaleVCores";
+    public override string? UriSuffix() => "/providers/Microsoft.PowerBIDedicated/autoScaleVCores";
 
 
-    }
 }

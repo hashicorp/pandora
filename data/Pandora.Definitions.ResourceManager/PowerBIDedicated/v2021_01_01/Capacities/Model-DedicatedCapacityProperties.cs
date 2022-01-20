@@ -5,27 +5,26 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.PowerBIDedicated.v2021_01_01.Capacities
+namespace Pandora.Definitions.ResourceManager.PowerBIDedicated.v2021_01_01.Capacities;
+
+
+internal class DedicatedCapacityPropertiesModel
 {
+    [JsonPropertyName("administration")]
+    public DedicatedCapacityAdministratorsModel? Administration { get; set; }
 
-    internal class DedicatedCapacityPropertiesModel
-    {
-        [JsonPropertyName("administration")]
-        public DedicatedCapacityAdministratorsModel? Administration { get; set; }
+    [JsonPropertyName("friendlyName")]
+    public string? FriendlyName { get; set; }
 
-        [JsonPropertyName("friendlyName")]
-        public string? FriendlyName { get; set; }
+    [JsonPropertyName("mode")]
+    public ModeConstant? Mode { get; set; }
 
-        [JsonPropertyName("mode")]
-        public ModeConstant? Mode { get; set; }
+    [JsonPropertyName("provisioningState")]
+    public CapacityProvisioningStateConstant? ProvisioningState { get; set; }
 
-        [JsonPropertyName("provisioningState")]
-        public CapacityProvisioningStateConstant? ProvisioningState { get; set; }
+    [JsonPropertyName("state")]
+    public StateConstant? State { get; set; }
 
-        [JsonPropertyName("state")]
-        public StateConstant? State { get; set; }
-
-        [JsonPropertyName("tenantId")]
-        public string? TenantId { get; set; }
-    }
+    [JsonPropertyName("tenantId")]
+    public string? TenantId { get; set; }
 }

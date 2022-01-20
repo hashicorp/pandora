@@ -5,13 +5,12 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.RedisEnterprise.v2021_08_01.Databases
-{
+namespace Pandora.Definitions.ResourceManager.RedisEnterprise.v2021_08_01.Databases;
 
-    internal class RegenerateKeyParametersModel
-    {
-        [JsonPropertyName("keyType")]
-        [Required]
-        public AccessKeyTypeConstant KeyType { get; set; }
-    }
+
+internal class RegenerateKeyParametersModel
+{
+    [JsonPropertyName("keyType")]
+    [Required]
+    public AccessKeyTypeConstant KeyType { get; set; }
 }

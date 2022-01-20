@@ -6,24 +6,23 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.SignalR.v2020_05_01.SignalR
+namespace Pandora.Definitions.ResourceManager.SignalR.v2020_05_01.SignalR;
+
+internal class UpdateOperation : Operations.PatchOperation
 {
-    internal class UpdateOperation : Operations.PatchOperation
-    {
-        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.OK,
         };
 
-        public override bool LongRunning() => true;
+    public override bool LongRunning() => true;
 
-        public override Type? RequestObject() => typeof(SignalRResourceModel);
+    public override Type? RequestObject() => typeof(SignalRResourceModel);
 
-        public override ResourceID? ResourceId() => new SignalRId();
+    public override ResourceID? ResourceId() => new SignalRId();
 
-        public override Type? ResponseObject() => typeof(SignalRResourceModel);
+    public override Type? ResponseObject() => typeof(SignalRResourceModel);
 
 
-    }
 }

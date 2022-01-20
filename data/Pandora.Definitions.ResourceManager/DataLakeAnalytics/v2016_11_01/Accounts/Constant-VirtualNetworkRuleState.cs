@@ -1,18 +1,17 @@
 using Pandora.Definitions.Attributes;
 using System.ComponentModel;
 
-namespace Pandora.Definitions.ResourceManager.DataLakeAnalytics.v2016_11_01.Accounts
+namespace Pandora.Definitions.ResourceManager.DataLakeAnalytics.v2016_11_01.Accounts;
+
+[ConstantType(ConstantTypeAttribute.ConstantType.String)]
+internal enum VirtualNetworkRuleStateConstant
 {
-    [ConstantType(ConstantTypeAttribute.ConstantType.String)]
-    internal enum VirtualNetworkRuleStateConstant
-    {
-        [Description("Active")]
-        Active,
+    [Description("Active")]
+    Active,
 
-        [Description("Failed")]
-        Failed,
+    [Description("Failed")]
+    Failed,
 
-        [Description("NetworkSourceDeleted")]
-        NetworkSourceDeleted,
-    }
+    [Description("NetworkSourceDeleted")]
+    NetworkSourceDeleted,
 }

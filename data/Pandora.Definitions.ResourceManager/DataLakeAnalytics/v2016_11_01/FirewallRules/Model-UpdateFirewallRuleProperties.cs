@@ -5,15 +5,14 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.DataLakeAnalytics.v2016_11_01.FirewallRules
+namespace Pandora.Definitions.ResourceManager.DataLakeAnalytics.v2016_11_01.FirewallRules;
+
+
+internal class UpdateFirewallRulePropertiesModel
 {
+    [JsonPropertyName("endIpAddress")]
+    public string? EndIpAddress { get; set; }
 
-    internal class UpdateFirewallRulePropertiesModel
-    {
-        [JsonPropertyName("endIpAddress")]
-        public string? EndIpAddress { get; set; }
-
-        [JsonPropertyName("startIpAddress")]
-        public string? StartIpAddress { get; set; }
-    }
+    [JsonPropertyName("startIpAddress")]
+    public string? StartIpAddress { get; set; }
 }

@@ -1,27 +1,26 @@
 using Pandora.Definitions.Attributes;
 using System.ComponentModel;
 
-namespace Pandora.Definitions.ResourceManager.CostManagement.v2021_10_01.Alerts
+namespace Pandora.Definitions.ResourceManager.CostManagement.v2021_10_01.Alerts;
+
+[ConstantType(ConstantTypeAttribute.ConstantType.String)]
+internal enum AlertOperatorConstant
 {
-    [ConstantType(ConstantTypeAttribute.ConstantType.String)]
-    internal enum AlertOperatorConstant
-    {
-        [Description("EqualTo")]
-        EqualTo,
+    [Description("EqualTo")]
+    EqualTo,
 
-        [Description("GreaterThan")]
-        GreaterThan,
+    [Description("GreaterThan")]
+    GreaterThan,
 
-        [Description("GreaterThanOrEqualTo")]
-        GreaterThanOrEqualTo,
+    [Description("GreaterThanOrEqualTo")]
+    GreaterThanOrEqualTo,
 
-        [Description("LessThan")]
-        LessThan,
+    [Description("LessThan")]
+    LessThan,
 
-        [Description("LessThanOrEqualTo")]
-        LessThanOrEqualTo,
+    [Description("LessThanOrEqualTo")]
+    LessThanOrEqualTo,
 
-        [Description("None")]
-        None,
-    }
+    [Description("None")]
+    None,
 }

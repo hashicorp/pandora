@@ -5,27 +5,26 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.FrontDoor.v2020_05_01.FrontDoors
+namespace Pandora.Definitions.ResourceManager.FrontDoor.v2020_05_01.FrontDoors;
+
+
+internal class HealthProbeSettingsPropertiesModel
 {
+    [JsonPropertyName("enabledState")]
+    public HealthProbeEnabledConstant? EnabledState { get; set; }
 
-    internal class HealthProbeSettingsPropertiesModel
-    {
-        [JsonPropertyName("enabledState")]
-        public HealthProbeEnabledConstant? EnabledState { get; set; }
+    [JsonPropertyName("healthProbeMethod")]
+    public FrontDoorHealthProbeMethodConstant? HealthProbeMethod { get; set; }
 
-        [JsonPropertyName("healthProbeMethod")]
-        public FrontDoorHealthProbeMethodConstant? HealthProbeMethod { get; set; }
+    [JsonPropertyName("intervalInSeconds")]
+    public int? IntervalInSeconds { get; set; }
 
-        [JsonPropertyName("intervalInSeconds")]
-        public int? IntervalInSeconds { get; set; }
+    [JsonPropertyName("path")]
+    public string? Path { get; set; }
 
-        [JsonPropertyName("path")]
-        public string? Path { get; set; }
+    [JsonPropertyName("protocol")]
+    public FrontDoorProtocolConstant? Protocol { get; set; }
 
-        [JsonPropertyName("protocol")]
-        public FrontDoorProtocolConstant? Protocol { get; set; }
-
-        [JsonPropertyName("resourceState")]
-        public FrontDoorResourceStateConstant? ResourceState { get; set; }
-    }
+    [JsonPropertyName("resourceState")]
+    public FrontDoorResourceStateConstant? ResourceState { get; set; }
 }

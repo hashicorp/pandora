@@ -5,16 +5,15 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.StoragePool.v2021_08_01.DiskPools
+namespace Pandora.Definitions.ResourceManager.StoragePool.v2021_08_01.DiskPools;
+
+
+internal class SkuModel
 {
+    [JsonPropertyName("name")]
+    [Required]
+    public string Name { get; set; }
 
-    internal class SkuModel
-    {
-        [JsonPropertyName("name")]
-        [Required]
-        public string Name { get; set; }
-
-        [JsonPropertyName("tier")]
-        public string? Tier { get; set; }
-    }
+    [JsonPropertyName("tier")]
+    public string? Tier { get; set; }
 }

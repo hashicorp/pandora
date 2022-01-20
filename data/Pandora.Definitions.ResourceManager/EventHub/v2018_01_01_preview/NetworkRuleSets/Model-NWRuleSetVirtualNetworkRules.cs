@@ -5,15 +5,14 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.NetworkRuleSets
+namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.NetworkRuleSets;
+
+
+internal class NWRuleSetVirtualNetworkRulesModel
 {
+    [JsonPropertyName("ignoreMissingVnetServiceEndpoint")]
+    public bool? IgnoreMissingVnetServiceEndpoint { get; set; }
 
-    internal class NWRuleSetVirtualNetworkRulesModel
-    {
-        [JsonPropertyName("ignoreMissingVnetServiceEndpoint")]
-        public bool? IgnoreMissingVnetServiceEndpoint { get; set; }
-
-        [JsonPropertyName("subnet")]
-        public SubnetModel? Subnet { get; set; }
-    }
+    [JsonPropertyName("subnet")]
+    public SubnetModel? Subnet { get; set; }
 }

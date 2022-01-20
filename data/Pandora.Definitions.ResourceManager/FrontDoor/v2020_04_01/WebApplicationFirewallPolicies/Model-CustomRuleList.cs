@@ -5,12 +5,11 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.FrontDoor.v2020_04_01.WebApplicationFirewallPolicies
-{
+namespace Pandora.Definitions.ResourceManager.FrontDoor.v2020_04_01.WebApplicationFirewallPolicies;
 
-    internal class CustomRuleListModel
-    {
-        [JsonPropertyName("rules")]
-        public List<CustomRuleModel>? Rules { get; set; }
-    }
+
+internal class CustomRuleListModel
+{
+    [JsonPropertyName("rules")]
+    public List<CustomRuleModel>? Rules { get; set; }
 }

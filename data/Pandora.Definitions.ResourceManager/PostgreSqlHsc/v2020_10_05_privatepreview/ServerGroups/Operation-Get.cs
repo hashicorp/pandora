@@ -6,14 +6,13 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.PostgreSqlHsc.v2020_10_05_privatepreview.ServerGroups
+namespace Pandora.Definitions.ResourceManager.PostgreSqlHsc.v2020_10_05_privatepreview.ServerGroups;
+
+internal class GetOperation : Operations.GetOperation
 {
-    internal class GetOperation : Operations.GetOperation
-    {
-        public override ResourceID? ResourceId() => new ServerGroupsv2Id();
+    public override ResourceID? ResourceId() => new ServerGroupsv2Id();
 
-        public override Type? ResponseObject() => typeof(ServerGroupModel);
+    public override Type? ResponseObject() => typeof(ServerGroupModel);
 
 
-    }
 }

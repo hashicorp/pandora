@@ -6,23 +6,22 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.SignalR.v2020_05_01.SignalR
+namespace Pandora.Definitions.ResourceManager.SignalR.v2020_05_01.SignalR;
+
+internal class CheckNameAvailabilityOperation : Operations.PostOperation
 {
-    internal class CheckNameAvailabilityOperation : Operations.PostOperation
-    {
-        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-        public override Type? RequestObject() => typeof(NameAvailabilityParametersModel);
+    public override Type? RequestObject() => typeof(NameAvailabilityParametersModel);
 
-        public override ResourceID? ResourceId() => new LocationId();
+    public override ResourceID? ResourceId() => new LocationId();
 
-        public override Type? ResponseObject() => typeof(NameAvailabilityModel);
+    public override Type? ResponseObject() => typeof(NameAvailabilityModel);
 
-        public override string? UriSuffix() => "/checkNameAvailability";
+    public override string? UriSuffix() => "/checkNameAvailability";
 
 
-    }
 }

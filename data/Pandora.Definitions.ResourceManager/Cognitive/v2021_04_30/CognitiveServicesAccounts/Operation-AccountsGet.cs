@@ -6,14 +6,13 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.Cognitive.v2021_04_30.CognitiveServicesAccounts
+namespace Pandora.Definitions.ResourceManager.Cognitive.v2021_04_30.CognitiveServicesAccounts;
+
+internal class AccountsGetOperation : Operations.GetOperation
 {
-    internal class AccountsGetOperation : Operations.GetOperation
-    {
-        public override ResourceID? ResourceId() => new AccountId();
+    public override ResourceID? ResourceId() => new AccountId();
 
-        public override Type? ResponseObject() => typeof(AccountModel);
+    public override Type? ResponseObject() => typeof(AccountModel);
 
 
-    }
 }

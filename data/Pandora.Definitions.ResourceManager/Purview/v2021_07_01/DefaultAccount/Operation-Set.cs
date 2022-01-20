@@ -6,21 +6,20 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.Purview.v2021_07_01.DefaultAccount
+namespace Pandora.Definitions.ResourceManager.Purview.v2021_07_01.DefaultAccount;
+
+internal class SetOperation : Operations.PostOperation
 {
-    internal class SetOperation : Operations.PostOperation
-    {
-        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-        public override Type? RequestObject() => typeof(DefaultAccountPayloadModel);
+    public override Type? RequestObject() => typeof(DefaultAccountPayloadModel);
 
-        public override Type? ResponseObject() => typeof(DefaultAccountPayloadModel);
+    public override Type? ResponseObject() => typeof(DefaultAccountPayloadModel);
 
-        public override string? UriSuffix() => "/providers/Microsoft.Purview/setDefaultAccount";
+    public override string? UriSuffix() => "/providers/Microsoft.Purview/setDefaultAccount";
 
 
-    }
 }

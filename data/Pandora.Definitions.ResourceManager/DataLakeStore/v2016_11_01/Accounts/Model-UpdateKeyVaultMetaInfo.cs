@@ -5,12 +5,11 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.DataLakeStore.v2016_11_01.Accounts
-{
+namespace Pandora.Definitions.ResourceManager.DataLakeStore.v2016_11_01.Accounts;
 
-    internal class UpdateKeyVaultMetaInfoModel
-    {
-        [JsonPropertyName("encryptionKeyVersion")]
-        public string? EncryptionKeyVersion { get; set; }
-    }
+
+internal class UpdateKeyVaultMetaInfoModel
+{
+    [JsonPropertyName("encryptionKeyVersion")]
+    public string? EncryptionKeyVersion { get; set; }
 }

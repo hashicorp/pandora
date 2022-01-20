@@ -6,18 +6,17 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.DataLakeStore.v2016_11_01.TrustedIdProviders
+namespace Pandora.Definitions.ResourceManager.DataLakeStore.v2016_11_01.TrustedIdProviders;
+
+internal class ListByAccountOperation : Operations.ListOperation
 {
-    internal class ListByAccountOperation : Operations.ListOperation
-    {
-        public override string? FieldContainingPaginationDetails() => "nextLink";
+    public override string? FieldContainingPaginationDetails() => "nextLink";
 
-        public override ResourceID? ResourceId() => new AccountId();
+    public override ResourceID? ResourceId() => new AccountId();
 
-        public override Type NestedItemType() => typeof(TrustedIdProviderModel);
+    public override Type NestedItemType() => typeof(TrustedIdProviderModel);
 
-        public override string? UriSuffix() => "/trustedIdProviders";
+    public override string? UriSuffix() => "/trustedIdProviders";
 
 
-    }
 }

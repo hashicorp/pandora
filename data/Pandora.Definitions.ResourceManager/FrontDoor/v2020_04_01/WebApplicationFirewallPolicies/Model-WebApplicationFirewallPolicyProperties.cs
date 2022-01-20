@@ -5,30 +5,29 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.FrontDoor.v2020_04_01.WebApplicationFirewallPolicies
+namespace Pandora.Definitions.ResourceManager.FrontDoor.v2020_04_01.WebApplicationFirewallPolicies;
+
+
+internal class WebApplicationFirewallPolicyPropertiesModel
 {
+    [JsonPropertyName("customRules")]
+    public CustomRuleListModel? CustomRules { get; set; }
 
-    internal class WebApplicationFirewallPolicyPropertiesModel
-    {
-        [JsonPropertyName("customRules")]
-        public CustomRuleListModel? CustomRules { get; set; }
+    [JsonPropertyName("frontendEndpointLinks")]
+    public List<FrontendEndpointLinkModel>? FrontendEndpointLinks { get; set; }
 
-        [JsonPropertyName("frontendEndpointLinks")]
-        public List<FrontendEndpointLinkModel>? FrontendEndpointLinks { get; set; }
+    [JsonPropertyName("managedRules")]
+    public ManagedRuleSetListModel? ManagedRules { get; set; }
 
-        [JsonPropertyName("managedRules")]
-        public ManagedRuleSetListModel? ManagedRules { get; set; }
+    [JsonPropertyName("policySettings")]
+    public PolicySettingsModel? PolicySettings { get; set; }
 
-        [JsonPropertyName("policySettings")]
-        public PolicySettingsModel? PolicySettings { get; set; }
+    [JsonPropertyName("provisioningState")]
+    public string? ProvisioningState { get; set; }
 
-        [JsonPropertyName("provisioningState")]
-        public string? ProvisioningState { get; set; }
+    [JsonPropertyName("resourceState")]
+    public PolicyResourceStateConstant? ResourceState { get; set; }
 
-        [JsonPropertyName("resourceState")]
-        public PolicyResourceStateConstant? ResourceState { get; set; }
-
-        [JsonPropertyName("routingRuleLinks")]
-        public List<RoutingRuleLinkModel>? RoutingRuleLinks { get; set; }
-    }
+    [JsonPropertyName("routingRuleLinks")]
+    public List<RoutingRuleLinkModel>? RoutingRuleLinks { get; set; }
 }

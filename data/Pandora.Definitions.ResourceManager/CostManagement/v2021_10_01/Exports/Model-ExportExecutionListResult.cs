@@ -5,12 +5,11 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.CostManagement.v2021_10_01.Exports
-{
+namespace Pandora.Definitions.ResourceManager.CostManagement.v2021_10_01.Exports;
 
-    internal class ExportExecutionListResultModel
-    {
-        [JsonPropertyName("value")]
-        public List<ExportExecutionModel>? Value { get; set; }
-    }
+
+internal class ExportExecutionListResultModel
+{
+    [JsonPropertyName("value")]
+    public List<ExportExecutionModel>? Value { get; set; }
 }

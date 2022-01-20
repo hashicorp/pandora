@@ -5,21 +5,20 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.EventHub.v2021_01_01_preview.Namespaces
+namespace Pandora.Definitions.ResourceManager.EventHub.v2021_01_01_preview.Namespaces;
+
+
+internal class KeyVaultPropertiesModel
 {
+    [JsonPropertyName("identity")]
+    public UserAssignedIdentityPropertiesModel? Identity { get; set; }
 
-    internal class KeyVaultPropertiesModel
-    {
-        [JsonPropertyName("identity")]
-        public UserAssignedIdentityPropertiesModel? Identity { get; set; }
+    [JsonPropertyName("keyName")]
+    public string? KeyName { get; set; }
 
-        [JsonPropertyName("keyName")]
-        public string? KeyName { get; set; }
+    [JsonPropertyName("keyVaultUri")]
+    public string? KeyVaultUri { get; set; }
 
-        [JsonPropertyName("keyVaultUri")]
-        public string? KeyVaultUri { get; set; }
-
-        [JsonPropertyName("keyVersion")]
-        public string? KeyVersion { get; set; }
-    }
+    [JsonPropertyName("keyVersion")]
+    public string? KeyVersion { get; set; }
 }

@@ -6,21 +6,20 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.VideoAnalyzer.v2021_05_01_preview.VideoAnalyzer
+namespace Pandora.Definitions.ResourceManager.VideoAnalyzer.v2021_05_01_preview.VideoAnalyzer;
+
+internal class AccessPoliciesUpdateOperation : Operations.PatchOperation
 {
-    internal class AccessPoliciesUpdateOperation : Operations.PatchOperation
-    {
-        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-        public override Type? RequestObject() => typeof(AccessPolicyEntityModel);
+    public override Type? RequestObject() => typeof(AccessPolicyEntityModel);
 
-        public override ResourceID? ResourceId() => new AccessPoliciesId();
+    public override ResourceID? ResourceId() => new AccessPoliciesId();
 
-        public override Type? ResponseObject() => typeof(AccessPolicyEntityModel);
+    public override Type? ResponseObject() => typeof(AccessPolicyEntityModel);
 
 
-    }
 }

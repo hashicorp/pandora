@@ -5,15 +5,14 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.SignalR.v2020_05_01.SignalR
+namespace Pandora.Definitions.ResourceManager.SignalR.v2020_05_01.SignalR;
+
+
+internal class SignalRUsageNameModel
 {
+    [JsonPropertyName("localizedValue")]
+    public string? LocalizedValue { get; set; }
 
-    internal class SignalRUsageNameModel
-    {
-        [JsonPropertyName("localizedValue")]
-        public string? LocalizedValue { get; set; }
-
-        [JsonPropertyName("value")]
-        public string? Value { get; set; }
-    }
+    [JsonPropertyName("value")]
+    public string? Value { get; set; }
 }

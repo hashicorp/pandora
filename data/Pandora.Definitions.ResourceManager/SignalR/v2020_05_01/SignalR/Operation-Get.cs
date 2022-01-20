@@ -6,14 +6,13 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.SignalR.v2020_05_01.SignalR
+namespace Pandora.Definitions.ResourceManager.SignalR.v2020_05_01.SignalR;
+
+internal class GetOperation : Operations.GetOperation
 {
-    internal class GetOperation : Operations.GetOperation
-    {
-        public override ResourceID? ResourceId() => new SignalRId();
+    public override ResourceID? ResourceId() => new SignalRId();
 
-        public override Type? ResponseObject() => typeof(SignalRResourceModel);
+    public override Type? ResponseObject() => typeof(SignalRResourceModel);
 
 
-    }
 }

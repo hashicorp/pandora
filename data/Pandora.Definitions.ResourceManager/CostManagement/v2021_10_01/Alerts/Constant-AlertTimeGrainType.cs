@@ -1,30 +1,29 @@
 using Pandora.Definitions.Attributes;
 using System.ComponentModel;
 
-namespace Pandora.Definitions.ResourceManager.CostManagement.v2021_10_01.Alerts
+namespace Pandora.Definitions.ResourceManager.CostManagement.v2021_10_01.Alerts;
+
+[ConstantType(ConstantTypeAttribute.ConstantType.String)]
+internal enum AlertTimeGrainTypeConstant
 {
-    [ConstantType(ConstantTypeAttribute.ConstantType.String)]
-    internal enum AlertTimeGrainTypeConstant
-    {
-        [Description("Annually")]
-        Annually,
+    [Description("Annually")]
+    Annually,
 
-        [Description("BillingAnnual")]
-        BillingAnnual,
+    [Description("BillingAnnual")]
+    BillingAnnual,
 
-        [Description("BillingMonth")]
-        BillingMonth,
+    [Description("BillingMonth")]
+    BillingMonth,
 
-        [Description("BillingQuarter")]
-        BillingQuarter,
+    [Description("BillingQuarter")]
+    BillingQuarter,
 
-        [Description("Monthly")]
-        Monthly,
+    [Description("Monthly")]
+    Monthly,
 
-        [Description("None")]
-        None,
+    [Description("None")]
+    None,
 
-        [Description("Quarterly")]
-        Quarterly,
-    }
+    [Description("Quarterly")]
+    Quarterly,
 }

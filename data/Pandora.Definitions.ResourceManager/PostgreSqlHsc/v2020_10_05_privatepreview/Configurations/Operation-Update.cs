@@ -6,24 +6,23 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.PostgreSqlHsc.v2020_10_05_privatepreview.Configurations
+namespace Pandora.Definitions.ResourceManager.PostgreSqlHsc.v2020_10_05_privatepreview.Configurations;
+
+internal class UpdateOperation : Operations.PatchOperation
 {
-    internal class UpdateOperation : Operations.PatchOperation
-    {
-        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.OK,
         };
 
-        public override bool LongRunning() => true;
+    public override bool LongRunning() => true;
 
-        public override Type? RequestObject() => typeof(ServerGroupConfigurationModel);
+    public override Type? RequestObject() => typeof(ServerGroupConfigurationModel);
 
-        public override ResourceID? ResourceId() => new ConfigurationId();
+    public override ResourceID? ResourceId() => new ConfigurationId();
 
-        public override Type? ResponseObject() => typeof(ServerGroupConfigurationModel);
+    public override Type? ResponseObject() => typeof(ServerGroupConfigurationModel);
 
 
-    }
 }

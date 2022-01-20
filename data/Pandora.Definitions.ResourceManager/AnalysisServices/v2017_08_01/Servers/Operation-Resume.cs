@@ -6,24 +6,23 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.AnalysisServices.v2017_08_01.Servers
+namespace Pandora.Definitions.ResourceManager.AnalysisServices.v2017_08_01.Servers;
+
+internal class ResumeOperation : Operations.PostOperation
 {
-    internal class ResumeOperation : Operations.PostOperation
-    {
-        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.OK,
         };
 
-        public override bool LongRunning() => true;
+    public override bool LongRunning() => true;
 
-        public override Type? RequestObject() => null;
+    public override Type? RequestObject() => null;
 
-        public override ResourceID? ResourceId() => new ServerId();
+    public override ResourceID? ResourceId() => new ServerId();
 
-        public override string? UriSuffix() => "/resume";
+    public override string? UriSuffix() => "/resume";
 
 
-    }
 }

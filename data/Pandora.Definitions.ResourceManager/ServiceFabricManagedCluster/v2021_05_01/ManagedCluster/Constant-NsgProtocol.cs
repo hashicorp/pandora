@@ -1,30 +1,29 @@
 using Pandora.Definitions.Attributes;
 using System.ComponentModel;
 
-namespace Pandora.Definitions.ResourceManager.ServiceFabricManagedCluster.v2021_05_01.ManagedCluster
+namespace Pandora.Definitions.ResourceManager.ServiceFabricManagedCluster.v2021_05_01.ManagedCluster;
+
+[ConstantType(ConstantTypeAttribute.ConstantType.String)]
+internal enum NsgProtocolConstant
 {
-    [ConstantType(ConstantTypeAttribute.ConstantType.String)]
-    internal enum NsgProtocolConstant
-    {
-        [Description("ah")]
-        Ah,
+    [Description("ah")]
+    Ah,
 
-        [Description("esp")]
-        Esp,
+    [Description("esp")]
+    Esp,
 
-        [Description("http")]
-        Http,
+    [Description("http")]
+    Http,
 
-        [Description("https")]
-        Https,
+    [Description("https")]
+    Https,
 
-        [Description("icmp")]
-        Icmp,
+    [Description("icmp")]
+    Icmp,
 
-        [Description("tcp")]
-        Tcp,
+    [Description("tcp")]
+    Tcp,
 
-        [Description("udp")]
-        Udp,
-    }
+    [Description("udp")]
+    Udp,
 }

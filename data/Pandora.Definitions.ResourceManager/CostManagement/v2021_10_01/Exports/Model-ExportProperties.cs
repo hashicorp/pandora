@@ -5,33 +5,32 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.CostManagement.v2021_10_01.Exports
+namespace Pandora.Definitions.ResourceManager.CostManagement.v2021_10_01.Exports;
+
+
+internal class ExportPropertiesModel
 {
+    [JsonPropertyName("definition")]
+    [Required]
+    public ExportDefinitionModel Definition { get; set; }
 
-    internal class ExportPropertiesModel
-    {
-        [JsonPropertyName("definition")]
-        [Required]
-        public ExportDefinitionModel Definition { get; set; }
+    [JsonPropertyName("deliveryInfo")]
+    [Required]
+    public ExportDeliveryInfoModel DeliveryInfo { get; set; }
 
-        [JsonPropertyName("deliveryInfo")]
-        [Required]
-        public ExportDeliveryInfoModel DeliveryInfo { get; set; }
+    [JsonPropertyName("format")]
+    public FormatTypeConstant? Format { get; set; }
 
-        [JsonPropertyName("format")]
-        public FormatTypeConstant? Format { get; set; }
+    [DateFormat(DateFormatAttribute.DateFormat.RFC3339)]
+    [JsonPropertyName("nextRunTimeEstimate")]
+    public DateTime? NextRunTimeEstimate { get; set; }
 
-        [DateFormat(DateFormatAttribute.DateFormat.RFC3339)]
-        [JsonPropertyName("nextRunTimeEstimate")]
-        public DateTime? NextRunTimeEstimate { get; set; }
+    [JsonPropertyName("partitionData")]
+    public bool? PartitionData { get; set; }
 
-        [JsonPropertyName("partitionData")]
-        public bool? PartitionData { get; set; }
+    [JsonPropertyName("runHistory")]
+    public ExportExecutionListResultModel? RunHistory { get; set; }
 
-        [JsonPropertyName("runHistory")]
-        public ExportExecutionListResultModel? RunHistory { get; set; }
-
-        [JsonPropertyName("schedule")]
-        public ExportScheduleModel? Schedule { get; set; }
-    }
+    [JsonPropertyName("schedule")]
+    public ExportScheduleModel? Schedule { get; set; }
 }

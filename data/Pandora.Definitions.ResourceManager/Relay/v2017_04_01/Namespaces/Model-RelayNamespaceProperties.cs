@@ -5,26 +5,25 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.Relay.v2017_04_01.Namespaces
+namespace Pandora.Definitions.ResourceManager.Relay.v2017_04_01.Namespaces;
+
+
+internal class RelayNamespacePropertiesModel
 {
+    [DateFormat(DateFormatAttribute.DateFormat.RFC3339)]
+    [JsonPropertyName("createdAt")]
+    public DateTime? CreatedAt { get; set; }
 
-    internal class RelayNamespacePropertiesModel
-    {
-        [DateFormat(DateFormatAttribute.DateFormat.RFC3339)]
-        [JsonPropertyName("createdAt")]
-        public DateTime? CreatedAt { get; set; }
+    [JsonPropertyName("metricId")]
+    public string? MetricId { get; set; }
 
-        [JsonPropertyName("metricId")]
-        public string? MetricId { get; set; }
+    [JsonPropertyName("provisioningState")]
+    public ProvisioningStateEnumConstant? ProvisioningState { get; set; }
 
-        [JsonPropertyName("provisioningState")]
-        public ProvisioningStateEnumConstant? ProvisioningState { get; set; }
+    [JsonPropertyName("serviceBusEndpoint")]
+    public string? ServiceBusEndpoint { get; set; }
 
-        [JsonPropertyName("serviceBusEndpoint")]
-        public string? ServiceBusEndpoint { get; set; }
-
-        [DateFormat(DateFormatAttribute.DateFormat.RFC3339)]
-        [JsonPropertyName("updatedAt")]
-        public DateTime? UpdatedAt { get; set; }
-    }
+    [DateFormat(DateFormatAttribute.DateFormat.RFC3339)]
+    [JsonPropertyName("updatedAt")]
+    public DateTime? UpdatedAt { get; set; }
 }

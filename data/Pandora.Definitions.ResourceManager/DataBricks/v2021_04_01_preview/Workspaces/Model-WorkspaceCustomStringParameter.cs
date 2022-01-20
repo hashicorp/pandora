@@ -5,16 +5,15 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.DataBricks.v2021_04_01_preview.Workspaces
+namespace Pandora.Definitions.ResourceManager.DataBricks.v2021_04_01_preview.Workspaces;
+
+
+internal class WorkspaceCustomStringParameterModel
 {
+    [JsonPropertyName("type")]
+    public CustomParameterTypeConstant? Type { get; set; }
 
-    internal class WorkspaceCustomStringParameterModel
-    {
-        [JsonPropertyName("type")]
-        public CustomParameterTypeConstant? Type { get; set; }
-
-        [JsonPropertyName("value")]
-        [Required]
-        public string Value { get; set; }
-    }
+    [JsonPropertyName("value")]
+    [Required]
+    public string Value { get; set; }
 }

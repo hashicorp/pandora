@@ -6,18 +6,17 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.DNS.v2018_05_01.RecordSets
+namespace Pandora.Definitions.ResourceManager.DNS.v2018_05_01.RecordSets;
+
+internal class DeleteOperation : Operations.DeleteOperation
 {
-    internal class DeleteOperation : Operations.DeleteOperation
-    {
-        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.NoContent,
                 HttpStatusCode.OK,
         };
 
-        public override ResourceID? ResourceId() => new RecordTypeId();
+    public override ResourceID? ResourceId() => new RecordTypeId();
 
 
-    }
 }

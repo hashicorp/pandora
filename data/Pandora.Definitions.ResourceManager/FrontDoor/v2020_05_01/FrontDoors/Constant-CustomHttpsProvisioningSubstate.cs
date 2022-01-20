@@ -1,39 +1,38 @@
 using Pandora.Definitions.Attributes;
 using System.ComponentModel;
 
-namespace Pandora.Definitions.ResourceManager.FrontDoor.v2020_05_01.FrontDoors
+namespace Pandora.Definitions.ResourceManager.FrontDoor.v2020_05_01.FrontDoors;
+
+[ConstantType(ConstantTypeAttribute.ConstantType.String)]
+internal enum CustomHttpsProvisioningSubstateConstant
 {
-    [ConstantType(ConstantTypeAttribute.ConstantType.String)]
-    internal enum CustomHttpsProvisioningSubstateConstant
-    {
-        [Description("CertificateDeleted")]
-        CertificateDeleted,
+    [Description("CertificateDeleted")]
+    CertificateDeleted,
 
-        [Description("CertificateDeployed")]
-        CertificateDeployed,
+    [Description("CertificateDeployed")]
+    CertificateDeployed,
 
-        [Description("DeletingCertificate")]
-        DeletingCertificate,
+    [Description("DeletingCertificate")]
+    DeletingCertificate,
 
-        [Description("DeployingCertificate")]
-        DeployingCertificate,
+    [Description("DeployingCertificate")]
+    DeployingCertificate,
 
-        [Description("DomainControlValidationRequestApproved")]
-        DomainControlValidationRequestApproved,
+    [Description("DomainControlValidationRequestApproved")]
+    DomainControlValidationRequestApproved,
 
-        [Description("DomainControlValidationRequestRejected")]
-        DomainControlValidationRequestRejected,
+    [Description("DomainControlValidationRequestRejected")]
+    DomainControlValidationRequestRejected,
 
-        [Description("DomainControlValidationRequestTimedOut")]
-        DomainControlValidationRequestTimedOut,
+    [Description("DomainControlValidationRequestTimedOut")]
+    DomainControlValidationRequestTimedOut,
 
-        [Description("IssuingCertificate")]
-        IssuingCertificate,
+    [Description("IssuingCertificate")]
+    IssuingCertificate,
 
-        [Description("PendingDomainControlValidationREquestApproval")]
-        PendingDomainControlValidationREquestApproval,
+    [Description("PendingDomainControlValidationREquestApproval")]
+    PendingDomainControlValidationREquestApproval,
 
-        [Description("SubmittingDomainControlValidationRequest")]
-        SubmittingDomainControlValidationRequest,
-    }
+    [Description("SubmittingDomainControlValidationRequest")]
+    SubmittingDomainControlValidationRequest,
 }

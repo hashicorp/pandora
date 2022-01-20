@@ -1,12 +1,11 @@
 using Pandora.Definitions.Attributes;
 using System.ComponentModel;
 
-namespace Pandora.Definitions.ResourceManager.ServiceFabricManagedCluster.v2021_05_01.ManagedCluster
+namespace Pandora.Definitions.ResourceManager.ServiceFabricManagedCluster.v2021_05_01.ManagedCluster;
+
+[ConstantType(ConstantTypeAttribute.ConstantType.String)]
+internal enum EnvironmentConstant
 {
-    [ConstantType(ConstantTypeAttribute.ConstantType.String)]
-    internal enum EnvironmentConstant
-    {
-        [Description("Windows")]
-        Windows,
-    }
+    [Description("Windows")]
+    Windows,
 }

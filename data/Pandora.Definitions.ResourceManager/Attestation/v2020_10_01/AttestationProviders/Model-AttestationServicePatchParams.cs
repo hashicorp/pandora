@@ -5,12 +5,11 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.Attestation.v2020_10_01.AttestationProviders
-{
+namespace Pandora.Definitions.ResourceManager.Attestation.v2020_10_01.AttestationProviders;
 
-    internal class AttestationServicePatchParamsModel
-    {
-        [JsonPropertyName("tags")]
-        public CustomTypes.Tags? Tags { get; set; }
-    }
+
+internal class AttestationServicePatchParamsModel
+{
+    [JsonPropertyName("tags")]
+    public CustomTypes.Tags? Tags { get; set; }
 }

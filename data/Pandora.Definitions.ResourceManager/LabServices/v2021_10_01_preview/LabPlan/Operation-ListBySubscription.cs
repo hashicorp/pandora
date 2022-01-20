@@ -6,18 +6,17 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.LabServices.v2021_10_01_preview.LabPlan
+namespace Pandora.Definitions.ResourceManager.LabServices.v2021_10_01_preview.LabPlan;
+
+internal class ListBySubscriptionOperation : Operations.ListOperation
 {
-    internal class ListBySubscriptionOperation : Operations.ListOperation
-    {
-        public override string? FieldContainingPaginationDetails() => "nextLink";
+    public override string? FieldContainingPaginationDetails() => "nextLink";
 
-        public override ResourceID? ResourceId() => new SubscriptionId();
+    public override ResourceID? ResourceId() => new SubscriptionId();
 
-        public override Type NestedItemType() => typeof(LabPlanModel);
+    public override Type NestedItemType() => typeof(LabPlanModel);
 
-        public override string? UriSuffix() => "/providers/Microsoft.LabServices/labPlans";
+    public override string? UriSuffix() => "/providers/Microsoft.LabServices/labPlans";
 
 
-    }
 }

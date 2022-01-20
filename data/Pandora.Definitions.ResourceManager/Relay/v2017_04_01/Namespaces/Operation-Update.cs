@@ -6,16 +6,15 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.Relay.v2017_04_01.Namespaces
+namespace Pandora.Definitions.ResourceManager.Relay.v2017_04_01.Namespaces;
+
+internal class UpdateOperation : Operations.PatchOperation
 {
-    internal class UpdateOperation : Operations.PatchOperation
-    {
-        public override Type? RequestObject() => typeof(RelayUpdateParametersModel);
+    public override Type? RequestObject() => typeof(RelayUpdateParametersModel);
 
-        public override ResourceID? ResourceId() => new NamespaceId();
+    public override ResourceID? ResourceId() => new NamespaceId();
 
-        public override Type? ResponseObject() => typeof(RelayNamespaceModel);
+    public override Type? ResponseObject() => typeof(RelayNamespaceModel);
 
 
-    }
 }

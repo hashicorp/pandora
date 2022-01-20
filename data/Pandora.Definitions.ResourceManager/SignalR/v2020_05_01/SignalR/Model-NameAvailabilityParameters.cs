@@ -5,17 +5,16 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.SignalR.v2020_05_01.SignalR
+namespace Pandora.Definitions.ResourceManager.SignalR.v2020_05_01.SignalR;
+
+
+internal class NameAvailabilityParametersModel
 {
+    [JsonPropertyName("name")]
+    [Required]
+    public string Name { get; set; }
 
-    internal class NameAvailabilityParametersModel
-    {
-        [JsonPropertyName("name")]
-        [Required]
-        public string Name { get; set; }
-
-        [JsonPropertyName("type")]
-        [Required]
-        public string Type { get; set; }
-    }
+    [JsonPropertyName("type")]
+    [Required]
+    public string Type { get; set; }
 }

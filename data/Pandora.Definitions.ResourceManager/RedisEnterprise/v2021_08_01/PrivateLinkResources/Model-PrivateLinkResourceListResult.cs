@@ -5,12 +5,11 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.RedisEnterprise.v2021_08_01.PrivateLinkResources
-{
+namespace Pandora.Definitions.ResourceManager.RedisEnterprise.v2021_08_01.PrivateLinkResources;
 
-    internal class PrivateLinkResourceListResultModel
-    {
-        [JsonPropertyName("value")]
-        public List<PrivateLinkResourceModel>? Value { get; set; }
-    }
+
+internal class PrivateLinkResourceListResultModel
+{
+    [JsonPropertyName("value")]
+    public List<PrivateLinkResourceModel>? Value { get; set; }
 }

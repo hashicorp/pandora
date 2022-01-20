@@ -6,24 +6,23 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.RedisEnterprise.v2021_08_01.RedisEnterprise
+namespace Pandora.Definitions.ResourceManager.RedisEnterprise.v2021_08_01.RedisEnterprise;
+
+internal class DatabasesImportOperation : Operations.PostOperation
 {
-    internal class DatabasesImportOperation : Operations.PostOperation
-    {
-        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.OK,
         };
 
-        public override bool LongRunning() => true;
+    public override bool LongRunning() => true;
 
-        public override Type? RequestObject() => typeof(ImportClusterParametersModel);
+    public override Type? RequestObject() => typeof(ImportClusterParametersModel);
 
-        public override ResourceID? ResourceId() => new DatabaseId();
+    public override ResourceID? ResourceId() => new DatabaseId();
 
-        public override string? UriSuffix() => "/import";
+    public override string? UriSuffix() => "/import";
 
 
-    }
 }

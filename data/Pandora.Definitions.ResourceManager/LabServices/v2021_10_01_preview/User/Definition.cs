@@ -1,19 +1,18 @@
 using System.Collections.Generic;
 using Pandora.Definitions.Interfaces;
 
-namespace Pandora.Definitions.ResourceManager.LabServices.v2021_10_01_preview.User
+namespace Pandora.Definitions.ResourceManager.LabServices.v2021_10_01_preview.User;
+
+internal class Definition : ResourceDefinition
 {
-    internal class Definition : ResourceDefinition
+    public string Name => "User";
+    public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
     {
-        public string Name => "User";
-        public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
-        {
-            new CreateOrUpdateOperation(),
-            new DeleteOperation(),
-            new GetOperation(),
-            new InviteOperation(),
-            new ListByLabOperation(),
-            new UpdateOperation(),
-        };
-    }
+        new CreateOrUpdateOperation(),
+        new DeleteOperation(),
+        new GetOperation(),
+        new InviteOperation(),
+        new ListByLabOperation(),
+        new UpdateOperation(),
+    };
 }

@@ -5,38 +5,37 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.PostgreSqlHsc.v2020_10_05_privatepreview.ServerGroups
+namespace Pandora.Definitions.ResourceManager.PostgreSqlHsc.v2020_10_05_privatepreview.ServerGroups;
+
+
+internal class ServerGroupPropertiesForUpdateModel
 {
+    [JsonPropertyName("administratorLoginPassword")]
+    public string? AdministratorLoginPassword { get; set; }
 
-    internal class ServerGroupPropertiesForUpdateModel
-    {
-        [JsonPropertyName("administratorLoginPassword")]
-        public string? AdministratorLoginPassword { get; set; }
+    [JsonPropertyName("availabilityZone")]
+    public string? AvailabilityZone { get; set; }
 
-        [JsonPropertyName("availabilityZone")]
-        public string? AvailabilityZone { get; set; }
+    [JsonPropertyName("backupRetentionDays")]
+    public int? BackupRetentionDays { get; set; }
 
-        [JsonPropertyName("backupRetentionDays")]
-        public int? BackupRetentionDays { get; set; }
+    [JsonPropertyName("citusVersion")]
+    public CitusVersionConstant? CitusVersion { get; set; }
 
-        [JsonPropertyName("citusVersion")]
-        public CitusVersionConstant? CitusVersion { get; set; }
+    [JsonPropertyName("enableShardsOnCoordinator")]
+    public bool? EnableShardsOnCoordinator { get; set; }
 
-        [JsonPropertyName("enableShardsOnCoordinator")]
-        public bool? EnableShardsOnCoordinator { get; set; }
+    [JsonPropertyName("maintenanceWindow")]
+    public MaintenanceWindowModel? MaintenanceWindow { get; set; }
 
-        [JsonPropertyName("maintenanceWindow")]
-        public MaintenanceWindowModel? MaintenanceWindow { get; set; }
+    [JsonPropertyName("postgresqlVersion")]
+    public PostgreSQLVersionConstant? PostgresqlVersion { get; set; }
 
-        [JsonPropertyName("postgresqlVersion")]
-        public PostgreSQLVersionConstant? PostgresqlVersion { get; set; }
+    [MinItems(1)]
+    [MaxItems(2)]
+    [JsonPropertyName("serverRoleGroups")]
+    public List<ServerRoleGroupModel>? ServerRoleGroups { get; set; }
 
-        [MinItems(1)]
-        [MaxItems(2)]
-        [JsonPropertyName("serverRoleGroups")]
-        public List<ServerRoleGroupModel>? ServerRoleGroups { get; set; }
-
-        [JsonPropertyName("standbyAvailabilityZone")]
-        public string? StandbyAvailabilityZone { get; set; }
-    }
+    [JsonPropertyName("standbyAvailabilityZone")]
+    public string? StandbyAvailabilityZone { get; set; }
 }

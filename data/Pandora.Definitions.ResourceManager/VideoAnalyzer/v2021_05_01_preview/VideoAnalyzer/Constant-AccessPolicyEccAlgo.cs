@@ -1,18 +1,17 @@
 using Pandora.Definitions.Attributes;
 using System.ComponentModel;
 
-namespace Pandora.Definitions.ResourceManager.VideoAnalyzer.v2021_05_01_preview.VideoAnalyzer
+namespace Pandora.Definitions.ResourceManager.VideoAnalyzer.v2021_05_01_preview.VideoAnalyzer;
+
+[ConstantType(ConstantTypeAttribute.ConstantType.String)]
+internal enum AccessPolicyEccAlgoConstant
 {
-    [ConstantType(ConstantTypeAttribute.ConstantType.String)]
-    internal enum AccessPolicyEccAlgoConstant
-    {
-        [Description("ES512")]
-        ESFiveOneTwo,
+    [Description("ES512")]
+    ESFiveOneTwo,
 
-        [Description("ES384")]
-        ESThreeEightFour,
+    [Description("ES384")]
+    ESThreeEightFour,
 
-        [Description("ES256")]
-        ESTwoFiveSix,
-    }
+    [Description("ES256")]
+    ESTwoFiveSix,
 }

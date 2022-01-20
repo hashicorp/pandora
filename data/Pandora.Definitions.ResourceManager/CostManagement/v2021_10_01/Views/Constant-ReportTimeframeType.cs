@@ -1,21 +1,20 @@
 using Pandora.Definitions.Attributes;
 using System.ComponentModel;
 
-namespace Pandora.Definitions.ResourceManager.CostManagement.v2021_10_01.Views
+namespace Pandora.Definitions.ResourceManager.CostManagement.v2021_10_01.Views;
+
+[ConstantType(ConstantTypeAttribute.ConstantType.String)]
+internal enum ReportTimeframeTypeConstant
 {
-    [ConstantType(ConstantTypeAttribute.ConstantType.String)]
-    internal enum ReportTimeframeTypeConstant
-    {
-        [Description("Custom")]
-        Custom,
+    [Description("Custom")]
+    Custom,
 
-        [Description("MonthToDate")]
-        MonthToDate,
+    [Description("MonthToDate")]
+    MonthToDate,
 
-        [Description("WeekToDate")]
-        WeekToDate,
+    [Description("WeekToDate")]
+    WeekToDate,
 
-        [Description("YearToDate")]
-        YearToDate,
-    }
+    [Description("YearToDate")]
+    YearToDate,
 }

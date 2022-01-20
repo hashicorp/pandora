@@ -5,12 +5,11 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.DNS.v2018_05_01.Zones
-{
+namespace Pandora.Definitions.ResourceManager.DNS.v2018_05_01.Zones;
 
-    internal class ZoneUpdateModel
-    {
-        [JsonPropertyName("tags")]
-        public CustomTypes.Tags? Tags { get; set; }
-    }
+
+internal class ZoneUpdateModel
+{
+    [JsonPropertyName("tags")]
+    public CustomTypes.Tags? Tags { get; set; }
 }

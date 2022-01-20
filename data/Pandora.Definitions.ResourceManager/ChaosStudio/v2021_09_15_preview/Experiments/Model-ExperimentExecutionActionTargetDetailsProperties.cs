@@ -5,26 +5,25 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.ChaosStudio.v2021_09_15_preview.Experiments
+namespace Pandora.Definitions.ResourceManager.ChaosStudio.v2021_09_15_preview.Experiments;
+
+
+internal class ExperimentExecutionActionTargetDetailsPropertiesModel
 {
+    [DateFormat(DateFormatAttribute.DateFormat.RFC3339)]
+    [JsonPropertyName("completedDateUtc")]
+    public DateTime? CompletedDateUtc { get; set; }
 
-    internal class ExperimentExecutionActionTargetDetailsPropertiesModel
-    {
-        [DateFormat(DateFormatAttribute.DateFormat.RFC3339)]
-        [JsonPropertyName("completedDateUtc")]
-        public DateTime? CompletedDateUtc { get; set; }
+    [JsonPropertyName("error")]
+    public ExperimentExecutionActionTargetDetailsErrorModel? Error { get; set; }
 
-        [JsonPropertyName("error")]
-        public ExperimentExecutionActionTargetDetailsErrorModel? Error { get; set; }
+    [DateFormat(DateFormatAttribute.DateFormat.RFC3339)]
+    [JsonPropertyName("failedDateUtc")]
+    public DateTime? FailedDateUtc { get; set; }
 
-        [DateFormat(DateFormatAttribute.DateFormat.RFC3339)]
-        [JsonPropertyName("failedDateUtc")]
-        public DateTime? FailedDateUtc { get; set; }
+    [JsonPropertyName("status")]
+    public string? Status { get; set; }
 
-        [JsonPropertyName("status")]
-        public string? Status { get; set; }
-
-        [JsonPropertyName("target")]
-        public string? Target { get; set; }
-    }
+    [JsonPropertyName("target")]
+    public string? Target { get; set; }
 }

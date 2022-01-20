@@ -5,27 +5,26 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.Purview.v2020_12_01_preview.DefaultAccount
+namespace Pandora.Definitions.ResourceManager.Purview.v2020_12_01_preview.DefaultAccount;
+
+
+internal class DefaultAccountPayloadModel
 {
+    [JsonPropertyName("accountName")]
+    public string? AccountName { get; set; }
 
-    internal class DefaultAccountPayloadModel
-    {
-        [JsonPropertyName("accountName")]
-        public string? AccountName { get; set; }
+    [JsonPropertyName("resourceGroupName")]
+    public string? ResourceGroupName { get; set; }
 
-        [JsonPropertyName("resourceGroupName")]
-        public string? ResourceGroupName { get; set; }
+    [JsonPropertyName("scope")]
+    public string? Scope { get; set; }
 
-        [JsonPropertyName("scope")]
-        public string? Scope { get; set; }
+    [JsonPropertyName("scopeTenantId")]
+    public string? ScopeTenantId { get; set; }
 
-        [JsonPropertyName("scopeTenantId")]
-        public string? ScopeTenantId { get; set; }
+    [JsonPropertyName("scopeType")]
+    public ScopeTypeConstant? ScopeType { get; set; }
 
-        [JsonPropertyName("scopeType")]
-        public ScopeTypeConstant? ScopeType { get; set; }
-
-        [JsonPropertyName("subscriptionId")]
-        public string? SubscriptionId { get; set; }
-    }
+    [JsonPropertyName("subscriptionId")]
+    public string? SubscriptionId { get; set; }
 }

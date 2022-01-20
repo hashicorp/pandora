@@ -6,18 +6,17 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.Relay.v2017_04_01.Namespaces
+namespace Pandora.Definitions.ResourceManager.Relay.v2017_04_01.Namespaces;
+
+internal class ListAuthorizationRulesOperation : Operations.ListOperation
 {
-    internal class ListAuthorizationRulesOperation : Operations.ListOperation
-    {
-        public override string? FieldContainingPaginationDetails() => "nextLink";
+    public override string? FieldContainingPaginationDetails() => "nextLink";
 
-        public override ResourceID? ResourceId() => new NamespaceId();
+    public override ResourceID? ResourceId() => new NamespaceId();
 
-        public override Type NestedItemType() => typeof(AuthorizationRuleModel);
+    public override Type NestedItemType() => typeof(AuthorizationRuleModel);
 
-        public override string? UriSuffix() => "/authorizationRules";
+    public override string? UriSuffix() => "/authorizationRules";
 
 
-    }
 }

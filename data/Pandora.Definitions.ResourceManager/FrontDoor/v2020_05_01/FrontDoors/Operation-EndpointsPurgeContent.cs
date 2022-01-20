@@ -6,24 +6,23 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.FrontDoor.v2020_05_01.FrontDoors
+namespace Pandora.Definitions.ResourceManager.FrontDoor.v2020_05_01.FrontDoors;
+
+internal class EndpointsPurgeContentOperation : Operations.PostOperation
 {
-    internal class EndpointsPurgeContentOperation : Operations.PostOperation
-    {
-        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.OK,
         };
 
-        public override bool LongRunning() => true;
+    public override bool LongRunning() => true;
 
-        public override Type? RequestObject() => typeof(PurgeParametersModel);
+    public override Type? RequestObject() => typeof(PurgeParametersModel);
 
-        public override ResourceID? ResourceId() => new FrontDoorId();
+    public override ResourceID? ResourceId() => new FrontDoorId();
 
-        public override string? UriSuffix() => "/purge";
+    public override string? UriSuffix() => "/purge";
 
 
-    }
 }

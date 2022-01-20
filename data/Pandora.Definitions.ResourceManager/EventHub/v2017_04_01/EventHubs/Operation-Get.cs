@@ -6,14 +6,13 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.EventHubs
+namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.EventHubs;
+
+internal class GetOperation : Operations.GetOperation
 {
-    internal class GetOperation : Operations.GetOperation
-    {
-        public override ResourceID? ResourceId() => new EventhubId();
+    public override ResourceID? ResourceId() => new EventhubId();
 
-        public override Type? ResponseObject() => typeof(EventhubModel);
+    public override Type? ResponseObject() => typeof(EventhubModel);
 
 
-    }
 }

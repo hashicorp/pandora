@@ -5,21 +5,20 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.ChaosStudio.v2021_09_15_preview.Experiments
+namespace Pandora.Definitions.ResourceManager.ChaosStudio.v2021_09_15_preview.Experiments;
+
+
+internal class StepStatusModel
 {
+    [JsonPropertyName("branches")]
+    public List<BranchStatusModel>? Branches { get; set; }
 
-    internal class StepStatusModel
-    {
-        [JsonPropertyName("branches")]
-        public List<BranchStatusModel>? Branches { get; set; }
+    [JsonPropertyName("id")]
+    public string? Id { get; set; }
 
-        [JsonPropertyName("id")]
-        public string? Id { get; set; }
+    [JsonPropertyName("name")]
+    public string? Name { get; set; }
 
-        [JsonPropertyName("name")]
-        public string? Name { get; set; }
-
-        [JsonPropertyName("status")]
-        public string? Status { get; set; }
-    }
+    [JsonPropertyName("status")]
+    public string? Status { get; set; }
 }

@@ -5,18 +5,17 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.FrontDoor.v2020_04_01.CheckFrontDoorNameAvailabilityWithSubscription
+namespace Pandora.Definitions.ResourceManager.FrontDoor.v2020_04_01.CheckFrontDoorNameAvailabilityWithSubscription;
+
+
+internal class CheckNameAvailabilityOutputModel
 {
+    [JsonPropertyName("message")]
+    public string? Message { get; set; }
 
-    internal class CheckNameAvailabilityOutputModel
-    {
-        [JsonPropertyName("message")]
-        public string? Message { get; set; }
+    [JsonPropertyName("nameAvailability")]
+    public AvailabilityConstant? NameAvailability { get; set; }
 
-        [JsonPropertyName("nameAvailability")]
-        public AvailabilityConstant? NameAvailability { get; set; }
-
-        [JsonPropertyName("reason")]
-        public string? Reason { get; set; }
-    }
+    [JsonPropertyName("reason")]
+    public string? Reason { get; set; }
 }

@@ -5,15 +5,14 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.DataBricks.v2021_04_01_preview.Workspaces
+namespace Pandora.Definitions.ResourceManager.DataBricks.v2021_04_01_preview.Workspaces;
+
+
+internal class WorkspaceEncryptionParameterModel
 {
+    [JsonPropertyName("type")]
+    public CustomParameterTypeConstant? Type { get; set; }
 
-    internal class WorkspaceEncryptionParameterModel
-    {
-        [JsonPropertyName("type")]
-        public CustomParameterTypeConstant? Type { get; set; }
-
-        [JsonPropertyName("value")]
-        public EncryptionModel? Value { get; set; }
-    }
+    [JsonPropertyName("value")]
+    public EncryptionModel? Value { get; set; }
 }

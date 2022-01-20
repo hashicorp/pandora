@@ -1,15 +1,14 @@
 using Pandora.Definitions.Attributes;
 using System.ComponentModel;
 
-namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.Namespaces
-{
-    [ConstantType(ConstantTypeAttribute.ConstantType.String)]
-    internal enum SkuTierConstant
-    {
-        [Description("Basic")]
-        Basic,
+namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.Namespaces;
 
-        [Description("Standard")]
-        Standard,
-    }
+[ConstantType(ConstantTypeAttribute.ConstantType.String)]
+internal enum SkuTierConstant
+{
+    [Description("Basic")]
+    Basic,
+
+    [Description("Standard")]
+    Standard,
 }

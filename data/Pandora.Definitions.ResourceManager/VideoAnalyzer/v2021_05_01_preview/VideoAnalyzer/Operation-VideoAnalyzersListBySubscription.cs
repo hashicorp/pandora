@@ -6,16 +6,15 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.VideoAnalyzer.v2021_05_01_preview.VideoAnalyzer
+namespace Pandora.Definitions.ResourceManager.VideoAnalyzer.v2021_05_01_preview.VideoAnalyzer;
+
+internal class VideoAnalyzersListBySubscriptionOperation : Operations.GetOperation
 {
-    internal class VideoAnalyzersListBySubscriptionOperation : Operations.GetOperation
-    {
-        public override ResourceID? ResourceId() => new SubscriptionId();
+    public override ResourceID? ResourceId() => new SubscriptionId();
 
-        public override Type? ResponseObject() => typeof(VideoAnalyzerCollectionModel);
+    public override Type? ResponseObject() => typeof(VideoAnalyzerCollectionModel);
 
-        public override string? UriSuffix() => "/providers/Microsoft.Media/videoAnalyzers";
+    public override string? UriSuffix() => "/providers/Microsoft.Media/videoAnalyzers";
 
 
-    }
 }

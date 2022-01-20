@@ -5,18 +5,17 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.AppConfiguration.v2020_06_01.PrivateLinkResources
+namespace Pandora.Definitions.ResourceManager.AppConfiguration.v2020_06_01.PrivateLinkResources;
+
+
+internal class PrivateLinkResourcePropertiesModel
 {
+    [JsonPropertyName("groupId")]
+    public string? GroupId { get; set; }
 
-    internal class PrivateLinkResourcePropertiesModel
-    {
-        [JsonPropertyName("groupId")]
-        public string? GroupId { get; set; }
+    [JsonPropertyName("requiredMembers")]
+    public List<string>? RequiredMembers { get; set; }
 
-        [JsonPropertyName("requiredMembers")]
-        public List<string>? RequiredMembers { get; set; }
-
-        [JsonPropertyName("requiredZoneNames")]
-        public List<string>? RequiredZoneNames { get; set; }
-    }
+    [JsonPropertyName("requiredZoneNames")]
+    public List<string>? RequiredZoneNames { get; set; }
 }

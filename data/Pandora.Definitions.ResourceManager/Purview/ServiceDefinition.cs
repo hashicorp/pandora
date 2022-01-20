@@ -1,10 +1,9 @@
 using Pandora.Definitions.Interfaces;
 
-namespace Pandora.Definitions.ResourceManager.Purview
+namespace Pandora.Definitions.ResourceManager.Purview;
+
+public partial class Service : ServiceDefinition
 {
-    public partial class Service : ServiceDefinition
-    {
-        public string Name => "Purview";
-        public string? ResourceProvider => "Microsoft.Purview";
-    }
+    public string Name => "Purview";
+    public string? ResourceProvider => "Microsoft.Purview";
 }

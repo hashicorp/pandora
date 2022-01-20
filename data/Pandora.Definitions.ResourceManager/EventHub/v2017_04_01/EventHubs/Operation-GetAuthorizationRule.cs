@@ -6,14 +6,13 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.EventHubs
+namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.EventHubs;
+
+internal class GetAuthorizationRuleOperation : Operations.GetOperation
 {
-    internal class GetAuthorizationRuleOperation : Operations.GetOperation
-    {
-        public override ResourceID? ResourceId() => new EventhubAuthorizationRuleId();
+    public override ResourceID? ResourceId() => new EventhubAuthorizationRuleId();
 
-        public override Type? ResponseObject() => typeof(AuthorizationRuleModel);
+    public override Type? ResponseObject() => typeof(AuthorizationRuleModel);
 
 
-    }
 }

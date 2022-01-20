@@ -5,18 +5,17 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.CheckNameAvailabilityDisasterRecoveryConfigs
+namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.CheckNameAvailabilityDisasterRecoveryConfigs;
+
+
+internal class CheckNameAvailabilityResultModel
 {
+    [JsonPropertyName("message")]
+    public string? Message { get; set; }
 
-    internal class CheckNameAvailabilityResultModel
-    {
-        [JsonPropertyName("message")]
-        public string? Message { get; set; }
+    [JsonPropertyName("nameAvailable")]
+    public bool? NameAvailable { get; set; }
 
-        [JsonPropertyName("nameAvailable")]
-        public bool? NameAvailable { get; set; }
-
-        [JsonPropertyName("reason")]
-        public UnavailableReasonConstant? Reason { get; set; }
-    }
+    [JsonPropertyName("reason")]
+    public UnavailableReasonConstant? Reason { get; set; }
 }

@@ -5,12 +5,11 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.ChaosStudio.v2021_09_15_preview.Experiments
-{
+namespace Pandora.Definitions.ResourceManager.ChaosStudio.v2021_09_15_preview.Experiments;
 
-    internal class ExperimentExecutionDetailsPropertiesRunInformationModel
-    {
-        [JsonPropertyName("steps")]
-        public List<StepStatusModel>? Steps { get; set; }
-    }
+
+internal class ExperimentExecutionDetailsPropertiesRunInformationModel
+{
+    [JsonPropertyName("steps")]
+    public List<StepStatusModel>? Steps { get; set; }
 }

@@ -6,21 +6,20 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.LoadTestService.v2021_12_01_preview.LoadTests
+namespace Pandora.Definitions.ResourceManager.LoadTestService.v2021_12_01_preview.LoadTests;
+
+internal class CreateOrUpdateOperation : Operations.PutOperation
 {
-    internal class CreateOrUpdateOperation : Operations.PutOperation
-    {
-        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-        public override Type? RequestObject() => typeof(LoadTestResourceModel);
+    public override Type? RequestObject() => typeof(LoadTestResourceModel);
 
-        public override ResourceID? ResourceId() => new LoadTestId();
+    public override ResourceID? ResourceId() => new LoadTestId();
 
-        public override Type? ResponseObject() => typeof(LoadTestResourceModel);
+    public override Type? ResponseObject() => typeof(LoadTestResourceModel);
 
 
-    }
 }

@@ -6,14 +6,13 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.Maps.v2021_02_01.Accounts
+namespace Pandora.Definitions.ResourceManager.Maps.v2021_02_01.Accounts;
+
+internal class GetOperation : Operations.GetOperation
 {
-    internal class GetOperation : Operations.GetOperation
-    {
-        public override ResourceID? ResourceId() => new AccountId();
+    public override ResourceID? ResourceId() => new AccountId();
 
-        public override Type? ResponseObject() => typeof(MapsAccountModel);
+    public override Type? ResponseObject() => typeof(MapsAccountModel);
 
 
-    }
 }

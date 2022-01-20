@@ -6,14 +6,13 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.StoragePool.v2021_08_01.DiskPools
+namespace Pandora.Definitions.ResourceManager.StoragePool.v2021_08_01.DiskPools;
+
+internal class GetOperation : Operations.GetOperation
 {
-    internal class GetOperation : Operations.GetOperation
-    {
-        public override ResourceID? ResourceId() => new DiskPoolId();
+    public override ResourceID? ResourceId() => new DiskPoolId();
 
-        public override Type? ResponseObject() => typeof(DiskPoolModel);
+    public override Type? ResponseObject() => typeof(DiskPoolModel);
 
 
-    }
 }

@@ -5,17 +5,16 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.ServiceFabricManagedCluster.v2021_05_01.NodeType
+namespace Pandora.Definitions.ResourceManager.ServiceFabricManagedCluster.v2021_05_01.NodeType;
+
+
+internal class EndpointRangeDescriptionModel
 {
+    [JsonPropertyName("endPort")]
+    [Required]
+    public int EndPort { get; set; }
 
-    internal class EndpointRangeDescriptionModel
-    {
-        [JsonPropertyName("endPort")]
-        [Required]
-        public int EndPort { get; set; }
-
-        [JsonPropertyName("startPort")]
-        [Required]
-        public int StartPort { get; set; }
-    }
+    [JsonPropertyName("startPort")]
+    [Required]
+    public int StartPort { get; set; }
 }

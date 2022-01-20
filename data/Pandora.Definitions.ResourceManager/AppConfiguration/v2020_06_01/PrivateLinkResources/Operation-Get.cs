@@ -6,14 +6,13 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.AppConfiguration.v2020_06_01.PrivateLinkResources
+namespace Pandora.Definitions.ResourceManager.AppConfiguration.v2020_06_01.PrivateLinkResources;
+
+internal class GetOperation : Operations.GetOperation
 {
-    internal class GetOperation : Operations.GetOperation
-    {
-        public override ResourceID? ResourceId() => new PrivateLinkResourceId();
+    public override ResourceID? ResourceId() => new PrivateLinkResourceId();
 
-        public override Type? ResponseObject() => typeof(PrivateLinkResourceModel);
+    public override Type? ResponseObject() => typeof(PrivateLinkResourceModel);
 
 
-    }
 }

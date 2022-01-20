@@ -6,21 +6,20 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.LabServices.v2021_10_01_preview.Schedule
+namespace Pandora.Definitions.ResourceManager.LabServices.v2021_10_01_preview.Schedule;
+
+internal class DeleteOperation : Operations.DeleteOperation
 {
-    internal class DeleteOperation : Operations.DeleteOperation
-    {
-        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.NoContent,
                 HttpStatusCode.OK,
         };
 
-        public override bool LongRunning() => true;
+    public override bool LongRunning() => true;
 
-        public override ResourceID? ResourceId() => new ScheduleId();
+    public override ResourceID? ResourceId() => new ScheduleId();
 
 
-    }
 }

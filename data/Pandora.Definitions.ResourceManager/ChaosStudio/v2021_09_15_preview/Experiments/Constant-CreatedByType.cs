@@ -1,21 +1,20 @@
 using Pandora.Definitions.Attributes;
 using System.ComponentModel;
 
-namespace Pandora.Definitions.ResourceManager.ChaosStudio.v2021_09_15_preview.Experiments
+namespace Pandora.Definitions.ResourceManager.ChaosStudio.v2021_09_15_preview.Experiments;
+
+[ConstantType(ConstantTypeAttribute.ConstantType.String)]
+internal enum CreatedByTypeConstant
 {
-    [ConstantType(ConstantTypeAttribute.ConstantType.String)]
-    internal enum CreatedByTypeConstant
-    {
-        [Description("Application")]
-        Application,
+    [Description("Application")]
+    Application,
 
-        [Description("Key")]
-        Key,
+    [Description("Key")]
+    Key,
 
-        [Description("ManagedIdentity")]
-        ManagedIdentity,
+    [Description("ManagedIdentity")]
+    ManagedIdentity,
 
-        [Description("User")]
-        User,
-    }
+    [Description("User")]
+    User,
 }

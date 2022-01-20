@@ -1,18 +1,17 @@
 using Pandora.Definitions.Attributes;
 using System.ComponentModel;
 
-namespace Pandora.Definitions.ResourceManager.LabServices.v2021_10_01_preview.Lab
+namespace Pandora.Definitions.ResourceManager.LabServices.v2021_10_01_preview.Lab;
+
+[ConstantType(ConstantTypeAttribute.ConstantType.String)]
+internal enum ShutdownOnIdleModeConstant
 {
-    [ConstantType(ConstantTypeAttribute.ConstantType.String)]
-    internal enum ShutdownOnIdleModeConstant
-    {
-        [Description("LowUsage")]
-        LowUsage,
+    [Description("LowUsage")]
+    LowUsage,
 
-        [Description("None")]
-        None,
+    [Description("None")]
+    None,
 
-        [Description("UserAbsence")]
-        UserAbsence,
-    }
+    [Description("UserAbsence")]
+    UserAbsence,
 }

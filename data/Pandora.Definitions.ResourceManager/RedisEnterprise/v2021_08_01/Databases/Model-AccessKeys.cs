@@ -5,15 +5,14 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.RedisEnterprise.v2021_08_01.Databases
+namespace Pandora.Definitions.ResourceManager.RedisEnterprise.v2021_08_01.Databases;
+
+
+internal class AccessKeysModel
 {
+    [JsonPropertyName("primaryKey")]
+    public string? PrimaryKey { get; set; }
 
-    internal class AccessKeysModel
-    {
-        [JsonPropertyName("primaryKey")]
-        public string? PrimaryKey { get; set; }
-
-        [JsonPropertyName("secondaryKey")]
-        public string? SecondaryKey { get; set; }
-    }
+    [JsonPropertyName("secondaryKey")]
+    public string? SecondaryKey { get; set; }
 }

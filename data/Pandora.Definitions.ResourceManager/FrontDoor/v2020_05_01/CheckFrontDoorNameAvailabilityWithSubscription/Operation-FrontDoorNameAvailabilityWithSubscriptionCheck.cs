@@ -6,23 +6,22 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.FrontDoor.v2020_05_01.CheckFrontDoorNameAvailabilityWithSubscription
+namespace Pandora.Definitions.ResourceManager.FrontDoor.v2020_05_01.CheckFrontDoorNameAvailabilityWithSubscription;
+
+internal class FrontDoorNameAvailabilityWithSubscriptionCheckOperation : Operations.PostOperation
 {
-    internal class FrontDoorNameAvailabilityWithSubscriptionCheckOperation : Operations.PostOperation
-    {
-        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-        public override Type? RequestObject() => typeof(CheckNameAvailabilityInputModel);
+    public override Type? RequestObject() => typeof(CheckNameAvailabilityInputModel);
 
-        public override ResourceID? ResourceId() => new SubscriptionId();
+    public override ResourceID? ResourceId() => new SubscriptionId();
 
-        public override Type? ResponseObject() => typeof(CheckNameAvailabilityOutputModel);
+    public override Type? ResponseObject() => typeof(CheckNameAvailabilityOutputModel);
 
-        public override string? UriSuffix() => "/providers/Microsoft.Network/checkFrontDoorNameAvailability";
+    public override string? UriSuffix() => "/providers/Microsoft.Network/checkFrontDoorNameAvailability";
 
 
-    }
 }

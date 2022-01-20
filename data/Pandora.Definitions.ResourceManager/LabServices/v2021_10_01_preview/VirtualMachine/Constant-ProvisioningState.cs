@@ -1,27 +1,26 @@
 using Pandora.Definitions.Attributes;
 using System.ComponentModel;
 
-namespace Pandora.Definitions.ResourceManager.LabServices.v2021_10_01_preview.VirtualMachine
+namespace Pandora.Definitions.ResourceManager.LabServices.v2021_10_01_preview.VirtualMachine;
+
+[ConstantType(ConstantTypeAttribute.ConstantType.String)]
+internal enum ProvisioningStateConstant
 {
-    [ConstantType(ConstantTypeAttribute.ConstantType.String)]
-    internal enum ProvisioningStateConstant
-    {
-        [Description("Creating")]
-        Creating,
+    [Description("Creating")]
+    Creating,
 
-        [Description("Deleting")]
-        Deleting,
+    [Description("Deleting")]
+    Deleting,
 
-        [Description("Failed")]
-        Failed,
+    [Description("Failed")]
+    Failed,
 
-        [Description("Locked")]
-        Locked,
+    [Description("Locked")]
+    Locked,
 
-        [Description("Succeeded")]
-        Succeeded,
+    [Description("Succeeded")]
+    Succeeded,
 
-        [Description("Updating")]
-        Updating,
-    }
+    [Description("Updating")]
+    Updating,
 }

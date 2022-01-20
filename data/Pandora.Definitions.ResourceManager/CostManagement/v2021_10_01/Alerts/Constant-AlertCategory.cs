@@ -1,21 +1,20 @@
 using Pandora.Definitions.Attributes;
 using System.ComponentModel;
 
-namespace Pandora.Definitions.ResourceManager.CostManagement.v2021_10_01.Alerts
+namespace Pandora.Definitions.ResourceManager.CostManagement.v2021_10_01.Alerts;
+
+[ConstantType(ConstantTypeAttribute.ConstantType.String)]
+internal enum AlertCategoryConstant
 {
-    [ConstantType(ConstantTypeAttribute.ConstantType.String)]
-    internal enum AlertCategoryConstant
-    {
-        [Description("Billing")]
-        Billing,
+    [Description("Billing")]
+    Billing,
 
-        [Description("Cost")]
-        Cost,
+    [Description("Cost")]
+    Cost,
 
-        [Description("System")]
-        System,
+    [Description("System")]
+    System,
 
-        [Description("Usage")]
-        Usage,
-    }
+    [Description("Usage")]
+    Usage,
 }

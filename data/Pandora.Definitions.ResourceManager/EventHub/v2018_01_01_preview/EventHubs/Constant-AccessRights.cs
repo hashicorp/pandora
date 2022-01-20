@@ -1,18 +1,17 @@
 using Pandora.Definitions.Attributes;
 using System.ComponentModel;
 
-namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.EventHubs
+namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.EventHubs;
+
+[ConstantType(ConstantTypeAttribute.ConstantType.String)]
+internal enum AccessRightsConstant
 {
-    [ConstantType(ConstantTypeAttribute.ConstantType.String)]
-    internal enum AccessRightsConstant
-    {
-        [Description("Listen")]
-        Listen,
+    [Description("Listen")]
+    Listen,
 
-        [Description("Manage")]
-        Manage,
+    [Description("Manage")]
+    Manage,
 
-        [Description("Send")]
-        Send,
-    }
+    [Description("Send")]
+    Send,
 }

@@ -5,13 +5,12 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.DataLakeStore.v2016_11_01.VirtualNetworkRules
-{
+namespace Pandora.Definitions.ResourceManager.DataLakeStore.v2016_11_01.VirtualNetworkRules;
 
-    internal class CreateOrUpdateVirtualNetworkRulePropertiesModel
-    {
-        [JsonPropertyName("subnetId")]
-        [Required]
-        public string SubnetId { get; set; }
-    }
+
+internal class CreateOrUpdateVirtualNetworkRulePropertiesModel
+{
+    [JsonPropertyName("subnetId")]
+    [Required]
+    public string SubnetId { get; set; }
 }

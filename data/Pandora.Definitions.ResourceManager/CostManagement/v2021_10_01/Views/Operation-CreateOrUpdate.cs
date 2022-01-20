@@ -6,16 +6,15 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.CostManagement.v2021_10_01.Views
+namespace Pandora.Definitions.ResourceManager.CostManagement.v2021_10_01.Views;
+
+internal class CreateOrUpdateOperation : Operations.PutOperation
 {
-    internal class CreateOrUpdateOperation : Operations.PutOperation
-    {
-        public override Type? RequestObject() => typeof(ViewModel);
+    public override Type? RequestObject() => typeof(ViewModel);
 
-        public override ResourceID? ResourceId() => new ViewId();
+    public override ResourceID? ResourceId() => new ViewId();
 
-        public override Type? ResponseObject() => typeof(ViewModel);
+    public override Type? ResponseObject() => typeof(ViewModel);
 
 
-    }
 }

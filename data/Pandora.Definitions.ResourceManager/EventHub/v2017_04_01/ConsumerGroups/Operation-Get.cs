@@ -6,14 +6,13 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.ConsumerGroups
+namespace Pandora.Definitions.ResourceManager.EventHub.v2017_04_01.ConsumerGroups;
+
+internal class GetOperation : Operations.GetOperation
 {
-    internal class GetOperation : Operations.GetOperation
-    {
-        public override ResourceID? ResourceId() => new ConsumerGroupId();
+    public override ResourceID? ResourceId() => new ConsumerGroupId();
 
-        public override Type? ResponseObject() => typeof(ConsumerGroupModel);
+    public override Type? ResponseObject() => typeof(ConsumerGroupModel);
 
 
-    }
 }

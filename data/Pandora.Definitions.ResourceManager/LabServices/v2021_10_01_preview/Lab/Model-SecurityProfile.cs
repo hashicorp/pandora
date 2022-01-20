@@ -5,15 +5,14 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.LabServices.v2021_10_01_preview.Lab
+namespace Pandora.Definitions.ResourceManager.LabServices.v2021_10_01_preview.Lab;
+
+
+internal class SecurityProfileModel
 {
+    [JsonPropertyName("openAccess")]
+    public EnableStateConstant? OpenAccess { get; set; }
 
-    internal class SecurityProfileModel
-    {
-        [JsonPropertyName("openAccess")]
-        public EnableStateConstant? OpenAccess { get; set; }
-
-        [JsonPropertyName("registrationCode")]
-        public string? RegistrationCode { get; set; }
-    }
+    [JsonPropertyName("registrationCode")]
+    public string? RegistrationCode { get; set; }
 }

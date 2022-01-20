@@ -5,12 +5,11 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.LabServices.v2021_10_01_preview.Image
-{
+namespace Pandora.Definitions.ResourceManager.LabServices.v2021_10_01_preview.Image;
 
-    internal class ImageUpdateModel
-    {
-        [JsonPropertyName("properties")]
-        public ImageUpdatePropertiesModel? Properties { get; set; }
-    }
+
+internal class ImageUpdateModel
+{
+    [JsonPropertyName("properties")]
+    public ImageUpdatePropertiesModel? Properties { get; set; }
 }

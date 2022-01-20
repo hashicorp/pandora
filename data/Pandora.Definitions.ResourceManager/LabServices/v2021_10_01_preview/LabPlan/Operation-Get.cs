@@ -6,14 +6,13 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.LabServices.v2021_10_01_preview.LabPlan
+namespace Pandora.Definitions.ResourceManager.LabServices.v2021_10_01_preview.LabPlan;
+
+internal class GetOperation : Operations.GetOperation
 {
-    internal class GetOperation : Operations.GetOperation
-    {
-        public override ResourceID? ResourceId() => new LabPlanId();
+    public override ResourceID? ResourceId() => new LabPlanId();
 
-        public override Type? ResponseObject() => typeof(LabPlanModel);
+    public override Type? ResponseObject() => typeof(LabPlanModel);
 
 
-    }
 }

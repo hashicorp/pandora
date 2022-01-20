@@ -1,17 +1,15 @@
 using System.Collections.Generic;
 using Pandora.Definitions.Interfaces;
 
-namespace Pandora.Definitions.ResourceManager.Attestation.v2020_10_01
+namespace Pandora.Definitions.ResourceManager.Attestation.v2020_10_01;
+public partial class Definition : ApiVersionDefinition
 {
-    public partial class Definition : ApiVersionDefinition
-    {
-        public string ApiVersion => "2020-10-01";
-        public bool Preview => false;
+    public string ApiVersion => "2020-10-01";
+    public bool Preview => false;
 
-        public IEnumerable<ResourceDefinition> Resources => new List<ResourceDefinition>
-        {
-            new AttestationProviders.Definition(),
-            new PrivateEndpointConnections.Definition(),
-        };
-    }
+    public IEnumerable<ResourceDefinition> Resources => new List<ResourceDefinition>
+    {
+        new AttestationProviders.Definition(),
+        new PrivateEndpointConnections.Definition(),
+    };
 }

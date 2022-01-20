@@ -1,10 +1,9 @@
 using Pandora.Definitions.Interfaces;
 
-namespace Pandora.Definitions.ResourceManager.Attestation
+namespace Pandora.Definitions.ResourceManager.Attestation;
+
+public partial class Service : ServiceDefinition
 {
-    public partial class Service : ServiceDefinition
-    {
-        public string Name => "Attestation";
-        public string? ResourceProvider => "Microsoft.Attestation";
-    }
+    public string Name => "Attestation";
+    public string? ResourceProvider => "Microsoft.Attestation";
 }

@@ -6,14 +6,13 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.DNS.v2018_05_01.RecordSets
+namespace Pandora.Definitions.ResourceManager.DNS.v2018_05_01.RecordSets;
+
+internal class GetOperation : Operations.GetOperation
 {
-    internal class GetOperation : Operations.GetOperation
-    {
-        public override ResourceID? ResourceId() => new RecordTypeId();
+    public override ResourceID? ResourceId() => new RecordTypeId();
 
-        public override Type? ResponseObject() => typeof(RecordSetModel);
+    public override Type? ResponseObject() => typeof(RecordSetModel);
 
 
-    }
 }

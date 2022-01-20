@@ -5,21 +5,20 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.CostManagement.v2021_10_01.Forecast
+namespace Pandora.Definitions.ResourceManager.CostManagement.v2021_10_01.Forecast;
+
+
+internal class ForecastDatasetModel
 {
+    [JsonPropertyName("aggregation")]
+    public Dictionary<string, QueryAggregationModel>? Aggregation { get; set; }
 
-    internal class ForecastDatasetModel
-    {
-        [JsonPropertyName("aggregation")]
-        public Dictionary<string, QueryAggregationModel>? Aggregation { get; set; }
+    [JsonPropertyName("configuration")]
+    public QueryDatasetConfigurationModel? Configuration { get; set; }
 
-        [JsonPropertyName("configuration")]
-        public QueryDatasetConfigurationModel? Configuration { get; set; }
+    [JsonPropertyName("filter")]
+    public QueryFilterModel? Filter { get; set; }
 
-        [JsonPropertyName("filter")]
-        public QueryFilterModel? Filter { get; set; }
-
-        [JsonPropertyName("granularity")]
-        public GranularityTypeConstant? Granularity { get; set; }
-    }
+    [JsonPropertyName("granularity")]
+    public GranularityTypeConstant? Granularity { get; set; }
 }

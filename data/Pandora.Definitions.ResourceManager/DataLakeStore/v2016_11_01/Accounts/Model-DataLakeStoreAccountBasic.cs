@@ -5,27 +5,26 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.DataLakeStore.v2016_11_01.Accounts
+namespace Pandora.Definitions.ResourceManager.DataLakeStore.v2016_11_01.Accounts;
+
+
+internal class DataLakeStoreAccountBasicModel
 {
+    [JsonPropertyName("id")]
+    public string? Id { get; set; }
 
-    internal class DataLakeStoreAccountBasicModel
-    {
-        [JsonPropertyName("id")]
-        public string? Id { get; set; }
+    [JsonPropertyName("location")]
+    public CustomTypes.Location? Location { get; set; }
 
-        [JsonPropertyName("location")]
-        public CustomTypes.Location? Location { get; set; }
+    [JsonPropertyName("name")]
+    public string? Name { get; set; }
 
-        [JsonPropertyName("name")]
-        public string? Name { get; set; }
+    [JsonPropertyName("properties")]
+    public DataLakeStoreAccountPropertiesBasicModel? Properties { get; set; }
 
-        [JsonPropertyName("properties")]
-        public DataLakeStoreAccountPropertiesBasicModel? Properties { get; set; }
+    [JsonPropertyName("tags")]
+    public CustomTypes.Tags? Tags { get; set; }
 
-        [JsonPropertyName("tags")]
-        public CustomTypes.Tags? Tags { get; set; }
-
-        [JsonPropertyName("type")]
-        public string? Type { get; set; }
-    }
+    [JsonPropertyName("type")]
+    public string? Type { get; set; }
 }

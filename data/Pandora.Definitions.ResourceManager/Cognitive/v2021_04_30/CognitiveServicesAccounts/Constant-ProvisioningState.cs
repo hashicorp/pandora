@@ -1,30 +1,29 @@
 using Pandora.Definitions.Attributes;
 using System.ComponentModel;
 
-namespace Pandora.Definitions.ResourceManager.Cognitive.v2021_04_30.CognitiveServicesAccounts
+namespace Pandora.Definitions.ResourceManager.Cognitive.v2021_04_30.CognitiveServicesAccounts;
+
+[ConstantType(ConstantTypeAttribute.ConstantType.String)]
+internal enum ProvisioningStateConstant
 {
-    [ConstantType(ConstantTypeAttribute.ConstantType.String)]
-    internal enum ProvisioningStateConstant
-    {
-        [Description("Accepted")]
-        Accepted,
+    [Description("Accepted")]
+    Accepted,
 
-        [Description("Creating")]
-        Creating,
+    [Description("Creating")]
+    Creating,
 
-        [Description("Deleting")]
-        Deleting,
+    [Description("Deleting")]
+    Deleting,
 
-        [Description("Failed")]
-        Failed,
+    [Description("Failed")]
+    Failed,
 
-        [Description("Moving")]
-        Moving,
+    [Description("Moving")]
+    Moving,
 
-        [Description("ResolvingDNS")]
-        ResolvingDNS,
+    [Description("ResolvingDNS")]
+    ResolvingDNS,
 
-        [Description("Succeeded")]
-        Succeeded,
-    }
+    [Description("Succeeded")]
+    Succeeded,
 }

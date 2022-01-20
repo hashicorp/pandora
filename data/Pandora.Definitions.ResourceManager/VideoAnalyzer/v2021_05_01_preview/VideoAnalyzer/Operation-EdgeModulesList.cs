@@ -6,33 +6,32 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.VideoAnalyzer.v2021_05_01_preview.VideoAnalyzer
+namespace Pandora.Definitions.ResourceManager.VideoAnalyzer.v2021_05_01_preview.VideoAnalyzer;
+
+internal class EdgeModulesListOperation : Operations.ListOperation
 {
-    internal class EdgeModulesListOperation : Operations.ListOperation
+    public override string? FieldContainingPaginationDetails() => "@nextLink";
+
+    public override ResourceID? ResourceId() => new VideoAnalyzerId();
+
+    public override Type NestedItemType() => typeof(EdgeModuleEntityModel);
+
+    public override Type? OptionsObject() => typeof(EdgeModulesListOperation.EdgeModulesListOptions);
+
+    public override string? UriSuffix() => "/edgeModules";
+
+    internal class EdgeModulesListOptions
     {
-        public override string? FieldContainingPaginationDetails() => "@nextLink";
+        [QueryStringName("$filter")]
+        [Optional]
+        public string Filter { get; set; }
 
-        public override ResourceID? ResourceId() => new VideoAnalyzerId();
+        [QueryStringName("$orderby")]
+        [Optional]
+        public string Orderby { get; set; }
 
-        public override Type NestedItemType() => typeof(EdgeModuleEntityModel);
-
-        public override Type? OptionsObject() => typeof(EdgeModulesListOperation.EdgeModulesListOptions);
-
-        public override string? UriSuffix() => "/edgeModules";
-
-        internal class EdgeModulesListOptions
-        {
-            [QueryStringName("$filter")]
-            [Optional]
-            public string Filter { get; set; }
-
-            [QueryStringName("$orderby")]
-            [Optional]
-            public string Orderby { get; set; }
-
-            [QueryStringName("$top")]
-            [Optional]
-            public int Top { get; set; }
-        }
+        [QueryStringName("$top")]
+        [Optional]
+        public int Top { get; set; }
     }
 }

@@ -6,21 +6,20 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.CostManagement.v2021_10_01.Exports
+namespace Pandora.Definitions.ResourceManager.CostManagement.v2021_10_01.Exports;
+
+internal class ExecuteOperation : Operations.PostOperation
 {
-    internal class ExecuteOperation : Operations.PostOperation
-    {
-        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-        public override Type? RequestObject() => null;
+    public override Type? RequestObject() => null;
 
-        public override ResourceID? ResourceId() => new ScopedExportId();
+    public override ResourceID? ResourceId() => new ScopedExportId();
 
-        public override string? UriSuffix() => "/run";
+    public override string? UriSuffix() => "/run";
 
 
-    }
 }

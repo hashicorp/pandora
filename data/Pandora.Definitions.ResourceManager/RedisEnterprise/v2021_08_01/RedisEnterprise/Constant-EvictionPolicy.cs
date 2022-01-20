@@ -1,33 +1,32 @@
 using Pandora.Definitions.Attributes;
 using System.ComponentModel;
 
-namespace Pandora.Definitions.ResourceManager.RedisEnterprise.v2021_08_01.RedisEnterprise
+namespace Pandora.Definitions.ResourceManager.RedisEnterprise.v2021_08_01.RedisEnterprise;
+
+[ConstantType(ConstantTypeAttribute.ConstantType.String)]
+internal enum EvictionPolicyConstant
 {
-    [ConstantType(ConstantTypeAttribute.ConstantType.String)]
-    internal enum EvictionPolicyConstant
-    {
-        [Description("AllKeysLFU")]
-        AllKeysLFU,
+    [Description("AllKeysLFU")]
+    AllKeysLFU,
 
-        [Description("AllKeysLRU")]
-        AllKeysLRU,
+    [Description("AllKeysLRU")]
+    AllKeysLRU,
 
-        [Description("AllKeysRandom")]
-        AllKeysRandom,
+    [Description("AllKeysRandom")]
+    AllKeysRandom,
 
-        [Description("NoEviction")]
-        NoEviction,
+    [Description("NoEviction")]
+    NoEviction,
 
-        [Description("VolatileLFU")]
-        VolatileLFU,
+    [Description("VolatileLFU")]
+    VolatileLFU,
 
-        [Description("VolatileLRU")]
-        VolatileLRU,
+    [Description("VolatileLRU")]
+    VolatileLRU,
 
-        [Description("VolatileRandom")]
-        VolatileRandom,
+    [Description("VolatileRandom")]
+    VolatileRandom,
 
-        [Description("VolatileTTL")]
-        VolatileTTL,
-    }
+    [Description("VolatileTTL")]
+    VolatileTTL,
 }

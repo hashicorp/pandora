@@ -5,13 +5,12 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.PostgreSqlHsc.v2020_10_05_privatepreview.Roles
-{
+namespace Pandora.Definitions.ResourceManager.PostgreSqlHsc.v2020_10_05_privatepreview.Roles;
 
-    internal class RolePropertiesModel
-    {
-        [JsonPropertyName("password")]
-        [Required]
-        public string Password { get; set; }
-    }
+
+internal class RolePropertiesModel
+{
+    [JsonPropertyName("password")]
+    [Required]
+    public string Password { get; set; }
 }

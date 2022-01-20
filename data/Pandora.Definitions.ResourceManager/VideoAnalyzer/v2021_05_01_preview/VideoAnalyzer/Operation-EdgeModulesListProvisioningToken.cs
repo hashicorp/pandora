@@ -6,23 +6,22 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.VideoAnalyzer.v2021_05_01_preview.VideoAnalyzer
+namespace Pandora.Definitions.ResourceManager.VideoAnalyzer.v2021_05_01_preview.VideoAnalyzer;
+
+internal class EdgeModulesListProvisioningTokenOperation : Operations.PostOperation
 {
-    internal class EdgeModulesListProvisioningTokenOperation : Operations.PostOperation
-    {
-        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-        public override Type? RequestObject() => typeof(ListProvisioningTokenInputModel);
+    public override Type? RequestObject() => typeof(ListProvisioningTokenInputModel);
 
-        public override ResourceID? ResourceId() => new EdgeModuleId();
+    public override ResourceID? ResourceId() => new EdgeModuleId();
 
-        public override Type? ResponseObject() => typeof(EdgeModuleProvisioningTokenModel);
+    public override Type? ResponseObject() => typeof(EdgeModuleProvisioningTokenModel);
 
-        public override string? UriSuffix() => "/listProvisioningToken";
+    public override string? UriSuffix() => "/listProvisioningToken";
 
 
-    }
 }

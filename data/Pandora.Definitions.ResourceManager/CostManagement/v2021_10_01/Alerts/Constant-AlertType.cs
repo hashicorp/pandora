@@ -1,30 +1,29 @@
 using Pandora.Definitions.Attributes;
 using System.ComponentModel;
 
-namespace Pandora.Definitions.ResourceManager.CostManagement.v2021_10_01.Alerts
+namespace Pandora.Definitions.ResourceManager.CostManagement.v2021_10_01.Alerts;
+
+[ConstantType(ConstantTypeAttribute.ConstantType.String)]
+internal enum AlertTypeConstant
 {
-    [ConstantType(ConstantTypeAttribute.ConstantType.String)]
-    internal enum AlertTypeConstant
-    {
-        [Description("Budget")]
-        Budget,
+    [Description("Budget")]
+    Budget,
 
-        [Description("BudgetForecast")]
-        BudgetForecast,
+    [Description("BudgetForecast")]
+    BudgetForecast,
 
-        [Description("Credit")]
-        Credit,
+    [Description("Credit")]
+    Credit,
 
-        [Description("General")]
-        General,
+    [Description("General")]
+    General,
 
-        [Description("Invoice")]
-        Invoice,
+    [Description("Invoice")]
+    Invoice,
 
-        [Description("Quota")]
-        Quota,
+    [Description("Quota")]
+    Quota,
 
-        [Description("xCloud")]
-        XCloud,
-    }
+    [Description("xCloud")]
+    XCloud,
 }

@@ -6,23 +6,22 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.RedisEnterprise.v2021_08_01.PrivateEndpointConnections
+namespace Pandora.Definitions.ResourceManager.RedisEnterprise.v2021_08_01.PrivateEndpointConnections;
+
+internal class PutOperation : Operations.PutOperation
 {
-    internal class PutOperation : Operations.PutOperation
-    {
-        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Created,
         };
 
-        public override bool LongRunning() => true;
+    public override bool LongRunning() => true;
 
-        public override Type? RequestObject() => typeof(PrivateEndpointConnectionModel);
+    public override Type? RequestObject() => typeof(PrivateEndpointConnectionModel);
 
-        public override ResourceID? ResourceId() => new PrivateEndpointConnectionId();
+    public override ResourceID? ResourceId() => new PrivateEndpointConnectionId();
 
-        public override Type? ResponseObject() => typeof(PrivateEndpointConnectionModel);
+    public override Type? ResponseObject() => typeof(PrivateEndpointConnectionModel);
 
 
-    }
 }

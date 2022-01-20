@@ -5,28 +5,27 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.ChaosStudio.v2021_09_15_preview.TargetTypes
+namespace Pandora.Definitions.ResourceManager.ChaosStudio.v2021_09_15_preview.TargetTypes;
+
+
+internal class TargetTypeModel
 {
+    [JsonPropertyName("id")]
+    public string? Id { get; set; }
 
-    internal class TargetTypeModel
-    {
-        [JsonPropertyName("id")]
-        public string? Id { get; set; }
+    [JsonPropertyName("location")]
+    public CustomTypes.Location? Location { get; set; }
 
-        [JsonPropertyName("location")]
-        public CustomTypes.Location? Location { get; set; }
+    [JsonPropertyName("name")]
+    public string? Name { get; set; }
 
-        [JsonPropertyName("name")]
-        public string? Name { get; set; }
+    [JsonPropertyName("properties")]
+    [Required]
+    public TargetTypePropertiesModel Properties { get; set; }
 
-        [JsonPropertyName("properties")]
-        [Required]
-        public TargetTypePropertiesModel Properties { get; set; }
+    [JsonPropertyName("systemData")]
+    public SystemDataModel? SystemData { get; set; }
 
-        [JsonPropertyName("systemData")]
-        public SystemDataModel? SystemData { get; set; }
-
-        [JsonPropertyName("type")]
-        public string? Type { get; set; }
-    }
+    [JsonPropertyName("type")]
+    public string? Type { get; set; }
 }

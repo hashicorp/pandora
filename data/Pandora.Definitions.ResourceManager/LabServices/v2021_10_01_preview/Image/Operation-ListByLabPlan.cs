@@ -6,18 +6,17 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.LabServices.v2021_10_01_preview.Image
+namespace Pandora.Definitions.ResourceManager.LabServices.v2021_10_01_preview.Image;
+
+internal class ListByLabPlanOperation : Operations.ListOperation
 {
-    internal class ListByLabPlanOperation : Operations.ListOperation
-    {
-        public override string? FieldContainingPaginationDetails() => "nextLink";
+    public override string? FieldContainingPaginationDetails() => "nextLink";
 
-        public override ResourceID? ResourceId() => new LabPlanId();
+    public override ResourceID? ResourceId() => new LabPlanId();
 
-        public override Type NestedItemType() => typeof(ImageModel);
+    public override Type NestedItemType() => typeof(ImageModel);
 
-        public override string? UriSuffix() => "/images";
+    public override string? UriSuffix() => "/images";
 
 
-    }
 }

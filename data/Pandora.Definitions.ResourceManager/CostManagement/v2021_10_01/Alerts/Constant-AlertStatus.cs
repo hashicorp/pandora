@@ -1,24 +1,23 @@
 using Pandora.Definitions.Attributes;
 using System.ComponentModel;
 
-namespace Pandora.Definitions.ResourceManager.CostManagement.v2021_10_01.Alerts
+namespace Pandora.Definitions.ResourceManager.CostManagement.v2021_10_01.Alerts;
+
+[ConstantType(ConstantTypeAttribute.ConstantType.String)]
+internal enum AlertStatusConstant
 {
-    [ConstantType(ConstantTypeAttribute.ConstantType.String)]
-    internal enum AlertStatusConstant
-    {
-        [Description("Active")]
-        Active,
+    [Description("Active")]
+    Active,
 
-        [Description("Dismissed")]
-        Dismissed,
+    [Description("Dismissed")]
+    Dismissed,
 
-        [Description("None")]
-        None,
+    [Description("None")]
+    None,
 
-        [Description("Overridden")]
-        Overridden,
+    [Description("Overridden")]
+    Overridden,
 
-        [Description("Resolved")]
-        Resolved,
-    }
+    [Description("Resolved")]
+    Resolved,
 }

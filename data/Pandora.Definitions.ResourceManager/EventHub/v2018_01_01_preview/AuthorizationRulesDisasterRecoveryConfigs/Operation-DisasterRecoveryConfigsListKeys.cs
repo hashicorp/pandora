@@ -6,23 +6,22 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.AuthorizationRulesDisasterRecoveryConfigs
+namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.AuthorizationRulesDisasterRecoveryConfigs;
+
+internal class DisasterRecoveryConfigsListKeysOperation : Operations.PostOperation
 {
-    internal class DisasterRecoveryConfigsListKeysOperation : Operations.PostOperation
-    {
-        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-        public override Type? RequestObject() => null;
+    public override Type? RequestObject() => null;
 
-        public override ResourceID? ResourceId() => new DisasterRecoveryConfigAuthorizationRuleId();
+    public override ResourceID? ResourceId() => new DisasterRecoveryConfigAuthorizationRuleId();
 
-        public override Type? ResponseObject() => typeof(AccessKeysModel);
+    public override Type? ResponseObject() => typeof(AccessKeysModel);
 
-        public override string? UriSuffix() => "/listKeys";
+    public override string? UriSuffix() => "/listKeys";
 
 
-    }
 }

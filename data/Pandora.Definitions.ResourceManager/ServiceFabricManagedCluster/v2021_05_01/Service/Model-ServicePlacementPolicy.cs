@@ -5,14 +5,13 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.ServiceFabricManagedCluster.v2021_05_01.Service
-{
+namespace Pandora.Definitions.ResourceManager.ServiceFabricManagedCluster.v2021_05_01.Service;
 
-    internal abstract class ServicePlacementPolicyModel
-    {
-        [JsonPropertyName("type")]
-        [ProvidesTypeHint]
-        [Required]
-        public ServicePlacementPolicyTypeConstant Type { get; set; }
-    }
+
+internal abstract class ServicePlacementPolicyModel
+{
+    [JsonPropertyName("type")]
+    [ProvidesTypeHint]
+    [Required]
+    public ServicePlacementPolicyTypeConstant Type { get; set; }
 }

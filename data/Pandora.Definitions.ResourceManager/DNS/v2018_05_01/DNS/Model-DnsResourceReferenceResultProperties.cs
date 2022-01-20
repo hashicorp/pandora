@@ -5,12 +5,11 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.DNS.v2018_05_01.DNS
-{
+namespace Pandora.Definitions.ResourceManager.DNS.v2018_05_01.DNS;
 
-    internal class DnsResourceReferenceResultPropertiesModel
-    {
-        [JsonPropertyName("dnsResourceReferences")]
-        public List<DnsResourceReferenceModel>? DnsResourceReferences { get; set; }
-    }
+
+internal class DnsResourceReferenceResultPropertiesModel
+{
+    [JsonPropertyName("dnsResourceReferences")]
+    public List<DnsResourceReferenceModel>? DnsResourceReferences { get; set; }
 }

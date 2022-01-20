@@ -6,18 +6,17 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.StoragePool.v2021_08_01.IscsiTargets
+namespace Pandora.Definitions.ResourceManager.StoragePool.v2021_08_01.IscsiTargets;
+
+internal class CreateOrUpdateOperation : Operations.PutOperation
 {
-    internal class CreateOrUpdateOperation : Operations.PutOperation
-    {
-        public override bool LongRunning() => true;
+    public override bool LongRunning() => true;
 
-        public override Type? RequestObject() => typeof(IscsiTargetCreateModel);
+    public override Type? RequestObject() => typeof(IscsiTargetCreateModel);
 
-        public override ResourceID? ResourceId() => new IscsiTargetId();
+    public override ResourceID? ResourceId() => new IscsiTargetId();
 
-        public override Type? ResponseObject() => typeof(IscsiTargetModel);
+    public override Type? ResponseObject() => typeof(IscsiTargetModel);
 
 
-    }
 }

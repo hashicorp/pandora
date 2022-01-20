@@ -6,18 +6,17 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.StoragePool.v2021_08_01.DiskPools
+namespace Pandora.Definitions.ResourceManager.StoragePool.v2021_08_01.DiskPools;
+
+internal class ListByResourceGroupOperation : Operations.ListOperation
 {
-    internal class ListByResourceGroupOperation : Operations.ListOperation
-    {
-        public override string? FieldContainingPaginationDetails() => "nextLink";
+    public override string? FieldContainingPaginationDetails() => "nextLink";
 
-        public override ResourceID? ResourceId() => new ResourceGroupId();
+    public override ResourceID? ResourceId() => new ResourceGroupId();
 
-        public override Type NestedItemType() => typeof(DiskPoolModel);
+    public override Type NestedItemType() => typeof(DiskPoolModel);
 
-        public override string? UriSuffix() => "/providers/Microsoft.StoragePool/diskPools";
+    public override string? UriSuffix() => "/providers/Microsoft.StoragePool/diskPools";
 
 
-    }
 }

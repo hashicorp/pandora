@@ -1,18 +1,17 @@
 using Pandora.Definitions.Attributes;
 using System.ComponentModel;
 
-namespace Pandora.Definitions.ResourceManager.EventHub.v2021_01_01_preview.DisasterRecoveryConfigs
+namespace Pandora.Definitions.ResourceManager.EventHub.v2021_01_01_preview.DisasterRecoveryConfigs;
+
+[ConstantType(ConstantTypeAttribute.ConstantType.String)]
+internal enum RoleDisasterRecoveryConstant
 {
-    [ConstantType(ConstantTypeAttribute.ConstantType.String)]
-    internal enum RoleDisasterRecoveryConstant
-    {
-        [Description("Primary")]
-        Primary,
+    [Description("Primary")]
+    Primary,
 
-        [Description("PrimaryNotReplicating")]
-        PrimaryNotReplicating,
+    [Description("PrimaryNotReplicating")]
+    PrimaryNotReplicating,
 
-        [Description("Secondary")]
-        Secondary,
-    }
+    [Description("Secondary")]
+    Secondary,
 }

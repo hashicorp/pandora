@@ -5,24 +5,23 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.DNS.v2018_05_01.RecordSets
+namespace Pandora.Definitions.ResourceManager.DNS.v2018_05_01.RecordSets;
+
+
+internal class RecordSetModel
 {
+    [JsonPropertyName("etag")]
+    public string? Etag { get; set; }
 
-    internal class RecordSetModel
-    {
-        [JsonPropertyName("etag")]
-        public string? Etag { get; set; }
+    [JsonPropertyName("id")]
+    public string? Id { get; set; }
 
-        [JsonPropertyName("id")]
-        public string? Id { get; set; }
+    [JsonPropertyName("name")]
+    public string? Name { get; set; }
 
-        [JsonPropertyName("name")]
-        public string? Name { get; set; }
+    [JsonPropertyName("properties")]
+    public RecordSetPropertiesModel? Properties { get; set; }
 
-        [JsonPropertyName("properties")]
-        public RecordSetPropertiesModel? Properties { get; set; }
-
-        [JsonPropertyName("type")]
-        public string? Type { get; set; }
-    }
+    [JsonPropertyName("type")]
+    public string? Type { get; set; }
 }

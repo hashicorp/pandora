@@ -6,18 +6,17 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.ServiceFabricManagedCluster.v2021_05_01.ApplicationTypeVersion
+namespace Pandora.Definitions.ResourceManager.ServiceFabricManagedCluster.v2021_05_01.ApplicationTypeVersion;
+
+internal class ListByApplicationTypesOperation : Operations.ListOperation
 {
-    internal class ListByApplicationTypesOperation : Operations.ListOperation
-    {
-        public override string? FieldContainingPaginationDetails() => "nextLink";
+    public override string? FieldContainingPaginationDetails() => "nextLink";
 
-        public override ResourceID? ResourceId() => new ApplicationTypeId();
+    public override ResourceID? ResourceId() => new ApplicationTypeId();
 
-        public override Type NestedItemType() => typeof(ApplicationTypeVersionResourceModel);
+    public override Type NestedItemType() => typeof(ApplicationTypeVersionResourceModel);
 
-        public override string? UriSuffix() => "/versions";
+    public override string? UriSuffix() => "/versions";
 
 
-    }
 }

@@ -5,17 +5,16 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.LabServices.v2021_10_01_preview.VirtualMachine
+namespace Pandora.Definitions.ResourceManager.LabServices.v2021_10_01_preview.VirtualMachine;
+
+
+internal class ResetPasswordBodyModel
 {
+    [JsonPropertyName("password")]
+    [Required]
+    public string Password { get; set; }
 
-    internal class ResetPasswordBodyModel
-    {
-        [JsonPropertyName("password")]
-        [Required]
-        public string Password { get; set; }
-
-        [JsonPropertyName("username")]
-        [Required]
-        public string Username { get; set; }
-    }
+    [JsonPropertyName("username")]
+    [Required]
+    public string Username { get; set; }
 }

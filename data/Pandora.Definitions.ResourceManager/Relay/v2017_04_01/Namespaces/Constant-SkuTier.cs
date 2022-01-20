@@ -1,12 +1,11 @@
 using Pandora.Definitions.Attributes;
 using System.ComponentModel;
 
-namespace Pandora.Definitions.ResourceManager.Relay.v2017_04_01.Namespaces
+namespace Pandora.Definitions.ResourceManager.Relay.v2017_04_01.Namespaces;
+
+[ConstantType(ConstantTypeAttribute.ConstantType.String)]
+internal enum SkuTierConstant
 {
-    [ConstantType(ConstantTypeAttribute.ConstantType.String)]
-    internal enum SkuTierConstant
-    {
-        [Description("Standard")]
-        Standard,
-    }
+    [Description("Standard")]
+    Standard,
 }

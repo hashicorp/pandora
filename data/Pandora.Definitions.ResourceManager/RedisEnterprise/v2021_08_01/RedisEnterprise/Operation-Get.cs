@@ -6,14 +6,13 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.RedisEnterprise.v2021_08_01.RedisEnterprise
+namespace Pandora.Definitions.ResourceManager.RedisEnterprise.v2021_08_01.RedisEnterprise;
+
+internal class GetOperation : Operations.GetOperation
 {
-    internal class GetOperation : Operations.GetOperation
-    {
-        public override ResourceID? ResourceId() => new RedisEnterpriseId();
+    public override ResourceID? ResourceId() => new RedisEnterpriseId();
 
-        public override Type? ResponseObject() => typeof(ClusterModel);
+    public override Type? ResponseObject() => typeof(ClusterModel);
 
 
-    }
 }

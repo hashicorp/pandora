@@ -6,24 +6,23 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.DataBricks.v2021_04_01_preview.Workspaces
+namespace Pandora.Definitions.ResourceManager.DataBricks.v2021_04_01_preview.Workspaces;
+
+internal class UpdateOperation : Operations.PatchOperation
 {
-    internal class UpdateOperation : Operations.PatchOperation
-    {
-        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.OK,
         };
 
-        public override bool LongRunning() => true;
+    public override bool LongRunning() => true;
 
-        public override Type? RequestObject() => typeof(WorkspaceUpdateModel);
+    public override Type? RequestObject() => typeof(WorkspaceUpdateModel);
 
-        public override ResourceID? ResourceId() => new WorkspaceId();
+    public override ResourceID? ResourceId() => new WorkspaceId();
 
-        public override Type? ResponseObject() => typeof(WorkspaceModel);
+    public override Type? ResponseObject() => typeof(WorkspaceModel);
 
 
-    }
 }

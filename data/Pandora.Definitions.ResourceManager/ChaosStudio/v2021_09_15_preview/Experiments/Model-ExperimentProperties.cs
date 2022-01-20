@@ -5,22 +5,21 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.ChaosStudio.v2021_09_15_preview.Experiments
+namespace Pandora.Definitions.ResourceManager.ChaosStudio.v2021_09_15_preview.Experiments;
+
+
+internal class ExperimentPropertiesModel
 {
+    [MinItems(1)]
+    [JsonPropertyName("selectors")]
+    [Required]
+    public List<SelectorModel> Selectors { get; set; }
 
-    internal class ExperimentPropertiesModel
-    {
-        [MinItems(1)]
-        [JsonPropertyName("selectors")]
-        [Required]
-        public List<SelectorModel> Selectors { get; set; }
+    [JsonPropertyName("startOnCreation")]
+    public bool? StartOnCreation { get; set; }
 
-        [JsonPropertyName("startOnCreation")]
-        public bool? StartOnCreation { get; set; }
-
-        [MinItems(1)]
-        [JsonPropertyName("steps")]
-        [Required]
-        public List<StepModel> Steps { get; set; }
-    }
+    [MinItems(1)]
+    [JsonPropertyName("steps")]
+    [Required]
+    public List<StepModel> Steps { get; set; }
 }

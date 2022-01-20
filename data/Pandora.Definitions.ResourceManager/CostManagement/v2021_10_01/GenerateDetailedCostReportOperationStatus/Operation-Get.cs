@@ -6,14 +6,13 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.CostManagement.v2021_10_01.GenerateDetailedCostReportOperationStatus
+namespace Pandora.Definitions.ResourceManager.CostManagement.v2021_10_01.GenerateDetailedCostReportOperationStatus;
+
+internal class GetOperation : Operations.GetOperation
 {
-    internal class GetOperation : Operations.GetOperation
-    {
-        public override ResourceID? ResourceId() => new ScopedOperationStatuId();
+    public override ResourceID? ResourceId() => new ScopedOperationStatuId();
 
-        public override Type? ResponseObject() => typeof(GenerateDetailedCostReportOperationStatusesModel);
+    public override Type? ResponseObject() => typeof(GenerateDetailedCostReportOperationStatusesModel);
 
 
-    }
 }

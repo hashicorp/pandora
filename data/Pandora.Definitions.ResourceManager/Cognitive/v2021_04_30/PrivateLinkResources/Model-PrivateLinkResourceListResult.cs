@@ -5,12 +5,11 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.Cognitive.v2021_04_30.PrivateLinkResources
-{
+namespace Pandora.Definitions.ResourceManager.Cognitive.v2021_04_30.PrivateLinkResources;
 
-    internal class PrivateLinkResourceListResultModel
-    {
-        [JsonPropertyName("value")]
-        public List<PrivateLinkResourceModel>? Value { get; set; }
-    }
+
+internal class PrivateLinkResourceListResultModel
+{
+    [JsonPropertyName("value")]
+    public List<PrivateLinkResourceModel>? Value { get; set; }
 }

@@ -6,14 +6,13 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.FrontDoor.v2020_04_01.WebApplicationFirewallPolicies
+namespace Pandora.Definitions.ResourceManager.FrontDoor.v2020_04_01.WebApplicationFirewallPolicies;
+
+internal class PoliciesGetOperation : Operations.GetOperation
 {
-    internal class PoliciesGetOperation : Operations.GetOperation
-    {
-        public override ResourceID? ResourceId() => new FrontDoorWebApplicationFirewallPoliciesId();
+    public override ResourceID? ResourceId() => new FrontDoorWebApplicationFirewallPoliciesId();
 
-        public override Type? ResponseObject() => typeof(WebApplicationFirewallPolicyModel);
+    public override Type? ResponseObject() => typeof(WebApplicationFirewallPolicyModel);
 
 
-    }
 }

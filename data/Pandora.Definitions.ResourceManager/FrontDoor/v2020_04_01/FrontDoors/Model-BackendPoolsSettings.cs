@@ -5,15 +5,14 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.FrontDoor.v2020_04_01.FrontDoors
+namespace Pandora.Definitions.ResourceManager.FrontDoor.v2020_04_01.FrontDoors;
+
+
+internal class BackendPoolsSettingsModel
 {
+    [JsonPropertyName("enforceCertificateNameCheck")]
+    public EnforceCertificateNameCheckEnabledStateConstant? EnforceCertificateNameCheck { get; set; }
 
-    internal class BackendPoolsSettingsModel
-    {
-        [JsonPropertyName("enforceCertificateNameCheck")]
-        public EnforceCertificateNameCheckEnabledStateConstant? EnforceCertificateNameCheck { get; set; }
-
-        [JsonPropertyName("sendRecvTimeoutSeconds")]
-        public int? SendRecvTimeoutSeconds { get; set; }
-    }
+    [JsonPropertyName("sendRecvTimeoutSeconds")]
+    public int? SendRecvTimeoutSeconds { get; set; }
 }

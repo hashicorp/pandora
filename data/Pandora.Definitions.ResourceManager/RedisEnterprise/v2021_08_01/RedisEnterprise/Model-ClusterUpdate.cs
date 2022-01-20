@@ -5,18 +5,17 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.RedisEnterprise.v2021_08_01.RedisEnterprise
+namespace Pandora.Definitions.ResourceManager.RedisEnterprise.v2021_08_01.RedisEnterprise;
+
+
+internal class ClusterUpdateModel
 {
+    [JsonPropertyName("properties")]
+    public ClusterPropertiesModel? Properties { get; set; }
 
-    internal class ClusterUpdateModel
-    {
-        [JsonPropertyName("properties")]
-        public ClusterPropertiesModel? Properties { get; set; }
+    [JsonPropertyName("sku")]
+    public SkuModel? Sku { get; set; }
 
-        [JsonPropertyName("sku")]
-        public SkuModel? Sku { get; set; }
-
-        [JsonPropertyName("tags")]
-        public CustomTypes.Tags? Tags { get; set; }
-    }
+    [JsonPropertyName("tags")]
+    public CustomTypes.Tags? Tags { get; set; }
 }

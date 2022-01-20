@@ -5,13 +5,12 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.ServiceFabricManagedCluster.v2021_05_01.Service
+namespace Pandora.Definitions.ResourceManager.ServiceFabricManagedCluster.v2021_05_01.Service;
+
+[ValueForType("InvalidDomain")]
+internal class ServicePlacementInvalidDomainPolicyModel : ServicePlacementPolicyModel
 {
-    [ValueForType("InvalidDomain")]
-    internal class ServicePlacementInvalidDomainPolicyModel : ServicePlacementPolicyModel
-    {
-        [JsonPropertyName("domainName")]
-        [Required]
-        public string DomainName { get; set; }
-    }
+    [JsonPropertyName("domainName")]
+    [Required]
+    public string DomainName { get; set; }
 }

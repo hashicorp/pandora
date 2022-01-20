@@ -5,15 +5,14 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.NetworkRuleSets
+namespace Pandora.Definitions.ResourceManager.EventHub.v2018_01_01_preview.NetworkRuleSets;
+
+
+internal class NWRuleSetIpRulesModel
 {
+    [JsonPropertyName("action")]
+    public NetworkRuleIPActionConstant? Action { get; set; }
 
-    internal class NWRuleSetIpRulesModel
-    {
-        [JsonPropertyName("action")]
-        public NetworkRuleIPActionConstant? Action { get; set; }
-
-        [JsonPropertyName("ipMask")]
-        public string? IpMask { get; set; }
-    }
+    [JsonPropertyName("ipMask")]
+    public string? IpMask { get; set; }
 }

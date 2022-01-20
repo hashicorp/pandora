@@ -5,16 +5,15 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.CostManagement.v2021_10_01.Views
+namespace Pandora.Definitions.ResourceManager.CostManagement.v2021_10_01.Views;
+
+
+internal class ReportConfigSortingModel
 {
+    [JsonPropertyName("direction")]
+    public DirectionConstant? Direction { get; set; }
 
-    internal class ReportConfigSortingModel
-    {
-        [JsonPropertyName("direction")]
-        public DirectionConstant? Direction { get; set; }
-
-        [JsonPropertyName("name")]
-        [Required]
-        public string Name { get; set; }
-    }
+    [JsonPropertyName("name")]
+    [Required]
+    public string Name { get; set; }
 }

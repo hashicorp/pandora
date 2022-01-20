@@ -6,21 +6,20 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.ServiceFabricManagedCluster.v2021_05_01.Application
+namespace Pandora.Definitions.ResourceManager.ServiceFabricManagedCluster.v2021_05_01.Application;
+
+internal class UpdateOperation : Operations.PatchOperation
 {
-    internal class UpdateOperation : Operations.PatchOperation
-    {
-        public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-        public override Type? RequestObject() => typeof(ApplicationUpdateParametersModel);
+    public override Type? RequestObject() => typeof(ApplicationUpdateParametersModel);
 
-        public override ResourceID? ResourceId() => new ApplicationId();
+    public override ResourceID? ResourceId() => new ApplicationId();
 
-        public override Type? ResponseObject() => typeof(ApplicationResourceModel);
+    public override Type? ResponseObject() => typeof(ApplicationResourceModel);
 
 
-    }
 }

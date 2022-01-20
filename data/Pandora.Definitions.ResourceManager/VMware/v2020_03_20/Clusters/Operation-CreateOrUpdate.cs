@@ -6,18 +6,17 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace Pandora.Definitions.ResourceManager.VMware.v2020_03_20.Clusters
+namespace Pandora.Definitions.ResourceManager.VMware.v2020_03_20.Clusters;
+
+internal class CreateOrUpdateOperation : Operations.PutOperation
 {
-    internal class CreateOrUpdateOperation : Operations.PutOperation
-    {
-        public override bool LongRunning() => true;
+    public override bool LongRunning() => true;
 
-        public override Type? RequestObject() => typeof(ClusterModel);
+    public override Type? RequestObject() => typeof(ClusterModel);
 
-        public override ResourceID? ResourceId() => new ClusterId();
+    public override ResourceID? ResourceId() => new ClusterId();
 
-        public override Type? ResponseObject() => typeof(ClusterModel);
+    public override Type? ResponseObject() => typeof(ClusterModel);
 
 
-    }
 }

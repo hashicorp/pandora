@@ -1,16 +1,16 @@
 using System.Collections.Generic;
 using Pandora.Definitions.Interfaces;
 
-namespace Pandora.Definitions.ResourceManager.CostManagement.v2021_10_01.Query
+namespace Pandora.Definitions.ResourceManager.CostManagement.v2021_10_01.Query;
+
+internal class ExternalCloudProviderTypeId : ResourceID
 {
-    internal class ExternalCloudProviderTypeId : ResourceID
+    public string? CommonAlias => null;
+
+    public string ID => "/providers/Microsoft.CostManagement/{externalCloudProviderType}/{externalCloudProviderId}";
+
+    public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
-        public string? CommonAlias => null;
-
-        public string ID => "/providers/Microsoft.CostManagement/{externalCloudProviderType}/{externalCloudProviderId}";
-
-        public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
-        {
                 new()
                 {
                     Name = "staticProviders",
@@ -38,6 +38,5 @@ namespace Pandora.Definitions.ResourceManager.CostManagement.v2021_10_01.Query
                     Type = ResourceIDSegmentType.UserSpecified
                 },
 
-        };
-    }
+    };
 }

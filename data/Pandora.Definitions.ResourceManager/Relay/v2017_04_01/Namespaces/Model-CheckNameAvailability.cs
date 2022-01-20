@@ -5,13 +5,12 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
-namespace Pandora.Definitions.ResourceManager.Relay.v2017_04_01.Namespaces
-{
+namespace Pandora.Definitions.ResourceManager.Relay.v2017_04_01.Namespaces;
 
-    internal class CheckNameAvailabilityModel
-    {
-        [JsonPropertyName("name")]
-        [Required]
-        public string Name { get; set; }
-    }
+
+internal class CheckNameAvailabilityModel
+{
+    [JsonPropertyName("name")]
+    [Required]
+    public string Name { get; set; }
 }

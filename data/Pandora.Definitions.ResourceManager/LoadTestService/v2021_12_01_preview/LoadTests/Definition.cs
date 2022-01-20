@@ -1,19 +1,18 @@
 using System.Collections.Generic;
 using Pandora.Definitions.Interfaces;
 
-namespace Pandora.Definitions.ResourceManager.LoadTestService.v2021_12_01_preview.LoadTests
+namespace Pandora.Definitions.ResourceManager.LoadTestService.v2021_12_01_preview.LoadTests;
+
+internal class Definition : ResourceDefinition
 {
-    internal class Definition : ResourceDefinition
+    public string Name => "LoadTests";
+    public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
     {
-        public string Name => "LoadTests";
-        public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
-        {
-            new CreateOrUpdateOperation(),
-            new DeleteOperation(),
-            new GetOperation(),
-            new ListByResourceGroupOperation(),
-            new ListBySubscriptionOperation(),
-            new UpdateOperation(),
-        };
-    }
+        new CreateOrUpdateOperation(),
+        new DeleteOperation(),
+        new GetOperation(),
+        new ListByResourceGroupOperation(),
+        new ListBySubscriptionOperation(),
+        new UpdateOperation(),
+    };
 }
