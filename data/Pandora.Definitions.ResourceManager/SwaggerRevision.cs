@@ -1,3 +1,3 @@
 namespace Pandora.Definitions.ResourceManager;
 
-// Generated from Swagger revision "84c09261f588a7ad29cfb4b46ad7f038f7254275"
+// Generated from Swagger revision "1e7fa593a4daa868c7bf4fea7ddb9aa9b3feb126"
