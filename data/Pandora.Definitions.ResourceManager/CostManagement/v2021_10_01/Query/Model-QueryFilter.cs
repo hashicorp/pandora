@@ -14,8 +14,8 @@ internal class QueryFilterModel
     [JsonPropertyName("and")]
     public List<QueryFilterModel>? And { get; set; }
 
-    [JsonPropertyName("dimension")]
-    public QueryComparisonExpressionModel? Dimension { get; set; }
+    [JsonPropertyName("dimensions")]
+    public QueryComparisonExpressionModel? Dimensions { get; set; }
 
     [JsonPropertyName("not")]
     public QueryFilterModel? Not { get; set; }
@@ -24,6 +24,6 @@ internal class QueryFilterModel
     [JsonPropertyName("or")]
     public List<QueryFilterModel>? Or { get; set; }
 
-    [JsonPropertyName("tag")]
-    public QueryComparisonExpressionModel? Tag { get; set; }
+    [JsonPropertyName("tags")]
+    public QueryComparisonExpressionModel? Tags { get; set; }
 }
