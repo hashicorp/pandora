@@ -62,7 +62,7 @@ internal class EnvironmentId : ResourceID
                 {
                     Name = "environment",
                     Type = ResourceIDSegmentType.Constant,
-                    ConstantReference = typeof(EnvironmentConstant)
+                    ConstantReference = typeof(ManagedClusterVersionEnvironmentConstant)
                 },
 
     };
