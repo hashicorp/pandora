@@ -17,9 +17,6 @@ internal class ReportConfigFilterModel
     [JsonPropertyName("dimensions")]
     public ReportConfigComparisonExpressionModel? Dimensions { get; set; }
 
-    [JsonPropertyName("not")]
-    public ReportConfigFilterModel? Not { get; set; }
-
     [MinItems(2)]
     [JsonPropertyName("or")]
     public List<ReportConfigFilterModel>? Or { get; set; }
