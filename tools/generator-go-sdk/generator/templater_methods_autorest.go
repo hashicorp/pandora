@@ -50,10 +50,6 @@ func (c methodsAutoRestTemplater) methods(data ServiceGeneratorData) (*string, e
 
 	switch strings.ToUpper(c.operation.Method) {
 	case "DELETE":
-		if c.operation.RequestObject != nil {
-			// TODO: maybe implement this
-			return nil, fmt.Errorf("`DELETE` operations do not support Request objects at this time")
-		}
 		if c.operation.LongRunning {
 			return c.longRunningOperationTemplate(data)
 		}
