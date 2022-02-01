@@ -17,9 +17,6 @@ internal class QueryFilterModel
     [JsonPropertyName("dimensions")]
     public QueryComparisonExpressionModel? Dimensions { get; set; }
 
-    [JsonPropertyName("not")]
-    public QueryFilterModel? Not { get; set; }
-
     [MinItems(2)]
     [JsonPropertyName("or")]
     public List<QueryFilterModel>? Or { get; set; }
