@@ -11,5 +11,5 @@ namespace Pandora.Definitions.ResourceManager.CostManagement.v2021_10_01.Generat
 internal class StatusModel
 {
     [JsonPropertyName("status")]
-    public OperationStatusTypeConstant? Status { get; set; }
+    public ReportOperationStatusTypeConstant? Status { get; set; }
 }
