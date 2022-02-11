@@ -15,6 +15,7 @@ public partial class Definition : ApiVersionDefinition
         new Forecast.Definition(),
         new GenerateDetailedCostReportOperationStatus.Definition(),
         new Query.Definition(),
+        new ReservedInstances.Definition(),
         new UsageDetails.Definition(),
         new Views.Definition(),
     };
