@@ -52,7 +52,7 @@ service "frontdoor" {
   available = ["2020-04-01", "2020-05-01"]
 }
 service "hybridkubernetes" {
-  name      = "Kubernetes"
+  name      = "HybridKubernetes"
   available = ["2021-10-01"]
 }
 service "labservices" {
