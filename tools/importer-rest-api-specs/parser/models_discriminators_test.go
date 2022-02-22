@@ -1,6 +1,7 @@
 package parser
 
 import (
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"testing"
 )
 
@@ -107,6 +108,128 @@ func TestParseDiscriminatorsTopLevel(t *testing.T) {
 	}
 	if *dog.TypeHintValue != "dog" {
 		t.Fatalf("dog.TypeHintValue should be `dog` but it was %q", *dog.TypeHintValue)
+	}
+}
+
+func TestParseDiscriminatorsWithinArray(t *testing.T) {
+	result, err := ParseSwaggerFileForTesting(t, "model_discriminators_within_array.json")
+	if err != nil {
+		t.Fatalf("parsing: %+v", err)
+	}
+	if result == nil {
+		t.Fatal("result was nil")
+	}
+	if len(result.Resources) != 1 {
+		t.Fatalf("expected 1 resource but got %d", len(result.Resources))
+	}
+
+	resource, ok := result.Resources["Discriminator"]
+	if !ok {
+		t.Fatal("the Resource 'Discriminator' was not found")
+	}
+
+	// sanity checking
+	if len(resource.Constants) != 0 {
+		t.Fatalf("expected no constants but got %d", len(resource.Constants))
+	}
+	if len(resource.Models) != 4 {
+		t.Fatalf("expected 4 models but got %d", len(resource.Models))
+	}
+	if len(resource.Operations) != 1 {
+		t.Fatalf("expected 1 operation but got %d", len(resource.Operations))
+	}
+	if len(resource.ResourceIds) != 1 {
+		t.Fatalf("expected 1 Resource ID but got %d", len(resource.ResourceIds))
+	}
+
+	wrapper, ok := resource.Models["ExampleWrapper"]
+	if !ok {
+		t.Fatalf("the Model `ExampleWrapper` was not found")
+	}
+	if wrapper.ParentTypeName != nil {
+		t.Fatalf("wrapper.ParentTypeName should be nil but was %q", *wrapper.ParentTypeName)
+	}
+	if wrapper.TypeHintIn != nil {
+		t.Fatalf("wrapper.TypeHintIn should be nil but was %q", *wrapper.TypeHintIn)
+	}
+	if wrapper.TypeHintValue != nil {
+		t.Fatalf("wrapper.TypeHintValue should be nil but was %q", *wrapper.TypeHintValue)
+	}
+	if len(wrapper.Fields) != 1 {
+		t.Fatalf("wrapper should have 1 field but got %d", len(wrapper.Fields))
+	}
+	biologicalEntitiesField, ok := wrapper.Fields["BiologicalEntities"]
+	if !ok {
+		t.Fatalf("expected wrapper to have a field 'BiologicalEntities' but didn't find it")
+	}
+	if biologicalEntitiesField.ObjectDefinition.Type != models.ObjectDefinitionList {
+		t.Fatalf("expected 'BiologicalEntities' to be a List but got %q", string(biologicalEntitiesField.ObjectDefinition.Type))
+	}
+	if biologicalEntitiesField.ObjectDefinition.NestedItem.Type != models.ObjectDefinitionReference {
+		t.Fatalf("expected 'BiologicalEntities' to be a List of an Reference but got %q", string(biologicalEntitiesField.ObjectDefinition.NestedItem.Type))
+	}
+	if *biologicalEntitiesField.ObjectDefinition.NestedItem.ReferenceName != "BiologicalEntity" {
+		t.Fatalf("expected 'BiologicalEntities' to be a List of BiologicalEntity but got %q", *biologicalEntitiesField.ObjectDefinition.NestedItem.ReferenceName)
+	}
+
+	entity, ok := resource.Models["BiologicalEntity"]
+	if !ok {
+		t.Fatalf("the Model `BiologicalEntity` was not found")
+	}
+	if entity.ParentTypeName != nil {
+		t.Fatalf("entity.ParentTypeName should be nil but was %q", *entity.ParentTypeName)
+	}
+	if entity.TypeHintIn == nil {
+		t.Fatal("entity.TypeHintIn should have a value but it doesn't")
+	}
+	if entity.TypeHintValue != nil {
+		t.Fatalf("entity.TypeHintValue should be nil but was %q", *entity.TypeHintValue)
+	}
+
+	cat, ok := resource.Models["Cat"]
+	if !ok {
+		t.Fatalf("the Model `Cat` was not found")
+	}
+	if cat.ParentTypeName == nil {
+		t.Fatal("cat.ParentTypeName should be 'BiologicalEntity' but was nil")
+	}
+	if *cat.ParentTypeName != "BiologicalEntity" {
+		t.Fatalf("cat.ParentTypeName should be 'BiologicalEntity' but was %q", *cat.ParentTypeName)
+	}
+	if *cat.TypeHintIn != "TypeName" {
+		t.Fatalf("cat.TypeHintIn should be 'TypeName' but got %q", *cat.TypeHintIn)
+	}
+	if cat.TypeHintValue == nil {
+		t.Fatal("cat.TypeHintValue should have a value but it was nil")
+	}
+	if *cat.TypeHintValue != "cat" {
+		t.Fatalf("cat.TypeHintValue should be 'cat' but got %q", *cat.TypeHintValue)
+	}
+	if len(cat.Fields) != 2 {
+		t.Fatalf("cat should have 2 fields but got %d", len(cat.Fields))
+	}
+
+	human, ok := resource.Models["Human"]
+	if !ok {
+		t.Fatalf("the Model `Human` was not found")
+	}
+	if human.ParentTypeName == nil {
+		t.Fatal("human.ParentTypeName should be 'BiologicalEntity' but was nil")
+	}
+	if *human.ParentTypeName != "BiologicalEntity" {
+		t.Fatalf("human.ParentTypeName should be 'BiologicalEntity' but was %q", *human.ParentTypeName)
+	}
+	if *human.TypeHintIn != "TypeName" {
+		t.Fatalf("human.TypeHintIn should be 'TypeName' but got %q", *human.TypeHintIn)
+	}
+	if human.TypeHintValue == nil {
+		t.Fatal("human.TypeHintValue should have a value but it was nil")
+	}
+	if *human.TypeHintValue != "human" {
+		t.Fatalf("human.TypeHintValue should be 'human' but got %q", *human.TypeHintValue)
+	}
+	if len(human.Fields) != 3 {
+		t.Fatalf("human should have 2 fields but got %d", len(human.Fields))
 	}
 }
 
