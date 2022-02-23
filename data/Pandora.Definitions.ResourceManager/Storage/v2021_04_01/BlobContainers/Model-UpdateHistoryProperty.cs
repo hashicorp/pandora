@@ -1,0 +1,31 @@
+using System;
+using System.Collections.Generic;
+using System.Text.Json.Serialization;
+using Pandora.Definitions.Attributes;
+using Pandora.Definitions.Attributes.Validation;
+using Pandora.Definitions.CustomTypes;
+
+namespace Pandora.Definitions.ResourceManager.Storage.v2021_04_01.BlobContainers;
+
+
+internal class UpdateHistoryPropertyModel
+{
+    [JsonPropertyName("immutabilityPeriodSinceCreationInDays")]
+    public int? ImmutabilityPeriodSinceCreationInDays { get; set; }
+
+    [JsonPropertyName("objectIdentifier")]
+    public string? ObjectIdentifier { get; set; }
+
+    [JsonPropertyName("tenantId")]
+    public string? TenantId { get; set; }
+
+    [DateFormat(DateFormatAttribute.DateFormat.RFC3339)]
+    [JsonPropertyName("timestamp")]
+    public DateTime? Timestamp { get; set; }
+
+    [JsonPropertyName("update")]
+    public ImmutabilityPolicyUpdateTypeConstant? Update { get; set; }
+
+    [JsonPropertyName("upn")]
+    public string? Upn { get; set; }
+}
