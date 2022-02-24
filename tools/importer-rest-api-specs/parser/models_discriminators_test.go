@@ -1,8 +1,9 @@
 package parser
 
 import (
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"testing"
+
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
 func TestParseDiscriminatorsTopLevel(t *testing.T) {
