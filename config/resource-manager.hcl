@@ -43,6 +43,10 @@ service "dns" {
   name      = "DNS"
   available = ["2018-05-01"]
 }
+service "elastic" {
+  name      = "Elastic"
+  available = ["2020-07-01"]
+}
 service "eventhub" {
   name      = "EventHub"
   available = ["2017-04-01", "2018-01-01-preview", "2021-01-01-preview"]
