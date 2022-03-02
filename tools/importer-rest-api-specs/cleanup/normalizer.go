@@ -51,7 +51,9 @@ func RemoveInvalidCharacters(input string, titleCaseSegments bool) string {
 func NormalizeConstantKey(input string) string {
 	output := input
 	output = StringifyNumberInput(output)
-	output = RenameMultiplesOfZero(output)
+	if !strings.Contains(output, "Point") {
+		output = RenameMultiplesOfZero(output)
+	}
 
 	output = strings.ReplaceAll(output, "*", "Any")
 	// TODO: add more if we find them
@@ -506,7 +508,7 @@ func RenameMultiplesOfZero(input string) string {
 	if v, ok := vals[z]; ok {
 		switch z {
 		case 4:
-			return strings.Replace(input, strings.Repeat("Zero", z), "Zero" + v, 1)
+			return strings.Replace(input, strings.Repeat("Zero", z), "Zero"+v, 1)
 		default:
 			return strings.Replace(input, strings.Repeat("Zero", z), v, 1)
 		}
