@@ -14,8 +14,8 @@ If you've found a new bug or something that didn't generate as expected - please
 
 The following is required for generating a go SDK
 
-* Golang 1.16.x
-* .NET 5.x
+* Golang 1.17.x
+* .NET 6.x
 
 ## Step 1: Importing Swagger Data into Pandora's Data Format
 
