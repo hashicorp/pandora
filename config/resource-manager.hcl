@@ -23,6 +23,10 @@ service "communication" {
   name      = "Communication"
   available = ["2020-08-20"]
 }
+service "confidentialledger" {
+  name      = "ConfidentialLedger"
+  available = ["2021-05-13-preview"]
+}
 service "cost-management" {
   name      = "CostManagement"
   available = ["2021-10-01"]
