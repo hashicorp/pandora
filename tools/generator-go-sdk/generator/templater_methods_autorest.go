@@ -695,6 +695,9 @@ func (c methodsAutoRestTemplater) optionsStruct(data ServiceGeneratorData) (*str
 	}
 
 	optionsStructName := fmt.Sprintf("%sOperationOptions", c.operationName)
+	if _, hasExisting := data.models[optionsStructName]; hasExisting {
+		return nil, fmt.Errorf("existing model %q conflicts with options model for %q", optionsStructName, c.operationName)
+	}
 
 	properties := make([]string, 0)
 	assignments := make([]string, 0)
