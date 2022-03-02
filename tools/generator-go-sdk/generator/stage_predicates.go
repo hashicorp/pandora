@@ -56,7 +56,12 @@ func (p predicateTemplater) template(data ServiceGeneratorData) (*string, error)
 	output := make([]string, 0)
 	for _, modelName := range p.sortedModelNames {
 		model := data.models[modelName]
-		templated, err := p.templateForModel(modelName, model)
+		predicateStructName := fmt.Sprintf("%sOperationPredicate", modelName)
+		if _, hasExisting := data.models[predicateStructName]; hasExisting {
+			return nil, fmt.Errorf("existing model %q conflicts with predicate model for %q", predicateStructName, modelName)
+		}
+
+		templated, err := p.templateForModel(predicateStructName, modelName, model)
 		if err != nil {
 			return nil, err
 		}
@@ -70,7 +75,7 @@ func (p predicateTemplater) template(data ServiceGeneratorData) (*string, error)
 	return &template, nil
 }
 
-func (p predicateTemplater) templateForModel(name string, model resourcemanager.ModelDetails) (*string, error) {
+func (p predicateTemplater) templateForModel(predicateStructName string, name string, model resourcemanager.ModelDetails) (*string, error) {
 	fieldNames := make([]string, 0)
 
 	// unsupported at this time - see https://github.com/hashicorp/pandora/issues/164
@@ -127,15 +132,15 @@ func (p predicateTemplater) templateForModel(name string, model resourcemanager.
 	}
 
 	template := fmt.Sprintf(` 
-type %[1]sPredicate struct {
-%[2]s
+type %[1]s struct {
+%[3]s
 }
 
-func (p %[1]sPredicate) Matches(input %[1]s) bool {
-%[3]s
+func (p %[1]s) Matches(input %[2]s) bool {
+%[4]s
 
 	return true
 }
-`, name, strings.Join(structLines, "\n"), strings.Join(matchLines, "\n"))
+`, predicateStructName, name, strings.Join(structLines, "\n"), strings.Join(matchLines, "\n"))
 	return &template, nil
 }

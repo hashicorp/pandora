@@ -240,11 +240,11 @@ func (c %[1]s) %[2]s(ctx context.Context %[4]s) (resp %[2]sOperationResponse, er
 
 // %[2]sComplete retrieves all of the results into a single object
 func (c %[1]s) %[2]sComplete(ctx context.Context %[4]s) (%[2]sCompleteResult, error) {
-	return c.%[2]sCompleteMatchingPredicate(ctx %[8]s, %[10]sPredicate{})
+	return c.%[2]sCompleteMatchingPredicate(ctx %[8]s, %[10]sOperationPredicate{})
 }
 
 // %[2]sCompleteMatchingPredicate retrieves all of the results and then applied the predicate
-func (c %[1]s) %[2]sCompleteMatchingPredicate(ctx context.Context %[4]s, predicate %[10]sPredicate) (resp %[2]sCompleteResult, err error) {
+func (c %[1]s) %[2]sCompleteMatchingPredicate(ctx context.Context %[4]s, predicate %[10]sOperationPredicate) (resp %[2]sCompleteResult, err error) {
 	items := make([]%[10]s, 0)
 
 	page, err := c.%[2]s(ctx %[8]s)
