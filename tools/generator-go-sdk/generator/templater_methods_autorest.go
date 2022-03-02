@@ -135,7 +135,7 @@ func (c methodsAutoRestTemplater) immediateOperationTemplate(data ServiceGenerat
 		return nil, fmt.Errorf("building arguments for immediate operation: %+v", err)
 	}
 	argumentsCode := c.argumentsTemplate()
-	optionsStruct, err := c.optionsStruct()
+	optionsStruct, err := c.optionsStruct(data)
 	if err != nil {
 		return nil, fmt.Errorf("building options struct: %+v", err)
 	}
@@ -191,7 +191,7 @@ func (c methodsAutoRestTemplater) listOperationTemplate(data ServiceGeneratorDat
 		return nil, fmt.Errorf("building arguments for list operation: %+v", err)
 	}
 	argumentsCode := c.argumentsTemplate()
-	optionsStruct, err := c.optionsStruct()
+	optionsStruct, err := c.optionsStruct(data)
 	if err != nil {
 		return nil, fmt.Errorf("building options struct: %+v", err)
 	}
@@ -295,7 +295,7 @@ func (c methodsAutoRestTemplater) longRunningOperationTemplate(data ServiceGener
 		return nil, fmt.Errorf("building arguments for long running template: %+v", err)
 	}
 	argumentsCode := c.argumentsTemplate()
-	optionsStruct, err := c.optionsStruct()
+	optionsStruct, err := c.optionsStruct(data)
 	if err != nil {
 		return nil, fmt.Errorf("building options struct: %+v", err)
 	}
@@ -390,7 +390,7 @@ func (c methodsAutoRestTemplater) argumentsTemplateForMethod(data ServiceGenerat
 		arguments = append(arguments, fmt.Sprintf("input %s", *typeName))
 	}
 	if len(c.operation.Options) > 0 {
-		arguments = append(arguments, fmt.Sprintf("options %sOptions", c.operationName))
+		arguments = append(arguments, fmt.Sprintf("options %sOperationOptions", c.operationName))
 	}
 
 	out := fmt.Sprintf(", %s", strings.Join(arguments, ", "))
@@ -688,11 +688,13 @@ func (c %[1]s) senderFor%[2]s(ctx context.Context, req *http.Request) (future %[
 `, data.serviceClientName, c.operationName)
 }
 
-func (c methodsAutoRestTemplater) optionsStruct() (*string, error) {
+func (c methodsAutoRestTemplater) optionsStruct(data ServiceGeneratorData) (*string, error) {
 	if len(c.operation.Options) == 0 {
 		out := ""
 		return &out, nil
 	}
+
+	optionsStructName := fmt.Sprintf("%sOperationOptions", c.operationName)
 
 	properties := make([]string, 0)
 	assignments := make([]string, 0)
@@ -714,19 +716,19 @@ func (c methodsAutoRestTemplater) optionsStruct() (*string, error) {
 	sort.Strings(assignments)
 
 	out := fmt.Sprintf(`
-type %[1]sOptions struct {
+type %[1]s struct {
 %[2]s
 }
 
-func Default%[1]sOptions() %[1]sOptions {
-	return %[1]sOptions{}
+func Default%[1]s() %[1]s {
+	return %[1]s{}
 }
 
-func (o %[1]sOptions) toQueryString() map[string]interface{} {
+func (o %[1]s) toQueryString() map[string]interface{} {
 	out := make(map[string]interface{})
 %[3]s
 	return out
 }
-`, c.operationName, strings.Join(properties, "\n"), strings.Join(assignments, "\n"))
+`, optionsStructName, strings.Join(properties, "\n"), strings.Join(assignments, "\n"))
 	return &out, nil
 }
