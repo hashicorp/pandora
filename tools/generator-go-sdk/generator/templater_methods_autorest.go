@@ -135,7 +135,7 @@ func (c methodsAutoRestTemplater) immediateOperationTemplate(data ServiceGenerat
 		return nil, fmt.Errorf("building arguments for immediate operation: %+v", err)
 	}
 	argumentsCode := c.argumentsTemplate()
-	optionsStruct, err := c.optionsStruct()
+	optionsStruct, err := c.optionsStruct(data)
 	if err != nil {
 		return nil, fmt.Errorf("building options struct: %+v", err)
 	}
@@ -143,7 +143,7 @@ func (c methodsAutoRestTemplater) immediateOperationTemplate(data ServiceGenerat
 	if err != nil {
 		return nil, fmt.Errorf("building arguments for preparer template: %+v", err)
 	}
-	responseStruct, err := c.responseStructTemplate()
+	responseStruct, err := c.responseStructTemplate(data)
 	if err != nil {
 		return nil, fmt.Errorf("building response struct template: %+v", err)
 	}
@@ -156,7 +156,7 @@ func (c methodsAutoRestTemplater) immediateOperationTemplate(data ServiceGenerat
 %[9]s
 
 // %[2]s ...
-func (c %[1]s) %[2]s(ctx context.Context %[4]s) (result %[2]sResponse, err error) {
+func (c %[1]s) %[2]s(ctx context.Context %[4]s) (result %[2]sOperationResponse, err error) {
 	req, err := c.preparerFor%[2]s(ctx %[8]s)
 	if err != nil {
 		err = autorest.NewErrorWithError(err, "%[3]s.%[1]s", "%[2]s", nil, "Failure preparing request")
@@ -191,7 +191,7 @@ func (c methodsAutoRestTemplater) listOperationTemplate(data ServiceGeneratorDat
 		return nil, fmt.Errorf("building arguments for list operation: %+v", err)
 	}
 	argumentsCode := c.argumentsTemplate()
-	optionsStruct, err := c.optionsStruct()
+	optionsStruct, err := c.optionsStruct(data)
 	if err != nil {
 		return nil, fmt.Errorf("building options struct: %+v", err)
 	}
@@ -199,7 +199,7 @@ func (c methodsAutoRestTemplater) listOperationTemplate(data ServiceGeneratorDat
 	if err != nil {
 		return nil, fmt.Errorf("building arguments for preparer template: %+v", err)
 	}
-	responseStruct, err := c.responseStructTemplate()
+	responseStruct, err := c.responseStructTemplate(data)
 	if err != nil {
 		return nil, fmt.Errorf("building response struct template: %+v", err)
 	}
@@ -217,7 +217,7 @@ func (c methodsAutoRestTemplater) listOperationTemplate(data ServiceGeneratorDat
 %[9]s
 
 // %[2]s ...
-func (c %[1]s) %[2]s(ctx context.Context %[4]s) (resp %[2]sResponse, err error) {
+func (c %[1]s) %[2]s(ctx context.Context %[4]s) (resp %[2]sOperationResponse, err error) {
 	req, err := c.preparerFor%[2]s(ctx %[8]s)
 	if err != nil {
 		err = autorest.NewErrorWithError(err, "%[3]s.%[1]s", "%[2]s", nil, "Failure preparing request")
@@ -240,11 +240,11 @@ func (c %[1]s) %[2]s(ctx context.Context %[4]s) (resp %[2]sResponse, err error) 
 
 // %[2]sComplete retrieves all of the results into a single object
 func (c %[1]s) %[2]sComplete(ctx context.Context %[4]s) (%[2]sCompleteResult, error) {
-	return c.%[2]sCompleteMatchingPredicate(ctx %[8]s, %[10]sPredicate{})
+	return c.%[2]sCompleteMatchingPredicate(ctx %[8]s, %[10]sOperationPredicate{})
 }
 
 // %[2]sCompleteMatchingPredicate retrieves all of the results and then applied the predicate
-func (c %[1]s) %[2]sCompleteMatchingPredicate(ctx context.Context %[4]s, predicate %[10]sPredicate) (resp %[2]sCompleteResult, err error) {
+func (c %[1]s) %[2]sCompleteMatchingPredicate(ctx context.Context %[4]s, predicate %[10]sOperationPredicate) (resp %[2]sCompleteResult, err error) {
 	items := make([]%[10]s, 0)
 
 	page, err := c.%[2]s(ctx %[8]s)
@@ -295,7 +295,7 @@ func (c methodsAutoRestTemplater) longRunningOperationTemplate(data ServiceGener
 		return nil, fmt.Errorf("building arguments for long running template: %+v", err)
 	}
 	argumentsCode := c.argumentsTemplate()
-	optionsStruct, err := c.optionsStruct()
+	optionsStruct, err := c.optionsStruct(data)
 	if err != nil {
 		return nil, fmt.Errorf("building options struct: %+v", err)
 	}
@@ -303,7 +303,7 @@ func (c methodsAutoRestTemplater) longRunningOperationTemplate(data ServiceGener
 	if err != nil {
 		return nil, fmt.Errorf("building preparer template: %+v", err)
 	}
-	responseStruct, err := c.responseStructTemplate()
+	responseStruct, err := c.responseStructTemplate(data)
 	if err != nil {
 		return nil, fmt.Errorf("building response struct template: %+v", err)
 	}
@@ -313,7 +313,7 @@ func (c methodsAutoRestTemplater) longRunningOperationTemplate(data ServiceGener
 %[9]s
 
 // %[2]s ...
-func (c %[1]s) %[2]s(ctx context.Context %[4]s) (result %[2]sResponse, err error) {
+func (c %[1]s) %[2]s(ctx context.Context %[4]s) (result %[2]sOperationResponse, err error) {
 	req, err := c.preparerFor%[2]s(ctx %[8]s)
 	if err != nil {
 		err = autorest.NewErrorWithError(err, "%[3]s.%[1]s", "%[2]s", nil, "Failure preparing request")
@@ -390,7 +390,7 @@ func (c methodsAutoRestTemplater) argumentsTemplateForMethod(data ServiceGenerat
 		arguments = append(arguments, fmt.Sprintf("input %s", *typeName))
 	}
 	if len(c.operation.Options) > 0 {
-		arguments = append(arguments, fmt.Sprintf("options %sOptions", c.operationName))
+		arguments = append(arguments, fmt.Sprintf("options %sOperationOptions", c.operationName))
 	}
 
 	out := fmt.Sprintf(", %s", strings.Join(arguments, ", "))
@@ -541,7 +541,7 @@ func (c methodsAutoRestTemplater) responderTemplate(data ServiceGeneratorData) (
 		output := fmt.Sprintf(`
 // responderFor%[2]s handles the response to the %[2]s request. The method always
 // closes the http.Response Body.
-func (c %[1]s) responderFor%[2]s(resp *http.Response) (result %[2]sResponse, err error) {
+func (c %[1]s) responderFor%[2]s(resp *http.Response) (result %[2]sOperationResponse, err error) {
 	type page struct {
 		%[4]s
 	}
@@ -553,7 +553,7 @@ func (c %[1]s) responderFor%[2]s(resp *http.Response) (result %[2]sResponse, err
 	result.Model = &respObj.Values
 	result.nextLink = respObj.NextLink
 	if respObj.NextLink != nil {
-		result.nextPageFunc = func(ctx context.Context, nextLink string) (result %[2]sResponse, err error) {
+		result.nextPageFunc = func(ctx context.Context, nextLink string) (result %[2]sOperationResponse, err error) {
 			req, err := c.preparerFor%[2]sWithNextLink(ctx, nextLink)
 			if err != nil {
 				err = autorest.NewErrorWithError(err, "%[5]s.%[1]s", "%[2]s", nil, "Failure preparing request")
@@ -584,7 +584,7 @@ func (c %[1]s) responderFor%[2]s(resp *http.Response) (result %[2]sResponse, err
 	output := fmt.Sprintf(`
 // responderFor%[2]s handles the response to the %[2]s request. The method always
 // closes the http.Response Body.
-func (c %[1]s) responderFor%[2]s(resp *http.Response) (result %[2]sResponse, err error) {
+func (c %[1]s) responderFor%[2]s(resp *http.Response) (result %[2]sOperationResponse, err error) {
 	err = autorest.Respond(
 		resp,
 		%[3]s)
@@ -595,7 +595,7 @@ func (c %[1]s) responderFor%[2]s(resp *http.Response) (result %[2]sResponse, err
 	return &output, nil
 }
 
-func (c methodsAutoRestTemplater) responseStructTemplate() (*string, error) {
+func (c methodsAutoRestTemplater) responseStructTemplate(data ServiceGeneratorData) (*string, error) {
 	model := ""
 	typeName := ""
 	if c.operation.ResponseObject != nil {
@@ -617,6 +617,11 @@ func (c methodsAutoRestTemplater) responseStructTemplate() (*string, error) {
 		lro = fmt.Sprintf("Poller polling.LongRunningPoller")
 	}
 
+	responseStructName := fmt.Sprintf("%[1]sOperationResponse", c.operationName)
+	if _, hasExistingModel := data.models[responseStructName]; hasExistingModel {
+		return nil, fmt.Errorf("existing model %q conflicts with the operation response model for %q", responseStructName, c.operationName)
+	}
+
 	paginationFields := ""
 	paginationCode := ""
 	if c.operation.FieldContainingPaginationDetails != nil {
@@ -626,11 +631,11 @@ type %[2]sCompleteResult struct {
 	Items   []%[1]s
 }
 
-func (r %[2]sResponse) HasMore() bool {
+func (r %[2]sOperationResponse) HasMore() bool {
 	return r.nextLink != nil
 }
 
-func (r %[2]sResponse) LoadMore(ctx context.Context) (resp %[2]sResponse, err error) {
+func (r %[2]sOperationResponse) LoadMore(ctx context.Context) (resp %[2]sOperationResponse, err error) {
 	if !r.HasMore() {
 		err = fmt.Errorf("no more pages returned")
 		return
@@ -640,11 +645,11 @@ func (r %[2]sResponse) LoadMore(ctx context.Context) (resp %[2]sResponse, err er
 `, typeName, c.operationName)
 		paginationFields = fmt.Sprintf(`
 	nextLink *string
-	nextPageFunc func(ctx context.Context, nextLink string) (%[1]sResponse, error)
+	nextPageFunc func(ctx context.Context, nextLink string) (%[1]sOperationResponse, error)
 `, c.operationName)
 
 		output := fmt.Sprintf(`
-type %[1]sResponse struct {
+type %[1]s struct {
 	%[3]s
 	HttpResponse *http.Response
 	%[2]s
@@ -652,18 +657,18 @@ type %[1]sResponse struct {
 }
 
 %[4]s
-`, c.operationName, model, lro, paginationCode, paginationFields)
+`, responseStructName, model, lro, paginationCode, paginationFields)
 		return &output, nil
 	}
 
 	output := fmt.Sprintf(`
-type %[1]sResponse struct {
+type %[1]s struct {
 	%[3]s
 	HttpResponse *http.Response
 	%[2]s
 }
 
-`, c.operationName, model, lro)
+`, responseStructName, model, lro)
 	return &output, nil
 }
 
@@ -671,7 +676,7 @@ func (c methodsAutoRestTemplater) senderLongRunningOperationTemplate(data Servic
 	return fmt.Sprintf(`
 // senderFor%[2]s sends the %[2]s request. The method will close the
 // http.Response Body if it receives an error.
-func (c %[1]s) senderFor%[2]s(ctx context.Context, req *http.Request) (future %[2]sResponse, err error) {
+func (c %[1]s) senderFor%[2]s(ctx context.Context, req *http.Request) (future %[2]sOperationResponse, err error) {
 	var resp *http.Response
 	resp, err = c.Client.Send(req, azure.DoRetryWithRegistration(c.Client))
 	if err != nil {
@@ -683,10 +688,15 @@ func (c %[1]s) senderFor%[2]s(ctx context.Context, req *http.Request) (future %[
 `, data.serviceClientName, c.operationName)
 }
 
-func (c methodsAutoRestTemplater) optionsStruct() (*string, error) {
+func (c methodsAutoRestTemplater) optionsStruct(data ServiceGeneratorData) (*string, error) {
 	if len(c.operation.Options) == 0 {
 		out := ""
 		return &out, nil
+	}
+
+	optionsStructName := fmt.Sprintf("%sOperationOptions", c.operationName)
+	if _, hasExisting := data.models[optionsStructName]; hasExisting {
+		return nil, fmt.Errorf("existing model %q conflicts with options model for %q", optionsStructName, c.operationName)
 	}
 
 	properties := make([]string, 0)
@@ -709,19 +719,19 @@ func (c methodsAutoRestTemplater) optionsStruct() (*string, error) {
 	sort.Strings(assignments)
 
 	out := fmt.Sprintf(`
-type %[1]sOptions struct {
+type %[1]s struct {
 %[2]s
 }
 
-func Default%[1]sOptions() %[1]sOptions {
-	return %[1]sOptions{}
+func Default%[1]s() %[1]s {
+	return %[1]s{}
 }
 
-func (o %[1]sOptions) toQueryString() map[string]interface{} {
+func (o %[1]s) toQueryString() map[string]interface{} {
 	out := make(map[string]interface{})
 %[3]s
 	return out
 }
-`, c.operationName, strings.Join(properties, "\n"), strings.Join(assignments, "\n"))
+`, optionsStructName, strings.Join(properties, "\n"), strings.Join(assignments, "\n"))
 	return &out, nil
 }
