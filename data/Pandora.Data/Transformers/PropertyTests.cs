@@ -163,52 +163,52 @@ public static class PropertiesTests
                     }
 
                 case "BasicLegacySystemAndUserAssignedIdentityListField":
-                {
-                    Assert.AreEqual("BasicLegacySystemAndUserAssignedIdentityListField", actual.Name);
-                    Assert.AreEqual("basicLegacySystemAndUserAssignedIdentityListField", actual.JsonName);
-                    Assert.AreEqual(ObjectType.LegacySystemAndUserAssignedIdentityList, actual.ObjectDefinition.Type);
-                    Assert.Null(actual.ObjectDefinition.ReferenceName);
-                    Assert.Null(actual.ObjectDefinition.NestedItem);
-                    Assert.AreEqual(true, actual.Optional);
-                    Assert.AreEqual(false, actual.Required);
-                    continue;
-                }
+                    {
+                        Assert.AreEqual("BasicLegacySystemAndUserAssignedIdentityListField", actual.Name);
+                        Assert.AreEqual("basicLegacySystemAndUserAssignedIdentityListField", actual.JsonName);
+                        Assert.AreEqual(ObjectType.LegacySystemAndUserAssignedIdentityList, actual.ObjectDefinition.Type);
+                        Assert.Null(actual.ObjectDefinition.ReferenceName);
+                        Assert.Null(actual.ObjectDefinition.NestedItem);
+                        Assert.AreEqual(true, actual.Optional);
+                        Assert.AreEqual(false, actual.Required);
+                        continue;
+                    }
 
                 case "BasicLegacySystemAndUserAssignedIdentityMapField":
-                {
-                    Assert.AreEqual("BasicLegacySystemAndUserAssignedIdentityMapField", actual.Name);
-                    Assert.AreEqual("basicLegacySystemAndUserAssignedIdentityMapField", actual.JsonName);
-                    Assert.AreEqual(ObjectType.LegacySystemAndUserAssignedIdentityMap, actual.ObjectDefinition.Type);
-                    Assert.Null(actual.ObjectDefinition.ReferenceName);
-                    Assert.Null(actual.ObjectDefinition.NestedItem);
-                    Assert.AreEqual(true, actual.Optional);
-                    Assert.AreEqual(false, actual.Required);
-                    continue;
-                }
+                    {
+                        Assert.AreEqual("BasicLegacySystemAndUserAssignedIdentityMapField", actual.Name);
+                        Assert.AreEqual("basicLegacySystemAndUserAssignedIdentityMapField", actual.JsonName);
+                        Assert.AreEqual(ObjectType.LegacySystemAndUserAssignedIdentityMap, actual.ObjectDefinition.Type);
+                        Assert.Null(actual.ObjectDefinition.ReferenceName);
+                        Assert.Null(actual.ObjectDefinition.NestedItem);
+                        Assert.AreEqual(true, actual.Optional);
+                        Assert.AreEqual(false, actual.Required);
+                        continue;
+                    }
 
                 case "BasicSystemAndUserAssignedIdentityListField":
-                {
-                    Assert.AreEqual("BasicSystemAndUserAssignedIdentityListField", actual.Name);
-                    Assert.AreEqual("basicSystemAndUserAssignedIdentityListField", actual.JsonName);
-                    Assert.AreEqual(ObjectType.SystemAndUserAssignedIdentityList, actual.ObjectDefinition.Type);
-                    Assert.Null(actual.ObjectDefinition.ReferenceName);
-                    Assert.Null(actual.ObjectDefinition.NestedItem);
-                    Assert.AreEqual(true, actual.Optional);
-                    Assert.AreEqual(false, actual.Required);
-                    continue;
-                }
+                    {
+                        Assert.AreEqual("BasicSystemAndUserAssignedIdentityListField", actual.Name);
+                        Assert.AreEqual("basicSystemAndUserAssignedIdentityListField", actual.JsonName);
+                        Assert.AreEqual(ObjectType.SystemAndUserAssignedIdentityList, actual.ObjectDefinition.Type);
+                        Assert.Null(actual.ObjectDefinition.ReferenceName);
+                        Assert.Null(actual.ObjectDefinition.NestedItem);
+                        Assert.AreEqual(true, actual.Optional);
+                        Assert.AreEqual(false, actual.Required);
+                        continue;
+                    }
 
                 case "BasicSystemAndUserAssignedIdentityMapField":
-                {
-                    Assert.AreEqual("BasicSystemAndUserAssignedIdentityMapField", actual.Name);
-                    Assert.AreEqual("basicSystemAndUserAssignedIdentityMapField", actual.JsonName);
-                    Assert.AreEqual(ObjectType.SystemAndUserAssignedIdentityMap, actual.ObjectDefinition.Type);
-                    Assert.Null(actual.ObjectDefinition.ReferenceName);
-                    Assert.Null(actual.ObjectDefinition.NestedItem);
-                    Assert.AreEqual(true, actual.Optional);
-                    Assert.AreEqual(false, actual.Required);
-                    continue;
-                }
+                    {
+                        Assert.AreEqual("BasicSystemAndUserAssignedIdentityMapField", actual.Name);
+                        Assert.AreEqual("basicSystemAndUserAssignedIdentityMapField", actual.JsonName);
+                        Assert.AreEqual(ObjectType.SystemAndUserAssignedIdentityMap, actual.ObjectDefinition.Type);
+                        Assert.Null(actual.ObjectDefinition.ReferenceName);
+                        Assert.Null(actual.ObjectDefinition.NestedItem);
+                        Assert.AreEqual(true, actual.Optional);
+                        Assert.AreEqual(false, actual.Required);
+                        continue;
+                    }
 
                 case "BasicSystemOrUserAssignedIdentityListField":
                     {
