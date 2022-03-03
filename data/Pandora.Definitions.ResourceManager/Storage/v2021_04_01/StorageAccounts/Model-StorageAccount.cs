@@ -17,7 +17,7 @@ internal class StorageAccountModel
     public string? Id { get; set; }
 
     [JsonPropertyName("identity")]
-    public IdentityModel? Identity { get; set; }
+    public CustomTypes.LegacySystemAndUserAssignedIdentityMap? Identity { get; set; }
 
     [JsonPropertyName("kind")]
     public KindConstant? Kind { get; set; }
