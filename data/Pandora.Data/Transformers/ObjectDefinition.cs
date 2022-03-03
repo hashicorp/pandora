@@ -132,6 +132,14 @@ public static class ObjectDefinition
         {
             return ObjectType.SystemAndUserAssignedIdentityMap;
         }
+        if (input == typeof(LegacySystemAndUserAssignedIdentityList))
+        {
+            return ObjectType.LegacySystemAndUserAssignedIdentityList;
+        }
+        if (input == typeof(LegacySystemAndUserAssignedIdentityMap))
+        {
+            return ObjectType.LegacySystemAndUserAssignedIdentityMap;
+        }
         if (input == typeof(SystemOrUserAssignedIdentityList))
         {
             return ObjectType.SystemOrUserAssignedIdentityList;

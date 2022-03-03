@@ -108,6 +108,8 @@ public enum ApiObjectType
     SystemAssignedIdentity,
     SystemAndUserAssignedIdentityList,
     SystemAndUserAssignedIdentityMap,
+    LegacySystemAndUserAssignedIdentityList,
+    LegacySystemAndUserAssignedIdentityMap,
     SystemOrUserAssignedIdentityList,
     SystemOrUserAssignedIdentityMap,
     UserAssignedIdentityList,
