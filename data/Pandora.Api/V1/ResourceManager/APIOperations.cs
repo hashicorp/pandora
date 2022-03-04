@@ -87,6 +87,7 @@ public class ApiOperationsController : ControllerBase
             var objectDefinition = ApiObjectDefinitionMapper.Map(definition.ObjectDefinition);
             output[definition.Name] = new ApiOperationOption
             {
+                HeaderName = definition.HeaderName,
                 QueryStringName = definition.QueryStringName,
                 ObjectDefinition = objectDefinition,
                 Required = definition.Required,
@@ -140,7 +141,9 @@ public class ApiOperationsController : ControllerBase
 
     public class ApiOperationOption
     {
-        // TODO: header name too
+        [JsonPropertyName("headerName")]
+        public string? HeaderName { get; set; }
+
         [JsonPropertyName("queryStringName")]
         public string? QueryStringName { get; set; }
 

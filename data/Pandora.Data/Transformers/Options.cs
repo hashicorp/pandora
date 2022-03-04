@@ -28,8 +28,14 @@ public static class Options
                     Name = property.Name,
                     Required = true,
                     ObjectDefinition = ObjectDefinition.Map(property.PropertyType),
-                    QueryStringName = property.QueryStringName()
+                    QueryStringName = property.QueryStringName(),
+                    HeaderName = property.HeaderName(),
                 };
+
+                if (definition.QueryStringName == null && definition.HeaderName == null)
+                {
+                    throw new NotSupportedException($"either a `HeaderName` or `QueryStringName` attribute must be specified for property {property.Name}");
+                }
 
                 if (property.HasAttribute<OptionalAttribute>())
                 {
@@ -47,14 +53,15 @@ public static class Options
         }
     }
 
-    private static string QueryStringName(this MemberInfo info)
+    private static string? QueryStringName(this MemberInfo info)
     {
         var attr = info.GetCustomAttribute<QueryStringName>();
-        if (attr == null)
-        {
-            throw new NotSupportedException($"missing `QueryStringName` for property {info.Name}");
-        }
+        return attr?.Name;
+    }
 
-        return attr.Name;
+    private static string? HeaderName(this MemberInfo info)
+    {
+        var attr = info.GetCustomAttribute<HeaderNameAttribute>();
+        return attr?.Name;
     }
 }
