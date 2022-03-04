@@ -9,21 +9,21 @@ internal enum SkuNameConstant
     [Description("Enterprise_E50")]
     EnterpriseEFiveZero,
 
+    [Description("Enterprise_E100")]
+    EnterpriseEOneHundred,
+
     [Description("Enterprise_E10")]
     EnterpriseEOneZero,
-
-    [Description("Enterprise_E100")]
-    EnterpriseEOneZeroZero,
 
     [Description("Enterprise_E20")]
     EnterpriseETwoZero,
 
     [Description("EnterpriseFlash_F1500")]
-    EnterpriseFlashFOneFiveZeroZero,
+    EnterpriseFlashFOneFiveHundred,
 
     [Description("EnterpriseFlash_F700")]
-    EnterpriseFlashFSevenZeroZero,
+    EnterpriseFlashFSevenHundred,
 
     [Description("EnterpriseFlash_F300")]
-    EnterpriseFlashFThreeZeroZero,
+    EnterpriseFlashFThreeHundred,
 }
