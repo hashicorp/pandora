@@ -6,11 +6,14 @@ namespace Pandora.Definitions.ResourceManager.DataLakeStore.v2016_11_01.Accounts
 [ConstantType(ConstantTypeAttribute.ConstantType.String)]
 internal enum TierTypeConstant
 {
+    [Description("Commitment_500TB")]
+    CommitmentFiveHundredTB,
+
     [Description("Commitment_5PB")]
     CommitmentFivePB,
 
-    [Description("Commitment_500TB")]
-    CommitmentFiveZeroZeroTB,
+    [Description("Commitment_100TB")]
+    CommitmentOneHundredTB,
 
     [Description("Commitment_1PB")]
     CommitmentOnePB,
@@ -20,9 +23,6 @@ internal enum TierTypeConstant
 
     [Description("Commitment_10TB")]
     CommitmentOneZeroTB,
-
-    [Description("Commitment_100TB")]
-    CommitmentOneZeroZeroTB,
 
     [Description("Consumption")]
     Consumption,

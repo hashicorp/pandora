@@ -7,28 +7,28 @@ namespace Pandora.Definitions.ResourceManager.DataLakeAnalytics.v2016_11_01.Acco
 internal enum TierTypeConstant
 {
     [Description("Commitment_500AUHours")]
-    CommitmentFiveZeroZeroAUHours,
-
-    [Description("Commitment_5000AUHours")]
-    CommitmentFiveZeroZeroZeroAUHours,
-
-    [Description("Commitment_50000AUHours")]
-    CommitmentFiveZeroZeroZeroZeroAUHours,
+    CommitmentFiveHundredAUHours,
 
     [Description("Commitment_500000AUHours")]
-    CommitmentFiveZeroZeroZeroZeroZeroAUHours,
+    CommitmentFiveHundredThousandAUHours,
+
+    [Description("Commitment_5000AUHours")]
+    CommitmentFiveThousandAUHours,
+
+    [Description("Commitment_50000AUHours")]
+    CommitmentFiveZeroThousandAUHours,
 
     [Description("Commitment_100AUHours")]
-    CommitmentOneZeroZeroAUHours,
-
-    [Description("Commitment_1000AUHours")]
-    CommitmentOneZeroZeroZeroAUHours,
-
-    [Description("Commitment_10000AUHours")]
-    CommitmentOneZeroZeroZeroZeroAUHours,
+    CommitmentOneHundredAUHours,
 
     [Description("Commitment_100000AUHours")]
-    CommitmentOneZeroZeroZeroZeroZeroAUHours,
+    CommitmentOneHundredThousandAUHours,
+
+    [Description("Commitment_1000AUHours")]
+    CommitmentOneThousandAUHours,
+
+    [Description("Commitment_10000AUHours")]
+    CommitmentOneZeroThousandAUHours,
 
     [Description("Consumption")]
     Consumption,
