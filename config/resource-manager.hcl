@@ -57,7 +57,7 @@ service "hybridkubernetes" {
 }
 service "healthcareapis" {
   name      = "HealthcareApis"
-  available = ["2021-06-01-preview", "2021-01-11"]
+  available = ["2021-06-01-preview"]
 }
 service "kubernetesconfiguration" {
   name      = "KubernetesConfiguration"
