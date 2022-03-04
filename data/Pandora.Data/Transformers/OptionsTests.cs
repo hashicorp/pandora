@@ -18,9 +18,9 @@ public static class OptionsTests
     }
 
     [TestCase]
-    public static void MappingAnObjectContainingJustSimpleTypes()
+    public static void MappingAnObjectContainingJustSimpleTypesQueryString()
     {
-        var actual = Options.Map(typeof(OptionsObjectContainingSimpleTypes));
+        var actual = Options.Map(typeof(OptionsObjectContainingSimpleTypesQueryString));
         Assert.AreEqual(actual.Count, 3);
 
         var someBool = actual.First(o => o.Name == "SomeBool");
@@ -46,9 +46,9 @@ public static class OptionsTests
     }
 
     [TestCase]
-    public static void MappingAnObjectContainingAConstant()
+    public static void MappingAnObjectContainingAConstantQueryString()
     {
-        var actual = Options.Map(typeof(OptionsObjectContainingAConstant));
+        var actual = Options.Map(typeof(OptionsObjectContainingAConstantQueryString));
         Assert.AreEqual(actual.Count, 2);
 
         var someString = actual.First(o => o.Name == "SomeString");
@@ -67,9 +67,9 @@ public static class OptionsTests
     }
 
     [TestCase]
-    public static void MappingAnObjectContainingCsvs()
+    public static void MappingAnObjectContainingCsvsQueryString()
     {
-        var actual = Options.Map(typeof(OptionsObjectContainingCsvs));
+        var actual = Options.Map(typeof(OptionsObjectContainingCsvsQueryString));
         Assert.AreEqual(3, actual.Count);
 
         var floatCsv = actual.First(o => o.Name == "CsvOfFloats");
@@ -104,9 +104,9 @@ public static class OptionsTests
     }
 
     [TestCase]
-    public static void MappingAnObjectContainingDictionaries()
+    public static void MappingAnObjectContainingDictionariesQueryString()
     {
-        var actual = Options.Map(typeof(OptionsObjectContainingDictionaries));
+        var actual = Options.Map(typeof(OptionsObjectContainingDictionariesQueryString));
         Assert.AreEqual(3, actual.Count);
 
         var floatDictionary = actual.First(o => o.Name == "DictionaryOfFloats");
@@ -141,9 +141,9 @@ public static class OptionsTests
     }
 
     [TestCase]
-    public static void MappingAnObjectContainingLists()
+    public static void MappingAnObjectContainingListsQueryString()
     {
-        var actual = Options.Map(typeof(OptionsObjectContainingLists));
+        var actual = Options.Map(typeof(OptionsObjectContainingListsQueryString));
         Assert.AreEqual(3, actual.Count);
 
         var floatList = actual.First(o => o.Name == "ListOfFloats");
@@ -181,7 +181,7 @@ public static class OptionsTests
     {
     }
 
-    private class OptionsObjectContainingSimpleTypes
+    private class OptionsObjectContainingSimpleTypesQueryString
     {
         [QueryStringName("someBool")]
         public bool SomeBool { get; set; }
@@ -194,7 +194,7 @@ public static class OptionsTests
         public string SomeString { get; set; }
     }
 
-    private class OptionsObjectContainingAConstant
+    private class OptionsObjectContainingAConstantQueryString
     {
         [QueryStringName("someConst")]
         public SomeOtherConstant SomeConst { get; set; }
@@ -203,7 +203,7 @@ public static class OptionsTests
         public string SomeString { get; set; }
     }
 
-    private class OptionsObjectContainingCsvs
+    private class OptionsObjectContainingCsvsQueryString
     {
         [QueryStringName("csvOfFloats")]
         public Csv<float> CsvOfFloats { get; set; }
@@ -215,7 +215,7 @@ public static class OptionsTests
         public Csv<string> CsvOfStrings { get; set; }
     }
 
-    private class OptionsObjectContainingDictionaries
+    private class OptionsObjectContainingDictionariesQueryString
     {
         [QueryStringName("dictionaryOfFloats")]
         public Dictionary<string, float> DictionaryOfFloats { get; set; }
@@ -227,7 +227,7 @@ public static class OptionsTests
         public Dictionary<string, string> DictionaryOfStrings { get; set; }
     }
 
-    private class OptionsObjectContainingLists
+    private class OptionsObjectContainingListsQueryString
     {
         [QueryStringName("listOfFloats")]
         public List<float> ListOfFloats { get; set; }
