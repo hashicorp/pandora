@@ -2708,6 +2708,181 @@ func TestParseOperationSingleWithNoTag(t *testing.T) {
 	}
 }
 
+func TestParseOperationSingleWithHeaderOptions(t *testing.T) {
+	result, err := ParseSwaggerFileForTesting(t, "operations_single_with_header_options.json")
+	if err != nil {
+		t.Fatalf("parsing: %+v", err)
+	}
+	if result == nil {
+		t.Fatal("result was nil")
+	}
+	if len(result.Resources) != 1 {
+		t.Fatalf("expected 1 resource but got %d", len(result.Resources))
+	}
+
+	hello, ok := result.Resources["Hello"]
+	if !ok {
+		t.Fatalf("no resources were output with the tag Hello")
+	}
+
+	if len(hello.Constants) != 0 {
+		t.Fatalf("expected no Constants but got %d", len(hello.Constants))
+	}
+	if len(hello.Models) != 0 {
+		t.Fatalf("expected no Models but got %d", len(hello.Models))
+	}
+	if len(hello.Operations) != 1 {
+		t.Fatalf("expected 1 Operation but got %d", len(hello.Operations))
+	}
+	if len(hello.ResourceIds) != 0 {
+		t.Fatalf("expected no ResourceIds but got %d", len(hello.ResourceIds))
+	}
+
+	world, ok := hello.Operations["HeadWorld"]
+	if !ok {
+		t.Fatalf("no resources were output with the name HeadWorld")
+	}
+	if world.Method != "HEAD" {
+		t.Fatalf("expected a HEAD operation but got %q", world.Method)
+	}
+	if len(world.ExpectedStatusCodes) != 1 {
+		t.Fatalf("expected 1 status code but got %d", len(world.ExpectedStatusCodes))
+	}
+	if world.ExpectedStatusCodes[0] != 200 {
+		t.Fatalf("expected the status code to be 200 but got %d", world.ExpectedStatusCodes[0])
+	}
+	if world.RequestObject != nil {
+		t.Fatalf("expected no request object but got %+v", *world.RequestObject)
+	}
+	if world.ResponseObject != nil {
+		t.Fatalf("expected no response object but got %+v", *world.ResponseObject)
+	}
+	if world.ResourceIdName != nil {
+		t.Fatalf("expected no ResourceId but got %q", *world.ResourceIdName)
+	}
+	if world.UriSuffix == nil {
+		t.Fatal("expected world.UriSuffix to have a value")
+	}
+	if *world.UriSuffix != "/things" {
+		t.Fatalf("expected world.UriSuffix to be `/things` but got %q", *world.UriSuffix)
+	}
+	if world.LongRunning {
+		t.Fatal("expected a non-long running operation but it was long running")
+	}
+
+	if len(world.Options) != 6 {
+		t.Fatalf("expected HeadWorld to have 6 options but got %d", len(world.Options))
+	}
+
+	boolOption, ok := world.Options["BoolValue"]
+	if !ok {
+		t.Fatalf("expected HeadWorld Options to contain 'BoolValue' but didn't get it")
+	}
+	if boolOption.ObjectDefinition.Type != models.ObjectDefinitionBoolean {
+		t.Fatalf("expected HeadWorld Option 'BoolValue' to be a Boolean but got %q", string(boolOption.ObjectDefinition.Type))
+	}
+	if boolOption.QueryStringName != nil {
+		t.Fatalf("expected HeadWorld Option 'BoolValue's QueryStringName to be nil but got %q", *boolOption.QueryStringName)
+	}
+	if boolOption.HeaderName == nil {
+		t.Fatalf("expected HeadWorld Option 'BoolValue's QueryStringName to be `boolValue` but was nil")
+	}
+	if boolOption.HeaderName != nil && *boolOption.HeaderName != "boolValue" {
+		t.Fatalf("expected HeadWorld Option 'BoolValue's HeaderName to be `boolValue` but got %q", *boolOption.HeaderName)
+	}
+
+	csvOfDoubleValueOption, ok := world.Options["CsvOfDoubleValue"]
+	if !ok {
+		t.Fatalf("expected HeadWorld Options to contain 'CsvOfDoubleValue' but didn't get it")
+	}
+	if csvOfDoubleValueOption.ObjectDefinition.Type != models.ObjectDefinitionCsv {
+		t.Fatalf("expected HeadWorld Option 'CsvOfDoubleValue' to be a Csv but got %q", string(csvOfDoubleValueOption.ObjectDefinition.Type))
+	}
+	if csvOfDoubleValueOption.ObjectDefinition.NestedItem.Type != models.ObjectDefinitionFloat {
+		t.Fatalf("expected HeadWorld Option 'CsvOfDoubleValue's Nested Type to be a Float but got %q", string(csvOfDoubleValueOption.ObjectDefinition.NestedItem.Type))
+	}
+	if csvOfDoubleValueOption.QueryStringName != nil {
+		t.Fatalf("expected HeadWorld Option 'CsvOfDoubleValue's QueryStringName to be nil but got %q", *csvOfDoubleValueOption.QueryStringName)
+	}
+	if csvOfDoubleValueOption.HeaderName == nil {
+		t.Fatalf("expected HeadWorld Option 'CsvOfDoubleValue's HeaderName to be `csvOfDoubleValue` but was nil")
+	}
+	if csvOfDoubleValueOption.HeaderName != nil && *csvOfDoubleValueOption.HeaderName != "csvOfDoubleValue" {
+		t.Fatalf("expected HeadWorld Option 'CsvOfDoubleValue's HeaderName to be `csvOfDoubleValue` but got %q", *csvOfDoubleValueOption.HeaderName)
+	}
+
+	csvOfStringOption, ok := world.Options["CsvOfStringValue"]
+	if !ok {
+		t.Fatalf("expected HeadWorld Options to contain 'CsvOfStringValue' but didn't get it")
+	}
+	if csvOfStringOption.ObjectDefinition.Type != models.ObjectDefinitionCsv {
+		t.Fatalf("expected HeadWorld Option 'CsvOfStringValue' to be a Csv but got %q", string(csvOfStringOption.ObjectDefinition.Type))
+	}
+	if csvOfStringOption.ObjectDefinition.NestedItem.Type != models.ObjectDefinitionString {
+		t.Fatalf("expected HeadWorld Option 'CsvOfStringValue's Nested Type to be a String but got %q", string(csvOfStringOption.ObjectDefinition.NestedItem.Type))
+	}
+	if csvOfStringOption.QueryStringName != nil {
+		t.Fatalf("expected HeadWorld Option 'CsvOfStringValue's QueryStringName to be nil but got %q", *csvOfStringOption.QueryStringName)
+	}
+	if csvOfStringOption.HeaderName == nil {
+		t.Fatalf("expected HeadWorld Option 'CsvOfStringValue's HeaderName to be `csvOfStringValue` but was nil")
+	}
+	if csvOfStringOption.HeaderName != nil && *csvOfStringOption.HeaderName != "csvOfStringValue" {
+		t.Fatalf("expected HeadWorld Option 'CsvOfStringValue's HeaderName to be `csvOfStringValue` but got %q", *csvOfStringOption.HeaderName)
+	}
+
+	doubleOption, ok := world.Options["DoubleValue"]
+	if !ok {
+		t.Fatalf("expected HeadWorld Options to contain 'DoubleValue' but didn't get it")
+	}
+	if doubleOption.ObjectDefinition.Type != models.ObjectDefinitionFloat {
+		t.Fatalf("expected HeadWorld Option 'DoubleValue' to be a Float but got %q", string(doubleOption.ObjectDefinition.Type))
+	}
+	if doubleOption.QueryStringName != nil {
+		t.Fatalf("expected HeadWorld Option 'DoubleValue's QueryStringName to be nil but got %q", *doubleOption.QueryStringName)
+	}
+	if doubleOption.HeaderName == nil {
+		t.Fatalf("expected HeadWorld Option 'DoubleValue's HeaderName to be `doubleValue` but was nil")
+	}
+	if doubleOption.HeaderName != nil && *doubleOption.HeaderName != "doubleValue" {
+		t.Fatalf("expected HeadWorld Option 'DoubleValue's HeaderName to be `doubleValue` but got %q", *doubleOption.HeaderName)
+	}
+
+	intOption, ok := world.Options["IntValue"]
+	if !ok {
+		t.Fatalf("expected HeadWorld Options to contain 'IntValue' but didn't get it")
+	}
+	if intOption.ObjectDefinition.Type != models.ObjectDefinitionInteger {
+		t.Fatalf("expected HeadWorld Option 'IntValue' to be a Integer but got %q", string(intOption.ObjectDefinition.Type))
+	}
+	if intOption.QueryStringName != nil {
+		t.Fatalf("expected HeadWorld Option 'IntValue's QueryStringName to be nil but got %q", *intOption.QueryStringName)
+	}
+	if intOption.HeaderName == nil {
+		t.Fatalf("expected HeadWorld Option 'IntValue's HeaderName to be `intValue` but was nil")
+	}
+	if intOption.HeaderName != nil && *intOption.HeaderName != "intValue" {
+		t.Fatalf("expected HeadWorld Option 'IntValue's HeaderName to be `intValue` but got %q", *intOption.HeaderName)
+	}
+
+	stringOption, ok := world.Options["StringValue"]
+	if !ok {
+		t.Fatalf("expected HeadWorld Options to contain 'StringValue' but didn't get it")
+	}
+	if stringOption.ObjectDefinition.Type != models.ObjectDefinitionString {
+		t.Fatalf("expected HeadWorld Option 'StringValue' to be a String but got %q", string(stringOption.ObjectDefinition.Type))
+	}
+	if stringOption.QueryStringName != nil {
+		t.Fatalf("expected HeadWorld Option 'StringValue's QueryStringName to be nil but got %q", *stringOption.QueryStringName)
+	}
+	if stringOption.HeaderName == nil {
+		t.Fatalf("expected HeadWorld Option 'StringValue's HeaderName to be `stringValue` but was nil")
+	}
+	if stringOption.HeaderName != nil && *stringOption.HeaderName != "stringValue" {
+		t.Fatalf("expected HeadWorld Option 'StringValue's HeaderName to be `stringValue` but got %q", *stringOption.HeaderName)
+	}
+}
+
 func TestParseOperationSingleWithQueryStringOptions(t *testing.T) {
 	result, err := ParseSwaggerFileForTesting(t, "operations_single_with_querystring_options.json")
 	if err != nil {

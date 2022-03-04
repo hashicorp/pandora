@@ -315,13 +315,19 @@ func (p operationsParser) optionsForOperation(input parsedOperation) (*map[strin
 			continue
 		}
 
-		// TODO: support parsing/generating these from Headers too
-		if strings.EqualFold(param.In, "query") {
-			name := cleanup.NormalizeName(param.Name)
+		if strings.EqualFold(param.In, "header") || strings.EqualFold(param.In, "query") {
+			val := param.Name
+			name := cleanup.NormalizeName(val)
 
 			option := models.OperationOption{
-				QueryStringName: param.Name,
-				Required:        param.Required,
+				Required: param.Required,
+			}
+
+			if strings.EqualFold(param.In, "header") {
+				option.HeaderName = &val
+			}
+			if strings.EqualFold(param.In, "query") {
+				option.QueryStringName = &val
 			}
 
 			// looks like these can be dates etc too
