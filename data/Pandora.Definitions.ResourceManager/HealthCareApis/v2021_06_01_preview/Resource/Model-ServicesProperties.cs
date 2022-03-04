@@ -1,0 +1,39 @@
+using System;
+using System.Collections.Generic;
+using System.Text.Json.Serialization;
+using Pandora.Definitions.Attributes;
+using Pandora.Definitions.Attributes.Validation;
+using Pandora.Definitions.CustomTypes;
+
+namespace Pandora.Definitions.ResourceManager.HealthCareApis.v2021_06_01_preview.Resource;
+
+
+internal class ServicesPropertiesModel
+{
+    [JsonPropertyName("accessPolicies")]
+    public List<ServiceAccessPolicyEntryModel>? AccessPolicies { get; set; }
+
+    [JsonPropertyName("acrConfiguration")]
+    public ServiceAcrConfigurationInfoModel? AcrConfiguration { get; set; }
+
+    [JsonPropertyName("authenticationConfiguration")]
+    public ServiceAuthenticationConfigurationInfoModel? AuthenticationConfiguration { get; set; }
+
+    [JsonPropertyName("corsConfiguration")]
+    public ServiceCorsConfigurationInfoModel? CorsConfiguration { get; set; }
+
+    [JsonPropertyName("cosmosDbConfiguration")]
+    public ServiceCosmosDbConfigurationInfoModel? CosmosDbConfiguration { get; set; }
+
+    [JsonPropertyName("exportConfiguration")]
+    public ServiceExportConfigurationInfoModel? ExportConfiguration { get; set; }
+
+    [JsonPropertyName("privateEndpointConnections")]
+    public List<PrivateEndpointConnectionModel>? PrivateEndpointConnections { get; set; }
+
+    [JsonPropertyName("provisioningState")]
+    public ProvisioningStateConstant? ProvisioningState { get; set; }
+
+    [JsonPropertyName("publicNetworkAccess")]
+    public PublicNetworkAccessConstant? PublicNetworkAccess { get; set; }
+}
