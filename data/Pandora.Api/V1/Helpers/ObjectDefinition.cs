@@ -57,6 +57,10 @@ public static class ApiObjectDefinitionMapper
                 return ApiObjectType.RawFile.ToString();
             case ObjectType.SystemAssignedIdentity:
                 return ApiObjectType.SystemAssignedIdentity.ToString();
+            case ObjectType.LegacySystemAndUserAssignedIdentityList:
+                return ApiObjectType.LegacySystemAndUserAssignedIdentityList.ToString();
+            case ObjectType.LegacySystemAndUserAssignedIdentityMap:
+                return ApiObjectType.LegacySystemAndUserAssignedIdentityMap.ToString();
             case ObjectType.SystemAndUserAssignedIdentityList:
                 return ApiObjectType.SystemAndUserAssignedIdentityList.ToString();
             case ObjectType.SystemAndUserAssignedIdentityMap:
