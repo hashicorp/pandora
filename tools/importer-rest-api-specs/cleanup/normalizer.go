@@ -489,6 +489,10 @@ func StringifyNumberInput(input string) string {
 }
 
 func RenameMultiplesOfZero(input string) string {
+	if strings.HasPrefix(input, "Zero") && !strings.HasSuffix(input, "Zero") {
+		return input
+	}
+
 	re := regexp.MustCompile("(?:Zero)")
 	zeros := re.FindAllStringIndex(input, -1)
 	z := len(zeros)
