@@ -1,6 +1,7 @@
 package cleanup
 
 import (
+	"regexp"
 	"strings"
 )
 
@@ -50,6 +51,9 @@ func RemoveInvalidCharacters(input string, titleCaseSegments bool) string {
 func NormalizeConstantKey(input string) string {
 	output := input
 	output = StringifyNumberInput(output)
+	if !strings.Contains(output, "Point") {
+		output = RenameMultiplesOfZero(output)
+	}
 
 	output = strings.ReplaceAll(output, "*", "Any")
 	// TODO: add more if we find them
@@ -482,4 +486,37 @@ func StringifyNumberInput(input string) string {
 		output += v
 	}
 	return output
+}
+
+func RenameMultiplesOfZero(input string) string {
+	if strings.HasPrefix(input, "Zero") && !strings.HasSuffix(input, "Zero") {
+		return input
+	}
+
+	re := regexp.MustCompile("(?:Zero)")
+	zeros := re.FindAllStringIndex(input, -1)
+	z := len(zeros)
+
+	if z < 2 {
+		return input
+	}
+
+	vals := map[int]string{
+		2: "Hundred",
+		3: "Thousand",
+		4: "Thousand",
+		5: "HundredThousand",
+		6: "Million",
+	}
+
+	if v, ok := vals[z]; ok {
+		switch z {
+		case 4:
+			return strings.Replace(input, strings.Repeat("Zero", z), "Zero"+v, 1)
+		default:
+			return strings.Replace(input, strings.Repeat("Zero", z), v, 1)
+		}
+	}
+
+	return input
 }
