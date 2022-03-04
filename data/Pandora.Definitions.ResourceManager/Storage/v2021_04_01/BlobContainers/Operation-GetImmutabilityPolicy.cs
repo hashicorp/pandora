@@ -14,5 +14,12 @@ internal class GetImmutabilityPolicyOperation : Operations.GetOperation
 
     public override Type? ResponseObject() => typeof(ImmutabilityPolicyModel);
 
+    public override Type? OptionsObject() => typeof(GetImmutabilityPolicyOperation.GetImmutabilityPolicyOptions);
 
+    internal class GetImmutabilityPolicyOptions
+    {
+        [HeaderName("If-Match")]
+        [Optional]
+        public string IfMatch { get; set; }
+    }
 }

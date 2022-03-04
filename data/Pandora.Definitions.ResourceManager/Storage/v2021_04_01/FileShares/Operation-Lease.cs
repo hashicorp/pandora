@@ -21,7 +21,14 @@ internal class LeaseOperation : Operations.PostOperation
 
     public override Type? ResponseObject() => typeof(LeaseShareResponseModel);
 
+    public override Type? OptionsObject() => typeof(LeaseOperation.LeaseOptions);
+
     public override string? UriSuffix() => "/lease";
 
-
+    internal class LeaseOptions
+    {
+        [HeaderName("x-ms-snapshot")]
+        [Optional]
+        public string XMsSnapshot { get; set; }
+    }
 }

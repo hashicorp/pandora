@@ -21,5 +21,12 @@ internal class DeleteOperation : Operations.DeleteOperation
 
     public override ResourceID? ResourceId() => new DnsZoneId();
 
+    public override Type? OptionsObject() => typeof(DeleteOperation.DeleteOptions);
 
+    internal class DeleteOptions
+    {
+        [HeaderName("If-Match")]
+        [Optional]
+        public string IfMatch { get; set; }
+    }
 }

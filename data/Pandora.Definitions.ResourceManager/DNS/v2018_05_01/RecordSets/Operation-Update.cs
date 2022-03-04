@@ -21,5 +21,12 @@ internal class UpdateOperation : Operations.PatchOperation
 
     public override Type? ResponseObject() => typeof(RecordSetModel);
 
+    public override Type? OptionsObject() => typeof(UpdateOperation.UpdateOptions);
 
+    internal class UpdateOptions
+    {
+        [HeaderName("If-Match")]
+        [Optional]
+        public string IfMatch { get; set; }
+    }
 }
