@@ -2708,8 +2708,8 @@ func TestParseOperationSingleWithNoTag(t *testing.T) {
 	}
 }
 
-func TestParseOperationSingleWithOptions(t *testing.T) {
-	result, err := ParseSwaggerFileForTesting(t, "operations_single_with_options.json")
+func TestParseOperationSingleWithQueryStringOptions(t *testing.T) {
+	result, err := ParseSwaggerFileForTesting(t, "operations_single_with_querystring_options.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
@@ -2781,6 +2781,15 @@ func TestParseOperationSingleWithOptions(t *testing.T) {
 	if boolOption.ObjectDefinition.Type != models.ObjectDefinitionBoolean {
 		t.Fatalf("expected HeadWorld Option 'BoolValue' to be a Boolean but got %q", string(boolOption.ObjectDefinition.Type))
 	}
+	if boolOption.HeaderName != nil {
+		t.Fatalf("expected HeadWorld Option 'BoolValue's HeaderName to be nil but got %q", *boolOption.HeaderName)
+	}
+	if boolOption.QueryStringName == nil {
+		t.Fatalf("expected HeadWorld Option 'BoolValue's QueryStringName to be `boolValue` but was nil")
+	}
+	if boolOption.QueryStringName != nil && *boolOption.QueryStringName != "boolValue" {
+		t.Fatalf("expected HeadWorld Option 'BoolValue's QueryStringName to be `boolValue` but got %q", *boolOption.QueryStringName)
+	}
 
 	csvOfDoubleValueOption, ok := world.Options["CsvOfDoubleValue"]
 	if !ok {
@@ -2790,7 +2799,16 @@ func TestParseOperationSingleWithOptions(t *testing.T) {
 		t.Fatalf("expected HeadWorld Option 'CsvOfDoubleValue' to be a Csv but got %q", string(csvOfDoubleValueOption.ObjectDefinition.Type))
 	}
 	if csvOfDoubleValueOption.ObjectDefinition.NestedItem.Type != models.ObjectDefinitionFloat {
-		t.Fatalf("expected HeadWorld Option 'CsvOfDoubleValue''s Nested Type to be a Float but got %q", string(csvOfDoubleValueOption.ObjectDefinition.NestedItem.Type))
+		t.Fatalf("expected HeadWorld Option 'CsvOfDoubleValue's Nested Type to be a Float but got %q", string(csvOfDoubleValueOption.ObjectDefinition.NestedItem.Type))
+	}
+	if csvOfDoubleValueOption.HeaderName != nil {
+		t.Fatalf("expected HeadWorld Option 'CsvOfDoubleValue's HeaderName to be nil but got %q", *csvOfDoubleValueOption.HeaderName)
+	}
+	if csvOfDoubleValueOption.QueryStringName == nil {
+		t.Fatalf("expected HeadWorld Option 'CsvOfDoubleValue's QueryStringName to be `csvOfDoubleValue` but was nil")
+	}
+	if csvOfDoubleValueOption.QueryStringName != nil && *csvOfDoubleValueOption.QueryStringName != "csvOfDoubleValue" {
+		t.Fatalf("expected HeadWorld Option 'CsvOfDoubleValue's QueryStringName to be `csvOfDoubleValue` but got %q", *csvOfDoubleValueOption.QueryStringName)
 	}
 
 	csvOfStringOption, ok := world.Options["CsvOfStringValue"]
@@ -2801,7 +2819,16 @@ func TestParseOperationSingleWithOptions(t *testing.T) {
 		t.Fatalf("expected HeadWorld Option 'CsvOfStringValue' to be a Csv but got %q", string(csvOfStringOption.ObjectDefinition.Type))
 	}
 	if csvOfStringOption.ObjectDefinition.NestedItem.Type != models.ObjectDefinitionString {
-		t.Fatalf("expected HeadWorld Option 'CsvOfStringValue''s Nested Type to be a String but got %q", string(csvOfStringOption.ObjectDefinition.NestedItem.Type))
+		t.Fatalf("expected HeadWorld Option 'CsvOfStringValue's Nested Type to be a String but got %q", string(csvOfStringOption.ObjectDefinition.NestedItem.Type))
+	}
+	if csvOfStringOption.HeaderName != nil {
+		t.Fatalf("expected HeadWorld Option 'CsvOfStringValue's HeaderName to be nil but got %q", *csvOfStringOption.HeaderName)
+	}
+	if csvOfStringOption.QueryStringName == nil {
+		t.Fatalf("expected HeadWorld Option 'CsvOfStringValue's QueryStringName to be `csvOfStringValue` but was nil")
+	}
+	if csvOfStringOption.QueryStringName != nil && *csvOfStringOption.QueryStringName != "csvOfStringValue" {
+		t.Fatalf("expected HeadWorld Option 'CsvOfStringValue's QueryStringName to be `csvOfStringValue` but got %q", *csvOfStringOption.QueryStringName)
 	}
 
 	doubleOption, ok := world.Options["DoubleValue"]
@@ -2811,6 +2838,15 @@ func TestParseOperationSingleWithOptions(t *testing.T) {
 	if doubleOption.ObjectDefinition.Type != models.ObjectDefinitionFloat {
 		t.Fatalf("expected HeadWorld Option 'DoubleValue' to be a Float but got %q", string(doubleOption.ObjectDefinition.Type))
 	}
+	if doubleOption.HeaderName != nil {
+		t.Fatalf("expected HeadWorld Option 'DoubleValue's HeaderName to be nil but got %q", *doubleOption.HeaderName)
+	}
+	if doubleOption.QueryStringName == nil {
+		t.Fatalf("expected HeadWorld Option 'DoubleValue's QueryStringName to be `doubleValue` but was nil")
+	}
+	if doubleOption.QueryStringName != nil && *doubleOption.QueryStringName != "doubleValue" {
+		t.Fatalf("expected HeadWorld Option 'DoubleValue's QueryStringName to be `doubleValue` but got %q", *doubleOption.QueryStringName)
+	}
 
 	intOption, ok := world.Options["IntValue"]
 	if !ok {
@@ -2819,6 +2855,15 @@ func TestParseOperationSingleWithOptions(t *testing.T) {
 	if intOption.ObjectDefinition.Type != models.ObjectDefinitionInteger {
 		t.Fatalf("expected HeadWorld Option 'IntValue' to be a Integer but got %q", string(intOption.ObjectDefinition.Type))
 	}
+	if intOption.HeaderName != nil {
+		t.Fatalf("expected HeadWorld Option 'IntValue's HeaderName to be nil but got %q", *intOption.HeaderName)
+	}
+	if intOption.QueryStringName == nil {
+		t.Fatalf("expected HeadWorld Option 'IntValue's QueryStringName to be `intValue` but was nil")
+	}
+	if intOption.QueryStringName != nil && *intOption.QueryStringName != "intValue" {
+		t.Fatalf("expected HeadWorld Option 'IntValue's QueryStringName to be `intValue` but got %q", *intOption.QueryStringName)
+	}
 
 	stringOption, ok := world.Options["StringValue"]
 	if !ok {
@@ -2826,6 +2871,15 @@ func TestParseOperationSingleWithOptions(t *testing.T) {
 	}
 	if stringOption.ObjectDefinition.Type != models.ObjectDefinitionString {
 		t.Fatalf("expected HeadWorld Option 'StringValue' to be a String but got %q", string(stringOption.ObjectDefinition.Type))
+	}
+	if stringOption.HeaderName != nil {
+		t.Fatalf("expected HeadWorld Option 'StringValue's HeaderName to be nil but got %q", *stringOption.HeaderName)
+	}
+	if stringOption.QueryStringName == nil {
+		t.Fatalf("expected HeadWorld Option 'StringValue's QueryStringName to be `stringValue` but was nil")
+	}
+	if stringOption.QueryStringName != nil && *stringOption.QueryStringName != "stringValue" {
+		t.Fatalf("expected HeadWorld Option 'StringValue's QueryStringName to be `stringValue` but got %q", *stringOption.QueryStringName)
 	}
 }
 
