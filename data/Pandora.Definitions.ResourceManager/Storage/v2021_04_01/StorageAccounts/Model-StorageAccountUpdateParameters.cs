@@ -11,7 +11,7 @@ namespace Pandora.Definitions.ResourceManager.Storage.v2021_04_01.StorageAccount
 internal class StorageAccountUpdateParametersModel
 {
     [JsonPropertyName("identity")]
-    public IdentityModel? Identity { get; set; }
+    public CustomTypes.LegacySystemAndUserAssignedIdentityMap? Identity { get; set; }
 
     [JsonPropertyName("kind")]
     public KindConstant? Kind { get; set; }

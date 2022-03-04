@@ -279,6 +279,12 @@ func dotNetTypeNameForCustomType(input models.CustomFieldType) (*string, error) 
 	case models.CustomFieldTypeSystemAndUserAssignedIdentityMap:
 		return nilableType("CustomTypes.SystemAndUserAssignedIdentityMap")
 
+	case models.CustomFieldTypeLegacySystemAndUserAssignedIdentityList:
+		return nilableType("CustomTypes.LegacySystemAndUserAssignedIdentityList")
+
+	case models.CustomFieldTypeLegacySystemAndUserAssignedIdentityMap:
+		return nilableType("CustomTypes.LegacySystemAndUserAssignedIdentityMap")
+
 	case models.CustomFieldTypeSystemOrUserAssignedIdentityList:
 		return nilableType("CustomTypes.SystemOrUserAssignedIdentityList")
 

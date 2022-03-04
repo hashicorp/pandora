@@ -112,13 +112,15 @@ type FieldDetails struct {
 type CustomFieldType string
 
 const (
-	CustomFieldTypeLocation                          CustomFieldType = "location"
-	CustomFieldTypeSystemAssignedIdentity            CustomFieldType = "system-assigned-identity"
-	CustomFieldTypeSystemAndUserAssignedIdentityList CustomFieldType = "system-and-user-assigned-identity-list"
-	CustomFieldTypeSystemAndUserAssignedIdentityMap  CustomFieldType = "system-and-user-assigned-identity-map"
-	CustomFieldTypeSystemOrUserAssignedIdentityList  CustomFieldType = "system-or-user-assigned-identity-list"
-	CustomFieldTypeSystemOrUserAssignedIdentityMap   CustomFieldType = "system-or-user-assigned-identity-map"
-	CustomFieldTypeUserAssignedIdentityList          CustomFieldType = "user-assigned-identity-list"
-	CustomFieldTypeUserAssignedIdentityMap           CustomFieldType = "user-assigned-identity-map"
-	CustomFieldTypeTags                              CustomFieldType = "tags"
+	CustomFieldTypeLocation                                CustomFieldType = "location"
+	CustomFieldTypeSystemAssignedIdentity                  CustomFieldType = "system-assigned-identity"
+	CustomFieldTypeSystemAndUserAssignedIdentityList       CustomFieldType = "system-and-user-assigned-identity-list"
+	CustomFieldTypeSystemAndUserAssignedIdentityMap        CustomFieldType = "system-and-user-assigned-identity-map"
+	CustomFieldTypeLegacySystemAndUserAssignedIdentityList CustomFieldType = "legacy-system-and-user-assigned-identity-list"
+	CustomFieldTypeLegacySystemAndUserAssignedIdentityMap  CustomFieldType = "legacy-system-and-user-assigned-identity-map"
+	CustomFieldTypeSystemOrUserAssignedIdentityList        CustomFieldType = "system-or-user-assigned-identity-list"
+	CustomFieldTypeSystemOrUserAssignedIdentityMap         CustomFieldType = "system-or-user-assigned-identity-map"
+	CustomFieldTypeUserAssignedIdentityList                CustomFieldType = "user-assigned-identity-list"
+	CustomFieldTypeUserAssignedIdentityMap                 CustomFieldType = "user-assigned-identity-map"
+	CustomFieldTypeTags                                    CustomFieldType = "tags"
 )

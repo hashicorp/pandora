@@ -20,6 +20,8 @@ public enum ObjectType
     SystemAssignedIdentity,
     SystemAndUserAssignedIdentityList,
     SystemAndUserAssignedIdentityMap,
+    LegacySystemAndUserAssignedIdentityList,
+    LegacySystemAndUserAssignedIdentityMap,
     SystemOrUserAssignedIdentityList,
     SystemOrUserAssignedIdentityMap,
     UserAssignedIdentityList,

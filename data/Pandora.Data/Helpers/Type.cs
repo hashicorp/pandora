@@ -76,6 +76,8 @@ public static class TypeExtensions
             typeof(SystemAssignedIdentity),
             typeof(SystemAndUserAssignedIdentityList),
             typeof(SystemAndUserAssignedIdentityMap),
+            typeof(LegacySystemAndUserAssignedIdentityList),
+            typeof(LegacySystemAndUserAssignedIdentityMap),
             typeof(SystemOrUserAssignedIdentityList),
             typeof(SystemOrUserAssignedIdentityMap),
             typeof(UserAssignedIdentityList),

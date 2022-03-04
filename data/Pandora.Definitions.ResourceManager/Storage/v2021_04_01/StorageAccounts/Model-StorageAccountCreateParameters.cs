@@ -14,7 +14,7 @@ internal class StorageAccountCreateParametersModel
     public ExtendedLocationModel? ExtendedLocation { get; set; }
 
     [JsonPropertyName("identity")]
-    public IdentityModel? Identity { get; set; }
+    public CustomTypes.LegacySystemAndUserAssignedIdentityMap? Identity { get; set; }
 
     [JsonPropertyName("kind")]
     [Required]

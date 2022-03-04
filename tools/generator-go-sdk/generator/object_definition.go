@@ -96,6 +96,18 @@ func golangTypeNameForObjectDefinition(input resourcemanager.ApiObjectDefinition
 	case resourcemanager.UserAssignedIdentityMapApiObjectDefinitionType:
 		return out("identity.UserAssignedMap")
 
+	case resourcemanager.LegacySystemAndUserAssignedIdentityListApiObjectDefinitionType:
+		// NOTE: this is intentionally using the shared Schema and NOT a legacy schema
+		// as we want to expose this consistently to users (e.g. `SystemAssigned, UserAssigned`)
+		// and handle the transformations internally via the Expand/Flatten functions
+		return out("identity.SystemAndUserAssignedList")
+
+	case resourcemanager.LegacySystemAndUserAssignedIdentityMapApiObjectDefinitionType:
+		// NOTE: this is intentionally using the shared Schema and NOT a legacy schema
+		// as we want to expose this consistently to users (e.g. `SystemAssigned, UserAssigned`)
+		// and handle the transformations internally via the Expand/Flatten functions
+		return out("identity.SystemAndUserAssignedMap")
+
 	case resourcemanager.SystemAndUserAssignedIdentityListApiObjectDefinitionType:
 		return out("identity.SystemAndUserAssignedList")
 

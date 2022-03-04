@@ -12,6 +12,18 @@ public class SystemAndUserAssignedIdentityMap
 {
 }
 
+public class LegacySystemAndUserAssignedIdentityList
+{
+    // Legacy (v3 type) which is the same as v4 (non-legacy) with no spaces
+    // e.g. `SystemAssigned,UserAssigned` instead of `SystemAssigned, UserAssigned`
+}
+
+public class LegacySystemAndUserAssignedIdentityMap
+{
+    // Legacy (v3 type) which is the same as v4 (non-legacy) with no spaces
+    // e.g. `SystemAssigned,UserAssigned` instead of `SystemAssigned, UserAssigned`
+}
+
 public class SystemOrUserAssignedIdentityList
 {
 }
