@@ -439,6 +439,16 @@ func (c methodsAutoRestTemplater) preparerTemplate(data ServiceGeneratorData) (*
 	steps = append(steps, "autorest.WithBaseURL(c.baseUri)")
 	listSteps = append(listSteps, "autorest.WithBaseURL(c.baseUri)")
 
+	optionsCode := ""
+	if len(c.operation.Options) > 0 {
+		optionsCode = `
+	for k, v := range options.toQueryString() {
+		queryParameters[k] = autorest.Encode("query", v)
+	}`
+		steps = append(steps, "autorest.WithHeaders(options.toHeaders())")
+		listSteps = append(listSteps, "autorest.WithHeaders(options.toHeaders())")
+	}
+
 	if c.operation.UriSuffix != nil {
 		if c.operation.ResourceIdName != nil {
 			steps = append(steps, fmt.Sprintf("autorest.WithPath(fmt.Sprintf(\"%%s%s\", id.ID()))", *c.operation.UriSuffix))
@@ -458,14 +468,6 @@ func (c methodsAutoRestTemplater) preparerTemplate(data ServiceGeneratorData) (*
 	}
 	steps = append(steps, "autorest.WithQueryParameters(queryParameters)")
 	listSteps = append(listSteps, "autorest.WithQueryParameters(queryParameters)")
-
-	optionsCode := ""
-	if len(c.operation.Options) > 0 {
-		optionsCode = `
-	for k, v := range options.toQueryString() {
-		queryParameters[k] = autorest.Encode("query", v)
-	}`
-	}
 
 	template := `
 // preparerFor%[2]s prepares the %[2]s request.
@@ -700,7 +702,8 @@ func (c methodsAutoRestTemplater) optionsStruct(data ServiceGeneratorData) (*str
 	}
 
 	properties := make([]string, 0)
-	assignments := make([]string, 0)
+	queryStringAssignments := make([]string, 0)
+	headerAssignments := make([]string, 0)
 
 	for optionName, option := range c.operation.Options {
 		optionType, err := golangTypeNameForObjectDefinition(option.ObjectDefinition)
@@ -708,15 +711,25 @@ func (c methodsAutoRestTemplater) optionsStruct(data ServiceGeneratorData) (*str
 			return nil, fmt.Errorf("determining golang type name for option %q's ObjectDefinition: %+v", optionName, err)
 		}
 		properties = append(properties, fmt.Sprintf("%s *%s", optionName, *optionType))
-		assignments = append(assignments, fmt.Sprintf(`
+		if option.HeaderName != nil {
+			headerAssignments = append(headerAssignments, fmt.Sprintf(`
+	if o.%[1]s != nil {
+		out["%[2]s"] = *o.%[1]s
+	}
+`, optionName, *option.HeaderName))
+		}
+		if option.QueryStringName != nil {
+			queryStringAssignments = append(queryStringAssignments, fmt.Sprintf(`
 	if o.%[1]s != nil {
 		out["%[2]s"] = *o.%[1]s
 	}
 `, optionName, *option.QueryStringName))
+		}
 	}
 
 	sort.Strings(properties)
-	sort.Strings(assignments)
+	sort.Strings(headerAssignments)
+	sort.Strings(queryStringAssignments)
 
 	out := fmt.Sprintf(`
 type %[1]s struct {
@@ -727,11 +740,17 @@ func Default%[1]s() %[1]s {
 	return %[1]s{}
 }
 
-func (o %[1]s) toQueryString() map[string]interface{} {
+func (o %[1]s) toHeaders() map[string]interface{} {
 	out := make(map[string]interface{})
 %[3]s
 	return out
 }
-`, optionsStructName, strings.Join(properties, "\n"), strings.Join(assignments, "\n"))
+
+func (o %[1]s) toQueryString() map[string]interface{} {
+	out := make(map[string]interface{})
+%[4]s
+	return out
+}
+`, optionsStructName, strings.Join(properties, "\n"), strings.Join(headerAssignments, "\n"), strings.Join(queryStringAssignments, "\n"))
 	return &out, nil
 }
