@@ -135,3 +135,7 @@ service "vmware" {
   name      = "VMware"
   available = ["2020-03-20"]
 }
+service "web" {
+  name      = "Web"
+  available = ["2016-06-01"]
+}
