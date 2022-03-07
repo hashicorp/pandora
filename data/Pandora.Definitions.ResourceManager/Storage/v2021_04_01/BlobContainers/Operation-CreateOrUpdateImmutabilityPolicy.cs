@@ -21,5 +21,12 @@ internal class CreateOrUpdateImmutabilityPolicyOperation : Operations.PutOperati
 
     public override Type? ResponseObject() => typeof(ImmutabilityPolicyModel);
 
+    public override Type? OptionsObject() => typeof(CreateOrUpdateImmutabilityPolicyOperation.CreateOrUpdateImmutabilityPolicyOptions);
 
+    internal class CreateOrUpdateImmutabilityPolicyOptions
+    {
+        [HeaderName("If-Match")]
+        [Optional]
+        public string IfMatch { get; set; }
+    }
 }

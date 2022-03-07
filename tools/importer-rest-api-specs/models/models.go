@@ -66,9 +66,9 @@ const (
 
 type OperationOption struct {
 	ObjectDefinition *ObjectDefinition
-	QueryStringName  string
-	// TODO: support Header names here too in time
-	Required bool
+	HeaderName       *string
+	QueryStringName  *string
+	Required         bool
 }
 
 type ConstantDetails struct {

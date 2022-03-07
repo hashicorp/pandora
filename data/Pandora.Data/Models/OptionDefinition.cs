@@ -2,7 +2,9 @@ namespace Pandora.Data.Models;
 
 public class OptionDefinition
 {
-    public string QueryStringName { get; set; }
+    public string? HeaderName { get; set; }
+
+    public string? QueryStringName { get; set; }
 
     public string Name { get; set; }
 

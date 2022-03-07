@@ -81,8 +81,11 @@ func (g PandoraDefinitionGenerator) codeForOperation(namespace string, operation
 			}
 
 			optionDetails := operation.Options[optionName]
-			if optionDetails.QueryStringName != "" {
-				optionsCode = append(optionsCode, fmt.Sprintf("\t\t\t[QueryStringName(%q)]", optionDetails.QueryStringName))
+			if optionDetails.HeaderName != nil {
+				optionsCode = append(optionsCode, fmt.Sprintf("\t\t\t[HeaderName(%q)]", *optionDetails.HeaderName))
+			}
+			if optionDetails.QueryStringName != nil {
+				optionsCode = append(optionsCode, fmt.Sprintf("\t\t\t[QueryStringName(%q)]", *optionDetails.QueryStringName))
 			}
 			if !optionDetails.Required {
 				optionsCode = append(optionsCode, "\t\t\t[Optional]")

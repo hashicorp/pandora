@@ -1,0 +1,94 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Example",
+    "description": "Example",
+    "version": "2020-01-01"
+  },
+  "host": "management.mysite.com",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "security": [],
+  "securityDefinitions": {},
+  "paths": {
+    "/things": {
+      "head": {
+        "tags": [
+          "Hello"
+        ],
+        "operationId": "Hello_HeadWorld",
+        "description": "A HEAD request with no body returned.",
+        "parameters": [
+          {
+            "name": "boolValue",
+            "in": "header",
+            "required": true,
+            "type": "boolean",
+            "description": "Some Boolean Value"
+          },
+          {
+            "name": "csvOfDoubleValue",
+            "in": "header",
+            "required": true,
+            "description": "The top-left latitude/longitude combination.",
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 2,
+            "collectionFormat": "csv",
+            "items": {
+              "type": "number",
+              "format": "double"
+            }
+          },
+          {
+            "name": "csvOfStringValue",
+            "in": "header",
+            "description": "A CSV of string values which should be output as a String",
+            "required": true,
+            "type": "array",
+            "collectionFormat": "csv",
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "doubleValue",
+            "in": "header",
+            "required": true,
+            "type": "number",
+            "format": "double",
+            "description": "Some Double Value which should be output as Float64"
+          },
+          {
+            "name": "intValue",
+            "in": "header",
+            "required": true,
+            "type": "integer",
+            "description": "Some Integer Value"
+          },
+          {
+            "name": "stringValue",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": "Some String Value"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success."
+          }
+        }
+      }
+    }
+  },
+  "definitions": {},
+  "parameters": {}
+}

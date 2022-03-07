@@ -25,5 +25,9 @@ internal class DeleteOperation : Operations.DeleteOperation
         [QueryStringName("$include")]
         [Optional]
         public string Include { get; set; }
+
+        [HeaderName("x-ms-snapshot")]
+        [Optional]
+        public string XMsSnapshot { get; set; }
     }
 }

@@ -21,7 +21,13 @@ internal class ExtendImmutabilityPolicyOperation : Operations.PostOperation
 
     public override Type? ResponseObject() => typeof(ImmutabilityPolicyModel);
 
+    public override Type? OptionsObject() => typeof(ExtendImmutabilityPolicyOperation.ExtendImmutabilityPolicyOptions);
+
     public override string? UriSuffix() => "/immutabilityPolicies/default/extend";
 
-
+    internal class ExtendImmutabilityPolicyOptions
+    {
+        [HeaderName("If-Match")]
+        public string IfMatch { get; set; }
+    }
 }

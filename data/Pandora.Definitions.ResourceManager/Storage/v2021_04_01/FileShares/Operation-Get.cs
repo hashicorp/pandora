@@ -21,5 +21,9 @@ internal class GetOperation : Operations.GetOperation
         [QueryStringName("$expand")]
         [Optional]
         public string Expand { get; set; }
+
+        [HeaderName("x-ms-snapshot")]
+        [Optional]
+        public string XMsSnapshot { get; set; }
     }
 }

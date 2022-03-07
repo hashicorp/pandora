@@ -72,6 +72,9 @@ type ApiOperation struct {
 }
 
 type ApiOperationOption struct {
+	// HeaderName is the name of the Http Header which this Option should be set into
+	HeaderName *string `json:"headerName,omitempty"`
+
 	// QueryStringName is the Key which should be used for this Option in the QueryString
 	QueryStringName *string `json:"queryStringName,omitempty"`
 

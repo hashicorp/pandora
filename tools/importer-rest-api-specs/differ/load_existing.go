@@ -342,9 +342,9 @@ func mapApiOperationOptions(input map[string]resourcemanager.ApiOperationOption)
 		}
 
 		output[k] = models.OperationOption{
-			// TODO: support Headers (#6)
 			ObjectDefinition: objectDefinition,
-			QueryStringName:  *v.QueryStringName,
+			HeaderName:       v.HeaderName,
+			QueryStringName:  v.QueryStringName,
 			Required:         v.Required,
 		}
 	}

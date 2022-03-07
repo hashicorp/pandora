@@ -21,7 +21,13 @@ internal class LockImmutabilityPolicyOperation : Operations.PostOperation
 
     public override Type? ResponseObject() => typeof(ImmutabilityPolicyModel);
 
+    public override Type? OptionsObject() => typeof(LockImmutabilityPolicyOperation.LockImmutabilityPolicyOptions);
+
     public override string? UriSuffix() => "/immutabilityPolicies/default/lock";
 
-
+    internal class LockImmutabilityPolicyOptions
+    {
+        [HeaderName("If-Match")]
+        public string IfMatch { get; set; }
+    }
 }

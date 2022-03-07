@@ -19,5 +19,11 @@ internal class DeleteImmutabilityPolicyOperation : Operations.DeleteOperation
 
     public override Type? ResponseObject() => typeof(ImmutabilityPolicyModel);
 
+    public override Type? OptionsObject() => typeof(DeleteImmutabilityPolicyOperation.DeleteImmutabilityPolicyOptions);
 
+    internal class DeleteImmutabilityPolicyOptions
+    {
+        [HeaderName("If-Match")]
+        public string IfMatch { get; set; }
+    }
 }
