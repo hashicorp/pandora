@@ -446,7 +446,6 @@ func (c methodsAutoRestTemplater) preparerTemplate(data ServiceGeneratorData) (*
 		queryParameters[k] = autorest.Encode("query", v)
 	}`
 		steps = append(steps, "autorest.WithHeaders(options.toHeaders())")
-		listSteps = append(listSteps, "autorest.WithHeaders(options.toHeaders())")
 	}
 
 	if c.operation.UriSuffix != nil {
