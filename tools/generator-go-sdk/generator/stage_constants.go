@@ -44,6 +44,8 @@ func (c constantsTemplater) template(data ServiceGeneratorData) (*string, error)
 
 	template := fmt.Sprintf(`package %[1]s
 
+import "strings"
+
 %s`, data.packageName, strings.Join(lines, "\n"))
 	return &template, nil
 }
