@@ -23,13 +23,13 @@ service "communication" {
   name      = "Communication"
   available = ["2020-08-20"]
 }
-service "containerregistry" {
-  name = "containerregistry"
-  available = ["2021-09-01"]
-}
 service "confidentialledger" {
   name      = "ConfidentialLedger"
   available = ["2021-05-13-preview"]
+}
+service "containerregistry" {
+  name      = "containerregistry"
+  available = ["2021-09-01"]
 }
 service "cost-management" {
   name      = "CostManagement"
