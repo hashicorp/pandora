@@ -7,7 +7,7 @@ internal class ManagedEnvironmentId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.App/managedEnvironments/{environmentName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.App/managedEnvironments/{name}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -60,7 +60,7 @@ internal class ManagedEnvironmentId : ResourceID
 
                 new()
                 {
-                    Name = "environmentName",
+                    Name = "name",
                     Type = ResourceIDSegmentType.UserSpecified
                 },
 

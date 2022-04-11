@@ -7,7 +7,7 @@ internal class RevisionId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.App/containerApps/{containerAppName}/revisions/{revisionName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.App/containerApps/{containerAppName}/revisions/{name}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -73,7 +73,7 @@ internal class RevisionId : ResourceID
 
                 new()
                 {
-                    Name = "revisionName",
+                    Name = "name",
                     Type = ResourceIDSegmentType.UserSpecified
                 },
 
