@@ -81,14 +81,16 @@ func (p predicateTemplater) templateForModel(predicateStructName string, name st
 	// unsupported at this time - see https://github.com/hashicorp/pandora/issues/164
 	// TODO: look to add support for these, as below
 	customTypesToIgnore := map[resourcemanager.ApiObjectDefinitionType]struct{}{
-		resourcemanager.SystemAssignedIdentityApiObjectDefinitionType:            {},
-		resourcemanager.SystemAndUserAssignedIdentityMapApiObjectDefinitionType:  {},
-		resourcemanager.SystemAndUserAssignedIdentityListApiObjectDefinitionType: {},
-		resourcemanager.SystemOrUserAssignedIdentityMapApiObjectDefinitionType:   {},
-		resourcemanager.SystemOrUserAssignedIdentityListApiObjectDefinitionType:  {},
-		resourcemanager.UserAssignedIdentityMapApiObjectDefinitionType:           {},
-		resourcemanager.UserAssignedIdentityListApiObjectDefinitionType:          {},
-		resourcemanager.TagsApiObjectDefinitionType:                              {},
+		resourcemanager.SystemAssignedIdentityApiObjectDefinitionType:                  {},
+		resourcemanager.SystemAndUserAssignedIdentityMapApiObjectDefinitionType:        {},
+		resourcemanager.SystemAndUserAssignedIdentityListApiObjectDefinitionType:       {},
+		resourcemanager.LegacySystemAndUserAssignedIdentityListApiObjectDefinitionType: {},
+		resourcemanager.LegacySystemAndUserAssignedIdentityMapApiObjectDefinitionType:  {},
+		resourcemanager.SystemOrUserAssignedIdentityMapApiObjectDefinitionType:         {},
+		resourcemanager.SystemOrUserAssignedIdentityListApiObjectDefinitionType:        {},
+		resourcemanager.UserAssignedIdentityMapApiObjectDefinitionType:                 {},
+		resourcemanager.UserAssignedIdentityListApiObjectDefinitionType:                {},
+		resourcemanager.TagsApiObjectDefinitionType:                                    {},
 	}
 
 	for name, field := range model.Fields {
