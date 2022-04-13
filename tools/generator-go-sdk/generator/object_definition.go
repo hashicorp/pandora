@@ -87,6 +87,9 @@ func golangTypeNameForObjectDefinition(input resourcemanager.ApiObjectDefinition
 		return out("map[string]string")
 
 	// Custom Types
+	case resourcemanager.EdgeZoneApiObjectDefinitionType:
+		return out("edgezones.Model")
+
 	case resourcemanager.SystemAssignedIdentityApiObjectDefinitionType:
 		return out("identity.SystemAssigned")
 
