@@ -51,6 +51,8 @@ public static class ApiObjectDefinitionMapper
                 return ApiObjectType.String.ToString();
 
             // Custom Types
+            case ObjectType.EdgeZone:
+                return ApiObjectType.EdgeZone.ToString();
             case ObjectType.Location:
                 return ApiObjectType.Location.ToString();
             case ObjectType.RawFile:
@@ -108,6 +110,7 @@ public enum ApiObjectType
     String,
 
     // Custom Types
+    EdgeZone,
     Location,
     SystemAssignedIdentity,
     SystemAndUserAssignedIdentityList,

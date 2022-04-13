@@ -112,6 +112,10 @@ public static class ObjectDefinition
 
     private static ObjectType MapPandoraCustomType(Type input)
     {
+        if (input == typeof(EdgeZone))
+        {
+            return ObjectType.EdgeZone;
+        }
         if (input == typeof(Location))
         {
             return ObjectType.Location;

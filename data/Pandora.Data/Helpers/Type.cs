@@ -70,6 +70,7 @@ public static class TypeExtensions
     {
         var customTypes = new List<Type>
         {
+            typeof(EdgeZone),
             typeof(Location),
             typeof(RawFile),
             typeof(Tags),
