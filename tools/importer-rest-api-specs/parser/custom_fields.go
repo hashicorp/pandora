@@ -12,6 +12,7 @@ type customFieldMatcher interface {
 }
 
 var customFieldMatchers = []customFieldMatcher{
+	edgeZoneFieldMatcher{},
 	locationMatcher{},
 	systemAssignedIdentityMatcher{},
 	legacySystemAndUserAssignedIdentityListMatcher{},
