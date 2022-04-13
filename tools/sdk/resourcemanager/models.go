@@ -22,6 +22,7 @@ const (
 	StringApiObjectDefinitionType     ApiObjectDefinitionType = "String"
 
 	// Custom Types
+	EdgeZoneApiObjectDefinitionType                                ApiObjectDefinitionType = "EdgeZone"
 	LocationApiObjectDefinitionType                                ApiObjectDefinitionType = "Location"
 	SystemAssignedIdentityApiObjectDefinitionType                  ApiObjectDefinitionType = "SystemAssignedIdentity"
 	SystemAndUserAssignedIdentityListApiObjectDefinitionType       ApiObjectDefinitionType = "SystemAndUserAssignedIdentityList"
