@@ -113,7 +113,7 @@ service "servicefabricmanagedclusters" {
 }
 service "signalr" {
   name      = "SignalR"
-  available = ["2020-05-01"]
+  available = ["2021-10-01"]
 }
 service "storage" {
   name      = "Storage"
