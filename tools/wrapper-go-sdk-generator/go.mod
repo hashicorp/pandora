@@ -1,3 +1,3 @@
 module github.com/hashicorp/pandora/tools/wrapper-go-sdk-generator
 
-go 1.17
+go 1.18
