@@ -1,12 +1,17 @@
 name: Regenerate API Data with New Changes after PR Merge
 on:
-  pull_request:
-    types: [closed]
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/**'
+      - 'config/**'
+      - 'swagger'
+      - 'tools/importer-rest-api-specs/**'
 
 jobs:
   regenerate-api-data:
     runs-on: ubuntu-latest
-    if: github.event.pull_request.merged == true
     strategy:
       fail-fast: true
     permissions:
