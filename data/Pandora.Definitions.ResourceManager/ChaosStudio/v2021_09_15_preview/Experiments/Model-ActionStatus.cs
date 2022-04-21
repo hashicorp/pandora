@@ -10,11 +10,19 @@ namespace Pandora.Definitions.ResourceManager.ChaosStudio.v2021_09_15_preview.Ex
 
 internal class ActionStatusModel
 {
+    [DateFormat(DateFormatAttribute.DateFormat.RFC3339)]
+    [JsonPropertyName("endTime")]
+    public DateTime? EndTime { get; set; }
+
     [JsonPropertyName("id")]
     public string? Id { get; set; }
 
     [JsonPropertyName("name")]
     public string? Name { get; set; }
+
+    [DateFormat(DateFormatAttribute.DateFormat.RFC3339)]
+    [JsonPropertyName("startTime")]
+    public DateTime? StartTime { get; set; }
 
     [JsonPropertyName("status")]
     public string? Status { get; set; }
