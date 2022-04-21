@@ -2,7 +2,7 @@
 
 > The Pandora tools are primarily intended to be run in automation, this guide is a temporary set of instructions on how to generate a Go SDK, needed until the full automation pipeline is published.
 
-> If you've found a new bug or something that didn't generate as expected - please open an issue so we can track/diagnose it.
+> If you've found a new bug or something that didn't generate as expected - please [open an issue](https://github.com/hashicorp/pandora/issues/new/choose) so we can track/diagnose it.
 
 ## Steps
 
