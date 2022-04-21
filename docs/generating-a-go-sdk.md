@@ -80,7 +80,7 @@ As the current time we're embedding the generated Go SDK's within the Provider t
 
 Prior to going any further, please send a PR with the changes highlighted above to the Pandora repository (and have that merged) so that this repository is up to date. For the moment, ensuring the PR titles start with `Data: ` would be helpful to be able to differentiate these from the other projects.
 
-Longer term this SDK _may_ live in its own repository, we're not sure - for now copying/embedding this SDK is sufficient.
+Longer term this SDK will live in its own repository, however, for now copying/embedding this SDK is sufficient.
 
 The Generated SDK's get copied from:
 
