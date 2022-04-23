@@ -101,6 +101,64 @@ const (
 `, constantName, constantType, strings.Join(definitionLines, "\n"))
 }
 
+func (c constantsTemplater) normalizeFunction(constantName string, values resourcemanager.ConstantDetails) (*string, error) {
+	valueKeys := make([]string, 0)
+	for key := range values.Values {
+		valueKeys = append(valueKeys, key)
+	}
+	sort.Strings(valueKeys)
+
+	if values.Type == resourcemanager.FloatConstant || values.Type == resourcemanager.IntegerConstant {
+		mapLines := make([]string, 0)
+		for _, constantKey := range valueKeys {
+			constantValue := values.Values[constantKey]
+			// whilst the key may look weird here, constantValue is a string containing the formatted int/float value
+			// as such we output that raw without any parsing/formatting
+			mapLines = append(mapLines, fmt.Sprintf("%s: %s%s,", strings.ToLower(constantValue), constantName, constantKey))
+		}
+		typeName := mapConstantTypeToGoType(values.Type)
+
+		out := fmt.Sprintf(`
+func normalize%[1]s(input %[1]s) %[1]s {
+	vals := map[%[3]s]%[1]s{
+		%[2]s
+	}
+	if v, ok := vals[input]; ok {
+		return v
+	}
+
+	// otherwise presume it's an undefined value and just return it
+	return input
+}
+`, constantName, strings.Join(mapLines, "\n"), typeName)
+		return &out, nil
+	}
+
+	if values.Type != resourcemanager.StringConstant {
+		return nil, fmt.Errorf("unimplemented constant type %q", string(values.Type))
+	}
+
+	mapLines := make([]string, 0)
+	for _, constantKey := range valueKeys {
+		constantValue := values.Values[constantKey]
+		mapLines = append(mapLines, fmt.Sprintf("%q: %s%s,", strings.ToLower(constantValue), constantName, constantKey))
+	}
+	out := fmt.Sprintf(`
+func normalize%[1]s(input %[1]s) %[1]s {
+	vals := map[string]%[1]s{
+		%[2]s
+	}
+	if v, ok := vals[strings.ToLower(input)]; ok {
+		return v
+	}
+
+	// otherwise presume it's an undefined value and just return it
+	return input
+}
+`, constantName, strings.Join(mapLines, "\n"))
+	return &out, nil
+}
+
 func (c constantsTemplater) possibleValuesFunction(constantName string, values resourcemanager.ConstantDetails) string {
 	valueKeys := make([]string, 0)
 	for key := range values.Values {
