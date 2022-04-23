@@ -29,11 +29,6 @@ func templateForConstant(name string, details resourcemanager.ConstantDetails) (
 	constantDefinition := t.constantDefinition()
 	possibleValuesFunction := t.possibleValuesFunction()
 
-	normalizeFunction, err := t.normalizeFunction()
-	if err != nil {
-		return nil, fmt.Errorf("generating normalize function: %+v", err)
-	}
-
 	parseFunction, err := t.parseFunction()
 	if err != nil {
 		return nil, fmt.Errorf("generating parse function: %+v", err)
@@ -42,7 +37,6 @@ func templateForConstant(name string, details resourcemanager.ConstantDetails) (
 	out := strings.Join([]string{
 		constantDefinition,
 		possibleValuesFunction,
-		*normalizeFunction,
 		*parseFunction,
 	}, "\n")
 	return &out, nil
@@ -96,58 +90,6 @@ func PossibleValuesFor%[1]s() []%[2]s {
 	}
 }
 `, t.name, typeName, strings.Join(lines, "\n"))
-}
-
-func (t constantTemplater) normalizeFunction() (*string, error) {
-	valueKeys := make([]string, 0)
-	for key := range t.details.Values {
-		valueKeys = append(valueKeys, key)
-	}
-	sort.Strings(valueKeys)
-
-	if t.details.Type == resourcemanager.FloatConstant {
-		out := fmt.Sprintf(`
-func normalize%[1]s(input %[1]s) %[1]s {
-	// a float can't be case-corrected, so just return it
-	return input
-}
-`, t.name)
-		return &out, nil
-	}
-
-	if t.details.Type == resourcemanager.IntegerConstant {
-		out := fmt.Sprintf(`
-func normalize%[1]s(input %[1]s) %[1]s {
-	// a number can't be case-corrected, so just return it
-	return input
-}
-`, t.name)
-		return &out, nil
-	}
-
-	if t.details.Type != resourcemanager.StringConstant {
-		return nil, fmt.Errorf("unimplemented constant type %q", string(t.details.Type))
-	}
-
-	mapLines := make([]string, 0)
-	for _, constantKey := range valueKeys {
-		constantValue := t.details.Values[constantKey]
-		mapLines = append(mapLines, fmt.Sprintf("%q: %s%s,", strings.ToLower(constantValue), t.name, constantKey))
-	}
-	out := fmt.Sprintf(`
-func normalize%[1]s(input %[1]s) %[1]s {
-	vals := map[string]%[1]s{
-		%[2]s
-	}
-	if v, ok := vals[strings.ToLower(input)]; ok {
-		return v
-	}
-
-	// otherwise presume it's an undefined value and just return it
-	return input
-}
-`, t.name, strings.Join(mapLines, "\n"))
-	return &out, nil
 }
 
 func (t constantTemplater) parseFunction() (*string, error) {

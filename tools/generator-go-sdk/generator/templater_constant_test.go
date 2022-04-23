@@ -32,11 +32,6 @@ func PossibleValuesForMyConstant() []float64 {
 	}
 }
 
-func normalizeMyConstant(input MyConstant) MyConstant {
-	// a float can't be case-corrected, so just return it
-	return input
-}
-
 func parseMyConstant(input float64) (*MyConstant, error) {
 	vals := map[float64]MyConstant{
         4.2: MyConstantFourPointTwo,
@@ -81,11 +76,6 @@ func PossibleValuesForMamboNumber() []int64 {
         int64(MamboNumberTenSix),
 		int64(MamboNumberTwo),
 	}
-}
-
-func normalizeMamboNumber(input MamboNumber) MamboNumber {
-	// a number can't be case-corrected, so just return it
-	return input
 }
 
 func parseMamboNumber(input int64) (*MamboNumber, error) {
@@ -133,20 +123,6 @@ func PossibleValuesForCapital() []string {
         string(CapitalOslo),
         string(CapitalSydney),
 	}
-}
-
-func normalizeCapital(input Capital) Capital {
-	vals := map[string]Capital{
-		"berlin": CapitalBerlin,
-		"oslo": CapitalOslo,
-		"sydney": CapitalSydney,
-	}
-	if v, ok := vals[strings.ToLower(input)]; ok {
-		return v
-	}
-
-	// otherwise presume it's an undefined value and just return it
-	return input
 }
 
 func parseCapital(input string) (*Capital, error) {
