@@ -1,11 +1,10 @@
 package generator
 
 import (
-	"strings"
 	"testing"
 )
 
-func TestVersionTemplater(t *testing.T) {
+func TestTemplateVersion(t *testing.T) {
 	input := ServiceGeneratorData{
 		packageName: "somepackage",
 		apiVersion:  "2022-02-01",
@@ -25,7 +24,5 @@ const defaultApiVersion = "2022-02-01"
 func userAgent() string {
 	return fmt.Sprintf("pandora/somepackage/%s", defaultApiVersion)
 }`
-	if !strings.EqualFold(strings.TrimSpace(*actual), strings.TrimSpace(expected)) {
-		t.Fatalf("Expected:\n\n---\n%s\n---\nActual:\n%s", expected, *actual)
-	}
+	assertTemplatedCodeMatches(t, *actual, expected)
 }

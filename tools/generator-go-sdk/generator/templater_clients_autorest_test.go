@@ -1,11 +1,10 @@
 package generator
 
 import (
-	"strings"
 	"testing"
 )
 
-func TestClientsAutoRestTemplater(t *testing.T) {
+func TestTemplateAutoRestClient(t *testing.T) {
 	input := ServiceGeneratorData{
 		packageName:       "somepackage",
 		serviceClientName: "ExampleClient",
@@ -31,7 +30,5 @@ func NewExampleClientWithBaseURI(endpoint string) ExampleClient {
 		baseUri: endpoint,
 	}
 }`
-	if !strings.EqualFold(strings.TrimSpace(*actual), strings.TrimSpace(expected)) {
-		t.Fatalf("Expected:\n\n---\n%s\n---\nActual:\n%s", expected, *actual)
-	}
+	assertTemplatedCodeMatches(t, *actual, expected)
 }
