@@ -8,6 +8,7 @@ type versionTemplater struct {
 }
 
 func (c versionTemplater) template(data ServiceGeneratorData) (*string, error) {
+	// TODO: when this is split into it's own repo make the UA `hashicorp/go-azure-sdk`
 	template := fmt.Sprintf(`package %[1]s
 
 import "fmt"
