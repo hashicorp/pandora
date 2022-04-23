@@ -9,7 +9,31 @@ import (
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-// TODO: add unit tests covering this
+// TODO: the unmarshal func needs rewriting
+// this would also allow this behaviour to be feature-toggled
+// _all_ Constants can now be normalized via
+// w.Example = w.Example.Normalize() - meaning that we want:
+/*
+var _ json.Unmarshal = Foo{}
+
+func (f *Foo) Unmarshal(..) error {
+	type wrapper Foo
+	var intermediate wrapper
+	if err := json.Unmarshal(input, &intermediate); err != nil {
+		// TODO: do whatever you have to do
+	}
+	f.Foo = intermediate.Foo.Normalize()
+	// or
+	if v := intermediate.Foo; v != nil {
+		normalized := v.Normalize()
+		f.Foo = &normalized
+	}
+
+	// TODO: discriminated type stuff too
+
+	return nil
+}
+*/
 
 var _ templater = modelsTemplater{}
 
