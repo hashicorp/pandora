@@ -58,6 +58,7 @@ func splitLines(input string) []string {
 	out := make([]string, 0)
 	for _, line := range lines {
 		line = strings.TrimSpace(line)
+		line = strings.ReplaceAll(line, "\t", " ")
 		if line == "" || line == "\n" {
 			continue
 		}
@@ -65,4 +66,8 @@ func splitLines(input string) []string {
 		out = append(out, line)
 	}
 	return out
+}
+
+func stringPointer(in string) *string {
+	return &in
 }
