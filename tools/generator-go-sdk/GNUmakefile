@@ -9,8 +9,11 @@ fmt:
 run: build
 	./generator-go-sdk
 
+test: build
+	go test -v ./...
+
 tools:
 	@echo "==> no tools required at this time."
 
-.PHONY: build fmt run
+.PHONY: build fmt run test tools
 
