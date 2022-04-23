@@ -189,7 +189,7 @@ func (c modelsTemplater) structLineForField(fieldName, fieldType string, fieldDe
 	return &line, nil
 }
 
-func dateFormatString(input resourcemanager.DateFormat) string {
+func (c modelsTemplater) dateFormatString(input resourcemanager.DateFormat) string {
 	switch input {
 	case resourcemanager.RFC3339:
 		return time.RFC3339
@@ -256,10 +256,10 @@ func (c modelsTemplater) dateFunctionForField(fieldName string, fieldDetails res
 		return nil, fmt.Errorf("Date Field %q has no DateFormat", fieldName)
 	}
 
-	dateFormat := dateFormatString(*fieldDetails.DateFormat)
+	dateFormat := c.dateFormatString(*fieldDetails.DateFormat)
 
 	linesForField := []string{
-		fmt.Sprintf("\tfunc (o %[1]s) Get%[2]sAsTime() (*time.Time, error) {", c.name, fieldName),
+		fmt.Sprintf("\tfunc (o *%[1]s) Get%[2]sAsTime() (*time.Time, error) {", c.name, fieldName),
 	}
 
 	// Get{Name}AsTime method for getting *time.Time from a string
@@ -275,7 +275,7 @@ func (c modelsTemplater) dateFunctionForField(fieldName string, fieldDetails res
 	linesForField = append(linesForField, fmt.Sprintf("\t}\n"))
 
 	// Set{Name}AsTime method - for setting time.Time -> string
-	linesForField = append(linesForField, fmt.Sprintf("\tfunc (o %[1]s) Set%[2]sAsTime(input time.Time) {", c.name, fieldName))
+	linesForField = append(linesForField, fmt.Sprintf("\tfunc (o *%[1]s) Set%[2]sAsTime(input time.Time) {", c.name, fieldName))
 	linesForField = append(linesForField, fmt.Sprintf("\t\tformatted := input.Format(%q)", dateFormat))
 	if fieldDetails.Optional {
 		linesForField = append(linesForField, fmt.Sprintf("\t\to.%s = &formatted", fieldName))
