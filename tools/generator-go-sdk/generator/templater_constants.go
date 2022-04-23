@@ -34,7 +34,10 @@ func (c constantsTemplater) template(data ServiceGeneratorData) (*string, error)
 
 	template := fmt.Sprintf(`package %[1]s
 
-import "strings"
+import (
+	"strings"
+	"github.com/hashicorp/go-azure-helpers/lang/normalizers"
+)
 
 %s`, data.packageName, strings.Join(lines, "\n"))
 	return &template, nil

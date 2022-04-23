@@ -29,6 +29,11 @@ func templateForConstant(name string, details resourcemanager.ConstantDetails) (
 	constantDefinition := t.constantDefinition()
 	possibleValuesFunction := t.possibleValuesFunction()
 
+	normalizeFunction, err := t.normalizeFunction()
+	if err != nil {
+		return nil, fmt.Errorf("generating normalize function: %+v", err)
+	}
+
 	parseFunction, err := t.parseFunction()
 	if err != nil {
 		return nil, fmt.Errorf("generating parse function: %+v", err)
@@ -37,6 +42,7 @@ func templateForConstant(name string, details resourcemanager.ConstantDetails) (
 	out := strings.Join([]string{
 		constantDefinition,
 		possibleValuesFunction,
+		*normalizeFunction,
 		*parseFunction,
 	}, "\n")
 	return &out, nil
@@ -68,6 +74,53 @@ const (
 %[3]s
 )
 `, t.name, constantType, strings.Join(definitionLines, "\n"))
+}
+
+func (t constantTemplater) normalizeFunction() (*string, error) {
+	if t.details.Type == resourcemanager.FloatConstant || t.details.Type == resourcemanager.IntegerConstant {
+		out := fmt.Sprintf(`
+var _ normalizers.Normalize = %[1]s{}
+
+func (c %[1]s) Normalize() %[1]s {
+	// a %[2]s constant can't be normalized, so just return it
+	return c
+}
+`, t.name, string(t.details.Type))
+		return &out, nil
+	}
+
+	if t.details.Type != resourcemanager.StringConstant {
+		return nil, fmt.Errorf("unimplemented: expected a float, int or string constant but got %q", string(t.details.Type))
+	}
+
+	valueKeys := make([]string, 0)
+	for key := range t.details.Values {
+		valueKeys = append(valueKeys, key)
+	}
+	sort.Strings(valueKeys)
+
+	mapLines := make([]string, 0)
+	for _, constantKey := range valueKeys {
+		constantValue := t.details.Values[constantKey]
+		mapLines = append(mapLines, fmt.Sprintf("%q: %s%s,", strings.ToLower(constantValue), t.name, constantKey))
+	}
+
+	out := fmt.Sprintf(`
+var _ normalizers.Normalize = %[1]s{}
+
+func (c %[1]s) Normalize() %[1]s {
+	vals := map[string]%[1]s{
+ 		%[2]s
+ 	}
+ 	if v, ok := vals[strings.ToLower(string(c))]; ok {
+ 		return v
+ 	}
+
+	// if it doesn't match a known value, assume it's a new value and just return it for now
+	return c
+}
+`, t.name, strings.Join(mapLines, "\n"))
+	return &out, nil
 }
 
 func (t constantTemplater) possibleValuesFunction() string {

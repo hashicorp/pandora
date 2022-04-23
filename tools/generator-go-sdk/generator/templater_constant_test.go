@@ -6,7 +6,7 @@ import (
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-func TestTemplateFloatConstant(t *testing.T) {
+func TestConstantTemplateFloat(t *testing.T) {
 	actual, err := templateForConstant("MyConstant", resourcemanager.ConstantDetails{
 		CaseInsensitive: false,
 		Type:            resourcemanager.FloatConstant,
@@ -32,6 +32,13 @@ func PossibleValuesForMyConstant() []float64 {
 	}
 }
 
+var _ normalizers.Normalize = MyConstant{}
+
+func (c MyConstant) Normalize() MyConstant {
+	// a float constant can't be normalized, so just return it
+	return c
+}
+
 func parseMyConstant(input float64) (*MyConstant, error) {
 	vals := map[float64]MyConstant{
         4.2: MyConstantFourPointTwo,
@@ -49,7 +56,7 @@ func parseMyConstant(input float64) (*MyConstant, error) {
 	assertTemplatedCodeMatches(t, *actual, expected)
 }
 
-func TestTemplateIntegerConstant(t *testing.T) {
+func TestConstantTemplateInteger(t *testing.T) {
 	actual, err := templateForConstant("MamboNumber", resourcemanager.ConstantDetails{
 		CaseInsensitive: false,
 		Type:            resourcemanager.IntegerConstant,
@@ -78,6 +85,13 @@ func PossibleValuesForMamboNumber() []int64 {
 	}
 }
 
+var _ normalizers.Normalize = MamboNumber{}
+
+func (c MamboNumber) Normalize() MamboNumber {
+	// a int constant can't be normalized, so just return it
+	return c
+}
+
 func parseMamboNumber(input int64) (*MamboNumber, error) {
 	vals := map[int64]MamboNumber{
         5: MamboNumberFive,
@@ -96,7 +110,7 @@ func parseMamboNumber(input int64) (*MamboNumber, error) {
 	assertTemplatedCodeMatches(t, *actual, expected)
 }
 
-func TestTemplateStringConstant(t *testing.T) {
+func TestConstantTemplateString(t *testing.T) {
 	actual, err := templateForConstant("Capital", resourcemanager.ConstantDetails{
 		CaseInsensitive: false,
 		Type:            resourcemanager.StringConstant,
@@ -123,6 +137,21 @@ func PossibleValuesForCapital() []string {
         string(CapitalOslo),
         string(CapitalSydney),
 	}
+}
+
+var _ normalizers.Normalize = Capital{}
+
+func (c Capital) Normalize() Capital {
+	vals := map[string]Capital{
+		"berlin": CapitalBerlin,
+        "oslo": CapitalOslo,
+        "sydney": CapitalSydney,
+	}
+	if v, ok := vals[strings.ToLower(string(c))]; ok {
+		return v
+	}
+	// if it doesn't match a known value, assume it's a new value and just return it for now
+	return c
 }
 
 func parseCapital(input string) (*Capital, error) {

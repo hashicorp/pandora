@@ -30,7 +30,10 @@ func TestTemplateConstantsSingle(t *testing.T) {
 	}
 	expected := `package somepackage
 
-import "strings"
+import (
+	"strings"
+	"github.com/hashicorp/go-azure-helpers/lang/normalizers"
+)
 
 // template for first
 `
@@ -58,7 +61,10 @@ func TestTemplateConstantsMultiple(t *testing.T) {
 	}
 	expected := `package somepackage
 
-import "strings"
+import (
+	"strings"
+	"github.com/hashicorp/go-azure-helpers/lang/normalizers"
+)
 
 // template for first
 // template for second
