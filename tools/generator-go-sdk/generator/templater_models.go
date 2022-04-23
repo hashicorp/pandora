@@ -9,6 +9,8 @@ import (
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
+// TODO: add unit tests covering this
+
 var _ templater = modelsTemplater{}
 
 type modelsTemplater struct {

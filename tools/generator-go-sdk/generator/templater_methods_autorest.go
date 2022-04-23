@@ -10,6 +10,7 @@ import (
 
 // TODO: should we expose a Description for each operation? seems not worthwhile
 // TODO: implement predicates
+// TODO: add unit tests covering this
 
 var _ templater = methodsAutoRestTemplater{}
 
