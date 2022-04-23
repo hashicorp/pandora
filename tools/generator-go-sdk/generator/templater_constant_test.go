@@ -55,11 +55,11 @@ func parseMyConstant(input float64) (*MyConstant, error) {
 }
 
 func TestTemplateIntegerConstant(t *testing.T) {
-	actual, err := templateForConstant("Multiple", resourcemanager.ConstantDetails{
+	actual, err := templateForConstant("MamboNumber", resourcemanager.ConstantDetails{
 		CaseInsensitive: false,
 		Type:            resourcemanager.IntegerConstant,
 		Values: map[string]string{
-			"Four":   "4",
+			"Five":   "5",
 			"TenSix": "16",
 			"Two":    "2",
 		},
@@ -67,39 +67,39 @@ func TestTemplateIntegerConstant(t *testing.T) {
 	if err != nil {
 		t.Fatal(err.Error())
 	}
-	expected := `type Multiple int64
+	expected := `type MamboNumber int64
 
 const (
-	MultipleFour Multiple = 4
-	MultipleTenSix Multiple = 16
-	MultipleTwo Multiple = 2
+	MamboNumberFive MamboNumber = 5
+	MamboNumberTenSix MamboNumber = 16
+	MamboNumberTwo MamboNumber = 2
 )
 
-func PossibleValuesForMultiple() []int64 {
+func PossibleValuesForMamboNumber() []int64 {
 	return []int64{
-        int64(MultipleFour),
-        int64(MultipleTenSix),
-		int64(MultipleTwo),
+        int64(MamboNumberFive),
+        int64(MamboNumberTenSix),
+		int64(MamboNumberTwo),
 	}
 }
 
-func normalizeMultiple(input Multiple) Multiple {
+func normalizeMamboNumber(input MamboNumber) MamboNumber {
 	// a number can't be case-corrected, so just return it
 	return input
 }
 
-func parseMultiple(input int64) (*Multiple, error) {
-	vals := map[int64]Multiple{
-        4: MultipleFour,
-        16: MultipleTenSix,
-		2: MultipleTwo,
+func parseMamboNumber(input int64) (*MamboNumber, error) {
+	vals := map[int64]MamboNumber{
+        5: MamboNumberFive,
+        16: MamboNumberTenSix,
+		2: MamboNumberTwo,
 	}
 	if v, ok := vals[input]; ok {
     	return &v, nil
 	}
         
 	// otherwise presume it's an undefined value and best-effort it
-	out := Multiple(input)
+	out := MamboNumber(input)
 	return &out, nil
 }
 `
