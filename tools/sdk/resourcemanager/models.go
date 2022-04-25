@@ -11,7 +11,11 @@ type ApiObjectDefinition struct {
 func (od ApiObjectDefinition) String() string {
 	v := fmt.Sprintf("%s", string(od.Type))
 	if od.Type == ReferenceApiObjectDefinitionType {
-		v = fmt.Sprintf("Reference[%s]", od.Type)
+		if od.ReferenceName != nil {
+			v = fmt.Sprintf("Reference[%s]", *od.ReferenceName)
+		} else {
+			v = "Reference[nil]"
+		}
 	}
 	if od.NestedItem != nil {
 		if od.Type == DictionaryApiObjectDefinitionType {
