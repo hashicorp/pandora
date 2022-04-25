@@ -8,7 +8,6 @@ type ApiObjectDefinition struct {
 	Type          ApiObjectDefinitionType `json:"type"`
 }
 
-
 func (od ApiObjectDefinition) String() string {
 	v := fmt.Sprintf("%s", string(od.Type))
 	if od.Type == ReferenceApiObjectDefinitionType {
