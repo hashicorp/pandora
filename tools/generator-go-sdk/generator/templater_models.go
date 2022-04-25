@@ -611,11 +611,164 @@ if v := decoded.%[1]s; v != nil {
 		}
 	}
 
-	// TODO: manually parse out any custom discriminators
-	//for _, fieldName := range fieldsContainingDiscriminatedTypes {
-	//	fieldDetails := c.model.Fields[fieldName]
-	//	// TODO: call out to the discriminator as required
-	//}
+	// manually parse out any custom discriminators
+	if len(fieldsContainingDiscriminatedTypes) > 0 {
+		lines = append(lines, "")
+		lines = append(lines, fmt.Sprintf(`
+	// manually parse out any discriminated types
+	var decoded map[string]interface{}
+	if err := json.Unmarshal(encoded, &decoded); err != nil {
+		return nil, fmt.Errorf("unmarshaling %[1]s: %%+v", err)
+	}
+`, c.name))
+		for _, fieldName := range fieldsContainingDiscriminatedTypes {
+			fieldDetails := c.model.Fields[fieldName]
+			// NOTE: at this point in time we only support either top-level or one-level deep discriminated typed
+			// that is `Type`, `List<Type>` and `Dictionary<Type>` - as multi-level deep
+			// shouldn't be required.
+
+			if fieldDetails.ObjectDefinition.Type == resourcemanager.DictionaryApiObjectDefinitionType {
+				if fieldDetails.ObjectDefinition.NestedItem == nil {
+					return nil, fmt.Errorf("dictionary nested item was nil: %s", fieldDetails.ObjectDefinition)
+				}
+				if fieldDetails.ObjectDefinition.NestedItem.Type != resourcemanager.ReferenceApiObjectDefinitionType {
+					return nil, fmt.Errorf("dictionary nested item reference type was not a reference: %s", fieldDetails.ObjectDefinition)
+				}
+				if fieldDetails.ObjectDefinition.NestedItem.ReferenceName == nil {
+					return nil, fmt.Errorf("dictionary nested item reference was nil: %s", fieldDetails.ObjectDefinition)
+				}
+				referenceType := *fieldDetails.ObjectDefinition.NestedItem.ReferenceName
+				if fieldDetails.Optional {
+					lines = append(lines, fmt.Sprintf(`
+if v := decoded[%[2]q]; v != nil {
+	items := make(map[string]%[3]s, 0)
+	var dict map[string]json.RawMessage
+	if err := json.Unmarshal(v, &dict); err != nil {
+		return nil, fmt.Errorf("unmarshaling json value for %[2]q into map[string]%[3]s: %%+v", err)
+	}
+	for k, item := range dict {
+		inner, err := unmarshal%[3]sImplementation(item)
+		if err != nil {
+			return nil, fmt.Errorf("unmarshaling implementation for %[3]s item %%q: %%+v", k, err) 
+		}
+		if inner != nil {
+			items[k] = *inner
+		}
+	}
+	s.%[1]s = items
+}
+`, fieldName, fieldDetails.JsonName, referenceType))
+					continue
+				}
+
+				lines = append(lines, fmt.Sprintf(`
+if v := decoded[%[2]q]; v != nil {
+	items := make(map[string]%[3]s, 0)
+	var dict map[string]json.RawMessage
+	if err := json.Unmarshal(v, &dict); err != nil {
+		return nil, fmt.Errorf("unmarshaling json value for %[2]q into map[string]%[3]s: %%+v", err)
+	}
+	for k, item := range dict {
+		inner, err := unmarshal%[3]sImplementation(item)
+		if err != nil {
+			return nil, fmt.Errorf("unmarshaling implementation for %[3]s item %%q: %%+v", k, err) 
+		}
+		items[k] = *inner
+	}
+	s.%[1]s = items
+}
+`, fieldName, fieldDetails.JsonName, referenceType))
+				continue
+			}
+
+			if fieldDetails.ObjectDefinition.Type == resourcemanager.ListApiObjectDefinitionType {
+				if fieldDetails.ObjectDefinition.NestedItem == nil {
+					return nil, fmt.Errorf("list nested item was nil: %s", fieldDetails.ObjectDefinition)
+				}
+				if fieldDetails.ObjectDefinition.NestedItem.Type != resourcemanager.ReferenceApiObjectDefinitionType {
+					return nil, fmt.Errorf("list nested item reference type was not a reference: %s", fieldDetails.ObjectDefinition)
+				}
+				if fieldDetails.ObjectDefinition.NestedItem.ReferenceName == nil {
+					return nil, fmt.Errorf("list nested item reference was nil: %s", fieldDetails.ObjectDefinition)
+				}
+				referenceType := *fieldDetails.ObjectDefinition.NestedItem.ReferenceName
+				if fieldDetails.Optional {
+					lines = append(lines, fmt.Sprintf(`
+if v := decoded[%[2]q]; v != nil {
+	items := make([]%[3]s, 0)
+	var list []json.RawMessage
+	if err := json.Unmarshal(v, &list); err != nil {
+		return nil, fmt.Errorf("unmarshaling json value for %[2]q into []%[3]s: %%+v", err)
+	}
+	for i, item := range list {
+		inner, err := unmarshal%[3]sImplementation(item)
+		if err != nil {
+			return nil, fmt.Errorf("unmarshaling implementation for %[3]s item %%d: %%+v", i, err) 
+		}
+		if inner != nil {
+			items = append(items, *inner)
+		}
+	}
+	s.%[1]s = items
+}
+`, fieldName, fieldDetails.JsonName, referenceType))
+					continue
+				}
+
+				lines = append(lines, fmt.Sprintf(`
+if v := decoded[%[2]q]; v != nil {
+	items := make([]%[3]s, 0)
+	var list []json.RawMessage
+	if err := json.Unmarshal(v, &list); err != nil {
+		return nil, fmt.Errorf("unmarshaling json value for %[2]q into []%[3]s: %%+v", err)
+	}
+	for i, item := range list {
+		inner, err := unmarshal%[3]sImplementation(item)
+		if err != nil {
+			return nil, fmt.Errorf("unmarshaling implementation for %[3]s item %%d: %%+v", i, err) 
+		}
+		items = append(items, *inner)
+	}
+	s.%[1]s = items
+}
+`, fieldName, fieldDetails.JsonName, referenceType))
+				continue
+			}
+
+			if fieldDetails.ObjectDefinition.Type == resourcemanager.ReferenceApiObjectDefinitionType {
+				// map it directly
+				if fieldDetails.ObjectDefinition.ReferenceName == nil {
+					return nil, fmt.Errorf("reference was nil: %s", fieldDetails.ObjectDefinition)
+				}
+				referenceType := *fieldDetails.ObjectDefinition.ReferenceName
+				if fieldDetails.Optional {
+					lines = append(lines, fmt.Sprintf(`
+if v := decoded[%[2]q]; v != nil {
+	inner, err := unmarshal%[3]sImplementation(v)
+	if err != nil {
+		return nil, fmt.Errorf("unmarshaling implementation for %[3]s: %%+v", err) 
+	}
+	s.%[1]s = inner 
+}
+`, fieldName, fieldDetails.JsonName, referenceType))
+					continue
+				}
+
+				lines = append(lines, fmt.Sprintf(`
+if v := decoded[%[2]q]; v != nil {
+	inner, err := unmarshal%[3]sImplementation(v)
+	if err != nil {
+		return nil, fmt.Errorf("unmarshaling implementation for %[3]s: %%+v", err) 
+	}
+	s.%[1]s = *inner 
+}
+`, fieldName, fieldDetails.JsonName, referenceType))
+				continue
+			}
+
+			return nil, fmt.Errorf("cannot normalize parent type: %+v", fieldDetails.ObjectDefinition.String())
+		}
+	}
 
 	// if there's any remaining fields then map those across manually
 	if len(fieldsToUnmarshalManually) > 0 {
