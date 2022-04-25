@@ -2,20 +2,12 @@ package generator
 
 import "fmt"
 
-func (s *ServiceGenerator) clients(data ServiceGeneratorData) error {
-	if err := s.writeToPath(data.outputPath, "client.go", clientsTemplater{}, data); err != nil {
-		return fmt.Errorf("templating client: %+v", err)
-	}
+var _ templater = clientsAutoRestTemplater{}
 
-	return nil
+type clientsAutoRestTemplater struct {
 }
 
-var _ templater = clientsTemplater{}
-
-type clientsTemplater struct {
-}
-
-func (c clientsTemplater) template(data ServiceGeneratorData) (*string, error) {
+func (c clientsAutoRestTemplater) template(data ServiceGeneratorData) (*string, error) {
 	template := fmt.Sprintf(`package %[1]s
 
 import "github.com/Azure/go-autorest/autorest"

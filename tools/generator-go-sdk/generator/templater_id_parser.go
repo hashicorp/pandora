@@ -8,6 +8,8 @@ import (
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
+// TODO: add unit tests covering this
+
 var _ templater = resourceIdTemplater{}
 
 type resourceIdTemplater struct {
