@@ -70,6 +70,23 @@ import (
 type Basic struct {
 	SomeFloat *MyFloat ''json:"someFloat,omitempty"''
 }
+
+var _ json.Unmarshaler = &Basic{}
+
+func (s *Basic) UnmarshalJSON(bytes []byte) error {
+	type alias Basic
+	var decoded alias
+	if err := json.Unmarshal(bytes, &decoded); err != nil {
+		return fmt.Errorf("unmarshaling into Basic: %+v", err)
+	}
+
+	// normalize any constants on the way through
+	if v := decoded.SomeFloat; v != nil {
+		normalized := v.Normalize()
+		s.SomeFloat = &normalized
+	}
+	return nil
+}
 `, "''", "`")
 	assertTemplatedCodeMatches(t, expected, *actual)
 }
@@ -136,6 +153,23 @@ import (
 
 type Basic struct {
 	Mambo *MamboNumber ''json:"mambo,omitempty"''
+}
+
+var _ json.Unmarshaler = &Basic{}
+
+func (s *Basic) UnmarshalJSON(bytes []byte) error {
+	type alias Basic
+	var decoded alias
+	if err := json.Unmarshal(bytes, &decoded); err != nil {
+		return fmt.Errorf("unmarshaling into Basic: %+v", err)
+	}
+
+	// normalize any constants on the way through
+	if v := decoded.Mambo; v != nil {
+		normalized := v.Normalize()
+		s.Mambo = &normalized
+	}
+	return nil
 }
 `, "''", "`")
 	assertTemplatedCodeMatches(t, expected, *actual)
@@ -205,6 +239,23 @@ import (
 type Basic struct {
 	Country *Countries ''json:"country,omitempty"''
 }
+
+var _ json.Unmarshaler = &Basic{}
+
+func (s *Basic) UnmarshalJSON(bytes []byte) error {
+	type alias Basic
+	var decoded alias
+	if err := json.Unmarshal(bytes, &decoded); err != nil {
+		return fmt.Errorf("unmarshaling into Basic: %+v", err)
+	}
+
+	// normalize any constants on the way through
+	if v := decoded.Country; v != nil {
+		normalized := v.Normalize()
+		s.Country = &normalized
+	}
+	return nil
+}
 `, "''", "`")
 	assertTemplatedCodeMatches(t, expected, *actual)
 }
@@ -271,6 +322,20 @@ import (
 
 type Basic struct {
 	SomeFloat MyFloat ''json:"someFloat"''
+}
+
+var _ json.Unmarshaler = &Basic{}
+
+func (s *Basic) UnmarshalJSON(bytes []byte) error {
+	type alias Basic
+	var decoded alias
+	if err := json.Unmarshal(bytes, &decoded); err != nil {
+		return fmt.Errorf("unmarshaling into Basic: %+v", err)
+	}
+
+	// normalize any constants on the way through
+	s.SomeFloat = decoded.SomeFloat.Normalize()
+	return nil
 }
 `, "''", "`")
 	assertTemplatedCodeMatches(t, expected, *actual)
@@ -339,6 +404,20 @@ import (
 type Basic struct {
 	Mambo MamboNumber ''json:"mambo"''
 }
+
+var _ json.Unmarshaler = &Basic{}
+
+func (s *Basic) UnmarshalJSON(bytes []byte) error {
+	type alias Basic
+	var decoded alias
+	if err := json.Unmarshal(bytes, &decoded); err != nil {
+		return fmt.Errorf("unmarshaling into Basic: %+v", err)
+	}
+
+	// normalize any constants on the way through
+	s.Mambo = decoded.Mambo.Normalize()
+	return nil
+}
 `, "''", "`")
 	assertTemplatedCodeMatches(t, expected, *actual)
 }
@@ -406,6 +485,20 @@ import (
 
 type Basic struct {
 	Country Countries ''json:"country"''
+}
+
+var _ json.Unmarshaler = &Basic{}
+
+func (s *Basic) UnmarshalJSON(bytes []byte) error {
+	type alias Basic
+	var decoded alias
+	if err := json.Unmarshal(bytes, &decoded); err != nil {
+		return fmt.Errorf("unmarshaling into Basic: %+v", err)
+	}
+
+	// normalize any constants on the way through
+	s.Country = decoded.Country.Normalize()
+	return nil
 }
 `, "''", "`")
 	assertTemplatedCodeMatches(t, expected, *actual)
@@ -480,6 +573,26 @@ import (
 type Basic struct {
 	ListOfFloats *[]MyFloat ''json:"listOfFloats,omitempty"''
 }
+
+var _ json.Unmarshaler = &Basic{}
+
+func (s *Basic) UnmarshalJSON(bytes []byte) error {
+	type alias Basic
+	var decoded alias
+	if err := json.Unmarshal(bytes, &decoded); err != nil {
+		return fmt.Errorf("unmarshaling into Basic: %+v", err)
+	}
+
+	// normalize any constants on the way through
+	if val := decoded.ListOfFloats; val != nil {
+		items := make([]MyFloat, 0)
+		for _, v := range val {
+			items = append(items, v.Normalize())
+		}
+		s.ListOfFloats = &items
+	}
+	return nil
+}
 `, "''", "`")
 	assertTemplatedCodeMatches(t, expected, *actual)
 }
@@ -552,6 +665,26 @@ import (
 
 type Basic struct {
 	Mambos *[]MamboNumber ''json:"mambos,omitempty"''
+}
+
+var _ json.Unmarshaler = &Basic{}
+
+func (s *Basic) UnmarshalJSON(bytes []byte) error {
+	type alias Basic
+	var decoded alias
+	if err := json.Unmarshal(bytes, &decoded); err != nil {
+		return fmt.Errorf("unmarshaling into Basic: %+v", err)
+	}
+
+	// normalize any constants on the way through
+	if val := decoded.Mambos; val != nil {
+		items := make([]MamboNumber, 0)
+		for _, v := range val {
+			items = append(items, v.Normalize())
+		}
+		s.Mambos = &items
+	}
+	return nil
 }
 `, "''", "`")
 	assertTemplatedCodeMatches(t, expected, *actual)
@@ -627,6 +760,26 @@ import (
 type Basic struct {
 	FavouriteCountries *[]Countries ''json:"favouriteCountries,omitempty"''
 }
+
+var _ json.Unmarshaler = &Basic{}
+
+func (s *Basic) UnmarshalJSON(bytes []byte) error {
+	type alias Basic
+	var decoded alias
+	if err := json.Unmarshal(bytes, &decoded); err != nil {
+		return fmt.Errorf("unmarshaling into Basic: %+v", err)
+	}
+
+	// normalize any constants on the way through
+	if val := decoded.FavouriteCountries; val != nil {
+		items := make([]Countries, 0)
+		for _, v := range val {
+			items = append(items, v.Normalize())
+		}
+		s.FavouriteCountries = &items
+	}
+	return nil
+}
 `, "''", "`")
 	assertTemplatedCodeMatches(t, expected, *actual)
 }
@@ -700,6 +853,27 @@ import (
 type Basic struct {
 	ListOfFloats []MyFloat ''json:"listOfFloats"''
 }
+
+var _ json.Unmarshaler = &Basic{}
+
+func (s *Basic) UnmarshalJSON(bytes []byte) error {
+	type alias Basic
+	var decoded alias
+	if err := json.Unmarshal(bytes, &decoded); err != nil {
+		return fmt.Errorf("unmarshaling into Basic: %+v", err)
+	}
+
+	// normalize any constants on the way through
+	if val := decoded.ListOfFloats; val != nil {
+		items := make([]MyFloat, 0)
+		for _, v := range val {
+			items = append(items, v.Normalize())
+		}
+		s.ListOfFloats = items
+	}
+
+	return nil
+}
 `, "''", "`")
 	assertTemplatedCodeMatches(t, expected, *actual)
 }
@@ -772,6 +946,27 @@ import (
 
 type Basic struct {
 	Mambos []MamboNumber ''json:"mambos"''
+}
+
+var _ json.Unmarshaler = &Basic{}
+
+func (s *Basic) UnmarshalJSON(bytes []byte) error {
+	type alias Basic
+	var decoded alias
+	if err := json.Unmarshal(bytes, &decoded); err != nil {
+		return fmt.Errorf("unmarshaling into Basic: %+v", err)
+	}
+
+	// normalize any constants on the way through
+	if val := decoded.Mambos; val != nil {
+		items := make([]MamboNumber, 0)
+		for _, v := range val {
+			items = append(items, v.Normalize())
+		}
+		s.Mambos = items
+	}
+
+	return nil
 }
 `, "''", "`")
 	assertTemplatedCodeMatches(t, expected, *actual)
@@ -847,6 +1042,27 @@ import (
 type Basic struct {
 	FavouriteCountries []Countries ''json:"favouriteCountries"''
 }
+
+var _ json.Unmarshaler = &Basic{}
+
+func (s *Basic) UnmarshalJSON(bytes []byte) error {
+	type alias Basic
+	var decoded alias
+	if err := json.Unmarshal(bytes, &decoded); err != nil {
+		return fmt.Errorf("unmarshaling into Basic: %+v", err)
+	}
+
+	// normalize any constants on the way through
+	if val := decoded.FavouriteCountries; val != nil {
+		items := make([]Countries, 0)
+		for _, v := range val {
+			items = append(items, v.Normalize())
+		}
+		s.FavouriteCountries = items
+	}
+
+	return nil
+}
 `, "''", "`")
 	assertTemplatedCodeMatches(t, expected, *actual)
 }
@@ -920,6 +1136,26 @@ import (
 type Basic struct {
 	MapOfFloats *map[string]MyFloat ''json:"mapOfFloats,omitempty"''
 }
+
+var _ json.Unmarshaler = &Basic{}
+
+func (s *Basic) UnmarshalJSON(bytes []byte) error {
+	type alias Basic
+	var decoded alias
+	if err := json.Unmarshal(bytes, &decoded); err != nil {
+		return fmt.Errorf("unmarshaling into Basic: %+v", err)
+	}
+
+	// normalize any constants on the way through
+	if val := decoded.MapOfFloats; val != nil {
+		items := make(map[string]MyFloat, 0)
+		for k, v := range val {
+			items[k] = v.Normalize()
+		}
+		s.MapOfFloats = &items
+	}
+	return nil
+}
 `, "''", "`")
 	assertTemplatedCodeMatches(t, expected, *actual)
 }
@@ -992,6 +1228,26 @@ import (
 
 type Basic struct {
 	Mambos *map[string]MamboNumber ''json:"mambos,omitempty"''
+}
+
+var _ json.Unmarshaler = &Basic{}
+
+func (s *Basic) UnmarshalJSON(bytes []byte) error {
+	type alias Basic
+	var decoded alias
+	if err := json.Unmarshal(bytes, &decoded); err != nil {
+		return fmt.Errorf("unmarshaling into Basic: %+v", err)
+	}
+
+	// normalize any constants on the way through
+	if val := decoded.Mambos; val != nil {
+		items := make(map[string]MamboNumber, 0)
+		for k, v := range val {
+			items[k] = v.Normalize()
+		}
+		s.Mambos = &items
+	}
+	return nil
 }
 `, "''", "`")
 	assertTemplatedCodeMatches(t, expected, *actual)
@@ -1067,6 +1323,26 @@ import (
 type Basic struct {
 	FavouriteCountries *map[string]Countries ''json:"favouriteCountries,omitempty"''
 }
+
+var _ json.Unmarshaler = &Basic{}
+
+func (s *Basic) UnmarshalJSON(bytes []byte) error {
+	type alias Basic
+	var decoded alias
+	if err := json.Unmarshal(bytes, &decoded); err != nil {
+		return fmt.Errorf("unmarshaling into Basic: %+v", err)
+	}
+
+	// normalize any constants on the way through
+	if val := decoded.FavouriteCountries; val != nil {
+		items := make(map[string]Countries, 0)
+		for k, v := range val {
+			items[k] = v.Normalize()
+		}
+		s.FavouriteCountries = &items
+	}
+	return nil
+}
 `, "''", "`")
 	assertTemplatedCodeMatches(t, expected, *actual)
 }
@@ -1139,6 +1415,27 @@ import (
 
 type Basic struct {
 	MapOfFloats map[string]MyFloat ''json:"mapOfFloats"''
+}
+
+var _ json.Unmarshaler = &Basic{}
+
+func (s *Basic) UnmarshalJSON(bytes []byte) error {
+	type alias Basic
+	var decoded alias
+	if err := json.Unmarshal(bytes, &decoded); err != nil {
+		return fmt.Errorf("unmarshaling into Basic: %+v", err)
+	}
+
+	// normalize any constants on the way through
+	if val := decoded.MapOfFloats; val != nil {
+		items := make(map[string]MyFloat, 0)
+		for k, v := range val {
+			items[k] = v.Normalize()
+		}
+		s.MapOfFloats = items
+	}
+
+	return nil
 }
 `, "''", "`")
 	assertTemplatedCodeMatches(t, expected, *actual)
@@ -1213,6 +1510,27 @@ import (
 type Basic struct {
 	Mambos map[string]MamboNumber ''json:"mambos"''
 }
+
+var _ json.Unmarshaler = &Basic{}
+
+func (s *Basic) UnmarshalJSON(bytes []byte) error {
+	type alias Basic
+	var decoded alias
+	if err := json.Unmarshal(bytes, &decoded); err != nil {
+		return fmt.Errorf("unmarshaling into Basic: %+v", err)
+	}
+
+	// normalize any constants on the way through
+	if val := decoded.Mambos; val != nil {
+		items := make(map[string]MamboNumber, 0)
+		for k, v := range val {
+			items[k] = v.Normalize()
+		}
+		s.Mambos = items
+	}
+
+	return nil
+}
 `, "''", "`")
 	assertTemplatedCodeMatches(t, expected, *actual)
 }
@@ -1286,6 +1604,27 @@ import (
 
 type Basic struct {
 	FavouriteCountries map[string]Countries ''json:"favouriteCountries"''
+}
+
+var _ json.Unmarshaler = &Basic{}
+
+func (s *Basic) UnmarshalJSON(bytes []byte) error {
+	type alias Basic
+	var decoded alias
+	if err := json.Unmarshal(bytes, &decoded); err != nil {
+		return fmt.Errorf("unmarshaling into Basic: %+v", err)
+	}
+
+	// normalize any constants on the way through
+	if val := decoded.FavouriteCountries; val != nil {
+		items := make(map[string]Countries, 0)
+		for k, v := range val {
+			items[k] = v.Normalize()
+		}
+		s.FavouriteCountries = items
+	}
+
+	return nil
 }
 `, "''", "`")
 	assertTemplatedCodeMatches(t, expected, *actual)

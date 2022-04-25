@@ -473,153 +473,172 @@ func (c modelsTemplater) codeForUnmarshalStructFunction(data ServiceGeneratorDat
 		return &out, nil
 	}
 
-	lines := make([]string, 0)
-
-	// fields either require unmarshaling or can be explicitly assigned, determine which
-	fieldsRequiringAssignment := make([]string, 0)
-	fieldsRequiringUnmarshalling := make([]string, 0)
+	// determine if there's any constants which require normalization
+	fieldsContainingConstants := make([]string, 0)
+	// then determine if there's any discriminated types present which require custom unmarshaling
+	fieldsContainingDiscriminatedTypes := make([]string, 0)
+	fieldsToUnmarshalManually := make([]string, 0)
 	for fieldName, fieldDetails := range c.model.Fields {
-		topLevelObject := topLevelObjectDefinition(fieldDetails.ObjectDefinition)
-		if topLevelObject.Type == resourcemanager.ReferenceApiObjectDefinitionType {
-			model, ok := data.models[*topLevelObject.ReferenceName]
-			if ok && model.TypeHintIn != nil {
-				fieldsRequiringUnmarshalling = append(fieldsRequiringUnmarshalling, fieldName)
+		definition := topLevelObjectDefinition(fieldDetails.ObjectDefinition)
+		if definition.Type == resourcemanager.ReferenceApiObjectDefinitionType {
+			if _, ok := data.constants[*definition.ReferenceName]; ok {
+				fieldsContainingConstants = append(fieldsContainingConstants, fieldName)
+				continue
+			}
+
+			model, ok := data.models[*definition.ReferenceName]
+			if !ok {
+				return nil, fmt.Errorf("data error: %q was a reference to neither a known constant or model", *definition.ReferenceName)
+			}
+
+			if model.TypeHintIn != nil && model.ParentTypeName == nil {
+				fieldsContainingDiscriminatedTypes = append(fieldsContainingDiscriminatedTypes, fieldName)
 				continue
 			}
 		}
 
-		fieldsRequiringAssignment = append(fieldsRequiringAssignment, fieldName)
+		fieldsToUnmarshalManually = append(fieldsToUnmarshalManually, fieldName)
+	}
+	sort.Strings(fieldsContainingConstants)
+	sort.Strings(fieldsContainingDiscriminatedTypes)
+	sort.Strings(fieldsToUnmarshalManually)
+
+	// if there's nothing to unmarshal manually, we can skip outputting this function
+	if len(fieldsToUnmarshalManually) == len(c.model.Fields) {
+		out := ""
+		return &out, nil
 	}
 
-	// we only need a custom unmarshal function when there's something needing unmarshaling
-	// else the default unmarshaler will be fine
-	if len(fieldsRequiringUnmarshalling) > 0 {
-		lines = append(lines, fmt.Sprintf(`
-var _ json.Unmarshaler = &%[1]s{}
+	lines := make([]string, 0)
 
-func (s *%[1]s) UnmarshalJSON(bytes []byte) error {`, c.name))
-
-		// first for each regular field, decode & assign that
-		if len(fieldsRequiringAssignment) > 0 {
-			lines = append(lines, fmt.Sprintf(`type alias %[1]s
-	var decoded alias
-	if err := json.Unmarshal(bytes, &decoded); err != nil {
-		return fmt.Errorf("unmarshaling into %[1]s: %%+v", err)
-	}
-`, c.name))
-
-			sort.Strings(fieldsRequiringAssignment)
-			for _, fieldName := range fieldsRequiringAssignment {
-				lines = append(lines, fmt.Sprintf("s.%[1]s = decoded.%[1]s", fieldName))
-			}
-		}
-
-		lines = append(lines, fmt.Sprintf(`
-	var temp map[string]json.RawMessage
-	if err := json.Unmarshal(bytes, &temp); err != nil {
-		return fmt.Errorf("unmarshaling %[1]s into map[string]json.RawMessage: %%+v", err)
-	}
-`, c.name))
-
-		sort.Strings(fieldsRequiringUnmarshalling)
-		for _, fieldName := range fieldsRequiringUnmarshalling {
+	// constants need to be normalized
+	if len(fieldsContainingConstants) > 0 {
+		lines = append(lines, "// normalize any constants on the way through")
+		for _, fieldName := range fieldsContainingConstants {
 			fieldDetails := c.model.Fields[fieldName]
-			topLevelObjectDef := topLevelObjectDefinition(fieldDetails.ObjectDefinition)
-
-			supportedDiscriminatorWrappers := map[resourcemanager.ApiObjectDefinitionType]struct{}{
-				resourcemanager.DictionaryApiObjectDefinitionType: {},
-				resourcemanager.ListApiObjectDefinitionType:       {},
-				resourcemanager.ReferenceApiObjectDefinitionType:  {},
-			}
-			if _, supported := supportedDiscriminatorWrappers[fieldDetails.ObjectDefinition.Type]; !supported {
-				return nil, fmt.Errorf("discriminators can only be unwrapped for Dictionaries, Lists and References but got %q for field %q in model %q", fieldDetails.ObjectDefinition.Type, fieldName, c.name)
-			}
-
+			// NOTE: at this point in time we only support either top-level or one-level deep constants
+			// that is `Constant`, `List<Constant>` and `Dictionary<Constant>` - as multi-level deep
+			// shouldn't be required.
 			if fieldDetails.ObjectDefinition.Type == resourcemanager.DictionaryApiObjectDefinitionType {
 				if fieldDetails.ObjectDefinition.NestedItem == nil {
-					return nil, fmt.Errorf("dictionaries of discriminators require a NestedItem but didn't get one for field %q in model %q", fieldName, c.name)
+					return nil, fmt.Errorf("constant for field %q is a List with no nested item", fieldName)
 				}
 				if fieldDetails.ObjectDefinition.NestedItem.Type != resourcemanager.ReferenceApiObjectDefinitionType {
-					return nil, fmt.Errorf("dictionaries of discriminators only support a single level deep but got a non-Reference type for field %q in model %q", fieldName, c.name)
+					return nil, fmt.Errorf("constant for field %q is a List of a non-reference - got %q", fieldName, fieldDetails.ObjectDefinition.String())
 				}
-
-				// if the Dictionary is optional, we need to assign the pointer value
-				assignmentPrefix := ""
+				if fieldDetails.ObjectDefinition.NestedItem.ReferenceName == nil {
+					return nil, fmt.Errorf("constant for field %q is a List without a reference - got %q", fieldName, fieldDetails.ObjectDefinition.String())
+				}
+				// create a dictionary and map/normalize that
 				if fieldDetails.Optional {
-					assignmentPrefix = "&"
+					lines = append(lines, fmt.Sprintf(`
+if val := decoded.%[1]s; val != nil {
+	items := make(map[string]%[2]s, 0)
+	for k, v := range val {
+		items[k] = v.Normalize()
+	}
+	s.%[1]s = &items
+}
+`, fieldName, *fieldDetails.ObjectDefinition.NestedItem.ReferenceName))
+					continue
 				}
 
-				// TODO: handle the Dictionary Element being Optional if necessary
 				lines = append(lines, fmt.Sprintf(`
-	if v, ok := temp[%[5]q]; ok {
-		var dictionaryTemp map[string]json.RawMessage
-		if err := json.Unmarshal(v, &dictionaryTemp); err != nil {
-			return fmt.Errorf("unmarshaling %[1]s into dictionary map[string]json.RawMessage: %%+v", err)
-		}
-
-		output := make(map[string]%[2]s)
-		for key, val := range dictionaryTemp {
-			impl, err := unmarshal%[2]sImplementation(val)
-			if err != nil {
-				return fmt.Errorf("unmarshaling key %%q field '%[1]s' for '%[3]s': %%+v", key, err)
-			}
-			output[key] = impl
-		}
-		s.%[1]s = %[4]soutput
-	}`, fieldName, *topLevelObjectDef.ReferenceName, c.name, assignmentPrefix, fieldDetails.JsonName))
+if val := decoded.%[1]s; val != nil {
+	items := make(map[string]%[2]s, 0)
+	for k, v := range val {
+		items[k] = v.Normalize()
+	}
+	s.%[1]s = items
+}
+`, fieldName, *fieldDetails.ObjectDefinition.NestedItem.ReferenceName))
+				continue
 			}
 
 			if fieldDetails.ObjectDefinition.Type == resourcemanager.ListApiObjectDefinitionType {
 				if fieldDetails.ObjectDefinition.NestedItem == nil {
-					return nil, fmt.Errorf("lists of discriminators require a NestedItem but didn't get one for field %q in model %q", fieldName, c.name)
+					return nil, fmt.Errorf("constant for field %q is a List with no nested item", fieldName)
 				}
 				if fieldDetails.ObjectDefinition.NestedItem.Type != resourcemanager.ReferenceApiObjectDefinitionType {
-					return nil, fmt.Errorf("lists of discriminators only support a single level deep but got a non-Reference type for field %q in model %q", fieldName, c.name)
+					return nil, fmt.Errorf("constant for field %q is a List of a non-reference - got %q", fieldName, fieldDetails.ObjectDefinition.String())
 				}
-
-				// if the List is optional, we need to assign the pointer value
-				assignmentPrefix := ""
+				if fieldDetails.ObjectDefinition.NestedItem.ReferenceName == nil {
+					return nil, fmt.Errorf("constant for field %q is a List without a reference - got %q", fieldName, fieldDetails.ObjectDefinition.String())
+				}
+				// create a slice and map/normalize that
 				if fieldDetails.Optional {
-					assignmentPrefix = "&"
+					lines = append(lines, fmt.Sprintf(`
+if val := decoded.%[1]s; val != nil {
+	items := make([]%[2]s, 0)
+	for _, v := range val {
+		items = append(items, v.Normalize())
+	}
+	s.%[1]s = &items
+}
+`, fieldName, *fieldDetails.ObjectDefinition.NestedItem.ReferenceName))
+					continue
 				}
-
-				// TODO: handle the List Element being Optional if necessary
 
 				lines = append(lines, fmt.Sprintf(`
-	if v, ok := temp[%[5]q]; ok {
-		var listTemp []json.RawMessage
-		if err := json.Unmarshal(v, &listTemp); err != nil {
-			return fmt.Errorf("unmarshaling %[1]s into list []json.RawMessage: %%+v", err)
-		}
-
-		output := make([]%[2]s, 0)
-		for i, val := range listTemp {
-			impl, err := unmarshal%[2]sImplementation(val)
-			if err != nil {
-				return fmt.Errorf("unmarshaling index %%d field '%[1]s' for '%[3]s': %%+v", i, err)
-			}
-			output = append(output, impl)
-		}
-		s.%[1]s = %[4]soutput
-	}`, fieldName, *topLevelObjectDef.ReferenceName, c.name, assignmentPrefix, fieldDetails.JsonName))
+if val := decoded.%[1]s; val != nil {
+	items := make([]%[2]s, 0)
+	for _, v := range val {
+		items = append(items, v.Normalize())
+	}
+	s.%[1]s = items
+}
+`, fieldName, *fieldDetails.ObjectDefinition.NestedItem.ReferenceName))
+				continue
 			}
 
 			if fieldDetails.ObjectDefinition.Type == resourcemanager.ReferenceApiObjectDefinitionType {
-				lines = append(lines, fmt.Sprintf(`
-	if v, ok := temp[%[4]q]; ok {
-		impl, err := unmarshal%[2]sImplementation(v)
-		if err != nil {
-			return fmt.Errorf("unmarshaling field '%[1]s' for '%[3]s': %%+v", err)
-		}
-		s.%[1]s = impl
-	}`, fieldName, *topLevelObjectDef.ReferenceName, c.name, fieldDetails.JsonName))
-			}
-		}
+				// map it directly
+				if fieldDetails.Optional {
+					lines = append(lines, fmt.Sprintf(`
+if v := decoded.%[1]s; v != nil {
+	normalized := v.Normalize()
+	s.%[1]s = &normalized 
+}
+`, fieldName))
+					continue
+				}
 
-		lines = append(lines, "return nil")
-		lines = append(lines, "}")
+				lines = append(lines, fmt.Sprintf(`s.%[1]s = decoded.%[1]s.Normalize()`, fieldName))
+				continue
+			}
+
+			return nil, fmt.Errorf("cannot normalize parent type: %+v", fieldDetails.ObjectDefinition.String())
+		}
 	}
 
-	output := strings.Join(lines, "\n")
+	// TODO: manually parse out any custom discriminators
+	//for _, fieldName := range fieldsContainingDiscriminatedTypes {
+	//	fieldDetails := c.model.Fields[fieldName]
+	//	// TODO: call out to the discriminator as required
+	//}
+
+	// if there's any remaining fields then map those across manually
+	if len(fieldsToUnmarshalManually) > 0 {
+		lines = append(lines, "// map across the remaining fields")
+		for _, fieldName := range fieldsToUnmarshalManually {
+			lines = append(lines, fmt.Sprintf(`s.%[1]s = decoded.%[1]s`, fieldName))
+		}
+	}
+
+	output := fmt.Sprintf(`
+var _ json.Unmarshaler = &%[1]s{}
+
+func (s *%[1]s) UnmarshalJSON(bytes []byte) error {
+	type alias %[1]s
+	var decoded alias
+	if err := json.Unmarshal(bytes, &decoded); err != nil {
+		return fmt.Errorf("unmarshaling into %[1]s: %%+v", err)
+	}
+	
+	%[2]s
+
+	return nil
+}
+`, c.name, strings.Join(lines, "\n"))
 	return &output, nil
 }
