@@ -52,6 +52,8 @@ func codeForServiceDefinition(namespace, serviceName string, resourceProvider *s
 
 	return fmt.Sprintf(`using Pandora.Definitions.Interfaces;
 
+%[4]s
+
 namespace %[1]s;
 
 public partial class Service : ServiceDefinition
@@ -59,7 +61,7 @@ public partial class Service : ServiceDefinition
 	public string Name => %[2]q;
 	public string? ResourceProvider => %[3]s;
 }
-`, namespace, serviceName, rp)
+`, namespace, serviceName, rp, restApiSpecsLicence)
 }
 
 func codeForServiceDefinitionGenerationSettings(namespace string, serviceName string) string {
