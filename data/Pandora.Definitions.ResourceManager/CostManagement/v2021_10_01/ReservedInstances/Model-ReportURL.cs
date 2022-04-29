@@ -11,7 +11,7 @@ namespace Pandora.Definitions.ResourceManager.CostManagement.v2021_10_01.Reserve
 internal class ReportURLModel
 {
     [JsonPropertyName("reportUrl")]
-    public string? ReportUrl { get; set; }
+    public ReservationReportSchemaConstant? ReportUrl { get; set; }
 
     [DateFormat(DateFormatAttribute.DateFormat.RFC3339)]
     [JsonPropertyName("validUntil")]
