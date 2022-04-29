@@ -1,7 +1,7 @@
 using System;
+using System.ComponentModel;
 using System.Linq;
 using Pandora.Data.Models;
-using Pandora.Definitions;
 using Pandora.Definitions.Interfaces;
 
 namespace Pandora.Data.Transformers;
@@ -31,6 +31,7 @@ public static class Version
                 Resources = resourceDefinitions,
                 Generate = input.Generate,
                 Preview = input.Preview,
+                Source = MapSource(input.Source),
                 Version = input.ApiVersion,
             };
         }
@@ -38,5 +39,19 @@ public static class Version
         {
             throw new Exception($"Mapping API Version {input.GetType().FullName}", ex);
         }
+    }
+
+    private static ApiDefinitionsSource MapSource(Source input)
+    {
+        switch (input)
+        {
+            case Source.HandWritten:
+                return ApiDefinitionsSource.HandWritten;
+            
+            case Source.ResourceManagerRestApiSpecs:
+                return ApiDefinitionsSource.ResourceManagerRestApiSpecs;
+        }
+
+        throw new NotSupportedException($"unsupported/unmapped Source ${input.ToString()}");
     }
 }

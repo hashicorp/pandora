@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using NUnit.Framework;
+using Pandora.Data.Models;
 using Pandora.Definitions.Interfaces;
 using Pandora.Definitions.Operations;
 
@@ -24,6 +25,7 @@ public static class VersionTests
         Assert.AreEqual(true, actual.Generate);
         Assert.AreEqual(false, actual.Preview);
         Assert.AreEqual(1, actual.Resources.Count());
+        Assert.AreEqual(ApiDefinitionsSource.HandWritten, actual.Source);
     }
 
     [TestCase]
