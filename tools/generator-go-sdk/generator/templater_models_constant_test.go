@@ -52,6 +52,7 @@ func TestModelTemplaterWithOptionalFloatConstant(t *testing.T) {
 				},
 			},
 		},
+		source: AccTestLicenceType,
 	})
 	if err != nil {
 		t.Fatal(err.Error())
@@ -66,6 +67,8 @@ import (
 	"github.com/hashicorp/go-azure-helpers/lang/dates"
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/identity"
 )
+
+// acctests licence placeholder
 
 type Basic struct {
 	SomeFloat *MyFloat ''json:"someFloat,omitempty"''
@@ -119,6 +122,7 @@ func TestModelTemplaterWithOptionalIntegerConstant(t *testing.T) {
 				},
 			},
 		},
+		source: AccTestLicenceType,
 	})
 	if err != nil {
 		t.Fatal(err.Error())
@@ -133,6 +137,8 @@ import (
 	"github.com/hashicorp/go-azure-helpers/lang/dates"
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/identity"
 )
+
+// acctests licence placeholder
 
 type Basic struct {
 	Mambo *MamboNumber ''json:"mambo,omitempty"''
@@ -187,6 +193,7 @@ func TestModelTemplaterWithOptionalStringConstant(t *testing.T) {
 				},
 			},
 		},
+		source: AccTestLicenceType,
 	})
 	if err != nil {
 		t.Fatal(err.Error())
@@ -201,6 +208,8 @@ import (
 	"github.com/hashicorp/go-azure-helpers/lang/dates"
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/identity"
 )
+
+// acctests licence placeholder
 
 type Basic struct {
 	Country *Countries ''json:"country,omitempty"''
@@ -254,6 +263,7 @@ func TestModelTemplaterWithRequiredFloatConstant(t *testing.T) {
 				},
 			},
 		},
+		source: AccTestLicenceType,
 	})
 	if err != nil {
 		t.Fatal(err.Error())
@@ -268,6 +278,8 @@ import (
 	"github.com/hashicorp/go-azure-helpers/lang/dates"
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/identity"
 )
+
+// acctests licence placeholder
 
 type Basic struct {
 	SomeFloat MyFloat ''json:"someFloat"''
@@ -321,6 +333,7 @@ func TestModelTemplaterWithRequiredIntegerConstant(t *testing.T) {
 				},
 			},
 		},
+		source: AccTestLicenceType,
 	})
 	if err != nil {
 		t.Fatal(err.Error())
@@ -335,6 +348,8 @@ import (
 	"github.com/hashicorp/go-azure-helpers/lang/dates"
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/identity"
 )
+
+// acctests licence placeholder
 
 type Basic struct {
 	Mambo MamboNumber ''json:"mambo"''
@@ -389,6 +404,7 @@ func TestModelTemplaterWithRequiredStringConstant(t *testing.T) {
 				},
 			},
 		},
+		source: AccTestLicenceType,
 	})
 	if err != nil {
 		t.Fatal(err.Error())
@@ -403,6 +419,8 @@ import (
 	"github.com/hashicorp/go-azure-helpers/lang/dates"
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/identity"
 )
+
+// acctests licence placeholder
 
 type Basic struct {
 	Country Countries ''json:"country"''
@@ -462,6 +480,7 @@ func TestModelTemplaterWithOptionalListOfFloatConstants(t *testing.T) {
 				},
 			},
 		},
+		source: AccTestLicenceType,
 	})
 	if err != nil {
 		t.Fatal(err.Error())
@@ -476,6 +495,8 @@ import (
 	"github.com/hashicorp/go-azure-helpers/lang/dates"
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/identity"
 )
+
+// acctests licence placeholder
 
 type Basic struct {
 	ListOfFloats *[]MyFloat ''json:"listOfFloats,omitempty"''
@@ -535,6 +556,7 @@ func TestModelTemplaterWithOptionalListOfIntegerConstants(t *testing.T) {
 				},
 			},
 		},
+		source: AccTestLicenceType,
 	})
 	if err != nil {
 		t.Fatal(err.Error())
@@ -549,6 +571,8 @@ import (
 	"github.com/hashicorp/go-azure-helpers/lang/dates"
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/identity"
 )
+
+// acctests licence placeholder
 
 type Basic struct {
 	Mambos *[]MamboNumber ''json:"mambos,omitempty"''
@@ -609,6 +633,7 @@ func TestModelTemplaterWithOptionalListOfStringConstants(t *testing.T) {
 				},
 			},
 		},
+		source: AccTestLicenceType,
 	})
 	if err != nil {
 		t.Fatal(err.Error())
@@ -623,6 +648,8 @@ import (
 	"github.com/hashicorp/go-azure-helpers/lang/dates"
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/identity"
 )
+
+// acctests licence placeholder
 
 type Basic struct {
 	FavouriteCountries *[]Countries ''json:"favouriteCountries,omitempty"''
@@ -682,6 +709,7 @@ func TestModelTemplaterWithRequiredListOfFloatConstants(t *testing.T) {
 				},
 			},
 		},
+		source: AccTestLicenceType,
 	})
 	if err != nil {
 		t.Fatal(err.Error())
@@ -696,6 +724,8 @@ import (
 	"github.com/hashicorp/go-azure-helpers/lang/dates"
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/identity"
 )
+
+// acctests licence placeholder
 
 type Basic struct {
 	ListOfFloats []MyFloat ''json:"listOfFloats"''
@@ -755,6 +785,7 @@ func TestModelTemplaterWithRequiredListOfIntegerConstants(t *testing.T) {
 				},
 			},
 		},
+		source: AccTestLicenceType,
 	})
 	if err != nil {
 		t.Fatal(err.Error())
@@ -769,6 +800,8 @@ import (
 	"github.com/hashicorp/go-azure-helpers/lang/dates"
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/identity"
 )
+
+// acctests licence placeholder
 
 type Basic struct {
 	Mambos []MamboNumber ''json:"mambos"''
@@ -829,6 +862,7 @@ func TestModelTemplaterWithRequiredListOfStringConstants(t *testing.T) {
 				},
 			},
 		},
+		source: AccTestLicenceType,
 	})
 	if err != nil {
 		t.Fatal(err.Error())
@@ -843,6 +877,8 @@ import (
 	"github.com/hashicorp/go-azure-helpers/lang/dates"
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/identity"
 )
+
+// acctests licence placeholder
 
 type Basic struct {
 	FavouriteCountries []Countries ''json:"favouriteCountries"''
@@ -902,6 +938,7 @@ func TestModelTemplaterWithOptionalMapOfFloatConstants(t *testing.T) {
 				},
 			},
 		},
+		source: AccTestLicenceType,
 	})
 	if err != nil {
 		t.Fatal(err.Error())
@@ -916,6 +953,8 @@ import (
 	"github.com/hashicorp/go-azure-helpers/lang/dates"
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/identity"
 )
+
+// acctests licence placeholder
 
 type Basic struct {
 	MapOfFloats *map[string]MyFloat ''json:"mapOfFloats,omitempty"''
@@ -975,6 +1014,7 @@ func TestModelTemplaterWithOptionalMapOfIntegerConstants(t *testing.T) {
 				},
 			},
 		},
+		source: AccTestLicenceType,
 	})
 	if err != nil {
 		t.Fatal(err.Error())
@@ -989,6 +1029,8 @@ import (
 	"github.com/hashicorp/go-azure-helpers/lang/dates"
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/identity"
 )
+
+// acctests licence placeholder
 
 type Basic struct {
 	Mambos *map[string]MamboNumber ''json:"mambos,omitempty"''
@@ -1049,6 +1091,7 @@ func TestModelTemplaterWithOptionalMapOfStringConstants(t *testing.T) {
 				},
 			},
 		},
+		source: AccTestLicenceType,
 	})
 	if err != nil {
 		t.Fatal(err.Error())
@@ -1063,6 +1106,8 @@ import (
 	"github.com/hashicorp/go-azure-helpers/lang/dates"
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/identity"
 )
+
+// acctests licence placeholder
 
 type Basic struct {
 	FavouriteCountries *map[string]Countries ''json:"favouriteCountries,omitempty"''
@@ -1122,6 +1167,7 @@ func TestModelTemplaterWithRequiredMapOfFloatConstants(t *testing.T) {
 				},
 			},
 		},
+		source: AccTestLicenceType,
 	})
 	if err != nil {
 		t.Fatal(err.Error())
@@ -1136,6 +1182,8 @@ import (
 	"github.com/hashicorp/go-azure-helpers/lang/dates"
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/identity"
 )
+
+// acctests licence placeholder
 
 type Basic struct {
 	MapOfFloats map[string]MyFloat ''json:"mapOfFloats"''
@@ -1195,6 +1243,7 @@ func TestModelTemplaterWithRequiredMapOfIntegerConstants(t *testing.T) {
 				},
 			},
 		},
+		source: AccTestLicenceType,
 	})
 	if err != nil {
 		t.Fatal(err.Error())
@@ -1209,6 +1258,8 @@ import (
 	"github.com/hashicorp/go-azure-helpers/lang/dates"
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/identity"
 )
+
+// acctests licence placeholder
 
 type Basic struct {
 	Mambos map[string]MamboNumber ''json:"mambos"''
@@ -1269,6 +1320,7 @@ func TestModelTemplaterWithRequiredMapOfStringConstants(t *testing.T) {
 				},
 			},
 		},
+		source: AccTestLicenceType,
 	})
 	if err != nil {
 		t.Fatal(err.Error())
@@ -1283,6 +1335,8 @@ import (
 	"github.com/hashicorp/go-azure-helpers/lang/dates"
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/identity"
 )
+
+// acctests licence placeholder
 
 type Basic struct {
 	FavouriteCountries map[string]Countries ''json:"favouriteCountries"''

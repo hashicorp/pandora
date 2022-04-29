@@ -50,6 +50,7 @@ func TestModelTemplaterSimple(t *testing.T) {
 				},
 			},
 		},
+		source: AccTestLicenceType,
 	})
 	if err != nil {
 		t.Fatal(err.Error())
@@ -64,6 +65,8 @@ import (
 	"github.com/hashicorp/go-azure-helpers/lang/dates"
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/identity"
 )
+
+// acctests licence placeholder
 
 type Basic struct {
 	Age *int64 ''json:"age,omitempty"''
@@ -121,6 +124,7 @@ func TestModelTemplaterWithDate(t *testing.T) {
 				},
 			},
 		},
+		source: AccTestLicenceType,
 	})
 	if err != nil {
 		t.Fatal(err.Error())
@@ -135,6 +139,8 @@ import (
 	"github.com/hashicorp/go-azure-helpers/lang/dates"
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/identity"
 )
+
+// acctests licence placeholder
 
 type Basic struct {
 	DateOfBirth *string ''json:"dateOfBirth,omitempty"''

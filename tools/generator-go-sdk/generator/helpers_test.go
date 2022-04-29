@@ -3,7 +3,11 @@ package generator
 import (
 	"strings"
 	"testing"
+
+	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
+
+const AccTestLicenceType resourcemanager.ApiDefinitionsSource = "acctest"
 
 func assertTemplatedCodeMatches(t *testing.T, expected string, actual string) {
 	// when generating "for real" we run gofmt after it - whilst we

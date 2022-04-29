@@ -30,6 +30,35 @@ func alternateCasingOnEveryLetter(input string) string {
 	return output
 }
 
+func copyrightLinesForSource(input resourcemanager.ApiDefinitionsSource) (*string, error) {
+	// TODO: finalized license strings
+	if input == resourcemanager.ApiDefinitionsSourceHandDefined {
+		out := `
+// TODO: real copyright string for HashiCorp.
+`
+		return &out, nil
+	}
+
+	if input == resourcemanager.ApiDefinitionsSourceResourceManagerRestApiSpecs {
+		out := `
+// TODO: real copyright string for Microsoft.
+
+// Copyright (c) Microsoft Corporation. All rights reserved.
+// Licensed under the MIT License.
+`
+		return &out, nil
+	}
+
+	// this is used purely for acctests - to ensure the config is stable this is a
+	// hand-defined value
+	if string(input) == "acctest" {
+		out := "// acctests licence placeholder"
+		return &out, nil
+	}
+
+	return nil, fmt.Errorf("unimplemented license type: %s", string(input))
+}
+
 func golangConstantForStatusCode(statusCode int) string {
 	codes := map[int]string{
 		200: "http.StatusOK",

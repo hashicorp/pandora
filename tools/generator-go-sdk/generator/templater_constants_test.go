@@ -24,6 +24,7 @@ func TestTemplateConstantsSingle(t *testing.T) {
 			},
 		},
 		packageName: "somepackage",
+		source:      AccTestLicenceType,
 	})
 	if err != nil {
 		t.Fatal(err.Error())
@@ -32,6 +33,7 @@ func TestTemplateConstantsSingle(t *testing.T) {
 
 import "strings"
 
+// acctests licence placeholder
 // template for first
 `
 	assertTemplatedCodeMatches(t, expected, *actual)
@@ -52,6 +54,7 @@ func TestTemplateConstantsMultiple(t *testing.T) {
 			"second": {},
 		},
 		packageName: "somepackage",
+		source:      AccTestLicenceType,
 	})
 	if err != nil {
 		t.Fatal(err.Error())
@@ -60,6 +63,7 @@ func TestTemplateConstantsMultiple(t *testing.T) {
 
 import "strings"
 
+// acctests licence placeholder
 // template for first
 // template for second
 // template for third

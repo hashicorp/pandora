@@ -8,6 +8,7 @@ func TestTemplateVersion(t *testing.T) {
 	input := ServiceGeneratorData{
 		packageName: "somepackage",
 		apiVersion:  "2022-02-01",
+		source:      AccTestLicenceType,
 	}
 
 	actual, err := versionTemplater{}.template(input)
@@ -18,6 +19,8 @@ func TestTemplateVersion(t *testing.T) {
 	expected := `package somepackage
 
 import "fmt"
+
+// acctests licence placeholder
 
 const defaultApiVersion = "2022-02-01"
 
