@@ -92,6 +92,7 @@ public partial class Definition : ApiVersionDefinition
 {
 	public string ApiVersion => %[2]q;
 	public bool Preview => %[3]t;
+    public Source Source => Source.ResourceManagerRestApiSpecs;
 	
 	public IEnumerable<ResourceDefinition> Resources => new List<ResourceDefinition>
 	{
