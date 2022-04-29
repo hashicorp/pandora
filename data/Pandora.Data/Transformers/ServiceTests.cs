@@ -53,6 +53,7 @@ public static class ServiceTests
             public bool Generate => true;
             public bool Preview => true;
             public IEnumerable<Definitions.Interfaces.ResourceDefinition> Resources => new List<Definitions.Interfaces.ResourceDefinition> { new FakeResourceDefinition() };
+            public Source Source => Source.HandWritten;
         }
     }
 
@@ -82,6 +83,7 @@ public static class ServiceTests
             public bool Generate => true;
             public bool Preview => true;
             public IEnumerable<Definitions.Interfaces.ResourceDefinition> Resources => new List<Definitions.Interfaces.ResourceDefinition> { new FakeResourceDefinition() };
+            public Source Source => Source.HandWritten;
         }
     }
 
