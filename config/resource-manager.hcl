@@ -53,7 +53,7 @@ service "elastic" {
 }
 service "eventhub" {
   name      = "EventHub"
-  available = ["2017-04-01", "2018-01-01-preview", "2021-01-01-preview"]
+  available = ["2017-04-01", "2018-01-01-preview", "2021-01-01-preview", "2021-11-01"]
 }
 service "frontdoor" {
   name      = "Frontdoor"
