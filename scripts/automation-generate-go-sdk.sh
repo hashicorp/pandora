@@ -42,6 +42,13 @@ function prepareGoSdk {
 
   echo "Cloning SDK Repository into $workingDirectory.."
   git clone "$sdkRepo" "$workingDirectory"
+
+  echo "Preparing the repository for generation"
+  cd "${DIR}"
+  cd "${workingDirectory}"
+  make prepare
+
+  cd "${DIR}"
 }
 
 function conditionallyCommitAndPushGoSdk {
