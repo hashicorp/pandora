@@ -49,6 +49,8 @@ function conditionallyCommitAndPushGoSdk {
   if [[ $(git status --porcelain | wc -l) -gt 0 ]]; then
     echo "Committing and Pushing the changes"
     git checkout -b "$branch"
+    git config --global user.name "Github Actions"
+    git config --global user.email "<>"
     git add --all
     git commit -m "Updating based on $sha"
     # NOTE: we're intentionally force-pushing here in-case this PR is
