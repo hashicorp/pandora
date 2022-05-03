@@ -63,7 +63,7 @@ function getSwaggerSubmoduleSha {
   local submodulePath=$1
 
   cd "${DIR}"
-  cd "$workingDirectory"
+  cd "$submodulePath"
   git rev-parse --short HEAD
 }
 
@@ -80,9 +80,10 @@ function main {
   local swaggerSubmodule="./swagger"
   local outputDirectory="tmp/go-azure-sdk"
   local sdkRepo="git@github.com:hashicorp/go-azure-sdk.git"
+  local sha
 
   buildAndInstallDependencies
-  local sha=$(getSwaggerSubmoduleSha "$swaggerSubmodule")
+  sha=$(getSwaggerSubmoduleSha "$swaggerSubmodule")
   prepareGoSdk "$outputDirectory" "$sdkRepo"
   runWrapper "$dataApiAssemblyPath" "$outputDirectory" "$sha"
   conditionallyCommitAndPushGoSdk "$outputDirectory" "$sha"
