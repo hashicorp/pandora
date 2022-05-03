@@ -28,21 +28,66 @@ function runWrapper {
 }
 
 function prepareGoSdk {
-  echo "TODO: conditionally checkout and prepare the Go SDK.."
+  local workingDirectory=$1
+  local sdkRepo=$2
+
+  echo "Removing any existing working directory.."
+  cd "${DIR}"
+  rm -rf "$workingDirectory"
+
+  echo "Cloning SDK Repository into $workingDirectory.."
+  git clone "$sdkRepo" "$workingDirectory"
 }
 
 function conditionallyCommitAndPushGoSdk {
-  echo "TODO: conditionally commit/push the Go SDK"
+  local workingDirectory=$1
+  local sha=$2
+  local branch="auto-pr/$sha"
+
+  cd "${DIR}"
+  cd "$workingDirectory"
+  if [[ $(git status --porcelain | wc -l) -gt 0 ]]; then
+    echo "Committing and Pushing the changes"
+    git checkout -b "$branch"
+    git add --all
+    git commit -m "Updating based on $sha"
+    # NOTE: we're intentionally force-pushing here in-case this PR is
+    # open and other changes (e.g. to the generator) get included
+    git push origin "$branch" -f
+  else
+    echo "No changes detected - skipping commit/push"
+  fi
+}
+
+function getSwaggerSubmoduleSha {
+  local submodulePath=$1
+
+  cd "${DIR}"
+  cd "$submodulePath"
+  git rev-parse --short HEAD
+}
+
+function cleanup {
+  local outputDirectory=$1
+
+  cd "${DIR}"
+  echo "Removing temporary working directory $outputDirectory.."
+  rm -rf "$outputDirectory"
 }
 
 function main {
   local dataApiAssemblyPath="data/Pandora.Api/bin/Debug/net6.0/Pandora.Api.dll"
-  local outputDirectory="generated/" # TODO: replace with the submodule in time
+  local swaggerSubmodule="./swagger"
+  local outputDirectory="tmp/go-azure-sdk"
+  local sdkRepo="git@github.com:hashicorp/go-azure-sdk.git"
+  local sha
 
   buildAndInstallDependencies
-  prepareGoSdk
-  runWrapper "$dataApiAssemblyPath" "$outputDirectory"
-  conditionallyCommitAndPushGoSdk
+  sha=$(getSwaggerSubmoduleSha "$swaggerSubmodule")
+  prepareGoSdk "$outputDirectory" "$sdkRepo"
+  runWrapper "$dataApiAssemblyPath" "$outputDirectory" "$sha"
+  conditionallyCommitAndPushGoSdk "$outputDirectory" "$sha"
+  cleanup "$outputDirectory"
 }
 
 main

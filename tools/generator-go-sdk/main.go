@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"path"
 	"path/filepath"
 
 	"github.com/hashicorp/pandora/tools/generator-go-sdk/generator"
@@ -48,6 +49,9 @@ func main() {
 
 func run(input GeneratorInput) error {
 	client := resourcemanager.NewClient(input.apiServerEndpoint)
+
+	// resource manager items should be output into the folder ./resource-manager
+	input.outputDirectory = path.Join(input.outputDirectory, "resource-manager")
 
 	log.Printf("[DEBUG] Retrieving Services from Data API..")
 	services, err := services.GetResourceManagerServices(client)
