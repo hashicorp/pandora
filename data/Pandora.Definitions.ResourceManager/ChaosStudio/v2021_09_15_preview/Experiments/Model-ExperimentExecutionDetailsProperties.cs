@@ -11,8 +11,8 @@ namespace Pandora.Definitions.ResourceManager.ChaosStudio.v2021_09_15_preview.Ex
 internal class ExperimentExecutionDetailsPropertiesModel
 {
     [DateFormat(DateFormatAttribute.DateFormat.RFC3339)]
-    [JsonPropertyName("createdDateUtc")]
-    public DateTime? CreatedDateUtc { get; set; }
+    [JsonPropertyName("createdDateTime")]
+    public DateTime? CreatedDateTime { get; set; }
 
     [JsonPropertyName("experimentId")]
     public string? ExperimentId { get; set; }
@@ -21,20 +21,20 @@ internal class ExperimentExecutionDetailsPropertiesModel
     public string? FailureReason { get; set; }
 
     [DateFormat(DateFormatAttribute.DateFormat.RFC3339)]
-    [JsonPropertyName("lastActionDateUtc")]
-    public DateTime? LastActionDateUtc { get; set; }
+    [JsonPropertyName("lastActionDateTime")]
+    public DateTime? LastActionDateTime { get; set; }
 
     [JsonPropertyName("runInformation")]
     public ExperimentExecutionDetailsPropertiesRunInformationModel? RunInformation { get; set; }
 
     [DateFormat(DateFormatAttribute.DateFormat.RFC3339)]
-    [JsonPropertyName("startDateUtc")]
-    public DateTime? StartDateUtc { get; set; }
+    [JsonPropertyName("startDateTime")]
+    public DateTime? StartDateTime { get; set; }
 
     [JsonPropertyName("status")]
     public string? Status { get; set; }
 
     [DateFormat(DateFormatAttribute.DateFormat.RFC3339)]
-    [JsonPropertyName("stopDateUtc")]
-    public DateTime? StopDateUtc { get; set; }
+    [JsonPropertyName("stopDateTime")]
+    public DateTime? StopDateTime { get; set; }
 }

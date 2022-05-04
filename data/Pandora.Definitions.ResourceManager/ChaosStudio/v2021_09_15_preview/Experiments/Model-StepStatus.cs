@@ -13,12 +13,12 @@ internal class StepStatusModel
     [JsonPropertyName("branches")]
     public List<BranchStatusModel>? Branches { get; set; }
 
-    [JsonPropertyName("id")]
-    public string? Id { get; set; }
-
-    [JsonPropertyName("name")]
-    public string? Name { get; set; }
-
     [JsonPropertyName("status")]
     public string? Status { get; set; }
+
+    [JsonPropertyName("stepId")]
+    public string? StepId { get; set; }
+
+    [JsonPropertyName("stepName")]
+    public string? StepName { get; set; }
 }
