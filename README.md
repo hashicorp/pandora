@@ -41,10 +41,8 @@ Pandora's primarily intended to be run in automation (using both Github Actions 
   * The Resource Manager Swagger Git Submodule (`./swagger`).
   * Any of the tooling within `./tools`.
 * If the Rest API Specs Importer outputs any changes to the Imported API Definitions, those are committed and a Pull Request is opened ([example](https://github.com/hashicorp/pandora/pull/751)).
-* (**WIP**) Once that PR is merged, if there's any changes then the `hashicorp/go-azure-sdk` repository is updated in the same fashion via the Go SDK Generator.
+* Once that PR is merged, if there's any changes then the `hashicorp/go-azure-sdk` repository is updated in the same fashion via the Go SDK Generator.
 * (**Future**) Once the Go SDK is updated, (if there's any changes) the Terraform Data Sources & Resources are re-generated via the Go SDK Generator, and the Go SDK dependency is updated via a Pull Request.
-
-> **Note:** until the automation is complete, you'll need to generate a Go SDK manually - more instructions can be [found in the `./docs` folder](./docs/generating-a-go-sdk.md). 
 
 The `./docs` folder contains more information, of particular note:
 

@@ -44,4 +44,6 @@ service "msi" {
 
 > **Note:** The Version Bumper tool will auto reformat the Resource Manager configuration file to ensure it's ordered alphabetically (and old -> new for API versions) - you can avoid unnecessary churn by ordering the services alphabetically.
 
-Once the Resource Manager configuration has been updated - please send a Pull Request to this repository, which once merged will import the Service/API Version into Pandora's Data Format.
+Once the Resource Manager configuration has been updated - please send a Pull Request to this repository.
+
+See ["How does this work?" in the main README](../README.md) for information on what happens when that Pull Request is merged.
