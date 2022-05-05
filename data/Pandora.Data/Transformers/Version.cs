@@ -47,7 +47,7 @@ public static class Version
         {
             case Source.HandWritten:
                 return ApiDefinitionsSource.HandWritten;
-            
+
             case Source.ResourceManagerRestApiSpecs:
                 return ApiDefinitionsSource.ResourceManagerRestApiSpecs;
         }

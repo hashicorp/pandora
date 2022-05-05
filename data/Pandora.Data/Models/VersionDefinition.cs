@@ -11,6 +11,6 @@ public class VersionDefinition
     public bool Preview { get; set; }
 
     public IEnumerable<ResourceDefinition> Resources { get; set; }
-    
+
     public ApiDefinitionsSource Source { get; set; }
 }
