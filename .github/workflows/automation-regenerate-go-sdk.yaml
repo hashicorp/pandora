@@ -10,12 +10,8 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: true
     steps:
       - uses: actions/checkout@v2
-        with:
-         submodules: recursive
 
       - uses: actions/setup-go@v2
         with:
