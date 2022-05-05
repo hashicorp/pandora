@@ -17,8 +17,8 @@ jobs:
         with:
           go-version: '1.18.1'
 
-      - name: Regenerate (and conditionally push) the Go SDK
-          run: |
+      - name: "Regenerate (and conditionally push) the Go SDK"
+        run: |
             # launch an ssh agent and export it's env vars
             eval `ssh-agent -s`
             # load the Deployment Write Key for the Go SDK repository
