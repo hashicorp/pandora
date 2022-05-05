@@ -31,7 +31,7 @@ func alternateCasingOnEveryLetter(input string) string {
 }
 
 func copyrightLinesForSource(input resourcemanager.ApiDefinitionsSource) (*string, error) {
-	if input == resourcemanager.ApiDefinitionsSourceHandDefined {
+	if input == resourcemanager.ApiDefinitionsSourceHandWritten {
 		out := `
 // Copyright (c) HashiCorp Inc. All rights reserved.
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.

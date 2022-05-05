@@ -49,9 +49,9 @@ type ResourceSummary struct {
 type ApiDefinitionsSource string
 
 const (
-	// ApiDefinitionsSourceHandDefined is used to signify that this set
+	// ApiDefinitionsSourceHandWritten is used to signify that this set
 	// of API Definitions was created by hand.
-	ApiDefinitionsSourceHandDefined ApiDefinitionsSource = "HandDefined"
+	ApiDefinitionsSourceHandWritten ApiDefinitionsSource = "HandWritten"
 
 	// ApiDefinitionsSourceResourceManagerRestApiSpecs is used to signify
 	// that this set of API Definitions is based on data within the Azure
