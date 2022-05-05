@@ -13,11 +13,11 @@ internal class BranchStatusModel
     [JsonPropertyName("actions")]
     public List<ActionStatusModel>? Actions { get; set; }
 
-    [JsonPropertyName("id")]
-    public string? Id { get; set; }
+    [JsonPropertyName("branchId")]
+    public string? BranchId { get; set; }
 
-    [JsonPropertyName("name")]
-    public string? Name { get; set; }
+    [JsonPropertyName("branchName")]
+    public string? BranchName { get; set; }
 
     [JsonPropertyName("status")]
     public string? Status { get; set; }
