@@ -31,20 +31,18 @@ func alternateCasingOnEveryLetter(input string) string {
 }
 
 func copyrightLinesForSource(input resourcemanager.ApiDefinitionsSource) (*string, error) {
-	// TODO: finalized license strings
 	if input == resourcemanager.ApiDefinitionsSourceHandDefined {
 		out := `
-// TODO: real copyright string for HashiCorp.
+// Copyright (c) HashiCorp Inc. All rights reserved.
+// Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 `
 		return &out, nil
 	}
 
 	if input == resourcemanager.ApiDefinitionsSourceResourceManagerRestApiSpecs {
 		out := `
-// TODO: real copyright string for Microsoft.
-
 // Copyright (c) Microsoft Corporation. All rights reserved.
-// Licensed under the MIT License.
+// Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 `
 		return &out, nil
 	}

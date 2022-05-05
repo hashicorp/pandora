@@ -7,9 +7,9 @@ import (
 	"strings"
 )
 
-// TODO: populate the real MS license
 const restApiSpecsLicence = `
-TODO: confirm final wording
+// Copyright (c) Microsoft Corporation. All rights reserved.
+// Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 `
 
 func normalizeApiVersion(input string) string {
