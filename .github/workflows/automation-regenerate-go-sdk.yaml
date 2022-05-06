@@ -1,0 +1,31 @@
+---
+name: Regenerate the Go SDK
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'data/**'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-go@v2
+        with:
+          go-version: '1.18.1'
+
+      - name: "Regenerate (and conditionally push) the Go SDK"
+        run: |
+            # launch an ssh agent and export it's env vars
+            eval `ssh-agent -s`
+            # load the Deployment Write Key for the Go SDK repository
+            echo "${{ secrets.GOSDK_DEPLOYMENT_WRITE_KEY }}" | ssh-add -
+            # go go gadget generator
+            ./scripts/automation-generate-go-sdk.sh
+            # remove the ssh key
+            ssh-add -D
+            # then unload the agent
+            ssh-agent -k

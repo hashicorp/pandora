@@ -25,6 +25,11 @@ function runWrapper {
   ./wrapper-go-sdk-generator \
     -data-api-assembly-path="../../$dataApiAssemblyPath"\
     -output-dir="../../$outputDirectory"
+
+  cd "${DIR}"
+  cd "${outputDirectory}"
+  echo "Running 'make fmt' on the generated code.."
+  make fmt
 }
 
 function prepareGoSdk {
@@ -37,6 +42,13 @@ function prepareGoSdk {
 
   echo "Cloning SDK Repository into $workingDirectory.."
   git clone "$sdkRepo" "$workingDirectory"
+
+  echo "Preparing the repository for generation"
+  cd "${DIR}"
+  cd "${workingDirectory}"
+  make prepare
+
+  cd "${DIR}"
 }
 
 function conditionallyCommitAndPushGoSdk {
@@ -48,9 +60,21 @@ function conditionallyCommitAndPushGoSdk {
   cd "$workingDirectory"
   if [[ $(git status --porcelain | wc -l) -gt 0 ]]; then
     echo "Committing and Pushing the changes"
+
+    # commit the generated changes
     git checkout -b "$branch"
+    git config user.name "GitHub Actions"
+    git config user.email "<>"
     git add --all
     git commit -m "Updating based on $sha"
+
+    # then update the dependencies
+    go mod tidy
+    if [[ $(git status --porcelain | wc -l) -gt 0 ]]; then
+      git add --all
+      git commit -m "Updating dependencies based on $sha"
+    fi
+
     # NOTE: we're intentionally force-pushing here in-case this PR is
     # open and other changes (e.g. to the generator) get included
     git push origin "$branch" -f
