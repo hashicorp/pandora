@@ -59,7 +59,4 @@ jobs:
       - name: "Terminate the SSH Agent"
         if: always()
         run: |
-          # then unload the agent
-          ssh-agent -k
-        env:
-          SSH_AUTH_SOCK: /tmp/pandora_ssh_agent.sock
+          pkill -9 ssh-agent
