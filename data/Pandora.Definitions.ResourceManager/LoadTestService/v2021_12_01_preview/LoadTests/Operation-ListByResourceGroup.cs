@@ -6,6 +6,11 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
+
+// Copyright (c) Microsoft Corporation. All rights reserved.
+// Licensed under the MIT License. See NOTICE.txt in the project root for license information.
+
+
 namespace Pandora.Definitions.ResourceManager.LoadTestService.v2021_12_01_preview.LoadTests;
 
 internal class ListByResourceGroupOperation : Operations.ListOperation

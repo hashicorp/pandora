@@ -6,6 +6,11 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
+
+// Copyright (c) Microsoft Corporation. All rights reserved.
+// Licensed under the MIT License. See NOTICE.txt in the project root for license information.
+
+
 namespace Pandora.Definitions.ResourceManager.VideoAnalyzer.v2021_05_01_preview.VideoAnalyzer;
 
 internal class AccessPoliciesCreateOrUpdateOperation : Operations.PutOperation
