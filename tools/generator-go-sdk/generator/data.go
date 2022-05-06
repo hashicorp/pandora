@@ -42,6 +42,9 @@ type ServiceGeneratorData struct {
 	// describing the ResourceId's used in these http operations
 	resourceIds map[string]resourcemanager.ResourceIdDefinition
 
+	// source describes the original source location for these API Definitions
+	source resourcemanager.ApiDefinitionsSource
+
 	// the name of the service as a package (e.g. resources or eventhub)
 	servicePackageName string
 
@@ -69,7 +72,7 @@ func (i ServiceGeneratorInput) generatorData() ServiceGeneratorData {
 		resourceIds:        i.ResourceDetails.Schema.ResourceIds,
 		serviceClientName:  fmt.Sprintf("%sClient", strings.Title(i.ResourceName)),
 		servicePackageName: strings.ToLower(i.ServiceName),
-
-		useIdAliases: false,
+		source:             i.Source,
+		useIdAliases:       false,
 	}
 }

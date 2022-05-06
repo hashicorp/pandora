@@ -28,6 +28,8 @@ func (g PandoraDefinitionGenerator) codeForResourceID(namespace string, resource
 	code := fmt.Sprintf(`using System.Collections.Generic;
 using Pandora.Definitions.Interfaces;
 
+%[6]s
+
 namespace %[1]s;
 
 internal class %[2]s : ResourceID
@@ -41,7 +43,7 @@ internal class %[2]s : ResourceID
 %[5]s
 	};
 }
-`, namespace, resourceIdName, commonAlias, resourceIdValue.String(), strings.Join(segmentsCode, "\n"))
+`, namespace, resourceIdName, commonAlias, resourceIdValue.String(), strings.Join(segmentsCode, "\n"), restApiSpecsLicence)
 	return &code, nil
 }
 

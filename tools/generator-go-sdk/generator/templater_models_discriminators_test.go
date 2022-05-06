@@ -50,6 +50,7 @@ func TestTemplaterModelsParent(t *testing.T) {
 				TypeHintValue:  stringPointer("train"),
 			},
 		},
+		source: AccTestLicenceType,
 	})
 	if err != nil {
 		t.Fatal(err.Error())
@@ -64,6 +65,8 @@ import (
 	"github.com/hashicorp/go-azure-helpers/lang/dates"
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/identity"
 )
+
+// acctests licence placeholder
 
 type ModeOfTransit interface {
 }
@@ -176,6 +179,7 @@ func TestTemplaterModelsImplementation(t *testing.T) {
 				TypeHintValue:  stringPointer("train"),
 			},
 		},
+		source: AccTestLicenceType,
 	})
 	if err != nil {
 		t.Fatal(err.Error())
@@ -190,6 +194,8 @@ import (
 	"github.com/hashicorp/go-azure-helpers/lang/dates"
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/identity"
 )
+
+// acctests licence placeholder
 
 var _ ModeOfTransit = Train{}
 

@@ -15,6 +15,11 @@ type constantsTemplater struct {
 }
 
 func (c constantsTemplater) template(data ServiceGeneratorData) (*string, error) {
+	copyrightLines, err := copyrightLinesForSource(data.source)
+	if err != nil {
+		return nil, fmt.Errorf("retrieving copyright lines: %+v", err)
+	}
+
 	keys := make([]string, 0)
 	for name := range data.constants {
 		keys = append(keys, name)
@@ -36,6 +41,8 @@ func (c constantsTemplater) template(data ServiceGeneratorData) (*string, error)
 
 import "strings"
 
-%s`, data.packageName, strings.Join(lines, "\n"))
+%[3]s
+
+%[2]s`, data.packageName, strings.Join(lines, "\n"), *copyrightLines)
 	return &template, nil
 }

@@ -7,6 +7,11 @@ import (
 	"strings"
 )
 
+const restApiSpecsLicence = `
+// Copyright (c) Microsoft Corporation. All rights reserved.
+// Licensed under the MIT License. See NOTICE.txt in the project root for license information.
+`
+
 func normalizeApiVersion(input string) string {
 	normalized := strings.ReplaceAll(input, "-", "_")     // e.g. 2020-01-01-preview -> 2020_01_01_preview
 	normalized = strings.ReplaceAll(normalized, ".", "_") // e.g. 1.0 -> 1_0

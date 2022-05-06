@@ -19,6 +19,11 @@ type modelsTemplater struct {
 }
 
 func (c modelsTemplater) template(data ServiceGeneratorData) (*string, error) {
+	copyrightLines, err := copyrightLinesForSource(data.source)
+	if err != nil {
+		return nil, fmt.Errorf("retrieving copyright lines: %+v", err)
+	}
+
 	structCode, err := c.structCode(data)
 	if err != nil {
 		return nil, fmt.Errorf("generating struct code: %+v", err)
@@ -41,9 +46,10 @@ import (
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/identity"
 )
 
+%[4]s
 %[2]s
 %[3]s
-`, data.packageName, *structCode, *methods)
+`, data.packageName, *structCode, *methods, *copyrightLines)
 	return &template, nil
 }
 

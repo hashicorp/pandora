@@ -8,6 +8,7 @@ func TestTemplateAutoRestClient(t *testing.T) {
 	input := ServiceGeneratorData{
 		packageName:       "somepackage",
 		serviceClientName: "ExampleClient",
+		source:            AccTestLicenceType,
 	}
 
 	actual, err := clientsAutoRestTemplater{}.template(input)
@@ -18,6 +19,8 @@ func TestTemplateAutoRestClient(t *testing.T) {
 	expected := `package somepackage
 
 import "github.com/Azure/go-autorest/autorest"
+
+// acctests licence placeholder
 
 type ExampleClient struct {
 	Client  autorest.Client

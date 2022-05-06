@@ -6,6 +6,7 @@ public partial class Definition : ApiVersionDefinition
 {
     public string ApiVersion => "2020-08-20";
     public bool Preview => false;
+    public Source Source => Source.ResourceManagerRestApiSpecs;
 
     public IEnumerable<ResourceDefinition> Resources => new List<ResourceDefinition>
     {

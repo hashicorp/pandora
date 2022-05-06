@@ -13,4 +13,6 @@ public class Definition : ApiVersionDefinition
     {
         new Tenants.Definition(),
     };
+
+    public Source Source => Source.HandWritten;
 }

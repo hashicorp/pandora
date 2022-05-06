@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using NUnit.Framework;
+using Pandora.Data.Models;
 using Pandora.Definitions.Interfaces;
 using Pandora.Definitions.Operations;
 
@@ -24,6 +25,7 @@ public static class VersionTests
         Assert.AreEqual(true, actual.Generate);
         Assert.AreEqual(false, actual.Preview);
         Assert.AreEqual(1, actual.Resources.Count());
+        Assert.AreEqual(ApiDefinitionsSource.HandWritten, actual.Source);
     }
 
     [TestCase]
@@ -38,6 +40,7 @@ public static class VersionTests
         public bool Generate => false;
         public bool Preview => false;
         public IEnumerable<Definitions.Interfaces.ResourceDefinition> Resources => new List<Definitions.Interfaces.ResourceDefinition>();
+        public Source Source => Source.HandWritten;
     }
 
     private class VersionDefinitionWithASingleOperation : ApiVersionDefinition
@@ -46,6 +49,7 @@ public static class VersionTests
         public bool Generate => true;
         public bool Preview => false;
         public IEnumerable<Definitions.Interfaces.ResourceDefinition> Resources => new List<Definitions.Interfaces.ResourceDefinition> { new SomeResourceDefinition() };
+        public Source Source => Source.HandWritten;
     }
 
     private class VersionDefinitionWithDuplicateOperations : ApiVersionDefinition
@@ -54,13 +58,13 @@ public static class VersionTests
         public bool Generate => true;
         public bool Preview => false;
         public IEnumerable<Definitions.Interfaces.ResourceDefinition> Resources => new List<Definitions.Interfaces.ResourceDefinition> { new SomeResourceDefinition(), new SomeResourceDefinition() };
+        public Source Source => Source.HandWritten;
     }
 
     private class SomeResourceDefinition : Definitions.Interfaces.ResourceDefinition
     {
         public string Name => "example";
         public IEnumerable<ApiOperation> Operations => new List<ApiOperation> { new FakeApiOperation() };
-        public Definitions.Interfaces.ResourceID ResourceId => new FakeResourceId();
     }
 
     private class FakeApiOperation : GetOperation

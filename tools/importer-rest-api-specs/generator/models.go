@@ -71,6 +71,8 @@ using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
 
+%[5]s
+
 namespace %[1]s;
 
 %[4]s
@@ -78,7 +80,7 @@ internal %[2]s
 {
 %[3]s
 }
-`, namespace, typeInformation, strings.Join(code, "\n\n"), strings.Join(annotations, "\n"))
+`, namespace, typeInformation, strings.Join(code, "\n\n"), strings.Join(annotations, "\n"), restApiSpecsLicence)
 	return &out, nil
 }
 

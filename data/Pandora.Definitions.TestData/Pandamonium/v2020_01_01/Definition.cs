@@ -13,4 +13,6 @@ public class Definition : ApiVersionDefinition
     {
         new Grouping.Definition()
     };
+
+    public Source Source => Source.HandWritten;
 }

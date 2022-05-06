@@ -79,6 +79,7 @@ func run(input GeneratorInput) error {
 					ResourceName:    resourceName,
 					ResourceDetails: resourceDetails,
 					OutputDirectory: input.outputDirectory,
+					Source:          versionDetails.Details.Source,
 				}
 				log.Printf("[DEBUG] Generating Service %q / Version %q / Resource %q..", serviceName, versionNumber, resourceName)
 				if err := generatorService.Generate(generatorData); err != nil {

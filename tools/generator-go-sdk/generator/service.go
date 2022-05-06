@@ -6,6 +6,8 @@ import (
 	"os"
 	"os/exec"
 
+	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+
 	"github.com/hashicorp/pandora/tools/sdk/services"
 )
 
@@ -27,6 +29,7 @@ type ServiceGeneratorInput struct {
 	ResourceName    string
 	ResourceDetails services.Resource
 	OutputDirectory string
+	Source          resourcemanager.ApiDefinitionsSource
 }
 
 func (s *ServiceGenerator) Generate(input ServiceGeneratorInput) error {

@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text.Json.Serialization;
 using Microsoft.AspNetCore.Mvc;
@@ -46,7 +48,21 @@ public class ServiceVersionController : ControllerBase
         {
             Resources = version.Resources.ToDictionary(a => a.Name,
                 a => MapResourceForApiVersion(a, versionNumber, serviceName)),
+            Source = MapSource(version.Source),
         };
+    }
+
+    private static string MapSource(Data.Models.ApiDefinitionsSource input)
+    {
+        switch (input)
+        {
+            case Data.Models.ApiDefinitionsSource.HandWritten:
+                return ApiDefinitionsSource.HandWritten.ToString();
+            case Data.Models.ApiDefinitionsSource.ResourceManagerRestApiSpecs:
+                return ApiDefinitionsSource.ResourceManagerRestApiSpecs.ToString();
+        }
+
+        throw new NotSupportedException($"unsupported/unmapped Source {input.ToString()}");
     }
 
     private static ApiTypeInformation MapResourceForApiVersion(ResourceDefinition definition, string versionNumber, string serviceName)
@@ -63,6 +79,9 @@ public class ApiVersionResponse
 {
     [JsonPropertyName("resources")]
     public Dictionary<string, ApiTypeInformation> Resources { get; set; }
+
+    [JsonPropertyName("source")]
+    public string Source { get; set; }
 }
 
 public class ApiTypeInformation
@@ -72,4 +91,15 @@ public class ApiTypeInformation
 
     [JsonPropertyName("schemaUri")]
     public string SchemaUri { get; set; }
+}
+
+public enum ApiDefinitionsSource
+{
+    Unknown = 0,
+
+    [Description("ResourceManagerRestApiSpecs")]
+    ResourceManagerRestApiSpecs,
+
+    [Description("HandWritten")]
+    HandWritten
 }

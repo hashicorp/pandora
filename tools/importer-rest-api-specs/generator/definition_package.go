@@ -27,6 +27,8 @@ func (g PandoraDefinitionGenerator) codeForPackageDefinition(namespace, resource
 	return fmt.Sprintf(`using System.Collections.Generic;
 using Pandora.Definitions.Interfaces;
 
+%[4]s
+
 namespace %[1]s;
 
 internal class Definition : ResourceDefinition
@@ -37,5 +39,5 @@ internal class Definition : ResourceDefinition
 %[3]s
 	};
 }
-`, namespace, normalizedResourceName, strings.Join(lines, "\n"))
+`, namespace, normalizedResourceName, strings.Join(lines, "\n"), restApiSpecsLicence)
 }
