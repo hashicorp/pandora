@@ -27,7 +27,11 @@ function runWrapper {
     -output-dir="../../$outputDirectory"
 
   cd "${DIR}"
+
+  echo "Running 'make tools' within the SDK codebase.."
   cd "${outputDirectory}"
+  make tools
+
   echo "Running 'make fmt' on the generated code.."
   make fmt
 }
