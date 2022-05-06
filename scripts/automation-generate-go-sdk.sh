@@ -34,6 +34,9 @@ function runWrapper {
 
   echo "Running 'make fmt' on the generated code.."
   make fmt
+
+  echo "Running 'make imports' on the generated code.."
+  make imports
 }
 
 function prepareGoSdk {
