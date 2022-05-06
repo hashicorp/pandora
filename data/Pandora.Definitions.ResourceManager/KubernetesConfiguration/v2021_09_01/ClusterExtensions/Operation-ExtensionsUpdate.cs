@@ -6,6 +6,11 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
+
+// Copyright (c) Microsoft Corporation. All rights reserved.
+// Licensed under the MIT License. See NOTICE.txt in the project root for license information.
+
+
 namespace Pandora.Definitions.ResourceManager.KubernetesConfiguration.v2021_09_01.ClusterExtensions;
 
 internal class ExtensionsUpdateOperation : Operations.PatchOperation
