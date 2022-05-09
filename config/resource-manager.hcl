@@ -107,6 +107,10 @@ service "relay" {
   name      = "Relay"
   available = ["2017-04-01"]
 }
+service "search" {
+  name      = "Search"
+  available = ["2020-03-13"]
+}
 service "servicefabricmanagedclusters" {
   name      = "ServiceFabricManagedCluster"
   available = ["2021-05-01"]
