@@ -29,6 +29,10 @@ public class ResourceIDSegment
     // Name is the name of this segment, for example `ResourceGroups` or `VirtualMachine` in Title Case.
     public string Name { get; set; }
 
+    private ResourceIDSegment()
+    {
+    }
+
     public static ResourceIDSegment Constant(string name, Type constantType)
     {
         return new ResourceIDSegment
