@@ -95,6 +95,10 @@ service "powerbidedicated" {
   name      = "PowerBIDedicated"
   available = ["2021-01-01"]
 }
+service "privatedns" {
+  name      = "PrivateDNS"
+  available = ["2021-01-01"]
+}
 service "purview" {
   name      = "Purview"
   available = ["2020-12-01-preview", "2021-07-01"]
