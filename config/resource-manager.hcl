@@ -97,7 +97,7 @@ service "powerbidedicated" {
 }
 service "privatedns" {
   name      = "PrivateDNS"
-  available = ["2021-01-01"]
+  available = ["2018-09-01"]
 }
 service "purview" {
   name      = "Purview"
