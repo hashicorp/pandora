@@ -28,6 +28,72 @@ public class ResourceIDSegment
 
     // Name is the name of this segment, for example `ResourceGroups` or `VirtualMachine` in Title Case.
     public string Name { get; set; }
+
+    public static ResourceIDSegment Constant(string name, Type constantType)
+    {
+        return new ResourceIDSegment
+        {
+            Name = name,
+            Type = ResourceIDSegmentType.Constant,
+            ConstantReference = constantType,
+        };
+    }
+
+    public static ResourceIDSegment ResourceGroup(string name)
+    {
+        return new ResourceIDSegment
+        {
+            Name = name,
+            Type = ResourceIDSegmentType.ResourceGroup,
+        };
+    }
+
+    public static ResourceIDSegment ResourceProvider(string name, string fixedValue)
+    {
+        return new ResourceIDSegment
+        {
+            Name = name,
+            Type = ResourceIDSegmentType.ResourceProvider,
+            FixedValue = fixedValue,
+        };
+    }
+
+    public static ResourceIDSegment Scope(string name)
+    {
+        return new ResourceIDSegment
+        {
+            Name = name,
+            Type = ResourceIDSegmentType.Scope,
+        };
+    }
+
+    public static ResourceIDSegment Static(string name, string fixedValue)
+    {
+        return new ResourceIDSegment
+        {
+            Name = name,
+            Type = ResourceIDSegmentType.Static,
+            FixedValue = fixedValue,
+        };
+    }
+
+    public static ResourceIDSegment SubscriptionId(string name)
+    {
+        return new ResourceIDSegment
+        {
+            Name = name,
+            Type = ResourceIDSegmentType.SubscriptionId,
+        };
+    }
+
+    public static ResourceIDSegment UserSpecified(string name)
+    {
+        return new ResourceIDSegment
+        {
+            Name = name,
+            Type = ResourceIDSegmentType.UserSpecified,
+        };
+    }
 }
 
 public enum ResourceIDSegmentType
