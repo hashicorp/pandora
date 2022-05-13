@@ -219,18 +219,8 @@ public static class ResourceIDTests
 
         public List<ResourceIDSegment> Segments => new()
         {
-            new ResourceIDSegment
-            {
-                Name = "hello",
-                Type = ResourceIDSegmentType.Static,
-                FixedValue = "hello"
-            },
-            new ResourceIDSegment
-            {
-                Name = "world",
-                Type = ResourceIDSegmentType.Static,
-                FixedValue = "world"
-            }
+            ResourceIDSegment.Static("hello", "hello"),
+            ResourceIDSegment.Static("world", "world"),
         };
     }
 
@@ -242,17 +232,8 @@ public static class ResourceIDTests
 
         public List<ResourceIDSegment> Segments => new()
         {
-            new ResourceIDSegment
-            {
-                Name = "hello",
-                Type = ResourceIDSegmentType.Static,
-                FixedValue = "hello"
-            },
-            new ResourceIDSegment
-            {
-                Name = "world",
-                Type = ResourceIDSegmentType.UserSpecified,
-            }
+            ResourceIDSegment.Static("hello", "hello"),
+            ResourceIDSegment.UserSpecified("world"),
         };
     }
 
@@ -264,51 +245,14 @@ public static class ResourceIDTests
 
         public List<ResourceIDSegment> Segments => new()
         {
-            new ResourceIDSegment
-            {
-                Name = "subscriptions",
-                Type = ResourceIDSegmentType.Static,
-                FixedValue = "subscriptions"
-            },
-            new ResourceIDSegment
-            {
-                Name = "subscriptionId",
-                Type = ResourceIDSegmentType.SubscriptionId,
-            },
-            new ResourceIDSegment
-            {
-                Name = "resourceGroups",
-                Type = ResourceIDSegmentType.Static,
-                FixedValue = "resourceGroups"
-            },
-            new ResourceIDSegment
-            {
-                Name = "resourceGroup",
-                Type = ResourceIDSegmentType.ResourceGroup,
-            },
-            new ResourceIDSegment
-            {
-                Name = "providers",
-                Type = ResourceIDSegmentType.Static,
-                FixedValue = "providers"
-            },
-            new ResourceIDSegment
-            {
-                Name = "microsoftCompute",
-                Type = ResourceIDSegmentType.ResourceProvider,
-                FixedValue = "Microsoft.Compute"
-            },
-            new ResourceIDSegment
-            {
-                Name = "virtualMachines",
-                Type = ResourceIDSegmentType.Static,
-                FixedValue = "virtualMachines"
-            },
-            new ResourceIDSegment
-            {
-                Name = "virtualMachineName",
-                Type = ResourceIDSegmentType.UserSpecified,
-            },
+            ResourceIDSegment.Static("subscriptions", "subscriptions"),
+            ResourceIDSegment.SubscriptionId("subscriptionId"),
+            ResourceIDSegment.Static("resourceGroups", "resourceGroups"),
+            ResourceIDSegment.ResourceGroup("resourceGroup"),
+            ResourceIDSegment.Static("providers", "providers"),
+            ResourceIDSegment.ResourceProvider("microsoftCompute", "Microsoft.Compute"),
+            ResourceIDSegment.Static("virtualMachines", "virtualMachines"),
+            ResourceIDSegment.UserSpecified("virtualMachineName"),
         };
     }
 
@@ -320,28 +264,10 @@ public static class ResourceIDTests
 
         public List<ResourceIDSegment> Segments => new()
         {
-            new ResourceIDSegment
-            {
-                Name = "subscriptions",
-                Type = ResourceIDSegmentType.Static,
-                FixedValue = "subscriptions"
-            },
-            new ResourceIDSegment
-            {
-                Name = "subscriptionId",
-                Type = ResourceIDSegmentType.SubscriptionId,
-            },
-            new ResourceIDSegment
-            {
-                Name = "resourceGroups",
-                Type = ResourceIDSegmentType.Static,
-                FixedValue = "resourceGroups"
-            },
-            new ResourceIDSegment
-            {
-                Name = "resourceGroup",
-                Type = ResourceIDSegmentType.ResourceGroup,
-            }
+            ResourceIDSegment.Static("subscriptions", "subscriptions"),
+            ResourceIDSegment.SubscriptionId("subscriptionId"),
+            ResourceIDSegment.Static("resourceGroups", "resourceGroups"),
+            ResourceIDSegment.ResourceGroup("resourceGroup"),
         };
     }
 
@@ -353,18 +279,8 @@ public static class ResourceIDTests
 
         public List<ResourceIDSegment> Segments => new()
         {
-            new ResourceIDSegment
-            {
-                Name = "planets",
-                Type = ResourceIDSegmentType.Static,
-                FixedValue = "planets"
-            },
-            new ResourceIDSegment
-            {
-                Name = "planetName",
-                Type = ResourceIDSegmentType.Constant,
-                ConstantReference = typeof(PlanetName)
-            }
+            ResourceIDSegment.Static("planets", "planets"),
+            ResourceIDSegment.Constant("planetName", typeof(PlanetName)),
         };
 
         [ConstantType(ConstantTypeAttribute.ConstantType.String)]
@@ -386,17 +302,8 @@ public static class ResourceIDTests
 
         public List<ResourceIDSegment> Segments => new()
         {
-            new ResourceIDSegment
-            {
-                Name = "scope",
-                Type = ResourceIDSegmentType.Scope,
-            },
-            new ResourceIDSegment
-            {
-                Name = "someOperation",
-                Type = ResourceIDSegmentType.Static,
-                FixedValue = "someOperation"
-            },
+            ResourceIDSegment.Scope("scope"),
+            ResourceIDSegment.Static("someOperation", "someOperation"),
         };
     }
 }

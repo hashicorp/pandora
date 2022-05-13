@@ -87,28 +87,10 @@ public static class VersionTests
 
         public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
         {
-            new()
-            {
-                Type = ResourceIDSegmentType.Static,
-                FixedValue = "subscriptions",
-                Name = "subscriptions",
-            },
-            new()
-            {
-                Type = ResourceIDSegmentType.SubscriptionId,
-                Name = "subscriptionId",
-            },
-            new()
-            {
-                Type = ResourceIDSegmentType.Static,
-                FixedValue = "resourceGroups",
-                Name = "resourceGroups",
-            },
-            new()
-            {
-                Type = ResourceIDSegmentType.ResourceGroup,
-                Name = "resourceGroups",
-            },
+            ResourceIDSegment.Static("subscriptions", "subscriptions"),
+            ResourceIDSegment.SubscriptionId("subscriptionId"),
+            ResourceIDSegment.Static("resourceGroups", "resourceGroups"),
+            ResourceIDSegment.ResourceGroup("resourceGroup"),
         };
     }
 }

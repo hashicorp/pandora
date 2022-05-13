@@ -886,18 +886,8 @@ public static class ResourceDefinitionTests
 
             public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
             {
-                new ResourceIDSegment
-                {
-                    Name = "planets",
-                    FixedValue = "planets",
-                    Type = ResourceIDSegmentType.Static,
-                },
-                new ResourceIDSegment
-                {
-                    Name = "planetName",
-                    ConstantReference = typeof(ConstantHiddenInResourceId),
-                    Type = ResourceIDSegmentType.Constant,
-                },
+                ResourceIDSegment.Static("planets", "planets"),
+                ResourceIDSegment.Constant("planetName", typeof(ConstantHiddenInResourceId)),
             };
         }
 

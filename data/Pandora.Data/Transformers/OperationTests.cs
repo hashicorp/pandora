@@ -337,12 +337,7 @@ public class OperationWithAResourceId : GetOperation
 
         public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
         {
-            new()
-            {
-                Name = "hello",
-                Type = ResourceIDSegmentType.Static,
-                FixedValue = "hello",
-            }
+            ResourceIDSegment.Static("hello", "hello"),
         };
     }
 }
