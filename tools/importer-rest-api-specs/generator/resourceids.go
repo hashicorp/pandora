@@ -14,7 +14,7 @@ func (g PandoraDefinitionGenerator) codeForResourceID(namespace string, resource
 		if err != nil {
 			return nil, fmt.Errorf("generating segment %q: %+v", segment.Name, err)
 		}
-		segmentsCode = append(segmentsCode, *code)
+		segmentsCode = append(segmentsCode, fmt.Sprintf("\t\t%s,", *code))
 	}
 
 	commonAlias := "null"
@@ -48,60 +48,61 @@ internal class %[2]s : ResourceID
 }
 
 func (g PandoraDefinitionGenerator) codeForResourceIDSegment(input models.ResourceIdSegment) (*string, error) {
-	typeName, err := g.codeForResourceIDSegmentType(input.Type)
-	if err != nil {
-		return nil, err
-	}
-
-	indent := "                    "
-	lines := []string{
-		fmt.Sprintf("%sName = %q", indent, input.Name),
-		fmt.Sprintf("%sType = %s", indent, *typeName),
-	}
-
-	if input.ConstantReference != nil {
-		lines = append(lines, fmt.Sprintf("%sConstantReference = typeof(%sConstant)", indent, *input.ConstantReference))
-	}
-	if input.FixedValue != nil {
-		lines = append(lines, fmt.Sprintf("%sFixedValue = %q", indent, *input.FixedValue))
-	}
-
-	output := fmt.Sprintf(`                new()
-                {
-%[1]s
-                },
-`, strings.Join(lines, ",\n"))
-	return &output, nil
-}
-
-func (g PandoraDefinitionGenerator) codeForResourceIDSegmentType(input models.SegmentType) (*string, error) {
-	var out = func(in string) (*string, error) {
-		return &in, nil
-	}
-
-	switch input {
+	switch input.Type {
 	case models.ConstantSegment:
-		return out("ResourceIDSegmentType.Constant")
+		{
+			if input.ConstantReference == nil {
+				return nil, fmt.Errorf("constant segment type with missing constant reference: %+v", input)
+			}
+
+			out := fmt.Sprintf("ResourceIDSegment.Constant(%[1]q, typeof(%[2]sConstant))", input.Name, *input.ConstantReference)
+			return &out, nil
+		}
 
 	case models.ResourceGroupSegment:
-		return out("ResourceIDSegmentType.ResourceGroup")
+		{
+			out := fmt.Sprintf("ResourceIDSegment.ResourceGroup(%[1]q)", input.Name)
+			return &out, nil
+		}
 
 	case models.ResourceProviderSegment:
-		return out("ResourceIDSegmentType.ResourceProvider")
+		{
+			if input.FixedValue == nil {
+				return nil, fmt.Errorf("resource provider segment type with missing fixed value: %+v", input)
+			}
+
+			out := fmt.Sprintf("ResourceIDSegment.ResourceProvider(%[1]q, %[2]q)", input.Name, *input.FixedValue)
+			return &out, nil
+		}
 
 	case models.ScopeSegment:
-		return out("ResourceIDSegmentType.Scope")
+		{
+			out := fmt.Sprintf("ResourceIDSegment.Scope(%[1]q)", input.Name)
+			return &out, nil
+		}
 
 	case models.StaticSegment:
-		return out("ResourceIDSegmentType.Static")
+		{
+			if input.FixedValue == nil {
+				return nil, fmt.Errorf("static segment type with missing fixed value: %+v", input)
+			}
+
+			out := fmt.Sprintf("ResourceIDSegment.Static(%[1]q, %[2]q)", input.Name, *input.FixedValue)
+			return &out, nil
+		}
 
 	case models.SubscriptionIdSegment:
-		return out("ResourceIDSegmentType.SubscriptionId")
+		{
+			out := fmt.Sprintf("ResourceIDSegment.SubscriptionId(%[1]q)", input.Name)
+			return &out, nil
+		}
 
 	case models.UserSpecifiedSegment:
-		return out("ResourceIDSegmentType.UserSpecified")
-
-	default:
-		return nil, fmt.Errorf("unimplemented Resource ID Segment Type %q", string(input))
+		{
+			out := fmt.Sprintf("ResourceIDSegment.UserSpecified(%[1]q)", input.Name)
+			return &out, nil
+		}
 	}
+
+	return nil, fmt.Errorf("internal-error: unimplemented segment type %q", string(input.Type))
 }

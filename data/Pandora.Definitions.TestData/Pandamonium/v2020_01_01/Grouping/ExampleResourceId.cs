@@ -13,40 +13,12 @@ public class ExampleResourceId : ResourceID
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
-        new()
-        {
-            Name = "subscriptions",
-            Type = ResourceIDSegmentType.Static,
-            FixedValue = "subscriptions"
-        },
-        new()
-        {
-            Name = "subscriptionId",
-            Type = ResourceIDSegmentType.SubscriptionId,
-        },
-        new()
-        {
-            Name = "resourceGroups",
-            Type = ResourceIDSegmentType.Static,
-            FixedValue = "resourceGroups"
-        },
-        new()
-        {
-            Name = "resourceGroup",
-            Type = ResourceIDSegmentType.ResourceGroup,
-        },
-        new()
-        {
-            Name = "planets",
-            Type = ResourceIDSegmentType.Static,
-            FixedValue = "planets"
-        },
-        new()
-        {
-            Name = "planetName",
-            Type = ResourceIDSegmentType.Constant,
-            ConstantReference = typeof(PlanetName),
-        }
+        ResourceIDSegment.Static("subscriptions", "subscriptions"),
+        ResourceIDSegment.SubscriptionId("subscriptionId"),
+        ResourceIDSegment.Static("resourceGroups", "resourceGroups"),
+        ResourceIDSegment.ResourceGroup("resourceGroup"),
+        ResourceIDSegment.Static("planets", "planets"),
+        ResourceIDSegment.Constant("planetName", typeof(PlanetName)),
     };
 }
 
