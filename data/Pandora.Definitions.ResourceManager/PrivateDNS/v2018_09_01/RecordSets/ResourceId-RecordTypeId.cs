@@ -16,71 +16,15 @@ internal class RecordTypeId : ResourceID
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
-                new()
-                {
-                    Name = "staticSubscriptions",
-                    Type = ResourceIDSegmentType.Static,
-                    FixedValue = "subscriptions"
-                },
-
-                new()
-                {
-                    Name = "subscriptionId",
-                    Type = ResourceIDSegmentType.SubscriptionId
-                },
-
-                new()
-                {
-                    Name = "staticResourceGroups",
-                    Type = ResourceIDSegmentType.Static,
-                    FixedValue = "resourceGroups"
-                },
-
-                new()
-                {
-                    Name = "resourceGroupName",
-                    Type = ResourceIDSegmentType.ResourceGroup
-                },
-
-                new()
-                {
-                    Name = "staticProviders",
-                    Type = ResourceIDSegmentType.Static,
-                    FixedValue = "providers"
-                },
-
-                new()
-                {
-                    Name = "staticMicrosoftNetwork",
-                    Type = ResourceIDSegmentType.ResourceProvider,
-                    FixedValue = "Microsoft.Network"
-                },
-
-                new()
-                {
-                    Name = "staticPrivateDnsZones",
-                    Type = ResourceIDSegmentType.Static,
-                    FixedValue = "privateDnsZones"
-                },
-
-                new()
-                {
-                    Name = "privateZoneName",
-                    Type = ResourceIDSegmentType.UserSpecified
-                },
-
-                new()
-                {
-                    Name = "recordType",
-                    Type = ResourceIDSegmentType.Constant,
-                    ConstantReference = typeof(RecordTypeConstant)
-                },
-
-                new()
-                {
-                    Name = "relativeRecordSetName",
-                    Type = ResourceIDSegmentType.UserSpecified
-                },
-
+        ResourceIDSegment.Static("staticSubscriptions", "subscriptions"),
+        ResourceIDSegment.SubscriptionId("subscriptionId"),
+        ResourceIDSegment.Static("staticResourceGroups", "resourceGroups"),
+        ResourceIDSegment.ResourceGroup("resourceGroupName"),
+        ResourceIDSegment.Static("staticProviders", "providers"),
+        ResourceIDSegment.ResourceProvider("staticMicrosoftNetwork", "Microsoft.Network"),
+        ResourceIDSegment.Static("staticPrivateDnsZones", "privateDnsZones"),
+        ResourceIDSegment.UserSpecified("privateZoneName"),
+        ResourceIDSegment.Constant("recordType", typeof(RecordTypeConstant)),
+        ResourceIDSegment.UserSpecified("relativeRecordSetName"),
     };
 }

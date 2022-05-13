@@ -16,71 +16,15 @@ internal class PrivateLinkResourceId : ResourceID
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
-                new()
-                {
-                    Name = "staticSubscriptions",
-                    Type = ResourceIDSegmentType.Static,
-                    FixedValue = "subscriptions"
-                },
-
-                new()
-                {
-                    Name = "subscriptionId",
-                    Type = ResourceIDSegmentType.SubscriptionId
-                },
-
-                new()
-                {
-                    Name = "staticResourceGroups",
-                    Type = ResourceIDSegmentType.Static,
-                    FixedValue = "resourceGroups"
-                },
-
-                new()
-                {
-                    Name = "resourceGroupName",
-                    Type = ResourceIDSegmentType.ResourceGroup
-                },
-
-                new()
-                {
-                    Name = "staticProviders",
-                    Type = ResourceIDSegmentType.Static,
-                    FixedValue = "providers"
-                },
-
-                new()
-                {
-                    Name = "staticMicrosoftAppConfiguration",
-                    Type = ResourceIDSegmentType.ResourceProvider,
-                    FixedValue = "Microsoft.AppConfiguration"
-                },
-
-                new()
-                {
-                    Name = "staticConfigurationStores",
-                    Type = ResourceIDSegmentType.Static,
-                    FixedValue = "configurationStores"
-                },
-
-                new()
-                {
-                    Name = "configStoreName",
-                    Type = ResourceIDSegmentType.UserSpecified
-                },
-
-                new()
-                {
-                    Name = "staticPrivateLinkResources",
-                    Type = ResourceIDSegmentType.Static,
-                    FixedValue = "privateLinkResources"
-                },
-
-                new()
-                {
-                    Name = "groupName",
-                    Type = ResourceIDSegmentType.UserSpecified
-                },
-
+        ResourceIDSegment.Static("staticSubscriptions", "subscriptions"),
+        ResourceIDSegment.SubscriptionId("subscriptionId"),
+        ResourceIDSegment.Static("staticResourceGroups", "resourceGroups"),
+        ResourceIDSegment.ResourceGroup("resourceGroupName"),
+        ResourceIDSegment.Static("staticProviders", "providers"),
+        ResourceIDSegment.ResourceProvider("staticMicrosoftAppConfiguration", "Microsoft.AppConfiguration"),
+        ResourceIDSegment.Static("staticConfigurationStores", "configurationStores"),
+        ResourceIDSegment.UserSpecified("configStoreName"),
+        ResourceIDSegment.Static("staticPrivateLinkResources", "privateLinkResources"),
+        ResourceIDSegment.UserSpecified("groupName"),
     };
 }

@@ -16,59 +16,13 @@ internal class EnvironmentId : ResourceID
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
-                new()
-                {
-                    Name = "staticSubscriptions",
-                    Type = ResourceIDSegmentType.Static,
-                    FixedValue = "subscriptions"
-                },
-
-                new()
-                {
-                    Name = "subscriptionId",
-                    Type = ResourceIDSegmentType.SubscriptionId
-                },
-
-                new()
-                {
-                    Name = "staticProviders",
-                    Type = ResourceIDSegmentType.Static,
-                    FixedValue = "providers"
-                },
-
-                new()
-                {
-                    Name = "staticMicrosoftServiceFabric",
-                    Type = ResourceIDSegmentType.ResourceProvider,
-                    FixedValue = "Microsoft.ServiceFabric"
-                },
-
-                new()
-                {
-                    Name = "staticLocations",
-                    Type = ResourceIDSegmentType.Static,
-                    FixedValue = "locations"
-                },
-
-                new()
-                {
-                    Name = "location",
-                    Type = ResourceIDSegmentType.UserSpecified
-                },
-
-                new()
-                {
-                    Name = "staticEnvironments",
-                    Type = ResourceIDSegmentType.Static,
-                    FixedValue = "environments"
-                },
-
-                new()
-                {
-                    Name = "environment",
-                    Type = ResourceIDSegmentType.Constant,
-                    ConstantReference = typeof(ManagedClusterVersionEnvironmentConstant)
-                },
-
+        ResourceIDSegment.Static("staticSubscriptions", "subscriptions"),
+        ResourceIDSegment.SubscriptionId("subscriptionId"),
+        ResourceIDSegment.Static("staticProviders", "providers"),
+        ResourceIDSegment.ResourceProvider("staticMicrosoftServiceFabric", "Microsoft.ServiceFabric"),
+        ResourceIDSegment.Static("staticLocations", "locations"),
+        ResourceIDSegment.UserSpecified("location"),
+        ResourceIDSegment.Static("staticEnvironments", "environments"),
+        ResourceIDSegment.Constant("environment", typeof(ManagedClusterVersionEnvironmentConstant)),
     };
 }

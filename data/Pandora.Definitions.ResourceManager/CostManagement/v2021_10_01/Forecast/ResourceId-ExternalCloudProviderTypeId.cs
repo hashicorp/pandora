@@ -16,32 +16,9 @@ internal class ExternalCloudProviderTypeId : ResourceID
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
-                new()
-                {
-                    Name = "staticProviders",
-                    Type = ResourceIDSegmentType.Static,
-                    FixedValue = "providers"
-                },
-
-                new()
-                {
-                    Name = "staticMicrosoftCostManagement",
-                    Type = ResourceIDSegmentType.ResourceProvider,
-                    FixedValue = "Microsoft.CostManagement"
-                },
-
-                new()
-                {
-                    Name = "externalCloudProviderType",
-                    Type = ResourceIDSegmentType.Constant,
-                    ConstantReference = typeof(ExternalCloudProviderTypeConstant)
-                },
-
-                new()
-                {
-                    Name = "externalCloudProviderId",
-                    Type = ResourceIDSegmentType.UserSpecified
-                },
-
+        ResourceIDSegment.Static("staticProviders", "providers"),
+        ResourceIDSegment.ResourceProvider("staticMicrosoftCostManagement", "Microsoft.CostManagement"),
+        ResourceIDSegment.Constant("externalCloudProviderType", typeof(ExternalCloudProviderTypeConstant)),
+        ResourceIDSegment.UserSpecified("externalCloudProviderId"),
     };
 }

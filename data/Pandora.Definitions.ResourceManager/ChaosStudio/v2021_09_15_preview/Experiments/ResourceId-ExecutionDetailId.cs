@@ -16,71 +16,15 @@ internal class ExecutionDetailId : ResourceID
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
-                new()
-                {
-                    Name = "staticSubscriptions",
-                    Type = ResourceIDSegmentType.Static,
-                    FixedValue = "subscriptions"
-                },
-
-                new()
-                {
-                    Name = "subscriptionId",
-                    Type = ResourceIDSegmentType.SubscriptionId
-                },
-
-                new()
-                {
-                    Name = "staticResourceGroups",
-                    Type = ResourceIDSegmentType.Static,
-                    FixedValue = "resourceGroups"
-                },
-
-                new()
-                {
-                    Name = "resourceGroupName",
-                    Type = ResourceIDSegmentType.ResourceGroup
-                },
-
-                new()
-                {
-                    Name = "staticProviders",
-                    Type = ResourceIDSegmentType.Static,
-                    FixedValue = "providers"
-                },
-
-                new()
-                {
-                    Name = "staticMicrosoftChaos",
-                    Type = ResourceIDSegmentType.ResourceProvider,
-                    FixedValue = "Microsoft.Chaos"
-                },
-
-                new()
-                {
-                    Name = "staticExperiments",
-                    Type = ResourceIDSegmentType.Static,
-                    FixedValue = "experiments"
-                },
-
-                new()
-                {
-                    Name = "experimentName",
-                    Type = ResourceIDSegmentType.UserSpecified
-                },
-
-                new()
-                {
-                    Name = "staticExecutionDetails",
-                    Type = ResourceIDSegmentType.Static,
-                    FixedValue = "executionDetails"
-                },
-
-                new()
-                {
-                    Name = "executionDetailsId",
-                    Type = ResourceIDSegmentType.UserSpecified
-                },
-
+        ResourceIDSegment.Static("staticSubscriptions", "subscriptions"),
+        ResourceIDSegment.SubscriptionId("subscriptionId"),
+        ResourceIDSegment.Static("staticResourceGroups", "resourceGroups"),
+        ResourceIDSegment.ResourceGroup("resourceGroupName"),
+        ResourceIDSegment.Static("staticProviders", "providers"),
+        ResourceIDSegment.ResourceProvider("staticMicrosoftChaos", "Microsoft.Chaos"),
+        ResourceIDSegment.Static("staticExperiments", "experiments"),
+        ResourceIDSegment.UserSpecified("experimentName"),
+        ResourceIDSegment.Static("staticExecutionDetails", "executionDetails"),
+        ResourceIDSegment.UserSpecified("executionDetailsId"),
     };
 }

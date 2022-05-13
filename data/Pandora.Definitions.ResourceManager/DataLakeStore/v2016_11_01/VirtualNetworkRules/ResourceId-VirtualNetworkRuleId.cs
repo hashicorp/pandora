@@ -16,71 +16,15 @@ internal class VirtualNetworkRuleId : ResourceID
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
-                new()
-                {
-                    Name = "staticSubscriptions",
-                    Type = ResourceIDSegmentType.Static,
-                    FixedValue = "subscriptions"
-                },
-
-                new()
-                {
-                    Name = "subscriptionId",
-                    Type = ResourceIDSegmentType.SubscriptionId
-                },
-
-                new()
-                {
-                    Name = "staticResourceGroups",
-                    Type = ResourceIDSegmentType.Static,
-                    FixedValue = "resourceGroups"
-                },
-
-                new()
-                {
-                    Name = "resourceGroupName",
-                    Type = ResourceIDSegmentType.ResourceGroup
-                },
-
-                new()
-                {
-                    Name = "staticProviders",
-                    Type = ResourceIDSegmentType.Static,
-                    FixedValue = "providers"
-                },
-
-                new()
-                {
-                    Name = "staticMicrosoftDataLakeStore",
-                    Type = ResourceIDSegmentType.ResourceProvider,
-                    FixedValue = "Microsoft.DataLakeStore"
-                },
-
-                new()
-                {
-                    Name = "staticAccounts",
-                    Type = ResourceIDSegmentType.Static,
-                    FixedValue = "accounts"
-                },
-
-                new()
-                {
-                    Name = "accountName",
-                    Type = ResourceIDSegmentType.UserSpecified
-                },
-
-                new()
-                {
-                    Name = "staticVirtualNetworkRules",
-                    Type = ResourceIDSegmentType.Static,
-                    FixedValue = "virtualNetworkRules"
-                },
-
-                new()
-                {
-                    Name = "virtualNetworkRuleName",
-                    Type = ResourceIDSegmentType.UserSpecified
-                },
-
+        ResourceIDSegment.Static("staticSubscriptions", "subscriptions"),
+        ResourceIDSegment.SubscriptionId("subscriptionId"),
+        ResourceIDSegment.Static("staticResourceGroups", "resourceGroups"),
+        ResourceIDSegment.ResourceGroup("resourceGroupName"),
+        ResourceIDSegment.Static("staticProviders", "providers"),
+        ResourceIDSegment.ResourceProvider("staticMicrosoftDataLakeStore", "Microsoft.DataLakeStore"),
+        ResourceIDSegment.Static("staticAccounts", "accounts"),
+        ResourceIDSegment.UserSpecified("accountName"),
+        ResourceIDSegment.Static("staticVirtualNetworkRules", "virtualNetworkRules"),
+        ResourceIDSegment.UserSpecified("virtualNetworkRuleName"),
     };
 }

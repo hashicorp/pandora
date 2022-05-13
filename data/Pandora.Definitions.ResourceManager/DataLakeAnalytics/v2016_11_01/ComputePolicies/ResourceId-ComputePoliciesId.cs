@@ -16,71 +16,15 @@ internal class ComputePoliciesId : ResourceID
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
-                new()
-                {
-                    Name = "staticSubscriptions",
-                    Type = ResourceIDSegmentType.Static,
-                    FixedValue = "subscriptions"
-                },
-
-                new()
-                {
-                    Name = "subscriptionId",
-                    Type = ResourceIDSegmentType.SubscriptionId
-                },
-
-                new()
-                {
-                    Name = "staticResourceGroups",
-                    Type = ResourceIDSegmentType.Static,
-                    FixedValue = "resourceGroups"
-                },
-
-                new()
-                {
-                    Name = "resourceGroupName",
-                    Type = ResourceIDSegmentType.ResourceGroup
-                },
-
-                new()
-                {
-                    Name = "staticProviders",
-                    Type = ResourceIDSegmentType.Static,
-                    FixedValue = "providers"
-                },
-
-                new()
-                {
-                    Name = "staticMicrosoftDataLakeAnalytics",
-                    Type = ResourceIDSegmentType.ResourceProvider,
-                    FixedValue = "Microsoft.DataLakeAnalytics"
-                },
-
-                new()
-                {
-                    Name = "staticAccounts",
-                    Type = ResourceIDSegmentType.Static,
-                    FixedValue = "accounts"
-                },
-
-                new()
-                {
-                    Name = "accountName",
-                    Type = ResourceIDSegmentType.UserSpecified
-                },
-
-                new()
-                {
-                    Name = "staticComputePolicies",
-                    Type = ResourceIDSegmentType.Static,
-                    FixedValue = "computePolicies"
-                },
-
-                new()
-                {
-                    Name = "computePolicyName",
-                    Type = ResourceIDSegmentType.UserSpecified
-                },
-
+        ResourceIDSegment.Static("staticSubscriptions", "subscriptions"),
+        ResourceIDSegment.SubscriptionId("subscriptionId"),
+        ResourceIDSegment.Static("staticResourceGroups", "resourceGroups"),
+        ResourceIDSegment.ResourceGroup("resourceGroupName"),
+        ResourceIDSegment.Static("staticProviders", "providers"),
+        ResourceIDSegment.ResourceProvider("staticMicrosoftDataLakeAnalytics", "Microsoft.DataLakeAnalytics"),
+        ResourceIDSegment.Static("staticAccounts", "accounts"),
+        ResourceIDSegment.UserSpecified("accountName"),
+        ResourceIDSegment.Static("staticComputePolicies", "computePolicies"),
+        ResourceIDSegment.UserSpecified("computePolicyName"),
     };
 }

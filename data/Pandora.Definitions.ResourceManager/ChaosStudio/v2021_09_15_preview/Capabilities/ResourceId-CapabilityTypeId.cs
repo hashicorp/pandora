@@ -16,71 +16,15 @@ internal class CapabilityTypeId : ResourceID
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
-                new()
-                {
-                    Name = "staticSubscriptions",
-                    Type = ResourceIDSegmentType.Static,
-                    FixedValue = "subscriptions"
-                },
-
-                new()
-                {
-                    Name = "subscriptionId",
-                    Type = ResourceIDSegmentType.SubscriptionId
-                },
-
-                new()
-                {
-                    Name = "staticProviders",
-                    Type = ResourceIDSegmentType.Static,
-                    FixedValue = "providers"
-                },
-
-                new()
-                {
-                    Name = "staticMicrosoftChaos",
-                    Type = ResourceIDSegmentType.ResourceProvider,
-                    FixedValue = "Microsoft.Chaos"
-                },
-
-                new()
-                {
-                    Name = "staticLocations",
-                    Type = ResourceIDSegmentType.Static,
-                    FixedValue = "locations"
-                },
-
-                new()
-                {
-                    Name = "locationName",
-                    Type = ResourceIDSegmentType.UserSpecified
-                },
-
-                new()
-                {
-                    Name = "staticTargetTypes",
-                    Type = ResourceIDSegmentType.Static,
-                    FixedValue = "targetTypes"
-                },
-
-                new()
-                {
-                    Name = "targetTypeName",
-                    Type = ResourceIDSegmentType.UserSpecified
-                },
-
-                new()
-                {
-                    Name = "staticCapabilityTypes",
-                    Type = ResourceIDSegmentType.Static,
-                    FixedValue = "capabilityTypes"
-                },
-
-                new()
-                {
-                    Name = "capabilityTypeName",
-                    Type = ResourceIDSegmentType.UserSpecified
-                },
-
+        ResourceIDSegment.Static("staticSubscriptions", "subscriptions"),
+        ResourceIDSegment.SubscriptionId("subscriptionId"),
+        ResourceIDSegment.Static("staticProviders", "providers"),
+        ResourceIDSegment.ResourceProvider("staticMicrosoftChaos", "Microsoft.Chaos"),
+        ResourceIDSegment.Static("staticLocations", "locations"),
+        ResourceIDSegment.UserSpecified("locationName"),
+        ResourceIDSegment.Static("staticTargetTypes", "targetTypes"),
+        ResourceIDSegment.UserSpecified("targetTypeName"),
+        ResourceIDSegment.Static("staticCapabilityTypes", "capabilityTypes"),
+        ResourceIDSegment.UserSpecified("capabilityTypeName"),
     };
 }

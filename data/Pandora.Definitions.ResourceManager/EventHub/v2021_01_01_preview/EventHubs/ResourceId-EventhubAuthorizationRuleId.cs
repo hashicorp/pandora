@@ -16,84 +16,17 @@ internal class EventhubAuthorizationRuleId : ResourceID
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
-                new()
-                {
-                    Name = "staticSubscriptions",
-                    Type = ResourceIDSegmentType.Static,
-                    FixedValue = "subscriptions"
-                },
-
-                new()
-                {
-                    Name = "subscriptionId",
-                    Type = ResourceIDSegmentType.SubscriptionId
-                },
-
-                new()
-                {
-                    Name = "staticResourceGroups",
-                    Type = ResourceIDSegmentType.Static,
-                    FixedValue = "resourceGroups"
-                },
-
-                new()
-                {
-                    Name = "resourceGroupName",
-                    Type = ResourceIDSegmentType.ResourceGroup
-                },
-
-                new()
-                {
-                    Name = "staticProviders",
-                    Type = ResourceIDSegmentType.Static,
-                    FixedValue = "providers"
-                },
-
-                new()
-                {
-                    Name = "staticMicrosoftEventHub",
-                    Type = ResourceIDSegmentType.ResourceProvider,
-                    FixedValue = "Microsoft.EventHub"
-                },
-
-                new()
-                {
-                    Name = "staticNamespaces",
-                    Type = ResourceIDSegmentType.Static,
-                    FixedValue = "namespaces"
-                },
-
-                new()
-                {
-                    Name = "namespaceName",
-                    Type = ResourceIDSegmentType.UserSpecified
-                },
-
-                new()
-                {
-                    Name = "staticEventhubs",
-                    Type = ResourceIDSegmentType.Static,
-                    FixedValue = "eventhubs"
-                },
-
-                new()
-                {
-                    Name = "eventHubName",
-                    Type = ResourceIDSegmentType.UserSpecified
-                },
-
-                new()
-                {
-                    Name = "staticAuthorizationRules",
-                    Type = ResourceIDSegmentType.Static,
-                    FixedValue = "authorizationRules"
-                },
-
-                new()
-                {
-                    Name = "authorizationRuleName",
-                    Type = ResourceIDSegmentType.UserSpecified
-                },
-
+        ResourceIDSegment.Static("staticSubscriptions", "subscriptions"),
+        ResourceIDSegment.SubscriptionId("subscriptionId"),
+        ResourceIDSegment.Static("staticResourceGroups", "resourceGroups"),
+        ResourceIDSegment.ResourceGroup("resourceGroupName"),
+        ResourceIDSegment.Static("staticProviders", "providers"),
+        ResourceIDSegment.ResourceProvider("staticMicrosoftEventHub", "Microsoft.EventHub"),
+        ResourceIDSegment.Static("staticNamespaces", "namespaces"),
+        ResourceIDSegment.UserSpecified("namespaceName"),
+        ResourceIDSegment.Static("staticEventhubs", "eventhubs"),
+        ResourceIDSegment.UserSpecified("eventHubName"),
+        ResourceIDSegment.Static("staticAuthorizationRules", "authorizationRules"),
+        ResourceIDSegment.UserSpecified("authorizationRuleName"),
     };
 }
