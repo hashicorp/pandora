@@ -16,58 +16,13 @@ internal class ConnectionGatewayId : ResourceID
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
-                new()
-                {
-                    Name = "staticSubscriptions",
-                    Type = ResourceIDSegmentType.Static,
-                    FixedValue = "subscriptions"
-                },
-
-                new()
-                {
-                    Name = "subscriptionId",
-                    Type = ResourceIDSegmentType.SubscriptionId
-                },
-
-                new()
-                {
-                    Name = "staticResourceGroups",
-                    Type = ResourceIDSegmentType.Static,
-                    FixedValue = "resourceGroups"
-                },
-
-                new()
-                {
-                    Name = "resourceGroupName",
-                    Type = ResourceIDSegmentType.ResourceGroup
-                },
-
-                new()
-                {
-                    Name = "staticProviders",
-                    Type = ResourceIDSegmentType.Static,
-                    FixedValue = "providers"
-                },
-
-                new()
-                {
-                    Name = "staticMicrosoftWeb",
-                    Type = ResourceIDSegmentType.ResourceProvider,
-                    FixedValue = "Microsoft.Web"
-                },
-
-                new()
-                {
-                    Name = "staticConnectionGateways",
-                    Type = ResourceIDSegmentType.Static,
-                    FixedValue = "connectionGateways"
-                },
-
-                new()
-                {
-                    Name = "connectionGatewayName",
-                    Type = ResourceIDSegmentType.UserSpecified
-                },
-
+        ResourceIDSegment.Static("staticSubscriptions", "subscriptions"),
+        ResourceIDSegment.SubscriptionId("subscriptionId"),
+        ResourceIDSegment.Static("staticResourceGroups", "resourceGroups"),
+        ResourceIDSegment.ResourceGroup("resourceGroupName"),
+        ResourceIDSegment.Static("staticProviders", "providers"),
+        ResourceIDSegment.ResourceProvider("staticMicrosoftWeb", "Microsoft.Web"),
+        ResourceIDSegment.Static("staticConnectionGateways", "connectionGateways"),
+        ResourceIDSegment.UserSpecified("connectionGatewayName"),
     };
 }

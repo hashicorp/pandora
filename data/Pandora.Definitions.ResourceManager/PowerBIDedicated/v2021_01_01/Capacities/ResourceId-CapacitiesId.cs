@@ -16,58 +16,13 @@ internal class CapacitiesId : ResourceID
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
-                new()
-                {
-                    Name = "staticSubscriptions",
-                    Type = ResourceIDSegmentType.Static,
-                    FixedValue = "subscriptions"
-                },
-
-                new()
-                {
-                    Name = "subscriptionId",
-                    Type = ResourceIDSegmentType.SubscriptionId
-                },
-
-                new()
-                {
-                    Name = "staticResourceGroups",
-                    Type = ResourceIDSegmentType.Static,
-                    FixedValue = "resourceGroups"
-                },
-
-                new()
-                {
-                    Name = "resourceGroupName",
-                    Type = ResourceIDSegmentType.ResourceGroup
-                },
-
-                new()
-                {
-                    Name = "staticProviders",
-                    Type = ResourceIDSegmentType.Static,
-                    FixedValue = "providers"
-                },
-
-                new()
-                {
-                    Name = "staticMicrosoftPowerBIDedicated",
-                    Type = ResourceIDSegmentType.ResourceProvider,
-                    FixedValue = "Microsoft.PowerBIDedicated"
-                },
-
-                new()
-                {
-                    Name = "staticCapacities",
-                    Type = ResourceIDSegmentType.Static,
-                    FixedValue = "capacities"
-                },
-
-                new()
-                {
-                    Name = "dedicatedCapacityName",
-                    Type = ResourceIDSegmentType.UserSpecified
-                },
-
+        ResourceIDSegment.Static("staticSubscriptions", "subscriptions"),
+        ResourceIDSegment.SubscriptionId("subscriptionId"),
+        ResourceIDSegment.Static("staticResourceGroups", "resourceGroups"),
+        ResourceIDSegment.ResourceGroup("resourceGroupName"),
+        ResourceIDSegment.Static("staticProviders", "providers"),
+        ResourceIDSegment.ResourceProvider("staticMicrosoftPowerBIDedicated", "Microsoft.PowerBIDedicated"),
+        ResourceIDSegment.Static("staticCapacities", "capacities"),
+        ResourceIDSegment.UserSpecified("dedicatedCapacityName"),
     };
 }

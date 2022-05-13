@@ -16,45 +16,11 @@ internal class LocationId : ResourceID
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
-                new()
-                {
-                    Name = "staticSubscriptions",
-                    Type = ResourceIDSegmentType.Static,
-                    FixedValue = "subscriptions"
-                },
-
-                new()
-                {
-                    Name = "subscriptionId",
-                    Type = ResourceIDSegmentType.SubscriptionId
-                },
-
-                new()
-                {
-                    Name = "staticProviders",
-                    Type = ResourceIDSegmentType.Static,
-                    FixedValue = "providers"
-                },
-
-                new()
-                {
-                    Name = "staticMicrosoftChaos",
-                    Type = ResourceIDSegmentType.ResourceProvider,
-                    FixedValue = "Microsoft.Chaos"
-                },
-
-                new()
-                {
-                    Name = "staticLocations",
-                    Type = ResourceIDSegmentType.Static,
-                    FixedValue = "locations"
-                },
-
-                new()
-                {
-                    Name = "locationName",
-                    Type = ResourceIDSegmentType.UserSpecified
-                },
-
+        ResourceIDSegment.Static("staticSubscriptions", "subscriptions"),
+        ResourceIDSegment.SubscriptionId("subscriptionId"),
+        ResourceIDSegment.Static("staticProviders", "providers"),
+        ResourceIDSegment.ResourceProvider("staticMicrosoftChaos", "Microsoft.Chaos"),
+        ResourceIDSegment.Static("staticLocations", "locations"),
+        ResourceIDSegment.UserSpecified("locationName"),
     };
 }

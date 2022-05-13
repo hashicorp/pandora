@@ -16,58 +16,13 @@ internal class SearchServiceId : ResourceID
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
-                new()
-                {
-                    Name = "staticSubscriptions",
-                    Type = ResourceIDSegmentType.Static,
-                    FixedValue = "subscriptions"
-                },
-
-                new()
-                {
-                    Name = "subscriptionId",
-                    Type = ResourceIDSegmentType.SubscriptionId
-                },
-
-                new()
-                {
-                    Name = "staticResourceGroups",
-                    Type = ResourceIDSegmentType.Static,
-                    FixedValue = "resourceGroups"
-                },
-
-                new()
-                {
-                    Name = "resourceGroupName",
-                    Type = ResourceIDSegmentType.ResourceGroup
-                },
-
-                new()
-                {
-                    Name = "staticProviders",
-                    Type = ResourceIDSegmentType.Static,
-                    FixedValue = "providers"
-                },
-
-                new()
-                {
-                    Name = "staticMicrosoftSearch",
-                    Type = ResourceIDSegmentType.ResourceProvider,
-                    FixedValue = "Microsoft.Search"
-                },
-
-                new()
-                {
-                    Name = "staticSearchServices",
-                    Type = ResourceIDSegmentType.Static,
-                    FixedValue = "searchServices"
-                },
-
-                new()
-                {
-                    Name = "searchServiceName",
-                    Type = ResourceIDSegmentType.UserSpecified
-                },
-
+        ResourceIDSegment.Static("staticSubscriptions", "subscriptions"),
+        ResourceIDSegment.SubscriptionId("subscriptionId"),
+        ResourceIDSegment.Static("staticResourceGroups", "resourceGroups"),
+        ResourceIDSegment.ResourceGroup("resourceGroupName"),
+        ResourceIDSegment.Static("staticProviders", "providers"),
+        ResourceIDSegment.ResourceProvider("staticMicrosoftSearch", "Microsoft.Search"),
+        ResourceIDSegment.Static("staticSearchServices", "searchServices"),
+        ResourceIDSegment.UserSpecified("searchServiceName"),
     };
 }

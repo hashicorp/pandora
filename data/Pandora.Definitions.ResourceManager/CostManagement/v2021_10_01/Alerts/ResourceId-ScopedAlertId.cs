@@ -16,38 +16,10 @@ internal class ScopedAlertId : ResourceID
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
-                new()
-                {
-                    Name = "scope",
-                    Type = ResourceIDSegmentType.Scope
-                },
-
-                new()
-                {
-                    Name = "staticProviders",
-                    Type = ResourceIDSegmentType.Static,
-                    FixedValue = "providers"
-                },
-
-                new()
-                {
-                    Name = "staticMicrosoftCostManagement",
-                    Type = ResourceIDSegmentType.ResourceProvider,
-                    FixedValue = "Microsoft.CostManagement"
-                },
-
-                new()
-                {
-                    Name = "staticAlerts",
-                    Type = ResourceIDSegmentType.Static,
-                    FixedValue = "alerts"
-                },
-
-                new()
-                {
-                    Name = "alertId",
-                    Type = ResourceIDSegmentType.UserSpecified
-                },
-
+        ResourceIDSegment.Scope("scope"),
+        ResourceIDSegment.Static("staticProviders", "providers"),
+        ResourceIDSegment.ResourceProvider("staticMicrosoftCostManagement", "Microsoft.CostManagement"),
+        ResourceIDSegment.Static("staticAlerts", "alerts"),
+        ResourceIDSegment.UserSpecified("alertId"),
     };
 }

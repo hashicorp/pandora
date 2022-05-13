@@ -16,32 +16,9 @@ internal class BillingAccountId : ResourceID
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
-                new()
-                {
-                    Name = "staticProviders",
-                    Type = ResourceIDSegmentType.Static,
-                    FixedValue = "providers"
-                },
-
-                new()
-                {
-                    Name = "staticMicrosoftBilling",
-                    Type = ResourceIDSegmentType.ResourceProvider,
-                    FixedValue = "Microsoft.Billing"
-                },
-
-                new()
-                {
-                    Name = "staticBillingAccounts",
-                    Type = ResourceIDSegmentType.Static,
-                    FixedValue = "billingAccounts"
-                },
-
-                new()
-                {
-                    Name = "billingAccountId",
-                    Type = ResourceIDSegmentType.UserSpecified
-                },
-
+        ResourceIDSegment.Static("staticProviders", "providers"),
+        ResourceIDSegment.ResourceProvider("staticMicrosoftBilling", "Microsoft.Billing"),
+        ResourceIDSegment.Static("staticBillingAccounts", "billingAccounts"),
+        ResourceIDSegment.UserSpecified("billingAccountId"),
     };
 }

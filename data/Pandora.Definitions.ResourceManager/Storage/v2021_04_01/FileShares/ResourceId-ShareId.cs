@@ -16,85 +16,17 @@ internal class ShareId : ResourceID
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
-                new()
-                {
-                    Name = "staticSubscriptions",
-                    Type = ResourceIDSegmentType.Static,
-                    FixedValue = "subscriptions"
-                },
-
-                new()
-                {
-                    Name = "subscriptionId",
-                    Type = ResourceIDSegmentType.SubscriptionId
-                },
-
-                new()
-                {
-                    Name = "staticResourceGroups",
-                    Type = ResourceIDSegmentType.Static,
-                    FixedValue = "resourceGroups"
-                },
-
-                new()
-                {
-                    Name = "resourceGroupName",
-                    Type = ResourceIDSegmentType.ResourceGroup
-                },
-
-                new()
-                {
-                    Name = "staticProviders",
-                    Type = ResourceIDSegmentType.Static,
-                    FixedValue = "providers"
-                },
-
-                new()
-                {
-                    Name = "staticMicrosoftStorage",
-                    Type = ResourceIDSegmentType.ResourceProvider,
-                    FixedValue = "Microsoft.Storage"
-                },
-
-                new()
-                {
-                    Name = "staticStorageAccounts",
-                    Type = ResourceIDSegmentType.Static,
-                    FixedValue = "storageAccounts"
-                },
-
-                new()
-                {
-                    Name = "accountName",
-                    Type = ResourceIDSegmentType.UserSpecified
-                },
-
-                new()
-                {
-                    Name = "staticFileServices",
-                    Type = ResourceIDSegmentType.Static,
-                    FixedValue = "fileServices"
-                },
-
-                new()
-                {
-                    Name = "staticDefault",
-                    Type = ResourceIDSegmentType.Static,
-                    FixedValue = "default"
-                },
-
-                new()
-                {
-                    Name = "staticShares",
-                    Type = ResourceIDSegmentType.Static,
-                    FixedValue = "shares"
-                },
-
-                new()
-                {
-                    Name = "shareName",
-                    Type = ResourceIDSegmentType.UserSpecified
-                },
-
+        ResourceIDSegment.Static("staticSubscriptions", "subscriptions"),
+        ResourceIDSegment.SubscriptionId("subscriptionId"),
+        ResourceIDSegment.Static("staticResourceGroups", "resourceGroups"),
+        ResourceIDSegment.ResourceGroup("resourceGroupName"),
+        ResourceIDSegment.Static("staticProviders", "providers"),
+        ResourceIDSegment.ResourceProvider("staticMicrosoftStorage", "Microsoft.Storage"),
+        ResourceIDSegment.Static("staticStorageAccounts", "storageAccounts"),
+        ResourceIDSegment.UserSpecified("accountName"),
+        ResourceIDSegment.Static("staticFileServices", "fileServices"),
+        ResourceIDSegment.Static("staticDefault", "default"),
+        ResourceIDSegment.Static("staticShares", "shares"),
+        ResourceIDSegment.UserSpecified("shareName"),
     };
 }

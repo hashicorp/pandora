@@ -16,58 +16,13 @@ internal class ClusterResourceId : ResourceID
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
-                new()
-                {
-                    Name = "staticSubscriptions",
-                    Type = ResourceIDSegmentType.Static,
-                    FixedValue = "subscriptions"
-                },
-
-                new()
-                {
-                    Name = "subscriptionId",
-                    Type = ResourceIDSegmentType.SubscriptionId
-                },
-
-                new()
-                {
-                    Name = "staticResourceGroups",
-                    Type = ResourceIDSegmentType.Static,
-                    FixedValue = "resourceGroups"
-                },
-
-                new()
-                {
-                    Name = "resourceGroupName",
-                    Type = ResourceIDSegmentType.ResourceGroup
-                },
-
-                new()
-                {
-                    Name = "staticProviders",
-                    Type = ResourceIDSegmentType.Static,
-                    FixedValue = "providers"
-                },
-
-                new()
-                {
-                    Name = "clusterRp",
-                    Type = ResourceIDSegmentType.Constant,
-                    ConstantReference = typeof(ClusterRpConstant)
-                },
-
-                new()
-                {
-                    Name = "clusterResourceName",
-                    Type = ResourceIDSegmentType.Constant,
-                    ConstantReference = typeof(ClusterResourceNameConstant)
-                },
-
-                new()
-                {
-                    Name = "clusterName",
-                    Type = ResourceIDSegmentType.UserSpecified
-                },
-
+        ResourceIDSegment.Static("staticSubscriptions", "subscriptions"),
+        ResourceIDSegment.SubscriptionId("subscriptionId"),
+        ResourceIDSegment.Static("staticResourceGroups", "resourceGroups"),
+        ResourceIDSegment.ResourceGroup("resourceGroupName"),
+        ResourceIDSegment.Static("staticProviders", "providers"),
+        ResourceIDSegment.Constant("clusterRp", typeof(ClusterRpConstant)),
+        ResourceIDSegment.Constant("clusterResourceName", typeof(ClusterResourceNameConstant)),
+        ResourceIDSegment.UserSpecified("clusterName"),
     };
 }

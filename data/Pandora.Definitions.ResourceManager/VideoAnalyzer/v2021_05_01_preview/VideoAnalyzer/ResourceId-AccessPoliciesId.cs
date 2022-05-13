@@ -16,71 +16,15 @@ internal class AccessPoliciesId : ResourceID
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
-                new()
-                {
-                    Name = "staticSubscriptions",
-                    Type = ResourceIDSegmentType.Static,
-                    FixedValue = "subscriptions"
-                },
-
-                new()
-                {
-                    Name = "subscriptionId",
-                    Type = ResourceIDSegmentType.SubscriptionId
-                },
-
-                new()
-                {
-                    Name = "staticResourceGroups",
-                    Type = ResourceIDSegmentType.Static,
-                    FixedValue = "resourceGroups"
-                },
-
-                new()
-                {
-                    Name = "resourceGroupName",
-                    Type = ResourceIDSegmentType.ResourceGroup
-                },
-
-                new()
-                {
-                    Name = "staticProviders",
-                    Type = ResourceIDSegmentType.Static,
-                    FixedValue = "providers"
-                },
-
-                new()
-                {
-                    Name = "staticMicrosoftMedia",
-                    Type = ResourceIDSegmentType.ResourceProvider,
-                    FixedValue = "Microsoft.Media"
-                },
-
-                new()
-                {
-                    Name = "staticVideoAnalyzers",
-                    Type = ResourceIDSegmentType.Static,
-                    FixedValue = "videoAnalyzers"
-                },
-
-                new()
-                {
-                    Name = "accountName",
-                    Type = ResourceIDSegmentType.UserSpecified
-                },
-
-                new()
-                {
-                    Name = "staticAccessPolicies",
-                    Type = ResourceIDSegmentType.Static,
-                    FixedValue = "accessPolicies"
-                },
-
-                new()
-                {
-                    Name = "accessPolicyName",
-                    Type = ResourceIDSegmentType.UserSpecified
-                },
-
+        ResourceIDSegment.Static("staticSubscriptions", "subscriptions"),
+        ResourceIDSegment.SubscriptionId("subscriptionId"),
+        ResourceIDSegment.Static("staticResourceGroups", "resourceGroups"),
+        ResourceIDSegment.ResourceGroup("resourceGroupName"),
+        ResourceIDSegment.Static("staticProviders", "providers"),
+        ResourceIDSegment.ResourceProvider("staticMicrosoftMedia", "Microsoft.Media"),
+        ResourceIDSegment.Static("staticVideoAnalyzers", "videoAnalyzers"),
+        ResourceIDSegment.UserSpecified("accountName"),
+        ResourceIDSegment.Static("staticAccessPolicies", "accessPolicies"),
+        ResourceIDSegment.UserSpecified("accessPolicyName"),
     };
 }
