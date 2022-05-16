@@ -14,8 +14,7 @@ import (
 )
 
 type constantExtension struct {
-	name          string
-	modelAsString bool
+	name string
 }
 
 type parsedConstant struct {
@@ -119,7 +118,7 @@ func mapConstant(typeVal spec.StringOrArray, fieldName string, values []interfac
 	}
 
 	// allows us to parse out the actual types above then force a string here if needed
-	if constExtension == nil || constExtension.modelAsString {
+	if constExtension == nil {
 		constantType = models.StringConstant
 	}
 
@@ -145,7 +144,6 @@ func parseConstantExtensionFromExtension(field spec.Extensions) (*constantExtens
 	}
 
 	var enumName *string
-	modelAsString := true // assuming this can be omitted
 	for k, v := range enumDetails {
 		// presume inconsistencies in the data
 		if strings.EqualFold(k, "name") {
@@ -153,21 +151,17 @@ func parseConstantExtensionFromExtension(field spec.Extensions) (*constantExtens
 			enumName = &normalizedEnumName
 		}
 
-		if strings.EqualFold(k, "modelAsString") {
-			val, ok := v.(bool)
-			if !ok {
-				return nil, fmt.Errorf("expected a bool for `modelAsString` but got %+v", v)
-			}
-			modelAsString = val
-		}
+		// NOTE: the Swagger Extension defines `modelAsString` which is used to define whether
+		// this should be output as a fixed set of values (e.g. a constant) or an extendable
+		// list of strings (e.g. a set of possible string values with other values possible)
+		// however we're not concerned with the difference - so we ignore this.
 	}
 	if enumName == nil {
 		return nil, fmt.Errorf("enum details are missing a `name`")
 	}
 
 	return &constantExtension{
-		name:          *enumName,
-		modelAsString: modelAsString,
+		name: *enumName,
 	}, nil
 }
 

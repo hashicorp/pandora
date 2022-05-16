@@ -108,7 +108,7 @@ func TestParseConstantsIntegersTopLevelAsInts(t *testing.T) {
 }
 
 func TestParseConstantsIntegersTopLevelAsStrings(t *testing.T) {
-	// Enums can either be modelled as strings or not.. this is an Int that's output as a String.
+	// Tests an Integer Constant with modelAsString, which is bad data / should be ignored
 	result, err := ParseSwaggerFileForTesting(t, "constants_integers_as_strings.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
@@ -172,8 +172,8 @@ func TestParseConstantsIntegersTopLevelAsStrings(t *testing.T) {
 	if !ok {
 		t.Fatalf("resource.Constants['FavouriteTable'] was not found")
 	}
-	if favouriteTable.FieldType != models.StringConstant {
-		t.Fatalf("expected resource.Constants['TableNumber'].FieldType to be 'String' but got %q", favouriteTable.FieldType)
+	if favouriteTable.FieldType != models.IntegerConstant {
+		t.Fatalf("expected resource.Constants['TableNumber'].FieldType to be 'Integer' but got %q", favouriteTable.FieldType)
 	}
 	if len(favouriteTable.Values) != 3 {
 		t.Fatalf("expected resource.Constants['TableNumber'] to have 3 values but got %d", len(favouriteTable.Values))
@@ -296,7 +296,7 @@ func TestParseConstantsIntegersInlinedAsInts(t *testing.T) {
 }
 
 func TestParseConstantsIntegersInlinedAsStrings(t *testing.T) {
-	// Enums can either be modelled as strings or not.. this is an Int that's output as a String.
+	// Tests an Integer Constant defined Inline with modelAsString, which is bad data / should be ignored
 	result, err := ParseSwaggerFileForTesting(t, "constants_integers_as_strings_inlined.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
@@ -360,8 +360,8 @@ func TestParseConstantsIntegersInlinedAsStrings(t *testing.T) {
 	if !ok {
 		t.Fatalf("resource.Constants['TableNumber'] was not found")
 	}
-	if favouriteTable.FieldType != models.StringConstant {
-		t.Fatalf("expected resource.Constants['TableNumber'].FieldType to be 'String' but got %q", favouriteTable.FieldType)
+	if favouriteTable.FieldType != models.IntegerConstant {
+		t.Fatalf("expected resource.Constants['TableNumber'].FieldType to be 'Integer' but got %q", favouriteTable.FieldType)
 	}
 	if len(favouriteTable.Values) != 3 {
 		t.Fatalf("expected resource.Constants['TableNumber'] to have 3 values but got %d", len(favouriteTable.Values))
@@ -672,7 +672,7 @@ func TestParseConstantsStringsInlinedContainingFloats(t *testing.T) {
 }
 
 func TestParseConstantsFloatsTopLevelAsStrings(t *testing.T) {
-	// Enums can either be modelled as strings or not.. this is an Float that's output as a String.
+	// Tests an Float Constant with modelAsString, which is bad data / should be ignored
 	result, err := ParseSwaggerFileForTesting(t, "constants_floats_as_strings.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
@@ -736,8 +736,8 @@ func TestParseConstantsFloatsTopLevelAsStrings(t *testing.T) {
 	if !ok {
 		t.Fatalf("resource.Constants['TableNumber'] was not found")
 	}
-	if favouriteTable.FieldType != models.StringConstant {
-		t.Fatalf("expected resource.Constants['TableNumber'].FieldType to be 'String' but got %q", favouriteTable.FieldType)
+	if favouriteTable.FieldType != models.FloatConstant {
+		t.Fatalf("expected resource.Constants['TableNumber'].FieldType to be 'Float' but got %q", favouriteTable.FieldType)
 	}
 	if len(favouriteTable.Values) != 3 {
 		t.Fatalf("expected resource.Constants['TableNumber'] to have 3 values but got %d", len(favouriteTable.Values))
@@ -860,7 +860,7 @@ func TestParseConstantsFloatsInlinedAsFloats(t *testing.T) {
 }
 
 func TestParseConstantsFloatsInlinedAsStrings(t *testing.T) {
-	// Enums can either be modelled as strings or not.. this is an Float that's output as a String.
+	// Tests an Float Constant defined inline with modelAsString, which is bad data / should be ignored
 	result, err := ParseSwaggerFileForTesting(t, "constants_floats_as_strings_inlined.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
@@ -924,8 +924,8 @@ func TestParseConstantsFloatsInlinedAsStrings(t *testing.T) {
 	if !ok {
 		t.Fatalf("resource.Constants['TableNumber'] was not found")
 	}
-	if favouriteTable.FieldType != models.StringConstant {
-		t.Fatalf("expected resource.Constants['TableNumber'].FieldType to be 'String' but got %q", favouriteTable.FieldType)
+	if favouriteTable.FieldType != models.FloatConstant {
+		t.Fatalf("expected resource.Constants['TableNumber'].FieldType to be 'Float' but got %q", favouriteTable.FieldType)
 	}
 	if len(favouriteTable.Values) != 3 {
 		t.Fatalf("expected resource.Constants['TableNumber'] to have 3 values but got %d", len(favouriteTable.Values))
