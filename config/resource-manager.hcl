@@ -3,6 +3,10 @@ service "analysisservices" {
   name      = "AnalysisServices"
   available = ["2017-08-01"]
 }
+service "app" {
+  name      = "ContainerApps"
+  available = ["2022-03-01"]
+}
 service "appconfiguration" {
   name      = "AppConfiguration"
   available = ["2020-06-01"]
