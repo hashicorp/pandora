@@ -33,4 +33,5 @@ const (
 	UserAssignedIdentityListApiObjectDefinitionType                ApiObjectDefinitionType = "UserAssignedIdentityList"
 	UserAssignedIdentityMapApiObjectDefinitionType                 ApiObjectDefinitionType = "UserAssignedIdentityMap"
 	TagsApiObjectDefinitionType                                    ApiObjectDefinitionType = "Tags"
+	SystemData                                                     ApiObjectDefinitionType = "SystemData"
 )
