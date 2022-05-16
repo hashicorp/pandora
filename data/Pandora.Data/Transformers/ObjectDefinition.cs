@@ -160,6 +160,10 @@ public static class ObjectDefinition
         {
             return ObjectType.Tags;
         }
+        if (input == typeof(SystemData))
+        {
+            return ObjectType.SystemData;
+        }
 
         throw new NotSupportedException($"Pandora custom type {input.FullName} is not mapped");
     }

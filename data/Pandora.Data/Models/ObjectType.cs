@@ -27,4 +27,5 @@ public enum ObjectType
     UserAssignedIdentityList,
     UserAssignedIdentityMap,
     Tags,
+    SystemData,
 }
