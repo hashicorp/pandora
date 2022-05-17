@@ -30,9 +30,9 @@ func FindResourceManagerServices(directory string, debug bool) (*map[string]Reso
 			// appconfiguration/data-plane/Microsoft.AppConfiguration/stable/1.0
 			// vmware/resource-manager/Microsoft.AVS/{preview|stable}/{version}
 			relativePath := strings.TrimPrefix(fullPath, directory)
-			relativePath = strings.TrimPrefix(relativePath, "/")
+			relativePath = strings.TrimPrefix(relativePath, string(os.PathSeparator))
 			trimmed := strings.TrimPrefix(relativePath, directory)
-			segments := strings.Split(trimmed, "/")
+			segments := strings.Split(trimmed, string(os.PathSeparator))
 			if len(segments) != 5 {
 				return nil
 			}
