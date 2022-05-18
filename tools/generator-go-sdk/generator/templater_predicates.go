@@ -44,6 +44,7 @@ func (p predicateTemplater) templateForModel(predicateStructName string, name st
 	// unsupported at this time - see https://github.com/hashicorp/pandora/issues/164
 	// TODO: look to add support for these, as below
 	customTypesToIgnore := map[resourcemanager.ApiObjectDefinitionType]struct{}{
+		resourcemanager.EdgeZoneApiObjectDefinitionType:                                {},
 		resourcemanager.SystemAssignedIdentityApiObjectDefinitionType:                  {},
 		resourcemanager.SystemAndUserAssignedIdentityMapApiObjectDefinitionType:        {},
 		resourcemanager.SystemAndUserAssignedIdentityListApiObjectDefinitionType:       {},
