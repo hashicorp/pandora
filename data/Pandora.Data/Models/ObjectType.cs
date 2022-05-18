@@ -16,6 +16,7 @@ public enum ObjectType
     String,
 
     // Custom Types
+    EdgeZone,
     Location,
     SystemAssignedIdentity,
     SystemAndUserAssignedIdentityList,

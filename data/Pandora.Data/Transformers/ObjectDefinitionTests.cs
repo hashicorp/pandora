@@ -52,7 +52,12 @@ public static class ObjectDefinitionTests
     [TestCase]
     public static void MappingCustomTypes()
     {
-        var actual = ObjectDefinition.Map(typeof(Location));
+        var actual = ObjectDefinition.Map(typeof(EdgeZone));
+        Assert.AreEqual(ObjectType.EdgeZone, actual.Type);
+        Assert.Null(actual.ReferenceName);
+        Assert.Null(actual.NestedItem);
+
+        actual = ObjectDefinition.Map(typeof(Location));
         Assert.AreEqual(ObjectType.Location, actual.Type);
         Assert.Null(actual.ReferenceName);
         Assert.Null(actual.NestedItem);
@@ -84,6 +89,16 @@ public static class ObjectDefinitionTests
 
         actual = ObjectDefinition.Map(typeof(SystemOrUserAssignedIdentityMap));
         Assert.AreEqual(ObjectType.SystemOrUserAssignedIdentityMap, actual.Type);
+        Assert.Null(actual.ReferenceName);
+        Assert.Null(actual.NestedItem);
+
+        actual = ObjectDefinition.Map(typeof(LegacySystemAndUserAssignedIdentityList));
+        Assert.AreEqual(ObjectType.LegacySystemAndUserAssignedIdentityList, actual.Type);
+        Assert.Null(actual.ReferenceName);
+        Assert.Null(actual.NestedItem);
+
+        actual = ObjectDefinition.Map(typeof(LegacySystemAndUserAssignedIdentityMap));
+        Assert.AreEqual(ObjectType.LegacySystemAndUserAssignedIdentityMap, actual.Type);
         Assert.Null(actual.ReferenceName);
         Assert.Null(actual.NestedItem);
 

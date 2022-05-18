@@ -252,6 +252,7 @@ func mapApiObjectDefinitionType(input resourcemanager.ApiObjectDefinitionType) (
 	}
 
 	customTypes := map[resourcemanager.ApiObjectDefinitionType]models.CustomFieldType{
+		resourcemanager.EdgeZoneApiObjectDefinitionType:                                models.CustomFieldTypeEdgeZone,
 		resourcemanager.LocationApiObjectDefinitionType:                                models.CustomFieldTypeLocation,
 		resourcemanager.SystemAssignedIdentityApiObjectDefinitionType:                  models.CustomFieldTypeSystemAssignedIdentity,
 		resourcemanager.SystemAndUserAssignedIdentityListApiObjectDefinitionType:       models.CustomFieldTypeSystemAndUserAssignedIdentityList,

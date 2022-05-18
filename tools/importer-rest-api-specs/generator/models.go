@@ -266,6 +266,9 @@ func dotNetTypeNameForCustomType(input models.CustomFieldType) (*string, error) 
 	}
 
 	switch input {
+	case models.CustomFieldTypeEdgeZone:
+		return nilableType("CustomTypes.EdgeZone")
+
 	case models.CustomFieldTypeLocation:
 		return nilableType("CustomTypes.Location")
 

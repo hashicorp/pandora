@@ -112,6 +112,7 @@ type FieldDetails struct {
 type CustomFieldType string
 
 const (
+	CustomFieldTypeEdgeZone                                CustomFieldType = "edge-zone"
 	CustomFieldTypeLocation                                CustomFieldType = "location"
 	CustomFieldTypeSystemAssignedIdentity                  CustomFieldType = "system-assigned-identity"
 	CustomFieldTypeSystemAndUserAssignedIdentityList       CustomFieldType = "system-and-user-assigned-identity-list"
