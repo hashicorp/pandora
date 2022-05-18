@@ -56,7 +56,7 @@ public static class ObjectDefinitionTests
         Assert.AreEqual(ObjectType.EdgeZone, actual.Type);
         Assert.Null(actual.ReferenceName);
         Assert.Null(actual.NestedItem);
-        
+
         actual = ObjectDefinition.Map(typeof(Location));
         Assert.AreEqual(ObjectType.Location, actual.Type);
         Assert.Null(actual.ReferenceName);

@@ -91,16 +91,16 @@ public static class PropertiesTests
                     }
 
                 case "BasicEdgeZoneField":
-                {
-                    Assert.AreEqual("BasicEdgeZoneField", actual.Name);
-                    Assert.AreEqual("basicEdgeZoneField", actual.JsonName);
-                    Assert.AreEqual(ObjectType.EdgeZone, actual.ObjectDefinition.Type);
-                    Assert.Null(actual.ObjectDefinition.ReferenceName);
-                    Assert.Null(actual.ObjectDefinition.NestedItem);
-                    Assert.AreEqual(true, actual.Optional);
-                    Assert.AreEqual(false, actual.Required);
-                    continue;
-                }
+                    {
+                        Assert.AreEqual("BasicEdgeZoneField", actual.Name);
+                        Assert.AreEqual("basicEdgeZoneField", actual.JsonName);
+                        Assert.AreEqual(ObjectType.EdgeZone, actual.ObjectDefinition.Type);
+                        Assert.Null(actual.ObjectDefinition.ReferenceName);
+                        Assert.Null(actual.ObjectDefinition.NestedItem);
+                        Assert.AreEqual(true, actual.Optional);
+                        Assert.AreEqual(false, actual.Required);
+                        continue;
+                    }
 
                 case "BasicIntField":
                     {
@@ -527,7 +527,7 @@ public static class PropertiesTests
 
         [JsonPropertyName("basicDictionaryOfString")]
         public Dictionary<string, string> BasicDictionaryOfString { get; set; }
-        
+
         [JsonPropertyName("basicEdgeZoneField")]
         public EdgeZone BasicEdgeZoneField { get; set; }
 
