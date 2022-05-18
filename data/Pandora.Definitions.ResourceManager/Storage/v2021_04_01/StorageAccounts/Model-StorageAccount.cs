@@ -16,7 +16,7 @@ namespace Pandora.Definitions.ResourceManager.Storage.v2021_04_01.StorageAccount
 internal class StorageAccountModel
 {
     [JsonPropertyName("extendedLocation")]
-    public ExtendedLocationModel? ExtendedLocation { get; set; }
+    public CustomTypes.EdgeZone? ExtendedLocation { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }
