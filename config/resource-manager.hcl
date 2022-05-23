@@ -71,6 +71,10 @@ service "hybridkubernetes" {
   name      = "HybridKubernetes"
   available = ["2021-10-01"]
 }
+service "iotcentral" {
+  name      = "IoTCentral"
+  available = ["2021-11-01-preview"]
+}
 service "kubernetesconfiguration" {
   name      = "KubernetesConfiguration"
   available = ["2021-09-01"]
