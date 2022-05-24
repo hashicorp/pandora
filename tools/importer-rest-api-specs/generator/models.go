@@ -298,6 +298,8 @@ func dotNetTypeNameForCustomType(input models.CustomFieldType) (*string, error) 
 
 	case models.CustomFieldTypeUserAssignedIdentityMap:
 		return nilableType("CustomTypes.UserAssignedIdentityMap")
+	case models.CustomFieldTypeSystemData:
+		return nilableType("CustomTypes.SystemData")
 	}
 
 	return nil, fmt.Errorf("unmapped Custom Type %q", string(input))
