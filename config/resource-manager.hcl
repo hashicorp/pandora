@@ -91,6 +91,10 @@ service "maps" {
   name      = "Maps"
   available = ["2021-02-01"]
 }
+service "mixedreality" {
+  name      = "MixedReality"
+  available = ["2021-01-01"]
+}
 service "msi" {
   name      = "ManagedIdentity"
   available = ["2018-11-30"]
