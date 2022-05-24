@@ -127,6 +127,10 @@ service "servicefabricmanagedclusters" {
   name      = "ServiceFabricManagedCluster"
   available = ["2021-05-01"]
 }
+service "servicelinker" {
+  name      = "ServiceLinker"
+  available = ["2022-05-01"]
+}
 service "signalr" {
   name      = "SignalR"
   available = ["2021-10-01"]
