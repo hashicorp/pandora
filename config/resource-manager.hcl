@@ -1,4 +1,8 @@
 
+service "alertsmanagement" {
+  name      = "AlertsManagement"
+  available = ["2021-08-08"]
+}
 service "analysisservices" {
   name      = "AnalysisServices"
   available = ["2017-08-01"]
