@@ -1,6 +1,7 @@
 package parser
 
 import (
+	"reflect"
 	"strings"
 
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
@@ -77,7 +78,7 @@ func (systemDataMatcher) isMatch(_ models.FieldDetails, definition models.Object
 				if !ok {
 					continue
 				}
-				hasCreatedByType = validateIdentityConstantValues(constant, expected)
+				hasCreatedByType = validateSystemDataConstantValues(constant, expected)
 			}
 
 			continue
@@ -105,7 +106,7 @@ func (systemDataMatcher) isMatch(_ models.FieldDetails, definition models.Object
 				if !ok {
 					continue
 				}
-				hasLastModifiedbyType = validateIdentityConstantValues(constant, expected)
+				hasLastModifiedbyType = validateSystemDataConstantValues(constant, expected)
 			}
 			continue
 		}
@@ -117,7 +118,22 @@ func (systemDataMatcher) isMatch(_ models.FieldDetails, definition models.Object
 	return hasCreatedByType && hasCreatedBy && hasLastModifiedbyType && hasLastModifiedAt && hasLastModifiedBy && hasCreatedAt
 }
 
-func validateStuff(actual string, expected []string) bool {
+func validateSystemDataConstantValues(input models.ConstantDetails, expected map[string]string) bool {
+	if input.FieldType != models.StringConstant {
+		return false
+	}
 
-	return false
+	// we can't guarantee the casing on these, so we should parse this insensitively since it'll be swapped
+	// out anyway
+	actual := make(map[string]string, 0)
+	for k, v := range input.Values {
+		actual[strings.ToLower(k)] = strings.ToLower(v)
+	}
+
+	normalizedExpected := make(map[string]string, 0)
+	for k, v := range expected {
+		normalizedExpected[strings.ToLower(k)] = strings.ToLower(v)
+	}
+
+	return reflect.DeepEqual(actual, normalizedExpected)
 }
