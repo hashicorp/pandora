@@ -19,10 +19,6 @@ service "attestation" {
   name      = "Attestation"
   available = ["2020-10-01"]
 }
-service "botservice" {
-  name      = "Bot"
-  available = ["2021-03-01"]
-}
 service "chaos" {
   name      = "ChaosStudio"
   available = ["2021-09-15-preview"]
