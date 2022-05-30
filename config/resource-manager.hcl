@@ -107,6 +107,10 @@ service "msi" {
   name      = "ManagedIdentity"
   available = ["2018-11-30"]
 }
+service "notificationhubs" {
+  name      = "NotificationHubs"
+  available = ["2017-04-01"]
+}
 service "postgresqlhsc" {
   name      = "PostgresqlHSC"
   available = ["2020-10-05-privatepreview"]
