@@ -6,13 +6,13 @@ using Pandora.Definitions.Interfaces;
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 
 
-namespace Pandora.Definitions.ResourceManager.Bot.v2021_03_01.Channel;
+namespace Pandora.Definitions.ResourceManager.KubernetesConfiguration.v2022_03_01.Flux;
 
-internal class ChannelId : ResourceID
+internal class ProviderId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.BotService/botServices/{resourceName}/channels/{channelName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{clusterRp}/{clusterResourceName}/{clusterName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -21,10 +21,8 @@ internal class ChannelId : ResourceID
         ResourceIDSegment.Static("staticResourceGroups", "resourceGroups"),
         ResourceIDSegment.ResourceGroup("resourceGroupName"),
         ResourceIDSegment.Static("staticProviders", "providers"),
-        ResourceIDSegment.ResourceProvider("staticMicrosoftBotService", "Microsoft.BotService"),
-        ResourceIDSegment.Static("staticBotServices", "botServices"),
-        ResourceIDSegment.UserSpecified("resourceName"),
-        ResourceIDSegment.Static("staticChannels", "channels"),
-        ResourceIDSegment.UserSpecified("channelName"),
+        ResourceIDSegment.UserSpecified("clusterRp"),
+        ResourceIDSegment.UserSpecified("clusterResourceName"),
+        ResourceIDSegment.UserSpecified("clusterName"),
     };
 }
