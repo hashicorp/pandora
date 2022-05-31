@@ -50,5 +50,5 @@ internal class AccountPropertiesModel
     public PublicNetworkAccessConstant? PublicNetworkAccess { get; set; }
 
     [JsonPropertyName("systemData")]
-    public SystemDataModel? SystemData { get; set; }
+    public CustomTypes.SystemData? SystemData { get; set; }
 }

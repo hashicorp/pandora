@@ -16,7 +16,7 @@ namespace Pandora.Definitions.ResourceManager.Attestation.v2020_10_01.Attestatio
 internal class AttestationProviderListResultModel
 {
     [JsonPropertyName("systemData")]
-    public SystemDataModel? SystemData { get; set; }
+    public CustomTypes.SystemData? SystemData { get; set; }
 
     [JsonPropertyName("value")]
     public List<AttestationProvidersModel>? Value { get; set; }

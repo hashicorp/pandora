@@ -25,7 +25,7 @@ internal class DaprComponentModel
     public DaprComponentPropertiesModel? Properties { get; set; }
 
     [JsonPropertyName("systemData")]
-    public SystemDataModel? SystemData { get; set; }
+    public CustomTypes.SystemData? SystemData { get; set; }
 
     [JsonPropertyName("type")]
     public string? Type { get; set; }

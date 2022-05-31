@@ -31,7 +31,7 @@ internal class DicomServiceModel
     public DicomServicePropertiesModel? Properties { get; set; }
 
     [JsonPropertyName("systemData")]
-    public SystemDataModel? SystemData { get; set; }
+    public CustomTypes.SystemData? SystemData { get; set; }
 
     [JsonPropertyName("tags")]
     public CustomTypes.Tags? Tags { get; set; }

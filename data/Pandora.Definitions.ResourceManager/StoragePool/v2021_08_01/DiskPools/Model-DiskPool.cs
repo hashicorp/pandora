@@ -39,7 +39,7 @@ internal class DiskPoolModel
     public SkuModel? Sku { get; set; }
 
     [JsonPropertyName("systemData")]
-    public SystemMetadataModel? SystemData { get; set; }
+    public CustomTypes.SystemData? SystemData { get; set; }
 
     [JsonPropertyName("tags")]
     public CustomTypes.Tags? Tags { get; set; }
