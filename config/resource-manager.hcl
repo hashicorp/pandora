@@ -107,6 +107,10 @@ service "notificationhubs" {
   name      = "NotificationHubs"
   available = ["2017-04-01"]
 }
+service "portal" {
+  name      = "Portal"
+  available = ["2019-01-01-preview"]
+}
 service "postgresqlhsc" {
   name      = "PostgresqlHSC"
   available = ["2020-10-05-privatepreview"]
