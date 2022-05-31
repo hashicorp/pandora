@@ -45,6 +45,7 @@ import (
 	"github.com/hashicorp/go-azure-helpers/lang/dates"
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/edgezones"
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/identity"
+	"github.com/hashicorp/go-azure-helpers/resourcemanager/systemdata"
 )
 
 %[4]s

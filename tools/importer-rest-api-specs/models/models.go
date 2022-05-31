@@ -124,4 +124,5 @@ const (
 	CustomFieldTypeUserAssignedIdentityList                CustomFieldType = "user-assigned-identity-list"
 	CustomFieldTypeUserAssignedIdentityMap                 CustomFieldType = "user-assigned-identity-map"
 	CustomFieldTypeTags                                    CustomFieldType = "tags"
+	CustomFieldTypeSystemData                              CustomFieldType = "SystemData"
 )

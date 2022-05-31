@@ -116,6 +116,12 @@ public static class ObjectDefinitionTests
         Assert.AreEqual(ObjectType.Tags, actual.Type);
         Assert.Null(actual.ReferenceName);
         Assert.Null(actual.NestedItem);
+        
+        actual = ObjectDefinition.Map(typeof(SystemData));
+        Assert.AreEqual(ObjectType.SystemData, actual.Type);
+        Assert.Null(actual.ReferenceName);
+        Assert.Null(actual.NestedItem);
+        
     }
 
     [TestCase]

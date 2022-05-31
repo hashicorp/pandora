@@ -77,6 +77,8 @@ public static class ApiObjectDefinitionMapper
                 return ApiObjectType.UserAssignedIdentityMap.ToString();
             case ObjectType.Tags:
                 return ApiObjectType.Tags.ToString();
+            case ObjectType.SystemData:
+                return ApiObjectType.SystemData.ToString();
         }
 
         throw new NotSupportedException($"Unsupported ObjectType {input}");
@@ -122,4 +124,5 @@ public enum ApiObjectType
     UserAssignedIdentityList,
     UserAssignedIdentityMap,
     Tags,
+    SystemData,
 }

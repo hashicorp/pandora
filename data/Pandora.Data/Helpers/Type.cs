@@ -83,6 +83,7 @@ public static class TypeExtensions
             typeof(SystemOrUserAssignedIdentityMap),
             typeof(UserAssignedIdentityList),
             typeof(UserAssignedIdentityMap),
+            typeof(SystemData),
         };
         return customTypes.Contains(input);
     }

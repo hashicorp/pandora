@@ -24,4 +24,5 @@ var customFieldMatchers = []customFieldMatcher{
 	tagsMatcher{},
 	userAssignedIdentityListMatcher{},
 	userAssignedIdentityMapMatcher{},
+	systemDataMatcher{},
 }
