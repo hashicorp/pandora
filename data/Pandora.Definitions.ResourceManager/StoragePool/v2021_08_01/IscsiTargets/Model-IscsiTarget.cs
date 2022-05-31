@@ -32,7 +32,7 @@ internal class IscsiTargetModel
     public IscsiTargetPropertiesModel Properties { get; set; }
 
     [JsonPropertyName("systemData")]
-    public SystemMetadataModel? SystemData { get; set; }
+    public CustomTypes.SystemData? SystemData { get; set; }
 
     [JsonPropertyName("type")]
     public string? Type { get; set; }

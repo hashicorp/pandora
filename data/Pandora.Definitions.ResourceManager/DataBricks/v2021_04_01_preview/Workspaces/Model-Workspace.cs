@@ -33,7 +33,7 @@ internal class WorkspaceModel
     public SkuModel? Sku { get; set; }
 
     [JsonPropertyName("systemData")]
-    public SystemDataModel? SystemData { get; set; }
+    public CustomTypes.SystemData? SystemData { get; set; }
 
     [JsonPropertyName("tags")]
     public CustomTypes.Tags? Tags { get; set; }

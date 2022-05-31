@@ -37,7 +37,7 @@ internal class SignalRResourceModel
     public ResourceSkuModel? Sku { get; set; }
 
     [JsonPropertyName("systemData")]
-    public SystemDataModel? SystemData { get; set; }
+    public CustomTypes.SystemData? SystemData { get; set; }
 
     [JsonPropertyName("tags")]
     public CustomTypes.Tags? Tags { get; set; }
