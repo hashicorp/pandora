@@ -6,13 +6,13 @@ using Pandora.Definitions.Interfaces;
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 
 
-namespace Pandora.Definitions.ResourceManager.Bot.v2021_03_01.Channel;
+namespace Pandora.Definitions.ResourceManager.NotificationHubs.v2017_04_01.NotificationHubs;
 
-internal class ChannelId : ResourceID
+internal class NamespaceId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.BotService/botServices/{resourceName}/channels/{channelName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NotificationHubs/namespaces/{namespaceName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -21,10 +21,8 @@ internal class ChannelId : ResourceID
         ResourceIDSegment.Static("staticResourceGroups", "resourceGroups"),
         ResourceIDSegment.ResourceGroup("resourceGroupName"),
         ResourceIDSegment.Static("staticProviders", "providers"),
-        ResourceIDSegment.ResourceProvider("staticMicrosoftBotService", "Microsoft.BotService"),
-        ResourceIDSegment.Static("staticBotServices", "botServices"),
-        ResourceIDSegment.UserSpecified("resourceName"),
-        ResourceIDSegment.Static("staticChannels", "channels"),
-        ResourceIDSegment.Constant("channelName", typeof(RegenerateKeysChannelNameConstant)),
+        ResourceIDSegment.ResourceProvider("staticMicrosoftNotificationHubs", "Microsoft.NotificationHubs"),
+        ResourceIDSegment.Static("staticNamespaces", "namespaces"),
+        ResourceIDSegment.UserSpecified("namespaceName"),
     };
 }
