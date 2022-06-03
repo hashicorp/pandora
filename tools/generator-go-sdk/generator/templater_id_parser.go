@@ -259,6 +259,7 @@ func (r resourceIdTemplater) parseFunction(nameWithoutSuffix string, caseSensiti
 	}
 
 	lines := make([]string, 0)
+	varDeclaration := ""
 	for _, segment := range r.resource.Segments {
 		switch segment.Type {
 		case resourcemanager.ConstantSegment:
@@ -268,10 +269,9 @@ func (r resourceIdTemplater) parseFunction(nameWithoutSuffix string, caseSensiti
 				}
 
 				lines = append(lines, fmt.Sprintf(`
-	
 
-	if v, constFound := parsed.Parsed[%[1]q]; true {
-		if !constFound {
+	if v, ok := parsed.Parsed[%[1]q]; true {
+		if !ok {
 			return nil, fmt.Errorf("the segment '%[1]s' was not found in the resource id %%q", input)
 		}
 
@@ -292,6 +292,9 @@ func (r resourceIdTemplater) parseFunction(nameWithoutSuffix string, caseSensiti
 		return nil, fmt.Errorf("the segment '%[1]s' was not found in the resource id %%q", input)
 	}
 `, segment.Name, strings.Title(segment.Name)))
+
+				varDeclaration = "var ok bool"
+
 				continue
 			}
 
@@ -315,13 +318,13 @@ func %[1]s(input string) (*%[2]s, error) {
 		return nil, fmt.Errorf("parsing %%q: %%+v", input, err)
 	}
 
-	var ok bool
+	%[6]s
 	id := %[2]s{}
 
 	%[4]s
 
 	return &id, nil
-}`, functionName, r.name, !caseSensitive, strings.Join(lines, "\n"), description)
+}`, functionName, r.name, !caseSensitive, strings.Join(lines, "\n"), description, varDeclaration)
 	return &out, nil
 }
 
