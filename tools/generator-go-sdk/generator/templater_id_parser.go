@@ -269,9 +269,9 @@ func (r resourceIdTemplater) parseFunction(nameWithoutSuffix string, caseSensiti
 
 				lines = append(lines, fmt.Sprintf(`
 	
-
-	if v, constFound := parsed.Parsed[%[1]q]; true {
-		if !constFound {
+	var v string
+	if v, ok = parsed.Parsed[%[1]q]; true {
+		if !ok {
 			return nil, fmt.Errorf("the segment '%[1]s' was not found in the resource id %%q", input)
 		}
 
