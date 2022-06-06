@@ -2,6 +2,7 @@ package generator
 
 import (
 	"fmt"
+	"github.com/hashicorp/pandora/tools/generator-go-sdk/featureflags"
 	"sort"
 	"strings"
 	"time"
@@ -390,7 +391,7 @@ func (c modelsTemplater) codeForUnmarshalParentFunction(data ServiceGeneratorDat
 		}
 
 		// sanity-checking
-		if len(modelsImplementingThisClass) == 0 {
+		if len(modelsImplementingThisClass) == 0 && featureflags.SkipDiscriminatedParentTypes() == false {
 			return nil, fmt.Errorf("model %q is a discriminated parent type with no implementations", c.name)
 		}
 		jsonFieldName := c.model.Fields[*c.model.TypeHintIn].JsonName
