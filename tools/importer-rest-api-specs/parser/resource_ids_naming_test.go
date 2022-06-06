@@ -369,6 +369,59 @@ var trafficManagerProfileResourceId = models.ParsedResourceId{
 		},
 	},
 }
+var redisPatchSchedulesResourceId = models.ParsedResourceId{
+	Constants: map[string]models.ConstantDetails{},
+	Segments: []models.ResourceIdSegment{
+		{
+			Type:       models.StaticSegment,
+			FixedValue: strPtr("subscriptions"),
+			Name:       "staticSubscriptions",
+		},
+		{
+			Type: models.SubscriptionIdSegment,
+			Name: "subscriptionId",
+		},
+		{
+			Type:       models.StaticSegment,
+			FixedValue: strPtr("resourceGroups"),
+			Name:       "staticResourceGroups",
+		},
+		{
+			Type: models.ResourceGroupSegment,
+			Name: "resourceGroupName",
+		},
+		{
+			Type:       models.StaticSegment,
+			FixedValue: strPtr("providers"),
+			Name:       "staticProviders",
+		},
+		{
+			Type:       models.ResourceProviderSegment,
+			FixedValue: strPtr("Microsoft.Cache"),
+			Name:       "staticMicrosoftCache",
+		},
+		{
+			Type:       models.StaticSegment,
+			FixedValue: strPtr("redis"),
+			Name:       "staticRedis",
+		},
+		{
+			Type:       models.UserSpecifiedSegment,
+			FixedValue: strPtr("name"),
+			Name:       "Name",
+		},
+		{
+			Type:       models.StaticSegment,
+			FixedValue: strPtr("patchSchedules"),
+			Name:       "staticPatchSchedules",
+		},
+		{
+			Type:              models.ConstantSegment,
+			ConstantReference: strPtr("default"),
+			Name:              "defaultName",
+		},
+	},
+}
 
 func TestResourceIDNamingEmpty(t *testing.T) {
 	actualNamesToIds, actualUrisToNames, err := determineNamesForResourceIds(map[string]resourceUriMetadata{})
@@ -1345,6 +1398,36 @@ func TestResourceIdNamingTrafficManagerEndpoint(t *testing.T) {
 	}
 	expectedUrisToNames := map[string]string{
 		"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{profileName}/{endpointType}/{endpointName}": "EndpointTypeId",
+	}
+
+	actualNamesToIds, actualUrisToNames, err := determineNamesForResourceIds(input)
+	if err != nil {
+		t.Fatalf("error: %+v", err)
+		return
+	}
+
+	if !reflect.DeepEqual(expectedNamesToIds, *actualNamesToIds) {
+		t.Fatalf("expected namesToIds to be %+v but got %+v", expectedNamesToIds, *actualNamesToIds)
+	}
+
+	if !reflect.DeepEqual(expectedUrisToNames, *actualUrisToNames) {
+		t.Fatalf("expected urisToNames to be %+v but got %+v", expectedUrisToNames, *actualUrisToNames)
+	}
+}
+
+func TestResourceIDNamingRedisPatchSchedulesId(t *testing.T) {
+	input := map[string]resourceUriMetadata{
+		"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cache/redis/{name}/patchSchedules/{default}": {
+			resourceIdName: nil,
+			resourceId:     &redisPatchSchedulesResourceId,
+			uriSuffix:      nil,
+		},
+	}
+	expectedNamesToIds := map[string]models.ParsedResourceId{
+		"DefaultId": redisPatchSchedulesResourceId,
+	}
+	expectedUrisToNames := map[string]string{
+		"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cache/redis/{name}/patchSchedules/{default}": "PatchScheduleId",
 	}
 
 	actualNamesToIds, actualUrisToNames, err := determineNamesForResourceIds(input)
