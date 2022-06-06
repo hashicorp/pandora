@@ -2,11 +2,11 @@ package generator
 
 import (
 	"fmt"
-	"github.com/hashicorp/pandora/tools/generator-go-sdk/featureflags"
 	"sort"
 	"strings"
 	"time"
 
+	"github.com/hashicorp/pandora/tools/generator-go-sdk/featureflags"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
