@@ -139,6 +139,10 @@ service "search" {
   name      = "Search"
   available = ["2020-03-13"]
 }
+service "servicebus" {
+  name      = "ServiceBus"
+  available = ["2021-06-01-preview"]
+}
 service "servicefabricmanagedclusters" {
   name      = "ServiceFabricManagedCluster"
   available = ["2021-05-01"]
