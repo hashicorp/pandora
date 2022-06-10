@@ -2,5 +2,5 @@ namespace Pandora.Definitions.ResourceManager.CostManagement;
 
 public partial class Service
 {
-    public bool Generate => false;
+    public bool Generate => true;
 }
