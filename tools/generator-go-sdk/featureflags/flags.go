@@ -12,7 +12,7 @@ const GenerateCaseInsensitiveFunctions = true
 func SkipDiscriminatedParentTypes() bool {
 	value := os.Getenv("PANDORA_SKIP_DISCRIMINATED_PARENT_TYPE")
 	if value == "" {
-		return false
+		return true
 	}
 
 	return strings.EqualFold(value, "true")
