@@ -2,5 +2,5 @@ namespace Pandora.Definitions.ResourceManager.ServiceLinker;
 
 public partial class Service
 {
-    public bool Generate => true;
+    public bool Generate => false;
 }
