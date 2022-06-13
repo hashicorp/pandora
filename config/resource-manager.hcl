@@ -33,7 +33,7 @@ service "communication" {
 }
 service "confidentialledger" {
   name      = "ConfidentialLedger"
-  available = ["2021-05-13-preview"]
+  available = ["2022-05-13"]
 }
 service "cost-management" {
   name      = "CostManagement"
