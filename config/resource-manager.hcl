@@ -179,3 +179,7 @@ service "web" {
   name      = "Web"
   available = ["2016-06-01"]
 }
+service "machinelearningservices" {
+  name      = "machinelearning"
+  available = ["2021-07-01", "2022-05-01"]
+}
