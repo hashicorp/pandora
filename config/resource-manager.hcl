@@ -63,6 +63,10 @@ service "eventhub" {
   name      = "EventHub"
   available = ["2017-04-01", "2018-01-01-preview", "2021-01-01-preview", "2021-11-01"]
 }
+service "fluidrelay" {
+  name      = "FluidRelay"
+  available = ["2022-05-26"]
+}
 service "frontdoor" {
   name      = "Frontdoor"
   available = ["2020-04-01", "2020-05-01"]
