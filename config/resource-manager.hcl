@@ -145,7 +145,7 @@ service "search" {
 }
 service "servicebus" {
   name      = "ServiceBus"
-  available = ["2021-06-01-preview"]
+  available = ["2021-11-01"]
 }
 service "servicefabricmanagedclusters" {
   name      = "ServiceFabricManagedCluster"
