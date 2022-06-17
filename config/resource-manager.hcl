@@ -111,6 +111,10 @@ service "notificationhubs" {
   name      = "NotificationHubs"
   available = ["2017-04-01"]
 }
+service "orbital" {
+  name      = "Orbital"
+  available = ["2022-03-01"]
+}
 service "portal" {
   name      = "Portal"
   available = ["2019-01-01-preview"]
