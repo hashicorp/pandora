@@ -95,6 +95,10 @@ service "loadtestservice" {
   name      = "LoadTestService"
   available = ["2021-12-01-preview"]
 }
+service "machinelearningservices" {
+  name      = "MachineLearningServices"
+  available = ["2021-07-01", "2022-05-01"]
+}
 service "maps" {
   name      = "Maps"
   available = ["2021-02-01"]
@@ -182,8 +186,4 @@ service "vmware" {
 service "web" {
   name      = "Web"
   available = ["2016-06-01"]
-}
-service "machinelearningservices" {
-  name      = "MachineLearningServices"
-  available = ["2021-07-01", "2022-05-01"]
 }
