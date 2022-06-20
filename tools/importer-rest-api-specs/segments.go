@@ -23,7 +23,7 @@ func parseAndOutputSegments(swaggerDirectory string, debug bool) error {
 
 	services := make([]RunInput, 0)
 	for _, service := range *resourceManagerServices {
-		// pick only the latest for simplicities sake
+		// pick only the latest for now, but leaving the logic below since we'll check all versions too soon
 		sortedVersions := make([]string, 0)
 		for version := range service.ApiVersionPaths {
 			sortedVersions = append(sortedVersions, version)
