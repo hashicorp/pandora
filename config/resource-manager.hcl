@@ -115,6 +115,10 @@ service "notificationhubs" {
   name      = "NotificationHubs"
   available = ["2017-04-01"]
 }
+service "operationalinsights" {
+  name      = "OperationalInsights"
+  available = ["2019-09-01", "2020-08-01"]
+}
 service "orbital" {
   name      = "Orbital"
   available = ["2022-03-01"]
@@ -194,8 +198,4 @@ service "vmware" {
 service "web" {
   name      = "Web"
   available = ["2016-06-01"]
-}
-service "operationalinsights" {
-  name      = "OperationalInsights"
-  available = ["2019-09-01", "2020-08-01"]
 }
