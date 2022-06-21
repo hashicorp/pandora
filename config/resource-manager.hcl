@@ -51,6 +51,10 @@ service "datalake-store" {
   name      = "DatalakeStore"
   available = ["2016-11-01"]
 }
+service "dataprotection" {
+  name      = "DataProtection"
+  available = ["2022-04-01"]
+}
 service "dns" {
   name      = "DNS"
   available = ["2018-05-01"]
