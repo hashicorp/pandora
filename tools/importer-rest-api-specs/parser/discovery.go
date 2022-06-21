@@ -109,7 +109,7 @@ func SwaggerFilesInDirectory(directory string) (*[]string, error) {
 			return err
 		}
 		name := filepath.Base(path)
-		if strings.EqualsFold(name, "examples") {
+		if strings.EqualFold(name, "examples") {
 			return fs.SkipDir
 		}
 
