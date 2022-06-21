@@ -23,7 +23,12 @@ type methodsAutoRestTemplater struct {
 func (c methodsAutoRestTemplater) template(data ServiceGeneratorData) (*string, error) {
 	methods, err := c.methods(data)
 	if err != nil {
-		return nil, err
+		return nil, fmt.Errorf("building methods: %+v", err)
+	}
+
+	copyrightLines, err := copyrightLinesForSource(data.source)
+	if err != nil {
+		return nil, fmt.Errorf("retrieving copyright lines: %+v", err)
 	}
 
 	template := fmt.Sprintf(`package %[1]s
@@ -41,7 +46,9 @@ import (
 )
 
 %s
-`, data.packageName, *methods)
+
+%s
+`, data.packageName, *copyrightLines, *methods)
 	return &template, nil
 }
 
