@@ -119,6 +119,10 @@ service "orbital" {
   name      = "Orbital"
   available = ["2022-03-01"]
 }
+service "policyinsights" {
+  name      = "PolicyInsights"
+  available = ["2021-10-01"]
+}
 service "portal" {
   name      = "Portal"
   available = ["2019-01-01-preview"]
