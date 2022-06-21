@@ -1,7 +1,7 @@
 package parser
 
 import (
-	"io/ioutil"
+	"io/fs"
 	"log"
 	"os"
 	"path/filepath"
@@ -104,23 +104,22 @@ type ResourceManagerService struct {
 
 func SwaggerFilesInDirectory(directory string) (*[]string, error) {
 	swaggerFiles := make([]string, 0)
-	dirContents, err := ioutil.ReadDir(directory)
-	if err != nil {
+	if err := filepath.WalkDir(directory, func(path string, d fs.DirEntry, err error) error {
+		if err != nil {
+			return err
+		}
+		name := filepath.Base(path)
+		if strings.EqualsFold(name, "examples") {
+			return fs.SkipDir
+		}
+
+		extension := filepath.Ext(name)
+		if strings.EqualFold(extension, ".json") {
+			swaggerFiles = append(swaggerFiles, path)
+		}
+		return nil
+	}); err != nil {
 		return nil, err
 	}
-
-	for _, file := range dirContents {
-		// NOTE: some directories for some Services (e.g. DataFactory) need to be parsed
-		if file.IsDir() {
-			continue
-		}
-
-		extension := filepath.Ext(file.Name())
-		if strings.EqualFold(extension, ".json") {
-			filePath := filepath.Join(directory, file.Name())
-			swaggerFiles = append(swaggerFiles, filePath)
-		}
-	}
-
 	return &swaggerFiles, nil
 }
