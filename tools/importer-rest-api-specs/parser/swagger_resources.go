@@ -50,7 +50,7 @@ func (d *SwaggerDefinition) parseResourcesWithinSwaggerTag(tag *string, resource
 	// then switch out any common resource ids (e.g. Resource Group)
 	resourceIdNamesToUris := switchOutCommonResourceIDsAsNeeded(resourceIds.nameToResourceIDs)
 
-	operations, nestedResult, err = d.replaceDiscriminatedTypesWithParents(*operations, *nestedResult)
+	nestedResult, err = d.replaceDiscriminatedTypesWithParents(*nestedResult)
 	if err != nil {
 		return nil, fmt.Errorf("replacing discriminated types with parent types: %+v", err)
 	}
@@ -155,12 +155,11 @@ func pullOutModelForListOperations(input map[string]models.OperationDetails, kno
 	return &output, nil
 }
 
-func (d *SwaggerDefinition) replaceDiscriminatedTypesWithParents(inputOperations map[string]models.OperationDetails, inputResult parseResult) (*map[string]models.OperationDetails, *parseResult, error) {
+func (d *SwaggerDefinition) replaceDiscriminatedTypesWithParents(inputResult parseResult) (*parseResult, error) {
 	// some Swaggers define both top-level request/response objects as implementations of discriminators, rather than the parent object
 	// in our case since we generate the unmarshal funcs etc based on the presence of the parent/interface, we switch these out
 	// should these be discriminators in the Swagger? likely no, but alas, DRY Swaggers.
 
-	outputOperations := make(map[string]models.OperationDetails)
 	nestedResult := parseResult{
 		constants: map[string]models.ConstantDetails{},
 		models:    map[string]models.ModelDetails{},
@@ -168,25 +167,7 @@ func (d *SwaggerDefinition) replaceDiscriminatedTypesWithParents(inputOperations
 	// models will be manually mapped below
 	nestedResult.appendConstants(inputResult.constants)
 
-	for key, operation := range inputOperations {
-		if operation.RequestObject != nil {
-			obj, err := d.replaceDiscriminatedTypeWithinObjectDefinitionWithParent(operation.RequestObject, inputResult)
-			if err != nil {
-				return nil, nil, fmt.Errorf("replacing request object for %q: %+v", key, err)
-			}
-			operation.RequestObject = obj
-		}
-
-		if operation.ResponseObject != nil {
-			obj, err := d.replaceDiscriminatedTypeWithinObjectDefinitionWithParent(operation.ResponseObject, inputResult)
-			if err != nil {
-				return nil, nil, fmt.Errorf("replacing response object for %q: %+v", key, err)
-			}
-			operation.ResponseObject = obj
-		}
-
-		outputOperations[key] = operation
-	}
+	// TODO: we should consider doing the same for Top Level Requests/Responses in the future too
 
 	for name, model := range inputResult.models {
 		fields := make(map[string]models.FieldDetails)
@@ -194,7 +175,7 @@ func (d *SwaggerDefinition) replaceDiscriminatedTypesWithParents(inputOperations
 			if value.ObjectDefinition != nil {
 				obj, err := d.replaceDiscriminatedTypeWithinObjectDefinitionWithParent(value.ObjectDefinition, inputResult)
 				if err != nil {
-					return nil, nil, fmt.Errorf("replacing object definition for model %q / field %q: %+v", name, key, err)
+					return nil, fmt.Errorf("replacing object definition for model %q / field %q: %+v", name, key, err)
 				}
 				value.ObjectDefinition = obj
 			}
@@ -205,7 +186,7 @@ func (d *SwaggerDefinition) replaceDiscriminatedTypesWithParents(inputOperations
 		nestedResult.models[name] = model
 	}
 
-	return &outputOperations, &nestedResult, nil
+	return &nestedResult, nil
 }
 
 func (d *SwaggerDefinition) replaceDiscriminatedTypeWithinObjectDefinitionWithParent(input *models.ObjectDefinition, known parseResult) (*models.ObjectDefinition, error) {
