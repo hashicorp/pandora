@@ -107,6 +107,10 @@ service "mixedreality" {
   name      = "MixedReality"
   available = ["2021-01-01"]
 }
+service "monitor" {
+  name      = "Insights"
+  available = ["2021-04-01"]
+}
 service "msi" {
   name      = "ManagedIdentity"
   available = ["2018-11-30"]
