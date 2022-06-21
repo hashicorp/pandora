@@ -17,5 +17,5 @@ internal class AccountKeyDatastoreCredentialsModel : DatastoreCredentialsModel
 {
     [JsonPropertyName("secrets")]
     [Required]
-    public AccountKeyDatastoreSecretsModel Secrets { get; set; }
+    public DatastoreSecretsModel Secrets { get; set; }
 }
