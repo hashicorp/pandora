@@ -70,7 +70,7 @@ function conditionallyCommitAndPushGoSdk {
 
     # commit the generated changes
     git checkout -b "$branch"
-    git config user.name "GitHub Actions"
+    git config user.name "hc-github-team-tf-azure"
     git config user.email "<>"
     git add --all
     git commit -m "Updating based on $sha"
