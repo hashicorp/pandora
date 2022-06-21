@@ -40,7 +40,7 @@ jobs:
         id: commit-versions-config
         run: |
           git checkout -b config/regeneration-from-${{ github.sha }}
-          git config user.name "GitHub Actions"
+          git config user.name "hc-github-team-tf-azure"
           git config user.email "<>"
           ./scripts/conditionally-commit-codegen-changes.sh "config: regenerating based on the latest Swagger"
 
