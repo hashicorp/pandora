@@ -10,12 +10,14 @@ using Pandora.Definitions.CustomTypes;
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 
 
-namespace Pandora.Definitions.ResourceManager.MachineLearningServices.v2022_05_01.Datastore;
+namespace Pandora.Definitions.ResourceManager.Orbital.v2022_03_01.Spacecraft;
 
-[ValueForType("Sas")]
-internal class SasDatastoreCredentialsModel : DatastoreCredentialsModel
+
+internal class AuthorizedGroundstationModel
 {
-    [JsonPropertyName("secrets")]
-    [Required]
-    public DatastoreSecretsModel Secrets { get; set; }
+    [JsonPropertyName("expirationDate")]
+    public string? ExpirationDate { get; set; }
+
+    [JsonPropertyName("groundStation")]
+    public string? GroundStation { get; set; }
 }
