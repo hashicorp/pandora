@@ -23,7 +23,7 @@ internal class ListByNamespaceOperation : Operations.ListOperation
 
     public override Type? OptionsObject() => typeof(ListByNamespaceOperation.ListByNamespaceOptions);
 
-    public override string? UriSuffix() => "/schemagroups";
+    public override string? UriSuffix() => "/schemaGroups";
 
     internal class ListByNamespaceOptions
     {
