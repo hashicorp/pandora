@@ -464,7 +464,6 @@ func (c methodsAutoRestTemplater) preparerTemplate(data ServiceGeneratorData) (*
 
 	if c.operation.RequestObject != nil {
 		steps = append(steps, "autorest.WithJSON(input)")
-		listSteps = append(listSteps, "autorest.WithJSON(input)")
 	}
 	steps = append(steps, "autorest.WithQueryParameters(queryParameters)")
 	listSteps = append(listSteps, "autorest.WithQueryParameters(queryParameters)")

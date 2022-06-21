@@ -95,6 +95,10 @@ service "loadtestservice" {
   name      = "LoadTestService"
   available = ["2021-12-01-preview"]
 }
+service "machinelearningservices" {
+  name      = "MachineLearningServices"
+  available = ["2021-07-01", "2022-05-01"]
+}
 service "maps" {
   name      = "Maps"
   available = ["2021-02-01"]
@@ -110,6 +114,14 @@ service "msi" {
 service "notificationhubs" {
   name      = "NotificationHubs"
   available = ["2017-04-01"]
+}
+service "orbital" {
+  name      = "Orbital"
+  available = ["2022-03-01"]
+}
+service "policyinsights" {
+  name      = "PolicyInsights"
+  available = ["2021-10-01"]
 }
 service "portal" {
   name      = "Portal"

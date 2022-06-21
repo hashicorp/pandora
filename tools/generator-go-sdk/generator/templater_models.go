@@ -213,9 +213,13 @@ func (c modelsTemplater) dateFormatString(input resourcemanager.DateFormat) stri
 
 func (c modelsTemplater) codeForDateFunctions(data ServiceGeneratorData) (*string, error) {
 	fieldsRequiringDateFunctions := make([]string, 0)
-	for fieldName, fieldDetails := range c.model.Fields {
-		if fieldDetails.DateFormat != nil {
-			fieldsRequiringDateFunctions = append(fieldsRequiringDateFunctions, fieldName)
+	// parent models are output as interfaces with no fields - so we can skip these
+	// since the inherited models output the fields from their parents, the methods are output there
+	if c.model.TypeHintIn == nil {
+		for fieldName, fieldDetails := range c.model.Fields {
+			if fieldDetails.DateFormat != nil {
+				fieldsRequiringDateFunctions = append(fieldsRequiringDateFunctions, fieldName)
+			}
 		}
 	}
 

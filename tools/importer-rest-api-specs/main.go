@@ -26,9 +26,11 @@ func main() {
 	os.Setenv("OAIGEN_DEDUPE", "false")
 
 	var dataApiEndpointVar string
+	justSegments := false
 
 	f := flag.NewFlagSet("importer-rest-api-specs", flag.ExitOnError)
 	f.StringVar(&dataApiEndpointVar, "data-api", "", "The Data API Endpoint (e.g. --data-api=http://localhost:5000")
+	f.BoolVar(&justSegments, "just-segments", false, "Should only the Segments be output?")
 	f.Parse(os.Args[1:])
 
 	var dataApiEndpoint *string
@@ -41,7 +43,7 @@ func main() {
 	}
 
 	debug := strings.TrimSpace(os.Getenv("DEBUG")) != ""
-	if err := run(swaggerDirectory, resourceManagerConfig, dataApiEndpoint, debug); err != nil {
+	if err := run(swaggerDirectory, resourceManagerConfig, dataApiEndpoint, justSegments, debug); err != nil {
 		log.Printf("Error: %+v", err)
 		os.Exit(1)
 		return
@@ -50,7 +52,15 @@ func main() {
 	os.Exit(0)
 }
 
-func run(swaggerDirectory, configFilePath string, dataApiEndpoint *string, debug bool) error {
+func run(swaggerDirectory, configFilePath string, dataApiEndpoint *string, justSegments, debug bool) error {
+	if justSegments {
+		return parseAndOutputSegments(swaggerDirectory, debug)
+	}
+
+	return runImporter(configFilePath, dataApiEndpoint, debug)
+}
+
+func runImporter(configFilePath string, dataApiEndpoint *string, debug bool) error {
 	input, err := GenerationData(configFilePath, swaggerDirectory, false)
 	if err != nil {
 		return fmt.Errorf("loading data: %+v", err)

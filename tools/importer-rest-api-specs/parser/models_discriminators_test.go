@@ -515,3 +515,124 @@ func TestParseDiscriminatedChildTypeThatShouldntBe(t *testing.T) {
 		t.Fatalf("dog.TypeHintValue should be nil but got %q", *dog.TypeHintValue)
 	}
 }
+
+func TestParseDiscriminatedChildTypeWhereParentShouldBeUsed(t *testing.T) {
+	// Some Swagger files contain Models with a reference to a Discriminated Type (e.g. an implementation
+	// where a Parent should be used instead) - this asserts that we switch these out so that the Field
+	// references the Parent rather than the Implementation.
+	result, err := ParseSwaggerFileForTesting(t, "model_discriminators_child_used_as_parent.json")
+	if err != nil {
+		t.Fatalf("parsing: %+v", err)
+	}
+	if result == nil {
+		t.Fatal("result was nil")
+	}
+	if len(result.Resources) != 1 {
+		t.Fatalf("expected 1 resource but got %d", len(result.Resources))
+	}
+
+	resource, ok := result.Resources["Discriminator"]
+	if !ok {
+		t.Fatal("the Resource 'Discriminator' was not found")
+	}
+
+	// sanity checking
+	if len(resource.Constants) != 0 {
+		t.Fatalf("expected no constants but got %d", len(resource.Constants))
+	}
+	if len(resource.Models) != 4 {
+		t.Fatalf("expected 4 model but got %d", len(resource.Models))
+	}
+	if len(resource.Operations) != 1 {
+		t.Fatalf("expected 1 operation but got %d", len(resource.Operations))
+	}
+	if len(resource.ResourceIds) != 1 {
+		t.Fatalf("expected 1 Resource ID but got %d", len(resource.ResourceIds))
+	}
+
+	wrapper, ok := resource.Models["ExampleWrapper"]
+	if !ok {
+		t.Fatalf("the Model `ExampleWrapper` was not found")
+	}
+	if len(wrapper.Fields) != 1 {
+		t.Fatalf("expected the Model `ExampleWrapper` to have 1 field but got %d", len(wrapper.Fields))
+	}
+	nested, ok := wrapper.Fields["Nested"]
+	if !ok {
+		t.Fatalf("expected the Model `ExampleWrapper` to have a field named Nested but it didn't")
+	}
+	if nested.ObjectDefinition == nil {
+		t.Fatalf("expected the Field `Nested` within the Model `ExampleWrapper` to have an ObjectDefinition it didn't")
+	}
+	if nested.ObjectDefinition.Type != models.ObjectDefinitionReference {
+		t.Fatalf("expected the Field `Nested` within the Model `ExampleWrapper` to be a Reference but it wasn't")
+	}
+	if nested.ObjectDefinition.ReferenceName == nil {
+		t.Fatalf("expected the Field `Nested` within the Model `ExampleWrapper` to be a Reference but it was nil")
+	}
+	// NOTE: this is the primary assertion here, since the Swagger defined "Dog" should be swapped out for "Animal"
+	if *nested.ObjectDefinition.ReferenceName != "Animal" {
+		t.Fatalf("expected the Field `Nested` within the Model `ExampleWrapper` to be a Reference to `Animal` but got %q", *nested.ObjectDefinition.ReferenceName)
+	}
+
+	animal, ok := resource.Models["Animal"]
+	if !ok {
+		t.Fatalf("the Model `Animal` was not found")
+	}
+	if animal.ParentTypeName != nil {
+		t.Fatalf("animal.ParentTypeName should be nil but got %q", *animal.ParentTypeName)
+	}
+	if animal.TypeHintIn == nil {
+		t.Fatalf("animal.TypeHintIn should have a value but it was nil")
+	}
+	if animal.TypeHintValue != nil {
+		t.Fatalf("animal.TypeHintValue should be nil but got %q", *animal.TypeHintValue)
+	}
+
+	cat, ok := resource.Models["Cat"]
+	if !ok {
+		t.Fatalf("the Model `Cat` was not found")
+	}
+	if cat.ParentTypeName == nil {
+		t.Fatalf("cat.ParentTypeName should have a value but it was nil")
+	}
+	if *cat.ParentTypeName != "Animal" {
+		t.Fatalf("cat.ParentTypeName should be `Animal` but got %q", *cat.ParentTypeName)
+	}
+	if cat.TypeHintIn == nil {
+		t.Fatalf("cat.TypeHintIn should have a value but it was nil")
+	}
+	if *cat.TypeHintIn != "AnimalType" {
+		t.Fatalf("cat.TypeHintIn should be `AnimalType` but got %q", *cat.TypeHintIn)
+	}
+	if cat.TypeHintValue == nil {
+		t.Fatalf("cat.TypeHintValue should have a value but it was nil")
+	}
+	if *cat.TypeHintValue != "cat" {
+		t.Fatalf("cat.TypeHintValue should be `cat` but got %q", *cat.TypeHintValue)
+	}
+
+	dog, ok := resource.Models["Dog"]
+	if !ok {
+		t.Fatalf("the Model `Dog` was not found")
+	}
+
+	if dog.ParentTypeName == nil {
+		t.Fatalf("dog.ParentTypeName should have a value but it was nil")
+	}
+	if *dog.ParentTypeName != "Animal" {
+		t.Fatalf("dog.ParentTypeName should be `Animal` but got %q", *dog.ParentTypeName)
+	}
+	if dog.TypeHintIn == nil {
+		t.Fatalf("dog.TypeHintIn should have a value but it was nil")
+	}
+	if *dog.TypeHintIn != "AnimalType" {
+		t.Fatalf("dog.TypeHintIn should be `AnimalType` but got %q", *dog.TypeHintIn)
+	}
+	if dog.TypeHintValue == nil {
+		t.Fatalf("dog.TypeHintValue should have a value but it was nil")
+	}
+	if *dog.TypeHintValue != "dog" {
+		t.Fatalf("dog.TypeHintValue should be `dog` but got %q", *dog.TypeHintValue)
+	}
+}
