@@ -1,0 +1,155 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Example",
+    "description": "Example",
+    "version": "2020-01-01"
+  },
+  "host": "management.mysite.com",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "security": [],
+  "securityDefinitions": {},
+  "paths": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}": {
+      "put": {
+        "tags": [
+          "Discriminator"
+        ],
+        "operationId": "Discriminator_Test",
+        "description": "Tests parsing of a model containing a Discriminator",
+        "parameters": [
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ResourceGroupParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "name": "parameters",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ExampleWrapper"
+            },
+            "description": "Wrapper class containing a Discriminator."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success.",
+            "schema": {
+              "$ref": "#/definitions/ExampleWrapper"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "ExampleWrapper": {
+      "description": "The Resource definition.",
+      "properties": {
+        "nested": {
+          "$ref": "#/definitions/Dog"
+        }
+      },
+      "required": [
+        "nested"
+      ],
+      "title": "ExampleWrapper",
+      "type": "object",
+      "x-ms-azure-resource": true
+    },
+    "Animal": {
+      "discriminator": "animalType",
+      "properties": {
+        "animalType": {
+          "type": "string",
+          "description": "The type of Animal this is, used as a Discriminator value."
+        }
+      },
+      "required": [
+        "animalType"
+      ],
+      "title": "Animal",
+      "type": "object"
+    },
+    "Cat": {
+      "description": "A cat is a kind of animal",
+      "allOf": [
+        {
+          "$ref": "#/definitions/Animal"
+        }
+      ],
+      "properties": {
+        "isFluffy": {
+          "type": "boolean",
+          "description": "Are cats fluffy?"
+        }
+      },
+      "required": [
+        "animalType",
+        "isFluffy"
+      ],
+      "title": "Cat",
+      "type": "object",
+      "x-ms-discriminator-value": "cat"
+    },
+    "Dog": {
+      "description": "A dog is a kind of animal",
+      "allOf": [
+        {
+          "$ref": "#/definitions/Animal"
+        }
+      ],
+      "properties": {
+        "barks": {
+          "type": "boolean",
+          "description": "Do dogs bark?"
+        }
+      },
+      "required": [
+        "animalType",
+        "barks"
+      ],
+      "title": "Dog",
+      "type": "object",
+      "x-ms-discriminator-value": "dog"
+    }
+  },
+  "parameters": {
+    "ApiVersionParameter": {
+      "name": "api-version",
+      "in": "query",
+      "required": true,
+      "type": "string",
+      "description": "The API version to be used with the HTTP request."
+    },
+    "SubscriptionIdParameter": {
+      "name": "subscriptionId",
+      "in": "path",
+      "required": true,
+      "type": "string",
+      "description": "The subscription ID."
+    },
+    "ResourceGroupParameter": {
+      "name": "resourceGroupName",
+      "in": "path",
+      "required": true,
+      "type": "string",
+      "x-ms-parameter-location": "method",
+      "description": "The name of the resource group that contains the resource."
+    }
+  }
+}

@@ -50,6 +50,11 @@ func (d *SwaggerDefinition) parseResourcesWithinSwaggerTag(tag *string, resource
 	// then switch out any common resource ids (e.g. Resource Group)
 	resourceIdNamesToUris := switchOutCommonResourceIDsAsNeeded(resourceIds.nameToResourceIDs)
 
+	operations, nestedResult, err = d.replaceDiscriminatedTypesWithParents(*operations, *nestedResult)
+	if err != nil {
+		return nil, fmt.Errorf("replacing discriminated types with parent types: %+v", err)
+	}
+
 	// finally remove any models and constants which aren't referenced / have been replaced
 	constantsAndModels, resourceIdNamesToUris := removeUnusedItems(*operations, resourceIdNamesToUris, result)
 
@@ -148,6 +153,94 @@ func pullOutModelForListOperations(input map[string]models.OperationDetails, kno
 	}
 
 	return &output, nil
+}
+
+func (d *SwaggerDefinition) replaceDiscriminatedTypesWithParents(inputOperations map[string]models.OperationDetails, inputResult parseResult) (*map[string]models.OperationDetails, *parseResult, error) {
+	// some Swaggers define both top-level request/response objects as implementations of discriminators, rather than the parent object
+	// in our case since we generate the unmarshal funcs etc based on the presence of the parent/interface, we switch these out
+	// should these be discriminators in the Swagger? likely no, but alas, DRY Swaggers.
+
+	outputOperations := make(map[string]models.OperationDetails)
+	nestedResult := parseResult{
+		constants: map[string]models.ConstantDetails{},
+		models:    map[string]models.ModelDetails{},
+	}
+	// models will be manually mapped below
+	nestedResult.appendConstants(inputResult.constants)
+
+	for key, operation := range inputOperations {
+		if operation.RequestObject != nil {
+			obj, err := d.replaceDiscriminatedTypeWithinObjectDefinitionWithParent(operation.RequestObject, inputResult)
+			if err != nil {
+				return nil, nil, fmt.Errorf("replacing request object for %q: %+v", key, err)
+			}
+			operation.RequestObject = obj
+		}
+
+		if operation.ResponseObject != nil {
+			obj, err := d.replaceDiscriminatedTypeWithinObjectDefinitionWithParent(operation.ResponseObject, inputResult)
+			if err != nil {
+				return nil, nil, fmt.Errorf("replacing response object for %q: %+v", key, err)
+			}
+			operation.ResponseObject = obj
+		}
+
+		outputOperations[key] = operation
+	}
+
+	for name, model := range inputResult.models {
+		fields := make(map[string]models.FieldDetails)
+		for key, value := range model.Fields {
+			if value.ObjectDefinition != nil {
+				obj, err := d.replaceDiscriminatedTypeWithinObjectDefinitionWithParent(value.ObjectDefinition, inputResult)
+				if err != nil {
+					return nil, nil, fmt.Errorf("replacing object definition for model %q / field %q: %+v", name, key, err)
+				}
+				value.ObjectDefinition = obj
+			}
+
+			fields[key] = value
+		}
+		model.Fields = fields
+		nestedResult.models[name] = model
+	}
+
+	return &outputOperations, &nestedResult, nil
+}
+
+func (d *SwaggerDefinition) replaceDiscriminatedTypeWithinObjectDefinitionWithParent(input *models.ObjectDefinition, known parseResult) (*models.ObjectDefinition, error) {
+	if input.NestedItem != nil {
+		item, err := d.replaceDiscriminatedTypeWithinObjectDefinitionWithParent(input.NestedItem, known)
+		if err != nil {
+			return nil, fmt.Errorf("replacing nested item: %+v", err)
+		}
+		input.NestedItem = item
+		return input, nil
+	}
+
+	if input.Type == models.ObjectDefinitionReference {
+		// find the parent name and use that
+		if input.ReferenceName == nil {
+			return nil, fmt.Errorf("internal-error: reference was missing a reference name")
+		}
+		model, modelOk := known.models[*input.ReferenceName]
+		_, constantOk := known.constants[*input.ReferenceName]
+		if !constantOk && !modelOk {
+			return nil, fmt.Errorf("a constant or model called %q was not found", *input.ReferenceName)
+		}
+		if modelOk && model.ParentTypeName != nil {
+			parent, ok := known.models[*model.ParentTypeName]
+			if !ok {
+				return nil, fmt.Errorf("parent model %q was not found", *model.ParentTypeName)
+			}
+			if parent.ParentTypeName != nil {
+				return nil, fmt.Errorf("unexpected discriminator within discriminator for parent %q", *parent.ParentTypeName)
+			}
+			input.ReferenceName = model.ParentTypeName
+		}
+	}
+
+	return input, nil
 }
 
 func switchOutCustomTypesAsNeeded(input parseResult) parseResult {
