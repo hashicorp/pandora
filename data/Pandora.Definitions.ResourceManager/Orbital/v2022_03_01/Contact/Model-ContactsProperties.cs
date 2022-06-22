@@ -66,7 +66,7 @@ internal class ContactsPropertiesModel
     public float? StartElevationDegrees { get; set; }
 
     [JsonPropertyName("status")]
-    public StatusConstant? Status { get; set; }
+    public ContactsStatusConstant? Status { get; set; }
 
     [DateFormat(DateFormatAttribute.DateFormat.RFC3339)]
     [JsonPropertyName("txEndTime")]
