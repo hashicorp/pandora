@@ -19,6 +19,10 @@ service "attestation" {
   name      = "Attestation"
   available = ["2020-10-01"]
 }
+service "automation" {
+  name      = "Automation"
+  available = ["2021-06-22"]
+}
 service "chaos" {
   name      = "ChaosStudio"
   available = ["2021-09-15-preview"]
@@ -210,8 +214,4 @@ service "vmware" {
 service "web" {
   name      = "Web"
   available = ["2016-06-01"]
-}
-service "automation" {
-  name      = "Automation"
-  available = ["2021-06-22"]
 }
