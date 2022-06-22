@@ -4,7 +4,7 @@ using System.ComponentModel;
 namespace Pandora.Definitions.ResourceManager.Orbital.v2022_03_01.Contact;
 
 [ConstantType(ConstantTypeAttribute.ConstantType.String)]
-internal enum StatusConstant
+internal enum ContactsStatusConstant
 {
     [Description("cancelled")]
     Cancelled,
