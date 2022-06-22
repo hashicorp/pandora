@@ -56,7 +56,7 @@ service "dataprotection" {
   available = ["2022-04-01"]
 }
 service "desktopvirtualization" {
-  name = "DesktopVirtualization"
+  name      = "DesktopVirtualization"
   available = ["2021-09-03-preview", "2022-02-10-preview"]
 }
 service "dns" {
