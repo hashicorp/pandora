@@ -211,6 +211,10 @@ service "web" {
   name      = "Web"
   available = ["2016-06-01"]
 }
+service "automation" {
+  name      = "Automation"
+  available = ["2021-06-22"]
+}
 service "securityinsights" {
     name = "SecurityInsights"
     available = ["2021-09-01-preview"]
