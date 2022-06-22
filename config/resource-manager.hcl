@@ -175,6 +175,10 @@ service "search" {
   name      = "Search"
   available = ["2020-03-13"]
 }
+service "securityinsights" {
+  name      = "SecurityInsights"
+  available = ["2021-09-01-preview"]
+}
 service "servicebus" {
   name      = "ServiceBus"
   available = ["2021-06-01-preview"]
@@ -214,8 +218,4 @@ service "vmware" {
 service "web" {
   name      = "Web"
   available = ["2016-06-01"]
-}
-service "securityinsights" {
-    name = "SecurityInsights"
-    available = ["2021-09-01-preview"]
 }
