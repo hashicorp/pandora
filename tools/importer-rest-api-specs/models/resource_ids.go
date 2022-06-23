@@ -210,17 +210,7 @@ func normalizedResourceId(segments []ResourceIdSegment) string {
 				continue
 			}
 
-		case ConstantSegment:
-			{
-				if segment.Name == "default" {
-					components = append(components, fmt.Sprintf("%sName", segment.Name))
-					continue
-				}
-				components = append(components, fmt.Sprintf("{%s}", segment.Name))
-				continue
-			}
-
-		case ResourceGroupSegment, ScopeSegment, SubscriptionIdSegment, UserSpecifiedSegment:
+		case ConstantSegment, ResourceGroupSegment, ScopeSegment, SubscriptionIdSegment, UserSpecifiedSegment:
 			// e.g. {example}
 			components = append(components, fmt.Sprintf("{%s}", segment.Name))
 			continue
