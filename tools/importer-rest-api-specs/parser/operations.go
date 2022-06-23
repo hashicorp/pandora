@@ -3,6 +3,8 @@ package parser
 import (
 	"fmt"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser/constants"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser/internal"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser/resourceids"
 	"log"
 	"net/http"
 	"strings"
@@ -15,17 +17,17 @@ import (
 
 type operationsParser struct {
 	operations            []parsedOperation
-	resourceUriToMetaData map[string]resourceUriMetadata
+	resourceUriToMetaData map[string]resourceids.ResourceUriMetadata
 	swaggerDefinition     *SwaggerDefinition
 }
 
-func (d *SwaggerDefinition) parseOperationsWithinTag(tag *string, resourceUriToMetaData map[string]resourceUriMetadata, found parseResult) (*map[string]models.OperationDetails, *parseResult, error) {
+func (d *SwaggerDefinition) parseOperationsWithinTag(tag *string, resourceUriToMetaData map[string]resourceids.ResourceUriMetadata, found internal.ParseResult) (*map[string]models.OperationDetails, *internal.ParseResult, error) {
 	operations := make(map[string]models.OperationDetails, 0)
-	result := parseResult{
-		constants: map[string]models.ConstantDetails{},
-		models:    map[string]models.ModelDetails{},
+	result := internal.ParseResult{
+		Constants: map[string]models.ConstantDetails{},
+		Models:    map[string]models.ModelDetails{},
 	}
-	result.append(found)
+	result.Append(found)
 
 	parser := operationsParser{
 		resourceUriToMetaData: resourceUriToMetaData,
@@ -39,7 +41,7 @@ func (d *SwaggerDefinition) parseOperationsWithinTag(tag *string, resourceUriToM
 			log.Printf("[DEBUG] Operation - %s %q..", operation.httpMethod, operation.uri)
 		}
 
-		if operationShouldBeIgnored(operation.uri) {
+		if internal.OperationShouldBeIgnored(operation.uri) {
 			if d.debugLog {
 				log.Printf("[DEBUG] operation should be ignored - skipping..")
 			}
@@ -51,7 +53,7 @@ func (d *SwaggerDefinition) parseOperationsWithinTag(tag *string, resourceUriToM
 			return nil, nil, fmt.Errorf("parsing %s operation %q: %+v", operation.httpMethod, operation.uri, err)
 		}
 		if nestedResult != nil {
-			if err := result.append(*nestedResult); err != nil {
+			if err := result.Append(*nestedResult); err != nil {
 				return nil, nil, fmt.Errorf("appending nestedResult: %+v", err)
 			}
 		}
@@ -70,10 +72,10 @@ func (d *SwaggerDefinition) parseOperationsWithinTag(tag *string, resourceUriToM
 	return &operations, &result, nil
 }
 
-func (p operationsParser) parseOperation(operation parsedOperation) (*models.OperationDetails, *parseResult, error) {
-	result := parseResult{
-		constants: map[string]models.ConstantDetails{},
-		models:    map[string]models.ModelDetails{},
+func (p operationsParser) parseOperation(operation parsedOperation) (*models.OperationDetails, *internal.ParseResult, error) {
+	result := internal.ParseResult{
+		Constants: map[string]models.ConstantDetails{},
+		Models:    map[string]models.ModelDetails{},
 	}
 
 	normalizedUri, err := p.normalizedUriForOperation(operation)
@@ -88,7 +90,7 @@ func (p operationsParser) parseOperation(operation parsedOperation) (*models.Ope
 		return nil, nil, fmt.Errorf("determining request operation for %q (method %q / uri %q): %+v", operation.name, operation.httpMethod, *normalizedUri, err)
 	}
 	if nestedResult != nil {
-		if err := result.append(*nestedResult); err != nil {
+		if err := result.Append(*nestedResult); err != nil {
 			return nil, nil, fmt.Errorf("appending nestedResult: %+v", err)
 		}
 	}
@@ -98,7 +100,7 @@ func (p operationsParser) parseOperation(operation parsedOperation) (*models.Ope
 		return nil, nil, fmt.Errorf("determining response operation for %q (method %q / uri %q): %+v", operation.name, operation.httpMethod, *normalizedUri, err)
 	}
 	if nestedResult != nil {
-		if err := result.append(*nestedResult); err != nil {
+		if err := result.Append(*nestedResult); err != nil {
 			return nil, nil, fmt.Errorf("appending nestedResult: %+v", err)
 		}
 	}
@@ -112,7 +114,7 @@ func (p operationsParser) parseOperation(operation parsedOperation) (*models.Ope
 		return nil, nil, fmt.Errorf("building options for operation %q: %+v", operation.name, err)
 	}
 	if nestedResult != nil {
-		if err := result.append(*nestedResult); err != nil {
+		if err := result.Append(*nestedResult); err != nil {
 			return nil, nil, fmt.Errorf("appending nestedResult: %+v", err)
 		}
 	}
@@ -128,10 +130,10 @@ func (p operationsParser) parseOperation(operation parsedOperation) (*models.Ope
 		Method:                           strings.ToUpper(operation.httpMethod),
 		Options:                          *options,
 		RequestObject:                    requestObject,
-		ResourceIdName:                   resourceId.resourceIdName,
+		ResourceIdName:                   resourceId.ResourceIdName,
 		ResponseObject:                   responseResult.objectDefinition,
 		Uri:                              *normalizedUri,
-		UriSuffix:                        resourceId.uriSuffix,
+		UriSuffix:                        resourceId.UriSuffix,
 	}
 
 	if p.operationShouldBeIgnored(operationData) {
@@ -298,10 +300,10 @@ func (p operationsParser) operationIsLongRunning(input parsedOperation) bool {
 	return val
 }
 
-func (p operationsParser) optionsForOperation(input parsedOperation) (*map[string]models.OperationOption, *parseResult, error) {
+func (p operationsParser) optionsForOperation(input parsedOperation) (*map[string]models.OperationOption, *internal.ParseResult, error) {
 	output := make(map[string]models.OperationOption)
-	result := parseResult{
-		constants: map[string]models.ConstantDetails{},
+	result := internal.ParseResult{
+		Constants: map[string]models.ConstantDetails{},
 	}
 
 	for _, param := range input.operation.Parameters {
@@ -352,7 +354,7 @@ func (p operationsParser) optionsForOperation(input parsedOperation) (*map[strin
 				if err != nil {
 					return nil, nil, fmt.Errorf("mapping %q: %+v", param.Name, err)
 				}
-				result.constants[constant.Name] = constant.Details
+				result.Constants[constant.Name] = constant.Details
 
 				option.ObjectDefinition = &models.ObjectDefinition{
 					Type:          models.ObjectDefinitionReference,
@@ -393,7 +395,7 @@ func (p operationsParser) normalizedUriForOperation(input parsedOperation) (*str
 	return nil, fmt.Errorf("%q was not found in the normalized uri list", input.uri)
 }
 
-func (p operationsParser) requestObjectForOperation(input parsedOperation, known parseResult) (*models.ObjectDefinition, *parseResult, error) {
+func (p operationsParser) requestObjectForOperation(input parsedOperation, known internal.ParseResult) (*models.ObjectDefinition, *internal.ParseResult, error) {
 	// all we should parse out is the top level object - nothing more.
 
 	// find the same operation in the unexpanded swagger spec since we need the reference name
@@ -434,13 +436,13 @@ func (p operationsParser) operationIsASuccess(statusCode int, resp spec.Response
 	return statusCode >= 200 && statusCode < 300
 }
 
-func (p operationsParser) responseObjectForOperation(input parsedOperation, known parseResult) (*operationResponseObjectResult, *parseResult, error) {
+func (p operationsParser) responseObjectForOperation(input parsedOperation, known internal.ParseResult) (*operationResponseObjectResult, *internal.ParseResult, error) {
 	output := operationResponseObjectResult{}
-	result := parseResult{
-		constants: map[string]models.ConstantDetails{},
-		models:    map[string]models.ModelDetails{},
+	result := internal.ParseResult{
+		Constants: map[string]models.ConstantDetails{},
+		Models:    map[string]models.ModelDetails{},
 	}
-	result.append(known)
+	result.Append(known)
 
 	// find the same operation in the unexpanded swagger spec since we need the reference name
 	_, _, unexpandedOperation, found := p.swaggerDefinition.swaggerSpecWithReferences.OperationForName(input.operation.ID)
@@ -462,7 +464,7 @@ func (p operationsParser) responseObjectForOperation(input parsedOperation, know
 			return nil, nil, fmt.Errorf("parsing response object from status code %d: %+v", statusCode, err)
 		}
 		output.objectDefinition = objectDefinition
-		result.append(*nestedResult)
+		result.Append(*nestedResult)
 	}
 
 	return &output, &result, nil

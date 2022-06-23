@@ -1,6 +1,7 @@
 package parser
 
 import (
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser/internal"
 	"strings"
 
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
@@ -14,13 +15,13 @@ func (legacySystemAndUserAssignedIdentityListMatcher) customFieldType() models.C
 	return models.CustomFieldTypeLegacySystemAndUserAssignedIdentityList
 }
 
-func (legacySystemAndUserAssignedIdentityListMatcher) isMatch(field models.FieldDetails, definition models.ObjectDefinition, known parseResult) bool {
+func (legacySystemAndUserAssignedIdentityListMatcher) isMatch(field models.FieldDetails, definition models.ObjectDefinition, known internal.ParseResult) bool {
 	if definition.Type != models.ObjectDefinitionReference {
 		return false
 	}
 
 	// retrieve the model from the reference
-	model, ok := known.models[*definition.ReferenceName]
+	model, ok := known.Models[*definition.ReferenceName]
 	if !ok {
 		return false
 	}
@@ -58,7 +59,7 @@ func (legacySystemAndUserAssignedIdentityListMatcher) isMatch(field models.Field
 			if fieldVal.ObjectDefinition == nil || fieldVal.ObjectDefinition.Type != models.ObjectDefinitionReference {
 				continue
 			}
-			constant, ok := known.constants[*fieldVal.ObjectDefinition.ReferenceName]
+			constant, ok := known.Constants[*fieldVal.ObjectDefinition.ReferenceName]
 			if !ok {
 				continue
 			}

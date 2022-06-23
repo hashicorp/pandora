@@ -17,7 +17,7 @@ func ParseSwaggerFileForTesting(t *testing.T, file string) (*models.AzureApiDefi
 		t.Fatalf("parsing Resource Ids: %+v", err)
 	}
 
-	if err := resourceIds.generateNames(); err != nil {
+	if err := resourceIds.GenerateNames(); err != nil {
 		t.Fatalf("generating Resource Ids: %+v", err)
 	}
 

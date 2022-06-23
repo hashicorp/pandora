@@ -1,6 +1,7 @@
 package parser
 
 import (
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser/internal"
 	"strings"
 
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
@@ -14,13 +15,13 @@ func (legacySystemAndUserAssignedIdentityMapMatcher) customFieldType() models.Cu
 	return models.CustomFieldTypeLegacySystemAndUserAssignedIdentityMap
 }
 
-func (legacySystemAndUserAssignedIdentityMapMatcher) isMatch(field models.FieldDetails, definition models.ObjectDefinition, known parseResult) bool {
+func (legacySystemAndUserAssignedIdentityMapMatcher) isMatch(field models.FieldDetails, definition models.ObjectDefinition, known internal.ParseResult) bool {
 	if definition.Type != models.ObjectDefinitionReference {
 		return false
 	}
 
 	// retrieve the model from the reference
-	model, ok := known.models[*definition.ReferenceName]
+	model, ok := known.Models[*definition.ReferenceName]
 	if !ok {
 		return false
 	}
@@ -50,7 +51,7 @@ func (legacySystemAndUserAssignedIdentityMapMatcher) isMatch(field models.FieldD
 				continue
 			}
 
-			inlinedModel, ok := known.models[*fieldVal.ObjectDefinition.NestedItem.ReferenceName]
+			inlinedModel, ok := known.Models[*fieldVal.ObjectDefinition.NestedItem.ReferenceName]
 			if !ok {
 				continue
 			}
@@ -94,7 +95,7 @@ func (legacySystemAndUserAssignedIdentityMapMatcher) isMatch(field models.FieldD
 			if fieldVal.ObjectDefinition == nil || fieldVal.ObjectDefinition.Type != models.ObjectDefinitionReference {
 				continue
 			}
-			constant, ok := known.constants[*fieldVal.ObjectDefinition.ReferenceName]
+			constant, ok := known.Constants[*fieldVal.ObjectDefinition.ReferenceName]
 			if !ok {
 				continue
 			}

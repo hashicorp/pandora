@@ -1,6 +1,7 @@
 package parser
 
 import (
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser/internal"
 	"reflect"
 	"strings"
 
@@ -15,13 +16,13 @@ func (systemDataMatcher) customFieldType() models.CustomFieldType {
 	return models.CustomFieldTypeSystemData
 }
 
-func (systemDataMatcher) isMatch(_ models.FieldDetails, definition models.ObjectDefinition, known parseResult) bool {
+func (systemDataMatcher) isMatch(_ models.FieldDetails, definition models.ObjectDefinition, known internal.ParseResult) bool {
 	if definition.Type != models.ObjectDefinitionReference {
 		return false
 	}
 
 	// retrieve the model from the reference
-	model, ok := known.models[*definition.ReferenceName]
+	model, ok := known.Models[*definition.ReferenceName]
 	if !ok {
 		return false
 	}
@@ -74,7 +75,7 @@ func (systemDataMatcher) isMatch(_ models.FieldDetails, definition models.Object
 					"ManagedIdentity": "ManagedIdentity",
 					"Key":             "Key",
 				}
-				constant, ok := known.constants[*fieldVal.ObjectDefinition.ReferenceName]
+				constant, ok := known.Constants[*fieldVal.ObjectDefinition.ReferenceName]
 				if !ok {
 					continue
 				}
@@ -102,7 +103,7 @@ func (systemDataMatcher) isMatch(_ models.FieldDetails, definition models.Object
 					"ManagedIdentity": "ManagedIdentity",
 					"Key":             "Key",
 				}
-				constant, ok := known.constants[*fieldVal.ObjectDefinition.ReferenceName]
+				constant, ok := known.Constants[*fieldVal.ObjectDefinition.ReferenceName]
 				if !ok {
 					continue
 				}

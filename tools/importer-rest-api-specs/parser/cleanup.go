@@ -1,17 +1,18 @@
 package parser
 
 import (
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser/internal"
 	"strings"
 
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
-func removeUnusedItems(operations map[string]models.OperationDetails, resourceIds map[string]models.ParsedResourceId, result parseResult) (parseResult, map[string]models.ParsedResourceId) {
+func removeUnusedItems(operations map[string]models.OperationDetails, resourceIds map[string]models.ParsedResourceId, result internal.ParseResult) (internal.ParseResult, map[string]models.ParsedResourceId) {
 	unusedModels := findUnusedModels(operations, result)
 	for len(unusedModels) > 0 {
 		// remove those models
 		for _, modelName := range unusedModels {
-			delete(result.models, modelName)
+			delete(result.Models, modelName)
 		}
 
 		// then go around again
@@ -22,7 +23,7 @@ func removeUnusedItems(operations map[string]models.OperationDetails, resourceId
 	for len(unusedConstants) > 0 {
 		// remove those constants
 		for _, constantName := range unusedConstants {
-			delete(result.constants, constantName)
+			delete(result.Constants, constantName)
 		}
 
 		// then go around again
@@ -47,12 +48,12 @@ func removeUnusedItems(operations map[string]models.OperationDetails, resourceId
 	return result, resourceIdsForThisResource
 }
 
-func findUnusedConstants(operations map[string]models.OperationDetails, resourceIds map[string]models.ParsedResourceId, result parseResult) []string {
+func findUnusedConstants(operations map[string]models.OperationDetails, resourceIds map[string]models.ParsedResourceId, result internal.ParseResult) []string {
 	unusedConstants := make(map[string]struct{}, 0)
-	for constantName := range result.constants {
+	for constantName := range result.Constants {
 		// constants are either housed inside a Model
 		usedInAModel := false
-		for _, model := range result.models {
+		for _, model := range result.Models {
 			for _, field := range model.Fields {
 				if field.ObjectDefinition == nil {
 					continue
@@ -144,9 +145,9 @@ func findUnusedConstants(operations map[string]models.OperationDetails, resource
 	return out
 }
 
-func findUnusedModels(operations map[string]models.OperationDetails, result parseResult) []string {
+func findUnusedModels(operations map[string]models.OperationDetails, result internal.ParseResult) []string {
 	unusedModels := make(map[string]struct{}, 0)
-	for modelName, model := range result.models {
+	for modelName, model := range result.Models {
 		// models are either referenced by operations
 		usedInAnOperation := false
 		for _, operation := range operations {
@@ -188,7 +189,7 @@ func findUnusedModels(operations map[string]models.OperationDetails, result pars
 
 		// or on other models
 		usedInAModel := false
-		for thisModelName, thisModel := range result.models {
+		for thisModelName, thisModel := range result.Models {
 			if thisModelName == modelName {
 				continue
 			}

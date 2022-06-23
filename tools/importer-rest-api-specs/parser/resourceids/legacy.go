@@ -1,9 +1,10 @@
-package parser
+package resourceids
 
 import (
 	"fmt"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser/constants"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/featureflags"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser/constants"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser/internal"
 	"log"
 	"sort"
 	"strings"
@@ -14,42 +15,42 @@ import (
 )
 
 var knownSegmentsUsedForScope = []string{
-	"resourceId",
+	"ResourceId",
 	"resourceScope",
 	"resourceUri",
 	"scope",
 	"scopePath",
 }
 
-type resourceIdParseResult struct {
-	// nameToResourceIDs is a map[name]ParsedResourceID containing information about the Resource ID's
-	nameToResourceIDs map[string]models.ParsedResourceId
+type ResourceIdParseResult struct {
+	// NameToResourceIDs is a map[name]ParsedResourceID containing information about the Resource ID's
+	NameToResourceIDs map[string]models.ParsedResourceId
 
-	// nestedResult contains any constants and models found when parsing these ID's
-	nestedResult parseResult
+	// NestedResult contains any constants and models found when parsing these ID's
+	NestedResult internal.ParseResult
 
-	// resourceUriMetadata is a map[uri]resourceUriMetadata for the Resource ID reference & any suffix
-	resourceUrisToMetadata map[string]resourceUriMetadata
+	// ResourceUriMetadata is a map[uri]ResourceUriMetadata for the Resource ID reference & any suffix
+	ResourceUrisToMetadata map[string]ResourceUriMetadata
 }
 
-func (result *resourceIdParseResult) append(other resourceIdParseResult) error {
-	if err := result.nestedResult.append(other.nestedResult); err != nil {
+func (result *ResourceIdParseResult) Append(other ResourceIdParseResult) error {
+	if err := result.NestedResult.Append(other.NestedResult); err != nil {
 		return fmt.Errorf("appending other nestedResult: %+v", err)
 	}
 
-	out := make(map[string]resourceUriMetadata)
+	out := make(map[string]ResourceUriMetadata)
 	// intentional since this can be nil
-	for k, v := range result.resourceUrisToMetadata {
+	for k, v := range result.ResourceUrisToMetadata {
 		out[k] = v
 	}
-	for k, v := range other.resourceUrisToMetadata {
+	for k, v := range other.ResourceUrisToMetadata {
 		if existingVal, existing := out[k]; existing {
 			matches := false
 
-			if v.resourceId != nil && existingVal.resourceId != nil && v.resourceId.Matches(*existingVal.resourceId) {
+			if v.ResourceId != nil && existingVal.ResourceId != nil && v.ResourceId.Matches(*existingVal.ResourceId) {
 				matches = true
 			}
-			if v.uriSuffix != nil && existingVal.uriSuffix != nil && *v.uriSuffix == *existingVal.uriSuffix {
+			if v.UriSuffix != nil && existingVal.UriSuffix != nil && *v.UriSuffix == *existingVal.UriSuffix {
 				matches = true
 			}
 
@@ -61,96 +62,96 @@ func (result *resourceIdParseResult) append(other resourceIdParseResult) error {
 
 		out[k] = v
 	}
-	result.resourceUrisToMetadata = out
+	result.ResourceUrisToMetadata = out
 
 	return nil
 }
 
-func (result *resourceIdParseResult) generateNames() error {
+func (result *ResourceIdParseResult) GenerateNames() error {
 	// next determine names for these
-	namesToResourceUris, urisToNames, err := determineNamesForResourceIds(result.resourceUrisToMetadata)
+	namesToResourceUris, urisToNames, err := LegacyDetermineNamesForResourceIds(result.ResourceUrisToMetadata)
 	if err != nil {
 		return fmt.Errorf("determining names for Resource ID's: %+v", err)
 	}
-	result.nameToResourceIDs = *namesToResourceUris
+	result.NameToResourceIDs = *namesToResourceUris
 
 	// finally go over the existing results and swap out the Resource ID objects for the Name which should be used
-	urisToMetadata, err := mapNamesToResourceIds(*urisToNames, result.resourceUrisToMetadata)
+	urisToMetadata, err := mapNamesToResourceIds(*urisToNames, result.ResourceUrisToMetadata)
 	if err != nil {
 		return fmt.Errorf("mapping names back to Resource ID's: %+v", err)
 	}
-	result.resourceUrisToMetadata = *urisToMetadata
+	result.ResourceUrisToMetadata = *urisToMetadata
 
 	return nil
 }
 
-type resourceUriMetadata struct {
-	// resourceIdName is the name of the ResourceID object, available once the unique names have been
+type ResourceUriMetadata struct {
+	// ResourceIdName is the name of the ResourceID object, available once the unique names have been
 	// identified (if there's a Resource ID)
-	resourceIdName *string
+	ResourceIdName *string
 
-	// resourceId is the parsed Resource ID object, if any
-	resourceId *models.ParsedResourceId
+	// ResourceId is the parsed Resource ID object, if any
+	ResourceId *models.ParsedResourceId
 
-	// uriSuffix is any suffix which should be applied to the URI
-	uriSuffix *string
+	// UriSuffix is any suffix which should be applied to the URI
+	UriSuffix *string
 }
 
-func (d *SwaggerDefinition) findResourceIds() (*resourceIdParseResult, error) {
-	result := resourceIdParseResult{
-		nestedResult: parseResult{
-			constants: map[string]models.ConstantDetails{},
+func (p *Parser) LegacyFindResourceIds() (*ResourceIdParseResult, error) {
+	result := ResourceIdParseResult{
+		NestedResult: internal.ParseResult{
+			Constants: map[string]models.ConstantDetails{},
 		},
 
-		nameToResourceIDs:      map[string]models.ParsedResourceId{},
-		resourceUrisToMetadata: map[string]resourceUriMetadata{},
+		NameToResourceIDs:      map[string]models.ParsedResourceId{},
+		ResourceUrisToMetadata: map[string]ResourceUriMetadata{},
 	}
 
 	// first get a list of all of the Resource ID's present in these operations
 	// where a Suffix is present on a Resource ID, we'll have 2 entries for the Suffix and the Resource ID directly
-	urisToMetadata, nestedResult, err := d.parseResourceIds()
+	urisToMetadata, nestedResult, err := p.parseResourceIds()
 	if err != nil {
 		return nil, fmt.Errorf("parsing Resource ID's from Operations: %+v", err)
 	}
-	result.resourceUrisToMetadata = *urisToMetadata
-	result.nestedResult = *nestedResult
+	result.ResourceUrisToMetadata = *urisToMetadata
+	result.NestedResult = *nestedResult
 
 	return &result, nil
 }
 
-func (d SwaggerDefinition) parseResourceIds() (*map[string]resourceUriMetadata, *parseResult, error) {
-	result := parseResult{
-		constants: map[string]models.ConstantDetails{},
+func (p Parser) parseResourceIds() (*map[string]ResourceUriMetadata, *internal.ParseResult, error) {
+	result := internal.ParseResult{
+		Constants: map[string]models.ConstantDetails{},
 	}
-	urisToMetaData := make(map[string]resourceUriMetadata, 0)
+	urisToMetaData := make(map[string]ResourceUriMetadata, 0)
 
-	for _, operation := range d.swaggerSpecExpanded.Operations() {
+	for _, operation := range p.swaggerSpecExpanded.Operations() {
 		for uri, operationDetails := range operation {
-			if operationShouldBeIgnored(uri) {
+			if internal.OperationShouldBeIgnored(uri) {
 				continue
 			}
 
-			metadata, err := d.parseResourceIdFromOperation(uri, operationDetails)
+			metadata, err := parseResourceIdFromOperation(uri, operationDetails)
 			if err != nil {
 				return nil, nil, fmt.Errorf("parsing %q: %+v", uri, err)
 			}
 
 			// next, if it's based on a Resource ID, let's ensure that's added too
 			resourceUri := uri
-			if metadata.resourceId != nil {
-				if err := result.appendConstants(metadata.resourceId.Constants); err != nil {
+			if metadata.ResourceId != nil {
+				if err := result.AppendConstants(metadata.ResourceId.Constants); err != nil {
 					return nil, nil, fmt.Errorf("appending constants from resource id for %s: %+v", uri, err)
 				}
 
-				resourceManagerUri := metadata.resourceId.NormalizedResourceManagerResourceId()
+				resourceManagerUri := metadata.ResourceId.NormalizedResourceManagerResourceId()
 				if strings.EqualFold(resourceUri, resourceManagerUri) {
 					// if it's been rewritten (e.g. the RP name fixed) replace the original URI
 					resourceUri = resourceManagerUri
 				} else {
-					urisToMetaData[resourceManagerUri] = resourceUriMetadata{
-						resourceIdName: metadata.resourceIdName,
-						resourceId:     metadata.resourceId,
-						uriSuffix:      nil,
+					urisToMetaData[resourceManagerUri] = ResourceUriMetadata{
+						ResourceIdName: metadata.ResourceIdName,
+						ResourceId:     metadata.ResourceId,
+						UriSuffix:      nil,
 					}
 				}
 			}
@@ -161,11 +162,11 @@ func (d SwaggerDefinition) parseResourceIds() (*map[string]resourceUriMetadata, 
 	return &urisToMetaData, &result, nil
 }
 
-func (d *SwaggerDefinition) parseResourceIdFromOperation(uri string, operationDetails *spec.Operation) (*resourceUriMetadata, error) {
+func parseResourceIdFromOperation(uri string, operationDetails *spec.Operation) (*ResourceUriMetadata, error) {
 	// TODO: unit tests for this method too
 	segments := make([]models.ResourceIdSegment, 0)
-	result := parseResult{
-		constants: map[string]models.ConstantDetails{},
+	result := internal.ParseResult{
+		Constants: map[string]models.ConstantDetails{},
 	}
 
 	uriSegments := strings.Split(strings.TrimPrefix(uri, "/"), "/")
@@ -246,7 +247,7 @@ func (d *SwaggerDefinition) parseResourceIdFromOperation(uri string, operationDe
 						if err != nil {
 							return nil, fmt.Errorf("parsing constant from %q: %+v", uriSegment, err)
 						}
-						result.constants[constant.Name] = constant.Details
+						result.Constants[constant.Name] = constant.Details
 						segments = append(segments, models.ResourceIdSegment{
 							Type:              models.ConstantSegment,
 							Name:              normalizedSegment,
@@ -294,9 +295,9 @@ func (d *SwaggerDefinition) parseResourceIdFromOperation(uri string, operationDe
 		})
 	}
 
-	output := resourceUriMetadata{
-		resourceIdName: nil,
-		uriSuffix:      nil,
+	output := ResourceUriMetadata{
+		ResourceIdName: nil,
+		UriSuffix:      nil,
 	}
 
 	// UriSuffixes are "operations" on a given Resource ID/URI - for example `/restart`
@@ -315,7 +316,7 @@ func (d *SwaggerDefinition) parseResourceIdFromOperation(uri string, operationDe
 		for _, segment := range segments[lastUserValueSegment+1:] {
 			suffix += fmt.Sprintf("/%s", *segment.FixedValue)
 		}
-		output.uriSuffix = &suffix
+		output.UriSuffix = &suffix
 
 		// remove any URI Suffix since this isn't relevant for the ID's
 		segments = segments[0 : lastUserValueSegment+1]
@@ -332,14 +333,14 @@ func (d *SwaggerDefinition) parseResourceIdFromOperation(uri string, operationDe
 		// if it's not an ARM ID there's nothing to output here, but new up a placeholder
 		// to be able to give us a normalized id for the suffix
 		pri := models.ParsedResourceId{
-			Constants: result.constants,
+			Constants: result.Constants,
 			Segments:  segments,
 		}
 		suffix := pri.NormalizedResourceId()
-		output.uriSuffix = &suffix
+		output.UriSuffix = &suffix
 	} else {
-		output.resourceId = &models.ParsedResourceId{
-			Constants: result.constants,
+		output.ResourceId = &models.ParsedResourceId{
+			Constants: result.Constants,
 			Segments:  segments,
 		}
 	}
@@ -349,14 +350,14 @@ func (d *SwaggerDefinition) parseResourceIdFromOperation(uri string, operationDe
 	for _, segment := range segments {
 		uniqueNames[segment.Name] = struct{}{}
 	}
-	if len(uniqueNames) != len(segments) && output.resourceId != nil {
+	if len(uniqueNames) != len(segments) && output.ResourceId != nil {
 		log.Printf("[DEBUG] Determining Unique Names for Segments..")
 		uniquelyNamedSegments, err := determineUniqueNamesForSegments(segments)
 		if err != nil {
 			return nil, fmt.Errorf("determining unique names for the segments as multiple have the same key: %+v", err)
 		}
 
-		output.resourceId.Segments = *uniquelyNamedSegments
+		output.ResourceId.Segments = *uniquelyNamedSegments
 	}
 
 	return &output, nil
@@ -391,6 +392,7 @@ func normalizeSegment(input string) string {
 	output = cleanup.NormalizeSegment(output, true)
 	// the names should always be camelCased, so let's be sure
 	output = fmt.Sprintf("%s%s", strings.ToLower(string(output[0])), output[1:])
+
 	if featureflags.ShouldReservedKeywordsBeNormalized {
 		output = cleanup.NormalizeReservedKeywords(output)
 	}
@@ -398,8 +400,8 @@ func normalizeSegment(input string) string {
 	return output
 }
 
-// determineNamesForResourceIds returns a map[name]ParsedResourceID and map[Uri]Name based on the Resource Manager URI's available
-func determineNamesForResourceIds(urisToObjects map[string]resourceUriMetadata) (*map[string]models.ParsedResourceId, *map[string]string, error) {
+// LegacyDetermineNamesForResourceIds returns a map[name]ParsedResourceID and map[Uri]Name based on the Resource Manager URI's available
+func LegacyDetermineNamesForResourceIds(urisToObjects map[string]ResourceUriMetadata) (*map[string]models.ParsedResourceId, *map[string]string, error) {
 	// now that we have all of the Resource ID's, we then need to go through and determine Unique ID's for those
 	// we need all of them here to avoid conflicts, e.g. AuthorizationRule which can be a NamespaceAuthorizationRule
 	// or an EventHubAuthorizationRule, but is named AuthorizationRule in both
@@ -409,24 +411,24 @@ func determineNamesForResourceIds(urisToObjects map[string]resourceUriMetadata) 
 	uniqueUris := make(map[string]struct{}, 0)
 	for uri, resourceId := range urisToObjects {
 		// if it's just a suffix (e.g. root-level ListAll calls) iterate over it
-		if resourceId.resourceId == nil {
+		if resourceId.ResourceId == nil {
 			continue
 		}
 
 		// when there's a Uri Suffix we should pass in both the full uri and just the resource manager uri so we can
 		// skip it if this is a full uri (with a suffix), since the name comes from the resource manager uri instead
-		if resourceId.uriSuffix != nil {
+		if resourceId.UriSuffix != nil {
 			continue
 		}
 
 		// if the resourceid matches one that we've already got, then skip it
 		matches := false
 		for otherUri, otherResourceId := range urisToObjects {
-			if uri == otherUri || otherResourceId.resourceId == nil {
+			if uri == otherUri || otherResourceId.ResourceId == nil {
 				continue
 			}
 
-			if resourceId.resourceId.Matches(*otherResourceId.resourceId) {
+			if resourceId.ResourceId.Matches(*otherResourceId.ResourceId) {
 				if _, otherUriIsParsed := uniqueUris[otherUri]; otherUriIsParsed {
 					matches = true
 					break
@@ -454,39 +456,39 @@ func determineNamesForResourceIds(urisToObjects map[string]resourceUriMetadata) 
 	for _, uri := range sortedUris {
 		resourceId := urisToObjects[uri]
 
-		if aliasName := checkForAliasForUri(resourceId.resourceId); aliasName != nil {
-			candidateNamesToUris[*aliasName] = *resourceId.resourceId
+		if aliasName := checkForAliasForUri(resourceId.ResourceId); aliasName != nil {
+			candidateNamesToUris[*aliasName] = *resourceId.ResourceId
 			continue
 		}
 
 		// NOTE: these are returned sorted from right to left in URI's, since they're assumed to be hierarchical
-		segmentsAvailableForNaming := resourceId.resourceId.SegmentsAvailableForNaming()
+		segmentsAvailableForNaming := resourceId.ResourceId.SegmentsAvailableForNaming()
 		if len(segmentsAvailableForNaming) == 0 {
 			return nil, nil, fmt.Errorf("the uri %q has no segments available for naming", uri)
 		}
 
 		candidateSegmentName := segmentsAvailableForNaming[0]
-		if resourceId.resourceId.Segments[0].Type == models.ScopeSegment && len(resourceId.resourceId.Segments) > 1 {
+		if resourceId.ResourceId.Segments[0].Type == models.ScopeSegment && len(resourceId.ResourceId.Segments) > 1 {
 			candidateSegmentName = fmt.Sprintf("Scoped%s", candidateSegmentName)
 		}
 		candidateSegmentName = cleanup.NormalizeSegment(candidateSegmentName, false)
 
 		// if we have an existing conflicting key, let's add this to that
 		if uris, existing := conflictingNamesToUris[candidateSegmentName]; existing {
-			uris = append(uris, *resourceId.resourceId)
+			uris = append(uris, *resourceId.ResourceId)
 			conflictingNamesToUris[candidateSegmentName] = uris
 			continue
 		}
 
 		// if there's an existing candidate name for this key, move both this URI and that one to the Conflicts
 		if existingUri, existing := candidateNamesToUris[candidateSegmentName]; existing {
-			conflictingNamesToUris[candidateSegmentName] = []models.ParsedResourceId{existingUri, *resourceId.resourceId}
+			conflictingNamesToUris[candidateSegmentName] = []models.ParsedResourceId{existingUri, *resourceId.ResourceId}
 			delete(candidateNamesToUris, candidateSegmentName)
 			continue
 		}
 
 		// otherwise we have a candidate name we should be able to use, so let's run with it
-		candidateNamesToUris[candidateSegmentName] = *resourceId.resourceId
+		candidateNamesToUris[candidateSegmentName] = *resourceId.ResourceId
 	}
 
 	// now we need to fix the conflicts
@@ -625,28 +627,28 @@ func determineUniqueNamesFor(conflictingUris []models.ParsedResourceId, existing
 	return &proposedNames, nil
 }
 
-func mapNamesToResourceIds(urisToNames map[string]string, urisToMetadata map[string]resourceUriMetadata) (*map[string]resourceUriMetadata, error) {
-	output := make(map[string]resourceUriMetadata, 0)
+func mapNamesToResourceIds(urisToNames map[string]string, urisToMetadata map[string]ResourceUriMetadata) (*map[string]ResourceUriMetadata, error) {
+	output := make(map[string]ResourceUriMetadata, 0)
 
 	for uri, metadata := range urisToMetadata {
 		// ID's with just Suffixes are valid and won't have an ID Type, so skip those
-		if metadata.resourceId == nil {
+		if metadata.ResourceId == nil {
 			output[uri] = metadata
 			continue
 		}
 
-		name, ok := urisToNames[metadata.resourceId.NormalizedResourceManagerResourceId()]
+		name, ok := urisToNames[metadata.ResourceId.NormalizedResourceManagerResourceId()]
 		if !ok {
 			// there must be a Resource ID for the same Uri with different user specifiable segments
 			// so we'll need to loop around urisToMetadata to find it, where the uri != this uri
 			for otherUri, otherMetadata := range urisToMetadata {
-				if otherUri == uri || otherMetadata.resourceId == nil {
+				if otherUri == uri || otherMetadata.ResourceId == nil {
 					continue
 				}
 
-				// is it the same Resource ID with a different casing - or is it the same without the uriSuffix
-				if metadata.resourceId.Matches(*otherMetadata.resourceId) {
-					otherName, ok := urisToNames[otherMetadata.resourceId.NormalizedResourceManagerResourceId()]
+				// is it the same Resource ID with a different casing - or is it the same without the UriSuffix
+				if metadata.ResourceId.Matches(*otherMetadata.ResourceId) {
+					otherName, ok := urisToNames[otherMetadata.ResourceId.NormalizedResourceManagerResourceId()]
 					if !ok {
 						continue
 					}
@@ -660,17 +662,17 @@ func mapNamesToResourceIds(urisToNames map[string]string, urisToMetadata map[str
 			}
 		}
 
-		output[metadata.resourceId.NormalizedResourceManagerResourceId()] = resourceUriMetadata{
-			resourceIdName: &name,
+		output[metadata.ResourceId.NormalizedResourceManagerResourceId()] = ResourceUriMetadata{
+			ResourceIdName: &name,
 			// intentionally don't map over the UriSuffix since this is handled below
 		}
 
 		// when there's a suffix, we need to output the full uri in the map too
-		if metadata.uriSuffix != nil {
-			metadata.resourceIdName = &name
-			output[uri] = resourceUriMetadata{
-				resourceIdName: &name,
-				uriSuffix:      metadata.uriSuffix,
+		if metadata.UriSuffix != nil {
+			metadata.ResourceIdName = &name
+			output[uri] = ResourceUriMetadata{
+				ResourceIdName: &name,
+				UriSuffix:      metadata.UriSuffix,
 			}
 		}
 	}

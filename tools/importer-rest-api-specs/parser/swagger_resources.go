@@ -3,6 +3,8 @@ package parser
 import (
 	"fmt"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser/constants"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser/internal"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser/resourceids"
 	"log"
 	"strings"
 
@@ -10,23 +12,23 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
-func (d *SwaggerDefinition) parseResourcesWithinSwaggerTag(tag *string, resourceIds resourceIdParseResult) (*models.AzureApiResource, error) {
-	result := parseResult{
-		constants: map[string]models.ConstantDetails{},
-		models:    map[string]models.ModelDetails{},
+func (d *SwaggerDefinition) parseResourcesWithinSwaggerTag(tag *string, resourceIds resourceids.ResourceIdParseResult) (*models.AzureApiResource, error) {
+	result := internal.ParseResult{
+		Constants: map[string]models.ConstantDetails{},
+		Models:    map[string]models.ModelDetails{},
 	}
 
 	// note that Resource ID's can contain Constants (used as segments)
-	if err := result.append(resourceIds.nestedResult); err != nil {
+	if err := result.Append(resourceIds.NestedResult); err != nil {
 		return nil, fmt.Errorf("appending nestedResult from Constants: %+v", err)
 	}
 
 	// pull out the operations and any inlined/top-level constants/models
-	operations, nestedResult, err := d.parseOperationsWithinTag(tag, resourceIds.resourceUrisToMetadata, result)
+	operations, nestedResult, err := d.parseOperationsWithinTag(tag, resourceIds.ResourceUrisToMetadata, result)
 	if err != nil {
 		return nil, fmt.Errorf("finding operations: %+v", err)
 	}
-	if err := result.append(*nestedResult); err != nil {
+	if err := result.Append(*nestedResult); err != nil {
 		return nil, fmt.Errorf("appending nestedResult from Operations: %+v", err)
 	}
 
@@ -35,7 +37,7 @@ func (d *SwaggerDefinition) parseResourcesWithinSwaggerTag(tag *string, resource
 	if err != nil {
 		return nil, fmt.Errorf("finding nested items yet to be parsed: %+v", err)
 	}
-	if err := result.append(*nestedResult); err != nil {
+	if err := result.Append(*nestedResult); err != nil {
 		return nil, fmt.Errorf("appending nestedResult from Models used by existing Items: %+v", err)
 	}
 
@@ -49,7 +51,7 @@ func (d *SwaggerDefinition) parseResourcesWithinSwaggerTag(tag *string, resource
 	result = switchOutCustomTypesAsNeeded(result)
 
 	// then switch out any common resource ids (e.g. Resource Group)
-	resourceIdNamesToUris := switchOutCommonResourceIDsAsNeeded(resourceIds.nameToResourceIDs)
+	resourceIdNamesToUris := switchOutCommonResourceIDsAsNeeded(resourceIds.NameToResourceIDs)
 
 	nestedResult, err = d.replaceDiscriminatedTypesWithParents(*nestedResult)
 	if err != nil {
@@ -65,8 +67,8 @@ func (d *SwaggerDefinition) parseResourcesWithinSwaggerTag(tag *string, resource
 	}
 
 	resource := models.AzureApiResource{
-		Constants:   constantsAndModels.constants,
-		Models:      constantsAndModels.models,
+		Constants:   constantsAndModels.Constants,
+		Models:      constantsAndModels.Models,
 		Operations:  *operations,
 		ResourceIds: resourceIdNamesToUris,
 	}
@@ -99,7 +101,7 @@ func switchOutCommonResourceIDsAsNeeded(namesToUris map[string]models.ParsedReso
 	return output
 }
 
-func pullOutModelForListOperations(input map[string]models.OperationDetails, known parseResult) (*map[string]models.OperationDetails, error) {
+func pullOutModelForListOperations(input map[string]models.OperationDetails, known internal.ParseResult) (*map[string]models.OperationDetails, error) {
 	// List Operations return an object which contains a NextLink and a Value (which is the actual Object
 	// being paginated on) - so we want to replace the wrapper object with the Value so that these can be
 	// paginated correctly as needed.
@@ -125,7 +127,7 @@ func pullOutModelForListOperations(input map[string]models.OperationDetails, kno
 		modelName := *objectDefinition.ReferenceName
 
 		// then look it up
-		model, ok := known.models[modelName]
+		model, ok := known.Models[modelName]
 		if !ok {
 			return nil, fmt.Errorf("the model %q was not found", modelName)
 		}
@@ -156,21 +158,21 @@ func pullOutModelForListOperations(input map[string]models.OperationDetails, kno
 	return &output, nil
 }
 
-func (d *SwaggerDefinition) replaceDiscriminatedTypesWithParents(inputResult parseResult) (*parseResult, error) {
+func (d *SwaggerDefinition) replaceDiscriminatedTypesWithParents(inputResult internal.ParseResult) (*internal.ParseResult, error) {
 	// some Swaggers define both top-level request/response objects as implementations of discriminators, rather than the parent object
 	// in our case since we generate the unmarshal funcs etc based on the presence of the parent/interface, we switch these out
 	// should these be discriminators in the Swagger? likely no, but alas, DRY Swaggers.
 
-	nestedResult := parseResult{
-		constants: map[string]models.ConstantDetails{},
-		models:    map[string]models.ModelDetails{},
+	nestedResult := internal.ParseResult{
+		Constants: map[string]models.ConstantDetails{},
+		Models:    map[string]models.ModelDetails{},
 	}
 	// models will be manually mapped below
-	nestedResult.appendConstants(inputResult.constants)
+	nestedResult.AppendConstants(inputResult.Constants)
 
 	// TODO: we should consider doing the same for Top Level Requests/Responses in the future too
 
-	for name, model := range inputResult.models {
+	for name, model := range inputResult.Models {
 		fields := make(map[string]models.FieldDetails)
 		for key, value := range model.Fields {
 			if value.ObjectDefinition != nil {
@@ -184,13 +186,13 @@ func (d *SwaggerDefinition) replaceDiscriminatedTypesWithParents(inputResult par
 			fields[key] = value
 		}
 		model.Fields = fields
-		nestedResult.models[name] = model
+		nestedResult.Models[name] = model
 	}
 
 	return &nestedResult, nil
 }
 
-func (d *SwaggerDefinition) replaceDiscriminatedTypeWithinObjectDefinitionWithParent(input *models.ObjectDefinition, known parseResult) (*models.ObjectDefinition, error) {
+func (d *SwaggerDefinition) replaceDiscriminatedTypeWithinObjectDefinitionWithParent(input *models.ObjectDefinition, known internal.ParseResult) (*models.ObjectDefinition, error) {
 	if input.NestedItem != nil {
 		item, err := d.replaceDiscriminatedTypeWithinObjectDefinitionWithParent(input.NestedItem, known)
 		if err != nil {
@@ -205,13 +207,13 @@ func (d *SwaggerDefinition) replaceDiscriminatedTypeWithinObjectDefinitionWithPa
 		if input.ReferenceName == nil {
 			return nil, fmt.Errorf("internal-error: reference was missing a reference name")
 		}
-		model, modelOk := known.models[*input.ReferenceName]
-		_, constantOk := known.constants[*input.ReferenceName]
+		model, modelOk := known.Models[*input.ReferenceName]
+		_, constantOk := known.Constants[*input.ReferenceName]
 		if !constantOk && !modelOk {
 			return nil, fmt.Errorf("a constant or model called %q was not found", *input.ReferenceName)
 		}
 		if modelOk && model.ParentTypeName != nil {
-			parent, ok := known.models[*model.ParentTypeName]
+			parent, ok := known.Models[*model.ParentTypeName]
 			if !ok {
 				return nil, fmt.Errorf("parent model %q was not found", *model.ParentTypeName)
 			}
@@ -225,14 +227,14 @@ func (d *SwaggerDefinition) replaceDiscriminatedTypeWithinObjectDefinitionWithPa
 	return input, nil
 }
 
-func switchOutCustomTypesAsNeeded(input parseResult) parseResult {
-	result := parseResult{
-		constants: map[string]models.ConstantDetails{},
-		models:    map[string]models.ModelDetails{},
+func switchOutCustomTypesAsNeeded(input internal.ParseResult) internal.ParseResult {
+	result := internal.ParseResult{
+		Constants: map[string]models.ConstantDetails{},
+		Models:    map[string]models.ModelDetails{},
 	}
-	result.append(input)
+	result.Append(input)
 
-	for modelName, model := range result.models {
+	for modelName, model := range result.Models {
 		fields := model.Fields
 		for fieldName, field := range model.Fields {
 			if field.CustomFieldType != nil || field.ObjectDefinition == nil {
@@ -249,18 +251,18 @@ func switchOutCustomTypesAsNeeded(input parseResult) parseResult {
 			fields[fieldName] = field
 		}
 		model.Fields = fields
-		result.models[modelName] = model
+		result.Models[modelName] = model
 	}
 
 	return input
 }
 
-func (d *SwaggerDefinition) findNestedItemsYetToBeParsed(operations *map[string]models.OperationDetails, known parseResult) (*parseResult, error) {
-	result := parseResult{
-		constants: map[string]models.ConstantDetails{},
-		models:    map[string]models.ModelDetails{},
+func (d *SwaggerDefinition) findNestedItemsYetToBeParsed(operations *map[string]models.OperationDetails, known internal.ParseResult) (*internal.ParseResult, error) {
+	result := internal.ParseResult{
+		Constants: map[string]models.ConstantDetails{},
+		Models:    map[string]models.ModelDetails{},
 	}
-	result.append(known)
+	result.Append(known)
 
 	// Now that we have a complete list of all of the nested items to find, loop around and find them
 	// this is intentionaly not fetching nested models to avoid an infinite loop with Model1 referencing
@@ -280,10 +282,10 @@ func (d *SwaggerDefinition) findNestedItemsYetToBeParsed(operations *map[string]
 			}
 
 			if parsedAsAConstant != nil {
-				result.constants[parsedAsAConstant.Name] = parsedAsAConstant.Details
+				result.Constants[parsedAsAConstant.Name] = parsedAsAConstant.Details
 			}
 			if parsedAsAModel != nil {
-				if err := result.append(*parsedAsAModel); err != nil {
+				if err := result.Append(*parsedAsAModel); err != nil {
 					return nil, fmt.Errorf("appending model: %+v", err)
 				}
 			}
@@ -320,7 +322,7 @@ func referencesAreTheSame(first []string, second []string) bool {
 	return true
 }
 
-func (d *SwaggerDefinition) determineObjectsRequiredButNotParsed(operations *map[string]models.OperationDetails, known parseResult) []string {
+func (d *SwaggerDefinition) determineObjectsRequiredButNotParsed(operations *map[string]models.OperationDetails, known internal.ParseResult) []string {
 	referencesToFind := make(map[string]struct{}, 0)
 
 	var objectsRequiredByModel = func(modelName string, model models.ModelDetails) []string {
@@ -329,8 +331,8 @@ func (d *SwaggerDefinition) determineObjectsRequiredButNotParsed(operations *map
 		// that we don't know about
 		typesToFind := d.objectsUsedByModel(modelName, model)
 		for _, typeName := range typesToFind {
-			_, existingConstant := known.constants[typeName]
-			_, existingModel := known.models[typeName]
+			_, existingConstant := known.Constants[typeName]
+			_, existingModel := known.Models[typeName]
 			if !existingConstant && !existingModel {
 				result[typeName] = struct{}{}
 			}
@@ -354,7 +356,7 @@ func (d *SwaggerDefinition) determineObjectsRequiredButNotParsed(operations *map
 
 				if isKnownModel {
 					modelName := *topLevelRef.ReferenceName
-					model := known.models[modelName]
+					model := known.Models[modelName]
 					missingReferencesInModel := objectsRequiredByModel(modelName, model)
 					for _, name := range missingReferencesInModel {
 						referencesToFind[name] = struct{}{}
@@ -375,7 +377,7 @@ func (d *SwaggerDefinition) determineObjectsRequiredButNotParsed(operations *map
 					// if it's a model, we need to check all of the fields for this to find any constant or models
 					// that we don't know about
 					modelName := *topLevelRef.ReferenceName
-					model := known.models[modelName]
+					model := known.Models[modelName]
 					missingReferencesInModel := objectsRequiredByModel(modelName, model)
 					for _, name := range missingReferencesInModel {
 						referencesToFind[name] = struct{}{}
@@ -394,14 +396,14 @@ func (d *SwaggerDefinition) determineObjectsRequiredButNotParsed(operations *map
 				continue
 			}
 
-			if _, isKnown := known.constants[*topLevelRef.ReferenceName]; !isKnown {
+			if _, isKnown := known.Constants[*topLevelRef.ReferenceName]; !isKnown {
 				referencesToFind[*topLevelRef.ReferenceName] = struct{}{}
 			}
 		}
 	}
 
 	// then verify we have all of the models for the current models we know about
-	for modelName, model := range known.models {
+	for modelName, model := range known.Models {
 		missingReferencesInModel := objectsRequiredByModel(modelName, model)
 		for _, name := range missingReferencesInModel {
 			referencesToFind[name] = struct{}{}
@@ -410,10 +412,10 @@ func (d *SwaggerDefinition) determineObjectsRequiredButNotParsed(operations *map
 
 	out := make([]string, 0)
 	for k := range referencesToFind {
-		if _, exists := known.constants[k]; exists {
+		if _, exists := known.Constants[k]; exists {
 			continue
 		}
-		if _, exists := known.models[k]; exists {
+		if _, exists := known.Models[k]; exists {
 			continue
 		}
 
@@ -491,8 +493,8 @@ func (d *SwaggerDefinition) findModelNamesWhichImplement(parentName string) []st
 	return modelNames
 }
 
-func isObjectKnown(name string, known parseResult) (bool, bool) {
-	_, isConstant := known.constants[name]
-	_, isModel := known.models[name]
+func isObjectKnown(name string, known internal.ParseResult) (bool, bool) {
+	_, isConstant := known.Constants[name]
+	_, isModel := known.Models[name]
 	return isConstant, isModel
 }
