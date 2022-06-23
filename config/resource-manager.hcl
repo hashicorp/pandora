@@ -203,6 +203,10 @@ service "storagepool" {
   name      = "StoragePool"
   available = ["2021-08-01"]
 }
+service "sqlvirtualmachine" {
+  name      = "SqlVirtualMachine"
+  available = ["2022-02-01"]
+}
 service "trafficmanager" {
   name      = "TrafficManager"
   available = ["2018-08-01"]
