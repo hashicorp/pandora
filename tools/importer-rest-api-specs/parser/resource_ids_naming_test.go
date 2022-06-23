@@ -1422,7 +1422,7 @@ func TestResourceIdNamingTrafficManagerEndpoint(t *testing.T) {
 	}
 }
 
-func TestResourceIDNamingRedisPatchSchedulesId(t *testing.T) {
+func TestResourceIDNamingRedisDefaultId(t *testing.T) {
 	input := map[string]resourceUriMetadata{
 		"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cache/redis/{name}/patchSchedules/{default}": {
 			resourceIdName: nil,
