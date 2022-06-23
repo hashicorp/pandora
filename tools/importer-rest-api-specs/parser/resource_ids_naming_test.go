@@ -2,6 +2,7 @@ package parser
 
 import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/featureflags"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser/resourceids"
 	"reflect"
 	"testing"
 
@@ -432,7 +433,7 @@ var redisPatchSchedulesResourceId = models.ParsedResourceId{
 }
 
 func TestResourceIDNamingEmpty(t *testing.T) {
-	actualNamesToIds, actualUrisToNames, err := determineNamesForResourceIds(map[string]resourceUriMetadata{})
+	actualNamesToIds, actualUrisToNames, err := resourceids.LegacyDetermineNamesForResourceIds(map[string]resourceids.ResourceUriMetadata{})
 	if err != nil {
 		t.Fatalf("error: %+v", err)
 		return
@@ -448,11 +449,11 @@ func TestResourceIDNamingEmpty(t *testing.T) {
 }
 
 func TestResourceIDNamingSubscriptionId(t *testing.T) {
-	input := map[string]resourceUriMetadata{
+	input := map[string]resourceids.ResourceUriMetadata{
 		"/subscriptions/{subscriptionId}": {
-			resourceIdName: nil,
-			resourceId:     &subscriptionResourceId,
-			uriSuffix:      nil,
+			ResourceIdName: nil,
+			ResourceId:     &subscriptionResourceId,
+			UriSuffix:      nil,
 		},
 	}
 	expectedNamesToIds := map[string]models.ParsedResourceId{
@@ -462,7 +463,7 @@ func TestResourceIDNamingSubscriptionId(t *testing.T) {
 		"/subscriptions/{subscriptionId}": "SubscriptionId",
 	}
 
-	actualNamesToIds, actualUrisToNames, err := determineNamesForResourceIds(input)
+	actualNamesToIds, actualUrisToNames, err := resourceids.LegacyDetermineNamesForResourceIds(input)
 	if err != nil {
 		t.Fatalf("error: %+v", err)
 		return
@@ -478,16 +479,16 @@ func TestResourceIDNamingSubscriptionId(t *testing.T) {
 }
 
 func TestResourceIDNamingSubscriptionIdAndSuffix(t *testing.T) {
-	input := map[string]resourceUriMetadata{
+	input := map[string]resourceids.ResourceUriMetadata{
 		"/subscriptions/{subscriptionId}": {
-			resourceIdName: nil,
-			resourceId:     &subscriptionResourceId,
-			uriSuffix:      nil,
+			ResourceIdName: nil,
+			ResourceId:     &subscriptionResourceId,
+			UriSuffix:      nil,
 		},
 		"/subscriptions/{subscriptionId}/resourceGroups": {
-			resourceIdName: nil,
-			resourceId:     &subscriptionResourceId,
-			uriSuffix:      strPtr("/resourceGroups"),
+			ResourceIdName: nil,
+			ResourceId:     &subscriptionResourceId,
+			UriSuffix:      strPtr("/resourceGroups"),
 		},
 	}
 	expectedNamesToIds := map[string]models.ParsedResourceId{
@@ -497,7 +498,7 @@ func TestResourceIDNamingSubscriptionIdAndSuffix(t *testing.T) {
 		"/subscriptions/{subscriptionId}": "SubscriptionId",
 	}
 
-	actualNamesToIds, actualUrisToNames, err := determineNamesForResourceIds(input)
+	actualNamesToIds, actualUrisToNames, err := resourceids.LegacyDetermineNamesForResourceIds(input)
 	if err != nil {
 		t.Fatalf("error: %+v", err)
 		return
@@ -513,11 +514,11 @@ func TestResourceIDNamingSubscriptionIdAndSuffix(t *testing.T) {
 }
 
 func TestResourceIDNamingResourceGroupId(t *testing.T) {
-	input := map[string]resourceUriMetadata{
+	input := map[string]resourceids.ResourceUriMetadata{
 		"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}": {
-			resourceIdName: nil,
-			resourceId:     &resourceGroupResourceId,
-			uriSuffix:      nil,
+			ResourceIdName: nil,
+			ResourceId:     &resourceGroupResourceId,
+			UriSuffix:      nil,
 		},
 	}
 	expectedNamesToIds := map[string]models.ParsedResourceId{
@@ -527,7 +528,7 @@ func TestResourceIDNamingResourceGroupId(t *testing.T) {
 		"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}": "ResourceGroupId",
 	}
 
-	actualNamesToIds, actualUrisToNames, err := determineNamesForResourceIds(input)
+	actualNamesToIds, actualUrisToNames, err := resourceids.LegacyDetermineNamesForResourceIds(input)
 	if err != nil {
 		t.Fatalf("error: %+v", err)
 		return
@@ -543,16 +544,16 @@ func TestResourceIDNamingResourceGroupId(t *testing.T) {
 }
 
 func TestResourceIDNamingResourceGroupIdAndSuffix(t *testing.T) {
-	input := map[string]resourceUriMetadata{
+	input := map[string]resourceids.ResourceUriMetadata{
 		"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}": {
-			resourceIdName: nil,
-			resourceId:     &resourceGroupResourceId,
-			uriSuffix:      nil,
+			ResourceIdName: nil,
+			ResourceId:     &resourceGroupResourceId,
+			UriSuffix:      nil,
 		},
 		"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/restart": {
-			resourceIdName: nil,
-			resourceId:     &resourceGroupResourceId,
-			uriSuffix:      strPtr("/restart"),
+			ResourceIdName: nil,
+			ResourceId:     &resourceGroupResourceId,
+			UriSuffix:      strPtr("/restart"),
 		},
 	}
 	expectedNamesToIds := map[string]models.ParsedResourceId{
@@ -562,7 +563,7 @@ func TestResourceIDNamingResourceGroupIdAndSuffix(t *testing.T) {
 		"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}": "ResourceGroupId",
 	}
 
-	actualNamesToIds, actualUrisToNames, err := determineNamesForResourceIds(input)
+	actualNamesToIds, actualUrisToNames, err := resourceids.LegacyDetermineNamesForResourceIds(input)
 	if err != nil {
 		t.Fatalf("error: %+v", err)
 		return
@@ -578,11 +579,11 @@ func TestResourceIDNamingResourceGroupIdAndSuffix(t *testing.T) {
 }
 
 func TestResourceIDNamingManagementGroupId(t *testing.T) {
-	input := map[string]resourceUriMetadata{
+	input := map[string]resourceids.ResourceUriMetadata{
 		"/providers/Microsoft.Management/managementGroups/{name}": {
-			resourceIdName: nil,
-			resourceId:     &managementGroupResourceId,
-			uriSuffix:      nil,
+			ResourceIdName: nil,
+			ResourceId:     &managementGroupResourceId,
+			UriSuffix:      nil,
 		},
 	}
 	expectedNamesToIds := map[string]models.ParsedResourceId{
@@ -592,7 +593,7 @@ func TestResourceIDNamingManagementGroupId(t *testing.T) {
 		"/providers/Microsoft.Management/managementGroups/{name}": "ManagementGroupId",
 	}
 
-	actualNamesToIds, actualUrisToNames, err := determineNamesForResourceIds(input)
+	actualNamesToIds, actualUrisToNames, err := resourceids.LegacyDetermineNamesForResourceIds(input)
 	if err != nil {
 		t.Fatalf("error: %+v", err)
 		return
@@ -608,16 +609,16 @@ func TestResourceIDNamingManagementGroupId(t *testing.T) {
 }
 
 func TestResourceIDNamingManagementGroupIdAndSuffix(t *testing.T) {
-	input := map[string]resourceUriMetadata{
+	input := map[string]resourceids.ResourceUriMetadata{
 		"/providers/Microsoft.Management/managementGroups/{name}": {
-			resourceIdName: nil,
-			resourceId:     &managementGroupResourceId,
-			uriSuffix:      nil,
+			ResourceIdName: nil,
+			ResourceId:     &managementGroupResourceId,
+			UriSuffix:      nil,
 		},
 		"/providers/Microsoft.Management/managementGroups/{name}/restart": {
-			resourceIdName: nil,
-			resourceId:     &managementGroupResourceId,
-			uriSuffix:      strPtr("/restart"),
+			ResourceIdName: nil,
+			ResourceId:     &managementGroupResourceId,
+			UriSuffix:      strPtr("/restart"),
 		},
 	}
 	expectedNamesToIds := map[string]models.ParsedResourceId{
@@ -627,7 +628,7 @@ func TestResourceIDNamingManagementGroupIdAndSuffix(t *testing.T) {
 		"/providers/Microsoft.Management/managementGroups/{name}": "ManagementGroupId",
 	}
 
-	actualNamesToIds, actualUrisToNames, err := determineNamesForResourceIds(input)
+	actualNamesToIds, actualUrisToNames, err := resourceids.LegacyDetermineNamesForResourceIds(input)
 	if err != nil {
 		t.Fatalf("error: %+v", err)
 		return
@@ -643,11 +644,11 @@ func TestResourceIDNamingManagementGroupIdAndSuffix(t *testing.T) {
 }
 
 func TestResourceIDNamingEventHubSkuId(t *testing.T) {
-	input := map[string]resourceUriMetadata{
+	input := map[string]resourceids.ResourceUriMetadata{
 		"/subscriptions/{subscriptionId}/providers/Microsoft.EventHub/sku/{sku}": {
-			resourceIdName: nil,
-			resourceId:     &eventHubSkuResourceId,
-			uriSuffix:      nil,
+			ResourceIdName: nil,
+			ResourceId:     &eventHubSkuResourceId,
+			UriSuffix:      nil,
 		},
 	}
 	expectedNamesToIds := map[string]models.ParsedResourceId{
@@ -657,7 +658,7 @@ func TestResourceIDNamingEventHubSkuId(t *testing.T) {
 		"/subscriptions/{subscriptionId}/providers/Microsoft.EventHub/sku/{sku}": "SkuId",
 	}
 
-	actualNamesToIds, actualUrisToNames, err := determineNamesForResourceIds(input)
+	actualNamesToIds, actualUrisToNames, err := resourceids.LegacyDetermineNamesForResourceIds(input)
 	if err != nil {
 		t.Fatalf("error: %+v", err)
 		return
@@ -683,11 +684,11 @@ func TestResourceIDNamingTopLevelScope(t *testing.T) {
 		},
 	}
 
-	input := map[string]resourceUriMetadata{
+	input := map[string]resourceids.ResourceUriMetadata{
 		"/{scope}": {
-			resourceIdName: nil,
-			resourceId:     &scopeResourceId,
-			uriSuffix:      nil,
+			ResourceIdName: nil,
+			ResourceId:     &scopeResourceId,
+			UriSuffix:      nil,
 		},
 	}
 	expectedNamesToIds := map[string]models.ParsedResourceId{
@@ -697,7 +698,7 @@ func TestResourceIDNamingTopLevelScope(t *testing.T) {
 		"/{scope}": "ScopeId",
 	}
 
-	actualNamesToIds, actualUrisToNames, err := determineNamesForResourceIds(input)
+	actualNamesToIds, actualUrisToNames, err := resourceids.LegacyDetermineNamesForResourceIds(input)
 	if err != nil {
 		t.Fatalf("error: %+v", err)
 		return
@@ -764,11 +765,11 @@ func TestResourceIDNamingContainingAConstant(t *testing.T) {
 		},
 	}
 
-	input := map[string]resourceUriMetadata{
+	input := map[string]resourceids.ResourceUriMetadata{
 		"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/{recordType}/{recordName}": {
-			resourceIdName: nil,
-			resourceId:     &dnsResourceId,
-			uriSuffix:      nil,
+			ResourceIdName: nil,
+			ResourceId:     &dnsResourceId,
+			UriSuffix:      nil,
 		},
 	}
 	expectedNamesToIds := map[string]models.ParsedResourceId{
@@ -778,7 +779,7 @@ func TestResourceIDNamingContainingAConstant(t *testing.T) {
 		"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/{recordType}/{recordName}": "RecordTypeId",
 	}
 
-	actualNamesToIds, actualUrisToNames, err := determineNamesForResourceIds(input)
+	actualNamesToIds, actualUrisToNames, err := resourceids.LegacyDetermineNamesForResourceIds(input)
 	if err != nil {
 		t.Fatalf("error: %+v", err)
 		return
@@ -845,16 +846,16 @@ func TestResourceIDNamingContainingAConstantAndSuffix(t *testing.T) {
 		},
 	}
 
-	input := map[string]resourceUriMetadata{
+	input := map[string]resourceids.ResourceUriMetadata{
 		"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/{recordType}/{recordName}/forceUpdate": {
-			resourceIdName: nil,
-			resourceId:     &dnsResourceId,
-			uriSuffix:      strPtr("/forceUpdate"),
+			ResourceIdName: nil,
+			ResourceId:     &dnsResourceId,
+			UriSuffix:      strPtr("/forceUpdate"),
 		},
 		"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/{recordType}/{recordName}": {
-			resourceIdName: nil,
-			resourceId:     &dnsResourceId,
-			uriSuffix:      nil,
+			ResourceIdName: nil,
+			ResourceId:     &dnsResourceId,
+			UriSuffix:      nil,
 		},
 	}
 	expectedNamesToIds := map[string]models.ParsedResourceId{
@@ -864,7 +865,7 @@ func TestResourceIDNamingContainingAConstantAndSuffix(t *testing.T) {
 		"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/{recordType}/{recordName}": "RecordTypeId",
 	}
 
-	actualNamesToIds, actualUrisToNames, err := determineNamesForResourceIds(input)
+	actualNamesToIds, actualUrisToNames, err := resourceids.LegacyDetermineNamesForResourceIds(input)
 	if err != nil {
 		t.Fatalf("error: %+v", err)
 		return
@@ -880,11 +881,11 @@ func TestResourceIDNamingContainingAConstantAndSuffix(t *testing.T) {
 }
 
 func TestResourceIdNamingTopLevelResourceId(t *testing.T) {
-	input := map[string]resourceUriMetadata{
+	input := map[string]resourceids.ResourceUriMetadata{
 		"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{virtualMachineName}": {
-			resourceIdName: nil,
-			resourceId:     &virtualMachineResourceId,
-			uriSuffix:      nil,
+			ResourceIdName: nil,
+			ResourceId:     &virtualMachineResourceId,
+			UriSuffix:      nil,
 		},
 	}
 	expectedNamesToIds := map[string]models.ParsedResourceId{
@@ -894,7 +895,7 @@ func TestResourceIdNamingTopLevelResourceId(t *testing.T) {
 		"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{virtualMachineName}": "VirtualMachineId",
 	}
 
-	actualNamesToIds, actualUrisToNames, err := determineNamesForResourceIds(input)
+	actualNamesToIds, actualUrisToNames, err := resourceids.LegacyDetermineNamesForResourceIds(input)
 	if err != nil {
 		t.Fatalf("error: %+v", err)
 		return
@@ -910,16 +911,16 @@ func TestResourceIdNamingTopLevelResourceId(t *testing.T) {
 }
 
 func TestResourceIdNamingTopLevelAndNestedResourceId(t *testing.T) {
-	input := map[string]resourceUriMetadata{
+	input := map[string]resourceids.ResourceUriMetadata{
 		"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{virtualMachineName}": {
-			resourceIdName: nil,
-			resourceId:     &virtualMachineResourceId,
-			uriSuffix:      nil,
+			ResourceIdName: nil,
+			ResourceId:     &virtualMachineResourceId,
+			UriSuffix:      nil,
 		},
 		"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{virtualMachineName}/extensions/{extensionName}": {
-			resourceIdName: nil,
-			resourceId:     &virtualMachineExtensionResourceId,
-			uriSuffix:      nil,
+			ResourceIdName: nil,
+			ResourceId:     &virtualMachineExtensionResourceId,
+			UriSuffix:      nil,
 		},
 	}
 	expectedNamesToIds := map[string]models.ParsedResourceId{
@@ -931,7 +932,7 @@ func TestResourceIdNamingTopLevelAndNestedResourceId(t *testing.T) {
 		"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{virtualMachineName}/extensions/{extensionName}": "ExtensionId",
 	}
 
-	actualNamesToIds, actualUrisToNames, err := determineNamesForResourceIds(input)
+	actualNamesToIds, actualUrisToNames, err := resourceids.LegacyDetermineNamesForResourceIds(input)
 	if err != nil {
 		t.Fatalf("error: %+v", err)
 		return
@@ -947,11 +948,11 @@ func TestResourceIdNamingTopLevelAndNestedResourceId(t *testing.T) {
 }
 
 func TestResourceIdNamingNestedResourceId(t *testing.T) {
-	input := map[string]resourceUriMetadata{
+	input := map[string]resourceids.ResourceUriMetadata{
 		"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{virtualMachineName}/extensions/{extensionName}": {
-			resourceIdName: nil,
-			resourceId:     &virtualMachineExtensionResourceId,
-			uriSuffix:      nil,
+			ResourceIdName: nil,
+			ResourceId:     &virtualMachineExtensionResourceId,
+			UriSuffix:      nil,
 		},
 	}
 	expectedNamesToIds := map[string]models.ParsedResourceId{
@@ -961,7 +962,7 @@ func TestResourceIdNamingNestedResourceId(t *testing.T) {
 		"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{virtualMachineName}/extensions/{extensionName}": "ExtensionId",
 	}
 
-	actualNamesToIds, actualUrisToNames, err := determineNamesForResourceIds(input)
+	actualNamesToIds, actualUrisToNames, err := resourceids.LegacyDetermineNamesForResourceIds(input)
 	if err != nil {
 		t.Fatalf("error: %+v", err)
 		return
@@ -977,11 +978,11 @@ func TestResourceIdNamingNestedResourceId(t *testing.T) {
 }
 
 func TestResourceIdNamingResourceUnderScope(t *testing.T) {
-	input := map[string]resourceUriMetadata{
+	input := map[string]resourceids.ResourceUriMetadata{
 		"/{scope}/providers/Microsoft.Monitor/extensions/{extensionName}": {
-			resourceIdName: nil,
-			resourceId:     &scopedMonitorResourceId,
-			uriSuffix:      nil,
+			ResourceIdName: nil,
+			ResourceId:     &scopedMonitorResourceId,
+			UriSuffix:      nil,
 		},
 	}
 	expectedNamesToIds := map[string]models.ParsedResourceId{
@@ -991,7 +992,7 @@ func TestResourceIdNamingResourceUnderScope(t *testing.T) {
 		"/{scope}/providers/Microsoft.Monitor/extensions/{extensionName}": "ScopedExtensionId",
 	}
 
-	actualNamesToIds, actualUrisToNames, err := determineNamesForResourceIds(input)
+	actualNamesToIds, actualUrisToNames, err := resourceids.LegacyDetermineNamesForResourceIds(input)
 	if err != nil {
 		t.Fatalf("error: %+v", err)
 		return
@@ -1007,16 +1008,16 @@ func TestResourceIdNamingResourceUnderScope(t *testing.T) {
 }
 
 func TestResourceIdNamingConflictingTwoLevels(t *testing.T) {
-	input := map[string]resourceUriMetadata{
+	input := map[string]resourceids.ResourceUriMetadata{
 		"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/extensions/{extensionName}": {
-			resourceIdName: nil,
-			resourceId:     &virtualNetworkExtensionResourceId,
-			uriSuffix:      nil,
+			ResourceIdName: nil,
+			ResourceId:     &virtualNetworkExtensionResourceId,
+			UriSuffix:      nil,
 		},
 		"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{virtualMachineName}/extensions/{extensionName}": {
-			resourceIdName: nil,
-			resourceId:     &virtualMachineExtensionResourceId,
-			uriSuffix:      nil,
+			ResourceIdName: nil,
+			ResourceId:     &virtualMachineExtensionResourceId,
+			UriSuffix:      nil,
 		},
 	}
 	expectedNamesToIds := map[string]models.ParsedResourceId{
@@ -1028,7 +1029,7 @@ func TestResourceIdNamingConflictingTwoLevels(t *testing.T) {
 		"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/extensions/{extensionName}":                                      "ExtensionId",
 	}
 
-	actualNamesToIds, actualUrisToNames, err := determineNamesForResourceIds(input)
+	actualNamesToIds, actualUrisToNames, err := resourceids.LegacyDetermineNamesForResourceIds(input)
 	if err != nil {
 		t.Fatalf("error: %+v", err)
 		return
@@ -1313,26 +1314,26 @@ func TestResourceIdNamingConflictingMultipleLevels(t *testing.T) {
 		},
 	}
 
-	input := map[string]resourceUriMetadata{
+	input := map[string]resourceids.ResourceUriMetadata{
 		"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/hostingEnvironments/{name}/workerPools/{workerPoolName}/instances/{instance}": {
-			resourceIdName: nil,
-			resourceId:     &workerPoolInstanceResourceId,
-			uriSuffix:      nil,
+			ResourceIdName: nil,
+			ResourceId:     &workerPoolInstanceResourceId,
+			UriSuffix:      nil,
 		},
 		"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/hostingEnvironments/{name}/multiRolePools/default/instances/{instance}": {
-			resourceIdName: nil,
-			resourceId:     &multiRolePoolInstanceResourceId,
-			uriSuffix:      nil,
+			ResourceIdName: nil,
+			ResourceId:     &multiRolePoolInstanceResourceId,
+			UriSuffix:      nil,
 		},
 		"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot}/instances/{instanceId}/processes/{processId}/modules/{baseAddress}": {
-			resourceIdName: nil,
-			resourceId:     &slotInstanceProcessModuleResourceId,
-			uriSuffix:      nil,
+			ResourceIdName: nil,
+			ResourceId:     &slotInstanceProcessModuleResourceId,
+			UriSuffix:      nil,
 		},
 		"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/instances/{instanceId}/processes/{processId}/modules/{baseAddress}": {
-			resourceIdName: nil,
-			resourceId:     &instanceProcessModuleResourceId,
-			uriSuffix:      nil,
+			ResourceIdName: nil,
+			ResourceId:     &instanceProcessModuleResourceId,
+			UriSuffix:      nil,
 		},
 	}
 	expectedNamesToIds := map[string]models.ParsedResourceId{
@@ -1348,7 +1349,7 @@ func TestResourceIdNamingConflictingMultipleLevels(t *testing.T) {
 		"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/instances/{instanceId}/processes/{processId}/modules/{baseAddress}":              "ModuleId",
 	}
 
-	actualNamesToIds, actualUrisToNames, err := determineNamesForResourceIds(input)
+	actualNamesToIds, actualUrisToNames, err := resourceids.LegacyDetermineNamesForResourceIds(input)
 	if err != nil {
 		t.Fatalf("error: %+v", err)
 		return
@@ -1364,11 +1365,11 @@ func TestResourceIdNamingConflictingMultipleLevels(t *testing.T) {
 }
 
 func TestResourceIdNamingSignalRId(t *testing.T) {
-	input := map[string]resourceUriMetadata{
+	input := map[string]resourceids.ResourceUriMetadata{
 		"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.SignalRService/SignalR/{resourceName}": {
-			resourceIdName: nil,
-			resourceId:     &signalRResourceId,
-			uriSuffix:      nil,
+			ResourceIdName: nil,
+			ResourceId:     &signalRResourceId,
+			UriSuffix:      nil,
 		},
 	}
 	expectedNamesToIds := map[string]models.ParsedResourceId{
@@ -1378,7 +1379,7 @@ func TestResourceIdNamingSignalRId(t *testing.T) {
 		"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.SignalRService/SignalR/{resourceName}": "SignalRId",
 	}
 
-	actualNamesToIds, actualUrisToNames, err := determineNamesForResourceIds(input)
+	actualNamesToIds, actualUrisToNames, err := resourceids.LegacyDetermineNamesForResourceIds(input)
 	if err != nil {
 		t.Fatalf("error: %+v", err)
 		return
@@ -1394,11 +1395,11 @@ func TestResourceIdNamingSignalRId(t *testing.T) {
 }
 
 func TestResourceIdNamingTrafficManagerEndpoint(t *testing.T) {
-	input := map[string]resourceUriMetadata{
+	input := map[string]resourceids.ResourceUriMetadata{
 		"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{profileName}/{endpointType}/{endpointName}": {
-			resourceIdName: nil,
-			resourceId:     &trafficManagerProfileResourceId,
-			uriSuffix:      nil,
+			ResourceIdName: nil,
+			ResourceId:     &trafficManagerProfileResourceId,
+			UriSuffix:      nil,
 		},
 	}
 	expectedNamesToIds := map[string]models.ParsedResourceId{
@@ -1408,7 +1409,7 @@ func TestResourceIdNamingTrafficManagerEndpoint(t *testing.T) {
 		"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{profileName}/{endpointType}/{endpointName}": "EndpointTypeId",
 	}
 
-	actualNamesToIds, actualUrisToNames, err := determineNamesForResourceIds(input)
+	actualNamesToIds, actualUrisToNames, err := resourceids.LegacyDetermineNamesForResourceIds(input)
 	if err != nil {
 		t.Fatalf("error: %+v", err)
 		return

@@ -2,13 +2,15 @@ package parser
 
 import (
 	"fmt"
+	"github.com/hashicorp/go-hclog"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser/resourceids"
 	"strings"
 
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/cleanup"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
-func (d *SwaggerDefinition) parse(serviceName, apiVersion string, resourceIds resourceIdParseResult) (*models.AzureApiDefinition, error) {
+func (d *SwaggerDefinition) parse(serviceName, apiVersion string, resourceIds resourceids.ResourceIdParseResult) (*models.AzureApiDefinition, error) {
 	resources := make(map[string]models.AzureApiResource, 0)
 
 	tags := d.findTags()
@@ -51,8 +53,12 @@ func (d *SwaggerDefinition) parse(serviceName, apiVersion string, resourceIds re
 	}, nil
 }
 
-func (d *SwaggerDefinition) ParseResourceIds() (*resourceIdParseResult, error) {
-	resourceIds, err := d.findResourceIds()
+func (d *SwaggerDefinition) ParseResourceIds() (*resourceids.ResourceIdParseResult, error) {
+	// TODO: switch this out for a proper logger in time
+	logger := hclog.NewNullLogger()
+	parser := resourceids.NewParser(logger, d.swaggerSpecExpanded)
+
+	resourceIds, err := parser.LegacyFindResourceIds()
 	if err != nil {
 		return nil, fmt.Errorf("finding resource ids: %+v", err)
 	}

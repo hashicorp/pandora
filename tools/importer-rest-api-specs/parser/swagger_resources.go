@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser/constants"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser/internal"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser/resourceids"
 	"log"
 	"strings"
 
@@ -11,19 +12,19 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
-func (d *SwaggerDefinition) parseResourcesWithinSwaggerTag(tag *string, resourceIds resourceIdParseResult) (*models.AzureApiResource, error) {
+func (d *SwaggerDefinition) parseResourcesWithinSwaggerTag(tag *string, resourceIds resourceids.ResourceIdParseResult) (*models.AzureApiResource, error) {
 	result := internal.ParseResult{
 		Constants: map[string]models.ConstantDetails{},
 		Models:    map[string]models.ModelDetails{},
 	}
 
 	// note that Resource ID's can contain Constants (used as segments)
-	if err := result.Append(resourceIds.nestedResult); err != nil {
+	if err := result.Append(resourceIds.NestedResult); err != nil {
 		return nil, fmt.Errorf("appending nestedResult from Constants: %+v", err)
 	}
 
 	// pull out the operations and any inlined/top-level constants/models
-	operations, nestedResult, err := d.parseOperationsWithinTag(tag, resourceIds.resourceUrisToMetadata, result)
+	operations, nestedResult, err := d.parseOperationsWithinTag(tag, resourceIds.ResourceUrisToMetadata, result)
 	if err != nil {
 		return nil, fmt.Errorf("finding operations: %+v", err)
 	}
@@ -50,7 +51,7 @@ func (d *SwaggerDefinition) parseResourcesWithinSwaggerTag(tag *string, resource
 	result = switchOutCustomTypesAsNeeded(result)
 
 	// then switch out any common resource ids (e.g. Resource Group)
-	resourceIdNamesToUris := switchOutCommonResourceIDsAsNeeded(resourceIds.nameToResourceIDs)
+	resourceIdNamesToUris := switchOutCommonResourceIDsAsNeeded(resourceIds.NameToResourceIDs)
 
 	nestedResult, err = d.replaceDiscriminatedTypesWithParents(*nestedResult)
 	if err != nil {

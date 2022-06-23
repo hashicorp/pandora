@@ -2,6 +2,7 @@ package parser
 
 import (
 	"fmt"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser/resourceids"
 	"log"
 	"os"
 	"strings"
@@ -23,7 +24,7 @@ func LoadAndParseFiles(directory string, fileNames []string, serviceName, apiVer
 	// this means that the names which are generated are unique across the Service
 	// which means these won't conflict and ultimately enables #44 (aliasing) in
 	// the future.
-	resourceIdResult := &resourceIdParseResult{}
+	resourceIdResult := &resourceids.ResourceIdParseResult{}
 	for _, file := range fileNames {
 		swaggerFile, err := load(directory, file, debugLogging)
 		if err != nil {
@@ -34,20 +35,20 @@ func LoadAndParseFiles(directory string, fileNames []string, serviceName, apiVer
 		if err != nil {
 			return nil, fmt.Errorf("parsing Resource Ids from %q (Service %q / Api Version %q): %+v", file, serviceName, apiVersion, err)
 		}
-		resourceIdResult.append(*parsedResourceIds)
+		resourceIdResult.Append(*parsedResourceIds)
 	}
 
 	// conditionally output the Resource ID's to a file so that we can check if any segments require normalizing
 	// useful, but off by default
 	if featureflags.ShouldOutputResourceIdsToFile {
-		writeToFile(resourceIdResult.resourceUrisToMetadata)
+		writeToFile(resourceIdResult.ResourceUrisToMetadata)
 	}
 
 	// finally once we've got all of the Swagger files we need to generate names for the Resource ID Parsers
 	if debugLogging {
 		log.Printf("[DEBUG] Generating Names for the Resource IDs..")
 	}
-	if err := resourceIdResult.generateNames(); err != nil {
+	if err := resourceIdResult.GenerateNames(); err != nil {
 		return nil, fmt.Errorf("generating names for the Resource IDs: %+v", err)
 	}
 
@@ -98,7 +99,7 @@ func LoadAndParseFiles(directory string, fileNames []string, serviceName, apiVer
 	return &out, nil
 }
 
-func writeToFile(metadata map[string]resourceUriMetadata) {
+func writeToFile(metadata map[string]resourceids.ResourceUriMetadata) {
 	f, err := os.OpenFile("resource-ids.txt", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
 	if err != nil {
 		return
@@ -106,11 +107,11 @@ func writeToFile(metadata map[string]resourceUriMetadata) {
 	defer f.Close()
 
 	for _, uri := range metadata {
-		if uri.resourceId == nil {
+		if uri.ResourceId == nil {
 			continue
 		}
 
-		resourceManagerUri := uri.resourceId.String()
+		resourceManagerUri := uri.ResourceId.String()
 		f.Write([]byte(fmt.Sprintf("%s\n", resourceManagerUri)))
 	}
 }

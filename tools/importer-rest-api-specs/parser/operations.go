@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser/constants"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser/internal"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser/resourceids"
 	"log"
 	"net/http"
 	"strings"
@@ -16,11 +17,11 @@ import (
 
 type operationsParser struct {
 	operations            []parsedOperation
-	resourceUriToMetaData map[string]resourceUriMetadata
+	resourceUriToMetaData map[string]resourceids.ResourceUriMetadata
 	swaggerDefinition     *SwaggerDefinition
 }
 
-func (d *SwaggerDefinition) parseOperationsWithinTag(tag *string, resourceUriToMetaData map[string]resourceUriMetadata, found internal.ParseResult) (*map[string]models.OperationDetails, *internal.ParseResult, error) {
+func (d *SwaggerDefinition) parseOperationsWithinTag(tag *string, resourceUriToMetaData map[string]resourceids.ResourceUriMetadata, found internal.ParseResult) (*map[string]models.OperationDetails, *internal.ParseResult, error) {
 	operations := make(map[string]models.OperationDetails, 0)
 	result := internal.ParseResult{
 		Constants: map[string]models.ConstantDetails{},
@@ -40,7 +41,7 @@ func (d *SwaggerDefinition) parseOperationsWithinTag(tag *string, resourceUriToM
 			log.Printf("[DEBUG] Operation - %s %q..", operation.httpMethod, operation.uri)
 		}
 
-		if operationShouldBeIgnored(operation.uri) {
+		if internal.OperationShouldBeIgnored(operation.uri) {
 			if d.debugLog {
 				log.Printf("[DEBUG] operation should be ignored - skipping..")
 			}
@@ -129,10 +130,10 @@ func (p operationsParser) parseOperation(operation parsedOperation) (*models.Ope
 		Method:                           strings.ToUpper(operation.httpMethod),
 		Options:                          *options,
 		RequestObject:                    requestObject,
-		ResourceIdName:                   resourceId.resourceIdName,
+		ResourceIdName:                   resourceId.ResourceIdName,
 		ResponseObject:                   responseResult.objectDefinition,
 		Uri:                              *normalizedUri,
-		UriSuffix:                        resourceId.uriSuffix,
+		UriSuffix:                        resourceId.UriSuffix,
 	}
 
 	if p.operationShouldBeIgnored(operationData) {
