@@ -1,6 +1,7 @@
 package parser
 
 import (
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser/internal"
 	"strings"
 
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
@@ -15,13 +16,13 @@ func (e edgeZoneFieldMatcher) customFieldType() models.CustomFieldType {
 	return models.CustomFieldTypeEdgeZone
 }
 
-func (e edgeZoneFieldMatcher) isMatch(field models.FieldDetails, definition models.ObjectDefinition, known parseResult) bool {
+func (e edgeZoneFieldMatcher) isMatch(field models.FieldDetails, definition models.ObjectDefinition, known internal.ParseResult) bool {
 	if definition.Type != models.ObjectDefinitionReference {
 		return false
 	}
 
 	// retrieve the model from the reference
-	model, ok := known.models[*definition.ReferenceName]
+	model, ok := known.Models[*definition.ReferenceName]
 	if !ok {
 		return false
 	}
@@ -39,7 +40,7 @@ func (e edgeZoneFieldMatcher) isMatch(field models.FieldDetails, definition mode
 			if fieldVal.ObjectDefinition == nil || fieldVal.ObjectDefinition.Type != models.ObjectDefinitionReference {
 				continue
 			}
-			constant, ok := known.constants[*fieldVal.ObjectDefinition.ReferenceName]
+			constant, ok := known.Constants[*fieldVal.ObjectDefinition.ReferenceName]
 			if !ok || len(constant.Values) != 1 {
 				continue
 			}

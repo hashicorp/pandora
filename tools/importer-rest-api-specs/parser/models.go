@@ -3,6 +3,7 @@ package parser
 import (
 	"fmt"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser/constants"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser/internal"
 	"log"
 	"strings"
 
@@ -11,10 +12,10 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
-func (d *SwaggerDefinition) parseModel(name string, input spec.Schema) (*parseResult, error) {
-	result := parseResult{
-		constants: map[string]models.ConstantDetails{},
-		models:    map[string]models.ModelDetails{},
+func (d *SwaggerDefinition) parseModel(name string, input spec.Schema) (*internal.ParseResult, error) {
+	result := internal.ParseResult{
+		Constants: map[string]models.ConstantDetails{},
+		Models:    map[string]models.ModelDetails{},
 	}
 
 	// 1. find any constants used within this model
@@ -22,7 +23,7 @@ func (d *SwaggerDefinition) parseModel(name string, input spec.Schema) (*parseRe
 	if err != nil {
 		return nil, fmt.Errorf("finding constants within model: %+v", err)
 	}
-	if err := result.append(*nestedResult); err != nil {
+	if err := result.Append(*nestedResult); err != nil {
 		return nil, fmt.Errorf("appending nestedResult from constants: %+v", err)
 	}
 
@@ -31,7 +32,7 @@ func (d *SwaggerDefinition) parseModel(name string, input spec.Schema) (*parseRe
 	if err != nil {
 		return nil, fmt.Errorf("finding fields for model: %+v", err)
 	}
-	if err := result.append(*nestedResult); err != nil {
+	if err := result.Append(*nestedResult); err != nil {
 		return nil, fmt.Errorf("appending nestedResult from fields: %+v", err)
 	}
 
@@ -47,25 +48,25 @@ func (d *SwaggerDefinition) parseModel(name string, input spec.Schema) (*parseRe
 	if err != nil {
 		return nil, fmt.Errorf("populating model details for %q: %+v", name, err)
 	}
-	result.models[name] = *model
+	result.Models[name] = *model
 
 	return &result, nil
 }
 
-func (d *SwaggerDefinition) findConstantsWithinModel(fieldName string, input spec.Schema, known parseResult) (*parseResult, error) {
+func (d *SwaggerDefinition) findConstantsWithinModel(fieldName string, input spec.Schema, known internal.ParseResult) (*internal.ParseResult, error) {
 	// NOTE: both Models and Fields are passed in here
-	result := parseResult{
-		constants: map[string]models.ConstantDetails{},
-		models:    map[string]models.ModelDetails{},
+	result := internal.ParseResult{
+		Constants: map[string]models.ConstantDetails{},
+		Models:    map[string]models.ModelDetails{},
 	}
-	result.append(known)
+	result.Append(known)
 
 	if len(input.Enum) > 0 {
 		constant, err := constants.MapConstant(input.Type, fieldName, input.Enum, input.Extensions)
 		if err != nil {
 			return nil, fmt.Errorf("parsing constant: %+v", err)
 		}
-		result.constants[constant.Name] = constant.Details
+		result.Constants[constant.Name] = constant.Details
 	}
 
 	// Check any object that this model inherits from
@@ -77,7 +78,7 @@ func (d *SwaggerDefinition) findConstantsWithinModel(fieldName string, input spe
 			}
 
 			// have we already obtained this model, if so skip it
-			if _, alreadyParsedModel := result.models[*fragmentName]; alreadyParsedModel {
+			if _, alreadyParsedModel := result.Models[*fragmentName]; alreadyParsedModel {
 				continue
 			}
 
@@ -91,7 +92,7 @@ func (d *SwaggerDefinition) findConstantsWithinModel(fieldName string, input spe
 				return nil, fmt.Errorf("finding constants within parent model %q: %+v", *fragmentName, err)
 			}
 
-			if err := result.append(*nestedResult); err != nil {
+			if err := result.Append(*nestedResult); err != nil {
 				return nil, fmt.Errorf("appending nestedResult: %+v", err)
 			}
 		}
@@ -106,7 +107,7 @@ func (d *SwaggerDefinition) findConstantsWithinModel(fieldName string, input spe
 		if err != nil {
 			return nil, fmt.Errorf("finding nested constants within %q: %+v", propName, err)
 		}
-		if err := result.append(*nestedResult); err != nil {
+		if err := result.Append(*nestedResult); err != nil {
 			return nil, fmt.Errorf("appending nestedResult: %+v", err)
 		}
 	}
@@ -122,7 +123,7 @@ func (d *SwaggerDefinition) findConstantsWithinModel(fieldName string, input spe
 				return nil, fmt.Errorf("finding nested constants within %q: %+v", propName, err)
 			}
 
-			if err := result.append(*nestedConstants); err != nil {
+			if err := result.Append(*nestedConstants); err != nil {
 				return nil, fmt.Errorf("appending nestedResult: %+v", err)
 			}
 		}
@@ -131,16 +132,16 @@ func (d *SwaggerDefinition) findConstantsWithinModel(fieldName string, input spe
 	return &result, nil
 }
 
-func (d *SwaggerDefinition) detailsForField(modelName string, propertyName string, value spec.Schema, isRequired bool, known parseResult) (*models.FieldDetails, *parseResult, error) {
+func (d *SwaggerDefinition) detailsForField(modelName string, propertyName string, value spec.Schema, isRequired bool, known internal.ParseResult) (*models.FieldDetails, *internal.ParseResult, error) {
 	if d.debugLog {
 		log.Printf("Parsing details for field %q in %q..", propertyName, modelName)
 	}
 
-	result := parseResult{
-		constants: map[string]models.ConstantDetails{},
-		models:    map[string]models.ModelDetails{},
+	result := internal.ParseResult{
+		Constants: map[string]models.ConstantDetails{},
+		Models:    map[string]models.ModelDetails{},
 	}
-	result.append(known)
+	result.Append(known)
 
 	field := models.FieldDetails{
 		Required:  isRequired,
@@ -155,7 +156,7 @@ func (d *SwaggerDefinition) detailsForField(modelName string, propertyName strin
 		return nil, nil, fmt.Errorf("parsing object definition: %+v", err)
 	}
 	if nestedResult != nil {
-		result.append(*nestedResult)
+		result.Append(*nestedResult)
 	}
 
 	if len(value.Properties) > 0 {
@@ -174,7 +175,7 @@ func (d *SwaggerDefinition) detailsForField(modelName string, propertyName strin
 			if err != nil {
 				return nil, nil, fmt.Errorf("parsing inlined model %q: %+v", inlinedName, err)
 			}
-			if err := result.append(*nestedResult); err != nil {
+			if err := result.Append(*nestedResult); err != nil {
 				return nil, nil, fmt.Errorf("appending nestedResult: %+v", err)
 			}
 			nestedFields[propName] = *nestedField
@@ -183,7 +184,7 @@ func (d *SwaggerDefinition) detailsForField(modelName string, propertyName strin
 		if err != nil {
 			return nil, nil, fmt.Errorf("building model details for inlined model %q: %+v", inlinedName, err)
 		}
-		result.models[inlinedName] = *inlinedModelDetails
+		result.Models[inlinedName] = *inlinedModelDetails
 		// then swap out the reference
 		objectDefinition.Type = models.ObjectDefinitionReference
 		objectDefinition.ReferenceName = &inlinedName
@@ -196,7 +197,7 @@ func (d *SwaggerDefinition) detailsForField(modelName string, propertyName strin
 	return &field, &result, err
 }
 
-func determineCustomFieldType(field models.FieldDetails, definition models.ObjectDefinition, known parseResult) *models.CustomFieldType {
+func determineCustomFieldType(field models.FieldDetails, definition models.ObjectDefinition, known internal.ParseResult) *models.CustomFieldType {
 	for _, matcher := range customFieldMatchers {
 		if matcher.isMatch(field, definition, known) {
 			fieldType := matcher.customFieldType()
@@ -207,13 +208,13 @@ func determineCustomFieldType(field models.FieldDetails, definition models.Objec
 	return nil
 }
 
-func (d *SwaggerDefinition) fieldsForModel(modelName string, input spec.Schema, known parseResult) (*map[string]models.FieldDetails, *parseResult, error) {
+func (d *SwaggerDefinition) fieldsForModel(modelName string, input spec.Schema, known internal.ParseResult) (*map[string]models.FieldDetails, *internal.ParseResult, error) {
 	fields := make(map[string]models.FieldDetails, 0)
-	result := parseResult{
-		constants: map[string]models.ConstantDetails{},
-		models:    map[string]models.ModelDetails{},
+	result := internal.ParseResult{
+		Constants: map[string]models.ConstantDetails{},
+		Models:    map[string]models.ModelDetails{},
 	}
-	result.append(known)
+	result.Append(known)
 
 	requiredFields := make(map[string]struct{}, 0)
 	for _, k := range input.Required {
@@ -274,7 +275,7 @@ func (d *SwaggerDefinition) fieldsForModel(modelName string, input spec.Schema, 
 					return nil, nil, fmt.Errorf("parsing fields within allOf model %q (index %d): %+v", innerModelName, i, err)
 				}
 				if nestedResult != nil {
-					if err := result.append(*nestedResult); err != nil {
+					if err := result.Append(*nestedResult); err != nil {
 						return nil, nil, fmt.Errorf("appending nestedResult: %+v", err)
 					}
 				}
@@ -306,7 +307,7 @@ func (d *SwaggerDefinition) fieldsForModel(modelName string, input spec.Schema, 
 			fields[k] = v
 		}
 		if nestedResult != nil {
-			result.append(*nestedResult)
+			result.Append(*nestedResult)
 		}
 	}
 
@@ -318,7 +319,7 @@ func (d *SwaggerDefinition) fieldsForModel(modelName string, input spec.Schema, 
 			return nil, nil, fmt.Errorf("mapping field %q for %q: %+v", propName, modelName, err)
 		}
 		if nestedResult != nil {
-			if err := result.append(*nestedResult); err != nil {
+			if err := result.Append(*nestedResult); err != nil {
 				return nil, nil, fmt.Errorf("appending nestedResult: %+v", err)
 			}
 		}
@@ -398,14 +399,14 @@ func (d *SwaggerDefinition) modelDetailsFromObject(modelName string, input spec.
 	return &details, nil
 }
 
-func (d SwaggerDefinition) parseObjectDefinition(modelName, propertyName string, input *spec.Schema, known parseResult) (*models.ObjectDefinition, *parseResult, error) {
+func (d SwaggerDefinition) parseObjectDefinition(modelName, propertyName string, input *spec.Schema, known internal.ParseResult) (*models.ObjectDefinition, *internal.ParseResult, error) {
 	// find the object and any models and constants etc we can find
 	// however _don't_ look for discriminator implementations - since that should be done when we're completely done
-	result := parseResult{
-		constants: map[string]models.ConstantDetails{},
-		models:    map[string]models.ModelDetails{},
+	result := internal.ParseResult{
+		Constants: map[string]models.ConstantDetails{},
+		Models:    map[string]models.ModelDetails{},
 	}
-	result.append(known)
+	result.Append(known)
 
 	// if it's an enum then parse that out
 	if len(input.Enum) > 0 {
@@ -413,7 +414,7 @@ func (d SwaggerDefinition) parseObjectDefinition(modelName, propertyName string,
 		if err != nil {
 			return nil, nil, fmt.Errorf("parsing constant: %+v", err)
 		}
-		result.constants[constant.Name] = constant.Details
+		result.Constants[constant.Name] = constant.Details
 
 		definition := models.ObjectDefinition{
 			Type:          models.ObjectDefinitionReference,
@@ -441,16 +442,16 @@ func (d SwaggerDefinition) parseObjectDefinition(modelName, propertyName string,
 			return nil, nil, fmt.Errorf("finding top level model %q: %+v", *objectName, err)
 		}
 
-		knownIncludingPlaceholder := parseResult{
-			constants: map[string]models.ConstantDetails{},
-			models:    map[string]models.ModelDetails{},
+		knownIncludingPlaceholder := internal.ParseResult{
+			Constants: map[string]models.ConstantDetails{},
+			Models:    map[string]models.ModelDetails{},
 		}
 
-		if err := knownIncludingPlaceholder.append(result); err != nil {
+		if err := knownIncludingPlaceholder.Append(result); err != nil {
 			return nil, nil, fmt.Errorf("appending nestedResult: %+v", err)
 		}
 		if *objectName != "" {
-			knownIncludingPlaceholder.models[*objectName] = models.ModelDetails{
+			knownIncludingPlaceholder.Models[*objectName] = models.ModelDetails{
 				// add a placeholder to avoid circular references
 			}
 		}
@@ -461,7 +462,7 @@ func (d SwaggerDefinition) parseObjectDefinition(modelName, propertyName string,
 			return nil, nil, err
 		}
 		if nestedResult != nil && *objectName != "" {
-			delete(nestedResult.models, *objectName)
+			delete(nestedResult.Models, *objectName)
 		}
 		return objectDefinition, nestedResult, nil
 	}
@@ -477,7 +478,7 @@ func (d SwaggerDefinition) parseObjectDefinition(modelName, propertyName string,
 		}
 
 		// check for / avoid circular references
-		if _, ok := result.models[modelName]; !ok {
+		if _, ok := result.Models[modelName]; !ok {
 			nestedResult, err := d.parseModel(modelName, *input)
 			if err != nil {
 				return nil, nil, fmt.Errorf("parsing object from inlined model %q: %+v", modelName, err)
@@ -485,7 +486,7 @@ func (d SwaggerDefinition) parseObjectDefinition(modelName, propertyName string,
 			if nestedResult == nil {
 				return nil, nil, fmt.Errorf("parsing object from inlined response model %q: no model returned", modelName)
 			}
-			if err := result.append(*nestedResult); err != nil {
+			if err := result.Append(*nestedResult); err != nil {
 				return nil, nil, fmt.Errorf("appending nestedResult: %+v", err)
 			}
 		}
@@ -522,7 +523,7 @@ func (d SwaggerDefinition) parseObjectDefinition(modelName, propertyName string,
 		if nestedItem == nil {
 			return nil, nil, fmt.Errorf("parsing nested item for dictionary: no nested item returned")
 		}
-		if err := result.append(*nestedResult); err != nil {
+		if err := result.Append(*nestedResult); err != nil {
 			return nil, nil, fmt.Errorf("appending nestedResult: %+v", err)
 		}
 		return &models.ObjectDefinition{
@@ -557,7 +558,7 @@ func (d SwaggerDefinition) parseObjectDefinition(modelName, propertyName string,
 		v := input.UniqueItems
 		nestedItem.UniqueItems = &v
 
-		if err := result.append(*nestedResult); err != nil {
+		if err := result.Append(*nestedResult); err != nil {
 			return nil, nil, fmt.Errorf("appending nestedResult: %+v", err)
 		}
 		return &models.ObjectDefinition{

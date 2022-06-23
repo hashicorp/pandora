@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser/constants"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/featureflags"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser/internal"
 	"log"
 	"sort"
 	"strings"
@@ -26,14 +27,14 @@ type resourceIdParseResult struct {
 	nameToResourceIDs map[string]models.ParsedResourceId
 
 	// nestedResult contains any constants and models found when parsing these ID's
-	nestedResult parseResult
+	nestedResult internal.ParseResult
 
 	// resourceUriMetadata is a map[uri]resourceUriMetadata for the Resource ID reference & any suffix
 	resourceUrisToMetadata map[string]resourceUriMetadata
 }
 
 func (result *resourceIdParseResult) append(other resourceIdParseResult) error {
-	if err := result.nestedResult.append(other.nestedResult); err != nil {
+	if err := result.nestedResult.Append(other.nestedResult); err != nil {
 		return fmt.Errorf("appending other nestedResult: %+v", err)
 	}
 
@@ -98,8 +99,8 @@ type resourceUriMetadata struct {
 
 func (d *SwaggerDefinition) findResourceIds() (*resourceIdParseResult, error) {
 	result := resourceIdParseResult{
-		nestedResult: parseResult{
-			constants: map[string]models.ConstantDetails{},
+		nestedResult: internal.ParseResult{
+			Constants: map[string]models.ConstantDetails{},
 		},
 
 		nameToResourceIDs:      map[string]models.ParsedResourceId{},
@@ -118,9 +119,9 @@ func (d *SwaggerDefinition) findResourceIds() (*resourceIdParseResult, error) {
 	return &result, nil
 }
 
-func (d SwaggerDefinition) parseResourceIds() (*map[string]resourceUriMetadata, *parseResult, error) {
-	result := parseResult{
-		constants: map[string]models.ConstantDetails{},
+func (d SwaggerDefinition) parseResourceIds() (*map[string]resourceUriMetadata, *internal.ParseResult, error) {
+	result := internal.ParseResult{
+		Constants: map[string]models.ConstantDetails{},
 	}
 	urisToMetaData := make(map[string]resourceUriMetadata, 0)
 
@@ -138,7 +139,7 @@ func (d SwaggerDefinition) parseResourceIds() (*map[string]resourceUriMetadata, 
 			// next, if it's based on a Resource ID, let's ensure that's added too
 			resourceUri := uri
 			if metadata.resourceId != nil {
-				if err := result.appendConstants(metadata.resourceId.Constants); err != nil {
+				if err := result.AppendConstants(metadata.resourceId.Constants); err != nil {
 					return nil, nil, fmt.Errorf("appending constants from resource id for %s: %+v", uri, err)
 				}
 
@@ -164,8 +165,8 @@ func (d SwaggerDefinition) parseResourceIds() (*map[string]resourceUriMetadata, 
 func (d *SwaggerDefinition) parseResourceIdFromOperation(uri string, operationDetails *spec.Operation) (*resourceUriMetadata, error) {
 	// TODO: unit tests for this method too
 	segments := make([]models.ResourceIdSegment, 0)
-	result := parseResult{
-		constants: map[string]models.ConstantDetails{},
+	result := internal.ParseResult{
+		Constants: map[string]models.ConstantDetails{},
 	}
 
 	uriSegments := strings.Split(strings.TrimPrefix(uri, "/"), "/")
@@ -246,7 +247,7 @@ func (d *SwaggerDefinition) parseResourceIdFromOperation(uri string, operationDe
 						if err != nil {
 							return nil, fmt.Errorf("parsing constant from %q: %+v", uriSegment, err)
 						}
-						result.constants[constant.Name] = constant.Details
+						result.Constants[constant.Name] = constant.Details
 						segments = append(segments, models.ResourceIdSegment{
 							Type:              models.ConstantSegment,
 							Name:              normalizedSegment,
@@ -332,14 +333,14 @@ func (d *SwaggerDefinition) parseResourceIdFromOperation(uri string, operationDe
 		// if it's not an ARM ID there's nothing to output here, but new up a placeholder
 		// to be able to give us a normalized id for the suffix
 		pri := models.ParsedResourceId{
-			Constants: result.constants,
+			Constants: result.Constants,
 			Segments:  segments,
 		}
 		suffix := pri.NormalizedResourceId()
 		output.uriSuffix = &suffix
 	} else {
 		output.resourceId = &models.ParsedResourceId{
-			Constants: result.constants,
+			Constants: result.Constants,
 			Segments:  segments,
 		}
 	}

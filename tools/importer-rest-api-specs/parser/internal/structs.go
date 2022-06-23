@@ -1,4 +1,4 @@
-package parser
+package internal
 
 import (
 	"fmt"
@@ -7,34 +7,34 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
-type parseResult struct {
-	constants map[string]models.ConstantDetails
-	models    map[string]models.ModelDetails
+type ParseResult struct {
+	Constants map[string]models.ConstantDetails
+	Models    map[string]models.ModelDetails
 }
 
-func (r *parseResult) append(other parseResult) error {
-	if r.constants == nil {
-		r.constants = make(map[string]models.ConstantDetails)
+func (r *ParseResult) Append(other ParseResult) error {
+	if r.Constants == nil {
+		r.Constants = make(map[string]models.ConstantDetails)
 	}
-	if err := r.appendConstants(other.constants); err != nil {
+	if err := r.AppendConstants(other.Constants); err != nil {
 		return fmt.Errorf("appending constants: %+v", err)
 	}
 
-	if r.models == nil {
-		r.models = make(map[string]models.ModelDetails)
+	if r.Models == nil {
+		r.Models = make(map[string]models.ModelDetails)
 	}
-	if err := r.appendModels(other.models); err != nil {
+	if err := r.AppendModels(other.Models); err != nil {
 		return fmt.Errorf("appending models: %+v", err)
 	}
 
 	return nil
 }
 
-func (r *parseResult) appendConstants(other map[string]models.ConstantDetails) error {
+func (r *ParseResult) AppendConstants(other map[string]models.ConstantDetails) error {
 	for k, v := range other {
-		existing, hasExisting := r.constants[k]
+		existing, hasExisting := r.Constants[k]
 		if !hasExisting {
-			r.constants[k] = v
+			r.Constants[k] = v
 			continue
 		}
 
@@ -50,11 +50,11 @@ func (r *parseResult) appendConstants(other map[string]models.ConstantDetails) e
 	return nil
 }
 
-func (r *parseResult) appendModels(other map[string]models.ModelDetails) error {
+func (r *ParseResult) AppendModels(other map[string]models.ModelDetails) error {
 	for k, v := range other {
-		existing, hasExisting := r.models[k]
+		existing, hasExisting := r.Models[k]
 		if !hasExisting {
-			r.models[k] = v
+			r.Models[k] = v
 			continue
 		}
 
