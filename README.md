@@ -40,14 +40,18 @@ Pandora's primarily intended to be run in automation (using both Github Actions 
   * The Resource Manager Config (`./config/resource-manager.hcl`).
   * The Resource Manager Swagger Git Submodule (`./swagger`).
   * Any of the tooling within `./tools`.
-* If the Rest API Specs Importer outputs any changes to the Imported API Definitions, those are committed and a Pull Request is opened ([example](https://github.com/hashicorp/pandora/pull/751)).
+* If the Rest API Specs Importer outputs any changes to the Imported API Definitions, those are committed and a Pull Request is opened.
 * Once that PR is merged, if there's any changes then the `hashicorp/go-azure-sdk` repository is updated in the same fashion via the Go SDK Generator.
 * (**Future**) Once the Go SDK is updated, (if there's any changes) the Terraform Data Sources & Resources are re-generated via the Go SDK Generator, and the Go SDK dependency is updated via a Pull Request.
 
-The `./docs` folder contains more information, of particular note:
+To show the workflow with examples:
 
-* [Guide: how to import a new Resource Manager Service/API Version for an existing Service](./docs/resource-manager-service-import)
-* (Temporary, until the automation is completed) [Guide: how to generate a Go SDK](./docs/generating-a-go-sdk.md).
+1. A Pull Request is opened to add a new Service/API version to the config ([example](https://github.com/hashicorp/pandora/pull/939)).
+2. Once that Pull Request is merged that generates a Data API PR ([example](https://github.com/hashicorp/pandora/pull/941)).
+3. Once that Pull Request is merged that generates a Go SDK PR ([example](https://github.com/hashicorp/go-azure-sdk/pull/20)).
+4. Once that Pull Request is merged the SDK is automatically released (e.g. we add a new git tag).
+
+More information on [how to import a new Resource Manager Service/API Version for an existing Service](./docs/resource-manager-service-import) can be found in the `./docs` folder.
 
 ## Project Structure
 
