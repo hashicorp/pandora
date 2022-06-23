@@ -3,6 +3,7 @@ package parser
 import (
 	"fmt"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser/constants"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/featureflags"
 	"log"
 	"sort"
 	"strings"
@@ -390,6 +391,10 @@ func normalizeSegment(input string) string {
 	output = cleanup.NormalizeSegment(output, true)
 	// the names should always be camelCased, so let's be sure
 	output = fmt.Sprintf("%s%s", strings.ToLower(string(output[0])), output[1:])
+	if featureflags.ShouldReservedKeywordsBeNormalized {
+		output = cleanup.NormalizeReservedKeywords(output)
+	}
+
 	return output
 }
 

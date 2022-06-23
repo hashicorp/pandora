@@ -183,6 +183,30 @@ func NormalizeSegment(input string, camelCase bool) string {
 	return input
 }
 
+func NormalizeReservedKeywords(input string) string {
+	keywords := []string{
+		"const",
+		"continue",
+		"case",
+		"default",
+		"import",
+		"interface",
+		"package",
+		"range",
+		"select",
+		"type",
+		"var",
+	}
+
+	for _, v := range keywords {
+		if strings.EqualFold(input, v) {
+			return input + "Name"
+		}
+	}
+
+	return input
+}
+
 func NormalizeResourceName(input string) string {
 	output := input
 	output = NormalizeName(output)

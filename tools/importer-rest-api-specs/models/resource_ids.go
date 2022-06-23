@@ -2,6 +2,7 @@ package models
 
 import (
 	"fmt"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/featureflags"
 	"strings"
 
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/cleanup"
@@ -212,7 +213,11 @@ func normalizedResourceId(segments []ResourceIdSegment) string {
 
 		case ConstantSegment, ResourceGroupSegment, ScopeSegment, SubscriptionIdSegment, UserSpecifiedSegment:
 			// e.g. {example}
-			components = append(components, fmt.Sprintf("{%s}", segment.Name))
+			normalizedSegment := segment.Name
+			if featureflags.ShouldReservedKeywordsBeNormalized {
+				normalizedSegment = cleanup.NormalizeReservedKeywords(segment.Name)
+			}
+			components = append(components, fmt.Sprintf("{%s}", normalizedSegment))
 			continue
 
 		default:
