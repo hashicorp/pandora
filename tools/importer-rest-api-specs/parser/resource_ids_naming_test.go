@@ -370,7 +370,14 @@ var trafficManagerProfileResourceId = models.ParsedResourceId{
 	},
 }
 var redisPatchSchedulesResourceId = models.ParsedResourceId{
-	Constants: map[string]models.ConstantDetails{},
+	Constants: map[string]models.ConstantDetails{
+		"Default": {
+			FieldType: models.StringConstant,
+			Values: map[string]string{
+				"First": "first",
+			},
+		},
+	},
 	Segments: []models.ResourceIdSegment{
 		{
 			Type:       models.StaticSegment,
@@ -408,7 +415,7 @@ var redisPatchSchedulesResourceId = models.ParsedResourceId{
 		{
 			Type:       models.UserSpecifiedSegment,
 			FixedValue: strPtr("name"),
-			Name:       "Name",
+			Name:       "name",
 		},
 		{
 			Type:       models.StaticSegment,
@@ -1427,7 +1434,7 @@ func TestResourceIDNamingRedisPatchSchedulesId(t *testing.T) {
 		"DefaultId": redisPatchSchedulesResourceId,
 	}
 	expectedUrisToNames := map[string]string{
-		"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cache/redis/{name}/patchSchedules/defaultName": "PatchScheduleId",
+		"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cache/redis/{name}/patchSchedules/defaultName": "DefaultId",
 	}
 
 	actualNamesToIds, actualUrisToNames, err := determineNamesForResourceIds(input)
