@@ -85,7 +85,7 @@ service "iotcentral" {
 }
 service "kubernetesconfiguration" {
   name      = "KubernetesConfiguration"
-  available = ["2022-03-01"]
+  available = ["2022-07-01"]
 }
 service "labservices" {
   name      = "LabServices"
