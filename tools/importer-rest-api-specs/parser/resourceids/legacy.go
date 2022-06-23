@@ -22,51 +22,6 @@ var knownSegmentsUsedForScope = []string{
 	"scopePath",
 }
 
-type ResourceIdParseResult struct {
-	// NameToResourceIDs is a map[name]ParsedResourceID containing information about the Resource ID's
-	NameToResourceIDs map[string]models.ParsedResourceId
-
-	// NestedResult contains any constants and models found when parsing these ID's
-	NestedResult internal.ParseResult
-
-	// ResourceUriMetadata is a map[uri]ResourceUriMetadata for the Resource ID reference & any suffix
-	ResourceUrisToMetadata map[string]ResourceUriMetadata
-}
-
-func (result *ResourceIdParseResult) Append(other ResourceIdParseResult) error {
-	if err := result.NestedResult.Append(other.NestedResult); err != nil {
-		return fmt.Errorf("appending other nestedResult: %+v", err)
-	}
-
-	out := make(map[string]ResourceUriMetadata)
-	// intentional since this can be nil
-	for k, v := range result.ResourceUrisToMetadata {
-		out[k] = v
-	}
-	for k, v := range other.ResourceUrisToMetadata {
-		if existingVal, existing := out[k]; existing {
-			matches := false
-
-			if v.ResourceId != nil && existingVal.ResourceId != nil && v.ResourceId.Matches(*existingVal.ResourceId) {
-				matches = true
-			}
-			if v.UriSuffix != nil && existingVal.UriSuffix != nil && *v.UriSuffix == *existingVal.UriSuffix {
-				matches = true
-			}
-
-			if matches {
-				continue
-			}
-			return fmt.Errorf("conflicting Uris with the key %q (First %+v / Second %+v)", k, v, existingVal)
-		}
-
-		out[k] = v
-	}
-	result.ResourceUrisToMetadata = out
-
-	return nil
-}
-
 func (result *ResourceIdParseResult) GenerateNames() error {
 	// next determine names for these
 	namesToResourceUris, urisToNames, err := LegacyDetermineNamesForResourceIds(result.ResourceUrisToMetadata)
@@ -522,56 +477,6 @@ func LegacyDetermineNamesForResourceIds(urisToObjects map[string]ResourceUriMeta
 	}
 
 	return &outputNamesToUris, &urisToNames, nil
-}
-
-func checkForAliasForUri(resourceId *models.ParsedResourceId) *string {
-	aliasedIds := map[string]models.ParsedResourceId{
-		"Subscription": {
-			Constants: map[string]models.ConstantDetails{},
-			Segments: []models.ResourceIdSegment{
-				{
-					Type:       models.StaticSegment,
-					Name:       "subscriptions",
-					FixedValue: toPtr("subscriptions"),
-				},
-				{
-					Type: models.SubscriptionIdSegment,
-					Name: "subscriptionId",
-				},
-			},
-		},
-		"ResourceGroup": {
-			Constants: map[string]models.ConstantDetails{},
-			Segments: []models.ResourceIdSegment{
-				{
-					Type:       models.StaticSegment,
-					Name:       "subscriptions",
-					FixedValue: toPtr("subscriptions"),
-				},
-				{
-					Type: models.SubscriptionIdSegment,
-					Name: "subscriptionId",
-				},
-				{
-					Type:       models.StaticSegment,
-					Name:       "resourceGroups",
-					FixedValue: toPtr("resourceGroups"),
-				},
-				{
-					Type: models.ResourceGroupSegment,
-					Name: "resourceGroupName",
-				},
-			},
-		},
-	}
-
-	for name, alias := range aliasedIds {
-		if resourceId.Matches(alias) {
-			return &name
-		}
-	}
-
-	return nil
 }
 
 func determineUniqueNamesFor(conflictingUris []models.ParsedResourceId, existingCandidateNames map[string]models.ParsedResourceId) (*map[string]models.ParsedResourceId, error) {

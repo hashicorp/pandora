@@ -16,12 +16,12 @@ import (
 )
 
 type operationsParser struct {
-	operations            []parsedOperation
-	resourceUriToMetaData map[string]resourceids.ResourceUriMetadata
-	swaggerDefinition     *SwaggerDefinition
+	operations        []parsedOperation
+	urisToResourceIds map[string]resourceids.ParsedOperation
+	swaggerDefinition *SwaggerDefinition
 }
 
-func (d *SwaggerDefinition) parseOperationsWithinTag(tag *string, resourceUriToMetaData map[string]resourceids.ResourceUriMetadata, found internal.ParseResult) (*map[string]models.OperationDetails, *internal.ParseResult, error) {
+func (d *SwaggerDefinition) parseOperationsWithinTag(tag *string, urisToResourceIds map[string]resourceids.ParsedOperation, found internal.ParseResult) (*map[string]models.OperationDetails, *internal.ParseResult, error) {
 	operations := make(map[string]models.OperationDetails, 0)
 	result := internal.ParseResult{
 		Constants: map[string]models.ConstantDetails{},
@@ -30,8 +30,8 @@ func (d *SwaggerDefinition) parseOperationsWithinTag(tag *string, resourceUriToM
 	result.Append(found)
 
 	parser := operationsParser{
-		resourceUriToMetaData: resourceUriToMetaData,
-		swaggerDefinition:     d,
+		urisToResourceIds: urisToResourceIds,
+		swaggerDefinition: d,
 	}
 
 	// first find the operations then pull out everything we can
@@ -119,7 +119,7 @@ func (p operationsParser) parseOperation(operation parsedOperation) (*models.Ope
 		}
 	}
 
-	resourceId := p.resourceUriToMetaData[*normalizedUri]
+	resourceId := p.urisToResourceIds[*normalizedUri]
 
 	operationData := models.OperationDetails{
 		ContentType:                      contentType,
@@ -386,7 +386,7 @@ func (p operationsParser) operationShouldBeIgnored(input models.OperationDetails
 }
 
 func (p operationsParser) normalizedUriForOperation(input parsedOperation) (*string, error) {
-	for key := range p.resourceUriToMetaData {
+	for key := range p.urisToResourceIds {
 		if strings.EqualFold(key, input.uri) {
 			return &key, nil
 		}

@@ -10,7 +10,7 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
-func (d *SwaggerDefinition) parse(serviceName, apiVersion string, resourceIds resourceids.ResourceIdParseResult) (*models.AzureApiDefinition, error) {
+func (d *SwaggerDefinition) parse(serviceName, apiVersion string, resourceIds resourceids.ParseResult) (*models.AzureApiDefinition, error) {
 	resources := make(map[string]models.AzureApiResource, 0)
 
 	tags := d.findTags()
@@ -53,12 +53,12 @@ func (d *SwaggerDefinition) parse(serviceName, apiVersion string, resourceIds re
 	}, nil
 }
 
-func (d *SwaggerDefinition) ParseResourceIds() (*resourceids.ResourceIdParseResult, error) {
+func (d *SwaggerDefinition) ParseResourceIds() (*resourceids.ParseResult, error) {
 	// TODO: switch this out for a proper logger in time
 	logger := hclog.NewNullLogger()
 	parser := resourceids.NewParser(logger, d.swaggerSpecExpanded)
 
-	resourceIds, err := parser.LegacyFindResourceIds()
+	resourceIds, err := parser.Parse()
 	if err != nil {
 		return nil, fmt.Errorf("finding resource ids: %+v", err)
 	}

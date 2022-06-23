@@ -2,8 +2,9 @@ package resourceids
 
 import "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 
-type OperationResult struct {
-	resourceId *models.ParsedResourceId
+type ParsedOperation struct {
+	// ResourceId is the ParsedResourceId object for this Resource Id
+	ResourceId *models.ParsedResourceId
 
 	// ResourceIdName is the name of the ResourceID
 	ResourceIdName *string
@@ -14,22 +15,19 @@ type OperationResult struct {
 	UriSuffix *string
 }
 
-// NormalizedUri returns the normalized URI for this operation
-func (r OperationResult) NormalizedUri() string {
-	return "/bob"
-}
-
 type ParseResult struct {
-	// OriginalUrisToResourceIDs is a mapping of the original URI to a OperationResult object
+	// OriginalUrisToResourceIDs is a mapping of the original URI to a ParsedOperation object
 	// which allows mapping the original URI to the Normalized Resource ID once processed.
-	OriginalUrisToResourceIDs map[string]OperationResult
+	OriginalUrisToResourceIDs map[string]ParsedOperation
 
 	// NamesToResourceIDs is a mapping of the ResourceID Names to the Parsed Resource ID objects
 	NamesToResourceIDs map[string]models.ParsedResourceId
 
-	// ResourceIDsToNames is a map of the NormalizedUri to the ResourceIdName
-	ResourceIDsToNames map[string]string
-
 	// Constants is a map of Name - ConstantDetails found within the Resource IDs
 	Constants map[string]models.ConstantDetails
+}
+
+func (r *ParseResult) Append(other ParseResult) error {
+	// TODO: implement me
+	return nil
 }

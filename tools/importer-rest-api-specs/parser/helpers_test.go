@@ -17,9 +17,9 @@ func ParseSwaggerFileForTesting(t *testing.T, file string) (*models.AzureApiDefi
 		t.Fatalf("parsing Resource Ids: %+v", err)
 	}
 
-	if err := resourceIds.GenerateNames(); err != nil {
-		t.Fatalf("generating Resource Ids: %+v", err)
-	}
+	//if err := resourceIds.GenerateNames(); err != nil {
+	//	t.Fatalf("generating Resource Ids: %+v", err)
+	//}
 
 	out, err := parsed.parse("Example", "2020-01-01", *resourceIds)
 	if err != nil {

@@ -8,23 +8,22 @@ import (
 	"log"
 	"strings"
 
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/featureflags"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
-func (d *SwaggerDefinition) parseResourcesWithinSwaggerTag(tag *string, resourceIds resourceids.ResourceIdParseResult) (*models.AzureApiResource, error) {
+func (d *SwaggerDefinition) parseResourcesWithinSwaggerTag(tag *string, resourceIds resourceids.ParseResult) (*models.AzureApiResource, error) {
 	result := internal.ParseResult{
 		Constants: map[string]models.ConstantDetails{},
 		Models:    map[string]models.ModelDetails{},
 	}
 
 	// note that Resource ID's can contain Constants (used as segments)
-	if err := result.Append(resourceIds.NestedResult); err != nil {
+	if err := result.AppendConstants(resourceIds.Constants); err != nil {
 		return nil, fmt.Errorf("appending nestedResult from Constants: %+v", err)
 	}
 
 	// pull out the operations and any inlined/top-level constants/models
-	operations, nestedResult, err := d.parseOperationsWithinTag(tag, resourceIds.ResourceUrisToMetadata, result)
+	operations, nestedResult, err := d.parseOperationsWithinTag(tag, resourceIds.OriginalUrisToResourceIDs, result)
 	if err != nil {
 		return nil, fmt.Errorf("finding operations: %+v", err)
 	}
@@ -50,8 +49,9 @@ func (d *SwaggerDefinition) parseResourcesWithinSwaggerTag(tag *string, resource
 	// then switch out any custom types (e.g. Identity)
 	result = switchOutCustomTypesAsNeeded(result)
 
-	// then switch out any common resource ids (e.g. Resource Group)
-	resourceIdNamesToUris := switchOutCommonResourceIDsAsNeeded(resourceIds.NameToResourceIDs)
+	// TODO: this should be moved into the Resource ID parsing bit
+	//// then switch out any common resource ids (e.g. Resource Group)
+	//resourceIdNamesToUris := switchOutCommonResourceIDsAsNeeded(resourceIds.NameToResourceIDs)
 
 	nestedResult, err = d.replaceDiscriminatedTypesWithParents(*nestedResult)
 	if err != nil {
@@ -59,7 +59,7 @@ func (d *SwaggerDefinition) parseResourcesWithinSwaggerTag(tag *string, resource
 	}
 
 	// finally remove any models and constants which aren't referenced / have been replaced
-	constantsAndModels, resourceIdNamesToUris := removeUnusedItems(*operations, resourceIdNamesToUris, result)
+	constantsAndModels, resourceIdNamesToUris := removeUnusedItems(*operations, resourceIds.NamesToResourceIDs, result)
 
 	// if there's nothing here, there's no point generating a package
 	if len(*operations) == 0 {
@@ -77,28 +77,6 @@ func (d *SwaggerDefinition) parseResourcesWithinSwaggerTag(tag *string, resource
 	resource.Normalize()
 
 	return &resource, nil
-}
-
-func switchOutCommonResourceIDsAsNeeded(namesToUris map[string]models.ParsedResourceId) map[string]models.ParsedResourceId {
-	if !featureflags.EnableCommonResourceIDs {
-		return namesToUris
-	}
-
-	output := make(map[string]models.ParsedResourceId)
-
-	for name, value := range namesToUris {
-		for _, commonId := range commonIdTypes {
-			if commonId.isMatch(value) {
-				commonAlias := commonId.name()
-				value.CommonAlias = &commonAlias
-				break
-			}
-		}
-
-		output[name] = value
-	}
-
-	return output
 }
 
 func pullOutModelForListOperations(input map[string]models.OperationDetails, known internal.ParseResult) (*map[string]models.OperationDetails, error) {
