@@ -17,7 +17,7 @@ service "appconfiguration" {
 }
 service "applicationinsights" {
   name      = "ApplicationInsights"
-  available = ["2022-04-01"]
+  available = ["2020-11-20", "2022-04-01"]
 }
 service "attestation" {
   name      = "Attestation"
