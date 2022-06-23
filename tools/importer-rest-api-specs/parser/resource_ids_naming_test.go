@@ -1,6 +1,7 @@
 package parser
 
 import (
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/featureflags"
 	"reflect"
 	"testing"
 
@@ -1423,6 +1424,10 @@ func TestResourceIdNamingTrafficManagerEndpoint(t *testing.T) {
 }
 
 func TestResourceIDNamingRedisDefaultId(t *testing.T) {
+	if !featureflags.ShouldReservedKeywordsBeNormalized {
+		t.Skipf("Skipping until the importer is refactored")
+	}
+
 	input := map[string]resourceUriMetadata{
 		"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cache/redis/{name}/patchSchedules/{default}": {
 			resourceIdName: nil,
