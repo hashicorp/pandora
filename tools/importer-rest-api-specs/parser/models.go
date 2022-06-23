@@ -2,6 +2,7 @@ package parser
 
 import (
 	"fmt"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser/constants"
 	"log"
 	"strings"
 
@@ -60,11 +61,11 @@ func (d *SwaggerDefinition) findConstantsWithinModel(fieldName string, input spe
 	result.append(known)
 
 	if len(input.Enum) > 0 {
-		constant, err := mapConstant(input.Type, fieldName, input.Enum, input.Extensions)
+		constant, err := constants.MapConstant(input.Type, fieldName, input.Enum, input.Extensions)
 		if err != nil {
 			return nil, fmt.Errorf("parsing constant: %+v", err)
 		}
-		result.constants[constant.name] = constant.details
+		result.constants[constant.Name] = constant.Details
 	}
 
 	// Check any object that this model inherits from
@@ -408,15 +409,15 @@ func (d SwaggerDefinition) parseObjectDefinition(modelName, propertyName string,
 
 	// if it's an enum then parse that out
 	if len(input.Enum) > 0 {
-		constant, err := mapConstant(input.Type, propertyName, input.Enum, input.Extensions)
+		constant, err := constants.MapConstant(input.Type, propertyName, input.Enum, input.Extensions)
 		if err != nil {
 			return nil, nil, fmt.Errorf("parsing constant: %+v", err)
 		}
-		result.constants[constant.name] = constant.details
+		result.constants[constant.Name] = constant.Details
 
 		definition := models.ObjectDefinition{
 			Type:          models.ObjectDefinitionReference,
-			ReferenceName: &constant.name,
+			ReferenceName: &constant.Name,
 		}
 		if input.MaxItems != nil {
 			v := int(*input.MaxItems)

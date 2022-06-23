@@ -2,6 +2,7 @@ package parser
 
 import (
 	"fmt"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser/constants"
 	"log"
 	"sort"
 	"strings"
@@ -240,15 +241,15 @@ func (d *SwaggerDefinition) parseResourceIdFromOperation(uri string, operationDe
 
 					if param.Enum != nil {
 						// then find the constant itself
-						constant, err := mapConstant([]string{param.Type}, param.Name, param.Enum, param.Extensions)
+						constant, err := constants.MapConstant([]string{param.Type}, param.Name, param.Enum, param.Extensions)
 						if err != nil {
 							return nil, fmt.Errorf("parsing constant from %q: %+v", uriSegment, err)
 						}
-						result.constants[constant.name] = constant.details
+						result.constants[constant.Name] = constant.Details
 						segments = append(segments, models.ResourceIdSegment{
 							Type:              models.ConstantSegment,
 							Name:              normalizedSegment,
-							ConstantReference: &constant.name,
+							ConstantReference: &constant.Name,
 						})
 						isConstant = true
 						break

@@ -2,6 +2,7 @@ package parser
 
 import (
 	"fmt"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser/constants"
 	"log"
 	"net/http"
 	"strings"
@@ -347,15 +348,15 @@ func (p operationsParser) optionsForOperation(input parsedOperation) (*map[strin
 				types := []string{
 					param.Type,
 				}
-				constant, err := mapConstant(types, param.Name, param.Enum, param.Extensions)
+				constant, err := constants.MapConstant(types, param.Name, param.Enum, param.Extensions)
 				if err != nil {
 					return nil, nil, fmt.Errorf("mapping %q: %+v", param.Name, err)
 				}
-				result.constants[constant.name] = constant.details
+				result.constants[constant.Name] = constant.Details
 
 				option.ObjectDefinition = &models.ObjectDefinition{
 					Type:          models.ObjectDefinitionReference,
-					ReferenceName: &constant.name,
+					ReferenceName: &constant.Name,
 				}
 			}
 
