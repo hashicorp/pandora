@@ -55,7 +55,7 @@ func (p predicateTemplater) templateForModel(predicateStructName string, name st
 		resourcemanager.UserAssignedIdentityMapApiObjectDefinitionType:                 {},
 		resourcemanager.UserAssignedIdentityListApiObjectDefinitionType:                {},
 		resourcemanager.TagsApiObjectDefinitionType:                                    {},
-		resourcemanager.SystemData: {},
+		resourcemanager.SystemData:                                                     {},
 	}
 
 	for name, field := range model.Fields {
@@ -72,29 +72,39 @@ func (p predicateTemplater) templateForModel(predicateStructName string, name st
 	}
 	sort.Strings(fieldNames)
 
+	// if this is a parent/interface type, for now don't output anything as a part of the predicates
+	// but in time we should look to support filtering on the sub-type, or something?
+	// issue: https://github.com/hashicorp/pandora/issues/956
+	isParentInterface := false
+	if model.ParentTypeName == nil && model.TypeHintIn != nil && model.TypeHintValue == nil {
+		isParentInterface = true
+	}
+
 	matchLines := make([]string, 0)
 	structLines := make([]string, 0)
-	for _, fieldName := range fieldNames {
-		fieldVal := model.Fields[fieldName]
+	if !isParentInterface {
+		for _, fieldName := range fieldNames {
+			fieldVal := model.Fields[fieldName]
 
-		typeInfo, err := golangTypeNameForObjectDefinition(fieldVal.ObjectDefinition)
-		if err != nil {
-			return nil, fmt.Errorf("determining type information for field %q in model %q with info %q: %+v", fieldName, name, string(fieldVal.ObjectDefinition.Type), err)
-		}
-		structLines = append(structLines, fmt.Sprintf("\t %[1]s *%[2]s", fieldName, *typeInfo))
+			typeInfo, err := golangTypeNameForObjectDefinition(fieldVal.ObjectDefinition)
+			if err != nil {
+				return nil, fmt.Errorf("determining type information for field %q in model %q with info %q: %+v", fieldName, name, string(fieldVal.ObjectDefinition.Type), err)
+			}
+			structLines = append(structLines, fmt.Sprintf("\t %[1]s *%[2]s", fieldName, *typeInfo))
 
-		if fieldVal.Optional {
-			matchLines = append(matchLines, fmt.Sprintf(`
+			if fieldVal.Optional {
+				matchLines = append(matchLines, fmt.Sprintf(`
 	if p.%[1]s != nil && (input.%[1]s == nil && *p.%[1]s != *input.%[1]s) {
 	 	return false
 	}
 `, fieldName))
-		} else {
-			matchLines = append(matchLines, fmt.Sprintf(`
+			} else {
+				matchLines = append(matchLines, fmt.Sprintf(`
 	if p.%[1]s != nil && *p.%[1]s != input.%[1]s {
 	 	return false
 	}
 `, fieldName))
+			}
 		}
 	}
 
