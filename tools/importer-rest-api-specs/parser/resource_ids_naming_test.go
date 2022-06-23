@@ -1434,7 +1434,7 @@ func TestResourceIDNamingRedisDefaultId(t *testing.T) {
 		"DefaultId": redisPatchSchedulesResourceId,
 	}
 	expectedUrisToNames := map[string]string{
-		"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cache/redis/{name}/patchSchedules/defaultName": "DefaultId",
+		"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cache/redis/{name}/patchSchedules/{defaultName}": "DefaultId",
 	}
 
 	actualNamesToIds, actualUrisToNames, err := determineNamesForResourceIds(input)

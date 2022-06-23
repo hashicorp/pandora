@@ -212,7 +212,8 @@ func normalizedResourceId(segments []ResourceIdSegment) string {
 
 		case ConstantSegment, ResourceGroupSegment, ScopeSegment, SubscriptionIdSegment, UserSpecifiedSegment:
 			// e.g. {example}
-			components = append(components, fmt.Sprintf("{%s}", segment.Name))
+			normalizedSegment := cleanup.NormalizeReservedKeywords(segment.Name)
+			components = append(components, fmt.Sprintf("{%s}", normalizedSegment))
 			continue
 
 		default:
