@@ -1,12 +1,12 @@
 package parser
 
 import (
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/featureflags"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser/resourceids"
 	"reflect"
 	"testing"
 
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/featureflags"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser/resourceids"
 )
 
 var subscriptionResourceId = models.ParsedResourceId{
@@ -1429,11 +1429,11 @@ func TestResourceIDNamingRedisDefaultId(t *testing.T) {
 		t.Skipf("Skipping until the importer is refactored")
 	}
 
-	input := map[string]resourceUriMetadata{
+	input := map[string]resourceids.ResourceUriMetadata{
 		"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cache/redis/{name}/patchSchedules/{default}": {
-			resourceIdName: nil,
-			resourceId:     &redisPatchSchedulesResourceId,
-			uriSuffix:      nil,
+			ResourceIdName: nil,
+			ResourceId:     &redisPatchSchedulesResourceId,
+			UriSuffix:      nil,
 		},
 	}
 	expectedNamesToIds := map[string]models.ParsedResourceId{
@@ -1443,7 +1443,7 @@ func TestResourceIDNamingRedisDefaultId(t *testing.T) {
 		"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cache/redis/{name}/patchSchedules/{defaultName}": "DefaultId",
 	}
 
-	actualNamesToIds, actualUrisToNames, err := determineNamesForResourceIds(input)
+	actualNamesToIds, actualUrisToNames, err := resourceids.LegacyDetermineNamesForResourceIds(input)
 	if err != nil {
 		t.Fatalf("error: %+v", err)
 		return
