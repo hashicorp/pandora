@@ -418,7 +418,7 @@ var redisPatchSchedulesResourceId = models.ParsedResourceId{
 		{
 			Type:              models.ConstantSegment,
 			ConstantReference: strPtr("default"),
-			Name:              "defaultName",
+			Name:              "default",
 		},
 	},
 }
@@ -1427,7 +1427,7 @@ func TestResourceIDNamingRedisPatchSchedulesId(t *testing.T) {
 		"DefaultId": redisPatchSchedulesResourceId,
 	}
 	expectedUrisToNames := map[string]string{
-		"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cache/redis/{name}/patchSchedules/{default}": "PatchScheduleId",
+		"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cache/redis/{name}/patchSchedules/defaultName": "PatchScheduleId",
 	}
 
 	actualNamesToIds, actualUrisToNames, err := determineNamesForResourceIds(input)
