@@ -195,6 +195,10 @@ service "signalr" {
   name      = "SignalR"
   available = ["2021-10-01"]
 }
+service "sqlvirtualmachine" {
+  name      = "SqlVirtualMachine"
+  available = ["2022-02-01"]
+}
 service "storage" {
   name      = "Storage"
   available = ["2021-04-01"]
@@ -202,10 +206,6 @@ service "storage" {
 service "storagepool" {
   name      = "StoragePool"
   available = ["2021-08-01"]
-}
-service "sqlvirtualmachine" {
-  name      = "SqlVirtualMachine"
-  available = ["2022-02-01"]
 }
 service "trafficmanager" {
   name      = "TrafficManager"
