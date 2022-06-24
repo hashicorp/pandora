@@ -49,10 +49,6 @@ func (d *SwaggerDefinition) parseResourcesWithinSwaggerTag(tag *string, resource
 	// then switch out any custom types (e.g. Identity)
 	result = switchOutCustomTypesAsNeeded(result)
 
-	// TODO: this should be moved into the Resource ID parsing bit
-	//// then switch out any common resource ids (e.g. Resource Group)
-	//resourceIdNamesToUris := switchOutCommonResourceIDsAsNeeded(resourceIds.NameToResourceIDs)
-
 	nestedResult, err = d.replaceDiscriminatedTypesWithParents(*nestedResult)
 	if err != nil {
 		return nil, fmt.Errorf("replacing discriminated types with parent types: %+v", err)
