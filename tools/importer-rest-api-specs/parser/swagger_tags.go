@@ -45,5 +45,10 @@ func tagShouldBeIgnored(tag string) bool {
 		}
 	}
 
+	// there's a handful of these (e.g. `FluxConfigurationOperationStatus`)
+	if strings.Contains(lowered, "operationstatus") {
+		return true
+	}
+
 	return false
 }

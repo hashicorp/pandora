@@ -1,4 +1,4 @@
-package parser
+package resourceids
 
 import "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 
@@ -14,7 +14,7 @@ func (commonIdUserAssignedIdentity) isMatch(input models.ParsedResourceId) bool 
 			{
 				Name:       "subscriptions",
 				Type:       models.StaticSegment,
-				FixedValue: toPtr("subscriptions"),
+				FixedValue: strPtr("subscriptions"),
 			},
 			{
 				Name: "subscriptionId",
@@ -23,7 +23,7 @@ func (commonIdUserAssignedIdentity) isMatch(input models.ParsedResourceId) bool 
 			{
 				Name:       "resourceGroups",
 				Type:       models.StaticSegment,
-				FixedValue: toPtr("resourceGroups"),
+				FixedValue: strPtr("resourceGroups"),
 			},
 			{
 				Name: "resourceGroup",
@@ -32,16 +32,17 @@ func (commonIdUserAssignedIdentity) isMatch(input models.ParsedResourceId) bool 
 			{
 				Name:       "providers",
 				Type:       models.StaticSegment,
-				FixedValue: toPtr("providers"),
+				FixedValue: strPtr("providers"),
 			},
 			{
-				Name: "resourceProvider",
-				Type: models.ResourceProviderSegment,
+				Name:       "resourceProvider",
+				Type:       models.ResourceProviderSegment,
+				FixedValue: strPtr("Microsoft.ManagedIdentity"),
 			},
 			{
 				Name:       "userAssignedIdentities",
 				Type:       models.StaticSegment,
-				FixedValue: toPtr("userAssignedIdentities"),
+				FixedValue: strPtr("userAssignedIdentities"),
 			},
 			{
 				Name: "resourceName",

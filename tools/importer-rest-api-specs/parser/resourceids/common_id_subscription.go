@@ -1,4 +1,4 @@
-package parser
+package resourceids
 
 import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
@@ -15,7 +15,7 @@ func (commonIdSubscriptionMatcher) isMatch(input models.ParsedResourceId) bool {
 			{
 				Name:       "subscriptions",
 				Type:       models.StaticSegment,
-				FixedValue: toPtr("subscriptions"),
+				FixedValue: strPtr("subscriptions"),
 			},
 			{
 				Name: "subscriptionId",

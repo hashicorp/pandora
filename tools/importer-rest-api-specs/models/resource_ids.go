@@ -2,10 +2,10 @@ package models
 
 import (
 	"fmt"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/featureflags"
 	"strings"
 
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/cleanup"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/featureflags"
 )
 
 type ParsedResourceId struct {
@@ -20,26 +20,7 @@ type ParsedResourceId struct {
 	Segments []ResourceIdSegment
 }
 
-// ToTopLevelResourceId returns a ParsedResourceId without any static segments on the end
-// that is, just a Resource Manager ID
-func (pri ParsedResourceId) ToTopLevelResourceId() ParsedResourceId {
-	segments := pri.segmentsWithoutUriSuffix()
-	return ParsedResourceId{
-		Constants: pri.Constants,
-		Segments:  segments,
-	}
-}
-
 func (pri ParsedResourceId) Matches(other ParsedResourceId) bool {
-	if (pri.CommonAlias != nil && other.CommonAlias == nil) || (pri.CommonAlias == nil && other.CommonAlias != nil) {
-		return false
-	}
-	if pri.CommonAlias != nil {
-		if *pri.CommonAlias != *other.CommonAlias {
-			return false
-		}
-	}
-
 	if len(pri.Segments) != len(other.Segments) {
 		return false
 	}
@@ -77,7 +58,7 @@ func (pri ParsedResourceId) Matches(other ParsedResourceId) bool {
 			continue
 		}
 
-		if first.Type == StaticSegment {
+		if first.Type == ResourceProviderSegment || first.Type == StaticSegment {
 			if first.FixedValue != nil && second.FixedValue == nil {
 				return false
 			}

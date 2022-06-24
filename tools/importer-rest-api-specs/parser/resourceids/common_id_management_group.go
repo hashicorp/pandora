@@ -1,4 +1,4 @@
-package parser
+package resourceids
 
 import "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 
@@ -13,16 +13,17 @@ func (commonIdManagementGroupMatcher) isMatch(input models.ParsedResourceId) boo
 			{
 				Name:       "providers",
 				Type:       models.StaticSegment,
-				FixedValue: toPtr("providers"),
+				FixedValue: strPtr("providers"),
 			},
 			{
-				Name: "resourceProvider",
-				Type: models.ResourceProviderSegment,
+				Name:       "resourceProvider",
+				Type:       models.ResourceProviderSegment,
+				FixedValue: strPtr("Microsoft.Management"),
 			},
 			{
 				Name:       "managementGroups",
 				Type:       models.StaticSegment,
-				FixedValue: toPtr("managementGroups"),
+				FixedValue: strPtr("managementGroups"),
 			},
 			{
 				Name: "groupId",

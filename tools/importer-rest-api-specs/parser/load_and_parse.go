@@ -2,12 +2,11 @@ package parser
 
 import (
 	"fmt"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser/resourceids"
 	"log"
-	"os"
 	"strings"
 
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/featureflags"
+	"github.com/hashicorp/go-hclog"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser/resourceids"
 )
 
 func LoadAndParseFiles(directory string, fileNames []string, serviceName, apiVersion string, debugLogging bool) (*[]ParsedData, error) {
@@ -20,11 +19,13 @@ func LoadAndParseFiles(directory string, fileNames []string, serviceName, apiVer
 		return &[]ParsedData{}, nil
 	}
 
+	logger := hclog.NewNullLogger()
+
 	// First go through and parse all of the Resource ID's across all of the files
 	// this means that the names which are generated are unique across the Service
 	// which means these won't conflict and ultimately enables #44 (aliasing) in
 	// the future.
-	resourceIdResult := &resourceids.ResourceIdParseResult{}
+	resourceIdResult := &resourceids.ParseResult{}
 	for _, file := range fileNames {
 		swaggerFile, err := load(directory, file, debugLogging)
 		if err != nil {
@@ -35,21 +36,9 @@ func LoadAndParseFiles(directory string, fileNames []string, serviceName, apiVer
 		if err != nil {
 			return nil, fmt.Errorf("parsing Resource Ids from %q (Service %q / Api Version %q): %+v", file, serviceName, apiVersion, err)
 		}
-		resourceIdResult.Append(*parsedResourceIds)
-	}
-
-	// conditionally output the Resource ID's to a file so that we can check if any segments require normalizing
-	// useful, but off by default
-	if featureflags.ShouldOutputResourceIdsToFile {
-		writeToFile(resourceIdResult.ResourceUrisToMetadata)
-	}
-
-	// finally once we've got all of the Swagger files we need to generate names for the Resource ID Parsers
-	if debugLogging {
-		log.Printf("[DEBUG] Generating Names for the Resource IDs..")
-	}
-	if err := resourceIdResult.GenerateNames(); err != nil {
-		return nil, fmt.Errorf("generating names for the Resource IDs: %+v", err)
+		if err := resourceIdResult.Append(*parsedResourceIds, logger); err != nil {
+			return nil, fmt.Errorf("appending Resource Ids: %+v", err)
+		}
 	}
 
 	parsed := make(map[string]ParsedData, 0)
@@ -97,23 +86,6 @@ func LoadAndParseFiles(directory string, fileNames []string, serviceName, apiVer
 		out = append(out, v)
 	}
 	return &out, nil
-}
-
-func writeToFile(metadata map[string]resourceids.ResourceUriMetadata) {
-	f, err := os.OpenFile("resource-ids.txt", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
-	if err != nil {
-		return
-	}
-	defer f.Close()
-
-	for _, uri := range metadata {
-		if uri.ResourceId == nil {
-			continue
-		}
-
-		resourceManagerUri := uri.ResourceId.String()
-		f.Write([]byte(fmt.Sprintf("%s\n", resourceManagerUri)))
-	}
 }
 
 func serviceShouldBeIgnored(name string) bool {
