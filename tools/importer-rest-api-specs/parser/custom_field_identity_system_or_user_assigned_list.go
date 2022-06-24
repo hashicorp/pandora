@@ -1,10 +1,10 @@
 package parser
 
 import (
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser/internal"
 	"strings"
 
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser/internal"
 )
 
 var _ customFieldMatcher = systemOrUserAssignedIdentityListMatcher{}

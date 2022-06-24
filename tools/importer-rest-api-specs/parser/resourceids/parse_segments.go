@@ -2,15 +2,15 @@ package resourceids
 
 import (
 	"fmt"
-	"github.com/go-openapi/spec"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/cleanup"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/featureflags"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser/constants"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser/internal"
 	"log"
 	"strings"
 
+	"github.com/go-openapi/spec"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/cleanup"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/featureflags"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser/constants"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser/internal"
 )
 
 var knownSegmentsUsedForScope = []string{
@@ -136,6 +136,7 @@ func (p *Parser) parseResourceIdFromOperation(uri string, operation *spec.Operat
 						if err != nil {
 							return nil, fmt.Errorf("parsing constant from %q: %+v", uriSegment, err)
 						}
+
 						result.Constants[constant.Name] = constant.Details
 						segments = append(segments, models.ResourceIdSegment{
 							Type:              models.ConstantSegment,

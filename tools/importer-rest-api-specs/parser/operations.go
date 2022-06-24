@@ -2,17 +2,16 @@ package parser
 
 import (
 	"fmt"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser/constants"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser/internal"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser/resourceids"
 	"log"
 	"net/http"
 	"strings"
 
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/cleanup"
-
 	"github.com/go-openapi/spec"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/cleanup"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser/constants"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser/internal"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser/resourceids"
 )
 
 type operationsParser struct {

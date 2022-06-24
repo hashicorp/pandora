@@ -2,14 +2,14 @@ package parser
 
 import (
 	"fmt"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser/constants"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser/internal"
 	"log"
 	"strings"
 
 	"github.com/go-openapi/spec"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/cleanup"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser/constants"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser/internal"
 )
 
 func (d *SwaggerDefinition) parseModel(name string, input spec.Schema) (*internal.ParseResult, error) {

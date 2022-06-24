@@ -2,10 +2,10 @@ package models
 
 import (
 	"fmt"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/featureflags"
 	"strings"
 
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/cleanup"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/featureflags"
 )
 
 type ParsedResourceId struct {
@@ -18,16 +18,6 @@ type ParsedResourceId struct {
 
 	// Segments are an ordered list of segments which comprise this Resource ID
 	Segments []ResourceIdSegment
-}
-
-// ToTopLevelResourceId returns a ParsedResourceId without any static segments on the end
-// that is, just a Resource Manager ID
-func (pri ParsedResourceId) ToTopLevelResourceId() ParsedResourceId {
-	segments := pri.segmentsWithoutUriSuffix()
-	return ParsedResourceId{
-		Constants: pri.Constants,
-		Segments:  segments,
-	}
 }
 
 func (pri ParsedResourceId) Matches(other ParsedResourceId) bool {

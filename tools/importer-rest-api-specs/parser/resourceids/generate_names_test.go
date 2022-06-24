@@ -1,10 +1,10 @@
 package resourceids
 
 import (
-	"github.com/hashicorp/go-hclog"
 	"reflect"
 	"testing"
 
+	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 

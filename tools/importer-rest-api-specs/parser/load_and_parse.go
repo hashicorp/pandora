@@ -2,10 +2,11 @@ package parser
 
 import (
 	"fmt"
-	"github.com/hashicorp/go-hclog"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser/resourceids"
 	"log"
 	"strings"
+
+	"github.com/hashicorp/go-hclog"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser/resourceids"
 )
 
 func LoadAndParseFiles(directory string, fileNames []string, serviceName, apiVersion string, debugLogging bool) (*[]ParsedData, error) {

@@ -2,12 +2,12 @@ package parser
 
 import (
 	"fmt"
-	"github.com/hashicorp/go-hclog"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser/resourceids"
 	"strings"
 
+	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/cleanup"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser/resourceids"
 )
 
 func (d *SwaggerDefinition) parse(serviceName, apiVersion string, resourceIds resourceids.ParseResult) (*models.AzureApiDefinition, error) {

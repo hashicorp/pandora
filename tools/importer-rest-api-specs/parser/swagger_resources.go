@@ -2,13 +2,13 @@ package parser
 
 import (
 	"fmt"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser/constants"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser/internal"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser/resourceids"
 	"log"
 	"strings"
 
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser/constants"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser/internal"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser/resourceids"
 )
 
 func (d *SwaggerDefinition) parseResourcesWithinSwaggerTag(tag *string, resourceIds resourceids.ParseResult) (*models.AzureApiResource, error) {
