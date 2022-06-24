@@ -23,7 +23,8 @@ func generateNamesForResourceIds(input []models.ParsedResourceId, log hclog.Logg
 	// where they contain a Resource ID - and then sort them short -> long for consistency
 	uniqueUris := make(map[string]models.ParsedResourceId, 0)
 	sortedUris := make([]string, 0)
-	for _, resourceId := range input {
+	for i := range input {
+		resourceId := input[i]
 		armId := resourceId.NormalizedResourceManagerResourceId()
 		uniqueUris[armId] = resourceId
 		sortedUris = append(sortedUris, armId)
@@ -35,7 +36,26 @@ func generateNamesForResourceIds(input []models.ParsedResourceId, log hclog.Logg
 
 	candidateNamesToUris := make(map[string]models.ParsedResourceId, 0)
 	conflictingNamesToUris := make(map[string][]models.ParsedResourceId, 0)
+
+	// first detect any CommonIDs and output those, to save the names
+	urisThatAreCommonIds := make(map[string]struct{})
 	for _, uri := range sortedUris {
+		resourceId := uniqueUris[uri]
+		for _, commonId := range commonIdTypes {
+			if commonId.isMatch(resourceId) {
+				candidateNamesToUris[commonId.name()] = resourceId
+				urisThatAreCommonIds[uri] = struct{}{}
+				break
+			}
+		}
+	}
+
+	// then sort the rest
+	for _, uri := range sortedUris {
+		if _, ok := urisThatAreCommonIds[uri]; ok {
+			continue
+		}
+
 		resourceId := uniqueUris[uri]
 
 		// NOTE: these are returned sorted from right to left in URI's, since they're assumed to be hierarchical

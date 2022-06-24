@@ -35,8 +35,9 @@ func (commonIdUserAssignedIdentity) isMatch(input models.ParsedResourceId) bool 
 				FixedValue: strPtr("providers"),
 			},
 			{
-				Name: "resourceProvider",
-				Type: models.ResourceProviderSegment,
+				Name:       "resourceProvider",
+				Type:       models.ResourceProviderSegment,
+				FixedValue: strPtr("Microsoft.ManagedIdentity"),
 			},
 			{
 				Name:       "userAssignedIdentities",

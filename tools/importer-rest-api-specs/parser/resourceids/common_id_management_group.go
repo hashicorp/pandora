@@ -16,8 +16,9 @@ func (commonIdManagementGroupMatcher) isMatch(input models.ParsedResourceId) boo
 				FixedValue: strPtr("providers"),
 			},
 			{
-				Name: "resourceProvider",
-				Type: models.ResourceProviderSegment,
+				Name:       "resourceProvider",
+				Type:       models.ResourceProviderSegment,
+				FixedValue: strPtr("Microsoft.Management"),
 			},
 			{
 				Name:       "managementGroups",

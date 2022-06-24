@@ -31,15 +31,6 @@ func (pri ParsedResourceId) ToTopLevelResourceId() ParsedResourceId {
 }
 
 func (pri ParsedResourceId) Matches(other ParsedResourceId) bool {
-	if (pri.CommonAlias != nil && other.CommonAlias == nil) || (pri.CommonAlias == nil && other.CommonAlias != nil) {
-		return false
-	}
-	if pri.CommonAlias != nil {
-		if *pri.CommonAlias != *other.CommonAlias {
-			return false
-		}
-	}
-
 	if len(pri.Segments) != len(other.Segments) {
 		return false
 	}
@@ -77,7 +68,7 @@ func (pri ParsedResourceId) Matches(other ParsedResourceId) bool {
 			continue
 		}
 
-		if first.Type == StaticSegment {
+		if first.Type == ResourceProviderSegment || first.Type == StaticSegment {
 			if first.FixedValue != nil && second.FixedValue == nil {
 				return false
 			}

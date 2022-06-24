@@ -910,6 +910,56 @@ func TestParseResourceIdContainingTheSegmentsNamedTheSame(t *testing.T) {
 	}
 }
 
+func TestParseResourceIdsCommon(t *testing.T) {
+	result, err := ParseSwaggerFileForTesting(t, "resource_ids_common.json")
+	if err != nil {
+		t.Fatalf("parsing: %+v", err)
+	}
+	if result == nil {
+		t.Fatal("result was nil")
+	}
+	if len(result.Resources) != 1 {
+		t.Fatalf("expected 1 resource but got %d", len(result.Resources))
+	}
+
+	hello, ok := result.Resources["Example"]
+	if !ok {
+		t.Fatalf("no resources were output with the tag Example")
+	}
+
+	if len(hello.Constants) != 0 {
+		t.Fatalf("expected no Constants but got %d", len(hello.Constants))
+	}
+	if len(hello.Models) != 0 {
+		t.Fatalf("expected no Models but got %d", len(hello.Models))
+	}
+	if len(hello.Operations) != 5 {
+		t.Fatalf("expected 5 Operation but got %d", len(hello.Operations))
+	}
+	if len(hello.ResourceIds) != 5 {
+		t.Fatalf("expected 5 ResourceIds but got %d", len(hello.ResourceIds))
+	}
+
+	var checkId = func(t *testing.T, key string) {
+		idName := fmt.Sprintf("%sId", key)
+		id, found := hello.ResourceIds[idName]
+		if !found {
+			t.Fatalf("expected there to be a ResourceId named `%s` but didn't find one", idName)
+		}
+		if id.CommonAlias == nil {
+			t.Fatalf("expected the ResourceId `%s` to have a CommonAlias but it was nil", idName)
+		}
+		if *id.CommonAlias != key {
+			t.Fatalf("expected the ResourceId `%s` to have a CommonAlias of `%s` but it was %q", idName, key, *id.CommonAlias)
+		}
+	}
+	checkId(t, "ManagementGroup")
+	checkId(t, "ResourceGroup")
+	checkId(t, "Scope")
+	checkId(t, "Subscription")
+	checkId(t, "UserAssignedIdentity")
+}
+
 func validateResourceId(actualValue models.ParsedResourceId, expectedString string, expected models.ParsedResourceId) error {
 	if actualValue.String() != expectedString {
 		return fmt.Errorf("expected the ResourceId to be %q but got %q", expectedString, actualValue.String())
