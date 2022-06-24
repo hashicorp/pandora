@@ -234,3 +234,55 @@ const (
 	ScopeSegment            SegmentType = "scope"
 	UserSpecifiedSegment    SegmentType = "user-specified"
 )
+
+func ConstantResourceIDSegment(name, constantName string) ResourceIdSegment {
+	return ResourceIdSegment{
+		Type:              ConstantSegment,
+		Name:              name,
+		ConstantReference: &constantName,
+	}
+}
+
+func ResourceProviderResourceIDSegment(name, resourceProvider string) ResourceIdSegment {
+	return ResourceIdSegment{
+		Type:       ResourceProviderSegment,
+		Name:       name,
+		FixedValue: &resourceProvider,
+	}
+}
+
+func ResourceGroupResourceIDSegment(name string) ResourceIdSegment {
+	return ResourceIdSegment{
+		Type: ResourceGroupSegment,
+		Name: name,
+	}
+}
+
+func StaticResourceIDSegment(name, fixedValue string) ResourceIdSegment {
+	return ResourceIdSegment{
+		Type:       StaticSegment,
+		Name:       name,
+		FixedValue: &fixedValue,
+	}
+}
+
+func ScopeResourceIDSegment(name string) ResourceIdSegment {
+	return ResourceIdSegment{
+		Name: name,
+		Type: ScopeSegment,
+	}
+}
+
+func SubscriptionIDResourceIDSegment(name string) ResourceIdSegment {
+	return ResourceIdSegment{
+		Type: SubscriptionIdSegment,
+		Name: name,
+	}
+}
+
+func UserSpecifiedResourceIDSegment(name string) ResourceIdSegment {
+	return ResourceIdSegment{
+		Type: UserSpecifiedSegment,
+		Name: name,
+	}
+}

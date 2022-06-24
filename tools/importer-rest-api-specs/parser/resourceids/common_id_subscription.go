@@ -12,15 +12,8 @@ func (commonIdSubscriptionMatcher) isMatch(input models.ParsedResourceId) bool {
 	var subscriptionId = models.ParsedResourceId{
 		Constants: map[string]models.ConstantDetails{},
 		Segments: []models.ResourceIdSegment{
-			{
-				Name:       "subscriptions",
-				Type:       models.StaticSegment,
-				FixedValue: strPtr("subscriptions"),
-			},
-			{
-				Name: "subscriptionId",
-				Type: models.SubscriptionIdSegment,
-			},
+			models.StaticResourceIDSegment("subscriptions", "subscriptions"),
+			models.SubscriptionIDResourceIDSegment("subscriptionId"),
 		},
 	}
 	return subscriptionId.Matches(input)

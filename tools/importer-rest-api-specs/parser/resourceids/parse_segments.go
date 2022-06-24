@@ -78,10 +78,7 @@ func (p *Parser) parseResourceIdFromOperation(uri string, operation *spec.Operat
 				}
 			}
 			if isScope {
-				segments = append(segments, models.ResourceIdSegment{
-					Type: models.ScopeSegment,
-					Name: normalizedSegment,
-				})
+				segments = append(segments, models.ScopeResourceIDSegment(normalizedSegment))
 				continue
 			}
 
@@ -96,10 +93,7 @@ func (p *Parser) parseResourceIdFromOperation(uri string, operation *spec.Operat
 				}
 
 				if previousSegmentWasSubscriptions {
-					segments = append(segments, models.ResourceIdSegment{
-						Type: models.SubscriptionIdSegment,
-						Name: normalizedSegment,
-					})
+					segments = append(segments, models.SubscriptionIDResourceIDSegment(normalizedSegment))
 					continue
 				}
 			}
@@ -115,10 +109,7 @@ func (p *Parser) parseResourceIdFromOperation(uri string, operation *spec.Operat
 				}
 
 				if previousSegmentWasResourceGroups {
-					segments = append(segments, models.ResourceIdSegment{
-						Type: models.ResourceGroupSegment,
-						Name: normalizedSegment,
-					})
+					segments = append(segments, models.ResourceGroupResourceIDSegment(normalizedSegment))
 					continue
 				}
 			}
@@ -138,11 +129,7 @@ func (p *Parser) parseResourceIdFromOperation(uri string, operation *spec.Operat
 						}
 
 						result.Constants[constant.Name] = constant.Details
-						segments = append(segments, models.ResourceIdSegment{
-							Type:              models.ConstantSegment,
-							Name:              normalizedSegment,
-							ConstantReference: &constant.Name,
-						})
+						segments = append(segments, models.ConstantResourceIDSegment(normalizedSegment, constant.Name))
 						isConstant = true
 						break
 					}
@@ -152,10 +139,7 @@ func (p *Parser) parseResourceIdFromOperation(uri string, operation *spec.Operat
 				continue
 			}
 
-			segments = append(segments, models.ResourceIdSegment{
-				Type: models.UserSpecifiedSegment,
-				Name: normalizedSegment,
-			})
+			segments = append(segments, models.UserSpecifiedResourceIDSegment(normalizedSegment))
 			continue
 		}
 
@@ -167,22 +151,14 @@ func (p *Parser) parseResourceIdFromOperation(uri string, operation *spec.Operat
 			// prefix this with `static{name}` so that the segment is unique
 			// these aren't parsed out anyway, but we need unique names
 			normalizedSegment = normalizeSegment(fmt.Sprintf("static%s", strings.Title(resourceProviderValue)))
-			segments = append(segments, models.ResourceIdSegment{
-				Type:       models.ResourceProviderSegment,
-				Name:       normalizedSegment,
-				FixedValue: &resourceProviderValue,
-			})
+			segments = append(segments, models.ResourceProviderResourceIDSegment(normalizedSegment, resourceProviderValue))
 			continue
 		}
 
 		// prefix this with `static{name}` so that the segment is unique
 		// these aren't parsed out anyway, but we need unique names
-		normlizedName := normalizeSegment(fmt.Sprintf("static%s", strings.Title(normalizedSegment)))
-		segments = append(segments, models.ResourceIdSegment{
-			Type:       models.StaticSegment,
-			Name:       normlizedName,
-			FixedValue: &normalizedSegment,
-		})
+		normalizedName := normalizeSegment(fmt.Sprintf("static%s", strings.Title(normalizedSegment)))
+		segments = append(segments, models.StaticResourceIDSegment(normalizedName, normalizedSegment))
 	}
 
 	out := processedResourceId{
