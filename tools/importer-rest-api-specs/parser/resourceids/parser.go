@@ -21,8 +21,11 @@ func (p *Parser) Parse() (*ParseResult, error) {
 	p.logger.Info("Identifying Distinct Resource IDs..")
 	uniqueResourceIds := p.distinctResourceIds(*resourceIdsToSegments)
 
+	p.logger.Info("Detecting any Common Resource Ids")
+	resourceIds := switchOutCommonResourceIDsAsNeeded(uniqueResourceIds)
+
 	p.logger.Info("Generating Names for Resource IDs..")
-	namesToResourceIds, err := p.generateNamesForResourceIds(uniqueResourceIds)
+	namesToResourceIds, err := p.generateNamesForResourceIds(resourceIds)
 	if err != nil {
 		return nil, fmt.Errorf("generating Names for Resource IDs: %+v", err)
 	}
