@@ -17,7 +17,7 @@ internal class ListByResourceOperation : Operations.ListOperation
 {
     public override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new ResourceUriId();
+    public override ResourceID? ResourceId() => new ScopeId();
 
     public override Type NestedItemType() => typeof(DataCollectionRuleAssociationProxyOnlyResourceModel);
 

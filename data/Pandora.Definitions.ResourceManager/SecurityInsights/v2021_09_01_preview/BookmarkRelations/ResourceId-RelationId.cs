@@ -6,13 +6,13 @@ using Pandora.Definitions.Interfaces;
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 
 
-namespace Pandora.Definitions.ResourceManager.SecurityInsights.v2021_09_01_preview.IncidentRelations;
+namespace Pandora.Definitions.ResourceManager.SecurityInsights.v2021_09_01_preview.BookmarkRelations;
 
-internal class IncidentRelationId : ResourceID
+internal class RelationId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/incidents/{incidentId}/relations/{relationName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/entities/{entityId}/relations/{relationName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -26,8 +26,8 @@ internal class IncidentRelationId : ResourceID
         ResourceIDSegment.UserSpecified("workspaceName"),
         ResourceIDSegment.Static("staticProviders2", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftSecurityInsights", "Microsoft.SecurityInsights"),
-        ResourceIDSegment.Static("staticIncidents", "incidents"),
-        ResourceIDSegment.UserSpecified("incidentId"),
+        ResourceIDSegment.Static("staticEntities", "entities"),
+        ResourceIDSegment.UserSpecified("entityId"),
         ResourceIDSegment.Static("staticRelations", "relations"),
         ResourceIDSegment.UserSpecified("relationName"),
     };
