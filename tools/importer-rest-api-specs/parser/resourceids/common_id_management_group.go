@@ -13,7 +13,7 @@ func (commonIdManagementGroupMatcher) isMatch(input models.ParsedResourceId) boo
 			{
 				Name:       "providers",
 				Type:       models.StaticSegment,
-				FixedValue: toPtr("providers"),
+				FixedValue: strPtr("providers"),
 			},
 			{
 				Name: "resourceProvider",
@@ -22,7 +22,7 @@ func (commonIdManagementGroupMatcher) isMatch(input models.ParsedResourceId) boo
 			{
 				Name:       "managementGroups",
 				Type:       models.StaticSegment,
-				FixedValue: toPtr("managementGroups"),
+				FixedValue: strPtr("managementGroups"),
 			},
 			{
 				Name: "groupId",

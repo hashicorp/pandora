@@ -15,7 +15,7 @@ func (commonIdSubscriptionMatcher) isMatch(input models.ParsedResourceId) bool {
 			{
 				Name:       "subscriptions",
 				Type:       models.StaticSegment,
-				FixedValue: toPtr("subscriptions"),
+				FixedValue: strPtr("subscriptions"),
 			},
 			{
 				Name: "subscriptionId",

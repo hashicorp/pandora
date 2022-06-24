@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"github.com/go-openapi/spec"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/cleanup"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/featureflags"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser/constants"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser/internal"
 	"log"
@@ -11,6 +12,14 @@ import (
 
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
+
+var knownSegmentsUsedForScope = []string{
+	"ResourceId",
+	"resourceScope",
+	"resourceUri",
+	"scope",
+	"scopePath",
+}
 
 type processedResourceId struct {
 	segments  *[]models.ResourceIdSegment
@@ -240,4 +249,41 @@ func (p *Parser) parseResourceIdFromOperation(uri string, operation *spec.Operat
 	}
 
 	return &out, nil
+}
+
+func determineUniqueNamesForSegments(input []models.ResourceIdSegment) (*[]models.ResourceIdSegment, error) {
+	segmentNamesUsed := make(map[string]int, 0)
+
+	output := make([]models.ResourceIdSegment, 0)
+
+	for _, segment := range input {
+		existingCount, exists := segmentNamesUsed[segment.Name]
+		if !exists {
+			// mark the name as used and just append it
+			segmentNamesUsed[segment.Name] = 1
+			output = append(output, segment)
+			continue
+		}
+
+		existingCount++
+		segmentNamesUsed[segment.Name] = existingCount
+		// e.g. `item` then `item2`
+		segment.Name = fmt.Sprintf("%s%d", segment.Name, existingCount)
+		output = append(output, segment)
+	}
+
+	return &output, nil
+}
+
+func normalizeSegment(input string) string {
+	output := cleanup.RemoveInvalidCharacters(input, false)
+	output = cleanup.NormalizeSegment(output, true)
+	// the names should always be camelCased, so let's be sure
+	output = fmt.Sprintf("%s%s", strings.ToLower(string(output[0])), output[1:])
+
+	if featureflags.ShouldReservedKeywordsBeNormalized {
+		output = cleanup.NormalizeReservedKeywords(output)
+	}
+
+	return output
 }

@@ -2,7 +2,6 @@ package resourceids
 
 import (
 	"fmt"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/featureflags"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser/constants"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser/internal"
 	"log"
@@ -13,14 +12,6 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/cleanup"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
-
-var knownSegmentsUsedForScope = []string{
-	"ResourceId",
-	"resourceScope",
-	"resourceUri",
-	"scope",
-	"scopePath",
-}
 
 func (result *ResourceIdParseResult) GenerateNames() error {
 	// next determine names for these
@@ -318,43 +309,6 @@ func parseResourceIdFromOperation(uri string, operationDetails *spec.Operation) 
 	return &output, nil
 }
 
-func determineUniqueNamesForSegments(input []models.ResourceIdSegment) (*[]models.ResourceIdSegment, error) {
-	segmentNamesUsed := make(map[string]int, 0)
-
-	output := make([]models.ResourceIdSegment, 0)
-
-	for _, segment := range input {
-		existingCount, exists := segmentNamesUsed[segment.Name]
-		if !exists {
-			// mark the name as used and just append it
-			segmentNamesUsed[segment.Name] = 1
-			output = append(output, segment)
-			continue
-		}
-
-		existingCount++
-		segmentNamesUsed[segment.Name] = existingCount
-		// e.g. `item` then `item2`
-		segment.Name = fmt.Sprintf("%s%d", segment.Name, existingCount)
-		output = append(output, segment)
-	}
-
-	return &output, nil
-}
-
-func normalizeSegment(input string) string {
-	output := cleanup.RemoveInvalidCharacters(input, false)
-	output = cleanup.NormalizeSegment(output, true)
-	// the names should always be camelCased, so let's be sure
-	output = fmt.Sprintf("%s%s", strings.ToLower(string(output[0])), output[1:])
-
-	if featureflags.ShouldReservedKeywordsBeNormalized {
-		output = cleanup.NormalizeReservedKeywords(output)
-	}
-
-	return output
-}
-
 // LegacyDetermineNamesForResourceIds returns a map[name]ParsedResourceID and map[Uri]Name based on the Resource Manager URI's available
 func LegacyDetermineNamesForResourceIds(urisToObjects map[string]ResourceUriMetadata) (*map[string]models.ParsedResourceId, *map[string]string, error) {
 	// now that we have all of the Resource ID's, we then need to go through and determine Unique ID's for those
@@ -472,59 +426,6 @@ func LegacyDetermineNamesForResourceIds(urisToObjects map[string]ResourceUriMeta
 	}
 
 	return &outputNamesToUris, &urisToNames, nil
-}
-
-func determineUniqueNamesFor(conflictingUris []models.ParsedResourceId, existingCandidateNames map[string]models.ParsedResourceId) (*map[string]models.ParsedResourceId, error) {
-	proposedNames := make(map[string]models.ParsedResourceId)
-	for _, resourceId := range conflictingUris {
-		availableSegments := resourceId.SegmentsAvailableForNaming()
-
-		proposedName := ""
-		uniqueNameFound := false
-
-		// matches the behaviour above
-		if resourceId.Segments[0].Type == models.ScopeSegment {
-			proposedName += "Scoped"
-		}
-
-		for _, segment := range availableSegments {
-			proposedName = fmt.Sprintf("%s%s", cleanup.NormalizeSegment(segment, false), proposedName)
-
-			uri, hasConflictWithExisting := existingCandidateNames[proposedName]
-			if hasConflictWithExisting {
-				if uri.Matches(resourceId) {
-					// it's this ID from a different type
-					hasConflictWithExisting = false
-				}
-			}
-
-			uri, hasConflictWithProposed := proposedNames[proposedName]
-			if hasConflictWithProposed {
-				if uri.Matches(resourceId) {
-					// it's this ID from a different type
-					hasConflictWithProposed = false
-				}
-			}
-
-			if !hasConflictWithProposed && !hasConflictWithExisting {
-				uniqueNameFound = true
-				break
-			}
-		}
-
-		if !uniqueNameFound {
-			conflictingUri, hasConflict := existingCandidateNames[proposedName]
-			if !hasConflict {
-				conflictingUri, hasConflict = proposedNames[proposedName]
-			}
-
-			return nil, fmt.Errorf("not enough segments in %q to determine a unique name - conflicts with %q", resourceId.String(), conflictingUri.String())
-		}
-
-		proposedNames[proposedName] = resourceId
-	}
-
-	return &proposedNames, nil
 }
 
 func mapNamesToResourceIds(urisToNames map[string]string, urisToMetadata map[string]ResourceUriMetadata) (*map[string]ResourceUriMetadata, error) {

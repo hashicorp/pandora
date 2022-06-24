@@ -2,6 +2,7 @@ package parser
 
 import (
 	"fmt"
+	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser/resourceids"
 	"log"
 	"strings"
@@ -16,6 +17,8 @@ func LoadAndParseFiles(directory string, fileNames []string, serviceName, apiVer
 
 		return &[]ParsedData{}, nil
 	}
+
+	logger := hclog.NewNullLogger()
 
 	// First go through and parse all of the Resource ID's across all of the files
 	// this means that the names which are generated are unique across the Service
@@ -32,7 +35,7 @@ func LoadAndParseFiles(directory string, fileNames []string, serviceName, apiVer
 		if err != nil {
 			return nil, fmt.Errorf("parsing Resource Ids from %q (Service %q / Api Version %q): %+v", file, serviceName, apiVersion, err)
 		}
-		if err := resourceIdResult.Append(*parsedResourceIds); err != nil {
+		if err := resourceIdResult.Append(*parsedResourceIds, logger); err != nil {
 			return nil, fmt.Errorf("appending Resource Ids: %+v", err)
 		}
 	}

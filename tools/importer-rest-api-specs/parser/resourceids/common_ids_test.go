@@ -19,17 +19,17 @@ func TestCommonResourceID_ManagementGroup(t *testing.T) {
 				{
 					Name:       "providers",
 					Type:       models.StaticSegment,
-					FixedValue: toPtr("providers"),
+					FixedValue: strPtr("providers"),
 				},
 				{
 					Name:       "resourceProvider",
 					Type:       models.ResourceProviderSegment,
-					FixedValue: toPtr("resourceProvider"),
+					FixedValue: strPtr("resourceProvider"),
 				},
 				{
 					Name:       "managementGroups",
 					Type:       models.StaticSegment,
-					FixedValue: toPtr("managementGroups"),
+					FixedValue: strPtr("managementGroups"),
 				},
 				{
 					Name: "groupId",
@@ -43,17 +43,17 @@ func TestCommonResourceID_ManagementGroup(t *testing.T) {
 				{
 					Name:       "providers",
 					Type:       models.StaticSegment,
-					FixedValue: toPtr("providers"),
+					FixedValue: strPtr("providers"),
 				},
 				{
 					Name:       "resourceProvider",
 					Type:       models.ResourceProviderSegment,
-					FixedValue: toPtr("resourceProvider"),
+					FixedValue: strPtr("resourceProvider"),
 				},
 				{
 					Name:       "managementGroups",
 					Type:       models.StaticSegment,
-					FixedValue: toPtr("managementGroups"),
+					FixedValue: strPtr("managementGroups"),
 				},
 				{
 					Name: "groupId",
@@ -62,7 +62,7 @@ func TestCommonResourceID_ManagementGroup(t *testing.T) {
 				{
 					Name:       "someResource",
 					Type:       models.StaticSegment,
-					FixedValue: toPtr("someResource"),
+					FixedValue: strPtr("someResource"),
 				},
 				{
 					Name: "resourceName",
@@ -95,7 +95,7 @@ func TestCommonResourceID_ResourceGroup(t *testing.T) {
 				{
 					Name:       "subscriptions",
 					Type:       models.StaticSegment,
-					FixedValue: toPtr("subscriptions"),
+					FixedValue: strPtr("subscriptions"),
 				},
 				{
 					Name: "subscriptionId",
@@ -104,7 +104,7 @@ func TestCommonResourceID_ResourceGroup(t *testing.T) {
 				{
 					Name:       "resourceGroups",
 					Type:       models.StaticSegment,
-					FixedValue: toPtr("resourceGroups"),
+					FixedValue: strPtr("resourceGroups"),
 				},
 				{
 					Name: "resourceGroup",
@@ -119,7 +119,7 @@ func TestCommonResourceID_ResourceGroup(t *testing.T) {
 				{
 					Name:       "subscriptions",
 					Type:       models.StaticSegment,
-					FixedValue: toPtr("subscriptions"),
+					FixedValue: strPtr("subscriptions"),
 				},
 				{
 					Name: "subscriptionId",
@@ -128,7 +128,7 @@ func TestCommonResourceID_ResourceGroup(t *testing.T) {
 				{
 					Name:       "resourceGroups",
 					Type:       models.StaticSegment,
-					FixedValue: toPtr("resourceGroups"),
+					FixedValue: strPtr("resourceGroups"),
 				},
 				{
 					Name: "resourceGroup",
@@ -137,7 +137,7 @@ func TestCommonResourceID_ResourceGroup(t *testing.T) {
 				{
 					Name:       "someResource",
 					Type:       models.StaticSegment,
-					FixedValue: toPtr("someResource"),
+					FixedValue: strPtr("someResource"),
 				},
 				{
 					Name: "resourceName",
@@ -183,7 +183,7 @@ func TestCommonResourceID_Scope(t *testing.T) {
 				{
 					Name:       "someResource",
 					Type:       models.StaticSegment,
-					FixedValue: toPtr("someResource"),
+					FixedValue: strPtr("someResource"),
 				},
 				{
 					Name: "resourceName",
@@ -216,7 +216,7 @@ func TestCommonResourceID_Subscription(t *testing.T) {
 				{
 					Name:       "subscriptions",
 					Type:       models.StaticSegment,
-					FixedValue: toPtr("subscriptions"),
+					FixedValue: strPtr("subscriptions"),
 				},
 				{
 					Name: "subscriptionId",
@@ -230,7 +230,7 @@ func TestCommonResourceID_Subscription(t *testing.T) {
 				{
 					Name:       "subscriptions",
 					Type:       models.StaticSegment,
-					FixedValue: toPtr("subscriptions"),
+					FixedValue: strPtr("subscriptions"),
 				},
 				{
 					Name: "subscriptionId",
@@ -239,7 +239,7 @@ func TestCommonResourceID_Subscription(t *testing.T) {
 				{
 					Name:       "someResource",
 					Type:       models.StaticSegment,
-					FixedValue: toPtr("someResource"),
+					FixedValue: strPtr("someResource"),
 				},
 				{
 					Name: "resourceName",
@@ -272,7 +272,7 @@ func TestCommonResourceID_UserAssignedIdentity(t *testing.T) {
 				{
 					Name:       "subscriptions",
 					Type:       models.StaticSegment,
-					FixedValue: toPtr("subscriptions"),
+					FixedValue: strPtr("subscriptions"),
 				},
 				{
 					Name: "subscriptionId",
@@ -281,7 +281,7 @@ func TestCommonResourceID_UserAssignedIdentity(t *testing.T) {
 				{
 					Name:       "resourceGroups",
 					Type:       models.StaticSegment,
-					FixedValue: toPtr("resourceGroups"),
+					FixedValue: strPtr("resourceGroups"),
 				},
 				{
 					Name: "resourceGroup",
@@ -290,7 +290,7 @@ func TestCommonResourceID_UserAssignedIdentity(t *testing.T) {
 				{
 					Name:       "providers",
 					Type:       models.StaticSegment,
-					FixedValue: toPtr("providers"),
+					FixedValue: strPtr("providers"),
 				},
 				{
 					Name: "resourceProvider",
@@ -299,7 +299,7 @@ func TestCommonResourceID_UserAssignedIdentity(t *testing.T) {
 				{
 					Name:       "userAssignedIdentities",
 					Type:       models.StaticSegment,
-					FixedValue: toPtr("userAssignedIdentities"),
+					FixedValue: strPtr("userAssignedIdentities"),
 				},
 				{
 					Name: "userIdentityName",
@@ -314,7 +314,7 @@ func TestCommonResourceID_UserAssignedIdentity(t *testing.T) {
 				{
 					Name:       "subscriptions",
 					Type:       models.StaticSegment,
-					FixedValue: toPtr("subscriptions"),
+					FixedValue: strPtr("subscriptions"),
 				},
 				{
 					Name: "subscriptionId",
@@ -323,7 +323,7 @@ func TestCommonResourceID_UserAssignedIdentity(t *testing.T) {
 				{
 					Name:       "resourceGroups",
 					Type:       models.StaticSegment,
-					FixedValue: toPtr("resourceGroups"),
+					FixedValue: strPtr("resourceGroups"),
 				},
 				{
 					Name: "resourceGroup",
@@ -332,7 +332,7 @@ func TestCommonResourceID_UserAssignedIdentity(t *testing.T) {
 				{
 					Name:       "providers",
 					Type:       models.StaticSegment,
-					FixedValue: toPtr("providers"),
+					FixedValue: strPtr("providers"),
 				},
 				{
 					Name: "resourceProvider",
@@ -341,7 +341,7 @@ func TestCommonResourceID_UserAssignedIdentity(t *testing.T) {
 				{
 					Name:       "userAssignedIdentities",
 					Type:       models.StaticSegment,
-					FixedValue: toPtr("userAssignedIdentities"),
+					FixedValue: strPtr("userAssignedIdentities"),
 				},
 				{
 					Name: "userIdentityName",
@@ -350,7 +350,7 @@ func TestCommonResourceID_UserAssignedIdentity(t *testing.T) {
 				{
 					Name:       "someResource",
 					Type:       models.StaticSegment,
-					FixedValue: toPtr("someResource"),
+					FixedValue: strPtr("someResource"),
 				},
 				{
 					Name: "resourceName",
@@ -369,4 +369,8 @@ func TestCommonResourceID_UserAssignedIdentity(t *testing.T) {
 	if output["Invalid"].CommonAlias != nil {
 		t.Fatalf("Expected `Invalid` to have no CommonAlias but got %q", *output["Invalid"].CommonAlias)
 	}
+}
+
+func TestCommonResourceID_EndToEnd(t *testing.T) {
+	t.Fatalf("NOOOO")
 }

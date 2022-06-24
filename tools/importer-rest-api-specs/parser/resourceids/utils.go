@@ -1,5 +1,5 @@
 package resourceids
 
-var toPtr = func(in string) *string {
+func strPtr(in string) *string {
 	return &in
 }

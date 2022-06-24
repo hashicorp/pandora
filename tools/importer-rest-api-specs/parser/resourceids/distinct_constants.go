@@ -1,16 +1,18 @@
 package resourceids
 
-import "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+import (
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser/internal"
+)
 
 func (p *Parser) findDistinctConstants(input map[string]models.ParsedResourceId) (*map[string]models.ConstantDetails, error) {
-	// TODO: what if there's conflicting constants?
-
-	constants := make(map[string]models.ConstantDetails)
-	for _, item := range input {
-		for k, v := range item.Constants {
-			constants[k] = v
-		}
+	intermediate := internal.ParseResult{
+		Constants: map[string]models.ConstantDetails{},
 	}
 
-	return &constants, nil
+	for _, item := range input {
+		intermediate.AppendConstants(item.Constants)
+	}
+
+	return &intermediate.Constants, nil
 }
