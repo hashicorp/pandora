@@ -168,6 +168,7 @@ func NormalizeSegment(input string, camelCase bool) string {
 		"volumegroups":                            "volumeGroups",
 		"webhooks":                                "webHooks",
 		"webjobs":                                 "webJobs",
+		"workbooktemplates":                       "workbookTemplates",
 	}
 
 	for k, v := range fixed {
