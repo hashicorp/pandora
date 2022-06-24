@@ -7,8 +7,8 @@ import (
 // Parse takes a list of Swagger Resources and returns a ParseResult, containing
 // a list of ResourceIDs found within the Swagger Resources.
 func (p *Parser) Parse() (*ParseResult, error) {
-	// TODO: OperationIDs should be skipped
 	// TODO: replacing static segments, detecting hidden scopes
+	// TODO: tests for segments
 
 	p.logger.Info("Parsing Resource IDs from Operations..")
 	resourceIdsToSegments, err := p.parseResourceIdsFromOperations()
