@@ -8,11 +8,11 @@ using Pandora.Definitions.Interfaces;
 
 namespace Pandora.Definitions.ResourceManager.ServiceBus.v2021_06_01_preview.DisasterRecoveryConfigs;
 
-internal class DisasterRecoveryConfigAuthorizationRuleId : ResourceID
+internal class AuthorizationRuleId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}/disasterRecoveryConfigs/{alias}/authorizationRules/{authorizationRuleName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}/authorizationRules/{authorizationRuleName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -24,8 +24,6 @@ internal class DisasterRecoveryConfigAuthorizationRuleId : ResourceID
         ResourceIDSegment.ResourceProvider("staticMicrosoftServiceBus", "Microsoft.ServiceBus"),
         ResourceIDSegment.Static("staticNamespaces", "namespaces"),
         ResourceIDSegment.UserSpecified("namespaceName"),
-        ResourceIDSegment.Static("staticDisasterRecoveryConfigs", "disasterRecoveryConfigs"),
-        ResourceIDSegment.UserSpecified("alias"),
         ResourceIDSegment.Static("staticAuthorizationRules", "authorizationRules"),
         ResourceIDSegment.UserSpecified("authorizationRuleName"),
     };

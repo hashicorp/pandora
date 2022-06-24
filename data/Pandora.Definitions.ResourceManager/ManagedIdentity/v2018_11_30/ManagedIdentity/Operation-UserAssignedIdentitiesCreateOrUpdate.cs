@@ -17,7 +17,7 @@ internal class UserAssignedIdentitiesCreateOrUpdateOperation : Operations.PutOpe
 {
     public override Type? RequestObject() => typeof(IdentityModel);
 
-    public override ResourceID? ResourceId() => new UserAssignedIdentitiesId();
+    public override ResourceID? ResourceId() => new UserAssignedIdentityId();
 
     public override Type? ResponseObject() => typeof(IdentityModel);
 

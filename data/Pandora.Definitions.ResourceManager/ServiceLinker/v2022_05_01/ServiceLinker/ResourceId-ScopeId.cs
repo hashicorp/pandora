@@ -6,13 +6,13 @@ using Pandora.Definitions.Interfaces;
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 
 
-namespace Pandora.Definitions.ResourceManager.PolicyInsights.v2021_10_01.PolicyInsights;
+namespace Pandora.Definitions.ResourceManager.ServiceLinker.v2022_05_01.ServiceLinker;
 
-internal class ResourceIdId : ResourceID
+internal class ScopeId : ResourceID
 {
     public string? CommonAlias => "Scope";
 
-    public string ID => "/{resourceId}";
+    public string ID => "/{resourceUri}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {

@@ -17,7 +17,6 @@ public partial class Definition : ApiVersionDefinition
         new BackupVaults.Definition(),
         new DppFeatureSupport.Definition(),
         new FindRestorableTimeRanges.Definition(),
-        new OperationStatus.Definition(),
         new RecoveryPoint.Definition(),
         new ResourceGuards.Definition(),
     };

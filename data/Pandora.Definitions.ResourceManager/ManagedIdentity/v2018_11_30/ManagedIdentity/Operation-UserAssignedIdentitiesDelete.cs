@@ -21,7 +21,7 @@ internal class UserAssignedIdentitiesDeleteOperation : Operations.DeleteOperatio
                 HttpStatusCode.OK,
         };
 
-    public override ResourceID? ResourceId() => new UserAssignedIdentitiesId();
+    public override ResourceID? ResourceId() => new UserAssignedIdentityId();
 
 
 }

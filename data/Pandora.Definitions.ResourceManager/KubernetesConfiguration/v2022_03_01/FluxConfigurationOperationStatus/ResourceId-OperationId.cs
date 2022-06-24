@@ -8,11 +8,11 @@ using Pandora.Definitions.Interfaces;
 
 namespace Pandora.Definitions.ResourceManager.KubernetesConfiguration.v2022_03_01.FluxConfigurationOperationStatus;
 
-internal class FluxConfigurationOperationId : ResourceID
+internal class OperationId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{clusterRp}/{clusterResourceName}/{clusterName}/providers/Microsoft.KubernetesConfiguration/fluxConfigurations/{fluxConfigurationName}/operations/{operationId}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{clusterRp}/{clusterResourceName}/{clusterName}/providers/Microsoft.KubernetesConfiguration/extensions/{extensionName}/operations/{operationId}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -26,8 +26,8 @@ internal class FluxConfigurationOperationId : ResourceID
         ResourceIDSegment.UserSpecified("clusterName"),
         ResourceIDSegment.Static("staticProviders2", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftKubernetesConfiguration", "Microsoft.KubernetesConfiguration"),
-        ResourceIDSegment.Static("staticFluxConfigurations", "fluxConfigurations"),
-        ResourceIDSegment.UserSpecified("fluxConfigurationName"),
+        ResourceIDSegment.Static("staticExtensions", "extensions"),
+        ResourceIDSegment.UserSpecified("extensionName"),
         ResourceIDSegment.Static("staticOperations", "operations"),
         ResourceIDSegment.UserSpecified("operationId"),
     };

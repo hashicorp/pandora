@@ -6,9 +6,9 @@ using Pandora.Definitions.Interfaces;
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 
 
-namespace Pandora.Definitions.ResourceManager.ServiceLinker.v2022_05_01.ServiceLinker;
+namespace Pandora.Definitions.ResourceManager.Insights.v2021_04_01.DataCollectionRuleAssociations;
 
-internal class ResourceUriId : ResourceID
+internal class ScopeId : ResourceID
 {
     public string? CommonAlias => "Scope";
 
