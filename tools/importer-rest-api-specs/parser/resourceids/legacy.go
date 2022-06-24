@@ -411,11 +411,6 @@ func LegacyDetermineNamesForResourceIds(urisToObjects map[string]ResourceUriMeta
 	for _, uri := range sortedUris {
 		resourceId := urisToObjects[uri]
 
-		if aliasName := checkForAliasForUri(resourceId.ResourceId); aliasName != nil {
-			candidateNamesToUris[*aliasName] = *resourceId.ResourceId
-			continue
-		}
-
 		// NOTE: these are returned sorted from right to left in URI's, since they're assumed to be hierarchical
 		segmentsAvailableForNaming := resourceId.ResourceId.SegmentsAvailableForNaming()
 		if len(segmentsAvailableForNaming) == 0 {
