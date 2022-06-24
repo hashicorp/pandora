@@ -3,15 +3,10 @@ package resourceids
 import (
 	"testing"
 
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/featureflags"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
 func TestCommonResourceID_ManagementGroup(t *testing.T) {
-	if !featureflags.EnableCommonResourceIDs {
-		t.Skip("Common Resource IDs are disabled")
-	}
-
 	input := map[string]models.ParsedResourceId{
 		"Valid": {
 			Constants: map[string]models.ConstantDetails{},
@@ -84,10 +79,6 @@ func TestCommonResourceID_ManagementGroup(t *testing.T) {
 }
 
 func TestCommonResourceID_ResourceGroup(t *testing.T) {
-	if !featureflags.EnableCommonResourceIDs {
-		t.Skip("Common Resource IDs are disabled")
-	}
-
 	input := map[string]models.ParsedResourceId{
 		"Valid": {
 			Constants: map[string]models.ConstantDetails{},
@@ -159,10 +150,6 @@ func TestCommonResourceID_ResourceGroup(t *testing.T) {
 }
 
 func TestCommonResourceID_Scope(t *testing.T) {
-	if !featureflags.EnableCommonResourceIDs {
-		t.Skip("Common Resource IDs are disabled")
-	}
-
 	input := map[string]models.ParsedResourceId{
 		"Valid": {
 			Constants: map[string]models.ConstantDetails{},
@@ -205,10 +192,6 @@ func TestCommonResourceID_Scope(t *testing.T) {
 }
 
 func TestCommonResourceID_Subscription(t *testing.T) {
-	if !featureflags.EnableCommonResourceIDs {
-		t.Skip("Common Resource IDs are disabled")
-	}
-
 	input := map[string]models.ParsedResourceId{
 		"Valid": {
 			Constants: map[string]models.ConstantDetails{},
@@ -261,10 +244,6 @@ func TestCommonResourceID_Subscription(t *testing.T) {
 }
 
 func TestCommonResourceID_UserAssignedIdentity(t *testing.T) {
-	if !featureflags.EnableCommonResourceIDs {
-		t.Skip("Common Resource IDs are disabled")
-	}
-
 	input := map[string]models.ParsedResourceId{
 		"Valid": {
 			Constants: map[string]models.ConstantDetails{},
