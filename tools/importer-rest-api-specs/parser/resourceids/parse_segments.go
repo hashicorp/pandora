@@ -128,6 +128,21 @@ func (p *Parser) parseResourceIdFromOperation(uri string, operation *spec.Operat
 							return nil, fmt.Errorf("parsing constant from %q: %+v", uriSegment, err)
 						}
 
+						if len(constant.Details.Values) == 1 {
+							constantValue := ""
+							for _, v := range constant.Details.Values {
+								constantValue = v
+							}
+							// it's a fixed value segment, not a constant - so we'll transform it as such and skip
+							segments = append(segments, models.ResourceIdSegment{
+								Type:       models.StaticSegment,
+								Name:       normalizedSegment,
+								FixedValue: &constantValue,
+							})
+							isConstant = true
+							break
+						}
+
 						result.Constants[constant.Name] = constant.Details
 						segments = append(segments, models.ConstantResourceIDSegment(normalizedSegment, constant.Name))
 						isConstant = true
