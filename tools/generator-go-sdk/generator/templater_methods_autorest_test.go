@@ -1,6 +1,7 @@
 package generator
 
 import (
+	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 	"testing"
 )
 
@@ -11,7 +12,12 @@ func TestTemplateMethodsAutoRestLRODelete(t *testing.T) {
 		source:            AccTestLicenceType,
 	}
 
-	actual := methodsAutoRestTemplater{operationName: "Delete"}.senderLongRunningOperationTemplate(input)
+	actual := methodsAutoRestTemplater{
+		operation: resourcemanager.ApiOperation{
+			Method: "DELETE",
+		},
+		operationName: "Delete",
+	}.senderLongRunningOperationTemplate(input)
 
 	expected := `
 // senderForDelete sends the Delete request. The method will close the
@@ -30,7 +36,7 @@ func (c pandaClient) senderForDelete(ctx context.Context, req *http.Request) (fu
 	return
 }
 `
-	assertTemplatedCodeMatches(t, actual, expected)
+	assertTemplatedCodeMatches(t, expected, actual)
 }
 
 func TestTemplateMethodsAutoRestLROCreate(t *testing.T) {
@@ -40,7 +46,12 @@ func TestTemplateMethodsAutoRestLROCreate(t *testing.T) {
 		source:            AccTestLicenceType,
 	}
 
-	actual := methodsAutoRestTemplater{operationName: "Create"}.senderLongRunningOperationTemplate(input)
+	actual := methodsAutoRestTemplater{
+		operation: resourcemanager.ApiOperation{
+			Method: "PUT",
+		},
+		operationName: "Create",
+	}.senderLongRunningOperationTemplate(input)
 
 	expected := `
 // senderForCreate sends the Create request. The method will close the
@@ -57,5 +68,5 @@ func (c pandaClient) senderForCreate(ctx context.Context, req *http.Request) (fu
 	return
 }
 `
-	assertTemplatedCodeMatches(t, actual, expected)
+	assertTemplatedCodeMatches(t, expected, actual)
 }

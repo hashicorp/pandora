@@ -683,7 +683,7 @@ type %[1]s struct {
 
 func (c methodsAutoRestTemplater) senderLongRunningOperationTemplate(data ServiceGeneratorData) string {
 	checkForNotFound := ""
-	if c.operationName == "Delete" {
+	if strings.EqualFold(c.operation.Method, "DELETE") {
 		checkForNotFound = fmt.Sprintf(`
 	if !response.WasNotFound(future.Poller.HttpResponse) {
     	return future, err
