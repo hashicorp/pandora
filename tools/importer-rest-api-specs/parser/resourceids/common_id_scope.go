@@ -10,10 +10,7 @@ func (commonIdScopeMatcher) isMatch(input models.ParsedResourceId) bool {
 	var scopeId = models.ParsedResourceId{
 		Constants: map[string]models.ConstantDetails{},
 		Segments: []models.ResourceIdSegment{
-			{
-				Name: "scope",
-				Type: models.ScopeSegment,
-			},
+			models.ScopeResourceIDSegment("scope"),
 		},
 	}
 	return scopeId.Matches(input)

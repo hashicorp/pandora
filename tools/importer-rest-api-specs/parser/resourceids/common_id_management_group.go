@@ -10,25 +10,10 @@ func (commonIdManagementGroupMatcher) isMatch(input models.ParsedResourceId) boo
 	var managementGroupId = models.ParsedResourceId{
 		Constants: map[string]models.ConstantDetails{},
 		Segments: []models.ResourceIdSegment{
-			{
-				Name:       "providers",
-				Type:       models.StaticSegment,
-				FixedValue: strPtr("providers"),
-			},
-			{
-				Name:       "resourceProvider",
-				Type:       models.ResourceProviderSegment,
-				FixedValue: strPtr("Microsoft.Management"),
-			},
-			{
-				Name:       "managementGroups",
-				Type:       models.StaticSegment,
-				FixedValue: strPtr("managementGroups"),
-			},
-			{
-				Name: "groupId",
-				Type: models.UserSpecifiedSegment,
-			},
+			models.StaticResourceIDSegment("providers", "providers"),
+			models.ResourceProviderResourceIDSegment("resourceProvider", "Microsoft.Management"),
+			models.StaticResourceIDSegment("managementGroups", "managementGroups"),
+			models.UserSpecifiedResourceIDSegment("groupId"),
 		},
 	}
 	return managementGroupId.Matches(input)
