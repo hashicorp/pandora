@@ -48,6 +48,15 @@ func RemoveInvalidCharacters(input string, titleCaseSegments bool) string {
 	return output
 }
 
+func NormalizeCanonicalizations(input string) string {
+	output := input
+
+	// intentionally case-sensitive
+	output = strings.ReplaceAll(output, "Ip", "IP")
+
+	return output
+}
+
 func NormalizeConstantKey(input string) string {
 	output := input
 	output = StringifyNumberInput(output)
@@ -64,6 +73,7 @@ func NormalizeConstantKey(input string) string {
 
 func NormalizeName(input string) string {
 	output := input
+	output = NormalizeCanonicalizations(output)
 	output = RemoveInvalidCharacters(output, true)
 	output = NormalizeSegment(output, false)
 	output = strings.Title(output)
