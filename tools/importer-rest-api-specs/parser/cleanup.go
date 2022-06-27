@@ -8,6 +8,25 @@ import (
 )
 
 func removeUnusedItems(operations map[string]models.OperationDetails, resourceIds map[string]models.ParsedResourceId, result internal.ParseResult) (internal.ParseResult, map[string]models.ParsedResourceId) {
+	// The ordering matters here, we need to remove the ResourceIDs first since
+	// they contain references to Constants - as do Models, so remove unused
+	// Resource IDs, then Models, then Constants else we can have orphaned
+	// constants within a package
+
+	resourceIdsForThisResource := make(map[string]models.ParsedResourceId, 0)
+	for k, v := range resourceIds {
+		resourceIdsForThisResource[k] = v
+	}
+	unusedResourceIds := findUnusedResourceIds(operations, resourceIdsForThisResource)
+	for len(unusedResourceIds) > 0 {
+		for _, resourceIdName := range unusedResourceIds {
+			delete(resourceIdsForThisResource, resourceIdName)
+		}
+
+		// then go around again
+		unusedResourceIds = findUnusedResourceIds(operations, resourceIdsForThisResource)
+	}
+
 	unusedModels := findUnusedModels(operations, result)
 	for len(unusedModels) > 0 {
 		// remove those models
@@ -28,21 +47,6 @@ func removeUnusedItems(operations map[string]models.OperationDetails, resourceId
 
 		// then go around again
 		unusedConstants = findUnusedConstants(operations, resourceIds, result)
-	}
-
-	resourceIdsForThisResource := make(map[string]models.ParsedResourceId, 0)
-	for k, v := range resourceIds {
-		resourceIdsForThisResource[k] = v
-	}
-
-	unusedResourceIds := findUnusedResourceIds(operations, resourceIdsForThisResource)
-	for len(unusedResourceIds) > 0 {
-		for _, resourceIdName := range unusedResourceIds {
-			delete(resourceIdsForThisResource, resourceIdName)
-		}
-
-		// then go around again
-		unusedResourceIds = findUnusedResourceIds(operations, resourceIdsForThisResource)
 	}
 
 	return result, resourceIdsForThisResource
