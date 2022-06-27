@@ -20,11 +20,13 @@ internal class DeleteImmutabilityPolicyOperation : Operations.DeleteOperation
                 HttpStatusCode.OK,
         };
 
-    public override ResourceID? ResourceId() => new ImmutabilityPolicyId();
+    public override ResourceID? ResourceId() => new ContainerId();
 
     public override Type? ResponseObject() => typeof(ImmutabilityPolicyModel);
 
     public override Type? OptionsObject() => typeof(DeleteImmutabilityPolicyOperation.DeleteImmutabilityPolicyOptions);
+
+    public override string? UriSuffix() => "/immutabilityPolicies/default";
 
     internal class DeleteImmutabilityPolicyOptions
     {

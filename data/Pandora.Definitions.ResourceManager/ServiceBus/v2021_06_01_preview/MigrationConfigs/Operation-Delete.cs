@@ -21,7 +21,9 @@ internal class DeleteOperation : Operations.DeleteOperation
                 HttpStatusCode.OK,
         };
 
-    public override ResourceID? ResourceId() => new ConfigId();
+    public override ResourceID? ResourceId() => new NamespaceId();
+
+    public override string? UriSuffix() => "/migrationConfigurations/$default";
 
 
 }

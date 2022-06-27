@@ -15,11 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Storage.v2021_04_01.BlobContainers
 
 internal class GetImmutabilityPolicyOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ImmutabilityPolicyId();
+    public override ResourceID? ResourceId() => new ContainerId();
 
     public override Type? ResponseObject() => typeof(ImmutabilityPolicyModel);
 
     public override Type? OptionsObject() => typeof(GetImmutabilityPolicyOperation.GetImmutabilityPolicyOptions);
+
+    public override string? UriSuffix() => "/immutabilityPolicies/default";
 
     internal class GetImmutabilityPolicyOptions
     {

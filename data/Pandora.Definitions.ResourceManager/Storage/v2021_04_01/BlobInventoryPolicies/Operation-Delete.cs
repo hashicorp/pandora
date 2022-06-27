@@ -21,7 +21,9 @@ internal class DeleteOperation : Operations.DeleteOperation
                 HttpStatusCode.OK,
         };
 
-    public override ResourceID? ResourceId() => new BlobInventoryPolicyId();
+    public override ResourceID? ResourceId() => new StorageAccountId();
+
+    public override string? UriSuffix() => "/inventoryPolicies/default";
 
 
 }

@@ -6,13 +6,13 @@ using Pandora.Definitions.Interfaces;
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 
 
-namespace Pandora.Definitions.ResourceManager.Storage.v2021_04_01.QueueServiceProperties;
+namespace Pandora.Definitions.ResourceManager.Storage.v2021_04_01.ManagementPolicies;
 
-internal class QueueServiceId : ResourceID
+internal class StorageAccountId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/queueServices/{queueServiceName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -24,7 +24,5 @@ internal class QueueServiceId : ResourceID
         ResourceIDSegment.ResourceProvider("staticMicrosoftStorage", "Microsoft.Storage"),
         ResourceIDSegment.Static("staticStorageAccounts", "storageAccounts"),
         ResourceIDSegment.UserSpecified("accountName"),
-        ResourceIDSegment.Static("staticQueueServices", "queueServices"),
-        ResourceIDSegment.Constant("queueServiceName", typeof(QueueServiceNameConstant)),
     };
 }

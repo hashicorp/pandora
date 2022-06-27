@@ -21,7 +21,7 @@ internal class TenantConfigurationsDeleteOperation : Operations.DeleteOperation
                 HttpStatusCode.OK,
         };
 
-    public override ResourceID? ResourceId() => new ConfigurationId();
+    public override string? UriSuffix() => "/providers/Microsoft.Portal/tenantConfigurations/default";
 
 
 }

@@ -22,9 +22,11 @@ internal class CreateOrUpdateOperation : Operations.PutOperation
 
     public override Type? RequestObject() => typeof(BlobInventoryPolicyModel);
 
-    public override ResourceID? ResourceId() => new BlobInventoryPolicyId();
+    public override ResourceID? ResourceId() => new StorageAccountId();
 
     public override Type? ResponseObject() => typeof(BlobInventoryPolicyModel);
+
+    public override string? UriSuffix() => "/inventoryPolicies/default";
 
 
 }

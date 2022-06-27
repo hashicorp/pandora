@@ -15,11 +15,13 @@ namespace Pandora.Definitions.ResourceManager.TrafficManager.v2018_08_01.HeatMap
 
 internal class HeatMapGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new HeatMapTypeId();
+    public override ResourceID? ResourceId() => new TrafficManagerProfileId();
 
     public override Type? ResponseObject() => typeof(HeatMapModelModel);
 
     public override Type? OptionsObject() => typeof(HeatMapGetOperation.HeatMapGetOptions);
+
+    public override string? UriSuffix() => "/heatMaps/default";
 
     internal class HeatMapGetOptions
     {

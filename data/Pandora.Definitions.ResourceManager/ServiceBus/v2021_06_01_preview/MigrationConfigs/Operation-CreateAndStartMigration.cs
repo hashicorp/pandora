@@ -19,9 +19,11 @@ internal class CreateAndStartMigrationOperation : Operations.PutOperation
 
     public override Type? RequestObject() => typeof(MigrationConfigPropertiesModel);
 
-    public override ResourceID? ResourceId() => new ConfigId();
+    public override ResourceID? ResourceId() => new NamespaceId();
 
     public override Type? ResponseObject() => typeof(MigrationConfigPropertiesModel);
+
+    public override string? UriSuffix() => "/migrationConfigurations/$default";
 
 
 }

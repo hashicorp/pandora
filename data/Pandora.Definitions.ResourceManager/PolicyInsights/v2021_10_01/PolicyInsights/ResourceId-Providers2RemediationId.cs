@@ -12,12 +12,12 @@ internal class Providers2RemediationId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/providers/{managementGroupsNamespace}/managementGroups/{managementGroupId}/providers/Microsoft.PolicyInsights/remediations/{remediationName}";
+    public string ID => "/providers/Microsoft.Management/managementGroups/{managementGroupId}/providers/Microsoft.PolicyInsights/remediations/{remediationName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
         ResourceIDSegment.Static("staticProviders", "providers"),
-        ResourceIDSegment.Constant("managementGroupsNamespace", typeof(ManagementGroupsNamespaceTypeConstant)),
+        ResourceIDSegment.Static("managementGroupsNamespace", "Microsoft.Management"),
         ResourceIDSegment.Static("staticManagementGroups", "managementGroups"),
         ResourceIDSegment.UserSpecified("managementGroupId"),
         ResourceIDSegment.Static("staticProviders2", "providers"),
