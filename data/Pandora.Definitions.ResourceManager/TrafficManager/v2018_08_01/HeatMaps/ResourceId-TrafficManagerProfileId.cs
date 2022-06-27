@@ -8,11 +8,11 @@ using Pandora.Definitions.Interfaces;
 
 namespace Pandora.Definitions.ResourceManager.TrafficManager.v2018_08_01.HeatMaps;
 
-internal class HeatMapTypeId : ResourceID
+internal class TrafficManagerProfileId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{profileName}/heatMaps/{heatMapType}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{profileName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -24,7 +24,5 @@ internal class HeatMapTypeId : ResourceID
         ResourceIDSegment.ResourceProvider("staticMicrosoftNetwork", "Microsoft.Network"),
         ResourceIDSegment.Static("staticTrafficManagerProfiles", "trafficManagerProfiles"),
         ResourceIDSegment.UserSpecified("profileName"),
-        ResourceIDSegment.Static("staticHeatMaps", "heatMaps"),
-        ResourceIDSegment.Constant("heatMapType", typeof(HeatMapTypeConstant)),
     };
 }

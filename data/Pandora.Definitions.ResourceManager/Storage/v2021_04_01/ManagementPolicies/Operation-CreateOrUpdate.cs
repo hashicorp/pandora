@@ -22,9 +22,11 @@ internal class CreateOrUpdateOperation : Operations.PutOperation
 
     public override Type? RequestObject() => typeof(ManagementPolicyModel);
 
-    public override ResourceID? ResourceId() => new ManagementPolicyId();
+    public override ResourceID? ResourceId() => new StorageAccountId();
 
     public override Type? ResponseObject() => typeof(ManagementPolicyModel);
+
+    public override string? UriSuffix() => "/managementPolicies/default";
 
 
 }

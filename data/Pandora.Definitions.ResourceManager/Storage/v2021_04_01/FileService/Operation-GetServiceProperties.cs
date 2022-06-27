@@ -15,9 +15,11 @@ namespace Pandora.Definitions.ResourceManager.Storage.v2021_04_01.FileService;
 
 internal class GetServicePropertiesOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new FileServiceId();
+    public override ResourceID? ResourceId() => new StorageAccountId();
 
     public override Type? ResponseObject() => typeof(FileServicePropertiesModel);
+
+    public override string? UriSuffix() => "/fileServices/default";
 
 
 }

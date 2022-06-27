@@ -15,9 +15,11 @@ namespace Pandora.Definitions.ResourceManager.Storage.v2021_04_01.BlobInventoryP
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new BlobInventoryPolicyId();
+    public override ResourceID? ResourceId() => new StorageAccountId();
 
     public override Type? ResponseObject() => typeof(BlobInventoryPolicyModel);
+
+    public override string? UriSuffix() => "/inventoryPolicies/default";
 
 
 }

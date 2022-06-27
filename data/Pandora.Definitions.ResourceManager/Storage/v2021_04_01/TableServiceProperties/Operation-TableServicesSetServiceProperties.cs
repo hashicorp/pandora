@@ -22,9 +22,11 @@ internal class TableServicesSetServicePropertiesOperation : Operations.PutOperat
 
     public override Type? RequestObject() => typeof(TableServicePropertiesModel);
 
-    public override ResourceID? ResourceId() => new TableServiceId();
+    public override ResourceID? ResourceId() => new StorageAccountId();
 
     public override Type? ResponseObject() => typeof(TableServicePropertiesModel);
+
+    public override string? UriSuffix() => "/tableServices/default";
 
 
 }

@@ -22,9 +22,11 @@ internal class QueueServicesSetServicePropertiesOperation : Operations.PutOperat
 
     public override Type? RequestObject() => typeof(QueueServicePropertiesModel);
 
-    public override ResourceID? ResourceId() => new QueueServiceId();
+    public override ResourceID? ResourceId() => new StorageAccountId();
 
     public override Type? ResponseObject() => typeof(QueueServicePropertiesModel);
+
+    public override string? UriSuffix() => "/queueServices/default";
 
 
 }

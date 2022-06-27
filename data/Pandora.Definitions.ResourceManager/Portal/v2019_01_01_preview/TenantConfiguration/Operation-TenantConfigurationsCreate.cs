@@ -17,9 +17,9 @@ internal class TenantConfigurationsCreateOperation : Operations.PutOperation
 {
     public override Type? RequestObject() => typeof(ConfigurationModel);
 
-    public override ResourceID? ResourceId() => new ConfigurationId();
-
     public override Type? ResponseObject() => typeof(ConfigurationModel);
+
+    public override string? UriSuffix() => "/providers/Microsoft.Portal/tenantConfigurations/default";
 
 
 }
