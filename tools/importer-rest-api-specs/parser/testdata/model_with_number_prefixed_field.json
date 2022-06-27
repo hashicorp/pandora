@@ -1,0 +1,56 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Example",
+    "description": "Example",
+    "version": "2020-01-01"
+  },
+  "host": "management.mysite.com",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "security": [],
+  "securityDefinitions": {},
+  "paths": {
+    "/things": {
+      "get": {
+        "tags": [
+          "Hello"
+        ],
+        "operationId": "Hello_GetWorld",
+        "description": "A GET request with no body returned.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success.",
+            "schema": {
+              "$ref": "#/definitions/Example"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Example": {
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "50PercentDone": {
+          "type": "string",
+          "description": "A field with a number prefix"
+        }
+      },
+      "type": "object",
+      "title": "Example"
+    }
+  },
+  "parameters": {}
+}

@@ -368,6 +368,90 @@ func TestParseModelSingleWithInlinedObject(t *testing.T) {
 	}
 }
 
+func TestParseModelSingleWithNumberPrefixedField(t *testing.T) {
+	result, err := ParseSwaggerFileForTesting(t, "model_with_number_prefixed_field.json")
+	if err != nil {
+		t.Fatalf("parsing: %+v", err)
+	}
+	if result == nil {
+		t.Fatal("result was nil")
+	}
+	if len(result.Resources) != 1 {
+		t.Fatalf("expected 1 resource but got %d", len(result.Resources))
+	}
+
+	hello, ok := result.Resources["Hello"]
+	if !ok {
+		t.Fatalf("no resources were output with the tag Hello")
+	}
+
+	if len(hello.Constants) != 0 {
+		t.Fatalf("expected no Constants but got %d", len(hello.Constants))
+	}
+	if len(hello.Models) != 1 {
+		t.Fatalf("expected 1 Model but got %d", len(hello.Models))
+	}
+	if len(hello.Operations) != 1 {
+		t.Fatalf("expected 1 Operation but got %d", len(hello.Operations))
+	}
+	if len(hello.ResourceIds) != 0 {
+		t.Fatalf("expected no ResourceIds but got %d", len(hello.ResourceIds))
+	}
+
+	world, ok := hello.Operations["GetWorld"]
+	if !ok {
+		t.Fatalf("no resources were output with the name GetWorld")
+	}
+	if world.Method != "GET" {
+		t.Fatalf("expected a GET operation but got %q", world.Method)
+	}
+	if len(world.ExpectedStatusCodes) != 1 {
+		t.Fatalf("expected 1 status code but got %d", len(world.ExpectedStatusCodes))
+	}
+	if world.ExpectedStatusCodes[0] != 200 {
+		t.Fatalf("expected the status code to be 200 but got %d", world.ExpectedStatusCodes[0])
+	}
+	if world.RequestObject != nil {
+		t.Fatalf("expected no request object but got %+v", *world.RequestObject)
+	}
+	if world.ResponseObject == nil {
+		t.Fatal("expected a response object but didn't get one")
+	}
+	if world.ResponseObject.Type != models.ObjectDefinitionReference {
+		t.Fatalf("expected the response object to be a reference but got %q", string(world.ResponseObject.Type))
+	}
+	if *world.ResponseObject.ReferenceName != "Example" {
+		t.Fatalf("expected the response object to be 'Example' but got %q", *world.ResponseObject.ReferenceName)
+	}
+	if world.ResourceIdName != nil {
+		t.Fatalf("expected no ResourceId but got %q", *world.ResourceIdName)
+	}
+	if world.UriSuffix == nil {
+		t.Fatal("expected world.UriSuffix to have a value")
+	}
+	if *world.UriSuffix != "/things" {
+		t.Fatalf("expected world.UriSuffix to be `/things` but got %q", *world.UriSuffix)
+	}
+	if world.LongRunning {
+		t.Fatal("expected a non-long running operation but it was long running")
+	}
+
+	exampleModel, ok := hello.Models["Example"]
+	if !ok {
+		t.Fatalf("expected there to be a model called Example")
+	}
+	if len(exampleModel.Fields) != 2 {
+		t.Fatalf("expected the model Example to have 2 fields but got %d", len(exampleModel.Fields))
+	}
+	fiveZeroPercentDone, ok := exampleModel.Fields["FiveZeroPercentDone"]
+	if !ok {
+		t.Fatalf("expected the model Example to have a field FiveZeroPercentDone")
+	}
+	if fiveZeroPercentDone.JsonName != "50PercentDone" {
+		t.Fatalf("expected the field `FiveZeroPercentDone` within model `Example` to have a jsonName of `50PercentDone` but got %q", fiveZeroPercentDone.JsonName)
+	}
+}
+
 func TestParseModelSingleInheritingFromObjectWithNoExtraFields(t *testing.T) {
 	result, err := ParseSwaggerFileForTesting(t, "model_inheriting_from_other_model_no_new_fields.json")
 	if err != nil {
