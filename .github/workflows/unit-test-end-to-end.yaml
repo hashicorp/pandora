@@ -26,7 +26,12 @@ jobs:
         with:
           go-version: '1.18.1'
 
-      - name: Build and run importer-rest-api-specs
+      - name: "Build Data API"
+        run: |
+          cd ./data
+          make build
+
+      - name: "Build and Run importer-rest-api-specs"
         id: import-data
         run: |
           cd ./tools/importer-rest-api-specs
