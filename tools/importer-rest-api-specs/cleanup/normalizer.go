@@ -5,6 +5,8 @@ import (
 	"strings"
 )
 
+// TODO: move this inside of `parser`?
+
 func RemoveInvalidCharacters(input string, titleCaseSegments bool) string {
 	output := input
 
@@ -64,6 +66,7 @@ func NormalizeConstantKey(input string) string {
 
 func NormalizeName(input string) string {
 	output := input
+	output = StringifyNumberInput(output)
 	output = RemoveInvalidCharacters(output, true)
 	output = NormalizeSegment(output, false)
 	output = strings.Title(output)
