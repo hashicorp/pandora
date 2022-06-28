@@ -260,11 +260,7 @@ payload := %[1]s.%[2]s{
 ctx := context.TODO()
 %[3]s
 
-future, err := client.%[2]s(%[4]s)
-if err != nil {
-	// handle the error
-}
-if err := future.Poller.PollUntilDone(); err != nil {
+if err := client.%[2]sThenPoll(%[4]s); err != nil {
 	// handle the error
 }
 '''

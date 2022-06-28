@@ -938,11 +938,8 @@ client.Client.Authorizer = authorizer
 '''go
 ctx := context.TODO()
 id := disks.NewDiskID("my-disk")
-future, err := client.SomeLongRunning(ctx, id)
-if err != nil {
-	// handle the error
-}
-if err := future.Poller.PollUntilDone(); err != nil {
+
+if err := client.SomeLongRunningThenPoll(ctx, id); err != nil {
 	// handle the error
 }
 '''
@@ -1014,11 +1011,8 @@ id := disks.NewDiskID("my-disk")
 payload := disks.SomeModel{
 	// ...
 }
-future, err := client.SomeLongRunning(ctx, id, payload)
-if err != nil {
-	// handle the error
-}
-if err := future.Poller.PollUntilDone(); err != nil {
+
+if err := client.SomeLongRunningThenPoll(ctx, id, payload); err != nil {
 	// handle the error
 }
 '''
@@ -1101,11 +1095,8 @@ id := disks.NewDiskID("my-disk")
 payload := disks.SomeModel{
 	// ...
 }
-future, err := client.SomeLongRunning(ctx, id, payload, disks.DefaultSomeLongRunningOperationOptions())
-if err != nil {
-	// handle the error
-}
-if err := future.Poller.PollUntilDone(); err != nil {
+
+if err := client.SomeLongRunningThenPoll(ctx, id, payload, disks.DefaultSomeLongRunningOperationOptions()); err != nil {
 	// handle the error
 }
 '''
@@ -1193,11 +1184,7 @@ client.Client.Authorizer = authorizer
 '''go
 ctx := context.TODO()
 id := disks.NewDiskID("my-disk")
-future, err := client.SomeLongRunning(ctx, id, disks.DefaultSomeLongRunningOperationOptions())
-if err != nil {
-	// handle the error
-}
-if err := future.Poller.PollUntilDone(); err != nil {
+if err := client.SomeLongRunningThenPoll(ctx, id, disks.DefaultSomeLongRunningOperationOptions()); err != nil {
 	// handle the error
 }
 '''
@@ -1274,11 +1261,8 @@ client.Client.Authorizer = authorizer
 
 '''go
 ctx := context.TODO()
-future, err := client.SomeLongRunning(ctx)
-if err != nil {
-	// handle the error
-}
-if err := future.Poller.PollUntilDone(); err != nil {
+
+if err := client.SomeLongRunningThenPoll(ctx); err != nil {
 	// handle the error
 }
 '''
