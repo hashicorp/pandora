@@ -175,6 +175,10 @@ service "relay" {
   name      = "Relay"
   available = ["2017-04-01"]
 }
+service "resources" {
+  name      = "resources"
+  available = ["2020-06-01"]
+}
 service "search" {
   name      = "Search"
   available = ["2020-03-13"]
