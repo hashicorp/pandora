@@ -1,6 +1,7 @@
 package cleanup
 
 import (
+	"fmt"
 	"strings"
 )
 
@@ -51,6 +52,7 @@ func RemoveInvalidCharacters(input string, titleCaseSegments bool) string {
 
 func NormalizeName(input string) string {
 	output := input
+	output = wordifyFirstCharacter(output)
 	output = RemoveInvalidCharacters(output, true)
 	output = NormalizeSegment(output, false)
 	output = strings.Title(output)
@@ -484,5 +486,31 @@ func NormalizeServiceName(input string) string {
 		return strings.Title(v)
 	}
 
+	return input
+}
+
+func wordifyFirstCharacter(input string) string {
+	// TODO: @tombuildsstuff: track down the models with no-name bug
+	if len(input) == 0 {
+		return input
+	}
+	vals := map[string]string{
+		"0": "Zero",
+		"1": "One",
+		"2": "Two",
+		"3": "Three",
+		"4": "Four",
+		"5": "Five",
+		"6": "Six",
+		"7": "Seven",
+		"8": "Eight",
+		"9": "Nine",
+	}
+	firstChar := string(input[0])
+	if replacement, ok := vals[firstChar]; ok {
+		output := strings.TrimPrefix(input, firstChar)
+		output = fmt.Sprintf("%s%s", replacement, output)
+		return output
+	}
 	return input
 }
