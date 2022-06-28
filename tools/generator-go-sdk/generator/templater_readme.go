@@ -139,7 +139,7 @@ payload := %[1]s.%[2]s{
 			lines = append(lines, fmt.Sprintf("var payload %s", *typeName))
 		}
 	}
-	if operation.Options != nil {
+	if len(operation.Options) > 0 {
 		methodArgs = append(methodArgs, fmt.Sprintf("%[1]s.Default%[2]sOperationOptions()", packageName, operationName))
 	}
 
@@ -194,7 +194,7 @@ payload := %[1]s.%[2]s{
 			lines = append(lines, fmt.Sprintf("var payload %s", *typeName))
 		}
 	}
-	if operation.Options != nil {
+	if len(operation.Options) > 0 {
 		methodArgs = append(methodArgs, fmt.Sprintf("%[1]s.Default%[2]sOperationOptions()", packageName, operationName))
 	}
 
@@ -250,7 +250,7 @@ payload := %[1]s.%[2]s{
 			lines = append(lines, fmt.Sprintf("var payload %s", *typeName))
 		}
 	}
-	if operation.Options != nil {
+	if len(operation.Options) > 0 {
 		methodArgs = append(methodArgs, fmt.Sprintf("%[1]s.Default%[2]sOperationOptions()", packageName, operationName))
 	}
 
