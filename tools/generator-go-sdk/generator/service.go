@@ -50,6 +50,7 @@ func (s *ServiceGenerator) Generate(input ServiceGeneratorInput) error {
 		"ids":        s.ids,
 		"methods":    s.methods,
 		"models":     s.models,
+		"readmeFile": s.readmeFile,
 		"predicates": s.predicates,
 		"version":    s.version,
 	}
