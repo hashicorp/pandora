@@ -682,14 +682,6 @@ type %[1]s struct {
 }
 
 func (c methodsAutoRestTemplater) senderLongRunningOperationTemplate(data ServiceGeneratorData) string {
-	checkForNotFound := ""
-	if strings.EqualFold(c.operation.Method, "DELETE") {
-		checkForNotFound = fmt.Sprintf(`
-	if !response.WasNotFound(future.Poller.HttpResponse) {
-    	return future, err
-    }
-		`)
-	}
 	return fmt.Sprintf(`
 // senderFor%[2]s sends the %[2]s request. The method will close the
 // http.Response Body if it receives an error.
@@ -701,10 +693,9 @@ func (c %[1]s) senderFor%[2]s(ctx context.Context, req *http.Request) (future %[
 	}
 	
 	future.Poller, err = polling.NewLongRunningPollerFromResponse(ctx, resp, c.Client)
-	%[3]s
 	return
 }
-`, data.serviceClientName, c.operationName, checkForNotFound)
+`, data.serviceClientName, c.operationName)
 }
 
 func (c methodsAutoRestTemplater) optionsStruct(data ServiceGeneratorData) (*string, error) {

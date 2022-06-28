@@ -30,9 +30,6 @@ func (c pandaClient) senderForDelete(ctx context.Context, req *http.Request) (fu
 	}
 	
 	future.Poller, err = polling.NewLongRunningPollerFromResponse(ctx, resp, c.Client)
-	if !response.WasNotFound(future.Poller.HttpResponse) {
-		return future, err
-    }
 	return
 }
 `
