@@ -45,7 +45,7 @@ jobs:
       - name: "Run the Go SDK Generator"
         run: |
           # go go gadget generator
-          ./scripts/automation-generate-go-sdk.sh
+          ./scripts/automation-generate-and-commit-go-sdk.sh
         env:
           SSH_AUTH_SOCK: /tmp/pandora_ssh_agent.sock
 
