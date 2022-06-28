@@ -443,9 +443,9 @@ func TestParseModelSingleWithNumberPrefixedField(t *testing.T) {
 	if len(exampleModel.Fields) != 2 {
 		t.Fatalf("expected the model Example to have 2 fields but got %d", len(exampleModel.Fields))
 	}
-	fiveZeroPercentDone, ok := exampleModel.Fields["FiveZeroPercentDone"]
+	fiveZeroPercentDone, ok := exampleModel.Fields["Five0PercentDone"]
 	if !ok {
-		t.Fatalf("expected the model Example to have a field FiveZeroPercentDone")
+		t.Fatalf("expected the model Example to have a field Five0PercentDone")
 	}
 	if fiveZeroPercentDone.JsonName != "50PercentDone" {
 		t.Fatalf("expected the field `FiveZeroPercentDone` within model `Example` to have a jsonName of `50PercentDone` but got %q", fiveZeroPercentDone.JsonName)

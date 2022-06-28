@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"reflect"
+	"regexp"
 	"strconv"
 	"strings"
 
@@ -59,18 +60,18 @@ func MapConstant(typeVal spec.StringOrArray, fieldName string, values []interfac
 			// Some numbers are modelled as strings
 			if numVal, err := strconv.ParseFloat(value, 64); err == nil {
 				if strings.Contains(value, ".") {
-					normalizedName := cleanup.NormalizeConstantKey(value)
+					normalizedName := normalizeConstantKey(value)
 					keysAndValues[normalizedName] = value
 					continue
 				}
 
 				key := keyValueForInteger(int64(numVal))
 				val := fmt.Sprintf("%d", int64(numVal))
-				normalizedName := cleanup.NormalizeConstantKey(key)
+				normalizedName := normalizeConstantKey(key)
 				keysAndValues[normalizedName] = val
 				continue
 			}
-			normalizedName := cleanup.NormalizeConstantKey(value)
+			normalizedName := normalizeConstantKey(value)
 			keysAndValues[normalizedName] = value
 			continue
 		}
@@ -96,7 +97,7 @@ func MapConstant(typeVal spec.StringOrArray, fieldName string, values []interfac
 
 			key := keyValueForInteger(int64(value))
 			val := fmt.Sprintf("%d", int64(value))
-			normalizedName := cleanup.NormalizeConstantKey(key)
+			normalizedName := normalizeConstantKey(key)
 			keysAndValues[normalizedName] = val
 			continue
 		}
@@ -109,7 +110,7 @@ func MapConstant(typeVal spec.StringOrArray, fieldName string, values []interfac
 
 			key := keyValueForFloat(value)
 			val := stringValueForFloat(value)
-			normalizedName := cleanup.NormalizeConstantKey(key)
+			normalizedName := normalizeConstantKey(key)
 			keysAndValues[normalizedName] = val
 			continue
 		}
@@ -194,9 +195,84 @@ func keyValueForInteger(value int64) string {
 
 func keyValueForFloat(value float64) string {
 	stringified := stringValueForFloat(value)
-	return cleanup.StringifyNumberInput(stringified)
+	return stringifyNumberInput(stringified)
 }
 
 func stringValueForFloat(value float64) string {
 	return strconv.FormatFloat(value, 'f', -1, 64)
+}
+
+func normalizeConstantKey(input string) string {
+	output := input
+	output = stringifyNumberInput(output)
+	if !strings.Contains(output, "Point") {
+		output = renameMultiplesOfZero(output)
+	}
+
+	output = strings.ReplaceAll(output, "*", "Any")
+	// TODO: add more if we find them
+
+	output = cleanup.NormalizeName(output)
+	return output
+}
+
+func stringifyNumberInput(input string) string {
+	vals := map[int32]string{
+		'.': "Point",
+		'+': "Positive",
+		'-': "Negative",
+		'0': "Zero",
+		'1': "One",
+		'2': "Two",
+		'3': "Three",
+		'4': "Four",
+		'5': "Five",
+		'6': "Six",
+		'7': "Seven",
+		'8': "Eight",
+		'9': "Nine",
+	}
+	output := ""
+	for _, c := range input {
+		v, ok := vals[c]
+		if !ok {
+			output += string(c)
+			continue
+		}
+		output += v
+	}
+	return output
+}
+
+func renameMultiplesOfZero(input string) string {
+	if strings.HasPrefix(input, "Zero") && !strings.HasSuffix(input, "Zero") {
+		return input
+	}
+
+	re := regexp.MustCompile("(?:Zero)")
+	zeros := re.FindAllStringIndex(input, -1)
+	z := len(zeros)
+
+	if z < 2 {
+		return input
+	}
+
+	vals := map[int]string{
+		2: "Hundred",
+		3: "Thousand",
+		4: "Thousand",
+		5: "HundredThousand",
+		6: "Million",
+	}
+
+	if v, ok := vals[z]; ok {
+		switch z {
+		case 4:
+			return strings.Replace(input, strings.Repeat("Zero", z), "Zero"+v, 1)
+		default:
+			return strings.Replace(input, strings.Repeat("Zero", z), v, 1)
+		}
+	}
+
+	return input
 }

@@ -1,7 +1,7 @@
 package cleanup
 
 import (
-	"regexp"
+	"fmt"
 	"strings"
 )
 
@@ -50,23 +50,9 @@ func RemoveInvalidCharacters(input string, titleCaseSegments bool) string {
 	return output
 }
 
-func NormalizeConstantKey(input string) string {
-	output := input
-	output = StringifyNumberInput(output)
-	if !strings.Contains(output, "Point") {
-		output = RenameMultiplesOfZero(output)
-	}
-
-	output = strings.ReplaceAll(output, "*", "Any")
-	// TODO: add more if we find them
-
-	output = NormalizeName(output)
-	return output
-}
-
 func NormalizeName(input string) string {
 	output := input
-	output = StringifyNumberInput(output)
+	output = wordifyFirstCharacter(output)
 	output = RemoveInvalidCharacters(output, true)
 	output = NormalizeSegment(output, false)
 	output = strings.Title(output)
@@ -503,62 +489,28 @@ func NormalizeServiceName(input string) string {
 	return input
 }
 
-func StringifyNumberInput(input string) string {
-	vals := map[int32]string{
-		'.': "Point",
-		'-': "Negative",
-		'0': "Zero",
-		'1': "One",
-		'2': "Two",
-		'3': "Three",
-		'4': "Four",
-		'5': "Five",
-		'6': "Six",
-		'7': "Seven",
-		'8': "Eight",
-		'9': "Nine",
-	}
-	output := ""
-	for _, c := range input {
-		v, ok := vals[c]
-		if !ok {
-			output += string(c)
-			continue
-		}
-		output += v
-	}
-	return output
-}
-
-func RenameMultiplesOfZero(input string) string {
-	if strings.HasPrefix(input, "Zero") && !strings.HasSuffix(input, "Zero") {
+func wordifyFirstCharacter(input string) string {
+	// TODO: @tombuildsstuff: track down the models with no-name bug
+	if len(input) == 0 {
 		return input
 	}
-
-	re := regexp.MustCompile("(?:Zero)")
-	zeros := re.FindAllStringIndex(input, -1)
-	z := len(zeros)
-
-	if z < 2 {
-		return input
+	vals := map[string]string{
+		"0": "Zero",
+		"1": "One",
+		"2": "Two",
+		"3": "Three",
+		"4": "Four",
+		"5": "Five",
+		"6": "Six",
+		"7": "Seven",
+		"8": "Eight",
+		"9": "Nine",
 	}
-
-	vals := map[int]string{
-		2: "Hundred",
-		3: "Thousand",
-		4: "Thousand",
-		5: "HundredThousand",
-		6: "Million",
+	firstChar := string(input[0])
+	if replacement, ok := vals[firstChar]; ok {
+		output := strings.TrimPrefix(input, firstChar)
+		output = fmt.Sprintf("%s%s", replacement, output)
+		return output
 	}
-
-	if v, ok := vals[z]; ok {
-		switch z {
-		case 4:
-			return strings.Replace(input, strings.Repeat("Zero", z), "Zero"+v, 1)
-		default:
-			return strings.Replace(input, strings.Repeat("Zero", z), v, 1)
-		}
-	}
-
 	return input
 }
