@@ -50,9 +50,6 @@ func (r readmeTemplater) clientInitialization(packageName, clientName string) st
 '''go
 client := %[1]s.New%[2]sWithBaseURI("https://management.azure.com")
 client.Client.Authorizer = authorizer
-if err != nil {
-	// handle the error
-}
 '''
 `, packageName, clientName)
 }
