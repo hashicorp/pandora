@@ -29,20 +29,26 @@ func (r readmeTemplater) template(data ServiceGeneratorData) (*string, error) {
 
 func (r readmeTemplater) packageSummary(serviceName, apiVersion, resourceName string) string {
 	return fmt.Sprintf(`
-## SDK: 'github.com/hashicorp/go-azure-sdk/resource-manager/%[1]s/%[2]s/%[3]s'
+## 'github.com/hashicorp/go-azure-sdk/resource-manager/%[1]s/%[2]s/%[3]s' Documentation
 
 The '%[3]s' SDK allows for interaction with the Azure Resource Manager Service '%[1]s' (API Version '%[2]s').
 
 This readme covers example usages, but further information on [using this SDK can be found in the project root](https://github.com/hashicorp/go-azure-sdk/tree/main/docs).
+
+### Import Path
+
+'''go
+import "github.com/hashicorp/go-azure-sdk/resource-manager/%[1]s/%[2]s/%[3]s"
+'''
 `, serviceName, apiVersion, resourceName)
 }
 
 func (r readmeTemplater) clientInitialization(packageName, clientName string) string {
 	return fmt.Sprintf(`
-## Client Initialization
+### Client Initialization
 
 '''go
-client := %[1]s.New%[2]sClientWithBaseURI("https://management.azure.com")
+client := %[1]s.New%[2]sWithBaseURI("https://management.azure.com")
 client.Client.Authorizer = authorizer
 if err != nil {
 	// handle the error
@@ -92,12 +98,12 @@ func (r readmeTemplater) resourceIdInitialization(operation resourcemanager.ApiO
 
 	components := make([]string, 0)
 	for _, v := range resourceId.Segments {
-		if v.Type == resourcemanager.StaticSegment {
+		if v.Type == resourcemanager.StaticSegment || v.Type == resourcemanager.ResourceProviderSegment {
 			continue
 		}
 		components = append(components, fmt.Sprintf("%q", v.ExampleValue))
 	}
-	out := fmt.Sprintf(`id := %[1]s.New%[2]sID(%[3]s)`, data.packageName, *operation.ResourceIdName, strings.Join(components, ", "))
+	out := fmt.Sprintf(`id := %[1]s.New%[2]sID(%[3]s)`, data.packageName, strings.TrimSuffix(*operation.ResourceIdName, "Id"), strings.Join(components, ", "))
 	return &out, nil
 }
 
@@ -138,7 +144,7 @@ payload := %[1]s.%[2]s{
 	}
 
 	out := fmt.Sprintf(`
-### Example Usage: '%[1]sClient.%[2]s'
+### Example Usage: '%[1]s.%[2]s'
 
 '''go
 ctx := context.TODO()
@@ -193,7 +199,7 @@ payload := %[1]s.%[2]s{
 	}
 
 	out := fmt.Sprintf(`
-### Example Usage: '%[1]sClient.%[2]s'
+### Example Usage: '%[1]s.%[2]s'
 
 '''go
 ctx := context.TODO()
@@ -249,7 +255,7 @@ payload := %[1]s.%[2]s{
 	}
 
 	out := fmt.Sprintf(`
-### Example Usage: '%[1]sClient.%[2]s'
+### Example Usage: '%[1]s.%[2]s'
 
 '''go
 ctx := context.TODO()
@@ -266,34 +272,3 @@ if err := future.Poller.PollUntilDone(); err != nil {
 
 	return &out, nil
 }
-
-/*
-## SDK: `github.com/hashicorp/go-azure-sdk/resource-manager/{service}/{apiVersion}/{resource}`
-
-The `%q` SDK allows for interaction with the Azure Resource Manager Service `%q` (API Version `%q`).
-
-This readme covers example usages, but further information on [using this SDK can be found in the project root](https://github.com/hashicorp/go-azure-sdk/tree/main/docs).
-
-## Client Initialization
-
-```go
-client := signalr.NewSignalRClientWithBaseURI("https://management.azure.com")
-client.Client.Authorizer = authorizer
-if err != nil {
-	// handle the error
-}
-```
-
-### Example Usage: 'SomeClient.Blah'
-
-```go
-future, err := client.Name(ctx, someId)
-if err != nil {
-	// handle the error
-}
-if err := future.WaitForState(); err != nil {
-	// handle the error
-}
-```
-
-*/

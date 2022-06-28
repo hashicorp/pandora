@@ -10,13 +10,19 @@ import (
 func TestReadmeTemplater_NoOperations(t *testing.T) {
 	// whilst not strictly a real-world example, specifically tests the basics
 	expected := strings.ReplaceAll(`
-## SDK: 'github.com/hashicorp/go-azure-sdk/resource-manager/compute/2022-02-01/disks'
+## 'github.com/hashicorp/go-azure-sdk/resource-manager/compute/2022-02-01/disks' Documentation
 
 The 'disks' SDK allows for interaction with the Azure Resource Manager Service 'compute' (API Version '2022-02-01').
 
 This readme covers example usages, but further information on [using this SDK can be found in the project root](https://github.com/hashicorp/go-azure-sdk/tree/main/docs).
 
-## Client Initialization
+### Import Path
+
+'''go
+import "github.com/hashicorp/go-azure-sdk/resource-manager/compute/2022-02-01/disks"
+'''
+
+### Client Initialization
 
 '''go
 client := disks.NewDisksClientWithBaseURI("https://management.azure.com")
@@ -33,7 +39,7 @@ if err != nil {
 		packageName:        "disks",
 		apiVersion:         "2022-02-01",
 		servicePackageName: "compute",
-		serviceClientName:  "Disks",
+		serviceClientName:  "DisksClient",
 	})
 	if err != nil {
 		t.Fatalf("generating readme: %+v", err)
@@ -43,13 +49,19 @@ if err != nil {
 
 func TestReadmeTemplater_GetOperationWithResourceID(t *testing.T) {
 	expected := strings.ReplaceAll(`
-## SDK: 'github.com/hashicorp/go-azure-sdk/resource-manager/compute/2022-02-01/disks'
+## 'github.com/hashicorp/go-azure-sdk/resource-manager/compute/2022-02-01/disks' Documentation
 
 The 'disks' SDK allows for interaction with the Azure Resource Manager Service 'compute' (API Version '2022-02-01').
 
 This readme covers example usages, but further information on [using this SDK can be found in the project root](https://github.com/hashicorp/go-azure-sdk/tree/main/docs).
 
-## Client Initialization
+### Import Path
+
+'''go
+import "github.com/hashicorp/go-azure-sdk/resource-manager/compute/2022-02-01/disks"
+'''
+
+### Client Initialization
 
 '''go
 client := disks.NewDisksClientWithBaseURI("https://management.azure.com")
@@ -87,7 +99,7 @@ if model := read.Model; model != nil {
 		packageName:        "disks",
 		apiVersion:         "2022-02-01",
 		servicePackageName: "compute",
-		serviceClientName:  "Disks",
+		serviceClientName:  "DisksClient",
 		resourceIds: map[string]resourcemanager.ResourceIdDefinition{
 			"Disk": {
 				Segments: []resourcemanager.ResourceIdSegment{
@@ -113,13 +125,19 @@ if model := read.Model; model != nil {
 
 func TestReadmeTemplater_GetOperationWithResourceIDAndPayload(t *testing.T) {
 	expected := strings.ReplaceAll(`
-## SDK: 'github.com/hashicorp/go-azure-sdk/resource-manager/compute/2022-02-01/disks'
+## 'github.com/hashicorp/go-azure-sdk/resource-manager/compute/2022-02-01/disks' Documentation
 
 The 'disks' SDK allows for interaction with the Azure Resource Manager Service 'compute' (API Version '2022-02-01').
 
 This readme covers example usages, but further information on [using this SDK can be found in the project root](https://github.com/hashicorp/go-azure-sdk/tree/main/docs).
 
-## Client Initialization
+### Import Path
+
+'''go
+import "github.com/hashicorp/go-azure-sdk/resource-manager/compute/2022-02-01/disks"
+'''
+
+### Client Initialization
 
 '''go
 client := disks.NewDisksClientWithBaseURI("https://management.azure.com")
@@ -164,7 +182,7 @@ if model := read.Model; model != nil {
 		packageName:        "disks",
 		apiVersion:         "2022-02-01",
 		servicePackageName: "compute",
-		serviceClientName:  "Disks",
+		serviceClientName:  "DisksClient",
 		resourceIds: map[string]resourcemanager.ResourceIdDefinition{
 			"Disk": {
 				Segments: []resourcemanager.ResourceIdSegment{
@@ -197,13 +215,19 @@ if model := read.Model; model != nil {
 
 func TestReadmeTemplater_GetOperationWithResourceIDAndPayloadAndOptions(t *testing.T) {
 	expected := strings.ReplaceAll(`
-## SDK: 'github.com/hashicorp/go-azure-sdk/resource-manager/compute/2022-02-01/disks'
+## 'github.com/hashicorp/go-azure-sdk/resource-manager/compute/2022-02-01/disks' Documentation
 
 The 'disks' SDK allows for interaction with the Azure Resource Manager Service 'compute' (API Version '2022-02-01').
 
 This readme covers example usages, but further information on [using this SDK can be found in the project root](https://github.com/hashicorp/go-azure-sdk/tree/main/docs).
 
-## Client Initialization
+### Import Path
+
+'''go
+import "github.com/hashicorp/go-azure-sdk/resource-manager/compute/2022-02-01/disks"
+'''
+
+### Client Initialization
 
 '''go
 client := disks.NewDisksClientWithBaseURI("https://management.azure.com")
@@ -256,7 +280,7 @@ if model := read.Model; model != nil {
 		packageName:        "disks",
 		apiVersion:         "2022-02-01",
 		servicePackageName: "compute",
-		serviceClientName:  "Disks",
+		serviceClientName:  "DisksClient",
 		resourceIds: map[string]resourcemanager.ResourceIdDefinition{
 			"Disk": {
 				Segments: []resourcemanager.ResourceIdSegment{
@@ -289,13 +313,19 @@ if model := read.Model; model != nil {
 
 func TestReadmeTemplater_GetOperationWithResourceIDAndOptions(t *testing.T) {
 	expected := strings.ReplaceAll(`
-## SDK: 'github.com/hashicorp/go-azure-sdk/resource-manager/compute/2022-02-01/disks'
+## 'github.com/hashicorp/go-azure-sdk/resource-manager/compute/2022-02-01/disks' Documentation
 
 The 'disks' SDK allows for interaction with the Azure Resource Manager Service 'compute' (API Version '2022-02-01').
 
 This readme covers example usages, but further information on [using this SDK can be found in the project root](https://github.com/hashicorp/go-azure-sdk/tree/main/docs).
 
-## Client Initialization
+### Import Path
+
+'''go
+import "github.com/hashicorp/go-azure-sdk/resource-manager/compute/2022-02-01/disks"
+'''
+
+### Client Initialization
 
 '''go
 client := disks.NewDisksClientWithBaseURI("https://management.azure.com")
@@ -341,7 +371,7 @@ if model := read.Model; model != nil {
 		packageName:        "disks",
 		apiVersion:         "2022-02-01",
 		servicePackageName: "compute",
-		serviceClientName:  "Disks",
+		serviceClientName:  "DisksClient",
 		resourceIds: map[string]resourcemanager.ResourceIdDefinition{
 			"Disk": {
 				Segments: []resourcemanager.ResourceIdSegment{
@@ -367,13 +397,19 @@ if model := read.Model; model != nil {
 
 func TestReadmeTemplater_GetOperationWithoutResourceID(t *testing.T) {
 	expected := strings.ReplaceAll(`
-## SDK: 'github.com/hashicorp/go-azure-sdk/resource-manager/compute/2022-02-01/disks'
+## 'github.com/hashicorp/go-azure-sdk/resource-manager/compute/2022-02-01/disks' Documentation
 
 The 'disks' SDK allows for interaction with the Azure Resource Manager Service 'compute' (API Version '2022-02-01').
 
 This readme covers example usages, but further information on [using this SDK can be found in the project root](https://github.com/hashicorp/go-azure-sdk/tree/main/docs).
 
-## Client Initialization
+### Import Path
+
+'''go
+import "github.com/hashicorp/go-azure-sdk/resource-manager/compute/2022-02-01/disks"
+'''
+
+### Client Initialization
 
 '''go
 client := disks.NewDisksClientWithBaseURI("https://management.azure.com")
@@ -410,7 +446,7 @@ if model := read.Model; model != nil {
 		packageName:        "disks",
 		apiVersion:         "2022-02-01",
 		servicePackageName: "compute",
-		serviceClientName:  "Disks",
+		serviceClientName:  "DisksClient",
 		resourceIds:        map[string]resourcemanager.ResourceIdDefinition{},
 	})
 	if err != nil {
@@ -421,13 +457,19 @@ if model := read.Model; model != nil {
 
 func TestReadmeTemplater_GetOperationWithoutResourceIDWithOptions(t *testing.T) {
 	expected := strings.ReplaceAll(`
-## SDK: 'github.com/hashicorp/go-azure-sdk/resource-manager/compute/2022-02-01/disks'
+## 'github.com/hashicorp/go-azure-sdk/resource-manager/compute/2022-02-01/disks' Documentation
 
 The 'disks' SDK allows for interaction with the Azure Resource Manager Service 'compute' (API Version '2022-02-01').
 
 This readme covers example usages, but further information on [using this SDK can be found in the project root](https://github.com/hashicorp/go-azure-sdk/tree/main/docs).
 
-## Client Initialization
+### Import Path
+
+'''go
+import "github.com/hashicorp/go-azure-sdk/resource-manager/compute/2022-02-01/disks"
+'''
+
+### Client Initialization
 
 '''go
 client := disks.NewDisksClientWithBaseURI("https://management.azure.com")
@@ -472,7 +514,7 @@ if model := read.Model; model != nil {
 		packageName:        "disks",
 		apiVersion:         "2022-02-01",
 		servicePackageName: "compute",
-		serviceClientName:  "Disks",
+		serviceClientName:  "DisksClient",
 		resourceIds:        map[string]resourcemanager.ResourceIdDefinition{},
 	})
 	if err != nil {
@@ -483,13 +525,19 @@ if model := read.Model; model != nil {
 
 func TestReadmeTemplater_ListOperationWithResourceID(t *testing.T) {
 	expected := strings.ReplaceAll(`
-## SDK: 'github.com/hashicorp/go-azure-sdk/resource-manager/compute/2022-02-01/disks'
+## 'github.com/hashicorp/go-azure-sdk/resource-manager/compute/2022-02-01/disks' Documentation
 
 The 'disks' SDK allows for interaction with the Azure Resource Manager Service 'compute' (API Version '2022-02-01').
 
 This readme covers example usages, but further information on [using this SDK can be found in the project root](https://github.com/hashicorp/go-azure-sdk/tree/main/docs).
 
-## Client Initialization
+### Import Path
+
+'''go
+import "github.com/hashicorp/go-azure-sdk/resource-manager/compute/2022-02-01/disks"
+'''
+
+### Client Initialization
 
 '''go
 client := disks.NewDisksClientWithBaseURI("https://management.azure.com")
@@ -529,7 +577,7 @@ for _, item := range items {
 		packageName:        "disks",
 		apiVersion:         "2022-02-01",
 		servicePackageName: "compute",
-		serviceClientName:  "Disks",
+		serviceClientName:  "DisksClient",
 		resourceIds: map[string]resourcemanager.ResourceIdDefinition{
 			"Disk": {
 				Segments: []resourcemanager.ResourceIdSegment{
@@ -555,13 +603,19 @@ for _, item := range items {
 
 func TestReadmeTemplater_ListOperationWithResourceIDAndPayload(t *testing.T) {
 	expected := strings.ReplaceAll(`
-## SDK: 'github.com/hashicorp/go-azure-sdk/resource-manager/compute/2022-02-01/disks'
+## 'github.com/hashicorp/go-azure-sdk/resource-manager/compute/2022-02-01/disks' Documentation
 
 The 'disks' SDK allows for interaction with the Azure Resource Manager Service 'compute' (API Version '2022-02-01').
 
 This readme covers example usages, but further information on [using this SDK can be found in the project root](https://github.com/hashicorp/go-azure-sdk/tree/main/docs).
 
-## Client Initialization
+### Import Path
+
+'''go
+import "github.com/hashicorp/go-azure-sdk/resource-manager/compute/2022-02-01/disks"
+'''
+
+### Client Initialization
 
 '''go
 client := disks.NewDisksClientWithBaseURI("https://management.azure.com")
@@ -608,7 +662,7 @@ for _, item := range items {
 		packageName:        "disks",
 		apiVersion:         "2022-02-01",
 		servicePackageName: "compute",
-		serviceClientName:  "Disks",
+		serviceClientName:  "DisksClient",
 		resourceIds: map[string]resourcemanager.ResourceIdDefinition{
 			"Disk": {
 				Segments: []resourcemanager.ResourceIdSegment{
@@ -641,13 +695,19 @@ for _, item := range items {
 
 func TestReadmeTemplater_ListOperationWithResourceIDAndPayloadAndOptions(t *testing.T) {
 	expected := strings.ReplaceAll(`
-## SDK: 'github.com/hashicorp/go-azure-sdk/resource-manager/compute/2022-02-01/disks'
+## 'github.com/hashicorp/go-azure-sdk/resource-manager/compute/2022-02-01/disks' Documentation
 
 The 'disks' SDK allows for interaction with the Azure Resource Manager Service 'compute' (API Version '2022-02-01').
 
 This readme covers example usages, but further information on [using this SDK can be found in the project root](https://github.com/hashicorp/go-azure-sdk/tree/main/docs).
 
-## Client Initialization
+### Import Path
+
+'''go
+import "github.com/hashicorp/go-azure-sdk/resource-manager/compute/2022-02-01/disks"
+'''
+
+### Client Initialization
 
 '''go
 client := disks.NewDisksClientWithBaseURI("https://management.azure.com")
@@ -702,7 +762,7 @@ for _, item := range items {
 		packageName:        "disks",
 		apiVersion:         "2022-02-01",
 		servicePackageName: "compute",
-		serviceClientName:  "Disks",
+		serviceClientName:  "DisksClient",
 		resourceIds: map[string]resourcemanager.ResourceIdDefinition{
 			"Disk": {
 				Segments: []resourcemanager.ResourceIdSegment{
@@ -735,13 +795,19 @@ for _, item := range items {
 
 func TestReadmeTemplater_ListOperationWithResourceIDAndOptions(t *testing.T) {
 	expected := strings.ReplaceAll(`
-## SDK: 'github.com/hashicorp/go-azure-sdk/resource-manager/compute/2022-02-01/disks'
+## 'github.com/hashicorp/go-azure-sdk/resource-manager/compute/2022-02-01/disks' Documentation
 
 The 'disks' SDK allows for interaction with the Azure Resource Manager Service 'compute' (API Version '2022-02-01').
 
 This readme covers example usages, but further information on [using this SDK can be found in the project root](https://github.com/hashicorp/go-azure-sdk/tree/main/docs).
 
-## Client Initialization
+### Import Path
+
+'''go
+import "github.com/hashicorp/go-azure-sdk/resource-manager/compute/2022-02-01/disks"
+'''
+
+### Client Initialization
 
 '''go
 client := disks.NewDisksClientWithBaseURI("https://management.azure.com")
@@ -789,7 +855,7 @@ for _, item := range items {
 		packageName:        "disks",
 		apiVersion:         "2022-02-01",
 		servicePackageName: "compute",
-		serviceClientName:  "Disks",
+		serviceClientName:  "DisksClient",
 		resourceIds: map[string]resourcemanager.ResourceIdDefinition{
 			"Disk": {
 				Segments: []resourcemanager.ResourceIdSegment{
@@ -822,13 +888,19 @@ for _, item := range items {
 
 func TestReadmeTemplater_ListOperationWithoutResourceID(t *testing.T) {
 	expected := strings.ReplaceAll(`
-## SDK: 'github.com/hashicorp/go-azure-sdk/resource-manager/compute/2022-02-01/disks'
+## 'github.com/hashicorp/go-azure-sdk/resource-manager/compute/2022-02-01/disks' Documentation
 
 The 'disks' SDK allows for interaction with the Azure Resource Manager Service 'compute' (API Version '2022-02-01').
 
 This readme covers example usages, but further information on [using this SDK can be found in the project root](https://github.com/hashicorp/go-azure-sdk/tree/main/docs).
 
-## Client Initialization
+### Import Path
+
+'''go
+import "github.com/hashicorp/go-azure-sdk/resource-manager/compute/2022-02-01/disks"
+'''
+
+### Client Initialization
 
 '''go
 client := disks.NewDisksClientWithBaseURI("https://management.azure.com")
@@ -867,7 +939,7 @@ for _, item := range items {
 		packageName:        "disks",
 		apiVersion:         "2022-02-01",
 		servicePackageName: "compute",
-		serviceClientName:  "Disks",
+		serviceClientName:  "DisksClient",
 		resourceIds:        map[string]resourcemanager.ResourceIdDefinition{},
 	})
 	if err != nil {
@@ -878,13 +950,19 @@ for _, item := range items {
 
 func TestReadmeTemplater_LongRunningOperationWithResourceID(t *testing.T) {
 	expected := strings.ReplaceAll(`
-## SDK: 'github.com/hashicorp/go-azure-sdk/resource-manager/compute/2022-02-01/disks'
+## 'github.com/hashicorp/go-azure-sdk/resource-manager/compute/2022-02-01/disks' Documentation
 
 The 'disks' SDK allows for interaction with the Azure Resource Manager Service 'compute' (API Version '2022-02-01').
 
 This readme covers example usages, but further information on [using this SDK can be found in the project root](https://github.com/hashicorp/go-azure-sdk/tree/main/docs).
 
-## Client Initialization
+### Import Path
+
+'''go
+import "github.com/hashicorp/go-azure-sdk/resource-manager/compute/2022-02-01/disks"
+'''
+
+### Client Initialization
 
 '''go
 client := disks.NewDisksClientWithBaseURI("https://management.azure.com")
@@ -922,7 +1000,7 @@ if err := future.Poller.PollUntilDone(); err != nil {
 		packageName:        "disks",
 		apiVersion:         "2022-02-01",
 		servicePackageName: "compute",
-		serviceClientName:  "Disks",
+		serviceClientName:  "DisksClient",
 		resourceIds: map[string]resourcemanager.ResourceIdDefinition{
 			"Disk": {
 				Segments: []resourcemanager.ResourceIdSegment{
@@ -948,13 +1026,19 @@ if err := future.Poller.PollUntilDone(); err != nil {
 
 func TestReadmeTemplater_LongRunningOperationWithResourceIDAndPayload(t *testing.T) {
 	expected := strings.ReplaceAll(`
-## SDK: 'github.com/hashicorp/go-azure-sdk/resource-manager/compute/2022-02-01/disks'
+## 'github.com/hashicorp/go-azure-sdk/resource-manager/compute/2022-02-01/disks' Documentation
 
 The 'disks' SDK allows for interaction with the Azure Resource Manager Service 'compute' (API Version '2022-02-01').
 
 This readme covers example usages, but further information on [using this SDK can be found in the project root](https://github.com/hashicorp/go-azure-sdk/tree/main/docs).
 
-## Client Initialization
+### Import Path
+
+'''go
+import "github.com/hashicorp/go-azure-sdk/resource-manager/compute/2022-02-01/disks"
+'''
+
+### Client Initialization
 
 '''go
 client := disks.NewDisksClientWithBaseURI("https://management.azure.com")
@@ -999,7 +1083,7 @@ if err := future.Poller.PollUntilDone(); err != nil {
 		packageName:        "disks",
 		apiVersion:         "2022-02-01",
 		servicePackageName: "compute",
-		serviceClientName:  "Disks",
+		serviceClientName:  "DisksClient",
 		resourceIds: map[string]resourcemanager.ResourceIdDefinition{
 			"Disk": {
 				Segments: []resourcemanager.ResourceIdSegment{
@@ -1032,13 +1116,19 @@ if err := future.Poller.PollUntilDone(); err != nil {
 
 func TestReadmeTemplater_LongRunningOperationWithResourceIDAndPayloadAndOptions(t *testing.T) {
 	expected := strings.ReplaceAll(`
-## SDK: 'github.com/hashicorp/go-azure-sdk/resource-manager/compute/2022-02-01/disks'
+## 'github.com/hashicorp/go-azure-sdk/resource-manager/compute/2022-02-01/disks' Documentation
 
 The 'disks' SDK allows for interaction with the Azure Resource Manager Service 'compute' (API Version '2022-02-01').
 
 This readme covers example usages, but further information on [using this SDK can be found in the project root](https://github.com/hashicorp/go-azure-sdk/tree/main/docs).
 
-## Client Initialization
+### Import Path
+
+'''go
+import "github.com/hashicorp/go-azure-sdk/resource-manager/compute/2022-02-01/disks"
+'''
+
+### Client Initialization
 
 '''go
 client := disks.NewDisksClientWithBaseURI("https://management.azure.com")
@@ -1091,7 +1181,7 @@ if err := future.Poller.PollUntilDone(); err != nil {
 		packageName:        "disks",
 		apiVersion:         "2022-02-01",
 		servicePackageName: "compute",
-		serviceClientName:  "Disks",
+		serviceClientName:  "DisksClient",
 		resourceIds: map[string]resourcemanager.ResourceIdDefinition{
 			"Disk": {
 				Segments: []resourcemanager.ResourceIdSegment{
@@ -1124,13 +1214,19 @@ if err := future.Poller.PollUntilDone(); err != nil {
 
 func TestReadmeTemplater_LongRunningOperationWithResourceIDAndOptions(t *testing.T) {
 	expected := strings.ReplaceAll(`
-## SDK: 'github.com/hashicorp/go-azure-sdk/resource-manager/compute/2022-02-01/disks'
+## 'github.com/hashicorp/go-azure-sdk/resource-manager/compute/2022-02-01/disks' Documentation
 
 The 'disks' SDK allows for interaction with the Azure Resource Manager Service 'compute' (API Version '2022-02-01').
 
 This readme covers example usages, but further information on [using this SDK can be found in the project root](https://github.com/hashicorp/go-azure-sdk/tree/main/docs).
 
-## Client Initialization
+### Import Path
+
+'''go
+import "github.com/hashicorp/go-azure-sdk/resource-manager/compute/2022-02-01/disks"
+'''
+
+### Client Initialization
 
 '''go
 client := disks.NewDisksClientWithBaseURI("https://management.azure.com")
@@ -1176,7 +1272,7 @@ if err := future.Poller.PollUntilDone(); err != nil {
 		packageName:        "disks",
 		apiVersion:         "2022-02-01",
 		servicePackageName: "compute",
-		serviceClientName:  "Disks",
+		serviceClientName:  "DisksClient",
 		resourceIds: map[string]resourcemanager.ResourceIdDefinition{
 			"Disk": {
 				Segments: []resourcemanager.ResourceIdSegment{
@@ -1203,13 +1299,19 @@ if err := future.Poller.PollUntilDone(); err != nil {
 
 func TestReadmeTemplater_LongRunningOperationWithoutResourceID(t *testing.T) {
 	expected := strings.ReplaceAll(`
-## SDK: 'github.com/hashicorp/go-azure-sdk/resource-manager/compute/2022-02-01/disks'
+## 'github.com/hashicorp/go-azure-sdk/resource-manager/compute/2022-02-01/disks' Documentation
 
 The 'disks' SDK allows for interaction with the Azure Resource Manager Service 'compute' (API Version '2022-02-01').
 
 This readme covers example usages, but further information on [using this SDK can be found in the project root](https://github.com/hashicorp/go-azure-sdk/tree/main/docs).
 
-## Client Initialization
+### Import Path
+
+'''go
+import "github.com/hashicorp/go-azure-sdk/resource-manager/compute/2022-02-01/disks"
+'''
+
+### Client Initialization
 
 '''go
 client := disks.NewDisksClientWithBaseURI("https://management.azure.com")
@@ -1246,7 +1348,7 @@ if err := future.Poller.PollUntilDone(); err != nil {
 		packageName:        "disks",
 		apiVersion:         "2022-02-01",
 		servicePackageName: "compute",
-		serviceClientName:  "Disks",
+		serviceClientName:  "DisksClient",
 		resourceIds:        map[string]resourcemanager.ResourceIdDefinition{},
 	})
 	if err != nil {
@@ -1257,13 +1359,19 @@ if err := future.Poller.PollUntilDone(); err != nil {
 
 func TestReadmeTemplater_MultipleOperations(t *testing.T) {
 	expected := strings.ReplaceAll(`
-## SDK: 'github.com/hashicorp/go-azure-sdk/resource-manager/compute/2022-02-01/disks'
+## 'github.com/hashicorp/go-azure-sdk/resource-manager/compute/2022-02-01/disks' Documentation
 
 The 'disks' SDK allows for interaction with the Azure Resource Manager Service 'compute' (API Version '2022-02-01').
 
 This readme covers example usages, but further information on [using this SDK can be found in the project root](https://github.com/hashicorp/go-azure-sdk/tree/main/docs).
 
-## Client Initialization
+### Import Path
+
+'''go
+import "github.com/hashicorp/go-azure-sdk/resource-manager/compute/2022-02-01/disks"
+'''
+
+### Client Initialization
 
 '''go
 client := disks.NewDisksClientWithBaseURI("https://management.azure.com")
@@ -1319,7 +1427,7 @@ if model := read.Model; model != nil {
 		packageName:        "disks",
 		apiVersion:         "2022-02-01",
 		servicePackageName: "compute",
-		serviceClientName:  "Disks",
+		serviceClientName:  "DisksClient",
 		resourceIds:        map[string]resourcemanager.ResourceIdDefinition{},
 	})
 	if err != nil {
