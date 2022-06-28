@@ -33,6 +33,6 @@ internal class LockImmutabilityPolicyOperation : Operations.PostOperation
     internal class LockImmutabilityPolicyOptions
     {
         [HeaderName("If-Match")]
-        public string IfMatch { get; set; }
+        public string IfNegativeMatch { get; set; }
     }
 }

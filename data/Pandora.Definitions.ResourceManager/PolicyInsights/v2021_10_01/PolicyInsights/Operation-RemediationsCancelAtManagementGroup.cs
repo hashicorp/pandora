@@ -22,7 +22,7 @@ internal class RemediationsCancelAtManagementGroupOperation : Operations.PostOpe
 
     public override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new Providers2RemediationId();
+    public override ResourceID? ResourceId() => new ProvidersTwoRemediationId();
 
     public override Type? ResponseObject() => typeof(RemediationModel);
 

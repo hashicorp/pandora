@@ -24,7 +24,7 @@ internal class RemediationsListDeploymentsAtManagementGroupOperation : Operation
 
     public override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new Providers2RemediationId();
+    public override ResourceID? ResourceId() => new ProvidersTwoRemediationId();
 
     public override Type NestedItemType() => typeof(RemediationDeploymentModel);
 

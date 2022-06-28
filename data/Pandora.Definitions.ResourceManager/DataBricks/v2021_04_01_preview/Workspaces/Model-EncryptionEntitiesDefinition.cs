@@ -16,5 +16,5 @@ namespace Pandora.Definitions.ResourceManager.DataBricks.v2021_04_01_preview.Wor
 internal class EncryptionEntitiesDefinitionModel
 {
     [JsonPropertyName("managedServices")]
-    public EncryptionV2Model? ManagedServices { get; set; }
+    public EncryptionVTwoModel? ManagedServices { get; set; }
 }

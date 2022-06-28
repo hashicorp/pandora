@@ -34,6 +34,6 @@ internal class LeaseOperation : Operations.PostOperation
     {
         [HeaderName("x-ms-snapshot")]
         [Optional]
-        public string XMsSnapshot { get; set; }
+        public string XNegativemsNegativesnapshot { get; set; }
     }
 }

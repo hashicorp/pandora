@@ -16,8 +16,8 @@ namespace Pandora.Definitions.ResourceManager.FluidRelay.v2022_05_26.FluidRelayS
 internal class FluidRelayServerKeysModel
 {
     [JsonPropertyName("key1")]
-    public string? Key1 { get; set; }
+    public string? KeyOne { get; set; }
 
     [JsonPropertyName("key2")]
-    public string? Key2 { get; set; }
+    public string? KeyTwo { get; set; }
 }

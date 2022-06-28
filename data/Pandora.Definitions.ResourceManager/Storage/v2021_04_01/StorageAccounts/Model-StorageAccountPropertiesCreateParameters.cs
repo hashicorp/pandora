@@ -40,7 +40,7 @@ internal class StorageAccountPropertiesCreateParametersModel
     public bool? IsHnsEnabled { get; set; }
 
     [JsonPropertyName("isNfsV3Enabled")]
-    public bool? IsNfsV3Enabled { get; set; }
+    public bool? IsNfsVThreeEnabled { get; set; }
 
     [JsonPropertyName("keyPolicy")]
     public KeyPolicyModel? KeyPolicy { get; set; }

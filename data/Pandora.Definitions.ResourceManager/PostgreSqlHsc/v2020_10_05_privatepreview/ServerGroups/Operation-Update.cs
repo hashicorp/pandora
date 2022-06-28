@@ -25,7 +25,7 @@ internal class UpdateOperation : Operations.PatchOperation
 
     public override Type? RequestObject() => typeof(ServerGroupForUpdateModel);
 
-    public override ResourceID? ResourceId() => new ServerGroupsv2Id();
+    public override ResourceID? ResourceId() => new ServerGroupsvTwoId();
 
     public override Type? ResponseObject() => typeof(ServerGroupModel);
 

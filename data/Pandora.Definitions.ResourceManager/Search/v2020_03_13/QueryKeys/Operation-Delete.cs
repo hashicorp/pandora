@@ -29,6 +29,6 @@ internal class DeleteOperation : Operations.DeleteOperation
     {
         [HeaderName("x-ms-client-request-id")]
         [Optional]
-        public string XMsClientRequestId { get; set; }
+        public string XNegativemsNegativeclientNegativerequestNegativeid { get; set; }
     }
 }

@@ -15,7 +15,7 @@ namespace Pandora.Definitions.ResourceManager.PostgreSqlHsc.v2020_10_05_privatep
 
 internal class ListByServerGroupOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ServerGroupsv2Id();
+    public override ResourceID? ResourceId() => new ServerGroupsvTwoId();
 
     public override Type? ResponseObject() => typeof(FirewallRuleListResultModel);
 

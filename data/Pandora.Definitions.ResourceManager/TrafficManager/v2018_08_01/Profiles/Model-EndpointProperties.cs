@@ -34,10 +34,10 @@ internal class EndpointPropertiesModel
     public int? MinChildEndpoints { get; set; }
 
     [JsonPropertyName("minChildEndpointsIPv4")]
-    public int? MinChildEndpointsIPv4 { get; set; }
+    public int? MinChildEndpointsIPvFour { get; set; }
 
     [JsonPropertyName("minChildEndpointsIPv6")]
-    public int? MinChildEndpointsIPv6 { get; set; }
+    public int? MinChildEndpointsIPvSix { get; set; }
 
     [JsonPropertyName("priority")]
     public int? Priority { get; set; }

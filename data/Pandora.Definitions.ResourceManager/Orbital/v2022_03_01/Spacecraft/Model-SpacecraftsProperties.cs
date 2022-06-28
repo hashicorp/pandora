@@ -29,8 +29,8 @@ internal class SpacecraftsPropertiesModel
     public string? TitleLine { get; set; }
 
     [JsonPropertyName("tleLine1")]
-    public string? TleLine1 { get; set; }
+    public string? TleLineOne { get; set; }
 
     [JsonPropertyName("tleLine2")]
-    public string? TleLine2 { get; set; }
+    public string? TleLineTwo { get; set; }
 }

@@ -17,9 +17,9 @@ internal class KeyCreationTimeModel
 {
     [DateFormat(DateFormatAttribute.DateFormat.RFC3339)]
     [JsonPropertyName("key1")]
-    public DateTime? Key1 { get; set; }
+    public DateTime? KeyOne { get; set; }
 
     [DateFormat(DateFormatAttribute.DateFormat.RFC3339)]
     [JsonPropertyName("key2")]
-    public DateTime? Key2 { get; set; }
+    public DateTime? KeyTwo { get; set; }
 }

@@ -17,7 +17,7 @@ internal class ListByServerGroupOperation : Operations.ListOperation
 {
     public override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new ServerGroupsv2Id();
+    public override ResourceID? ResourceId() => new ServerGroupsvTwoId();
 
     public override Type NestedItemType() => typeof(ServerGroupConfigurationModel);
 

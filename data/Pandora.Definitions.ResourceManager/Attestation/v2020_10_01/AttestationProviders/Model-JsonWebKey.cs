@@ -62,7 +62,7 @@ internal class JsonWebKeyModel
     public string? X { get; set; }
 
     [JsonPropertyName("x5c")]
-    public List<string>? X5c { get; set; }
+    public List<string>? XFivec { get; set; }
 
     [JsonPropertyName("y")]
     public string? Y { get; set; }

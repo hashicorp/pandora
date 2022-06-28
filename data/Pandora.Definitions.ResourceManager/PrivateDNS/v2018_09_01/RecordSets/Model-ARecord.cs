@@ -16,5 +16,5 @@ namespace Pandora.Definitions.ResourceManager.PrivateDNS.v2018_09_01.RecordSets;
 internal class ARecordModel
 {
     [JsonPropertyName("ipv4Address")]
-    public string? Ipv4Address { get; set; }
+    public string? IpvFourAddress { get; set; }
 }

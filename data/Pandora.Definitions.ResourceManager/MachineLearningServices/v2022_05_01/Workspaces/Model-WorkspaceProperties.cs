@@ -85,7 +85,7 @@ internal class WorkspacePropertiesModel
     public string? TenantId { get; set; }
 
     [JsonPropertyName("v1LegacyMode")]
-    public bool? V1LegacyMode { get; set; }
+    public bool? VOneLegacyMode { get; set; }
 
     [JsonPropertyName("workspaceId")]
     public string? WorkspaceId { get; set; }

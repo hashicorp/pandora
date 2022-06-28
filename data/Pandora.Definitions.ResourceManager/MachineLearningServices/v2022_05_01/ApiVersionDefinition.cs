@@ -31,7 +31,7 @@ public partial class Definition : ApiVersionDefinition
         new OutboundNetworkDependenciesEndpoints.Definition(),
         new PrivateEndpointConnections.Definition(),
         new Quota.Definition(),
-        new V2WorkspaceConnectionResource.Definition(),
+        new VTwoWorkspaceConnectionResource.Definition(),
         new VirtualMachineSizes.Definition(),
         new WorkspacePrivateEndpointConnections.Definition(),
         new WorkspacePrivateLinkResources.Definition(),

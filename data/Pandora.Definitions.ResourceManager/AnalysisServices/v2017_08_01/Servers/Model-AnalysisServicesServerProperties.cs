@@ -25,7 +25,7 @@ internal class AnalysisServicesServerPropertiesModel
     public GatewayDetailsModel? GatewayDetails { get; set; }
 
     [JsonPropertyName("ipV4FirewallSettings")]
-    public IPv4FirewallSettingsModel? IpV4FirewallSettings { get; set; }
+    public IPvFourFirewallSettingsModel? IpVFourFirewallSettings { get; set; }
 
     [JsonPropertyName("managedMode")]
     public ManagedModeConstant? ManagedMode { get; set; }

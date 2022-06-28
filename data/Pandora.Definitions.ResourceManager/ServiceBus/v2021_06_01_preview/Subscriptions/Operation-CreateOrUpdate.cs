@@ -22,7 +22,7 @@ internal class CreateOrUpdateOperation : Operations.PutOperation
 
     public override Type? RequestObject() => typeof(SBSubscriptionModel);
 
-    public override ResourceID? ResourceId() => new Subscriptions2Id();
+    public override ResourceID? ResourceId() => new SubscriptionsTwoId();
 
     public override Type? ResponseObject() => typeof(SBSubscriptionModel);
 

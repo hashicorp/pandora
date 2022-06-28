@@ -32,6 +32,6 @@ internal class RegenerateOperation : Operations.PostOperation
     {
         [HeaderName("x-ms-client-request-id")]
         [Optional]
-        public string XMsClientRequestId { get; set; }
+        public string XNegativemsNegativeclientNegativerequestNegativeid { get; set; }
     }
 }

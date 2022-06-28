@@ -16,5 +16,5 @@ namespace Pandora.Definitions.ResourceManager.DNS.v2018_05_01.RecordSets;
 internal class AaaaRecordModel
 {
     [JsonPropertyName("ipv6Address")]
-    public string? Ipv6Address { get; set; }
+    public string? IpvSixAddress { get; set; }
 }

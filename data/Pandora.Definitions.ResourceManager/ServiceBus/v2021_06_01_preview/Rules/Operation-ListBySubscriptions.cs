@@ -17,7 +17,7 @@ internal class ListBySubscriptionsOperation : Operations.ListOperation
 {
     public override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new Subscriptions2Id();
+    public override ResourceID? ResourceId() => new SubscriptionsTwoId();
 
     public override Type NestedItemType() => typeof(RuleModel);
 

@@ -27,10 +27,10 @@ internal class CreateOrUpdateOperation : Operations.PutOperation
     {
         [HeaderName("If-Match")]
         [Optional]
-        public string IfMatch { get; set; }
+        public string IfNegativeMatch { get; set; }
 
         [HeaderName("If-None-Match")]
         [Optional]
-        public string IfNoneMatch { get; set; }
+        public string IfNegativeNoneNegativeMatch { get; set; }
     }
 }

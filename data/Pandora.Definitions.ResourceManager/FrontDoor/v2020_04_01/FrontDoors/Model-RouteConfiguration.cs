@@ -18,5 +18,5 @@ internal abstract class RouteConfigurationModel
     [JsonPropertyName("@odata.type")]
     [ProvidesTypeHint]
     [Required]
-    public string OdataType { get; set; }
+    public string OdataPointtype { get; set; }
 }

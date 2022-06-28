@@ -22,5 +22,5 @@ internal class GlobalValidationModel
     public string? RedirectToProvider { get; set; }
 
     [JsonPropertyName("unauthenticatedClientAction")]
-    public UnauthenticatedClientActionV2Constant? UnauthenticatedClientAction { get; set; }
+    public UnauthenticatedClientActionVTwoConstant? UnauthenticatedClientAction { get; set; }
 }

@@ -17,7 +17,7 @@ internal class RemediationsCreateOrUpdateAtManagementGroupOperation : Operations
 {
     public override Type? RequestObject() => typeof(RemediationModel);
 
-    public override ResourceID? ResourceId() => new Providers2RemediationId();
+    public override ResourceID? ResourceId() => new ProvidersTwoRemediationId();
 
     public override Type? ResponseObject() => typeof(RemediationModel);
 

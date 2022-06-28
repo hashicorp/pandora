@@ -35,6 +35,6 @@ internal class UpdateOperation : Operations.PatchOperation
     {
         [HeaderName("If-Match")]
         [Optional]
-        public string IfMatch { get; set; }
+        public string IfNegativeMatch { get; set; }
     }
 }

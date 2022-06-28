@@ -21,7 +21,7 @@ internal class RemediationsDeleteAtManagementGroupOperation : Operations.DeleteO
                 HttpStatusCode.OK,
         };
 
-    public override ResourceID? ResourceId() => new Providers2RemediationId();
+    public override ResourceID? ResourceId() => new ProvidersTwoRemediationId();
 
     public override Type? ResponseObject() => typeof(RemediationModel);
 

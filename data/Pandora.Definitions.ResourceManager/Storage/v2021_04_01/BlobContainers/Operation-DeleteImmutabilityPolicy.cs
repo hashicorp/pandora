@@ -31,6 +31,6 @@ internal class DeleteImmutabilityPolicyOperation : Operations.DeleteOperation
     internal class DeleteImmutabilityPolicyOptions
     {
         [HeaderName("If-Match")]
-        public string IfMatch { get; set; }
+        public string IfNegativeMatch { get; set; }
     }
 }
