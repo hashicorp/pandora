@@ -27,9 +27,6 @@ import "github.com/hashicorp/go-azure-sdk/resource-manager/compute/2022-02-01/di
 '''go
 client := disks.NewDisksClientWithBaseURI("https://management.azure.com")
 client.Client.Authorizer = authorizer
-if err != nil {
-	// handle the error
-}
 '''
 `, "'", "`")
 	actual, err := readmeTemplater{
@@ -66,9 +63,6 @@ import "github.com/hashicorp/go-azure-sdk/resource-manager/compute/2022-02-01/di
 '''go
 client := disks.NewDisksClientWithBaseURI("https://management.azure.com")
 client.Client.Authorizer = authorizer
-if err != nil {
-	// handle the error
-}
 '''
 
 ### Example Usage: 'DisksClient.Get'
@@ -142,9 +136,6 @@ import "github.com/hashicorp/go-azure-sdk/resource-manager/compute/2022-02-01/di
 '''go
 client := disks.NewDisksClientWithBaseURI("https://management.azure.com")
 client.Client.Authorizer = authorizer
-if err != nil {
-	// handle the error
-}
 '''
 
 ### Example Usage: 'DisksClient.Get'
@@ -232,9 +223,6 @@ import "github.com/hashicorp/go-azure-sdk/resource-manager/compute/2022-02-01/di
 '''go
 client := disks.NewDisksClientWithBaseURI("https://management.azure.com")
 client.Client.Authorizer = authorizer
-if err != nil {
-	// handle the error
-}
 '''
 
 ### Example Usage: 'DisksClient.Get'
@@ -330,9 +318,6 @@ import "github.com/hashicorp/go-azure-sdk/resource-manager/compute/2022-02-01/di
 '''go
 client := disks.NewDisksClientWithBaseURI("https://management.azure.com")
 client.Client.Authorizer = authorizer
-if err != nil {
-	// handle the error
-}
 '''
 
 ### Example Usage: 'DisksClient.Get'
@@ -414,9 +399,6 @@ import "github.com/hashicorp/go-azure-sdk/resource-manager/compute/2022-02-01/di
 '''go
 client := disks.NewDisksClientWithBaseURI("https://management.azure.com")
 client.Client.Authorizer = authorizer
-if err != nil {
-	// handle the error
-}
 '''
 
 ### Example Usage: 'DisksClient.Get'
@@ -474,9 +456,6 @@ import "github.com/hashicorp/go-azure-sdk/resource-manager/compute/2022-02-01/di
 '''go
 client := disks.NewDisksClientWithBaseURI("https://management.azure.com")
 client.Client.Authorizer = authorizer
-if err != nil {
-	// handle the error
-}
 '''
 
 ### Example Usage: 'DisksClient.Get'
@@ -542,9 +521,6 @@ import "github.com/hashicorp/go-azure-sdk/resource-manager/compute/2022-02-01/di
 '''go
 client := disks.NewDisksClientWithBaseURI("https://management.azure.com")
 client.Client.Authorizer = authorizer
-if err != nil {
-	// handle the error
-}
 '''
 
 ### Example Usage: 'DisksClient.ListSomething'
@@ -620,9 +596,6 @@ import "github.com/hashicorp/go-azure-sdk/resource-manager/compute/2022-02-01/di
 '''go
 client := disks.NewDisksClientWithBaseURI("https://management.azure.com")
 client.Client.Authorizer = authorizer
-if err != nil {
-	// handle the error
-}
 '''
 
 ### Example Usage: 'DisksClient.ListSomething'
@@ -712,9 +685,6 @@ import "github.com/hashicorp/go-azure-sdk/resource-manager/compute/2022-02-01/di
 '''go
 client := disks.NewDisksClientWithBaseURI("https://management.azure.com")
 client.Client.Authorizer = authorizer
-if err != nil {
-	// handle the error
-}
 '''
 
 ### Example Usage: 'DisksClient.ListSomething'
@@ -812,9 +782,6 @@ import "github.com/hashicorp/go-azure-sdk/resource-manager/compute/2022-02-01/di
 '''go
 client := disks.NewDisksClientWithBaseURI("https://management.azure.com")
 client.Client.Authorizer = authorizer
-if err != nil {
-	// handle the error
-}
 '''
 
 ### Example Usage: 'DisksClient.ListSomething'
@@ -905,9 +872,6 @@ import "github.com/hashicorp/go-azure-sdk/resource-manager/compute/2022-02-01/di
 '''go
 client := disks.NewDisksClientWithBaseURI("https://management.azure.com")
 client.Client.Authorizer = authorizer
-if err != nil {
-	// handle the error
-}
 '''
 
 ### Example Usage: 'DisksClient.ListSomething'
@@ -967,9 +931,6 @@ import "github.com/hashicorp/go-azure-sdk/resource-manager/compute/2022-02-01/di
 '''go
 client := disks.NewDisksClientWithBaseURI("https://management.azure.com")
 client.Client.Authorizer = authorizer
-if err != nil {
-	// handle the error
-}
 '''
 
 ### Example Usage: 'DisksClient.SomeLongRunning'
@@ -977,11 +938,8 @@ if err != nil {
 '''go
 ctx := context.TODO()
 id := disks.NewDiskID("my-disk")
-future, err := client.SomeLongRunning(ctx, id)
-if err != nil {
-	// handle the error
-}
-if err := future.Poller.PollUntilDone(); err != nil {
+
+if err := client.SomeLongRunningThenPoll(ctx, id); err != nil {
 	// handle the error
 }
 '''
@@ -1043,9 +1001,6 @@ import "github.com/hashicorp/go-azure-sdk/resource-manager/compute/2022-02-01/di
 '''go
 client := disks.NewDisksClientWithBaseURI("https://management.azure.com")
 client.Client.Authorizer = authorizer
-if err != nil {
-	// handle the error
-}
 '''
 
 ### Example Usage: 'DisksClient.SomeLongRunning'
@@ -1056,11 +1011,8 @@ id := disks.NewDiskID("my-disk")
 payload := disks.SomeModel{
 	// ...
 }
-future, err := client.SomeLongRunning(ctx, id, payload)
-if err != nil {
-	// handle the error
-}
-if err := future.Poller.PollUntilDone(); err != nil {
+
+if err := client.SomeLongRunningThenPoll(ctx, id, payload); err != nil {
 	// handle the error
 }
 '''
@@ -1133,9 +1085,6 @@ import "github.com/hashicorp/go-azure-sdk/resource-manager/compute/2022-02-01/di
 '''go
 client := disks.NewDisksClientWithBaseURI("https://management.azure.com")
 client.Client.Authorizer = authorizer
-if err != nil {
-	// handle the error
-}
 '''
 
 ### Example Usage: 'DisksClient.SomeLongRunning'
@@ -1146,11 +1095,8 @@ id := disks.NewDiskID("my-disk")
 payload := disks.SomeModel{
 	// ...
 }
-future, err := client.SomeLongRunning(ctx, id, payload, disks.DefaultSomeLongRunningOperationOptions())
-if err != nil {
-	// handle the error
-}
-if err := future.Poller.PollUntilDone(); err != nil {
+
+if err := client.SomeLongRunningThenPoll(ctx, id, payload, disks.DefaultSomeLongRunningOperationOptions()); err != nil {
 	// handle the error
 }
 '''
@@ -1231,9 +1177,6 @@ import "github.com/hashicorp/go-azure-sdk/resource-manager/compute/2022-02-01/di
 '''go
 client := disks.NewDisksClientWithBaseURI("https://management.azure.com")
 client.Client.Authorizer = authorizer
-if err != nil {
-	// handle the error
-}
 '''
 
 ### Example Usage: 'DisksClient.SomeLongRunning'
@@ -1241,11 +1184,7 @@ if err != nil {
 '''go
 ctx := context.TODO()
 id := disks.NewDiskID("my-disk")
-future, err := client.SomeLongRunning(ctx, id, disks.DefaultSomeLongRunningOperationOptions())
-if err != nil {
-	// handle the error
-}
-if err := future.Poller.PollUntilDone(); err != nil {
+if err := client.SomeLongRunningThenPoll(ctx, id, disks.DefaultSomeLongRunningOperationOptions()); err != nil {
 	// handle the error
 }
 '''
@@ -1316,20 +1255,14 @@ import "github.com/hashicorp/go-azure-sdk/resource-manager/compute/2022-02-01/di
 '''go
 client := disks.NewDisksClientWithBaseURI("https://management.azure.com")
 client.Client.Authorizer = authorizer
-if err != nil {
-	// handle the error
-}
 '''
 
 ### Example Usage: 'DisksClient.SomeLongRunning'
 
 '''go
 ctx := context.TODO()
-future, err := client.SomeLongRunning(ctx)
-if err != nil {
-	// handle the error
-}
-if err := future.Poller.PollUntilDone(); err != nil {
+
+if err := client.SomeLongRunningThenPoll(ctx); err != nil {
 	// handle the error
 }
 '''
@@ -1376,9 +1309,6 @@ import "github.com/hashicorp/go-azure-sdk/resource-manager/compute/2022-02-01/di
 '''go
 client := disks.NewDisksClientWithBaseURI("https://management.azure.com")
 client.Client.Authorizer = authorizer
-if err != nil {
-	// handle the error
-}
 '''
 
 ### Example Usage: 'DisksClient.Delete'

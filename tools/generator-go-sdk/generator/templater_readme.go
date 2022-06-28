@@ -50,9 +50,6 @@ func (r readmeTemplater) clientInitialization(packageName, clientName string) st
 '''go
 client := %[1]s.New%[2]sWithBaseURI("https://management.azure.com")
 client.Client.Authorizer = authorizer
-if err != nil {
-	// handle the error
-}
 '''
 `, packageName, clientName)
 }
@@ -149,6 +146,7 @@ payload := %[1]s.%[2]s{
 '''go
 ctx := context.TODO()
 %[3]s
+
 read, err := client.%[2]s(%[4]s)
 if err != nil {
 	// handle the error
@@ -204,6 +202,7 @@ payload := %[1]s.%[2]s{
 '''go
 ctx := context.TODO()
 %[3]s
+
 // alternatively 'client.%[2]s(%[4]s)' can be used to do batched pagination
 items, err := client.%[2]sComplete(%[4]s)
 if err != nil {
@@ -260,11 +259,8 @@ payload := %[1]s.%[2]s{
 '''go
 ctx := context.TODO()
 %[3]s
-future, err := client.%[2]s(%[4]s)
-if err != nil {
-	// handle the error
-}
-if err := future.Poller.PollUntilDone(); err != nil {
+
+if err := client.%[2]sThenPoll(%[4]s); err != nil {
 	// handle the error
 }
 '''
