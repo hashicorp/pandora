@@ -135,6 +135,10 @@ service "notificationhubs" {
   name      = "NotificationHubs"
   available = ["2017-04-01"]
 }
+service "notificationhubs" {
+  name      = "NotificationHubs"
+  available = ["2017-04-01"]
+}
 service "operationalinsights" {
   name      = "OperationalInsights"
   available = ["2019-09-01", "2020-08-01"]
