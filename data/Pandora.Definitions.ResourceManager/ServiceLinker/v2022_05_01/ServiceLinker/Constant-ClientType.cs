@@ -18,6 +18,9 @@ internal enum ClientTypeConstant
     [Description("java")]
     Java,
 
+    [Description("kafka-springBoot")]
+    KafkaNegativespringBoot,
+
     [Description("nodejs")]
     Nodejs,
 
