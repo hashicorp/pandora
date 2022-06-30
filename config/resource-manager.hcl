@@ -27,6 +27,10 @@ service "automation" {
   name      = "Automation"
   available = ["2021-06-22"]
 }
+service "azurestackhci" {
+  name      = "AzureStackHCI"
+  available = ["2020-10-01"]
+}
 service "chaos" {
   name      = "ChaosStudio"
   available = ["2021-09-15-preview"]
