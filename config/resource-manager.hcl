@@ -91,6 +91,10 @@ service "frontdoor" {
   name      = "Frontdoor"
   available = ["2020-04-01", "2020-05-01"]
 }
+service "hardwaresecuritymodules" {
+  name      = "HardwareSecurityModules"
+  available = ["2018-10-31-preview", "2021-11-30"]
+}
 service "healthcareapis" {
   name      = "HealthcareApis"
   available = ["2021-06-01-preview"]
