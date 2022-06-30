@@ -147,6 +147,7 @@ func NormalizeSegment(input string, camelCase bool) string {
 		"supportedbuildpacks":                     "supportedBuildPacks",
 		"spring":                                  "spring",
 		"subscriptions":                           "subscriptions", // e.g. /Subscriptions -> /subscriptions
+		"subvolumes":                              "subVolumes",
 		"trafficmanagerprofiles":                  "trafficManagerProfiles",
 		"triggeredwebjobs":                        "triggeredWebJobs",
 		"vaultstorageconfig":                      "vaultStorageConfig",
