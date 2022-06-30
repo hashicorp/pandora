@@ -139,6 +139,10 @@ service "msi" {
   name      = "ManagedIdentity"
   available = ["2018-11-30"]
 }
+service "netapp" {
+  name      = "NetApp"
+  available = ["2021-10-01"]
+}
 service "notificationhubs" {
   name      = "NotificationHubs"
   available = ["2017-04-01"]
