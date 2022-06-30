@@ -127,6 +127,10 @@ service "maps" {
   name      = "Maps"
   available = ["2021-02-01"]
 }
+service "mediaservices" {
+  name      = "Media"
+  available = ["2021-05-01"]
+}
 service "mixedreality" {
   name      = "MixedReality"
   available = ["2021-01-01"]
