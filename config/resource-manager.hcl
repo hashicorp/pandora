@@ -47,6 +47,10 @@ service "confidentialledger" {
   name      = "ConfidentialLedger"
   available = ["2022-05-13"]
 }
+service "containerinstance" {
+  name      = "ContainerInstance"
+  available = ["2021-03-01"]
+}
 service "cost-management" {
   name      = "CostManagement"
   available = ["2021-10-01"]
@@ -246,8 +250,4 @@ service "vmware" {
 service "web" {
   name      = "Web"
   available = ["2016-06-01"]
-}
-service "containerinstance" {
-    name = "ContainerInstance"
-    available = ["2021-03-01"]
 }
