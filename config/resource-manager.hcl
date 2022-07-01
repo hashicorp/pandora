@@ -251,3 +251,7 @@ service "web" {
   name      = "Web"
   available = ["2016-06-01"]
 }
+service "domainservices" {
+    name = "AAD"
+    available = ["2020-01-01", "2021-03-01", "2021-05-01"]
+}
