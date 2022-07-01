@@ -79,6 +79,10 @@ service "dns" {
   name      = "DNS"
   available = ["2018-05-01"]
 }
+service "domainservices" {
+  name      = "AAD"
+  available = ["2020-01-01", "2021-03-01", "2021-05-01"]
+}
 service "elastic" {
   name      = "Elastic"
   available = ["2020-07-01"]
@@ -250,8 +254,4 @@ service "vmware" {
 service "web" {
   name      = "Web"
   available = ["2016-06-01"]
-}
-service "domainservices" {
-    name = "AAD"
-    available = ["2020-01-01", "2021-03-01", "2021-05-01"]
 }
