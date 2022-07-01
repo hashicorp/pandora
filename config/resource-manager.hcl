@@ -101,7 +101,7 @@ service "frontdoor" {
 }
 service "hardwaresecuritymodules" {
   name      = "HardwareSecurityModules"
-  available = ["2018-10-31-preview", "2021-11-30"]
+  available = ["2021-11-30"]
 }
 service "healthcareapis" {
   name      = "HealthcareApis"
