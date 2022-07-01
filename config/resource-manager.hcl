@@ -247,3 +247,7 @@ service "web" {
   name      = "Web"
   available = ["2016-06-01"]
 }
+service "containerinstance" {
+    name = "ContainerInstance"
+    available = ["2021-03-01"]
+}
