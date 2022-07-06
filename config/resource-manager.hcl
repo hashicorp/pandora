@@ -27,6 +27,10 @@ service "automation" {
   name      = "Automation"
   available = ["2021-06-22"]
 }
+service "azure-kusto" {
+  name      = "Kusto"
+  available = ["2021-08-27"]
+}
 service "azurestackhci" {
   name      = "AzureStackHCI"
   available = ["2020-10-01"]
@@ -118,10 +122,6 @@ service "iotcentral" {
 service "kubernetesconfiguration" {
   name      = "KubernetesConfiguration"
   available = ["2022-03-01"]
-}
-service "azure-kusto" {
-  name      = "Kusto"
-  available = ["2021-08-27"]
 }
 service "labservices" {
   name      = "LabServices"
