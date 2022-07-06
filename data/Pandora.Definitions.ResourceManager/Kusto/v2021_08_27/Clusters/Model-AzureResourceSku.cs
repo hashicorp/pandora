@@ -10,11 +10,17 @@ using Pandora.Definitions.CustomTypes;
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 
 
-namespace Pandora.Definitions.ResourceManager.StreamAnalytics.v2020_03_01.Outputs;
+namespace Pandora.Definitions.ResourceManager.Kusto.v2021_08_27.Clusters;
 
-[ValueForType("Microsoft.Storage/Blob")]
-internal class BlobOutputDataSourceModel : OutputDataSourceModel
+
+internal class AzureResourceSkuModel
 {
-    [JsonPropertyName("properties")]
-    public BlobOutputDataSourcePropertiesModel? Properties { get; set; }
+    [JsonPropertyName("capacity")]
+    public AzureCapacityModel? Capacity { get; set; }
+
+    [JsonPropertyName("resourceType")]
+    public string? ResourceType { get; set; }
+
+    [JsonPropertyName("sku")]
+    public AzureSkuModel? Sku { get; set; }
 }

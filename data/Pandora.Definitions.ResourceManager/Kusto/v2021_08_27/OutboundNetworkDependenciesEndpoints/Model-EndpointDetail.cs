@@ -10,11 +10,11 @@ using Pandora.Definitions.CustomTypes;
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 
 
-namespace Pandora.Definitions.ResourceManager.StreamAnalytics.v2020_03_01.Outputs;
+namespace Pandora.Definitions.ResourceManager.Kusto.v2021_08_27.OutboundNetworkDependenciesEndpoints;
 
-[ValueForType("Microsoft.Storage/Blob")]
-internal class BlobOutputDataSourceModel : OutputDataSourceModel
+
+internal class EndpointDetailModel
 {
-    [JsonPropertyName("properties")]
-    public BlobOutputDataSourcePropertiesModel? Properties { get; set; }
+    [JsonPropertyName("port")]
+    public int? Port { get; set; }
 }
