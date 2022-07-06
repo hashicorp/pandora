@@ -10,11 +10,15 @@ using Pandora.Definitions.CustomTypes;
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 
 
-namespace Pandora.Definitions.ResourceManager.StreamAnalytics.v2020_03_01.Outputs;
+namespace Pandora.Definitions.ResourceManager.Kusto.v2021_08_27.Kusto;
 
-[ValueForType("Microsoft.Storage/Blob")]
-internal class BlobOutputDataSourceModel : OutputDataSourceModel
+
+internal class SkuLocationInfoItemModel
 {
-    [JsonPropertyName("properties")]
-    public BlobOutputDataSourcePropertiesModel? Properties { get; set; }
+    [JsonPropertyName("location")]
+    [Required]
+    public CustomTypes.Location Location { get; set; }
+
+    [JsonPropertyName("zones")]
+    public List<string>? Zones { get; set; }
 }

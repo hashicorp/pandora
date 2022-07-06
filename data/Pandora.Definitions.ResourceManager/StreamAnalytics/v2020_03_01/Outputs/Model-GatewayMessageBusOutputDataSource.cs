@@ -12,9 +12,9 @@ using Pandora.Definitions.CustomTypes;
 
 namespace Pandora.Definitions.ResourceManager.StreamAnalytics.v2020_03_01.Outputs;
 
-[ValueForType("Microsoft.Storage/Blob")]
-internal class BlobOutputDataSourceModel : OutputDataSourceModel
+[ValueForType("GatewayMessageBus")]
+internal class GatewayMessageBusOutputDataSourceModel : OutputDataSourceModel
 {
     [JsonPropertyName("properties")]
-    public BlobOutputDataSourcePropertiesModel? Properties { get; set; }
+    public GatewayMessageBusSourcePropertiesModel? Properties { get; set; }
 }

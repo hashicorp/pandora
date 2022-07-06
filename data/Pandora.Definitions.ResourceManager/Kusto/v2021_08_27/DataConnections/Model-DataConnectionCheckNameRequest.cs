@@ -10,11 +10,16 @@ using Pandora.Definitions.CustomTypes;
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 
 
-namespace Pandora.Definitions.ResourceManager.StreamAnalytics.v2020_03_01.Outputs;
+namespace Pandora.Definitions.ResourceManager.Kusto.v2021_08_27.DataConnections;
 
-[ValueForType("Microsoft.Storage/Blob")]
-internal class BlobOutputDataSourceModel : OutputDataSourceModel
+
+internal class DataConnectionCheckNameRequestModel
 {
-    [JsonPropertyName("properties")]
-    public BlobOutputDataSourcePropertiesModel? Properties { get; set; }
+    [JsonPropertyName("name")]
+    [Required]
+    public string Name { get; set; }
+
+    [JsonPropertyName("type")]
+    [Required]
+    public DataConnectionTypeConstant Type { get; set; }
 }

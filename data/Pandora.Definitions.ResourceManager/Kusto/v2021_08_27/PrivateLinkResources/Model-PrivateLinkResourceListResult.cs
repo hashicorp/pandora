@@ -10,11 +10,11 @@ using Pandora.Definitions.CustomTypes;
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 
 
-namespace Pandora.Definitions.ResourceManager.StreamAnalytics.v2020_03_01.Outputs;
+namespace Pandora.Definitions.ResourceManager.Kusto.v2021_08_27.PrivateLinkResources;
 
-[ValueForType("Microsoft.Storage/Blob")]
-internal class BlobOutputDataSourceModel : OutputDataSourceModel
+
+internal class PrivateLinkResourceListResultModel
 {
-    [JsonPropertyName("properties")]
-    public BlobOutputDataSourcePropertiesModel? Properties { get; set; }
+    [JsonPropertyName("value")]
+    public List<PrivateLinkResourceModel>? Value { get; set; }
 }
