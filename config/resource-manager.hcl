@@ -145,7 +145,7 @@ service "mixedreality" {
 }
 service "monitor" {
   name      = "Insights"
-  available = ["2021-04-01"]
+  available = ["2021-04-01", "2021-08-01"]
 }
 service "msi" {
   name      = "ManagedIdentity"
