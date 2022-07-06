@@ -18,18 +18,37 @@ type Repo struct {
 }
 
 func (r Repo) getPullRequest(client *github.Client, ctx context.Context, id int) (*github.PullRequest, error) {
-	pr, _, _ := client.PullRequests.Get(ctx, r.Owner, r.Name, id)
-	//if err != nil {
-	//	return nil, err
-	//}
-
-	l, _, err := client.PullRequests.List(ctx, r.Owner, r.Name, nil)
+	pr, _, err := client.PullRequests.Get(ctx, r.Owner, r.Name, id)
 	if err != nil {
 		return nil, err
 	}
-	log.Printf("%+v", l)
 
 	return pr, nil
+}
+
+func (r Repo) getPullRequestDiff(client *github.Client, ctx context.Context, id int) (string, error) {
+	opts := github.RawOptions{
+		Type: github.Diff,
+	}
+
+	pr, _, err := client.PullRequests.GetRaw(ctx, r.Owner, r.Name, id, opts)
+	if err != nil {
+		return "", err
+	}
+
+	return pr, nil
+}
+
+func (r Repo) updatePullRequestBody(client *github.Client, ctx context.Context, id int, body *string) error {
+	updateBody := github.PullRequest{
+		Body: body,
+	}
+
+	if _, _, err := client.PullRequests.Edit(ctx, r.Owner, r.Name, id, &updateBody); err != nil {
+		return err
+	}
+
+	return nil
 }
 
 func newGitHubClient(token string) (*github.Client, context.Context) {
@@ -37,19 +56,22 @@ func newGitHubClient(token string) (*github.Client, context.Context) {
 	ts := oauth2.StaticTokenSource(
 		&oauth2.Token{AccessToken: token},
 	)
-	t := oauth2.Endpoint{}
 	tc := oauth2.NewClient(ctx, ts)
 	return github.NewClient(tc), ctx
 }
 
+func shortenFileName(file string) string {
+	fileSplit := strings.Split(file, "/")
+	for i, v := range fileSplit {
+		if strings.HasSuffix(v, "ResourceManager") {
+			return ".../" + strings.Join(fileSplit[i+1:], "/")
+		}
+	}
+	return file
+}
+
 func run() error {
 	token := os.Getenv("GITHUB_TOKEN")
-	log.Printf("token: %s", token)
-	os.Setenv("GITHUB_REPOSITORY", "hashicorp/pandora")
-	os.Setenv("PR_NUMBER", "1017")
-	log.Printf("github_repository: %s", os.Getenv("GITHUB_REPOSITORY"))
-	log.Printf("pr_number: %s", os.Getenv("PR_NUMBER"))
-
 	owner := strings.Split(os.Getenv("GITHUB_REPOSITORY"), "/")[0]
 	name := strings.Split(os.Getenv("GITHUB_REPOSITORY"), "/")[1]
 	prId, err := strconv.Atoi(os.Getenv("PR_NUMBER"))
@@ -60,12 +82,45 @@ func run() error {
 	repo := Repo{owner, name}
 	client, ctx := newGitHubClient(token)
 
-	_, err = repo.getPullRequest(client, ctx, prId)
+	prDiff, err := repo.getPullRequestDiff(client, ctx, prId)
 	if err != nil {
 		return err
 	}
 
-	//log.Printf("diff url: %s", *pr.DiffURL)
+	resourceIds := make(map[string]string, 0)
+
+	files := strings.Split(prDiff, "+++")
+
+	for _, file := range files {
+		lines := strings.Split(file, "\n")
+		if strings.Contains(lines[0], "ResourceId-") {
+			filePath := shortenFileName(lines[0])
+			log.Printf("%s", strings.TrimSpace(lines[0]))
+			for _, line := range lines {
+				if strings.Contains(line, "public string ID") {
+					resourceIds[filePath] = line[strings.Index(line, "\"")+1 : strings.LastIndex(line, "\"")]
+					continue
+				}
+			}
+		}
+	}
+
+	comment := fmt.Sprintf("\n\n%d Resource IDs found:\n\n", len(resourceIds))
+	for file, id := range resourceIds {
+		comment += fmt.Sprintf("```%s => %s```\n", file, id)
+	}
+
+	pr, err := repo.getPullRequest(client, ctx, prId)
+
+	body := ""
+	if v := pr.Body; v != nil {
+		body = *v
+	}
+	body += comment
+
+	if err := repo.updatePullRequestBody(client, ctx, prId, &body); err != nil {
+		return err
+	}
 
 	return nil
 }

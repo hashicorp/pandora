@@ -1,0 +1,24 @@
+---
+name: Extract TF resource IDs
+on:
+  pull_request_target:
+    paths:
+      - 'data/**'
+    types: ['opened']
+
+jobs:
+  extract-tf-resource-ids:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-go@v2
+        with:
+          go-version: '1.18.1'
+
+      - name: extract TF resource ids and update PR body
+        run: |
+          cd ./tools/extract-tf-resource-ids
+          make run
+        env:
+          GITHUB_TOKEN: ${{ secrets.SERVICE_ACCOUNT_PANDORA_TOKEN }}
