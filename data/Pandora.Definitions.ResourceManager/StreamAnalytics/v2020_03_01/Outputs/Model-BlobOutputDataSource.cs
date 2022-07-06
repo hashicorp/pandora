@@ -16,5 +16,5 @@ namespace Pandora.Definitions.ResourceManager.StreamAnalytics.v2020_03_01.Output
 internal class BlobOutputDataSourceModel : OutputDataSourceModel
 {
     [JsonPropertyName("properties")]
-    public BlobDataSourcePropertiesModel? Properties { get; set; }
+    public BlobOutputDataSourcePropertiesModel? Properties { get; set; }
 }

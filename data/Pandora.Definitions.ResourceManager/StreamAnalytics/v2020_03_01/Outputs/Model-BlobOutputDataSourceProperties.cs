@@ -13,10 +13,13 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.StreamAnalytics.v2020_03_01.Outputs;
 
 
-internal class BlobDataSourcePropertiesModel
+internal class BlobOutputDataSourcePropertiesModel
 {
     [JsonPropertyName("authenticationMode")]
     public AuthenticationModeConstant? AuthenticationMode { get; set; }
+
+    [JsonPropertyName("blobPathPrefix")]
+    public string? BlobPathPrefix { get; set; }
 
     [JsonPropertyName("container")]
     public string? Container { get; set; }
