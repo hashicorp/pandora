@@ -119,6 +119,10 @@ service "kubernetesconfiguration" {
   name      = "KubernetesConfiguration"
   available = ["2022-03-01"]
 }
+service "kusto" {
+  name      = "Kusto"
+  available = ["2021-08-27"]
+}
 service "labservices" {
   name      = "LabServices"
   available = ["2021-10-01-preview"]
