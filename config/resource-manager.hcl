@@ -27,6 +27,10 @@ service "automation" {
   name      = "Automation"
   available = ["2021-06-22"]
 }
+service "azure-kusto" {
+  name      = "Kusto"
+  available = ["2021-08-27"]
+}
 service "azurestackhci" {
   name      = "AzureStackHCI"
   available = ["2020-10-01"]
@@ -174,6 +178,10 @@ service "policyinsights" {
 service "portal" {
   name      = "Portal"
   available = ["2019-01-01-preview"]
+}
+service "postgresql" {
+  name      = "Postgresql"
+  available = ["2020-01-01", "2021-06-01"]
 }
 service "postgresqlhsc" {
   name      = "PostgresqlHSC"
