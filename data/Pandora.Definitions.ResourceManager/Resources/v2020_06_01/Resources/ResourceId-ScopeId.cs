@@ -12,7 +12,7 @@ internal class ScopeId : ResourceID
 {
     public string? CommonAlias => "Scope";
 
-    public string ID => "/{scope}";
+    public string ID => "/{resourceId}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
