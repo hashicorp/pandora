@@ -6,13 +6,13 @@ using Pandora.Definitions.Interfaces;
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 
 
-namespace Pandora.Definitions.ResourceManager.Resources.v2020_06_01.Resources;
+namespace Pandora.Definitions.ResourceManager.PostgreSql.v2021_06_01.CheckNameAvailability;
 
-internal class ScopeId : ResourceID
+internal class SubscriptionId : ResourceID
 {
-    public string? CommonAlias => "Scope";
+    public string? CommonAlias => "Subscription";
 
-    public string ID => "/{scope}";
+    public string ID => "/subscriptions/{subscriptionId}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
