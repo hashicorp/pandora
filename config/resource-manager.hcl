@@ -179,6 +179,10 @@ service "portal" {
   name      = "Portal"
   available = ["2019-01-01-preview"]
 }
+service "postgres" {
+  name      = "Postgres"
+  available = ["2020-01-01", "2021-06-01"]
+}
 service "postgresqlhsc" {
   name      = "PostgresqlHSC"
   available = ["2020-10-05-privatepreview"]
