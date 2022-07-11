@@ -1,19 +1,13 @@
 default: build
 
-build:
-	go build .
-
 fmt:
 	find . -name '*.go' | grep -v vendor | xargs gofmt -s -w
 
-run: build
-	./extract-tf-resource-ids
-
-test: build
-	go test -v ./...
+run:
+	go run main.go
 
 tools:
 	@echo "==> no tools required at this time."
 
-.PHONY: build fmt run test tools
+.PHONY: fmt run tools
 
