@@ -135,6 +135,10 @@ service "machinelearningservices" {
   name      = "MachineLearningServices"
   available = ["2021-07-01", "2022-05-01"]
 }
+service "managedservices" {
+  name      = "ManagedServices"
+  available = ["2019-06-01"]
+}
 service "maps" {
   name      = "Maps"
   available = ["2021-02-01"]
