@@ -12,7 +12,7 @@ internal class ResourceGroupId : ResourceID
 {
     public string? CommonAlias => "ResourceGroup";
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
