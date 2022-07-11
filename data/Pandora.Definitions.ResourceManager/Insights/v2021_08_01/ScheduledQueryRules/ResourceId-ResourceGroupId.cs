@@ -6,13 +6,13 @@ using Pandora.Definitions.Interfaces;
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 
 
-namespace Pandora.Definitions.ResourceManager.Resources.v2020_06_01.Resources;
+namespace Pandora.Definitions.ResourceManager.Insights.v2021_08_01.ScheduledQueryRules;
 
-internal class ScopeId : ResourceID
+internal class ResourceGroupId : ResourceID
 {
-    public string? CommonAlias => "Scope";
+    public string? CommonAlias => "ResourceGroup";
 
-    public string ID => "/{scope}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
