@@ -27,7 +27,7 @@ func TestCommonResourceID_Scope(t *testing.T) {
 	}
 	output := switchOutCommonResourceIDsAsNeeded(input)
 	for _, actual := range output {
-		if actual.NormalizedResourceId() == valid.NormalizedResourceId() {
+		if actual.Matches(valid) {
 			if actual.CommonAlias == nil {
 				t.Fatalf("Expected `valid` to have the CommonAlias `Scope` but got nil")
 			}
@@ -38,7 +38,7 @@ func TestCommonResourceID_Scope(t *testing.T) {
 			continue
 		}
 
-		if actual.NormalizedResourceId() == invalid.NormalizedResourceId() {
+		if actual.Matches(invalid) {
 			if actual.CommonAlias != nil {
 				t.Fatalf("Expected `invalid` to have no CommonAlias but got %q", *actual.CommonAlias)
 			}

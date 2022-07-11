@@ -41,9 +41,13 @@ func generateNamesForResourceIds(input []models.ParsedResourceId, log hclog.Logg
 	urisThatAreCommonIds := make(map[string]struct{})
 	for _, uri := range sortedUris {
 		resourceId := uniqueUris[uri]
-		for _, commonId := range commonIdTypes {
-			if commonId.isMatch(resourceId) {
-				candidateNamesToUris[commonId.name()] = resourceId
+		for i, commonIdType := range commonIdTypes {
+			commonId := commonIdType.id()
+			if commonId.Matches(resourceId) {
+				if commonId.CommonAlias == nil {
+					return nil, fmt.Errorf("the Common ID %d had no Alias: %+v", i, commonId)
+				}
+				candidateNamesToUris[*commonId.CommonAlias] = resourceId
 				urisThatAreCommonIds[uri] = struct{}{}
 				break
 			}

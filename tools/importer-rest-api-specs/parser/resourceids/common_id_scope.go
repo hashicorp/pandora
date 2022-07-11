@@ -6,16 +6,13 @@ var _ commonIdMatcher = commonIdScopeMatcher{}
 
 type commonIdScopeMatcher struct{}
 
-func (commonIdScopeMatcher) isMatch(input models.ParsedResourceId) bool {
-	var scopeId = models.ParsedResourceId{
-		Constants: map[string]models.ConstantDetails{},
+func (commonIdScopeMatcher) id() models.ParsedResourceId {
+	name := "Scope"
+	return models.ParsedResourceId{
+		CommonAlias: &name,
+		Constants:   map[string]models.ConstantDetails{},
 		Segments: []models.ResourceIdSegment{
 			models.ScopeResourceIDSegment("scope"),
 		},
 	}
-	return scopeId.Matches(input)
-}
-
-func (commonIdScopeMatcher) name() string {
-	return "Scope"
 }

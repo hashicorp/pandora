@@ -6,9 +6,11 @@ var _ commonIdMatcher = commonIdUserAssignedIdentity{}
 
 type commonIdUserAssignedIdentity struct{}
 
-func (commonIdUserAssignedIdentity) isMatch(input models.ParsedResourceId) bool {
-	var userAssignedIdentityId = models.ParsedResourceId{
-		Constants: map[string]models.ConstantDetails{},
+func (commonIdUserAssignedIdentity) id() models.ParsedResourceId {
+	name := "UserAssignedIdentity"
+	return models.ParsedResourceId{
+		CommonAlias: &name,
+		Constants:   map[string]models.ConstantDetails{},
 		Segments: []models.ResourceIdSegment{
 			models.StaticResourceIDSegment("subscriptions", "subscriptions"),
 			models.SubscriptionIDResourceIDSegment("subscriptionId"),
@@ -20,9 +22,4 @@ func (commonIdUserAssignedIdentity) isMatch(input models.ParsedResourceId) bool 
 			models.UserSpecifiedResourceIDSegment("resourceName"),
 		},
 	}
-	return userAssignedIdentityId.Matches(input)
-}
-
-func (commonIdUserAssignedIdentity) name() string {
-	return "UserAssignedIdentity"
 }
