@@ -6,9 +6,11 @@ var _ commonIdMatcher = commonIdManagementGroupMatcher{}
 
 type commonIdManagementGroupMatcher struct{}
 
-func (commonIdManagementGroupMatcher) isMatch(input models.ParsedResourceId) bool {
-	var managementGroupId = models.ParsedResourceId{
-		Constants: map[string]models.ConstantDetails{},
+func (id commonIdManagementGroupMatcher) id() models.ParsedResourceId {
+	name := id.name()
+	return models.ParsedResourceId{
+		CommonAlias: &name,
+		Constants:   map[string]models.ConstantDetails{},
 		Segments: []models.ResourceIdSegment{
 			models.StaticResourceIDSegment("providers", "providers"),
 			models.ResourceProviderResourceIDSegment("resourceProvider", "Microsoft.Management"),
@@ -16,6 +18,10 @@ func (commonIdManagementGroupMatcher) isMatch(input models.ParsedResourceId) boo
 			models.UserSpecifiedResourceIDSegment("groupId"),
 		},
 	}
+}
+
+func (id commonIdManagementGroupMatcher) isMatch(input models.ParsedResourceId) bool {
+	var managementGroupId = id.id()
 	return managementGroupId.Matches(input)
 }
 
