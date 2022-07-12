@@ -23,7 +23,7 @@ func (r resourceIdTemplater) template(data ServiceGeneratorData) (*string, error
 	if err != nil {
 		return nil, fmt.Errorf("generating struct body: %+v", err)
 	}
-	methods, err := r.methods(data)
+	methods, err := r.methods()
 	if err != nil {
 		return nil, fmt.Errorf("generating methods: %+v", err)
 	}
@@ -77,7 +77,7 @@ type %[1]s struct {
 	return &out, nil
 }
 
-func (r resourceIdTemplater) methods(data ServiceGeneratorData) (*string, error) {
+func (r resourceIdTemplater) methods() (*string, error) {
 	nameWithoutSuffix := strings.TrimSuffix(r.name, "Id")
 
 	// NOTE: ordering is useful here for skimming the code, we do Public -> Private
@@ -113,7 +113,7 @@ func (r resourceIdTemplater) methods(data ServiceGeneratorData) (*string, error)
 	methods = append(methods, r.validateFunction(nameWithoutSuffix))
 
 	// Id function
-	functionBody, err = r.idFunction(data)
+	functionBody, err = r.idFunction()
 	if err != nil {
 		return nil, fmt.Errorf("generating ID function: %+v", err)
 	}
@@ -127,7 +127,7 @@ func (r resourceIdTemplater) methods(data ServiceGeneratorData) (*string, error)
 	methods = append(methods, *functionBody)
 
 	// String function
-	functionBody, err = r.stringFunction(data)
+	functionBody, err = r.stringFunction()
 	if err != nil {
 		return nil, fmt.Errorf("generating String function: %+v", err)
 	}
@@ -137,7 +137,7 @@ func (r resourceIdTemplater) methods(data ServiceGeneratorData) (*string, error)
 	return &out, nil
 }
 
-func (r resourceIdTemplater) idFunction(data ServiceGeneratorData) (*string, error) {
+func (r resourceIdTemplater) idFunction() (*string, error) {
 	fmtSegments := make([]string, 0)      // %s
 	segmentArguments := make([]string, 0) // id.Foo
 	for _, segment := range r.resource.Segments {
@@ -158,7 +158,7 @@ func (r resourceIdTemplater) idFunction(data ServiceGeneratorData) (*string, err
 				}
 
 				// get the segment and determine the type
-				constant, ok := data.constants[*segment.ConstantReference]
+				constant, ok := r.constantDetails[*segment.ConstantReference]
 				if !ok {
 					return nil, fmt.Errorf("the constant %q was not found in the data for segment %q", *segment.ConstantReference, segment.Name)
 				}
@@ -397,7 +397,7 @@ func (id %[1]s) Segments() []resourceids.Segment {
 	return &out, nil
 }
 
-func (r resourceIdTemplater) stringFunction(data ServiceGeneratorData) (*string, error) {
+func (r resourceIdTemplater) stringFunction() (*string, error) {
 	componentsLines := make([]string, 0)
 	for _, segment := range r.resource.Segments {
 		switch segment.Type {
@@ -408,7 +408,7 @@ func (r resourceIdTemplater) stringFunction(data ServiceGeneratorData) (*string,
 			if segment.ConstantReference == nil {
 				return nil, fmt.Errorf("segment %q is a constant without a reference", segment.Name)
 			}
-			constant, ok := data.constants[*segment.ConstantReference]
+			constant, ok := r.constantDetails[*segment.ConstantReference]
 			if !ok {
 				return nil, fmt.Errorf("the constant %q for segment %q was not found in the data", *segment.ConstantReference, segment.Name)
 			}
