@@ -53,7 +53,7 @@ service "confidentialledger" {
 }
 service "containerinstance" {
   name      = "ContainerInstance"
-  available = ["2021-03-01", "2021-10-10"]
+  available = ["2021-03-01", "2021-10-01"]
 }
 service "cost-management" {
   name      = "CostManagement"
