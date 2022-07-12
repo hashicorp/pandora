@@ -7,7 +7,6 @@ import (
 
 	"github.com/go-openapi/spec"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/cleanup"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/featureflags"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser/constants"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser/internal"
@@ -272,10 +271,7 @@ func normalizeSegment(input string) string {
 	output = cleanup.NormalizeSegment(output, true)
 	// the names should always be camelCased, so let's be sure
 	output = fmt.Sprintf("%s%s", strings.ToLower(string(output[0])), output[1:])
-
-	if featureflags.ShouldReservedKeywordsBeNormalized {
-		output = cleanup.NormalizeReservedKeywords(output)
-	}
+	output = cleanup.NormalizeReservedKeywords(output)
 
 	return output
 }
