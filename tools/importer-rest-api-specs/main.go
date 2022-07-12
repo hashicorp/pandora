@@ -78,6 +78,7 @@ func runImporter(configFilePath string, dataApiEndpoint *string, debug bool) err
 			if err := importService(v, *swaggerGitSha, dataApiEndpoint, debug); err != nil {
 				log.Printf("importing Service %q / Version %q: %+v", v.ServiceName, v.ApiVersion, err)
 				wg.Done()
+				os.Exit(1)
 				return
 			}
 
