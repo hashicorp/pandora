@@ -5,7 +5,6 @@ import (
 	"strings"
 
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/cleanup"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/featureflags"
 )
 
 type ParsedResourceId struct {
@@ -195,9 +194,7 @@ func normalizedResourceId(segments []ResourceIdSegment) string {
 		case ConstantSegment, ResourceGroupSegment, ScopeSegment, SubscriptionIdSegment, UserSpecifiedSegment:
 			// e.g. {example}
 			normalizedSegment := segment.Name
-			if featureflags.ShouldReservedKeywordsBeNormalized {
-				normalizedSegment = cleanup.NormalizeReservedKeywords(segment.Name)
-			}
+			normalizedSegment = cleanup.NormalizeReservedKeywords(segment.Name)
 			components = append(components, fmt.Sprintf("{%s}", normalizedSegment))
 			continue
 

@@ -7,7 +7,6 @@ import (
 
 	"github.com/go-openapi/spec"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/cleanup"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/featureflags"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser/constants"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser/internal"
@@ -154,6 +153,8 @@ func (p *Parser) parseResourceIdFromOperation(uri string, operation *spec.Operat
 				continue
 			}
 
+			// user specified segments are output as variables, so we need to ensure these aren't language keywords
+			normalizedSegment = cleanup.NormalizeReservedKeywords(normalizedSegment)
 			segments = append(segments, models.UserSpecifiedResourceIDSegment(normalizedSegment))
 			continue
 		}
@@ -272,10 +273,6 @@ func normalizeSegment(input string) string {
 	output = cleanup.NormalizeSegment(output, true)
 	// the names should always be camelCased, so let's be sure
 	output = fmt.Sprintf("%s%s", strings.ToLower(string(output[0])), output[1:])
-
-	if featureflags.ShouldReservedKeywordsBeNormalized {
-		output = cleanup.NormalizeReservedKeywords(output)
-	}
 
 	return output
 }
