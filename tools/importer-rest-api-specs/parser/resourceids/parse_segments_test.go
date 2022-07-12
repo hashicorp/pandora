@@ -84,6 +84,78 @@ func TestParseResourceIDFromOperation_ConstantMultiple(t *testing.T) {
 	}
 }
 
+func TestParseResourceIDFromOperation_InvalidSegmentDefaultGetsTransformed(t *testing.T) {
+	// `default` is a language keyword in both C# and Go - so we need to ensure it's
+	// not output directly, but should be transformed into `defaultName` so that it's
+	// output as a variable rather than a language keyword (see #935)
+	swagger := spec.NewOperation("Example_Operation")
+	uri := "/defaults/{default}"
+
+	parser := NewParser(hclog.NewNullLogger(), nil)
+	resourceId, err := parser.parseResourceIdFromOperation(uri, swagger)
+	if err != nil {
+		t.Fatalf("parsing Resource ID from %q: %+v", uri, err)
+	}
+
+	if resourceId.uriSuffix != nil {
+		t.Fatalf("expected no uriSuffix but got %q", *resourceId.uriSuffix)
+	}
+	if len(resourceId.constants) != 0 {
+		t.Fatalf("expected 0 constants but got %d", len(resourceId.constants))
+	}
+	if resourceId.segments == nil {
+		t.Fatalf("expected 2 segments but got 0")
+	}
+	expectedSegments := []models.ResourceIdSegment{
+		models.StaticResourceIDSegment("defaults", "defaults"),
+		models.UserSpecifiedResourceIDSegment("defaultName"),
+	}
+	validateSegmentsMatch(t, *resourceId.segments, expectedSegments)
+
+	// since the validateSegmentsMatch ignores the names of the UserSpecifiedSegments and that's
+	// our concern here, we'll explicitly check this matches what we expect too
+	secondSegment := (*resourceId.segments)[1]
+	if secondSegment.Name != "defaultName" {
+		t.Fatalf("expected the second segment to have the name `defaultName` but got %q", secondSegment.Name)
+	}
+}
+
+func TestParseResourceIDFromOperation_InvalidSegmentTypeGetsTransformed(t *testing.T) {
+	// `type` is a language keyword in both C# and Go - so we need to ensure it's
+	// not output directly, but should be transformed into `typeName` so that it's
+	// output as a variable rather than a language keyword (see #935)
+	swagger := spec.NewOperation("Example_Operation")
+	uri := "/things/{type}"
+
+	parser := NewParser(hclog.NewNullLogger(), nil)
+	resourceId, err := parser.parseResourceIdFromOperation(uri, swagger)
+	if err != nil {
+		t.Fatalf("parsing Resource ID from %q: %+v", uri, err)
+	}
+
+	if resourceId.uriSuffix != nil {
+		t.Fatalf("expected no uriSuffix but got %q", *resourceId.uriSuffix)
+	}
+	if len(resourceId.constants) != 0 {
+		t.Fatalf("expected 0 constants but got %d", len(resourceId.constants))
+	}
+	if resourceId.segments == nil {
+		t.Fatalf("expected 2 segments but got 0")
+	}
+	expectedSegments := []models.ResourceIdSegment{
+		models.StaticResourceIDSegment("things", "things"),
+		models.UserSpecifiedResourceIDSegment("typeName"),
+	}
+	validateSegmentsMatch(t, *resourceId.segments, expectedSegments)
+
+	// since the validateSegmentsMatch ignores the names of the UserSpecifiedSegments and that's
+	// our concern here, we'll explicitly check this matches what we expect too
+	secondSegment := (*resourceId.segments)[1]
+	if secondSegment.Name != "typeName" {
+		t.Fatalf("expected the second segment to have the name `typeName` but got %q", secondSegment.Name)
+	}
+}
+
 func TestParseResourceIDFromOperation_ManagementGroupId(t *testing.T) {
 	swagger := spec.NewOperation("Example_Operation")
 	uri := "/providers/Microsoft.Management/managementGroups/{groupId}"
