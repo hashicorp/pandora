@@ -32,7 +32,6 @@ func TestTemplateIdParserBasic(t *testing.T) {
 			},
 		},
 		packageName: "somepackage",
-		//source:      AccTestLicenceType, // TODO - Needed?
 	})
 	if err != nil {
 		t.Fatal(err.Error())
