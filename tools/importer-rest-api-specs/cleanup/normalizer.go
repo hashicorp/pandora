@@ -155,6 +155,8 @@ func NormalizeSegment(input string, camelCase bool) string {
 		"virtualmachines":                         "virtualMachines",
 		"vcenters":                                "vCenters",
 		"vmwaresites":                             "vmwareSites",
+		"vmextension":                             "vmExtension",
+		"vmimage":                                 "vmImage",
 		"volumegroups":                            "volumeGroups",
 		"webhooks":                                "webHooks",
 		"webjobs":                                 "webJobs",
