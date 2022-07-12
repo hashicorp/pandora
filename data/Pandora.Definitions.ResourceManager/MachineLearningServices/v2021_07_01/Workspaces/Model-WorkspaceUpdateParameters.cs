@@ -16,7 +16,7 @@ namespace Pandora.Definitions.ResourceManager.MachineLearningServices.v2021_07_0
 internal class WorkspaceUpdateParametersModel
 {
     [JsonPropertyName("identity")]
-    public IdentityModel? Identity { get; set; }
+    public CustomTypes.LegacySystemAndUserAssignedIdentityMap? Identity { get; set; }
 
     [JsonPropertyName("properties")]
     public WorkspacePropertiesUpdateParametersModel? Properties { get; set; }
