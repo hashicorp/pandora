@@ -19,7 +19,7 @@ internal class ComputeResourceModel
     public string? Id { get; set; }
 
     [JsonPropertyName("identity")]
-    public IdentityModel? Identity { get; set; }
+    public CustomTypes.LegacySystemAndUserAssignedIdentityMap? Identity { get; set; }
 
     [JsonPropertyName("location")]
     public CustomTypes.Location? Location { get; set; }
