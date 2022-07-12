@@ -49,7 +49,7 @@ service "communication" {
 }
 service "compute" {
   name      = "Compute"
-  available = ["2021-08-01", "2021-11-01"]
+  available = ["2021-11-01"]
 }
 service "confidentialledger" {
   name      = "ConfidentialLedger"
