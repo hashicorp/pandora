@@ -74,10 +74,6 @@ func (c methodsAutoRestTemplater) methods(data ServiceGeneratorData) (*string, e
 			return nil, fmt.Errorf("`GET` operations cannot be long-running")
 		}
 
-		if c.operation.RequestObject != nil {
-			return nil, fmt.Errorf("`GET` operations do not support Request objects at this time")
-		}
-
 		if c.operation.FieldContainingPaginationDetails != nil {
 			return c.listOperationTemplate(data)
 		}
