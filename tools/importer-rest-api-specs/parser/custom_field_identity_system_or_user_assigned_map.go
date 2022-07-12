@@ -83,8 +83,7 @@ func (systemOrUserAssignedIdentityMapMatcher) isMatch(_ models.FieldDetails, def
 					continue
 				}
 
-				// if extra fields this can't be a match
-				return false
+				// if extra fields are returned within the UAI properties block then we ignore them for now
 			}
 
 			hasUserAssignedIdentities = innerHasClientId && innerHasPrincipalId
