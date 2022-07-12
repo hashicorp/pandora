@@ -47,6 +47,10 @@ service "communication" {
   name      = "Communication"
   available = ["2020-08-20"]
 }
+service "compute" {
+  name = "Compute"
+  available = ["2021-08-01", "2021-11-01"]
+}
 service "confidentialledger" {
   name      = "ConfidentialLedger"
   available = ["2022-05-13"]
