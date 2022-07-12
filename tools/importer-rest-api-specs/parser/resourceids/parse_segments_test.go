@@ -120,6 +120,32 @@ func TestParseResourceIDFromOperation_InvalidSegmentDefaultGetsTransformed(t *te
 	}
 }
 
+func TestParseResourceIDFromOperation_InvalidSegmentDefaultAsStaticValueGetsLeft(t *testing.T) {
+	// whilst `default` is a language keyword, since this is a static segment it shouldn't be
+	// transformed - which this test is explicitly checking
+	swagger := spec.NewOperation("Example_Operation")
+	uri := "/default"
+
+	parser := NewParser(hclog.NewNullLogger(), nil)
+	resourceId, err := parser.parseResourceIdFromOperation(uri, swagger)
+	if err != nil {
+		t.Fatalf("parsing Resource ID from %q: %+v", uri, err)
+	}
+
+	if resourceId.uriSuffix == nil {
+		t.Fatalf("expected a uriSuffix but got nil")
+	}
+	if *resourceId.uriSuffix != "/default" {
+		t.Fatalf("expected the uriSuffix to be `/default` but got %q", *resourceId.uriSuffix)
+	}
+	if len(resourceId.constants) != 0 {
+		t.Fatalf("expected 0 constants but got %d", len(resourceId.constants))
+	}
+	if resourceId.segments != nil {
+		t.Fatalf("expected 0 segments but got %d", len(*resourceId.segments))
+	}
+}
+
 func TestParseResourceIDFromOperation_InvalidSegmentTypeGetsTransformed(t *testing.T) {
 	// `type` is a language keyword in both C# and Go - so we need to ensure it's
 	// not output directly, but should be transformed into `typeName` so that it's
