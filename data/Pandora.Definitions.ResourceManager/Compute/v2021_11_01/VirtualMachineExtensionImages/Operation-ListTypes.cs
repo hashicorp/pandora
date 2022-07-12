@@ -19,7 +19,7 @@ internal class ListTypesOperation : Operations.GetOperation
 
     public override Type? ResponseObject() => typeof(List<VirtualMachineExtensionImageModel>);
 
-    public override string? UriSuffix() => "/artifactTypes/vmextension/types";
+    public override string? UriSuffix() => "/artifactTypes/vmExtension/types";
 
 
 }

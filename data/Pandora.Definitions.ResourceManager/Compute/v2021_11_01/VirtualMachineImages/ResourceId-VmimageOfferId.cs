@@ -8,11 +8,11 @@ using Pandora.Definitions.Interfaces;
 
 namespace Pandora.Definitions.ResourceManager.Compute.v2021_11_01.VirtualMachineImages;
 
-internal class VmimageOfferId : ResourceID
+internal class VmImageOfferId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/providers/Microsoft.Compute/locations/{location}/edgeZones/{edgeZone}/publishers/{publisherName}/artifactTypes/vmimage/offers/{offer}";
+    public string ID => "/subscriptions/{subscriptionId}/providers/Microsoft.Compute/locations/{location}/edgeZones/{edgeZone}/publishers/{publisherName}/artifactTypes/vmImage/offers/{offer}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -27,7 +27,7 @@ internal class VmimageOfferId : ResourceID
         ResourceIDSegment.Static("staticPublishers", "publishers"),
         ResourceIDSegment.UserSpecified("publisherName"),
         ResourceIDSegment.Static("staticArtifactTypes", "artifactTypes"),
-        ResourceIDSegment.Static("staticVmimage", "vmimage"),
+        ResourceIDSegment.Static("staticVmImage", "vmImage"),
         ResourceIDSegment.Static("staticOffers", "offers"),
         ResourceIDSegment.UserSpecified("offer"),
     };
