@@ -9,8 +9,10 @@ fmt:
 run: build
 	./generator-terraform
 
+test: build
+	go test -v ./...
+
 tools:
 	@echo "==> no tools required at this time."
 
-.PHONY: build fmt run
-
+.PHONY: build fmt run test tools
