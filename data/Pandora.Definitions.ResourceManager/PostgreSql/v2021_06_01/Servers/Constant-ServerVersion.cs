@@ -6,6 +6,9 @@ namespace Pandora.Definitions.ResourceManager.PostgreSql.v2021_06_01.Servers;
 [ConstantType(ConstantTypeAttribute.ConstantType.String)]
 internal enum ServerVersionConstant
 {
+    [Description("14")]
+    OneFour,
+
     [Description("11")]
     OneOne,
 
