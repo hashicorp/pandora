@@ -83,7 +83,7 @@ func reverseMap(files []map[string]string) map[string][]string {
 }
 
 func formatPaths(paths []string) []string {
-	f := make([]string, len(paths))
+	f := make([]string, 0)
 	for _, p := range paths {
 		f = append(f, fmt.Sprintf("`%s`", p))
 	}
@@ -128,7 +128,7 @@ func run(ctx context.Context) error {
 	}
 
 	servicesReversed := make(map[string]map[string][]string, 0)
-	sortedKeys := make([]string, len(servicesReversed))
+	sortedKeys := make([]string, 0)
 
 	// need to map from ID => file occurrences
 	for k, v := range services {
