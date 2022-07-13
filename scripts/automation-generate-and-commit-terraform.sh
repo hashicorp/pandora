@@ -38,16 +38,6 @@ function runWrapper {
   cd "${DIR}"
 }
 
-function runTerraformProviderUnitTests {
-  local outputDirectory=$1
-
-  cd "${DIR}"
-
-  echo "Running 'make test' within the Terraform Provider codebase.."
-  cd "${outputDirectory}"
-  make test
-}
-
 function prepareTerraformProvider {
   local workingDirectory=$1
   local sdkRepo=$2
@@ -67,6 +57,46 @@ function prepareTerraformProvider {
   cd "${DIR}"
 }
 
+function conditionallyCommitAndPushGoSdk {
+  local workingDirectory=$1
+  local sha=$2
+  local branch="auto-pr/$sha"
+
+  cd "${DIR}"
+  cd "$workingDirectory"
+  if [[ $(git status --porcelain | wc -l) -gt 0 ]]; then
+    echo "Committing and Pushing the changes"
+
+    # commit the generated changes
+    git checkout -b "$branch"
+    git config user.name "hc-github-team-tf-azure"
+    git config user.email "<>"
+    git add --all
+    git commit -m "Updating based on $sha"
+
+    # then update the dependencies
+    go mod tidy
+    if [[ $(git status --porcelain | wc -l) -gt 0 ]]; then
+      git add --all
+      git commit -m "Updating dependencies based on $sha"
+    fi
+
+    # NOTE: we're intentionally force-pushing here in-case this PR is
+    # open and other changes (e.g. to the generator) get included
+    git push origin "$branch" -f
+  else
+    echo "No changes detected - skipping commit/push"
+  fi
+}
+
+function getSwaggerSubmoduleSha {
+  local submodulePath=$1
+
+  cd "${DIR}"
+  cd "$submodulePath"
+  git rev-parse --short HEAD
+}
+
 function cleanup {
   local outputDirectory=$1
 
@@ -77,13 +107,16 @@ function cleanup {
 
 function main {
   local dataApiAssemblyPath="data/Pandora.Api/bin/Debug/net6.0/Pandora.Api.dll"
-  local outputDirectory="tmp/provider-azurerm"
+  local swaggerSubmodule="./swagger"
+  local outputDirectory="tmp/go-azure-sdk"
   local sdkRepo="git@github.com:hashicorp/terraform-provider-azurerm-private.git"
+  local sha
 
   buildAndInstallDependencies
+  sha=$(getSwaggerSubmoduleSha "$swaggerSubmodule")
   prepareTerraformProvider "$outputDirectory" "$sdkRepo"
-  runWrapper "$dataApiAssemblyPath" "$outputDirectory"
-  runTerraformProviderUnitTests "$outputDirectory"
+  runWrapper "$dataApiAssemblyPath" "$outputDirectory" "$sha"
+  runTerraformProviderUnitTests "$outputDirectory" "$sha"
   cleanup "$outputDirectory"
 }
 
