@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"sort"
 	"strconv"
 	"strings"
 
@@ -17,7 +18,7 @@ type Repo struct {
 	Name  string
 }
 
-func (r Repo) getPullRequest(client *github.Client, ctx context.Context, id int) (*github.PullRequest, error) {
+func (r Repo) getPullRequest(ctx context.Context, client *github.Client, id int) (*github.PullRequest, error) {
 	pr, _, err := client.PullRequests.Get(ctx, r.Owner, r.Name, id)
 	if err != nil {
 		return nil, err
@@ -26,7 +27,7 @@ func (r Repo) getPullRequest(client *github.Client, ctx context.Context, id int)
 	return pr, nil
 }
 
-func (r Repo) getPullRequestDiff(client *github.Client, ctx context.Context, id int) (string, error) {
+func (r Repo) getPullRequestDiff(ctx context.Context, client *github.Client, id int) (string, error) {
 	opts := github.RawOptions{
 		Type: github.Diff,
 	}
@@ -39,25 +40,24 @@ func (r Repo) getPullRequestDiff(client *github.Client, ctx context.Context, id 
 	return pr, nil
 }
 
-func (r Repo) updatePullRequestBody(client *github.Client, ctx context.Context, id int, body *string) error {
-	updateBody := github.PullRequest{
+func (r Repo) createCommentOnPullRequest(ctx context.Context, client *github.Client, id int, body *string) error {
+	comment := github.IssueComment{
 		Body: body,
 	}
 
-	if _, _, err := client.PullRequests.Edit(ctx, r.Owner, r.Name, id, &updateBody); err != nil {
+	if _, _, err := client.Issues.CreateComment(ctx, r.Owner, r.Name, id, &comment); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func newGitHubClient(token string) (*github.Client, context.Context) {
-	ctx := context.Background()
+func newGitHubClient(ctx context.Context, token string) *github.Client {
 	ts := oauth2.StaticTokenSource(
 		&oauth2.Token{AccessToken: token},
 	)
 	tc := oauth2.NewClient(ctx, ts)
-	return github.NewClient(tc), ctx
+	return github.NewClient(tc)
 }
 
 func shortenFileName(file string) string {
@@ -67,11 +67,32 @@ func shortenFileName(file string) string {
 			return ".../" + strings.Join(fileSplit[i+1:], "/")
 		}
 	}
-	return file
+
+	return ".../" + file
 }
 
-func run() error {
-	token := os.Getenv("GITHUB_TOKEN")
+func reverseMap(files []map[string]string) map[string][]string {
+	r := make(map[string][]string, 0)
+	for _, file := range files {
+		for k, v := range file {
+			r[v] = append(r[v], k)
+		}
+	}
+
+	return r
+}
+
+func formatPaths(paths []string) []string {
+	f := make([]string, len(paths))
+	for _, p := range paths {
+		f = append(f, fmt.Sprintf("`%s`", p))
+	}
+
+	return f
+}
+
+func run(ctx context.Context) error {
+	token := os.Getenv("PANDORA_TOKEN")
 	owner := strings.Split(os.Getenv("GITHUB_REPOSITORY"), "/")[0]
 	name := strings.Split(os.Getenv("GITHUB_REPOSITORY"), "/")[1]
 	prId, err := strconv.Atoi(os.Getenv("PR_NUMBER"))
@@ -80,45 +101,59 @@ func run() error {
 	}
 
 	repo := Repo{owner, name}
-	client, ctx := newGitHubClient(token)
+	client := newGitHubClient(ctx, token)
 
-	prDiff, err := repo.getPullRequestDiff(client, ctx, prId)
+	prDiff, err := repo.getPullRequestDiff(ctx, client, prId)
 	if err != nil {
 		return err
 	}
 
-	resourceIds := make(map[string]string, 0)
-
 	files := strings.Split(prDiff, "+++")
+	services := make(map[string][]map[string]string, 0)
 
 	for _, file := range files {
 		lines := strings.Split(file, "\n")
 		if strings.Contains(lines[0], "ResourceId-") {
 			filePath := shortenFileName(lines[0])
-			log.Printf("%s", strings.TrimSpace(lines[0]))
+			service := strings.Split(filePath, "/")[1]
 			for _, line := range lines {
-				if strings.Contains(line, "public string ID") {
-					resourceIds[filePath] = line[strings.Index(line, "\"")+1 : strings.LastIndex(line, "\"")]
+				// only take the new IDs if it existed previously and has been updated
+				if strings.Contains(line, "+") && strings.Contains(line, "public string ID") {
+					id := line[strings.Index(line, "\"")+1 : strings.LastIndex(line, "\"")]
+					services[service] = append(services[service], map[string]string{filePath: id})
 					continue
 				}
 			}
 		}
 	}
 
-	comment := fmt.Sprintf("\n\n%d Resource IDs found:\n\n", len(resourceIds))
-	for file, id := range resourceIds {
-		comment += fmt.Sprintf("```%s => %s```\n", file, id)
+	servicesReversed := make(map[string]map[string][]string, 0)
+	sortedKeys := make([]string, len(servicesReversed))
+
+	// need to map from ID => file occurrences
+	for k, v := range services {
+		servicesReversed[k] = reverseMap(v)
+		sortedKeys = append(sortedKeys, k)
 	}
 
-	pr, err := repo.getPullRequest(client, ctx, prId)
+	sort.Strings(sortedKeys)
 
-	body := ""
-	if v := pr.Body; v != nil {
-		body = *v
+	comment := ""
+
+	for _, k := range sortedKeys {
+		comment += fmt.Sprintf("%d Resource ID(s) found for `%s`:\nID | File\n---|---\n", len(servicesReversed[k]), k)
+		for id, p := range servicesReversed[k] {
+			formatted := formatPaths(p)
+			comment += fmt.Sprintf("`%s`|%s\n", id, strings.Join(formatted, "<br>"))
+		}
+		comment += "\n"
 	}
-	body += comment
 
-	if err := repo.updatePullRequestBody(client, ctx, prId, &body); err != nil {
+	if len(servicesReversed) == 0 {
+		comment = "No new resource IDs found."
+	}
+
+	if err := repo.createCommentOnPullRequest(ctx, client, prId, &comment); err != nil {
 		return err
 	}
 
@@ -126,7 +161,7 @@ func run() error {
 }
 
 func main() {
-	if err := run(); err != nil {
+	if err := run(context.Background()); err != nil {
 		log.Fatal(err)
 	}
 	os.Exit(0)
