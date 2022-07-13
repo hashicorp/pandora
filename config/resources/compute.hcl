@@ -2,14 +2,14 @@ service "Compute" {
   api "2021-11-01" {
     package "VirtualMachines" {
       definition "virtual_machine" {
-        id = "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Compute/virtualMachines/{virtualMachineName}"
+        id = "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}"
         display_name = "Virtual Machine"
       }
     }
 
     package "VirtualMachineScaleSets" {
       definition "virtual_machine_scale_set" {
-        id = "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Compute/virtualMachinesScaleSets/{virtualMachineScaleSetName}"
+        id = "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}"
         display_name = "Virtual Machine Scale Set"
       }
     }

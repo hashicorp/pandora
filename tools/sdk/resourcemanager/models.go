@@ -1,9 +1,29 @@
 package resourcemanager
 
+import (
+	"fmt"
+)
+
 type ApiObjectDefinition struct {
 	NestedItem    *ApiObjectDefinition    `json:"nestedItem,omitempty"`
 	ReferenceName *string                 `json:"referenceName,omitempty"`
 	Type          ApiObjectDefinitionType `json:"type"`
+}
+
+func (d ApiObjectDefinition) String() string {
+	if d.Type == DictionaryApiObjectDefinitionType {
+		return fmt.Sprintf("Dictionary[string, %s]", *d.NestedItem)
+	}
+
+	if d.Type == ListApiObjectDefinitionType {
+		return fmt.Sprintf("List[%s]", *d.NestedItem)
+	}
+
+	if d.Type == ReferenceApiObjectDefinitionType {
+		return fmt.Sprintf("Reference %q", *d.ReferenceName)
+	}
+
+	return string(d.Type)
 }
 
 type ApiObjectDefinitionType string
