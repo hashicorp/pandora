@@ -43,3 +43,9 @@ func (c Client) Services() ServicesClient {
 		Client: c,
 	}
 }
+
+func (c Client) Terraform() TerraformClient {
+	return TerraformClient{
+		Client: c,
+	}
+}

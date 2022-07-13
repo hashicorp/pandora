@@ -1,6 +1,8 @@
 package services
 
 import (
+	"fmt"
+
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
@@ -25,6 +27,11 @@ func GetResourceManagerServices(client resourcemanager.Client) (*ResourceManager
 				return nil, err
 			}
 
+			terraformDetails, err := client.Terraform().Get(*versionInfo)
+			if err != nil {
+				return nil, fmt.Errorf("")
+			}
+
 			resources := make(map[string]Resource)
 			for resourceName, resourceDetails := range versionInfo.Resources {
 				operations, err := client.ApiOperations().Get(resourceDetails)
@@ -46,6 +53,7 @@ func GetResourceManagerServices(client resourcemanager.Client) (*ResourceManager
 			serviceVersions[versionNumber] = ServiceVersion{
 				Details:   *versionInfo,
 				Resources: resources,
+				Terraform: *terraformDetails,
 			}
 		}
 

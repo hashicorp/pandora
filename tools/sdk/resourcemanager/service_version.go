@@ -33,6 +33,10 @@ type ServiceVersionDetails struct {
 
 	// Source specifies the original source used for these API Definitions
 	Source ApiDefinitionsSource `json:"source"`
+
+	// TerraformUri is an endpoint which contains information about the Terraform
+	// metadata (incl. Data Sources/Resources) for this API Version
+	TerraformUri string `json:"terraformUri"`
 }
 
 type ResourceSummary struct {

@@ -14,6 +14,7 @@ type ResourceManagerService struct {
 type ServiceVersion struct {
 	Details   resourcemanager.ServiceVersionDetails
 	Resources map[string]Resource
+	Terraform resourcemanager.TerraformDetails
 }
 
 type Resource struct {

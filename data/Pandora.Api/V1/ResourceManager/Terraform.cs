@@ -44,7 +44,7 @@ public class TerraformController : ControllerBase
     {
         [JsonPropertyName("dataSources")]
         public Dictionary<string, DataSourceResponse> DataSources { get; set; }
-        
+
         [JsonPropertyName("resources")]
         public Dictionary<string, ResourceResponse> Resources { get; set; }
     }
@@ -62,19 +62,19 @@ public class TerraformController : ControllerBase
 
         [JsonPropertyName("generate")]
         public bool Generate => GenerateDelete || GenerateImport || GenerateSchema || GenerateIdValidation;
-        
+
         [JsonPropertyName("generateDelete")]
         public bool GenerateDelete { get; set; }
-        
+
         [JsonPropertyName("generateImport")]
         public bool GenerateImport { get; set; }
-        
+
         [JsonPropertyName("generateSchema")]
         public bool GenerateSchema { get; set; }
 
         [JsonPropertyName("generateIdValidation")]
         public bool GenerateIdValidation { get; set; }
-        
+
         // TODO: should this be ResourceUri?
         [JsonPropertyName("resource")]
         public string Resource { get; set; }
