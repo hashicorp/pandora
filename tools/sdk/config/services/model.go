@@ -1,4 +1,4 @@
-package config
+package services
 
 type Config struct {
 	// Services is a slice of Services which should be imported

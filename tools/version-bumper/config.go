@@ -7,13 +7,12 @@ import (
 	"strings"
 	"time"
 
-	"github.com/hashicorp/pandora/tools/sdk/config"
-
 	"github.com/hashicorp/hcl/v2/gohcl"
 	"github.com/hashicorp/hcl/v2/hclwrite"
+	"github.com/hashicorp/pandora/tools/sdk/config/services"
 )
 
-func writeToFile(config config.Config, filePath string) error {
+func writeToFile(config services.Config, filePath string) error {
 	config.Services = sortServices(config.Services)
 
 	newFile := hclwrite.NewEmptyFile()
@@ -29,19 +28,19 @@ func writeToFile(config config.Config, filePath string) error {
 	return nil
 }
 
-func sortServices(input []config.Service) []config.Service {
+func sortServices(input []services.Service) []services.Service {
 	names := make([]string, 0)
-	services := make(map[string]config.Service, 0)
+	parsed := make(map[string]services.Service, 0)
 	for _, service := range input {
 		names = append(names, service.Directory)
-		services[service.Directory] = service
+		parsed[service.Directory] = service
 	}
 
 	sort.Strings(names)
 
-	output := make([]config.Service, 0)
+	output := make([]services.Service, 0)
 	for _, name := range names {
-		service := services[name]
+		service := parsed[name]
 		sort.Strings(service.Available)
 		if service.Ignore != nil {
 			sort.Strings(*service.Ignore)
@@ -51,17 +50,17 @@ func sortServices(input []config.Service) []config.Service {
 	return output
 }
 
-func reconcileWithAvailableServices(input config.Config, availableServices []AvailableService) (*config.Config, error) {
-	services := make(map[string]config.Service, 0)
+func reconcileWithAvailableServices(input services.Config, availableServices []AvailableService) (*services.Config, error) {
+	result := make(map[string]services.Service, 0)
 	// first add the existing services we know about
 	for _, service := range input.Services {
-		services[strings.ToLower(service.Directory)] = service
+		result[strings.ToLower(service.Directory)] = service
 	}
 
 	// first add the existing services we know about
 	for _, availableService := range availableServices {
 		key := strings.ToLower(availableService.Directory)
-		existing, hasExisting := services[key]
+		existing, hasExisting := result[key]
 		if !hasExisting {
 			// temporary feature-flag to ensure we only update the versions for previously-imported services
 			// this is useful until we import everything - otherwise for now this'll be a large-diff
@@ -76,7 +75,7 @@ func reconcileWithAvailableServices(input config.Config, availableServices []Ava
 			}
 			latestVersion := latestVersionFrom(versions)
 
-			services[key] = config.Service{
+			result[key] = services.Service{
 				Directory: availableService.Directory,
 				Name:      strings.Title(availableService.Directory),
 				Available: []string{
@@ -137,11 +136,11 @@ func reconcileWithAvailableServices(input config.Config, availableServices []Ava
 
 		latestVersion := latestVersionFrom(stableVersionsToAdd)
 		existing.Available = append(existing.Available, latestVersion)
-		services[key] = existing
+		result[key] = existing
 	}
 
-	output := make([]config.Service, 0)
-	for _, service := range services {
+	output := make([]services.Service, 0)
+	for _, service := range result {
 		output = append(output, service)
 	}
 	input.Services = output

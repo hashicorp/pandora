@@ -6,7 +6,7 @@ import (
 	"strings"
 
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser"
-	"github.com/hashicorp/pandora/tools/sdk/config"
+	"github.com/hashicorp/pandora/tools/sdk/config/services"
 )
 
 type RunInput struct {
@@ -40,7 +40,7 @@ func (rmi ResourceManagerInput) ToRunInput() RunInput {
 }
 
 func GenerationData(configFilePath, swaggerDirectory string, debug bool) (*[]RunInput, error) {
-	parsed, err := config.LoadFromFile(configFilePath)
+	parsed, err := services.LoadFromFile(configFilePath)
 	if err != nil {
 		return nil, fmt.Errorf("loading config: %+v", err)
 	}
