@@ -21,7 +21,6 @@ func idValidationFunctionForResource(input ResourceInput) string {
 		validationLine = fmt.Sprintf("commonids.Validate%[1]sID", *resourceId.CommonAlias)
 	}
 
-	// TODO: tests
 	return fmt.Sprintf(`
 func (r %[1]sResource) IDValidationFunc() pluginsdk.SchemaValidateFunc {
 	return %[2]s

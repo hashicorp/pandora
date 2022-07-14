@@ -3,7 +3,6 @@ package generator
 import "fmt"
 
 func importsForResource(input ResourceInput) string {
-	// TODO: tests
 	return fmt.Sprintf(`
 import (
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/commonids"
