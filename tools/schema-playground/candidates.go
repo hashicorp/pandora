@@ -36,11 +36,7 @@ func findCandidates(input services.ResourceManagerServices) (*[]CandidatesForSer
 
 		for apiVersion, versionDetails := range service.Versions {
 			for resourceName, resourceDetails := range versionDetails.Resources {
-				candidates, err := identification.FindCandidates(resourceDetails)
-				if err != nil {
-					return nil, fmt.Errorf("determining candidates for Service %q / Version %q / Resource %q: %+v", serviceName, apiVersion, resourceName, err)
-				}
-
+				candidates := identification.FindCandidates(resourceDetails)
 				if len(candidates.DataSources) == 0 && len(candidates.Resources) == 0 {
 					continue
 				}
@@ -49,7 +45,7 @@ func findCandidates(input services.ResourceManagerServices) (*[]CandidatesForSer
 					ServiceName:     serviceName,
 					ApiVersion:      apiVersion,
 					ResourceName:    resourceName,
-					Candidates:      *candidates,
+					Candidates:      candidates,
 					ResourceDetails: resourceDetails,
 				})
 			}

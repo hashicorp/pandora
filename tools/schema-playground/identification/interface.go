@@ -13,7 +13,7 @@ type CandidateDetails struct {
 	Resources   []models.ResourceCandidate
 }
 
-func FindCandidates(details services.Resource) (*CandidateDetails, error) {
+func FindCandidates(details services.Resource) CandidateDetails {
 	out := CandidateDetails{
 		DataSources: []models.DataSourceCandidate{},
 		Resources:   []models.ResourceCandidate{},
@@ -104,5 +104,5 @@ func FindCandidates(details services.Resource) (*CandidateDetails, error) {
 		}
 	}
 
-	return &out, nil
+	return out
 }

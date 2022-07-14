@@ -17,7 +17,8 @@ type FieldDefinition struct {
 	ForceNew   bool
 	Optional   bool
 	Computed   bool
-	Validation ValidationDefinition
+
+	// TODO: validation
 
 	// WriteOnly specifies if this field is Write-Only, that is, setable but not returned
 	WriteOnly bool
@@ -30,7 +31,6 @@ func (d FieldDefinition) String() string {
 		fmt.Sprintf("ForceNew %t", d.ForceNew),
 		fmt.Sprintf("Optional %t", d.Optional),
 		fmt.Sprintf("Computed %t", d.Computed),
-		fmt.Sprintf("Validation %+v", d.Validation),
 		fmt.Sprintf("Write Only %t", d.WriteOnly),
 	}, " / ")
 }
