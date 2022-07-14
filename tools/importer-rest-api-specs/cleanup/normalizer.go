@@ -252,6 +252,7 @@ func NormalizeResourceProviderName(input string) string {
 		"microsoft.datashare":                      "Microsoft.DataShare",
 		"microsoft.databricks":                     "Microsoft.Databricks",
 		"microsoft.datadog":                        "Microsoft.Datadog",
+		"Microsoft.DBForPostgreSql":                "Microsoft.DBForPostgreSQL",
 		"microsoft.delegatednetwork":               "Microsoft.DelegatedNetwork",
 		"microsoft.deploymentmanager":              "Microsoft.DeploymentManager",
 		"microsoft.desktopvirtualization":          "Microsoft.DesktopVirtualization",
