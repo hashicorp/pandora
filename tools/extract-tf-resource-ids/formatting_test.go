@@ -2,6 +2,8 @@ package main
 
 import (
 	"testing"
+
+	"github.com/go-test/deep"
 )
 
 func TestShortenFileName(t *testing.T) {
@@ -62,6 +64,32 @@ func TestReverseMap(t *testing.T) {
 				},
 			},
 		},
+		{
+			input: []map[string]string{
+				{
+					"path1": "id1",
+				},
+				{
+					"path2": "id2",
+				},
+				{
+					"path3": "id1",
+				},
+			},
+			expected: map[string][]string{
+				"id1": {
+					"path1",
+					"path3",
+				},
+				"id2": {
+					"path2",
+				},
+			},
+		},
+		{
+			input:    []map[string]string{},
+			expected: map[string][]string{},
+		},
 	}
 
 	for _, v := range testData {
@@ -69,14 +97,8 @@ func TestReverseMap(t *testing.T) {
 
 		actual := reverseMap(v.input)
 
-		for id, _ := range v.expected {
-			if _, exists := actual[id]; !exists {
-				t.Fatalf("Key %s is missing from %+v", id, actual)
-			}
-			// TODO this keeps returning false even though the types, ordering and content is identical
-			//if reflect.DeepEqual(paths, val) {
-			//	t.Fatalf("Expected %s but got %s", v.expected, actual)
-			//}
+		if len(deep.Equal(actual, v.expected)) > 0 {
+			t.Fatalf("Expected %s but got %s", v.expected, actual)
 		}
 	}
 }
