@@ -13,7 +13,7 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.ContainerInstance.v2021_10_01.ContainerInstance;
 
 
-internal class ContainerGroupPropertiesInstanceViewModel
+internal class ContainerGroupPropertiesPropertiesInstanceViewModel
 {
     [JsonPropertyName("events")]
     public List<EventModel>? Events { get; set; }

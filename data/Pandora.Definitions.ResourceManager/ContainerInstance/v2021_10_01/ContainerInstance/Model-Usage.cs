@@ -18,6 +18,9 @@ internal class UsageModel
     [JsonPropertyName("currentValue")]
     public int? CurrentValue { get; set; }
 
+    [JsonPropertyName("id")]
+    public string? Id { get; set; }
+
     [JsonPropertyName("limit")]
     public int? Limit { get; set; }
 

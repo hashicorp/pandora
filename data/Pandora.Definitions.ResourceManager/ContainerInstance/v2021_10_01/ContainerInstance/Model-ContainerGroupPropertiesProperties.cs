@@ -13,7 +13,7 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.ContainerInstance.v2021_10_01.ContainerInstance;
 
 
-internal class ContainerGroupPropertiesModel
+internal class ContainerGroupPropertiesPropertiesModel
 {
     [JsonPropertyName("containers")]
     [Required]
@@ -35,7 +35,7 @@ internal class ContainerGroupPropertiesModel
     public List<InitContainerDefinitionModel>? InitContainers { get; set; }
 
     [JsonPropertyName("instanceView")]
-    public ContainerGroupPropertiesInstanceViewModel? InstanceView { get; set; }
+    public ContainerGroupPropertiesPropertiesInstanceViewModel? InstanceView { get; set; }
 
     [JsonPropertyName("ipAddress")]
     public IpAddressModel? IpAddress { get; set; }
