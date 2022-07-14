@@ -41,7 +41,7 @@ public class TerraformController : ControllerBase
                 }
             });
         }
-        
+
         // NOTE: fake placeholder data for now to build against
         return new JsonResult(new TerraformV1Response
         {
@@ -81,13 +81,13 @@ public class TerraformController : ControllerBase
 
         [JsonPropertyName("generateIdValidation")]
         public bool GenerateIdValidation { get; set; }
-        
+
         [JsonPropertyName("resource")]
         public string Resource { get; set; }
 
         [JsonPropertyName("resourceIdName")]
         public string ResourceIdName { get; set; }
-        
+
         [JsonPropertyName("resourceName")]
         public string ResourceName { get; set; }
     }
