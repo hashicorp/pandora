@@ -30,6 +30,10 @@ type ServiceDetails struct {
 	// ResourceProvider is the Resource Provider this service represents
 	ResourceProvider string `json:"resourceProvider,omitempty"`
 
+	// TerraformPackageName is the name of the Service Package within
+	// the Terraform Provider associated with this service.
+	TerraformPackageName string `json:"terraformPackageName,omitempty"`
+
 	// Versions is a summary of the Versions available for this Service
 	Versions map[string]ServiceVersion `json:"versions"`
 }

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text.Json.Serialization;
 using Microsoft.AspNetCore.Mvc;
@@ -38,6 +39,7 @@ public class ServiceDetailsController : ControllerBase
         return new ServiceDetailsResponse
         {
             ResourceProvider = version.ResourceManager ? version.ResourceProvider! : null,
+            TerraformPackageName = serviceName == "Resources" ? "resources" : null, // TODO: implement this through
             Versions = version.Versions.ToDictionary(v => v.Version, v => MapVersion(v, serviceName))
         };
     }
@@ -68,6 +70,9 @@ public class ServiceDetailsController : ControllerBase
     {
         [JsonPropertyName("resourceProvider")]
         public string? ResourceProvider { get; set; }
+        
+        [JsonPropertyName("terraformPackageName")]
+        public string TerraformPackageName { get; set; }
 
         [JsonPropertyName("versions")]
         public Dictionary<string, VersionDetails> Versions { get; set; }
