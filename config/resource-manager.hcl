@@ -165,7 +165,7 @@ service "msi" {
 }
 service "netapp" {
   name      = "NetApp"
-  available = ["2021-10-01"]
+  available = ["2021-10-01", "2022-01-01"]
 }
 service "notificationhubs" {
   name      = "NotificationHubs"
