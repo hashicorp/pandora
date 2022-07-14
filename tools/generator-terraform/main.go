@@ -7,6 +7,8 @@ import (
 	"os"
 	"path/filepath"
 
+	"github.com/hashicorp/pandora/tools/generator-terraform/generator"
+
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 	"github.com/hashicorp/pandora/tools/sdk/services"
 )
@@ -14,11 +16,13 @@ import (
 type GeneratorInput struct {
 	apiServerEndpoint string
 	outputDirectory   string
+	providerPrefix    string
 }
 
 func main() {
 	input := GeneratorInput{
 		apiServerEndpoint: "",
+		providerPrefix:    "azurerm",
 		outputDirectory:   "",
 	}
 
@@ -44,9 +48,11 @@ func main() {
 }
 
 func run(input GeneratorInput) error {
-	client := resourcemanager.NewClient(input.apiServerEndpoint)
+	// ensure the output directory exists
+	os.MkdirAll(input.outputDirectory, 0755)
 
 	log.Printf("[DEBUG] Retrieving Services from Data API..")
+	client := resourcemanager.NewClient(input.apiServerEndpoint)
 	services, err := services.GetResourceManagerServices(client)
 	if err != nil {
 		return fmt.Errorf("retrieving resource manager services: %+v", err)
@@ -65,9 +71,32 @@ func run(input GeneratorInput) error {
 				continue
 			}
 
-			log.Printf("[DEBUG]   Version %q has %d Data Sources & %d Resources", versionNumber, len(versionDetails.Terraform.DataSources), len(versionDetails.Terraform.Resources))
+			for label, _ := range versionDetails.Terraform.DataSources {
+				log.Printf("[DEBUG] Processing Data Source %q..", label)
+				dataSourceInput := generator.DataSourceInput{
+					ProviderPrefix:     input.providerPrefix,
+					ResourceLabel:      label,
+					RootDirectory:      input.outputDirectory,
+					ServicePackageName: "example", // TODO: needs to be returned from the API
+				}
+				if err := generator.DataSource(dataSourceInput); err != nil {
+					return fmt.Errorf("generating for Data Source %q (Service %q / API Version %q): %+v", label, serviceName, versionNumber, err)
+				}
+			}
 
-			// TODO: generate the Terraform side of this
+			for label, details := range versionDetails.Terraform.Resources {
+				log.Printf("[DEBUG] Processing Resource %q..", label)
+				resourceInput := generator.ResourceInput{
+					ProviderPrefix:     input.providerPrefix,
+					RootDirectory:      input.outputDirectory,
+					ResourceLabel:      label,
+					ServicePackageName: "example", // TODO: needs to be returned from the API
+					Details:            details,
+				}
+				if err := generator.Resource(resourceInput); err != nil {
+					return fmt.Errorf("generating for Resource %q (Service %q / API Version %q): %+v", label, serviceName, versionNumber, err)
+				}
+			}
 		}
 	}
 
