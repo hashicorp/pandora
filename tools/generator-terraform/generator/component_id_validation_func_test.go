@@ -7,7 +7,7 @@ import (
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-func TestComponentIDValidationFunc_CommonResourceIDDisabled(t *testing.T) {
+func TestComponentIDValidationFunc_CommonResourceID_Disabled(t *testing.T) {
 	input := ResourceInput{
 		ResourceTypeName: "Example",
 		SdkResourceName:  "sdkresource",
@@ -26,7 +26,7 @@ func TestComponentIDValidationFunc_CommonResourceIDDisabled(t *testing.T) {
 	assertTemplatedCodeMatches(t, expected, actual)
 }
 
-func TestComponentIDValidationFunc_CommonResourceIDEnabled(t *testing.T) {
+func TestComponentIDValidationFunc_CommonResourceID_Enabled(t *testing.T) {
 	input := ResourceInput{
 		ResourceTypeName: "Example",
 		SdkResourceName:  "sdkresource",
@@ -49,7 +49,7 @@ func (r ExampleResource) IDValidationFunc() pluginsdk.SchemaValidateFunc {
 	assertTemplatedCodeMatches(t, expected, actual)
 }
 
-func TestComponentIDValidationFunc_RegularResourceIDDisabled(t *testing.T) {
+func TestComponentIDValidationFunc_RegularResourceID_Disabled(t *testing.T) {
 	input := ResourceInput{
 		ResourceTypeName: "Example",
 		SdkResourceName:  "sdkresource",
@@ -81,7 +81,7 @@ func TestComponentIDValidationFunc_RegularResourceIDDisabled(t *testing.T) {
 	assertTemplatedCodeMatches(t, expected, actual)
 }
 
-func TestComponentIDValidationFunc_RegularResourceIDEnabled(t *testing.T) {
+func TestComponentIDValidationFunc_RegularResourceID_Enabled(t *testing.T) {
 	input := ResourceInput{
 		ResourceTypeName: "Example",
 		SdkResourceName:  "sdkresource",
