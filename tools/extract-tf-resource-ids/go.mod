@@ -3,6 +3,7 @@ module github.com/hashicorp/pandora/tools/extract-tf-resource-ids
 go 1.18
 
 require (
+	github.com/go-test/deep v1.0.8
 	github.com/google/go-github v17.0.0+incompatible
 	golang.org/x/oauth2 v0.0.0-20220411215720-9780585627b5
 )
