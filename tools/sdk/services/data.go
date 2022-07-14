@@ -58,8 +58,9 @@ func GetResourceManagerServices(client resourcemanager.Client) (*ResourceManager
 		}
 
 		resourceManagerServices[serviceName] = ResourceManagerService{
-			Details:  service,
-			Versions: serviceVersions,
+			Details:              service,
+			TerraformPackageName: versions.TerraformPackageName,
+			Versions:             serviceVersions,
 		}
 	}
 	return &ResourceManagerServices{
