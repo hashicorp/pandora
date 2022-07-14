@@ -57,7 +57,7 @@ function prepareTerraformProvider {
   cd "${DIR}"
 }
 
-function conditionallyCommitAndPushGoSdk {
+function conditionallyCommitAndPushTerraformProvider {
   local workingDirectory=$1
   local sha=$2
   local branch="auto-pr/$sha"
@@ -76,6 +76,7 @@ function conditionallyCommitAndPushGoSdk {
 
     # then update the dependencies
     go mod tidy
+    go mod vendor
     if [[ $(git status --porcelain | wc -l) -gt 0 ]]; then
       git add --all
       git commit -m "Updating dependencies based on $sha"
@@ -116,7 +117,7 @@ function main {
   sha=$(getSwaggerSubmoduleSha "$swaggerSubmodule")
   prepareTerraformProvider "$outputDirectory" "$sdkRepo"
   runWrapper "$dataApiAssemblyPath" "$outputDirectory" "$sha"
-  runTerraformProviderUnitTests "$outputDirectory" "$sha"
+  conditionallyCommitAndPushTerraformProvider "$outputDirectory" "$sha"
   cleanup "$outputDirectory"
 }
 
