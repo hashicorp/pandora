@@ -20,7 +20,7 @@ func (s *ServiceGenerator) readmeFile(data ServiceGeneratorData) error {
 		sortedOperationNames: sortedOperationNames,
 		operations:           data.operations,
 	}
-	if err := s.writeToPath(data.outputPath, "README.md", t, data); err != nil {
+	if err := s.writeToPathForResource(data.resourceOutputPath, "README.md", t, data); err != nil {
 		return fmt.Errorf("templating README file: %+v", err)
 	}
 

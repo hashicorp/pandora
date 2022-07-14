@@ -8,7 +8,7 @@ import (
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-var _ templater = constantsTemplater{}
+var _ templaterForResource = constantsTemplater{}
 
 type constantsTemplater struct {
 	constantTemplateFunc func(name string, details resourcemanager.ConstantDetails) (*string, error)
