@@ -29,7 +29,7 @@ internal class ContainerGroupModel
 
     [JsonPropertyName("properties")]
     [Required]
-    public ContainerGroupPropertiesModel Properties { get; set; }
+    public ContainerGroupPropertiesPropertiesModel Properties { get; set; }
 
     [JsonPropertyName("tags")]
     public CustomTypes.Tags? Tags { get; set; }

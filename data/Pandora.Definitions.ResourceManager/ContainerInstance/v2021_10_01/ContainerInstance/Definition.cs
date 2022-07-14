@@ -29,5 +29,6 @@ internal class Definition : ResourceDefinition
         new LocationListCachedImagesOperation(),
         new LocationListCapabilitiesOperation(),
         new LocationListUsageOperation(),
+        new SubnetServiceAssociationLinkDeleteOperation(),
     };
 }

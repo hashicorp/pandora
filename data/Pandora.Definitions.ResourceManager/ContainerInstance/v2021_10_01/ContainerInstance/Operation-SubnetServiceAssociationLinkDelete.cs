@@ -13,21 +13,20 @@ using System.Net;
 
 namespace Pandora.Definitions.ResourceManager.ContainerInstance.v2021_10_01.ContainerInstance;
 
-internal class ContainerGroupsStartOperation : Operations.PostOperation
+internal class SubnetServiceAssociationLinkDeleteOperation : Operations.DeleteOperation
 {
     public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.NoContent,
+                HttpStatusCode.OK,
         };
 
     public override bool LongRunning() => true;
 
-    public override Type? RequestObject() => null;
+    public override ResourceID? ResourceId() => new SubnetId();
 
-    public override ResourceID? ResourceId() => new ContainerGroupId();
-
-    public override string? UriSuffix() => "/start";
+    public override string? UriSuffix() => "/providers/Microsoft.ContainerInstance/serviceAssociationLinks/default";
 
 
 }
