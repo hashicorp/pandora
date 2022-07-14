@@ -66,4 +66,7 @@ type TerraformResourceDetails struct {
 
 	// ResourceIdName specifies the name of the Resource ID type used for this Resource.
 	ResourceIdName string `json:"resourceIdName"`
+
+	// ResourceName specifies the name of this Resource (which can be used as a Go Type Name).
+	ResourceName string `json:"resourceName"`
 }

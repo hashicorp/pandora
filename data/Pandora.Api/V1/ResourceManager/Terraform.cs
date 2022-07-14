@@ -30,11 +30,11 @@ public class TerraformController : ControllerBase
                         "resource_group", new ResourceResponse
                         {
                             DisplayName = "Resource Group",
-                            GenerateDelete = false,
+                            GenerateDelete = true,
                             GenerateSchema = false,
-                            GenerateIdValidation = false,
+                            GenerateIdValidation = true,
                             ResourceName = "ResourceGroup",
-                            Resource = "ResourceGroup",
+                            Resource = "ResourceGroups",
                             ResourceIdName = "ResourceGroupId",
                         }
                     }
