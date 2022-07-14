@@ -41,6 +41,10 @@ type TerraformDataSourceDetails struct {
 }
 
 type TerraformResourceDetails struct {
+	// DeleteMethodName is the name of the method within the SDK package that
+	// should be used to delete this resource in Terraform.
+	DeleteMethodName string `json:"deleteMethodName"`
+
 	// DisplayName is the human-readable/marketing name for this Resource,
 	// for example `Resource Group` or `Virtual Machine`.
 	DisplayName string `json:"displayName"`

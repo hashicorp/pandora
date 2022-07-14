@@ -29,6 +29,7 @@ public class TerraformController : ControllerBase
                     {
                         "resource_group", new ResourceResponse
                         {
+                            DeleteMethodName = "Delete",
                             DisplayName = "Resource Group",
                             GenerateDelete = true,
                             GenerateSchema = false,
@@ -67,6 +68,10 @@ public class TerraformController : ControllerBase
     private class ResourceResponse
     {
         // TODO: Schema [incl. Docs], Mappings, Tests etc
+        
+        [JsonPropertyName("deleteMethodName")]
+        public string DeleteMethodName { get; set; }
+        
         [JsonPropertyName("displayName")]
         public string DisplayName { get; set; }
 
