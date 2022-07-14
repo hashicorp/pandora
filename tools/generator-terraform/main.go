@@ -6,6 +6,7 @@ import (
 	"log"
 	"os"
 	"path/filepath"
+	"strings"
 
 	"github.com/hashicorp/pandora/tools/generator-terraform/generator"
 
@@ -72,6 +73,8 @@ func run(input GeneratorInput) error {
 			}
 
 			for label, _ := range versionDetails.Terraform.DataSources {
+				// TODO: conditional generation
+
 				log.Printf("[DEBUG] Processing Data Source %q..", label)
 				dataSourceInput := generator.DataSourceInput{
 					ProviderPrefix:     input.providerPrefix,
@@ -85,13 +88,35 @@ func run(input GeneratorInput) error {
 			}
 
 			for label, details := range versionDetails.Terraform.Resources {
+				if !details.Generate {
+					log.Printf("[DEBUG] Resource %q has generation disabled - skipping", label)
+					continue
+				}
+
+				resource, ok := versionDetails.Resources[details.Resource]
+				if !ok {
+					return fmt.Errorf("couldn't find API Resource %q for Terraform Resource %q (API Version %q / Service %q)", details.Resource, label, versionNumber, serviceName)
+				}
+
 				log.Printf("[DEBUG] Processing Resource %q..", label)
 				resourceInput := generator.ResourceInput{
+					// Provider related
 					ProviderPrefix:     input.providerPrefix,
 					RootDirectory:      input.outputDirectory,
-					ResourceLabel:      label,
-					ServicePackageName: "example", // TODO: needs to be returned from the API
-					Details:            details,
+					ServicePackageName: service.TerraformPackageName,
+
+					// Resource Related
+					Details:          details,
+					ResourceLabel:    label,
+					ResourceTypeName: details.ResourceName,
+
+					// Sdk Related
+					SdkApiVersion:   versionNumber,
+					SdkResourceName: strings.ToLower(details.Resource),
+					SdkServiceName:  strings.ToLower(serviceName),
+
+					// Data
+					ResourceIds: resource.Schema.ResourceIds,
 				}
 				if err := generator.Resource(resourceInput); err != nil {
 					return fmt.Errorf("generating for Resource %q (Service %q / API Version %q): %+v", label, serviceName, versionNumber, err)

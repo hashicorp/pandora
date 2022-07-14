@@ -52,10 +52,6 @@ type TerraformResourceDetails struct {
 	// for this Resource.
 	GenerateDelete bool `json:"generateDelete"`
 
-	// GenerateImport controls whether the Import function should be generated
-	// for this Resource.
-	GenerateImport bool `json:"generateImport"`
-
 	// GenerateSchema controls whether the Schema should be generated for this
 	// Resource.
 	GenerateSchema bool `json:"generateSchema"`
@@ -66,9 +62,11 @@ type TerraformResourceDetails struct {
 
 	// Resource specifies the Resource within this API Version within the Service where
 	// the details for this Resource can be found.
-	// TODO: should this be ResourceUri?
 	Resource string `json:"resource"`
 
 	// ResourceIdName specifies the name of the Resource ID type used for this Resource.
 	ResourceIdName string `json:"resourceIdName"`
+
+	// ResourceName specifies the name of this Resource (which can be used as a Go Type Name).
+	ResourceName string `json:"resourceName"`
 }
