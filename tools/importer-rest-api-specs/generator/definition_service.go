@@ -15,7 +15,7 @@ func (g PandoraDefinitionGenerator) GenerateServiceDefinition() error {
 		log.Printf("[DEBUG] Generating Service Definition into %q..", serviceDefinitionFilePath)
 	}
 	normalizedServiceName := cleanup.NormalizeName(g.data.ServiceName)
-	code := codeForServiceDefinition(g.data.NamespaceForService, normalizedServiceName, g.data.ResourceProvider)
+	code := codeForServiceDefinition(g.data.NamespaceForService, normalizedServiceName, g.data.ResourceProvider, g.data.TerraformPackageName)
 	if err := writeToFile(serviceDefinitionFilePath, code); err != nil {
 		return fmt.Errorf("generating Service Definition into %q: %+v", serviceDefinitionFilePath, err)
 	}
@@ -44,15 +44,20 @@ func (g PandoraDefinitionGenerator) GenerateServiceDefinition() error {
 	return nil
 }
 
-func codeForServiceDefinition(namespace, serviceName string, resourceProvider *string) string {
+func codeForServiceDefinition(namespace, serviceName string, resourceProvider, terraformPackage *string) string {
 	rp := "null"
 	if resourceProvider != nil {
 		rp = fmt.Sprintf("%q", *resourceProvider)
 	}
 
+	terraformPackageName := "null"
+	if terraformPackage != nil {
+		terraformPackageName = fmt.Sprintf("%q", *terraformPackage)
+	}
+
 	return fmt.Sprintf(`using Pandora.Definitions.Interfaces;
 
-%[4]s
+%[5]s
 
 namespace %[1]s;
 
@@ -60,8 +65,9 @@ public partial class Service : ServiceDefinition
 {
 	public string Name => %[2]q;
 	public string? ResourceProvider => %[3]s;
+	public string? TerraformPackageName => %[4]s;
 }
-`, namespace, serviceName, rp, restApiSpecsLicence)
+`, namespace, serviceName, rp, terraformPackageName, restApiSpecsLicence)
 }
 
 func codeForServiceDefinitionGenerationSettings(namespace string, serviceName string) string {

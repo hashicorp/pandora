@@ -100,6 +100,8 @@ func (d *Differ) RetrieveExistingService(serviceName, apiVersion string) (*[]par
 		}
 	}
 
+	// TODO: map across the ResourceProvider and the TerraformPackageName
+
 	// TODO: if the parser returns a single `parser.ParsedData` then this can too - but for now emulate the same result
 	if existingService == nil {
 		return nil, nil
