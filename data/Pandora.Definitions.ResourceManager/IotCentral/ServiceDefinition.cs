@@ -11,4 +11,5 @@ public partial class Service : ServiceDefinition
 {
     public string Name => "IotCentral";
     public string? ResourceProvider => "Microsoft.IoTCentral";
+    public string? TerraformPackageName => "iotcentral";
 }

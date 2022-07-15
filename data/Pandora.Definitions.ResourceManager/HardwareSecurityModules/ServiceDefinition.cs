@@ -11,4 +11,5 @@ public partial class Service : ServiceDefinition
 {
     public string Name => "HardwareSecurityModules";
     public string? ResourceProvider => "Microsoft.HardwareSecurityModules";
+    public string? TerraformPackageName => "hardwaresecuritymodules";
 }

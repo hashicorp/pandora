@@ -11,4 +11,5 @@ public partial class Service : ServiceDefinition
 {
     public string Name => "ContainerInstance";
     public string? ResourceProvider => "Microsoft.ContainerInstance";
+    public string? TerraformPackageName => "containerinstance";
 }

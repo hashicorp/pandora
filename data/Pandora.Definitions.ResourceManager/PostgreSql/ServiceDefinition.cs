@@ -11,4 +11,5 @@ public partial class Service : ServiceDefinition
 {
     public string Name => "PostgreSql";
     public string? ResourceProvider => "Microsoft.DBforPostgreSQL";
+    public string? TerraformPackageName => "postgresql";
 }

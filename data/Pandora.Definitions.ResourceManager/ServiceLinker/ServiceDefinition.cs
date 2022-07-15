@@ -11,4 +11,5 @@ public partial class Service : ServiceDefinition
 {
     public string Name => "ServiceLinker";
     public string? ResourceProvider => "Microsoft.ServiceLinker";
+    public string? TerraformPackageName => "servicelinker";
 }

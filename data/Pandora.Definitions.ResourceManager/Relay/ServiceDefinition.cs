@@ -11,4 +11,5 @@ public partial class Service : ServiceDefinition
 {
     public string Name => "Relay";
     public string? ResourceProvider => "Microsoft.Relay";
+    public string? TerraformPackageName => "relay";
 }

@@ -11,4 +11,5 @@ public partial class Service : ServiceDefinition
 {
     public string Name => "DesktopVirtualization";
     public string? ResourceProvider => "Microsoft.DesktopVirtualization";
+    public string? TerraformPackageName => "desktopvirtualization";
 }

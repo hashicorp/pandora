@@ -11,4 +11,5 @@ public partial class Service : ServiceDefinition
 {
     public string Name => "Orbital";
     public string? ResourceProvider => "Microsoft.Orbital";
+    public string? TerraformPackageName => "orbital";
 }

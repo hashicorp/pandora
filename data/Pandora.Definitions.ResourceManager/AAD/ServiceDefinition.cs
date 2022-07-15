@@ -11,4 +11,5 @@ public partial class Service : ServiceDefinition
 {
     public string Name => "AAD";
     public string? ResourceProvider => "Microsoft.AAD";
+    public string? TerraformPackageName => "aad";
 }

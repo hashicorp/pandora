@@ -11,4 +11,5 @@ public partial class Service : ServiceDefinition
 {
     public string Name => "SqlVirtualMachine";
     public string? ResourceProvider => "Microsoft.SqlVirtualMachine";
+    public string? TerraformPackageName => "sqlvirtualmachine";
 }

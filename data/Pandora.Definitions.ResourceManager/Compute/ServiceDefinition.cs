@@ -11,4 +11,5 @@ public partial class Service : ServiceDefinition
 {
     public string Name => "Compute";
     public string? ResourceProvider => "Microsoft.Compute";
+    public string? TerraformPackageName => "compute";
 }

@@ -11,4 +11,5 @@ public partial class Service : ServiceDefinition
 {
     public string Name => "ServiceFabricManagedCluster";
     public string? ResourceProvider => "Microsoft.ServiceFabric";
+    public string? TerraformPackageName => "servicefabricmanagedcluster";
 }

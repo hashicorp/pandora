@@ -11,4 +11,5 @@ public partial class Service : ServiceDefinition
 {
     public string Name => "ConfidentialLedger";
     public string? ResourceProvider => "Microsoft.ConfidentialLedger";
+    public string? TerraformPackageName => "confidentialledger";
 }

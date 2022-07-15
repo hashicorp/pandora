@@ -11,4 +11,5 @@ public partial class Service : ServiceDefinition
 {
     public string Name => "AppConfiguration";
     public string? ResourceProvider => "Microsoft.AppConfiguration";
+    public string? TerraformPackageName => "appconfiguration";
 }

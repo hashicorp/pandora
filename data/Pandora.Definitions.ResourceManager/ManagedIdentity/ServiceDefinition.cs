@@ -11,4 +11,5 @@ public partial class Service : ServiceDefinition
 {
     public string Name => "ManagedIdentity";
     public string? ResourceProvider => "Microsoft.ManagedIdentity";
+    public string? TerraformPackageName => "managedidentity";
 }

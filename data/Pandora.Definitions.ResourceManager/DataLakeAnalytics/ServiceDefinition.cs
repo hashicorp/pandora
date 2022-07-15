@@ -11,4 +11,5 @@ public partial class Service : ServiceDefinition
 {
     public string Name => "DataLakeAnalytics";
     public string? ResourceProvider => "Microsoft.DataLakeAnalytics";
+    public string? TerraformPackageName => "datalakeanalytics";
 }

@@ -11,4 +11,5 @@ public partial class Service : ServiceDefinition
 {
     public string Name => "AnalysisServices";
     public string? ResourceProvider => "Microsoft.AnalysisServices";
+    public string? TerraformPackageName => "analysisservices";
 }

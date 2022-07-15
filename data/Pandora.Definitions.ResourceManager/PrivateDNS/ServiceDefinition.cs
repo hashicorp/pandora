@@ -11,4 +11,5 @@ public partial class Service : ServiceDefinition
 {
     public string Name => "PrivateDNS";
     public string? ResourceProvider => "Microsoft.Network";
+    public string? TerraformPackageName => "privatedns";
 }

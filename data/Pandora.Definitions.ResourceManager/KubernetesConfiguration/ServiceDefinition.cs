@@ -11,4 +11,5 @@ public partial class Service : ServiceDefinition
 {
     public string Name => "KubernetesConfiguration";
     public string? ResourceProvider => "Microsoft.KubernetesConfiguration";
+    public string? TerraformPackageName => "kubernetesconfiguration";
 }

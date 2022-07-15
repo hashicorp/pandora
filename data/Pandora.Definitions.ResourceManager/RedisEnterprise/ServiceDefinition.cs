@@ -11,4 +11,5 @@ public partial class Service : ServiceDefinition
 {
     public string Name => "RedisEnterprise";
     public string? ResourceProvider => "Microsoft.Cache";
+    public string? TerraformPackageName => "redisenterprise";
 }

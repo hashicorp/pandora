@@ -11,4 +11,5 @@ public partial class Service : ServiceDefinition
 {
     public string Name => "AlertsManagement";
     public string? ResourceProvider => "Microsoft.AlertsManagement";
+    public string? TerraformPackageName => "alertsmanagement";
 }

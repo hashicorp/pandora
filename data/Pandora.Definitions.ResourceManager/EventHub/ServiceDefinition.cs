@@ -11,4 +11,5 @@ public partial class Service : ServiceDefinition
 {
     public string Name => "EventHub";
     public string? ResourceProvider => "Microsoft.EventHub";
+    public string? TerraformPackageName => "eventhub";
 }

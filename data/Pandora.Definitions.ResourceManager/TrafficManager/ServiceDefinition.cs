@@ -11,4 +11,5 @@ public partial class Service : ServiceDefinition
 {
     public string Name => "TrafficManager";
     public string? ResourceProvider => "Microsoft.Network";
+    public string? TerraformPackageName => "trafficmanager";
 }

@@ -11,4 +11,5 @@ public partial class Service : ServiceDefinition
 {
     public string Name => "DataProtection";
     public string? ResourceProvider => "Microsoft.DataProtection";
+    public string? TerraformPackageName => "dataprotection";
 }

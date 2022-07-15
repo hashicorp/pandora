@@ -11,4 +11,5 @@ public partial class Service : ServiceDefinition
 {
     public string Name => "NetApp";
     public string? ResourceProvider => "Microsoft.NetApp";
+    public string? TerraformPackageName => "netapp";
 }

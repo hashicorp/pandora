@@ -11,4 +11,5 @@ public partial class Service : ServiceDefinition
 {
     public string Name => "FrontDoor";
     public string? ResourceProvider => "Microsoft.Network";
+    public string? TerraformPackageName => "frontdoor";
 }

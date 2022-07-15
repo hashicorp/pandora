@@ -11,4 +11,5 @@ public partial class Service : ServiceDefinition
 {
     public string Name => "Insights";
     public string? ResourceProvider => "Microsoft.Insights";
+    public string? TerraformPackageName => "insights";
 }

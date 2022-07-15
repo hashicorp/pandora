@@ -11,4 +11,5 @@ public partial class Service : ServiceDefinition
 {
     public string Name => "Purview";
     public string? ResourceProvider => "Microsoft.Purview";
+    public string? TerraformPackageName => "purview";
 }
