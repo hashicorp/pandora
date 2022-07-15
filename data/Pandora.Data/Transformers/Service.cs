@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using Pandora.Definitions.Interfaces;
 using ServiceDefinition = Pandora.Data.Models.ServiceDefinition;
 
 namespace Pandora.Data.Transformers;

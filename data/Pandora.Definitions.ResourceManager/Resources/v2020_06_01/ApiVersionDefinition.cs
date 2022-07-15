@@ -18,5 +18,6 @@ public partial class Definition : ApiVersionDefinition
 
     public IEnumerable<TerraformResourceDefinition> TerraformResources => new List<TerraformResourceDefinition>
     {
+        new Terraform.ResourceGroupResource()
     };
 }

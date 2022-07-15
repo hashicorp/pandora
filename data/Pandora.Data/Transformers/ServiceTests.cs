@@ -57,6 +57,7 @@ public static class ServiceTests
             public bool Generate => true;
             public bool Preview => true;
             public IEnumerable<Definitions.Interfaces.ResourceDefinition> Resources => new List<Definitions.Interfaces.ResourceDefinition> { new FakeResourceDefinition() };
+            public IEnumerable<Definitions.Interfaces.TerraformResourceDefinition> TerraformResources => new List<Definitions.Interfaces.TerraformResourceDefinition>();
             public Source Source => Source.HandWritten;
         }
     }
@@ -80,7 +81,6 @@ public static class ServiceTests
             public string Name => "FakeResourceManager";
             public bool Generate => false;
             public string? ResourceProvider => "Microsoft.Foo";
-
             public string? TerraformPackageName => "foo";
         }
 
@@ -91,6 +91,7 @@ public static class ServiceTests
             public bool Generate => true;
             public bool Preview => true;
             public IEnumerable<Definitions.Interfaces.ResourceDefinition> Resources => new List<Definitions.Interfaces.ResourceDefinition> { new FakeResourceDefinition() };
+            public IEnumerable<Definitions.Interfaces.TerraformResourceDefinition> TerraformResources => new List<Definitions.Interfaces.TerraformResourceDefinition>();
             public Source Source => Source.HandWritten;
         }
     }
