@@ -19,7 +19,7 @@ internal class ListByResourceGroupOperation : Operations.GetOperation
 
     public override Type? ResponseObject() => typeof(ServerListResultModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.DBForPostgreSql/servers";
+    public override string? UriSuffix() => "/providers/Microsoft.DBForPostgreSQL/servers";
 
 
 }

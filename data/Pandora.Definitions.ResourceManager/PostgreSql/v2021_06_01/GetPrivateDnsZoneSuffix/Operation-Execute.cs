@@ -24,7 +24,7 @@ internal class ExecuteOperation : Operations.PostOperation
 
     public override Type? ResponseObject() => typeof(string);
 
-    public override string? UriSuffix() => "/providers/Microsoft.DBForPostgreSql/getPrivateDnsZoneSuffix";
+    public override string? UriSuffix() => "/providers/Microsoft.DBForPostgreSQL/getPrivateDnsZoneSuffix";
 
 
 }

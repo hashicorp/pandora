@@ -12,14 +12,14 @@ internal class LocationId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/providers/Microsoft.DBForPostgreSql/locations/{locationName}";
+    public string ID => "/subscriptions/{subscriptionId}/providers/Microsoft.DBForPostgreSQL/locations/{locationName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
         ResourceIDSegment.Static("staticSubscriptions", "subscriptions"),
         ResourceIDSegment.SubscriptionId("subscriptionId"),
         ResourceIDSegment.Static("staticProviders", "providers"),
-        ResourceIDSegment.ResourceProvider("staticMicrosoftDBForPostgreSql", "Microsoft.DBForPostgreSql"),
+        ResourceIDSegment.ResourceProvider("staticMicrosoftDBForPostgreSQL", "Microsoft.DBForPostgreSQL"),
         ResourceIDSegment.Static("staticLocations", "locations"),
         ResourceIDSegment.UserSpecified("locationName"),
     };
