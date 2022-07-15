@@ -20,7 +20,7 @@ public class TerraformMethodDefinitionTests
         Assert.AreEqual("FakeGet", actual.MethodName);
         Assert.AreEqual(10, actual.TimeoutInMinutes);
     }
-    
+
     [TestCase]
     public void MappingAMethodWithGenerationEnabled()
     {
@@ -36,7 +36,7 @@ public class TerraformMethodDefinitionTests
         Assert.AreEqual("FakeGet", actual.MethodName);
         Assert.AreEqual(20, actual.TimeoutInMinutes);
     }
-    
+
     private class FakeGetOperation : GetOperation
     {
         public override string? UriSuffix()

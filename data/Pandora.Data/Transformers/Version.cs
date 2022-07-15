@@ -24,7 +24,7 @@ public static class Version
             {
                 throw new NotSupportedException($"Version {input.ApiVersion} has duplicate operations");
             }
-            
+
             var resourceDefinitions = input.Resources.Select(ResourceDefinition.Map);
             var terraformResources = input.TerraformResources.Select(TerraformResourceDefinition.Map);
             return new VersionDefinition

@@ -18,7 +18,7 @@ public static class TerraformResourceDefinition
             throw new NotSupportedException("the Resource ID and Delete Methods use different API Resources / API Versions");
         }
         // TODO: sanity-check that the (Create/Update/Read) methods come from the same Service/API Version
-        
+
         return new Models.TerraformResourceDefinition
         {
             DeleteMethod = deleteMethod,
@@ -28,7 +28,7 @@ public static class TerraformResourceDefinition
             Resource = resourceIdDetails.APIResource,
             ResourceLabel = input.ResourceLabel,
             ResourceName = resourceName,
-            ResourceIdName = resourceIdDetails.Name, 
+            ResourceIdName = resourceIdDetails.Name,
         };
     }
 
@@ -66,10 +66,10 @@ public static class TerraformResourceDefinition
                 // Pandora.Data.Transformers.TerraformResourceDefinitionTests+Example+v2020_01_01+Example+FakeResourceId
                 // since this is a test-only condition, we'll fake this as a single string
                 var replacementComponents = input.FullName.Split("+").Reverse();
-                
+
                 // then remove the TypeName at the start (since it's reversed)
                 replacementComponents = replacementComponents.Skip(1).ToList();
-                
+
                 // and then add the new components
                 components = replacementComponents.ToList();
             }

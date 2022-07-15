@@ -83,7 +83,7 @@ public static class VersionTests
         {
             new SomeResourceDefinition(),
         };
-        
+
         public IEnumerable<Definitions.Interfaces.TerraformResourceDefinition> TerraformResources => new List<Definitions.Interfaces.TerraformResourceDefinition>
         {
             new ExampleTerraformDefinition(),
@@ -97,18 +97,18 @@ public static class VersionTests
         public bool Generate => true;
         public bool Preview => false;
         public IEnumerable<Definitions.Interfaces.ResourceDefinition> Resources => new List<Definitions.Interfaces.ResourceDefinition> { new SomeResourceDefinition(), new SomeResourceDefinition() };
-        
+
         public IEnumerable<Definitions.Interfaces.TerraformResourceDefinition> TerraformResources => new List<Definitions.Interfaces.TerraformResourceDefinition>();
         public Source Source => Source.HandWritten;
     }
-    
+
     public class VersionDefinitionWithDuplicateTerraformResources : ApiVersionDefinition
     {
         public string ApiVersion => "SomeVersion";
         public bool Generate => true;
         public bool Preview => false;
-        public IEnumerable<Definitions.Interfaces.ResourceDefinition> Resources => new List<Definitions.Interfaces.ResourceDefinition> {};
-        
+        public IEnumerable<Definitions.Interfaces.ResourceDefinition> Resources => new List<Definitions.Interfaces.ResourceDefinition> { };
+
         public IEnumerable<Definitions.Interfaces.TerraformResourceDefinition> TerraformResources => new List<Definitions.Interfaces.TerraformResourceDefinition>
         {
             new ExampleTerraformDefinition(),

@@ -13,6 +13,6 @@ public class VersionDefinition
     public IEnumerable<ResourceDefinition> Resources { get; set; }
 
     public ApiDefinitionsSource Source { get; set; }
-    
+
     public IEnumerable<TerraformResourceDefinition> TerraformResources { get; set; }
 }

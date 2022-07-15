@@ -62,7 +62,7 @@ public class TerraformResourceDefinitionTests
         public string ResourceLabel => "fake_planet";
         public Definitions.Interfaces.ResourceID ResourceId => new v2015_01_01.Example.FakeResourceId();
     }
-    
+
     private class v2020_01_01
     {
         internal class Example
@@ -71,7 +71,7 @@ public class TerraformResourceDefinitionTests
             {
                 public override Definitions.Interfaces.ResourceID? ResourceId() => new FakeResourceId();
             }
-            
+
             internal class FakeResourceId : Definitions.Interfaces.ResourceID
             {
                 public string? CommonAlias => null;
@@ -81,7 +81,7 @@ public class TerraformResourceDefinitionTests
                     ResourceIDSegment.Static("planets", "planets"),
                     ResourceIDSegment.UserSpecified("planetName")
                 };
-            }                
+            }
         }
     }
 
@@ -93,7 +93,7 @@ public class TerraformResourceDefinitionTests
             {
                 public override Definitions.Interfaces.ResourceID? ResourceId() => new FakeResourceId();
             }
-            
+
             internal class FakeResourceId : Definitions.Interfaces.ResourceID
             {
                 public string? CommonAlias => null;
@@ -103,7 +103,7 @@ public class TerraformResourceDefinitionTests
                     ResourceIDSegment.Static("planets", "planets"),
                     ResourceIDSegment.UserSpecified("planetName")
                 };
-            }                
+            }
         }
     }
 }
