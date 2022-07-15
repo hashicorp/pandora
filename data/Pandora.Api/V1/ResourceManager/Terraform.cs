@@ -1,6 +1,8 @@
 using System.Collections.Generic;
+using System.Linq;
 using System.Text.Json.Serialization;
 using Microsoft.AspNetCore.Mvc;
+using Pandora.Data.Models;
 using Pandora.Data.Repositories;
 
 namespace Pandora.Api.V1.ResourceManager;
@@ -18,41 +20,52 @@ public class TerraformController : ControllerBase
     [Route("/v1/resource-manager/services/{serviceName}/{apiVersion}/terraform")]
     public IActionResult Terraform(string serviceName, string apiVersion)
     {
-        if (serviceName == "Resources" && apiVersion == "2020-06-01")
+        var service = _repo.GetByName(serviceName, true);
+        if (service == null)
         {
-            // NOTE: fake placeholder data for now to build against
-            return new JsonResult(new TerraformV1Response
-            {
-                DataSources = new Dictionary<string, DataSourceResponse>(),
-                Resources = new Dictionary<string, ResourceResponse>
-                {
-                    {
-                        "resource_group", new ResourceResponse
-                        {
-                            DeleteMethod = new MethodDefinition
-                            {
-                                Generate = true,
-                                MethodName = "Delete",
-                                TimeoutInMinutes = 30,
-                            },
-                            DisplayName = "Resource Group",
-                            GenerateSchema = false,
-                            GenerateIdValidation = true,
-                            ResourceName = "ResourceGroup",
-                            Resource = "ResourceGroups",
-                            ResourceIdName = "ResourceGroupId",
-                        }
-                    }
-                }
-            });
+            return BadRequest("service not found");
         }
 
-        // NOTE: fake placeholder data for now to build against
-        return new JsonResult(new TerraformV1Response
+        var version = service.Versions.FirstOrDefault(v => v.Version == apiVersion);
+        if (version == null)
+        {
+            return BadRequest($"version {apiVersion} was not found");
+        }
+
+        return new JsonResult(MapResponse(version));
+    }
+
+    private static TerraformV1Response MapResponse(VersionDefinition version)
+    {
+        return new TerraformV1Response
         {
             DataSources = new Dictionary<string, DataSourceResponse>(),
-            Resources = new Dictionary<string, ResourceResponse>(),
-        });
+            Resources = version.TerraformResources.ToDictionary(k => k.ResourceLabel, MapResourceDefinition),
+        };
+    }
+
+    private static ResourceResponse MapResourceDefinition(TerraformResourceDefinition input)
+    {
+        return new ResourceResponse
+        {
+            DeleteMethod = MapMethodDefinition(input.DeleteMethod),
+            DisplayName = input.DisplayName,
+            Resource = input.Resource,
+            GenerateSchema = input.GenerateSchema,
+            GenerateIdValidation = input.GenerateIDValidationFunction,
+            ResourceName = input.ResourceName,
+            ResourceIdName = input.ResourceIdName,
+        };
+    }
+
+    private static MethodDefinition MapMethodDefinition(TerraformMethodDefinition input)
+    {
+        return new MethodDefinition
+        {
+            Generate = input.Generate,
+            MethodName = input.MethodName,
+            TimeoutInMinutes = input.TimeoutInMinutes,
+        };
     }
 
     private class TerraformV1Response
