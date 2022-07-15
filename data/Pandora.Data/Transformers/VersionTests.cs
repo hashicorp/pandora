@@ -44,7 +44,8 @@ public static class VersionTests
 
     [TestCase]
     public static void MappingAVersionWithDuplicateTerraformResourcesShouldRaiseAnError()
-    {Assert.Throws<Exception>(() => Version.Map(new VersionDefinitionWithDuplicateOperations()));
+    {
+        Assert.Throws<Exception>(() => Version.Map(new VersionDefinitionWithDuplicateOperations()));
     }
 
     [TestCase]
@@ -119,51 +120,57 @@ public static class VersionTests
     private class SomeResourceDefinition : Definitions.Interfaces.ResourceDefinition
     {
         public string Name => "example";
-        public IEnumerable<ApiOperation> Operations => new List<ApiOperation> { new FakeApiOperation() };
+        public IEnumerable<ApiOperation> Operations => new List<ApiOperation> { new v2020_01_01.Example.FakeApiOperation() };
     }
 
-    private class FakeApiOperation : GetOperation
-    {
-        public override Type? ResponseObject()
-        {
-            return typeof(SomeObject);
-        }
-
-        private class SomeObject
-        {
-        }
-    }
-
-    private class FakeResourceId : Definitions.Interfaces.ResourceID
-    {
-        public string? CommonAlias => null;
-
-        public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}";
-
-        public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
-        {
-            ResourceIDSegment.Static("subscriptions", "subscriptions"),
-            ResourceIDSegment.SubscriptionId("subscriptionId"),
-            ResourceIDSegment.Static("resourceGroups", "resourceGroups"),
-            ResourceIDSegment.ResourceGroup("resourceGroup"),
-        };
-    }
-    
-    public class ExampleTerraformDefinition : Definitions.Interfaces.TerraformResourceDefinition
+    private class ExampleTerraformDefinition : Definitions.Interfaces.TerraformResourceDefinition
     {
         public MethodDefinition DeleteMethod => new MethodDefinition
         {
             Generate = false,
-            Method = typeof(FakeApiOperation),
+            Method = typeof(v2020_01_01.Example.FakeApiOperation),
             TimeoutInMinutes = 10,
         };
 
         public string DisplayName => "Example Resource";
         public bool GenerateIDValidationFunction => true;
         public bool GenerateSchema => true;
-        public Definitions.Interfaces.ResourceID ResourceId => new FakeResourceId();
+        public Definitions.Interfaces.ResourceID ResourceId => new v2020_01_01.Example.FakeResourceId();
         public string ResourceLabel => "example_resource";
         public string ResourceName => "ExampleResource";
     }
 
+
+    private class v2020_01_01
+    {
+        internal class Example
+        {
+            internal class FakeApiOperation : GetOperation
+            {
+                public override Type? ResponseObject()
+                {
+                    return typeof(SomeObject);
+                }
+
+                private class SomeObject
+                {
+                }
+            }
+
+            internal class FakeResourceId : Definitions.Interfaces.ResourceID
+            {
+                public string? CommonAlias => null;
+
+                public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}";
+
+                public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
+                {
+                    ResourceIDSegment.Static("subscriptions", "subscriptions"),
+                    ResourceIDSegment.SubscriptionId("subscriptionId"),
+                    ResourceIDSegment.Static("resourceGroups", "resourceGroups"),
+                    ResourceIDSegment.ResourceGroup("resourceGroup"),
+                };
+            }
+        }
+    }
 }
