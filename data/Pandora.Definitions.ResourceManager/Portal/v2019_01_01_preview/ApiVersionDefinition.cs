@@ -13,4 +13,8 @@ public partial class Definition : ApiVersionDefinition
         new Dashboard.Definition(),
         new TenantConfiguration.Definition(),
     };
+
+    public IEnumerable<TerraformResourceDefinition> TerraformResources => new List<TerraformResourceDefinition>
+    {
+    };
 }

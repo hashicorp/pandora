@@ -13,4 +13,8 @@ public partial class Definition : ApiVersionDefinition
         new Links.Definition(),
         new ServiceLinker.Definition(),
     };
+
+    public IEnumerable<TerraformResourceDefinition> TerraformResources => new List<TerraformResourceDefinition>
+    {
+    };
 }

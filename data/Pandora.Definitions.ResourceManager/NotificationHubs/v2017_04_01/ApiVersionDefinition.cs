@@ -13,4 +13,8 @@ public partial class Definition : ApiVersionDefinition
         new Namespaces.Definition(),
         new NotificationHubs.Definition(),
     };
+
+    public IEnumerable<TerraformResourceDefinition> TerraformResources => new List<TerraformResourceDefinition>
+    {
+    };
 }

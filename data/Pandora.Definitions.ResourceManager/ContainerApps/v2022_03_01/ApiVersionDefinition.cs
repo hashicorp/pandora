@@ -20,4 +20,8 @@ public partial class Definition : ApiVersionDefinition
         new ManagedEnvironments.Definition(),
         new ManagedEnvironmentsStorages.Definition(),
     };
+
+    public IEnumerable<TerraformResourceDefinition> TerraformResources => new List<TerraformResourceDefinition>
+    {
+    };
 }

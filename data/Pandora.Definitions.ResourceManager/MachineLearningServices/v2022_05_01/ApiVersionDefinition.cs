@@ -37,4 +37,8 @@ public partial class Definition : ApiVersionDefinition
         new WorkspacePrivateLinkResources.Definition(),
         new Workspaces.Definition(),
     };
+
+    public IEnumerable<TerraformResourceDefinition> TerraformResources => new List<TerraformResourceDefinition>
+    {
+    };
 }

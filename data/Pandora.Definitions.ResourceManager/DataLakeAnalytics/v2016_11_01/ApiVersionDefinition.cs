@@ -17,4 +17,8 @@ public partial class Definition : ApiVersionDefinition
         new Locations.Definition(),
         new StorageAccounts.Definition(),
     };
+
+    public IEnumerable<TerraformResourceDefinition> TerraformResources => new List<TerraformResourceDefinition>
+    {
+    };
 }

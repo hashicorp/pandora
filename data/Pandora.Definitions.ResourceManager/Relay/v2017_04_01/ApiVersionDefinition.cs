@@ -14,4 +14,8 @@ public partial class Definition : ApiVersionDefinition
         new Namespaces.Definition(),
         new WCFRelays.Definition(),
     };
+
+    public IEnumerable<TerraformResourceDefinition> TerraformResources => new List<TerraformResourceDefinition>
+    {
+    };
 }

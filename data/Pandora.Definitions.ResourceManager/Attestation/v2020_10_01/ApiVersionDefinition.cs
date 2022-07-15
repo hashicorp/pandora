@@ -13,4 +13,8 @@ public partial class Definition : ApiVersionDefinition
         new AttestationProviders.Definition(),
         new PrivateEndpointConnections.Definition(),
     };
+
+    public IEnumerable<TerraformResourceDefinition> TerraformResources => new List<TerraformResourceDefinition>
+    {
+    };
 }

@@ -14,4 +14,8 @@ public partial class Definition : ApiVersionDefinition
         new Capacities.Definition(),
         new PowerBIDedicated.Definition(),
     };
+
+    public IEnumerable<TerraformResourceDefinition> TerraformResources => new List<TerraformResourceDefinition>
+    {
+    };
 }

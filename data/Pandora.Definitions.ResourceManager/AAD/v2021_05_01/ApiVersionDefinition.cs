@@ -13,4 +13,8 @@ public partial class Definition : ApiVersionDefinition
         new DomainServices.Definition(),
         new OuContainer.Definition(),
     };
+
+    public IEnumerable<TerraformResourceDefinition> TerraformResources => new List<TerraformResourceDefinition>
+    {
+    };
 }

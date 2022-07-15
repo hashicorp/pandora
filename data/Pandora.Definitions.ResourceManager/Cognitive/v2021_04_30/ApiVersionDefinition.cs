@@ -15,4 +15,8 @@ public partial class Definition : ApiVersionDefinition
         new PrivateLinkResources.Definition(),
         new Skus.Definition(),
     };
+
+    public IEnumerable<TerraformResourceDefinition> TerraformResources => new List<TerraformResourceDefinition>
+    {
+    };
 }

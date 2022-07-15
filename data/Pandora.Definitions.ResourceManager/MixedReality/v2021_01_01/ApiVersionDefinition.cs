@@ -14,4 +14,8 @@ public partial class Definition : ApiVersionDefinition
         new Proxy.Definition(),
         new Resource.Definition(),
     };
+
+    public IEnumerable<TerraformResourceDefinition> TerraformResources => new List<TerraformResourceDefinition>
+    {
+    };
 }

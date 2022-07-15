@@ -16,4 +16,8 @@ public partial class Definition : ApiVersionDefinition
         new TargetTypes.Definition(),
         new Targets.Definition(),
     };
+
+    public IEnumerable<TerraformResourceDefinition> TerraformResources => new List<TerraformResourceDefinition>
+    {
+    };
 }

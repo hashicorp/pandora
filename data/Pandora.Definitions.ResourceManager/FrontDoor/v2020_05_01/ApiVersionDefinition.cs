@@ -14,4 +14,8 @@ public partial class Definition : ApiVersionDefinition
         new CheckFrontDoorNameAvailabilityWithSubscription.Definition(),
         new FrontDoors.Definition(),
     };
+
+    public IEnumerable<TerraformResourceDefinition> TerraformResources => new List<TerraformResourceDefinition>
+    {
+    };
 }

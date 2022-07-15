@@ -16,4 +16,8 @@ public partial class Definition : ApiVersionDefinition
         new WebApplicationFirewallManagedRuleSets.Definition(),
         new WebApplicationFirewallPolicies.Definition(),
     };
+
+    public IEnumerable<TerraformResourceDefinition> TerraformResources => new List<TerraformResourceDefinition>
+    {
+    };
 }

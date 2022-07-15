@@ -43,4 +43,8 @@ public partial class Definition : ApiVersionDefinition
         new WatchlistItems.Definition(),
         new Watchlists.Definition(),
     };
+
+    public IEnumerable<TerraformResourceDefinition> TerraformResources => new List<TerraformResourceDefinition>
+    {
+    };
 }
