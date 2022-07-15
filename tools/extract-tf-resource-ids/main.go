@@ -92,7 +92,7 @@ func formatPaths(paths []string) []string {
 }
 
 func run(ctx context.Context) error {
-	token := os.Getenv("PANDORA_TOKEN")
+	token := os.Getenv("GITHUB_TOKEN")
 	owner := strings.Split(os.Getenv("GITHUB_REPOSITORY"), "/")[0]
 	name := strings.Split(os.Getenv("GITHUB_REPOSITORY"), "/")[1]
 	prId, err := strconv.Atoi(os.Getenv("PR_NUMBER"))
