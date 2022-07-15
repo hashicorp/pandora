@@ -160,7 +160,7 @@ func (r ExampleResource) Delete() sdk.ResourceFunc {
 			if err != nil {
 				return err
 			}
-			if err := client.PewPew(ctx, id, sdkservicepackage.DefaultPewPewOperationOptions()); err != nil {
+			if err := client.PewPew(ctx, id, sdkresource.DefaultPewPewOperationOptions()); err != nil {
 				return fmt.Errorf("deleting %s: %+v", *id, err)
 			}
 			return nil
@@ -264,7 +264,7 @@ func (r ExampleResource) Delete() sdk.ResourceFunc {
 			if err != nil {
 				return err
 			}
-			if err := client.PewPew(ctx, id, sdkservicepackage.DefaultPewPewOperationOptions()); err != nil {
+			if err := client.PewPew(ctx, id, sdkresource.DefaultPewPewOperationOptions()); err != nil {
 				return fmt.Errorf("deleting %s: %+v", *id, err)
 			}
 			return nil
@@ -428,7 +428,7 @@ func (r ExampleResource) Delete() sdk.ResourceFunc {
 			if err != nil {
 				return err
 			}
-			if err := client.PewPewThenPoll(ctx, id, sdkservicepackage.DefaultPewPewOperationOptions()); err != nil {
+			if err := client.PewPewThenPoll(ctx, id, sdkresource.DefaultPewPewOperationOptions()); err != nil {
 				return fmt.Errorf("deleting %s: %+v", *id, err)
 			}
 			return nil
@@ -532,7 +532,7 @@ func (r ExampleResource) Delete() sdk.ResourceFunc {
 			if err != nil {
 				return err
 			}
-			if err := client.PewPewThenPoll(ctx, id, sdkservicepackage.DefaultPewPewOperationOptions()); err != nil {
+			if err := client.PewPewThenPoll(ctx, id, sdkresource.DefaultPewPewOperationOptions()); err != nil {
 				return fmt.Errorf("deleting %s: %+v", *id, err)
 			}
 			return nil
