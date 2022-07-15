@@ -20,4 +20,8 @@ public partial class Definition : ApiVersionDefinition
         new RecoveryPoint.Definition(),
         new ResourceGuards.Definition(),
     };
+
+    public IEnumerable<TerraformResourceDefinition> TerraformResources => new List<TerraformResourceDefinition>
+    {
+    };
 }

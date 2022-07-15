@@ -23,4 +23,8 @@ public partial class Definition : ApiVersionDefinition
         new NetworkRuleSets.Definition(),
         new Regions.Definition(),
     };
+
+    public IEnumerable<TerraformResourceDefinition> TerraformResources => new List<TerraformResourceDefinition>
+    {
+    };
 }

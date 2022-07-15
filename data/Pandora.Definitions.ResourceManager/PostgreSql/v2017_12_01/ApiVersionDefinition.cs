@@ -26,4 +26,8 @@ public partial class Definition : ApiVersionDefinition
         new Servers.Definition(),
         new VirtualNetworkRules.Definition(),
     };
+
+    public IEnumerable<TerraformResourceDefinition> TerraformResources => new List<TerraformResourceDefinition>
+    {
+    };
 }

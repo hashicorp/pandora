@@ -18,4 +18,8 @@ public partial class Definition : ApiVersionDefinition
         new VMHHostList.Definition(),
         new VMIngestionDetails.Definition(),
     };
+
+    public IEnumerable<TerraformResourceDefinition> TerraformResources => new List<TerraformResourceDefinition>
+    {
+    };
 }

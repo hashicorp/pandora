@@ -12,4 +12,8 @@ public partial class Definition : ApiVersionDefinition
     {
         new VideoAnalyzer.Definition(),
     };
+
+    public IEnumerable<TerraformResourceDefinition> TerraformResources => new List<TerraformResourceDefinition>
+    {
+    };
 }

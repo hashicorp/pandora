@@ -15,4 +15,8 @@ public partial class Definition : ApiVersionDefinition
         new GroundStation.Definition(),
         new Spacecraft.Definition(),
     };
+
+    public IEnumerable<TerraformResourceDefinition> TerraformResources => new List<TerraformResourceDefinition>
+    {
+    };
 }

@@ -13,4 +13,8 @@ public partial class Definition : ApiVersionDefinition
         new RegistrationAssignments.Definition(),
         new RegistrationDefinitions.Definition(),
     };
+
+    public IEnumerable<TerraformResourceDefinition> TerraformResources => new List<TerraformResourceDefinition>
+    {
+    };
 }

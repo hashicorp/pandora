@@ -1,9 +1,7 @@
 using System.Collections.Generic;
 using Pandora.Definitions.Interfaces;
-using Pandora.Definitions.ResourceManager.Resources.Terraform;
 
 namespace Pandora.Definitions.ResourceManager.Resources.v2020_06_01;
-
 public partial class Definition : ApiVersionDefinition
 {
     public string ApiVersion => "2020-06-01";
@@ -20,6 +18,5 @@ public partial class Definition : ApiVersionDefinition
 
     public IEnumerable<TerraformResourceDefinition> TerraformResources => new List<TerraformResourceDefinition>
     {
-        new ResourceGroupResource(),
     };
 }

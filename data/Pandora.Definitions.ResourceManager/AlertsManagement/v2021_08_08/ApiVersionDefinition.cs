@@ -12,4 +12,8 @@ public partial class Definition : ApiVersionDefinition
     {
         new AlertsManagement.Definition(),
     };
+
+    public IEnumerable<TerraformResourceDefinition> TerraformResources => new List<TerraformResourceDefinition>
+    {
+    };
 }

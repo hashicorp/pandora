@@ -30,4 +30,8 @@ public partial class Definition : ApiVersionDefinition
         new VolumesReplication.Definition(),
         new VolumesRevert.Definition(),
     };
+
+    public IEnumerable<TerraformResourceDefinition> TerraformResources => new List<TerraformResourceDefinition>
+    {
+    };
 }

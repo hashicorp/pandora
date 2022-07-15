@@ -23,4 +23,8 @@ public partial class Definition : ApiVersionDefinition
         new Tables.Definition(),
         new Workspaces.Definition(),
     };
+
+    public IEnumerable<TerraformResourceDefinition> TerraformResources => new List<TerraformResourceDefinition>
+    {
+    };
 }

@@ -13,4 +13,8 @@ public partial class Definition : ApiVersionDefinition
         new ConfidentialLedger.Definition(),
         new NameAvailability.Definition(),
     };
+
+    public IEnumerable<TerraformResourceDefinition> TerraformResources => new List<TerraformResourceDefinition>
+    {
+    };
 }
