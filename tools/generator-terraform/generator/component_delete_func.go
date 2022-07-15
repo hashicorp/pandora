@@ -33,7 +33,7 @@ func deleteFunctionForResource(input ResourceInput) string {
 	}
 	if len(deleteOperation.Options) > 0 {
 		// NOTE: we're intentionally using `input.Details.DeleteMethodName` rather than `deleteMethodName` since we want the options object
-		optionsArgument := fmt.Sprintf("%[1]s.Default%[2]sOperationOptions()", input.ServicePackageName, input.Details.DeleteMethod.MethodName)
+		optionsArgument := fmt.Sprintf("%[1]s.Default%[2]sOperationOptions()", input.SdkResourceName, input.Details.DeleteMethod.MethodName)
 		deleteMethodArguments = append(deleteMethodArguments, optionsArgument)
 	}
 

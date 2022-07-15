@@ -5,6 +5,8 @@ import "fmt"
 func importsForResource(input ResourceInput) string {
 	return fmt.Sprintf(`
 import (
+	"context"
+	"fmt"
 	"time"
 
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/commonids"
