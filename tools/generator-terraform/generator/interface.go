@@ -35,6 +35,9 @@ type ResourceInput struct {
 	// RootDirectory is the path to the directory where generated files should be output.
 	RootDirectory string
 
+	// ServiceName is the name of the `service` within the Data API
+	ServiceName string
+
 	// ServicePackageName is the name of the Service Package within the Terraform Provider repository.
 	ServicePackageName string
 

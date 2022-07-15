@@ -20,6 +20,7 @@ func Resource(input ResourceInput) error {
 	components := []string{
 		// NOTE: the ordering is important, components can opt in/out of generation
 		packageDefinitionForResource(input),
+		// TODO: a note about being generated
 		copyrightLinesForResource(input),
 		importsForResource(input),
 		definitionForResource(input),

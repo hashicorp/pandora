@@ -6,14 +6,9 @@ import (
 )
 
 func deleteFunctionForResource(input ResourceInput) string {
-	if !input.Details.GenerateDelete {
+	if !input.Details.DeleteMethod.Generate {
 		return ""
 	}
-
-	// TODO: we're going to need to generate a "Client" within the SDK which exposes one of everything
-	// that allows this to become way simpler
-	clientName := "Resources"
-	timeoutInMinutes := 30
 
 	idParseLine, err := input.parseResourceIdFuncName()
 	if err != nil {
@@ -21,13 +16,13 @@ func deleteFunctionForResource(input ResourceInput) string {
 		panic(err)
 	}
 
-	deleteOperation, ok := input.Operations[input.Details.DeleteMethodName]
+	deleteOperation, ok := input.Operations[input.Details.DeleteMethod.MethodName]
 	if !ok {
 		// TODO: thread through errors
-		panic(fmt.Sprintf("couldn't find delete operation named %q", input.Details.DeleteMethodName))
+		panic(fmt.Sprintf("couldn't find delete operation named %q", input.Details.DeleteMethod.MethodName))
 	}
 
-	deleteMethodName := input.Details.DeleteMethodName
+	deleteMethodName := input.Details.DeleteMethod.MethodName
 	if deleteOperation.LongRunning {
 		deleteMethodName = fmt.Sprintf("%sThenPoll", deleteMethodName)
 	}
@@ -38,7 +33,7 @@ func deleteFunctionForResource(input ResourceInput) string {
 	}
 	if len(deleteOperation.Options) > 0 {
 		// NOTE: we're intentionally using `input.Details.DeleteMethodName` rather than `deleteMethodName` since we want the options object
-		optionsArgument := fmt.Sprintf("%[1]s.Default%[2]sOperationOptions()", input.ServicePackageName, input.Details.DeleteMethodName)
+		optionsArgument := fmt.Sprintf("%[1]s.Default%[2]sOperationOptions()", input.ServicePackageName, input.Details.DeleteMethod.MethodName)
 		deleteMethodArguments = append(deleteMethodArguments, optionsArgument)
 	}
 
@@ -47,14 +42,14 @@ func (r %[1]sResource) Delete() sdk.ResourceFunc {
 	return sdk.ResourceFunc{
 		Timeout: %[2]d * time.Minute,
 		Func: func(ctx context.Context, metadata sdk.ResourceMetaData) error {
-			client := metadata.Client.%[3]s //TODO: add a meta client for each service
+			client := metadata.Client.%[3]s.%[1]sClient
 
 			id, err := %[4]s(metadata.ResourceData.Id())
 			if err != nil {
 				return err
 			}
 
-			if err := client.%[5]s(ctx, id%[6]s); err != nil {
+			if err := client.%[5]s(%[6]s); err != nil {
 				return fmt.Errorf("deleting %%s: %%+v", *id, err)
 			}
 
@@ -62,5 +57,5 @@ func (r %[1]sResource) Delete() sdk.ResourceFunc {
 		},
 	}
 }
-`, input.ResourceTypeName, timeoutInMinutes, clientName, *idParseLine, deleteMethodName, strings.Join(deleteMethodArguments, ", "))
+`, input.ResourceTypeName, input.Details.DeleteMethod.TimeoutInMinutes, input.ServiceName, *idParseLine, deleteMethodName, strings.Join(deleteMethodArguments, ", "))
 }

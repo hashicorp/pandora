@@ -104,6 +104,7 @@ func run(input GeneratorInput) error {
 					ProviderPrefix:     input.providerPrefix,
 					RootDirectory:      input.outputDirectory,
 					ServicePackageName: service.TerraformPackageName,
+					ServiceName:        serviceName,
 
 					// Resource Related
 					Details:          details,
