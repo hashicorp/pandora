@@ -436,7 +436,7 @@ func (d *SwaggerDefinition) findModelNamesWhichImplement(parentName string) []st
 	modelNames := make([]string, 0)
 
 	for childName, value := range d.swaggerSpecExtendedRaw.Definitions {
-		if childName == parentName {
+		if strings.EqualFold(childName, parentName) {
 			continue
 		}
 
@@ -448,7 +448,7 @@ func (d *SwaggerDefinition) findModelNamesWhichImplement(parentName string) []st
 				continue
 			}
 
-			if *fragmentName == parentName {
+			if strings.EqualFold(*fragmentName, parentName) {
 				implementsParent = true
 				break
 			}
