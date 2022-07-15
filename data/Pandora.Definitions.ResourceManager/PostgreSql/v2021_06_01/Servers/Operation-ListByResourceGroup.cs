@@ -21,7 +21,7 @@ internal class ListByResourceGroupOperation : Operations.ListOperation
 
     public override Type NestedItemType() => typeof(ServerModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.DBForPostgreSql/flexibleServers";
+    public override string? UriSuffix() => "/providers/Microsoft.DBForPostgreSQL/flexibleServers";
 
 
 }

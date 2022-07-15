@@ -26,7 +26,7 @@ internal class ExecuteOperation : Operations.PostOperation
 
     public override Type? ResponseObject() => typeof(NameAvailabilityModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.DBForPostgreSql/checkNameAvailability";
+    public override string? UriSuffix() => "/providers/Microsoft.DBForPostgreSQL/checkNameAvailability";
 
 
 }
