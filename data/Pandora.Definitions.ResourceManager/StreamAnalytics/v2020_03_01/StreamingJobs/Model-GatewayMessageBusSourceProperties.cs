@@ -13,10 +13,8 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.StreamAnalytics.v2020_03_01.StreamingJobs;
 
 
-internal abstract class SerializationModel
+internal class GatewayMessageBusSourcePropertiesModel
 {
-    [JsonPropertyName("type")]
-    [ProvidesTypeHint]
-    [Required]
-    public EventSerializationTypeConstant Type { get; set; }
+    [JsonPropertyName("topic")]
+    public string? Topic { get; set; }
 }

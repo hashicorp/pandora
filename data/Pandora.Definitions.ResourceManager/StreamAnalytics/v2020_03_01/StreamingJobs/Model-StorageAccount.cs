@@ -13,10 +13,11 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.StreamAnalytics.v2020_03_01.StreamingJobs;
 
 
-internal abstract class SerializationModel
+internal class StorageAccountModel
 {
-    [JsonPropertyName("type")]
-    [ProvidesTypeHint]
-    [Required]
-    public EventSerializationTypeConstant Type { get; set; }
+    [JsonPropertyName("accountKey")]
+    public string? AccountKey { get; set; }
+
+    [JsonPropertyName("accountName")]
+    public string? AccountName { get; set; }
 }

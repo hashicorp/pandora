@@ -13,9 +13,10 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.StreamAnalytics.v2020_03_01.StreamingJobs;
 
 
-internal class FunctionBindingModel
+internal abstract class FunctionBindingModel
 {
     [JsonPropertyName("type")]
+    [ProvidesTypeHint]
     [Required]
     public string Type { get; set; }
 }
