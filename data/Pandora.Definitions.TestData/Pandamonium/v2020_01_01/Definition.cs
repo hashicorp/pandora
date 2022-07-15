@@ -14,5 +14,9 @@ public class Definition : ApiVersionDefinition
         new Grouping.Definition()
     };
 
+    public IEnumerable<TerraformResourceDefinition> TerraformResources => new List<TerraformResourceDefinition>
+    {
+    };
+
     public Source Source => Source.HandWritten;
 }
