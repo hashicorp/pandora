@@ -238,7 +238,7 @@ func NormalizeResourceProviderName(input string) string {
 		"microsoft.customproviders":                "Microsoft.CustomProviders",
 		"microsoft.customerinsights":               "Microsoft.CustomerInsights",
 		"microsoft.customerlockbox":                "Microsoft.CustomerLockbox",
-		"microsoft.dbforpostgresql":                "Microsoft.DBForPostgreSql",
+		"microsoft.dbforpostgresql":                "Microsoft.DBForPostgreSQL",
 		"microsoft.dbformariadb":                   "Microsoft.DBForMariaDB",
 		"microsoft.dbformysql":                     "Microsoft.DBForMySQL",
 		"microsoft.databox":                        "Microsoft.DataBox",
