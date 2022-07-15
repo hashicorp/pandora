@@ -41,16 +41,16 @@ type TerraformDataSourceDetails struct {
 }
 
 type TerraformResourceDetails struct {
+	// DeleteMethod describes the method within the SDK Package that should
+	// be used to delete this resource in Terraform.
+	DeleteMethod MethodDefinition `json:"deleteMethod"`
+
 	// DisplayName is the human-readable/marketing name for this Resource,
 	// for example `Resource Group` or `Virtual Machine`.
 	DisplayName string `json:"displayName"`
 
 	// Generate specifies if this Resource should be generated.
 	Generate bool `json:"generate"`
-
-	// GenerateDelete controls whether the Delete function should be generated
-	// for this Resource.
-	GenerateDelete bool `json:"generateDelete"`
 
 	// GenerateSchema controls whether the Schema should be generated for this
 	// Resource.
@@ -69,4 +69,15 @@ type TerraformResourceDetails struct {
 
 	// ResourceName specifies the name of this Resource (which can be used as a Go Type Name).
 	ResourceName string `json:"resourceName"`
+}
+
+type MethodDefinition struct {
+	// Generate specifies whether this function should be generated for this Resource.
+	Generate bool `json:"generate"`
+
+	// MethodName specifies the name of the SDK method whicn should be used.
+	MethodName string `json:"methodName"`
+
+	// TimeoutInMinutes specifies the Terraform Timeout for this Resource (in minutes)
+	TimeoutInMinutes int `json:"timeoutInMinutes"`
 }

@@ -29,8 +29,13 @@ public class TerraformController : ControllerBase
                     {
                         "resource_group", new ResourceResponse
                         {
+                            DeleteMethod = new MethodDefinition
+                            {
+                                Generate = true,
+                                MethodName = "Delete",
+                                TimeoutInMinutes = 30,
+                            },
                             DisplayName = "Resource Group",
-                            GenerateDelete = true,
                             GenerateSchema = false,
                             GenerateIdValidation = true,
                             ResourceName = "ResourceGroup",
@@ -67,14 +72,14 @@ public class TerraformController : ControllerBase
     private class ResourceResponse
     {
         // TODO: Schema [incl. Docs], Mappings, Tests etc
+        [JsonPropertyName("deleteMethod")]
+        public MethodDefinition DeleteMethod { get; set; }
+        
         [JsonPropertyName("displayName")]
         public string DisplayName { get; set; }
 
         [JsonPropertyName("generate")]
-        public bool Generate => GenerateDelete || GenerateSchema || GenerateIdValidation;
-
-        [JsonPropertyName("generateDelete")]
-        public bool GenerateDelete { get; set; }
+        public bool Generate => DeleteMethod.Generate || GenerateSchema || GenerateIdValidation;
 
         [JsonPropertyName("generateSchema")]
         public bool GenerateSchema { get; set; }
@@ -90,5 +95,17 @@ public class TerraformController : ControllerBase
 
         [JsonPropertyName("resourceName")]
         public string ResourceName { get; set; }
+    }
+
+    private class MethodDefinition
+    {
+        [JsonPropertyName("generate")]
+        public bool Generate { get; set; }
+        
+        [JsonPropertyName("methodName")]
+        public string MethodName { get; set; }
+        
+        [JsonPropertyName("timeoutInMinutes")]
+        public int TimeoutInMinutes { get; set; }
     }
 }

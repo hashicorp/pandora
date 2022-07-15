@@ -104,6 +104,7 @@ func run(input GeneratorInput) error {
 					ProviderPrefix:     input.providerPrefix,
 					RootDirectory:      input.outputDirectory,
 					ServicePackageName: service.TerraformPackageName,
+					ServiceName:        serviceName,
 
 					// Resource Related
 					Details:          details,
@@ -116,6 +117,9 @@ func run(input GeneratorInput) error {
 					SdkServiceName:  strings.ToLower(serviceName),
 
 					// Data
+					Constants:   resource.Schema.Constants,
+					Models:      resource.Schema.Models,
+					Operations:  resource.Operations.Operations,
 					ResourceIds: resource.Schema.ResourceIds,
 				}
 				if err := generator.Resource(resourceInput); err != nil {
