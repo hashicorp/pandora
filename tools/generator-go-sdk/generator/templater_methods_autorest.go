@@ -12,7 +12,7 @@ import (
 // TODO: implement predicates
 // TODO: add unit tests covering this
 
-var _ templater = methodsAutoRestTemplater{}
+var _ templaterForResource = methodsAutoRestTemplater{}
 
 type methodsAutoRestTemplater struct {
 	operation     resourcemanager.ApiOperation

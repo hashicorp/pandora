@@ -12,7 +12,7 @@ import (
 
 // TODO: add unit tests covering this
 
-var _ templater = modelsTemplater{}
+var _ templaterForResource = modelsTemplater{}
 
 type modelsTemplater struct {
 	name  string

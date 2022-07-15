@@ -87,6 +87,20 @@ func run(input GeneratorInput) error {
 				}
 				log.Printf("[DEBUG] Generated Service %q / Version %q / Resource %q..", serviceName, versionNumber, resourceName)
 			}
+
+			// then output the Meta Client
+			generatorData := generator.VersionInput{
+				OutputDirectory: input.outputDirectory,
+				ServiceName:     serviceName,
+				VersionName:     versionNumber,
+				Resources:       versionDetails.Resources,
+				Source:          versionDetails.Details.Source,
+			}
+			log.Printf("[DEBUG] Generating Service %q / Version %q..", serviceName, versionNumber)
+			if err := generatorService.GenerateForVersion(generatorData); err != nil {
+				return fmt.Errorf("generating Service %q / Version %q: %+v", serviceName, versionNumber, err)
+			}
+			log.Printf("[DEBUG] Generated Service %q / Version %q..", serviceName, versionNumber)
 		}
 	}
 

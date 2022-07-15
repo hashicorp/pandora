@@ -10,7 +10,7 @@ import (
 
 // TODO: add unit tests covering this
 
-var _ templater = resourceIdTestsTemplater{}
+var _ templaterForResource = resourceIdTestsTemplater{}
 
 type resourceIdTestsTemplater struct {
 	resourceName    string

@@ -37,7 +37,7 @@ func (s *ServiceGenerator) predicates(data ServiceGeneratorData) error {
 		sortedModelNames: sortedModelNames,
 		models:           data.models,
 	}
-	if err := s.writeToPath(data.outputPath, "predicates.go", templater, data); err != nil {
+	if err := s.writeToPathForResource(data.resourceOutputPath, "predicates.go", templater, data); err != nil {
 		return fmt.Errorf("templating predicate models: %+v", err)
 	}
 

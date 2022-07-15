@@ -21,7 +21,7 @@ type ServiceGeneratorData struct {
 
 	// This is the working directory where files should be output for this specific service
 	// for example {workingDir}/service/version/resource
-	outputPath string
+	resourceOutputPath string
 
 	// constants is a map of key (constant name) to value (ConstantDetails) describing
 	// the constants and their values used in this Resource
@@ -58,8 +58,9 @@ func (i ServiceGeneratorInput) generatorData() ServiceGeneratorData {
 	versionPackageName := strings.ToLower(i.VersionName)
 	// TODO: it'd be nice to make these snake_case but that's a problem for another day
 	resourcePackageName := strings.ToLower(i.ResourceName)
-	outputPath := filepath.Join(i.OutputDirectory, servicePackageName, versionPackageName, resourcePackageName)
-	idsPath := filepath.Join(i.OutputDirectory, servicePackageName, versionPackageName, "ids")
+	versionOutputPath := filepath.Join(i.OutputDirectory, servicePackageName, versionPackageName)
+	resourceOutputPath := filepath.Join(versionOutputPath, resourcePackageName)
+	idsPath := filepath.Join(versionOutputPath, "ids")
 
 	return ServiceGeneratorData{
 		apiVersion:         i.VersionName,
@@ -67,7 +68,7 @@ func (i ServiceGeneratorInput) generatorData() ServiceGeneratorData {
 		idsOutputPath:      idsPath,
 		models:             i.ResourceDetails.Schema.Models,
 		operations:         i.ResourceDetails.Operations.Operations,
-		outputPath:         outputPath,
+		resourceOutputPath: resourceOutputPath,
 		packageName:        resourcePackageName,
 		resourceIds:        i.ResourceDetails.Schema.ResourceIds,
 		serviceClientName:  fmt.Sprintf("%sClient", strings.Title(i.ResourceName)),

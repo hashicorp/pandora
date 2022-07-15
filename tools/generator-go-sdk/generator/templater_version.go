@@ -2,7 +2,7 @@ package generator
 
 import "fmt"
 
-var _ templater = versionTemplater{}
+var _ templaterForResource = versionTemplater{}
 
 type versionTemplater struct {
 }
