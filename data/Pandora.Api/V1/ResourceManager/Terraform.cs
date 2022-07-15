@@ -74,7 +74,7 @@ public class TerraformController : ControllerBase
         // TODO: Schema [incl. Docs], Mappings, Tests etc
         [JsonPropertyName("deleteMethod")]
         public MethodDefinition DeleteMethod { get; set; }
-        
+
         [JsonPropertyName("displayName")]
         public string DisplayName { get; set; }
 
@@ -101,10 +101,10 @@ public class TerraformController : ControllerBase
     {
         [JsonPropertyName("generate")]
         public bool Generate { get; set; }
-        
+
         [JsonPropertyName("methodName")]
         public string MethodName { get; set; }
-        
+
         [JsonPropertyName("timeoutInMinutes")]
         public int TimeoutInMinutes { get; set; }
     }

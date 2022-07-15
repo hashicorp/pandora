@@ -11,4 +11,5 @@ public partial class Service : ServiceDefinition
 {
     public string Name => "StreamAnalytics";
     public string? ResourceProvider => "Microsoft.StreamAnalytics";
+    public string? TerraformPackageName => "streamanalytics";
 }

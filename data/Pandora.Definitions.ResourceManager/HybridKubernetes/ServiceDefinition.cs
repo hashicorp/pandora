@@ -11,4 +11,5 @@ public partial class Service : ServiceDefinition
 {
     public string Name => "HybridKubernetes";
     public string? ResourceProvider => "Microsoft.Kubernetes";
+    public string? TerraformPackageName => "hybridkubernetes";
 }

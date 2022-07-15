@@ -11,4 +11,5 @@ public partial class Service : ServiceDefinition
 {
     public string Name => "AzureStackHCI";
     public string? ResourceProvider => "Microsoft.AzureStackHCI";
+    public string? TerraformPackageName => "azurestackhci";
 }

@@ -66,6 +66,10 @@ func run(input GeneratorInput) error {
 			continue
 		}
 
+		if service.TerraformPackageName == nil {
+			return fmt.Errorf("TerraformPackageName is nil for Service %q", serviceName)
+		}
+
 		for versionNumber, versionDetails := range service.Versions {
 			if len(versionDetails.Terraform.DataSources) == 0 && len(versionDetails.Terraform.Resources) == 0 {
 				log.Printf("[DEBUG] .. has no Data Sources/Resources, skipping..")
@@ -103,7 +107,7 @@ func run(input GeneratorInput) error {
 					// Provider related
 					ProviderPrefix:     input.providerPrefix,
 					RootDirectory:      input.outputDirectory,
-					ServicePackageName: service.TerraformPackageName,
+					ServicePackageName: *service.TerraformPackageName,
 					ServiceName:        serviceName,
 
 					// Resource Related

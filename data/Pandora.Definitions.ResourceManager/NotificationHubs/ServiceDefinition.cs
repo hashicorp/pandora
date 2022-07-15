@@ -11,4 +11,5 @@ public partial class Service : ServiceDefinition
 {
     public string Name => "NotificationHubs";
     public string? ResourceProvider => "Microsoft.NotificationHubs";
+    public string? TerraformPackageName => "notificationhubs";
 }

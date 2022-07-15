@@ -10,32 +10,35 @@ import (
 )
 
 type RunInput struct {
-	RootNamespace    string
-	ServiceName      string
-	ApiVersion       string
-	OutputDirectory  string
-	SwaggerDirectory string
-	SwaggerFiles     []string
-	ResourceProvider *string
+	RootNamespace        string
+	ServiceName          string
+	ApiVersion           string
+	OutputDirectory      string
+	ResourceProvider     *string
+	TerraformPackageName *string
+	SwaggerDirectory     string
+	SwaggerFiles         []string
 }
 
 type ResourceManagerInput struct {
-	ServiceName      string
-	ApiVersion       string
-	ResourceProvider string
-	SwaggerDirectory string
-	SwaggerFiles     []string
+	ServiceName          string
+	ApiVersion           string
+	ResourceProvider     string
+	SwaggerDirectory     string
+	SwaggerFiles         []string
+	TerraformPackageName *string
 }
 
 func (rmi ResourceManagerInput) ToRunInput() RunInput {
 	return RunInput{
-		RootNamespace:    "Pandora.Definitions.ResourceManager",
-		ServiceName:      rmi.ServiceName,
-		ApiVersion:       rmi.ApiVersion,
-		ResourceProvider: &rmi.ResourceProvider,
-		OutputDirectory:  outputDirectory,
-		SwaggerDirectory: rmi.SwaggerDirectory,
-		SwaggerFiles:     rmi.SwaggerFiles,
+		RootNamespace:        "Pandora.Definitions.ResourceManager",
+		ServiceName:          rmi.ServiceName,
+		ApiVersion:           rmi.ApiVersion,
+		ResourceProvider:     &rmi.ResourceProvider,
+		OutputDirectory:      outputDirectory,
+		SwaggerDirectory:     rmi.SwaggerDirectory,
+		SwaggerFiles:         rmi.SwaggerFiles,
+		TerraformPackageName: rmi.TerraformPackageName,
 	}
 }
 
@@ -75,12 +78,17 @@ func GenerationData(configFilePath, swaggerDirectory string, debug bool) (*[]Run
 				filesForVersion = append(filesForVersion, fileWithoutPrefix)
 			}
 
+			// since this is a fresh import we don't know this yet, for now we'll set this to a lower-case string
+			// if this is an existing service, we'll reconcile this from the Data in the Data API to update this.
+			terraformPackageName := strings.ToLower(service.Name)
+
 			resourceManagerService := ResourceManagerInput{
-				ServiceName:      service.Name,
-				ApiVersion:       version,
-				ResourceProvider: serviceDetails.ResourceProvider,
-				SwaggerDirectory: versionDirectory,
-				SwaggerFiles:     filesForVersion,
+				ServiceName:          service.Name,
+				ApiVersion:           version,
+				ResourceProvider:     serviceDetails.ResourceProvider,
+				SwaggerDirectory:     versionDirectory,
+				SwaggerFiles:         filesForVersion,
+				TerraformPackageName: &terraformPackageName,
 			}
 			output = append(output, resourceManagerService.ToRunInput())
 		}

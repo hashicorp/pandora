@@ -11,4 +11,5 @@ public partial class Service : ServiceDefinition
 {
     public string Name => "Maps";
     public string? ResourceProvider => "Microsoft.Maps";
+    public string? TerraformPackageName => "maps";
 }

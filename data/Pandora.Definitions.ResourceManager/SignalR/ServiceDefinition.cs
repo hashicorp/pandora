@@ -11,4 +11,5 @@ public partial class Service : ServiceDefinition
 {
     public string Name => "SignalR";
     public string? ResourceProvider => "Microsoft.SignalRService";
+    public string? TerraformPackageName => "signalr";
 }

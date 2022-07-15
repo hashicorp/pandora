@@ -11,4 +11,5 @@ public partial class Service : ServiceDefinition
 {
     public string Name => "VMware";
     public string? ResourceProvider => "Microsoft.AVS";
+    public string? TerraformPackageName => "vmware";
 }

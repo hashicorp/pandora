@@ -11,4 +11,5 @@ public partial class Service : ServiceDefinition
 {
     public string Name => "Cognitive";
     public string? ResourceProvider => "Microsoft.CognitiveServices";
+    public string? TerraformPackageName => "cognitive";
 }

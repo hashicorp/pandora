@@ -31,6 +31,7 @@ public static class Service
                 Name = input.Name,
                 ResourceManager = input.ResourceProvider != null,
                 ResourceProvider = input.ResourceProvider,
+                TerraformPackageName = input.TerraformPackageName,
                 Versions = orderedVersions,
             };
         }

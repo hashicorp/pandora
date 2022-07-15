@@ -11,4 +11,5 @@ public partial class Service : ServiceDefinition
 {
     public string Name => "MixedReality";
     public string? ResourceProvider => "Microsoft.MixedReality";
+    public string? TerraformPackageName => "mixedreality";
 }

@@ -11,4 +11,5 @@ public partial class Service : ServiceDefinition
 {
     public string Name => "Web";
     public string? ResourceProvider => "Microsoft.CertificateRegistration";
+    public string? TerraformPackageName => "web";
 }

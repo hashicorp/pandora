@@ -11,4 +11,5 @@ public partial class Service : ServiceDefinition
 {
     public string Name => "MachineLearningServices";
     public string? ResourceProvider => "Microsoft.MachineLearningServices";
+    public string? TerraformPackageName => "machinelearningservices";
 }

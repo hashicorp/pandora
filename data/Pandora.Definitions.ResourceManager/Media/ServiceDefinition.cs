@@ -11,4 +11,5 @@ public partial class Service : ServiceDefinition
 {
     public string Name => "Media";
     public string? ResourceProvider => "Microsoft.Media";
+    public string? TerraformPackageName => "media";
 }

@@ -38,7 +38,7 @@ public class ServiceDetailsController : ControllerBase
         return new ServiceDetailsResponse
         {
             ResourceProvider = version.ResourceManager ? version.ResourceProvider! : null,
-            TerraformPackageName = serviceName == "Resources" ? "resources" : null, // TODO: implement this through
+            TerraformPackageName = version.TerraformPackageName,
             Versions = version.Versions.ToDictionary(v => v.Version, v => MapVersion(v, serviceName))
         };
     }
@@ -71,7 +71,7 @@ public class ServiceDetailsController : ControllerBase
         public string? ResourceProvider { get; set; }
 
         [JsonPropertyName("terraformPackageName")]
-        public string TerraformPackageName { get; set; }
+        public string? TerraformPackageName { get; set; }
 
         [JsonPropertyName("versions")]
         public Dictionary<string, VersionDetails> Versions { get; set; }

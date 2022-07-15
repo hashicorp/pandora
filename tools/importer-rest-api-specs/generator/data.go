@@ -16,9 +16,10 @@ type GenerationData struct {
 	WorkingDirectoryForService    string
 	WorkingDirectoryForApiVersion string
 	ResourceProvider              *string
+	TerraformPackageName          *string
 }
 
-func GenerationDataForService(serviceName, rootDirectory, rootNamespace string, resourceProvider *string) GenerationData {
+func GenerationDataForService(serviceName, rootDirectory, rootNamespace string, resourceProvider, terraformPackageName *string) GenerationData {
 	normalisedServiceName := strings.ReplaceAll(serviceName, "-", "")
 	serviceNamespace := fmt.Sprintf("%s.%s", rootNamespace, strings.Title(normalisedServiceName))
 	serviceWorkingDirectory := path.Join(rootDirectory, rootNamespace, strings.Title(normalisedServiceName))
@@ -27,13 +28,14 @@ func GenerationDataForService(serviceName, rootDirectory, rootNamespace string, 
 		NamespaceForService:        serviceNamespace,
 		ResourceProvider:           resourceProvider,
 		ServiceName:                normalisedServiceName,
+		TerraformPackageName:       terraformPackageName,
 		WorkingDirectoryForService: serviceWorkingDirectory,
 	}
 }
 
-func GenerationDataForServiceAndApiVersion(serviceName, apiVersion, rootDirectory, rootNamespace string, resourceProvider *string) GenerationData {
+func GenerationDataForServiceAndApiVersion(serviceName, apiVersion, rootDirectory, rootNamespace string, resourceProvider, terraformPackageName *string) GenerationData {
 	normalizedApiVersion := normalizeApiVersion(apiVersion)
-	data := GenerationDataForService(serviceName, rootDirectory, rootNamespace, resourceProvider)
+	data := GenerationDataForService(serviceName, rootDirectory, rootNamespace, resourceProvider, terraformPackageName)
 	data.ApiVersion = apiVersion
 	data.NamespaceForApiVersion = fmt.Sprintf("%s.%s", data.NamespaceForService, normalizedApiVersion)
 	data.WorkingDirectoryForApiVersion = path.Join(data.WorkingDirectoryForService, normalizedApiVersion)

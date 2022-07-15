@@ -11,4 +11,5 @@ public partial class Service : ServiceDefinition
 {
     public string Name => "HealthCareApis";
     public string? ResourceProvider => "Microsoft.HealthcareApis";
+    public string? TerraformPackageName => "healthcareapis";
 }

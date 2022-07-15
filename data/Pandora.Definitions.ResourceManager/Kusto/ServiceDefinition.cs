@@ -11,4 +11,5 @@ public partial class Service : ServiceDefinition
 {
     public string Name => "Kusto";
     public string? ResourceProvider => "Microsoft.Kusto";
+    public string? TerraformPackageName => "kusto";
 }

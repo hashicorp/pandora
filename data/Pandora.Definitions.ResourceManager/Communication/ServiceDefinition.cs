@@ -11,4 +11,5 @@ public partial class Service : ServiceDefinition
 {
     public string Name => "Communication";
     public string? ResourceProvider => "Microsoft.Communication";
+    public string? TerraformPackageName => "communication";
 }

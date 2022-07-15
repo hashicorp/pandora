@@ -11,4 +11,5 @@ public partial class Service : ServiceDefinition
 {
     public string Name => "LabServices";
     public string? ResourceProvider => "Microsoft.LabServices";
+    public string? TerraformPackageName => "labservices";
 }

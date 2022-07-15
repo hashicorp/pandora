@@ -11,4 +11,5 @@ public partial class Service : ServiceDefinition
 {
     public string Name => "FluidRelay";
     public string? ResourceProvider => "Microsoft.FluidRelay";
+    public string? TerraformPackageName => "fluidrelay";
 }

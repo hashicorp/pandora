@@ -11,4 +11,5 @@ public partial class Service : ServiceDefinition
 {
     public string Name => "Automation";
     public string? ResourceProvider => "Microsoft.Automation";
+    public string? TerraformPackageName => "automation";
 }

@@ -11,4 +11,5 @@ public partial class Service : ServiceDefinition
 {
     public string Name => "Portal";
     public string? ResourceProvider => "Microsoft.Portal";
+    public string? TerraformPackageName => "portal";
 }

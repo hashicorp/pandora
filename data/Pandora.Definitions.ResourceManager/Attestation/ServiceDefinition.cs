@@ -11,4 +11,5 @@ public partial class Service : ServiceDefinition
 {
     public string Name => "Attestation";
     public string? ResourceProvider => "Microsoft.Attestation";
+    public string? TerraformPackageName => "attestation";
 }

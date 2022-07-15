@@ -11,9 +11,9 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser"
 )
 
-func generateApiVersions(input []parser.ParsedData, workingDirectory, rootNamespace string, resourceProvider *string, debug bool) error {
+func generateApiVersions(input []parser.ParsedData, workingDirectory, rootNamespace string, resourceProvider, terraformPackageName *string, debug bool) error {
 	for _, item := range input {
-		data := generator.GenerationDataForServiceAndApiVersion(item.ServiceName, item.ApiVersion, workingDirectory, rootNamespace, resourceProvider)
+		data := generator.GenerationDataForServiceAndApiVersion(item.ServiceName, item.ApiVersion, workingDirectory, rootNamespace, resourceProvider, terraformPackageName)
 		generator := generator.NewPackageDefinitionGenerator(data, debug)
 
 		os.MkdirAll(data.WorkingDirectoryForApiVersion, permissions)
@@ -37,7 +37,7 @@ func generateApiVersions(input []parser.ParsedData, workingDirectory, rootNamesp
 	return nil
 }
 
-func generateServiceDefinitions(input []parser.ParsedData, workingDirectory, rootNamespace string, resourceProvider *string, debug bool) error {
+func generateServiceDefinitions(input []parser.ParsedData, workingDirectory, rootNamespace string, resourceProvider, terraformPackageName *string, debug bool) error {
 	// the same service may appear multiple times, so we first need to Distinct them
 	serviceNames := distinctServiceNames(input)
 
@@ -47,7 +47,7 @@ func generateServiceDefinitions(input []parser.ParsedData, workingDirectory, roo
 		if debug {
 			log.Printf("[DEBUG] Processing Service %q..", service)
 		}
-		data := generator.GenerationDataForService(service, workingDirectory, rootNamespace, resourceProvider)
+		data := generator.GenerationDataForService(service, workingDirectory, rootNamespace, resourceProvider, terraformPackageName)
 		os.MkdirAll(data.WorkingDirectoryForService, permissions)
 
 		// clean up any files or directories which which aren't on the exclude list

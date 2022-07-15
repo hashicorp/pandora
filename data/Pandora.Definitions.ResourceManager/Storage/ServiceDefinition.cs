@@ -11,4 +11,5 @@ public partial class Service : ServiceDefinition
 {
     public string Name => "Storage";
     public string? ResourceProvider => "Microsoft.Storage";
+    public string? TerraformPackageName => "storage";
 }

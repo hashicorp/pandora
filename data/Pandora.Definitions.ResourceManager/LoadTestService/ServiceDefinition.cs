@@ -11,4 +11,5 @@ public partial class Service : ServiceDefinition
 {
     public string Name => "LoadTestService";
     public string? ResourceProvider => "Microsoft.LoadTestService";
+    public string? TerraformPackageName => "loadtestservice";
 }

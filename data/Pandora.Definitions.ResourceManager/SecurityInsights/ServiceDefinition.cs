@@ -11,4 +11,5 @@ public partial class Service : ServiceDefinition
 {
     public string Name => "SecurityInsights";
     public string? ResourceProvider => "Microsoft.SecurityInsights";
+    public string? TerraformPackageName => "securityinsights";
 }

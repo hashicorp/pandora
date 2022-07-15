@@ -11,4 +11,5 @@ public partial class Service : ServiceDefinition
 {
     public string Name => "Elastic";
     public string? ResourceProvider => "Microsoft.Elastic";
+    public string? TerraformPackageName => "elastic";
 }

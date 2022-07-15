@@ -11,4 +11,5 @@ public partial class Service : ServiceDefinition
 {
     public string Name => "ManagedServices";
     public string? ResourceProvider => "Microsoft.ManagedServices";
+    public string? TerraformPackageName => "managedservices";
 }

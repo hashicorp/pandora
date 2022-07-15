@@ -11,4 +11,5 @@ public partial class Service : ServiceDefinition
 {
     public string Name => "Search";
     public string? ResourceProvider => "Microsoft.Search";
+    public string? TerraformPackageName => "search";
 }

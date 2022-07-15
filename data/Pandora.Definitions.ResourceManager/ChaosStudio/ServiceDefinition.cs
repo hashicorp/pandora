@@ -11,4 +11,5 @@ public partial class Service : ServiceDefinition
 {
     public string Name => "ChaosStudio";
     public string? ResourceProvider => "Microsoft.Chaos";
+    public string? TerraformPackageName => "chaosstudio";
 }

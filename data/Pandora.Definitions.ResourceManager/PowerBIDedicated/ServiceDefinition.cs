@@ -11,4 +11,5 @@ public partial class Service : ServiceDefinition
 {
     public string Name => "PowerBIDedicated";
     public string? ResourceProvider => "Microsoft.PowerBIdedicated";
+    public string? TerraformPackageName => "powerbidedicated";
 }

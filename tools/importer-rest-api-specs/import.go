@@ -69,14 +69,14 @@ func importService(input RunInput, swaggerGitSha string, dataApiEndpoint *string
 	if debug {
 		log.Printf("[STAGE] Generating Swagger Definitions..")
 	}
-	if err := generateServiceDefinitions(*data, input.OutputDirectory, input.RootNamespace, input.ResourceProvider, debug); err != nil {
+	if err := generateServiceDefinitions(*data, input.OutputDirectory, input.RootNamespace, input.ResourceProvider, input.TerraformPackageName, debug); err != nil {
 		return errWrap(fmt.Errorf("generating Service Definitions: %+v", err))
 	}
 
 	if debug {
 		log.Printf("[STAGE] Generating API Definitions..")
 	}
-	if err := generateApiVersions(*data, input.OutputDirectory, input.RootNamespace, input.ResourceProvider, debug); err != nil {
+	if err := generateApiVersions(*data, input.OutputDirectory, input.RootNamespace, input.ResourceProvider, input.TerraformPackageName, debug); err != nil {
 		return errWrap(fmt.Errorf("generating API Versions: %+v", err))
 	}
 
