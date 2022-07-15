@@ -50,6 +50,7 @@ configureAuthFunc(&%[1]s.Client)
 	out := fmt.Sprintf(`package %[1]s
 
 import (
+	"github.com/Azure/go-autorest/autorest"
 	%[2]s
 )
 
