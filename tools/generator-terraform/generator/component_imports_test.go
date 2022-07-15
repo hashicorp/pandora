@@ -14,6 +14,7 @@ func TestComponentImports(t *testing.T) {
 	actual := strings.TrimSpace(importsForResource(input))
 	expected := strings.TrimSpace(`
 import (
+	"context"
 	"time"
 
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/commonids"
