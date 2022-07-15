@@ -25,13 +25,32 @@ public static class VersionTests
         Assert.AreEqual(true, actual.Generate);
         Assert.AreEqual(false, actual.Preview);
         Assert.AreEqual(1, actual.Resources.Count());
+        Assert.AreEqual(0, actual.TerraformResources.Count());
         Assert.AreEqual(ApiDefinitionsSource.HandWritten, actual.Source);
+    }
+
+    [TestCase]
+    public static void MappingAVersionWithASingleApiDefinitionAndATerraformResource()
+    {
+        var actual = Version.Map(new VersionDefinitionWithASingleOperationAndATerraformResource());
+        Assert.NotNull(actual);
+        Assert.AreEqual("SomeVersion", actual.Version);
+        Assert.AreEqual(true, actual.Generate);
+        Assert.AreEqual(false, actual.Preview);
+        Assert.AreEqual(1, actual.Resources.Count());
+        Assert.AreEqual(1, actual.TerraformResources.Count());
+        Assert.AreEqual(ApiDefinitionsSource.HandWritten, actual.Source);
+    }
+
+    [TestCase]
+    public static void MappingAVersionWithDuplicateTerraformResourcesShouldRaiseAnError()
+    {Assert.Throws<Exception>(() => Version.Map(new VersionDefinitionWithDuplicateOperations()));
     }
 
     [TestCase]
     public static void MappingAVersionContainingADuplicateOperationTwiceShouldRaiseAnError()
     {
-        Assert.Throws<Exception>(() => Version.Map(new VersionDefinitionWithDuplicateOperations()));
+        Assert.Throws<Exception>(() => Version.Map(new VersionDefinitionWithDuplicateTerraformResources()));
     }
 
     private class VersionDefinitionWithNoOperations : ApiVersionDefinition
@@ -40,6 +59,7 @@ public static class VersionTests
         public bool Generate => false;
         public bool Preview => false;
         public IEnumerable<Definitions.Interfaces.ResourceDefinition> Resources => new List<Definitions.Interfaces.ResourceDefinition>();
+        public IEnumerable<Definitions.Interfaces.TerraformResourceDefinition> TerraformResources => new List<Definitions.Interfaces.TerraformResourceDefinition>();
         public Source Source => Source.HandWritten;
     }
 
@@ -49,6 +69,24 @@ public static class VersionTests
         public bool Generate => true;
         public bool Preview => false;
         public IEnumerable<Definitions.Interfaces.ResourceDefinition> Resources => new List<Definitions.Interfaces.ResourceDefinition> { new SomeResourceDefinition() };
+        public IEnumerable<Definitions.Interfaces.TerraformResourceDefinition> TerraformResources => new List<Definitions.Interfaces.TerraformResourceDefinition>();
+        public Source Source => Source.HandWritten;
+    }
+
+    public class VersionDefinitionWithASingleOperationAndATerraformResource : ApiVersionDefinition
+    {
+        public string ApiVersion => "SomeVersion";
+        public bool Generate => true;
+        public bool Preview => false;
+        public IEnumerable<Definitions.Interfaces.ResourceDefinition> Resources => new List<Definitions.Interfaces.ResourceDefinition>
+        {
+            new SomeResourceDefinition(),
+        };
+        
+        public IEnumerable<Definitions.Interfaces.TerraformResourceDefinition> TerraformResources => new List<Definitions.Interfaces.TerraformResourceDefinition>
+        {
+            new ExampleTerraformDefinition(),
+        };
         public Source Source => Source.HandWritten;
     }
 
@@ -58,6 +96,23 @@ public static class VersionTests
         public bool Generate => true;
         public bool Preview => false;
         public IEnumerable<Definitions.Interfaces.ResourceDefinition> Resources => new List<Definitions.Interfaces.ResourceDefinition> { new SomeResourceDefinition(), new SomeResourceDefinition() };
+        
+        public IEnumerable<Definitions.Interfaces.TerraformResourceDefinition> TerraformResources => new List<Definitions.Interfaces.TerraformResourceDefinition>();
+        public Source Source => Source.HandWritten;
+    }
+    
+    public class VersionDefinitionWithDuplicateTerraformResources : ApiVersionDefinition
+    {
+        public string ApiVersion => "SomeVersion";
+        public bool Generate => true;
+        public bool Preview => false;
+        public IEnumerable<Definitions.Interfaces.ResourceDefinition> Resources => new List<Definitions.Interfaces.ResourceDefinition> {};
+        
+        public IEnumerable<Definitions.Interfaces.TerraformResourceDefinition> TerraformResources => new List<Definitions.Interfaces.TerraformResourceDefinition>
+        {
+            new ExampleTerraformDefinition(),
+            new ExampleTerraformDefinition(),
+        };
         public Source Source => Source.HandWritten;
     }
 
@@ -93,4 +148,22 @@ public static class VersionTests
             ResourceIDSegment.ResourceGroup("resourceGroup"),
         };
     }
+    
+    public class ExampleTerraformDefinition : Definitions.Interfaces.TerraformResourceDefinition
+    {
+        public MethodDefinition DeleteMethod => new MethodDefinition
+        {
+            Generate = false,
+            Method = typeof(FakeApiOperation),
+            TimeoutInMinutes = 10,
+        };
+
+        public string DisplayName => "Example Resource";
+        public bool GenerateIDValidationFunction => true;
+        public bool GenerateSchema => true;
+        public Definitions.Interfaces.ResourceID ResourceId => new FakeResourceId();
+        public string ResourceLabel => "example_resource";
+        public string ResourceName => "ExampleResource";
+    }
+
 }

@@ -36,6 +36,11 @@ public static class String
         return input;
     }
 
+    public static string TrimPrefix(this string input, string suffix)
+    {
+        return !input.StartsWith(suffix) ? input : input.TrimStart(suffix.ToCharArray());
+    }
+
     public static string TrimSuffix(this string input, string suffix)
     {
         return !input.EndsWith(suffix) ? input : input.Substring(0, input.Length - suffix.Length);

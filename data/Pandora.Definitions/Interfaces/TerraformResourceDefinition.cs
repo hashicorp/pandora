@@ -34,11 +34,4 @@ public interface TerraformResourceDefinition
     /// **without** the Provider Prefix (e.g. `resource_group` rather than `azurerm_resource_group`).
     /// </summary>
     public string ResourceLabel { get; }
-
-    /// <summary>
-    /// ResourceName is the name which should be used for this Resource.
-    /// This should be a valid Go Type Name as it's used for as the name of the Struct
-    /// for this resource.
-    /// </summary>
-    public string ResourceName { get; }
 }
