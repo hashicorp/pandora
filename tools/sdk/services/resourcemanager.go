@@ -8,7 +8,7 @@ type ResourceManagerServices struct {
 
 type ResourceManagerService struct {
 	Details              resourcemanager.ServiceSummary
-	TerraformPackageName string
+	TerraformPackageName *string
 	Versions             map[string]ServiceVersion
 }
 

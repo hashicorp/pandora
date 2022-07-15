@@ -71,7 +71,7 @@ public class ServiceDetailsController : ControllerBase
         public string? ResourceProvider { get; set; }
 
         [JsonPropertyName("terraformPackageName")]
-        public string TerraformPackageName { get; set; }
+        public string? TerraformPackageName { get; set; }
 
         [JsonPropertyName("versions")]
         public Dictionary<string, VersionDetails> Versions { get; set; }
