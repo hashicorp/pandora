@@ -10,13 +10,14 @@ using Pandora.Definitions.CustomTypes;
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 
 
-namespace Pandora.Definitions.ResourceManager.StreamAnalytics.v2020_03_01.StreamingJobs;
+namespace Pandora.Definitions.ResourceManager.StreamAnalytics.v2020_03_01.Outputs;
 
 
-internal abstract class SerializationModel
+internal class JsonSerializationPropertiesModel
 {
-    [JsonPropertyName("type")]
-    [ProvidesTypeHint]
-    [Required]
-    public EventSerializationTypeConstant Type { get; set; }
+    [JsonPropertyName("encoding")]
+    public EncodingConstant? Encoding { get; set; }
+
+    [JsonPropertyName("format")]
+    public JsonOutputSerializationFormatConstant? Format { get; set; }
 }

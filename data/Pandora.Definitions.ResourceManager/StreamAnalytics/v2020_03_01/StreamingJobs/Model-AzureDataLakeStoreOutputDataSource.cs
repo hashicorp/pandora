@@ -12,11 +12,9 @@ using Pandora.Definitions.CustomTypes;
 
 namespace Pandora.Definitions.ResourceManager.StreamAnalytics.v2020_03_01.StreamingJobs;
 
-
-internal abstract class SerializationModel
+[ValueForType("Microsoft.DataLake/Accounts")]
+internal class AzureDataLakeStoreOutputDataSourceModel : OutputDataSourceModel
 {
-    [JsonPropertyName("type")]
-    [ProvidesTypeHint]
-    [Required]
-    public EventSerializationTypeConstant Type { get; set; }
+    [JsonPropertyName("properties")]
+    public AzureDataLakeStoreOutputDataSourcePropertiesModel? Properties { get; set; }
 }

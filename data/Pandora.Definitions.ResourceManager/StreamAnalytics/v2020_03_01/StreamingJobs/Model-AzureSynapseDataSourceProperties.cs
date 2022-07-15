@@ -13,10 +13,20 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.StreamAnalytics.v2020_03_01.StreamingJobs;
 
 
-internal abstract class SerializationModel
+internal class AzureSynapseDataSourcePropertiesModel
 {
-    [JsonPropertyName("type")]
-    [ProvidesTypeHint]
-    [Required]
-    public EventSerializationTypeConstant Type { get; set; }
+    [JsonPropertyName("database")]
+    public string? Database { get; set; }
+
+    [JsonPropertyName("password")]
+    public string? Password { get; set; }
+
+    [JsonPropertyName("server")]
+    public string? Server { get; set; }
+
+    [JsonPropertyName("table")]
+    public string? Table { get; set; }
+
+    [JsonPropertyName("user")]
+    public string? User { get; set; }
 }

@@ -10,13 +10,11 @@ using Pandora.Definitions.CustomTypes;
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 
 
-namespace Pandora.Definitions.ResourceManager.StreamAnalytics.v2020_03_01.StreamingJobs;
+namespace Pandora.Definitions.ResourceManager.StreamAnalytics.v2020_03_01.Outputs;
 
-
-internal abstract class SerializationModel
+[ValueForType("Avro")]
+internal class AvroSerializationModel : SerializationModel
 {
-    [JsonPropertyName("type")]
-    [ProvidesTypeHint]
-    [Required]
-    public EventSerializationTypeConstant Type { get; set; }
+    [JsonPropertyName("properties")]
+    public object? Properties { get; set; }
 }

@@ -13,25 +13,26 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.StreamAnalytics.v2020_03_01.StreamingJobs;
 
 
-internal abstract class InputPropertiesModel
+internal class AzureTableOutputDataSourcePropertiesModel
 {
-    [JsonPropertyName("compression")]
-    public CompressionModel? Compression { get; set; }
+    [JsonPropertyName("accountKey")]
+    public string? AccountKey { get; set; }
 
-    [JsonPropertyName("diagnostics")]
-    public DiagnosticsModel? Diagnostics { get; set; }
+    [JsonPropertyName("accountName")]
+    public string? AccountName { get; set; }
 
-    [JsonPropertyName("etag")]
-    public string? Etag { get; set; }
+    [JsonPropertyName("batchSize")]
+    public int? BatchSize { get; set; }
+
+    [JsonPropertyName("columnsToRemove")]
+    public List<string>? ColumnsToRemove { get; set; }
 
     [JsonPropertyName("partitionKey")]
     public string? PartitionKey { get; set; }
 
-    [JsonPropertyName("serialization")]
-    public SerializationModel? Serialization { get; set; }
+    [JsonPropertyName("rowKey")]
+    public string? RowKey { get; set; }
 
-    [JsonPropertyName("type")]
-    [ProvidesTypeHint]
-    [Required]
-    public string Type { get; set; }
+    [JsonPropertyName("table")]
+    public string? Table { get; set; }
 }

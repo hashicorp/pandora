@@ -13,9 +13,10 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.StreamAnalytics.v2020_03_01.Outputs;
 
 
-internal class SerializationModel
+internal abstract class SerializationModel
 {
     [JsonPropertyName("type")]
+    [ProvidesTypeHint]
     [Required]
     public EventSerializationTypeConstant Type { get; set; }
 }

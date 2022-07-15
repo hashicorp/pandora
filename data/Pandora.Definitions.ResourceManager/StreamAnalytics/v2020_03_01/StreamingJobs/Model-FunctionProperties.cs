@@ -13,7 +13,7 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.StreamAnalytics.v2020_03_01.StreamingJobs;
 
 
-internal class FunctionPropertiesModel
+internal abstract class FunctionPropertiesModel
 {
     [JsonPropertyName("etag")]
     public string? Etag { get; set; }
@@ -22,6 +22,7 @@ internal class FunctionPropertiesModel
     public FunctionConfigurationModel? Properties { get; set; }
 
     [JsonPropertyName("type")]
+    [ProvidesTypeHint]
     [Required]
     public string Type { get; set; }
 }

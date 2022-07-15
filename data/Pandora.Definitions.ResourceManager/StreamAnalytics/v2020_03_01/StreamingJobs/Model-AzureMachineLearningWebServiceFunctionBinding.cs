@@ -12,11 +12,9 @@ using Pandora.Definitions.CustomTypes;
 
 namespace Pandora.Definitions.ResourceManager.StreamAnalytics.v2020_03_01.StreamingJobs;
 
-
-internal abstract class SerializationModel
+[ValueForType("Microsoft.MachineLearning/WebService")]
+internal class AzureMachineLearningWebServiceFunctionBindingModel : FunctionBindingModel
 {
-    [JsonPropertyName("type")]
-    [ProvidesTypeHint]
-    [Required]
-    public EventSerializationTypeConstant Type { get; set; }
+    [JsonPropertyName("properties")]
+    public AzureMachineLearningWebServiceFunctionBindingPropertiesModel? Properties { get; set; }
 }
