@@ -35,6 +35,7 @@ func Resource(input ResourceInput) error {
 		// TODO: Schema
 		// TODO: Typed Model & Model func.
 		// TODO: Update
+		methodsYetToBeImplementedForResource(),
 	}
 	writeToPath(filePath, strings.Join(components, "\n"))
 	return nil
