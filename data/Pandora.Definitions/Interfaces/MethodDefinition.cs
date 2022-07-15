@@ -13,7 +13,7 @@ public class MethodDefinition
     /// Method defines the SDK Method which should be called in this Terraform method.
     /// </summary>
     public Type Method { get; set; }
-    
+
     /// <summary>
     /// TimeoutInMinutes defines the Terraform Resource Timeout in minutes for this method.
     /// </summary>
