@@ -7,7 +7,7 @@ public interface TerraformResourceDefinition
     /// should be generated and determining which SDK methods which should be called.
     /// </summary>
     public MethodDefinition DeleteMethod { get; }
-    
+
     /// <summary>
     /// DisplayName is the human readable name for this Resource, used in the Documentation.
     /// </summary>
@@ -23,18 +23,18 @@ public interface TerraformResourceDefinition
     /// GenerateSchema specifies whether the Schema should be generated for this Resource.
     /// </summary>
     public bool GenerateSchema { get; }
-    
+
     /// <summary>
     /// ResourceId specifies the Resource ID associated with this Terraform Resource.
     /// </summary>
     public ResourceID ResourceId { get; }
-    
+
     /// <summary>
     /// ResourceLabel is the Terraform Resource Label which should be used for this Resource
     /// **without** the Provider Prefix (e.g. `resource_group` rather than `azurerm_resource_group`).
     /// </summary>
     public string ResourceLabel { get; }
-    
+
     /// <summary>
     /// ResourceName is the name which should be used for this Resource.
     /// This should be a valid Go Type Name as it's used for as the name of the Struct

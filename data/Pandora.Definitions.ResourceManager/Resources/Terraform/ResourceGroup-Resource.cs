@@ -8,7 +8,7 @@ public class ResourceGroupResource : TerraformResourceDefinition
     public ResourceID ResourceId => new v2020_06_01.ResourceGroups.ResourceGroupId();
     public string ResourceLabel => "resource_group";
     public string ResourceName => "ResourceGroup";
-    
+
     public bool GenerateIDValidationFunction => true;
     public bool GenerateSchema => true;
 

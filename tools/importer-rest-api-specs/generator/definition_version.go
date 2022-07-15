@@ -98,6 +98,10 @@ public partial class Definition : ApiVersionDefinition
 	{
 %[4]s
 	};
+
+	public IEnumerable<TerraformResourceDefinition> TerraformResources => new List<TerraformResourceDefinition>
+	{
+	};
 }
 `, namespace, apiVersion, isPreview, strings.Join(lines, "\n"))
 }
