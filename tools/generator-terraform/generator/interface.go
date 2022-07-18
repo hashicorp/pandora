@@ -66,6 +66,21 @@ func (id ResourceInput) parseResourceIdFuncName() (*string, error) {
 	return &out, nil
 }
 
+func (id ResourceInput) newResourceIdFuncName() (*string, error) {
+	resourceId, ok := id.ResourceIds[id.Details.ResourceIdName]
+	if !ok {
+		return nil, fmt.Errorf("missing Resource ID %q", id.Details.ResourceIdName)
+	}
+
+	if resourceId.CommonAlias != nil {
+		out := fmt.Sprintf("commonids.New%[1]sID", *resourceId.CommonAlias)
+		return &out, nil
+	}
+
+	out := fmt.Sprintf("%[1]s.New%[2]sID", id.SdkResourceName, strings.TrimSuffix(id.Details.ResourceIdName, "Id"))
+	return &out, nil
+}
+
 func (id ResourceInput) validateResourceIdFuncName() (*string, error) {
 	resourceId, ok := id.ResourceIds[id.Details.ResourceIdName]
 	if !ok {

@@ -12,7 +12,7 @@ type %[1]sResourceModel struct {
 	// TODO: this is purely a placeholder to make it compile for now
 }
 
-func ModelObject() interface {
+func ModelObject() interface{} {
 	// TODO: implement me in the generator
 	return &%[1]sResourceModel{}
 }

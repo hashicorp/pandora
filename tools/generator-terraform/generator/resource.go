@@ -28,14 +28,14 @@ func Resource(input ResourceInput) error {
 		// then the functions
 		idValidationFunctionForResource(input),
 		typeFuncForResource(input),
-		// TODO: Create
+		createFunctionForResource(input),
 		deleteFunctionForResource(input),
 		// TODO: Mappings
 		readFunctionForResource(input),
 		// TODO: Schema
 		// TODO: Typed Model & Model func.
 		// TODO: Update
-		methodsYetToBeImplementedForResource(),
+		methodsYetToBeImplementedForResource(input),
 	}
 	writeToPath(filePath, strings.Join(components, "\n"))
 	return nil
