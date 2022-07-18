@@ -82,43 +82,14 @@ func (r %[1]sResource) Create() sdk.ResourceFunc {
 `, input.ResourceTypeName, input.Details.ReadMethod.TimeoutInMinutes, input.ServiceName, strings.Join(components, "\n"))
 }
 
-func (h createFunctionComponents) schemaDeserialization() string {
+func (h createFunctionComponents) create() string {
+	methodName := methodNameToCallForOperation(h.createMethod, h.createMethodName)
+	methodArguments := argumentsForApiOperationMethod(h.createMethod, h.sdkResourceName, h.createMethodName)
 	return fmt.Sprintf(`
-			var config %[1]sResourceModel
-			if err := metadata.Decode(&config); err != nil {
-				return fmt.Errorf("decoding: %%+v", err)
+			if err := client.%[1]s(%[2]s); err != nil {
+				return fmt.Errorf("creating %%s: %%+v", id, err)
 			}
-`, h.resourceTypeName)
-}
-
-func (h createFunctionComponents) requiresImport() string {
-	readMethodArguments := argumentsForApiOperationMethod(h.readMethod, h.sdkResourceName, h.readMethodName)
-	return fmt.Sprintf(`
-			existing, err := client.%[1]s(%[2]s)
-			if err != nil {
-				if !response.WasNotFound(resp.HttpResponse) {
-					return fmt.Errorf("checking for the presence of an existing %%s: %%+v", id, err)
-				}
-			}
-			if !response.WasNotFound(existing.HttpResponse) {
-				return metadata.ResourceRequiresImport(r.ResourceType(), id)
-			}
-`, h.readMethodName, readMethodArguments)
-}
-
-func (h createFunctionComponents) payloadAndMappingsFromSchema() string {
-	// NOTE: whilst Payload is _technically_ optional in the API endpoint it's not, else it
-	// wouldn't be a Create method
-	createObjectName, err := h.createMethod.RequestObject.GolangTypeName(&h.sdkResourceName)
-	if err != nil {
-		// TODO: thread through errors
-		panic(fmt.Sprintf("determining Golang Type name for Create Request Object: %+v", err))
-	}
-
-	return fmt.Sprintf(`
-			payload := %[1]s{}
-			// TODO: mapping from the Schema -> Payload
-`, *createObjectName)
+`, methodName, methodArguments)
 }
 
 func (h createFunctionComponents) idDefinitionAndMapping() string {
@@ -128,6 +99,11 @@ func (h createFunctionComponents) idDefinitionAndMapping() string {
 	subscriptionIdDefinition := ""
 	for _, v := range h.resourceId.Segments {
 		switch v.Type {
+		case resourcemanager.StaticSegment:
+			{
+				continue
+			}
+
 		case resourcemanager.SubscriptionIdSegment:
 			{
 				segments = append(segments, "subscriptionId")
@@ -150,12 +126,41 @@ id := %[1]s(%[2]s)
 `, newIdFuncName, strings.Join(segments, ", "), subscriptionIdDefinition)
 }
 
-func (h createFunctionComponents) create() string {
-	methodName := methodNameToCallForOperation(h.createMethod, h.createMethodName)
-	methodArguments := argumentsForApiOperationMethod(h.createMethod, h.sdkResourceName, h.createMethodName)
+func (h createFunctionComponents) payloadAndMappingsFromSchema() string {
+	// NOTE: whilst Payload is _technically_ optional in the API endpoint it's not, else it
+	// wouldn't be a Create method
+	createObjectName, err := h.createMethod.RequestObject.GolangTypeName(&h.sdkResourceName)
+	if err != nil {
+		// TODO: thread through errors
+		panic(fmt.Sprintf("determining Golang Type name for Create Request Object: %+v", err))
+	}
+
 	return fmt.Sprintf(`
-			if err := client.%[1]s(%[2]s); err != nil {
-				return fmt.Errorf("creating %%s: %%+v", id, err)
+			payload := %[1]s{}
+			// TODO: mapping from the Schema -> Payload
+`, *createObjectName)
+}
+
+func (h createFunctionComponents) requiresImport() string {
+	readMethodArguments := argumentsForApiOperationMethod(h.readMethod, h.sdkResourceName, h.readMethodName)
+	return fmt.Sprintf(`
+			existing, err := client.%[1]s(%[2]s)
+			if err != nil {
+				if !response.WasNotFound(resp.HttpResponse) {
+					return fmt.Errorf("checking for the presence of an existing %%s: %%+v", id, err)
+				}
 			}
-`, methodName, methodArguments)
+			if !response.WasNotFound(existing.HttpResponse) {
+				return metadata.ResourceRequiresImport(r.ResourceType(), id)
+			}
+`, h.readMethodName, readMethodArguments)
+}
+
+func (h createFunctionComponents) schemaDeserialization() string {
+	return fmt.Sprintf(`
+			var config %[1]sResourceModel
+			if err := metadata.Decode(&config); err != nil {
+				return fmt.Errorf("decoding: %%+v", err)
+			}
+`, h.resourceTypeName)
 }

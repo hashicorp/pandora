@@ -10,7 +10,10 @@ import (
 func argumentsForApiOperationMethod(operation resourcemanager.ApiOperation, sdkResourceName, methodName string) string {
 	methodArguments := []string{
 		"ctx",
-		"id",
+	}
+
+	if operation.ResourceIdName != nil {
+		methodArguments = append(methodArguments, "id")
 	}
 
 	if operation.RequestObject != nil {

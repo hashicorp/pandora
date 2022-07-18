@@ -11,6 +11,8 @@ type ApiObjectDefinition struct {
 }
 
 func (d ApiObjectDefinition) GolangTypeName(packageName *string) (*string, error) {
+	// TODO: we should look to add unit tests for this method
+
 	// NOTE: all of this validation should be done in the Importer and the API - this is purely sanity checking
 
 	if d.Type == CsvApiObjectDefinitionType {
