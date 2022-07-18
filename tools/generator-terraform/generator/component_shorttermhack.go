@@ -10,15 +10,7 @@ func ModelObject() interface{
 	// TODO: implement me in the generator
 	return nil
 }
-func ResourceType() string {
-	// TODO: implement me in the generator
-	return nil
-}
 func Create() sdk.ResourceFunc {
-	// TODO: implement me in the generator
-	return sdk.ResourceFunc{}
-}
-func Read() sdk.ResourceFunc {
 	// TODO: implement me in the generator
 	return sdk.ResourceFunc{}
 }
