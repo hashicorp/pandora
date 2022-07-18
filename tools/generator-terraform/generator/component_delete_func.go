@@ -21,11 +21,8 @@ func deleteFunctionForResource(input ResourceInput) string {
 		panic(fmt.Sprintf("couldn't find delete operation named %q", input.Details.DeleteMethod.MethodName))
 	}
 
-	deleteMethodName := input.Details.DeleteMethod.MethodName
-	if deleteOperation.LongRunning {
-		deleteMethodName = fmt.Sprintf("%sThenPoll", deleteMethodName)
-	}
 	methodArguments := argumentsForApiOperationMethod(deleteOperation, input.SdkResourceName, input.Details.DeleteMethod.MethodName)
+	deleteMethodName := methodNameToCallForOperation(deleteOperation, input.Details.DeleteMethod.MethodName)
 
 	return fmt.Sprintf(`
 func (r %[1]sResource) Delete() sdk.ResourceFunc {

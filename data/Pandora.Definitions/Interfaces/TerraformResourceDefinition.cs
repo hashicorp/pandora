@@ -3,6 +3,12 @@ namespace Pandora.Definitions.Interfaces;
 public interface TerraformResourceDefinition
 {
     /// <summary>
+    /// CreateMethod defines the Create Method associated with this Resource, both for whether this
+    /// should be generated and determining which SDK methods which should be called.
+    /// </summary>
+    public MethodDefinition CreateMethod { get; }
+
+    /// <summary>
     /// DeleteMethod defines the Delete Method associated with this Resource, both for whether this
     /// should be generated and determining which SDK methods which should be called.
     /// </summary>

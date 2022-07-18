@@ -41,6 +41,10 @@ type TerraformDataSourceDetails struct {
 }
 
 type TerraformResourceDetails struct {
+	// CreateMethod describes the method within the SDK Package that should
+	// be used to create this resource in Terraform.
+	CreateMethod MethodDefinition `json:"createMethod"`
+
 	// DeleteMethod describes the method within the SDK Package that should
 	// be used to delete this resource in Terraform.
 	DeleteMethod MethodDefinition `json:"deleteMethod"`
