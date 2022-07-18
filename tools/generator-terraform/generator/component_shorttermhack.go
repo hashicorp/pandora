@@ -1,18 +1,20 @@
 package generator
 
-func methodsYetToBeImplementedForResource() string {
-	return `
+import "fmt"
+
+func methodsYetToBeImplementedForResource(input ResourceInput) string {
+	return fmt.Sprintf(`
 // TODO: the methods below this point are yet to be implemented
 // but are output purely to keep the compiler for happy in the short-term
 // by ensuring that this Resource correctly implements 'sdk.Resource'
 
-func ModelObject() interface{
-	// TODO: implement me in the generator
-	return nil
+type %[1]sResourceModel struct {
+	// TODO: this is purely a placeholder to make it compile for now
 }
-func Create() sdk.ResourceFunc {
+
+func ModelObject() interface {
 	// TODO: implement me in the generator
-	return sdk.ResourceFunc{}
+	return &%[1]sResourceModel{}
 }
-`
+`, input.ResourceTypeName)
 }
