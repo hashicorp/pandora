@@ -24,7 +24,7 @@ public static class TerraformResourceDefinition
         {
             throw new NotSupportedException("the Resource ID and Delete Methods use different API Resources / API Versions");
         }
-        
+
         // TODO: sanity-check that the (Create/Update) methods come from the same Service/API Version
 
         return new Models.TerraformResourceDefinition
