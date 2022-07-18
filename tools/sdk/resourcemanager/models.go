@@ -146,6 +146,38 @@ func (d ApiObjectDefinition) String() string {
 	return string(d.Type)
 }
 
+func (d ApiObjectDefinition) Matches(other *ApiObjectDefinition) bool {
+	if other == nil {
+		return false
+	}
+	if d.Type != other.Type {
+		return false
+	}
+	if d.ReferenceName != nil {
+		if other.ReferenceName == nil {
+			return false
+		}
+		if *d.ReferenceName != *other.ReferenceName {
+			return false
+		}
+	}
+	if other.ReferenceName != nil && d.ReferenceName == nil {
+		return false
+	}
+
+	if d.NestedItem != nil {
+		if other.NestedItem == nil {
+			return false
+		}
+		return d.NestedItem.Matches(other.NestedItem)
+	}
+	if other.NestedItem != nil && d.NestedItem == nil {
+		return false
+	}
+
+	return true
+}
+
 type ApiObjectDefinitionType string
 
 const (
