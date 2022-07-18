@@ -2,6 +2,7 @@ namespace Pandora.Data.Models;
 
 public class TerraformResourceDefinition
 {
+    public TerraformMethodDefinition CreateMethod { get; set; }
     public TerraformMethodDefinition DeleteMethod { get; set; }
     public string DisplayName { get; set; }
     public bool GenerateIDValidationFunction { get; set; }

@@ -125,6 +125,13 @@ public static class VersionTests
 
     private class ExampleTerraformDefinition : Definitions.Interfaces.TerraformResourceDefinition
     {
+        public MethodDefinition CreateMethod => new MethodDefinition
+        {
+            Generate = false,
+            Method = typeof(v2020_01_01.Example.FakeApiOperation),
+            TimeoutInMinutes = 9,
+        };
+
         public MethodDefinition DeleteMethod => new MethodDefinition
         {
             Generate = false,

@@ -11,6 +11,12 @@ public static class TerraformResourceDefinition
         var resourceName = input.GetType().Name.TrimSuffix("Resource");
 
         var resourceIdDetails = DetailsForResourceId(input.ResourceId);
+        var createMethod = TerraformMethodDefinition.Map(input.CreateMethod);
+        var createMethodDetails = MetaDataFromResourceNamespace.Get(input.CreateMethod.Method);
+        if (resourceIdDetails.APIResource != createMethodDetails.APIResource || resourceIdDetails.APIVersion != createMethodDetails.APIVersion)
+        {
+            throw new NotSupportedException("the Resource ID and Create Methods use different API Resources / API Versions");
+        }
         var deleteMethod = TerraformMethodDefinition.Map(input.DeleteMethod);
         var deleteMethodDetails = MetaDataFromResourceNamespace.Get(input.DeleteMethod.Method);
         if (resourceIdDetails.APIResource != deleteMethodDetails.APIResource || resourceIdDetails.APIVersion != deleteMethodDetails.APIVersion)
@@ -22,13 +28,15 @@ public static class TerraformResourceDefinition
         var readMethodDetails = MetaDataFromResourceNamespace.Get(input.ReadMethod.Method);
         if (resourceIdDetails.APIResource != readMethodDetails.APIResource || resourceIdDetails.APIVersion != readMethodDetails.APIVersion)
         {
-            throw new NotSupportedException("the Resource ID and Delete Methods use different API Resources / API Versions");
+            throw new NotSupportedException("the Resource ID and Read Methods use different API Resources / API Versions");
         }
         
         // TODO: sanity-check that the (Create/Update) methods come from the same Service/API Version
+        // TODO: validate that the Create and Update models have payloads
 
         return new Models.TerraformResourceDefinition
         {
+            CreateMethod = createMethod,
             DeleteMethod = deleteMethod,
             DisplayName = input.DisplayName,
             GenerateIDValidationFunction = input.GenerateIDValidationFunction,

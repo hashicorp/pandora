@@ -48,6 +48,7 @@ public class TerraformController : ControllerBase
     {
         return new ResourceResponse
         {
+            CreateMethod = MapMethodDefinition(input.CreateMethod),
             DeleteMethod = MapMethodDefinition(input.DeleteMethod),
             DisplayName = input.DisplayName,
             Resource = input.Resource,
@@ -86,6 +87,9 @@ public class TerraformController : ControllerBase
     private class ResourceResponse
     {
         // TODO: Schema [incl. Docs], Mappings, Tests etc
+        [JsonPropertyName("createMethod")]
+        public MethodDefinition CreateMethod { get; set; }
+
         [JsonPropertyName("deleteMethod")]
         public MethodDefinition DeleteMethod { get; set; }
 
