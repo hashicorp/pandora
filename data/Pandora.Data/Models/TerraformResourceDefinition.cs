@@ -6,6 +6,7 @@ public class TerraformResourceDefinition
     public string DisplayName { get; set; }
     public bool GenerateIDValidationFunction { get; set; }
     public bool GenerateSchema { get; set; }
+    public TerraformMethodDefinition ReadMethod { get; set; }
     public string Resource { get; set; }
     public string ResourceIdName { get; set; }
     public string ResourceLabel { get; set; }

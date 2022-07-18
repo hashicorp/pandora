@@ -1,8 +1,9 @@
 package generator
 
 import (
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 	"testing"
+
+	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
 func TestTemplateMethodsAutoRestLRODelete(t *testing.T) {

@@ -17,7 +17,15 @@ public static class TerraformResourceDefinition
         {
             throw new NotSupportedException("the Resource ID and Delete Methods use different API Resources / API Versions");
         }
-        // TODO: sanity-check that the (Create/Update/Read) methods come from the same Service/API Version
+
+        var readMethod = TerraformMethodDefinition.Map(input.ReadMethod);
+        var readMethodDetails = MetaDataFromResourceNamespace.Get(input.ReadMethod.Method);
+        if (resourceIdDetails.APIResource != readMethodDetails.APIResource || resourceIdDetails.APIVersion != readMethodDetails.APIVersion)
+        {
+            throw new NotSupportedException("the Resource ID and Delete Methods use different API Resources / API Versions");
+        }
+        
+        // TODO: sanity-check that the (Create/Update) methods come from the same Service/API Version
 
         return new Models.TerraformResourceDefinition
         {
@@ -25,6 +33,7 @@ public static class TerraformResourceDefinition
             DisplayName = input.DisplayName,
             GenerateIDValidationFunction = input.GenerateIDValidationFunction,
             GenerateSchema = input.GenerateSchema,
+            ReadMethod = readMethod,
             Resource = resourceIdDetails.APIResource,
             ResourceLabel = input.ResourceLabel,
             ResourceName = resourceName,

@@ -21,6 +21,10 @@ public class TerraformResourceDefinitionTests
         Assert.AreEqual("Fake Planet", actual.DisplayName);
         Assert.True(actual.GenerateIDValidationFunction);
         Assert.True(actual.GenerateSchema);
+        Assert.NotNull(actual.ReadMethod);
+        Assert.True(actual.ReadMethod.Generate);
+        Assert.AreEqual("SomeRead", actual.ReadMethod.MethodName);
+        Assert.AreEqual(11, actual.ReadMethod.TimeoutInMinutes);
         Assert.AreEqual("fake_planet", actual.ResourceLabel);
         Assert.AreEqual("FakeResourceId", actual.ResourceIdName);
         Assert.AreEqual("Basic", actual.ResourceName);
@@ -44,6 +48,12 @@ public class TerraformResourceDefinitionTests
         public string DisplayName => "Fake Planet";
         public bool GenerateIDValidationFunction => true;
         public bool GenerateSchema => true;
+        public MethodDefinition ReadMethod => new MethodDefinition
+        {
+            Generate = true,
+            Method = typeof(v2020_01_01.Example.SomeReadOperation),
+            TimeoutInMinutes = 11,
+        };
         public string ResourceLabel => "fake_planet";
         public Definitions.Interfaces.ResourceID ResourceId => new v2020_01_01.Example.FakeResourceId();
     }
@@ -59,6 +69,13 @@ public class TerraformResourceDefinitionTests
         public string DisplayName => "Fake Planet";
         public bool GenerateIDValidationFunction => true;
         public bool GenerateSchema => true;
+        
+        public MethodDefinition ReadMethod => new MethodDefinition
+        {
+            Generate = true,
+            Method = typeof(v2020_01_01.Example.SomeReadOperation),
+            TimeoutInMinutes = 11,
+        };
         public string ResourceLabel => "fake_planet";
         public Definitions.Interfaces.ResourceID ResourceId => new v2015_01_01.Example.FakeResourceId();
     }
@@ -70,6 +87,13 @@ public class TerraformResourceDefinitionTests
             internal class SomeDeleteOperation : DeleteOperation
             {
                 public override Definitions.Interfaces.ResourceID? ResourceId() => new FakeResourceId();
+            }
+
+            internal class SomeReadOperation : GetOperation 
+            {
+                public override Definitions.Interfaces.ResourceID? ResourceId() => new FakeResourceId();
+
+                public override Type? ResponseObject() => typeof(string);
             }
 
             internal class FakeResourceId : Definitions.Interfaces.ResourceID

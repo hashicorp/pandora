@@ -2,8 +2,9 @@ package generator
 
 import (
 	"fmt"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 	"strings"
+
+	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
 type readmeTemplater struct {

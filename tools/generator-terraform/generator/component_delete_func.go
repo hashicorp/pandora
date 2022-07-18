@@ -2,7 +2,6 @@ package generator
 
 import (
 	"fmt"
-	"strings"
 )
 
 func deleteFunctionForResource(input ResourceInput) string {
@@ -26,16 +25,7 @@ func deleteFunctionForResource(input ResourceInput) string {
 	if deleteOperation.LongRunning {
 		deleteMethodName = fmt.Sprintf("%sThenPoll", deleteMethodName)
 	}
-
-	deleteMethodArguments := []string{
-		"ctx",
-		"id",
-	}
-	if len(deleteOperation.Options) > 0 {
-		// NOTE: we're intentionally using `input.Details.DeleteMethodName` rather than `deleteMethodName` since we want the options object
-		optionsArgument := fmt.Sprintf("%[1]s.Default%[2]sOperationOptions()", input.SdkResourceName, input.Details.DeleteMethod.MethodName)
-		deleteMethodArguments = append(deleteMethodArguments, optionsArgument)
-	}
+	methodArguments := argumentsForApiOperationMethod(deleteOperation, input.SdkResourceName, input.Details.DeleteMethod.MethodName)
 
 	return fmt.Sprintf(`
 func (r %[1]sResource) Delete() sdk.ResourceFunc {
@@ -57,5 +47,5 @@ func (r %[1]sResource) Delete() sdk.ResourceFunc {
 		},
 	}
 }
-`, input.ResourceTypeName, input.Details.DeleteMethod.TimeoutInMinutes, input.ServiceName, *idParseLine, deleteMethodName, strings.Join(deleteMethodArguments, ", "))
+`, input.ResourceTypeName, input.Details.DeleteMethod.TimeoutInMinutes, input.ServiceName, *idParseLine, deleteMethodName, methodArguments)
 }

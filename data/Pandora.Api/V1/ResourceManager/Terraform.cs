@@ -53,6 +53,7 @@ public class TerraformController : ControllerBase
             Resource = input.Resource,
             GenerateSchema = input.GenerateSchema,
             GenerateIdValidation = input.GenerateIDValidationFunction,
+            ReadMethod = MapMethodDefinition(input.ReadMethod),
             ResourceName = input.ResourceName,
             ResourceIdName = input.ResourceIdName,
         };
@@ -99,6 +100,9 @@ public class TerraformController : ControllerBase
 
         [JsonPropertyName("generateIdValidation")]
         public bool GenerateIdValidation { get; set; }
+
+        [JsonPropertyName("readMethod")]
+        public MethodDefinition ReadMethod { get; set; }
 
         [JsonPropertyName("resource")]
         public string Resource { get; set; }
