@@ -79,7 +79,7 @@ func (r %[1]sResource) Create() sdk.ResourceFunc {
 		},
 	}
 }
-`, input.ResourceTypeName, input.Details.ReadMethod.TimeoutInMinutes, input.ServiceName, strings.Join(components, "\n"))
+`, input.ResourceTypeName, input.Details.CreateMethod.TimeoutInMinutes, input.ServiceName, strings.Join(components, "\n"))
 }
 
 func (h createFunctionComponents) create() string {
