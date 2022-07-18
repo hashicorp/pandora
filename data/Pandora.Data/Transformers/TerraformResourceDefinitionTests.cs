@@ -33,6 +33,10 @@ public class TerraformResourceDefinitionTests
         Assert.AreEqual("FakeResourceId", actual.ResourceIdName);
         Assert.AreEqual("Basic", actual.ResourceName);
         Assert.AreEqual("Example", actual.Resource);
+        Assert.NotNull(actual.UpdateMethod);
+        Assert.True(actual.UpdateMethod.Generate);
+        Assert.AreEqual("SomeUpdate", actual.UpdateMethod.MethodName);
+        Assert.AreEqual(12, actual.UpdateMethod.TimeoutInMinutes);
     }
 
     [TestCase]
@@ -65,6 +69,12 @@ public class TerraformResourceDefinitionTests
             TimeoutInMinutes = 11,
         };
         public string ResourceLabel => "fake_planet";
+        public MethodDefinition? UpdateMethod => new MethodDefinition
+        {
+            Generate = true,
+            Method = typeof(v2020_01_01.Example.SomeUpdateOperation),
+            TimeoutInMinutes = 12,
+        };
         public Definitions.Interfaces.ResourceID ResourceId => new v2020_01_01.Example.FakeResourceId();
     }
 
@@ -93,6 +103,12 @@ public class TerraformResourceDefinitionTests
             TimeoutInMinutes = 11,
         };
         public string ResourceLabel => "fake_planet";
+        public MethodDefinition? UpdateMethod => new MethodDefinition
+        {
+            Generate = true,
+            Method = typeof(v2020_01_01.Example.SomeUpdateOperation),
+            TimeoutInMinutes = 12,
+        };
         public Definitions.Interfaces.ResourceID ResourceId => new v2015_01_01.Example.FakeResourceId();
     }
 
@@ -116,6 +132,12 @@ public class TerraformResourceDefinitionTests
                 public override Definitions.Interfaces.ResourceID? ResourceId() => new FakeResourceId();
 
                 public override Type? ResponseObject() => typeof(string);
+            }
+            internal class SomeUpdateOperation : PutOperation
+            {
+                public override Type? RequestObject() => typeof(string);
+
+                public override Definitions.Interfaces.ResourceID? ResourceId() => new FakeResourceId();
             }
 
             internal class FakeResourceId : Definitions.Interfaces.ResourceID

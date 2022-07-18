@@ -31,9 +31,19 @@ public static class TerraformResourceDefinition
             throw new NotSupportedException("the Resource ID and Read Methods use different API Resources / API Versions");
         }
 
-        // TODO: sanity-check that the (Create/Update) methods come from the same Service/API Version
         // TODO: validate that the Create and Update models have payloads
 
+        Models.TerraformMethodDefinition? updateMethod = null;
+        if (input.UpdateMethod != null)
+        {
+            updateMethod = TerraformMethodDefinition.Map(input.UpdateMethod);
+            var updateMethodDetails = MetaDataFromResourceNamespace.Get(input.CreateMethod.Method);
+            if (resourceIdDetails.APIResource != updateMethodDetails.APIResource || resourceIdDetails.APIVersion != updateMethodDetails.APIVersion)
+            {
+                throw new NotSupportedException("the Resource ID and Update Methods use different API Resources / API Versions");
+            }
+        }
+        
         return new Models.TerraformResourceDefinition
         {
             CreateMethod = createMethod,
@@ -46,6 +56,7 @@ public static class TerraformResourceDefinition
             ResourceLabel = input.ResourceLabel,
             ResourceName = resourceName,
             ResourceIdName = resourceIdDetails.Name,
+            UpdateMethod = updateMethod,
         };
     }
 
