@@ -16,6 +16,9 @@ internal class ResourceGroupId : ResourceID
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
-
+        ResourceIDSegment.Static("subscriptions", "subscriptions"),
+        ResourceIDSegment.SubscriptionId("subscriptionId"),
+        ResourceIDSegment.Static("resourceGroups", "resourceGroups"),
+        ResourceIDSegment.ResourceGroup("resourceGroup"),
     };
 }
