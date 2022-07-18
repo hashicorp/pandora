@@ -60,6 +60,10 @@ type TerraformResourceDetails struct {
 	// for this Resource.
 	GenerateIdValidation bool `json:"generateIdValidation"`
 
+	// ReadMethod describes the method within the SDK Package that should
+	// be used to retrieve information about this resource in Terraform.
+	ReadMethod MethodDefinition `json:"readMethod"`
+
 	// Resource specifies the Resource within this API Version within the Service where
 	// the details for this Resource can be found.
 	Resource string `json:"resource"`
