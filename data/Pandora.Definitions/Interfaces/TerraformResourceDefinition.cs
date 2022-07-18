@@ -23,7 +23,7 @@ public interface TerraformResourceDefinition
     /// GenerateSchema specifies whether the Schema should be generated for this Resource.
     /// </summary>
     public bool GenerateSchema { get; }
-    
+
     /// <summary>
     /// ReadMethod defines the Read Method associated with this Resource, both for whether this
     /// should be generated and determining which SDK methods which should be called.

@@ -69,7 +69,7 @@ public class TerraformResourceDefinitionTests
         public string DisplayName => "Fake Planet";
         public bool GenerateIDValidationFunction => true;
         public bool GenerateSchema => true;
-        
+
         public MethodDefinition ReadMethod => new MethodDefinition
         {
             Generate = true,
@@ -89,7 +89,7 @@ public class TerraformResourceDefinitionTests
                 public override Definitions.Interfaces.ResourceID? ResourceId() => new FakeResourceId();
             }
 
-            internal class SomeReadOperation : GetOperation 
+            internal class SomeReadOperation : GetOperation
             {
                 public override Definitions.Interfaces.ResourceID? ResourceId() => new FakeResourceId();
 
