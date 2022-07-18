@@ -16,6 +16,13 @@ internal class UserAssignedIdentityId : ResourceID
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
-
+        ResourceIDSegment.Static("subscriptions", "subscriptions"),
+        ResourceIDSegment.SubscriptionId("subscriptionId"),
+        ResourceIDSegment.Static("resourceGroups", "resourceGroups"),
+        ResourceIDSegment.ResourceGroup("resourceGroup"),
+        ResourceIDSegment.Static("providers", "providers"),
+        ResourceIDSegment.ResourceProvider("resourceProvider", "Microsoft.ManagedIdentity"),
+        ResourceIDSegment.Static("userAssignedIdentities", "userAssignedIdentities"),
+        ResourceIDSegment.UserSpecified("resourceName"),
     };
 }
