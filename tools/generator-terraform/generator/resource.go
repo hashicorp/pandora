@@ -31,7 +31,7 @@ func Resource(input ResourceInput) error {
 		// TODO: Create
 		deleteFunctionForResource(input),
 		// TODO: Mappings
-		// TODO: Read
+		readFunctionForResource(input),
 		// TODO: Schema
 		// TODO: Typed Model & Model func.
 		// TODO: Update
