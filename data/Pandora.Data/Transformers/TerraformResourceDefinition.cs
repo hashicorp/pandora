@@ -43,7 +43,7 @@ public static class TerraformResourceDefinition
                 throw new NotSupportedException("the Resource ID and Update Methods use different API Resources / API Versions");
             }
         }
-        
+
         return new Models.TerraformResourceDefinition
         {
             CreateMethod = createMethod,
