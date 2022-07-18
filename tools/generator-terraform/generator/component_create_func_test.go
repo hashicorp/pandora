@@ -192,7 +192,7 @@ func TestComponentCreate_HappyPathEnabled(t *testing.T) {
 	expected := `
 func (r ExampleResource) Create() sdk.ResourceFunc {
 	return sdk.ResourceFunc{
-		Timeout: 10 * time.Minute,
+		Timeout: 20 * time.Minute,
 		Func: func(ctx context.Context, metadata sdk.ResourceMetaData) error {
 			client := metadata.Client.ExampleService.ExampleClient
 			var config ExampleResourceModel
