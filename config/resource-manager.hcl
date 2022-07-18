@@ -83,6 +83,10 @@ service "desktopvirtualization" {
   name      = "DesktopVirtualization"
   available = ["2021-09-03-preview", "2022-02-10-preview"]
 }
+service "digitaltwins" {
+  name      = "DigitalTwins"
+  available = ["2022-05-31"]
+}
 service "dns" {
   name      = "DNS"
   available = ["2018-05-01"]
