@@ -1,4 +1,6 @@
 service "Compute" {
+  terraform_package = "compute"
+  
   api "2021-11-01" {
     package "VirtualMachines" {
       definition "virtual_machine" {
