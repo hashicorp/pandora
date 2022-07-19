@@ -1,23 +1,29 @@
-package identification
+package resources
 
 import (
 	"strings"
-
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/resources"
 
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 	"github.com/hashicorp/pandora/tools/sdk/services"
 )
 
-type CandidateDetails = resources.CandidateDetails
+type CandidateDetails struct {
+	// DataSources is a slice of the potential DataSources identified for this Service
+	DataSources []DataSourceCandidate
 
-func FindCandidates(details services.Resource) CandidateDetails {
-	out := resources.CandidateDetails{
-		DataSources: []resources.DataSourceCandidate{},
-		Resources:   []resources.ResourceCandidate{},
+	// Resources is a slice of the potential Resources identified for this Service
+	Resources []ResourceCandidate
+}
+
+// FindCandidates returns a list of candidate Data Sources and Resources
+// within the specified Service
+func FindCandidates(input services.Resource) CandidateDetails {
+	out := CandidateDetails{
+		DataSources: []DataSourceCandidate{},
+		Resources:   []ResourceCandidate{},
 	}
 
-	for resourceIdName, resourceId := range details.Schema.ResourceIds {
+	for resourceIdName, resourceId := range input.Schema.ResourceIds {
 		// common resources shouldn't be generated
 		if resourceId.CommonAlias != nil {
 			continue
@@ -27,19 +33,15 @@ func FindCandidates(details services.Resource) CandidateDetails {
 			continue
 		}
 
-		//hasCreate := false
-		//hasDelete := false
-		//hasUpdate := false
-		//hasRead := false
 		hasList := false
 		hasSuffixedMethods := false
 
-		var createMethod *resources.OperationMetaData
-		var updateMethod *resources.OperationMetaData
-		var deleteMethod *resources.OperationMetaData
-		var getMethod *resources.OperationMetaData
+		var createMethod *OperationMetaData
+		var updateMethod *OperationMetaData
+		var deleteMethod *OperationMetaData
+		var getMethod *OperationMetaData
 
-		for operationName, operation := range details.Operations.Operations {
+		for operationName, operation := range input.Operations.Operations {
 			// if it's an operation on just a suffix we're not interested
 			if operation.ResourceIdName == nil {
 				continue
@@ -49,20 +51,20 @@ func FindCandidates(details services.Resource) CandidateDetails {
 			}
 
 			if strings.EqualFold(operation.Method, "POST") || strings.EqualFold(operation.Method, "PUT") {
-				createMethod = &resources.OperationMetaData{
+				createMethod = &OperationMetaData{
 					Name:   operationName,
 					Method: operation,
 				}
 			}
 			if strings.EqualFold(operation.Method, "PATCH") {
-				updateMethod = &resources.OperationMetaData{
+				updateMethod = &OperationMetaData{
 					Name:   operationName,
 					Method: operation,
 				}
 			}
 			if strings.EqualFold(operation.Method, "GET") {
 				if operation.UriSuffix == nil {
-					getMethod = &resources.OperationMetaData{
+					getMethod = &OperationMetaData{
 						Name:   operationName,
 						Method: operation,
 					}
@@ -73,7 +75,7 @@ func FindCandidates(details services.Resource) CandidateDetails {
 				}
 			}
 			if strings.EqualFold(operation.Method, "DELETE") {
-				deleteMethod = &resources.OperationMetaData{
+				deleteMethod = &OperationMetaData{
 					Name:   operationName,
 					Method: operation,
 				}
@@ -84,14 +86,14 @@ func FindCandidates(details services.Resource) CandidateDetails {
 		}
 
 		if getMethod != nil || hasList {
-			out.DataSources = append(out.DataSources, resources.DataSourceCandidate{
+			out.DataSources = append(out.DataSources, DataSourceCandidate{
 				Singular:   getMethod != nil,
 				Plural:     hasList,
 				ResourceId: resourceId,
 			})
 		}
 		if createMethod != nil && getMethod != nil && deleteMethod != nil {
-			out.Resources = append(out.Resources, resources.ResourceCandidate{
+			out.Resources = append(out.Resources, ResourceCandidate{
 				CreateMethod:       createMethod,
 				UpdateMethod:       updateMethod,
 				DeleteMethod:       deleteMethod,

@@ -5,6 +5,8 @@ import (
 	"log"
 	"strings"
 
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/resources"
+
 	"github.com/hashicorp/pandora/tools/schema-playground/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
@@ -32,7 +34,7 @@ func NewBuilder(constants map[string]resourcemanager.ConstantDetails, models map
 	}
 }
 
-func (b Builder) Build(input models.ResourceCandidate) (*models.SchemaDefinition, error) {
+func (b Builder) Build(input resources.ResourceCandidate) (*models.SchemaDefinition, error) {
 	// TODO: we should look to skip any resources containing discriminators initially, for example.
 
 	createReadUpdateMethods := b.findCreateUpdateReadPayloads(input)
@@ -300,13 +302,12 @@ func (b Builder) identifyFieldsWithinPropertiesBlock(input operationPayloads) (*
 			log.Printf("[DEBUG] Properties Field %q would be output as %q / %q", k, typedModelName, schemaFieldName)
 
 			definition := models.FieldDefinition{
-				Required:   isRequired,
-				ForceNew:   isForceNew,
-				Optional:   isOptional,
-				Computed:   isComputed,
-				WriteOnly:  isWriteOnly,
-				Validation: nil,
-				// TODO: also need to add the mappings
+				Required:  isRequired,
+				ForceNew:  isForceNew,
+				Optional:  isOptional,
+				Computed:  isComputed,
+				WriteOnly: isWriteOnly,
+				// TODO: also need to add the mappings & any validation
 			}
 
 			if hasRead {
@@ -324,7 +325,7 @@ func (b Builder) identifyFieldsWithinPropertiesBlock(input operationPayloads) (*
 	return &out, nil
 }
 
-func (b Builder) findCreateUpdateReadPayloads(input models.ResourceCandidate) *operationPayloads {
+func (b Builder) findCreateUpdateReadPayloads(input resources.ResourceCandidate) *operationPayloads {
 	out := operationPayloads{}
 
 	// For Create/Update operations we're concerned with the Request object

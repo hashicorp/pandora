@@ -1,4 +1,4 @@
-package models
+package resources
 
 import (
 	"fmt"
@@ -9,13 +9,6 @@ import (
 type OperationMetaData struct {
 	Name   string
 	Method resourcemanager.ApiOperation
-}
-
-type FieldMapping struct {
-	SchemaFieldPath    string
-	CreateModelMapping *string
-	UpdateModelMapping *string
-	ReadModelMapping   *string
 }
 
 type DataSourceCandidate struct {
