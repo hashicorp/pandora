@@ -77,6 +77,10 @@ type TerraformResourceDetails struct {
 
 	// ResourceName specifies the name of this Resource (which can be used as a Go Type Name).
 	ResourceName string `json:"resourceName"`
+
+	// UpdateMethod optionally describes the method within the SDK Package that should
+	// be used to update this resource in Terraform.
+	UpdateMethod *MethodDefinition `json:"updateMethod,omitempty"`
 }
 
 type MethodDefinition struct {

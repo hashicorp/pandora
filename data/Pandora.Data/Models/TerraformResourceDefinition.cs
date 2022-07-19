@@ -12,4 +12,6 @@ public class TerraformResourceDefinition
     public string ResourceIdName { get; set; }
     public string ResourceLabel { get; set; }
     public string ResourceName { get; set; }
+
+    public TerraformMethodDefinition? UpdateMethod { get; set; }
 }

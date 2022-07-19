@@ -7,13 +7,17 @@ import (
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-func argumentsForApiOperationMethod(operation resourcemanager.ApiOperation, sdkResourceName, methodName string) string {
+func argumentsForApiOperationMethod(operation resourcemanager.ApiOperation, sdkResourceName, methodName string, idIsAPointer bool) string {
 	methodArguments := []string{
 		"ctx",
 	}
 
 	if operation.ResourceIdName != nil {
-		methodArguments = append(methodArguments, "id")
+		if idIsAPointer {
+			methodArguments = append(methodArguments, "*id")
+		} else {
+			methodArguments = append(methodArguments, "id")
+		}
 	}
 
 	if operation.RequestObject != nil {

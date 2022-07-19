@@ -146,10 +146,16 @@ public static class VersionTests
         {
             Generate = false,
             Method = typeof(v2020_01_01.Example.FakeApiOperation),
-            TimeoutInMinutes = 10,
+            TimeoutInMinutes = 11,
         };
         public Definitions.Interfaces.ResourceID ResourceId => new v2020_01_01.Example.FakeResourceId();
         public string ResourceLabel => "example_resource";
+        public MethodDefinition? UpdateMethod => new MethodDefinition
+        {
+            Generate = false,
+            Method = typeof(v2020_01_01.Example.FakeApiOperation),
+            TimeoutInMinutes = 12,
+        };
     }
 
 

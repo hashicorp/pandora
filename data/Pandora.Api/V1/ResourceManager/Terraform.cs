@@ -46,7 +46,7 @@ public class TerraformController : ControllerBase
 
     private static ResourceResponse MapResourceDefinition(TerraformResourceDefinition input)
     {
-        return new ResourceResponse
+        var response = new ResourceResponse
         {
             CreateMethod = MapMethodDefinition(input.CreateMethod),
             DeleteMethod = MapMethodDefinition(input.DeleteMethod),
@@ -58,6 +58,11 @@ public class TerraformController : ControllerBase
             ResourceName = input.ResourceName,
             ResourceIdName = input.ResourceIdName,
         };
+        if (input.UpdateMethod != null)
+        {
+            response.UpdateMethod = MapMethodDefinition(input.UpdateMethod!);
+        }
+        return response;
     }
 
     private static MethodDefinition MapMethodDefinition(TerraformMethodDefinition input)
@@ -116,6 +121,9 @@ public class TerraformController : ControllerBase
 
         [JsonPropertyName("resourceName")]
         public string ResourceName { get; set; }
+
+        [JsonPropertyName("updateMethod")]
+        public MethodDefinition? UpdateMethod { get; set; }
     }
 
     private class MethodDefinition

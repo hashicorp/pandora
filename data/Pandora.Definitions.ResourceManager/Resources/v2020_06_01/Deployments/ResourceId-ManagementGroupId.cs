@@ -16,6 +16,9 @@ internal class ManagementGroupId : ResourceID
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
-
+        ResourceIDSegment.Static("providers", "providers"),
+        ResourceIDSegment.ResourceProvider("resourceProvider", "Microsoft.Management"),
+        ResourceIDSegment.Static("managementGroups", "managementGroups"),
+        ResourceIDSegment.UserSpecified("groupId"),
     };
 }

@@ -34,7 +34,7 @@ func Resource(input ResourceInput) error {
 		readFunctionForResource(input),
 		// TODO: Schema
 		// TODO: Typed Model & Model func.
-		// TODO: Update
+		updateFuncForResource(input),
 		methodsYetToBeImplementedForResource(input),
 	}
 	writeToPath(filePath, strings.Join(components, "\n"))

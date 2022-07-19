@@ -46,4 +46,10 @@ public interface TerraformResourceDefinition
     /// **without** the Provider Prefix (e.g. `resource_group` rather than `azurerm_resource_group`).
     /// </summary>
     public string ResourceLabel { get; }
+
+    /// <summary>
+    /// UpdateMethod optionally defines the Update Method associated with this Resource, both for whether this
+    /// should be generated and determining which SDK methods which should be called.
+    /// </summary>
+    public MethodDefinition? UpdateMethod { get; }
 }
