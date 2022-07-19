@@ -2,6 +2,8 @@ package models
 
 import "github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 
+// TODO: we should consider reusing the `resourcemanager` models where possible to avoid the conversion (see `./differ`)
+
 type AzureApiDefinition struct {
 	ServiceName string
 	ApiVersion  string
