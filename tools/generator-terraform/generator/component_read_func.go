@@ -21,7 +21,9 @@ func readFunctionForResource(input ResourceInput) string {
 		panic(fmt.Sprintf("couldn't find read operation named %q", input.Details.ReadMethod.MethodName))
 	}
 
-	methodArguments := argumentsForApiOperationMethod(readOperation, input.SdkResourceName, input.Details.ReadMethod.MethodName)
+	methodArguments := argumentsForApiOperationMethod(readOperation, input.SdkResourceName, input.Details.ReadMethod.MethodName, true)
+
+	// TODO: marshal method
 
 	return fmt.Sprintf(`
 func (r %[1]sResource) Read() sdk.ResourceFunc {

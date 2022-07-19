@@ -85,7 +85,7 @@ func (r %[1]sResource) Create() sdk.ResourceFunc {
 
 func (h createFunctionComponents) create() string {
 	methodName := methodNameToCallForOperation(h.createMethod, h.createMethodName)
-	methodArguments := argumentsForApiOperationMethod(h.createMethod, h.sdkResourceName, h.createMethodName)
+	methodArguments := argumentsForApiOperationMethod(h.createMethod, h.sdkResourceName, h.createMethodName, false)
 	return fmt.Sprintf(`
 			if err := client.%[1]s(%[2]s); err != nil {
 				return fmt.Errorf("creating %%s: %%+v", id, err)
@@ -148,7 +148,7 @@ func (h createFunctionComponents) mappingsFromSchema() string {
 }
 
 func (h createFunctionComponents) requiresImport() string {
-	readMethodArguments := argumentsForApiOperationMethod(h.readMethod, h.sdkResourceName, h.readMethodName)
+	readMethodArguments := argumentsForApiOperationMethod(h.readMethod, h.sdkResourceName, h.readMethodName, false)
 	return fmt.Sprintf(`
 			existing, err := client.%[1]s(%[2]s)
 			if err != nil {

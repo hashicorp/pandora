@@ -103,7 +103,7 @@ func (r ExampleResource) Read() sdk.ResourceFunc {
 			if err != nil {
 				return err
 			}
-			resp, err := client.Get(ctx, id)
+			resp, err := client.Get(ctx, *id)
 			if err != nil {
 				if response.WasNotFound(resp.HttpResponse) {
 					return metadata.MarkAsGone(*id)
@@ -169,7 +169,7 @@ func (r ExampleResource) Read() sdk.ResourceFunc {
 				return err
 			}
 
-			resp, err := client.Get(ctx, id, sdkresource.DefaultGetOperationOptions())
+			resp, err := client.Get(ctx, *id, sdkresource.DefaultGetOperationOptions())
 			if err != nil {
 				if response.WasNotFound(resp.HttpResponse) {
 					return metadata.MarkAsGone(*id)
@@ -224,7 +224,7 @@ func (r ExampleResource) Read() sdk.ResourceFunc {
 			if err != nil {
 				return err
 			}
-			resp, err := client.Get(ctx, id)
+			resp, err := client.Get(ctx, *id)
 			if err != nil {
 				if response.WasNotFound(resp.HttpResponse) {
 					return metadata.MarkAsGone(*id)
@@ -289,7 +289,7 @@ func (r ExampleResource) Read() sdk.ResourceFunc {
 			if err != nil {
 				return err
 			}
-			resp, err := client.Get(ctx, id, sdkresource.DefaultGetOperationOptions())
+			resp, err := client.Get(ctx, *id, sdkresource.DefaultGetOperationOptions())
 			if err != nil {
 				if response.WasNotFound(resp.HttpResponse) {
 					return metadata.MarkAsGone(*id)
