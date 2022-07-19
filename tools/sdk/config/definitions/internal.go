@@ -12,7 +12,7 @@ type serviceDefinition struct {
 	ApiVersions []apiVersionDefinition `hcl:"api,block"`
 
 	// TerraformPackageName is the name of the associated Service Package within Terraform
-	TerraformPackageName string `json:"terraform_package"`
+	TerraformPackageName string `hcl:"terraform_package"`
 }
 
 type apiVersionDefinition struct {

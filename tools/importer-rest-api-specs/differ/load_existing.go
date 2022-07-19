@@ -95,7 +95,7 @@ func (d *Differ) RetrieveExistingService(serviceName, apiVersion string) (*[]par
 					Models:      *mappedModels,
 					Operations:  *mappedOperations,
 					ResourceIds: *mappedResourceIds,
-					Terraform:   *terraformDetails,
+					Terraform:   terraformDetails,
 				}
 			}
 

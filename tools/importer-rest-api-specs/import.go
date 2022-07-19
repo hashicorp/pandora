@@ -120,7 +120,8 @@ func identifyCandidateTerraformResources(input *[]parser.ParsedData, terraformSe
 					return nil, fmt.Errorf("mapping Resource %q from to an API Resource: %+v", k, err)
 				}
 
-				v.Terraform = resources.FindCandidates(*apiResource, *definitionsForThisResource, k)
+				terraformDetails := resources.FindCandidates(*apiResource, *definitionsForThisResource, k)
+				v.Terraform = &terraformDetails
 			}
 
 			parsedResources[k] = v
