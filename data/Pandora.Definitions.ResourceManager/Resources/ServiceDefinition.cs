@@ -11,5 +11,5 @@ public partial class Service : ServiceDefinition
 {
     public string Name => "Resources";
     public string? ResourceProvider => "Microsoft.Authorization";
-    public string? TerraformPackageName => "resources";
+    public string? TerraformPackageName => "resource";
 }
