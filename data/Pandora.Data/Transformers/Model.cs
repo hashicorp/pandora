@@ -39,7 +39,7 @@ public static class Model
 
         foundTypes.Add(innerType);
 
-        // whilst this looks superflurous - discriminated types can be Request/Response objects so won't get
+        // whilst this looks superfluous - discriminated types can be Request/Response objects so won't get
         // pulled out the traditional way - and since these are de-duped below this is "fine"
         var parentType = PullOutParentType(innerType, knownTypes);
         if (parentType != null)
@@ -102,12 +102,17 @@ public static class Model
             // for example if it's a built-in, custom or enum type there's nothing to map
             if (elementType == null)
             {
+                // Top Level Discriminated Models need to be added to the Implementations Search
+                if (input.IsAbstract)
+                {
+                    foundTypes.AddRange(ImplementationsForType(input));
+                }
                 continue;
             }
 
             foundTypes.Add(elementType);
 
-            // whilst this looks superflurous - discriminated types can be Request/Response objects so won't get
+            // whilst this looks superfluous - discriminated types can be Request/Response objects so won't get
             // pulled out the traditional way - and since these are de-duped below this is "fine"
             var parentType = PullOutParentType(elementType, knownTypes);
             if (parentType != null)
