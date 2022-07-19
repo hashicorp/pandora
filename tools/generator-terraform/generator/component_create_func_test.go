@@ -203,7 +203,7 @@ func (r ExampleResource) Create() sdk.ResourceFunc {
 			id := sdkresource.NewSomeResourceID(subscriptionId, "resource-group-value")
 			existing, err := client.GetThing(ctx, id)
 			if err != nil {
-				if !response.WasNotFound(resp.HttpResponse) {
+				if !response.WasNotFound(existing.HttpResponse) {
 					return fmt.Errorf("checking for the presence of an existing %s: %+v", id, err)
 				}
 			}
@@ -318,7 +318,7 @@ func TestComponentCreate_RequiresImport_ResourceIdNoOptions(t *testing.T) {
 	expected := `
 			existing, err := client.GetThing(ctx, id)
 			if err != nil {
-				if !response.WasNotFound(resp.HttpResponse) {
+				if !response.WasNotFound(existing.HttpResponse) {
 					return fmt.Errorf("checking for the presence of an existing %s: %+v", id, err)
 				}
 			}
@@ -344,7 +344,7 @@ func TestComponentCreate_RequiresImport_ResourceIdOptions(t *testing.T) {
 	expected := `
 			existing, err := client.GetThing(ctx, id, sdkresource.DefaultGetThingOperationOptions())
 			if err != nil {
-				if !response.WasNotFound(resp.HttpResponse) {
+				if !response.WasNotFound(existing.HttpResponse) {
 					return fmt.Errorf("checking for the presence of an existing %s: %+v", id, err)
 				}
 			}
@@ -479,7 +479,7 @@ func TestComponentCreate_IdDefinitionAndMapping_RegularResourceIDWithoutSubscrip
 	assertTemplatedCodeMatches(t, expected, actual)
 }
 
-func TestComponentCreate_PayloadAndMappingsFromSchema(t *testing.T) {
+func TestComponentCreate_PayloadDefinition(t *testing.T) {
 	actual := createFunctionComponents{
 		createMethod: resourcemanager.ApiOperation{
 			RequestObject: &resourcemanager.ApiObjectDefinition{
@@ -488,9 +488,16 @@ func TestComponentCreate_PayloadAndMappingsFromSchema(t *testing.T) {
 			},
 		},
 		sdkResourceName: "sdkresource",
-	}.payloadAndMappingsFromSchema()
+	}.payloadDefinition()
 	expected := `
 			payload := sdkresource.SomeModel{}
+`
+	assertTemplatedCodeMatches(t, expected, actual)
+}
+
+func TestComponentCreate_MappingsFromSchema(t *testing.T) {
+	actual := createFunctionComponents{}.mappingsFromSchema()
+	expected := `
 			// TODO: mapping from the Schema -> Payload
 `
 	assertTemplatedCodeMatches(t, expected, actual)

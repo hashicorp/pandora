@@ -61,7 +61,8 @@ func createFunctionForResource(input ResourceInput) string {
 		helper.schemaDeserialization(),
 		helper.idDefinitionAndMapping(),
 		helper.requiresImport(),
-		helper.payloadAndMappingsFromSchema(),
+		helper.payloadDefinition(),
+		helper.mappingsFromSchema(),
 		helper.create(),
 	}
 
@@ -126,7 +127,7 @@ id := %[1]s(%[2]s)
 `, newIdFuncName, strings.Join(segments, ", "), subscriptionIdDefinition)
 }
 
-func (h createFunctionComponents) payloadAndMappingsFromSchema() string {
+func (h createFunctionComponents) payloadDefinition() string {
 	// NOTE: whilst Payload is _technically_ optional in the API endpoint it's not, else it
 	// wouldn't be a Create method
 	createObjectName, err := h.createMethod.RequestObject.GolangTypeName(&h.sdkResourceName)
@@ -137,8 +138,13 @@ func (h createFunctionComponents) payloadAndMappingsFromSchema() string {
 
 	return fmt.Sprintf(`
 			payload := %[1]s{}
-			// TODO: mapping from the Schema -> Payload
 `, *createObjectName)
+}
+
+func (h createFunctionComponents) mappingsFromSchema() string {
+	return `
+			// TODO: mapping from the Schema -> Payload
+`
 }
 
 func (h createFunctionComponents) requiresImport() string {
@@ -146,7 +152,7 @@ func (h createFunctionComponents) requiresImport() string {
 	return fmt.Sprintf(`
 			existing, err := client.%[1]s(%[2]s)
 			if err != nil {
-				if !response.WasNotFound(resp.HttpResponse) {
+				if !response.WasNotFound(existing.HttpResponse) {
 					return fmt.Errorf("checking for the presence of an existing %%s: %%+v", id, err)
 				}
 			}
