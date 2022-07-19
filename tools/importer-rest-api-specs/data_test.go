@@ -4,13 +4,20 @@ import (
 	"fmt"
 	"os"
 	"testing"
+
+	"github.com/hashicorp/pandora/tools/sdk/config/definitions"
 )
 
 func TestExistingDataCanBeGenerated(t *testing.T) {
 	// works around the OAIGen bug
 	os.Setenv("OAIGEN_DEDUPE", "false")
 
-	input, err := GenerationData(resourceManagerConfig, swaggerDirectory, true)
+	resources, err := definitions.LoadFromDirectory(terraformDefinitionsPath)
+	if err != nil {
+		t.Fatalf("loading terraform definitions from %q: %+v", terraformDefinitionsPath, err)
+	}
+
+	input, err := GenerationData(resourceManagerConfig, swaggerDirectory, *resources, true)
 	if err != nil {
 		t.Fatalf("building generation data: %+v", err)
 	}

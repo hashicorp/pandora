@@ -1,26 +1,21 @@
 package resources
 
 import (
+	"log"
 	"strings"
+
+	"github.com/hashicorp/pandora/tools/sdk/config/definitions"
 
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 	"github.com/hashicorp/pandora/tools/sdk/services"
 )
 
-type CandidateDetails struct {
-	// DataSources is a slice of the potential DataSources identified for this Service
-	DataSources []DataSourceCandidate
-
-	// Resources is a slice of the potential Resources identified for this Service
-	Resources []ResourceCandidate
-}
-
 // FindCandidates returns a list of candidate Data Sources and Resources
 // within the specified Service
-func FindCandidates(input services.Resource) CandidateDetails {
-	out := CandidateDetails{
-		DataSources: []DataSourceCandidate{},
-		Resources:   []ResourceCandidate{},
+func FindCandidates(input services.Resource, resourceDefinitions map[string]definitions.ResourceDefinition, apiResourceName string) resourcemanager.TerraformDetails {
+	out := resourcemanager.TerraformDetails{
+		DataSources: map[string]resourcemanager.TerraformDataSourceDetails{},
+		Resources:   map[string]resourcemanager.TerraformResourceDetails{},
 	}
 
 	for resourceIdName, resourceId := range input.Schema.ResourceIds {
@@ -34,12 +29,11 @@ func FindCandidates(input services.Resource) CandidateDetails {
 		}
 
 		hasList := false
-		hasSuffixedMethods := false
 
-		var createMethod *OperationMetaData
-		var updateMethod *OperationMetaData
-		var deleteMethod *OperationMetaData
-		var getMethod *OperationMetaData
+		var createMethod *resourcemanager.MethodDefinition
+		var updateMethod *resourcemanager.MethodDefinition
+		var deleteMethod *resourcemanager.MethodDefinition
+		var getMethod *resourcemanager.MethodDefinition
 
 		for operationName, operation := range input.Operations.Operations {
 			// if it's an operation on just a suffix we're not interested
@@ -51,22 +45,25 @@ func FindCandidates(input services.Resource) CandidateDetails {
 			}
 
 			if strings.EqualFold(operation.Method, "POST") || strings.EqualFold(operation.Method, "PUT") {
-				createMethod = &OperationMetaData{
-					Name:   operationName,
-					Method: operation,
+				createMethod = &resourcemanager.MethodDefinition{
+					Generate:         true,
+					MethodName:       operationName,
+					TimeoutInMinutes: 30,
 				}
 			}
 			if strings.EqualFold(operation.Method, "PATCH") {
-				updateMethod = &OperationMetaData{
-					Name:   operationName,
-					Method: operation,
+				updateMethod = &resourcemanager.MethodDefinition{
+					Generate:         true,
+					MethodName:       operationName,
+					TimeoutInMinutes: 30,
 				}
 			}
 			if strings.EqualFold(operation.Method, "GET") {
 				if operation.UriSuffix == nil {
-					getMethod = &OperationMetaData{
-						Name:   operationName,
-						Method: operation,
+					getMethod = &resourcemanager.MethodDefinition{
+						Generate:         true,
+						MethodName:       operationName,
+						TimeoutInMinutes: 5,
 					}
 				}
 
@@ -75,34 +72,55 @@ func FindCandidates(input services.Resource) CandidateDetails {
 				}
 			}
 			if strings.EqualFold(operation.Method, "DELETE") {
-				deleteMethod = &OperationMetaData{
-					Name:   operationName,
-					Method: operation,
+				deleteMethod = &resourcemanager.MethodDefinition{
+					Generate:         true,
+					MethodName:       operationName,
+					TimeoutInMinutes: 30,
 				}
 			}
-			if operation.UriSuffix != nil && !strings.EqualFold(operation.Method, "GET") {
-				hasSuffixedMethods = true
-			}
+			// TODO: determine if we're concerned with these in the future (e.g. ListKeys etc)
+			//if operation.UriSuffix != nil && !strings.EqualFold(operation.Method, "GET") {
+			//	hasSuffixedMethods = true
+			//}
+		}
+
+		resourceLabel, resourceMetaData := findResourceName(resourceDefinitions, resourceId.Id)
+		if resourceLabel == nil || resourceMetaData == nil {
+			log.Printf("[INFO] Identified Resource %q but not defined - skipping", resourceId.Id)
+			continue
 		}
 
 		if getMethod != nil || hasList {
-			out.DataSources = append(out.DataSources, DataSourceCandidate{
-				Singular:   getMethod != nil,
-				Plural:     hasList,
-				ResourceId: resourceId,
-			})
+			out.DataSources[resourceMetaData.Name] = resourcemanager.TerraformDataSourceDetails{
+				// TODO: output Singular, Plural and the other stuff..
+			}
 		}
 		if createMethod != nil && getMethod != nil && deleteMethod != nil {
-			out.Resources = append(out.Resources, ResourceCandidate{
-				CreateMethod:       createMethod,
-				UpdateMethod:       updateMethod,
-				DeleteMethod:       deleteMethod,
-				GetMethod:          getMethod,
-				HasSuffixedMethods: hasSuffixedMethods,
-				ResourceId:         resourceId,
-			})
+			out.Resources[*resourceLabel] = resourcemanager.TerraformResourceDetails{
+				CreateMethod:         *createMethod,
+				DeleteMethod:         *deleteMethod,
+				DisplayName:          resourceMetaData.Name, // TODO: add DisplayName
+				Generate:             true,
+				GenerateSchema:       true,
+				GenerateIdValidation: true,
+				ReadMethod:           *getMethod,
+				Resource:             apiResourceName,
+				ResourceIdName:       resourceIdName,
+				ResourceName:         resourceMetaData.Name,
+				UpdateMethod:         updateMethod,
+			}
 		}
 	}
 
 	return out
+}
+
+func findResourceName(definitions map[string]definitions.ResourceDefinition, resourceId string) (*string, *definitions.ResourceDefinition) {
+	for k, v := range definitions {
+		if v.ID == resourceId {
+			return &k, &v
+		}
+	}
+
+	return nil, nil
 }

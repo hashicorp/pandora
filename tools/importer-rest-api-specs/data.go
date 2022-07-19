@@ -5,44 +5,46 @@ import (
 	"path/filepath"
 	"strings"
 
+	"github.com/hashicorp/pandora/tools/sdk/config/definitions"
+
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser"
 	"github.com/hashicorp/pandora/tools/sdk/config/services"
 )
 
 type RunInput struct {
-	RootNamespace        string
-	ServiceName          string
-	ApiVersion           string
-	OutputDirectory      string
-	ResourceProvider     *string
-	TerraformPackageName *string
-	SwaggerDirectory     string
-	SwaggerFiles         []string
+	RootNamespace              string
+	ServiceName                string
+	ApiVersion                 string
+	OutputDirectory            string
+	ResourceProvider           *string
+	SwaggerDirectory           string
+	SwaggerFiles               []string
+	TerraformServiceDefinition *definitions.ServiceDefinition
 }
 
 type ResourceManagerInput struct {
-	ServiceName          string
-	ApiVersion           string
-	ResourceProvider     string
-	SwaggerDirectory     string
-	SwaggerFiles         []string
-	TerraformPackageName *string
+	ServiceName                string
+	ApiVersion                 string
+	ResourceProvider           string
+	SwaggerDirectory           string
+	SwaggerFiles               []string
+	TerraformServiceDefinition *definitions.ServiceDefinition
 }
 
 func (rmi ResourceManagerInput) ToRunInput() RunInput {
 	return RunInput{
-		RootNamespace:        "Pandora.Definitions.ResourceManager",
-		ServiceName:          rmi.ServiceName,
-		ApiVersion:           rmi.ApiVersion,
-		ResourceProvider:     &rmi.ResourceProvider,
-		OutputDirectory:      outputDirectory,
-		SwaggerDirectory:     rmi.SwaggerDirectory,
-		SwaggerFiles:         rmi.SwaggerFiles,
-		TerraformPackageName: rmi.TerraformPackageName,
+		RootNamespace:              "Pandora.Definitions.ResourceManager",
+		ServiceName:                rmi.ServiceName,
+		ApiVersion:                 rmi.ApiVersion,
+		ResourceProvider:           &rmi.ResourceProvider,
+		OutputDirectory:            outputDirectory,
+		SwaggerDirectory:           rmi.SwaggerDirectory,
+		SwaggerFiles:               rmi.SwaggerFiles,
+		TerraformServiceDefinition: rmi.TerraformServiceDefinition,
 	}
 }
 
-func GenerationData(configFilePath, swaggerDirectory string, debug bool) (*[]RunInput, error) {
+func GenerationData(configFilePath, swaggerDirectory string, terraformConfig definitions.Config, debug bool) (*[]RunInput, error) {
 	parsed, err := services.LoadFromFile(configFilePath)
 	if err != nil {
 		return nil, fmt.Errorf("loading config: %+v", err)
@@ -78,18 +80,19 @@ func GenerationData(configFilePath, swaggerDirectory string, debug bool) (*[]Run
 				filesForVersion = append(filesForVersion, fileWithoutPrefix)
 			}
 
-			// since this is a fresh import we don't know this yet, for now we'll set this to a lower-case string
-			// if this is an existing service, we'll reconcile this from the Data in the Data API to update this.
-			terraformPackageName := strings.ToLower(service.Name)
-
 			resourceManagerService := ResourceManagerInput{
-				ServiceName:          service.Name,
-				ApiVersion:           version,
-				ResourceProvider:     serviceDetails.ResourceProvider,
-				SwaggerDirectory:     versionDirectory,
-				SwaggerFiles:         filesForVersion,
-				TerraformPackageName: &terraformPackageName,
+				ServiceName:      service.Name,
+				ApiVersion:       version,
+				ResourceProvider: serviceDetails.ResourceProvider,
+				SwaggerDirectory: versionDirectory,
+				SwaggerFiles:     filesForVersion,
 			}
+
+			definition, ok := terraformConfig.Services[service.Name]
+			if ok {
+				resourceManagerService.TerraformServiceDefinition = &definition
+			}
+
 			output = append(output, resourceManagerService.ToRunInput())
 		}
 	}
