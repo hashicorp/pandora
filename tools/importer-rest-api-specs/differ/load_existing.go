@@ -45,6 +45,11 @@ func (d *Differ) RetrieveExistingService(serviceName, apiVersion string) (*[]par
 				continue
 			}
 
+			terraformDetails, err := d.client.Terraform().Get(*versionDetails)
+			if err != nil {
+				return nil, fmt.Errorf("retrieving Terraform Details for Service %q / Version %q: %+v", serviceName, apiVersion, err)
+			}
+
 			resources := make(map[string]models.AzureApiResource)
 
 			for resourceName, resourceSummary := range versionDetails.Resources {
@@ -89,6 +94,7 @@ func (d *Differ) RetrieveExistingService(serviceName, apiVersion string) (*[]par
 					Models:      *mappedModels,
 					Operations:  *mappedOperations,
 					ResourceIds: *mappedResourceIds,
+					Terraform:   *terraformDetails,
 				}
 			}
 
