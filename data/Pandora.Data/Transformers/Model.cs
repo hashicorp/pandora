@@ -103,6 +103,7 @@ public static class Model
             if (elementType == null)
             {
                 // Top Level Discriminated Models need to be added to the Implementations Search
+                // TODO - This is quite a performance hit, needs some investigation to look at optimisation, but fine for now.
                 if (input.IsAbstract)
                 {
                     foundTypes.AddRange(ImplementationsForType(input));
