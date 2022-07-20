@@ -9,7 +9,7 @@ type TerraformClient struct {
 	Client
 }
 
-func (c TerraformClient) Get(input ServiceVersionDetails) (*TerraformDetails, error) {
+func (c TerraformClient) Get(input ServiceDetails) (*TerraformDetails, error) {
 	endpoint := fmt.Sprintf("%s%s", c.endpoint, input.TerraformUri)
 	resp, err := c.client.Get(endpoint)
 	if err != nil {
