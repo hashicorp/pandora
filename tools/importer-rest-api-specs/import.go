@@ -15,18 +15,15 @@ import (
 )
 
 func importService(input RunInput, swaggerGitSha string, dataApiEndpoint *string, debug bool) error {
-	var errWrap = func(err error) error {
-		log.Printf("❌ Service %q - Api Version %q", input.ServiceName, input.ApiVersion)
-		log.Printf("     💥 Error: %+v", err)
-		return err
-	}
-
 	if debug {
 		log.Printf("[STAGE] Parsing Swagger Files..")
 	}
 	data, err := parseSwaggerFiles(input, debug)
 	if err != nil {
-		return errWrap(fmt.Errorf("parsing Swagger files: %+v", err))
+		err = fmt.Errorf("parsing Swagger files: %+v", err)
+		log.Printf("❌ Service %q - Api Version %q", input.ServiceName, input.ApiVersion)
+		log.Printf("     💥 Error: %+v", err)
+		return err
 	}
 	if data == nil {
 		log.Printf("😵 Service %q / Api Version %q contains no resources, skipping.", input.ServiceName, input.ApiVersion)
