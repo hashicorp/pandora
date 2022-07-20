@@ -8,14 +8,17 @@ import (
 	"strings"
 	"sync"
 
+	"github.com/hashicorp/pandora/tools/sdk/config/definitions"
+
 	git "github.com/go-git/go-git/v5"
 )
 
 const (
-	outputDirectory       = "../../data/"
-	swaggerDirectory      = "../../swagger"
-	resourceManagerConfig = "../../config/resource-manager.hcl"
-	permissions           = os.FileMode(0755)
+	outputDirectory          = "../../data/"
+	swaggerDirectory         = "../../swagger"
+	resourceManagerConfig    = "../../config/resource-manager.hcl"
+	terraformDefinitionsPath = "../../config/resources/"
+	permissions              = os.FileMode(0755)
 
 	// only useful for testing without outputting everything
 	justParse = false
@@ -43,7 +46,7 @@ func main() {
 	}
 
 	debug := strings.TrimSpace(os.Getenv("DEBUG")) != ""
-	if err := run(swaggerDirectory, resourceManagerConfig, dataApiEndpoint, justSegments, debug); err != nil {
+	if err := run(swaggerDirectory, resourceManagerConfig, terraformDefinitionsPath, dataApiEndpoint, justSegments, debug); err != nil {
 		log.Printf("Error: %+v", err)
 		os.Exit(1)
 		return
@@ -52,16 +55,21 @@ func main() {
 	os.Exit(0)
 }
 
-func run(swaggerDirectory, configFilePath string, dataApiEndpoint *string, justSegments, debug bool) error {
+func run(swaggerDirectory, configFilePath, terraformDefinitionsPath string, dataApiEndpoint *string, justSegments, debug bool) error {
 	if justSegments {
 		return parseAndOutputSegments(swaggerDirectory, debug)
 	}
 
-	return runImporter(configFilePath, dataApiEndpoint, debug)
+	return runImporter(configFilePath, terraformDefinitionsPath, dataApiEndpoint, debug)
 }
 
-func runImporter(configFilePath string, dataApiEndpoint *string, debug bool) error {
-	input, err := GenerationData(configFilePath, swaggerDirectory, false)
+func runImporter(configFilePath, terraformDefinitionsPath string, dataApiEndpoint *string, debug bool) error {
+	resources, err := definitions.LoadFromDirectory(terraformDefinitionsPath)
+	if err != nil {
+		return fmt.Errorf("loading terraform definitions from %q: %+v", terraformDefinitionsPath, err)
+	}
+
+	input, err := GenerationData(configFilePath, swaggerDirectory, *resources, false)
 	if err != nil {
 		return fmt.Errorf("loading data: %+v", err)
 	}

@@ -1,4 +1,4 @@
-package models
+package resources
 
 import (
 	"fmt"
@@ -6,16 +6,17 @@ import (
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
+type CandidateDetails struct {
+	// DataSources is a slice of the potential DataSources identified for this Service
+	DataSources []DataSourceCandidate
+
+	// Resources is a slice of the potential Resources identified for this Service
+	Resources []ResourceCandidate
+}
+
 type OperationMetaData struct {
 	Name   string
 	Method resourcemanager.ApiOperation
-}
-
-type FieldMapping struct {
-	SchemaFieldPath    string
-	CreateModelMapping *string
-	UpdateModelMapping *string
-	ReadModelMapping   *string
 }
 
 type DataSourceCandidate struct {

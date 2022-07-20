@@ -5,17 +5,23 @@ import (
 	"log"
 	"os"
 	"path"
+	"sort"
+	"strings"
+
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser"
 
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/cleanup"
 )
 
-func (g PandoraDefinitionGenerator) GenerateServiceDefinition() error {
+func (g PandoraDefinitionGenerator) GenerateServiceDefinition(input []parser.ParsedData) error {
 	serviceDefinitionFilePath := path.Join(g.data.WorkingDirectoryForService, "ServiceDefinition.cs")
 	if g.debugLog {
 		log.Printf("[DEBUG] Generating Service Definition into %q..", serviceDefinitionFilePath)
 	}
+
 	normalizedServiceName := cleanup.NormalizeName(g.data.ServiceName)
-	code := codeForServiceDefinition(g.data.NamespaceForService, normalizedServiceName, g.data.ResourceProvider, g.data.TerraformPackageName)
+	terraformResourceTypes := g.getTerraformResourceTypes(input)
+	code := codeForServiceDefinition(g.data.NamespaceForService, normalizedServiceName, g.data.ResourceProvider, g.data.TerraformPackageName, terraformResourceTypes)
 	if err := writeToFile(serviceDefinitionFilePath, code); err != nil {
 		return fmt.Errorf("generating Service Definition into %q: %+v", serviceDefinitionFilePath, err)
 	}
@@ -44,7 +50,7 @@ func (g PandoraDefinitionGenerator) GenerateServiceDefinition() error {
 	return nil
 }
 
-func codeForServiceDefinition(namespace, serviceName string, resourceProvider, terraformPackage *string) string {
+func codeForServiceDefinition(namespace, serviceName string, resourceProvider, terraformPackage *string, terraformResourceTypes []string) string {
 	rp := "null"
 	if resourceProvider != nil {
 		rp = fmt.Sprintf("%q", *resourceProvider)
@@ -55,19 +61,31 @@ func codeForServiceDefinition(namespace, serviceName string, resourceProvider, t
 		terraformPackageName = fmt.Sprintf("%q", *terraformPackage)
 	}
 
+	terraformResources := make([]string, 0)
+	for _, v := range terraformResourceTypes {
+		terraformResources = append(terraformResources, fmt.Sprintf("new %[1]s(),", v))
+	}
+	sort.Strings(terraformResources)
+
 	return fmt.Sprintf(`using Pandora.Definitions.Interfaces;
+using System.Collections.Generic;
 
-%[5]s
+%[1]s
 
-namespace %[1]s;
+namespace %[2]s;
 
 public partial class Service : ServiceDefinition
 {
-	public string Name => %[2]q;
-	public string? ResourceProvider => %[3]s;
-	public string? TerraformPackageName => %[4]s;
+	public string Name => %[3]q;
+	public string? ResourceProvider => %[4]s;
+	public string? TerraformPackageName => %[5]s;
+
+	public IEnumerable<TerraformResourceDefinition> TerraformResources => new List<TerraformResourceDefinition>
+	{
+		%[6]s
+	};
 }
-`, namespace, serviceName, rp, terraformPackageName, restApiSpecsLicence)
+`, restApiSpecsLicence, namespace, serviceName, rp, terraformPackageName, strings.Join(terraformResources, "\n"))
 }
 
 func codeForServiceDefinitionGenerationSettings(namespace string, serviceName string) string {

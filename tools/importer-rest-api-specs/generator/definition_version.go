@@ -31,18 +31,8 @@ func (g PandoraDefinitionGenerator) GenerateVersionDefinitionAndRecreateDirector
 	}
 
 	// recreate the directory
-	if g.debugLog {
-		log.Printf("[DEBUG] Deleting any existing directory at %q..", g.data.WorkingDirectoryForApiVersion)
-	}
-	os.RemoveAll(g.data.WorkingDirectoryForApiVersion)
-	if g.debugLog {
-		log.Printf("[DEBUG] (Re)Creating the directory at %q..", g.data.WorkingDirectoryForApiVersion)
-	}
-	if err := os.MkdirAll(g.data.WorkingDirectoryForApiVersion, permissions); err != nil {
-		return fmt.Errorf("creating directory %q: %+v", g.data.WorkingDirectoryForApiVersion, err)
-	}
-	if g.debugLog {
-		log.Printf("[DEBUG] Created Directory at %q", g.data.WorkingDirectoryForApiVersion)
+	if err := g.RecreateDirectory(g.data.WorkingDirectoryForApiVersion, permissions); err != nil {
+		return fmt.Errorf("recreating directory %q: %+v", g.data.WorkingDirectoryForApiVersion, err)
 	}
 
 	// then generate the files
@@ -88,6 +78,7 @@ func codeForApiVersionDefinition(namespace, apiVersion string, isPreview bool, r
 using Pandora.Definitions.Interfaces;
 
 namespace %[1]s;
+
 public partial class Definition : ApiVersionDefinition
 {
 	public string ApiVersion => %[2]q;

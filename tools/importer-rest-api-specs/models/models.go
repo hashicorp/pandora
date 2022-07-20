@@ -1,5 +1,9 @@
 package models
 
+import "github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+
+// TODO: we should consider reusing the `resourcemanager` models where possible to avoid the conversion (see `./differ`)
+
 type AzureApiDefinition struct {
 	ServiceName string
 	ApiVersion  string
@@ -11,6 +15,7 @@ type AzureApiResource struct {
 	Models      map[string]ModelDetails
 	Operations  map[string]OperationDetails
 	ResourceIds map[string]ParsedResourceId
+	Terraform   *resourcemanager.TerraformDetails
 }
 
 type OperationDetails struct {

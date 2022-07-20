@@ -67,7 +67,8 @@ func run(input GeneratorInput) error {
 		}
 
 		if service.TerraformPackageName == nil {
-			return fmt.Errorf("TerraformPackageName is nil for Service %q", serviceName)
+			log.Printf("[INFO] TerraformPackageName is nil for Service %q", serviceName)
+			continue
 		}
 
 		for versionNumber, versionDetails := range service.Versions {

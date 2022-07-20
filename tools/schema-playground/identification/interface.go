@@ -3,20 +3,18 @@ package identification
 import (
 	"strings"
 
-	"github.com/hashicorp/pandora/tools/schema-playground/models"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/resources"
+
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 	"github.com/hashicorp/pandora/tools/sdk/services"
 )
 
-type CandidateDetails struct {
-	DataSources []models.DataSourceCandidate
-	Resources   []models.ResourceCandidate
-}
+type CandidateDetails = resources.CandidateDetails
 
 func FindCandidates(details services.Resource) CandidateDetails {
-	out := CandidateDetails{
-		DataSources: []models.DataSourceCandidate{},
-		Resources:   []models.ResourceCandidate{},
+	out := resources.CandidateDetails{
+		DataSources: []resources.DataSourceCandidate{},
+		Resources:   []resources.ResourceCandidate{},
 	}
 
 	for resourceIdName, resourceId := range details.Schema.ResourceIds {
@@ -36,10 +34,10 @@ func FindCandidates(details services.Resource) CandidateDetails {
 		hasList := false
 		hasSuffixedMethods := false
 
-		var createMethod *models.OperationMetaData
-		var updateMethod *models.OperationMetaData
-		var deleteMethod *models.OperationMetaData
-		var getMethod *models.OperationMetaData
+		var createMethod *resources.OperationMetaData
+		var updateMethod *resources.OperationMetaData
+		var deleteMethod *resources.OperationMetaData
+		var getMethod *resources.OperationMetaData
 
 		for operationName, operation := range details.Operations.Operations {
 			// if it's an operation on just a suffix we're not interested
@@ -51,20 +49,20 @@ func FindCandidates(details services.Resource) CandidateDetails {
 			}
 
 			if strings.EqualFold(operation.Method, "POST") || strings.EqualFold(operation.Method, "PUT") {
-				createMethod = &models.OperationMetaData{
+				createMethod = &resources.OperationMetaData{
 					Name:   operationName,
 					Method: operation,
 				}
 			}
 			if strings.EqualFold(operation.Method, "PATCH") {
-				updateMethod = &models.OperationMetaData{
+				updateMethod = &resources.OperationMetaData{
 					Name:   operationName,
 					Method: operation,
 				}
 			}
 			if strings.EqualFold(operation.Method, "GET") {
 				if operation.UriSuffix == nil {
-					getMethod = &models.OperationMetaData{
+					getMethod = &resources.OperationMetaData{
 						Name:   operationName,
 						Method: operation,
 					}
@@ -75,7 +73,7 @@ func FindCandidates(details services.Resource) CandidateDetails {
 				}
 			}
 			if strings.EqualFold(operation.Method, "DELETE") {
-				deleteMethod = &models.OperationMetaData{
+				deleteMethod = &resources.OperationMetaData{
 					Name:   operationName,
 					Method: operation,
 				}
@@ -86,14 +84,14 @@ func FindCandidates(details services.Resource) CandidateDetails {
 		}
 
 		if getMethod != nil || hasList {
-			out.DataSources = append(out.DataSources, models.DataSourceCandidate{
+			out.DataSources = append(out.DataSources, resources.DataSourceCandidate{
 				Singular:   getMethod != nil,
 				Plural:     hasList,
 				ResourceId: resourceId,
 			})
 		}
 		if createMethod != nil && getMethod != nil && deleteMethod != nil {
-			out.Resources = append(out.Resources, models.ResourceCandidate{
+			out.Resources = append(out.Resources, resources.ResourceCandidate{
 				CreateMethod:       createMethod,
 				UpdateMethod:       updateMethod,
 				DeleteMethod:       deleteMethod,
