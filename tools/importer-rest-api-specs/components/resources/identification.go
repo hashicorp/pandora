@@ -18,10 +18,6 @@ func FindCandidates(input services.Resource, resourceDefinitions map[string]defi
 	}
 
 	for resourceIdName, resourceId := range input.Schema.ResourceIds {
-		// common resources shouldn't be generated
-		if resourceId.CommonAlias != nil {
-			continue
-		}
 		// no point
 		if resourceId.Segments[0].Type == resourcemanager.ScopeSegment {
 			continue
@@ -43,30 +39,21 @@ func FindCandidates(input services.Resource, resourceDefinitions map[string]defi
 				continue
 			}
 
-			if (strings.EqualFold(operation.Method, "POST") || strings.EqualFold(operation.Method, "PUT")) && operation.UriSuffix == nil {
+			if (strings.EqualFold(operation.Method, "POST") || strings.EqualFold(operation.Method, "PUT")) && operation.UriSuffix == nil && operation.RequestObject != nil {
 				createMethod = &resourcemanager.MethodDefinition{
 					Generate:         true,
 					MethodName:       operationName,
 					TimeoutInMinutes: 30,
 				}
-
-				// handle CreateOrUpdate
-				if strings.Contains(strings.ToLower(operationName), "update") {
-					updateMethod = &resourcemanager.MethodDefinition{
-						Generate:         true,
-						MethodName:       operationName,
-						TimeoutInMinutes: 30,
-					}
-				}
 			}
-			if strings.EqualFold(operation.Method, "PATCH") && operation.UriSuffix == nil {
+			if strings.EqualFold(operation.Method, "PATCH") && operation.UriSuffix == nil && operation.RequestObject != nil {
 				updateMethod = &resourcemanager.MethodDefinition{
 					Generate:         true,
 					MethodName:       operationName,
 					TimeoutInMinutes: 30,
 				}
 			}
-			if strings.EqualFold(operation.Method, "GET") && operation.UriSuffix == nil {
+			if strings.EqualFold(operation.Method, "GET") && operation.UriSuffix == nil && operation.ResponseObject != nil {
 				if operation.UriSuffix == nil {
 					getMethod = &resourcemanager.MethodDefinition{
 						Generate:         true,
@@ -90,6 +77,18 @@ func FindCandidates(input services.Resource, resourceDefinitions map[string]defi
 			//if operation.UriSuffix != nil && !strings.EqualFold(operation.Method, "GET") {
 			//	hasSuffixedMethods = true
 			//}
+		}
+
+		// once we've been over all the methods, check if the Create method is actually CreateOrUpdate
+		if updateMethod == nil && createMethod != nil {
+			// handle CreateOrUpdate, but only when there's no Update method
+			if strings.Contains(strings.ToLower(createMethod.MethodName), "update") {
+				updateMethod = &resourcemanager.MethodDefinition{
+					Generate:         true,
+					MethodName:       createMethod.MethodName,
+					TimeoutInMinutes: 30,
+				}
+			}
 		}
 
 		resourceLabel, resourceMetaData := findResourceName(resourceDefinitions, resourceId.Id)
