@@ -12,7 +12,7 @@ func (s *ServiceGenerator) constants(data ServiceGeneratorData) error {
 	t := constantsTemplater{
 		constantTemplateFunc: templateForConstant,
 	}
-	if err := s.writeToPathForResource(data.resourceOutputPath, "constants.go", t, data); err != nil {
+	if err := s.writeToPathForResource(data.resourceOutputPath, "templater_constants.go", t, data); err != nil {
 		return fmt.Errorf("templating constants: %+v", err)
 	}
 
