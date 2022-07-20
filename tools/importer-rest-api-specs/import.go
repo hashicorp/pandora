@@ -76,15 +76,11 @@ func importService(input RunInput, swaggerGitSha string, dataApiEndpoint *string
 	if debug {
 		log.Printf("[STAGE] Generating Data API Definitions..")
 	}
-	dataApiGenerator := dataapigenerator.Service{
-		Data:                       *data,
-		DebugLog:                   debug,
-		OutputDirectory:            input.OutputDirectory,
-		ResourceProvider:           input.ResourceProvider,
-		RootNamespace:              input.RootNamespace,
-		SwaggerGitSha:              swaggerGitSha,
-		TerraformServiceDefinition: input.TerraformServiceDefinition,
+	var terraformPackageName *string
+	if input.TerraformServiceDefinition != nil {
+		terraformPackageName = &input.TerraformServiceDefinition.TerraformPackageName
 	}
+	dataApiGenerator := dataapigenerator.NewService(*data, outputDirectory, input.RootNamespace, swaggerGitSha, input.ResourceProvider, terraformPackageName, debug)
 	if err := dataApiGenerator.Generate(); err != nil {
 		err = fmt.Errorf("generating Data API Definitions for Service %q / API Version %q: %+v", input.ServiceName, input.ApiVersion, err)
 		log.Printf("❌ Service %q - Api Version %q", input.ServiceName, input.ApiVersion)
