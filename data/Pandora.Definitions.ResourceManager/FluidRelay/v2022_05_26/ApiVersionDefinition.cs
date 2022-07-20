@@ -14,8 +14,4 @@ public partial class Definition : ApiVersionDefinition
         new FluidRelayContainers.Definition(),
         new FluidRelayServers.Definition(),
     };
-
-    public IEnumerable<TerraformResourceDefinition> TerraformResources => new List<TerraformResourceDefinition>
-    {
-    };
 }

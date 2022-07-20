@@ -24,8 +24,4 @@ public partial class Definition : ApiVersionDefinition
         new PrivateLinkResources.Definition(),
         new Scripts.Definition(),
     };
-
-    public IEnumerable<TerraformResourceDefinition> TerraformResources => new List<TerraformResourceDefinition>
-    {
-    };
 }

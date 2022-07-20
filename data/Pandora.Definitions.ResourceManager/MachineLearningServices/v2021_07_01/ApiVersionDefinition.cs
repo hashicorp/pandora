@@ -23,8 +23,4 @@ public partial class Definition : ApiVersionDefinition
         new WorkspaceSkus.Definition(),
         new Workspaces.Definition(),
     };
-
-    public IEnumerable<TerraformResourceDefinition> TerraformResources => new List<TerraformResourceDefinition>
-    {
-    };
 }

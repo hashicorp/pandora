@@ -17,8 +17,4 @@ public partial class Definition : ApiVersionDefinition
         new TrustedIdProviders.Definition(),
         new VirtualNetworkRules.Definition(),
     };
-
-    public IEnumerable<TerraformResourceDefinition> TerraformResources => new List<TerraformResourceDefinition>
-    {
-    };
 }

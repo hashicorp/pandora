@@ -15,8 +15,4 @@ public partial class Definition : ApiVersionDefinition
         new SqlVirtualMachineGroups.Definition(),
         new SqlVirtualMachines.Definition(),
     };
-
-    public IEnumerable<TerraformResourceDefinition> TerraformResources => new List<TerraformResourceDefinition>
-    {
-    };
 }

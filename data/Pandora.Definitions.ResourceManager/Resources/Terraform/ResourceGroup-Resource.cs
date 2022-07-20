@@ -27,12 +27,12 @@ public class ResourceGroupResource : TerraformResourceDefinition
     {
         Generate = true,
         Method = typeof(v2020_06_01.ResourceGroups.GetOperation),
-        TimeoutInMinutes = 30,
+        TimeoutInMinutes = 5,
     };
     public MethodDefinition? UpdateMethod => new MethodDefinition
     {
         Generate = true,
-        Method = typeof(v2020_06_01.ResourceGroups.CreateOrUpdateOperation),
+        Method = typeof(v2020_06_01.ResourceGroups.UpdateOperation),
         TimeoutInMinutes = 30,
     };
 }

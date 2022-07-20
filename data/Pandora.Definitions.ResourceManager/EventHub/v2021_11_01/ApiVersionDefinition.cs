@@ -29,8 +29,4 @@ public partial class Definition : ApiVersionDefinition
         new NetworkRuleSets.Definition(),
         new SchemaRegistry.Definition(),
     };
-
-    public IEnumerable<TerraformResourceDefinition> TerraformResources => new List<TerraformResourceDefinition>
-    {
-    };
 }

@@ -24,8 +24,4 @@ public partial class Definition : ApiVersionDefinition
         new NamespacesPrivateLinkResources.Definition(),
         new NetworkRuleSets.Definition(),
     };
-
-    public IEnumerable<TerraformResourceDefinition> TerraformResources => new List<TerraformResourceDefinition>
-    {
-    };
 }

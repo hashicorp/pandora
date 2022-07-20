@@ -17,8 +17,4 @@ public partial class Definition : ApiVersionDefinition
         new VNetPeering.Definition(),
         new Workspaces.Definition(),
     };
-
-    public IEnumerable<TerraformResourceDefinition> TerraformResources => new List<TerraformResourceDefinition>
-    {
-    };
 }

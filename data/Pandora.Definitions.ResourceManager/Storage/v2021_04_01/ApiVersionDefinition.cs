@@ -29,8 +29,4 @@ public partial class Definition : ApiVersionDefinition
         new TableService.Definition(),
         new TableServiceProperties.Definition(),
     };
-
-    public IEnumerable<TerraformResourceDefinition> TerraformResources => new List<TerraformResourceDefinition>
-    {
-    };
 }

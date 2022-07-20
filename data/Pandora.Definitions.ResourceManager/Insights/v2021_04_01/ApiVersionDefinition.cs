@@ -15,8 +15,4 @@ public partial class Definition : ApiVersionDefinition
         new DataCollectionRuleAssociations.Definition(),
         new DataCollectionRules.Definition(),
     };
-
-    public IEnumerable<TerraformResourceDefinition> TerraformResources => new List<TerraformResourceDefinition>
-    {
-    };
 }

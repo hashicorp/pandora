@@ -32,7 +32,7 @@ public class VirtualMachineResource : TerraformResourceDefinition
     public MethodDefinition? UpdateMethod => new MethodDefinition
     {
         Generate = true,
-        Method = typeof(v2021_11_01.VirtualMachines.CreateOrUpdateOperation),
+        Method = typeof(v2021_11_01.VirtualMachines.UpdateOperation),
         TimeoutInMinutes = 30,
     };
 }

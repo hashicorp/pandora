@@ -13,8 +13,4 @@ public partial class Definition : ApiVersionDefinition
     {
         new ManagedIdentity.Definition(),
     };
-
-    public IEnumerable<TerraformResourceDefinition> TerraformResources => new List<TerraformResourceDefinition>
-    {
-    };
 }

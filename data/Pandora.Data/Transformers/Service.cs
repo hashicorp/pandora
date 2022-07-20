@@ -31,7 +31,7 @@ public static class Service
             {
                 throw new NotSupportedException($"Resource {input} has duplicate Terraform Resources");
             }
-            
+
             return new ServiceDefinition
             {
                 Generate = input.Generate,

@@ -17,8 +17,4 @@ public partial class Definition : ApiVersionDefinition
         new PrivateEndpointConnections.Definition(),
         new PrivateLinkResources.Definition(),
     };
-
-    public IEnumerable<TerraformResourceDefinition> TerraformResources => new List<TerraformResourceDefinition>
-    {
-    };
 }

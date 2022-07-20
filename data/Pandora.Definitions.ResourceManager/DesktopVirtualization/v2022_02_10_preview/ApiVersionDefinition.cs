@@ -24,8 +24,4 @@ public partial class Definition : ApiVersionDefinition
         new UserSession.Definition(),
         new Workspace.Definition(),
     };
-
-    public IEnumerable<TerraformResourceDefinition> TerraformResources => new List<TerraformResourceDefinition>
-    {
-    };
 }

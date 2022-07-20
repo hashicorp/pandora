@@ -15,8 +15,4 @@ public partial class Definition : ApiVersionDefinition
         new RecordSets.Definition(),
         new Zones.Definition(),
     };
-
-    public IEnumerable<TerraformResourceDefinition> TerraformResources => new List<TerraformResourceDefinition>
-    {
-    };
 }

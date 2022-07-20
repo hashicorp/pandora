@@ -18,8 +18,4 @@ public partial class Definition : ApiVersionDefinition
         new User.Definition(),
         new VirtualMachine.Definition(),
     };
-
-    public IEnumerable<TerraformResourceDefinition> TerraformResources => new List<TerraformResourceDefinition>
-    {
-    };
 }

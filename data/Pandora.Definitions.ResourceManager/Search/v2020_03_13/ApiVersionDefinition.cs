@@ -17,8 +17,4 @@ public partial class Definition : ApiVersionDefinition
         new QueryKeys.Definition(),
         new Services.Definition(),
     };
-
-    public IEnumerable<TerraformResourceDefinition> TerraformResources => new List<TerraformResourceDefinition>
-    {
-    };
 }

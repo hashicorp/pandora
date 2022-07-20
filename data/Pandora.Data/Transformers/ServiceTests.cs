@@ -110,7 +110,7 @@ public static class ServiceTests
                 new FakeTerraformResourceDefinition(),
             };
         }
-        
+
         internal class FakeResourceManagerServiceWithTerraformResource : ServiceDefinition
         {
             public string Name => "FakeResourceManagerServiceWithTerraformResource";
@@ -122,7 +122,7 @@ public static class ServiceTests
                 new FakeTerraformResourceDefinition(),
             };
         }
-        
+
         internal class FakeResourceManagerService : ServiceDefinition
         {
             public string Name => "FakeResourceManager";
@@ -175,7 +175,7 @@ public static class ServiceTests
                 TimeoutInMinutes = 30,
             };
         }
-        
+
         private class FakeTerraformOperation : GetOperation
         {
             public override Type? RequestObject()
