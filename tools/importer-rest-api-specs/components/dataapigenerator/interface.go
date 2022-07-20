@@ -11,8 +11,6 @@ type Service struct {
 	swaggerGitSha        string
 	terraformPackageName *string
 
-	ServiceName           string
-	ApiVersion            string
 	ApiVersionPackageName string
 
 	NamespaceForService    string

@@ -27,10 +27,8 @@ func NewService(data parser.ParsedData, outputDirectory, rootNamespace, swaggerG
 		terraformPackageName: terraformPackageName,
 
 		// TODO: make these private
-		ApiVersion:                    data.ApiVersion,
 		ApiVersionPackageName:         normalizedApiVersion,
 		ResourceProvider:              resourceProvider,
-		ServiceName:                   normalisedServiceName,
 		TerraformPackageName:          terraformPackageName,
 		NamespaceForApiVersion:        fmt.Sprintf("%s.%s", serviceNamespace, normalizedApiVersion),
 		NamespaceForService:           serviceNamespace,
