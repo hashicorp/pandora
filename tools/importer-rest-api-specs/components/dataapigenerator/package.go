@@ -4,9 +4,6 @@ import (
 	"fmt"
 	"log"
 	"path"
-	"sort"
-
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser"
 
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
@@ -124,21 +121,4 @@ func (g PandoraDefinitionGenerator) GenerateResources(resourceName, namespace st
 	}
 
 	return nil
-}
-
-func (g PandoraDefinitionGenerator) getTerraformResourceTypes(input parser.ParsedData) []string {
-	out := make([]string, 0)
-
-	for _, resource := range input.Resources {
-		if resource.Terraform == nil {
-			continue
-		}
-
-		for _, v := range resource.Terraform.Resources {
-			out = append(out, fmt.Sprintf("Terraform.%sResource", v.ResourceName))
-		}
-	}
-
-	sort.Strings(out)
-	return out
 }
