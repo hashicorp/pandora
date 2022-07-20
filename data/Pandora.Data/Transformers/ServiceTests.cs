@@ -33,7 +33,7 @@ public static class ServiceTests
     {
         var actual = Service.Map(new ResourceManagerContainer.FakeResourceManagerServiceWithTerraformResource());
         Assert.NotNull(actual);
-        Assert.AreEqual("FakeResourceManager", actual.Name);
+        Assert.AreEqual("FakeResourceManagerServiceWithTerraformResource", actual.Name);
         Assert.AreEqual(true, actual.ResourceManager);
         Assert.AreEqual("Microsoft.Foo", actual.ResourceProvider);
         Assert.AreEqual("foo", actual.TerraformPackageName);
@@ -43,7 +43,7 @@ public static class ServiceTests
     [TestCase]
     public static void MappingAResourceManagerServiceContainingDuplicateResources()
     {
-        Assert.Throws<NotSupportedException>(() => Service.Map(new ResourceManagerContainer.FakeResourceManagerServiceWithDuplicateTerraformResources()));
+        Assert.Throws<Exception>(() => Service.Map(new ResourceManagerContainer.FakeResourceManagerServiceWithDuplicateTerraformResources()));
     }
 
     [TestCase]
