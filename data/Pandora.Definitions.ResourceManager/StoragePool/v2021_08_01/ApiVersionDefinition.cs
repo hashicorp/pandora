@@ -16,8 +16,4 @@ public partial class Definition : ApiVersionDefinition
         new IscsiTargets.Definition(),
         new ResourceSkus.Definition(),
     };
-
-    public IEnumerable<TerraformResourceDefinition> TerraformResources => new List<TerraformResourceDefinition>
-    {
-    };
 }

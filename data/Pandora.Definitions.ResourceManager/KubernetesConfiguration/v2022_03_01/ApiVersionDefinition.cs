@@ -20,8 +20,4 @@ public partial class Definition : ApiVersionDefinition
         new OperationsInACluster.Definition(),
         new SourceControlConfiguration.Definition(),
     };
-
-    public IEnumerable<TerraformResourceDefinition> TerraformResources => new List<TerraformResourceDefinition>
-    {
-    };
 }

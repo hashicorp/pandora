@@ -14,8 +14,4 @@ public partial class Definition : ApiVersionDefinition
         new Accounts.Definition(),
         new Creators.Definition(),
     };
-
-    public IEnumerable<TerraformResourceDefinition> TerraformResources => new List<TerraformResourceDefinition>
-    {
-    };
 }

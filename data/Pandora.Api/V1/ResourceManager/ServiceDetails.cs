@@ -73,7 +73,7 @@ public class ServiceDetailsController : ControllerBase
 
         [JsonPropertyName("terraformPackageName")]
         public string? TerraformPackageName { get; set; }
-        
+
         [JsonPropertyName("terraformUri")]
         public string TerraformUri { get; set; }
 

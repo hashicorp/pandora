@@ -14,8 +14,4 @@ public partial class Definition : ApiVersionDefinition
         new Apps.Definition(),
         new Networking.Definition(),
     };
-
-    public IEnumerable<TerraformResourceDefinition> TerraformResources => new List<TerraformResourceDefinition>
-    {
-    };
 }

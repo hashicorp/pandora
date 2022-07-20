@@ -17,8 +17,4 @@ public partial class Definition : ApiVersionDefinition
         new StreamingEndpoint.Definition(),
         new StreamingEndpoints.Definition(),
     };
-
-    public IEnumerable<TerraformResourceDefinition> TerraformResources => new List<TerraformResourceDefinition>
-    {
-    };
 }

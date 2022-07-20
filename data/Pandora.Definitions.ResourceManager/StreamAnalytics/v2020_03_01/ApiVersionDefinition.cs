@@ -20,8 +20,4 @@ public partial class Definition : ApiVersionDefinition
         new Subscriptions.Definition(),
         new Transformations.Definition(),
     };
-
-    public IEnumerable<TerraformResourceDefinition> TerraformResources => new List<TerraformResourceDefinition>
-    {
-    };
 }

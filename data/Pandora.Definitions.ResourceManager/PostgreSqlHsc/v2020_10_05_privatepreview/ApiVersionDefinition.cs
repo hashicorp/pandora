@@ -17,8 +17,4 @@ public partial class Definition : ApiVersionDefinition
         new ServerGroups.Definition(),
         new Servers.Definition(),
     };
-
-    public IEnumerable<TerraformResourceDefinition> TerraformResources => new List<TerraformResourceDefinition>
-    {
-    };
 }

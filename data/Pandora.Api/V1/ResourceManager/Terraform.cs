@@ -89,7 +89,7 @@ public class TerraformController : ControllerBase
         // TODO: Schema [incl. Docs], Mappings, Tests etc
         [JsonPropertyName("apiVersion")]
         public string ApiVersion { get; set; }
-        
+
         [JsonPropertyName("createMethod")]
         public MethodDefinition CreateMethod { get; set; }
 

@@ -24,8 +24,4 @@ public partial class Definition : ApiVersionDefinition
         new Topics.Definition(),
         new TopicsAuthorizationRule.Definition(),
     };
-
-    public IEnumerable<TerraformResourceDefinition> TerraformResources => new List<TerraformResourceDefinition>
-    {
-    };
 }

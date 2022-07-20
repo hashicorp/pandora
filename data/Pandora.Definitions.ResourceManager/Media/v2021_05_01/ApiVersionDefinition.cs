@@ -13,8 +13,4 @@ public partial class Definition : ApiVersionDefinition
     {
         new Media.Definition(),
     };
-
-    public IEnumerable<TerraformResourceDefinition> TerraformResources => new List<TerraformResourceDefinition>
-    {
-    };
 }

@@ -17,8 +17,4 @@ public partial class Definition : ApiVersionDefinition
         new Profiles.Definition(),
         new RealUserMetrics.Definition(),
     };
-
-    public IEnumerable<TerraformResourceDefinition> TerraformResources => new List<TerraformResourceDefinition>
-    {
-    };
 }
