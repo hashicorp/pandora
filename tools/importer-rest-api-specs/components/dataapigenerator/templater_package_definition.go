@@ -9,7 +9,7 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
-func (g PandoraDefinitionGenerator) codeForPackageDefinition(namespace, resourceName string, operations map[string]models.OperationDetails) string {
+func codeForPackageDefinition(namespace, resourceName string, operations map[string]models.OperationDetails) string {
 	operationNames := make([]string, 0)
 	for operation := range operations {
 		operationNames = append(operationNames, operation)
