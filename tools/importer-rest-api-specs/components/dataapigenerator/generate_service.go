@@ -1,4 +1,4 @@
-package main
+package dataapigenerator
 
 import (
 	"fmt"
@@ -6,18 +6,19 @@ import (
 	"os"
 	"strings"
 
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/dataapigenerator"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser"
 )
 
-func generateServiceDefinitions(input parser.ParsedData, workingDirectory, rootNamespace string, resourceProvider, terraformPackageName *string, debug bool) error {
-	os.MkdirAll(workingDirectory, permissions)
-
+func GenerateServiceDefinitions(input parser.ParsedData, workingDirectory, rootNamespace string, resourceProvider, terraformPackageName *string, debug bool) error {
 	if debug {
 		log.Printf("[DEBUG] Processing Service %q..", input.ServiceName)
 	}
-	data := dataapigenerator.GenerationDataForService(input.ServiceName, workingDirectory, rootNamespace, resourceProvider, terraformPackageName)
-	os.MkdirAll(data.WorkingDirectoryForService, permissions)
+	data := GenerationDataForService(input.ServiceName, workingDirectory, rootNamespace, resourceProvider, terraformPackageName)
+
+	// TODO: recreateDirectoryExcludingFiles
+	if err := recreateDirectory(workingDirectory, debug); err != nil {
+		return fmt.Errorf("recreating %q: %+v", workingDirectory, err)
+	}
 
 	// clean up any files or directories which aren't on the exclude list
 	excludeList := []string{
@@ -38,8 +39,8 @@ func generateServiceDefinitions(input parser.ParsedData, workingDirectory, rootN
 	}
 
 	// finally let's output the new Service Definition
-	generator := dataapigenerator.NewPackageDefinitionGenerator(data, debug)
-	if err := generator.GenerateServiceDefinition(input); err != nil {
+	generator := NewPackageDefinitionGenerator(data, debug)
+	if err := generator.generateServiceDefinition(input); err != nil {
 		return fmt.Errorf("generating Service Definition for Namespace %q: %+v", data.NamespaceForService, err)
 	}
 

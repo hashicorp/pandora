@@ -10,7 +10,7 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser"
 )
 
-func (g PandoraDefinitionGenerator) GenerateServiceDefinition(input parser.ParsedData) error {
+func (g PandoraDefinitionGenerator) generateServiceDefinition(input parser.ParsedData) error {
 	serviceDefinitionFilePath := path.Join(g.data.WorkingDirectoryForService, "ServiceDefinition.cs")
 	if g.debugLog {
 		log.Printf("[DEBUG] Generating Service Definition into %q..", serviceDefinitionFilePath)

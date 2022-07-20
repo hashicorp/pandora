@@ -87,7 +87,7 @@ func importService(input RunInput, swaggerGitSha string, dataApiEndpoint *string
 		terraformPackageName = &input.TerraformServiceDefinition.TerraformPackageName
 	}
 
-	if err := generateServiceDefinitions(*data, input.OutputDirectory, input.RootNamespace, input.ResourceProvider, terraformPackageName, debug); err != nil {
+	if err := dataapigenerator.GenerateServiceDefinitions(*data, input.OutputDirectory, input.RootNamespace, input.ResourceProvider, terraformPackageName, debug); err != nil {
 		return errWrap(fmt.Errorf("generating Service Definitions: %+v", err))
 	}
 
