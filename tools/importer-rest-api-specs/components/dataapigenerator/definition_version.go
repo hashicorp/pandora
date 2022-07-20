@@ -3,14 +3,13 @@ package dataapigenerator
 import (
 	"fmt"
 	"log"
-	"os"
 	"path"
 	"strings"
 
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
-func (g PandoraDefinitionGenerator) GenerateVersionDefinitionAndRecreateDirectory(resources map[string]models.AzureApiResource, workingDirectory string, permissions os.FileMode) error {
+func (g PandoraDefinitionGenerator) GenerateVersionDefinition(resources map[string]models.AzureApiResource, workingDirectory string) error {
 	if g.debugLog {
 		log.Printf("[DEBUG] Checking for an existing Generation Settings file..")
 	}

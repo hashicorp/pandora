@@ -94,7 +94,7 @@ func importService(input RunInput, swaggerGitSha string, dataApiEndpoint *string
 	if debug {
 		log.Printf("[STAGE] Generating API Definitions..")
 	}
-	if err := generateApiVersions(*data, input.OutputDirectory, input.RootNamespace, input.ResourceProvider, terraformPackageName, debug); err != nil {
+	if err := dataapigenerator.GenerateApiVersions(*data, input.OutputDirectory, input.RootNamespace, input.ResourceProvider, terraformPackageName, debug); err != nil {
 		return errWrap(fmt.Errorf("generating API Versions: %+v", err))
 	}
 

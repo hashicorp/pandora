@@ -10,30 +10,6 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser"
 )
 
-func generateApiVersions(input parser.ParsedData, workingDirectory, rootNamespace string, resourceProvider, terraformPackageName *string, debug bool) error {
-	data := dataapigenerator.GenerationDataForServiceAndApiVersion(input.ServiceName, input.ApiVersion, workingDirectory, rootNamespace, resourceProvider, terraformPackageName)
-	generator := dataapigenerator.NewPackageDefinitionGenerator(data, debug)
-
-	os.MkdirAll(data.WorkingDirectoryForApiVersion, permissions)
-	if err := generator.GenerateVersionDefinitionAndRecreateDirectory(input.Resources, data.WorkingDirectoryForApiVersion, permissions); err != nil {
-		return fmt.Errorf("generating Version Definition for Namespace %q: %+v", data.NamespaceForApiVersion, err)
-	}
-
-	for resourceName, resource := range input.Resources {
-		if debug {
-			log.Printf("Generating Resource at %q", resourceName)
-		}
-		outputDirectory := data.WorkingDirectoryForResource(resourceName)
-		os.MkdirAll(outputDirectory, permissions)
-		namespace := data.NamespaceForResource(resourceName)
-		if err := generator.GenerateResources(resourceName, namespace, resource, outputDirectory); err != nil {
-			return fmt.Errorf("generating Resource %q (Namespace %q): %+v", resourceName, namespace, err)
-		}
-	}
-
-	return nil
-}
-
 func generateServiceDefinitions(input parser.ParsedData, workingDirectory, rootNamespace string, resourceProvider, terraformPackageName *string, debug bool) error {
 	os.MkdirAll(workingDirectory, permissions)
 

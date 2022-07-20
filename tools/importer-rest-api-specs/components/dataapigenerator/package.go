@@ -25,6 +25,10 @@ func (g PandoraDefinitionGenerator) GenerateResources(resourceName, namespace st
 		log.Printf("[DEBUG] Generating %q (Resource %q)..", namespace, resourceName)
 	}
 
+	if err := recreateDirectory(workingDirectory, g.debugLog); err != nil {
+		return fmt.Errorf("recreating directory %q: %+v", workingDirectory, err)
+	}
+
 	// TODO: we should duplicate the types depending on the operation
 	// This would allow us to have a "CreateThing", "UpdateThing" and "GetThing" where "Thing"
 	// defines a single model in the Swagger. These could then output the specifics for each field, for example
