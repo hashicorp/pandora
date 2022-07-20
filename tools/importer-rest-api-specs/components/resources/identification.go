@@ -49,15 +49,6 @@ func FindCandidates(input services.Resource, resourceDefinitions map[string]defi
 					MethodName:       operationName,
 					TimeoutInMinutes: 30,
 				}
-
-				// handle CreateOrUpdate
-				if strings.Contains(strings.ToLower(operationName), "update") {
-					updateMethod = &resourcemanager.MethodDefinition{
-						Generate:         true,
-						MethodName:       operationName,
-						TimeoutInMinutes: 30,
-					}
-				}
 			}
 			if strings.EqualFold(operation.Method, "PATCH") && operation.UriSuffix == nil {
 				updateMethod = &resourcemanager.MethodDefinition{
@@ -90,6 +81,18 @@ func FindCandidates(input services.Resource, resourceDefinitions map[string]defi
 			//if operation.UriSuffix != nil && !strings.EqualFold(operation.Method, "GET") {
 			//	hasSuffixedMethods = true
 			//}
+		}
+
+		// once we've been over all the methods, check if the Create method is actually CreateOrUpdate
+		if updateMethod == nil && createMethod != nil {
+			// handle CreateOrUpdate, but only when there's no Update method
+			if strings.Contains(strings.ToLower(createMethod.MethodName), "update") {
+				updateMethod = &resourcemanager.MethodDefinition{
+					Generate:         true,
+					MethodName:       createMethod.MethodName,
+					TimeoutInMinutes: 30,
+				}
+			}
 		}
 
 		resourceLabel, resourceMetaData := findResourceName(resourceDefinitions, resourceId.Id)
