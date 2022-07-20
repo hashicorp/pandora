@@ -39,21 +39,21 @@ func FindCandidates(input services.Resource, resourceDefinitions map[string]defi
 				continue
 			}
 
-			if (strings.EqualFold(operation.Method, "POST") || strings.EqualFold(operation.Method, "PUT")) && operation.UriSuffix == nil {
+			if (strings.EqualFold(operation.Method, "POST") || strings.EqualFold(operation.Method, "PUT")) && operation.UriSuffix == nil && operation.RequestObject != nil {
 				createMethod = &resourcemanager.MethodDefinition{
 					Generate:         true,
 					MethodName:       operationName,
 					TimeoutInMinutes: 30,
 				}
 			}
-			if strings.EqualFold(operation.Method, "PATCH") && operation.UriSuffix == nil {
+			if strings.EqualFold(operation.Method, "PATCH") && operation.UriSuffix == nil && operation.RequestObject != nil {
 				updateMethod = &resourcemanager.MethodDefinition{
 					Generate:         true,
 					MethodName:       operationName,
 					TimeoutInMinutes: 30,
 				}
 			}
-			if strings.EqualFold(operation.Method, "GET") && operation.UriSuffix == nil {
+			if strings.EqualFold(operation.Method, "GET") && operation.UriSuffix == nil && operation.ResponseObject != nil {
 				if operation.UriSuffix == nil {
 					getMethod = &resourcemanager.MethodDefinition{
 						Generate:         true,
