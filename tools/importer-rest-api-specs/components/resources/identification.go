@@ -5,7 +5,6 @@ import (
 	"strings"
 
 	"github.com/hashicorp/pandora/tools/sdk/config/definitions"
-
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 	"github.com/hashicorp/pandora/tools/sdk/services"
 )
