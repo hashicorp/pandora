@@ -5,7 +5,6 @@ import (
 	"log"
 
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/dataapigenerator"
-
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/resources"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/transformer"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/differ"
