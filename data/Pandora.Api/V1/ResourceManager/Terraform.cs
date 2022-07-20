@@ -42,6 +42,7 @@ public class TerraformController : ControllerBase
     {
         var response = new ResourceResponse
         {
+            ApiVersion = input.ApiVersion,
             CreateMethod = MapMethodDefinition(input.CreateMethod),
             DeleteMethod = MapMethodDefinition(input.DeleteMethod),
             DisplayName = input.DisplayName,
@@ -86,6 +87,9 @@ public class TerraformController : ControllerBase
     private class ResourceResponse
     {
         // TODO: Schema [incl. Docs], Mappings, Tests etc
+        [JsonPropertyName("apiVersion")]
+        public string ApiVersion { get; set; }
+        
         [JsonPropertyName("createMethod")]
         public MethodDefinition CreateMethod { get; set; }
 

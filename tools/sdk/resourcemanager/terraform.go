@@ -41,6 +41,10 @@ type TerraformDataSourceDetails struct {
 }
 
 type TerraformResourceDetails struct {
+	// ApiVersion specifies the version of the Api which should be used for
+	// this resource.
+	ApiVersion string `json:"apiVersion"`
+
 	// CreateMethod describes the method within the SDK Package that should
 	// be used to create this resource in Terraform.
 	CreateMethod MethodDefinition `json:"createMethod"`
