@@ -26,6 +26,7 @@ public static class Service
                 throw new NotSupportedException($"Service {input.Name} has duplicate versions defined: {duplicateVersions}");
             }
 
+            var terraformResources = input.TerraformResources.Select(TerraformResourceDefinition.Map);
             return new ServiceDefinition
             {
                 Generate = input.Generate,
@@ -33,6 +34,7 @@ public static class Service
                 ResourceManager = input.ResourceProvider != null,
                 ResourceProvider = input.ResourceProvider,
                 TerraformPackageName = input.TerraformPackageName,
+                TerraformResources = terraformResources,
                 Versions = orderedVersions,
             };
         }
