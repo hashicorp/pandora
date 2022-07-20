@@ -101,7 +101,7 @@ func (g PandoraDefinitionGenerator) GenerateResources(resourceName, namespace st
 		if g.debugLog {
 			log.Printf("Generating Resource ID %q (in %s)", name, namespace)
 		}
-		code, err := g.codeForResourceID(namespace, name, id)
+		code, err := codeForResourceID(namespace, name, id)
 		if err != nil {
 			return fmt.Errorf("generating Resource ID %q in %q: %+v", name, namespace, err)
 		}
