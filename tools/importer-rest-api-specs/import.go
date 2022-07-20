@@ -27,7 +27,7 @@ func importService(input RunInput, swaggerGitSha string, dataApiEndpoint *string
 	if err != nil {
 		return errWrap(fmt.Errorf("parsing Swagger files: %+v", err))
 	}
-	if data != nil && len(*data) == 0 {
+	if data == nil {
 		log.Printf("😵 Service %q / Api Version %q contains no resources, skipping.", input.ServiceName, input.ApiVersion)
 		return nil
 	}
@@ -117,36 +117,31 @@ func importService(input RunInput, swaggerGitSha string, dataApiEndpoint *string
 	return nil
 }
 
-func identifyCandidateTerraformResources(input *[]parser.ParsedData, terraformServiceDefinition definitions.ServiceDefinition) (*[]parser.ParsedData, error) {
+func identifyCandidateTerraformResources(input *parser.ParsedData, terraformServiceDefinition definitions.ServiceDefinition) (*parser.ParsedData, error) {
 	if input == nil {
 		return input, nil
 	}
 
-	out := make([]parser.ParsedData, 0)
+	parsedResources := make(map[string]models.AzureApiResource, 0)
 
-	for _, item := range *input {
-		parsedResources := make(map[string]models.AzureApiResource, 0)
-
-		for k, v := range item.Resources {
-			definitionsForThisResource := findResourceDefinitionsForResource(item.ApiVersion, k, terraformServiceDefinition)
-			if definitionsForThisResource != nil {
-				apiResource, err := transformer.ApiResourceFromModelResource(v)
-				if err != nil {
-					return nil, fmt.Errorf("mapping Resource %q from to an API Resource: %+v", k, err)
-				}
-
-				terraformDetails := resources.FindCandidates(*apiResource, *definitionsForThisResource, k)
-				v.Terraform = &terraformDetails
+	for k, v := range input.Resources {
+		definitionsForThisResource := findResourceDefinitionsForResource(input.ApiVersion, k, terraformServiceDefinition)
+		if definitionsForThisResource != nil {
+			apiResource, err := transformer.ApiResourceFromModelResource(v)
+			if err != nil {
+				return nil, fmt.Errorf("mapping Resource %q from to an API Resource: %+v", k, err)
 			}
 
-			parsedResources[k] = v
+			terraformDetails := resources.FindCandidates(*apiResource, *definitionsForThisResource, k)
+			v.Terraform = &terraformDetails
 		}
 
-		item.Resources = parsedResources
-		out = append(out, item)
+		parsedResources[k] = v
 	}
 
-	return &out, nil
+	input.Resources = parsedResources
+
+	return input, nil
 }
 
 func findResourceDefinitionsForResource(apiVersion, apiResource string, terraformServiceDefinitions definitions.ServiceDefinition) *map[string]definitions.ResourceDefinition {
@@ -163,8 +158,7 @@ func findResourceDefinitionsForResource(apiVersion, apiResource string, terrafor
 	return &forResource.Definitions
 }
 
-func parseSwaggerFiles(input RunInput, debug bool) (*[]parser.ParsedData, error) {
-	// TODO: shouldn't this be returning a single `parser.ParsedData` here?
+func parseSwaggerFiles(input RunInput, debug bool) (*parser.ParsedData, error) {
 	parseResult, err := parser.LoadAndParseFiles(input.SwaggerDirectory, input.SwaggerFiles, input.ServiceName, input.ApiVersion, debug)
 	if err != nil {
 		return nil, fmt.Errorf("parsing files in %q: %+v", input.SwaggerDirectory, err)
