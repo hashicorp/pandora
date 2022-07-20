@@ -9,17 +9,6 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser"
 )
 
-type Service struct {
-	data                 parser.ParsedData
-	debugLog             bool
-	generationData       generationData
-	outputDirectory      string
-	resourceProvider     *string
-	rootNamespace        string
-	swaggerGitSha        string
-	terraformPackageName *string
-}
-
 func NewService(data parser.ParsedData, outputDirectory, rootNamespace, swaggerGitSha string, resourceProvider, terraformPackageName *string, debugLog bool) *Service {
 	normalisedServiceName := strings.ReplaceAll(data.ServiceName, "-", "")
 	serviceNamespace := fmt.Sprintf("%s.%s", rootNamespace, strings.Title(normalisedServiceName))
@@ -36,6 +25,19 @@ func NewService(data parser.ParsedData, outputDirectory, rootNamespace, swaggerG
 		rootNamespace:        rootNamespace,
 		swaggerGitSha:        swaggerGitSha,
 		terraformPackageName: terraformPackageName,
+
+		// TODO: make these private
+		ApiVersion:                    data.ApiVersion,
+		ApiVersionPackageName:         normalizedApiVersion,
+		ResourceProvider:              resourceProvider,
+		ServiceName:                   normalisedServiceName,
+		TerraformPackageName:          terraformPackageName,
+		NamespaceForApiVersion:        fmt.Sprintf("%s.%s", serviceNamespace, normalizedApiVersion),
+		NamespaceForService:           serviceNamespace,
+		NamespaceForTerraform:         terraformNamespace,
+		WorkingDirectoryForService:    serviceWorkingDirectory,
+		WorkingDirectoryForTerraform:  terraformWorkingDirectory,
+		WorkingDirectoryForApiVersion: path.Join(serviceWorkingDirectory, normalizedApiVersion),
 
 		generationData: generationData{
 			ApiVersion:                    data.ApiVersion,

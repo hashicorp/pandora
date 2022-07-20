@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"path"
 	"strings"
 )
 
@@ -11,6 +12,19 @@ const restApiSpecsLicence = `
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 `
+
+func (s Service) namespaceForResource(resourceName string) string {
+	return fmt.Sprintf("%s.%s", s.NamespaceForApiVersion, s.packageNameForResource(resourceName))
+}
+
+func (s Service) packageNameForResource(resourceName string) string {
+	return strings.Title(resourceName)
+}
+
+func (s Service) workingDirectoryForResource(resource string) string {
+	dir := s.WorkingDirectoryForApiVersion
+	return path.Join(dir, resource)
+}
 
 func fileExistsAtPath(filePath string) (*bool, error) {
 	file, err := os.Stat(filePath)
