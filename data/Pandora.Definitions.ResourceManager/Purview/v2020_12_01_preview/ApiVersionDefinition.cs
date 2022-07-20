@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Pandora.Definitions.Interfaces;
 
 namespace Pandora.Definitions.ResourceManager.Purview.v2020_12_01_preview;
+
 public partial class Definition : ApiVersionDefinition
 {
     public string ApiVersion => "2020-12-01-preview";

@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Pandora.Definitions.Interfaces;
 
 namespace Pandora.Definitions.ResourceManager.FluidRelay.v2022_05_26;
+
 public partial class Definition : ApiVersionDefinition
 {
     public string ApiVersion => "2022-05-26";
