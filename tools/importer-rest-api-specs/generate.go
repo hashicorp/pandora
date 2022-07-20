@@ -46,7 +46,6 @@ func generateTerraformDefinitions(input []parser.ParsedData, workingDirectory, r
 			//
 			//}
 
-			// TODO: the service definition also needs updating to account for this
 			for label, details := range resource.Terraform.Resources {
 				fileName := path.Join(data.WorkingDirectoryForTerraform, fmt.Sprintf("%s-Resource.cs", details.ResourceName))
 				if debug {

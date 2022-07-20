@@ -17,7 +17,9 @@ func (g PandoraDefinitionGenerator) RecreateDirectory(directory string, permissi
 	if g.debugLog {
 		log.Printf("[DEBUG] Deleting any existing directory at %q..", directory)
 	}
-	os.RemoveAll(directory)
+	if err := os.RemoveAll(directory); err != nil {
+		return fmt.Errorf("removing any existing directory at %q: %+v", directory, err)
+	}
 	if g.debugLog {
 		log.Printf("[DEBUG] (Re)Creating the directory at %q..", directory)
 	}
