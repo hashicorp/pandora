@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Pandora.Definitions.Interfaces;
 
 namespace Pandora.Definitions.ResourceManager.Kusto.v2021_08_27;
+
 public partial class Definition : ApiVersionDefinition
 {
     public string ApiVersion => "2021-08-27";

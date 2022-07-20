@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Pandora.Definitions.Interfaces;
 
 namespace Pandora.Definitions.ResourceManager.EventHub.v2021_01_01_preview;
+
 public partial class Definition : ApiVersionDefinition
 {
     public string ApiVersion => "2021-01-01-preview";

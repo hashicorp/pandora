@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Pandora.Definitions.Interfaces;
 
 namespace Pandora.Definitions.ResourceManager.DesktopVirtualization.v2021_09_03_preview;
+
 public partial class Definition : ApiVersionDefinition
 {
     public string ApiVersion => "2021-09-03-preview";
