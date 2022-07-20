@@ -34,6 +34,10 @@ type ServiceDetails struct {
 	// the Terraform Provider associated with this service.
 	TerraformPackageName *string `json:"terraformPackageName,omitempty"`
 
+	// TerraformUri is an endpoint which contains information about the Terraform
+	// metadata (incl. Data Sources/Resources) for this API Version
+	TerraformUri string `json:"terraformUri"`
+
 	// Versions is a summary of the Versions available for this Service
 	Versions map[string]ServiceVersion `json:"versions"`
 }

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Pandora.Definitions.Interfaces;
 
 namespace Pandora.Definitions.TestData.Pandamonium;
@@ -15,4 +16,5 @@ public class Service : ServiceDefinition
     public string? ResourceProvider => "Microsoft.Blah";
 
     public string? TerraformPackageName => "pandamonium";
+    public IEnumerable<TerraformResourceDefinition> TerraformResources => new List<TerraformResourceDefinition>();
 }

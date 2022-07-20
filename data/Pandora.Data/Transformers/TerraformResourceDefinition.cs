@@ -31,7 +31,7 @@ public static class TerraformResourceDefinition
             throw new NotSupportedException("the Resource ID and Read Methods use different API Resources / API Versions");
         }
 
-        // TODO: validate that the Create and Update models have payloads
+        // TODO: validate that the Create, Read and Update models have payloads
 
         Models.TerraformMethodDefinition? updateMethod = null;
         if (input.UpdateMethod != null)
@@ -46,6 +46,7 @@ public static class TerraformResourceDefinition
 
         return new Models.TerraformResourceDefinition
         {
+            ApiVersion = resourceIdDetails.APIVersion,
             CreateMethod = createMethod,
             DeleteMethod = deleteMethod,
             DisplayName = input.DisplayName,

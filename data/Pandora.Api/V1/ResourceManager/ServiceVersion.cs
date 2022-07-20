@@ -49,7 +49,6 @@ public class ServiceVersionController : ControllerBase
             Resources = version.Resources.ToDictionary(a => a.Name,
                 a => MapResourceForApiVersion(a, versionNumber, serviceName)),
             Source = MapSource(version.Source),
-            TerraformUri = $"/v1/resource-manager/services/{serviceName}/{versionNumber}/terraform",
         };
     }
 
@@ -83,9 +82,6 @@ public class ApiVersionResponse
 
     [JsonPropertyName("source")]
     public string Source { get; set; }
-
-    [JsonPropertyName("terraformUri")]
-    public string TerraformUri { get; set; }
 }
 
 public class ApiTypeInformation

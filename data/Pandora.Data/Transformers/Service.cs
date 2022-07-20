@@ -26,6 +26,12 @@ public static class Service
                 throw new NotSupportedException($"Service {input.Name} has duplicate versions defined: {duplicateVersions}");
             }
 
+            var terraformResources = input.TerraformResources.Select(TerraformResourceDefinition.Map).ToList();
+            if (terraformResources.Any(a => terraformResources.Count(b => b.ResourceLabel == a.ResourceLabel) > 1))
+            {
+                throw new NotSupportedException($"Resource {input} has duplicate Terraform Resources");
+            }
+            
             return new ServiceDefinition
             {
                 Generate = input.Generate,
@@ -33,6 +39,7 @@ public static class Service
                 ResourceManager = input.ResourceProvider != null,
                 ResourceProvider = input.ResourceProvider,
                 TerraformPackageName = input.TerraformPackageName,
+                TerraformResources = terraformResources,
                 Versions = orderedVersions,
             };
         }

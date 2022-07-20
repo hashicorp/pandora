@@ -17,8 +17,8 @@ public class TerraformController : ControllerBase
         _repo = repo;
     }
 
-    [Route("/v1/resource-manager/services/{serviceName}/{apiVersion}/terraform")]
-    public IActionResult Terraform(string serviceName, string apiVersion)
+    [Route("/v1/resource-manager/services/{serviceName}/terraform")]
+    public IActionResult Terraform(string serviceName)
     {
         var service = _repo.GetByName(serviceName, true);
         if (service == null)
@@ -26,21 +26,15 @@ public class TerraformController : ControllerBase
             return BadRequest("service not found");
         }
 
-        var version = service.Versions.FirstOrDefault(v => v.Version == apiVersion);
-        if (version == null)
-        {
-            return BadRequest($"version {apiVersion} was not found");
-        }
-
-        return new JsonResult(MapResponse(version));
+        return new JsonResult(MapResponse(service));
     }
 
-    private static TerraformV1Response MapResponse(VersionDefinition version)
+    private static TerraformV1Response MapResponse(ServiceDefinition service)
     {
         return new TerraformV1Response
         {
             DataSources = new Dictionary<string, DataSourceResponse>(),
-            Resources = version.TerraformResources.ToDictionary(k => k.ResourceLabel, MapResourceDefinition),
+            Resources = service.TerraformResources.ToDictionary(k => k.ResourceLabel, MapResourceDefinition),
         };
     }
 
@@ -48,6 +42,7 @@ public class TerraformController : ControllerBase
     {
         var response = new ResourceResponse
         {
+            ApiVersion = input.ApiVersion,
             CreateMethod = MapMethodDefinition(input.CreateMethod),
             DeleteMethod = MapMethodDefinition(input.DeleteMethod),
             DisplayName = input.DisplayName,
@@ -92,6 +87,9 @@ public class TerraformController : ControllerBase
     private class ResourceResponse
     {
         // TODO: Schema [incl. Docs], Mappings, Tests etc
+        [JsonPropertyName("apiVersion")]
+        public string ApiVersion { get; set; }
+        
         [JsonPropertyName("createMethod")]
         public MethodDefinition CreateMethod { get; set; }
 

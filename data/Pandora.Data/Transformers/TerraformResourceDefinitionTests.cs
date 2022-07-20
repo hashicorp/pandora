@@ -14,6 +14,7 @@ public class TerraformResourceDefinitionTests
         var input = new BasicResource();
         var actual = TerraformResourceDefinition.Map(input);
         Assert.NotNull(actual);
+        Assert.AreEqual("2020-01-01", actual.ApiVersion);
         Assert.NotNull(actual.CreateMethod);
         Assert.True(actual.CreateMethod.Generate);
         Assert.AreEqual("SomeCreate", actual.CreateMethod.MethodName);

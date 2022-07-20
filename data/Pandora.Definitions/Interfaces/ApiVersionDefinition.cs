@@ -28,11 +28,6 @@ public interface ApiVersionDefinition
     IEnumerable<ResourceDefinition> Resources { get; }
 
     /// <summary>
-    /// TerraformResources returns a list of TerraformResourceDefinitions for this API Version.
-    /// </summary>
-    IEnumerable<TerraformResourceDefinition> TerraformResources { get; }
-
-    /// <summary>
     /// Source specifies where the API Definitions were sourced from.
     /// </summary>
     Source Source { get; }
