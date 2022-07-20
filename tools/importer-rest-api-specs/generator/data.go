@@ -7,8 +7,9 @@ import (
 )
 
 type GenerationData struct {
-	ServiceName string
-	ApiVersion  string
+	ServiceName           string
+	ApiVersion            string
+	ApiVersionPackageName string
 
 	NamespaceForService    string
 	NamespaceForApiVersion string
@@ -43,13 +44,18 @@ func GenerationDataForServiceAndApiVersion(serviceName, apiVersion, rootDirector
 	normalizedApiVersion := normalizeApiVersion(apiVersion)
 	data := GenerationDataForService(serviceName, rootDirectory, rootNamespace, resourceProvider, terraformPackageName)
 	data.ApiVersion = apiVersion
+	data.ApiVersionPackageName = normalizedApiVersion
 	data.NamespaceForApiVersion = fmt.Sprintf("%s.%s", data.NamespaceForService, normalizedApiVersion)
 	data.WorkingDirectoryForApiVersion = path.Join(data.WorkingDirectoryForService, normalizedApiVersion)
 	return data
 }
 
 func (d GenerationData) NamespaceForResource(resourceName string) string {
-	return fmt.Sprintf("%s.%s", d.NamespaceForApiVersion, strings.Title(resourceName))
+	return fmt.Sprintf("%s.%s", d.NamespaceForApiVersion, d.PackageNameForResource(resourceName))
+}
+
+func (d GenerationData) PackageNameForResource(resourceName string) string {
+	return strings.Title(resourceName)
 }
 
 func (d GenerationData) WorkingDirectoryForResource(resource string) string {

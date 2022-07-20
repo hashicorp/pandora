@@ -53,7 +53,7 @@ func generateTerraformDefinitions(input []parser.ParsedData, workingDirectory, r
 					log.Printf("Generating Resource into %q", fileName)
 				}
 
-				if err := generator.GenerateTerraformResourceDefinition(fileName, data.NamespaceForTerraform, data.NamespaceForResource(resourceName), label, details); err != nil {
+				if err := generator.GenerateTerraformResourceDefinition(fileName, data.NamespaceForTerraform, data.ApiVersionPackageName, data.PackageNameForResource(resourceName), label, details); err != nil {
 					return fmt.Errorf("generating Terraform Resource Definition for %q: %+v", label, err)
 				}
 			}
