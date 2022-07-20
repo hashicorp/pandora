@@ -11,7 +11,7 @@ func generateServiceDefinitions(input parser.ParsedData, workingDirectory, rootN
 	if debug {
 		log.Printf("[DEBUG] Processing Service %q..", input.ServiceName)
 	}
-	data := generationDataForService(input.ServiceName, workingDirectory, rootNamespace, resourceProvider, terraformPackageName)
+	data := generationDataForServiceAndApiVersion(input.ServiceName, input.ApiVersion, workingDirectory, rootNamespace, resourceProvider, terraformPackageName)
 
 	excludeList := []string{
 		// TODO: presumably we can remove this once https://github.com/hashicorp/pandora/issues/403
