@@ -3,7 +3,6 @@ package dataapigenerator
 import (
 	"fmt"
 	"log"
-	"os"
 	"path"
 
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/cleanup"
@@ -24,12 +23,11 @@ func (g PandoraDefinitionGenerator) generateServiceDefinition(input parser.Parse
 
 	// ServiceDefinition-GenerationSettings.cs is retained between regenerations, so we special-case it
 	generationSettingsFilePath := path.Join(g.data.WorkingDirectoryForService, "ServiceDefinition-GenerationSettings.cs")
-	file, err := os.Stat(generationSettingsFilePath)
-	if err != nil && !os.IsNotExist(err) {
-		return fmt.Errorf("checking for an existing Service Definition Generation Settings file at %q: %+v", generationSettingsFilePath, err)
+	exists, err := fileExistsAtPath(generationSettingsFilePath)
+	if err != nil {
+		return err
 	}
-
-	if file != nil && file.Size() > 0 {
+	if *exists {
 		if g.debugLog {
 			log.Printf("[DEBUG] Service Definition Generation Settings exist at %q - skipping", generationSettingsFilePath)
 		}

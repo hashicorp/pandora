@@ -13,23 +13,12 @@ func (g PandoraDefinitionGenerator) generateVersionDefinition(resources map[stri
 	if g.debugLog {
 		log.Printf("[DEBUG] Checking for an existing Generation Settings file..")
 	}
-	generationSettingFilePath := path.Join(workingDirectory, "ApiVersionDefinition-GenerationSetting.cs")
-	settingsFile, err := readFromFile(generationSettingFilePath)
-	if err != nil {
-		return fmt.Errorf("reading the existing Generation Settings for %q: %+v", generationSettingFilePath, err)
-	}
-	if settingsFile != nil {
-		if g.debugLog {
-			log.Printf("[DEBUG] Using existing Generation Settings file at path %q..", generationSettingFilePath)
-		}
-	} else {
-		code := codeForApiVersionDefinitionSetting(g.data.NamespaceForApiVersion)
-		b := []byte(code)
-		settingsFile = &b
-	}
 
 	// recreate the directory
-	if err := recreateDirectory(g.data.WorkingDirectoryForApiVersion, g.debugLog); err != nil {
+	excludeList := []string{
+		"ApiVersionDefinition-GenerationSetting.cs",
+	}
+	if err := recreateDirectoryExcludingFiles(workingDirectory, excludeList, g.debugLog); err != nil {
 		return fmt.Errorf("recreating directory %q: %+v", g.data.WorkingDirectoryForApiVersion, err)
 	}
 
@@ -38,16 +27,27 @@ func (g PandoraDefinitionGenerator) generateVersionDefinition(resources map[stri
 		log.Printf("[DEBUG] Generating Api Version Definition..")
 	}
 	isPreview := strings.Contains(strings.ToLower(g.data.ApiVersion), "preview")
-	code := codeForApiVersionDefinition(g.data.NamespaceForApiVersion, g.data.ApiVersion, isPreview, resources)
 	definitionFilePath := path.Join(workingDirectory, "ApiVersionDefinition.cs")
-	if err := writeToFile(definitionFilePath, code); err != nil {
+	if err := writeToFile(definitionFilePath, codeForApiVersionDefinition(g.data.NamespaceForApiVersion, g.data.ApiVersion, isPreview, resources)); err != nil {
 		return fmt.Errorf("writing Api Version Definition to %q: %+v", definitionFilePath, err)
+	}
+
+	generationSettingFilePath := path.Join(workingDirectory, "ApiVersionDefinition-GenerationSetting.cs")
+	exists, err := fileExistsAtPath(generationSettingFilePath)
+	if err != nil {
+		return err
+	}
+	if *exists {
+		if g.debugLog {
+			log.Printf("[DEBUG] Api Version Definition Generation Settings exists at %q - skipping", generationSettingFilePath)
+		}
+		return nil
 	}
 
 	if g.debugLog {
 		log.Printf("[DEBUG] Generating Api Version Definition Generation Setting..")
 	}
-	if err := writeToFile(generationSettingFilePath, string(*settingsFile)); err != nil {
+	if err := writeToFile(generationSettingFilePath, codeForApiVersionDefinitionSetting(g.data.NamespaceForApiVersion)); err != nil {
 		return fmt.Errorf("writing Api Version Definition Generation Setting to %q: %+v", definitionFilePath, err)
 	}
 
