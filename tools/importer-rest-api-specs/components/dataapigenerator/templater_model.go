@@ -8,7 +8,7 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
-func (g PandoraDefinitionGenerator) codeForModel(namespace string, modelName string, model models.ModelDetails, parentModel *models.ModelDetails, knownConstants map[string]models.ConstantDetails, knownModels map[string]models.ModelDetails) (*string, error) {
+func codeForModel(namespace string, modelName string, model models.ModelDetails, parentModel *models.ModelDetails, knownConstants map[string]models.ConstantDetails, knownModels map[string]models.ModelDetails) (*string, error) {
 	if len(model.Fields) == 0 {
 		return nil, fmt.Errorf("the model %q in namespace %q has no fields", modelName, namespace)
 	}
@@ -42,7 +42,7 @@ func (g PandoraDefinitionGenerator) codeForModel(namespace string, modelName str
 
 		field := model.Fields[fieldName]
 		isTypeHint := model.TypeHintIn != nil && strings.EqualFold(*model.TypeHintIn, fieldName)
-		fieldCode, err := g.codeForField("\t\t", fieldName, field, isTypeHint, knownConstants, knownModels)
+		fieldCode, err := codeForField("\t\t", fieldName, field, isTypeHint, knownConstants, knownModels)
 		if err != nil {
 			return nil, fmt.Errorf("generating code for field %q: %+v", fieldName, err)
 		}
@@ -84,7 +84,7 @@ internal %[2]s
 	return &out, nil
 }
 
-func (g PandoraDefinitionGenerator) codeForField(indentation, fieldName string, field models.FieldDetails, isTypeHint bool, constants map[string]models.ConstantDetails, knownModels map[string]models.ModelDetails) (*string, error) {
+func codeForField(indentation, fieldName string, field models.FieldDetails, isTypeHint bool, constants map[string]models.ConstantDetails, knownModels map[string]models.ModelDetails) (*string, error) {
 	fieldType, err := dotNetTypeNameForComplexType(field, constants, knownModels)
 	if err != nil {
 		return nil, err
