@@ -9,7 +9,7 @@ import (
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-func GenerateTerraformDefinitions(input parser.ParsedData, workingDirectory, rootNamespace string, resourceProvider, terraformPackageName *string, debug bool) error {
+func generateTerraformDefinitions(input parser.ParsedData, workingDirectory, rootNamespace string, resourceProvider, terraformPackageName *string, debug bool) error {
 	containsTerraformResources := false
 	for _, v := range input.Resources {
 		if v.Terraform != nil {
@@ -21,8 +21,8 @@ func GenerateTerraformDefinitions(input parser.ParsedData, workingDirectory, roo
 		return nil
 	}
 
-	data := GenerationDataForServiceAndApiVersion(input.ServiceName, input.ApiVersion, workingDirectory, rootNamespace, resourceProvider, terraformPackageName)
-	generator := NewPackageDefinitionGenerator(data, debug)
+	data := generationDataForServiceAndApiVersion(input.ServiceName, input.ApiVersion, workingDirectory, rootNamespace, resourceProvider, terraformPackageName)
+	generator := newPackageDefinitionGenerator(data, debug)
 
 	if err := recreateDirectory(data.WorkingDirectoryForTerraform, debug); err != nil {
 		return fmt.Errorf("generating Terraform Definition for Namespace %q: %+v", data.NamespaceForTerraform, err)
@@ -48,7 +48,7 @@ func GenerateTerraformDefinitions(input parser.ParsedData, workingDirectory, roo
 				log.Printf("Generating Resource into %q", fileName)
 			}
 
-			if err := generator.GenerateTerraformResourceDefinition(fileName, data.NamespaceForTerraform, data.ApiVersionPackageName, data.PackageNameForResource(resourceName), label, details); err != nil {
+			if err := generator.generateTerraformResourceDefinition(fileName, data.NamespaceForTerraform, data.ApiVersionPackageName, data.packageNameForResource(resourceName), label, details); err != nil {
 				return fmt.Errorf("generating Terraform Resource Definition for %q: %+v", label, err)
 			}
 		}
@@ -57,7 +57,7 @@ func GenerateTerraformDefinitions(input parser.ParsedData, workingDirectory, roo
 	return nil
 }
 
-func (g PandoraDefinitionGenerator) GenerateTerraformResourceDefinition(fileName, terraformNamespace, apiVersion, apiResource, resourceLabel string, details resourcemanager.TerraformResourceDetails) error {
+func (g PandoraDefinitionGenerator) generateTerraformResourceDefinition(fileName, terraformNamespace, apiVersion, apiResource, resourceLabel string, details resourcemanager.TerraformResourceDetails) error {
 	code := codeForTerraformResourceDefinition(terraformNamespace, apiVersion, apiResource, resourceLabel, details)
 	return writeToFile(fileName, code)
 }

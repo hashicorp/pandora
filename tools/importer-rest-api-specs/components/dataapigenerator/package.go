@@ -9,11 +9,11 @@ import (
 )
 
 type PandoraDefinitionGenerator struct {
-	data     GenerationData
+	data     generationData
 	debugLog bool
 }
 
-func NewPackageDefinitionGenerator(data GenerationData, debug bool) PandoraDefinitionGenerator {
+func newPackageDefinitionGenerator(data generationData, debug bool) PandoraDefinitionGenerator {
 	return PandoraDefinitionGenerator{
 		data:     data,
 		debugLog: debug,

@@ -6,7 +6,7 @@ import (
 	"strings"
 )
 
-type GenerationData struct {
+type generationData struct {
 	ServiceName           string
 	ApiVersion            string
 	ApiVersionPackageName string
@@ -22,14 +22,14 @@ type GenerationData struct {
 	TerraformPackageName          *string
 }
 
-func GenerationDataForService(serviceName, rootDirectory, rootNamespace string, resourceProvider, terraformPackageName *string) GenerationData {
+func generationDataForService(serviceName, rootDirectory, rootNamespace string, resourceProvider, terraformPackageName *string) generationData {
 	normalisedServiceName := strings.ReplaceAll(serviceName, "-", "")
 	serviceNamespace := fmt.Sprintf("%s.%s", rootNamespace, strings.Title(normalisedServiceName))
 	serviceWorkingDirectory := path.Join(rootDirectory, rootNamespace, strings.Title(normalisedServiceName))
 	terraformNamespace := fmt.Sprintf("%s.Terraform", serviceNamespace)
 	terraformWorkingDirectory := path.Join(serviceWorkingDirectory, "Terraform")
 
-	return GenerationData{
+	return generationData{
 		NamespaceForService:          serviceNamespace,
 		ResourceProvider:             resourceProvider,
 		ServiceName:                  normalisedServiceName,
@@ -40,9 +40,9 @@ func GenerationDataForService(serviceName, rootDirectory, rootNamespace string, 
 	}
 }
 
-func GenerationDataForServiceAndApiVersion(serviceName, apiVersion, rootDirectory, rootNamespace string, resourceProvider, terraformPackageName *string) GenerationData {
+func generationDataForServiceAndApiVersion(serviceName, apiVersion, rootDirectory, rootNamespace string, resourceProvider, terraformPackageName *string) generationData {
 	normalizedApiVersion := normalizeApiVersion(apiVersion)
-	data := GenerationDataForService(serviceName, rootDirectory, rootNamespace, resourceProvider, terraformPackageName)
+	data := generationDataForService(serviceName, rootDirectory, rootNamespace, resourceProvider, terraformPackageName)
 	data.ApiVersion = apiVersion
 	data.ApiVersionPackageName = normalizedApiVersion
 	data.NamespaceForApiVersion = fmt.Sprintf("%s.%s", data.NamespaceForService, normalizedApiVersion)
@@ -50,15 +50,15 @@ func GenerationDataForServiceAndApiVersion(serviceName, apiVersion, rootDirector
 	return data
 }
 
-func (d GenerationData) NamespaceForResource(resourceName string) string {
-	return fmt.Sprintf("%s.%s", d.NamespaceForApiVersion, d.PackageNameForResource(resourceName))
+func (d generationData) namespaceForResource(resourceName string) string {
+	return fmt.Sprintf("%s.%s", d.NamespaceForApiVersion, d.packageNameForResource(resourceName))
 }
 
-func (d GenerationData) PackageNameForResource(resourceName string) string {
+func (d generationData) packageNameForResource(resourceName string) string {
 	return strings.Title(resourceName)
 }
 
-func (d GenerationData) WorkingDirectoryForResource(resource string) string {
+func (d generationData) workingDirectoryForResource(resource string) string {
 	dir := d.WorkingDirectoryForApiVersion
 	return path.Join(dir, resource)
 }

@@ -5,7 +5,7 @@ import (
 	"path"
 )
 
-func OutputRevisionId(workingDirectory, namespace, swaggerGitSha string) error {
+func outputRevisionId(workingDirectory, namespace, swaggerGitSha string) error {
 	revisionIdCode := codeForRevisionIdFile(namespace, swaggerGitSha)
 	revisionIdFileName := path.Join(workingDirectory, namespace, "SwaggerRevision.cs")
 	if err := writeToFile(revisionIdFileName, revisionIdCode); err != nil {
