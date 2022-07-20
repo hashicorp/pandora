@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"strings"
 
+	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/transformer"
 
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
@@ -33,6 +35,11 @@ func (d *Differ) RetrieveExistingService(serviceName, apiVersion string) (*[]par
 			return nil, nil
 		}
 
+		terraformDetails, err := d.client.Terraform().Get(*serviceDetails)
+		if err != nil {
+			return nil, fmt.Errorf("retrieving Terraform Details for Service %q: %+v", serviceName, err)
+		}
+
 		for version, versionSummary := range serviceDetails.Versions {
 			if !strings.EqualFold(version, apiVersion) {
 				continue
@@ -44,11 +51,6 @@ func (d *Differ) RetrieveExistingService(serviceName, apiVersion string) (*[]par
 			}
 			if versionDetails == nil {
 				continue
-			}
-
-			terraformDetails, err := d.client.Terraform().Get(*versionDetails)
-			if err != nil {
-				return nil, fmt.Errorf("retrieving Terraform Details for Service %q / Version %q: %+v", serviceName, apiVersion, err)
 			}
 
 			resources := make(map[string]models.AzureApiResource)
@@ -90,12 +92,14 @@ func (d *Differ) RetrieveExistingService(serviceName, apiVersion string) (*[]par
 					return nil, fmt.Errorf("mapping Resource ID's for Resource %q / Service %q / Version %q: %+v", resourceName, serviceName, apiVersion, err)
 				}
 
+				filteredTerraform := filterTerraformDataToApiVersionAndResource(terraformDetails, apiVersion, resourceName)
+
 				resources[resourceName] = models.AzureApiResource{
 					Constants:   *mappedConstants,
 					Models:      *mappedModels,
 					Operations:  *mappedOperations,
 					ResourceIds: *mappedResourceIds,
-					Terraform:   terraformDetails,
+					Terraform:   filteredTerraform,
 				}
 			}
 
@@ -117,4 +121,28 @@ func (d *Differ) RetrieveExistingService(serviceName, apiVersion string) (*[]par
 		*existingService,
 	}
 	return &out, nil
+}
+
+func filterTerraformDataToApiVersionAndResource(input *resourcemanager.TerraformDetails, apiVersion string, resourceName string) *resourcemanager.TerraformDetails {
+	if input == nil {
+		return nil
+	}
+
+	out := resourcemanager.TerraformDetails{
+		DataSources: map[string]resourcemanager.TerraformDataSourceDetails{},
+		Resources:   map[string]resourcemanager.TerraformResourceDetails{},
+	}
+	//for k, v := range input.DataSources {
+	//	if v.ApiVersion == apiVersion && v.Resource == resourceName {
+	//		out.DataSources[k] = v
+	//	}
+	//}
+
+	for k, v := range input.Resources {
+		if v.ApiVersion == apiVersion && v.Resource == resourceName {
+			out.Resources[k] = v
+		}
+	}
+
+	return &out
 }
