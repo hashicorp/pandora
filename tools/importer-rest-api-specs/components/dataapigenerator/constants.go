@@ -19,8 +19,7 @@ func (g PandoraDefinitionGenerator) codeForConstant(namespace, constantName stri
 
 	for _, key := range sortedKeys {
 		value := details.Values[key]
-		normalizedKey := g.normalizeConstantKey(key) // NOTE: it should be possible to remove this since the data's normalized now
-		code = append(code, fmt.Sprintf("\t\t[Description(%q)]\n\t\t%s,", value, normalizedKey))
+		code = append(code, fmt.Sprintf("\t\t[Description(%q)]\n\t\t%s,", value, key))
 	}
 
 	attributes := make([]string, 0)
@@ -61,11 +60,4 @@ func mapConstantFieldType(input models.ConstantFieldType) (*string, error) {
 	}
 
 	return nil, fmt.Errorf("unmapped Constant Type %q", string(input))
-}
-
-func (g PandoraDefinitionGenerator) normalizeConstantKey(input string) string {
-	output := input
-	output = strings.ReplaceAll(output, ",", "")
-	output = strings.ReplaceAll(output, " ", "")
-	return output
 }
