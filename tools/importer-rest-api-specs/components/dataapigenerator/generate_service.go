@@ -15,14 +15,13 @@ func (s Service) generateServiceDefinitions() error {
 		// is resolved
 		"ServiceDefinition-GenerationSetting.cs",
 	}
-	if err := recreateDirectoryExcludingFiles(s.generationData.WorkingDirectoryForService, excludeList, s.debugLog); err != nil {
-		return fmt.Errorf("recreating %q: %+v", s.generationData.WorkingDirectoryForService, err)
+	if err := recreateDirectoryExcludingFiles(s.WorkingDirectoryForService, excludeList, s.debugLog); err != nil {
+		return fmt.Errorf("recreating %q: %+v", s.WorkingDirectoryForService, err)
 	}
 
 	// finally let's output the new Service Definition
-	generator := newPackageDefinitionGenerator(s.generationData, s.debugLog)
-	if err := generator.generateServiceDefinition(s.data); err != nil {
-		return fmt.Errorf("generating Service Definition for Namespace %q: %+v", s.generationData.NamespaceForService, err)
+	if err := s.generateServiceDefinition(s.data); err != nil {
+		return fmt.Errorf("generating Service Definition for Namespace %q: %+v", s.NamespaceForService, err)
 	}
 
 	return nil

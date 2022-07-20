@@ -38,20 +38,6 @@ func NewService(data parser.ParsedData, outputDirectory, rootNamespace, swaggerG
 		WorkingDirectoryForService:    serviceWorkingDirectory,
 		WorkingDirectoryForTerraform:  terraformWorkingDirectory,
 		WorkingDirectoryForApiVersion: path.Join(serviceWorkingDirectory, normalizedApiVersion),
-
-		generationData: generationData{
-			ApiVersion:                    data.ApiVersion,
-			ApiVersionPackageName:         normalizedApiVersion,
-			ResourceProvider:              resourceProvider,
-			ServiceName:                   normalisedServiceName,
-			TerraformPackageName:          terraformPackageName,
-			NamespaceForApiVersion:        fmt.Sprintf("%s.%s", serviceNamespace, normalizedApiVersion),
-			NamespaceForService:           serviceNamespace,
-			NamespaceForTerraform:         terraformNamespace,
-			WorkingDirectoryForService:    serviceWorkingDirectory,
-			WorkingDirectoryForTerraform:  terraformWorkingDirectory,
-			WorkingDirectoryForApiVersion: path.Join(serviceWorkingDirectory, normalizedApiVersion),
-		},
 	}
 }
 

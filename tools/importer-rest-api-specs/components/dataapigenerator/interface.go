@@ -5,7 +5,6 @@ import "github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser"
 type Service struct {
 	data                 parser.ParsedData
 	debugLog             bool
-	generationData       generationData
 	outputDirectory      string
 	resourceProvider     *string
 	rootNamespace        string

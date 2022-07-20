@@ -8,7 +8,7 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
-func (g PandoraDefinitionGenerator) codeForConstant(namespace, constantName string, details models.ConstantDetails) (*string, error) {
+func codeForConstant(namespace, constantName string, details models.ConstantDetails) (*string, error) {
 	code := make([]string, 0)
 
 	sortedKeys := make([]string, 0)

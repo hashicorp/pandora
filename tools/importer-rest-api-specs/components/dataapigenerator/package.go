@@ -8,24 +8,12 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
-type PandoraDefinitionGenerator struct {
-	data     generationData
-	debugLog bool
-}
-
-func newPackageDefinitionGenerator(data generationData, debug bool) PandoraDefinitionGenerator {
-	return PandoraDefinitionGenerator{
-		data:     data,
-		debugLog: debug,
-	}
-}
-
-func (g PandoraDefinitionGenerator) generateResources(resourceName, namespace string, resource models.AzureApiResource, workingDirectory string) error {
-	if g.debugLog {
+func (s Service) generateResources(resourceName, namespace string, resource models.AzureApiResource, workingDirectory string) error {
+	if s.debugLog {
 		log.Printf("[DEBUG] Generating %q (Resource %q)..", namespace, resourceName)
 	}
 
-	if err := recreateDirectory(workingDirectory, g.debugLog); err != nil {
+	if err := recreateDirectory(workingDirectory, s.debugLog); err != nil {
 		return fmt.Errorf("recreating directory %q: %+v", workingDirectory, err)
 	}
 
@@ -36,14 +24,14 @@ func (g PandoraDefinitionGenerator) generateResources(resourceName, namespace st
 	// We'd also need to parse the mutability data out of the fields, which we're not doing today - but exists in
 	// the Swagger and is parsed out just unused
 
-	if g.debugLog {
+	if s.debugLog {
 		log.Printf("[DEBUG] Generating Constants..")
 	}
 	for constantName, vals := range resource.Constants {
-		if g.debugLog {
+		if s.debugLog {
 			log.Printf("Generating Constant %q (in %s)", constantName, namespace)
 		}
-		code, err := g.codeForConstant(namespace, constantName, vals)
+		code, err := codeForConstant(namespace, constantName, vals)
 		if err != nil {
 			return err
 		}
@@ -53,11 +41,11 @@ func (g PandoraDefinitionGenerator) generateResources(resourceName, namespace st
 		}
 	}
 
-	if g.debugLog {
+	if s.debugLog {
 		log.Printf("[DEBUG] Generating Models..")
 	}
 	for modelName, vals := range resource.Models {
-		if g.debugLog {
+		if s.debugLog {
 			log.Printf("Generating Model %q (in %s)", modelName, namespace)
 		}
 
@@ -81,14 +69,14 @@ func (g PandoraDefinitionGenerator) generateResources(resourceName, namespace st
 		}
 	}
 
-	if g.debugLog {
+	if s.debugLog {
 		log.Printf("[DEBUG] Generating Operations..")
 	}
 	for operationName, operation := range resource.Operations {
-		if g.debugLog {
+		if s.debugLog {
 			log.Printf("Generating Operation %q (in %s)", operationName, namespace)
 		}
-		code, err := g.codeForOperation(namespace, operationName, operation, resource)
+		code, err := codeForOperation(namespace, operationName, operation, resource)
 		if err != nil {
 			return fmt.Errorf("generating code for operation %q in %q: %+v", operationName, namespace, err)
 		}
@@ -98,11 +86,11 @@ func (g PandoraDefinitionGenerator) generateResources(resourceName, namespace st
 		}
 	}
 
-	if g.debugLog {
+	if s.debugLog {
 		log.Printf("[DEBUG] Generating Resource IDs..")
 	}
 	for name, id := range resource.ResourceIds {
-		if g.debugLog {
+		if s.debugLog {
 			log.Printf("Generating Resource ID %q (in %s)", name, namespace)
 		}
 		code, err := codeForResourceID(namespace, name, id)
@@ -115,7 +103,7 @@ func (g PandoraDefinitionGenerator) generateResources(resourceName, namespace st
 		}
 	}
 
-	if g.debugLog {
+	if s.debugLog {
 		log.Printf("[DEBUG] Generating Package Definition..")
 	}
 	packageDefinitionCode := codeForPackageDefinition(namespace, resourceName, resource.Operations)
