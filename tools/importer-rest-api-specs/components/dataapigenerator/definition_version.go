@@ -30,7 +30,7 @@ func (g PandoraDefinitionGenerator) GenerateVersionDefinitionAndRecreateDirector
 	}
 
 	// recreate the directory
-	if err := g.RecreateDirectory(g.data.WorkingDirectoryForApiVersion, permissions); err != nil {
+	if err := recreateDirectory(g.data.WorkingDirectoryForApiVersion, g.debugLog); err != nil {
 		return fmt.Errorf("recreating directory %q: %+v", g.data.WorkingDirectoryForApiVersion, err)
 	}
 

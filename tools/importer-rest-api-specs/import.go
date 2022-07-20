@@ -103,7 +103,7 @@ func importService(input RunInput, swaggerGitSha string, dataApiEndpoint *string
 			log.Printf("[DEBUG] Generating Terraform Definitions")
 		}
 
-		if err := generateTerraformDefinitions(*data, input.OutputDirectory, input.RootNamespace, input.ResourceProvider, terraformPackageName, debug); err != nil {
+		if err := dataapigenerator.GenerateTerraformDefinitions(*data, input.OutputDirectory, input.RootNamespace, input.ResourceProvider, terraformPackageName, debug); err != nil {
 			return errWrap(fmt.Errorf("generating Terraform Definitions: %+v", err))
 		}
 

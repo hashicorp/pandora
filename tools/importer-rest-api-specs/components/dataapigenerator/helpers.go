@@ -13,20 +13,20 @@ const restApiSpecsLicence = `
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 `
 
-func (g PandoraDefinitionGenerator) RecreateDirectory(directory string, permissions os.FileMode) error {
-	if g.debugLog {
+func recreateDirectory(directory string, debugLog bool) error {
+	if debugLog {
 		log.Printf("[DEBUG] Deleting any existing directory at %q..", directory)
 	}
 	if err := os.RemoveAll(directory); err != nil {
 		return fmt.Errorf("removing any existing directory at %q: %+v", directory, err)
 	}
-	if g.debugLog {
+	if debugLog {
 		log.Printf("[DEBUG] (Re)Creating the directory at %q..", directory)
 	}
-	if err := os.MkdirAll(directory, permissions); err != nil {
+	if err := os.MkdirAll(directory, os.FileMode(0755)); err != nil {
 		return fmt.Errorf("creating directory %q: %+v", directory, err)
 	}
-	if g.debugLog {
+	if debugLog {
 		log.Printf("[DEBUG] Created Directory at %q", directory)
 	}
 	return nil
