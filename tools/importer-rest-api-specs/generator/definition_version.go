@@ -78,6 +78,7 @@ func codeForApiVersionDefinition(namespace, apiVersion string, isPreview bool, r
 using Pandora.Definitions.Interfaces;
 
 namespace %[1]s;
+
 public partial class Definition : ApiVersionDefinition
 {
 	public string ApiVersion => %[2]q;

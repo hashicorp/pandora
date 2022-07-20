@@ -122,7 +122,7 @@ func generateServiceDefinitions(input []parser.ParsedData, workingDirectory, roo
 
 		// finally let's output the new Service Definition
 		generator := generator.NewPackageDefinitionGenerator(data, debug)
-		if err := generator.GenerateServiceDefinition(); err != nil {
+		if err := generator.GenerateServiceDefinition(input); err != nil {
 			return fmt.Errorf("generating Service Definition for Namespace %q: %+v", data.NamespaceForService, err)
 		}
 	}
