@@ -48,6 +48,7 @@ public static class ServiceTests
             public string? ResourceProvider => null;
 
             public string? TerraformPackageName => null;
+            public IEnumerable<Definitions.Interfaces.TerraformResourceDefinition> TerraformResources => new List<Definitions.Interfaces.TerraformResourceDefinition>();
         }
 
         // found via discovery/reflection
@@ -71,6 +72,7 @@ public static class ServiceTests
             public string? ResourceProvider => "Hello";
 
             public string? TerraformPackageName => "bob";
+            public IEnumerable<Definitions.Interfaces.TerraformResourceDefinition> TerraformResources => new List<Definitions.Interfaces.TerraformResourceDefinition>();
         }
     }
 
@@ -82,6 +84,7 @@ public static class ServiceTests
             public bool Generate => false;
             public string? ResourceProvider => "Microsoft.Foo";
             public string? TerraformPackageName => "foo";
+            public IEnumerable<Definitions.Interfaces.TerraformResourceDefinition> TerraformResources => new List<Definitions.Interfaces.TerraformResourceDefinition>();
         }
 
         // looks like this isn't used, but it is since it's found via Discovery (which is why this has to be internal)
