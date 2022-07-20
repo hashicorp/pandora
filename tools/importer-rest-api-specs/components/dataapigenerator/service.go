@@ -18,24 +18,20 @@ func NewService(data parser.ParsedData, outputDirectory, rootNamespace, swaggerG
 	normalizedApiVersion := normalizeApiVersion(data.ApiVersion)
 
 	return &Service{
-		data:                 data,
-		debugLog:             debugLog,
-		outputDirectory:      outputDirectory,
-		resourceProvider:     resourceProvider,
-		rootNamespace:        rootNamespace,
-		swaggerGitSha:        swaggerGitSha,
-		terraformPackageName: terraformPackageName,
-
-		// TODO: make these private
-		ApiVersionPackageName:         normalizedApiVersion,
-		ResourceProvider:              resourceProvider,
-		TerraformPackageName:          terraformPackageName,
-		NamespaceForApiVersion:        fmt.Sprintf("%s.%s", serviceNamespace, normalizedApiVersion),
-		NamespaceForService:           serviceNamespace,
-		NamespaceForTerraform:         terraformNamespace,
-		WorkingDirectoryForService:    serviceWorkingDirectory,
-		WorkingDirectoryForTerraform:  terraformWorkingDirectory,
-		WorkingDirectoryForApiVersion: path.Join(serviceWorkingDirectory, normalizedApiVersion),
+		apiVersionPackageName:         normalizedApiVersion,
+		data:                          data,
+		debugLog:                      debugLog,
+		namespaceForApiVersion:        fmt.Sprintf("%s.%s", serviceNamespace, normalizedApiVersion),
+		namespaceForService:           serviceNamespace,
+		namespaceForTerraform:         terraformNamespace,
+		outputDirectory:               outputDirectory,
+		resourceProvider:              resourceProvider,
+		rootNamespace:                 rootNamespace,
+		swaggerGitSha:                 swaggerGitSha,
+		terraformPackageName:          terraformPackageName,
+		workingDirectoryForService:    serviceWorkingDirectory,
+		workingDirectoryForTerraform:  terraformWorkingDirectory,
+		workingDirectoryForApiVersion: path.Join(serviceWorkingDirectory, normalizedApiVersion),
 	}
 }
 

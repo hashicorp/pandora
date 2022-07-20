@@ -14,7 +14,7 @@ const restApiSpecsLicence = `
 `
 
 func (s Service) namespaceForResource(resourceName string) string {
-	return fmt.Sprintf("%s.%s", s.NamespaceForApiVersion, s.packageNameForResource(resourceName))
+	return fmt.Sprintf("%s.%s", s.namespaceForApiVersion, s.packageNameForResource(resourceName))
 }
 
 func (s Service) packageNameForResource(resourceName string) string {
@@ -22,7 +22,7 @@ func (s Service) packageNameForResource(resourceName string) string {
 }
 
 func (s Service) workingDirectoryForResource(resource string) string {
-	dir := s.WorkingDirectoryForApiVersion
+	dir := s.workingDirectoryForApiVersion
 	return path.Join(dir, resource)
 }
 

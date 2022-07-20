@@ -18,8 +18,8 @@ func (s Service) generateTerraformDefinitions() error {
 		return nil
 	}
 
-	if err := recreateDirectory(s.WorkingDirectoryForTerraform, s.debugLog); err != nil {
-		return fmt.Errorf("generating Terraform Definition for Namespace %q: %+v", s.NamespaceForTerraform, err)
+	if err := recreateDirectory(s.workingDirectoryForTerraform, s.debugLog); err != nil {
+		return fmt.Errorf("generating Terraform Definition for Namespace %q: %+v", s.namespaceForTerraform, err)
 	}
 
 	for resourceName, resource := range s.data.Resources {
@@ -29,7 +29,7 @@ func (s Service) generateTerraformDefinitions() error {
 
 		// TODO: generate Data Sources
 		//for name, details := range resource.Terraform.DataSources {
-		//  fileName := path.Join(generationData.WorkingDirectoryForTerraform, fmt.Sprintf("%s-DataSource.cs", details.DataSourceName))
+		//  fileName := path.Join(generationData.workingDirectoryForTerraform, fmt.Sprintf("%s-DataSource.cs", details.DataSourceName))
 		//	if debug {
 		//		log.Printf("Generating Data Source into %q", fileName)
 		//	}
@@ -37,13 +37,13 @@ func (s Service) generateTerraformDefinitions() error {
 		//}
 
 		for label, details := range resource.Terraform.Resources {
-			fileName := path.Join(s.WorkingDirectoryForTerraform, fmt.Sprintf("%s-Resource.cs", details.ResourceName))
+			fileName := path.Join(s.workingDirectoryForTerraform, fmt.Sprintf("%s-Resource.cs", details.ResourceName))
 			if s.debugLog {
 				log.Printf("Generating Resource into %q", fileName)
 			}
 
 			resourcePackageName := s.packageNameForResource(resourceName)
-			code := codeForTerraformResourceDefinition(s.NamespaceForTerraform, s.ApiVersionPackageName, resourcePackageName, label, details)
+			code := codeForTerraformResourceDefinition(s.namespaceForTerraform, s.apiVersionPackageName, resourcePackageName, label, details)
 			if err := writeToFile(fileName, code); err != nil {
 				return fmt.Errorf("generating Terraform Resource Definition for %q: %+v", label, err)
 			}

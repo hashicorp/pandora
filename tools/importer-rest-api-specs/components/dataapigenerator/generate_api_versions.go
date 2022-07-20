@@ -7,7 +7,7 @@ import (
 
 func (s Service) generateApiVersions() error {
 	if err := s.generateVersionDefinition(); err != nil {
-		return fmt.Errorf("generating Version Definition for Namespace %q: %+v", s.NamespaceForApiVersion, err)
+		return fmt.Errorf("generating Version Definition for Namespace %q: %+v", s.namespaceForApiVersion, err)
 	}
 
 	for resourceName, resource := range s.data.Resources {
