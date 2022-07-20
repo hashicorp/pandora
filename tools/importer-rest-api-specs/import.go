@@ -170,5 +170,18 @@ func parseSwaggerFiles(input RunInput, debug bool) (*[]parser.ParsedData, error)
 		return nil, fmt.Errorf("parsing files in %q: %+v", input.SwaggerDirectory, err)
 	}
 
-	return parseResult, nil
+	if parseResult == nil {
+		return nil, nil
+	}
+
+	if len(*parseResult) > 1 {
+		return nil, fmt.Errorf("internal-error: expected a single parseResult but got %d for Service %q / API Version %q", len(*parseResult), input.ServiceName, input.ApiVersion)
+	}
+
+	out := make([]parser.ParsedData, 0)
+	if len(*parseResult) == 1 {
+		// could be 0 after all
+		out = append(out, (*parseResult)[0])
+	}
+	return &out, nil
 }
