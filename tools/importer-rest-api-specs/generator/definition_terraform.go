@@ -25,8 +25,7 @@ func codeForTerraformDefinition(terraformNamespace, resourceNamespace, resourceL
 	}
 	components = append(components, updateCode)
 
-	return fmt.Sprintf(`
-using Pandora.Definitions.Interfaces;
+	return fmt.Sprintf(`using Pandora.Definitions.Interfaces;
 
 namespace %[1]s;
 

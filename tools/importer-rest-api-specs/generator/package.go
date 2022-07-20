@@ -136,7 +136,7 @@ func (g PandoraDefinitionGenerator) getTerraformResourceTypes(input []parser.Par
 			}
 
 			for _, v := range resource.Terraform.Resources {
-				out = append(out, fmt.Sprintf("%s.%sResource", g.data.NamespaceForTerraform, v.ResourceName))
+				out = append(out, fmt.Sprintf("Terraform.%sResource", v.ResourceName))
 			}
 		}
 	}
