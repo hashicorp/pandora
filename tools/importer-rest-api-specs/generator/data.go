@@ -12,9 +12,11 @@ type GenerationData struct {
 
 	NamespaceForService    string
 	NamespaceForApiVersion string
+	NamespaceForTerraform  string
 
 	WorkingDirectoryForService    string
 	WorkingDirectoryForApiVersion string
+	WorkingDirectoryForTerraform  string
 	ResourceProvider              *string
 	TerraformPackageName          *string
 }
@@ -23,13 +25,17 @@ func GenerationDataForService(serviceName, rootDirectory, rootNamespace string, 
 	normalisedServiceName := strings.ReplaceAll(serviceName, "-", "")
 	serviceNamespace := fmt.Sprintf("%s.%s", rootNamespace, strings.Title(normalisedServiceName))
 	serviceWorkingDirectory := path.Join(rootDirectory, rootNamespace, strings.Title(normalisedServiceName))
+	terraformNamespace := fmt.Sprintf("%s.Terraform", serviceNamespace)
+	terraformWorkingDirectory := path.Join(serviceWorkingDirectory, "Terraform")
 
 	return GenerationData{
-		NamespaceForService:        serviceNamespace,
-		ResourceProvider:           resourceProvider,
-		ServiceName:                normalisedServiceName,
-		TerraformPackageName:       terraformPackageName,
-		WorkingDirectoryForService: serviceWorkingDirectory,
+		NamespaceForService:          serviceNamespace,
+		ResourceProvider:             resourceProvider,
+		ServiceName:                  normalisedServiceName,
+		TerraformPackageName:         terraformPackageName,
+		NamespaceForTerraform:        terraformNamespace,
+		WorkingDirectoryForService:   serviceWorkingDirectory,
+		WorkingDirectoryForTerraform: terraformWorkingDirectory,
 	}
 }
 

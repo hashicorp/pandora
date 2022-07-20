@@ -98,6 +98,21 @@ func importService(input RunInput, swaggerGitSha string, dataApiEndpoint *string
 		return errWrap(fmt.Errorf("generating API Versions: %+v", err))
 	}
 
+	if terraformPackageName != nil {
+		if debug {
+			log.Printf("[DEBUG] Generating Terraform Definitions")
+		}
+
+		if err := generateTerraformDefinitions(*data, input.OutputDirectory, input.RootNamespace, input.ResourceProvider, terraformPackageName, debug); err != nil {
+			return errWrap(fmt.Errorf("generating Terraform Definitions: %+v", err))
+		}
+
+	} else {
+		if debug {
+			log.Printf("[DEBUG] Skipping generating Terraform Definitions as service isn't defined")
+		}
+	}
+
 	log.Printf("✅ Service %q - Api Version %q", input.ServiceName, input.ApiVersion)
 	return nil
 }

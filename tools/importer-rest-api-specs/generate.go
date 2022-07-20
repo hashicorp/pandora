@@ -4,12 +4,64 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"path"
 	"sort"
 	"strings"
 
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/generator"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser"
 )
+
+func generateTerraformDefinitions(input []parser.ParsedData, workingDirectory, rootNamespace string, resourceProvider, terraformPackageName *string, debug bool) error {
+	for _, item := range input {
+		containsTerraformResources := false
+		for _, v := range item.Resources {
+			if v.Terraform != nil {
+				containsTerraformResources = len(v.Terraform.DataSources) > 0 || len(v.Terraform.Resources) > 0
+			}
+		}
+		if !containsTerraformResources {
+			// move along, nothing to see here.
+			continue
+		}
+
+		data := generator.GenerationDataForServiceAndApiVersion(item.ServiceName, item.ApiVersion, workingDirectory, rootNamespace, resourceProvider, terraformPackageName)
+		generator := generator.NewPackageDefinitionGenerator(data, debug)
+
+		if err := generator.RecreateDirectory(data.WorkingDirectoryForTerraform, permissions); err != nil {
+			return fmt.Errorf("generating Terraform Definition for Namespace %q: %+v", data.NamespaceForTerraform, err)
+		}
+
+		for resourceName, resource := range item.Resources {
+			if resource.Terraform == nil {
+				continue
+			}
+
+			// TODO: generate Data Sources
+			//for name, details := range resource.Terraform.DataSources {
+			//  fileName := path.Join(data.WorkingDirectoryForTerraform, fmt.Sprintf("%s-DataSource.cs", details.DataSourceName))
+			//	if debug {
+			//		log.Printf("Generating Data Source into %q", fileName)
+			//	}
+			//
+			//}
+
+			// TODO: the service definition also needs updating to account for this
+			for label, details := range resource.Terraform.Resources {
+				fileName := path.Join(data.WorkingDirectoryForTerraform, fmt.Sprintf("%s-Resource.cs", details.ResourceName))
+				if debug {
+					log.Printf("Generating Resource into %q", fileName)
+				}
+
+				if err := generator.GenerateTerraformResourceDefinition(fileName, data.NamespaceForTerraform, data.NamespaceForResource(resourceName), label, details); err != nil {
+					return fmt.Errorf("generating Terraform Resource Definition for %q: %+v", label, err)
+				}
+			}
+		}
+	}
+
+	return nil
+}
 
 func generateApiVersions(input []parser.ParsedData, workingDirectory, rootNamespace string, resourceProvider, terraformPackageName *string, debug bool) error {
 	for _, item := range input {
@@ -50,11 +102,11 @@ func generateServiceDefinitions(input []parser.ParsedData, workingDirectory, roo
 		data := generator.GenerationDataForService(service, workingDirectory, rootNamespace, resourceProvider, terraformPackageName)
 		os.MkdirAll(data.WorkingDirectoryForService, permissions)
 
-		// clean up any files or directories which which aren't on the exclude list
+		// clean up any files or directories which aren't on the exclude list
 		excludeList := []string{
+			// TODO: presumably we can remove this once https://github.com/hashicorp/pandora/issues/403
+			// is resolved
 			"ServiceDefinition-GenerationSetting.cs",
-			// whilst this is a directory that should be excluded, it's just the name not with a prefix
-			"Terraform",
 		}
 		files, err := findFilesInDirectory(data.WorkingDirectoryForService, excludeList, debug)
 		if err != nil {

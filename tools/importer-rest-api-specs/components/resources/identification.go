@@ -44,21 +44,30 @@ func FindCandidates(input services.Resource, resourceDefinitions map[string]defi
 				continue
 			}
 
-			if strings.EqualFold(operation.Method, "POST") || strings.EqualFold(operation.Method, "PUT") {
+			if (strings.EqualFold(operation.Method, "POST") || strings.EqualFold(operation.Method, "PUT")) && operation.UriSuffix == nil {
 				createMethod = &resourcemanager.MethodDefinition{
 					Generate:         true,
 					MethodName:       operationName,
 					TimeoutInMinutes: 30,
 				}
+
+				// handle CreateOrUpdate
+				if strings.Contains(strings.ToLower(operationName), "update") {
+					updateMethod = &resourcemanager.MethodDefinition{
+						Generate:         true,
+						MethodName:       operationName,
+						TimeoutInMinutes: 30,
+					}
+				}
 			}
-			if strings.EqualFold(operation.Method, "PATCH") {
+			if strings.EqualFold(operation.Method, "PATCH") && operation.UriSuffix == nil {
 				updateMethod = &resourcemanager.MethodDefinition{
 					Generate:         true,
 					MethodName:       operationName,
 					TimeoutInMinutes: 30,
 				}
 			}
-			if strings.EqualFold(operation.Method, "GET") {
+			if strings.EqualFold(operation.Method, "GET") && operation.UriSuffix == nil {
 				if operation.UriSuffix == nil {
 					getMethod = &resourcemanager.MethodDefinition{
 						Generate:         true,
@@ -71,7 +80,7 @@ func FindCandidates(input services.Resource, resourceDefinitions map[string]defi
 					hasList = true
 				}
 			}
-			if strings.EqualFold(operation.Method, "DELETE") {
+			if strings.EqualFold(operation.Method, "DELETE") && operation.UriSuffix == nil {
 				deleteMethod = &resourcemanager.MethodDefinition{
 					Generate:         true,
 					MethodName:       operationName,
@@ -99,14 +108,14 @@ func FindCandidates(input services.Resource, resourceDefinitions map[string]defi
 			out.Resources[*resourceLabel] = resourcemanager.TerraformResourceDetails{
 				CreateMethod:         *createMethod,
 				DeleteMethod:         *deleteMethod,
-				DisplayName:          resourceMetaData.Name, // TODO: add DisplayName
+				DisplayName:          resourceMetaData.Name,
 				Generate:             true,
 				GenerateSchema:       true,
 				GenerateIdValidation: true,
 				ReadMethod:           *getMethod,
 				Resource:             apiResourceName,
 				ResourceIdName:       resourceIdName,
-				ResourceName:         resourceMetaData.Name,
+				ResourceName:         strings.ReplaceAll(resourceMetaData.Name, " ", ""), // TODO: maybe more later
 				UpdateMethod:         updateMethod,
 			}
 		}
