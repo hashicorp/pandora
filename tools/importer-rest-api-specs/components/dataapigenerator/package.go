@@ -20,7 +20,7 @@ func NewPackageDefinitionGenerator(data GenerationData, debug bool) PandoraDefin
 	}
 }
 
-func (g PandoraDefinitionGenerator) GenerateResources(resourceName, namespace string, resource models.AzureApiResource, workingDirectory string) error {
+func (g PandoraDefinitionGenerator) generateResources(resourceName, namespace string, resource models.AzureApiResource, workingDirectory string) error {
 	if g.debugLog {
 		log.Printf("[DEBUG] Generating %q (Resource %q)..", namespace, resourceName)
 	}
