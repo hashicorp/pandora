@@ -7,7 +7,7 @@ import (
 	"path"
 	"strings"
 
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/generator"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/dataapigenerator"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser"
 )
 
@@ -23,8 +23,8 @@ func generateTerraformDefinitions(input parser.ParsedData, workingDirectory, roo
 		return nil
 	}
 
-	data := generator.GenerationDataForServiceAndApiVersion(input.ServiceName, input.ApiVersion, workingDirectory, rootNamespace, resourceProvider, terraformPackageName)
-	generator := generator.NewPackageDefinitionGenerator(data, debug)
+	data := dataapigenerator.GenerationDataForServiceAndApiVersion(input.ServiceName, input.ApiVersion, workingDirectory, rootNamespace, resourceProvider, terraformPackageName)
+	generator := dataapigenerator.NewPackageDefinitionGenerator(data, debug)
 
 	if err := generator.RecreateDirectory(data.WorkingDirectoryForTerraform, permissions); err != nil {
 		return fmt.Errorf("generating Terraform Definition for Namespace %q: %+v", data.NamespaceForTerraform, err)
@@ -60,8 +60,8 @@ func generateTerraformDefinitions(input parser.ParsedData, workingDirectory, roo
 }
 
 func generateApiVersions(input parser.ParsedData, workingDirectory, rootNamespace string, resourceProvider, terraformPackageName *string, debug bool) error {
-	data := generator.GenerationDataForServiceAndApiVersion(input.ServiceName, input.ApiVersion, workingDirectory, rootNamespace, resourceProvider, terraformPackageName)
-	generator := generator.NewPackageDefinitionGenerator(data, debug)
+	data := dataapigenerator.GenerationDataForServiceAndApiVersion(input.ServiceName, input.ApiVersion, workingDirectory, rootNamespace, resourceProvider, terraformPackageName)
+	generator := dataapigenerator.NewPackageDefinitionGenerator(data, debug)
 
 	os.MkdirAll(data.WorkingDirectoryForApiVersion, permissions)
 	if err := generator.GenerateVersionDefinitionAndRecreateDirectory(input.Resources, data.WorkingDirectoryForApiVersion, permissions); err != nil {
@@ -89,7 +89,7 @@ func generateServiceDefinitions(input parser.ParsedData, workingDirectory, rootN
 	if debug {
 		log.Printf("[DEBUG] Processing Service %q..", input.ServiceName)
 	}
-	data := generator.GenerationDataForService(input.ServiceName, workingDirectory, rootNamespace, resourceProvider, terraformPackageName)
+	data := dataapigenerator.GenerationDataForService(input.ServiceName, workingDirectory, rootNamespace, resourceProvider, terraformPackageName)
 	os.MkdirAll(data.WorkingDirectoryForService, permissions)
 
 	// clean up any files or directories which aren't on the exclude list
@@ -111,7 +111,7 @@ func generateServiceDefinitions(input parser.ParsedData, workingDirectory, rootN
 	}
 
 	// finally let's output the new Service Definition
-	generator := generator.NewPackageDefinitionGenerator(data, debug)
+	generator := dataapigenerator.NewPackageDefinitionGenerator(data, debug)
 	if err := generator.GenerateServiceDefinition(input); err != nil {
 		return fmt.Errorf("generating Service Definition for Namespace %q: %+v", data.NamespaceForService, err)
 	}

@@ -4,10 +4,10 @@ import (
 	"fmt"
 	"log"
 
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/dataapigenerator"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/resources"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/transformer"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/differ"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/generator"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser"
 	"github.com/hashicorp/pandora/tools/sdk/config/definitions"
@@ -75,7 +75,7 @@ func importService(input RunInput, swaggerGitSha string, dataApiEndpoint *string
 	if debug {
 		log.Printf("[STAGE] Updating the Output Revision ID to %q", swaggerGitSha)
 	}
-	if err := generator.OutputRevisionId(input.OutputDirectory, input.RootNamespace, swaggerGitSha); err != nil {
+	if err := dataapigenerator.OutputRevisionId(input.OutputDirectory, input.RootNamespace, swaggerGitSha); err != nil {
 		return fmt.Errorf("outputting the Revision Id: %+v", err)
 	}
 
