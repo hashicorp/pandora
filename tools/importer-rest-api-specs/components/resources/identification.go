@@ -18,10 +18,6 @@ func FindCandidates(input services.Resource, resourceDefinitions map[string]defi
 	}
 
 	for resourceIdName, resourceId := range input.Schema.ResourceIds {
-		// common resources shouldn't be generated
-		if resourceId.CommonAlias != nil {
-			continue
-		}
 		// no point
 		if resourceId.Segments[0].Type == resourcemanager.ScopeSegment {
 			continue
