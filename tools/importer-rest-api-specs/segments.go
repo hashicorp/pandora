@@ -68,21 +68,19 @@ func parseAndOutputSegments(swaggerDirectory string, debug bool) error {
 			log.Printf("     💥 Error: parsing Swagger files: %+v", err)
 			return err
 		}
-		if data != nil && len(*data) == 0 {
+		if data == nil {
 			log.Printf("😵 Service %q / Api Version %q contains no resources, skipping.", input.ServiceName, input.ApiVersion)
 			continue
 		}
 
-		for _, item := range *data {
-			for _, resource := range item.Resources {
-				for _, id := range resource.ResourceIds {
-					for _, segment := range id.Segments {
-						if segment.FixedValue == nil {
-							continue
-						}
-
-						fixedSegmentValues[*segment.FixedValue] = struct{}{}
+		for _, resource := range data.Resources {
+			for _, id := range resource.ResourceIds {
+				for _, segment := range id.Segments {
+					if segment.FixedValue == nil {
+						continue
 					}
+
+					fixedSegmentValues[*segment.FixedValue] = struct{}{}
 				}
 			}
 		}

@@ -9,14 +9,14 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser/resourceids"
 )
 
-func LoadAndParseFiles(directory string, fileNames []string, serviceName, apiVersion string, debugLogging bool) (*[]ParsedData, error) {
+func LoadAndParseFiles(directory string, fileNames []string, serviceName, apiVersion string, debugLogging bool) (*ParsedData, error) {
 	// Some Services have been deprecated or should otherwise be ignored - check before proceeding
 	if serviceShouldBeIgnored(serviceName) {
 		if debugLogging {
 			log.Printf("[DEBUG] Skipping service %q", serviceName)
 		}
 
-		return &[]ParsedData{}, nil
+		return &ParsedData{}, nil
 	}
 
 	logger := hclog.NewNullLogger()
@@ -85,7 +85,16 @@ func LoadAndParseFiles(directory string, fileNames []string, serviceName, apiVer
 
 		out = append(out, v)
 	}
-	return &out, nil
+
+	if len(out) > 1 {
+		return nil, fmt.Errorf("internal-error:the Swagger files for Service %q / API Version %q contained multiple resources (%d total)", serviceName, apiVersion, len(out))
+	}
+
+	if len(out) == 1 {
+		return &out[0], nil
+	}
+
+	return nil, nil
 }
 
 func serviceShouldBeIgnored(name string) bool {
