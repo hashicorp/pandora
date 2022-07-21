@@ -6,6 +6,8 @@ import (
 	"os"
 	"sync"
 
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/discovery"
+
 	"github.com/go-git/go-git/v5"
 	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/dataapigenerator"
@@ -31,7 +33,7 @@ func runImporter(input RunInput) error {
 		return fmt.Errorf("loading terraform definitions from %q: %+v", input.TerraformDefinitionsPath, err)
 	}
 
-	generationData, err := GenerationData(input, *resources)
+	generationData, err := discovery.FindServices(input, *resources)
 	if err != nil {
 		return fmt.Errorf("loading data: %+v", err)
 	}
@@ -44,7 +46,7 @@ func runImporter(input RunInput) error {
 	var wg sync.WaitGroup
 	for _, v := range *generationData {
 		wg.Add(1)
-		go func(v ServiceInput) {
+		go func(v discovery.ServiceInput) {
 			if err := importService(v, *swaggerGitSha, input.DataApiEndpoint, input.JustParseData, input.Logger.Named(fmt.Sprintf("Importer Service %q / API Version %q", v.ServiceName, v.ApiVersion))); err != nil {
 				log.Printf("importing Service %q / Version %q: %+v", v.ServiceName, v.ApiVersion, err)
 				wg.Done()
@@ -76,7 +78,7 @@ func determineGitSha(repositoryPath string, logger hclog.Logger) (*string, error
 	return &commit, nil
 }
 
-func importService(input ServiceInput, swaggerGitSha string, dataApiEndpoint *string, justParse bool, logger hclog.Logger) error {
+func importService(input discovery.ServiceInput, swaggerGitSha string, dataApiEndpoint *string, justParse bool, logger hclog.Logger) error {
 	logger.Trace("Parsing Swagger Files..")
 	data, err := parseSwaggerFiles(input, logger.Named("Swagger"))
 	if err != nil {
@@ -185,7 +187,7 @@ func findResourceDefinitionsForResource(apiVersion, apiResource string, terrafor
 	return &forResource.Definitions
 }
 
-func parseSwaggerFiles(input ServiceInput, logger hclog.Logger) (*models.AzureApiDefinition, error) {
+func parseSwaggerFiles(input discovery.ServiceInput, logger hclog.Logger) (*models.AzureApiDefinition, error) {
 	parseResult, err := parser.LoadAndParseFiles(input.SwaggerDirectory, input.SwaggerFiles, input.ServiceName, input.ApiVersion, logger)
 	if err != nil {
 		return nil, fmt.Errorf("parsing files in %q: %+v", input.SwaggerDirectory, err)

@@ -5,6 +5,8 @@ import (
 	"os"
 	"testing"
 
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/discovery"
+
 	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/sdk/config/definitions"
 )
@@ -35,7 +37,7 @@ func TestExistingDataCanBeGenerated(t *testing.T) {
 		Logger:                   hclog.New(hclog.DefaultOptions),
 	}
 
-	generationData, err := GenerationData(input, *resources)
+	generationData, err := discovery.FindServices(input, *resources)
 	if err != nil {
 		t.Fatalf("building generation data: %+v", err)
 	}
