@@ -14,7 +14,7 @@ func (commonIdManagementGroupMatcher) id() models.ParsedResourceId {
 	return models.ParsedResourceId{
 		CommonAlias: &name,
 		Constants:   map[string]resourcemanager.ConstantDetails{},
-		Segments: []models.ResourceIdSegment{
+		Segments: []resourcemanager.ResourceIdSegment{
 			models.StaticResourceIDSegment("providers", "providers"),
 			models.ResourceProviderResourceIDSegment("resourceProvider", "Microsoft.Management"),
 			models.StaticResourceIDSegment("managementGroups", "managementGroups"),

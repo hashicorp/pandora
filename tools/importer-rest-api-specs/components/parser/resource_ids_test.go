@@ -43,7 +43,7 @@ func TestParseResourceIdBasic(t *testing.T) {
 	expectedValue := "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.SomeResourceProvider/servers/{serverName}"
 	expectedResourceId := models.ParsedResourceId{
 		Constants: map[string]resourcemanager.ConstantDetails{},
-		Segments: []models.ResourceIdSegment{
+		Segments: []resourcemanager.ResourceIdSegment{
 			{
 				Type:       resourcemanager.StaticSegment,
 				FixedValue: strPtr("subscriptions"),
@@ -153,7 +153,7 @@ func TestParseResourceIdContainingAConstant(t *testing.T) {
 				},
 			},
 		},
-		Segments: []models.ResourceIdSegment{
+		Segments: []resourcemanager.ResourceIdSegment{
 			{
 				Type:       resourcemanager.StaticSegment,
 				FixedValue: strPtr("planets"),
@@ -242,7 +242,7 @@ func TestParseResourceIdContainingAScope(t *testing.T) {
 	// first check the ResourceId looks good
 	expectedResourceId := models.ParsedResourceId{
 		Constants: map[string]resourcemanager.ConstantDetails{},
-		Segments: []models.ResourceIdSegment{
+		Segments: []resourcemanager.ResourceIdSegment{
 			{
 				Type: resourcemanager.ScopeSegment,
 				Name: "scope",
@@ -375,7 +375,7 @@ func TestParseResourceIdWithResourceIdAndUriSuffix(t *testing.T) {
 	// first check the ResourceId looks good
 	expectedResourceId := models.ParsedResourceId{
 		Constants: map[string]resourcemanager.ConstantDetails{},
-		Segments: []models.ResourceIdSegment{
+		Segments: []resourcemanager.ResourceIdSegment{
 			{
 				Type:       resourcemanager.StaticSegment,
 				FixedValue: strPtr("subscriptions"),
@@ -480,7 +480,7 @@ func TestParseResourceIdWithResourceIdAndUriSuffixForMultipleUris(t *testing.T) 
 	// first check the ResourceId looks good
 	expectedResourceId := models.ParsedResourceId{
 		Constants: map[string]resourcemanager.ConstantDetails{},
-		Segments: []models.ResourceIdSegment{
+		Segments: []resourcemanager.ResourceIdSegment{
 			{
 				Type:       resourcemanager.StaticSegment,
 				FixedValue: strPtr("subscriptions"),
@@ -620,7 +620,7 @@ func TestParseResourceIdContainingResourceProviderShouldGetTitleCased(t *testing
 	expectedValue := "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.SomeResourceProvider/servers/{serverName}"
 	expectedResourceId := models.ParsedResourceId{
 		Constants: map[string]resourcemanager.ConstantDetails{},
-		Segments: []models.ResourceIdSegment{
+		Segments: []resourcemanager.ResourceIdSegment{
 			{
 				Type:       resourcemanager.StaticSegment,
 				FixedValue: strPtr("subscriptions"),
@@ -721,7 +721,7 @@ func TestParseResourceIdContainingTheSameResourceIdWithDifferentSegments(t *test
 	expectedValue := "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.SomeResourceProvider/virtualMachines/{machineName}"
 	expectedResourceId := models.ParsedResourceId{
 		Constants: map[string]resourcemanager.ConstantDetails{},
-		Segments: []models.ResourceIdSegment{
+		Segments: []resourcemanager.ResourceIdSegment{
 			{
 				Type:       resourcemanager.StaticSegment,
 				FixedValue: strPtr("subscriptions"),
@@ -840,7 +840,7 @@ func TestParseResourceIdContainingTheSegmentsNamedTheSame(t *testing.T) {
 	expectedValue := "/providers/Microsoft.Management/managementGroups/{managementGroupId}/providers/Microsoft.Billing/billingPeriods/{billingPeriodName}"
 	expectedResourceId := models.ParsedResourceId{
 		Constants: map[string]resourcemanager.ConstantDetails{},
-		Segments: []models.ResourceIdSegment{
+		Segments: []resourcemanager.ResourceIdSegment{
 			{
 				Type:       resourcemanager.StaticSegment,
 				Name:       "staticProviders",

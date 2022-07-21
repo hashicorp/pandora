@@ -22,7 +22,7 @@ var knownSegmentsUsedForScope = []string{
 }
 
 type processedResourceId struct {
-	segments  *[]models.ResourceIdSegment
+	segments  *[]resourcemanager.ResourceIdSegment
 	uriSuffix *string
 	constants map[string]resourcemanager.ConstantDetails
 }
@@ -53,7 +53,7 @@ func (p *Parser) parseResourceIdsFromOperations() (*map[string]processedResource
 func (p *Parser) parseResourceIdFromOperation(uri string, operation *spec.Operation) (*processedResourceId, error) {
 	// TODO: document this
 
-	segments := make([]models.ResourceIdSegment, 0)
+	segments := make([]resourcemanager.ResourceIdSegment, 0)
 	result := internal2.ParseResult{
 		Constants: map[string]resourcemanager.ConstantDetails{},
 	}
@@ -134,7 +134,7 @@ func (p *Parser) parseResourceIdFromOperation(uri string, operation *spec.Operat
 								constantValue = v
 							}
 							// it's a fixed value segment, not a constant - so we'll transform it as such and skip
-							segments = append(segments, models.ResourceIdSegment{
+							segments = append(segments, resourcemanager.ResourceIdSegment{
 								Type:       resourcemanager.StaticSegment,
 								Name:       normalizedSegment,
 								FixedValue: &constantValue,
@@ -245,10 +245,10 @@ func (p *Parser) parseResourceIdFromOperation(uri string, operation *spec.Operat
 	return &out, nil
 }
 
-func determineUniqueNamesForSegments(input []models.ResourceIdSegment) (*[]models.ResourceIdSegment, error) {
+func determineUniqueNamesForSegments(input []resourcemanager.ResourceIdSegment) (*[]resourcemanager.ResourceIdSegment, error) {
 	segmentNamesUsed := make(map[string]int, 0)
 
-	output := make([]models.ResourceIdSegment, 0)
+	output := make([]resourcemanager.ResourceIdSegment, 0)
 
 	for _, segment := range input {
 		existingCount, exists := segmentNamesUsed[segment.Name]

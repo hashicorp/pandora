@@ -11,7 +11,7 @@ import (
 
 var subscriptionResourceId = models.ParsedResourceId{
 	Constants: map[string]resourcemanager.ConstantDetails{},
-	Segments: []models.ResourceIdSegment{
+	Segments: []resourcemanager.ResourceIdSegment{
 		{
 			Type:       resourcemanager.StaticSegment,
 			FixedValue: strPtr("subscriptions"),
@@ -25,7 +25,7 @@ var subscriptionResourceId = models.ParsedResourceId{
 }
 var resourceGroupResourceId = models.ParsedResourceId{
 	Constants: map[string]resourcemanager.ConstantDetails{},
-	Segments: []models.ResourceIdSegment{
+	Segments: []resourcemanager.ResourceIdSegment{
 		{
 			Type:       resourcemanager.StaticSegment,
 			FixedValue: strPtr("subscriptions"),
@@ -48,7 +48,7 @@ var resourceGroupResourceId = models.ParsedResourceId{
 }
 var managementGroupResourceId = models.ParsedResourceId{
 	Constants: map[string]resourcemanager.ConstantDetails{},
-	Segments: []models.ResourceIdSegment{
+	Segments: []resourcemanager.ResourceIdSegment{
 		{
 			Type:       resourcemanager.StaticSegment,
 			FixedValue: strPtr("providers"),
@@ -72,7 +72,7 @@ var managementGroupResourceId = models.ParsedResourceId{
 }
 var virtualMachineResourceId = models.ParsedResourceId{
 	Constants: map[string]resourcemanager.ConstantDetails{},
-	Segments: []models.ResourceIdSegment{
+	Segments: []resourcemanager.ResourceIdSegment{
 		{
 			Type:       resourcemanager.StaticSegment,
 			FixedValue: strPtr("subscriptions"),
@@ -114,7 +114,7 @@ var virtualMachineResourceId = models.ParsedResourceId{
 }
 var virtualMachineExtensionResourceId = models.ParsedResourceId{
 	Constants: map[string]resourcemanager.ConstantDetails{},
-	Segments: []models.ResourceIdSegment{
+	Segments: []resourcemanager.ResourceIdSegment{
 		{
 			Type:       resourcemanager.StaticSegment,
 			FixedValue: strPtr("subscriptions"),
@@ -165,7 +165,7 @@ var virtualMachineExtensionResourceId = models.ParsedResourceId{
 }
 var virtualNetworkExtensionResourceId = models.ParsedResourceId{
 	Constants: map[string]resourcemanager.ConstantDetails{},
-	Segments: []models.ResourceIdSegment{
+	Segments: []resourcemanager.ResourceIdSegment{
 		{
 			Type:       resourcemanager.StaticSegment,
 			FixedValue: strPtr("subscriptions"),
@@ -207,7 +207,7 @@ var virtualNetworkExtensionResourceId = models.ParsedResourceId{
 }
 var scopedMonitorResourceId = models.ParsedResourceId{
 	Constants: map[string]resourcemanager.ConstantDetails{},
-	Segments: []models.ResourceIdSegment{
+	Segments: []resourcemanager.ResourceIdSegment{
 		{
 			Type: resourcemanager.ScopeSegment,
 			Name: "scope",
@@ -235,7 +235,7 @@ var scopedMonitorResourceId = models.ParsedResourceId{
 }
 var signalRResourceId = models.ParsedResourceId{
 	Constants: map[string]resourcemanager.ConstantDetails{},
-	Segments: []models.ResourceIdSegment{
+	Segments: []resourcemanager.ResourceIdSegment{
 		{
 			Type:       resourcemanager.StaticSegment,
 			FixedValue: strPtr("subscriptions"),
@@ -277,7 +277,7 @@ var signalRResourceId = models.ParsedResourceId{
 }
 var eventHubSkuResourceId = models.ParsedResourceId{
 	Constants: map[string]resourcemanager.ConstantDetails{},
-	Segments: []models.ResourceIdSegment{
+	Segments: []resourcemanager.ResourceIdSegment{
 		{
 			Type:       resourcemanager.StaticSegment,
 			FixedValue: strPtr("subscriptions"),
@@ -320,7 +320,7 @@ var trafficManagerProfileResourceId = models.ParsedResourceId{
 			},
 		},
 	},
-	Segments: []models.ResourceIdSegment{
+	Segments: []resourcemanager.ResourceIdSegment{
 		{
 			Type:       resourcemanager.StaticSegment,
 			FixedValue: strPtr("subscriptions"),
@@ -380,7 +380,7 @@ var redisPatchSchedulesResourceId = models.ParsedResourceId{
 			},
 		},
 	},
-	Segments: []models.ResourceIdSegment{
+	Segments: []resourcemanager.ResourceIdSegment{
 		{
 			Type:       resourcemanager.StaticSegment,
 			FixedValue: strPtr("subscriptions"),
@@ -586,7 +586,7 @@ func TestResourceIDNamingEventHubSkuId(t *testing.T) {
 func TestResourceIDNamingTopLevelScope(t *testing.T) {
 	scopeResourceId := models.ParsedResourceId{
 		Constants: map[string]resourcemanager.ConstantDetails{},
-		Segments: []models.ResourceIdSegment{
+		Segments: []resourcemanager.ResourceIdSegment{
 			{
 				Type: resourcemanager.ScopeSegment,
 				Name: "scope",
@@ -623,7 +623,7 @@ func TestResourceIDNamingContainingAConstant(t *testing.T) {
 				},
 			},
 		},
-		Segments: []models.ResourceIdSegment{
+		Segments: []resourcemanager.ResourceIdSegment{
 			{
 				Type:       resourcemanager.StaticSegment,
 				FixedValue: strPtr("subscriptions"),
@@ -693,7 +693,7 @@ func TestResourceIDNamingContainingAConstantAndSuffix(t *testing.T) {
 				},
 			},
 		},
-		Segments: []models.ResourceIdSegment{
+		Segments: []resourcemanager.ResourceIdSegment{
 			{
 				Type:       resourcemanager.StaticSegment,
 				FixedValue: strPtr("subscriptions"),
@@ -856,7 +856,7 @@ func TestResourceIdNamingConflictingTwoLevels(t *testing.T) {
 func TestResourceIdNamingConflictingMultipleLevels(t *testing.T) {
 	workerPoolInstanceResourceId := models.ParsedResourceId{
 		Constants: map[string]resourcemanager.ConstantDetails{},
-		Segments: []models.ResourceIdSegment{
+		Segments: []resourcemanager.ResourceIdSegment{
 			{
 				Type:       resourcemanager.StaticSegment,
 				FixedValue: strPtr("subscriptions"),
@@ -916,7 +916,7 @@ func TestResourceIdNamingConflictingMultipleLevels(t *testing.T) {
 	}
 	multiRolePoolInstanceResourceId := models.ParsedResourceId{
 		Constants: map[string]resourcemanager.ConstantDetails{},
-		Segments: []models.ResourceIdSegment{
+		Segments: []resourcemanager.ResourceIdSegment{
 			{
 				Type:       resourcemanager.StaticSegment,
 				FixedValue: strPtr("subscriptions"),
@@ -977,7 +977,7 @@ func TestResourceIdNamingConflictingMultipleLevels(t *testing.T) {
 	}
 	slotInstanceProcessModuleResourceId := models.ParsedResourceId{
 		Constants: map[string]resourcemanager.ConstantDetails{},
-		Segments: []models.ResourceIdSegment{
+		Segments: []resourcemanager.ResourceIdSegment{
 			{
 				Type:       resourcemanager.StaticSegment,
 				FixedValue: strPtr("subscriptions"),
@@ -1055,7 +1055,7 @@ func TestResourceIdNamingConflictingMultipleLevels(t *testing.T) {
 	}
 	instanceProcessModuleResourceId := models.ParsedResourceId{
 		Constants: map[string]resourcemanager.ConstantDetails{},
-		Segments: []models.ResourceIdSegment{
+		Segments: []resourcemanager.ResourceIdSegment{
 			{
 				Type:       resourcemanager.StaticSegment,
 				FixedValue: strPtr("subscriptions"),

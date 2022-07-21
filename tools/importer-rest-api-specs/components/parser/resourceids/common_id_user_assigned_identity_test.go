@@ -10,7 +10,7 @@ import (
 func TestCommonResourceID_UserAssignedIdentity(t *testing.T) {
 	valid := models.ParsedResourceId{
 		Constants: map[string]resourcemanager.ConstantDetails{},
-		Segments: []models.ResourceIdSegment{
+		Segments: []resourcemanager.ResourceIdSegment{
 			models.StaticResourceIDSegment("subscriptions", "subscriptions"),
 			models.SubscriptionIDResourceIDSegment("subscriptionId"),
 			models.StaticResourceIDSegment("resourceGroups", "resourceGroups"),
@@ -23,7 +23,7 @@ func TestCommonResourceID_UserAssignedIdentity(t *testing.T) {
 	}
 	invalid := models.ParsedResourceId{
 		Constants: map[string]resourcemanager.ConstantDetails{},
-		Segments: []models.ResourceIdSegment{
+		Segments: []resourcemanager.ResourceIdSegment{
 			models.StaticResourceIDSegment("subscriptions", "subscriptions"),
 			models.SubscriptionIDResourceIDSegment("subscriptionId"),
 			models.StaticResourceIDSegment("resourceGroups", "resourceGroups"),

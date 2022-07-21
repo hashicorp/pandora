@@ -176,13 +176,13 @@ func determineUniqueNamesFor(conflictingUris []models.ParsedResourceId, existing
 
 func SegmentsAvailableForNaming(pri models.ParsedResourceId) []string {
 	// first reverse the segments, since we want to take from right -> left
-	reversedSegments := make([]models.ResourceIdSegment, 0)
+	reversedSegments := make([]resourcemanager.ResourceIdSegment, 0)
 	for i := len(pri.Segments); i > 0; i-- {
 		segment := pri.Segments[i-1]
 		reversedSegments = append(reversedSegments, segment)
 	}
 
-	segmentsWithoutScope := make([]models.ResourceIdSegment, 0)
+	segmentsWithoutScope := make([]resourcemanager.ResourceIdSegment, 0)
 	for _, segment := range reversedSegments {
 		if segment.Type == resourcemanager.ScopeSegment {
 			continue

@@ -242,33 +242,12 @@ func apiResourceIdsFromModelResourceIds(input map[string]models.ParsedResourceId
 			constantNames = append(constantNames, constantName)
 		}
 
-		segments, err := apiResourceIdSegmentsFromModelResourceIdSegments(v.Segments)
-		if err != nil {
-			return nil, fmt.Errorf("mapping resource id segments for id %q: %+v", k, err)
-		}
-
 		out[k] = resourcemanager.ResourceIdDefinition{
 			CommonAlias:   v.CommonAlias,
 			ConstantNames: constantNames,
 			Id:            v.ID(),
-			Segments:      *segments,
+			Segments:      v.Segments,
 		}
-	}
-
-	return &out, nil
-}
-
-func apiResourceIdSegmentsFromModelResourceIdSegments(input []models.ResourceIdSegment) (*[]resourcemanager.ResourceIdSegment, error) {
-	out := make([]resourcemanager.ResourceIdSegment, 0)
-
-	for _, v := range input {
-		out = append(out, resourcemanager.ResourceIdSegment{
-			ConstantReference: v.ConstantReference,
-			ExampleValue:      "(unused)",
-			FixedValue:        v.FixedValue,
-			Name:              v.Name,
-			Type:              v.Type,
-		})
 	}
 
 	return &out, nil

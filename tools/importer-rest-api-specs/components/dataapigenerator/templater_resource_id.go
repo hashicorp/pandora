@@ -45,7 +45,7 @@ internal class %[2]s : ResourceID
 	return &code, nil
 }
 
-func codeForResourceIDSegment(input models.ResourceIdSegment) (*string, error) {
+func codeForResourceIDSegment(input resourcemanager.ResourceIdSegment) (*string, error) {
 	switch input.Type {
 	case resourcemanager.ConstantSegment:
 		{

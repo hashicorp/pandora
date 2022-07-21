@@ -14,7 +14,7 @@ func (commonIdSubscriptionMatcher) id() models.ParsedResourceId {
 	return models.ParsedResourceId{
 		CommonAlias: &name,
 		Constants:   map[string]resourcemanager.ConstantDetails{},
-		Segments: []models.ResourceIdSegment{
+		Segments: []resourcemanager.ResourceIdSegment{
 			models.StaticResourceIDSegment("subscriptions", "subscriptions"),
 			models.SubscriptionIDResourceIDSegment("subscriptionId"),
 		},

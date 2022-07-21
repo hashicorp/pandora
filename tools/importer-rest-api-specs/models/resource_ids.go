@@ -16,7 +16,7 @@ type ParsedResourceId struct {
 	Constants map[string]resourcemanager.ConstantDetails
 
 	// Segments are an ordered list of segments which comprise this Resource ID
-	Segments []ResourceIdSegment
+	Segments []resourcemanager.ResourceIdSegment
 }
 
 func (pri ParsedResourceId) ID() string {
@@ -98,67 +98,53 @@ func (pri ParsedResourceId) String() string {
 	return pri.ID()
 }
 
-type ResourceIdSegment struct {
-	// Type specifies the Segment Type, such as a Constant/UserSpecified
-	Type resourcemanager.ResourceIdSegmentType
-
-	// ConstantReference is the name of the Constant that this Segment uses - if Type is `Constant`
-	ConstantReference *string
-
-	// FixedValue is a fixed/static value for this segment when Type is `Static`
-	FixedValue *string
-
-	// Name is the name of this segment, for example `ResourceGroups` or `VirtualMachine` in Title Case.
-	Name string
-}
-
-func ConstantResourceIDSegment(name, constantName string) ResourceIdSegment {
-	return ResourceIdSegment{
+func ConstantResourceIDSegment(name, constantName string) resourcemanager.ResourceIdSegment {
+	return resourcemanager.ResourceIdSegment{
 		Type:              resourcemanager.ConstantSegment,
 		Name:              name,
 		ConstantReference: &constantName,
 	}
 }
 
-func ResourceProviderResourceIDSegment(name, resourceProvider string) ResourceIdSegment {
-	return ResourceIdSegment{
+func ResourceProviderResourceIDSegment(name, resourceProvider string) resourcemanager.ResourceIdSegment {
+	return resourcemanager.ResourceIdSegment{
 		Type:       resourcemanager.ResourceProviderSegment,
 		Name:       name,
 		FixedValue: &resourceProvider,
 	}
 }
 
-func ResourceGroupResourceIDSegment(name string) ResourceIdSegment {
-	return ResourceIdSegment{
+func ResourceGroupResourceIDSegment(name string) resourcemanager.ResourceIdSegment {
+	return resourcemanager.ResourceIdSegment{
 		Type: resourcemanager.ResourceGroupSegment,
 		Name: name,
 	}
 }
 
-func StaticResourceIDSegment(name, fixedValue string) ResourceIdSegment {
-	return ResourceIdSegment{
+func StaticResourceIDSegment(name, fixedValue string) resourcemanager.ResourceIdSegment {
+	return resourcemanager.ResourceIdSegment{
 		Type:       resourcemanager.StaticSegment,
 		Name:       name,
 		FixedValue: &fixedValue,
 	}
 }
 
-func ScopeResourceIDSegment(name string) ResourceIdSegment {
-	return ResourceIdSegment{
+func ScopeResourceIDSegment(name string) resourcemanager.ResourceIdSegment {
+	return resourcemanager.ResourceIdSegment{
 		Name: name,
 		Type: resourcemanager.ScopeSegment,
 	}
 }
 
-func SubscriptionIDResourceIDSegment(name string) ResourceIdSegment {
-	return ResourceIdSegment{
+func SubscriptionIDResourceIDSegment(name string) resourcemanager.ResourceIdSegment {
+	return resourcemanager.ResourceIdSegment{
 		Type: resourcemanager.SubscriptionIdSegment,
 		Name: name,
 	}
 }
 
-func UserSpecifiedResourceIDSegment(name string) ResourceIdSegment {
-	return ResourceIdSegment{
+func UserSpecifiedResourceIDSegment(name string) resourcemanager.ResourceIdSegment {
+	return resourcemanager.ResourceIdSegment{
 		Type: resourcemanager.UserSpecifiedSegment,
 		Name: name,
 	}

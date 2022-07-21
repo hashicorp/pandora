@@ -228,28 +228,12 @@ func MapApiResourceIdDefinitionsToParsedResourceIds(input map[string]resourceman
 			constantsUsed[name] = constant
 		}
 
-		segments := mapApiResourceIdSegments(v.Segments)
 		output[k] = models.ParsedResourceId{
 			CommonAlias: v.CommonAlias,
 			Constants:   constantsUsed,
-			Segments:    segments,
+			Segments:    v.Segments,
 		}
 	}
 
 	return &output, nil
-}
-
-func mapApiResourceIdSegments(input []resourcemanager.ResourceIdSegment) []models.ResourceIdSegment {
-	output := make([]models.ResourceIdSegment, 0)
-
-	for _, v := range input {
-		output = append(output, models.ResourceIdSegment{
-			Type:              v.Type,
-			ConstantReference: v.ConstantReference,
-			FixedValue:        v.FixedValue,
-			Name:              v.Name,
-		})
-	}
-
-	return output
 }

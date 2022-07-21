@@ -10,14 +10,14 @@ import (
 func TestCommonResourceID_Subscription(t *testing.T) {
 	valid := models.ParsedResourceId{
 		Constants: map[string]resourcemanager.ConstantDetails{},
-		Segments: []models.ResourceIdSegment{
+		Segments: []resourcemanager.ResourceIdSegment{
 			models.StaticResourceIDSegment("subscriptions", "subscriptions"),
 			models.SubscriptionIDResourceIDSegment("subscriptionId"),
 		},
 	}
 	invalid := models.ParsedResourceId{
 		Constants: map[string]resourcemanager.ConstantDetails{},
-		Segments: []models.ResourceIdSegment{
+		Segments: []resourcemanager.ResourceIdSegment{
 			models.StaticResourceIDSegment("subscriptions", "subscriptions"),
 			models.SubscriptionIDResourceIDSegment("subscriptionId"),
 			models.StaticResourceIDSegment("someResource", "someResource"),

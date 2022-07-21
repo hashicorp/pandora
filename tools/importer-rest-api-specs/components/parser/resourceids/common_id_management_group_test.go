@@ -10,7 +10,7 @@ import (
 func TestCommonResourceID_ManagementGroup(t *testing.T) {
 	valid := models.ParsedResourceId{
 		Constants: map[string]resourcemanager.ConstantDetails{},
-		Segments: []models.ResourceIdSegment{
+		Segments: []resourcemanager.ResourceIdSegment{
 			models.StaticResourceIDSegment("providers", "providers"),
 			models.ResourceProviderResourceIDSegment("resourceProvider", "Microsoft.Management"),
 			models.StaticResourceIDSegment("managementGroups", "managementGroups"),
@@ -19,7 +19,7 @@ func TestCommonResourceID_ManagementGroup(t *testing.T) {
 	}
 	invalid := models.ParsedResourceId{
 		Constants: map[string]resourcemanager.ConstantDetails{},
-		Segments: []models.ResourceIdSegment{
+		Segments: []resourcemanager.ResourceIdSegment{
 			models.StaticResourceIDSegment("providers", "providers"),
 			models.ResourceProviderResourceIDSegment("resourceProvider", "Microsoft.Management"),
 			models.StaticResourceIDSegment("managementGroups", "managementGroups"),

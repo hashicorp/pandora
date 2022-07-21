@@ -77,7 +77,7 @@ func normalizeAzureApiResource(input models.AzureApiResource) models.AzureApiRes
 
 	normalizedResourceIds := make(map[string]models.ParsedResourceId)
 	for k, v := range input.ResourceIds {
-		segments := make([]models.ResourceIdSegment, 0)
+		segments := make([]resourcemanager.ResourceIdSegment, 0)
 
 		normalizedConstants := make(map[string]resourcemanager.ConstantDetails)
 		for k, constant := range v.Constants {

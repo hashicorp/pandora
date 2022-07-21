@@ -15,7 +15,7 @@ func normalizedResourceManagerResourceId(pri models.ParsedResourceId) string {
 	return normalizedResourceId(segments)
 }
 
-func segmentsWithoutUriSuffix(pri models.ParsedResourceId) []models.ResourceIdSegment {
+func segmentsWithoutUriSuffix(pri models.ParsedResourceId) []resourcemanager.ResourceIdSegment {
 	segments := pri.Segments
 	lastUserValueSegment := -1
 	for i, segment := range segments {
@@ -31,7 +31,7 @@ func segmentsWithoutUriSuffix(pri models.ParsedResourceId) []models.ResourceIdSe
 	return segments
 }
 
-func normalizedResourceId(segments []models.ResourceIdSegment) string {
+func normalizedResourceId(segments []resourcemanager.ResourceIdSegment) string {
 	components := make([]string, 0)
 	for _, segment := range segments {
 		switch segment.Type {
