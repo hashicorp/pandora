@@ -4,28 +4,25 @@ import (
 	"fmt"
 	"log"
 
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/dataapigenerator"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/resources"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/transformer"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/differ"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/generator"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser"
 	"github.com/hashicorp/pandora/tools/sdk/config/definitions"
 )
 
 func importService(input RunInput, swaggerGitSha string, dataApiEndpoint *string, debug bool) error {
-	var errWrap = func(err error) error {
-		log.Printf("❌ Service %q - Api Version %q", input.ServiceName, input.ApiVersion)
-		log.Printf("     💥 Error: %+v", err)
-		return err
-	}
-
 	if debug {
 		log.Printf("[STAGE] Parsing Swagger Files..")
 	}
 	data, err := parseSwaggerFiles(input, debug)
 	if err != nil {
-		return errWrap(fmt.Errorf("parsing Swagger files: %+v", err))
+		err = fmt.Errorf("parsing Swagger files: %+v", err)
+		log.Printf("❌ Service %q - Api Version %q", input.ServiceName, input.ApiVersion)
+		log.Printf("     💥 Error: %+v", err)
+		return err
 	}
 	if data == nil {
 		log.Printf("😵 Service %q / Api Version %q contains no resources, skipping.", input.ServiceName, input.ApiVersion)
@@ -73,44 +70,18 @@ func importService(input RunInput, swaggerGitSha string, dataApiEndpoint *string
 	}
 
 	if debug {
-		log.Printf("[STAGE] Updating the Output Revision ID to %q", swaggerGitSha)
-	}
-	if err := generator.OutputRevisionId(input.OutputDirectory, input.RootNamespace, swaggerGitSha); err != nil {
-		return fmt.Errorf("outputting the Revision Id: %+v", err)
-	}
-
-	if debug {
-		log.Printf("[STAGE] Generating Swagger Definitions..")
+		log.Printf("[STAGE] Generating Data API Definitions..")
 	}
 	var terraformPackageName *string
 	if input.TerraformServiceDefinition != nil {
 		terraformPackageName = &input.TerraformServiceDefinition.TerraformPackageName
 	}
-
-	if err := generateServiceDefinitions(*data, input.OutputDirectory, input.RootNamespace, input.ResourceProvider, terraformPackageName, debug); err != nil {
-		return errWrap(fmt.Errorf("generating Service Definitions: %+v", err))
-	}
-
-	if debug {
-		log.Printf("[STAGE] Generating API Definitions..")
-	}
-	if err := generateApiVersions(*data, input.OutputDirectory, input.RootNamespace, input.ResourceProvider, terraformPackageName, debug); err != nil {
-		return errWrap(fmt.Errorf("generating API Versions: %+v", err))
-	}
-
-	if terraformPackageName != nil {
-		if debug {
-			log.Printf("[DEBUG] Generating Terraform Definitions")
-		}
-
-		if err := generateTerraformDefinitions(*data, input.OutputDirectory, input.RootNamespace, input.ResourceProvider, terraformPackageName, debug); err != nil {
-			return errWrap(fmt.Errorf("generating Terraform Definitions: %+v", err))
-		}
-
-	} else {
-		if debug {
-			log.Printf("[DEBUG] Skipping generating Terraform Definitions as service isn't defined")
-		}
+	dataApiGenerator := dataapigenerator.NewService(*data, outputDirectory, input.RootNamespace, swaggerGitSha, input.ResourceProvider, terraformPackageName, debug)
+	if err := dataApiGenerator.Generate(); err != nil {
+		err = fmt.Errorf("generating Data API Definitions for Service %q / API Version %q: %+v", input.ServiceName, input.ApiVersion, err)
+		log.Printf("❌ Service %q - Api Version %q", input.ServiceName, input.ApiVersion)
+		log.Printf("     💥 Error: %+v", err)
+		return err
 	}
 
 	log.Printf("✅ Service %q - Api Version %q", input.ServiceName, input.ApiVersion)

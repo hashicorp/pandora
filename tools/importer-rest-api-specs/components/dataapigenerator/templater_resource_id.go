@@ -1,4 +1,4 @@
-package generator
+package dataapigenerator
 
 import (
 	"fmt"
@@ -7,10 +7,10 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
-func (g PandoraDefinitionGenerator) codeForResourceID(namespace string, resourceIdName string, resourceIdValue models.ParsedResourceId) (*string, error) {
+func codeForResourceID(namespace string, resourceIdName string, resourceIdValue models.ParsedResourceId) (*string, error) {
 	segmentsCode := make([]string, 0)
 	for _, segment := range resourceIdValue.Segments {
-		code, err := g.codeForResourceIDSegment(segment)
+		code, err := codeForResourceIDSegment(segment)
 		if err != nil {
 			return nil, fmt.Errorf("generating segment %q: %+v", segment.Name, err)
 		}
@@ -44,7 +44,7 @@ internal class %[2]s : ResourceID
 	return &code, nil
 }
 
-func (g PandoraDefinitionGenerator) codeForResourceIDSegment(input models.ResourceIdSegment) (*string, error) {
+func codeForResourceIDSegment(input models.ResourceIdSegment) (*string, error) {
 	switch input.Type {
 	case models.ConstantSegment:
 		{

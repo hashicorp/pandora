@@ -1,4 +1,4 @@
-package generator
+package dataapigenerator
 
 import (
 	"fmt"
@@ -7,12 +7,7 @@ import (
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-func (g PandoraDefinitionGenerator) GenerateTerraformResourceDefinition(fileName, terraformNamespace, apiVersion, apiResource, resourceLabel string, details resourcemanager.TerraformResourceDetails) error {
-	code := codeForTerraformDefinition(terraformNamespace, apiVersion, apiResource, resourceLabel, details)
-	return writeToFile(fileName, code)
-}
-
-func codeForTerraformDefinition(terraformNamespace, apiVersion, apiResource, resourceLabel string, details resourcemanager.TerraformResourceDetails) string {
+func codeForTerraformResourceDefinition(terraformNamespace, apiVersion, apiResource, resourceLabel string, details resourcemanager.TerraformResourceDetails) string {
 	components := []string{
 		templateForTerraformMethodDefinition("Create", details.CreateMethod, false, apiVersion, apiResource),
 		templateForTerraformMethodDefinition("Delete", details.DeleteMethod, false, apiVersion, apiResource),

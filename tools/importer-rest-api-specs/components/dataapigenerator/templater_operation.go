@@ -1,4 +1,4 @@
-package generator
+package dataapigenerator
 
 import (
 	"fmt"
@@ -8,13 +8,13 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
-func (g PandoraDefinitionGenerator) codeForOperation(namespace string, operationName string, operation models.OperationDetails, resource models.AzureApiResource) (*string, error) {
+func codeForOperation(namespace string, operationName string, operation models.OperationDetails, resource models.AzureApiResource) (*string, error) {
 	code := make([]string, 0)
 
-	if g.usesNonDefaultStatusCodes(operation) {
+	if usesNonDefaultStatusCodes(operation) {
 		statusCodes := make([]string, 0)
 		for _, sc := range operation.ExpectedStatusCodes {
-			statusCodes = append(statusCodes, fmt.Sprintf("\t\t\t\t%s,", g.dotnetNameForStatusCode(sc)))
+			statusCodes = append(statusCodes, fmt.Sprintf("\t\t\t\t%s,", dotnetNameForStatusCode(sc)))
 		}
 		sort.Strings(statusCodes)
 		code = append(code, fmt.Sprintf(`		public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
@@ -144,7 +144,7 @@ internal class %[2]sOperation : Operations.%[3]sOperation
 	return &output, nil
 }
 
-func (g PandoraDefinitionGenerator) usesNonDefaultStatusCodes(operation models.OperationDetails) bool {
+func usesNonDefaultStatusCodes(operation models.OperationDetails) bool {
 	defaultStatusCodes := map[string][]int{
 		"get":    {200},
 		"post":   {200, 201},
@@ -174,7 +174,7 @@ func (g PandoraDefinitionGenerator) usesNonDefaultStatusCodes(operation models.O
 	return false
 }
 
-func (g PandoraDefinitionGenerator) dotnetNameForStatusCode(input int) string {
+func dotnetNameForStatusCode(input int) string {
 	switch input {
 	case 200:
 		return "HttpStatusCode.OK"

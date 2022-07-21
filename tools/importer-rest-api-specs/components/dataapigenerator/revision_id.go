@@ -1,11 +1,11 @@
-package generator
+package dataapigenerator
 
 import (
 	"fmt"
 	"path"
 )
 
-func OutputRevisionId(workingDirectory, namespace, swaggerGitSha string) error {
+func outputRevisionId(workingDirectory, namespace, swaggerGitSha string) error {
 	revisionIdCode := codeForRevisionIdFile(namespace, swaggerGitSha)
 	revisionIdFileName := path.Join(workingDirectory, namespace, "SwaggerRevision.cs")
 	if err := writeToFile(revisionIdFileName, revisionIdCode); err != nil {
@@ -13,13 +13,4 @@ func OutputRevisionId(workingDirectory, namespace, swaggerGitSha string) error {
 	}
 
 	return nil
-}
-
-func codeForRevisionIdFile(namespace, swaggerGitSha string) string {
-	return fmt.Sprintf(`namespace %[1]s;
-
-%[3]s
-
-// Generated from Swagger revision %[2]q
-`, namespace, swaggerGitSha, restApiSpecsLicence)
 }

@@ -32,7 +32,7 @@ func LoadAndParseFiles(directory string, fileNames []string, serviceName, apiVer
 			return nil, fmt.Errorf("parsing file %q: %+v", file, err)
 		}
 
-		parsedResourceIds, err := swaggerFile.ParseResourceIds()
+		parsedResourceIds, err := swaggerFile.ParseResourceIds(logger)
 		if err != nil {
 			return nil, fmt.Errorf("parsing Resource Ids from %q (Service %q / Api Version %q): %+v", file, serviceName, apiVersion, err)
 		}

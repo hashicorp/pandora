@@ -1,31 +1,20 @@
-package generator
+package dataapigenerator
 
 import (
 	"fmt"
 	"log"
 	"path"
-	"sort"
-
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser"
 
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
-type PandoraDefinitionGenerator struct {
-	data     GenerationData
-	debugLog bool
-}
-
-func NewPackageDefinitionGenerator(data GenerationData, debug bool) PandoraDefinitionGenerator {
-	return PandoraDefinitionGenerator{
-		data:     data,
-		debugLog: debug,
-	}
-}
-
-func (g PandoraDefinitionGenerator) GenerateResources(resourceName, namespace string, resource models.AzureApiResource, workingDirectory string) error {
-	if g.debugLog {
+func (s Service) generateResources(resourceName, namespace string, resource models.AzureApiResource, workingDirectory string) error {
+	if s.debugLog {
 		log.Printf("[DEBUG] Generating %q (Resource %q)..", namespace, resourceName)
+	}
+
+	if err := recreateDirectory(workingDirectory, s.debugLog); err != nil {
+		return fmt.Errorf("recreating directory %q: %+v", workingDirectory, err)
 	}
 
 	// TODO: we should duplicate the types depending on the operation
@@ -35,14 +24,14 @@ func (g PandoraDefinitionGenerator) GenerateResources(resourceName, namespace st
 	// We'd also need to parse the mutability data out of the fields, which we're not doing today - but exists in
 	// the Swagger and is parsed out just unused
 
-	if g.debugLog {
+	if s.debugLog {
 		log.Printf("[DEBUG] Generating Constants..")
 	}
 	for constantName, vals := range resource.Constants {
-		if g.debugLog {
+		if s.debugLog {
 			log.Printf("Generating Constant %q (in %s)", constantName, namespace)
 		}
-		code, err := g.codeForConstant(namespace, constantName, vals)
+		code, err := codeForConstant(namespace, constantName, vals)
 		if err != nil {
 			return err
 		}
@@ -52,11 +41,11 @@ func (g PandoraDefinitionGenerator) GenerateResources(resourceName, namespace st
 		}
 	}
 
-	if g.debugLog {
+	if s.debugLog {
 		log.Printf("[DEBUG] Generating Models..")
 	}
 	for modelName, vals := range resource.Models {
-		if g.debugLog {
+		if s.debugLog {
 			log.Printf("Generating Model %q (in %s)", modelName, namespace)
 		}
 
@@ -68,7 +57,7 @@ func (g PandoraDefinitionGenerator) GenerateResources(resourceName, namespace st
 			}
 		}
 
-		code, err := g.codeForModel(namespace, modelName, vals, parent, resource.Constants, resource.Models)
+		code, err := codeForModel(namespace, modelName, vals, parent, resource.Constants, resource.Models)
 		if err != nil {
 			return fmt.Errorf("generating code for model %q in %q: %+v", modelName, namespace, err)
 		}
@@ -80,14 +69,14 @@ func (g PandoraDefinitionGenerator) GenerateResources(resourceName, namespace st
 		}
 	}
 
-	if g.debugLog {
+	if s.debugLog {
 		log.Printf("[DEBUG] Generating Operations..")
 	}
 	for operationName, operation := range resource.Operations {
-		if g.debugLog {
+		if s.debugLog {
 			log.Printf("Generating Operation %q (in %s)", operationName, namespace)
 		}
-		code, err := g.codeForOperation(namespace, operationName, operation, resource)
+		code, err := codeForOperation(namespace, operationName, operation, resource)
 		if err != nil {
 			return fmt.Errorf("generating code for operation %q in %q: %+v", operationName, namespace, err)
 		}
@@ -97,14 +86,14 @@ func (g PandoraDefinitionGenerator) GenerateResources(resourceName, namespace st
 		}
 	}
 
-	if g.debugLog {
+	if s.debugLog {
 		log.Printf("[DEBUG] Generating Resource IDs..")
 	}
 	for name, id := range resource.ResourceIds {
-		if g.debugLog {
+		if s.debugLog {
 			log.Printf("Generating Resource ID %q (in %s)", name, namespace)
 		}
-		code, err := g.codeForResourceID(namespace, name, id)
+		code, err := codeForResourceID(namespace, name, id)
 		if err != nil {
 			return fmt.Errorf("generating Resource ID %q in %q: %+v", name, namespace, err)
 		}
@@ -114,31 +103,14 @@ func (g PandoraDefinitionGenerator) GenerateResources(resourceName, namespace st
 		}
 	}
 
-	if g.debugLog {
+	if s.debugLog {
 		log.Printf("[DEBUG] Generating Package Definition..")
 	}
-	packageDefinitionCode := g.codeForPackageDefinition(namespace, resourceName, resource.Operations)
+	packageDefinitionCode := codeForPackageDefinition(namespace, resourceName, resource.Operations)
 	packageDefinitionFileName := path.Join(workingDirectory, "Definition.cs")
 	if err := writeToFile(packageDefinitionFileName, packageDefinitionCode); err != nil {
 		return fmt.Errorf("writing package definition for %q: %+v", packageDefinitionFileName, err)
 	}
 
 	return nil
-}
-
-func (g PandoraDefinitionGenerator) getTerraformResourceTypes(input parser.ParsedData) []string {
-	out := make([]string, 0)
-
-	for _, resource := range input.Resources {
-		if resource.Terraform == nil {
-			continue
-		}
-
-		for _, v := range resource.Terraform.Resources {
-			out = append(out, fmt.Sprintf("Terraform.%sResource", v.ResourceName))
-		}
-	}
-
-	sort.Strings(out)
-	return out
 }

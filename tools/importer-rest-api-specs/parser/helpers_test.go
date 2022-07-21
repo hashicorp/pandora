@@ -3,6 +3,7 @@ package parser
 import (
 	"testing"
 
+	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
@@ -12,7 +13,7 @@ func ParseSwaggerFileForTesting(t *testing.T, file string) (*models.AzureApiDefi
 		t.Fatalf("loading: %+v", err)
 	}
 
-	resourceIds, err := parsed.ParseResourceIds()
+	resourceIds, err := parsed.ParseResourceIds(hclog.New(hclog.DefaultOptions))
 	if err != nil {
 		t.Fatalf("parsing Resource Ids: %+v", err)
 	}
