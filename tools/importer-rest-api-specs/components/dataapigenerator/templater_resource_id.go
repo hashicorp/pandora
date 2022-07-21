@@ -5,6 +5,7 @@ import (
 	"strings"
 
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
 func codeForResourceID(namespace string, resourceIdName string, resourceIdValue models.ParsedResourceId) (*string, error) {

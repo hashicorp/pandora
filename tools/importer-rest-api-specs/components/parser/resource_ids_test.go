@@ -6,6 +6,7 @@ import (
 	"testing"
 
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
 func TestParseResourceIdBasic(t *testing.T) {

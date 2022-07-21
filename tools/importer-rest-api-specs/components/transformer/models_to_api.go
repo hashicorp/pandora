@@ -293,26 +293,12 @@ func apiResourceIdSegmentsFromModelResourceIdSegments(input []models.ResourceIdS
 	out := make([]resourcemanager.ResourceIdSegment, 0)
 
 	for _, v := range input {
-		mappings := map[models.SegmentType]resourcemanager.ResourceIdSegmentType{
-			resourcemanager.ConstantSegment:         resourcemanager.ConstantSegment,
-			resourcemanager.ResourceGroupSegment:    resourcemanager.ResourceGroupSegment,
-			resourcemanager.ResourceProviderSegment: resourcemanager.ResourceProviderSegment,
-			resourcemanager.ScopeSegment:            resourcemanager.ScopeSegment,
-			resourcemanager.SubscriptionIdSegment:   resourcemanager.SubscriptionIdSegment,
-			resourcemanager.StaticSegment:           resourcemanager.StaticSegment,
-			resourcemanager.UserSpecifiedSegment:    resourcemanager.UserSpecifiedSegment,
-		}
-		mapping, ok := mappings[v.Type]
-		if !ok {
-			return nil, fmt.Errorf("missing mapping for segment type %q", string(v.Type))
-		}
-
 		out = append(out, resourcemanager.ResourceIdSegment{
 			ConstantReference: v.ConstantReference,
 			ExampleValue:      "(unused)",
 			FixedValue:        v.FixedValue,
 			Name:              v.Name,
-			Type:              mapping,
+			Type:              v.Type,
 		})
 	}
 

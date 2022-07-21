@@ -112,8 +112,6 @@ type ResourceIdSegment struct {
 	Name string
 }
 
-type SegmentType resourcemanager.ResourceIdSegmentType
-
 func ConstantResourceIDSegment(name, constantName string) ResourceIdSegment {
 	return ResourceIdSegment{
 		Type:              resourcemanager.ConstantSegment,

@@ -264,54 +264,28 @@ func MapApiResourceIdDefinitionsToParsedResourceIds(input map[string]resourceman
 			constantsUsed[name] = constant
 		}
 
-		segments, err := mapApiResourceIdSegments(v.Segments)
-		if err != nil {
-			return nil, fmt.Errorf("mapping segments for Resource ID %q: %+v", k, err)
-		}
-
+		segments := mapApiResourceIdSegments(v.Segments)
 		output[k] = models.ParsedResourceId{
 			CommonAlias: v.CommonAlias,
 			Constants:   constantsUsed,
-			Segments:    *segments,
+			Segments:    segments,
 		}
 	}
 
 	return &output, nil
 }
 
-func mapApiResourceIdSegments(input []resourcemanager.ResourceIdSegment) (*[]models.ResourceIdSegment, error) {
+func mapApiResourceIdSegments(input []resourcemanager.ResourceIdSegment) []models.ResourceIdSegment {
 	output := make([]models.ResourceIdSegment, 0)
 
 	for _, v := range input {
-		segmentType, err := mapApiResourceIdSegmentType(v.Type)
-		if err != nil {
-			return nil, fmt.Errorf("mapping Segment Type %q: %+v", string(v.Type), err)
-		}
-
 		output = append(output, models.ResourceIdSegment{
-			Type:              *segmentType,
+			Type:              v.Type,
 			ConstantReference: v.ConstantReference,
 			FixedValue:        v.FixedValue,
 			Name:              v.Name,
 		})
 	}
 
-	return &output, nil
-}
-
-func mapApiResourceIdSegmentType(input resourcemanager.ResourceIdSegmentType) (*models.SegmentType, error) {
-	vals := map[resourcemanager.ResourceIdSegmentType]models.SegmentType{
-		resourcemanager.ConstantSegment:         resourcemanager.ConstantSegment,
-		resourcemanager.ResourceGroupSegment:    resourcemanager.ResourceGroupSegment,
-		resourcemanager.ResourceProviderSegment: resourcemanager.ResourceProviderSegment,
-		resourcemanager.ScopeSegment:            resourcemanager.ScopeSegment,
-		resourcemanager.StaticSegment:           resourcemanager.StaticSegment,
-		resourcemanager.SubscriptionIdSegment:   resourcemanager.SubscriptionIdSegment,
-		resourcemanager.UserSpecifiedSegment:    resourcemanager.UserSpecifiedSegment,
-	}
-	if v, ok := vals[input]; ok {
-		return &v, nil
-	}
-
-	return nil, fmt.Errorf("missing mapping for Segment Type %q", string(input))
+	return output
 }
