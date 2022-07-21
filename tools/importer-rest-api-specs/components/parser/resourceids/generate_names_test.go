@@ -18,7 +18,7 @@ var subscriptionResourceId = models.ParsedResourceId{
 		},
 		{
 			Name: "subscriptionId",
-			Type: models.SubscriptionIdSegment,
+			Type: resourcemanager.SubscriptionIdSegment,
 		},
 	},
 }
@@ -32,7 +32,7 @@ var resourceGroupResourceId = models.ParsedResourceId{
 		},
 		{
 			Name: "subscriptionId",
-			Type: models.SubscriptionIdSegment,
+			Type: resourcemanager.SubscriptionIdSegment,
 		},
 		{
 			Type:       resourcemanager.StaticSegment,
@@ -79,7 +79,7 @@ var virtualMachineResourceId = models.ParsedResourceId{
 		},
 		{
 			Name: "subscriptionId",
-			Type: models.SubscriptionIdSegment,
+			Type: resourcemanager.SubscriptionIdSegment,
 		},
 		{
 			Type:       resourcemanager.StaticSegment,
@@ -121,7 +121,7 @@ var virtualMachineExtensionResourceId = models.ParsedResourceId{
 		},
 		{
 			Name: "subscriptionId",
-			Type: models.SubscriptionIdSegment,
+			Type: resourcemanager.SubscriptionIdSegment,
 		},
 		{
 			Type:       resourcemanager.StaticSegment,
@@ -172,7 +172,7 @@ var virtualNetworkExtensionResourceId = models.ParsedResourceId{
 		},
 		{
 			Name: "subscriptionId",
-			Type: models.SubscriptionIdSegment,
+			Type: resourcemanager.SubscriptionIdSegment,
 		},
 		{
 			Type:       resourcemanager.StaticSegment,
@@ -242,7 +242,7 @@ var signalRResourceId = models.ParsedResourceId{
 		},
 		{
 			Name: "subscriptionId",
-			Type: models.SubscriptionIdSegment,
+			Type: resourcemanager.SubscriptionIdSegment,
 		},
 		{
 			Type:       resourcemanager.StaticSegment,
@@ -283,7 +283,7 @@ var eventHubSkuResourceId = models.ParsedResourceId{
 			Name:       "staticSubscriptions",
 		},
 		{
-			Type: models.SubscriptionIdSegment,
+			Type: resourcemanager.SubscriptionIdSegment,
 			Name: "subscriptionId",
 		},
 		{
@@ -326,7 +326,7 @@ var trafficManagerProfileResourceId = models.ParsedResourceId{
 			Name:       "staticSubscriptions",
 		},
 		{
-			Type: models.SubscriptionIdSegment,
+			Type: resourcemanager.SubscriptionIdSegment,
 			Name: "subscriptionId",
 		},
 		{
@@ -386,7 +386,7 @@ var redisPatchSchedulesResourceId = models.ParsedResourceId{
 			Name:       "staticSubscriptions",
 		},
 		{
-			Type: models.SubscriptionIdSegment,
+			Type: resourcemanager.SubscriptionIdSegment,
 			Name: "subscriptionId",
 		},
 		{
@@ -630,7 +630,7 @@ func TestResourceIDNamingContainingAConstant(t *testing.T) {
 			},
 			{
 				Name: "subscriptionId",
-				Type: models.SubscriptionIdSegment,
+				Type: resourcemanager.SubscriptionIdSegment,
 			},
 			{
 				Type:       resourcemanager.StaticSegment,
@@ -700,7 +700,7 @@ func TestResourceIDNamingContainingAConstantAndSuffix(t *testing.T) {
 			},
 			{
 				Name: "subscriptionId",
-				Type: models.SubscriptionIdSegment,
+				Type: resourcemanager.SubscriptionIdSegment,
 			},
 			{
 				Type:       resourcemanager.StaticSegment,
@@ -863,7 +863,7 @@ func TestResourceIdNamingConflictingMultipleLevels(t *testing.T) {
 			},
 			{
 				Name: "subscriptionId",
-				Type: models.SubscriptionIdSegment,
+				Type: resourcemanager.SubscriptionIdSegment,
 			},
 			{
 				Type:       resourcemanager.StaticSegment,
@@ -923,7 +923,7 @@ func TestResourceIdNamingConflictingMultipleLevels(t *testing.T) {
 			},
 			{
 				Name: "subscriptionId",
-				Type: models.SubscriptionIdSegment,
+				Type: resourcemanager.SubscriptionIdSegment,
 			},
 			{
 				Type:       resourcemanager.StaticSegment,
@@ -984,7 +984,7 @@ func TestResourceIdNamingConflictingMultipleLevels(t *testing.T) {
 			},
 			{
 				Name: "subscriptionId",
-				Type: models.SubscriptionIdSegment,
+				Type: resourcemanager.SubscriptionIdSegment,
 			},
 			{
 				Type:       resourcemanager.StaticSegment,
@@ -1062,7 +1062,7 @@ func TestResourceIdNamingConflictingMultipleLevels(t *testing.T) {
 			},
 			{
 				Name: "subscriptionId",
-				Type: models.SubscriptionIdSegment,
+				Type: resourcemanager.SubscriptionIdSegment,
 			},
 			{
 				Type:       resourcemanager.StaticSegment,

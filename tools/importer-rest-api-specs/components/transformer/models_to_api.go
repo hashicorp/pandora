@@ -298,7 +298,7 @@ func apiResourceIdSegmentsFromModelResourceIdSegments(input []models.ResourceIdS
 			resourcemanager.ResourceGroupSegment:    resourcemanager.ResourceGroupSegment,
 			resourcemanager.ResourceProviderSegment: resourcemanager.ResourceProviderSegment,
 			models.ScopeSegment:                     resourcemanager.ScopeSegment,
-			models.SubscriptionIdSegment:            resourcemanager.SubscriptionIdSegment,
+			resourcemanager.SubscriptionIdSegment:   resourcemanager.SubscriptionIdSegment,
 			resourcemanager.StaticSegment:           resourcemanager.StaticSegment,
 			models.UserSpecifiedSegment:             resourcemanager.UserSpecifiedSegment,
 		}

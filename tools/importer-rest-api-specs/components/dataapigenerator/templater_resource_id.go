@@ -88,7 +88,7 @@ func codeForResourceIDSegment(input models.ResourceIdSegment) (*string, error) {
 			return &out, nil
 		}
 
-	case models.SubscriptionIdSegment:
+	case resourcemanager.SubscriptionIdSegment:
 		{
 			out := fmt.Sprintf("ResourceIDSegment.SubscriptionId(%[1]q)", input.Name)
 			return &out, nil

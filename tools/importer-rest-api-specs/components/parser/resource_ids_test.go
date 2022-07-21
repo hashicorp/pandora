@@ -49,7 +49,7 @@ func TestParseResourceIdBasic(t *testing.T) {
 				Name:       "staticSubscriptions",
 			},
 			{
-				Type: models.SubscriptionIdSegment,
+				Type: resourcemanager.SubscriptionIdSegment,
 				Name: "subscriptionId",
 			},
 			{
@@ -381,7 +381,7 @@ func TestParseResourceIdWithResourceIdAndUriSuffix(t *testing.T) {
 				Name:       "staticSubscriptions",
 			},
 			{
-				Type: models.SubscriptionIdSegment,
+				Type: resourcemanager.SubscriptionIdSegment,
 				Name: "subscriptionId",
 			},
 			{
@@ -486,7 +486,7 @@ func TestParseResourceIdWithResourceIdAndUriSuffixForMultipleUris(t *testing.T) 
 				Name:       "staticSubscriptions",
 			},
 			{
-				Type: models.SubscriptionIdSegment,
+				Type: resourcemanager.SubscriptionIdSegment,
 				Name: "subscriptionId",
 			},
 			{
@@ -626,7 +626,7 @@ func TestParseResourceIdContainingResourceProviderShouldGetTitleCased(t *testing
 				Name:       "staticSubscriptions",
 			},
 			{
-				Type: models.SubscriptionIdSegment,
+				Type: resourcemanager.SubscriptionIdSegment,
 				Name: "subscriptionId",
 			},
 			{
@@ -727,7 +727,7 @@ func TestParseResourceIdContainingTheSameResourceIdWithDifferentSegments(t *test
 				Name:       "staticSubscriptions",
 			},
 			{
-				Type: models.SubscriptionIdSegment,
+				Type: resourcemanager.SubscriptionIdSegment,
 				Name: "subscriptionId",
 			},
 			{

@@ -48,7 +48,7 @@ func (pri ParsedResourceId) Matches(other ParsedResourceId) bool {
 		// /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Devices/provisioningServices/{resourceName}
 		// /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Devices/provisioningServices/{provisioningServiceName}
 		// as such providing they're both user specified segments (and the rest is the same) then they're the same
-		if first.Type == resourcemanager.ResourceGroupSegment || first.Type == SubscriptionIdSegment || first.Type == UserSpecifiedSegment {
+		if first.Type == resourcemanager.ResourceGroupSegment || first.Type == resourcemanager.SubscriptionIdSegment || first.Type == UserSpecifiedSegment {
 			continue
 		}
 
@@ -115,10 +115,8 @@ type ResourceIdSegment struct {
 type SegmentType resourcemanager.ResourceIdSegmentType
 
 const (
-	ResourceGroupSegment  SegmentType = "resource-group"
-	SubscriptionIdSegment SegmentType = "subscription-id"
-	ScopeSegment          SegmentType = "scope"
-	UserSpecifiedSegment  SegmentType = "user-specified"
+	ScopeSegment         SegmentType = "scope"
+	UserSpecifiedSegment SegmentType = "user-specified"
 )
 
 func ConstantResourceIDSegment(name, constantName string) ResourceIdSegment {
@@ -161,7 +159,7 @@ func ScopeResourceIDSegment(name string) ResourceIdSegment {
 
 func SubscriptionIDResourceIDSegment(name string) ResourceIdSegment {
 	return ResourceIdSegment{
-		Type: SubscriptionIdSegment,
+		Type: resourcemanager.SubscriptionIdSegment,
 		Name: name,
 	}
 }
