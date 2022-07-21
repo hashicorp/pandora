@@ -13,7 +13,13 @@ func parseAndOutputSegments(input RunInput) error {
 	terraformDefinitions := definitions.Config{
 		Services: map[string]definitions.ServiceDefinition{},
 	}
-	data, err := discovery.FindServices(input, terraformDefinitions)
+	findInput := discovery.FindServiceInput{
+		SwaggerDirectory: input.SwaggerDirectory,
+		ConfigFilePath:   input.ConfigFilePath,
+		OutputDirectory:  input.OutputDirectory,
+		Logger:           input.Logger.Named("Discovery"),
+	}
+	data, err := discovery.FindServices(findInput, terraformDefinitions)
 	if err != nil {
 		return fmt.Errorf("retrieving data: %+v", err)
 	}

@@ -24,7 +24,13 @@ func runImporter(input RunInput) error {
 		return fmt.Errorf("loading terraform definitions from %q: %+v", input.TerraformDefinitionsPath, err)
 	}
 
-	generationData, err := discovery.FindServices(input, *resources)
+	findInput := discovery.FindServiceInput{
+		SwaggerDirectory: input.SwaggerDirectory,
+		ConfigFilePath:   input.ConfigFilePath,
+		OutputDirectory:  input.OutputDirectory,
+		Logger:           input.Logger.Named("Discovery"),
+	}
+	generationData, err := discovery.FindServices(findInput, *resources)
 	if err != nil {
 		return fmt.Errorf("loading data: %+v", err)
 	}

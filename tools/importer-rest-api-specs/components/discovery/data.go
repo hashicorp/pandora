@@ -5,15 +5,20 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/pipeline"
-
+	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser"
-
 	"github.com/hashicorp/pandora/tools/sdk/config/definitions"
 	"github.com/hashicorp/pandora/tools/sdk/config/services"
 )
 
-func FindServices(input pipeline.RunInput, terraformConfig definitions.Config) (*[]ServiceInput, error) {
+type FindServiceInput struct {
+	ConfigFilePath   string
+	OutputDirectory  string
+	SwaggerDirectory string
+	Logger           hclog.Logger
+}
+
+func FindServices(input FindServiceInput, terraformConfig definitions.Config) (*[]ServiceInput, error) {
 	parsed, err := services.LoadFromFile(input.ConfigFilePath)
 	if err != nil {
 		return nil, fmt.Errorf("loading config: %+v", err)

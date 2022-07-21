@@ -26,17 +26,12 @@ func TestExistingDataCanBeGenerated(t *testing.T) {
 	if err != nil {
 		t.Fatalf("loading terraform definitions from %q: %+v", terraformDefinitionsPath, err)
 	}
-	input := RunInput{
-		SwaggerDirectory:         swaggerDirectory,
-		ConfigFilePath:           resourceManagerConfig,
-		TerraformDefinitionsPath: terraformDefinitionsPath,
-		DataApiEndpoint:          nil,
-		JustOutputSegments:       false,
-		JustParseData:            true,
-		OutputDirectory:          outputDirectory,
-		Logger:                   hclog.New(hclog.DefaultOptions),
+	input := discovery.FindServiceInput{
+		SwaggerDirectory: swaggerDirectory,
+		ConfigFilePath:   resourceManagerConfig,
+		OutputDirectory:  outputDirectory,
+		Logger:           hclog.New(hclog.DefaultOptions),
 	}
-
 	generationData, err := discovery.FindServices(input, *resources)
 	if err != nil {
 		t.Fatalf("building generation data: %+v", err)
@@ -50,7 +45,8 @@ func TestExistingDataCanBeGenerated(t *testing.T) {
 	for _, data := range *generationData {
 		t.Run(fmt.Sprintf("%s-%s", data.ServiceName, data.ApiVersion), func(t *testing.T) {
 			generationData := data
-			if err := importService(generationData, *swaggerGitSha, nil, input.JustParseData, hclog.New(hclog.DefaultOptions)); err != nil {
+			justParseData := true
+			if err := importService(generationData, *swaggerGitSha, nil, justParseData, hclog.New(hclog.DefaultOptions)); err != nil {
 				t.Fatalf("error: %+v", err)
 			}
 		})
