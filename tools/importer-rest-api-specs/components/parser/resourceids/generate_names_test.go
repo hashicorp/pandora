@@ -12,7 +12,7 @@ var subscriptionResourceId = models.ParsedResourceId{
 	Constants: map[string]models.ConstantDetails{},
 	Segments: []models.ResourceIdSegment{
 		{
-			Type:       models.StaticSegment,
+			Type:       resourcemanager.StaticSegment,
 			FixedValue: strPtr("subscriptions"),
 			Name:       "staticSubscriptions",
 		},
@@ -26,7 +26,7 @@ var resourceGroupResourceId = models.ParsedResourceId{
 	Constants: map[string]models.ConstantDetails{},
 	Segments: []models.ResourceIdSegment{
 		{
-			Type:       models.StaticSegment,
+			Type:       resourcemanager.StaticSegment,
 			FixedValue: strPtr("subscriptions"),
 			Name:       "staticSubscriptions",
 		},
@@ -35,7 +35,7 @@ var resourceGroupResourceId = models.ParsedResourceId{
 			Type: models.SubscriptionIdSegment,
 		},
 		{
-			Type:       models.StaticSegment,
+			Type:       resourcemanager.StaticSegment,
 			FixedValue: strPtr("resourceGroups"),
 			Name:       "staticResourceGroups",
 		},
@@ -49,7 +49,7 @@ var managementGroupResourceId = models.ParsedResourceId{
 	Constants: map[string]models.ConstantDetails{},
 	Segments: []models.ResourceIdSegment{
 		{
-			Type:       models.StaticSegment,
+			Type:       resourcemanager.StaticSegment,
 			FixedValue: strPtr("providers"),
 			Name:       "staticProviders",
 		},
@@ -59,7 +59,7 @@ var managementGroupResourceId = models.ParsedResourceId{
 			Name:       "Microsoft.Management",
 		},
 		{
-			Type:       models.StaticSegment,
+			Type:       resourcemanager.StaticSegment,
 			FixedValue: strPtr("managementGroups"),
 			Name:       "staticManagementGroups",
 		},
@@ -73,7 +73,7 @@ var virtualMachineResourceId = models.ParsedResourceId{
 	Constants: map[string]models.ConstantDetails{},
 	Segments: []models.ResourceIdSegment{
 		{
-			Type:       models.StaticSegment,
+			Type:       resourcemanager.StaticSegment,
 			FixedValue: strPtr("subscriptions"),
 			Name:       "staticSubscriptions",
 		},
@@ -82,7 +82,7 @@ var virtualMachineResourceId = models.ParsedResourceId{
 			Type: models.SubscriptionIdSegment,
 		},
 		{
-			Type:       models.StaticSegment,
+			Type:       resourcemanager.StaticSegment,
 			FixedValue: strPtr("resourceGroups"),
 			Name:       "staticResourceGroups",
 		},
@@ -91,7 +91,7 @@ var virtualMachineResourceId = models.ParsedResourceId{
 			Type: models.ResourceGroupSegment,
 		},
 		{
-			Type:       models.StaticSegment,
+			Type:       resourcemanager.StaticSegment,
 			FixedValue: strPtr("providers"),
 			Name:       "staticProviders",
 		},
@@ -101,7 +101,7 @@ var virtualMachineResourceId = models.ParsedResourceId{
 			Name:       "staticMicrosoftCompute",
 		},
 		{
-			Type:       models.StaticSegment,
+			Type:       resourcemanager.StaticSegment,
 			FixedValue: strPtr("virtualMachines"),
 			Name:       "staticVirtualMachines",
 		},
@@ -115,7 +115,7 @@ var virtualMachineExtensionResourceId = models.ParsedResourceId{
 	Constants: map[string]models.ConstantDetails{},
 	Segments: []models.ResourceIdSegment{
 		{
-			Type:       models.StaticSegment,
+			Type:       resourcemanager.StaticSegment,
 			FixedValue: strPtr("subscriptions"),
 			Name:       "staticSubscriptions",
 		},
@@ -124,7 +124,7 @@ var virtualMachineExtensionResourceId = models.ParsedResourceId{
 			Type: models.SubscriptionIdSegment,
 		},
 		{
-			Type:       models.StaticSegment,
+			Type:       resourcemanager.StaticSegment,
 			FixedValue: strPtr("resourceGroups"),
 			Name:       "staticResourceGroups",
 		},
@@ -133,7 +133,7 @@ var virtualMachineExtensionResourceId = models.ParsedResourceId{
 			Type: models.ResourceGroupSegment,
 		},
 		{
-			Type:       models.StaticSegment,
+			Type:       resourcemanager.StaticSegment,
 			FixedValue: strPtr("providers"),
 			Name:       "staticProviders",
 		},
@@ -143,7 +143,7 @@ var virtualMachineExtensionResourceId = models.ParsedResourceId{
 			Name:       "staticMicrosoftCompute",
 		},
 		{
-			Type:       models.StaticSegment,
+			Type:       resourcemanager.StaticSegment,
 			FixedValue: strPtr("virtualMachines"),
 			Name:       "staticVirtualMachines",
 		},
@@ -152,7 +152,7 @@ var virtualMachineExtensionResourceId = models.ParsedResourceId{
 			Type: models.UserSpecifiedSegment,
 		},
 		{
-			Type:       models.StaticSegment,
+			Type:       resourcemanager.StaticSegment,
 			FixedValue: strPtr("extensions"),
 			Name:       "staticExtensions",
 		},
@@ -166,7 +166,7 @@ var virtualNetworkExtensionResourceId = models.ParsedResourceId{
 	Constants: map[string]models.ConstantDetails{},
 	Segments: []models.ResourceIdSegment{
 		{
-			Type:       models.StaticSegment,
+			Type:       resourcemanager.StaticSegment,
 			FixedValue: strPtr("subscriptions"),
 			Name:       "staticSubscriptions",
 		},
@@ -175,7 +175,7 @@ var virtualNetworkExtensionResourceId = models.ParsedResourceId{
 			Type: models.SubscriptionIdSegment,
 		},
 		{
-			Type:       models.StaticSegment,
+			Type:       resourcemanager.StaticSegment,
 			FixedValue: strPtr("resourceGroups"),
 			Name:       "staticResourceGroups",
 		},
@@ -184,7 +184,7 @@ var virtualNetworkExtensionResourceId = models.ParsedResourceId{
 			Type: models.ResourceGroupSegment,
 		},
 		{
-			Type:       models.StaticSegment,
+			Type:       resourcemanager.StaticSegment,
 			FixedValue: strPtr("providers"),
 			Name:       "staticProviders",
 		},
@@ -194,7 +194,7 @@ var virtualNetworkExtensionResourceId = models.ParsedResourceId{
 			Name:       "staticMicrosoftNetwork",
 		},
 		{
-			Type:       models.StaticSegment,
+			Type:       resourcemanager.StaticSegment,
 			FixedValue: strPtr("extensions"),
 			Name:       "staticExtensions",
 		},
@@ -212,7 +212,7 @@ var scopedMonitorResourceId = models.ParsedResourceId{
 			Name: "scope",
 		},
 		{
-			Type:       models.StaticSegment,
+			Type:       resourcemanager.StaticSegment,
 			FixedValue: strPtr("providers"),
 			Name:       "staticProviders",
 		},
@@ -222,7 +222,7 @@ var scopedMonitorResourceId = models.ParsedResourceId{
 			Name:       "staticMicrosoftMonitor",
 		},
 		{
-			Type:       models.StaticSegment,
+			Type:       resourcemanager.StaticSegment,
 			FixedValue: strPtr("extensions"),
 			Name:       "staticExtensions",
 		},
@@ -236,7 +236,7 @@ var signalRResourceId = models.ParsedResourceId{
 	Constants: map[string]models.ConstantDetails{},
 	Segments: []models.ResourceIdSegment{
 		{
-			Type:       models.StaticSegment,
+			Type:       resourcemanager.StaticSegment,
 			FixedValue: strPtr("subscriptions"),
 			Name:       "staticSubscriptions",
 		},
@@ -245,7 +245,7 @@ var signalRResourceId = models.ParsedResourceId{
 			Type: models.SubscriptionIdSegment,
 		},
 		{
-			Type:       models.StaticSegment,
+			Type:       resourcemanager.StaticSegment,
 			FixedValue: strPtr("resourceGroups"),
 			Name:       "staticResourceGroups",
 		},
@@ -254,7 +254,7 @@ var signalRResourceId = models.ParsedResourceId{
 			Type: models.ResourceGroupSegment,
 		},
 		{
-			Type:       models.StaticSegment,
+			Type:       resourcemanager.StaticSegment,
 			FixedValue: strPtr("providers"),
 			Name:       "staticProviders",
 		},
@@ -264,7 +264,7 @@ var signalRResourceId = models.ParsedResourceId{
 			Name:       "staticMicrosoftSignalRService",
 		},
 		{
-			Type:       models.StaticSegment,
+			Type:       resourcemanager.StaticSegment,
 			FixedValue: strPtr("SignalR"),
 			Name:       "staticSignalR",
 		},
@@ -278,7 +278,7 @@ var eventHubSkuResourceId = models.ParsedResourceId{
 	Constants: map[string]models.ConstantDetails{},
 	Segments: []models.ResourceIdSegment{
 		{
-			Type:       models.StaticSegment,
+			Type:       resourcemanager.StaticSegment,
 			FixedValue: strPtr("subscriptions"),
 			Name:       "staticSubscriptions",
 		},
@@ -287,7 +287,7 @@ var eventHubSkuResourceId = models.ParsedResourceId{
 			Name: "subscriptionId",
 		},
 		{
-			Type:       models.StaticSegment,
+			Type:       resourcemanager.StaticSegment,
 			FixedValue: strPtr("providers"),
 			Name:       "staticProviders",
 		},
@@ -297,7 +297,7 @@ var eventHubSkuResourceId = models.ParsedResourceId{
 			Name:       "staticMicrosoftEventHub",
 		},
 		{
-			Type:       models.StaticSegment,
+			Type:       resourcemanager.StaticSegment,
 			FixedValue: strPtr("sku"),
 			Name:       "staticSku",
 		},
@@ -321,7 +321,7 @@ var trafficManagerProfileResourceId = models.ParsedResourceId{
 	},
 	Segments: []models.ResourceIdSegment{
 		{
-			Type:       models.StaticSegment,
+			Type:       resourcemanager.StaticSegment,
 			FixedValue: strPtr("subscriptions"),
 			Name:       "staticSubscriptions",
 		},
@@ -330,7 +330,7 @@ var trafficManagerProfileResourceId = models.ParsedResourceId{
 			Name: "subscriptionId",
 		},
 		{
-			Type:       models.StaticSegment,
+			Type:       resourcemanager.StaticSegment,
 			FixedValue: strPtr("resourceGroups"),
 			Name:       "staticResourceGroups",
 		},
@@ -339,7 +339,7 @@ var trafficManagerProfileResourceId = models.ParsedResourceId{
 			Name: "resourceGroupName",
 		},
 		{
-			Type:       models.StaticSegment,
+			Type:       resourcemanager.StaticSegment,
 			FixedValue: strPtr("providers"),
 			Name:       "staticProviders",
 		},
@@ -349,7 +349,7 @@ var trafficManagerProfileResourceId = models.ParsedResourceId{
 			Name:       "microsoftNetwork",
 		},
 		{
-			Type:       models.StaticSegment,
+			Type:       resourcemanager.StaticSegment,
 			FixedValue: strPtr("trafficManagerProfiles"),
 			Name:       "staticTrafficManagerProfiles",
 		},
@@ -381,7 +381,7 @@ var redisPatchSchedulesResourceId = models.ParsedResourceId{
 	},
 	Segments: []models.ResourceIdSegment{
 		{
-			Type:       models.StaticSegment,
+			Type:       resourcemanager.StaticSegment,
 			FixedValue: strPtr("subscriptions"),
 			Name:       "staticSubscriptions",
 		},
@@ -390,7 +390,7 @@ var redisPatchSchedulesResourceId = models.ParsedResourceId{
 			Name: "subscriptionId",
 		},
 		{
-			Type:       models.StaticSegment,
+			Type:       resourcemanager.StaticSegment,
 			FixedValue: strPtr("resourceGroups"),
 			Name:       "staticResourceGroups",
 		},
@@ -399,7 +399,7 @@ var redisPatchSchedulesResourceId = models.ParsedResourceId{
 			Name: "resourceGroupName",
 		},
 		{
-			Type:       models.StaticSegment,
+			Type:       resourcemanager.StaticSegment,
 			FixedValue: strPtr("providers"),
 			Name:       "staticProviders",
 		},
@@ -409,7 +409,7 @@ var redisPatchSchedulesResourceId = models.ParsedResourceId{
 			Name:       "staticMicrosoftCache",
 		},
 		{
-			Type:       models.StaticSegment,
+			Type:       resourcemanager.StaticSegment,
 			FixedValue: strPtr("redis"),
 			Name:       "staticRedis",
 		},
@@ -419,7 +419,7 @@ var redisPatchSchedulesResourceId = models.ParsedResourceId{
 			Name:       "name",
 		},
 		{
-			Type:       models.StaticSegment,
+			Type:       resourcemanager.StaticSegment,
 			FixedValue: strPtr("patchSchedules"),
 			Name:       "staticPatchSchedules",
 		},
@@ -624,7 +624,7 @@ func TestResourceIDNamingContainingAConstant(t *testing.T) {
 		},
 		Segments: []models.ResourceIdSegment{
 			{
-				Type:       models.StaticSegment,
+				Type:       resourcemanager.StaticSegment,
 				FixedValue: strPtr("subscriptions"),
 				Name:       "subscriptions",
 			},
@@ -633,7 +633,7 @@ func TestResourceIDNamingContainingAConstant(t *testing.T) {
 				Type: models.SubscriptionIdSegment,
 			},
 			{
-				Type:       models.StaticSegment,
+				Type:       resourcemanager.StaticSegment,
 				FixedValue: strPtr("resourceGroups"),
 				Name:       "resourceGroups",
 			},
@@ -642,7 +642,7 @@ func TestResourceIDNamingContainingAConstant(t *testing.T) {
 				Type: models.ResourceGroupSegment,
 			},
 			{
-				Type:       models.StaticSegment,
+				Type:       resourcemanager.StaticSegment,
 				FixedValue: strPtr("providers"),
 				Name:       "providers",
 			},
@@ -694,7 +694,7 @@ func TestResourceIDNamingContainingAConstantAndSuffix(t *testing.T) {
 		},
 		Segments: []models.ResourceIdSegment{
 			{
-				Type:       models.StaticSegment,
+				Type:       resourcemanager.StaticSegment,
 				FixedValue: strPtr("subscriptions"),
 				Name:       "subscriptions",
 			},
@@ -703,7 +703,7 @@ func TestResourceIDNamingContainingAConstantAndSuffix(t *testing.T) {
 				Type: models.SubscriptionIdSegment,
 			},
 			{
-				Type:       models.StaticSegment,
+				Type:       resourcemanager.StaticSegment,
 				FixedValue: strPtr("resourceGroups"),
 				Name:       "resourceGroups",
 			},
@@ -712,7 +712,7 @@ func TestResourceIDNamingContainingAConstantAndSuffix(t *testing.T) {
 				Type: models.ResourceGroupSegment,
 			},
 			{
-				Type:       models.StaticSegment,
+				Type:       resourcemanager.StaticSegment,
 				FixedValue: strPtr("providers"),
 				Name:       "providers",
 			},
@@ -857,7 +857,7 @@ func TestResourceIdNamingConflictingMultipleLevels(t *testing.T) {
 		Constants: map[string]models.ConstantDetails{},
 		Segments: []models.ResourceIdSegment{
 			{
-				Type:       models.StaticSegment,
+				Type:       resourcemanager.StaticSegment,
 				FixedValue: strPtr("subscriptions"),
 				Name:       "subscriptions",
 			},
@@ -866,7 +866,7 @@ func TestResourceIdNamingConflictingMultipleLevels(t *testing.T) {
 				Type: models.SubscriptionIdSegment,
 			},
 			{
-				Type:       models.StaticSegment,
+				Type:       resourcemanager.StaticSegment,
 				FixedValue: strPtr("resourceGroups"),
 				Name:       "resourceGroups",
 			},
@@ -875,7 +875,7 @@ func TestResourceIdNamingConflictingMultipleLevels(t *testing.T) {
 				Type: models.ResourceGroupSegment,
 			},
 			{
-				Type:       models.StaticSegment,
+				Type:       resourcemanager.StaticSegment,
 				FixedValue: strPtr("providers"),
 				Name:       "providers",
 			},
@@ -885,7 +885,7 @@ func TestResourceIdNamingConflictingMultipleLevels(t *testing.T) {
 				Name:       "Microsoft.Web",
 			},
 			{
-				Type:       models.StaticSegment,
+				Type:       resourcemanager.StaticSegment,
 				FixedValue: strPtr("hostingEnvironments"),
 				Name:       "hostingEnvironments",
 			},
@@ -894,7 +894,7 @@ func TestResourceIdNamingConflictingMultipleLevels(t *testing.T) {
 				Type: models.UserSpecifiedSegment,
 			},
 			{
-				Type:       models.StaticSegment,
+				Type:       resourcemanager.StaticSegment,
 				FixedValue: strPtr("workerPools"),
 				Name:       "workerPools",
 			},
@@ -903,7 +903,7 @@ func TestResourceIdNamingConflictingMultipleLevels(t *testing.T) {
 				Type: models.UserSpecifiedSegment,
 			},
 			{
-				Type:       models.StaticSegment,
+				Type:       resourcemanager.StaticSegment,
 				FixedValue: strPtr("instances"),
 				Name:       "instances",
 			},
@@ -917,7 +917,7 @@ func TestResourceIdNamingConflictingMultipleLevels(t *testing.T) {
 		Constants: map[string]models.ConstantDetails{},
 		Segments: []models.ResourceIdSegment{
 			{
-				Type:       models.StaticSegment,
+				Type:       resourcemanager.StaticSegment,
 				FixedValue: strPtr("subscriptions"),
 				Name:       "subscriptions",
 			},
@@ -926,7 +926,7 @@ func TestResourceIdNamingConflictingMultipleLevels(t *testing.T) {
 				Type: models.SubscriptionIdSegment,
 			},
 			{
-				Type:       models.StaticSegment,
+				Type:       resourcemanager.StaticSegment,
 				FixedValue: strPtr("resourceGroups"),
 				Name:       "resourceGroups",
 			},
@@ -935,7 +935,7 @@ func TestResourceIdNamingConflictingMultipleLevels(t *testing.T) {
 				Type: models.ResourceGroupSegment,
 			},
 			{
-				Type:       models.StaticSegment,
+				Type:       resourcemanager.StaticSegment,
 				FixedValue: strPtr("providers"),
 				Name:       "providers",
 			},
@@ -945,7 +945,7 @@ func TestResourceIdNamingConflictingMultipleLevels(t *testing.T) {
 				Name:       "Microsoft.Web",
 			},
 			{
-				Type:       models.StaticSegment,
+				Type:       resourcemanager.StaticSegment,
 				FixedValue: strPtr("hostingEnvironments"),
 				Name:       "hostingEnvironments",
 			},
@@ -954,17 +954,17 @@ func TestResourceIdNamingConflictingMultipleLevels(t *testing.T) {
 				Type: models.UserSpecifiedSegment,
 			},
 			{
-				Type:       models.StaticSegment,
+				Type:       resourcemanager.StaticSegment,
 				FixedValue: strPtr("multiRolePools"),
 				Name:       "multiRolePools",
 			},
 			{
-				Type:       models.StaticSegment,
+				Type:       resourcemanager.StaticSegment,
 				FixedValue: strPtr("default"),
 				Name:       "default",
 			},
 			{
-				Type:       models.StaticSegment,
+				Type:       resourcemanager.StaticSegment,
 				FixedValue: strPtr("instances"),
 				Name:       "instances",
 			},
@@ -978,7 +978,7 @@ func TestResourceIdNamingConflictingMultipleLevels(t *testing.T) {
 		Constants: map[string]models.ConstantDetails{},
 		Segments: []models.ResourceIdSegment{
 			{
-				Type:       models.StaticSegment,
+				Type:       resourcemanager.StaticSegment,
 				FixedValue: strPtr("subscriptions"),
 				Name:       "subscriptions",
 			},
@@ -987,7 +987,7 @@ func TestResourceIdNamingConflictingMultipleLevels(t *testing.T) {
 				Type: models.SubscriptionIdSegment,
 			},
 			{
-				Type:       models.StaticSegment,
+				Type:       resourcemanager.StaticSegment,
 				FixedValue: strPtr("resourceGroups"),
 				Name:       "resourceGroups",
 			},
@@ -996,7 +996,7 @@ func TestResourceIdNamingConflictingMultipleLevels(t *testing.T) {
 				Type: models.ResourceGroupSegment,
 			},
 			{
-				Type:       models.StaticSegment,
+				Type:       resourcemanager.StaticSegment,
 				FixedValue: strPtr("providers"),
 				Name:       "providers",
 			},
@@ -1006,7 +1006,7 @@ func TestResourceIdNamingConflictingMultipleLevels(t *testing.T) {
 				Name:       "Microsoft.Web",
 			},
 			{
-				Type:       models.StaticSegment,
+				Type:       resourcemanager.StaticSegment,
 				FixedValue: strPtr("sites"),
 				Name:       "sites",
 			},
@@ -1015,7 +1015,7 @@ func TestResourceIdNamingConflictingMultipleLevels(t *testing.T) {
 				Type: models.UserSpecifiedSegment,
 			},
 			{
-				Type:       models.StaticSegment,
+				Type:       resourcemanager.StaticSegment,
 				FixedValue: strPtr("slots"),
 				Name:       "slots",
 			},
@@ -1024,7 +1024,7 @@ func TestResourceIdNamingConflictingMultipleLevels(t *testing.T) {
 				Type: models.UserSpecifiedSegment,
 			},
 			{
-				Type:       models.StaticSegment,
+				Type:       resourcemanager.StaticSegment,
 				FixedValue: strPtr("instances"),
 				Name:       "instances",
 			},
@@ -1033,7 +1033,7 @@ func TestResourceIdNamingConflictingMultipleLevels(t *testing.T) {
 				Type: models.UserSpecifiedSegment,
 			},
 			{
-				Type:       models.StaticSegment,
+				Type:       resourcemanager.StaticSegment,
 				FixedValue: strPtr("processes"),
 				Name:       "processes",
 			},
@@ -1042,7 +1042,7 @@ func TestResourceIdNamingConflictingMultipleLevels(t *testing.T) {
 				Type: models.UserSpecifiedSegment,
 			},
 			{
-				Type:       models.StaticSegment,
+				Type:       resourcemanager.StaticSegment,
 				FixedValue: strPtr("modules"),
 				Name:       "modules",
 			},
@@ -1056,7 +1056,7 @@ func TestResourceIdNamingConflictingMultipleLevels(t *testing.T) {
 		Constants: map[string]models.ConstantDetails{},
 		Segments: []models.ResourceIdSegment{
 			{
-				Type:       models.StaticSegment,
+				Type:       resourcemanager.StaticSegment,
 				FixedValue: strPtr("subscriptions"),
 				Name:       "subscriptions",
 			},
@@ -1065,7 +1065,7 @@ func TestResourceIdNamingConflictingMultipleLevels(t *testing.T) {
 				Type: models.SubscriptionIdSegment,
 			},
 			{
-				Type:       models.StaticSegment,
+				Type:       resourcemanager.StaticSegment,
 				FixedValue: strPtr("resourceGroups"),
 				Name:       "resourceGroups",
 			},
@@ -1074,7 +1074,7 @@ func TestResourceIdNamingConflictingMultipleLevels(t *testing.T) {
 				Type: models.ResourceGroupSegment,
 			},
 			{
-				Type:       models.StaticSegment,
+				Type:       resourcemanager.StaticSegment,
 				FixedValue: strPtr("providers"),
 				Name:       "providers",
 			},
@@ -1084,7 +1084,7 @@ func TestResourceIdNamingConflictingMultipleLevels(t *testing.T) {
 				Name:       "Microsoft.Web",
 			},
 			{
-				Type:       models.StaticSegment,
+				Type:       resourcemanager.StaticSegment,
 				FixedValue: strPtr("sites"),
 				Name:       "sites",
 			},
@@ -1093,7 +1093,7 @@ func TestResourceIdNamingConflictingMultipleLevels(t *testing.T) {
 				Type: models.UserSpecifiedSegment,
 			},
 			{
-				Type:       models.StaticSegment,
+				Type:       resourcemanager.StaticSegment,
 				FixedValue: strPtr("instances"),
 				Name:       "instances",
 			},
@@ -1102,7 +1102,7 @@ func TestResourceIdNamingConflictingMultipleLevels(t *testing.T) {
 				Type: models.UserSpecifiedSegment,
 			},
 			{
-				Type:       models.StaticSegment,
+				Type:       resourcemanager.StaticSegment,
 				FixedValue: strPtr("processes"),
 				Name:       "processes",
 			},
@@ -1111,7 +1111,7 @@ func TestResourceIdNamingConflictingMultipleLevels(t *testing.T) {
 				Type: models.UserSpecifiedSegment,
 			},
 			{
-				Type:       models.StaticSegment,
+				Type:       resourcemanager.StaticSegment,
 				FixedValue: strPtr("modules"),
 				Name:       "modules",
 			},

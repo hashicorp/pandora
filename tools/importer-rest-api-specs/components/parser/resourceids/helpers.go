@@ -19,7 +19,7 @@ func segmentsWithoutUriSuffix(pri models.ParsedResourceId) []models.ResourceIdSe
 	lastUserValueSegment := -1
 	for i, segment := range segments {
 		// everything else technically is a user configurable component
-		if segment.Type != models.StaticSegment && segment.Type != models.ResourceProviderSegment {
+		if segment.Type != resourcemanager.StaticSegment && segment.Type != models.ResourceProviderSegment {
 			lastUserValueSegment = i
 		}
 	}
@@ -41,7 +41,7 @@ func normalizedResourceId(segments []models.ResourceIdSegment) string {
 				continue
 			}
 
-		case models.StaticSegment:
+		case resourcemanager.StaticSegment:
 			{
 				normalizedSegment := cleanup.NormalizeSegment(*segment.FixedValue, true)
 				components = append(components, normalizedSegment)

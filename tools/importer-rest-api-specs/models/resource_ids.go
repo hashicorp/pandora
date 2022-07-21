@@ -3,6 +3,8 @@ package models
 import (
 	"fmt"
 	"strings"
+
+	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
 type ParsedResourceId struct {
@@ -69,7 +71,7 @@ func (pri ParsedResourceId) Matches(other ParsedResourceId) bool {
 			continue
 		}
 
-		if first.Type == ResourceProviderSegment || first.Type == StaticSegment {
+		if first.Type == ResourceProviderSegment || first.Type == resourcemanager.StaticSegment {
 			if first.FixedValue != nil && second.FixedValue == nil {
 				return false
 			}
@@ -110,10 +112,9 @@ type ResourceIdSegment struct {
 	Name string
 }
 
-type SegmentType string
+type SegmentType resourcemanager.ResourceIdSegmentType
 
 const (
-	StaticSegment           SegmentType = "static"
 	ConstantSegment         SegmentType = "constant"
 	ResourceGroupSegment    SegmentType = "resource-group"
 	ResourceProviderSegment SegmentType = "resource-provider"
@@ -147,7 +148,7 @@ func ResourceGroupResourceIDSegment(name string) ResourceIdSegment {
 
 func StaticResourceIDSegment(name, fixedValue string) ResourceIdSegment {
 	return ResourceIdSegment{
-		Type:       StaticSegment,
+		Type:       resourcemanager.StaticSegment,
 		Name:       name,
 		FixedValue: &fixedValue,
 	}

@@ -299,7 +299,7 @@ func apiResourceIdSegmentsFromModelResourceIdSegments(input []models.ResourceIdS
 			models.ResourceProviderSegment: resourcemanager.ResourceProviderSegment,
 			models.ScopeSegment:            resourcemanager.ScopeSegment,
 			models.SubscriptionIdSegment:   resourcemanager.SubscriptionIdSegment,
-			models.StaticSegment:           resourcemanager.StaticSegment,
+			resourcemanager.StaticSegment:  resourcemanager.StaticSegment,
 			models.UserSpecifiedSegment:    resourcemanager.UserSpecifiedSegment,
 		}
 		mapping, ok := mappings[v.Type]

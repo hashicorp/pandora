@@ -86,7 +86,7 @@ func (p *Parser) parseResourceIdFromOperation(uri string, operation *spec.Operat
 				if len(segments) > 0 {
 					lastSegment := segments[len(segments)-1]
 					// the segment before this one should be a static segment `subscriptions`
-					if lastSegment.Type == models.StaticSegment && lastSegment.FixedValue != nil && strings.EqualFold(*lastSegment.FixedValue, "subscriptions") {
+					if lastSegment.Type == resourcemanager.StaticSegment && lastSegment.FixedValue != nil && strings.EqualFold(*lastSegment.FixedValue, "subscriptions") {
 						previousSegmentWasSubscriptions = true
 					}
 				}
@@ -102,7 +102,7 @@ func (p *Parser) parseResourceIdFromOperation(uri string, operation *spec.Operat
 				if len(segments) > 0 {
 					lastSegment := segments[len(segments)-1]
 					// the segment before this one should be a static segment `resourceGroups`
-					if lastSegment.Type == models.StaticSegment && lastSegment.FixedValue != nil && strings.EqualFold(*lastSegment.FixedValue, "resourceGroups") {
+					if lastSegment.Type == resourcemanager.StaticSegment && lastSegment.FixedValue != nil && strings.EqualFold(*lastSegment.FixedValue, "resourceGroups") {
 						previousSegmentWasResourceGroups = true
 					}
 				}
@@ -134,7 +134,7 @@ func (p *Parser) parseResourceIdFromOperation(uri string, operation *spec.Operat
 							}
 							// it's a fixed value segment, not a constant - so we'll transform it as such and skip
 							segments = append(segments, models.ResourceIdSegment{
-								Type:       models.StaticSegment,
+								Type:       resourcemanager.StaticSegment,
 								Name:       normalizedSegment,
 								FixedValue: &constantValue,
 							})
@@ -190,7 +190,7 @@ func (p *Parser) parseResourceIdFromOperation(uri string, operation *spec.Operat
 	lastUserValueSegment := -1
 	for i, segment := range segments {
 		// everything else technically is a user configurable component
-		if segment.Type != models.StaticSegment && segment.Type != models.ResourceProviderSegment {
+		if segment.Type != resourcemanager.StaticSegment && segment.Type != models.ResourceProviderSegment {
 			lastUserValueSegment = i
 		}
 	}
@@ -207,7 +207,7 @@ func (p *Parser) parseResourceIdFromOperation(uri string, operation *spec.Operat
 
 	allSegmentsAreStatic := true
 	for _, segment := range segments {
-		if segment.Type != models.StaticSegment && segment.Type != models.ResourceProviderSegment {
+		if segment.Type != resourcemanager.StaticSegment && segment.Type != models.ResourceProviderSegment {
 			allSegmentsAreStatic = false
 			break
 		}

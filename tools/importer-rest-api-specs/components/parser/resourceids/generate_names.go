@@ -194,11 +194,11 @@ func SegmentsAvailableForNaming(pri models.ParsedResourceId) []string {
 	if len(segmentsWithoutScope)%2 == 0 && len(segmentsWithoutScope) > 0 {
 		availableSegments := make([]string, 0)
 		for _, segment := range segmentsWithoutScope {
-			if segment.Type == models.ConstantSegment || segment.Type == models.StaticSegment {
+			if segment.Type == models.ConstantSegment || segment.Type == resourcemanager.StaticSegment {
 				normalized := cleanup.NormalizeSegmentName(segment.Name)
 
 				// trim off the `Static` prefix if it's expected to be present
-				if segment.Type == models.ResourceProviderSegment || segment.Type == models.StaticSegment {
+				if segment.Type == models.ResourceProviderSegment || segment.Type == resourcemanager.StaticSegment {
 					normalized = strings.TrimPrefix(normalized, "Static")
 				}
 
@@ -219,7 +219,7 @@ func SegmentsAvailableForNaming(pri models.ParsedResourceId) []string {
 		normalized := cleanup.NormalizeSegmentName(segment.Name)
 
 		// trim off the `Static` prefix if it's expected to be present
-		if segment.Type == models.ResourceProviderSegment || segment.Type == models.StaticSegment {
+		if segment.Type == models.ResourceProviderSegment || segment.Type == resourcemanager.StaticSegment {
 			normalized = strings.TrimPrefix(normalized, "Static")
 		}
 
