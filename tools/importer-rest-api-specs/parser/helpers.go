@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"strings"
 
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser/cleanup"
+
 	"github.com/go-openapi/spec"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
@@ -26,7 +28,7 @@ func fragmentNameFromString(fragmentName string) *string {
 func inlinedModelName(parentModelName, fieldName string) string {
 	// intentionally split out for consistency
 	val := fmt.Sprintf("%s%s", strings.Title(parentModelName), strings.Title(fieldName))
-	return NormalizeName(val)
+	return cleanup.NormalizeName(val)
 }
 
 func operationMatchesTag(operation *spec.Operation, tag *string) bool {

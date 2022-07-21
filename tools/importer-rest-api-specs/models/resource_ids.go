@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser/cleanup"
 )
 
 type ParsedResourceId struct {
@@ -84,70 +84,6 @@ func (pri ParsedResourceId) String() string {
 	return normalizedResourceId(pri.Segments)
 }
 
-func (pri ParsedResourceId) SegmentsAvailableForNaming() []string {
-	// first reverse the segments, since we want to take from right -> left
-	reversedSegments := make([]ResourceIdSegment, 0)
-	for i := len(pri.Segments); i > 0; i-- {
-		segment := pri.Segments[i-1]
-		reversedSegments = append(reversedSegments, segment)
-	}
-
-	segmentsWithoutScope := make([]ResourceIdSegment, 0)
-	for _, segment := range reversedSegments {
-		if segment.Type == ScopeSegment {
-			continue
-		}
-
-		segmentsWithoutScope = append(segmentsWithoutScope, segment)
-	}
-
-	// if it's an Azure Resource ID (e.g. key-value pairs) (and not just a scope)
-	if len(segmentsWithoutScope)%2 == 0 && len(segmentsWithoutScope) > 0 {
-		availableSegments := make([]string, 0)
-		for _, segment := range segmentsWithoutScope {
-			if segment.Type == ConstantSegment || segment.Type == StaticSegment {
-				normalized := parser.NormalizeSegmentName(segment.Name)
-
-				// trim off the `Static` prefix if it's expected to be present
-				if segment.Type == ResourceProviderSegment || segment.Type == StaticSegment {
-					normalized = strings.TrimPrefix(normalized, "Static")
-				}
-
-				availableSegments = append(availableSegments, normalized)
-			}
-		}
-
-		return availableSegments
-	}
-
-	availableSegments := make([]string, 0)
-	for _, segment := range reversedSegments {
-		if segment.Type != UserSpecifiedSegment {
-			continue
-		}
-
-		// otherwise use the names of any user specifiable segments
-		normalized := parser.NormalizeSegmentName(segment.Name)
-
-		// trim off the `Static` prefix if it's expected to be present
-		if segment.Type == ResourceProviderSegment || segment.Type == StaticSegment {
-			normalized = strings.TrimPrefix(normalized, "Static")
-		}
-
-		availableSegments = append(availableSegments, normalized)
-	}
-
-	// if it's just a Scope for example, take whatever we've got
-	if len(availableSegments) == 0 {
-		for _, segment := range reversedSegments {
-			normalized := parser.NormalizeSegmentName(segment.Name)
-			availableSegments = append(availableSegments, normalized)
-		}
-	}
-
-	return availableSegments
-}
-
 func (pri ParsedResourceId) NormalizedResourceManagerResourceId() string {
 	segments := pri.segmentsWithoutUriSuffix()
 	return normalizedResourceId(segments)
@@ -179,14 +115,14 @@ func normalizedResourceId(segments []ResourceIdSegment) string {
 		switch segment.Type {
 		case ResourceProviderSegment:
 			{
-				normalizedSegment := parser.NormalizeResourceProviderName(*segment.FixedValue)
+				normalizedSegment := cleanup.NormalizeResourceProviderName(*segment.FixedValue)
 				components = append(components, normalizedSegment)
 				continue
 			}
 
 		case StaticSegment:
 			{
-				normalizedSegment := parser.NormalizeSegment(*segment.FixedValue, true)
+				normalizedSegment := cleanup.NormalizeSegment(*segment.FixedValue, true)
 				components = append(components, normalizedSegment)
 				continue
 			}
@@ -194,7 +130,7 @@ func normalizedResourceId(segments []ResourceIdSegment) string {
 		case ConstantSegment, ResourceGroupSegment, ScopeSegment, SubscriptionIdSegment, UserSpecifiedSegment:
 			// e.g. {example}
 			normalizedSegment := segment.Name
-			normalizedSegment = parser.NormalizeReservedKeywords(segment.Name)
+			normalizedSegment = cleanup.NormalizeReservedKeywords(segment.Name)
 			components = append(components, fmt.Sprintf("{%s}", normalizedSegment))
 			continue
 

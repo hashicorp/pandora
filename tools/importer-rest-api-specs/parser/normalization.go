@@ -2,6 +2,8 @@ package parser
 
 import (
 	"strings"
+
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser/cleanup"
 )
 
 func normalizeOperationName(operationId string, tag *string) string {
@@ -14,7 +16,7 @@ func normalizeOperationName(operationId string, tag *string) string {
 	operationName = strings.TrimPrefix(operationName, "Operations") // sanity checking
 	operationName = strings.TrimPrefix(operationName, "s")          // plurals
 	operationName = strings.TrimPrefix(operationName, "_")
-	operationName = NormalizeName(operationName)
+	operationName = cleanup.NormalizeName(operationName)
 	return operationName
 }
 

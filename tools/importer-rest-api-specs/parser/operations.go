@@ -5,6 +5,8 @@ import (
 	"net/http"
 	"strings"
 
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser/cleanup"
+
 	"github.com/hashicorp/go-hclog"
 
 	"github.com/go-openapi/spec"
@@ -315,7 +317,7 @@ func (p operationsParser) optionsForOperation(input parsedOperation, logger hclo
 
 		if strings.EqualFold(param.In, "header") || strings.EqualFold(param.In, "query") {
 			val := param.Name
-			name := NormalizeName(val)
+			name := cleanup.NormalizeName(val)
 
 			option := models.OperationOption{
 				Required: param.Required,
