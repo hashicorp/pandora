@@ -86,8 +86,6 @@ type ModelDetails struct {
 	ParentTypeName *string
 	TypeHintIn     *string
 	TypeHintValue  *string
-
-	// TODO: include ReadOnly, which'll mean we need to generate this on a per-type basis if necessary
 }
 
 type FieldDetails struct {
@@ -96,6 +94,7 @@ type FieldDetails struct {
 	Sensitive bool
 	JsonName  string
 
+	// TODO: we'll need to consolidate this into ObjectDefinition to match how the Shared Models do this
 	CustomFieldType  *CustomFieldType
 	ObjectDefinition *ObjectDefinition
 
