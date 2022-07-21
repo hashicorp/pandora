@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/cleanup"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser/resourceids"
 )
@@ -26,7 +25,7 @@ func (d *SwaggerDefinition) parse(serviceName, apiVersion string, resourceIds re
 
 		if resource != nil {
 			normalizedTag := normalizeTag(tag)
-			normalizedTag = cleanup.NormalizeResourceName(normalizedTag)
+			normalizedTag = NormalizeResourceName(normalizedTag)
 			resources[normalizedTag] = *resource
 		}
 	}
@@ -40,13 +39,13 @@ func (d *SwaggerDefinition) parse(serviceName, apiVersion string, resourceIds re
 
 		if resource != nil {
 			normalizedTag := normalizeTag(serviceName)
-			normalizedTag = cleanup.NormalizeResourceName(normalizedTag)
+			normalizedTag = NormalizeResourceName(normalizedTag)
 			resources[normalizedTag] = *resource
 		}
 	}
 
 	return &models.AzureApiDefinition{
-		ServiceName: cleanup.NormalizeServiceName(serviceName),
+		ServiceName: NormalizeServiceName(serviceName),
 		ApiVersion:  apiVersion,
 		Resources:   resources,
 	}, nil

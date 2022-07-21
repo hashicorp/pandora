@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/cleanup"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser"
 )
 
 type ParsedResourceId struct {
@@ -106,7 +106,7 @@ func (pri ParsedResourceId) SegmentsAvailableForNaming() []string {
 		availableSegments := make([]string, 0)
 		for _, segment := range segmentsWithoutScope {
 			if segment.Type == ConstantSegment || segment.Type == StaticSegment {
-				normalized := cleanup.NormalizeSegmentName(segment.Name)
+				normalized := parser.NormalizeSegmentName(segment.Name)
 
 				// trim off the `Static` prefix if it's expected to be present
 				if segment.Type == ResourceProviderSegment || segment.Type == StaticSegment {
@@ -127,7 +127,7 @@ func (pri ParsedResourceId) SegmentsAvailableForNaming() []string {
 		}
 
 		// otherwise use the names of any user specifiable segments
-		normalized := cleanup.NormalizeSegmentName(segment.Name)
+		normalized := parser.NormalizeSegmentName(segment.Name)
 
 		// trim off the `Static` prefix if it's expected to be present
 		if segment.Type == ResourceProviderSegment || segment.Type == StaticSegment {
@@ -140,7 +140,7 @@ func (pri ParsedResourceId) SegmentsAvailableForNaming() []string {
 	// if it's just a Scope for example, take whatever we've got
 	if len(availableSegments) == 0 {
 		for _, segment := range reversedSegments {
-			normalized := cleanup.NormalizeSegmentName(segment.Name)
+			normalized := parser.NormalizeSegmentName(segment.Name)
 			availableSegments = append(availableSegments, normalized)
 		}
 	}
@@ -179,14 +179,14 @@ func normalizedResourceId(segments []ResourceIdSegment) string {
 		switch segment.Type {
 		case ResourceProviderSegment:
 			{
-				normalizedSegment := cleanup.NormalizeResourceProviderName(*segment.FixedValue)
+				normalizedSegment := parser.NormalizeResourceProviderName(*segment.FixedValue)
 				components = append(components, normalizedSegment)
 				continue
 			}
 
 		case StaticSegment:
 			{
-				normalizedSegment := cleanup.NormalizeSegment(*segment.FixedValue, true)
+				normalizedSegment := parser.NormalizeSegment(*segment.FixedValue, true)
 				components = append(components, normalizedSegment)
 				continue
 			}
@@ -194,7 +194,7 @@ func normalizedResourceId(segments []ResourceIdSegment) string {
 		case ConstantSegment, ResourceGroupSegment, ScopeSegment, SubscriptionIdSegment, UserSpecifiedSegment:
 			// e.g. {example}
 			normalizedSegment := segment.Name
-			normalizedSegment = cleanup.NormalizeReservedKeywords(segment.Name)
+			normalizedSegment = parser.NormalizeReservedKeywords(segment.Name)
 			components = append(components, fmt.Sprintf("{%s}", normalizedSegment))
 			continue
 

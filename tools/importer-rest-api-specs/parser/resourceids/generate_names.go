@@ -5,8 +5,9 @@ import (
 	"sort"
 	"strings"
 
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser"
+
 	"github.com/hashicorp/go-hclog"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/cleanup"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
@@ -72,7 +73,7 @@ func generateNamesForResourceIds(input []models.ParsedResourceId, log hclog.Logg
 		if resourceId.Segments[0].Type == models.ScopeSegment && len(resourceId.Segments) > 1 {
 			candidateSegmentName = fmt.Sprintf("Scoped%s", candidateSegmentName)
 		}
-		candidateSegmentName = cleanup.NormalizeSegment(candidateSegmentName, false)
+		candidateSegmentName = parser.NormalizeSegment(candidateSegmentName, false)
 
 		// if we have an existing conflicting key, let's add this to that
 		if uris, existing := conflictingNamesToUris[candidateSegmentName]; existing {
@@ -133,7 +134,7 @@ func determineUniqueNamesFor(conflictingUris []models.ParsedResourceId, existing
 		}
 
 		for _, segment := range availableSegments {
-			proposedName = fmt.Sprintf("%s%s", cleanup.NormalizeSegment(segment, false), proposedName)
+			proposedName = fmt.Sprintf("%s%s", parser.NormalizeSegment(segment, false), proposedName)
 
 			uri, hasConflictWithExisting := existingCandidateNames[proposedName]
 			if hasConflictWithExisting {

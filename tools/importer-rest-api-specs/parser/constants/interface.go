@@ -7,10 +7,11 @@ import (
 	"strconv"
 	"strings"
 
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser"
+
 	"github.com/hashicorp/go-hclog"
 
 	"github.com/go-openapi/spec"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/cleanup"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/featureflags"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
@@ -149,7 +150,7 @@ func parseConstantExtensionFromExtension(field spec.Extensions) (*constantExtens
 	for k, v := range enumDetails {
 		// presume inconsistencies in the data
 		if strings.EqualFold(k, "name") {
-			normalizedEnumName := cleanup.NormalizeName(v.(string))
+			normalizedEnumName := parser.NormalizeName(v.(string))
 			enumName = &normalizedEnumName
 		}
 
@@ -213,7 +214,7 @@ func normalizeConstantKey(input string) string {
 	output = strings.ReplaceAll(output, "*", "Any")
 	// TODO: add more if we find them
 
-	output = cleanup.NormalizeName(output)
+	output = parser.NormalizeName(output)
 	return output
 }
 

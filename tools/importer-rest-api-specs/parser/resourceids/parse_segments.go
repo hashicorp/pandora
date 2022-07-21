@@ -4,8 +4,9 @@ import (
 	"fmt"
 	"strings"
 
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser"
+
 	"github.com/go-openapi/spec"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/cleanup"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser/constants"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser/internal"
@@ -153,7 +154,7 @@ func (p *Parser) parseResourceIdFromOperation(uri string, operation *spec.Operat
 			}
 
 			// user specified segments are output as variables, so we need to ensure these aren't language keywords
-			normalizedSegment = cleanup.NormalizeReservedKeywords(normalizedSegment)
+			normalizedSegment = parser.NormalizeReservedKeywords(normalizedSegment)
 			segments = append(segments, models.UserSpecifiedResourceIDSegment(normalizedSegment))
 			continue
 		}
@@ -161,7 +162,7 @@ func (p *Parser) parseResourceIdFromOperation(uri string, operation *spec.Operat
 		// if it's a Resource Provider
 		if strings.Contains(originalSegment, ".") {
 			// some ResourceProviders are defined in lower-case, let's fix that
-			resourceProviderValue := cleanup.NormalizeResourceProviderName(originalSegment)
+			resourceProviderValue := parser.NormalizeResourceProviderName(originalSegment)
 
 			// prefix this with `static{name}` so that the segment is unique
 			// these aren't parsed out anyway, but we need unique names
@@ -268,8 +269,8 @@ func determineUniqueNamesForSegments(input []models.ResourceIdSegment) (*[]model
 }
 
 func normalizeSegment(input string) string {
-	output := cleanup.RemoveInvalidCharacters(input, false)
-	output = cleanup.NormalizeSegment(output, true)
+	output := parser.RemoveInvalidCharacters(input, false)
+	output = parser.NormalizeSegment(output, true)
 	// the names should always be camelCased, so let's be sure
 	output = fmt.Sprintf("%s%s", strings.ToLower(string(output[0])), output[1:])
 

@@ -5,7 +5,8 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/cleanup"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser"
+
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
@@ -16,7 +17,7 @@ func codeForPackageDefinition(namespace, resourceName string, operations map[str
 	}
 	sort.Strings(operationNames)
 
-	normalizedResourceName := cleanup.NormalizeName(resourceName)
+	normalizedResourceName := parser.NormalizeName(resourceName)
 
 	lines := make([]string, 0)
 	for _, operationName := range operationNames {

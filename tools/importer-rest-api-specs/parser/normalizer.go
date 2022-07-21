@@ -1,7 +1,6 @@
 package parser
 
 import (
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/cleanup"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
@@ -11,16 +10,16 @@ import (
 func normalizeAzureApiResource(input models.AzureApiResource) models.AzureApiResource {
 	normalizedConstants := make(map[string]models.ConstantDetails)
 	for k, v := range input.Constants {
-		name := cleanup.NormalizeName(k)
+		name := NormalizeName(k)
 		normalizedConstants[name] = v
 	}
 
 	normalizedModels := make(map[string]models.ModelDetails)
 	for k, v := range input.Models {
-		modelName := cleanup.NormalizeName(k)
+		modelName := NormalizeName(k)
 		fields := make(map[string]models.FieldDetails)
 		for fieldName, fieldVal := range v.Fields {
-			normalizedFieldName := cleanup.NormalizeName(fieldName)
+			normalizedFieldName := NormalizeName(fieldName)
 
 			if fieldVal.ObjectDefinition != nil {
 				fieldVal.ObjectDefinition = normalizeObjectDefinition(*fieldVal.ObjectDefinition)
@@ -31,13 +30,13 @@ func normalizeAzureApiResource(input models.AzureApiResource) models.AzureApiRes
 		v.Fields = fields
 
 		if v.ParentTypeName != nil {
-			val := cleanup.NormalizeName(*v.ParentTypeName)
+			val := NormalizeName(*v.ParentTypeName)
 			v.ParentTypeName = &val
 		}
 
 		// Discriminators can be `@type` which get normalized to `Type` so we need to normalize the field name here
 		if v.TypeHintIn != nil {
-			val := cleanup.NormalizeName(*v.TypeHintIn)
+			val := NormalizeName(*v.TypeHintIn)
 			v.TypeHintIn = &val
 		}
 
@@ -47,7 +46,7 @@ func normalizeAzureApiResource(input models.AzureApiResource) models.AzureApiRes
 	normalizedOperations := make(map[string]models.OperationDetails)
 	for k, v := range input.Operations {
 		if v.ResourceIdName != nil {
-			normalized := cleanup.NormalizeName(*v.ResourceIdName)
+			normalized := NormalizeName(*v.ResourceIdName)
 			v.ResourceIdName = &normalized
 		}
 
@@ -61,7 +60,7 @@ func normalizeAzureApiResource(input models.AzureApiResource) models.AzureApiRes
 
 		normalizedOptions := make(map[string]models.OperationOption, 0)
 		for optionKey, optionVal := range v.Options {
-			optionKey = cleanup.NormalizeName(optionKey)
+			optionKey = NormalizeName(optionKey)
 
 			if optionVal.ObjectDefinition != nil {
 				optionVal.ObjectDefinition = normalizeObjectDefinition(*optionVal.ObjectDefinition)
@@ -80,14 +79,14 @@ func normalizeAzureApiResource(input models.AzureApiResource) models.AzureApiRes
 
 		normalizedConstants := make(map[string]models.ConstantDetails)
 		for k, constant := range v.Constants {
-			name := cleanup.NormalizeName(k)
+			name := NormalizeName(k)
 			normalizedConstants[name] = constant
 		}
 		v.Constants = normalizedConstants
 
 		for _, segment := range v.Segments {
 			if segment.ConstantReference != nil {
-				normalized := cleanup.NormalizeName(*segment.ConstantReference)
+				normalized := NormalizeName(*segment.ConstantReference)
 				segment.ConstantReference = &normalized
 			}
 			segments = append(segments, segment)
@@ -111,7 +110,7 @@ func normalizeAzureApiResource(input models.AzureApiResource) models.AzureApiRes
 
 func normalizeObjectDefinition(input models.ObjectDefinition) *models.ObjectDefinition {
 	if input.ReferenceName != nil {
-		normalized := cleanup.NormalizeName(*input.ReferenceName)
+		normalized := NormalizeName(*input.ReferenceName)
 		input.ReferenceName = &normalized
 	}
 
