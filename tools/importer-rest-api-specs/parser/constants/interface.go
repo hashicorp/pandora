@@ -7,10 +7,11 @@ import (
 	"strconv"
 	"strings"
 
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser/cleanup"
+
 	"github.com/hashicorp/go-hclog"
 
 	"github.com/go-openapi/spec"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/cleanup"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/featureflags"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )

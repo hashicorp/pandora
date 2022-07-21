@@ -1,4 +1,4 @@
-package parser
+package commonschema
 
 import (
 	"reflect"
@@ -12,11 +12,11 @@ var _ customFieldMatcher = systemAssignedIdentityMatcher{}
 
 type systemAssignedIdentityMatcher struct{}
 
-func (systemAssignedIdentityMatcher) customFieldType() models.CustomFieldType {
+func (systemAssignedIdentityMatcher) CustomFieldType() models.CustomFieldType {
 	return models.CustomFieldTypeSystemAssignedIdentity
 }
 
-func (systemAssignedIdentityMatcher) isMatch(_ models.FieldDetails, definition models.ObjectDefinition, known internal.ParseResult) bool {
+func (systemAssignedIdentityMatcher) IsMatch(_ models.FieldDetails, definition models.ObjectDefinition, known internal.ParseResult) bool {
 	if definition.Type != models.ObjectDefinitionReference {
 		return false
 	}

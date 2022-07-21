@@ -4,8 +4,9 @@ import (
 	"fmt"
 	"strings"
 
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser/cleanup"
+
 	"github.com/go-openapi/spec"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/cleanup"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser/constants"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser/internal"
@@ -218,7 +219,7 @@ func (p *Parser) parseResourceIdFromOperation(uri string, operation *spec.Operat
 			Constants: result.Constants,
 			Segments:  segments,
 		}
-		suffix := pri.NormalizedResourceId()
+		suffix := normalizedResourceId(pri.Segments)
 		out.uriSuffix = &suffix
 	} else {
 		out.constants = result.Constants

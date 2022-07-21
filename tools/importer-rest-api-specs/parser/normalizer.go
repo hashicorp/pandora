@@ -1,19 +1,24 @@
-package models
+package parser
 
-import "github.com/hashicorp/pandora/tools/importer-rest-api-specs/cleanup"
+import (
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser/cleanup"
+)
 
-func (r *AzureApiResource) Normalize() {
-	normalizedConstants := make(map[string]ConstantDetails)
-	for k, v := range r.Constants {
+// normalizeAzureApiResource works through the parsed AzureApiResource and ensures
+// that all the Names and References are consistent (TitleCase) as a final effort
+// to ensure the Swagger Data is normalized.
+func normalizeAzureApiResource(input models.AzureApiResource) models.AzureApiResource {
+	normalizedConstants := make(map[string]models.ConstantDetails)
+	for k, v := range input.Constants {
 		name := cleanup.NormalizeName(k)
 		normalizedConstants[name] = v
 	}
-	r.Constants = normalizedConstants
 
-	normalizedModels := make(map[string]ModelDetails)
-	for k, v := range r.Models {
+	normalizedModels := make(map[string]models.ModelDetails)
+	for k, v := range input.Models {
 		modelName := cleanup.NormalizeName(k)
-		fields := make(map[string]FieldDetails)
+		fields := make(map[string]models.FieldDetails)
 		for fieldName, fieldVal := range v.Fields {
 			normalizedFieldName := cleanup.NormalizeName(fieldName)
 
@@ -38,9 +43,9 @@ func (r *AzureApiResource) Normalize() {
 
 		normalizedModels[modelName] = v
 	}
-	r.Models = normalizedModels
 
-	for k, v := range r.Operations {
+	normalizedOperations := make(map[string]models.OperationDetails)
+	for k, v := range input.Operations {
 		if v.ResourceIdName != nil {
 			normalized := cleanup.NormalizeName(*v.ResourceIdName)
 			v.ResourceIdName = &normalized
@@ -54,7 +59,7 @@ func (r *AzureApiResource) Normalize() {
 			v.ResponseObject = normalizeObjectDefinition(*v.ResponseObject)
 		}
 
-		normalizedOptions := make(map[string]OperationOption, 0)
+		normalizedOptions := make(map[string]models.OperationOption, 0)
 		for optionKey, optionVal := range v.Options {
 			optionKey = cleanup.NormalizeName(optionKey)
 
@@ -66,13 +71,14 @@ func (r *AzureApiResource) Normalize() {
 		}
 		v.Options = normalizedOptions
 
-		r.Operations[k] = v
+		normalizedOperations[k] = v
 	}
 
-	for k, v := range r.ResourceIds {
-		segments := make([]ResourceIdSegment, 0)
+	normalizedResourceIds := make(map[string]models.ParsedResourceId)
+	for k, v := range input.ResourceIds {
+		segments := make([]models.ResourceIdSegment, 0)
 
-		normalizedConstants := make(map[string]ConstantDetails)
+		normalizedConstants := make(map[string]models.ConstantDetails)
 		for k, constant := range v.Constants {
 			name := cleanup.NormalizeName(k)
 			normalizedConstants[name] = constant
@@ -88,11 +94,22 @@ func (r *AzureApiResource) Normalize() {
 		}
 
 		v.Segments = segments
-		r.ResourceIds[k] = v
+		normalizedResourceIds[k] = v
+	}
+
+	return models.AzureApiResource{
+		Constants:   normalizedConstants,
+		Models:      normalizedModels,
+		Operations:  normalizedOperations,
+		ResourceIds: normalizedResourceIds,
+
+		// TF Processing is handled elsewhere, so this should be nil in `input`
+		// but let's be explicit here since it's another packages responsibility.
+		Terraform: nil,
 	}
 }
 
-func normalizeObjectDefinition(input ObjectDefinition) *ObjectDefinition {
+func normalizeObjectDefinition(input models.ObjectDefinition) *models.ObjectDefinition {
 	if input.ReferenceName != nil {
 		normalized := cleanup.NormalizeName(*input.ReferenceName)
 		input.ReferenceName = &normalized

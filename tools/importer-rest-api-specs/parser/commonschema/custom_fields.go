@@ -1,4 +1,4 @@
-package parser
+package commonschema
 
 import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
@@ -6,15 +6,15 @@ import (
 )
 
 type customFieldMatcher interface {
-	// customFieldType is the Custom Field Type which should be used when this Matcher matches
-	customFieldType() models.CustomFieldType
+	// CustomFieldType is the Custom Field Type which should be used when this Matcher matches
+	CustomFieldType() models.CustomFieldType
 
-	// isMatch returns whether the field and definition provided match this Custom Field Matcher
+	// IsMatch returns whether the field and definition provided match this Custom Field Matcher
 	// meaning that the types should be replaced with the CustomFieldType found in customFieldType
-	isMatch(field models.FieldDetails, definition models.ObjectDefinition, known internal.ParseResult) bool
+	IsMatch(field models.FieldDetails, definition models.ObjectDefinition, known internal.ParseResult) bool
 }
 
-var customFieldMatchers = []customFieldMatcher{
+var CustomFieldMatchers = []customFieldMatcher{
 	edgeZoneFieldMatcher{},
 	locationMatcher{},
 	systemAssignedIdentityMatcher{},

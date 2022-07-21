@@ -41,7 +41,7 @@ func TestCommonResourceID_UserAssignedIdentity(t *testing.T) {
 	}
 	output := switchOutCommonResourceIDsAsNeeded(input)
 	for _, actual := range output {
-		if actual.NormalizedResourceId() == valid.NormalizedResourceId() {
+		if normalizedResourceId(actual.Segments) == normalizedResourceId(valid.Segments) {
 			if actual.CommonAlias == nil {
 				t.Fatalf("Expected `valid` to have the CommonAlias `UserAssignedIdentity` but got nil")
 			}
@@ -52,13 +52,13 @@ func TestCommonResourceID_UserAssignedIdentity(t *testing.T) {
 			continue
 		}
 
-		if actual.NormalizedResourceId() == invalid.NormalizedResourceId() {
+		if normalizedResourceId(actual.Segments) == normalizedResourceId(invalid.Segments) {
 			if actual.CommonAlias != nil {
 				t.Fatalf("Expected `invalid` to have no CommonAlias but got %q", *actual.CommonAlias)
 			}
 			continue
 		}
 
-		t.Fatalf("unexpected Resource ID %q", actual.NormalizedResourceId())
+		t.Fatalf("unexpected Resource ID %q", normalizedResourceId(actual.Segments))
 	}
 }

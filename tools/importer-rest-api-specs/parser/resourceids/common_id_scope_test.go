@@ -45,6 +45,6 @@ func TestCommonResourceID_Scope(t *testing.T) {
 			continue
 		}
 
-		t.Fatalf("unexpected Resource ID %q", actual.NormalizedResourceId())
+		t.Fatalf("unexpected Resource ID %q", normalizedResourceId(actual.Segments))
 	}
 }

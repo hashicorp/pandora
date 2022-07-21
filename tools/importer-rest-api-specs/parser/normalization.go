@@ -3,7 +3,7 @@ package parser
 import (
 	"strings"
 
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/cleanup"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser/cleanup"
 )
 
 func normalizeOperationName(operationId string, tag *string) string {

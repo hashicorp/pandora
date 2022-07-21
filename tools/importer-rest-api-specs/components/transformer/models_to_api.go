@@ -281,7 +281,7 @@ func apiResourceIdsFromModelResourceIds(input map[string]models.ParsedResourceId
 		out[k] = resourcemanager.ResourceIdDefinition{
 			CommonAlias:   v.CommonAlias,
 			ConstantNames: constantNames,
-			Id:            v.NormalizedResourceId(),
+			Id:            v.ID(),
 			Segments:      *segments,
 		}
 	}

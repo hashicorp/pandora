@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"path"
 
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/cleanup"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser"
 )
 
@@ -12,8 +11,7 @@ func (s Service) generateServiceDefinition(input parser.ParsedData) error {
 	serviceDefinitionFilePath := path.Join(s.workingDirectoryForService, "ServiceDefinition.cs")
 	s.logger.Debug(fmt.Sprintf("Generating Service Definition into %q..", serviceDefinitionFilePath))
 
-	normalizedServiceName := cleanup.NormalizeName(s.data.ServiceName)
-	code := codeForServiceDefinition(s.namespaceForService, normalizedServiceName, s.resourceProvider, s.terraformPackageName, input)
+	code := codeForServiceDefinition(s.namespaceForService, s.data.ServiceName, s.resourceProvider, s.terraformPackageName, input)
 	if err := writeToFile(serviceDefinitionFilePath, code); err != nil {
 		return fmt.Errorf("generating Service Definition into %q: %+v", serviceDefinitionFilePath, err)
 	}

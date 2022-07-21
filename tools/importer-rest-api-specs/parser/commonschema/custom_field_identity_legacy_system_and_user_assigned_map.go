@@ -1,4 +1,4 @@
-package parser
+package commonschema
 
 import (
 	"strings"
@@ -7,15 +7,15 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser/internal"
 )
 
-var _ customFieldMatcher = systemOrUserAssignedIdentityMapMatcher{}
+var _ customFieldMatcher = legacySystemAndUserAssignedIdentityMapMatcher{}
 
-type systemOrUserAssignedIdentityMapMatcher struct{}
+type legacySystemAndUserAssignedIdentityMapMatcher struct{}
 
-func (systemOrUserAssignedIdentityMapMatcher) customFieldType() models.CustomFieldType {
-	return models.CustomFieldTypeSystemOrUserAssignedIdentityMap
+func (legacySystemAndUserAssignedIdentityMapMatcher) CustomFieldType() models.CustomFieldType {
+	return models.CustomFieldTypeLegacySystemAndUserAssignedIdentityMap
 }
 
-func (systemOrUserAssignedIdentityMapMatcher) isMatch(_ models.FieldDetails, definition models.ObjectDefinition, known internal.ParseResult) bool {
+func (legacySystemAndUserAssignedIdentityMapMatcher) IsMatch(_ models.FieldDetails, definition models.ObjectDefinition, known internal.ParseResult) bool {
 	if definition.Type != models.ObjectDefinitionReference {
 		return false
 	}
@@ -99,8 +99,9 @@ func (systemOrUserAssignedIdentityMapMatcher) isMatch(_ models.FieldDetails, def
 				continue
 			}
 			expected := map[string]string{
-				"SystemAssigned": "SystemAssigned",
-				"UserAssigned":   "UserAssigned",
+				"SystemAssigned":             "SystemAssigned",
+				"SystemAssignedUserAssigned": "SystemAssigned,UserAssigned",
+				"UserAssigned":               "UserAssigned",
 			}
 			hasMatchingType = validateIdentityConstantValues(constant, expected)
 			continue
