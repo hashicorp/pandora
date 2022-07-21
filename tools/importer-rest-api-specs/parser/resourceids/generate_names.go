@@ -26,7 +26,7 @@ func generateNamesForResourceIds(input []models.ParsedResourceId, log hclog.Logg
 	sortedUris := make([]string, 0)
 	for i := range input {
 		resourceId := input[i]
-		armId := resourceId.NormalizedResourceManagerResourceId()
+		armId := normalizedResourceManagerResourceId(resourceId)
 		uniqueUris[armId] = resourceId
 		sortedUris = append(sortedUris, armId)
 	}

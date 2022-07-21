@@ -3,8 +3,6 @@ package models
 import (
 	"fmt"
 	"strings"
-
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser/cleanup"
 )
 
 type ParsedResourceId struct {
@@ -17,6 +15,20 @@ type ParsedResourceId struct {
 
 	// Segments are an ordered list of segments which comprise this Resource ID
 	Segments []ResourceIdSegment
+}
+
+func (pri ParsedResourceId) ID() string {
+	components := make([]string, 0)
+	for _, segment := range pri.Segments {
+		if segment.FixedValue != nil {
+			components = append(components, *segment.FixedValue)
+			continue
+		}
+
+		components = append(components, fmt.Sprintf("{%s}", segment.Name))
+	}
+
+	return fmt.Sprintf("/%s", strings.Join(components, "/"))
 }
 
 func (pri ParsedResourceId) Matches(other ParsedResourceId) bool {
@@ -81,65 +93,7 @@ func (pri ParsedResourceId) Matches(other ParsedResourceId) bool {
 
 func (pri ParsedResourceId) String() string {
 	// only used for debug purposes
-	return normalizedResourceId(pri.Segments)
-}
-
-func (pri ParsedResourceId) NormalizedResourceManagerResourceId() string {
-	segments := pri.segmentsWithoutUriSuffix()
-	return normalizedResourceId(segments)
-}
-
-func (pri ParsedResourceId) NormalizedResourceId() string {
-	return normalizedResourceId(pri.Segments)
-}
-
-func (pri ParsedResourceId) segmentsWithoutUriSuffix() []ResourceIdSegment {
-	segments := pri.Segments
-	lastUserValueSegment := -1
-	for i, segment := range segments {
-		// everything else technically is a user configurable component
-		if segment.Type != StaticSegment && segment.Type != ResourceProviderSegment {
-			lastUserValueSegment = i
-		}
-	}
-	if lastUserValueSegment >= 0 && len(segments) > lastUserValueSegment+1 {
-		// remove any URI Suffix since this isn't relevant for the ID's
-		segments = segments[0 : lastUserValueSegment+1]
-	}
-	return segments
-}
-
-func normalizedResourceId(segments []ResourceIdSegment) string {
-	components := make([]string, 0)
-	for _, segment := range segments {
-		switch segment.Type {
-		case ResourceProviderSegment:
-			{
-				normalizedSegment := cleanup.NormalizeResourceProviderName(*segment.FixedValue)
-				components = append(components, normalizedSegment)
-				continue
-			}
-
-		case StaticSegment:
-			{
-				normalizedSegment := cleanup.NormalizeSegment(*segment.FixedValue, true)
-				components = append(components, normalizedSegment)
-				continue
-			}
-
-		case ConstantSegment, ResourceGroupSegment, ScopeSegment, SubscriptionIdSegment, UserSpecifiedSegment:
-			// e.g. {example}
-			normalizedSegment := segment.Name
-			normalizedSegment = cleanup.NormalizeReservedKeywords(segment.Name)
-			components = append(components, fmt.Sprintf("{%s}", normalizedSegment))
-			continue
-
-		default:
-			panic(fmt.Sprintf("unimplemented segment type %q", string(segment.Type)))
-		}
-	}
-
-	return fmt.Sprintf("/%s", strings.Join(components, "/"))
+	return pri.ID()
 }
 
 type ResourceIdSegment struct {

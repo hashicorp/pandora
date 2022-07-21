@@ -219,7 +219,7 @@ func (p *Parser) parseResourceIdFromOperation(uri string, operation *spec.Operat
 			Constants: result.Constants,
 			Segments:  segments,
 		}
-		suffix := pri.NormalizedResourceId()
+		suffix := normalizedResourceId(pri.Segments)
 		out.uriSuffix = &suffix
 	} else {
 		out.constants = result.Constants
