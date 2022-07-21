@@ -1,4 +1,4 @@
-package main
+package pipeline
 
 import (
 	"fmt"
@@ -7,7 +7,6 @@ import (
 
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser"
 
-	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/sdk/config/definitions"
 	"github.com/hashicorp/pandora/tools/sdk/config/services"
 )
@@ -26,6 +25,7 @@ type ServiceInput struct {
 type ResourceManagerServiceInput struct {
 	ServiceName                string
 	ApiVersion                 string
+	OutputDirectory            string
 	ResourceProvider           string
 	SwaggerDirectory           string
 	SwaggerFiles               []string
@@ -38,21 +38,21 @@ func (rmi ResourceManagerServiceInput) ToRunInput() ServiceInput {
 		ServiceName:                rmi.ServiceName,
 		ApiVersion:                 rmi.ApiVersion,
 		ResourceProvider:           &rmi.ResourceProvider,
-		OutputDirectory:            outputDirectory,
+		OutputDirectory:            rmi.OutputDirectory,
 		SwaggerDirectory:           rmi.SwaggerDirectory,
 		SwaggerFiles:               rmi.SwaggerFiles,
 		TerraformServiceDefinition: rmi.TerraformServiceDefinition,
 	}
 }
 
-func GenerationData(configFilePath, swaggerDirectory string, terraformConfig definitions.Config, logger hclog.Logger) (*[]ServiceInput, error) {
-	parsed, err := services.LoadFromFile(configFilePath)
+func GenerationData(input RunInput, terraformConfig definitions.Config) (*[]ServiceInput, error) {
+	parsed, err := services.LoadFromFile(input.ConfigFilePath)
 	if err != nil {
 		return nil, fmt.Errorf("loading config: %+v", err)
 	}
 
-	specificationsDirectory := filepath.Join(swaggerDirectory, "specification")
-	resourceManagerServices, err := parser.FindResourceManagerServices(specificationsDirectory, logger)
+	specificationsDirectory := filepath.Join(input.SwaggerDirectory, "specification")
+	resourceManagerServices, err := parser.FindResourceManagerServices(specificationsDirectory, input.Logger)
 	if err != nil {
 		return nil, fmt.Errorf("retrieving Resource Manager Service details from %q: %+v", specificationsDirectory, err)
 	}
@@ -70,7 +70,7 @@ func GenerationData(configFilePath, swaggerDirectory string, terraformConfig def
 			if !ok {
 				return nil, fmt.Errorf("details for the Version %q of Service %q were not found - does it exist on disk?", version, service.Directory)
 			}
-			versionDirectory := filepath.Join(swaggerDirectory + "/specification/" + versionDetails)
+			versionDirectory := filepath.Join(input.SwaggerDirectory + "/specification/" + versionDetails)
 			filesForVersion := make([]string, 0)
 			filesInDirectory, err := parser.SwaggerFilesInDirectory(versionDirectory)
 			if err != nil {
@@ -85,6 +85,7 @@ func GenerationData(configFilePath, swaggerDirectory string, terraformConfig def
 				ServiceName:      service.Name,
 				ApiVersion:       version,
 				ResourceProvider: serviceDetails.ResourceProvider,
+				OutputDirectory:  input.OutputDirectory,
 				SwaggerDirectory: versionDirectory,
 				SwaggerFiles:     filesForVersion,
 			}

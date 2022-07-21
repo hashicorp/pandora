@@ -1,12 +1,15 @@
-package main
+package pipeline
 
 import (
 	"fmt"
+	"log"
+	"os"
+	"sync"
 
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/differ"
-
+	"github.com/go-git/go-git/v5"
 	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/dataapigenerator"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/differ"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/resources"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/transformer"
@@ -14,7 +17,66 @@ import (
 	"github.com/hashicorp/pandora/tools/sdk/config/definitions"
 )
 
-func importService(input ServiceInput, swaggerGitSha string, dataApiEndpoint *string, logger hclog.Logger) error {
+func Run(input RunInput) error {
+	if input.JustOutputSegments {
+		return parseAndOutputSegments(input)
+	}
+
+	return runImporter(input)
+}
+
+func runImporter(input RunInput) error {
+	resources, err := definitions.LoadFromDirectory(input.TerraformDefinitionsPath)
+	if err != nil {
+		return fmt.Errorf("loading terraform definitions from %q: %+v", input.TerraformDefinitionsPath, err)
+	}
+
+	generationData, err := GenerationData(input, *resources)
+	if err != nil {
+		return fmt.Errorf("loading data: %+v", err)
+	}
+
+	swaggerGitSha, err := determineGitSha(input.SwaggerDirectory, input.Logger)
+	if err != nil {
+		return fmt.Errorf("determining Git SHA at %q: %+v", input.SwaggerDirectory, err)
+	}
+
+	var wg sync.WaitGroup
+	for _, v := range *generationData {
+		wg.Add(1)
+		go func(v ServiceInput) {
+			if err := importService(v, *swaggerGitSha, input.DataApiEndpoint, input.JustParseData, input.Logger.Named(fmt.Sprintf("Importer Service %q / API Version %q", v.ServiceName, v.ApiVersion))); err != nil {
+				log.Printf("importing Service %q / Version %q: %+v", v.ServiceName, v.ApiVersion, err)
+				wg.Done()
+				os.Exit(1)
+				return
+			}
+
+			wg.Done()
+		}(v)
+	}
+
+	wg.Wait()
+	return nil
+}
+
+func determineGitSha(repositoryPath string, logger hclog.Logger) (*string, error) {
+	repo, err := git.PlainOpen(repositoryPath)
+	if err != nil {
+		return nil, err
+	}
+
+	ref, err := repo.Head()
+	if err != nil {
+		return nil, err
+	}
+
+	commit := ref.Hash().String()
+	logger.Debug(fmt.Sprintf("Swagger Repository Commit SHA is %q", commit))
+	return &commit, nil
+}
+
+func importService(input ServiceInput, swaggerGitSha string, dataApiEndpoint *string, justParse bool, logger hclog.Logger) error {
 	logger.Trace("Parsing Swagger Files..")
 	data, err := parseSwaggerFiles(input, logger.Named("Swagger"))
 	if err != nil {
@@ -70,7 +132,7 @@ func importService(input ServiceInput, swaggerGitSha string, dataApiEndpoint *st
 	if input.TerraformServiceDefinition != nil {
 		terraformPackageName = &input.TerraformServiceDefinition.TerraformPackageName
 	}
-	dataApiGenerator := dataapigenerator.NewService(*data, outputDirectory, input.RootNamespace, swaggerGitSha, input.ResourceProvider, terraformPackageName, logger.Named("Data API Generator"))
+	dataApiGenerator := dataapigenerator.NewService(*data, input.OutputDirectory, input.RootNamespace, swaggerGitSha, input.ResourceProvider, terraformPackageName, logger.Named("Data API Generator"))
 	if err := dataApiGenerator.Generate(); err != nil {
 		err = fmt.Errorf("generating Data API Definitions for Service %q / API Version %q: %+v", input.ServiceName, input.ApiVersion, err)
 		logger.Info(fmt.Sprintf("❌ Service %q - Api Version %q", input.ServiceName, input.ApiVersion))

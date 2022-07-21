@@ -2,16 +2,14 @@ package main
 
 import (
 	"flag"
-	"fmt"
 	"log"
 	"os"
 	"strings"
-	"sync"
 	"time"
 
-	"github.com/go-git/go-git/v5"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/pipeline"
+
 	"github.com/hashicorp/go-hclog"
-	"github.com/hashicorp/pandora/tools/sdk/config/definitions"
 )
 
 const (
@@ -53,70 +51,21 @@ func main() {
 	if strings.TrimSpace(os.Getenv("DEBUG")) != "" {
 		logger.SetLevel(hclog.Trace)
 	}
-	if err := run(swaggerDirectory, resourceManagerConfig, terraformDefinitionsPath, dataApiEndpoint, justSegments, logger); err != nil {
+	input := pipeline.RunInput{
+		SwaggerDirectory:         swaggerDirectory,
+		ConfigFilePath:           resourceManagerConfig,
+		TerraformDefinitionsPath: terraformDefinitionsPath,
+		DataApiEndpoint:          dataApiEndpoint,
+		JustOutputSegments:       justSegments,
+		JustParseData:            justParse,
+		OutputDirectory:          outputDirectory,
+		Logger:                   logger,
+	}
+	if err := pipeline.Run(input); err != nil {
 		log.Printf("Error: %+v", err)
 		os.Exit(1)
 		return
 	}
 
 	os.Exit(0)
-}
-
-func run(swaggerDirectory, configFilePath, terraformDefinitionsPath string, dataApiEndpoint *string, justSegments bool, logger hclog.Logger) error {
-	if justSegments {
-		return parseAndOutputSegments(swaggerDirectory, logger)
-	}
-
-	return runImporter(configFilePath, terraformDefinitionsPath, dataApiEndpoint, logger)
-}
-
-func runImporter(configFilePath, terraformDefinitionsPath string, dataApiEndpoint *string, logger hclog.Logger) error {
-	resources, err := definitions.LoadFromDirectory(terraformDefinitionsPath)
-	if err != nil {
-		return fmt.Errorf("loading terraform definitions from %q: %+v", terraformDefinitionsPath, err)
-	}
-
-	input, err := GenerationData(configFilePath, swaggerDirectory, *resources, logger)
-	if err != nil {
-		return fmt.Errorf("loading data: %+v", err)
-	}
-
-	swaggerGitSha, err := determineGitSha(swaggerDirectory, logger)
-	if err != nil {
-		return fmt.Errorf("determining Git SHA at %q: %+v", swaggerDirectory, err)
-	}
-
-	var wg sync.WaitGroup
-	for _, v := range *input {
-		wg.Add(1)
-		go func(v ServiceInput) {
-			if err := importService(v, *swaggerGitSha, dataApiEndpoint, logger.Named(fmt.Sprintf("Importer Service %q / API Version %q", v.ServiceName, v.ApiVersion))); err != nil {
-				log.Printf("importing Service %q / Version %q: %+v", v.ServiceName, v.ApiVersion, err)
-				wg.Done()
-				os.Exit(1)
-				return
-			}
-
-			wg.Done()
-		}(v)
-	}
-
-	wg.Wait()
-	return nil
-}
-
-func determineGitSha(repositoryPath string, logger hclog.Logger) (*string, error) {
-	repo, err := git.PlainOpen(repositoryPath)
-	if err != nil {
-		return nil, err
-	}
-
-	ref, err := repo.Head()
-	if err != nil {
-		return nil, err
-	}
-
-	commit := ref.Hash().String()
-	logger.Debug(fmt.Sprintf("Swagger Repository Commit SHA is %q", commit))
-	return &commit, nil
 }
