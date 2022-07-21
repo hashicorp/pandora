@@ -8,7 +8,7 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
-func codeForServiceDefinition(namespace, serviceName string, resourceProvider, terraformPackage *string, data models.ParsedData) string {
+func codeForServiceDefinition(namespace, serviceName string, resourceProvider, terraformPackage *string, data models.AzureApiDefinition) string {
 	rp := "null"
 	if resourceProvider != nil {
 		rp = fmt.Sprintf("%q", *resourceProvider)

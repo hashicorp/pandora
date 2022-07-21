@@ -5,7 +5,7 @@ import (
 )
 
 type ApplyStage interface {
-	Apply(existing models.ParsedData, parsed models.ParsedData) (*models.ParsedData, error)
+	Apply(existing models.AzureApiDefinition, parsed models.AzureApiDefinition) (*models.AzureApiDefinition, error)
 }
 
 var ApplyStages = []ApplyStage{

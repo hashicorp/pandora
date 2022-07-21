@@ -9,7 +9,7 @@ import (
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-func (d *Differ) RetrieveExistingService(serviceName, apiVersion string) (*[]models.ParsedData, error) {
+func (d *Differ) RetrieveExistingService(serviceName, apiVersion string) (*[]models.AzureApiDefinition, error) {
 	services, err := d.client.Services().Get()
 	if err != nil {
 		return nil, fmt.Errorf("retrieving Services from Data API: %+v", err)
@@ -18,7 +18,7 @@ func (d *Differ) RetrieveExistingService(serviceName, apiVersion string) (*[]mod
 		return nil, nil
 	}
 
-	var existingService *models.ParsedData
+	var existingService *models.AzureApiDefinition
 	for name, service := range *services {
 		if !strings.EqualFold(name, serviceName) {
 			continue
@@ -100,7 +100,7 @@ func (d *Differ) RetrieveExistingService(serviceName, apiVersion string) (*[]mod
 				}
 			}
 
-			existingService = &models.ParsedData{
+			existingService = &models.AzureApiDefinition{
 				ServiceName: serviceName,
 				ApiVersion:  version,
 				Resources:   resources,
@@ -114,7 +114,7 @@ func (d *Differ) RetrieveExistingService(serviceName, apiVersion string) (*[]mod
 	if existingService == nil {
 		return nil, nil
 	}
-	out := []models.ParsedData{
+	out := []models.AzureApiDefinition{
 		*existingService,
 	}
 	return &out, nil

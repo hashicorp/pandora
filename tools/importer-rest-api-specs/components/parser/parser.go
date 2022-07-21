@@ -5,12 +5,11 @@ import (
 	"strings"
 
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/cleanup"
-	resourceids2 "github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/resourceids"
-
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/resourceids"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
-func (d *SwaggerDefinition) parse(serviceName, apiVersion string, resourceIds resourceids2.ParseResult) (*models.AzureApiDefinition, error) {
+func (d *SwaggerDefinition) parse(serviceName, apiVersion string, resourceIds resourceids.ParseResult) (*models.AzureApiDefinition, error) {
 	resources := make(map[string]models.AzureApiResource, 0)
 
 	tags := d.findTags()
@@ -53,8 +52,8 @@ func (d *SwaggerDefinition) parse(serviceName, apiVersion string, resourceIds re
 	}, nil
 }
 
-func (d *SwaggerDefinition) ParseResourceIds() (*resourceids2.ParseResult, error) {
-	parser := resourceids2.NewParser(d.logger.Named("ResourceID Parser"), d.swaggerSpecExpanded)
+func (d *SwaggerDefinition) ParseResourceIds() (*resourceids.ParseResult, error) {
+	parser := resourceids.NewParser(d.logger.Named("ResourceID Parser"), d.swaggerSpecExpanded)
 
 	resourceIds, err := parser.Parse()
 	if err != nil {

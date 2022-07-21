@@ -6,7 +6,7 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
-func combineResourcesWith(first models.ParsedData, other map[string]models.AzureApiResource) (*map[string]models.AzureApiResource, error) {
+func combineResourcesWith(first models.AzureApiDefinition, other map[string]models.AzureApiResource) (*map[string]models.AzureApiResource, error) {
 	resources := make(map[string]models.AzureApiResource)
 	for k, v := range first.Resources {
 		resources[k] = v

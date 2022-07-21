@@ -3,10 +3,9 @@ package main
 import (
 	"fmt"
 
-	parser2 "github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser"
-
 	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/dataapigenerator"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/resources"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/transformer"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/differ"
@@ -82,7 +81,7 @@ func importService(input RunInput, swaggerGitSha string, dataApiEndpoint *string
 	return nil
 }
 
-func identifyCandidateTerraformResources(input *models.ParsedData, terraformServiceDefinition definitions.ServiceDefinition, logger hclog.Logger) (*models.ParsedData, error) {
+func identifyCandidateTerraformResources(input *models.AzureApiDefinition, terraformServiceDefinition definitions.ServiceDefinition, logger hclog.Logger) (*models.AzureApiDefinition, error) {
 	if input == nil {
 		return input, nil
 	}
@@ -123,8 +122,8 @@ func findResourceDefinitionsForResource(apiVersion, apiResource string, terrafor
 	return &forResource.Definitions
 }
 
-func parseSwaggerFiles(input RunInput, logger hclog.Logger) (*models.ParsedData, error) {
-	parseResult, err := parser2.LoadAndParseFiles(input.SwaggerDirectory, input.SwaggerFiles, input.ServiceName, input.ApiVersion, logger)
+func parseSwaggerFiles(input RunInput, logger hclog.Logger) (*models.AzureApiDefinition, error) {
+	parseResult, err := parser.LoadAndParseFiles(input.SwaggerDirectory, input.SwaggerFiles, input.ServiceName, input.ApiVersion, logger)
 	if err != nil {
 		return nil, fmt.Errorf("parsing files in %q: %+v", input.SwaggerDirectory, err)
 	}

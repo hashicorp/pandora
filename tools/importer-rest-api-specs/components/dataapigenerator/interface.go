@@ -7,7 +7,7 @@ import (
 
 type Service struct {
 	apiVersionPackageName         string
-	data                          models.ParsedData
+	data                          models.AzureApiDefinition
 	logger                        hclog.Logger
 	namespaceForService           string
 	namespaceForApiVersion        string

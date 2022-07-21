@@ -11,12 +11,12 @@ import (
 	"github.com/hashicorp/go-hclog"
 )
 
-func LoadAndParseFiles(directory string, fileNames []string, serviceName, apiVersion string, logger hclog.Logger) (*models.ParsedData, error) {
+func LoadAndParseFiles(directory string, fileNames []string, serviceName, apiVersion string, logger hclog.Logger) (*models.AzureApiDefinition, error) {
 	// Some Services have been deprecated or should otherwise be ignored - check before proceeding
 	if serviceShouldBeIgnored(serviceName) {
 		logger.Debug(fmt.Sprintf("Service %q should be ignored - skipping", serviceName))
 
-		return &models.ParsedData{}, nil
+		return &models.AzureApiDefinition{}, nil
 	}
 
 	// First go through and parse all of the Resource ID's across all of the files
@@ -39,7 +39,7 @@ func LoadAndParseFiles(directory string, fileNames []string, serviceName, apiVer
 		}
 	}
 
-	parsed := make(map[string]models.ParsedData, 0)
+	parsed := make(map[string]models.AzureApiDefinition, 0)
 	for _, file := range fileNames {
 		swaggerFile, err := load(directory, file, logger)
 		if err != nil {
@@ -51,27 +51,28 @@ func LoadAndParseFiles(directory string, fileNames []string, serviceName, apiVer
 			return nil, fmt.Errorf("parsing definition: %+v", err)
 		}
 
-		data := models.ParsedData{
+		data := models.AzureApiDefinition{
 			ServiceName: definition.ServiceName,
 			ApiVersion:  definition.ApiVersion,
 			Resources:   definition.Resources,
 		}
+		key := keyForAzureApiDefinition(data)
 
-		if existing, ok := parsed[data.Key()]; ok {
+		if existing, ok := parsed[key]; ok {
 			// it's possible for Swagger tags to exist in multiple files, as EventHubs has DeleteAuthorizationRule which
 			// lives in the AuthorizationRule json, but is technically part of the EventHubs namespace - as such we need
 			// to combine the items rather than overwriting the key
 			resources, err := combineResourcesWith(data, existing.Resources)
 			if err != nil {
-				return nil, fmt.Errorf("combining resources for %q: %+v", existing.Key(), err)
+				return nil, fmt.Errorf("combining resources for %q: %+v", key, err)
 			}
 			data.Resources = *resources
 		}
 
-		parsed[data.Key()] = data
+		parsed[key] = data
 	}
 
-	out := make([]models.ParsedData, 0)
+	out := make([]models.AzureApiDefinition, 0)
 	for _, v := range parsed {
 		// the Data API expects that an API Version will contain at least 1 Resource - avoid bad data here
 		if len(v.Resources) == 0 {
@@ -108,4 +109,8 @@ func serviceShouldBeIgnored(name string) bool {
 		}
 	}
 	return false
+}
+
+func keyForAzureApiDefinition(input models.AzureApiDefinition) string {
+	return fmt.Sprintf("%s-%s", input.ServiceName, input.ApiVersion)
 }
