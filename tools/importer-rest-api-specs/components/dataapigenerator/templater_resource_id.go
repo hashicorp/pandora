@@ -62,7 +62,7 @@ func codeForResourceIDSegment(input models.ResourceIdSegment) (*string, error) {
 			return &out, nil
 		}
 
-	case models.ResourceProviderSegment:
+	case resourcemanager.ResourceProviderSegment:
 		{
 			if input.FixedValue == nil {
 				return nil, fmt.Errorf("resource provider segment type with missing fixed value: %+v", input)

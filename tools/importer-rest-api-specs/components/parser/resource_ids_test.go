@@ -67,7 +67,7 @@ func TestParseResourceIdBasic(t *testing.T) {
 				Name:       "staticProviders",
 			},
 			{
-				Type:       models.ResourceProviderSegment,
+				Type:       resourcemanager.ResourceProviderSegment,
 				FixedValue: strPtr("Microsoft.SomeResourceProvider"),
 				Name:       "staticMicrosoftSomeResourceProvider",
 			},
@@ -252,7 +252,7 @@ func TestParseResourceIdContainingAScope(t *testing.T) {
 				Name:       "staticProviders",
 			},
 			{
-				Type:       models.ResourceProviderSegment,
+				Type:       resourcemanager.ResourceProviderSegment,
 				FixedValue: strPtr("Microsoft.FooBar"),
 				Name:       "staticMicrosoftFooBar",
 			},
@@ -399,7 +399,7 @@ func TestParseResourceIdWithResourceIdAndUriSuffix(t *testing.T) {
 				Name:       "staticProviders",
 			},
 			{
-				Type:       models.ResourceProviderSegment,
+				Type:       resourcemanager.ResourceProviderSegment,
 				FixedValue: strPtr("Microsoft.SomeResourceProvider"),
 				Name:       "staticMicrosoftSomeResourceProvider",
 			},
@@ -504,7 +504,7 @@ func TestParseResourceIdWithResourceIdAndUriSuffixForMultipleUris(t *testing.T) 
 				Name:       "staticProviders",
 			},
 			{
-				Type:       models.ResourceProviderSegment,
+				Type:       resourcemanager.ResourceProviderSegment,
 				FixedValue: strPtr("Microsoft.SomeResourceProvider"),
 				Name:       "staticMicrosoftSomeResourceProvider",
 			},
@@ -644,7 +644,7 @@ func TestParseResourceIdContainingResourceProviderShouldGetTitleCased(t *testing
 				Name:       "staticProviders",
 			},
 			{
-				Type:       models.ResourceProviderSegment,
+				Type:       resourcemanager.ResourceProviderSegment,
 				FixedValue: strPtr("Microsoft.SomeResourceProvider"),
 				Name:       "staticMicrosoftSomeResourceProvider",
 			},
@@ -745,7 +745,7 @@ func TestParseResourceIdContainingTheSameResourceIdWithDifferentSegments(t *test
 				Name:       "staticProviders",
 			},
 			{
-				Type:       models.ResourceProviderSegment,
+				Type:       resourcemanager.ResourceProviderSegment,
 				FixedValue: strPtr("Microsoft.SomeResourceProvider"),
 				Name:       "staticMicrosoftSomeResourceProvider",
 			},
@@ -846,7 +846,7 @@ func TestParseResourceIdContainingTheSegmentsNamedTheSame(t *testing.T) {
 				FixedValue: strPtr("providers"),
 			},
 			{
-				Type:       models.ResourceProviderSegment,
+				Type:       resourcemanager.ResourceProviderSegment,
 				Name:       "staticMicrosoftManagement",
 				FixedValue: strPtr("Microsoft.Management"),
 			},
@@ -865,7 +865,7 @@ func TestParseResourceIdContainingTheSegmentsNamedTheSame(t *testing.T) {
 				FixedValue: strPtr("providers"),
 			},
 			{
-				Type:       models.ResourceProviderSegment,
+				Type:       resourcemanager.ResourceProviderSegment,
 				Name:       "staticMicrosoftBilling",
 				FixedValue: strPtr("Microsoft.Billing"),
 			},

@@ -198,7 +198,7 @@ func SegmentsAvailableForNaming(pri models.ParsedResourceId) []string {
 				normalized := cleanup.NormalizeSegmentName(segment.Name)
 
 				// trim off the `Static` prefix if it's expected to be present
-				if segment.Type == models.ResourceProviderSegment || segment.Type == resourcemanager.StaticSegment {
+				if segment.Type == resourcemanager.ResourceProviderSegment || segment.Type == resourcemanager.StaticSegment {
 					normalized = strings.TrimPrefix(normalized, "Static")
 				}
 
@@ -219,7 +219,7 @@ func SegmentsAvailableForNaming(pri models.ParsedResourceId) []string {
 		normalized := cleanup.NormalizeSegmentName(segment.Name)
 
 		// trim off the `Static` prefix if it's expected to be present
-		if segment.Type == models.ResourceProviderSegment || segment.Type == resourcemanager.StaticSegment {
+		if segment.Type == resourcemanager.ResourceProviderSegment || segment.Type == resourcemanager.StaticSegment {
 			normalized = strings.TrimPrefix(normalized, "Static")
 		}
 

@@ -54,7 +54,7 @@ var managementGroupResourceId = models.ParsedResourceId{
 			Name:       "staticProviders",
 		},
 		{
-			Type:       models.ResourceProviderSegment,
+			Type:       resourcemanager.ResourceProviderSegment,
 			FixedValue: strPtr("Microsoft.Management"),
 			Name:       "Microsoft.Management",
 		},
@@ -96,7 +96,7 @@ var virtualMachineResourceId = models.ParsedResourceId{
 			Name:       "staticProviders",
 		},
 		{
-			Type:       models.ResourceProviderSegment,
+			Type:       resourcemanager.ResourceProviderSegment,
 			FixedValue: strPtr("Microsoft.Compute"),
 			Name:       "staticMicrosoftCompute",
 		},
@@ -138,7 +138,7 @@ var virtualMachineExtensionResourceId = models.ParsedResourceId{
 			Name:       "staticProviders",
 		},
 		{
-			Type:       models.ResourceProviderSegment,
+			Type:       resourcemanager.ResourceProviderSegment,
 			FixedValue: strPtr("Microsoft.Compute"),
 			Name:       "staticMicrosoftCompute",
 		},
@@ -189,7 +189,7 @@ var virtualNetworkExtensionResourceId = models.ParsedResourceId{
 			Name:       "staticProviders",
 		},
 		{
-			Type:       models.ResourceProviderSegment,
+			Type:       resourcemanager.ResourceProviderSegment,
 			FixedValue: strPtr("Microsoft.Network"),
 			Name:       "staticMicrosoftNetwork",
 		},
@@ -217,7 +217,7 @@ var scopedMonitorResourceId = models.ParsedResourceId{
 			Name:       "staticProviders",
 		},
 		{
-			Type:       models.ResourceProviderSegment,
+			Type:       resourcemanager.ResourceProviderSegment,
 			FixedValue: strPtr("Microsoft.Monitor"),
 			Name:       "staticMicrosoftMonitor",
 		},
@@ -259,7 +259,7 @@ var signalRResourceId = models.ParsedResourceId{
 			Name:       "staticProviders",
 		},
 		{
-			Type:       models.ResourceProviderSegment,
+			Type:       resourcemanager.ResourceProviderSegment,
 			FixedValue: strPtr("Microsoft.SignalRService"),
 			Name:       "staticMicrosoftSignalRService",
 		},
@@ -292,7 +292,7 @@ var eventHubSkuResourceId = models.ParsedResourceId{
 			Name:       "staticProviders",
 		},
 		{
-			Type:       models.ResourceProviderSegment,
+			Type:       resourcemanager.ResourceProviderSegment,
 			FixedValue: strPtr("Microsoft.EventHub"),
 			Name:       "staticMicrosoftEventHub",
 		},
@@ -344,7 +344,7 @@ var trafficManagerProfileResourceId = models.ParsedResourceId{
 			Name:       "staticProviders",
 		},
 		{
-			Type:       models.ResourceProviderSegment,
+			Type:       resourcemanager.ResourceProviderSegment,
 			FixedValue: strPtr("Microsoft.Network"),
 			Name:       "microsoftNetwork",
 		},
@@ -404,7 +404,7 @@ var redisPatchSchedulesResourceId = models.ParsedResourceId{
 			Name:       "staticProviders",
 		},
 		{
-			Type:       models.ResourceProviderSegment,
+			Type:       resourcemanager.ResourceProviderSegment,
 			FixedValue: strPtr("Microsoft.Cache"),
 			Name:       "staticMicrosoftCache",
 		},
@@ -647,7 +647,7 @@ func TestResourceIDNamingContainingAConstant(t *testing.T) {
 				Name:       "providers",
 			},
 			{
-				Type:       models.ResourceProviderSegment,
+				Type:       resourcemanager.ResourceProviderSegment,
 				FixedValue: strPtr("Microsoft.Network"),
 				Name:       "Microsoft.Network",
 			},
@@ -717,7 +717,7 @@ func TestResourceIDNamingContainingAConstantAndSuffix(t *testing.T) {
 				Name:       "providers",
 			},
 			{
-				Type:       models.ResourceProviderSegment,
+				Type:       resourcemanager.ResourceProviderSegment,
 				FixedValue: strPtr("Microsoft.Network"),
 				Name:       "Microsoft.Network",
 			},
@@ -880,7 +880,7 @@ func TestResourceIdNamingConflictingMultipleLevels(t *testing.T) {
 				Name:       "providers",
 			},
 			{
-				Type:       models.ResourceProviderSegment,
+				Type:       resourcemanager.ResourceProviderSegment,
 				FixedValue: strPtr("Microsoft.Web"),
 				Name:       "Microsoft.Web",
 			},
@@ -940,7 +940,7 @@ func TestResourceIdNamingConflictingMultipleLevels(t *testing.T) {
 				Name:       "providers",
 			},
 			{
-				Type:       models.ResourceProviderSegment,
+				Type:       resourcemanager.ResourceProviderSegment,
 				FixedValue: strPtr("Microsoft.Web"),
 				Name:       "Microsoft.Web",
 			},
@@ -1001,7 +1001,7 @@ func TestResourceIdNamingConflictingMultipleLevels(t *testing.T) {
 				Name:       "providers",
 			},
 			{
-				Type:       models.ResourceProviderSegment,
+				Type:       resourcemanager.ResourceProviderSegment,
 				FixedValue: strPtr("Microsoft.Web"),
 				Name:       "Microsoft.Web",
 			},
@@ -1079,7 +1079,7 @@ func TestResourceIdNamingConflictingMultipleLevels(t *testing.T) {
 				Name:       "providers",
 			},
 			{
-				Type:       models.ResourceProviderSegment,
+				Type:       resourcemanager.ResourceProviderSegment,
 				FixedValue: strPtr("Microsoft.Web"),
 				Name:       "Microsoft.Web",
 			},

@@ -303,7 +303,7 @@ func mapApiResourceIdSegmentType(input resourcemanager.ResourceIdSegmentType) (*
 	vals := map[resourcemanager.ResourceIdSegmentType]models.SegmentType{
 		resourcemanager.ConstantSegment:         resourcemanager.ConstantSegment,
 		resourcemanager.ResourceGroupSegment:    models.ResourceGroupSegment,
-		resourcemanager.ResourceProviderSegment: models.ResourceProviderSegment,
+		resourcemanager.ResourceProviderSegment: resourcemanager.ResourceProviderSegment,
 		resourcemanager.ScopeSegment:            models.ScopeSegment,
 		resourcemanager.StaticSegment:           resourcemanager.StaticSegment,
 		resourcemanager.SubscriptionIdSegment:   models.SubscriptionIdSegment,

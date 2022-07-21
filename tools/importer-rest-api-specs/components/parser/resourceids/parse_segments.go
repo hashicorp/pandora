@@ -190,7 +190,7 @@ func (p *Parser) parseResourceIdFromOperation(uri string, operation *spec.Operat
 	lastUserValueSegment := -1
 	for i, segment := range segments {
 		// everything else technically is a user configurable component
-		if segment.Type != resourcemanager.StaticSegment && segment.Type != models.ResourceProviderSegment {
+		if segment.Type != resourcemanager.StaticSegment && segment.Type != resourcemanager.ResourceProviderSegment {
 			lastUserValueSegment = i
 		}
 	}
@@ -207,7 +207,7 @@ func (p *Parser) parseResourceIdFromOperation(uri string, operation *spec.Operat
 
 	allSegmentsAreStatic := true
 	for _, segment := range segments {
-		if segment.Type != resourcemanager.StaticSegment && segment.Type != models.ResourceProviderSegment {
+		if segment.Type != resourcemanager.StaticSegment && segment.Type != resourcemanager.ResourceProviderSegment {
 			allSegmentsAreStatic = false
 			break
 		}

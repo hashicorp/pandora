@@ -71,7 +71,7 @@ func (pri ParsedResourceId) Matches(other ParsedResourceId) bool {
 			continue
 		}
 
-		if first.Type == ResourceProviderSegment || first.Type == resourcemanager.StaticSegment {
+		if first.Type == resourcemanager.ResourceProviderSegment || first.Type == resourcemanager.StaticSegment {
 			if first.FixedValue != nil && second.FixedValue == nil {
 				return false
 			}
@@ -115,11 +115,10 @@ type ResourceIdSegment struct {
 type SegmentType resourcemanager.ResourceIdSegmentType
 
 const (
-	ResourceGroupSegment    SegmentType = "resource-group"
-	ResourceProviderSegment SegmentType = "resource-provider"
-	SubscriptionIdSegment   SegmentType = "subscription-id"
-	ScopeSegment            SegmentType = "scope"
-	UserSpecifiedSegment    SegmentType = "user-specified"
+	ResourceGroupSegment  SegmentType = "resource-group"
+	SubscriptionIdSegment SegmentType = "subscription-id"
+	ScopeSegment          SegmentType = "scope"
+	UserSpecifiedSegment  SegmentType = "user-specified"
 )
 
 func ConstantResourceIDSegment(name, constantName string) ResourceIdSegment {
@@ -132,7 +131,7 @@ func ConstantResourceIDSegment(name, constantName string) ResourceIdSegment {
 
 func ResourceProviderResourceIDSegment(name, resourceProvider string) ResourceIdSegment {
 	return ResourceIdSegment{
-		Type:       ResourceProviderSegment,
+		Type:       resourcemanager.ResourceProviderSegment,
 		Name:       name,
 		FixedValue: &resourceProvider,
 	}
