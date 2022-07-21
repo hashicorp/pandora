@@ -121,7 +121,7 @@ func (systemDataMatcher) IsMatch(_ models.FieldDetails, definition models.Object
 }
 
 func validateSystemDataConstantValues(input models.ConstantDetails, expected map[string]string) bool {
-	if input.FieldType != models.StringConstant {
+	if input.FieldType != resourcemanager.StringConstant {
 		return false
 	}
 

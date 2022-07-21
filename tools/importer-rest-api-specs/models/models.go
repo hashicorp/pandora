@@ -80,17 +80,8 @@ type OperationOption struct {
 
 type ConstantDetails struct {
 	Values    map[string]string
-	FieldType ConstantFieldType
+	FieldType resourcemanager.ConstantType
 }
-
-type ConstantFieldType string
-
-const (
-	IntegerConstant ConstantFieldType = "int"
-	FloatConstant   ConstantFieldType = "float"
-	StringConstant  ConstantFieldType = "string"
-	UnknownConstant ConstantFieldType = "unknown"
-)
 
 type ModelDetails struct {
 	Description string

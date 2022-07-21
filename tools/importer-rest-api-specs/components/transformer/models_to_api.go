@@ -45,23 +45,11 @@ func apiConstantsFromModelConstants(input map[string]models.ConstantDetails) (*m
 	out := make(map[string]resourcemanager.ConstantDetails, 0)
 
 	for k, v := range input {
-		details := resourcemanager.ConstantDetails{
+		out[k] = resourcemanager.ConstantDetails{
 			CaseInsensitive: false,
+			Type:            v.FieldType,
 			Values:          v.Values,
 		}
-
-		switch v.FieldType {
-		case models.IntegerConstant:
-			details.Type = resourcemanager.IntegerConstant
-		case models.FloatConstant:
-			details.Type = resourcemanager.FloatConstant
-		case models.StringConstant:
-			details.Type = resourcemanager.StringConstant
-		default:
-			return nil, fmt.Errorf("unsupported constant type %q for %q", string(details.Type), k)
-		}
-
-		out[k] = details
 	}
 
 	return &out, nil

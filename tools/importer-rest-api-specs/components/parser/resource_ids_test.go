@@ -144,7 +144,7 @@ func TestParseResourceIdContainingAConstant(t *testing.T) {
 	expectedResourceId := models.ParsedResourceId{
 		Constants: map[string]models.ConstantDetails{
 			"Planet": {
-				FieldType: models.StringConstant,
+				FieldType: resourcemanager.StringConstant,
 				Values: map[string]string{
 					"Earth":   "Earth",
 					"Jupiter": "Jupiter",
@@ -186,7 +186,7 @@ func TestParseResourceIdContainingAConstant(t *testing.T) {
 	if !ok {
 		t.Fatalf("expected there to be a Constant named Planet")
 	}
-	if constant.FieldType != models.StringConstant {
+	if constant.FieldType != resourcemanager.StringConstant {
 		t.Fatalf("expected the Constant Planet to be a String but got %q", string(constant.FieldType))
 	}
 	if len(constant.Values) != 4 {

@@ -45,16 +45,16 @@ func MapConstant(typeVal spec.StringOrArray, fieldName string, values []interfac
 		constantName = constExtension.name
 	}
 
-	constantType := models.StringConstant
+	constantType := resourcemanager.StringConstant
 	if typeVal.Contains("integer") {
-		constantType = models.IntegerConstant
+		constantType = resourcemanager.IntegerConstant
 	} else if typeVal.Contains("number") {
-		constantType = models.FloatConstant
+		constantType = resourcemanager.FloatConstant
 	}
 
 	keysAndValues := make(map[string]string)
 	for i, raw := range values {
-		if constantType == models.StringConstant {
+		if constantType == resourcemanager.StringConstant {
 			value, ok := raw.(string)
 			if !ok {
 				return nil, fmt.Errorf("expected a string but got %+v for the %d value for %q", raw, i, constExtension.name)
@@ -78,7 +78,7 @@ func MapConstant(typeVal spec.StringOrArray, fieldName string, values []interfac
 			continue
 		}
 
-		if constantType == models.IntegerConstant {
+		if constantType == resourcemanager.IntegerConstant {
 			// This gets parsed out as a float64 even though it's an Integer :upside_down_smile:
 			value, ok := raw.(float64)
 			if !ok {
@@ -104,7 +104,7 @@ func MapConstant(typeVal spec.StringOrArray, fieldName string, values []interfac
 			continue
 		}
 
-		if constantType == models.FloatConstant {
+		if constantType == resourcemanager.FloatConstant {
 			value, ok := raw.(float64)
 			if !ok {
 				return nil, fmt.Errorf("expected an float but got %+v for the %d value for %q", raw, i, constExtension.name)
@@ -122,7 +122,7 @@ func MapConstant(typeVal spec.StringOrArray, fieldName string, values []interfac
 
 	// allows us to parse out the actual types above then force a string here if needed
 	if constExtension == nil {
-		constantType = models.StringConstant
+		constantType = resourcemanager.StringConstant
 	}
 
 	return &ParsedConstant{

@@ -11,36 +11,13 @@ func MapApiConstantsToConstantDetails(input map[string]resourcemanager.ConstantD
 	output := make(map[string]models.ConstantDetails)
 
 	for k, v := range input {
-		fieldType, err := mapApiConstantToConstantFieldType(v.Type)
-		if err != nil {
-			return nil, fmt.Errorf("mapping Field Type %q for Constant %q: %+v", string(v.Type), k, err)
-		}
-
 		output[k] = models.ConstantDetails{
-			FieldType: *fieldType,
+			FieldType: v.Type,
 			Values:    v.Values,
 		}
 	}
 
 	return &output, nil
-}
-
-func mapApiConstantToConstantFieldType(input resourcemanager.ConstantType) (*models.ConstantFieldType, error) {
-	switch input {
-	case resourcemanager.IntegerConstant:
-		v := models.IntegerConstant
-		return &v, nil
-
-	case resourcemanager.FloatConstant:
-		v := models.FloatConstant
-		return &v, nil
-
-	case resourcemanager.StringConstant:
-		v := models.StringConstant
-		return &v, nil
-	}
-
-	return nil, fmt.Errorf("unmapped Constant Type %q", string(input))
 }
 
 func MapApiModelsToModelDetails(input map[string]resourcemanager.ModelDetails) (*map[string]models.ModelDetails, error) {

@@ -5,6 +5,8 @@ import (
 	"sort"
 	"strings"
 
+	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
@@ -43,19 +45,19 @@ internal enum %[2]sConstant
 	return &out, nil
 }
 
-func mapConstantFieldType(input models.ConstantFieldType) (*string, error) {
+func mapConstantFieldType(input resourcemanager.ConstantType) (*string, error) {
 	result := func(in string) (*string, error) {
 		return &in, nil
 	}
-	if input == models.FloatConstant {
+	if input == resourcemanager.FloatConstant {
 		return result("ConstantTypeAttribute.ConstantType.Float")
 	}
 
-	if input == models.IntegerConstant {
+	if input == resourcemanager.IntegerConstant {
 		return result("ConstantTypeAttribute.ConstantType.Integer")
 	}
 
-	if input == models.StringConstant {
+	if input == resourcemanager.StringConstant {
 		return result("ConstantTypeAttribute.ConstantType.String")
 	}
 

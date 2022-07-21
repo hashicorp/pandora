@@ -66,7 +66,7 @@ func (systemAssignedIdentityMatcher) IsMatch(_ models.FieldDetails, definition m
 }
 
 func validateIdentityConstantValues(input models.ConstantDetails, expected map[string]string) bool {
-	if input.FieldType != models.StringConstant {
+	if input.FieldType != resourcemanager.StringConstant {
 		return false
 	}
 

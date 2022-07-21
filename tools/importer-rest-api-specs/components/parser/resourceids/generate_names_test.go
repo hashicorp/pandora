@@ -312,7 +312,7 @@ var eventHubSkuResourceId = models.ParsedResourceId{
 var trafficManagerProfileResourceId = models.ParsedResourceId{
 	Constants: map[string]models.ConstantDetails{
 		"EndpointType": {
-			FieldType: models.StringConstant,
+			FieldType: resourcemanager.StringConstant,
 			Values: map[string]string{
 				"AzureEndpoints":    "azureEndpoints",
 				"ExternalEndpoints": "externalEndpoints",
@@ -374,7 +374,7 @@ var trafficManagerProfileResourceId = models.ParsedResourceId{
 var redisPatchSchedulesResourceId = models.ParsedResourceId{
 	Constants: map[string]models.ConstantDetails{
 		"Default": {
-			FieldType: models.StringConstant,
+			FieldType: resourcemanager.StringConstant,
 			Values: map[string]string{
 				"First": "first",
 			},
@@ -616,7 +616,7 @@ func TestResourceIDNamingContainingAConstant(t *testing.T) {
 	dnsResourceId := models.ParsedResourceId{
 		Constants: map[string]models.ConstantDetails{
 			"DnsRecordType": {
-				FieldType: models.StringConstant,
+				FieldType: resourcemanager.StringConstant,
 				Values: map[string]string{
 					"A":    "A",
 					"AAAA": "AAAA",
@@ -686,7 +686,7 @@ func TestResourceIDNamingContainingAConstantAndSuffix(t *testing.T) {
 	dnsResourceId := models.ParsedResourceId{
 		Constants: map[string]models.ConstantDetails{
 			"DnsRecordType": {
-				FieldType: models.StringConstant,
+				FieldType: resourcemanager.StringConstant,
 				Values: map[string]string{
 					"A":    "A",
 					"AAAA": "AAAA",
