@@ -37,7 +37,7 @@ service "azurestackhci" {
 }
 service "chaos" {
   name      = "ChaosStudio"
-  available = ["2021-09-15-preview"]
+  available = ["2022-07-01-preview"]
 }
 service "cognitiveservices" {
   name      = "Cognitive"
