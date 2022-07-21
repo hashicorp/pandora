@@ -39,11 +39,10 @@ func FindServices(input FindServiceInput, terraformConfig definitions.Config) (*
 		}
 
 		for _, version := range service.Available {
-			versionDetails, ok := serviceDetails.ApiVersionPaths[version]
+			versionDirectory, ok := serviceDetails.ApiVersionPaths[version]
 			if !ok {
 				return nil, fmt.Errorf("details for the Version %q of Service %q were not found - does it exist on disk?", version, service.Directory)
 			}
-			versionDirectory := filepath.Join(input.SwaggerDirectory + "/specification/" + versionDetails)
 			filesForVersion := make([]string, 0)
 			filesInDirectory, err := parser.SwaggerFilesInDirectory(versionDirectory)
 			if err != nil {

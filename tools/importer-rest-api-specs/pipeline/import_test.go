@@ -12,19 +12,17 @@ import (
 )
 
 const (
-	outputDirectory          = "../../../data/"
-	swaggerDirectory         = "../../../swagger"
-	resourceManagerConfig    = "../../../config/resource-manager.hcl"
-	terraformDefinitionsPath = "../../../config/resources/"
+	outputDirectory       = "../../../data/"
+	swaggerDirectory      = "../../../swagger"
+	resourceManagerConfig = "../../../config/resource-manager.hcl"
 )
 
 func TestExistingDataCanBeGenerated(t *testing.T) {
 	// works around the OAIGen bug
 	os.Setenv("OAIGEN_DEDUPE", "false")
 
-	resources, err := definitions.LoadFromDirectory(terraformDefinitionsPath)
-	if err != nil {
-		t.Fatalf("loading terraform definitions from %q: %+v", terraformDefinitionsPath, err)
+	resources := definitions.Config{
+		Services: map[string]definitions.ServiceDefinition{},
 	}
 	input := discovery.FindServiceInput{
 		SwaggerDirectory: swaggerDirectory,
@@ -32,7 +30,7 @@ func TestExistingDataCanBeGenerated(t *testing.T) {
 		OutputDirectory:  outputDirectory,
 		Logger:           hclog.New(hclog.DefaultOptions),
 	}
-	generationData, err := discovery.FindServices(input, *resources)
+	generationData, err := discovery.FindServices(input, resources)
 	if err != nil {
 		t.Fatalf("building generation data: %+v", err)
 	}
