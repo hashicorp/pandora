@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"path"
 
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser"
 )
 
 func (s Service) generateServiceDefinition(input parser.ParsedData) error {

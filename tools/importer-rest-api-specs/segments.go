@@ -7,8 +7,9 @@ import (
 	"sort"
 	"strings"
 
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser"
+
 	"github.com/hashicorp/go-hclog"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser"
 )
 
 func parseAndOutputSegments(swaggerDirectory string, logger hclog.Logger) error {

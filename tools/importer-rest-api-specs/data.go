@@ -5,8 +5,9 @@ import (
 	"path/filepath"
 	"strings"
 
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser"
+
 	"github.com/hashicorp/go-hclog"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser"
 	"github.com/hashicorp/pandora/tools/sdk/config/definitions"
 	"github.com/hashicorp/pandora/tools/sdk/config/services"
 )

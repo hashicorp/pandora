@@ -5,8 +5,9 @@ import (
 	"path"
 	"strings"
 
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser"
+
 	"github.com/hashicorp/go-hclog"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser"
 )
 
 func NewService(data parser.ParsedData, outputDirectory, rootNamespace, swaggerGitSha string, resourceProvider, terraformPackageName *string, logger hclog.Logger) *Service {

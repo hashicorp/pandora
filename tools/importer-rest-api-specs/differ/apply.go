@@ -3,7 +3,7 @@ package differ
 import (
 	"fmt"
 
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser"
 )
 
 func (d Differ) ApplyFromExistingAPIDefinitions(existing []parser.ParsedData, parsed parser.ParsedData) (*parser.ParsedData, error) {

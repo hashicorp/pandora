@@ -2,7 +2,7 @@ package dataapigenerator
 
 import (
 	"github.com/hashicorp/go-hclog"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser"
 )
 
 type Service struct {
