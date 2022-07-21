@@ -1,4 +1,4 @@
-package parser
+package commonschema
 
 import (
 	"strings"
@@ -11,10 +11,10 @@ var _ customFieldMatcher = tagsMatcher{}
 
 type tagsMatcher struct{}
 
-func (tagsMatcher) isMatch(field models.FieldDetails, definition models.ObjectDefinition, known internal.ParseResult) bool {
+func (tagsMatcher) IsMatch(field models.FieldDetails, definition models.ObjectDefinition, known internal.ParseResult) bool {
 	return strings.EqualFold(field.JsonName, "tags") && definition.Type == models.ObjectDefinitionDictionary && definition.NestedItem.Type == models.ObjectDefinitionString
 }
 
-func (tagsMatcher) customFieldType() models.CustomFieldType {
+func (tagsMatcher) CustomFieldType() models.CustomFieldType {
 	return models.CustomFieldTypeTags
 }

@@ -1,4 +1,4 @@
-package parser
+package commonschema
 
 import (
 	"strings"
@@ -11,10 +11,10 @@ var _ customFieldMatcher = locationMatcher{}
 
 type locationMatcher struct{}
 
-func (l locationMatcher) isMatch(field models.FieldDetails, definition models.ObjectDefinition, known internal.ParseResult) bool {
+func (l locationMatcher) IsMatch(field models.FieldDetails, definition models.ObjectDefinition, known internal.ParseResult) bool {
 	return strings.EqualFold(field.JsonName, "location") && definition.Type == models.ObjectDefinitionString
 }
 
-func (locationMatcher) customFieldType() models.CustomFieldType {
+func (locationMatcher) CustomFieldType() models.CustomFieldType {
 	return models.CustomFieldTypeLocation
 }

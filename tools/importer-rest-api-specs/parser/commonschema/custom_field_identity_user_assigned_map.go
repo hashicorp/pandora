@@ -1,4 +1,4 @@
-package parser
+package commonschema
 
 import (
 	"strings"
@@ -7,15 +7,15 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser/internal"
 )
 
-var _ customFieldMatcher = legacySystemAndUserAssignedIdentityMapMatcher{}
+var _ customFieldMatcher = userAssignedIdentityMapMatcher{}
 
-type legacySystemAndUserAssignedIdentityMapMatcher struct{}
+type userAssignedIdentityMapMatcher struct{}
 
-func (legacySystemAndUserAssignedIdentityMapMatcher) customFieldType() models.CustomFieldType {
-	return models.CustomFieldTypeLegacySystemAndUserAssignedIdentityMap
+func (userAssignedIdentityMapMatcher) CustomFieldType() models.CustomFieldType {
+	return models.CustomFieldTypeUserAssignedIdentityMap
 }
 
-func (legacySystemAndUserAssignedIdentityMapMatcher) isMatch(field models.FieldDetails, definition models.ObjectDefinition, known internal.ParseResult) bool {
+func (userAssignedIdentityMapMatcher) IsMatch(_ models.FieldDetails, definition models.ObjectDefinition, known internal.ParseResult) bool {
 	if definition.Type != models.ObjectDefinitionReference {
 		return false
 	}
@@ -27,21 +27,9 @@ func (legacySystemAndUserAssignedIdentityMapMatcher) isMatch(field models.FieldD
 	}
 
 	hasUserAssignedIdentities := false
-	hasMatchingType := false
-	hasPrincipalId := false
-	hasTenantId := false
+	hasTypeMatch := false
 
 	for fieldName, fieldVal := range model.Fields {
-		if strings.EqualFold(fieldName, "PrincipalId") {
-			hasPrincipalId = true
-			continue
-		}
-
-		if strings.EqualFold(fieldName, "TenantId") {
-			hasTenantId = true
-			continue
-		}
-
 		if strings.EqualFold(fieldName, "UserAssignedIdentities") {
 			// this should be a Map of an Object containing ClientId/PrincipalId
 			if fieldVal.ObjectDefinition == nil || fieldVal.ObjectDefinition.Type != models.ObjectDefinitionDictionary {
@@ -83,7 +71,8 @@ func (legacySystemAndUserAssignedIdentityMapMatcher) isMatch(field models.FieldD
 					continue
 				}
 
-				// if extra fields are returned within the UAI properties block then we ignore them for now
+				// if extra fields this can't be a match
+				return false
 			}
 
 			hasUserAssignedIdentities = innerHasClientId && innerHasPrincipalId
@@ -99,11 +88,9 @@ func (legacySystemAndUserAssignedIdentityMapMatcher) isMatch(field models.FieldD
 				continue
 			}
 			expected := map[string]string{
-				"SystemAssigned":             "SystemAssigned",
-				"SystemAssignedUserAssigned": "SystemAssigned,UserAssigned",
-				"UserAssigned":               "UserAssigned",
+				"UserAssigned": "UserAssigned",
 			}
-			hasMatchingType = validateIdentityConstantValues(constant, expected)
+			hasTypeMatch = validateIdentityConstantValues(constant, expected)
 			continue
 		}
 
@@ -111,5 +98,5 @@ func (legacySystemAndUserAssignedIdentityMapMatcher) isMatch(field models.FieldD
 		return false
 	}
 
-	return hasUserAssignedIdentities && hasMatchingType && hasPrincipalId && hasTenantId
+	return hasUserAssignedIdentities && hasTypeMatch
 }

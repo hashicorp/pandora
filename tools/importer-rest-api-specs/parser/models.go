@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"strings"
 
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser/commonschema"
+
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser/cleanup"
 
 	"github.com/go-openapi/spec"
@@ -192,9 +194,9 @@ func (d *SwaggerDefinition) detailsForField(modelName string, propertyName strin
 }
 
 func determineCustomFieldType(field models.FieldDetails, definition models.ObjectDefinition, known internal.ParseResult) *models.CustomFieldType {
-	for _, matcher := range customFieldMatchers {
-		if matcher.isMatch(field, definition, known) {
-			fieldType := matcher.customFieldType()
+	for _, matcher := range commonschema.CustomFieldMatchers {
+		if matcher.IsMatch(field, definition, known) {
+			fieldType := matcher.CustomFieldType()
 			return &fieldType
 		}
 	}

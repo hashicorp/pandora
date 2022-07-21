@@ -1,4 +1,4 @@
-package parser
+package commonschema
 
 import (
 	"reflect"
@@ -12,11 +12,11 @@ var _ customFieldMatcher = systemDataMatcher{}
 
 type systemDataMatcher struct{}
 
-func (systemDataMatcher) customFieldType() models.CustomFieldType {
+func (systemDataMatcher) CustomFieldType() models.CustomFieldType {
 	return models.CustomFieldTypeSystemData
 }
 
-func (systemDataMatcher) isMatch(_ models.FieldDetails, definition models.ObjectDefinition, known internal.ParseResult) bool {
+func (systemDataMatcher) IsMatch(_ models.FieldDetails, definition models.ObjectDefinition, known internal.ParseResult) bool {
 	if definition.Type != models.ObjectDefinitionReference {
 		return false
 	}

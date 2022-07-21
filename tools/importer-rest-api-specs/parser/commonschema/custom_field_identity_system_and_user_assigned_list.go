@@ -1,4 +1,4 @@
-package parser
+package commonschema
 
 import (
 	"strings"
@@ -7,15 +7,15 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser/internal"
 )
 
-var _ customFieldMatcher = userAssignedIdentityListMatcher{}
+var _ customFieldMatcher = systemAndUserAssignedIdentityListMatcher{}
 
-type userAssignedIdentityListMatcher struct{}
+type systemAndUserAssignedIdentityListMatcher struct{}
 
-func (userAssignedIdentityListMatcher) customFieldType() models.CustomFieldType {
-	return models.CustomFieldTypeUserAssignedIdentityList
+func (systemAndUserAssignedIdentityListMatcher) CustomFieldType() models.CustomFieldType {
+	return models.CustomFieldTypeSystemAndUserAssignedIdentityList
 }
 
-func (userAssignedIdentityListMatcher) isMatch(_ models.FieldDetails, definition models.ObjectDefinition, known internal.ParseResult) bool {
+func (systemAndUserAssignedIdentityListMatcher) IsMatch(_ models.FieldDetails, definition models.ObjectDefinition, known internal.ParseResult) bool {
 	if definition.Type != models.ObjectDefinitionReference {
 		return false
 	}
@@ -27,8 +27,21 @@ func (userAssignedIdentityListMatcher) isMatch(_ models.FieldDetails, definition
 	}
 
 	hasUserAssignedIdentities := false
+	hasMatchingType := false
+	hasPrincipalId := false
+	hasTenantId := false
 
 	for fieldName, fieldVal := range model.Fields {
+		if strings.EqualFold(fieldName, "PrincipalId") {
+			hasPrincipalId = true
+			continue
+		}
+
+		if strings.EqualFold(fieldName, "TenantId") {
+			hasTenantId = true
+			continue
+		}
+
 		if strings.EqualFold(fieldName, "UserAssignedIdentities") {
 			// this should be a List of Strings
 			if fieldVal.ObjectDefinition == nil || fieldVal.ObjectDefinition.Type != models.ObjectDefinitionList {
@@ -42,9 +55,6 @@ func (userAssignedIdentityListMatcher) isMatch(_ models.FieldDetails, definition
 			continue
 		}
 
-		// Type is an optional check due to some badly defined Swaggers
-		// https://github.com/Azure/azure-rest-api-specs/blob/c803720c6bcfcb0fcf4c97f3463ec33a18f9e55c/specification/servicefabricmanagedclusters/resource-manager/Microsoft.ServiceFabricManagedClusters/stable/2021-05-01/nodetype.json#L763
-		// as such we're only concerned if it's defined and doesn't match
 		if strings.EqualFold(fieldName, "Type") {
 			if fieldVal.ObjectDefinition == nil || fieldVal.ObjectDefinition.Type != models.ObjectDefinitionReference {
 				continue
@@ -54,11 +64,11 @@ func (userAssignedIdentityListMatcher) isMatch(_ models.FieldDetails, definition
 				continue
 			}
 			expected := map[string]string{
-				"UserAssigned": "UserAssigned",
+				"SystemAssigned":             "SystemAssigned",
+				"SystemAssignedUserAssigned": "SystemAssigned, UserAssigned",
+				"UserAssigned":               "UserAssigned",
 			}
-			if !validateIdentityConstantValues(constant, expected) {
-				return false
-			}
+			hasMatchingType = validateIdentityConstantValues(constant, expected)
 			continue
 		}
 
@@ -66,5 +76,5 @@ func (userAssignedIdentityListMatcher) isMatch(_ models.FieldDetails, definition
 		return false
 	}
 
-	return hasUserAssignedIdentities
+	return hasUserAssignedIdentities && hasMatchingType && hasPrincipalId && hasTenantId
 }

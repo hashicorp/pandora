@@ -1,4 +1,4 @@
-package parser
+package commonschema
 
 import (
 	"strings"
@@ -12,11 +12,11 @@ var _ customFieldMatcher = edgeZoneFieldMatcher{}
 type edgeZoneFieldMatcher struct {
 }
 
-func (e edgeZoneFieldMatcher) customFieldType() models.CustomFieldType {
+func (e edgeZoneFieldMatcher) CustomFieldType() models.CustomFieldType {
 	return models.CustomFieldTypeEdgeZone
 }
 
-func (e edgeZoneFieldMatcher) isMatch(field models.FieldDetails, definition models.ObjectDefinition, known internal.ParseResult) bool {
+func (e edgeZoneFieldMatcher) IsMatch(_ models.FieldDetails, definition models.ObjectDefinition, known internal.ParseResult) bool {
 	if definition.Type != models.ObjectDefinitionReference {
 		return false
 	}
