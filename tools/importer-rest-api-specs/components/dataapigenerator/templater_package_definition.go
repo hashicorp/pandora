@@ -5,8 +5,6 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser/cleanup"
-
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
@@ -16,8 +14,6 @@ func codeForPackageDefinition(namespace, resourceName string, operations map[str
 		operationNames = append(operationNames, operation)
 	}
 	sort.Strings(operationNames)
-
-	normalizedResourceName := cleanup.NormalizeName(resourceName)
 
 	lines := make([]string, 0)
 	for _, operationName := range operationNames {
@@ -39,5 +35,5 @@ internal class Definition : ResourceDefinition
 %[3]s
 	};
 }
-`, namespace, normalizedResourceName, strings.Join(lines, "\n"), restApiSpecsLicence)
+`, namespace, resourceName, strings.Join(lines, "\n"), restApiSpecsLicence)
 }
