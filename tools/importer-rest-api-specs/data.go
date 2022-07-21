@@ -12,7 +12,7 @@ import (
 	"github.com/hashicorp/pandora/tools/sdk/config/services"
 )
 
-type RunInput struct {
+type ServiceInput struct {
 	RootNamespace              string
 	ServiceName                string
 	ApiVersion                 string
@@ -23,7 +23,7 @@ type RunInput struct {
 	TerraformServiceDefinition *definitions.ServiceDefinition
 }
 
-type ResourceManagerInput struct {
+type ResourceManagerServiceInput struct {
 	ServiceName                string
 	ApiVersion                 string
 	ResourceProvider           string
@@ -32,8 +32,8 @@ type ResourceManagerInput struct {
 	TerraformServiceDefinition *definitions.ServiceDefinition
 }
 
-func (rmi ResourceManagerInput) ToRunInput() RunInput {
-	return RunInput{
+func (rmi ResourceManagerServiceInput) ToRunInput() ServiceInput {
+	return ServiceInput{
 		RootNamespace:              "Pandora.Definitions.ResourceManager",
 		ServiceName:                rmi.ServiceName,
 		ApiVersion:                 rmi.ApiVersion,
@@ -45,7 +45,7 @@ func (rmi ResourceManagerInput) ToRunInput() RunInput {
 	}
 }
 
-func GenerationData(configFilePath, swaggerDirectory string, terraformConfig definitions.Config, logger hclog.Logger) (*[]RunInput, error) {
+func GenerationData(configFilePath, swaggerDirectory string, terraformConfig definitions.Config, logger hclog.Logger) (*[]ServiceInput, error) {
 	parsed, err := services.LoadFromFile(configFilePath)
 	if err != nil {
 		return nil, fmt.Errorf("loading config: %+v", err)
@@ -57,7 +57,7 @@ func GenerationData(configFilePath, swaggerDirectory string, terraformConfig def
 		return nil, fmt.Errorf("retrieving Resource Manager Service details from %q: %+v", specificationsDirectory, err)
 	}
 
-	output := make([]RunInput, 0)
+	output := make([]ServiceInput, 0)
 	for _, service := range parsed.Services {
 		// find the versions for each directory within this Service
 		serviceDetails, ok := (*resourceManagerServices)[service.Directory]
@@ -81,7 +81,7 @@ func GenerationData(configFilePath, swaggerDirectory string, terraformConfig def
 				filesForVersion = append(filesForVersion, fileWithoutPrefix)
 			}
 
-			resourceManagerService := ResourceManagerInput{
+			resourceManagerService := ResourceManagerServiceInput{
 				ServiceName:      service.Name,
 				ApiVersion:       version,
 				ResourceProvider: serviceDetails.ResourceProvider,

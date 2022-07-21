@@ -14,7 +14,7 @@ import (
 	"github.com/hashicorp/pandora/tools/sdk/config/definitions"
 )
 
-func importService(input RunInput, swaggerGitSha string, dataApiEndpoint *string, logger hclog.Logger) error {
+func importService(input ServiceInput, swaggerGitSha string, dataApiEndpoint *string, logger hclog.Logger) error {
 	logger.Trace("Parsing Swagger Files..")
 	data, err := parseSwaggerFiles(input, logger.Named("Swagger"))
 	if err != nil {
@@ -123,7 +123,7 @@ func findResourceDefinitionsForResource(apiVersion, apiResource string, terrafor
 	return &forResource.Definitions
 }
 
-func parseSwaggerFiles(input RunInput, logger hclog.Logger) (*models.AzureApiDefinition, error) {
+func parseSwaggerFiles(input ServiceInput, logger hclog.Logger) (*models.AzureApiDefinition, error) {
 	parseResult, err := parser.LoadAndParseFiles(input.SwaggerDirectory, input.SwaggerFiles, input.ServiceName, input.ApiVersion, logger)
 	if err != nil {
 		return nil, fmt.Errorf("parsing files in %q: %+v", input.SwaggerDirectory, err)

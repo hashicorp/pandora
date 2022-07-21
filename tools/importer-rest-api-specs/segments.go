@@ -20,7 +20,7 @@ func parseAndOutputSegments(swaggerDirectory string, logger hclog.Logger) error 
 		return fmt.Errorf("retrieving Resource Manager Service details from %q: %+v", specificationsDirectory, err)
 	}
 
-	services := make([]RunInput, 0)
+	services := make([]ServiceInput, 0)
 	logger.Debug("[STAGE] Processing Resource Manager Services..")
 	for serviceName, service := range *resourceManagerServices {
 		logger.Trace(fmt.Sprintf("Processing Service %q..", serviceName))
@@ -52,7 +52,7 @@ func parseAndOutputSegments(swaggerDirectory string, logger hclog.Logger) error 
 				filesForVersion = append(filesForVersion, fileWithoutPrefix)
 			}
 
-			resourceManagerService := ResourceManagerInput{
+			resourceManagerService := ResourceManagerServiceInput{
 				ServiceName:      service.Name,
 				ApiVersion:       version,
 				ResourceProvider: service.ResourceProvider,
