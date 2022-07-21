@@ -4,14 +4,12 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser"
-
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/transformer"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-func (d *Differ) RetrieveExistingService(serviceName, apiVersion string) (*[]parser.ParsedData, error) {
+func (d *Differ) RetrieveExistingService(serviceName, apiVersion string) (*[]models.ParsedData, error) {
 	services, err := d.client.Services().Get()
 	if err != nil {
 		return nil, fmt.Errorf("retrieving Services from Data API: %+v", err)
@@ -20,7 +18,7 @@ func (d *Differ) RetrieveExistingService(serviceName, apiVersion string) (*[]par
 		return nil, nil
 	}
 
-	var existingService *parser.ParsedData
+	var existingService *models.ParsedData
 	for name, service := range *services {
 		if !strings.EqualFold(name, serviceName) {
 			continue
@@ -102,7 +100,7 @@ func (d *Differ) RetrieveExistingService(serviceName, apiVersion string) (*[]par
 				}
 			}
 
-			existingService = &parser.ParsedData{
+			existingService = &models.ParsedData{
 				ServiceName: serviceName,
 				ApiVersion:  version,
 				Resources:   resources,
@@ -116,7 +114,7 @@ func (d *Differ) RetrieveExistingService(serviceName, apiVersion string) (*[]par
 	if existingService == nil {
 		return nil, nil
 	}
-	out := []parser.ParsedData{
+	out := []models.ParsedData{
 		*existingService,
 	}
 	return &out, nil

@@ -4,17 +4,19 @@ import (
 	"fmt"
 	"strings"
 
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/resourceids"
 
 	"github.com/hashicorp/go-hclog"
 )
 
-func LoadAndParseFiles(directory string, fileNames []string, serviceName, apiVersion string, logger hclog.Logger) (*ParsedData, error) {
+func LoadAndParseFiles(directory string, fileNames []string, serviceName, apiVersion string, logger hclog.Logger) (*models.ParsedData, error) {
 	// Some Services have been deprecated or should otherwise be ignored - check before proceeding
 	if serviceShouldBeIgnored(serviceName) {
 		logger.Debug(fmt.Sprintf("Service %q should be ignored - skipping", serviceName))
 
-		return &ParsedData{}, nil
+		return &models.ParsedData{}, nil
 	}
 
 	// First go through and parse all of the Resource ID's across all of the files
@@ -37,7 +39,7 @@ func LoadAndParseFiles(directory string, fileNames []string, serviceName, apiVer
 		}
 	}
 
-	parsed := make(map[string]ParsedData, 0)
+	parsed := make(map[string]models.ParsedData, 0)
 	for _, file := range fileNames {
 		swaggerFile, err := load(directory, file, logger)
 		if err != nil {
@@ -49,7 +51,7 @@ func LoadAndParseFiles(directory string, fileNames []string, serviceName, apiVer
 			return nil, fmt.Errorf("parsing definition: %+v", err)
 		}
 
-		data := ParsedData{
+		data := models.ParsedData{
 			ServiceName: definition.ServiceName,
 			ApiVersion:  definition.ApiVersion,
 			Resources:   definition.Resources,
@@ -59,7 +61,7 @@ func LoadAndParseFiles(directory string, fileNames []string, serviceName, apiVer
 			// it's possible for Swagger tags to exist in multiple files, as EventHubs has DeleteAuthorizationRule which
 			// lives in the AuthorizationRule json, but is technically part of the EventHubs namespace - as such we need
 			// to combine the items rather than overwriting the key
-			resources, err := data.combineResourcesWith(existing.Resources)
+			resources, err := combineResourcesWith(data, existing.Resources)
 			if err != nil {
 				return nil, fmt.Errorf("combining resources for %q: %+v", existing.Key(), err)
 			}
@@ -69,7 +71,7 @@ func LoadAndParseFiles(directory string, fileNames []string, serviceName, apiVer
 		parsed[data.Key()] = data
 	}
 
-	out := make([]ParsedData, 0)
+	out := make([]models.ParsedData, 0)
 	for _, v := range parsed {
 		// the Data API expects that an API Version will contain at least 1 Resource - avoid bad data here
 		if len(v.Resources) == 0 {

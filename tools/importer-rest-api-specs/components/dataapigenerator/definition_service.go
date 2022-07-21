@@ -3,15 +3,13 @@ package dataapigenerator
 import (
 	"fmt"
 	"path"
-
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser"
 )
 
-func (s Service) generateServiceDefinition(input parser.ParsedData) error {
+func (s Service) generateServiceDefinition() error {
 	serviceDefinitionFilePath := path.Join(s.workingDirectoryForService, "ServiceDefinition.cs")
 	s.logger.Debug(fmt.Sprintf("Generating Service Definition into %q..", serviceDefinitionFilePath))
 
-	code := codeForServiceDefinition(s.namespaceForService, s.data.ServiceName, s.resourceProvider, s.terraformPackageName, input)
+	code := codeForServiceDefinition(s.namespaceForService, s.data.ServiceName, s.resourceProvider, s.terraformPackageName, s.data)
 	if err := writeToFile(serviceDefinitionFilePath, code); err != nil {
 		return fmt.Errorf("generating Service Definition into %q: %+v", serviceDefinitionFilePath, err)
 	}

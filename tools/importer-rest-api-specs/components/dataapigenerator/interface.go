@@ -2,12 +2,12 @@ package dataapigenerator
 
 import (
 	"github.com/hashicorp/go-hclog"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
 type Service struct {
 	apiVersionPackageName         string
-	data                          parser.ParsedData
+	data                          models.ParsedData
 	logger                        hclog.Logger
 	namespaceForService           string
 	namespaceForApiVersion        string

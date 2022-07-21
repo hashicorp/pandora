@@ -1,11 +1,11 @@
 package differ
 
 import (
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
 type ApplyStage interface {
-	Apply(existing parser.ParsedData, parsed parser.ParsedData) (*parser.ParsedData, error)
+	Apply(existing models.ParsedData, parsed models.ParsedData) (*models.ParsedData, error)
 }
 
 var ApplyStages = []ApplyStage{

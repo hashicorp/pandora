@@ -6,19 +6,9 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
-type ParsedData struct {
-	ServiceName string
-	ApiVersion  string
-	Resources   map[string]models.AzureApiResource
-}
-
-func (d ParsedData) Key() string {
-	return fmt.Sprintf("%s-%s", d.ServiceName, d.ApiVersion)
-}
-
-func (d ParsedData) combineResourcesWith(other map[string]models.AzureApiResource) (*map[string]models.AzureApiResource, error) {
+func combineResourcesWith(first models.ParsedData, other map[string]models.AzureApiResource) (*map[string]models.AzureApiResource, error) {
 	resources := make(map[string]models.AzureApiResource)
-	for k, v := range d.Resources {
+	for k, v := range first.Resources {
 		resources[k] = v
 	}
 

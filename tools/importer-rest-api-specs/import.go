@@ -82,7 +82,7 @@ func importService(input RunInput, swaggerGitSha string, dataApiEndpoint *string
 	return nil
 }
 
-func identifyCandidateTerraformResources(input *parser2.ParsedData, terraformServiceDefinition definitions.ServiceDefinition, logger hclog.Logger) (*parser2.ParsedData, error) {
+func identifyCandidateTerraformResources(input *models.ParsedData, terraformServiceDefinition definitions.ServiceDefinition, logger hclog.Logger) (*models.ParsedData, error) {
 	if input == nil {
 		return input, nil
 	}
@@ -123,7 +123,7 @@ func findResourceDefinitionsForResource(apiVersion, apiResource string, terrafor
 	return &forResource.Definitions
 }
 
-func parseSwaggerFiles(input RunInput, logger hclog.Logger) (*parser2.ParsedData, error) {
+func parseSwaggerFiles(input RunInput, logger hclog.Logger) (*models.ParsedData, error) {
 	parseResult, err := parser2.LoadAndParseFiles(input.SwaggerDirectory, input.SwaggerFiles, input.ServiceName, input.ApiVersion, logger)
 	if err != nil {
 		return nil, fmt.Errorf("parsing files in %q: %+v", input.SwaggerDirectory, err)

@@ -5,10 +5,10 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
-func codeForServiceDefinition(namespace, serviceName string, resourceProvider, terraformPackage *string, data parser.ParsedData) string {
+func codeForServiceDefinition(namespace, serviceName string, resourceProvider, terraformPackage *string, data models.ParsedData) string {
 	rp := "null"
 	if resourceProvider != nil {
 		rp = fmt.Sprintf("%q", *resourceProvider)
