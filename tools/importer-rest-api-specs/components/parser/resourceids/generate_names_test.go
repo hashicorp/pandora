@@ -65,7 +65,7 @@ var managementGroupResourceId = models.ParsedResourceId{
 		},
 		{
 			Name: "name",
-			Type: models.UserSpecifiedSegment,
+			Type: resourcemanager.UserSpecifiedSegment,
 		},
 	},
 }
@@ -107,7 +107,7 @@ var virtualMachineResourceId = models.ParsedResourceId{
 		},
 		{
 			Name: "virtualMachineName",
-			Type: models.UserSpecifiedSegment,
+			Type: resourcemanager.UserSpecifiedSegment,
 		},
 	},
 }
@@ -149,7 +149,7 @@ var virtualMachineExtensionResourceId = models.ParsedResourceId{
 		},
 		{
 			Name: "virtualMachineName",
-			Type: models.UserSpecifiedSegment,
+			Type: resourcemanager.UserSpecifiedSegment,
 		},
 		{
 			Type:       resourcemanager.StaticSegment,
@@ -158,7 +158,7 @@ var virtualMachineExtensionResourceId = models.ParsedResourceId{
 		},
 		{
 			Name: "extensionName",
-			Type: models.UserSpecifiedSegment,
+			Type: resourcemanager.UserSpecifiedSegment,
 		},
 	},
 }
@@ -200,7 +200,7 @@ var virtualNetworkExtensionResourceId = models.ParsedResourceId{
 		},
 		{
 			Name: "extensionName",
-			Type: models.UserSpecifiedSegment,
+			Type: resourcemanager.UserSpecifiedSegment,
 		},
 	},
 }
@@ -228,7 +228,7 @@ var scopedMonitorResourceId = models.ParsedResourceId{
 		},
 		{
 			Name: "extensionName",
-			Type: models.UserSpecifiedSegment,
+			Type: resourcemanager.UserSpecifiedSegment,
 		},
 	},
 }
@@ -270,7 +270,7 @@ var signalRResourceId = models.ParsedResourceId{
 		},
 		{
 			Name: "resourceName",
-			Type: models.UserSpecifiedSegment,
+			Type: resourcemanager.UserSpecifiedSegment,
 		},
 	},
 }
@@ -302,7 +302,7 @@ var eventHubSkuResourceId = models.ParsedResourceId{
 			Name:       "staticSku",
 		},
 		{
-			Type:       models.UserSpecifiedSegment,
+			Type:       resourcemanager.UserSpecifiedSegment,
 			FixedValue: strPtr("sku"),
 			Name:       "sku",
 		},
@@ -354,7 +354,7 @@ var trafficManagerProfileResourceId = models.ParsedResourceId{
 			Name:       "staticTrafficManagerProfiles",
 		},
 		{
-			Type:       models.UserSpecifiedSegment,
+			Type:       resourcemanager.UserSpecifiedSegment,
 			FixedValue: strPtr("profileName"),
 			Name:       "profileName",
 		},
@@ -364,7 +364,7 @@ var trafficManagerProfileResourceId = models.ParsedResourceId{
 			Name:              "endpointType",
 		},
 		{
-			Type:       models.UserSpecifiedSegment,
+			Type:       resourcemanager.UserSpecifiedSegment,
 			FixedValue: strPtr("endpointName"),
 			Name:       "endpointName",
 		},
@@ -414,7 +414,7 @@ var redisPatchSchedulesResourceId = models.ParsedResourceId{
 			Name:       "staticRedis",
 		},
 		{
-			Type:       models.UserSpecifiedSegment,
+			Type:       resourcemanager.UserSpecifiedSegment,
 			FixedValue: strPtr("name"),
 			Name:       "name",
 		},
@@ -658,7 +658,7 @@ func TestResourceIDNamingContainingAConstant(t *testing.T) {
 			},
 			{
 				Name: "recordName",
-				Type: models.UserSpecifiedSegment,
+				Type: resourcemanager.UserSpecifiedSegment,
 			},
 		},
 	}
@@ -728,7 +728,7 @@ func TestResourceIDNamingContainingAConstantAndSuffix(t *testing.T) {
 			},
 			{
 				Name: "recordName",
-				Type: models.UserSpecifiedSegment,
+				Type: resourcemanager.UserSpecifiedSegment,
 			},
 		},
 	}
@@ -891,7 +891,7 @@ func TestResourceIdNamingConflictingMultipleLevels(t *testing.T) {
 			},
 			{
 				Name: "name",
-				Type: models.UserSpecifiedSegment,
+				Type: resourcemanager.UserSpecifiedSegment,
 			},
 			{
 				Type:       resourcemanager.StaticSegment,
@@ -900,7 +900,7 @@ func TestResourceIdNamingConflictingMultipleLevels(t *testing.T) {
 			},
 			{
 				Name: "workerPoolName",
-				Type: models.UserSpecifiedSegment,
+				Type: resourcemanager.UserSpecifiedSegment,
 			},
 			{
 				Type:       resourcemanager.StaticSegment,
@@ -909,7 +909,7 @@ func TestResourceIdNamingConflictingMultipleLevels(t *testing.T) {
 			},
 			{
 				Name: "instance",
-				Type: models.UserSpecifiedSegment,
+				Type: resourcemanager.UserSpecifiedSegment,
 			},
 		},
 	}
@@ -951,7 +951,7 @@ func TestResourceIdNamingConflictingMultipleLevels(t *testing.T) {
 			},
 			{
 				Name: "name",
-				Type: models.UserSpecifiedSegment,
+				Type: resourcemanager.UserSpecifiedSegment,
 			},
 			{
 				Type:       resourcemanager.StaticSegment,
@@ -970,7 +970,7 @@ func TestResourceIdNamingConflictingMultipleLevels(t *testing.T) {
 			},
 			{
 				Name: "instance",
-				Type: models.UserSpecifiedSegment,
+				Type: resourcemanager.UserSpecifiedSegment,
 			},
 		},
 	}
@@ -1012,7 +1012,7 @@ func TestResourceIdNamingConflictingMultipleLevels(t *testing.T) {
 			},
 			{
 				Name: "name",
-				Type: models.UserSpecifiedSegment,
+				Type: resourcemanager.UserSpecifiedSegment,
 			},
 			{
 				Type:       resourcemanager.StaticSegment,
@@ -1021,7 +1021,7 @@ func TestResourceIdNamingConflictingMultipleLevels(t *testing.T) {
 			},
 			{
 				Name: "slot",
-				Type: models.UserSpecifiedSegment,
+				Type: resourcemanager.UserSpecifiedSegment,
 			},
 			{
 				Type:       resourcemanager.StaticSegment,
@@ -1030,7 +1030,7 @@ func TestResourceIdNamingConflictingMultipleLevels(t *testing.T) {
 			},
 			{
 				Name: "instanceId",
-				Type: models.UserSpecifiedSegment,
+				Type: resourcemanager.UserSpecifiedSegment,
 			},
 			{
 				Type:       resourcemanager.StaticSegment,
@@ -1039,7 +1039,7 @@ func TestResourceIdNamingConflictingMultipleLevels(t *testing.T) {
 			},
 			{
 				Name: "processId",
-				Type: models.UserSpecifiedSegment,
+				Type: resourcemanager.UserSpecifiedSegment,
 			},
 			{
 				Type:       resourcemanager.StaticSegment,
@@ -1048,7 +1048,7 @@ func TestResourceIdNamingConflictingMultipleLevels(t *testing.T) {
 			},
 			{
 				Name: "baseAddress",
-				Type: models.UserSpecifiedSegment,
+				Type: resourcemanager.UserSpecifiedSegment,
 			},
 		},
 	}
@@ -1090,7 +1090,7 @@ func TestResourceIdNamingConflictingMultipleLevels(t *testing.T) {
 			},
 			{
 				Name: "name",
-				Type: models.UserSpecifiedSegment,
+				Type: resourcemanager.UserSpecifiedSegment,
 			},
 			{
 				Type:       resourcemanager.StaticSegment,
@@ -1099,7 +1099,7 @@ func TestResourceIdNamingConflictingMultipleLevels(t *testing.T) {
 			},
 			{
 				Name: "instanceId",
-				Type: models.UserSpecifiedSegment,
+				Type: resourcemanager.UserSpecifiedSegment,
 			},
 			{
 				Type:       resourcemanager.StaticSegment,
@@ -1108,7 +1108,7 @@ func TestResourceIdNamingConflictingMultipleLevels(t *testing.T) {
 			},
 			{
 				Name: "processId",
-				Type: models.UserSpecifiedSegment,
+				Type: resourcemanager.UserSpecifiedSegment,
 			},
 			{
 				Type:       resourcemanager.StaticSegment,
@@ -1117,7 +1117,7 @@ func TestResourceIdNamingConflictingMultipleLevels(t *testing.T) {
 			},
 			{
 				Name: "baseAddress",
-				Type: models.UserSpecifiedSegment,
+				Type: resourcemanager.UserSpecifiedSegment,
 			},
 		},
 	}

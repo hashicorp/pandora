@@ -300,7 +300,7 @@ func apiResourceIdSegmentsFromModelResourceIdSegments(input []models.ResourceIdS
 			models.ScopeSegment:                     resourcemanager.ScopeSegment,
 			resourcemanager.SubscriptionIdSegment:   resourcemanager.SubscriptionIdSegment,
 			resourcemanager.StaticSegment:           resourcemanager.StaticSegment,
-			models.UserSpecifiedSegment:             resourcemanager.UserSpecifiedSegment,
+			resourcemanager.UserSpecifiedSegment:    resourcemanager.UserSpecifiedSegment,
 		}
 		mapping, ok := mappings[v.Type]
 		if !ok {

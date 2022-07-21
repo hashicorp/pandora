@@ -211,7 +211,7 @@ func SegmentsAvailableForNaming(pri models.ParsedResourceId) []string {
 
 	availableSegments := make([]string, 0)
 	for _, segment := range reversedSegments {
-		if segment.Type != models.UserSpecifiedSegment {
+		if segment.Type != resourcemanager.UserSpecifiedSegment {
 			continue
 		}
 

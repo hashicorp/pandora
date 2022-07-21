@@ -77,7 +77,7 @@ func TestParseResourceIdBasic(t *testing.T) {
 				Name:       "staticServers",
 			},
 			{
-				Type: models.UserSpecifiedSegment,
+				Type: resourcemanager.UserSpecifiedSegment,
 				Name: "serverName",
 			},
 		},
@@ -262,7 +262,7 @@ func TestParseResourceIdContainingAScope(t *testing.T) {
 				Name:       "staticVirtualMachines",
 			},
 			{
-				Type: models.UserSpecifiedSegment,
+				Type: resourcemanager.UserSpecifiedSegment,
 				Name: "virtualMachineName",
 			},
 		},
@@ -409,7 +409,7 @@ func TestParseResourceIdWithResourceIdAndUriSuffix(t *testing.T) {
 				Name:       "staticServers",
 			},
 			{
-				Type: models.UserSpecifiedSegment,
+				Type: resourcemanager.UserSpecifiedSegment,
 				Name: "serverName",
 			},
 		},
@@ -514,7 +514,7 @@ func TestParseResourceIdWithResourceIdAndUriSuffixForMultipleUris(t *testing.T) 
 				Name:       "staticServers",
 			},
 			{
-				Type: models.UserSpecifiedSegment,
+				Type: resourcemanager.UserSpecifiedSegment,
 				Name: "serverName",
 			},
 		},
@@ -654,7 +654,7 @@ func TestParseResourceIdContainingResourceProviderShouldGetTitleCased(t *testing
 				Name:       "staticServers",
 			},
 			{
-				Type: models.UserSpecifiedSegment,
+				Type: resourcemanager.UserSpecifiedSegment,
 				Name: "serverName",
 			},
 		},
@@ -755,7 +755,7 @@ func TestParseResourceIdContainingTheSameResourceIdWithDifferentSegments(t *test
 				Name:       "staticVirtualMachines",
 			},
 			{
-				Type: models.UserSpecifiedSegment,
+				Type: resourcemanager.UserSpecifiedSegment,
 				Name: "machineName",
 			},
 		},
@@ -856,7 +856,7 @@ func TestParseResourceIdContainingTheSegmentsNamedTheSame(t *testing.T) {
 				FixedValue: strPtr("managementGroups"),
 			},
 			{
-				Type: models.UserSpecifiedSegment,
+				Type: resourcemanager.UserSpecifiedSegment,
 				Name: "managementGroupId",
 			},
 			{
@@ -875,7 +875,7 @@ func TestParseResourceIdContainingTheSegmentsNamedTheSame(t *testing.T) {
 				FixedValue: strPtr("billingPeriods"),
 			},
 			{
-				Type: models.UserSpecifiedSegment,
+				Type: resourcemanager.UserSpecifiedSegment,
 				Name: "billingPeriodName",
 			},
 		},

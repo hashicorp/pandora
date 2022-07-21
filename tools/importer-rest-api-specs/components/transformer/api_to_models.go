@@ -307,7 +307,7 @@ func mapApiResourceIdSegmentType(input resourcemanager.ResourceIdSegmentType) (*
 		resourcemanager.ScopeSegment:            models.ScopeSegment,
 		resourcemanager.StaticSegment:           resourcemanager.StaticSegment,
 		resourcemanager.SubscriptionIdSegment:   resourcemanager.SubscriptionIdSegment,
-		resourcemanager.UserSpecifiedSegment:    models.UserSpecifiedSegment,
+		resourcemanager.UserSpecifiedSegment:    resourcemanager.UserSpecifiedSegment,
 	}
 	if v, ok := vals[input]; ok {
 		return &v, nil

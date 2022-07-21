@@ -94,7 +94,7 @@ func codeForResourceIDSegment(input models.ResourceIdSegment) (*string, error) {
 			return &out, nil
 		}
 
-	case models.UserSpecifiedSegment:
+	case resourcemanager.UserSpecifiedSegment:
 		{
 			out := fmt.Sprintf("ResourceIDSegment.UserSpecified(%[1]q)", input.Name)
 			return &out, nil
