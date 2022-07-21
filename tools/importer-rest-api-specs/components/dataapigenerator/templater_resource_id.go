@@ -46,7 +46,7 @@ internal class %[2]s : ResourceID
 
 func codeForResourceIDSegment(input models.ResourceIdSegment) (*string, error) {
 	switch input.Type {
-	case models.ConstantSegment:
+	case resourcemanager.ConstantSegment:
 		{
 			if input.ConstantReference == nil {
 				return nil, fmt.Errorf("constant segment type with missing constant reference: %+v", input)

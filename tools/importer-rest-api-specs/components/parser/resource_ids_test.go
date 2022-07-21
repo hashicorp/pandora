@@ -159,7 +159,7 @@ func TestParseResourceIdContainingAConstant(t *testing.T) {
 				Name:       "staticPlanets",
 			},
 			{
-				Type:              models.ConstantSegment,
+				Type:              resourcemanager.ConstantSegment,
 				ConstantReference: strPtr("Planet"),
 				Name:              "planetName",
 			},

@@ -57,7 +57,7 @@ func (pri ParsedResourceId) Matches(other ParsedResourceId) bool {
 			continue
 		}
 
-		if first.Type == ConstantSegment {
+		if first.Type == resourcemanager.ConstantSegment {
 			if first.ConstantReference != nil && second.ConstantReference == nil {
 				return false
 			}
@@ -100,7 +100,7 @@ func (pri ParsedResourceId) String() string {
 
 type ResourceIdSegment struct {
 	// Type specifies the Segment Type, such as a Constant/UserSpecified
-	Type SegmentType
+	Type resourcemanager.ResourceIdSegmentType
 
 	// ConstantReference is the name of the Constant that this Segment uses - if Type is `Constant`
 	ConstantReference *string
@@ -115,7 +115,6 @@ type ResourceIdSegment struct {
 type SegmentType resourcemanager.ResourceIdSegmentType
 
 const (
-	ConstantSegment         SegmentType = "constant"
 	ResourceGroupSegment    SegmentType = "resource-group"
 	ResourceProviderSegment SegmentType = "resource-provider"
 	SubscriptionIdSegment   SegmentType = "subscription-id"
@@ -125,7 +124,7 @@ const (
 
 func ConstantResourceIDSegment(name, constantName string) ResourceIdSegment {
 	return ResourceIdSegment{
-		Type:              ConstantSegment,
+		Type:              resourcemanager.ConstantSegment,
 		Name:              name,
 		ConstantReference: &constantName,
 	}

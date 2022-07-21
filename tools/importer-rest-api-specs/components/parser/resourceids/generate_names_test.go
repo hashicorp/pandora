@@ -359,7 +359,7 @@ var trafficManagerProfileResourceId = models.ParsedResourceId{
 			Name:       "profileName",
 		},
 		{
-			Type:              models.ConstantSegment,
+			Type:              resourcemanager.ConstantSegment,
 			ConstantReference: strPtr("EndpointType"),
 			Name:              "endpointType",
 		},
@@ -424,7 +424,7 @@ var redisPatchSchedulesResourceId = models.ParsedResourceId{
 			Name:       "staticPatchSchedules",
 		},
 		{
-			Type:              models.ConstantSegment,
+			Type:              resourcemanager.ConstantSegment,
 			ConstantReference: strPtr("default"),
 			Name:              "default",
 		},
@@ -652,7 +652,7 @@ func TestResourceIDNamingContainingAConstant(t *testing.T) {
 				Name:       "Microsoft.Network",
 			},
 			{
-				Type:              models.ConstantSegment,
+				Type:              resourcemanager.ConstantSegment,
 				Name:              "recordType",
 				ConstantReference: strPtr("DnsRecordType"),
 			},
@@ -722,7 +722,7 @@ func TestResourceIDNamingContainingAConstantAndSuffix(t *testing.T) {
 				Name:       "Microsoft.Network",
 			},
 			{
-				Type:              models.ConstantSegment,
+				Type:              resourcemanager.ConstantSegment,
 				Name:              "recordType",
 				ConstantReference: strPtr("DnsRecordType"),
 			},
