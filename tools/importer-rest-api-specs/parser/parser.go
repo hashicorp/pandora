@@ -53,9 +53,7 @@ func (d *SwaggerDefinition) parse(serviceName, apiVersion string, resourceIds re
 	}, nil
 }
 
-func (d *SwaggerDefinition) ParseResourceIds() (*resourceids.ParseResult, error) {
-	// TODO: switch this out for a proper logger in time
-	logger := hclog.NewNullLogger()
+func (d *SwaggerDefinition) ParseResourceIds(logger hclog.Logger) (*resourceids.ParseResult, error) {
 	parser := resourceids.NewParser(logger, d.swaggerSpecExpanded)
 
 	resourceIds, err := parser.Parse()
