@@ -5,9 +5,9 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/hashicorp/pandora/tools/sdk/config/definitions"
-
+	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser"
+	"github.com/hashicorp/pandora/tools/sdk/config/definitions"
 	"github.com/hashicorp/pandora/tools/sdk/config/services"
 )
 
@@ -44,14 +44,14 @@ func (rmi ResourceManagerInput) ToRunInput() RunInput {
 	}
 }
 
-func GenerationData(configFilePath, swaggerDirectory string, terraformConfig definitions.Config, debug bool) (*[]RunInput, error) {
+func GenerationData(configFilePath, swaggerDirectory string, terraformConfig definitions.Config, logger hclog.Logger) (*[]RunInput, error) {
 	parsed, err := services.LoadFromFile(configFilePath)
 	if err != nil {
 		return nil, fmt.Errorf("loading config: %+v", err)
 	}
 
 	specificationsDirectory := filepath.Join(swaggerDirectory, "specification")
-	resourceManagerServices, err := parser.FindResourceManagerServices(specificationsDirectory, debug)
+	resourceManagerServices, err := parser.FindResourceManagerServices(specificationsDirectory, logger)
 	if err != nil {
 		return nil, fmt.Errorf("retrieving Resource Manager Service details from %q: %+v", specificationsDirectory, err)
 	}

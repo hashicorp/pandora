@@ -2,9 +2,10 @@ package parser
 
 import (
 	"fmt"
-	"log"
 	"net/http"
 	"strings"
+
+	"github.com/hashicorp/go-hclog"
 
 	"github.com/go-openapi/spec"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/cleanup"
@@ -20,7 +21,7 @@ type operationsParser struct {
 	swaggerDefinition *SwaggerDefinition
 }
 
-func (d *SwaggerDefinition) parseOperationsWithinTag(tag *string, urisToResourceIds map[string]resourceids.ParsedOperation, found internal.ParseResult) (*map[string]models.OperationDetails, *internal.ParseResult, error) {
+func (d *SwaggerDefinition) parseOperationsWithinTag(tag *string, urisToResourceIds map[string]resourceids.ParsedOperation, found internal.ParseResult, logger hclog.Logger) (*map[string]models.OperationDetails, *internal.ParseResult, error) {
 	operations := make(map[string]models.OperationDetails, 0)
 	result := internal.ParseResult{
 		Constants: map[string]models.ConstantDetails{},
@@ -36,18 +37,14 @@ func (d *SwaggerDefinition) parseOperationsWithinTag(tag *string, urisToResource
 	// first find the operations then pull out everything we can
 	operationsForThisTag := d.findOperationsMatchingTag(tag)
 	for _, operation := range *operationsForThisTag {
-		if d.debugLog {
-			log.Printf("[DEBUG] Operation - %s %q..", operation.httpMethod, operation.uri)
-		}
+		d.logger.Debug(fmt.Sprintf("Operation - %s %q..", operation.httpMethod, operation.uri))
 
 		if internal.OperationShouldBeIgnored(operation.uri) {
-			if d.debugLog {
-				log.Printf("[DEBUG] operation should be ignored - skipping..")
-			}
+			d.logger.Debug("Operation should be ignored - skipping..")
 			continue
 		}
 
-		parsedOperation, nestedResult, err := parser.parseOperation(operation)
+		parsedOperation, nestedResult, err := parser.parseOperation(operation, d.logger.Named("Operation Parser"))
 		if err != nil {
 			return nil, nil, fmt.Errorf("parsing %s operation %q: %+v", operation.httpMethod, operation.uri, err)
 		}
@@ -71,7 +68,7 @@ func (d *SwaggerDefinition) parseOperationsWithinTag(tag *string, urisToResource
 	return &operations, &result, nil
 }
 
-func (p operationsParser) parseOperation(operation parsedOperation) (*models.OperationDetails, *internal.ParseResult, error) {
+func (p operationsParser) parseOperation(operation parsedOperation, logger hclog.Logger) (*models.OperationDetails, *internal.ParseResult, error) {
 	result := internal.ParseResult{
 		Constants: map[string]models.ConstantDetails{},
 		Models:    map[string]models.ModelDetails{},
@@ -108,7 +105,7 @@ func (p operationsParser) parseOperation(operation parsedOperation) (*models.Ope
 	}
 	longRunning := p.operationIsLongRunning(operation)
 
-	options, nestedResult, err := p.optionsForOperation(operation)
+	options, nestedResult, err := p.optionsForOperation(operation, logger.Named("Options Parser"))
 	if err != nil {
 		return nil, nil, fmt.Errorf("building options for operation %q: %+v", operation.name, err)
 	}
@@ -299,7 +296,7 @@ func (p operationsParser) operationIsLongRunning(input parsedOperation) bool {
 	return val
 }
 
-func (p operationsParser) optionsForOperation(input parsedOperation) (*map[string]models.OperationOption, *internal.ParseResult, error) {
+func (p operationsParser) optionsForOperation(input parsedOperation, logger hclog.Logger) (*map[string]models.OperationOption, *internal.ParseResult, error) {
 	output := make(map[string]models.OperationOption)
 	result := internal.ParseResult{
 		Constants: map[string]models.ConstantDetails{},
@@ -349,7 +346,7 @@ func (p operationsParser) optionsForOperation(input parsedOperation) (*map[strin
 				types := []string{
 					param.Type,
 				}
-				constant, err := constants.MapConstant(types, param.Name, param.Enum, param.Extensions)
+				constant, err := constants.MapConstant(types, param.Name, param.Enum, param.Extensions, logger.Named("Constant Parser"))
 				if err != nil {
 					return nil, nil, fmt.Errorf("mapping %q: %+v", param.Name, err)
 				}

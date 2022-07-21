@@ -2,14 +2,14 @@ package dataapigenerator
 
 import (
 	"fmt"
-	"log"
 	"path"
 	"strings"
 
+	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser"
 )
 
-func NewService(data parser.ParsedData, outputDirectory, rootNamespace, swaggerGitSha string, resourceProvider, terraformPackageName *string, debugLog bool) *Service {
+func NewService(data parser.ParsedData, outputDirectory, rootNamespace, swaggerGitSha string, resourceProvider, terraformPackageName *string, logger hclog.Logger) *Service {
 	normalisedServiceName := strings.ReplaceAll(data.ServiceName, "-", "")
 	serviceNamespace := fmt.Sprintf("%s.%s", rootNamespace, strings.Title(normalisedServiceName))
 	serviceWorkingDirectory := path.Join(outputDirectory, rootNamespace, strings.Title(normalisedServiceName))
@@ -20,7 +20,7 @@ func NewService(data parser.ParsedData, outputDirectory, rootNamespace, swaggerG
 	return &Service{
 		apiVersionPackageName:         normalizedApiVersion,
 		data:                          data,
-		debugLog:                      debugLog,
+		logger:                        logger,
 		namespaceForApiVersion:        fmt.Sprintf("%s.%s", serviceNamespace, normalizedApiVersion),
 		namespaceForService:           serviceNamespace,
 		namespaceForTerraform:         terraformNamespace,
@@ -36,9 +36,7 @@ func NewService(data parser.ParsedData, outputDirectory, rootNamespace, swaggerG
 }
 
 func (s *Service) Generate() error {
-	if s.debugLog {
-		log.Printf("[STAGE] Updating the Output Revision ID to %q", s.swaggerGitSha)
-	}
+	s.logger.Debug(fmt.Sprintf("[STAGE] Updating the Output Revision ID to %q", s.swaggerGitSha))
 	if err := outputRevisionId(s.outputDirectory, s.rootNamespace, s.swaggerGitSha); err != nil {
 		return fmt.Errorf("outputting the Revision Id: %+v", err)
 	}
@@ -47,25 +45,19 @@ func (s *Service) Generate() error {
 		return fmt.Errorf("generating Service Definitions: %+v", err)
 	}
 
-	if s.debugLog {
-		log.Printf("[STAGE] Generating API Definitions..")
-	}
+	s.logger.Debug("[STAGE] Generating API Definitions..")
 	if err := s.generateApiVersions(); err != nil {
 		return fmt.Errorf("generating API Versions: %+v", err)
 	}
 
 	if s.terraformPackageName != nil {
-		if s.debugLog {
-			log.Printf("[DEBUG] Generating Terraform Definitions")
-		}
+		s.logger.Debug("Generating Terraform Definitions")
 
 		if err := s.generateTerraformDefinitions(); err != nil {
 			return fmt.Errorf("generating Terraform Definitions: %+v", err)
 		}
 	} else {
-		if s.debugLog {
-			log.Printf("[DEBUG] Skipping generating Terraform Definitions as service isn't defined")
-		}
+		s.logger.Debug("Skipping generating Terraform Definitions as service isn't defined")
 	}
 	return nil
 }

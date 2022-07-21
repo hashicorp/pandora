@@ -7,10 +7,11 @@ import (
 	"os"
 	"strings"
 	"sync"
+	"time"
 
+	"github.com/go-git/go-git/v5"
+	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/sdk/config/definitions"
-
-	git "github.com/go-git/go-git/v5"
 )
 
 const (
@@ -18,7 +19,6 @@ const (
 	swaggerDirectory         = "../../swagger"
 	resourceManagerConfig    = "../../config/resource-manager.hcl"
 	terraformDefinitionsPath = "../../config/resources/"
-	permissions              = os.FileMode(0755)
 
 	// only useful for testing without outputting everything
 	justParse = false
@@ -45,8 +45,15 @@ func main() {
 		dataApiEndpoint = &dataApiEndpointVar
 	}
 
-	debug := strings.TrimSpace(os.Getenv("DEBUG")) != ""
-	if err := run(swaggerDirectory, resourceManagerConfig, terraformDefinitionsPath, dataApiEndpoint, justSegments, debug); err != nil {
+	logger := hclog.New(&hclog.LoggerOptions{
+		Level:  hclog.DefaultLevel,
+		Output: hclog.DefaultOutput,
+		TimeFn: time.Now,
+	})
+	if strings.TrimSpace(os.Getenv("DEBUG")) != "" {
+		logger.SetLevel(hclog.Trace)
+	}
+	if err := run(swaggerDirectory, resourceManagerConfig, terraformDefinitionsPath, dataApiEndpoint, justSegments, logger); err != nil {
 		log.Printf("Error: %+v", err)
 		os.Exit(1)
 		return
@@ -55,26 +62,26 @@ func main() {
 	os.Exit(0)
 }
 
-func run(swaggerDirectory, configFilePath, terraformDefinitionsPath string, dataApiEndpoint *string, justSegments, debug bool) error {
+func run(swaggerDirectory, configFilePath, terraformDefinitionsPath string, dataApiEndpoint *string, justSegments bool, logger hclog.Logger) error {
 	if justSegments {
-		return parseAndOutputSegments(swaggerDirectory, debug)
+		return parseAndOutputSegments(swaggerDirectory, logger)
 	}
 
-	return runImporter(configFilePath, terraformDefinitionsPath, dataApiEndpoint, debug)
+	return runImporter(configFilePath, terraformDefinitionsPath, dataApiEndpoint, logger)
 }
 
-func runImporter(configFilePath, terraformDefinitionsPath string, dataApiEndpoint *string, debug bool) error {
+func runImporter(configFilePath, terraformDefinitionsPath string, dataApiEndpoint *string, logger hclog.Logger) error {
 	resources, err := definitions.LoadFromDirectory(terraformDefinitionsPath)
 	if err != nil {
 		return fmt.Errorf("loading terraform definitions from %q: %+v", terraformDefinitionsPath, err)
 	}
 
-	input, err := GenerationData(configFilePath, swaggerDirectory, *resources, false)
+	input, err := GenerationData(configFilePath, swaggerDirectory, *resources, logger)
 	if err != nil {
 		return fmt.Errorf("loading data: %+v", err)
 	}
 
-	swaggerGitSha, err := determineGitSha(swaggerDirectory)
+	swaggerGitSha, err := determineGitSha(swaggerDirectory, logger)
 	if err != nil {
 		return fmt.Errorf("determining Git SHA at %q: %+v", swaggerDirectory, err)
 	}
@@ -83,7 +90,7 @@ func runImporter(configFilePath, terraformDefinitionsPath string, dataApiEndpoin
 	for _, v := range *input {
 		wg.Add(1)
 		go func(v RunInput) {
-			if err := importService(v, *swaggerGitSha, dataApiEndpoint, debug); err != nil {
+			if err := importService(v, *swaggerGitSha, dataApiEndpoint, logger.Named(fmt.Sprintf("Importer Service %q / API Version %q", v.ServiceName, v.ApiVersion))); err != nil {
 				log.Printf("importing Service %q / Version %q: %+v", v.ServiceName, v.ApiVersion, err)
 				wg.Done()
 				os.Exit(1)
@@ -98,7 +105,7 @@ func runImporter(configFilePath, terraformDefinitionsPath string, dataApiEndpoin
 	return nil
 }
 
-func determineGitSha(repositoryPath string) (*string, error) {
+func determineGitSha(repositoryPath string, logger hclog.Logger) (*string, error) {
 	repo, err := git.PlainOpen(repositoryPath)
 	if err != nil {
 		return nil, err
@@ -110,6 +117,6 @@ func determineGitSha(repositoryPath string) (*string, error) {
 	}
 
 	commit := ref.Hash().String()
-	log.Printf("[DEBUG] Swagger Repository Commit SHA is %q", commit)
+	logger.Debug(fmt.Sprintf("Swagger Repository Commit SHA is %q", commit))
 	return &commit, nil
 }

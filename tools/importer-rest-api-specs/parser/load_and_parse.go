@@ -2,24 +2,19 @@ package parser
 
 import (
 	"fmt"
-	"log"
 	"strings"
 
 	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser/resourceids"
 )
 
-func LoadAndParseFiles(directory string, fileNames []string, serviceName, apiVersion string, debugLogging bool) (*ParsedData, error) {
+func LoadAndParseFiles(directory string, fileNames []string, serviceName, apiVersion string, logger hclog.Logger) (*ParsedData, error) {
 	// Some Services have been deprecated or should otherwise be ignored - check before proceeding
 	if serviceShouldBeIgnored(serviceName) {
-		if debugLogging {
-			log.Printf("[DEBUG] Skipping service %q", serviceName)
-		}
+		logger.Debug(fmt.Sprintf("Service %q should be ignored - skipping", serviceName))
 
 		return &ParsedData{}, nil
 	}
-
-	logger := hclog.NewNullLogger()
 
 	// First go through and parse all of the Resource ID's across all of the files
 	// this means that the names which are generated are unique across the Service
@@ -27,12 +22,12 @@ func LoadAndParseFiles(directory string, fileNames []string, serviceName, apiVer
 	// the future.
 	resourceIdResult := &resourceids.ParseResult{}
 	for _, file := range fileNames {
-		swaggerFile, err := load(directory, file, debugLogging)
+		swaggerFile, err := load(directory, file, logger)
 		if err != nil {
 			return nil, fmt.Errorf("parsing file %q: %+v", file, err)
 		}
 
-		parsedResourceIds, err := swaggerFile.ParseResourceIds(logger)
+		parsedResourceIds, err := swaggerFile.ParseResourceIds()
 		if err != nil {
 			return nil, fmt.Errorf("parsing Resource Ids from %q (Service %q / Api Version %q): %+v", file, serviceName, apiVersion, err)
 		}
@@ -43,7 +38,7 @@ func LoadAndParseFiles(directory string, fileNames []string, serviceName, apiVer
 
 	parsed := make(map[string]ParsedData, 0)
 	for _, file := range fileNames {
-		swaggerFile, err := load(directory, file, debugLogging)
+		swaggerFile, err := load(directory, file, logger)
 		if err != nil {
 			return nil, fmt.Errorf("parsing file %q: %+v", file, err)
 		}
@@ -77,9 +72,7 @@ func LoadAndParseFiles(directory string, fileNames []string, serviceName, apiVer
 	for _, v := range parsed {
 		// the Data API expects that an API Version will contain at least 1 Resource - avoid bad data here
 		if len(v.Resources) == 0 {
-			if debugLogging {
-				log.Printf("[INFO] Service %q / Api Version %q contains no resources, skipping.", v.ServiceName, v.ApiVersion)
-			}
+			logger.Info(fmt.Sprintf("Service %q / Api Version %q contains no resources, skipping.", v.ServiceName, v.ApiVersion))
 			continue
 		}
 

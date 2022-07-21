@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/cleanup"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser/resourceids"
@@ -53,8 +52,8 @@ func (d *SwaggerDefinition) parse(serviceName, apiVersion string, resourceIds re
 	}, nil
 }
 
-func (d *SwaggerDefinition) ParseResourceIds(logger hclog.Logger) (*resourceids.ParseResult, error) {
-	parser := resourceids.NewParser(logger, d.swaggerSpecExpanded)
+func (d *SwaggerDefinition) ParseResourceIds() (*resourceids.ParseResult, error) {
+	parser := resourceids.NewParser(d.logger.Named("ResourceID Parser"), d.swaggerSpecExpanded)
 
 	resourceIds, err := parser.Parse()
 	if err != nil {

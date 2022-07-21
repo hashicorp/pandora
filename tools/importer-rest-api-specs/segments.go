@@ -7,22 +7,23 @@ import (
 	"sort"
 	"strings"
 
+	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser"
 )
 
-func parseAndOutputSegments(swaggerDirectory string, debug bool) error {
-	if debug {
-		log.Printf("[STAGE] Parsing Swagger Files..")
-	}
-
+func parseAndOutputSegments(swaggerDirectory string, logger hclog.Logger) error {
+	logger.Debug("[STAGE] Parsing Swagger Files..")
 	specificationsDirectory := filepath.Join(swaggerDirectory, "specification")
-	resourceManagerServices, err := parser.FindResourceManagerServices(specificationsDirectory, debug)
+	resourceManagerServices, err := parser.FindResourceManagerServices(specificationsDirectory, logger)
 	if err != nil {
 		return fmt.Errorf("retrieving Resource Manager Service details from %q: %+v", specificationsDirectory, err)
 	}
 
 	services := make([]RunInput, 0)
-	for _, service := range *resourceManagerServices {
+	logger.Debug("[STAGE] Processing Resource Manager Services..")
+	for serviceName, service := range *resourceManagerServices {
+		logger.Trace(fmt.Sprintf("Processing Service %q..", serviceName))
+
 		// pick only the latest for now, but leaving the logic below since we'll check all versions too soon
 		sortedVersions := make([]string, 0)
 		for version := range service.ApiVersionPaths {
@@ -35,7 +36,8 @@ func parseAndOutputSegments(swaggerDirectory string, debug bool) error {
 			}
 		}
 
-		for _, version := range sortedVersions {
+		for apiVersion, version := range sortedVersions {
+			logger.Trace(fmt.Sprintf("Identifying Swagger files within API Version %q for Service %q..", apiVersion, serviceName))
 			versionPath := service.ApiVersionPaths[version]
 			versionDirectory := filepath.Join(swaggerDirectory + "/specification/" + versionPath)
 			filesForVersion := make([]string, 0)
@@ -62,7 +64,8 @@ func parseAndOutputSegments(swaggerDirectory string, debug bool) error {
 
 	fixedSegmentValues := make(map[string]struct{}, 0)
 	for _, input := range services {
-		data, err := parseSwaggerFiles(input, debug)
+		logger.Trace(fmt.Sprintf("Parsing Swagger files within API Version %q for Service %q..", input.ApiVersion, input.ServiceName))
+		data, err := parseSwaggerFiles(input, logger)
 		if err != nil {
 			log.Printf("❌ Service %q - Api Version %q", input.ServiceName, input.ApiVersion)
 			log.Printf("     💥 Error: parsing Swagger files: %+v", err)
@@ -80,6 +83,7 @@ func parseAndOutputSegments(swaggerDirectory string, debug bool) error {
 						continue
 					}
 
+					logger.Trace(fmt.Sprintf("Found Resource ID Segment %q..", *segment.FixedValue))
 					fixedSegmentValues[*segment.FixedValue] = struct{}{}
 				}
 			}

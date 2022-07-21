@@ -8,12 +8,12 @@ import (
 )
 
 func ParseSwaggerFileForTesting(t *testing.T, file string) (*models.AzureApiDefinition, error) {
-	parsed, err := load("testdata/", file, true)
+	parsed, err := load("testdata/", file, hclog.New(hclog.DefaultOptions))
 	if err != nil {
 		t.Fatalf("loading: %+v", err)
 	}
 
-	resourceIds, err := parsed.ParseResourceIds(hclog.New(hclog.DefaultOptions))
+	resourceIds, err := parsed.ParseResourceIds()
 	if err != nil {
 		t.Fatalf("parsing Resource Ids: %+v", err)
 	}

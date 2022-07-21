@@ -2,7 +2,6 @@ package dataapigenerator
 
 import (
 	"fmt"
-	"log"
 )
 
 func (s Service) generateApiVersions() error {
@@ -11,9 +10,7 @@ func (s Service) generateApiVersions() error {
 	}
 
 	for resourceName, resource := range s.data.Resources {
-		if s.debugLog {
-			log.Printf("Generating Resource at %q", resourceName)
-		}
+		s.logger.Trace(fmt.Sprintf("Generating Resource %q for API Version %q", resourceName, s.namespaceForApiVersion))
 		outputDirectory := s.workingDirectoryForResource(resourceName)
 		namespace := s.namespaceForResource(resourceName)
 		if err := s.generateResources(resourceName, namespace, resource, outputDirectory); err != nil {

@@ -2,11 +2,12 @@ package constants
 
 import (
 	"fmt"
-	"log"
 	"reflect"
 	"regexp"
 	"strconv"
 	"strings"
+
+	"github.com/hashicorp/go-hclog"
 
 	"github.com/go-openapi/spec"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/cleanup"
@@ -23,7 +24,7 @@ type ParsedConstant struct {
 	Details models.ConstantDetails
 }
 
-func MapConstant(typeVal spec.StringOrArray, fieldName string, values []interface{}, extensions spec.Extensions) (*ParsedConstant, error) {
+func MapConstant(typeVal spec.StringOrArray, fieldName string, values []interface{}, extensions spec.Extensions, logger hclog.Logger) (*ParsedConstant, error) {
 	if len(values) == 0 {
 		return nil, fmt.Errorf("Enum in %q has no values", fieldName)
 	}
@@ -34,7 +35,7 @@ func MapConstant(typeVal spec.StringOrArray, fieldName string, values []interfac
 	constExtension, err := parseConstantExtensionFromExtension(extensions)
 	if err != nil {
 		if featureflags.AllowConstantsWithoutXMSEnum {
-			log.Printf("[DEBUG] Field %q had an invalid `x-ms-enum`: %+v", fieldName, err)
+			logger.Debug(fmt.Sprintf("Field %q had an invalid `x-ms-enum`: %+v", fieldName, err))
 		} else {
 			return nil, fmt.Errorf("parsing x-ms-enum: %+v", err)
 		}
