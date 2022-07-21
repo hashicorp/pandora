@@ -8,7 +8,6 @@ import (
 
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/discovery"
 
-	"github.com/go-git/go-git/v5"
 	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/dataapigenerator"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/differ"
@@ -18,14 +17,6 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/sdk/config/definitions"
 )
-
-func Run(input RunInput) error {
-	if input.JustOutputSegments {
-		return parseAndOutputSegments(input)
-	}
-
-	return runImporter(input)
-}
 
 func runImporter(input RunInput) error {
 	resources, err := definitions.LoadFromDirectory(input.TerraformDefinitionsPath)
@@ -60,22 +51,6 @@ func runImporter(input RunInput) error {
 
 	wg.Wait()
 	return nil
-}
-
-func determineGitSha(repositoryPath string, logger hclog.Logger) (*string, error) {
-	repo, err := git.PlainOpen(repositoryPath)
-	if err != nil {
-		return nil, err
-	}
-
-	ref, err := repo.Head()
-	if err != nil {
-		return nil, err
-	}
-
-	commit := ref.Hash().String()
-	logger.Debug(fmt.Sprintf("Swagger Repository Commit SHA is %q", commit))
-	return &commit, nil
 }
 
 func importService(input discovery.ServiceInput, swaggerGitSha string, dataApiEndpoint *string, justParse bool, logger hclog.Logger) error {

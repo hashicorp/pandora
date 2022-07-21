@@ -12,3 +12,11 @@ type RunInput struct {
 	SwaggerDirectory         string
 	TerraformDefinitionsPath string
 }
+
+func Run(input RunInput) error {
+	if input.JustOutputSegments {
+		return parseAndOutputSegments(input)
+	}
+
+	return runImporter(input)
+}
