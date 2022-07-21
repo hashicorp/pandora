@@ -1,6 +1,7 @@
 package resources
 
 import (
+	"fmt"
 	"strings"
 
 	"github.com/hashicorp/go-hclog"
@@ -93,7 +94,7 @@ func FindCandidates(input services.Resource, resourceDefinitions map[string]defi
 
 		resourceLabel, resourceMetaData := findResourceName(resourceDefinitions, resourceId.Id)
 		if resourceLabel == nil || resourceMetaData == nil {
-			logger.Info("Identified Resource %q but not defined - skipping", resourceId.Id)
+			logger.Debug(fmt.Sprintf("Identified Resource %q but not defined - skipping", resourceId.Id))
 			continue
 		}
 

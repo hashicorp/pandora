@@ -36,7 +36,7 @@ func (s Service) generateResources(resourceName, namespace string, resource mode
 
 	s.logger.Debug("Generating Models..")
 	for modelName, vals := range resource.Models {
-		s.logger.Trace("Generating Model %q (in %s)", modelName, namespace)
+		s.logger.Trace(fmt.Sprintf("Generating Model %q (in %s)", modelName, namespace))
 
 		var parent *models.ModelDetails
 		if vals.ParentTypeName != nil {

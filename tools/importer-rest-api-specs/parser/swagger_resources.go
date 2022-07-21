@@ -22,7 +22,7 @@ func (d *SwaggerDefinition) parseResourcesWithinSwaggerTag(tag *string, resource
 	}
 
 	// pull out the operations and any inlined/top-level constants/models
-	operations, nestedResult, err := d.parseOperationsWithinTag(tag, resourceIds.OriginalUrisToResourceIDs, result)
+	operations, nestedResult, err := d.parseOperationsWithinTag(tag, resourceIds.OriginalUrisToResourceIDs, result, d.logger.Named("Operations Parser"))
 	if err != nil {
 		return nil, fmt.Errorf("finding operations: %+v", err)
 	}
@@ -248,7 +248,7 @@ func (d *SwaggerDefinition) findNestedItemsYetToBeParsed(operations *map[string]
 				return nil, fmt.Errorf("finding top level object named %q: %+v", referenceName, err)
 			}
 
-			parsedAsAConstant, constErr := constants.MapConstant(topLevelObject.Type, referenceName, topLevelObject.Enum, topLevelObject.Extensions)
+			parsedAsAConstant, constErr := constants.MapConstant(topLevelObject.Type, referenceName, topLevelObject.Enum, topLevelObject.Extensions, d.logger.Named("Constant Parser"))
 			parsedAsAModel, modelErr := d.parseModel(referenceName, *topLevelObject)
 			if (constErr != nil && modelErr != nil) || (parsedAsAConstant == nil && parsedAsAModel == nil) {
 				return nil, fmt.Errorf("reference %q didn't parse as a Model or a Constant.\n\nConstant Error: %+v\n\nModel Error: %+v", referenceName, constErr, modelErr)

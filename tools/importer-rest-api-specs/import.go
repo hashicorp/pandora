@@ -14,8 +14,8 @@ import (
 )
 
 func importService(input RunInput, swaggerGitSha string, dataApiEndpoint *string, logger hclog.Logger) error {
-	logger.Debug("[STAGE] Parsing Swagger Files..")
-	data, err := parseSwaggerFiles(input, logger)
+	logger.Trace("Parsing Swagger Files..")
+	data, err := parseSwaggerFiles(input, logger.Named("Swagger"))
 	if err != nil {
 		err = fmt.Errorf("parsing Swagger files: %+v", err)
 		logger.Info(fmt.Sprintf("❌ Service %q - Api Version %q", input.ServiceName, input.ApiVersion))
@@ -28,10 +28,13 @@ func importService(input RunInput, swaggerGitSha string, dataApiEndpoint *string
 	}
 
 	if input.TerraformServiceDefinition != nil {
-		data, err = identifyCandidateTerraformResources(data, *input.TerraformServiceDefinition, logger)
+		logger.Trace("Identifying candidate Terraform Data Sources/Resources within the API Data..")
+		data, err = identifyCandidateTerraformResources(data, *input.TerraformServiceDefinition, logger.Named("Terraform"))
 		if err != nil {
 			return fmt.Errorf("identifying Terraform Candidates: %+v", err)
 		}
+	} else {
+		logger.Trace("No Terraform Definitions defined for this Service, skipping identifying candidate Terraform Data Sources/Resources")
 	}
 
 	if justParse {
@@ -40,15 +43,15 @@ func importService(input RunInput, swaggerGitSha string, dataApiEndpoint *string
 	}
 
 	if dataApiEndpoint != nil {
-		logger.Debug("Retrieving Current Schema from Data API..")
+		logger.Trace("Retrieving current Data and Schema from the Data API..")
 
-		differ := differ.NewDiffer(*dataApiEndpoint)
+		differ := differ.NewDiffer(*dataApiEndpoint, logger.Named("Data API Differ"))
 		existingApiDefinitions, err := differ.RetrieveExistingService(input.ServiceName, input.ApiVersion)
 		if err != nil {
 			return fmt.Errorf("retrieving data for existing Service %q / Version %q from Data API: %+v", input.ServiceName, input.ApiVersion, err)
 		}
 
-		logger.Debug("Applying Overrides from the Existing API Definitions to the Parsed Swagger Data..")
+		logger.Trace("Applying Overrides from the Existing API Definitions to the Parsed Swagger Data..")
 		data, err = differ.ApplyFromExistingAPIDefinitions(*existingApiDefinitions, *data)
 		if err != nil {
 			return fmt.Errorf("applying Overrides from the existing API Definitions: %+v", err)
@@ -56,9 +59,9 @@ func importService(input RunInput, swaggerGitSha string, dataApiEndpoint *string
 
 		// TODO: Overrides for Terraform Resources too
 
-		logger.Debug("Applied Overrides from the Existing API Definitions to the Parsed Swagger Data.")
+		logger.Trace("Applied Overrides from the Existing API Definitions to the Parsed Swagger Data.")
 	} else {
-		logger.Debug("Skipping retrieving current schema from Data API..")
+		logger.Trace("Skipping retrieving current schema from Data API..")
 	}
 
 	logger.Debug("Generating Data API Definitions..")
@@ -66,7 +69,7 @@ func importService(input RunInput, swaggerGitSha string, dataApiEndpoint *string
 	if input.TerraformServiceDefinition != nil {
 		terraformPackageName = &input.TerraformServiceDefinition.TerraformPackageName
 	}
-	dataApiGenerator := dataapigenerator.NewService(*data, outputDirectory, input.RootNamespace, swaggerGitSha, input.ResourceProvider, terraformPackageName, logger)
+	dataApiGenerator := dataapigenerator.NewService(*data, outputDirectory, input.RootNamespace, swaggerGitSha, input.ResourceProvider, terraformPackageName, logger.Named("Data API Generator"))
 	if err := dataApiGenerator.Generate(); err != nil {
 		err = fmt.Errorf("generating Data API Definitions for Service %q / API Version %q: %+v", input.ServiceName, input.ApiVersion, err)
 		logger.Info(fmt.Sprintf("❌ Service %q - Api Version %q", input.ServiceName, input.ApiVersion))

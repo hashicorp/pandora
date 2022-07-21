@@ -41,7 +41,7 @@ func fileExistsAtPath(filePath string) (*bool, error) {
 }
 
 func recreateDirectoryExcludingFiles(directory string, excludeList []string, logger hclog.Logger) error {
-	logger.Debug(fmt.Sprintf("(Re)creating directory at path %q..", directory))
+	logger.Trace(fmt.Sprintf("(Re)creating directory at path %q..", directory))
 	if err := os.MkdirAll(directory, os.FileMode(0755)); err != nil {
 		return fmt.Errorf("creating directory %q: %+v", directory, err)
 	}
@@ -51,7 +51,7 @@ func recreateDirectoryExcludingFiles(directory string, excludeList []string, log
 		return fmt.Errorf("finding files in directory %q: %+v", directory, err)
 	}
 
-	logger.Debug(fmt.Sprintf("Removing %d existing files within %q..", len(*files), directory))
+	logger.Trace(fmt.Sprintf("Removing %d existing files within %q..", len(*files), directory))
 	for _, name := range *files {
 		logger.Trace(fmt.Sprintf("Removing existing file at path %q..", name))
 		os.RemoveAll(name)
@@ -61,15 +61,15 @@ func recreateDirectoryExcludingFiles(directory string, excludeList []string, log
 }
 
 func recreateDirectory(directory string, logger hclog.Logger) error {
-	logger.Debug("Deleting any existing directory at %q..", directory)
+	logger.Trace(fmt.Sprintf("Deleting any existing directory at %q..", directory))
 	if err := os.RemoveAll(directory); err != nil {
 		return fmt.Errorf("removing any existing directory at %q: %+v", directory, err)
 	}
-	logger.Debug("(Re)Creating the directory at %q..", directory)
+	logger.Trace(fmt.Sprintf("(Re)Creating the directory at %q..", directory))
 	if err := os.MkdirAll(directory, os.FileMode(0755)); err != nil {
 		return fmt.Errorf("creating directory %q: %+v", directory, err)
 	}
-	logger.Debug("Created Directory at %q", directory)
+	logger.Trace(fmt.Sprintf("Created Directory at %q", directory))
 	return nil
 }
 

@@ -2,7 +2,6 @@ package resourceids
 
 import (
 	"fmt"
-	"log"
 	"strings"
 
 	"github.com/go-openapi/spec"
@@ -33,11 +32,11 @@ func (p *Parser) parseResourceIdsFromOperations() (*map[string]processedResource
 	for _, operation := range p.swaggerSpecExpanded.Operations() {
 		for uri, operationDetails := range operation {
 			if internal.OperationShouldBeIgnored(uri) {
-				p.logger.Debug("Ignoring %q", uri)
+				p.logger.Debug(fmt.Sprintf("Ignoring %q", uri))
 				continue
 			}
 
-			p.logger.Debug("Parsing Segments for %q..", uri)
+			p.logger.Trace(fmt.Sprintf("Parsing Segments for %q..", uri))
 			resourceId, err := p.parseResourceIdFromOperation(uri, operationDetails)
 			if err != nil {
 				return nil, fmt.Errorf("parsing Resource ID from Operation for %q: %+v", uri, err)
@@ -122,7 +121,7 @@ func (p *Parser) parseResourceIdFromOperation(uri string, operation *spec.Operat
 
 					if param.Enum != nil {
 						// then find the constant itself
-						constant, err := constants.MapConstant([]string{param.Type}, param.Name, param.Enum, param.Extensions)
+						constant, err := constants.MapConstant([]string{param.Type}, param.Name, param.Enum, param.Extensions, p.logger.Named("Constant Parser"))
 						if err != nil {
 							return nil, fmt.Errorf("parsing constant from %q: %+v", uriSegment, err)
 						}
@@ -232,7 +231,7 @@ func (p *Parser) parseResourceIdFromOperation(uri string, operation *spec.Operat
 		uniqueNames[segment.Name] = struct{}{}
 	}
 	if len(uniqueNames) != len(segments) && out.segments != nil {
-		log.Printf("[DEBUG] Determining Unique Names for Segments..")
+		p.logger.Trace("[DEBUG] Determining Unique Names for Segments..")
 		uniquelyNamedSegments, err := determineUniqueNamesForSegments(segments)
 		if err != nil {
 			return nil, fmt.Errorf("determining unique names for the segments as multiple have the same key: %+v", err)

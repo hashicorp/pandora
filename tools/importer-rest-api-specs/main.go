@@ -90,7 +90,7 @@ func runImporter(configFilePath, terraformDefinitionsPath string, dataApiEndpoin
 	for _, v := range *input {
 		wg.Add(1)
 		go func(v RunInput) {
-			if err := importService(v, *swaggerGitSha, dataApiEndpoint, logger); err != nil {
+			if err := importService(v, *swaggerGitSha, dataApiEndpoint, logger.Named(fmt.Sprintf("Importer Service %q / API Version %q", v.ServiceName, v.ApiVersion))); err != nil {
 				log.Printf("importing Service %q / Version %q: %+v", v.ServiceName, v.ApiVersion, err)
 				wg.Done()
 				os.Exit(1)

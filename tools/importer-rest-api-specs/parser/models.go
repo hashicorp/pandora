@@ -61,7 +61,7 @@ func (d *SwaggerDefinition) findConstantsWithinModel(fieldName string, input spe
 	result.Append(known)
 
 	if len(input.Enum) > 0 {
-		constant, err := constants.MapConstant(input.Type, fieldName, input.Enum, input.Extensions)
+		constant, err := constants.MapConstant(input.Type, fieldName, input.Enum, input.Extensions, d.logger.Named("Constant Parser"))
 		if err != nil {
 			return nil, fmt.Errorf("parsing constant: %+v", err)
 		}
@@ -403,7 +403,7 @@ func (d SwaggerDefinition) parseObjectDefinition(modelName, propertyName string,
 
 	// if it's an enum then parse that out
 	if len(input.Enum) > 0 {
-		constant, err := constants.MapConstant(input.Type, propertyName, input.Enum, input.Extensions)
+		constant, err := constants.MapConstant(input.Type, propertyName, input.Enum, input.Extensions, d.logger.Named("Constant Parser"))
 		if err != nil {
 			return nil, nil, fmt.Errorf("parsing constant: %+v", err)
 		}
