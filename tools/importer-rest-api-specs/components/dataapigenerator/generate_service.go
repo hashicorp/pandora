@@ -17,7 +17,7 @@ func (s Service) generateServiceDefinitions() error {
 	}
 
 	// finally let's output the new Service Definition
-	if err := s.generateServiceDefinition(s.data); err != nil {
+	if err := s.generateServiceDefinition(); err != nil {
 		return fmt.Errorf("generating Service Definition for Namespace %q: %+v", s.namespaceForService, err)
 	}
 

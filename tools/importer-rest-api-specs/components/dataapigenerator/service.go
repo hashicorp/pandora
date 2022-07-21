@@ -5,11 +5,12 @@ import (
 	"path"
 	"strings"
 
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+
 	"github.com/hashicorp/go-hclog"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser"
 )
 
-func NewService(data parser.ParsedData, outputDirectory, rootNamespace, swaggerGitSha string, resourceProvider, terraformPackageName *string, logger hclog.Logger) *Service {
+func NewService(data models.AzureApiDefinition, outputDirectory, rootNamespace, swaggerGitSha string, resourceProvider, terraformPackageName *string, logger hclog.Logger) *Service {
 	normalisedServiceName := strings.ReplaceAll(data.ServiceName, "-", "")
 	serviceNamespace := fmt.Sprintf("%s.%s", rootNamespace, strings.Title(normalisedServiceName))
 	serviceWorkingDirectory := path.Join(outputDirectory, rootNamespace, strings.Title(normalisedServiceName))
