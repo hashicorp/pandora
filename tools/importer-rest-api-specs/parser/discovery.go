@@ -1,12 +1,14 @@
 package parser
 
 import (
+	"fmt"
 	"io/fs"
-	"log"
 	"os"
 	"path/filepath"
 	"sort"
 	"strings"
+
+	"github.com/hashicorp/go-hclog"
 )
 
 // TODO: move this into a `discovery` package, I guess?
@@ -16,7 +18,7 @@ type resourceManagerService struct {
 	resourceProvider string
 }
 
-func FindResourceManagerServices(directory string, debug bool) (*map[string]ResourceManagerService, error) {
+func FindResourceManagerServices(directory string, logger hclog.Logger) (*map[string]ResourceManagerService, error) {
 	services := make(map[string]resourceManagerService, 0)
 	err := filepath.Walk(directory,
 		func(fullPath string, info os.FileInfo, err error) error {
@@ -43,10 +45,8 @@ func FindResourceManagerServices(directory string, debug bool) (*map[string]Reso
 			serviceReleaseState := segments[3]
 			apiVersion := segments[4]
 
-			if debug {
-				log.Printf("Service %q / Type %q / RP %q / Status %q / Version %q", serviceName, serviceType, resourceProvider, serviceReleaseState, apiVersion)
-				log.Printf("Path %q", fullPath)
-			}
+			logger.Debug(fmt.Sprintf("Service %q / Type %q / RP %q / Status %q / Version %q", serviceName, serviceType, resourceProvider, serviceReleaseState, apiVersion))
+			logger.Debug(fmt.Sprintf("Path %q", fullPath))
 
 			if !strings.EqualFold(serviceType, "resource-manager") {
 				return nil

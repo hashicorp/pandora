@@ -2,18 +2,15 @@ package dataapigenerator
 
 import (
 	"fmt"
-	"log"
 	"path"
 
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
 func (s Service) generateResources(resourceName, namespace string, resource models.AzureApiResource, workingDirectory string) error {
-	if s.debugLog {
-		log.Printf("[DEBUG] Generating %q (Resource %q)..", namespace, resourceName)
-	}
+	s.logger.Debug(fmt.Sprintf("Generating %q (Resource %q)..", namespace, resourceName))
 
-	if err := recreateDirectory(workingDirectory, s.debugLog); err != nil {
+	if err := recreateDirectory(workingDirectory, s.logger); err != nil {
 		return fmt.Errorf("recreating directory %q: %+v", workingDirectory, err)
 	}
 
@@ -24,13 +21,9 @@ func (s Service) generateResources(resourceName, namespace string, resource mode
 	// We'd also need to parse the mutability data out of the fields, which we're not doing today - but exists in
 	// the Swagger and is parsed out just unused
 
-	if s.debugLog {
-		log.Printf("[DEBUG] Generating Constants..")
-	}
+	s.logger.Debug("Generating Constants..")
 	for constantName, vals := range resource.Constants {
-		if s.debugLog {
-			log.Printf("Generating Constant %q (in %s)", constantName, namespace)
-		}
+		s.logger.Trace(fmt.Sprintf("Generating Constant %q (in %q)", constantName, namespace))
 		code, err := codeForConstant(namespace, constantName, vals)
 		if err != nil {
 			return err
@@ -41,13 +34,9 @@ func (s Service) generateResources(resourceName, namespace string, resource mode
 		}
 	}
 
-	if s.debugLog {
-		log.Printf("[DEBUG] Generating Models..")
-	}
+	s.logger.Debug("Generating Models..")
 	for modelName, vals := range resource.Models {
-		if s.debugLog {
-			log.Printf("Generating Model %q (in %s)", modelName, namespace)
-		}
+		s.logger.Trace("Generating Model %q (in %s)", modelName, namespace)
 
 		var parent *models.ModelDetails
 		if vals.ParentTypeName != nil {
@@ -69,13 +58,9 @@ func (s Service) generateResources(resourceName, namespace string, resource mode
 		}
 	}
 
-	if s.debugLog {
-		log.Printf("[DEBUG] Generating Operations..")
-	}
+	s.logger.Debug("Generating Operations..")
 	for operationName, operation := range resource.Operations {
-		if s.debugLog {
-			log.Printf("Generating Operation %q (in %s)", operationName, namespace)
-		}
+		s.logger.Trace(fmt.Sprintf("Generating Operation %q (in %s)", operationName, namespace))
 		code, err := codeForOperation(namespace, operationName, operation, resource)
 		if err != nil {
 			return fmt.Errorf("generating code for operation %q in %q: %+v", operationName, namespace, err)
@@ -86,13 +71,9 @@ func (s Service) generateResources(resourceName, namespace string, resource mode
 		}
 	}
 
-	if s.debugLog {
-		log.Printf("[DEBUG] Generating Resource IDs..")
-	}
+	s.logger.Debug("Generating Resource IDs..")
 	for name, id := range resource.ResourceIds {
-		if s.debugLog {
-			log.Printf("Generating Resource ID %q (in %s)", name, namespace)
-		}
+		s.logger.Trace(fmt.Sprintf("Generating Resource ID %q (in %s)", name, namespace))
 		code, err := codeForResourceID(namespace, name, id)
 		if err != nil {
 			return fmt.Errorf("generating Resource ID %q in %q: %+v", name, namespace, err)
@@ -103,9 +84,7 @@ func (s Service) generateResources(resourceName, namespace string, resource mode
 		}
 	}
 
-	if s.debugLog {
-		log.Printf("[DEBUG] Generating Package Definition..")
-	}
+	s.logger.Debug("Generating Package Definition..")
 	packageDefinitionCode := codeForPackageDefinition(namespace, resourceName, resource.Operations)
 	packageDefinitionFileName := path.Join(workingDirectory, "Definition.cs")
 	if err := writeToFile(packageDefinitionFileName, packageDefinitionCode); err != nil {

@@ -2,20 +2,17 @@ package dataapigenerator
 
 import (
 	"fmt"
-	"log"
 )
 
 func (s Service) generateServiceDefinitions() error {
-	if s.debugLog {
-		log.Printf("[DEBUG] Processing Service %q..", s.data.ServiceName)
-	}
+	s.logger.Debug(fmt.Sprintf("Processing Service %q..", s.data.ServiceName))
 
 	excludeList := []string{
 		// TODO: presumably we can remove this once https://github.com/hashicorp/pandora/issues/403
 		// is resolved
 		"ServiceDefinition-GenerationSetting.cs",
 	}
-	if err := recreateDirectoryExcludingFiles(s.workingDirectoryForService, excludeList, s.debugLog); err != nil {
+	if err := recreateDirectoryExcludingFiles(s.workingDirectoryForService, excludeList, s.logger); err != nil {
 		return fmt.Errorf("recreating %q: %+v", s.workingDirectoryForService, err)
 	}
 

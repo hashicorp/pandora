@@ -2,7 +2,6 @@ package parser
 
 import (
 	"fmt"
-	"log"
 	"net/http"
 	"strings"
 
@@ -36,14 +35,10 @@ func (d *SwaggerDefinition) parseOperationsWithinTag(tag *string, urisToResource
 	// first find the operations then pull out everything we can
 	operationsForThisTag := d.findOperationsMatchingTag(tag)
 	for _, operation := range *operationsForThisTag {
-		if d.debugLog {
-			log.Printf("[DEBUG] Operation - %s %q..", operation.httpMethod, operation.uri)
-		}
+		d.logger.Debug(fmt.Sprintf("Operation - %s %q..", operation.httpMethod, operation.uri))
 
 		if internal.OperationShouldBeIgnored(operation.uri) {
-			if d.debugLog {
-				log.Printf("[DEBUG] operation should be ignored - skipping..")
-			}
+			d.logger.Debug("Operation should be ignored - skipping..")
 			continue
 		}
 

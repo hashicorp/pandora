@@ -1,9 +1,9 @@
 package resources
 
 import (
-	"log"
 	"strings"
 
+	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/sdk/config/definitions"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 	"github.com/hashicorp/pandora/tools/sdk/services"
@@ -11,7 +11,7 @@ import (
 
 // FindCandidates returns a list of candidate Data Sources and Resources
 // within the specified Service
-func FindCandidates(input services.Resource, resourceDefinitions map[string]definitions.ResourceDefinition, apiResourceName string) resourcemanager.TerraformDetails {
+func FindCandidates(input services.Resource, resourceDefinitions map[string]definitions.ResourceDefinition, apiResourceName string, logger hclog.Logger) resourcemanager.TerraformDetails {
 	out := resourcemanager.TerraformDetails{
 		DataSources: map[string]resourcemanager.TerraformDataSourceDetails{},
 		Resources:   map[string]resourcemanager.TerraformResourceDetails{},
@@ -93,7 +93,7 @@ func FindCandidates(input services.Resource, resourceDefinitions map[string]defi
 
 		resourceLabel, resourceMetaData := findResourceName(resourceDefinitions, resourceId.Id)
 		if resourceLabel == nil || resourceMetaData == nil {
-			log.Printf("[INFO] Identified Resource %q but not defined - skipping", resourceId.Id)
+			logger.Info("Identified Resource %q but not defined - skipping", resourceId.Id)
 			continue
 		}
 

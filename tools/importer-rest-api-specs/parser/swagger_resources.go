@@ -2,7 +2,6 @@ package parser
 
 import (
 	"fmt"
-	"log"
 	"strings"
 
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
@@ -457,9 +456,7 @@ func (d *SwaggerDefinition) findModelNamesWhichImplement(parentName string) []st
 			continue
 		}
 
-		if d.debugLog {
-			log.Printf("[DEBUG] Found %q implements %q", childName, parentName)
-		}
+		d.logger.Trace(fmt.Sprintf("Found %q implements %q", childName, parentName))
 
 		modelNames = append(modelNames, childName)
 	}

@@ -1,11 +1,14 @@
 package dataapigenerator
 
-import "github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser"
+import (
+	"github.com/hashicorp/go-hclog"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/parser"
+)
 
 type Service struct {
 	apiVersionPackageName         string
 	data                          parser.ParsedData
-	debugLog                      bool
+	logger                        hclog.Logger
 	namespaceForService           string
 	namespaceForApiVersion        string
 	namespaceForTerraform         string

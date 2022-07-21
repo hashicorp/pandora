@@ -3,14 +3,14 @@ package parser
 import (
 	"github.com/go-openapi/analysis"
 	"github.com/go-openapi/spec"
+	"github.com/hashicorp/go-hclog"
 )
 
 type SwaggerDefinition struct {
 	// Name is the name of this Swagger file
 	Name string
 
-	// should the debug logs be output to stdout
-	debugLog bool
+	logger hclog.Logger
 
 	// swaggerSpecExpanded is a flattened version of the Swagger spec into a single file
 	swaggerSpecExpanded *analysis.Spec

@@ -2,7 +2,6 @@ package dataapigenerator
 
 import (
 	"fmt"
-	"log"
 	"path"
 
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/cleanup"
@@ -11,9 +10,7 @@ import (
 
 func (s Service) generateServiceDefinition(input parser.ParsedData) error {
 	serviceDefinitionFilePath := path.Join(s.workingDirectoryForService, "ServiceDefinition.cs")
-	if s.debugLog {
-		log.Printf("[DEBUG] Generating Service Definition into %q..", serviceDefinitionFilePath)
-	}
+	s.logger.Debug(fmt.Sprintf("Generating Service Definition into %q..", serviceDefinitionFilePath))
 
 	normalizedServiceName := cleanup.NormalizeName(s.data.ServiceName)
 	code := codeForServiceDefinition(s.namespaceForService, normalizedServiceName, s.resourceProvider, s.terraformPackageName, input)
@@ -28,15 +25,11 @@ func (s Service) generateServiceDefinition(input parser.ParsedData) error {
 		return err
 	}
 	if *exists {
-		if s.debugLog {
-			log.Printf("[DEBUG] Service Definition Generation Settings exist at %q - skipping", generationSettingsFilePath)
-		}
+		s.logger.Debug(fmt.Sprintf("Service Definition Generation Settings exist at %q - skipping", generationSettingsFilePath))
 		return nil
 	}
 
-	if s.debugLog {
-		log.Printf("[DEBUG] Creating Service Definition Generation Settings at %q", generationSettingsFilePath)
-	}
+	s.logger.Debug(fmt.Sprintf("Creating Service Definition Generation Settings at %q", generationSettingsFilePath))
 	code = codeForServiceDefinitionGenerationSettings(s.namespaceForService, s.data.ServiceName)
 	if err := writeToFile(generationSettingsFilePath, code); err != nil {
 		return fmt.Errorf("generating Service Definition Generation Settings into %q: %+v", generationSettingsFilePath, err)

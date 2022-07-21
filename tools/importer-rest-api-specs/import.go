@@ -2,8 +2,8 @@ package main
 
 import (
 	"fmt"
-	"log"
 
+	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/dataapigenerator"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/resources"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/transformer"
@@ -13,38 +13,34 @@ import (
 	"github.com/hashicorp/pandora/tools/sdk/config/definitions"
 )
 
-func importService(input RunInput, swaggerGitSha string, dataApiEndpoint *string, debug bool) error {
-	if debug {
-		log.Printf("[STAGE] Parsing Swagger Files..")
-	}
-	data, err := parseSwaggerFiles(input, debug)
+func importService(input RunInput, swaggerGitSha string, dataApiEndpoint *string, logger hclog.Logger) error {
+	logger.Debug("[STAGE] Parsing Swagger Files..")
+	data, err := parseSwaggerFiles(input, logger)
 	if err != nil {
 		err = fmt.Errorf("parsing Swagger files: %+v", err)
-		log.Printf("❌ Service %q - Api Version %q", input.ServiceName, input.ApiVersion)
-		log.Printf("     💥 Error: %+v", err)
+		logger.Info(fmt.Sprintf("❌ Service %q - Api Version %q", input.ServiceName, input.ApiVersion))
+		logger.Error("     💥 Error: %+v", err)
 		return err
 	}
 	if data == nil {
-		log.Printf("😵 Service %q / Api Version %q contains no resources, skipping.", input.ServiceName, input.ApiVersion)
+		logger.Info(fmt.Sprintf("😵 Service %q / Api Version %q contains no resources, skipping.", input.ServiceName, input.ApiVersion))
 		return nil
 	}
 
 	if input.TerraformServiceDefinition != nil {
-		data, err = identifyCandidateTerraformResources(data, *input.TerraformServiceDefinition)
+		data, err = identifyCandidateTerraformResources(data, *input.TerraformServiceDefinition, logger)
 		if err != nil {
 			return fmt.Errorf("identifying Terraform Candidates: %+v", err)
 		}
 	}
 
 	if justParse {
-		log.Printf("✅ Service %q - Api Version %q - Parsed Fine but skipping generation", input.ServiceName, input.ApiVersion)
+		logger.Info(fmt.Sprintf("✅ Service %q - Api Version %q - Parsed Fine but skipping generation", input.ServiceName, input.ApiVersion))
 		return nil
 	}
 
 	if dataApiEndpoint != nil {
-		if debug {
-			log.Printf("[DEBUG] Retrieving Current Schema from Data API..")
-		}
+		logger.Debug("Retrieving Current Schema from Data API..")
 
 		differ := differ.NewDiffer(*dataApiEndpoint)
 		existingApiDefinitions, err := differ.RetrieveExistingService(input.ServiceName, input.ApiVersion)
@@ -52,9 +48,7 @@ func importService(input RunInput, swaggerGitSha string, dataApiEndpoint *string
 			return fmt.Errorf("retrieving data for existing Service %q / Version %q from Data API: %+v", input.ServiceName, input.ApiVersion, err)
 		}
 
-		if debug {
-			log.Printf("[DEBUG] Applying Overrides from the Existing API Definitions to the Parsed Swagger Data..")
-		}
+		logger.Debug("Applying Overrides from the Existing API Definitions to the Parsed Swagger Data..")
 		data, err = differ.ApplyFromExistingAPIDefinitions(*existingApiDefinitions, *data)
 		if err != nil {
 			return fmt.Errorf("applying Overrides from the existing API Definitions: %+v", err)
@@ -62,33 +56,29 @@ func importService(input RunInput, swaggerGitSha string, dataApiEndpoint *string
 
 		// TODO: Overrides for Terraform Resources too
 
-		if debug {
-			log.Printf("[DEBUG] Applied Overrides from the Existing API Definitions to the Parsed Swagger Data.")
-		}
+		logger.Debug("Applied Overrides from the Existing API Definitions to the Parsed Swagger Data.")
 	} else {
-		log.Printf("[DEBUG] Skipping retrieving current schema from Data API..")
+		logger.Debug("Skipping retrieving current schema from Data API..")
 	}
 
-	if debug {
-		log.Printf("[STAGE] Generating Data API Definitions..")
-	}
+	logger.Debug("Generating Data API Definitions..")
 	var terraformPackageName *string
 	if input.TerraformServiceDefinition != nil {
 		terraformPackageName = &input.TerraformServiceDefinition.TerraformPackageName
 	}
-	dataApiGenerator := dataapigenerator.NewService(*data, outputDirectory, input.RootNamespace, swaggerGitSha, input.ResourceProvider, terraformPackageName, debug)
+	dataApiGenerator := dataapigenerator.NewService(*data, outputDirectory, input.RootNamespace, swaggerGitSha, input.ResourceProvider, terraformPackageName, logger)
 	if err := dataApiGenerator.Generate(); err != nil {
 		err = fmt.Errorf("generating Data API Definitions for Service %q / API Version %q: %+v", input.ServiceName, input.ApiVersion, err)
-		log.Printf("❌ Service %q - Api Version %q", input.ServiceName, input.ApiVersion)
-		log.Printf("     💥 Error: %+v", err)
+		logger.Info(fmt.Sprintf("❌ Service %q - Api Version %q", input.ServiceName, input.ApiVersion))
+		logger.Error(fmt.Sprintf("     💥 Error: %+v", err))
 		return err
 	}
 
-	log.Printf("✅ Service %q - Api Version %q", input.ServiceName, input.ApiVersion)
+	logger.Info(fmt.Sprintf("✅ Service %q - Api Version %q", input.ServiceName, input.ApiVersion))
 	return nil
 }
 
-func identifyCandidateTerraformResources(input *parser.ParsedData, terraformServiceDefinition definitions.ServiceDefinition) (*parser.ParsedData, error) {
+func identifyCandidateTerraformResources(input *parser.ParsedData, terraformServiceDefinition definitions.ServiceDefinition, logger hclog.Logger) (*parser.ParsedData, error) {
 	if input == nil {
 		return input, nil
 	}
@@ -103,7 +93,7 @@ func identifyCandidateTerraformResources(input *parser.ParsedData, terraformServ
 				return nil, fmt.Errorf("mapping Resource %q from to an API Resource: %+v", k, err)
 			}
 
-			terraformDetails := resources.FindCandidates(*apiResource, *definitionsForThisResource, k)
+			terraformDetails := resources.FindCandidates(*apiResource, *definitionsForThisResource, k, logger)
 			v.Terraform = &terraformDetails
 		}
 
@@ -129,8 +119,8 @@ func findResourceDefinitionsForResource(apiVersion, apiResource string, terrafor
 	return &forResource.Definitions
 }
 
-func parseSwaggerFiles(input RunInput, debug bool) (*parser.ParsedData, error) {
-	parseResult, err := parser.LoadAndParseFiles(input.SwaggerDirectory, input.SwaggerFiles, input.ServiceName, input.ApiVersion, debug)
+func parseSwaggerFiles(input RunInput, logger hclog.Logger) (*parser.ParsedData, error) {
+	parseResult, err := parser.LoadAndParseFiles(input.SwaggerDirectory, input.SwaggerFiles, input.ServiceName, input.ApiVersion, logger)
 	if err != nil {
 		return nil, fmt.Errorf("parsing files in %q: %+v", input.SwaggerDirectory, err)
 	}

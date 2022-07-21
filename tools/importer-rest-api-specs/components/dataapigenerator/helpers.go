@@ -2,10 +2,11 @@ package dataapigenerator
 
 import (
 	"fmt"
-	"log"
 	"os"
 	"path"
 	"strings"
+
+	"github.com/hashicorp/go-hclog"
 )
 
 const restApiSpecsLicence = `
@@ -39,56 +40,44 @@ func fileExistsAtPath(filePath string) (*bool, error) {
 	return &result, nil
 }
 
-func recreateDirectoryExcludingFiles(directory string, excludeList []string, debugLog bool) error {
-	if debugLog {
-		log.Printf("[DEBUG] (Re)creating directory at path %q..", directory)
-	}
+func recreateDirectoryExcludingFiles(directory string, excludeList []string, logger hclog.Logger) error {
+	logger.Debug(fmt.Sprintf("(Re)creating directory at path %q..", directory))
 	if err := os.MkdirAll(directory, os.FileMode(0755)); err != nil {
 		return fmt.Errorf("creating directory %q: %+v", directory, err)
 	}
 
-	files, err := findFilesInDirectory(directory, excludeList, debugLog)
+	files, err := findFilesInDirectory(directory, excludeList)
 	if err != nil {
 		return fmt.Errorf("finding files in directory %q: %+v", directory, err)
 	}
 
+	logger.Debug(fmt.Sprintf("Removing %d existing files within %q..", len(*files), directory))
 	for _, name := range *files {
-		if debugLog {
-			log.Printf("[DEBUG] Removing existing file at path %q..", name)
-		}
+		logger.Trace(fmt.Sprintf("Removing existing file at path %q..", name))
 		os.RemoveAll(name)
 	}
 
 	return nil
 }
 
-func recreateDirectory(directory string, debugLog bool) error {
-	if debugLog {
-		log.Printf("[DEBUG] Deleting any existing directory at %q..", directory)
-	}
+func recreateDirectory(directory string, logger hclog.Logger) error {
+	logger.Debug("Deleting any existing directory at %q..", directory)
 	if err := os.RemoveAll(directory); err != nil {
 		return fmt.Errorf("removing any existing directory at %q: %+v", directory, err)
 	}
-	if debugLog {
-		log.Printf("[DEBUG] (Re)Creating the directory at %q..", directory)
-	}
+	logger.Debug("(Re)Creating the directory at %q..", directory)
 	if err := os.MkdirAll(directory, os.FileMode(0755)); err != nil {
 		return fmt.Errorf("creating directory %q: %+v", directory, err)
 	}
-	if debugLog {
-		log.Printf("[DEBUG] Created Directory at %q", directory)
-	}
+	logger.Debug("Created Directory at %q", directory)
 	return nil
 }
 
-func findFilesInDirectory(directory string, excludeList []string, debug bool) (*[]string, error) {
+func findFilesInDirectory(directory string, excludeList []string) (*[]string, error) {
 	dir, err := os.Open(directory)
 	if err != nil {
 		if os.IsNotExist(err) {
-			if debug {
-				log.Printf("[DEBUG] Creating Directory %q..", directory)
-			}
-
+			return &[]string{}, nil
 		} else {
 			return nil, fmt.Errorf("opening directory %q: %+v", directory, err)
 		}

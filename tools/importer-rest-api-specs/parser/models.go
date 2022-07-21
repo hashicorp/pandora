@@ -2,7 +2,6 @@ package parser
 
 import (
 	"fmt"
-	"log"
 	"strings"
 
 	"github.com/go-openapi/spec"
@@ -99,9 +98,7 @@ func (d *SwaggerDefinition) findConstantsWithinModel(fieldName string, input spe
 	}
 
 	for propName, propVal := range input.Properties {
-		if d.debugLog {
-			log.Printf("[DEBUG] Processing Property %q..", propName)
-		}
+		d.logger.Trace(fmt.Sprintf("Processing Property %q..", propName))
 		// models can contain nested models - either can contain constants, so around we go..
 		nestedResult, err := d.findConstantsWithinModel(propName, propVal, result)
 		if err != nil {
@@ -114,9 +111,7 @@ func (d *SwaggerDefinition) findConstantsWithinModel(fieldName string, input spe
 
 	if input.AdditionalProperties != nil && input.AdditionalProperties.Schema != nil {
 		for propName, propVal := range input.AdditionalProperties.Schema.Properties {
-			if d.debugLog {
-				log.Printf("[DEBUG] Processing Additional Property %q..", propName)
-			}
+			d.logger.Trace(fmt.Sprintf("Processing Additional Property %q..", propName))
 			// models can contain nested models - either can contain constants, so around we go..
 			nestedConstants, err := d.findConstantsWithinModel(propName, propVal, result)
 			if err != nil {
@@ -133,9 +128,7 @@ func (d *SwaggerDefinition) findConstantsWithinModel(fieldName string, input spe
 }
 
 func (d *SwaggerDefinition) detailsForField(modelName string, propertyName string, value spec.Schema, isRequired bool, known internal.ParseResult) (*models.FieldDetails, *internal.ParseResult, error) {
-	if d.debugLog {
-		log.Printf("Parsing details for field %q in %q..", propertyName, modelName)
-	}
+	d.logger.Trace(fmt.Sprintf("Parsing details for field %q in %q..", propertyName, modelName))
 
 	result := internal.ParseResult{
 		Constants: map[string]models.ConstantDetails{},
@@ -190,7 +183,7 @@ func (d *SwaggerDefinition) detailsForField(modelName string, propertyName strin
 		objectDefinition.ReferenceName = &inlinedName
 	}
 
-	// Custom Types are determined once all of the models/constants have been pulled out at the end
+	// Custom Types are determined once all the models/constants have been pulled out at the end
 	// so just assign this for now
 	field.ObjectDefinition = objectDefinition
 
