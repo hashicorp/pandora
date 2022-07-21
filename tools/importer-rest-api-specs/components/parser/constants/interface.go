@@ -7,14 +7,11 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
-
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/cleanup"
-
-	"github.com/hashicorp/go-hclog"
-
 	"github.com/go-openapi/spec"
+	"github.com/hashicorp/go-hclog"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/cleanup"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/featureflags"
+	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
 type constantExtension struct {
