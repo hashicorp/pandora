@@ -5,6 +5,7 @@ import (
 	"strings"
 
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/internal"
+	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
@@ -65,8 +66,8 @@ func (systemAssignedIdentityMatcher) IsMatch(_ models.FieldDetails, definition m
 	return hasMatchingType && hasPrincipalId && hasTenantId
 }
 
-func validateIdentityConstantValues(input models.ConstantDetails, expected map[string]string) bool {
-	if input.FieldType != resourcemanager.StringConstant {
+func validateIdentityConstantValues(input resourcemanager.ConstantDetails, expected map[string]string) bool {
+	if input.Type != resourcemanager.StringConstant {
 		return false
 	}
 

@@ -5,6 +5,7 @@ import (
 	"strings"
 
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/internal"
+	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
@@ -120,8 +121,8 @@ func (systemDataMatcher) IsMatch(_ models.FieldDetails, definition models.Object
 	return hasCreatedByType && hasCreatedBy && hasLastModifiedbyType && hasLastModifiedAt && hasLastModifiedBy && hasCreatedAt
 }
 
-func validateSystemDataConstantValues(input models.ConstantDetails, expected map[string]string) bool {
-	if input.FieldType != resourcemanager.StringConstant {
+func validateSystemDataConstantValues(input resourcemanager.ConstantDetails, expected map[string]string) bool {
+	if input.Type != resourcemanager.StringConstant {
 		return false
 	}
 

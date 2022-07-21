@@ -7,13 +7,14 @@ import (
 	"strconv"
 	"strings"
 
+	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/cleanup"
 
 	"github.com/hashicorp/go-hclog"
 
 	"github.com/go-openapi/spec"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/featureflags"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
 type constantExtension struct {
@@ -22,7 +23,7 @@ type constantExtension struct {
 
 type ParsedConstant struct {
 	Name    string
-	Details models.ConstantDetails
+	Details resourcemanager.ConstantDetails
 }
 
 func MapConstant(typeVal spec.StringOrArray, fieldName string, values []interface{}, extensions spec.Extensions, logger hclog.Logger) (*ParsedConstant, error) {
@@ -127,9 +128,9 @@ func MapConstant(typeVal spec.StringOrArray, fieldName string, values []interfac
 
 	return &ParsedConstant{
 		Name: constantName,
-		Details: models.ConstantDetails{
-			Values:    keysAndValues,
-			FieldType: constantType,
+		Details: resourcemanager.ConstantDetails{
+			Values: keysAndValues,
+			Type:   constantType,
 		},
 	}, nil
 }

@@ -13,7 +13,7 @@ type ParsedResourceId struct {
 	CommonAlias *string
 
 	// Constants are a map[Name]ConstantDetails for the Constants used in this Resource ID
-	Constants map[string]ConstantDetails
+	Constants map[string]resourcemanager.ConstantDetails
 
 	// Segments are an ordered list of segments which comprise this Resource ID
 	Segments []ResourceIdSegment

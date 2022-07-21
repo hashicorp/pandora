@@ -24,7 +24,7 @@ var knownSegmentsUsedForScope = []string{
 type processedResourceId struct {
 	segments  *[]models.ResourceIdSegment
 	uriSuffix *string
-	constants map[string]models.ConstantDetails
+	constants map[string]resourcemanager.ConstantDetails
 }
 
 func (p *Parser) parseResourceIdsFromOperations() (*map[string]processedResourceId, error) {
@@ -55,7 +55,7 @@ func (p *Parser) parseResourceIdFromOperation(uri string, operation *spec.Operat
 
 	segments := make([]models.ResourceIdSegment, 0)
 	result := internal2.ParseResult{
-		Constants: map[string]models.ConstantDetails{},
+		Constants: map[string]resourcemanager.ConstantDetails{},
 	}
 
 	uriSegments := strings.Split(strings.TrimPrefix(uri, "/"), "/")

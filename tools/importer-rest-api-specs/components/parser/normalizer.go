@@ -3,13 +3,14 @@ package parser
 import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/cleanup"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
 // normalizeAzureApiResource works through the parsed AzureApiResource and ensures
 // that all the Names and References are consistent (TitleCase) as a final effort
 // to ensure the Swagger Data is normalized.
 func normalizeAzureApiResource(input models.AzureApiResource) models.AzureApiResource {
-	normalizedConstants := make(map[string]models.ConstantDetails)
+	normalizedConstants := make(map[string]resourcemanager.ConstantDetails)
 	for k, v := range input.Constants {
 		name := cleanup.NormalizeName(k)
 		normalizedConstants[name] = v
@@ -78,7 +79,7 @@ func normalizeAzureApiResource(input models.AzureApiResource) models.AzureApiRes
 	for k, v := range input.ResourceIds {
 		segments := make([]models.ResourceIdSegment, 0)
 
-		normalizedConstants := make(map[string]models.ConstantDetails)
+		normalizedConstants := make(map[string]resourcemanager.ConstantDetails)
 		for k, constant := range v.Constants {
 			name := cleanup.NormalizeName(k)
 			normalizedConstants[name] = constant

@@ -7,13 +7,14 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/constants"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/internal"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/resourceids"
+	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
 func (d *SwaggerDefinition) parseResourcesWithinSwaggerTag(tag *string, resourceIds resourceids.ParseResult) (*models.AzureApiResource, error) {
 	result := internal.ParseResult{
-		Constants: map[string]models.ConstantDetails{},
+		Constants: map[string]resourcemanager.ConstantDetails{},
 		Models:    map[string]models.ModelDetails{},
 	}
 
@@ -138,7 +139,7 @@ func (d *SwaggerDefinition) replaceDiscriminatedTypesWithParents(inputResult int
 	// should these be discriminators in the Swagger? likely no, but alas, DRY Swaggers.
 
 	nestedResult := internal.ParseResult{
-		Constants: map[string]models.ConstantDetails{},
+		Constants: map[string]resourcemanager.ConstantDetails{},
 		Models:    map[string]models.ModelDetails{},
 	}
 	// models will be manually mapped below
@@ -203,7 +204,7 @@ func (d *SwaggerDefinition) replaceDiscriminatedTypeWithinObjectDefinitionWithPa
 
 func switchOutCustomTypesAsNeeded(input internal.ParseResult) internal.ParseResult {
 	result := internal.ParseResult{
-		Constants: map[string]models.ConstantDetails{},
+		Constants: map[string]resourcemanager.ConstantDetails{},
 		Models:    map[string]models.ModelDetails{},
 	}
 	result.Append(input)
@@ -233,7 +234,7 @@ func switchOutCustomTypesAsNeeded(input internal.ParseResult) internal.ParseResu
 
 func (d *SwaggerDefinition) findNestedItemsYetToBeParsed(operations *map[string]models.OperationDetails, known internal.ParseResult) (*internal.ParseResult, error) {
 	result := internal.ParseResult{
-		Constants: map[string]models.ConstantDetails{},
+		Constants: map[string]resourcemanager.ConstantDetails{},
 		Models:    map[string]models.ModelDetails{},
 	}
 	result.Append(known)

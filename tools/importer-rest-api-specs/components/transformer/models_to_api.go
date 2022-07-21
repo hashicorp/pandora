@@ -14,11 +14,6 @@ func ApiResourceFromModelResource(schema models.AzureApiResource) (*services.Res
 		return nil, fmt.Errorf("converting Model Operation Details into Data API Operation Details: %+v", err)
 	}
 
-	constants, err := apiConstantsFromModelConstants(schema.Constants)
-	if err != nil {
-		return nil, fmt.Errorf("converting Model Constant Details into Data API Constant Details: %+v", err)
-	}
-
 	models, err := apiModelsFromModelModels(schema.Models)
 	if err != nil {
 		return nil, fmt.Errorf("converting Model Constant Details into Data API Constant Details: %+v", err)
@@ -34,25 +29,11 @@ func ApiResourceFromModelResource(schema models.AzureApiResource) (*services.Res
 			Operations: *operations,
 		},
 		Schema: resourcemanager.ApiSchemaDetails{
-			Constants:   *constants,
+			Constants:   schema.Constants,
 			Models:      *models,
 			ResourceIds: *resourceIds,
 		},
 	}, nil
-}
-
-func apiConstantsFromModelConstants(input map[string]models.ConstantDetails) (*map[string]resourcemanager.ConstantDetails, error) {
-	out := make(map[string]resourcemanager.ConstantDetails, 0)
-
-	for k, v := range input {
-		out[k] = resourcemanager.ConstantDetails{
-			CaseInsensitive: false,
-			Type:            v.FieldType,
-			Values:          v.Values,
-		}
-	}
-
-	return &out, nil
 }
 
 func apiModelsFromModelModels(input map[string]models.ModelDetails) (*map[string]resourcemanager.ModelDetails, error) {

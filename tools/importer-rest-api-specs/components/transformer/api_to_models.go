@@ -7,19 +7,6 @@ import (
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-func MapApiConstantsToConstantDetails(input map[string]resourcemanager.ConstantDetails) (*map[string]models.ConstantDetails, error) {
-	output := make(map[string]models.ConstantDetails)
-
-	for k, v := range input {
-		output[k] = models.ConstantDetails{
-			FieldType: v.Type,
-			Values:    v.Values,
-		}
-	}
-
-	return &output, nil
-}
-
 func MapApiModelsToModelDetails(input map[string]resourcemanager.ModelDetails) (*map[string]models.ModelDetails, error) {
 	output := make(map[string]models.ModelDetails)
 
@@ -227,11 +214,11 @@ func mapApiOperationOptions(input map[string]resourcemanager.ApiOperationOption)
 	return &output, nil
 }
 
-func MapApiResourceIdDefinitionsToParsedResourceIds(input map[string]resourcemanager.ResourceIdDefinition, constants map[string]models.ConstantDetails) (*map[string]models.ParsedResourceId, error) {
+func MapApiResourceIdDefinitionsToParsedResourceIds(input map[string]resourcemanager.ResourceIdDefinition, constants map[string]resourcemanager.ConstantDetails) (*map[string]models.ParsedResourceId, error) {
 	output := make(map[string]models.ParsedResourceId)
 
 	for k, v := range input {
-		constantsUsed := make(map[string]models.ConstantDetails)
+		constantsUsed := make(map[string]resourcemanager.ConstantDetails)
 		for _, name := range v.ConstantNames {
 			constant, ok := constants[name]
 			if !ok {

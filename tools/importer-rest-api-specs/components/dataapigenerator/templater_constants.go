@@ -6,11 +6,9 @@ import (
 	"strings"
 
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
-
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
-func codeForConstant(namespace, constantName string, details models.ConstantDetails) (*string, error) {
+func codeForConstant(namespace, constantName string, details resourcemanager.ConstantDetails) (*string, error) {
 	code := make([]string, 0)
 
 	sortedKeys := make([]string, 0)
@@ -25,9 +23,9 @@ func codeForConstant(namespace, constantName string, details models.ConstantDeta
 	}
 
 	attributes := make([]string, 0)
-	constantFieldType, err := mapConstantFieldType(details.FieldType)
+	constantFieldType, err := mapConstantFieldType(details.Type)
 	if err != nil {
-		return nil, fmt.Errorf("mapping constant field type %q: %+v", string(details.FieldType), err)
+		return nil, fmt.Errorf("mapping constant field type %q: %+v", string(details.Type), err)
 	}
 	attributes = append(attributes, fmt.Sprintf("\t[ConstantType(%s)]", *constantFieldType))
 

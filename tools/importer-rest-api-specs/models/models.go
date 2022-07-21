@@ -13,7 +13,7 @@ type AzureApiDefinition struct {
 }
 
 type AzureApiResource struct {
-	Constants   map[string]ConstantDetails
+	Constants   map[string]resourcemanager.ConstantDetails
 	Models      map[string]ModelDetails
 	Operations  map[string]OperationDetails
 	ResourceIds map[string]ParsedResourceId
@@ -76,11 +76,6 @@ type OperationOption struct {
 	HeaderName       *string
 	QueryStringName  *string
 	Required         bool
-}
-
-type ConstantDetails struct {
-	Values    map[string]string
-	FieldType resourcemanager.ConstantType
 }
 
 type ModelDetails struct {

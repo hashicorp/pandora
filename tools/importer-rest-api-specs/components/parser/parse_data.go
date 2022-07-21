@@ -4,6 +4,7 @@ import (
 	"fmt"
 
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
 func combineResourcesWith(first models.AzureApiDefinition, other map[string]models.AzureApiResource) (*map[string]models.AzureApiResource, error) {
@@ -49,8 +50,8 @@ func combineResourcesWith(first models.AzureApiDefinition, other map[string]mode
 	return &resources, nil
 }
 
-func combineConstants(first map[string]models.ConstantDetails, second map[string]models.ConstantDetails) (*map[string]models.ConstantDetails, error) {
-	constants := make(map[string]models.ConstantDetails, 0)
+func combineConstants(first map[string]resourcemanager.ConstantDetails, second map[string]resourcemanager.ConstantDetails) (*map[string]resourcemanager.ConstantDetails, error) {
+	constants := make(map[string]resourcemanager.ConstantDetails, 0)
 	for k, v := range first {
 		constants[k] = v
 	}
@@ -62,8 +63,8 @@ func combineConstants(first map[string]models.ConstantDetails, second map[string
 			continue
 		}
 
-		if existingConst.FieldType != v.FieldType {
-			return nil, fmt.Errorf("combining constant %q - multiple field types defined as %q and %q", k, string(existingConst.FieldType), string(v.FieldType))
+		if existingConst.Type != v.Type {
+			return nil, fmt.Errorf("combining constant %q - multiple field types defined as %q and %q", k, string(existingConst.Type), string(v.Type))
 		}
 
 		vals, err := combineMaps(existingConst.Values, v.Values)

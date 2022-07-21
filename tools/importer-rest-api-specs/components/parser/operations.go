@@ -9,6 +9,7 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/constants"
 	internal2 "github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/internal"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/resourceids"
+	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 
 	"github.com/hashicorp/go-hclog"
 
@@ -25,7 +26,7 @@ type operationsParser struct {
 func (d *SwaggerDefinition) parseOperationsWithinTag(tag *string, urisToResourceIds map[string]resourceids.ParsedOperation, found internal2.ParseResult, logger hclog.Logger) (*map[string]models.OperationDetails, *internal2.ParseResult, error) {
 	operations := make(map[string]models.OperationDetails, 0)
 	result := internal2.ParseResult{
-		Constants: map[string]models.ConstantDetails{},
+		Constants: map[string]resourcemanager.ConstantDetails{},
 		Models:    map[string]models.ModelDetails{},
 	}
 	result.Append(found)
@@ -71,7 +72,7 @@ func (d *SwaggerDefinition) parseOperationsWithinTag(tag *string, urisToResource
 
 func (p operationsParser) parseOperation(operation parsedOperation, logger hclog.Logger) (*models.OperationDetails, *internal2.ParseResult, error) {
 	result := internal2.ParseResult{
-		Constants: map[string]models.ConstantDetails{},
+		Constants: map[string]resourcemanager.ConstantDetails{},
 		Models:    map[string]models.ModelDetails{},
 	}
 
@@ -300,7 +301,7 @@ func (p operationsParser) operationIsLongRunning(input parsedOperation) bool {
 func (p operationsParser) optionsForOperation(input parsedOperation, logger hclog.Logger) (*map[string]models.OperationOption, *internal2.ParseResult, error) {
 	output := make(map[string]models.OperationOption)
 	result := internal2.ParseResult{
-		Constants: map[string]models.ConstantDetails{},
+		Constants: map[string]resourcemanager.ConstantDetails{},
 	}
 
 	for _, param := range input.operation.Parameters {
@@ -436,7 +437,7 @@ func (p operationsParser) operationIsASuccess(statusCode int, resp spec.Response
 func (p operationsParser) responseObjectForOperation(input parsedOperation, known internal2.ParseResult) (*operationResponseObjectResult, *internal2.ParseResult, error) {
 	output := operationResponseObjectResult{}
 	result := internal2.ParseResult{
-		Constants: map[string]models.ConstantDetails{},
+		Constants: map[string]resourcemanager.ConstantDetails{},
 		Models:    map[string]models.ModelDetails{},
 	}
 	result.Append(known)
