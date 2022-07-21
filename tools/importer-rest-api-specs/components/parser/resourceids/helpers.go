@@ -48,7 +48,7 @@ func normalizedResourceId(segments []models.ResourceIdSegment) string {
 				continue
 			}
 
-		case resourcemanager.ConstantSegment, resourcemanager.ResourceGroupSegment, models.ScopeSegment, resourcemanager.SubscriptionIdSegment, resourcemanager.UserSpecifiedSegment:
+		case resourcemanager.ConstantSegment, resourcemanager.ResourceGroupSegment, resourcemanager.ScopeSegment, resourcemanager.SubscriptionIdSegment, resourcemanager.UserSpecifiedSegment:
 			// e.g. {example}
 			normalizedSegment := segment.Name
 			normalizedSegment = cleanup.NormalizeReservedKeywords(segment.Name)

@@ -304,7 +304,7 @@ func mapApiResourceIdSegmentType(input resourcemanager.ResourceIdSegmentType) (*
 		resourcemanager.ConstantSegment:         resourcemanager.ConstantSegment,
 		resourcemanager.ResourceGroupSegment:    resourcemanager.ResourceGroupSegment,
 		resourcemanager.ResourceProviderSegment: resourcemanager.ResourceProviderSegment,
-		resourcemanager.ScopeSegment:            models.ScopeSegment,
+		resourcemanager.ScopeSegment:            resourcemanager.ScopeSegment,
 		resourcemanager.StaticSegment:           resourcemanager.StaticSegment,
 		resourcemanager.SubscriptionIdSegment:   resourcemanager.SubscriptionIdSegment,
 		resourcemanager.UserSpecifiedSegment:    resourcemanager.UserSpecifiedSegment,

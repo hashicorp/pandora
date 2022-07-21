@@ -70,7 +70,7 @@ func generateNamesForResourceIds(input []models.ParsedResourceId, log hclog.Logg
 		}
 
 		candidateSegmentName := segmentsAvailableForNaming[0]
-		if resourceId.Segments[0].Type == models.ScopeSegment && len(resourceId.Segments) > 1 {
+		if resourceId.Segments[0].Type == resourcemanager.ScopeSegment && len(resourceId.Segments) > 1 {
 			candidateSegmentName = fmt.Sprintf("Scoped%s", candidateSegmentName)
 		}
 		candidateSegmentName = cleanup.NormalizeSegment(candidateSegmentName, false)
@@ -129,7 +129,7 @@ func determineUniqueNamesFor(conflictingUris []models.ParsedResourceId, existing
 		uniqueNameFound := false
 
 		// matches the behaviour above
-		if resourceId.Segments[0].Type == models.ScopeSegment {
+		if resourceId.Segments[0].Type == resourcemanager.ScopeSegment {
 			proposedName += "Scoped"
 		}
 
@@ -183,7 +183,7 @@ func SegmentsAvailableForNaming(pri models.ParsedResourceId) []string {
 
 	segmentsWithoutScope := make([]models.ResourceIdSegment, 0)
 	for _, segment := range reversedSegments {
-		if segment.Type == models.ScopeSegment {
+		if segment.Type == resourcemanager.ScopeSegment {
 			continue
 		}
 

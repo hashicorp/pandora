@@ -53,7 +53,7 @@ func (pri ParsedResourceId) Matches(other ParsedResourceId) bool {
 		}
 
 		// With a Scope the key doesn't matter as much as that it's a Scope, so presuming the types match (above) we're good.
-		if first.Type == ScopeSegment {
+		if first.Type == resourcemanager.ScopeSegment {
 			continue
 		}
 
@@ -114,10 +114,6 @@ type ResourceIdSegment struct {
 
 type SegmentType resourcemanager.ResourceIdSegmentType
 
-const (
-	ScopeSegment SegmentType = "scope"
-)
-
 func ConstantResourceIDSegment(name, constantName string) ResourceIdSegment {
 	return ResourceIdSegment{
 		Type:              resourcemanager.ConstantSegment,
@@ -152,7 +148,7 @@ func StaticResourceIDSegment(name, fixedValue string) ResourceIdSegment {
 func ScopeResourceIDSegment(name string) ResourceIdSegment {
 	return ResourceIdSegment{
 		Name: name,
-		Type: ScopeSegment,
+		Type: resourcemanager.ScopeSegment,
 	}
 }
 

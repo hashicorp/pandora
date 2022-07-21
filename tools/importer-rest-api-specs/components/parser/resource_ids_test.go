@@ -243,7 +243,7 @@ func TestParseResourceIdContainingAScope(t *testing.T) {
 		Constants: map[string]models.ConstantDetails{},
 		Segments: []models.ResourceIdSegment{
 			{
-				Type: models.ScopeSegment,
+				Type: resourcemanager.ScopeSegment,
 				Name: "scope",
 			},
 			{
