@@ -69,7 +69,7 @@ func (d *SwaggerDefinition) parseResourcesWithinSwaggerTag(tag *string, resource
 	}
 
 	// first Normalize the names, meaning `foo` -> `Foo` for consistency
-	resource.Normalize()
+	resource = normalizeAzureApiResource(resource)
 
 	return &resource, nil
 }
