@@ -56,7 +56,7 @@ func codeForResourceIDSegment(input models.ResourceIdSegment) (*string, error) {
 			return &out, nil
 		}
 
-	case models.ResourceGroupSegment:
+	case resourcemanager.ResourceGroupSegment:
 		{
 			out := fmt.Sprintf("ResourceIDSegment.ResourceGroup(%[1]q)", input.Name)
 			return &out, nil

@@ -295,7 +295,7 @@ func apiResourceIdSegmentsFromModelResourceIdSegments(input []models.ResourceIdS
 	for _, v := range input {
 		mappings := map[models.SegmentType]resourcemanager.ResourceIdSegmentType{
 			resourcemanager.ConstantSegment:         resourcemanager.ConstantSegment,
-			models.ResourceGroupSegment:             resourcemanager.ResourceGroupSegment,
+			resourcemanager.ResourceGroupSegment:    resourcemanager.ResourceGroupSegment,
 			resourcemanager.ResourceProviderSegment: resourcemanager.ResourceProviderSegment,
 			models.ScopeSegment:                     resourcemanager.ScopeSegment,
 			models.SubscriptionIdSegment:            resourcemanager.SubscriptionIdSegment,

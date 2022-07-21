@@ -41,7 +41,7 @@ var resourceGroupResourceId = models.ParsedResourceId{
 		},
 		{
 			Name: "resourceGroupName",
-			Type: models.ResourceGroupSegment,
+			Type: resourcemanager.ResourceGroupSegment,
 		},
 	},
 }
@@ -88,7 +88,7 @@ var virtualMachineResourceId = models.ParsedResourceId{
 		},
 		{
 			Name: "resourceGroupName",
-			Type: models.ResourceGroupSegment,
+			Type: resourcemanager.ResourceGroupSegment,
 		},
 		{
 			Type:       resourcemanager.StaticSegment,
@@ -130,7 +130,7 @@ var virtualMachineExtensionResourceId = models.ParsedResourceId{
 		},
 		{
 			Name: "resourceGroupName",
-			Type: models.ResourceGroupSegment,
+			Type: resourcemanager.ResourceGroupSegment,
 		},
 		{
 			Type:       resourcemanager.StaticSegment,
@@ -181,7 +181,7 @@ var virtualNetworkExtensionResourceId = models.ParsedResourceId{
 		},
 		{
 			Name: "resourceGroupName",
-			Type: models.ResourceGroupSegment,
+			Type: resourcemanager.ResourceGroupSegment,
 		},
 		{
 			Type:       resourcemanager.StaticSegment,
@@ -251,7 +251,7 @@ var signalRResourceId = models.ParsedResourceId{
 		},
 		{
 			Name: "resourceGroupName",
-			Type: models.ResourceGroupSegment,
+			Type: resourcemanager.ResourceGroupSegment,
 		},
 		{
 			Type:       resourcemanager.StaticSegment,
@@ -335,7 +335,7 @@ var trafficManagerProfileResourceId = models.ParsedResourceId{
 			Name:       "staticResourceGroups",
 		},
 		{
-			Type: models.ResourceGroupSegment,
+			Type: resourcemanager.ResourceGroupSegment,
 			Name: "resourceGroupName",
 		},
 		{
@@ -395,7 +395,7 @@ var redisPatchSchedulesResourceId = models.ParsedResourceId{
 			Name:       "staticResourceGroups",
 		},
 		{
-			Type: models.ResourceGroupSegment,
+			Type: resourcemanager.ResourceGroupSegment,
 			Name: "resourceGroupName",
 		},
 		{
@@ -639,7 +639,7 @@ func TestResourceIDNamingContainingAConstant(t *testing.T) {
 			},
 			{
 				Name: "resourceGroupName",
-				Type: models.ResourceGroupSegment,
+				Type: resourcemanager.ResourceGroupSegment,
 			},
 			{
 				Type:       resourcemanager.StaticSegment,
@@ -709,7 +709,7 @@ func TestResourceIDNamingContainingAConstantAndSuffix(t *testing.T) {
 			},
 			{
 				Name: "resourceGroupName",
-				Type: models.ResourceGroupSegment,
+				Type: resourcemanager.ResourceGroupSegment,
 			},
 			{
 				Type:       resourcemanager.StaticSegment,
@@ -872,7 +872,7 @@ func TestResourceIdNamingConflictingMultipleLevels(t *testing.T) {
 			},
 			{
 				Name: "resourceGroupName",
-				Type: models.ResourceGroupSegment,
+				Type: resourcemanager.ResourceGroupSegment,
 			},
 			{
 				Type:       resourcemanager.StaticSegment,
@@ -932,7 +932,7 @@ func TestResourceIdNamingConflictingMultipleLevels(t *testing.T) {
 			},
 			{
 				Name: "resourceGroupName",
-				Type: models.ResourceGroupSegment,
+				Type: resourcemanager.ResourceGroupSegment,
 			},
 			{
 				Type:       resourcemanager.StaticSegment,
@@ -993,7 +993,7 @@ func TestResourceIdNamingConflictingMultipleLevels(t *testing.T) {
 			},
 			{
 				Name: "resourceGroupName",
-				Type: models.ResourceGroupSegment,
+				Type: resourcemanager.ResourceGroupSegment,
 			},
 			{
 				Type:       resourcemanager.StaticSegment,
@@ -1071,7 +1071,7 @@ func TestResourceIdNamingConflictingMultipleLevels(t *testing.T) {
 			},
 			{
 				Name: "resourceGroupName",
-				Type: models.ResourceGroupSegment,
+				Type: resourcemanager.ResourceGroupSegment,
 			},
 			{
 				Type:       resourcemanager.StaticSegment,

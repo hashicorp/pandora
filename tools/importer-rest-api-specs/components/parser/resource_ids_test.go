@@ -58,7 +58,7 @@ func TestParseResourceIdBasic(t *testing.T) {
 				Name:       "staticResourceGroups",
 			},
 			{
-				Type: models.ResourceGroupSegment,
+				Type: resourcemanager.ResourceGroupSegment,
 				Name: "resourceGroupName",
 			},
 			{
@@ -390,7 +390,7 @@ func TestParseResourceIdWithResourceIdAndUriSuffix(t *testing.T) {
 				Name:       "staticResourceGroups",
 			},
 			{
-				Type: models.ResourceGroupSegment,
+				Type: resourcemanager.ResourceGroupSegment,
 				Name: "resourceGroupName",
 			},
 			{
@@ -495,7 +495,7 @@ func TestParseResourceIdWithResourceIdAndUriSuffixForMultipleUris(t *testing.T) 
 				Name:       "staticResourceGroups",
 			},
 			{
-				Type: models.ResourceGroupSegment,
+				Type: resourcemanager.ResourceGroupSegment,
 				Name: "resourceGroupName",
 			},
 			{
@@ -635,7 +635,7 @@ func TestParseResourceIdContainingResourceProviderShouldGetTitleCased(t *testing
 				Name:       "staticResourceGroups",
 			},
 			{
-				Type: models.ResourceGroupSegment,
+				Type: resourcemanager.ResourceGroupSegment,
 				Name: "resourceGroupName",
 			},
 			{
@@ -736,7 +736,7 @@ func TestParseResourceIdContainingTheSameResourceIdWithDifferentSegments(t *test
 				Name:       "staticResourceGroups",
 			},
 			{
-				Type: models.ResourceGroupSegment,
+				Type: resourcemanager.ResourceGroupSegment,
 				Name: "resourceGroupName",
 			},
 			{
