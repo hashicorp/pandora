@@ -8,6 +8,8 @@ import (
 	"strings"
 	"testing"
 	"time"
+
+	"github.com/hashicorp/go-hclog"
 )
 
 const swaggerDirectory = "../../../swagger/specification"
@@ -20,7 +22,7 @@ func TestAllSwaggersUsingParser(t *testing.T) {
 	// works around the OAIGen bug
 	os.Setenv("OAIGEN_DEDUPE", "false")
 
-	services, err := FindResourceManagerServices(swaggerDirectory, true)
+	services, err := FindResourceManagerServices(swaggerDirectory, hclog.New(hclog.DefaultOptions))
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -55,7 +57,7 @@ func TestAllSwaggersValidateAllContainTypes(t *testing.T) {
 	// works around the OAIGen bug
 	os.Setenv("OAIGEN_DEDUPE", "false")
 
-	services, err := FindResourceManagerServices(swaggerDirectory, true)
+	services, err := FindResourceManagerServices(swaggerDirectory, hclog.New(hclog.DefaultOptions))
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -92,7 +94,7 @@ func TestAllSwaggersValidateFindOAIGenParserBug(t *testing.T) {
 	// works around the OAIGen bug
 	os.Setenv("OAIGEN_DEDUPE", "false")
 
-	services, err := FindResourceManagerServices(swaggerDirectory, true)
+	services, err := FindResourceManagerServices(swaggerDirectory, hclog.New(hclog.DefaultOptions))
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -127,7 +129,7 @@ func TestAllSwaggersValidateFindUnknownBugs(t *testing.T) {
 	// works around the OAIGen bug
 	os.Setenv("OAIGEN_DEDUPE", "false")
 
-	services, err := FindResourceManagerServices(swaggerDirectory, true)
+	services, err := FindResourceManagerServices(swaggerDirectory, hclog.New(hclog.DefaultOptions))
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -169,7 +171,7 @@ func validateDirectory(serviceName, apiVersion, versionDirectory string) error {
 		fileNames = append(fileNames, fileName)
 	}
 
-	if _, err := LoadAndParseFiles(versionDirectory, *swaggerFiles, serviceName, apiVersion, true); err != nil {
+	if _, err := LoadAndParseFiles(versionDirectory, *swaggerFiles, serviceName, apiVersion, hclog.New(hclog.DefaultOptions)); err != nil {
 		return err
 	}
 
