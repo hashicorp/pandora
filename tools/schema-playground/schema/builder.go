@@ -5,7 +5,7 @@ import (
 	"log"
 	"strings"
 
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/resources"
+	"github.com/hashicorp/go-hclog"
 
 	"github.com/hashicorp/pandora/tools/schema-playground/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
@@ -23,18 +23,20 @@ Things to do here:
 type Builder struct {
 	constants   map[string]resourcemanager.ConstantDetails
 	models      map[string]resourcemanager.ModelDetails
+	operations  map[string]resourcemanager.ApiOperation
 	resourceIds map[string]resourcemanager.ResourceIdDefinition
 }
 
-func NewBuilder(constants map[string]resourcemanager.ConstantDetails, models map[string]resourcemanager.ModelDetails, resourceIds map[string]resourcemanager.ResourceIdDefinition) Builder {
+func NewBuilder(constants map[string]resourcemanager.ConstantDetails, models map[string]resourcemanager.ModelDetails, operations map[string]resourcemanager.ApiOperation, resourceIds map[string]resourcemanager.ResourceIdDefinition) Builder {
 	return Builder{
 		constants:   constants,
 		models:      models,
+		operations:  operations,
 		resourceIds: resourceIds,
 	}
 }
 
-func (b Builder) Build(input resources.ResourceCandidate) (*models.SchemaDefinition, error) {
+func (b Builder) Build(input resourcemanager.TerraformResourceDetails, logger hclog.Logger) (*models.SchemaDefinition, error) {
 	// TODO: we should look to skip any resources containing discriminators initially, for example.
 
 	createReadUpdateMethods := b.findCreateUpdateReadPayloads(input)
@@ -52,9 +54,13 @@ func (b Builder) Build(input resources.ResourceCandidate) (*models.SchemaDefinit
 		schemaFields[k] = v
 	}
 
-	fieldsWithinResourceId, err := b.identityTopLevelFieldsWithinResourceID(input.ResourceId)
+	resourceId, ok := b.resourceIds[input.ResourceIdName]
+	if !ok {
+		return nil, fmt.Errorf("couldn't find Resource ID named %q", input.ResourceIdName)
+	}
+	fieldsWithinResourceId, err := b.identityTopLevelFieldsWithinResourceID(resourceId)
 	if err != nil {
-		return nil, fmt.Errorf("identifying top level fields within Resource ID %q: %+v", input.ResourceId.Id, err)
+		return nil, fmt.Errorf("identifying top level fields within Resource ID %q: %+v", resourceId.Id, err)
 	}
 	for k, v := range *fieldsWithinResourceId {
 		schemaFields[k] = v
@@ -325,50 +331,54 @@ func (b Builder) identifyFieldsWithinPropertiesBlock(input operationPayloads) (*
 	return &out, nil
 }
 
-func (b Builder) findCreateUpdateReadPayloads(input resources.ResourceCandidate) *operationPayloads {
+func (b Builder) findCreateUpdateReadPayloads(input resourcemanager.TerraformResourceDetails) *operationPayloads {
 	out := operationPayloads{}
 
-	// For Create/Update operations we're concerned with the Request object
-	if input.CreateMethod != nil && input.CreateMethod.Method.RequestObject != nil {
-		if input.CreateMethod.Method.RequestObject.Type != resourcemanager.ReferenceApiObjectDefinitionType {
-			return nil
-		}
-
-		model, isModel := b.models[*input.CreateMethod.Method.RequestObject.ReferenceName]
-		if !isModel {
-			// not applicable if it's only a string response etc
-			return nil
-		}
-
-		out.createPayload = model
+	// Create has to exist
+	createOperation, ok := b.operations[input.CreateMethod.MethodName]
+	if !ok {
+		return nil
 	}
-	if input.UpdateMethod != nil && input.UpdateMethod.Method.RequestObject != nil {
-		if input.UpdateMethod.Method.RequestObject.Type != resourcemanager.ReferenceApiObjectDefinitionType {
-			return nil
-		}
-
-		model, isModel := b.models[*input.UpdateMethod.Method.RequestObject.ReferenceName]
-		if !isModel {
-			// not applicable if it's only a string response etc
-			return nil
-		}
-
-		out.updatePayload = &model
+	if createOperation.RequestObject == nil || createOperation.RequestObject.Type != resourcemanager.ReferenceApiObjectDefinitionType || createOperation.RequestObject.ReferenceName == nil {
+		// we don't generate resources for operations returning lists etc, debatable if we should
+		return nil
 	}
+	createModel, ok := b.models[*createOperation.RequestObject.ReferenceName]
+	if !ok {
+		return nil
+	}
+	out.createPayload = createModel
 
-	// whereas for Get operations we're concerned with the Response object
-	if input.GetMethod != nil && input.GetMethod.Method.ResponseObject != nil {
-		if input.GetMethod.Method.ResponseObject.Type != resourcemanager.ReferenceApiObjectDefinitionType {
+	// Read has to exist
+	readOperation, ok := b.operations[input.ReadMethod.MethodName]
+	if !ok {
+		return nil
+	}
+	if readOperation.ResponseObject == nil || readOperation.ResponseObject.Type != resourcemanager.ReferenceApiObjectDefinitionType || readOperation.ResponseObject.ReferenceName == nil {
+		// we don't generate resources for operations returning lists etc, debatable if we should
+		return nil
+	}
+	readModel, ok := b.models[*readOperation.ResponseObject.ReferenceName]
+	if !ok {
+		return nil
+	}
+	out.readPayload = readModel
+
+	// Update doesn't have to exist
+	if updateMethod := input.UpdateMethod; updateMethod != nil {
+		updateOperation, ok := b.operations[updateMethod.MethodName]
+		if !ok {
 			return nil
 		}
-
-		model, isModel := b.models[*input.GetMethod.Method.ResponseObject.ReferenceName]
-		if !isModel {
-			// not applicable if it's only a string response etc
+		if updateOperation.RequestObject == nil || updateOperation.RequestObject.Type != resourcemanager.ReferenceApiObjectDefinitionType || updateOperation.RequestObject.ReferenceName == nil {
+			// we don't generate resources for operations returning lists etc, debatable if we should
 			return nil
 		}
-
-		out.readPayload = model
+		updateModel, ok := b.models[*updateOperation.RequestObject.ReferenceName]
+		if !ok {
+			return nil
+		}
+		out.updatePayload = &updateModel
 	}
 	// NOTE: intentionally not including Delete since the payload shouldn't be applicable to users
 	return &out
