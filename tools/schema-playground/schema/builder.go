@@ -7,7 +7,6 @@ import (
 
 	"github.com/hashicorp/go-hclog"
 
-	"github.com/hashicorp/pandora/tools/schema-playground/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
@@ -36,7 +35,7 @@ func NewBuilder(constants map[string]resourcemanager.ConstantDetails, models map
 	}
 }
 
-func (b Builder) Build(input resourcemanager.TerraformResourceDetails, logger hclog.Logger) (*models.SchemaDefinition, error) {
+func (b Builder) Build(input resourcemanager.TerraformResourceDetails, logger hclog.Logger) (*SchemaDefinition, error) {
 	// TODO: we should look to skip any resources containing discriminators initially, for example.
 
 	createReadUpdateMethods := b.findCreateUpdateReadPayloads(input)
@@ -49,7 +48,7 @@ func (b Builder) Build(input resourcemanager.TerraformResourceDetails, logger hc
 		return nil, fmt.Errorf("parsing top-level fields from create/read/update: %+v", err)
 	}
 
-	schemaFields := make(map[string]models.FieldDefinition)
+	schemaFields := make(map[string]FieldDefinition)
 	for k, v := range topLevelFields.toSchema() {
 		schemaFields[k] = v
 	}
@@ -74,7 +73,7 @@ func (b Builder) Build(input resourcemanager.TerraformResourceDetails, logger hc
 		schemaFields[k] = v
 	}
 
-	return &models.SchemaDefinition{
+	return &SchemaDefinition{
 		Fields: schemaFields,
 	}, nil
 }
@@ -103,7 +102,7 @@ func (b Builder) identifyTopLevelFields(input operationPayloads) (*topLevelField
 				}
 			}
 
-			out.identity = &models.FieldDefinition{
+			out.identity = &FieldDefinition{
 				Definition: resourcemanager.ApiObjectDefinition{
 					Type: field.ObjectDefinition.Type,
 				},
@@ -114,7 +113,7 @@ func (b Builder) identifyTopLevelFields(input operationPayloads) (*topLevelField
 		}
 
 		if strings.EqualFold(k, "Location") {
-			out.location = &models.FieldDefinition{
+			out.location = &FieldDefinition{
 				Definition: resourcemanager.ApiObjectDefinition{
 					Type: resourcemanager.LocationApiObjectDefinitionType,
 				},
@@ -131,7 +130,7 @@ func (b Builder) identifyTopLevelFields(input operationPayloads) (*topLevelField
 				}
 			}
 
-			out.tags = &models.FieldDefinition{
+			out.tags = &FieldDefinition{
 				Definition: resourcemanager.ApiObjectDefinition{
 					Type: resourcemanager.TagsApiObjectDefinitionType,
 				},
@@ -146,8 +145,8 @@ func (b Builder) identifyTopLevelFields(input operationPayloads) (*topLevelField
 	return &out, nil
 }
 
-func (b Builder) identityTopLevelFieldsWithinResourceID(input resourcemanager.ResourceIdDefinition) (*map[string]models.FieldDefinition, error) {
-	out := make(map[string]models.FieldDefinition, 0)
+func (b Builder) identityTopLevelFieldsWithinResourceID(input resourcemanager.ResourceIdDefinition) (*map[string]FieldDefinition, error) {
+	out := make(map[string]FieldDefinition, 0)
 
 	if len(input.Segments) > 2 {
 		parentSegments := input.Segments[0 : len(input.Segments)-2]
@@ -162,7 +161,7 @@ func (b Builder) identityTopLevelFieldsWithinResourceID(input resourcemanager.Re
 			}
 			if parentResourceIdName != "" {
 				parentResourceSchemaField := convertToSnakeCase(parentResourceIdName)
-				out[parentResourceSchemaField] = models.FieldDefinition{
+				out[parentResourceSchemaField] = FieldDefinition{
 					Definition: resourcemanager.ApiObjectDefinition{
 						Type:          resourcemanager.ReferenceApiObjectDefinitionType,
 						ReferenceName: &parentResourceIdName,
@@ -228,7 +227,7 @@ func segmentsContainResource(input []resourcemanager.ResourceIdSegment) bool {
 	return penultimateSegmentIsStatic && lastSegmentIsUserSpecifiable
 }
 
-func (b Builder) identifyFieldsWithinPropertiesBlock(input operationPayloads) (*map[string]models.FieldDefinition, error) {
+func (b Builder) identifyFieldsWithinPropertiesBlock(input operationPayloads) (*map[string]FieldDefinition, error) {
 	allFields := make(map[string]struct{}, 0)
 	for _, model := range input.createReadUpdatePayloadsProperties(b.models) {
 		for k, v := range model.Fields {
@@ -248,7 +247,7 @@ func (b Builder) identifyFieldsWithinPropertiesBlock(input operationPayloads) (*
 		updatePropertiesModel = input.getPropertiesModelWithinModel(*input.updatePayload, b.models)
 	}
 
-	out := make(map[string]models.FieldDefinition, 0)
+	out := make(map[string]FieldDefinition, 0)
 	if readPropertiesModel != nil {
 		for k := range allFields {
 			var readField *resourcemanager.FieldDetails
@@ -307,7 +306,7 @@ func (b Builder) identifyFieldsWithinPropertiesBlock(input operationPayloads) (*
 			schemaFieldName := convertToSnakeCase(typedModelName)
 			log.Printf("[DEBUG] Properties Field %q would be output as %q / %q", k, typedModelName, schemaFieldName)
 
-			definition := models.FieldDefinition{
+			definition := FieldDefinition{
 				Required:  isRequired,
 				ForceNew:  isForceNew,
 				Optional:  isOptional,

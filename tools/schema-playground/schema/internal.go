@@ -1,7 +1,6 @@
 package schema
 
 import (
-	"github.com/hashicorp/pandora/tools/schema-playground/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
@@ -52,9 +51,9 @@ func (p operationPayloads) getPropertiesModelWithinModel(input resourcemanager.M
 }
 
 type topLevelFields struct {
-	location *models.FieldDefinition
-	identity *models.FieldDefinition
-	tags     *models.FieldDefinition
+	location *FieldDefinition
+	identity *FieldDefinition
+	tags     *FieldDefinition
 
 	/*
 		TODO:
@@ -64,8 +63,8 @@ type topLevelFields struct {
 	*/
 }
 
-func (f topLevelFields) toSchema() map[string]models.FieldDefinition {
-	out := make(map[string]models.FieldDefinition, 0)
+func (f topLevelFields) toSchema() map[string]FieldDefinition {
+	out := make(map[string]FieldDefinition, 0)
 
 	if f.location != nil {
 		out["location"] = *f.location

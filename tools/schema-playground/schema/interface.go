@@ -1,4 +1,4 @@
-package models
+package schema
 
 import (
 	"fmt"
@@ -9,6 +9,7 @@ import (
 
 type SchemaDefinition struct {
 	Fields map[string]FieldDefinition
+	// TODO: mappings
 }
 
 type FieldDefinition struct {
