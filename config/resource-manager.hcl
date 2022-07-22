@@ -97,7 +97,7 @@ service "elastic" {
 }
 service "eventhub" {
   name      = "EventHub"
-  available = ["2017-04-01", "2018-01-01-preview", "2021-01-01-preview", "2021-11-01"]
+  available = ["2017-04-01", "2018-01-01-preview", "2021-01-01-preview", "2021-11-01", "2022-01-01-preview"]
 }
 service "fluidrelay" {
   name      = "FluidRelay"
