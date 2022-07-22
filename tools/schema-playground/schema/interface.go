@@ -7,7 +7,7 @@ import (
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-type SchemaDefinition struct {
+type Definition struct {
 	Fields map[string]FieldDefinition
 	// TODO: mappings
 }
