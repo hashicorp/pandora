@@ -35,16 +35,12 @@ func TestExistingDataCanBeGenerated(t *testing.T) {
 		t.Fatalf("building generation data: %+v", err)
 	}
 
-	swaggerGitSha, err := determineGitSha(input.SwaggerDirectory, input.Logger)
-	if err != nil {
-		t.Fatalf("determining Git SHA at %q: %+v", swaggerDirectory, err)
-	}
-
 	for _, data := range *generationData {
 		t.Run(fmt.Sprintf("%s-%s", data.ServiceName, data.ApiVersion), func(t *testing.T) {
 			generationData := data
-			justParseData := true
-			if err := importService(generationData, *swaggerGitSha, nil, justParseData, hclog.New(hclog.DefaultOptions)); err != nil {
+
+			task := pipelineTask{}
+			if _, err := task.parseDataForApiVersion(generationData, hclog.New(hclog.DefaultOptions)); err != nil {
 				t.Fatalf("error: %+v", err)
 			}
 		})

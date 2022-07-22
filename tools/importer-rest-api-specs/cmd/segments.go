@@ -14,11 +14,12 @@ import (
 
 var _ cli.Command = SegmentsCommand{}
 
-func NewSegmentsCommand(swaggerDirectory, resourceManagerConfigPath string) func() (cli.Command, error) {
+func NewSegmentsCommand(swaggerDirectory, resourceManagerConfigPath, terraformDefinitionsPath string) func() (cli.Command, error) {
 	return func() (cli.Command, error) {
 		return SegmentsCommand{
 			resourceManagerConfigPath: resourceManagerConfigPath,
 			swaggerDirectory:          swaggerDirectory,
+			terraformDefinitionsPath:  terraformDefinitionsPath,
 		}, nil
 	}
 }
@@ -26,6 +27,7 @@ func NewSegmentsCommand(swaggerDirectory, resourceManagerConfigPath string) func
 type SegmentsCommand struct {
 	resourceManagerConfigPath string
 	swaggerDirectory          string
+	terraformDefinitionsPath  string
 }
 
 func (SegmentsCommand) Help() string {
@@ -50,7 +52,7 @@ func (c SegmentsCommand) Run(_ []string) int {
 		Logger:                   logger,
 		OutputDirectory:          os.DevNull,
 		SwaggerDirectory:         c.swaggerDirectory,
-		TerraformDefinitionsPath: os.DevNull,
+		TerraformDefinitionsPath: c.terraformDefinitionsPath,
 	}
 	if err := pipeline.Run(input); err != nil {
 		log.Printf("Error: %+v", err)
