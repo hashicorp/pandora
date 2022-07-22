@@ -5,6 +5,7 @@ import (
 	"strings"
 
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
 func codeForResourceID(namespace string, resourceIdName string, resourceIdValue models.ParsedResourceId) (*string, error) {
@@ -44,9 +45,9 @@ internal class %[2]s : ResourceID
 	return &code, nil
 }
 
-func codeForResourceIDSegment(input models.ResourceIdSegment) (*string, error) {
+func codeForResourceIDSegment(input resourcemanager.ResourceIdSegment) (*string, error) {
 	switch input.Type {
-	case models.ConstantSegment:
+	case resourcemanager.ConstantSegment:
 		{
 			if input.ConstantReference == nil {
 				return nil, fmt.Errorf("constant segment type with missing constant reference: %+v", input)
@@ -56,13 +57,13 @@ func codeForResourceIDSegment(input models.ResourceIdSegment) (*string, error) {
 			return &out, nil
 		}
 
-	case models.ResourceGroupSegment:
+	case resourcemanager.ResourceGroupSegment:
 		{
 			out := fmt.Sprintf("ResourceIDSegment.ResourceGroup(%[1]q)", input.Name)
 			return &out, nil
 		}
 
-	case models.ResourceProviderSegment:
+	case resourcemanager.ResourceProviderSegment:
 		{
 			if input.FixedValue == nil {
 				return nil, fmt.Errorf("resource provider segment type with missing fixed value: %+v", input)
@@ -72,13 +73,13 @@ func codeForResourceIDSegment(input models.ResourceIdSegment) (*string, error) {
 			return &out, nil
 		}
 
-	case models.ScopeSegment:
+	case resourcemanager.ScopeSegment:
 		{
 			out := fmt.Sprintf("ResourceIDSegment.Scope(%[1]q)", input.Name)
 			return &out, nil
 		}
 
-	case models.StaticSegment:
+	case resourcemanager.StaticSegment:
 		{
 			if input.FixedValue == nil {
 				return nil, fmt.Errorf("static segment type with missing fixed value: %+v", input)
@@ -88,13 +89,13 @@ func codeForResourceIDSegment(input models.ResourceIdSegment) (*string, error) {
 			return &out, nil
 		}
 
-	case models.SubscriptionIdSegment:
+	case resourcemanager.SubscriptionIdSegment:
 		{
 			out := fmt.Sprintf("ResourceIDSegment.SubscriptionId(%[1]q)", input.Name)
 			return &out, nil
 		}
 
-	case models.UserSpecifiedSegment:
+	case resourcemanager.UserSpecifiedSegment:
 		{
 			out := fmt.Sprintf("ResourceIDSegment.UserSpecified(%[1]q)", input.Name)
 			return &out, nil

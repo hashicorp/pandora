@@ -4,6 +4,7 @@ import (
 	"testing"
 
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
 func TestParseConstantsIntegersTopLevelAsInts(t *testing.T) {
@@ -71,8 +72,8 @@ func TestParseConstantsIntegersTopLevelAsInts(t *testing.T) {
 	if !ok {
 		t.Fatalf("resource.Constants['TableNumber'] was not found")
 	}
-	if favouriteTable.FieldType != models.IntegerConstant {
-		t.Fatalf("expected resource.Constants['TableNumber'].FieldType to be 'Integer' but got %q", favouriteTable.FieldType)
+	if favouriteTable.Type != resourcemanager.IntegerConstant {
+		t.Fatalf("expected resource.Constants['TableNumber'].Type to be 'Integer' but got %q", favouriteTable.Type)
 	}
 	if len(favouriteTable.Values) != 4 {
 		t.Fatalf("expected resource.Constants['TableNumber'] to have 4 values but got %d", len(favouriteTable.Values))
@@ -172,8 +173,8 @@ func TestParseConstantsIntegersTopLevelAsStrings(t *testing.T) {
 	if !ok {
 		t.Fatalf("resource.Constants['FavouriteTable'] was not found")
 	}
-	if favouriteTable.FieldType != models.IntegerConstant {
-		t.Fatalf("expected resource.Constants['TableNumber'].FieldType to be 'Integer' but got %q", favouriteTable.FieldType)
+	if favouriteTable.Type != resourcemanager.IntegerConstant {
+		t.Fatalf("expected resource.Constants['TableNumber'].Type to be 'Integer' but got %q", favouriteTable.Type)
 	}
 	if len(favouriteTable.Values) != 3 {
 		t.Fatalf("expected resource.Constants['TableNumber'] to have 3 values but got %d", len(favouriteTable.Values))
@@ -266,8 +267,8 @@ func TestParseConstantsIntegersInlinedAsInts(t *testing.T) {
 	if !ok {
 		t.Fatalf("resource.Constants['FavouriteTable'] was not found")
 	}
-	if favouriteTable.FieldType != models.IntegerConstant {
-		t.Fatalf("expected resource.Constants['TableNumber'].FieldType to be 'Integer' but got %q", favouriteTable.FieldType)
+	if favouriteTable.Type != resourcemanager.IntegerConstant {
+		t.Fatalf("expected resource.Constants['TableNumber'].Type to be 'Integer' but got %q", favouriteTable.Type)
 	}
 	if len(favouriteTable.Values) != 3 {
 		t.Fatalf("expected resource.Constants['TableNumber'] to have 3 values but got %d", len(favouriteTable.Values))
@@ -360,8 +361,8 @@ func TestParseConstantsIntegersInlinedAsStrings(t *testing.T) {
 	if !ok {
 		t.Fatalf("resource.Constants['TableNumber'] was not found")
 	}
-	if favouriteTable.FieldType != models.IntegerConstant {
-		t.Fatalf("expected resource.Constants['TableNumber'].FieldType to be 'Integer' but got %q", favouriteTable.FieldType)
+	if favouriteTable.Type != resourcemanager.IntegerConstant {
+		t.Fatalf("expected resource.Constants['TableNumber'].Type to be 'Integer' but got %q", favouriteTable.Type)
 	}
 	if len(favouriteTable.Values) != 3 {
 		t.Fatalf("expected resource.Constants['TableNumber'] to have 3 values but got %d", len(favouriteTable.Values))
@@ -454,8 +455,8 @@ func TestParseConstantsFloatsTopLevelAsFloats(t *testing.T) {
 	if !ok {
 		t.Fatalf("resource.Constants['TableNumber'] was not found")
 	}
-	if favouriteTable.FieldType != models.FloatConstant {
-		t.Fatalf("expected resource.Constants['TableNumber'].FieldType to be 'Float' but got %q", favouriteTable.FieldType)
+	if favouriteTable.Type != resourcemanager.FloatConstant {
+		t.Fatalf("expected resource.Constants['TableNumber'].Type to be 'Float' but got %q", favouriteTable.Type)
 	}
 	if len(favouriteTable.Values) != 3 {
 		t.Fatalf("expected resource.Constants['TableNumber'] to have 3 values but got %d", len(favouriteTable.Values))
@@ -548,8 +549,8 @@ func TestParseConstantsStringsTopLevelContainingFloats(t *testing.T) {
 	if !ok {
 		t.Fatalf("resource.Constants['TableNumber'] was not found")
 	}
-	if favouriteTable.FieldType != models.StringConstant {
-		t.Fatalf("expected resource.Constants['TableNumber'].FieldType to be 'String' but got %q", favouriteTable.FieldType)
+	if favouriteTable.Type != resourcemanager.StringConstant {
+		t.Fatalf("expected resource.Constants['TableNumber'].Type to be 'String' but got %q", favouriteTable.Type)
 	}
 	if len(favouriteTable.Values) != 3 {
 		t.Fatalf("expected resource.Constants['TableNumber'] to have 3 values but got %d", len(favouriteTable.Values))
@@ -642,8 +643,8 @@ func TestParseConstantsStringsInlinedContainingFloats(t *testing.T) {
 	if !ok {
 		t.Fatalf("resource.Constants['TableNumber'] was not found")
 	}
-	if favouriteTable.FieldType != models.FloatConstant {
-		t.Fatalf("expected resource.Constants['TableNumber'].FieldType to be 'Float' but got %q", favouriteTable.FieldType)
+	if favouriteTable.Type != resourcemanager.FloatConstant {
+		t.Fatalf("expected resource.Constants['TableNumber'].Type to be 'Float' but got %q", favouriteTable.Type)
 	}
 	if len(favouriteTable.Values) != 3 {
 		t.Fatalf("expected resource.Constants['TableNumber'] to have 3 values but got %d", len(favouriteTable.Values))
@@ -736,8 +737,8 @@ func TestParseConstantsFloatsTopLevelAsStrings(t *testing.T) {
 	if !ok {
 		t.Fatalf("resource.Constants['TableNumber'] was not found")
 	}
-	if favouriteTable.FieldType != models.FloatConstant {
-		t.Fatalf("expected resource.Constants['TableNumber'].FieldType to be 'Float' but got %q", favouriteTable.FieldType)
+	if favouriteTable.Type != resourcemanager.FloatConstant {
+		t.Fatalf("expected resource.Constants['TableNumber'].Type to be 'Float' but got %q", favouriteTable.Type)
 	}
 	if len(favouriteTable.Values) != 3 {
 		t.Fatalf("expected resource.Constants['TableNumber'] to have 3 values but got %d", len(favouriteTable.Values))
@@ -830,8 +831,8 @@ func TestParseConstantsFloatsInlinedAsFloats(t *testing.T) {
 	if !ok {
 		t.Fatalf("resource.Constants['TableNumber'] was not found")
 	}
-	if favouriteTable.FieldType != models.FloatConstant {
-		t.Fatalf("expected resource.Constants['TableNumber'].FieldType to be 'Float' but got %q", favouriteTable.FieldType)
+	if favouriteTable.Type != resourcemanager.FloatConstant {
+		t.Fatalf("expected resource.Constants['TableNumber'].Type to be 'Float' but got %q", favouriteTable.Type)
 	}
 	if len(favouriteTable.Values) != 3 {
 		t.Fatalf("expected resource.Constants['TableNumber'] to have 3 values but got %d", len(favouriteTable.Values))
@@ -924,8 +925,8 @@ func TestParseConstantsFloatsInlinedAsStrings(t *testing.T) {
 	if !ok {
 		t.Fatalf("resource.Constants['TableNumber'] was not found")
 	}
-	if favouriteTable.FieldType != models.FloatConstant {
-		t.Fatalf("expected resource.Constants['TableNumber'].FieldType to be 'Float' but got %q", favouriteTable.FieldType)
+	if favouriteTable.Type != resourcemanager.FloatConstant {
+		t.Fatalf("expected resource.Constants['TableNumber'].Type to be 'Float' but got %q", favouriteTable.Type)
 	}
 	if len(favouriteTable.Values) != 3 {
 		t.Fatalf("expected resource.Constants['TableNumber'] to have 3 values but got %d", len(favouriteTable.Values))
@@ -1017,8 +1018,8 @@ func TestParseConstantsStringsTopLevel(t *testing.T) {
 	if !ok {
 		t.Fatalf("resource.Constants['AnimalType'] was not found")
 	}
-	if animalType.FieldType != models.StringConstant {
-		t.Fatalf("expected animalType.FieldType to be a 'String' but got %q", animalType.FieldType)
+	if animalType.Type != resourcemanager.StringConstant {
+		t.Fatalf("expected animalType.Type to be a 'String' but got %q", animalType.Type)
 	}
 	if len(animalType.Values) != 4 {
 		t.Fatalf("expected resource.Constants['AnimalType'] to have 4 values but got %d", len(animalType.Values))
@@ -1120,8 +1121,8 @@ func TestParseConstantsStringsTopLevelAsNonStrings(t *testing.T) {
 	if !ok {
 		t.Fatalf("resource.Constants['AnimalType'] was not found")
 	}
-	if animalType.FieldType != models.StringConstant {
-		t.Fatalf("expected animalType.FieldType to be a 'String' but got %q", animalType.FieldType)
+	if animalType.Type != resourcemanager.StringConstant {
+		t.Fatalf("expected animalType.Type to be a 'String' but got %q", animalType.Type)
 	}
 	if len(animalType.Values) != 3 {
 		t.Fatalf("expected resource.Constants['AnimalType'] to have 3 values but got %d", len(animalType.Values))
@@ -1213,8 +1214,8 @@ func TestParseConstantsStringsInlined(t *testing.T) {
 	if !ok {
 		t.Fatalf("resource.Constants['AnimalType'] was not found")
 	}
-	if animalType.FieldType != models.StringConstant {
-		t.Fatalf("expected animalType.FieldType to be a 'String' but got %q", animalType.FieldType)
+	if animalType.Type != resourcemanager.StringConstant {
+		t.Fatalf("expected animalType.Type to be a 'String' but got %q", animalType.Type)
 	}
 	if len(animalType.Values) != 3 {
 		t.Fatalf("expected resource.Constants['AnimalType'] to have 3 values but got %d", len(animalType.Values))
@@ -1306,8 +1307,8 @@ func TestParseConstantsStringsInlinedAsNonStrings(t *testing.T) {
 	if !ok {
 		t.Fatalf("resource.Constants['AnimalType'] was not found")
 	}
-	if animalType.FieldType != models.StringConstant {
-		t.Fatalf("expected animalType.FieldType to be a 'String' but got %q", animalType.FieldType)
+	if animalType.Type != resourcemanager.StringConstant {
+		t.Fatalf("expected animalType.Type to be a 'String' but got %q", animalType.Type)
 	}
 	if len(animalType.Values) != 3 {
 		t.Fatalf("expected resource.Constants['AnimalType'] to have 3 values but got %d", len(animalType.Values))
@@ -1370,8 +1371,8 @@ func TestParseConstantsFromParameters(t *testing.T) {
 	if !ok {
 		t.Fatalf("resource.Constants['TableNumber'] was not found")
 	}
-	if favouriteTable.FieldType != models.StringConstant {
-		t.Fatalf("expected resource.Constants['TableNumber'].FieldType to be 'String' but got %q", favouriteTable.FieldType)
+	if favouriteTable.Type != resourcemanager.StringConstant {
+		t.Fatalf("expected resource.Constants['TableNumber'].Type to be 'String' but got %q", favouriteTable.Type)
 	}
 	if len(favouriteTable.Values) != 3 {
 		t.Fatalf("expected resource.Constants['TableNumber'] to have 3 values but got %d", len(favouriteTable.Values))

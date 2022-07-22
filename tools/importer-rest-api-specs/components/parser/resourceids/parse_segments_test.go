@@ -6,6 +6,7 @@ import (
 	"github.com/go-openapi/spec"
 	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
 func TestParseResourceIDFromOperation_ConstantSingle(t *testing.T) {
@@ -63,7 +64,7 @@ func TestParseResourceIDFromOperation_ConstantMultiple(t *testing.T) {
 	if resourceId.segments == nil {
 		t.Fatalf("expected 2 segments but got 0")
 	}
-	expectedSegments := []models.ResourceIdSegment{
+	expectedSegments := []resourcemanager.ResourceIdSegment{
 		models.StaticResourceIDSegment("planets", "planets"),
 		models.ConstantResourceIDSegment("planetName", "NameOfPlanet"),
 	}
@@ -106,7 +107,7 @@ func TestParseResourceIDFromOperation_InvalidSegmentDefaultGetsTransformed(t *te
 	if resourceId.segments == nil {
 		t.Fatalf("expected 2 segments but got 0")
 	}
-	expectedSegments := []models.ResourceIdSegment{
+	expectedSegments := []resourcemanager.ResourceIdSegment{
 		models.StaticResourceIDSegment("defaults", "defaults"),
 		models.UserSpecifiedResourceIDSegment("defaultName"),
 	}
@@ -168,7 +169,7 @@ func TestParseResourceIDFromOperation_InvalidSegmentTypeGetsTransformed(t *testi
 	if resourceId.segments == nil {
 		t.Fatalf("expected 2 segments but got 0")
 	}
-	expectedSegments := []models.ResourceIdSegment{
+	expectedSegments := []resourcemanager.ResourceIdSegment{
 		models.StaticResourceIDSegment("things", "things"),
 		models.UserSpecifiedResourceIDSegment("typeName"),
 	}
@@ -201,7 +202,7 @@ func TestParseResourceIDFromOperation_ManagementGroupId(t *testing.T) {
 	if resourceId.segments == nil {
 		t.Fatalf("expected 4 segments but got 0")
 	}
-	expectedSegments := []models.ResourceIdSegment{
+	expectedSegments := []resourcemanager.ResourceIdSegment{
 		models.StaticResourceIDSegment("providers", "providers"),
 		models.ResourceProviderResourceIDSegment("resourceProviders", "Microsoft.Management"),
 		models.StaticResourceIDSegment("managementGroups", "managementGroups"),
@@ -229,7 +230,7 @@ func TestParseResourceIDFromOperation_ResourceGroupId(t *testing.T) {
 	if resourceId.segments == nil {
 		t.Fatalf("expected 4 segments but got 0")
 	}
-	expectedSegments := []models.ResourceIdSegment{
+	expectedSegments := []resourcemanager.ResourceIdSegment{
 		models.StaticResourceIDSegment("providers", "providers"),
 		models.SubscriptionIDResourceIDSegment("subscriptionId"),
 		models.StaticResourceIDSegment("resourceGroups", "resourceGroups"),
@@ -257,7 +258,7 @@ func TestParseResourceIDFromOperation_Scope(t *testing.T) {
 	if resourceId.segments == nil {
 		t.Fatalf("expected 1 segments but got 0")
 	}
-	expectedSegments := []models.ResourceIdSegment{
+	expectedSegments := []resourcemanager.ResourceIdSegment{
 		models.ScopeResourceIDSegment("resourceId"),
 	}
 	validateSegmentsMatch(t, *resourceId.segments, expectedSegments)
@@ -282,7 +283,7 @@ func TestParseResourceIDFromOperation_SubscriptionId(t *testing.T) {
 	if resourceId.segments == nil {
 		t.Fatalf("expected 2 segments but got 0")
 	}
-	expectedSegments := []models.ResourceIdSegment{
+	expectedSegments := []resourcemanager.ResourceIdSegment{
 		models.StaticResourceIDSegment("providers", "providers"),
 		models.SubscriptionIDResourceIDSegment("subscriptionId"),
 	}
@@ -326,7 +327,7 @@ func TestParseResourceIDFromOperation_UserAssignedIdentityId(t *testing.T) {
 	if resourceId.segments == nil {
 		t.Fatalf("expected 8 segments but got 0")
 	}
-	expectedSegments := []models.ResourceIdSegment{
+	expectedSegments := []resourcemanager.ResourceIdSegment{
 		models.StaticResourceIDSegment("subscriptions", "subscriptions"),
 		models.SubscriptionIDResourceIDSegment("subscriptionId"),
 		models.StaticResourceIDSegment("resourceGroups", "resourceGroups"),
@@ -339,7 +340,7 @@ func TestParseResourceIDFromOperation_UserAssignedIdentityId(t *testing.T) {
 	validateSegmentsMatch(t, *resourceId.segments, expectedSegments)
 }
 
-func validateSegmentsMatch(t *testing.T, actual []models.ResourceIdSegment, expected []models.ResourceIdSegment) {
+func validateSegmentsMatch(t *testing.T, actual []resourcemanager.ResourceIdSegment, expected []resourcemanager.ResourceIdSegment) {
 	if len(actual) != len(expected) {
 		t.Fatalf("expected there to be %d segments but got %d", len(expected), len(actual))
 	}

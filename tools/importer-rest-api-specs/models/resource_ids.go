@@ -3,6 +3,8 @@ package models
 import (
 	"fmt"
 	"strings"
+
+	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
 type ParsedResourceId struct {
@@ -11,10 +13,10 @@ type ParsedResourceId struct {
 	CommonAlias *string
 
 	// Constants are a map[Name]ConstantDetails for the Constants used in this Resource ID
-	Constants map[string]ConstantDetails
+	Constants map[string]resourcemanager.ConstantDetails
 
 	// Segments are an ordered list of segments which comprise this Resource ID
-	Segments []ResourceIdSegment
+	Segments []resourcemanager.ResourceIdSegment
 }
 
 func (pri ParsedResourceId) ID() string {
@@ -46,16 +48,16 @@ func (pri ParsedResourceId) Matches(other ParsedResourceId) bool {
 		// /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Devices/provisioningServices/{resourceName}
 		// /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Devices/provisioningServices/{provisioningServiceName}
 		// as such providing they're both user specified segments (and the rest is the same) then they're the same
-		if first.Type == ResourceGroupSegment || first.Type == SubscriptionIdSegment || first.Type == UserSpecifiedSegment {
+		if first.Type == resourcemanager.ResourceGroupSegment || first.Type == resourcemanager.SubscriptionIdSegment || first.Type == resourcemanager.UserSpecifiedSegment {
 			continue
 		}
 
 		// With a Scope the key doesn't matter as much as that it's a Scope, so presuming the types match (above) we're good.
-		if first.Type == ScopeSegment {
+		if first.Type == resourcemanager.ScopeSegment {
 			continue
 		}
 
-		if first.Type == ConstantSegment {
+		if first.Type == resourcemanager.ConstantSegment {
 			if first.ConstantReference != nil && second.ConstantReference == nil {
 				return false
 			}
@@ -69,7 +71,7 @@ func (pri ParsedResourceId) Matches(other ParsedResourceId) bool {
 			continue
 		}
 
-		if first.Type == ResourceProviderSegment || first.Type == StaticSegment {
+		if first.Type == resourcemanager.ResourceProviderSegment || first.Type == resourcemanager.StaticSegment {
 			if first.FixedValue != nil && second.FixedValue == nil {
 				return false
 			}
@@ -96,80 +98,54 @@ func (pri ParsedResourceId) String() string {
 	return pri.ID()
 }
 
-type ResourceIdSegment struct {
-	// Type specifies the Segment Type, such as a Constant/UserSpecified
-	Type SegmentType
-
-	// ConstantReference is the name of the Constant that this Segment uses - if Type is `Constant`
-	ConstantReference *string
-
-	// FixedValue is a fixed/static value for this segment when Type is `Static`
-	FixedValue *string
-
-	// Name is the name of this segment, for example `ResourceGroups` or `VirtualMachine` in Title Case.
-	Name string
-}
-
-type SegmentType string
-
-const (
-	StaticSegment           SegmentType = "static"
-	ConstantSegment         SegmentType = "constant"
-	ResourceGroupSegment    SegmentType = "resource-group"
-	ResourceProviderSegment SegmentType = "resource-provider"
-	SubscriptionIdSegment   SegmentType = "subscription-id"
-	ScopeSegment            SegmentType = "scope"
-	UserSpecifiedSegment    SegmentType = "user-specified"
-)
-
-func ConstantResourceIDSegment(name, constantName string) ResourceIdSegment {
-	return ResourceIdSegment{
-		Type:              ConstantSegment,
+func ConstantResourceIDSegment(name, constantName string) resourcemanager.ResourceIdSegment {
+	return resourcemanager.ResourceIdSegment{
+		Type:              resourcemanager.ConstantSegment,
 		Name:              name,
 		ConstantReference: &constantName,
 	}
 }
 
-func ResourceProviderResourceIDSegment(name, resourceProvider string) ResourceIdSegment {
-	return ResourceIdSegment{
-		Type:       ResourceProviderSegment,
+func ResourceProviderResourceIDSegment(name, resourceProvider string) resourcemanager.ResourceIdSegment {
+	return resourcemanager.ResourceIdSegment{
+		Type:       resourcemanager.ResourceProviderSegment,
 		Name:       name,
 		FixedValue: &resourceProvider,
 	}
 }
 
-func ResourceGroupResourceIDSegment(name string) ResourceIdSegment {
-	return ResourceIdSegment{
-		Type: ResourceGroupSegment,
+func ResourceGroupResourceIDSegment(name string) resourcemanager.ResourceIdSegment {
+	return resourcemanager.ResourceIdSegment{
+		Type: resourcemanager.ResourceGroupSegment,
 		Name: name,
 	}
 }
 
-func StaticResourceIDSegment(name, fixedValue string) ResourceIdSegment {
-	return ResourceIdSegment{
-		Type:       StaticSegment,
+func StaticResourceIDSegment(name, fixedValue string) resourcemanager.ResourceIdSegment {
+	return resourcemanager.ResourceIdSegment{
+		Type:       resourcemanager.StaticSegment,
 		Name:       name,
 		FixedValue: &fixedValue,
 	}
 }
 
-func ScopeResourceIDSegment(name string) ResourceIdSegment {
-	return ResourceIdSegment{
+func ScopeResourceIDSegment(name string) resourcemanager.ResourceIdSegment {
+	return resourcemanager.ResourceIdSegment{
 		Name: name,
-		Type: ScopeSegment,
+		Type: resourcemanager.ScopeSegment,
 	}
 }
 
-func SubscriptionIDResourceIDSegment(name string) ResourceIdSegment {
-	return ResourceIdSegment{
-		Type: SubscriptionIdSegment,
+func SubscriptionIDResourceIDSegment(name string) resourcemanager.ResourceIdSegment {
+	return resourcemanager.ResourceIdSegment{
+		Type: resourcemanager.SubscriptionIdSegment,
 		Name: name,
 	}
 }
 
-func UserSpecifiedResourceIDSegment(name string) ResourceIdSegment {
-	return ResourceIdSegment{
-		Type: UserSpecifiedSegment,
+func UserSpecifiedResourceIDSegment(name string) resourcemanager.ResourceIdSegment {
+	return resourcemanager.ResourceIdSegment{
+		Type: resourcemanager.UserSpecifiedSegment,
 		Name: name,
 	}
 }

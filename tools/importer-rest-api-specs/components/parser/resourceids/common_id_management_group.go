@@ -1,6 +1,9 @@
 package resourceids
 
-import "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+import (
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+)
 
 var _ commonIdMatcher = commonIdManagementGroupMatcher{}
 
@@ -10,8 +13,8 @@ func (commonIdManagementGroupMatcher) id() models.ParsedResourceId {
 	name := "ManagementGroup"
 	return models.ParsedResourceId{
 		CommonAlias: &name,
-		Constants:   map[string]models.ConstantDetails{},
-		Segments: []models.ResourceIdSegment{
+		Constants:   map[string]resourcemanager.ConstantDetails{},
+		Segments: []resourcemanager.ResourceIdSegment{
 			models.StaticResourceIDSegment("providers", "providers"),
 			models.ResourceProviderResourceIDSegment("resourceProvider", "Microsoft.Management"),
 			models.StaticResourceIDSegment("managementGroups", "managementGroups"),

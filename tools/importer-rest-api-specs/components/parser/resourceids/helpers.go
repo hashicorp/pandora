@@ -5,6 +5,7 @@ import (
 	"strings"
 
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/cleanup"
+	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
@@ -14,12 +15,12 @@ func normalizedResourceManagerResourceId(pri models.ParsedResourceId) string {
 	return normalizedResourceId(segments)
 }
 
-func segmentsWithoutUriSuffix(pri models.ParsedResourceId) []models.ResourceIdSegment {
+func segmentsWithoutUriSuffix(pri models.ParsedResourceId) []resourcemanager.ResourceIdSegment {
 	segments := pri.Segments
 	lastUserValueSegment := -1
 	for i, segment := range segments {
 		// everything else technically is a user configurable component
-		if segment.Type != models.StaticSegment && segment.Type != models.ResourceProviderSegment {
+		if segment.Type != resourcemanager.StaticSegment && segment.Type != resourcemanager.ResourceProviderSegment {
 			lastUserValueSegment = i
 		}
 	}
@@ -30,25 +31,25 @@ func segmentsWithoutUriSuffix(pri models.ParsedResourceId) []models.ResourceIdSe
 	return segments
 }
 
-func normalizedResourceId(segments []models.ResourceIdSegment) string {
+func normalizedResourceId(segments []resourcemanager.ResourceIdSegment) string {
 	components := make([]string, 0)
 	for _, segment := range segments {
 		switch segment.Type {
-		case models.ResourceProviderSegment:
+		case resourcemanager.ResourceProviderSegment:
 			{
 				normalizedSegment := cleanup.NormalizeResourceProviderName(*segment.FixedValue)
 				components = append(components, normalizedSegment)
 				continue
 			}
 
-		case models.StaticSegment:
+		case resourcemanager.StaticSegment:
 			{
 				normalizedSegment := cleanup.NormalizeSegment(*segment.FixedValue, true)
 				components = append(components, normalizedSegment)
 				continue
 			}
 
-		case models.ConstantSegment, models.ResourceGroupSegment, models.ScopeSegment, models.SubscriptionIdSegment, models.UserSpecifiedSegment:
+		case resourcemanager.ConstantSegment, resourcemanager.ResourceGroupSegment, resourcemanager.ScopeSegment, resourcemanager.SubscriptionIdSegment, resourcemanager.UserSpecifiedSegment:
 			// e.g. {example}
 			normalizedSegment := segment.Name
 			normalizedSegment = cleanup.NormalizeReservedKeywords(segment.Name)

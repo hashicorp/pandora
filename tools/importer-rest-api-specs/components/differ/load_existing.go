@@ -69,11 +69,6 @@ func (d *Differ) RetrieveExistingService(serviceName, apiVersion string) (*[]mod
 					continue
 				}
 
-				mappedConstants, err := transformer.MapApiConstantsToConstantDetails(resourceSchema.Constants)
-				if err != nil {
-					return nil, fmt.Errorf("mapping Constants for Resource %q / Service %q / Version %q: %+v", resourceName, serviceName, apiVersion, err)
-				}
-
 				mappedModels, err := transformer.MapApiModelsToModelDetails(resourceSchema.Models)
 				if err != nil {
 					return nil, fmt.Errorf("mapping Models for Resource %q / Service %q / Version %q: %+v", resourceName, serviceName, apiVersion, err)
@@ -84,7 +79,7 @@ func (d *Differ) RetrieveExistingService(serviceName, apiVersion string) (*[]mod
 					return nil, fmt.Errorf("mapping Operations for Resource %q / Service %q / Version %q: %+v", resourceName, serviceName, apiVersion, err)
 				}
 
-				mappedResourceIds, err := transformer.MapApiResourceIdDefinitionsToParsedResourceIds(resourceSchema.ResourceIds, *mappedConstants)
+				mappedResourceIds, err := transformer.MapApiResourceIdDefinitionsToParsedResourceIds(resourceSchema.ResourceIds, resourceSchema.Constants)
 				if err != nil {
 					return nil, fmt.Errorf("mapping Resource ID's for Resource %q / Service %q / Version %q: %+v", resourceName, serviceName, apiVersion, err)
 				}
@@ -92,7 +87,7 @@ func (d *Differ) RetrieveExistingService(serviceName, apiVersion string) (*[]mod
 				filteredTerraform := filterTerraformDataToApiVersionAndResource(terraformDetails, apiVersion, resourceName)
 
 				resources[resourceName] = models.AzureApiResource{
-					Constants:   *mappedConstants,
+					Constants:   resourceSchema.Constants,
 					Models:      *mappedModels,
 					Operations:  *mappedOperations,
 					ResourceIds: *mappedResourceIds,

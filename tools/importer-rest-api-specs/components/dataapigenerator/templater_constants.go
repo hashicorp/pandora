@@ -5,10 +5,10 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-func codeForConstant(namespace, constantName string, details models.ConstantDetails) (*string, error) {
+func codeForConstant(namespace, constantName string, details resourcemanager.ConstantDetails) (*string, error) {
 	code := make([]string, 0)
 
 	sortedKeys := make([]string, 0)
@@ -23,9 +23,9 @@ func codeForConstant(namespace, constantName string, details models.ConstantDeta
 	}
 
 	attributes := make([]string, 0)
-	constantFieldType, err := mapConstantFieldType(details.FieldType)
+	constantFieldType, err := mapConstantFieldType(details.Type)
 	if err != nil {
-		return nil, fmt.Errorf("mapping constant field type %q: %+v", string(details.FieldType), err)
+		return nil, fmt.Errorf("mapping constant field type %q: %+v", string(details.Type), err)
 	}
 	attributes = append(attributes, fmt.Sprintf("\t[ConstantType(%s)]", *constantFieldType))
 
@@ -43,19 +43,19 @@ internal enum %[2]sConstant
 	return &out, nil
 }
 
-func mapConstantFieldType(input models.ConstantFieldType) (*string, error) {
+func mapConstantFieldType(input resourcemanager.ConstantType) (*string, error) {
 	result := func(in string) (*string, error) {
 		return &in, nil
 	}
-	if input == models.FloatConstant {
+	if input == resourcemanager.FloatConstant {
 		return result("ConstantTypeAttribute.ConstantType.Float")
 	}
 
-	if input == models.IntegerConstant {
+	if input == resourcemanager.IntegerConstant {
 		return result("ConstantTypeAttribute.ConstantType.Integer")
 	}
 
-	if input == models.StringConstant {
+	if input == resourcemanager.StringConstant {
 		return result("ConstantTypeAttribute.ConstantType.String")
 	}
 

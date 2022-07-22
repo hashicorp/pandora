@@ -4,12 +4,13 @@ import (
 	"testing"
 
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
 func TestCommonResourceID_ManagementGroup(t *testing.T) {
 	valid := models.ParsedResourceId{
-		Constants: map[string]models.ConstantDetails{},
-		Segments: []models.ResourceIdSegment{
+		Constants: map[string]resourcemanager.ConstantDetails{},
+		Segments: []resourcemanager.ResourceIdSegment{
 			models.StaticResourceIDSegment("providers", "providers"),
 			models.ResourceProviderResourceIDSegment("resourceProvider", "Microsoft.Management"),
 			models.StaticResourceIDSegment("managementGroups", "managementGroups"),
@@ -17,8 +18,8 @@ func TestCommonResourceID_ManagementGroup(t *testing.T) {
 		},
 	}
 	invalid := models.ParsedResourceId{
-		Constants: map[string]models.ConstantDetails{},
-		Segments: []models.ResourceIdSegment{
+		Constants: map[string]resourcemanager.ConstantDetails{},
+		Segments: []resourcemanager.ResourceIdSegment{
 			models.StaticResourceIDSegment("providers", "providers"),
 			models.ResourceProviderResourceIDSegment("resourceProvider", "Microsoft.Management"),
 			models.StaticResourceIDSegment("managementGroups", "managementGroups"),

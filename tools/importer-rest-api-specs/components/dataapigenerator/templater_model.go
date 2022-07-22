@@ -6,9 +6,10 @@ import (
 	"strings"
 
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-func codeForModel(namespace string, modelName string, model models.ModelDetails, parentModel *models.ModelDetails, knownConstants map[string]models.ConstantDetails, knownModels map[string]models.ModelDetails) (*string, error) {
+func codeForModel(namespace string, modelName string, model models.ModelDetails, parentModel *models.ModelDetails, knownConstants map[string]resourcemanager.ConstantDetails, knownModels map[string]models.ModelDetails) (*string, error) {
 	if len(model.Fields) == 0 {
 		return nil, fmt.Errorf("the model %q in namespace %q has no fields", modelName, namespace)
 	}
@@ -84,7 +85,7 @@ internal %[2]s
 	return &out, nil
 }
 
-func codeForField(indentation, fieldName string, field models.FieldDetails, isTypeHint bool, constants map[string]models.ConstantDetails, knownModels map[string]models.ModelDetails) (*string, error) {
+func codeForField(indentation, fieldName string, field models.FieldDetails, isTypeHint bool, constants map[string]resourcemanager.ConstantDetails, knownModels map[string]models.ModelDetails) (*string, error) {
 	fieldType, err := dotNetTypeNameForComplexType(field, constants, knownModels)
 	if err != nil {
 		return nil, err
@@ -125,7 +126,7 @@ func codeForField(indentation, fieldName string, field models.FieldDetails, isTy
 	return &out, nil
 }
 
-func dotNetTypeNameForComplexType(field models.FieldDetails, constants map[string]models.ConstantDetails, models map[string]models.ModelDetails) (*string, error) {
+func dotNetTypeNameForComplexType(field models.FieldDetails, constants map[string]resourcemanager.ConstantDetails, models map[string]models.ModelDetails) (*string, error) {
 	if field.CustomFieldType != nil {
 		return dotNetTypeNameForCustomType(*field.CustomFieldType)
 	}
@@ -133,7 +134,7 @@ func dotNetTypeNameForComplexType(field models.FieldDetails, constants map[strin
 	return dotNetNameForObjectDefinition(field.ObjectDefinition, constants, models)
 }
 
-func dotNetNameForObjectDefinition(input *models.ObjectDefinition, constants map[string]models.ConstantDetails, knownModels map[string]models.ModelDetails) (*string, error) {
+func dotNetNameForObjectDefinition(input *models.ObjectDefinition, constants map[string]resourcemanager.ConstantDetails, knownModels map[string]models.ModelDetails) (*string, error) {
 	if input == nil {
 		return nil, fmt.Errorf("missing object definition")
 	}

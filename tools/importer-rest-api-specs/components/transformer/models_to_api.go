@@ -14,11 +14,6 @@ func ApiResourceFromModelResource(schema models.AzureApiResource) (*services.Res
 		return nil, fmt.Errorf("converting Model Operation Details into Data API Operation Details: %+v", err)
 	}
 
-	constants, err := apiConstantsFromModelConstants(schema.Constants)
-	if err != nil {
-		return nil, fmt.Errorf("converting Model Constant Details into Data API Constant Details: %+v", err)
-	}
-
 	models, err := apiModelsFromModelModels(schema.Models)
 	if err != nil {
 		return nil, fmt.Errorf("converting Model Constant Details into Data API Constant Details: %+v", err)
@@ -34,37 +29,11 @@ func ApiResourceFromModelResource(schema models.AzureApiResource) (*services.Res
 			Operations: *operations,
 		},
 		Schema: resourcemanager.ApiSchemaDetails{
-			Constants:   *constants,
+			Constants:   schema.Constants,
 			Models:      *models,
 			ResourceIds: *resourceIds,
 		},
 	}, nil
-}
-
-func apiConstantsFromModelConstants(input map[string]models.ConstantDetails) (*map[string]resourcemanager.ConstantDetails, error) {
-	out := make(map[string]resourcemanager.ConstantDetails, 0)
-
-	for k, v := range input {
-		details := resourcemanager.ConstantDetails{
-			CaseInsensitive: false,
-			Values:          v.Values,
-		}
-
-		switch v.FieldType {
-		case models.IntegerConstant:
-			details.Type = resourcemanager.IntegerConstant
-		case models.FloatConstant:
-			details.Type = resourcemanager.FloatConstant
-		case models.StringConstant:
-			details.Type = resourcemanager.StringConstant
-		default:
-			return nil, fmt.Errorf("unsupported constant type %q for %q", string(details.Type), k)
-		}
-
-		out[k] = details
-	}
-
-	return &out, nil
 }
 
 func apiModelsFromModelModels(input map[string]models.ModelDetails) (*map[string]resourcemanager.ModelDetails, error) {
@@ -273,47 +242,12 @@ func apiResourceIdsFromModelResourceIds(input map[string]models.ParsedResourceId
 			constantNames = append(constantNames, constantName)
 		}
 
-		segments, err := apiResourceIdSegmentsFromModelResourceIdSegments(v.Segments)
-		if err != nil {
-			return nil, fmt.Errorf("mapping resource id segments for id %q: %+v", k, err)
-		}
-
 		out[k] = resourcemanager.ResourceIdDefinition{
 			CommonAlias:   v.CommonAlias,
 			ConstantNames: constantNames,
 			Id:            v.ID(),
-			Segments:      *segments,
+			Segments:      v.Segments,
 		}
-	}
-
-	return &out, nil
-}
-
-func apiResourceIdSegmentsFromModelResourceIdSegments(input []models.ResourceIdSegment) (*[]resourcemanager.ResourceIdSegment, error) {
-	out := make([]resourcemanager.ResourceIdSegment, 0)
-
-	for _, v := range input {
-		mappings := map[models.SegmentType]resourcemanager.ResourceIdSegmentType{
-			models.ConstantSegment:         resourcemanager.ConstantSegment,
-			models.ResourceGroupSegment:    resourcemanager.ResourceGroupSegment,
-			models.ResourceProviderSegment: resourcemanager.ResourceProviderSegment,
-			models.ScopeSegment:            resourcemanager.ScopeSegment,
-			models.SubscriptionIdSegment:   resourcemanager.SubscriptionIdSegment,
-			models.StaticSegment:           resourcemanager.StaticSegment,
-			models.UserSpecifiedSegment:    resourcemanager.UserSpecifiedSegment,
-		}
-		mapping, ok := mappings[v.Type]
-		if !ok {
-			return nil, fmt.Errorf("missing mapping for segment type %q", string(v.Type))
-		}
-
-		out = append(out, resourcemanager.ResourceIdSegment{
-			ConstantReference: v.ConstantReference,
-			ExampleValue:      "(unused)",
-			FixedValue:        v.FixedValue,
-			Name:              v.Name,
-			Type:              mapping,
-		})
 	}
 
 	return &out, nil

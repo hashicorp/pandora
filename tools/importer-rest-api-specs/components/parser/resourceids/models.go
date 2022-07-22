@@ -4,6 +4,7 @@ import (
 	"fmt"
 
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/internal"
+	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 
 	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
@@ -31,12 +32,12 @@ type ParseResult struct {
 	NamesToResourceIDs map[string]models.ParsedResourceId
 
 	// Constants is a map of Name - ConstantDetails found within the Resource IDs
-	Constants map[string]models.ConstantDetails
+	Constants map[string]resourcemanager.ConstantDetails
 }
 
 func (r *ParseResult) Append(other ParseResult, logger hclog.Logger) error {
 	intermediate := internal.ParseResult{
-		Constants: map[string]models.ConstantDetails{},
+		Constants: map[string]resourcemanager.ConstantDetails{},
 	}
 	intermediate.AppendConstants(r.Constants)
 	intermediate.AppendConstants(other.Constants)

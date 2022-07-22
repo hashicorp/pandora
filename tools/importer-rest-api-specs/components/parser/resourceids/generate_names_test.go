@@ -6,312 +6,313 @@ import (
 
 	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
 var subscriptionResourceId = models.ParsedResourceId{
-	Constants: map[string]models.ConstantDetails{},
-	Segments: []models.ResourceIdSegment{
+	Constants: map[string]resourcemanager.ConstantDetails{},
+	Segments: []resourcemanager.ResourceIdSegment{
 		{
-			Type:       models.StaticSegment,
+			Type:       resourcemanager.StaticSegment,
 			FixedValue: strPtr("subscriptions"),
 			Name:       "staticSubscriptions",
 		},
 		{
 			Name: "subscriptionId",
-			Type: models.SubscriptionIdSegment,
+			Type: resourcemanager.SubscriptionIdSegment,
 		},
 	},
 }
 var resourceGroupResourceId = models.ParsedResourceId{
-	Constants: map[string]models.ConstantDetails{},
-	Segments: []models.ResourceIdSegment{
+	Constants: map[string]resourcemanager.ConstantDetails{},
+	Segments: []resourcemanager.ResourceIdSegment{
 		{
-			Type:       models.StaticSegment,
+			Type:       resourcemanager.StaticSegment,
 			FixedValue: strPtr("subscriptions"),
 			Name:       "staticSubscriptions",
 		},
 		{
 			Name: "subscriptionId",
-			Type: models.SubscriptionIdSegment,
+			Type: resourcemanager.SubscriptionIdSegment,
 		},
 		{
-			Type:       models.StaticSegment,
+			Type:       resourcemanager.StaticSegment,
 			FixedValue: strPtr("resourceGroups"),
 			Name:       "staticResourceGroups",
 		},
 		{
 			Name: "resourceGroupName",
-			Type: models.ResourceGroupSegment,
+			Type: resourcemanager.ResourceGroupSegment,
 		},
 	},
 }
 var managementGroupResourceId = models.ParsedResourceId{
-	Constants: map[string]models.ConstantDetails{},
-	Segments: []models.ResourceIdSegment{
+	Constants: map[string]resourcemanager.ConstantDetails{},
+	Segments: []resourcemanager.ResourceIdSegment{
 		{
-			Type:       models.StaticSegment,
+			Type:       resourcemanager.StaticSegment,
 			FixedValue: strPtr("providers"),
 			Name:       "staticProviders",
 		},
 		{
-			Type:       models.ResourceProviderSegment,
+			Type:       resourcemanager.ResourceProviderSegment,
 			FixedValue: strPtr("Microsoft.Management"),
 			Name:       "Microsoft.Management",
 		},
 		{
-			Type:       models.StaticSegment,
+			Type:       resourcemanager.StaticSegment,
 			FixedValue: strPtr("managementGroups"),
 			Name:       "staticManagementGroups",
 		},
 		{
 			Name: "name",
-			Type: models.UserSpecifiedSegment,
+			Type: resourcemanager.UserSpecifiedSegment,
 		},
 	},
 }
 var virtualMachineResourceId = models.ParsedResourceId{
-	Constants: map[string]models.ConstantDetails{},
-	Segments: []models.ResourceIdSegment{
+	Constants: map[string]resourcemanager.ConstantDetails{},
+	Segments: []resourcemanager.ResourceIdSegment{
 		{
-			Type:       models.StaticSegment,
+			Type:       resourcemanager.StaticSegment,
 			FixedValue: strPtr("subscriptions"),
 			Name:       "staticSubscriptions",
 		},
 		{
 			Name: "subscriptionId",
-			Type: models.SubscriptionIdSegment,
+			Type: resourcemanager.SubscriptionIdSegment,
 		},
 		{
-			Type:       models.StaticSegment,
+			Type:       resourcemanager.StaticSegment,
 			FixedValue: strPtr("resourceGroups"),
 			Name:       "staticResourceGroups",
 		},
 		{
 			Name: "resourceGroupName",
-			Type: models.ResourceGroupSegment,
+			Type: resourcemanager.ResourceGroupSegment,
 		},
 		{
-			Type:       models.StaticSegment,
+			Type:       resourcemanager.StaticSegment,
 			FixedValue: strPtr("providers"),
 			Name:       "staticProviders",
 		},
 		{
-			Type:       models.ResourceProviderSegment,
+			Type:       resourcemanager.ResourceProviderSegment,
 			FixedValue: strPtr("Microsoft.Compute"),
 			Name:       "staticMicrosoftCompute",
 		},
 		{
-			Type:       models.StaticSegment,
+			Type:       resourcemanager.StaticSegment,
 			FixedValue: strPtr("virtualMachines"),
 			Name:       "staticVirtualMachines",
 		},
 		{
 			Name: "virtualMachineName",
-			Type: models.UserSpecifiedSegment,
+			Type: resourcemanager.UserSpecifiedSegment,
 		},
 	},
 }
 var virtualMachineExtensionResourceId = models.ParsedResourceId{
-	Constants: map[string]models.ConstantDetails{},
-	Segments: []models.ResourceIdSegment{
+	Constants: map[string]resourcemanager.ConstantDetails{},
+	Segments: []resourcemanager.ResourceIdSegment{
 		{
-			Type:       models.StaticSegment,
+			Type:       resourcemanager.StaticSegment,
 			FixedValue: strPtr("subscriptions"),
 			Name:       "staticSubscriptions",
 		},
 		{
 			Name: "subscriptionId",
-			Type: models.SubscriptionIdSegment,
+			Type: resourcemanager.SubscriptionIdSegment,
 		},
 		{
-			Type:       models.StaticSegment,
+			Type:       resourcemanager.StaticSegment,
 			FixedValue: strPtr("resourceGroups"),
 			Name:       "staticResourceGroups",
 		},
 		{
 			Name: "resourceGroupName",
-			Type: models.ResourceGroupSegment,
+			Type: resourcemanager.ResourceGroupSegment,
 		},
 		{
-			Type:       models.StaticSegment,
+			Type:       resourcemanager.StaticSegment,
 			FixedValue: strPtr("providers"),
 			Name:       "staticProviders",
 		},
 		{
-			Type:       models.ResourceProviderSegment,
+			Type:       resourcemanager.ResourceProviderSegment,
 			FixedValue: strPtr("Microsoft.Compute"),
 			Name:       "staticMicrosoftCompute",
 		},
 		{
-			Type:       models.StaticSegment,
+			Type:       resourcemanager.StaticSegment,
 			FixedValue: strPtr("virtualMachines"),
 			Name:       "staticVirtualMachines",
 		},
 		{
 			Name: "virtualMachineName",
-			Type: models.UserSpecifiedSegment,
+			Type: resourcemanager.UserSpecifiedSegment,
 		},
 		{
-			Type:       models.StaticSegment,
+			Type:       resourcemanager.StaticSegment,
 			FixedValue: strPtr("extensions"),
 			Name:       "staticExtensions",
 		},
 		{
 			Name: "extensionName",
-			Type: models.UserSpecifiedSegment,
+			Type: resourcemanager.UserSpecifiedSegment,
 		},
 	},
 }
 var virtualNetworkExtensionResourceId = models.ParsedResourceId{
-	Constants: map[string]models.ConstantDetails{},
-	Segments: []models.ResourceIdSegment{
+	Constants: map[string]resourcemanager.ConstantDetails{},
+	Segments: []resourcemanager.ResourceIdSegment{
 		{
-			Type:       models.StaticSegment,
+			Type:       resourcemanager.StaticSegment,
 			FixedValue: strPtr("subscriptions"),
 			Name:       "staticSubscriptions",
 		},
 		{
 			Name: "subscriptionId",
-			Type: models.SubscriptionIdSegment,
+			Type: resourcemanager.SubscriptionIdSegment,
 		},
 		{
-			Type:       models.StaticSegment,
+			Type:       resourcemanager.StaticSegment,
 			FixedValue: strPtr("resourceGroups"),
 			Name:       "staticResourceGroups",
 		},
 		{
 			Name: "resourceGroupName",
-			Type: models.ResourceGroupSegment,
+			Type: resourcemanager.ResourceGroupSegment,
 		},
 		{
-			Type:       models.StaticSegment,
+			Type:       resourcemanager.StaticSegment,
 			FixedValue: strPtr("providers"),
 			Name:       "staticProviders",
 		},
 		{
-			Type:       models.ResourceProviderSegment,
+			Type:       resourcemanager.ResourceProviderSegment,
 			FixedValue: strPtr("Microsoft.Network"),
 			Name:       "staticMicrosoftNetwork",
 		},
 		{
-			Type:       models.StaticSegment,
+			Type:       resourcemanager.StaticSegment,
 			FixedValue: strPtr("extensions"),
 			Name:       "staticExtensions",
 		},
 		{
 			Name: "extensionName",
-			Type: models.UserSpecifiedSegment,
+			Type: resourcemanager.UserSpecifiedSegment,
 		},
 	},
 }
 var scopedMonitorResourceId = models.ParsedResourceId{
-	Constants: map[string]models.ConstantDetails{},
-	Segments: []models.ResourceIdSegment{
+	Constants: map[string]resourcemanager.ConstantDetails{},
+	Segments: []resourcemanager.ResourceIdSegment{
 		{
-			Type: models.ScopeSegment,
+			Type: resourcemanager.ScopeSegment,
 			Name: "scope",
 		},
 		{
-			Type:       models.StaticSegment,
+			Type:       resourcemanager.StaticSegment,
 			FixedValue: strPtr("providers"),
 			Name:       "staticProviders",
 		},
 		{
-			Type:       models.ResourceProviderSegment,
+			Type:       resourcemanager.ResourceProviderSegment,
 			FixedValue: strPtr("Microsoft.Monitor"),
 			Name:       "staticMicrosoftMonitor",
 		},
 		{
-			Type:       models.StaticSegment,
+			Type:       resourcemanager.StaticSegment,
 			FixedValue: strPtr("extensions"),
 			Name:       "staticExtensions",
 		},
 		{
 			Name: "extensionName",
-			Type: models.UserSpecifiedSegment,
+			Type: resourcemanager.UserSpecifiedSegment,
 		},
 	},
 }
 var signalRResourceId = models.ParsedResourceId{
-	Constants: map[string]models.ConstantDetails{},
-	Segments: []models.ResourceIdSegment{
+	Constants: map[string]resourcemanager.ConstantDetails{},
+	Segments: []resourcemanager.ResourceIdSegment{
 		{
-			Type:       models.StaticSegment,
+			Type:       resourcemanager.StaticSegment,
 			FixedValue: strPtr("subscriptions"),
 			Name:       "staticSubscriptions",
 		},
 		{
 			Name: "subscriptionId",
-			Type: models.SubscriptionIdSegment,
+			Type: resourcemanager.SubscriptionIdSegment,
 		},
 		{
-			Type:       models.StaticSegment,
+			Type:       resourcemanager.StaticSegment,
 			FixedValue: strPtr("resourceGroups"),
 			Name:       "staticResourceGroups",
 		},
 		{
 			Name: "resourceGroupName",
-			Type: models.ResourceGroupSegment,
+			Type: resourcemanager.ResourceGroupSegment,
 		},
 		{
-			Type:       models.StaticSegment,
+			Type:       resourcemanager.StaticSegment,
 			FixedValue: strPtr("providers"),
 			Name:       "staticProviders",
 		},
 		{
-			Type:       models.ResourceProviderSegment,
+			Type:       resourcemanager.ResourceProviderSegment,
 			FixedValue: strPtr("Microsoft.SignalRService"),
 			Name:       "staticMicrosoftSignalRService",
 		},
 		{
-			Type:       models.StaticSegment,
+			Type:       resourcemanager.StaticSegment,
 			FixedValue: strPtr("SignalR"),
 			Name:       "staticSignalR",
 		},
 		{
 			Name: "resourceName",
-			Type: models.UserSpecifiedSegment,
+			Type: resourcemanager.UserSpecifiedSegment,
 		},
 	},
 }
 var eventHubSkuResourceId = models.ParsedResourceId{
-	Constants: map[string]models.ConstantDetails{},
-	Segments: []models.ResourceIdSegment{
+	Constants: map[string]resourcemanager.ConstantDetails{},
+	Segments: []resourcemanager.ResourceIdSegment{
 		{
-			Type:       models.StaticSegment,
+			Type:       resourcemanager.StaticSegment,
 			FixedValue: strPtr("subscriptions"),
 			Name:       "staticSubscriptions",
 		},
 		{
-			Type: models.SubscriptionIdSegment,
+			Type: resourcemanager.SubscriptionIdSegment,
 			Name: "subscriptionId",
 		},
 		{
-			Type:       models.StaticSegment,
+			Type:       resourcemanager.StaticSegment,
 			FixedValue: strPtr("providers"),
 			Name:       "staticProviders",
 		},
 		{
-			Type:       models.ResourceProviderSegment,
+			Type:       resourcemanager.ResourceProviderSegment,
 			FixedValue: strPtr("Microsoft.EventHub"),
 			Name:       "staticMicrosoftEventHub",
 		},
 		{
-			Type:       models.StaticSegment,
+			Type:       resourcemanager.StaticSegment,
 			FixedValue: strPtr("sku"),
 			Name:       "staticSku",
 		},
 		{
-			Type:       models.UserSpecifiedSegment,
+			Type:       resourcemanager.UserSpecifiedSegment,
 			FixedValue: strPtr("sku"),
 			Name:       "sku",
 		},
 	},
 }
 var trafficManagerProfileResourceId = models.ParsedResourceId{
-	Constants: map[string]models.ConstantDetails{
+	Constants: map[string]resourcemanager.ConstantDetails{
 		"EndpointType": {
-			FieldType: models.StringConstant,
+			Type: resourcemanager.StringConstant,
 			Values: map[string]string{
 				"AzureEndpoints":    "azureEndpoints",
 				"ExternalEndpoints": "externalEndpoints",
@@ -319,112 +320,112 @@ var trafficManagerProfileResourceId = models.ParsedResourceId{
 			},
 		},
 	},
-	Segments: []models.ResourceIdSegment{
+	Segments: []resourcemanager.ResourceIdSegment{
 		{
-			Type:       models.StaticSegment,
+			Type:       resourcemanager.StaticSegment,
 			FixedValue: strPtr("subscriptions"),
 			Name:       "staticSubscriptions",
 		},
 		{
-			Type: models.SubscriptionIdSegment,
+			Type: resourcemanager.SubscriptionIdSegment,
 			Name: "subscriptionId",
 		},
 		{
-			Type:       models.StaticSegment,
+			Type:       resourcemanager.StaticSegment,
 			FixedValue: strPtr("resourceGroups"),
 			Name:       "staticResourceGroups",
 		},
 		{
-			Type: models.ResourceGroupSegment,
+			Type: resourcemanager.ResourceGroupSegment,
 			Name: "resourceGroupName",
 		},
 		{
-			Type:       models.StaticSegment,
+			Type:       resourcemanager.StaticSegment,
 			FixedValue: strPtr("providers"),
 			Name:       "staticProviders",
 		},
 		{
-			Type:       models.ResourceProviderSegment,
+			Type:       resourcemanager.ResourceProviderSegment,
 			FixedValue: strPtr("Microsoft.Network"),
 			Name:       "microsoftNetwork",
 		},
 		{
-			Type:       models.StaticSegment,
+			Type:       resourcemanager.StaticSegment,
 			FixedValue: strPtr("trafficManagerProfiles"),
 			Name:       "staticTrafficManagerProfiles",
 		},
 		{
-			Type:       models.UserSpecifiedSegment,
+			Type:       resourcemanager.UserSpecifiedSegment,
 			FixedValue: strPtr("profileName"),
 			Name:       "profileName",
 		},
 		{
-			Type:              models.ConstantSegment,
+			Type:              resourcemanager.ConstantSegment,
 			ConstantReference: strPtr("EndpointType"),
 			Name:              "endpointType",
 		},
 		{
-			Type:       models.UserSpecifiedSegment,
+			Type:       resourcemanager.UserSpecifiedSegment,
 			FixedValue: strPtr("endpointName"),
 			Name:       "endpointName",
 		},
 	},
 }
 var redisPatchSchedulesResourceId = models.ParsedResourceId{
-	Constants: map[string]models.ConstantDetails{
+	Constants: map[string]resourcemanager.ConstantDetails{
 		"Default": {
-			FieldType: models.StringConstant,
+			Type: resourcemanager.StringConstant,
 			Values: map[string]string{
 				"First": "first",
 			},
 		},
 	},
-	Segments: []models.ResourceIdSegment{
+	Segments: []resourcemanager.ResourceIdSegment{
 		{
-			Type:       models.StaticSegment,
+			Type:       resourcemanager.StaticSegment,
 			FixedValue: strPtr("subscriptions"),
 			Name:       "staticSubscriptions",
 		},
 		{
-			Type: models.SubscriptionIdSegment,
+			Type: resourcemanager.SubscriptionIdSegment,
 			Name: "subscriptionId",
 		},
 		{
-			Type:       models.StaticSegment,
+			Type:       resourcemanager.StaticSegment,
 			FixedValue: strPtr("resourceGroups"),
 			Name:       "staticResourceGroups",
 		},
 		{
-			Type: models.ResourceGroupSegment,
+			Type: resourcemanager.ResourceGroupSegment,
 			Name: "resourceGroupName",
 		},
 		{
-			Type:       models.StaticSegment,
+			Type:       resourcemanager.StaticSegment,
 			FixedValue: strPtr("providers"),
 			Name:       "staticProviders",
 		},
 		{
-			Type:       models.ResourceProviderSegment,
+			Type:       resourcemanager.ResourceProviderSegment,
 			FixedValue: strPtr("Microsoft.Cache"),
 			Name:       "staticMicrosoftCache",
 		},
 		{
-			Type:       models.StaticSegment,
+			Type:       resourcemanager.StaticSegment,
 			FixedValue: strPtr("redis"),
 			Name:       "staticRedis",
 		},
 		{
-			Type:       models.UserSpecifiedSegment,
+			Type:       resourcemanager.UserSpecifiedSegment,
 			FixedValue: strPtr("name"),
 			Name:       "name",
 		},
 		{
-			Type:       models.StaticSegment,
+			Type:       resourcemanager.StaticSegment,
 			FixedValue: strPtr("patchSchedules"),
 			Name:       "staticPatchSchedules",
 		},
 		{
-			Type:              models.ConstantSegment,
+			Type:              resourcemanager.ConstantSegment,
 			ConstantReference: strPtr("default"),
 			Name:              "default",
 		},
@@ -584,10 +585,10 @@ func TestResourceIDNamingEventHubSkuId(t *testing.T) {
 
 func TestResourceIDNamingTopLevelScope(t *testing.T) {
 	scopeResourceId := models.ParsedResourceId{
-		Constants: map[string]models.ConstantDetails{},
-		Segments: []models.ResourceIdSegment{
+		Constants: map[string]resourcemanager.ConstantDetails{},
+		Segments: []resourcemanager.ResourceIdSegment{
 			{
-				Type: models.ScopeSegment,
+				Type: resourcemanager.ScopeSegment,
 				Name: "scope",
 			},
 		},
@@ -613,52 +614,52 @@ func TestResourceIDNamingTopLevelScope(t *testing.T) {
 
 func TestResourceIDNamingContainingAConstant(t *testing.T) {
 	dnsResourceId := models.ParsedResourceId{
-		Constants: map[string]models.ConstantDetails{
+		Constants: map[string]resourcemanager.ConstantDetails{
 			"DnsRecordType": {
-				FieldType: models.StringConstant,
+				Type: resourcemanager.StringConstant,
 				Values: map[string]string{
 					"A":    "A",
 					"AAAA": "AAAA",
 				},
 			},
 		},
-		Segments: []models.ResourceIdSegment{
+		Segments: []resourcemanager.ResourceIdSegment{
 			{
-				Type:       models.StaticSegment,
+				Type:       resourcemanager.StaticSegment,
 				FixedValue: strPtr("subscriptions"),
 				Name:       "subscriptions",
 			},
 			{
 				Name: "subscriptionId",
-				Type: models.SubscriptionIdSegment,
+				Type: resourcemanager.SubscriptionIdSegment,
 			},
 			{
-				Type:       models.StaticSegment,
+				Type:       resourcemanager.StaticSegment,
 				FixedValue: strPtr("resourceGroups"),
 				Name:       "resourceGroups",
 			},
 			{
 				Name: "resourceGroupName",
-				Type: models.ResourceGroupSegment,
+				Type: resourcemanager.ResourceGroupSegment,
 			},
 			{
-				Type:       models.StaticSegment,
+				Type:       resourcemanager.StaticSegment,
 				FixedValue: strPtr("providers"),
 				Name:       "providers",
 			},
 			{
-				Type:       models.ResourceProviderSegment,
+				Type:       resourcemanager.ResourceProviderSegment,
 				FixedValue: strPtr("Microsoft.Network"),
 				Name:       "Microsoft.Network",
 			},
 			{
-				Type:              models.ConstantSegment,
+				Type:              resourcemanager.ConstantSegment,
 				Name:              "recordType",
 				ConstantReference: strPtr("DnsRecordType"),
 			},
 			{
 				Name: "recordName",
-				Type: models.UserSpecifiedSegment,
+				Type: resourcemanager.UserSpecifiedSegment,
 			},
 		},
 	}
@@ -683,52 +684,52 @@ func TestResourceIDNamingContainingAConstant(t *testing.T) {
 
 func TestResourceIDNamingContainingAConstantAndSuffix(t *testing.T) {
 	dnsResourceId := models.ParsedResourceId{
-		Constants: map[string]models.ConstantDetails{
+		Constants: map[string]resourcemanager.ConstantDetails{
 			"DnsRecordType": {
-				FieldType: models.StringConstant,
+				Type: resourcemanager.StringConstant,
 				Values: map[string]string{
 					"A":    "A",
 					"AAAA": "AAAA",
 				},
 			},
 		},
-		Segments: []models.ResourceIdSegment{
+		Segments: []resourcemanager.ResourceIdSegment{
 			{
-				Type:       models.StaticSegment,
+				Type:       resourcemanager.StaticSegment,
 				FixedValue: strPtr("subscriptions"),
 				Name:       "subscriptions",
 			},
 			{
 				Name: "subscriptionId",
-				Type: models.SubscriptionIdSegment,
+				Type: resourcemanager.SubscriptionIdSegment,
 			},
 			{
-				Type:       models.StaticSegment,
+				Type:       resourcemanager.StaticSegment,
 				FixedValue: strPtr("resourceGroups"),
 				Name:       "resourceGroups",
 			},
 			{
 				Name: "resourceGroupName",
-				Type: models.ResourceGroupSegment,
+				Type: resourcemanager.ResourceGroupSegment,
 			},
 			{
-				Type:       models.StaticSegment,
+				Type:       resourcemanager.StaticSegment,
 				FixedValue: strPtr("providers"),
 				Name:       "providers",
 			},
 			{
-				Type:       models.ResourceProviderSegment,
+				Type:       resourcemanager.ResourceProviderSegment,
 				FixedValue: strPtr("Microsoft.Network"),
 				Name:       "Microsoft.Network",
 			},
 			{
-				Type:              models.ConstantSegment,
+				Type:              resourcemanager.ConstantSegment,
 				Name:              "recordType",
 				ConstantReference: strPtr("DnsRecordType"),
 			},
 			{
 				Name: "recordName",
-				Type: models.UserSpecifiedSegment,
+				Type: resourcemanager.UserSpecifiedSegment,
 			},
 		},
 	}
@@ -854,270 +855,270 @@ func TestResourceIdNamingConflictingTwoLevels(t *testing.T) {
 
 func TestResourceIdNamingConflictingMultipleLevels(t *testing.T) {
 	workerPoolInstanceResourceId := models.ParsedResourceId{
-		Constants: map[string]models.ConstantDetails{},
-		Segments: []models.ResourceIdSegment{
+		Constants: map[string]resourcemanager.ConstantDetails{},
+		Segments: []resourcemanager.ResourceIdSegment{
 			{
-				Type:       models.StaticSegment,
+				Type:       resourcemanager.StaticSegment,
 				FixedValue: strPtr("subscriptions"),
 				Name:       "subscriptions",
 			},
 			{
 				Name: "subscriptionId",
-				Type: models.SubscriptionIdSegment,
+				Type: resourcemanager.SubscriptionIdSegment,
 			},
 			{
-				Type:       models.StaticSegment,
+				Type:       resourcemanager.StaticSegment,
 				FixedValue: strPtr("resourceGroups"),
 				Name:       "resourceGroups",
 			},
 			{
 				Name: "resourceGroupName",
-				Type: models.ResourceGroupSegment,
+				Type: resourcemanager.ResourceGroupSegment,
 			},
 			{
-				Type:       models.StaticSegment,
+				Type:       resourcemanager.StaticSegment,
 				FixedValue: strPtr("providers"),
 				Name:       "providers",
 			},
 			{
-				Type:       models.ResourceProviderSegment,
+				Type:       resourcemanager.ResourceProviderSegment,
 				FixedValue: strPtr("Microsoft.Web"),
 				Name:       "Microsoft.Web",
 			},
 			{
-				Type:       models.StaticSegment,
+				Type:       resourcemanager.StaticSegment,
 				FixedValue: strPtr("hostingEnvironments"),
 				Name:       "hostingEnvironments",
 			},
 			{
 				Name: "name",
-				Type: models.UserSpecifiedSegment,
+				Type: resourcemanager.UserSpecifiedSegment,
 			},
 			{
-				Type:       models.StaticSegment,
+				Type:       resourcemanager.StaticSegment,
 				FixedValue: strPtr("workerPools"),
 				Name:       "workerPools",
 			},
 			{
 				Name: "workerPoolName",
-				Type: models.UserSpecifiedSegment,
+				Type: resourcemanager.UserSpecifiedSegment,
 			},
 			{
-				Type:       models.StaticSegment,
+				Type:       resourcemanager.StaticSegment,
 				FixedValue: strPtr("instances"),
 				Name:       "instances",
 			},
 			{
 				Name: "instance",
-				Type: models.UserSpecifiedSegment,
+				Type: resourcemanager.UserSpecifiedSegment,
 			},
 		},
 	}
 	multiRolePoolInstanceResourceId := models.ParsedResourceId{
-		Constants: map[string]models.ConstantDetails{},
-		Segments: []models.ResourceIdSegment{
+		Constants: map[string]resourcemanager.ConstantDetails{},
+		Segments: []resourcemanager.ResourceIdSegment{
 			{
-				Type:       models.StaticSegment,
+				Type:       resourcemanager.StaticSegment,
 				FixedValue: strPtr("subscriptions"),
 				Name:       "subscriptions",
 			},
 			{
 				Name: "subscriptionId",
-				Type: models.SubscriptionIdSegment,
+				Type: resourcemanager.SubscriptionIdSegment,
 			},
 			{
-				Type:       models.StaticSegment,
+				Type:       resourcemanager.StaticSegment,
 				FixedValue: strPtr("resourceGroups"),
 				Name:       "resourceGroups",
 			},
 			{
 				Name: "resourceGroupName",
-				Type: models.ResourceGroupSegment,
+				Type: resourcemanager.ResourceGroupSegment,
 			},
 			{
-				Type:       models.StaticSegment,
+				Type:       resourcemanager.StaticSegment,
 				FixedValue: strPtr("providers"),
 				Name:       "providers",
 			},
 			{
-				Type:       models.ResourceProviderSegment,
+				Type:       resourcemanager.ResourceProviderSegment,
 				FixedValue: strPtr("Microsoft.Web"),
 				Name:       "Microsoft.Web",
 			},
 			{
-				Type:       models.StaticSegment,
+				Type:       resourcemanager.StaticSegment,
 				FixedValue: strPtr("hostingEnvironments"),
 				Name:       "hostingEnvironments",
 			},
 			{
 				Name: "name",
-				Type: models.UserSpecifiedSegment,
+				Type: resourcemanager.UserSpecifiedSegment,
 			},
 			{
-				Type:       models.StaticSegment,
+				Type:       resourcemanager.StaticSegment,
 				FixedValue: strPtr("multiRolePools"),
 				Name:       "multiRolePools",
 			},
 			{
-				Type:       models.StaticSegment,
+				Type:       resourcemanager.StaticSegment,
 				FixedValue: strPtr("default"),
 				Name:       "default",
 			},
 			{
-				Type:       models.StaticSegment,
+				Type:       resourcemanager.StaticSegment,
 				FixedValue: strPtr("instances"),
 				Name:       "instances",
 			},
 			{
 				Name: "instance",
-				Type: models.UserSpecifiedSegment,
+				Type: resourcemanager.UserSpecifiedSegment,
 			},
 		},
 	}
 	slotInstanceProcessModuleResourceId := models.ParsedResourceId{
-		Constants: map[string]models.ConstantDetails{},
-		Segments: []models.ResourceIdSegment{
+		Constants: map[string]resourcemanager.ConstantDetails{},
+		Segments: []resourcemanager.ResourceIdSegment{
 			{
-				Type:       models.StaticSegment,
+				Type:       resourcemanager.StaticSegment,
 				FixedValue: strPtr("subscriptions"),
 				Name:       "subscriptions",
 			},
 			{
 				Name: "subscriptionId",
-				Type: models.SubscriptionIdSegment,
+				Type: resourcemanager.SubscriptionIdSegment,
 			},
 			{
-				Type:       models.StaticSegment,
+				Type:       resourcemanager.StaticSegment,
 				FixedValue: strPtr("resourceGroups"),
 				Name:       "resourceGroups",
 			},
 			{
 				Name: "resourceGroupName",
-				Type: models.ResourceGroupSegment,
+				Type: resourcemanager.ResourceGroupSegment,
 			},
 			{
-				Type:       models.StaticSegment,
+				Type:       resourcemanager.StaticSegment,
 				FixedValue: strPtr("providers"),
 				Name:       "providers",
 			},
 			{
-				Type:       models.ResourceProviderSegment,
+				Type:       resourcemanager.ResourceProviderSegment,
 				FixedValue: strPtr("Microsoft.Web"),
 				Name:       "Microsoft.Web",
 			},
 			{
-				Type:       models.StaticSegment,
+				Type:       resourcemanager.StaticSegment,
 				FixedValue: strPtr("sites"),
 				Name:       "sites",
 			},
 			{
 				Name: "name",
-				Type: models.UserSpecifiedSegment,
+				Type: resourcemanager.UserSpecifiedSegment,
 			},
 			{
-				Type:       models.StaticSegment,
+				Type:       resourcemanager.StaticSegment,
 				FixedValue: strPtr("slots"),
 				Name:       "slots",
 			},
 			{
 				Name: "slot",
-				Type: models.UserSpecifiedSegment,
+				Type: resourcemanager.UserSpecifiedSegment,
 			},
 			{
-				Type:       models.StaticSegment,
+				Type:       resourcemanager.StaticSegment,
 				FixedValue: strPtr("instances"),
 				Name:       "instances",
 			},
 			{
 				Name: "instanceId",
-				Type: models.UserSpecifiedSegment,
+				Type: resourcemanager.UserSpecifiedSegment,
 			},
 			{
-				Type:       models.StaticSegment,
+				Type:       resourcemanager.StaticSegment,
 				FixedValue: strPtr("processes"),
 				Name:       "processes",
 			},
 			{
 				Name: "processId",
-				Type: models.UserSpecifiedSegment,
+				Type: resourcemanager.UserSpecifiedSegment,
 			},
 			{
-				Type:       models.StaticSegment,
+				Type:       resourcemanager.StaticSegment,
 				FixedValue: strPtr("modules"),
 				Name:       "modules",
 			},
 			{
 				Name: "baseAddress",
-				Type: models.UserSpecifiedSegment,
+				Type: resourcemanager.UserSpecifiedSegment,
 			},
 		},
 	}
 	instanceProcessModuleResourceId := models.ParsedResourceId{
-		Constants: map[string]models.ConstantDetails{},
-		Segments: []models.ResourceIdSegment{
+		Constants: map[string]resourcemanager.ConstantDetails{},
+		Segments: []resourcemanager.ResourceIdSegment{
 			{
-				Type:       models.StaticSegment,
+				Type:       resourcemanager.StaticSegment,
 				FixedValue: strPtr("subscriptions"),
 				Name:       "subscriptions",
 			},
 			{
 				Name: "subscriptionId",
-				Type: models.SubscriptionIdSegment,
+				Type: resourcemanager.SubscriptionIdSegment,
 			},
 			{
-				Type:       models.StaticSegment,
+				Type:       resourcemanager.StaticSegment,
 				FixedValue: strPtr("resourceGroups"),
 				Name:       "resourceGroups",
 			},
 			{
 				Name: "resourceGroupName",
-				Type: models.ResourceGroupSegment,
+				Type: resourcemanager.ResourceGroupSegment,
 			},
 			{
-				Type:       models.StaticSegment,
+				Type:       resourcemanager.StaticSegment,
 				FixedValue: strPtr("providers"),
 				Name:       "providers",
 			},
 			{
-				Type:       models.ResourceProviderSegment,
+				Type:       resourcemanager.ResourceProviderSegment,
 				FixedValue: strPtr("Microsoft.Web"),
 				Name:       "Microsoft.Web",
 			},
 			{
-				Type:       models.StaticSegment,
+				Type:       resourcemanager.StaticSegment,
 				FixedValue: strPtr("sites"),
 				Name:       "sites",
 			},
 			{
 				Name: "name",
-				Type: models.UserSpecifiedSegment,
+				Type: resourcemanager.UserSpecifiedSegment,
 			},
 			{
-				Type:       models.StaticSegment,
+				Type:       resourcemanager.StaticSegment,
 				FixedValue: strPtr("instances"),
 				Name:       "instances",
 			},
 			{
 				Name: "instanceId",
-				Type: models.UserSpecifiedSegment,
+				Type: resourcemanager.UserSpecifiedSegment,
 			},
 			{
-				Type:       models.StaticSegment,
+				Type:       resourcemanager.StaticSegment,
 				FixedValue: strPtr("processes"),
 				Name:       "processes",
 			},
 			{
 				Name: "processId",
-				Type: models.UserSpecifiedSegment,
+				Type: resourcemanager.UserSpecifiedSegment,
 			},
 			{
-				Type:       models.StaticSegment,
+				Type:       resourcemanager.StaticSegment,
 				FixedValue: strPtr("modules"),
 				Name:       "modules",
 			},
 			{
 				Name: "baseAddress",
-				Type: models.UserSpecifiedSegment,
+				Type: resourcemanager.UserSpecifiedSegment,
 			},
 		},
 	}

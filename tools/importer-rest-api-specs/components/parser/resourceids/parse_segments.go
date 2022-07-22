@@ -7,6 +7,7 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/cleanup"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/constants"
 	internal2 "github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/internal"
+	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 
 	"github.com/go-openapi/spec"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
@@ -21,9 +22,9 @@ var knownSegmentsUsedForScope = []string{
 }
 
 type processedResourceId struct {
-	segments  *[]models.ResourceIdSegment
+	segments  *[]resourcemanager.ResourceIdSegment
 	uriSuffix *string
-	constants map[string]models.ConstantDetails
+	constants map[string]resourcemanager.ConstantDetails
 }
 
 func (p *Parser) parseResourceIdsFromOperations() (*map[string]processedResourceId, error) {
@@ -52,9 +53,9 @@ func (p *Parser) parseResourceIdsFromOperations() (*map[string]processedResource
 func (p *Parser) parseResourceIdFromOperation(uri string, operation *spec.Operation) (*processedResourceId, error) {
 	// TODO: document this
 
-	segments := make([]models.ResourceIdSegment, 0)
+	segments := make([]resourcemanager.ResourceIdSegment, 0)
 	result := internal2.ParseResult{
-		Constants: map[string]models.ConstantDetails{},
+		Constants: map[string]resourcemanager.ConstantDetails{},
 	}
 
 	uriSegments := strings.Split(strings.TrimPrefix(uri, "/"), "/")
@@ -86,7 +87,7 @@ func (p *Parser) parseResourceIdFromOperation(uri string, operation *spec.Operat
 				if len(segments) > 0 {
 					lastSegment := segments[len(segments)-1]
 					// the segment before this one should be a static segment `subscriptions`
-					if lastSegment.Type == models.StaticSegment && lastSegment.FixedValue != nil && strings.EqualFold(*lastSegment.FixedValue, "subscriptions") {
+					if lastSegment.Type == resourcemanager.StaticSegment && lastSegment.FixedValue != nil && strings.EqualFold(*lastSegment.FixedValue, "subscriptions") {
 						previousSegmentWasSubscriptions = true
 					}
 				}
@@ -102,7 +103,7 @@ func (p *Parser) parseResourceIdFromOperation(uri string, operation *spec.Operat
 				if len(segments) > 0 {
 					lastSegment := segments[len(segments)-1]
 					// the segment before this one should be a static segment `resourceGroups`
-					if lastSegment.Type == models.StaticSegment && lastSegment.FixedValue != nil && strings.EqualFold(*lastSegment.FixedValue, "resourceGroups") {
+					if lastSegment.Type == resourcemanager.StaticSegment && lastSegment.FixedValue != nil && strings.EqualFold(*lastSegment.FixedValue, "resourceGroups") {
 						previousSegmentWasResourceGroups = true
 					}
 				}
@@ -133,8 +134,8 @@ func (p *Parser) parseResourceIdFromOperation(uri string, operation *spec.Operat
 								constantValue = v
 							}
 							// it's a fixed value segment, not a constant - so we'll transform it as such and skip
-							segments = append(segments, models.ResourceIdSegment{
-								Type:       models.StaticSegment,
+							segments = append(segments, resourcemanager.ResourceIdSegment{
+								Type:       resourcemanager.StaticSegment,
 								Name:       normalizedSegment,
 								FixedValue: &constantValue,
 							})
@@ -190,7 +191,7 @@ func (p *Parser) parseResourceIdFromOperation(uri string, operation *spec.Operat
 	lastUserValueSegment := -1
 	for i, segment := range segments {
 		// everything else technically is a user configurable component
-		if segment.Type != models.StaticSegment && segment.Type != models.ResourceProviderSegment {
+		if segment.Type != resourcemanager.StaticSegment && segment.Type != resourcemanager.ResourceProviderSegment {
 			lastUserValueSegment = i
 		}
 	}
@@ -207,7 +208,7 @@ func (p *Parser) parseResourceIdFromOperation(uri string, operation *spec.Operat
 
 	allSegmentsAreStatic := true
 	for _, segment := range segments {
-		if segment.Type != models.StaticSegment && segment.Type != models.ResourceProviderSegment {
+		if segment.Type != resourcemanager.StaticSegment && segment.Type != resourcemanager.ResourceProviderSegment {
 			allSegmentsAreStatic = false
 			break
 		}
@@ -244,10 +245,10 @@ func (p *Parser) parseResourceIdFromOperation(uri string, operation *spec.Operat
 	return &out, nil
 }
 
-func determineUniqueNamesForSegments(input []models.ResourceIdSegment) (*[]models.ResourceIdSegment, error) {
+func determineUniqueNamesForSegments(input []resourcemanager.ResourceIdSegment) (*[]resourcemanager.ResourceIdSegment, error) {
 	segmentNamesUsed := make(map[string]int, 0)
 
-	output := make([]models.ResourceIdSegment, 0)
+	output := make([]resourcemanager.ResourceIdSegment, 0)
 
 	for _, segment := range input {
 		existingCount, exists := segmentNamesUsed[segment.Name]

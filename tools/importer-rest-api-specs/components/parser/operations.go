@@ -5,15 +5,14 @@ import (
 	"net/http"
 	"strings"
 
+	"github.com/go-openapi/spec"
+	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/cleanup"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/constants"
-	internal2 "github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/internal"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/internal"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/resourceids"
-
-	"github.com/hashicorp/go-hclog"
-
-	"github.com/go-openapi/spec"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
 type operationsParser struct {
@@ -22,10 +21,10 @@ type operationsParser struct {
 	swaggerDefinition *SwaggerDefinition
 }
 
-func (d *SwaggerDefinition) parseOperationsWithinTag(tag *string, urisToResourceIds map[string]resourceids.ParsedOperation, found internal2.ParseResult, logger hclog.Logger) (*map[string]models.OperationDetails, *internal2.ParseResult, error) {
+func (d *SwaggerDefinition) parseOperationsWithinTag(tag *string, urisToResourceIds map[string]resourceids.ParsedOperation, found internal.ParseResult, logger hclog.Logger) (*map[string]models.OperationDetails, *internal.ParseResult, error) {
 	operations := make(map[string]models.OperationDetails, 0)
-	result := internal2.ParseResult{
-		Constants: map[string]models.ConstantDetails{},
+	result := internal.ParseResult{
+		Constants: map[string]resourcemanager.ConstantDetails{},
 		Models:    map[string]models.ModelDetails{},
 	}
 	result.Append(found)
@@ -40,7 +39,7 @@ func (d *SwaggerDefinition) parseOperationsWithinTag(tag *string, urisToResource
 	for _, operation := range *operationsForThisTag {
 		d.logger.Debug(fmt.Sprintf("Operation - %s %q..", operation.httpMethod, operation.uri))
 
-		if internal2.OperationShouldBeIgnored(operation.uri) {
+		if internal.OperationShouldBeIgnored(operation.uri) {
 			d.logger.Debug("Operation should be ignored - skipping..")
 			continue
 		}
@@ -69,9 +68,9 @@ func (d *SwaggerDefinition) parseOperationsWithinTag(tag *string, urisToResource
 	return &operations, &result, nil
 }
 
-func (p operationsParser) parseOperation(operation parsedOperation, logger hclog.Logger) (*models.OperationDetails, *internal2.ParseResult, error) {
-	result := internal2.ParseResult{
-		Constants: map[string]models.ConstantDetails{},
+func (p operationsParser) parseOperation(operation parsedOperation, logger hclog.Logger) (*models.OperationDetails, *internal.ParseResult, error) {
+	result := internal.ParseResult{
+		Constants: map[string]resourcemanager.ConstantDetails{},
 		Models:    map[string]models.ModelDetails{},
 	}
 
@@ -297,10 +296,10 @@ func (p operationsParser) operationIsLongRunning(input parsedOperation) bool {
 	return val
 }
 
-func (p operationsParser) optionsForOperation(input parsedOperation, logger hclog.Logger) (*map[string]models.OperationOption, *internal2.ParseResult, error) {
+func (p operationsParser) optionsForOperation(input parsedOperation, logger hclog.Logger) (*map[string]models.OperationOption, *internal.ParseResult, error) {
 	output := make(map[string]models.OperationOption)
-	result := internal2.ParseResult{
-		Constants: map[string]models.ConstantDetails{},
+	result := internal.ParseResult{
+		Constants: map[string]resourcemanager.ConstantDetails{},
 	}
 
 	for _, param := range input.operation.Parameters {
@@ -392,7 +391,7 @@ func (p operationsParser) normalizedUriForOperation(input parsedOperation) (*str
 	return nil, fmt.Errorf("%q was not found in the normalized uri list", input.uri)
 }
 
-func (p operationsParser) requestObjectForOperation(input parsedOperation, known internal2.ParseResult) (*models.ObjectDefinition, *internal2.ParseResult, error) {
+func (p operationsParser) requestObjectForOperation(input parsedOperation, known internal.ParseResult) (*models.ObjectDefinition, *internal.ParseResult, error) {
 	// all we should parse out is the top level object - nothing more.
 
 	// find the same operation in the unexpanded swagger spec since we need the reference name
@@ -433,10 +432,10 @@ func (p operationsParser) operationIsASuccess(statusCode int, resp spec.Response
 	return statusCode >= 200 && statusCode < 300
 }
 
-func (p operationsParser) responseObjectForOperation(input parsedOperation, known internal2.ParseResult) (*operationResponseObjectResult, *internal2.ParseResult, error) {
+func (p operationsParser) responseObjectForOperation(input parsedOperation, known internal.ParseResult) (*operationResponseObjectResult, *internal.ParseResult, error) {
 	output := operationResponseObjectResult{}
-	result := internal2.ParseResult{
-		Constants: map[string]models.ConstantDetails{},
+	result := internal.ParseResult{
+		Constants: map[string]resourcemanager.ConstantDetails{},
 		Models:    map[string]models.ModelDetails{},
 	}
 	result.Append(known)

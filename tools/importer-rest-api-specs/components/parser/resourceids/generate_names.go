@@ -6,6 +6,7 @@ import (
 	"strings"
 
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/cleanup"
+	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 
 	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
@@ -70,7 +71,7 @@ func generateNamesForResourceIds(input []models.ParsedResourceId, log hclog.Logg
 		}
 
 		candidateSegmentName := segmentsAvailableForNaming[0]
-		if resourceId.Segments[0].Type == models.ScopeSegment && len(resourceId.Segments) > 1 {
+		if resourceId.Segments[0].Type == resourcemanager.ScopeSegment && len(resourceId.Segments) > 1 {
 			candidateSegmentName = fmt.Sprintf("Scoped%s", candidateSegmentName)
 		}
 		candidateSegmentName = cleanup.NormalizeSegment(candidateSegmentName, false)
@@ -129,7 +130,7 @@ func determineUniqueNamesFor(conflictingUris []models.ParsedResourceId, existing
 		uniqueNameFound := false
 
 		// matches the behaviour above
-		if resourceId.Segments[0].Type == models.ScopeSegment {
+		if resourceId.Segments[0].Type == resourcemanager.ScopeSegment {
 			proposedName += "Scoped"
 		}
 
@@ -175,15 +176,15 @@ func determineUniqueNamesFor(conflictingUris []models.ParsedResourceId, existing
 
 func SegmentsAvailableForNaming(pri models.ParsedResourceId) []string {
 	// first reverse the segments, since we want to take from right -> left
-	reversedSegments := make([]models.ResourceIdSegment, 0)
+	reversedSegments := make([]resourcemanager.ResourceIdSegment, 0)
 	for i := len(pri.Segments); i > 0; i-- {
 		segment := pri.Segments[i-1]
 		reversedSegments = append(reversedSegments, segment)
 	}
 
-	segmentsWithoutScope := make([]models.ResourceIdSegment, 0)
+	segmentsWithoutScope := make([]resourcemanager.ResourceIdSegment, 0)
 	for _, segment := range reversedSegments {
-		if segment.Type == models.ScopeSegment {
+		if segment.Type == resourcemanager.ScopeSegment {
 			continue
 		}
 
@@ -194,11 +195,11 @@ func SegmentsAvailableForNaming(pri models.ParsedResourceId) []string {
 	if len(segmentsWithoutScope)%2 == 0 && len(segmentsWithoutScope) > 0 {
 		availableSegments := make([]string, 0)
 		for _, segment := range segmentsWithoutScope {
-			if segment.Type == models.ConstantSegment || segment.Type == models.StaticSegment {
+			if segment.Type == resourcemanager.ConstantSegment || segment.Type == resourcemanager.StaticSegment {
 				normalized := cleanup.NormalizeSegmentName(segment.Name)
 
 				// trim off the `Static` prefix if it's expected to be present
-				if segment.Type == models.ResourceProviderSegment || segment.Type == models.StaticSegment {
+				if segment.Type == resourcemanager.ResourceProviderSegment || segment.Type == resourcemanager.StaticSegment {
 					normalized = strings.TrimPrefix(normalized, "Static")
 				}
 
@@ -211,7 +212,7 @@ func SegmentsAvailableForNaming(pri models.ParsedResourceId) []string {
 
 	availableSegments := make([]string, 0)
 	for _, segment := range reversedSegments {
-		if segment.Type != models.UserSpecifiedSegment {
+		if segment.Type != resourcemanager.UserSpecifiedSegment {
 			continue
 		}
 
@@ -219,7 +220,7 @@ func SegmentsAvailableForNaming(pri models.ParsedResourceId) []string {
 		normalized := cleanup.NormalizeSegmentName(segment.Name)
 
 		// trim off the `Static` prefix if it's expected to be present
-		if segment.Type == models.ResourceProviderSegment || segment.Type == models.StaticSegment {
+		if segment.Type == resourcemanager.ResourceProviderSegment || segment.Type == resourcemanager.StaticSegment {
 			normalized = strings.TrimPrefix(normalized, "Static")
 		}
 

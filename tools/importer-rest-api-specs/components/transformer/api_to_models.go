@@ -7,42 +7,6 @@ import (
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-func MapApiConstantsToConstantDetails(input map[string]resourcemanager.ConstantDetails) (*map[string]models.ConstantDetails, error) {
-	output := make(map[string]models.ConstantDetails)
-
-	for k, v := range input {
-		fieldType, err := mapApiConstantToConstantFieldType(v.Type)
-		if err != nil {
-			return nil, fmt.Errorf("mapping Field Type %q for Constant %q: %+v", string(v.Type), k, err)
-		}
-
-		output[k] = models.ConstantDetails{
-			FieldType: *fieldType,
-			Values:    v.Values,
-		}
-	}
-
-	return &output, nil
-}
-
-func mapApiConstantToConstantFieldType(input resourcemanager.ConstantType) (*models.ConstantFieldType, error) {
-	switch input {
-	case resourcemanager.IntegerConstant:
-		v := models.IntegerConstant
-		return &v, nil
-
-	case resourcemanager.FloatConstant:
-		v := models.FloatConstant
-		return &v, nil
-
-	case resourcemanager.StringConstant:
-		v := models.StringConstant
-		return &v, nil
-	}
-
-	return nil, fmt.Errorf("unmapped Constant Type %q", string(input))
-}
-
 func MapApiModelsToModelDetails(input map[string]resourcemanager.ModelDetails) (*map[string]models.ModelDetails, error) {
 	output := make(map[string]models.ModelDetails)
 
@@ -250,11 +214,11 @@ func mapApiOperationOptions(input map[string]resourcemanager.ApiOperationOption)
 	return &output, nil
 }
 
-func MapApiResourceIdDefinitionsToParsedResourceIds(input map[string]resourcemanager.ResourceIdDefinition, constants map[string]models.ConstantDetails) (*map[string]models.ParsedResourceId, error) {
+func MapApiResourceIdDefinitionsToParsedResourceIds(input map[string]resourcemanager.ResourceIdDefinition, constants map[string]resourcemanager.ConstantDetails) (*map[string]models.ParsedResourceId, error) {
 	output := make(map[string]models.ParsedResourceId)
 
 	for k, v := range input {
-		constantsUsed := make(map[string]models.ConstantDetails)
+		constantsUsed := make(map[string]resourcemanager.ConstantDetails)
 		for _, name := range v.ConstantNames {
 			constant, ok := constants[name]
 			if !ok {
@@ -264,54 +228,12 @@ func MapApiResourceIdDefinitionsToParsedResourceIds(input map[string]resourceman
 			constantsUsed[name] = constant
 		}
 
-		segments, err := mapApiResourceIdSegments(v.Segments)
-		if err != nil {
-			return nil, fmt.Errorf("mapping segments for Resource ID %q: %+v", k, err)
-		}
-
 		output[k] = models.ParsedResourceId{
 			CommonAlias: v.CommonAlias,
 			Constants:   constantsUsed,
-			Segments:    *segments,
+			Segments:    v.Segments,
 		}
 	}
 
 	return &output, nil
-}
-
-func mapApiResourceIdSegments(input []resourcemanager.ResourceIdSegment) (*[]models.ResourceIdSegment, error) {
-	output := make([]models.ResourceIdSegment, 0)
-
-	for _, v := range input {
-		segmentType, err := mapApiResourceIdSegmentType(v.Type)
-		if err != nil {
-			return nil, fmt.Errorf("mapping Segment Type %q: %+v", string(v.Type), err)
-		}
-
-		output = append(output, models.ResourceIdSegment{
-			Type:              *segmentType,
-			ConstantReference: v.ConstantReference,
-			FixedValue:        v.FixedValue,
-			Name:              v.Name,
-		})
-	}
-
-	return &output, nil
-}
-
-func mapApiResourceIdSegmentType(input resourcemanager.ResourceIdSegmentType) (*models.SegmentType, error) {
-	vals := map[resourcemanager.ResourceIdSegmentType]models.SegmentType{
-		resourcemanager.ConstantSegment:         models.ConstantSegment,
-		resourcemanager.ResourceGroupSegment:    models.ResourceGroupSegment,
-		resourcemanager.ResourceProviderSegment: models.ResourceProviderSegment,
-		resourcemanager.ScopeSegment:            models.ScopeSegment,
-		resourcemanager.StaticSegment:           models.StaticSegment,
-		resourcemanager.SubscriptionIdSegment:   models.SubscriptionIdSegment,
-		resourcemanager.UserSpecifiedSegment:    models.UserSpecifiedSegment,
-	}
-	if v, ok := vals[input]; ok {
-		return &v, nil
-	}
-
-	return nil, fmt.Errorf("missing mapping for Segment Type %q", string(input))
 }
