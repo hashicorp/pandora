@@ -6,26 +6,11 @@ import (
 	"sort"
 
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/discovery"
-	"github.com/hashicorp/pandora/tools/sdk/config/definitions"
 )
 
-func parseAndOutputSegments(input RunInput) error {
-	terraformDefinitions := definitions.Config{
-		Services: map[string]definitions.ServiceDefinition{},
-	}
-	findInput := discovery.FindServiceInput{
-		SwaggerDirectory: input.SwaggerDirectory,
-		ConfigFilePath:   input.ConfigFilePath,
-		OutputDirectory:  input.OutputDirectory,
-		Logger:           input.Logger.Named("Discovery"),
-	}
-	data, err := discovery.FindServices(findInput, terraformDefinitions)
-	if err != nil {
-		return fmt.Errorf("retrieving data: %+v", err)
-	}
-
+func parseAndOutputSegments(input RunInput, generationData []discovery.ServiceInput) error {
 	fixedSegmentValues := make(map[string]struct{}, 0)
-	for _, service := range *data {
+	for _, service := range generationData {
 		input.Logger.Trace(fmt.Sprintf("Parsing Swagger files within API Version %q for Service %q..", service.ApiVersion, service.ServiceName))
 		data, err := parseSwaggerFiles(service, input.Logger)
 		if err != nil {
