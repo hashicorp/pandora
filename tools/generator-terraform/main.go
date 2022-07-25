@@ -1,19 +1,45 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 	"log"
 	"os"
-	"path"
+	"path/filepath"
+	"strings"
 
 	"github.com/hashicorp/pandora/tools/generator-terraform/generator"
+
+	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+	"github.com/hashicorp/pandora/tools/sdk/services"
 )
 
+type GeneratorInput struct {
+	apiServerEndpoint string
+	outputDirectory   string
+	providerPrefix    string
+}
+
 func main() {
-	dataEndpoint := "http://localhost:5000"
-	debug := true
-	homeDir, _ := os.UserHomeDir()
-	if err := run(dataEndpoint, homeDir, debug); err != nil {
+	input := GeneratorInput{
+		apiServerEndpoint: "",
+		providerPrefix:    "azurerm",
+		outputDirectory:   "",
+	}
+
+	f := flag.NewFlagSet("generator-terraform", flag.ExitOnError)
+	f.StringVar(&input.apiServerEndpoint, "data-api", "http://localhost:5000", "-data-api=http://localhost:5000")
+	f.StringVar(&input.outputDirectory, "output-dir", "", "-output-dir=../generated-tf-dev")
+	if err := f.Parse(os.Args[1:]); err != nil {
+		log.Fatalf("parsing arguments: %+v", err)
+	}
+
+	if input.outputDirectory == "" {
+		homeDir, _ := os.UserHomeDir()
+		input.outputDirectory = filepath.Join(homeDir, "/Desktop/generated-tf-dev")
+	}
+
+	if err := run(input); err != nil {
 		log.Printf("error: %+v", err)
 		os.Exit(1)
 		return
@@ -22,270 +48,96 @@ func main() {
 	os.Exit(0)
 }
 
-func run(endpoint, homeDir string, debug bool) error {
-	data := map[string]generator.Data{
-		"EventHub Namespace": {
-			ClientName:              "EventHubs.NamespacesClient",
-			IsResource:              true,
-			ResourceName:            "Namespace",
-			PackageName:             "eventhubs",
-			ProviderPrefix:          "azurerm",
-			PackageWorkingDirectory: path.Join(homeDir, "Desktop/pandora-terraform/eventhubs"),
-			ResourceType:            "azurerm_eventhub_namespace",
-			ResourceIDTypeName:      strPtr("Namespace"),
+func run(input GeneratorInput) error {
+	// ensure the output directory exists
+	os.MkdirAll(input.outputDirectory, 0755)
 
-			ResourceDeleteOperation: &generator.OperationDetails{
-				CustomTimeoutInMinutes: intPtr(60),
-				Generate:               true,
-				SDKMethodIsLongRunning: false,
-				SDKMethodName:          "Delete",
-			},
-			ResourceReadOperation: &generator.OperationDetails{
-				Generate:               true,
-				SDKMethodIsLongRunning: false,
-				SDKMethodName:          "Get",
-				SDKModelName:           strPtr("SomeReadModel"),
-			},
-		},
-		"Resource Group - Data Source": {
-			ClientName:              "Resources.GroupsClient",
-			IsResource:              false,
-			PackageName:             "resources",
-			ProviderPrefix:          "azurerm",
-			PackageWorkingDirectory: path.Join(homeDir, "Desktop/pandora-terraform/resources"),
-			ResourceIDTypeName:      strPtr("ResourceGroup"),
-			ResourceName:            "ResourceGroup",
-			ResourceType:            "azurerm_resource_group",
-
-			DataSourceReadOperation: &generator.OperationDetails{
-				Generate:      true,
-				SDKMethodName: "DataSourceGetPlz",
-				SDKModelName:  strPtr("ModelForDataSource"),
-			},
-			DataSourceTestCases: &generator.TestCasesDefinition{
-				Tests: map[string]generator.TestCaseDefinition{
-					"Basic": {
-						Stages: []generator.TestCaseDefinitionStage{
-							{
-								ConfigName:     strPtr("basic"),
-								Import:         false,
-								RequiresImport: false,
-							},
-						},
-					},
-				},
-				Configs: map[string]generator.TestConfigDefinition{
-					"basic": {
-						Config: `
-resource "azurerm_resource_group" "test" {
-  name     = "tom-dev"
-  location = "west europe"
-}
-`,
-					},
-				},
-			},
-		},
-		"Resource Group - Resource": {
-			ClientName:              "Resources.GroupsClient",
-			IsResource:              true,
-			PackageName:             "resources",
-			ProviderPrefix:          "azurerm",
-			PackageWorkingDirectory: path.Join(homeDir, "Desktop/pandora-terraform/resources"),
-			ResourceIDTypeName:      strPtr("ResourceGroup"),
-			ResourceName:            "ResourceGroup",
-			ResourceType:            "azurerm_resource_group",
-			SchemaFieldsToResourceIDMappings: &[]string{
-				"Name",
-			},
-
-			TopLevelSchema: &generator.ModelDefinition{
-				Fields: map[string]generator.FieldDefinition{
-					"Name": {
-						Type:     generator.FieldTypeDefinitionResourceGroup,
-						Required: true,
-						ForceNew: true,
-						HclLabel: "name",
-					},
-					"Location": {
-						Type:     generator.FieldTypeDefinitionLocation,
-						Required: true,
-						ForceNew: true,
-						HclLabel: "location",
-					},
-					"Tags": {
-						Type:     generator.FieldTypeDefinitionTags,
-						Computed: true,
-						HclLabel: "tags",
-					},
-					"NestedObject": {
-						Type:           generator.FieldTypeDefinitionList,
-						HclLabel:       "nested_object",
-						MinItems:       intPtr(1),
-						MaxItems:       intPtr(1),
-						ModelReference: strPtr("Nested"),
-					},
-				},
-			},
-			Objects: &generator.Objects{
-				Constants: map[string]generator.ConstantDefinition{
-					"Names": {
-						FieldType: generator.StringConstant,
-						Values: map[string]string{
-							"Bob":   "bob",
-							"Chloe": "chloe",
-						},
-					},
-				},
-				Models: map[string]generator.ModelDefinition{
-					"Nested": {
-						Fields: map[string]generator.FieldDefinition{
-							"Name": {
-								Type:     generator.FieldTypeDefinitionString,
-								Required: true,
-								ForceNew: true,
-								HclLabel: "name",
-							},
-							"ConstantValue": {
-								Type:              generator.FieldTypeDefinitionConstant,
-								Required:          true,
-								ForceNew:          true,
-								HclLabel:          "constant_value",
-								ConstantReference: strPtr("Names"),
-							},
-						},
-					},
-				},
-			},
-
-			ResourceCreateOperation: &generator.OperationDetails{
-				Generate:               true,
-				SDKMethodIsLongRunning: true,
-				SDKMethodName:          "Create",
-				SDKModelName:           strPtr("SomeCreateModel"),
-			},
-			ResourceDeleteOperation: &generator.OperationDetails{
-				Generate:               true,
-				SDKMethodIsLongRunning: true,
-				SDKMethodName:          "Delete",
-			},
-			ResourceReadOperation: &generator.OperationDetails{
-				Generate:      true,
-				SDKMethodName: "Read",
-				SDKModelName:  strPtr("MyCustomReadObj"),
-			},
-			ResourceUpdateOperation: &generator.OperationDetails{
-				Generate:      true,
-				SDKMethodName: "UpdateAllTheThings",
-				SDKModelName:  strPtr("MyCustomUpdateObj"),
-			},
-			ResourceTestCases: &generator.TestCasesDefinition{
-				Tests: map[string]generator.TestCaseDefinition{
-					"Basic": {
-						Stages: []generator.TestCaseDefinitionStage{
-							{
-								ConfigName: strPtr("basic"),
-							},
-							{
-								Import: true,
-							},
-						},
-					},
-					"Complete": {
-						Stages: []generator.TestCaseDefinitionStage{
-							{
-								ConfigName: strPtr("basic"),
-							},
-							{
-								Import: true,
-							},
-							{
-								ConfigName: strPtr("complete"),
-							},
-							{
-								Import: true,
-							},
-						},
-					},
-					"RequiresImport": {
-						Stages: []generator.TestCaseDefinitionStage{
-							{
-								ConfigName: strPtr("basic"),
-							},
-							{
-								ConfigName:     strPtr("requiresImport"),
-								RequiresImport: true,
-							},
-						},
-					},
-				},
-				Configs: map[string]generator.TestConfigDefinition{
-					"basic": {
-						Config: `
-resource "azurerm_resource_group" "test" {
-  name     = "tom-dev"
-  location = "west europe"
-}
-`,
-					},
-					"complete": {
-						Config: `
-resource "azurerm_resource_group" "test" {
-  name     = "tom-dev"
-  location = "west europe"
-  tags = {
-    "generated-by" = "Pandora"
-  }
-}
-`,
-					},
-					"requiresImport": {
-						Config: `
-resource "azurerm_resource_group" "test" {
-  name     = "tom-dev"
-  location = "west europe"
-}
-
-resource "azurerm_resource_group" "import" {
-  name     = azurerm_resource_group.test.name
-  location = azurerm_resource_group.test.location
-}
-`,
-					},
-				},
-			},
-		},
+	log.Printf("[DEBUG] Retrieving Services from Data API..")
+	client := resourcemanager.NewClient(input.apiServerEndpoint)
+	services, err := services.GetResourceManagerServices(client)
+	if err != nil {
+		return fmt.Errorf("retrieving resource manager services: %+v", err)
 	}
 
-	for name, val := range data {
-		log.Printf("[DEBUG] Generating %q..", name)
-		gen := generator.NewGenerator(val, debug)
-		if err := gen.Generate(); err != nil {
-			return fmt.Errorf("generating: %+v", err)
+	for serviceName, service := range services.Services {
+		log.Printf("[DEBUG] Service %q..", serviceName)
+		if !service.Details.Generate {
+			log.Printf("[DEBUG] .. is opted out of generation, skipping..")
+			continue
+		}
+
+		if service.TerraformPackageName == nil {
+			log.Printf("[INFO] TerraformPackageName is nil for Service %q", serviceName)
+			continue
+		}
+
+		if len(service.Terraform.DataSources) == 0 && len(service.Terraform.Resources) == 0 {
+			log.Printf("[DEBUG] .. has no Data Sources/Resources, skipping..")
+			continue
+		}
+
+		//for label, _ := range service.Terraform.DataSources {
+		//	// TODO: conditional generation
+		//
+		//	apiVersion := "TODO PLACEHOLDER"
+		//
+		//	log.Printf("[DEBUG] Processing Data Source %q..", label)
+		//	dataSourceInput := generator.DataSourceInput{
+		//		ProviderPrefix:     input.providerPrefix,
+		//		ResourceLabel:      label,
+		//		RootDirectory:      input.outputDirectory,
+		//		ServicePackageName: "example", // TODO: needs to be returned from the API
+		//	}
+		//	if err := generator.DataSource(dataSourceInput); err != nil {
+		//		return fmt.Errorf("generating for Data Source %q (Service %q / API Version %q): %+v", label, serviceName, apiVersion, err)
+		//	}
+		//}
+
+		for label, details := range service.Terraform.Resources {
+			if !details.Generate {
+				log.Printf("[DEBUG] Resource %q has generation disabled - skipping", label)
+				continue
+			}
+
+			versionDetails, ok := service.Versions[details.ApiVersion]
+			if !ok {
+				return fmt.Errorf("couldn't find API Version %q for Terraform Resource %q (Service %q)", details.ApiVersion, label, serviceName)
+			}
+
+			resource, ok := versionDetails.Resources[details.Resource]
+			if !ok {
+				return fmt.Errorf("couldn't find API Resource %q for Terraform Resource %q (API Version %q / Service %q)", details.Resource, label, details.ApiVersion, serviceName)
+			}
+
+			log.Printf("[DEBUG] Processing Resource %q..", label)
+			resourceInput := generator.ResourceInput{
+				// Provider related
+				ProviderPrefix:     input.providerPrefix,
+				RootDirectory:      input.outputDirectory,
+				ServicePackageName: *service.TerraformPackageName,
+				ServiceName:        serviceName,
+
+				// Resource Related
+				Details:          details,
+				ResourceLabel:    label,
+				ResourceTypeName: details.ResourceName,
+
+				// Sdk Related
+				SdkApiVersion:   details.ApiVersion,
+				SdkResourceName: strings.ToLower(details.Resource),
+				SdkServiceName:  strings.ToLower(serviceName),
+
+				// Data
+				Constants:   resource.Schema.Constants,
+				Models:      resource.Schema.Models,
+				Operations:  resource.Operations.Operations,
+				ResourceIds: resource.Schema.ResourceIds,
+			}
+			if err := generator.Resource(resourceInput); err != nil {
+				return fmt.Errorf("generating for Resource %q (Service %q / API Version %q): %+v", label, serviceName, details.ApiVersion, err)
+			}
 		}
 	}
 
-	//client := resourcemanager.NewClient(endpoint)
-	//services, err := services.GetResourceManagerServices(client)
-	//if err != nil {
-	//	return fmt.Errorf("retrieving services: %+v", err)
-	//}
-	//
-	//for _, val := range services.Services {
-	//	if !val.Details.Generate {
-	//		continue
-	//	}
-	//
-	//
-	//}
-
 	return nil
-}
-
-func intPtr(in int) *int {
-	return &in
-}
-
-func strPtr(in string) *string {
-	return &in
 }

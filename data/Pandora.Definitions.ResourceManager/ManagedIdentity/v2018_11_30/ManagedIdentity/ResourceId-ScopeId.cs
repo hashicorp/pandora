@@ -16,6 +16,6 @@ internal class ScopeId : ResourceID
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
-
+        ResourceIDSegment.Scope("scope"),
     };
 }

@@ -38,6 +38,8 @@ public class ServiceDetailsController : ControllerBase
         return new ServiceDetailsResponse
         {
             ResourceProvider = version.ResourceManager ? version.ResourceProvider! : null,
+            TerraformPackageName = version.TerraformPackageName,
+            TerraformUri = $"/v1/resource-manager/services/{serviceName}/terraform",
             Versions = version.Versions.ToDictionary(v => v.Version, v => MapVersion(v, serviceName))
         };
     }
@@ -68,6 +70,12 @@ public class ServiceDetailsController : ControllerBase
     {
         [JsonPropertyName("resourceProvider")]
         public string? ResourceProvider { get; set; }
+
+        [JsonPropertyName("terraformPackageName")]
+        public string? TerraformPackageName { get; set; }
+
+        [JsonPropertyName("terraformUri")]
+        public string TerraformUri { get; set; }
 
         [JsonPropertyName("versions")]
         public Dictionary<string, VersionDetails> Versions { get; set; }

@@ -28,9 +28,9 @@ public static class Version
             var resourceDefinitions = input.Resources.Select(ResourceDefinition.Map);
             return new VersionDefinition
             {
-                Resources = resourceDefinitions,
                 Generate = input.Generate,
                 Preview = input.Preview,
+                Resources = resourceDefinitions,
                 Source = MapSource(input.Source),
                 Version = input.ApiVersion,
             };

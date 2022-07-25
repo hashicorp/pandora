@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Pandora.Definitions.Interfaces;
 
 namespace Pandora.Definitions.ResourceManager.ServiceFabricManagedCluster.v2021_05_01;
+
 public partial class Definition : ApiVersionDefinition
 {
     public string ApiVersion => "2021-05-01";

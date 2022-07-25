@@ -13,15 +13,31 @@ service "app" {
 }
 service "appconfiguration" {
   name      = "AppConfiguration"
-  available = ["2020-06-01"]
+  available = ["2022-05-01"]
+}
+service "applicationinsights" {
+  name      = "ApplicationInsights"
+  available = ["2020-11-20", "2022-04-01"]
 }
 service "attestation" {
   name      = "Attestation"
   available = ["2020-10-01"]
 }
+service "automation" {
+  name      = "Automation"
+  available = ["2021-06-22"]
+}
+service "azure-kusto" {
+  name      = "Kusto"
+  available = ["2021-08-27"]
+}
+service "azurestackhci" {
+  name      = "AzureStackHCI"
+  available = ["2020-10-01"]
+}
 service "chaos" {
   name      = "ChaosStudio"
-  available = ["2021-09-15-preview"]
+  available = ["2022-07-01-preview"]
 }
 service "cognitiveservices" {
   name      = "Cognitive"
@@ -31,9 +47,17 @@ service "communication" {
   name      = "Communication"
   available = ["2020-08-20"]
 }
+service "compute" {
+  name      = "Compute"
+  available = ["2021-11-01"]
+}
 service "confidentialledger" {
   name      = "ConfidentialLedger"
   available = ["2022-05-13"]
+}
+service "containerinstance" {
+  name      = "ContainerInstance"
+  available = ["2021-03-01", "2021-10-01"]
 }
 service "cost-management" {
   name      = "CostManagement"
@@ -51,9 +75,21 @@ service "datalake-store" {
   name      = "DatalakeStore"
   available = ["2016-11-01"]
 }
+service "dataprotection" {
+  name      = "DataProtection"
+  available = ["2022-04-01"]
+}
+service "desktopvirtualization" {
+  name      = "DesktopVirtualization"
+  available = ["2021-09-03-preview", "2022-02-10-preview"]
+}
 service "dns" {
   name      = "DNS"
   available = ["2018-05-01"]
+}
+service "domainservices" {
+  name      = "AAD"
+  available = ["2020-01-01", "2021-03-01", "2021-05-01"]
 }
 service "elastic" {
   name      = "Elastic"
@@ -70,6 +106,10 @@ service "fluidrelay" {
 service "frontdoor" {
   name      = "Frontdoor"
   available = ["2020-04-01", "2020-05-01"]
+}
+service "hardwaresecuritymodules" {
+  name      = "HardwareSecurityModules"
+  available = ["2021-11-30"]
 }
 service "healthcareapis" {
   name      = "HealthcareApis"
@@ -95,25 +135,61 @@ service "loadtestservice" {
   name      = "LoadTestService"
   available = ["2021-12-01-preview"]
 }
+service "machinelearningservices" {
+  name      = "MachineLearningServices"
+  available = ["2021-07-01", "2022-05-01"]
+}
+service "managedservices" {
+  name      = "ManagedServices"
+  available = ["2019-06-01"]
+}
 service "maps" {
   name      = "Maps"
   available = ["2021-02-01"]
+}
+service "mediaservices" {
+  name      = "Media"
+  available = ["2020-05-01", "2021-05-01"]
 }
 service "mixedreality" {
   name      = "MixedReality"
   available = ["2021-01-01"]
 }
+service "monitor" {
+  name      = "Insights"
+  available = ["2021-04-01", "2021-08-01"]
+}
 service "msi" {
   name      = "ManagedIdentity"
   available = ["2018-11-30"]
+}
+service "netapp" {
+  name      = "NetApp"
+  available = ["2021-10-01", "2022-01-01"]
 }
 service "notificationhubs" {
   name      = "NotificationHubs"
   available = ["2017-04-01"]
 }
+service "operationalinsights" {
+  name      = "OperationalInsights"
+  available = ["2019-09-01", "2020-08-01"]
+}
+service "orbital" {
+  name      = "Orbital"
+  available = ["2022-03-01"]
+}
+service "policyinsights" {
+  name      = "PolicyInsights"
+  available = ["2021-10-01"]
+}
 service "portal" {
   name      = "Portal"
   available = ["2019-01-01-preview"]
+}
+service "postgresql" {
+  name      = "Postgresql"
+  available = ["2017-12-01", "2020-01-01", "2021-06-01"]
 }
 service "postgresqlhsc" {
   name      = "PostgresqlHSC"
@@ -139,9 +215,17 @@ service "relay" {
   name      = "Relay"
   available = ["2017-04-01"]
 }
+service "resources" {
+  name      = "Resources"
+  available = ["2020-06-01"]
+}
 service "search" {
   name      = "Search"
-  available = ["2020-03-13"]
+  available = ["2020-03-13", "2020-08-01"]
+}
+service "securityinsights" {
+  name      = "SecurityInsights"
+  available = ["2021-09-01-preview"]
 }
 service "servicebus" {
   name      = "ServiceBus"
@@ -157,7 +241,11 @@ service "servicelinker" {
 }
 service "signalr" {
   name      = "SignalR"
-  available = ["2021-10-01"]
+  available = ["2021-10-01", "2022-02-01"]
+}
+service "sqlvirtualmachine" {
+  name      = "SqlVirtualMachine"
+  available = ["2022-02-01"]
 }
 service "storage" {
   name      = "Storage"
@@ -166,6 +254,10 @@ service "storage" {
 service "storagepool" {
   name      = "StoragePool"
   available = ["2021-08-01"]
+}
+service "streamanalytics" {
+  name      = "StreamAnalytics"
+  available = ["2020-03-01"]
 }
 service "trafficmanager" {
   name      = "TrafficManager"
@@ -182,8 +274,4 @@ service "vmware" {
 service "web" {
   name      = "Web"
   available = ["2016-06-01"]
-}
-service "machinelearningservices" {
-  name      = "MachineLearningServices"
-  available = ["2021-07-01", "2022-05-01"]
 }

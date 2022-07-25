@@ -29,7 +29,7 @@ public static class VersionTests
     }
 
     [TestCase]
-    public static void MappingAVersionContainingADuplicateOperationTwiceShouldRaiseAnError()
+    public static void MappingAVersionWithDuplicateTerraformResourcesShouldRaiseAnError()
     {
         Assert.Throws<Exception>(() => Version.Map(new VersionDefinitionWithDuplicateOperations()));
     }
@@ -58,39 +58,46 @@ public static class VersionTests
         public bool Generate => true;
         public bool Preview => false;
         public IEnumerable<Definitions.Interfaces.ResourceDefinition> Resources => new List<Definitions.Interfaces.ResourceDefinition> { new SomeResourceDefinition(), new SomeResourceDefinition() };
+
         public Source Source => Source.HandWritten;
     }
 
     private class SomeResourceDefinition : Definitions.Interfaces.ResourceDefinition
     {
         public string Name => "example";
-        public IEnumerable<ApiOperation> Operations => new List<ApiOperation> { new FakeApiOperation() };
+        public IEnumerable<ApiOperation> Operations => new List<ApiOperation> { new v2020_01_01.Example.FakeApiOperation() };
     }
 
-    private class FakeApiOperation : GetOperation
+    private class v2020_01_01
     {
-        public override Type? ResponseObject()
+        internal class Example
         {
-            return typeof(SomeObject);
+            internal class FakeApiOperation : GetOperation
+            {
+                public override Type? ResponseObject()
+                {
+                    return typeof(SomeObject);
+                }
+
+                private class SomeObject
+                {
+                }
+            }
+
+            internal class FakeResourceId : Definitions.Interfaces.ResourceID
+            {
+                public string? CommonAlias => null;
+
+                public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}";
+
+                public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
+                {
+                    ResourceIDSegment.Static("subscriptions", "subscriptions"),
+                    ResourceIDSegment.SubscriptionId("subscriptionId"),
+                    ResourceIDSegment.Static("resourceGroups", "resourceGroups"),
+                    ResourceIDSegment.ResourceGroup("resourceGroup"),
+                };
+            }
         }
-
-        private class SomeObject
-        {
-        }
-    }
-
-    private class FakeResourceId : Definitions.Interfaces.ResourceID
-    {
-        public string? CommonAlias => null;
-
-        public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}";
-
-        public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
-        {
-            ResourceIDSegment.Static("subscriptions", "subscriptions"),
-            ResourceIDSegment.SubscriptionId("subscriptionId"),
-            ResourceIDSegment.Static("resourceGroups", "resourceGroups"),
-            ResourceIDSegment.ResourceGroup("resourceGroup"),
-        };
     }
 }

@@ -12,7 +12,7 @@ import (
 // TODO: implement predicates
 // TODO: add unit tests covering this
 
-var _ templater = methodsAutoRestTemplater{}
+var _ templaterForResource = methodsAutoRestTemplater{}
 
 type methodsAutoRestTemplater struct {
 	operation     resourcemanager.ApiOperation
@@ -23,7 +23,12 @@ type methodsAutoRestTemplater struct {
 func (c methodsAutoRestTemplater) template(data ServiceGeneratorData) (*string, error) {
 	methods, err := c.methods(data)
 	if err != nil {
-		return nil, err
+		return nil, fmt.Errorf("building methods: %+v", err)
+	}
+
+	copyrightLines, err := copyrightLinesForSource(data.source)
+	if err != nil {
+		return nil, fmt.Errorf("retrieving copyright lines: %+v", err)
 	}
 
 	template := fmt.Sprintf(`package %[1]s
@@ -36,12 +41,15 @@ import (
 
 	"github.com/Azure/go-autorest/autorest"
 	"github.com/Azure/go-autorest/autorest/azure"
+	"github.com/hashicorp/go-azure-helpers/lang/response"
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/commonids"
 	"github.com/hashicorp/go-azure-helpers/polling"
 )
 
 %s
-`, data.packageName, *methods)
+
+%s
+`, data.packageName, *copyrightLines, *methods)
 	return &template, nil
 }
 
@@ -64,10 +72,6 @@ func (c methodsAutoRestTemplater) methods(data ServiceGeneratorData) (*string, e
 	case "GET":
 		if c.operation.LongRunning {
 			return nil, fmt.Errorf("`GET` operations cannot be long-running")
-		}
-
-		if c.operation.RequestObject != nil {
-			return nil, fmt.Errorf("`GET` operations do not support Request objects at this time")
 		}
 
 		if c.operation.FieldContainingPaginationDetails != nil {
@@ -464,7 +468,6 @@ func (c methodsAutoRestTemplater) preparerTemplate(data ServiceGeneratorData) (*
 
 	if c.operation.RequestObject != nil {
 		steps = append(steps, "autorest.WithJSON(input)")
-		listSteps = append(listSteps, "autorest.WithJSON(input)")
 	}
 	steps = append(steps, "autorest.WithQueryParameters(queryParameters)")
 	listSteps = append(listSteps, "autorest.WithQueryParameters(queryParameters)")
@@ -684,7 +687,8 @@ func (c %[1]s) senderFor%[2]s(ctx context.Context, req *http.Request) (future %[
 	if err != nil {
 		return
 	}
-	future.Poller, err = polling.NewLongRunningPollerFromResponse(ctx, resp, c.Client)
+	
+	future.Poller, err = polling.NewPollerFromResponse(ctx, resp, c.Client, req.Method)
 	return
 }
 `, data.serviceClientName, c.operationName)

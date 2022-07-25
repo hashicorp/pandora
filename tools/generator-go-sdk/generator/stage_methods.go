@@ -17,7 +17,7 @@ func (s *ServiceGenerator) methods(data ServiceGeneratorData) error {
 			operation:     operation,
 			constants:     data.constants,
 		}
-		if err := s.writeToPath(data.outputPath, fileName, gen, data); err != nil {
+		if err := s.writeToPathForResource(data.resourceOutputPath, fileName, gen, data); err != nil {
 			return fmt.Errorf("templating methods (using autorest): %+v", err)
 		}
 	}

@@ -1,5 +1,11 @@
 package models
 
+import (
+	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+)
+
+// TODO: we should consider reusing the `resourcemanager` models where possible to avoid the conversion (see `./differ`)
+
 type AzureApiDefinition struct {
 	ServiceName string
 	ApiVersion  string
@@ -7,10 +13,11 @@ type AzureApiDefinition struct {
 }
 
 type AzureApiResource struct {
-	Constants   map[string]ConstantDetails
+	Constants   map[string]resourcemanager.ConstantDetails
 	Models      map[string]ModelDetails
 	Operations  map[string]OperationDetails
 	ResourceIds map[string]ParsedResourceId
+	Terraform   *resourcemanager.TerraformDetails
 }
 
 type OperationDetails struct {
@@ -71,20 +78,6 @@ type OperationOption struct {
 	Required         bool
 }
 
-type ConstantDetails struct {
-	Values    map[string]string
-	FieldType ConstantFieldType
-}
-
-type ConstantFieldType string
-
-const (
-	IntegerConstant ConstantFieldType = "int"
-	FloatConstant   ConstantFieldType = "float"
-	StringConstant  ConstantFieldType = "string"
-	UnknownConstant ConstantFieldType = "unknown"
-)
-
 type ModelDetails struct {
 	Description string
 	Fields      map[string]FieldDetails
@@ -93,8 +86,6 @@ type ModelDetails struct {
 	ParentTypeName *string
 	TypeHintIn     *string
 	TypeHintValue  *string
-
-	// TODO: include ReadOnly, which'll mean we need to generate this on a per-type basis if necessary
 }
 
 type FieldDetails struct {
@@ -103,6 +94,7 @@ type FieldDetails struct {
 	Sensitive bool
 	JsonName  string
 
+	// TODO: we'll need to consolidate this into ObjectDefinition to match how the Shared Models do this
 	CustomFieldType  *CustomFieldType
 	ObjectDefinition *ObjectDefinition
 

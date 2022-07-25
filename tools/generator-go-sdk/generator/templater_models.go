@@ -12,7 +12,7 @@ import (
 
 // TODO: add unit tests covering this
 
-var _ templater = modelsTemplater{}
+var _ templaterForResource = modelsTemplater{}
 
 type modelsTemplater struct {
 	name  string
@@ -213,9 +213,13 @@ func (c modelsTemplater) dateFormatString(input resourcemanager.DateFormat) stri
 
 func (c modelsTemplater) codeForDateFunctions(data ServiceGeneratorData) (*string, error) {
 	fieldsRequiringDateFunctions := make([]string, 0)
-	for fieldName, fieldDetails := range c.model.Fields {
-		if fieldDetails.DateFormat != nil {
-			fieldsRequiringDateFunctions = append(fieldsRequiringDateFunctions, fieldName)
+	// parent models are output as interfaces with no fields - so we can skip these
+	// since the inherited models output the fields from their parents, the methods are output there
+	if c.model.TypeHintIn == nil {
+		for fieldName, fieldDetails := range c.model.Fields {
+			if fieldDetails.DateFormat != nil {
+				fieldsRequiringDateFunctions = append(fieldsRequiringDateFunctions, fieldName)
+			}
 		}
 	}
 
@@ -475,6 +479,32 @@ func (c modelsTemplater) codeForUnmarshalStructFunction(data ServiceGeneratorDat
 
 		fieldsRequiringAssignment = append(fieldsRequiringAssignment, fieldName)
 	}
+	if c.model.ParentTypeName != nil {
+		parent, ok := data.models[*c.model.ParentTypeName]
+		if !ok {
+			return nil, fmt.Errorf("Parent Model %q (for Model %q) was not found", *c.model.ParentTypeName, c.name)
+		}
+		for fieldName, fieldDetails := range parent.Fields {
+			// also double-check if the parent has any fields matching the same conditions
+			topLevelObject := topLevelObjectDefinition(fieldDetails.ObjectDefinition)
+			if topLevelObject.Type == resourcemanager.ReferenceApiObjectDefinitionType {
+				model, ok := data.models[*topLevelObject.ReferenceName]
+				if ok && model.TypeHintIn != nil {
+					fieldsRequiringUnmarshalling = append(fieldsRequiringUnmarshalling, fieldName)
+					continue
+				}
+			}
+
+			// however specifically for the parent we don't want to assign the `type` field since we don't output it
+			// so check the implementation model to determine which field the `type` is in, and assign if they
+			// don't match
+			//
+			// at this point since we know there's a parent-implementation relationship, there's no need to nil-check
+			if *c.model.TypeHintIn != fieldName {
+				fieldsRequiringAssignment = append(fieldsRequiringAssignment, fieldName)
+			}
+		}
+	}
 
 	// we only need a custom unmarshal function when there's something needing unmarshaling
 	// else the default unmarshaler will be fine
@@ -508,7 +538,20 @@ func (s *%[1]s) UnmarshalJSON(bytes []byte) error {`, c.name))
 
 		sort.Strings(fieldsRequiringUnmarshalling)
 		for _, fieldName := range fieldsRequiringUnmarshalling {
-			fieldDetails := c.model.Fields[fieldName]
+			fieldDetails, ok := c.model.Fields[fieldName]
+			if !ok {
+				if c.model.ParentTypeName == nil {
+					return nil, fmt.Errorf("field %q was not found on Model %q which has no Parent", fieldName, c.name)
+				}
+				parent, ok := data.models[*c.model.ParentTypeName]
+				if !ok {
+					return nil, fmt.Errorf("parent model %q was not found", *c.model.ParentTypeName)
+				}
+				fieldDetails, ok = parent.Fields[fieldName]
+				if !ok {
+					return nil, fmt.Errorf("field %q was not found on Model %q or Parent %q", fieldName, c.name, *c.model.ParentTypeName)
+				}
+			}
 			topLevelObjectDef := topLevelObjectDefinition(fieldDetails.ObjectDefinition)
 
 			supportedDiscriminatorWrappers := map[resourcemanager.ApiObjectDefinitionType]struct{}{

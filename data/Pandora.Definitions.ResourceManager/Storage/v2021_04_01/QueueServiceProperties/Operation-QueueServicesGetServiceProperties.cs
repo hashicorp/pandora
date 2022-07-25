@@ -15,9 +15,11 @@ namespace Pandora.Definitions.ResourceManager.Storage.v2021_04_01.QueueServicePr
 
 internal class QueueServicesGetServicePropertiesOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new QueueServiceId();
+    public override ResourceID? ResourceId() => new StorageAccountId();
 
     public override Type? ResponseObject() => typeof(QueueServicePropertiesModel);
+
+    public override string? UriSuffix() => "/queueServices/default";
 
 
 }

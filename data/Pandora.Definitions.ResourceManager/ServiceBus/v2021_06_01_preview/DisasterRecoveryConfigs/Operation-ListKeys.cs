@@ -22,7 +22,7 @@ internal class ListKeysOperation : Operations.PostOperation
 
     public override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new DisasterRecoveryConfigAuthorizationRuleId();
+    public override ResourceID? ResourceId() => new AuthorizationRuleId();
 
     public override Type? ResponseObject() => typeof(AccessKeysModel);
 

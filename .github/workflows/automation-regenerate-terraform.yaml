@@ -1,0 +1,63 @@
+---
+name: Regenerate the Terraform Provider
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'data/**'
+      - 'tools/generator-terraform/**'
+
+jobs:
+  regenerate-terraform-provider:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-go@v2
+        with:
+          go-version: '1.18.1'
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 6.0.x
+
+      - name: "Build Data API"
+        run: |
+          cd ./data
+          make build
+
+      - name: "Launch SSH Agent"
+        run: |
+          # launch an ssh agent and export it's env vars
+          ssh-agent -a $SSH_AUTH_SOCK > /dev/null
+        env:
+          SSH_AUTH_SOCK: /tmp/pandora_ssh_agent.sock
+
+      - name: "Load SSH Key"
+        run: |
+          # load the Deployment Write Key for the Terraform Provider repository
+          echo "${{ secrets.TERRAFORM_DEPLOYMENT_WRITE_KEY }}" | ssh-add -
+        env:
+          SSH_AUTH_SOCK: /tmp/pandora_ssh_agent.sock
+
+      - name: "Run the Terraform Generator"
+        run: |
+          # go go gadget generator
+          ./scripts/automation-generate-and-commit-terraform.sh
+        env:
+          SSH_AUTH_SOCK: /tmp/pandora_ssh_agent.sock
+
+      - name: "Remove the Key from the SSH Agent"
+        if: always()
+        run: |
+          # remove the ssh key
+          ssh-add -D
+        env:
+          SSH_AUTH_SOCK: /tmp/pandora_ssh_agent.sock
+
+      - name: "Terminate the SSH Agent"
+        if: always()
+        run: |
+          pkill -9 ssh-agent

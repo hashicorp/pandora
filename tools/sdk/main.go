@@ -35,7 +35,7 @@ func run(endpoint string) error {
 		for versionNumber, versionDetails := range service.Versions {
 			log.Printf(versionNumber)
 
-			for name, id := range versionDetails.Details.ResourceIds {
+			for name, id := range versionDetails.Details.Resources {
 				log.Printf(" - %s - %s", name, id)
 			}
 			for resourceName, resourceDetails := range versionDetails.Resources {

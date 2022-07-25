@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Pandora.Definitions.Interfaces;
 
 namespace Pandora.Definitions.ResourceManager.DataLakeAnalytics.v2016_11_01;
+
 public partial class Definition : ApiVersionDefinition
 {
     public string ApiVersion => "2016-11-01";

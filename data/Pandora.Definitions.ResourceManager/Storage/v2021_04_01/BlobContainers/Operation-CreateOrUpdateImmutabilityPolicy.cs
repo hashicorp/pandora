@@ -22,11 +22,13 @@ internal class CreateOrUpdateImmutabilityPolicyOperation : Operations.PutOperati
 
     public override Type? RequestObject() => typeof(ImmutabilityPolicyModel);
 
-    public override ResourceID? ResourceId() => new ImmutabilityPolicyId();
+    public override ResourceID? ResourceId() => new ContainerId();
 
     public override Type? ResponseObject() => typeof(ImmutabilityPolicyModel);
 
     public override Type? OptionsObject() => typeof(CreateOrUpdateImmutabilityPolicyOperation.CreateOrUpdateImmutabilityPolicyOptions);
+
+    public override string? UriSuffix() => "/immutabilityPolicies/default";
 
     internal class CreateOrUpdateImmutabilityPolicyOptions
     {

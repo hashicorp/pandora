@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Pandora.Definitions.Interfaces;
 
 namespace Pandora.Definitions.ResourceManager.AlertsManagement.v2021_08_08;
+
 public partial class Definition : ApiVersionDefinition
 {
     public string ApiVersion => "2021-08-08";

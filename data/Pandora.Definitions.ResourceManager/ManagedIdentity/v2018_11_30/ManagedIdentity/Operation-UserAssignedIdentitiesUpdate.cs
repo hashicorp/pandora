@@ -22,7 +22,7 @@ internal class UserAssignedIdentitiesUpdateOperation : Operations.PatchOperation
 
     public override Type? RequestObject() => typeof(IdentityUpdateModel);
 
-    public override ResourceID? ResourceId() => new UserAssignedIdentitiesId();
+    public override ResourceID? ResourceId() => new UserAssignedIdentityId();
 
     public override Type? ResponseObject() => typeof(IdentityModel);
 

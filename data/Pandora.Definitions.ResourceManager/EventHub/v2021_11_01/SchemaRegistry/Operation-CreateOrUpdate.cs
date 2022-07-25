@@ -22,7 +22,7 @@ internal class CreateOrUpdateOperation : Operations.PutOperation
 
     public override Type? RequestObject() => typeof(SchemaGroupModel);
 
-    public override ResourceID? ResourceId() => new SchemagroupId();
+    public override ResourceID? ResourceId() => new SchemaGroupId();
 
     public override Type? ResponseObject() => typeof(SchemaGroupModel);
 

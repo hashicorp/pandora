@@ -5,6 +5,8 @@ import (
 	"log"
 	"os"
 	"os/exec"
+	"path/filepath"
+	"strings"
 
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 
@@ -35,8 +37,8 @@ type ServiceGeneratorInput struct {
 func (s *ServiceGenerator) Generate(input ServiceGeneratorInput) error {
 	data := input.generatorData()
 
-	if err := cleanAndRecreateWorkingDirectory(data.outputPath); err != nil {
-		return fmt.Errorf("cleaning/recreating working directory %q: %+v", data.outputPath, err)
+	if err := cleanAndRecreateWorkingDirectory(data.resourceOutputPath); err != nil {
+		return fmt.Errorf("cleaning/recreating working directory %q: %+v", data.resourceOutputPath, err)
 	}
 	if data.useIdAliases {
 		if err := ensureWorkingDirectoryExists(data.idsOutputPath); err != nil {
@@ -50,6 +52,7 @@ func (s *ServiceGenerator) Generate(input ServiceGeneratorInput) error {
 		"ids":        s.ids,
 		"methods":    s.methods,
 		"models":     s.models,
+		"readmeFile": s.readmeFile,
 		"predicates": s.predicates,
 		"version":    s.version,
 	}
@@ -60,9 +63,37 @@ func (s *ServiceGenerator) Generate(input ServiceGeneratorInput) error {
 		}
 	}
 
-	runGoFmt(data.outputPath)
-	runGoImports(data.outputPath)
+	runGoFmt(data.resourceOutputPath)
+	runGoImports(data.resourceOutputPath)
 
+	return nil
+}
+
+type VersionInput struct {
+	OutputDirectory string
+	Resources       map[string]services.Resource
+	ServiceName     string
+	Source          resourcemanager.ApiDefinitionsSource
+	VersionName     string
+}
+
+func (s *ServiceGenerator) GenerateForVersion(data VersionInput) error {
+	data.ServiceName = strings.ToLower(data.ServiceName)
+	data.VersionName = strings.ToLower(data.VersionName)
+	versionDirectory := filepath.Join(data.OutputDirectory, data.ServiceName, data.VersionName)
+
+	stages := map[string]func(data VersionInput, versionDirectory string) error{
+		"metaClient": s.metaClient,
+	}
+	for name, stage := range stages {
+		log.Printf("[DEBUG] Running Stage %q..", name)
+		if err := stage(data, versionDirectory); err != nil {
+			return fmt.Errorf("generating %s: %+v", name, err)
+		}
+	}
+
+	runGoFmt(versionDirectory)
+	runGoImports(versionDirectory)
 	return nil
 }
 

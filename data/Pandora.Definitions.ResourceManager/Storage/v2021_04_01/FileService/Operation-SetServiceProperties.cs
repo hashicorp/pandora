@@ -22,9 +22,11 @@ internal class SetServicePropertiesOperation : Operations.PutOperation
 
     public override Type? RequestObject() => typeof(FileServicePropertiesModel);
 
-    public override ResourceID? ResourceId() => new FileServiceId();
+    public override ResourceID? ResourceId() => new StorageAccountId();
 
     public override Type? ResponseObject() => typeof(FileServicePropertiesModel);
+
+    public override string? UriSuffix() => "/fileServices/default";
 
 
 }

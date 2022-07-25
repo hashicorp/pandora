@@ -1,0 +1,27 @@
+---
+name: Terraform Generator (Unit Tests)
+on:
+  pull_request:
+    types: ['opened', 'synchronize']
+    paths:
+      - '.github/workflows/**'
+      - 'tools/generator-terraform/**'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: true
+    steps:
+      - uses: actions/checkout@v2
+        with:
+         submodules: recursive
+
+      - uses: actions/setup-go@v2
+        with:
+          go-version: '1.18.1'
+
+      - name: run unit tests
+        run: |
+          cd ./tools/generator-terraform
+          make test

@@ -6,7 +6,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/hashicorp/pandora/tools/sdk/config"
+	"github.com/hashicorp/pandora/tools/sdk/config/services"
 )
 
 const onlyFormat = true
@@ -36,7 +36,7 @@ func run(directory string) error {
 		filePath := filepath.Join(directory, fmt.Sprintf("%s.hcl", name))
 
 		log.Printf("[DEBUG] Decoding config at %q..", filePath)
-		config, err := config.LoadFromFile(filePath)
+		config, err := services.LoadFromFile(filePath)
 		if err != nil {
 			return err
 		}

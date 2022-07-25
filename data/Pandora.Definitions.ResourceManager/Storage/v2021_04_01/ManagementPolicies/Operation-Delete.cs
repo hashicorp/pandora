@@ -21,7 +21,9 @@ internal class DeleteOperation : Operations.DeleteOperation
                 HttpStatusCode.OK,
         };
 
-    public override ResourceID? ResourceId() => new ManagementPolicyId();
+    public override ResourceID? ResourceId() => new StorageAccountId();
+
+    public override string? UriSuffix() => "/managementPolicies/default";
 
 
 }

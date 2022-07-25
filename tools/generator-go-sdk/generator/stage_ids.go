@@ -6,7 +6,7 @@ import (
 )
 
 func (s *ServiceGenerator) ids(data ServiceGeneratorData) error {
-	outputDirectory := data.outputPath
+	outputDirectory := data.resourceOutputPath
 
 	for idName, resourceData := range data.resourceIds {
 		if resourceData.CommonAlias != nil || len(resourceData.Segments) == 0 {
@@ -20,7 +20,7 @@ func (s *ServiceGenerator) ids(data ServiceGeneratorData) error {
 			resource:        resourceData,
 			constantDetails: data.constants,
 		}
-		if err := s.writeToPath(outputDirectory, fmt.Sprintf("id_%s.go", fileNamePrefix), pt, data); err != nil {
+		if err := s.writeToPathForResource(outputDirectory, fmt.Sprintf("id_%s.go", fileNamePrefix), pt, data); err != nil {
 			return fmt.Errorf("templating ids: %+v", err)
 		}
 
@@ -29,7 +29,7 @@ func (s *ServiceGenerator) ids(data ServiceGeneratorData) error {
 			resourceData:    resourceData,
 			constantDetails: data.constants,
 		}
-		if err := s.writeToPath(outputDirectory, fmt.Sprintf("id_%s_test.go", fileNamePrefix), tpt, data); err != nil {
+		if err := s.writeToPathForResource(outputDirectory, fmt.Sprintf("id_%s_test.go", fileNamePrefix), tpt, data); err != nil {
 			return fmt.Errorf("templating tests for id: %+v", err)
 		}
 	}

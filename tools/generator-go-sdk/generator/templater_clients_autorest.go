@@ -2,7 +2,7 @@ package generator
 
 import "fmt"
 
-var _ templater = clientsAutoRestTemplater{}
+var _ templaterForResource = clientsAutoRestTemplater{}
 
 type clientsAutoRestTemplater struct {
 }

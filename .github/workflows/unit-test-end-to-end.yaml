@@ -1,0 +1,45 @@
+---
+name: Verify All Services can be Imported and Generated
+on:
+  pull_request:
+    types: ['opened', 'synchronize']
+    paths:
+      - '.github/workflows/**'
+      - 'config/**'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: true
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: recursive
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 6.0.x
+
+      - uses: actions/setup-go@v2
+        with:
+          go-version: '1.18.1'
+
+      - name: "Build Data API"
+        run: |
+          cd ./data
+          make build
+
+      - name: "Build and Run importer-rest-api-specs"
+        id: import-data
+        run: |
+          cd ./tools/importer-rest-api-specs
+          make tools
+          make build
+          make import
+
+      - name: "Run the Go SDK Generator"
+        run: |
+          # go go gadget generator
+          ./scripts/automation-generate-go-sdk.sh

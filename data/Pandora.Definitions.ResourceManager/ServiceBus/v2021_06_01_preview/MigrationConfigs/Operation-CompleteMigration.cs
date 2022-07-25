@@ -22,9 +22,9 @@ internal class CompleteMigrationOperation : Operations.PostOperation
 
     public override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new ConfigId();
+    public override ResourceID? ResourceId() => new NamespaceId();
 
-    public override string? UriSuffix() => "/upgrade";
+    public override string? UriSuffix() => "/migrationConfigurations/$default/upgrade";
 
 
 }
