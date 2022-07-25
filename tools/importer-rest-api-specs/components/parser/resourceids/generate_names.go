@@ -114,7 +114,7 @@ func generateNamesForResourceIds(input []models.ParsedResourceId, log hclog.Logg
 	// now we have unique ID's, we should go through and suffix `Id` onto the end of each of them
 	outputNamesToUris := make(map[string]models.ParsedResourceId)
 	for k, v := range candidateNamesToUris {
-		key := fmt.Sprintf("%sId", k)
+		key := fmt.Sprintf("%sId", cleanup.NormalizeName(k))
 		outputNamesToUris[key] = v
 	}
 
