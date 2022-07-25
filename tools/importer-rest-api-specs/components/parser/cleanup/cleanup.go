@@ -53,6 +53,7 @@ func RemoveInvalidCharacters(input string, titleCaseSegments bool) string {
 func NormalizeName(input string) string {
 	output := input
 	output = wordifyFirstCharacter(output)
+	output = NormalizeCanonicalisation(output)
 	output = RemoveInvalidCharacters(output, true)
 	output = NormalizeSegment(output, false)
 	output = strings.Title(output)
@@ -516,4 +517,28 @@ func wordifyFirstCharacter(input string) string {
 		return output
 	}
 	return input
+}
+
+func NormalizeCanonicalisation(input string) string {
+	output := input
+
+	// Some IP references have 'ip' as a prefix
+	if strings.HasPrefix(output, "ip") {
+		output = strings.Replace(output, "ip", "IP", 1)
+	}
+
+	if strings.EqualFold(output, "Publicipaddress") {
+		// This is an explicit force for broken data in `Network`
+		output = "PublicIPAddress"
+	}
+
+	if strings.EqualFold(output, "IPconfiguration") {
+		// This is an explicit force for broken data in `Network`
+		output = "IPConfiguration"
+	}
+
+	// intentionally case-sensitive
+	output = strings.ReplaceAll(output, "Ip", "IP")
+
+	return output
 }
