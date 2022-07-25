@@ -12,10 +12,6 @@ func (r %[1]sResource) Attributes() map[string]*pluginsdk.Schema {
 	return map[string]*pluginsdk.Schema{}
 }
 
-func (r %[1]sResource) Arguments() map[string]*pluginsdk.Schema {
-	return map[string]*pluginsdk.Schema{}
-}
-
 func (r %[1]sResource) ModelObject() interface{} {
 	// TODO: implement me in the generator
 	return &%[1]sResourceModel{}

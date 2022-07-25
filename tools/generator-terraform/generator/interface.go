@@ -35,11 +35,11 @@ type ResourceInput struct {
 	// RootDirectory is the path to the directory where generated files should be output.
 	RootDirectory string
 
-	// ServiceName is the name of the `service` within the Data API
-	ServiceName string
+	// SchemaModelName is the name of the Schema Model within SchemaModels used for this Resource
+	SchemaModelName string
 
-	// ServicePackageName is the name of the Service Package within the Terraform Provider repository.
-	ServicePackageName string
+	// SchemaModels is a map of Schema Model Name to TerraformSchemaModelDefinition
+	SchemaModels map[string]resourcemanager.TerraformSchemaModelDefinition
 
 	// SdkApiVersion is the API Version within the SdkServiceName which should be used.
 	SdkApiVersion string
@@ -49,6 +49,12 @@ type ResourceInput struct {
 
 	// SdkServiceName is the name of the `service` within `github.com/hashicorp/go-azure-sdk` which should be used.
 	SdkServiceName string
+
+	// ServiceName is the name of the `service` within the Data API
+	ServiceName string
+
+	// ServicePackageName is the name of the Service Package within the Terraform Provider repository.
+	ServicePackageName string
 }
 
 func (id ResourceInput) parseResourceIdFuncName() (*string, error) {

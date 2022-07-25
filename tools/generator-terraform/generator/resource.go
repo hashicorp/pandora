@@ -28,6 +28,7 @@ func Resource(input ResourceInput) error {
 		// then the functions
 		idValidationFunctionForResource(input),
 		typeFuncForResource(input),
+		argumentsCodeFunctionForResource(input),
 		createFunctionForResource(input),
 		deleteFunctionForResource(input),
 		// TODO: Mappings
