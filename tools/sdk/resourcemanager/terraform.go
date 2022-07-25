@@ -106,8 +106,8 @@ type MethodDefinition struct {
 }
 
 type TerraformSchemaFieldDefinition struct {
-	// Type specifies the Type of field that this is, for example a String or a Location.
-	Type TerraformSchemaFieldType `json:"type"`
+	// ObjectDefinition specifies what this field is, for example a String or a List of a Model.
+	ObjectDefinition TerraformSchemaFieldObjectDefinition `json:"objectDefinition"`
 
 	// Computed specifies whether this field is Computed, meaning that the API defines a
 	// value for this field.
@@ -190,3 +190,13 @@ const (
 	TerraformSchemaValidationTypeFixedValues  TerraformSchemaValidationType = "FixedValues"
 	TerraformSchemaValidationTypeNoEmptyValue TerraformSchemaValidationType = "NoEmptyValue"
 )
+
+type TerraformSchemaFieldObjectDefinition struct {
+	NestedObject *TerraformSchemaFieldObjectDefinition `json:"nestedObject,omitempty"`
+
+	// ReferenceName is the name of the Reference associated with this ObjectDefinition.
+	ReferenceName *string `json:"referenceName"`
+
+	// Type specifies the Type of field that this is, for example a String or a Location.
+	Type TerraformSchemaFieldType `json:"type"`
+}

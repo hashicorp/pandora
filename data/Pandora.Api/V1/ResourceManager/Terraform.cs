@@ -74,7 +74,10 @@ public class TerraformController : ControllerBase
                             Optional = false,
                             Required = true,
                             ForceNew = true,
-                            Type = TerraformSchemaFieldType.String.ToString(),
+                            ObjectDefinition = new TerraformSchemaObjectDefinition
+                            {
+                                Type = TerraformSchemaFieldType.String.ToString(),
+                            },
                             Documentation = new TerraformSchemaDocumentationDefinition
                             {
                                 Markdown = "The name of this Resource Group."
@@ -94,7 +97,10 @@ public class TerraformController : ControllerBase
                             Optional = false,
                             Required = true,
                             ForceNew = true,
-                            Type = TerraformSchemaFieldType.Location.ToString(),
+                            ObjectDefinition = new TerraformSchemaObjectDefinition
+                            {
+                                Type = TerraformSchemaFieldType.Location.ToString(),
+                            },
                             Documentation = new TerraformSchemaDocumentationDefinition
                             {
                                 Markdown = "The Azure Region where this Resource Group should be created."
@@ -116,7 +122,10 @@ public class TerraformController : ControllerBase
                             Optional = true,
                             Required = false,
                             ForceNew = false,
-                            Type = TerraformSchemaFieldType.Tags.ToString(),
+                            ObjectDefinition = new TerraformSchemaObjectDefinition
+                            {
+                                Type = TerraformSchemaFieldType.Tags.ToString(),
+                            },
                             Documentation = new TerraformSchemaDocumentationDefinition
                             {
                                 Markdown = "A mapping of tags which should be assigned to this Resource Group."
@@ -223,11 +232,23 @@ public class TerraformController : ControllerBase
     {
         public Dictionary<string, TerraformSchemaFieldDefinition> Fields { get; set; }
     }
+
+    private class TerraformSchemaObjectDefinition
+    {
+        [JsonPropertyName("nestedObject")]
+        public TerraformSchemaObjectDefinition? NestedObject { get; set; }
+        
+        [JsonPropertyName("referenceName")]
+        public string? ReferenceName { get; set; }
+        
+        [JsonPropertyName("type")]
+        public string Type { get; set; }
+    }
     
     private class TerraformSchemaFieldDefinition
     {
-        [JsonPropertyName("type")]
-        public string Type { get; set; }
+        [JsonPropertyName("objectDefinition")]
+        public TerraformSchemaObjectDefinition ObjectDefinition { get; set; }
         
         [JsonPropertyName("computed")]
         public bool Computed { get; set; }
