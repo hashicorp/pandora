@@ -9,7 +9,7 @@ import (
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-func (d *Differ) RetrieveExistingService(serviceName, apiVersion string) (*[]models.AzureApiDefinition, error) {
+func (d *Differ) RetrieveExistingService(serviceName, apiVersion string) (*models.AzureApiDefinition, error) {
 	services, err := d.client.Services().Get()
 	if err != nil {
 		return nil, fmt.Errorf("retrieving Services from Data API: %+v", err)
@@ -106,13 +106,7 @@ func (d *Differ) RetrieveExistingService(serviceName, apiVersion string) (*[]mod
 	// TODO: map across the ResourceProvider and the TerraformPackageName
 
 	// TODO: if the parser returns a single `parser.ParsedData` then this can too - but for now emulate the same result
-	if existingService == nil {
-		return nil, nil
-	}
-	out := []models.AzureApiDefinition{
-		*existingService,
-	}
-	return &out, nil
+	return existingService, nil
 }
 
 func filterTerraformDataToApiVersionAndResource(input *resourcemanager.TerraformDetails, apiVersion string, resourceName string) *resourcemanager.TerraformDetails {
