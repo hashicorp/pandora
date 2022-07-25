@@ -142,6 +142,167 @@ public class TerraformController : ControllerBase
                 }},
             };
         }
+        
+        if (input.ResourceLabel == "virtual_machine")
+        {
+            response.SchemaModelName = $"{input.ResourceName}ResourceSchema";
+            response.SchemaModels = new Dictionary<string, TerraformSchemaDefinition>
+            {
+                {$"{input.ResourceName}ResourceSchema", new TerraformSchemaDefinition
+                {
+                    Fields = new Dictionary<string, TerraformSchemaFieldDefinition>
+                    {
+                        {"name", new TerraformSchemaFieldDefinition
+                        {
+                            Computed = false,
+                            Optional = false,
+                            Required = true,
+                            ForceNew = true,
+                            ObjectDefinition = new TerraformSchemaObjectDefinition
+                            {
+                                Type = TerraformSchemaFieldType.String.ToString(),
+                            },
+                            Documentation = new TerraformSchemaDocumentationDefinition
+                            {
+                                Markdown = "The name of this Resource Group."
+                            },
+                            Validation = new TerraformSchemaFieldValidationDefinition
+                            {
+                                Type = TerraformSchemaFieldValidationType.NoEmptyValue.ToString(),
+                            },
+                            Mappings = new TerraformSchemaMappingDefinition
+                            {
+                                ResourceIdSegment = "resourceGroup"
+                            },
+                        }},
+                        {"location", new TerraformSchemaFieldDefinition
+                        {
+                            Computed = false,
+                            Optional = false,
+                            Required = true,
+                            ForceNew = true,
+                            ObjectDefinition = new TerraformSchemaObjectDefinition
+                            {
+                                Type = TerraformSchemaFieldType.Location.ToString(),
+                            },
+                            Documentation = new TerraformSchemaDocumentationDefinition
+                            {
+                                Markdown = "The Azure Region where this Resource Group should be created."
+                            },
+                            Validation = new TerraformSchemaFieldValidationDefinition
+                            {
+                                Type = TerraformSchemaFieldValidationType.NoEmptyValue.ToString(),
+                            },
+                            Mappings = new TerraformSchemaMappingDefinition
+                            {
+                                SDKPathForCreate = "Location",
+                                SDKPathForRead = "Location",
+                                SDKPathForUpdate = null,
+                            },
+                        }},
+                        {"tags", new TerraformSchemaFieldDefinition
+                        {
+                            Computed = false,
+                            Optional = true,
+                            Required = false,
+                            ForceNew = false,
+                            ObjectDefinition = new TerraformSchemaObjectDefinition
+                            {
+                                Type = TerraformSchemaFieldType.Tags.ToString(),
+                            },
+                            Documentation = new TerraformSchemaDocumentationDefinition
+                            {
+                                Markdown = "A mapping of tags which should be assigned to this Resource Group."
+                            },
+                            Validation = null,
+                            Mappings = new TerraformSchemaMappingDefinition
+                            {
+                                SDKPathForCreate = "Tags",
+                                SDKPathForRead = "Tags",
+                                SDKPathForUpdate = "Tags",
+                            },
+                        }},
+                        {"nested_item", new TerraformSchemaFieldDefinition
+                        {
+                            Optional = true,
+                            Documentation = new TerraformSchemaDocumentationDefinition
+                            {
+                                Markdown = "Something. I don't know.",
+                            },
+                            ObjectDefinition = new TerraformSchemaObjectDefinition
+                            {
+                                Type = TerraformSchemaFieldType.Reference.ToString(),
+                                ReferenceName = $"{input.ResourceName}AddressSchema",
+                            },
+                            Mappings = new TerraformSchemaMappingDefinition
+                            {
+                                SDKPathForCreate = "Properties.NestedItem",
+                                SDKPathForRead = "Properties.NestedItem",
+                                SDKPathForUpdate = "Properties.NestedItem",
+                            },
+                        }},
+                    }
+                }},
+                {
+                    $"{input.ResourceName}AddressSchema", new TerraformSchemaDefinition
+                    {
+                        Fields = new Dictionary<string, TerraformSchemaFieldDefinition>
+                        {
+                            {"line1", new TerraformSchemaFieldDefinition
+                            {
+                                Computed = false,
+                                Optional = false,
+                                Required = true,
+                                ForceNew = true,
+                                ObjectDefinition = new TerraformSchemaObjectDefinition
+                                {
+                                    Type = TerraformSchemaFieldType.String.ToString(),
+                                },
+                                Documentation = new TerraformSchemaDocumentationDefinition
+                                {
+                                    Markdown = "The first line of the address."
+                                },
+                                Validation = new TerraformSchemaFieldValidationDefinition
+                                {
+                                    Type = TerraformSchemaFieldValidationType.NoEmptyValue.ToString(),
+                                },
+                                Mappings = new TerraformSchemaMappingDefinition
+                                {
+                                    SDKPathForCreate = "Line1",
+                                    SDKPathForRead = "Line1",
+                                    SDKPathForUpdate = "Line1",
+                                },
+                            }},
+                            {"town_or_city", new TerraformSchemaFieldDefinition
+                            {
+                                Computed = false,
+                                Optional = false,
+                                Required = true,
+                                ForceNew = true,
+                                ObjectDefinition = new TerraformSchemaObjectDefinition
+                                {
+                                    Type = TerraformSchemaFieldType.String.ToString(),
+                                },
+                                Documentation = new TerraformSchemaDocumentationDefinition
+                                {
+                                    Markdown = "The town or city of the address."
+                                },
+                                Validation = new TerraformSchemaFieldValidationDefinition
+                                {
+                                    Type = TerraformSchemaFieldValidationType.NoEmptyValue.ToString(),
+                                },
+                                Mappings = new TerraformSchemaMappingDefinition
+                                {
+                                    SDKPathForCreate = "TownOrCity",
+                                    SDKPathForRead = "TownOrCity",
+                                    SDKPathForUpdate = "TownOrCity",
+                                },
+                            }}
+                        }
+                    }
+                }
+            };
+        }
 
         return response;
     }
