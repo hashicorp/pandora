@@ -19,7 +19,7 @@ internal class LabNetworkProfileModel
     public string? LoadBalancerId { get; set; }
 
     [JsonPropertyName("publicIpId")]
-    public string? PublicIpId { get; set; }
+    public string? PublicIPId { get; set; }
 
     [JsonPropertyName("subnetId")]
     public string? SubnetId { get; set; }

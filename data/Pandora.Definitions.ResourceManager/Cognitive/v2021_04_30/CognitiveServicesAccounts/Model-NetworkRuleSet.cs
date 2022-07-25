@@ -19,7 +19,7 @@ internal class NetworkRuleSetModel
     public NetworkRuleActionConstant? DefaultAction { get; set; }
 
     [JsonPropertyName("ipRules")]
-    public List<IpRuleModel>? IpRules { get; set; }
+    public List<IPRuleModel>? IPRules { get; set; }
 
     [JsonPropertyName("virtualNetworkRules")]
     public List<VirtualNetworkRuleModel>? VirtualNetworkRules { get; set; }

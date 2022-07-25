@@ -10,14 +10,14 @@ using Pandora.Definitions.CustomTypes;
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 
 
-namespace Pandora.Definitions.ResourceManager.MachineLearningServices.v2022_05_01.MachineLearningComputes;
+namespace Pandora.Definitions.ResourceManager.Compute.v2021_11_01.VirtualMachines;
 
 
-internal class ComputeInstanceConnectivityEndpointsModel
+internal class VirtualMachineIPTagModel
 {
-    [JsonPropertyName("privateIpAddress")]
-    public string? PrivateIPAddress { get; set; }
+    [JsonPropertyName("ipTagType")]
+    public string? IPTagType { get; set; }
 
-    [JsonPropertyName("publicIpAddress")]
-    public string? PublicIPAddress { get; set; }
+    [JsonPropertyName("tag")]
+    public string? Tag { get; set; }
 }

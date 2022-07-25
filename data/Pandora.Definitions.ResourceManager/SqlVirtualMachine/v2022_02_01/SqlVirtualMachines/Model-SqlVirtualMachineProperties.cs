@@ -58,5 +58,5 @@ internal class SqlVirtualMachinePropertiesModel
     public WsfcDomainCredentialsModel? WsfcDomainCredentials { get; set; }
 
     [JsonPropertyName("wsfcStaticIp")]
-    public string? WsfcStaticIp { get; set; }
+    public string? WsfcStaticIP { get; set; }
 }

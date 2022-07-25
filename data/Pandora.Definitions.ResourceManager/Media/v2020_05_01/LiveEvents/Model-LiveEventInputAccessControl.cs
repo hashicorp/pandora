@@ -16,5 +16,5 @@ namespace Pandora.Definitions.ResourceManager.Media.v2020_05_01.LiveEvents;
 internal class LiveEventInputAccessControlModel
 {
     [JsonPropertyName("ip")]
-    public IPAccessControlModel? Ip { get; set; }
+    public IPAccessControlModel? IP { get; set; }
 }

@@ -16,7 +16,7 @@ namespace Pandora.Definitions.ResourceManager.SqlVirtualMachine.v2022_02_01.Avai
 internal class PrivateIPAddressModel
 {
     [JsonPropertyName("ipAddress")]
-    public string? IpAddress { get; set; }
+    public string? IPAddress { get; set; }
 
     [JsonPropertyName("subnetResourceId")]
     public string? SubnetResourceId { get; set; }

@@ -28,7 +28,7 @@ internal class ServerGroupServerPropertiesModel
     public bool? EnableHa { get; set; }
 
     [JsonPropertyName("enablePublicIp")]
-    public bool? EnablePublicIp { get; set; }
+    public bool? EnablePublicIP { get; set; }
 
     [JsonPropertyName("fullyQualifiedDomainName")]
     public string? FullyQualifiedDomainName { get; set; }

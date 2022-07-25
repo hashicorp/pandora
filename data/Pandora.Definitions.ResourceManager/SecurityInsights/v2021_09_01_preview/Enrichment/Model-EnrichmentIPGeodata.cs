@@ -13,7 +13,7 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.SecurityInsights.v2021_09_01_preview.Enrichment;
 
 
-internal class EnrichmentIpGeodataModel
+internal class EnrichmentIPGeodataModel
 {
     [JsonPropertyName("asn")]
     public string? Asn { get; set; }
@@ -37,10 +37,10 @@ internal class EnrichmentIpGeodataModel
     public int? CountryCf { get; set; }
 
     [JsonPropertyName("ipAddr")]
-    public string? IpAddr { get; set; }
+    public string? IPAddr { get; set; }
 
     [JsonPropertyName("ipRoutingType")]
-    public string? IpRoutingType { get; set; }
+    public string? IPRoutingType { get; set; }
 
     [JsonPropertyName("latitude")]
     public string? Latitude { get; set; }

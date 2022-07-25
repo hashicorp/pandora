@@ -22,7 +22,7 @@ internal class UpdateDataLakeStoreAccountPropertiesModel
     public UpdateEncryptionConfigModel? EncryptionConfig { get; set; }
 
     [JsonPropertyName("firewallAllowAzureIps")]
-    public FirewallAllowAzureIpsStateConstant? FirewallAllowAzureIps { get; set; }
+    public FirewallAllowAzureIPsStateConstant? FirewallAllowAzureIPs { get; set; }
 
     [JsonPropertyName("firewallRules")]
     public List<UpdateFirewallRuleWithAccountParametersModel>? FirewallRules { get; set; }

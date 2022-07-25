@@ -16,8 +16,8 @@ namespace Pandora.Definitions.ResourceManager.DataLakeAnalytics.v2016_11_01.Fire
 internal class UpdateFirewallRulePropertiesModel
 {
     [JsonPropertyName("endIpAddress")]
-    public string? EndIpAddress { get; set; }
+    public string? EndIPAddress { get; set; }
 
     [JsonPropertyName("startIpAddress")]
-    public string? StartIpAddress { get; set; }
+    public string? StartIPAddress { get; set; }
 }

@@ -19,13 +19,13 @@ internal class LoadBalancerConfigurationModel
     public string? LoadBalancerResourceId { get; set; }
 
     [JsonPropertyName("privateIpAddress")]
-    public PrivateIPAddressModel? PrivateIpAddress { get; set; }
+    public PrivateIPAddressModel? PrivateIPAddress { get; set; }
 
     [JsonPropertyName("probePort")]
     public int? ProbePort { get; set; }
 
     [JsonPropertyName("publicIpAddressResourceId")]
-    public string? PublicIpAddressResourceId { get; set; }
+    public string? PublicIPAddressResourceId { get; set; }
 
     [JsonPropertyName("sqlVirtualMachineInstances")]
     public List<string>? SqlVirtualMachineInstances { get; set; }

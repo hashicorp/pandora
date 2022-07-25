@@ -16,7 +16,7 @@ namespace Pandora.Definitions.ResourceManager.MachineLearningServices.v2021_07_0
 internal class SystemServiceModel
 {
     [JsonPropertyName("publicIpAddress")]
-    public string? PublicIpAddress { get; set; }
+    public string? PublicIPAddress { get; set; }
 
     [JsonPropertyName("systemServiceType")]
     public string? SystemServiceType { get; set; }

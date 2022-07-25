@@ -16,7 +16,7 @@ namespace Pandora.Definitions.ResourceManager.StoragePool.v2021_08_01.DiskPools;
 internal class EndpointDetailModel
 {
     [JsonPropertyName("ipAddress")]
-    public string? IpAddress { get; set; }
+    public string? IPAddress { get; set; }
 
     [JsonPropertyName("isAccessible")]
     public bool? IsAccessible { get; set; }

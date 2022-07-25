@@ -21,7 +21,7 @@ internal class EndPointModel
 
     [JsonPropertyName("ipAddress")]
     [Required]
-    public string IpAddress { get; set; }
+    public string IPAddress { get; set; }
 
     [JsonPropertyName("port")]
     [Required]

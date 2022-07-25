@@ -28,7 +28,7 @@ internal class WorkspaceCustomParametersModel
     public WorkspaceCustomStringParameterModel? CustomVirtualNetworkId { get; set; }
 
     [JsonPropertyName("enableNoPublicIp")]
-    public WorkspaceCustomBooleanParameterModel? EnableNoPublicIp { get; set; }
+    public WorkspaceCustomBooleanParameterModel? EnableNoPublicIP { get; set; }
 
     [JsonPropertyName("encryption")]
     public WorkspaceEncryptionParameterModel? Encryption { get; set; }
@@ -46,7 +46,7 @@ internal class WorkspaceCustomParametersModel
     public WorkspaceCustomBooleanParameterModel? PrepareEncryption { get; set; }
 
     [JsonPropertyName("publicIpName")]
-    public WorkspaceCustomStringParameterModel? PublicIpName { get; set; }
+    public WorkspaceCustomStringParameterModel? PublicIPName { get; set; }
 
     [JsonPropertyName("requireInfrastructureEncryption")]
     public WorkspaceCustomBooleanParameterModel? RequireInfrastructureEncryption { get; set; }

@@ -16,8 +16,8 @@ namespace Pandora.Definitions.ResourceManager.Orbital.v2022_03_01.Contact;
 internal class ContactsPropertiesAntennaConfigurationModel
 {
     [JsonPropertyName("destinationIp")]
-    public string? DestinationIp { get; set; }
+    public string? DestinationIP { get; set; }
 
     [JsonPropertyName("sourceIps")]
-    public List<string>? SourceIps { get; set; }
+    public List<string>? SourceIPs { get; set; }
 }
