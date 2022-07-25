@@ -10,5 +10,5 @@ internal enum LoadBalancerTypeConstant
     InternalLoadBalancer,
 
     [Description("PublicIp")]
-    PublicIp,
+    PublicIP,
 }

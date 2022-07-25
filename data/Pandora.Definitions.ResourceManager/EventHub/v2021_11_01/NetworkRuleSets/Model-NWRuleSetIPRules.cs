@@ -10,11 +10,14 @@ using Pandora.Definitions.CustomTypes;
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 
 
-namespace Pandora.Definitions.ResourceManager.Search.v2020_08_01.Services;
+namespace Pandora.Definitions.ResourceManager.EventHub.v2021_11_01.NetworkRuleSets;
 
 
-internal class IpRuleModel
+internal class NWRuleSetIPRulesModel
 {
-    [JsonPropertyName("value")]
-    public string? Value { get; set; }
+    [JsonPropertyName("action")]
+    public NetworkRuleIPActionConstant? Action { get; set; }
+
+    [JsonPropertyName("ipMask")]
+    public string? IPMask { get; set; }
 }

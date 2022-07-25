@@ -28,6 +28,9 @@ internal class ContainerGroupPropertiesPropertiesModel
     [JsonPropertyName("encryptionProperties")]
     public EncryptionPropertiesModel? EncryptionProperties { get; set; }
 
+    [JsonPropertyName("ipAddress")]
+    public IPAddressModel? IPAddress { get; set; }
+
     [JsonPropertyName("imageRegistryCredentials")]
     public List<ImageRegistryCredentialModel>? ImageRegistryCredentials { get; set; }
 
@@ -36,9 +39,6 @@ internal class ContainerGroupPropertiesPropertiesModel
 
     [JsonPropertyName("instanceView")]
     public ContainerGroupPropertiesPropertiesInstanceViewModel? InstanceView { get; set; }
-
-    [JsonPropertyName("ipAddress")]
-    public IpAddressModel? IpAddress { get; set; }
 
     [JsonPropertyName("osType")]
     [Required]

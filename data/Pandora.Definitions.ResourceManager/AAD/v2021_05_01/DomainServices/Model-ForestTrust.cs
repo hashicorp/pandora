@@ -19,7 +19,7 @@ internal class ForestTrustModel
     public string? FriendlyName { get; set; }
 
     [JsonPropertyName("remoteDnsIps")]
-    public string? RemoteDnsIps { get; set; }
+    public string? RemoteDnsIPs { get; set; }
 
     [JsonPropertyName("trustDirection")]
     public string? TrustDirection { get; set; }

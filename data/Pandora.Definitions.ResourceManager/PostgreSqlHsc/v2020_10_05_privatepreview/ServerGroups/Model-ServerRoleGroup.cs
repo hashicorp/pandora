@@ -19,7 +19,7 @@ internal class ServerRoleGroupModel
     public bool? EnableHa { get; set; }
 
     [JsonPropertyName("enablePublicIp")]
-    public bool? EnablePublicIp { get; set; }
+    public bool? EnablePublicIP { get; set; }
 
     [JsonPropertyName("name")]
     public string? Name { get; set; }

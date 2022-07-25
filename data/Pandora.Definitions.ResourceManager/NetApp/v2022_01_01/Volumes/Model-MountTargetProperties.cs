@@ -20,7 +20,7 @@ internal class MountTargetPropertiesModel
     public string FileSystemId { get; set; }
 
     [JsonPropertyName("ipAddress")]
-    public string? IpAddress { get; set; }
+    public string? IPAddress { get; set; }
 
     [JsonPropertyName("mountTargetId")]
     public string? MountTargetId { get; set; }

@@ -47,11 +47,11 @@ internal class ServiceSasParametersModel
     [JsonPropertyName("signedExpiry")]
     public DateTime? SignedExpiry { get; set; }
 
+    [JsonPropertyName("signedIp")]
+    public string? SignedIP { get; set; }
+
     [JsonPropertyName("signedIdentifier")]
     public string? SignedIdentifier { get; set; }
-
-    [JsonPropertyName("signedIp")]
-    public string? SignedIp { get; set; }
 
     [JsonPropertyName("signedPermission")]
     public PermissionsConstant? SignedPermission { get; set; }

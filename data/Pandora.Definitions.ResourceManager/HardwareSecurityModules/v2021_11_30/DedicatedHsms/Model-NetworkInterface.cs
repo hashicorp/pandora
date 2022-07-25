@@ -19,5 +19,5 @@ internal class NetworkInterfaceModel
     public string? Id { get; set; }
 
     [JsonPropertyName("privateIpAddress")]
-    public string? PrivateIpAddress { get; set; }
+    public string? PrivateIPAddress { get; set; }
 }

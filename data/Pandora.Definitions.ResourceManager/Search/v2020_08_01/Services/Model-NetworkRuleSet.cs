@@ -16,5 +16,5 @@ namespace Pandora.Definitions.ResourceManager.Search.v2020_08_01.Services;
 internal class NetworkRuleSetModel
 {
     [JsonPropertyName("ipRules")]
-    public List<IpRuleModel>? IpRules { get; set; }
+    public List<IPRuleModel>? IPRules { get; set; }
 }

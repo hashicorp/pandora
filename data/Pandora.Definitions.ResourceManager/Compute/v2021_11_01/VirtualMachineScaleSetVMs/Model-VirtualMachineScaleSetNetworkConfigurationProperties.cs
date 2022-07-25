@@ -32,7 +32,7 @@ internal class VirtualMachineScaleSetNetworkConfigurationPropertiesModel
 
     [JsonPropertyName("ipConfigurations")]
     [Required]
-    public List<VirtualMachineScaleSetIPConfigurationModel> IpConfigurations { get; set; }
+    public List<VirtualMachineScaleSetIPConfigurationModel> IPConfigurations { get; set; }
 
     [JsonPropertyName("networkSecurityGroup")]
     public SubResourceModel? NetworkSecurityGroup { get; set; }

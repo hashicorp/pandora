@@ -21,11 +21,11 @@ internal class VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesModel
     [JsonPropertyName("dnsSettings")]
     public VirtualMachineScaleSetPublicIPAddressConfigurationDnsSettingsModel? DnsSettings { get; set; }
 
+    [JsonPropertyName("ipTags")]
+    public List<VirtualMachineScaleSetIPTagModel>? IPTags { get; set; }
+
     [JsonPropertyName("idleTimeoutInMinutes")]
     public int? IdleTimeoutInMinutes { get; set; }
-
-    [JsonPropertyName("ipTags")]
-    public List<VirtualMachineScaleSetIpTagModel>? IpTags { get; set; }
 
     [JsonPropertyName("publicIPAddressVersion")]
     public IPVersionConstant? PublicIPAddressVersion { get; set; }

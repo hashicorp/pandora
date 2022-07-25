@@ -17,7 +17,7 @@ internal class IPGeodataGetOperation : Operations.GetOperation
 {
     public override ResourceID? ResourceId() => new ResourceGroupId();
 
-    public override Type? ResponseObject() => typeof(EnrichmentIpGeodataModel);
+    public override Type? ResponseObject() => typeof(EnrichmentIPGeodataModel);
 
     public override Type? OptionsObject() => typeof(IPGeodataGetOperation.IPGeodataGetOptions);
 
@@ -26,6 +26,6 @@ internal class IPGeodataGetOperation : Operations.GetOperation
     internal class IPGeodataGetOptions
     {
         [QueryStringName("ipAddress")]
-        public string IpAddress { get; set; }
+        public string IPAddress { get; set; }
     }
 }

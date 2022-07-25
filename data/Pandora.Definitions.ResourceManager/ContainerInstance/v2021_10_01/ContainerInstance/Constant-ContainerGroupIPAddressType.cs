@@ -1,10 +1,10 @@
 using Pandora.Definitions.Attributes;
 using System.ComponentModel;
 
-namespace Pandora.Definitions.ResourceManager.ContainerInstance.v2021_03_01.ContainerInstance;
+namespace Pandora.Definitions.ResourceManager.ContainerInstance.v2021_10_01.ContainerInstance;
 
 [ConstantType(ConstantTypeAttribute.ConstantType.String)]
-internal enum ContainerGroupIpAddressTypeConstant
+internal enum ContainerGroupIPAddressTypeConstant
 {
     [Description("Private")]
     Private,

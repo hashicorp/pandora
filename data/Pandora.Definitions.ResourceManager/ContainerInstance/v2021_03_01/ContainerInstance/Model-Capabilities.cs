@@ -22,7 +22,7 @@ internal class CapabilitiesModel
     public string? Gpu { get; set; }
 
     [JsonPropertyName("ipAddressType")]
-    public string? IpAddressType { get; set; }
+    public string? IPAddressType { get; set; }
 
     [JsonPropertyName("location")]
     public CustomTypes.Location? Location { get; set; }

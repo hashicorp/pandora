@@ -10,12 +10,16 @@ using Pandora.Definitions.CustomTypes;
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 
 
-namespace Pandora.Definitions.ResourceManager.Cognitive.v2021_04_30.CognitiveServicesAccounts;
+namespace Pandora.Definitions.ResourceManager.SqlVirtualMachine.v2022_02_01.AvailabilityGroupListeners;
 
 
-internal class IpRuleModel
+internal class MultiSubnetIPConfigurationModel
 {
-    [JsonPropertyName("value")]
+    [JsonPropertyName("privateIpAddress")]
     [Required]
-    public string Value { get; set; }
+    public PrivateIPAddressModel PrivateIPAddress { get; set; }
+
+    [JsonPropertyName("sqlVirtualMachineInstance")]
+    [Required]
+    public string SqlVirtualMachineInstance { get; set; }
 }

@@ -19,5 +19,5 @@ internal class StreamingEndpointAccessControlModel
     public AkamaiAccessControlModel? Akamai { get; set; }
 
     [JsonPropertyName("ip")]
-    public IPAccessControlModel? Ip { get; set; }
+    public IPAccessControlModel? IP { get; set; }
 }

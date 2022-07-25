@@ -75,7 +75,7 @@ internal class ManagedClusterPropertiesModel
     public int? HttpGatewayConnectionPort { get; set; }
 
     [JsonPropertyName("ipv4Address")]
-    public string? Ipv4Address { get; set; }
+    public string? IPv4Address { get; set; }
 
     [JsonPropertyName("loadBalancingRules")]
     public List<LoadBalancingRuleModel>? LoadBalancingRules { get; set; }

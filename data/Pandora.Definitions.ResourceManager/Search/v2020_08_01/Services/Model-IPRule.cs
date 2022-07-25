@@ -10,14 +10,11 @@ using Pandora.Definitions.CustomTypes;
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 
 
-namespace Pandora.Definitions.ResourceManager.Compute.v2021_11_01.VirtualMachineScaleSets;
+namespace Pandora.Definitions.ResourceManager.Search.v2020_08_01.Services;
 
 
-internal class VirtualMachineScaleSetIpTagModel
+internal class IPRuleModel
 {
-    [JsonPropertyName("ipTagType")]
-    public string? IpTagType { get; set; }
-
-    [JsonPropertyName("tag")]
-    public string? Tag { get; set; }
+    [JsonPropertyName("value")]
+    public string? Value { get; set; }
 }

@@ -19,7 +19,7 @@ internal class EndpointDetailModel
     public string? Description { get; set; }
 
     [JsonPropertyName("ipAddress")]
-    public string? IpAddress { get; set; }
+    public string? IPAddress { get; set; }
 
     [JsonPropertyName("port")]
     public int? Port { get; set; }

@@ -16,7 +16,7 @@ namespace Pandora.Definitions.ResourceManager.DataBricks.v2021_04_01_preview.Out
 internal class EndpointDetailModel
 {
     [JsonPropertyName("ipAddress")]
-    public string? IpAddress { get; set; }
+    public string? IPAddress { get; set; }
 
     [JsonPropertyName("isAccessible")]
     public bool? IsAccessible { get; set; }
