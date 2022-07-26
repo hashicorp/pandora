@@ -12,7 +12,25 @@ func Resource(input ResourceInput) error {
 	os.MkdirAll(serviceDirectory, 0755)
 
 	// TODO: generating Tests and Docs
+	testFilePath := fmt.Sprintf("%s/%s_resource_test.gen.go", serviceDirectory, input.ResourceLabel)
+	// remove the file if it already exists
+	os.Remove(testFilePath)
 
+	testComponents := []string{
+		// NOTE: the ordering is important, components can opt in/out of generation
+		packageTestDefinitionForResource(input),
+		generationNoteForResource(),
+		// Do something about acctest license?
+		copyrightLinesForResource(input),
+		importsForResourceTest(input),
+
+		testResourceStruct(input),
+		existsFuncForResourceTest(input),
+	}
+
+	writeToPath(testFilePath, strings.Join(testComponents, "\n"))
+
+/*
 	filePath := fmt.Sprintf("%s/%s_resource.gen.go", serviceDirectory, input.ResourceLabel)
 	// remove the file if it already exists
 	os.Remove(filePath)
@@ -38,5 +56,6 @@ func Resource(input ResourceInput) error {
 		methodsYetToBeImplementedForResource(input),
 	}
 	writeToPath(filePath, strings.Join(components, "\n"))
+ */
 	return nil
 }
