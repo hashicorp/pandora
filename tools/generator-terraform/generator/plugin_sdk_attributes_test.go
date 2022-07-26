@@ -682,6 +682,105 @@ func TestPluginSdkAttributes_CommonSchema_Location(t *testing.T) {
 	}
 }
 
+func TestPluginSdkAttributes_CommonSchema_ResourceGroup(t *testing.T) {
+	// TODO: the CommonSchema methods want normalizing here
+	testData := []struct {
+		input    resourcemanager.TerraformSchemaFieldDefinition
+		expected string
+	}{
+		{
+			input: resourcemanager.TerraformSchemaFieldDefinition{
+				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+					Type: resourcemanager.TerraformSchemaFieldTypeResourceGroup,
+				},
+				Computed: false,
+				ForceNew: false,
+				Optional: false,
+				Required: true,
+			},
+			expected: "commonschema.ResourceGroupNameForDataSource()",
+		},
+		{
+			input: resourcemanager.TerraformSchemaFieldDefinition{
+				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+					Type: resourcemanager.TerraformSchemaFieldTypeResourceGroup,
+				},
+				Computed: false,
+				ForceNew: true,
+				Optional: false,
+				Required: true,
+			},
+			expected: "commonschema.ResourceGroupName()",
+		},
+		{
+			input: resourcemanager.TerraformSchemaFieldDefinition{
+				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+					Type: resourcemanager.TerraformSchemaFieldTypeResourceGroup,
+				},
+				Computed: false,
+				ForceNew: false,
+				Optional: true,
+				Required: false,
+			},
+			expected: "commonschema.ResourceGroupNameOptional()",
+		},
+		{
+			input: resourcemanager.TerraformSchemaFieldDefinition{
+				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+					Type: resourcemanager.TerraformSchemaFieldTypeResourceGroup,
+				},
+				Computed: false,
+				ForceNew: true,
+				Optional: true,
+				Required: false,
+			},
+			// TODO: implement Optional & ForceNew (w/o Computed)
+			expected: "",
+		},
+		{
+			input: resourcemanager.TerraformSchemaFieldDefinition{
+				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+					Type: resourcemanager.TerraformSchemaFieldTypeResourceGroup,
+				},
+				Computed: true,
+				ForceNew: true,
+				Optional: true,
+				Required: false,
+			},
+			expected: "commonschema.ResourceGroupNameOptionalComputed()",
+		},
+		{
+			input: resourcemanager.TerraformSchemaFieldDefinition{
+				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+					Type: resourcemanager.TerraformSchemaFieldTypeResourceGroup,
+				},
+				Computed: true,
+				ForceNew: false,
+				Optional: false,
+				Required: false,
+			},
+			// .. not supported?!
+			expected: "",
+		},
+	}
+	for i, testCase := range testData {
+		actual, err := codeForPluginSdkCommonSchemaAttribute(testCase.input)
+		if err != nil {
+			if testCase.expected == "" {
+				continue
+			}
+
+			t.Fatalf("unexpected error for index %d", i)
+		}
+		if testCase.expected == "" {
+			t.Fatalf("expected an error but didn't get one for index %d", i)
+		}
+		if *actual != testCase.expected {
+			t.Fatalf("expected %q but got %q", testCase.expected, *actual)
+		}
+	}
+}
+
 func TestPluginSdkAttributes_CommonSchema_Tags(t *testing.T) {
 	testData := []struct {
 		input    resourcemanager.TerraformSchemaFieldDefinition

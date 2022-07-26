@@ -165,6 +165,7 @@ func codeForPluginSdkCommonSchemaAttribute(field resourcemanager.TerraformSchema
 		resourcemanager.TerraformSchemaFieldTypeIdentitySystemOrUserAssigned:  {},
 		resourcemanager.TerraformSchemaFieldTypeIdentityUserAssigned:          {},
 		resourcemanager.TerraformSchemaFieldTypeLocation:                      {},
+		resourcemanager.TerraformSchemaFieldTypeResourceGroup:                 {},
 		resourcemanager.TerraformSchemaFieldTypeTags:                          {},
 	}
 	if _, ok := commonSchemaTypes[field.ObjectDefinition.Type]; !ok {
@@ -296,6 +297,28 @@ func codeForPluginSdkCommonSchemaAttribute(field resourcemanager.TerraformSchema
 				return nil, fmt.Errorf("not supported: ForceNew/Computed Location - this should be Computed and not ForceNew")
 			}
 			out = "commonschema.LocationComputed()"
+		}
+	}
+	if field.ObjectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeResourceGroup {
+		if field.Required {
+			out = "commonschema.ResourceGroupNameForDataSource()"
+			if field.ForceNew {
+				out = "commonschema.ResourceGroupName()"
+			}
+		}
+		if field.Optional {
+			out = "commonschema.ResourceGroupNameOptional()"
+			if field.ForceNew {
+				if !field.Computed {
+					// TODO: this needs implementing in go-azure-helpers
+					return nil, fmt.Errorf("not-implemented: Optional & ForceNew & !Computed for Resource Group")
+				}
+
+				out = "commonschema.ResourceGroupNameOptionalComputed()"
+			}
+		}
+		if field.Computed && !field.Optional && !field.ForceNew {
+			return nil, fmt.Errorf("not-supported: Computed & !Optional & !ForceNew is not supported for Resource Group")
 		}
 	}
 	if field.ObjectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeTags {
