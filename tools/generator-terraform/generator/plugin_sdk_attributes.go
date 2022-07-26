@@ -162,6 +162,7 @@ func codeForPluginSdkCommonSchemaAttribute(field resourcemanager.TerraformSchema
 		resourcemanager.TerraformSchemaFieldTypeEdgeZone:                      {},
 		resourcemanager.TerraformSchemaFieldTypeIdentitySystemAssigned:        {},
 		resourcemanager.TerraformSchemaFieldTypeIdentitySystemAndUserAssigned: {},
+		resourcemanager.TerraformSchemaFieldTypeIdentitySystemOrUserAssigned:  {},
 		resourcemanager.TerraformSchemaFieldTypeLocation:                      {},
 		resourcemanager.TerraformSchemaFieldTypeTags:                          {},
 	}
@@ -228,6 +229,26 @@ func codeForPluginSdkCommonSchemaAttribute(field resourcemanager.TerraformSchema
 		}
 		if field.Computed {
 			out = "commonschema.SystemAssignedUserAssignedIdentityComputed()"
+		}
+	}
+	if field.ObjectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeIdentitySystemOrUserAssigned {
+		if field.Required {
+			out = "commonschema.SystemOrUserAssignedIdentityRequired()"
+			if field.ForceNew {
+				out = "commonschema.SystemOrUserAssignedIdentityRequiredForceNew()"
+			}
+		}
+		if field.Optional {
+			out = "commonschema.SystemOrUserAssignedIdentityOptional()"
+			if field.ForceNew {
+				out = "commonschema.SystemOrUserAssignedIdentityOptionalForceNew()"
+			}
+			if field.Computed {
+				return nil, fmt.Errorf("not-supported: Optional/Computed System Assigned User Assigned Identities are not supported, should be Optional only")
+			}
+		}
+		if field.Computed {
+			out = "commonschema.SystemOrUserAssignedIdentityComputed()"
 		}
 	}
 	if field.ObjectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeLocation {
