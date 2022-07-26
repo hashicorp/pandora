@@ -138,13 +138,24 @@ type TerraformSchemaFieldType string
 
 const (
 	TerraformSchemaFieldTypeBoolean   TerraformSchemaFieldType = "Boolean"
+	TerraformSchemaFieldTypeDateTime  TerraformSchemaFieldType = "DateTime"
+	TerraformSchemaFieldTypeFloat     TerraformSchemaFieldType = "Float"
 	TerraformSchemaFieldTypeInteger   TerraformSchemaFieldType = "Integer"
-	TerraformSchemaFieldTypeLocation  TerraformSchemaFieldType = "Location"
 	TerraformSchemaFieldTypeList      TerraformSchemaFieldType = "List"
 	TerraformSchemaFieldTypeReference TerraformSchemaFieldType = "Reference"
 	TerraformSchemaFieldTypeSet       TerraformSchemaFieldType = "Set"
 	TerraformSchemaFieldTypeString    TerraformSchemaFieldType = "String"
-	TerraformSchemaFieldTypeTags      TerraformSchemaFieldType = "Tags"
+
+	TerraformSchemaFieldTypeEdgeZone                      TerraformSchemaFieldType = "EdgeZone"
+	TerraformSchemaFieldTypeIdentitySystemAssigned        TerraformSchemaFieldType = "IdentitySystemAssigned"
+	TerraformSchemaFieldTypeIdentitySystemAndUserAssigned TerraformSchemaFieldType = "IdentitySystemAndUserAssigned"
+	TerraformSchemaFieldTypeIdentitySystemOrUserAssigned  TerraformSchemaFieldType = "IdentitySystemOrUserAssigned"
+	TerraformSchemaFieldTypeIdentityUserAssigned          TerraformSchemaFieldType = "IdentityUserAssigned"
+	TerraformSchemaFieldTypeLocation                      TerraformSchemaFieldType = "Location"
+	TerraformSchemaFieldTypeResourceGroup                 TerraformSchemaFieldType = "ResourceGroup"
+	TerraformSchemaFieldTypeTags                          TerraformSchemaFieldType = "Tags"
+	TerraformSchemaFieldTypeZone                          TerraformSchemaFieldType = "Zone"
+	TerraformSchemaFieldTypeZones                         TerraformSchemaFieldType = "Zones"
 )
 
 type TerraformSchemaFieldMappingDefinition struct {

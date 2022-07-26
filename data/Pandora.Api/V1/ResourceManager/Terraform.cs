@@ -450,14 +450,27 @@ public class TerraformController : ControllerBase
 
     private enum TerraformSchemaFieldType
     {
-        String,
-        Integer,
+        // Core items
         Boolean,
-        Reference,
+        DateTime,
+        Integer,
+        Float,
         List,
+        Reference,
         Set,
+        String,
+        
+        // CommonSchema items
+        EdgeZone,
         Location,
-        Tags
+        IdentitySystemAssigned,
+        IdentitySystemAndUserAssigned,
+        IdentitySystemOrUserAssigned,
+        IdentityUserAssigned,
+        ResourceGroup,
+        Tags,
+        Zone,
+        Zones,
     }
 
     private enum TerraformSchemaFieldValidationType
