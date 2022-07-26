@@ -168,6 +168,7 @@ func codeForPluginSdkCommonSchemaAttribute(field resourcemanager.TerraformSchema
 		resourcemanager.TerraformSchemaFieldTypeResourceGroup:                 {},
 		resourcemanager.TerraformSchemaFieldTypeTags:                          {},
 		resourcemanager.TerraformSchemaFieldTypeZone:                          {},
+		resourcemanager.TerraformSchemaFieldTypeZones:                         {},
 	}
 	if _, ok := commonSchemaTypes[field.ObjectDefinition.Type]; !ok {
 		return nil, nil
@@ -363,6 +364,31 @@ func codeForPluginSdkCommonSchemaAttribute(field resourcemanager.TerraformSchema
 			}
 
 			out = "commonschema.ZoneSingleComputed()"
+		}
+	}
+	if field.ObjectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeZones {
+		if field.Required {
+			out = "commonschema.ZonesMultipleRequired()"
+			if field.ForceNew {
+				out = "commonschema.ZonesMultipleRequiredForceNew()"
+			}
+		}
+		if field.Optional {
+			if field.Computed {
+				return nil, fmt.Errorf("internal-error: Multiple Zones shouldn't be Optional/Computed")
+			}
+
+			out = "commonschema.ZonesMultipleOptional()"
+			if field.ForceNew {
+				out = "commonschema.ZonesMultipleOptionalForceNew()"
+			}
+		}
+		if field.Computed {
+			if field.Optional || field.ForceNew {
+				return nil, fmt.Errorf("internal-error: Multiple Zones shouldn't be Computed and Optional or ForceNew")
+			}
+
+			out = "commonschema.ZonesMultipleComputed()"
 		}
 	}
 
