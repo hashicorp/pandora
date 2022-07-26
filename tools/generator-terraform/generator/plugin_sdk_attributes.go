@@ -106,7 +106,10 @@ func (h pluginSdkAttributesHelpers) codeForPluginSdkAttribute(fieldName string, 
 		{
 			attributes = append(attributes, "Type: pluginsdk.TypeBool")
 		}
-	// TODO: float
+	case resourcemanager.TerraformSchemaFieldTypeFloat:
+		{
+			attributes = append(attributes, "Type: pluginsdk.TypeFloat")
+		}
 	case resourcemanager.TerraformSchemaFieldTypeInteger:
 		{
 			attributes = append(attributes, "Type: pluginsdk.TypeInt")
@@ -140,6 +143,8 @@ Elem: &pluginsdk.Resource{
 }
 `, *codeForModel)))
 		}
+
+		// TODO: List[Reference], Set[Reference], List[SimpleType], Set[SimpleType]
 
 	default:
 		{
