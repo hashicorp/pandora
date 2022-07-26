@@ -471,6 +471,8 @@ public class TerraformController : ControllerBase
         Tags,
         Zone,
         Zones,
+        // NOTE: this intentionally doesn't contain the Legacy Identity Types since they're normalized in the schema
+        // to the regular identity types
     }
 
     private enum TerraformSchemaFieldValidationType
