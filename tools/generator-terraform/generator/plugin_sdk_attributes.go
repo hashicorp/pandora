@@ -159,10 +159,11 @@ Elem: &pluginsdk.Resource{
 
 func codeForPluginSdkCommonSchemaAttribute(field resourcemanager.TerraformSchemaFieldDefinition) (*string, error) {
 	commonSchemaTypes := map[resourcemanager.TerraformSchemaFieldType]struct{}{
-		resourcemanager.TerraformSchemaFieldTypeEdgeZone:               {},
-		resourcemanager.TerraformSchemaFieldTypeIdentitySystemAssigned: {},
-		resourcemanager.TerraformSchemaFieldTypeLocation:               {},
-		resourcemanager.TerraformSchemaFieldTypeTags:                   {},
+		resourcemanager.TerraformSchemaFieldTypeEdgeZone:                      {},
+		resourcemanager.TerraformSchemaFieldTypeIdentitySystemAssigned:        {},
+		resourcemanager.TerraformSchemaFieldTypeIdentitySystemAndUserAssigned: {},
+		resourcemanager.TerraformSchemaFieldTypeLocation:                      {},
+		resourcemanager.TerraformSchemaFieldTypeTags:                          {},
 	}
 	if _, ok := commonSchemaTypes[field.ObjectDefinition.Type]; !ok {
 		return nil, nil
@@ -207,6 +208,26 @@ func codeForPluginSdkCommonSchemaAttribute(field resourcemanager.TerraformSchema
 		}
 		if field.Computed {
 			out = "commonschema.SystemAssignedIdentityComputed()"
+		}
+	}
+	if field.ObjectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeIdentitySystemAndUserAssigned {
+		if field.Required {
+			out = "commonschema.SystemAssignedUserAssignedIdentityRequired()"
+			if field.ForceNew {
+				out = "commonschema.SystemAssignedUserAssignedIdentityRequiredForceNew()"
+			}
+		}
+		if field.Optional {
+			out = "commonschema.SystemAssignedUserAssignedIdentityOptional()"
+			if field.ForceNew {
+				out = "commonschema.SystemAssignedUserAssignedIdentityOptionalForceNew()"
+			}
+			if field.Computed {
+				return nil, fmt.Errorf("not-supported: Optional/Computed System Assigned User Assigned Identities are not supported, should be Optional only")
+			}
+		}
+		if field.Computed {
+			out = "commonschema.SystemAssignedUserAssignedIdentityComputed()"
 		}
 	}
 	if field.ObjectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeLocation {

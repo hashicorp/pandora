@@ -228,6 +228,116 @@ func TestPluginSdkAttributes_CommonSchema_IdentitySystemAssigned(t *testing.T) {
 	}
 }
 
+func TestPluginSdkAttributes_CommonSchema_IdentitySystemAndUserAssigned(t *testing.T) {
+	testData := []struct {
+		input    resourcemanager.TerraformSchemaFieldDefinition
+		expected string
+	}{
+		{
+			input: resourcemanager.TerraformSchemaFieldDefinition{
+				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+					Type: resourcemanager.TerraformSchemaFieldTypeIdentitySystemAndUserAssigned,
+				},
+				Computed: false,
+				ForceNew: false,
+				Optional: false,
+				Required: true,
+			},
+			expected: "commonschema.SystemAssignedUserAssignedIdentityRequired()",
+		},
+		{
+			input: resourcemanager.TerraformSchemaFieldDefinition{
+				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+					Type: resourcemanager.TerraformSchemaFieldTypeIdentitySystemAndUserAssigned,
+				},
+				Computed: false,
+				ForceNew: true,
+				Optional: false,
+				Required: true,
+			},
+			expected: "commonschema.SystemAssignedUserAssignedIdentityRequiredForceNew()",
+		},
+		{
+			input: resourcemanager.TerraformSchemaFieldDefinition{
+				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+					Type: resourcemanager.TerraformSchemaFieldTypeIdentitySystemAndUserAssigned,
+				},
+				Computed: false,
+				ForceNew: false,
+				Optional: true,
+				Required: false,
+			},
+			expected: "commonschema.SystemAssignedUserAssignedIdentityOptional()",
+		},
+		{
+			input: resourcemanager.TerraformSchemaFieldDefinition{
+				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+					Type: resourcemanager.TerraformSchemaFieldTypeIdentitySystemAndUserAssigned,
+				},
+				Computed: false,
+				ForceNew: true,
+				Optional: true,
+				Required: false,
+			},
+			expected: "commonschema.SystemAssignedUserAssignedIdentityOptionalForceNew()",
+		},
+		{
+			input: resourcemanager.TerraformSchemaFieldDefinition{
+				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+					Type: resourcemanager.TerraformSchemaFieldTypeIdentitySystemAndUserAssigned,
+				},
+				Computed: true,
+				ForceNew: false,
+				Optional: false,
+				Required: false,
+			},
+			expected: "commonschema.SystemAssignedUserAssignedIdentityComputed()",
+		},
+		{
+			input: resourcemanager.TerraformSchemaFieldDefinition{
+				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+					Type: resourcemanager.TerraformSchemaFieldTypeIdentitySystemAndUserAssigned,
+				},
+				Computed: true,
+				ForceNew: false,
+				Optional: true,
+				Required: false,
+			},
+			// can't be Optional & Computed
+			expected: "",
+		},
+		{
+			input: resourcemanager.TerraformSchemaFieldDefinition{
+				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+					Type: resourcemanager.TerraformSchemaFieldTypeIdentitySystemAndUserAssigned,
+				},
+				Computed: true,
+				ForceNew: true,
+				Optional: true,
+				Required: false,
+			},
+			// can't be Optional & ForceNew & Computed
+			expected: "",
+		},
+	}
+	for i, testCase := range testData {
+		actual, err := codeForPluginSdkCommonSchemaAttribute(testCase.input)
+		if err != nil {
+			if testCase.expected == "" {
+				continue
+			}
+
+			t.Fatalf("unexpected error for index %d", i)
+		}
+		if testCase.expected == "" {
+			t.Fatalf("expected an error but didn't get one for index %d", i)
+		}
+		if *actual != testCase.expected {
+			t.Fatalf("expected %q but got %q", testCase.expected, *actual)
+		}
+	}
+}
+
 func TestPluginSdkAttributes_CommonSchema_Location(t *testing.T) {
 	testData := []struct {
 		input    resourcemanager.TerraformSchemaFieldDefinition
