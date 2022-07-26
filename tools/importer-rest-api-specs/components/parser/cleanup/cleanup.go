@@ -154,6 +154,7 @@ func NormalizeSegment(input string, camelCase bool) string {
 		"vaultstorageconfig":                      "vaultStorageConfig",
 		"virtualnetworks":                         "virtualNetworks",
 		"virtualmachines":                         "virtualMachines",
+		"vmscalesetname":                          "virtualMachineScaleSetName", // inconsistency in Compute (#1204)
 		"vcenters":                                "vCenters",
 		"vmwaresites":                             "vmwareSites",
 		"vmextension":                             "vmExtension",
