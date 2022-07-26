@@ -163,6 +163,7 @@ func codeForPluginSdkCommonSchemaAttribute(field resourcemanager.TerraformSchema
 		resourcemanager.TerraformSchemaFieldTypeIdentitySystemAssigned:        {},
 		resourcemanager.TerraformSchemaFieldTypeIdentitySystemAndUserAssigned: {},
 		resourcemanager.TerraformSchemaFieldTypeIdentitySystemOrUserAssigned:  {},
+		resourcemanager.TerraformSchemaFieldTypeIdentityUserAssigned:          {},
 		resourcemanager.TerraformSchemaFieldTypeLocation:                      {},
 		resourcemanager.TerraformSchemaFieldTypeTags:                          {},
 	}
@@ -224,7 +225,7 @@ func codeForPluginSdkCommonSchemaAttribute(field resourcemanager.TerraformSchema
 				out = "commonschema.SystemAssignedUserAssignedIdentityOptionalForceNew()"
 			}
 			if field.Computed {
-				return nil, fmt.Errorf("not-supported: Optional/Computed System Assigned User Assigned Identities are not supported, should be Optional only")
+				return nil, fmt.Errorf("not-supported: Optional/Computed System Assigned and User Assigned Identities are not supported, should be Optional only")
 			}
 		}
 		if field.Computed {
@@ -244,11 +245,31 @@ func codeForPluginSdkCommonSchemaAttribute(field resourcemanager.TerraformSchema
 				out = "commonschema.SystemOrUserAssignedIdentityOptionalForceNew()"
 			}
 			if field.Computed {
-				return nil, fmt.Errorf("not-supported: Optional/Computed System Assigned User Assigned Identities are not supported, should be Optional only")
+				return nil, fmt.Errorf("not-supported: Optional/Computed System Assigned or User Assigned Identities are not supported, should be Optional only")
 			}
 		}
 		if field.Computed {
 			out = "commonschema.SystemOrUserAssignedIdentityComputed()"
+		}
+	}
+	if field.ObjectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeIdentityUserAssigned {
+		if field.Required {
+			out = "commonschema.UserAssignedIdentityRequired()"
+			if field.ForceNew {
+				out = "commonschema.UserAssignedIdentityRequiredForceNew()"
+			}
+		}
+		if field.Optional {
+			out = "commonschema.UserAssignedIdentityOptional()"
+			if field.ForceNew {
+				out = "commonschema.UserAssignedIdentityOptionalForceNew()"
+			}
+			if field.Computed {
+				return nil, fmt.Errorf("not-supported: Optional/Computed User Assigned Identities are not supported, should be Optional only")
+			}
+		}
+		if field.Computed {
+			out = "commonschema.UserAssignedIdentityComputed()"
 		}
 	}
 	if field.ObjectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeLocation {
