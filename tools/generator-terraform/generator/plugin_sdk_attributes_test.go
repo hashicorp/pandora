@@ -866,3 +866,100 @@ func TestPluginSdkAttributes_CommonSchema_Tags(t *testing.T) {
 		}
 	}
 }
+
+func TestPluginSdkAttributes_CommonSchema_ZoneSingle(t *testing.T) {
+	testData := []struct {
+		input    resourcemanager.TerraformSchemaFieldDefinition
+		expected string
+	}{
+		{
+			input: resourcemanager.TerraformSchemaFieldDefinition{
+				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+					Type: resourcemanager.TerraformSchemaFieldTypeZone,
+				},
+				Computed: false,
+				ForceNew: false,
+				Optional: false,
+				Required: true,
+			},
+			expected: "commonschema.ZoneSingleRequired()",
+		},
+		{
+			input: resourcemanager.TerraformSchemaFieldDefinition{
+				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+					Type: resourcemanager.TerraformSchemaFieldTypeZone,
+				},
+				Computed: false,
+				ForceNew: true,
+				Optional: false,
+				Required: true,
+			},
+			expected: "commonschema.ZoneSingleRequiredForceNew()",
+		},
+		{
+			input: resourcemanager.TerraformSchemaFieldDefinition{
+				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+					Type: resourcemanager.TerraformSchemaFieldTypeZone,
+				},
+				Computed: false,
+				ForceNew: false,
+				Optional: true,
+				Required: false,
+			},
+			expected: "commonschema.ZoneSingleOptional()",
+		},
+		{
+			input: resourcemanager.TerraformSchemaFieldDefinition{
+				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+					Type: resourcemanager.TerraformSchemaFieldTypeZone,
+				},
+				Computed: false,
+				ForceNew: true,
+				Optional: true,
+				Required: false,
+			},
+			expected: "commonschema.ZoneSingleOptionalForceNew()",
+		},
+		{
+			input: resourcemanager.TerraformSchemaFieldDefinition{
+				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+					Type: resourcemanager.TerraformSchemaFieldTypeZone,
+				},
+				Computed: true,
+				ForceNew: false,
+				Optional: false,
+				Required: false,
+			},
+			expected: "commonschema.ZoneSingleComputed()",
+		},
+		{
+			input: resourcemanager.TerraformSchemaFieldDefinition{
+				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+					Type: resourcemanager.TerraformSchemaFieldTypeZone,
+				},
+				Computed: true,
+				ForceNew: true,
+				Optional: true,
+				Required: false,
+			},
+			// not supported
+			expected: "",
+		},
+	}
+	for i, testCase := range testData {
+		actual, err := codeForPluginSdkCommonSchemaAttribute(testCase.input)
+		if err != nil {
+			if testCase.expected == "" {
+				continue
+			}
+
+			t.Fatalf("unexpected error for index %d", i)
+		}
+		if testCase.expected == "" {
+			t.Fatalf("expected an error but didn't get one for index %d", i)
+		}
+		if *actual != testCase.expected {
+			t.Fatalf("expected %q but got %q", testCase.expected, *actual)
+		}
+	}
+}
