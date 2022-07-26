@@ -12,7 +12,7 @@ internal class VirtualMachineScaleSetVirtualMachineRunCommandId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/virtualMachines/{instanceId}/runCommands/{runCommandName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{virtualMachineScaleSetName}/virtualMachines/{instanceId}/runCommands/{runCommandName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -23,7 +23,7 @@ internal class VirtualMachineScaleSetVirtualMachineRunCommandId : ResourceID
         ResourceIDSegment.Static("staticProviders", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftCompute", "Microsoft.Compute"),
         ResourceIDSegment.Static("staticVirtualMachineScaleSets", "virtualMachineScaleSets"),
-        ResourceIDSegment.UserSpecified("vmScaleSetName"),
+        ResourceIDSegment.UserSpecified("virtualMachineScaleSetName"),
         ResourceIDSegment.Static("staticVirtualMachines", "virtualMachines"),
         ResourceIDSegment.UserSpecified("instanceId"),
         ResourceIDSegment.Static("staticRunCommands", "runCommands"),
