@@ -159,6 +159,7 @@ Elem: &pluginsdk.Resource{
 
 func codeForPluginSdkCommonSchemaAttribute(field resourcemanager.TerraformSchemaFieldDefinition) (*string, error) {
 	commonSchemaTypes := map[resourcemanager.TerraformSchemaFieldType]struct{}{
+		resourcemanager.TerraformSchemaFieldTypeEdgeZone: {},
 		resourcemanager.TerraformSchemaFieldTypeLocation: {},
 		resourcemanager.TerraformSchemaFieldTypeTags:     {},
 	}
@@ -167,6 +168,26 @@ func codeForPluginSdkCommonSchemaAttribute(field resourcemanager.TerraformSchema
 	}
 
 	out := ""
+	if field.ObjectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeEdgeZone {
+		if field.Required {
+			return nil, fmt.Errorf("not supported: edge zone cannot be required")
+		}
+		if field.Optional {
+			out = "commonschema.EdgeZoneOptional()"
+			if field.ForceNew {
+				out = "commonschema.EdgeZoneOptionalForceNew()"
+			}
+		}
+		if field.Computed {
+			if field.Optional {
+				return nil, fmt.Errorf("not supported: edge zone cannot be optional & computed")
+			}
+			if field.ForceNew {
+				return nil, fmt.Errorf("not supported: edge zone cannot be ForceNew & computed")
+			}
+			out = "commonschema.EdgeZoneComputed()"
+		}
+	}
 	if field.ObjectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeLocation {
 		if field.Required {
 			out = "commonschema.Location()"

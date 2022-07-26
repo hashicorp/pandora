@@ -6,7 +6,117 @@ import (
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-// TODO: EdgeZone, Identity, Resource Group, Single Zone, Plural Zones etc
+func TestPluginSdkAttributes_CommonSchema_EdgeZone(t *testing.T) {
+	testData := []struct {
+		input    resourcemanager.TerraformSchemaFieldDefinition
+		expected string
+	}{
+		{
+			input: resourcemanager.TerraformSchemaFieldDefinition{
+				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+					Type: resourcemanager.TerraformSchemaFieldTypeEdgeZone,
+				},
+				Computed: false,
+				ForceNew: false,
+				Optional: false,
+				Required: true,
+			},
+			// no instances of required
+			expected: "",
+		},
+		{
+			input: resourcemanager.TerraformSchemaFieldDefinition{
+				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+					Type: resourcemanager.TerraformSchemaFieldTypeEdgeZone,
+				},
+				Computed: false,
+				ForceNew: true,
+				Optional: false,
+				Required: true,
+			},
+			// no instances of required/forcenew
+			expected: "",
+		},
+		{
+			input: resourcemanager.TerraformSchemaFieldDefinition{
+				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+					Type: resourcemanager.TerraformSchemaFieldTypeEdgeZone,
+				},
+				Computed: false,
+				ForceNew: false,
+				Optional: true,
+				Required: false,
+			},
+			expected: "commonschema.EdgeZoneOptional()",
+		},
+		{
+			input: resourcemanager.TerraformSchemaFieldDefinition{
+				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+					Type: resourcemanager.TerraformSchemaFieldTypeEdgeZone,
+				},
+				Computed: false,
+				ForceNew: true,
+				Optional: true,
+				Required: false,
+			},
+			expected: "commonschema.EdgeZoneOptionalForceNew()",
+		},
+		{
+			input: resourcemanager.TerraformSchemaFieldDefinition{
+				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+					Type: resourcemanager.TerraformSchemaFieldTypeEdgeZone,
+				},
+				Computed: true,
+				ForceNew: false,
+				Optional: false,
+				Required: false,
+			},
+			expected: "commonschema.EdgeZoneComputed()",
+		},
+		{
+			input: resourcemanager.TerraformSchemaFieldDefinition{
+				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+					Type: resourcemanager.TerraformSchemaFieldTypeEdgeZone,
+				},
+				Computed: true,
+				ForceNew: false,
+				Optional: true,
+				Required: false,
+			},
+			// can't have optional & computed
+			expected: "",
+		},
+		{
+			input: resourcemanager.TerraformSchemaFieldDefinition{
+				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+					Type: resourcemanager.TerraformSchemaFieldTypeEdgeZone,
+				},
+				Computed: true,
+				ForceNew: true,
+				Optional: true,
+				Required: false,
+			},
+			// can't have optional & computed & forcenew
+			expected: "",
+		},
+	}
+	for i, testCase := range testData {
+		actual, err := codeForPluginSdkCommonSchemaAttribute(testCase.input)
+		if err != nil {
+			if testCase.expected == "" {
+				continue
+			}
+
+			t.Fatalf("unexpected error for index %d", i)
+		}
+		if testCase.expected == "" {
+			t.Fatalf("expected an error but didn't get one for index %d", i)
+		}
+		if *actual != testCase.expected {
+			t.Fatalf("expected %q but got %q", testCase.expected, *actual)
+		}
+	}
+}
 
 func TestPluginSdkAttributes_CommonSchema_Location(t *testing.T) {
 	testData := []struct {
