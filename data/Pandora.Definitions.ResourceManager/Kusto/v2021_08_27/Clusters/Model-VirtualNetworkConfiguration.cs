@@ -17,11 +17,11 @@ internal class VirtualNetworkConfigurationModel
 {
     [JsonPropertyName("dataManagementPublicIpId")]
     [Required]
-    public string DataManagementPublicIpId { get; set; }
+    public string DataManagementPublicIPId { get; set; }
 
     [JsonPropertyName("enginePublicIpId")]
     [Required]
-    public string EnginePublicIpId { get; set; }
+    public string EnginePublicIPId { get; set; }
 
     [JsonPropertyName("subnetId")]
     [Required]

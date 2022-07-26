@@ -40,7 +40,7 @@ internal class ComputeInstancePropertiesModel
     public List<ComputeInstanceDataMountModel>? DataMounts { get; set; }
 
     [JsonPropertyName("enableNodePublicIp")]
-    public bool? EnableNodePublicIp { get; set; }
+    public bool? EnableNodePublicIP { get; set; }
 
     [JsonPropertyName("errors")]
     public List<ErrorResponseModel>? Errors { get; set; }

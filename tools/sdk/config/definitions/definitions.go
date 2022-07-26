@@ -112,7 +112,8 @@ func consolidateIntoASingleDefinition(input []definition) (*Config, error) {
 				}
 			}
 			services[service.Name] = ServiceDefinition{
-				ApiVersions: apis,
+				ApiVersions:          apis,
+				TerraformPackageName: service.TerraformPackageName,
 			}
 		}
 	}

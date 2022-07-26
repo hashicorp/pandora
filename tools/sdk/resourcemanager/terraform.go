@@ -9,7 +9,7 @@ type TerraformClient struct {
 	Client
 }
 
-func (c TerraformClient) Get(input ServiceVersionDetails) (*TerraformDetails, error) {
+func (c TerraformClient) Get(input ServiceDetails) (*TerraformDetails, error) {
 	endpoint := fmt.Sprintf("%s%s", c.endpoint, input.TerraformUri)
 	resp, err := c.client.Get(endpoint)
 	if err != nil {
@@ -41,6 +41,10 @@ type TerraformDataSourceDetails struct {
 }
 
 type TerraformResourceDetails struct {
+	// ApiVersion specifies the version of the Api which should be used for
+	// this resource.
+	ApiVersion string `json:"apiVersion"`
+
 	// CreateMethod describes the method within the SDK Package that should
 	// be used to create this resource in Terraform.
 	CreateMethod MethodDefinition `json:"createMethod"`

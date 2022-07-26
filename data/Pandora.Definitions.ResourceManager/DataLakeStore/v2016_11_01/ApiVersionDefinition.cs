@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Pandora.Definitions.Interfaces;
 
 namespace Pandora.Definitions.ResourceManager.DataLakeStore.v2016_11_01;
+
 public partial class Definition : ApiVersionDefinition
 {
     public string ApiVersion => "2016-11-01";
@@ -15,9 +16,5 @@ public partial class Definition : ApiVersionDefinition
         new Locations.Definition(),
         new TrustedIdProviders.Definition(),
         new VirtualNetworkRules.Definition(),
-    };
-
-    public IEnumerable<TerraformResourceDefinition> TerraformResources => new List<TerraformResourceDefinition>
-    {
     };
 }

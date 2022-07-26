@@ -19,5 +19,5 @@ internal class AccessControlModel
     public DefaultActionConstant? DefaultAction { get; set; }
 
     [JsonPropertyName("ipAllowList")]
-    public List<string>? IpAllowList { get; set; }
+    public List<string>? IPAllowList { get; set; }
 }

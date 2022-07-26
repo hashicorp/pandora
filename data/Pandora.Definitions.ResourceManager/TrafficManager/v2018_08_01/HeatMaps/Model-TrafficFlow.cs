@@ -25,5 +25,5 @@ internal class TrafficFlowModel
     public List<QueryExperienceModel>? QueryExperiences { get; set; }
 
     [JsonPropertyName("sourceIp")]
-    public string? SourceIp { get; set; }
+    public string? SourceIP { get; set; }
 }

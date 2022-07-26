@@ -16,8 +16,8 @@ namespace Pandora.Definitions.ResourceManager.MachineLearningServices.v2022_05_0
 internal class ComputeInstanceConnectivityEndpointsModel
 {
     [JsonPropertyName("privateIpAddress")]
-    public string? PrivateIpAddress { get; set; }
+    public string? PrivateIPAddress { get; set; }
 
     [JsonPropertyName("publicIpAddress")]
-    public string? PublicIpAddress { get; set; }
+    public string? PublicIPAddress { get; set; }
 }

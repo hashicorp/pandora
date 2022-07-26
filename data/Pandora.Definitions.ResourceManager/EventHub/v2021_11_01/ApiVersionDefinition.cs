@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Pandora.Definitions.Interfaces;
 
 namespace Pandora.Definitions.ResourceManager.EventHub.v2021_11_01;
+
 public partial class Definition : ApiVersionDefinition
 {
     public string ApiVersion => "2021-11-01";
@@ -27,9 +28,5 @@ public partial class Definition : ApiVersionDefinition
         new NamespacesPrivateLinkResources.Definition(),
         new NetworkRuleSets.Definition(),
         new SchemaRegistry.Definition(),
-    };
-
-    public IEnumerable<TerraformResourceDefinition> TerraformResources => new List<TerraformResourceDefinition>
-    {
     };
 }

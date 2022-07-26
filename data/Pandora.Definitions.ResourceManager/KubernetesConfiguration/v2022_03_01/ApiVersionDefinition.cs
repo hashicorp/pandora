@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Pandora.Definitions.Interfaces;
 
 namespace Pandora.Definitions.ResourceManager.KubernetesConfiguration.v2022_03_01;
+
 public partial class Definition : ApiVersionDefinition
 {
     public string ApiVersion => "2022-03-01";
@@ -18,9 +19,5 @@ public partial class Definition : ApiVersionDefinition
         new FluxConfigurationOperationStatus.Definition(),
         new OperationsInACluster.Definition(),
         new SourceControlConfiguration.Definition(),
-    };
-
-    public IEnumerable<TerraformResourceDefinition> TerraformResources => new List<TerraformResourceDefinition>
-    {
     };
 }

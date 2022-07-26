@@ -22,7 +22,7 @@ internal class VirtualMachineConnectionProfileModel
     public string? NonAdminUsername { get; set; }
 
     [JsonPropertyName("privateIpAddress")]
-    public string? PrivateIpAddress { get; set; }
+    public string? PrivateIPAddress { get; set; }
 
     [JsonPropertyName("rdpAuthority")]
     public string? RdpAuthority { get; set; }

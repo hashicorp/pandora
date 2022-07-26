@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Pandora.Definitions.Interfaces;
 
 namespace Pandora.Definitions.ResourceManager.Media.v2021_05_01;
+
 public partial class Definition : ApiVersionDefinition
 {
     public string ApiVersion => "2021-05-01";
@@ -11,9 +12,5 @@ public partial class Definition : ApiVersionDefinition
     public IEnumerable<ResourceDefinition> Resources => new List<ResourceDefinition>
     {
         new Media.Definition(),
-    };
-
-    public IEnumerable<TerraformResourceDefinition> TerraformResources => new List<TerraformResourceDefinition>
-    {
     };
 }

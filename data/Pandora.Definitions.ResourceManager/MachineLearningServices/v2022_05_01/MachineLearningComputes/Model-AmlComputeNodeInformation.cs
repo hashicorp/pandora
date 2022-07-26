@@ -25,10 +25,10 @@ internal class AmlComputeNodeInformationModel
     public float? Port { get; set; }
 
     [JsonPropertyName("privateIpAddress")]
-    public string? PrivateIpAddress { get; set; }
+    public string? PrivateIPAddress { get; set; }
 
     [JsonPropertyName("publicIpAddress")]
-    public string? PublicIpAddress { get; set; }
+    public string? PublicIPAddress { get; set; }
 
     [JsonPropertyName("runId")]
     public string? RunId { get; set; }

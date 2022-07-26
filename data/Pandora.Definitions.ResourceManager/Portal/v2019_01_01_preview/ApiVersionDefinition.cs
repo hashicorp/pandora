@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Pandora.Definitions.Interfaces;
 
 namespace Pandora.Definitions.ResourceManager.Portal.v2019_01_01_preview;
+
 public partial class Definition : ApiVersionDefinition
 {
     public string ApiVersion => "2019-01-01-preview";
@@ -12,9 +13,5 @@ public partial class Definition : ApiVersionDefinition
     {
         new Dashboard.Definition(),
         new TenantConfiguration.Definition(),
-    };
-
-    public IEnumerable<TerraformResourceDefinition> TerraformResources => new List<TerraformResourceDefinition>
-    {
     };
 }

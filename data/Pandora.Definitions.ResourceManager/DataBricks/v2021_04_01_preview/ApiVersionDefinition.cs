@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Pandora.Definitions.Interfaces;
 
 namespace Pandora.Definitions.ResourceManager.DataBricks.v2021_04_01_preview;
+
 public partial class Definition : ApiVersionDefinition
 {
     public string ApiVersion => "2021-04-01-preview";
@@ -15,9 +16,5 @@ public partial class Definition : ApiVersionDefinition
         new PrivateLinkResources.Definition(),
         new VNetPeering.Definition(),
         new Workspaces.Definition(),
-    };
-
-    public IEnumerable<TerraformResourceDefinition> TerraformResources => new List<TerraformResourceDefinition>
-    {
     };
 }

@@ -16,7 +16,7 @@ namespace Pandora.Definitions.ResourceManager.Automation.v2021_06_22.HybridRunbo
 internal class HybridRunbookWorkerPropertiesModel
 {
     [JsonPropertyName("ip")]
-    public string? Ip { get; set; }
+    public string? IP { get; set; }
 
     [DateFormat(DateFormatAttribute.DateFormat.RFC3339)]
     [JsonPropertyName("lastSeenDateTime")]

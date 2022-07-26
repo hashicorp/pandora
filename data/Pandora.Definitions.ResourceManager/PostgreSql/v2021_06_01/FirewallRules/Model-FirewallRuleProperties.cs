@@ -17,9 +17,9 @@ internal class FirewallRulePropertiesModel
 {
     [JsonPropertyName("endIpAddress")]
     [Required]
-    public string EndIpAddress { get; set; }
+    public string EndIPAddress { get; set; }
 
     [JsonPropertyName("startIpAddress")]
     [Required]
-    public string StartIpAddress { get; set; }
+    public string StartIPAddress { get; set; }
 }

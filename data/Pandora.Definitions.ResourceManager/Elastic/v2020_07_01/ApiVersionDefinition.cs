@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Pandora.Definitions.Interfaces;
 
 namespace Pandora.Definitions.ResourceManager.Elastic.v2020_07_01;
+
 public partial class Definition : ApiVersionDefinition
 {
     public string ApiVersion => "2020-07-01";
@@ -17,9 +18,5 @@ public partial class Definition : ApiVersionDefinition
         new VMCollectionUpdate.Definition(),
         new VMHHostList.Definition(),
         new VMIngestionDetails.Definition(),
-    };
-
-    public IEnumerable<TerraformResourceDefinition> TerraformResources => new List<TerraformResourceDefinition>
-    {
     };
 }

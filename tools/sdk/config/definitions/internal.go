@@ -10,6 +10,9 @@ type serviceDefinition struct {
 
 	// ApiVersions is a slice of Api Versions which should be processed.
 	ApiVersions []apiVersionDefinition `hcl:"api,block"`
+
+	// TerraformPackageName is the name of the associated Service Package within Terraform
+	TerraformPackageName string `hcl:"terraform_package"`
 }
 
 type apiVersionDefinition struct {

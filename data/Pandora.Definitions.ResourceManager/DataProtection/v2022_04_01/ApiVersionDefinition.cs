@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Pandora.Definitions.Interfaces;
 
 namespace Pandora.Definitions.ResourceManager.DataProtection.v2022_04_01;
+
 public partial class Definition : ApiVersionDefinition
 {
     public string ApiVersion => "2022-04-01";
@@ -19,9 +20,5 @@ public partial class Definition : ApiVersionDefinition
         new FindRestorableTimeRanges.Definition(),
         new RecoveryPoint.Definition(),
         new ResourceGuards.Definition(),
-    };
-
-    public IEnumerable<TerraformResourceDefinition> TerraformResources => new List<TerraformResourceDefinition>
-    {
     };
 }

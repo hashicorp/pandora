@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Pandora.Definitions.Interfaces;
 
 namespace Pandora.Definitions.ResourceManager.NetApp.v2022_01_01;
+
 public partial class Definition : ApiVersionDefinition
 {
     public string ApiVersion => "2022-01-01";
@@ -29,9 +30,5 @@ public partial class Definition : ApiVersionDefinition
         new VolumesRelocation.Definition(),
         new VolumesReplication.Definition(),
         new VolumesRevert.Definition(),
-    };
-
-    public IEnumerable<TerraformResourceDefinition> TerraformResources => new List<TerraformResourceDefinition>
-    {
     };
 }

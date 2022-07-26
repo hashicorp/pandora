@@ -8,6 +8,9 @@ type Config struct {
 type ServiceDefinition struct {
 	// APIVersions is a map of ApiVersion : ApiVersionDefinition
 	ApiVersions map[string]ApiVersionDefinition
+
+	// TerraformPackageName is the name of the associated Service Package within Terraform
+	TerraformPackageName string
 }
 
 type ApiVersionDefinition struct {

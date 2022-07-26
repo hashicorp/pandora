@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Pandora.Definitions.Interfaces;
 
 namespace Pandora.Definitions.ResourceManager.Automation.v2021_06_22;
+
 public partial class Definition : ApiVersionDefinition
 {
     public string ApiVersion => "2021-06-22";
@@ -16,9 +17,5 @@ public partial class Definition : ApiVersionDefinition
         new ListKeys.Definition(),
         new Statistics.Definition(),
         new Usages.Definition(),
-    };
-
-    public IEnumerable<TerraformResourceDefinition> TerraformResources => new List<TerraformResourceDefinition>
-    {
     };
 }

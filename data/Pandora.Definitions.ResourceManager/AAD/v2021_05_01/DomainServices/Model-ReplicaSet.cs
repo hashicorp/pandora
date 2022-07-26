@@ -16,10 +16,10 @@ namespace Pandora.Definitions.ResourceManager.AAD.v2021_05_01.DomainServices;
 internal class ReplicaSetModel
 {
     [JsonPropertyName("domainControllerIpAddress")]
-    public List<string>? DomainControllerIpAddress { get; set; }
+    public List<string>? DomainControllerIPAddress { get; set; }
 
     [JsonPropertyName("externalAccessIpAddress")]
-    public string? ExternalAccessIpAddress { get; set; }
+    public string? ExternalAccessIPAddress { get; set; }
 
     [JsonPropertyName("healthAlerts")]
     public List<HealthAlertModel>? HealthAlerts { get; set; }

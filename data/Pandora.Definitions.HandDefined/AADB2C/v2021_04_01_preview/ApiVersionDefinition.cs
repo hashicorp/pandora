@@ -14,9 +14,5 @@ public class Definition : ApiVersionDefinition
         new Tenants.Definition(),
     };
 
-    public IEnumerable<TerraformResourceDefinition> TerraformResources => new List<TerraformResourceDefinition>
-    {
-    };
-
     public Source Source => Source.HandWritten;
 }

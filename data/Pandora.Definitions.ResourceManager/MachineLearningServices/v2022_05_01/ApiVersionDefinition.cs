@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Pandora.Definitions.Interfaces;
 
 namespace Pandora.Definitions.ResourceManager.MachineLearningServices.v2022_05_01;
+
 public partial class Definition : ApiVersionDefinition
 {
     public string ApiVersion => "2022-05-01";
@@ -36,9 +37,5 @@ public partial class Definition : ApiVersionDefinition
         new WorkspacePrivateEndpointConnections.Definition(),
         new WorkspacePrivateLinkResources.Definition(),
         new Workspaces.Definition(),
-    };
-
-    public IEnumerable<TerraformResourceDefinition> TerraformResources => new List<TerraformResourceDefinition>
-    {
     };
 }

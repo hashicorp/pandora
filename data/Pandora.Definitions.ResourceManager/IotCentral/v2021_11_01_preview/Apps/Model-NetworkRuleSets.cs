@@ -25,5 +25,5 @@ internal class NetworkRuleSetsModel
     public NetworkActionConstant? DefaultAction { get; set; }
 
     [JsonPropertyName("ipRules")]
-    public List<NetworkRuleSetIpRuleModel>? IpRules { get; set; }
+    public List<NetworkRuleSetIPRuleModel>? IPRules { get; set; }
 }

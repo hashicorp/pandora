@@ -22,7 +22,7 @@ internal class ClusterPropertiesModel
     public List<string>? AllowedFqdnList { get; set; }
 
     [JsonPropertyName("allowedIpRangeList")]
-    public List<string>? AllowedIpRangeList { get; set; }
+    public List<string>? AllowedIPRangeList { get; set; }
 
     [JsonPropertyName("dataIngestionUri")]
     public string? DataIngestionUri { get; set; }

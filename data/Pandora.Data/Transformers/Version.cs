@@ -26,13 +26,11 @@ public static class Version
             }
 
             var resourceDefinitions = input.Resources.Select(ResourceDefinition.Map);
-            var terraformResources = input.TerraformResources.Select(TerraformResourceDefinition.Map);
             return new VersionDefinition
             {
                 Generate = input.Generate,
                 Preview = input.Preview,
                 Resources = resourceDefinitions,
-                TerraformResources = terraformResources,
                 Source = MapSource(input.Source),
                 Version = input.ApiVersion,
             };

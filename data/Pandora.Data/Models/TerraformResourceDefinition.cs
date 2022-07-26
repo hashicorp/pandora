@@ -2,6 +2,7 @@ namespace Pandora.Data.Models;
 
 public class TerraformResourceDefinition
 {
+    public string ApiVersion { get; set; }
     public TerraformMethodDefinition CreateMethod { get; set; }
     public TerraformMethodDefinition DeleteMethod { get; set; }
     public string DisplayName { get; set; }
@@ -12,6 +13,5 @@ public class TerraformResourceDefinition
     public string ResourceIdName { get; set; }
     public string ResourceLabel { get; set; }
     public string ResourceName { get; set; }
-
     public TerraformMethodDefinition? UpdateMethod { get; set; }
 }

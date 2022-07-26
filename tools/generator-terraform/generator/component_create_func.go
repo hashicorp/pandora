@@ -100,7 +100,7 @@ func (h createFunctionComponents) idDefinitionAndMapping() string {
 	subscriptionIdDefinition := ""
 	for _, v := range h.resourceId.Segments {
 		switch v.Type {
-		case resourcemanager.StaticSegment:
+		case resourcemanager.ResourceProviderSegment, resourcemanager.StaticSegment:
 			{
 				continue
 			}

@@ -25,7 +25,7 @@ internal class CreateDataLakeStoreAccountPropertiesModel
     public EncryptionStateConstant? EncryptionState { get; set; }
 
     [JsonPropertyName("firewallAllowAzureIps")]
-    public FirewallAllowAzureIpsStateConstant? FirewallAllowAzureIps { get; set; }
+    public FirewallAllowAzureIPsStateConstant? FirewallAllowAzureIPs { get; set; }
 
     [JsonPropertyName("firewallRules")]
     public List<CreateFirewallRuleWithAccountParametersModel>? FirewallRules { get; set; }

@@ -12,7 +12,7 @@ internal class VirtualMachineExtensionId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/virtualMachines/{instanceId}/extensions/{vmExtensionName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{virtualMachineScaleSetName}/virtualMachines/{instanceId}/extensions/{vmExtensionName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -23,7 +23,7 @@ internal class VirtualMachineExtensionId : ResourceID
         ResourceIDSegment.Static("staticProviders", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftCompute", "Microsoft.Compute"),
         ResourceIDSegment.Static("staticVirtualMachineScaleSets", "virtualMachineScaleSets"),
-        ResourceIDSegment.UserSpecified("vmScaleSetName"),
+        ResourceIDSegment.UserSpecified("virtualMachineScaleSetName"),
         ResourceIDSegment.Static("staticVirtualMachines", "virtualMachines"),
         ResourceIDSegment.UserSpecified("instanceId"),
         ResourceIDSegment.Static("staticExtensions", "extensions"),

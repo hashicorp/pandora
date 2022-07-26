@@ -1,4 +1,5 @@
 using Pandora.Definitions.Interfaces;
+using System.Collections.Generic;
 
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
@@ -11,5 +12,10 @@ public partial class Service : ServiceDefinition
 {
     public string Name => "ServiceBus";
     public string? ResourceProvider => "Microsoft.ServiceBus";
-    public string? TerraformPackageName => "servicebus";
+    public string? TerraformPackageName => null;
+
+    public IEnumerable<TerraformResourceDefinition> TerraformResources => new List<TerraformResourceDefinition>
+    {
+
+    };
 }

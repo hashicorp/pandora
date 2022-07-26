@@ -34,7 +34,7 @@ internal class ManagedEnvironmentPropertiesModel
     public EnvironmentProvisioningStateConstant? ProvisioningState { get; set; }
 
     [JsonPropertyName("staticIp")]
-    public string? StaticIp { get; set; }
+    public string? StaticIP { get; set; }
 
     [JsonPropertyName("vnetConfiguration")]
     public VnetConfigurationModel? VnetConfiguration { get; set; }

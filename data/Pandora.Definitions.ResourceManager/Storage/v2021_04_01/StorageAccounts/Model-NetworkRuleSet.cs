@@ -23,7 +23,7 @@ internal class NetworkRuleSetModel
     public DefaultActionConstant DefaultAction { get; set; }
 
     [JsonPropertyName("ipRules")]
-    public List<IPRuleModel>? IpRules { get; set; }
+    public List<IPRuleModel>? IPRules { get; set; }
 
     [JsonPropertyName("resourceAccessRules")]
     public List<ResourceAccessRuleModel>? ResourceAccessRules { get; set; }

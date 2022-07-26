@@ -30,11 +30,11 @@ internal enum EntityKindConstant
     [Description("Host")]
     Host,
 
+    [Description("Ip")]
+    IP,
+
     [Description("IoTDevice")]
     IoTDevice,
-
-    [Description("Ip")]
-    Ip,
 
     [Description("MailCluster")]
     MailCluster,

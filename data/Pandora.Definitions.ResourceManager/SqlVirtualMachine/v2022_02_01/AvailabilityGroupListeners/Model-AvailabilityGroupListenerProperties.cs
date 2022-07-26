@@ -28,7 +28,7 @@ internal class AvailabilityGroupListenerPropertiesModel
     public List<LoadBalancerConfigurationModel>? LoadBalancerConfigurations { get; set; }
 
     [JsonPropertyName("multiSubnetIpConfigurations")]
-    public List<MultiSubnetIpConfigurationModel>? MultiSubnetIpConfigurations { get; set; }
+    public List<MultiSubnetIPConfigurationModel>? MultiSubnetIPConfigurations { get; set; }
 
     [JsonPropertyName("port")]
     public int? Port { get; set; }

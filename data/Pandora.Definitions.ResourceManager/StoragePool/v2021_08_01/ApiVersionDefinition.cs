@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Pandora.Definitions.Interfaces;
 
 namespace Pandora.Definitions.ResourceManager.StoragePool.v2021_08_01;
+
 public partial class Definition : ApiVersionDefinition
 {
     public string ApiVersion => "2021-08-01";
@@ -14,9 +15,5 @@ public partial class Definition : ApiVersionDefinition
         new DiskPools.Definition(),
         new IscsiTargets.Definition(),
         new ResourceSkus.Definition(),
-    };
-
-    public IEnumerable<TerraformResourceDefinition> TerraformResources => new List<TerraformResourceDefinition>
-    {
     };
 }

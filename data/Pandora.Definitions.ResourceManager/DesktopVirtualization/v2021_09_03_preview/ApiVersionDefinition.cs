@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Pandora.Definitions.Interfaces;
 
 namespace Pandora.Definitions.ResourceManager.DesktopVirtualization.v2021_09_03_preview;
+
 public partial class Definition : ApiVersionDefinition
 {
     public string ApiVersion => "2021-09-03-preview";
@@ -22,9 +23,5 @@ public partial class Definition : ApiVersionDefinition
         new StartMenuItem.Definition(),
         new UserSession.Definition(),
         new Workspace.Definition(),
-    };
-
-    public IEnumerable<TerraformResourceDefinition> TerraformResources => new List<TerraformResourceDefinition>
-    {
     };
 }

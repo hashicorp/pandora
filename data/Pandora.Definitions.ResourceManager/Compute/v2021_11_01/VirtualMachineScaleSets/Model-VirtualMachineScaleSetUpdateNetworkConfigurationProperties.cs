@@ -31,7 +31,7 @@ internal class VirtualMachineScaleSetUpdateNetworkConfigurationPropertiesModel
     public bool? EnableIPForwarding { get; set; }
 
     [JsonPropertyName("ipConfigurations")]
-    public List<VirtualMachineScaleSetUpdateIPConfigurationModel>? IpConfigurations { get; set; }
+    public List<VirtualMachineScaleSetUpdateIPConfigurationModel>? IPConfigurations { get; set; }
 
     [JsonPropertyName("networkSecurityGroup")]
     public SubResourceModel? NetworkSecurityGroup { get; set; }

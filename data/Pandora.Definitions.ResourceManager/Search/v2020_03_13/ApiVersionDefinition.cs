@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Pandora.Definitions.Interfaces;
 
 namespace Pandora.Definitions.ResourceManager.Search.v2020_03_13;
+
 public partial class Definition : ApiVersionDefinition
 {
     public string ApiVersion => "2020-03-13";
@@ -15,9 +16,5 @@ public partial class Definition : ApiVersionDefinition
         new PrivateLinkResources.Definition(),
         new QueryKeys.Definition(),
         new Services.Definition(),
-    };
-
-    public IEnumerable<TerraformResourceDefinition> TerraformResources => new List<TerraformResourceDefinition>
-    {
     };
 }

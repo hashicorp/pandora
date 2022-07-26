@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Pandora.Definitions.Interfaces;
 
 namespace Pandora.Definitions.ResourceManager.PostgreSql.v2020_01_01;
+
 public partial class Definition : ApiVersionDefinition
 {
     public string ApiVersion => "2020-01-01";
@@ -11,9 +12,5 @@ public partial class Definition : ApiVersionDefinition
     public IEnumerable<ResourceDefinition> Resources => new List<ResourceDefinition>
     {
         new ServerKeys.Definition(),
-    };
-
-    public IEnumerable<TerraformResourceDefinition> TerraformResources => new List<TerraformResourceDefinition>
-    {
     };
 }

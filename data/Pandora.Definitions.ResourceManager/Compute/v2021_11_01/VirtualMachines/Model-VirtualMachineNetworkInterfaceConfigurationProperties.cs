@@ -35,7 +35,7 @@ internal class VirtualMachineNetworkInterfaceConfigurationPropertiesModel
 
     [JsonPropertyName("ipConfigurations")]
     [Required]
-    public List<VirtualMachineNetworkInterfaceIPConfigurationModel> IpConfigurations { get; set; }
+    public List<VirtualMachineNetworkInterfaceIPConfigurationModel> IPConfigurations { get; set; }
 
     [JsonPropertyName("networkSecurityGroup")]
     public SubResourceModel? NetworkSecurityGroup { get; set; }

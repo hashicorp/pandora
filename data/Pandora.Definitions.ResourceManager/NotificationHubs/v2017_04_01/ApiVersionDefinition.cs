@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Pandora.Definitions.Interfaces;
 
 namespace Pandora.Definitions.ResourceManager.NotificationHubs.v2017_04_01;
+
 public partial class Definition : ApiVersionDefinition
 {
     public string ApiVersion => "2017-04-01";
@@ -12,9 +13,5 @@ public partial class Definition : ApiVersionDefinition
     {
         new Namespaces.Definition(),
         new NotificationHubs.Definition(),
-    };
-
-    public IEnumerable<TerraformResourceDefinition> TerraformResources => new List<TerraformResourceDefinition>
-    {
     };
 }

@@ -24,7 +24,7 @@ internal class AccountSasParametersModel
     public DateTime SignedExpiry { get; set; }
 
     [JsonPropertyName("signedIp")]
-    public string? SignedIp { get; set; }
+    public string? SignedIP { get; set; }
 
     [JsonPropertyName("signedPermission")]
     [Required]

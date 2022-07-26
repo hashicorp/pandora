@@ -19,7 +19,7 @@ internal class NetworkRuleSetPropertiesModel
     public DefaultActionConstant? DefaultAction { get; set; }
 
     [JsonPropertyName("ipRules")]
-    public List<NWRuleSetIpRulesModel>? IpRules { get; set; }
+    public List<NWRuleSetIPRulesModel>? IPRules { get; set; }
 
     [JsonPropertyName("publicNetworkAccess")]
     public PublicNetworkAccessFlagConstant? PublicNetworkAccess { get; set; }
