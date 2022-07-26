@@ -159,9 +159,10 @@ Elem: &pluginsdk.Resource{
 
 func codeForPluginSdkCommonSchemaAttribute(field resourcemanager.TerraformSchemaFieldDefinition) (*string, error) {
 	commonSchemaTypes := map[resourcemanager.TerraformSchemaFieldType]struct{}{
-		resourcemanager.TerraformSchemaFieldTypeEdgeZone: {},
-		resourcemanager.TerraformSchemaFieldTypeLocation: {},
-		resourcemanager.TerraformSchemaFieldTypeTags:     {},
+		resourcemanager.TerraformSchemaFieldTypeEdgeZone:               {},
+		resourcemanager.TerraformSchemaFieldTypeIdentitySystemAssigned: {},
+		resourcemanager.TerraformSchemaFieldTypeLocation:               {},
+		resourcemanager.TerraformSchemaFieldTypeTags:                   {},
 	}
 	if _, ok := commonSchemaTypes[field.ObjectDefinition.Type]; !ok {
 		return nil, nil
@@ -186,6 +187,26 @@ func codeForPluginSdkCommonSchemaAttribute(field resourcemanager.TerraformSchema
 				return nil, fmt.Errorf("not supported: edge zone cannot be ForceNew & computed")
 			}
 			out = "commonschema.EdgeZoneComputed()"
+		}
+	}
+	if field.ObjectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeIdentitySystemAssigned {
+		if field.Required {
+			out = "commonschema.SystemAssignedIdentityRequired()"
+			if field.ForceNew {
+				out = "commonschema.SystemAssignedIdentityRequiredForceNew()"
+			}
+		}
+		if field.Optional {
+			out = "commonschema.SystemAssignedIdentityOptional()"
+			if field.ForceNew {
+				out = "commonschema.SystemAssignedIdentityOptionalForceNew()"
+			}
+			if field.Computed {
+				return nil, fmt.Errorf("not-supported: Optional/Computed System Assigned Identities are not supported, should be Optional only")
+			}
+		}
+		if field.Computed {
+			out = "commonschema.SystemAssignedIdentityComputed()"
 		}
 	}
 	if field.ObjectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeLocation {
