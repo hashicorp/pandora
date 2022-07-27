@@ -5,7 +5,6 @@ import (
 	"os"
 
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/cmd"
-
 	"github.com/mitchellh/cli"
 )
 

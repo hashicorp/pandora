@@ -1,7 +1,6 @@
 package main
 
 import (
-	"flag"
 	"fmt"
 	"log"
 	"net/http"
@@ -9,50 +8,6 @@ import (
 	"os/exec"
 	"time"
 )
-
-type Arguments struct {
-	DataApiAssemblyPath string
-	DataApiPort         int
-	OutputDirectory     string
-}
-
-func (a Arguments) Validate() error {
-	if a.DataApiAssemblyPath == "" {
-		return fmt.Errorf("missing 'data-api-assembly-path'")
-	}
-
-	if _, err := os.Stat(a.DataApiAssemblyPath); err != nil {
-		if os.IsNotExist(err) {
-			return fmt.Errorf("the Data API Assembly doesn't exist at %q", a.DataApiAssemblyPath)
-		}
-
-		return fmt.Errorf("validating Data API Assembly exists: %+v", err)
-	}
-
-	return nil
-}
-
-func main() {
-	args := Arguments{
-		DataApiPort: 5000,
-	}
-
-	f := flag.NewFlagSet("automation-go-sdk-wrapper", flag.ExitOnError)
-	f.StringVar(&args.DataApiAssemblyPath, "data-api-assembly-path", "", "-data-api-assembly-path=../data/Pandora.Api.dll")
-	f.StringVar(&args.OutputDirectory, "output-dir", "", "-output-dir=../output")
-
-	if err := f.Parse(os.Args[1:]); err != nil {
-		log.Fatalf("parsing arguments: %+v", err)
-		return
-	}
-
-	if err := run(args); err != nil {
-		log.Fatalf("running: %+v", err)
-		return
-	}
-
-	os.Exit(0)
-}
 
 func run(args Arguments) error {
 	if err := args.Validate(); err != nil {
@@ -86,12 +41,23 @@ func run(args Arguments) error {
 	}
 	log.Printf("Data API is available.")
 
-	// 3: Launch the Importer
-	log.Printf("Running the Go SDK Generator..")
-	if err := runGoSdkGenerator(dataApiUri, args.OutputDirectory); err != nil {
-		return fmt.Errorf("running the Go SDK Generator: %+v", err)
+	// 3: Launch the Go SDK Generator, if enabled
+	if args.RunGoSdkGenerator {
+		log.Printf("Running the Go SDK Generator..")
+		if err := runGoSdkGenerator(dataApiUri, args.OutputDirectory); err != nil {
+			return fmt.Errorf("running the Go SDK Generator: %+v", err)
+		}
+		log.Printf("Go SDK Generator has been run.")
 	}
-	log.Printf("Go SDK Generator has been run.")
+
+	// 4. Run the Terraform Generator, if enabled
+	if args.RunTerraformGenerator {
+		log.Printf("Running the Terraform Generator..")
+		if err := runTerraformGenerator(dataApiUri, args.OutputDirectory); err != nil {
+			return fmt.Errorf("running the Go SDK Generator: %+v", err)
+		}
+		log.Printf("Terraform Generator has been run.")
+	}
 
 	return nil
 }
@@ -110,6 +76,26 @@ func runGoSdkGenerator(dataApiUri string, outputDirectory string) error {
 	cmd.Stderr = os.Stderr
 	if err := cmd.Run(); err != nil {
 		return fmt.Errorf("running Go SDK Generator: %+v", err)
+	}
+	log.Printf("----------------------------------------")
+
+	return nil
+}
+
+func runTerraformGenerator(dataApiUri string, outputDirectory string) error {
+	args := []string{
+		fmt.Sprintf("-data-api=%s", dataApiUri),
+	}
+	if outputDirectory != "" {
+		args = append(args, fmt.Sprintf("-output-dir=%s", outputDirectory))
+	}
+	cmd := exec.Command("generator-terraform", args...)
+	log.Printf("Terraform Generator Output:")
+	log.Printf("----------------------------------------")
+	cmd.Stdout = os.Stdout
+	cmd.Stderr = os.Stderr
+	if err := cmd.Run(); err != nil {
+		return fmt.Errorf("running Terraform Generator: %+v", err)
 	}
 	log.Printf("----------------------------------------")
 
