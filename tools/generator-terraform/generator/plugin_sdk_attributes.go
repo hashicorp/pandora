@@ -60,12 +60,12 @@ func (h pluginSdkAttributesHelpers) codeForModel(input resourcemanager.Terraform
 
 	for _, fieldName := range sortedNames {
 		field := input.Fields[fieldName]
-		line, err := h.codeForPluginSdkAttribute(fieldName, field)
+		line, err := h.codeForPluginSdkAttribute(field, true)
 		if err != nil {
 			return nil, fmt.Errorf("building argument code for field %q: %+v", fieldName, err)
 		}
 
-		lines = append(lines, *line)
+		lines = append(lines, fmt.Sprintf(`%[1]q: %[2]s`, fieldName, *line))
 	}
 
 	output := strings.TrimSpace(fmt.Sprintf(`
@@ -76,14 +76,13 @@ map[string]*pluginsdk.Schema{
 	return &output, nil
 }
 
-func (h pluginSdkAttributesHelpers) codeForPluginSdkAttribute(fieldName string, field resourcemanager.TerraformSchemaFieldDefinition) (*string, error) {
+func (h pluginSdkAttributesHelpers) codeForPluginSdkAttribute(field resourcemanager.TerraformSchemaFieldDefinition, topLevel bool) (*string, error) {
 	code, err := codeForPluginSdkCommonSchemaAttribute(field)
 	if err != nil {
-		return nil, fmt.Errorf("building common schema attribute code for field %q: %+v", fieldName, err)
+		return nil, fmt.Errorf("building common schema attribute code: %+v", err)
 	}
 	if code != nil {
-		out := fmt.Sprintf(`%[1]q: %[2]s`, fieldName, *code)
-		return &out, nil
+		return code, nil
 	}
 
 	attributes := make([]string, 0)
@@ -101,7 +100,25 @@ func (h pluginSdkAttributesHelpers) codeForPluginSdkAttribute(fieldName string, 
 		attributes = append(attributes, fmt.Sprintf("Computed: %t", field.Computed))
 	}
 
-	switch field.ObjectDefinition.Type {
+	codeForObjectDefinition, err := h.attributesForObjectDefinition(field.ObjectDefinition, topLevel)
+	if err != nil {
+		return nil, fmt.Errorf("building attributes for object definition: %+v", err)
+	}
+	attributes = append(attributes, *codeForObjectDefinition...)
+
+	sort.Strings(attributes)
+	output := strings.TrimSpace(fmt.Sprintf(`
+{
+	%[1]s,
+}
+`, strings.Join(attributes, ",\n")))
+
+	return &output, nil
+}
+
+func (h pluginSdkAttributesHelpers) attributesForObjectDefinition(input resourcemanager.TerraformSchemaFieldObjectDefinition, topLevel bool) (*[]string, error) {
+	attributes := make([]string, 0)
+	switch input.Type {
 	case resourcemanager.TerraformSchemaFieldTypeBoolean:
 		{
 			attributes = append(attributes, "Type: pluginsdk.TypeBool")
@@ -121,22 +138,24 @@ func (h pluginSdkAttributesHelpers) codeForPluginSdkAttribute(fieldName string, 
 
 	case resourcemanager.TerraformSchemaFieldTypeReference:
 		{
-			if field.ObjectDefinition.ReferenceName == nil {
+			if input.ReferenceName == nil {
 				return nil, fmt.Errorf("missing name for reference")
 			}
-			reference, ok := h.schemaModels[*field.ObjectDefinition.ReferenceName]
+			reference, ok := h.schemaModels[*input.ReferenceName]
 			if !ok {
-				return nil, fmt.Errorf("schema model %q was not found", *field.ObjectDefinition.ReferenceName)
+				return nil, fmt.Errorf("schema model %q was not found", *input.ReferenceName)
 			}
 
 			codeForModel, err := h.codeForModel(reference, false)
 			if err != nil {
-				return nil, fmt.Errorf("building code for nested model %q for field %q: %+v", *field.ObjectDefinition.ReferenceName, fieldName, err)
+				return nil, fmt.Errorf("building code for nested model %q: %+v", *input.ReferenceName, err)
 			}
 
 			// references are output as a List with `MaxItems: 1` for now
 			attributes = append(attributes, "Type: pluginsdk.TypeList")
-			attributes = append(attributes, "MaxItems: 1")
+			if topLevel {
+				attributes = append(attributes, "MaxItems: 1")
+			}
 			attributes = append(attributes, strings.TrimSpace(fmt.Sprintf(`
 Elem: &pluginsdk.Resource{
 	Schema: %[1]s,
@@ -144,22 +163,54 @@ Elem: &pluginsdk.Resource{
 `, *codeForModel)))
 		}
 
+	case resourcemanager.TerraformSchemaFieldTypeList:
+		{
+			if input.NestedObject == nil {
+				return nil, fmt.Errorf("internal-error: list type with no nested object")
+			}
+
+			attributes = append(attributes, "Type: pluginsdk.TypeList")
+			if input.NestedObject.Type == resourcemanager.TerraformSchemaFieldTypeReference {
+				if input.NestedObject.ReferenceName == nil {
+					return nil, fmt.Errorf("missing name for reference")
+				}
+				reference, ok := h.schemaModels[*input.NestedObject.ReferenceName]
+				if !ok {
+					return nil, fmt.Errorf("schema model %q was not found", *input.ReferenceName)
+				}
+
+				codeForModel, err := h.codeForModel(reference, false)
+				if err != nil {
+					return nil, fmt.Errorf("building code for nested model %q: %+v", *input.NestedObject.ReferenceName, err)
+				}
+
+				attributes = append(attributes, strings.TrimSpace(fmt.Sprintf(`
+Elem: &pluginsdk.Resource{
+	Schema: %[1]s,
+}
+`, *codeForModel)))
+			} else {
+				nestedAttributes, err := h.attributesForObjectDefinition(*input.NestedObject, false)
+				if err != nil {
+					return nil, fmt.Errorf("building attributes for nested object definition: %+v", err)
+				}
+				attributes = append(attributes, strings.TrimSpace(fmt.Sprintf(`
+Elem: &pluginsdk.Schema{
+	%[1]s,
+}
+`, strings.Join(*nestedAttributes, ",\n"))))
+			}
+		}
+
 		// TODO: List[Reference], Set[Reference], List[SimpleType], Set[SimpleType]
 
 	default:
 		{
-			return nil, fmt.Errorf("internal-error: unimplemented schema field definition type %q", string(field.ObjectDefinition.Type))
+			return nil, fmt.Errorf("internal-error: unimplemented schema field definition type %q", string(input.Type))
 		}
 	}
 
-	sort.Strings(attributes)
-	output := strings.TrimSpace(fmt.Sprintf(`
-%[1]q: {
-	%[2]s,
-}
-`, fieldName, strings.Join(attributes, ",\n")))
-
-	return &output, nil
+	return &attributes, nil
 }
 
 func codeForPluginSdkCommonSchemaAttribute(field resourcemanager.TerraformSchemaFieldDefinition) (*string, error) {
