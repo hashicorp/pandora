@@ -29,6 +29,7 @@ func Resource(input ResourceInput) error {
 		idValidationFunctionForResource(input),
 		typeFuncForResource(input),
 		argumentsCodeFunctionForResource(input),
+		attributesCodeFunctionForResource(input),
 		createFunctionForResource(input),
 		deleteFunctionForResource(input),
 		// TODO: Mappings

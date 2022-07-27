@@ -76,6 +76,44 @@ map[string]*pluginsdk.Schema{
 	return &output, nil
 }
 
+func (h pluginSdkAttributesHelpers) codeForModelAttributesOnly(input resourcemanager.TerraformSchemaModelDefinition) (*string, error) {
+	lines := make([]string, 0)
+
+	// pull out a list of Computed-only fields and then sort those alphabetically
+	// this function is only used for top-level types, nested items output the full model
+	computedFields := make([]string, 0)
+	for fieldName, details := range input.Fields {
+		// we only want top-level fields whhich are
+		if details.Computed && !details.Optional && !details.Required && !details.ForceNew {
+			computedFields = append(computedFields, fieldName)
+			continue
+		}
+	}
+	sort.Strings(computedFields)
+
+	if len(computedFields) == 0 {
+		out := "map[string]*pluginsdk.Schema{}"
+		return &out, nil
+	}
+
+	for _, fieldName := range computedFields {
+		field := input.Fields[fieldName]
+		line, err := h.codeForPluginSdkAttribute(field)
+		if err != nil {
+			return nil, fmt.Errorf("building argument code for field %q: %+v", fieldName, err)
+		}
+
+		lines = append(lines, fmt.Sprintf(`%[1]q: %[2]s`, fieldName, *line))
+	}
+
+	output := strings.TrimSpace(fmt.Sprintf(`
+map[string]*pluginsdk.Schema{
+	%[1]s,
+}
+`, strings.Join(lines, ",\n")))
+	return &output, nil
+}
+
 func (h pluginSdkAttributesHelpers) codeForPluginSdkAttribute(field resourcemanager.TerraformSchemaFieldDefinition) (*string, error) {
 	code, err := codeForPluginSdkCommonSchemaAttribute(field)
 	if err != nil {
