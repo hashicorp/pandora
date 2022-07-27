@@ -68,3 +68,53 @@ func (c pandaClient) senderForCreate(ctx context.Context, req *http.Request) (fu
 `
 	assertTemplatedCodeMatches(t, expected, actual)
 }
+
+func TestTemplateMethodAutoRestDiscriminatedTypeResponder(t *testing.T) {
+	input := ServiceGeneratorData{
+		packageName:       "chubbyPandas",
+		serviceClientName: "pandaClient",
+		source:            AccTestLicenceType,
+		models: map[string]resourcemanager.ModelDetails{
+			"PandaPop": {
+				TypeHintIn: stringPointer("cola"),
+			},
+		},
+	}
+
+	actual, err := methodsAutoRestTemplater{
+		operation: resourcemanager.ApiOperation{
+			Method: "GET",
+			ResponseObject: &resourcemanager.ApiObjectDefinition{
+				ReferenceName: stringPointer("PandaPop"),
+			},
+		},
+		operationName: "Get",
+	}.responderTemplate(input)
+
+	if err != nil {
+		t.Fatalf("err %+v", err)
+	}
+
+	expected := `
+	// responderForGet handles the response to the Get request. The method always
+	// closes the http.Response Body.
+	func (c pandaClient) responderForGet(resp *http.Response) (result GetOperationResponse, err error) {
+		err = autorest.Respond(
+			resp,
+			azure.WithErrorUnlessStatusCode(),
+			autorest.ByClosing())
+		result.HttpResponse = resp
+		b, err := ioutil.ReadAll(resp.Body)
+		if err != nil {
+			return result, fmt.Errorf("reading response body: PandaPop", err )
+		}
+		model, err := unmarshalDataConnectorImplementation(b)
+		if err != nil {
+			return
+        }
+		result.Model = &model
+		return
+	}`
+
+	assertTemplatedCodeMatches(t, expected, *actual)
+}
