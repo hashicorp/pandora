@@ -8,8 +8,9 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/hashicorp/pandora/tools/generator-terraform/generator"
+	"github.com/hashicorp/pandora/tools/generator-terraform/generator/models"
 
+	resourceGenerator "github.com/hashicorp/pandora/tools/generator-terraform/generator/resource"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 	"github.com/hashicorp/pandora/tools/sdk/services"
 )
@@ -54,7 +55,11 @@ func run(input GeneratorInput) error {
 
 	log.Printf("[DEBUG] Retrieving Services from Data API..")
 	client := resourcemanager.NewClient(input.apiServerEndpoint)
-	services, err := services.GetResourceManagerServices(client)
+	servicesToLoad := []string{
+		"Compute",
+		"Resources",
+	}
+	services, err := services.GetResourceManagerServicesByName(client, servicesToLoad)
 	if err != nil {
 		return fmt.Errorf("retrieving resource manager services: %+v", err)
 	}
@@ -110,7 +115,7 @@ func run(input GeneratorInput) error {
 			}
 
 			log.Printf("[DEBUG] Processing Resource %q..", label)
-			resourceInput := generator.ResourceInput{
+			resourceInput := models.ResourceInput{
 				// Provider related
 				ProviderPrefix:     input.providerPrefix,
 				RootDirectory:      input.outputDirectory,
@@ -128,12 +133,14 @@ func run(input GeneratorInput) error {
 				SdkServiceName:  strings.ToLower(serviceName),
 
 				// Data
-				Constants:   resource.Schema.Constants,
-				Models:      resource.Schema.Models,
-				Operations:  resource.Operations.Operations,
-				ResourceIds: resource.Schema.ResourceIds,
+				Constants:       resource.Schema.Constants,
+				Models:          resource.Schema.Models,
+				Operations:      resource.Operations.Operations,
+				ResourceIds:     resource.Schema.ResourceIds,
+				SchemaModelName: details.SchemaModelName,
+				SchemaModels:    details.SchemaModels,
 			}
-			if err := generator.Resource(resourceInput); err != nil {
+			if err := resourceGenerator.Resource(resourceInput); err != nil {
 				return fmt.Errorf("generating for Resource %q (Service %q / API Version %q): %+v", label, serviceName, details.ApiVersion, err)
 			}
 		}
