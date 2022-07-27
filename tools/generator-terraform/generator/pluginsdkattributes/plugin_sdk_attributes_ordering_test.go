@@ -15,7 +15,7 @@ func TestPluginSdkAttributes_FieldOrdering_TopLevel(t *testing.T) {
 			"optional_nested_item": {
 				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
 					Type:          resourcemanager.TerraformSchemaFieldTypeReference,
-					ReferenceName: resource.stringPointer("NestedSchema"),
+					ReferenceName: stringPointer("NestedSchema"),
 				},
 				Optional: true,
 			},
@@ -118,7 +118,7 @@ map[string]*pluginsdk.Schema{
 	if err != nil {
 		t.Fatalf("unexpected error: %+v", err)
 	}
-	resource.assertTemplatedCodeMatches(t, expected, *actual)
+	assertTemplatedCodeMatches(t, expected, *actual)
 }
 
 func TestPluginSdkAttributes_FieldOrdering_NestedLevel(t *testing.T) {
@@ -127,7 +127,7 @@ func TestPluginSdkAttributes_FieldOrdering_NestedLevel(t *testing.T) {
 			"optional_nested_item": {
 				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
 					Type:          resourcemanager.TerraformSchemaFieldTypeReference,
-					ReferenceName: resource.stringPointer("NestedSchema"),
+					ReferenceName: stringPointer("NestedSchema"),
 				},
 				Optional: true,
 			},
@@ -238,7 +238,7 @@ map[string]*pluginsdk.Schema{
 	if err != nil {
 		t.Fatalf("unexpected error: %+v", err)
 	}
-	resource.assertTemplatedCodeMatches(t, expected, *actual)
+	assertTemplatedCodeMatches(t, expected, *actual)
 }
 
 func TestPluginSdkAttributes_FieldOrdering_TopLevelAttributesOnly(t *testing.T) {
@@ -250,7 +250,7 @@ func TestPluginSdkAttributes_FieldOrdering_TopLevelAttributesOnly(t *testing.T) 
 			"optional_nested_item": {
 				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
 					Type:          resourcemanager.TerraformSchemaFieldTypeReference,
-					ReferenceName: resource.stringPointer("NestedSchema"),
+					ReferenceName: stringPointer("NestedSchema"),
 				},
 				Optional: true,
 			},
@@ -328,5 +328,5 @@ map[string]*pluginsdk.Schema{
 	if err != nil {
 		t.Fatalf("unexpected error: %+v", err)
 	}
-	resource.assertTemplatedCodeMatches(t, expected, *actual)
+	assertTemplatedCodeMatches(t, expected, *actual)
 }
