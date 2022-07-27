@@ -15,18 +15,36 @@ namespace Pandora.Definitions.ResourceManager.ContainerApps.v2022_03_01.Containe
 
 internal class CustomHostnameAnalysisResultModel
 {
-    [JsonPropertyName("id")]
-    public string? Id { get; set; }
+    [JsonPropertyName("aRecords")]
+    public List<string>? ARecords { get; set; }
 
-    [JsonPropertyName("name")]
-    public string? Name { get; set; }
+    [JsonPropertyName("alternateCNameRecords")]
+    public List<string>? AlternateCNameRecords { get; set; }
 
-    [JsonPropertyName("properties")]
-    public CustomHostnameAnalysisResultPropertiesModel? Properties { get; set; }
+    [JsonPropertyName("alternateTxtRecords")]
+    public List<string>? AlternateTxtRecords { get; set; }
 
-    [JsonPropertyName("systemData")]
-    public CustomTypes.SystemData? SystemData { get; set; }
+    [JsonPropertyName("cNameRecords")]
+    public List<string>? CNameRecords { get; set; }
 
-    [JsonPropertyName("type")]
-    public string? Type { get; set; }
+    [JsonPropertyName("conflictingContainerAppResourceId")]
+    public string? ConflictingContainerAppResourceId { get; set; }
+
+    [JsonPropertyName("customDomainVerificationFailureInfo")]
+    public DefaultErrorResponseModel? CustomDomainVerificationFailureInfo { get; set; }
+
+    [JsonPropertyName("customDomainVerificationTest")]
+    public DnsVerificationTestResultConstant? CustomDomainVerificationTest { get; set; }
+
+    [JsonPropertyName("hasConflictOnManagedEnvironment")]
+    public bool? HasConflictOnManagedEnvironment { get; set; }
+
+    [JsonPropertyName("hostName")]
+    public string? HostName { get; set; }
+
+    [JsonPropertyName("isHostnameAlreadyVerified")]
+    public bool? IsHostnameAlreadyVerified { get; set; }
+
+    [JsonPropertyName("txtRecords")]
+    public List<string>? TxtRecords { get; set; }
 }
