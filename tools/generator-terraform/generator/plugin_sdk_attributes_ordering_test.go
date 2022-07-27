@@ -67,6 +67,12 @@ func TestPluginSdkAttributes_FieldOrdering_TopLevelIsSorted(t *testing.T) {
 						},
 						Optional: true,
 					},
+					"computed_item": {
+						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						},
+						Computed: true,
+					},
 				},
 			},
 		},
@@ -90,6 +96,10 @@ map[string]*pluginsdk.Schema{
 			Schema: map[string]*pluginsdk.Schema{
 				"nested_item": {
 					Optional: true,
+					Type: pluginsdk.TypeString,
+				},
+				"computed_item": {
+					Computed: true,
 					Type: pluginsdk.TypeString,
 				},
 			},
@@ -169,6 +179,12 @@ func TestPluginSdkAttributes_FieldOrdering_NestedLevel(t *testing.T) {
 						},
 						Optional: true,
 					},
+					"computed_item": {
+						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						},
+						Computed: true,
+					},
 				},
 			},
 		},
@@ -192,6 +208,10 @@ map[string]*pluginsdk.Schema{
 			Schema: map[string]*pluginsdk.Schema{
 				"nested_item": {
 					Optional: true,
+					Type: pluginsdk.TypeString,
+				},
+				"computed_item": {
+					Computed: true,
 					Type: pluginsdk.TypeString,
 				},
 			},
