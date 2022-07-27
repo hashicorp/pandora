@@ -9,4 +9,4 @@ The primary reason for this tool is to ensure that this can be run consistently 
 Several wrappers are available for this tool, which will install the dependencies needed to run this tool in automation:
 
 * `./scripts/automation-generate-go-sdk.sh` - for generating a Go SDK using the Data within the Data API.
-* `./scripts/automation-generate-terraform.sh` - for generating a Go SDK using the Data within the Data API.
+* `./scripts/automation-generate-terraform.sh` - for generating Terraform Data Sources & Resources using the Data within the Data API.

@@ -41,7 +41,16 @@ func run(args Arguments) error {
 	}
 	log.Printf("Data API is available.")
 
-	// 3: Launch the Go SDK Generator, if enabled
+	// 3: Launch the Rest API Specs Importer, if enabled
+	if args.RunRestApiSpecsImporter {
+		log.Printf("Running the Rest Api Specs Importer..")
+		if err := runRestApiSpecsImporter(dataApiUri, args.OutputDirectory); err != nil {
+			return fmt.Errorf("running the Go SDK Generator: %+v", err)
+		}
+		log.Printf("Rest Api Specs Importer has been run.")
+	}
+
+	// 4: Launch the Go SDK Generator, if enabled
 	if args.RunGoSdkGenerator {
 		log.Printf("Running the Go SDK Generator..")
 		if err := runGoSdkGenerator(dataApiUri, args.OutputDirectory); err != nil {
@@ -50,7 +59,7 @@ func run(args Arguments) error {
 		log.Printf("Go SDK Generator has been run.")
 	}
 
-	// 4. Run the Terraform Generator, if enabled
+	// 5. Run the Terraform Generator, if enabled
 	if args.RunTerraformGenerator {
 		log.Printf("Running the Terraform Generator..")
 		if err := runTerraformGenerator(dataApiUri, args.OutputDirectory); err != nil {
@@ -76,6 +85,26 @@ func runGoSdkGenerator(dataApiUri string, outputDirectory string) error {
 	cmd.Stderr = os.Stderr
 	if err := cmd.Run(); err != nil {
 		return fmt.Errorf("running Go SDK Generator: %+v", err)
+	}
+	log.Printf("----------------------------------------")
+
+	return nil
+}
+
+func runRestApiSpecsImporter(dataApiUri string, outputDirectory string) error {
+	args := []string{
+		fmt.Sprintf("-data-api=%s", dataApiUri),
+	}
+	if outputDirectory != "" {
+		args = append(args, fmt.Sprintf("-output-dir=%s", outputDirectory))
+	}
+	cmd := exec.Command("importer-rest-api-specs", args...)
+	log.Printf("Importer Rest API Specs Output:")
+	log.Printf("----------------------------------------")
+	cmd.Stdout = os.Stdout
+	cmd.Stderr = os.Stderr
+	if err := cmd.Run(); err != nil {
+		return fmt.Errorf("running Importer Rest API Specs: %+v", err)
 	}
 	log.Printf("----------------------------------------")
 

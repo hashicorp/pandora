@@ -6,11 +6,12 @@ import (
 )
 
 type Arguments struct {
-	DataApiAssemblyPath   string
-	DataApiPort           int
-	OutputDirectory       string
-	RunGoSdkGenerator     bool
-	RunTerraformGenerator bool
+	DataApiAssemblyPath     string
+	DataApiPort             int
+	OutputDirectory         string
+	RunGoSdkGenerator       bool
+	RunTerraformGenerator   bool
+	RunRestApiSpecsImporter bool
 }
 
 func (a Arguments) Validate() error {

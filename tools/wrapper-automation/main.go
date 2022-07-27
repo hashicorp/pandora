@@ -14,6 +14,9 @@ func main() {
 		"go-sdk": func() (cli.Command, error) {
 			return &GoSdkGeneratorCmd{}, nil
 		},
+		"rest-api-specs-importer": func() (cli.Command, error) {
+			return &RestApiSpecsImporterCmd{}, nil
+		},
 		"terraform": func() (cli.Command, error) {
 			return &TerraformCmd{}, nil
 		},
