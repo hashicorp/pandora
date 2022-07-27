@@ -4,7 +4,7 @@ service "Compute" {
   api "2021-11-01" {
     package "VirtualMachines" {
       definition "virtual_machine" {
-        id = "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}"
+        id = "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{virtualMachineName}"
         display_name = "Virtual Machine"
       }
     }
