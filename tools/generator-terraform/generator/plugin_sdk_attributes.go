@@ -163,13 +163,17 @@ Elem: &pluginsdk.Resource{
 `, *codeForModel)))
 		}
 
-	case resourcemanager.TerraformSchemaFieldTypeList:
+	case resourcemanager.TerraformSchemaFieldTypeList, resourcemanager.TerraformSchemaFieldTypeSet:
 		{
 			if input.NestedObject == nil {
-				return nil, fmt.Errorf("internal-error: list type with no nested object")
+				return nil, fmt.Errorf("internal-error: list/set type with no nested object")
 			}
 
-			attributes = append(attributes, "Type: pluginsdk.TypeList")
+			if input.Type == resourcemanager.TerraformSchemaFieldTypeList {
+				attributes = append(attributes, "Type: pluginsdk.TypeList")
+			} else {
+				attributes = append(attributes, "Type: pluginsdk.TypeSet")
+			}
 			if input.NestedObject.Type == resourcemanager.TerraformSchemaFieldTypeReference {
 				if input.NestedObject.ReferenceName == nil {
 					return nil, fmt.Errorf("missing name for reference")
