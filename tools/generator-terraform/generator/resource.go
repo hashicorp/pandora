@@ -26,6 +26,7 @@ func Resource(input ResourceInput) error {
 
 		testResourceStruct(input),
 		existsFuncForResourceTest(input),
+		generateResourceTests(input),
 	}
 
 	writeToPath(testFilePath, strings.Join(testComponents, "\n"))
