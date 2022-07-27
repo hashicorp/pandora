@@ -6,6 +6,7 @@ import (
 	"strings"
 
 	"github.com/hashicorp/pandora/tools/generator-terraform/generator/models"
+	"github.com/hashicorp/pandora/tools/generator-terraform/generator/resource/docs"
 )
 
 func Resource(input models.ResourceInput) error {
@@ -20,6 +21,15 @@ func Resource(input models.ResourceInput) error {
 	os.Remove(resourceFilePath)
 	resourceComponents := componentsForResource(input)
 	writeToPath(resourceFilePath, strings.Join(resourceComponents, "\n"))
+
+	// then go generate the documentation
+	websiteResourcesDirectory := fmt.Sprintf("%s/website/r/", input.RootDirectory)
+	os.MkdirAll(websiteResourcesDirectory, 0755)
+	documentationFilePath := fmt.Sprintf("%s/%s.html.markdown", websiteResourcesDirectory, input.ResourceLabel)
+	// remove the file if it already exists
+	os.Remove(documentationFilePath)
+	documentationComponents := docs.ComponentsForResource(input)
+	writeToPath(documentationFilePath, strings.Join(documentationComponents, "\n\n"))
 
 	return nil
 }
