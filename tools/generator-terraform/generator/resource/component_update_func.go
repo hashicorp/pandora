@@ -4,15 +4,17 @@ import (
 	"fmt"
 	"strings"
 
+	"github.com/hashicorp/pandora/tools/generator-terraform/generator/models"
+
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-func updateFuncForResource(input ResourceInput) string {
+func updateFuncForResource(input models.ResourceInput) string {
 	if input.Details.UpdateMethod == nil || !input.Details.UpdateMethod.Generate {
 		return ""
 	}
 
-	idParseLine, err := input.parseResourceIdFuncName()
+	idParseLine, err := input.ParseResourceIdFuncName()
 	if err != nil {
 		// TODO: thread through errors
 		panic(err)

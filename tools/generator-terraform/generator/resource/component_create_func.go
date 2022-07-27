@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"strings"
 
+	"github.com/hashicorp/pandora/tools/generator-terraform/generator/models"
+
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
@@ -18,7 +20,7 @@ type createFunctionComponents struct {
 	resourceId            resourcemanager.ResourceIdDefinition
 }
 
-func createFunctionForResource(input ResourceInput) string {
+func createFunctionForResource(input models.ResourceInput) string {
 	if !input.Details.CreateMethod.Generate {
 		return ""
 	}
@@ -41,7 +43,7 @@ func createFunctionForResource(input ResourceInput) string {
 		panic(fmt.Sprintf("couldn't find Resource ID %q for Create Method", input.Details.ResourceIdName))
 	}
 
-	newResourceIdFuncName, err := input.newResourceIdFuncName()
+	newResourceIdFuncName, err := input.NewResourceIdFuncName()
 	if err != nil {
 		// TODO: thread through errors
 		panic(fmt.Sprintf("obtaining New Resource ID Function for Create Method: %+v", err))

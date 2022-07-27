@@ -3,10 +3,12 @@ package resource
 import (
 	"fmt"
 
+	"github.com/hashicorp/pandora/tools/generator-terraform/generator/models"
+
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-func copyrightLinesForResource(input ResourceInput) string {
+func copyrightLinesForResource(input models.ResourceInput) string {
 	// TODO: hook the license up for this service
 	return copyrightLinesForSource(resourcemanager.ApiDefinitionsSourceResourceManagerRestApiSpecs)
 }

@@ -3,17 +3,19 @@ package resource
 import (
 	"testing"
 
+	"github.com/hashicorp/pandora/tools/generator-terraform/generator/models"
+
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
 func TestComponentUpdate_HappyPathDisabled(t *testing.T) {
-	actual := updateFuncForResource(ResourceInput{})
+	actual := updateFuncForResource(models.ResourceInput{})
 	expected := ``
 	assertTemplatedCodeMatches(t, expected, actual)
 }
 
 func TestComponentUpdate_HappyPathDisabled_NoUpdateMethod(t *testing.T) {
-	actual := updateFuncForResource(ResourceInput{
+	actual := updateFuncForResource(models.ResourceInput{
 		Details: resourcemanager.TerraformResourceDetails{
 			UpdateMethod: nil,
 		},
@@ -23,7 +25,7 @@ func TestComponentUpdate_HappyPathDisabled_NoUpdateMethod(t *testing.T) {
 }
 
 func TestComponentUpdate_HappyPathEnabled_CommonId_SharedModels(t *testing.T) {
-	actual := updateFuncForResource(ResourceInput{
+	actual := updateFuncForResource(models.ResourceInput{
 		Constants: map[string]resourcemanager.ConstantDetails{},
 		Details: resourcemanager.TerraformResourceDetails{
 			CreateMethod: resourcemanager.MethodDefinition{
@@ -140,7 +142,7 @@ func TestComponentUpdate_HappyPathEnabled_CommonId_SharedModels(t *testing.T) {
 }
 
 func TestComponentUpdate_HappyPathEnabled_CommonId_UniqueModels(t *testing.T) {
-	actual := updateFuncForResource(ResourceInput{
+	actual := updateFuncForResource(models.ResourceInput{
 		Constants: map[string]resourcemanager.ConstantDetails{},
 		Details: resourcemanager.TerraformResourceDetails{
 			CreateMethod: resourcemanager.MethodDefinition{
@@ -260,7 +262,7 @@ func TestComponentUpdate_HappyPathEnabled_CommonId_UniqueModels(t *testing.T) {
 }
 
 func TestComponentUpdate_HappyPathEnabled_RegularResourceID_SharedModels(t *testing.T) {
-	actual := updateFuncForResource(ResourceInput{
+	actual := updateFuncForResource(models.ResourceInput{
 		Constants: map[string]resourcemanager.ConstantDetails{},
 		Details: resourcemanager.TerraformResourceDetails{
 			CreateMethod: resourcemanager.MethodDefinition{
@@ -377,7 +379,7 @@ func TestComponentUpdate_HappyPathEnabled_RegularResourceID_SharedModels(t *test
 }
 
 func TestComponentUpdate_HappyPathEnabled_RegularResourceID_UniqueModels(t *testing.T) {
-	actual := updateFuncForResource(ResourceInput{
+	actual := updateFuncForResource(models.ResourceInput{
 		Constants: map[string]resourcemanager.ConstantDetails{},
 		Details: resourcemanager.TerraformResourceDetails{
 			CreateMethod: resourcemanager.MethodDefinition{

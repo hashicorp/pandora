@@ -4,11 +4,13 @@ import (
 	"strings"
 	"testing"
 
+	"github.com/hashicorp/pandora/tools/generator-terraform/generator/models"
+
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
 func TestComponentIDValidationFunc_CommonResourceID_Disabled(t *testing.T) {
-	input := ResourceInput{
+	input := models.ResourceInput{
 		ResourceTypeName: "Example",
 		SdkResourceName:  "sdkresource",
 		Details: resourcemanager.TerraformResourceDetails{
@@ -27,7 +29,7 @@ func TestComponentIDValidationFunc_CommonResourceID_Disabled(t *testing.T) {
 }
 
 func TestComponentIDValidationFunc_CommonResourceID_Enabled(t *testing.T) {
-	input := ResourceInput{
+	input := models.ResourceInput{
 		ResourceTypeName: "Example",
 		SdkResourceName:  "sdkresource",
 		Details: resourcemanager.TerraformResourceDetails{
@@ -50,7 +52,7 @@ func (r ExampleResource) IDValidationFunc() pluginsdk.SchemaValidateFunc {
 }
 
 func TestComponentIDValidationFunc_RegularResourceID_Disabled(t *testing.T) {
-	input := ResourceInput{
+	input := models.ResourceInput{
 		ResourceTypeName: "Example",
 		SdkResourceName:  "sdkresource",
 		Details: resourcemanager.TerraformResourceDetails{
@@ -82,7 +84,7 @@ func TestComponentIDValidationFunc_RegularResourceID_Disabled(t *testing.T) {
 }
 
 func TestComponentIDValidationFunc_RegularResourceID_Enabled(t *testing.T) {
-	input := ResourceInput{
+	input := models.ResourceInput{
 		ResourceTypeName: "Example",
 		SdkResourceName:  "sdkresource",
 		Details: resourcemanager.TerraformResourceDetails{

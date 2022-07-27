@@ -1,4 +1,4 @@
-package resource
+package models
 
 import (
 	"fmt"
@@ -57,7 +57,7 @@ type ResourceInput struct {
 	ServicePackageName string
 }
 
-func (id ResourceInput) parseResourceIdFuncName() (*string, error) {
+func (id ResourceInput) ParseResourceIdFuncName() (*string, error) {
 	resourceId, ok := id.ResourceIds[id.Details.ResourceIdName]
 	if !ok {
 		return nil, fmt.Errorf("missing Resource ID %q", id.Details.ResourceIdName)
@@ -72,7 +72,7 @@ func (id ResourceInput) parseResourceIdFuncName() (*string, error) {
 	return &out, nil
 }
 
-func (id ResourceInput) newResourceIdFuncName() (*string, error) {
+func (id ResourceInput) NewResourceIdFuncName() (*string, error) {
 	resourceId, ok := id.ResourceIds[id.Details.ResourceIdName]
 	if !ok {
 		return nil, fmt.Errorf("missing Resource ID %q", id.Details.ResourceIdName)
@@ -87,7 +87,7 @@ func (id ResourceInput) newResourceIdFuncName() (*string, error) {
 	return &out, nil
 }
 
-func (id ResourceInput) validateResourceIdFuncName() (*string, error) {
+func (id ResourceInput) ValidateResourceIdFuncName() (*string, error) {
 	resourceId, ok := id.ResourceIds[id.Details.ResourceIdName]
 	if !ok {
 		return nil, fmt.Errorf("missing Resource ID %q", id.Details.ResourceIdName)

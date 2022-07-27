@@ -3,11 +3,13 @@ package resource
 import (
 	"testing"
 
+	"github.com/hashicorp/pandora/tools/generator-terraform/generator/models"
+
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
 func TestComponentAttributes(t *testing.T) {
-	actual := attributesCodeFunctionForResource(ResourceInput{
+	actual := attributesCodeFunctionForResource(models.ResourceInput{
 		ResourceTypeName: "Example",
 		SchemaModelName:  "TopLevelModel",
 		SchemaModels: map[string]resourcemanager.TerraformSchemaModelDefinition{

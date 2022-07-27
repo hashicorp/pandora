@@ -4,11 +4,13 @@ import (
 	"strings"
 	"testing"
 
+	"github.com/hashicorp/pandora/tools/generator-terraform/generator/models"
+
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
 func TestComponentDeleteFunc_Immediate_CommonId_Disabled(t *testing.T) {
-	input := ResourceInput{
+	input := models.ResourceInput{
 		ResourceTypeName: "Example",
 		SdkResourceName:  "sdkresource",
 		ServiceName:      "Resources",
@@ -38,7 +40,7 @@ func TestComponentDeleteFunc_Immediate_CommonId_Disabled(t *testing.T) {
 }
 
 func TestComponentDeleteFunc_Immediate_RegularResourceId_Disabled(t *testing.T) {
-	input := ResourceInput{
+	input := models.ResourceInput{
 		ResourceTypeName: "Example",
 		SdkResourceName:  "sdkresource",
 		ServiceName:      "Resources",
@@ -68,7 +70,7 @@ func TestComponentDeleteFunc_Immediate_RegularResourceId_Disabled(t *testing.T) 
 }
 
 func TestComponentDeleteFunc_Immediate_CommonId_Enabled(t *testing.T) {
-	input := ResourceInput{
+	input := models.ResourceInput{
 		ResourceTypeName: "Example",
 		SdkResourceName:  "sdkresource",
 		ServiceName:      "Resources",
@@ -115,7 +117,7 @@ func (r ExampleResource) Delete() sdk.ResourceFunc {
 }
 
 func TestComponentDeleteFunc_Immediate_CommonId_Options_Enabled(t *testing.T) {
-	input := ResourceInput{
+	input := models.ResourceInput{
 		ResourceTypeName:   "Example",
 		SdkResourceName:    "sdkresource",
 		ServiceName:        "Resources",
@@ -172,7 +174,7 @@ func (r ExampleResource) Delete() sdk.ResourceFunc {
 }
 
 func TestComponentDeleteFunc_Immediate_RegularResourceId_Enabled(t *testing.T) {
-	input := ResourceInput{
+	input := models.ResourceInput{
 		ResourceTypeName: "Example",
 		SdkResourceName:  "sdkresource",
 		ServiceName:      "Resources",
@@ -219,7 +221,7 @@ func (r ExampleResource) Delete() sdk.ResourceFunc {
 }
 
 func TestComponentDeleteFunc_Immediate_RegularResourceId_Options_Enabled(t *testing.T) {
-	input := ResourceInput{
+	input := models.ResourceInput{
 		ResourceTypeName:   "Example",
 		SdkResourceName:    "sdkresource",
 		ServiceName:        "Resources",
@@ -276,7 +278,7 @@ func (r ExampleResource) Delete() sdk.ResourceFunc {
 }
 
 func TestComponentDeleteFunc_LongRunning_CommonId_Disabled(t *testing.T) {
-	input := ResourceInput{
+	input := models.ResourceInput{
 		ResourceTypeName: "Example",
 		SdkResourceName:  "sdkresource",
 		ServiceName:      "Resources",
@@ -306,7 +308,7 @@ func TestComponentDeleteFunc_LongRunning_CommonId_Disabled(t *testing.T) {
 }
 
 func TestComponentDeleteFunc_LongRunning_RegularResourceId_Disabled(t *testing.T) {
-	input := ResourceInput{
+	input := models.ResourceInput{
 		ResourceTypeName: "Example",
 		SdkResourceName:  "sdkresource",
 		ServiceName:      "Resources",
@@ -336,7 +338,7 @@ func TestComponentDeleteFunc_LongRunning_RegularResourceId_Disabled(t *testing.T
 }
 
 func TestComponentDeleteFunc_LongRunning_CommonId_Enabled(t *testing.T) {
-	input := ResourceInput{
+	input := models.ResourceInput{
 		ResourceTypeName: "Example",
 		SdkResourceName:  "sdkresource",
 		ServiceName:      "Resources",
@@ -383,7 +385,7 @@ func (r ExampleResource) Delete() sdk.ResourceFunc {
 }
 
 func TestComponentDeleteFunc_LongRunning_CommonId_Options_Enabled(t *testing.T) {
-	input := ResourceInput{
+	input := models.ResourceInput{
 		ResourceTypeName:   "Example",
 		SdkResourceName:    "sdkresource",
 		ServiceName:        "Resources",
@@ -440,7 +442,7 @@ func (r ExampleResource) Delete() sdk.ResourceFunc {
 }
 
 func TestComponentDeleteFunc_LongRunning_RegularResourceId_Enabled(t *testing.T) {
-	input := ResourceInput{
+	input := models.ResourceInput{
 		ResourceTypeName: "Example",
 		SdkResourceName:  "sdkresource",
 		ServiceName:      "Resources",
@@ -487,7 +489,7 @@ func (r ExampleResource) Delete() sdk.ResourceFunc {
 }
 
 func TestComponentDeleteFunc_LongRunning_RegularResourceId_Options_Enabled(t *testing.T) {
-	input := ResourceInput{
+	input := models.ResourceInput{
 		ResourceTypeName:   "Example",
 		SdkResourceName:    "sdkresource",
 		ServiceName:        "Resources",

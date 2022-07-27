@@ -1,13 +1,17 @@
 package resource
 
-import "fmt"
+import (
+	"fmt"
 
-func idValidationFunctionForResource(input ResourceInput) string {
+	"github.com/hashicorp/pandora/tools/generator-terraform/generator/models"
+)
+
+func idValidationFunctionForResource(input models.ResourceInput) string {
 	if !input.Details.GenerateIdValidation {
 		return ""
 	}
 
-	validationLine, err := input.validateResourceIdFuncName()
+	validationLine, err := input.ValidateResourceIdFuncName()
 	if err != nil {
 		// TODO: thread through errors
 		panic(err)

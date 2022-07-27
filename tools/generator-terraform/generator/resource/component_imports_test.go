@@ -3,10 +3,12 @@ package resource
 import (
 	"strings"
 	"testing"
+
+	"github.com/hashicorp/pandora/tools/generator-terraform/generator/models"
 )
 
 func TestComponentImports(t *testing.T) {
-	input := ResourceInput{
+	input := models.ResourceInput{
 		SdkApiVersion:   "2020-06-01",
 		SdkResourceName: "virtualmachines",
 		SdkServiceName:  "compute",

@@ -1,8 +1,12 @@
 package resource
 
-import "fmt"
+import (
+	"fmt"
 
-func importsForResource(input ResourceInput) string {
+	"github.com/hashicorp/pandora/tools/generator-terraform/generator/models"
+)
+
+func importsForResource(input models.ResourceInput) string {
 	return fmt.Sprintf(`
 import (
 	"context"

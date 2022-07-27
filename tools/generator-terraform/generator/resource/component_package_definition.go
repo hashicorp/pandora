@@ -1,7 +1,11 @@
 package resource
 
-import "fmt"
+import (
+	"fmt"
 
-func packageDefinitionForResource(input ResourceInput) string {
+	"github.com/hashicorp/pandora/tools/generator-terraform/generator/models"
+)
+
+func packageDefinitionForResource(input models.ResourceInput) string {
 	return fmt.Sprintf("package %s", input.ServicePackageName)
 }

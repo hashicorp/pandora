@@ -3,10 +3,12 @@ package resource
 import (
 	"fmt"
 
+	"github.com/hashicorp/pandora/tools/generator-terraform/generator/models"
+
 	"github.com/hashicorp/pandora/tools/generator-terraform/generator/pluginsdkattributes"
 )
 
-func attributesCodeFunctionForResource(input ResourceInput) string {
+func attributesCodeFunctionForResource(input models.ResourceInput) string {
 	helper := pluginsdkattributes.PluginSdkAttributesHelpers{
 		SchemaModels: input.SchemaModels,
 	}

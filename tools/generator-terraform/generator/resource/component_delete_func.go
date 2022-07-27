@@ -2,14 +2,16 @@ package resource
 
 import (
 	"fmt"
+
+	"github.com/hashicorp/pandora/tools/generator-terraform/generator/models"
 )
 
-func deleteFunctionForResource(input ResourceInput) string {
+func deleteFunctionForResource(input models.ResourceInput) string {
 	if !input.Details.DeleteMethod.Generate {
 		return ""
 	}
 
-	idParseLine, err := input.parseResourceIdFuncName()
+	idParseLine, err := input.ParseResourceIdFuncName()
 	if err != nil {
 		// TODO: thread through errors
 		panic(err)

@@ -4,11 +4,13 @@ import (
 	"strings"
 	"testing"
 
+	"github.com/hashicorp/pandora/tools/generator-terraform/generator/models"
+
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
 func TestComponentReadFunc_CommonId_Disabled(t *testing.T) {
-	input := ResourceInput{
+	input := models.ResourceInput{
 		ResourceTypeName: "Example",
 		SdkResourceName:  "sdkresource",
 		ServiceName:      "Resources",
@@ -38,7 +40,7 @@ func TestComponentReadFunc_CommonId_Disabled(t *testing.T) {
 }
 
 func TestComponentReadFunc_RegularResourceId_Disabled(t *testing.T) {
-	input := ResourceInput{
+	input := models.ResourceInput{
 		ResourceTypeName: "Example",
 		SdkResourceName:  "sdkresource",
 		ServiceName:      "Resources",
@@ -68,7 +70,7 @@ func TestComponentReadFunc_RegularResourceId_Disabled(t *testing.T) {
 }
 
 func TestComponentReadFunc_CommonId_Enabled(t *testing.T) {
-	input := ResourceInput{
+	input := models.ResourceInput{
 		ResourceTypeName: "Example",
 		SdkResourceName:  "sdkresource",
 		ServiceName:      "Resources",
@@ -123,7 +125,7 @@ func (r ExampleResource) Read() sdk.ResourceFunc {
 }
 
 func TestComponentReadFunc_CommonId_Options_Enabled(t *testing.T) {
-	input := ResourceInput{
+	input := models.ResourceInput{
 		ResourceTypeName:   "Example",
 		SdkResourceName:    "sdkresource",
 		ServiceName:        "Resources",
@@ -189,7 +191,7 @@ func (r ExampleResource) Read() sdk.ResourceFunc {
 }
 
 func TestComponentReadFunc_RegularResourceId_Enabled(t *testing.T) {
-	input := ResourceInput{
+	input := models.ResourceInput{
 		ResourceTypeName: "Example",
 		SdkResourceName:  "sdkresource",
 		ServiceName:      "Resources",
@@ -244,7 +246,7 @@ func (r ExampleResource) Read() sdk.ResourceFunc {
 }
 
 func TestComponentReadFunc_RegularResourceId_Options_Enabled(t *testing.T) {
-	input := ResourceInput{
+	input := models.ResourceInput{
 		ResourceTypeName:   "Example",
 		SdkResourceName:    "sdkresource",
 		ServiceName:        "Resources",

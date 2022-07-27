@@ -3,6 +3,8 @@ package resource
 import (
 	"testing"
 
+	"github.com/hashicorp/pandora/tools/generator-terraform/generator/models"
+
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
@@ -10,7 +12,7 @@ import (
 // so we'll test the happy path and then each individual component
 
 func TestComponentCreate_HappyPathDisabled(t *testing.T) {
-	actual := createFunctionForResource(ResourceInput{
+	actual := createFunctionForResource(models.ResourceInput{
 		Constants: nil,
 		Details: resourcemanager.TerraformResourceDetails{
 			CreateMethod: resourcemanager.MethodDefinition{
@@ -102,7 +104,7 @@ func TestComponentCreate_HappyPathDisabled(t *testing.T) {
 }
 
 func TestComponentCreate_HappyPathEnabled(t *testing.T) {
-	actual := createFunctionForResource(ResourceInput{
+	actual := createFunctionForResource(models.ResourceInput{
 		Constants: nil,
 		Details: resourcemanager.TerraformResourceDetails{
 			CreateMethod: resourcemanager.MethodDefinition{

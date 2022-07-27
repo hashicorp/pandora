@@ -3,10 +3,12 @@ package resource
 import (
 	"strings"
 	"testing"
+
+	"github.com/hashicorp/pandora/tools/generator-terraform/generator/models"
 )
 
 func TestComponentTypeFunc(t *testing.T) {
-	input := ResourceInput{
+	input := models.ResourceInput{
 		ResourceTypeName: "Example",
 		ProviderPrefix:   "zoo",
 		ResourceLabel:    "panda",

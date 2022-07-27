@@ -8,6 +8,8 @@ import (
 	"path/filepath"
 	"strings"
 
+	"github.com/hashicorp/pandora/tools/generator-terraform/generator/models"
+
 	resourceGenerator "github.com/hashicorp/pandora/tools/generator-terraform/generator/resource"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 	"github.com/hashicorp/pandora/tools/sdk/services"
@@ -113,7 +115,7 @@ func run(input GeneratorInput) error {
 			}
 
 			log.Printf("[DEBUG] Processing Resource %q..", label)
-			resourceInput := resourceGenerator.ResourceInput{
+			resourceInput := models.ResourceInput{
 				// Provider related
 				ProviderPrefix:     input.providerPrefix,
 				RootDirectory:      input.outputDirectory,

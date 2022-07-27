@@ -1,8 +1,12 @@
 package resource
 
-import "fmt"
+import (
+	"fmt"
 
-func methodsYetToBeImplementedForResource(input ResourceInput) string {
+	"github.com/hashicorp/pandora/tools/generator-terraform/generator/models"
+)
+
+func methodsYetToBeImplementedForResource(input models.ResourceInput) string {
 	return fmt.Sprintf(`
 // TODO: the methods below this point are yet to be implemented
 // but are output purely to keep the compiler for happy in the short-term
