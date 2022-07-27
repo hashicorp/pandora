@@ -11,8 +11,8 @@ function buildAndInstallDependencies {
     cd "${DIR}"
 
     echo "Building Wrapper.."
-    cd "${DIR}/tools/wrapper-go-sdk-generator"
-    go build -o wrapper-go-sdk-generator
+    cd "${DIR}/tools/wrapper-automation"
+    go build -o wrapper-automation
     cd "${DIR}"
 }
 
@@ -21,8 +21,8 @@ function runWrapper {
   local outputDirectory=$2
 
   echo "Running Wrapper.."
-  cd "${DIR}/tools/wrapper-go-sdk-generator"
-  ./wrapper-go-sdk-generator \
+  cd "${DIR}/tools/wrapper-automation"
+  ./wrapper-automation go-sdk \
     -data-api-assembly-path="../../$dataApiAssemblyPath"\
     -output-dir="../../$outputDirectory"
 

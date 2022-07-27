@@ -1,4 +1,4 @@
-module github.com/hashicorp/pandora/tools/wrapper-terraform-generator
+module github.com/hashicorp/pandora/tools/wrapper-automation
 
 go 1.18
 
