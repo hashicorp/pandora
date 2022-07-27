@@ -60,7 +60,7 @@ func (h pluginSdkAttributesHelpers) codeForModel(input resourcemanager.Terraform
 
 	for _, fieldName := range sortedNames {
 		field := input.Fields[fieldName]
-		line, err := h.codeForPluginSdkAttribute(field, true)
+		line, err := h.codeForPluginSdkAttribute(field)
 		if err != nil {
 			return nil, fmt.Errorf("building argument code for field %q: %+v", fieldName, err)
 		}
@@ -76,7 +76,7 @@ map[string]*pluginsdk.Schema{
 	return &output, nil
 }
 
-func (h pluginSdkAttributesHelpers) codeForPluginSdkAttribute(field resourcemanager.TerraformSchemaFieldDefinition, topLevel bool) (*string, error) {
+func (h pluginSdkAttributesHelpers) codeForPluginSdkAttribute(field resourcemanager.TerraformSchemaFieldDefinition) (*string, error) {
 	code, err := codeForPluginSdkCommonSchemaAttribute(field)
 	if err != nil {
 		return nil, fmt.Errorf("building common schema attribute code: %+v", err)
@@ -100,7 +100,7 @@ func (h pluginSdkAttributesHelpers) codeForPluginSdkAttribute(field resourcemana
 		attributes = append(attributes, fmt.Sprintf("Computed: %t", field.Computed))
 	}
 
-	codeForObjectDefinition, err := h.attributesForObjectDefinition(field.ObjectDefinition, topLevel)
+	codeForObjectDefinition, err := h.attributesForObjectDefinition(field.ObjectDefinition)
 	if err != nil {
 		return nil, fmt.Errorf("building attributes for object definition: %+v", err)
 	}
@@ -116,7 +116,7 @@ func (h pluginSdkAttributesHelpers) codeForPluginSdkAttribute(field resourcemana
 	return &output, nil
 }
 
-func (h pluginSdkAttributesHelpers) attributesForObjectDefinition(input resourcemanager.TerraformSchemaFieldObjectDefinition, topLevel bool) (*[]string, error) {
+func (h pluginSdkAttributesHelpers) attributesForObjectDefinition(input resourcemanager.TerraformSchemaFieldObjectDefinition) (*[]string, error) {
 	attributes := make([]string, 0)
 	switch input.Type {
 	case resourcemanager.TerraformSchemaFieldTypeBoolean:
@@ -153,9 +153,7 @@ func (h pluginSdkAttributesHelpers) attributesForObjectDefinition(input resource
 
 			// references are output as a List with `MaxItems: 1` for now
 			attributes = append(attributes, "Type: pluginsdk.TypeList")
-			if topLevel {
-				attributes = append(attributes, "MaxItems: 1")
-			}
+			attributes = append(attributes, "MaxItems: 1")
 			attributes = append(attributes, strings.TrimSpace(fmt.Sprintf(`
 Elem: &pluginsdk.Resource{
 	Schema: %[1]s,
@@ -194,7 +192,7 @@ Elem: &pluginsdk.Resource{
 }
 `, *codeForModel)))
 			} else {
-				nestedAttributes, err := h.attributesForObjectDefinition(*input.NestedObject, false)
+				nestedAttributes, err := h.attributesForObjectDefinition(*input.NestedObject)
 				if err != nil {
 					return nil, fmt.Errorf("building attributes for nested object definition: %+v", err)
 				}

@@ -131,7 +131,7 @@ func TestPluginSdkAttributes_CodeForBasicFields(t *testing.T) {
 			}
 			for i, testCase := range testData {
 				helper := pluginSdkAttributesHelpers{}
-				actual, err := helper.codeForPluginSdkAttribute(testCase.input, true)
+				actual, err := helper.codeForPluginSdkAttribute(testCase.input)
 				if err != nil {
 					if testCase.expected == "" {
 						continue
@@ -335,7 +335,7 @@ func TestPluginSdkAttributes_CodeForReference(t *testing.T) {
 				},
 			},
 		}
-		actual, err := helper.codeForPluginSdkAttribute(testCase.input, true)
+		actual, err := helper.codeForPluginSdkAttribute(testCase.input)
 		if err != nil {
 			if testCase.expected == "" {
 				continue
@@ -509,7 +509,7 @@ func TestPluginSdkAttributes_CodeForListOfBasicType(t *testing.T) {
 			}
 			for i, testCase := range testData {
 				helper := pluginSdkAttributesHelpers{}
-				actual, err := helper.codeForPluginSdkAttribute(testCase.input, true)
+				actual, err := helper.codeForPluginSdkAttribute(testCase.input)
 				if err != nil {
 					if testCase.expected == "" {
 						continue
@@ -725,7 +725,7 @@ func TestPluginSdkAttributes_CodeForListOfReferenceType(t *testing.T) {
 				},
 			},
 		}
-		actual, err := helper.codeForPluginSdkAttribute(testCase.input, true)
+		actual, err := helper.codeForPluginSdkAttribute(testCase.input)
 		if err != nil {
 			if testCase.expected == "" {
 				continue
@@ -899,7 +899,7 @@ func TestPluginSdkAttributes_CodeForSetOfBasicType(t *testing.T) {
 			}
 			for i, testCase := range testData {
 				helper := pluginSdkAttributesHelpers{}
-				actual, err := helper.codeForPluginSdkAttribute(testCase.input, true)
+				actual, err := helper.codeForPluginSdkAttribute(testCase.input)
 				if err != nil {
 					if testCase.expected == "" {
 						continue
@@ -1115,7 +1115,7 @@ func TestPluginSdkAttributes_CodeForSetOfReferenceType(t *testing.T) {
 				},
 			},
 		}
-		actual, err := helper.codeForPluginSdkAttribute(testCase.input, true)
+		actual, err := helper.codeForPluginSdkAttribute(testCase.input)
 		if err != nil {
 			if testCase.expected == "" {
 				continue
