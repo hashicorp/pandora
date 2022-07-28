@@ -108,7 +108,7 @@ func TestTemplateMethodAutoRestDiscriminatedTypeResponder(t *testing.T) {
 		if err != nil {
 			return result, fmt.Errorf("reading response body: PandaPop", err)
 		}
-		model, err := unmarshalDataConnectorImplementation(b)
+		model, err := unmarshalPandaPopImplementation(b)
 		if err != nil {
 			return
         }
