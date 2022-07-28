@@ -134,7 +134,7 @@ func TestBuildForResourceGroupAllModelsTheSame(t *testing.T) {
 	if !ok {
 		t.Fatalf("expected there to be a field 'location' but didn't get one")
 	}
-	if location.Definition.Type != resourcemanager.LocationApiObjectDefinitionType {
+	if location.Definition.Type != resourcemanager.TerraformSchemaFieldTypeLocation {
 		t.Fatalf("expected the field 'location' to have the type `location` but got %q", string(location.Definition.Type))
 	}
 	// note: this differs from the model above, since this is implicitly required as a top level field
@@ -153,7 +153,7 @@ func TestBuildForResourceGroupAllModelsTheSame(t *testing.T) {
 	if !ok {
 		t.Fatalf("expected there to be a field 'tags' but didn't get one")
 	}
-	if tags.Definition.Type != resourcemanager.TagsApiObjectDefinitionType {
+	if tags.Definition.Type != resourcemanager.TerraformSchemaFieldTypeTags {
 		t.Fatalf("expected the field 'tags' to have the type `tags` but got %q", string(location.Definition.Type))
 	}
 	if !tags.Optional {

@@ -1,6 +1,7 @@
 package schema
 
 import (
+	"fmt"
 	"log"
 
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
@@ -95,11 +96,23 @@ func (b Builder) identifyFieldsWithinPropertiesBlock(input operationPayloads) (*
 			}
 
 			if hasRead {
-				definition.Definition = readField.ObjectDefinition
+				fieldObjectDefinition, err := convertToFieldObjectDefinition(readField.ObjectDefinition)
+				if err != nil {
+					return nil, fmt.Errorf("converting ObjectDefinition for field to a TerraformFieldObjectDefinition: %+v", err)
+				}
+				definition.Definition = *fieldObjectDefinition
 			} else if hasCreate {
-				definition.Definition = createField.ObjectDefinition
+				fieldObjectDefinition, err := convertToFieldObjectDefinition(createField.ObjectDefinition)
+				if err != nil {
+					return nil, fmt.Errorf("converting ObjectDefinition for field to a TerraformFieldObjectDefinition: %+v", err)
+				}
+				definition.Definition = *fieldObjectDefinition
 			} else if hasUpdate {
-				definition.Definition = updateField.ObjectDefinition
+				fieldObjectDefinition, err := convertToFieldObjectDefinition(updateField.ObjectDefinition)
+				if err != nil {
+					return nil, fmt.Errorf("converting ObjectDefinition for field to a TerraformFieldObjectDefinition: %+v", err)
+				}
+				definition.Definition = *fieldObjectDefinition
 			}
 
 			out[schemaFieldName] = definition

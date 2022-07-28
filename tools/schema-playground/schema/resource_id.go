@@ -22,8 +22,8 @@ func (b Builder) identityTopLevelFieldsWithinResourceID(input resourcemanager.Re
 			if parentResourceIdName != "" {
 				parentResourceSchemaField := convertToSnakeCase(parentResourceIdName)
 				out[parentResourceSchemaField] = FieldDefinition{
-					Definition: resourcemanager.ApiObjectDefinition{
-						Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+					Definition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+						Type:          resourcemanager.TerraformSchemaFieldTypeReference,
 						ReferenceName: &parentResourceIdName,
 					},
 					// since this is included in the Resource ID it's implicitly Required/ForceNew
