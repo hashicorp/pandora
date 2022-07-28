@@ -63,6 +63,10 @@ service "cost-management" {
   name      = "CostManagement"
   available = ["2021-10-01"]
 }
+service "dashboard" {
+  name      = "Dashboard"
+  available = ["2022-08-01"]
+}
 service "databricks" {
   name      = "Databricks"
   available = ["2021-04-01-preview"]
