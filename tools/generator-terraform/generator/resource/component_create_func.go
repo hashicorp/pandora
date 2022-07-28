@@ -123,22 +123,14 @@ func (h createFunctionComponents) idDefinitionAndMapping() string {
 
 		default:
 			{
-				topLevelFieldForResourceIdSegment, err := h.findTopLevelFieldForResourceIdSegment(v.Name)
-				// TODO: re-enable this once
-				//if err != nil {
-				//	// TODO: error handling
-				//	panic(fmt.Errorf("finding mapping for resource id segment %q: %+v", v.Name, err))
-				//}
+				topLevelFieldForResourceIdSegment, err := findTopLevelFieldForResourceIdSegment(v.Name, h.terraformModel)
+				if err != nil {
+					// TODO: error handling
+					panic(fmt.Errorf("finding mapping for resource id segment %q: %+v", v.Name, err))
+				}
 
 				if topLevelFieldForResourceIdSegment != nil {
 					segments = append(segments, fmt.Sprintf("config.%s", *topLevelFieldForResourceIdSegment))
-				}
-
-				if err != nil {
-					// Temporary to keep this compiling until real data is piped through
-					// TODO: once we have the mappings from the Schema -> Resource ID we should switch these out, but for now
-					// let's just output the segments example value..
-					segments = append(segments, fmt.Sprintf("%q", v.ExampleValue))
 				}
 			}
 		}
@@ -192,18 +184,4 @@ func (h createFunctionComponents) schemaDeserialization() string {
 				return fmt.Errorf("decoding: %%+v", err)
 			}
 `, h.resourceTypeName)
-}
-
-func (h createFunctionComponents) findTopLevelFieldForResourceIdSegment(segmentName string) (*string, error) {
-	for k, v := range h.terraformModel.Fields {
-		if v.Mappings.ResourceIdSegment == nil {
-			continue
-		}
-
-		if *v.Mappings.ResourceIdSegment == segmentName {
-			return &k, nil
-		}
-	}
-
-	return nil, fmt.Errorf("no Resource ID mapping defined for segment %q", segmentName)
 }
