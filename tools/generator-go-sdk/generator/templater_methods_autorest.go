@@ -602,7 +602,7 @@ func (c %[1]s) responderFor%[2]s(resp *http.Response) (result %[2]sOperationResp
 	result.HttpResponse = resp
 	b, err := ioutil.ReadAll(resp.Body)
 	if err != nil {
-		return result, fmt.Errorf("reading response body: %+v", err )
+		return result, fmt.Errorf("reading response body: %+v", err)
 	}
 	model, err := unmarshalDataConnectorImplementation(b)
 	if err != nil {
