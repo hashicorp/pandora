@@ -196,7 +196,7 @@ func (r ExampleResource) Create() sdk.ResourceFunc {
 	return sdk.ResourceFunc{
 		Timeout: 20 * time.Minute,
 		Func: func(ctx context.Context, metadata sdk.ResourceMetaData) error {
-			client := metadata.Client.ExampleService.ExampleClient
+			client := metadata.Client.ExampleService.Example
 			var config ExampleResourceModel
 			if err := metadata.Decode(&config); err != nil {
 				return fmt.Errorf("decoding: %+v", err)
@@ -217,7 +217,7 @@ func (r ExampleResource) Create() sdk.ResourceFunc {
 			if err := client.CreateThingThenPoll(ctx, id, payload); err != nil {
 				return fmt.Errorf("creating %s: %+v", id, err)
 			}
-			metadata.SetID(id.ID())
+			metadata.SetID(id)
 			return nil
 		},
 	}

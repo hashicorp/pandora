@@ -73,11 +73,11 @@ func (r %[1]sResource) Create() sdk.ResourceFunc {
 	return sdk.ResourceFunc{
 		Timeout: %[2]d * time.Minute,
 		Func: func(ctx context.Context, metadata sdk.ResourceMetaData) error {
-			client := metadata.Client.%[3]s.%[1]sClient
+			client := metadata.Client.%[3]s.%[1]s
 
 			%[4]s
 
-			metadata.SetID(id.ID())
+			metadata.SetID(id)
 			return nil
 		},
 	}
