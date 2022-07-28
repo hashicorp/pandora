@@ -167,10 +167,6 @@ service "netapp" {
   name      = "NetApp"
   available = ["2021-10-01", "2022-01-01"]
 }
-service "network" {
-  name = "Network"
-  available = ["2021-08-01"]
-}
 service "notificationhubs" {
   name      = "NotificationHubs"
   available = ["2017-04-01"]
