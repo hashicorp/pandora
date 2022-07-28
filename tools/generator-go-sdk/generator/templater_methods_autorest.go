@@ -36,6 +36,7 @@ func (c methodsAutoRestTemplater) template(data ServiceGeneratorData) (*string, 
 import (
 	"context"
 	"fmt"
+	"io/ioutil"
 	"net/http"
 	"net/url"
 
@@ -523,13 +524,17 @@ func (c methodsAutoRestTemplater) responderTemplate(data ServiceGeneratorData) (
 	// removes spurious changes in the output
 	sort.Strings(expectedStatusCodes)
 
+	discriminatedType := c.discriminatedTypeName(data.models)
+
 	steps := make([]string, 0)
 	steps = append(steps, fmt.Sprintf("azure.WithErrorUnlessStatusCode(%s)", strings.Join(expectedStatusCodes, ", ")))
 	if c.operation.ResponseObject != nil {
-		if c.operation.FieldContainingPaginationDetails != nil {
-			steps = append(steps, "autorest.ByUnmarshallingJSON(&respObj)")
-		} else {
-			steps = append(steps, "autorest.ByUnmarshallingJSON(&result.Model)")
+		if discriminatedType == "" { // If this is a discriminated type with a parent interface, do not use the autorest decorator to unmarshal it
+			if c.operation.FieldContainingPaginationDetails != nil {
+				steps = append(steps, "autorest.ByUnmarshallingJSON(&respObj)")
+			} else {
+				steps = append(steps, "autorest.ByUnmarshallingJSON(&result.Model)")
+			}
 		}
 	}
 	steps = append(steps, "autorest.ByClosing()")
@@ -586,6 +591,30 @@ func (c %[1]s) responderFor%[2]s(resp *http.Response) (result %[2]sOperationResp
 		return &output, nil
 	}
 
+	if discriminatedType != "" {
+		output := fmt.Sprintf(`
+// responderFor%[2]s handles the response to the %[2]s request. The method always
+// closes the http.Response Body.
+func (c %[1]s) responderFor%[2]s(resp *http.Response) (result %[2]sOperationResponse, err error) {
+	err = autorest.Respond(
+		resp,
+		%[3]s)
+	result.HttpResponse = resp
+	b, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
+		return result, fmt.Errorf("reading response body: %+v", err)
+	}
+	model, err := unmarshalDataConnectorImplementation(b)
+	if err != nil {
+		return
+	}
+	result.Model = &model
+	return
+}
+`, data.serviceClientName, c.operationName, strings.Join(steps, ",\n\t\t"), discriminatedType)
+		return &output, nil
+	}
+
 	output := fmt.Sprintf(`
 // responderFor%[2]s handles the response to the %[2]s request. The method always
 // closes the http.Response Body.
@@ -594,9 +623,11 @@ func (c %[1]s) responderFor%[2]s(resp *http.Response) (result %[2]sOperationResp
 		resp,
 		%[3]s)
 	result.HttpResponse = resp
+
 	return
 }
-`, data.serviceClientName, c.operationName, strings.Join(steps, ",\n\t\t"))
+`, data.serviceClientName, c.operationName, strings.Join(steps, ",\n\t\t"), discriminatedType)
+
 	return &output, nil
 }
 
@@ -757,4 +788,14 @@ func (o %[1]s) toQueryString() map[string]interface{} {
 }
 `, optionsStructName, strings.Join(properties, "\n"), strings.Join(headerAssignments, "\n"), strings.Join(queryStringAssignments, "\n"))
 	return &out, nil
+}
+
+func (c methodsAutoRestTemplater) discriminatedTypeName(input map[string]resourcemanager.ModelDetails) string {
+	if c.operation.ResponseObject != nil && c.operation.ResponseObject.ReferenceName != nil {
+		if name, ok := input[*c.operation.ResponseObject.ReferenceName]; ok && name.TypeHintIn != nil {
+			return *c.operation.ResponseObject.ReferenceName
+		}
+	}
+
+	return ""
 }
