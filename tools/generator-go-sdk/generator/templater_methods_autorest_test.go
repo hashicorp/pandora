@@ -106,7 +106,7 @@ func TestTemplateMethodAutoRestDiscriminatedTypeResponder(t *testing.T) {
 		result.HttpResponse = resp
 		b, err := ioutil.ReadAll(resp.Body)
 		if err != nil {
-			return result, fmt.Errorf("reading response body for "PandaPop": %+v", err)
+			return result, fmt.Errorf("reading response body for PandaPop: %+v", err)
 		}
 		model, err := unmarshalPandaPopImplementation(b)
 		if err != nil {
