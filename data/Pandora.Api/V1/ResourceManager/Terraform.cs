@@ -164,7 +164,7 @@ public class TerraformController : ControllerBase
                             },
                             Documentation = new TerraformSchemaDocumentationDefinition
                             {
-                                Markdown = "The name of this Resource Group."
+                                Markdown = "The name of this Virtual Machine."
                             },
                             Validation = new TerraformSchemaFieldValidationDefinition
                             {
@@ -172,7 +172,30 @@ public class TerraformController : ControllerBase
                             },
                             Mappings = new TerraformSchemaMappingDefinition
                             {
-                                ResourceIdSegment = "resourceGroup"
+                                ResourceIdSegment = "virtualMachineName"
+                            },
+                        }},
+                        {"resource_group_name", new TerraformSchemaFieldDefinition
+                        {
+                            Computed = false,
+                            Optional = false,
+                            Required = true,
+                            ForceNew = true,
+                            ObjectDefinition = new TerraformSchemaObjectDefinition
+                            {
+                                Type = TerraformSchemaFieldType.String.ToString(),
+                            },
+                            Documentation = new TerraformSchemaDocumentationDefinition
+                            {
+                                Markdown = "The name of the Resource Group that this Virtual Machine is located within."
+                            },
+                            Validation = new TerraformSchemaFieldValidationDefinition
+                            {
+                                Type = TerraformSchemaFieldValidationType.NoEmptyValue.ToString(),
+                            },
+                            Mappings = new TerraformSchemaMappingDefinition
+                            {
+                                ResourceIdSegment = "resourceGroupName"
                             },
                         }},
                         {"location", new TerraformSchemaFieldDefinition
@@ -301,6 +324,113 @@ public class TerraformController : ControllerBase
                         }
                     }
                 }
+            };
+        }
+        
+        if (input.ResourceLabel == "virtual_machine_scale_set")
+        {
+            response.SchemaModelName = $"{input.ResourceName}ResourceSchema";
+            response.SchemaModels = new Dictionary<string, TerraformSchemaDefinition>
+            {
+                {$"{input.ResourceName}ResourceSchema", new TerraformSchemaDefinition
+                {
+                    Fields = new Dictionary<string, TerraformSchemaFieldDefinition>
+                    {
+                        {"name", new TerraformSchemaFieldDefinition
+                        {
+                            Computed = false,
+                            Optional = false,
+                            Required = true,
+                            ForceNew = true,
+                            ObjectDefinition = new TerraformSchemaObjectDefinition
+                            {
+                                Type = TerraformSchemaFieldType.String.ToString(),
+                            },
+                            Documentation = new TerraformSchemaDocumentationDefinition
+                            {
+                                Markdown = "The name of this Virtual Machine Scale Set."
+                            },
+                            Validation = new TerraformSchemaFieldValidationDefinition
+                            {
+                                Type = TerraformSchemaFieldValidationType.NoEmptyValue.ToString(),
+                            },
+                            Mappings = new TerraformSchemaMappingDefinition
+                            {
+                                ResourceIdSegment = "virtualMachineScaleSetName"
+                            },
+                        }},
+                        {"resource_group_name", new TerraformSchemaFieldDefinition
+                        {
+                            Computed = false,
+                            Optional = false,
+                            Required = true,
+                            ForceNew = true,
+                            ObjectDefinition = new TerraformSchemaObjectDefinition
+                            {
+                                Type = TerraformSchemaFieldType.String.ToString(),
+                            },
+                            Documentation = new TerraformSchemaDocumentationDefinition
+                            {
+                                Markdown = "The name of the Resource Group that this Virtual Machine Scale Set is located within."
+                            },
+                            Validation = new TerraformSchemaFieldValidationDefinition
+                            {
+                                Type = TerraformSchemaFieldValidationType.NoEmptyValue.ToString(),
+                            },
+                            Mappings = new TerraformSchemaMappingDefinition
+                            {
+                                ResourceIdSegment = "resourceGroupName"
+                            },
+                        }},
+                        {"location", new TerraformSchemaFieldDefinition
+                        {
+                            Computed = false,
+                            Optional = false,
+                            Required = true,
+                            ForceNew = true,
+                            ObjectDefinition = new TerraformSchemaObjectDefinition
+                            {
+                                Type = TerraformSchemaFieldType.Location.ToString(),
+                            },
+                            Documentation = new TerraformSchemaDocumentationDefinition
+                            {
+                                Markdown = "The Azure Region where this Resource Group should be created."
+                            },
+                            Validation = new TerraformSchemaFieldValidationDefinition
+                            {
+                                Type = TerraformSchemaFieldValidationType.NoEmptyValue.ToString(),
+                            },
+                            Mappings = new TerraformSchemaMappingDefinition
+                            {
+                                SDKPathForCreate = "Location",
+                                SDKPathForRead = "Location",
+                                SDKPathForUpdate = null,
+                            },
+                        }},
+                        {"tags", new TerraformSchemaFieldDefinition
+                        {
+                            Computed = false,
+                            Optional = true,
+                            Required = false,
+                            ForceNew = false,
+                            ObjectDefinition = new TerraformSchemaObjectDefinition
+                            {
+                                Type = TerraformSchemaFieldType.Tags.ToString(),
+                            },
+                            Documentation = new TerraformSchemaDocumentationDefinition
+                            {
+                                Markdown = "A mapping of tags which should be assigned to this Resource Group."
+                            },
+                            Validation = null,
+                            Mappings = new TerraformSchemaMappingDefinition
+                            {
+                                SDKPathForCreate = "Tags",
+                                SDKPathForRead = "Tags",
+                                SDKPathForUpdate = "Tags",
+                            },
+                        }}
+                    }
+                }},
             };
         }
 
