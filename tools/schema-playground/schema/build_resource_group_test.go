@@ -127,9 +127,29 @@ func TestBuildForResourceGroupAllModelsTheSame(t *testing.T) {
 	if err != nil {
 		t.Fatalf("building schema: %+v", err)
 	}
-	if len(actual.Fields) != 2 {
-		t.Fatalf("expected 2 fields but got %d", len(actual.Fields))
+	if len(actual.Fields) != 3 {
+		t.Fatalf("expected 3 fields but got %d", len(actual.Fields))
 	}
+
+	name, ok := actual.Fields["name"]
+	if !ok {
+		t.Fatalf("expected there to be a field 'name' but didn't get one")
+	}
+	if name.Definition.Type != resourcemanager.TerraformSchemaFieldTypeString {
+		t.Fatalf("expected the field 'name' to have the type `string` but got %q", string(name.Definition.Type))
+	}
+	// note: this differs from the model above, since this is implicitly required as a top level field
+	// even if it's defined as optional in the schema
+	if !name.Required {
+		t.Fatalf("expected the field 'name' to be Required but it wasn't")
+	}
+	if !name.ForceNew {
+		t.Fatalf("expected the field 'name' to be ForceNew but it wasn't")
+	}
+	if name.Optional || name.Computed || name.WriteOnly {
+		t.Fatalf("expected the field 'name' to be !Optional, !Computed and !WriteOnly but got %t / %t / %t", name.Optional, name.Computed, name.WriteOnly)
+	}
+
 	location, ok := actual.Fields["location"]
 	if !ok {
 		t.Fatalf("expected there to be a field 'location' but didn't get one")
