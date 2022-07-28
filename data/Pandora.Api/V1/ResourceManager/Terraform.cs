@@ -68,12 +68,13 @@ public class TerraformController : ControllerBase
                 {
                     Fields = new Dictionary<string, TerraformSchemaFieldDefinition>
                     {
-                        {"name", new TerraformSchemaFieldDefinition
+                        {"Name", new TerraformSchemaFieldDefinition
                         {
                             Computed = false,
                             Optional = false,
                             Required = true,
                             ForceNew = true,
+                            HclName = "name",
                             ObjectDefinition = new TerraformSchemaObjectDefinition
                             {
                                 Type = TerraformSchemaFieldType.String.ToString(),
@@ -91,8 +92,9 @@ public class TerraformController : ControllerBase
                                 ResourceIdSegment = "resourceGroup"
                             },
                         }},
-                        {"location", new TerraformSchemaFieldDefinition
+                        {"Location", new TerraformSchemaFieldDefinition
                         {
+                            HclName = "location",
                             Computed = false,
                             Optional = false,
                             Required = true,
@@ -116,8 +118,9 @@ public class TerraformController : ControllerBase
                                 SDKPathForUpdate = null,
                             },
                         }},
-                        {"tags", new TerraformSchemaFieldDefinition
+                        {"Tags", new TerraformSchemaFieldDefinition
                         {
+                            HclName = "tags",
                             Computed = false,
                             Optional = true,
                             Required = false,
@@ -152,8 +155,9 @@ public class TerraformController : ControllerBase
                 {
                     Fields = new Dictionary<string, TerraformSchemaFieldDefinition>
                     {
-                        {"name", new TerraformSchemaFieldDefinition
+                        {"Name", new TerraformSchemaFieldDefinition
                         {
+                            HclName = "name",
                             Computed = false,
                             Optional = false,
                             Required = true,
@@ -175,8 +179,9 @@ public class TerraformController : ControllerBase
                                 ResourceIdSegment = "virtualMachineName"
                             },
                         }},
-                        {"resource_group_name", new TerraformSchemaFieldDefinition
+                        {"ResourceGroupName", new TerraformSchemaFieldDefinition
                         {
+                            HclName = "resource_group_name",
                             Computed = false,
                             Optional = false,
                             Required = true,
@@ -198,8 +203,9 @@ public class TerraformController : ControllerBase
                                 ResourceIdSegment = "resourceGroupName"
                             },
                         }},
-                        {"location", new TerraformSchemaFieldDefinition
+                        {"Location", new TerraformSchemaFieldDefinition
                         {
+                            HclName = "location",
                             Computed = false,
                             Optional = false,
                             Required = true,
@@ -223,8 +229,9 @@ public class TerraformController : ControllerBase
                                 SDKPathForUpdate = null,
                             },
                         }},
-                        {"tags", new TerraformSchemaFieldDefinition
+                        {"Tags", new TerraformSchemaFieldDefinition
                         {
+                            HclName = "tags",
                             Computed = false,
                             Optional = true,
                             Required = false,
@@ -245,8 +252,9 @@ public class TerraformController : ControllerBase
                                 SDKPathForUpdate = "Tags",
                             },
                         }},
-                        {"nested_item", new TerraformSchemaFieldDefinition
+                        {"NestedItem", new TerraformSchemaFieldDefinition
                         {
+                            HclName = "nested_item",
                             Optional = true,
                             Documentation = new TerraformSchemaDocumentationDefinition
                             {
@@ -271,8 +279,9 @@ public class TerraformController : ControllerBase
                     {
                         Fields = new Dictionary<string, TerraformSchemaFieldDefinition>
                         {
-                            {"line1", new TerraformSchemaFieldDefinition
+                            {"Line1", new TerraformSchemaFieldDefinition
                             {
+                                HclName = "line1",
                                 Computed = false,
                                 Optional = false,
                                 Required = true,
@@ -296,8 +305,9 @@ public class TerraformController : ControllerBase
                                     SDKPathForUpdate = "Line1",
                                 },
                             }},
-                            {"town_or_city", new TerraformSchemaFieldDefinition
+                            {"TownOrCity", new TerraformSchemaFieldDefinition
                             {
+                                HclName = "town_or_city",
                                 Computed = false,
                                 Optional = false,
                                 Required = true,
@@ -336,8 +346,9 @@ public class TerraformController : ControllerBase
                 {
                     Fields = new Dictionary<string, TerraformSchemaFieldDefinition>
                     {
-                        {"name", new TerraformSchemaFieldDefinition
+                        {"Name", new TerraformSchemaFieldDefinition
                         {
+                            HclName = "name",
                             Computed = false,
                             Optional = false,
                             Required = true,
@@ -359,8 +370,9 @@ public class TerraformController : ControllerBase
                                 ResourceIdSegment = "virtualMachineScaleSetName"
                             },
                         }},
-                        {"resource_group_name", new TerraformSchemaFieldDefinition
+                        {"ResourceGroupName", new TerraformSchemaFieldDefinition
                         {
+                            HclName = "resource_group_name",
                             Computed = false,
                             Optional = false,
                             Required = true,
@@ -382,8 +394,9 @@ public class TerraformController : ControllerBase
                                 ResourceIdSegment = "resourceGroupName"
                             },
                         }},
-                        {"location", new TerraformSchemaFieldDefinition
+                        {"Location", new TerraformSchemaFieldDefinition
                         {
+                            HclName = "location",
                             Computed = false,
                             Optional = false,
                             Required = true,
@@ -407,8 +420,9 @@ public class TerraformController : ControllerBase
                                 SDKPathForUpdate = null,
                             },
                         }},
-                        {"tags", new TerraformSchemaFieldDefinition
+                        {"Tags", new TerraformSchemaFieldDefinition
                         {
+                            HclName = "tags",
                             Computed = false,
                             Optional = true,
                             Required = false,
@@ -546,6 +560,9 @@ public class TerraformController : ControllerBase
 
         [JsonPropertyName("forceNew")]
         public bool ForceNew { get; set; }
+        
+        [JsonPropertyName("hclName")]
+        public string HclName { get; set; }
 
         [JsonPropertyName("optional")]
         public bool Optional { get; set; }

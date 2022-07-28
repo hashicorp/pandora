@@ -117,6 +117,9 @@ type TerraformSchemaFieldDefinition struct {
 	// will require the recreation of this Resource.
 	ForceNew bool `json:"forceNew"`
 
+	// HclName is the name which should be used for this field in HCL
+	HclName string `json:"hclName"`
+
 	// Optional specifies whether this field is Optional, e.g. it can be omitted.
 	Optional bool `json:"optional"`
 
