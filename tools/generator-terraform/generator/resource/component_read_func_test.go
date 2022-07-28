@@ -151,11 +151,11 @@ func (r ExampleResource) Read() sdk.ResourceFunc {
 				}
 				return fmt.Errorf("retrieving %s: %+v", *id, err)
 			}
-			var schema ExampleModel
+			schema := ExampleModel{}
 			if model := resp.Model; model != nil {
 				schema.Name = id.ResourceGroupName
 			}
-			return nil
+			return metadata.Encode(&schema)
         },
 	}
 }
@@ -256,11 +256,11 @@ func (r ExampleResource) Read() sdk.ResourceFunc {
 				}
 				return fmt.Errorf("retrieving %s: %+v", *id, err)
 			}
-			var schema ExampleModel
+			schema := ExampleModel{}
 			if model := resp.Model; model != nil {
 				schema.Name = id.ResourceGroupName
 			}
-			return nil
+			return metadata.Encode(&schema)
         },
 	}
 }
@@ -349,11 +349,11 @@ func (r ExampleResource) Read() sdk.ResourceFunc {
 				}
 				return fmt.Errorf("retrieving %s: %+v", *id, err)
 			}
-			var schema ExampleModel
+			schema := ExampleModel{}
 			if model := resp.Model; model != nil {
 				schema.Name = id.ResourceGroupName
 			}
-			return nil
+			return metadata.Encode(&schema)
         },
 	}
 }
@@ -452,11 +452,11 @@ func (r ExampleResource) Read() sdk.ResourceFunc {
 				}
 				return fmt.Errorf("retrieving %s: %+v", *id, err)
 			}
-			var schema ExampleModel
+			schema := ExampleModel{}
 			if model := resp.Model; model != nil {
 				schema.Name = id.ResourceGroupName
 			}
-			return nil
+			return metadata.Encode(&schema)
         },
 	}
 }

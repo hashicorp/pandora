@@ -90,13 +90,13 @@ func (r %[1]sResource) Read() sdk.ResourceFunc {
 				return fmt.Errorf("retrieving %%s: %%+v", *id, err)
 			}
 
-			var schema %[7]s
+			schema := %[7]s{}
 
 			if model := resp.Model; model != nil {
 				%[8]s
 			}
 
-			return nil
+			return metadata.Encode(&schema)
 		},
 	}
 }
