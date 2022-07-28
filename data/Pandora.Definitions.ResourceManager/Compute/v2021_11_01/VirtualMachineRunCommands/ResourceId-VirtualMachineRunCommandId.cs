@@ -12,7 +12,7 @@ internal class VirtualMachineRunCommandId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}/runCommands/{runCommandName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{virtualMachineName}/runCommands/{runCommandName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -23,7 +23,7 @@ internal class VirtualMachineRunCommandId : ResourceID
         ResourceIDSegment.Static("staticProviders", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftCompute", "Microsoft.Compute"),
         ResourceIDSegment.Static("staticVirtualMachines", "virtualMachines"),
-        ResourceIDSegment.UserSpecified("vmName"),
+        ResourceIDSegment.UserSpecified("virtualMachineName"),
         ResourceIDSegment.Static("staticRunCommands", "runCommands"),
         ResourceIDSegment.UserSpecified("runCommandName"),
     };

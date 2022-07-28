@@ -57,7 +57,7 @@ public class TerraformController : ControllerBase
         {
             response.UpdateMethod = MapMethodDefinition(input.UpdateMethod!);
         }
-        
+
         // TODO: replace these with real mappings
         if (input.ResourceLabel == "resource_group")
         {
@@ -142,7 +142,7 @@ public class TerraformController : ControllerBase
                 }},
             };
         }
-        
+
         if (input.ResourceLabel == "virtual_machine")
         {
             response.SchemaModelName = $"{input.ResourceName}ResourceSchema";
@@ -366,10 +366,10 @@ public class TerraformController : ControllerBase
 
         [JsonPropertyName("resourceName")]
         public string ResourceName { get; set; }
-        
+
         [JsonPropertyName("schemaModelName")]
         public string SchemaModelName { get; set; }
-        
+
         [JsonPropertyName("schemaModels")]
         public Dictionary<string, TerraformSchemaDefinition> SchemaModels { get; set; }
 
@@ -398,37 +398,37 @@ public class TerraformController : ControllerBase
     {
         [JsonPropertyName("nestedObject")]
         public TerraformSchemaObjectDefinition? NestedObject { get; set; }
-        
+
         [JsonPropertyName("referenceName")]
         public string? ReferenceName { get; set; }
-        
+
         [JsonPropertyName("type")]
         public string Type { get; set; }
     }
-    
+
     private class TerraformSchemaFieldDefinition
     {
         [JsonPropertyName("objectDefinition")]
         public TerraformSchemaObjectDefinition ObjectDefinition { get; set; }
-        
+
         [JsonPropertyName("computed")]
         public bool Computed { get; set; }
-        
+
         [JsonPropertyName("forceNew")]
         public bool ForceNew { get; set; }
-        
+
         [JsonPropertyName("optional")]
         public bool Optional { get; set; }
-        
+
         [JsonPropertyName("required")]
         public bool Required { get; set; }
-        
+
         [JsonPropertyName("documentation")]
         public TerraformSchemaDocumentationDefinition Documentation { get; set; }
-        
+
         [JsonPropertyName("mappings")]
         public TerraformSchemaMappingDefinition Mappings { get; set; }
-        
+
         [JsonPropertyName("validation")]
         public TerraformSchemaFieldValidationDefinition Validation { get; set; }
     }
@@ -438,12 +438,12 @@ public class TerraformController : ControllerBase
         [JsonPropertyName("markdown")]
         public string Markdown { get; set; }
     }
-    
+
     private class TerraformSchemaFieldValidationDefinition
     {
         [JsonPropertyName("type")]
         public string Type { get; set; }
-        
+
         [JsonPropertyName("possibleValues")]
         public List<string>? PossibleValues { get; set; }
     }
@@ -459,7 +459,7 @@ public class TerraformController : ControllerBase
         Reference,
         Set,
         String,
-        
+
         // CommonSchema items
         EdgeZone,
         Location,
@@ -481,21 +481,21 @@ public class TerraformController : ControllerBase
         FixedValues,
         // TODO: ResourceID, Range etc
     }
-    
+
     private class TerraformSchemaMappingDefinition
     {
         [JsonPropertyName("resourceIdSegment")]
         public string? ResourceIdSegment { get; set; }
-        
+
         [JsonPropertyName("sdkPathForCreate")]
         public string? SDKPathForCreate { get; set; }
-        
+
         [JsonPropertyName("sdkPathForRead")]
         public string? SDKPathForRead { get; set; }
-        
+
         [JsonPropertyName("sdkPathForUpdate")]
         public string? SDKPathForUpdate { get; set; }
-        
+
         // TODO: we'll probably want to change those to objects in time to handle things like
         // a `BooleanWhen` - e.g. for PrivateNetworkAccess where a const becomes a boolean
     }
