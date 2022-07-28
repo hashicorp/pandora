@@ -325,7 +325,8 @@ func TestPluginSdkAttributes_CodeForReference(t *testing.T) {
 			SchemaModels: map[string]resourcemanager.TerraformSchemaModelDefinition{
 				"NestedSchemaModel": {
 					Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
-						"nested_field": {
+						"NestedField": {
+							HclName: "nested_field",
 							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
 								Type: resourcemanager.TerraformSchemaFieldTypeString,
 							},
@@ -715,7 +716,8 @@ func TestPluginSdkAttributes_CodeForListOfReferenceType(t *testing.T) {
 			SchemaModels: map[string]resourcemanager.TerraformSchemaModelDefinition{
 				"NestedSchemaModel": {
 					Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
-						"nested_field": {
+						"NestedField": {
+							HclName: "nested_field",
 							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
 								Type: resourcemanager.TerraformSchemaFieldTypeString,
 							},
@@ -1105,7 +1107,8 @@ func TestPluginSdkAttributes_CodeForSetOfReferenceType(t *testing.T) {
 			SchemaModels: map[string]resourcemanager.TerraformSchemaModelDefinition{
 				"NestedSchemaModel": {
 					Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
-						"nested_field": {
+						"NestedField": {
+							HclName: "nested_field",
 							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
 								Type: resourcemanager.TerraformSchemaFieldTypeString,
 							},

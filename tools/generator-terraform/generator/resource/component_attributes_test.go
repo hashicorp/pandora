@@ -15,44 +15,51 @@ func TestComponentAttributes(t *testing.T) {
 		SchemaModels: map[string]resourcemanager.TerraformSchemaModelDefinition{
 			"TopLevelModel": {
 				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
-					"optional_nested_item": {
+					"OptionalNestedItem": {
+						HclName: "optional_nested_item",
 						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
 							Type:          resourcemanager.TerraformSchemaFieldTypeReference,
 							ReferenceName: stringPointer("NestedSchema"),
 						},
 						Optional: true,
 					},
-					"required_integer": {
+					"RequiredInteger": {
+						HclName: "required_integer",
 						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
 							Type: resourcemanager.TerraformSchemaFieldTypeInteger,
 						},
 						Required: true,
 					},
-					"optional_integer": {
+					"OptionalInteger": {
+						HclName: "optional_integer",
 						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
 							Type: resourcemanager.TerraformSchemaFieldTypeInteger,
 						},
 						Optional: true,
 					},
-					"computed_integer": {
+					"ComputedInteger": {
+						HclName: "computed_integer",
 						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
 							Type: resourcemanager.TerraformSchemaFieldTypeInteger,
 						},
 						Computed: true,
 					},
-					"required_string": {
+					"RequiredString": {
+						HclName: "required_string",
 						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
 							Type: resourcemanager.TerraformSchemaFieldTypeString,
 						},
 						Required: true,
 					},
-					"optional_string": {
+					"OptionalString": {
+						HclName: "optional_string",
 						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
 							Type: resourcemanager.TerraformSchemaFieldTypeString,
 						},
 						Optional: true,
 					},
-					"computed_string": {
+					"ComputedString": {
+						HclName: "computed_string",
 						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
 							Type: resourcemanager.TerraformSchemaFieldTypeString,
 						},
@@ -62,13 +69,15 @@ func TestComponentAttributes(t *testing.T) {
 			},
 			"NestedSchema": {
 				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
-					"nested_item": {
+					"NestedItem": {
+						HclName: "nested_item",
 						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
 							Type: resourcemanager.TerraformSchemaFieldTypeString,
 						},
 						Optional: true,
 					},
-					"computed_item": {
+					"ComputedItem": {
+						HclName: "computed_item",
 						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
 							Type: resourcemanager.TerraformSchemaFieldTypeString,
 						},

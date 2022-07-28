@@ -121,9 +121,27 @@ func TestComponentCreate_HappyPathEnabled(t *testing.T) {
 				MethodName:       "GetThing",
 				TimeoutInMinutes: 10,
 			},
-			Resource:       "SdkResource",
-			ResourceIdName: "SomeResourceId",
-			ResourceName:   "SomeResource",
+			Resource:        "SdkResource",
+			ResourceIdName:  "SomeResourceId",
+			ResourceName:    "SomeResource",
+			SchemaModelName: "ExampleResource",
+			SchemaModels: map[string]resourcemanager.TerraformSchemaModelDefinition{
+				"ExampleResource": {
+					Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+						"ResourceGroupName": {
+							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+								Type: resourcemanager.TerraformSchemaFieldTypeString,
+							},
+							Required: true,
+							ForceNew: true,
+							HclName:  "resource_group_name",
+							Mappings: resourcemanager.TerraformSchemaFieldMappingDefinition{
+								ResourceIdSegment: stringPointer("resourceGroupName"),
+							},
+						},
+					},
+				},
+			},
 		},
 		Models: map[string]resourcemanager.ModelDetails{
 			"SomeModel": {
@@ -190,6 +208,24 @@ func TestComponentCreate_HappyPathEnabled(t *testing.T) {
 		SdkApiVersion:      "2020-01-01",
 		SdkResourceName:    "sdkresource",
 		SdkServiceName:     "sdkservice",
+		SchemaModelName:    "ExampleResource",
+		SchemaModels: map[string]resourcemanager.TerraformSchemaModelDefinition{
+			"ExampleResource": {
+				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+					"ResourceGroupName": {
+						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						},
+						Required: true,
+						ForceNew: true,
+						HclName:  "resource_group_name",
+						Mappings: resourcemanager.TerraformSchemaFieldMappingDefinition{
+							ResourceIdSegment: stringPointer("resourceGroupName"),
+						},
+					},
+				},
+			},
+		},
 	})
 	expected := `
 func (r ExampleResource) Create() sdk.ResourceFunc {
@@ -202,7 +238,7 @@ func (r ExampleResource) Create() sdk.ResourceFunc {
 				return fmt.Errorf("decoding: %+v", err)
 			}
 			subscriptionId := metadata.Client.Account.SubscriptionId
-			id := sdkresource.NewSomeResourceID(subscriptionId, "resource-group-value")
+			id := sdkresource.NewSomeResourceID(subscriptionId, config.ResourceGroupName)
 			existing, err := client.GetThing(ctx, id)
 			if err != nil {
 				if !response.WasNotFound(existing.HttpResponse) {
