@@ -19,8 +19,11 @@ func Resource(input models.ResourceInput) error {
 	resourceFilePath := fmt.Sprintf("%s/%s_resource.gen.go", serviceDirectory, input.ResourceLabel)
 	// remove the file if it already exists
 	os.Remove(resourceFilePath)
-	resourceComponents := componentsForResource(input)
-	writeToPath(resourceFilePath, strings.Join(resourceComponents, "\n"))
+	resourceCode, err := codeForResource(input)
+	if err != nil {
+		return fmt.Errorf("building code for resource: %+v", err)
+	}
+	writeToPath(resourceFilePath, *resourceCode)
 
 	// then go generate the documentation
 	websiteResourcesDirectory := fmt.Sprintf("%s/website/r/", input.RootDirectory)

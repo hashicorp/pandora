@@ -1,13 +1,29 @@
 package resource
 
 import (
+	"strings"
+
 	"github.com/hashicorp/pandora/tools/generator-terraform/generator/models"
 )
 
-func componentsForResource(input models.ResourceInput) []string {
-	return []string{
+func codeForResource(input models.ResourceInput) (*string, error) {
+	components := []func(input models.ResourceInput) (*string, error){
 		// NOTE: the ordering is important, components can opt in/out of generation
-		packageDefinitionForResource(input),
+		packageDefinitionForResource,
+	}
+
+	lines := make([]string, 0)
+	for _, component := range components {
+		line, err := component(input)
+		if err != nil {
+			return nil, err
+		}
+
+		lines = append(lines, *line)
+	}
+
+	items := []string{
+
 		generationNoteForResource(),
 		copyrightLinesForResource(input),
 		importsForResource(input),
@@ -26,4 +42,6 @@ func componentsForResource(input models.ResourceInput) []string {
 		updateFuncForResource(input),
 		methodsYetToBeImplementedForResource(input),
 	}
+	output := strings.Join(items, "\n")
+	return &output, nil
 }
