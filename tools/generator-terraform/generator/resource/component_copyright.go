@@ -8,9 +8,10 @@ import (
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-func copyrightLinesForResource(input models.ResourceInput) string {
+func copyrightLinesForResource(_ models.ResourceInput) (*string, error) {
 	// TODO: hook the license up for this service
-	return copyrightLinesForSource(resourcemanager.ApiDefinitionsSourceResourceManagerRestApiSpecs)
+	output := copyrightLinesForSource(resourcemanager.ApiDefinitionsSourceResourceManagerRestApiSpecs)
+	return &output, nil
 }
 
 func copyrightLinesForSource(input resourcemanager.ApiDefinitionsSource) string {

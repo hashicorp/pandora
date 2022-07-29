@@ -13,7 +13,10 @@ func TestComponentImports(t *testing.T) {
 		SdkResourceName: "virtualmachines",
 		SdkServiceName:  "compute",
 	}
-	actual := strings.TrimSpace(importsForResource(input))
+	actual, err := importsForResource(input)
+	if err != nil {
+		t.Fatalf("error: %+v", err)
+	}
 	expected := strings.TrimSpace(`
 import (
 	"context"
@@ -28,5 +31,5 @@ import (
 	"github.com/hashicorp/terraform-provider-azurerm/internal/tf/pluginsdk"
 )
 `)
-	assertTemplatedCodeMatches(t, expected, actual)
+	assertTemplatedCodeMatches(t, expected, *actual)
 }
