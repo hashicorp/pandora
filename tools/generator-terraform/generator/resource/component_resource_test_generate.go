@@ -11,6 +11,8 @@ func generateResourceTests(input models.ResourceInput) string {
 		return ""
 	}
 
+	//todo add generated test attributes
+
 	return fmt.Sprintf(`
 func TestAcc%[1]s_basic(t *testing.T) {
 	data := acceptance.BuildTestData(t, "%[2]s_%[3]s", "test")
