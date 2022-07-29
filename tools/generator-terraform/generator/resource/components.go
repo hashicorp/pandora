@@ -13,6 +13,7 @@ func codeForResource(input models.ResourceInput) (*string, error) {
 		generationNoteForResource,
 		copyrightLinesForResource,
 		importsForResource,
+		definitionForResource,
 	}
 
 	lines := make([]string, 0)
@@ -26,8 +27,6 @@ func codeForResource(input models.ResourceInput) (*string, error) {
 	}
 
 	items := []string{
-		definitionForResource(input),
-
 		// then the functions
 		idValidationFunctionForResource(input),
 		typeFuncForResource(input),
