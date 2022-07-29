@@ -14,6 +14,9 @@ func codeForResource(input models.ResourceInput) (*string, error) {
 		copyrightLinesForResource,
 		importsForResource,
 		definitionForResource,
+
+		// then the functions
+		idValidationFunctionForResource,
 	}
 
 	lines := make([]string, 0)
@@ -23,12 +26,14 @@ func codeForResource(input models.ResourceInput) (*string, error) {
 			return nil, err
 		}
 
-		lines = append(lines, *line)
+		// components can opt-out of generation so if it's not generating anything
+		// do nothing
+		if line != nil {
+			lines = append(lines, *line)
+		}
 	}
 
 	items := []string{
-		// then the functions
-		idValidationFunctionForResource(input),
 		typeFuncForResource(input),
 		argumentsCodeFunctionForResource(input),
 		attributesCodeFunctionForResource(input),
