@@ -17,6 +17,7 @@ func codeForResource(input models.ResourceInput) (*string, error) {
 
 		// then the functions
 		idValidationFunctionForResource,
+		typeFuncForResource,
 	}
 
 	lines := make([]string, 0)
@@ -34,7 +35,6 @@ func codeForResource(input models.ResourceInput) (*string, error) {
 	}
 
 	items := []string{
-		typeFuncForResource(input),
 		argumentsCodeFunctionForResource(input),
 		attributesCodeFunctionForResource(input),
 		createFunctionForResource(input),
