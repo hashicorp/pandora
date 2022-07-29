@@ -10,6 +10,7 @@ func codeForResource(input models.ResourceInput) (*string, error) {
 	components := []func(input models.ResourceInput) (*string, error){
 		// NOTE: the ordering is important, components can opt in/out of generation
 		packageDefinitionForResource,
+		generationNoteForResource,
 	}
 
 	lines := make([]string, 0)
@@ -23,8 +24,6 @@ func codeForResource(input models.ResourceInput) (*string, error) {
 	}
 
 	items := []string{
-
-		generationNoteForResource(),
 		copyrightLinesForResource(input),
 		importsForResource(input),
 		definitionForResource(input),
