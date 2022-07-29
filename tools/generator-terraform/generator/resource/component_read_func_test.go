@@ -91,6 +91,45 @@ func TestComponentReadFunc_CommonId_Enabled(t *testing.T) {
 		ResourceIds: map[string]resourcemanager.ResourceIdDefinition{
 			"CustomSubscriptionId": {
 				CommonAlias: stringPointer("Subscription"),
+				Id:          "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}",
+				Segments: []resourcemanager.ResourceIdSegment{
+					{
+						Type:       resourcemanager.StaticSegment,
+						Name:       "subscriptions",
+						FixedValue: stringPointer("subscriptions"),
+					},
+					{
+						Type: resourcemanager.SubscriptionIdSegment,
+						Name: "subscriptionId",
+					},
+					{
+						Type:       resourcemanager.StaticSegment,
+						Name:       "resourceGroups",
+						FixedValue: stringPointer("resourceGroups"),
+					},
+					{
+						Type: resourcemanager.ResourceGroupSegment,
+						Name: "resourceGroupName",
+					},
+				},
+			},
+		},
+		SchemaModelName: "ExampleModel",
+		SchemaModels: map[string]resourcemanager.TerraformSchemaModelDefinition{
+			"ExampleModel": {
+				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+					"Name": {
+						HclName: "name",
+						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						},
+						Required: true,
+						ForceNew: true,
+						Mappings: resourcemanager.TerraformSchemaFieldMappingDefinition{
+							ResourceIdSegment: stringPointer("resourceGroupName"),
+						},
+					},
+				},
 			},
 		},
 	}
@@ -112,11 +151,11 @@ func (r ExampleResource) Read() sdk.ResourceFunc {
 				}
 				return fmt.Errorf("retrieving %s: %+v", *id, err)
 			}
+			schema := ExampleModel{}
 			if model := resp.Model; model != nil {
-				// TODO: set the ID fields into the Schema
-				// TODO: set the fields from 'model' into the schema
+				schema.Name = id.ResourceGroupName
 			}
-			return nil
+			return metadata.Encode(&schema)
         },
 	}
 }
@@ -156,6 +195,45 @@ func TestComponentReadFunc_CommonId_Options_Enabled(t *testing.T) {
 		ResourceIds: map[string]resourcemanager.ResourceIdDefinition{
 			"CustomSubscriptionId": {
 				CommonAlias: stringPointer("Subscription"),
+				Id:          "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}",
+				Segments: []resourcemanager.ResourceIdSegment{
+					{
+						Type:       resourcemanager.StaticSegment,
+						Name:       "subscriptions",
+						FixedValue: stringPointer("subscriptions"),
+					},
+					{
+						Type: resourcemanager.SubscriptionIdSegment,
+						Name: "subscriptionId",
+					},
+					{
+						Type:       resourcemanager.StaticSegment,
+						Name:       "resourceGroups",
+						FixedValue: stringPointer("resourceGroups"),
+					},
+					{
+						Type: resourcemanager.ResourceGroupSegment,
+						Name: "resourceGroupName",
+					},
+				},
+			},
+		},
+		SchemaModelName: "ExampleModel",
+		SchemaModels: map[string]resourcemanager.TerraformSchemaModelDefinition{
+			"ExampleModel": {
+				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+					"Name": {
+						HclName: "name",
+						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						},
+						Required: true,
+						ForceNew: true,
+						Mappings: resourcemanager.TerraformSchemaFieldMappingDefinition{
+							ResourceIdSegment: stringPointer("resourceGroupName"),
+						},
+					},
+				},
 			},
 		},
 	}
@@ -178,11 +256,11 @@ func (r ExampleResource) Read() sdk.ResourceFunc {
 				}
 				return fmt.Errorf("retrieving %s: %+v", *id, err)
 			}
+			schema := ExampleModel{}
 			if model := resp.Model; model != nil {
-				// TODO: set the ID fields into the Schema
-				// TODO: set the fields from 'model' into the schema
+				schema.Name = id.ResourceGroupName
 			}
-			return nil
+			return metadata.Encode(&schema)
         },
 	}
 }
@@ -211,7 +289,45 @@ func TestComponentReadFunc_RegularResourceId_Enabled(t *testing.T) {
 		},
 		ResourceIds: map[string]resourcemanager.ResourceIdDefinition{
 			"CustomSubscriptionId": {
-				Segments: []resourcemanager.ResourceIdSegment{},
+				Id: "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}",
+				Segments: []resourcemanager.ResourceIdSegment{
+					{
+						Type:       resourcemanager.StaticSegment,
+						Name:       "subscriptions",
+						FixedValue: stringPointer("subscriptions"),
+					},
+					{
+						Type: resourcemanager.SubscriptionIdSegment,
+						Name: "subscriptionId",
+					},
+					{
+						Type:       resourcemanager.StaticSegment,
+						Name:       "resourceGroups",
+						FixedValue: stringPointer("resourceGroups"),
+					},
+					{
+						Type: resourcemanager.ResourceGroupSegment,
+						Name: "resourceGroupName",
+					},
+				},
+			},
+		},
+		SchemaModelName: "ExampleModel",
+		SchemaModels: map[string]resourcemanager.TerraformSchemaModelDefinition{
+			"ExampleModel": {
+				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+					"Name": {
+						HclName: "name",
+						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						},
+						Required: true,
+						ForceNew: true,
+						Mappings: resourcemanager.TerraformSchemaFieldMappingDefinition{
+							ResourceIdSegment: stringPointer("resourceGroupName"),
+						},
+					},
+				},
 			},
 		},
 	}
@@ -233,11 +349,11 @@ func (r ExampleResource) Read() sdk.ResourceFunc {
 				}
 				return fmt.Errorf("retrieving %s: %+v", *id, err)
 			}
+			schema := ExampleModel{}
 			if model := resp.Model; model != nil {
-				// TODO: set the ID fields into the Schema
-				// TODO: set the fields from 'model' into the schema
+				schema.Name = id.ResourceGroupName
 			}
-			return nil
+			return metadata.Encode(&schema)
         },
 	}
 }
@@ -276,7 +392,45 @@ func TestComponentReadFunc_RegularResourceId_Options_Enabled(t *testing.T) {
 		},
 		ResourceIds: map[string]resourcemanager.ResourceIdDefinition{
 			"CustomSubscriptionId": {
-				Segments: []resourcemanager.ResourceIdSegment{},
+				Id: "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}",
+				Segments: []resourcemanager.ResourceIdSegment{
+					{
+						Type:       resourcemanager.StaticSegment,
+						Name:       "subscriptions",
+						FixedValue: stringPointer("subscriptions"),
+					},
+					{
+						Type: resourcemanager.SubscriptionIdSegment,
+						Name: "subscriptionId",
+					},
+					{
+						Type:       resourcemanager.StaticSegment,
+						Name:       "resourceGroups",
+						FixedValue: stringPointer("resourceGroups"),
+					},
+					{
+						Type: resourcemanager.ResourceGroupSegment,
+						Name: "resourceGroupName",
+					},
+				},
+			},
+		},
+		SchemaModelName: "ExampleModel",
+		SchemaModels: map[string]resourcemanager.TerraformSchemaModelDefinition{
+			"ExampleModel": {
+				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+					"Name": {
+						HclName: "name",
+						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						},
+						Required: true,
+						ForceNew: true,
+						Mappings: resourcemanager.TerraformSchemaFieldMappingDefinition{
+							ResourceIdSegment: stringPointer("resourceGroupName"),
+						},
+					},
+				},
 			},
 		},
 	}
@@ -298,11 +452,11 @@ func (r ExampleResource) Read() sdk.ResourceFunc {
 				}
 				return fmt.Errorf("retrieving %s: %+v", *id, err)
 			}
+			schema := ExampleModel{}
 			if model := resp.Model; model != nil {
-				// TODO: set the ID fields into the Schema
-				// TODO: set the fields from 'model' into the schema
+				schema.Name = id.ResourceGroupName
 			}
-			return nil
+			return metadata.Encode(&schema)
         },
 	}
 }

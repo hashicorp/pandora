@@ -1,6 +1,7 @@
 package schema
 
 import (
+	"fmt"
 	"strings"
 
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
@@ -30,20 +31,22 @@ func (b Builder) identifyTopLevelFields(input operationPayloads) (*topLevelField
 				}
 			}
 
+			fieldObjectDefinition, err := convertToFieldObjectDefinition(field.ObjectDefinition)
+			if err != nil {
+				return nil, fmt.Errorf("converting Identity ObjectDefinition for field to a TerraformFieldObjectDefinition: %+v", err)
+			}
 			out.identity = &FieldDefinition{
-				Definition: resourcemanager.ApiObjectDefinition{
-					Type: field.ObjectDefinition.Type,
-				},
-				Required: field.Required,
-				Optional: field.Optional,
-				ForceNew: !canBeUpdated,
+				Definition: *fieldObjectDefinition,
+				Required:   field.Required,
+				Optional:   field.Optional,
+				ForceNew:   !canBeUpdated,
 			}
 		}
 
 		if strings.EqualFold(k, "Location") {
 			out.location = &FieldDefinition{
-				Definition: resourcemanager.ApiObjectDefinition{
-					Type: resourcemanager.LocationApiObjectDefinitionType,
+				Definition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+					Type: resourcemanager.TerraformSchemaFieldTypeLocation,
 				},
 				Required: true,
 				ForceNew: true,
@@ -59,8 +62,8 @@ func (b Builder) identifyTopLevelFields(input operationPayloads) (*topLevelField
 			}
 
 			out.tags = &FieldDefinition{
-				Definition: resourcemanager.ApiObjectDefinition{
-					Type: resourcemanager.TagsApiObjectDefinitionType,
+				Definition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+					Type: resourcemanager.TerraformSchemaFieldTypeTags,
 				},
 				Optional: true,
 				ForceNew: !canBeUpdated,

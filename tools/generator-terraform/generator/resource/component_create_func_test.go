@@ -121,9 +121,27 @@ func TestComponentCreate_HappyPathEnabled(t *testing.T) {
 				MethodName:       "GetThing",
 				TimeoutInMinutes: 10,
 			},
-			Resource:       "SdkResource",
-			ResourceIdName: "SomeResourceId",
-			ResourceName:   "SomeResource",
+			Resource:        "SdkResource",
+			ResourceIdName:  "SomeResourceId",
+			ResourceName:    "SomeResource",
+			SchemaModelName: "ExampleResource",
+			SchemaModels: map[string]resourcemanager.TerraformSchemaModelDefinition{
+				"ExampleResource": {
+					Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+						"ResourceGroupName": {
+							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+								Type: resourcemanager.TerraformSchemaFieldTypeString,
+							},
+							Required: true,
+							ForceNew: true,
+							HclName:  "resource_group_name",
+							Mappings: resourcemanager.TerraformSchemaFieldMappingDefinition{
+								ResourceIdSegment: stringPointer("resourceGroupName"),
+							},
+						},
+					},
+				},
+			},
 		},
 		Models: map[string]resourcemanager.ModelDetails{
 			"SomeModel": {
@@ -190,19 +208,37 @@ func TestComponentCreate_HappyPathEnabled(t *testing.T) {
 		SdkApiVersion:      "2020-01-01",
 		SdkResourceName:    "sdkresource",
 		SdkServiceName:     "sdkservice",
+		SchemaModelName:    "ExampleResource",
+		SchemaModels: map[string]resourcemanager.TerraformSchemaModelDefinition{
+			"ExampleResource": {
+				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+					"ResourceGroupName": {
+						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						},
+						Required: true,
+						ForceNew: true,
+						HclName:  "resource_group_name",
+						Mappings: resourcemanager.TerraformSchemaFieldMappingDefinition{
+							ResourceIdSegment: stringPointer("resourceGroupName"),
+						},
+					},
+				},
+			},
+		},
 	})
 	expected := `
 func (r ExampleResource) Create() sdk.ResourceFunc {
 	return sdk.ResourceFunc{
 		Timeout: 20 * time.Minute,
 		Func: func(ctx context.Context, metadata sdk.ResourceMetaData) error {
-			client := metadata.Client.ExampleService.ExampleClient
+			client := metadata.Client.ExampleService.Example
 			var config ExampleResourceModel
 			if err := metadata.Decode(&config); err != nil {
 				return fmt.Errorf("decoding: %+v", err)
 			}
 			subscriptionId := metadata.Client.Account.SubscriptionId
-			id := sdkresource.NewSomeResourceID(subscriptionId, "resource-group-value")
+			id := sdkresource.NewSomeResourceID(subscriptionId, config.ResourceGroupName)
 			existing, err := client.GetThing(ctx, id)
 			if err != nil {
 				if !response.WasNotFound(existing.HttpResponse) {
@@ -217,7 +253,7 @@ func (r ExampleResource) Create() sdk.ResourceFunc {
 			if err := client.CreateThingThenPoll(ctx, id, payload); err != nil {
 				return fmt.Errorf("creating %s: %+v", id, err)
 			}
-			metadata.SetID(id.ID())
+			metadata.SetID(id)
 			return nil
 		},
 	}
@@ -385,10 +421,25 @@ func TestComponentCreate_IdDefinitionAndMapping_CommonResourceIDWithSubscription
 				},
 			},
 		},
+		terraformModel: resourcemanager.TerraformSchemaModelDefinition{
+			Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+				"Name": {
+					HclName: "name",
+					ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+						Type: resourcemanager.TerraformSchemaFieldTypeString,
+					},
+					Required: true,
+					ForceNew: true,
+					Mappings: resourcemanager.TerraformSchemaFieldMappingDefinition{
+						ResourceIdSegment: stringPointer("resourceGroupName"),
+					},
+				},
+			},
+		},
 	}.idDefinitionAndMapping()
 	expected := `
 	subscriptionId := metadata.Client.Account.SubscriptionId
-	id := commonids.NewCommonResourceID(subscriptionId, "resource-group-value")
+	id := commonids.NewCommonResourceID(subscriptionId, config.Name)
 `
 	assertTemplatedCodeMatches(t, expected, actual)
 }
@@ -398,7 +449,7 @@ func TestComponentCreate_IdDefinitionAndMapping_CommonResourceIDWithoutSubscript
 		newResourceIdFuncName: "commonids.NewCommonResourceID",
 		resourceId: resourcemanager.ResourceIdDefinition{
 			CommonAlias: stringPointer("CommonResource"),
-			Id:          "/resourceGroups/{resourceGroup}",
+			Id:          "/resourceGroups/{resourceGroupName}",
 			Segments: []resourcemanager.ResourceIdSegment{
 				{
 					Type:       resourcemanager.StaticSegment,
@@ -412,9 +463,24 @@ func TestComponentCreate_IdDefinitionAndMapping_CommonResourceIDWithoutSubscript
 				},
 			},
 		},
+		terraformModel: resourcemanager.TerraformSchemaModelDefinition{
+			Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+				"Name": {
+					HclName: "name",
+					ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+						Type: resourcemanager.TerraformSchemaFieldTypeString,
+					},
+					Required: true,
+					ForceNew: true,
+					Mappings: resourcemanager.TerraformSchemaFieldMappingDefinition{
+						ResourceIdSegment: stringPointer("resourceGroupName"),
+					},
+				},
+			},
+		},
 	}.idDefinitionAndMapping()
 	expected := `
-	id := commonids.NewCommonResourceID("resource-group-value")
+	id := commonids.NewCommonResourceID(config.Name)
 `
 	assertTemplatedCodeMatches(t, expected, actual)
 }
@@ -424,7 +490,7 @@ func TestComponentCreate_IdDefinitionAndMapping_RegularResourceIDWithSubscriptio
 		newResourceIdFuncName: "sdkresource.NewSomeResourceID",
 		resourceId: resourcemanager.ResourceIdDefinition{
 			CommonAlias: nil,
-			Id:          "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}",
+			Id:          "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}",
 			Segments: []resourcemanager.ResourceIdSegment{
 				{
 					Type:       resourcemanager.StaticSegment,
@@ -447,10 +513,25 @@ func TestComponentCreate_IdDefinitionAndMapping_RegularResourceIDWithSubscriptio
 				},
 			},
 		},
+		terraformModel: resourcemanager.TerraformSchemaModelDefinition{
+			Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+				"Name": {
+					HclName: "name",
+					ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+						Type: resourcemanager.TerraformSchemaFieldTypeString,
+					},
+					Required: true,
+					ForceNew: true,
+					Mappings: resourcemanager.TerraformSchemaFieldMappingDefinition{
+						ResourceIdSegment: stringPointer("resourceGroupName"),
+					},
+				},
+			},
+		},
 	}.idDefinitionAndMapping()
 	expected := `
 	subscriptionId := metadata.Client.Account.SubscriptionId
-	id := sdkresource.NewSomeResourceID(subscriptionId, "resource-group-value")
+	id := sdkresource.NewSomeResourceID(subscriptionId, config.Name)
 `
 	assertTemplatedCodeMatches(t, expected, actual)
 }
@@ -460,7 +541,7 @@ func TestComponentCreate_IdDefinitionAndMapping_RegularResourceIDWithoutSubscrip
 		newResourceIdFuncName: "sdkresource.NewSomeResourceID",
 		resourceId: resourcemanager.ResourceIdDefinition{
 			CommonAlias: nil,
-			Id:          "/resourceGroups/{resourceGroup}",
+			Id:          "/resourceGroups/{resourceGroupName}",
 			Segments: []resourcemanager.ResourceIdSegment{
 				{
 					Type:       resourcemanager.StaticSegment,
@@ -474,9 +555,24 @@ func TestComponentCreate_IdDefinitionAndMapping_RegularResourceIDWithoutSubscrip
 				},
 			},
 		},
+		terraformModel: resourcemanager.TerraformSchemaModelDefinition{
+			Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+				"Name": {
+					HclName: "name",
+					ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+						Type: resourcemanager.TerraformSchemaFieldTypeString,
+					},
+					Required: true,
+					ForceNew: true,
+					Mappings: resourcemanager.TerraformSchemaFieldMappingDefinition{
+						ResourceIdSegment: stringPointer("resourceGroupName"),
+					},
+				},
+			},
+		},
 	}.idDefinitionAndMapping()
 	expected := `
-	id := sdkresource.NewSomeResourceID("resource-group-value")
+	id := sdkresource.NewSomeResourceID(config.Name)
 `
 	assertTemplatedCodeMatches(t, expected, actual)
 }

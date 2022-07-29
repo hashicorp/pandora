@@ -13,7 +13,7 @@ type Definition struct {
 }
 
 type FieldDefinition struct {
-	Definition resourcemanager.ApiObjectDefinition
+	Definition resourcemanager.TerraformSchemaFieldObjectDefinition
 	Required   bool
 	ForceNew   bool
 	Optional   bool

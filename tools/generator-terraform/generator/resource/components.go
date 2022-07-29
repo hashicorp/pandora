@@ -33,10 +33,9 @@ func componentsForResource(input models.ResourceInput) []string {
 		argumentsCodeFunctionForResource(input),
 		attributesCodeFunctionForResource(input),
 		createFunctionForResource(input),
-		deleteFunctionForResource(input),
 		// TODO: Mappings
 		readFunctionForResource(input),
-		// TODO: Schema
+		deleteFunctionForResource(input),
 		// TODO: Typed Model & Model func.
 		updateFuncForResource(input),
 		methodsYetToBeImplementedForResource(input),
