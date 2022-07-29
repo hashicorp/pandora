@@ -2,16 +2,14 @@ package resource
 
 import (
 	"fmt"
+
 	"github.com/hashicorp/pandora/tools/generator-terraform/generator/models"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
 func generateResourceTests(input models.ResourceInput) string {
 	if !input.Details.ReadMethod.Generate {
 		return ""
 	}
-
-	testConfig := generateTestConfig(input.Models)
 
 	return fmt.Sprintf(`
 func TestAcc%[1]s_basic(t *testing.T) {
@@ -89,11 +87,24 @@ func TestAcc%[1]s_update(t *testing.T) {
 }
 
 func (%[1]sResource) basic(data acceptance.TestData) string {
-	return fmt.Sprintf(%[4]s)
-}
-`, input.ResourceTypeName, input.ProviderPrefix, input.ResourceLabel, testConfig)
-}
+	return fmt.Sprintf(%[4]s
+resource "%[2]s_%[3]s" "test" {
 
-func generateTestConfig(models map[string]resourcemanager.ModelDetails) string{
-	return "``"
+}
+%[4]s)}
+
+func (r %[1]sResource) requiresImport(data acceptance.TestData) string {
+	return fmt.Sprintf(%[4]s
+resource "%[2]s_%[3]s" "import" {
+
+}
+%[4]s, r.basic(data))}
+
+func (%[1]sResource) complete(data acceptance.TestData) string {
+	return fmt.Sprintf(%[4]s
+resource "%[2]s_%[3]s" "test" {
+
+}
+%[4]s)}
+`, input.ResourceTypeName, input.ProviderPrefix, input.ResourceLabel, "`")
 }

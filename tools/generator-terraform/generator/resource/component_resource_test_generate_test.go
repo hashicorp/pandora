@@ -2,9 +2,10 @@ package resource
 
 import (
 	"fmt"
-	"github.com/hashicorp/pandora/tools/generator-terraform/generator/models"
 	"strings"
 	"testing"
+
+	"github.com/hashicorp/pandora/tools/generator-terraform/generator/models"
 
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
@@ -12,12 +13,12 @@ import (
 func TestGenerateBasicTest_RegularResourceId_Enabled(t *testing.T) {
 	input := models.ResourceInput{
 		ResourceTypeName: "Example",
-		ResourceLabel: "example",
-		ProviderPrefix: "azurerm",
+		ResourceLabel:    "example",
+		ProviderPrefix:   "azurerm",
 		Details: resourcemanager.TerraformResourceDetails{
 			ReadMethod: resourcemanager.MethodDefinition{
-				Generate:         true,
-				MethodName:       "Get",
+				Generate:   true,
+				MethodName: "Get",
 			},
 			ResourceIdName: "CustomSubscriptionId",
 		},
@@ -99,10 +100,25 @@ func TestAccExample_update(t *testing.T) {
 }
 
 func (ExampleResource) basic(data acceptance.TestData) string {
-	return fmt.Sprintf(%s)
+	return fmt.Sprintf(%[1]s
+resource "azurerm_example" "test" {
+
 }
-`, basicTestConfig)
+%[1]s)}
+
+func (r ExampleResource) requiresImport(data acceptance.TestData) string {
+	return fmt.Sprintf(%[1]s
+resource "azurerm_example" "import" {
+
+}
+%[1]s, r.basic(data))}
+
+func (ExampleResource) complete(data acceptance.TestData) string {
+	return fmt.Sprintf(%[1]s
+resource "azurerm_example" "test" {
+
+}
+%[1]s)}
+`, "`")
 	assertTemplatedCodeMatches(t, expected, actual)
 }
-
-var basicTestConfig =  "``"
