@@ -114,7 +114,7 @@ func (c readFunctionComponents) codeForResourceIdMappings() (*string, error) {
 
 		topLevelFieldForResourceIdSegment, err := findTopLevelFieldForResourceIdSegment(v.Name, c.terraformModel)
 		if err != nil {
-			panic(fmt.Errorf("finding mapping for resource id segment %q: %+v", v.Name, err))
+			return nil, fmt.Errorf("finding mapping for resource id segment %q: %+v", v.Name, err)
 		}
 
 		lines = append(lines, fmt.Sprintf("schema.%s = id.%s", *topLevelFieldForResourceIdSegment, strings.Title(v.Name)))

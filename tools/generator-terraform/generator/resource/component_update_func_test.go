@@ -525,28 +525,34 @@ func TestComponentUpdate_HappyPathEnabled_RegularResourceID_UniqueModels(t *test
 }
 
 func TestComponentUpdate_MappingsFromSchema(t *testing.T) {
-	actual := updateFuncHelpers{}.mappingsFromSchema()
+	actual, err := updateFuncHelpers{}.mappingsFromSchema()
+	if err != nil {
+		t.Fatalf("error: %+v", err)
+	}
 	expected := `
 			// TODO: mapping from the Schema -> Payload
 `
-	assertTemplatedCodeMatches(t, expected, actual)
+	assertTemplatedCodeMatches(t, expected, *actual)
 }
 
 func TestComponentUpdate_ModelDecode(t *testing.T) {
-	actual := updateFuncHelpers{
+	actual, err := updateFuncHelpers{
 		resourceTypeName: "AwesomeResource",
 	}.modelDecode()
+	if err != nil {
+		t.Fatalf("error: %+v", err)
+	}
 	expected := `
 			var config AwesomeResourceResourceModel
 			if err := metadata.Decode(&config); err != nil {
 				return fmt.Errorf("decoding: %+v", err)
 			}
 `
-	assertTemplatedCodeMatches(t, expected, actual)
+	assertTemplatedCodeMatches(t, expected, *actual)
 }
 
 func TestComponentUpdate_PayloadDefinition_ModelSharedBetweenCreateReadUpdate(t *testing.T) {
-	actual := updateFuncHelpers{
+	actual, err := updateFuncHelpers{
 		createMethod: resourcemanager.ApiOperation{
 			LongRunning: false,
 			RequestObject: &resourcemanager.ApiObjectDefinition{
@@ -576,6 +582,9 @@ func TestComponentUpdate_PayloadDefinition_ModelSharedBetweenCreateReadUpdate(t 
 		updateMethodName: "Update",
 		sdkResourceName:  "sdkresource",
 	}.payloadDefinition()
+	if err != nil {
+		t.Fatalf("error: %+v", err)
+	}
 	expected := `
 	existing, err := client.Get(ctx, *id)
 	if err != nil {
@@ -586,11 +595,11 @@ func TestComponentUpdate_PayloadDefinition_ModelSharedBetweenCreateReadUpdate(t 
 	}
 	payload := *existing.Model
 `
-	assertTemplatedCodeMatches(t, expected, actual)
+	assertTemplatedCodeMatches(t, expected, *actual)
 }
 
 func TestComponentUpdate_PayloadDefinition_ModelSharedBetweenCreateReadUpdateThatIsNotAReference(t *testing.T) {
-	actual := updateFuncHelpers{
+	actual, err := updateFuncHelpers{
 		createMethod: resourcemanager.ApiOperation{
 			LongRunning: false,
 			RequestObject: &resourcemanager.ApiObjectDefinition{
@@ -629,14 +638,17 @@ func TestComponentUpdate_PayloadDefinition_ModelSharedBetweenCreateReadUpdateTha
 		updateMethodName: "Update",
 		sdkResourceName:  "sdkresource",
 	}.payloadDefinition()
+	if err != nil {
+		t.Fatalf("error: %+v", err)
+	}
 	expected := `
 	payload := []sdkresource.SharedListPayload{}
 `
-	assertTemplatedCodeMatches(t, expected, actual)
+	assertTemplatedCodeMatches(t, expected, *actual)
 }
 
 func TestComponentUpdate_PayloadDefinition_UniqueModelsForCreateReadUpdate(t *testing.T) {
-	actual := updateFuncHelpers{
+	actual, err := updateFuncHelpers{
 		createMethod: resourcemanager.ApiOperation{
 			LongRunning: false,
 			RequestObject: &resourcemanager.ApiObjectDefinition{
@@ -666,27 +678,33 @@ func TestComponentUpdate_PayloadDefinition_UniqueModelsForCreateReadUpdate(t *te
 		updateMethodName: "Update",
 		sdkResourceName:  "sdkresource",
 	}.payloadDefinition()
+	if err != nil {
+		t.Fatalf("error: %+v", err)
+	}
 	expected := `
 	payload := sdkresource.UpdatePayload{}
 `
-	assertTemplatedCodeMatches(t, expected, actual)
+	assertTemplatedCodeMatches(t, expected, *actual)
 }
 
 func TestComponentUpdate_ResourceIDParser(t *testing.T) {
-	actual := updateFuncHelpers{
+	actual, err := updateFuncHelpers{
 		resourceIdParseFuncName: "someresource.ParseTheParcel",
 	}.resourceIdParser()
+	if err != nil {
+		t.Fatalf("error: %+v", err)
+	}
 	expected := `
 			id, err := someresource.ParseTheParcel(metadata.ResourceData.Id())
 			if err != nil {
 				return err
 			}
 `
-	assertTemplatedCodeMatches(t, expected, actual)
+	assertTemplatedCodeMatches(t, expected, *actual)
 }
 
 func TestComponentUpdate_UpdateFunc_Immediate_PayloadResourceIdNoOptions(t *testing.T) {
-	actual := updateFuncHelpers{
+	actual, err := updateFuncHelpers{
 		updateMethod: resourcemanager.ApiOperation{
 			LongRunning:    false,
 			RequestObject:  &resourcemanager.ApiObjectDefinition{},
@@ -696,16 +714,19 @@ func TestComponentUpdate_UpdateFunc_Immediate_PayloadResourceIdNoOptions(t *test
 		updateMethodName: "UpdateThing",
 		sdkResourceName:  "sdkresource",
 	}.update()
+	if err != nil {
+		t.Fatalf("error: %+v", err)
+	}
 	expected := `
 			if err := client.UpdateThing(ctx, *id, payload); err != nil {
 				return fmt.Errorf("updating %s: %+v", *id, err)
 			}
 `
-	assertTemplatedCodeMatches(t, expected, actual)
+	assertTemplatedCodeMatches(t, expected, *actual)
 }
 
 func TestComponentUpdate_UpdateFunc_Immediate_PayloadResourceIdOptions(t *testing.T) {
-	actual := updateFuncHelpers{
+	actual, err := updateFuncHelpers{
 		updateMethod: resourcemanager.ApiOperation{
 			LongRunning: false,
 			Options: map[string]resourcemanager.ApiOperationOption{
@@ -718,16 +739,19 @@ func TestComponentUpdate_UpdateFunc_Immediate_PayloadResourceIdOptions(t *testin
 		updateMethodName: "UpdateThing",
 		sdkResourceName:  "sdkresource",
 	}.update()
+	if err != nil {
+		t.Fatalf("error: %+v", err)
+	}
 	expected := `
 			if err := client.UpdateThing(ctx, *id, payload, sdkresource.DefaultUpdateThingOperationOptions()); err != nil {
 				return fmt.Errorf("updating %s: %+v", *id, err)
 			}
 `
-	assertTemplatedCodeMatches(t, expected, actual)
+	assertTemplatedCodeMatches(t, expected, *actual)
 }
 
 func TestComponentUpdate_UpdateFunc_LongRunning_PayloadResourceIdNoOptions(t *testing.T) {
-	actual := updateFuncHelpers{
+	actual, err := updateFuncHelpers{
 		updateMethod: resourcemanager.ApiOperation{
 			LongRunning:    true,
 			RequestObject:  &resourcemanager.ApiObjectDefinition{},
@@ -737,16 +761,19 @@ func TestComponentUpdate_UpdateFunc_LongRunning_PayloadResourceIdNoOptions(t *te
 		updateMethodName: "UpdateThing",
 		sdkResourceName:  "sdkresource",
 	}.update()
+	if err != nil {
+		t.Fatalf("error: %+v", err)
+	}
 	expected := `
 			if err := client.UpdateThingThenPoll(ctx, *id, payload); err != nil {
 				return fmt.Errorf("updating %s: %+v", *id, err)
 			}
 `
-	assertTemplatedCodeMatches(t, expected, actual)
+	assertTemplatedCodeMatches(t, expected, *actual)
 }
 
 func TestComponentUpdate_UpdateFunc_LongRunning_PayloadResourceIdOptions(t *testing.T) {
-	actual := updateFuncHelpers{
+	actual, err := updateFuncHelpers{
 		updateMethod: resourcemanager.ApiOperation{
 			LongRunning: true,
 			Options: map[string]resourcemanager.ApiOperationOption{
@@ -759,10 +786,13 @@ func TestComponentUpdate_UpdateFunc_LongRunning_PayloadResourceIdOptions(t *test
 		updateMethodName: "UpdateThing",
 		sdkResourceName:  "sdkresource",
 	}.update()
+	if err != nil {
+		t.Fatalf("error: %+v", err)
+	}
 	expected := `
 			if err := client.UpdateThingThenPoll(ctx, *id, payload, sdkresource.DefaultUpdateThingOperationOptions()); err != nil {
 				return fmt.Errorf("updating %s: %+v", *id, err)
 			}
 `
-	assertTemplatedCodeMatches(t, expected, actual)
+	assertTemplatedCodeMatches(t, expected, *actual)
 }

@@ -3,7 +3,6 @@ package resource
 import (
 	"fmt"
 	"os"
-	"strings"
 
 	"github.com/hashicorp/pandora/tools/generator-terraform/generator/models"
 	"github.com/hashicorp/pandora/tools/generator-terraform/generator/resource/docs"
@@ -31,8 +30,11 @@ func Resource(input models.ResourceInput) error {
 	documentationFilePath := fmt.Sprintf("%s/%s.html.markdown", websiteResourcesDirectory, input.ResourceLabel)
 	// remove the file if it already exists
 	os.Remove(documentationFilePath)
-	documentationComponents := docs.ComponentsForResource(input)
-	writeToPath(documentationFilePath, strings.Join(documentationComponents, "\n\n"))
+	documentationForResource, err := docs.ComponentsForResource(input)
+	if err != nil {
+		return fmt.Errorf("building documentation for resource: %+v", err)
+	}
+	writeToPath(documentationFilePath, *documentationForResource)
 
 	return nil
 }

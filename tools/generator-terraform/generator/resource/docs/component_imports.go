@@ -9,11 +9,10 @@ import (
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-func codeForImport(input models.ResourceInput) string {
+func codeForImport(input models.ResourceInput) (*string, error) {
 	resourceId, ok := input.ResourceIds[input.Details.ResourceIdName]
 	if !ok {
-		// TODO: error handling
-		panic(fmt.Sprintf("resource ID %q is used but was not defined", input.Details.ResourceIdName))
+		return nil, fmt.Errorf("resource ID %q is used but was not defined", input.Details.ResourceIdName)
 	}
 
 	resourceIdDescriptionLines := make([]string, 0)
@@ -24,8 +23,7 @@ func codeForImport(input models.ResourceInput) string {
 
 		description, err := descriptionsForSegment(value, resourceId, input.Details, input.Constants)
 		if err != nil {
-			// TODO: error handling
-			panic(fmt.Sprintf("building description for segment %q: %+v", value.Name, err))
+			return nil, fmt.Errorf("building description for segment %q: %+v", value.Name, err)
 		}
 		line := fmt.Sprintf(`
 * Where '{%[1]s}' %[2]s
@@ -44,8 +42,8 @@ terraform import %[2]s_%[3]s.example %[4]s
 
 %[5]s
 `, input.Details.DisplayName, input.ProviderPrefix, input.ResourceLabel, resourceId.Id, strings.Join(resourceIdDescriptionLines, "\n"))
-
-	return strings.TrimSpace(strings.ReplaceAll(importsCode, "'", "`"))
+	output := strings.TrimSpace(strings.ReplaceAll(importsCode, "'", "`"))
+	return &output, nil
 }
 
 func descriptionsForSegment(segment resourcemanager.ResourceIdSegment, resourceId resourcemanager.ResourceIdDefinition, details resourcemanager.TerraformResourceDetails, constants map[string]resourcemanager.ConstantDetails) (*string, error) {

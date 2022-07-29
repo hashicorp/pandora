@@ -15,8 +15,7 @@ func argumentsCodeFunctionForResource(input models.ResourceInput) (*string, erro
 	schemaModel := input.SchemaModels[input.SchemaModelName]
 	argumentsCode, err := helper.CodeForModel(schemaModel, true)
 	if err != nil {
-		// TODO: thread through errors
-		panic(fmt.Sprintf("building code for top level schema model %q: %+v", input.SchemaModelName, err))
+		return nil, fmt.Errorf("building code for top level schema model %q: %+v", input.SchemaModelName, err)
 	}
 
 	output := fmt.Sprintf(`

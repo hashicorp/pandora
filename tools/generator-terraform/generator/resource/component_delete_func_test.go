@@ -274,9 +274,25 @@ func TestComponentDeleteFunc_Immediate_RegularResourceId_Options_Enabled(t *test
 	if err != nil {
 		t.Fatalf("error: %+v", err)
 	}
-	if actual != nil {
-		t.Fatalf("expected `actual` to be nil but got %q", *actual)
+	expected := `
+func (r ExampleResource) Delete() sdk.ResourceFunc {
+	return sdk.ResourceFunc{
+		Timeout: 10 * time.Minute,
+		Func: func(ctx context.Context, metadata sdk.ResourceMetaData) error {
+			client := metadata.Client.Resources.ExampleClient
+			id, err := sdkresource.ParseCustomSubscriptionID(metadata.ResourceData.Id())
+			if err != nil {
+				return err
+			}
+			if err := client.PewPew(ctx, *id, sdkresource.DefaultPewPewOperationOptions()); err != nil {
+				return fmt.Errorf("deleting %s: %+v", *id, err)
+			}
+			return nil
+		},
 	}
+}
+`
+	assertTemplatedCodeMatches(t, expected, *actual)
 }
 
 func TestComponentDeleteFunc_LongRunning_CommonId_Disabled(t *testing.T) {

@@ -13,8 +13,7 @@ func idValidationFunctionForResource(input models.ResourceInput) (*string, error
 
 	validationLine, err := input.ValidateResourceIdFuncName()
 	if err != nil {
-		// TODO: thread through errors
-		panic(err)
+		return nil, fmt.Errorf("determining Parse function name for Resource ID: %+v", err)
 	}
 
 	output := fmt.Sprintf(`

@@ -272,7 +272,7 @@ func (r ExampleResource) Create() sdk.ResourceFunc {
 }
 
 func TestComponentCreate_CreateFunc_Immediate_PayloadResourceIdNoOptions(t *testing.T) {
-	actual := createFunctionComponents{
+	actual, err := createFunctionComponents{
 		createMethod: resourcemanager.ApiOperation{
 			LongRunning:    false,
 			RequestObject:  &resourcemanager.ApiObjectDefinition{},
@@ -282,16 +282,19 @@ func TestComponentCreate_CreateFunc_Immediate_PayloadResourceIdNoOptions(t *test
 		createMethodName: "CreateThing",
 		sdkResourceName:  "sdkresource",
 	}.create()
+	if err != nil {
+		t.Fatalf("error: %+v", err)
+	}
 	expected := `
 			if err := client.CreateThing(ctx, id, payload); err != nil {
 				return fmt.Errorf("creating %s: %+v", id, err)
 			}
 `
-	assertTemplatedCodeMatches(t, expected, actual)
+	assertTemplatedCodeMatches(t, expected, *actual)
 }
 
 func TestComponentCreate_CreateFunc_Immediate_PayloadResourceIdOptions(t *testing.T) {
-	actual := createFunctionComponents{
+	actual, err := createFunctionComponents{
 		createMethod: resourcemanager.ApiOperation{
 			LongRunning: false,
 			Options: map[string]resourcemanager.ApiOperationOption{
@@ -304,16 +307,19 @@ func TestComponentCreate_CreateFunc_Immediate_PayloadResourceIdOptions(t *testin
 		createMethodName: "CreateThing",
 		sdkResourceName:  "sdkresource",
 	}.create()
+	if err != nil {
+		t.Fatalf("error: %+v", err)
+	}
 	expected := `
 			if err := client.CreateThing(ctx, id, payload, sdkresource.DefaultCreateThingOperationOptions()); err != nil {
 				return fmt.Errorf("creating %s: %+v", id, err)
 			}
 `
-	assertTemplatedCodeMatches(t, expected, actual)
+	assertTemplatedCodeMatches(t, expected, *actual)
 }
 
 func TestComponentCreate_CreateFunc_LongRunning_PayloadResourceIdNoOptions(t *testing.T) {
-	actual := createFunctionComponents{
+	actual, err := createFunctionComponents{
 		createMethod: resourcemanager.ApiOperation{
 			LongRunning:    true,
 			RequestObject:  &resourcemanager.ApiObjectDefinition{},
@@ -323,16 +329,19 @@ func TestComponentCreate_CreateFunc_LongRunning_PayloadResourceIdNoOptions(t *te
 		createMethodName: "CreateThing",
 		sdkResourceName:  "sdkresource",
 	}.create()
+	if err != nil {
+		t.Fatalf("error: %+v", err)
+	}
 	expected := `
 			if err := client.CreateThingThenPoll(ctx, id, payload); err != nil {
 				return fmt.Errorf("creating %s: %+v", id, err)
 			}
 `
-	assertTemplatedCodeMatches(t, expected, actual)
+	assertTemplatedCodeMatches(t, expected, *actual)
 }
 
 func TestComponentCreate_CreateFunc_LongRunning_PayloadResourceIdOptions(t *testing.T) {
-	actual := createFunctionComponents{
+	actual, err := createFunctionComponents{
 		createMethod: resourcemanager.ApiOperation{
 			LongRunning: true,
 			Options: map[string]resourcemanager.ApiOperationOption{
@@ -345,16 +354,19 @@ func TestComponentCreate_CreateFunc_LongRunning_PayloadResourceIdOptions(t *test
 		createMethodName: "CreateThing",
 		sdkResourceName:  "sdkresource",
 	}.create()
+	if err != nil {
+		t.Fatalf("error: %+v", err)
+	}
 	expected := `
 			if err := client.CreateThingThenPoll(ctx, id, payload, sdkresource.DefaultCreateThingOperationOptions()); err != nil {
 				return fmt.Errorf("creating %s: %+v", id, err)
 			}
 `
-	assertTemplatedCodeMatches(t, expected, actual)
+	assertTemplatedCodeMatches(t, expected, *actual)
 }
 
 func TestComponentCreate_RequiresImport_ResourceIdNoOptions(t *testing.T) {
-	actual := createFunctionComponents{
+	actual, err := createFunctionComponents{
 		readMethod: resourcemanager.ApiOperation{
 			LongRunning:    false,
 			ResourceIdName: stringPointer("SomeResourceId"),
@@ -362,6 +374,9 @@ func TestComponentCreate_RequiresImport_ResourceIdNoOptions(t *testing.T) {
 		readMethodName:  "GetThing",
 		sdkResourceName: "sdkresource",
 	}.requiresImport()
+	if err != nil {
+		t.Fatalf("error: %+v", err)
+	}
 	expected := `
 			existing, err := client.GetThing(ctx, id)
 			if err != nil {
@@ -373,11 +388,11 @@ func TestComponentCreate_RequiresImport_ResourceIdNoOptions(t *testing.T) {
 				return metadata.ResourceRequiresImport(r.ResourceType(), id)
 			}
 `
-	assertTemplatedCodeMatches(t, expected, actual)
+	assertTemplatedCodeMatches(t, expected, *actual)
 }
 
 func TestComponentCreate_RequiresImport_ResourceIdOptions(t *testing.T) {
-	actual := createFunctionComponents{
+	actual, err := createFunctionComponents{
 		readMethod: resourcemanager.ApiOperation{
 			LongRunning: false,
 			Options: map[string]resourcemanager.ApiOperationOption{
@@ -388,6 +403,9 @@ func TestComponentCreate_RequiresImport_ResourceIdOptions(t *testing.T) {
 		readMethodName:  "GetThing",
 		sdkResourceName: "sdkresource",
 	}.requiresImport()
+	if err != nil {
+		t.Fatalf("error: %+v", err)
+	}
 	expected := `
 			existing, err := client.GetThing(ctx, id, sdkresource.DefaultGetThingOperationOptions())
 			if err != nil {
@@ -399,11 +417,11 @@ func TestComponentCreate_RequiresImport_ResourceIdOptions(t *testing.T) {
 				return metadata.ResourceRequiresImport(r.ResourceType(), id)
 			}
 `
-	assertTemplatedCodeMatches(t, expected, actual)
+	assertTemplatedCodeMatches(t, expected, *actual)
 }
 
 func TestComponentCreate_IdDefinitionAndMapping_CommonResourceIDWithSubscription(t *testing.T) {
-	actual := createFunctionComponents{
+	actual, err := createFunctionComponents{
 		newResourceIdFuncName: "commonids.NewCommonResourceID",
 		resourceId: resourcemanager.ResourceIdDefinition{
 			CommonAlias: stringPointer("CommonResource"),
@@ -446,15 +464,18 @@ func TestComponentCreate_IdDefinitionAndMapping_CommonResourceIDWithSubscription
 			},
 		},
 	}.idDefinitionAndMapping()
+	if err != nil {
+		t.Fatalf("error: %+v", err)
+	}
 	expected := `
 	subscriptionId := metadata.Client.Account.SubscriptionId
 	id := commonids.NewCommonResourceID(subscriptionId, config.Name)
 `
-	assertTemplatedCodeMatches(t, expected, actual)
+	assertTemplatedCodeMatches(t, expected, *actual)
 }
 
 func TestComponentCreate_IdDefinitionAndMapping_CommonResourceIDWithoutSubscription(t *testing.T) {
-	actual := createFunctionComponents{
+	actual, err := createFunctionComponents{
 		newResourceIdFuncName: "commonids.NewCommonResourceID",
 		resourceId: resourcemanager.ResourceIdDefinition{
 			CommonAlias: stringPointer("CommonResource"),
@@ -488,14 +509,17 @@ func TestComponentCreate_IdDefinitionAndMapping_CommonResourceIDWithoutSubscript
 			},
 		},
 	}.idDefinitionAndMapping()
+	if err != nil {
+		t.Fatalf("error: %+v", err)
+	}
 	expected := `
 	id := commonids.NewCommonResourceID(config.Name)
 `
-	assertTemplatedCodeMatches(t, expected, actual)
+	assertTemplatedCodeMatches(t, expected, *actual)
 }
 
 func TestComponentCreate_IdDefinitionAndMapping_RegularResourceIDWithSubscription(t *testing.T) {
-	actual := createFunctionComponents{
+	actual, err := createFunctionComponents{
 		newResourceIdFuncName: "sdkresource.NewSomeResourceID",
 		resourceId: resourcemanager.ResourceIdDefinition{
 			CommonAlias: nil,
@@ -538,15 +562,18 @@ func TestComponentCreate_IdDefinitionAndMapping_RegularResourceIDWithSubscriptio
 			},
 		},
 	}.idDefinitionAndMapping()
+	if err != nil {
+		t.Fatalf("error: %+v", err)
+	}
 	expected := `
 	subscriptionId := metadata.Client.Account.SubscriptionId
 	id := sdkresource.NewSomeResourceID(subscriptionId, config.Name)
 `
-	assertTemplatedCodeMatches(t, expected, actual)
+	assertTemplatedCodeMatches(t, expected, *actual)
 }
 
 func TestComponentCreate_IdDefinitionAndMapping_RegularResourceIDWithoutSubscription(t *testing.T) {
-	actual := createFunctionComponents{
+	actual, err := createFunctionComponents{
 		newResourceIdFuncName: "sdkresource.NewSomeResourceID",
 		resourceId: resourcemanager.ResourceIdDefinition{
 			CommonAlias: nil,
@@ -580,14 +607,17 @@ func TestComponentCreate_IdDefinitionAndMapping_RegularResourceIDWithoutSubscrip
 			},
 		},
 	}.idDefinitionAndMapping()
+	if err != nil {
+		t.Fatalf("error: %+v", err)
+	}
 	expected := `
 	id := sdkresource.NewSomeResourceID(config.Name)
 `
-	assertTemplatedCodeMatches(t, expected, actual)
+	assertTemplatedCodeMatches(t, expected, *actual)
 }
 
 func TestComponentCreate_PayloadDefinition(t *testing.T) {
-	actual := createFunctionComponents{
+	actual, err := createFunctionComponents{
 		createMethod: resourcemanager.ApiOperation{
 			RequestObject: &resourcemanager.ApiObjectDefinition{
 				ReferenceName: stringPointer("SomeModel"),
@@ -596,29 +626,38 @@ func TestComponentCreate_PayloadDefinition(t *testing.T) {
 		},
 		sdkResourceName: "sdkresource",
 	}.payloadDefinition()
+	if err != nil {
+		t.Fatalf("error: %+v", err)
+	}
 	expected := `
 			payload := sdkresource.SomeModel{}
 `
-	assertTemplatedCodeMatches(t, expected, actual)
+	assertTemplatedCodeMatches(t, expected, *actual)
 }
 
 func TestComponentCreate_MappingsFromSchema(t *testing.T) {
-	actual := createFunctionComponents{}.mappingsFromSchema()
+	actual, err := createFunctionComponents{}.mappingsFromSchema()
+	if err != nil {
+		t.Fatalf("error: %+v", err)
+	}
 	expected := `
 			// TODO: mapping from the Schema -> Payload
 `
-	assertTemplatedCodeMatches(t, expected, actual)
+	assertTemplatedCodeMatches(t, expected, *actual)
 }
 
 func TestComponentCreate_SchemaDeserialization(t *testing.T) {
-	actual := createFunctionComponents{
+	actual, err := createFunctionComponents{
 		resourceTypeName: "AwesomeResource",
 	}.schemaDeserialization()
+	if err != nil {
+		t.Fatalf("error: %+v", err)
+	}
 	expected := `
 			var config AwesomeResourceResourceModel
 			if err := metadata.Decode(&config); err != nil {
 				return fmt.Errorf("decoding: %+v", err)
 			}
 `
-	assertTemplatedCodeMatches(t, expected, actual)
+	assertTemplatedCodeMatches(t, expected, *actual)
 }
