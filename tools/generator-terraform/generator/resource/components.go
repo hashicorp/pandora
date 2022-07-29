@@ -18,6 +18,7 @@ func codeForResource(input models.ResourceInput) (*string, error) {
 		// then the functions
 		idValidationFunctionForResource,
 		typeFuncForResource,
+		argumentsCodeFunctionForResource,
 	}
 
 	lines := make([]string, 0)
@@ -35,7 +36,6 @@ func codeForResource(input models.ResourceInput) (*string, error) {
 	}
 
 	items := []string{
-		argumentsCodeFunctionForResource(input),
 		attributesCodeFunctionForResource(input),
 		createFunctionForResource(input),
 		// TODO: Mappings
