@@ -320,7 +320,15 @@ func (c modelsTemplater) codeForMarshalFunctions(data ServiceGeneratorData) (*st
 		// the TypeHintIn field comes from the parent and so won't be output on the inherited items
 		field, ok := parentModel.Fields[*c.model.TypeHintIn]
 		if !ok {
-			return nil, fmt.Errorf("the field %q was not found on the parent model %q for model %q", *c.model.TypeHintIn, *c.model.ParentTypeName, c.name)
+			if parentModel.ParentTypeName != nil {
+				parentField, err := c.recurseParentModels(data, *c.model.ParentTypeName, *c.model.TypeHintIn)
+				if err != nil {
+					return nil, err
+				}
+				field = *parentField
+			} else {
+				return nil, fmt.Errorf("the field %q was not found on the parent model %q for model %q", *c.model.TypeHintIn, *c.model.ParentTypeName, c.name)
+			}
 		}
 
 		output = fmt.Sprintf(`
@@ -650,4 +658,26 @@ func (s *%[1]s) UnmarshalJSON(bytes []byte) error {`, c.name))
 
 	output := strings.Join(lines, "\n")
 	return &output, nil
+}
+
+func (c modelsTemplater) recurseParentModels(data ServiceGeneratorData, model string, typeHint string) (*resourcemanager.FieldDetails, error) {
+	parentModel, ok := data.models[model]
+	if !ok {
+		return nil, fmt.Errorf("the parent model %q for model %q was not found", model, c.name)
+	}
+	if parentModel.ParentTypeName == nil {
+		field, ok := parentModel.Fields[typeHint]
+		if !ok {
+			return nil, fmt.Errorf("the field %q was not found on the parent model or any of its parents for model %q", typeHint, c.name)
+		}
+
+		return &field, nil
+	} else {
+		parentField, err := c.recurseParentModels(data, *parentModel.ParentTypeName, typeHint)
+		if err != nil {
+			return nil, err
+		}
+
+		return parentField, nil
+	}
 }
