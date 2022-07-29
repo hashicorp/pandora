@@ -336,7 +336,7 @@ public class TerraformController : ControllerBase
                 }
             };
         }
-        
+
         if (input.ResourceLabel == "virtual_machine_scale_set")
         {
             response.SchemaModelName = $"{input.ResourceName}ResourceSchema";
@@ -560,7 +560,7 @@ public class TerraformController : ControllerBase
 
         [JsonPropertyName("forceNew")]
         public bool ForceNew { get; set; }
-        
+
         [JsonPropertyName("hclName")]
         public string HclName { get; set; }
 
