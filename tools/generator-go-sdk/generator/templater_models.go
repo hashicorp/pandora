@@ -95,8 +95,19 @@ func (c modelsTemplater) structCode(data ServiceGeneratorData) (*string, error) 
 
 	// then add any inherited fields
 	parentAssignmentInfo := ""
+	parentTypeName := ""
 	if c.model.ParentTypeName != nil {
-		parentAssignmentInfo = fmt.Sprintf("var _ %[1]s = %[2]s{}", *c.model.ParentTypeName, c.name)
+		if c.model.TypeHintIn != nil {
+			_, foundParentTypeName, err := c.recurseParentModels(data, *c.model.ParentTypeName, *c.model.TypeHintIn)
+			if err != nil {
+				return nil, err
+			}
+			parentTypeName = *foundParentTypeName
+
+		} else {
+			parentTypeName = *c.model.ParentTypeName
+		}
+		parentAssignmentInfo = fmt.Sprintf("var _ %[1]s = %[2]s{}", parentTypeName, c.name)
 
 		parent, ok := data.models[*c.model.ParentTypeName]
 		if !ok {
@@ -320,7 +331,15 @@ func (c modelsTemplater) codeForMarshalFunctions(data ServiceGeneratorData) (*st
 		// the TypeHintIn field comes from the parent and so won't be output on the inherited items
 		field, ok := parentModel.Fields[*c.model.TypeHintIn]
 		if !ok {
-			return nil, fmt.Errorf("the field %q was not found on the parent model %q for model %q", *c.model.TypeHintIn, *c.model.ParentTypeName, c.name)
+			if parentModel.ParentTypeName != nil {
+				parentField, _, err := c.recurseParentModels(data, *c.model.ParentTypeName, *c.model.TypeHintIn)
+				if err != nil {
+					return nil, err
+				}
+				field = *parentField
+			} else {
+				return nil, fmt.Errorf("the field %q was not found on the parent model %q for model %q", *c.model.TypeHintIn, *c.model.ParentTypeName, c.name)
+			}
 		}
 
 		output = fmt.Sprintf(`
@@ -650,4 +669,29 @@ func (s *%[1]s) UnmarshalJSON(bytes []byte) error {`, c.name))
 
 	output := strings.Join(lines, "\n")
 	return &output, nil
+}
+
+// recurseParentModels walks the models hierarchy to find the parentName and field details of the model for disciminated types
+// This is a temporary measure until we update the swagger importer to connect the model fields inheritance for multiple parents.
+// Tracked at: https://github.com/hashicorp/pandora/issues/1235
+func (c modelsTemplater) recurseParentModels(data ServiceGeneratorData, model string, typeHint string) (*resourcemanager.FieldDetails, *string, error) {
+	parentModel, ok := data.models[model]
+	if !ok {
+		return nil, nil, fmt.Errorf("the parent model %q for model %q was not found", model, c.name)
+	}
+	field, ok := parentModel.Fields[typeHint]
+	if !ok {
+		if parentModel.ParentTypeName != nil {
+			parentField, parentName, err := c.recurseParentModels(data, *parentModel.ParentTypeName, typeHint)
+			if err != nil {
+				return nil, nil, err
+			}
+
+			return parentField, parentName, nil
+		} else {
+			return nil, nil, fmt.Errorf("the field %q was not found on the parent model or any of its parents for model %q", typeHint, c.name)
+		}
+	}
+
+	return &field, &model, nil
 }
