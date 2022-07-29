@@ -57,7 +57,7 @@ public class TerraformController : ControllerBase
         {
             response.UpdateMethod = MapMethodDefinition(input.UpdateMethod!);
         }
-        
+
         // TODO: replace these with real mappings
         if (input.ResourceLabel == "resource_group")
         {
@@ -68,12 +68,13 @@ public class TerraformController : ControllerBase
                 {
                     Fields = new Dictionary<string, TerraformSchemaFieldDefinition>
                     {
-                        {"name", new TerraformSchemaFieldDefinition
+                        {"Name", new TerraformSchemaFieldDefinition
                         {
                             Computed = false,
                             Optional = false,
                             Required = true,
                             ForceNew = true,
+                            HclName = "name",
                             ObjectDefinition = new TerraformSchemaObjectDefinition
                             {
                                 Type = TerraformSchemaFieldType.String.ToString(),
@@ -91,8 +92,9 @@ public class TerraformController : ControllerBase
                                 ResourceIdSegment = "resourceGroup"
                             },
                         }},
-                        {"location", new TerraformSchemaFieldDefinition
+                        {"Location", new TerraformSchemaFieldDefinition
                         {
+                            HclName = "location",
                             Computed = false,
                             Optional = false,
                             Required = true,
@@ -116,8 +118,9 @@ public class TerraformController : ControllerBase
                                 SDKPathForUpdate = null,
                             },
                         }},
-                        {"tags", new TerraformSchemaFieldDefinition
+                        {"Tags", new TerraformSchemaFieldDefinition
                         {
+                            HclName = "tags",
                             Computed = false,
                             Optional = true,
                             Required = false,
@@ -142,7 +145,7 @@ public class TerraformController : ControllerBase
                 }},
             };
         }
-        
+
         if (input.ResourceLabel == "virtual_machine")
         {
             response.SchemaModelName = $"{input.ResourceName}ResourceSchema";
@@ -152,8 +155,9 @@ public class TerraformController : ControllerBase
                 {
                     Fields = new Dictionary<string, TerraformSchemaFieldDefinition>
                     {
-                        {"name", new TerraformSchemaFieldDefinition
+                        {"Name", new TerraformSchemaFieldDefinition
                         {
+                            HclName = "name",
                             Computed = false,
                             Optional = false,
                             Required = true,
@@ -164,7 +168,7 @@ public class TerraformController : ControllerBase
                             },
                             Documentation = new TerraformSchemaDocumentationDefinition
                             {
-                                Markdown = "The name of this Resource Group."
+                                Markdown = "The name of this Virtual Machine."
                             },
                             Validation = new TerraformSchemaFieldValidationDefinition
                             {
@@ -172,11 +176,36 @@ public class TerraformController : ControllerBase
                             },
                             Mappings = new TerraformSchemaMappingDefinition
                             {
-                                ResourceIdSegment = "resourceGroup"
+                                ResourceIdSegment = "virtualMachineName"
                             },
                         }},
-                        {"location", new TerraformSchemaFieldDefinition
+                        {"ResourceGroupName", new TerraformSchemaFieldDefinition
                         {
+                            HclName = "resource_group_name",
+                            Computed = false,
+                            Optional = false,
+                            Required = true,
+                            ForceNew = true,
+                            ObjectDefinition = new TerraformSchemaObjectDefinition
+                            {
+                                Type = TerraformSchemaFieldType.String.ToString(),
+                            },
+                            Documentation = new TerraformSchemaDocumentationDefinition
+                            {
+                                Markdown = "The name of the Resource Group that this Virtual Machine is located within."
+                            },
+                            Validation = new TerraformSchemaFieldValidationDefinition
+                            {
+                                Type = TerraformSchemaFieldValidationType.NoEmptyValue.ToString(),
+                            },
+                            Mappings = new TerraformSchemaMappingDefinition
+                            {
+                                ResourceIdSegment = "resourceGroupName"
+                            },
+                        }},
+                        {"Location", new TerraformSchemaFieldDefinition
+                        {
+                            HclName = "location",
                             Computed = false,
                             Optional = false,
                             Required = true,
@@ -200,8 +229,9 @@ public class TerraformController : ControllerBase
                                 SDKPathForUpdate = null,
                             },
                         }},
-                        {"tags", new TerraformSchemaFieldDefinition
+                        {"Tags", new TerraformSchemaFieldDefinition
                         {
+                            HclName = "tags",
                             Computed = false,
                             Optional = true,
                             Required = false,
@@ -222,8 +252,9 @@ public class TerraformController : ControllerBase
                                 SDKPathForUpdate = "Tags",
                             },
                         }},
-                        {"nested_item", new TerraformSchemaFieldDefinition
+                        {"NestedItem", new TerraformSchemaFieldDefinition
                         {
+                            HclName = "nested_item",
                             Optional = true,
                             Documentation = new TerraformSchemaDocumentationDefinition
                             {
@@ -248,8 +279,9 @@ public class TerraformController : ControllerBase
                     {
                         Fields = new Dictionary<string, TerraformSchemaFieldDefinition>
                         {
-                            {"line1", new TerraformSchemaFieldDefinition
+                            {"Line1", new TerraformSchemaFieldDefinition
                             {
+                                HclName = "line1",
                                 Computed = false,
                                 Optional = false,
                                 Required = true,
@@ -273,8 +305,9 @@ public class TerraformController : ControllerBase
                                     SDKPathForUpdate = "Line1",
                                 },
                             }},
-                            {"town_or_city", new TerraformSchemaFieldDefinition
+                            {"TownOrCity", new TerraformSchemaFieldDefinition
                             {
+                                HclName = "town_or_city",
                                 Computed = false,
                                 Optional = false,
                                 Required = true,
@@ -301,6 +334,117 @@ public class TerraformController : ControllerBase
                         }
                     }
                 }
+            };
+        }
+
+        if (input.ResourceLabel == "virtual_machine_scale_set")
+        {
+            response.SchemaModelName = $"{input.ResourceName}ResourceSchema";
+            response.SchemaModels = new Dictionary<string, TerraformSchemaDefinition>
+            {
+                {$"{input.ResourceName}ResourceSchema", new TerraformSchemaDefinition
+                {
+                    Fields = new Dictionary<string, TerraformSchemaFieldDefinition>
+                    {
+                        {"Name", new TerraformSchemaFieldDefinition
+                        {
+                            HclName = "name",
+                            Computed = false,
+                            Optional = false,
+                            Required = true,
+                            ForceNew = true,
+                            ObjectDefinition = new TerraformSchemaObjectDefinition
+                            {
+                                Type = TerraformSchemaFieldType.String.ToString(),
+                            },
+                            Documentation = new TerraformSchemaDocumentationDefinition
+                            {
+                                Markdown = "The name of this Virtual Machine Scale Set."
+                            },
+                            Validation = new TerraformSchemaFieldValidationDefinition
+                            {
+                                Type = TerraformSchemaFieldValidationType.NoEmptyValue.ToString(),
+                            },
+                            Mappings = new TerraformSchemaMappingDefinition
+                            {
+                                ResourceIdSegment = "virtualMachineScaleSetName"
+                            },
+                        }},
+                        {"ResourceGroupName", new TerraformSchemaFieldDefinition
+                        {
+                            HclName = "resource_group_name",
+                            Computed = false,
+                            Optional = false,
+                            Required = true,
+                            ForceNew = true,
+                            ObjectDefinition = new TerraformSchemaObjectDefinition
+                            {
+                                Type = TerraformSchemaFieldType.String.ToString(),
+                            },
+                            Documentation = new TerraformSchemaDocumentationDefinition
+                            {
+                                Markdown = "The name of the Resource Group that this Virtual Machine Scale Set is located within."
+                            },
+                            Validation = new TerraformSchemaFieldValidationDefinition
+                            {
+                                Type = TerraformSchemaFieldValidationType.NoEmptyValue.ToString(),
+                            },
+                            Mappings = new TerraformSchemaMappingDefinition
+                            {
+                                ResourceIdSegment = "resourceGroupName"
+                            },
+                        }},
+                        {"Location", new TerraformSchemaFieldDefinition
+                        {
+                            HclName = "location",
+                            Computed = false,
+                            Optional = false,
+                            Required = true,
+                            ForceNew = true,
+                            ObjectDefinition = new TerraformSchemaObjectDefinition
+                            {
+                                Type = TerraformSchemaFieldType.Location.ToString(),
+                            },
+                            Documentation = new TerraformSchemaDocumentationDefinition
+                            {
+                                Markdown = "The Azure Region where this Resource Group should be created."
+                            },
+                            Validation = new TerraformSchemaFieldValidationDefinition
+                            {
+                                Type = TerraformSchemaFieldValidationType.NoEmptyValue.ToString(),
+                            },
+                            Mappings = new TerraformSchemaMappingDefinition
+                            {
+                                SDKPathForCreate = "Location",
+                                SDKPathForRead = "Location",
+                                SDKPathForUpdate = null,
+                            },
+                        }},
+                        {"Tags", new TerraformSchemaFieldDefinition
+                        {
+                            HclName = "tags",
+                            Computed = false,
+                            Optional = true,
+                            Required = false,
+                            ForceNew = false,
+                            ObjectDefinition = new TerraformSchemaObjectDefinition
+                            {
+                                Type = TerraformSchemaFieldType.Tags.ToString(),
+                            },
+                            Documentation = new TerraformSchemaDocumentationDefinition
+                            {
+                                Markdown = "A mapping of tags which should be assigned to this Resource Group."
+                            },
+                            Validation = null,
+                            Mappings = new TerraformSchemaMappingDefinition
+                            {
+                                SDKPathForCreate = "Tags",
+                                SDKPathForRead = "Tags",
+                                SDKPathForUpdate = "Tags",
+                            },
+                        }}
+                    }
+                }},
             };
         }
 
@@ -366,10 +510,10 @@ public class TerraformController : ControllerBase
 
         [JsonPropertyName("resourceName")]
         public string ResourceName { get; set; }
-        
+
         [JsonPropertyName("schemaModelName")]
         public string SchemaModelName { get; set; }
-        
+
         [JsonPropertyName("schemaModels")]
         public Dictionary<string, TerraformSchemaDefinition> SchemaModels { get; set; }
 
@@ -398,37 +542,40 @@ public class TerraformController : ControllerBase
     {
         [JsonPropertyName("nestedObject")]
         public TerraformSchemaObjectDefinition? NestedObject { get; set; }
-        
+
         [JsonPropertyName("referenceName")]
         public string? ReferenceName { get; set; }
-        
+
         [JsonPropertyName("type")]
         public string Type { get; set; }
     }
-    
+
     private class TerraformSchemaFieldDefinition
     {
         [JsonPropertyName("objectDefinition")]
         public TerraformSchemaObjectDefinition ObjectDefinition { get; set; }
-        
+
         [JsonPropertyName("computed")]
         public bool Computed { get; set; }
-        
+
         [JsonPropertyName("forceNew")]
         public bool ForceNew { get; set; }
-        
+
+        [JsonPropertyName("hclName")]
+        public string HclName { get; set; }
+
         [JsonPropertyName("optional")]
         public bool Optional { get; set; }
-        
+
         [JsonPropertyName("required")]
         public bool Required { get; set; }
-        
+
         [JsonPropertyName("documentation")]
         public TerraformSchemaDocumentationDefinition Documentation { get; set; }
-        
+
         [JsonPropertyName("mappings")]
         public TerraformSchemaMappingDefinition Mappings { get; set; }
-        
+
         [JsonPropertyName("validation")]
         public TerraformSchemaFieldValidationDefinition Validation { get; set; }
     }
@@ -438,12 +585,12 @@ public class TerraformController : ControllerBase
         [JsonPropertyName("markdown")]
         public string Markdown { get; set; }
     }
-    
+
     private class TerraformSchemaFieldValidationDefinition
     {
         [JsonPropertyName("type")]
         public string Type { get; set; }
-        
+
         [JsonPropertyName("possibleValues")]
         public List<string>? PossibleValues { get; set; }
     }
@@ -459,7 +606,7 @@ public class TerraformController : ControllerBase
         Reference,
         Set,
         String,
-        
+
         // CommonSchema items
         EdgeZone,
         Location,
@@ -481,21 +628,21 @@ public class TerraformController : ControllerBase
         FixedValues,
         // TODO: ResourceID, Range etc
     }
-    
+
     private class TerraformSchemaMappingDefinition
     {
         [JsonPropertyName("resourceIdSegment")]
         public string? ResourceIdSegment { get; set; }
-        
+
         [JsonPropertyName("sdkPathForCreate")]
         public string? SDKPathForCreate { get; set; }
-        
+
         [JsonPropertyName("sdkPathForRead")]
         public string? SDKPathForRead { get; set; }
-        
+
         [JsonPropertyName("sdkPathForUpdate")]
         public string? SDKPathForUpdate { get; set; }
-        
+
         // TODO: we'll probably want to change those to objects in time to handle things like
         // a `BooleanWhen` - e.g. for PrivateNetworkAccess where a const becomes a boolean
     }

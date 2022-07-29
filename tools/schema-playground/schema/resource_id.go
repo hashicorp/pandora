@@ -5,8 +5,15 @@ import "github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 func (b Builder) identityTopLevelFieldsWithinResourceID(input resourcemanager.ResourceIdDefinition) (*map[string]FieldDefinition, error) {
 	out := make(map[string]FieldDefinition, 0)
 
-	// TODO: don't forget that the resource name itself needs to be included
 	// TODO: mappings
+	out["name"] = FieldDefinition{
+		Definition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+			Type: resourcemanager.TerraformSchemaFieldTypeString,
+		},
+		// since this is included in the Resource ID it's implicitly Required/ForceNew
+		Required: true,
+		ForceNew: true,
+	}
 
 	if len(input.Segments) > 2 {
 		parentSegments := input.Segments[0 : len(input.Segments)-2]
@@ -22,8 +29,8 @@ func (b Builder) identityTopLevelFieldsWithinResourceID(input resourcemanager.Re
 			if parentResourceIdName != "" {
 				parentResourceSchemaField := convertToSnakeCase(parentResourceIdName)
 				out[parentResourceSchemaField] = FieldDefinition{
-					Definition: resourcemanager.ApiObjectDefinition{
-						Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+					Definition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+						Type:          resourcemanager.TerraformSchemaFieldTypeReference,
 						ReferenceName: &parentResourceIdName,
 					},
 					// since this is included in the Resource ID it's implicitly Required/ForceNew

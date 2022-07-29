@@ -11,8 +11,8 @@ function buildAndInstallDependencies {
     cd "${DIR}"
 
     echo "Building Wrapper.."
-    cd "${DIR}/tools/wrapper-terraform-generator"
-    go build -o wrapper-terraform-generator
+    cd "${DIR}/tools/wrapper-automation"
+    go build -o wrapper-automation
     cd "${DIR}"
 }
 
@@ -21,8 +21,8 @@ function runWrapper {
   local outputDirectory=$2
 
   echo "Running Wrapper.."
-  cd "${DIR}/tools/wrapper-terraform-generator"
-  ./wrapper-terraform-generator \
+  cd "${DIR}/tools/wrapper-automation"
+  ./wrapper-automation terraform \
     -data-api-assembly-path="../../$dataApiAssemblyPath"\
     -output-dir="../../$outputDirectory"
 

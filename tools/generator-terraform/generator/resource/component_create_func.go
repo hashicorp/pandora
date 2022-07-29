@@ -18,6 +18,7 @@ type createFunctionComponents struct {
 	sdkResourceName       string
 	newResourceIdFuncName string
 	resourceId            resourcemanager.ResourceIdDefinition
+	terraformModel        resourcemanager.TerraformSchemaModelDefinition
 }
 
 func createFunctionForResource(input models.ResourceInput) string {
@@ -49,6 +50,12 @@ func createFunctionForResource(input models.ResourceInput) string {
 		panic(fmt.Sprintf("obtaining New Resource ID Function for Create Method: %+v", err))
 	}
 
+	terraformModel, ok := input.SchemaModels[input.SchemaModelName]
+	if !ok {
+		// TODO: thread through errors
+		panic(fmt.Errorf("internal-error: schema model %q was not found", input.SchemaModelName))
+	}
+
 	helper := createFunctionComponents{
 		readMethod:            readOperation,
 		readMethodName:        input.Details.ReadMethod.MethodName,
@@ -58,6 +65,7 @@ func createFunctionForResource(input models.ResourceInput) string {
 		sdkResourceName:       input.SdkResourceName,
 		newResourceIdFuncName: *newResourceIdFuncName,
 		resourceId:            resourceId,
+		terraformModel:        terraformModel,
 	}
 	components := []string{
 		helper.schemaDeserialization(),
@@ -73,11 +81,11 @@ func (r %[1]sResource) Create() sdk.ResourceFunc {
 	return sdk.ResourceFunc{
 		Timeout: %[2]d * time.Minute,
 		Func: func(ctx context.Context, metadata sdk.ResourceMetaData) error {
-			client := metadata.Client.%[3]s.%[1]sClient
+			client := metadata.Client.%[3]s.%[1]s
 
 			%[4]s
 
-			metadata.SetID(id.ID())
+			metadata.SetID(id)
 			return nil
 		},
 	}
@@ -101,12 +109,11 @@ func (h createFunctionComponents) idDefinitionAndMapping() string {
 
 	subscriptionIdDefinition := ""
 	for _, v := range h.resourceId.Segments {
-		switch v.Type {
-		case resourcemanager.ResourceProviderSegment, resourcemanager.StaticSegment:
-			{
-				continue
-			}
+		if v.Type == resourcemanager.ResourceProviderSegment || v.Type == resourcemanager.StaticSegment {
+			continue
+		}
 
+		switch v.Type {
 		case resourcemanager.SubscriptionIdSegment:
 			{
 				segments = append(segments, "subscriptionId")
@@ -116,9 +123,15 @@ func (h createFunctionComponents) idDefinitionAndMapping() string {
 
 		default:
 			{
-				// TODO: once we have the mappings from the Schema -> Resource ID we should switch these out, but for now
-				// let's just output the segments example value..
-				segments = append(segments, fmt.Sprintf("%q", v.ExampleValue))
+				topLevelFieldForResourceIdSegment, err := findTopLevelFieldForResourceIdSegment(v.Name, h.terraformModel)
+				if err != nil {
+					// TODO: error handling
+					panic(fmt.Errorf("finding mapping for resource id segment %q: %+v", v.Name, err))
+				}
+
+				if topLevelFieldForResourceIdSegment != nil {
+					segments = append(segments, fmt.Sprintf("config.%s", *topLevelFieldForResourceIdSegment))
+				}
 			}
 		}
 	}
