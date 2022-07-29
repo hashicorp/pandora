@@ -671,6 +671,9 @@ func (s *%[1]s) UnmarshalJSON(bytes []byte) error {`, c.name))
 	return &output, nil
 }
 
+// recurseParentModels walks the models hierarchy to find the parentName and field details of the model for disciminated types
+// This is a temporary measure until we update the swagger importer to connect the model fields inheritance for multiple parents.
+// Tracked at: https://github.com/hashicorp/pandora/issues/1235
 func (c modelsTemplater) recurseParentModels(data ServiceGeneratorData, model string, typeHint string) (*resourcemanager.FieldDetails, *string, error) {
 	parentModel, ok := data.models[model]
 	if !ok {
