@@ -35,6 +35,7 @@ func updateFuncForResource(input models.ResourceInput) (*string, error) {
 	}
 
 	helpers := updateFuncHelpers{
+		schemaModelName:         input.SchemaModelName,
 		sdkResourceName:         input.SdkResourceName,
 		createMethod:            createOperation,
 		createMethodName:        input.Details.CreateMethod.MethodName,
@@ -80,6 +81,7 @@ func (r %[1]sResource) Update() sdk.ResourceFunc {
 }
 
 type updateFuncHelpers struct {
+	schemaModelName string
 	sdkResourceName string
 
 	createMethod     resourcemanager.ApiOperation
@@ -104,11 +106,11 @@ func (h updateFuncHelpers) mappingsFromSchema() (*string, error) {
 
 func (h updateFuncHelpers) modelDecode() (*string, error) {
 	output := fmt.Sprintf(`
-			var config %[1]sResourceModel
+			var config %[1]s
 			if err := metadata.Decode(&config); err != nil {
 				return fmt.Errorf("decoding: %%+v", err)
 			}
-`, h.resourceTypeName)
+`, h.schemaModelName)
 	return &output, nil
 }
 

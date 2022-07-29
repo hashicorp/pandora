@@ -15,6 +15,7 @@ type createFunctionComponents struct {
 	createMethod          resourcemanager.ApiOperation
 	createMethodName      string
 	resourceTypeName      string
+	schemaModelName       string
 	sdkResourceName       string
 	newResourceIdFuncName string
 	resourceId            resourcemanager.ResourceIdDefinition
@@ -57,6 +58,7 @@ func createFunctionForResource(input models.ResourceInput) (*string, error) {
 		createMethod:          createOperation,
 		createMethodName:      input.Details.CreateMethod.MethodName,
 		resourceTypeName:      input.ResourceTypeName,
+		schemaModelName:       input.SchemaModelName,
 		sdkResourceName:       input.SdkResourceName,
 		newResourceIdFuncName: *newResourceIdFuncName,
 		resourceId:            resourceId,
@@ -187,10 +189,10 @@ func (h createFunctionComponents) requiresImport() (*string, error) {
 
 func (h createFunctionComponents) schemaDeserialization() (*string, error) {
 	output := fmt.Sprintf(`
-			var config %[1]sResourceModel
+			var config %[1]s
 			if err := metadata.Decode(&config); err != nil {
 				return fmt.Errorf("decoding: %%+v", err)
 			}
-`, h.resourceTypeName)
+`, h.schemaModelName)
 	return &output, nil
 }
