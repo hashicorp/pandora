@@ -5,17 +5,16 @@ import (
 	"sort"
 
 	"github.com/hashicorp/hcl/v2/hclwrite"
-
-	"github.com/zclconf/go-cty/cty"
-
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+	"github.com/zclconf/go-cty/cty"
 )
 
 type TestAttributesHelpers struct {
 	SchemaModels map[string]resourcemanager.TerraformSchemaModelDefinition
-	File         *hclwrite.File
 }
 
+// GetAttributesForTests builds terraform configuration based on the attributes passed in.
+// It can get either Required only or Required/Optional Attributes
 func (h TestAttributesHelpers) GetAttributesForTests(input resourcemanager.TerraformSchemaModelDefinition, hclBody hclwrite.Body, requiredOnly bool) error {
 	requiredFields := make([]string, 0)
 	optionalFields := make([]string, 0)
@@ -31,8 +30,8 @@ func (h TestAttributesHelpers) GetAttributesForTests(input resourcemanager.Terra
 			}
 		}
 	}
-	sort.Strings(requiredFields)
 
+	sort.Strings(requiredFields)
 	sortedNames := make([]string, 0)
 	sortedNames = append(sortedNames, requiredFields...)
 

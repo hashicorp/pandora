@@ -5,7 +5,6 @@ import (
 	"testing"
 
 	"github.com/hashicorp/hcl/v2/hclwrite"
-
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
@@ -73,8 +72,8 @@ func TestRequiredTestAttributes_CodeForBasicFields(t *testing.T) {
 	required_string_attribute = "foo"
 `
 
+	file := hclwrite.NewEmptyFile()
 	helper := TestAttributesHelpers{
-		File: hclwrite.NewEmptyFile(),
 		SchemaModels: map[string]resourcemanager.TerraformSchemaModelDefinition{
 			"NestedSchemaModel": {
 				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
@@ -100,11 +99,11 @@ func TestRequiredTestAttributes_CodeForBasicFields(t *testing.T) {
 			},
 		},
 	}
-	err := helper.GetAttributesForTests(input, *helper.File.Body(), true)
+	err := helper.GetAttributesForTests(input, *file.Body(), true)
 	if err != nil {
 		t.Fatalf("unexpected error: %+v", err)
 	}
-	assertTemplatedCodeMatches(t, expected, fmt.Sprintf("%s", helper.File.Bytes()))
+	assertTemplatedCodeMatches(t, expected, fmt.Sprintf("%s", file.Bytes()))
 }
 
 func TestRequiredAndOptionalTestAttributes_CodeForBasicField(t *testing.T) {
@@ -173,8 +172,8 @@ func TestRequiredAndOptionalTestAttributes_CodeForBasicField(t *testing.T) {
 	optional_string_attribute = "foo"
 `
 
+	file := hclwrite.NewEmptyFile()
 	helper := TestAttributesHelpers{
-		File: hclwrite.NewEmptyFile(),
 		SchemaModels: map[string]resourcemanager.TerraformSchemaModelDefinition{
 			"NestedSchemaModel": {
 				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
@@ -200,9 +199,9 @@ func TestRequiredAndOptionalTestAttributes_CodeForBasicField(t *testing.T) {
 			},
 		},
 	}
-	err := helper.GetAttributesForTests(input, *helper.File.Body(), false)
+	err := helper.GetAttributesForTests(input, *file.Body(), false)
 	if err != nil {
 		t.Fatalf("unexpected error: %+v", err)
 	}
-	assertTemplatedCodeMatches(t, expected, fmt.Sprintf("%s", helper.File.Bytes()))
+	assertTemplatedCodeMatches(t, expected, fmt.Sprintf("%s", file.Bytes()))
 }
