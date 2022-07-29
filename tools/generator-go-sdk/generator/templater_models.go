@@ -95,8 +95,19 @@ func (c modelsTemplater) structCode(data ServiceGeneratorData) (*string, error) 
 
 	// then add any inherited fields
 	parentAssignmentInfo := ""
+	parentTypeName := ""
 	if c.model.ParentTypeName != nil {
-		parentAssignmentInfo = fmt.Sprintf("var _ %[1]s = %[2]s{}", *c.model.ParentTypeName, c.name)
+		if c.model.TypeHintIn != nil {
+			_, foundParentTypeName, err := c.recurseParentModels(data, *c.model.ParentTypeName, *c.model.TypeHintIn)
+			if err != nil {
+				return nil, err
+			}
+			parentTypeName = *foundParentTypeName
+
+		} else {
+			parentTypeName = *c.model.ParentTypeName
+		}
+		parentAssignmentInfo = fmt.Sprintf("var _ %[1]s = %[2]s{}", parentTypeName, c.name)
 
 		parent, ok := data.models[*c.model.ParentTypeName]
 		if !ok {
@@ -321,7 +332,7 @@ func (c modelsTemplater) codeForMarshalFunctions(data ServiceGeneratorData) (*st
 		field, ok := parentModel.Fields[*c.model.TypeHintIn]
 		if !ok {
 			if parentModel.ParentTypeName != nil {
-				parentField, err := c.recurseParentModels(data, *c.model.ParentTypeName, *c.model.TypeHintIn)
+				parentField, _, err := c.recurseParentModels(data, *c.model.ParentTypeName, *c.model.TypeHintIn)
 				if err != nil {
 					return nil, err
 				}
@@ -660,24 +671,24 @@ func (s *%[1]s) UnmarshalJSON(bytes []byte) error {`, c.name))
 	return &output, nil
 }
 
-func (c modelsTemplater) recurseParentModels(data ServiceGeneratorData, model string, typeHint string) (*resourcemanager.FieldDetails, error) {
+func (c modelsTemplater) recurseParentModels(data ServiceGeneratorData, model string, typeHint string) (*resourcemanager.FieldDetails, *string, error) {
 	parentModel, ok := data.models[model]
 	if !ok {
-		return nil, fmt.Errorf("the parent model %q for model %q was not found", model, c.name)
+		return nil, nil, fmt.Errorf("the parent model %q for model %q was not found", model, c.name)
 	}
-	if parentModel.ParentTypeName == nil {
-		field, ok := parentModel.Fields[typeHint]
-		if !ok {
-			return nil, fmt.Errorf("the field %q was not found on the parent model or any of its parents for model %q", typeHint, c.name)
-		}
+	field, ok := parentModel.Fields[typeHint]
+	if !ok {
+		if parentModel.ParentTypeName != nil {
+			parentField, parentName, err := c.recurseParentModels(data, *parentModel.ParentTypeName, typeHint)
+			if err != nil {
+				return nil, nil, err
+			}
 
-		return &field, nil
-	} else {
-		parentField, err := c.recurseParentModels(data, *parentModel.ParentTypeName, typeHint)
-		if err != nil {
-			return nil, err
+			return parentField, parentName, nil
+		} else {
+			return nil, nil, fmt.Errorf("the field %q was not found on the parent model or any of its parents for model %q", typeHint, c.name)
 		}
-
-		return parentField, nil
 	}
+
+	return &field, &model, nil
 }
