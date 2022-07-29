@@ -9,7 +9,7 @@ import (
 )
 
 func TestComponentAttributes(t *testing.T) {
-	actual := attributesCodeFunctionForResource(models.ResourceInput{
+	input := models.ResourceInput{
 		ResourceTypeName: "Example",
 		SchemaModelName:  "TopLevelModel",
 		SchemaModels: map[string]resourcemanager.TerraformSchemaModelDefinition{
@@ -86,7 +86,11 @@ func TestComponentAttributes(t *testing.T) {
 				},
 			},
 		},
-	})
+	}
+	actual, err := attributesCodeFunctionForResource(input)
+	if err != nil {
+		t.Fatalf("error: %+v", err)
+	}
 	expected := `
 func (r ExampleResource) Attributes() map[string]*pluginsdk.Schema {
 	return map[string]*pluginsdk.Schema{
@@ -101,5 +105,5 @@ func (r ExampleResource) Attributes() map[string]*pluginsdk.Schema {
 	}
 }
 `
-	assertTemplatedCodeMatches(t, expected, actual)
+	assertTemplatedCodeMatches(t, expected, *actual)
 }
