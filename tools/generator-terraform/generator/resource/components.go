@@ -23,6 +23,8 @@ func codeForResource(input models.ResourceInput) (*string, error) {
 		createFunctionForResource,
 		// TODO: Mappings
 		readFunctionForResource,
+		deleteFunctionForResource,
+		// TODO: Typed Model & Model func.
 	}
 
 	lines := make([]string, 0)
@@ -40,8 +42,6 @@ func codeForResource(input models.ResourceInput) (*string, error) {
 	}
 
 	items := []string{
-		deleteFunctionForResource(input),
-		// TODO: Typed Model & Model func.
 		updateFuncForResource(input),
 		methodsYetToBeImplementedForResource(input),
 	}
