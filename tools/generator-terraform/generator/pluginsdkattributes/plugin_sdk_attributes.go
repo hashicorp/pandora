@@ -65,7 +65,7 @@ func (h PluginSdkAttributesHelpers) CodeForModel(input resourcemanager.Terraform
 			return nil, fmt.Errorf("building argument code for field %q: %+v", fieldName, err)
 		}
 
-		lines = append(lines, fmt.Sprintf(`%[1]q: %[2]s`, fieldName, *line))
+		lines = append(lines, fmt.Sprintf(`%[1]q: %[2]s`, field.HclName, *line))
 	}
 
 	output := strings.TrimSpace(fmt.Sprintf(`
@@ -103,7 +103,7 @@ func (h PluginSdkAttributesHelpers) CodeForModelAttributesOnly(input resourceman
 			return nil, fmt.Errorf("building argument code for field %q: %+v", fieldName, err)
 		}
 
-		lines = append(lines, fmt.Sprintf(`%[1]q: %[2]s`, fieldName, *line))
+		lines = append(lines, fmt.Sprintf(`%[1]q: %[2]s`, field.HclName, *line))
 	}
 
 	output := strings.TrimSpace(fmt.Sprintf(`
@@ -241,8 +241,6 @@ Elem: &pluginsdk.Schema{
 `, strings.Join(*nestedAttributes, ",\n"))))
 			}
 		}
-
-		// TODO: List[Reference], Set[Reference], List[SimpleType], Set[SimpleType]
 
 	default:
 		{
