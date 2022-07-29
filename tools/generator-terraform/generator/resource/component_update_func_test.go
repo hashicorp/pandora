@@ -9,23 +9,33 @@ import (
 )
 
 func TestComponentUpdate_HappyPathDisabled(t *testing.T) {
-	actual := updateFuncForResource(models.ResourceInput{})
-	expected := ``
-	assertTemplatedCodeMatches(t, expected, actual)
+	input := models.ResourceInput{}
+	actual, err := updateFuncForResource(input)
+	if err != nil {
+		t.Fatalf("error: %+v", err)
+	}
+	if actual != nil {
+		t.Fatalf("expected `actual` to be nil but got %q", *actual)
+	}
 }
 
 func TestComponentUpdate_HappyPathDisabled_NoUpdateMethod(t *testing.T) {
-	actual := updateFuncForResource(models.ResourceInput{
+	input := models.ResourceInput{
 		Details: resourcemanager.TerraformResourceDetails{
 			UpdateMethod: nil,
 		},
-	})
-	expected := ``
-	assertTemplatedCodeMatches(t, expected, actual)
+	}
+	actual, err := updateFuncForResource(input)
+	if err != nil {
+		t.Fatalf("error: %+v", err)
+	}
+	if actual != nil {
+		t.Fatalf("expected `actual` to be nil but got %q", *actual)
+	}
 }
 
 func TestComponentUpdate_HappyPathEnabled_CommonId_SharedModels(t *testing.T) {
-	actual := updateFuncForResource(models.ResourceInput{
+	input := models.ResourceInput{
 		Constants: map[string]resourcemanager.ConstantDetails{},
 		Details: resourcemanager.TerraformResourceDetails{
 			CreateMethod: resourcemanager.MethodDefinition{
@@ -106,7 +116,11 @@ func TestComponentUpdate_HappyPathEnabled_CommonId_SharedModels(t *testing.T) {
 		SdkApiVersion:      "sdkapiversion",
 		SdkResourceName:    "sdkresource",
 		SdkServiceName:     "sdkservice",
-	})
+	}
+	actual, err := updateFuncForResource(input)
+	if err != nil {
+		t.Fatalf("error: %+v", err)
+	}
 	expected := `
 	func (r MyResourceResource) Update() sdk.ResourceFunc {
 		return sdk.ResourceFunc{
@@ -138,11 +152,11 @@ func TestComponentUpdate_HappyPathEnabled_CommonId_SharedModels(t *testing.T) {
 		}
 	}
 `
-	assertTemplatedCodeMatches(t, expected, actual)
+	assertTemplatedCodeMatches(t, expected, *actual)
 }
 
 func TestComponentUpdate_HappyPathEnabled_CommonId_UniqueModels(t *testing.T) {
-	actual := updateFuncForResource(models.ResourceInput{
+	input := models.ResourceInput{
 		Constants: map[string]resourcemanager.ConstantDetails{},
 		Details: resourcemanager.TerraformResourceDetails{
 			CreateMethod: resourcemanager.MethodDefinition{
@@ -233,7 +247,11 @@ func TestComponentUpdate_HappyPathEnabled_CommonId_UniqueModels(t *testing.T) {
 		SdkApiVersion:      "sdkapiversion",
 		SdkResourceName:    "sdkresource",
 		SdkServiceName:     "sdkservice",
-	})
+	}
+	actual, err := updateFuncForResource(input)
+	if err != nil {
+		t.Fatalf("error: %+v", err)
+	}
 	expected := `
 	func (r MyResourceResource) Update() sdk.ResourceFunc {
 		return sdk.ResourceFunc{
@@ -258,11 +276,11 @@ func TestComponentUpdate_HappyPathEnabled_CommonId_UniqueModels(t *testing.T) {
 		}
 	}
 `
-	assertTemplatedCodeMatches(t, expected, actual)
+	assertTemplatedCodeMatches(t, expected, *actual)
 }
 
 func TestComponentUpdate_HappyPathEnabled_RegularResourceID_SharedModels(t *testing.T) {
-	actual := updateFuncForResource(models.ResourceInput{
+	input := models.ResourceInput{
 		Constants: map[string]resourcemanager.ConstantDetails{},
 		Details: resourcemanager.TerraformResourceDetails{
 			CreateMethod: resourcemanager.MethodDefinition{
@@ -343,7 +361,11 @@ func TestComponentUpdate_HappyPathEnabled_RegularResourceID_SharedModels(t *test
 		SdkApiVersion:      "sdkapiversion",
 		SdkResourceName:    "sdkresource",
 		SdkServiceName:     "sdkservice",
-	})
+	}
+	actual, err := updateFuncForResource(input)
+	if err != nil {
+		t.Fatalf("error: %+v", err)
+	}
 	expected := `
 	func (r MyResourceResource) Update() sdk.ResourceFunc {
 		return sdk.ResourceFunc{
@@ -375,11 +397,11 @@ func TestComponentUpdate_HappyPathEnabled_RegularResourceID_SharedModels(t *test
 		}
 	}
 `
-	assertTemplatedCodeMatches(t, expected, actual)
+	assertTemplatedCodeMatches(t, expected, *actual)
 }
 
 func TestComponentUpdate_HappyPathEnabled_RegularResourceID_UniqueModels(t *testing.T) {
-	actual := updateFuncForResource(models.ResourceInput{
+	input := models.ResourceInput{
 		Constants: map[string]resourcemanager.ConstantDetails{},
 		Details: resourcemanager.TerraformResourceDetails{
 			CreateMethod: resourcemanager.MethodDefinition{
@@ -470,7 +492,11 @@ func TestComponentUpdate_HappyPathEnabled_RegularResourceID_UniqueModels(t *test
 		SdkApiVersion:      "sdkapiversion",
 		SdkResourceName:    "sdkresource",
 		SdkServiceName:     "sdkservice",
-	})
+	}
+	actual, err := updateFuncForResource(input)
+	if err != nil {
+		t.Fatalf("error: %+v", err)
+	}
 	expected := `
 	func (r MyResourceResource) Update() sdk.ResourceFunc {
 		return sdk.ResourceFunc{
@@ -495,7 +521,7 @@ func TestComponentUpdate_HappyPathEnabled_RegularResourceID_UniqueModels(t *test
 		}
 	}
 `
-	assertTemplatedCodeMatches(t, expected, actual)
+	assertTemplatedCodeMatches(t, expected, *actual)
 }
 
 func TestComponentUpdate_MappingsFromSchema(t *testing.T) {

@@ -9,33 +9,29 @@ import (
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-func updateFuncForResource(input models.ResourceInput) string {
+func updateFuncForResource(input models.ResourceInput) (*string, error) {
 	if input.Details.UpdateMethod == nil || !input.Details.UpdateMethod.Generate {
-		return ""
+		return nil, nil
 	}
 
 	idParseLine, err := input.ParseResourceIdFuncName()
 	if err != nil {
-		// TODO: thread through errors
-		panic(err)
+		return nil, fmt.Errorf("determining Parse function name for Resource ID: %+v", err)
 	}
 
 	updateOperation, ok := input.Operations[input.Details.UpdateMethod.MethodName]
 	if !ok {
-		// TODO: thread through errors
-		panic(fmt.Sprintf("couldn't find update operation named %q", input.Details.UpdateMethod.MethodName))
+		return nil, fmt.Errorf("couldn't find update operation named %q", input.Details.UpdateMethod.MethodName)
 	}
 
 	createOperation, ok := input.Operations[input.Details.CreateMethod.MethodName]
 	if !ok {
-		// TODO: thread through errors
-		panic(fmt.Sprintf("couldn't find create operation named %q for update operation", input.Details.CreateMethod.MethodName))
+		return nil, fmt.Errorf("couldn't find create operation named %q for update operation", input.Details.CreateMethod.MethodName)
 	}
 
 	readOperation, ok := input.Operations[input.Details.ReadMethod.MethodName]
 	if !ok {
-		// TODO: thread through errors
-		panic(fmt.Sprintf("couldn't find read operation named %q for update operation", input.Details.ReadMethod.MethodName))
+		return nil, fmt.Errorf("couldn't find read operation named %q for update operation", input.Details.ReadMethod.MethodName)
 	}
 
 	helpers := updateFuncHelpers{
@@ -57,7 +53,7 @@ func updateFuncForResource(input models.ResourceInput) string {
 		helpers.update(),
 	}
 
-	return fmt.Sprintf(`
+	output := fmt.Sprintf(`
 func (r %[1]sResource) Update() sdk.ResourceFunc {
 	return sdk.ResourceFunc{
 		Timeout: %[2]d * time.Minute,
@@ -71,6 +67,7 @@ func (r %[1]sResource) Update() sdk.ResourceFunc {
 	}
 }
 `, input.ResourceTypeName, input.Details.UpdateMethod.TimeoutInMinutes, input.ServiceName, strings.Join(components, "\n"))
+	return &output, nil
 }
 
 type updateFuncHelpers struct {

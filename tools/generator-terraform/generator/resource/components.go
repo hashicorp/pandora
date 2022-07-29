@@ -25,6 +25,8 @@ func codeForResource(input models.ResourceInput) (*string, error) {
 		readFunctionForResource,
 		deleteFunctionForResource,
 		// TODO: Typed Model & Model func.
+		updateFuncForResource,
+		methodsYetToBeImplementedForResource,
 	}
 
 	lines := make([]string, 0)
@@ -40,11 +42,6 @@ func codeForResource(input models.ResourceInput) (*string, error) {
 			lines = append(lines, *line)
 		}
 	}
-
-	items := []string{
-		updateFuncForResource(input),
-		methodsYetToBeImplementedForResource(input),
-	}
-	output := strings.Join(items, "\n")
+	output := strings.Join(lines, "\n")
 	return &output, nil
 }
