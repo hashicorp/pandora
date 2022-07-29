@@ -12,7 +12,7 @@ import (
 // so we'll test the happy path and then each individual component
 
 func TestComponentCreate_HappyPathDisabled(t *testing.T) {
-	actual := createFunctionForResource(models.ResourceInput{
+	input := models.ResourceInput{
 		Constants: nil,
 		Details: resourcemanager.TerraformResourceDetails{
 			CreateMethod: resourcemanager.MethodDefinition{
@@ -98,13 +98,18 @@ func TestComponentCreate_HappyPathDisabled(t *testing.T) {
 		SdkApiVersion:      "2020-01-01",
 		SdkResourceName:    "sdkresource",
 		SdkServiceName:     "sdkservice",
-	})
-	expected := ""
-	assertTemplatedCodeMatches(t, expected, actual)
+	}
+	actual, err := createFunctionForResource(input)
+	if err != nil {
+		t.Fatalf("error: %+v", err)
+	}
+	if actual != nil {
+		t.Fatalf("expected `actual` to be nil but got %q", *actual)
+	}
 }
 
 func TestComponentCreate_HappyPathEnabled(t *testing.T) {
-	actual := createFunctionForResource(models.ResourceInput{
+	input := models.ResourceInput{
 		Constants: nil,
 		Details: resourcemanager.TerraformResourceDetails{
 			CreateMethod: resourcemanager.MethodDefinition{
@@ -226,7 +231,11 @@ func TestComponentCreate_HappyPathEnabled(t *testing.T) {
 				},
 			},
 		},
-	})
+	}
+	actual, err := createFunctionForResource(input)
+	if err != nil {
+		t.Fatalf("error: %+v", err)
+	}
 	expected := `
 func (r ExampleResource) Create() sdk.ResourceFunc {
 	return sdk.ResourceFunc{
@@ -259,7 +268,7 @@ func (r ExampleResource) Create() sdk.ResourceFunc {
 	}
 }
 `
-	assertTemplatedCodeMatches(t, expected, actual)
+	assertTemplatedCodeMatches(t, expected, *actual)
 }
 
 func TestComponentCreate_CreateFunc_Immediate_PayloadResourceIdNoOptions(t *testing.T) {

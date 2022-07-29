@@ -21,39 +21,34 @@ type createFunctionComponents struct {
 	terraformModel        resourcemanager.TerraformSchemaModelDefinition
 }
 
-func createFunctionForResource(input models.ResourceInput) string {
+func createFunctionForResource(input models.ResourceInput) (*string, error) {
 	if !input.Details.CreateMethod.Generate {
-		return ""
+		return nil, nil
 	}
 
 	createOperation, ok := input.Operations[input.Details.CreateMethod.MethodName]
 	if !ok {
-		// TODO: thread through errors
-		panic(fmt.Sprintf("couldn't find create operation named %q", input.Details.CreateMethod.MethodName))
+		return nil, fmt.Errorf("couldn't find create operation named %q", input.Details.CreateMethod.MethodName)
 	}
 
 	readOperation, ok := input.Operations[input.Details.ReadMethod.MethodName]
 	if !ok {
-		// TODO: thread through errors
-		panic(fmt.Sprintf("couldn't find Read operation for create operation named %q", input.Details.ReadMethod.MethodName))
+		return nil, fmt.Errorf("couldn't find Read operation for create operation named %q", input.Details.ReadMethod.MethodName)
 	}
 
 	resourceId, ok := input.ResourceIds[input.Details.ResourceIdName]
 	if !ok {
-		// TODO: thread through errors
-		panic(fmt.Sprintf("couldn't find Resource ID %q for Create Method", input.Details.ResourceIdName))
+		return nil, fmt.Errorf("couldn't find Resource ID %q for Create Method", input.Details.ResourceIdName)
 	}
 
 	newResourceIdFuncName, err := input.NewResourceIdFuncName()
 	if err != nil {
-		// TODO: thread through errors
-		panic(fmt.Sprintf("obtaining New Resource ID Function for Create Method: %+v", err))
+		return nil, fmt.Errorf("obtaining New Resource ID Function for Create Method: %+v", err)
 	}
 
 	terraformModel, ok := input.SchemaModels[input.SchemaModelName]
 	if !ok {
-		// TODO: thread through errors
-		panic(fmt.Errorf("internal-error: schema model %q was not found", input.SchemaModelName))
+		return nil, fmt.Errorf("internal-error: schema model %q was not found", input.SchemaModelName)
 	}
 
 	helper := createFunctionComponents{
@@ -76,7 +71,7 @@ func createFunctionForResource(input models.ResourceInput) string {
 		helper.create(),
 	}
 
-	return fmt.Sprintf(`
+	output := fmt.Sprintf(`
 func (r %[1]sResource) Create() sdk.ResourceFunc {
 	return sdk.ResourceFunc{
 		Timeout: %[2]d * time.Minute,
@@ -91,6 +86,7 @@ func (r %[1]sResource) Create() sdk.ResourceFunc {
 	}
 }
 `, input.ResourceTypeName, input.Details.CreateMethod.TimeoutInMinutes, input.ServiceName, strings.Join(components, "\n"))
+	return &output, nil
 }
 
 func (h createFunctionComponents) create() string {

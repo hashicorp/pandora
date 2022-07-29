@@ -20,6 +20,8 @@ func codeForResource(input models.ResourceInput) (*string, error) {
 		typeFuncForResource,
 		argumentsCodeFunctionForResource,
 		attributesCodeFunctionForResource,
+		createFunctionForResource,
+		// TODO: Mappings
 	}
 
 	lines := make([]string, 0)
@@ -37,8 +39,6 @@ func codeForResource(input models.ResourceInput) (*string, error) {
 	}
 
 	items := []string{
-		createFunctionForResource(input),
-		// TODO: Mappings
 		readFunctionForResource(input),
 		deleteFunctionForResource(input),
 		// TODO: Typed Model & Model func.
