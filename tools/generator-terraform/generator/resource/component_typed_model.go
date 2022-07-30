@@ -13,6 +13,10 @@ import (
 // TODO: tests covering this
 
 func codeForTopLevelTypedModelAndDefinition(input models.ResourceInput) (*string, error) {
+	//if !input.Details.GenerateModel {
+	//	return nil, nil
+	//}
+
 	schemaModel, ok := input.SchemaModels[input.SchemaModelName]
 	if !ok {
 		return nil, fmt.Errorf("schema model named %q was not found", input.SchemaModelName)
