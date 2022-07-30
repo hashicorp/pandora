@@ -28,8 +28,8 @@ func codeForResource(input models.ResourceInput) (*string, error) {
 		deleteFunctionForResource,
 		updateFuncForResource,
 
-		// TODO: finally output any non-top level Typed Models
 		// TODO: Mappings
+		codeForNonTopLevelModels,
 	}
 
 	lines := make([]string, 0)

@@ -10,8 +10,6 @@ import (
 	"github.com/hashicorp/pandora/tools/generator-terraform/generator/models"
 )
 
-// TODO: tests covering this
-
 func codeForTopLevelTypedModelAndDefinition(input models.ResourceInput) (*string, error) {
 	if !input.Details.GenerateModel {
 		return nil, nil
@@ -37,7 +35,34 @@ func (r %[1]sResource) ModelObject() interface{} {
 	return &output, nil
 }
 
-// TODO: codeForNonTopLevelModels
+func codeForNonTopLevelModels(input models.ResourceInput) (*string, error) {
+	if !input.Details.GenerateModel {
+		return nil, nil
+	}
+
+	modelNames := make([]string, 0)
+	for k := range input.SchemaModels {
+		// top level models are output elsewhere
+		if k == input.SchemaModelName {
+			continue
+		}
+
+		modelNames = append(modelNames, k)
+	}
+	sort.Strings(modelNames)
+
+	codeForModels := make([]string, 0)
+	for _, modelName := range modelNames {
+		model := input.SchemaModels[modelName]
+		code, err := codeForModel(modelName, model)
+		if err != nil {
+			return nil, fmt.Errorf("generating code for model %q: %+v", modelName, err)
+		}
+		codeForModels = append(codeForModels, *code)
+	}
+	output := strings.Join(codeForModels, "\n")
+	return &output, nil
+}
 
 func codeForModel(name string, input resourcemanager.TerraformSchemaModelDefinition) (*string, error) {
 	schemaFields := make([]string, 0)

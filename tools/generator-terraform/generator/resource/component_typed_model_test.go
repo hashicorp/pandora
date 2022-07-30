@@ -121,6 +121,77 @@ type ExampleModel struct {
 	assertTemplatedCodeMatches(t, expected, *actual)
 }
 
+func TestCodeForNonTopLevelModels_Disabled(t *testing.T) {
+	input := models.ResourceInput{
+		Details: resourcemanager.TerraformResourceDetails{
+			GenerateModel: false,
+		},
+	}
+	actual, err := codeForNonTopLevelModels(input)
+	if err != nil {
+		t.Fatalf("error: %+v", err)
+	}
+	if actual != nil {
+		t.Fatalf("expected `actual` to be nil but got %q", *actual)
+	}
+}
+
+func TestCodeForNonTopLevelModels_Enabled(t *testing.T) {
+	input := models.ResourceInput{
+		Details: resourcemanager.TerraformResourceDetails{
+			GenerateModel: true,
+		},
+		SchemaModelName: "TopLevelModel",
+		SchemaModels: map[string]resourcemanager.TerraformSchemaModelDefinition{
+			// top level model shouldn't be output here
+			"TopLevelModel": {
+				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+					"Field1": {
+						Required: true,
+						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						},
+						HclName: "field1",
+					},
+				},
+			},
+			"NestedModel1": {
+				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+					"Field2": {
+						Required: true,
+						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						},
+						HclName: "field2",
+					},
+				}},
+			"NestedModel2": {
+				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+					"Field3": {
+						Required: true,
+						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						},
+						HclName: "field3",
+					},
+				}},
+		},
+	}
+	actual, err := codeForNonTopLevelModels(input)
+	if err != nil {
+		t.Fatalf("error: %+v", err)
+	}
+	expected := strings.ReplaceAll(`
+type NestedModel1 struct {
+	Field2 string 'tfschema:"field2"'
+}
+type NestedModel2 struct {
+	Field3 string 'tfschema:"field3"'
+}
+`, "'", "`")
+	assertTemplatedCodeMatches(t, expected, *actual)
+}
+
 func TestCodeForModel(t *testing.T) {
 	input := resourcemanager.TerraformSchemaModelDefinition{
 		Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
