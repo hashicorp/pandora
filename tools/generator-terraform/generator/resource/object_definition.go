@@ -6,33 +6,28 @@ import (
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-// TODO: tests covering this
-
 var fieldObjectDefinitionsToGolangTypes = map[resourcemanager.TerraformSchemaFieldType]string{
 	resourcemanager.TerraformSchemaFieldTypeBoolean: "bool",
-	// NOTE: we intentionally don't output helper funcs for this, since the SDK exposes DateTime's as strings
+	// whilst DateTime could be output as *time.Time the Go SDK outputs
+	// this as a String with Get/Set methods to allow exposing this value
+	// either as a raw string or by formatting the value, so we expect
+	// a string here rather than a *time.Time
 	resourcemanager.TerraformSchemaFieldTypeDateTime: "string",
 	resourcemanager.TerraformSchemaFieldTypeFloat:    "float64",
 	resourcemanager.TerraformSchemaFieldTypeInteger:  "int64",
 	resourcemanager.TerraformSchemaFieldTypeString:   "string",
 
-	resourcemanager.TerraformSchemaFieldTypeLocation: "string",
-	resourcemanager.TerraformSchemaFieldTypeTags:     "map[string]interface{}",
-
-	/*
-		TODO: support for Custom Types
-
-			TerraformSchemaFieldTypeEdgeZone                      TerraformSchemaFieldType = "EdgeZone"
-			TerraformSchemaFieldTypeIdentitySystemAssigned        TerraformSchemaFieldType = "IdentitySystemAssigned"
-			TerraformSchemaFieldTypeIdentitySystemAndUserAssigned TerraformSchemaFieldType = "IdentitySystemAndUserAssigned"
-			TerraformSchemaFieldTypeIdentitySystemOrUserAssigned  TerraformSchemaFieldType = "IdentitySystemOrUserAssigned"
-			TerraformSchemaFieldTypeIdentityUserAssigned          TerraformSchemaFieldType = "IdentityUserAssigned"
-			TerraformSchemaFieldTypeLocation                      TerraformSchemaFieldType = "Location"
-			TerraformSchemaFieldTypeResourceGroup                 TerraformSchemaFieldType = "ResourceGroup"
-			TerraformSchemaFieldTypeTags                          TerraformSchemaFieldType = "Tags"
-			TerraformSchemaFieldTypeZone                          TerraformSchemaFieldType = "Zone"
-			TerraformSchemaFieldTypeZones                         TerraformSchemaFieldType = "Zones"
-	*/
+	// Common Types
+	resourcemanager.TerraformSchemaFieldTypeEdgeZone:                      "string",
+	resourcemanager.TerraformSchemaFieldTypeLocation:                      "string",
+	resourcemanager.TerraformSchemaFieldTypeIdentitySystemAssigned:        "identity.ModelSystemAssigned",
+	resourcemanager.TerraformSchemaFieldTypeIdentitySystemAndUserAssigned: "identity.ModelSystemAssignedUserAssigned",
+	resourcemanager.TerraformSchemaFieldTypeIdentitySystemOrUserAssigned:  "identity.ModelSystemAssignedUserAssigned",
+	resourcemanager.TerraformSchemaFieldTypeIdentityUserAssigned:          "identity.ModelUserAssigned",
+	resourcemanager.TerraformSchemaFieldTypeResourceGroup:                 "string",
+	resourcemanager.TerraformSchemaFieldTypeTags:                          "map[string]interface{}",
+	resourcemanager.TerraformSchemaFieldTypeZone:                          "string",
+	resourcemanager.TerraformSchemaFieldTypeZones:                         "[]string",
 }
 
 func golangFieldTypeFromObjectFieldDefinition(input resourcemanager.TerraformSchemaFieldObjectDefinition) (*string, error) {
@@ -60,7 +55,12 @@ func golangFieldTypeFromObjectFieldDefinition(input resourcemanager.TerraformSch
 		if err != nil {
 			return nil, fmt.Errorf("retrieving golang field type for list nested item: %+v", err)
 		}
+
 		output := fmt.Sprintf("[]%s", *nestedObjectType)
+		if input.NestedObject.Type == resourcemanager.TerraformSchemaFieldTypeReference {
+			// references are already output as slices, so no need to double-slice this
+			output = *nestedObjectType
+		}
 		return &output, nil
 	}
 
@@ -74,6 +74,10 @@ func golangFieldTypeFromObjectFieldDefinition(input resourcemanager.TerraformSch
 			return nil, fmt.Errorf("retrieving golang field type for list nested item: %+v", err)
 		}
 		output := fmt.Sprintf("[]%s", *nestedObjectType)
+		if input.NestedObject.Type == resourcemanager.TerraformSchemaFieldTypeReference {
+			// references are already output as slices, so no need to double-slice this
+			output = *nestedObjectType
+		}
 		return &output, nil
 	}
 
