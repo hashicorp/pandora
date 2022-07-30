@@ -51,6 +51,11 @@ public class TerraformController : ControllerBase
                 // TODO: pipe this through
                 Category = "Example Category",
                 Description = "Some Description for this Resource",
+                ExampleUsageHcl = @"
+resource '' '' {
+    example_field = ''
+}
+".Replace("'", "`"),
                 // TODO: does the top level object need a List<Categories> for the ServiceDefinition?
             },
             Resource = input.Resource,
@@ -538,6 +543,9 @@ public class TerraformController : ControllerBase
         
         [JsonPropertyName("description")]
         public string Description { get; set; }
+
+        [JsonPropertyName("exampleUsageHcl")]
+        public string ExampleUsageHcl { get; set; }
     }
 
     private class MethodDefinition
