@@ -144,11 +144,16 @@ type TerraformSchemaFieldDefinition struct {
 type ResourceDocumentationDefinition struct {
 	// Category is the category for this Terraform Resource which is used to
 	// group this resource within the Terraform Registry.
-	Category string `hcl:"category"`
+	Category string `json:"category"`
 
 	// Description is a description for this Terraform Resource which should
 	// be output on the documentation page for this Resource.
-	Description string `hcl:"description"`
+	Description string `json:"description"`
+
+	// ExampleUsageHcl is the HCL which should be output as an Example Usage
+	// for this Resource. This should include all Required properties, and
+	// ideally shows a basic fully functional example for this Resource.
+	ExampleUsageHcl string `json:"exampleUsageHcl"`
 }
 
 type TerraformSchemaFieldType string
