@@ -52,10 +52,10 @@ public class TerraformController : ControllerBase
                 Category = "Example Category",
                 Description = "Some Description for this Resource",
                 ExampleUsageHcl = @"
-resource '' '' {
-    example_field = ''
+resource 'example_resource' 'example' {
+    example_field = '...'
 }
-".Replace("'", "`"),
+".Replace("'", "\""),
                 // TODO: does the top level object need a List<Categories> for the ServiceDefinition?
             },
             Resource = input.Resource,

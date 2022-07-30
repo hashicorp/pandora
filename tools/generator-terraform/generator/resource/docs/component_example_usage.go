@@ -14,7 +14,7 @@ func codeForExampleUsage(input models.ResourceInput) (*string, error) {
 '''hcl
 %[1]s
 '''
-`, input.Details.Documentation.ExampleUsageHcl))
+`, strings.TrimSpace(input.Details.Documentation.ExampleUsageHcl)))
 	output := strings.ReplaceAll(code, "'", "`")
 	return &output, nil
 }
