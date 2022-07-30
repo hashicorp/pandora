@@ -12,10 +12,10 @@ func codeForYAMLFrontMatter(input models.ResourceInput) (*string, error) {
 ---
 subcategory: "%[1]s"
 layout: "%[2]s"
-page_title: "%[5]s: %[2]s_%[3]s"
+page_title: "Azure Resource Manager: %[2]s_%[3]s"
 description: |-
-  Manages an %[4]s.
+  %[4]s.
 ---
-`, "Connections", input.ProviderPrefix, input.ResourceLabel, input.Details.DisplayName, "Azure Resource Manager"))
+`, input.Details.Documentation.Category, input.ProviderPrefix, input.ResourceLabel, input.Details.Documentation.Description))
 	return &output, nil
 }
