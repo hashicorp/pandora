@@ -53,6 +53,10 @@ type TerraformResourceDetails struct {
 	// be used to delete this resource in Terraform.
 	DeleteMethod MethodDefinition `json:"deleteMethod"`
 
+	// Documentation specifies metadata used to generate the Documentation
+	// for this Resource.
+	Documentation ResourceDocumentationDefinition `json:"documentation"`
+
 	// DisplayName is the human-readable/marketing name for this Resource,
 	// for example `Resource Group` or `Virtual Machine`.
 	DisplayName string `json:"displayName"`
@@ -135,6 +139,16 @@ type TerraformSchemaFieldDefinition struct {
 
 	// Validation specifies the validation criteria for this field, for example a set of fixed values
 	Validation *TerraformSchemaValidationDefinition `json:"validation,omitempty"`
+}
+
+type ResourceDocumentationDefinition struct {
+	// Category is the category for this Terraform Resource which is used to
+	// group this resource within the Terraform Registry.
+	Category string `hcl:"category"`
+
+	// Description is a description for this Terraform Resource which should
+	// be output on the documentation page for this Resource.
+	Description string `hcl:"description"`
 }
 
 type TerraformSchemaFieldType string
