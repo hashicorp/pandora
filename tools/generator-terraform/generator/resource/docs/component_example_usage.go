@@ -12,11 +12,9 @@ func codeForExampleUsage(input models.ResourceInput) (*string, error) {
 ## Example Usage
 
 '''hcl
-resource "%[1]s_%[2]s" "example" {
-  // TODO: example usage
-}
+%[1]s
 '''
-`, input.ProviderPrefix, input.ResourceLabel))
+`, input.Details.Documentation.ExampleUsageHcl))
 	output := strings.ReplaceAll(code, "'", "`")
 	return &output, nil
 }
