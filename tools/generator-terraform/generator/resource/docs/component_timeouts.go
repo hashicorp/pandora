@@ -31,35 +31,3 @@ The 'timeouts' block allows you to specify [timeouts](https://www.terraform.io/d
 	output = strings.ReplaceAll(output, "'", "`")
 	return &output, nil
 }
-
-func wordifyTimeout(inMinutes int) string {
-	hours := inMinutes / 60
-	if hours > 0 {
-		var hoursText string
-		if hours > 1 {
-			hoursText = fmt.Sprintf("%d hours", hours)
-		} else {
-			hoursText = "1 hour"
-		}
-
-		minutesRemaining := inMinutes % 60
-		if minutesRemaining == 0 {
-			return hoursText
-		}
-
-		var minutesText string
-		if minutesRemaining > 1 {
-			minutesText = fmt.Sprintf("%d minutes", minutesRemaining)
-		} else {
-			minutesText = "1 minute"
-		}
-
-		return fmt.Sprintf("%s and %s", hoursText, minutesText)
-	}
-
-	if inMinutes > 1 {
-		return fmt.Sprintf("%d minutes", inMinutes)
-	}
-
-	return "1 minute"
-}
