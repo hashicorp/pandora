@@ -23,8 +23,8 @@ func codeForTimeouts(input models.ResourceInput) (*string, error) {
 
 	lines := []string{
 		fmt.Sprintf("* 'create' - (Defaults to %[2]s) Used when creating this %[1]s.", input.Details.DisplayName, *createTimeout),
-		fmt.Sprintf("* 'read' - (Defaults to %[2]s) Used when retrieving this %[1]s.", input.Details.DisplayName, *readTimeout),
 		fmt.Sprintf("* 'delete' - (Defaults to %[2]s) Used when deleting this %[1]s.", input.Details.DisplayName, *deleteTimeout),
+		fmt.Sprintf("* 'read' - (Defaults to %[2]s) Used when retrieving this %[1]s.", input.Details.DisplayName, *readTimeout),
 	}
 	if input.Details.UpdateMethod != nil {
 		updateTimeout, err := wordifyTimeout(input.Details.UpdateMethod.TimeoutInMinutes)

@@ -12,6 +12,7 @@ func ComponentsForResource(input models.ResourceInput) (*string, error) {
 		codeForYAMLFrontMatter,
 		codeForSummary,
 		codeForExampleUsage,
+		// TODO: links to examples
 		codeForArgumentsReference,
 		codeForAttributesReference,
 		codeForTimeouts,
@@ -23,7 +24,9 @@ func ComponentsForResource(input models.ResourceInput) (*string, error) {
 		if err != nil {
 			return nil, fmt.Errorf("templating component %d: %+v", i, err)
 		}
-		lines = append(lines, *result)
+		if result != nil {
+			lines = append(lines, strings.TrimSpace(*result))
+		}
 	}
 
 	output := strings.Join(lines, "\n\n")

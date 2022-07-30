@@ -39,7 +39,7 @@ func codeForResource(input models.ResourceInput) (*string, error) {
 		// components can opt-out of generation so if it's not generating anything
 		// do nothing
 		if line != nil {
-			lines = append(lines, *line)
+			lines = append(lines, strings.TrimSpace(*line))
 		}
 	}
 	output := strings.Join(lines, "\n")
