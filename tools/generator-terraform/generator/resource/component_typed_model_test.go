@@ -9,10 +9,25 @@ import (
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
+func TestCodeForTopLevelTypedModelAndDefinition_Disabled(t *testing.T) {
+	input := models.ResourceInput{
+		Details: resourcemanager.TerraformResourceDetails{
+			GenerateModel: false,
+		},
+	}
+	actual, err := codeForTopLevelTypedModelAndDefinition(input)
+	if err != nil {
+		t.Fatalf("error: %+v", err)
+	}
+	if actual != nil {
+		t.Fatalf("expected `actual` to be nil but got %q", *actual)
+	}
+}
+
 func TestCodeForTopLevelTypedModelAndDefinition_Enabled(t *testing.T) {
 	input := models.ResourceInput{
 		Details: resourcemanager.TerraformResourceDetails{
-			//GenerateModel: true,
+			GenerateModel: true,
 		},
 		ResourceTypeName: "Example",
 		SchemaModelName:  "ExampleModel",

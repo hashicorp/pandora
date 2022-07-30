@@ -13,9 +13,9 @@ import (
 // TODO: tests covering this
 
 func codeForTopLevelTypedModelAndDefinition(input models.ResourceInput) (*string, error) {
-	//if !input.Details.GenerateModel {
-	//	return nil, nil
-	//}
+	if !input.Details.GenerateModel {
+		return nil, nil
+	}
 
 	schemaModel, ok := input.SchemaModels[input.SchemaModelName]
 	if !ok {

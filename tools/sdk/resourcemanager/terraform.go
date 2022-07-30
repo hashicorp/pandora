@@ -60,13 +60,17 @@ type TerraformResourceDetails struct {
 	// Generate specifies if this Resource should be generated.
 	Generate bool `json:"generate"`
 
-	// GenerateSchema controls whether the Schema should be generated for this
+	// GenerateModel controls whether the Schema Model(s) should be generated for this
 	// Resource.
-	GenerateSchema bool `json:"generateSchema"`
+	GenerateModel bool `json:"generateModel"`
 
 	// GenerateIdValidation controls whether the ID Validation function should be generated
 	// for this Resource.
 	GenerateIdValidation bool `json:"generateIdValidation"`
+
+	// GenerateSchema controls whether the Schema should be generated for this
+	// Resource.
+	GenerateSchema bool `json:"generateSchema"`
 
 	// ReadMethod describes the method within the SDK Package that should
 	// be used to retrieve information about this resource in Terraform.
