@@ -37,7 +37,49 @@ type TerraformDetails struct {
 }
 
 type TerraformDataSourceDetails struct {
+	// ApiVersion specifies the version of the Api which should be used for
+	// this Data Source.
+	ApiVersion string `json:"apiVersion"`
+
+	// Generate specifies if this Data Source should be generated.
+	Generate bool `json:"generate"`
+
+	// PluralDetails specifies the metadata for the Plural version of this Data Source
+	// A Singular Data Source returns information about exactly 1 existing Resource, whereas
+	// a Plural Data Source returns information about 1 or more existing Resources.
+	PluralDetails *TerraformDataSourceTypeDetails `json:"plural"`
+
+	// SingularDetails specifies the metadata for the Singular version of this Data Source
+	// A Singular Data Source returns information about exactly 1 existing Resource, whereas
+	// a Plural Data Source returns information about 1 or more existing Resources.
+	SingularDetails *TerraformDataSourceTypeDetails `json:"singular"`
+
 	// TODO: populate this
+}
+
+type TerraformDataSourceTypeDetails struct {
+	// Description is a human-friendly description for this Data Source Type.
+	Description string `json:"description"`
+
+	// ExampleUsageHcl is the HCL which should be output as the Example Usage for this Data Source Type.
+	ExampleUsageHcl string `json:"exampleUsageHcl"`
+
+	// Generate specifies whether this Data Source Type should be generated this allows just the
+	// Singular Data Source or the Plural Data Source to be generated as required.
+	Generate bool `json:"generate"`
+
+	// GenerateSchema specifies whether the Typed Model should be generated for this Data Source Type.
+	GenerateModel bool `json:"generateModel"`
+
+	// GenerateSchema specifies whether the Schema should be generated for this Data Source Type.
+	GenerateSchema bool `json:"generateSchema"`
+
+	// MethodDefinition specifies the SDK Method which should be used for this Data Source Type.
+	MethodDefinition MethodDefinition `json:"methodDefinition"`
+
+	// ResourceLabel is the label for this Data Source Type without the Provider Prefix
+	// (e.g. `resource_group` rather than `azurerm_resource_group`).
+	ResourceLabel string `json:"resourceLabel"`
 }
 
 type TerraformResourceDetails struct {
