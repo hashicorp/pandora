@@ -1,6 +1,9 @@
 package models
 
 type DataSourceInput struct {
+	// ApiVersion is the version of the API used for this Data Source.
+	ApiVersion string
+
 	// ProviderPrefix is the prefix used for the Resources within this Terraform Provider.
 	ProviderPrefix string
 

@@ -83,20 +83,22 @@ func run(input GeneratorInput) error {
 			continue
 		}
 
-		for label, _ := range service.Terraform.DataSources {
-			// TODO: conditional generation
-
-			apiVersion := "TODO PLACEHOLDER"
+		for label, details := range service.Terraform.DataSources {
+			if !details.Generate {
+				log.Printf("[DEBUG] Data Source %q has generation disabled - skipping", label)
+				continue
+			}
 
 			log.Printf("[DEBUG] Processing Data Source %q..", label)
 			dataSourceInput := models.DataSourceInput{
+				ApiVersion:         details.ApiVersion,
 				ProviderPrefix:     input.providerPrefix,
 				ResourceLabel:      label,
 				RootDirectory:      input.outputDirectory,
 				ServicePackageName: *service.TerraformPackageName,
 			}
 			if err := datasource.DataSource(dataSourceInput); err != nil {
-				return fmt.Errorf("generating for Data Source %q (Service %q / API Version %q): %+v", label, serviceName, apiVersion, err)
+				return fmt.Errorf("generating for Data Source %q (Service %q / API Version %q): %+v", label, serviceName, details.ApiVersion, err)
 			}
 		}
 
