@@ -96,8 +96,8 @@ func TestComponentCreate_HappyPathDisabled(t *testing.T) {
 		ServiceName:        "ExampleService",
 		ServicePackageName: "svcpkg",
 		SdkApiVersion:      "2020-01-01",
-		SdkResourceName:    "sdkresource",
-		SdkServiceName:     "sdkservice",
+		SdkResourceName:    "SdkResource",
+		SdkServiceName:     "SdkService",
 	}
 	actual, err := createFunctionForResource(input)
 	if err != nil {
@@ -211,8 +211,8 @@ func TestComponentCreate_HappyPathEnabled(t *testing.T) {
 		ServiceName:        "ExampleService",
 		ServicePackageName: "svcpkg",
 		SdkApiVersion:      "2020-01-01",
-		SdkResourceName:    "sdkresource",
-		SdkServiceName:     "sdkservice",
+		SdkResourceName:    "SdkResource",
+		SdkServiceName:     "SdkService",
 		SchemaModelName:    "ExampleResource",
 		SchemaModels: map[string]resourcemanager.TerraformSchemaModelDefinition{
 			"ExampleResource": {
@@ -279,8 +279,8 @@ func TestComponentCreate_CreateFunc_Immediate_PayloadResourceIdNoOptions(t *test
 			ResourceIdName: stringPointer("SomeResourceId"),
 			UriSuffix:      stringPointer("/example"),
 		},
-		createMethodName: "CreateThing",
-		sdkResourceName:  "sdkresource",
+		createMethodName:       "CreateThing",
+		sdkResourceNameLowered: "sdkresource",
 	}.create()
 	if err != nil {
 		t.Fatalf("error: %+v", err)
@@ -304,8 +304,8 @@ func TestComponentCreate_CreateFunc_Immediate_PayloadResourceIdOptions(t *testin
 			ResourceIdName: stringPointer("SomeResourceId"),
 			UriSuffix:      stringPointer("/example"),
 		},
-		createMethodName: "CreateThing",
-		sdkResourceName:  "sdkresource",
+		createMethodName:       "CreateThing",
+		sdkResourceNameLowered: "sdkresource",
 	}.create()
 	if err != nil {
 		t.Fatalf("error: %+v", err)
@@ -326,8 +326,8 @@ func TestComponentCreate_CreateFunc_LongRunning_PayloadResourceIdNoOptions(t *te
 			ResourceIdName: stringPointer("SomeResourceId"),
 			UriSuffix:      stringPointer("/example"),
 		},
-		createMethodName: "CreateThing",
-		sdkResourceName:  "sdkresource",
+		createMethodName:       "CreateThing",
+		sdkResourceNameLowered: "sdkresource",
 	}.create()
 	if err != nil {
 		t.Fatalf("error: %+v", err)
@@ -351,8 +351,8 @@ func TestComponentCreate_CreateFunc_LongRunning_PayloadResourceIdOptions(t *test
 			ResourceIdName: stringPointer("SomeResourceId"),
 			UriSuffix:      stringPointer("/example"),
 		},
-		createMethodName: "CreateThing",
-		sdkResourceName:  "sdkresource",
+		createMethodName:       "CreateThing",
+		sdkResourceNameLowered: "sdkresource",
 	}.create()
 	if err != nil {
 		t.Fatalf("error: %+v", err)
@@ -371,8 +371,8 @@ func TestComponentCreate_RequiresImport_ResourceIdNoOptions(t *testing.T) {
 			LongRunning:    false,
 			ResourceIdName: stringPointer("SomeResourceId"),
 		},
-		readMethodName:  "GetThing",
-		sdkResourceName: "sdkresource",
+		readMethodName:         "GetThing",
+		sdkResourceNameLowered: "sdkresource",
 	}.requiresImport()
 	if err != nil {
 		t.Fatalf("error: %+v", err)
@@ -400,8 +400,8 @@ func TestComponentCreate_RequiresImport_ResourceIdOptions(t *testing.T) {
 			},
 			ResourceIdName: stringPointer("SomeResourceId"),
 		},
-		readMethodName:  "GetThing",
-		sdkResourceName: "sdkresource",
+		readMethodName:         "GetThing",
+		sdkResourceNameLowered: "sdkresource",
 	}.requiresImport()
 	if err != nil {
 		t.Fatalf("error: %+v", err)
@@ -624,7 +624,7 @@ func TestComponentCreate_PayloadDefinition(t *testing.T) {
 				Type:          resourcemanager.ReferenceApiObjectDefinitionType,
 			},
 		},
-		sdkResourceName: "sdkresource",
+		sdkResourceNameLowered: "sdkresource",
 	}.payloadDefinition()
 	if err != nil {
 		t.Fatalf("error: %+v", err)

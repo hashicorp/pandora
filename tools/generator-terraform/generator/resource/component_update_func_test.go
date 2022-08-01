@@ -114,8 +114,8 @@ func TestComponentUpdate_HappyPathEnabled_CommonId_SharedModels(t *testing.T) {
 		ServiceName:        "Service1",
 		ServicePackageName: "service1",
 		SdkApiVersion:      "sdkapiversion",
-		SdkResourceName:    "sdkresource",
-		SdkServiceName:     "sdkservice",
+		SdkResourceName:    "SdkResource",
+		SdkServiceName:     "SdkService",
 		SchemaModelName:    "MyTypedModel",
 	}
 	actual, err := updateFuncForResource(input)
@@ -127,7 +127,7 @@ func TestComponentUpdate_HappyPathEnabled_CommonId_SharedModels(t *testing.T) {
 		return sdk.ResourceFunc{
 			Timeout: 40 * time.Minute,
 			Func: func(ctx context.Context, metadata sdk.ResourceMetaData) error {
-				client := metadata.Client.Service1.MyResource
+				client := metadata.Client.Service1.SdkResource
 				id, err := commonids.ParseSomeCommonID(metadata.ResourceData.Id())
 				if err != nil {
 					return err
@@ -246,8 +246,8 @@ func TestComponentUpdate_HappyPathEnabled_CommonId_UniqueModels(t *testing.T) {
 		ServiceName:        "Service1",
 		ServicePackageName: "service1",
 		SdkApiVersion:      "sdkapiversion",
-		SdkResourceName:    "sdkresource",
-		SdkServiceName:     "sdkservice",
+		SdkResourceName:    "SdkResource",
+		SdkServiceName:     "SdkService",
 		SchemaModelName:    "MyTypedModel",
 	}
 	actual, err := updateFuncForResource(input)
@@ -259,7 +259,7 @@ func TestComponentUpdate_HappyPathEnabled_CommonId_UniqueModels(t *testing.T) {
 		return sdk.ResourceFunc{
 			Timeout: 40 * time.Minute,
 			Func: func(ctx context.Context, metadata sdk.ResourceMetaData) error {
-				client := metadata.Client.Service1.MyResource
+				client := metadata.Client.Service1.SdkResource
 				id, err := commonids.ParseSomeCommonID(metadata.ResourceData.Id())
 				if err != nil {
 					return err
@@ -361,8 +361,8 @@ func TestComponentUpdate_HappyPathEnabled_RegularResourceID_SharedModels(t *test
 		ServiceName:        "Service1",
 		ServicePackageName: "service1",
 		SdkApiVersion:      "sdkapiversion",
-		SdkResourceName:    "sdkresource",
-		SdkServiceName:     "sdkservice",
+		SdkResourceName:    "SdkResource",
+		SdkServiceName:     "SdkService",
 		SchemaModelName:    "MyTypedModel",
 	}
 	actual, err := updateFuncForResource(input)
@@ -374,7 +374,7 @@ func TestComponentUpdate_HappyPathEnabled_RegularResourceID_SharedModels(t *test
 		return sdk.ResourceFunc{
 			Timeout: 40 * time.Minute,
 			Func: func(ctx context.Context, metadata sdk.ResourceMetaData) error {
-				client := metadata.Client.Service1.MyResource
+				client := metadata.Client.Service1.SdkResource
 				id, err := sdkresource.ParseSomeResourceID(metadata.ResourceData.Id())
 				if err != nil {
 					return err
@@ -493,8 +493,8 @@ func TestComponentUpdate_HappyPathEnabled_RegularResourceID_UniqueModels(t *test
 		ServiceName:        "Service1",
 		ServicePackageName: "service1",
 		SdkApiVersion:      "sdkapiversion",
-		SdkResourceName:    "sdkresource",
-		SdkServiceName:     "sdkservice",
+		SdkResourceName:    "SdkResource",
+		SdkServiceName:     "SdkService",
 		SchemaModelName:    "MyTypedModel",
 	}
 	actual, err := updateFuncForResource(input)
@@ -506,7 +506,7 @@ func TestComponentUpdate_HappyPathEnabled_RegularResourceID_UniqueModels(t *test
 		return sdk.ResourceFunc{
 			Timeout: 40 * time.Minute,
 			Func: func(ctx context.Context, metadata sdk.ResourceMetaData) error {
-				client := metadata.Client.Service1.MyResource
+				client := metadata.Client.Service1.SdkResource
 				id, err := sdkresource.ParseSomeResourceID(metadata.ResourceData.Id())
 				if err != nil {
 					return err
@@ -584,8 +584,8 @@ func TestComponentUpdate_PayloadDefinition_ModelSharedBetweenCreateReadUpdate(t 
 			},
 			ResourceIdName: stringPointer("SomeId"),
 		},
-		updateMethodName: "Update",
-		sdkResourceName:  "sdkresource",
+		updateMethodName:       "Update",
+		sdkResourceNameLowered: "sdkresource",
 	}.payloadDefinition()
 	if err != nil {
 		t.Fatalf("error: %+v", err)
@@ -640,8 +640,8 @@ func TestComponentUpdate_PayloadDefinition_ModelSharedBetweenCreateReadUpdateTha
 			},
 			ResourceIdName: stringPointer("SomeId"),
 		},
-		updateMethodName: "Update",
-		sdkResourceName:  "sdkresource",
+		updateMethodName:       "Update",
+		sdkResourceNameLowered: "sdkresource",
 	}.payloadDefinition()
 	if err != nil {
 		t.Fatalf("error: %+v", err)
@@ -680,8 +680,8 @@ func TestComponentUpdate_PayloadDefinition_UniqueModelsForCreateReadUpdate(t *te
 			},
 			ResourceIdName: stringPointer("SomeId"),
 		},
-		updateMethodName: "Update",
-		sdkResourceName:  "sdkresource",
+		updateMethodName:       "Update",
+		sdkResourceNameLowered: "sdkresource",
 	}.payloadDefinition()
 	if err != nil {
 		t.Fatalf("error: %+v", err)
@@ -716,8 +716,8 @@ func TestComponentUpdate_UpdateFunc_Immediate_PayloadResourceIdNoOptions(t *test
 			ResourceIdName: stringPointer("SomeResourceId"),
 			UriSuffix:      stringPointer("/example"),
 		},
-		updateMethodName: "UpdateThing",
-		sdkResourceName:  "sdkresource",
+		updateMethodName:       "UpdateThing",
+		sdkResourceNameLowered: "sdkresource",
 	}.update()
 	if err != nil {
 		t.Fatalf("error: %+v", err)
@@ -741,8 +741,8 @@ func TestComponentUpdate_UpdateFunc_Immediate_PayloadResourceIdOptions(t *testin
 			ResourceIdName: stringPointer("SomeResourceId"),
 			UriSuffix:      stringPointer("/example"),
 		},
-		updateMethodName: "UpdateThing",
-		sdkResourceName:  "sdkresource",
+		updateMethodName:       "UpdateThing",
+		sdkResourceNameLowered: "sdkresource",
 	}.update()
 	if err != nil {
 		t.Fatalf("error: %+v", err)
@@ -763,8 +763,8 @@ func TestComponentUpdate_UpdateFunc_LongRunning_PayloadResourceIdNoOptions(t *te
 			ResourceIdName: stringPointer("SomeResourceId"),
 			UriSuffix:      stringPointer("/example"),
 		},
-		updateMethodName: "UpdateThing",
-		sdkResourceName:  "sdkresource",
+		updateMethodName:       "UpdateThing",
+		sdkResourceNameLowered: "sdkresource",
 	}.update()
 	if err != nil {
 		t.Fatalf("error: %+v", err)
@@ -788,8 +788,8 @@ func TestComponentUpdate_UpdateFunc_LongRunning_PayloadResourceIdOptions(t *test
 			ResourceIdName: stringPointer("SomeResourceId"),
 			UriSuffix:      stringPointer("/example"),
 		},
-		updateMethodName: "UpdateThing",
-		sdkResourceName:  "sdkresource",
+		updateMethodName:       "UpdateThing",
+		sdkResourceNameLowered: "sdkresource",
 	}.update()
 	if err != nil {
 		t.Fatalf("error: %+v", err)

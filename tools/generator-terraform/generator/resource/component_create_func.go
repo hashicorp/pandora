@@ -10,16 +10,16 @@ import (
 )
 
 type createFunctionComponents struct {
-	readMethod            resourcemanager.ApiOperation
-	readMethodName        string
-	createMethod          resourcemanager.ApiOperation
-	createMethodName      string
-	resourceTypeName      string
-	schemaModelName       string
-	sdkResourceName       string
-	newResourceIdFuncName string
-	resourceId            resourcemanager.ResourceIdDefinition
-	terraformModel        resourcemanager.TerraformSchemaModelDefinition
+	readMethod             resourcemanager.ApiOperation
+	readMethodName         string
+	createMethod           resourcemanager.ApiOperation
+	createMethodName       string
+	resourceTypeName       string
+	schemaModelName        string
+	sdkResourceNameLowered string
+	newResourceIdFuncName  string
+	resourceId             resourcemanager.ResourceIdDefinition
+	terraformModel         resourcemanager.TerraformSchemaModelDefinition
 }
 
 func createFunctionForResource(input models.ResourceInput) (*string, error) {
@@ -53,16 +53,16 @@ func createFunctionForResource(input models.ResourceInput) (*string, error) {
 	}
 
 	helper := createFunctionComponents{
-		readMethod:            readOperation,
-		readMethodName:        input.Details.ReadMethod.MethodName,
-		createMethod:          createOperation,
-		createMethodName:      input.Details.CreateMethod.MethodName,
-		resourceTypeName:      input.ResourceTypeName,
-		schemaModelName:       input.SchemaModelName,
-		sdkResourceName:       input.SdkResourceName,
-		newResourceIdFuncName: *newResourceIdFuncName,
-		resourceId:            resourceId,
-		terraformModel:        terraformModel,
+		readMethod:             readOperation,
+		readMethodName:         input.Details.ReadMethod.MethodName,
+		createMethod:           createOperation,
+		createMethodName:       input.Details.CreateMethod.MethodName,
+		resourceTypeName:       input.ResourceTypeName,
+		schemaModelName:        input.SchemaModelName,
+		sdkResourceNameLowered: strings.ToLower(input.SdkResourceName),
+		newResourceIdFuncName:  *newResourceIdFuncName,
+		resourceId:             resourceId,
+		terraformModel:         terraformModel,
 	}
 	components := []func() (*string, error){
 		helper.schemaDeserialization,
@@ -102,7 +102,7 @@ func (r %[1]sResource) Create() sdk.ResourceFunc {
 
 func (h createFunctionComponents) create() (*string, error) {
 	methodName := methodNameToCallForOperation(h.createMethod, h.createMethodName)
-	methodArguments := argumentsForApiOperationMethod(h.createMethod, h.sdkResourceName, h.createMethodName, false)
+	methodArguments := argumentsForApiOperationMethod(h.createMethod, h.sdkResourceNameLowered, h.createMethodName, false)
 	output := fmt.Sprintf(`
 			if err := client.%[1]s(%[2]s); err != nil {
 				return fmt.Errorf("creating %%s: %%+v", id, err)
@@ -153,7 +153,7 @@ id := %[1]s(%[2]s)
 func (h createFunctionComponents) payloadDefinition() (*string, error) {
 	// NOTE: whilst Payload is _technically_ optional in the API endpoint it's not, else it
 	// wouldn't be a Create method
-	createObjectName, err := h.createMethod.RequestObject.GolangTypeName(&h.sdkResourceName)
+	createObjectName, err := h.createMethod.RequestObject.GolangTypeName(&h.sdkResourceNameLowered)
 	if err != nil {
 		return nil, fmt.Errorf("determining Golang Type name for Create Request Object: %+v", err)
 	}
@@ -172,7 +172,7 @@ func (h createFunctionComponents) mappingsFromSchema() (*string, error) {
 }
 
 func (h createFunctionComponents) requiresImport() (*string, error) {
-	readMethodArguments := argumentsForApiOperationMethod(h.readMethod, h.sdkResourceName, h.readMethodName, false)
+	readMethodArguments := argumentsForApiOperationMethod(h.readMethod, h.sdkResourceNameLowered, h.readMethodName, false)
 	output := fmt.Sprintf(`
 			existing, err := client.%[1]s(%[2]s)
 			if err != nil {

@@ -26,7 +26,7 @@ func argumentsForApiOperationMethod(operation resourcemanager.ApiOperation, sdkR
 	}
 
 	if len(operation.Options) > 0 {
-		optionsArgument := fmt.Sprintf("%[1]s.Default%[2]sOperationOptions()", sdkResourceName, methodName)
+		optionsArgument := fmt.Sprintf("%[1]s.Default%[2]sOperationOptions()", strings.ToLower(sdkResourceName), methodName)
 		methodArguments = append(methodArguments, optionsArgument)
 	}
 

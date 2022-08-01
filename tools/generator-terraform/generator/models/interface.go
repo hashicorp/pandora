@@ -68,7 +68,7 @@ func (id ResourceInput) ParseResourceIdFuncName() (*string, error) {
 		return &out, nil
 	}
 
-	out := fmt.Sprintf("%[1]s.Parse%[2]sID", id.SdkResourceName, strings.TrimSuffix(id.Details.ResourceIdName, "Id"))
+	out := fmt.Sprintf("%[1]s.Parse%[2]sID", strings.ToLower(id.SdkResourceName), strings.TrimSuffix(id.Details.ResourceIdName, "Id"))
 	return &out, nil
 }
 
@@ -83,7 +83,7 @@ func (id ResourceInput) NewResourceIdFuncName() (*string, error) {
 		return &out, nil
 	}
 
-	out := fmt.Sprintf("%[1]s.New%[2]sID", id.SdkResourceName, strings.TrimSuffix(id.Details.ResourceIdName, "Id"))
+	out := fmt.Sprintf("%[1]s.New%[2]sID", strings.ToLower(id.SdkResourceName), strings.TrimSuffix(id.Details.ResourceIdName, "Id"))
 	return &out, nil
 }
 
@@ -98,6 +98,6 @@ func (id ResourceInput) ValidateResourceIdFuncName() (*string, error) {
 		return &out, nil
 	}
 
-	out := fmt.Sprintf("%[1]s.Validate%[2]sID", id.SdkResourceName, strings.TrimSuffix(id.Details.ResourceIdName, "Id"))
+	out := fmt.Sprintf("%[1]s.Validate%[2]sID", strings.ToLower(id.SdkResourceName), strings.TrimSuffix(id.Details.ResourceIdName, "Id"))
 	return &out, nil
 }
