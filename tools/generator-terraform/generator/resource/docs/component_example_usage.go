@@ -7,7 +7,7 @@ import (
 	"github.com/hashicorp/pandora/tools/generator-terraform/generator/models"
 )
 
-func codeForExampleUsage(input models.ResourceInput) string {
+func codeForExampleUsage(input models.ResourceInput) (*string, error) {
 	code := strings.TrimSpace(fmt.Sprintf(`
 ## Example Usage
 
@@ -17,5 +17,6 @@ resource "%[1]s_%[2]s" "example" {
 }
 '''
 `, input.ProviderPrefix, input.ResourceLabel))
-	return strings.ReplaceAll(code, "'", "`")
+	output := strings.ReplaceAll(code, "'", "`")
+	return &output, nil
 }

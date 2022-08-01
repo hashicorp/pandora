@@ -21,39 +21,34 @@ type createFunctionComponents struct {
 	terraformModel        resourcemanager.TerraformSchemaModelDefinition
 }
 
-func createFunctionForResource(input models.ResourceInput) string {
+func createFunctionForResource(input models.ResourceInput) (*string, error) {
 	if !input.Details.CreateMethod.Generate {
-		return ""
+		return nil, nil
 	}
 
 	createOperation, ok := input.Operations[input.Details.CreateMethod.MethodName]
 	if !ok {
-		// TODO: thread through errors
-		panic(fmt.Sprintf("couldn't find create operation named %q", input.Details.CreateMethod.MethodName))
+		return nil, fmt.Errorf("couldn't find create operation named %q", input.Details.CreateMethod.MethodName)
 	}
 
 	readOperation, ok := input.Operations[input.Details.ReadMethod.MethodName]
 	if !ok {
-		// TODO: thread through errors
-		panic(fmt.Sprintf("couldn't find Read operation for create operation named %q", input.Details.ReadMethod.MethodName))
+		return nil, fmt.Errorf("couldn't find Read operation for create operation named %q", input.Details.ReadMethod.MethodName)
 	}
 
 	resourceId, ok := input.ResourceIds[input.Details.ResourceIdName]
 	if !ok {
-		// TODO: thread through errors
-		panic(fmt.Sprintf("couldn't find Resource ID %q for Create Method", input.Details.ResourceIdName))
+		return nil, fmt.Errorf("couldn't find Resource ID %q for Create Method", input.Details.ResourceIdName)
 	}
 
 	newResourceIdFuncName, err := input.NewResourceIdFuncName()
 	if err != nil {
-		// TODO: thread through errors
-		panic(fmt.Sprintf("obtaining New Resource ID Function for Create Method: %+v", err))
+		return nil, fmt.Errorf("obtaining New Resource ID Function for Create Method: %+v", err)
 	}
 
 	terraformModel, ok := input.SchemaModels[input.SchemaModelName]
 	if !ok {
-		// TODO: thread through errors
-		panic(fmt.Errorf("internal-error: schema model %q was not found", input.SchemaModelName))
+		return nil, fmt.Errorf("internal-error: schema model %q was not found", input.SchemaModelName)
 	}
 
 	helper := createFunctionComponents{
@@ -67,16 +62,25 @@ func createFunctionForResource(input models.ResourceInput) string {
 		resourceId:            resourceId,
 		terraformModel:        terraformModel,
 	}
-	components := []string{
-		helper.schemaDeserialization(),
-		helper.idDefinitionAndMapping(),
-		helper.requiresImport(),
-		helper.payloadDefinition(),
-		helper.mappingsFromSchema(),
-		helper.create(),
+	components := []func() (*string, error){
+		helper.schemaDeserialization,
+		helper.idDefinitionAndMapping,
+		helper.requiresImport,
+		helper.payloadDefinition,
+		helper.mappingsFromSchema,
+		helper.create,
+	}
+	lines := make([]string, 0)
+	for i, component := range components {
+		result, err := component()
+		if err != nil {
+			return nil, fmt.Errorf("running component %d: %+v", i, err)
+		}
+
+		lines = append(lines, *result)
 	}
 
-	return fmt.Sprintf(`
+	output := fmt.Sprintf(`
 func (r %[1]sResource) Create() sdk.ResourceFunc {
 	return sdk.ResourceFunc{
 		Timeout: %[2]d * time.Minute,
@@ -90,20 +94,22 @@ func (r %[1]sResource) Create() sdk.ResourceFunc {
 		},
 	}
 }
-`, input.ResourceTypeName, input.Details.CreateMethod.TimeoutInMinutes, input.ServiceName, strings.Join(components, "\n"))
+`, input.ResourceTypeName, input.Details.CreateMethod.TimeoutInMinutes, input.ServiceName, strings.Join(lines, "\n"))
+	return &output, nil
 }
 
-func (h createFunctionComponents) create() string {
+func (h createFunctionComponents) create() (*string, error) {
 	methodName := methodNameToCallForOperation(h.createMethod, h.createMethodName)
 	methodArguments := argumentsForApiOperationMethod(h.createMethod, h.sdkResourceName, h.createMethodName, false)
-	return fmt.Sprintf(`
+	output := fmt.Sprintf(`
 			if err := client.%[1]s(%[2]s); err != nil {
 				return fmt.Errorf("creating %%s: %%+v", id, err)
 			}
 `, methodName, methodArguments)
+	return &output, nil
 }
 
-func (h createFunctionComponents) idDefinitionAndMapping() string {
+func (h createFunctionComponents) idDefinitionAndMapping() (*string, error) {
 	newIdFuncName := h.newResourceIdFuncName
 	segments := make([]string, 0)
 
@@ -125,8 +131,7 @@ func (h createFunctionComponents) idDefinitionAndMapping() string {
 			{
 				topLevelFieldForResourceIdSegment, err := findTopLevelFieldForResourceIdSegment(v.Name, h.terraformModel)
 				if err != nil {
-					// TODO: error handling
-					panic(fmt.Errorf("finding mapping for resource id segment %q: %+v", v.Name, err))
+					return nil, fmt.Errorf("finding mapping for resource id segment %q: %+v", v.Name, err)
 				}
 
 				if topLevelFieldForResourceIdSegment != nil {
@@ -136,35 +141,37 @@ func (h createFunctionComponents) idDefinitionAndMapping() string {
 		}
 	}
 
-	return fmt.Sprintf(`
+	output := fmt.Sprintf(`
 %[3]s
 id := %[1]s(%[2]s)
 `, newIdFuncName, strings.Join(segments, ", "), subscriptionIdDefinition)
+	return &output, nil
 }
 
-func (h createFunctionComponents) payloadDefinition() string {
+func (h createFunctionComponents) payloadDefinition() (*string, error) {
 	// NOTE: whilst Payload is _technically_ optional in the API endpoint it's not, else it
 	// wouldn't be a Create method
 	createObjectName, err := h.createMethod.RequestObject.GolangTypeName(&h.sdkResourceName)
 	if err != nil {
-		// TODO: thread through errors
-		panic(fmt.Sprintf("determining Golang Type name for Create Request Object: %+v", err))
+		return nil, fmt.Errorf("determining Golang Type name for Create Request Object: %+v", err)
 	}
 
-	return fmt.Sprintf(`
+	output := fmt.Sprintf(`
 			payload := %[1]s{}
 `, *createObjectName)
+	return &output, nil
 }
 
-func (h createFunctionComponents) mappingsFromSchema() string {
-	return `
+func (h createFunctionComponents) mappingsFromSchema() (*string, error) {
+	output := `
 			// TODO: mapping from the Schema -> Payload
 `
+	return &output, nil
 }
 
-func (h createFunctionComponents) requiresImport() string {
+func (h createFunctionComponents) requiresImport() (*string, error) {
 	readMethodArguments := argumentsForApiOperationMethod(h.readMethod, h.sdkResourceName, h.readMethodName, false)
-	return fmt.Sprintf(`
+	output := fmt.Sprintf(`
 			existing, err := client.%[1]s(%[2]s)
 			if err != nil {
 				if !response.WasNotFound(existing.HttpResponse) {
@@ -175,13 +182,15 @@ func (h createFunctionComponents) requiresImport() string {
 				return metadata.ResourceRequiresImport(r.ResourceType(), id)
 			}
 `, h.readMethodName, readMethodArguments)
+	return &output, nil
 }
 
-func (h createFunctionComponents) schemaDeserialization() string {
-	return fmt.Sprintf(`
+func (h createFunctionComponents) schemaDeserialization() (*string, error) {
+	output := fmt.Sprintf(`
 			var config %[1]sResourceModel
 			if err := metadata.Decode(&config); err != nil {
 				return fmt.Errorf("decoding: %%+v", err)
 			}
 `, h.resourceTypeName)
+	return &output, nil
 }

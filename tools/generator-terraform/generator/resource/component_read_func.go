@@ -15,35 +15,31 @@ type readFunctionComponents struct {
 	terraformModel resourcemanager.TerraformSchemaModelDefinition
 }
 
-func readFunctionForResource(input models.ResourceInput) string {
+func readFunctionForResource(input models.ResourceInput) (*string, error) {
 	if !input.Details.ReadMethod.Generate {
-		return ""
+		return nil, nil
 	}
 
 	idParseLine, err := input.ParseResourceIdFuncName()
 	if err != nil {
-		// TODO: thread through errors
-		panic(err)
+		return nil, fmt.Errorf("determining Parse function name for Resource ID: %+v", err)
 	}
 
 	readOperation, ok := input.Operations[input.Details.ReadMethod.MethodName]
 	if !ok {
-		// TODO: thread through errors
-		panic(fmt.Sprintf("couldn't find read operation named %q", input.Details.ReadMethod.MethodName))
+		return nil, fmt.Errorf("couldn't find read operation named %q", input.Details.ReadMethod.MethodName)
 	}
 
 	methodArguments := argumentsForApiOperationMethod(readOperation, input.SdkResourceName, input.Details.ReadMethod.MethodName, true)
 
 	terraformModel, ok := input.SchemaModels[input.SchemaModelName]
 	if !ok {
-		// TODO: real errors
-		panic(fmt.Errorf("the Schema Model named %q was not found", input.SchemaModelName))
+		return nil, fmt.Errorf("the Schema Model named %q was not found", input.SchemaModelName)
 	}
 
 	resourceId, ok := input.ResourceIds[input.Details.ResourceIdName]
 	if !ok {
-		// TODO: real errors
-		panic(fmt.Errorf("the Resource ID named %q was not found", input.Details.ResourceIdName))
+		return nil, fmt.Errorf("the Resource ID named %q was not found", input.Details.ResourceIdName)
 	}
 
 	components := readFunctionComponents{
@@ -55,8 +51,7 @@ func readFunctionForResource(input models.ResourceInput) string {
 	// first map all of the Resource ID segments across
 	resourceIdMappingLines, err := components.codeForResourceIdMappings()
 	if err != nil {
-		// TODO: real errors
-		panic(fmt.Errorf("building code for Resource ID Mappings: %+v", err))
+		return nil, fmt.Errorf("building code for Resource ID Mappings: %+v", err)
 	}
 	lines = append(lines, *resourceIdMappingLines)
 
@@ -64,13 +59,12 @@ func readFunctionForResource(input models.ResourceInput) string {
 
 	//readObjectName, err := readOperation.ResponseObject.GolangTypeName(&input.SdkResourceName)
 	//if err != nil {
-	//	// TODO: thread real errors through
-	//	panic(fmt.Errorf("building golang type name for read operation: %+v", err))
+	//	return nil, fmt.Errorf("building golang type name for read operation: %+v", err)
 	//}
 
 	// TODO: marshal method
 
-	return fmt.Sprintf(`
+	output := fmt.Sprintf(`
 func (r %[1]sResource) Read() sdk.ResourceFunc {
 	return sdk.ResourceFunc{
 		Timeout: %[2]d * time.Minute,
@@ -101,6 +95,7 @@ func (r %[1]sResource) Read() sdk.ResourceFunc {
 	}
 }
 `, input.ResourceTypeName, input.Details.ReadMethod.TimeoutInMinutes, input.ServiceName, *idParseLine, input.Details.ReadMethod.MethodName, methodArguments, input.SchemaModelName, strings.Join(lines, "\n"))
+	return &output, nil
 }
 
 func (c readFunctionComponents) codeForResourceIdMappings() (*string, error) {
@@ -119,8 +114,7 @@ func (c readFunctionComponents) codeForResourceIdMappings() (*string, error) {
 
 		topLevelFieldForResourceIdSegment, err := findTopLevelFieldForResourceIdSegment(v.Name, c.terraformModel)
 		if err != nil {
-			// TODO: error handling
-			panic(fmt.Errorf("finding mapping for resource id segment %q: %+v", v.Name, err))
+			return nil, fmt.Errorf("finding mapping for resource id segment %q: %+v", v.Name, err)
 		}
 
 		lines = append(lines, fmt.Sprintf("schema.%s = id.%s", *topLevelFieldForResourceIdSegment, strings.Title(v.Name)))

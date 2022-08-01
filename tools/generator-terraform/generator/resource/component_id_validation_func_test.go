@@ -23,9 +23,13 @@ func TestComponentIDValidationFunc_CommonResourceID_Disabled(t *testing.T) {
 			},
 		},
 	}
-	actual := strings.TrimSpace(idValidationFunctionForResource(input))
-	expected := ""
-	assertTemplatedCodeMatches(t, expected, actual)
+	actual, err := idValidationFunctionForResource(input)
+	if err != nil {
+		t.Fatalf("error: %+v", err)
+	}
+	if actual != nil {
+		t.Fatalf("expected `actual` to be nil but got %q", *actual)
+	}
 }
 
 func TestComponentIDValidationFunc_CommonResourceID_Enabled(t *testing.T) {
@@ -42,13 +46,16 @@ func TestComponentIDValidationFunc_CommonResourceID_Enabled(t *testing.T) {
 			},
 		},
 	}
-	actual := strings.TrimSpace(idValidationFunctionForResource(input))
+	actual, err := idValidationFunctionForResource(input)
+	if err != nil {
+		t.Fatalf("error: %+v", err)
+	}
 	expected := strings.TrimSpace(`
 func (r ExampleResource) IDValidationFunc() pluginsdk.SchemaValidateFunc {
 	return commonids.ValidateSubscriptionID
 }
 `)
-	assertTemplatedCodeMatches(t, expected, actual)
+	assertTemplatedCodeMatches(t, expected, *actual)
 }
 
 func TestComponentIDValidationFunc_RegularResourceID_Disabled(t *testing.T) {
@@ -78,9 +85,13 @@ func TestComponentIDValidationFunc_RegularResourceID_Disabled(t *testing.T) {
 			},
 		},
 	}
-	actual := strings.TrimSpace(idValidationFunctionForResource(input))
-	expected := ""
-	assertTemplatedCodeMatches(t, expected, actual)
+	actual, err := idValidationFunctionForResource(input)
+	if err != nil {
+		t.Fatalf("error: %+v", err)
+	}
+	if actual != nil {
+		t.Fatalf("expected `actual` to be nil but it wasn't: %q", *actual)
+	}
 }
 
 func TestComponentIDValidationFunc_RegularResourceID_Enabled(t *testing.T) {
@@ -110,11 +121,14 @@ func TestComponentIDValidationFunc_RegularResourceID_Enabled(t *testing.T) {
 			},
 		},
 	}
-	actual := strings.TrimSpace(idValidationFunctionForResource(input))
+	actual, err := idValidationFunctionForResource(input)
+	if err != nil {
+		t.Fatalf("error: %+v", err)
+	}
 	expected := strings.TrimSpace(`
 func (r ExampleResource) IDValidationFunc() pluginsdk.SchemaValidateFunc {
 	return sdkresource.ValidateCustomSubscriptionID
 }
 `)
-	assertTemplatedCodeMatches(t, expected, actual)
+	assertTemplatedCodeMatches(t, expected, *actual)
 }

@@ -1,7 +1,6 @@
 package resource
 
 import (
-	"strings"
 	"testing"
 
 	"github.com/hashicorp/pandora/tools/generator-terraform/generator/models"
@@ -11,7 +10,10 @@ func TestComponentPackageDefinition(t *testing.T) {
 	input := models.ResourceInput{
 		ServicePackageName: "example",
 	}
-	actual := strings.TrimSpace(packageDefinitionForResource(input))
+	actual, err := packageDefinitionForResource(input)
+	if err != nil {
+		t.Fatalf("retrieving package definition: %+v", err)
+	}
 	expected := `package example`
-	assertTemplatedCodeMatches(t, expected, actual)
+	assertTemplatedCodeMatches(t, expected, *actual)
 }

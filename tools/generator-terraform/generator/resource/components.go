@@ -1,29 +1,47 @@
 package resource
 
 import (
+	"strings"
+
 	"github.com/hashicorp/pandora/tools/generator-terraform/generator/models"
 )
 
-func componentsForResource(input models.ResourceInput) []string {
-	return []string{
+func codeForResource(input models.ResourceInput) (*string, error) {
+	components := []func(input models.ResourceInput) (*string, error){
 		// NOTE: the ordering is important, components can opt in/out of generation
-		packageDefinitionForResource(input),
-		generationNoteForResource(),
-		copyrightLinesForResource(input),
-		importsForResource(input),
-		definitionForResource(input),
+		packageDefinitionForResource,
+		generationNoteForResource,
+		copyrightLinesForResource,
+		importsForResource,
+		definitionForResource,
 
 		// then the functions
-		idValidationFunctionForResource(input),
-		typeFuncForResource(input),
-		argumentsCodeFunctionForResource(input),
-		attributesCodeFunctionForResource(input),
-		createFunctionForResource(input),
+		idValidationFunctionForResource,
+		typeFuncForResource,
+		argumentsCodeFunctionForResource,
+		attributesCodeFunctionForResource,
+		createFunctionForResource,
 		// TODO: Mappings
-		readFunctionForResource(input),
-		deleteFunctionForResource(input),
+		readFunctionForResource,
+		deleteFunctionForResource,
 		// TODO: Typed Model & Model func.
-		updateFuncForResource(input),
-		methodsYetToBeImplementedForResource(input),
+		updateFuncForResource,
+		methodsYetToBeImplementedForResource,
 	}
+
+	lines := make([]string, 0)
+	for _, component := range components {
+		line, err := component(input)
+		if err != nil {
+			return nil, err
+		}
+
+		// components can opt-out of generation so if it's not generating anything
+		// do nothing
+		if line != nil {
+			lines = append(lines, *line)
+		}
+	}
+	output := strings.Join(lines, "\n")
+	return &output, nil
 }

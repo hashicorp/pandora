@@ -6,8 +6,8 @@ import (
 	"github.com/hashicorp/pandora/tools/generator-terraform/generator/models"
 )
 
-func methodsYetToBeImplementedForResource(input models.ResourceInput) string {
-	return fmt.Sprintf(`
+func methodsYetToBeImplementedForResource(input models.ResourceInput) (*string, error) {
+	output := fmt.Sprintf(`
 // TODO: the methods below this point are yet to be implemented
 // but are output purely to keep the compiler for happy in the short-term
 // by ensuring that this Resource correctly implements 'sdk.Resource'
@@ -21,4 +21,5 @@ type %[1]sResourceModel struct {
 	// TODO: this is purely a placeholder to make it compile for now
 }
 `, input.ResourceTypeName)
+	return &output, nil
 }
