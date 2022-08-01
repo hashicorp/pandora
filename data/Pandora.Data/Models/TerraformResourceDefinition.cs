@@ -6,6 +6,7 @@ public class TerraformResourceDefinition
     public TerraformMethodDefinition CreateMethod { get; set; }
     public TerraformMethodDefinition DeleteMethod { get; set; }
     public string DisplayName { get; set; }
+    public bool GenerateModel { get; set; }
     public bool GenerateIDValidationFunction { get; set; }
     public bool GenerateSchema { get; set; }
     public TerraformMethodDefinition ReadMethod { get; set; }

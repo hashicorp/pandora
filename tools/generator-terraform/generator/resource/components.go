@@ -15,18 +15,21 @@ func codeForResource(input models.ResourceInput) (*string, error) {
 		importsForResource,
 		definitionForResource,
 
-		// then the functions
+		// then the Top-Level Typed Model/it's function definition
+		codeForTopLevelTypedModelAndDefinition,
+
+		// then the other functions
 		idValidationFunctionForResource,
 		typeFuncForResource,
 		argumentsCodeFunctionForResource,
 		attributesCodeFunctionForResource,
 		createFunctionForResource,
-		// TODO: Mappings
 		readFunctionForResource,
 		deleteFunctionForResource,
-		// TODO: Typed Model & Model func.
 		updateFuncForResource,
-		methodsYetToBeImplementedForResource,
+
+		// TODO: Mappings
+		codeForNonTopLevelModels,
 	}
 
 	lines := make([]string, 0)

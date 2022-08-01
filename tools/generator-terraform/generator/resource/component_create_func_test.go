@@ -242,7 +242,7 @@ func (r ExampleResource) Create() sdk.ResourceFunc {
 		Timeout: 20 * time.Minute,
 		Func: func(ctx context.Context, metadata sdk.ResourceMetaData) error {
 			client := metadata.Client.ExampleService.Example
-			var config ExampleResourceModel
+			var config ExampleResource
 			if err := metadata.Decode(&config); err != nil {
 				return fmt.Errorf("decoding: %+v", err)
 			}
@@ -649,12 +649,13 @@ func TestComponentCreate_MappingsFromSchema(t *testing.T) {
 func TestComponentCreate_SchemaDeserialization(t *testing.T) {
 	actual, err := createFunctionComponents{
 		resourceTypeName: "AwesomeResource",
+		schemaModelName:  "AwesomeResourceTypedModel",
 	}.schemaDeserialization()
 	if err != nil {
 		t.Fatalf("error: %+v", err)
 	}
 	expected := `
-			var config AwesomeResourceResourceModel
+			var config AwesomeResourceTypedModel
 			if err := metadata.Decode(&config); err != nil {
 				return fmt.Errorf("decoding: %+v", err)
 			}

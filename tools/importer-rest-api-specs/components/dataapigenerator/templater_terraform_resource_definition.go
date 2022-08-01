@@ -31,6 +31,7 @@ public class %[2]sResource : TerraformResourceDefinition
     public string ResourceLabel => "%[7]s";
 
     public bool GenerateIDValidationFunction => true;
+    public bool GenerateModel => true;
     public bool GenerateSchema => true;
 
     %[8]s

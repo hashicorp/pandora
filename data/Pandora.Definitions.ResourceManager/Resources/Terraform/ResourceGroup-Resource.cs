@@ -9,6 +9,7 @@ public class ResourceGroupResource : TerraformResourceDefinition
     public string ResourceLabel => "resource_group";
 
     public bool GenerateIDValidationFunction => true;
+    public bool GenerateModel => true;
     public bool GenerateSchema => true;
 
     public MethodDefinition CreateMethod => new MethodDefinition

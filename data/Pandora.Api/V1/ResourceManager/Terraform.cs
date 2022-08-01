@@ -59,8 +59,9 @@ resource 'example_resource' 'example' {
                 // TODO: does the top level object need a List<Categories> for the ServiceDefinition?
             },
             Resource = input.Resource,
-            GenerateSchema = input.GenerateSchema,
+            GenerateModel = input.GenerateModel,
             GenerateIdValidation = input.GenerateIDValidationFunction,
+            GenerateSchema = input.GenerateSchema,
             ReadMethod = MapMethodDefinition(input.ReadMethod),
             ResourceName = input.ResourceName,
             ResourceIdName = input.ResourceIdName,
@@ -506,13 +507,16 @@ resource 'example_resource' 'example' {
         public ResourceDocumentationDefinition Documentation { get; set; }
 
         [JsonPropertyName("generate")]
-        public bool Generate => DeleteMethod.Generate || GenerateSchema || GenerateIdValidation;
+        public bool Generate => DeleteMethod.Generate || GenerateModel || GenerateIdValidation || GenerateSchema;
 
-        [JsonPropertyName("generateSchema")]
-        public bool GenerateSchema { get; set; }
+        [JsonPropertyName("generateModel")]
+        public bool GenerateModel { get; set; }
 
         [JsonPropertyName("generateIdValidation")]
         public bool GenerateIdValidation { get; set; }
+
+        [JsonPropertyName("generateSchema")]
+        public bool GenerateSchema { get; set; }
 
         [JsonPropertyName("readMethod")]
         public MethodDefinition ReadMethod { get; set; }

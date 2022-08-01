@@ -116,6 +116,7 @@ func TestComponentUpdate_HappyPathEnabled_CommonId_SharedModels(t *testing.T) {
 		SdkApiVersion:      "sdkapiversion",
 		SdkResourceName:    "sdkresource",
 		SdkServiceName:     "sdkservice",
+		SchemaModelName:    "MyTypedModel",
 	}
 	actual, err := updateFuncForResource(input)
 	if err != nil {
@@ -131,7 +132,7 @@ func TestComponentUpdate_HappyPathEnabled_CommonId_SharedModels(t *testing.T) {
 				if err != nil {
 					return err
 				}
-				var config MyResourceResourceModel
+				var config MyTypedModel
 				if err := metadata.Decode(&config); err != nil {
 					return fmt.Errorf("decoding: %+v", err)
 				}
@@ -247,6 +248,7 @@ func TestComponentUpdate_HappyPathEnabled_CommonId_UniqueModels(t *testing.T) {
 		SdkApiVersion:      "sdkapiversion",
 		SdkResourceName:    "sdkresource",
 		SdkServiceName:     "sdkservice",
+		SchemaModelName:    "MyTypedModel",
 	}
 	actual, err := updateFuncForResource(input)
 	if err != nil {
@@ -262,7 +264,7 @@ func TestComponentUpdate_HappyPathEnabled_CommonId_UniqueModels(t *testing.T) {
 				if err != nil {
 					return err
 				}
-				var config MyResourceResourceModel
+				var config MyTypedModel
 				if err := metadata.Decode(&config); err != nil {
 					return fmt.Errorf("decoding: %+v", err)
 				}
@@ -361,6 +363,7 @@ func TestComponentUpdate_HappyPathEnabled_RegularResourceID_SharedModels(t *test
 		SdkApiVersion:      "sdkapiversion",
 		SdkResourceName:    "sdkresource",
 		SdkServiceName:     "sdkservice",
+		SchemaModelName:    "MyTypedModel",
 	}
 	actual, err := updateFuncForResource(input)
 	if err != nil {
@@ -376,7 +379,7 @@ func TestComponentUpdate_HappyPathEnabled_RegularResourceID_SharedModels(t *test
 				if err != nil {
 					return err
 				}
-				var config MyResourceResourceModel
+				var config MyTypedModel
 				if err := metadata.Decode(&config); err != nil {
 					return fmt.Errorf("decoding: %+v", err)
 				}
@@ -492,6 +495,7 @@ func TestComponentUpdate_HappyPathEnabled_RegularResourceID_UniqueModels(t *test
 		SdkApiVersion:      "sdkapiversion",
 		SdkResourceName:    "sdkresource",
 		SdkServiceName:     "sdkservice",
+		SchemaModelName:    "MyTypedModel",
 	}
 	actual, err := updateFuncForResource(input)
 	if err != nil {
@@ -507,7 +511,7 @@ func TestComponentUpdate_HappyPathEnabled_RegularResourceID_UniqueModels(t *test
 				if err != nil {
 					return err
 				}
-				var config MyResourceResourceModel
+				var config MyTypedModel
 				if err := metadata.Decode(&config); err != nil {
 					return fmt.Errorf("decoding: %+v", err)
 				}
@@ -538,12 +542,13 @@ func TestComponentUpdate_MappingsFromSchema(t *testing.T) {
 func TestComponentUpdate_ModelDecode(t *testing.T) {
 	actual, err := updateFuncHelpers{
 		resourceTypeName: "AwesomeResource",
+		schemaModelName:  "MyTypedModel",
 	}.modelDecode()
 	if err != nil {
 		t.Fatalf("error: %+v", err)
 	}
 	expected := `
-			var config AwesomeResourceResourceModel
+			var config MyTypedModel
 			if err := metadata.Decode(&config); err != nil {
 				return fmt.Errorf("decoding: %+v", err)
 			}
