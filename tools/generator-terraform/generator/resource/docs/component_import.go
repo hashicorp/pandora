@@ -49,29 +49,29 @@ terraform import %[2]s_%[3]s.example %[4]s
 func descriptionsForSegment(segment resourcemanager.ResourceIdSegment, resourceId resourcemanager.ResourceIdDefinition, details resourcemanager.TerraformResourceDetails, constants map[string]resourcemanager.ConstantDetails) (*string, error) {
 	if segment.Type == resourcemanager.ResourceGroupSegment {
 		if isCommonResourceIdNamed("ResourceGroup", resourceId) {
-			out := fmt.Sprintf("is the name of this %[1]s. (For example '%[2]s').", details.DisplayName, segment.ExampleValue)
+			out := fmt.Sprintf("is the name of this %[1]s. For example '%[2]s'.", details.DisplayName, segment.ExampleValue)
 			return &out, nil
 		}
 
-		out := fmt.Sprintf("is the name of Resource Group where this %[1]s exists. (For example '%[2]s').", details.DisplayName, segment.ExampleValue)
+		out := fmt.Sprintf("is the name of Resource Group where this %[1]s exists. For example '%[2]s'.", details.DisplayName, segment.ExampleValue)
 		return &out, nil
 	}
 	if segment.Type == resourcemanager.SubscriptionIdSegment {
 		if isCommonResourceIdNamed("Subscription", resourceId) {
-			out := fmt.Sprintf("is the ID of this %[1]s. (For example '%[2]s').", details.DisplayName, segment.ExampleValue)
+			out := fmt.Sprintf("is the ID of this %[1]s. For example '%[2]s'.", details.DisplayName, segment.ExampleValue)
 			return &out, nil
 		}
 
-		out := fmt.Sprintf("is the ID of the Azure Subscription where the %[1]s exists. (For example '%[2]s').", details.DisplayName, segment.ExampleValue)
+		out := fmt.Sprintf("is the ID of the Azure Subscription where the %[1]s exists. For example '%[2]s'.", details.DisplayName, segment.ExampleValue)
 		return &out, nil
 	}
 	if segment.Type == resourcemanager.ScopeSegment {
 		if isCommonResourceIdNamed("Scope", resourceId) {
-			out := fmt.Sprintf("is the Azure Resource Scope under which this %[1]s exists. (For example '%[2]s').", details.DisplayName, segment.ExampleValue)
+			out := fmt.Sprintf("is the Azure Resource Scope under which this %[1]s exists. For example '%[2]s'.", details.DisplayName, segment.ExampleValue)
 			return &out, nil
 		}
 
-		out := fmt.Sprintf("is the ID of the Azure Resource under which the %[1]s exists. (For example '%[2]s').", details.DisplayName, segment.ExampleValue)
+		out := fmt.Sprintf("is the ID of the Azure Resource under which the %[1]s exists. For example '%[2]s'.", details.DisplayName, segment.ExampleValue)
 		return &out, nil
 	}
 

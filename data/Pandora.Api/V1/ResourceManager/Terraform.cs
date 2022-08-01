@@ -46,6 +46,18 @@ public class TerraformController : ControllerBase
             CreateMethod = MapMethodDefinition(input.CreateMethod),
             DeleteMethod = MapMethodDefinition(input.DeleteMethod),
             DisplayName = input.DisplayName,
+            Documentation = new ResourceDocumentationDefinition
+            {
+                // TODO: pipe this through
+                Category = "Example Category",
+                Description = "Some Description for this Resource",
+                ExampleUsageHcl = @"
+resource 'example_resource' 'example' {
+    example_field = '...'
+}
+".Replace("'", "\""),
+                // TODO: does the top level object need a List<Categories> for the ServiceDefinition?
+            },
             Resource = input.Resource,
             GenerateSchema = input.GenerateSchema,
             GenerateIdValidation = input.GenerateIDValidationFunction,
@@ -489,6 +501,9 @@ public class TerraformController : ControllerBase
 
         [JsonPropertyName("displayName")]
         public string DisplayName { get; set; }
+        
+        [JsonPropertyName("documentation")]
+        public ResourceDocumentationDefinition Documentation { get; set; }
 
         [JsonPropertyName("generate")]
         public bool Generate => DeleteMethod.Generate || GenerateSchema || GenerateIdValidation;
@@ -519,6 +534,18 @@ public class TerraformController : ControllerBase
 
         [JsonPropertyName("updateMethod")]
         public MethodDefinition? UpdateMethod { get; set; }
+    }
+
+    private class ResourceDocumentationDefinition
+    {
+        [JsonPropertyName("category")]
+        public string Category { get; set; }
+        
+        [JsonPropertyName("description")]
+        public string Description { get; set; }
+
+        [JsonPropertyName("exampleUsageHcl")]
+        public string ExampleUsageHcl { get; set; }
     }
 
     private class MethodDefinition
