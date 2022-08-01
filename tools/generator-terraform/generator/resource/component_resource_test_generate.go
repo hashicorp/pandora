@@ -6,14 +6,14 @@ import (
 	"github.com/hashicorp/pandora/tools/generator-terraform/generator/models"
 )
 
-func generateResourceTests(input models.ResourceInput) string {
+func generateResourceTests(input models.ResourceInput) (*string, error) {
 	if !input.Details.ReadMethod.Generate {
-		return ""
+		return nil, nil
 	}
 
 	//todo add generated test attributes
 
-	return fmt.Sprintf(`
+	output := fmt.Sprintf(`
 func TestAcc%[1]s_basic(t *testing.T) {
 	data := acceptance.BuildTestData(t, "%[2]s_%[3]s", "test")
 	r := %[1]sResource{}
@@ -109,4 +109,5 @@ resource "%[2]s_%[3]s" "test" {
 }
 %[4]s)}
 `, input.ResourceTypeName, input.ProviderPrefix, input.ResourceLabel, "`")
+	return &output, nil
 }

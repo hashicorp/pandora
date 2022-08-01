@@ -3,7 +3,6 @@ package resource
 import (
 	"github.com/hashicorp/pandora/tools/generator-terraform/generator/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
-	"strings"
 	"testing"
 )
 
@@ -14,8 +13,8 @@ func TestExistsFuncForResourceTest_CommonId_Disabled(t *testing.T) {
 		ServiceName:      "Resources",
 		Details: resourcemanager.TerraformResourceDetails{
 			ReadMethod: resourcemanager.MethodDefinition{
-				Generate:         false,
-				MethodName:       "Get",
+				Generate:   false,
+				MethodName: "Get",
 			},
 			ResourceIdName: "CustomSubscriptionId",
 		},
@@ -31,11 +30,14 @@ func TestExistsFuncForResourceTest_CommonId_Disabled(t *testing.T) {
 			},
 		},
 	}
-	actual := strings.TrimSpace(existsFuncForResourceTest(input))
-	expected := ""
-	assertTemplatedCodeMatches(t, expected, actual)
+	actual, err := existsFuncForResourceTest(input)
+	if err != nil {
+		t.Fatalf("error: %+v", err)
+	}
+	if actual != nil {
+		t.Fatalf("expected `actual` to be nil but got %q", *actual)
+	}
 }
-
 
 func TestExistsFuncForResourceTest_RegularResourceId_Disabled(t *testing.T) {
 	input := models.ResourceInput{
@@ -44,8 +46,8 @@ func TestExistsFuncForResourceTest_RegularResourceId_Disabled(t *testing.T) {
 		ServiceName:      "Resources",
 		Details: resourcemanager.TerraformResourceDetails{
 			ReadMethod: resourcemanager.MethodDefinition{
-				Generate:         false,
-				MethodName:       "Get",
+				Generate:   false,
+				MethodName: "Get",
 			},
 			ResourceIdName: "CustomSubscriptionId",
 		},
@@ -61,11 +63,14 @@ func TestExistsFuncForResourceTest_RegularResourceId_Disabled(t *testing.T) {
 			},
 		},
 	}
-	actual := strings.TrimSpace(existsFuncForResourceTest(input))
-	expected := ""
-	assertTemplatedCodeMatches(t, expected, actual)
+	actual, err := existsFuncForResourceTest(input)
+	if err != nil {
+		t.Fatalf("error: %+v", err)
+	}
+	if actual != nil {
+		t.Fatalf("expected `actual` to be nil but got %q", *actual)
+	}
 }
-
 
 func TestExistsFuncForResourceTest_CommonId_Enabled(t *testing.T) {
 	input := models.ResourceInput{
@@ -74,8 +79,8 @@ func TestExistsFuncForResourceTest_CommonId_Enabled(t *testing.T) {
 		ServiceName:      "Resources",
 		Details: resourcemanager.TerraformResourceDetails{
 			ReadMethod: resourcemanager.MethodDefinition{
-				Generate:         true,
-				MethodName:       "Get",
+				Generate:   true,
+				MethodName: "Get",
 			},
 			ResourceIdName: "CustomSubscriptionId",
 		},
@@ -91,7 +96,10 @@ func TestExistsFuncForResourceTest_CommonId_Enabled(t *testing.T) {
 			},
 		},
 	}
-	actual := strings.TrimSpace(existsFuncForResourceTest(input))
+	actual, err := existsFuncForResourceTest(input)
+	if err != nil {
+		t.Fatalf("error: %+v", err)
+	}
 	expected := `
 func (r ExampleResource) Exists(ctx context.Context, clients *clients.Client, state *pluginsdk.InstanceState) (*bool, error) {
 	id, err := commonids.ParseSubscriptionID(state.ID)
@@ -107,7 +115,7 @@ func (r ExampleResource) Exists(ctx context.Context, clients *clients.Client, st
 	return utils.Bool(resp.Model != nil), nil
 }
 `
-	assertTemplatedCodeMatches(t, expected, actual)
+	assertTemplatedCodeMatches(t, expected, *actual)
 }
 
 func TestExistsFuncForResourceTest_RegularResourceId_Enabled(t *testing.T) {
@@ -135,7 +143,10 @@ func TestExistsFuncForResourceTest_RegularResourceId_Enabled(t *testing.T) {
 			},
 		},
 	}
-	actual := strings.TrimSpace(existsFuncForResourceTest(input))
+	actual, err := existsFuncForResourceTest(input)
+	if err != nil {
+		t.Fatalf("error: %+v", err)
+	}
 	expected := `
 func (r ExampleResource) Exists(ctx context.Context, clients *clients.Client, state *pluginsdk.InstanceState) (*bool, error) {
 	id, err := sdkresource.ParseCustomSubscriptionID(state.ID)
@@ -151,5 +162,5 @@ func (r ExampleResource) Exists(ctx context.Context, clients *clients.Client, st
 	return utils.Bool(resp.Model != nil), nil
 }
 `
-	assertTemplatedCodeMatches(t, expected, actual)
+	assertTemplatedCodeMatches(t, expected, *actual)
 }

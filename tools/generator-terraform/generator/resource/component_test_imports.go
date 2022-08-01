@@ -5,8 +5,8 @@ import (
 	"github.com/hashicorp/pandora/tools/generator-terraform/generator/models"
 )
 
-func importsForResourceTest(input models.ResourceInput) string {
-	return fmt.Sprintf(`
+func importsForResourceTest(input models.ResourceInput) (*string, error) {
+	output := fmt.Sprintf(`
 import (
 	"context"
 	"fmt"
@@ -21,4 +21,5 @@ import (
 	"github.com/hashicorp/terraform-provider-azurerm/utils"
 )
 `, input.SdkServiceName, input.SdkApiVersion, input.SdkResourceName)
+	return &output, nil
 }

@@ -2,7 +2,6 @@ package resource
 
 import (
 	"fmt"
-	"strings"
 	"testing"
 
 	"github.com/hashicorp/pandora/tools/generator-terraform/generator/models"
@@ -23,7 +22,10 @@ func TestGenerateBasicTest_RegularResourceId_Enabled(t *testing.T) {
 			ResourceIdName: "CustomSubscriptionId",
 		},
 	}
-	actual := strings.TrimSpace(generateResourceTests(input))
+	actual, err := generateResourceTests(input)
+	if err != nil {
+		t.Fatalf("error: %+v", err)
+	}
 	expected := fmt.Sprintf(`
 func TestAccExample_basic(t *testing.T) {
 	data := acceptance.BuildTestData(t, "azurerm_example", "test")
@@ -120,5 +122,5 @@ resource "azurerm_example" "test" {
 }
 %[1]s)}
 `, "`")
-	assertTemplatedCodeMatches(t, expected, actual)
+	assertTemplatedCodeMatches(t, expected, *actual)
 }

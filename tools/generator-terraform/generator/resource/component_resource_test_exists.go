@@ -2,30 +2,27 @@ package resource
 
 import (
 	"fmt"
+
 	"github.com/hashicorp/pandora/tools/generator-terraform/generator/models"
 )
 
-func existsFuncForResourceTest(input models.ResourceInput) string {
+func existsFuncForResourceTest(input models.ResourceInput) (*string, error) {
 	if !input.Details.ReadMethod.Generate {
-		return ""
+		return nil, nil
 	}
 
 	idParseLine, err := input.ParseResourceIdFuncName()
 	if err != nil {
-		// TODO: thread through errors
-		panic(err)
+		return nil, fmt.Errorf("determining Parse function name for Resource ID: %+v", err)
 	}
 
 	readOperation, ok := input.Operations[input.Details.ReadMethod.MethodName]
 	if !ok {
-		// TODO: thread through errors
-		panic(fmt.Sprintf("couldn't find read operation named %q", input.Details.ReadMethod.MethodName))
+		return nil, fmt.Errorf("couldn't find read operation named %q", input.Details.ReadMethod.MethodName)
 	}
 
 	methodArguments := argumentsForApiOperationMethod(readOperation, input.SdkResourceName, input.Details.ReadMethod.MethodName, true)
-
-
-	return fmt.Sprintf(`
+	output := fmt.Sprintf(`
 func (r %[1]sResource) Exists(ctx context.Context, clients *clients.Client, state *pluginsdk.InstanceState) (*bool, error) {
 	id, err := %[2]s(state.ID)
 	if err != nil {
@@ -40,4 +37,5 @@ func (r %[1]sResource) Exists(ctx context.Context, clients *clients.Client, stat
 	return utils.Bool(resp.Model != nil), nil
 }
 `, input.ResourceTypeName, *idParseLine, input.ServiceName, input.Details.ReadMethod.MethodName, methodArguments)
+	return &output, nil
 }
