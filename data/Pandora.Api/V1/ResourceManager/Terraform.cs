@@ -502,7 +502,7 @@ resource 'example_resource' 'example' {
 
         [JsonPropertyName("displayName")]
         public string DisplayName { get; set; }
-        
+
         [JsonPropertyName("documentation")]
         public ResourceDocumentationDefinition Documentation { get; set; }
 
@@ -544,7 +544,7 @@ resource 'example_resource' 'example' {
     {
         [JsonPropertyName("category")]
         public string Category { get; set; }
-        
+
         [JsonPropertyName("description")]
         public string Description { get; set; }
 
