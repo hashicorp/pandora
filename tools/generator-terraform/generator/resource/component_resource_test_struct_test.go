@@ -14,6 +14,6 @@ func TestResourceTestStruct(t *testing.T) {
 	if err != nil {
 		t.Fatalf("error: %+v", err)
 	}
-	expected := `type ExampleResource struct{}`
+	expected := `type ExampleTestResource struct{}`
 	assertTemplatedCodeMatches(t, expected, *actual)
 }

@@ -108,7 +108,7 @@ func (r ExampleResource) Exists(ctx context.Context, clients *clients.Client, st
 		return nil, err
 	}
 
-	resp, err := clients.Resources.ExampleClient.Get(ctx, *id)
+	resp, err := clients.Resources.Example.Get(ctx, *id)
 	if err != nil {
 		return fmt.Errorf("reading %s: %+v", *id, err)
 	}
@@ -155,7 +155,7 @@ func (r ExampleResource) Exists(ctx context.Context, clients *clients.Client, st
 		return nil, err
 	}
 
-	resp, err := clients.Resources.ExampleClient.Get(ctx, *id)
+	resp, err := clients.Resources.Example.Get(ctx, *id)
 	if err != nil {
 		return fmt.Errorf("reading %s: %+v", *id, err)
 	}
