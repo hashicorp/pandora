@@ -127,7 +127,7 @@ func TestComponentUpdate_HappyPathEnabled_CommonId_SharedModels(t *testing.T) {
 		return sdk.ResourceFunc{
 			Timeout: 40 * time.Minute,
 			Func: func(ctx context.Context, metadata sdk.ResourceMetaData) error {
-				client := metadata.Client.Service1.MyResourceClient
+				client := metadata.Client.Service1.MyResource
 				id, err := commonids.ParseSomeCommonID(metadata.ResourceData.Id())
 				if err != nil {
 					return err
@@ -259,7 +259,7 @@ func TestComponentUpdate_HappyPathEnabled_CommonId_UniqueModels(t *testing.T) {
 		return sdk.ResourceFunc{
 			Timeout: 40 * time.Minute,
 			Func: func(ctx context.Context, metadata sdk.ResourceMetaData) error {
-				client := metadata.Client.Service1.MyResourceClient
+				client := metadata.Client.Service1.MyResource
 				id, err := commonids.ParseSomeCommonID(metadata.ResourceData.Id())
 				if err != nil {
 					return err
@@ -374,7 +374,7 @@ func TestComponentUpdate_HappyPathEnabled_RegularResourceID_SharedModels(t *test
 		return sdk.ResourceFunc{
 			Timeout: 40 * time.Minute,
 			Func: func(ctx context.Context, metadata sdk.ResourceMetaData) error {
-				client := metadata.Client.Service1.MyResourceClient
+				client := metadata.Client.Service1.MyResource
 				id, err := sdkresource.ParseSomeResourceID(metadata.ResourceData.Id())
 				if err != nil {
 					return err
@@ -506,7 +506,7 @@ func TestComponentUpdate_HappyPathEnabled_RegularResourceID_UniqueModels(t *test
 		return sdk.ResourceFunc{
 			Timeout: 40 * time.Minute,
 			Func: func(ctx context.Context, metadata sdk.ResourceMetaData) error {
-				client := metadata.Client.Service1.MyResourceClient
+				client := metadata.Client.Service1.MyResource
 				id, err := sdkresource.ParseSomeResourceID(metadata.ResourceData.Id())
 				if err != nil {
 					return err
