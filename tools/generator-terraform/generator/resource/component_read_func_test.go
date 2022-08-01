@@ -10,7 +10,7 @@ import (
 func TestComponentReadFunc_CommonId_Disabled(t *testing.T) {
 	input := models.ResourceInput{
 		ResourceTypeName: "Example",
-		SdkResourceName:  "sdkresource",
+		SdkResourceName:  "SdkResource",
 		ServiceName:      "Resources",
 		Details: resourcemanager.TerraformResourceDetails{
 			ReadMethod: resourcemanager.MethodDefinition{
@@ -44,7 +44,7 @@ func TestComponentReadFunc_CommonId_Disabled(t *testing.T) {
 func TestComponentReadFunc_RegularResourceId_Disabled(t *testing.T) {
 	input := models.ResourceInput{
 		ResourceTypeName: "Example",
-		SdkResourceName:  "sdkresource",
+		SdkResourceName:  "SdkResource",
 		ServiceName:      "Resources",
 		Details: resourcemanager.TerraformResourceDetails{
 			ReadMethod: resourcemanager.MethodDefinition{
@@ -78,7 +78,7 @@ func TestComponentReadFunc_RegularResourceId_Disabled(t *testing.T) {
 func TestComponentReadFunc_CommonId_Enabled(t *testing.T) {
 	input := models.ResourceInput{
 		ResourceTypeName: "Example",
-		SdkResourceName:  "sdkresource",
+		SdkResourceName:  "SdkResource",
 		ServiceName:      "Resources",
 		Details: resourcemanager.TerraformResourceDetails{
 			ReadMethod: resourcemanager.MethodDefinition{
@@ -148,7 +148,7 @@ func (r ExampleResource) Read() sdk.ResourceFunc {
 	return sdk.ResourceFunc{
         Timeout: 10 * time.Minute,
         Func: func(ctx context.Context, metadata sdk.ResourceMetaData) error {
-			client := metadata.Client.Resources.Example
+			client := metadata.Client.Resources.SdkResource
 			id, err := commonids.ParseSubscriptionID(metadata.ResourceData.Id())
 			if err != nil {
 				return err
@@ -175,7 +175,7 @@ func (r ExampleResource) Read() sdk.ResourceFunc {
 func TestComponentReadFunc_CommonId_Options_Enabled(t *testing.T) {
 	input := models.ResourceInput{
 		ResourceTypeName:   "Example",
-		SdkResourceName:    "sdkresource",
+		SdkResourceName:    "SdkResource",
 		ServiceName:        "Resources",
 		ServicePackageName: "sdkservicepackage",
 		Details: resourcemanager.TerraformResourceDetails{
@@ -255,7 +255,7 @@ func (r ExampleResource) Read() sdk.ResourceFunc {
 	return sdk.ResourceFunc{
         Timeout: 10 * time.Minute,
         Func: func(ctx context.Context, metadata sdk.ResourceMetaData) error {
-			client := metadata.Client.Resources.Example
+			client := metadata.Client.Resources.SdkResource
 			id, err := commonids.ParseSubscriptionID(metadata.ResourceData.Id())
 			if err != nil {
 				return err
@@ -283,7 +283,7 @@ func (r ExampleResource) Read() sdk.ResourceFunc {
 func TestComponentReadFunc_RegularResourceId_Enabled(t *testing.T) {
 	input := models.ResourceInput{
 		ResourceTypeName: "Example",
-		SdkResourceName:  "sdkresource",
+		SdkResourceName:  "SdkResource",
 		ServiceName:      "Resources",
 		Details: resourcemanager.TerraformResourceDetails{
 			ReadMethod: resourcemanager.MethodDefinition{
@@ -352,7 +352,7 @@ func (r ExampleResource) Read() sdk.ResourceFunc {
 	return sdk.ResourceFunc{
         Timeout: 10 * time.Minute,
         Func: func(ctx context.Context, metadata sdk.ResourceMetaData) error {
-			client := metadata.Client.Resources.Example
+			client := metadata.Client.Resources.SdkResource
 			id, err := sdkresource.ParseCustomSubscriptionID(metadata.ResourceData.Id())
 			if err != nil {
 				return err
@@ -379,7 +379,7 @@ func (r ExampleResource) Read() sdk.ResourceFunc {
 func TestComponentReadFunc_RegularResourceId_Options_Enabled(t *testing.T) {
 	input := models.ResourceInput{
 		ResourceTypeName:   "Example",
-		SdkResourceName:    "sdkresource",
+		SdkResourceName:    "SdkResource",
 		ServiceName:        "Resources",
 		ServicePackageName: "sdkservicepackage",
 		Details: resourcemanager.TerraformResourceDetails{
@@ -458,7 +458,7 @@ func (r ExampleResource) Read() sdk.ResourceFunc {
 	return sdk.ResourceFunc{
         Timeout: 10 * time.Minute,
         Func: func(ctx context.Context, metadata sdk.ResourceMetaData) error {
-			client := metadata.Client.Resources.Example
+			client := metadata.Client.Resources.SdkResource
 			id, err := sdkresource.ParseCustomSubscriptionID(metadata.ResourceData.Id())
 			if err != nil {
 				return err
