@@ -2,9 +2,10 @@ package resource
 
 import (
 	"fmt"
+	"os"
+
 	"github.com/hashicorp/pandora/tools/generator-terraform/generator/models"
 	"github.com/hashicorp/pandora/tools/generator-terraform/generator/resource/docs"
-	"os"
 )
 
 func Resource(input models.ResourceInput) error {

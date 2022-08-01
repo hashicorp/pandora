@@ -2,6 +2,7 @@ package resource
 
 import (
 	"fmt"
+
 	"github.com/hashicorp/pandora/tools/generator-terraform/generator/models"
 )
 

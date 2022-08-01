@@ -1,9 +1,10 @@
 package resource
 
 import (
-	"github.com/hashicorp/pandora/tools/generator-terraform/generator/models"
 	"strings"
 	"testing"
+
+	"github.com/hashicorp/pandora/tools/generator-terraform/generator/models"
 )
 
 func TestComponentTestImports(t *testing.T) {

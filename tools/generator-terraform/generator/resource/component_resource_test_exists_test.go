@@ -1,9 +1,10 @@
 package resource
 
 import (
+	"testing"
+
 	"github.com/hashicorp/pandora/tools/generator-terraform/generator/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
-	"testing"
 )
 
 func TestExistsFuncForResourceTest_CommonId_Disabled(t *testing.T) {
