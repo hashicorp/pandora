@@ -29,7 +29,7 @@ func (r %[1]sResource) Exists(ctx context.Context, clients *clients.Client, stat
 		return nil, err
 	}
 
-	resp, err := clients.%[3]s.%[1]sClient.%[4]s(%[5]s)
+	resp, err := clients.%[3]s.%[1]s.%[4]s(%[5]s)
 	if err != nil {
 		return fmt.Errorf("reading %%s: %%+v", *id, err)
 	}

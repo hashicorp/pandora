@@ -7,6 +7,6 @@ import (
 )
 
 func testResourceStruct(input models.ResourceInput) (*string, error) {
-	output := fmt.Sprintf("type %sResource struct{}", input.ResourceTypeName)
+	output := fmt.Sprintf("type %sTestResource struct{}", input.ResourceTypeName)
 	return &output, nil
 }
