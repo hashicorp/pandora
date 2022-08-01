@@ -16,6 +16,7 @@ type createFunctionComponents struct {
 	createMethodName       string
 	resourceTypeName       string
 	schemaModelName        string
+	sdkResourceName        string
 	sdkResourceNameLowered string
 	newResourceIdFuncName  string
 	resourceId             resourcemanager.ResourceIdDefinition
@@ -60,6 +61,7 @@ func createFunctionForResource(input models.ResourceInput) (*string, error) {
 		resourceTypeName:       input.ResourceTypeName,
 		schemaModelName:        input.SchemaModelName,
 		sdkResourceNameLowered: strings.ToLower(input.SdkResourceName),
+		sdkResourceName:        input.SdkResourceName,
 		newResourceIdFuncName:  *newResourceIdFuncName,
 		resourceId:             resourceId,
 		terraformModel:         terraformModel,
@@ -87,16 +89,16 @@ func (r %[1]sResource) Create() sdk.ResourceFunc {
 	return sdk.ResourceFunc{
 		Timeout: %[2]d * time.Minute,
 		Func: func(ctx context.Context, metadata sdk.ResourceMetaData) error {
-			client := metadata.Client.%[3]s.%[1]s
+			client := metadata.Client.%[3]s.%[4]s
 
-			%[4]s
+			%[5]s
 
 			metadata.SetID(id)
 			return nil
 		},
 	}
 }
-`, input.ResourceTypeName, input.Details.CreateMethod.TimeoutInMinutes, input.ServiceName, strings.Join(lines, "\n"))
+`, input.ResourceTypeName, input.Details.CreateMethod.TimeoutInMinutes, input.ServiceName, input.SdkResourceName, strings.Join(lines, "\n"))
 	return &output, nil
 }
 
