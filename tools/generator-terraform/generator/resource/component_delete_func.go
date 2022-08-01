@@ -6,27 +6,25 @@ import (
 	"github.com/hashicorp/pandora/tools/generator-terraform/generator/models"
 )
 
-func deleteFunctionForResource(input models.ResourceInput) string {
+func deleteFunctionForResource(input models.ResourceInput) (*string, error) {
 	if !input.Details.DeleteMethod.Generate {
-		return ""
+		return nil, nil
 	}
 
 	idParseLine, err := input.ParseResourceIdFuncName()
 	if err != nil {
-		// TODO: thread through errors
-		panic(err)
+		return nil, fmt.Errorf("determining Parse function name for Resource ID: %+v", err)
 	}
 
 	deleteOperation, ok := input.Operations[input.Details.DeleteMethod.MethodName]
 	if !ok {
-		// TODO: thread through errors
-		panic(fmt.Sprintf("couldn't find delete operation named %q", input.Details.DeleteMethod.MethodName))
+		return nil, fmt.Errorf("couldn't find delete operation named %q", input.Details.DeleteMethod.MethodName)
 	}
 
 	methodArguments := argumentsForApiOperationMethod(deleteOperation, input.SdkResourceName, input.Details.DeleteMethod.MethodName, true)
 	deleteMethodName := methodNameToCallForOperation(deleteOperation, input.Details.DeleteMethod.MethodName)
 
-	return fmt.Sprintf(`
+	output := fmt.Sprintf(`
 func (r %[1]sResource) Delete() sdk.ResourceFunc {
 	return sdk.ResourceFunc{
 		Timeout: %[2]d * time.Minute,
@@ -47,4 +45,5 @@ func (r %[1]sResource) Delete() sdk.ResourceFunc {
 	}
 }
 `, input.ResourceTypeName, input.Details.DeleteMethod.TimeoutInMinutes, input.ServiceName, *idParseLine, deleteMethodName, methodArguments)
+	return &output, nil
 }

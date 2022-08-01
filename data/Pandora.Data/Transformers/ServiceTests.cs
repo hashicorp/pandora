@@ -158,6 +158,7 @@ public static class ServiceTests
             };
             public string DisplayName => "Fake Resource";
             public bool GenerateIDValidationFunction => true;
+            public bool GenerateModel => true;
             public bool GenerateSchema => true;
             public MethodDefinition ReadMethod => new MethodDefinition
             {

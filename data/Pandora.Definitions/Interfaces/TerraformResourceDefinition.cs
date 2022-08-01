@@ -26,6 +26,11 @@ public interface TerraformResourceDefinition
     public bool GenerateIDValidationFunction { get; }
 
     /// <summary>
+    /// GenerateModel defines whether the Typed Model(s) should be output for this Resource.
+    /// </summary>
+    public bool GenerateModel { get; }
+
+    /// <summary>
     /// GenerateSchema specifies whether the Schema should be generated for this Resource.
     /// </summary>
     public bool GenerateSchema { get; }

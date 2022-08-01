@@ -8,31 +8,38 @@ import (
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-func copyrightLinesForResource(input models.ResourceInput) string {
+func copyrightLinesForResource(_ models.ResourceInput) (*string, error) {
 	// TODO: hook the license up for this service
-	return copyrightLinesForSource(resourcemanager.ApiDefinitionsSourceResourceManagerRestApiSpecs)
+	output, err := copyrightLinesForSource(resourcemanager.ApiDefinitionsSourceResourceManagerRestApiSpecs)
+	if err != nil {
+		return nil, err
+	}
+	return output, nil
 }
 
-func copyrightLinesForSource(input resourcemanager.ApiDefinitionsSource) string {
+func copyrightLinesForSource(input resourcemanager.ApiDefinitionsSource) (*string, error) {
 	if input == resourcemanager.ApiDefinitionsSourceHandWritten {
-		return `
+		output := `
 // Copyright (c) HashiCorp Inc. All rights reserved.
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 `
+		return &output, nil
 	}
 
 	if input == resourcemanager.ApiDefinitionsSourceResourceManagerRestApiSpecs {
-		return `
+		output := `
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 `
+		return &output, nil
 	}
 
 	// this is used purely for acctests - to ensure the config is stable this is a
 	// hand-defined value
 	if string(input) == "acctest" {
-		return "// acctests licence placeholder"
+		output := "// acctests licence placeholder"
+		return &output, nil
 	}
 
-	panic(fmt.Errorf("unimplemented license type: %s", string(input)))
+	return nil, fmt.Errorf("unimplemented license type: %s", string(input))
 }

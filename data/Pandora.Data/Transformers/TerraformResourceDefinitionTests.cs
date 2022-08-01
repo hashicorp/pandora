@@ -25,6 +25,7 @@ public class TerraformResourceDefinitionTests
         Assert.AreEqual(10, actual.DeleteMethod.TimeoutInMinutes);
         Assert.AreEqual("Fake Planet", actual.DisplayName);
         Assert.True(actual.GenerateIDValidationFunction);
+        Assert.True(actual.GenerateModel);
         Assert.True(actual.GenerateSchema);
         Assert.NotNull(actual.ReadMethod);
         Assert.True(actual.ReadMethod.Generate);
@@ -62,6 +63,7 @@ public class TerraformResourceDefinitionTests
         };
         public string DisplayName => "Fake Planet";
         public bool GenerateIDValidationFunction => true;
+        public bool GenerateModel => true;
         public bool GenerateSchema => true;
         public MethodDefinition ReadMethod => new MethodDefinition
         {
@@ -95,6 +97,7 @@ public class TerraformResourceDefinitionTests
         };
         public string DisplayName => "Fake Planet";
         public bool GenerateIDValidationFunction => true;
+        public bool GenerateModel => true;
         public bool GenerateSchema => true;
 
         public MethodDefinition ReadMethod => new MethodDefinition

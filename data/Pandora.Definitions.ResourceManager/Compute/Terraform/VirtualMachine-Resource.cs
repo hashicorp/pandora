@@ -9,6 +9,7 @@ public class VirtualMachineResource : TerraformResourceDefinition
     public string ResourceLabel => "virtual_machine";
 
     public bool GenerateIDValidationFunction => true;
+    public bool GenerateModel => true;
     public bool GenerateSchema => true;
 
     public MethodDefinition CreateMethod => new MethodDefinition

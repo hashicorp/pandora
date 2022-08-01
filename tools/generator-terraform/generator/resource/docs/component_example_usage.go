@@ -7,15 +7,14 @@ import (
 	"github.com/hashicorp/pandora/tools/generator-terraform/generator/models"
 )
 
-func codeForExampleUsage(input models.ResourceInput) string {
+func codeForExampleUsage(input models.ResourceInput) (*string, error) {
 	code := strings.TrimSpace(fmt.Sprintf(`
 ## Example Usage
 
 '''hcl
-resource "%[1]s_%[2]s" "example" {
-  // TODO: example usage
-}
+%[1]s
 '''
-`, input.ProviderPrefix, input.ResourceLabel))
-	return strings.ReplaceAll(code, "'", "`")
+`, strings.TrimSpace(input.Details.Documentation.ExampleUsageHcl)))
+	output := strings.ReplaceAll(code, "'", "`")
+	return &output, nil
 }

@@ -51,6 +51,7 @@ public static class TerraformResourceDefinition
             DeleteMethod = deleteMethod,
             DisplayName = input.DisplayName,
             GenerateIDValidationFunction = input.GenerateIDValidationFunction,
+            GenerateModel = input.GenerateModel,
             GenerateSchema = input.GenerateSchema,
             ReadMethod = readMethod,
             Resource = resourceIdDetails.APIResource,

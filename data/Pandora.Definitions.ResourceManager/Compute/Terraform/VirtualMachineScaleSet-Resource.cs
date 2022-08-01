@@ -9,6 +9,7 @@ public class VirtualMachineScaleSetResource : TerraformResourceDefinition
     public string ResourceLabel => "virtual_machine_scale_set";
 
     public bool GenerateIDValidationFunction => true;
+    public bool GenerateModel => true;
     public bool GenerateSchema => true;
 
     public MethodDefinition CreateMethod => new MethodDefinition

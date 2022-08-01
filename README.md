@@ -64,7 +64,8 @@ More information on [how to import a new Resource Manager Service/API Version fo
 - `./tools/importer-rest-api-specs` - contains the Importer for the Azure Resource Manager OpenAPI/Swagger definitions.
 - `./tools/version-bumper` - contains a small tool to add new Services and new API Versions for existing Services to the config.
 
-There's also a couple of helper tools (for example, for use in automation):
+There's also few helper tools (for example, for use in automation):
 
+- `./tools/extract-tf-resource-ids` - contains the tool used to output a list of Resource IDs included in a given Pull Request.
 - `./tools/sdk` - contains a lightweight HTTP API for the Data API.
-- `./tools/wrapper-go-sdk-generator` - launches the Data API and then the Go SDK Generator for use in automation.
+- `./tools/wrapper-automation` - launches the Data API and then the Rest API Specs Importer/Go SDK/Terraform Generator for use in automation.
