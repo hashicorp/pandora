@@ -10,7 +10,7 @@ import (
 func TestExistsFuncForResourceTest_CommonId_Disabled(t *testing.T) {
 	input := models.ResourceInput{
 		ResourceTypeName: "Example",
-		SdkResourceName:  "sdkresource",
+		SdkResourceName:  "SdkResource",
 		ServiceName:      "Resources",
 		Details: resourcemanager.TerraformResourceDetails{
 			ReadMethod: resourcemanager.MethodDefinition{
@@ -43,7 +43,7 @@ func TestExistsFuncForResourceTest_CommonId_Disabled(t *testing.T) {
 func TestExistsFuncForResourceTest_RegularResourceId_Disabled(t *testing.T) {
 	input := models.ResourceInput{
 		ResourceTypeName: "Example",
-		SdkResourceName:  "sdkresource",
+		SdkResourceName:  "SdkResource",
 		ServiceName:      "Resources",
 		Details: resourcemanager.TerraformResourceDetails{
 			ReadMethod: resourcemanager.MethodDefinition{
@@ -76,7 +76,7 @@ func TestExistsFuncForResourceTest_RegularResourceId_Disabled(t *testing.T) {
 func TestExistsFuncForResourceTest_CommonId_Enabled(t *testing.T) {
 	input := models.ResourceInput{
 		ResourceTypeName: "Example",
-		SdkResourceName:  "sdkresource",
+		SdkResourceName:  "SdkResource",
 		ServiceName:      "Resources",
 		Details: resourcemanager.TerraformResourceDetails{
 			ReadMethod: resourcemanager.MethodDefinition{
@@ -108,7 +108,7 @@ func (r ExampleTestResource) Exists(ctx context.Context, clients *clients.Client
 		return nil, err
 	}
 
-	resp, err := clients.Resources.Example.Get(ctx, *id)
+	resp, err := clients.Resources.SdkResource.Get(ctx, *id)
 	if err != nil {
 		return nil, fmt.Errorf("reading %s: %+v", *id, err)
 	}
@@ -122,7 +122,7 @@ func (r ExampleTestResource) Exists(ctx context.Context, clients *clients.Client
 func TestExistsFuncForResourceTest_RegularResourceId_Enabled(t *testing.T) {
 	input := models.ResourceInput{
 		ResourceTypeName: "Example",
-		SdkResourceName:  "sdkresource",
+		SdkResourceName:  "SdkResource",
 		ServiceName:      "Resources",
 		Details: resourcemanager.TerraformResourceDetails{
 			ReadMethod: resourcemanager.MethodDefinition{
@@ -155,7 +155,7 @@ func (r ExampleTestResource) Exists(ctx context.Context, clients *clients.Client
 		return nil, err
 	}
 
-	resp, err := clients.Resources.Example.Get(ctx, *id)
+	resp, err := clients.Resources.SdkResource.Get(ctx, *id)
 	if err != nil {
 		return nil, fmt.Errorf("reading %s: %+v", *id, err)
 	}

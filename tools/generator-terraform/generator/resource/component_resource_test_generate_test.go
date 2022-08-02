@@ -29,7 +29,7 @@ func TestGenerateBasicTest_RegularResourceId_Enabled(t *testing.T) {
 	expected := fmt.Sprintf(`
 func TestAccExample_basic(t *testing.T) {
 	data := acceptance.BuildTestData(t, "azurerm_example", "test")
-	r := ExampleResource{}
+	r := ExampleTestResource{}
 
 	data.ResourceTest(t, r, []acceptance.TestStep{
 		{
@@ -44,7 +44,7 @@ func TestAccExample_basic(t *testing.T) {
 
 func TestAccExample_requiresImport(t *testing.T) {
 	data := acceptance.BuildTestData(t, "azurerm_example", "test")
-	r := ExampleResource{}
+	r := ExampleTestResource{}
 
 	data.ResourceTest(t, r, []acceptance.TestStep{
 		{
@@ -59,7 +59,7 @@ func TestAccExample_requiresImport(t *testing.T) {
 
 func TestAccExample_complete(t *testing.T) {
 	data := acceptance.BuildTestData(t, "azurerm_example", "test")
-	r := ExampleResource{}
+	r := ExampleTestResource{}
 
 	data.ResourceTest(t, r, []acceptance.TestStep{
 		{
@@ -74,7 +74,7 @@ func TestAccExample_complete(t *testing.T) {
 
 func TestAccExample_update(t *testing.T) {
 	data := acceptance.BuildTestData(t, "azurerm_example", "test")
-	r := ExampleResource{}
+	r := ExampleTestResource{}
 
 	data.ResourceTest(t, r, []acceptance.TestStep{
 		{
@@ -101,21 +101,21 @@ func TestAccExample_update(t *testing.T) {
 	})
 }
 
-func (ExampleResource) basic(data acceptance.TestData) string {
+func (ExampleTestResource) basic(data acceptance.TestData) string {
 	return fmt.Sprintf(%[1]s
 resource "azurerm_example" "test" {
 
 }
 %[1]s)}
 
-func (r ExampleResource) requiresImport(data acceptance.TestData) string {
+func (r ExampleTestResource) requiresImport(data acceptance.TestData) string {
 	return fmt.Sprintf(%[1]s
 resource "azurerm_example" "import" {
 
 }
 %[1]s, r.basic(data))}
 
-func (ExampleResource) complete(data acceptance.TestData) string {
+func (ExampleTestResource) complete(data acceptance.TestData) string {
 	return fmt.Sprintf(%[1]s
 resource "azurerm_example" "test" {
 

@@ -29,13 +29,13 @@ func (r %[1]sTestResource) Exists(ctx context.Context, clients *clients.Client, 
 		return nil, err
 	}
 
-	resp, err := clients.%[3]s.%[1]s.%[4]s(%[5]s)
+	resp, err := clients.%[3]s.%[4]s.%[5]s(%[6]s)
 	if err != nil {
 		return nil, fmt.Errorf("reading %%s: %%+v", *id, err)
 	}
 
 	return utils.Bool(resp.Model != nil), nil
 }
-`, input.ResourceTypeName, *idParseLine, input.ServiceName, input.Details.ReadMethod.MethodName, methodArguments)
+`, input.ResourceTypeName, *idParseLine, input.ServiceName, input.SdkResourceName, input.Details.ReadMethod.MethodName, methodArguments)
 	return &output, nil
 }
