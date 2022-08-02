@@ -486,25 +486,25 @@ resource 'example_resource' 'example' {
     private class DataSourceResponse
     {
         // TODO: stuff and things - don't forget to account for Single vs Plural DS's
-        
+
         [JsonPropertyName("apiVersion")]
         public string ApiVersion { get; set; }
 
         [JsonPropertyName("generate")]
         public bool Generate => GenerateModel || GenerateSchema || (PluralDetails?.Generate ?? false) || (SingularDetails?.Generate ?? false);
-        
+
         [JsonPropertyName("generateModel")]
         public bool GenerateModel { get; set; }
-        
+
         [JsonPropertyName("generateSchema")]
         public bool GenerateSchema { get; set; }
-        
+
         [JsonPropertyName("plural")]
         public TerraformDataSourceTypeDetails? PluralDetails { get; set; }
-        
+
         [JsonPropertyName("singular")]
         public TerraformDataSourceTypeDetails? SingularDetails { get; set; }
-        
+
         // TODO: add other properties
     }
 
@@ -512,7 +512,7 @@ resource 'example_resource' 'example' {
     {
         [JsonPropertyName("description")]
         public string Description { get; set; }
-        
+
         [JsonPropertyName("exampleUsageHcl")]
         public string ExampleUsageHcl { get; set; }
 
@@ -521,13 +521,13 @@ resource 'example_resource' 'example' {
 
         [JsonPropertyName("generateModel")]
         public bool GenerateModel { get; set; }
-        
+
         [JsonPropertyName("generateSchema")]
         public bool GenerateSchema { get; set; }
 
         [JsonPropertyName("methodDefinition")]
         public MethodDefinition MethodDefinition { get; set; }
-        
+
         [JsonPropertyName("resourceLabel")]
         public string ResourceLabel { get; set; }
     }
