@@ -2,8 +2,9 @@ package definitions
 
 import (
 	"fmt"
-	"github.com/hashicorp/pandora/tools/generator-terraform/generator/models"
 	"os"
+
+	"github.com/hashicorp/pandora/tools/generator-terraform/generator/models"
 )
 
 func DefinitionForServices(input models.ServicesInput) error {
