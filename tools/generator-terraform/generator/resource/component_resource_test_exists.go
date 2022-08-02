@@ -23,7 +23,7 @@ func existsFuncForResourceTest(input models.ResourceInput) (*string, error) {
 
 	methodArguments := argumentsForApiOperationMethod(readOperation, input.SdkResourceName, input.Details.ReadMethod.MethodName, true)
 	output := fmt.Sprintf(`
-func (r %[1]sResource) Exists(ctx context.Context, clients *clients.Client, state *pluginsdk.InstanceState) (*bool, error) {
+func (r %[1]sTestResource) Exists(ctx context.Context, clients *clients.Client, state *pluginsdk.InstanceState) (*bool, error) {
 	id, err := %[2]s(state.ID)
 	if err != nil {
 		return nil, err

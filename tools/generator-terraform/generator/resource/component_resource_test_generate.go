@@ -16,7 +16,7 @@ func generateResourceTests(input models.ResourceInput) (*string, error) {
 	output := fmt.Sprintf(`
 func TestAcc%[1]s_basic(t *testing.T) {
 	data := acceptance.BuildTestData(t, "%[2]s_%[3]s", "test")
-	r := %[1]sResource{}
+	r := %[1]sTestResource{}
 
 	data.ResourceTest(t, r, []acceptance.TestStep{
 		{
@@ -31,7 +31,7 @@ func TestAcc%[1]s_basic(t *testing.T) {
 
 func TestAcc%[1]s_requiresImport(t *testing.T) {
 	data := acceptance.BuildTestData(t, "%[2]s_%[3]s", "test")
-	r := %[1]sResource{}
+	r := %[1]sTestResource{}
 
 	data.ResourceTest(t, r, []acceptance.TestStep{
 		{
@@ -46,7 +46,7 @@ func TestAcc%[1]s_requiresImport(t *testing.T) {
 
 func TestAcc%[1]s_complete(t *testing.T) {
 	data := acceptance.BuildTestData(t, "%[2]s_%[3]s", "test")
-	r := %[1]sResource{}
+	r := %[1]sTestResource{}
 
 	data.ResourceTest(t, r, []acceptance.TestStep{
 		{
@@ -61,7 +61,7 @@ func TestAcc%[1]s_complete(t *testing.T) {
 
 func TestAcc%[1]s_update(t *testing.T) {
 	data := acceptance.BuildTestData(t, "%[2]s_%[3]s", "test")
-	r := %[1]sResource{}
+	r := %[1]sTestResource{}
 
 	data.ResourceTest(t, r, []acceptance.TestStep{
 		{
@@ -88,21 +88,21 @@ func TestAcc%[1]s_update(t *testing.T) {
 	})
 }
 
-func (%[1]sResource) basic(data acceptance.TestData) string {
+func (%[1]sTestResource) basic(data acceptance.TestData) string {
 	return fmt.Sprintf(%[4]s
 resource "%[2]s_%[3]s" "test" {
 
 }
 %[4]s)}
 
-func (r %[1]sResource) requiresImport(data acceptance.TestData) string {
+func (r %[1]sTestResource) requiresImport(data acceptance.TestData) string {
 	return fmt.Sprintf(%[4]s
 resource "%[2]s_%[3]s" "import" {
 
 }
 %[4]s, r.basic(data))}
 
-func (%[1]sResource) complete(data acceptance.TestData) string {
+func (%[1]sTestResource) complete(data acceptance.TestData) string {
 	return fmt.Sprintf(%[4]s
 resource "%[2]s_%[3]s" "test" {
 

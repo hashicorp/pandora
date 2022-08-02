@@ -102,7 +102,7 @@ func TestExistsFuncForResourceTest_CommonId_Enabled(t *testing.T) {
 		t.Fatalf("error: %+v", err)
 	}
 	expected := `
-func (r ExampleResource) Exists(ctx context.Context, clients *clients.Client, state *pluginsdk.InstanceState) (*bool, error) {
+func (r ExampleTestResource) Exists(ctx context.Context, clients *clients.Client, state *pluginsdk.InstanceState) (*bool, error) {
 	id, err := commonids.ParseSubscriptionID(state.ID)
 	if err != nil {
 		return nil, err
@@ -149,7 +149,7 @@ func TestExistsFuncForResourceTest_RegularResourceId_Enabled(t *testing.T) {
 		t.Fatalf("error: %+v", err)
 	}
 	expected := `
-func (r ExampleResource) Exists(ctx context.Context, clients *clients.Client, state *pluginsdk.InstanceState) (*bool, error) {
+func (r ExampleTestResource) Exists(ctx context.Context, clients *clients.Client, state *pluginsdk.InstanceState) (*bool, error) {
 	id, err := sdkresource.ParseCustomSubscriptionID(state.ID)
 	if err != nil {
 		return nil, err
