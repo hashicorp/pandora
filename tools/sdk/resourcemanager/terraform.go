@@ -37,7 +37,49 @@ type TerraformDetails struct {
 }
 
 type TerraformDataSourceDetails struct {
+	// ApiVersion specifies the version of the Api which should be used for
+	// this Data Source.
+	ApiVersion string `json:"apiVersion"`
+
+	// Generate specifies if this Data Source should be generated.
+	Generate bool `json:"generate"`
+
+	// PluralDetails specifies the metadata for the Plural version of this Data Source
+	// A Singular Data Source returns information about exactly 1 existing Resource, whereas
+	// a Plural Data Source returns information about 1 or more existing Resources.
+	PluralDetails *TerraformDataSourceTypeDetails `json:"plural"`
+
+	// SingularDetails specifies the metadata for the Singular version of this Data Source
+	// A Singular Data Source returns information about exactly 1 existing Resource, whereas
+	// a Plural Data Source returns information about 1 or more existing Resources.
+	SingularDetails *TerraformDataSourceTypeDetails `json:"singular"`
+
 	// TODO: populate this
+}
+
+type TerraformDataSourceTypeDetails struct {
+	// Description is a human-friendly description for this Data Source Type.
+	Description string `json:"description"`
+
+	// ExampleUsageHcl is the HCL which should be output as the Example Usage for this Data Source Type.
+	ExampleUsageHcl string `json:"exampleUsageHcl"`
+
+	// Generate specifies whether this Data Source Type should be generated this allows just the
+	// Singular Data Source or the Plural Data Source to be generated as required.
+	Generate bool `json:"generate"`
+
+	// GenerateSchema specifies whether the Typed Model should be generated for this Data Source Type.
+	GenerateModel bool `json:"generateModel"`
+
+	// GenerateSchema specifies whether the Schema should be generated for this Data Source Type.
+	GenerateSchema bool `json:"generateSchema"`
+
+	// MethodDefinition specifies the SDK Method which should be used for this Data Source Type.
+	MethodDefinition MethodDefinition `json:"methodDefinition"`
+
+	// ResourceLabel is the label for this Data Source Type without the Provider Prefix
+	// (e.g. `resource_group` rather than `azurerm_resource_group`).
+	ResourceLabel string `json:"resourceLabel"`
 }
 
 type TerraformResourceDetails struct {
@@ -53,6 +95,10 @@ type TerraformResourceDetails struct {
 	// be used to delete this resource in Terraform.
 	DeleteMethod MethodDefinition `json:"deleteMethod"`
 
+	// Documentation specifies metadata used to generate the Documentation
+	// for this Resource.
+	Documentation ResourceDocumentationDefinition `json:"documentation"`
+
 	// DisplayName is the human-readable/marketing name for this Resource,
 	// for example `Resource Group` or `Virtual Machine`.
 	DisplayName string `json:"displayName"`
@@ -60,13 +106,17 @@ type TerraformResourceDetails struct {
 	// Generate specifies if this Resource should be generated.
 	Generate bool `json:"generate"`
 
-	// GenerateSchema controls whether the Schema should be generated for this
+	// GenerateModel controls whether the Schema Model(s) should be generated for this
 	// Resource.
-	GenerateSchema bool `json:"generateSchema"`
+	GenerateModel bool `json:"generateModel"`
 
 	// GenerateIdValidation controls whether the ID Validation function should be generated
 	// for this Resource.
 	GenerateIdValidation bool `json:"generateIdValidation"`
+
+	// GenerateSchema controls whether the Schema should be generated for this
+	// Resource.
+	GenerateSchema bool `json:"generateSchema"`
 
 	// ReadMethod describes the method within the SDK Package that should
 	// be used to retrieve information about this resource in Terraform.
@@ -135,6 +185,21 @@ type TerraformSchemaFieldDefinition struct {
 
 	// Validation specifies the validation criteria for this field, for example a set of fixed values
 	Validation *TerraformSchemaValidationDefinition `json:"validation,omitempty"`
+}
+
+type ResourceDocumentationDefinition struct {
+	// Category is the category for this Terraform Resource which is used to
+	// group this resource within the Terraform Registry.
+	Category string `json:"category"`
+
+	// Description is a description for this Terraform Resource which should
+	// be output on the documentation page for this Resource.
+	Description string `json:"description"`
+
+	// ExampleUsageHcl is the HCL which should be output as an Example Usage
+	// for this Resource. This should include all Required properties, and
+	// ideally shows a basic fully functional example for this Resource.
+	ExampleUsageHcl string `json:"exampleUsageHcl"`
 }
 
 type TerraformSchemaFieldType string

@@ -46,9 +46,22 @@ public class TerraformController : ControllerBase
             CreateMethod = MapMethodDefinition(input.CreateMethod),
             DeleteMethod = MapMethodDefinition(input.DeleteMethod),
             DisplayName = input.DisplayName,
+            Documentation = new ResourceDocumentationDefinition
+            {
+                // TODO: pipe this through
+                Category = "Example Category",
+                Description = "Some Description for this Resource",
+                ExampleUsageHcl = @"
+resource 'example_resource' 'example' {
+    example_field = '...'
+}
+".Replace("'", "\""),
+                // TODO: does the top level object need a List<Categories> for the ServiceDefinition?
+            },
             Resource = input.Resource,
-            GenerateSchema = input.GenerateSchema,
+            GenerateModel = input.GenerateModel,
             GenerateIdValidation = input.GenerateIDValidationFunction,
+            GenerateSchema = input.GenerateSchema,
             ReadMethod = MapMethodDefinition(input.ReadMethod),
             ResourceName = input.ResourceName,
             ResourceIdName = input.ResourceIdName,
@@ -473,6 +486,50 @@ public class TerraformController : ControllerBase
     private class DataSourceResponse
     {
         // TODO: stuff and things - don't forget to account for Single vs Plural DS's
+
+        [JsonPropertyName("apiVersion")]
+        public string ApiVersion { get; set; }
+
+        [JsonPropertyName("generate")]
+        public bool Generate => GenerateModel || GenerateSchema || (PluralDetails?.Generate ?? false) || (SingularDetails?.Generate ?? false);
+
+        [JsonPropertyName("generateModel")]
+        public bool GenerateModel { get; set; }
+
+        [JsonPropertyName("generateSchema")]
+        public bool GenerateSchema { get; set; }
+
+        [JsonPropertyName("plural")]
+        public TerraformDataSourceTypeDetails? PluralDetails { get; set; }
+
+        [JsonPropertyName("singular")]
+        public TerraformDataSourceTypeDetails? SingularDetails { get; set; }
+
+        // TODO: add other properties
+    }
+
+    private class TerraformDataSourceTypeDetails
+    {
+        [JsonPropertyName("description")]
+        public string Description { get; set; }
+
+        [JsonPropertyName("exampleUsageHcl")]
+        public string ExampleUsageHcl { get; set; }
+
+        [JsonPropertyName("generate")]
+        public bool Generate => GenerateModel || GenerateSchema || MethodDefinition.Generate;
+
+        [JsonPropertyName("generateModel")]
+        public bool GenerateModel { get; set; }
+
+        [JsonPropertyName("generateSchema")]
+        public bool GenerateSchema { get; set; }
+
+        [JsonPropertyName("methodDefinition")]
+        public MethodDefinition MethodDefinition { get; set; }
+
+        [JsonPropertyName("resourceLabel")]
+        public string ResourceLabel { get; set; }
     }
 
     private class ResourceResponse
@@ -490,14 +547,20 @@ public class TerraformController : ControllerBase
         [JsonPropertyName("displayName")]
         public string DisplayName { get; set; }
 
-        [JsonPropertyName("generate")]
-        public bool Generate => DeleteMethod.Generate || GenerateSchema || GenerateIdValidation;
+        [JsonPropertyName("documentation")]
+        public ResourceDocumentationDefinition Documentation { get; set; }
 
-        [JsonPropertyName("generateSchema")]
-        public bool GenerateSchema { get; set; }
+        [JsonPropertyName("generate")]
+        public bool Generate => DeleteMethod.Generate || GenerateModel || GenerateIdValidation || GenerateSchema;
+
+        [JsonPropertyName("generateModel")]
+        public bool GenerateModel { get; set; }
 
         [JsonPropertyName("generateIdValidation")]
         public bool GenerateIdValidation { get; set; }
+
+        [JsonPropertyName("generateSchema")]
+        public bool GenerateSchema { get; set; }
 
         [JsonPropertyName("readMethod")]
         public MethodDefinition ReadMethod { get; set; }
@@ -519,6 +582,18 @@ public class TerraformController : ControllerBase
 
         [JsonPropertyName("updateMethod")]
         public MethodDefinition? UpdateMethod { get; set; }
+    }
+
+    private class ResourceDocumentationDefinition
+    {
+        [JsonPropertyName("category")]
+        public string Category { get; set; }
+
+        [JsonPropertyName("description")]
+        public string Description { get; set; }
+
+        [JsonPropertyName("exampleUsageHcl")]
+        public string ExampleUsageHcl { get; set; }
     }
 
     private class MethodDefinition

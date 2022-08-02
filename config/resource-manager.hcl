@@ -87,6 +87,10 @@ service "desktopvirtualization" {
   name      = "DesktopVirtualization"
   available = ["2021-09-03-preview", "2022-02-10-preview"]
 }
+service "digitaltwins" {
+  name      = "DigitalTwins"
+  available = ["2020-12-01"]
+}
 service "dns" {
   name      = "DNS"
   available = ["2018-05-01"]
@@ -142,6 +146,10 @@ service "loadtestservice" {
 service "machinelearningservices" {
   name      = "MachineLearningServices"
   available = ["2021-07-01", "2022-05-01"]
+}
+service "maintenance" {
+  name      = "Maintenance"
+  available = ["2021-05-01"]
 }
 service "managedservices" {
   name      = "ManagedServices"

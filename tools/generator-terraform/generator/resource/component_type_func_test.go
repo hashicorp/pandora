@@ -13,11 +13,14 @@ func TestComponentTypeFunc(t *testing.T) {
 		ProviderPrefix:   "zoo",
 		ResourceLabel:    "panda",
 	}
-	actual := strings.TrimSpace(typeFuncForResource(input))
+	actual, err := typeFuncForResource(input)
+	if err != nil {
+		t.Fatalf("error: %+v", err)
+	}
 	expected := strings.TrimSpace(`
 func (r ExampleResource) ResourceType() string {
 	return "zoo_panda"
 }
 `)
-	assertTemplatedCodeMatches(t, expected, actual)
+	assertTemplatedCodeMatches(t, expected, *actual)
 }

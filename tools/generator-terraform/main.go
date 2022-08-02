@@ -6,10 +6,9 @@ import (
 	"log"
 	"os"
 	"path/filepath"
-	"strings"
 
+	"github.com/hashicorp/pandora/tools/generator-terraform/generator/datasource"
 	"github.com/hashicorp/pandora/tools/generator-terraform/generator/models"
-
 	resourceGenerator "github.com/hashicorp/pandora/tools/generator-terraform/generator/resource"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 	"github.com/hashicorp/pandora/tools/sdk/services"
@@ -81,22 +80,24 @@ func run(input GeneratorInput) error {
 			continue
 		}
 
-		//for label, _ := range service.Terraform.DataSources {
-		//	// TODO: conditional generation
-		//
-		//	apiVersion := "TODO PLACEHOLDER"
-		//
-		//	log.Printf("[DEBUG] Processing Data Source %q..", label)
-		//	dataSourceInput := generator.DataSourceInput{
-		//		ProviderPrefix:     input.providerPrefix,
-		//		ResourceLabel:      label,
-		//		RootDirectory:      input.outputDirectory,
-		//		ServicePackageName: "example", // TODO: needs to be returned from the API
-		//	}
-		//	if err := generator.DataSource(dataSourceInput); err != nil {
-		//		return fmt.Errorf("generating for Data Source %q (Service %q / API Version %q): %+v", label, serviceName, apiVersion, err)
-		//	}
-		//}
+		for label, details := range service.Terraform.DataSources {
+			if !details.Generate {
+				log.Printf("[DEBUG] Data Source %q has generation disabled - skipping", label)
+				continue
+			}
+
+			log.Printf("[DEBUG] Processing Data Source %q..", label)
+			dataSourceInput := models.DataSourceInput{
+				ApiVersion:         details.ApiVersion,
+				ProviderPrefix:     input.providerPrefix,
+				ResourceLabel:      label,
+				RootDirectory:      input.outputDirectory,
+				ServicePackageName: *service.TerraformPackageName,
+			}
+			if err := datasource.DataSource(dataSourceInput); err != nil {
+				return fmt.Errorf("generating for Data Source %q (Service %q / API Version %q): %+v", label, serviceName, details.ApiVersion, err)
+			}
+		}
 
 		for label, details := range service.Terraform.Resources {
 			if !details.Generate {
@@ -129,8 +130,8 @@ func run(input GeneratorInput) error {
 
 				// Sdk Related
 				SdkApiVersion:   details.ApiVersion,
-				SdkResourceName: strings.ToLower(details.Resource),
-				SdkServiceName:  strings.ToLower(serviceName),
+				SdkResourceName: details.Resource,
+				SdkServiceName:  serviceName,
 
 				// Data
 				Constants:       resource.Schema.Constants,

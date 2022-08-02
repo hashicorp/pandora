@@ -1,18 +1,16 @@
 package resource
 
 import (
-	"strings"
 	"testing"
 
 	"github.com/hashicorp/pandora/tools/generator-terraform/generator/models"
-
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
 func TestComponentReadFunc_CommonId_Disabled(t *testing.T) {
 	input := models.ResourceInput{
 		ResourceTypeName: "Example",
-		SdkResourceName:  "sdkresource",
+		SdkResourceName:  "SdkResource",
 		ServiceName:      "Resources",
 		Details: resourcemanager.TerraformResourceDetails{
 			ReadMethod: resourcemanager.MethodDefinition{
@@ -34,15 +32,19 @@ func TestComponentReadFunc_CommonId_Disabled(t *testing.T) {
 			},
 		},
 	}
-	actual := strings.TrimSpace(readFunctionForResource(input))
-	expected := ""
-	assertTemplatedCodeMatches(t, expected, actual)
+	actual, err := readFunctionForResource(input)
+	if err != nil {
+		t.Fatalf("error: %+v", err)
+	}
+	if actual != nil {
+		t.Fatalf("expected `actual` to be nil but got %q", *actual)
+	}
 }
 
 func TestComponentReadFunc_RegularResourceId_Disabled(t *testing.T) {
 	input := models.ResourceInput{
 		ResourceTypeName: "Example",
-		SdkResourceName:  "sdkresource",
+		SdkResourceName:  "SdkResource",
 		ServiceName:      "Resources",
 		Details: resourcemanager.TerraformResourceDetails{
 			ReadMethod: resourcemanager.MethodDefinition{
@@ -64,15 +66,19 @@ func TestComponentReadFunc_RegularResourceId_Disabled(t *testing.T) {
 			},
 		},
 	}
-	actual := strings.TrimSpace(readFunctionForResource(input))
-	expected := ""
-	assertTemplatedCodeMatches(t, expected, actual)
+	actual, err := readFunctionForResource(input)
+	if err != nil {
+		t.Fatalf("error: %+v", err)
+	}
+	if actual != nil {
+		t.Fatalf("expected `actual` to be nil but got %q", *actual)
+	}
 }
 
 func TestComponentReadFunc_CommonId_Enabled(t *testing.T) {
 	input := models.ResourceInput{
 		ResourceTypeName: "Example",
-		SdkResourceName:  "sdkresource",
+		SdkResourceName:  "SdkResource",
 		ServiceName:      "Resources",
 		Details: resourcemanager.TerraformResourceDetails{
 			ReadMethod: resourcemanager.MethodDefinition{
@@ -133,13 +139,16 @@ func TestComponentReadFunc_CommonId_Enabled(t *testing.T) {
 			},
 		},
 	}
-	actual := strings.TrimSpace(readFunctionForResource(input))
+	actual, err := readFunctionForResource(input)
+	if err != nil {
+		t.Fatalf("error: %+v", err)
+	}
 	expected := `
 func (r ExampleResource) Read() sdk.ResourceFunc {
 	return sdk.ResourceFunc{
         Timeout: 10 * time.Minute,
         Func: func(ctx context.Context, metadata sdk.ResourceMetaData) error {
-			client := metadata.Client.Resources.ExampleClient
+			client := metadata.Client.Resources.SdkResource
 			id, err := commonids.ParseSubscriptionID(metadata.ResourceData.Id())
 			if err != nil {
 				return err
@@ -160,13 +169,13 @@ func (r ExampleResource) Read() sdk.ResourceFunc {
 	}
 }
 `
-	assertTemplatedCodeMatches(t, expected, actual)
+	assertTemplatedCodeMatches(t, expected, *actual)
 }
 
 func TestComponentReadFunc_CommonId_Options_Enabled(t *testing.T) {
 	input := models.ResourceInput{
 		ResourceTypeName:   "Example",
-		SdkResourceName:    "sdkresource",
+		SdkResourceName:    "SdkResource",
 		ServiceName:        "Resources",
 		ServicePackageName: "sdkservicepackage",
 		Details: resourcemanager.TerraformResourceDetails{
@@ -237,13 +246,16 @@ func TestComponentReadFunc_CommonId_Options_Enabled(t *testing.T) {
 			},
 		},
 	}
-	actual := strings.TrimSpace(readFunctionForResource(input))
+	actual, err := readFunctionForResource(input)
+	if err != nil {
+		t.Fatalf("error: %+v", err)
+	}
 	expected := `
 func (r ExampleResource) Read() sdk.ResourceFunc {
 	return sdk.ResourceFunc{
         Timeout: 10 * time.Minute,
         Func: func(ctx context.Context, metadata sdk.ResourceMetaData) error {
-			client := metadata.Client.Resources.ExampleClient
+			client := metadata.Client.Resources.SdkResource
 			id, err := commonids.ParseSubscriptionID(metadata.ResourceData.Id())
 			if err != nil {
 				return err
@@ -265,13 +277,13 @@ func (r ExampleResource) Read() sdk.ResourceFunc {
 	}
 }
 `
-	assertTemplatedCodeMatches(t, expected, actual)
+	assertTemplatedCodeMatches(t, expected, *actual)
 }
 
 func TestComponentReadFunc_RegularResourceId_Enabled(t *testing.T) {
 	input := models.ResourceInput{
 		ResourceTypeName: "Example",
-		SdkResourceName:  "sdkresource",
+		SdkResourceName:  "SdkResource",
 		ServiceName:      "Resources",
 		Details: resourcemanager.TerraformResourceDetails{
 			ReadMethod: resourcemanager.MethodDefinition{
@@ -331,13 +343,16 @@ func TestComponentReadFunc_RegularResourceId_Enabled(t *testing.T) {
 			},
 		},
 	}
-	actual := strings.TrimSpace(readFunctionForResource(input))
+	actual, err := readFunctionForResource(input)
+	if err != nil {
+		t.Fatalf("error: %+v", err)
+	}
 	expected := `
 func (r ExampleResource) Read() sdk.ResourceFunc {
 	return sdk.ResourceFunc{
         Timeout: 10 * time.Minute,
         Func: func(ctx context.Context, metadata sdk.ResourceMetaData) error {
-			client := metadata.Client.Resources.ExampleClient
+			client := metadata.Client.Resources.SdkResource
 			id, err := sdkresource.ParseCustomSubscriptionID(metadata.ResourceData.Id())
 			if err != nil {
 				return err
@@ -358,13 +373,13 @@ func (r ExampleResource) Read() sdk.ResourceFunc {
 	}
 }
 `
-	assertTemplatedCodeMatches(t, expected, actual)
+	assertTemplatedCodeMatches(t, expected, *actual)
 }
 
 func TestComponentReadFunc_RegularResourceId_Options_Enabled(t *testing.T) {
 	input := models.ResourceInput{
 		ResourceTypeName:   "Example",
-		SdkResourceName:    "sdkresource",
+		SdkResourceName:    "SdkResource",
 		ServiceName:        "Resources",
 		ServicePackageName: "sdkservicepackage",
 		Details: resourcemanager.TerraformResourceDetails{
@@ -434,13 +449,16 @@ func TestComponentReadFunc_RegularResourceId_Options_Enabled(t *testing.T) {
 			},
 		},
 	}
-	actual := strings.TrimSpace(readFunctionForResource(input))
+	actual, err := readFunctionForResource(input)
+	if err != nil {
+		t.Fatalf("error: %+v", err)
+	}
 	expected := `
 func (r ExampleResource) Read() sdk.ResourceFunc {
 	return sdk.ResourceFunc{
         Timeout: 10 * time.Minute,
         Func: func(ctx context.Context, metadata sdk.ResourceMetaData) error {
-			client := metadata.Client.Resources.ExampleClient
+			client := metadata.Client.Resources.SdkResource
 			id, err := sdkresource.ParseCustomSubscriptionID(metadata.ResourceData.Id())
 			if err != nil {
 				return err
@@ -461,5 +479,5 @@ func (r ExampleResource) Read() sdk.ResourceFunc {
 	}
 }
 `
-	assertTemplatedCodeMatches(t, expected, actual)
+	assertTemplatedCodeMatches(t, expected, *actual)
 }

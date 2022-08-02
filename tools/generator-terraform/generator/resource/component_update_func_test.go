@@ -9,23 +9,33 @@ import (
 )
 
 func TestComponentUpdate_HappyPathDisabled(t *testing.T) {
-	actual := updateFuncForResource(models.ResourceInput{})
-	expected := ``
-	assertTemplatedCodeMatches(t, expected, actual)
+	input := models.ResourceInput{}
+	actual, err := updateFuncForResource(input)
+	if err != nil {
+		t.Fatalf("error: %+v", err)
+	}
+	if actual != nil {
+		t.Fatalf("expected `actual` to be nil but got %q", *actual)
+	}
 }
 
 func TestComponentUpdate_HappyPathDisabled_NoUpdateMethod(t *testing.T) {
-	actual := updateFuncForResource(models.ResourceInput{
+	input := models.ResourceInput{
 		Details: resourcemanager.TerraformResourceDetails{
 			UpdateMethod: nil,
 		},
-	})
-	expected := ``
-	assertTemplatedCodeMatches(t, expected, actual)
+	}
+	actual, err := updateFuncForResource(input)
+	if err != nil {
+		t.Fatalf("error: %+v", err)
+	}
+	if actual != nil {
+		t.Fatalf("expected `actual` to be nil but got %q", *actual)
+	}
 }
 
 func TestComponentUpdate_HappyPathEnabled_CommonId_SharedModels(t *testing.T) {
-	actual := updateFuncForResource(models.ResourceInput{
+	input := models.ResourceInput{
 		Constants: map[string]resourcemanager.ConstantDetails{},
 		Details: resourcemanager.TerraformResourceDetails{
 			CreateMethod: resourcemanager.MethodDefinition{
@@ -104,20 +114,25 @@ func TestComponentUpdate_HappyPathEnabled_CommonId_SharedModels(t *testing.T) {
 		ServiceName:        "Service1",
 		ServicePackageName: "service1",
 		SdkApiVersion:      "sdkapiversion",
-		SdkResourceName:    "sdkresource",
-		SdkServiceName:     "sdkservice",
-	})
+		SdkResourceName:    "SdkResource",
+		SdkServiceName:     "SdkService",
+		SchemaModelName:    "MyTypedModel",
+	}
+	actual, err := updateFuncForResource(input)
+	if err != nil {
+		t.Fatalf("error: %+v", err)
+	}
 	expected := `
 	func (r MyResourceResource) Update() sdk.ResourceFunc {
 		return sdk.ResourceFunc{
 			Timeout: 40 * time.Minute,
 			Func: func(ctx context.Context, metadata sdk.ResourceMetaData) error {
-				client := metadata.Client.Service1.MyResourceClient
+				client := metadata.Client.Service1.SdkResource
 				id, err := commonids.ParseSomeCommonID(metadata.ResourceData.Id())
 				if err != nil {
 					return err
 				}
-				var config MyResourceResourceModel
+				var config MyTypedModel
 				if err := metadata.Decode(&config); err != nil {
 					return fmt.Errorf("decoding: %+v", err)
 				}
@@ -138,11 +153,11 @@ func TestComponentUpdate_HappyPathEnabled_CommonId_SharedModels(t *testing.T) {
 		}
 	}
 `
-	assertTemplatedCodeMatches(t, expected, actual)
+	assertTemplatedCodeMatches(t, expected, *actual)
 }
 
 func TestComponentUpdate_HappyPathEnabled_CommonId_UniqueModels(t *testing.T) {
-	actual := updateFuncForResource(models.ResourceInput{
+	input := models.ResourceInput{
 		Constants: map[string]resourcemanager.ConstantDetails{},
 		Details: resourcemanager.TerraformResourceDetails{
 			CreateMethod: resourcemanager.MethodDefinition{
@@ -231,20 +246,25 @@ func TestComponentUpdate_HappyPathEnabled_CommonId_UniqueModels(t *testing.T) {
 		ServiceName:        "Service1",
 		ServicePackageName: "service1",
 		SdkApiVersion:      "sdkapiversion",
-		SdkResourceName:    "sdkresource",
-		SdkServiceName:     "sdkservice",
-	})
+		SdkResourceName:    "SdkResource",
+		SdkServiceName:     "SdkService",
+		SchemaModelName:    "MyTypedModel",
+	}
+	actual, err := updateFuncForResource(input)
+	if err != nil {
+		t.Fatalf("error: %+v", err)
+	}
 	expected := `
 	func (r MyResourceResource) Update() sdk.ResourceFunc {
 		return sdk.ResourceFunc{
 			Timeout: 40 * time.Minute,
 			Func: func(ctx context.Context, metadata sdk.ResourceMetaData) error {
-				client := metadata.Client.Service1.MyResourceClient
+				client := metadata.Client.Service1.SdkResource
 				id, err := commonids.ParseSomeCommonID(metadata.ResourceData.Id())
 				if err != nil {
 					return err
 				}
-				var config MyResourceResourceModel
+				var config MyTypedModel
 				if err := metadata.Decode(&config); err != nil {
 					return fmt.Errorf("decoding: %+v", err)
 				}
@@ -258,11 +278,11 @@ func TestComponentUpdate_HappyPathEnabled_CommonId_UniqueModels(t *testing.T) {
 		}
 	}
 `
-	assertTemplatedCodeMatches(t, expected, actual)
+	assertTemplatedCodeMatches(t, expected, *actual)
 }
 
 func TestComponentUpdate_HappyPathEnabled_RegularResourceID_SharedModels(t *testing.T) {
-	actual := updateFuncForResource(models.ResourceInput{
+	input := models.ResourceInput{
 		Constants: map[string]resourcemanager.ConstantDetails{},
 		Details: resourcemanager.TerraformResourceDetails{
 			CreateMethod: resourcemanager.MethodDefinition{
@@ -341,20 +361,25 @@ func TestComponentUpdate_HappyPathEnabled_RegularResourceID_SharedModels(t *test
 		ServiceName:        "Service1",
 		ServicePackageName: "service1",
 		SdkApiVersion:      "sdkapiversion",
-		SdkResourceName:    "sdkresource",
-		SdkServiceName:     "sdkservice",
-	})
+		SdkResourceName:    "SdkResource",
+		SdkServiceName:     "SdkService",
+		SchemaModelName:    "MyTypedModel",
+	}
+	actual, err := updateFuncForResource(input)
+	if err != nil {
+		t.Fatalf("error: %+v", err)
+	}
 	expected := `
 	func (r MyResourceResource) Update() sdk.ResourceFunc {
 		return sdk.ResourceFunc{
 			Timeout: 40 * time.Minute,
 			Func: func(ctx context.Context, metadata sdk.ResourceMetaData) error {
-				client := metadata.Client.Service1.MyResourceClient
+				client := metadata.Client.Service1.SdkResource
 				id, err := sdkresource.ParseSomeResourceID(metadata.ResourceData.Id())
 				if err != nil {
 					return err
 				}
-				var config MyResourceResourceModel
+				var config MyTypedModel
 				if err := metadata.Decode(&config); err != nil {
 					return fmt.Errorf("decoding: %+v", err)
 				}
@@ -375,11 +400,11 @@ func TestComponentUpdate_HappyPathEnabled_RegularResourceID_SharedModels(t *test
 		}
 	}
 `
-	assertTemplatedCodeMatches(t, expected, actual)
+	assertTemplatedCodeMatches(t, expected, *actual)
 }
 
 func TestComponentUpdate_HappyPathEnabled_RegularResourceID_UniqueModels(t *testing.T) {
-	actual := updateFuncForResource(models.ResourceInput{
+	input := models.ResourceInput{
 		Constants: map[string]resourcemanager.ConstantDetails{},
 		Details: resourcemanager.TerraformResourceDetails{
 			CreateMethod: resourcemanager.MethodDefinition{
@@ -468,20 +493,25 @@ func TestComponentUpdate_HappyPathEnabled_RegularResourceID_UniqueModels(t *test
 		ServiceName:        "Service1",
 		ServicePackageName: "service1",
 		SdkApiVersion:      "sdkapiversion",
-		SdkResourceName:    "sdkresource",
-		SdkServiceName:     "sdkservice",
-	})
+		SdkResourceName:    "SdkResource",
+		SdkServiceName:     "SdkService",
+		SchemaModelName:    "MyTypedModel",
+	}
+	actual, err := updateFuncForResource(input)
+	if err != nil {
+		t.Fatalf("error: %+v", err)
+	}
 	expected := `
 	func (r MyResourceResource) Update() sdk.ResourceFunc {
 		return sdk.ResourceFunc{
 			Timeout: 40 * time.Minute,
 			Func: func(ctx context.Context, metadata sdk.ResourceMetaData) error {
-				client := metadata.Client.Service1.MyResourceClient
+				client := metadata.Client.Service1.SdkResource
 				id, err := sdkresource.ParseSomeResourceID(metadata.ResourceData.Id())
 				if err != nil {
 					return err
 				}
-				var config MyResourceResourceModel
+				var config MyTypedModel
 				if err := metadata.Decode(&config); err != nil {
 					return fmt.Errorf("decoding: %+v", err)
 				}
@@ -495,32 +525,39 @@ func TestComponentUpdate_HappyPathEnabled_RegularResourceID_UniqueModels(t *test
 		}
 	}
 `
-	assertTemplatedCodeMatches(t, expected, actual)
+	assertTemplatedCodeMatches(t, expected, *actual)
 }
 
 func TestComponentUpdate_MappingsFromSchema(t *testing.T) {
-	actual := updateFuncHelpers{}.mappingsFromSchema()
+	actual, err := updateFuncHelpers{}.mappingsFromSchema()
+	if err != nil {
+		t.Fatalf("error: %+v", err)
+	}
 	expected := `
 			// TODO: mapping from the Schema -> Payload
 `
-	assertTemplatedCodeMatches(t, expected, actual)
+	assertTemplatedCodeMatches(t, expected, *actual)
 }
 
 func TestComponentUpdate_ModelDecode(t *testing.T) {
-	actual := updateFuncHelpers{
+	actual, err := updateFuncHelpers{
 		resourceTypeName: "AwesomeResource",
+		schemaModelName:  "MyTypedModel",
 	}.modelDecode()
+	if err != nil {
+		t.Fatalf("error: %+v", err)
+	}
 	expected := `
-			var config AwesomeResourceResourceModel
+			var config MyTypedModel
 			if err := metadata.Decode(&config); err != nil {
 				return fmt.Errorf("decoding: %+v", err)
 			}
 `
-	assertTemplatedCodeMatches(t, expected, actual)
+	assertTemplatedCodeMatches(t, expected, *actual)
 }
 
 func TestComponentUpdate_PayloadDefinition_ModelSharedBetweenCreateReadUpdate(t *testing.T) {
-	actual := updateFuncHelpers{
+	actual, err := updateFuncHelpers{
 		createMethod: resourcemanager.ApiOperation{
 			LongRunning: false,
 			RequestObject: &resourcemanager.ApiObjectDefinition{
@@ -547,9 +584,12 @@ func TestComponentUpdate_PayloadDefinition_ModelSharedBetweenCreateReadUpdate(t 
 			},
 			ResourceIdName: stringPointer("SomeId"),
 		},
-		updateMethodName: "Update",
-		sdkResourceName:  "sdkresource",
+		updateMethodName:       "Update",
+		sdkResourceNameLowered: "sdkresource",
 	}.payloadDefinition()
+	if err != nil {
+		t.Fatalf("error: %+v", err)
+	}
 	expected := `
 	existing, err := client.Get(ctx, *id)
 	if err != nil {
@@ -560,11 +600,11 @@ func TestComponentUpdate_PayloadDefinition_ModelSharedBetweenCreateReadUpdate(t 
 	}
 	payload := *existing.Model
 `
-	assertTemplatedCodeMatches(t, expected, actual)
+	assertTemplatedCodeMatches(t, expected, *actual)
 }
 
 func TestComponentUpdate_PayloadDefinition_ModelSharedBetweenCreateReadUpdateThatIsNotAReference(t *testing.T) {
-	actual := updateFuncHelpers{
+	actual, err := updateFuncHelpers{
 		createMethod: resourcemanager.ApiOperation{
 			LongRunning: false,
 			RequestObject: &resourcemanager.ApiObjectDefinition{
@@ -600,17 +640,20 @@ func TestComponentUpdate_PayloadDefinition_ModelSharedBetweenCreateReadUpdateTha
 			},
 			ResourceIdName: stringPointer("SomeId"),
 		},
-		updateMethodName: "Update",
-		sdkResourceName:  "sdkresource",
+		updateMethodName:       "Update",
+		sdkResourceNameLowered: "sdkresource",
 	}.payloadDefinition()
+	if err != nil {
+		t.Fatalf("error: %+v", err)
+	}
 	expected := `
 	payload := []sdkresource.SharedListPayload{}
 `
-	assertTemplatedCodeMatches(t, expected, actual)
+	assertTemplatedCodeMatches(t, expected, *actual)
 }
 
 func TestComponentUpdate_PayloadDefinition_UniqueModelsForCreateReadUpdate(t *testing.T) {
-	actual := updateFuncHelpers{
+	actual, err := updateFuncHelpers{
 		createMethod: resourcemanager.ApiOperation{
 			LongRunning: false,
 			RequestObject: &resourcemanager.ApiObjectDefinition{
@@ -637,49 +680,58 @@ func TestComponentUpdate_PayloadDefinition_UniqueModelsForCreateReadUpdate(t *te
 			},
 			ResourceIdName: stringPointer("SomeId"),
 		},
-		updateMethodName: "Update",
-		sdkResourceName:  "sdkresource",
+		updateMethodName:       "Update",
+		sdkResourceNameLowered: "sdkresource",
 	}.payloadDefinition()
+	if err != nil {
+		t.Fatalf("error: %+v", err)
+	}
 	expected := `
 	payload := sdkresource.UpdatePayload{}
 `
-	assertTemplatedCodeMatches(t, expected, actual)
+	assertTemplatedCodeMatches(t, expected, *actual)
 }
 
 func TestComponentUpdate_ResourceIDParser(t *testing.T) {
-	actual := updateFuncHelpers{
+	actual, err := updateFuncHelpers{
 		resourceIdParseFuncName: "someresource.ParseTheParcel",
 	}.resourceIdParser()
+	if err != nil {
+		t.Fatalf("error: %+v", err)
+	}
 	expected := `
 			id, err := someresource.ParseTheParcel(metadata.ResourceData.Id())
 			if err != nil {
 				return err
 			}
 `
-	assertTemplatedCodeMatches(t, expected, actual)
+	assertTemplatedCodeMatches(t, expected, *actual)
 }
 
 func TestComponentUpdate_UpdateFunc_Immediate_PayloadResourceIdNoOptions(t *testing.T) {
-	actual := updateFuncHelpers{
+	actual, err := updateFuncHelpers{
 		updateMethod: resourcemanager.ApiOperation{
 			LongRunning:    false,
 			RequestObject:  &resourcemanager.ApiObjectDefinition{},
 			ResourceIdName: stringPointer("SomeResourceId"),
 			UriSuffix:      stringPointer("/example"),
 		},
-		updateMethodName: "UpdateThing",
-		sdkResourceName:  "sdkresource",
+		updateMethodName:       "UpdateThing",
+		sdkResourceNameLowered: "sdkresource",
 	}.update()
+	if err != nil {
+		t.Fatalf("error: %+v", err)
+	}
 	expected := `
 			if err := client.UpdateThing(ctx, *id, payload); err != nil {
 				return fmt.Errorf("updating %s: %+v", *id, err)
 			}
 `
-	assertTemplatedCodeMatches(t, expected, actual)
+	assertTemplatedCodeMatches(t, expected, *actual)
 }
 
 func TestComponentUpdate_UpdateFunc_Immediate_PayloadResourceIdOptions(t *testing.T) {
-	actual := updateFuncHelpers{
+	actual, err := updateFuncHelpers{
 		updateMethod: resourcemanager.ApiOperation{
 			LongRunning: false,
 			Options: map[string]resourcemanager.ApiOperationOption{
@@ -689,38 +741,44 @@ func TestComponentUpdate_UpdateFunc_Immediate_PayloadResourceIdOptions(t *testin
 			ResourceIdName: stringPointer("SomeResourceId"),
 			UriSuffix:      stringPointer("/example"),
 		},
-		updateMethodName: "UpdateThing",
-		sdkResourceName:  "sdkresource",
+		updateMethodName:       "UpdateThing",
+		sdkResourceNameLowered: "sdkresource",
 	}.update()
+	if err != nil {
+		t.Fatalf("error: %+v", err)
+	}
 	expected := `
 			if err := client.UpdateThing(ctx, *id, payload, sdkresource.DefaultUpdateThingOperationOptions()); err != nil {
 				return fmt.Errorf("updating %s: %+v", *id, err)
 			}
 `
-	assertTemplatedCodeMatches(t, expected, actual)
+	assertTemplatedCodeMatches(t, expected, *actual)
 }
 
 func TestComponentUpdate_UpdateFunc_LongRunning_PayloadResourceIdNoOptions(t *testing.T) {
-	actual := updateFuncHelpers{
+	actual, err := updateFuncHelpers{
 		updateMethod: resourcemanager.ApiOperation{
 			LongRunning:    true,
 			RequestObject:  &resourcemanager.ApiObjectDefinition{},
 			ResourceIdName: stringPointer("SomeResourceId"),
 			UriSuffix:      stringPointer("/example"),
 		},
-		updateMethodName: "UpdateThing",
-		sdkResourceName:  "sdkresource",
+		updateMethodName:       "UpdateThing",
+		sdkResourceNameLowered: "sdkresource",
 	}.update()
+	if err != nil {
+		t.Fatalf("error: %+v", err)
+	}
 	expected := `
 			if err := client.UpdateThingThenPoll(ctx, *id, payload); err != nil {
 				return fmt.Errorf("updating %s: %+v", *id, err)
 			}
 `
-	assertTemplatedCodeMatches(t, expected, actual)
+	assertTemplatedCodeMatches(t, expected, *actual)
 }
 
 func TestComponentUpdate_UpdateFunc_LongRunning_PayloadResourceIdOptions(t *testing.T) {
-	actual := updateFuncHelpers{
+	actual, err := updateFuncHelpers{
 		updateMethod: resourcemanager.ApiOperation{
 			LongRunning: true,
 			Options: map[string]resourcemanager.ApiOperationOption{
@@ -730,13 +788,16 @@ func TestComponentUpdate_UpdateFunc_LongRunning_PayloadResourceIdOptions(t *test
 			ResourceIdName: stringPointer("SomeResourceId"),
 			UriSuffix:      stringPointer("/example"),
 		},
-		updateMethodName: "UpdateThing",
-		sdkResourceName:  "sdkresource",
+		updateMethodName:       "UpdateThing",
+		sdkResourceNameLowered: "sdkresource",
 	}.update()
+	if err != nil {
+		t.Fatalf("error: %+v", err)
+	}
 	expected := `
 			if err := client.UpdateThingThenPoll(ctx, *id, payload, sdkresource.DefaultUpdateThingOperationOptions()); err != nil {
 				return fmt.Errorf("updating %s: %+v", *id, err)
 			}
 `
-	assertTemplatedCodeMatches(t, expected, actual)
+	assertTemplatedCodeMatches(t, expected, *actual)
 }
