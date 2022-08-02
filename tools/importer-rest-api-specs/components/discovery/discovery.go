@@ -16,6 +16,53 @@ type resourceManagerService struct {
 	resourceProvider string
 }
 
+type swaggerDirectoryMetaData struct {
+	serviceName         string
+	serviceType         string
+	resourceProvider    string
+	serviceReleaseState string
+	apiVersion          string
+}
+
+func getMetaDataForSwaggerDirectory(input []string) *swaggerDirectoryMetaData {
+	// appconfiguration/data-plane/Microsoft.AppConfiguration/stable/1.0
+	// vmware/resource-manager/Microsoft.AVS/{preview|stable}/{version}
+	if len(input) != 5 {
+		return nil
+	}
+	serviceName := input[0]
+	serviceType := input[1]
+	resourceProvider := input[2]
+	serviceReleaseState := input[3]
+	apiVersion := input[4]
+
+	if !strings.EqualFold(serviceType, "resource-manager") {
+		return nil
+	}
+	// ignore 'common' e.g. ./specification/streamanalytics/resource-manager/Microsoft.StreamAnalytics/common/v1/definitions.json
+	if !strings.EqualFold(serviceReleaseState, "stable") && !strings.EqualFold(serviceReleaseState, "preview") {
+		return nil
+	}
+
+	return &swaggerDirectoryMetaData{
+		serviceName:         serviceName,
+		serviceType:         serviceType,
+		resourceProvider:    resourceProvider,
+		serviceReleaseState: serviceReleaseState,
+		apiVersion:          apiVersion,
+	}
+}
+
+func (d swaggerDirectoryMetaData) String() string {
+	return strings.Join([]string{
+		fmt.Sprintf("Service %q", d.serviceName),
+		fmt.Sprintf("Type %q", d.serviceType),
+		fmt.Sprintf("RP %q", d.resourceProvider),
+		fmt.Sprintf("Status %q", d.serviceReleaseState),
+		fmt.Sprintf("Version %q", d.apiVersion),
+	}, " / ")
+}
+
 func FindResourceManagerServices(directory string, logger hclog.Logger) (*map[string]ResourceManagerService, error) {
 	services := make(map[string]resourceManagerService, 0)
 	err := filepath.Walk(directory,
@@ -27,42 +74,28 @@ func FindResourceManagerServices(directory string, logger hclog.Logger) (*map[st
 				return nil
 			}
 
-			// appconfiguration/data-plane/Microsoft.AppConfiguration/stable/1.0
-			// vmware/resource-manager/Microsoft.AVS/{preview|stable}/{version}
 			relativePath := strings.TrimPrefix(fullPath, directory)
 			relativePath = strings.TrimPrefix(relativePath, string(os.PathSeparator))
 			trimmed := strings.TrimPrefix(relativePath, directory)
 			segments := strings.Split(trimmed, string(os.PathSeparator))
-			if len(segments) != 5 {
+
+			metadata := getMetaDataForSwaggerDirectory(segments)
+			if metadata == nil {
 				return nil
 			}
 
-			serviceName := segments[0]
-			serviceType := segments[1]
-			resourceProvider := segments[2]
-			serviceReleaseState := segments[3]
-			apiVersion := segments[4]
-
-			logger.Debug(fmt.Sprintf("Service %q / Type %q / RP %q / Status %q / Version %q", serviceName, serviceType, resourceProvider, serviceReleaseState, apiVersion))
+			logger.Debug(metadata.String())
 			logger.Debug(fmt.Sprintf("Path %q", fullPath))
 
-			if !strings.EqualFold(serviceType, "resource-manager") {
-				return nil
-			}
-			// ignore 'common' e.g. ./specification/streamanalytics/resource-manager/Microsoft.StreamAnalytics/common/v1/definitions.json
-			if !strings.EqualFold(serviceReleaseState, "stable") && !strings.EqualFold(serviceReleaseState, "preview") {
-				return nil
-			}
-
-			existingPaths, ok := services[serviceName]
+			existingPaths, ok := services[metadata.serviceName]
 			if !ok {
 				existingPaths = resourceManagerService{
-					resourceProvider: resourceProvider,
+					resourceProvider: metadata.resourceProvider,
 					apiVersions:      map[string]string{},
 				}
 			}
-			existingPaths.apiVersions[apiVersion] = fullPath
-			services[serviceName] = existingPaths
+			existingPaths.apiVersions[metadata.apiVersion] = fullPath
+			services[metadata.serviceName] = existingPaths
 
 			return nil
 		})
