@@ -29,24 +29,26 @@ func TestAllSwaggersUsingParser(t *testing.T) {
 	}
 
 	for _, service := range *services {
-		for apiVersion, versionPath := range service.ApiVersionPaths {
-			serviceType := "resource-manager"
-			if strings.Contains(versionPath, "data-plane") {
-				serviceType = "data-plane"
-			}
-
-			t.Run(fmt.Sprintf("%s/%s/%s", service.Name, serviceType, apiVersion), func(t *testing.T) {
-				t.Parallel()
-
-				// safety
-				_, done := context.WithTimeout(context.TODO(), 90*time.Second)
-				defer done()
-				log.Printf("[DEBUG] Validating %q at %q..", service.Name, versionPath)
-				err := validateDirectory(service.Name, apiVersion, versionPath)
-				if err != nil {
-					t.Fatal(err)
+		for apiVersion, versionPaths := range service.ApiVersionPaths {
+			for _, versionPath := range versionPaths {
+				serviceType := "resource-manager"
+				if strings.Contains(versionPath, "data-plane") {
+					serviceType = "data-plane"
 				}
-			})
+
+				t.Run(fmt.Sprintf("%s/%s/%s", service.Name, serviceType, apiVersion), func(t *testing.T) {
+					t.Parallel()
+
+					// safety
+					_, done := context.WithTimeout(context.TODO(), 90*time.Second)
+					defer done()
+					log.Printf("[DEBUG] Validating %q at %q..", service.Name, versionPath)
+					err := validateDirectory(service.Name, apiVersion, versionPath)
+					if err != nil {
+						t.Fatal(err)
+					}
+				})
+			}
 		}
 	}
 }
@@ -64,26 +66,28 @@ func TestAllSwaggersValidateAllContainTypes(t *testing.T) {
 	}
 
 	for _, service := range *services {
-		for apiVersion, versionPath := range service.ApiVersionPaths {
-			serviceType := "resource-manager"
-			if strings.Contains(versionPath, "data-plane") {
-				serviceType = "data-plane"
-			}
-
-			t.Run(fmt.Sprintf("%s/%s/%s", service.Name, serviceType, apiVersion), func(t *testing.T) {
-				t.Parallel()
-
-				// safety
-				_, done := context.WithTimeout(context.TODO(), 90*time.Second)
-				defer done()
-				log.Printf("[DEBUG] Validating %q at %q..", service.Name, versionPath)
-				err := validateDirectory(service.Name, apiVersion, versionPath)
-				if err != nil {
-					if strings.HasSuffix(err.Error(), "is missing a type") {
-						t.Fatal(err)
-					}
+		for apiVersion, versionPaths := range service.ApiVersionPaths {
+			for _, versionPath := range versionPaths {
+				serviceType := "resource-manager"
+				if strings.Contains(versionPath, "data-plane") {
+					serviceType = "data-plane"
 				}
-			})
+
+				t.Run(fmt.Sprintf("%s/%s/%s", service.Name, serviceType, apiVersion), func(t *testing.T) {
+					t.Parallel()
+
+					// safety
+					_, done := context.WithTimeout(context.TODO(), 90*time.Second)
+					defer done()
+					log.Printf("[DEBUG] Validating %q at %q..", service.Name, versionPath)
+					err := validateDirectory(service.Name, apiVersion, versionPath)
+					if err != nil {
+						if strings.HasSuffix(err.Error(), "is missing a type") {
+							t.Fatal(err)
+						}
+					}
+				})
+			}
 		}
 	}
 }
@@ -101,24 +105,26 @@ func TestAllSwaggersValidateFindOAIGenParserBug(t *testing.T) {
 	}
 
 	for _, service := range *services {
-		for apiVersion, versionPath := range service.ApiVersionPaths {
-			serviceType := "resource-manager"
-			if strings.Contains(versionPath, "data-plane") {
-				serviceType = "data-plane"
-			}
-
-			t.Run(fmt.Sprintf("%s/%s/%s", service.Name, serviceType, apiVersion), func(t *testing.T) {
-				// safety
-				_, done := context.WithTimeout(context.TODO(), 30*time.Second)
-				defer done()
-				log.Printf("[DEBUG] Validating %q at %q..", service.Name, versionPath)
-				err := validateDirectory(service.Name, apiVersion, versionPath)
-				if err != nil {
-					if strings.Contains(err.Error(), "OAIGen") {
-						t.Fatal(err)
-					}
+		for apiVersion, versionPaths := range service.ApiVersionPaths {
+			for _, versionPath := range versionPaths {
+				serviceType := "resource-manager"
+				if strings.Contains(versionPath, "data-plane") {
+					serviceType = "data-plane"
 				}
-			})
+
+				t.Run(fmt.Sprintf("%s/%s/%s", service.Name, serviceType, apiVersion), func(t *testing.T) {
+					// safety
+					_, done := context.WithTimeout(context.TODO(), 30*time.Second)
+					defer done()
+					log.Printf("[DEBUG] Validating %q at %q..", service.Name, versionPath)
+					err := validateDirectory(service.Name, apiVersion, versionPath)
+					if err != nil {
+						if strings.Contains(err.Error(), "OAIGen") {
+							t.Fatal(err)
+						}
+					}
+				})
+			}
 		}
 	}
 }
@@ -136,26 +142,28 @@ func TestAllSwaggersValidateFindUnknownBugs(t *testing.T) {
 	}
 
 	for _, service := range *services {
-		for apiVersion, versionPath := range service.ApiVersionPaths {
-			serviceType := "resource-manager"
-			if strings.Contains(versionPath, "data-plane") {
-				serviceType = "data-plane"
-			}
-
-			t.Run(fmt.Sprintf("%s/%s/%s", service.Name, serviceType, apiVersion), func(t *testing.T) {
-				// safety
-				_, done := context.WithTimeout(context.TODO(), 30*time.Second)
-				defer done()
-				log.Printf("[DEBUG] Validating %q at %q..", service.Name, versionPath)
-				err := validateDirectory(service.Name, apiVersion, versionPath)
-				if err != nil {
-					if !strings.Contains(err.Error(), "OAIGen") &&
-						!strings.HasSuffix(err.Error(), "is missing a type") &&
-						!strings.HasSuffix(err.Error(), "duplicate operation ID") {
-						t.Fatal(err)
-					}
+		for apiVersion, versionPaths := range service.ApiVersionPaths {
+			for _, versionPath := range versionPaths {
+				serviceType := "resource-manager"
+				if strings.Contains(versionPath, "data-plane") {
+					serviceType = "data-plane"
 				}
-			})
+
+				t.Run(fmt.Sprintf("%s/%s/%s", service.Name, serviceType, apiVersion), func(t *testing.T) {
+					// safety
+					_, done := context.WithTimeout(context.TODO(), 30*time.Second)
+					defer done()
+					log.Printf("[DEBUG] Validating %q at %q..", service.Name, versionPath)
+					err := validateDirectory(service.Name, apiVersion, versionPath)
+					if err != nil {
+						if !strings.Contains(err.Error(), "OAIGen") &&
+							!strings.HasSuffix(err.Error(), "is missing a type") &&
+							!strings.HasSuffix(err.Error(), "duplicate operation ID") {
+							t.Fatal(err)
+						}
+					}
+				})
+			}
 		}
 	}
 }

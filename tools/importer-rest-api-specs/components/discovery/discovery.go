@@ -12,7 +12,7 @@ import (
 )
 
 type resourceManagerService struct {
-	apiVersions      map[string]string
+	apiVersions      map[string][]string
 	resourceProvider string
 }
 
@@ -25,32 +25,42 @@ type swaggerDirectoryMetaData struct {
 }
 
 func getMetaDataForSwaggerDirectory(input []string) *swaggerDirectoryMetaData {
-	// appconfiguration/data-plane/Microsoft.AppConfiguration/stable/1.0
-	// vmware/resource-manager/Microsoft.AVS/{preview|stable}/{version}
-	if len(input) != 5 {
-		return nil
-	}
-	serviceName := input[0]
-	serviceType := input[1]
-	resourceProvider := input[2]
-	serviceReleaseState := input[3]
-	apiVersion := input[4]
-
-	if !strings.EqualFold(serviceType, "resource-manager") {
-		return nil
-	}
-	// ignore 'common' e.g. ./specification/streamanalytics/resource-manager/Microsoft.StreamAnalytics/common/v1/definitions.json
-	if !strings.EqualFold(serviceReleaseState, "stable") && !strings.EqualFold(serviceReleaseState, "preview") {
-		return nil
+	for _, v := range input {
+		if strings.EqualFold(v, "examples") {
+			return nil
+		}
 	}
 
-	return &swaggerDirectoryMetaData{
-		serviceName:         serviceName,
-		serviceType:         serviceType,
-		resourceProvider:    resourceProvider,
-		serviceReleaseState: serviceReleaseState,
-		apiVersion:          apiVersion,
+	if len(input) == 5 {
+		// appconfiguration/data-plane/Microsoft.AppConfiguration/stable/1.0
+		// vmware/resource-manager/Microsoft.AVS/{preview|stable}/{version}
+		item := swaggerDirectoryMetaData{
+			serviceName:         input[0],
+			serviceType:         input[1],
+			resourceProvider:    input[2],
+			serviceReleaseState: input[3],
+			apiVersion:          input[4],
+		}
+		if item.isValid() {
+			return &item
+		}
 	}
+	if len(input) >= 6 {
+		// compute/resource-manager/Microsoft.Compute/CloudserviceRP/stable/2022-04-04
+		// compute/resource-manager/Microsoft.Compute/CloudserviceRP/stable/2022-04-04/CloudServiceRP
+		item := swaggerDirectoryMetaData{
+			serviceName:         input[0],
+			serviceType:         input[1],
+			resourceProvider:    input[2],
+			serviceReleaseState: input[4],
+			apiVersion:          input[5],
+		}
+		if item.isValid() {
+			return &item
+		}
+	}
+
+	return nil
 }
 
 func (d swaggerDirectoryMetaData) String() string {
@@ -61,6 +71,18 @@ func (d swaggerDirectoryMetaData) String() string {
 		fmt.Sprintf("Status %q", d.serviceReleaseState),
 		fmt.Sprintf("Version %q", d.apiVersion),
 	}, " / ")
+}
+
+func (d swaggerDirectoryMetaData) isValid() bool {
+	if !strings.EqualFold(d.serviceType, "resource-manager") {
+		return false
+	}
+	// ignore 'common' e.g. ./specification/streamanalytics/resource-manager/Microsoft.StreamAnalytics/common/v1/definitions.json
+	if !strings.EqualFold(d.serviceReleaseState, "stable") && !strings.EqualFold(d.serviceReleaseState, "preview") {
+		return false
+	}
+
+	return true
 }
 
 func FindResourceManagerServices(directory string, logger hclog.Logger) (*map[string]ResourceManagerService, error) {
@@ -91,10 +113,10 @@ func FindResourceManagerServices(directory string, logger hclog.Logger) (*map[st
 			if !ok {
 				existingPaths = resourceManagerService{
 					resourceProvider: metadata.resourceProvider,
-					apiVersions:      map[string]string{},
+					apiVersions:      map[string][]string{},
 				}
 			}
-			existingPaths.apiVersions[metadata.apiVersion] = fullPath
+			existingPaths.apiVersions[metadata.apiVersion] = append(existingPaths.apiVersions[metadata.apiVersion], fullPath)
 			services[metadata.serviceName] = existingPaths
 
 			return nil
@@ -129,7 +151,7 @@ func FindResourceManagerServices(directory string, logger hclog.Logger) (*map[st
 
 type ResourceManagerService struct {
 	Name             string
-	ApiVersionPaths  map[string]string
+	ApiVersionPaths  map[string][]string
 	ResourceProvider string
 }
 

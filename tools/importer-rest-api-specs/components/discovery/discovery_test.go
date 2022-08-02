@@ -26,6 +26,7 @@ func TestGetMetaDataForSwaggerDirectory(t *testing.T) {
 			},
 			expected: nil,
 		},
+
 		{
 			// Resource Manager (most items) - Stable
 			input: []string{
@@ -68,6 +69,113 @@ func TestGetMetaDataForSwaggerDirectory(t *testing.T) {
 				"Microsoft.AVS",
 				"mercury",
 				"2022-01-01",
+			},
+			expected: nil,
+		},
+
+		{
+			// Folder Structure for Service Group (e.g. Compute) - top-level - Stable
+			// compute/resource-manager/Microsoft.Compute/CloudserviceRP/stable/2022-04-04
+			input: []string{
+				"compute",
+				"resource-manager",
+				"Microsoft.Compute",
+				"CloudserviceRP",
+				"stable",
+				"2022-04-04",
+			},
+			expected: &swaggerDirectoryMetaData{
+				serviceName:         "compute",
+				serviceType:         "resource-manager",
+				resourceProvider:    "Microsoft.Compute",
+				serviceReleaseState: "stable",
+				apiVersion:          "2022-04-04",
+			},
+		},
+		{
+			// Folder Structure for Service Group (e.g. Compute) - top-level - Preview
+			// compute/resource-manager/Microsoft.Compute/CloudserviceRP/stable/2022-04-04
+			input: []string{
+				"compute",
+				"resource-manager",
+				"Microsoft.Compute",
+				"CloudserviceRP",
+				"preview",
+				"2022-04-04",
+			},
+			expected: &swaggerDirectoryMetaData{
+				serviceName:         "compute",
+				serviceType:         "resource-manager",
+				resourceProvider:    "Microsoft.Compute",
+				serviceReleaseState: "preview",
+				apiVersion:          "2022-04-04",
+			},
+		},
+		{
+			// Folder Structure for Service Group (e.g. Compute) - top-level - Unknown
+			// compute/resource-manager/Microsoft.Compute/CloudserviceRP/stable/2022-04-04
+			input: []string{
+				"compute",
+				"resource-manager",
+				"Microsoft.Compute",
+				"CloudserviceRP",
+				"mercury",
+				"2022-04-04",
+			},
+			expected: nil,
+		},
+
+		{
+			// Folder Structure for Service Group (e.g. Compute) - component - Stable
+			// compute/resource-manager/Microsoft.Compute/CloudserviceRP/stable/2022-04-04/CloudServiceRP
+			input: []string{
+				"compute",
+				"resource-manager",
+				"Microsoft.Compute",
+				"CloudserviceRP",
+				"stable",
+				"2022-04-04",
+				"CloudServiceRP",
+			},
+			expected: &swaggerDirectoryMetaData{
+				serviceName:         "compute",
+				serviceType:         "resource-manager",
+				resourceProvider:    "Microsoft.Compute",
+				serviceReleaseState: "stable",
+				apiVersion:          "2022-04-04",
+			},
+		},
+		{
+			// Folder Structure for Service Group (e.g. Compute) - component - Preview
+			// compute/resource-manager/Microsoft.Compute/CloudserviceRP/stable/2022-04-04/CloudServiceRP
+			input: []string{
+				"compute",
+				"resource-manager",
+				"Microsoft.Compute",
+				"CloudserviceRP",
+				"preview",
+				"2022-04-04",
+				"CloudServiceRP",
+			},
+			expected: &swaggerDirectoryMetaData{
+				serviceName:         "compute",
+				serviceType:         "resource-manager",
+				resourceProvider:    "Microsoft.Compute",
+				serviceReleaseState: "preview",
+				apiVersion:          "2022-04-04",
+			},
+		},
+		{
+			// Folder Structure for Service Group (e.g. Compute) - component - Unknown
+			// compute/resource-manager/Microsoft.Compute/CloudserviceRP/stable/2022-04-04/CloudServiceRP
+			input: []string{
+				"compute",
+				"resource-manager",
+				"Microsoft.Compute",
+				"CloudserviceRP",
+				"mercury",
+				"2022-04-04",
+				"CloudServiceRP",
 			},
 			expected: nil,
 		},
