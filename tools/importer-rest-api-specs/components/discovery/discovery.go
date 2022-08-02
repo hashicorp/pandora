@@ -1,4 +1,4 @@
-package parser
+package discovery
 
 import (
 	"fmt"
@@ -10,8 +10,6 @@ import (
 
 	"github.com/hashicorp/go-hclog"
 )
-
-// TODO: move this into a `discovery` package, I guess?
 
 type resourceManagerService struct {
 	apiVersions      map[string]string

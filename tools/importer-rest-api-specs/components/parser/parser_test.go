@@ -10,6 +10,7 @@ import (
 	"time"
 
 	"github.com/hashicorp/go-hclog"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/discovery"
 )
 
 const swaggerDirectory = "../../../swagger/specification"
@@ -22,7 +23,7 @@ func TestAllSwaggersUsingParser(t *testing.T) {
 	// works around the OAIGen bug
 	os.Setenv("OAIGEN_DEDUPE", "false")
 
-	services, err := FindResourceManagerServices(swaggerDirectory, hclog.New(hclog.DefaultOptions))
+	services, err := discovery.FindResourceManagerServices(swaggerDirectory, hclog.New(hclog.DefaultOptions))
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -57,7 +58,7 @@ func TestAllSwaggersValidateAllContainTypes(t *testing.T) {
 	// works around the OAIGen bug
 	os.Setenv("OAIGEN_DEDUPE", "false")
 
-	services, err := FindResourceManagerServices(swaggerDirectory, hclog.New(hclog.DefaultOptions))
+	services, err := discovery.FindResourceManagerServices(swaggerDirectory, hclog.New(hclog.DefaultOptions))
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -94,7 +95,7 @@ func TestAllSwaggersValidateFindOAIGenParserBug(t *testing.T) {
 	// works around the OAIGen bug
 	os.Setenv("OAIGEN_DEDUPE", "false")
 
-	services, err := FindResourceManagerServices(swaggerDirectory, hclog.New(hclog.DefaultOptions))
+	services, err := discovery.FindResourceManagerServices(swaggerDirectory, hclog.New(hclog.DefaultOptions))
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -129,7 +130,7 @@ func TestAllSwaggersValidateFindUnknownBugs(t *testing.T) {
 	// works around the OAIGen bug
 	os.Setenv("OAIGEN_DEDUPE", "false")
 
-	services, err := FindResourceManagerServices(swaggerDirectory, hclog.New(hclog.DefaultOptions))
+	services, err := discovery.FindResourceManagerServices(swaggerDirectory, hclog.New(hclog.DefaultOptions))
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -160,7 +161,7 @@ func TestAllSwaggersValidateFindUnknownBugs(t *testing.T) {
 }
 
 func validateDirectory(serviceName, apiVersion, versionDirectory string) error {
-	swaggerFiles, err := SwaggerFilesInDirectory(versionDirectory)
+	swaggerFiles, err := discovery.SwaggerFilesInDirectory(versionDirectory)
 	if err != nil {
 		return fmt.Errorf("parsing swagger files in %q: %+v", versionDirectory, err)
 	}
