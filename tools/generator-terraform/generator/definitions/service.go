@@ -28,5 +28,12 @@ func ForService(input models.ServiceInput) error {
 	registrationContents := templateForServiceRegistration(input)
 	writeToPath(registrationFilePath, registrationContents)
 
+	// if the manual Registration doesn't exist, write it out
+	manualRegistrationFilePath := fmt.Sprintf("%s/registration.go", serviceDirectory)
+	if _, err := os.ReadFile(manualRegistrationFilePath); err != nil && os.IsNotExist(err) {
+		manualRegistration := codeForManualServiceRegistration(input)
+		writeToPath(manualRegistrationFilePath, manualRegistration)
+	}
+
 	return nil
 }
