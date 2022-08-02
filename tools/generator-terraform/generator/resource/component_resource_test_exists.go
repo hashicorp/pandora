@@ -31,7 +31,7 @@ func (r %[1]sTestResource) Exists(ctx context.Context, clients *clients.Client, 
 
 	resp, err := clients.%[3]s.%[1]s.%[4]s(%[5]s)
 	if err != nil {
-		return fmt.Errorf("reading %%s: %%+v", *id, err)
+		return nil, fmt.Errorf("reading %%s: %%+v", *id, err)
 	}
 
 	return utils.Bool(resp.Model != nil), nil
