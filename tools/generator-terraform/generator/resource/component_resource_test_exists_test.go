@@ -10,7 +10,7 @@ import (
 func TestExistsFuncForResourceTest_CommonId_Disabled(t *testing.T) {
 	input := models.ResourceInput{
 		ResourceTypeName: "Example",
-		SdkResourceName:  "sdkresource",
+		SdkResourceName:  "SdkResource",
 		ServiceName:      "Resources",
 		Details: resourcemanager.TerraformResourceDetails{
 			ReadMethod: resourcemanager.MethodDefinition{
@@ -43,7 +43,7 @@ func TestExistsFuncForResourceTest_CommonId_Disabled(t *testing.T) {
 func TestExistsFuncForResourceTest_RegularResourceId_Disabled(t *testing.T) {
 	input := models.ResourceInput{
 		ResourceTypeName: "Example",
-		SdkResourceName:  "sdkresource",
+		SdkResourceName:  "SdkResource",
 		ServiceName:      "Resources",
 		Details: resourcemanager.TerraformResourceDetails{
 			ReadMethod: resourcemanager.MethodDefinition{
@@ -76,7 +76,7 @@ func TestExistsFuncForResourceTest_RegularResourceId_Disabled(t *testing.T) {
 func TestExistsFuncForResourceTest_CommonId_Enabled(t *testing.T) {
 	input := models.ResourceInput{
 		ResourceTypeName: "Example",
-		SdkResourceName:  "sdkresource",
+		SdkResourceName:  "SdkResource",
 		ServiceName:      "Resources",
 		Details: resourcemanager.TerraformResourceDetails{
 			ReadMethod: resourcemanager.MethodDefinition{
@@ -102,15 +102,15 @@ func TestExistsFuncForResourceTest_CommonId_Enabled(t *testing.T) {
 		t.Fatalf("error: %+v", err)
 	}
 	expected := `
-func (r ExampleResource) Exists(ctx context.Context, clients *clients.Client, state *pluginsdk.InstanceState) (*bool, error) {
+func (r ExampleTestResource) Exists(ctx context.Context, clients *clients.Client, state *pluginsdk.InstanceState) (*bool, error) {
 	id, err := commonids.ParseSubscriptionID(state.ID)
 	if err != nil {
 		return nil, err
 	}
 
-	resp, err := clients.Resources.Example.Get(ctx, *id)
+	resp, err := clients.Resources.SdkResource.Get(ctx, *id)
 	if err != nil {
-		return fmt.Errorf("reading %s: %+v", *id, err)
+		return nil, fmt.Errorf("reading %s: %+v", *id, err)
 	}
 
 	return utils.Bool(resp.Model != nil), nil
@@ -122,7 +122,7 @@ func (r ExampleResource) Exists(ctx context.Context, clients *clients.Client, st
 func TestExistsFuncForResourceTest_RegularResourceId_Enabled(t *testing.T) {
 	input := models.ResourceInput{
 		ResourceTypeName: "Example",
-		SdkResourceName:  "sdkresource",
+		SdkResourceName:  "SdkResource",
 		ServiceName:      "Resources",
 		Details: resourcemanager.TerraformResourceDetails{
 			ReadMethod: resourcemanager.MethodDefinition{
@@ -149,15 +149,15 @@ func TestExistsFuncForResourceTest_RegularResourceId_Enabled(t *testing.T) {
 		t.Fatalf("error: %+v", err)
 	}
 	expected := `
-func (r ExampleResource) Exists(ctx context.Context, clients *clients.Client, state *pluginsdk.InstanceState) (*bool, error) {
+func (r ExampleTestResource) Exists(ctx context.Context, clients *clients.Client, state *pluginsdk.InstanceState) (*bool, error) {
 	id, err := sdkresource.ParseCustomSubscriptionID(state.ID)
 	if err != nil {
 		return nil, err
 	}
 
-	resp, err := clients.Resources.Example.Get(ctx, *id)
+	resp, err := clients.Resources.SdkResource.Get(ctx, *id)
 	if err != nil {
-		return fmt.Errorf("reading %s: %+v", *id, err)
+		return nil, fmt.Errorf("reading %s: %+v", *id, err)
 	}
 
 	return utils.Bool(resp.Model != nil), nil

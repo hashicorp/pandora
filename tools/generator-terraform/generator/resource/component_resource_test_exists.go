@@ -23,19 +23,19 @@ func existsFuncForResourceTest(input models.ResourceInput) (*string, error) {
 
 	methodArguments := argumentsForApiOperationMethod(readOperation, input.SdkResourceName, input.Details.ReadMethod.MethodName, true)
 	output := fmt.Sprintf(`
-func (r %[1]sResource) Exists(ctx context.Context, clients *clients.Client, state *pluginsdk.InstanceState) (*bool, error) {
+func (r %[1]sTestResource) Exists(ctx context.Context, clients *clients.Client, state *pluginsdk.InstanceState) (*bool, error) {
 	id, err := %[2]s(state.ID)
 	if err != nil {
 		return nil, err
 	}
 
-	resp, err := clients.%[3]s.%[1]s.%[4]s(%[5]s)
+	resp, err := clients.%[3]s.%[4]s.%[5]s(%[6]s)
 	if err != nil {
-		return fmt.Errorf("reading %%s: %%+v", *id, err)
+		return nil, fmt.Errorf("reading %%s: %%+v", *id, err)
 	}
 
 	return utils.Bool(resp.Model != nil), nil
 }
-`, input.ResourceTypeName, *idParseLine, input.ServiceName, input.Details.ReadMethod.MethodName, methodArguments)
+`, input.ResourceTypeName, *idParseLine, input.ServiceName, input.SdkResourceName, input.Details.ReadMethod.MethodName, methodArguments)
 	return &output, nil
 }
