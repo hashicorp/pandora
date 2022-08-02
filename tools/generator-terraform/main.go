@@ -3,13 +3,12 @@ package main
 import (
 	"flag"
 	"fmt"
-	"github.com/hashicorp/pandora/tools/generator-terraform/generator/datasource"
 	"log"
 	"os"
 	"path/filepath"
 
+	"github.com/hashicorp/pandora/tools/generator-terraform/generator/datasource"
 	"github.com/hashicorp/pandora/tools/generator-terraform/generator/models"
-
 	resourceGenerator "github.com/hashicorp/pandora/tools/generator-terraform/generator/resource"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 	"github.com/hashicorp/pandora/tools/sdk/services"
