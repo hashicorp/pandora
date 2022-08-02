@@ -6,5 +6,5 @@ type ServicesInput struct {
 
 	// Services is a map of key (ServiceName) to value (ApiVersion) of the Services which
 	// should be generated.
-	Services map[string]string
+	Services map[string]ServiceInput
 }

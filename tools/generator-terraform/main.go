@@ -22,6 +22,8 @@ type GeneratorInput struct {
 	providerPrefix    string
 }
 
+// TODO: split into a pipeline, logging.
+
 func main() {
 	input := GeneratorInput{
 		apiServerEndpoint: "",
@@ -65,6 +67,7 @@ func run(input GeneratorInput) error {
 		return fmt.Errorf("retrieving resource manager services: %+v", err)
 	}
 
+	serviceInputs := make(map[string]models.ServiceInput)
 	for serviceName, service := range services.Services {
 		log.Printf("[DEBUG] Service %q..", serviceName)
 		if !service.Details.Generate {
@@ -198,12 +201,19 @@ func run(input GeneratorInput) error {
 			ServiceDisplayName: serviceName, // TODO: add to API?
 			ServicePackageName: *service.TerraformPackageName,
 		}
+		serviceInputs[serviceName] = serviceInput
 		if err := definitions.ForService(serviceInput); err != nil {
 			return fmt.Errorf("generating definitions for Service %q: %+v", serviceName, err)
 		}
 	}
 
-	// TODO: output a list of Data Sources and Resources into the `client.gen.go` file
+	servicesInput := models.ServicesInput{
+		RootDirectory: input.outputDirectory,
+		Services:      serviceInputs,
+	}
+	if err := definitions.DefinitionForServices(servicesInput); err != nil {
+		return fmt.Errorf("generating auto-client for services: %+v", err)
+	}
 
 	return nil
 }
