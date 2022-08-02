@@ -2,6 +2,7 @@ package resource
 
 import (
 	"fmt"
+	"strings"
 
 	"github.com/hashicorp/pandora/tools/generator-terraform/generator/models"
 )
@@ -20,6 +21,6 @@ import (
 	"github.com/hashicorp/terraform-provider-azurerm/internal/sdk"
 	"github.com/hashicorp/terraform-provider-azurerm/internal/tf/pluginsdk"
 )
-`, input.SdkServiceName, input.SdkApiVersion, input.SdkResourceName)
+`, strings.ToLower(input.SdkServiceName), input.SdkApiVersion, strings.ToLower(input.SdkResourceName))
 	return &output, nil
 }

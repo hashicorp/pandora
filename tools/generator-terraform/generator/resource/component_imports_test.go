@@ -10,8 +10,8 @@ import (
 func TestComponentImports(t *testing.T) {
 	input := models.ResourceInput{
 		SdkApiVersion:   "2020-06-01",
-		SdkResourceName: "virtualmachines",
-		SdkServiceName:  "compute",
+		SdkResourceName: "VirtualMachines",
+		SdkServiceName:  "Compute",
 	}
 	actual, err := importsForResource(input)
 	if err != nil {

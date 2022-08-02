@@ -78,7 +78,7 @@ func TestComponentDeleteFunc_Immediate_RegularResourceId_Disabled(t *testing.T) 
 func TestComponentDeleteFunc_Immediate_CommonId_Enabled(t *testing.T) {
 	input := models.ResourceInput{
 		ResourceTypeName: "Example",
-		SdkResourceName:  "sdkresource",
+		SdkResourceName:  "SdkResource",
 		ServiceName:      "Resources",
 		Details: resourcemanager.TerraformResourceDetails{
 			DeleteMethod: resourcemanager.MethodDefinition{
@@ -109,7 +109,7 @@ func (r ExampleResource) Delete() sdk.ResourceFunc {
 	return sdk.ResourceFunc{
         Timeout: 10 * time.Minute,
         Func: func(ctx context.Context, metadata sdk.ResourceMetaData) error {
-			client := metadata.Client.Resources.ExampleClient
+			client := metadata.Client.Resources.SdkResource
 			id, err := commonids.ParseSubscriptionID(metadata.ResourceData.Id())
 			if err != nil {
 				return err
@@ -128,7 +128,7 @@ func (r ExampleResource) Delete() sdk.ResourceFunc {
 func TestComponentDeleteFunc_Immediate_CommonId_Options_Enabled(t *testing.T) {
 	input := models.ResourceInput{
 		ResourceTypeName:   "Example",
-		SdkResourceName:    "sdkresource",
+		SdkResourceName:    "SdkResource",
 		ServiceName:        "Resources",
 		ServicePackageName: "sdkservicepackage",
 		Details: resourcemanager.TerraformResourceDetails{
@@ -169,7 +169,7 @@ func (r ExampleResource) Delete() sdk.ResourceFunc {
 	return sdk.ResourceFunc{
         Timeout: 10 * time.Minute,
         Func: func(ctx context.Context, metadata sdk.ResourceMetaData) error {
-			client := metadata.Client.Resources.ExampleClient
+			client := metadata.Client.Resources.SdkResource
 			id, err := commonids.ParseSubscriptionID(metadata.ResourceData.Id())
 			if err != nil {
 				return err
@@ -188,7 +188,7 @@ func (r ExampleResource) Delete() sdk.ResourceFunc {
 func TestComponentDeleteFunc_Immediate_RegularResourceId_Enabled(t *testing.T) {
 	input := models.ResourceInput{
 		ResourceTypeName: "Example",
-		SdkResourceName:  "sdkresource",
+		SdkResourceName:  "SdkResource",
 		ServiceName:      "Resources",
 		Details: resourcemanager.TerraformResourceDetails{
 			DeleteMethod: resourcemanager.MethodDefinition{
@@ -219,7 +219,7 @@ func (r ExampleResource) Delete() sdk.ResourceFunc {
 	return sdk.ResourceFunc{
         Timeout: 10 * time.Minute,
         Func: func(ctx context.Context, metadata sdk.ResourceMetaData) error {
-			client := metadata.Client.Resources.ExampleClient
+			client := metadata.Client.Resources.SdkResource
 			id, err := sdkresource.ParseCustomSubscriptionID(metadata.ResourceData.Id())
 			if err != nil {
 				return err
@@ -238,7 +238,7 @@ func (r ExampleResource) Delete() sdk.ResourceFunc {
 func TestComponentDeleteFunc_Immediate_RegularResourceId_Options_Enabled(t *testing.T) {
 	input := models.ResourceInput{
 		ResourceTypeName:   "Example",
-		SdkResourceName:    "sdkresource",
+		SdkResourceName:    "SdkResource",
 		ServiceName:        "Resources",
 		ServicePackageName: "sdkservicepackage",
 		Details: resourcemanager.TerraformResourceDetails{
@@ -279,7 +279,7 @@ func (r ExampleResource) Delete() sdk.ResourceFunc {
 	return sdk.ResourceFunc{
 		Timeout: 10 * time.Minute,
 		Func: func(ctx context.Context, metadata sdk.ResourceMetaData) error {
-			client := metadata.Client.Resources.ExampleClient
+			client := metadata.Client.Resources.SdkResource
 			id, err := sdkresource.ParseCustomSubscriptionID(metadata.ResourceData.Id())
 			if err != nil {
 				return err
@@ -366,7 +366,7 @@ func TestComponentDeleteFunc_LongRunning_RegularResourceId_Disabled(t *testing.T
 func TestComponentDeleteFunc_LongRunning_CommonId_Enabled(t *testing.T) {
 	input := models.ResourceInput{
 		ResourceTypeName: "Example",
-		SdkResourceName:  "sdkresource",
+		SdkResourceName:  "SdkResource",
 		ServiceName:      "Resources",
 		Details: resourcemanager.TerraformResourceDetails{
 			DeleteMethod: resourcemanager.MethodDefinition{
@@ -397,7 +397,7 @@ func (r ExampleResource) Delete() sdk.ResourceFunc {
 	return sdk.ResourceFunc{
         Timeout: 10 * time.Minute,
         Func: func(ctx context.Context, metadata sdk.ResourceMetaData) error {
-			client := metadata.Client.Resources.ExampleClient
+			client := metadata.Client.Resources.SdkResource
 			id, err := commonids.ParseSubscriptionID(metadata.ResourceData.Id())
 			if err != nil {
 				return err
@@ -416,7 +416,7 @@ func (r ExampleResource) Delete() sdk.ResourceFunc {
 func TestComponentDeleteFunc_LongRunning_CommonId_Options_Enabled(t *testing.T) {
 	input := models.ResourceInput{
 		ResourceTypeName:   "Example",
-		SdkResourceName:    "sdkresource",
+		SdkResourceName:    "SdkResource",
 		ServiceName:        "Resources",
 		ServicePackageName: "sdkservicepackage",
 		Details: resourcemanager.TerraformResourceDetails{
@@ -457,7 +457,7 @@ func (r ExampleResource) Delete() sdk.ResourceFunc {
 	return sdk.ResourceFunc{
         Timeout: 10 * time.Minute,
         Func: func(ctx context.Context, metadata sdk.ResourceMetaData) error {
-			client := metadata.Client.Resources.ExampleClient
+			client := metadata.Client.Resources.SdkResource
 			id, err := commonids.ParseSubscriptionID(metadata.ResourceData.Id())
 			if err != nil {
 				return err
@@ -476,7 +476,7 @@ func (r ExampleResource) Delete() sdk.ResourceFunc {
 func TestComponentDeleteFunc_LongRunning_RegularResourceId_Enabled(t *testing.T) {
 	input := models.ResourceInput{
 		ResourceTypeName: "Example",
-		SdkResourceName:  "sdkresource",
+		SdkResourceName:  "SdkResource",
 		ServiceName:      "Resources",
 		Details: resourcemanager.TerraformResourceDetails{
 			DeleteMethod: resourcemanager.MethodDefinition{
@@ -507,7 +507,7 @@ func (r ExampleResource) Delete() sdk.ResourceFunc {
 	return sdk.ResourceFunc{
         Timeout: 10 * time.Minute,
         Func: func(ctx context.Context, metadata sdk.ResourceMetaData) error {
-			client := metadata.Client.Resources.ExampleClient
+			client := metadata.Client.Resources.SdkResource
 			id, err := sdkresource.ParseCustomSubscriptionID(metadata.ResourceData.Id())
 			if err != nil {
 				return err
@@ -526,7 +526,7 @@ func (r ExampleResource) Delete() sdk.ResourceFunc {
 func TestComponentDeleteFunc_LongRunning_RegularResourceId_Options_Enabled(t *testing.T) {
 	input := models.ResourceInput{
 		ResourceTypeName:   "Example",
-		SdkResourceName:    "sdkresource",
+		SdkResourceName:    "SdkResource",
 		ServiceName:        "Resources",
 		ServicePackageName: "sdkservicepackage",
 		Details: resourcemanager.TerraformResourceDetails{
@@ -567,7 +567,7 @@ func (r ExampleResource) Delete() sdk.ResourceFunc {
 	return sdk.ResourceFunc{
         Timeout: 10 * time.Minute,
         Func: func(ctx context.Context, metadata sdk.ResourceMetaData) error {
-			client := metadata.Client.Resources.ExampleClient
+			client := metadata.Client.Resources.SdkResource
 			id, err := sdkresource.ParseCustomSubscriptionID(metadata.ResourceData.Id())
 			if err != nil {
 				return err

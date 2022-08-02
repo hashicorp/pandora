@@ -29,14 +29,14 @@ func (r %[1]sResource) Delete() sdk.ResourceFunc {
 	return sdk.ResourceFunc{
 		Timeout: %[2]d * time.Minute,
 		Func: func(ctx context.Context, metadata sdk.ResourceMetaData) error {
-			client := metadata.Client.%[3]s.%[1]sClient
+			client := metadata.Client.%[3]s.%[4]s
 
-			id, err := %[4]s(metadata.ResourceData.Id())
+			id, err := %[5]s(metadata.ResourceData.Id())
 			if err != nil {
 				return err
 			}
 
-			if err := client.%[5]s(%[6]s); err != nil {
+			if err := client.%[6]s(%[7]s); err != nil {
 				return fmt.Errorf("deleting %%s: %%+v", *id, err)
 			}
 
@@ -44,6 +44,6 @@ func (r %[1]sResource) Delete() sdk.ResourceFunc {
 		},
 	}
 }
-`, input.ResourceTypeName, input.Details.DeleteMethod.TimeoutInMinutes, input.ServiceName, *idParseLine, deleteMethodName, methodArguments)
+`, input.ResourceTypeName, input.Details.DeleteMethod.TimeoutInMinutes, input.ServiceName, input.SdkResourceName, *idParseLine, deleteMethodName, methodArguments)
 	return &output, nil
 }

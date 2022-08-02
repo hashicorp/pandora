@@ -36,7 +36,7 @@ func updateFuncForResource(input models.ResourceInput) (*string, error) {
 
 	helpers := updateFuncHelpers{
 		schemaModelName:         input.SchemaModelName,
-		sdkResourceName:         input.SdkResourceName,
+		sdkResourceNameLowered:  strings.ToLower(input.SdkResourceName),
 		createMethod:            createOperation,
 		createMethodName:        input.Details.CreateMethod.MethodName,
 		updateMethod:            updateOperation,
@@ -68,21 +68,21 @@ func (r %[1]sResource) Update() sdk.ResourceFunc {
 	return sdk.ResourceFunc{
 		Timeout: %[2]d * time.Minute,
 		Func: func(ctx context.Context, metadata sdk.ResourceMetaData) error {
-			client := metadata.Client.%[3]s.%[1]sClient
+			client := metadata.Client.%[3]s.%[4]s
 
-			%[4]s
+			%[5]s
 
 			return nil
 		},
 	}
 }
-`, input.ResourceTypeName, input.Details.UpdateMethod.TimeoutInMinutes, input.ServiceName, strings.Join(lines, "\n"))
+`, input.ResourceTypeName, input.Details.UpdateMethod.TimeoutInMinutes, input.ServiceName, input.SdkResourceName, strings.Join(lines, "\n"))
 	return &output, nil
 }
 
 type updateFuncHelpers struct {
-	schemaModelName string
-	sdkResourceName string
+	schemaModelName        string
+	sdkResourceNameLowered string
 
 	createMethod     resourcemanager.ApiOperation
 	createMethodName string
@@ -115,7 +115,7 @@ func (h updateFuncHelpers) modelDecode() (*string, error) {
 }
 
 func (h updateFuncHelpers) payloadDefinition() (*string, error) {
-	updateObjectName, err := h.updateMethod.RequestObject.GolangTypeName(&h.sdkResourceName)
+	updateObjectName, err := h.updateMethod.RequestObject.GolangTypeName(&h.sdkResourceNameLowered)
 	if err != nil {
 		return nil, fmt.Errorf("determining Golang Type name for Update Request Object: %+v", err)
 	}
@@ -130,7 +130,7 @@ func (h updateFuncHelpers) payloadDefinition() (*string, error) {
 
 	if hasMatchingPayloads {
 		methodName := methodNameToCallForOperation(h.readMethod, h.readMethodName)
-		methodArguments := argumentsForApiOperationMethod(h.readMethod, h.sdkResourceName, h.readMethodName, true)
+		methodArguments := argumentsForApiOperationMethod(h.readMethod, h.sdkResourceNameLowered, h.readMethodName, true)
 		output := fmt.Sprintf(`
 			existing, err := client.%[1]s(%[2]s)
 			if err != nil {
@@ -162,7 +162,7 @@ func (h updateFuncHelpers) resourceIdParser() (*string, error) {
 
 func (h updateFuncHelpers) update() (*string, error) {
 	methodName := methodNameToCallForOperation(h.updateMethod, h.updateMethodName)
-	methodArguments := argumentsForApiOperationMethod(h.updateMethod, h.sdkResourceName, h.updateMethodName, true)
+	methodArguments := argumentsForApiOperationMethod(h.updateMethod, h.sdkResourceNameLowered, h.updateMethodName, true)
 	output := fmt.Sprintf(`
 			if err := client.%[1]s(%[2]s); err != nil {
 				return fmt.Errorf("updating %%s: %%+v", *id, err)
