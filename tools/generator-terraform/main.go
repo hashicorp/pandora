@@ -6,6 +6,9 @@ import (
 	"log"
 	"os"
 	"path/filepath"
+	"sort"
+
+	"github.com/hashicorp/pandora/tools/generator-terraform/generator/definitions"
 
 	"github.com/hashicorp/pandora/tools/generator-terraform/generator/datasource"
 	"github.com/hashicorp/pandora/tools/generator-terraform/generator/models"
@@ -19,6 +22,8 @@ type GeneratorInput struct {
 	outputDirectory   string
 	providerPrefix    string
 }
+
+// TODO: split into a pipeline, logging.
 
 func main() {
 	input := GeneratorInput{
@@ -63,6 +68,7 @@ func run(input GeneratorInput) error {
 		return fmt.Errorf("retrieving resource manager services: %+v", err)
 	}
 
+	serviceInputs := make(map[string]models.ServiceInput)
 	for serviceName, service := range services.Services {
 		log.Printf("[DEBUG] Service %q..", serviceName)
 		if !service.Details.Generate {
@@ -145,6 +151,71 @@ func run(input GeneratorInput) error {
 				return fmt.Errorf("generating for Resource %q (Service %q / API Version %q): %+v", label, serviceName, details.ApiVersion, err)
 			}
 		}
+
+		// NOTE: intentional limitation, at this time we only support 1 API Version per Service
+		apiVersion := ""
+		categories := make(map[string]struct{})
+		dataSourceNames := make([]string, 0)
+		resourceNames := make([]string, 0)
+		for _, dataSource := range service.Terraform.DataSources {
+			// TODO: append categories and name - missing from API
+			//dataSourceNames = append(dataSourceNames, dataSource.SingularDetails.ResourceName)
+
+			if apiVersion == "" {
+				apiVersion = dataSource.ApiVersion
+				continue
+			}
+
+			if apiVersion != dataSource.ApiVersion {
+				return fmt.Errorf("internal-error: multiple API versions detected for Service %q and %q", dataSource.ApiVersion, apiVersion)
+			}
+		}
+		for _, resource := range service.Terraform.Resources {
+			categories[resource.Documentation.Category] = struct{}{}
+			resourceNames = append(resourceNames, resource.ResourceName)
+
+			if apiVersion == "" {
+				apiVersion = resource.ApiVersion
+				continue
+			}
+
+			if apiVersion != resource.ApiVersion {
+				return fmt.Errorf("internal-error: multiple API versions detected for Service %q and %q", resource.ApiVersion, apiVersion)
+			}
+		}
+
+		categoryNames := make([]string, 0)
+		for k := range categories {
+			categoryNames = append(categoryNames, k)
+		}
+		sort.Strings(categoryNames)
+		sort.Strings(dataSourceNames)
+		sort.Strings(resourceNames)
+
+		serviceInput := models.ServiceInput{
+			ApiVersion:         apiVersion,
+			CategoryNames:      categoryNames,
+			DataSourceNames:    dataSourceNames,
+			ProviderPrefix:     input.providerPrefix,
+			RootDirectory:      input.outputDirectory,
+			ResourceNames:      resourceNames,
+			SdkServiceName:     serviceName,
+			ServiceDisplayName: serviceName, // TODO: add to API?
+			ServicePackageName: *service.TerraformPackageName,
+		}
+		serviceInputs[serviceName] = serviceInput
+		if err := definitions.ForService(serviceInput); err != nil {
+			return fmt.Errorf("generating definitions for Service %q: %+v", serviceName, err)
+		}
+	}
+
+	servicesInput := models.ServicesInput{
+		ProviderPrefix: input.providerPrefix,
+		RootDirectory:  input.outputDirectory,
+		Services:       serviceInputs,
+	}
+	if err := definitions.DefinitionForServices(servicesInput); err != nil {
+		return fmt.Errorf("generating auto-client for services: %+v", err)
 	}
 
 	return nil

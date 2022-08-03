@@ -72,7 +72,7 @@ func (g Generator) Generate() error {
 		filePath := stage.filePath(*g.data)
 		filePath = path.Join(g.data.PackageWorkingDirectory, filePath)
 
-		// Generated files are `*.gen.go` - hand maintained are `*.go` - if a hand-maintained file
+		// Generated files are `*_gen.go` - hand maintained are `*.go` - if a hand-maintained file
 		// exists then we don't output a generated version
 		generatedFileName := fmt.Sprintf("%s.gen.go", strings.TrimSuffix(filePath, ".go"))
 		handMaintainedFileName := filePath

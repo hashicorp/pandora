@@ -119,6 +119,7 @@ func FindCandidates(input services.Resource, resourceDefinitions map[string]defi
 			}
 		}
 	}
+	// TODO: ignore discriminated types
 
 	return out
 }
