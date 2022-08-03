@@ -19,7 +19,7 @@ func codeForClientsRegistration(input models.ServicesInput) string {
 
 		sdkImportLine := fmt.Sprintf(`%[1]s_%[2]s "github.com/hashicorp/go-azure-sdk/resource-manager/%[1]s/%[3]s"`, sdkPackageName, sdkApiVersion, service.ApiVersion)
 		importLines = append(importLines, sdkImportLine)
-		serviceImportLine := fmt.Sprintf(`%[1]s "github.com/hashicorp/terraform-provider-azurerm/internal/services/%[1]s/client"`, service.ServicePackageName)
+		serviceImportLine := fmt.Sprintf(`%[2]s "github.com/hashicorp/terraform-provider-%[1]s/internal/services/%[2]s/client"`, input.ProviderPrefix, service.ServicePackageName)
 		importLines = append(importLines, serviceImportLine)
 
 		structField := fmt.Sprintf(`%[1]s   *%[2]s_%[3]s.Client`, serviceName, sdkPackageName, sdkApiVersion)
@@ -41,18 +41,18 @@ package clients
 import (
 	"context"
 
-	"github.com/hashicorp/terraform-provider-azurerm/internal/common"
-	%[1]s
+	"github.com/hashicorp/terraform-provider-%[1]s/internal/common"
+	%[2]s
 )
 
 type autoClient struct {
-	%[2]s
+	%[3]s
 }
 
 func (client *autoClient) buildAutoClients(ctx context.Context, o *common.ClientOptions) error {
-	%[3]s
+	%[4]s
 	return nil
 }
-`, strings.Join(importLines, "\n"), strings.Join(structFields, "\n"), strings.Join(assignmentLines, "\n"))
+`, input.ProviderPrefix, strings.Join(importLines, "\n"), strings.Join(structFields, "\n"), strings.Join(assignmentLines, "\n"))
 	return strings.TrimSpace(output)
 }
