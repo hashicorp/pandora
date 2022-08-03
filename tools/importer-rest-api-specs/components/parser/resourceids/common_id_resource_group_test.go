@@ -14,7 +14,7 @@ func TestCommonResourceID_ResourceGroup(t *testing.T) {
 			models.StaticResourceIDSegment("subscriptions", "subscriptions"),
 			models.SubscriptionIDResourceIDSegment("subscriptionId"),
 			models.StaticResourceIDSegment("resourceGroups", "resourceGroups"),
-			models.ResourceGroupResourceIDSegment("resourceGroup"),
+			models.ResourceGroupResourceIDSegment("resourceGroupName"),
 		},
 	}
 	invalid := models.ParsedResourceId{
@@ -23,7 +23,7 @@ func TestCommonResourceID_ResourceGroup(t *testing.T) {
 			models.StaticResourceIDSegment("subscriptions", "subscriptions"),
 			models.SubscriptionIDResourceIDSegment("subscriptionId"),
 			models.StaticResourceIDSegment("resourceGroups", "resourceGroups"),
-			models.ResourceGroupResourceIDSegment("resourceGroup"),
+			models.ResourceGroupResourceIDSegment("resourceGroupName"),
 			models.StaticResourceIDSegment("someResource", "someResource"),
 			models.UserSpecifiedResourceIDSegment("resourceName"),
 		},

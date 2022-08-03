@@ -102,7 +102,7 @@ resource 'example_resource' 'example' {
                             },
                             Mappings = new TerraformSchemaMappingDefinition
                             {
-                                ResourceIdSegment = "resourceGroup"
+                                ResourceIdSegment = "resourceGroupName"
                             },
                         }},
                         {"Location", new TerraformSchemaFieldDefinition
