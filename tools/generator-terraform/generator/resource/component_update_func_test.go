@@ -145,7 +145,7 @@ func TestComponentUpdate_HappyPathEnabled_CommonId_SharedModels(t *testing.T) {
 				}
 				payload := *existing.Model
 				// TODO: mapping from the Schema -> Payload
-				if err := client.UpdateThenPoll(ctx, *id, payload); err != nil {
+				if _, err := client.UpdateThenPoll(ctx, *id, payload); err != nil {
 					return fmt.Errorf("updating %s: %+v", *id, err)
 				}
 				return nil
@@ -270,7 +270,7 @@ func TestComponentUpdate_HappyPathEnabled_CommonId_UniqueModels(t *testing.T) {
 				}
 				payload := sdkresource.UpdatePayload{}
 				// TODO: mapping from the Schema -> Payload
-				if err := client.UpdateThenPoll(ctx, *id, payload); err != nil {
+				if _, err := client.UpdateThenPoll(ctx, *id, payload); err != nil {
 					return fmt.Errorf("updating %s: %+v", *id, err)
 				}
 				return nil
@@ -392,7 +392,7 @@ func TestComponentUpdate_HappyPathEnabled_RegularResourceID_SharedModels(t *test
 				}
 				payload := *existing.Model
 				// TODO: mapping from the Schema -> Payload
-				if err := client.UpdateThenPoll(ctx, *id, payload); err != nil {
+				if _, err := client.UpdateThenPoll(ctx, *id, payload); err != nil {
 					return fmt.Errorf("updating %s: %+v", *id, err)
 				}
 				return nil
@@ -517,7 +517,7 @@ func TestComponentUpdate_HappyPathEnabled_RegularResourceID_UniqueModels(t *test
 				}
 				payload := sdkresource.UpdatePayload{}
 				// TODO: mapping from the Schema -> Payload
-				if err := client.UpdateThenPoll(ctx, *id, payload); err != nil {
+				if _, err := client.UpdateThenPoll(ctx, *id, payload); err != nil {
 					return fmt.Errorf("updating %s: %+v", *id, err)
 				}
 				return nil
@@ -723,7 +723,7 @@ func TestComponentUpdate_UpdateFunc_Immediate_PayloadResourceIdNoOptions(t *test
 		t.Fatalf("error: %+v", err)
 	}
 	expected := `
-			if err := client.UpdateThing(ctx, *id, payload); err != nil {
+			if _, err := client.UpdateThing(ctx, *id, payload); err != nil {
 				return fmt.Errorf("updating %s: %+v", *id, err)
 			}
 `
@@ -748,7 +748,7 @@ func TestComponentUpdate_UpdateFunc_Immediate_PayloadResourceIdOptions(t *testin
 		t.Fatalf("error: %+v", err)
 	}
 	expected := `
-			if err := client.UpdateThing(ctx, *id, payload, sdkresource.DefaultUpdateThingOperationOptions()); err != nil {
+			if _, err := client.UpdateThing(ctx, *id, payload, sdkresource.DefaultUpdateThingOperationOptions()); err != nil {
 				return fmt.Errorf("updating %s: %+v", *id, err)
 			}
 `
@@ -770,7 +770,7 @@ func TestComponentUpdate_UpdateFunc_LongRunning_PayloadResourceIdNoOptions(t *te
 		t.Fatalf("error: %+v", err)
 	}
 	expected := `
-			if err := client.UpdateThingThenPoll(ctx, *id, payload); err != nil {
+			if _, err := client.UpdateThingThenPoll(ctx, *id, payload); err != nil {
 				return fmt.Errorf("updating %s: %+v", *id, err)
 			}
 `
@@ -795,7 +795,7 @@ func TestComponentUpdate_UpdateFunc_LongRunning_PayloadResourceIdOptions(t *test
 		t.Fatalf("error: %+v", err)
 	}
 	expected := `
-			if err := client.UpdateThingThenPoll(ctx, *id, payload, sdkresource.DefaultUpdateThingOperationOptions()); err != nil {
+			if _, err := client.UpdateThingThenPoll(ctx, *id, payload, sdkresource.DefaultUpdateThingOperationOptions()); err != nil {
 				return fmt.Errorf("updating %s: %+v", *id, err)
 			}
 `

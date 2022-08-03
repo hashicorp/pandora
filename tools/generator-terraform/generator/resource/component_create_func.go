@@ -105,11 +105,16 @@ func (r %[1]sResource) Create() sdk.ResourceFunc {
 func (h createFunctionComponents) create() (*string, error) {
 	methodName := methodNameToCallForOperation(h.createMethod, h.createMethodName)
 	methodArguments := argumentsForApiOperationMethod(h.createMethod, h.sdkResourceNameLowered, h.createMethodName, false)
+	variablesForMethod := "err"
+	if !h.createMethod.LongRunning {
+		variablesForMethod = "_, err"
+	}
+
 	output := fmt.Sprintf(`
-			if err := client.%[1]s(%[2]s); err != nil {
+			if %[3]s := client.%[1]s(%[2]s); err != nil {
 				return fmt.Errorf("creating %%s: %%+v", id, err)
 			}
-`, methodName, methodArguments)
+`, methodName, methodArguments, variablesForMethod)
 	return &output, nil
 }
 

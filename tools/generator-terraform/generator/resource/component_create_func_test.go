@@ -286,7 +286,7 @@ func TestComponentCreate_CreateFunc_Immediate_PayloadResourceIdNoOptions(t *test
 		t.Fatalf("error: %+v", err)
 	}
 	expected := `
-			if err := client.CreateThing(ctx, id, payload); err != nil {
+			if _, err := client.CreateThing(ctx, id, payload); err != nil {
 				return fmt.Errorf("creating %s: %+v", id, err)
 			}
 `
@@ -311,7 +311,7 @@ func TestComponentCreate_CreateFunc_Immediate_PayloadResourceIdOptions(t *testin
 		t.Fatalf("error: %+v", err)
 	}
 	expected := `
-			if err := client.CreateThing(ctx, id, payload, sdkresource.DefaultCreateThingOperationOptions()); err != nil {
+			if _, err := client.CreateThing(ctx, id, payload, sdkresource.DefaultCreateThingOperationOptions()); err != nil {
 				return fmt.Errorf("creating %s: %+v", id, err)
 			}
 `
