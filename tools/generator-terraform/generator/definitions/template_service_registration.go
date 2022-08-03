@@ -26,7 +26,7 @@ package %[1]s
 
 // NOTE: this file is generated - manual changes will be overwritten.
 
-import "github.com/hashicorp/terraform-provider-azurerm/internal/sdk"
+import "github.com/hashicorp/terraform-provider-%[5]s/internal/sdk"
 
 var _ sdk.TypedServiceRegistration = autoRegistration{}
 
@@ -52,6 +52,6 @@ func (autoRegistration) Resources() []sdk.Resource {
 func (autoRegistration) WebsiteCategories() []string {
 	return []string{}
 }
-`, input.ServicePackageName, input.ServiceDisplayName, strings.Join(codeForDataSources, "\n"), strings.Join(codeForResources, "\n"))
+`, input.ServicePackageName, input.ServiceDisplayName, strings.Join(codeForDataSources, "\n"), strings.Join(codeForResources, "\n"), input.ProviderPrefix)
 	return strings.TrimSpace(output)
 }
