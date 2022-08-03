@@ -13,7 +13,7 @@ func DefinitionForServices(input models.ServicesInput) error {
 	os.MkdirAll(clientsDirectory, 0755)
 
 	// Generate the Client for this Service Package
-	clientsFilePath := fmt.Sprintf("%s/client.gen.go", clientsDirectory)
+	clientsFilePath := fmt.Sprintf("%s/client_gen.go", clientsDirectory)
 	os.Remove(clientsFilePath)
 	clientContents := codeForClientsRegistration(input)
 	writeToPath(clientsFilePath, clientContents)
@@ -23,7 +23,7 @@ func DefinitionForServices(input models.ServicesInput) error {
 	os.MkdirAll(providerDirectory, 0755)
 
 	// Generate the Services Registration file
-	servicesRegistrationFilePath := fmt.Sprintf("%s/services.gen.go", providerDirectory)
+	servicesRegistrationFilePath := fmt.Sprintf("%s/services_gen.go", providerDirectory)
 	os.Remove(servicesRegistrationFilePath)
 	servicesRegistrationCode := codeForServicesRegistration(input)
 	writeToPath(servicesRegistrationFilePath, servicesRegistrationCode)

@@ -17,13 +17,13 @@ func ForService(input models.ServiceInput) error {
 	os.MkdirAll(serviceClientDirectory, 0755)
 
 	// Generate the Client for this Service Package
-	clientFilePath := fmt.Sprintf("%s/client.gen.go", serviceClientDirectory)
+	clientFilePath := fmt.Sprintf("%s/client_gen.go", serviceClientDirectory)
 	os.Remove(clientFilePath)
 	clientContents := templateForServiceClient(input)
 	writeToPath(clientFilePath, clientContents)
 
 	// Generate the Registration for this Service Package
-	registrationFilePath := fmt.Sprintf("%s/registration.gen.go", serviceDirectory)
+	registrationFilePath := fmt.Sprintf("%s/registration_gen.go", serviceDirectory)
 	os.Remove(registrationFilePath)
 	registrationContents := templateForServiceRegistration(input)
 	writeToPath(registrationFilePath, registrationContents)

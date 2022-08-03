@@ -14,7 +14,7 @@ func Resource(input models.ResourceInput) error {
 	os.MkdirAll(serviceDirectory, 0755)
 
 	// Generate the Resource
-	resourceFilePath := fmt.Sprintf("%s/%s_resource.gen.go", serviceDirectory, input.ResourceLabel)
+	resourceFilePath := fmt.Sprintf("%s/%s_resource_gen.go", serviceDirectory, input.ResourceLabel)
 	os.Remove(resourceFilePath)
 	resourceCode, err := codeForResource(input)
 	if err != nil {
@@ -23,7 +23,7 @@ func Resource(input models.ResourceInput) error {
 	writeToPath(resourceFilePath, *resourceCode)
 
 	// then generate the Tests
-	testFilePath := fmt.Sprintf("%s/%s_resource_test.gen.go", serviceDirectory, input.ResourceLabel)
+	testFilePath := fmt.Sprintf("%s/%s_resource_gen_test.go", serviceDirectory, input.ResourceLabel)
 	// remove the file if it already exists
 	os.Remove(testFilePath)
 	testFileContents, err := componentsForResourceTest(input)
