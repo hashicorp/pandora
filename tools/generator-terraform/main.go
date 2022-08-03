@@ -196,6 +196,7 @@ func run(input GeneratorInput) error {
 			ApiVersion:         apiVersion,
 			CategoryNames:      categoryNames,
 			DataSourceNames:    dataSourceNames,
+			ProviderPrefix:     input.providerPrefix,
 			RootDirectory:      input.outputDirectory,
 			ResourceNames:      resourceNames,
 			SdkServiceName:     serviceName,
