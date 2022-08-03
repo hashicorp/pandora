@@ -2,6 +2,7 @@ package resource
 
 import (
 	"fmt"
+	"strings"
 
 	"github.com/hashicorp/pandora/tools/generator-terraform/generator/models"
 )
@@ -89,25 +90,27 @@ func TestAcc%[1]s_update(t *testing.T) {
 }
 
 func (%[1]sTestResource) basic(data acceptance.TestData) string {
-	return fmt.Sprintf(%[4]s
+	return fmt.Sprintf('
 resource "%[2]s_%[3]s" "test" {
-
+	name = "acctest-%%s"
 }
-%[4]s)}
+', data.RandomString)}
 
 func (r %[1]sTestResource) requiresImport(data acceptance.TestData) string {
-	return fmt.Sprintf(%[4]s
-resource "%[2]s_%[3]s" "import" {
+	return fmt.Sprintf('
+%%s
 
+resource "%[2]s_%[3]s" "import" {
 }
-%[4]s, r.basic(data))}
+', r.basic(data))}
 
 func (%[1]sTestResource) complete(data acceptance.TestData) string {
-	return fmt.Sprintf(%[4]s
+	return fmt.Sprintf('
 resource "%[2]s_%[3]s" "test" {
-
+	name = "acctest-%%s"
 }
-%[4]s)}
-`, input.ResourceTypeName, input.ProviderPrefix, input.ResourceLabel, "`")
+', data.RandomString)}
+`, input.ResourceTypeName, input.ProviderPrefix, input.ResourceLabel)
+	output = strings.ReplaceAll(output, "'", "`")
 	return &output, nil
 }
