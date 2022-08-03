@@ -10,6 +10,9 @@ type ServiceInput struct {
 	// DataSourceNames is a slice of the names of the Data Sources which should be output.
 	DataSourceNames []string
 
+	// ProviderPrefix is the prefix used for the Resources within this Terraform Provider.
+	ProviderPrefix string
+
 	// RootDirectory is the path to the directory where generated files should be output.
 	RootDirectory string
 
