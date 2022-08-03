@@ -46,7 +46,7 @@ func parseMyConstant(input float64) (*MyConstant, error) {
 	return &out, nil
 }
 `
-	assertTemplatedCodeMatches(t, *actual, expected)
+	assertTemplatedCodeMatches(t, expected, *actual)
 }
 
 func TestTemplateIntegerConstant(t *testing.T) {
@@ -93,7 +93,7 @@ func parseMamboNumber(input int64) (*MamboNumber, error) {
 	return &out, nil
 }
 `
-	assertTemplatedCodeMatches(t, *actual, expected)
+	assertTemplatedCodeMatches(t, expected, *actual)
 }
 
 func TestTemplateStringConstant(t *testing.T) {
@@ -140,5 +140,5 @@ func parseCapital(input string) (*Capital, error) {
 	return &out, nil
 }
 `
-	assertTemplatedCodeMatches(t, *actual, expected)
+	assertTemplatedCodeMatches(t, expected, *actual)
 }

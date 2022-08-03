@@ -41,7 +41,7 @@ client.Client.Authorizer = authorizer
 	if err != nil {
 		t.Fatalf("generating readme: %+v", err)
 	}
-	assertTemplatedCodeMatches(t, *actual, expected)
+	assertTemplatedCodeMatches(t, expected, *actual)
 }
 
 func TestReadmeTemplater_GetOperationWithResourceID(t *testing.T) {
