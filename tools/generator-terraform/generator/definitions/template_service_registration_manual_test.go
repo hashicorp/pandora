@@ -1,19 +1,23 @@
 package definitions
 
 import (
-	"fmt"
-	"strings"
+	"testing"
 
 	"github.com/hashicorp/pandora/tools/generator-terraform/generator/models"
 )
 
-func codeForManualServiceRegistration(input models.ServiceInput) string {
-	output := fmt.Sprintf(`
-package %[1]s
+func TestCodeForManualServiceRegistration(t *testing.T) {
+	input := models.ServiceInput{
+		ProviderPrefix:     "myprovider",
+		ServicePackageName: "mypackage",
+	}
+	actual := codeForManualServiceRegistration(input)
+	expected := `
+package mypackage
 
 import (
-	"github.com/hashicorp/terraform-provider-%[2]s/internal/sdk"
-	"github.com/hashicorp/terraform-provider-%[2]s/internal/tf/pluginsdk"
+	"github.com/hashicorp/terraform-provider-myprovider/internal/sdk"
+	"github.com/hashicorp/terraform-provider-myprovider/internal/tf/pluginsdk"
 )
 
 type Registration struct {
@@ -43,6 +47,6 @@ func (r Registration) Resources() []sdk.Resource {
 	resources = append(resources, r.autoRegistration.Resources()...)
 	return resources
 }
-`, input.ServicePackageName, input.ProviderPrefix)
-	return strings.TrimSpace(output)
+`
+	assertTemplatedCodeMatches(t, expected, actual)
 }
