@@ -75,3 +75,36 @@ func splitLines(input string) []string {
 func stringPointer(in string) *string {
 	return &in
 }
+
+func TestCheckBaseType(t *testing.T) {
+	testData := []struct {
+		input    string
+		expected bool
+	}{
+		{
+			input:    "string",
+			expected: true,
+		},
+		{
+			input:    "int16",
+			expected: true,
+		},
+		{
+			input:    "byte",
+			expected: true,
+		},
+		{
+			input:    "model",
+			expected: false,
+		},
+	}
+
+	for _, v := range testData {
+		t.Logf("[DEBUG] Testing %s", v.input)
+
+		actual := checkBaseType(v.input)
+		if actual != v.expected {
+			t.Fatalf("Expected %t but got %t", v.expected, actual)
+		}
+	}
+}
