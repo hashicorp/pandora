@@ -9,13 +9,13 @@ import (
 func TestTemplateForServiceClient(t *testing.T) {
 	input := models.ServiceInput{
 		ApiVersion:         "2015-11-01-preview",
-		ProviderPrefix:     "myprovider",
+		ProviderPrefix:     "myprovider", // intentionally not used, since this is `client`
 		SdkServiceName:     "resources",
 		ServicePackageName: "mypackage",
 	}
 	actual := templateForServiceClient(input)
 	expected := `
-package mypackage
+package client
 
 import (
 	"github.com/Azure/go-autorest/autorest"
