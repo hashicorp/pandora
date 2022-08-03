@@ -163,10 +163,15 @@ func (h updateFuncHelpers) resourceIdParser() (*string, error) {
 func (h updateFuncHelpers) update() (*string, error) {
 	methodName := methodNameToCallForOperation(h.updateMethod, h.updateMethodName)
 	methodArguments := argumentsForApiOperationMethod(h.updateMethod, h.sdkResourceNameLowered, h.updateMethodName, true)
+	variablesForMethod := "err"
+	if !h.createMethod.LongRunning {
+		variablesForMethod = "_, err"
+	}
+
 	output := fmt.Sprintf(`
-			if err := client.%[1]s(%[2]s); err != nil {
+			if %[3]s := client.%[1]s(%[2]s); err != nil {
 				return fmt.Errorf("updating %%s: %%+v", *id, err)
 			}
-`, methodName, methodArguments)
+`, methodName, methodArguments, variablesForMethod)
 	return &output, nil
 }

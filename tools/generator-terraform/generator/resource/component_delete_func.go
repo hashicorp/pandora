@@ -23,6 +23,10 @@ func deleteFunctionForResource(input models.ResourceInput) (*string, error) {
 
 	methodArguments := argumentsForApiOperationMethod(deleteOperation, input.SdkResourceName, input.Details.DeleteMethod.MethodName, true)
 	deleteMethodName := methodNameToCallForOperation(deleteOperation, input.Details.DeleteMethod.MethodName)
+	variablesForMethod := "err"
+	if !deleteOperation.LongRunning {
+		variablesForMethod = "_, err"
+	}
 
 	output := fmt.Sprintf(`
 func (r %[1]sResource) Delete() sdk.ResourceFunc {
@@ -36,7 +40,7 @@ func (r %[1]sResource) Delete() sdk.ResourceFunc {
 				return err
 			}
 
-			if err := client.%[6]s(%[7]s); err != nil {
+			if %[8]s := client.%[6]s(%[7]s); err != nil {
 				return fmt.Errorf("deleting %%s: %%+v", *id, err)
 			}
 
@@ -44,6 +48,6 @@ func (r %[1]sResource) Delete() sdk.ResourceFunc {
 		},
 	}
 }
-`, input.ResourceTypeName, input.Details.DeleteMethod.TimeoutInMinutes, input.ServiceName, input.SdkResourceName, *idParseLine, deleteMethodName, methodArguments)
+`, input.ResourceTypeName, input.Details.DeleteMethod.TimeoutInMinutes, input.ServiceName, input.SdkResourceName, *idParseLine, deleteMethodName, methodArguments, variablesForMethod)
 	return &output, nil
 }
