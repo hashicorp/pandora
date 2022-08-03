@@ -95,6 +95,7 @@ func NormalizeSegment(input string, camelCase bool) string {
 		"attestationprovider":               "attestationProviders", // NOTE: this is a Swagger issue we need to fix too
 		"authorizationrules":                "authorizationRules",
 		"authproviders":                     "authProviders",
+		"autoscalesettings":                 "autoScaleSettings",
 		"azureasyncoperations":              "azureAsyncOperations",
 		"backupstorageconfig":               "backupStorageConfig",
 		"cdnwebapplicationfirewallpolicies": "cdnWebApplicationFirewallPolicies",
