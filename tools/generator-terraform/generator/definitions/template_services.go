@@ -8,7 +8,7 @@ import (
 	"github.com/hashicorp/pandora/tools/generator-terraform/generator/models"
 )
 
-func codeForServicesRegistration(input models.ServicesInput) string {
+func codeForClientsRegistration(input models.ServicesInput) string {
 	importLines := make([]string, 0)
 	structFields := make([]string, 0)
 	assignmentLines := make([]string, 0)

@@ -209,8 +209,9 @@ func run(input GeneratorInput) error {
 	}
 
 	servicesInput := models.ServicesInput{
-		RootDirectory: input.outputDirectory,
-		Services:      serviceInputs,
+		ProviderPrefix: input.providerPrefix,
+		RootDirectory:  input.outputDirectory,
+		Services:       serviceInputs,
 	}
 	if err := definitions.DefinitionForServices(servicesInput); err != nil {
 		return fmt.Errorf("generating auto-client for services: %+v", err)
