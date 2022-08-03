@@ -6,7 +6,6 @@ import (
 	"strings"
 
 	"github.com/hashicorp/go-hclog"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser"
 	"github.com/hashicorp/pandora/tools/sdk/config/definitions"
 	"github.com/hashicorp/pandora/tools/sdk/config/services"
 )
@@ -25,7 +24,7 @@ func FindServices(input FindServiceInput, terraformConfig definitions.Config) (*
 	}
 
 	specificationsDirectory := filepath.Join(input.SwaggerDirectory, "specification")
-	resourceManagerServices, err := parser.FindResourceManagerServices(specificationsDirectory, input.Logger)
+	resourceManagerServices, err := FindResourceManagerServices(specificationsDirectory, input.Logger)
 	if err != nil {
 		return nil, fmt.Errorf("retrieving Resource Manager Service details from %q: %+v", specificationsDirectory, err)
 	}
@@ -39,35 +38,38 @@ func FindServices(input FindServiceInput, terraformConfig definitions.Config) (*
 		}
 
 		for _, version := range service.Available {
-			versionDirectory, ok := serviceDetails.ApiVersionPaths[version]
+			versionDirectories, ok := serviceDetails.ApiVersionPaths[version]
 			if !ok {
 				return nil, fmt.Errorf("details for the Version %q of Service %q were not found - does it exist on disk?", version, service.Directory)
 			}
-			filesForVersion := make([]string, 0)
-			filesInDirectory, err := parser.SwaggerFilesInDirectory(versionDirectory)
-			if err != nil {
-				return nil, fmt.Errorf("finding the swagger files within %q: %+v", versionDirectory, err)
-			}
-			for _, file := range *filesInDirectory {
-				fileWithoutPrefix := strings.TrimPrefix(file, versionDirectory)
-				filesForVersion = append(filesForVersion, fileWithoutPrefix)
-			}
 
-			resourceManagerService := ResourceManagerServiceInput{
-				ServiceName:      service.Name,
-				ApiVersion:       version,
-				ResourceProvider: serviceDetails.ResourceProvider,
-				OutputDirectory:  input.OutputDirectory,
-				SwaggerDirectory: versionDirectory,
-				SwaggerFiles:     filesForVersion,
-			}
+			for _, versionDirectory := range versionDirectories {
+				filesForVersion := make([]string, 0)
+				filesInDirectory, err := SwaggerFilesInDirectory(versionDirectory)
+				if err != nil {
+					return nil, fmt.Errorf("finding the swagger files within %q: %+v", versionDirectory, err)
+				}
+				for _, file := range *filesInDirectory {
+					fileWithoutPrefix := strings.TrimPrefix(file, versionDirectory)
+					filesForVersion = append(filesForVersion, fileWithoutPrefix)
+				}
 
-			definition, ok := terraformConfig.Services[service.Name]
-			if ok {
-				resourceManagerService.TerraformServiceDefinition = &definition
-			}
+				resourceManagerService := ResourceManagerServiceInput{
+					ServiceName:      service.Name,
+					ApiVersion:       version,
+					ResourceProvider: serviceDetails.ResourceProvider,
+					OutputDirectory:  input.OutputDirectory,
+					SwaggerDirectory: versionDirectory,
+					SwaggerFiles:     filesForVersion,
+				}
 
-			output = append(output, resourceManagerService.ToRunInput())
+				definition, ok := terraformConfig.Services[service.Name]
+				if ok {
+					resourceManagerService.TerraformServiceDefinition = &definition
+				}
+
+				output = append(output, resourceManagerService.ToRunInput())
+			}
 		}
 	}
 	return &output, nil
