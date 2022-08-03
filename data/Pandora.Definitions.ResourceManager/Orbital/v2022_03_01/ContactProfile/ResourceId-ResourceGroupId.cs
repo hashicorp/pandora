@@ -12,13 +12,13 @@ internal class ResourceGroupId : ResourceID
 {
     public string? CommonAlias => "ResourceGroup";
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
         ResourceIDSegment.Static("subscriptions", "subscriptions"),
         ResourceIDSegment.SubscriptionId("subscriptionId"),
         ResourceIDSegment.Static("resourceGroups", "resourceGroups"),
-        ResourceIDSegment.ResourceGroup("resourceGroup"),
+        ResourceIDSegment.ResourceGroup("resourceGroupName"),
     };
 }
