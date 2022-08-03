@@ -57,6 +57,22 @@ function prepareTerraformProvider {
   cd "${DIR}"
 }
 
+func runFmtImportsAndGenerate {
+  local workingDirectory=$1
+
+  echo "Running 'make fmt'.."
+  cd "${workingDirectory}"
+  make fmt
+
+  echo "Running 'make goimports'.."
+  make goimports
+
+  echo "Running 'make generate'.."
+  make fmt
+
+  cd "${DIR}"
+}
+
 function conditionallyCommitAndPushTerraformProvider {
   local workingDirectory=$1
   local sha=$2
@@ -117,6 +133,7 @@ function main {
   sha=$(getSwaggerSubmoduleSha "$swaggerSubmodule")
   prepareTerraformProvider "$outputDirectory" "$sdkRepo"
   runWrapper "$dataApiAssemblyPath" "$outputDirectory" "$sha"
+  runFmtImportsAndGenerate "$outputDirectory"
   conditionallyCommitAndPushTerraformProvider "$outputDirectory" "$sha"
   cleanup "$outputDirectory"
 }
