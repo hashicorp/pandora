@@ -57,7 +57,7 @@ function prepareTerraformProvider {
   cd "${DIR}"
 }
 
-func runFmtImportsAndGenerate {
+function runFmtImportsAndGenerate {
   local workingDirectory=$1
 
   echo "Running 'make fmt'.."
