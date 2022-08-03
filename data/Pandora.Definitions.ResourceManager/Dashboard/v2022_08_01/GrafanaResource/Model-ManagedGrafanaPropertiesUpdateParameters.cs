@@ -21,6 +21,9 @@ internal class ManagedGrafanaPropertiesUpdateParametersModel
     [JsonPropertyName("deterministicOutboundIP")]
     public DeterministicOutboundIPConstant? DeterministicOutboundIP { get; set; }
 
+    [JsonPropertyName("grafanaIntegrations")]
+    public GrafanaIntegrationsModel? GrafanaIntegrations { get; set; }
+
     [JsonPropertyName("publicNetworkAccess")]
     public PublicNetworkAccessConstant? PublicNetworkAccess { get; set; }
 

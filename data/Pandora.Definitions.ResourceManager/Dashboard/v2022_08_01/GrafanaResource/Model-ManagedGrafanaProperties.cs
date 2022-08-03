@@ -27,6 +27,9 @@ internal class ManagedGrafanaPropertiesModel
     [JsonPropertyName("endpoint")]
     public string? Endpoint { get; set; }
 
+    [JsonPropertyName("grafanaIntegrations")]
+    public GrafanaIntegrationsModel? GrafanaIntegrations { get; set; }
+
     [JsonPropertyName("grafanaVersion")]
     public string? GrafanaVersion { get; set; }
 
