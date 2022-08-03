@@ -9,20 +9,20 @@ import (
 
 func templateForServiceClient(input models.ServiceInput) string {
 	output := fmt.Sprintf(`
-package %[1]s
+package client
 
 import (
 	"github.com/Azure/go-autorest/autorest"
-	%[2]s_%[3]s "github.com/hashicorp/go-azure-sdk/resource-manager/%[2]s/%[4]s"
-	"github.com/hashicorp/terraform-provider-%[5]s/internal/common"
+	%[1]s_%[2]s "github.com/hashicorp/go-azure-sdk/resource-manager/%[1]s/%[3]s"
+	"github.com/hashicorp/terraform-provider-%[4]s/internal/common"
 )
 
-func NewClient(o *common.ClientOptions) *%[2]s_%[3]s.Client {
-	client := %[2]s_%[3]s.NewClientWithBaseURI(o.ResourceManagerEndpoint, func(c *autorest.Client) {
+func NewClient(o *common.ClientOptions) *%[1]s_%[2]s.Client {
+	client := %[1]s_%[2]s.NewClientWithBaseURI(o.ResourceManagerEndpoint, func(c *autorest.Client) {
 		c.Authorizer = o.ResourceManagerAuthorizer
 	})
 	return &client
 }
-`, input.ServicePackageName, strings.ToLower(input.SdkServiceName), namespaceForApiVersion(input.ApiVersion), input.ApiVersion, input.ProviderPrefix)
+`, strings.ToLower(input.SdkServiceName), namespaceForApiVersion(input.ApiVersion), input.ApiVersion, input.ProviderPrefix)
 	return strings.TrimSpace(output)
 }
