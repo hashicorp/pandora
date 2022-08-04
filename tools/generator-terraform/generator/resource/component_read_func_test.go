@@ -92,6 +92,23 @@ func TestComponentReadFunc_CommonId_Enabled(t *testing.T) {
 			"Get": {
 				LongRunning:    false,
 				ResourceIdName: stringPointer("CustomSubscriptionId"),
+				ResponseObject: &resourcemanager.ApiObjectDefinition{
+					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+					ReferenceName: stringPointer("GetModel"),
+				},
+			},
+		},
+		Models: map[string]resourcemanager.ModelDetails{
+			"GetModel": {
+				Fields: map[string]resourcemanager.FieldDetails{
+					"Name": {
+						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+							Type: resourcemanager.StringApiObjectDefinitionType,
+						},
+						Required: true,
+						JsonName: "name",
+					},
+				},
 			},
 		},
 		ResourceIds: map[string]resourcemanager.ResourceIdDefinition{
@@ -149,6 +166,7 @@ func (r ExampleResource) Read() sdk.ResourceFunc {
         Timeout: 10 * time.Minute,
         Func: func(ctx context.Context, metadata sdk.ResourceMetaData) error {
 			client := metadata.Client.Resources.SdkResource
+			schema := ExampleModel{}
 			id, err := commonids.ParseSubscriptionID(metadata.ResourceData.Id())
 			if err != nil {
 				return err
@@ -160,7 +178,6 @@ func (r ExampleResource) Read() sdk.ResourceFunc {
 				}
 				return fmt.Errorf("retrieving %s: %+v", *id, err)
 			}
-			schema := ExampleModel{}
 			if model := resp.Model; model != nil {
 				schema.Name = id.ResourceGroupName
 			}
@@ -190,6 +207,10 @@ func TestComponentReadFunc_CommonId_Options_Enabled(t *testing.T) {
 			"Get": {
 				LongRunning:    false,
 				ResourceIdName: stringPointer("CustomSubscriptionId"),
+				ResponseObject: &resourcemanager.ApiObjectDefinition{
+					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+					ReferenceName: stringPointer("GetModel"),
+				},
 				Options: map[string]resourcemanager.ApiOperationOption{
 					"SomeOption": {
 						ObjectDefinition: resourcemanager.ApiObjectDefinition{
@@ -197,6 +218,19 @@ func TestComponentReadFunc_CommonId_Options_Enabled(t *testing.T) {
 						},
 						HeaderName: stringPointer("X-Some-Option"),
 						Required:   false,
+					},
+				},
+			},
+		},
+		Models: map[string]resourcemanager.ModelDetails{
+			"GetModel": {
+				Fields: map[string]resourcemanager.FieldDetails{
+					"Name": {
+						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+							Type: resourcemanager.StringApiObjectDefinitionType,
+						},
+						Required: true,
+						JsonName: "name",
 					},
 				},
 			},
@@ -256,6 +290,7 @@ func (r ExampleResource) Read() sdk.ResourceFunc {
         Timeout: 10 * time.Minute,
         Func: func(ctx context.Context, metadata sdk.ResourceMetaData) error {
 			client := metadata.Client.Resources.SdkResource
+			schema := ExampleModel{}
 			id, err := commonids.ParseSubscriptionID(metadata.ResourceData.Id())
 			if err != nil {
 				return err
@@ -268,7 +303,6 @@ func (r ExampleResource) Read() sdk.ResourceFunc {
 				}
 				return fmt.Errorf("retrieving %s: %+v", *id, err)
 			}
-			schema := ExampleModel{}
 			if model := resp.Model; model != nil {
 				schema.Name = id.ResourceGroupName
 			}
@@ -297,6 +331,23 @@ func TestComponentReadFunc_RegularResourceId_Enabled(t *testing.T) {
 			"Get": {
 				LongRunning:    false,
 				ResourceIdName: stringPointer("CustomSubscriptionId"),
+				ResponseObject: &resourcemanager.ApiObjectDefinition{
+					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+					ReferenceName: stringPointer("GetModel"),
+				},
+			},
+		},
+		Models: map[string]resourcemanager.ModelDetails{
+			"GetModel": {
+				Fields: map[string]resourcemanager.FieldDetails{
+					"Name": {
+						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+							Type: resourcemanager.StringApiObjectDefinitionType,
+						},
+						Required: true,
+						JsonName: "name",
+					},
+				},
 			},
 		},
 		ResourceIds: map[string]resourcemanager.ResourceIdDefinition{
@@ -353,6 +404,7 @@ func (r ExampleResource) Read() sdk.ResourceFunc {
         Timeout: 10 * time.Minute,
         Func: func(ctx context.Context, metadata sdk.ResourceMetaData) error {
 			client := metadata.Client.Resources.SdkResource
+			schema := ExampleModel{}
 			id, err := sdkresource.ParseCustomSubscriptionID(metadata.ResourceData.Id())
 			if err != nil {
 				return err
@@ -364,7 +416,6 @@ func (r ExampleResource) Read() sdk.ResourceFunc {
 				}
 				return fmt.Errorf("retrieving %s: %+v", *id, err)
 			}
-			schema := ExampleModel{}
 			if model := resp.Model; model != nil {
 				schema.Name = id.ResourceGroupName
 			}
@@ -394,6 +445,10 @@ func TestComponentReadFunc_RegularResourceId_Options_Enabled(t *testing.T) {
 			"Get": {
 				LongRunning:    false,
 				ResourceIdName: stringPointer("CustomSubscriptionId"),
+				ResponseObject: &resourcemanager.ApiObjectDefinition{
+					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+					ReferenceName: stringPointer("GetModel"),
+				},
 				Options: map[string]resourcemanager.ApiOperationOption{
 					"SomeOption": {
 						ObjectDefinition: resourcemanager.ApiObjectDefinition{
@@ -401,6 +456,19 @@ func TestComponentReadFunc_RegularResourceId_Options_Enabled(t *testing.T) {
 						},
 						HeaderName: stringPointer("X-Some-Option"),
 						Required:   false,
+					},
+				},
+			},
+		},
+		Models: map[string]resourcemanager.ModelDetails{
+			"GetModel": {
+				Fields: map[string]resourcemanager.FieldDetails{
+					"Name": {
+						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+							Type: resourcemanager.StringApiObjectDefinitionType,
+						},
+						Required: true,
+						JsonName: "name",
 					},
 				},
 			},
@@ -459,6 +527,7 @@ func (r ExampleResource) Read() sdk.ResourceFunc {
         Timeout: 10 * time.Minute,
         Func: func(ctx context.Context, metadata sdk.ResourceMetaData) error {
 			client := metadata.Client.Resources.SdkResource
+			schema := ExampleModel{}
 			id, err := sdkresource.ParseCustomSubscriptionID(metadata.ResourceData.Id())
 			if err != nil {
 				return err
@@ -470,7 +539,6 @@ func (r ExampleResource) Read() sdk.ResourceFunc {
 				}
 				return fmt.Errorf("retrieving %s: %+v", *id, err)
 			}
-			schema := ExampleModel{}
 			if model := resp.Model; model != nil {
 				schema.Name = id.ResourceGroupName
 			}

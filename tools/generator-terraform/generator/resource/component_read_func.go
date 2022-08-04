@@ -106,6 +106,41 @@ func (c readFunctionComponents) codeForIDParser() (*string, error) {
 	return &output, nil
 }
 
+func (c readFunctionComponents) codeForGet() (*string, error) {
+	methodArguments := argumentsForApiOperationMethod(c.readOperation, c.sdkResourceName, c.readMethod.MethodName, true)
+	output := fmt.Sprintf(`
+			resp, err := client.%[1]s(%[2]s)
+			if err != nil {
+				if response.WasNotFound(resp.HttpResponse) {
+					return metadata.MarkAsGone(*id)
+				}
+				return fmt.Errorf("retrieving %%s: %%+v", *id, err)
+			}
+`, c.readMethod.MethodName, methodArguments)
+	return &output, nil
+}
+
+func (c readFunctionComponents) codeForModelAssignments() (*string, error) {
+	// first map all of the Resource ID segments across
+	resourceIdMappings, err := c.codeForResourceIdMappings()
+	if err != nil {
+		return nil, fmt.Errorf("building code for resource id mappings: %+v", err)
+	}
+	// then output the top-level mappings, which'll call into nested items as required
+	topLevelMappings, err := c.codeForTopLevelMappings()
+	if err != nil {
+		return nil, fmt.Errorf("building code for top-level field mappings: %+v", err)
+	}
+	output := fmt.Sprintf(`
+			if model := resp.Model; model != nil {
+				%[1]s
+
+				%[2]s
+			}
+`, *resourceIdMappings, *topLevelMappings)
+	return &output, nil
+}
+
 func (c readFunctionComponents) codeForResourceIdMappings() (*string, error) {
 	lines := make([]string, 0)
 
@@ -160,40 +195,5 @@ func (c readFunctionComponents) codeForTopLevelMappings() (*string, error) {
 
 	sort.Strings(mappings)
 	output := strings.Join(mappings, "\n")
-	return &output, nil
-}
-
-func (c readFunctionComponents) codeForGet() (*string, error) {
-	methodArguments := argumentsForApiOperationMethod(c.readOperation, c.sdkResourceName, c.readMethod.MethodName, true)
-	output := fmt.Sprintf(`
-			resp, err := client.%[1]s(%[2]s)
-			if err != nil {
-				if response.WasNotFound(resp.HttpResponse) {
-					return metadata.MarkAsGone(*id)
-				}
-				return fmt.Errorf("retrieving %%s: %%+v", *id, err)
-			}
-`, c.readMethod.MethodName, methodArguments)
-	return &output, nil
-}
-
-func (c readFunctionComponents) codeForModelAssignments() (*string, error) {
-	// first map all of the Resource ID segments across
-	resourceIdMappings, err := c.codeForResourceIdMappings()
-	if err != nil {
-		return nil, fmt.Errorf("building code for resource id mappings: %+v", err)
-	}
-	// then output the top-level mappings, which'll call into nested items as required
-	topLevelMappings, err := c.codeForTopLevelMappings()
-	if err != nil {
-		return nil, fmt.Errorf("building code for top-level field mappings: %+v", err)
-	}
-	output := fmt.Sprintf(`
-			if model := resp.Model; model != nil {
-				%[1]s
-
-				%[2]s
-			}
-`, *resourceIdMappings, *topLevelMappings)
 	return &output, nil
 }
