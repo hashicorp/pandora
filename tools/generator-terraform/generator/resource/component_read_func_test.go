@@ -497,3 +497,60 @@ func TestComponentReadFunc_CodeForIDParser(t *testing.T) {
 `
 	assertTemplatedCodeMatches(t, expected, *actual)
 }
+
+func TestComponentReadFunc_CodeForGet(t *testing.T) {
+	actual, err := readFunctionComponents{
+		readMethod: resourcemanager.MethodDefinition{
+			Generate:         true,
+			MethodName:       "Get",
+			TimeoutInMinutes: 5,
+		},
+		readOperation: resourcemanager.ApiOperation{
+			ResourceIdName: stringPointer("SomeResourceId"),
+		},
+		sdkResourceName: "SdkResource",
+	}.codeForGet()
+	if err != nil {
+		t.Fatalf("error: %+v", err)
+	}
+	expected := `
+		resp, err := client.Get(ctx, *id)
+		if err != nil {
+			if response.WasNotFound(resp.HttpResponse) {
+				return metadata.MarkAsGone(*id)
+			}
+			return fmt.Errorf("retrieving %s: %+v", *id, err)
+		}
+`
+	assertTemplatedCodeMatches(t, expected, *actual)
+}
+
+func TestComponentReadFunc_CodeForGet_Options(t *testing.T) {
+	actual, err := readFunctionComponents{
+		readMethod: resourcemanager.MethodDefinition{
+			Generate:         true,
+			MethodName:       "Get",
+			TimeoutInMinutes: 5,
+		},
+		readOperation: resourcemanager.ApiOperation{
+			ResourceIdName: stringPointer("SomeResourceId"),
+			Options: map[string]resourcemanager.ApiOperationOption{
+				"Example": {},
+			},
+		},
+		sdkResourceName: "SdkResource",
+	}.codeForGet()
+	if err != nil {
+		t.Fatalf("error: %+v", err)
+	}
+	expected := `
+		resp, err := client.Get(ctx, *id, sdkresource.DefaultGetOperationOptions())
+		if err != nil {
+			if response.WasNotFound(resp.HttpResponse) {
+				return metadata.MarkAsGone(*id)
+			}
+			return fmt.Errorf("retrieving %s: %+v", *id, err)
+		}
+`
+	assertTemplatedCodeMatches(t, expected, *actual)
+}
