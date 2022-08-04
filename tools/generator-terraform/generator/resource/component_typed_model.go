@@ -71,10 +71,10 @@ func codeForModel(name string, input resourcemanager.TerraformSchemaModelDefinit
 		if err != nil {
 			return nil, fmt.Errorf("determining Golang Field Type from ObjectDefinition for Field %q: %+v", fieldName, err)
 		}
-		if fieldDetails.Optional {
-			v := fmt.Sprintf("*%s", *golandFieldType)
-			golandFieldType = &v
-		}
+
+		// NOTE: Optional fields are intentionally not output as pointers since whilst these
+		// may be omitted from the Terraform Configuration, we still parse them out/set them
+		// back as an empty value at this point in time
 
 		schemaFields = append(schemaFields, fmt.Sprintf("%s %s `tfschema:%q`", fieldName, *golandFieldType, fieldDetails.HclName))
 	}

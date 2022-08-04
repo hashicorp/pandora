@@ -26,7 +26,7 @@ import (
 type autoClient struct {
 }
 
-func (client *autoClient) buildAutoClients(ctx context.Context, o *common.ClientOptions) error {
+func buildAutoClients(client *autoClient, o *common.ClientOptions) error {
 	return nil
 }
 `
@@ -70,7 +70,7 @@ type autoClient struct {
 	Resource   *resources_v2015_11_01_preview.Client
 }
 
-func (client *autoClient) buildAutoClients(ctx context.Context, o *common.ClientOptions) error {
+func buildAutoClients(client *autoClient, o *common.ClientOptions) error {
 	client.Compute = compute.NewClient(o)
 	client.Resource = resources.NewClient(o)
 	return nil

@@ -69,7 +69,20 @@ func TestComponentUpdate_HappyPathEnabled_CommonId_SharedModels(t *testing.T) {
 		Models: map[string]resourcemanager.ModelDetails{
 			"SomeModel": {
 				Fields: map[string]resourcemanager.FieldDetails{
-					"Example": {},
+					"Example": {
+						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+							Type: resourcemanager.StringApiObjectDefinitionType,
+						},
+						Required: true,
+						JsonName: "example",
+					},
+					"SomeSdkField": {
+						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+							Type: resourcemanager.StringApiObjectDefinitionType,
+						},
+						Required: true,
+						JsonName: "someSdkField",
+					},
 				},
 			},
 		},
@@ -117,6 +130,32 @@ func TestComponentUpdate_HappyPathEnabled_CommonId_SharedModels(t *testing.T) {
 		SdkResourceName:    "SdkResource",
 		SdkServiceName:     "SdkService",
 		SchemaModelName:    "MyTypedModel",
+		SchemaModels: map[string]resourcemanager.TerraformSchemaModelDefinition{
+			"MyTypedModel": {
+				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+					"Example": {
+						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						},
+						HclName:  "example",
+						Required: true,
+						Mappings: resourcemanager.TerraformSchemaFieldMappingDefinition{
+							SdkPathForUpdate: stringPointer("Example"),
+						},
+					},
+					"SomeField": {
+						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						},
+						HclName:  "some_sdk_field",
+						Required: true,
+						Mappings: resourcemanager.TerraformSchemaFieldMappingDefinition{
+							SdkPathForUpdate: stringPointer("SomeSdkField"),
+						},
+					},
+				},
+			},
+		},
 	}
 	actual, err := updateFuncForResource(input)
 	if err != nil {
@@ -144,7 +183,12 @@ func TestComponentUpdate_HappyPathEnabled_CommonId_SharedModels(t *testing.T) {
 					return fmt.Errorf("retrieving existing %s: properties was nil", *id)
 				}
 				payload := *existing.Model
-				// TODO: mapping from the Schema -> Payload
+				if metadata.ResourceData.HasChange("example") {
+					payload.Example = config.Example
+				}
+				if metadata.ResourceData.HasChange("some_sdk_field") {
+					payload.SomeSdkField = config.SomeField
+				}
 				if _, err := client.UpdateThenPoll(ctx, *id, payload); err != nil {
 					return fmt.Errorf("updating %s: %+v", *id, err)
 				}
@@ -191,17 +235,56 @@ func TestComponentUpdate_HappyPathEnabled_CommonId_UniqueModels(t *testing.T) {
 		Models: map[string]resourcemanager.ModelDetails{
 			"CreatePayload": {
 				Fields: map[string]resourcemanager.FieldDetails{
-					"Example": {},
+					"Example": {
+						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+							Type: resourcemanager.StringApiObjectDefinitionType,
+						},
+						Required: true,
+						JsonName: "example",
+					},
+					"SomeSdkField": {
+						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+							Type: resourcemanager.StringApiObjectDefinitionType,
+						},
+						Required: true,
+						JsonName: "someSdkField",
+					},
 				},
 			},
 			"GetPayload": {
 				Fields: map[string]resourcemanager.FieldDetails{
-					"Example": {},
+					"Example": {
+						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+							Type: resourcemanager.StringApiObjectDefinitionType,
+						},
+						Required: true,
+						JsonName: "example",
+					},
+					"SomeSdkField": {
+						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+							Type: resourcemanager.StringApiObjectDefinitionType,
+						},
+						Required: true,
+						JsonName: "someSdkField",
+					},
 				},
 			},
 			"UpdatePayload": {
 				Fields: map[string]resourcemanager.FieldDetails{
-					"Example": {},
+					"Example": {
+						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+							Type: resourcemanager.StringApiObjectDefinitionType,
+						},
+						Required: true,
+						JsonName: "example",
+					},
+					"SomeSdkField": {
+						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+							Type: resourcemanager.StringApiObjectDefinitionType,
+						},
+						Required: true,
+						JsonName: "someSdkField",
+					},
 				},
 			},
 		},
@@ -249,6 +332,32 @@ func TestComponentUpdate_HappyPathEnabled_CommonId_UniqueModels(t *testing.T) {
 		SdkResourceName:    "SdkResource",
 		SdkServiceName:     "SdkService",
 		SchemaModelName:    "MyTypedModel",
+		SchemaModels: map[string]resourcemanager.TerraformSchemaModelDefinition{
+			"MyTypedModel": {
+				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+					"Example": {
+						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						},
+						HclName:  "example",
+						Required: true,
+						Mappings: resourcemanager.TerraformSchemaFieldMappingDefinition{
+							SdkPathForUpdate: stringPointer("Example"),
+						},
+					},
+					"SomeField": {
+						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						},
+						HclName:  "some_sdk_field",
+						Required: true,
+						Mappings: resourcemanager.TerraformSchemaFieldMappingDefinition{
+							SdkPathForUpdate: stringPointer("SomeSdkField"),
+						},
+					},
+				},
+			},
+		},
 	}
 	actual, err := updateFuncForResource(input)
 	if err != nil {
@@ -269,7 +378,12 @@ func TestComponentUpdate_HappyPathEnabled_CommonId_UniqueModels(t *testing.T) {
 					return fmt.Errorf("decoding: %+v", err)
 				}
 				payload := sdkresource.UpdatePayload{}
-				// TODO: mapping from the Schema -> Payload
+				if metadata.ResourceData.HasChange("example") {
+					payload.Example = config.Example
+				}
+				if metadata.ResourceData.HasChange("some_sdk_field") {
+					payload.SomeSdkField = config.SomeField
+				}
 				if _, err := client.UpdateThenPoll(ctx, *id, payload); err != nil {
 					return fmt.Errorf("updating %s: %+v", *id, err)
 				}
@@ -316,7 +430,20 @@ func TestComponentUpdate_HappyPathEnabled_RegularResourceID_SharedModels(t *test
 		Models: map[string]resourcemanager.ModelDetails{
 			"SomeModel": {
 				Fields: map[string]resourcemanager.FieldDetails{
-					"Example": {},
+					"Example": {
+						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+							Type: resourcemanager.StringApiObjectDefinitionType,
+						},
+						Required: true,
+						JsonName: "example",
+					},
+					"SomeSdkField": {
+						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+							Type: resourcemanager.StringApiObjectDefinitionType,
+						},
+						Required: true,
+						JsonName: "someSdkField",
+					},
 				},
 			},
 		},
@@ -364,6 +491,32 @@ func TestComponentUpdate_HappyPathEnabled_RegularResourceID_SharedModels(t *test
 		SdkResourceName:    "SdkResource",
 		SdkServiceName:     "SdkService",
 		SchemaModelName:    "MyTypedModel",
+		SchemaModels: map[string]resourcemanager.TerraformSchemaModelDefinition{
+			"MyTypedModel": {
+				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+					"Example": {
+						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						},
+						HclName:  "example",
+						Required: true,
+						Mappings: resourcemanager.TerraformSchemaFieldMappingDefinition{
+							SdkPathForUpdate: stringPointer("Example"),
+						},
+					},
+					"SomeField": {
+						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						},
+						HclName:  "some_sdk_field",
+						Required: true,
+						Mappings: resourcemanager.TerraformSchemaFieldMappingDefinition{
+							SdkPathForUpdate: stringPointer("SomeSdkField"),
+						},
+					},
+				},
+			},
+		},
 	}
 	actual, err := updateFuncForResource(input)
 	if err != nil {
@@ -391,7 +544,12 @@ func TestComponentUpdate_HappyPathEnabled_RegularResourceID_SharedModels(t *test
 					return fmt.Errorf("retrieving existing %s: properties was nil", *id)
 				}
 				payload := *existing.Model
-				// TODO: mapping from the Schema -> Payload
+				if metadata.ResourceData.HasChange("example") {
+					payload.Example = config.Example
+				}
+				if metadata.ResourceData.HasChange("some_sdk_field") {
+					payload.SomeSdkField = config.SomeField
+				}
 				if _, err := client.UpdateThenPoll(ctx, *id, payload); err != nil {
 					return fmt.Errorf("updating %s: %+v", *id, err)
 				}
@@ -438,17 +596,56 @@ func TestComponentUpdate_HappyPathEnabled_RegularResourceID_UniqueModels(t *test
 		Models: map[string]resourcemanager.ModelDetails{
 			"CreatePayload": {
 				Fields: map[string]resourcemanager.FieldDetails{
-					"Example": {},
+					"Example": {
+						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+							Type: resourcemanager.StringApiObjectDefinitionType,
+						},
+						Required: true,
+						JsonName: "example",
+					},
+					"SomeSdkField": {
+						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+							Type: resourcemanager.StringApiObjectDefinitionType,
+						},
+						Required: true,
+						JsonName: "someSdkField",
+					},
 				},
 			},
 			"GetPayload": {
 				Fields: map[string]resourcemanager.FieldDetails{
-					"Example": {},
+					"Example": {
+						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+							Type: resourcemanager.StringApiObjectDefinitionType,
+						},
+						Required: true,
+						JsonName: "example",
+					},
+					"SomeSdkField": {
+						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+							Type: resourcemanager.StringApiObjectDefinitionType,
+						},
+						Required: true,
+						JsonName: "someSdkField",
+					},
 				},
 			},
 			"UpdatePayload": {
 				Fields: map[string]resourcemanager.FieldDetails{
-					"Example": {},
+					"Example": {
+						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+							Type: resourcemanager.StringApiObjectDefinitionType,
+						},
+						Required: true,
+						JsonName: "example",
+					},
+					"SomeSdkField": {
+						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+							Type: resourcemanager.StringApiObjectDefinitionType,
+						},
+						Required: true,
+						JsonName: "someSdkField",
+					},
 				},
 			},
 		},
@@ -496,6 +693,32 @@ func TestComponentUpdate_HappyPathEnabled_RegularResourceID_UniqueModels(t *test
 		SdkResourceName:    "SdkResource",
 		SdkServiceName:     "SdkService",
 		SchemaModelName:    "MyTypedModel",
+		SchemaModels: map[string]resourcemanager.TerraformSchemaModelDefinition{
+			"MyTypedModel": {
+				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+					"Example": {
+						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						},
+						HclName:  "example",
+						Required: true,
+						Mappings: resourcemanager.TerraformSchemaFieldMappingDefinition{
+							SdkPathForUpdate: stringPointer("Example"),
+						},
+					},
+					"SomeField": {
+						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						},
+						HclName:  "some_sdk_field",
+						Required: true,
+						Mappings: resourcemanager.TerraformSchemaFieldMappingDefinition{
+							SdkPathForUpdate: stringPointer("SomeSdkField"),
+						},
+					},
+				},
+			},
+		},
 	}
 	actual, err := updateFuncForResource(input)
 	if err != nil {
@@ -516,7 +739,12 @@ func TestComponentUpdate_HappyPathEnabled_RegularResourceID_UniqueModels(t *test
 					return fmt.Errorf("decoding: %+v", err)
 				}
 				payload := sdkresource.UpdatePayload{}
-				// TODO: mapping from the Schema -> Payload
+				if metadata.ResourceData.HasChange("example") {
+					payload.Example = config.Example
+				}
+				if metadata.ResourceData.HasChange("some_sdk_field") {
+					payload.SomeSdkField = config.SomeField
+				}
 				if _, err := client.UpdateThenPoll(ctx, *id, payload); err != nil {
 					return fmt.Errorf("updating %s: %+v", *id, err)
 				}
@@ -528,13 +756,43 @@ func TestComponentUpdate_HappyPathEnabled_RegularResourceID_UniqueModels(t *test
 	assertTemplatedCodeMatches(t, expected, *actual)
 }
 
-func TestComponentUpdate_MappingsFromSchema(t *testing.T) {
-	actual, err := updateFuncHelpers{}.mappingsFromSchema()
+func TestComponentUpdate_MappingsFromSchema_NoFields(t *testing.T) {
+	actual, err := updateFuncHelpers{
+		terraformModel: resourcemanager.TerraformSchemaModelDefinition{
+			Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{},
+		},
+	}.mappingsFromSchema()
+	if err != nil {
+		t.Fatalf("error: %+v", err)
+	}
+	expected := ``
+	assertTemplatedCodeMatches(t, expected, *actual)
+}
+
+func TestComponentUpdate_MappingsFromSchema_TopLevelFields(t *testing.T) {
+	actual, err := updateFuncHelpers{
+		terraformModel: resourcemanager.TerraformSchemaModelDefinition{
+			Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+				"SomeField": {
+					ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+						Type: resourcemanager.TerraformSchemaFieldTypeString,
+					},
+					Required: true,
+					HclName:  "some_field",
+					Mappings: resourcemanager.TerraformSchemaFieldMappingDefinition{
+						SdkPathForUpdate: stringPointer("SomeSchemaField"),
+					},
+				},
+			},
+		},
+	}.mappingsFromSchema()
 	if err != nil {
 		t.Fatalf("error: %+v", err)
 	}
 	expected := `
-			// TODO: mapping from the Schema -> Payload
+	if metadata.ResourceData.HasChange("some_field") {
+		payload.SomeSchemaField = config.SomeField
+	}
 `
 	assertTemplatedCodeMatches(t, expected, *actual)
 }

@@ -110,10 +110,10 @@ func (r ExampleResource) ModelObject() interface{} {
 type ExampleModel struct {
 	ComputedBoolean bool 'tfschema:"computed_boolean"'
 	ComputedString string 'tfschema:"computed_string"'
-	OptionalBoolean *bool 'tfschema:"optional_boolean"'
-	OptionalComputedBoolean *bool 'tfschema:"optional_computed_boolean"'
-	OptionalComputedString *string 'tfschema:"optional_computed_string"'
-	OptionalString *string 'tfschema:"optional_string"'
+	OptionalBoolean bool 'tfschema:"optional_boolean"'
+	OptionalComputedBoolean bool 'tfschema:"optional_computed_boolean"'
+	OptionalComputedString string 'tfschema:"optional_computed_string"'
+	OptionalString string 'tfschema:"optional_string"'
 	RequiredBoolean bool 'tfschema:"required_boolean"'
 	RequiredString string 'tfschema:"required_string"'
 }
@@ -265,10 +265,10 @@ func TestCodeForModel(t *testing.T) {
 type ExampleModel struct {
 	ComputedBoolean bool 'tfschema:"computed_boolean"'
 	ComputedString string 'tfschema:"computed_string"'
-	OptionalBoolean *bool 'tfschema:"optional_boolean"'
-	OptionalComputedBoolean *bool 'tfschema:"optional_computed_boolean"'
-	OptionalComputedString *string 'tfschema:"optional_computed_string"'
-	OptionalString *string 'tfschema:"optional_string"'
+	OptionalBoolean bool 'tfschema:"optional_boolean"'
+	OptionalComputedBoolean bool 'tfschema:"optional_computed_boolean"'
+	OptionalComputedString string 'tfschema:"optional_computed_string"'
+	OptionalString string 'tfschema:"optional_string"'
 	RequiredBoolean bool 'tfschema:"required_boolean"'
 	RequiredString string 'tfschema:"required_string"'
 }
