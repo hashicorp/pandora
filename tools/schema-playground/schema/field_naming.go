@@ -7,6 +7,25 @@ import (
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
+type fieldNameMatcher interface {
+	updatedNameForField(input string) *string
+}
+
+var namingRules = []fieldNameMatcher{
+	fieldNameIs{},
+	//fieldNameBool{},
+}
+
+type fieldNameIs struct{}
+
+func (fieldNameIs) updatedNameForField(input string) *string {
+	if strings.HasPrefix(input, "is_") {
+		updatedName := input[3:]
+		return &updatedName
+	}
+	return nil
+}
+
 // determineNameForSchemaField takes the name of the field in the model, with the model as context, to be able
 // to determine which name should be used for this model, following conventions, before snake_casing it.
 //
