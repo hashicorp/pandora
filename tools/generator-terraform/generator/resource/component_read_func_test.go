@@ -108,6 +108,13 @@ func TestComponentReadFunc_CommonId_Enabled(t *testing.T) {
 						Required: true,
 						JsonName: "name",
 					},
+					"SomeSdkField": {
+						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+							Type: resourcemanager.StringApiObjectDefinitionType,
+						},
+						Required: true,
+						JsonName: "someSdkField",
+					},
 				},
 			},
 		},
@@ -152,6 +159,17 @@ func TestComponentReadFunc_CommonId_Enabled(t *testing.T) {
 							ResourceIdSegment: stringPointer("resourceGroupName"),
 						},
 					},
+					"SomeField": {
+						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						},
+						Required: true,
+						ForceNew: true,
+						HclName:  "some_field",
+						Mappings: resourcemanager.TerraformSchemaFieldMappingDefinition{
+							SdkPathForRead: stringPointer("SomeSdkField"),
+						},
+					},
 				},
 			},
 		},
@@ -180,6 +198,8 @@ func (r ExampleResource) Read() sdk.ResourceFunc {
 			}
 			if model := resp.Model; model != nil {
 				schema.Name = id.ResourceGroupName
+
+				schema.SomeField = model.SomeSdkField
 			}
 			return metadata.Encode(&schema)
         },
@@ -232,6 +252,13 @@ func TestComponentReadFunc_CommonId_Options_Enabled(t *testing.T) {
 						Required: true,
 						JsonName: "name",
 					},
+					"SomeSdkField": {
+						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+							Type: resourcemanager.StringApiObjectDefinitionType,
+						},
+						Required: true,
+						JsonName: "someSdkField",
+					},
 				},
 			},
 		},
@@ -276,6 +303,17 @@ func TestComponentReadFunc_CommonId_Options_Enabled(t *testing.T) {
 							ResourceIdSegment: stringPointer("resourceGroupName"),
 						},
 					},
+					"SomeField": {
+						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						},
+						Required: true,
+						ForceNew: true,
+						HclName:  "some_field",
+						Mappings: resourcemanager.TerraformSchemaFieldMappingDefinition{
+							SdkPathForRead: stringPointer("SomeSdkField"),
+						},
+					},
 				},
 			},
 		},
@@ -305,6 +343,8 @@ func (r ExampleResource) Read() sdk.ResourceFunc {
 			}
 			if model := resp.Model; model != nil {
 				schema.Name = id.ResourceGroupName
+
+				schema.SomeField = model.SomeSdkField
 			}
 			return metadata.Encode(&schema)
         },
@@ -346,6 +386,13 @@ func TestComponentReadFunc_RegularResourceId_Enabled(t *testing.T) {
 						},
 						Required: true,
 						JsonName: "name",
+					},
+					"SomeSdkField": {
+						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+							Type: resourcemanager.StringApiObjectDefinitionType,
+						},
+						Required: true,
+						JsonName: "someSdkField",
 					},
 				},
 			},
@@ -390,6 +437,17 @@ func TestComponentReadFunc_RegularResourceId_Enabled(t *testing.T) {
 							ResourceIdSegment: stringPointer("resourceGroupName"),
 						},
 					},
+					"SomeField": {
+						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						},
+						Required: true,
+						ForceNew: true,
+						HclName:  "some_field",
+						Mappings: resourcemanager.TerraformSchemaFieldMappingDefinition{
+							SdkPathForRead: stringPointer("SomeSdkField"),
+						},
+					},
 				},
 			},
 		},
@@ -418,6 +476,8 @@ func (r ExampleResource) Read() sdk.ResourceFunc {
 			}
 			if model := resp.Model; model != nil {
 				schema.Name = id.ResourceGroupName
+
+				schema.SomeField = model.SomeSdkField
 			}
 			return metadata.Encode(&schema)
         },
@@ -470,6 +530,13 @@ func TestComponentReadFunc_RegularResourceId_Options_Enabled(t *testing.T) {
 						Required: true,
 						JsonName: "name",
 					},
+					"SomeSdkField": {
+						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+							Type: resourcemanager.StringApiObjectDefinitionType,
+						},
+						Required: true,
+						JsonName: "someSdkField",
+					},
 				},
 			},
 		},
@@ -513,6 +580,17 @@ func TestComponentReadFunc_RegularResourceId_Options_Enabled(t *testing.T) {
 							ResourceIdSegment: stringPointer("resourceGroupName"),
 						},
 					},
+					"SomeField": {
+						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						},
+						Required: true,
+						ForceNew: true,
+						HclName:  "some_field",
+						Mappings: resourcemanager.TerraformSchemaFieldMappingDefinition{
+							SdkPathForRead: stringPointer("SomeSdkField"),
+						},
+					},
 				},
 			},
 		},
@@ -541,6 +619,8 @@ func (r ExampleResource) Read() sdk.ResourceFunc {
 			}
 			if model := resp.Model; model != nil {
 				schema.Name = id.ResourceGroupName
+
+				schema.SomeField = model.SomeSdkField
 			}
 			return metadata.Encode(&schema)
         },
