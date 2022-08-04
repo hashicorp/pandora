@@ -121,6 +121,8 @@ func (c readFunctionComponents) codeForGet() (*string, error) {
 }
 
 func (c readFunctionComponents) codeForModelAssignments() (*string, error) {
+	// TODO: tests for this
+
 	// first map all of the Resource ID segments across
 	resourceIdMappings, err := c.codeForResourceIdMappings()
 	if err != nil {
@@ -142,6 +144,7 @@ func (c readFunctionComponents) codeForModelAssignments() (*string, error) {
 }
 
 func (c readFunctionComponents) codeForResourceIdMappings() (*string, error) {
+	// TODO: tests for this
 	lines := make([]string, 0)
 
 	// TODO: note that when there's a parent ID field present we'll need to call `parent.NewParentID(..).ID()`
@@ -169,6 +172,7 @@ func (c readFunctionComponents) codeForResourceIdMappings() (*string, error) {
 }
 
 func (c readFunctionComponents) codeForTopLevelMappings() (*string, error) {
+	// TODO: tests for this
 	mappings := make([]string, 0)
 
 	// ensure these are output alphabetically for consistency purposes across re-generations

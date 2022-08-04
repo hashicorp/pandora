@@ -2,6 +2,7 @@ package resource
 
 import (
 	"fmt"
+	"sort"
 	"strings"
 
 	"github.com/hashicorp/pandora/tools/generator-terraform/generator/models"
@@ -10,17 +11,21 @@ import (
 )
 
 type createFunctionComponents struct {
-	readMethod             resourcemanager.ApiOperation
-	readMethodName         string
-	createMethod           resourcemanager.ApiOperation
-	createMethodName       string
+	createMethod     resourcemanager.ApiOperation
+	createMethodName string
+
+	readMethod     resourcemanager.ApiOperation
+	readMethodName string
+
 	resourceTypeName       string
 	schemaModelName        string
 	sdkResourceName        string
 	sdkResourceNameLowered string
+	models                 map[string]resourcemanager.ModelDetails
 	newResourceIdFuncName  string
 	resourceId             resourcemanager.ResourceIdDefinition
 	terraformModel         resourcemanager.TerraformSchemaModelDefinition
+	topLevelModel          resourcemanager.ModelDetails
 }
 
 func createFunctionForResource(input models.ResourceInput) (*string, error) {
@@ -53,24 +58,34 @@ func createFunctionForResource(input models.ResourceInput) (*string, error) {
 		return nil, fmt.Errorf("internal-error: schema model %q was not found", input.SchemaModelName)
 	}
 
+	// we only support References, which have to have a ReferenceName so this isn't a panic
+	topLevelModel, ok := input.Models[*createOperation.RequestObject.ReferenceName]
+	if !ok {
+		return nil, fmt.Errorf("internal-error: top level model named %q was not found", *createOperation.RequestObject.ReferenceName)
+	}
+
 	helper := createFunctionComponents{
-		readMethod:             readOperation,
-		readMethodName:         input.Details.ReadMethod.MethodName,
 		createMethod:           createOperation,
 		createMethodName:       input.Details.CreateMethod.MethodName,
+		readMethod:             readOperation,
+		readMethodName:         input.Details.ReadMethod.MethodName,
 		resourceTypeName:       input.ResourceTypeName,
 		schemaModelName:        input.SchemaModelName,
-		sdkResourceNameLowered: strings.ToLower(input.SdkResourceName),
 		sdkResourceName:        input.SdkResourceName,
+		sdkResourceNameLowered: strings.ToLower(input.SdkResourceName),
+		models:                 input.Models,
 		newResourceIdFuncName:  *newResourceIdFuncName,
 		resourceId:             resourceId,
 		terraformModel:         terraformModel,
+		topLevelModel:          topLevelModel,
 	}
 	components := []func() (*string, error){
 		helper.schemaDeserialization,
 		helper.idDefinitionAndMapping,
 		helper.requiresImport,
 		helper.payloadDefinition,
+		// NOTE: we intentionally don't map fields from the Resource ID -> Payload
+		// since (per ARM) these don't need to be set
 		helper.mappingsFromSchema,
 		helper.create,
 	}
@@ -172,9 +187,33 @@ func (h createFunctionComponents) payloadDefinition() (*string, error) {
 }
 
 func (h createFunctionComponents) mappingsFromSchema() (*string, error) {
-	output := `
-			// TODO: mapping from the Schema -> Payload
-`
+	// TODO: tests for this
+	mappings := make([]string, 0)
+
+	// ensure these are output alphabetically for consistency purposes across re-generations
+	orderedFieldNames := make([]string, 0)
+	for fieldName := range h.terraformModel.Fields {
+		orderedFieldNames = append(orderedFieldNames, fieldName)
+	}
+	sort.Strings(orderedFieldNames)
+
+	for _, tfFieldName := range orderedFieldNames {
+		tfField := h.terraformModel.Fields[tfFieldName]
+		if tfField.Mappings.SdkPathForCreate == nil {
+			continue
+		}
+
+		assignmentVariable := fmt.Sprintf("payload.%s", tfFieldName)
+		codeForMapping, err := expandAssignmentCodeForCreateField(assignmentVariable, tfFieldName, tfField, h.topLevelModel, h.models)
+		if err != nil {
+			return nil, fmt.Errorf("building expand assignment code for field %q: %+v", tfFieldName, err)
+		}
+
+		mappings = append(mappings, *codeForMapping)
+	}
+
+	sort.Strings(mappings)
+	output := strings.Join(mappings, "\n")
 	return &output, nil
 }
 
