@@ -1,13 +1,7 @@
 package resource
 
-import (
-	"strings"
-	"testing"
-
-	"github.com/hashicorp/pandora/tools/generator-terraform/generator/models"
-
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
-)
+/*
+TODO: work through and re-enable this
 
 func TestGenerateBasicTest_RegularResourceId_Enabled(t *testing.T) {
 	input := models.ResourceInput{
@@ -126,3 +120,4 @@ resource "azurerm_example" "test" {
 `, "'", "`")
 	assertTemplatedCodeMatches(t, expected, *actual)
 }
+*/
