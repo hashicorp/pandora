@@ -157,6 +157,32 @@ resource 'example_resource' 'example' {
                     }
                 }},
             };
+            response.Tests = new TerraformResourceTestsDefinition
+            {
+                Generate = true,
+                BasicConfiguration = @"
+resource ""azurerm_resource_group"" ""test"" {
+    name     = ""acctest-rg${local.random_integer}""
+    location = local.primary_location
+}
+",
+                CompleteConfiguration = @"
+resource ""azurerm_resource_group"" ""test"" {
+    name     = ""acctest-rg${local.random_integer}""
+    location = local.primary_location
+
+    tags = {
+        ""Hello"" = ""AutoGen""
+    }
+}
+",
+                RequiresImportConfiguration = @"
+resource ""azurerm_resource_group"" ""import"" {
+    name     = azurerm_resource_group.test.name
+    location = azurerm_resource_group.test.location
+}
+",
+            };
         }
 
         if (input.ResourceLabel == "virtual_machine")
@@ -348,6 +374,32 @@ resource 'example_resource' 'example' {
                     }
                 }
             };
+            response.Tests = new TerraformResourceTestsDefinition
+            {
+                Generate = true,
+                BasicConfiguration = @"
+resource ""azurerm_virtual_machine"" ""test"" {
+    name     = ""acctest-vm${local.random_integer}""
+    location = local.primary_location
+}
+",
+                CompleteConfiguration = @"
+resource ""azurerm_virtual_machine"" ""test"" {
+    name     = ""acctest-vm${local.random_integer}""
+    location = local.primary_location
+
+    tags = {
+        ""Hello"" = ""AutoGen""
+    }
+}
+",
+                RequiresImportConfiguration = @"
+resource ""azurerm_virtual_machine"" ""import"" {
+    name     = azurerm_virtual_machine.test.name
+    location = azurerm_virtual_machine.test.location
+}
+",
+            };
         }
 
         if (input.ResourceLabel == "virtual_machine_scale_set")
@@ -458,6 +510,32 @@ resource 'example_resource' 'example' {
                         }}
                     }
                 }},
+            };
+            response.Tests = new TerraformResourceTestsDefinition
+            {
+                Generate = true,
+                BasicConfiguration = @"
+resource ""azurerm_virtual_machine_scale_set"" ""test"" {
+    name     = ""acctest-vmss${local.random_integer}""
+    location = local.primary_location
+}
+",
+                CompleteConfiguration = @"
+resource ""azurerm_virtual_machine_scale_set"" ""test"" {
+    name     = ""acctest-vmss${local.random_integer}""
+    location = local.primary_location
+
+    tags = {
+        ""Hello"" = ""AutoGen""
+    }
+}
+",
+                RequiresImportConfiguration = @"
+resource ""azurerm_virtual_machine_scale_set"" ""import"" {
+    name     = azurerm_virtual_machine_scale_set.test.name
+    location = azurerm_virtual_machine_scale_set.test.location
+}
+",
             };
         }
 
@@ -579,6 +657,9 @@ resource 'example_resource' 'example' {
 
         [JsonPropertyName("schemaModels")]
         public Dictionary<string, TerraformSchemaDefinition> SchemaModels { get; set; }
+        
+        [JsonPropertyName("tests")]
+        public TerraformResourceTestsDefinition Tests { get; set; }
 
         [JsonPropertyName("updateMethod")]
         public MethodDefinition? UpdateMethod { get; set; }
@@ -720,5 +801,26 @@ resource 'example_resource' 'example' {
 
         // TODO: we'll probably want to change those to objects in time to handle things like
         // a `BooleanWhen` - e.g. for PrivateNetworkAccess where a const becomes a boolean
+    }
+
+    private class TerraformResourceTestsDefinition
+    {
+        [JsonPropertyName("basicConfiguration")]
+        public string BasicConfiguration { get; set; }
+        
+        [JsonPropertyName("requiresImportConfiguration")]
+        public string RequiresImportConfiguration { get; set; }
+        
+        [JsonPropertyName("completeConfiguration")]
+        public string? CompleteConfiguration { get; set; }
+        
+        [JsonPropertyName("generate")]
+        public bool Generate { get; set; }
+        
+        [JsonPropertyName("otherTests")]
+        public Dictionary<string, List<string>> OtherTests { get; set; }
+        
+        [JsonPropertyName("templateConfiguration")]
+        public string? TemplateConfiguration { get; set; }
     }
 }

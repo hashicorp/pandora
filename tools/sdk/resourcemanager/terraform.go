@@ -139,6 +139,9 @@ type TerraformResourceDetails struct {
 	// Terraform Schema Models used in this Resource, including mappings to the SDK Models.
 	SchemaModels map[string]TerraformSchemaModelDefinition `json:"schemaModels"`
 
+	// Tests defines the Terraform Configurations which should be used to test this Resource.
+	Tests TerraformResourceTestsDefinition `json:"tests"`
+
 	// UpdateMethod optionally describes the method within the SDK Package that should
 	// be used to update this resource in Terraform.
 	UpdateMethod *MethodDefinition `json:"updateMethod,omitempty"`
@@ -278,4 +281,31 @@ type TerraformSchemaFieldObjectDefinition struct {
 
 	// Type specifies the Type of field that this is, for example a String or a Location.
 	Type TerraformSchemaFieldType `json:"type"`
+}
+
+type TerraformResourceTestsDefinition struct {
+	// BasicConfiguration is the most basic Terraform Configuration for this Resource
+	// this should be only the Required fields necessary to provision this Resource.
+	BasicConfiguration string `json:"basicConfiguration"`
+
+	// RequiresImportConfiguration is a Terraform Configuration based on BasicConfiguration
+	// that exists to confirm the ResourcesImport functionality works as expected.
+	RequiresImportConfiguration string `json:"requiresImportConfiguration"`
+
+	// CompleteConfiguration is an optional Terraform Configuration defining all of the possible
+	// fields which can be set for this Resource. If the Resource only contains Required fields
+	// then this field is superflurous and can be removed (since the Basic test covers this).
+	CompleteConfiguration *string `json:"completeConfiguration,omitempty"`
+
+	// Generate specifies whether the Tests should be generated or not.
+	Generate bool `json:"generate"`
+
+	// OtherTests is a map of key (TestName) to value (a slice of Test Configurations) which
+	// should be output as Acceptance Tests.
+	OtherTests map[string][]string `json:"otherTests"`
+
+	// TemplateConfiguration is an optional Terraform Configuration which should be used
+	// as the Template for each of the Tests defined above, which should include any parent
+	// resources required in the Tests.
+	TemplateConfiguration *string `json:"templateConfiguration,omitempty"`
 }
