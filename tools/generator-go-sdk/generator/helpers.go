@@ -134,29 +134,3 @@ func wordifyString(input string) string {
 
 	return strings.TrimPrefix(output, " ")
 }
-
-func checkBaseType(input string) bool {
-	baseTypes := []string{
-		"bool",
-		"byte",
-		"float32",
-		"float64",
-		"int",
-		"int8",
-		"int16",
-		"int32",
-		"int64",
-		"rune",
-		"string",
-	}
-
-	isBaseType := false
-	for _, b := range baseTypes {
-		if input == b {
-			isBaseType = true
-			break
-		}
-	}
-
-	return isBaseType
-}
