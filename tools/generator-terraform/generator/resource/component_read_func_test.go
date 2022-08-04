@@ -481,3 +481,19 @@ func (r ExampleResource) Read() sdk.ResourceFunc {
 `
 	assertTemplatedCodeMatches(t, expected, *actual)
 }
+
+func TestComponentReadFunc_CodeForIDParser(t *testing.T) {
+	actual, err := readFunctionComponents{
+		idParseLine: "plz.Parse",
+	}.codeForIDParser()
+	if err != nil {
+		t.Fatalf("error: %+v", err)
+	}
+	expected := `
+	id, err := plz.Parse(metadata.ResourceData.Id())
+	if err != nil {
+		return err
+	}
+`
+	assertTemplatedCodeMatches(t, expected, *actual)
+}
