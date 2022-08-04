@@ -249,9 +249,8 @@ func (c %[1]s) %[2]s(ctx context.Context%[4]s) (resp %[2]sOperationResponse, err
 %[6]s
 `, data.serviceClientName, c.operationName, data.packageName, *argumentsMethodCode, *preparerCode, *responderCode, *responseStruct, argumentsCode, *optionsStruct, *typeName)
 
-	isBaseType := checkBaseType(*typeName)
-
-	if !isBaseType {
+	// Only output predicate functions for models and not for base types like string, int etc.
+	if c.operation.ResponseObject.Type == resourcemanager.ReferenceApiObjectDefinitionType || c.operation.ResponseObject.Type == resourcemanager.ListApiObjectDefinitionType {
 		templated += fmt.Sprintf(`
 // %[2]sComplete retrieves all of the results into a single object
 func (c %[1]s) %[2]sComplete(ctx context.Context%[4]s) (%[2]sCompleteResult, error) {

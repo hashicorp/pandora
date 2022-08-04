@@ -219,7 +219,8 @@ func TestTemplateMethodsAutoRestNonBaseTypePredicates(t *testing.T) {
 		operation: resourcemanager.ApiOperation{
 			Method: "GET",
 			ResponseObject: &resourcemanager.ApiObjectDefinition{
-				Type: resourcemanager.RawObjectApiObjectDefinitionType,
+				Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+				ReferenceName: stringPointer("LingLing"),
 			},
 			ResourceIdName: stringPointer("PandaPop"),
 		},
@@ -233,7 +234,7 @@ func TestTemplateMethodsAutoRestNonBaseTypePredicates(t *testing.T) {
 	expected := `
 type ListOperationResponse struct {
 	HttpResponse *http.Response
-	Model *interface{}
+	Model *LingLing
 }
 
 // List ...
@@ -285,12 +286,12 @@ func (c pandaClient) responderForList(resp *http.Response) (result ListOperation
 
 // ListComplete retrieves all of the results into a single object
 func (c pandaClient) ListComplete(ctx context.Context, id PandaPop) (ListCompleteResult, error) {
-	return c.ListCompleteMatchingPredicate(ctx, id, interface{}OperationPredicate{})
+	return c.ListCompleteMatchingPredicate(ctx, id, LingLingOperationPredicate{})
 }
 
 // ListCompleteMatchingPredicate retrieves all of the results and then applied the predicate
-func (c pandaClient) ListCompleteMatchingPredicate(ctx context.Context, id PandaPop, predicate interface{}OperationPredicate) (resp ListCompleteResult, err error) {
-	items := make([]interface{}, 0)
+func (c pandaClient) ListCompleteMatchingPredicate(ctx context.Context, id PandaPop, predicate LingLingOperationPredicate) (resp ListCompleteResult, err error) {
+	items := make([]LingLing, 0)
 
 	page, err := c.List(ctx, id)
 	if err != nil {
