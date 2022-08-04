@@ -13,6 +13,8 @@ import (
 type readFunctionComponents struct {
 	resourceId     resourcemanager.ResourceIdDefinition
 	terraformModel resourcemanager.TerraformSchemaModelDefinition
+	topLevelModel  resourcemanager.ModelDetails
+	models         map[string]resourcemanager.ModelDetails
 }
 
 func readFunctionForResource(input models.ResourceInput) (*string, error) {
@@ -42,9 +44,16 @@ func readFunctionForResource(input models.ResourceInput) (*string, error) {
 		return nil, fmt.Errorf("the Resource ID named %q was not found", input.Details.ResourceIdName)
 	}
 
+	// at this point we only support References being returned, so this is safe
+	topLevelModel, ok := input.Models[*readOperation.ResponseObject.ReferenceName]
+	if !ok {
+		return nil, fmt.Errorf("the top-level model %q used in the response was not found", *readOperation.ResponseObject.ReferenceName)
+	}
+
 	components := readFunctionComponents{
 		resourceId:     resourceId,
 		terraformModel: terraformModel,
+		topLevelModel:  topLevelModel,
 	}
 	lines := make([]string, 0)
 
@@ -55,15 +64,19 @@ func readFunctionForResource(input models.ResourceInput) (*string, error) {
 	}
 	lines = append(lines, *resourceIdMappingLines)
 
-	// then map each of the values across
+	// add some spacing between the two sets of items
+	lines = append(lines, "")
 
-	//readObjectName, err := readOperation.ResponseObject.GolangTypeName(&input.SdkResourceName)
-	//if err != nil {
-	//	return nil, fmt.Errorf("building golang type name for read operation: %+v", err)
-	//}
+	// then output the top-level mappings, which'll call into nested items as required
+	topLevelMappingLines, err := components.codeForTopLevelMappings()
+	if err != nil {
+		return nil, fmt.Errorf("building code for Top-Level Mappings: %+v", err)
+	}
+	lines = append(lines, *topLevelMappingLines)
 
-	// TODO: marshal method
+	// TODO: flatten functions for nested models/fields
 
+	// TODO: split this into different components so these are more easily testable
 	output := fmt.Sprintf(`
 func (r %[1]sResource) Read() sdk.ResourceFunc {
 	return sdk.ResourceFunc{
@@ -122,5 +135,35 @@ func (c readFunctionComponents) codeForResourceIdMappings() (*string, error) {
 	sort.Strings(lines)
 
 	output := strings.Join(lines, "\n")
+	return &output, nil
+}
+
+func (c readFunctionComponents) codeForTopLevelMappings() (*string, error) {
+	mappings := make([]string, 0)
+
+	// ensure these are output alphabetically for consistency purposes across re-generations
+	orderedFieldNames := make([]string, 0)
+	for fieldName := range c.terraformModel.Fields {
+		orderedFieldNames = append(orderedFieldNames, fieldName)
+	}
+	sort.Strings(orderedFieldNames)
+
+	for _, tfFieldName := range orderedFieldNames {
+		tfField := c.terraformModel.Fields[tfFieldName]
+		if tfField.Mappings.SdkPathForRead == nil {
+			continue
+		}
+
+		assignmentVariable := fmt.Sprintf("schema.%s", tfFieldName)
+		codeForMapping, err := flattenAssignmentCodeForField(assignmentVariable, tfFieldName, tfField, c.topLevelModel, c.models)
+		if err != nil {
+			return nil, fmt.Errorf("building flatten assignment code for field %q: %+v", tfFieldName, err)
+		}
+
+		mappings = append(mappings, *codeForMapping)
+	}
+
+	sort.Strings(mappings)
+	output := strings.Join(mappings, "\n")
 	return &output, nil
 }
