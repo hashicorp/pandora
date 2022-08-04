@@ -144,7 +144,6 @@ func (c readFunctionComponents) codeForModelAssignments() (*string, error) {
 }
 
 func (c readFunctionComponents) codeForResourceIdMappings() (*string, error) {
-	// TODO: tests for this
 	lines := make([]string, 0)
 
 	// TODO: note that when there's a parent ID field present we'll need to call `parent.NewParentID(..).ID()`
