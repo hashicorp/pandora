@@ -70,15 +70,22 @@ function prepareTerraformProvider {
 function runFmtImportsAndGenerate {
   local workingDirectory=$1
 
-  echo "Running 'make fmt'.."
   cd "${workingDirectory}"
+
+  echo "Running 'make tools'.."
+  make tools
+
+  echo "Running 'make fmt'.."
   make fmt
 
   echo "Running 'make goimports'.."
   make goimports
 
   echo "Running 'make generate'.."
-  make fmt
+  make generate
+
+  echo "Running 'make terrafmt'.."
+  make terrafmt
 
   cd "${DIR}"
 }
