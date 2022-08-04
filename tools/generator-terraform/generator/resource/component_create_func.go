@@ -187,7 +187,6 @@ func (h createFunctionComponents) payloadDefinition() (*string, error) {
 }
 
 func (h createFunctionComponents) mappingsFromSchema() (*string, error) {
-	// TODO: tests for this
 	mappings := make([]string, 0)
 
 	// ensure these are output alphabetically for consistency purposes across re-generations
@@ -203,7 +202,7 @@ func (h createFunctionComponents) mappingsFromSchema() (*string, error) {
 			continue
 		}
 
-		assignmentVariable := fmt.Sprintf("payload.%s", tfFieldName)
+		assignmentVariable := fmt.Sprintf("payload.%s", *tfField.Mappings.SdkPathForCreate)
 		codeForMapping, err := expandAssignmentCodeForCreateField(assignmentVariable, tfFieldName, tfField, h.topLevelModel, h.models)
 		if err != nil {
 			return nil, fmt.Errorf("building expand assignment code for field %q: %+v", tfFieldName, err)

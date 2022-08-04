@@ -19,7 +19,7 @@ func expandAssignmentCodeForCreateField(assignmentVariable string, schemaFieldNa
 		// TODO: generate that method which needs to split/nil-check on
 		// remainingMapping := strings.Join(split[1:], ".")
 
-		assignmentCode := fmt.Sprintf("r.expand%[1]s(model.%[2]s)", schemaFieldName, topLevelFieldMapping)
+		assignmentCode := fmt.Sprintf("r.expand%[1]s(config.%[2]s)", schemaFieldName, topLevelFieldMapping)
 		output := fmt.Sprintf("// TODO: - %s = %s", assignmentVariable, assignmentCode)
 		return &output, nil
 	}
