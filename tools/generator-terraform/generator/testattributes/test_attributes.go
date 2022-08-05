@@ -121,7 +121,7 @@ func (h TestAttributesHelpers) codeForTestAttribute(input resourcemanager.Terraf
 				Name: "data.azurerm_extended_locations.test.extended_locations[0]",
 			},
 		})
-	case resourcemanager.TerraformSchemaFieldTypeIdentitySystemAssigned:
+	case resourcemanager.TerraformSchemaFieldTypeIdentitySystemAssigned, resourcemanager.TerraformSchemaFieldTypeIdentitySystemOrUserAssigned:
 		hclBody.AppendNewline()
 		identityBody := *hclBody.AppendNewBlock(hclName, nil).Body()
 		identityBody.SetAttributeValue("type", cty.StringVal("SystemAssigned"))
@@ -129,14 +129,9 @@ func (h TestAttributesHelpers) codeForTestAttribute(input resourcemanager.Terraf
 	case resourcemanager.TerraformSchemaFieldTypeIdentitySystemAndUserAssigned:
 		hclBody.AppendNewline()
 		identityBody := *hclBody.AppendNewBlock(hclName, nil).Body()
-		identityBody.SetAttributeValue("type", cty.StringVal("UserAssigned"))
-		identityBody.AppendNewline()
-		identityBody.AppendUnstructuredTokens(hclwrite.TokensForTraversal(hcl.Traversal{
-			hcl.TraverseRoot{
-				Name: "// todo add azurerm_user_assigned_identity.test to template",
-			},
-		}))
-		identityBody.AppendNewline()
+		identityBody.SetAttributeValue("type", cty.StringVal("SystemAssigned, UserAssigned"))
+		addCommentToTestConfig(identityBody, "todo add azurerm_user_assigned_identity.test to template")
+
 		identityBody.SetAttributeRaw("identity_ids", hclwrite.TokensForTuple([]hclwrite.Tokens{
 			hclwrite.TokensForTraversal(hcl.Traversal{
 				hcl.TraverseRoot{
@@ -144,8 +139,53 @@ func (h TestAttributesHelpers) codeForTestAttribute(input resourcemanager.Terraf
 				},
 			})}))
 		hclBody.AppendNewline()
+	case resourcemanager.TerraformSchemaFieldTypeIdentityUserAssigned:
+		hclBody.AppendNewline()
+		identityBody := *hclBody.AppendNewBlock(hclName, nil).Body()
+		identityBody.SetAttributeValue("type", cty.StringVal("UserAssigned"))
+		addCommentToTestConfig(identityBody, "todo add azurerm_user_assigned_identity.test to template")
 
+		identityBody.SetAttributeRaw("identity_ids", hclwrite.TokensForTuple([]hclwrite.Tokens{
+			hclwrite.TokensForTraversal(hcl.Traversal{
+				hcl.TraverseRoot{
+					Name: "azurerm_user_assigned_identity.test.id",
+				},
+			})}))
+		hclBody.AppendNewline()
+	case resourcemanager.TerraformSchemaFieldTypeLocation:
+		// todo 99% of the time, this is based off a resource group. Account for that 1%?
+		hclBody.SetAttributeTraversal(hclName, hcl.Traversal{
+			hcl.TraverseRoot{
+				Name: "azurerm_resource_group.test.location",
+			},
+		})
+	case resourcemanager.TerraformSchemaFieldTypeResourceGroup:
+		hclBody.SetAttributeTraversal(hclName, hcl.Traversal{
+			hcl.TraverseRoot{
+				Name: "azurerm_resource_group.test.name",
+			},
+		})
+	case resourcemanager.TerraformSchemaFieldTypeTags:
+		hclBody.SetAttributeValue("tags", cty.ObjectVal(map[string]cty.Value{
+			"env":  cty.StringVal("Production"),
+			"test": cty.StringVal("Acceptance"),
+		}))
+	case resourcemanager.TerraformSchemaFieldTypeZone:
+		hclBody.SetAttributeValue(hclName, cty.NumberIntVal(1))
+	case resourcemanager.TerraformSchemaFieldTypeZones:
+		hclBody.SetAttributeValue(hclName, cty.ListVal([]cty.Value{
+			cty.StringVal("1")}))
 	}
 
 	return nil
+}
+
+func addCommentToTestConfig(hclBody hclwrite.Body, comment string) {
+	hclBody.AppendNewline()
+	hclBody.AppendUnstructuredTokens(hclwrite.TokensForTraversal(hcl.Traversal{
+		hcl.TraverseRoot{
+			Name: fmt.Sprintf("// %s", comment),
+		},
+	}))
+	hclBody.AppendNewline()
 }
