@@ -30,7 +30,7 @@ func Resource(input models.ResourceInput) error {
 	writeToPath(testFilePath, *testFileContents)
 
 	// then generate the documentation
-	websiteResourcesDirectory := fmt.Sprintf("%s/website/r/", input.RootDirectory)
+	websiteResourcesDirectory := fmt.Sprintf("%s/website/docs/r/", input.RootDirectory)
 	os.MkdirAll(websiteResourcesDirectory, 0755)
 	documentationFilePath := fmt.Sprintf("%s/%s.html.markdown", websiteResourcesDirectory, input.ResourceLabel)
 	os.Remove(documentationFilePath)
