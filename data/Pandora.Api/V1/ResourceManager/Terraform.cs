@@ -657,7 +657,7 @@ resource ""azurerm_virtual_machine_scale_set"" ""import"" {
 
         [JsonPropertyName("schemaModels")]
         public Dictionary<string, TerraformSchemaDefinition> SchemaModels { get; set; }
-        
+
         [JsonPropertyName("tests")]
         public TerraformResourceTestsDefinition Tests { get; set; }
 
@@ -807,19 +807,19 @@ resource ""azurerm_virtual_machine_scale_set"" ""import"" {
     {
         [JsonPropertyName("basicConfiguration")]
         public string BasicConfiguration { get; set; }
-        
+
         [JsonPropertyName("requiresImportConfiguration")]
         public string RequiresImportConfiguration { get; set; }
-        
+
         [JsonPropertyName("completeConfiguration")]
         public string? CompleteConfiguration { get; set; }
-        
+
         [JsonPropertyName("generate")]
         public bool Generate { get; set; }
-        
+
         [JsonPropertyName("otherTests")]
         public Dictionary<string, List<string>> OtherTests { get; set; }
-        
+
         [JsonPropertyName("templateConfiguration")]
         public string? TemplateConfiguration { get; set; }
     }
