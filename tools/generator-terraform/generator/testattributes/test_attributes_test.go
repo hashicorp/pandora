@@ -11,31 +11,35 @@ import (
 func TestRequiredTestAttributes_CodeForBasicFields(t *testing.T) {
 	input := resourcemanager.TerraformSchemaModelDefinition{
 		Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
-			"required_bool_attribute": {
+			"RequiredBoolAttribute": {
 				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
 					Type: "Boolean",
 				},
+				HclName:  "required_bool_attribute",
 				Required: true,
 			},
-			"required_float_attribute": {
+			"RequiredFloatAttribute": {
 				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
 					Type: "Float",
 				},
+				HclName:  "required_float_attribute",
 				Required: true,
 			},
-			"required_int_attribute": {
+			"RequiredIntAttribute": {
 				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
 					Type: "Integer",
 				},
+				HclName:  "required_int_attribute",
 				Required: true,
 			},
-			"required_string_attribute": {
+			"RequiredStringAttribute": {
 				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
 					Type: "String",
 				},
+				HclName:  "required_string_attribute",
 				Required: true,
 			},
-			"required_list_attribute": {
+			"RequiredListAttribute": {
 				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
 					Type: resourcemanager.TerraformSchemaFieldTypeList,
 					NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
@@ -43,9 +47,10 @@ func TestRequiredTestAttributes_CodeForBasicFields(t *testing.T) {
 						ReferenceName: stringPointer("NestedSchemaModel"),
 					},
 				},
+				HclName:  "required_list_attribute",
 				Required: true,
 			},
-			"required_set_attribute": {
+			"RequiredSetAttribute": {
 				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
 					Type: resourcemanager.TerraformSchemaFieldTypeList,
 					NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
@@ -53,6 +58,45 @@ func TestRequiredTestAttributes_CodeForBasicFields(t *testing.T) {
 						ReferenceName: stringPointer("NestedSchemaModel"),
 					},
 				},
+				HclName:  "required_set_attribute",
+				Required: true,
+			},
+			"RequiredStringList": {
+				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+					Type: resourcemanager.TerraformSchemaFieldTypeSet,
+					NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
+						Type: "String",
+					},
+				},
+				HclName:  "required_string_list",
+				Required: true,
+			},
+			"RequiredFloatSet": {
+				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+					Type: resourcemanager.TerraformSchemaFieldTypeSet,
+					NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
+						Type: "Float",
+					},
+				},
+				HclName:  "required_float_set",
+				Required: true,
+			},
+			"OptionalIntSet": {
+				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+					Type: resourcemanager.TerraformSchemaFieldTypeSet,
+					NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
+						Type: "Integer",
+					},
+				},
+				HclName:  "optional_int_set",
+				Optional: true,
+			},
+			"RequiredReference": {
+				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+					Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+					ReferenceName: stringPointer("NestedSchemaModel"),
+				},
+				HclName:  "required_reference",
 				Required: true,
 			},
 		},
@@ -60,8 +104,13 @@ func TestRequiredTestAttributes_CodeForBasicFields(t *testing.T) {
 	expected := `
 	required_bool_attribute  = false
 	required_float_attribute = 10.1
-	required_int_attribute   = 15
+	required_float_set = [1.1, 2.2, 3.3]
+	required_int_attribute = 15
 	required_list_attribute {
+		required_nested_bool   = false
+		required_nested_string = "foo"
+	}
+	required_reference {
 		required_nested_bool   = false
 		required_nested_string = "foo"
 	}
@@ -70,6 +119,7 @@ func TestRequiredTestAttributes_CodeForBasicFields(t *testing.T) {
 		required_nested_string = "foo"
 	}
 	required_string_attribute = "foo"
+	required_string_list = ["foo", "baz"]
 `
 
 	file := hclwrite.NewEmptyFile()
@@ -77,22 +127,25 @@ func TestRequiredTestAttributes_CodeForBasicFields(t *testing.T) {
 		SchemaModels: map[string]resourcemanager.TerraformSchemaModelDefinition{
 			"NestedSchemaModel": {
 				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
-					"required_nested_string": {
+					"RequiredNestedString": {
 						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
 							Type: resourcemanager.TerraformSchemaFieldTypeString,
 						},
+						HclName:  "required_nested_string",
 						Required: true,
 					},
-					"required_nested_bool": {
+					"RequiredNestedBool": {
 						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
 							Type: resourcemanager.TerraformSchemaFieldTypeBoolean,
 						},
+						HclName:  "required_nested_bool",
 						Required: true,
 					},
-					"optional_nested_string": {
+					"OptionalNestedString": {
 						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
 							Type: resourcemanager.TerraformSchemaFieldTypeString,
 						},
+						HclName:  "optional_nested_string",
 						Optional: true,
 					},
 				},
@@ -109,31 +162,35 @@ func TestRequiredTestAttributes_CodeForBasicFields(t *testing.T) {
 func TestRequiredAndOptionalTestAttributes_CodeForBasicField(t *testing.T) {
 	input := resourcemanager.TerraformSchemaModelDefinition{
 		Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
-			"required_bool_attribute": {
+			"RequiredBoolAttribute": {
 				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
 					Type: "Boolean",
 				},
+				HclName:  "required_bool_attribute",
 				Required: true,
 			},
-			"required_float_attribute": {
+			"RequiredFloatAttribute": {
 				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
 					Type: "Float",
 				},
+				HclName:  "required_float_attribute",
 				Required: true,
 			},
-			"optional_int_attribute": {
+			"OptionalIntAttribute": {
 				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
 					Type: "Integer",
 				},
+				HclName:  "optional_int_attribute",
 				Optional: true,
 			},
-			"optional_string_attribute": {
+			"OptionalStringAttribute": {
 				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
 					Type: "String",
 				},
+				HclName:  "optional_string_attribute",
 				Optional: true,
 			},
-			"required_list_attribute": {
+			"RequiredListAttribute": {
 				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
 					Type: resourcemanager.TerraformSchemaFieldTypeList,
 					NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
@@ -141,9 +198,10 @@ func TestRequiredAndOptionalTestAttributes_CodeForBasicField(t *testing.T) {
 						ReferenceName: stringPointer("NestedSchemaModel"),
 					},
 				},
+				HclName:  "required_list_attribute",
 				Required: true,
 			},
-			"optional_set_attribute": {
+			"OptionalSetAttribute": {
 				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
 					Type: resourcemanager.TerraformSchemaFieldTypeList,
 					NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
@@ -151,6 +209,45 @@ func TestRequiredAndOptionalTestAttributes_CodeForBasicField(t *testing.T) {
 						ReferenceName: stringPointer("NestedSchemaModel"),
 					},
 				},
+				HclName:  "optional_set_attribute",
+				Optional: true,
+			},
+			"RequiredStringList": {
+				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+					Type: resourcemanager.TerraformSchemaFieldTypeSet,
+					NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
+						Type: "String",
+					},
+				},
+				HclName:  "required_string_list",
+				Required: true,
+			},
+			"RequiredFloatSet": {
+				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+					Type: resourcemanager.TerraformSchemaFieldTypeSet,
+					NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
+						Type: "Float",
+					},
+				},
+				HclName:  "required_float_set",
+				Required: true,
+			},
+			"OptionalIntSet": {
+				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+					Type: resourcemanager.TerraformSchemaFieldTypeSet,
+					NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
+						Type: "Integer",
+					},
+				},
+				HclName:  "optional_int_set",
+				Optional: true,
+			},
+			"OptionalReference": {
+				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+					Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+					ReferenceName: stringPointer("NestedSchemaModel"),
+				},
+				HclName:  "optional_reference",
 				Optional: true,
 			},
 		},
@@ -158,12 +255,20 @@ func TestRequiredAndOptionalTestAttributes_CodeForBasicField(t *testing.T) {
 	expected := `
 	required_bool_attribute  = false
 	required_float_attribute = 10.1
+	required_float_set = [1.1, 2.2, 3.3]
 	required_list_attribute {
 		required_nested_bool   = false
 		required_nested_string = "foo"
 		optional_nested_string = "foo"
 	}
+	required_string_list = ["foo", "baz"]
 	optional_int_attribute = 15
+	optional_int_set = [1, 2, 3]
+	optional_reference {
+		required_nested_bool   = false
+		required_nested_string = "foo"
+		optional_nested_string = "foo"
+	}
 	optional_set_attribute {
 		required_nested_bool   = false
 		required_nested_string = "foo"
@@ -177,22 +282,25 @@ func TestRequiredAndOptionalTestAttributes_CodeForBasicField(t *testing.T) {
 		SchemaModels: map[string]resourcemanager.TerraformSchemaModelDefinition{
 			"NestedSchemaModel": {
 				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
-					"required_nested_string": {
+					"RequiredNestedString": {
 						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
 							Type: resourcemanager.TerraformSchemaFieldTypeString,
 						},
+						HclName:  "required_nested_string",
 						Required: true,
 					},
-					"required_nested_bool": {
+					"RequiredNestedBool": {
 						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
 							Type: resourcemanager.TerraformSchemaFieldTypeBoolean,
 						},
+						HclName:  "required_nested_bool",
 						Required: true,
 					},
-					"optional_nested_string": {
+					"OptionalNestedString": {
 						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
 							Type: resourcemanager.TerraformSchemaFieldTypeString,
 						},
+						HclName:  "optional_nested_string",
 						Optional: true,
 					},
 				},
