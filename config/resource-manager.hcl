@@ -159,6 +159,10 @@ service "maps" {
   name      = "Maps"
   available = ["2021-02-01"]
 }
+service "mariadb" {
+  name      = "MariaDB"
+  available = ["2018-06-01"]
+}
 service "mediaservices" {
   name      = "Media"
   available = ["2020-05-01", "2021-05-01"]
