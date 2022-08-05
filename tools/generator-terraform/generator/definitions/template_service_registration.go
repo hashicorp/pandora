@@ -21,6 +21,12 @@ func templateForServiceRegistration(input models.ServiceInput) string {
 	}
 	sort.Strings(codeForResources)
 
+	categories := make([]string, 0)
+	for _, v := range input.CategoryNames {
+		categories = append(categories, fmt.Sprintf("%q,", v))
+	}
+	sort.Strings(categories)
+
 	output := fmt.Sprintf(`
 package %[1]s
 
@@ -50,8 +56,10 @@ func (autoRegistration) Resources() []sdk.Resource {
 }
 
 func (autoRegistration) WebsiteCategories() []string {
-	return []string{}
+	return []string{
+		%[6]s
+	}
 }
-`, input.ServicePackageName, input.ServiceDisplayName, strings.Join(codeForDataSources, "\n"), strings.Join(codeForResources, "\n"), input.ProviderPrefix)
+`, input.ServicePackageName, input.ServiceDisplayName, strings.Join(codeForDataSources, "\n"), strings.Join(codeForResources, "\n"), input.ProviderPrefix, strings.Join(categories, "\n"))
 	return strings.TrimSpace(output)
 }

@@ -43,7 +43,8 @@ func (autoRegistration) Resources() []sdk.Resource {
 }
 
 func (autoRegistration) WebsiteCategories() []string {
-	return []string{}
+	return []string{
+	}
 }
 `
 	assertTemplatedCodeMatches(t, expected, actual)
@@ -51,7 +52,10 @@ func (autoRegistration) WebsiteCategories() []string {
 
 func TestTemplateForServiceRegistration(t *testing.T) {
 	input := models.ServiceInput{
-		CategoryNames: []string{},
+		CategoryNames: []string{
+			"Category3",
+			"Category1",
+		},
 		DataSourceNames: []string{
 			// intentional to check ordering
 			"Example2",
@@ -102,7 +106,10 @@ func (autoRegistration) Resources() []sdk.Resource {
 }
 
 func (autoRegistration) WebsiteCategories() []string {
-	return []string{}
+	return []string{
+		"Category1",
+		"Category3",
+	}
 }
 `
 	assertTemplatedCodeMatches(t, expected, actual)
