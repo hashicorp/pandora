@@ -8,20 +8,32 @@ import (
 )
 
 type fieldNameMatcher interface {
-	updatedNameForField(input string) *string
+	updatedNameForField(input string, model *resourcemanager.ModelDetails) *string
 }
 
 var namingRules = []fieldNameMatcher{
 	fieldNameIs{},
-	//fieldNameBool{},
+	fieldNamePlural{},
 }
 
 type fieldNameIs struct{}
 
-func (fieldNameIs) updatedNameForField(input string) *string {
+func (fieldNameIs) updatedNameForField(input string, _ *resourcemanager.ModelDetails) *string {
 	if strings.HasPrefix(input, "is_") {
 		updatedName := input[3:]
 		return &updatedName
+	}
+	return nil
+}
+
+type fieldNamePlural struct{}
+
+func (fieldNamePlural) updatedNameForField(input string, model *resourcemanager.ModelDetails) *string {
+	if model.Fields[input].ObjectDefinition.Type == resourcemanager.ListApiObjectDefinitionType {
+		if strings.HasSuffix(input, "s") && !strings.HasSuffix(input, "ss") {
+			updatedName := strings.TrimSuffix(input, "s")
+			return &updatedName
+		}
 	}
 	return nil
 }
