@@ -5,6 +5,12 @@ set -e
 DIR="$(cd "$(dirname "$0")" && pwd)/.."
 
 function buildAndInstallDependencies {
+    echo "Outputting Go Version.."
+    go version
+
+    echo "Outputting .net Version.."
+    dotnet --version
+
     echo "Installing the Terraform Generator into the GOBIN.."
     cd "${DIR}/tools/generator-terraform"
     go install .
@@ -71,6 +77,9 @@ function runFmtImportsAndGenerate {
   local workingDirectory=$1
 
   cd "${workingDirectory}"
+
+  echo "Running 'go mod vendor'.."
+  go mod vendor
 
   echo "Running 'make tools'.."
   make tools
