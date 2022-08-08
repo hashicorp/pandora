@@ -46,10 +46,10 @@ func (s Service) generateTerraformDefinitions() error {
 			}
 
 			// output the Schema for this Terraform Resource
-			resourceSchemaFileName := path.Join(s.workingDirectoryForTerraform, fmt.Sprintf("%s-Resource.cs", details.ResourceName))
+			resourceSchemaFileName := path.Join(s.workingDirectoryForTerraform, fmt.Sprintf("%s-Resource-Schema.cs", details.ResourceName))
 			s.logger.Trace(fmt.Sprintf("Generating Resource Schema into %q", resourceSchemaFileName))
 			resourceSchemaCode := codeForTerraformSchemaDefinition(s.namespaceForTerraform, details)
-			if err := writeToFile(resourceFileName, resourceSchemaCode); err != nil {
+			if err := writeToFile(resourceSchemaFileName, resourceSchemaCode); err != nil {
 				return fmt.Errorf("generating Terraform Resource Schema for %q: %+v", label, err)
 			}
 

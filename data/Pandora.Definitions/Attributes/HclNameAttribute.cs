@@ -8,6 +8,6 @@ public class HclNameAttribute : Attribute
     {
         Name = name;
     }
-    
+
     public string Name { get; set; }
 }

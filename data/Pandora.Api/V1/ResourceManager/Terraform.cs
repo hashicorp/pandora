@@ -70,7 +70,7 @@ resource 'example_resource' 'example' {
         {
             response.UpdateMethod = MapMethodDefinition(input.UpdateMethod!);
         }
-        
+
         // TODO: Mappings should be an object containing `Type` (which allows us to pipe through `BooleanWhen` etc)
 
         // TODO: replace these with real mappings

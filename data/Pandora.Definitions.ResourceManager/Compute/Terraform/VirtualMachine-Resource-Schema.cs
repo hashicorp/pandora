@@ -4,17 +4,19 @@ namespace Pandora.Definitions.ResourceManager.Compute.Terraform;
 
 public class VirtualMachineResourceSchema
 {
+    // TODO: populate with a real schema
+
+    [HclName("location")]
+    [ForceNew]
+    [Required]
+    public CustomTypes.Location Location { get; set; }
+
     [HclName("name")]
     [ForceNew]
     [Required]
     public string Name { get; set; }
-    
-    [HclName("name")]
-    [ForceNew]
-    [Required]
-    public CustomTypes.Location Location { get; set; }
-    
-    [HclName("name")]
+
+    [HclName("tags")]
     [Optional]
     public CustomTypes.Tags Tags { get; set; }
 }

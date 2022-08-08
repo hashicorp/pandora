@@ -7,11 +7,12 @@ import (
 )
 
 func codeForTerraformSchemaDefinition(terraformNamespace string, details resourcemanager.TerraformResourceDetails) string {
+	// TODO: output the real schema
 	return fmt.Sprintf(`using Pandora.Definitions.Attributes;
 
 namespace %[1]s;
 
-public class %[2]sResourceSchema : TerraformResourceDefinition
+public class %[2]sResourceSchema
 {
 	// TODO: populate with a real schema
 

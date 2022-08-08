@@ -53,7 +53,7 @@ public interface TerraformResourceDefinition
     /// **without** the Provider Prefix (e.g. `resource_group` rather than `azurerm_resource_group`).
     /// </summary>
     public string ResourceLabel { get; }
-    
+
     /// <summary>
     /// SchemaModel is a reference to a Type defining the Terraform Schema for this Resource. 
     /// </summary>

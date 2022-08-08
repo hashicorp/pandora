@@ -8,7 +8,6 @@ public class VirtualMachineResource : TerraformResourceDefinition
     public string DisplayName => "Virtual Machine";
     public ResourceID ResourceId => new v2021_11_01.VirtualMachines.VirtualMachineId();
     public string ResourceLabel => "virtual_machine";
-    
     public Type? SchemaModel => typeof(VirtualMachineResourceSchema);
 
     public bool GenerateIDValidationFunction => true;
