@@ -60,6 +60,12 @@ public interface TerraformResourceDefinition
     public Type? SchemaModel { get; }
 
     /// <summary>
+    /// SchemaMappings is a reference to the TerraformMappingDefinition which defines how the TerraformSchema
+    /// defined in SchemaModel should be mapped to/from the SDK Models and Terraform Resource ID. 
+    /// </summary>
+    public TerraformMappingDefinition SchemaMappings { get; }
+
+    /// <summary>
     /// UpdateMethod optionally defines the Update Method associated with this Resource, both for whether this
     /// should be generated and determining which SDK methods which should be called.
     /// </summary>

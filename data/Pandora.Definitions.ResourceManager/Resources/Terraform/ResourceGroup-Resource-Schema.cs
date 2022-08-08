@@ -2,6 +2,7 @@ using Pandora.Definitions.Attributes;
 
 namespace Pandora.Definitions.ResourceManager.Resources.Terraform;
 
+// TODO: should we add an interface to this to enforce the mapping type?!
 public class ResourceGroupResourceSchema
 {
     // TODO: populate with a real schema

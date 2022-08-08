@@ -12,8 +12,7 @@ using Pandora.Definitions.CustomTypes;
 
 namespace Pandora.Definitions.ResourceManager.Compute.v2021_11_01.VirtualMachineScaleSets;
 
-
-internal class VirtualMachineScaleSetPropertiesModel
+public class VirtualMachineScaleSetPropertiesModel
 {
     [JsonPropertyName("additionalCapabilities")]
     public AdditionalCapabilitiesModel? AdditionalCapabilities { get; set; }

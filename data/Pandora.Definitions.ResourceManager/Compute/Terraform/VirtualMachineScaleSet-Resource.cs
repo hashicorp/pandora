@@ -10,6 +10,8 @@ public class VirtualMachineScaleSetResource : TerraformResourceDefinition
     public string ResourceLabel => "virtual_machine_scale_set";
     public Type? SchemaModel => typeof(VirtualMachineScaleSetResourceSchema);
 
+    public TerraformMappingDefinition SchemaMappings => new VirtualMachineScaleSetResourceMappings();
+
     public bool GenerateIDValidationFunction => true;
     public bool GenerateModel => true;
     public bool GenerateSchema => true;
