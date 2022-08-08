@@ -40,7 +40,7 @@ func TestUpdateNameForField_Is(t *testing.T) {
 	}
 }
 
-func TestUpdateNameForField_Plural(t *testing.T) {
+func TestUpdateNameForField_PluralToSingular(t *testing.T) {
 	testData := []struct {
 		fieldInput string
 		modelInput resourcemanager.ModelDetails
@@ -90,7 +90,7 @@ func TestUpdateNameForField_Plural(t *testing.T) {
 	for _, v := range testData {
 		t.Logf("[DEBUG] Testing %s", v.fieldInput)
 
-		actual := fieldNamePlural{}.updatedNameForField(v.fieldInput, &v.modelInput)
+		actual := fieldNamePluralToSingular{}.updatedNameForField(v.fieldInput, &v.modelInput)
 
 		if actual == nil {
 			if v.expected == nil {

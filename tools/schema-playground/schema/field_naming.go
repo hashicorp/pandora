@@ -13,7 +13,7 @@ type fieldNameMatcher interface {
 
 var namingRules = []fieldNameMatcher{
 	fieldNameIs{},
-	fieldNamePlural{},
+	fieldNamePluralToSingular{},
 }
 
 type fieldNameIs struct{}
@@ -26,9 +26,9 @@ func (fieldNameIs) updatedNameForField(input string, _ *resourcemanager.ModelDet
 	return nil
 }
 
-type fieldNamePlural struct{}
+type fieldNamePluralToSingular struct{}
 
-func (fieldNamePlural) updatedNameForField(input string, model *resourcemanager.ModelDetails) *string {
+func (fieldNamePluralToSingular) updatedNameForField(input string, model *resourcemanager.ModelDetails) *string {
 	if model.Fields[input].ObjectDefinition.Type == resourcemanager.ListApiObjectDefinitionType {
 		if strings.HasSuffix(input, "s") && !strings.HasSuffix(input, "ss") {
 			updatedName := strings.TrimSuffix(input, "s")
