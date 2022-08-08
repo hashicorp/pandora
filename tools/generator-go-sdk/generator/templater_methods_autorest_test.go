@@ -198,9 +198,43 @@ func (c pandaClient) responderForList(resp *http.Response) (result ListOperation
 	result.HttpResponse = resp
 	return
 }
+
+// ListComplete retrieves all of the results into a single object
+func (c pandaClient) ListComplete(ctx context.Context, id PandaPop) (ListCompleteResult, error) {
+	items := make([]string, 0)
+
+	page, err := c.List(ctx, id)
+	if err != nil {
+		err = fmt.Errorf("loading the initial page: %+v", err)
+		return
+	}
+	if page.Model != nil {
+		for _, v := range *page.Model {
+			items = append(items, v)
+		}
+	}
+
+	for page.HasMore() {
+		page, err = page.LoadMore(ctx)
+		if err != nil {
+			err = fmt.Errorf("loading the next page: %+v", err)
+			return
+		}
+
+		if page.Model != nil {
+			for _, v := range *page.Model {
+				items = append(items, v)
+			}
+		}
+	}
+
+	out := ListCompleteResult{
+		Items: items,
+	}
+	return out, nil
+}
 `
 	assertTemplatedCodeMatches(t, expected, *actual)
-
 }
 
 func TestTemplateMethodsAutoRestNonBaseTypePredicates(t *testing.T) {
