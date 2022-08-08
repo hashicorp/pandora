@@ -1,3 +1,4 @@
+using System;
 using Pandora.Definitions.Interfaces;
 
 namespace Pandora.Definitions.ResourceManager.Compute.Terraform;
@@ -7,6 +8,8 @@ public class VirtualMachineScaleSetResource : TerraformResourceDefinition
     public string DisplayName => "Virtual Machine Scale Set";
     public ResourceID ResourceId => new v2021_11_01.VirtualMachineScaleSets.VirtualMachineScaleSetId();
     public string ResourceLabel => "virtual_machine_scale_set";
+    
+    public Type? SchemaModel => typeof(VirtualMachineScaleSetResourceSchema);
 
     public bool GenerateIDValidationFunction => true;
     public bool GenerateModel => true;
