@@ -223,8 +223,8 @@ func (c methodsAutoRestTemplater) listOperationTemplate(data ServiceGeneratorDat
 %[9]s
 
 // %[2]s ...
-func (c %[1]s) %[2]s(ctx context.Context %[4]s) (resp %[2]sOperationResponse, err error) {
-	req, err := c.preparerFor%[2]s(ctx %[8]s)
+func (c %[1]s) %[2]s(ctx context.Context%[4]s) (resp %[2]sOperationResponse, err error) {
+	req, err := c.preparerFor%[2]s(ctx%[8]s)
 	if err != nil {
 		err = autorest.NewErrorWithError(err, "%[3]s.%[1]s", "%[2]s", nil, "Failure preparing request")
 		return
@@ -244,16 +244,25 @@ func (c %[1]s) %[2]s(ctx context.Context %[4]s) (resp %[2]sOperationResponse, er
 	return
 }
 
+%[5]s
+
+%[6]s
+`, data.serviceClientName, c.operationName, data.packageName, *argumentsMethodCode, *preparerCode, *responderCode, *responseStruct, argumentsCode, *optionsStruct, *typeName)
+
+	// Only output predicate functions for models and not for base types like string, int etc.
+	if c.operation.ResponseObject.Type == resourcemanager.ReferenceApiObjectDefinitionType || c.operation.ResponseObject.Type == resourcemanager.ListApiObjectDefinitionType {
+		templated += fmt.Sprintf(`
+
 // %[2]sComplete retrieves all of the results into a single object
-func (c %[1]s) %[2]sComplete(ctx context.Context %[4]s) (%[2]sCompleteResult, error) {
-	return c.%[2]sCompleteMatchingPredicate(ctx %[8]s, %[10]sOperationPredicate{})
+func (c %[1]s) %[2]sComplete(ctx context.Context%[4]s) (%[2]sCompleteResult, error) {
+	return c.%[2]sCompleteMatchingPredicate(ctx%[8]s, %[10]sOperationPredicate{})
 }
 
 // %[2]sCompleteMatchingPredicate retrieves all of the results and then applied the predicate
-func (c %[1]s) %[2]sCompleteMatchingPredicate(ctx context.Context %[4]s, predicate %[10]sOperationPredicate) (resp %[2]sCompleteResult, err error) {
+func (c %[1]s) %[2]sCompleteMatchingPredicate(ctx context.Context%[4]s, predicate %[10]sOperationPredicate) (resp %[2]sCompleteResult, err error) {
 	items := make([]%[10]s, 0)
 
-	page, err := c.%[2]s(ctx %[8]s)
+	page, err := c.%[2]s(ctx%[8]s)
 	if err != nil {
 		err = fmt.Errorf("loading the initial page: %%+v", err)
 		return
@@ -287,11 +296,46 @@ func (c %[1]s) %[2]sCompleteMatchingPredicate(ctx context.Context %[4]s, predica
 	}
 	return out, nil
 }
-
-%[5]s
-
-%[6]s
 `, data.serviceClientName, c.operationName, data.packageName, *argumentsMethodCode, *preparerCode, *responderCode, *responseStruct, argumentsCode, *optionsStruct, *typeName)
+	} else {
+		templated += fmt.Sprintf(`
+// %[2]sComplete retrieves all of the results into a single object
+func (c %[1]s) %[2]sComplete(ctx context.Context%[3]s) (%[2]sCompleteResult, error) {
+	items := make([]%[5]s, 0)
+
+	page, err := c.%[2]s(ctx%[4]s)
+	if err != nil {
+		err = fmt.Errorf("loading the initial page: %%+v", err)
+		return
+	}
+	if page.Model != nil {
+		for _, v := range *page.Model {
+			items = append(items, v)
+		}
+	}
+
+	for page.HasMore() {
+		page, err = page.LoadMore(ctx)
+		if err != nil {
+			err = fmt.Errorf("loading the next page: %%+v", err)
+			return
+		}
+
+		if page.Model != nil {
+			for _, v := range *page.Model {
+				items = append(items, v)
+			}
+		}
+	}
+
+	out := %[2]sCompleteResult{
+		Items: items,
+	}
+	return out, nil
+}
+`, data.serviceClientName, c.operationName, *argumentsMethodCode, argumentsCode, *typeName)
+	}
+
 	return &templated, nil
 }
 
@@ -475,7 +519,7 @@ func (c methodsAutoRestTemplater) preparerTemplate(data ServiceGeneratorData) (*
 
 	template := `
 // preparerFor%[2]s prepares the %[2]s request.
-func (c %[1]s) preparerFor%[2]s(ctx context.Context %[3]s) (*http.Request, error) {
+func (c %[1]s) preparerFor%[2]s(ctx context.Context%[3]s) (*http.Request, error) {
 	queryParameters := map[string]interface{}{
 		"api-version": defaultApiVersion,
 	}
