@@ -37,11 +37,24 @@ func (d *SwaggerDefinition) parse(serviceName, apiVersion string, resourceIds re
 		if err != nil {
 			return nil, fmt.Errorf("finding resources for tag %q: %+v", serviceName, err)
 		}
+		inferredTag := serviceName
+		// If there are no tags at all
+		if len(tags) == 0 {
+			inferredTag = strings.TrimPrefix(d.Name, "/")
+		}
+
+		inferredTag = fmt.Sprintf("%ss", strings.TrimPrefix(d.Name, "/"))
 
 		if resource != nil {
-			normalizedTag := normalizeTag(serviceName)
+			normalizedTag := normalizeTag(inferredTag)
 			normalizedTag = cleanup.NormalizeResourceName(normalizedTag)
-			resources[normalizedTag] = *resource
+
+			if mergeResources, ok := resources[normalizedTag]; ok {
+				resources[normalizedTag] = models.MergeResourcesForTag(mergeResources, *resource)
+
+			} else {
+				resources[normalizedTag] = *resource
+			}
 		}
 	}
 

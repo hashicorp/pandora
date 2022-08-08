@@ -475,8 +475,8 @@ type parsedOperation struct {
 
 func (d *SwaggerDefinition) findOperationsMatchingTag(tag *string) *[]parsedOperation {
 	result := make([]parsedOperation, 0)
-
 	for httpMethod, operation := range d.swaggerSpecExpanded.Operations() {
+		//operation = inferMissingTags(operation, tag)
 		for uri, operationDetails := range operation {
 			if !operationMatchesTag(operationDetails, tag) {
 				continue

@@ -52,3 +52,21 @@ func tagShouldBeIgnored(tag string) bool {
 
 	return false
 }
+
+//func inferMissingTags(op map[string]*spec.Operation, tag *string) map[string]*spec.Operation {
+//	if tag == nil {
+//		return op
+//	}
+//	trimmedTag := strings.TrimSuffix(*tag, "s")
+//	trimmedTag = strings.TrimSuffix(trimmedTag, "ie")
+//	for k, v := range op {
+//		if len(v.Tags) != 0 {
+//			continue
+//		}
+//		if strings.Contains(strings.ToLower(v.ID), strings.ToLower(trimmedTag)) {
+//			op[k].Tags = []string{*tag}
+//			break
+//		}
+//	}
+//	return op
+//}
