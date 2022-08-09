@@ -13,7 +13,7 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.ContainerApps.v2022_03_01.ContainerApps;
 
 
-internal class DefaultErrorResponseErrorDetailsInlinedModel
+internal class CustomHostnameAnalysisResultCustomDomainVerificationFailureInfoDetailsInlinedModel
 {
     [JsonPropertyName("code")]
     public string? Code { get; set; }

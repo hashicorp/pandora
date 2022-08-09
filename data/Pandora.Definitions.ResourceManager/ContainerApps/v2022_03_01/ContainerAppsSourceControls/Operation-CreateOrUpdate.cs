@@ -15,12 +15,6 @@ namespace Pandora.Definitions.ResourceManager.ContainerApps.v2022_03_01.Containe
 
 internal class CreateOrUpdateOperation : Operations.PutOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
-        {
-                HttpStatusCode.Accepted,
-                HttpStatusCode.OK,
-        };
-
     public override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(SourceControlModel);
