@@ -13,8 +13,17 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.ContainerApps.v2022_03_01.ContainerApps;
 
 
-internal class DefaultErrorResponseModel
+internal class CustomHostnameAnalysisResultCustomDomainVerificationFailureInfoModel
 {
-    [JsonPropertyName("error")]
-    public DefaultErrorResponseErrorModel? Error { get; set; }
+    [JsonPropertyName("code")]
+    public string? Code { get; set; }
+
+    [JsonPropertyName("details")]
+    public List<CustomHostnameAnalysisResultCustomDomainVerificationFailureInfoDetailsInlinedModel>? Details { get; set; }
+
+    [JsonPropertyName("message")]
+    public string? Message { get; set; }
+
+    [JsonPropertyName("target")]
+    public string? Target { get; set; }
 }
