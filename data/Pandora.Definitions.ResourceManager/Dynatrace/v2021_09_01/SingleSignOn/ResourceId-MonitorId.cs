@@ -6,13 +6,13 @@ using Pandora.Definitions.Interfaces;
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 
 
-namespace Pandora.Definitions.ResourceManager.DeviceProvisioningServices.v2022_02_05.IotDpsResource;
+namespace Pandora.Definitions.ResourceManager.Dynatrace.v2021_09_01.SingleSignOn;
 
-internal class ProvisioningServiceId : ResourceID
+internal class MonitorId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Devices/provisioningServices/{resourceName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Dynatrace.Observability/monitors/{monitorName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -21,8 +21,8 @@ internal class ProvisioningServiceId : ResourceID
         ResourceIDSegment.Static("staticResourceGroups", "resourceGroups"),
         ResourceIDSegment.ResourceGroup("resourceGroupName"),
         ResourceIDSegment.Static("staticProviders", "providers"),
-        ResourceIDSegment.ResourceProvider("staticMicrosoftDevices", "Microsoft.Devices"),
-        ResourceIDSegment.Static("staticProvisioningServices", "provisioningServices"),
-        ResourceIDSegment.UserSpecified("resourceName"),
+        ResourceIDSegment.ResourceProvider("staticDynatraceObservability", "Dynatrace.Observability"),
+        ResourceIDSegment.Static("staticMonitors", "monitors"),
+        ResourceIDSegment.UserSpecified("monitorName"),
     };
 }
