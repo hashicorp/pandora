@@ -103,6 +103,10 @@ service "domainservices" {
   name      = "AAD"
   available = ["2020-01-01", "2021-03-01", "2021-05-01"]
 }
+service "dynatrace" {
+  name      = "Dynatrace"
+  available = ["2021-09-01"]
+}
 service "elastic" {
   name      = "Elastic"
   available = ["2020-07-01"]
