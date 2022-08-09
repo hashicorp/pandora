@@ -5,12 +5,12 @@ import (
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-var _ commonIdMatcher = commonIdIPConfiguration{}
+var _ commonIdMatcher = commonIdVirtualWANP2SVPNGateway{}
 
-type commonIdIPConfiguration struct{}
+type commonIdVirtualWANP2SVPNGateway struct{}
 
-func (c commonIdIPConfiguration) id() models.ParsedResourceId {
-	name := "IpConfiguration"
+func (c commonIdVirtualWANP2SVPNGateway) id() models.ParsedResourceId {
+	name := "VirtualWANP2SVPNGateway"
 	return models.ParsedResourceId{
 		CommonAlias: &name,
 		Constants:   map[string]resourcemanager.ConstantDetails{},
@@ -21,8 +21,8 @@ func (c commonIdIPConfiguration) id() models.ParsedResourceId {
 			models.ResourceGroupResourceIDSegment("resourceGroup"),
 			models.StaticResourceIDSegment("providers", "providers"),
 			models.ResourceProviderResourceIDSegment("resourceProvider", "Microsoft.Network"),
-			models.StaticResourceIDSegment("publicIPAddresses", "publicIPAddresses"),
-			models.UserSpecifiedResourceIDSegment("publicIPAddressesName"),
+			models.StaticResourceIDSegment("p2svpnGateways", "p2svpnGateways"),
+			models.UserSpecifiedResourceIDSegment("gatewayName"),
 		},
 	}
 }

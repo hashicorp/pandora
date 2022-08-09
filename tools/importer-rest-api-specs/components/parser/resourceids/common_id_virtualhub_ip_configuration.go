@@ -23,8 +23,8 @@ func (c commonIdVirtualHubIPConfiguration) id() models.ParsedResourceId {
 			models.ResourceProviderResourceIDSegment("resourceProvider", "Microsoft.Network"),
 			models.StaticResourceIDSegment("virtualHubs", "virtualHubs"),
 			models.UserSpecifiedResourceIDSegment("virtualHubName"),
-			models.StaticResourceIDSegment("bgpConnections", "bgpConnections"),
-			models.UserSpecifiedResourceIDSegment("connectionName"),
+			models.StaticResourceIDSegment("ipConfigurations", "ipConfigurations"),
+			models.UserSpecifiedResourceIDSegment("ipConfigName"),
 		},
 	}
 

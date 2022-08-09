@@ -5,12 +5,12 @@ import (
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-var _ commonIdMatcher = commonIdVirtualMachineScaleSetIPConfiguration{}
+var _ commonIdMatcher = commonIdNetworkInterface{}
 
-type commonIdVirtualMachineScaleSetIPConfiguration struct{}
+type commonIdNetworkInterface struct{}
 
-func (c commonIdVirtualMachineScaleSetIPConfiguration) id() models.ParsedResourceId {
-	name := "VirtualMachineScaleSetIPConfiguration"
+func (c commonIdNetworkInterface) id() models.ParsedResourceId {
+	name := "NetworkInterface"
 	return models.ParsedResourceId{
 		CommonAlias: &name,
 		Constants:   map[string]resourcemanager.ConstantDetails{},
@@ -20,16 +20,9 @@ func (c commonIdVirtualMachineScaleSetIPConfiguration) id() models.ParsedResourc
 			models.StaticResourceIDSegment("resourceGroups", "resourceGroups"),
 			models.ResourceGroupResourceIDSegment("resourceGroup"),
 			models.StaticResourceIDSegment("providers", "providers"),
-			models.ResourceProviderResourceIDSegment("resourceProvider", "Microsoft.Compute"),
-			models.StaticResourceIDSegment("virtualMachineScaleSets", "virtualMachineScaleSets"),
-			models.UserSpecifiedResourceIDSegment("virtualMachineScaleSetName"),
-			models.StaticResourceIDSegment("virtualMachines", "virtualMachines"),
-			models.UserSpecifiedResourceIDSegment("virtualMachineIndex"),
+			models.ResourceProviderResourceIDSegment("resourceProvider", "Microsoft.Network"),
 			models.StaticResourceIDSegment("networkInterfaces", "networkInterfaces"),
 			models.UserSpecifiedResourceIDSegment("networkInterfaceName"),
-			models.StaticResourceIDSegment("ipConfigurations", "ipConfigurations"),
-			models.UserSpecifiedResourceIDSegment("ipConfigurationName"),
 		},
 	}
-
 }

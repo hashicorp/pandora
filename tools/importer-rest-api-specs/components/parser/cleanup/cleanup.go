@@ -550,3 +550,28 @@ func NormalizeCanonicalisation(input string) string {
 
 	return output
 }
+
+func PluraliseName(input string) string {
+	skipnames := []string{
+		"Compute",
+		"ContainerInstance",
+		"Kusto",
+		"PowerBIDedicated",
+		"ServiceLinker",
+	}
+	for _, v := range skipnames {
+		if strings.EqualFold(input, v) {
+			return input
+		}
+	}
+
+	input = strings.TrimPrefix(input, "/")
+	if strings.HasSuffix(input, "s") {
+		return input
+	}
+
+	if strings.HasSuffix(input, "y") {
+		return fmt.Sprintf("%sies", strings.TrimSuffix(input, "y"))
+	}
+	return fmt.Sprintf("%ss", input)
+}

@@ -18,7 +18,7 @@ var commonIdTypes = []commonIdMatcher{
 
 	// Network ids
 	// "Core"
-	commonIdIPConfiguration{},
+	commonIdNetworkInterface{},
 	commonIdPublicIPAddress{},
 	commonIdVPNConnection{},
 
@@ -26,11 +26,14 @@ var commonIdTypes = []commonIdMatcher{
 	commonIdCloudServicesIPConfiguration{},
 	commonIdCloudServicesPublicIPAddress{},
 	commonIdExpressRouteCircuitPeering{},
+	commonIdNetworkInterfaceIPConfiguration{},
 	commonIdVirtualHubBGPConnection{},
 	commonIdVirtualHubIPConfiguration{},
 	commonIdVirtualMachineScaleSetIPConfiguration{},
+	commonIdVirtualMachineScaleSetNetworkInterface{},
 	commonIdVirtualMachineScaleSetPublicIPAddress{},
 	commonIdVirtualRouterPeering{},
+	commonIdVirtualWANP2SVPNGateway{},
 }
 
 func switchOutCommonResourceIDsAsNeeded(input []models.ParsedResourceId) []models.ParsedResourceId {

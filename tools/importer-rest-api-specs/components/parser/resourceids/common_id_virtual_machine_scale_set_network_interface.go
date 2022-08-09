@@ -5,12 +5,12 @@ import (
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-var _ commonIdMatcher = commonIdVirtualMachineScaleSetIPConfiguration{}
+var _ commonIdMatcher = commonIdVirtualMachineScaleSetNetworkInterface{}
 
-type commonIdVirtualMachineScaleSetIPConfiguration struct{}
+type commonIdVirtualMachineScaleSetNetworkInterface struct{}
 
-func (c commonIdVirtualMachineScaleSetIPConfiguration) id() models.ParsedResourceId {
-	name := "VirtualMachineScaleSetIPConfiguration"
+func (c commonIdVirtualMachineScaleSetNetworkInterface) id() models.ParsedResourceId {
+	name := "VirtualMachineScaleSetNetworkInterface"
 	return models.ParsedResourceId{
 		CommonAlias: &name,
 		Constants:   map[string]resourcemanager.ConstantDetails{},
@@ -27,8 +27,6 @@ func (c commonIdVirtualMachineScaleSetIPConfiguration) id() models.ParsedResourc
 			models.UserSpecifiedResourceIDSegment("virtualMachineIndex"),
 			models.StaticResourceIDSegment("networkInterfaces", "networkInterfaces"),
 			models.UserSpecifiedResourceIDSegment("networkInterfaceName"),
-			models.StaticResourceIDSegment("ipConfigurations", "ipConfigurations"),
-			models.UserSpecifiedResourceIDSegment("ipConfigurationName"),
 		},
 	}
 
