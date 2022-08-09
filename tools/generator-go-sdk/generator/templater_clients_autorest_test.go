@@ -33,5 +33,5 @@ func NewExampleClientWithBaseURI(endpoint string) ExampleClient {
 		baseUri: endpoint,
 	}
 }`
-	assertTemplatedCodeMatches(t, *actual, expected)
+	assertTemplatedCodeMatches(t, expected, *actual)
 }

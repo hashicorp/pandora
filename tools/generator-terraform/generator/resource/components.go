@@ -15,8 +15,9 @@ func componentsForResourceTest(input models.ResourceInput) (*string, error) {
 		importsForResourceTest,
 
 		testResourceStruct,
+		codeForResourceTestFunctions,
 		existsFuncForResourceTest,
-		generateResourceTests,
+		codeForResourceTestConfigurationFunctions,
 	}
 
 	lines := make([]string, 0)

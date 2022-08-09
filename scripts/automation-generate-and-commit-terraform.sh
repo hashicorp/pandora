@@ -5,6 +5,12 @@ set -e
 DIR="$(cd "$(dirname "$0")" && pwd)/.."
 
 function buildAndInstallDependencies {
+    echo "Outputting Go Version.."
+    go version
+
+    echo "Outputting .net Version.."
+    dotnet --version
+
     echo "Installing the Terraform Generator into the GOBIN.."
     cd "${DIR}/tools/generator-terraform"
     go install .
@@ -53,6 +59,32 @@ function prepareTerraformProvider {
   cd "${DIR}"
   cd "${workingDirectory}"
   make prepare # TODO: add this to the private repo
+
+  cd "${DIR}"
+}
+
+function runFmtImportsAndGenerate {
+  local workingDirectory=$1
+
+  cd "${workingDirectory}"
+
+  echo "Running 'go mod vendor'.."
+  go mod vendor
+
+  echo "Running 'make tools'.."
+  make tools
+
+  echo "Running 'make fmt'.."
+  make fmt
+
+  echo "Running 'make goimports'.."
+  make goimports
+
+  echo "Running 'make generate'.."
+  make generate
+
+  echo "Running 'make terrafmt'.."
+  make terrafmt
 
   cd "${DIR}"
 }
@@ -117,6 +149,7 @@ function main {
   sha=$(getSwaggerSubmoduleSha "$swaggerSubmodule")
   prepareTerraformProvider "$outputDirectory" "$sdkRepo"
   runWrapper "$dataApiAssemblyPath" "$outputDirectory" "$sha"
+  runFmtImportsAndGenerate "$outputDirectory"
   conditionallyCommitAndPushTerraformProvider "$outputDirectory" "$sha"
   cleanup "$outputDirectory"
 }

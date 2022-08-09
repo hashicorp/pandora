@@ -4,7 +4,7 @@ service "Resources" {
   api "2020-06-01" {
     package "ResourceGroups" {
       definition "resource_group" {
-        id = "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}"
+        id = "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}"
         display_name = "Resource Group"
       }
     }

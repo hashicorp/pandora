@@ -92,6 +92,30 @@ func TestComponentReadFunc_CommonId_Enabled(t *testing.T) {
 			"Get": {
 				LongRunning:    false,
 				ResourceIdName: stringPointer("CustomSubscriptionId"),
+				ResponseObject: &resourcemanager.ApiObjectDefinition{
+					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+					ReferenceName: stringPointer("GetModel"),
+				},
+			},
+		},
+		Models: map[string]resourcemanager.ModelDetails{
+			"GetModel": {
+				Fields: map[string]resourcemanager.FieldDetails{
+					"Name": {
+						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+							Type: resourcemanager.StringApiObjectDefinitionType,
+						},
+						Required: true,
+						JsonName: "name",
+					},
+					"SomeSdkField": {
+						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+							Type: resourcemanager.StringApiObjectDefinitionType,
+						},
+						Required: true,
+						JsonName: "someSdkField",
+					},
+				},
 			},
 		},
 		ResourceIds: map[string]resourcemanager.ResourceIdDefinition{
@@ -135,6 +159,17 @@ func TestComponentReadFunc_CommonId_Enabled(t *testing.T) {
 							ResourceIdSegment: stringPointer("resourceGroupName"),
 						},
 					},
+					"SomeField": {
+						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						},
+						Required: true,
+						ForceNew: true,
+						HclName:  "some_field",
+						Mappings: resourcemanager.TerraformSchemaFieldMappingDefinition{
+							SdkPathForRead: stringPointer("SomeSdkField"),
+						},
+					},
 				},
 			},
 		},
@@ -149,6 +184,7 @@ func (r ExampleResource) Read() sdk.ResourceFunc {
         Timeout: 10 * time.Minute,
         Func: func(ctx context.Context, metadata sdk.ResourceMetaData) error {
 			client := metadata.Client.Resources.SdkResource
+			schema := ExampleModel{}
 			id, err := commonids.ParseSubscriptionID(metadata.ResourceData.Id())
 			if err != nil {
 				return err
@@ -160,9 +196,10 @@ func (r ExampleResource) Read() sdk.ResourceFunc {
 				}
 				return fmt.Errorf("retrieving %s: %+v", *id, err)
 			}
-			schema := ExampleModel{}
 			if model := resp.Model; model != nil {
 				schema.Name = id.ResourceGroupName
+
+				schema.SomeField = model.SomeSdkField
 			}
 			return metadata.Encode(&schema)
         },
@@ -190,6 +227,10 @@ func TestComponentReadFunc_CommonId_Options_Enabled(t *testing.T) {
 			"Get": {
 				LongRunning:    false,
 				ResourceIdName: stringPointer("CustomSubscriptionId"),
+				ResponseObject: &resourcemanager.ApiObjectDefinition{
+					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+					ReferenceName: stringPointer("GetModel"),
+				},
 				Options: map[string]resourcemanager.ApiOperationOption{
 					"SomeOption": {
 						ObjectDefinition: resourcemanager.ApiObjectDefinition{
@@ -197,6 +238,26 @@ func TestComponentReadFunc_CommonId_Options_Enabled(t *testing.T) {
 						},
 						HeaderName: stringPointer("X-Some-Option"),
 						Required:   false,
+					},
+				},
+			},
+		},
+		Models: map[string]resourcemanager.ModelDetails{
+			"GetModel": {
+				Fields: map[string]resourcemanager.FieldDetails{
+					"Name": {
+						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+							Type: resourcemanager.StringApiObjectDefinitionType,
+						},
+						Required: true,
+						JsonName: "name",
+					},
+					"SomeSdkField": {
+						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+							Type: resourcemanager.StringApiObjectDefinitionType,
+						},
+						Required: true,
+						JsonName: "someSdkField",
 					},
 				},
 			},
@@ -242,6 +303,17 @@ func TestComponentReadFunc_CommonId_Options_Enabled(t *testing.T) {
 							ResourceIdSegment: stringPointer("resourceGroupName"),
 						},
 					},
+					"SomeField": {
+						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						},
+						Required: true,
+						ForceNew: true,
+						HclName:  "some_field",
+						Mappings: resourcemanager.TerraformSchemaFieldMappingDefinition{
+							SdkPathForRead: stringPointer("SomeSdkField"),
+						},
+					},
 				},
 			},
 		},
@@ -256,6 +328,7 @@ func (r ExampleResource) Read() sdk.ResourceFunc {
         Timeout: 10 * time.Minute,
         Func: func(ctx context.Context, metadata sdk.ResourceMetaData) error {
 			client := metadata.Client.Resources.SdkResource
+			schema := ExampleModel{}
 			id, err := commonids.ParseSubscriptionID(metadata.ResourceData.Id())
 			if err != nil {
 				return err
@@ -268,9 +341,10 @@ func (r ExampleResource) Read() sdk.ResourceFunc {
 				}
 				return fmt.Errorf("retrieving %s: %+v", *id, err)
 			}
-			schema := ExampleModel{}
 			if model := resp.Model; model != nil {
 				schema.Name = id.ResourceGroupName
+
+				schema.SomeField = model.SomeSdkField
 			}
 			return metadata.Encode(&schema)
         },
@@ -297,6 +371,30 @@ func TestComponentReadFunc_RegularResourceId_Enabled(t *testing.T) {
 			"Get": {
 				LongRunning:    false,
 				ResourceIdName: stringPointer("CustomSubscriptionId"),
+				ResponseObject: &resourcemanager.ApiObjectDefinition{
+					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+					ReferenceName: stringPointer("GetModel"),
+				},
+			},
+		},
+		Models: map[string]resourcemanager.ModelDetails{
+			"GetModel": {
+				Fields: map[string]resourcemanager.FieldDetails{
+					"Name": {
+						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+							Type: resourcemanager.StringApiObjectDefinitionType,
+						},
+						Required: true,
+						JsonName: "name",
+					},
+					"SomeSdkField": {
+						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+							Type: resourcemanager.StringApiObjectDefinitionType,
+						},
+						Required: true,
+						JsonName: "someSdkField",
+					},
+				},
 			},
 		},
 		ResourceIds: map[string]resourcemanager.ResourceIdDefinition{
@@ -339,6 +437,17 @@ func TestComponentReadFunc_RegularResourceId_Enabled(t *testing.T) {
 							ResourceIdSegment: stringPointer("resourceGroupName"),
 						},
 					},
+					"SomeField": {
+						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						},
+						Required: true,
+						ForceNew: true,
+						HclName:  "some_field",
+						Mappings: resourcemanager.TerraformSchemaFieldMappingDefinition{
+							SdkPathForRead: stringPointer("SomeSdkField"),
+						},
+					},
 				},
 			},
 		},
@@ -353,6 +462,7 @@ func (r ExampleResource) Read() sdk.ResourceFunc {
         Timeout: 10 * time.Minute,
         Func: func(ctx context.Context, metadata sdk.ResourceMetaData) error {
 			client := metadata.Client.Resources.SdkResource
+			schema := ExampleModel{}
 			id, err := sdkresource.ParseCustomSubscriptionID(metadata.ResourceData.Id())
 			if err != nil {
 				return err
@@ -364,9 +474,10 @@ func (r ExampleResource) Read() sdk.ResourceFunc {
 				}
 				return fmt.Errorf("retrieving %s: %+v", *id, err)
 			}
-			schema := ExampleModel{}
 			if model := resp.Model; model != nil {
 				schema.Name = id.ResourceGroupName
+
+				schema.SomeField = model.SomeSdkField
 			}
 			return metadata.Encode(&schema)
         },
@@ -394,6 +505,10 @@ func TestComponentReadFunc_RegularResourceId_Options_Enabled(t *testing.T) {
 			"Get": {
 				LongRunning:    false,
 				ResourceIdName: stringPointer("CustomSubscriptionId"),
+				ResponseObject: &resourcemanager.ApiObjectDefinition{
+					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+					ReferenceName: stringPointer("GetModel"),
+				},
 				Options: map[string]resourcemanager.ApiOperationOption{
 					"SomeOption": {
 						ObjectDefinition: resourcemanager.ApiObjectDefinition{
@@ -401,6 +516,26 @@ func TestComponentReadFunc_RegularResourceId_Options_Enabled(t *testing.T) {
 						},
 						HeaderName: stringPointer("X-Some-Option"),
 						Required:   false,
+					},
+				},
+			},
+		},
+		Models: map[string]resourcemanager.ModelDetails{
+			"GetModel": {
+				Fields: map[string]resourcemanager.FieldDetails{
+					"Name": {
+						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+							Type: resourcemanager.StringApiObjectDefinitionType,
+						},
+						Required: true,
+						JsonName: "name",
+					},
+					"SomeSdkField": {
+						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+							Type: resourcemanager.StringApiObjectDefinitionType,
+						},
+						Required: true,
+						JsonName: "someSdkField",
 					},
 				},
 			},
@@ -445,6 +580,17 @@ func TestComponentReadFunc_RegularResourceId_Options_Enabled(t *testing.T) {
 							ResourceIdSegment: stringPointer("resourceGroupName"),
 						},
 					},
+					"SomeField": {
+						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						},
+						Required: true,
+						ForceNew: true,
+						HclName:  "some_field",
+						Mappings: resourcemanager.TerraformSchemaFieldMappingDefinition{
+							SdkPathForRead: stringPointer("SomeSdkField"),
+						},
+					},
 				},
 			},
 		},
@@ -459,6 +605,7 @@ func (r ExampleResource) Read() sdk.ResourceFunc {
         Timeout: 10 * time.Minute,
         Func: func(ctx context.Context, metadata sdk.ResourceMetaData) error {
 			client := metadata.Client.Resources.SdkResource
+			schema := ExampleModel{}
 			id, err := sdkresource.ParseCustomSubscriptionID(metadata.ResourceData.Id())
 			if err != nil {
 				return err
@@ -470,14 +617,88 @@ func (r ExampleResource) Read() sdk.ResourceFunc {
 				}
 				return fmt.Errorf("retrieving %s: %+v", *id, err)
 			}
-			schema := ExampleModel{}
 			if model := resp.Model; model != nil {
 				schema.Name = id.ResourceGroupName
+
+				schema.SomeField = model.SomeSdkField
 			}
 			return metadata.Encode(&schema)
         },
 	}
 }
+`
+	assertTemplatedCodeMatches(t, expected, *actual)
+}
+
+func TestComponentReadFunc_CodeForIDParser(t *testing.T) {
+	actual, err := readFunctionComponents{
+		idParseLine: "plz.Parse",
+	}.codeForIDParser()
+	if err != nil {
+		t.Fatalf("error: %+v", err)
+	}
+	expected := `
+	id, err := plz.Parse(metadata.ResourceData.Id())
+	if err != nil {
+		return err
+	}
+`
+	assertTemplatedCodeMatches(t, expected, *actual)
+}
+
+func TestComponentReadFunc_CodeForGet(t *testing.T) {
+	actual, err := readFunctionComponents{
+		readMethod: resourcemanager.MethodDefinition{
+			Generate:         true,
+			MethodName:       "Get",
+			TimeoutInMinutes: 5,
+		},
+		readOperation: resourcemanager.ApiOperation{
+			ResourceIdName: stringPointer("SomeResourceId"),
+		},
+		sdkResourceName: "SdkResource",
+	}.codeForGet()
+	if err != nil {
+		t.Fatalf("error: %+v", err)
+	}
+	expected := `
+		resp, err := client.Get(ctx, *id)
+		if err != nil {
+			if response.WasNotFound(resp.HttpResponse) {
+				return metadata.MarkAsGone(*id)
+			}
+			return fmt.Errorf("retrieving %s: %+v", *id, err)
+		}
+`
+	assertTemplatedCodeMatches(t, expected, *actual)
+}
+
+func TestComponentReadFunc_CodeForGet_Options(t *testing.T) {
+	actual, err := readFunctionComponents{
+		readMethod: resourcemanager.MethodDefinition{
+			Generate:         true,
+			MethodName:       "Get",
+			TimeoutInMinutes: 5,
+		},
+		readOperation: resourcemanager.ApiOperation{
+			ResourceIdName: stringPointer("SomeResourceId"),
+			Options: map[string]resourcemanager.ApiOperationOption{
+				"Example": {},
+			},
+		},
+		sdkResourceName: "SdkResource",
+	}.codeForGet()
+	if err != nil {
+		t.Fatalf("error: %+v", err)
+	}
+	expected := `
+		resp, err := client.Get(ctx, *id, sdkresource.DefaultGetOperationOptions())
+		if err != nil {
+			if response.WasNotFound(resp.HttpResponse) {
+				return metadata.MarkAsGone(*id)
+			}
+			return fmt.Errorf("retrieving %s: %+v", *id, err)
+		}
 `
 	assertTemplatedCodeMatches(t, expected, *actual)
 }

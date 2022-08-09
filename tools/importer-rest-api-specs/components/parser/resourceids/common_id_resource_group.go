@@ -18,7 +18,7 @@ func (commonIdResourceGroupMatcher) id() models.ParsedResourceId {
 			models.StaticResourceIDSegment("subscriptions", "subscriptions"),
 			models.SubscriptionIDResourceIDSegment("subscriptionId"),
 			models.StaticResourceIDSegment("resourceGroups", "resourceGroups"),
-			models.ResourceGroupResourceIDSegment("resourceGroup"),
+			models.ResourceGroupResourceIDSegment("resourceGroupName"),
 		},
 	}
 }

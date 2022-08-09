@@ -159,6 +159,10 @@ service "maps" {
   name      = "Maps"
   available = ["2021-02-01"]
 }
+service "mariadb" {
+  name      = "MariaDB"
+  available = ["2018-06-01"]
+}
 service "mediaservices" {
   name      = "Media"
   available = ["2020-05-01", "2021-05-01"]
@@ -169,7 +173,7 @@ service "mixedreality" {
 }
 service "monitor" {
   name      = "Insights"
-  available = ["2021-04-01", "2021-08-01"]
+  available = ["2021-04-01", "2021-05-01-preview", "2021-08-01"]
 }
 service "msi" {
   name      = "ManagedIdentity"

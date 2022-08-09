@@ -18,7 +18,7 @@ func (pipelineTask) parseDataForApiVersion(input discovery.ServiceInput, logger 
 	if err != nil {
 		err = fmt.Errorf("parsing Swagger files: %+v", err)
 		logger.Info(fmt.Sprintf("❌ Service %q - Api Version %q", input.ServiceName, input.ApiVersion))
-		logger.Error("     💥 Error: %+v", err)
+		logger.Error(fmt.Sprintf("     💥 Error: %+v", err))
 		return nil, err
 	}
 	if data == nil {
