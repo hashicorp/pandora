@@ -200,7 +200,7 @@ func (c pandaClient) responderForList(resp *http.Response) (result ListOperation
 }
 
 // ListComplete retrieves all of the results into a single object
-func (c pandaClient) ListComplete(ctx context.Context, id PandaPop) (ListCompleteResult, error) {
+func (c pandaClient) ListComplete(ctx context.Context, id PandaPop) (result ListCompleteResult, err error) {
 	items := make([]string, 0)
 
 	page, err := c.List(ctx, id)
