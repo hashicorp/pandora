@@ -300,7 +300,7 @@ func (c %[1]s) %[2]sCompleteMatchingPredicate(ctx context.Context%[4]s, predicat
 	} else {
 		templated += fmt.Sprintf(`
 // %[2]sComplete retrieves all of the results into a single object
-func (c %[1]s) %[2]sComplete(ctx context.Context%[3]s) (%[2]sCompleteResult, error) {
+func (c %[1]s) %[2]sComplete(ctx context.Context%[3]s) (result %[2]sCompleteResult, err error) {
 	items := make([]%[5]s, 0)
 
 	page, err := c.%[2]s(ctx%[4]s)
