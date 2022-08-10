@@ -5,6 +5,8 @@ import (
 	"sort"
 	"strings"
 
+	"github.com/hashicorp/pandora/tools/generator-terraform/featureflags"
+
 	"github.com/hashicorp/pandora/tools/generator-terraform/generator/models"
 
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
@@ -187,6 +189,11 @@ func (h createFunctionComponents) payloadDefinition() (*string, error) {
 }
 
 func (h createFunctionComponents) mappingsFromSchema() (*string, error) {
+	if !featureflags.OutputMappings {
+		output := `// TODO: re-enable Mappings (featureflags.OutputMappings)`
+		return &output, nil
+	}
+
 	mappings := make([]string, 0)
 
 	// ensure these are output alphabetically for consistency purposes across re-generations
