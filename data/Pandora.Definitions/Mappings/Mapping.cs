@@ -25,7 +25,7 @@ public class Mapping
         throw new NotImplementedException();
     }
     
-    public Mapping WithBooleanEquals(string value)
+    public Mapping WithBooleanEquals(object value)
     {
         throw new NotImplementedException();
     }

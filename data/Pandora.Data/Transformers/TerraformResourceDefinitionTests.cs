@@ -1,7 +1,10 @@
 using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 using NUnit.Framework;
+using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Interfaces;
+using Pandora.Definitions.Mappings;
 using Pandora.Definitions.Operations;
 
 namespace Pandora.Data.Transformers;
@@ -39,6 +42,15 @@ public class TerraformResourceDefinitionTests
         Assert.True(actual.UpdateMethod.Generate);
         Assert.AreEqual("SomeUpdate", actual.UpdateMethod.MethodName);
         Assert.AreEqual(12, actual.UpdateMethod.TimeoutInMinutes);
+        
+        Assert.AreEqual("BasicResourceSchema", actual.SchemaModelName);
+        Assert.AreEqual(1, actual.SchemaModels.Count);
+        var resourceSchema = actual.SchemaModels["BasicResourceSchema"];
+        Assert.NotNull(resourceSchema); 
+        Assert.AreEqual(1, resourceSchema.Fields.Count);
+        var nameField = resourceSchema.Fields["Name"];
+        Assert.NotNull(nameField);
+        // TODO: Terraform Mappings validation
     }
 
     [TestCase]
@@ -72,6 +84,10 @@ public class TerraformResourceDefinitionTests
             TimeoutInMinutes = 11,
         };
         public string ResourceLabel => "fake_planet";
+        public Type? SchemaModel => typeof(BasicResourceSchema);
+
+        public TerraformMappingDefinition SchemaMappings => new BasicResourceMappings();
+
         public MethodDefinition? UpdateMethod => new MethodDefinition
         {
             Generate = true,
@@ -79,6 +95,22 @@ public class TerraformResourceDefinitionTests
             TimeoutInMinutes = 12,
         };
         public Definitions.Interfaces.ResourceID ResourceId => new v2020_01_01.Example.FakeResourceId();
+    }
+
+    internal class BasicResourceSchema
+    {
+        [HclName("name")]
+        [ForceNew]
+        [Required]
+        public string Name { get; set; }
+    }
+
+    internal class BasicResourceMappings : TerraformMappingDefinition
+    {
+        public List<Mapping> Mappings => new List<Mapping>
+        {
+            Mapping.FromSchema<BasicResourceSchema>(s => s.Name).ToSdkModelField<v2020_01_01.Example.SomeModel>(m => m.Example),
+        };
     }
 
     internal class ResourceUsingDifferentAPIVersions : Definitions.Interfaces.TerraformResourceDefinition
@@ -107,6 +139,9 @@ public class TerraformResourceDefinitionTests
             TimeoutInMinutes = 11,
         };
         public string ResourceLabel => "fake_planet";
+        public Type? SchemaModel => null;
+        public TerraformMappingDefinition SchemaMappings => null;
+
         public MethodDefinition? UpdateMethod => new MethodDefinition
         {
             Generate = true,
@@ -122,7 +157,7 @@ public class TerraformResourceDefinitionTests
         {
             internal class SomeCreateOperation : PutOperation
             {
-                public override Type? RequestObject() => typeof(string);
+                public override Type? RequestObject() => typeof(SomeModel);
 
                 public override Definitions.Interfaces.ResourceID? ResourceId() => new FakeResourceId();
             }
@@ -135,11 +170,11 @@ public class TerraformResourceDefinitionTests
             {
                 public override Definitions.Interfaces.ResourceID? ResourceId() => new FakeResourceId();
 
-                public override Type? ResponseObject() => typeof(string);
+                public override Type? ResponseObject() => typeof(SomeModel);
             }
             internal class SomeUpdateOperation : PutOperation
             {
-                public override Type? RequestObject() => typeof(string);
+                public override Type? RequestObject() => typeof(SomeModel);
 
                 public override Definitions.Interfaces.ResourceID? ResourceId() => new FakeResourceId();
             }
@@ -153,6 +188,12 @@ public class TerraformResourceDefinitionTests
                     ResourceIDSegment.Static("planets", "planets"),
                     ResourceIDSegment.UserSpecified("planetName")
                 };
+            }
+
+            internal class SomeModel
+            {
+                [JsonPropertyName("example")]
+                public string Example { get; set; }
             }
         }
     }

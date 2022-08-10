@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json.Serialization;
 using NUnit.Framework;
+using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Interfaces;
 using Pandora.Definitions.Operations;
 
@@ -169,12 +170,22 @@ public static class ServiceTests
 
             public Definitions.Interfaces.ResourceID ResourceId => new FakeTerraformOperationResourceId();
             public string ResourceLabel => "fake_resource";
+            public Type? SchemaModel => typeof(FakeTerraformSchemaModel);
+            public TerraformMappingDefinition SchemaMappings => throw new NotImplementedException();
+
             public MethodDefinition? UpdateMethod => new MethodDefinition
             {
                 Generate = true,
                 Method = typeof(FakeTerraformOperation),
                 TimeoutInMinutes = 30,
             };
+        }
+
+        private class FakeTerraformSchemaModel
+        {
+            [Required]
+            [HclName("some_field")]
+            public string SomeField { get; set; }
         }
 
         private class FakeTerraformOperation : GetOperation
