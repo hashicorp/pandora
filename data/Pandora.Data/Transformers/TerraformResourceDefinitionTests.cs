@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json.Serialization;
+using Microsoft.VisualBasic;
 using NUnit.Framework;
 using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Interfaces;
@@ -54,8 +55,8 @@ public class TerraformResourceDefinitionTests
 
         // @tombuildsstuff: disabling Mappings temporarily since the priority is threading through Schema/Docs/Tests
         // we'll come back and enable this but for now this is an easy way to ensure we don't add this early 
-        var fieldsWithMappings = resourceSchema.Fields.Select(f => f.Value.Mappings).Where(m => m.Create != null || m.Read != null || m.Update != null || m.ResourceIDSegment != "").ToList();
-        Assert.AreEqual(0, fieldsWithMappings);
+        var fieldsWithMappings = resourceSchema.Fields.Select(f => f.Value.Mappings).Where(m => m.Create != null || m.Read != null || m.Update != null || !string.IsNullOrWhiteSpace(m.ResourceIDSegment)).ToList();
+        Assert.AreEqual(0, fieldsWithMappings.Count);
         // TODO: Terraform Mappings
         // TODO: validation
     }

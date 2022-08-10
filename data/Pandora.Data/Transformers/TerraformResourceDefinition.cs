@@ -37,14 +37,14 @@ public static class TerraformResourceDefinition
         if (input.UpdateMethod != null)
         {
             updateMethod = TerraformMethodDefinition.Map(input.UpdateMethod);
-            var updateMethodDetails = MetaDataFromResourceNamespace.Get(input.CreateMethod.Method);
+            var updateMethodDetails = MetaDataFromResourceNamespace.Get(input.UpdateMethod.Method);
             if (resourceIdDetails.APIResource != updateMethodDetails.APIResource || resourceIdDetails.APIVersion != updateMethodDetails.APIVersion)
             {
                 throw new NotSupportedException("the Resource ID and Update Methods use different API Resources / API Versions");
             }
         }
 
-        return new Models.TerraformResourceDefinition
+        var definition = new Models.TerraformResourceDefinition
         {
             ApiVersion = resourceIdDetails.APIVersion,
             CreateMethod = createMethod,
@@ -60,6 +60,14 @@ public static class TerraformResourceDefinition
             ResourceIdName = resourceIdDetails.Name,
             UpdateMethod = updateMethod,
         };
+
+        if (input.SchemaModel != null)
+        {
+            definition.SchemaModels = TerraformSchemaModelDefinition.Map(input.SchemaModel);
+            definition.SchemaModelName = input.SchemaModel.Name;
+        }
+        
+        return definition;
     }
 
     private class ResourceIdMetaData
