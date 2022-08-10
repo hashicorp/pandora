@@ -27,9 +27,9 @@ func (c commonIdVirtualMachineScaleSetPublicIPAddress) id() models.ParsedResourc
 			models.UserSpecifiedResourceIDSegment("virtualMachineIndex"),
 			models.StaticResourceIDSegment("networkInterfaces", "networkInterfaces"),
 			models.UserSpecifiedResourceIDSegment("networkInterfaceName"),
-			models.StaticResourceIDSegment("ipconfigurations", "ipconfigurations"),
+			models.StaticResourceIDSegment("ipConfigurations", "ipConfigurations"),
 			models.UserSpecifiedResourceIDSegment("ipConfigurationName"),
-			models.StaticResourceIDSegment("publicipaddresses", "publicipaddresses"),
+			models.StaticResourceIDSegment("publicIPAddresses", "publicIPAddresses"),
 			models.UserSpecifiedResourceIDSegment("publicIpAddressName"),
 		},
 	}

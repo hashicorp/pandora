@@ -21,7 +21,7 @@ func (c commonIdVirtualWANP2SVPNGateway) id() models.ParsedResourceId {
 			models.ResourceGroupResourceIDSegment("resourceGroup"),
 			models.StaticResourceIDSegment("providers", "providers"),
 			models.ResourceProviderResourceIDSegment("resourceProvider", "Microsoft.Network"),
-			models.StaticResourceIDSegment("p2svpnGateways", "p2svpnGateways"),
+			models.StaticResourceIDSegment("p2sVpnGateways", "p2sVpnGateways"),
 			models.UserSpecifiedResourceIDSegment("gatewayName"),
 		},
 	}
