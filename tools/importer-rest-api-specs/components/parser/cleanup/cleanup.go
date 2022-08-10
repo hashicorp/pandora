@@ -560,7 +560,7 @@ func PluraliseName(input string) string {
 		"ServiceLinker",
 	}
 	for _, v := range skipnames {
-		if strings.EqualFold(input, v) {
+		if strings.EqualFold(strings.TrimPrefix(input, "/"), v) {
 			return input
 		}
 	}

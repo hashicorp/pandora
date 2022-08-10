@@ -37,7 +37,9 @@ func (d *SwaggerDefinition) parse(serviceName, apiVersion string, resourceIds re
 		if err != nil {
 			return nil, fmt.Errorf("finding resources for tag %q: %+v", serviceName, err)
 		}
-		//inferredTag := serviceName
+
+		// Since we're dealing with missing tag data in the swagger, we'll assume the proper tag name here is the file name
+		// This is less than ideal, but _should_ be fine.
 		inferredTag := cleanup.PluraliseName(d.Name)
 
 		if resource != nil {
