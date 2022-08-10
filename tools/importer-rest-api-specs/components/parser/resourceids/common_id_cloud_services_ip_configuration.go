@@ -27,7 +27,7 @@ func (c commonIdCloudServicesIPConfiguration) id() models.ParsedResourceId {
 			models.UserSpecifiedResourceIDSegment("roleInstanceName"),
 			models.StaticResourceIDSegment("networkInterfaces", "networkInterfaces"),
 			models.UserSpecifiedResourceIDSegment("networkInterfaceName"),
-			models.StaticResourceIDSegment("ipconfigurations", "ipconfigurations"),
+			models.StaticResourceIDSegment("ipConfigurations", "ipConfigurations"),
 			models.UserSpecifiedResourceIDSegment("ipConfigurationName"),
 		},
 	}
