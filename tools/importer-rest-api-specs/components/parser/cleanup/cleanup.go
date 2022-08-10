@@ -540,6 +540,11 @@ func NormalizeCanonicalisation(input string) string {
 		output = "IPConfiguration"
 	}
 
+	if strings.EqualFold(output, "NetworkInterfaceIPConfiguration") {
+		// This is an explicit force for broken data in `Network`
+		output = "NetworkInterfaceIPConfiguration"
+	}
+
 	if strings.EqualFold(output, "virtualwan") {
 		// This is an explicit force for broken data in `Network`
 		output = "VirtualWAN"
