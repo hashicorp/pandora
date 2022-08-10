@@ -44,13 +44,11 @@ public class VirtualMachineScaleSetResourceSchema
     [HclName("data_disks")]
     [Optional]
     public List<VirtualMachineScaleSetDataDiskSchemaModel> DataDisks { get; set; }
-    
-    [HclName("example_manual_binding")]
-    public string ExampleManual { get; set; }
 }
 
 public class VirtualMachineScaleSetDataDiskSchemaModel
 {
     [HclName("name")]
+    [Required]
     public string Name { get; set; }
 }

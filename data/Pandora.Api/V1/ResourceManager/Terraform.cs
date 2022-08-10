@@ -92,7 +92,7 @@ resource 'example_resource' 'example' {
                             HclName = "name",
                             ObjectDefinition = new TerraformSchemaObjectDefinition
                             {
-                                Type = TerraformSchemaFieldType.String.ToString(),
+                                Type = TerraformSchemaFieldType.ResourceGroup.ToString(),
                             },
                             Documentation = new TerraformSchemaDocumentationDefinition
                             {

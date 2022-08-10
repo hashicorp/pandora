@@ -26,7 +26,7 @@ public static class TerraformSchemaModelDefinition
         foreach (var property in input.GetProperties())
         {
             // parse this specific field
-            var fieldFromProperty = TerraformSchemaFieldDefinition.Map(property!);
+            var fieldFromProperty = TerraformSchemaFieldDefinition.Map(property);
             fields.Add(property.Name, fieldFromProperty);
 
             if (property.PropertyType.IsNativeType() || property.PropertyType.IsPandoraCustomType())

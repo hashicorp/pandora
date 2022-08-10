@@ -3,6 +3,7 @@ namespace Pandora.Data.Models;
 public class TerraformSchemaFieldDefinition
 {
     public bool Computed { get; set; }
+    
     public TerraformSchemaDocumentationDefinition Documentation { get; set; }
     public bool ForceNew { get; set; }
     public string HclName { get; set; }
