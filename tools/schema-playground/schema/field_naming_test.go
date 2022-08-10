@@ -106,3 +106,83 @@ func TestUpdateNameForField_PluralToSingular(t *testing.T) {
 		}
 	}
 }
+
+func TestUpdateNameForField_AppendEnabled(t *testing.T) {
+	testData := []struct {
+		fieldInput string
+		modelInput resourcemanager.ModelDetails
+		expected   *string
+	}{
+		{
+			fieldInput: "pandas",
+			modelInput: resourcemanager.ModelDetails{
+				Fields: map[string]resourcemanager.FieldDetails{
+					"pandas": {
+						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+							Type: resourcemanager.BooleanApiObjectDefinitionType,
+						},
+					},
+				},
+			},
+			expected: stringPointer("pandas_enabled"),
+		},
+		{
+			fieldInput: "planets",
+			modelInput: resourcemanager.ModelDetails{
+				Fields: map[string]resourcemanager.FieldDetails{
+					"planets": {
+						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+							Type: resourcemanager.StringApiObjectDefinitionType,
+						},
+					},
+				},
+			},
+			expected: nil,
+		},
+		{
+			fieldInput: "security_enabled",
+			modelInput: resourcemanager.ModelDetails{
+				Fields: map[string]resourcemanager.FieldDetails{
+					"security_enabled": {
+						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+							Type: resourcemanager.BooleanApiObjectDefinitionType,
+						},
+					},
+				},
+			},
+			expected: nil,
+		},
+		{
+			fieldInput: "securityDisabled",
+			modelInput: resourcemanager.ModelDetails{
+				Fields: map[string]resourcemanager.FieldDetails{
+					"securityDisabled": {
+						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+							Type: resourcemanager.BooleanApiObjectDefinitionType,
+						},
+					},
+				},
+			},
+			expected: nil,
+		},
+	}
+
+	for _, v := range testData {
+		t.Logf("[DEBUG] Testing %s", v.fieldInput)
+
+		actual := fieldNameAppendEnabled{}.updatedNameForField(v.fieldInput, &v.modelInput)
+
+		if actual == nil {
+			if v.expected == nil {
+				continue
+			}
+			t.Fatalf("expected a result but didn't get one")
+		}
+		if v.expected == nil {
+			t.Fatalf("expected no result but got %s", *actual)
+		}
+		if *actual != *v.expected {
+			t.Fatalf("Expected %s but got %s", *v.expected, *actual)
+		}
+	}
+}

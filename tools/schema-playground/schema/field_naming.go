@@ -2,6 +2,7 @@ package schema
 
 import (
 	"fmt"
+	"regexp"
 	"strings"
 
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
@@ -12,6 +13,7 @@ type fieldNameMatcher interface {
 }
 
 var namingRules = []fieldNameMatcher{
+	fieldNameAppendEnabled{},
 	fieldNameIs{},
 	fieldNamePluralToSingular{},
 }
@@ -32,6 +34,19 @@ func (fieldNamePluralToSingular) updatedNameForField(input string, model *resour
 	if model.Fields[input].ObjectDefinition.Type == resourcemanager.ListApiObjectDefinitionType {
 		if strings.HasSuffix(input, "s") && !strings.HasSuffix(input, "ss") {
 			updatedName := strings.TrimSuffix(input, "s")
+			return &updatedName
+		}
+	}
+	return nil
+}
+
+type fieldNameAppendEnabled struct{}
+
+func (fieldNameAppendEnabled) updatedNameForField(input string, model *resourcemanager.ModelDetails) *string {
+	if model.Fields[input].ObjectDefinition.Type == resourcemanager.BooleanApiObjectDefinitionType {
+		re := regexp.MustCompile(".[eEdD](?:nabled|isabled)")
+		if !re.MatchString(input) {
+			updatedName := fmt.Sprintf("%s_enabled", input)
 			return &updatedName
 		}
 	}
