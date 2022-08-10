@@ -535,6 +535,11 @@ func NormalizeCanonicalisation(input string) string {
 		output = "PublicIPAddress"
 	}
 
+	if strings.EqualFold(output, "PublicIPAddresses") {
+		// This is an explicit force for broken data in `Network`
+		output = "PublicIPAddresses"
+	}
+
 	if strings.EqualFold(output, "IPconfiguration") {
 		// This is an explicit force for broken data in `Network`
 		output = "IPConfiguration"
