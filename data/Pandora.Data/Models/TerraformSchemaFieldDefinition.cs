@@ -12,4 +12,41 @@ public class TerraformSchemaFieldDefinition
     public bool Optional { get; set; }
     public bool Required { get; set; }
     // public TerraformSchemaFieldValidationDefinition Validation { get; set; }
+
+    public override bool Equals(object? obj)
+    {
+        if (obj is not TerraformSchemaFieldDefinition)
+        {
+            return false;
+        }
+
+        var other = (TerraformSchemaFieldDefinition) obj;
+        if (Computed != other.Computed)
+        {
+            return false;
+        }
+        if (ForceNew != other.ForceNew)
+        {
+            return false;
+        }
+        if (HclName != other.HclName)
+        {
+            return false;
+        }
+        if (Name != other.Name)
+        {
+            return false;
+        }
+        if (Optional != other.Optional)
+        {
+            return false;
+        }
+        if (Required != other.Required)
+        {
+            return false;
+        }
+        
+        // TODO: Documentation Mappings ObjectDefinition Validation
+        return true;
+    }
 }
