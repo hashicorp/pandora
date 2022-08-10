@@ -29,5 +29,5 @@ public enum TerraformSchemaFieldType
     ResourceGroup,
     Tags,
     Zone,
-    Zones,    
+    Zones,
 }
