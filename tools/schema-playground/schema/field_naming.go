@@ -2,10 +2,56 @@ package schema
 
 import (
 	"fmt"
+	"regexp"
 	"strings"
 
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
+
+type fieldNameMatcher interface {
+	updatedNameForField(input string, model *resourcemanager.ModelDetails) *string
+}
+
+var namingRules = []fieldNameMatcher{
+	fieldNameAppendEnabled{},
+	fieldNameIs{},
+	fieldNamePluralToSingular{},
+}
+
+type fieldNameIs struct{}
+
+func (fieldNameIs) updatedNameForField(input string, _ *resourcemanager.ModelDetails) *string {
+	if strings.HasPrefix(input, "is_") {
+		updatedName := input[3:]
+		return &updatedName
+	}
+	return nil
+}
+
+type fieldNamePluralToSingular struct{}
+
+func (fieldNamePluralToSingular) updatedNameForField(input string, model *resourcemanager.ModelDetails) *string {
+	if model.Fields[input].ObjectDefinition.Type == resourcemanager.ListApiObjectDefinitionType {
+		if strings.HasSuffix(input, "s") && !strings.HasSuffix(input, "ss") {
+			updatedName := strings.TrimSuffix(input, "s")
+			return &updatedName
+		}
+	}
+	return nil
+}
+
+type fieldNameAppendEnabled struct{}
+
+func (fieldNameAppendEnabled) updatedNameForField(input string, model *resourcemanager.ModelDetails) *string {
+	if model.Fields[input].ObjectDefinition.Type == resourcemanager.BooleanApiObjectDefinitionType {
+		re := regexp.MustCompile(".[eEdD](?:nabled|isabled)")
+		if !re.MatchString(input) {
+			updatedName := fmt.Sprintf("%s_enabled", input)
+			return &updatedName
+		}
+	}
+	return nil
+}
 
 // determineNameForSchemaField takes the name of the field in the model, with the model as context, to be able
 // to determine which name should be used for this model, following conventions, before snake_casing it.
