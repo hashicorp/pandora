@@ -10,6 +10,7 @@ public class ResourceGroupResource : TerraformResourceDefinition
     public string ResourceLabel => "resource_group";
     public Type? SchemaModel => typeof(ResourceGroupResourceSchema);
     public TerraformMappingDefinition SchemaMappings => new ResourceGroupResourceMappings();
+    public TerraformResourceTestDefinition Tests => null;
     
     public bool GenerateIDValidationFunction => true;
     public bool GenerateModel => true;

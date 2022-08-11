@@ -64,6 +64,12 @@ public interface TerraformResourceDefinition
     /// defined in SchemaModel should be mapped to/from the SDK Models and Terraform Resource ID. 
     /// </summary>
     public TerraformMappingDefinition SchemaMappings { get; }
+    
+    /// <summary>
+    /// Tests is a reference to the TerraformResourceTestDefinition which defines how the Terraform Acceptance
+    /// Tests should look for this resource.
+    /// </summary>
+    public TerraformResourceTestDefinition Tests { get; }
 
     /// <summary>
     /// UpdateMethod optionally defines the Update Method associated with this Resource, both for whether this

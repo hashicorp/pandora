@@ -11,6 +11,8 @@ public class VirtualMachineResource : TerraformResourceDefinition
     public Type? SchemaModel => typeof(VirtualMachineResourceSchema);
     public TerraformMappingDefinition SchemaMappings => new VirtualMachineResourceMappings();
 
+    public TerraformResourceTestDefinition Tests => null;
+
     public bool GenerateIDValidationFunction => true;
     public bool GenerateModel => true;
     public bool GenerateSchema => true;

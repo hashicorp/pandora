@@ -12,6 +12,8 @@ public class VirtualMachineScaleSetResource : TerraformResourceDefinition
 
     public TerraformMappingDefinition SchemaMappings => new VirtualMachineScaleSetResourceMappings();
 
+    public TerraformResourceTestDefinition Tests => new VirtualMachineScaleSetResourceTests();
+
     public bool GenerateIDValidationFunction => true;
     public bool GenerateModel => true;
     public bool GenerateSchema => true;
