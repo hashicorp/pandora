@@ -32,7 +32,7 @@ func NewBuilder(constants map[string]resourcemanager.ConstantDetails, models map
 	}
 }
 
-func (b Builder) Build(input resourcemanager.TerraformResourceDetails, logger hclog.Logger) (*Definition, error) {
+func (b Builder) Build(input resourcemanager.TerraformResourceDetails, logger hclog.Logger) (*resourcemanager.TerraformSchemaModelDefinition, error) {
 	// TODO: we should look to skip any resources containing discriminators initially, for example.
 	// TODO: we also need mappings
 
@@ -47,7 +47,7 @@ func (b Builder) Build(input resourcemanager.TerraformResourceDetails, logger hc
 		return nil, fmt.Errorf("parsing top-level fields from create/read/update: %+v", err)
 	}
 
-	schemaFields := make(map[string]FieldDefinition)
+	schemaFields := make(map[string]resourcemanager.TerraformSchemaFieldDefinition)
 	for k, v := range topLevelFields.toSchema() {
 		schemaFields[k] = v
 	}
@@ -72,7 +72,7 @@ func (b Builder) Build(input resourcemanager.TerraformResourceDetails, logger hc
 		schemaFields[k] = v
 	}
 
-	return &Definition{
+	return &resourcemanager.TerraformSchemaModelDefinition{
 		Fields: schemaFields,
 	}, nil
 }

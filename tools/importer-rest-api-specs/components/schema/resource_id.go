@@ -2,12 +2,12 @@ package schema
 
 import "github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 
-func (b Builder) identityTopLevelFieldsWithinResourceID(input resourcemanager.ResourceIdDefinition) (*map[string]FieldDefinition, error) {
-	out := make(map[string]FieldDefinition, 0)
+func (b Builder) identityTopLevelFieldsWithinResourceID(input resourcemanager.ResourceIdDefinition) (*map[string]resourcemanager.TerraformSchemaFieldDefinition, error) {
+	out := make(map[string]resourcemanager.TerraformSchemaFieldDefinition, 0)
 
 	// TODO: mappings
-	out["name"] = FieldDefinition{
-		Definition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+	out["name"] = resourcemanager.TerraformSchemaFieldDefinition{
+		ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
 			Type: resourcemanager.TerraformSchemaFieldTypeString,
 		},
 		// since this is included in the Resource ID it's implicitly Required/ForceNew
@@ -28,8 +28,8 @@ func (b Builder) identityTopLevelFieldsWithinResourceID(input resourcemanager.Re
 			}
 			if parentResourceIdName != "" {
 				parentResourceSchemaField := convertToSnakeCase(parentResourceIdName)
-				out[parentResourceSchemaField] = FieldDefinition{
-					Definition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+				out[parentResourceSchemaField] = resourcemanager.TerraformSchemaFieldDefinition{
+					ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
 						Type:          resourcemanager.TerraformSchemaFieldTypeReference,
 						ReferenceName: &parentResourceIdName,
 					},

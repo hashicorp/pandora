@@ -7,7 +7,7 @@ import (
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-func (b Builder) identifyFieldsWithinPropertiesBlock(input operationPayloads) (*map[string]FieldDefinition, error) {
+func (b Builder) identifyFieldsWithinPropertiesBlock(input operationPayloads) (*map[string]resourcemanager.TerraformSchemaFieldDefinition, error) {
 	allFields := make(map[string]struct{}, 0)
 	for _, model := range input.createReadUpdatePayloadsProperties(b.models) {
 		for k, v := range model.Fields {
@@ -27,7 +27,7 @@ func (b Builder) identifyFieldsWithinPropertiesBlock(input operationPayloads) (*
 		updatePropertiesModel = input.getPropertiesModelWithinModel(*input.updatePayload, b.models)
 	}
 
-	out := make(map[string]FieldDefinition, 0)
+	out := make(map[string]resourcemanager.TerraformSchemaFieldDefinition, 0)
 	if readPropertiesModel != nil {
 		for k := range allFields {
 			var readField *resourcemanager.FieldDetails
@@ -53,14 +53,14 @@ func (b Builder) identifyFieldsWithinPropertiesBlock(input operationPayloads) (*
 			isForceNew := false
 			isRequired := false
 			isOptional := false
-			isWriteOnly := false
+			//isWriteOnly := false // TODO: re-enable that
 
 			if !hasCreate && !hasUpdate && hasRead {
 				isComputed = true
 			}
 			if hasCreate || hasUpdate {
 				if !hasRead {
-					isWriteOnly = true
+					//isWriteOnly = true
 					isForceNew = hasUpdate && !updateField.ForceNew
 				} else if hasCreate {
 					isRequired = createField.Required
@@ -86,12 +86,15 @@ func (b Builder) identifyFieldsWithinPropertiesBlock(input operationPayloads) (*
 			schemaFieldName := convertToSnakeCase(typedModelName)
 			log.Printf("[DEBUG] Properties Field %q would be output as %q / %q", k, typedModelName, schemaFieldName)
 
-			definition := FieldDefinition{
-				Required:  isRequired,
-				ForceNew:  isForceNew,
-				Optional:  isOptional,
-				Computed:  isComputed,
-				WriteOnly: isWriteOnly,
+			definition := resourcemanager.TerraformSchemaFieldDefinition{
+				Required: isRequired,
+				ForceNew: isForceNew,
+				Optional: isOptional,
+				Computed: isComputed,
+				// this is only used when outputting the mappings
+				// 4 types of mappings: Create/Read/Update/Resource ID - all nullable
+				// If a Create and Update Mapping are present but a Read isn't it's implicitly WriteOnly
+				//WriteOnly: isWriteOnly,
 				// TODO: also need to add the mappings & any validation
 			}
 
@@ -100,19 +103,19 @@ func (b Builder) identifyFieldsWithinPropertiesBlock(input operationPayloads) (*
 				if err != nil {
 					return nil, fmt.Errorf("converting ObjectDefinition for field to a TerraformFieldObjectDefinition: %+v", err)
 				}
-				definition.Definition = *fieldObjectDefinition
+				definition.ObjectDefinition = *fieldObjectDefinition
 			} else if hasCreate {
 				fieldObjectDefinition, err := convertToFieldObjectDefinition(createField.ObjectDefinition)
 				if err != nil {
 					return nil, fmt.Errorf("converting ObjectDefinition for field to a TerraformFieldObjectDefinition: %+v", err)
 				}
-				definition.Definition = *fieldObjectDefinition
+				definition.ObjectDefinition = *fieldObjectDefinition
 			} else if hasUpdate {
 				fieldObjectDefinition, err := convertToFieldObjectDefinition(updateField.ObjectDefinition)
 				if err != nil {
 					return nil, fmt.Errorf("converting ObjectDefinition for field to a TerraformFieldObjectDefinition: %+v", err)
 				}
-				definition.Definition = *fieldObjectDefinition
+				definition.ObjectDefinition = *fieldObjectDefinition
 			}
 
 			out[schemaFieldName] = definition
