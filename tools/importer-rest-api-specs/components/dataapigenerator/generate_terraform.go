@@ -45,7 +45,13 @@ func (s Service) generateTerraformDefinitions() error {
 				return fmt.Errorf("generating Terraform Resource Definition for %q: %+v", label, err)
 			}
 
-			// TODO: output Mappings
+			// output the Mappings for this Terraform Resource
+			resourceMappingsFileName := path.Join(s.workingDirectoryForTerraform, fmt.Sprintf("%s-Resource-Mappings.cs", details.ResourceName))
+			s.logger.Trace(fmt.Sprintf("Generating Resource Mappings into %q", resourceMappingsFileName))
+			resourceMappingsCode := codeForTerraformResourceMappings(s.namespaceForTerraform, details)
+			if err := writeToFile(resourceMappingsFileName, resourceMappingsCode); err != nil {
+				return fmt.Errorf("generating Terraform Resource Mappings for %q: %+v", label, err)
+			}
 
 			// output the Schema for this Terraform Resource
 			resourceSchemaFileName := path.Join(s.workingDirectoryForTerraform, fmt.Sprintf("%s-Resource-Schema.cs", details.ResourceName))
@@ -57,7 +63,7 @@ func (s Service) generateTerraformDefinitions() error {
 
 			// output the Tests for this Terraform Resource
 			resourceTestsFileName := path.Join(s.workingDirectoryForTerraform, fmt.Sprintf("%s-Resource-Tests.cs", details.ResourceName))
-			s.logger.Trace(fmt.Sprintf("Generating Resource Schema into %q", resourceTestsFileName))
+			s.logger.Trace(fmt.Sprintf("Generating Resource Tests into %q", resourceTestsFileName))
 			resourceTestsCode := codeForTerraformResourceTestDefinition(s.namespaceForTerraform, details)
 			if err := writeToFile(resourceTestsFileName, resourceTestsCode); err != nil {
 				return fmt.Errorf("generating Terraform Resource Tests for %q: %+v", label, err)
