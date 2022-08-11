@@ -2,9 +2,9 @@ using System.Collections.Generic;
 using Pandora.Definitions.Helpers;
 using Pandora.Definitions.Interfaces;
 
-namespace Pandora.Definitions.ResourceManager.Compute.Terraform;
+namespace Pandora.Definitions.ResourceManager.Resources.Terraform;
 
-public class VirtualMachineScaleSetResourceTests : TerraformResourceTestDefinition
+public class ResourceGroupResourceTests : TerraformResourceTestDefinition
 {
     // TODO: output real tests
     public string BasicTestConfig => @"
