@@ -7,6 +7,9 @@ import (
 )
 
 func codeForTerraformResourceMappings(terraformNamespace string, details resourcemanager.TerraformResourceDetails) string {
+	// TODO: schema models are available in details.SchemaModels
+	// TODO: the main schema name is available in details.SchemaModelName
+
 	return fmt.Sprintf(`using System.Collections.Generic;
 using Pandora.Definitions.Interfaces;
 using Pandora.Definitions.Mappings;

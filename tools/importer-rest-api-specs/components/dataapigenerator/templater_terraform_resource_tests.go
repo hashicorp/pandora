@@ -7,6 +7,9 @@ import (
 )
 
 func codeForTerraformResourceTestDefinition(terraformNamespace string, details resourcemanager.TerraformResourceDetails) string {
+	// TODO: schema models are available in details.SchemaModels
+	// TODO: the main schema name is available in details.SchemaModelName
+
 	// TODO: output the real tests - NOTE these needs to change `"` for `'` (which gets converted back in .AsTerraformTestConfig())
 	return fmt.Sprintf(`using System.Collections.Generic;
 using Pandora.Definitions.Helpers;

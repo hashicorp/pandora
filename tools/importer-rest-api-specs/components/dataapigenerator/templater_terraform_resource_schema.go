@@ -7,6 +7,13 @@ import (
 )
 
 func codeForTerraformSchemaDefinition(terraformNamespace string, details resourcemanager.TerraformResourceDetails) string {
+	// TODO: output the Field Object Definition(details.SchemaModels[""].Fields[""].ObjectDefinition
+	// using the FieldObjectDefinitionType in a method basically duplicating dotNetTypeNameForCustomType
+	// @mbfrahry ^^^
+
+	// TODO: schema models are available in details.SchemaModels
+	// TODO: the main schema name is available in details.SchemaModelName
+
 	// TODO: output the real schema
 	return fmt.Sprintf(`using Pandora.Definitions.Attributes;
 
