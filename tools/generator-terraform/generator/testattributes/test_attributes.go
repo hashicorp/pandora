@@ -5,7 +5,7 @@ import (
 	"sort"
 
 	"github.com/hashicorp/hcl/v2"
-
+	"github.com/hashicorp/hcl/v2/hclsyntax"
 	"github.com/hashicorp/hcl/v2/hclwrite"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 	"github.com/zclconf/go-cty/cty"
@@ -64,7 +64,25 @@ func (h TestAttributesHelpers) codeForTestAttribute(input resourcemanager.Terraf
 	case resourcemanager.TerraformSchemaFieldTypeInteger:
 		hclBody.SetAttributeValue(hclName, cty.NumberIntVal(15))
 	case resourcemanager.TerraformSchemaFieldTypeString:
-		hclBody.SetAttributeValue(hclName, cty.StringVal("foo"))
+		switch hclName {
+		case "name":
+			// todo pipe in packagename to make "acctest-vm-${local.random_integer}"
+			tokens := hclwrite.Tokens{
+				{Type: hclsyntax.TokenQuotedLit, Bytes: []byte(`"acctest-`)},
+				{Type: hclsyntax.TokenTemplateInterp, Bytes: []byte(`${`)},
+				{Type: hclsyntax.TokenQuotedLit, Bytes: []byte(`local.random_integer}"`)},
+			}
+			hclBody.SetAttributeRaw(hclName, tokens)
+		case "resource_group_name":
+			addCommentToTestConfig(hclBody, "todo add azurerm_resource_group.test to template")
+			hclBody.SetAttributeTraversal(hclName, hcl.Traversal{
+				hcl.TraverseRoot{
+					Name: "azurerm_resource_group.test.name",
+				},
+			})
+		default:
+			hclBody.SetAttributeValue(hclName, cty.StringVal("foo"))
+		}
 	case resourcemanager.TerraformSchemaFieldTypeList, resourcemanager.TerraformSchemaFieldTypeSet:
 		hclBody.AppendNewline()
 		if input.NestedObject.Type == resourcemanager.TerraformSchemaFieldTypeReference {

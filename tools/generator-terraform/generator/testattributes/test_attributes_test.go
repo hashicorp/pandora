@@ -313,3 +313,59 @@ func TestRequiredAndOptionalTestAttributes_CodeForBasicField(t *testing.T) {
 	}
 	assertTemplatedCodeMatches(t, expected, fmt.Sprintf("%s", file.Bytes()))
 }
+
+func TestStringAttributes(t *testing.T) {
+	testData := []struct {
+		input    resourcemanager.TerraformSchemaModelDefinition
+		expected string
+	}{
+		{
+			input: resourcemanager.TerraformSchemaModelDefinition{
+				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+					"Name": {
+						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						},
+						HclName:  "name",
+						Optional: true,
+					},
+				},
+			},
+			expected: `
+name ="acctest-${local.random_integer}"
+`,
+		},
+		{
+			input: resourcemanager.TerraformSchemaModelDefinition{
+				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+					"ResourceGroupName": {
+						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						},
+						HclName:  "resource_group_name",
+						Optional: true,
+					},
+				},
+			},
+			expected: `
+  // todo add azurerm_resource_group.test to template
+  resource_group_name = azurerm_resource_group.test.name
+`,
+		},
+	}
+
+	file := hclwrite.NewEmptyFile()
+	helper := TestAttributesHelpers{}
+	for i, testCase := range testData {
+		err := helper.GetAttributesForTests(testCase.input, *file.Body(), false)
+		if err != nil {
+			if testCase.expected == "" {
+				continue
+			}
+
+			t.Fatalf("unexpected error for index %d", i)
+		}
+		assertTemplatedCodeMatches(t, testCase.expected, fmt.Sprintf("%s", file.Bytes()))
+		file.Body().Clear()
+	}
+}
