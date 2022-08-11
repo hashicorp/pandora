@@ -48,7 +48,7 @@ func run(input Input) error {
 	}
 
 	logger.Trace("Retrieving Services from Data API..")
-	services, err := services.GetResourceManagerServices(client)
+	services, err := services.GetResourceManagerServicesByName(client, []string{"Compute"})
 	if err != nil {
 		return fmt.Errorf("retrieving resource manager services: %+v", err)
 	}

@@ -35,17 +35,17 @@ func (b Builder) identifyTopLevelFields(input operationPayloads) (*topLevelField
 			if err != nil {
 				return nil, fmt.Errorf("converting Identity ObjectDefinition for field to a TerraformFieldObjectDefinition: %+v", err)
 			}
-			out.identity = &FieldDefinition{
-				Definition: *fieldObjectDefinition,
-				Required:   field.Required,
-				Optional:   field.Optional,
-				ForceNew:   !canBeUpdated,
+			out.identity = &resourcemanager.TerraformSchemaFieldDefinition{
+				ObjectDefinition: *fieldObjectDefinition,
+				Required:         field.Required,
+				Optional:         field.Optional,
+				ForceNew:         !canBeUpdated,
 			}
 		}
 
 		if strings.EqualFold(k, "Location") {
-			out.location = &FieldDefinition{
-				Definition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+			out.location = &resourcemanager.TerraformSchemaFieldDefinition{
+				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
 					Type: resourcemanager.TerraformSchemaFieldTypeLocation,
 				},
 				Required: true,
@@ -61,8 +61,8 @@ func (b Builder) identifyTopLevelFields(input operationPayloads) (*topLevelField
 				}
 			}
 
-			out.tags = &FieldDefinition{
-				Definition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+			out.tags = &resourcemanager.TerraformSchemaFieldDefinition{
+				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
 					Type: resourcemanager.TerraformSchemaFieldTypeTags,
 				},
 				Optional: true,

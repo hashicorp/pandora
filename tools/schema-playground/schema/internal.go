@@ -51,9 +51,9 @@ func (p operationPayloads) getPropertiesModelWithinModel(input resourcemanager.M
 }
 
 type topLevelFields struct {
-	location *FieldDefinition
-	identity *FieldDefinition
-	tags     *FieldDefinition
+	location *resourcemanager.TerraformSchemaFieldDefinition
+	identity *resourcemanager.TerraformSchemaFieldDefinition
+	tags     *resourcemanager.TerraformSchemaFieldDefinition
 
 	/*
 		TODO:
@@ -63,8 +63,8 @@ type topLevelFields struct {
 	*/
 }
 
-func (f topLevelFields) toSchema() map[string]FieldDefinition {
-	out := make(map[string]FieldDefinition, 0)
+func (f topLevelFields) toSchema() map[string]resourcemanager.TerraformSchemaFieldDefinition {
+	out := make(map[string]resourcemanager.TerraformSchemaFieldDefinition, 0)
 
 	if f.location != nil {
 		out["location"] = *f.location
