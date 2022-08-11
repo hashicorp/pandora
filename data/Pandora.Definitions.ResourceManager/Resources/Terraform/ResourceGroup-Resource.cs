@@ -9,8 +9,8 @@ public class ResourceGroupResource : TerraformResourceDefinition
     public ResourceID ResourceId => new v2020_06_01.ResourceGroups.ResourceGroupId();
     public string ResourceLabel => "resource_group";
     public Type? SchemaModel => typeof(ResourceGroupResourceSchema);
-    public TerraformMappingDefinition SchemaMappings => new ResourceGroupResourceMappings();
-    public TerraformResourceTestDefinition Tests => null;
+    public TerraformMappingDefinition SchemaMappings => null; // TODO: implement mappings
+    public TerraformResourceTestDefinition Tests => new ResourceGroupResourceTests();
 
     public bool GenerateIDValidationFunction => true;
     public bool GenerateModel => true;
