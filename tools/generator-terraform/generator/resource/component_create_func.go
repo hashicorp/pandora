@@ -155,13 +155,17 @@ func (h createFunctionComponents) idDefinitionAndMapping() (*string, error) {
 
 		default:
 			{
-				topLevelFieldForResourceIdSegment, err := findTopLevelFieldForResourceIdSegment(v.Name, h.terraformModel)
-				if err != nil {
-					return nil, fmt.Errorf("finding mapping for resource id segment %q: %+v", v.Name, err)
-				}
+				if featureflags.OutputMappings {
+					topLevelFieldForResourceIdSegment, err := findTopLevelFieldForResourceIdSegment(v.Name, h.terraformModel)
+					if err != nil {
+						return nil, fmt.Errorf("finding mapping for resource id segment %q: %+v", v.Name, err)
+					}
 
-				if topLevelFieldForResourceIdSegment != nil {
-					segments = append(segments, fmt.Sprintf("config.%s", *topLevelFieldForResourceIdSegment))
+					if topLevelFieldForResourceIdSegment != nil {
+						segments = append(segments, fmt.Sprintf("config.%s", *topLevelFieldForResourceIdSegment))
+					}
+				} else {
+					segments = append(segments, fmt.Sprintf("\"schema field for %s\"", v.Name))
 				}
 			}
 		}
