@@ -1,39 +1,54 @@
-package main
+package cmd
 
 import (
 	"fmt"
 	"log"
-	"os"
-
-	"github.com/hashicorp/pandora/tools/schema-playground/schema"
 
 	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/resources"
-
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/schema"
 	"github.com/hashicorp/pandora/tools/sdk/config/definitions"
-
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 	"github.com/hashicorp/pandora/tools/sdk/services"
+	"github.com/mitchellh/cli"
 )
 
-type Input struct {
-	apiServerEndpoint string
-	providerPrefix    string
-	configDirectory   string
+var _ cli.Command = SchemaCommand{}
+
+func NewSchemaCommand() func() (cli.Command, error) {
+	return func() (cli.Command, error) {
+		return SchemaCommand{}, nil
+	}
 }
 
-func main() {
+type SchemaCommand struct {
+}
+
+func (s SchemaCommand) Help() string {
+	return "please"
+}
+
+func (s SchemaCommand) Run(args []string) int {
 	if err := run(Input{
 		apiServerEndpoint: "http://localhost:5000",
 		configDirectory:   "../../config/resources/",
 		providerPrefix:    "azurerm",
 	}); err != nil {
 		log.Printf("error: %+v", err)
-		os.Exit(1)
-		return
+		return 1
 	}
 
-	os.Exit(0)
+	return 0
+}
+
+func (s SchemaCommand) Synopsis() string {
+	return "really great"
+}
+
+type Input struct {
+	apiServerEndpoint string
+	providerPrefix    string
+	configDirectory   string
 }
 
 func run(input Input) error {
@@ -99,6 +114,5 @@ func run(input Input) error {
 			}
 		}
 	}
-
 	return nil
 }
