@@ -5,6 +5,8 @@ import (
 	"sort"
 	"strings"
 
+	"github.com/hashicorp/pandora/tools/generator-terraform/featureflags"
+
 	"github.com/hashicorp/pandora/tools/generator-terraform/generator/models"
 
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
@@ -153,13 +155,17 @@ func (h createFunctionComponents) idDefinitionAndMapping() (*string, error) {
 
 		default:
 			{
-				topLevelFieldForResourceIdSegment, err := findTopLevelFieldForResourceIdSegment(v.Name, h.terraformModel)
-				if err != nil {
-					return nil, fmt.Errorf("finding mapping for resource id segment %q: %+v", v.Name, err)
-				}
+				if featureflags.OutputMappings {
+					topLevelFieldForResourceIdSegment, err := findTopLevelFieldForResourceIdSegment(v.Name, h.terraformModel)
+					if err != nil {
+						return nil, fmt.Errorf("finding mapping for resource id segment %q: %+v", v.Name, err)
+					}
 
-				if topLevelFieldForResourceIdSegment != nil {
-					segments = append(segments, fmt.Sprintf("config.%s", *topLevelFieldForResourceIdSegment))
+					if topLevelFieldForResourceIdSegment != nil {
+						segments = append(segments, fmt.Sprintf("config.%s", *topLevelFieldForResourceIdSegment))
+					}
+				} else {
+					segments = append(segments, fmt.Sprintf("\"schema field for %s\"", v.Name))
 				}
 			}
 		}
@@ -187,6 +193,11 @@ func (h createFunctionComponents) payloadDefinition() (*string, error) {
 }
 
 func (h createFunctionComponents) mappingsFromSchema() (*string, error) {
+	if !featureflags.OutputMappings {
+		output := `// TODO: re-enable Mappings (featureflags.OutputMappings)`
+		return &output, nil
+	}
+
 	mappings := make([]string, 0)
 
 	// ensure these are output alphabetically for consistency purposes across re-generations

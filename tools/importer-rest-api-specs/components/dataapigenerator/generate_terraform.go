@@ -36,13 +36,37 @@ func (s Service) generateTerraformDefinitions() error {
 		//}
 
 		for label, details := range resource.Terraform.Resources {
-			fileName := path.Join(s.workingDirectoryForTerraform, fmt.Sprintf("%s-Resource.cs", details.ResourceName))
-			s.logger.Trace(fmt.Sprintf("Generating Resource into %q", fileName))
-
+			// output the Terraform Resource Definition
+			resourceFileName := path.Join(s.workingDirectoryForTerraform, fmt.Sprintf("%s-Resource.cs", details.ResourceName))
+			s.logger.Trace(fmt.Sprintf("Generating Resource into %q", resourceFileName))
 			resourcePackageName := s.packageNameForResource(resourceName)
-			code := codeForTerraformResourceDefinition(s.namespaceForTerraform, s.apiVersionPackageName, resourcePackageName, label, details)
-			if err := writeToFile(fileName, code); err != nil {
+			resourceDefinitionCode := codeForTerraformResourceDefinition(s.namespaceForTerraform, s.apiVersionPackageName, resourcePackageName, label, details)
+			if err := writeToFile(resourceFileName, resourceDefinitionCode); err != nil {
 				return fmt.Errorf("generating Terraform Resource Definition for %q: %+v", label, err)
+			}
+
+			// output the Mappings for this Terraform Resource
+			resourceMappingsFileName := path.Join(s.workingDirectoryForTerraform, fmt.Sprintf("%s-Resource-Mappings.cs", details.ResourceName))
+			s.logger.Trace(fmt.Sprintf("Generating Resource Mappings into %q", resourceMappingsFileName))
+			resourceMappingsCode := codeForTerraformResourceMappings(s.namespaceForTerraform, details)
+			if err := writeToFile(resourceMappingsFileName, resourceMappingsCode); err != nil {
+				return fmt.Errorf("generating Terraform Resource Mappings for %q: %+v", label, err)
+			}
+
+			// output the Schema for this Terraform Resource
+			resourceSchemaFileName := path.Join(s.workingDirectoryForTerraform, fmt.Sprintf("%s-Resource-Schema.cs", details.ResourceName))
+			s.logger.Trace(fmt.Sprintf("Generating Resource Schema into %q", resourceSchemaFileName))
+			resourceSchemaCode := codeForTerraformSchemaDefinition(s.namespaceForTerraform, details)
+			if err := writeToFile(resourceSchemaFileName, resourceSchemaCode); err != nil {
+				return fmt.Errorf("generating Terraform Resource Schema for %q: %+v", label, err)
+			}
+
+			// output the Tests for this Terraform Resource
+			resourceTestsFileName := path.Join(s.workingDirectoryForTerraform, fmt.Sprintf("%s-Resource-Tests.cs", details.ResourceName))
+			s.logger.Trace(fmt.Sprintf("Generating Resource Tests into %q", resourceTestsFileName))
+			resourceTestsCode := codeForTerraformResourceTestDefinition(s.namespaceForTerraform, details)
+			if err := writeToFile(resourceTestsFileName, resourceTestsCode); err != nil {
+				return fmt.Errorf("generating Terraform Resource Tests for %q: %+v", label, err)
 			}
 		}
 	}

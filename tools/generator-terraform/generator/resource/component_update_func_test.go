@@ -3,6 +3,8 @@ package resource
 import (
 	"testing"
 
+	"github.com/hashicorp/pandora/tools/generator-terraform/featureflags"
+
 	"github.com/hashicorp/pandora/tools/generator-terraform/generator/models"
 
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
@@ -35,6 +37,9 @@ func TestComponentUpdate_HappyPathDisabled_NoUpdateMethod(t *testing.T) {
 }
 
 func TestComponentUpdate_HappyPathEnabled_CommonId_SharedModels(t *testing.T) {
+	// TODO: remove this once the feature-flag is properly threaded through
+	featureflags.OutputMappings = true
+
 	input := models.ResourceInput{
 		Constants: map[string]resourcemanager.ConstantDetails{},
 		Details: resourcemanager.TerraformResourceDetails{
@@ -201,6 +206,9 @@ func TestComponentUpdate_HappyPathEnabled_CommonId_SharedModels(t *testing.T) {
 }
 
 func TestComponentUpdate_HappyPathEnabled_CommonId_UniqueModels(t *testing.T) {
+	// TODO: remove this once the feature-flag is properly threaded through
+	featureflags.OutputMappings = true
+
 	input := models.ResourceInput{
 		Constants: map[string]resourcemanager.ConstantDetails{},
 		Details: resourcemanager.TerraformResourceDetails{
@@ -396,6 +404,9 @@ func TestComponentUpdate_HappyPathEnabled_CommonId_UniqueModels(t *testing.T) {
 }
 
 func TestComponentUpdate_HappyPathEnabled_RegularResourceID_SharedModels(t *testing.T) {
+	// TODO: remove this once the feature-flag is properly threaded through
+	featureflags.OutputMappings = true
+
 	input := models.ResourceInput{
 		Constants: map[string]resourcemanager.ConstantDetails{},
 		Details: resourcemanager.TerraformResourceDetails{
@@ -562,6 +573,9 @@ func TestComponentUpdate_HappyPathEnabled_RegularResourceID_SharedModels(t *test
 }
 
 func TestComponentUpdate_HappyPathEnabled_RegularResourceID_UniqueModels(t *testing.T) {
+	// TODO: remove this once the feature-flag is properly threaded through
+	featureflags.OutputMappings = true
+
 	input := models.ResourceInput{
 		Constants: map[string]resourcemanager.ConstantDetails{},
 		Details: resourcemanager.TerraformResourceDetails{
@@ -757,6 +771,11 @@ func TestComponentUpdate_HappyPathEnabled_RegularResourceID_UniqueModels(t *test
 }
 
 func TestComponentUpdate_MappingsFromSchema_NoFields(t *testing.T) {
+	// TODO: remove this once the feature-flag is properly threaded through
+	if !featureflags.OutputMappings {
+		t.Skip("skipping since `featureflags.OutputMappings` is disabled")
+	}
+
 	actual, err := updateFuncHelpers{
 		terraformModel: resourcemanager.TerraformSchemaModelDefinition{
 			Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{},
@@ -770,6 +789,11 @@ func TestComponentUpdate_MappingsFromSchema_NoFields(t *testing.T) {
 }
 
 func TestComponentUpdate_MappingsFromSchema_TopLevelFields(t *testing.T) {
+	// TODO: remove this once the feature-flag is properly threaded through
+	if !featureflags.OutputMappings {
+		t.Skip("skipping since `featureflags.OutputMappings` is disabled")
+	}
+
 	actual, err := updateFuncHelpers{
 		terraformModel: resourcemanager.TerraformSchemaModelDefinition{
 			Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{

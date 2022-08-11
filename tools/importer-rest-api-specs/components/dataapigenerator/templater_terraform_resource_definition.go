@@ -20,7 +20,8 @@ func codeForTerraformResourceDefinition(terraformNamespace, apiVersion, apiResou
 	}
 	components = append(components, updateCode)
 
-	return fmt.Sprintf(`using Pandora.Definitions.Interfaces;
+	return fmt.Sprintf(`using System;
+using Pandora.Definitions.Interfaces;
 
 namespace %[1]s;
 
@@ -29,6 +30,9 @@ public class %[2]sResource : TerraformResourceDefinition
     public string DisplayName => "%[3]s";
     public ResourceID ResourceId => new %[4]s.%[5]s.%[6]s();
     public string ResourceLabel => "%[7]s";
+    public Type? SchemaModel => typeof(%[2]sResourceSchema);
+    public TerraformMappingDefinition SchemaMappings => null; // TODO: implement mappings
+    public TerraformResourceTestDefinition Tests => new %[2]sResourceTests();
 
     public bool GenerateIDValidationFunction => true;
     public bool GenerateModel => true;

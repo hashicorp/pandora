@@ -1,7 +1,11 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text.Json.Serialization;
 using NUnit.Framework;
+using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Interfaces;
+using Pandora.Definitions.Mappings;
 using Pandora.Definitions.Operations;
 
 namespace Pandora.Data.Transformers;
@@ -39,6 +43,33 @@ public class TerraformResourceDefinitionTests
         Assert.True(actual.UpdateMethod.Generate);
         Assert.AreEqual("SomeUpdate", actual.UpdateMethod.MethodName);
         Assert.AreEqual(12, actual.UpdateMethod.TimeoutInMinutes);
+
+        Assert.AreEqual("BasicResourceSchema", actual.SchemaModelName);
+        Assert.AreEqual(1, actual.SchemaModels.Count);
+        var resourceSchema = actual.SchemaModels["BasicResourceSchema"];
+        Assert.NotNull(resourceSchema);
+        Assert.AreEqual(1, resourceSchema.Fields.Count);
+        var nameField = resourceSchema.Fields["Name"];
+        Assert.NotNull(nameField);
+
+        // @tombuildsstuff: disabling Mappings temporarily since the priority is threading through Schema/Docs/Tests
+        // we'll come back and enable this but for now this is an easy way to ensure we don't add this early 
+        var fieldsWithMappings = resourceSchema.Fields.Select(f => f.Value.Mappings).Where(m => m.Create != null || m.Read != null || m.Update != null || !string.IsNullOrWhiteSpace(m.ResourceIDSegment)).ToList();
+        Assert.AreEqual(0, fieldsWithMappings.Count);
+        // TODO: Terraform Mappings
+
+        Assert.AreEqual("basic config", actual.Tests!.BasicConfig);
+        Assert.AreEqual("requires import config", actual.Tests!.RequiresImportConfig);
+        Assert.AreEqual("complete config", actual.Tests!.CompleteConfig);
+        Assert.AreEqual("template config", actual.Tests!.TemplateConfig);
+        Assert.AreEqual(1, actual.Tests!.OtherTests.Count);
+        var someTestConfigs = actual.Tests!.OtherTests["SomeTest"];
+        Assert.NotNull(someTestConfigs);
+        Assert.AreEqual(2, someTestConfigs.Count);
+        Assert.AreEqual("first", someTestConfigs[0]);
+        Assert.AreEqual("second", someTestConfigs[1]);
+
+        // TODO: validation
     }
 
     [TestCase]
@@ -72,6 +103,11 @@ public class TerraformResourceDefinitionTests
             TimeoutInMinutes = 11,
         };
         public string ResourceLabel => "fake_planet";
+        public Type? SchemaModel => typeof(BasicResourceSchema);
+
+        public TerraformMappingDefinition SchemaMappings => new BasicResourceMappings();
+        public Definitions.Interfaces.TerraformResourceTestDefinition Tests => new BasicResourceTests();
+
         public MethodDefinition? UpdateMethod => new MethodDefinition
         {
             Generate = true,
@@ -79,6 +115,35 @@ public class TerraformResourceDefinitionTests
             TimeoutInMinutes = 12,
         };
         public Definitions.Interfaces.ResourceID ResourceId => new v2020_01_01.Example.FakeResourceId();
+    }
+
+    internal class BasicResourceSchema
+    {
+        [HclName("name")]
+        [ForceNew]
+        [Required]
+        public string Name { get; set; }
+    }
+
+    internal class BasicResourceMappings : TerraformMappingDefinition
+    {
+        public List<Mapping> Mappings => new List<Mapping>
+        {
+            Mapping.FromSchema<BasicResourceSchema>(s => s.Name).ToSdkModelField<v2020_01_01.Example.SomeModel>(m => m.Example),
+        };
+    }
+
+    internal class BasicResourceTests : Definitions.Interfaces.TerraformResourceTestDefinition
+    {
+        public string BasicTestConfig => @"basic config";
+        public string RequiresImportConfig => @"requires import config";
+        public string? CompleteConfig => @"complete config";
+        public string? TemplateConfig => @"template config";
+
+        public Dictionary<string, List<string>> OtherTests => new Dictionary<string, List<string>>
+        {
+            {"SomeTest", new List<string> {"first", "second"}},
+        };
     }
 
     internal class ResourceUsingDifferentAPIVersions : Definitions.Interfaces.TerraformResourceDefinition
@@ -107,6 +172,10 @@ public class TerraformResourceDefinitionTests
             TimeoutInMinutes = 11,
         };
         public string ResourceLabel => "fake_planet";
+        public Type? SchemaModel => null;
+        public TerraformMappingDefinition SchemaMappings => null;
+        public Definitions.Interfaces.TerraformResourceTestDefinition Tests => null;
+
         public MethodDefinition? UpdateMethod => new MethodDefinition
         {
             Generate = true,
@@ -122,7 +191,7 @@ public class TerraformResourceDefinitionTests
         {
             internal class SomeCreateOperation : PutOperation
             {
-                public override Type? RequestObject() => typeof(string);
+                public override Type? RequestObject() => typeof(SomeModel);
 
                 public override Definitions.Interfaces.ResourceID? ResourceId() => new FakeResourceId();
             }
@@ -135,11 +204,11 @@ public class TerraformResourceDefinitionTests
             {
                 public override Definitions.Interfaces.ResourceID? ResourceId() => new FakeResourceId();
 
-                public override Type? ResponseObject() => typeof(string);
+                public override Type? ResponseObject() => typeof(SomeModel);
             }
             internal class SomeUpdateOperation : PutOperation
             {
-                public override Type? RequestObject() => typeof(string);
+                public override Type? RequestObject() => typeof(SomeModel);
 
                 public override Definitions.Interfaces.ResourceID? ResourceId() => new FakeResourceId();
             }
@@ -153,6 +222,12 @@ public class TerraformResourceDefinitionTests
                     ResourceIDSegment.Static("planets", "planets"),
                     ResourceIDSegment.UserSpecified("planetName")
                 };
+            }
+
+            internal class SomeModel
+            {
+                [JsonPropertyName("example")]
+                public string Example { get; set; }
             }
         }
     }

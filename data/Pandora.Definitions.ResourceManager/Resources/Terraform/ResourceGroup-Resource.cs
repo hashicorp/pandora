@@ -1,3 +1,4 @@
+using System;
 using Pandora.Definitions.Interfaces;
 
 namespace Pandora.Definitions.ResourceManager.Resources.Terraform;
@@ -7,6 +8,9 @@ public class ResourceGroupResource : TerraformResourceDefinition
     public string DisplayName => "Resource Group";
     public ResourceID ResourceId => new v2020_06_01.ResourceGroups.ResourceGroupId();
     public string ResourceLabel => "resource_group";
+    public Type? SchemaModel => typeof(ResourceGroupResourceSchema);
+    public TerraformMappingDefinition SchemaMappings => new ResourceGroupResourceMappings();
+    public TerraformResourceTestDefinition Tests => null;
 
     public bool GenerateIDValidationFunction => true;
     public bool GenerateModel => true;
