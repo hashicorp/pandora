@@ -172,6 +172,7 @@ public static class ServiceTests
             public string ResourceLabel => "fake_resource";
             public Type? SchemaModel => typeof(FakeTerraformSchemaModel);
             public TerraformMappingDefinition SchemaMappings => throw new NotImplementedException();
+            public Definitions.Interfaces.TerraformResourceTestDefinition Tests => new FakeTestDefinition();
 
             public MethodDefinition? UpdateMethod => new MethodDefinition
             {
@@ -238,4 +239,13 @@ public static class ServiceTests
         [JsonPropertyName("hello")]
         public bool Hello { get; set; }
     }
+}
+
+internal class FakeTestDefinition : Definitions.Interfaces.TerraformResourceTestDefinition
+{
+    public string BasicTestConfig => "basic";
+    public string RequiresImportConfig => "requires import";
+    public string? CompleteConfig => null;
+    public string? TemplateConfig => null;
+    public Dictionary<string, List<string>> OtherTests => new Dictionary<string, List<string>>();
 }

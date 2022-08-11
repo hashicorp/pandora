@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json.Serialization;
-using Microsoft.VisualBasic;
 using NUnit.Framework;
 using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Interfaces;
@@ -58,6 +57,18 @@ public class TerraformResourceDefinitionTests
         var fieldsWithMappings = resourceSchema.Fields.Select(f => f.Value.Mappings).Where(m => m.Create != null || m.Read != null || m.Update != null || !string.IsNullOrWhiteSpace(m.ResourceIDSegment)).ToList();
         Assert.AreEqual(0, fieldsWithMappings.Count);
         // TODO: Terraform Mappings
+        
+        Assert.AreEqual("basic config", actual.Tests.BasicConfig);
+        Assert.AreEqual("requires import config", actual.Tests.RequiresImportConfig);
+        Assert.AreEqual("complete config", actual.Tests.CompleteConfig);
+        Assert.AreEqual("template config", actual.Tests.TemplateConfig);
+        Assert.AreEqual(1, actual.Tests.OtherTests.Count);
+        var someTestConfigs = actual.Tests.OtherTests["SomeTest"];
+        Assert.NotNull(someTestConfigs);
+        Assert.AreEqual(2, someTestConfigs.Count);
+        Assert.AreEqual("first", someTestConfigs[0]);
+        Assert.AreEqual("second", someTestConfigs[1]);
+        
         // TODO: validation
     }
 
@@ -95,6 +106,7 @@ public class TerraformResourceDefinitionTests
         public Type? SchemaModel => typeof(BasicResourceSchema);
 
         public TerraformMappingDefinition SchemaMappings => new BasicResourceMappings();
+        public Definitions.Interfaces.TerraformResourceTestDefinition Tests => new BasicResourceTests();
 
         public MethodDefinition? UpdateMethod => new MethodDefinition
         {
@@ -118,6 +130,19 @@ public class TerraformResourceDefinitionTests
         public List<Mapping> Mappings => new List<Mapping>
         {
             Mapping.FromSchema<BasicResourceSchema>(s => s.Name).ToSdkModelField<v2020_01_01.Example.SomeModel>(m => m.Example),
+        };
+    }
+    
+    internal class BasicResourceTests : Definitions.Interfaces.TerraformResourceTestDefinition
+    {
+        public string BasicTestConfig => @"basic config";
+        public string RequiresImportConfig => @"requires import config";
+        public string? CompleteConfig => @"complete config";
+        public string? TemplateConfig => @"template config";
+
+        public Dictionary<string, List<string>> OtherTests => new Dictionary<string, List<string>>
+        {
+            {"SomeTest", new List<string> {"first", "second"}},
         };
     }
 
@@ -149,6 +174,7 @@ public class TerraformResourceDefinitionTests
         public string ResourceLabel => "fake_planet";
         public Type? SchemaModel => null;
         public TerraformMappingDefinition SchemaMappings => null;
+        public Definitions.Interfaces.TerraformResourceTestDefinition Tests => null;
 
         public MethodDefinition? UpdateMethod => new MethodDefinition
         {

@@ -1,10 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Cryptography;
 using System.Text.Json.Serialization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.VisualStudio.TestPlatform.Utilities;
 using Pandora.Data.Models;
 using Pandora.Data.Repositories;
 
@@ -44,6 +42,7 @@ public class TerraformController : ControllerBase
     private static ResourceResponse MapResourceDefinition(TerraformResourceDefinition input)
     {
         var schemaModels = MapTerraformSchemaModels(input.SchemaModels!);
+        var tests = MapTerraformResourceTests(input.Tests);
         var response = new ResourceResponse
         {
             ApiVersion = input.ApiVersion,
@@ -71,7 +70,7 @@ resource 'example_resource' 'example' {
             ResourceIdName = input.ResourceIdName,
             SchemaModelName = input.SchemaModelName,
             SchemaModels = schemaModels,
-            // TODO: Tests
+            Tests = tests,
         };
         if (input.UpdateMethod != null)
         {
@@ -79,99 +78,27 @@ resource 'example_resource' 'example' {
         }
 
         // TODO: Mappings should be an object containing `Type` (which allows us to pipe through `BooleanWhen` etc)
-
-        // TODO: replace these with real mappings
-        if (input.ResourceLabel == "resource_group")
-        {
-            response.Tests = new TerraformResourceTestsDefinition
-            {
-                Generate = true,
-                BasicConfiguration = @"
-resource ""azurerm_resource_group"" ""test"" {
-    name     = ""acctest-rg${local.random_integer}""
-    location = local.primary_location
-}
-",
-                CompleteConfiguration = @"
-resource ""azurerm_resource_group"" ""test"" {
-    name     = ""acctest-rg${local.random_integer}""
-    location = local.primary_location
-
-    tags = {
-        ""Hello"" = ""AutoGen""
-    }
-}
-",
-                RequiresImportConfiguration = @"
-resource ""azurerm_resource_group"" ""import"" {
-    name     = azurerm_resource_group.test.name
-    location = azurerm_resource_group.test.location
-}
-",
-            };
-        }
-
-        if (input.ResourceLabel == "virtual_machine")
-        {
-            response.Tests = new TerraformResourceTestsDefinition
-            {
-                Generate = true,
-                BasicConfiguration = @"
-resource ""azurerm_virtual_machine"" ""test"" {
-    name     = ""acctest-vm${local.random_integer}""
-    location = local.primary_location
-}
-",
-                CompleteConfiguration = @"
-resource ""azurerm_virtual_machine"" ""test"" {
-    name     = ""acctest-vm${local.random_integer}""
-    location = local.primary_location
-
-    tags = {
-        ""Hello"" = ""AutoGen""
-    }
-}
-",
-                RequiresImportConfiguration = @"
-resource ""azurerm_virtual_machine"" ""import"" {
-    name     = azurerm_virtual_machine.test.name
-    location = azurerm_virtual_machine.test.location
-}
-",
-            };
-        }
-
-        if (input.ResourceLabel == "virtual_machine_scale_set")
-        {
-            response.Tests = new TerraformResourceTestsDefinition
-            {
-                Generate = true,
-                BasicConfiguration = @"
-resource ""azurerm_virtual_machine_scale_set"" ""test"" {
-    name     = ""acctest-vmss${local.random_integer}""
-    location = local.primary_location
-}
-",
-                CompleteConfiguration = @"
-resource ""azurerm_virtual_machine_scale_set"" ""test"" {
-    name     = ""acctest-vmss${local.random_integer}""
-    location = local.primary_location
-
-    tags = {
-        ""Hello"" = ""AutoGen""
-    }
-}
-",
-                RequiresImportConfiguration = @"
-resource ""azurerm_virtual_machine_scale_set"" ""import"" {
-    name     = azurerm_virtual_machine_scale_set.test.name
-    location = azurerm_virtual_machine_scale_set.test.location
-}
-",
-            };
-        }
-
+        
         return response;
+    }
+
+    private static TerraformResourceTestsDefinition MapTerraformResourceTests(Data.Models.TerraformResourceTestDefinition input)
+    {
+        var definition = new TerraformResourceTestsDefinition
+        {
+            Generate = input != null,
+        };
+
+        if (input != null)
+        {
+            definition.BasicConfiguration = input.BasicConfig;
+            definition.RequiresImportConfiguration = input.RequiresImportConfig;
+            definition.CompleteConfiguration = input.CompleteConfig;
+            definition.TemplateConfiguration = input.TemplateConfig;
+            definition.OtherTests = input.OtherTests;
+        }
+        
+        return definition;
     }
 
     private static Dictionary<string, TerraformSchemaDefinition> MapTerraformSchemaModels(Dictionary<string, TerraformSchemaModelDefinition> input)

@@ -53,6 +53,7 @@ public static class TerraformResourceDefinition
             GenerateIDValidationFunction = input.GenerateIDValidationFunction,
             GenerateModel = input.GenerateModel,
             GenerateSchema = input.GenerateSchema,
+            // TODO: GenerateTests?!
             ReadMethod = readMethod,
             Resource = resourceIdDetails.APIResource,
             ResourceLabel = input.ResourceLabel,
@@ -65,6 +66,11 @@ public static class TerraformResourceDefinition
         {
             definition.SchemaModels = TerraformSchemaModelDefinition.Map(input.SchemaModel);
             definition.SchemaModelName = input.SchemaModel.Name;
+        }
+
+        if (input.Tests != null)
+        {
+            definition.Tests = TerraformResourceTestDefinition.Map(input.Tests);
         }
         
         return definition;
