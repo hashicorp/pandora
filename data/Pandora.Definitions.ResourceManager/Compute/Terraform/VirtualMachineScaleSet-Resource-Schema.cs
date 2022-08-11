@@ -28,19 +28,19 @@ public class VirtualMachineScaleSetResourceSchema
     [HclName("tags")]
     [Optional]
     public CustomTypes.Tags Tags { get; set; }
-    
+
     [HclName("overprovision")]
     [Optional]
     public bool Overprovision { get; set; }
-    
+
     [HclName("proximity_placement_group_id")]
     [Optional]
     public string ProximityPlacementGroupId { get; set; }
-    
+
     [HclName("unique_id")]
     [Optional]
     public string UniqueId { get; set; }
-    
+
     [HclName("data_disks")]
     [Optional]
     public List<VirtualMachineScaleSetDataDiskSchemaModel> DataDisks { get; set; }

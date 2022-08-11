@@ -78,7 +78,7 @@ resource 'example_resource' 'example' {
         }
 
         // TODO: Mappings should be an object containing `Type` (which allows us to pipe through `BooleanWhen` etc)
-        
+
         return response;
     }
 
@@ -97,7 +97,7 @@ resource 'example_resource' 'example' {
             definition.TemplateConfiguration = input.TemplateConfig;
             definition.OtherTests = input.OtherTests;
         }
-        
+
         return definition;
     }
 
@@ -109,7 +109,7 @@ resource 'example_resource' 'example' {
         {
             output.Add(item.Key, MapSchemaModel(item.Value));
         }
-        
+
         return output;
     }
 
@@ -120,7 +120,7 @@ resource 'example_resource' 'example' {
         {
             fields.Add(field.Key, MapTerraformSchemaField(field.Value));
         }
-        
+
         return new TerraformSchemaDefinition
         {
             Fields = fields,
@@ -158,7 +158,7 @@ resource 'example_resource' 'example' {
         {
             output.NestedObject = MapSchemaFieldObjectDefinition(input.NestedObject!);
         }
-        
+
         return output;
     }
 
@@ -182,7 +182,7 @@ resource 'example_resource' 'example' {
                 return TerraformSchemaFieldType.Set.ToString();
             case Data.Models.TerraformSchemaFieldType.String:
                 return TerraformSchemaFieldType.String.ToString();
-            
+
             case Data.Models.TerraformSchemaFieldType.EdgeZone:
                 return TerraformSchemaFieldType.EdgeZone.ToString();
             case Data.Models.TerraformSchemaFieldType.IdentitySystemAssigned:

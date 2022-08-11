@@ -43,11 +43,11 @@ public class TerraformResourceDefinitionTests
         Assert.True(actual.UpdateMethod.Generate);
         Assert.AreEqual("SomeUpdate", actual.UpdateMethod.MethodName);
         Assert.AreEqual(12, actual.UpdateMethod.TimeoutInMinutes);
-        
+
         Assert.AreEqual("BasicResourceSchema", actual.SchemaModelName);
         Assert.AreEqual(1, actual.SchemaModels.Count);
         var resourceSchema = actual.SchemaModels["BasicResourceSchema"];
-        Assert.NotNull(resourceSchema); 
+        Assert.NotNull(resourceSchema);
         Assert.AreEqual(1, resourceSchema.Fields.Count);
         var nameField = resourceSchema.Fields["Name"];
         Assert.NotNull(nameField);
@@ -57,7 +57,7 @@ public class TerraformResourceDefinitionTests
         var fieldsWithMappings = resourceSchema.Fields.Select(f => f.Value.Mappings).Where(m => m.Create != null || m.Read != null || m.Update != null || !string.IsNullOrWhiteSpace(m.ResourceIDSegment)).ToList();
         Assert.AreEqual(0, fieldsWithMappings.Count);
         // TODO: Terraform Mappings
-        
+
         Assert.AreEqual("basic config", actual.Tests.BasicConfig);
         Assert.AreEqual("requires import config", actual.Tests.RequiresImportConfig);
         Assert.AreEqual("complete config", actual.Tests.CompleteConfig);
@@ -68,7 +68,7 @@ public class TerraformResourceDefinitionTests
         Assert.AreEqual(2, someTestConfigs.Count);
         Assert.AreEqual("first", someTestConfigs[0]);
         Assert.AreEqual("second", someTestConfigs[1]);
-        
+
         // TODO: validation
     }
 
@@ -132,7 +132,7 @@ public class TerraformResourceDefinitionTests
             Mapping.FromSchema<BasicResourceSchema>(s => s.Name).ToSdkModelField<v2020_01_01.Example.SomeModel>(m => m.Example),
         };
     }
-    
+
     internal class BasicResourceTests : Definitions.Interfaces.TerraformResourceTestDefinition
     {
         public string BasicTestConfig => @"basic config";

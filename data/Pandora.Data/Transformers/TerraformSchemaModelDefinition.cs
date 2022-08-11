@@ -19,7 +19,7 @@ public static class TerraformSchemaModelDefinition
             var valueType = input.GenericListElement();
             return Map(valueType);
         }
-        
+
         var output = new Dictionary<string, Models.TerraformSchemaModelDefinition>();
 
         var fields = new Dictionary<string, Models.TerraformSchemaFieldDefinition>();
@@ -33,7 +33,7 @@ public static class TerraformSchemaModelDefinition
             {
                 continue;
             }
-            
+
             var nestedModels = Map(property.PropertyType);
             foreach (var model in nestedModels)
             {
@@ -49,7 +49,7 @@ public static class TerraformSchemaModelDefinition
 
                     throw new NotSupportedException($"data error: duplicate schema model {model.Key} with different fields");
                 }
-                
+
                 output.Add(model.Key, model.Value);
             }
         }
@@ -58,12 +58,12 @@ public static class TerraformSchemaModelDefinition
         {
             throw new NotSupportedException($"schema model {input.Name} had no properties");
         }
-        
+
         output.Add(input.Name, new Models.TerraformSchemaModelDefinition
         {
             Fields = fields,
         });
-        
+
         return output;
     }
 }

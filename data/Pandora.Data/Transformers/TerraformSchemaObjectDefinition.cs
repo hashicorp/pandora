@@ -13,7 +13,7 @@ public static class TerraformSchemaObjectDefinition
         // we should look to add specific acctests for this though
         // TODO: add tests specifically for this method
         // TODO: support for Sets
-        
+
         if (input.IsAGenericList())
         {
             var listElement = input.GenericListElement();
@@ -24,7 +24,7 @@ public static class TerraformSchemaObjectDefinition
                 NestedObject = nestedItem,
             };
         }
-        
+
         if (input.IsNativeType())
         {
             return new Models.TerraformSchemaObjectDefinition
@@ -75,7 +75,7 @@ public static class TerraformSchemaObjectDefinition
         {
             return TerraformSchemaFieldType.String;
         }
-        
+
         // NOTE: we intentionally don't support Object because how would we express it in the Schema?
 
         throw new NotSupportedException($"native type {input.Name} is not mapped");
@@ -131,7 +131,7 @@ public static class TerraformSchemaObjectDefinition
         {
             return TerraformSchemaFieldType.IdentityUserAssigned;
         }
-        
+
         // RawFile and SystemData aren't supported in the Schema because how would we output them?
         throw new NotSupportedException($"pandora custom type {input.Name} is not mapped");
     }

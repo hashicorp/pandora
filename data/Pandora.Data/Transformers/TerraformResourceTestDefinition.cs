@@ -17,7 +17,8 @@ public static class TerraformResourceTestDefinition
             throw new NotSupportedException($"the requires import test configuration cannot be empty");
         }
 
-        return new Models.TerraformResourceTestDefinition {
+        return new Models.TerraformResourceTestDefinition
+        {
             BasicConfig = input.BasicTestConfig,
             RequiresImportConfig = input.RequiresImportConfig,
             CompleteConfig = input.CompleteConfig,

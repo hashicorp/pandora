@@ -10,17 +10,17 @@ public class VirtualMachineScaleSetResourceTests : TerraformResourceTestDefiniti
         resource 'azurerm_foo' 'bar' {
         }
     ".AsTerraformTestConfig();
-    
+
     public string RequiresImportConfig => @"
         resource 'azurerm_foo' 'bar' {
         }
     ".AsTerraformTestConfig();
-    
+
     public string? CompleteConfig => null;
     public string? TemplateConfig => @"
         resource 'azurerm_foo' 'bar' {
         }
     ".AsTerraformTestConfig();
-    
+
     public Dictionary<string, List<string>> OtherTests => new Dictionary<string, List<string>>();
 }

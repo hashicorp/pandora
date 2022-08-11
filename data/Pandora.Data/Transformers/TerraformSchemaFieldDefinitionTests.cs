@@ -9,7 +9,7 @@ namespace Pandora.Data.Transformers;
 public static class TerraformSchemaFieldDefinitionTests
 {
     // TODO: Mappings & Validation
-    
+
     [TestCase]
     public static void ComputedAttributeGetsMapped()
     {
@@ -28,7 +28,7 @@ public static class TerraformSchemaFieldDefinitionTests
     }
 
     [TestCase]
-    public static void DocumentationAttributeGetsMapped() 
+    public static void DocumentationAttributeGetsMapped()
     {
         var actual = TerraformSchemaModelDefinition.Map(typeof(ModelContainingADocumentationAttribute));
         var mappedModel = actual["ModelContainingADocumentationAttribute"];
@@ -43,7 +43,7 @@ public static class TerraformSchemaFieldDefinitionTests
         Assert.True(prop.Required);
         Assert.AreEqual("This property does something.", prop.Documentation.Markdown);
     }
-    
+
     [TestCase]
     public static void ForceNewAttributeGetsMapped()
     {
@@ -60,7 +60,7 @@ public static class TerraformSchemaFieldDefinitionTests
         Assert.False(prop.Required);
         Assert.Null(prop.Documentation.Markdown);
     }
-    
+
     [TestCase]
     public static void OptionalAttributeGetsMapped()
     {
@@ -77,7 +77,7 @@ public static class TerraformSchemaFieldDefinitionTests
         Assert.False(prop.Required);
         Assert.Null(prop.Documentation.Markdown);
     }
-    
+
     [TestCase]
     public static void RequiredAttributeGetsMapped()
     {
@@ -95,7 +95,7 @@ public static class TerraformSchemaFieldDefinitionTests
         Assert.Null(prop.Documentation.Markdown);
     }
 
-    
+
     [TestCase]
     public static void BuiltInTypesGetMapped()
     {
@@ -108,12 +108,12 @@ public static class TerraformSchemaFieldDefinitionTests
         Assert.NotNull(boolProp);
         Assert.AreEqual(TerraformSchemaFieldType.Boolean, boolProp.ObjectDefinition.Type);
         Assert.AreEqual("boolean_prop", boolProp.HclName);
-        
+
         var dateTimeProp = mappedModel.Fields["DateTimeProp"];
         Assert.NotNull(dateTimeProp);
         Assert.AreEqual(TerraformSchemaFieldType.DateTime, dateTimeProp.ObjectDefinition.Type);
         Assert.AreEqual("date_time_prop", dateTimeProp.HclName);
-        
+
         var intProp = mappedModel.Fields["IntegerProp"];
         Assert.NotNull(intProp);
         Assert.AreEqual(TerraformSchemaFieldType.Integer, intProp.ObjectDefinition.Type);
@@ -124,7 +124,7 @@ public static class TerraformSchemaFieldDefinitionTests
         Assert.AreEqual(TerraformSchemaFieldType.String, stringProp.ObjectDefinition.Type);
         Assert.AreEqual("string_prop", stringProp.HclName);
     }
-    
+
     [TestCase]
     public static void PandoraTypesGetMapped()
     {
@@ -132,62 +132,62 @@ public static class TerraformSchemaFieldDefinitionTests
         var mappedModel = actual["ModelContainingAllPandoraCustomTypes"];
         Assert.NotNull(mappedModel);
         Assert.AreEqual(12, mappedModel.Fields.Count);
-        
+
         var edgeZoneProp = mappedModel.Fields["EdgeZone"];
         Assert.NotNull(edgeZoneProp);
         Assert.AreEqual(TerraformSchemaFieldType.EdgeZone, edgeZoneProp.ObjectDefinition.Type);
         Assert.AreEqual("edge_zone", edgeZoneProp.HclName);
-        
+
         var locationProp = mappedModel.Fields["Location"];
         Assert.NotNull(locationProp);
         Assert.AreEqual(TerraformSchemaFieldType.Location, locationProp.ObjectDefinition.Type);
         Assert.AreEqual("location", locationProp.HclName);
-        
+
         var tagsProp = mappedModel.Fields["Tags"];
         Assert.NotNull(tagsProp);
         Assert.AreEqual(TerraformSchemaFieldType.Tags, tagsProp.ObjectDefinition.Type);
         Assert.AreEqual("tags", tagsProp.HclName);
-        
+
         var systemAssignedIdentityProp = mappedModel.Fields["SystemAssignedIdentity"];
         Assert.NotNull(systemAssignedIdentityProp);
         Assert.AreEqual(TerraformSchemaFieldType.IdentitySystemAssigned, systemAssignedIdentityProp.ObjectDefinition.Type);
         Assert.AreEqual("system_assigned_identity", systemAssignedIdentityProp.HclName);
-        
+
         var systemAndUserAssignedIdentityListProp = mappedModel.Fields["SystemAndUserAssignedIdentityList"];
         Assert.NotNull(systemAndUserAssignedIdentityListProp);
         Assert.AreEqual(TerraformSchemaFieldType.IdentitySystemAndUserAssigned, systemAndUserAssignedIdentityListProp.ObjectDefinition.Type);
         Assert.AreEqual("system_and_user_assigned_identity_list", systemAndUserAssignedIdentityListProp.HclName);
-        
+
         var systemAndUserAssignedIdentityMapProp = mappedModel.Fields["SystemAndUserAssignedIdentityMap"];
         Assert.NotNull(systemAndUserAssignedIdentityMapProp);
         Assert.AreEqual(TerraformSchemaFieldType.IdentitySystemAndUserAssigned, systemAndUserAssignedIdentityMapProp.ObjectDefinition.Type);
         Assert.AreEqual("system_and_user_assigned_identity_map", systemAndUserAssignedIdentityMapProp.HclName);
-        
+
         var legacySystemAndUserAssignedIdentityListProp = mappedModel.Fields["LegacySystemAndUserAssignedIdentityList"];
         Assert.NotNull(legacySystemAndUserAssignedIdentityListProp);
         Assert.AreEqual(TerraformSchemaFieldType.IdentitySystemAndUserAssigned, legacySystemAndUserAssignedIdentityListProp.ObjectDefinition.Type);
         Assert.AreEqual("legacy_system_and_user_assigned_identity_list", legacySystemAndUserAssignedIdentityListProp.HclName);
-        
+
         var legacySystemAndUserAssignedIdentityMapProp = mappedModel.Fields["LegacySystemAndUserAssignedIdentityMap"];
         Assert.NotNull(legacySystemAndUserAssignedIdentityMapProp);
         Assert.AreEqual(TerraformSchemaFieldType.IdentitySystemAndUserAssigned, legacySystemAndUserAssignedIdentityMapProp.ObjectDefinition.Type);
         Assert.AreEqual("legacy_system_and_user_assigned_identity_map", legacySystemAndUserAssignedIdentityMapProp.HclName);
-        
+
         var systemOrUserAssignedIdentityListProp = mappedModel.Fields["SystemOrUserAssignedIdentityList"];
         Assert.NotNull(systemOrUserAssignedIdentityListProp);
         Assert.AreEqual(TerraformSchemaFieldType.IdentitySystemOrUserAssigned, systemOrUserAssignedIdentityListProp.ObjectDefinition.Type);
         Assert.AreEqual("system_or_user_assigned_identity_list", systemOrUserAssignedIdentityListProp.HclName);
-        
+
         var systemOrUserAssignedIdentityMapProp = mappedModel.Fields["SystemOrUserAssignedIdentityMap"];
         Assert.NotNull(systemOrUserAssignedIdentityMapProp);
         Assert.AreEqual(TerraformSchemaFieldType.IdentitySystemOrUserAssigned, systemOrUserAssignedIdentityMapProp.ObjectDefinition.Type);
         Assert.AreEqual("system_or_user_assigned_identity_map", systemOrUserAssignedIdentityMapProp.HclName);
-        
+
         var userAssignedIdentityListProp = mappedModel.Fields["UserAssignedIdentityList"];
         Assert.NotNull(userAssignedIdentityListProp);
         Assert.AreEqual(TerraformSchemaFieldType.IdentityUserAssigned, userAssignedIdentityListProp.ObjectDefinition.Type);
         Assert.AreEqual("user_assigned_identity_list", userAssignedIdentityListProp.HclName);
-        
+
         var userAssignedIdentityMapProp = mappedModel.Fields["UserAssignedIdentityMap"];
         Assert.NotNull(userAssignedIdentityMapProp);
         Assert.AreEqual(TerraformSchemaFieldType.IdentityUserAssigned, userAssignedIdentityMapProp.ObjectDefinition.Type);
@@ -197,7 +197,7 @@ public static class TerraformSchemaFieldDefinitionTests
     [TestCase()]
     public static void PandoraTypesNotValidInTheSchemaRaiseAnException()
     {
-        Assert.Throws<NotSupportedException>(() =>  TerraformSchemaModelDefinition.Map(typeof(ModelContainingPandoraCustomTypesNotValidInSchema)));
+        Assert.Throws<NotSupportedException>(() => TerraformSchemaModelDefinition.Map(typeof(ModelContainingPandoraCustomTypesNotValidInSchema)));
     }
 
     private class ModelContainingAComputedAttribute
@@ -232,27 +232,27 @@ public static class TerraformSchemaFieldDefinitionTests
         [Required]
         public string Example { get; set; }
     }
-    
+
     private class ModelContainingAllBuiltInTypes
     {
         [HclName("boolean_prop")]
         [Required]
         public bool BooleanProp { get; set; }
-        
+
         [HclName("date_time_prop")]
         [Required]
         public DateTime DateTimeProp { get; set; }
-        
+
         [HclName("float_prop")]
         [Required]
         public float FloatProp { get; set; }
-        
+
         [HclName("integer_prop")]
         [Required]
         public int IntegerProp { get; set; }
-        
+
         // NOTE: we intentionally don't support Object at this time
-        
+
         [HclName("string_prop")]
         [Required]
         public string StringProp { get; set; }
@@ -316,7 +316,7 @@ public static class TerraformSchemaFieldDefinitionTests
         [HclName("raw_file")]
         [Required]
         public RawFile RawFile { get; set; }
-        
+
         [HclName("system_data")]
         [Required]
         public SystemData SystemData { get; set; }

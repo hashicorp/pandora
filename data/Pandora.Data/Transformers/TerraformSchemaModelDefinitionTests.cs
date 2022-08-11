@@ -109,27 +109,27 @@ public static class TerraformSchemaModelDefinitionTests
     private class ModelWithNoProperties
     {
     }
-    
+
     private class ModelWithOnlyBuiltInTypes
     {
         [HclName("example_boolean")]
         [Required]
         public bool ExampleBoolean { get; set; }
-        
+
         [HclName("example_datetime")]
         [Required]
         public DateTime ExampleDateTime { get; set; }
-        
+
         [HclName("example_integer")]
         [Required]
         public int ExampleInteger { get; set; }
-        
+
         [HclName("example_float")]
         [Required]
         public float ExampleFloat { get; set; }
-        
+
         // NOTE: we intentionally don't support Object at this time (as how would we know how to output it?)
-        
+
         [HclName("example_string")]
         [Required]
         public string ExampleString { get; set; }
@@ -184,11 +184,11 @@ public static class TerraformSchemaModelDefinitionTests
         [HclName("user_assigned_identity_map")]
         [Required]
         public UserAssignedIdentityMap UserAssignedIdentityMap { get; set; }
-        
+
         // NOTE: intentionally doesn't have RawFile or SystemData since these aren't output in the Schema
     }
 
-    private class ModelContainingANestedModel 
+    private class ModelContainingANestedModel
     {
         [HclName("nested_model")]
         [Required]
@@ -200,7 +200,7 @@ public static class TerraformSchemaModelDefinitionTests
         [HclName("first_nested_model")]
         [Required]
         public ModelWithOnlyBuiltInTypes FirstNestedModel { get; set; }
-        
+
         [HclName("second_nested_model")]
         [Required]
         public ModelWithOnlyBuiltInTypes SecondNestedModel { get; set; }
@@ -219,13 +219,13 @@ public static class TerraformSchemaModelDefinitionTests
         [Required]
         public Dictionary<string, ModelWithOnlyBuiltInTypes> NestedModel { get; set; }
     }
-    
+
     private class ModelContainingAListOfTheSameNestedModelTwice
     {
         [HclName("first_nested_model")]
         [Required]
         public List<ModelWithOnlyBuiltInTypes> FirstNestedModel { get; set; }
-        
+
         [HclName("second_nested_model")]
         [Required]
         public List<ModelWithOnlyBuiltInTypes> SecondNestedModel { get; set; }
@@ -236,7 +236,7 @@ public static class TerraformSchemaModelDefinitionTests
         [HclName("first_nested_model")]
         [Required]
         public Dictionary<string, ModelWithOnlyBuiltInTypes> FirstNestedModel { get; set; }
-        
+
         [HclName("second_nested_model")]
         [Required]
         public Dictionary<string, ModelWithOnlyBuiltInTypes> SecondNestedModel { get; set; }

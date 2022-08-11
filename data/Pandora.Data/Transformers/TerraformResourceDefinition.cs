@@ -72,7 +72,7 @@ public static class TerraformResourceDefinition
         {
             definition.Tests = TerraformResourceTestDefinition.Map(input.Tests);
         }
-        
+
         return definition;
     }
 

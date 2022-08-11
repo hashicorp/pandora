@@ -14,7 +14,7 @@ public class TerraformSchemaModelDefinition
             return false;
         }
 
-        var other = (TerraformSchemaModelDefinition) obj;
+        var other = (TerraformSchemaModelDefinition)obj;
         if (Fields.Count != other.Fields.Count)
         {
             return false;
@@ -33,7 +33,7 @@ public class TerraformSchemaModelDefinition
         {
             return false;
         }
-        
+
         // finally each Field itself should match
         foreach (var field in Fields)
         {

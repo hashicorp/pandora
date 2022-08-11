@@ -46,7 +46,7 @@ public static class TerraformSchemaFieldDefinition
             var documentationAttribute = input.GetCustomAttribute<DocumentationAttribute>();
             definition.Documentation.Markdown = documentationAttribute.Markdown;
         }
-        
+
         return definition;
     }
 }

@@ -11,13 +11,13 @@ public static class TerraformResourceTestDefinitionTests
     {
         Assert.Throws<NotSupportedException>(() => TerraformResourceTestDefinition.Map(new TestDefinitionWithEmptyBasic()));
     }
-    
+
     [TestCase]
     public static void EmptyRequiresImportShouldThrowAnException()
     {
         Assert.Throws<NotSupportedException>(() => TerraformResourceTestDefinition.Map(new TestDefinitionWithEmptyRequiresImport()));
     }
-    
+
     [TestCase]
     public static void BasicAndRequiredImportsOnly()
     {
@@ -65,7 +65,7 @@ public static class TerraformResourceTestDefinitionTests
         Assert.AreEqual(2, firstTestConfigs.Count);
         Assert.AreEqual("1-1", firstTestConfigs[0]);
         Assert.AreEqual("1-2", firstTestConfigs[1]);
-        
+
         var secondTestConfigs = actual.OtherTests["Second"];
         Assert.AreEqual(2, secondTestConfigs.Count);
         Assert.AreEqual("2-1", secondTestConfigs[0]);
@@ -89,7 +89,7 @@ public static class TerraformResourceTestDefinitionTests
         public string? TemplateConfig => null;
         public Dictionary<string, List<string>> OtherTests => new Dictionary<string, List<string>>();
     }
-    
+
     private class TestDefinitionWithBasicAndRequiresImportsOnly : Definitions.Interfaces.TerraformResourceTestDefinition
     {
         public string BasicTestConfig => "basic";
@@ -98,7 +98,7 @@ public static class TerraformResourceTestDefinitionTests
         public string? TemplateConfig => null;
         public Dictionary<string, List<string>> OtherTests => new Dictionary<string, List<string>>();
     }
-    
+
     private class TestDefinitionWithComplete : Definitions.Interfaces.TerraformResourceTestDefinition
     {
         public string BasicTestConfig => "basic";
@@ -107,7 +107,7 @@ public static class TerraformResourceTestDefinitionTests
         public string? TemplateConfig => null;
         public Dictionary<string, List<string>> OtherTests => new Dictionary<string, List<string>>();
     }
-    
+
     private class TestDefinitionWithTemplate : Definitions.Interfaces.TerraformResourceTestDefinition
     {
         public string BasicTestConfig => "basic";
@@ -116,7 +116,7 @@ public static class TerraformResourceTestDefinitionTests
         public string? TemplateConfig => "template";
         public Dictionary<string, List<string>> OtherTests => new Dictionary<string, List<string>>();
     }
-    
+
     private class TestDefinitionWithOtherTests : Definitions.Interfaces.TerraformResourceTestDefinition
     {
         public string BasicTestConfig => "basic";

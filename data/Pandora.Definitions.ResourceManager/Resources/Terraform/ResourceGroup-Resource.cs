@@ -11,7 +11,7 @@ public class ResourceGroupResource : TerraformResourceDefinition
     public Type? SchemaModel => typeof(ResourceGroupResourceSchema);
     public TerraformMappingDefinition SchemaMappings => new ResourceGroupResourceMappings();
     public TerraformResourceTestDefinition Tests => null;
-    
+
     public bool GenerateIDValidationFunction => true;
     public bool GenerateModel => true;
     public bool GenerateSchema => true;

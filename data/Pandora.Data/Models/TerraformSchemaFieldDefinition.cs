@@ -3,7 +3,7 @@ namespace Pandora.Data.Models;
 public class TerraformSchemaFieldDefinition
 {
     public bool Computed { get; set; }
-    
+
     public TerraformSchemaDocumentationDefinition Documentation { get; set; }
     public bool ForceNew { get; set; }
     public string HclName { get; set; }
@@ -21,7 +21,7 @@ public class TerraformSchemaFieldDefinition
             return false;
         }
 
-        var other = (TerraformSchemaFieldDefinition) obj;
+        var other = (TerraformSchemaFieldDefinition)obj;
         if (Computed != other.Computed)
         {
             return false;
@@ -46,7 +46,7 @@ public class TerraformSchemaFieldDefinition
         {
             return false;
         }
-        
+
         // TODO: Documentation Mappings ObjectDefinition Validation
         return true;
     }
