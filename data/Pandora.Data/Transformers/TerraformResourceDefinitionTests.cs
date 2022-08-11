@@ -58,12 +58,12 @@ public class TerraformResourceDefinitionTests
         Assert.AreEqual(0, fieldsWithMappings.Count);
         // TODO: Terraform Mappings
 
-        Assert.AreEqual("basic config", actual.Tests.BasicConfig);
-        Assert.AreEqual("requires import config", actual.Tests.RequiresImportConfig);
-        Assert.AreEqual("complete config", actual.Tests.CompleteConfig);
-        Assert.AreEqual("template config", actual.Tests.TemplateConfig);
-        Assert.AreEqual(1, actual.Tests.OtherTests.Count);
-        var someTestConfigs = actual.Tests.OtherTests["SomeTest"];
+        Assert.AreEqual("basic config", actual.Tests!.BasicConfig);
+        Assert.AreEqual("requires import config", actual.Tests!.RequiresImportConfig);
+        Assert.AreEqual("complete config", actual.Tests!.CompleteConfig);
+        Assert.AreEqual("template config", actual.Tests!.TemplateConfig);
+        Assert.AreEqual(1, actual.Tests!.OtherTests.Count);
+        var someTestConfigs = actual.Tests!.OtherTests["SomeTest"];
         Assert.NotNull(someTestConfigs);
         Assert.AreEqual(2, someTestConfigs.Count);
         Assert.AreEqual("first", someTestConfigs[0]);

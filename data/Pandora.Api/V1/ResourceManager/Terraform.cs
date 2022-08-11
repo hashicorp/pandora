@@ -82,7 +82,7 @@ resource 'example_resource' 'example' {
         return response;
     }
 
-    private static TerraformResourceTestsDefinition MapTerraformResourceTests(Data.Models.TerraformResourceTestDefinition input)
+    private static TerraformResourceTestsDefinition MapTerraformResourceTests(TerraformResourceTestDefinition? input)
     {
         var definition = new TerraformResourceTestsDefinition
         {
