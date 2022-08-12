@@ -2,26 +2,27 @@ package schema
 
 import (
 	"fmt"
-	"regexp"
 	"strings"
 
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
 type fieldNameMatcher interface {
-	updatedNameForField(input string, model *resourcemanager.ModelDetails) *string
+	updatedNameForField(input string, model *resourcemanager.ModelDetails, resource *resourcemanager.TerraformResourceDetails) *string
 }
 
 var namingRules = []fieldNameMatcher{
-	fieldNameAppendEnabled{},
+	fieldNameFlattenReferenceId{},
 	fieldNameIs{},
 	fieldNamePluralToSingular{},
+	fieldNameRemoveResourcePrefix{},
+	fieldNameRenameBoolean{},
 }
 
 type fieldNameIs struct{}
 
-func (fieldNameIs) updatedNameForField(input string, _ *resourcemanager.ModelDetails) *string {
-	if strings.HasPrefix(input, "is_") {
+func (fieldNameIs) updatedNameForField(input string, model *resourcemanager.ModelDetails, _ *resourcemanager.TerraformResourceDetails) *string {
+	if strings.HasPrefix(strings.ToLower(input), "is_") {
 		updatedName := input[3:]
 		return &updatedName
 	}
@@ -30,7 +31,7 @@ func (fieldNameIs) updatedNameForField(input string, _ *resourcemanager.ModelDet
 
 type fieldNamePluralToSingular struct{}
 
-func (fieldNamePluralToSingular) updatedNameForField(input string, model *resourcemanager.ModelDetails) *string {
+func (fieldNamePluralToSingular) updatedNameForField(input string, model *resourcemanager.ModelDetails, _ *resourcemanager.TerraformResourceDetails) *string {
 	if model.Fields[input].ObjectDefinition.Type == resourcemanager.ListApiObjectDefinitionType {
 		if strings.HasSuffix(input, "s") && !strings.HasSuffix(input, "ss") {
 			updatedName := strings.TrimSuffix(input, "s")
@@ -40,15 +41,65 @@ func (fieldNamePluralToSingular) updatedNameForField(input string, model *resour
 	return nil
 }
 
-type fieldNameAppendEnabled struct{}
+type fieldNameRenameBoolean struct{}
 
-func (fieldNameAppendEnabled) updatedNameForField(input string, model *resourcemanager.ModelDetails) *string {
+func (fieldNameRenameBoolean) updatedNameForField(input string, model *resourcemanager.ModelDetails, _ *resourcemanager.TerraformResourceDetails) *string {
 	if model.Fields[input].ObjectDefinition.Type == resourcemanager.BooleanApiObjectDefinitionType {
-		re := regexp.MustCompile(".[eEdD](?:nabled|isabled)")
-		if !re.MatchString(input) {
-			updatedName := fmt.Sprintf("%s_enabled", input)
-			return &updatedName
+		var updatedFieldName *string
+		// flip `enable_X` / `disable_X` prefix
+		if strings.HasPrefix(strings.ToLower(input), "enable") {
+			updated := fmt.Sprintf("%sEnabled", input[6:])
+			updatedFieldName = &updated
 		}
+		if strings.HasPrefix(strings.ToLower(input), "disable") {
+			updated := fmt.Sprintf("%sDisabled", input[7:])
+			updatedFieldName = &updated
+		}
+		// change `allow_X` prefix -> `X_enabled`
+		if strings.HasPrefix(strings.ToLower(input), "allow") {
+			updated := fmt.Sprintf("%sEnabled", input[5:])
+			updatedFieldName = &updated
+		}
+		// change `allowed_X` prefix -> `X_enabled`
+		if strings.HasPrefix(strings.ToLower(input), "allowed") {
+			updated := fmt.Sprintf("%sEnabled", input[7:])
+			updatedFieldName = &updated
+		}
+		return updatedFieldName
+	}
+	return nil
+}
+
+type fieldNameRemoveResourcePrefix struct{}
+
+func (fieldNameRemoveResourcePrefix) updatedNameForField(input string, _ *resourcemanager.ModelDetails, resource *resourcemanager.TerraformResourceDetails) *string {
+	if strings.HasPrefix(input, resource.ResourceName) {
+		updatedName := strings.Replace(input, resource.ResourceName, "", 1)
+		return &updatedName
+	}
+	return nil
+}
+
+type fieldNameFlattenReferenceId struct{}
+
+func (fieldNameFlattenReferenceId) updatedNameForField(input string, model *resourcemanager.ModelDetails, _ *resourcemanager.TerraformResourceDetails) *string {
+	if model.Fields[input].ObjectDefinition.Type == resourcemanager.ReferenceApiObjectDefinitionType {
+		model.Fields[input].ObjectDefinition.ReferenceName
+		if ok {
+			if len(model.Fields) == 1 {
+				if _, ok := getField(model, "Id"); ok {
+					return fmt.Sprintf("%sId", fieldName)
+				}
+			}
+		}
+	}
+	return nil
+}
+
+func checkIfFieldExists(fieldName string, model *resourcemanager.ModelDetails) error {
+	_, ok := getField(*model, fieldName)
+	if !ok {
+		return fmt.Errorf("%s was not found in %+v", fieldName, model.Fields)
 	}
 	return nil
 }

@@ -23,7 +23,7 @@ func TestUpdateNameForField_Is(t *testing.T) {
 	for _, v := range testData {
 		t.Logf("[DEBUG] Testing %s", v.input)
 
-		actual := fieldNameIs{}.updatedNameForField(v.input, nil)
+		actual := fieldNameIs{}.updatedNameForField(v.input, nil, nil)
 
 		if actual == nil {
 			if v.expected == nil {
@@ -90,7 +90,7 @@ func TestUpdateNameForField_PluralToSingular(t *testing.T) {
 	for _, v := range testData {
 		t.Logf("[DEBUG] Testing %s", v.fieldInput)
 
-		actual := fieldNamePluralToSingular{}.updatedNameForField(v.fieldInput, &v.modelInput)
+		actual := fieldNamePluralToSingular{}.updatedNameForField(v.fieldInput, &v.modelInput, nil)
 
 		if actual == nil {
 			if v.expected == nil {
@@ -114,51 +114,77 @@ func TestUpdateNameForField_AppendEnabled(t *testing.T) {
 		expected   *string
 	}{
 		{
-			fieldInput: "pandas",
+			fieldInput: "enablePandas",
 			modelInput: resourcemanager.ModelDetails{
 				Fields: map[string]resourcemanager.FieldDetails{
-					"pandas": {
+					"enablePandas": {
 						ObjectDefinition: resourcemanager.ApiObjectDefinition{
 							Type: resourcemanager.BooleanApiObjectDefinitionType,
 						},
 					},
 				},
 			},
-			expected: stringPointer("pandas_enabled"),
+			expected: stringPointer("PandasEnabled"),
 		},
 		{
-			fieldInput: "planets",
+			fieldInput: "disablePlanets",
 			modelInput: resourcemanager.ModelDetails{
 				Fields: map[string]resourcemanager.FieldDetails{
-					"planets": {
+					"disablePlanets": {
+						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+							Type: resourcemanager.BooleanApiObjectDefinitionType,
+						},
+					},
+				},
+			},
+			expected: stringPointer("PlanetsDisabled"),
+		},
+		{
+			fieldInput: "AllowedPublicAccess",
+			modelInput: resourcemanager.ModelDetails{
+				Fields: map[string]resourcemanager.FieldDetails{
+					"AllowedPublicAccess": {
+						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+							Type: resourcemanager.BooleanApiObjectDefinitionType,
+						},
+					},
+				},
+			},
+			expected: stringPointer("PublicAccessEnabled"),
+		},
+		{
+			fieldInput: "AllowTethering",
+			modelInput: resourcemanager.ModelDetails{
+				Fields: map[string]resourcemanager.FieldDetails{
+					"AllowTethering": {
+						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+							Type: resourcemanager.BooleanApiObjectDefinitionType,
+						},
+					},
+				},
+			},
+			expected: stringPointer("TetheringEnabled"),
+		},
+		{
+			fieldInput: "TastesLikePancakes",
+			modelInput: resourcemanager.ModelDetails{
+				Fields: map[string]resourcemanager.FieldDetails{
+					"TastesLikePancakes": {
+						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+							Type: resourcemanager.BooleanApiObjectDefinitionType,
+						},
+					},
+				},
+			},
+			expected: nil,
+		},
+		{
+			fieldInput: "ThreeCoffeesADay",
+			modelInput: resourcemanager.ModelDetails{
+				Fields: map[string]resourcemanager.FieldDetails{
+					"ThreeCoffeesADay": {
 						ObjectDefinition: resourcemanager.ApiObjectDefinition{
 							Type: resourcemanager.StringApiObjectDefinitionType,
-						},
-					},
-				},
-			},
-			expected: nil,
-		},
-		{
-			fieldInput: "security_enabled",
-			modelInput: resourcemanager.ModelDetails{
-				Fields: map[string]resourcemanager.FieldDetails{
-					"security_enabled": {
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.BooleanApiObjectDefinitionType,
-						},
-					},
-				},
-			},
-			expected: nil,
-		},
-		{
-			fieldInput: "securityDisabled",
-			modelInput: resourcemanager.ModelDetails{
-				Fields: map[string]resourcemanager.FieldDetails{
-					"securityDisabled": {
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.BooleanApiObjectDefinitionType,
 						},
 					},
 				},
@@ -170,7 +196,49 @@ func TestUpdateNameForField_AppendEnabled(t *testing.T) {
 	for _, v := range testData {
 		t.Logf("[DEBUG] Testing %s", v.fieldInput)
 
-		actual := fieldNameAppendEnabled{}.updatedNameForField(v.fieldInput, &v.modelInput)
+		actual := fieldNameRenameBoolean{}.updatedNameForField(v.fieldInput, &v.modelInput, nil)
+
+		if actual == nil {
+			if v.expected == nil {
+				continue
+			}
+			t.Fatalf("expected a result but didn't get one")
+		}
+		if v.expected == nil {
+			t.Fatalf("expected no result but got %s", *actual)
+		}
+		if *actual != *v.expected {
+			t.Fatalf("Expected %s but got %s", *v.expected, *actual)
+		}
+	}
+}
+
+func TestUpdateNameForField_RemoveResourcePrefix(t *testing.T) {
+	testData := []struct {
+		fieldInput    string
+		resourceInput resourcemanager.TerraformResourceDetails
+		expected      *string
+	}{
+		{
+			fieldInput: "animalPandas",
+			resourceInput: resourcemanager.TerraformResourceDetails{
+				ResourceName: "animal",
+			},
+			expected: stringPointer("Pandas"),
+		},
+		{
+			fieldInput: "mars",
+			resourceInput: resourcemanager.TerraformResourceDetails{
+				ResourceName: "Planets",
+			},
+			expected: nil,
+		},
+	}
+
+	for _, v := range testData {
+		t.Logf("[DEBUG] Testing %s", v.fieldInput)
+
+		actual := fieldNameRemoveResourcePrefix{}.updatedNameForField(v.fieldInput, nil, &v.resourceInput)
 
 		if actual == nil {
 			if v.expected == nil {
