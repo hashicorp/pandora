@@ -28,5 +28,7 @@ func normalizeTag(input string) string {
 	output = strings.ReplaceAll(output, "EndPoint", "Endpoint")
 	output = strings.ReplaceAll(output, "NetWork", "Network")
 	output = strings.ReplaceAll(output, "Baremetalinfrastructure", "BareMetalInfrastructure")
+	output = strings.ReplaceAll(output, "VirtualWans", "VirtualWANs")
+
 	return output
 }

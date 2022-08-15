@@ -2643,7 +2643,7 @@ func TestParseOperationSingleWithMultipleTags(t *testing.T) {
 	}
 }
 
-func TestParseOperationSingleWithNoTag(t *testing.T) {
+func TestParseOperationSingleWithInferredTag(t *testing.T) {
 	result, err := ParseSwaggerFileForTesting(t, "operations_single_with_no_tag.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
@@ -2655,8 +2655,8 @@ func TestParseOperationSingleWithNoTag(t *testing.T) {
 		t.Fatalf("expected 1 resource but got %d", len(result.Resources))
 	}
 
-	// since there's no tags, the Client name is used (in this case, 'Example')
-	example, ok := result.Resources["Example"]
+	// since there's no tags, the file name is used to infer the tag (in this case, 'OperationsSingleWithNoTags')
+	example, ok := result.Resources["OperationsSingleWithNoTags"]
 	if !ok {
 		t.Fatalf("no resources were output with the tag Example")
 	}
