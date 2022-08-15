@@ -12,6 +12,6 @@ public partial class Definition : ApiVersionDefinition
     public IEnumerable<ResourceDefinition> Resources => new List<ResourceDefinition>
     {
         new Links.Definition(),
-        new ServiceLinker.Definition(),
+        new Servicelinker.Definition(),
     };
 }

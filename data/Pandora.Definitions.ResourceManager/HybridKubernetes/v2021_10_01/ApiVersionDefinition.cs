@@ -11,6 +11,6 @@ public partial class Definition : ApiVersionDefinition
 
     public IEnumerable<ResourceDefinition> Resources => new List<ResourceDefinition>
     {
-        new HybridKubernetes.Definition(),
+        new ConnectedClusters.Definition(),
     };
 }

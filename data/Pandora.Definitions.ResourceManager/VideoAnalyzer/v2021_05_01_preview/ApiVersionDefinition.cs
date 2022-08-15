@@ -11,6 +11,8 @@ public partial class Definition : ApiVersionDefinition
 
     public IEnumerable<ResourceDefinition> Resources => new List<ResourceDefinition>
     {
-        new VideoAnalyzer.Definition(),
+        new EdgeModules.Definition(),
+        new VideoAnalyzers.Definition(),
+        new Videos.Definition(),
     };
 }
