@@ -11,7 +11,7 @@ public partial class Definition : ApiVersionDefinition
 
     public IEnumerable<ResourceDefinition> Resources => new List<ResourceDefinition>
     {
-        new DNS.Definition(),
+        new Dns.Definition(),
         new RecordSets.Definition(),
         new Zones.Definition(),
     };

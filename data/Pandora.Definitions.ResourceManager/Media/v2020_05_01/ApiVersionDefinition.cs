@@ -11,10 +11,15 @@ public partial class Definition : ApiVersionDefinition
 
     public IEnumerable<ResourceDefinition> Resources => new List<ResourceDefinition>
     {
+        new AccountFilters.Definition(),
+        new Accounts.Definition(),
+        new AssetsAndAssetFilters.Definition(),
+        new ContentKeyPolicies.Definition(),
+        new Encodings.Definition(),
         new LiveEvents.Definition(),
         new LiveOutputs.Definition(),
-        new Media.Definition(),
         new StreamingEndpoint.Definition(),
         new StreamingEndpoints.Definition(),
+        new StreamingPoliciesAndStreamingLocators.Definition(),
     };
 }

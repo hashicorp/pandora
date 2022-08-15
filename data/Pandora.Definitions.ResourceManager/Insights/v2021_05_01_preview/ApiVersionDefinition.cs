@@ -12,9 +12,9 @@ public partial class Definition : ApiVersionDefinition
     public IEnumerable<ResourceDefinition> Resources => new List<ResourceDefinition>
     {
         new AutoScaleSettings.Definition(),
+        new AutoscaleAPIs.Definition(),
         new DiagnosticSettings.Definition(),
         new DiagnosticSettingsCategories.Definition(),
-        new Insights.Definition(),
         new ManagementGroupDiagnosticSettings.Definition(),
         new Metrics.Definition(),
         new SubscriptionDiagnosticSettings.Definition(),
