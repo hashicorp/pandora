@@ -6,6 +6,7 @@ namespace Pandora.Definitions.ResourceManager.Compute.Terraform;
 
 public class VirtualMachineScaleSetResourceTests : TerraformResourceTestDefinition
 {
+    // TODO: output real tests
     public string BasicTestConfig => @"
         resource 'azurerm_foo' 'bar' {
         }

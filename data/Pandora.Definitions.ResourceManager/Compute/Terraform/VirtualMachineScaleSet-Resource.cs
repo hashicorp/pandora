@@ -9,9 +9,7 @@ public class VirtualMachineScaleSetResource : TerraformResourceDefinition
     public ResourceID ResourceId => new v2021_11_01.VirtualMachineScaleSets.VirtualMachineScaleSetId();
     public string ResourceLabel => "virtual_machine_scale_set";
     public Type? SchemaModel => typeof(VirtualMachineScaleSetResourceSchema);
-
-    public TerraformMappingDefinition SchemaMappings => new VirtualMachineScaleSetResourceMappings();
-
+    public TerraformMappingDefinition SchemaMappings => null; // TODO: implement mappings
     public TerraformResourceTestDefinition Tests => new VirtualMachineScaleSetResourceTests();
 
     public bool GenerateIDValidationFunction => true;
