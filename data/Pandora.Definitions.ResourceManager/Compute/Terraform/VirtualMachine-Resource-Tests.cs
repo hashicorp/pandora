@@ -4,7 +4,7 @@ using Pandora.Definitions.Interfaces;
 
 namespace Pandora.Definitions.ResourceManager.Compute.Terraform;
 
-public class VirtualMachineScaleSetResourceTests : TerraformResourceTestDefinition
+public class VirtualMachineResourceTests : TerraformResourceTestDefinition
 {
     // TODO: output real tests
     public string BasicTestConfig => @"
