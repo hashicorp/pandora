@@ -10,19 +10,19 @@ namespace Pandora.Definitions.ResourceManager.DeviceProvisioningServices.v2022_0
 
 internal class ProvisioningServiceId : ResourceID
 {
-    public string? CommonAlias => null;
+    public string? CommonAlias => "ProvisioningService";
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Devices/provisioningServices/{provisioningServiceName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Devices/provisioningServices/{provisioningServiceName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
-        ResourceIDSegment.Static("staticSubscriptions", "subscriptions"),
+        ResourceIDSegment.Static("subscriptions", "subscriptions"),
         ResourceIDSegment.SubscriptionId("subscriptionId"),
-        ResourceIDSegment.Static("staticResourceGroups", "resourceGroups"),
-        ResourceIDSegment.ResourceGroup("resourceGroupName"),
-        ResourceIDSegment.Static("staticProviders", "providers"),
-        ResourceIDSegment.ResourceProvider("staticMicrosoftDevices", "Microsoft.Devices"),
-        ResourceIDSegment.Static("staticProvisioningServices", "provisioningServices"),
+        ResourceIDSegment.Static("resourceGroups", "resourceGroups"),
+        ResourceIDSegment.ResourceGroup("resourceGroup"),
+        ResourceIDSegment.Static("providers", "providers"),
+        ResourceIDSegment.ResourceProvider("resourceProvider", "Microsoft.Devices"),
+        ResourceIDSegment.Static("provisioningServices", "provisioningServices"),
         ResourceIDSegment.UserSpecified("provisioningServiceName"),
     };
 }
