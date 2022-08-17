@@ -34,6 +34,9 @@ var commonIdTypes = []commonIdMatcher{
 	commonIdVirtualMachineScaleSetPublicIPAddress{},
 	commonIdVirtualRouterPeering{},
 	commonIdVirtualWANP2SVPNGateway{},
+
+	// Misc data fixes
+	commonIdProvisioningService{}, // (@jackofallops): Inconsistent user specified fields in the swagger - `provisioningServices/{resourceName}` vs `provisioningServices/{provisioningServiceName}`
 }
 
 func switchOutCommonResourceIDsAsNeeded(input []models.ParsedResourceId) []models.ParsedResourceId {
