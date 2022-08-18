@@ -2,6 +2,7 @@ package pipeline
 
 import (
 	"fmt"
+	"strings"
 
 	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/discovery"
@@ -15,11 +16,13 @@ type RunInput struct {
 	JustParseData            bool
 	Logger                   hclog.Logger
 	OutputDirectory          string
+	Services                 []string
 	SwaggerDirectory         string
 	TerraformDefinitionsPath string
 }
 
 func Run(input RunInput) error {
+	logger := hclog.New(hclog.DefaultOptions)
 	resources, err := definitions.LoadFromDirectory(input.TerraformDefinitionsPath)
 	if err != nil {
 		return fmt.Errorf("loading terraform definitions from %q: %+v", input.TerraformDefinitionsPath, err)
@@ -31,7 +34,17 @@ func Run(input RunInput) error {
 		OutputDirectory:  input.OutputDirectory,
 		Logger:           input.Logger.Named("Discovery"),
 	}
-	generationData, err := discovery.FindServices(findInput, *resources)
+
+	var generationData *[]discovery.ServiceInput
+
+	if len(input.Services) > 0 {
+		logger.Info(fmt.Sprintf("Finding only the Services %q", strings.Join(input.Services, ", ")))
+		generationData, err = discovery.FindServicesByName(findInput, *resources, input.Services)
+	} else {
+		logger.Info("Finding all services.. this may take a while..")
+		generationData, err = discovery.FindServices(findInput, *resources)
+	}
+
 	if err != nil {
 		return fmt.Errorf("loading data: %+v", err)
 	}

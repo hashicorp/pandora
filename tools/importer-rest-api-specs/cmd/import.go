@@ -40,10 +40,17 @@ outputs this Data in the format used by the Data API.`
 
 func (c ImportCommand) Run(args []string) int {
 	var dataApiEndpointVar string
+	var serviceNamesRaw string
 
 	f := flag.NewFlagSet("importer-rest-api-specs", flag.ExitOnError)
 	f.StringVar(&dataApiEndpointVar, "data-api", "", "The Data API Endpoint (e.g. --data-api=http://localhost:5000")
+	f.StringVar(&serviceNamesRaw, "services", "", "A list of comma separated Service named from the Data API to import")
 	f.Parse(args)
+
+	var serviceNames []string
+	if serviceNamesRaw != "" {
+		serviceNames = strings.Split(serviceNamesRaw, ",")
+	}
 
 	var dataApiEndpoint *string
 	if dataApiEndpointVar == "" {
@@ -67,6 +74,7 @@ func (c ImportCommand) Run(args []string) int {
 		DataApiEndpoint:          dataApiEndpoint,
 		Logger:                   logger,
 		OutputDirectory:          c.outputDirectory,
+		Services:                 serviceNames,
 		SwaggerDirectory:         c.swaggerDirectory,
 		TerraformDefinitionsPath: c.terraformDefinitionsPath,
 	}
