@@ -73,13 +73,6 @@ func (h TestAttributesHelpers) codeForTestAttribute(input resourcemanager.Terraf
 				{Type: hclsyntax.TokenQuotedLit, Bytes: []byte(`local.random_integer}"`)},
 			}
 			hclBody.SetAttributeRaw(hclName, tokens)
-		case "resource_group_name":
-			addCommentToTestConfig(hclBody, "todo add azurerm_resource_group.test to template")
-			hclBody.SetAttributeTraversal(hclName, hcl.Traversal{
-				hcl.TraverseRoot{
-					Name: "azurerm_resource_group.test.name",
-				},
-			})
 		default:
 			hclBody.SetAttributeValue(hclName, cty.StringVal("foo"))
 		}

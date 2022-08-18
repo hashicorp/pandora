@@ -335,23 +335,6 @@ func TestStringAttributes(t *testing.T) {
 name ="acctest-${local.random_integer}"
 `,
 		},
-		{
-			input: resourcemanager.TerraformSchemaModelDefinition{
-				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
-					"ResourceGroupName": {
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeString,
-						},
-						HclName:  "resource_group_name",
-						Optional: true,
-					},
-				},
-			},
-			expected: `
-  // todo add azurerm_resource_group.test to template
-  resource_group_name = azurerm_resource_group.test.name
-`,
-		},
 	}
 
 	file := hclwrite.NewEmptyFile()
