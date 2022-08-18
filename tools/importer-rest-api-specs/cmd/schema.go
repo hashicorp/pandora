@@ -56,7 +56,7 @@ func (s SchemaCommand) Run(args []string) int {
 }
 
 func (s SchemaCommand) Synopsis() string {
-	return "specify -services=Compute,Resource to limit to just that or don't for everything, you do you."
+	return "Specify -services=Compute,Resource to limit to just that or don't for everything, you do you."
 }
 
 type Input struct {

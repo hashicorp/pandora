@@ -35,7 +35,10 @@ type ImportCommand struct {
 func (ImportCommand) Help() string {
 	return `Import parses and processes the Swagger Data from the './swagger' submodule, determining
 which Terraform Data Sources & Resources can be generated - and then finally
-outputs this Data in the format used by the Data API.`
+outputs this Data in the format used by the Data API.
+
+Specify -services=Compute,Resource to limit to just that or don't for everything, you do you.
+`
 }
 
 func (c ImportCommand) Run(args []string) int {
