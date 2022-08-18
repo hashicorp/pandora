@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace Pandora.Data.Models;
 
 public class TerraformResourceDefinition
@@ -14,5 +16,9 @@ public class TerraformResourceDefinition
     public string ResourceIdName { get; set; }
     public string ResourceLabel { get; set; }
     public string ResourceName { get; set; }
+    public string? SchemaModelName { get; set; }
+    public Dictionary<string, TerraformSchemaModelDefinition>? SchemaModels { get; set; }
+
+    public TerraformResourceTestDefinition? Tests { get; set; }
     public TerraformMethodDefinition? UpdateMethod { get; set; }
 }

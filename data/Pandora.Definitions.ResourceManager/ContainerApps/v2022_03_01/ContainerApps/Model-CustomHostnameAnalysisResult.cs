@@ -31,7 +31,7 @@ internal class CustomHostnameAnalysisResultModel
     public string? ConflictingContainerAppResourceId { get; set; }
 
     [JsonPropertyName("customDomainVerificationFailureInfo")]
-    public DefaultErrorResponseModel? CustomDomainVerificationFailureInfo { get; set; }
+    public CustomHostnameAnalysisResultCustomDomainVerificationFailureInfoModel? CustomDomainVerificationFailureInfo { get; set; }
 
     [JsonPropertyName("customDomainVerificationTest")]
     public DnsVerificationTestResultConstant? CustomDomainVerificationTest { get; set; }

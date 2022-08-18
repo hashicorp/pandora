@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json.Serialization;
@@ -40,6 +41,8 @@ public class TerraformController : ControllerBase
 
     private static ResourceResponse MapResourceDefinition(TerraformResourceDefinition input)
     {
+        var schemaModels = MapTerraformSchemaModels(input.SchemaModels!);
+        var tests = MapTerraformResourceTests(input.Tests);
         var response = new ResourceResponse
         {
             ApiVersion = input.ApiVersion,
@@ -65,481 +68,144 @@ resource 'example_resource' 'example' {
             ReadMethod = MapMethodDefinition(input.ReadMethod),
             ResourceName = input.ResourceName,
             ResourceIdName = input.ResourceIdName,
+            SchemaModelName = input.SchemaModelName,
+            SchemaModels = schemaModels,
+            Tests = tests,
         };
         if (input.UpdateMethod != null)
         {
             response.UpdateMethod = MapMethodDefinition(input.UpdateMethod!);
         }
 
-        // TODO: replace these with real mappings
-        if (input.ResourceLabel == "resource_group")
-        {
-            response.SchemaModelName = $"{input.ResourceName}ResourceSchema";
-            response.SchemaModels = new Dictionary<string, TerraformSchemaDefinition>
-            {
-                {$"{input.ResourceName}ResourceSchema", new TerraformSchemaDefinition
-                {
-                    Fields = new Dictionary<string, TerraformSchemaFieldDefinition>
-                    {
-                        {"Name", new TerraformSchemaFieldDefinition
-                        {
-                            Computed = false,
-                            Optional = false,
-                            Required = true,
-                            ForceNew = true,
-                            HclName = "name",
-                            ObjectDefinition = new TerraformSchemaObjectDefinition
-                            {
-                                Type = TerraformSchemaFieldType.String.ToString(),
-                            },
-                            Documentation = new TerraformSchemaDocumentationDefinition
-                            {
-                                Markdown = "The name of this Resource Group."
-                            },
-                            Validation = new TerraformSchemaFieldValidationDefinition
-                            {
-                                Type = TerraformSchemaFieldValidationType.NoEmptyValue.ToString(),
-                            },
-                            Mappings = new TerraformSchemaMappingDefinition
-                            {
-                                ResourceIdSegment = "resourceGroupName"
-                            },
-                        }},
-                        {"Location", new TerraformSchemaFieldDefinition
-                        {
-                            HclName = "location",
-                            Computed = false,
-                            Optional = false,
-                            Required = true,
-                            ForceNew = true,
-                            ObjectDefinition = new TerraformSchemaObjectDefinition
-                            {
-                                Type = TerraformSchemaFieldType.Location.ToString(),
-                            },
-                            Documentation = new TerraformSchemaDocumentationDefinition
-                            {
-                                Markdown = "The Azure Region where this Resource Group should be created."
-                            },
-                            Validation = new TerraformSchemaFieldValidationDefinition
-                            {
-                                Type = TerraformSchemaFieldValidationType.NoEmptyValue.ToString(),
-                            },
-                            Mappings = new TerraformSchemaMappingDefinition
-                            {
-                                SDKPathForCreate = "Location",
-                                SDKPathForRead = "Location",
-                                SDKPathForUpdate = null,
-                            },
-                        }},
-                        {"Tags", new TerraformSchemaFieldDefinition
-                        {
-                            HclName = "tags",
-                            Computed = false,
-                            Optional = true,
-                            Required = false,
-                            ForceNew = false,
-                            ObjectDefinition = new TerraformSchemaObjectDefinition
-                            {
-                                Type = TerraformSchemaFieldType.Tags.ToString(),
-                            },
-                            Documentation = new TerraformSchemaDocumentationDefinition
-                            {
-                                Markdown = "A mapping of tags which should be assigned to this Resource Group."
-                            },
-                            Validation = null,
-                            Mappings = new TerraformSchemaMappingDefinition
-                            {
-                                SDKPathForCreate = "Tags",
-                                SDKPathForRead = "Tags",
-                                SDKPathForUpdate = "Tags",
-                            },
-                        }}
-                    }
-                }},
-            };
-            response.Tests = new TerraformResourceTestsDefinition
-            {
-                Generate = true,
-                BasicConfiguration = @"
-resource ""azurerm_resource_group"" ""test"" {
-    name     = ""acctest-rg${local.random_integer}""
-    location = local.primary_location
-}
-",
-                CompleteConfiguration = @"
-resource ""azurerm_resource_group"" ""test"" {
-    name     = ""acctest-rg${local.random_integer}""
-    location = local.primary_location
-
-    tags = {
-        ""Hello"" = ""AutoGen""
-    }
-}
-",
-                RequiresImportConfiguration = @"
-resource ""azurerm_resource_group"" ""import"" {
-    name     = azurerm_resource_group.test.name
-    location = azurerm_resource_group.test.location
-}
-",
-            };
-        }
-
-        if (input.ResourceLabel == "virtual_machine")
-        {
-            response.SchemaModelName = $"{input.ResourceName}ResourceSchema";
-            response.SchemaModels = new Dictionary<string, TerraformSchemaDefinition>
-            {
-                {$"{input.ResourceName}ResourceSchema", new TerraformSchemaDefinition
-                {
-                    Fields = new Dictionary<string, TerraformSchemaFieldDefinition>
-                    {
-                        {"Name", new TerraformSchemaFieldDefinition
-                        {
-                            HclName = "name",
-                            Computed = false,
-                            Optional = false,
-                            Required = true,
-                            ForceNew = true,
-                            ObjectDefinition = new TerraformSchemaObjectDefinition
-                            {
-                                Type = TerraformSchemaFieldType.String.ToString(),
-                            },
-                            Documentation = new TerraformSchemaDocumentationDefinition
-                            {
-                                Markdown = "The name of this Virtual Machine."
-                            },
-                            Validation = new TerraformSchemaFieldValidationDefinition
-                            {
-                                Type = TerraformSchemaFieldValidationType.NoEmptyValue.ToString(),
-                            },
-                            Mappings = new TerraformSchemaMappingDefinition
-                            {
-                                ResourceIdSegment = "virtualMachineName"
-                            },
-                        }},
-                        {"ResourceGroupName", new TerraformSchemaFieldDefinition
-                        {
-                            HclName = "resource_group_name",
-                            Computed = false,
-                            Optional = false,
-                            Required = true,
-                            ForceNew = true,
-                            ObjectDefinition = new TerraformSchemaObjectDefinition
-                            {
-                                Type = TerraformSchemaFieldType.String.ToString(),
-                            },
-                            Documentation = new TerraformSchemaDocumentationDefinition
-                            {
-                                Markdown = "The name of the Resource Group that this Virtual Machine is located within."
-                            },
-                            Validation = new TerraformSchemaFieldValidationDefinition
-                            {
-                                Type = TerraformSchemaFieldValidationType.NoEmptyValue.ToString(),
-                            },
-                            Mappings = new TerraformSchemaMappingDefinition
-                            {
-                                ResourceIdSegment = "resourceGroupName"
-                            },
-                        }},
-                        {"Location", new TerraformSchemaFieldDefinition
-                        {
-                            HclName = "location",
-                            Computed = false,
-                            Optional = false,
-                            Required = true,
-                            ForceNew = true,
-                            ObjectDefinition = new TerraformSchemaObjectDefinition
-                            {
-                                Type = TerraformSchemaFieldType.Location.ToString(),
-                            },
-                            Documentation = new TerraformSchemaDocumentationDefinition
-                            {
-                                Markdown = "The Azure Region where this Resource Group should be created."
-                            },
-                            Validation = new TerraformSchemaFieldValidationDefinition
-                            {
-                                Type = TerraformSchemaFieldValidationType.NoEmptyValue.ToString(),
-                            },
-                            Mappings = new TerraformSchemaMappingDefinition
-                            {
-                                SDKPathForCreate = "Location",
-                                SDKPathForRead = "Location",
-                                SDKPathForUpdate = null,
-                            },
-                        }},
-                        {"Tags", new TerraformSchemaFieldDefinition
-                        {
-                            HclName = "tags",
-                            Computed = false,
-                            Optional = true,
-                            Required = false,
-                            ForceNew = false,
-                            ObjectDefinition = new TerraformSchemaObjectDefinition
-                            {
-                                Type = TerraformSchemaFieldType.Tags.ToString(),
-                            },
-                            Documentation = new TerraformSchemaDocumentationDefinition
-                            {
-                                Markdown = "A mapping of tags which should be assigned to this Resource Group."
-                            },
-                            Validation = null,
-                            Mappings = new TerraformSchemaMappingDefinition
-                            {
-                                SDKPathForCreate = "Tags",
-                                SDKPathForRead = "Tags",
-                                SDKPathForUpdate = "Tags",
-                            },
-                        }},
-                        {"NestedItem", new TerraformSchemaFieldDefinition
-                        {
-                            HclName = "nested_item",
-                            Optional = true,
-                            Documentation = new TerraformSchemaDocumentationDefinition
-                            {
-                                Markdown = "Something. I don't know.",
-                            },
-                            ObjectDefinition = new TerraformSchemaObjectDefinition
-                            {
-                                Type = TerraformSchemaFieldType.Reference.ToString(),
-                                ReferenceName = $"{input.ResourceName}AddressSchema",
-                            },
-                            Mappings = new TerraformSchemaMappingDefinition
-                            {
-                                SDKPathForCreate = "Properties.NestedItem",
-                                SDKPathForRead = "Properties.NestedItem",
-                                SDKPathForUpdate = "Properties.NestedItem",
-                            },
-                        }},
-                    }
-                }},
-                {
-                    $"{input.ResourceName}AddressSchema", new TerraformSchemaDefinition
-                    {
-                        Fields = new Dictionary<string, TerraformSchemaFieldDefinition>
-                        {
-                            {"Line1", new TerraformSchemaFieldDefinition
-                            {
-                                HclName = "line1",
-                                Computed = false,
-                                Optional = false,
-                                Required = true,
-                                ForceNew = true,
-                                ObjectDefinition = new TerraformSchemaObjectDefinition
-                                {
-                                    Type = TerraformSchemaFieldType.String.ToString(),
-                                },
-                                Documentation = new TerraformSchemaDocumentationDefinition
-                                {
-                                    Markdown = "The first line of the address."
-                                },
-                                Validation = new TerraformSchemaFieldValidationDefinition
-                                {
-                                    Type = TerraformSchemaFieldValidationType.NoEmptyValue.ToString(),
-                                },
-                                Mappings = new TerraformSchemaMappingDefinition
-                                {
-                                    SDKPathForCreate = "Line1",
-                                    SDKPathForRead = "Line1",
-                                    SDKPathForUpdate = "Line1",
-                                },
-                            }},
-                            {"TownOrCity", new TerraformSchemaFieldDefinition
-                            {
-                                HclName = "town_or_city",
-                                Computed = false,
-                                Optional = false,
-                                Required = true,
-                                ForceNew = true,
-                                ObjectDefinition = new TerraformSchemaObjectDefinition
-                                {
-                                    Type = TerraformSchemaFieldType.String.ToString(),
-                                },
-                                Documentation = new TerraformSchemaDocumentationDefinition
-                                {
-                                    Markdown = "The town or city of the address."
-                                },
-                                Validation = new TerraformSchemaFieldValidationDefinition
-                                {
-                                    Type = TerraformSchemaFieldValidationType.NoEmptyValue.ToString(),
-                                },
-                                Mappings = new TerraformSchemaMappingDefinition
-                                {
-                                    SDKPathForCreate = "TownOrCity",
-                                    SDKPathForRead = "TownOrCity",
-                                    SDKPathForUpdate = "TownOrCity",
-                                },
-                            }}
-                        }
-                    }
-                }
-            };
-            response.Tests = new TerraformResourceTestsDefinition
-            {
-                Generate = true,
-                BasicConfiguration = @"
-resource ""azurerm_virtual_machine"" ""test"" {
-    name     = ""acctest-vm${local.random_integer}""
-    location = local.primary_location
-}
-",
-                CompleteConfiguration = @"
-resource ""azurerm_virtual_machine"" ""test"" {
-    name     = ""acctest-vm${local.random_integer}""
-    location = local.primary_location
-
-    tags = {
-        ""Hello"" = ""AutoGen""
-    }
-}
-",
-                RequiresImportConfiguration = @"
-resource ""azurerm_virtual_machine"" ""import"" {
-    name     = azurerm_virtual_machine.test.name
-    location = azurerm_virtual_machine.test.location
-}
-",
-            };
-        }
-
-        if (input.ResourceLabel == "virtual_machine_scale_set")
-        {
-            response.SchemaModelName = $"{input.ResourceName}ResourceSchema";
-            response.SchemaModels = new Dictionary<string, TerraformSchemaDefinition>
-            {
-                {$"{input.ResourceName}ResourceSchema", new TerraformSchemaDefinition
-                {
-                    Fields = new Dictionary<string, TerraformSchemaFieldDefinition>
-                    {
-                        {"Name", new TerraformSchemaFieldDefinition
-                        {
-                            HclName = "name",
-                            Computed = false,
-                            Optional = false,
-                            Required = true,
-                            ForceNew = true,
-                            ObjectDefinition = new TerraformSchemaObjectDefinition
-                            {
-                                Type = TerraformSchemaFieldType.String.ToString(),
-                            },
-                            Documentation = new TerraformSchemaDocumentationDefinition
-                            {
-                                Markdown = "The name of this Virtual Machine Scale Set."
-                            },
-                            Validation = new TerraformSchemaFieldValidationDefinition
-                            {
-                                Type = TerraformSchemaFieldValidationType.NoEmptyValue.ToString(),
-                            },
-                            Mappings = new TerraformSchemaMappingDefinition
-                            {
-                                ResourceIdSegment = "virtualMachineScaleSetName"
-                            },
-                        }},
-                        {"ResourceGroupName", new TerraformSchemaFieldDefinition
-                        {
-                            HclName = "resource_group_name",
-                            Computed = false,
-                            Optional = false,
-                            Required = true,
-                            ForceNew = true,
-                            ObjectDefinition = new TerraformSchemaObjectDefinition
-                            {
-                                Type = TerraformSchemaFieldType.String.ToString(),
-                            },
-                            Documentation = new TerraformSchemaDocumentationDefinition
-                            {
-                                Markdown = "The name of the Resource Group that this Virtual Machine Scale Set is located within."
-                            },
-                            Validation = new TerraformSchemaFieldValidationDefinition
-                            {
-                                Type = TerraformSchemaFieldValidationType.NoEmptyValue.ToString(),
-                            },
-                            Mappings = new TerraformSchemaMappingDefinition
-                            {
-                                ResourceIdSegment = "resourceGroupName"
-                            },
-                        }},
-                        {"Location", new TerraformSchemaFieldDefinition
-                        {
-                            HclName = "location",
-                            Computed = false,
-                            Optional = false,
-                            Required = true,
-                            ForceNew = true,
-                            ObjectDefinition = new TerraformSchemaObjectDefinition
-                            {
-                                Type = TerraformSchemaFieldType.Location.ToString(),
-                            },
-                            Documentation = new TerraformSchemaDocumentationDefinition
-                            {
-                                Markdown = "The Azure Region where this Resource Group should be created."
-                            },
-                            Validation = new TerraformSchemaFieldValidationDefinition
-                            {
-                                Type = TerraformSchemaFieldValidationType.NoEmptyValue.ToString(),
-                            },
-                            Mappings = new TerraformSchemaMappingDefinition
-                            {
-                                SDKPathForCreate = "Location",
-                                SDKPathForRead = "Location",
-                                SDKPathForUpdate = null,
-                            },
-                        }},
-                        {"Tags", new TerraformSchemaFieldDefinition
-                        {
-                            HclName = "tags",
-                            Computed = false,
-                            Optional = true,
-                            Required = false,
-                            ForceNew = false,
-                            ObjectDefinition = new TerraformSchemaObjectDefinition
-                            {
-                                Type = TerraformSchemaFieldType.Tags.ToString(),
-                            },
-                            Documentation = new TerraformSchemaDocumentationDefinition
-                            {
-                                Markdown = "A mapping of tags which should be assigned to this Resource Group."
-                            },
-                            Validation = null,
-                            Mappings = new TerraformSchemaMappingDefinition
-                            {
-                                SDKPathForCreate = "Tags",
-                                SDKPathForRead = "Tags",
-                                SDKPathForUpdate = "Tags",
-                            },
-                        }}
-                    }
-                }},
-            };
-            response.Tests = new TerraformResourceTestsDefinition
-            {
-                Generate = true,
-                BasicConfiguration = @"
-resource ""azurerm_virtual_machine_scale_set"" ""test"" {
-    name     = ""acctest-vmss${local.random_integer}""
-    location = local.primary_location
-}
-",
-                CompleteConfiguration = @"
-resource ""azurerm_virtual_machine_scale_set"" ""test"" {
-    name     = ""acctest-vmss${local.random_integer}""
-    location = local.primary_location
-
-    tags = {
-        ""Hello"" = ""AutoGen""
-    }
-}
-",
-                RequiresImportConfiguration = @"
-resource ""azurerm_virtual_machine_scale_set"" ""import"" {
-    name     = azurerm_virtual_machine_scale_set.test.name
-    location = azurerm_virtual_machine_scale_set.test.location
-}
-",
-            };
-        }
+        // TODO: Mappings should be an object containing `Type` (which allows us to pipe through `BooleanWhen` etc)
 
         return response;
+    }
+
+    private static TerraformResourceTestsDefinition MapTerraformResourceTests(TerraformResourceTestDefinition? input)
+    {
+        var definition = new TerraformResourceTestsDefinition
+        {
+            Generate = input != null,
+        };
+
+        if (input != null)
+        {
+            definition.BasicConfiguration = input.BasicConfig;
+            definition.RequiresImportConfiguration = input.RequiresImportConfig;
+            definition.CompleteConfiguration = input.CompleteConfig;
+            definition.TemplateConfiguration = input.TemplateConfig;
+            definition.OtherTests = input.OtherTests;
+        }
+
+        return definition;
+    }
+
+    private static Dictionary<string, TerraformSchemaDefinition> MapTerraformSchemaModels(Dictionary<string, TerraformSchemaModelDefinition> input)
+    {
+        var output = new Dictionary<string, TerraformSchemaDefinition>();
+
+        foreach (var item in input)
+        {
+            output.Add(item.Key, MapSchemaModel(item.Value));
+        }
+
+        return output;
+    }
+
+    private static TerraformSchemaDefinition MapSchemaModel(TerraformSchemaModelDefinition input)
+    {
+        var fields = new Dictionary<string, TerraformSchemaFieldDefinition>();
+        foreach (var field in input.Fields)
+        {
+            fields.Add(field.Key, MapTerraformSchemaField(field.Value));
+        }
+
+        return new TerraformSchemaDefinition
+        {
+            Fields = fields,
+        };
+    }
+
+    private static TerraformSchemaFieldDefinition MapTerraformSchemaField(Data.Models.TerraformSchemaFieldDefinition input)
+    {
+        var objectDefinition = MapSchemaFieldObjectDefinition(input.ObjectDefinition);
+        return new TerraformSchemaFieldDefinition
+        {
+            Computed = input.Computed,
+            Documentation = new TerraformSchemaDocumentationDefinition
+            {
+                Markdown = input.Documentation.Markdown,
+            },
+            ForceNew = input.ForceNew,
+            HclName = input.HclName,
+            Optional = input.Optional,
+            Required = input.Required,
+            ObjectDefinition = objectDefinition,
+            // TODO: Mappings & Validation
+        };
+    }
+
+    private static TerraformSchemaObjectDefinition MapSchemaFieldObjectDefinition(Data.Models.TerraformSchemaObjectDefinition input)
+    {
+        var output = new TerraformSchemaObjectDefinition
+        {
+            Type = MapSchemaFieldObjectDefinitionType(input.Type),
+            ReferenceName = input.ReferenceName,
+        };
+
+        if (input.NestedObject != null)
+        {
+            output.NestedObject = MapSchemaFieldObjectDefinition(input.NestedObject!);
+        }
+
+        return output;
+    }
+
+    private static string MapSchemaFieldObjectDefinitionType(Data.Models.TerraformSchemaFieldType input)
+    {
+        switch (input)
+        {
+            case Data.Models.TerraformSchemaFieldType.Boolean:
+                return TerraformSchemaFieldType.Boolean.ToString();
+            case Data.Models.TerraformSchemaFieldType.DateTime:
+                return TerraformSchemaFieldType.DateTime.ToString();
+            case Data.Models.TerraformSchemaFieldType.Float:
+                return TerraformSchemaFieldType.Float.ToString();
+            case Data.Models.TerraformSchemaFieldType.Integer:
+                return TerraformSchemaFieldType.Integer.ToString();
+            case Data.Models.TerraformSchemaFieldType.List:
+                return TerraformSchemaFieldType.List.ToString();
+            case Data.Models.TerraformSchemaFieldType.Reference:
+                return TerraformSchemaFieldType.Reference.ToString();
+            case Data.Models.TerraformSchemaFieldType.Set:
+                return TerraformSchemaFieldType.Set.ToString();
+            case Data.Models.TerraformSchemaFieldType.String:
+                return TerraformSchemaFieldType.String.ToString();
+
+            case Data.Models.TerraformSchemaFieldType.EdgeZone:
+                return TerraformSchemaFieldType.EdgeZone.ToString();
+            case Data.Models.TerraformSchemaFieldType.IdentitySystemAssigned:
+                return TerraformSchemaFieldType.IdentitySystemAssigned.ToString();
+            case Data.Models.TerraformSchemaFieldType.IdentitySystemAndUserAssigned:
+                return TerraformSchemaFieldType.IdentitySystemAndUserAssigned.ToString();
+            case Data.Models.TerraformSchemaFieldType.IdentitySystemOrUserAssigned:
+                return TerraformSchemaFieldType.IdentitySystemOrUserAssigned.ToString();
+            case Data.Models.TerraformSchemaFieldType.IdentityUserAssigned:
+                return TerraformSchemaFieldType.IdentityUserAssigned.ToString();
+            case Data.Models.TerraformSchemaFieldType.Location:
+                return TerraformSchemaFieldType.Location.ToString();
+            case Data.Models.TerraformSchemaFieldType.ResourceGroup:
+                return TerraformSchemaFieldType.ResourceGroup.ToString();
+            case Data.Models.TerraformSchemaFieldType.Tags:
+                return TerraformSchemaFieldType.Tags.ToString();
+            case Data.Models.TerraformSchemaFieldType.Zone:
+                return TerraformSchemaFieldType.Zone.ToString();
+            case Data.Models.TerraformSchemaFieldType.Zones:
+                return TerraformSchemaFieldType.Zones.ToString();
+        }
+
+        throw new NotSupportedException($"unmapped schema field type {input.ToString()}");
     }
 
     private static MethodDefinition MapMethodDefinition(TerraformMethodDefinition input)

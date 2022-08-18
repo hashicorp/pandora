@@ -1,3 +1,5 @@
+using System;
+
 namespace Pandora.Definitions.Interfaces;
 
 public interface TerraformResourceDefinition
@@ -51,6 +53,23 @@ public interface TerraformResourceDefinition
     /// **without** the Provider Prefix (e.g. `resource_group` rather than `azurerm_resource_group`).
     /// </summary>
     public string ResourceLabel { get; }
+
+    /// <summary>
+    /// SchemaModel is a reference to a Type defining the Terraform Schema for this Resource. 
+    /// </summary>
+    public Type? SchemaModel { get; }
+
+    /// <summary>
+    /// SchemaMappings is a reference to the TerraformMappingDefinition which defines how the TerraformSchema
+    /// defined in SchemaModel should be mapped to/from the SDK Models and Terraform Resource ID. 
+    /// </summary>
+    public TerraformMappingDefinition SchemaMappings { get; }
+
+    /// <summary>
+    /// Tests is a reference to the TerraformResourceTestDefinition which defines how the Terraform Acceptance
+    /// Tests should look for this resource.
+    /// </summary>
+    public TerraformResourceTestDefinition Tests { get; }
 
     /// <summary>
     /// UpdateMethod optionally defines the Update Method associated with this Resource, both for whether this

@@ -535,13 +535,53 @@ func NormalizeCanonicalisation(input string) string {
 		output = "PublicIPAddress"
 	}
 
+	if strings.EqualFold(output, "PublicIPAddresses") {
+		// This is an explicit force for broken data in `Network`
+		output = "PublicIPAddresses"
+	}
+
 	if strings.EqualFold(output, "IPconfiguration") {
 		// This is an explicit force for broken data in `Network`
 		output = "IPConfiguration"
+	}
+
+	if strings.EqualFold(output, "NetworkInterfaceIPConfiguration") {
+		// This is an explicit force for broken data in `Network`
+		output = "NetworkInterfaceIPConfiguration"
+	}
+
+	if strings.EqualFold(output, "virtualwan") {
+		// This is an explicit force for broken data in `Network`
+		output = "VirtualWAN"
 	}
 
 	// intentionally case-sensitive
 	output = strings.ReplaceAll(output, "Ip", "IP")
 
 	return output
+}
+
+func PluraliseName(input string) string {
+	skipnames := []string{
+		"Compute",
+		"ContainerInstance",
+		"Kusto",
+		"PowerBIDedicated",
+		"ServiceLinker",
+	}
+	for _, v := range skipnames {
+		if strings.EqualFold(strings.TrimPrefix(input, "/"), v) {
+			return input
+		}
+	}
+
+	input = strings.TrimPrefix(input, "/")
+	if strings.HasSuffix(input, "s") {
+		return input
+	}
+
+	if strings.HasSuffix(input, "y") {
+		return fmt.Sprintf("%sies", strings.TrimSuffix(input, "y"))
+	}
+	return fmt.Sprintf("%ss", input)
 }

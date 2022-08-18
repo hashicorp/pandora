@@ -49,11 +49,15 @@ service "communication" {
 }
 service "compute" {
   name      = "Compute"
-  available = ["2021-11-01"]
+  available = ["2021-11-01", "2022-03-02"]
 }
 service "confidentialledger" {
   name      = "ConfidentialLedger"
   available = ["2022-05-13"]
+}
+service "consumption" {
+  name      = "Consumption"
+  available = ["2019-10-01"]
 }
 service "containerinstance" {
   name      = "ContainerInstance"
@@ -87,6 +91,10 @@ service "desktopvirtualization" {
   name      = "DesktopVirtualization"
   available = ["2021-09-03-preview", "2022-02-10-preview"]
 }
+service "deviceprovisioningservices" {
+  name      = "DeviceProvisioningServices"
+  available = ["2022-02-05"]
+}
 service "digitaltwins" {
   name      = "DigitalTwins"
   available = ["2020-12-01"]
@@ -98,6 +106,10 @@ service "dns" {
 service "domainservices" {
   name      = "AAD"
   available = ["2020-01-01", "2021-03-01", "2021-05-01"]
+}
+service "dynatrace" {
+  name      = "Dynatrace"
+  available = ["2021-09-01"]
 }
 service "elastic" {
   name      = "Elastic"

@@ -5,9 +5,9 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
-
+	"github.com/hashicorp/pandora/tools/generator-terraform/featureflags"
 	"github.com/hashicorp/pandora/tools/generator-terraform/generator/models"
+	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
 type readFunctionComponents struct {
@@ -121,6 +121,10 @@ func (c readFunctionComponents) codeForGet() (*string, error) {
 }
 
 func (c readFunctionComponents) codeForModelAssignments() (*string, error) {
+	if !featureflags.OutputMappings {
+		output := `// TODO: re-enable Mappings (featureflags.OutputMappings)`
+		return &output, nil
+	}
 	// TODO: tests for this
 
 	// first map all of the Resource ID segments across

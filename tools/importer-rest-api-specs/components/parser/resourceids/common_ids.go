@@ -1,6 +1,8 @@
 package resourceids
 
-import "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+import (
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+)
 
 type commonIdMatcher interface {
 	// id returns the Resource ID for this Common ID
@@ -13,6 +15,28 @@ var commonIdTypes = []commonIdMatcher{
 	commonIdSubscriptionMatcher{},
 	commonIdScopeMatcher{},
 	commonIdUserAssignedIdentity{},
+
+	// Network ids
+	// "Core"
+	commonIdNetworkInterface{},
+	commonIdPublicIPAddress{},
+	commonIdVPNConnection{},
+
+	// RP Spcific
+	commonIdCloudServicesIPConfiguration{},
+	commonIdCloudServicesPublicIPAddress{},
+	commonIdExpressRouteCircuitPeering{},
+	commonIdNetworkInterfaceIPConfiguration{},
+	commonIdVirtualHubBGPConnection{},
+	commonIdVirtualHubIPConfiguration{},
+	commonIdVirtualMachineScaleSetIPConfiguration{},
+	commonIdVirtualMachineScaleSetNetworkInterface{},
+	commonIdVirtualMachineScaleSetPublicIPAddress{},
+	commonIdVirtualRouterPeering{},
+	commonIdVirtualWANP2SVPNGateway{},
+
+	// Misc data fixes
+	commonIdProvisioningService{}, // (@jackofallops): Inconsistent user specified fields in the swagger - `provisioningServices/{resourceName}` vs `provisioningServices/{provisioningServiceName}`
 }
 
 func switchOutCommonResourceIDsAsNeeded(input []models.ParsedResourceId) []models.ParsedResourceId {

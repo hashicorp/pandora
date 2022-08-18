@@ -38,10 +38,20 @@ func (d *SwaggerDefinition) parse(serviceName, apiVersion string, resourceIds re
 			return nil, fmt.Errorf("finding resources for tag %q: %+v", serviceName, err)
 		}
 
+		// Since we're dealing with missing tag data in the swagger, we'll assume the proper tag name here is the file name
+		// This is less than ideal, but _should_ be fine.
+		inferredTag := cleanup.PluraliseName(d.Name)
+
 		if resource != nil {
-			normalizedTag := normalizeTag(serviceName)
+			normalizedTag := normalizeTag(inferredTag)
 			normalizedTag = cleanup.NormalizeResourceName(normalizedTag)
-			resources[normalizedTag] = *resource
+
+			if mergeResources, ok := resources[normalizedTag]; ok {
+				resources[normalizedTag] = models.MergeResourcesForTag(mergeResources, *resource)
+
+			} else {
+				resources[normalizedTag] = *resource
+			}
 		}
 	}
 

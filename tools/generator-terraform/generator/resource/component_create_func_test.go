@@ -3,6 +3,8 @@ package resource
 import (
 	"testing"
 
+	"github.com/hashicorp/pandora/tools/generator-terraform/featureflags"
+
 	"github.com/hashicorp/pandora/tools/generator-terraform/generator/models"
 
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
@@ -109,6 +111,9 @@ func TestComponentCreate_HappyPathDisabled(t *testing.T) {
 }
 
 func TestComponentCreate_HappyPathFieldsInModelEnabled(t *testing.T) {
+	// TODO: remove this once the feature-flag is properly threaded through
+	featureflags.OutputMappings = true
+
 	input := models.ResourceInput{
 		Constants: nil,
 		Details: resourcemanager.TerraformResourceDetails{
@@ -290,6 +295,9 @@ func (r ExampleResource) Create() sdk.ResourceFunc {
 }
 
 func TestComponentCreate_HappyPathResourceIdFieldsOnlyEnabled(t *testing.T) {
+	// TODO: remove this once the feature-flag is properly threaded through
+	featureflags.OutputMappings = true
+
 	input := models.ResourceInput{
 		Constants: nil,
 		Details: resourcemanager.TerraformResourceDetails{
@@ -816,6 +824,11 @@ func TestComponentCreate_PayloadDefinition(t *testing.T) {
 }
 
 func TestComponentCreate_MappingsFromSchema_NoFields(t *testing.T) {
+	// TODO: remove this once the feature-flag is properly threaded through
+	if !featureflags.OutputMappings {
+		t.Skip("skipping since `featureflags.OutputMappings` is disabled")
+	}
+
 	actual, err := createFunctionComponents{
 		terraformModel: resourcemanager.TerraformSchemaModelDefinition{
 			Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{},
@@ -829,6 +842,11 @@ func TestComponentCreate_MappingsFromSchema_NoFields(t *testing.T) {
 }
 
 func TestComponentCreate_MappingsFromSchema_TopLevelFields(t *testing.T) {
+	// TODO: remove this once the feature-flag is properly threaded through
+	if !featureflags.OutputMappings {
+		t.Skip("skipping since `featureflags.OutputMappings` is disabled")
+	}
+
 	actual, err := createFunctionComponents{
 		terraformModel: resourcemanager.TerraformSchemaModelDefinition{
 			Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{

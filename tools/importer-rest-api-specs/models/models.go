@@ -118,3 +118,32 @@ const (
 	CustomFieldTypeTags                                    CustomFieldType = "tags"
 	CustomFieldTypeSystemData                              CustomFieldType = "SystemData"
 )
+
+func MergeResourcesForTag(base AzureApiResource, merge AzureApiResource) AzureApiResource {
+	for k, v := range merge.Constants {
+		if _, ok := base.Constants[k]; !ok {
+			base.Constants[k] = v
+		}
+	}
+
+	for k, v := range merge.Models {
+		if _, ok := base.Models[k]; !ok {
+			base.Models[k] = v
+		}
+	}
+
+	for k, v := range merge.Operations {
+		if _, ok := base.Operations[k]; !ok {
+			base.Operations[k] = v
+		}
+	}
+	for k, v := range merge.ResourceIds {
+		if _, ok := base.ResourceIds[k]; !ok {
+			base.ResourceIds[k] = v
+		}
+	}
+
+	// `base.Terraform` and `merge.Terraform` should both be nil here, so we don't process it
+
+	return base
+}
