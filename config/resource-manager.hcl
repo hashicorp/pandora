@@ -201,7 +201,11 @@ service "notificationhubs" {
 }
 service "operationalinsights" {
   name      = "OperationalInsights"
-  available = ["2015-03-20", "2019-09-01", "2020-08-01"]
+  available = ["2019-09-01", "2020-08-01"]
+}
+service "operationsmanagement" {
+  name      = "OperationsManagement"
+  available = ["2015-11-01-preview"]
 }
 service "orbital" {
   name      = "Orbital"
