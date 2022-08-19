@@ -23,7 +23,7 @@ internal class ListOperation : Operations.ListOperation
 
     public override Type? OptionsObject() => typeof(ListOperation.ListOptions);
 
-    public override string? UriSuffix() => "/providers/Microsoft.Network/dnszones";
+    public override string? UriSuffix() => "/providers/Microsoft.Network/dnsZones";
 
     internal class ListOptions
     {
