@@ -108,6 +108,7 @@ func NormalizeSegment(input string, camelCase bool) string {
 		"datastores":                        "dataStores",
 		"deletedservices":                   "deletedServices",
 		"dicomservices":                     "dicomServices",
+		"dnszones":                          "dnsZones",
 		"fhirdestinations":                  "fhirDestinations",
 		"fhirservices":                      "fhirServices",
 		"fileservers":                       "fileServers",
