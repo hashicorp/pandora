@@ -2,7 +2,6 @@ package pipeline
 
 import (
 	"fmt"
-	"log"
 	"sort"
 
 	"github.com/hashicorp/go-hclog"
@@ -85,19 +84,19 @@ func runImportForService(input RunInput, serviceName string, apiVersionsForServi
 
 		// generate the schema
 		versionLogger.Trace(fmt.Sprintf("generating Terraform Details for Service %q / Version %q", apiVersion.ServiceName, apiVersion.ApiVersion))
-		terraformDetails, err := task.generateTerraformDetails(apiVersion, dataForApiVersion, versionLogger.Named("TerraformDetails"))
+		dataForApiVersion, err = task.generateTerraformDetails(apiVersion, dataForApiVersion, versionLogger.Named("TerraformDetails"))
 		if err != nil {
 			return fmt.Errorf(fmt.Sprintf("generating Terraform Details for Service %q / Version %q: %+v", apiVersion.ServiceName, apiVersion.ApiVersion, err))
 		}
-		// TODO: stuff n things @stephybun
-		log.Printf("Got Stuff: %+v", terraformDetails)
-
-		// build the tests
-		versionLogger.Trace(fmt.Sprintf("generating Terraform Tests for Service %q / Version %q", apiVersion.ServiceName, apiVersion.ApiVersion))
-		terraformDetails, err = task.generateTerraformTests(apiVersion, *terraformDetails, versionLogger.Named("TerraformTests"))
-		if err != nil {
-			return fmt.Errorf(fmt.Sprintf("generating Terraform Tests for Service %q / Version %q: %+v", apiVersion.ServiceName, apiVersion.ApiVersion, err))
-		}
+		//// TODO: stuff n things @stephybun
+		//log.Printf("Got Stuff: %+v", terraformDetails)
+		//
+		//// build the tests
+		//versionLogger.Trace(fmt.Sprintf("generating Terraform Tests for Service %q / Version %q", apiVersion.ServiceName, apiVersion.ApiVersion))
+		//terraformDetails, err = task.generateTerraformTests(apiVersion, *terraformDetails, versionLogger.Named("TerraformTests"))
+		//if err != nil {
+		//	return fmt.Errorf(fmt.Sprintf("generating Terraform Tests for Service %q / Version %q: %+v", apiVersion.ServiceName, apiVersion.ApiVersion, err))
+		//}
 
 		versionLogger.Trace("Task: Applying Overrides from Existing Data..")
 		dataForApiVersion, err = task.applyOverridesFromExistingData(*dataForApiVersion, input.DataApiEndpoint, versionLogger)

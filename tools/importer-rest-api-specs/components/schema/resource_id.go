@@ -1,6 +1,8 @@
 package schema
 
-import "github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+import (
+	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+)
 
 func (b Builder) identityTopLevelFieldsWithinResourceID(input resourcemanager.ResourceIdDefinition) (*map[string]resourcemanager.TerraformSchemaFieldDefinition, error) {
 	out := make(map[string]resourcemanager.TerraformSchemaFieldDefinition, 0)

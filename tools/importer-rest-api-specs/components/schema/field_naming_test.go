@@ -23,7 +23,7 @@ func TestUpdateNameForField_Is(t *testing.T) {
 	for _, v := range testData {
 		t.Logf("[DEBUG] Testing %s", v.input)
 
-		actual := fieldNameIs{}.updatedNameForField(v.input, nil, nil)
+		actual := fieldNameIs{}.updatedNameForField(v.input, nil, nil, nil)
 
 		if actual == nil {
 			if v.expected == nil {
@@ -90,7 +90,7 @@ func TestUpdateNameForField_PluralToSingular(t *testing.T) {
 	for _, v := range testData {
 		t.Logf("[DEBUG] Testing %s", v.fieldInput)
 
-		actual := fieldNamePluralToSingular{}.updatedNameForField(v.fieldInput, &v.modelInput, nil)
+		actual := fieldNamePluralToSingular{}.updatedNameForField(v.fieldInput, nil, &v.modelInput, nil)
 
 		if actual == nil {
 			if v.expected == nil {
@@ -196,7 +196,7 @@ func TestUpdateNameForField_AppendEnabled(t *testing.T) {
 	for _, v := range testData {
 		t.Logf("[DEBUG] Testing %s", v.fieldInput)
 
-		actual := fieldNameRenameBoolean{}.updatedNameForField(v.fieldInput, &v.modelInput, nil)
+		actual := fieldNameRenameBoolean{}.updatedNameForField(v.fieldInput, nil, &v.modelInput, nil)
 
 		if actual == nil {
 			if v.expected == nil {
@@ -238,7 +238,68 @@ func TestUpdateNameForField_RemoveResourcePrefix(t *testing.T) {
 	for _, v := range testData {
 		t.Logf("[DEBUG] Testing %s", v.fieldInput)
 
-		actual := fieldNameRemoveResourcePrefix{}.updatedNameForField(v.fieldInput, nil, &v.resourceInput)
+		actual := fieldNameRemoveResourcePrefix{}.updatedNameForField(v.fieldInput, nil, nil, &v.resourceInput)
+
+		if actual == nil {
+			if v.expected == nil {
+				continue
+			}
+			t.Fatalf("expected a result but didn't get one")
+		}
+		if v.expected == nil {
+			t.Fatalf("expected no result but got %s", *actual)
+		}
+		if *actual != *v.expected {
+			t.Fatalf("Expected %s but got %s", *v.expected, *actual)
+		}
+	}
+}
+
+func TestUpdateNameForField_FlattenReferenceId(t *testing.T) {
+	testData := []struct {
+		fieldInput   string
+		modelInput   resourcemanager.ModelDetails
+		builderInput Builder
+		expected     *string
+	}{
+		{
+			fieldInput: "Panda",
+			modelInput: resourcemanager.ModelDetails{
+				Fields: map[string]resourcemanager.FieldDetails{
+					"Panda": {
+						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+							ReferenceName: stringPointer("SubResource"),
+						},
+					},
+				},
+			},
+			builderInput: Builder{
+				models: map[string]resourcemanager.ModelDetails{
+					"SubResource": {
+						Fields: map[string]resourcemanager.FieldDetails{
+							"Id": {
+								Required: true,
+							},
+						},
+					},
+				},
+			},
+			expected: stringPointer("PandaId"),
+		},
+		//{
+		//	fieldInput: "mars",
+		//	resourceInput: resourcemanager.TerraformResourceDetails{
+		//		ResourceName: "Planets",
+		//	},
+		//	expected: nil,
+		//},
+	}
+
+	for _, v := range testData {
+		t.Logf("[DEBUG] Testing %s", v.fieldInput)
+
+		actual := fieldNameFlattenReferenceId{}.updatedNameForField(v.fieldInput, &v.builderInput, &v.modelInput, nil)
 
 		if actual == nil {
 			if v.expected == nil {

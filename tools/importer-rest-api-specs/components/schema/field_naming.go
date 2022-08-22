@@ -8,10 +8,10 @@ import (
 )
 
 type fieldNameMatcher interface {
-	updatedNameForField(input string, model *resourcemanager.ModelDetails, resource *resourcemanager.TerraformResourceDetails) *string
+	updatedNameForField(fieldName string, input *Builder, model *resourcemanager.ModelDetails, resource *resourcemanager.TerraformResourceDetails) *string
 }
 
-var namingRules = []fieldNameMatcher{
+var NamingRules = []fieldNameMatcher{
 	fieldNameFlattenReferenceId{},
 	fieldNameIs{},
 	fieldNamePluralToSingular{},
@@ -21,9 +21,10 @@ var namingRules = []fieldNameMatcher{
 
 type fieldNameIs struct{}
 
-func (fieldNameIs) updatedNameForField(input string, model *resourcemanager.ModelDetails, _ *resourcemanager.TerraformResourceDetails) *string {
-	if strings.HasPrefix(strings.ToLower(input), "is_") {
-		updatedName := input[3:]
+func (fieldNameIs) updatedNameForField(fieldName string, _ *Builder, model *resourcemanager.ModelDetails, _ *resourcemanager.TerraformResourceDetails) *string {
+	// TODO this should be regex
+	if strings.HasPrefix(strings.ToLower(fieldName), "is_") {
+		updatedName := fieldName[3:]
 		return &updatedName
 	}
 	return nil
@@ -31,10 +32,10 @@ func (fieldNameIs) updatedNameForField(input string, model *resourcemanager.Mode
 
 type fieldNamePluralToSingular struct{}
 
-func (fieldNamePluralToSingular) updatedNameForField(input string, model *resourcemanager.ModelDetails, _ *resourcemanager.TerraformResourceDetails) *string {
-	if model.Fields[input].ObjectDefinition.Type == resourcemanager.ListApiObjectDefinitionType {
-		if strings.HasSuffix(input, "s") && !strings.HasSuffix(input, "ss") {
-			updatedName := strings.TrimSuffix(input, "s")
+func (fieldNamePluralToSingular) updatedNameForField(fieldName string, _ *Builder, model *resourcemanager.ModelDetails, _ *resourcemanager.TerraformResourceDetails) *string {
+	if model.Fields[fieldName].ObjectDefinition.Type == resourcemanager.ListApiObjectDefinitionType {
+		if strings.HasSuffix(fieldName, "s") && !strings.HasSuffix(fieldName, "ss") {
+			updatedName := strings.TrimSuffix(fieldName, "s")
 			return &updatedName
 		}
 	}
@@ -43,26 +44,26 @@ func (fieldNamePluralToSingular) updatedNameForField(input string, model *resour
 
 type fieldNameRenameBoolean struct{}
 
-func (fieldNameRenameBoolean) updatedNameForField(input string, model *resourcemanager.ModelDetails, _ *resourcemanager.TerraformResourceDetails) *string {
-	if model.Fields[input].ObjectDefinition.Type == resourcemanager.BooleanApiObjectDefinitionType {
+func (fieldNameRenameBoolean) updatedNameForField(fieldName string, _ *Builder, model *resourcemanager.ModelDetails, _ *resourcemanager.TerraformResourceDetails) *string {
+	if model.Fields[fieldName].ObjectDefinition.Type == resourcemanager.BooleanApiObjectDefinitionType {
 		var updatedFieldName *string
 		// flip `enable_X` / `disable_X` prefix
-		if strings.HasPrefix(strings.ToLower(input), "enable") {
-			updated := fmt.Sprintf("%sEnabled", input[6:])
+		if strings.HasPrefix(strings.ToLower(fieldName), "enable") {
+			updated := fmt.Sprintf("%sEnabled", fieldName[6:])
 			updatedFieldName = &updated
 		}
-		if strings.HasPrefix(strings.ToLower(input), "disable") {
-			updated := fmt.Sprintf("%sDisabled", input[7:])
+		if strings.HasPrefix(strings.ToLower(fieldName), "disable") {
+			updated := fmt.Sprintf("%sDisabled", fieldName[7:])
 			updatedFieldName = &updated
 		}
 		// change `allow_X` prefix -> `X_enabled`
-		if strings.HasPrefix(strings.ToLower(input), "allow") {
-			updated := fmt.Sprintf("%sEnabled", input[5:])
+		if strings.HasPrefix(strings.ToLower(fieldName), "allow") {
+			updated := fmt.Sprintf("%sEnabled", fieldName[5:])
 			updatedFieldName = &updated
 		}
 		// change `allowed_X` prefix -> `X_enabled`
-		if strings.HasPrefix(strings.ToLower(input), "allowed") {
-			updated := fmt.Sprintf("%sEnabled", input[7:])
+		if strings.HasPrefix(strings.ToLower(fieldName), "allowed") {
+			updated := fmt.Sprintf("%sEnabled", fieldName[7:])
 			updatedFieldName = &updated
 		}
 		return updatedFieldName
@@ -72,9 +73,9 @@ func (fieldNameRenameBoolean) updatedNameForField(input string, model *resourcem
 
 type fieldNameRemoveResourcePrefix struct{}
 
-func (fieldNameRemoveResourcePrefix) updatedNameForField(input string, _ *resourcemanager.ModelDetails, resource *resourcemanager.TerraformResourceDetails) *string {
-	if strings.HasPrefix(input, resource.ResourceName) {
-		updatedName := strings.Replace(input, resource.ResourceName, "", 1)
+func (fieldNameRemoveResourcePrefix) updatedNameForField(fieldName string, _ *Builder, _ *resourcemanager.ModelDetails, resource *resourcemanager.TerraformResourceDetails) *string {
+	if strings.HasPrefix(fieldName, resource.ResourceName) {
+		updatedName := strings.Replace(fieldName, resource.ResourceName, "", 1)
 		return &updatedName
 	}
 	return nil
@@ -82,13 +83,15 @@ func (fieldNameRemoveResourcePrefix) updatedNameForField(input string, _ *resour
 
 type fieldNameFlattenReferenceId struct{}
 
-func (fieldNameFlattenReferenceId) updatedNameForField(input string, model *resourcemanager.ModelDetails, _ *resourcemanager.TerraformResourceDetails) *string {
-	if model.Fields[input].ObjectDefinition.Type == resourcemanager.ReferenceApiObjectDefinitionType {
-		model.Fields[input].ObjectDefinition.ReferenceName
+func (fieldNameFlattenReferenceId) updatedNameForField(fieldName string, input *Builder, model *resourcemanager.ModelDetails, _ *resourcemanager.TerraformResourceDetails) *string {
+
+	if model.Fields[fieldName].ObjectDefinition.Type == resourcemanager.ReferenceApiObjectDefinitionType {
+		model, ok := input.models[*model.Fields[fieldName].ObjectDefinition.ReferenceName]
 		if ok {
 			if len(model.Fields) == 1 {
 				if _, ok := getField(model, "Id"); ok {
-					return fmt.Sprintf("%sId", fieldName)
+					updatedFieldName := fmt.Sprintf("%sId", fieldName)
+					return &updatedFieldName
 				}
 			}
 		}
@@ -155,15 +158,15 @@ func (b Builder) determineNameForSchemaField(input resourcemanager.ModelDetails,
 		}
 	}
 
-	// TODO: if it's a List[Reference] and the model contains a single field `Id` then flatten this into `_ids`.
-	// TODO: handling booleans `SomeBool` -> `SomeBoolEnabled` etc.
-	// TODO: Singularizing plural names when it's a List (e.g. `planets` -> `planet`)
-	// TODO: handle `is_XXX` -> `XXX`
-	// TODO: if the field contains the same prefix as the resource, remove the prefix (e.g. `/msixPackages/` and `package_family_name`)
-	// TODO: if there's multiple fields with the same prefix, should we put these into a block?
-	// TODO: fields containing discriminators
-	// TODO: if the model contains a single model, eliminate the wrapper model
-	// TODO: if the field is named `id` within a block rename it to `{block}_id`
-
 	return fieldName
 }
+
+//TODO: if it's a List[Reference] and the model contains a single field `Id` then flatten this into `_ids`.
+//TODO: handling booleans `SomeBool` -> `SomeBoolEnabled` etc.
+//TODO: Singularizing plural names when it's a List (e.g. `planets` -> `planet`)
+//TODO: handle `is_XXX` -> `XXX`
+//TODO: if the field contains the same prefix as the resource, remove the prefix (e.g. `/msixPackages/` and `package_family_name`)
+//TODO: fields containing discriminators
+//TODO: if the model contains a single model, eliminate the wrapper model
+//TODO: if the field is named `id` within a block rename it to `{block}_id`
+//TODO: if there's multiple fields with the same prefix, should we put these into a block?

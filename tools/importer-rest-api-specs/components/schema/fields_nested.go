@@ -7,7 +7,7 @@ import (
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-func (b Builder) identifyFieldsWithinPropertiesBlock(input operationPayloads) (*map[string]resourcemanager.TerraformSchemaFieldDefinition, error) {
+func (b Builder) identifyFieldsWithinPropertiesBlock(input operationPayloads, resource *resourcemanager.TerraformResourceDetails) (*map[string]resourcemanager.TerraformSchemaFieldDefinition, error) {
 	allFields := make(map[string]struct{}, 0)
 	for _, model := range input.createReadUpdatePayloadsProperties(b.models) {
 		for k, v := range model.Fields {
@@ -76,11 +76,15 @@ func (b Builder) identifyFieldsWithinPropertiesBlock(input operationPayloads) (*
 			typedModelName := ""
 
 			if hasRead {
-				typedModelName = b.determineNameForSchemaField(*readPropertiesModel, k)
+				//typedModelName = b.determineNameForSchemaField(*readPropertiesModel, k)
+				typedModelName = updateFieldName(k, b, readPropertiesModel, resource)
+				//typedModelName = updateFieldNameModel(k, b, readPropertiesModel, resource)
 			} else if hasCreate {
-				typedModelName = b.determineNameForSchemaField(*createPropertiesModel, k)
+				typedModelName = updateFieldName(k, b, createPropertiesModel, resource)
+				//typedModelName = b.determineNameForSchemaField(*createPropertiesModel, k)
 			} else if hasUpdate {
-				typedModelName = b.determineNameForSchemaField(*updatePropertiesModel, k)
+				typedModelName = updateFieldName(k, b, updatePropertiesModel, resource)
+				//typedModelName = b.determineNameForSchemaField(*updatePropertiesModel, k)
 			}
 
 			schemaFieldName := convertToSnakeCase(typedModelName)

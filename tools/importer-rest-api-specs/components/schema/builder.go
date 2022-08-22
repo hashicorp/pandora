@@ -2,7 +2,6 @@ package schema
 
 import (
 	"fmt"
-
 	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
@@ -31,6 +30,22 @@ func NewBuilder(constants map[string]resourcemanager.ConstantDetails, models map
 		resourceIds: resourceIds,
 	}
 }
+
+//type Builder struct {
+//	constants   map[string]resourcemanager.ConstantDetails
+//	models      map[string]models.ModelDetails
+//	operations  map[string]models.OperationDetails
+//	resourceIds map[string]models.ParsedResourceId
+//}
+
+//func NewBuilder(constants map[string]resourcemanager.ConstantDetails, models map[string]models.ModelDetails, operations map[string]models.OperationDetails, resourceIds map[string]resourcemanager.ResourceIdDefinition) Builder {
+//	return Builder{
+//		constants:   constants,
+//		models:      models,
+//		operations:  operations,
+//		resourceIds: resourceIds,
+//	}
+//}
 
 func (b Builder) Build(input resourcemanager.TerraformResourceDetails, logger hclog.Logger) (*resourcemanager.TerraformSchemaModelDefinition, error) {
 	// TODO: we should look to skip any resources containing discriminators initially, for example.
@@ -64,13 +79,14 @@ func (b Builder) Build(input resourcemanager.TerraformResourceDetails, logger hc
 		schemaFields[k] = v
 	}
 
-	fieldsWithinProperties, err := b.identifyFieldsWithinPropertiesBlock(*createReadUpdateMethods)
+	fieldsWithinProperties, err := b.identifyFieldsWithinPropertiesBlock(*createReadUpdateMethods, &input)
 	if err != nil {
 		return nil, fmt.Errorf("parsing fields within the `properties` block for the create/read/update methods: %+v", err)
 	}
 	for k, v := range *fieldsWithinProperties {
 		schemaFields[k] = v
 	}
+	//  field renaming happens here?
 
 	return &resourcemanager.TerraformSchemaModelDefinition{
 		Fields: schemaFields,
