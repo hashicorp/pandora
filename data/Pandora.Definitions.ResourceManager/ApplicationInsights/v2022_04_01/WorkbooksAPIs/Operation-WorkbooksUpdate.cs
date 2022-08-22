@@ -15,11 +15,6 @@ namespace Pandora.Definitions.ResourceManager.ApplicationInsights.v2022_04_01.Wo
 
 internal class WorkbooksUpdateOperation : Operations.PatchOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
-        {
-                HttpStatusCode.Created,
-        };
-
     public override Type? RequestObject() => typeof(WorkbookUpdateParametersModel);
 
     public override ResourceID? ResourceId() => new WorkbookId();
