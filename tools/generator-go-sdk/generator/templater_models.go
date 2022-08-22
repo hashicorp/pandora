@@ -532,7 +532,7 @@ func (c modelsTemplater) codeForUnmarshalStructFunction(data ServiceGeneratorDat
 		lines = append(lines, fmt.Sprintf(`
 var _ json.Unmarshaler = &%[1]s{}
 
-func (s *%[1]s) UnmarshalJSON(bytes []byte) error {`, c.name))
+func (s *%[1]s) Unmarshal(bytes []byte) error {`, c.name))
 
 		// first for each regular field, decode & assign that
 		if len(fieldsRequiringAssignment) > 0 {

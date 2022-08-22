@@ -35,7 +35,7 @@ type ServiceGeneratorInput struct {
 }
 
 func (s *ServiceGenerator) Generate(input ServiceGeneratorInput) error {
-	data := input.generatorData()
+	data := input.generatorData(s.settings)
 
 	if err := cleanAndRecreateWorkingDirectory(data.resourceOutputPath); err != nil {
 		return fmt.Errorf("cleaning/recreating working directory %q: %+v", data.resourceOutputPath, err)

@@ -368,7 +368,7 @@ func (s FirstImplementation) MarshalJSON() ([]byte, error) {
 
 var _ json.Unmarshaler = &FirstImplementation{}
 
-func (s *FirstImplementation) UnmarshalJSON(bytes []byte) error {
+func (s *FirstImplementation) Unmarshal(bytes []byte) error {
 	var temp map[string]json.RawMessage
 	if err := json.Unmarshal(bytes, &temp); err != nil {
 		return fmt.Errorf("unmarshaling FirstImplementation into map[string]json.RawMessage: %+v", err)

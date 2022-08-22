@@ -1,12 +1,5 @@
 package generator
 
 type Settings struct {
-	Transport TransportLayer
+	ServicesUsingNewBaseLayer map[string]struct{}
 }
-
-type TransportLayer string
-
-const (
-	AutoRest TransportLayer = "autorest"
-	Pandora  TransportLayer = "pandora"
-)
