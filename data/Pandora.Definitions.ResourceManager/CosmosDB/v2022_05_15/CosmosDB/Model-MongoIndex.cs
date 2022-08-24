@@ -10,16 +10,14 @@ using Pandora.Definitions.CustomTypes;
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 
 
-namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.PerformConnectivityCheck;
+namespace Pandora.Definitions.ResourceManager.CosmosDB.v2022_05_15.CosmosDB;
 
 
-internal class HttpHeaderModel
+internal class MongoIndexModel
 {
-    [JsonPropertyName("name")]
-    [Required]
-    public string Name { get; set; }
+    [JsonPropertyName("key")]
+    public MongoIndexKeysModel? Key { get; set; }
 
-    [JsonPropertyName("value")]
-    [Required]
-    public string Value { get; set; }
+    [JsonPropertyName("options")]
+    public MongoIndexOptionsModel? Options { get; set; }
 }
