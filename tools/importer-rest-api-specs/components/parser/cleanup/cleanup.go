@@ -566,6 +566,7 @@ func PluraliseName(input string) string {
 	skipnames := []string{
 		"Compute",
 		"ContainerInstance",
+		"Cosmos-Db",
 		"Kusto",
 		"PowerBIDedicated",
 		"ServiceLinker",
