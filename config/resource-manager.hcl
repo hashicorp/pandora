@@ -61,7 +61,7 @@ service "confidentialledger" {
 }
 service "consumption" {
   name      = "Consumption"
-  available = ["2019-10-01"]
+  available = ["2021-10-01"]
 }
 service "containerinstance" {
   name      = "ContainerInstance"
@@ -198,6 +198,10 @@ service "monitor" {
 service "msi" {
   name      = "ManagedIdentity"
   available = ["2018-11-30"]
+}
+service "mysql" {
+  name      = "MySql"
+  available = ["2020-01-01"]
 }
 service "netapp" {
   name      = "NetApp"
