@@ -70,16 +70,26 @@ func NormalizeSegmentName(input string) string {
 
 	// todo: something better than this
 	if strings.HasSuffix(output, "s") {
-		if !strings.HasSuffix(output, "ies") {
+
+		if HasSuffixFromList(output, []string{"ches", "shes", "sses", "xes", "zes"}) {
+			output = strings.TrimSuffix(output, "es")
+
+		} else if !strings.HasSuffix(output, "ies") {
 			output = strings.TrimSuffix(output, "s")
-		}
-		if strings.HasSuffix(output, "sse") {
-			output = strings.TrimSuffix(output, "e")
 		}
 	}
 
 	output = strings.Title(output)
 	return output
+}
+
+func HasSuffixFromList(word string, suffixes []string) bool {
+	for _, suffix := range suffixes {
+		if strings.HasSuffix(word, suffix) {
+			return true
+		}
+	}
+	return false
 }
 
 // NormalizeSegment normalizes the segments in the URI, since this data isn't normalized at review time :shrug:

@@ -34,3 +34,52 @@ func TestNormalizeReservedKeywords(t *testing.T) {
 		}
 	}
 }
+
+func TestNormalizeSegmentName(t *testing.T) {
+	testData := []struct {
+		input    string
+		expected string
+	}{
+		{
+			input:    "searches",
+			expected: "Search",
+		},
+		{
+			input:    "batches",
+			expected: "Batch",
+		},
+		{
+			input:    "classes",
+			expected: "Class",
+		},
+		{
+			input:    "prefixes",
+			expected: "Prefix",
+		},
+		{
+			input:    "databases",
+			expected: "Database",
+		},
+		{
+			input:    "services",
+			expected: "Service",
+		},
+		{
+			input:    "accounts",
+			expected: "Account",
+		},
+		{
+			input:    "studios",
+			expected: "Studio",
+		},
+	}
+
+	for _, v := range testData {
+		t.Logf("[DEBUG] Testing %s", v.input)
+
+		actual := NormalizeSegmentName(v.input)
+		if actual != v.expected {
+			t.Fatalf("Expected %s but got %s", v.expected, actual)
+		}
+	}
+}
