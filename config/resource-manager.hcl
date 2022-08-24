@@ -67,6 +67,10 @@ service "containerinstance" {
   name      = "ContainerInstance"
   available = ["2021-03-01", "2021-10-01"]
 }
+service "cosmos-db" {
+  name      = "CosmosDB"
+  available = ["2022-05-15"]
+}
 service "cost-management" {
   name      = "CostManagement"
   available = ["2021-10-01"]
