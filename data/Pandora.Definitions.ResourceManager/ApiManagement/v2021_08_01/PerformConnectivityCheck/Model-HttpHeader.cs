@@ -13,7 +13,7 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.PerformConnectivityCheck;
 
 
-internal class HTTPHeaderModel
+internal class HttpHeaderModel
 {
     [JsonPropertyName("name")]
     [Required]

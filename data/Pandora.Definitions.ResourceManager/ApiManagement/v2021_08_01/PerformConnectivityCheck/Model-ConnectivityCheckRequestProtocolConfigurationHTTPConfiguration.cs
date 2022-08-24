@@ -16,7 +16,7 @@ namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.PerformC
 internal class ConnectivityCheckRequestProtocolConfigurationHTTPConfigurationModel
 {
     [JsonPropertyName("headers")]
-    public List<HTTPHeaderModel>? Headers { get; set; }
+    public List<HttpHeaderModel>? Headers { get; set; }
 
     [JsonPropertyName("method")]
     public MethodConstant? Method { get; set; }
