@@ -61,7 +61,7 @@ service "confidentialledger" {
 }
 service "consumption" {
   name      = "Consumption"
-  available = ["2021-10-01"]
+  available = ["2019-10-01"]
 }
 service "containerinstance" {
   name      = "ContainerInstance"
