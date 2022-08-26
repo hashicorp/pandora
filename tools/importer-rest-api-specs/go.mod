@@ -3,6 +3,7 @@ module github.com/hashicorp/pandora/tools/importer-rest-api-specs
 go 1.18
 
 require (
+	github.com/gertd/go-pluralize v0.2.1
 	github.com/go-git/go-git/v5 v5.4.2
 	github.com/go-openapi/analysis v0.20.1
 	github.com/go-openapi/loads v0.20.2
@@ -72,3 +73,5 @@ require (
 replace github.com/go-openapi/analysis v0.20.1 => github.com/jackofallops/analysis v0.20.2-0.20210705135157-888aa8dbc8e5
 
 replace github.com/hashicorp/pandora/tools/sdk => ../sdk
+
+replace github.com/gertd/go-pluralize => github.com/catriona-m/go-pluralize v0.0.0-20220825144838-e11a195dcd8a

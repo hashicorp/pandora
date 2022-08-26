@@ -72,6 +72,18 @@ func TestNormalizeSegmentName(t *testing.T) {
 			input:    "studios",
 			expected: "Studio",
 		},
+		{
+			input:    "caches",
+			expected: "Cache",
+		},
+		{
+			input:    "identities",
+			expected: "Identity",
+		},
+		{
+			input:    "series",
+			expected: "Series",
+		},
 	}
 
 	for _, v := range testData {

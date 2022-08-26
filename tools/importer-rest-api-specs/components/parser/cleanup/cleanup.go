@@ -3,6 +3,8 @@ package cleanup
 import (
 	"fmt"
 	"strings"
+
+	"github.com/gertd/go-pluralize"
 )
 
 // TODO: move this inside of `parser`?
@@ -68,28 +70,11 @@ func NormalizeSegmentName(input string) string {
 		output = strings.TrimSuffix(output, "Name")
 	}
 
-	// todo: something better than this
-	if strings.HasSuffix(output, "s") {
-
-		if HasSuffixFromList(output, []string{"ches", "shes", "sses", "xes", "zes"}) {
-			output = strings.TrimSuffix(output, "es")
-
-		} else if !strings.HasSuffix(output, "ies") {
-			output = strings.TrimSuffix(output, "s")
-		}
-	}
+	pluralize := pluralize.NewClient()
+	output = pluralize.Singular(output)
 
 	output = strings.Title(output)
 	return output
-}
-
-func HasSuffixFromList(word string, suffixes []string) bool {
-	for _, suffix := range suffixes {
-		if strings.HasSuffix(word, suffix) {
-			return true
-		}
-	}
-	return false
 }
 
 // NormalizeSegment normalizes the segments in the URI, since this data isn't normalized at review time :shrug:
