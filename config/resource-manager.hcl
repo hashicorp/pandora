@@ -248,8 +248,8 @@ service "purview" {
   available = ["2020-12-01-preview", "2021-07-01"]
 }
 service "redis" {
-name      = "Redis"
-available = ["2021-06-01"]
+  name      = "Redis"
+  available = ["2021-06-01"]
 }
 service "redisenterprise" {
   name      = "RedisEnterprise"
