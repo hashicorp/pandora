@@ -13,14 +13,13 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.PerformConnectivityCheck;
 
 
-internal class ConnectivityCheckRequestProtocolConfigurationHTTPConfigurationModel
+internal class HTTPHeaderModel
 {
-    [JsonPropertyName("headers")]
-    public List<HTTPHeaderModel>? Headers { get; set; }
+    [JsonPropertyName("name")]
+    [Required]
+    public string Name { get; set; }
 
-    [JsonPropertyName("method")]
-    public MethodConstant? Method { get; set; }
-
-    [JsonPropertyName("validStatusCodes")]
-    public List<int>? ValidStatusCodes { get; set; }
+    [JsonPropertyName("value")]
+    [Required]
+    public string Value { get; set; }
 }
