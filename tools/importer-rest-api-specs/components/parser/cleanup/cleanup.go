@@ -531,6 +531,14 @@ func NormalizeCanonicalisation(input string) string {
 		output = strings.Replace(output, "ip", "IP", 1)
 	}
 
+	if strings.HasPrefix(output, "https") {
+		output = strings.Replace(output, "https", "HTTPS", 1)
+	}
+
+	if strings.HasPrefix(output, "http") {
+		output = strings.Replace(output, "http", "HTTP", 1)
+	}
+
 	if strings.EqualFold(output, "Publicipaddress") {
 		// This is an explicit force for broken data in `Network`
 		output = "PublicIPAddress"
@@ -558,6 +566,9 @@ func NormalizeCanonicalisation(input string) string {
 
 	// intentionally case-sensitive
 	output = strings.ReplaceAll(output, "Ip", "IP")
+
+	output = strings.ReplaceAll(output, "Https", "HTTPS")
+	output = strings.ReplaceAll(output, "Http", "HTTP")
 
 	return output
 }
