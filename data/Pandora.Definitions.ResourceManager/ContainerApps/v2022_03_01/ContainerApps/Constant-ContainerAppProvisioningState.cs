@@ -9,6 +9,9 @@ internal enum ContainerAppProvisioningStateConstant
     [Description("Canceled")]
     Canceled,
 
+    [Description("Deleting")]
+    Deleting,
+
     [Description("Failed")]
     Failed,
 
