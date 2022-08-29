@@ -10,16 +10,19 @@ using Pandora.Definitions.CustomTypes;
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 
 
-namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.PerformConnectivityCheck;
+namespace Pandora.Definitions.ResourceManager.Redis.v2021_06_01.PatchSchedules;
 
 
-internal class HttpHeaderModel
+internal class ScheduleEntryModel
 {
-    [JsonPropertyName("name")]
+    [JsonPropertyName("dayOfWeek")]
     [Required]
-    public string Name { get; set; }
+    public DayOfWeekConstant DayOfWeek { get; set; }
 
-    [JsonPropertyName("value")]
+    [JsonPropertyName("maintenanceWindow")]
+    public string? MaintenanceWindow { get; set; }
+
+    [JsonPropertyName("startHourUtc")]
     [Required]
-    public string Value { get; set; }
+    public int StartHourUtc { get; set; }
 }
