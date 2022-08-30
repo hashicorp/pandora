@@ -39,6 +39,10 @@ service "azurestackhci" {
   name      = "AzureStackHCI"
   available = ["2020-10-01"]
 }
+service "cdn" {
+  name      = "Cdn"
+  available = ["2020-09-01"]
+}
 service "chaos" {
   name      = "ChaosStudio"
   available = ["2022-07-01-preview"]
