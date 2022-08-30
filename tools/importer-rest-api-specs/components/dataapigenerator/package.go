@@ -7,7 +7,7 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
-func (s Service) generateResources(resourceName, namespace string, resource models.AzureApiResource, workingDirectory string) error {
+func (s Generator) generateResources(resourceName, namespace string, resource models.AzureApiResource, workingDirectory string) error {
 	s.logger.Debug(fmt.Sprintf("Generating %q (Resource %q)..", namespace, resourceName))
 
 	if err := recreateDirectory(workingDirectory, s.logger); err != nil {

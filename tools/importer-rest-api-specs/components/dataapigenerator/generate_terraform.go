@@ -3,11 +3,13 @@ package dataapigenerator
 import (
 	"fmt"
 	"path"
+
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
-func (s Service) generateTerraformDefinitions() error {
+func (s Generator) generateTerraformDefinitions(apiVersion models.AzureApiDefinition) error {
 	containsTerraformResources := false
-	for _, v := range s.data.Resources {
+	for _, v := range apiVersion.Resources {
 		if v.Terraform != nil {
 			containsTerraformResources = len(v.Terraform.DataSources) > 0 || len(v.Terraform.Resources) > 0
 		}
@@ -21,7 +23,7 @@ func (s Service) generateTerraformDefinitions() error {
 		return fmt.Errorf("generating Terraform Definition for Namespace %q: %+v", s.namespaceForTerraform, err)
 	}
 
-	for resourceName, resource := range s.data.Resources {
+	for resourceName, resource := range apiVersion.Resources {
 		if resource.Terraform == nil {
 			continue
 		}

@@ -10,51 +10,64 @@ import (
 	"github.com/hashicorp/go-hclog"
 )
 
-func NewService(data models.AzureApiDefinition, outputDirectory, rootNamespace, swaggerGitSha string, resourceProvider, terraformPackageName *string, logger hclog.Logger) *Service {
-	normalisedServiceName := strings.ReplaceAll(data.ServiceName, "-", "")
+func NewForService(serviceName, outputDirectory, rootNamespace, swaggerGitSha string, resourceProvider, terraformPackageName *string, logger hclog.Logger) *Generator {
+	normalisedServiceName := strings.ReplaceAll(serviceName, "-", "")
 	serviceNamespace := fmt.Sprintf("%s.%s", rootNamespace, strings.Title(normalisedServiceName))
 	serviceWorkingDirectory := path.Join(outputDirectory, rootNamespace, strings.Title(normalisedServiceName))
 	terraformNamespace := fmt.Sprintf("%s.Terraform", serviceNamespace)
 	terraformWorkingDirectory := path.Join(serviceWorkingDirectory, "Terraform")
-	normalizedApiVersion := normalizeApiVersion(data.ApiVersion)
 
-	return &Service{
-		apiVersionPackageName:         normalizedApiVersion,
-		data:                          data,
-		logger:                        logger,
-		namespaceForApiVersion:        fmt.Sprintf("%s.%s", serviceNamespace, normalizedApiVersion),
-		namespaceForService:           serviceNamespace,
-		namespaceForTerraform:         terraformNamespace,
-		outputDirectory:               outputDirectory,
-		resourceProvider:              resourceProvider,
-		rootNamespace:                 rootNamespace,
-		swaggerGitSha:                 swaggerGitSha,
-		terraformPackageName:          terraformPackageName,
-		workingDirectoryForService:    serviceWorkingDirectory,
-		workingDirectoryForTerraform:  terraformWorkingDirectory,
-		workingDirectoryForApiVersion: path.Join(serviceWorkingDirectory, normalizedApiVersion),
+	return &Generator{
+		logger:                       logger,
+		namespaceForService:          serviceNamespace,
+		namespaceForTerraform:        terraformNamespace,
+		outputDirectory:              outputDirectory,
+		resourceProvider:             resourceProvider,
+		rootNamespace:                rootNamespace,
+		serviceName:                  serviceName,
+		swaggerGitSha:                swaggerGitSha,
+		terraformPackageName:         terraformPackageName,
+		workingDirectoryForService:   serviceWorkingDirectory,
+		workingDirectoryForTerraform: terraformWorkingDirectory,
 	}
 }
 
-func (s *Service) Generate() error {
+func NewForApiVersion(serviceName, apiVersion, outputDirectory, rootNamespace, swaggerGitSha string, resourceProvider, terraformPackageName *string, logger hclog.Logger) *Generator {
+	service := NewForService(serviceName, outputDirectory, rootNamespace, swaggerGitSha, resourceProvider, terraformPackageName, logger)
+
+	normalizedApiVersion := normalizeApiVersion(apiVersion)
+
+	service.apiVersionPackageName = normalizedApiVersion
+	service.namespaceForApiVersion = fmt.Sprintf("%s.%s", service.namespaceForService, normalizedApiVersion)
+	service.workingDirectoryForApiVersion = path.Join(service.workingDirectoryForService, normalizedApiVersion)
+
+	return service
+}
+
+func (s *Generator) GenerateForService(apiVersions []models.AzureApiDefinition) error {
 	s.logger.Debug(fmt.Sprintf("[STAGE] Updating the Output Revision ID to %q", s.swaggerGitSha))
 	if err := outputRevisionId(s.outputDirectory, s.rootNamespace, s.swaggerGitSha); err != nil {
 		return fmt.Errorf("outputting the Revision Id: %+v", err)
 	}
 
-	if err := s.generateServiceDefinitions(); err != nil {
+	s.logger.Debug(fmt.Sprintf("[STAGE] Generating the Service Definitions.."))
+	if err := s.generateServiceDefinitions(apiVersions); err != nil {
 		return fmt.Errorf("generating Service Definitions: %+v", err)
 	}
 
+	return nil
+}
+
+func (s *Generator) GenerateForApiVersion(apiVersion models.AzureApiDefinition) error {
 	s.logger.Debug("[STAGE] Generating API Definitions..")
-	if err := s.generateApiVersions(); err != nil {
+	if err := s.generateApiVersions(apiVersion); err != nil {
 		return fmt.Errorf("generating API Versions: %+v", err)
 	}
 
 	if s.terraformPackageName != nil {
 		s.logger.Debug("Generating Terraform Definitions")
 
-		if err := s.generateTerraformDefinitions(); err != nil {
+		if err := s.generateTerraformDefinitions(apiVersion); err != nil {
 			return fmt.Errorf("generating Terraform Definitions: %+v", err)
 		}
 	} else {

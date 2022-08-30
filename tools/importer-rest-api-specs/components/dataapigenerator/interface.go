@@ -2,12 +2,10 @@ package dataapigenerator
 
 import (
 	"github.com/hashicorp/go-hclog"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
-type Service struct {
+type Generator struct {
 	apiVersionPackageName         string
-	data                          models.AzureApiDefinition
 	logger                        hclog.Logger
 	namespaceForService           string
 	namespaceForApiVersion        string
@@ -15,6 +13,7 @@ type Service struct {
 	outputDirectory               string
 	resourceProvider              *string
 	rootNamespace                 string
+	serviceName                   string
 	swaggerGitSha                 string
 	terraformPackageName          *string
 	workingDirectoryForService    string
