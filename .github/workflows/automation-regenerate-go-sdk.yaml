@@ -8,6 +8,10 @@ on:
       - 'data/**'
       - 'tools/generator-go-sdk/**'
 
+concurrency:
+  group: 'regengosdk-${{ github.head_ref }}'
+  cancel-in-progress: true
+
 jobs:
   regenerate-go-sdk:
     runs-on: ubuntu-latest
