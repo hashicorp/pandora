@@ -113,7 +113,6 @@ func runImportForService(input RunInput, serviceName string, apiVersionsForServi
 		// finally once we have all of the information for this API version, add it to the list so that we can
 		// generate the canonical "Terraform Data Sources/Resources" for this Service
 		apiVersions = append(apiVersions, *dataForApiVersion)
-		return nil
 	}
 
 	logger.Trace("Task: Generating Service Definitions..")
