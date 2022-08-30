@@ -19,9 +19,10 @@ func runImporter(input RunInput, generationData []discovery.ServiceInput, swagge
 			existing = append(existing, v)
 			dataByServices[v.ServiceName] = existing
 			continue
-		}
-		dataByServices[v.ServiceName] = []discovery.ServiceInput{
-			v,
+		} else {
+			existing = append(existing, v)
+			dataByServices[v.ServiceName] = existing
+			continue
 		}
 	}
 
