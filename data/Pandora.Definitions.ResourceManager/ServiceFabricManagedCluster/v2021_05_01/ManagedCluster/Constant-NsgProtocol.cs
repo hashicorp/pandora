@@ -13,10 +13,10 @@ internal enum NsgProtocolConstant
     Esp,
 
     [Description("http")]
-    Http,
+    HTTP,
 
     [Description("https")]
-    Https,
+    HTTPS,
 
     [Description("icmp")]
     Icmp,

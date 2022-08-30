@@ -7,10 +7,10 @@ namespace Pandora.Definitions.ResourceManager.FrontDoor.v2020_05_01.FrontDoors;
 internal enum FrontDoorForwardingProtocolConstant
 {
     [Description("HttpOnly")]
-    HttpOnly,
+    HTTPOnly,
 
     [Description("HttpsOnly")]
-    HttpsOnly,
+    HTTPSOnly,
 
     [Description("MatchRequest")]
     MatchRequest,

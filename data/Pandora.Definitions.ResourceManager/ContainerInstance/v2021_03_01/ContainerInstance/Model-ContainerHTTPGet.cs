@@ -13,11 +13,18 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.ContainerInstance.v2021_03_01.ContainerInstance;
 
 
-internal class HttpHeaderModel
+internal class ContainerHTTPGetModel
 {
-    [JsonPropertyName("name")]
-    public string? Name { get; set; }
+    [JsonPropertyName("httpHeaders")]
+    public List<HTTPHeaderModel>? HTTPHeaders { get; set; }
 
-    [JsonPropertyName("value")]
-    public string? Value { get; set; }
+    [JsonPropertyName("path")]
+    public string? Path { get; set; }
+
+    [JsonPropertyName("port")]
+    [Required]
+    public int Port { get; set; }
+
+    [JsonPropertyName("scheme")]
+    public SchemeConstant? Scheme { get; set; }
 }

@@ -31,7 +31,7 @@ internal class AccountSasParametersModel
     public PermissionsConstant SignedPermission { get; set; }
 
     [JsonPropertyName("signedProtocol")]
-    public HttpProtocolConstant? SignedProtocol { get; set; }
+    public HTTPProtocolConstant? SignedProtocol { get; set; }
 
     [JsonPropertyName("signedResourceTypes")]
     [Required]

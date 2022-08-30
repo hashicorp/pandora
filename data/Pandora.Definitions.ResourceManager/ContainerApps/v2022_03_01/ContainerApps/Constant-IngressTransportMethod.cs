@@ -10,8 +10,8 @@ internal enum IngressTransportMethodConstant
     Auto,
 
     [Description("http")]
-    Http,
+    HTTP,
 
     [Description("http2")]
-    HttpTwo,
+    HTTPTwo,
 }

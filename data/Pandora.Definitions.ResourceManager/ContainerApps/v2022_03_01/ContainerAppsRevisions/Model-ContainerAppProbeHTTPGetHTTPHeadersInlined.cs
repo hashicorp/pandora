@@ -13,7 +13,7 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.ContainerApps.v2022_03_01.ContainerAppsRevisions;
 
 
-internal class ContainerAppProbeHttpGetHttpHeadersInlinedModel
+internal class ContainerAppProbeHTTPGetHTTPHeadersInlinedModel
 {
     [JsonPropertyName("name")]
     [Required]

@@ -16,10 +16,10 @@ namespace Pandora.Definitions.ResourceManager.KubernetesConfiguration.v2022_03_0
 internal class GitRepositoryPatchDefinitionModel
 {
     [JsonPropertyName("httpsCACert")]
-    public string? HttpsCACert { get; set; }
+    public string? HTTPSCACert { get; set; }
 
     [JsonPropertyName("httpsUser")]
-    public string? HttpsUser { get; set; }
+    public string? HTTPSUser { get; set; }
 
     [JsonPropertyName("localAuthRef")]
     public string? LocalAuthRef { get; set; }

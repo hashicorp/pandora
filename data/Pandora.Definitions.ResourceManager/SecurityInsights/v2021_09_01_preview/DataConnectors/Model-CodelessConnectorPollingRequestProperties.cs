@@ -22,12 +22,12 @@ internal class CodelessConnectorPollingRequestPropertiesModel
     [JsonPropertyName("endTimeAttributeName")]
     public string? EndTimeAttributeName { get; set; }
 
-    [JsonPropertyName("headers")]
-    public object? Headers { get; set; }
-
     [JsonPropertyName("httpMethod")]
     [Required]
-    public string HttpMethod { get; set; }
+    public string HTTPMethod { get; set; }
+
+    [JsonPropertyName("headers")]
+    public object? Headers { get; set; }
 
     [JsonPropertyName("queryParameters")]
     public object? QueryParameters { get; set; }

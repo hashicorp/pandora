@@ -10,10 +10,10 @@ using Pandora.Definitions.CustomTypes;
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 
 
-namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.ApiDiagnostic;
+namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.Diagnostic;
 
 
-internal class HttpMessageDiagnosticModel
+internal class HTTPMessageDiagnosticModel
 {
     [JsonPropertyName("body")]
     public BodyDiagnosticSettingsModel? Body { get; set; }

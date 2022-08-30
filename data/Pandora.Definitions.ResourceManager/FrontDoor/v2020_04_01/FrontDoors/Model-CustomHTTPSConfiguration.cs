@@ -13,7 +13,7 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.FrontDoor.v2020_04_01.FrontDoors;
 
 
-internal class CustomHttpsConfigurationModel
+internal class CustomHTTPSConfigurationModel
 {
     [JsonPropertyName("certificateSource")]
     [Required]

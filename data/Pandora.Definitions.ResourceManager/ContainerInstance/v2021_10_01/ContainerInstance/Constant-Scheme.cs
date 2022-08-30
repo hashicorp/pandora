@@ -7,8 +7,8 @@ namespace Pandora.Definitions.ResourceManager.ContainerInstance.v2021_10_01.Cont
 internal enum SchemeConstant
 {
     [Description("http")]
-    Http,
+    HTTP,
 
     [Description("https")]
-    Https,
+    HTTPS,
 }

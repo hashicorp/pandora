@@ -25,10 +25,10 @@ internal class BackendModel
     public BackendEnabledStateConstant? EnabledState { get; set; }
 
     [JsonPropertyName("httpPort")]
-    public int? HttpPort { get; set; }
+    public int? HTTPPort { get; set; }
 
     [JsonPropertyName("httpsPort")]
-    public int? HttpsPort { get; set; }
+    public int? HTTPSPort { get; set; }
 
     [JsonPropertyName("priority")]
     public int? Priority { get; set; }

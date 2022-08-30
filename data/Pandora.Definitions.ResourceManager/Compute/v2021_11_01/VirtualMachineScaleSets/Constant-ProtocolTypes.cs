@@ -7,8 +7,8 @@ namespace Pandora.Definitions.ResourceManager.Compute.v2021_11_01.VirtualMachine
 internal enum ProtocolTypesConstant
 {
     [Description("Http")]
-    Http,
+    HTTP,
 
     [Description("Https")]
-    Https,
+    HTTPS,
 }

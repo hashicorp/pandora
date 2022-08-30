@@ -25,7 +25,7 @@ internal class DiagnosticContractPropertiesModel
     public PipelineDiagnosticSettingsModel? Frontend { get; set; }
 
     [JsonPropertyName("httpCorrelationProtocol")]
-    public HttpCorrelationProtocolConstant? HttpCorrelationProtocol { get; set; }
+    public HTTPCorrelationProtocolConstant? HTTPCorrelationProtocol { get; set; }
 
     [JsonPropertyName("logClientIp")]
     public bool? LogClientIP { get; set; }

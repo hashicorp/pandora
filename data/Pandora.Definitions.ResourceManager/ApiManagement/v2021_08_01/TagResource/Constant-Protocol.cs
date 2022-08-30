@@ -7,10 +7,10 @@ namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.TagResou
 internal enum ProtocolConstant
 {
     [Description("http")]
-    Http,
+    HTTP,
 
     [Description("https")]
-    Https,
+    HTTPS,
 
     [Description("ws")]
     Ws,

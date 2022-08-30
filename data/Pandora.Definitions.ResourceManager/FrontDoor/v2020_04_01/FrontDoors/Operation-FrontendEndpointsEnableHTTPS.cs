@@ -13,7 +13,7 @@ using System.Net;
 
 namespace Pandora.Definitions.ResourceManager.FrontDoor.v2020_04_01.FrontDoors;
 
-internal class FrontendEndpointsDisableHttpsOperation : Operations.PostOperation
+internal class FrontendEndpointsEnableHTTPSOperation : Operations.PostOperation
 {
     public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
@@ -23,11 +23,11 @@ internal class FrontendEndpointsDisableHttpsOperation : Operations.PostOperation
 
     public override bool LongRunning() => true;
 
-    public override Type? RequestObject() => null;
+    public override Type? RequestObject() => typeof(CustomHTTPSConfigurationModel);
 
     public override ResourceID? ResourceId() => new FrontendEndpointId();
 
-    public override string? UriSuffix() => "/disableHttps";
+    public override string? UriSuffix() => "/enableHttps";
 
 
 }

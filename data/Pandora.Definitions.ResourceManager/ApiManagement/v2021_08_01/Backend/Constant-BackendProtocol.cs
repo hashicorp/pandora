@@ -7,7 +7,7 @@ namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.Backend;
 internal enum BackendProtocolConstant
 {
     [Description("http")]
-    Http,
+    HTTP,
 
     [Description("soap")]
     Soap,
