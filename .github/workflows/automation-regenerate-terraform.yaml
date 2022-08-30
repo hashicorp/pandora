@@ -8,6 +8,10 @@ on:
       - 'data/**'
       - 'tools/generator-terraform/**'
 
+concurrency:
+  group: 'regenterraform-${{ github.head_ref }}'
+  cancel-in-progress: true
+
 jobs:
   regenerate-terraform-provider:
     runs-on: ubuntu-latest

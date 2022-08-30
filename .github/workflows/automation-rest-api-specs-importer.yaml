@@ -9,6 +9,12 @@ on:
       - 'swagger'
       - 'tools/importer-rest-api-specs/**'
 
+
+concurrency:
+  group: 'regendataapi-${{ github.head_ref }}'
+  cancel-in-progress: true
+
+
 jobs:
   regenerate-api-data:
     runs-on: ubuntu-latest
