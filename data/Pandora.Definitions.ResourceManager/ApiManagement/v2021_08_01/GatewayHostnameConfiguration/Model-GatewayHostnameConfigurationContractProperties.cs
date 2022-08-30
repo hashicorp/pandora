@@ -18,11 +18,11 @@ internal class GatewayHostnameConfigurationContractPropertiesModel
     [JsonPropertyName("certificateId")]
     public string? CertificateId { get; set; }
 
+    [JsonPropertyName("http2Enabled")]
+    public bool? HTTP2Enabled { get; set; }
+
     [JsonPropertyName("hostname")]
     public string? Hostname { get; set; }
-
-    [JsonPropertyName("http2Enabled")]
-    public bool? Http2Enabled { get; set; }
 
     [JsonPropertyName("negotiateClientCertificate")]
     public bool? NegotiateClientCertificate { get; set; }

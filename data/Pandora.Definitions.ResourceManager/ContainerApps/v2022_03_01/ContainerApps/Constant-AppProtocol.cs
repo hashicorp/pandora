@@ -10,5 +10,5 @@ internal enum AppProtocolConstant
     Grpc,
 
     [Description("http")]
-    Http,
+    HTTP,
 }

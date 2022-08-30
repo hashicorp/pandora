@@ -16,8 +16,8 @@ namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.Diagnost
 internal class PipelineDiagnosticSettingsModel
 {
     [JsonPropertyName("request")]
-    public HttpMessageDiagnosticModel? Request { get; set; }
+    public HTTPMessageDiagnosticModel? Request { get; set; }
 
     [JsonPropertyName("response")]
-    public HttpMessageDiagnosticModel? Response { get; set; }
+    public HTTPMessageDiagnosticModel? Response { get; set; }
 }

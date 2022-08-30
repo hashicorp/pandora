@@ -57,7 +57,7 @@ internal class ServiceSasParametersModel
     public PermissionsConstant? SignedPermission { get; set; }
 
     [JsonPropertyName("signedProtocol")]
-    public HttpProtocolConstant? SignedProtocol { get; set; }
+    public HTTPProtocolConstant? SignedProtocol { get; set; }
 
     [JsonPropertyName("signedResource")]
     public SignedResourceConstant? SignedResource { get; set; }

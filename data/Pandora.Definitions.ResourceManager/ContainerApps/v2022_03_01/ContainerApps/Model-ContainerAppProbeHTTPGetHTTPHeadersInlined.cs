@@ -10,14 +10,16 @@ using Pandora.Definitions.CustomTypes;
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 
 
-namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.ApiDiagnostic;
+namespace Pandora.Definitions.ResourceManager.ContainerApps.v2022_03_01.ContainerApps;
 
 
-internal class PipelineDiagnosticSettingsModel
+internal class ContainerAppProbeHTTPGetHTTPHeadersInlinedModel
 {
-    [JsonPropertyName("request")]
-    public HTTPMessageDiagnosticModel? Request { get; set; }
+    [JsonPropertyName("name")]
+    [Required]
+    public string Name { get; set; }
 
-    [JsonPropertyName("response")]
-    public HTTPMessageDiagnosticModel? Response { get; set; }
+    [JsonPropertyName("value")]
+    [Required]
+    public string Value { get; set; }
 }

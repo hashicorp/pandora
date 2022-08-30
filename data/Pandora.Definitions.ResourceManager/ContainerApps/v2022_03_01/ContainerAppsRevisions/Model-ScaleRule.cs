@@ -22,7 +22,7 @@ internal class ScaleRuleModel
     public CustomScaleRuleModel? Custom { get; set; }
 
     [JsonPropertyName("http")]
-    public HttpScaleRuleModel? Http { get; set; }
+    public HTTPScaleRuleModel? HTTP { get; set; }
 
     [JsonPropertyName("name")]
     public string? Name { get; set; }

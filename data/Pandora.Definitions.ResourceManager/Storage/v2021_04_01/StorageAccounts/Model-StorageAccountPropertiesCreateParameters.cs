@@ -61,5 +61,5 @@ internal class StorageAccountPropertiesCreateParametersModel
     public SasPolicyModel? SasPolicy { get; set; }
 
     [JsonPropertyName("supportsHttpsTrafficOnly")]
-    public bool? SupportsHttpsTrafficOnly { get; set; }
+    public bool? SupportsHTTPSTrafficOnly { get; set; }
 }

@@ -10,11 +10,16 @@ using Pandora.Definitions.CustomTypes;
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 
 
-namespace Pandora.Definitions.ResourceManager.ContainerApps.v2022_03_01.ContainerAppsAuthConfigs;
+namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.PerformConnectivityCheck;
 
 
-internal class HttpSettingsRoutesModel
+internal class HTTPHeaderModel
 {
-    [JsonPropertyName("apiPrefix")]
-    public string? ApiPrefix { get; set; }
+    [JsonPropertyName("name")]
+    [Required]
+    public string Name { get; set; }
+
+    [JsonPropertyName("value")]
+    [Required]
+    public string Value { get; set; }
 }

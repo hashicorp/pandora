@@ -10,16 +10,14 @@ using Pandora.Definitions.CustomTypes;
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 
 
-namespace Pandora.Definitions.ResourceManager.ContainerApps.v2022_03_01.ContainerApps;
+namespace Pandora.Definitions.ResourceManager.ContainerInstance.v2021_10_01.ContainerInstance;
 
 
-internal class ContainerAppProbeHttpGetHttpHeadersInlinedModel
+internal class HTTPHeaderModel
 {
     [JsonPropertyName("name")]
-    [Required]
-    public string Name { get; set; }
+    public string? Name { get; set; }
 
     [JsonPropertyName("value")]
-    [Required]
-    public string Value { get; set; }
+    public string? Value { get; set; }
 }

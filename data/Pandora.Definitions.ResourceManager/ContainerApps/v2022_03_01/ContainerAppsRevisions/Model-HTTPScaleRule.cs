@@ -10,16 +10,14 @@ using Pandora.Definitions.CustomTypes;
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 
 
-namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.PerformConnectivityCheck;
+namespace Pandora.Definitions.ResourceManager.ContainerApps.v2022_03_01.ContainerAppsRevisions;
 
 
-internal class HttpHeaderModel
+internal class HTTPScaleRuleModel
 {
-    [JsonPropertyName("name")]
-    [Required]
-    public string Name { get; set; }
+    [JsonPropertyName("auth")]
+    public List<ScaleRuleAuthModel>? Auth { get; set; }
 
-    [JsonPropertyName("value")]
-    [Required]
-    public string Value { get; set; }
+    [JsonPropertyName("metadata")]
+    public Dictionary<string, string>? Metadata { get; set; }
 }

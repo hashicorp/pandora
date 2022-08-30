@@ -16,13 +16,13 @@ namespace Pandora.Definitions.ResourceManager.FrontDoor.v2020_05_01.FrontDoors;
 internal class FrontendEndpointPropertiesModel
 {
     [JsonPropertyName("customHttpsConfiguration")]
-    public CustomHttpsConfigurationModel? CustomHttpsConfiguration { get; set; }
+    public CustomHTTPSConfigurationModel? CustomHTTPSConfiguration { get; set; }
 
     [JsonPropertyName("customHttpsProvisioningState")]
-    public CustomHttpsProvisioningStateConstant? CustomHttpsProvisioningState { get; set; }
+    public CustomHTTPSProvisioningStateConstant? CustomHTTPSProvisioningState { get; set; }
 
     [JsonPropertyName("customHttpsProvisioningSubstate")]
-    public CustomHttpsProvisioningSubstateConstant? CustomHttpsProvisioningSubstate { get; set; }
+    public CustomHTTPSProvisioningSubstateConstant? CustomHTTPSProvisioningSubstate { get; set; }
 
     [JsonPropertyName("hostName")]
     public string? HostName { get; set; }

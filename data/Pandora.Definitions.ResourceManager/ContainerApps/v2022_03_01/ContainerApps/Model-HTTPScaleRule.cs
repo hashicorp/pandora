@@ -13,7 +13,7 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.ContainerApps.v2022_03_01.ContainerApps;
 
 
-internal class HttpScaleRuleModel
+internal class HTTPScaleRuleModel
 {
     [JsonPropertyName("auth")]
     public List<ScaleRuleAuthModel>? Auth { get; set; }

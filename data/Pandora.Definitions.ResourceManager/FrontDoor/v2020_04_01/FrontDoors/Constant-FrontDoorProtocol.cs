@@ -7,8 +7,8 @@ namespace Pandora.Definitions.ResourceManager.FrontDoor.v2020_04_01.FrontDoors;
 internal enum FrontDoorProtocolConstant
 {
     [Description("Http")]
-    Http,
+    HTTP,
 
     [Description("Https")]
-    Https,
+    HTTPS,
 }

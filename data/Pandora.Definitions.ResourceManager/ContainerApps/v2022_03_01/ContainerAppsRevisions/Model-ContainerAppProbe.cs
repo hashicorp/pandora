@@ -19,7 +19,7 @@ internal class ContainerAppProbeModel
     public int? FailureThreshold { get; set; }
 
     [JsonPropertyName("httpGet")]
-    public ContainerAppProbeHttpGetModel? HttpGet { get; set; }
+    public ContainerAppProbeHTTPGetModel? HTTPGet { get; set; }
 
     [JsonPropertyName("initialDelaySeconds")]
     public int? InitialDelaySeconds { get; set; }

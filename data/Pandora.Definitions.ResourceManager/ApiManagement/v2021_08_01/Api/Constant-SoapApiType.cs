@@ -10,7 +10,7 @@ internal enum SoapApiTypeConstant
     Graphql,
 
     [Description("http")]
-    Http,
+    HTTP,
 
     [Description("soap")]
     Soap,

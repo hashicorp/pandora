@@ -7,10 +7,10 @@ namespace Pandora.Definitions.ResourceManager.ServiceFabricManagedCluster.v2021_
 internal enum ProbeProtocolConstant
 {
     [Description("http")]
-    Http,
+    HTTP,
 
     [Description("https")]
-    Https,
+    HTTPS,
 
     [Description("tcp")]
     Tcp,

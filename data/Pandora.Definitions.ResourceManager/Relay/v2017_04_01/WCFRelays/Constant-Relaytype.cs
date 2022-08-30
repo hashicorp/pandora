@@ -7,7 +7,7 @@ namespace Pandora.Definitions.ResourceManager.Relay.v2017_04_01.WCFRelays;
 internal enum RelaytypeConstant
 {
     [Description("Http")]
-    Http,
+    HTTP,
 
     [Description("NetTcp")]
     NetTcp,

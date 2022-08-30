@@ -19,7 +19,7 @@ internal class AuthConfigPropertiesModel
     public GlobalValidationModel? GlobalValidation { get; set; }
 
     [JsonPropertyName("httpSettings")]
-    public HttpSettingsModel? HttpSettings { get; set; }
+    public HTTPSettingsModel? HTTPSettings { get; set; }
 
     [JsonPropertyName("identityProviders")]
     public IdentityProvidersModel? IdentityProviders { get; set; }

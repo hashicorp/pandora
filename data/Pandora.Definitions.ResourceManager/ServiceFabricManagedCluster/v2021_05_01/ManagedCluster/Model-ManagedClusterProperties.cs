@@ -72,7 +72,7 @@ internal class ManagedClusterPropertiesModel
     public string? Fqdn { get; set; }
 
     [JsonPropertyName("httpGatewayConnectionPort")]
-    public int? HttpGatewayConnectionPort { get; set; }
+    public int? HTTPGatewayConnectionPort { get; set; }
 
     [JsonPropertyName("ipv4Address")]
     public string? IPv4Address { get; set; }

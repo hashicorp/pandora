@@ -11,9 +11,9 @@ using System.Net;
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 
 
-namespace Pandora.Definitions.ResourceManager.FrontDoor.v2020_04_01.FrontDoors;
+namespace Pandora.Definitions.ResourceManager.FrontDoor.v2020_05_01.FrontDoors;
 
-internal class FrontendEndpointsEnableHttpsOperation : Operations.PostOperation
+internal class FrontendEndpointsEnableHTTPSOperation : Operations.PostOperation
 {
     public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
@@ -23,7 +23,7 @@ internal class FrontendEndpointsEnableHttpsOperation : Operations.PostOperation
 
     public override bool LongRunning() => true;
 
-    public override Type? RequestObject() => typeof(CustomHttpsConfigurationModel);
+    public override Type? RequestObject() => typeof(CustomHTTPSConfigurationModel);
 
     public override ResourceID? ResourceId() => new FrontendEndpointId();
 

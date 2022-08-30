@@ -13,14 +13,14 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.ContainerApps.v2022_03_01.ContainerAppsAuthConfigs;
 
 
-internal class HttpSettingsModel
+internal class HTTPSettingsModel
 {
     [JsonPropertyName("forwardProxy")]
     public ForwardProxyModel? ForwardProxy { get; set; }
 
     [JsonPropertyName("requireHttps")]
-    public bool? RequireHttps { get; set; }
+    public bool? RequireHTTPS { get; set; }
 
     [JsonPropertyName("routes")]
-    public HttpSettingsRoutesModel? Routes { get; set; }
+    public HTTPSettingsRoutesModel? Routes { get; set; }
 }
