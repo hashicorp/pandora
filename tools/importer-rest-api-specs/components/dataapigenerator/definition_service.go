@@ -3,13 +3,15 @@ package dataapigenerator
 import (
 	"fmt"
 	"path"
+
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
-func (s Service) generateServiceDefinition() error {
+func (s Generator) generateServiceDefinition(apiVersions []models.AzureApiDefinition) error {
 	serviceDefinitionFilePath := path.Join(s.workingDirectoryForService, "ServiceDefinition.cs")
 	s.logger.Debug(fmt.Sprintf("Generating Service Definition into %q..", serviceDefinitionFilePath))
 
-	code := codeForServiceDefinition(s.namespaceForService, s.data.ServiceName, s.resourceProvider, s.terraformPackageName, s.data)
+	code := codeForServiceDefinition(s.namespaceForService, s.serviceName, s.resourceProvider, s.terraformPackageName, apiVersions)
 	if err := writeToFile(serviceDefinitionFilePath, code); err != nil {
 		return fmt.Errorf("generating Service Definition into %q: %+v", serviceDefinitionFilePath, err)
 	}
@@ -26,7 +28,7 @@ func (s Service) generateServiceDefinition() error {
 	}
 
 	s.logger.Debug(fmt.Sprintf("Creating Service Definition Generation Settings at %q", generationSettingsFilePath))
-	code = codeForServiceDefinitionGenerationSettings(s.namespaceForService, s.data.ServiceName)
+	code = codeForServiceDefinitionGenerationSettings(s.namespaceForService, s.serviceName)
 	if err := writeToFile(generationSettingsFilePath, code); err != nil {
 		return fmt.Errorf("generating Service Definition Generation Settings into %q: %+v", generationSettingsFilePath, err)
 	}

@@ -14,15 +14,15 @@ const restApiSpecsLicence = `
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 `
 
-func (s Service) namespaceForResource(resourceName string) string {
+func (s Generator) namespaceForResource(resourceName string) string {
 	return fmt.Sprintf("%s.%s", s.namespaceForApiVersion, s.packageNameForResource(resourceName))
 }
 
-func (s Service) packageNameForResource(resourceName string) string {
+func (s Generator) packageNameForResource(resourceName string) string {
 	return strings.Title(resourceName)
 }
 
-func (s Service) workingDirectoryForResource(resource string) string {
+func (s Generator) workingDirectoryForResource(resource string) string {
 	dir := s.workingDirectoryForApiVersion
 	return path.Join(dir, resource)
 }

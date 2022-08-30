@@ -2,10 +2,12 @@ package dataapigenerator
 
 import (
 	"fmt"
+
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
-func (s Service) generateServiceDefinitions() error {
-	s.logger.Debug(fmt.Sprintf("Processing Service %q..", s.data.ServiceName))
+func (s Generator) generateServiceDefinitions(apiVersions []models.AzureApiDefinition) error {
+	s.logger.Debug(fmt.Sprintf("Processing Service %q..", s.serviceName))
 
 	excludeList := []string{
 		// TODO: presumably we can remove this once https://github.com/hashicorp/pandora/issues/403
@@ -17,7 +19,7 @@ func (s Service) generateServiceDefinitions() error {
 	}
 
 	// finally let's output the new Service Definition
-	if err := s.generateServiceDefinition(); err != nil {
+	if err := s.generateServiceDefinition(apiVersions); err != nil {
 		return fmt.Errorf("generating Service Definition for Namespace %q: %+v", s.namespaceForService, err)
 	}
 

@@ -4,9 +4,11 @@ import (
 	"fmt"
 	"path"
 	"strings"
+
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
-func (s Service) generateVersionDefinition() error {
+func (s Generator) generateVersionDefinition(apiVersion models.AzureApiDefinition) error {
 	s.logger.Debug("Checking for an existing Generation Settings file..")
 
 	// recreate the directory
@@ -19,9 +21,9 @@ func (s Service) generateVersionDefinition() error {
 
 	// then generate the files
 	s.logger.Debug("Generating Api Version Definition..")
-	isPreview := strings.Contains(strings.ToLower(s.data.ApiVersion), "preview")
+	isPreview := strings.Contains(strings.ToLower(apiVersion.ApiVersion), "preview")
 	definitionFilePath := path.Join(s.workingDirectoryForApiVersion, "ApiVersionDefinition.cs")
-	if err := writeToFile(definitionFilePath, codeForApiVersionDefinition(s.namespaceForApiVersion, s.data.ApiVersion, isPreview, s.data.Resources)); err != nil {
+	if err := writeToFile(definitionFilePath, codeForApiVersionDefinition(s.namespaceForApiVersion, apiVersion.ApiVersion, isPreview, apiVersion.Resources)); err != nil {
 		return fmt.Errorf("writing Api Version Definition to %q: %+v", definitionFilePath, err)
 	}
 

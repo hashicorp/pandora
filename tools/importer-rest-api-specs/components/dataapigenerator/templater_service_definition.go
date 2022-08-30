@@ -8,7 +8,7 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
-func codeForServiceDefinition(namespace, serviceName string, resourceProvider, terraformPackage *string, data models.AzureApiDefinition) string {
+func codeForServiceDefinition(namespace, serviceName string, resourceProvider, terraformPackage *string, apiVersions []models.AzureApiDefinition) string {
 	rp := "null"
 	if resourceProvider != nil {
 		rp = fmt.Sprintf("%q", *resourceProvider)
@@ -20,13 +20,15 @@ func codeForServiceDefinition(namespace, serviceName string, resourceProvider, t
 	}
 
 	terraformResources := make([]string, 0)
-	for _, resource := range data.Resources {
-		if resource.Terraform == nil {
-			continue
-		}
+	for _, apiVersion := range apiVersions {
+		for _, resource := range apiVersion.Resources {
+			if resource.Terraform == nil {
+				continue
+			}
 
-		for _, v := range resource.Terraform.Resources {
-			terraformResources = append(terraformResources, fmt.Sprintf("new Terraform.%sResource(),", v.ResourceName))
+			for _, v := range resource.Terraform.Resources {
+				terraformResources = append(terraformResources, fmt.Sprintf("new Terraform.%sResource(),", v.ResourceName))
+			}
 		}
 	}
 	sort.Strings(terraformResources)
