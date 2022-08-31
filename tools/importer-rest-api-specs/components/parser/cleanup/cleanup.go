@@ -3,8 +3,6 @@ package cleanup
 import (
 	"fmt"
 	"strings"
-
-	"github.com/gertd/go-pluralize"
 )
 
 // TODO: move this inside of `parser`?
@@ -70,10 +68,7 @@ func NormalizeSegmentName(input string) string {
 		output = strings.TrimSuffix(output, "Name")
 	}
 
-	pluralize := pluralize.NewClient()
-	output = pluralize.Singular(output)
-
-	output = strings.Title(output)
+	output = strings.Title(getSingular(output))
 	return output
 }
 
@@ -571,6 +566,7 @@ func NormalizeCanonicalisation(input string) string {
 }
 
 func PluraliseName(input string) string {
+	// TODO use helper here instead?
 	skipnames := []string{
 		"Compute",
 		"ContainerInstance",
