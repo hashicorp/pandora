@@ -93,7 +93,7 @@ service "datalake-store" {
 }
 service "dataprotection" {
   name      = "DataProtection"
-  available = ["2022-04-01"]
+  available = ["2022-04-01", "2022-05-01"]
 }
 service "desktopvirtualization" {
   name      = "DesktopVirtualization"
