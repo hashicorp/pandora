@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Pandora.Definitions.Interfaces;
 
-namespace Pandora.Definitions.ResourceManager.IotCentral.v2021_11_01_preview;
+namespace Pandora.Definitions.ResourceManager.IoTCentral.v2021_11_01_preview;
 
 public partial class Definition : ApiVersionDefinition
 {

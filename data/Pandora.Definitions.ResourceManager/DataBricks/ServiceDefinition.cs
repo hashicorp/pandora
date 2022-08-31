@@ -6,11 +6,11 @@ using System.Collections.Generic;
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 
 
-namespace Pandora.Definitions.ResourceManager.DataBricks;
+namespace Pandora.Definitions.ResourceManager.Databricks;
 
 public partial class Service : ServiceDefinition
 {
-    public string Name => "DataBricks";
+    public string Name => "Databricks";
     public string? ResourceProvider => "Microsoft.Databricks";
     public string? TerraformPackageName => null;
 

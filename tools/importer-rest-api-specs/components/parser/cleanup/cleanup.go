@@ -412,7 +412,7 @@ func NormalizeServiceName(input string) string {
 		"hardwaresecuritymodules":        "HardwareSecurityModules",
 		"hdinsight":                      "HDInsight",
 		"healthbot":                      "HealthBot",
-		"healthcareapis":                 "HealthCareApis",
+		"healthcareapis":                 "HealthcareApis",
 		"hybridcompute":                  "HybridCompute",
 		"hybriddatamanager":              "HybridDataManager",
 		"hybridkubernetes":               "HybridKubernetes",

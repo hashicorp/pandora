@@ -1,4 +1,4 @@
-namespace Pandora.Definitions.ResourceManager.DataBricks.v2021_04_01_preview;
+namespace Pandora.Definitions.ResourceManager.Databricks.v2021_04_01_preview;
 
 public partial class Definition
 {

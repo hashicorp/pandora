@@ -1,4 +1,4 @@
-namespace Pandora.Definitions.ResourceManager.PostgreSqlHsc;
+namespace Pandora.Definitions.ResourceManager.PostgreSqlHSC;
 
 public partial class Service
 {

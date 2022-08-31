@@ -6,11 +6,11 @@ using System.Collections.Generic;
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 
 
-namespace Pandora.Definitions.ResourceManager.IotCentral;
+namespace Pandora.Definitions.ResourceManager.IoTCentral;
 
 public partial class Service : ServiceDefinition
 {
-    public string Name => "IotCentral";
+    public string Name => "IoTCentral";
     public string? ResourceProvider => "Microsoft.IoTCentral";
     public string? TerraformPackageName => null;
 

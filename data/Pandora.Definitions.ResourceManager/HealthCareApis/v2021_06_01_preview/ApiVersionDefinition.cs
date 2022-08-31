@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Pandora.Definitions.Interfaces;
 
-namespace Pandora.Definitions.ResourceManager.HealthCareApis.v2021_06_01_preview;
+namespace Pandora.Definitions.ResourceManager.HealthcareApis.v2021_06_01_preview;
 
 public partial class Definition : ApiVersionDefinition
 {

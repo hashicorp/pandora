@@ -6,11 +6,11 @@ using System.Collections.Generic;
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 
 
-namespace Pandora.Definitions.ResourceManager.PostgreSqlHsc;
+namespace Pandora.Definitions.ResourceManager.PostgreSqlHSC;
 
 public partial class Service : ServiceDefinition
 {
-    public string Name => "PostgreSqlHsc";
+    public string Name => "PostgreSqlHSC";
     public string? ResourceProvider => "Microsoft.DBforPostgreSQL";
     public string? TerraformPackageName => null;
 

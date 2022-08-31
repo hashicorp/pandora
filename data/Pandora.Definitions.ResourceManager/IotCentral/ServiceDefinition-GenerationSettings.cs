@@ -1,4 +1,4 @@
-namespace Pandora.Definitions.ResourceManager.IotCentral;
+namespace Pandora.Definitions.ResourceManager.IoTCentral;
 
 public partial class Service
 {

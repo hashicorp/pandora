@@ -1,4 +1,4 @@
-namespace Pandora.Definitions.ResourceManager.DataBricks;
+namespace Pandora.Definitions.ResourceManager.Databricks;
 
 public partial class Service
 {

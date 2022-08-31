@@ -6,11 +6,11 @@ using System.Collections.Generic;
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 
 
-namespace Pandora.Definitions.ResourceManager.HealthCareApis;
+namespace Pandora.Definitions.ResourceManager.HealthcareApis;
 
 public partial class Service : ServiceDefinition
 {
-    public string Name => "HealthCareApis";
+    public string Name => "HealthcareApis";
     public string? ResourceProvider => "Microsoft.HealthcareApis";
     public string? TerraformPackageName => null;
 

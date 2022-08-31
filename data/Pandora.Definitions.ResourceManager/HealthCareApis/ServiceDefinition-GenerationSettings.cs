@@ -1,4 +1,4 @@
-namespace Pandora.Definitions.ResourceManager.HealthCareApis;
+namespace Pandora.Definitions.ResourceManager.HealthcareApis;
 
 public partial class Service
 {
