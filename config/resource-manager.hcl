@@ -84,11 +84,11 @@ service "databricks" {
   available = ["2021-04-01-preview"]
 }
 service "datalake-analytics" {
-  name      = "DatalakeAnalytics"
+  name      = "DataLakeAnalytics"
   available = ["2016-11-01"]
 }
 service "datalake-store" {
-  name      = "DatalakeStore"
+  name      = "DataLakeStore"
   available = ["2016-11-01"]
 }
 service "dataprotection" {
@@ -232,7 +232,7 @@ service "postgresql" {
   available = ["2017-12-01", "2018-06-01", "2020-01-01", "2021-06-01"]
 }
 service "postgresqlhsc" {
-  name      = "PostgresqlHSC"
+  name      = "PostgreSqlHSC"
   available = ["2020-10-05-privatepreview"]
 }
 service "powerbidedicated" {
