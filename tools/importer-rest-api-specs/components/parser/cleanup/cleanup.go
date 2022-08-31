@@ -68,7 +68,7 @@ func NormalizeSegmentName(input string) string {
 		output = strings.TrimSuffix(output, "Name")
 	}
 
-	output = strings.Title(getSingular(output))
+	output = strings.Title(GetSingular(output))
 	return output
 }
 
@@ -566,7 +566,6 @@ func NormalizeCanonicalisation(input string) string {
 }
 
 func PluraliseName(input string) string {
-	// TODO use helper here instead?
 	skipnames := []string{
 		"Compute",
 		"ContainerInstance",
@@ -582,6 +581,8 @@ func PluraliseName(input string) string {
 	}
 
 	input = strings.TrimPrefix(input, "/")
+
+	// TODO use pluralise_helper here instead?
 	if strings.HasSuffix(input, "s") {
 		return input
 	}

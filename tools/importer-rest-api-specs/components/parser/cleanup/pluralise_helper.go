@@ -1,8 +1,6 @@
 package cleanup
 
 import (
-	"strings"
-
 	"github.com/gertd/go-pluralize"
 )
 
@@ -11,9 +9,9 @@ type irregularPlural = struct {
 	plural string
 }
 
-func getSingular(input string) string {
+func GetSingular(input string) string {
 	for _, v := range pluralisationExceptions() {
-		if strings.EqualFold(strings.ToLower(input), v.plural) {
+		if input == v.single {
 			return v.single
 		}
 	}
@@ -24,9 +22,9 @@ func getSingular(input string) string {
 	return output
 }
 
-func getPlural(input string) string {
+func GetPlural(input string) string {
 	for _, v := range pluralisationExceptions() {
-		if strings.EqualFold(strings.ToLower(input), v.single) {
+		if input == v.single {
 			return v.plural
 		}
 	}
@@ -42,6 +40,7 @@ func pluralisationExceptions() []irregularPlural {
 	pluralisationExceptions := []irregularPlural{
 		// TODO add more exceptions
 		{"redis", "redis"},
+		{"Redis", "Redis"},
 	}
 
 	return pluralisationExceptions
