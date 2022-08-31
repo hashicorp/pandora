@@ -418,7 +418,7 @@ func NormalizeServiceName(input string) string {
 		"hybridkubernetes":               "HybridKubernetes",
 		"hybridnetwork":                  "HybridNetwork",
 		"imagebuilder":                   "ImageBuilder",
-		"iotcentral":                     "IotCentral",
+		"iotcentral":                     "IoTCentral",
 		"iothub":                         "IotHub",
 		"iotsecurity":                    "IoTSecurity",
 		"iotspaces":                      "IoTSpaces",
