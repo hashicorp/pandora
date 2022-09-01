@@ -132,7 +132,7 @@ service "fluidrelay" {
   available = ["2022-05-26"]
 }
 service "frontdoor" {
-  name      = "Frontdoor"
+  name      = "FrontDoor"
   available = ["2020-04-01", "2020-05-01"]
 }
 service "hardwaresecuritymodules" {
