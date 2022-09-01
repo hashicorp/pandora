@@ -10,8 +10,15 @@ type irregularPlural = struct {
 }
 
 func GetSingular(input string) string {
-	for _, v := range pluralisationExceptions() {
-		if input == v.single {
+
+	for _, v := range invariablePlurals() {
+		if input == v {
+			return v
+		}
+	}
+
+	for _, v := range irregularPlurals() {
+		if input == v.plural {
 			return v.single
 		}
 	}
@@ -23,7 +30,14 @@ func GetSingular(input string) string {
 }
 
 func GetPlural(input string) string {
-	for _, v := range pluralisationExceptions() {
+
+	for _, v := range invariablePlurals() {
+		if input == v {
+			return v
+		}
+	}
+
+	for _, v := range irregularPlurals() {
 		if input == v.single {
 			return v.plural
 		}
@@ -35,13 +49,24 @@ func GetPlural(input string) string {
 	return output
 }
 
-func pluralisationExceptions() []irregularPlural {
+func irregularPlurals() []irregularPlural {
 
 	pluralisationExceptions := []irregularPlural{
-		// TODO add more exceptions
-		{"redis", "redis"},
-		{"Redis", "Redis"},
+		{"cache", "caches"},
+		{"Cache", "Caches"},
 	}
-
 	return pluralisationExceptions
+}
+
+func invariablePlurals() []string {
+	return []string{
+		"redis",
+		"Redis",
+		"Compute",
+		"ContainerInstance",
+		"Cosmos-Db",
+		"Kusto",
+		"PowerBIDedicated",
+		"ServiceLinker",
+	}
 }

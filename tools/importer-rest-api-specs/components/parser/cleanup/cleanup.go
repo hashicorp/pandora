@@ -5,8 +5,6 @@ import (
 	"strings"
 )
 
-// TODO: move this inside of `parser`?
-
 func RemoveInvalidCharacters(input string, titleCaseSegments bool) string {
 	output := input
 
@@ -566,29 +564,7 @@ func NormalizeCanonicalisation(input string) string {
 }
 
 func PluraliseName(input string) string {
-	skipnames := []string{
-		"Compute",
-		"ContainerInstance",
-		"Cosmos-Db",
-		"Kusto",
-		"PowerBIDedicated",
-		"ServiceLinker",
-	}
-	for _, v := range skipnames {
-		if strings.EqualFold(strings.TrimPrefix(input, "/"), v) {
-			return input
-		}
-	}
-
 	input = strings.TrimPrefix(input, "/")
-
-	// TODO use pluralise_helper here instead?
-	if strings.HasSuffix(input, "s") {
-		return input
-	}
-
-	if strings.HasSuffix(input, "y") {
-		return fmt.Sprintf("%sies", strings.TrimSuffix(input, "y"))
-	}
+	input = PluraliseName(input)
 	return fmt.Sprintf("%ss", input)
 }
