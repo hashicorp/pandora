@@ -565,6 +565,6 @@ func NormalizeCanonicalisation(input string) string {
 
 func PluraliseName(input string) string {
 	input = strings.TrimPrefix(input, "/")
-	input = PluraliseName(input)
+	input = GetPlural(input)
 	return input
 }

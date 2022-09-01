@@ -95,3 +95,28 @@ func TestNormalizeSegmentName(t *testing.T) {
 		}
 	}
 }
+
+func TestPluraliseName(t *testing.T) {
+	testData := []struct {
+		input    string
+		expected string
+	}{
+		{
+			input:    "/name",
+			expected: "names",
+		},
+		{
+			input:    "/ServiceLinker",
+			expected: "ServiceLinker",
+		},
+	}
+
+	for _, v := range testData {
+		t.Logf("[DEBUG] Testing %s", v.input)
+
+		actual := PluraliseName(v.input)
+		if actual != v.expected {
+			t.Fatalf("Expected %s but got %s", v.expected, actual)
+		}
+	}
+}
