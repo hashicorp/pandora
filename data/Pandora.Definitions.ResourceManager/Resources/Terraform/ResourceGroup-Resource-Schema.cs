@@ -9,7 +9,7 @@ public class ResourceGroupResourceSchema
     [HclName("location")]
     [ForceNew]
     [Required]
-    public CustomTypes.Location Location { get; set; }
+    public CommonSchema.Location Location { get; set; }
 
     [HclName("name")]
     [ForceNew]
@@ -18,5 +18,5 @@ public class ResourceGroupResourceSchema
 
     [HclName("tags")]
     [Optional]
-    public CustomTypes.Tags Tags { get; set; }
+    public CommonSchema.Tags Tags { get; set; }
 }
