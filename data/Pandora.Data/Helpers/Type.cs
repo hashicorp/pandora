@@ -1,8 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Reflection;
-using Pandora.Data.Transformers;
-using Pandora.Definitions.CustomTypes;
 
 namespace Pandora.Data.Helpers;
 
@@ -66,24 +64,52 @@ public static class TypeExtensions
         return nativeTypes.Contains(input);
     }
 
+    /// <summary>
+    /// IsPandoraCommonSchemaType specifies whether `input` is a Pandora CommonSchema type
+    /// used within the Terraform Schema. This differs from `CustomType` which is used in
+    /// the Go SDK.
+    /// </summary>
+    public static bool IsPandoraCommonSchemaType(this Type input)
+    {
+        var customTypes = new List<Type>
+        {
+            typeof(Definitions.CommonSchema.EdgeZoneSingle),
+            typeof(Definitions.CommonSchema.Location),
+            typeof(Definitions.CommonSchema.SystemAssignedIdentity),
+            typeof(Definitions.CommonSchema.SystemAndUserAssignedIdentity),
+            typeof(Definitions.CommonSchema.SystemOrUserAssignedIdentity),
+            typeof(Definitions.CommonSchema.UserAssignedIdentity),
+            typeof(Definitions.CommonSchema.ResourceGroupName),
+            typeof(Definitions.CommonSchema.Tags),
+            typeof(Definitions.CommonSchema.ZoneSingle),
+            typeof(Definitions.CommonSchema.ZonesMultiple),
+        };
+        return customTypes.Contains(input);
+    }
+
+    /// <summary>
+    /// IsPandoraCustomType specifies whether `input` is a Pandora Custom Type
+    /// used within the Go SDK. This differs from `CommonSchema` which is used in
+    /// the Terraform Generator.
+    /// </summary>
     public static bool IsPandoraCustomType(this Type input)
     {
         var customTypes = new List<Type>
         {
-            typeof(EdgeZone),
-            typeof(Location),
-            typeof(RawFile),
-            typeof(Tags),
-            typeof(SystemAssignedIdentity),
-            typeof(SystemAndUserAssignedIdentityList),
-            typeof(SystemAndUserAssignedIdentityMap),
-            typeof(LegacySystemAndUserAssignedIdentityList),
-            typeof(LegacySystemAndUserAssignedIdentityMap),
-            typeof(SystemOrUserAssignedIdentityList),
-            typeof(SystemOrUserAssignedIdentityMap),
-            typeof(UserAssignedIdentityList),
-            typeof(UserAssignedIdentityMap),
-            typeof(SystemData),
+            typeof(Definitions.CustomTypes.EdgeZone),
+            typeof(Definitions.CustomTypes.Location),
+            typeof(Definitions.CustomTypes.RawFile),
+            typeof(Definitions.CustomTypes.Tags),
+            typeof(Definitions.CustomTypes.SystemAssignedIdentity),
+            typeof(Definitions.CustomTypes.SystemAndUserAssignedIdentityList),
+            typeof(Definitions.CustomTypes.SystemAndUserAssignedIdentityMap),
+            typeof(Definitions.CustomTypes.LegacySystemAndUserAssignedIdentityList),
+            typeof(Definitions.CustomTypes.LegacySystemAndUserAssignedIdentityMap),
+            typeof(Definitions.CustomTypes.SystemOrUserAssignedIdentityList),
+            typeof(Definitions.CustomTypes.SystemOrUserAssignedIdentityMap),
+            typeof(Definitions.CustomTypes.UserAssignedIdentityList),
+            typeof(Definitions.CustomTypes.UserAssignedIdentityMap),
+            typeof(Definitions.CustomTypes.SystemData),
         };
         return customTypes.Contains(input);
     }
@@ -95,7 +121,7 @@ public static class TypeExtensions
 
     internal static bool IsAGenericCsv(this Type input)
     {
-        return input.IsGenericType && input.GetGenericTypeDefinition() == typeof(Csv<>);
+        return input.IsGenericType && input.GetGenericTypeDefinition() == typeof(Definitions.CustomTypes.Csv<>);
     }
 
     internal static Type GenericCsvElement(this Type input)
