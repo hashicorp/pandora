@@ -77,7 +77,7 @@ func (s Generator) generateTerraformDefinitions(apiVersion models.AzureApiDefini
 					return fmt.Errorf("generating Terraform Resource Schema for Nested Schema %q: %+v", label, err)
 				}
 				if err := writeToFile(nestedSchemaFileName, *nestedSchemaCode); err != nil {
-					return fmt.Errorf("generating Terraform Resource Schema for %q: %+v", label, err)
+					return fmt.Errorf("writing Terraform Resource Schema for %q: %+v", label, err)
 				}
 			}
 
