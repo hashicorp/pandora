@@ -1,6 +1,7 @@
-package schema
+package processors
 
 import (
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/schema"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 	"testing"
 )
@@ -42,7 +43,7 @@ func TestUpdateNameForField_Exists(t *testing.T) {
 	for _, v := range testData {
 		t.Logf("[DEBUG] Testing %s", v.fieldInput)
 
-		_, err := fieldNameExists{}.updatedNameForField(v.fieldInput, nil, &v.modelInput, nil)
+		_, err := fieldNameExists{}.UpdatedNameForField(v.fieldInput, nil, &v.modelInput, nil)
 
 		if v.expectError && err != nil {
 			continue
@@ -60,7 +61,7 @@ func TestUpdateNameForField_Is(t *testing.T) {
 	}{
 		{
 			input:    "IsDefault",
-			expected: stringPointer("Default"),
+			expected: schema.StringPointer("Default"),
 		},
 		{
 			input:    "Default",
@@ -75,7 +76,7 @@ func TestUpdateNameForField_Is(t *testing.T) {
 	for _, v := range testData {
 		t.Logf("[DEBUG] Testing %s", v.input)
 
-		actual, _ := fieldNameIs{}.updatedNameForField(v.input, nil, nil, nil)
+		actual, _ := fieldNameIs{}.UpdatedNameForField(v.input, nil, nil, nil)
 
 		if actual == nil {
 			if v.expected == nil {
@@ -109,7 +110,7 @@ func TestUpdateNameForField_PluralToSingular(t *testing.T) {
 					},
 				},
 			},
-			expected: stringPointer("Panda"),
+			expected: schema.StringPointer("Panda"),
 		},
 		{
 			fieldInput: "Planets",
@@ -142,7 +143,7 @@ func TestUpdateNameForField_PluralToSingular(t *testing.T) {
 	for _, v := range testData {
 		t.Logf("[DEBUG] Testing %s", v.fieldInput)
 
-		actual, _ := fieldNamePluralToSingular{}.updatedNameForField(v.fieldInput, nil, &v.modelInput, nil)
+		actual, _ := fieldNamePluralToSingular{}.UpdatedNameForField(v.fieldInput, nil, &v.modelInput, nil)
 
 		if actual == nil {
 			if v.expected == nil {
@@ -176,7 +177,7 @@ func TestUpdateNameForField_AppendEnabled(t *testing.T) {
 					},
 				},
 			},
-			expected: stringPointer("PandasEnabled"),
+			expected: schema.StringPointer("PandasEnabled"),
 		},
 		{
 			fieldInput: "disablePlanets",
@@ -189,7 +190,7 @@ func TestUpdateNameForField_AppendEnabled(t *testing.T) {
 					},
 				},
 			},
-			expected: stringPointer("PlanetsDisabled"),
+			expected: schema.StringPointer("PlanetsDisabled"),
 		},
 		{
 			fieldInput: "AllowedPublicAccess",
@@ -202,7 +203,7 @@ func TestUpdateNameForField_AppendEnabled(t *testing.T) {
 					},
 				},
 			},
-			expected: stringPointer("PublicAccessEnabled"),
+			expected: schema.StringPointer("PublicAccessEnabled"),
 		},
 		{
 			fieldInput: "AllowTethering",
@@ -215,7 +216,7 @@ func TestUpdateNameForField_AppendEnabled(t *testing.T) {
 					},
 				},
 			},
-			expected: stringPointer("TetheringEnabled"),
+			expected: schema.StringPointer("TetheringEnabled"),
 		},
 		{
 			fieldInput: "TastesLikePancakes",
@@ -248,7 +249,7 @@ func TestUpdateNameForField_AppendEnabled(t *testing.T) {
 	for _, v := range testData {
 		t.Logf("[DEBUG] Testing %s", v.fieldInput)
 
-		actual, _ := fieldNameRenameBoolean{}.updatedNameForField(v.fieldInput, nil, &v.modelInput, nil)
+		actual, _ := fieldNameRenameBoolean{}.UpdatedNameForField(v.fieldInput, nil, &v.modelInput, nil)
 
 		if actual == nil {
 			if v.expected == nil {
@@ -276,7 +277,7 @@ func TestUpdateNameForField_RemoveResourcePrefix(t *testing.T) {
 			resourceInput: resourcemanager.TerraformResourceDetails{
 				ResourceName: "Animal",
 			},
-			expected: stringPointer("Pandas"),
+			expected: schema.StringPointer("Pandas"),
 		},
 		{
 			fieldInput: "Mars",
@@ -290,7 +291,7 @@ func TestUpdateNameForField_RemoveResourcePrefix(t *testing.T) {
 	for _, v := range testData {
 		t.Logf("[DEBUG] Testing %s", v.fieldInput)
 
-		actual, _ := fieldNameRemoveResourcePrefix{}.updatedNameForField(v.fieldInput, nil, nil, &v.resourceInput)
+		actual, _ := fieldNameRemoveResourcePrefix{}.UpdatedNameForField(v.fieldInput, nil, nil, &v.resourceInput)
 
 		if actual == nil {
 			if v.expected == nil {
@@ -311,7 +312,7 @@ func TestUpdateNameForField_FlattenReferenceId(t *testing.T) {
 	testData := []struct {
 		fieldInput   string
 		modelInput   resourcemanager.ModelDetails
-		builderInput Builder
+		builderInput schema.Builder
 		expected     *string
 	}{
 		{
@@ -321,13 +322,13 @@ func TestUpdateNameForField_FlattenReferenceId(t *testing.T) {
 					"Panda": {
 						ObjectDefinition: resourcemanager.ApiObjectDefinition{
 							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-							ReferenceName: stringPointer("SubResource"),
+							ReferenceName: schema.StringPointer("SubResource"),
 						},
 					},
 				},
 			},
-			builderInput: Builder{
-				models: map[string]resourcemanager.ModelDetails{
+			builderInput: schema.Builder{
+				Models: map[string]resourcemanager.ModelDetails{
 					"SubResource": {
 						Fields: map[string]resourcemanager.FieldDetails{
 							"Id": {
@@ -337,7 +338,7 @@ func TestUpdateNameForField_FlattenReferenceId(t *testing.T) {
 					},
 				},
 			},
-			expected: stringPointer("PandaId"),
+			expected: schema.StringPointer("PandaId"),
 		},
 		{
 			fieldInput: "Planets",
@@ -346,13 +347,13 @@ func TestUpdateNameForField_FlattenReferenceId(t *testing.T) {
 					"Planets": {
 						ObjectDefinition: resourcemanager.ApiObjectDefinition{
 							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-							ReferenceName: stringPointer("SubResource"),
+							ReferenceName: schema.StringPointer("SubResource"),
 						},
 					},
 				},
 			},
-			builderInput: Builder{
-				models: map[string]resourcemanager.ModelDetails{
+			builderInput: schema.Builder{
+				Models: map[string]resourcemanager.ModelDetails{
 					"Mars": {
 						Fields: map[string]resourcemanager.FieldDetails{
 							"Id": {
@@ -372,7 +373,7 @@ func TestUpdateNameForField_FlattenReferenceId(t *testing.T) {
 	for _, v := range testData {
 		t.Logf("[DEBUG] Testing %s", v.fieldInput)
 
-		actual, _ := fieldNameFlattenReferenceId{}.updatedNameForField(v.fieldInput, &v.builderInput, &v.modelInput, nil)
+		actual, _ := fieldNameFlattenReferenceId{}.UpdatedNameForField(v.fieldInput, &v.builderInput, &v.modelInput, nil)
 
 		if actual == nil {
 			if v.expected == nil {
@@ -393,7 +394,7 @@ func TestUpdateNameForField_FlattenListReferenceIds(t *testing.T) {
 	testData := []struct {
 		fieldInput   string
 		modelInput   resourcemanager.ModelDetails
-		builderInput Builder
+		builderInput schema.Builder
 		expected     *string
 	}{
 		{
@@ -403,13 +404,13 @@ func TestUpdateNameForField_FlattenListReferenceIds(t *testing.T) {
 					"Panda": {
 						ObjectDefinition: resourcemanager.ApiObjectDefinition{
 							Type:          resourcemanager.ListApiObjectDefinitionType,
-							ReferenceName: stringPointer("SubResource"),
+							ReferenceName: schema.StringPointer("SubResource"),
 						},
 					},
 				},
 			},
-			builderInput: Builder{
-				models: map[string]resourcemanager.ModelDetails{
+			builderInput: schema.Builder{
+				Models: map[string]resourcemanager.ModelDetails{
 					"SubResource": {
 						Fields: map[string]resourcemanager.FieldDetails{
 							"Ids": {
@@ -419,7 +420,7 @@ func TestUpdateNameForField_FlattenListReferenceIds(t *testing.T) {
 					},
 				},
 			},
-			expected: stringPointer("PandaIds"),
+			expected: schema.StringPointer("PandaIds"),
 		},
 		{
 			fieldInput: "Planets",
@@ -428,13 +429,13 @@ func TestUpdateNameForField_FlattenListReferenceIds(t *testing.T) {
 					"Planets": {
 						ObjectDefinition: resourcemanager.ApiObjectDefinition{
 							Type:          resourcemanager.ListApiObjectDefinitionType,
-							ReferenceName: stringPointer("SubResource"),
+							ReferenceName: schema.StringPointer("SubResource"),
 						},
 					},
 				},
 			},
-			builderInput: Builder{
-				models: map[string]resourcemanager.ModelDetails{
+			builderInput: schema.Builder{
+				Models: map[string]resourcemanager.ModelDetails{
 					"Mars": {
 						Fields: map[string]resourcemanager.FieldDetails{
 							"Ids": {
@@ -456,13 +457,13 @@ func TestUpdateNameForField_FlattenListReferenceIds(t *testing.T) {
 					"Planets": {
 						ObjectDefinition: resourcemanager.ApiObjectDefinition{
 							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-							ReferenceName: stringPointer("SubResource"),
+							ReferenceName: schema.StringPointer("SubResource"),
 						},
 					},
 				},
 			},
-			builderInput: Builder{
-				models: map[string]resourcemanager.ModelDetails{
+			builderInput: schema.Builder{
+				Models: map[string]resourcemanager.ModelDetails{
 					"Mars": {
 						Fields: map[string]resourcemanager.FieldDetails{
 							"Ids": {
@@ -482,7 +483,7 @@ func TestUpdateNameForField_FlattenListReferenceIds(t *testing.T) {
 	for _, v := range testData {
 		t.Logf("[DEBUG] Testing %s", v.fieldInput)
 
-		actual, _ := fieldNameFlattenListReferenceIds{}.updatedNameForField(v.fieldInput, &v.builderInput, &v.modelInput, nil)
+		actual, _ := fieldNameFlattenListReferenceIds{}.UpdatedNameForField(v.fieldInput, &v.builderInput, &v.modelInput, nil)
 
 		if actual == nil {
 			if v.expected == nil {

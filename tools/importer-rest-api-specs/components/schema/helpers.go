@@ -5,6 +5,7 @@ import (
 	"strings"
 	"unicode"
 
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/schema/processors"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
@@ -77,7 +78,7 @@ func fieldShouldBeIgnored(key string, definition resourcemanager.FieldDetails, c
 	return false
 }
 
-func getField(model resourcemanager.ModelDetails, fieldName string) (*resourcemanager.FieldDetails, bool) {
+func GetField(model resourcemanager.ModelDetails, fieldName string) (*resourcemanager.FieldDetails, bool) {
 	for field, val := range model.Fields {
 		if strings.EqualFold(field, fieldName) {
 			return &val, true
@@ -88,14 +89,14 @@ func getField(model resourcemanager.ModelDetails, fieldName string) (*resourcema
 }
 
 func updateFieldName(fieldName string, input Builder, model *resourcemanager.ModelDetails, resource *resourcemanager.TerraformResourceDetails) string {
-	for _, matcher := range NamingRules {
-		if updatedFieldName, _ := matcher.updatedNameForField(fieldName, &input, model, resource); updatedFieldName != nil {
+	for _, matcher := range processors.NamingRules {
+		if updatedFieldName, _ := matcher.UpdatedNameForField(fieldName, &input, model, resource); updatedFieldName != nil {
 			return *updatedFieldName
 		}
 	}
 	return fieldName
 }
 
-func stringPointer(input string) *string {
+func StringPointer(input string) *string {
 	return &input
 }

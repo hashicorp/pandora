@@ -1,18 +1,21 @@
-package schema
+package processors
 
 import (
 	"fmt"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/schema"
+
+	//"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/schema"
 	"regexp"
 	"strings"
 
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-type fieldNameMatcher interface {
-	updatedNameForField(fieldName string, input *Builder, model *resourcemanager.ModelDetails, resource *resourcemanager.TerraformResourceDetails) (*string, error)
+type FieldNameMatcher interface {
+	UpdatedNameForField(fieldName string, input *schema.Builder, model *resourcemanager.ModelDetails, resource *resourcemanager.TerraformResourceDetails) (*string, error)
 }
 
-var NamingRules = []fieldNameMatcher{
+var NamingRules = []FieldNameMatcher{
 	// Exists should be first rule in the list since that checks whether the field even exists in the model
 	fieldNameExists{},
 	fieldNameFlattenListReferenceIds{},
@@ -25,8 +28,8 @@ var NamingRules = []fieldNameMatcher{
 
 type fieldNameExists struct{}
 
-func (fieldNameExists) updatedNameForField(fieldName string, _ *Builder, model *resourcemanager.ModelDetails, _ *resourcemanager.TerraformResourceDetails) (*string, error) {
-	_, ok := getField(*model, fieldName)
+func (fieldNameExists) UpdatedNameForField(fieldName string, _ *schema.Builder, model *resourcemanager.ModelDetails, _ *resourcemanager.TerraformResourceDetails) (*string, error) {
+	_, ok := schema.GetField(*model, fieldName)
 	if !ok {
 		return nil, fmt.Errorf("%s was not found in %+v", fieldName, model.Fields)
 	}
@@ -35,7 +38,7 @@ func (fieldNameExists) updatedNameForField(fieldName string, _ *Builder, model *
 
 type fieldNameIs struct{}
 
-func (fieldNameIs) updatedNameForField(fieldName string, _ *Builder, _ *resourcemanager.ModelDetails, _ *resourcemanager.TerraformResourceDetails) (*string, error) {
+func (fieldNameIs) UpdatedNameForField(fieldName string, _ *schema.Builder, _ *resourcemanager.ModelDetails, _ *resourcemanager.TerraformResourceDetails) (*string, error) {
 	re := regexp.MustCompile("^Is[A-Z][a-z]*")
 	if re.MatchString(fieldName) {
 		updatedName := fieldName[2:]
@@ -46,7 +49,7 @@ func (fieldNameIs) updatedNameForField(fieldName string, _ *Builder, _ *resource
 
 type fieldNamePluralToSingular struct{}
 
-func (fieldNamePluralToSingular) updatedNameForField(fieldName string, _ *Builder, model *resourcemanager.ModelDetails, _ *resourcemanager.TerraformResourceDetails) (*string, error) {
+func (fieldNamePluralToSingular) UpdatedNameForField(fieldName string, _ *schema.Builder, model *resourcemanager.ModelDetails, _ *resourcemanager.TerraformResourceDetails) (*string, error) {
 	if model.Fields[fieldName].ObjectDefinition.Type == resourcemanager.ListApiObjectDefinitionType {
 		if strings.HasSuffix(fieldName, "s") && !strings.HasSuffix(fieldName, "ss") {
 			updatedName := strings.TrimSuffix(fieldName, "s")
@@ -58,7 +61,7 @@ func (fieldNamePluralToSingular) updatedNameForField(fieldName string, _ *Builde
 
 type fieldNameRenameBoolean struct{}
 
-func (fieldNameRenameBoolean) updatedNameForField(fieldName string, _ *Builder, model *resourcemanager.ModelDetails, _ *resourcemanager.TerraformResourceDetails) (*string, error) {
+func (fieldNameRenameBoolean) UpdatedNameForField(fieldName string, _ *schema.Builder, model *resourcemanager.ModelDetails, _ *resourcemanager.TerraformResourceDetails) (*string, error) {
 	if model.Fields[fieldName].ObjectDefinition.Type == resourcemanager.BooleanApiObjectDefinitionType {
 		var updatedFieldName *string
 		// flip `enable_X` / `disable_X` prefix
@@ -87,7 +90,7 @@ func (fieldNameRenameBoolean) updatedNameForField(fieldName string, _ *Builder, 
 
 type fieldNameRemoveResourcePrefix struct{}
 
-func (fieldNameRemoveResourcePrefix) updatedNameForField(fieldName string, _ *Builder, _ *resourcemanager.ModelDetails, resource *resourcemanager.TerraformResourceDetails) (*string, error) {
+func (fieldNameRemoveResourcePrefix) UpdatedNameForField(fieldName string, _ *schema.Builder, _ *resourcemanager.ModelDetails, resource *resourcemanager.TerraformResourceDetails) (*string, error) {
 	if strings.HasPrefix(fieldName, resource.ResourceName) {
 		updatedName := strings.Replace(fieldName, resource.ResourceName, "", 1)
 		return &updatedName, nil
@@ -97,12 +100,12 @@ func (fieldNameRemoveResourcePrefix) updatedNameForField(fieldName string, _ *Bu
 
 type fieldNameFlattenReferenceId struct{}
 
-func (fieldNameFlattenReferenceId) updatedNameForField(fieldName string, input *Builder, model *resourcemanager.ModelDetails, _ *resourcemanager.TerraformResourceDetails) (*string, error) {
+func (fieldNameFlattenReferenceId) UpdatedNameForField(fieldName string, input *schema.Builder, model *resourcemanager.ModelDetails, _ *resourcemanager.TerraformResourceDetails) (*string, error) {
 	if model.Fields[fieldName].ObjectDefinition.Type == resourcemanager.ReferenceApiObjectDefinitionType {
-		model, ok := input.models[*model.Fields[fieldName].ObjectDefinition.ReferenceName]
+		model, ok := input.Models[*model.Fields[fieldName].ObjectDefinition.ReferenceName]
 		if ok {
 			if len(model.Fields) == 1 {
-				if _, ok := getField(model, "Id"); ok {
+				if _, ok := schema.GetField(model, "Id"); ok {
 					updatedFieldName := fmt.Sprintf("%sId", fieldName)
 					return &updatedFieldName, nil
 				}
@@ -114,7 +117,7 @@ func (fieldNameFlattenReferenceId) updatedNameForField(fieldName string, input *
 
 type fieldNameFlattenListReferenceIds struct{}
 
-func (fieldNameFlattenListReferenceIds) updatedNameForField(fieldName string, input *Builder, model *resourcemanager.ModelDetails, _ *resourcemanager.TerraformResourceDetails) (*string, error) {
+func (fieldNameFlattenListReferenceIds) UpdatedNameForField(fieldName string, input *schema.Builder, model *resourcemanager.ModelDetails, _ *resourcemanager.TerraformResourceDetails) (*string, error) {
 	if model.Fields[fieldName].ObjectDefinition.Type == resourcemanager.ListApiObjectDefinitionType {
 		modelName := ""
 		if model.Fields[fieldName].ObjectDefinition.ReferenceName != nil {
@@ -124,11 +127,11 @@ func (fieldNameFlattenListReferenceIds) updatedNameForField(fieldName string, in
 		} else {
 			return nil, nil
 		}
-		model, ok := input.models[modelName]
+		model, ok := input.Models[modelName]
 		if ok {
 			if len(model.Fields) == 1 {
 				// TODO Do we really need to check whether the Id is a reference?
-				if _, ok := getField(model, "Ids"); ok {
+				if _, ok := schema.GetField(model, "Ids"); ok {
 					updatedFieldName := fmt.Sprintf("%sIds", fieldName)
 					return &updatedFieldName, nil
 				}
@@ -140,9 +143,9 @@ func (fieldNameFlattenListReferenceIds) updatedNameForField(fieldName string, in
 
 //type fieldNameRenameBlockId struct{}
 //
-//func (fieldNameRenameBlockId) updatedNameForField(fieldName string, input *Builder, model *resourcemanager.ModelDetails, _ *resourcemanager.TerraformResourceDetails) (*string, error) {
+//func (fieldNameRenameBlockId) UpdatedNameForField(fieldName string, input *Builder, model *resourcemanager.ModelDetails, _ *resourcemanager.TerraformResourceDetails) (*string, error) {
 //	if model.Fields[fieldName].ObjectDefinition.Type == resourcemanager.ReferenceApiObjectDefinitionType {
-//		model, ok := input.models[*model.Fields[fieldName].ObjectDefinition.ReferenceName]
+//		model, ok := input.Models[*model.Fields[fieldName].ObjectDefinition.ReferenceName]
 //		if ok {
 //			if len(model.Fields) != 1 {
 //				for k, _ := range model.Fields {
