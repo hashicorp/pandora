@@ -6,13 +6,13 @@ using Pandora.Definitions.Interfaces;
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 
 
-namespace Pandora.Definitions.ResourceManager.Automation.v2019_06_01.DscCompilationJob;
+namespace Pandora.Definitions.ResourceManager.Nginx.v2022_08_01.NginxConfiguration;
 
-internal class CompilationJobId : ResourceID
+internal class ConfigurationId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/compilationJobs/{jobId}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Nginx.NginxPlus/nginxDeployments/{deploymentName}/configurations/{configurationName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -21,10 +21,10 @@ internal class CompilationJobId : ResourceID
         ResourceIDSegment.Static("staticResourceGroups", "resourceGroups"),
         ResourceIDSegment.ResourceGroup("resourceGroupName"),
         ResourceIDSegment.Static("staticProviders", "providers"),
-        ResourceIDSegment.ResourceProvider("staticMicrosoftAutomation", "Microsoft.Automation"),
-        ResourceIDSegment.Static("staticAutomationAccounts", "automationAccounts"),
-        ResourceIDSegment.UserSpecified("automationAccountName"),
-        ResourceIDSegment.Static("staticCompilationJobs", "compilationJobs"),
-        ResourceIDSegment.UserSpecified("jobId"),
+        ResourceIDSegment.ResourceProvider("staticNginxNginxPlus", "Nginx.NginxPlus"),
+        ResourceIDSegment.Static("staticNginxDeployments", "nginxDeployments"),
+        ResourceIDSegment.UserSpecified("deploymentName"),
+        ResourceIDSegment.Static("staticConfigurations", "configurations"),
+        ResourceIDSegment.UserSpecified("configurationName"),
     };
 }
