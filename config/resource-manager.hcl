@@ -247,6 +247,10 @@ service "purview" {
   name      = "Purview"
   available = ["2020-12-01-preview", "2021-07-01"]
 }
+service "recoveryservices" {
+  name = "RecoveryServices"
+  available = ["2022-03-01"]
+}
 service "redisenterprise" {
   name      = "RedisEnterprise"
   available = ["2021-08-01", "2022-01-01"]
