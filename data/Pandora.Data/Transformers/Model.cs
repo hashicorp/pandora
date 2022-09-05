@@ -279,8 +279,8 @@ public static class Model
         }
 
         // 2: find all of the implementations for this type
-        var allTypes = AppDomain.CurrentDomain.GetAssemblies().SelectMany(x => x.GetTypes());
-        var implementations = allTypes.Where(t => t.IsAssignableTo(input) && !t.IsAbstract && !t.IsInterface).ToList();
+        var allTypes = AppDomain.CurrentDomain.GetAssemblies().Where(x => x.FullName == input.Assembly.FullName).SelectMany(x => x.GetTypes());
+        var implementations = allTypes.Where(t => t.Namespace == input.Namespace && t.IsAssignableTo(input) && !t.IsAbstract && !t.IsInterface).ToList();
         return implementations;
     }
 
@@ -369,8 +369,8 @@ public static class Model
                 }
 
                 // 2: find all of the implementations for this type
-                var allTypes = AppDomain.CurrentDomain.GetAssemblies().SelectMany(x => x.GetTypes());
-                var implementations = allTypes.Where(t => t.IsAssignableTo(input) && !t.IsAbstract && !t.IsInterface).ToList();
+                var allTypes = AppDomain.CurrentDomain.GetAssemblies().Where(x => x.FullName == input.Assembly.FullName).SelectMany(x => x.GetTypes());
+                var implementations = allTypes.Where(t => t.Namespace == input.Namespace && t.IsAssignableTo(input) && !t.IsAbstract && !t.IsInterface).ToList();
                 foreach (var implementation in implementations)
                 {
                     var modelName = implementation.Name.RemoveSuffixFromTypeName();
