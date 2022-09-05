@@ -7,7 +7,7 @@ import (
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-func (b Builder) identifyTopLevelFields(input operationPayloads) (*topLevelFields, error) {
+func (b Builder) identifyTopLevelFields(modelNamePrefix string, input operationPayloads) (*topLevelFields, error) {
 	allFields := make(map[string]struct{}, 0)
 	for _, model := range input.createReadUpdatePayloads() {
 		for k := range model.Fields {
@@ -31,7 +31,7 @@ func (b Builder) identifyTopLevelFields(input operationPayloads) (*topLevelField
 				}
 			}
 
-			fieldObjectDefinition, err := convertToFieldObjectDefinition(field.ObjectDefinition)
+			fieldObjectDefinition, err := b.convertToFieldObjectDefinition(modelNamePrefix, field.ObjectDefinition)
 			if err != nil {
 				return nil, fmt.Errorf("converting Identity ObjectDefinition for field to a TerraformFieldObjectDefinition: %+v", err)
 			}
@@ -40,11 +40,13 @@ func (b Builder) identifyTopLevelFields(input operationPayloads) (*topLevelField
 				Required:         field.Required,
 				Optional:         field.Optional,
 				ForceNew:         !canBeUpdated,
+				HclName:          "identity",
 			}
 		}
 
 		if strings.EqualFold(k, "Location") {
 			out.location = &resourcemanager.TerraformSchemaFieldDefinition{
+				HclName: "location",
 				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
 					Type: resourcemanager.TerraformSchemaFieldTypeLocation,
 				},
@@ -62,6 +64,7 @@ func (b Builder) identifyTopLevelFields(input operationPayloads) (*topLevelField
 			}
 
 			out.tags = &resourcemanager.TerraformSchemaFieldDefinition{
+				HclName: "tags",
 				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
 					Type: resourcemanager.TerraformSchemaFieldTypeTags,
 				},

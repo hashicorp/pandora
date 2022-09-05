@@ -44,7 +44,7 @@ func NewForApiVersion(serviceName, apiVersion, outputDirectory, rootNamespace, s
 	return service
 }
 
-func (s *Generator) GenerateForService(apiVersions []models.AzureApiDefinition) error {
+func (s Generator) GenerateForService(apiVersions []models.AzureApiDefinition) error {
 	s.logger.Debug(fmt.Sprintf("[STAGE] Updating the Output Revision ID to %q", s.swaggerGitSha))
 	if err := outputRevisionId(s.outputDirectory, s.rootNamespace, s.swaggerGitSha); err != nil {
 		return fmt.Errorf("outputting the Revision Id: %+v", err)
@@ -58,7 +58,7 @@ func (s *Generator) GenerateForService(apiVersions []models.AzureApiDefinition) 
 	return nil
 }
 
-func (s *Generator) GenerateForApiVersion(apiVersion models.AzureApiDefinition) error {
+func (s Generator) GenerateForApiVersion(apiVersion models.AzureApiDefinition) error {
 	s.logger.Debug("[STAGE] Generating API Definitions..")
 	if err := s.generateApiVersions(apiVersion); err != nil {
 		return fmt.Errorf("generating API Versions: %+v", err)

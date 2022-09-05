@@ -8,13 +8,14 @@ func (b Builder) identityTopLevelFieldsWithinResourceID(input resourcemanager.Re
 	out := make(map[string]resourcemanager.TerraformSchemaFieldDefinition, 0)
 
 	// TODO: mappings
-	out["name"] = resourcemanager.TerraformSchemaFieldDefinition{
+	out["Name"] = resourcemanager.TerraformSchemaFieldDefinition{
 		ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
 			Type: resourcemanager.TerraformSchemaFieldTypeString,
 		},
 		// since this is included in the Resource ID it's implicitly Required/ForceNew
 		Required: true,
 		ForceNew: true,
+		HclName:  "name",
 	}
 
 	if len(input.Segments) > 2 {
@@ -30,7 +31,7 @@ func (b Builder) identityTopLevelFieldsWithinResourceID(input resourcemanager.Re
 			}
 			if parentResourceIdName != "" {
 				parentResourceSchemaField := convertToSnakeCase(parentResourceIdName)
-				out[parentResourceSchemaField] = resourcemanager.TerraformSchemaFieldDefinition{
+				out[parentResourceIdName] = resourcemanager.TerraformSchemaFieldDefinition{
 					ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
 						Type:          resourcemanager.TerraformSchemaFieldTypeReference,
 						ReferenceName: &parentResourceIdName,
@@ -38,6 +39,7 @@ func (b Builder) identityTopLevelFieldsWithinResourceID(input resourcemanager.Re
 					// since this is included in the Resource ID it's implicitly Required/ForceNew
 					Required: true,
 					ForceNew: true,
+					HclName:  parentResourceSchemaField,
 				}
 			}
 

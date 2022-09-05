@@ -129,9 +129,13 @@ func run(input Input) error {
 						return fmt.Errorf("processing schema for candidate %s: %+v", resourceName, err)
 					}
 
-					logger.Trace(fmt.Sprintf("Schema for %q", resourceName))
-					for fieldName, fieldDetails := range schemaDefinition.Fields {
-						logger.Trace(fmt.Sprintf("Field %q: %+v", fieldName, fieldDetails))
+					logger.Trace(fmt.Sprintf("Models for %q..", resourceName))
+
+					for modelName, modelDetails := range *schemaDefinition {
+						logger.Trace(fmt.Sprintf("Model %q", modelName))
+						for fieldName, fieldDetails := range modelDetails.Fields {
+							logger.Trace(fmt.Sprintf("Field %q: %+v", fieldName, fieldDetails))
+						}
 					}
 				}
 			}

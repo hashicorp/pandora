@@ -2,16 +2,20 @@ package schema
 
 import (
 	"fmt"
+	"regexp"
 	"strings"
 
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
 type fieldNameMatcher interface {
-	updatedNameForField(fieldName string, input *Builder, model *resourcemanager.ModelDetails, resource *resourcemanager.TerraformResourceDetails) *string
+	updatedNameForField(fieldName string, input *Builder, model *resourcemanager.ModelDetails, resource *resourcemanager.TerraformResourceDetails) (*string, error)
 }
 
 var NamingRules = []fieldNameMatcher{
+	// Exists should be first rule in the list since that checks whether the field even exists in the model
+	fieldNameExists{},
+	fieldNameFlattenListReferenceIds{},
 	fieldNameFlattenReferenceId{},
 	fieldNameIs{},
 	fieldNamePluralToSingular{},
@@ -19,32 +23,42 @@ var NamingRules = []fieldNameMatcher{
 	fieldNameRenameBoolean{},
 }
 
+type fieldNameExists struct{}
+
+func (fieldNameExists) updatedNameForField(fieldName string, _ *Builder, model *resourcemanager.ModelDetails, _ *resourcemanager.TerraformResourceDetails) (*string, error) {
+	_, ok := getField(*model, fieldName)
+	if !ok {
+		return nil, fmt.Errorf("%s was not found in %+v", fieldName, model.Fields)
+	}
+	return nil, nil
+}
+
 type fieldNameIs struct{}
 
-func (fieldNameIs) updatedNameForField(fieldName string, _ *Builder, model *resourcemanager.ModelDetails, _ *resourcemanager.TerraformResourceDetails) *string {
-	// TODO this should be regex
-	if strings.HasPrefix(strings.ToLower(fieldName), "is_") {
-		updatedName := fieldName[3:]
-		return &updatedName
+func (fieldNameIs) updatedNameForField(fieldName string, _ *Builder, _ *resourcemanager.ModelDetails, _ *resourcemanager.TerraformResourceDetails) (*string, error) {
+	re := regexp.MustCompile("^Is[A-Z][a-z]*")
+	if re.MatchString(fieldName) {
+		updatedName := fieldName[2:]
+		return &updatedName, nil
 	}
-	return nil
+	return nil, nil
 }
 
 type fieldNamePluralToSingular struct{}
 
-func (fieldNamePluralToSingular) updatedNameForField(fieldName string, _ *Builder, model *resourcemanager.ModelDetails, _ *resourcemanager.TerraformResourceDetails) *string {
+func (fieldNamePluralToSingular) updatedNameForField(fieldName string, _ *Builder, model *resourcemanager.ModelDetails, _ *resourcemanager.TerraformResourceDetails) (*string, error) {
 	if model.Fields[fieldName].ObjectDefinition.Type == resourcemanager.ListApiObjectDefinitionType {
 		if strings.HasSuffix(fieldName, "s") && !strings.HasSuffix(fieldName, "ss") {
 			updatedName := strings.TrimSuffix(fieldName, "s")
-			return &updatedName
+			return &updatedName, nil
 		}
 	}
-	return nil
+	return nil, nil
 }
 
 type fieldNameRenameBoolean struct{}
 
-func (fieldNameRenameBoolean) updatedNameForField(fieldName string, _ *Builder, model *resourcemanager.ModelDetails, _ *resourcemanager.TerraformResourceDetails) *string {
+func (fieldNameRenameBoolean) updatedNameForField(fieldName string, _ *Builder, model *resourcemanager.ModelDetails, _ *resourcemanager.TerraformResourceDetails) (*string, error) {
 	if model.Fields[fieldName].ObjectDefinition.Type == resourcemanager.BooleanApiObjectDefinitionType {
 		var updatedFieldName *string
 		// flip `enable_X` / `disable_X` prefix
@@ -66,107 +80,93 @@ func (fieldNameRenameBoolean) updatedNameForField(fieldName string, _ *Builder, 
 			updated := fmt.Sprintf("%sEnabled", fieldName[7:])
 			updatedFieldName = &updated
 		}
-		return updatedFieldName
+		return updatedFieldName, nil
 	}
-	return nil
+	return nil, nil
 }
 
 type fieldNameRemoveResourcePrefix struct{}
 
-func (fieldNameRemoveResourcePrefix) updatedNameForField(fieldName string, _ *Builder, _ *resourcemanager.ModelDetails, resource *resourcemanager.TerraformResourceDetails) *string {
+func (fieldNameRemoveResourcePrefix) updatedNameForField(fieldName string, _ *Builder, _ *resourcemanager.ModelDetails, resource *resourcemanager.TerraformResourceDetails) (*string, error) {
 	if strings.HasPrefix(fieldName, resource.ResourceName) {
 		updatedName := strings.Replace(fieldName, resource.ResourceName, "", 1)
-		return &updatedName
+		return &updatedName, nil
 	}
-	return nil
+	return nil, nil
 }
 
 type fieldNameFlattenReferenceId struct{}
 
-func (fieldNameFlattenReferenceId) updatedNameForField(fieldName string, input *Builder, model *resourcemanager.ModelDetails, _ *resourcemanager.TerraformResourceDetails) *string {
-
+func (fieldNameFlattenReferenceId) updatedNameForField(fieldName string, input *Builder, model *resourcemanager.ModelDetails, _ *resourcemanager.TerraformResourceDetails) (*string, error) {
 	if model.Fields[fieldName].ObjectDefinition.Type == resourcemanager.ReferenceApiObjectDefinitionType {
 		model, ok := input.models[*model.Fields[fieldName].ObjectDefinition.ReferenceName]
 		if ok {
 			if len(model.Fields) == 1 {
 				if _, ok := getField(model, "Id"); ok {
 					updatedFieldName := fmt.Sprintf("%sId", fieldName)
-					return &updatedFieldName
+					return &updatedFieldName, nil
 				}
 			}
 		}
 	}
-	return nil
+	return nil, nil
 }
 
-func checkIfFieldExists(fieldName string, model *resourcemanager.ModelDetails) error {
-	_, ok := getField(*model, fieldName)
-	if !ok {
-		return fmt.Errorf("%s was not found in %+v", fieldName, model.Fields)
-	}
-	return nil
-}
+type fieldNameFlattenListReferenceIds struct{}
 
-// determineNameForSchemaField takes the name of the field in the model, with the model as context, to be able
-// to determine which name should be used for this model, following conventions, before snake_casing it.
-//
-// this also accounts for flattening particular objects, for example when a field references a model with
-// a single field named `Id`, we'll flatten the parent field to `name_id`.
-func (b Builder) determineNameForSchemaField(input resourcemanager.ModelDetails, fieldName string) string {
-	field, ok := getField(input, fieldName)
-	if !ok {
-		// TODO: tbh we should probably error but I guess we can safe-check this for now..
-		return fieldName
-	}
-
-	// remove the `is_` prefix (e.g. `is_active` -> `active`)
-	if strings.HasPrefix(strings.ToLower(fieldName), "is") {
-		trimmed := fieldName[2:]
-		return trimmed
-	}
-
-	// flip `enable_X` / `disable_X` prefix
-	if strings.HasPrefix(strings.ToLower(fieldName), "enable") {
-		trimmed := fieldName[6:]
-		return fmt.Sprintf("%sEnabled", trimmed)
-	}
-	if strings.HasPrefix(strings.ToLower(fieldName), "disable") {
-		trimmed := fieldName[7:]
-		return fmt.Sprintf("%sDisabled", trimmed)
-	}
-
-	// change `allowed_X` prefix -> `X_enabled`
-	if strings.HasPrefix(strings.ToLower(fieldName), "allowed") {
-		trimmed := fieldName[7:]
-		return fmt.Sprintf("%sEnabled", trimmed)
-	}
-	// change `allow_X` prefix -> `X_enabled`
-	if strings.HasPrefix(strings.ToLower(fieldName), "allow") {
-		trimmed := fieldName[5:]
-		return fmt.Sprintf("%sEnabled", trimmed)
-	}
-
-	// if it's a Reference and the model contains a single field `Id` then flatten this into an `_id` field.
-	if field.ObjectDefinition.Type == resourcemanager.ReferenceApiObjectDefinitionType {
-		model, ok := b.models[*field.ObjectDefinition.ReferenceName]
+func (fieldNameFlattenListReferenceIds) updatedNameForField(fieldName string, input *Builder, model *resourcemanager.ModelDetails, _ *resourcemanager.TerraformResourceDetails) (*string, error) {
+	if model.Fields[fieldName].ObjectDefinition.Type == resourcemanager.ListApiObjectDefinitionType {
+		modelName := ""
+		if model.Fields[fieldName].ObjectDefinition.ReferenceName != nil {
+			modelName = *model.Fields[fieldName].ObjectDefinition.ReferenceName
+		} else if model.Fields[fieldName].ObjectDefinition.NestedItem.ReferenceName != nil {
+			modelName = *model.Fields[fieldName].ObjectDefinition.NestedItem.ReferenceName
+		} else {
+			return nil, nil
+		}
+		model, ok := input.models[modelName]
 		if ok {
 			if len(model.Fields) == 1 {
-				if _, ok := getField(model, "Id"); ok {
-					return fmt.Sprintf("%sId", fieldName)
+				// TODO Do we really need to check whether the Id is a reference?
+				if _, ok := getField(model, "Ids"); ok {
+					updatedFieldName := fmt.Sprintf("%sIds", fieldName)
+					return &updatedFieldName, nil
 				}
 			}
 		}
 	}
-
-	return fieldName
+	return nil, nil
 }
+
+//type fieldNameRenameBlockId struct{}
+//
+//func (fieldNameRenameBlockId) updatedNameForField(fieldName string, input *Builder, model *resourcemanager.ModelDetails, _ *resourcemanager.TerraformResourceDetails) (*string, error) {
+//	if model.Fields[fieldName].ObjectDefinition.Type == resourcemanager.ReferenceApiObjectDefinitionType {
+//		model, ok := input.models[*model.Fields[fieldName].ObjectDefinition.ReferenceName]
+//		if ok {
+//			if len(model.Fields) != 1 {
+//				for k, _ := range model.Fields {
+//					if strings.EqualFold(k, "Id") {
+//
+//					}
+//				}
+//			}
+//		}
+//
+//	}
+//	return nil, nil
+//}
 
 //TODO: if it's a List[Reference] and the model contains a single field `Id` then flatten this into `_ids`.
 //TODO: handling booleans `SomeBool` -> `SomeBoolEnabled` etc.
 //TODO: Singularizing plural names when it's a List (e.g. `planets` -> `planet`)
 //TODO: handle `is_XXX` -> `XXX`
 //TODO: if the field contains the same prefix as the resource, remove the prefix (e.g. `/msixPackages/` and `package_family_name`)
-//TODO: fields containing discriminators
-//TODO: if the model contains a single model, eliminate the wrapper model
+
 //TODO: if the field is named `id` within a block rename it to `{block}_id`
+
+//TODO: fields containing discriminators - for now we should skip the resource/raise an error if there's a discriminator involved
+//TODO: when the field `properties` is a reference to a model, move fields from the 'properties' model up into the parent model
+//TODO: handling the top level field `sku`
 //TODO: if there's multiple fields with the same prefix, should we put these into a block?
+//TODO: maybe done? if the model contains a single model, eliminate the wrapper model

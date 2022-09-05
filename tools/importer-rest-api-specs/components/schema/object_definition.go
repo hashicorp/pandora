@@ -11,11 +11,9 @@ var apiObjectDefinitionTypesToFieldObjectDefinitionTypes = map[resourcemanager.A
 	//resourcemanager.CsvApiObjectDefinitionType:  resourcemanager.TerraformSchemaFieldTypeCsv, // TODO: implement
 	resourcemanager.DateTimeApiObjectDefinitionType: resourcemanager.TerraformSchemaFieldTypeDateTime,
 	//resourcemanager.DictionaryApiObjectDefinitionType:  resourcemanager.TerraformSchemaFieldTypeDictionary, // TODO: implement
-	resourcemanager.IntegerApiObjectDefinitionType: resourcemanager.TerraformSchemaFieldTypeInteger,
-	resourcemanager.FloatApiObjectDefinitionType:   resourcemanager.TerraformSchemaFieldTypeFloat,
-	resourcemanager.ListApiObjectDefinitionType:    resourcemanager.TerraformSchemaFieldTypeList,
-	//resourcemanager.RawFileApiObjectDefinitionType:  resourcemanager.TerraformSchemaFieldTypeRawFile, // TODO: implement
-	//resourcemanager.RawObjectApiObjectDefinitionType:  resourcemanager.TerraformSchemaFieldTypeRawObject, // TODO: implement
+	resourcemanager.IntegerApiObjectDefinitionType:   resourcemanager.TerraformSchemaFieldTypeInteger,
+	resourcemanager.FloatApiObjectDefinitionType:     resourcemanager.TerraformSchemaFieldTypeFloat,
+	resourcemanager.ListApiObjectDefinitionType:      resourcemanager.TerraformSchemaFieldTypeList,
 	resourcemanager.ReferenceApiObjectDefinitionType: resourcemanager.TerraformSchemaFieldTypeReference,
 	resourcemanager.StringApiObjectDefinitionType:    resourcemanager.TerraformSchemaFieldTypeString,
 
@@ -35,13 +33,20 @@ var apiObjectDefinitionTypesToFieldObjectDefinitionTypes = map[resourcemanager.A
 	//resourcemanager.SystemData:                                                     resourcemanager.TerraformSchemaFieldTypeSystemData, // TODO: implement
 }
 
-func convertToFieldObjectDefinition(input resourcemanager.ApiObjectDefinition) (*resourcemanager.TerraformSchemaFieldObjectDefinition, error) {
-	out := resourcemanager.TerraformSchemaFieldObjectDefinition{
-		ReferenceName: input.ReferenceName,
+func (b Builder) convertToFieldObjectDefinition(modelPrefix string, input resourcemanager.ApiObjectDefinition) (*resourcemanager.TerraformSchemaFieldObjectDefinition, error) {
+	out := resourcemanager.TerraformSchemaFieldObjectDefinition{}
+
+	if input.ReferenceName != nil {
+		reference := *input.ReferenceName
+		if _, isConstant := b.constants[reference]; !isConstant {
+			// models are prefixed to be globally unique
+			reference = fmt.Sprintf("%s%s", modelPrefix, reference)
+		}
+		out.ReferenceName = &reference
 	}
 
 	if input.NestedItem != nil {
-		nested, err := convertToFieldObjectDefinition(*input.NestedItem)
+		nested, err := b.convertToFieldObjectDefinition(modelPrefix, *input.NestedItem)
 		if err != nil {
 			return nil, fmt.Errorf("converting nested item: %+v", err)
 		}

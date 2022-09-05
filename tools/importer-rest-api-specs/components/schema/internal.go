@@ -67,15 +67,15 @@ func (f topLevelFields) toSchema() map[string]resourcemanager.TerraformSchemaFie
 	out := make(map[string]resourcemanager.TerraformSchemaFieldDefinition, 0)
 
 	if f.location != nil {
-		out["location"] = *f.location
+		out["Location"] = *f.location
 	}
 
 	if f.identity != nil {
-		out["identity"] = *f.identity
+		out["Identity"] = *f.identity
 	}
 
 	if f.tags != nil {
-		out["tags"] = *f.tags
+		out["Tags"] = *f.tags
 	}
 
 	return out
