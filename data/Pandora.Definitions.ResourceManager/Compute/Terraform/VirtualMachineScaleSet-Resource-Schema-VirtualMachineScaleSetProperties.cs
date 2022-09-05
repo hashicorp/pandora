@@ -4,23 +4,20 @@ using Pandora.Definitions.CommonSchema;
 
 namespace Pandora.Definitions.ResourceManager.Compute.Terraform;
 
-public class VirtualMachineScaleSetResourceSchema
+public class VirtualMachineScaleSetResourceVirtualMachineScaleSetPropertiesSchema
 {
 
     [HclName("additional_capabilities")]
-    [ForceNew]
     [Optional]
     public List<VirtualMachineScaleSetResourceAdditionalCapabilitiesSchema> AdditionalCapabilities { get; set; }
 
 
     [HclName("automatic_repairs_policy")]
-    [ForceNew]
     [Optional]
     public List<VirtualMachineScaleSetResourceAutomaticRepairsPolicySchema> AutomaticRepairsPolicy { get; set; }
 
 
     [HclName("do_not_run_extensions_on_overprovisioned_v_ms")]
-    [ForceNew]
     [Optional]
     public bool DoNotRunExtensionsOnOverprovisionedVMs { get; set; }
 
@@ -30,30 +27,12 @@ public class VirtualMachineScaleSetResourceSchema
     public List<VirtualMachineScaleSetResourceSubResourceSchema> HostGroupId { get; set; }
 
 
-    [HclName("identity")]
-    [Optional]
-    public CommonSchema.SystemAndUserAssignedIdentity Identity { get; set; }
-
-
-    [HclName("location")]
-    [ForceNew]
-    [Required]
-    public CommonSchema.Location Location { get; set; }
-
-
-    [HclName("name")]
-    [ForceNew]
-    [Required]
-    public string Name { get; set; }
-
-
     [HclName("orchestration_mode")]
     [Optional]
     public string OrchestrationMode { get; set; }
 
 
     [HclName("overprovision")]
-    [ForceNew]
     [Optional]
     public bool Overprovision { get; set; }
 
@@ -63,20 +42,22 @@ public class VirtualMachineScaleSetResourceSchema
     public int PlatformFaultDomainCount { get; set; }
 
 
+    [HclName("provisioning_state")]
+    [Optional]
+    public string ProvisioningState { get; set; }
+
+
     [HclName("proximity_placement_group_id")]
-    [ForceNew]
     [Optional]
     public List<VirtualMachineScaleSetResourceSubResourceSchema> ProximityPlacementGroupId { get; set; }
 
 
     [HclName("scale_in_policy")]
-    [ForceNew]
     [Optional]
     public List<VirtualMachineScaleSetResourceScaleInPolicySchema> ScaleInPolicy { get; set; }
 
 
     [HclName("single_placement_group")]
-    [ForceNew]
     [Optional]
     public bool SinglePlacementGroup { get; set; }
 
@@ -84,11 +65,6 @@ public class VirtualMachineScaleSetResourceSchema
     [HclName("spot_restore_policy")]
     [Optional]
     public List<VirtualMachineScaleSetResourceSpotRestorePolicySchema> SpotRestorePolicy { get; set; }
-
-
-    [HclName("tags")]
-    [Optional]
-    public CommonSchema.Tags Tags { get; set; }
 
 
     [HclName("time_created")]
@@ -102,13 +78,11 @@ public class VirtualMachineScaleSetResourceSchema
 
 
     [HclName("upgrade_policy")]
-    [ForceNew]
     [Optional]
     public List<VirtualMachineScaleSetResourceUpgradePolicySchema> UpgradePolicy { get; set; }
 
 
     [HclName("virtual_machine_profile")]
-    [ForceNew]
     [Optional]
     public List<VirtualMachineScaleSetResourceVirtualMachineScaleSetVMProfileSchema> VirtualMachineProfile { get; set; }
 
