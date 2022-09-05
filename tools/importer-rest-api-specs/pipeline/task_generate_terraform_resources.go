@@ -40,7 +40,7 @@ func (pipelineTask) generateTerraformDetails(input discovery.ServiceInput, data 
 			}
 
 			if modelsForResource == nil {
-				logger.Debug(fmt.Sprintf("Resource %q returned no models, meaning this has been filtered out (maybe a discriminated type)"))
+				logger.Debug(fmt.Sprintf("Resource %q returned no models, meaning this has been filtered out (maybe a discriminated type)", resourceLabel))
 				continue
 			}
 
