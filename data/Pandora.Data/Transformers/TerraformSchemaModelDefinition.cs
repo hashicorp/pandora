@@ -20,6 +20,12 @@ public static class TerraformSchemaModelDefinition
             return Map(valueType);
         }
 
+        if (input.IsNativeType())
+        {
+            // nothing to map
+            return new Dictionary<string, Models.TerraformSchemaModelDefinition>();
+        }
+
         var output = new Dictionary<string, Models.TerraformSchemaModelDefinition>();
 
         var fields = new Dictionary<string, Models.TerraformSchemaFieldDefinition>();
@@ -29,7 +35,7 @@ public static class TerraformSchemaModelDefinition
             var fieldFromProperty = TerraformSchemaFieldDefinition.Map(property);
             fields.Add(property.Name, fieldFromProperty);
 
-            if (property.PropertyType.IsNativeType() || property.PropertyType.IsPandoraCustomType())
+            if (property.PropertyType.IsNativeType() || property.PropertyType.IsPandoraCommonSchemaType())
             {
                 continue;
             }

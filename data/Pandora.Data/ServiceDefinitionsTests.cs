@@ -70,7 +70,6 @@ public class ServiceDefinitionsTests
             Console.WriteLine($"Validating that Service {service.Name} maps..");
             foreach (var version in service.Versions)
             {
-                Console.WriteLine($"Validating that Service {service.Name} Version {version.Version} maps..");
                 var apis = version.Resources.ToList();
                 if (apis.Count == 0)
                 {

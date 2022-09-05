@@ -86,3 +86,16 @@ func getField(model resourcemanager.ModelDetails, fieldName string) (*resourcema
 
 	return nil, false
 }
+
+func updateFieldName(fieldName string, input Builder, model *resourcemanager.ModelDetails, resource *resourcemanager.TerraformResourceDetails) string {
+	for _, matcher := range NamingRules {
+		if updatedFieldName, _ := matcher.updatedNameForField(fieldName, &input, model, resource); updatedFieldName != nil {
+			return *updatedFieldName
+		}
+	}
+	return fieldName
+}
+
+func stringPointer(input string) *string {
+	return &input
+}

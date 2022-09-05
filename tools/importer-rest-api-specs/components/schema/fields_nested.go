@@ -7,7 +7,7 @@ import (
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-func (b Builder) identifyFieldsWithinPropertiesBlock(input operationPayloads) (*map[string]resourcemanager.TerraformSchemaFieldDefinition, error) {
+func (b Builder) identifyFieldsWithinPropertiesBlock(modelPrefix string, input operationPayloads, resource *resourcemanager.TerraformResourceDetails) (*map[string]resourcemanager.TerraformSchemaFieldDefinition, error) {
 	allFields := make(map[string]struct{}, 0)
 	for _, model := range input.createReadUpdatePayloadsProperties(b.models) {
 		for k, v := range model.Fields {
@@ -30,6 +30,8 @@ func (b Builder) identifyFieldsWithinPropertiesBlock(input operationPayloads) (*
 	out := make(map[string]resourcemanager.TerraformSchemaFieldDefinition, 0)
 	if readPropertiesModel != nil {
 		for k := range allFields {
+			// TODO: pull the right resourcemanager.ModelDetails for naming below
+
 			var readField *resourcemanager.FieldDetails
 			hasRead := false
 			if readPropertiesModel != nil {
@@ -73,20 +75,30 @@ func (b Builder) identifyFieldsWithinPropertiesBlock(input operationPayloads) (*
 				}
 			}
 
-			typedModelName := ""
-
+			fieldNameForTypedModel := ""
 			if hasRead {
-				typedModelName = b.determineNameForSchemaField(*readPropertiesModel, k)
+				fieldNameForTypedModel = updateFieldName(k, b, readPropertiesModel, resource)
 			} else if hasCreate {
-				typedModelName = b.determineNameForSchemaField(*createPropertiesModel, k)
+				fieldNameForTypedModel = updateFieldName(k, b, createPropertiesModel, resource)
 			} else if hasUpdate {
-				typedModelName = b.determineNameForSchemaField(*updatePropertiesModel, k)
+				fieldNameForTypedModel = updateFieldName(k, b, updatePropertiesModel, resource)
 			}
 
-			schemaFieldName := convertToSnakeCase(typedModelName)
-			log.Printf("[DEBUG] Properties Field %q would be output as %q / %q", k, typedModelName, schemaFieldName)
+			var inputObjectDefinition resourcemanager.ApiObjectDefinition
+			if hasRead {
+				inputObjectDefinition = readField.ObjectDefinition
+			} else if hasCreate {
+				inputObjectDefinition = createField.ObjectDefinition
+			} else if hasUpdate {
+				inputObjectDefinition = updateField.ObjectDefinition
+			}
 
+			schemaFieldName := convertToSnakeCase(fieldNameForTypedModel)
+			log.Printf("[DEBUG] Properties Field %q would be output as %q / %q", k, fieldNameForTypedModel, schemaFieldName)
+
+			// TODO(@tombuildsstuff): refactor this and the "nested model" field to use the same parser ideally..?!
 			definition := resourcemanager.TerraformSchemaFieldDefinition{
+				HclName:  schemaFieldName,
 				Required: isRequired,
 				ForceNew: isForceNew,
 				Optional: isOptional,
@@ -98,27 +110,13 @@ func (b Builder) identifyFieldsWithinPropertiesBlock(input operationPayloads) (*
 				// TODO: also need to add the mappings & any validation
 			}
 
-			if hasRead {
-				fieldObjectDefinition, err := convertToFieldObjectDefinition(readField.ObjectDefinition)
-				if err != nil {
-					return nil, fmt.Errorf("converting ObjectDefinition for field to a TerraformFieldObjectDefinition: %+v", err)
-				}
-				definition.ObjectDefinition = *fieldObjectDefinition
-			} else if hasCreate {
-				fieldObjectDefinition, err := convertToFieldObjectDefinition(createField.ObjectDefinition)
-				if err != nil {
-					return nil, fmt.Errorf("converting ObjectDefinition for field to a TerraformFieldObjectDefinition: %+v", err)
-				}
-				definition.ObjectDefinition = *fieldObjectDefinition
-			} else if hasUpdate {
-				fieldObjectDefinition, err := convertToFieldObjectDefinition(updateField.ObjectDefinition)
-				if err != nil {
-					return nil, fmt.Errorf("converting ObjectDefinition for field to a TerraformFieldObjectDefinition: %+v", err)
-				}
-				definition.ObjectDefinition = *fieldObjectDefinition
+			objectDefinition, err := b.convertToFieldObjectDefinition(modelPrefix, inputObjectDefinition)
+			if err != nil {
+				return nil, fmt.Errorf("converting ObjectDefinition for field to a TerraformFieldObjectDefinition: %+v", err)
 			}
+			definition.ObjectDefinition = *objectDefinition
 
-			out[schemaFieldName] = definition
+			out[fieldNameForTypedModel] = definition
 		}
 	}
 

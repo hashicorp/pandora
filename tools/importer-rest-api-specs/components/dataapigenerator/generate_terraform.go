@@ -3,6 +3,7 @@ package dataapigenerator
 import (
 	"fmt"
 	"path"
+	"strings"
 
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
@@ -47,20 +48,45 @@ func (s Generator) generateTerraformDefinitions(apiVersion models.AzureApiDefini
 				return fmt.Errorf("generating Terraform Resource Definition for %q: %+v", label, err)
 			}
 
+			// output the Schema for this Terraform Resource
+			resourceSchemaFileName := path.Join(s.workingDirectoryForTerraform, fmt.Sprintf("%s-Resource-Schema.cs", details.ResourceName))
+			resourceSchema, ok := details.SchemaModels[details.SchemaModelName]
+			if !ok {
+				return fmt.Errorf("the Schema Model %q was not found", details.SchemaModelName)
+			}
+			s.logger.Trace(fmt.Sprintf("Generating Resource Schema into %q", resourceSchemaFileName))
+			resourceSchemaCode, err := codeForTerraformSchemaModelDefinition(s.namespaceForTerraform, details.SchemaModelName, resourceSchema, details, resource)
+			if err != nil {
+				return fmt.Errorf("generating Terraform Resource Schema for %s: %+v", label, err)
+			}
+			if err := writeToFile(resourceSchemaFileName, *resourceSchemaCode); err != nil {
+				return fmt.Errorf("writing Terraform Resource Schema for %q: %+v", label, err)
+			}
+
+			// then output the other Schema types for this Terraform Resource
+			for modelName, model := range details.SchemaModels {
+				// this is output above
+				if modelName == details.SchemaModelName {
+					continue
+				}
+
+				nestedSchemaFileName := path.Join(s.workingDirectoryForTerraform, fmt.Sprintf("%s-Resource-Schema-%s.cs", details.ResourceName, strings.TrimPrefix(modelName, details.SchemaModelName)))
+				s.logger.Trace(fmt.Sprintf("Generating Model Schema into %q", nestedSchemaFileName))
+				nestedSchemaCode, err := codeForTerraformSchemaModelDefinition(s.namespaceForTerraform, modelName, model, details, resource)
+				if err != nil {
+					return fmt.Errorf("generating Terraform Resource Schema for Nested Schema %q: %+v", label, err)
+				}
+				if err := writeToFile(nestedSchemaFileName, *nestedSchemaCode); err != nil {
+					return fmt.Errorf("writing Terraform Resource Schema for %q: %+v", label, err)
+				}
+			}
+
 			// output the Mappings for this Terraform Resource
 			resourceMappingsFileName := path.Join(s.workingDirectoryForTerraform, fmt.Sprintf("%s-Resource-Mappings.cs", details.ResourceName))
 			s.logger.Trace(fmt.Sprintf("Generating Resource Mappings into %q", resourceMappingsFileName))
 			resourceMappingsCode := codeForTerraformResourceMappings(s.namespaceForTerraform, details)
 			if err := writeToFile(resourceMappingsFileName, resourceMappingsCode); err != nil {
 				return fmt.Errorf("generating Terraform Resource Mappings for %q: %+v", label, err)
-			}
-
-			// output the Schema for this Terraform Resource
-			resourceSchemaFileName := path.Join(s.workingDirectoryForTerraform, fmt.Sprintf("%s-Resource-Schema.cs", details.ResourceName))
-			s.logger.Trace(fmt.Sprintf("Generating Resource Schema into %q", resourceSchemaFileName))
-			resourceSchemaCode := codeForTerraformSchemaDefinition(s.namespaceForTerraform, details)
-			if err := writeToFile(resourceSchemaFileName, resourceSchemaCode); err != nil {
-				return fmt.Errorf("generating Terraform Resource Schema for %q: %+v", label, err)
 			}
 
 			// output the Tests for this Terraform Resource

@@ -12,7 +12,7 @@ public static class TerraformSchemaFieldDefinition
     {
         if (!input.HasAttribute<HclNameAttribute>())
         {
-            throw new NotSupportedException("Property must have the [HclName] attribute");
+            throw new NotSupportedException($"Property {input} must have the [HclName] attribute");
         }
 
         var hclAttribute = input.GetCustomAttribute<HclNameAttribute>();

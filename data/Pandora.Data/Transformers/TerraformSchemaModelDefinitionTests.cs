@@ -2,12 +2,31 @@ using System;
 using System.Collections.Generic;
 using NUnit.Framework;
 using Pandora.Definitions.Attributes;
-using Pandora.Definitions.CustomTypes;
+using Pandora.Definitions.CommonSchema;
 
 namespace Pandora.Data.Transformers;
 
 public static class TerraformSchemaModelDefinitionTests
 {
+    [TestCase]
+    public static void MappingABuiltInTypeShouldReturnNothing()
+    {
+        var basicTypes = new List<Type>
+        {
+            typeof(bool),
+            typeof(DateTime),
+            typeof(float),
+            typeof(int),
+            typeof(string),
+        };
+        foreach (var basicType in basicTypes)
+        {
+            var result = TerraformSchemaModelDefinition.Map(basicType);
+            Assert.NotNull(result);
+            Assert.AreEqual(0, result.Count);
+        }
+    }
+
     [TestCase]
     public static void ParsingAModelWhichContainsNoPropertiesShouldRaiseAnException()
     {
@@ -25,13 +44,13 @@ public static class TerraformSchemaModelDefinitionTests
     }
 
     [TestCase]
-    public static void ParsingAModelWhichContainsPandoraCustomTypesShouldHaveASingleModel()
+    public static void ParsingAModelWhichContainsPandoraCommonSchemaTypesShouldHaveASingleModel()
     {
-        var actual = TerraformSchemaModelDefinition.Map(typeof(ModelWithOnlyPandoraCustomTypes));
+        var actual = TerraformSchemaModelDefinition.Map(typeof(ModelWithOnlyPandoraCommonSchema));
         Assert.AreEqual(1, actual.Count);
-        var model = actual["ModelWithOnlyPandoraCustomTypes"];
+        var model = actual["ModelWithOnlyPandoraCommonSchema"];
         Assert.NotNull(model);
-        Assert.AreEqual(12, model.Fields.Count);
+        Assert.AreEqual(9, model.Fields.Count);
     }
 
     [TestCase]
@@ -135,11 +154,11 @@ public static class TerraformSchemaModelDefinitionTests
         public string ExampleString { get; set; }
     }
 
-    private class ModelWithOnlyPandoraCustomTypes
+    private class ModelWithOnlyPandoraCommonSchema
     {
         [HclName("edge_zone")]
         [Required]
-        public EdgeZone EdgeZone { get; set; }
+        public EdgeZoneSingle EdgeZone { get; set; }
 
         [HclName("location")]
         [Required]
@@ -153,39 +172,25 @@ public static class TerraformSchemaModelDefinitionTests
         [Required]
         public SystemAssignedIdentity SystemAssignedIdentity { get; set; }
 
-        [HclName("system_and_user_assigned_identity_list")]
+        [HclName("system_and_user_assigned_identity")]
         [Required]
-        public SystemAndUserAssignedIdentityList SystemAndUserAssignedIdentityList { get; set; }
+        public SystemAndUserAssignedIdentity SystemAndUserAssignedIdentity { get; set; }
 
-        [HclName("system_and_user_assigned_identity_map")]
+        [HclName("system_or_user_assigned_identity")]
         [Required]
-        public SystemAndUserAssignedIdentityMap SystemAndUserAssignedIdentityMap { get; set; }
+        public SystemOrUserAssignedIdentity SystemOrUserAssignedIdentity { get; set; }
 
-        [HclName("legacy_system_and_user_assigned_identity_list")]
+        [HclName("user_assigned_identity")]
         [Required]
-        public LegacySystemAndUserAssignedIdentityList LegacySystemAndUserAssignedIdentityList { get; set; }
+        public UserAssignedIdentity UserAssignedIdentity { get; set; }
 
-        [HclName("legacy_system_and_user_assigned_identity_map")]
+        [HclName("zone")]
         [Required]
-        public LegacySystemAndUserAssignedIdentityMap LegacySystemAndUserAssignedIdentityMap { get; set; }
+        public ZoneSingle Zone { get; set; }
 
-        [HclName("system_or_user_assigned_identity_list")]
+        [HclName("zones")]
         [Required]
-        public SystemOrUserAssignedIdentityList SystemOrUserAssignedIdentityList { get; set; }
-
-        [HclName("system_or_user_assigned_identity_map")]
-        [Required]
-        public SystemOrUserAssignedIdentityMap SystemOrUserAssignedIdentityMap { get; set; }
-
-        [HclName("user_assigned_identity_list")]
-        [Required]
-        public UserAssignedIdentityList UserAssignedIdentityList { get; set; }
-
-        [HclName("user_assigned_identity_map")]
-        [Required]
-        public UserAssignedIdentityMap UserAssignedIdentityMap { get; set; }
-
-        // NOTE: intentionally doesn't have RawFile or SystemData since these aren't output in the Schema
+        public ZonesMultiple Zones { get; set; }
     }
 
     private class ModelContainingANestedModel

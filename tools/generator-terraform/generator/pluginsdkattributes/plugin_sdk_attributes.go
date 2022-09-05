@@ -161,6 +161,11 @@ func (h PluginSdkAttributesHelpers) attributesForObjectDefinition(input resource
 		{
 			attributes = append(attributes, "Type: pluginsdk.TypeBool")
 		}
+	case resourcemanager.TerraformSchemaFieldTypeDateTime:
+		{
+			// TODO: should/can we also output validation for this?
+			attributes = append(attributes, "Type: pluginsdk.TypeString")
+		}
 	case resourcemanager.TerraformSchemaFieldTypeFloat:
 		{
 			attributes = append(attributes, "Type: pluginsdk.TypeFloat")

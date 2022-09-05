@@ -2,7 +2,7 @@ using System;
 using NUnit.Framework;
 using Pandora.Data.Models;
 using Pandora.Definitions.Attributes;
-using Pandora.Definitions.CustomTypes;
+using Pandora.Definitions.CommonSchema;
 
 namespace Pandora.Data.Transformers;
 
@@ -126,12 +126,12 @@ public static class TerraformSchemaFieldDefinitionTests
     }
 
     [TestCase]
-    public static void PandoraTypesGetMapped()
+    public static void PandoraCommonSchemaTypesGetMapped()
     {
-        var actual = TerraformSchemaModelDefinition.Map(typeof(ModelContainingAllPandoraCustomTypes));
-        var mappedModel = actual["ModelContainingAllPandoraCustomTypes"];
+        var actual = TerraformSchemaModelDefinition.Map(typeof(ModelContainingAllPandoraCommonSchemaTypes));
+        var mappedModel = actual["ModelContainingAllPandoraCommonSchemaTypes"];
         Assert.NotNull(mappedModel);
-        Assert.AreEqual(12, mappedModel.Fields.Count);
+        Assert.AreEqual(9, mappedModel.Fields.Count);
 
         var edgeZoneProp = mappedModel.Fields["EdgeZone"];
         Assert.NotNull(edgeZoneProp);
@@ -153,51 +153,20 @@ public static class TerraformSchemaFieldDefinitionTests
         Assert.AreEqual(TerraformSchemaFieldType.IdentitySystemAssigned, systemAssignedIdentityProp.ObjectDefinition.Type);
         Assert.AreEqual("system_assigned_identity", systemAssignedIdentityProp.HclName);
 
-        var systemAndUserAssignedIdentityListProp = mappedModel.Fields["SystemAndUserAssignedIdentityList"];
-        Assert.NotNull(systemAndUserAssignedIdentityListProp);
-        Assert.AreEqual(TerraformSchemaFieldType.IdentitySystemAndUserAssigned, systemAndUserAssignedIdentityListProp.ObjectDefinition.Type);
-        Assert.AreEqual("system_and_user_assigned_identity_list", systemAndUserAssignedIdentityListProp.HclName);
+        var systemAndUserAssignedIdentityProp = mappedModel.Fields["SystemAndUserAssignedIdentity"];
+        Assert.NotNull(systemAndUserAssignedIdentityProp);
+        Assert.AreEqual(TerraformSchemaFieldType.IdentitySystemAndUserAssigned, systemAndUserAssignedIdentityProp.ObjectDefinition.Type);
+        Assert.AreEqual("system_and_user_assigned_identity", systemAndUserAssignedIdentityProp.HclName);
 
-        var systemAndUserAssignedIdentityMapProp = mappedModel.Fields["SystemAndUserAssignedIdentityMap"];
-        Assert.NotNull(systemAndUserAssignedIdentityMapProp);
-        Assert.AreEqual(TerraformSchemaFieldType.IdentitySystemAndUserAssigned, systemAndUserAssignedIdentityMapProp.ObjectDefinition.Type);
-        Assert.AreEqual("system_and_user_assigned_identity_map", systemAndUserAssignedIdentityMapProp.HclName);
+        var systemOrUserAssignedIdentityProp = mappedModel.Fields["SystemOrUserAssignedIdentity"];
+        Assert.NotNull(systemOrUserAssignedIdentityProp);
+        Assert.AreEqual(TerraformSchemaFieldType.IdentitySystemOrUserAssigned, systemOrUserAssignedIdentityProp.ObjectDefinition.Type);
+        Assert.AreEqual("system_or_user_assigned_identity", systemOrUserAssignedIdentityProp.HclName);
 
-        var legacySystemAndUserAssignedIdentityListProp = mappedModel.Fields["LegacySystemAndUserAssignedIdentityList"];
-        Assert.NotNull(legacySystemAndUserAssignedIdentityListProp);
-        Assert.AreEqual(TerraformSchemaFieldType.IdentitySystemAndUserAssigned, legacySystemAndUserAssignedIdentityListProp.ObjectDefinition.Type);
-        Assert.AreEqual("legacy_system_and_user_assigned_identity_list", legacySystemAndUserAssignedIdentityListProp.HclName);
-
-        var legacySystemAndUserAssignedIdentityMapProp = mappedModel.Fields["LegacySystemAndUserAssignedIdentityMap"];
-        Assert.NotNull(legacySystemAndUserAssignedIdentityMapProp);
-        Assert.AreEqual(TerraformSchemaFieldType.IdentitySystemAndUserAssigned, legacySystemAndUserAssignedIdentityMapProp.ObjectDefinition.Type);
-        Assert.AreEqual("legacy_system_and_user_assigned_identity_map", legacySystemAndUserAssignedIdentityMapProp.HclName);
-
-        var systemOrUserAssignedIdentityListProp = mappedModel.Fields["SystemOrUserAssignedIdentityList"];
-        Assert.NotNull(systemOrUserAssignedIdentityListProp);
-        Assert.AreEqual(TerraformSchemaFieldType.IdentitySystemOrUserAssigned, systemOrUserAssignedIdentityListProp.ObjectDefinition.Type);
-        Assert.AreEqual("system_or_user_assigned_identity_list", systemOrUserAssignedIdentityListProp.HclName);
-
-        var systemOrUserAssignedIdentityMapProp = mappedModel.Fields["SystemOrUserAssignedIdentityMap"];
-        Assert.NotNull(systemOrUserAssignedIdentityMapProp);
-        Assert.AreEqual(TerraformSchemaFieldType.IdentitySystemOrUserAssigned, systemOrUserAssignedIdentityMapProp.ObjectDefinition.Type);
-        Assert.AreEqual("system_or_user_assigned_identity_map", systemOrUserAssignedIdentityMapProp.HclName);
-
-        var userAssignedIdentityListProp = mappedModel.Fields["UserAssignedIdentityList"];
-        Assert.NotNull(userAssignedIdentityListProp);
-        Assert.AreEqual(TerraformSchemaFieldType.IdentityUserAssigned, userAssignedIdentityListProp.ObjectDefinition.Type);
-        Assert.AreEqual("user_assigned_identity_list", userAssignedIdentityListProp.HclName);
-
-        var userAssignedIdentityMapProp = mappedModel.Fields["UserAssignedIdentityMap"];
-        Assert.NotNull(userAssignedIdentityMapProp);
-        Assert.AreEqual(TerraformSchemaFieldType.IdentityUserAssigned, userAssignedIdentityMapProp.ObjectDefinition.Type);
-        Assert.AreEqual("user_assigned_identity_map", userAssignedIdentityMapProp.HclName);
-    }
-
-    [TestCase()]
-    public static void PandoraTypesNotValidInTheSchemaRaiseAnException()
-    {
-        Assert.Throws<NotSupportedException>(() => TerraformSchemaModelDefinition.Map(typeof(ModelContainingPandoraCustomTypesNotValidInSchema)));
+        var userAssignedIdentityProp = mappedModel.Fields["UserAssignedIdentity"];
+        Assert.NotNull(userAssignedIdentityProp);
+        Assert.AreEqual(TerraformSchemaFieldType.IdentityUserAssigned, userAssignedIdentityProp.ObjectDefinition.Type);
+        Assert.AreEqual("user_assigned_identity", userAssignedIdentityProp.HclName);
     }
 
     private class ModelContainingAComputedAttribute
@@ -258,11 +227,11 @@ public static class TerraformSchemaFieldDefinitionTests
         public string StringProp { get; set; }
     }
 
-    private class ModelContainingAllPandoraCustomTypes
+    private class ModelContainingAllPandoraCommonSchemaTypes
     {
         [HclName("edge_zone")]
         [Required]
-        public EdgeZone EdgeZone { get; set; }
+        public EdgeZoneSingle EdgeZone { get; set; }
 
         [HclName("location")]
         [Required]
@@ -276,49 +245,24 @@ public static class TerraformSchemaFieldDefinitionTests
         [Required]
         public SystemAssignedIdentity SystemAssignedIdentity { get; set; }
 
-        [HclName("system_and_user_assigned_identity_list")]
+        [HclName("system_and_user_assigned_identity")]
         [Required]
-        public SystemAndUserAssignedIdentityList SystemAndUserAssignedIdentityList { get; set; }
+        public SystemAndUserAssignedIdentity SystemAndUserAssignedIdentity { get; set; }
 
-        [HclName("system_and_user_assigned_identity_map")]
+        [HclName("system_or_user_assigned_identity")]
         [Required]
-        public SystemAndUserAssignedIdentityMap SystemAndUserAssignedIdentityMap { get; set; }
+        public SystemOrUserAssignedIdentity SystemOrUserAssignedIdentity { get; set; }
 
-        [HclName("legacy_system_and_user_assigned_identity_list")]
+        [HclName("user_assigned_identity")]
         [Required]
-        public LegacySystemAndUserAssignedIdentityList LegacySystemAndUserAssignedIdentityList { get; set; }
+        public UserAssignedIdentity UserAssignedIdentity { get; set; }
 
-        [HclName("legacy_system_and_user_assigned_identity_map")]
+        [HclName("zone")]
         [Required]
-        public LegacySystemAndUserAssignedIdentityMap LegacySystemAndUserAssignedIdentityMap { get; set; }
+        public ZoneSingle Zone { get; set; }
 
-        [HclName("system_or_user_assigned_identity_list")]
+        [HclName("zones")]
         [Required]
-        public SystemOrUserAssignedIdentityList SystemOrUserAssignedIdentityList { get; set; }
-
-        [HclName("system_or_user_assigned_identity_map")]
-        [Required]
-        public SystemOrUserAssignedIdentityMap SystemOrUserAssignedIdentityMap { get; set; }
-
-        [HclName("user_assigned_identity_list")]
-        [Required]
-        public UserAssignedIdentityList UserAssignedIdentityList { get; set; }
-
-        [HclName("user_assigned_identity_map")]
-        [Required]
-        public UserAssignedIdentityMap UserAssignedIdentityMap { get; set; }
-
-        // NOTE: SystemData and RawFile shouldn't be output (since we don't at this time)
-    }
-
-    private class ModelContainingPandoraCustomTypesNotValidInSchema
-    {
-        [HclName("raw_file")]
-        [Required]
-        public RawFile RawFile { get; set; }
-
-        [HclName("system_data")]
-        [Required]
-        public SystemData SystemData { get; set; }
+        public ZonesMultiple Zones { get; set; }
     }
 }

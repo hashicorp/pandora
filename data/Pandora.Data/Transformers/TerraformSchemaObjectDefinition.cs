@@ -1,7 +1,7 @@
 using System;
 using Pandora.Data.Helpers;
 using Pandora.Data.Models;
-using Pandora.Definitions.CustomTypes;
+using Pandora.Definitions.CommonSchema;
 
 namespace Pandora.Data.Transformers;
 
@@ -33,11 +33,11 @@ public static class TerraformSchemaObjectDefinition
             };
         }
 
-        if (input.IsPandoraCustomType())
+        if (input.IsPandoraCommonSchemaType())
         {
             return new Models.TerraformSchemaObjectDefinition
             {
-                Type = MapPandoraCustomType(input),
+                Type = MapPandoraCommonSchema(input),
             };
         }
 
@@ -81,15 +81,19 @@ public static class TerraformSchemaObjectDefinition
         throw new NotSupportedException($"native type {input.Name} is not mapped");
     }
 
-    private static TerraformSchemaFieldType MapPandoraCustomType(Type input)
+    private static TerraformSchemaFieldType MapPandoraCommonSchema(Type input)
     {
-        if (input == typeof(EdgeZone))
+        if (input == typeof(EdgeZoneSingle))
         {
             return TerraformSchemaFieldType.EdgeZone;
         }
         if (input == typeof(Location))
         {
             return TerraformSchemaFieldType.Location;
+        }
+        if (input == typeof(ResourceGroupName))
+        {
+            return TerraformSchemaFieldType.ResourceGroup;
         }
         if (input == typeof(Tags))
         {
@@ -99,37 +103,25 @@ public static class TerraformSchemaObjectDefinition
         {
             return TerraformSchemaFieldType.IdentitySystemAssigned;
         }
-        if (input == typeof(SystemAndUserAssignedIdentityList))
+        if (input == typeof(SystemAndUserAssignedIdentity))
         {
             return TerraformSchemaFieldType.IdentitySystemAndUserAssigned;
         }
-        if (input == typeof(SystemAndUserAssignedIdentityMap))
-        {
-            return TerraformSchemaFieldType.IdentitySystemAndUserAssigned;
-        }
-        if (input == typeof(LegacySystemAndUserAssignedIdentityList))
-        {
-            return TerraformSchemaFieldType.IdentitySystemAndUserAssigned;
-        }
-        if (input == typeof(LegacySystemAndUserAssignedIdentityMap))
-        {
-            return TerraformSchemaFieldType.IdentitySystemAndUserAssigned;
-        }
-        if (input == typeof(SystemOrUserAssignedIdentityList))
+        if (input == typeof(SystemOrUserAssignedIdentity))
         {
             return TerraformSchemaFieldType.IdentitySystemOrUserAssigned;
         }
-        if (input == typeof(SystemOrUserAssignedIdentityMap))
-        {
-            return TerraformSchemaFieldType.IdentitySystemOrUserAssigned;
-        }
-        if (input == typeof(UserAssignedIdentityList))
+        if (input == typeof(UserAssignedIdentity))
         {
             return TerraformSchemaFieldType.IdentityUserAssigned;
         }
-        if (input == typeof(UserAssignedIdentityMap))
+        if (input == typeof(ZoneSingle))
         {
-            return TerraformSchemaFieldType.IdentityUserAssigned;
+            return TerraformSchemaFieldType.Zone;
+        }
+        if (input == typeof(ZonesMultiple))
+        {
+            return TerraformSchemaFieldType.Zones;
         }
 
         // RawFile and SystemData aren't supported in the Schema because how would we output them?

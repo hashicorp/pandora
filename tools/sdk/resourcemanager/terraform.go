@@ -28,11 +28,13 @@ func (c TerraformClient) Get(input ServiceDetails) (*TerraformDetails, error) {
 
 type TerraformDetails struct {
 	// DataSources is a key (Resource Label) value (TerraformDataSourceDetails) pair of
-	// metadata about the Terraform Data Sources which should be generated.
+	// metadata about the Terraform Data Sources which should be generated, including
+	// any nested schemas.
 	DataSources map[string]TerraformDataSourceDetails `json:"dataSources"`
 
 	// Resources is a key (Resource Label) value (TerraformResourceDetails) pair of
-	// metadata about the Terraform Resources which should be generated.
+	// metadata about the Terraform Resources which should be generated, including
+	// any nested schemas.
 	Resources map[string]TerraformResourceDetails `json:"resources"`
 }
 
@@ -216,6 +218,8 @@ const (
 	TerraformSchemaFieldTypeReference TerraformSchemaFieldType = "Reference"
 	TerraformSchemaFieldTypeSet       TerraformSchemaFieldType = "Set"
 	TerraformSchemaFieldTypeString    TerraformSchemaFieldType = "String"
+	// NOTE: we intentionally only have Terraform Schema fields (and specific CustomSchema types) here - meaning
+	// that we don't have RawObject/RawFile since we have no means of expressing them today.
 
 	TerraformSchemaFieldTypeEdgeZone                      TerraformSchemaFieldType = "EdgeZone"
 	TerraformSchemaFieldTypeIdentitySystemAssigned        TerraformSchemaFieldType = "IdentitySystemAssigned"
