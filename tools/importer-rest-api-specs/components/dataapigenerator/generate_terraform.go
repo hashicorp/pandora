@@ -60,7 +60,7 @@ func (s Generator) generateTerraformDefinitions(apiVersion models.AzureApiDefini
 				return fmt.Errorf("generating Terraform Resource Schema for %s: %+v", label, err)
 			}
 			if err := writeToFile(resourceSchemaFileName, *resourceSchemaCode); err != nil {
-				return fmt.Errorf("generating Terraform Resource Schema for %q: %+v", label, err)
+				return fmt.Errorf("writing Terraform Resource Schema for %q: %+v", label, err)
 			}
 
 			// then output the other Schema types for this Terraform Resource
