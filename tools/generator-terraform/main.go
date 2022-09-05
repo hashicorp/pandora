@@ -60,7 +60,9 @@ func run(input GeneratorInput) error {
 	log.Printf("[DEBUG] Retrieving Services from Data API..")
 	client := resourcemanager.NewClient(input.apiServerEndpoint)
 	servicesToLoad := []string{
+		// TODO: support for specifying this on the CLI
 		"Compute",
+		"ElasticSan",
 		"Resources",
 	}
 	services, err := services.GetResourceManagerServicesByName(client, servicesToLoad)
