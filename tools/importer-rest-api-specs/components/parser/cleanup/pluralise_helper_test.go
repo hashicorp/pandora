@@ -32,7 +32,7 @@ func TestPluralisingWords(t *testing.T) {
 			expected: "resourceGroups",
 		},
 		{
-			input:    "Caches",
+			input:    "Cache",
 			expected: "Caches",
 		},
 		{
