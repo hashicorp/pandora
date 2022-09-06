@@ -5,8 +5,6 @@ import (
 	"strings"
 )
 
-// TODO: move this inside of `parser`?
-
 func RemoveInvalidCharacters(input string, titleCaseSegments bool) string {
 	output := input
 
@@ -68,17 +66,7 @@ func NormalizeSegmentName(input string) string {
 		output = strings.TrimSuffix(output, "Name")
 	}
 
-	// todo: something better than this
-	if strings.HasSuffix(output, "s") {
-		if !strings.HasSuffix(output, "ies") {
-			output = strings.TrimSuffix(output, "s")
-		}
-		if strings.HasSuffix(output, "sse") {
-			output = strings.TrimSuffix(output, "e")
-		}
-	}
-
-	output = strings.Title(output)
+	output = strings.Title(GetSingular(output))
 	return output
 }
 
@@ -576,27 +564,5 @@ func NormalizeCanonicalisation(input string) string {
 }
 
 func PluraliseName(input string) string {
-	skipnames := []string{
-		"Compute",
-		"ContainerInstance",
-		"Cosmos-Db",
-		"Kusto",
-		"PowerBIDedicated",
-		"ServiceLinker",
-	}
-	for _, v := range skipnames {
-		if strings.EqualFold(strings.TrimPrefix(input, "/"), v) {
-			return input
-		}
-	}
-
-	input = strings.TrimPrefix(input, "/")
-	if strings.HasSuffix(input, "s") {
-		return input
-	}
-
-	if strings.HasSuffix(input, "y") {
-		return fmt.Sprintf("%sies", strings.TrimSuffix(input, "y"))
-	}
-	return fmt.Sprintf("%ss", input)
+	return GetPlural(strings.TrimPrefix(input, "/"))
 }
