@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using NUnit.Framework;
+using Pandora.Data.Models;
 using Pandora.Definitions.Attributes;
 using Pandora.Definitions.CommonSchema;
 
@@ -123,6 +124,49 @@ public static class TerraformSchemaModelDefinitionTests
         Assert.AreEqual(2, model.Fields.Count);
         var otherModel = actual["ModelWithOnlyBuiltInTypes"];
         Assert.AreEqual(5, otherModel.Fields.Count);
+    }
+
+    [TestCase]
+    public static void ParsingAModelWhichContainsAModelThatContainsAListOfAModel()
+    {
+        var actual = TerraformSchemaModelDefinition.Map(typeof(ModelContainingAModelContainingAListOfAModel));
+        Assert.AreEqual(2, actual.Count);
+        var model = actual["ModelContainingAModelContainingAListOfAModel"];
+        Assert.NotNull(model);
+        Assert.AreEqual(1, model.Fields.Count);
+
+        var field = model.Fields["ListOfAModel"];
+        Assert.NotNull(field);
+        Assert.AreEqual(TerraformSchemaFieldType.List, field.ObjectDefinition.Type);
+        Assert.Null(field.ObjectDefinition.ReferenceName);
+        Assert.NotNull(field.ObjectDefinition.NestedObject);
+        Assert.AreEqual(TerraformSchemaFieldType.Reference, field.ObjectDefinition.NestedObject.Type);
+        Assert.NotNull(field.ObjectDefinition.NestedObject.ReferenceName);
+        Assert.AreEqual("ModelUsedInAList", field.ObjectDefinition.NestedObject.ReferenceName);
+        Assert.Null(field.ObjectDefinition.NestedObject.NestedObject);
+
+        var otherModel = actual["ModelUsedInAList"];
+        Assert.AreEqual(1, otherModel.Fields.Count);
+
+        var otherField = otherModel.Fields["Foo"];
+        Assert.NotNull(otherField);
+        Assert.AreEqual(TerraformSchemaFieldType.String, otherField.ObjectDefinition.Type);
+        Assert.Null(otherField.ObjectDefinition.NestedObject);
+        Assert.Null(otherField.ObjectDefinition.ReferenceName);
+    }
+
+    private class ModelContainingAModelContainingAListOfAModel
+    {
+        [HclName("list_of_a_model")]
+        [Optional]
+        public List<ModelUsedInAList> ListOfAModel { get; set; }
+    }
+
+    private class ModelUsedInAList
+    {
+        [HclName("foo")]
+        [Optional]
+        public string Foo { get; set; }
     }
 
     private class ModelWithNoProperties

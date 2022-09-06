@@ -124,7 +124,7 @@ func dotNetTypeNameForTerraformFieldObjectDefinition(input resourcemanager.Terra
 			return out, nil
 		}
 
-		out := fmt.Sprintf("List<%sSchema>", *input.ReferenceName)
+		out := fmt.Sprintf("%sSchema", *input.ReferenceName)
 		return &out, nil
 	}
 

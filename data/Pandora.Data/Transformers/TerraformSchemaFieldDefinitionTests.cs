@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using NUnit.Framework;
 using Pandora.Data.Models;
 using Pandora.Definitions.Attributes;
@@ -169,12 +170,42 @@ public static class TerraformSchemaFieldDefinitionTests
         Assert.AreEqual("user_assigned_identity", userAssignedIdentityProp.HclName);
     }
 
+    [TestCase]
+    public static void MappingAListOfAModel()
+    {
+        var input = typeof(SomeModel).GetProperty("Nested");
+        Assert.NotNull(input);
+        var actual = TerraformSchemaFieldDefinition.Map(input!);
+        Assert.AreEqual(TerraformSchemaFieldType.List, actual.ObjectDefinition.Type);
+        Assert.Null(actual.ObjectDefinition.ReferenceName);
+        Assert.NotNull(actual.ObjectDefinition.NestedObject);
+        Assert.AreEqual(TerraformSchemaFieldType.Reference, actual.ObjectDefinition.NestedObject.Type);
+        Assert.NotNull(actual.ObjectDefinition.NestedObject.ReferenceName);
+        Assert.AreEqual("NestedModel", actual.ObjectDefinition.NestedObject.ReferenceName);
+        Assert.Null(actual.ObjectDefinition.NestedObject.NestedObject);
+    }
+
     private class ModelContainingAComputedAttribute
     {
         [Computed]
         [HclName("example")]
         public string Example { get; set; }
     }
+
+    private class SomeModel
+    {
+        [HclName("nested")]
+        [Optional]
+        public List<NestedModel> Nested { get; set; }
+    }
+
+    private class NestedModel
+    {
+        [HclName("foo")]
+        [Optional]
+        public string Foo { get; set; }
+    }
+    
     private class ModelContainingADocumentationAttribute
     {
         [Documentation("This property does something.")]
