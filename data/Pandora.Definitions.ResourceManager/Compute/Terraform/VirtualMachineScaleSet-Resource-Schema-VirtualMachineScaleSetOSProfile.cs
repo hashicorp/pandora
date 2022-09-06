@@ -34,16 +34,16 @@ public class VirtualMachineScaleSetResourceVirtualMachineScaleSetOSProfileSchema
 
     [HclName("linux_configuration")]
     [Optional]
-    public List<VirtualMachineScaleSetResourceLinuxConfigurationSchema> LinuxConfiguration { get; set; }
+    public VirtualMachineScaleSetResourceLinuxConfigurationSchema LinuxConfiguration { get; set; }
 
 
     [HclName("secret")]
     [Optional]
-    public List<List<VirtualMachineScaleSetResourceVaultSecretGroupSchema>> Secret { get; set; }
+    public List<VirtualMachineScaleSetResourceVaultSecretGroupSchema> Secret { get; set; }
 
 
     [HclName("windows_configuration")]
     [Optional]
-    public List<VirtualMachineScaleSetResourceWindowsConfigurationSchema> WindowsConfiguration { get; set; }
+    public VirtualMachineScaleSetResourceWindowsConfigurationSchema WindowsConfiguration { get; set; }
 
 }

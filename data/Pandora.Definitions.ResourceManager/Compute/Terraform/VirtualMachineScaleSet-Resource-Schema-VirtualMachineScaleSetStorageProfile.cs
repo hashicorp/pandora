@@ -9,16 +9,16 @@ public class VirtualMachineScaleSetResourceVirtualMachineScaleSetStorageProfileS
 
     [HclName("data_disk")]
     [Optional]
-    public List<List<VirtualMachineScaleSetResourceVirtualMachineScaleSetDataDiskSchema>> DataDisk { get; set; }
+    public List<VirtualMachineScaleSetResourceVirtualMachineScaleSetDataDiskSchema> DataDisk { get; set; }
 
 
     [HclName("image_reference")]
     [Optional]
-    public List<VirtualMachineScaleSetResourceImageReferenceSchema> ImageReference { get; set; }
+    public VirtualMachineScaleSetResourceImageReferenceSchema ImageReference { get; set; }
 
 
     [HclName("os_disk")]
     [Optional]
-    public List<VirtualMachineScaleSetResourceVirtualMachineScaleSetOSDiskSchema> OsDisk { get; set; }
+    public VirtualMachineScaleSetResourceVirtualMachineScaleSetOSDiskSchema OsDisk { get; set; }
 
 }

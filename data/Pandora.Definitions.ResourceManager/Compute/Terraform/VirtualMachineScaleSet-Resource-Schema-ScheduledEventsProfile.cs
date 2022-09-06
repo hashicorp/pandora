@@ -9,6 +9,6 @@ public class VirtualMachineScaleSetResourceScheduledEventsProfileSchema
 
     [HclName("terminate_notification_profile")]
     [Optional]
-    public List<VirtualMachineScaleSetResourceTerminateNotificationProfileSchema> TerminateNotificationProfile { get; set; }
+    public VirtualMachineScaleSetResourceTerminateNotificationProfileSchema TerminateNotificationProfile { get; set; }
 
 }

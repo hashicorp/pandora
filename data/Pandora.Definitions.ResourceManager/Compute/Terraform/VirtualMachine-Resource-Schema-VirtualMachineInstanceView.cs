@@ -14,7 +14,7 @@ public class VirtualMachineResourceVirtualMachineInstanceViewSchema
 
     [HclName("boot_diagnostics")]
     [Optional]
-    public List<VirtualMachineResourceBootDiagnosticsInstanceViewSchema> BootDiagnostics { get; set; }
+    public VirtualMachineResourceBootDiagnosticsInstanceViewSchema BootDiagnostics { get; set; }
 
 
     [HclName("computer_name")]
@@ -24,12 +24,12 @@ public class VirtualMachineResourceVirtualMachineInstanceViewSchema
 
     [HclName("disk")]
     [Optional]
-    public List<List<VirtualMachineResourceDiskInstanceViewSchema>> Disk { get; set; }
+    public List<VirtualMachineResourceDiskInstanceViewSchema> Disk { get; set; }
 
 
     [HclName("extension")]
     [Optional]
-    public List<List<VirtualMachineResourceVirtualMachineExtensionInstanceViewSchema>> Extension { get; set; }
+    public List<VirtualMachineResourceVirtualMachineExtensionInstanceViewSchema> Extension { get; set; }
 
 
     [HclName("hyper_v_generation")]
@@ -39,7 +39,7 @@ public class VirtualMachineResourceVirtualMachineInstanceViewSchema
 
     [HclName("maintenance_redeploy_status")]
     [Optional]
-    public List<VirtualMachineResourceMaintenanceRedeployStatusSchema> MaintenanceRedeployStatus { get; set; }
+    public VirtualMachineResourceMaintenanceRedeployStatusSchema MaintenanceRedeployStatus { get; set; }
 
 
     [HclName("os_name")]
@@ -54,7 +54,7 @@ public class VirtualMachineResourceVirtualMachineInstanceViewSchema
 
     [HclName("patch_status")]
     [Optional]
-    public List<VirtualMachineResourceVirtualMachinePatchStatusSchema> PatchStatus { get; set; }
+    public VirtualMachineResourceVirtualMachinePatchStatusSchema PatchStatus { get; set; }
 
 
     [HclName("platform_fault_domain")]
@@ -74,16 +74,16 @@ public class VirtualMachineResourceVirtualMachineInstanceViewSchema
 
     [HclName("statuse")]
     [Optional]
-    public List<List<VirtualMachineResourceInstanceViewStatusSchema>> Statuse { get; set; }
+    public List<VirtualMachineResourceInstanceViewStatusSchema> Statuse { get; set; }
 
 
     [HclName("vm_agent")]
     [Optional]
-    public List<VirtualMachineResourceVirtualMachineAgentInstanceViewSchema> VmAgent { get; set; }
+    public VirtualMachineResourceVirtualMachineAgentInstanceViewSchema VmAgent { get; set; }
 
 
     [HclName("vm_health")]
     [Optional]
-    public List<VirtualMachineResourceVirtualMachineHealthStatusSchema> VmHealth { get; set; }
+    public VirtualMachineResourceVirtualMachineHealthStatusSchema VmHealth { get; set; }
 
 }

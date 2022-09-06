@@ -9,7 +9,7 @@ public class VirtualMachineResourceVMDiskSecurityProfileSchema
 
     [HclName("disk_encryption_set_id")]
     [Optional]
-    public List<VirtualMachineResourceSubResourceSchema> DiskEncryptionSetId { get; set; }
+    public VirtualMachineResourceSubResourceSchema DiskEncryptionSetId { get; set; }
 
 
     [HclName("security_encryption_type")]

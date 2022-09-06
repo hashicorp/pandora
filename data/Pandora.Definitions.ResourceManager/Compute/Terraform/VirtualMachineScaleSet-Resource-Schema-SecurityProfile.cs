@@ -19,6 +19,6 @@ public class VirtualMachineScaleSetResourceSecurityProfileSchema
 
     [HclName("uefi_settings")]
     [Optional]
-    public List<VirtualMachineScaleSetResourceUefiSettingsSchema> UefiSettings { get; set; }
+    public VirtualMachineScaleSetResourceUefiSettingsSchema UefiSettings { get; set; }
 
 }

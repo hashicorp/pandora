@@ -44,7 +44,7 @@ public class VirtualMachineResourceDataDiskSchema
 
     [HclName("image")]
     [Optional]
-    public List<VirtualMachineResourceVirtualHardDiskSchema> Image { get; set; }
+    public VirtualMachineResourceVirtualHardDiskSchema Image { get; set; }
 
 
     [HclName("lun")]
@@ -54,7 +54,7 @@ public class VirtualMachineResourceDataDiskSchema
 
     [HclName("managed_disk")]
     [Optional]
-    public List<VirtualMachineResourceManagedDiskParametersSchema> ManagedDisk { get; set; }
+    public VirtualMachineResourceManagedDiskParametersSchema ManagedDisk { get; set; }
 
 
     [HclName("name")]
@@ -69,7 +69,7 @@ public class VirtualMachineResourceDataDiskSchema
 
     [HclName("vhd")]
     [Optional]
-    public List<VirtualMachineResourceVirtualHardDiskSchema> Vhd { get; set; }
+    public VirtualMachineResourceVirtualHardDiskSchema Vhd { get; set; }
 
 
     [HclName("write_accelerator_enabled")]

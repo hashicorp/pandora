@@ -9,6 +9,6 @@ public class VirtualMachineResourceSshConfigurationSchema
 
     [HclName("public_key")]
     [Optional]
-    public List<List<VirtualMachineResourceSshPublicKeySchema>> PublicKey { get; set; }
+    public List<VirtualMachineResourceSshPublicKeySchema> PublicKey { get; set; }
 
 }

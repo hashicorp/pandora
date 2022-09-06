@@ -14,12 +14,12 @@ public class VirtualMachineResourceVirtualMachineExtensionInstanceViewSchema
 
     [HclName("statuse")]
     [Optional]
-    public List<List<VirtualMachineResourceInstanceViewStatusSchema>> Statuse { get; set; }
+    public List<VirtualMachineResourceInstanceViewStatusSchema> Statuse { get; set; }
 
 
     [HclName("substatuse")]
     [Optional]
-    public List<List<VirtualMachineResourceInstanceViewStatusSchema>> Substatuse { get; set; }
+    public List<VirtualMachineResourceInstanceViewStatusSchema> Substatuse { get; set; }
 
 
     [HclName("type")]

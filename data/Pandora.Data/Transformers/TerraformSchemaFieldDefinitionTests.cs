@@ -205,7 +205,7 @@ public static class TerraformSchemaFieldDefinitionTests
         [Optional]
         public string Foo { get; set; }
     }
-    
+
     private class ModelContainingADocumentationAttribute
     {
         [Documentation("This property does something.")]

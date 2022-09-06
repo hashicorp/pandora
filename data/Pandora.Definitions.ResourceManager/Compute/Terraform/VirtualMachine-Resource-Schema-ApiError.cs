@@ -14,12 +14,12 @@ public class VirtualMachineResourceApiErrorSchema
 
     [HclName("detail")]
     [Optional]
-    public List<List<VirtualMachineResourceApiErrorBaseSchema>> Detail { get; set; }
+    public List<VirtualMachineResourceApiErrorBaseSchema> Detail { get; set; }
 
 
     [HclName("innererror")]
     [Optional]
-    public List<VirtualMachineResourceInnerErrorSchema> Innererror { get; set; }
+    public VirtualMachineResourceInnerErrorSchema Innererror { get; set; }
 
 
     [HclName("message")]

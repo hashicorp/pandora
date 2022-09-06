@@ -14,12 +14,12 @@ public class VirtualMachineScaleSetResourceVirtualMachineScaleSetPublicIPAddress
 
     [HclName("dns_settings")]
     [Optional]
-    public List<VirtualMachineScaleSetResourceVirtualMachineScaleSetPublicIPAddressConfigurationDnsSettingsSchema> DnsSettings { get; set; }
+    public VirtualMachineScaleSetResourceVirtualMachineScaleSetPublicIPAddressConfigurationDnsSettingsSchema DnsSettings { get; set; }
 
 
     [HclName("ip_tag")]
     [Optional]
-    public List<List<VirtualMachineScaleSetResourceVirtualMachineScaleSetIPTagSchema>> IPTag { get; set; }
+    public List<VirtualMachineScaleSetResourceVirtualMachineScaleSetIPTagSchema> IPTag { get; set; }
 
 
     [HclName("idle_timeout_in_minutes")]
@@ -34,6 +34,6 @@ public class VirtualMachineScaleSetResourceVirtualMachineScaleSetPublicIPAddress
 
     [HclName("public_ip_prefix_id")]
     [Optional]
-    public List<VirtualMachineScaleSetResourceSubResourceSchema> PublicIPPrefixId { get; set; }
+    public VirtualMachineScaleSetResourceSubResourceSchema PublicIPPrefixId { get; set; }
 
 }

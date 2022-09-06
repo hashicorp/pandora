@@ -24,7 +24,7 @@ public class VirtualMachineResourceOSDiskSchema
 
     [HclName("diff_disk_settings")]
     [Optional]
-    public List<VirtualMachineResourceDiffDiskSettingsSchema> DiffDiskSettings { get; set; }
+    public VirtualMachineResourceDiffDiskSettingsSchema DiffDiskSettings { get; set; }
 
 
     [HclName("disk_size_gb")]
@@ -34,17 +34,17 @@ public class VirtualMachineResourceOSDiskSchema
 
     [HclName("encryption_settings")]
     [Optional]
-    public List<VirtualMachineResourceDiskEncryptionSettingsSchema> EncryptionSettings { get; set; }
+    public VirtualMachineResourceDiskEncryptionSettingsSchema EncryptionSettings { get; set; }
 
 
     [HclName("image")]
     [Optional]
-    public List<VirtualMachineResourceVirtualHardDiskSchema> Image { get; set; }
+    public VirtualMachineResourceVirtualHardDiskSchema Image { get; set; }
 
 
     [HclName("managed_disk")]
     [Optional]
-    public List<VirtualMachineResourceManagedDiskParametersSchema> ManagedDisk { get; set; }
+    public VirtualMachineResourceManagedDiskParametersSchema ManagedDisk { get; set; }
 
 
     [HclName("name")]
@@ -59,7 +59,7 @@ public class VirtualMachineResourceOSDiskSchema
 
     [HclName("vhd")]
     [Optional]
-    public List<VirtualMachineResourceVirtualHardDiskSchema> Vhd { get; set; }
+    public VirtualMachineResourceVirtualHardDiskSchema Vhd { get; set; }
 
 
     [HclName("write_accelerator_enabled")]

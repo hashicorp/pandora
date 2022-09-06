@@ -9,6 +9,6 @@ public class VirtualMachineScaleSetResourceVirtualMachineScaleSetHardwareProfile
 
     [HclName("vm_size_properties")]
     [Optional]
-    public List<VirtualMachineScaleSetResourceVMSizePropertiesSchema> VmSizeProperties { get; set; }
+    public VirtualMachineScaleSetResourceVMSizePropertiesSchema VmSizeProperties { get; set; }
 
 }

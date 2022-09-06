@@ -19,6 +19,6 @@ public class VirtualMachineScaleSetResourceVirtualMachineScaleSetIPConfiguration
 
     [HclName("properties")]
     [Optional]
-    public List<VirtualMachineScaleSetResourceVirtualMachineScaleSetIPConfigurationPropertiesSchema> Properties { get; set; }
+    public VirtualMachineScaleSetResourceVirtualMachineScaleSetIPConfigurationPropertiesSchema Properties { get; set; }
 
 }

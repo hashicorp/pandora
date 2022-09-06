@@ -9,7 +9,7 @@ public class VirtualMachineResourceLastPatchInstallationSummarySchema
 
     [HclName("error")]
     [Optional]
-    public List<VirtualMachineResourceApiErrorSchema> Error { get; set; }
+    public VirtualMachineResourceApiErrorSchema Error { get; set; }
 
 
     [HclName("excluded_patch_count")]

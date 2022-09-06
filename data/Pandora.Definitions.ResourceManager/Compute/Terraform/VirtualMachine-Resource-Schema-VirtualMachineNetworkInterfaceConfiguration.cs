@@ -14,6 +14,6 @@ public class VirtualMachineResourceVirtualMachineNetworkInterfaceConfigurationSc
 
     [HclName("properties")]
     [Optional]
-    public List<VirtualMachineResourceVirtualMachineNetworkInterfaceConfigurationPropertiesSchema> Properties { get; set; }
+    public VirtualMachineResourceVirtualMachineNetworkInterfaceConfigurationPropertiesSchema Properties { get; set; }
 
 }

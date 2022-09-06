@@ -9,6 +9,6 @@ public class VirtualMachineScaleSetResourceApplicationProfileSchema
 
     [HclName("gallery_application")]
     [Optional]
-    public List<List<VirtualMachineScaleSetResourceVMGalleryApplicationSchema>> GalleryApplication { get; set; }
+    public List<VirtualMachineScaleSetResourceVMGalleryApplicationSchema> GalleryApplication { get; set; }
 
 }

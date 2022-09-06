@@ -19,6 +19,6 @@ public class VirtualMachineScaleSetResourceVirtualMachineScaleSetNetworkConfigur
 
     [HclName("properties")]
     [Optional]
-    public List<VirtualMachineScaleSetResourceVirtualMachineScaleSetNetworkConfigurationPropertiesSchema> Properties { get; set; }
+    public VirtualMachineScaleSetResourceVirtualMachineScaleSetNetworkConfigurationPropertiesSchema Properties { get; set; }
 
 }

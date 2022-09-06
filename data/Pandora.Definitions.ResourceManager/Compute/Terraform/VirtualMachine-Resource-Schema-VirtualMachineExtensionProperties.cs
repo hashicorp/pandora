@@ -24,7 +24,7 @@ public class VirtualMachineResourceVirtualMachineExtensionPropertiesSchema
 
     [HclName("instance_view")]
     [Optional]
-    public List<VirtualMachineResourceVirtualMachineExtensionInstanceViewSchema> InstanceView { get; set; }
+    public VirtualMachineResourceVirtualMachineExtensionInstanceViewSchema InstanceView { get; set; }
 
 
     [HclName("provisioning_state")]
