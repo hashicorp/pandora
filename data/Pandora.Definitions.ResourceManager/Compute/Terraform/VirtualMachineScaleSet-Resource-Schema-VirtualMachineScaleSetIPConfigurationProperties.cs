@@ -9,22 +9,22 @@ public class VirtualMachineScaleSetResourceVirtualMachineScaleSetIPConfiguration
 
     [HclName("application_gateway_backend_address_pool")]
     [Optional]
-    public List<List<VirtualMachineScaleSetResourceSubResourceSchema>> ApplicationGatewayBackendAddressPool { get; set; }
+    public List<VirtualMachineScaleSetResourceSubResourceSchema> ApplicationGatewayBackendAddressPool { get; set; }
 
 
     [HclName("application_security_group")]
     [Optional]
-    public List<List<VirtualMachineScaleSetResourceSubResourceSchema>> ApplicationSecurityGroup { get; set; }
+    public List<VirtualMachineScaleSetResourceSubResourceSchema> ApplicationSecurityGroup { get; set; }
 
 
     [HclName("load_balancer_backend_address_pool")]
     [Optional]
-    public List<List<VirtualMachineScaleSetResourceSubResourceSchema>> LoadBalancerBackendAddressPool { get; set; }
+    public List<VirtualMachineScaleSetResourceSubResourceSchema> LoadBalancerBackendAddressPool { get; set; }
 
 
     [HclName("load_balancer_inbound_nat_pool")]
     [Optional]
-    public List<List<VirtualMachineScaleSetResourceSubResourceSchema>> LoadBalancerInboundNatPool { get; set; }
+    public List<VirtualMachineScaleSetResourceSubResourceSchema> LoadBalancerInboundNatPool { get; set; }
 
 
     [HclName("primary")]
@@ -39,11 +39,11 @@ public class VirtualMachineScaleSetResourceVirtualMachineScaleSetIPConfiguration
 
     [HclName("public_ip_address_configuration")]
     [Optional]
-    public List<VirtualMachineScaleSetResourceVirtualMachineScaleSetPublicIPAddressConfigurationSchema> PublicIPAddressConfiguration { get; set; }
+    public VirtualMachineScaleSetResourceVirtualMachineScaleSetPublicIPAddressConfigurationSchema PublicIPAddressConfiguration { get; set; }
 
 
     [HclName("subnet_id")]
     [Optional]
-    public List<VirtualMachineScaleSetResourceApiEntityReferenceSchema> SubnetId { get; set; }
+    public VirtualMachineScaleSetResourceApiEntityReferenceSchema SubnetId { get; set; }
 
 }

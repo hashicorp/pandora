@@ -9,6 +9,6 @@ public class VirtualMachineResourceCapacityReservationProfileSchema
 
     [HclName("capacity_reservation_group_id")]
     [Optional]
-    public List<VirtualMachineResourceSubResourceSchema> CapacityReservationGroupId { get; set; }
+    public VirtualMachineResourceSubResourceSchema CapacityReservationGroupId { get; set; }
 
 }

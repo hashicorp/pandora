@@ -9,6 +9,6 @@ public class VirtualMachineResourceDiagnosticsProfileSchema
 
     [HclName("boot_diagnostics")]
     [Optional]
-    public List<VirtualMachineResourceBootDiagnosticsSchema> BootDiagnostics { get; set; }
+    public VirtualMachineResourceBootDiagnosticsSchema BootDiagnostics { get; set; }
 
 }

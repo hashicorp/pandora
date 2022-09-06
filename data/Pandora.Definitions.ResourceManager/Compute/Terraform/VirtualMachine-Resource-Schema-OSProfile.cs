@@ -34,7 +34,7 @@ public class VirtualMachineResourceOSProfileSchema
 
     [HclName("linux_configuration")]
     [Optional]
-    public List<VirtualMachineResourceLinuxConfigurationSchema> LinuxConfiguration { get; set; }
+    public VirtualMachineResourceLinuxConfigurationSchema LinuxConfiguration { get; set; }
 
 
     [HclName("require_guest_provision_signal")]
@@ -44,11 +44,11 @@ public class VirtualMachineResourceOSProfileSchema
 
     [HclName("secret")]
     [Optional]
-    public List<List<VirtualMachineResourceVaultSecretGroupSchema>> Secret { get; set; }
+    public List<VirtualMachineResourceVaultSecretGroupSchema> Secret { get; set; }
 
 
     [HclName("windows_configuration")]
     [Optional]
-    public List<VirtualMachineResourceWindowsConfigurationSchema> WindowsConfiguration { get; set; }
+    public VirtualMachineResourceWindowsConfigurationSchema WindowsConfiguration { get; set; }
 
 }

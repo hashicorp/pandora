@@ -9,22 +9,22 @@ public class VirtualMachineScaleSetResourceVirtualMachineScaleSetVMProfileSchema
 
     [HclName("application_profile")]
     [Optional]
-    public List<VirtualMachineScaleSetResourceApplicationProfileSchema> ApplicationProfile { get; set; }
+    public VirtualMachineScaleSetResourceApplicationProfileSchema ApplicationProfile { get; set; }
 
 
     [HclName("billing_profile")]
     [Optional]
-    public List<VirtualMachineScaleSetResourceBillingProfileSchema> BillingProfile { get; set; }
+    public VirtualMachineScaleSetResourceBillingProfileSchema BillingProfile { get; set; }
 
 
     [HclName("capacity_reservation")]
     [Optional]
-    public List<VirtualMachineScaleSetResourceCapacityReservationProfileSchema> CapacityReservation { get; set; }
+    public VirtualMachineScaleSetResourceCapacityReservationProfileSchema CapacityReservation { get; set; }
 
 
     [HclName("diagnostics_profile")]
     [Optional]
-    public List<VirtualMachineScaleSetResourceDiagnosticsProfileSchema> DiagnosticsProfile { get; set; }
+    public VirtualMachineScaleSetResourceDiagnosticsProfileSchema DiagnosticsProfile { get; set; }
 
 
     [HclName("eviction_policy")]
@@ -34,12 +34,12 @@ public class VirtualMachineScaleSetResourceVirtualMachineScaleSetVMProfileSchema
 
     [HclName("extension_profile")]
     [Optional]
-    public List<VirtualMachineScaleSetResourceVirtualMachineScaleSetExtensionProfileSchema> ExtensionProfile { get; set; }
+    public VirtualMachineScaleSetResourceVirtualMachineScaleSetExtensionProfileSchema ExtensionProfile { get; set; }
 
 
     [HclName("hardware_profile")]
     [Optional]
-    public List<VirtualMachineScaleSetResourceVirtualMachineScaleSetHardwareProfileSchema> HardwareProfile { get; set; }
+    public VirtualMachineScaleSetResourceVirtualMachineScaleSetHardwareProfileSchema HardwareProfile { get; set; }
 
 
     [HclName("license_type")]
@@ -49,12 +49,12 @@ public class VirtualMachineScaleSetResourceVirtualMachineScaleSetVMProfileSchema
 
     [HclName("network_profile")]
     [Optional]
-    public List<VirtualMachineScaleSetResourceVirtualMachineScaleSetNetworkProfileSchema> NetworkProfile { get; set; }
+    public VirtualMachineScaleSetResourceVirtualMachineScaleSetNetworkProfileSchema NetworkProfile { get; set; }
 
 
     [HclName("os_profile")]
     [Optional]
-    public List<VirtualMachineScaleSetResourceVirtualMachineScaleSetOSProfileSchema> OsProfile { get; set; }
+    public VirtualMachineScaleSetResourceVirtualMachineScaleSetOSProfileSchema OsProfile { get; set; }
 
 
     [HclName("priority")]
@@ -64,17 +64,17 @@ public class VirtualMachineScaleSetResourceVirtualMachineScaleSetVMProfileSchema
 
     [HclName("scheduled_events_profile")]
     [Optional]
-    public List<VirtualMachineScaleSetResourceScheduledEventsProfileSchema> ScheduledEventsProfile { get; set; }
+    public VirtualMachineScaleSetResourceScheduledEventsProfileSchema ScheduledEventsProfile { get; set; }
 
 
     [HclName("security_profile")]
     [Optional]
-    public List<VirtualMachineScaleSetResourceSecurityProfileSchema> SecurityProfile { get; set; }
+    public VirtualMachineScaleSetResourceSecurityProfileSchema SecurityProfile { get; set; }
 
 
     [HclName("storage_profile")]
     [Optional]
-    public List<VirtualMachineScaleSetResourceVirtualMachineScaleSetStorageProfileSchema> StorageProfile { get; set; }
+    public VirtualMachineScaleSetResourceVirtualMachineScaleSetStorageProfileSchema StorageProfile { get; set; }
 
 
     [HclName("user_data")]

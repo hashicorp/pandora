@@ -9,7 +9,7 @@ public class VirtualMachineScaleSetResourceVirtualMachineScaleSetNetworkProfileS
 
     [HclName("health_probe_id")]
     [Optional]
-    public List<VirtualMachineScaleSetResourceApiEntityReferenceSchema> HealthProbeId { get; set; }
+    public VirtualMachineScaleSetResourceApiEntityReferenceSchema HealthProbeId { get; set; }
 
 
     [HclName("network_api_version")]
@@ -19,6 +19,6 @@ public class VirtualMachineScaleSetResourceVirtualMachineScaleSetNetworkProfileS
 
     [HclName("network_interface_configuration")]
     [Optional]
-    public List<List<VirtualMachineScaleSetResourceVirtualMachineScaleSetNetworkConfigurationSchema>> NetworkInterfaceConfiguration { get; set; }
+    public List<VirtualMachineScaleSetResourceVirtualMachineScaleSetNetworkConfigurationSchema> NetworkInterfaceConfiguration { get; set; }
 
 }

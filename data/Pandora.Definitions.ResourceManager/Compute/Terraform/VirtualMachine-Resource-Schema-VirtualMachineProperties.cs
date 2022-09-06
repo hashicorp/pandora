@@ -9,32 +9,32 @@ public class VirtualMachineResourceVirtualMachinePropertiesSchema
 
     [HclName("additional_capabilities")]
     [Optional]
-    public List<VirtualMachineResourceAdditionalCapabilitiesSchema> AdditionalCapabilities { get; set; }
+    public VirtualMachineResourceAdditionalCapabilitiesSchema AdditionalCapabilities { get; set; }
 
 
     [HclName("application_profile")]
     [Optional]
-    public List<VirtualMachineResourceApplicationProfileSchema> ApplicationProfile { get; set; }
+    public VirtualMachineResourceApplicationProfileSchema ApplicationProfile { get; set; }
 
 
     [HclName("availability_set_id")]
     [Optional]
-    public List<VirtualMachineResourceSubResourceSchema> AvailabilitySetId { get; set; }
+    public VirtualMachineResourceSubResourceSchema AvailabilitySetId { get; set; }
 
 
     [HclName("billing_profile")]
     [Optional]
-    public List<VirtualMachineResourceBillingProfileSchema> BillingProfile { get; set; }
+    public VirtualMachineResourceBillingProfileSchema BillingProfile { get; set; }
 
 
     [HclName("capacity_reservation")]
     [Optional]
-    public List<VirtualMachineResourceCapacityReservationProfileSchema> CapacityReservation { get; set; }
+    public VirtualMachineResourceCapacityReservationProfileSchema CapacityReservation { get; set; }
 
 
     [HclName("diagnostics_profile")]
     [Optional]
-    public List<VirtualMachineResourceDiagnosticsProfileSchema> DiagnosticsProfile { get; set; }
+    public VirtualMachineResourceDiagnosticsProfileSchema DiagnosticsProfile { get; set; }
 
 
     [HclName("eviction_policy")]
@@ -49,22 +49,22 @@ public class VirtualMachineResourceVirtualMachinePropertiesSchema
 
     [HclName("hardware_profile")]
     [Optional]
-    public List<VirtualMachineResourceHardwareProfileSchema> HardwareProfile { get; set; }
+    public VirtualMachineResourceHardwareProfileSchema HardwareProfile { get; set; }
 
 
     [HclName("host_group_id")]
     [Optional]
-    public List<VirtualMachineResourceSubResourceSchema> HostGroupId { get; set; }
+    public VirtualMachineResourceSubResourceSchema HostGroupId { get; set; }
 
 
     [HclName("host_id")]
     [Optional]
-    public List<VirtualMachineResourceSubResourceSchema> HostId { get; set; }
+    public VirtualMachineResourceSubResourceSchema HostId { get; set; }
 
 
     [HclName("instance_view")]
     [Optional]
-    public List<VirtualMachineResourceVirtualMachineInstanceViewSchema> InstanceView { get; set; }
+    public VirtualMachineResourceVirtualMachineInstanceViewSchema InstanceView { get; set; }
 
 
     [HclName("license_type")]
@@ -74,12 +74,12 @@ public class VirtualMachineResourceVirtualMachinePropertiesSchema
 
     [HclName("network_profile")]
     [Optional]
-    public List<VirtualMachineResourceNetworkProfileSchema> NetworkProfile { get; set; }
+    public VirtualMachineResourceNetworkProfileSchema NetworkProfile { get; set; }
 
 
     [HclName("os_profile")]
     [Optional]
-    public List<VirtualMachineResourceOSProfileSchema> OsProfile { get; set; }
+    public VirtualMachineResourceOSProfileSchema OsProfile { get; set; }
 
 
     [HclName("platform_fault_domain")]
@@ -99,22 +99,22 @@ public class VirtualMachineResourceVirtualMachinePropertiesSchema
 
     [HclName("proximity_placement_group_id")]
     [Optional]
-    public List<VirtualMachineResourceSubResourceSchema> ProximityPlacementGroupId { get; set; }
+    public VirtualMachineResourceSubResourceSchema ProximityPlacementGroupId { get; set; }
 
 
     [HclName("scheduled_events_profile")]
     [Optional]
-    public List<VirtualMachineResourceScheduledEventsProfileSchema> ScheduledEventsProfile { get; set; }
+    public VirtualMachineResourceScheduledEventsProfileSchema ScheduledEventsProfile { get; set; }
 
 
     [HclName("security_profile")]
     [Optional]
-    public List<VirtualMachineResourceSecurityProfileSchema> SecurityProfile { get; set; }
+    public VirtualMachineResourceSecurityProfileSchema SecurityProfile { get; set; }
 
 
     [HclName("storage_profile")]
     [Optional]
-    public List<VirtualMachineResourceStorageProfileSchema> StorageProfile { get; set; }
+    public VirtualMachineResourceStorageProfileSchema StorageProfile { get; set; }
 
 
     [HclName("time_created")]
@@ -129,7 +129,7 @@ public class VirtualMachineResourceVirtualMachinePropertiesSchema
 
     [HclName("virtual_machine_scale_set_id")]
     [Optional]
-    public List<VirtualMachineResourceSubResourceSchema> VirtualMachineScaleSetId { get; set; }
+    public VirtualMachineResourceSubResourceSchema VirtualMachineScaleSetId { get; set; }
 
 
     [HclName("vm_id")]

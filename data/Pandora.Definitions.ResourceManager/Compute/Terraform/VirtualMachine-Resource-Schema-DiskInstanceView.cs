@@ -9,7 +9,7 @@ public class VirtualMachineResourceDiskInstanceViewSchema
 
     [HclName("encryption_setting")]
     [Optional]
-    public List<List<VirtualMachineResourceDiskEncryptionSettingsSchema>> EncryptionSetting { get; set; }
+    public List<VirtualMachineResourceDiskEncryptionSettingsSchema> EncryptionSetting { get; set; }
 
 
     [HclName("name")]
@@ -19,6 +19,6 @@ public class VirtualMachineResourceDiskInstanceViewSchema
 
     [HclName("statuse")]
     [Optional]
-    public List<List<VirtualMachineResourceInstanceViewStatusSchema>> Statuse { get; set; }
+    public List<VirtualMachineResourceInstanceViewStatusSchema> Statuse { get; set; }
 
 }

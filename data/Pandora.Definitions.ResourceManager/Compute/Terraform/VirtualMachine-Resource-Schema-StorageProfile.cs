@@ -9,16 +9,16 @@ public class VirtualMachineResourceStorageProfileSchema
 
     [HclName("data_disk")]
     [Optional]
-    public List<List<VirtualMachineResourceDataDiskSchema>> DataDisk { get; set; }
+    public List<VirtualMachineResourceDataDiskSchema> DataDisk { get; set; }
 
 
     [HclName("image_reference")]
     [Optional]
-    public List<VirtualMachineResourceImageReferenceSchema> ImageReference { get; set; }
+    public VirtualMachineResourceImageReferenceSchema ImageReference { get; set; }
 
 
     [HclName("os_disk")]
     [Optional]
-    public List<VirtualMachineResourceOSDiskSchema> OsDisk { get; set; }
+    public VirtualMachineResourceOSDiskSchema OsDisk { get; set; }
 
 }

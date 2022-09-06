@@ -10,13 +10,13 @@ public class VirtualMachineScaleSetResourceSchema
     [HclName("additional_capabilities")]
     [ForceNew]
     [Optional]
-    public List<VirtualMachineScaleSetResourceAdditionalCapabilitiesSchema> AdditionalCapabilities { get; set; }
+    public VirtualMachineScaleSetResourceAdditionalCapabilitiesSchema AdditionalCapabilities { get; set; }
 
 
     [HclName("automatic_repairs_policy")]
     [ForceNew]
     [Optional]
-    public List<VirtualMachineScaleSetResourceAutomaticRepairsPolicySchema> AutomaticRepairsPolicy { get; set; }
+    public VirtualMachineScaleSetResourceAutomaticRepairsPolicySchema AutomaticRepairsPolicy { get; set; }
 
 
     [HclName("do_not_run_extensions_on_overprovisioned_v_ms")]
@@ -27,7 +27,7 @@ public class VirtualMachineScaleSetResourceSchema
 
     [HclName("host_group_id")]
     [Optional]
-    public List<VirtualMachineScaleSetResourceSubResourceSchema> HostGroupId { get; set; }
+    public VirtualMachineScaleSetResourceSubResourceSchema HostGroupId { get; set; }
 
 
     [HclName("identity")]
@@ -66,13 +66,13 @@ public class VirtualMachineScaleSetResourceSchema
     [HclName("proximity_placement_group_id")]
     [ForceNew]
     [Optional]
-    public List<VirtualMachineScaleSetResourceSubResourceSchema> ProximityPlacementGroupId { get; set; }
+    public VirtualMachineScaleSetResourceSubResourceSchema ProximityPlacementGroupId { get; set; }
 
 
     [HclName("scale_in_policy")]
     [ForceNew]
     [Optional]
-    public List<VirtualMachineScaleSetResourceScaleInPolicySchema> ScaleInPolicy { get; set; }
+    public VirtualMachineScaleSetResourceScaleInPolicySchema ScaleInPolicy { get; set; }
 
 
     [HclName("single_placement_group")]
@@ -83,7 +83,7 @@ public class VirtualMachineScaleSetResourceSchema
 
     [HclName("spot_restore_policy")]
     [Optional]
-    public List<VirtualMachineScaleSetResourceSpotRestorePolicySchema> SpotRestorePolicy { get; set; }
+    public VirtualMachineScaleSetResourceSpotRestorePolicySchema SpotRestorePolicy { get; set; }
 
 
     [HclName("tags")]
@@ -104,13 +104,13 @@ public class VirtualMachineScaleSetResourceSchema
     [HclName("upgrade_policy")]
     [ForceNew]
     [Optional]
-    public List<VirtualMachineScaleSetResourceUpgradePolicySchema> UpgradePolicy { get; set; }
+    public VirtualMachineScaleSetResourceUpgradePolicySchema UpgradePolicy { get; set; }
 
 
     [HclName("virtual_machine_profile")]
     [ForceNew]
     [Optional]
-    public List<VirtualMachineScaleSetResourceVirtualMachineScaleSetVMProfileSchema> VirtualMachineProfile { get; set; }
+    public VirtualMachineScaleSetResourceVirtualMachineScaleSetVMProfileSchema VirtualMachineProfile { get; set; }
 
 
     [HclName("zone_balance")]

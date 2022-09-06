@@ -19,7 +19,7 @@ public class VirtualMachineScaleSetResourceVirtualMachineScaleSetOSDiskSchema
 
     [HclName("diff_disk_settings")]
     [Optional]
-    public List<VirtualMachineScaleSetResourceDiffDiskSettingsSchema> DiffDiskSettings { get; set; }
+    public VirtualMachineScaleSetResourceDiffDiskSettingsSchema DiffDiskSettings { get; set; }
 
 
     [HclName("disk_size_gb")]
@@ -29,12 +29,12 @@ public class VirtualMachineScaleSetResourceVirtualMachineScaleSetOSDiskSchema
 
     [HclName("image")]
     [Optional]
-    public List<VirtualMachineScaleSetResourceVirtualHardDiskSchema> Image { get; set; }
+    public VirtualMachineScaleSetResourceVirtualHardDiskSchema Image { get; set; }
 
 
     [HclName("managed_disk")]
     [Optional]
-    public List<VirtualMachineScaleSetResourceVirtualMachineScaleSetManagedDiskParametersSchema> ManagedDisk { get; set; }
+    public VirtualMachineScaleSetResourceVirtualMachineScaleSetManagedDiskParametersSchema ManagedDisk { get; set; }
 
 
     [HclName("name")]

@@ -19,7 +19,7 @@ public class VirtualMachineScaleSetResourceVirtualMachineScaleSetExtensionSchema
 
     [HclName("properties")]
     [Optional]
-    public List<VirtualMachineScaleSetResourceVirtualMachineScaleSetExtensionPropertiesSchema> Properties { get; set; }
+    public VirtualMachineScaleSetResourceVirtualMachineScaleSetExtensionPropertiesSchema Properties { get; set; }
 
 
     [HclName("type")]
