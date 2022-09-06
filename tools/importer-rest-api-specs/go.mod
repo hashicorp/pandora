@@ -73,5 +73,3 @@ require (
 replace github.com/go-openapi/analysis v0.20.1 => github.com/jackofallops/analysis v0.20.2-0.20210705135157-888aa8dbc8e5
 
 replace github.com/hashicorp/pandora/tools/sdk => ../sdk
-
-replace github.com/gertd/go-pluralize => github.com/catriona-m/go-pluralize v0.0.0-20220825144838-e11a195dcd8a

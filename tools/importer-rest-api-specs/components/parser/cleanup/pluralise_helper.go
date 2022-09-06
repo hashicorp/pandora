@@ -16,7 +16,7 @@ const (
 	LOWER caseType = iota
 	UPPER
 	TITLE
-	CAMEL // This is likely the default in the context of TF and Azure? 
+	CAMEL // This is likely the default in the context of TF and Azure?
 )
 
 // GetSingular return the singular version of a given plural
