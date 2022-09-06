@@ -94,10 +94,9 @@ func invariablePlurals() []string {
 func detectCasing(input string) caseType {
 	specialCases := []string{
 		"API",
-		"APIs",
 	}
 	for _, v := range specialCases {
-		if input == v {
+		if strings.HasSuffix(input, v) {
 			return CAMEL
 		}
 	}
