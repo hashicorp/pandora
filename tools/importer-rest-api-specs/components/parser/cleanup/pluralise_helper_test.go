@@ -36,6 +36,10 @@ func TestPluralisingWords(t *testing.T) {
 			expected: "Caches",
 		},
 		{
+			input:    "cache",
+			expected: "caches",
+		},
+		{
 			input:    "ServiceLinker",
 			expected: "ServiceLinker",
 		},

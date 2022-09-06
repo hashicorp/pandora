@@ -71,6 +71,7 @@ func irregularPlurals() []irregularPlural {
 
 	pluralisationExceptions := []irregularPlural{
 		{"Cache", "Caches"},
+		{"staticCache", "staticCaches"},
 	}
 	return pluralisationExceptions
 }
