@@ -80,10 +80,11 @@ func irregularPlurals() []irregularPlural {
 // invariablePlurals is a list of words and names that should never be pluralised
 func invariablePlurals() []string {
 	return []string{
-		"Redis",
 		"Compute",
 		"ContainerInstance",
 		"Cosmos-Db",
+		"Data",
+		"Redis",
 		"Kusto",
 		"PowerBIDedicated",
 		"ServiceLinker",
@@ -91,6 +92,15 @@ func invariablePlurals() []string {
 }
 
 func detectCasing(input string) caseType {
+	specialCases := []string{
+		"API",
+		"APIs",
+	}
+	for _, v := range specialCases {
+		if input == v {
+			return CAMEL
+		}
+	}
 	switch {
 	case input == strings.ToUpper(input):
 		return UPPER
