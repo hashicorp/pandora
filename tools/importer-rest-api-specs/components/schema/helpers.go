@@ -101,6 +101,6 @@ func updateFieldName(fieldName string, model *resourcemanager.ModelDetails, reso
 	return fieldName
 }
 
-func StringPointer(input string) *string {
+func stringPointer(input string) *string {
 	return &input
 }

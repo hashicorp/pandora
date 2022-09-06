@@ -42,43 +42,43 @@ func TestBuildForResourceGroupHappyPathAllModelsTheSame(t *testing.T) {
 				LongRunning: false,
 				Method:      "PUT",
 				RequestObject: &resourcemanager.ApiObjectDefinition{
-					ReferenceName: StringPointer("ResourceGroup"),
+					ReferenceName: stringPointer("ResourceGroup"),
 					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
 				},
-				ResourceIdName: StringPointer("ResourceGroupId"),
+				ResourceIdName: stringPointer("ResourceGroupId"),
 			},
 			"Delete": {
 				LongRunning:    true,
 				Method:         "DELETE",
-				ResourceIdName: StringPointer("ResourceGroupId"),
+				ResourceIdName: stringPointer("ResourceGroupId"),
 			},
 			"Get": {
 				LongRunning: false,
 				Method:      "GET",
 				ResponseObject: &resourcemanager.ApiObjectDefinition{
-					ReferenceName: StringPointer("ResourceGroup"),
+					ReferenceName: stringPointer("ResourceGroup"),
 					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
 				},
-				ResourceIdName: StringPointer("ResourceGroupId"),
+				ResourceIdName: stringPointer("ResourceGroupId"),
 			},
 			"Update": {
 				LongRunning: false,
 				Method:      "PUT",
 				RequestObject: &resourcemanager.ApiObjectDefinition{
-					ReferenceName: StringPointer("ResourceGroup"),
+					ReferenceName: stringPointer("ResourceGroup"),
 					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
 				},
-				ResourceIdName: StringPointer("ResourceGroupId"),
+				ResourceIdName: stringPointer("ResourceGroupId"),
 			},
 		},
 		resourceIds: map[string]resourcemanager.ResourceIdDefinition{
 			"ResourceGroupId": {
-				CommonAlias:   StringPointer("ResourceGroup"),
+				CommonAlias:   stringPointer("ResourceGroup"),
 				ConstantNames: nil,
 				Id:            "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}",
 				Segments: []resourcemanager.ResourceIdSegment{
 					{
-						FixedValue: StringPointer("subscriptions"),
+						FixedValue: stringPointer("subscriptions"),
 						Name:       "subscriptions",
 						Type:       resourcemanager.StaticSegment,
 					},
@@ -87,7 +87,7 @@ func TestBuildForResourceGroupHappyPathAllModelsTheSame(t *testing.T) {
 						Type: resourcemanager.SubscriptionIdSegment,
 					},
 					{
-						FixedValue: StringPointer("providers"),
+						FixedValue: stringPointer("providers"),
 						Name:       "providers",
 						Type:       resourcemanager.StaticSegment,
 					},
@@ -172,7 +172,7 @@ func TestBuildForResourceGroupUsingRealData(t *testing.T) {
 						JsonName: "properties",
 						ObjectDefinition: resourcemanager.ApiObjectDefinition{
 							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-							ReferenceName: StringPointer("ResourceGroupProperties"),
+							ReferenceName: stringPointer("ResourceGroupProperties"),
 						},
 						Optional: true,
 					},
@@ -212,7 +212,7 @@ func TestBuildForResourceGroupUsingRealData(t *testing.T) {
 						JsonName: "properties",
 						ObjectDefinition: resourcemanager.ApiObjectDefinition{
 							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-							ReferenceName: StringPointer("ResourceGroupProperties"),
+							ReferenceName: stringPointer("ResourceGroupProperties"),
 						},
 						Optional: true,
 					},
@@ -242,43 +242,43 @@ func TestBuildForResourceGroupUsingRealData(t *testing.T) {
 				LongRunning: false,
 				Method:      "PUT",
 				RequestObject: &resourcemanager.ApiObjectDefinition{
-					ReferenceName: StringPointer("ResourceGroup"),
+					ReferenceName: stringPointer("ResourceGroup"),
 					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
 				},
-				ResourceIdName: StringPointer("ResourceGroupId"),
+				ResourceIdName: stringPointer("ResourceGroupId"),
 			},
 			"Delete": {
 				LongRunning:    true,
 				Method:         "DELETE",
-				ResourceIdName: StringPointer("ResourceGroupId"),
+				ResourceIdName: stringPointer("ResourceGroupId"),
 			},
 			"Get": {
 				LongRunning: false,
 				Method:      "GET",
 				ResponseObject: &resourcemanager.ApiObjectDefinition{
-					ReferenceName: StringPointer("ResourceGroup"),
+					ReferenceName: stringPointer("ResourceGroup"),
 					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
 				},
-				ResourceIdName: StringPointer("ResourceGroupId"),
+				ResourceIdName: stringPointer("ResourceGroupId"),
 			},
 			"Update": {
 				LongRunning: false,
 				Method:      "PUT",
 				RequestObject: &resourcemanager.ApiObjectDefinition{
-					ReferenceName: StringPointer("ResourceGroupPatchable"),
+					ReferenceName: stringPointer("ResourceGroupPatchable"),
 					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
 				},
-				ResourceIdName: StringPointer("ResourceGroupId"),
+				ResourceIdName: stringPointer("ResourceGroupId"),
 			},
 		},
 		resourceIds: map[string]resourcemanager.ResourceIdDefinition{
 			"ResourceGroupId": {
-				CommonAlias:   StringPointer("ResourceGroup"),
+				CommonAlias:   stringPointer("ResourceGroup"),
 				ConstantNames: nil,
 				Id:            "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}",
 				Segments: []resourcemanager.ResourceIdSegment{
 					{
-						FixedValue: StringPointer("subscriptions"),
+						FixedValue: stringPointer("subscriptions"),
 						Name:       "subscriptions",
 						Type:       resourcemanager.StaticSegment,
 					},
@@ -287,7 +287,7 @@ func TestBuildForResourceGroupUsingRealData(t *testing.T) {
 						Type: resourcemanager.SubscriptionIdSegment,
 					},
 					{
-						FixedValue: StringPointer("providers"),
+						FixedValue: stringPointer("providers"),
 						Name:       "providers",
 						Type:       resourcemanager.StaticSegment,
 					},
