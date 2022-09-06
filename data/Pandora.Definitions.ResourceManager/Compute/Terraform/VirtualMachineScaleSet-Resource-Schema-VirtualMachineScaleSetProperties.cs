@@ -9,12 +9,12 @@ public class VirtualMachineScaleSetResourceVirtualMachineScaleSetPropertiesSchem
 
     [HclName("additional_capabilities")]
     [Optional]
-    public List<VirtualMachineScaleSetResourceAdditionalCapabilitiesSchema> AdditionalCapabilities { get; set; }
+    public VirtualMachineScaleSetResourceAdditionalCapabilitiesSchema AdditionalCapabilities { get; set; }
 
 
     [HclName("automatic_repairs_policy")]
     [Optional]
-    public List<VirtualMachineScaleSetResourceAutomaticRepairsPolicySchema> AutomaticRepairsPolicy { get; set; }
+    public VirtualMachineScaleSetResourceAutomaticRepairsPolicySchema AutomaticRepairsPolicy { get; set; }
 
 
     [HclName("do_not_run_extensions_on_overprovisioned_v_ms")]
@@ -24,7 +24,7 @@ public class VirtualMachineScaleSetResourceVirtualMachineScaleSetPropertiesSchem
 
     [HclName("host_group_id")]
     [Optional]
-    public List<VirtualMachineScaleSetResourceSubResourceSchema> HostGroupId { get; set; }
+    public VirtualMachineScaleSetResourceSubResourceSchema HostGroupId { get; set; }
 
 
     [HclName("orchestration_mode")]
@@ -49,12 +49,12 @@ public class VirtualMachineScaleSetResourceVirtualMachineScaleSetPropertiesSchem
 
     [HclName("proximity_placement_group_id")]
     [Optional]
-    public List<VirtualMachineScaleSetResourceSubResourceSchema> ProximityPlacementGroupId { get; set; }
+    public VirtualMachineScaleSetResourceSubResourceSchema ProximityPlacementGroupId { get; set; }
 
 
     [HclName("scale_in_policy")]
     [Optional]
-    public List<VirtualMachineScaleSetResourceScaleInPolicySchema> ScaleInPolicy { get; set; }
+    public VirtualMachineScaleSetResourceScaleInPolicySchema ScaleInPolicy { get; set; }
 
 
     [HclName("single_placement_group")]
@@ -64,7 +64,7 @@ public class VirtualMachineScaleSetResourceVirtualMachineScaleSetPropertiesSchem
 
     [HclName("spot_restore_policy")]
     [Optional]
-    public List<VirtualMachineScaleSetResourceSpotRestorePolicySchema> SpotRestorePolicy { get; set; }
+    public VirtualMachineScaleSetResourceSpotRestorePolicySchema SpotRestorePolicy { get; set; }
 
 
     [HclName("time_created")]
@@ -79,12 +79,12 @@ public class VirtualMachineScaleSetResourceVirtualMachineScaleSetPropertiesSchem
 
     [HclName("upgrade_policy")]
     [Optional]
-    public List<VirtualMachineScaleSetResourceUpgradePolicySchema> UpgradePolicy { get; set; }
+    public VirtualMachineScaleSetResourceUpgradePolicySchema UpgradePolicy { get; set; }
 
 
     [HclName("virtual_machine_profile")]
     [Optional]
-    public List<VirtualMachineScaleSetResourceVirtualMachineScaleSetVMProfileSchema> VirtualMachineProfile { get; set; }
+    public VirtualMachineScaleSetResourceVirtualMachineScaleSetVMProfileSchema VirtualMachineProfile { get; set; }
 
 
     [HclName("zone_balance")]

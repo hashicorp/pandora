@@ -19,7 +19,7 @@ public class VirtualMachineResourceAvailablePatchSummarySchema
 
     [HclName("error")]
     [Optional]
-    public List<VirtualMachineResourceApiErrorSchema> Error { get; set; }
+    public VirtualMachineResourceApiErrorSchema Error { get; set; }
 
 
     [HclName("last_modified_time")]

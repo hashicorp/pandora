@@ -9,16 +9,16 @@ public class VirtualMachineResourceVirtualMachinePatchStatusSchema
 
     [HclName("available_patch_summary")]
     [Optional]
-    public List<VirtualMachineResourceAvailablePatchSummarySchema> AvailablePatchSummary { get; set; }
+    public VirtualMachineResourceAvailablePatchSummarySchema AvailablePatchSummary { get; set; }
 
 
     [HclName("configuration_statuse")]
     [Optional]
-    public List<List<VirtualMachineResourceInstanceViewStatusSchema>> ConfigurationStatuse { get; set; }
+    public List<VirtualMachineResourceInstanceViewStatusSchema> ConfigurationStatuse { get; set; }
 
 
     [HclName("last_patch_installation_summary")]
     [Optional]
-    public List<VirtualMachineResourceLastPatchInstallationSummarySchema> LastPatchInstallationSummary { get; set; }
+    public VirtualMachineResourceLastPatchInstallationSummarySchema LastPatchInstallationSummary { get; set; }
 
 }

@@ -39,7 +39,7 @@ public class VirtualMachineScaleSetResourceVirtualMachineScaleSetDataDiskSchema
 
     [HclName("managed_disk")]
     [Optional]
-    public List<VirtualMachineScaleSetResourceVirtualMachineScaleSetManagedDiskParametersSchema> ManagedDisk { get; set; }
+    public VirtualMachineScaleSetResourceVirtualMachineScaleSetManagedDiskParametersSchema ManagedDisk { get; set; }
 
 
     [HclName("name")]

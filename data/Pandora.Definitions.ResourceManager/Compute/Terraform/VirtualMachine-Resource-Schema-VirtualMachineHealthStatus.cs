@@ -9,6 +9,6 @@ public class VirtualMachineResourceVirtualMachineHealthStatusSchema
 
     [HclName("status")]
     [Optional]
-    public List<VirtualMachineResourceInstanceViewStatusSchema> Status { get; set; }
+    public VirtualMachineResourceInstanceViewStatusSchema Status { get; set; }
 
 }

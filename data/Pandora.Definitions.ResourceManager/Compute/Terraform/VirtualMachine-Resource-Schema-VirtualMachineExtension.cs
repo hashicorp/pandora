@@ -24,7 +24,7 @@ public class VirtualMachineResourceVirtualMachineExtensionSchema
 
     [HclName("properties")]
     [Optional]
-    public List<VirtualMachineResourceVirtualMachineExtensionPropertiesSchema> Properties { get; set; }
+    public VirtualMachineResourceVirtualMachineExtensionPropertiesSchema Properties { get; set; }
 
 
     [HclName("tags")]

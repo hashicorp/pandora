@@ -14,11 +14,11 @@ public class VirtualMachineResourceNetworkProfileSchema
 
     [HclName("network_interface")]
     [Optional]
-    public List<List<VirtualMachineResourceNetworkInterfaceReferenceSchema>> NetworkInterface { get; set; }
+    public List<VirtualMachineResourceNetworkInterfaceReferenceSchema> NetworkInterface { get; set; }
 
 
     [HclName("network_interface_configuration")]
     [Optional]
-    public List<List<VirtualMachineResourceVirtualMachineNetworkInterfaceConfigurationSchema>> NetworkInterfaceConfiguration { get; set; }
+    public List<VirtualMachineResourceVirtualMachineNetworkInterfaceConfigurationSchema> NetworkInterfaceConfiguration { get; set; }
 
 }

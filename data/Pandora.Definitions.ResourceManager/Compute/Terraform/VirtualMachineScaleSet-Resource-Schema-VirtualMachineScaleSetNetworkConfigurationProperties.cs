@@ -19,7 +19,7 @@ public class VirtualMachineScaleSetResourceVirtualMachineScaleSetNetworkConfigur
 
     [HclName("dns_settings")]
     [Optional]
-    public List<VirtualMachineScaleSetResourceVirtualMachineScaleSetNetworkConfigurationDnsSettingsSchema> DnsSettings { get; set; }
+    public VirtualMachineScaleSetResourceVirtualMachineScaleSetNetworkConfigurationDnsSettingsSchema DnsSettings { get; set; }
 
 
     [HclName("fpga_enabled")]
@@ -29,7 +29,7 @@ public class VirtualMachineScaleSetResourceVirtualMachineScaleSetNetworkConfigur
 
     [HclName("ip_configuration")]
     [Required]
-    public List<List<VirtualMachineScaleSetResourceVirtualMachineScaleSetIPConfigurationSchema>> IPConfiguration { get; set; }
+    public List<VirtualMachineScaleSetResourceVirtualMachineScaleSetIPConfigurationSchema> IPConfiguration { get; set; }
 
 
     [HclName("ip_forwarding_enabled")]
@@ -39,7 +39,7 @@ public class VirtualMachineScaleSetResourceVirtualMachineScaleSetNetworkConfigur
 
     [HclName("network_security_group_id")]
     [Optional]
-    public List<VirtualMachineScaleSetResourceSubResourceSchema> NetworkSecurityGroupId { get; set; }
+    public VirtualMachineScaleSetResourceSubResourceSchema NetworkSecurityGroupId { get; set; }
 
 
     [HclName("primary")]

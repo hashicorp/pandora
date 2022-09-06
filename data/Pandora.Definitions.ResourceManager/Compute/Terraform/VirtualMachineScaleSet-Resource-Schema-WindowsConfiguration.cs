@@ -9,7 +9,7 @@ public class VirtualMachineScaleSetResourceWindowsConfigurationSchema
 
     [HclName("additional_unattend_content")]
     [Optional]
-    public List<List<VirtualMachineScaleSetResourceAdditionalUnattendContentSchema>> AdditionalUnattendContent { get; set; }
+    public List<VirtualMachineScaleSetResourceAdditionalUnattendContentSchema> AdditionalUnattendContent { get; set; }
 
 
     [HclName("automatic_updates_enabled")]
@@ -19,7 +19,7 @@ public class VirtualMachineScaleSetResourceWindowsConfigurationSchema
 
     [HclName("patch_settings")]
     [Optional]
-    public List<VirtualMachineScaleSetResourcePatchSettingsSchema> PatchSettings { get; set; }
+    public VirtualMachineScaleSetResourcePatchSettingsSchema PatchSettings { get; set; }
 
 
     [HclName("provision_vm_agent")]
@@ -34,6 +34,6 @@ public class VirtualMachineScaleSetResourceWindowsConfigurationSchema
 
     [HclName("win_rm")]
     [Optional]
-    public List<VirtualMachineScaleSetResourceWinRMConfigurationSchema> WinRM { get; set; }
+    public VirtualMachineScaleSetResourceWinRMConfigurationSchema WinRM { get; set; }
 
 }

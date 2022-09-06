@@ -9,7 +9,7 @@ public class VirtualMachineScaleSetResourceVirtualMachineScaleSetExtensionProfil
 
     [HclName("extension")]
     [Optional]
-    public List<List<VirtualMachineScaleSetResourceVirtualMachineScaleSetExtensionSchema>> Extension { get; set; }
+    public List<VirtualMachineScaleSetResourceVirtualMachineScaleSetExtensionSchema> Extension { get; set; }
 
 
     [HclName("extensions_time_budget")]

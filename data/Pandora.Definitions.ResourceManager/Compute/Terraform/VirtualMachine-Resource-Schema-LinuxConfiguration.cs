@@ -14,7 +14,7 @@ public class VirtualMachineResourceLinuxConfigurationSchema
 
     [HclName("patch_settings")]
     [Optional]
-    public List<VirtualMachineResourceLinuxPatchSettingsSchema> PatchSettings { get; set; }
+    public VirtualMachineResourceLinuxPatchSettingsSchema PatchSettings { get; set; }
 
 
     [HclName("provision_vm_agent")]
@@ -24,6 +24,6 @@ public class VirtualMachineResourceLinuxConfigurationSchema
 
     [HclName("ssh")]
     [Optional]
-    public List<VirtualMachineResourceSshConfigurationSchema> Ssh { get; set; }
+    public VirtualMachineResourceSshConfigurationSchema Ssh { get; set; }
 
 }

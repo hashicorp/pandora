@@ -9,7 +9,7 @@ public class VirtualMachineResourceVirtualMachineExtensionHandlerInstanceViewSch
 
     [HclName("status")]
     [Optional]
-    public List<VirtualMachineResourceInstanceViewStatusSchema> Status { get; set; }
+    public VirtualMachineResourceInstanceViewStatusSchema Status { get; set; }
 
 
     [HclName("type")]

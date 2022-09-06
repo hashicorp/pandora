@@ -9,11 +9,11 @@ public class VirtualMachineScaleSetResourceVaultSecretGroupSchema
 
     [HclName("source_vault_id")]
     [Optional]
-    public List<VirtualMachineScaleSetResourceSubResourceSchema> SourceVaultId { get; set; }
+    public VirtualMachineScaleSetResourceSubResourceSchema SourceVaultId { get; set; }
 
 
     [HclName("vault_certificate")]
     [Optional]
-    public List<List<VirtualMachineScaleSetResourceVaultCertificateSchema>> VaultCertificate { get; set; }
+    public List<VirtualMachineScaleSetResourceVaultCertificateSchema> VaultCertificate { get; set; }
 
 }

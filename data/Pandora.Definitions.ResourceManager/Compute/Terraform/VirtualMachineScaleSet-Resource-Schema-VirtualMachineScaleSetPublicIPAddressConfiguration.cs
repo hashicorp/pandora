@@ -14,11 +14,11 @@ public class VirtualMachineScaleSetResourceVirtualMachineScaleSetPublicIPAddress
 
     [HclName("properties")]
     [Optional]
-    public List<VirtualMachineScaleSetResourceVirtualMachineScaleSetPublicIPAddressConfigurationPropertiesSchema> Properties { get; set; }
+    public VirtualMachineScaleSetResourceVirtualMachineScaleSetPublicIPAddressConfigurationPropertiesSchema Properties { get; set; }
 
 
     [HclName("sku")]
     [Optional]
-    public List<VirtualMachineScaleSetResourcePublicIPAddressSkuSchema> Sku { get; set; }
+    public VirtualMachineScaleSetResourcePublicIPAddressSkuSchema Sku { get; set; }
 
 }

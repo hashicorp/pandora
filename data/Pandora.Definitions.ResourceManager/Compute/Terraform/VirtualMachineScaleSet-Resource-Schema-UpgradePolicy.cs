@@ -9,7 +9,7 @@ public class VirtualMachineScaleSetResourceUpgradePolicySchema
 
     [HclName("automatic_os_upgrade_policy")]
     [Optional]
-    public List<VirtualMachineScaleSetResourceAutomaticOSUpgradePolicySchema> AutomaticOSUpgradePolicy { get; set; }
+    public VirtualMachineScaleSetResourceAutomaticOSUpgradePolicySchema AutomaticOSUpgradePolicy { get; set; }
 
 
     [HclName("mode")]
@@ -19,6 +19,6 @@ public class VirtualMachineScaleSetResourceUpgradePolicySchema
 
     [HclName("rolling_upgrade_policy")]
     [Optional]
-    public List<VirtualMachineScaleSetResourceRollingUpgradePolicySchema> RollingUpgradePolicy { get; set; }
+    public VirtualMachineScaleSetResourceRollingUpgradePolicySchema RollingUpgradePolicy { get; set; }
 
 }

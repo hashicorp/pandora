@@ -9,6 +9,6 @@ public class VirtualMachineResourceWinRMConfigurationSchema
 
     [HclName("listener")]
     [Optional]
-    public List<List<VirtualMachineResourceWinRMListenerSchema>> Listener { get; set; }
+    public List<VirtualMachineResourceWinRMListenerSchema> Listener { get; set; }
 
 }
