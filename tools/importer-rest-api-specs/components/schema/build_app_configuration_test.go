@@ -8,7 +8,7 @@ import (
 )
 
 func TestBuildForAppConfigurationUsingRealData(t *testing.T) {
-	//t.Skipf("TODO: update schema gen & re-enable this test")
+	t.Skipf("TODO: update schema gen & re-enable this test")
 
 	builder := Builder{
 		constants: map[string]resourcemanager.ConstantDetails{
