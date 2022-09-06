@@ -17,18 +17,18 @@ Things to do here:
 */
 
 type Builder struct {
-	Constants   map[string]resourcemanager.ConstantDetails
-	Models      map[string]resourcemanager.ModelDetails
-	Operations  map[string]resourcemanager.ApiOperation
-	ResourceIds map[string]resourcemanager.ResourceIdDefinition
+	constants   map[string]resourcemanager.ConstantDetails
+	models      map[string]resourcemanager.ModelDetails
+	operations  map[string]resourcemanager.ApiOperation
+	resourceIds map[string]resourcemanager.ResourceIdDefinition
 }
 
-func NewBuilder(Constants map[string]resourcemanager.ConstantDetails, Models map[string]resourcemanager.ModelDetails, Operations map[string]resourcemanager.ApiOperation, ResourceIds map[string]resourcemanager.ResourceIdDefinition) Builder {
+func NewBuilder(constants map[string]resourcemanager.ConstantDetails, models map[string]resourcemanager.ModelDetails, operations map[string]resourcemanager.ApiOperation, resourceIds map[string]resourcemanager.ResourceIdDefinition) Builder {
 	return Builder{
-		Constants:   Constants,
-		Models:      Models,
-		Operations:  Operations,
-		ResourceIds: ResourceIds,
+		constants:   constants,
+		models:      models,
+		operations:  operations,
+		resourceIds: resourceIds,
 	}
 }
 
@@ -57,7 +57,7 @@ func (b Builder) Build(input resourcemanager.TerraformResourceDetails, logger hc
 			continue
 		}
 
-		// Models should be prefixed with the resource name to avoid conflicts where a model is reused across a package
+		// models should be prefixed with the resource name to avoid conflicts where a model is reused across a package
 		// for example `VirtualMachineAdditionalCapabilitiesSchema`
 		nestedModelDetails, err := b.buildNestedModelDefinition(input.SchemaModelName, modelDetails, input, logger.Named(fmt.Sprintf("Nested Model Definition %q", modelName)))
 		if err != nil {
@@ -72,7 +72,7 @@ func (b Builder) Build(input resourcemanager.TerraformResourceDetails, logger hc
 		schemaModels[prefixedModelName] = *nestedModelDetails
 	}
 
-	// TODO: now that we have all of the Models for this resource, we should loop through and check what can be cleaned up
+	// TODO: now that we have all of the models for this resource, we should loop through and check what can be cleaned up
 
 	return &schemaModels, nil
 }
@@ -99,7 +99,7 @@ func (b Builder) schemaFromTopLevelModel(input resourcemanager.TerraformResource
 		schemaFields[k] = v
 	}
 
-	resourceId, ok := b.ResourceIds[input.ResourceIdName]
+	resourceId, ok := b.resourceIds[input.ResourceIdName]
 	if !ok {
 		return nil, fmt.Errorf("couldn't find Resource ID named %q", input.ResourceIdName)
 	}
@@ -120,11 +120,11 @@ func (b Builder) schemaFromTopLevelModel(input resourcemanager.TerraformResource
 	}
 	//  field renaming happens here?
 
-	ModelsUsedWithinProperties, err := b.identifyModelsWithinPropertiesBlock(*createReadUpdateMethods, logger.Named("Models within Property Block"))
+	modelsUsedWithinProperties, err := b.identifyModelsWithinPropertiesBlock(*createReadUpdateMethods, logger.Named("Models within Property Block"))
 	if err != nil {
-		return nil, fmt.Errorf("identifying Models used within the `properties` block for the create/read/update methods: %+v", err)
+		return nil, fmt.Errorf("identifying models used within the `properties` block for the create/read/update methods: %+v", err)
 	}
-	if ModelsUsedWithinProperties == nil {
+	if modelsUsedWithinProperties == nil {
 		logger.Trace(fmt.Sprintf("a model within the properties block was marked as skip - skipping"))
 		return nil, nil
 	}
@@ -133,7 +133,7 @@ func (b Builder) schemaFromTopLevelModel(input resourcemanager.TerraformResource
 		model: resourcemanager.TerraformSchemaModelDefinition{
 			Fields: schemaFields,
 		},
-		nestedModels: *ModelsUsedWithinProperties,
+		nestedModels: *modelsUsedWithinProperties,
 	}, nil
 }
 
@@ -143,7 +143,7 @@ func (b Builder) identifyModelsWithinPropertiesBlock(payloads operationPayloads,
 		if _, ok := allFields[fieldName]; ok {
 			continue
 		}
-		if fieldShouldBeIgnored(fieldName, field, b.Constants) {
+		if fieldShouldBeIgnored(fieldName, field, b.constants) {
 			continue
 		}
 
@@ -152,20 +152,20 @@ func (b Builder) identifyModelsWithinPropertiesBlock(payloads operationPayloads,
 
 	allModels := make(map[string]resourcemanager.ModelDetails, 0)
 	for fieldName, field := range allFields {
-		// find Models within field
-		ModelsWithinField, err := b.identifyModelsWithinField(field, allModels, logger)
+		// find models within field
+		modelsWithinField, err := b.identifyModelsWithinField(field, allModels, logger)
 		if err != nil {
-			return nil, fmt.Errorf("identifying Models within field %q: %+v", fieldName, err)
+			return nil, fmt.Errorf("identifying models within field %q: %+v", fieldName, err)
 		}
-		if ModelsWithinField == nil {
+		if modelsWithinField == nil {
 			logger.Trace(fmt.Sprintf("field %q was marked as ignored (due to discriminated types or similar) - skipping", fieldName))
 			return nil, nil
 		}
 
-		for k, v := range *ModelsWithinField {
+		for k, v := range *modelsWithinField {
 			if other, ok := allModels[k]; ok {
-				if !ModelsMatch(v, other) {
-					return nil, fmt.Errorf("duplicate Models named %q were parsed with different fields: %+v / %+v", k, v.Fields, other.Fields)
+				if !modelsMatch(v, other) {
+					return nil, fmt.Errorf("duplicate models named %q were parsed with different fields: %+v / %+v", k, v.Fields, other.Fields)
 				}
 			}
 
@@ -176,7 +176,7 @@ func (b Builder) identifyModelsWithinPropertiesBlock(payloads operationPayloads,
 	return &allModels, nil
 }
 
-func ModelsMatch(first resourcemanager.ModelDetails, second resourcemanager.ModelDetails) bool {
+func modelsMatch(first resourcemanager.ModelDetails, second resourcemanager.ModelDetails) bool {
 	// TODO: implement me
 	return len(first.Fields) == len(second.Fields)
 }
@@ -207,7 +207,7 @@ func (b Builder) buildNestedModelDefinition(modelPrefix string, model resourcema
 			return nil, fmt.Errorf("converting ObjectDefinition for field to a TerraformFieldObjectDefinition: %+v", err)
 		}
 		definition.ObjectDefinition = *fieldObjectDefinition
-		fieldName := updateFieldName(k, b, &model, &details)
+		fieldName := updateFieldName(k, &model, &details)
 		definition.HclName = convertToSnakeCase(fieldName)
 		out[fieldName] = definition
 	}
@@ -221,30 +221,30 @@ func (b Builder) findCreateUpdateReadPayloads(input resourcemanager.TerraformRes
 	out := operationPayloads{}
 
 	// Create has to exist
-	createOperation, ok := b.Operations[input.CreateMethod.MethodName]
+	createOperation, ok := b.operations[input.CreateMethod.MethodName]
 	if !ok {
 		return nil
 	}
 	if createOperation.RequestObject == nil || createOperation.RequestObject.Type != resourcemanager.ReferenceApiObjectDefinitionType || createOperation.RequestObject.ReferenceName == nil {
-		// we don't generate resources for Operations returning lists etc, debatable if we should
+		// we don't generate resources for operations returning lists etc, debatable if we should
 		return nil
 	}
-	createModel, ok := b.Models[*createOperation.RequestObject.ReferenceName]
+	createModel, ok := b.models[*createOperation.RequestObject.ReferenceName]
 	if !ok {
 		return nil
 	}
 	out.createPayload = createModel
 
 	// Read has to exist
-	readOperation, ok := b.Operations[input.ReadMethod.MethodName]
+	readOperation, ok := b.operations[input.ReadMethod.MethodName]
 	if !ok {
 		return nil
 	}
 	if readOperation.ResponseObject == nil || readOperation.ResponseObject.Type != resourcemanager.ReferenceApiObjectDefinitionType || readOperation.ResponseObject.ReferenceName == nil {
-		// we don't generate resources for Operations returning lists etc, debatable if we should
+		// we don't generate resources for operations returning lists etc, debatable if we should
 		return nil
 	}
-	readModel, ok := b.Models[*readOperation.ResponseObject.ReferenceName]
+	readModel, ok := b.models[*readOperation.ResponseObject.ReferenceName]
 	if !ok {
 		return nil
 	}
@@ -252,15 +252,15 @@ func (b Builder) findCreateUpdateReadPayloads(input resourcemanager.TerraformRes
 
 	// Update doesn't have to exist
 	if updateMethod := input.UpdateMethod; updateMethod != nil {
-		updateOperation, ok := b.Operations[updateMethod.MethodName]
+		updateOperation, ok := b.operations[updateMethod.MethodName]
 		if !ok {
 			return nil
 		}
 		if updateOperation.RequestObject == nil || updateOperation.RequestObject.Type != resourcemanager.ReferenceApiObjectDefinitionType || updateOperation.RequestObject.ReferenceName == nil {
-			// we don't generate resources for Operations returning lists etc, debatable if we should
+			// we don't generate resources for operations returning lists etc, debatable if we should
 			return nil
 		}
-		updateModel, ok := b.Models[*updateOperation.RequestObject.ReferenceName]
+		updateModel, ok := b.models[*updateOperation.RequestObject.ReferenceName]
 		if !ok {
 			return nil
 		}
@@ -275,14 +275,14 @@ func (b Builder) identifyModelsWithinField(field resourcemanager.FieldDetails, k
 
 	objectDefinition := topLevelObjectDefinition(field.ObjectDefinition)
 	if objectDefinition.ReferenceName != nil {
-		// we need to identify both this model and any Models nested within it
+		// we need to identify both this model and any models nested within it
 		allModels := make(map[string]resourcemanager.ModelDetails)
 		for k, v := range knownModels {
 			allModels[k] = v
 		}
 
-		_, isConstant := b.Constants[*objectDefinition.ReferenceName]
-		model, isModel := b.Models[*objectDefinition.ReferenceName]
+		_, isConstant := b.constants[*objectDefinition.ReferenceName]
+		model, isModel := b.models[*objectDefinition.ReferenceName]
 		if !isConstant && !isModel {
 			return nil, fmt.Errorf("reference %q was neither a constant or a model", *objectDefinition.ReferenceName)
 		}
@@ -300,13 +300,13 @@ func (b Builder) identifyModelsWithinField(field resourcemanager.FieldDetails, k
 			out[*objectDefinition.ReferenceName] = model
 			allModels[*objectDefinition.ReferenceName] = model
 
-			// finally check if it has any Models and add to that
-			logger.Trace(fmt.Sprintf("checking for Models within fields for model %q", *objectDefinition.ReferenceName))
+			// finally check if it has any models and add to that
+			logger.Trace(fmt.Sprintf("checking for models within fields for model %q", *objectDefinition.ReferenceName))
 			for nestedFieldName, nestedField := range model.Fields {
 				logger.Trace(fmt.Sprintf("field %q", nestedFieldName))
 				nestedModels, err := b.identifyModelsWithinField(nestedField, allModels, logger.Named(fmt.Sprintf("Model %q / Field %q", *objectDefinition.ReferenceName, nestedFieldName)))
 				if err != nil {
-					return nil, fmt.Errorf("identifying Models within field %q: %+v", nestedFieldName, err)
+					return nil, fmt.Errorf("identifying models within field %q: %+v", nestedFieldName, err)
 				}
 				if nestedModels == nil {
 					// something within it was marked as ignore
