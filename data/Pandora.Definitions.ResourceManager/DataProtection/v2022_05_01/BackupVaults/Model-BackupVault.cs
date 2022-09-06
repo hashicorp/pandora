@@ -15,6 +15,9 @@ namespace Pandora.Definitions.ResourceManager.DataProtection.v2022_05_01.BackupV
 
 internal class BackupVaultModel
 {
+    [JsonPropertyName("isVaultProtectedByResourceGuard")]
+    public bool? IsVaultProtectedByResourceGuard { get; set; }
+
     [JsonPropertyName("monitoringSettings")]
     public MonitoringSettingsModel? MonitoringSettings { get; set; }
 
