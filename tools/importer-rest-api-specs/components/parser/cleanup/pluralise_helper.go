@@ -2,6 +2,7 @@ package cleanup
 
 import (
 	"github.com/gertd/go-pluralize"
+	"log"
 	"strings"
 )
 
@@ -25,12 +26,13 @@ func GetSingular(input string) string {
 	casing := detectCasing(input)
 	for _, v := range invariablePlurals() {
 		if strings.EqualFold(input, v) {
+			log.Printf("got %q returning %q", input, returnCased(v, casing))
 			return returnCased(v, casing)
 		}
 	}
 
 	for _, v := range irregularPlurals() {
-		if input == v.plural {
+		if strings.EqualFold(input, v.plural) {
 			return returnCased(v.single, casing)
 		}
 	}

@@ -89,6 +89,14 @@ func TestSingularisingWords(t *testing.T) {
 			expected: "Cache",
 		},
 		{
+			input:    "caches",
+			expected: "cache",
+		},
+		{
+			input:    "Cache",
+			expected: "Cache",
+		},
+		{
 			input:    "ServiceLinker",
 			expected: "ServiceLinker",
 		},
