@@ -47,6 +47,14 @@ func TestPluralisingWords(t *testing.T) {
 			input:    "key",
 			expected: "keys",
 		},
+		{
+			input:    "AutoscaleAPI",
+			expected: "AutoscaleAPIs",
+		},
+		{
+			input:    "API",
+			expected: "APIs",
+		},
 	}
 
 	for _, v := range testData {
@@ -103,6 +111,14 @@ func TestSingularisingWords(t *testing.T) {
 		{
 			input:    "ServiceLinker",
 			expected: "ServiceLinker",
+		},
+		{
+			input:    "APIs",
+			expected: "API",
+		},
+		{
+			input:    "AutoscaleAPIs",
+			expected: "AutoscaleAPI",
 		},
 	}
 

@@ -71,6 +71,7 @@ func irregularPlurals() []irregularPlural {
 
 	pluralisationExceptions := []irregularPlural{
 		{"API", "APIs"},
+		{"AutoscaleAPI", "AutoscaleAPIs"},
 		{"Cache", "Caches"},
 		{"Sku", "Skus"},
 		{"staticCache", "staticCaches"},
@@ -93,6 +94,15 @@ func invariablePlurals() []string {
 }
 
 func detectCasing(input string) caseType {
+	specialCases := []string{
+		"API",
+		"AutoscaleAPI",
+	}
+	for _, v := range specialCases {
+		if input == v {
+			return CAMEL
+		}
+	}
 	switch {
 	case input == strings.ToUpper(input):
 		return UPPER
