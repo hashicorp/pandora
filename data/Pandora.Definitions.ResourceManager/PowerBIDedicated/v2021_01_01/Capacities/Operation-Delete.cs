@@ -24,7 +24,7 @@ internal class DeleteOperation : Operations.DeleteOperation
 
     public override bool LongRunning() => true;
 
-    public override ResourceID? ResourceId() => new CapacitiesId();
+    public override ResourceID? ResourceId() => new CapacityId();
 
 
 }

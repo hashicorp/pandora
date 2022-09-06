@@ -22,7 +22,7 @@ internal class ContentKeyPoliciesUpdateOperation : Operations.PatchOperation
 
     public override Type? RequestObject() => typeof(ContentKeyPolicyModel);
 
-    public override ResourceID? ResourceId() => new ContentKeyPoliciesId();
+    public override ResourceID? ResourceId() => new ContentKeyPolicyId();
 
     public override Type? ResponseObject() => typeof(ContentKeyPolicyModel);
 

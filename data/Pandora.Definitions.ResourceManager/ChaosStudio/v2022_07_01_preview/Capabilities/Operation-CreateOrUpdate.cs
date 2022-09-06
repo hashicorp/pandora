@@ -22,7 +22,7 @@ internal class CreateOrUpdateOperation : Operations.PutOperation
 
     public override Type? RequestObject() => typeof(CapabilityModel);
 
-    public override ResourceID? ResourceId() => new CapabilitiesId();
+    public override ResourceID? ResourceId() => new CapabilityId();
 
     public override Type? ResponseObject() => typeof(CapabilityModel);
 

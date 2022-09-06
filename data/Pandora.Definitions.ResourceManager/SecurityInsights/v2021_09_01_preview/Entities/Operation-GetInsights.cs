@@ -22,7 +22,7 @@ internal class GetInsightsOperation : Operations.PostOperation
 
     public override Type? RequestObject() => typeof(EntityGetInsightsParametersModel);
 
-    public override ResourceID? ResourceId() => new EntitiesId();
+    public override ResourceID? ResourceId() => new EntityId();
 
     public override Type? ResponseObject() => typeof(EntityGetInsightsResponseModel);
 

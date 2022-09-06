@@ -24,7 +24,7 @@ internal class BackupPoliciesDeleteOperation : Operations.DeleteOperation
 
     public override bool LongRunning() => true;
 
-    public override ResourceID? ResourceId() => new BackupPoliciesId();
+    public override ResourceID? ResourceId() => new BackupPolicyId();
 
 
 }

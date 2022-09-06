@@ -15,7 +15,7 @@ namespace Pandora.Definitions.ResourceManager.MachineLearningServices.v2022_05_0
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new DataId();
+    public override ResourceID? ResourceId() => new DatumId();
 
     public override Type? ResponseObject() => typeof(DataContainerResourceModel);
 

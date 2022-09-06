@@ -17,7 +17,7 @@ internal class CreateOrUpdateOperation : Operations.PutOperation
 {
     public override Type? RequestObject() => typeof(GatewayCertificateAuthorityContractModel);
 
-    public override ResourceID? ResourceId() => new CertificateAuthoritiesId();
+    public override ResourceID? ResourceId() => new CertificateAuthorityId();
 
     public override Type? ResponseObject() => typeof(GatewayCertificateAuthorityContractModel);
 

@@ -17,7 +17,7 @@ internal class EntitiesRelationsListOperation : Operations.ListOperation
 {
     public override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new EntitiesId();
+    public override ResourceID? ResourceId() => new EntityId();
 
     public override Type NestedItemType() => typeof(RelationModel);
 

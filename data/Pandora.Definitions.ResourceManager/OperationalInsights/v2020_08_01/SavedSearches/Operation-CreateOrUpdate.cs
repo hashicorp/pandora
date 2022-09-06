@@ -22,7 +22,7 @@ internal class CreateOrUpdateOperation : Operations.PutOperation
 
     public override Type? RequestObject() => typeof(SavedSearchModel);
 
-    public override ResourceID? ResourceId() => new SavedSearcheId();
+    public override ResourceID? ResourceId() => new SavedSearchId();
 
     public override Type? ResponseObject() => typeof(SavedSearchModel);
 

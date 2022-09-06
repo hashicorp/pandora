@@ -22,7 +22,7 @@ internal class ContentKeyPoliciesGetPolicyPropertiesWithSecretsOperation : Opera
 
     public override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new ContentKeyPoliciesId();
+    public override ResourceID? ResourceId() => new ContentKeyPolicyId();
 
     public override Type? ResponseObject() => typeof(ContentKeyPolicyPropertiesModel);
 

@@ -21,7 +21,7 @@ internal class StreamingPoliciesDeleteOperation : Operations.DeleteOperation
                 HttpStatusCode.OK,
         };
 
-    public override ResourceID? ResourceId() => new StreamingPoliciesId();
+    public override ResourceID? ResourceId() => new StreamingPolicyId();
 
 
 }

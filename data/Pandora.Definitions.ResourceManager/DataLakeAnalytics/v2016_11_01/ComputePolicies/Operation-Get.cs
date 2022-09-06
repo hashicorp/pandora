@@ -15,7 +15,7 @@ namespace Pandora.Definitions.ResourceManager.DataLakeAnalytics.v2016_11_01.Comp
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ComputePoliciesId();
+    public override ResourceID? ResourceId() => new ComputePolicyId();
 
     public override Type? ResponseObject() => typeof(ComputePolicyModel);
 

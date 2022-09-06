@@ -25,7 +25,7 @@ internal class UpdateOperation : Operations.PatchOperation
 
     public override Type? RequestObject() => typeof(DedicatedCapacityUpdateParametersModel);
 
-    public override ResourceID? ResourceId() => new CapacitiesId();
+    public override ResourceID? ResourceId() => new CapacityId();
 
     public override Type? ResponseObject() => typeof(DedicatedCapacityModel);
 

@@ -22,7 +22,7 @@ internal class UpdateOperation : Operations.PatchOperation
 
     public override Type? RequestObject() => typeof(MetadataPatchModel);
 
-    public override ResourceID? ResourceId() => new MetadataId();
+    public override ResourceID? ResourceId() => new MetadatumId();
 
     public override Type? ResponseObject() => typeof(MetadataModelModel);
 

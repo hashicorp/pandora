@@ -22,7 +22,7 @@ internal class GetTimelinelistOperation : Operations.PostOperation
 
     public override Type? RequestObject() => typeof(EntityTimelineParametersModel);
 
-    public override ResourceID? ResourceId() => new EntitiesId();
+    public override ResourceID? ResourceId() => new EntityId();
 
     public override Type? ResponseObject() => typeof(EntityTimelineResponseModel);
 

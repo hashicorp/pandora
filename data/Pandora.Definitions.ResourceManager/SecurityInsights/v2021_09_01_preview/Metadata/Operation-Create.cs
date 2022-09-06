@@ -17,7 +17,7 @@ internal class CreateOperation : Operations.PutOperation
 {
     public override Type? RequestObject() => typeof(MetadataModelModel);
 
-    public override ResourceID? ResourceId() => new MetadataId();
+    public override ResourceID? ResourceId() => new MetadatumId();
 
     public override Type? ResponseObject() => typeof(MetadataModelModel);
 

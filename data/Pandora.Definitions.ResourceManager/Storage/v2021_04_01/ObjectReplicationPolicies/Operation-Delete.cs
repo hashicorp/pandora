@@ -21,7 +21,7 @@ internal class DeleteOperation : Operations.DeleteOperation
                 HttpStatusCode.OK,
         };
 
-    public override ResourceID? ResourceId() => new ObjectReplicationPoliciesId();
+    public override ResourceID? ResourceId() => new ObjectReplicationPolicyId();
 
 
 }
