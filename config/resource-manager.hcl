@@ -123,6 +123,10 @@ service "elastic" {
   name      = "Elastic"
   available = ["2020-07-01"]
 }
+service "elasticsan" {
+  name      = "ElasticSan"
+  available = ["2021-11-20-preview"]
+}
 service "eventhub" {
   name      = "EventHub"
   available = ["2021-11-01", "2022-01-01-preview"]
