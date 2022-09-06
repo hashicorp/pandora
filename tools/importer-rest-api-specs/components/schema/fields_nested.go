@@ -35,19 +35,19 @@ func (b Builder) identifyFieldsWithinPropertiesBlock(modelPrefix string, input o
 			var readField *resourcemanager.FieldDetails
 			hasRead := false
 			if readPropertiesModel != nil {
-				readField, hasRead = GetField(*readPropertiesModel, k)
+				readField, hasRead = getField(*readPropertiesModel, k)
 			}
 
 			var createField *resourcemanager.FieldDetails
 			hasCreate := false
 			if createPropertiesModel != nil {
-				createField, hasCreate = GetField(*createPropertiesModel, k)
+				createField, hasCreate = getField(*createPropertiesModel, k)
 			}
 
 			var updateField *resourcemanager.FieldDetails
 			hasUpdate := false
 			if updatePropertiesModel != nil {
-				updateField, hasUpdate = GetField(*updatePropertiesModel, k)
+				updateField, hasUpdate = getField(*updatePropertiesModel, k)
 			}
 
 			// based on this information

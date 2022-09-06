@@ -78,7 +78,7 @@ func fieldShouldBeIgnored(key string, definition resourcemanager.FieldDetails, c
 	return false
 }
 
-func GetField(model resourcemanager.ModelDetails, fieldName string) (*resourcemanager.FieldDetails, bool) {
+func getField(model resourcemanager.ModelDetails, fieldName string) (*resourcemanager.FieldDetails, bool) {
 	for field, val := range model.Fields {
 		if strings.EqualFold(field, fieldName) {
 			return &val, true

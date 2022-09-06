@@ -34,7 +34,7 @@ func (p operationPayloads) createReadUpdatePayloadsProperties(models map[string]
 }
 
 func (p operationPayloads) getPropertiesModelWithinModel(input resourcemanager.ModelDetails, models map[string]resourcemanager.ModelDetails) *resourcemanager.ModelDetails {
-	if props, ok := GetField(input, "Properties"); ok {
+	if props, ok := getField(input, "Properties"); ok {
 		if props.ObjectDefinition.Type != resourcemanager.ReferenceApiObjectDefinitionType {
 			return nil
 		}

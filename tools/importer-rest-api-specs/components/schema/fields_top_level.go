@@ -19,14 +19,14 @@ func (b Builder) identifyTopLevelFields(modelNamePrefix string, input operationP
 	for k := range allFields {
 		// TODO: ExtendedLocation, SystemData as Computed etc?
 		if strings.EqualFold(k, "Identity") {
-			field, ok := GetField(input.createPayload, k)
+			field, ok := getField(input.createPayload, k)
 			if !ok {
 				continue
 			}
 
 			canBeUpdated := false
 			if input.updatePayload != nil {
-				if _, ok := GetField(*input.updatePayload, k); ok {
+				if _, ok := getField(*input.updatePayload, k); ok {
 					canBeUpdated = true
 				}
 			}
@@ -58,7 +58,7 @@ func (b Builder) identifyTopLevelFields(modelNamePrefix string, input operationP
 		if strings.EqualFold(k, "Tags") {
 			canBeUpdated := false
 			if input.updatePayload != nil {
-				if _, ok := GetField(*input.updatePayload, k); ok {
+				if _, ok := getField(*input.updatePayload, k); ok {
 					canBeUpdated = true
 				}
 			}
