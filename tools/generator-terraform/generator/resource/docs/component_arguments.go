@@ -2,6 +2,7 @@ package docs
 
 import (
 	"fmt"
+	"log"
 	"strings"
 
 	"github.com/hashicorp/pandora/tools/generator-terraform/generator/models"
@@ -9,11 +10,23 @@ import (
 )
 
 func codeForArgumentsReference(input models.ResourceInput) (*string, error) {
+	// TODO: first we need to output the top level model (e.g. the model for the resource) which
+	// can be found via `input.SchemaModelName`
+
+	// NOTE: when we output both we'll want to ensure the ordering is Required -> Optional -> Computed
 
 	arguments := make([]string, 0)
 	//blockArguments := make([]string, 0)
 
-	for _, model := range input.SchemaModels {
+	for modelName, model := range input.SchemaModels {
+		// already output above, so we can skip it
+		if modelName == input.SchemaModelName {
+			continue
+		}
+
+		for fieldName := range model.Fields {
+			log.Printf("Model %q / Field %q", modelName, fieldName)
+		}
 
 		// if this is not the top level schema, generate block doc
 		/*		if !strings.HasSuffix(modelName, "ResourceSchema") {
