@@ -1,9 +1,12 @@
 package processors
 
 import (
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 	"testing"
+
+	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
+
+// TODO: could we split this to one per file?
 
 func TestProcessField_Exists(t *testing.T) {
 	testData := []struct {
@@ -19,6 +22,9 @@ func TestProcessField_Exists(t *testing.T) {
 						"Pandas": {
 							ObjectDefinition: resourcemanager.ApiObjectDefinition{
 								Type: resourcemanager.ListApiObjectDefinitionType,
+								NestedItem: &resourcemanager.ApiObjectDefinition{
+									Type: resourcemanager.StringApiObjectDefinitionType,
+								},
 							},
 						},
 					},
@@ -351,7 +357,10 @@ func TestProcessField_RemoveResourcePrefix(t *testing.T) {
 //					"Panda": {
 //						ObjectDefinition: resourcemanager.ApiObjectDefinition{
 //							Type:          resourcemanager.ListApiObjectDefinitionType,
-//							ReferenceName: stringPointer("SubResource"),
+//							NestedItem: &resourcemanager.ApiObjectDefinition{
+//								Type: resourcemanager.ReferenceApiObjectDefinitionType,
+//								ReferenceName: stringPointer("SubResource"),
+//							},
 //						},
 //					},
 //				},
@@ -376,7 +385,10 @@ func TestProcessField_RemoveResourcePrefix(t *testing.T) {
 //					"Planets": {
 //						ObjectDefinition: resourcemanager.ApiObjectDefinition{
 //							Type:          resourcemanager.ListApiObjectDefinitionType,
-//							ReferenceName: stringPointer("SubResource"),
+//							NestedItem: &resourcemanager.ApiObjectDefinition{
+//								Type: resourcemanager.ReferenceApiObjectDefinitionType,
+//								ReferenceName: stringPointer("SubResource"),
+//							},
 //						},
 //					},
 //				},

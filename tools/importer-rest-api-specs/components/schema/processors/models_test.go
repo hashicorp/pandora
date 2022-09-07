@@ -1,247 +1,159 @@
 package processors
 
 import (
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 	"reflect"
+	"strings"
 	"testing"
+
+	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-func TestProcessModel_FlattenReferenceId(t *testing.T) {
-	testData := []struct {
-		modelNameInput string
-		modelsInput    map[string]resourcemanager.TerraformSchemaModelDefinition
-		expected       *map[string]resourcemanager.TerraformSchemaFieldDefinition
-	}{
-		{
-			modelNameInput: "Panda",
-			modelsInput: map[string]resourcemanager.TerraformSchemaModelDefinition{
-				"Panda": {
-					Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
-						"Id": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type:          resourcemanager.TerraformSchemaFieldTypeReference,
-								ReferenceName: stringPointer("SubResource"),
-							},
-						},
-					},
-				},
-				"SubResource": {
-					Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
-						"Id": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type: resourcemanager.TerraformSchemaFieldTypeString,
-							},
-						},
-					},
-				},
-			},
-			expected: &map[string]resourcemanager.TerraformSchemaFieldDefinition{
-				"PandaId": {
-					ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-						Type: resourcemanager.TerraformSchemaFieldTypeString,
-					},
-				},
-			},
-		},
-		{
-			modelNameInput: "Leopard",
-			modelsInput: map[string]resourcemanager.TerraformSchemaModelDefinition{
-				"Leopard": {
-					Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
-						"Id": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type:          resourcemanager.TerraformSchemaFieldTypeReference,
-								ReferenceName: stringPointer("SubResource"),
-							},
-						},
-						"Weight": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type: resourcemanager.TerraformSchemaFieldTypeInteger,
-							},
-						},
-					},
-				},
-				"SubResource": {
-					Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
-						"Id": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type: resourcemanager.TerraformSchemaFieldTypeString,
-							},
-						},
-					},
-				},
-			},
-			expected: nil,
-		},
-		{
-			modelNameInput: "Meerkat",
-			modelsInput: map[string]resourcemanager.TerraformSchemaModelDefinition{
-				"Meerkat": {
-					Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
-						"Id": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type:          resourcemanager.TerraformSchemaFieldTypeReference,
-								ReferenceName: stringPointer("SubResource"),
-							},
-						},
-					},
-				},
-				"SubResource": {
-					Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
-						"Id": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type: resourcemanager.TerraformSchemaFieldTypeString,
-							},
-						},
-						"Weight": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type: resourcemanager.TerraformSchemaFieldTypeInteger,
-							},
-						},
-					},
-				},
-			},
-			expected: nil,
-		},
+func fieldDefinitionsMatch(t *testing.T, first map[string]resourcemanager.TerraformSchemaFieldDefinition, second map[string]resourcemanager.TerraformSchemaFieldDefinition) bool {
+	// we can't use reflect.DeepEqual since there's pointers involved, so we'll do this the old-fashioned way
+	if len(first) != len(second) {
+		t.Fatalf("first had %d fields but second had %d fields", len(first), len(second))
+		return false
 	}
 
-	for _, v := range testData {
-		t.Logf("[DEBUG] Testing %s", v.modelNameInput)
-
-		actual, _ := modelFlattenReferenceId{}.ProcessModel(v.modelNameInput, v.modelsInput)
-
-		if actual == nil {
-			if v.expected == nil {
-				continue
-			}
-			t.Fatalf("expected a result but didn't get one")
+	for key, firstVal := range first {
+		secondVal, ok := second[key]
+		if !ok {
+			t.Fatalf("key %q was present in first but not second", key)
+			return false
 		}
-		if v.expected == nil {
-			t.Fatalf("expected no result but got %+v", *actual)
+
+		if firstVal.Computed != secondVal.Computed {
+			t.Fatalf("first computed %t != second computed %t", firstVal.Computed, secondVal.Computed)
 		}
-		if reflect.DeepEqual(*actual, *v.expected) {
-			t.Fatalf("Expected %+v but got %+v", *v.expected, *actual)
+		if firstVal.ForceNew != secondVal.ForceNew {
+			t.Fatalf("first forcenew %t != second forcenew %t", firstVal.ForceNew, secondVal.ForceNew)
+		}
+		if firstVal.HclName != secondVal.HclName {
+			t.Fatalf("first hclName %q != second hclName %q", firstVal.HclName, secondVal.HclName)
+		}
+		if firstVal.Optional != secondVal.Optional {
+			t.Fatalf("first optional %t != second optional %t", firstVal.Optional, secondVal.Optional)
+		}
+		if firstVal.Required != secondVal.Required {
+			t.Fatalf("first required %t != second required %t", firstVal.Required, secondVal.Required)
+		}
+		if !reflect.DeepEqual(firstVal.Documentation, secondVal.Documentation) {
+			t.Fatalf("first documentation %+v != second documentation %+v", firstVal.Documentation, secondVal.Documentation)
+		}
+
+		if !objectDefinitionsMatch(t, &firstVal.ObjectDefinition, &secondVal.ObjectDefinition) {
+			t.Fatalf("object definitions didn't match")
+			return false
+		}
+
+		if !mappingsMatch(t, firstVal.Mappings, secondVal.Mappings) {
+			t.Fatalf("mappings didn't match")
+			return false
+		}
+
+		if !validatorsMatch(t, firstVal.Validation, secondVal.Validation) {
+			t.Fatalf("validation didn't match")
+			return false
 		}
 	}
+
+	return true
 }
 
-func TestProcessModel_FlattenListReferenceIds(t *testing.T) {
-	testData := []struct {
-		modelNameInput string
-		modelsInput    map[string]resourcemanager.TerraformSchemaModelDefinition
-		expected       *map[string]resourcemanager.TerraformSchemaFieldDefinition
-	}{
-		{
-			modelNameInput: "Panda",
-			modelsInput: map[string]resourcemanager.TerraformSchemaModelDefinition{
-				"Panda": {
-					Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
-						"Ids": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type:          resourcemanager.TerraformSchemaFieldTypeList,
-								ReferenceName: stringPointer("SubResource"),
-							},
-						},
-					},
-				},
-				"SubResource": {
-					Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
-						"Ids": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type: resourcemanager.TerraformSchemaFieldTypeString,
-							},
-						},
-					},
-				},
-			},
-			expected: &map[string]resourcemanager.TerraformSchemaFieldDefinition{
-				"PandaIds": {
-					ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-						Type: resourcemanager.TerraformSchemaFieldTypeString,
-					},
-				},
-			},
-		},
-		{
-			modelNameInput: "Leopard",
-			modelsInput: map[string]resourcemanager.TerraformSchemaModelDefinition{
-				"Leopard": {
-					Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
-						"Id": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type:          resourcemanager.TerraformSchemaFieldTypeReference,
-								ReferenceName: stringPointer("SubResource"),
-							},
-						},
-						"Weight": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type: resourcemanager.TerraformSchemaFieldTypeInteger,
-							},
-						},
-					},
-				},
-				"SubResource": {
-					Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
-						"Id": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type: resourcemanager.TerraformSchemaFieldTypeString,
-							},
-						},
-					},
-				},
-			},
-			expected: nil,
-		},
-		{
-			modelNameInput: "Meerkat",
-			modelsInput: map[string]resourcemanager.TerraformSchemaModelDefinition{
-				"Meerkat": {
-					Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
-						"Id": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type:          resourcemanager.TerraformSchemaFieldTypeReference,
-								ReferenceName: stringPointer("SubResource"),
-							},
-						},
-					},
-				},
-				"SubResource": {
-					Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
-						"Id": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type: resourcemanager.TerraformSchemaFieldTypeString,
-							},
-						},
-						"Weight": {
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type: resourcemanager.TerraformSchemaFieldTypeInteger,
-							},
-						},
-					},
-				},
-			},
-			expected: nil,
-		},
+func objectDefinitionsMatch(t *testing.T, first *resourcemanager.TerraformSchemaFieldObjectDefinition, second *resourcemanager.TerraformSchemaFieldObjectDefinition) bool {
+	if first == nil && second == nil {
+		return true
+	}
+	if first != nil && second == nil {
+		t.Fatalf("first was %+v but second was nil", *first)
+		return false
+	}
+	if first == nil && second != nil {
+		t.Fatalf("first was nil but second wasn't: %+v", *second)
+		return false
 	}
 
-	for _, v := range testData {
-		t.Logf("[DEBUG] Testing %s", v.modelNameInput)
+	if first.Type != second.Type {
+		t.Fatalf("type's didn't match - first %q / second %q", string(first.Type), string(second.Type))
+		return false
+	}
+	firstRefName := valueForNilableString(first.ReferenceName)
+	secondRefName := valueForNilableString(second.ReferenceName)
+	if firstRefName != secondRefName {
+		t.Fatalf("reference name's didn't match - first %q / second %q", firstRefName, secondRefName)
+		return false
+	}
+	if !objectDefinitionsMatch(t, first.NestedObject, second.NestedObject) {
+		t.Fatalf("Nested ObjectDefinition's didn't match - first %+v / second %+v", *first.NestedObject, *second.NestedObject)
+		return false
+	}
 
-		actual, _ := modelFlattenListReferenceIds{}.ProcessModel(v.modelNameInput, v.modelsInput)
+	return true
+}
 
-		if actual == nil {
-			if v.expected == nil {
-				continue
-			}
-			t.Fatalf("expected a result but didn't get one")
+func mappingsMatch(t *testing.T, first resourcemanager.TerraformSchemaFieldMappingDefinition, second resourcemanager.TerraformSchemaFieldMappingDefinition) bool {
+	if valueForNilableString(first.ResourceIdSegment) != valueForNilableString(second.ResourceIdSegment) {
+		t.Fatalf("ResourceIdSegment didn't match - first %q / second %q", valueForNilableString(first.ResourceIdSegment), valueForNilableString(second.ResourceIdSegment))
+		return false
+	}
+	if valueForNilableString(first.SdkPathForCreate) != valueForNilableString(second.SdkPathForCreate) {
+		t.Fatalf("SdkPathForCreate didn't match - first %q / second %q", valueForNilableString(first.SdkPathForCreate), valueForNilableString(second.SdkPathForCreate))
+		return false
+	}
+	if valueForNilableString(first.SdkPathForRead) != valueForNilableString(second.SdkPathForRead) {
+		t.Fatalf("SdkPathForRead didn't match - first %q / second %q", valueForNilableString(first.SdkPathForRead), valueForNilableString(second.SdkPathForRead))
+		return false
+	}
+	if valueForNilableString(first.SdkPathForUpdate) != valueForNilableString(second.SdkPathForUpdate) {
+		t.Fatalf("SdkPathForUpdate didn't match - first %q / second %q", valueForNilableString(first.SdkPathForUpdate), valueForNilableString(second.SdkPathForUpdate))
+		return false
+	}
+
+	return true
+}
+
+func validatorsMatch(t *testing.T, first *resourcemanager.TerraformSchemaValidationDefinition, second *resourcemanager.TerraformSchemaValidationDefinition) bool {
+	if first == nil && second == nil {
+		return true
+	}
+	if first != nil && second == nil {
+		t.Fatalf("first was %+v but second was nil", *first)
+		return false
+	}
+	if first == nil && second != nil {
+		t.Fatalf("first was nil but second wasn't: %+v", *second)
+		return false
+	}
+
+	if first.Type != second.Type {
+		t.Fatalf("type's didn't match - first %q / second %q", string(first.Type), string(second.Type))
+		return false
+	}
+	if first.PossibleValues != nil {
+		if second.PossibleValues == nil {
+			t.Fatalf("possible values didn't match - first %+v / second nil", strings.Join(*first.PossibleValues, ", "))
+			return false
 		}
-		if v.expected == nil {
-			t.Fatalf("expected no result but got %+v", *actual)
-		}
-		if reflect.DeepEqual(*actual, *v.expected) {
-			t.Fatalf("Expected %+v but got %+v", *v.expected, *actual)
+
+		if !reflect.DeepEqual(*first.PossibleValues, *second.PossibleValues) {
+			t.Fatalf("possible values didn't match - first %q / second %q", strings.Join(*first.PossibleValues, ", "), strings.Join(*second.PossibleValues, ", "))
+			return false
 		}
 	}
+	if first.PossibleValues == nil && second.PossibleValues != nil {
+		t.Fatalf("possible values didn't match - first nil / second %+v", strings.Join(*second.PossibleValues, ", "))
+		return false
+	}
+
+	return true
+}
+
+func valueForNilableString(input *string) string {
+	if input == nil {
+		return ""
+	}
+
+	return *input
 }
 
 func stringPointer(input string) *string {
