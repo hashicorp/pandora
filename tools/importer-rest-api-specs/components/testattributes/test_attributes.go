@@ -82,6 +82,8 @@ func (h TestAttributesHelpers) codeForTestAttribute(models resourcemanager.Terra
 			}
 			reference, ok := h.SchemaModels[*input.NestedObject.ReferenceName]
 			if !ok {
+				// todo figure out
+				break
 				return fmt.Errorf("schema model %q was not found", *input.NestedObject.ReferenceName)
 			}
 			if err := h.GetAttributesForTests(reference, *hclBody.AppendNewBlock(hclName, nil).Body(), requiredOnly); err != nil {
@@ -111,18 +113,20 @@ func (h TestAttributesHelpers) codeForTestAttribute(models resourcemanager.Terra
 
 		hclBody.AppendNewline()
 	case resourcemanager.TerraformSchemaFieldTypeReference:
-		//hclBody.AppendNewline()
-		//if input.ReferenceName == nil {
-		//	return fmt.Errorf("missing name for reference")
-		//}
-		//_, ok := models.Fields[convertToSnakeCase(*input.ReferenceName)]
-		//if !ok {
-		//	return fmt.Errorf("schema model %q was not found", *input.ReferenceName)
-		//}
-		//if err := h.GetAttributesForTests(models, *hclBody.AppendNewBlock(hclName, nil).Body(), requiredOnly); err != nil {
-		//	return err
-		//}
-		//hclBody.AppendNewline()
+		hclBody.AppendNewline()
+		if input.ReferenceName == nil {
+			return fmt.Errorf("missing name for reference")
+		}
+		_, ok := h.SchemaModels[*input.ReferenceName]
+		if !ok {
+			// todo figure out
+			break
+			return fmt.Errorf("schema model %q was not found", *input.ReferenceName)
+		}
+		if err := h.GetAttributesForTests(h.SchemaModels[*input.ReferenceName], *hclBody.AppendNewBlock(hclName, nil).Body(), requiredOnly); err != nil {
+			return err
+		}
+		hclBody.AppendNewline()
 	case resourcemanager.TerraformSchemaFieldTypeEdgeZone:
 		// todo put in the checks for correct Required/Optional/Computed usage?
 		hclBody.SetAttributeTraversal(hclName, hcl.Traversal{
