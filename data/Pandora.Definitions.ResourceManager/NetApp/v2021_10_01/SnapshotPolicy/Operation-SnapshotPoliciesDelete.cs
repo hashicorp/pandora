@@ -24,7 +24,7 @@ internal class SnapshotPoliciesDeleteOperation : Operations.DeleteOperation
 
     public override bool LongRunning() => true;
 
-    public override ResourceID? ResourceId() => new SnapshotPoliciesId();
+    public override ResourceID? ResourceId() => new SnapshotPolicyId();
 
 
 }

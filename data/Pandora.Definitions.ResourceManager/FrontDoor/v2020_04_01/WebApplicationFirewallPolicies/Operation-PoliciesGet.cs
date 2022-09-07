@@ -15,7 +15,7 @@ namespace Pandora.Definitions.ResourceManager.FrontDoor.v2020_04_01.WebApplicati
 
 internal class PoliciesGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new FrontDoorWebApplicationFirewallPoliciesId();
+    public override ResourceID? ResourceId() => new FrontDoorWebApplicationFirewallPolicyId();
 
     public override Type? ResponseObject() => typeof(WebApplicationFirewallPolicyModel);
 

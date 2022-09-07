@@ -21,7 +21,7 @@ internal class AccessPoliciesDeleteOperation : Operations.DeleteOperation
                 HttpStatusCode.OK,
         };
 
-    public override ResourceID? ResourceId() => new AccessPoliciesId();
+    public override ResourceID? ResourceId() => new AccessPolicyId();
 
 
 }

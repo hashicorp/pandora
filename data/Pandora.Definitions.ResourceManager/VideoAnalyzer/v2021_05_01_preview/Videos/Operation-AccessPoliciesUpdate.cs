@@ -22,7 +22,7 @@ internal class AccessPoliciesUpdateOperation : Operations.PatchOperation
 
     public override Type? RequestObject() => typeof(AccessPolicyEntityModel);
 
-    public override ResourceID? ResourceId() => new AccessPoliciesId();
+    public override ResourceID? ResourceId() => new AccessPolicyId();
 
     public override Type? ResponseObject() => typeof(AccessPolicyEntityModel);
 

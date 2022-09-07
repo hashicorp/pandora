@@ -22,7 +22,7 @@ internal class ExpandOperation : Operations.PostOperation
 
     public override Type? RequestObject() => typeof(EntityExpandParametersModel);
 
-    public override ResourceID? ResourceId() => new EntitiesId();
+    public override ResourceID? ResourceId() => new EntityId();
 
     public override Type? ResponseObject() => typeof(EntityExpandResponseModel);
 

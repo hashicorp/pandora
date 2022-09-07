@@ -22,7 +22,7 @@ internal class CreateOrUpdateOperation : Operations.PutOperation
 
     public override Type? RequestObject() => typeof(ObjectReplicationPolicyModel);
 
-    public override ResourceID? ResourceId() => new ObjectReplicationPoliciesId();
+    public override ResourceID? ResourceId() => new ObjectReplicationPolicyId();
 
     public override Type? ResponseObject() => typeof(ObjectReplicationPolicyModel);
 

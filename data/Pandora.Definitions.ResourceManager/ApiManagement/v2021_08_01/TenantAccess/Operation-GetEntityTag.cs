@@ -20,7 +20,7 @@ internal class GetEntityTagOperation : Operations.HeadOperation
                 HttpStatusCode.OK,
         };
 
-    public override ResourceID? ResourceId() => new AccesId();
+    public override ResourceID? ResourceId() => new AccessId();
 
 
 }

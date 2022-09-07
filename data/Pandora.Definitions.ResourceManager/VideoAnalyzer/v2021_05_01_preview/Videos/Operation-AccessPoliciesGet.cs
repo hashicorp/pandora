@@ -15,7 +15,7 @@ namespace Pandora.Definitions.ResourceManager.VideoAnalyzer.v2021_05_01_preview.
 
 internal class AccessPoliciesGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new AccessPoliciesId();
+    public override ResourceID? ResourceId() => new AccessPolicyId();
 
     public override Type? ResponseObject() => typeof(AccessPolicyEntityModel);
 

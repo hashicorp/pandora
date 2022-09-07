@@ -22,7 +22,7 @@ internal class UpdateOperation : Operations.PatchOperation
 
     public override Type? RequestObject() => typeof(AccessInformationUpdateParametersModel);
 
-    public override ResourceID? ResourceId() => new AccesId();
+    public override ResourceID? ResourceId() => new AccessId();
 
     public override Type? ResponseObject() => typeof(AccessInformationContractModel);
 

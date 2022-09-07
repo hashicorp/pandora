@@ -24,7 +24,7 @@ internal class PoliciesDeleteOperation : Operations.DeleteOperation
 
     public override bool LongRunning() => true;
 
-    public override ResourceID? ResourceId() => new FrontDoorWebApplicationFirewallPoliciesId();
+    public override ResourceID? ResourceId() => new FrontDoorWebApplicationFirewallPolicyId();
 
 
 }

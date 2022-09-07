@@ -22,7 +22,7 @@ internal class UpdateOperation : Operations.PatchOperation
 
     public override Type? RequestObject() => typeof(UpdateComputePolicyParametersModel);
 
-    public override ResourceID? ResourceId() => new ComputePoliciesId();
+    public override ResourceID? ResourceId() => new ComputePolicyId();
 
     public override Type? ResponseObject() => typeof(ComputePolicyModel);
 

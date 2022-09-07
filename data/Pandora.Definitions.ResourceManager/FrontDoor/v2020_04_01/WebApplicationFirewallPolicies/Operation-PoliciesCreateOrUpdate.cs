@@ -26,7 +26,7 @@ internal class PoliciesCreateOrUpdateOperation : Operations.PutOperation
 
     public override Type? RequestObject() => typeof(WebApplicationFirewallPolicyModel);
 
-    public override ResourceID? ResourceId() => new FrontDoorWebApplicationFirewallPoliciesId();
+    public override ResourceID? ResourceId() => new FrontDoorWebApplicationFirewallPolicyId();
 
     public override Type? ResponseObject() => typeof(WebApplicationFirewallPolicyModel);
 

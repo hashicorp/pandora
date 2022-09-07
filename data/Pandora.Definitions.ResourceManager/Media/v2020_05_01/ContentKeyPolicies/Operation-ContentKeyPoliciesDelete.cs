@@ -21,7 +21,7 @@ internal class ContentKeyPoliciesDeleteOperation : Operations.DeleteOperation
                 HttpStatusCode.OK,
         };
 
-    public override ResourceID? ResourceId() => new ContentKeyPoliciesId();
+    public override ResourceID? ResourceId() => new ContentKeyPolicyId();
 
 
 }

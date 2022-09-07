@@ -25,7 +25,7 @@ internal class SnapshotPoliciesUpdateOperation : Operations.PatchOperation
 
     public override Type? RequestObject() => typeof(SnapshotPolicyPatchModel);
 
-    public override ResourceID? ResourceId() => new SnapshotPoliciesId();
+    public override ResourceID? ResourceId() => new SnapshotPolicyId();
 
     public override Type? ResponseObject() => typeof(SnapshotPolicyModel);
 

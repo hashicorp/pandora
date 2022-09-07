@@ -15,7 +15,7 @@ namespace Pandora.Definitions.ResourceManager.RedisEnterprise.v2022_01_01.Operat
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new OperationsStatuId();
+    public override ResourceID? ResourceId() => new OperationsStatusId();
 
     public override Type? ResponseObject() => typeof(OperationStatusModel);
 

@@ -22,7 +22,7 @@ internal class RegenerateSecondaryKeyOperation : Operations.PostOperation
 
     public override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new AccesId();
+    public override ResourceID? ResourceId() => new AccessId();
 
     public override string? UriSuffix() => "/regenerateSecondaryKey";
 
