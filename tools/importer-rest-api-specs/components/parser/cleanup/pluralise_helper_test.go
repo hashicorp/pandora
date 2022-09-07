@@ -48,8 +48,8 @@ func TestPluralisingWords(t *testing.T) {
 			expected: "keys",
 		},
 		{
-			input:    "AutoscaleAPI",
-			expected: "AutoscaleAPIs",
+			input:    "autoscaleAPI",
+			expected: "autoscaleAPIs",
 		},
 		{
 			input:    "API",
@@ -58,9 +58,9 @@ func TestPluralisingWords(t *testing.T) {
 	}
 
 	for _, v := range testData {
-		t.Logf("[DEBUG] Testing %s", v.input)
 
 		actual := GetPlural(v.input)
+		t.Logf("[DEBUG] Testing %s, got %s", v.input, actual)
 		if actual != v.expected {
 			t.Fatalf("Expected %s but got %s", v.expected, actual)
 		}

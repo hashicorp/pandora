@@ -32,8 +32,8 @@ func GetSingular(input string) string {
 	}
 
 	for _, v := range irregularPlurals() {
-		if strings.EqualFold(input, v.plural) {
-			return returnCased(v.single, casing)
+		if input == v.plural {
+			return v.single
 		}
 	}
 
@@ -54,8 +54,8 @@ func GetPlural(input string) string {
 	}
 
 	for _, v := range irregularPlurals() {
-		if strings.EqualFold(input, v.single) {
-			return returnCased(v.plural, casing)
+		if input == v.single {
+			return v.plural
 		}
 	}
 
@@ -66,15 +66,21 @@ func GetPlural(input string) string {
 }
 
 // irregularPlurals is an exceptions list for plurals that are not satisfied by go-pluralize
-// This list is intended to be treated case insensitively by consumers
+// This list is unfortunately case sensitive for replacements due to the non-natural-language aspects of "words"
+// used in service names etc
 func irregularPlurals() []irregularPlural {
 
 	pluralisationExceptions := []irregularPlural{
 		{"API", "APIs"},
+		{"autoscaleAPI", "autoscaleAPIs"},
 		{"AutoscaleAPI", "AutoscaleAPIs"},
+		{"Autoscale_API", "Autoscale_APIs"},
+		{"cache", "caches"},
 		{"Cache", "Caches"},
+		{"sku", "skus"},
 		{"Sku", "Skus"},
 		{"staticCache", "staticCaches"},
+		{"StaticCache", "StaticCaches"},
 	}
 	return pluralisationExceptions
 }
@@ -96,7 +102,9 @@ func invariablePlurals() []string {
 func detectCasing(input string) caseType {
 	specialCases := []string{
 		"API",
+		"APIs",
 		"AutoscaleAPI",
+		"AutoscaleAPIs",
 	}
 	for _, v := range specialCases {
 		if input == v {
