@@ -2,7 +2,6 @@ package pipeline
 
 import (
 	"fmt"
-	"log"
 	"sort"
 
 	"github.com/hashicorp/go-hclog"
@@ -63,7 +62,6 @@ func runImportForService(input RunInput, serviceName string, apiVersionsForServi
 		}
 	}
 	for apiVersion, api := range consolidatedApiVersions {
-		log.Printf(fmt.Sprintf("Importer for API Version %q: %+v", apiVersion, api))
 		versionLogger := logger.Named(fmt.Sprintf("Importer for API Version %q", apiVersion))
 		// populate the service information based on this api version
 		if rootNamespace == "" {
