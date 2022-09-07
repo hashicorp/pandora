@@ -22,7 +22,7 @@ internal class QueriesPutOperation : Operations.PutOperation
 
     public override Type? RequestObject() => typeof(LogAnalyticsQueryPackQueryModel);
 
-    public override ResourceID? ResourceId() => new QueriesId();
+    public override ResourceID? ResourceId() => new QueryId();
 
     public override Type? ResponseObject() => typeof(LogAnalyticsQueryPackQueryModel);
 

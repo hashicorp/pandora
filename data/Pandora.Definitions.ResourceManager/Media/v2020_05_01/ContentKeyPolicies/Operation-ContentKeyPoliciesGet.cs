@@ -15,7 +15,7 @@ namespace Pandora.Definitions.ResourceManager.Media.v2020_05_01.ContentKeyPolici
 
 internal class ContentKeyPoliciesGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ContentKeyPoliciesId();
+    public override ResourceID? ResourceId() => new ContentKeyPolicyId();
 
     public override Type? ResponseObject() => typeof(ContentKeyPolicyModel);
 

@@ -19,7 +19,7 @@ internal class CreateOperation : Operations.PutOperation
 
     public override Type? RequestObject() => typeof(DedicatedCapacityModel);
 
-    public override ResourceID? ResourceId() => new CapacitiesId();
+    public override ResourceID? ResourceId() => new CapacityId();
 
     public override Type? ResponseObject() => typeof(DedicatedCapacityModel);
 

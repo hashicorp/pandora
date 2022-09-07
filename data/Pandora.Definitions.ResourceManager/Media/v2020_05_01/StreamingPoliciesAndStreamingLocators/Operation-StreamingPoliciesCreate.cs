@@ -22,7 +22,7 @@ internal class StreamingPoliciesCreateOperation : Operations.PutOperation
 
     public override Type? RequestObject() => typeof(StreamingPolicyModel);
 
-    public override ResourceID? ResourceId() => new StreamingPoliciesId();
+    public override ResourceID? ResourceId() => new StreamingPolicyId();
 
     public override Type? ResponseObject() => typeof(StreamingPolicyModel);
 

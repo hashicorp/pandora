@@ -22,7 +22,7 @@ internal class CreateOperation : Operations.PutOperation
 
     public override Type? RequestObject() => typeof(AccessInformationCreateParametersModel);
 
-    public override ResourceID? ResourceId() => new AccesId();
+    public override ResourceID? ResourceId() => new AccessId();
 
     public override Type? ResponseObject() => typeof(AccessInformationContractModel);
 

@@ -15,7 +15,7 @@ namespace Pandora.Definitions.ResourceManager.Media.v2020_05_01.StreamingPolicie
 
 internal class StreamingPoliciesGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new StreamingPoliciesId();
+    public override ResourceID? ResourceId() => new StreamingPolicyId();
 
     public override Type? ResponseObject() => typeof(StreamingPolicyModel);
 

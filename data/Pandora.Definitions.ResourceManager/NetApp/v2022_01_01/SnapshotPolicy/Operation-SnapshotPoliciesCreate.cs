@@ -17,7 +17,7 @@ internal class SnapshotPoliciesCreateOperation : Operations.PutOperation
 {
     public override Type? RequestObject() => typeof(SnapshotPolicyModel);
 
-    public override ResourceID? ResourceId() => new SnapshotPoliciesId();
+    public override ResourceID? ResourceId() => new SnapshotPolicyId();
 
     public override Type? ResponseObject() => typeof(SnapshotPolicyModel);
 

@@ -25,7 +25,7 @@ internal class ResumeOperation : Operations.PostOperation
 
     public override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new CapacitiesId();
+    public override ResourceID? ResourceId() => new CapacityId();
 
     public override string? UriSuffix() => "/resume";
 

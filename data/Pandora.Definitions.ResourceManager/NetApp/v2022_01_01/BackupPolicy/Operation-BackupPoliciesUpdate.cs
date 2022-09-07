@@ -25,7 +25,7 @@ internal class BackupPoliciesUpdateOperation : Operations.PatchOperation
 
     public override Type? RequestObject() => typeof(BackupPolicyPatchModel);
 
-    public override ResourceID? ResourceId() => new BackupPoliciesId();
+    public override ResourceID? ResourceId() => new BackupPolicyId();
 
     public override Type? ResponseObject() => typeof(BackupPolicyModel);
 
