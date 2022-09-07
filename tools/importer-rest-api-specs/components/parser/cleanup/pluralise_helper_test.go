@@ -161,6 +161,14 @@ func TestSingularisingWords(t *testing.T) {
 			expected: "Data",
 		},
 		{
+			input:    "SomethingData",
+			expected: "SomethingData",
+		},
+		{
+			input:    "Somethingdata",
+			expected: "Somethingdata",
+		},
+		{
 			input:    "Metadata",
 			expected: "Metadata",
 		},

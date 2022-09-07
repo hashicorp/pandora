@@ -79,8 +79,8 @@ func specialCaseSuffixSingulars(input string) (resuls string, useValue bool) {
 		"Skus",
 	}
 	noChangeCases := []string{
-		"Metadata",
-		"metadata",
+		"Data",
+		"data",
 	}
 	for _, v := range specialCases {
 		if strings.HasSuffix(input, v) {
