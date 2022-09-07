@@ -2,7 +2,7 @@ module github.com/hashicorp/pandora/tools/generator-terraform/testattributes
 
 go 1.18
 
-replace github.com/hashicorp/pandora/tools/sdk => ../../../sdk
+replace github.com/hashicorp/pandora/tools/sdk => ./../../../sdk
 
 require (
 	github.com/hashicorp/hcl/v2 v2.13.0
