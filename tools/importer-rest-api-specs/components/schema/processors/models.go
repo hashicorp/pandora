@@ -2,7 +2,6 @@ package processors
 
 import (
 	"fmt"
-
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
@@ -11,13 +10,47 @@ type ModelProcessor interface {
 }
 
 var ModelRules = []ModelProcessor{
+	modelFlattenListReferenceIds{},
 	modelFlattenReferenceId{},
 }
 
 type modelFlattenListReferenceIds struct{}
 
 func (modelFlattenListReferenceIds) ProcessModel(modelName string, models map[string]resourcemanager.TerraformSchemaModelDefinition) (*map[string]resourcemanager.TerraformSchemaFieldDefinition, error) {
-	// TODO implement me
+	fields := make(map[string]resourcemanager.TerraformSchemaFieldDefinition)
+	shouldFlattenField := false
+
+	if len(models[modelName].Fields) != 1 {
+		return nil, nil
+	}
+
+	for fieldName, fieldValue := range models[modelName].Fields {
+		if fieldValue.ObjectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeList {
+			nestedModel, ok := models[*fieldValue.ObjectDefinition.ReferenceName]
+			if !ok {
+				return nil, fmt.Errorf("processing %s: nested model with referencen name %s not found", modelName, *fieldValue.ObjectDefinition.ReferenceName)
+			}
+
+			if len(nestedModel.Fields) != 1 {
+				return nil, nil
+			}
+
+			field, ok := nestedModel.Fields["Ids"]
+			if !ok {
+				return nil, nil
+			}
+
+			shouldFlattenField = true
+			if shouldFlattenField {
+				fieldValue.ObjectDefinition = resourcemanager.TerraformSchemaFieldObjectDefinition{
+					Type: field.ObjectDefinition.Type,
+				}
+			}
+			fieldName = fmt.Sprintf("%sIds", fieldName)
+			fields[fieldName] = fieldValue
+			return &fields, nil
+		}
+	}
 	return nil, nil
 }
 
@@ -26,6 +59,10 @@ type modelFlattenReferenceId struct{}
 func (modelFlattenReferenceId) ProcessModel(modelName string, models map[string]resourcemanager.TerraformSchemaModelDefinition) (*map[string]resourcemanager.TerraformSchemaFieldDefinition, error) {
 	fields := make(map[string]resourcemanager.TerraformSchemaFieldDefinition)
 	shouldFlattenField := false
+
+	if len(models[modelName].Fields) != 1 {
+		return nil, nil
+	}
 
 	for fieldName, fieldValue := range models[modelName].Fields {
 		if fieldValue.ObjectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeReference {
@@ -38,7 +75,7 @@ func (modelFlattenReferenceId) ProcessModel(modelName string, models map[string]
 				return nil, nil
 			}
 
-			_, ok = nestedModel.Fields["Id"]
+			field, ok := nestedModel.Fields["Id"]
 			if !ok {
 				return nil, nil
 			}
@@ -47,14 +84,15 @@ func (modelFlattenReferenceId) ProcessModel(modelName string, models map[string]
 
 			if shouldFlattenField {
 				fieldValue.ObjectDefinition = resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeString,
+					Type: field.ObjectDefinition.Type,
 				}
 			}
 			fieldName = fmt.Sprintf("%sId", fieldName)
 			fields[fieldName] = fieldValue
+			return &fields, nil
 		}
 	}
-	return &fields, nil
+	return nil, nil
 }
 
 // TODO move this to helpers like for field processors?

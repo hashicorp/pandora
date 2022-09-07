@@ -20,7 +20,6 @@ type FieldMetadata struct {
 var NamingRules = []FieldNameProcessor{
 	// Exists should be first rule in the list since that checks whether the field even exists in the model
 	fieldNameExists{},
-	//fieldNameFlattenListReferenceIds{},
 	fieldNameIs{},
 	fieldNamePluralToSingular{},
 	fieldNameRemoveResourcePrefix{},
