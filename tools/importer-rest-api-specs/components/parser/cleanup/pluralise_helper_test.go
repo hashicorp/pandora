@@ -47,12 +47,44 @@ func TestPluralisingWords(t *testing.T) {
 			input:    "key",
 			expected: "keys",
 		},
+		{
+			input:    "autoscaleAPI",
+			expected: "autoscaleAPIs",
+		},
+		{
+			input:    "API",
+			expected: "APIs",
+		},
+		{
+			input:    "Sku",
+			expected: "Skus",
+		},
+		{
+			input:    "sku",
+			expected: "skus",
+		},
+		{
+			input:    "SomethingSku",
+			expected: "SomethingSkus",
+		},
+		{
+			input:    "Data",
+			expected: "Data",
+		},
+		{
+			input:    "Metadata",
+			expected: "Metadata",
+		},
+		{
+			input:    "SomethingMetadata",
+			expected: "SomethingMetadata",
+		},
 	}
 
 	for _, v := range testData {
-		t.Logf("[DEBUG] Testing %s", v.input)
 
 		actual := GetPlural(v.input)
+		t.Logf("[DEBUG] Testing %s, got %s", v.input, actual)
 		if actual != v.expected {
 			t.Fatalf("Expected %s but got %s", v.expected, actual)
 		}
@@ -103,6 +135,46 @@ func TestSingularisingWords(t *testing.T) {
 		{
 			input:    "ServiceLinker",
 			expected: "ServiceLinker",
+		},
+		{
+			input:    "APIs",
+			expected: "API",
+		},
+		{
+			input:    "Skus",
+			expected: "Sku",
+		},
+		{
+			input:    "skus",
+			expected: "sku",
+		},
+		{
+			input:    "SomethingSkus",
+			expected: "SomethingSku",
+		},
+		{
+			input:    "AutoscaleAPIs",
+			expected: "AutoscaleAPI",
+		},
+		{
+			input:    "Data",
+			expected: "Data",
+		},
+		{
+			input:    "SomethingData",
+			expected: "SomethingData",
+		},
+		{
+			input:    "Somethingdata",
+			expected: "Somethingdata",
+		},
+		{
+			input:    "Metadata",
+			expected: "Metadata",
+		},
+		{
+			input:    "SomethingMetadata",
+			expected: "SomethingMetadata",
 		},
 	}
 
