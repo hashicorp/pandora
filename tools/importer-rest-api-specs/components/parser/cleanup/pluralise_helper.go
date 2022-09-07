@@ -76,6 +76,7 @@ func GetPlural(input string) string {
 func specialCaseSuffixSingulars(input string) (resuls string, useValue bool) {
 	specialCases := []string{
 		"APIs",
+		"Skus",
 	}
 	noChangeCases := []string{
 		"Metadata",

@@ -64,6 +64,10 @@ func TestPluralisingWords(t *testing.T) {
 			expected: "skus",
 		},
 		{
+			input:    "SomethingSku",
+			expected: "SomethingSkus",
+		},
+		{
 			input:    "Data",
 			expected: "Data",
 		},
@@ -143,6 +147,10 @@ func TestSingularisingWords(t *testing.T) {
 		{
 			input:    "skus",
 			expected: "sku",
+		},
+		{
+			input:    "SomethingSkus",
+			expected: "SomethingSku",
 		},
 		{
 			input:    "AutoscaleAPIs",
