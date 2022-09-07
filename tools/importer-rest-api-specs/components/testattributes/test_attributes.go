@@ -45,7 +45,7 @@ func (h TestAttributesHelpers) GetAttributesForTests(input resourcemanager.Terra
 	}
 
 	for _, fieldName := range sortedNames {
-		if err := h.codeForTestAttribute(input, input.Fields[fieldName].ObjectDefinition, fieldName, requiredOnly, hclBody); err != nil {
+		if err := h.codeForTestAttribute(input, input.Fields[fieldName].ObjectDefinition, input.Fields[fieldName].HclName, requiredOnly, hclBody); err != nil {
 			return err
 		}
 	}
