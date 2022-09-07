@@ -1,6 +1,7 @@
 package cleanup
 
 import (
+	"fmt"
 	"github.com/gertd/go-pluralize"
 	"log"
 	"strings"
@@ -24,6 +25,9 @@ const (
 // return values are case preserved to the input.
 func GetSingular(input string) string {
 	casing := detectCasing(input)
+	if special, ok := specialCaseSuffixSingulars(input); ok {
+		return special
+	}
 	for _, v := range invariablePlurals() {
 		if strings.EqualFold(input, v) {
 			log.Printf("got %q returning %q", input, returnCased(v, casing))
@@ -46,6 +50,10 @@ func GetSingular(input string) string {
 // GetPlural returns the plural of a given word
 // return values are case preserved to the input
 func GetPlural(input string) string {
+	if special, ok := specialCaseSuffixPlurals(input); ok {
+		return special
+	}
+
 	casing := detectCasing(input)
 	for _, v := range invariablePlurals() {
 		if strings.EqualFold(input, v) {
@@ -65,16 +73,56 @@ func GetPlural(input string) string {
 	return returnCased(output, casing)
 }
 
+func specialCaseSuffixSingulars(input string) (resuls string, useValue bool) {
+	specialCases := []string{
+		"APIs",
+	}
+	noChangeCases := []string{
+		"Metadata",
+		"metadata",
+	}
+	for _, v := range specialCases {
+		if strings.HasSuffix(input, v) {
+			return strings.TrimSuffix(input, "s"), true
+		}
+	}
+	for _, v := range noChangeCases {
+		if strings.HasSuffix(input, v) {
+			return input, true
+		}
+	}
+
+	return input, false
+}
+
+func specialCaseSuffixPlurals(input string) (result string, useValue bool) {
+	specialCases := []string{
+		"API",
+	}
+	noPluralCases := []string{
+		"Metadata",
+		"metadata",
+	}
+	for _, v := range specialCases {
+		if strings.HasSuffix(input, v) {
+			return fmt.Sprintf("%ss", input), true
+		}
+	}
+	for _, v := range noPluralCases {
+		if strings.HasSuffix(input, v) {
+			return input, true
+		}
+	}
+
+	return input, false
+}
+
 // irregularPlurals is an exceptions list for plurals that are not satisfied by go-pluralize
 // This list is unfortunately case sensitive for replacements due to the non-natural-language aspects of "words"
 // used in service names etc
 func irregularPlurals() []irregularPlural {
 
 	pluralisationExceptions := []irregularPlural{
-		{"API", "APIs"},
-		{"autoscaleAPI", "autoscaleAPIs"},
-		{"AutoscaleAPI", "AutoscaleAPIs"},
-		{"Autoscale_API", "Autoscale_APIs"},
 		{"cache", "caches"},
 		{"Cache", "Caches"},
 		{"sku", "skus"},
@@ -82,6 +130,7 @@ func irregularPlurals() []irregularPlural {
 		{"staticCache", "staticCaches"},
 		{"StaticCache", "StaticCaches"},
 	}
+
 	return pluralisationExceptions
 }
 
@@ -92,6 +141,7 @@ func invariablePlurals() []string {
 		"ContainerInstance",
 		"Cosmos-Db",
 		"Data",
+		"Metadata",
 		"Redis",
 		"Kusto",
 		"PowerBIDedicated",
@@ -100,17 +150,6 @@ func invariablePlurals() []string {
 }
 
 func detectCasing(input string) caseType {
-	specialCases := []string{
-		"API",
-		"APIs",
-		"AutoscaleAPI",
-		"AutoscaleAPIs",
-	}
-	for _, v := range specialCases {
-		if input == v {
-			return CAMEL
-		}
-	}
 	switch {
 	case input == strings.ToUpper(input):
 		return UPPER
