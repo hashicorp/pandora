@@ -267,14 +267,18 @@ type TerraformSchemaValidationDefinition struct {
 	Type TerraformSchemaValidationType `json:"type"`
 
 	// PossibleValues is an (optional) list of Possible Values allowed for this field.
-	PossibleValues *[]string `json:"possibleValues,omitempty"`
+	// NOTE: this can either be a []int64, []float64 or []string depending on the field.
+	PossibleValues *[]interface{} `json:"possibleValues,omitempty"`
 }
 
 type TerraformSchemaValidationType string
 
 const (
-	TerraformSchemaValidationTypeFixedValues  TerraformSchemaValidationType = "FixedValues"
-	TerraformSchemaValidationTypeNoEmptyValue TerraformSchemaValidationType = "NoEmptyValue"
+	// TerraformSchemaValidationTypePossibleValues specifies that there's a fixed set of possible values
+	// allowed for this field.
+	TerraformSchemaValidationTypePossibleValues TerraformSchemaValidationType = "PossibleValues"
+
+	// TODO: implement other types e.g. NoEmptyValues/Ranges
 )
 
 type TerraformSchemaFieldObjectDefinition struct {

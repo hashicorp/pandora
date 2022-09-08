@@ -1,7 +1,10 @@
 using System;
+using System.Linq;
 using System.Reflection;
 using Pandora.Data.Models;
 using Pandora.Definitions.Attributes;
+using Pandora.Definitions.Attributes.Validation;
+using ValidationDefinition = Pandora.Data.Models.ValidationDefinition;
 
 namespace Pandora.Data.Transformers;
 
@@ -11,6 +14,7 @@ public static class Validation
     {
         try
         {
+            // TODO: let's change this to be a range attribute, rather than a combo attribute?
             var optional = input.GetCustomAttribute<FieldValidationAttribute>();
             if (optional == null)
             {

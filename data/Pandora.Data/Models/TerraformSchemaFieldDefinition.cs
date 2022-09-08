@@ -12,7 +12,7 @@ public class TerraformSchemaFieldDefinition
     public TerraformSchemaObjectDefinition ObjectDefinition { get; set; }
     public bool Optional { get; set; }
     public bool Required { get; set; }
-    // public TerraformSchemaFieldValidationDefinition Validation { get; set; }
+    public TerraformSchemaFieldValidationDefinition? Validation { get; set; }
 
     public override bool Equals(object? obj)
     {

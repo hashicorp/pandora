@@ -1,12 +1,15 @@
 using System.Collections.Generic;
 using Pandora.Definitions.Attributes;
+using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CommonSchema;
+using Pandora.Definitions.ResourceManager.Compute.v2021_11_01.Compute;
 
 namespace Pandora.Definitions.ResourceManager.Compute.Terraform;
 
 public class VirtualMachineResourceSchema
 {
 
+    [PossibleValuesFromConstant(typeof(CachingTypesConstant))]
     [HclName("additional_capabilities")]
     [ForceNew]
     [Optional]
