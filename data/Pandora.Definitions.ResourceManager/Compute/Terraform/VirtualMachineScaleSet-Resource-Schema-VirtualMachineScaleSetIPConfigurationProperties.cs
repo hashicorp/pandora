@@ -42,8 +42,8 @@ public class VirtualMachineScaleSetResourceVirtualMachineScaleSetIPConfiguration
     public VirtualMachineScaleSetResourceVirtualMachineScaleSetPublicIPAddressConfigurationSchema PublicIPAddressConfiguration { get; set; }
 
 
-    [HclName("subnet_id")]
+    [HclName("subnet")]
     [Optional]
-    public VirtualMachineScaleSetResourceApiEntityReferenceSchema SubnetId { get; set; }
+    public VirtualMachineScaleSetResourceApiEntityReferenceSchema Subnet { get; set; }
 
 }

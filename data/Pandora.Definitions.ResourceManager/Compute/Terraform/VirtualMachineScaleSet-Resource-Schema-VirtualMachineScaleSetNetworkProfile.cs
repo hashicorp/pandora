@@ -7,9 +7,9 @@ namespace Pandora.Definitions.ResourceManager.Compute.Terraform;
 public class VirtualMachineScaleSetResourceVirtualMachineScaleSetNetworkProfileSchema
 {
 
-    [HclName("health_probe_id")]
+    [HclName("health_probe")]
     [Optional]
-    public VirtualMachineScaleSetResourceApiEntityReferenceSchema HealthProbeId { get; set; }
+    public VirtualMachineScaleSetResourceApiEntityReferenceSchema HealthProbe { get; set; }
 
 
     [HclName("network_api_version")]

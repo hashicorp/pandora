@@ -12,8 +12,8 @@ public class VirtualMachineResourceKeyVaultKeyReferenceSchema
     public string KeyUrl { get; set; }
 
 
-    [HclName("source_vault_id")]
+    [HclName("source_vault")]
     [Required]
-    public VirtualMachineResourceSubResourceSchema SourceVaultId { get; set; }
+    public VirtualMachineResourceSubResourceSchema SourceVault { get; set; }
 
 }

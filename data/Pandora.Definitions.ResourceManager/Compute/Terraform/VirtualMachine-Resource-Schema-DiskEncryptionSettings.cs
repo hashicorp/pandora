@@ -12,13 +12,13 @@ public class VirtualMachineResourceDiskEncryptionSettingsSchema
     public VirtualMachineResourceKeyVaultSecretReferenceSchema DiskEncryptionKey { get; set; }
 
 
+    [HclName("enabled")]
+    [Optional]
+    public bool Enabled { get; set; }
+
+
     [HclName("key_encryption_key")]
     [Optional]
     public VirtualMachineResourceKeyVaultKeyReferenceSchema KeyEncryptionKey { get; set; }
-
-
-    [HclName("d_enabled")]
-    [Optional]
-    public bool dEnabled { get; set; }
 
 }

@@ -7,9 +7,9 @@ namespace Pandora.Definitions.ResourceManager.Compute.Terraform;
 public class VirtualMachineScaleSetResourceVaultSecretGroupSchema
 {
 
-    [HclName("source_vault_id")]
+    [HclName("source_vault")]
     [Optional]
-    public VirtualMachineScaleSetResourceSubResourceSchema SourceVaultId { get; set; }
+    public VirtualMachineScaleSetResourceSubResourceSchema SourceVault { get; set; }
 
 
     [HclName("vault_certificate")]

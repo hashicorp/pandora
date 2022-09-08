@@ -32,8 +32,8 @@ public class VirtualMachineScaleSetResourceVirtualMachineScaleSetPublicIPAddress
     public string PublicIPAddressVersion { get; set; }
 
 
-    [HclName("public_ip_prefix_id")]
+    [HclName("public_ip_prefix")]
     [Optional]
-    public VirtualMachineScaleSetResourceSubResourceSchema PublicIPPrefixId { get; set; }
+    public VirtualMachineScaleSetResourceSubResourceSchema PublicIPPrefix { get; set; }
 
 }

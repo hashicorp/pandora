@@ -37,9 +37,9 @@ public class VirtualMachineScaleSetResourceVirtualMachineScaleSetNetworkConfigur
     public bool IPForwardingEnabled { get; set; }
 
 
-    [HclName("network_security_group_id")]
+    [HclName("network_security_group")]
     [Optional]
-    public VirtualMachineScaleSetResourceSubResourceSchema NetworkSecurityGroupId { get; set; }
+    public VirtualMachineScaleSetResourceSubResourceSchema NetworkSecurityGroup { get; set; }
 
 
     [HclName("primary")]

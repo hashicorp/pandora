@@ -7,13 +7,13 @@ namespace Pandora.Definitions.ResourceManager.Compute.Terraform;
 public class VirtualMachineScaleSetResourceSpotRestorePolicySchema
 {
 
+    [HclName("enabled")]
+    [Optional]
+    public bool Enabled { get; set; }
+
+
     [HclName("restore_timeout")]
     [Optional]
     public string RestoreTimeout { get; set; }
-
-
-    [HclName("d_enabled")]
-    [Optional]
-    public bool dEnabled { get; set; }
 
 }
