@@ -76,12 +76,17 @@ func (b Builder) identifyFieldsWithinPropertiesBlock(modelPrefix string, input o
 			}
 
 			fieldNameForTypedModel := ""
+			var err error
 			if hasRead {
-				fieldNameForTypedModel = updateFieldName(k, readPropertiesModel, resource)
+				fieldNameForTypedModel, err = updateFieldName(k, readPropertiesModel, resource)
 			} else if hasCreate {
-				fieldNameForTypedModel = updateFieldName(k, createPropertiesModel, resource)
+				fieldNameForTypedModel, err = updateFieldName(k, createPropertiesModel, resource)
 			} else if hasUpdate {
-				fieldNameForTypedModel = updateFieldName(k, updatePropertiesModel, resource)
+				fieldNameForTypedModel, err = updateFieldName(k, updatePropertiesModel, resource)
+			}
+
+			if err != nil {
+				return nil, err
 			}
 
 			var inputObjectDefinition resourcemanager.ApiObjectDefinition

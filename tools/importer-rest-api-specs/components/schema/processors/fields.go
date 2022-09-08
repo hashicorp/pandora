@@ -20,7 +20,7 @@ type FieldMetadata struct {
 var NamingRules = []FieldNameProcessor{
 	// Exists should be first rule in the list since that checks whether the field even exists in the model
 	fieldNameExists{},
-	fieldNameIs{},
+	fieldNameRemoveIsPrefix{},
 	fieldNamePluralToSingular{},
 	fieldNameRemoveResourcePrefix{},
 	fieldNameRenameBoolean{},
@@ -36,9 +36,9 @@ func (fieldNameExists) ProcessField(fieldName string, metadata FieldMetadata) (*
 	return nil, nil
 }
 
-type fieldNameIs struct{}
+type fieldNameRemoveIsPrefix struct{}
 
-func (fieldNameIs) ProcessField(fieldName string, metadata FieldMetadata) (*string, error) {
+func (fieldNameRemoveIsPrefix) ProcessField(fieldName string, metadata FieldMetadata) (*string, error) {
 	re := regexp.MustCompile("^Is[A-Z][a-z]*")
 	if re.MatchString(fieldName) {
 		updatedName := fieldName[2:]
@@ -64,6 +64,15 @@ type fieldNameRenameBoolean struct{}
 func (fieldNameRenameBoolean) ProcessField(fieldName string, metadata FieldMetadata) (*string, error) {
 	if metadata.Model.Fields[fieldName].ObjectDefinition.Type == resourcemanager.BooleanApiObjectDefinitionType {
 		var updatedFieldName *string
+
+		if strings.HasPrefix(strings.ToLower(fieldName), "enabled") {
+			updated := fmt.Sprintf("%sEnabled", fieldName[7:])
+			return &updated, nil
+		}
+		if strings.HasPrefix(strings.ToLower(fieldName), "disabled") {
+			updated := fmt.Sprintf("%sDisabled", fieldName[7:])
+			return &updated, nil
+		}
 		// flip `enable_X` / `disable_X` prefix
 		if strings.HasPrefix(strings.ToLower(fieldName), "enable") {
 			updated := fmt.Sprintf("%sEnabled", fieldName[6:])
@@ -97,52 +106,6 @@ func (fieldNameRemoveResourcePrefix) ProcessField(fieldName string, metadata Fie
 	}
 	return nil, nil
 }
-
-//
-//type fieldNameFlattenListReferenceIds struct{}
-//
-//func (fieldNameFlattenListReferenceIds) ProcessField(fieldName string, metadata FieldMetadata) (*string, error) {
-//	if model.Fields[fieldName].ObjectDefinition.Type == resourcemanager.ListApiObjectDefinitionType {
-//		modelName := ""
-//		if model.Fields[fieldName].ObjectDefinition.ReferenceName != nil {
-//			modelName = *model.Fields[fieldName].ObjectDefinition.ReferenceName
-//		} else if model.Fields[fieldName].ObjectDefinition.NestedItem.ReferenceName != nil {
-//			modelName = *model.Fields[fieldName].ObjectDefinition.NestedItem.ReferenceName
-//		} else {
-//			return nil, nil
-//		}
-//		model, ok := input.Models[modelName]
-//		if ok {
-//			if len(model.Fields) == 1 {
-//				// TODO Do we really need to check whether the Id is a reference?
-//				if _, ok := schema.GetField(model, "Ids"); ok {
-//					updatedFieldName := fmt.Sprintf("%sIds", fieldName)
-//					return &updatedFieldName, nil
-//				}
-//			}
-//		}
-//	}
-//	return nil, nil
-//}
-
-//type fieldNameRenameBlockId struct{}
-//
-//func (fieldNameRenameBlockId) ProcessField(fieldName string, input *Builder, model *resourcemanager.ModelDetails, _ *resourcemanager.TerraformResourceDetails) (*string, error) {
-//	if model.Fields[fieldName].ObjectDefinition.Type == resourcemanager.ReferenceApiObjectDefinitionType {
-//		model, ok := input.Models[*model.Fields[fieldName].ObjectDefinition.ReferenceName]
-//		if ok {
-//			if len(model.Fields) != 1 {
-//				for k, _ := range model.Fields {
-//					if strings.EqualFold(k, "Id") {
-//
-//					}
-//				}
-//			}
-//		}
-//
-//	}
-//	return nil, nil
-//}
 
 //TODO: if it's a List[Reference] and the model contains a single field `Id` then flatten this into `_ids`.
 //TODO: handling booleans `SomeBool` -> `SomeBoolEnabled` etc.

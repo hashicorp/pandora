@@ -88,17 +88,22 @@ func getField(model resourcemanager.ModelDetails, fieldName string) (*resourcema
 	return nil, false
 }
 
-func updateFieldName(fieldName string, model *resourcemanager.ModelDetails, resource *resourcemanager.TerraformResourceDetails) string {
+func updateFieldName(fieldName string, model *resourcemanager.ModelDetails, resource *resourcemanager.TerraformResourceDetails) (string, error) {
 	metadata := processors.FieldMetadata{
 		TerraformDetails: *resource,
 		Model:            *model,
 	}
 	for _, matcher := range processors.NamingRules {
-		if updatedFieldName, _ := matcher.ProcessField(fieldName, metadata); updatedFieldName != nil {
-			return *updatedFieldName
+		updatedFieldName, err := matcher.ProcessField(fieldName, metadata)
+		if err != nil {
+			return "", err
+		}
+
+		if updatedFieldName != nil {
+			return *updatedFieldName, nil
 		}
 	}
-	return fieldName
+	return fieldName, nil
 }
 
 func stringPointer(input string) *string {

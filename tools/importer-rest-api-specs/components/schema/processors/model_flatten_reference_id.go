@@ -8,7 +8,7 @@ import (
 
 type modelFlattenReferenceId struct{}
 
-func (modelFlattenReferenceId) ProcessModel(modelName string, models map[string]resourcemanager.TerraformSchemaModelDefinition) (*map[string]resourcemanager.TerraformSchemaFieldDefinition, error) {
+func (modelFlattenReferenceId) ProcessModel(modelName string, models map[string]resourcemanager.TerraformSchemaModelDefinition) (map[string]resourcemanager.TerraformSchemaModelDefinition, error) {
 	fields := make(map[string]resourcemanager.TerraformSchemaFieldDefinition)
 
 	model, ok := models[modelName]
@@ -17,7 +17,7 @@ func (modelFlattenReferenceId) ProcessModel(modelName string, models map[string]
 	}
 
 	if len(model.Fields) != 1 {
-		return &model.Fields, nil
+		return models, nil
 	}
 
 	for fieldName, fieldValue := range model.Fields {
@@ -50,6 +50,9 @@ func (modelFlattenReferenceId) ProcessModel(modelName string, models map[string]
 		updatedName := fmt.Sprintf("%sId", fieldName)
 		fields[updatedName] = fieldValue
 		delete(fields, fieldName)
+		model.Fields = fields
 	}
-	return &fields, nil
+
+	models[modelName] = model
+	return models, nil
 }

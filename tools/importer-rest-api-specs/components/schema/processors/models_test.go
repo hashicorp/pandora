@@ -8,6 +8,27 @@ import (
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
+func modelDefinitionsMatch(t *testing.T, first map[string]resourcemanager.TerraformSchemaModelDefinition, second map[string]resourcemanager.TerraformSchemaModelDefinition) bool {
+	if len(first) != len(second) {
+		t.Fatalf("first had %d models but second had %d models", len(first), len(second))
+		return false
+	}
+
+	for key, firstVal := range first {
+		secondVal, ok := second[key]
+		if !ok {
+			t.Fatalf("key %q was present in first but not second", key)
+			return false
+		}
+
+		if !fieldDefinitionsMatch(t, firstVal.Fields, secondVal.Fields) {
+			t.Fatalf("field definitions didn't match")
+			return false
+		}
+	}
+	return true
+}
+
 func fieldDefinitionsMatch(t *testing.T, first map[string]resourcemanager.TerraformSchemaFieldDefinition, second map[string]resourcemanager.TerraformSchemaFieldDefinition) bool {
 	// we can't use reflect.DeepEqual since there's pointers involved, so we'll do this the old-fashioned way
 	if len(first) != len(second) {

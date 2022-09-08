@@ -5,7 +5,7 @@ import (
 )
 
 type ModelProcessor interface {
-	ProcessModel(modelName string, models map[string]resourcemanager.TerraformSchemaModelDefinition) (*map[string]resourcemanager.TerraformSchemaFieldDefinition, error)
+	ProcessModel(modelName string, models map[string]resourcemanager.TerraformSchemaModelDefinition) (map[string]resourcemanager.TerraformSchemaModelDefinition, error)
 }
 
 var ModelRules = []ModelProcessor{
@@ -31,7 +31,7 @@ func processModels(input map[string]resourcemanager.TerraformSchemaModelDefiniti
 			}
 
 			if updatedFieldDefinition != nil {
-				value.Fields = *updatedFieldDefinition
+				//value.Fields = *updatedFieldDefinition
 			}
 			output[key] = value
 		}

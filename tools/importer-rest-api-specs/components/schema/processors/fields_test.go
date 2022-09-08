@@ -63,7 +63,7 @@ func TestProcessField_Exists(t *testing.T) {
 	}
 }
 
-func TestProcessField_Is(t *testing.T) {
+func TestProcessField_RemoveIsPrefix(t *testing.T) {
 	testData := []struct {
 		input         string
 		metadataInput FieldMetadata
@@ -89,7 +89,7 @@ func TestProcessField_Is(t *testing.T) {
 	for _, v := range testData {
 		t.Logf("[DEBUG] Testing %s", v.input)
 
-		actual, _ := fieldNameIs{}.ProcessField(v.input, v.metadataInput)
+		actual, _ := fieldNameRemoveIsPrefix{}.ProcessField(v.input, v.metadataInput)
 
 		if actual == nil {
 			if v.expected == nil {
@@ -179,7 +179,7 @@ func TestProcessField_PluralToSingular(t *testing.T) {
 	}
 }
 
-func TestProcessField_AppendEnabled(t *testing.T) {
+func TestProcessField_RenameBoolean(t *testing.T) {
 	testData := []struct {
 		fieldInput    string
 		metadataInput FieldMetadata
@@ -274,6 +274,21 @@ func TestProcessField_AppendEnabled(t *testing.T) {
 				},
 			},
 			expected: nil,
+		},
+		{
+			fieldInput: "Enabled",
+			metadataInput: FieldMetadata{
+				Model: resourcemanager.ModelDetails{
+					Fields: map[string]resourcemanager.FieldDetails{
+						"Enabled": {
+							ObjectDefinition: resourcemanager.ApiObjectDefinition{
+								Type: resourcemanager.BooleanApiObjectDefinitionType,
+							},
+						},
+					},
+				},
+			},
+			expected: stringPointer("Enabled"),
 		},
 	}
 

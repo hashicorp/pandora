@@ -8,14 +8,14 @@ import (
 
 type modelFlattenListReferenceIds struct{}
 
-func (modelFlattenListReferenceIds) ProcessModel(modelName string, models map[string]resourcemanager.TerraformSchemaModelDefinition) (*map[string]resourcemanager.TerraformSchemaFieldDefinition, error) {
+func (modelFlattenListReferenceIds) ProcessModel(modelName string, models map[string]resourcemanager.TerraformSchemaModelDefinition) (map[string]resourcemanager.TerraformSchemaModelDefinition, error) {
 	model, ok := models[modelName]
 	if !ok {
 		return nil, fmt.Errorf("a model was not found with the name %q", modelName)
 	}
 
 	if len(model.Fields) != 1 {
-		return &model.Fields, nil
+		return models, nil
 	}
 
 	fields := make(map[string]resourcemanager.TerraformSchemaFieldDefinition)
@@ -58,6 +58,9 @@ func (modelFlattenListReferenceIds) ProcessModel(modelName string, models map[st
 		updatedName := fmt.Sprintf("%sIds", fieldName)
 		fields[updatedName] = fieldValue
 		delete(fields, fieldName)
+		model.Fields = fields
 	}
-	return &fields, nil
+
+	models[modelName] = model
+	return models, nil
 }
