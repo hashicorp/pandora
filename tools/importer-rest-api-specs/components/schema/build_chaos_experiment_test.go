@@ -510,8 +510,17 @@ func TestBuildForChaosStudioExperimentWithRealData(t *testing.T) {
 	if val := selectorType.Validation; val != nil {
 		if val.PossibleValues == nil {
 			t.Errorf("expected validation for the field 'Type' (model: Selector) to have 4 items but it got nil")
-		} else if len(*val.PossibleValues) != 4 {
-			t.Errorf("expected validation for the field 'Type' (model: Selector) to have 4 items but it had %d", len(*val.PossibleValues))
+		} else {
+			possibleValues := *val.PossibleValues
+			if len(possibleValues) != 4 {
+				t.Errorf("expected validation for the field 'Type' (model: Selector) to have 4 items but it had %d", len(*val.PossibleValues))
+			}
+
+			for _, v := range possibleValues {
+				if _, ok := v.(string); !ok {
+					t.Errorf("expected possible values for 'Type` to be strings")
+				}
+			}
 		}
 	} else {
 		t.Errorf("expected the field 'Type' (model: Selector) to have Validation but it didn't")
@@ -604,8 +613,17 @@ func TestBuildForChaosStudioExperimentWithRealData(t *testing.T) {
 	if val := targetType.Validation; val != nil {
 		if val.PossibleValues == nil {
 			t.Errorf("expected validation for the field 'Type' (model: Target) to have 4 items but it got nil")
-		} else if len(*val.PossibleValues) != 1 {
-			t.Errorf("expected validation for the field 'Type' (model: Target) to have 4 items but it had %d", len(*val.PossibleValues))
+		} else {
+			possibleValues := *val.PossibleValues
+			if len(possibleValues) != 1 {
+				t.Errorf("expected validation for the field 'Type' (model: Target) to have 4 items but it had %d", len(*val.PossibleValues))
+			}
+
+			for _, v := range possibleValues {
+				if _, ok := v.(string); !ok {
+					t.Errorf("expected possible values for 'Type` to be strings")
+				}
+			}
 		}
 	} else {
 		t.Errorf("expected the field 'Type' (model: Target) to have Validation but it didn't")
