@@ -55,7 +55,7 @@ func (s Generator) generateTerraformDefinitions(apiVersion models.AzureApiDefini
 				return fmt.Errorf("the Schema Model %q was not found", details.SchemaModelName)
 			}
 			s.logger.Trace(fmt.Sprintf("Generating Resource Schema into %q", resourceSchemaFileName))
-			resourceSchemaCode, err := codeForTerraformSchemaModelDefinition(s.namespaceForTerraform, details.SchemaModelName, resourceSchema, details, resource)
+			resourceSchemaCode, err := codeForTerraformSchemaModelDefinition(s.namespaceForTerraform, details.SchemaModelName, resourceSchema, details, resource, s.apiVersionPackageName, resourcePackageName)
 			if err != nil {
 				return fmt.Errorf("generating Terraform Resource Schema for %s: %+v", label, err)
 			}
@@ -72,7 +72,7 @@ func (s Generator) generateTerraformDefinitions(apiVersion models.AzureApiDefini
 
 				nestedSchemaFileName := path.Join(s.workingDirectoryForTerraform, fmt.Sprintf("%s-Resource-Schema-%s.cs", details.ResourceName, strings.TrimPrefix(modelName, details.SchemaModelName)))
 				s.logger.Trace(fmt.Sprintf("Generating Model Schema into %q", nestedSchemaFileName))
-				nestedSchemaCode, err := codeForTerraformSchemaModelDefinition(s.namespaceForTerraform, modelName, model, details, resource)
+				nestedSchemaCode, err := codeForTerraformSchemaModelDefinition(s.namespaceForTerraform, modelName, model, details, resource, s.apiVersionPackageName, resourcePackageName)
 				if err != nil {
 					return fmt.Errorf("generating Terraform Resource Schema for Nested Schema %q: %+v", label, err)
 				}

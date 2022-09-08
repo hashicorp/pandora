@@ -2,9 +2,10 @@ package cleanup
 
 import (
 	"fmt"
-	"github.com/gertd/go-pluralize"
 	"log"
 	"strings"
+
+	"github.com/gertd/go-pluralize"
 )
 
 type irregularPlural = struct {
