@@ -44,12 +44,12 @@ func TestProcessModel_RemoveStatusAndDetail_Valid(t *testing.T) {
 				},
 				"Status": {
 					Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
-						"code": {
+						"Code": {
 							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
 								Type: resourcemanager.TerraformSchemaFieldTypeInteger,
 							},
 						},
-						"message": {
+						"Message": {
 							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
 								Type: resourcemanager.TerraformSchemaFieldTypeString,
 							},
@@ -58,7 +58,7 @@ func TestProcessModel_RemoveStatusAndDetail_Valid(t *testing.T) {
 				},
 				"Detail": {
 					Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
-						"message": {
+						"Message": {
 							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
 								Type: resourcemanager.TerraformSchemaFieldTypeString,
 							},
@@ -78,12 +78,12 @@ func TestProcessModel_RemoveStatusAndDetail_Valid(t *testing.T) {
 				},
 				"Status": {
 					Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
-						"code": {
+						"Code": {
 							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
 								Type: resourcemanager.TerraformSchemaFieldTypeInteger,
 							},
 						},
-						"message": {
+						"Message": {
 							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
 								Type: resourcemanager.TerraformSchemaFieldTypeString,
 							},
@@ -92,7 +92,7 @@ func TestProcessModel_RemoveStatusAndDetail_Valid(t *testing.T) {
 				},
 				"Detail": {
 					Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
-						"message": {
+						"Message": {
 							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
 								Type: resourcemanager.TerraformSchemaFieldTypeString,
 							},
