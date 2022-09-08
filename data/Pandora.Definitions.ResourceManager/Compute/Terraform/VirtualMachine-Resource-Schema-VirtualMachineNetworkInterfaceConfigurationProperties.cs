@@ -22,9 +22,9 @@ public class VirtualMachineResourceVirtualMachineNetworkInterfaceConfigurationPr
     public VirtualMachineResourceVirtualMachineNetworkInterfaceDnsSettingsConfigurationSchema DnsSettings { get; set; }
 
 
-    [HclName("dscp_configuration_id")]
+    [HclName("dscp_configuration")]
     [Optional]
-    public VirtualMachineResourceSubResourceSchema DscpConfigurationId { get; set; }
+    public VirtualMachineResourceSubResourceSchema DscpConfiguration { get; set; }
 
 
     [HclName("fpga_enabled")]
@@ -42,9 +42,9 @@ public class VirtualMachineResourceVirtualMachineNetworkInterfaceConfigurationPr
     public bool IPForwardingEnabled { get; set; }
 
 
-    [HclName("network_security_group_id")]
+    [HclName("network_security_group")]
     [Optional]
-    public VirtualMachineResourceSubResourceSchema NetworkSecurityGroupId { get; set; }
+    public VirtualMachineResourceSubResourceSchema NetworkSecurityGroup { get; set; }
 
 
     [HclName("primary")]

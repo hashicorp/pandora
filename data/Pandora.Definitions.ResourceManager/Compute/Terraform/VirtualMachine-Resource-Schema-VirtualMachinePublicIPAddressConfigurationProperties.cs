@@ -37,8 +37,8 @@ public class VirtualMachineResourceVirtualMachinePublicIPAddressConfigurationPro
     public string PublicIPAllocationMethod { get; set; }
 
 
-    [HclName("public_ip_prefix_id")]
+    [HclName("public_ip_prefix")]
     [Optional]
-    public VirtualMachineResourceSubResourceSchema PublicIPPrefixId { get; set; }
+    public VirtualMachineResourceSubResourceSchema PublicIPPrefix { get; set; }
 
 }

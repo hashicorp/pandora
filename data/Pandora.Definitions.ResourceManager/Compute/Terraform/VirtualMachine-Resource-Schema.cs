@@ -22,10 +22,10 @@ public class VirtualMachineResourceSchema
     public VirtualMachineResourceApplicationProfileSchema ApplicationProfile { get; set; }
 
 
-    [HclName("availability_set_id")]
+    [HclName("availability_set")]
     [ForceNew]
     [Optional]
-    public VirtualMachineResourceSubResourceSchema AvailabilitySetId { get; set; }
+    public VirtualMachineResourceSubResourceSchema AvailabilitySet { get; set; }
 
 
     [HclName("billing_profile")]
@@ -64,16 +64,16 @@ public class VirtualMachineResourceSchema
     public VirtualMachineResourceHardwareProfileSchema HardwareProfile { get; set; }
 
 
-    [HclName("host_group_id")]
+    [HclName("host")]
     [ForceNew]
     [Optional]
-    public VirtualMachineResourceSubResourceSchema HostGroupId { get; set; }
+    public VirtualMachineResourceSubResourceSchema Host { get; set; }
 
 
-    [HclName("host_id")]
+    [HclName("host_group")]
     [ForceNew]
     [Optional]
-    public VirtualMachineResourceSubResourceSchema HostId { get; set; }
+    public VirtualMachineResourceSubResourceSchema HostGroup { get; set; }
 
 
     [HclName("identity")]
@@ -123,10 +123,16 @@ public class VirtualMachineResourceSchema
     public string Priority { get; set; }
 
 
-    [HclName("proximity_placement_group_id")]
+    [HclName("proximity_placement_group")]
     [ForceNew]
     [Optional]
-    public VirtualMachineResourceSubResourceSchema ProximityPlacementGroupId { get; set; }
+    public VirtualMachineResourceSubResourceSchema ProximityPlacementGroup { get; set; }
+
+
+    [HclName("scale_set")]
+    [ForceNew]
+    [Optional]
+    public VirtualMachineResourceSubResourceSchema ScaleSet { get; set; }
 
 
     [HclName("scheduled_events_profile")]
@@ -162,12 +168,6 @@ public class VirtualMachineResourceSchema
     [ForceNew]
     [Optional]
     public string UserData { get; set; }
-
-
-    [HclName("virtual_machine_scale_set_id")]
-    [ForceNew]
-    [Optional]
-    public VirtualMachineResourceSubResourceSchema VirtualMachineScaleSetId { get; set; }
 
 
     [HclName("vm_id")]

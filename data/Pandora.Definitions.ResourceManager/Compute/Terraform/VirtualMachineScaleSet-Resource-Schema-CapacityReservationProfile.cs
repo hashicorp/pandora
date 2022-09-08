@@ -7,8 +7,8 @@ namespace Pandora.Definitions.ResourceManager.Compute.Terraform;
 public class VirtualMachineScaleSetResourceCapacityReservationProfileSchema
 {
 
-    [HclName("capacity_reservation_group_id")]
+    [HclName("capacity_reservation_group")]
     [Optional]
-    public VirtualMachineScaleSetResourceSubResourceSchema CapacityReservationGroupId { get; set; }
+    public VirtualMachineScaleSetResourceSubResourceSchema CapacityReservationGroup { get; set; }
 
 }

@@ -7,9 +7,9 @@ namespace Pandora.Definitions.ResourceManager.Compute.Terraform;
 public class VirtualMachineScaleSetResourceVMDiskSecurityProfileSchema
 {
 
-    [HclName("disk_encryption_set_id")]
+    [HclName("disk_encryption_set")]
     [Optional]
-    public VirtualMachineScaleSetResourceSubResourceSchema DiskEncryptionSetId { get; set; }
+    public VirtualMachineScaleSetResourceSubResourceSchema DiskEncryptionSet { get; set; }
 
 
     [HclName("security_encryption_type")]

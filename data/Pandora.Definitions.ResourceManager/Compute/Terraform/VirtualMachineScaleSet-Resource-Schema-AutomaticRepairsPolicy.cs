@@ -7,6 +7,11 @@ namespace Pandora.Definitions.ResourceManager.Compute.Terraform;
 public class VirtualMachineScaleSetResourceAutomaticRepairsPolicySchema
 {
 
+    [HclName("enabled")]
+    [Optional]
+    public bool Enabled { get; set; }
+
+
     [HclName("grace_period")]
     [Optional]
     public string GracePeriod { get; set; }
@@ -15,10 +20,5 @@ public class VirtualMachineScaleSetResourceAutomaticRepairsPolicySchema
     [HclName("repair_action")]
     [Optional]
     public string RepairAction { get; set; }
-
-
-    [HclName("d_enabled")]
-    [Optional]
-    public bool dEnabled { get; set; }
 
 }

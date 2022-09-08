@@ -25,9 +25,9 @@ public class VirtualMachineScaleSetResourceSchema
     public bool DoNotRunExtensionsOnOverprovisionedVMs { get; set; }
 
 
-    [HclName("host_group_id")]
+    [HclName("host_group")]
     [Optional]
-    public VirtualMachineScaleSetResourceSubResourceSchema HostGroupId { get; set; }
+    public VirtualMachineScaleSetResourceSubResourceSchema HostGroup { get; set; }
 
 
     [HclName("identity")]
@@ -63,10 +63,10 @@ public class VirtualMachineScaleSetResourceSchema
     public int PlatformFaultDomainCount { get; set; }
 
 
-    [HclName("proximity_placement_group_id")]
+    [HclName("proximity_placement_group")]
     [ForceNew]
     [Optional]
-    public VirtualMachineScaleSetResourceSubResourceSchema ProximityPlacementGroupId { get; set; }
+    public VirtualMachineScaleSetResourceSubResourceSchema ProximityPlacementGroup { get; set; }
 
 
     [HclName("scale_in_policy")]

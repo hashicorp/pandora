@@ -37,8 +37,8 @@ public class VirtualMachineResourceVirtualMachineNetworkInterfaceIPConfiguration
     public VirtualMachineResourceVirtualMachinePublicIPAddressConfigurationSchema PublicIPAddressConfiguration { get; set; }
 
 
-    [HclName("subnet_id")]
+    [HclName("subnet")]
     [Optional]
-    public VirtualMachineResourceSubResourceSchema SubnetId { get; set; }
+    public VirtualMachineResourceSubResourceSchema Subnet { get; set; }
 
 }

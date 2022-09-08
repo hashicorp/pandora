@@ -7,13 +7,13 @@ namespace Pandora.Definitions.ResourceManager.Compute.Terraform;
 public class VirtualMachineScaleSetResourceBootDiagnosticsSchema
 {
 
+    [HclName("enabled")]
+    [Optional]
+    public bool Enabled { get; set; }
+
+
     [HclName("storage_uri")]
     [Optional]
     public string StorageUri { get; set; }
-
-
-    [HclName("d_enabled")]
-    [Optional]
-    public bool dEnabled { get; set; }
 
 }

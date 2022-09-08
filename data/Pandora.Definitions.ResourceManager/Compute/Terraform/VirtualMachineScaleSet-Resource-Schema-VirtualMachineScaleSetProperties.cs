@@ -22,9 +22,9 @@ public class VirtualMachineScaleSetResourceVirtualMachineScaleSetPropertiesSchem
     public bool DoNotRunExtensionsOnOverprovisionedVMs { get; set; }
 
 
-    [HclName("host_group_id")]
+    [HclName("host_group")]
     [Optional]
-    public VirtualMachineScaleSetResourceSubResourceSchema HostGroupId { get; set; }
+    public VirtualMachineScaleSetResourceSubResourceSchema HostGroup { get; set; }
 
 
     [HclName("orchestration_mode")]
@@ -47,9 +47,9 @@ public class VirtualMachineScaleSetResourceVirtualMachineScaleSetPropertiesSchem
     public string ProvisioningState { get; set; }
 
 
-    [HclName("proximity_placement_group_id")]
+    [HclName("proximity_placement_group")]
     [Optional]
-    public VirtualMachineScaleSetResourceSubResourceSchema ProximityPlacementGroupId { get; set; }
+    public VirtualMachineScaleSetResourceSubResourceSchema ProximityPlacementGroup { get; set; }
 
 
     [HclName("scale_in_policy")]
