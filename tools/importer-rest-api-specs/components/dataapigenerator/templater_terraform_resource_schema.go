@@ -9,7 +9,7 @@ import (
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-func codeForTerraformSchemaModelDefinition(terraformNamespace, name string, model resourcemanager.TerraformSchemaModelDefinition, details resourcemanager.TerraformResourceDetails, resource models.AzureApiResource) (*string, error) {
+func codeForTerraformSchemaModelDefinition(terraformNamespace, name string, model resourcemanager.TerraformSchemaModelDefinition, details resourcemanager.TerraformResourceDetails, resource models.AzureApiResource, apiVersionPackageName, resourcePackageName string) (*string, error) {
 	// Make the schema ordered
 	fieldList := make([]string, 0)
 	for f := range model.Fields {
@@ -22,7 +22,7 @@ func codeForTerraformSchemaModelDefinition(terraformNamespace, name string, mode
 		def := model.Fields[fieldName]
 
 		// TODO: logger
-		fieldBody, err := dotNetFieldDefinitionForTerraformSchemaField(fieldName, def, resource.Constants, details.SchemaModels)
+		fieldBody, err := dotNetFieldDefinitionForTerraformSchemaField(fieldName, def, resource.Constants, details.SchemaModels, apiVersionPackageName, resourcePackageName)
 		if err != nil {
 			return nil, fmt.Errorf("determining the dotnet field for the terraform schema field %q: %+v", fieldName, err)
 		}
@@ -32,6 +32,7 @@ func codeForTerraformSchemaModelDefinition(terraformNamespace, name string, mode
 
 	out := fmt.Sprintf(`using System.Collections.Generic;
 using Pandora.Definitions.Attributes;
+using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CommonSchema;
 
 namespace %[1]s;
@@ -44,8 +45,8 @@ public class %[2]sSchema
 	return &out, nil
 }
 
-func dotNetFieldDefinitionForTerraformSchemaField(name string, input resourcemanager.TerraformSchemaFieldDefinition, constants map[string]resourcemanager.ConstantDetails, models map[string]resourcemanager.TerraformSchemaModelDefinition) (*string, error) {
-	typeName, err := dotNetTypeNameForTerraformFieldObjectDefinition(input.ObjectDefinition, constants, models)
+func dotNetFieldDefinitionForTerraformSchemaField(name string, input resourcemanager.TerraformSchemaFieldDefinition, constants map[string]resourcemanager.ConstantDetails, schemaModels map[string]resourcemanager.TerraformSchemaModelDefinition, apiVersionPackageName, resourcePackageName string) (*string, error) {
+	typeName, err := dotNetTypeNameForTerraformFieldObjectDefinition(input.ObjectDefinition, constants, schemaModels)
 	if err != nil {
 		return nil, fmt.Errorf("determining dotnet type name for field object definition: %+v", err)
 	}
@@ -64,14 +65,30 @@ func dotNetFieldDefinitionForTerraformSchemaField(name string, input resourceman
 		attributes = append(attributes, "[Required]")
 	}
 
-	// TODO: if this is a Constant we need to add appropriate validation
+	topLevelDefinition := topLevelFieldObjectDefinition(input.ObjectDefinition)
+	if topLevelDefinition.Type == resourcemanager.TerraformSchemaFieldTypeReference && topLevelDefinition.ReferenceName != nil {
+		if _, isConstant := constants[*topLevelDefinition.ReferenceName]; isConstant {
+			argument := fmt.Sprintf("[PossibleValuesFromConstant(typeof(%s.%s.%sConstant))]", apiVersionPackageName, resourcePackageName, *topLevelDefinition.ReferenceName)
+			attributes = append(attributes, argument)
+		}
+	}
+
 	// TODO: support for accessors (e.g. get only/set only/both)
 
+	sort.Strings(attributes)
 	out := fmt.Sprintf(`
 %s
 public %s %s { get; set; }
 `, strings.Join(attributes, "\n"), *typeName, name)
 	return &out, nil
+}
+
+func topLevelFieldObjectDefinition(input resourcemanager.TerraformSchemaFieldObjectDefinition) resourcemanager.TerraformSchemaFieldObjectDefinition {
+	if input.NestedObject != nil {
+		return topLevelFieldObjectDefinition(*input.NestedObject)
+	}
+
+	return input
 }
 
 func dotNetTypeNameForTerraformFieldObjectDefinition(input resourcemanager.TerraformSchemaFieldObjectDefinition, constants map[string]resourcemanager.ConstantDetails, models map[string]resourcemanager.TerraformSchemaModelDefinition) (*string, error) {

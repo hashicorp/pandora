@@ -150,23 +150,29 @@ func validatorsMatch(t *testing.T, first *resourcemanager.TerraformSchemaValidat
 		t.Fatalf("type's didn't match - first %q / second %q", string(first.Type), string(second.Type))
 		return false
 	}
-	if first.PossibleValues != nil {
-		if second.PossibleValues == nil {
-			t.Fatalf("possible values didn't match - first %+v / second nil", strings.Join(*first.PossibleValues, ", "))
-			return false
-		}
-
-		if !reflect.DeepEqual(*first.PossibleValues, *second.PossibleValues) {
-			t.Fatalf("possible values didn't match - first %q / second %q", strings.Join(*first.PossibleValues, ", "), strings.Join(*second.PossibleValues, ", "))
-			return false
-		}
-	}
-	if first.PossibleValues == nil && second.PossibleValues != nil {
-		t.Fatalf("possible values didn't match - first nil / second %+v", strings.Join(*second.PossibleValues, ", "))
+	firstValues := strings.Join(stringifyValues(first.PossibleValues), ", ")
+	secondValues := strings.Join(stringifyValues(second.PossibleValues), ", ")
+	if !reflect.DeepEqual(firstValues, secondValues) {
+		t.Fatalf("possible values didn't match - first %q / second %q", firstValues, secondValues)
 		return false
 	}
 
 	return true
+}
+
+func stringifyValues(input *[]interface{}) []string {
+	output := make([]string, 0)
+
+	if input != nil {
+		for _, val := range *input {
+			v, ok := val.(string)
+			if ok {
+				output = append(output, v)
+			}
+		}
+	}
+
+	return output
 }
 
 func valueForNilableString(input *string) string {
