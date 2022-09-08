@@ -51,43 +51,58 @@ func runImportForService(input RunInput, serviceName string, apiVersionsForServi
 	var resourceProvider *string
 	var terraformPackageName *string
 
-	for _, apiVersion := range apiVersionsForService {
-		versionLogger := logger.Named(fmt.Sprintf("Importer for API Version %q", apiVersion.ApiVersion))
+	consolidatedApiVersions := make(map[string][]discovery.ServiceInput)
 
+	// scan for fragmented API - e.g. Compute 2021-07-01
+	for _, v := range apiVersionsForService {
+		if _, ok := consolidatedApiVersions[v.ApiVersion]; !ok {
+			consolidatedApiVersions[v.ApiVersion] = []discovery.ServiceInput{v}
+		} else {
+			consolidatedApiVersions[v.ApiVersion] = append(consolidatedApiVersions[v.ApiVersion], v)
+		}
+	}
+	for apiVersion, api := range consolidatedApiVersions {
+		versionLogger := logger.Named(fmt.Sprintf("Importer for API Version %q", apiVersion))
 		// populate the service information based on this api version
 		if rootNamespace == "" {
-			rootNamespace = apiVersion.RootNamespace
+			rootNamespace = api[0].RootNamespace
 		}
-		if rootNamespace != "" && rootNamespace != apiVersion.RootNamespace {
+		if rootNamespace != "" && rootNamespace != api[0].RootNamespace {
 			// TODO: this is possible, just requires refactoring this.
-			return fmt.Errorf("different root namespaces were found for different api versions for the same service - previously found %q but got %q", rootNamespace, apiVersion.RootNamespace)
+			return fmt.Errorf("different root namespaces were found for different api versions for the same service - previously found %q but got %q", rootNamespace, api[0].RootNamespace)
 		}
-		if resourceProvider == nil && apiVersion.ResourceProvider != nil {
-			rpName := *apiVersion.ResourceProvider
+		if resourceProvider == nil && api[0].ResourceProvider != nil {
+			rpName := *api[0].ResourceProvider
 			resourceProvider = &rpName
 		}
-		if terraformPackageName == nil && apiVersion.TerraformServiceDefinition != nil {
-			packageName := apiVersion.TerraformServiceDefinition.TerraformPackageName
+		if terraformPackageName == nil && api[0].TerraformServiceDefinition != nil {
+			packageName := api[0].TerraformServiceDefinition.TerraformPackageName
 			terraformPackageName = &packageName
 		}
 
 		versionLogger.Trace("Task: Parsing Data..")
-		dataForApiVersion, err := task.parseDataForApiVersion(apiVersion, versionLogger)
-		if err != nil {
-			return fmt.Errorf("parsing data for Service %q / Version %q: %+v", apiVersion.ServiceName, apiVersion.ApiVersion, err)
+		dataForApiVersion := &models.AzureApiDefinition{
+			ServiceName: serviceName,
+			ApiVersion:  apiVersion,
+			Resources:   map[string]models.AzureApiResource{},
 		}
-		if dataForApiVersion == nil {
-			// e.g. service is ignored
-			versionLogger.Trace("no data returned - ignored etc - skipping")
-			return nil
+		for _, v := range api {
+			tempDataForApiVersion, err := task.parseDataForApiVersion(v, versionLogger)
+			if err != nil {
+				return fmt.Errorf("parsing data for Service %q / Version %q: %+v", v.ServiceName, v.ApiVersion, err)
+			}
+			for name, resource := range tempDataForApiVersion.Resources {
+				dataForApiVersion.Resources[name] = resource
+			}
 		}
 
-		// generate the schema
-		versionLogger.Trace(fmt.Sprintf("generating Terraform Details for Service %q / Version %q", apiVersion.ServiceName, apiVersion.ApiVersion))
-		dataForApiVersion, err = task.generateTerraformDetails(apiVersion, dataForApiVersion, versionLogger.Named("TerraformDetails"))
+		versionLogger.Trace(fmt.Sprintf("generating Terraform Details for Service %q / Version %q", serviceName, apiVersion))
+		var err error
+		dataForApiVersion, err = task.generateTerraformDetails(dataForApiVersion, versionLogger.Named("TerraformDetails"))
 		if err != nil {
-			return fmt.Errorf(fmt.Sprintf("generating Terraform Details for Service %q / Version %q: %+v", apiVersion.ServiceName, apiVersion.ApiVersion, err))
+			return fmt.Errorf(fmt.Sprintf("generating Terraform Details for Service %q / Version %q: %+v", serviceName, apiVersion, err))
 		}
+
 		//// TODO: stuff n things @stephybun
 		//log.Printf("Got Stuff: %+v", terraformDetails)
 		//
@@ -101,17 +116,16 @@ func runImportForService(input RunInput, serviceName string, apiVersionsForServi
 		versionLogger.Trace("Task: Applying Overrides from Existing Data..")
 		dataForApiVersion, err = task.applyOverridesFromExistingData(*dataForApiVersion, input.DataApiEndpoint, versionLogger)
 		if err != nil {
-			return fmt.Errorf("applying overrides for existing data for Service %q / Version %q: %+v", apiVersion.ServiceName, apiVersion.ApiVersion, err)
+			return fmt.Errorf("applying overrides for existing data for Service %q / Version %q: %+v", serviceName, apiVersion, err)
 		}
 
 		versionLogger.Trace("Task: Generating Data API Definitions..")
-		if err := task.generateApiDefinitions(apiVersion, *dataForApiVersion, swaggerGitSha, versionLogger); err != nil {
-			return fmt.Errorf("generating API Definitions for Service %q / Version %q: %+v", apiVersion.ServiceName, apiVersion.ApiVersion, err)
+		if err := task.generateApiDefinitions(api[0], *dataForApiVersion, swaggerGitSha, versionLogger); err != nil {
+			return fmt.Errorf("generating API Definitions for Service %q / Version %q: %+v", serviceName, apiVersion, err)
 		}
 
-		// finally once we have all of the information for this API version, add it to the list so that we can
-		// generate the canonical "Terraform Data Sources/Resources" for this Service
 		apiVersions = append(apiVersions, *dataForApiVersion)
+
 	}
 
 	logger.Trace("Task: Generating Service Definitions..")

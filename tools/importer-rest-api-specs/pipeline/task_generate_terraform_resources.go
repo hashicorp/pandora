@@ -6,14 +6,13 @@ import (
 	"strings"
 
 	"github.com/hashicorp/go-hclog"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/discovery"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/schema"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/transformer"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-func (pipelineTask) generateTerraformDetails(input discovery.ServiceInput, data *models.AzureApiDefinition, logger hclog.Logger) (*models.AzureApiDefinition, error) {
+func (pipelineTask) generateTerraformDetails(data *models.AzureApiDefinition, logger hclog.Logger) (*models.AzureApiDefinition, error) {
 	for key, resource := range data.Resources {
 		if resource.Terraform == nil {
 			continue
