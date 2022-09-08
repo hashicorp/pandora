@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Pandora.Definitions.Attributes;
+using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CommonSchema;
 
 namespace Pandora.Definitions.ResourceManager.Compute.Terraform;
@@ -29,6 +30,7 @@ public class VirtualMachineScaleSetResourceVirtualMachineScaleSetPropertiesSchem
 
     [HclName("orchestration_mode")]
     [Optional]
+    [PossibleValuesFromConstant(typeof(v2021_11_01.VirtualMachineScaleSets.OrchestrationModeConstant))]
     public string OrchestrationMode { get; set; }
 
 

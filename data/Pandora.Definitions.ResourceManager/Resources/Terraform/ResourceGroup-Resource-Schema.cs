@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Pandora.Definitions.Attributes;
+using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CommonSchema;
 
 namespace Pandora.Definitions.ResourceManager.Resources.Terraform;
@@ -7,14 +8,14 @@ namespace Pandora.Definitions.ResourceManager.Resources.Terraform;
 public class ResourceGroupResourceSchema
 {
 
-    [HclName("location")]
     [ForceNew]
+    [HclName("location")]
     [Required]
     public CommonSchema.Location Location { get; set; }
 
 
-    [HclName("name")]
     [ForceNew]
+    [HclName("name")]
     [Required]
     public string Name { get; set; }
 

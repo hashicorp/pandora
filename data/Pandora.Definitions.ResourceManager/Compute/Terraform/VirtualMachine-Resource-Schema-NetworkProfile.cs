@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Pandora.Definitions.Attributes;
+using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CommonSchema;
 
 namespace Pandora.Definitions.ResourceManager.Compute.Terraform;
@@ -9,6 +10,7 @@ public class VirtualMachineResourceNetworkProfileSchema
 
     [HclName("network_api_version")]
     [Optional]
+    [PossibleValuesFromConstant(typeof(v2021_11_01.VirtualMachines.NetworkApiVersionConstant))]
     public string NetworkApiVersion { get; set; }
 
 

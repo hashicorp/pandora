@@ -2,76 +2,75 @@ using System.Collections.Generic;
 using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CommonSchema;
-using Pandora.Definitions.ResourceManager.Compute.v2021_11_01.Compute;
 
 namespace Pandora.Definitions.ResourceManager.Compute.Terraform;
 
 public class VirtualMachineResourceSchema
 {
 
-    [PossibleValuesFromConstant(typeof(CachingTypesConstant))]
-    [HclName("additional_capabilities")]
     [ForceNew]
+    [HclName("additional_capabilities")]
     [Optional]
     public VirtualMachineResourceAdditionalCapabilitiesSchema AdditionalCapabilities { get; set; }
 
 
-    [HclName("application_profile")]
     [ForceNew]
+    [HclName("application_profile")]
     [Optional]
     public VirtualMachineResourceApplicationProfileSchema ApplicationProfile { get; set; }
 
 
-    [HclName("availability_set")]
     [ForceNew]
+    [HclName("availability_set")]
     [Optional]
     public VirtualMachineResourceSubResourceSchema AvailabilitySet { get; set; }
 
 
-    [HclName("billing_profile")]
     [ForceNew]
+    [HclName("billing_profile")]
     [Optional]
     public VirtualMachineResourceBillingProfileSchema BillingProfile { get; set; }
 
 
-    [HclName("capacity_reservation")]
     [ForceNew]
+    [HclName("capacity_reservation")]
     [Optional]
     public VirtualMachineResourceCapacityReservationProfileSchema CapacityReservation { get; set; }
 
 
-    [HclName("diagnostics_profile")]
     [ForceNew]
+    [HclName("diagnostics_profile")]
     [Optional]
     public VirtualMachineResourceDiagnosticsProfileSchema DiagnosticsProfile { get; set; }
 
 
-    [HclName("eviction_policy")]
     [ForceNew]
+    [HclName("eviction_policy")]
     [Optional]
+    [PossibleValuesFromConstant(typeof(v2021_11_01.VirtualMachines.VirtualMachineEvictionPolicyTypesConstant))]
     public string EvictionPolicy { get; set; }
 
 
-    [HclName("extensions_time_budget")]
     [ForceNew]
+    [HclName("extensions_time_budget")]
     [Optional]
     public string ExtensionsTimeBudget { get; set; }
 
 
-    [HclName("hardware_profile")]
     [ForceNew]
+    [HclName("hardware_profile")]
     [Optional]
     public VirtualMachineResourceHardwareProfileSchema HardwareProfile { get; set; }
 
 
-    [HclName("host")]
     [ForceNew]
+    [HclName("host")]
     [Optional]
     public VirtualMachineResourceSubResourceSchema Host { get; set; }
 
 
-    [HclName("host_group")]
     [ForceNew]
+    [HclName("host_group")]
     [Optional]
     public VirtualMachineResourceSubResourceSchema HostGroup { get; set; }
 
@@ -81,74 +80,75 @@ public class VirtualMachineResourceSchema
     public CommonSchema.SystemAndUserAssignedIdentity Identity { get; set; }
 
 
-    [HclName("instance_view")]
     [ForceNew]
+    [HclName("instance_view")]
     [Optional]
     public VirtualMachineResourceVirtualMachineInstanceViewSchema InstanceView { get; set; }
 
 
-    [HclName("location")]
     [ForceNew]
+    [HclName("location")]
     [Required]
     public CommonSchema.Location Location { get; set; }
 
 
-    [HclName("name")]
     [ForceNew]
+    [HclName("name")]
     [Required]
     public string Name { get; set; }
 
 
-    [HclName("network_profile")]
     [ForceNew]
+    [HclName("network_profile")]
     [Optional]
     public VirtualMachineResourceNetworkProfileSchema NetworkProfile { get; set; }
 
 
-    [HclName("os_profile")]
     [ForceNew]
+    [HclName("os_profile")]
     [Optional]
     public VirtualMachineResourceOSProfileSchema OsProfile { get; set; }
 
 
-    [HclName("platform_fault_domain")]
     [ForceNew]
+    [HclName("platform_fault_domain")]
     [Optional]
     public int PlatformFaultDomain { get; set; }
 
 
-    [HclName("priority")]
     [ForceNew]
+    [HclName("priority")]
     [Optional]
+    [PossibleValuesFromConstant(typeof(v2021_11_01.VirtualMachines.VirtualMachinePriorityTypesConstant))]
     public string Priority { get; set; }
 
 
-    [HclName("proximity_placement_group")]
     [ForceNew]
+    [HclName("proximity_placement_group")]
     [Optional]
     public VirtualMachineResourceSubResourceSchema ProximityPlacementGroup { get; set; }
 
 
-    [HclName("scale_set")]
     [ForceNew]
+    [HclName("scale_set")]
     [Optional]
     public VirtualMachineResourceSubResourceSchema ScaleSet { get; set; }
 
 
-    [HclName("scheduled_events_profile")]
     [ForceNew]
+    [HclName("scheduled_events_profile")]
     [Optional]
     public VirtualMachineResourceScheduledEventsProfileSchema ScheduledEventsProfile { get; set; }
 
 
-    [HclName("security_profile")]
     [ForceNew]
+    [HclName("security_profile")]
     [Optional]
     public VirtualMachineResourceSecurityProfileSchema SecurityProfile { get; set; }
 
 
-    [HclName("storage_profile")]
     [ForceNew]
+    [HclName("storage_profile")]
     [Optional]
     public VirtualMachineResourceStorageProfileSchema StorageProfile { get; set; }
 
@@ -158,20 +158,20 @@ public class VirtualMachineResourceSchema
     public CommonSchema.Tags Tags { get; set; }
 
 
-    [HclName("time_created")]
     [ForceNew]
+    [HclName("time_created")]
     [Optional]
     public System.DateTime TimeCreated { get; set; }
 
 
-    [HclName("user_data")]
     [ForceNew]
+    [HclName("user_data")]
     [Optional]
     public string UserData { get; set; }
 
 
-    [HclName("vm_id")]
     [ForceNew]
+    [HclName("vm_id")]
     [Optional]
     public string VmId { get; set; }
 

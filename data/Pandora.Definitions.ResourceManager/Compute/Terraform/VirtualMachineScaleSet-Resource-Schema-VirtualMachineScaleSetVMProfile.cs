@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Pandora.Definitions.Attributes;
+using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CommonSchema;
 
 namespace Pandora.Definitions.ResourceManager.Compute.Terraform;
@@ -29,6 +30,7 @@ public class VirtualMachineScaleSetResourceVirtualMachineScaleSetVMProfileSchema
 
     [HclName("eviction_policy")]
     [Optional]
+    [PossibleValuesFromConstant(typeof(v2021_11_01.VirtualMachineScaleSets.VirtualMachineEvictionPolicyTypesConstant))]
     public string EvictionPolicy { get; set; }
 
 
@@ -59,6 +61,7 @@ public class VirtualMachineScaleSetResourceVirtualMachineScaleSetVMProfileSchema
 
     [HclName("priority")]
     [Optional]
+    [PossibleValuesFromConstant(typeof(v2021_11_01.VirtualMachineScaleSets.VirtualMachinePriorityTypesConstant))]
     public string Priority { get; set; }
 
 

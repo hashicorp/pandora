@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Pandora.Definitions.Attributes;
+using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CommonSchema;
 
 namespace Pandora.Definitions.ResourceManager.Compute.Terraform;
@@ -9,16 +10,19 @@ public class VirtualMachineResourceOSDiskSchema
 
     [HclName("caching")]
     [Optional]
+    [PossibleValuesFromConstant(typeof(v2021_11_01.VirtualMachines.CachingTypesConstant))]
     public string Caching { get; set; }
 
 
     [HclName("create_option")]
+    [PossibleValuesFromConstant(typeof(v2021_11_01.VirtualMachines.DiskCreateOptionTypesConstant))]
     [Required]
     public string CreateOption { get; set; }
 
 
     [HclName("delete_option")]
     [Optional]
+    [PossibleValuesFromConstant(typeof(v2021_11_01.VirtualMachines.DiskDeleteOptionTypesConstant))]
     public string DeleteOption { get; set; }
 
 
@@ -54,6 +58,7 @@ public class VirtualMachineResourceOSDiskSchema
 
     [HclName("os_type")]
     [Optional]
+    [PossibleValuesFromConstant(typeof(v2021_11_01.VirtualMachines.OperatingSystemTypesConstant))]
     public string OsType { get; set; }
 
 

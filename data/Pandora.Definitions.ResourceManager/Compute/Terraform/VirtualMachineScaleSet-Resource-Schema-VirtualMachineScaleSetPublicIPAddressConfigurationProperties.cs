@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Pandora.Definitions.Attributes;
+using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CommonSchema;
 
 namespace Pandora.Definitions.ResourceManager.Compute.Terraform;
@@ -9,6 +10,7 @@ public class VirtualMachineScaleSetResourceVirtualMachineScaleSetPublicIPAddress
 
     [HclName("delete_option")]
     [Optional]
+    [PossibleValuesFromConstant(typeof(v2021_11_01.VirtualMachineScaleSets.DeleteOptionsConstant))]
     public string DeleteOption { get; set; }
 
 
@@ -29,6 +31,7 @@ public class VirtualMachineScaleSetResourceVirtualMachineScaleSetPublicIPAddress
 
     [HclName("public_ip_address_version")]
     [Optional]
+    [PossibleValuesFromConstant(typeof(v2021_11_01.VirtualMachineScaleSets.IPVersionConstant))]
     public string PublicIPAddressVersion { get; set; }
 
 

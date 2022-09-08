@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Pandora.Definitions.Attributes;
+using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CommonSchema;
 
 namespace Pandora.Definitions.ResourceManager.Compute.Terraform;
@@ -34,6 +35,7 @@ public class VirtualMachineResourceVirtualMachineInstanceViewSchema
 
     [HclName("hyper_v_generation")]
     [Optional]
+    [PossibleValuesFromConstant(typeof(v2021_11_01.VirtualMachines.HyperVGenerationTypeConstant))]
     public string HyperVGeneration { get; set; }
 
 
