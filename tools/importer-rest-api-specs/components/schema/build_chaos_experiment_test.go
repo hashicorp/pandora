@@ -8,7 +8,7 @@ import (
 )
 
 func TestBuildForChaosStudioExperimentWithRealData(t *testing.T) {
-	t.Skipf("TODO: update schema gen & re-enable this test")
+	//t.Skipf("TODO: update schema gen & re-enable this test")
 	builder := Builder{
 		constants: map[string]resourcemanager.ConstantDetails{
 			"TargetReferenceType": {
@@ -73,8 +73,11 @@ func TestBuildForChaosStudioExperimentWithRealData(t *testing.T) {
 					"Selector": {
 						JsonName: "selectors",
 						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							ReferenceName: stringPointer("Selector"),
-							Type:          resourcemanager.ListApiObjectDefinitionType,
+							NestedItem: &resourcemanager.ApiObjectDefinition{
+								ReferenceName: stringPointer("Selector"),
+								Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+							},
+							Type: resourcemanager.ListApiObjectDefinitionType,
 						},
 						Optional: true,
 					},
@@ -88,8 +91,11 @@ func TestBuildForChaosStudioExperimentWithRealData(t *testing.T) {
 					"Step": {
 						JsonName: "steps",
 						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							ReferenceName: stringPointer("Step"),
-							Type:          resourcemanager.ListApiObjectDefinitionType,
+							NestedItem: &resourcemanager.ApiObjectDefinition{
+								ReferenceName: stringPointer("Step"),
+								Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+							},
+							Type: resourcemanager.ListApiObjectDefinitionType,
 						},
 						Optional: true,
 					},
@@ -107,8 +113,11 @@ func TestBuildForChaosStudioExperimentWithRealData(t *testing.T) {
 					"Target": {
 						JsonName: "targets",
 						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							ReferenceName: stringPointer("Target"),
-							Type:          resourcemanager.ListApiObjectDefinitionType,
+							NestedItem: &resourcemanager.ApiObjectDefinition{
+								ReferenceName: stringPointer("Target"),
+								Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+							},
+							Type: resourcemanager.ListApiObjectDefinitionType,
 						},
 						Optional: false,
 					},
@@ -127,8 +136,11 @@ func TestBuildForChaosStudioExperimentWithRealData(t *testing.T) {
 					"Branch": {
 						JsonName: "branches",
 						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							ReferenceName: stringPointer("Branch"),
-							Type:          resourcemanager.ListApiObjectDefinitionType,
+							NestedItem: &resourcemanager.ApiObjectDefinition{
+								ReferenceName: stringPointer("Branch"),
+								Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+							},
+							Type: resourcemanager.ListApiObjectDefinitionType,
 						},
 						Optional: false,
 					},
@@ -165,8 +177,11 @@ func TestBuildForChaosStudioExperimentWithRealData(t *testing.T) {
 					"Action": {
 						JsonName: "actions",
 						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							ReferenceName: stringPointer("Action"),
-							Type:          resourcemanager.ListApiObjectDefinitionType,
+							NestedItem: &resourcemanager.ApiObjectDefinition{
+								ReferenceName: stringPointer("Action"),
+								Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+							},
+							Type: resourcemanager.ListApiObjectDefinitionType,
 						},
 						Optional: false,
 					},
@@ -404,10 +419,14 @@ func TestBuildForChaosStudioExperimentWithRealData(t *testing.T) {
 	if selector.ForceNew {
 		t.Errorf("expected the field 'Selector' to be !ForceNew but it was")
 	}
-	if selector.ObjectDefinition.ReferenceName == nil {
-		t.Errorf("expected the field 'Selector' to be have a reference to another model but it didn't")
-	} else if *selector.ObjectDefinition.ReferenceName != "ExperimentSelector" {
-		t.Errorf("expected the field 'Selector' to be have a reference to the 'ExperimentSelector' model but got %q", *selector.ObjectDefinition.ReferenceName)
+	if selector.ObjectDefinition.NestedObject == nil {
+		t.Errorf("expected the field 'Selector' to be have a nested reference to another model but it didn't")
+	} else {
+		if selector.ObjectDefinition.NestedObject.ReferenceName == nil {
+			t.Errorf("expected the field 'Selector' to be have a reference to the 'ExperimentSelector' model but got nil")
+		} else if *selector.ObjectDefinition.NestedObject.ReferenceName != "ExperimentSelector" {
+			t.Errorf("expected the field 'Selector' to be have a reference to the 'ExperimentSelector' model but got %q", *selector.ObjectDefinition.NestedObject.ReferenceName)
+		}
 	}
 
 	startOnCreation, ok := topLevelModel.Fields["StartOnCreation"]
@@ -446,10 +465,14 @@ func TestBuildForChaosStudioExperimentWithRealData(t *testing.T) {
 	if steps.ForceNew {
 		t.Errorf("expected the field 'Step' to be !ForceNew but it was")
 	}
-	if steps.ObjectDefinition.ReferenceName == nil {
-		t.Errorf("expected the field 'Step' to be have a reference to another model but it didn't")
-	} else if *steps.ObjectDefinition.ReferenceName != "ExperimentStep" {
-		t.Errorf("expected the field 'Step' to be have a reference to the 'ExperimentStep' model but got %q", *steps.ObjectDefinition.ReferenceName)
+	if steps.ObjectDefinition.NestedObject == nil {
+		t.Errorf("expected the field 'Step' to be have a nested reference to another model but it didn't")
+	} else {
+		if steps.ObjectDefinition.NestedObject.ReferenceName == nil {
+			t.Errorf("expected the field 'Step' to be have a reference to the 'ExperimentStep' model but got nil")
+		} else if *steps.ObjectDefinition.NestedObject.ReferenceName != "ExperimentStep" {
+			t.Errorf("expected the field 'Step' to be have a reference to the 'ExperimentStep' model but got %q", *steps.ObjectDefinition.ReferenceName)
+		}
 	}
 
 	selectorsModel := (*actual)["ExperimentSelector"]
@@ -483,6 +506,15 @@ func TestBuildForChaosStudioExperimentWithRealData(t *testing.T) {
 	}
 	if targets.ObjectDefinition.Type != resourcemanager.TerraformSchemaFieldTypeList {
 		t.Errorf("expected the field 'Target' (model: Selector) to have the type `list` but got %q", string(targets.ObjectDefinition.Type))
+	}
+	if targets.ObjectDefinition.NestedObject == nil {
+		t.Errorf("expected the field 'Target' to be have a nested reference to another model but it didn't")
+	} else {
+		if targets.ObjectDefinition.NestedObject.ReferenceName == nil {
+			t.Errorf("expected the field 'Target' (model: Selector) to be have a reference to the 'ExperimentTarget' model but got nil")
+		} else if *targets.ObjectDefinition.NestedObject.ReferenceName != "ExperimentTarget" {
+			t.Errorf("expected the field 'Target' (model: Selector) to be have a nested reference to the 'ExperimentTarget' model but got %q", *targets.ObjectDefinition.NestedObject.ReferenceName)
+		}
 	}
 
 	if !targets.Required {
@@ -542,10 +574,14 @@ func TestBuildForChaosStudioExperimentWithRealData(t *testing.T) {
 	if branch.ObjectDefinition.Type != resourcemanager.TerraformSchemaFieldTypeList {
 		t.Errorf("expected the field 'Branch' (model: Step) to have the type `list` but got %q", string(branch.ObjectDefinition.Type))
 	}
-	if branch.ObjectDefinition.ReferenceName == nil {
-		t.Errorf("expected the field 'Branch' to be have a reference to another model but it didn't")
-	} else if *branch.ObjectDefinition.ReferenceName != "ExperimentBranch" {
-		t.Errorf("expected the field 'Branch' (model: Step) to be have a reference to the 'ExperimentBranch' model but got %q", *branch.ObjectDefinition.ReferenceName)
+	if branch.ObjectDefinition.NestedObject == nil {
+		t.Errorf("expected the field 'Branch' to be have a nested reference to another model but it didn't")
+	} else {
+		if branch.ObjectDefinition.NestedObject.ReferenceName == nil {
+			t.Errorf("expected the field 'Branch' (model: Step) to be have a reference to the 'ExperimentBranch' model but got nil")
+		} else if *branch.ObjectDefinition.NestedObject.ReferenceName != "ExperimentBranch" {
+			t.Errorf("expected the field 'Branch' (model: Step) to be have a nested reference to the 'ExperimentBranch' model but got %q", *branch.ObjectDefinition.NestedObject.ReferenceName)
+		}
 	}
 	if !branch.Required {
 		t.Errorf("expected the field 'Branch' (model: Step) to be Required but it wasn't")
@@ -662,10 +698,15 @@ func TestBuildForChaosStudioExperimentWithRealData(t *testing.T) {
 	if actions.ObjectDefinition.Type != resourcemanager.TerraformSchemaFieldTypeList {
 		t.Errorf("expected the field 'Action' (model: Branch) to have the type `list` but got %q", string(actions.ObjectDefinition.Type))
 	}
-	if actions.ObjectDefinition.ReferenceName == nil {
-		t.Errorf("expected the field 'Action' (model: Branch) to be have a reference to another model but it didn't")
-	} else if *actions.ObjectDefinition.ReferenceName != "ExperimentAction" {
-		t.Errorf("expected the field 'Action' (model: Branch) to be have a reference to the 'ExperimentAction' model but got %q", *actions.ObjectDefinition.ReferenceName)
+	if actions.ObjectDefinition.NestedObject == nil {
+		t.Errorf("expected the field 'Action' (model: Branch) to be have a nested reference to another model but it didn't")
+	} else {
+		if actions.ObjectDefinition.NestedObject.ReferenceName == nil {
+			t.Errorf("expected the field 'Action' (model: Branch) to be have a reference to the 'ExperimentAction' model but got %q", *actions.ObjectDefinition.ReferenceName)
+		} else if *actions.ObjectDefinition.NestedObject.ReferenceName != "ExperimentAction" {
+			t.Errorf("expected the field 'Action' (model: Branch) to be have a reference to the 'ExperimentAction' model but got %q", *actions.ObjectDefinition.NestedObject.ReferenceName)
+		}
+
 	}
 	if !actions.Required {
 		t.Errorf("expected the field 'Action' (model: Branch) to be Required but it wasn't")
