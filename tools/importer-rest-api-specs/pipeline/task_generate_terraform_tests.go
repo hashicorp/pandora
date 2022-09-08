@@ -2,6 +2,7 @@ package pipeline
 
 import (
 	"fmt"
+	"strings"
 
 	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/hcl/v2"
@@ -71,9 +72,9 @@ func generateTestConfig(input resourcemanager.TerraformResourceDetails, required
 		return nil, err
 	}
 
-	output := fmt.Sprintf(`
+	output := strings.Replace(fmt.Sprintf(`
 %s
-`, hclwrite.Format(f.Bytes()))
+`, hclwrite.Format(f.Bytes())), "\"", "`", -1)
 	return &output, nil
 }
 
@@ -99,8 +100,8 @@ func generateImportTestConfig(input resourcemanager.TerraformResourceDetails) (*
 		})
 	}
 
-	output := fmt.Sprintf(`
+	output := strings.Replace(fmt.Sprintf(`
 %s
-`, hclwrite.Format(f.Bytes()))
+`, hclwrite.Format(f.Bytes())), "\"", "`", -1)
 	return &output, nil
 }
