@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Pandora.Definitions.Attributes;
+using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CommonSchema;
 
 namespace Pandora.Definitions.ResourceManager.Compute.Terraform;
@@ -19,6 +20,7 @@ public class VirtualMachineResourceMaintenanceRedeployStatusSchema
 
     [HclName("last_operation_result_code")]
     [Optional]
+    [PossibleValuesFromConstant(typeof(v2021_11_01.VirtualMachines.MaintenanceOperationResultCodeTypesConstant))]
     public string LastOperationResultCode { get; set; }
 
 

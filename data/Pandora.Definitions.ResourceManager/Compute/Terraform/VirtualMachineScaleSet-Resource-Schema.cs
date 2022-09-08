@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Pandora.Definitions.Attributes;
+using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CommonSchema;
 
 namespace Pandora.Definitions.ResourceManager.Compute.Terraform;
@@ -7,20 +8,20 @@ namespace Pandora.Definitions.ResourceManager.Compute.Terraform;
 public class VirtualMachineScaleSetResourceSchema
 {
 
-    [HclName("additional_capabilities")]
     [ForceNew]
+    [HclName("additional_capabilities")]
     [Optional]
     public VirtualMachineScaleSetResourceAdditionalCapabilitiesSchema AdditionalCapabilities { get; set; }
 
 
-    [HclName("automatic_repairs_policy")]
     [ForceNew]
+    [HclName("automatic_repairs_policy")]
     [Optional]
     public VirtualMachineScaleSetResourceAutomaticRepairsPolicySchema AutomaticRepairsPolicy { get; set; }
 
 
-    [HclName("do_not_run_extensions_on_overprovisioned_v_ms")]
     [ForceNew]
+    [HclName("do_not_run_extensions_on_overprovisioned_v_ms")]
     [Optional]
     public bool DoNotRunExtensionsOnOverprovisionedVMs { get; set; }
 
@@ -35,25 +36,26 @@ public class VirtualMachineScaleSetResourceSchema
     public CommonSchema.SystemAndUserAssignedIdentity Identity { get; set; }
 
 
-    [HclName("location")]
     [ForceNew]
+    [HclName("location")]
     [Required]
     public CommonSchema.Location Location { get; set; }
 
 
-    [HclName("name")]
     [ForceNew]
+    [HclName("name")]
     [Required]
     public string Name { get; set; }
 
 
     [HclName("orchestration_mode")]
     [Optional]
+    [PossibleValuesFromConstant(typeof(v2021_11_01.VirtualMachineScaleSets.OrchestrationModeConstant))]
     public string OrchestrationMode { get; set; }
 
 
-    [HclName("overprovision")]
     [ForceNew]
+    [HclName("overprovision")]
     [Optional]
     public bool Overprovision { get; set; }
 
@@ -63,20 +65,20 @@ public class VirtualMachineScaleSetResourceSchema
     public int PlatformFaultDomainCount { get; set; }
 
 
-    [HclName("proximity_placement_group")]
     [ForceNew]
+    [HclName("proximity_placement_group")]
     [Optional]
     public VirtualMachineScaleSetResourceSubResourceSchema ProximityPlacementGroup { get; set; }
 
 
-    [HclName("scale_in_policy")]
     [ForceNew]
+    [HclName("scale_in_policy")]
     [Optional]
     public VirtualMachineScaleSetResourceScaleInPolicySchema ScaleInPolicy { get; set; }
 
 
-    [HclName("single_placement_group")]
     [ForceNew]
+    [HclName("single_placement_group")]
     [Optional]
     public bool SinglePlacementGroup { get; set; }
 
@@ -101,14 +103,14 @@ public class VirtualMachineScaleSetResourceSchema
     public string UniqueId { get; set; }
 
 
-    [HclName("upgrade_policy")]
     [ForceNew]
+    [HclName("upgrade_policy")]
     [Optional]
     public VirtualMachineScaleSetResourceUpgradePolicySchema UpgradePolicy { get; set; }
 
 
-    [HclName("virtual_machine_profile")]
     [ForceNew]
+    [HclName("virtual_machine_profile")]
     [Optional]
     public VirtualMachineScaleSetResourceVirtualMachineScaleSetVMProfileSchema VirtualMachineProfile { get; set; }
 
