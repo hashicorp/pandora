@@ -50,9 +50,8 @@ func (modelFlattenReferenceId) ProcessModel(modelName string, models map[string]
 		updatedName := fmt.Sprintf("%sId", fieldName)
 		fields[updatedName] = fieldValue
 		delete(fields, fieldName)
-		model.Fields = fields
 	}
-
+	model.Fields = fields
 	models[modelName] = model
 	return models, nil
 }
