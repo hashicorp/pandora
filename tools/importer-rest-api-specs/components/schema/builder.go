@@ -207,7 +207,10 @@ func (b Builder) buildNestedModelDefinition(modelPrefix string, model resourcema
 			return nil, fmt.Errorf("converting ObjectDefinition for field to a TerraformFieldObjectDefinition: %+v", err)
 		}
 		definition.ObjectDefinition = *fieldObjectDefinition
-		fieldName := updateFieldName(k, b, &model, &details)
+		fieldName, err := updateFieldName(k, &model, &details)
+		if err != nil {
+			return nil, err
+		}
 		definition.HclName = convertToSnakeCase(fieldName)
 		out[fieldName] = definition
 	}
