@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using NUnit.Framework;
 using Pandora.Data.Models;
 using Pandora.Definitions.Attributes;
+using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CommonSchema;
 
 namespace Pandora.Data.Transformers;
 
 public static class TerraformSchemaFieldDefinitionTests
 {
-    // TODO: Mappings & Validation
+    // TODO: Mappings
 
     [TestCase]
     public static void ComputedAttributeGetsMapped()
@@ -185,6 +186,22 @@ public static class TerraformSchemaFieldDefinitionTests
         Assert.Null(actual.ObjectDefinition.NestedObject.NestedObject);
     }
 
+    [TestCase]
+    public static void MappingAFieldWithFixedPossibleValues()
+    {
+        var input = typeof(ModelContainingAFieldWithFixedPossibleValues).GetProperty("WithFixedPossibleValues");
+        Assert.NotNull(input);
+        var actual = TerraformSchemaFieldDefinition.Map(input!);
+        Assert.AreEqual(TerraformSchemaFieldType.String, actual.ObjectDefinition.Type);
+        Assert.Null(actual.ObjectDefinition.ReferenceName);
+        Assert.Null(actual.ObjectDefinition.NestedObject);
+
+        Assert.NotNull(actual.Validation);
+        Assert.AreEqual(TerraformSchemaFieldValidationType.PossibleValues, actual.Validation.Type);
+        Assert.NotNull(actual.Validation.PossibleValues);
+        Assert.AreEqual(new List<string> { "First1", "Second1" }, actual.Validation.PossibleValues!);
+    }
+
     private class ModelContainingAComputedAttribute
     {
         [Computed]
@@ -295,5 +312,22 @@ public static class TerraformSchemaFieldDefinitionTests
         [HclName("zones")]
         [Required]
         public ZonesMultiple Zones { get; set; }
+    }
+
+    private class ModelContainingAFieldWithFixedPossibleValues
+    {
+        [HclName("with_fixed_possible_values")]
+        [Optional]
+        [PossibleValuesFromConstant(typeof(SomeValues))]
+        public string WithFixedPossibleValues { get; set; }
+
+        private enum SomeValues
+        {
+            [System.ComponentModel.Description("First1")]
+            FirstOne,
+
+            [System.ComponentModel.Description("Second1")]
+            SecondOne,
+        }
     }
 }

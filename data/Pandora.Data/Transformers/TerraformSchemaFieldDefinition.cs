@@ -17,6 +17,7 @@ public static class TerraformSchemaFieldDefinition
 
         var hclAttribute = input.GetCustomAttribute<HclNameAttribute>();
         var objectDefinition = TerraformSchemaObjectDefinition.Map(input.PropertyType);
+        var validation = TerraformSchemaFieldValidationDefinition.Map(input);
         var definition = new Models.TerraformSchemaFieldDefinition
         {
             Name = input.Name,
@@ -35,6 +36,7 @@ public static class TerraformSchemaFieldDefinition
             },
             ObjectDefinition = objectDefinition,
             Documentation = new TerraformSchemaDocumentationDefinition(),
+            Validation = validation,
         };
         if (!definition.Computed && !definition.Optional && !definition.Required)
         {

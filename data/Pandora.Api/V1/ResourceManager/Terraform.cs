@@ -142,7 +142,8 @@ resource 'example_resource' 'example' {
             Optional = input.Optional,
             Required = input.Required,
             ObjectDefinition = objectDefinition,
-            // TODO: Mappings & Validation
+            Validation = MapValidation(input.Validation),
+            // TODO: Mappings
         };
     }
 
@@ -414,7 +415,7 @@ resource 'example_resource' 'example' {
         public string Type { get; set; }
 
         [JsonPropertyName("possibleValues")]
-        public List<string>? PossibleValues { get; set; }
+        public List<object>? PossibleValues { get; set; }
     }
 
     private enum TerraformSchemaFieldType
@@ -488,5 +489,29 @@ resource 'example_resource' 'example' {
 
         [JsonPropertyName("templateConfiguration")]
         public string? TemplateConfiguration { get; set; }
+    }
+
+    private enum TerraformSchemaFieldValidation
+    {
+        PossibleValues,
+    }
+
+    private static TerraformSchemaFieldValidationDefinition? MapValidation(Data.Models.TerraformSchemaFieldValidationDefinition? input)
+    {
+        if (input == null)
+        {
+            return null;
+        }
+
+        if (input.Type != Data.Models.TerraformSchemaFieldValidationType.PossibleValues)
+        {
+            throw new NotSupportedException($"TODO: implement validation for {input.Type.ToString()}");
+        }
+
+        return new TerraformSchemaFieldValidationDefinition
+        {
+            Type = TerraformSchemaFieldValidation.PossibleValues.ToString(),
+            PossibleValues = input.PossibleValues
+        };
     }
 }
