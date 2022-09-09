@@ -7,7 +7,7 @@ fmt:
 	find . -name '*.go' | grep -v vendor | xargs gofmt -s -w
 
 run: build
-	./generator-terraform
+	./generator-terraform generate
 
 test: build
 	go test -v ./...
