@@ -30,6 +30,7 @@ type GenerateCommand struct {
 	providerPrefix    string
 	outputDirectory   string
 	apiServerEndpoint string
+	serviceNamesRaw   string
 }
 
 func (*GenerateCommand) Help() string {
@@ -48,8 +49,8 @@ func (i *GenerateCommand) Run(args []string) int {
 	f := flag.NewFlagSet("generator-terraform", flag.ExitOnError)
 	f.StringVar(&i.apiServerEndpoint, "data-api", "http://localhost:5000", "-data-api=http://localhost:5000")
 	f.StringVar(&i.outputDirectory, "output-dir", "", "-output-dir=../generated-tf-dev")
-	// TODO: support for generating a given service only
-	if err := f.Parse(os.Args[1:]); err != nil {
+	f.StringVar(&i.serviceNamesRaw, "services", "", "A list of comma separated Service named from the Data API to import")
+	if err := f.Parse(args); err != nil {
 		log.Fatalf("parsing arguments: %+v", err)
 	}
 
@@ -72,19 +73,26 @@ func (i *GenerateCommand) run() error {
 
 	log.Printf("[DEBUG] Retrieving Services from Data API..")
 	client := resourcemanager.NewClient(i.apiServerEndpoint)
-	servicesToLoad := []string{
-		// TODO: support for specifying this on the CLI
-		"Compute",
-		"ElasticSan",
-		"Resources",
-	}
-	services, err := services.GetResourceManagerServicesByName(client, servicesToLoad)
-	if err != nil {
-		return fmt.Errorf("retrieving resource manager services: %+v", err)
+	var loadedServices services.ResourceManagerServices
+	servicesToLoad := strings.Split(i.serviceNamesRaw, ",")
+	if i.serviceNamesRaw != "" && len(servicesToLoad) > 0 {
+		log.Printf("[DEBUG] Loading the Services %q..", strings.Join(servicesToLoad, " / "))
+		services, err := services.GetResourceManagerServicesByName(client, servicesToLoad)
+		if err != nil {
+			return fmt.Errorf("retrieving resource manager services: %+v", err)
+		}
+		loadedServices = *services
+	} else {
+		log.Printf("[DEBUG] Loading All Services..")
+		services, err := services.GetResourceManagerServices(client)
+		if err != nil {
+			return fmt.Errorf("retrieving resource manager services: %+v", err)
+		}
+		loadedServices = *services
 	}
 
 	serviceInputs := make(map[string]models.ServiceInput)
-	for serviceName, service := range services.Services {
+	for serviceName, service := range loadedServices.Services {
 		log.Printf("[DEBUG] Service %q..", serviceName)
 		if !service.Details.Generate {
 			log.Printf("[DEBUG] .. is opted out of generation, skipping..")
