@@ -199,7 +199,8 @@ public static class TerraformSchemaFieldDefinitionTests
         Assert.NotNull(actual.Validation);
         Assert.AreEqual(TerraformSchemaFieldValidationType.PossibleValues, actual.Validation.Type);
         Assert.NotNull(actual.Validation.PossibleValues);
-        Assert.AreEqual(new List<string> { "First1", "Second1" }, actual.Validation.PossibleValues!);
+        Assert.AreEqual(TerraformSchemaFieldValidationPossibleType.String, actual.Validation.PossibleValues.Type);
+        Assert.AreEqual(new List<string> { "First1", "Second1" }, actual.Validation.PossibleValues.Values!);
     }
 
     private class ModelContainingAComputedAttribute
@@ -321,6 +322,7 @@ public static class TerraformSchemaFieldDefinitionTests
         [PossibleValuesFromConstant(typeof(SomeValues))]
         public string WithFixedPossibleValues { get; set; }
 
+        [ConstantType(ConstantTypeAttribute.ConstantType.String)]
         private enum SomeValues
         {
             [System.ComponentModel.Description("First1")]
