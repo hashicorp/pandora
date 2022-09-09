@@ -14,6 +14,7 @@ internal class Definition : ResourceDefinition
     public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
     {
         new QueryPacksCreateOrUpdateOperation(),
+        new QueryPacksCreateOrUpdateWithoutNameOperation(),
         new QueryPacksDeleteOperation(),
         new QueryPacksGetOperation(),
         new QueryPacksListOperation(),
