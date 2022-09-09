@@ -138,6 +138,12 @@ func (h PluginSdkAttributesHelpers) codeForPluginSdkAttribute(field resourcemana
 		attributes = append(attributes, fmt.Sprintf("Computed: %t", field.Computed))
 	}
 
+	validationAttributes, err := attributesForValidation(field.Validation)
+	if err != nil {
+		return nil, fmt.Errorf("building attributes for validation: %+v", err)
+	}
+	attributes = append(attributes, *validationAttributes...)
+
 	codeForObjectDefinition, err := h.attributesForObjectDefinition(field.ObjectDefinition)
 	if err != nil {
 		return nil, fmt.Errorf("building attributes for object definition: %+v", err)
@@ -151,6 +157,75 @@ func (h PluginSdkAttributesHelpers) codeForPluginSdkAttribute(field resourcemana
 }
 `, strings.Join(attributes, ",\n")))
 
+	return &output, nil
+}
+
+func attributesForValidation(input *resourcemanager.TerraformSchemaValidationDefinition) (*[]string, error) {
+	output := make([]string, 0)
+	if input != nil {
+		if input.Type != resourcemanager.TerraformSchemaValidationTypePossibleValues {
+			return nil, fmt.Errorf("unimplemented validation type: %q", string(input.Type))
+		}
+		if input.PossibleValues == nil {
+			return nil, fmt.Errorf("internal-error: type was PossibleValues but no PossibleValues were defined")
+		}
+
+		switch input.PossibleValues.Type {
+		case resourcemanager.TerraformSchemaValidationPossibleValueTypeFloat:
+			{
+				floatValues := make([]string, 0)
+				for i, v := range input.PossibleValues.Values {
+					val, ok := v.(float64)
+					if !ok {
+						return nil, fmt.Errorf("expected PossibleValues value to be an float64 but was %+v for index %d", v, i)
+					}
+
+					floatValues = append(floatValues, fmt.Sprintf("%f,", val))
+				}
+				// TODO: add this method to the SDK
+				output = append(output, fmt.Sprintf(`Validation: validation.FloatInSlice([]float{
+%s
+}, false)`, strings.Join(floatValues, "\n")))
+			}
+
+		case resourcemanager.TerraformSchemaValidationPossibleValueTypeInt:
+			{
+				intValues := make([]string, 0)
+				for i, v := range input.PossibleValues.Values {
+					val, ok := v.(int64)
+					if !ok {
+						return nil, fmt.Errorf("expected PossibleValues value to be an int64 but was %+v for index %d", v, i)
+					}
+
+					intValues = append(intValues, fmt.Sprintf("%d,", val))
+				}
+				output = append(output, fmt.Sprintf(`Validation: validation.IntInSlice([]int{
+%s
+}, false)`, strings.Join(intValues, "\n")))
+			}
+
+		case resourcemanager.TerraformSchemaValidationPossibleValueTypeString:
+			{
+				stringValues := make([]string, 0)
+				for i, v := range input.PossibleValues.Values {
+					val, ok := v.(string)
+					if !ok {
+						return nil, fmt.Errorf("expected PossibleValues value to be a string but was %+v for index %d", v, i)
+					}
+
+					stringValues = append(stringValues, fmt.Sprintf("%q,", val))
+				}
+				output = append(output, fmt.Sprintf(`Validation: validation.StringInSlice([]string{
+%s
+}, false)`, strings.Join(stringValues, "\n")))
+			}
+
+		default:
+			{
+				return nil, fmt.Errorf("unimplemented validation possible values type: %q", string(input.PossibleValues.Type))
+			}
+		}
+	}
 	return &output, nil
 }
 
