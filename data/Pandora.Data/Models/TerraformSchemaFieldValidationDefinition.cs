@@ -11,10 +11,30 @@ public class TerraformSchemaFieldValidationDefinition
     public TerraformSchemaFieldValidationType Type { get; set; }
 
     /// <summary>
-    /// Possible values is a List<int>, List<float> or List<string> defining
-    /// the list of possible values which are valid for this field.
+    /// PossibleValues defines the values for this field `Type` is set to `PossibleValues`.
     /// </summary>
-    public List<object>? PossibleValues { get; set; }
+    public TerraformSchemaFieldValidationPossibleTypes? PossibleValues { get; set; }
+}
+
+public class TerraformSchemaFieldValidationPossibleTypes
+{
+    /// <summary>
+    /// Type specifies the Type used for the PossibleValues (float/int/string)
+    /// </summary>
+    public TerraformSchemaFieldValidationPossibleType Type { get; set; }
+
+    /// <summary>
+    /// Values is a List<int>, List<float> or List<string> defining the list of
+    /// possible values which are valid for this field.
+    /// </summary>
+    public List<object> Values { get; set; }
+}
+
+public enum TerraformSchemaFieldValidationPossibleType
+{
+    Float,
+    Int,
+    String,
 }
 
 public enum TerraformSchemaFieldValidationType
