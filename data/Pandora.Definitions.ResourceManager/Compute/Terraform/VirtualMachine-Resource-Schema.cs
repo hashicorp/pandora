@@ -7,7 +7,6 @@ namespace Pandora.Definitions.ResourceManager.Compute.Terraform;
 
 public class VirtualMachineResourceSchema
 {
-
     [ForceNew]
     [HclName("additional_capabilities")]
     [Optional]

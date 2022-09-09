@@ -415,7 +415,16 @@ resource 'example_resource' 'example' {
         public string Type { get; set; }
 
         [JsonPropertyName("possibleValues")]
-        public List<object>? PossibleValues { get; set; }
+        public TerraformSchemaFieldValidationPossibleValuesDefinition? PossibleValues { get; set; }
+    }
+
+    private class TerraformSchemaFieldValidationPossibleValuesDefinition
+    {
+        [JsonPropertyName("type")]
+        public string Type { get; set; }
+
+        [JsonPropertyName("values")]
+        public List<object>? Values { get; set; }
     }
 
     private enum TerraformSchemaFieldType
@@ -491,12 +500,20 @@ resource 'example_resource' 'example' {
         public string? TemplateConfiguration { get; set; }
     }
 
+    private enum TerraformSchemaFieldValidationPossibleValueType
+    {
+        Float,
+        Int,
+        String,
+    }
+
     private enum TerraformSchemaFieldValidation
     {
         PossibleValues,
     }
 
-    private static TerraformSchemaFieldValidationDefinition? MapValidation(Data.Models.TerraformSchemaFieldValidationDefinition? input)
+    private static TerraformSchemaFieldValidationDefinition? MapValidation(
+        Data.Models.TerraformSchemaFieldValidationDefinition? input)
     {
         if (input == null)
         {
@@ -511,7 +528,28 @@ resource 'example_resource' 'example' {
         return new TerraformSchemaFieldValidationDefinition
         {
             Type = TerraformSchemaFieldValidation.PossibleValues.ToString(),
-            PossibleValues = input.PossibleValues
+            PossibleValues = new TerraformSchemaFieldValidationPossibleValuesDefinition
+            {
+                Type = MapTerraformSchemaFieldValidationPossibleValueType(input.PossibleValues.Type),
+                Values = input.PossibleValues.Values,
+            },
         };
+    }
+
+    private static string MapTerraformSchemaFieldValidationPossibleValueType(TerraformSchemaFieldValidationPossibleType input)
+    {
+        switch (input)
+        {
+            case TerraformSchemaFieldValidationPossibleType.Float:
+                return TerraformSchemaFieldValidationPossibleValueType.Float.ToString();
+
+            case TerraformSchemaFieldValidationPossibleType.Int:
+                return TerraformSchemaFieldValidationPossibleValueType.Int.ToString();
+
+            case TerraformSchemaFieldValidationPossibleType.String:
+                return TerraformSchemaFieldValidationPossibleValueType.String.ToString();
+        }
+
+        throw new NotSupportedException($"unimplemented validation type {input.ToString()}");
     }
 }
