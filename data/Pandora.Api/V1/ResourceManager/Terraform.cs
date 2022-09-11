@@ -9,7 +9,7 @@ using Pandora.Data.Repositories;
 namespace Pandora.Api.V1.ResourceManager;
 
 [ApiController]
-public class TerraformController : ControllerBase
+public partial class TerraformController : ControllerBase
 {
     private readonly IServiceReferencesRepository _repo;
 
@@ -75,6 +75,48 @@ resource 'example_resource' 'example' {
         if (input.UpdateMethod != null)
         {
             response.UpdateMethod = MapMethodDefinition(input.UpdateMethod!);
+        }
+
+        if (input.ResourceLabel == "resource_group")
+        {
+            var mappings = new List<FieldMappingDefinition>
+            {
+                // TODO: this needs a "nested model" kind of assignment
+                // new FieldMappingDefinition
+                // {
+                //     Type = FieldMappingDefinitionType.DirectAssignment.ToString(),
+                //     From = new FieldMappingFromDefinition
+                //     {
+                //         SchemaModelName = "ResourceGroupResourceSchema",
+                //         SchemaFieldPath = "Pandas",
+                //     },
+                //     To = new FieldMappingToDefinition
+                //     {
+                //         SdkFieldPath = "Pandas",
+                //         SdkTypeName = "ResourceGroup",
+                //     },
+                // },
+                new FieldMappingDefinition
+                {
+                    Type = FieldMappingDefinitionType.DirectAssignment.ToString(),
+                    From = new FieldMappingFromDefinition
+                    {
+                        SchemaModelName = "ResourceGroupResourceSchema",
+                        SchemaFieldPath = "DirectAssignmentField",
+                    },
+                    To = new FieldMappingToDefinition
+                    {
+                        SdkFieldPath = "DirectAssignmentReceiver",
+                        SdkTypeName = "ResourceGroup",
+                    },
+                },
+            };
+            response.Mappings = new MappingsDefinition
+            {
+                Create = mappings,
+                Read = mappings,
+                Update = mappings,
+            };
         }
 
         // TODO: Mappings should be an object containing `Type` (which allows us to pipe through `BooleanWhen` etc)
@@ -143,7 +185,6 @@ resource 'example_resource' 'example' {
             Required = input.Required,
             ObjectDefinition = objectDefinition,
             Validation = MapValidation(input.Validation),
-            // TODO: Mappings
         };
     }
 
@@ -219,301 +260,7 @@ resource 'example_resource' 'example' {
         };
     }
 
-    private class TerraformV1Response
-    {
-        [JsonPropertyName("dataSources")]
-        public Dictionary<string, DataSourceResponse> DataSources { get; set; }
-
-        [JsonPropertyName("resources")]
-        public Dictionary<string, ResourceResponse> Resources { get; set; }
-    }
-
-    private class DataSourceResponse
-    {
-        // TODO: stuff and things - don't forget to account for Single vs Plural DS's
-
-        [JsonPropertyName("apiVersion")]
-        public string ApiVersion { get; set; }
-
-        [JsonPropertyName("generate")]
-        public bool Generate => GenerateModel || GenerateSchema || (PluralDetails?.Generate ?? false) || (SingularDetails?.Generate ?? false);
-
-        [JsonPropertyName("generateModel")]
-        public bool GenerateModel { get; set; }
-
-        [JsonPropertyName("generateSchema")]
-        public bool GenerateSchema { get; set; }
-
-        [JsonPropertyName("plural")]
-        public TerraformDataSourceTypeDetails? PluralDetails { get; set; }
-
-        [JsonPropertyName("singular")]
-        public TerraformDataSourceTypeDetails? SingularDetails { get; set; }
-
-        // TODO: add other properties
-    }
-
-    private class TerraformDataSourceTypeDetails
-    {
-        [JsonPropertyName("description")]
-        public string Description { get; set; }
-
-        [JsonPropertyName("exampleUsageHcl")]
-        public string ExampleUsageHcl { get; set; }
-
-        [JsonPropertyName("generate")]
-        public bool Generate => GenerateModel || GenerateSchema || MethodDefinition.Generate;
-
-        [JsonPropertyName("generateModel")]
-        public bool GenerateModel { get; set; }
-
-        [JsonPropertyName("generateSchema")]
-        public bool GenerateSchema { get; set; }
-
-        [JsonPropertyName("methodDefinition")]
-        public MethodDefinition MethodDefinition { get; set; }
-
-        [JsonPropertyName("resourceLabel")]
-        public string ResourceLabel { get; set; }
-    }
-
-    private class ResourceResponse
-    {
-        // TODO: Schema [incl. Docs], Mappings, Tests etc
-        [JsonPropertyName("apiVersion")]
-        public string ApiVersion { get; set; }
-
-        [JsonPropertyName("createMethod")]
-        public MethodDefinition CreateMethod { get; set; }
-
-        [JsonPropertyName("deleteMethod")]
-        public MethodDefinition DeleteMethod { get; set; }
-
-        [JsonPropertyName("displayName")]
-        public string DisplayName { get; set; }
-
-        [JsonPropertyName("documentation")]
-        public ResourceDocumentationDefinition Documentation { get; set; }
-
-        [JsonPropertyName("generate")]
-        public bool Generate => DeleteMethod.Generate || GenerateModel || GenerateIdValidation || GenerateSchema;
-
-        [JsonPropertyName("generateModel")]
-        public bool GenerateModel { get; set; }
-
-        [JsonPropertyName("generateIdValidation")]
-        public bool GenerateIdValidation { get; set; }
-
-        [JsonPropertyName("generateSchema")]
-        public bool GenerateSchema { get; set; }
-
-        [JsonPropertyName("readMethod")]
-        public MethodDefinition ReadMethod { get; set; }
-
-        [JsonPropertyName("resource")]
-        public string Resource { get; set; }
-
-        [JsonPropertyName("resourceIdName")]
-        public string ResourceIdName { get; set; }
-
-        [JsonPropertyName("resourceName")]
-        public string ResourceName { get; set; }
-
-        [JsonPropertyName("schemaModelName")]
-        public string SchemaModelName { get; set; }
-
-        [JsonPropertyName("schemaModels")]
-        public Dictionary<string, TerraformSchemaDefinition> SchemaModels { get; set; }
-
-        [JsonPropertyName("tests")]
-        public TerraformResourceTestsDefinition Tests { get; set; }
-
-        [JsonPropertyName("updateMethod")]
-        public MethodDefinition? UpdateMethod { get; set; }
-    }
-
-    private class ResourceDocumentationDefinition
-    {
-        [JsonPropertyName("category")]
-        public string Category { get; set; }
-
-        [JsonPropertyName("description")]
-        public string Description { get; set; }
-
-        [JsonPropertyName("exampleUsageHcl")]
-        public string ExampleUsageHcl { get; set; }
-    }
-
-    private class MethodDefinition
-    {
-        [JsonPropertyName("generate")]
-        public bool Generate { get; set; }
-
-        [JsonPropertyName("methodName")]
-        public string MethodName { get; set; }
-
-        [JsonPropertyName("timeoutInMinutes")]
-        public int TimeoutInMinutes { get; set; }
-    }
-
-    private class TerraformSchemaDefinition
-    {
-        public Dictionary<string, TerraformSchemaFieldDefinition> Fields { get; set; }
-    }
-
-    private class TerraformSchemaObjectDefinition
-    {
-        [JsonPropertyName("nestedObject")]
-        public TerraformSchemaObjectDefinition? NestedObject { get; set; }
-
-        [JsonPropertyName("referenceName")]
-        public string? ReferenceName { get; set; }
-
-        [JsonPropertyName("type")]
-        public string Type { get; set; }
-    }
-
-    private class TerraformSchemaFieldDefinition
-    {
-        [JsonPropertyName("objectDefinition")]
-        public TerraformSchemaObjectDefinition ObjectDefinition { get; set; }
-
-        [JsonPropertyName("computed")]
-        public bool Computed { get; set; }
-
-        [JsonPropertyName("forceNew")]
-        public bool ForceNew { get; set; }
-
-        [JsonPropertyName("hclName")]
-        public string HclName { get; set; }
-
-        [JsonPropertyName("optional")]
-        public bool Optional { get; set; }
-
-        [JsonPropertyName("required")]
-        public bool Required { get; set; }
-
-        [JsonPropertyName("documentation")]
-        public TerraformSchemaDocumentationDefinition Documentation { get; set; }
-
-        [JsonPropertyName("mappings")]
-        public TerraformSchemaMappingDefinition Mappings { get; set; }
-
-        [JsonPropertyName("validation")]
-        public TerraformSchemaFieldValidationDefinition Validation { get; set; }
-    }
-
-    private class TerraformSchemaDocumentationDefinition
-    {
-        [JsonPropertyName("markdown")]
-        public string Markdown { get; set; }
-    }
-
-    private class TerraformSchemaFieldValidationDefinition
-    {
-        [JsonPropertyName("type")]
-        public string Type { get; set; }
-
-        [JsonPropertyName("possibleValues")]
-        public TerraformSchemaFieldValidationPossibleValuesDefinition? PossibleValues { get; set; }
-    }
-
-    private class TerraformSchemaFieldValidationPossibleValuesDefinition
-    {
-        [JsonPropertyName("type")]
-        public string Type { get; set; }
-
-        [JsonPropertyName("values")]
-        public List<object>? Values { get; set; }
-    }
-
-    private enum TerraformSchemaFieldType
-    {
-        // Core items
-        Boolean,
-        DateTime,
-        Integer,
-        Float,
-        List,
-        Reference,
-        Set,
-        String,
-
-        // CommonSchema items
-        EdgeZone,
-        Location,
-        IdentitySystemAssigned,
-        IdentitySystemAndUserAssigned,
-        IdentitySystemOrUserAssigned,
-        IdentityUserAssigned,
-        ResourceGroup,
-        Tags,
-        Zone,
-        Zones,
-        // NOTE: this intentionally doesn't contain the Legacy Identity Types since they're normalized in the schema
-        // to the regular identity types
-    }
-
-    private enum TerraformSchemaFieldValidationType
-    {
-        NoEmptyValue,
-        FixedValues,
-        // TODO: ResourceID, Range etc
-    }
-
-    private class TerraformSchemaMappingDefinition
-    {
-        [JsonPropertyName("resourceIdSegment")]
-        public string? ResourceIdSegment { get; set; }
-
-        [JsonPropertyName("sdkPathForCreate")]
-        public string? SDKPathForCreate { get; set; }
-
-        [JsonPropertyName("sdkPathForRead")]
-        public string? SDKPathForRead { get; set; }
-
-        [JsonPropertyName("sdkPathForUpdate")]
-        public string? SDKPathForUpdate { get; set; }
-
-        // TODO: we'll probably want to change those to objects in time to handle things like
-        // a `BooleanWhen` - e.g. for PrivateNetworkAccess where a const becomes a boolean
-    }
-
-    private class TerraformResourceTestsDefinition
-    {
-        [JsonPropertyName("basicConfiguration")]
-        public string BasicConfiguration { get; set; }
-
-        [JsonPropertyName("requiresImportConfiguration")]
-        public string RequiresImportConfiguration { get; set; }
-
-        [JsonPropertyName("completeConfiguration")]
-        public string? CompleteConfiguration { get; set; }
-
-        [JsonPropertyName("generate")]
-        public bool Generate { get; set; }
-
-        [JsonPropertyName("otherTests")]
-        public Dictionary<string, List<string>> OtherTests { get; set; }
-
-        [JsonPropertyName("templateConfiguration")]
-        public string? TemplateConfiguration { get; set; }
-    }
-
-    private enum TerraformSchemaFieldValidationPossibleValueType
-    {
-        Float,
-        Int,
-        String,
-    }
-
-    private enum TerraformSchemaFieldValidation
-    {
-        PossibleValues,
-    }
-
-    private static TerraformSchemaFieldValidationDefinition? MapValidation(
-        Data.Models.TerraformSchemaFieldValidationDefinition? input)
+    private static TerraformSchemaFieldValidationDefinition? MapValidation(Data.Models.TerraformSchemaFieldValidationDefinition? input)
     {
         if (input == null)
         {

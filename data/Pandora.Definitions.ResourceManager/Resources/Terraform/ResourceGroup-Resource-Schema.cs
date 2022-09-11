@@ -18,7 +18,14 @@ public class ResourceGroupResourceSchema
     [HclName("name")]
     [Required]
     public string Name { get; set; }
-
+    
+    [HclName("direct_assignment_field")]
+    [Optional]
+    public string DirectAssignmentField { get; set; }
+    
+    [HclName("pandas")]
+    [Optional]
+    public List<ResourceGroupResourcePandaSchema> Pandas { get; set; }
 
     [HclName("tags")]
     [Optional]

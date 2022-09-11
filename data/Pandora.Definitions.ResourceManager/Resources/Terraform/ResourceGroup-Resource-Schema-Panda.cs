@@ -5,11 +5,9 @@ using Pandora.Definitions.CommonSchema;
 
 namespace Pandora.Definitions.ResourceManager.Resources.Terraform;
 
-public class ResourceGroupResourceResourceGroupPropertiesSchema
+public class ResourceGroupResourcePandaSchema
 {
-
-    [HclName("provisioning_state")]
+    [HclName("name")]
     [Optional]
-    public string ProvisioningState { get; set; }
-
+    public string Name { get; set; }
 }
