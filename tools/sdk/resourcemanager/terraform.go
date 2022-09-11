@@ -84,6 +84,41 @@ type TerraformDataSourceTypeDetails struct {
 	ResourceLabel string `json:"resourceLabel"`
 }
 
+type FieldMappingDefinition struct {
+	Type MappingDefinitionType `json:"type"`
+	From struct {
+		SchemaModelName string `json:"schemaModelName"`
+		SchemaFieldPath string `json:"schemaFieldPath"`
+	} `json:"from"`
+	To struct {
+		SdkModelName interface{} `json:"sdkModelName"`
+		SdkTypeName  string      `json:"sdkTypeName"`
+		SdkFieldPath string      `json:"sdkFieldPath"`
+	} `json:"to"`
+	BooleanEquals interface{} `json:"booleanEquals"`
+	Manual        interface{} `json:"manual"`
+}
+
+type MappingDefinitionType string
+
+const (
+	BooleanEqualsMappingDefinitionType    MappingDefinitionType = "BooleanEquals"
+	BooleanInvertMappingDefinitionType    MappingDefinitionType = "BooleanInvert"
+	DirectAssignmentMappingDefinitionType MappingDefinitionType = "DirectAssignment"
+	// TODO: more
+)
+
+type MappingDefinition struct {
+	// Create defines the mappings used during the Create function.
+	Create []FieldMappingDefinition `json:"create"`
+
+	// Read defines the mappings used during the Read function.
+	Read []FieldMappingDefinition `json:"read"`
+
+	// Update (optionally) defines the mappings used during the Update function.
+	Update *[]FieldMappingDefinition `json:"update,omitempty"`
+}
+
 type TerraformResourceDetails struct {
 	// ApiVersion specifies the version of the Api which should be used for
 	// this resource.
@@ -119,6 +154,9 @@ type TerraformResourceDetails struct {
 	// GenerateSchema controls whether the Schema should be generated for this
 	// Resource.
 	GenerateSchema bool `json:"generateSchema"`
+
+	// Mappings defines the Mappings used for this Terraform Resource.
+	Mappings MappingDefinition `json:"mappings"`
 
 	// ReadMethod describes the method within the SDK Package that should
 	// be used to retrieve information about this resource in Terraform.
@@ -184,10 +222,6 @@ type TerraformSchemaFieldDefinition struct {
 	// Documentation specifies the Documentation available for this field
 	Documentation TerraformSchemaDocumentationDefinition `json:"documentation"`
 
-	// Mappings specifies the Mapping associated with this field, namely where does the value
-	// for this field get used and where does it's value get retrieved from.
-	Mappings TerraformSchemaFieldMappingDefinition `json:"mappings"`
-
 	// Validation specifies the validation criteria for this field, for example a set of fixed values
 	Validation *TerraformSchemaValidationDefinition `json:"validation,omitempty"`
 }
@@ -232,24 +266,6 @@ const (
 	TerraformSchemaFieldTypeZone                          TerraformSchemaFieldType = "Zone"
 	TerraformSchemaFieldTypeZones                         TerraformSchemaFieldType = "Zones"
 )
-
-type TerraformSchemaFieldMappingDefinition struct {
-	// ResourceIdSegment specifies the name of the Resource ID Segment which this Schema
-	// Field maps both to and from.
-	ResourceIdSegment *string `json:"resourceIdSegment"`
-
-	// SdkPathForCreate (optionally) specifies the path on the SDK Model used for the Create
-	// function where this field should be specified.
-	SdkPathForCreate *string `json:"sdkPathForCreate"`
-
-	// SdkPathForRead (optionally) specifies the path on the SDK Model used for the Read
-	// function where this field should be specified.
-	SdkPathForRead *string `json:"sdkPathForRead"`
-
-	// SdkPathForUpdate (optionally) specifies the path on the SDK Model used for the
-	// Update function where this field should be specified.
-	SdkPathForUpdate *string `json:"sdkPathForUpdate"`
-}
 
 type TerraformSchemaModelDefinition struct {
 	// Fields is a Map of Field Name -> TerraformSchemaFieldDefinition defining the fields
