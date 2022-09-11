@@ -10,6 +10,8 @@ import (
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
+// TODO: re-introduce Mappings for both Resource ID <-> Schema and Schema <-> SDK
+
 // Create is complex enough that testing every permutation at the top level is complicated
 // so we'll test the happy path and then each individual component
 
@@ -111,9 +113,6 @@ func TestComponentCreate_HappyPathDisabled(t *testing.T) {
 }
 
 func TestComponentCreate_HappyPathFieldsInModelEnabled(t *testing.T) {
-	// TODO: remove this once the feature-flag is properly threaded through
-	featureflags.OutputMappings = true
-
 	input := models.ResourceInput{
 		Constants: nil,
 		Details: resourcemanager.TerraformResourceDetails{
@@ -145,9 +144,6 @@ func TestComponentCreate_HappyPathFieldsInModelEnabled(t *testing.T) {
 							Required: true,
 							ForceNew: true,
 							HclName:  "resource_group_name",
-							Mappings: resourcemanager.TerraformSchemaFieldMappingDefinition{
-								ResourceIdSegment: stringPointer("resourceGroupName"),
-							},
 						},
 					},
 				},
@@ -236,9 +232,6 @@ func TestComponentCreate_HappyPathFieldsInModelEnabled(t *testing.T) {
 						Required: true,
 						ForceNew: true,
 						HclName:  "resource_group_name",
-						Mappings: resourcemanager.TerraformSchemaFieldMappingDefinition{
-							ResourceIdSegment: stringPointer("resourceGroupName"),
-						},
 					},
 					"SomeField": {
 						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
@@ -247,9 +240,6 @@ func TestComponentCreate_HappyPathFieldsInModelEnabled(t *testing.T) {
 						Required: true,
 						ForceNew: true,
 						HclName:  "some_field",
-						Mappings: resourcemanager.TerraformSchemaFieldMappingDefinition{
-							SdkPathForCreate: stringPointer("SomeSdkField"),
-						},
 					},
 				},
 			},
@@ -329,9 +319,6 @@ func TestComponentCreate_HappyPathResourceIdFieldsOnlyEnabled(t *testing.T) {
 							Required: true,
 							ForceNew: true,
 							HclName:  "resource_group_name",
-							Mappings: resourcemanager.TerraformSchemaFieldMappingDefinition{
-								ResourceIdSegment: stringPointer("resourceGroupName"),
-							},
 						},
 					},
 				},
@@ -413,9 +400,6 @@ func TestComponentCreate_HappyPathResourceIdFieldsOnlyEnabled(t *testing.T) {
 						Required: true,
 						ForceNew: true,
 						HclName:  "resource_group_name",
-						Mappings: resourcemanager.TerraformSchemaFieldMappingDefinition{
-							ResourceIdSegment: stringPointer("resourceGroupName"),
-						},
 					},
 				},
 			},
@@ -645,9 +629,6 @@ func TestComponentCreate_IdDefinitionAndMapping_CommonResourceIDWithSubscription
 					},
 					Required: true,
 					ForceNew: true,
-					Mappings: resourcemanager.TerraformSchemaFieldMappingDefinition{
-						ResourceIdSegment: stringPointer("resourceGroupName"),
-					},
 				},
 			},
 		},
@@ -690,9 +671,6 @@ func TestComponentCreate_IdDefinitionAndMapping_CommonResourceIDWithoutSubscript
 					},
 					Required: true,
 					ForceNew: true,
-					Mappings: resourcemanager.TerraformSchemaFieldMappingDefinition{
-						ResourceIdSegment: stringPointer("resourceGroupName"),
-					},
 				},
 			},
 		},
@@ -743,9 +721,6 @@ func TestComponentCreate_IdDefinitionAndMapping_RegularResourceIDWithSubscriptio
 					},
 					Required: true,
 					ForceNew: true,
-					Mappings: resourcemanager.TerraformSchemaFieldMappingDefinition{
-						ResourceIdSegment: stringPointer("resourceGroupName"),
-					},
 				},
 			},
 		},
@@ -788,9 +763,6 @@ func TestComponentCreate_IdDefinitionAndMapping_RegularResourceIDWithoutSubscrip
 					},
 					Required: true,
 					ForceNew: true,
-					Mappings: resourcemanager.TerraformSchemaFieldMappingDefinition{
-						ResourceIdSegment: stringPointer("resourceGroupName"),
-					},
 				},
 			},
 		},
@@ -855,9 +827,6 @@ func TestComponentCreate_MappingsFromSchema_TopLevelFields(t *testing.T) {
 						Type: resourcemanager.TerraformSchemaFieldTypeString,
 					},
 					Required: true,
-					Mappings: resourcemanager.TerraformSchemaFieldMappingDefinition{
-						SdkPathForCreate: stringPointer("SomeSchemaField"),
-					},
 				},
 			},
 		},

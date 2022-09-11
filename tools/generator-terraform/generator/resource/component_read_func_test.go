@@ -9,6 +9,8 @@ import (
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
+// TODO: re-introduce Mappings for both Resource ID <-> Schema and Schema <-> SDK
+
 func TestComponentReadFunc_CommonId_Disabled(t *testing.T) {
 	input := models.ResourceInput{
 		ResourceTypeName: "Example",
@@ -160,9 +162,6 @@ func TestComponentReadFunc_CommonId_Enabled(t *testing.T) {
 						},
 						Required: true,
 						ForceNew: true,
-						Mappings: resourcemanager.TerraformSchemaFieldMappingDefinition{
-							ResourceIdSegment: stringPointer("resourceGroupName"),
-						},
 					},
 					"SomeField": {
 						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
@@ -171,9 +170,6 @@ func TestComponentReadFunc_CommonId_Enabled(t *testing.T) {
 						Required: true,
 						ForceNew: true,
 						HclName:  "some_field",
-						Mappings: resourcemanager.TerraformSchemaFieldMappingDefinition{
-							SdkPathForRead: stringPointer("SomeSdkField"),
-						},
 					},
 				},
 			},
@@ -307,9 +303,6 @@ func TestComponentReadFunc_CommonId_Options_Enabled(t *testing.T) {
 						},
 						Required: true,
 						ForceNew: true,
-						Mappings: resourcemanager.TerraformSchemaFieldMappingDefinition{
-							ResourceIdSegment: stringPointer("resourceGroupName"),
-						},
 					},
 					"SomeField": {
 						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
@@ -318,9 +311,6 @@ func TestComponentReadFunc_CommonId_Options_Enabled(t *testing.T) {
 						Required: true,
 						ForceNew: true,
 						HclName:  "some_field",
-						Mappings: resourcemanager.TerraformSchemaFieldMappingDefinition{
-							SdkPathForRead: stringPointer("SomeSdkField"),
-						},
 					},
 				},
 			},
@@ -444,9 +434,6 @@ func TestComponentReadFunc_RegularResourceId_Enabled(t *testing.T) {
 						},
 						Required: true,
 						ForceNew: true,
-						Mappings: resourcemanager.TerraformSchemaFieldMappingDefinition{
-							ResourceIdSegment: stringPointer("resourceGroupName"),
-						},
 					},
 					"SomeField": {
 						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
@@ -455,9 +442,6 @@ func TestComponentReadFunc_RegularResourceId_Enabled(t *testing.T) {
 						Required: true,
 						ForceNew: true,
 						HclName:  "some_field",
-						Mappings: resourcemanager.TerraformSchemaFieldMappingDefinition{
-							SdkPathForRead: stringPointer("SomeSdkField"),
-						},
 					},
 				},
 			},
@@ -587,9 +571,6 @@ func TestComponentReadFunc_RegularResourceId_Options_Enabled(t *testing.T) {
 						},
 						Required: true,
 						ForceNew: true,
-						Mappings: resourcemanager.TerraformSchemaFieldMappingDefinition{
-							ResourceIdSegment: stringPointer("resourceGroupName"),
-						},
 					},
 					"SomeField": {
 						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
@@ -598,9 +579,6 @@ func TestComponentReadFunc_RegularResourceId_Options_Enabled(t *testing.T) {
 						Required: true,
 						ForceNew: true,
 						HclName:  "some_field",
-						Mappings: resourcemanager.TerraformSchemaFieldMappingDefinition{
-							SdkPathForRead: stringPointer("SomeSdkField"),
-						},
 					},
 				},
 			},

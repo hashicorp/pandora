@@ -10,6 +10,8 @@ import (
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
+// TODO: re-introduce Mappings for both Resource ID <-> Schema and Schema <-> SDK
+
 func TestComponentUpdate_HappyPathDisabled(t *testing.T) {
 	input := models.ResourceInput{}
 	actual, err := updateFuncForResource(input)
@@ -144,9 +146,6 @@ func TestComponentUpdate_HappyPathEnabled_CommonId_SharedModels(t *testing.T) {
 						},
 						HclName:  "example",
 						Required: true,
-						Mappings: resourcemanager.TerraformSchemaFieldMappingDefinition{
-							SdkPathForUpdate: stringPointer("Example"),
-						},
 					},
 					"SomeField": {
 						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
@@ -154,9 +153,6 @@ func TestComponentUpdate_HappyPathEnabled_CommonId_SharedModels(t *testing.T) {
 						},
 						HclName:  "some_sdk_field",
 						Required: true,
-						Mappings: resourcemanager.TerraformSchemaFieldMappingDefinition{
-							SdkPathForUpdate: stringPointer("SomeSdkField"),
-						},
 					},
 				},
 			},
@@ -349,9 +345,6 @@ func TestComponentUpdate_HappyPathEnabled_CommonId_UniqueModels(t *testing.T) {
 						},
 						HclName:  "example",
 						Required: true,
-						Mappings: resourcemanager.TerraformSchemaFieldMappingDefinition{
-							SdkPathForUpdate: stringPointer("Example"),
-						},
 					},
 					"SomeField": {
 						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
@@ -359,9 +352,6 @@ func TestComponentUpdate_HappyPathEnabled_CommonId_UniqueModels(t *testing.T) {
 						},
 						HclName:  "some_sdk_field",
 						Required: true,
-						Mappings: resourcemanager.TerraformSchemaFieldMappingDefinition{
-							SdkPathForUpdate: stringPointer("SomeSdkField"),
-						},
 					},
 				},
 			},
@@ -511,9 +501,6 @@ func TestComponentUpdate_HappyPathEnabled_RegularResourceID_SharedModels(t *test
 						},
 						HclName:  "example",
 						Required: true,
-						Mappings: resourcemanager.TerraformSchemaFieldMappingDefinition{
-							SdkPathForUpdate: stringPointer("Example"),
-						},
 					},
 					"SomeField": {
 						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
@@ -521,9 +508,6 @@ func TestComponentUpdate_HappyPathEnabled_RegularResourceID_SharedModels(t *test
 						},
 						HclName:  "some_sdk_field",
 						Required: true,
-						Mappings: resourcemanager.TerraformSchemaFieldMappingDefinition{
-							SdkPathForUpdate: stringPointer("SomeSdkField"),
-						},
 					},
 				},
 			},
@@ -716,9 +700,6 @@ func TestComponentUpdate_HappyPathEnabled_RegularResourceID_UniqueModels(t *test
 						},
 						HclName:  "example",
 						Required: true,
-						Mappings: resourcemanager.TerraformSchemaFieldMappingDefinition{
-							SdkPathForUpdate: stringPointer("Example"),
-						},
 					},
 					"SomeField": {
 						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
@@ -726,9 +707,6 @@ func TestComponentUpdate_HappyPathEnabled_RegularResourceID_UniqueModels(t *test
 						},
 						HclName:  "some_sdk_field",
 						Required: true,
-						Mappings: resourcemanager.TerraformSchemaFieldMappingDefinition{
-							SdkPathForUpdate: stringPointer("SomeSdkField"),
-						},
 					},
 				},
 			},
@@ -803,9 +781,6 @@ func TestComponentUpdate_MappingsFromSchema_TopLevelFields(t *testing.T) {
 					},
 					Required: true,
 					HclName:  "some_field",
-					Mappings: resourcemanager.TerraformSchemaFieldMappingDefinition{
-						SdkPathForUpdate: stringPointer("SomeSchemaField"),
-					},
 				},
 			},
 		},
