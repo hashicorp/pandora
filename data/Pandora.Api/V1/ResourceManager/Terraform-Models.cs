@@ -300,10 +300,7 @@ public partial class TerraformController
     {
         [JsonPropertyName("sdkModelName")]
         public string? SdkModelName { get; set; }
-        
-        [JsonPropertyName("sdkTypeName")]
-        public string? SdkTypeName { get; set; }
-         
+
         [JsonPropertyName("sdkFieldPath")]
         public string? SdkFieldPath { get; set; }
     }
@@ -334,6 +331,8 @@ public partial class TerraformController
         DirectAssignment,
         Manual,
         // TODO: do we need a `NestedModel` here?
+        
+        // TODO: does `Type: Ignore` need to be surfaced?
     }
 
     private class TerraformResourceTestsDefinition

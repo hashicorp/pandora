@@ -107,7 +107,7 @@ resource 'example_resource' 'example' {
                     To = new FieldMappingToDefinition
                     {
                         SdkFieldPath = "DirectAssignmentReceiver",
-                        SdkTypeName = "ResourceGroup",
+                        SdkModelName = "ResourceGroup",
                     },
                 },
             };
