@@ -153,14 +153,42 @@ func TestBuildForSearchServiceHappyPathAllModelsTheSame(t *testing.T) {
 					},
 				},
 			},
+			"IPRule": {
+				Fields: map[string]resourcemanager.FieldDetails{
+					"Value": {
+						JsonName: "value",
+						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+							Type: resourcemanager.StringApiObjectDefinitionType,
+						},
+					},
+				},
+			},
+			"NetworkRuleSet": {
+				Fields: map[string]resourcemanager.FieldDetails{
+					"IPRules": {
+						JsonName: "ipRules",
+						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+							Type:          resourcemanager.ListApiObjectDefinitionType,
+							ReferenceName: stringPointer("IPRule"),
+						},
+					},
+				},
+			},
 			"SearchServiceProperties": {
 				Fields: map[string]resourcemanager.FieldDetails{
-					"ReplicaCount": {
-						JsonName: "replicaCount",
+					"HostingMode": {
+						JsonName: "hostingMode",
 						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.IntegerApiObjectDefinitionType,
+							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+							ReferenceName: stringPointer("HostingMode"),
 						},
-						Optional: true,
+					},
+					"NetworkRuleSet": {
+						JsonName: "networkRuleSet",
+						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+							ReferenceName: stringPointer("NetworkRuleSet"),
+						},
 					},
 					"PartitionCount": {
 						JsonName: "partitionCount",
@@ -168,6 +196,201 @@ func TestBuildForSearchServiceHappyPathAllModelsTheSame(t *testing.T) {
 							Type: resourcemanager.IntegerApiObjectDefinitionType,
 						},
 						Optional: true,
+					},
+					"PrivateEndpointConnections": {
+						JsonName: "privateEndpointConnections",
+						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+							Type: resourcemanager.ListApiObjectDefinitionType,
+							NestedItem: &resourcemanager.ApiObjectDefinition{
+								Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+								ReferenceName: stringPointer("PrivateEndpointConnection"),
+							},
+						},
+					},
+					"ProvisioningState": {
+						JsonName: "provisioningState",
+						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+							ReferenceName: stringPointer("ProvisioningState"),
+						},
+					},
+					"PublicNetworkAccess": {
+						JsonName: "publicNetworkAccess",
+						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+							ReferenceName: stringPointer("PublicNetworkAccess"),
+						},
+					},
+					"ReplicaCount": {
+						JsonName: "replicaCount",
+						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+							Type: resourcemanager.IntegerApiObjectDefinitionType,
+						},
+						Optional: true,
+					},
+					"SharedPrivateLinkResources": {
+						JsonName: "sharedPrivateLinkResources",
+						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+							ReferenceName: stringPointer("SharedPrivateLinkResource"),
+						},
+					},
+					"Status": {
+						JsonName: "status",
+						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+							ReferenceName: stringPointer("SearchServiceStatus"),
+						},
+					},
+					"StatusDetails": {
+						JsonName: "statusDetails",
+						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+							Type: resourcemanager.StringApiObjectDefinitionType,
+						},
+						Optional: true,
+					},
+				},
+			},
+			"PrivateEndpointConnection": {
+				Fields: map[string]resourcemanager.FieldDetails{
+					// do we add props like id, name and type?
+					"Id": {
+						JsonName: "id",
+						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+							Type: resourcemanager.StringApiObjectDefinitionType,
+						},
+					},
+					"Name": {
+						JsonName: "name",
+						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+							Type: resourcemanager.StringApiObjectDefinitionType,
+						},
+					},
+					"PrivateEndpointConnectionProperties": {
+						JsonName: "properties",
+						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+							NestedItem: &resourcemanager.ApiObjectDefinition{
+								Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+								ReferenceName: stringPointer("PrivateEndpointConnectionProperties"),
+							},
+						},
+					},
+					"Type": {
+						JsonName: "type",
+						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+							Type: resourcemanager.StringApiObjectDefinitionType,
+						},
+					},
+				},
+			},
+			"PrivateEndpointConnectionProperties": {
+				Fields: map[string]resourcemanager.FieldDetails{
+					"PrivateEndpoint": {
+						JsonName: "privateEndpoint",
+						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+							NestedItem: &resourcemanager.ApiObjectDefinition{
+								Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+								ReferenceName: stringPointer("PrivateEndpointPropertiesProperties"),
+							},
+						},
+					},
+					// todo chuck a breakpoint line 17 of dataapi generator
+					"PrivateLinkServiceConnectionState": {
+						JsonName: "privateLinkServiceConnectionState",
+						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+							NestedItem: &resourcemanager.ApiObjectDefinition{
+								Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+								ReferenceName: stringPointer("PrivateEndpointConnectionProperties"),
+							},
+						},
+					},
+				},
+			},
+			"PrivateLinkServiceConnectionState": {
+				Fields: map[string]resourcemanager.FieldDetails{
+					"PrivateEndpointConnectionProperties": {
+						JsonName: "privateEndpoint",
+						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+							NestedItem: &resourcemanager.ApiObjectDefinition{
+								Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+								ReferenceName: stringPointer("PrivateEndpointConnectionProperties"),
+							},
+						},
+					},
+				},
+			},
+			"SharedPrivateLinkResource": {
+				Fields: map[string]resourcemanager.FieldDetails{
+					// do we add props like id, name and type?
+					"Id": {
+						JsonName: "id",
+						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+							Type: resourcemanager.StringApiObjectDefinitionType,
+						},
+					},
+					"Name": {
+						JsonName: "name",
+						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+							Type: resourcemanager.StringApiObjectDefinitionType,
+						},
+					},
+					"SharedPrivateLinkResourceProperties": {
+						JsonName: "properties",
+						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+							NestedItem: &resourcemanager.ApiObjectDefinition{
+								Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+								ReferenceName: stringPointer("SharedPrivateLinkResourceProperties"),
+							},
+						},
+					},
+					"Type": {
+						JsonName: "type",
+						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+							Type: resourcemanager.StringApiObjectDefinitionType,
+						},
+					},
+				},
+			},
+			"SharedPrivateLinkResourceProperties": {
+				Fields: map[string]resourcemanager.FieldDetails{
+					"GroupId": {
+						JsonName: "groupId",
+						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+							Type: resourcemanager.StringApiObjectDefinitionType,
+						},
+					},
+					"PrivateLinkResourceId": {
+						JsonName: "privateLinkResourceId",
+						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+							Type: resourcemanager.StringApiObjectDefinitionType,
+						},
+					},
+					"SharedPrivateLinkResourceProvisioningState": {
+						JsonName: "provisioningState",
+						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+							ReferenceName: stringPointer("ProvisioningState"),
+						},
+					},
+					"RequestMessage": {
+						JsonName: "requestMessage",
+						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+							Type: resourcemanager.StringApiObjectDefinitionType,
+						},
+					},
+					"ResourceRegion": {
+						JsonName: "resourceRegion",
+						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+							Type: resourcemanager.StringApiObjectDefinitionType,
+						},
+					},
+					// This should actually be Status?
+					"SharedPrivateLinkResourceStatus": {
+						JsonName: "status",
+						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+							ReferenceName: stringPointer("SharedPrivateLinkResourceStatus"),
+						},
 					},
 				},
 			},
@@ -302,205 +525,6 @@ func TestBuildForSearchServiceHappyPathAllModelsTheSame(t *testing.T) {
 		t.Fatalf("expected 3 models but got %d", len(*actual))
 	}
 	//testValidateResourceGroupSchema(t, actual)
-}
-
-func TestBuildForSearchServiceUsingRealData(t *testing.T) {
-	t.Skipf("TODO: update schema gen & re-enable this test")
-
-	builder := Builder{
-		constants: map[string]resourcemanager.ConstantDetails{},
-		models: map[string]resourcemanager.ModelDetails{
-			"ResourceGroup": {
-				Fields: map[string]resourcemanager.FieldDetails{
-					"Id": {
-						JsonName: "id",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
-						},
-						Optional: true,
-					},
-					"Location": {
-						JsonName: "location",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.LocationApiObjectDefinitionType,
-						},
-						Required: true,
-					},
-					"ManagedBy": {
-						JsonName: "managedBy",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
-						},
-						Optional: true,
-					},
-					"Name": {
-						JsonName: "name",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
-						},
-						Optional: true,
-					},
-					"Properties": {
-						JsonName: "properties",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-							ReferenceName: stringPointer("ResourceGroupProperties"),
-						},
-						Optional: true,
-					},
-					"Tags": {
-						JsonName: "tags",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.TagsApiObjectDefinitionType,
-						},
-						Optional: true,
-					},
-					"Type": {
-						JsonName: "type",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
-						},
-						Optional: true,
-					},
-				},
-			},
-			"ResourceGroupPatchable": {
-				Fields: map[string]resourcemanager.FieldDetails{
-					"ManagedBy": {
-						JsonName: "managedBy",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
-						},
-						Optional: true,
-					},
-					"Name": {
-						JsonName: "name",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
-						},
-						Optional: true,
-					},
-					"Properties": {
-						JsonName: "properties",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-							ReferenceName: stringPointer("ResourceGroupProperties"),
-						},
-						Optional: true,
-					},
-					"Tags": {
-						JsonName: "tags",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.TagsApiObjectDefinitionType,
-						},
-						Optional: true,
-					},
-				},
-			},
-			"ResourceGroupProperties": {
-				Fields: map[string]resourcemanager.FieldDetails{
-					"ProvisioningState": {
-						JsonName: "provisioningState",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
-						},
-						Optional: true,
-					},
-				},
-			},
-		},
-		operations: map[string]resourcemanager.ApiOperation{
-			"Create": {
-				LongRunning: false,
-				Method:      "PUT",
-				RequestObject: &resourcemanager.ApiObjectDefinition{
-					ReferenceName: stringPointer("ResourceGroup"),
-					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-				},
-				ResourceIdName: stringPointer("ResourceGroupId"),
-			},
-			"Delete": {
-				LongRunning:    true,
-				Method:         "DELETE",
-				ResourceIdName: stringPointer("ResourceGroupId"),
-			},
-			"Get": {
-				LongRunning: false,
-				Method:      "GET",
-				ResponseObject: &resourcemanager.ApiObjectDefinition{
-					ReferenceName: stringPointer("ResourceGroup"),
-					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-				},
-				ResourceIdName: stringPointer("ResourceGroupId"),
-			},
-			"Update": {
-				LongRunning: false,
-				Method:      "PUT",
-				RequestObject: &resourcemanager.ApiObjectDefinition{
-					ReferenceName: stringPointer("ResourceGroupPatchable"),
-					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-				},
-				ResourceIdName: stringPointer("ResourceGroupId"),
-			},
-		},
-		resourceIds: map[string]resourcemanager.ResourceIdDefinition{
-			"ResourceGroupId": {
-				CommonAlias:   stringPointer("ResourceGroup"),
-				ConstantNames: nil,
-				Id:            "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}",
-				Segments: []resourcemanager.ResourceIdSegment{
-					{
-						FixedValue: stringPointer("subscriptions"),
-						Name:       "subscriptions",
-						Type:       resourcemanager.StaticSegment,
-					},
-					{
-						Name: "subscriptionId",
-						Type: resourcemanager.SubscriptionIdSegment,
-					},
-					{
-						FixedValue: stringPointer("providers"),
-						Name:       "providers",
-						Type:       resourcemanager.StaticSegment,
-					},
-					{
-						Name: "resourceGroupName",
-						Type: resourcemanager.ResourceGroupSegment,
-					},
-				},
-			},
-		},
-	}
-
-	input := resourcemanager.TerraformResourceDetails{
-		ApiVersion: "2020-01-01",
-		CreateMethod: resourcemanager.MethodDefinition{
-			Generate:         true,
-			MethodName:       "Create",
-			TimeoutInMinutes: 30,
-		},
-		DeleteMethod: resourcemanager.MethodDefinition{},
-		DisplayName:  "Resource Groups",
-		ReadMethod: resourcemanager.MethodDefinition{
-			Generate:         true,
-			MethodName:       "Get",
-			TimeoutInMinutes: 5,
-		},
-		Resource:       "ResourceGroups",
-		ResourceIdName: "ResourceGroupId",
-		ResourceName:   "ResourceGroup",
-		UpdateMethod: &resourcemanager.MethodDefinition{
-			Generate:         true,
-			MethodName:       "Update",
-			TimeoutInMinutes: 30,
-		},
-	}
-	actual, err := builder.Build(input, hclog.New(hclog.DefaultOptions))
-	if err != nil {
-		t.Fatalf("building schema: %+v", err)
-	}
-
-	testValidateResourceGroupSchema(t, actual)
 }
 
 func testValidateSearchServiceSchema(t *testing.T, actual *map[string]resourcemanager.TerraformSchemaModelDefinition) {
