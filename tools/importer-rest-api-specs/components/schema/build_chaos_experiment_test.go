@@ -333,16 +333,17 @@ func TestBuildForChaosStudioExperimentWithRealData(t *testing.T) {
 		t.Errorf("expected 7 models but got %d", len(*actual))
 	}
 
-	topLevelModel := (*actual)["Experiment"]
-	if len(topLevelModel.Fields) != 7 {
-		t.Errorf("expected 7 fields but got %d", len(topLevelModel.Fields))
+	r.CurrentModel = "Experiment"
+	currentModel := (*actual)["Experiment"]
+	if len(currentModel.Fields) != 7 {
+		t.Errorf("expected 7 fields but got %d", len(currentModel.Fields))
 	}
 
-	r.checkFieldName(t, topLevelModel)
-	r.checkFieldLocation(t, topLevelModel)
-	r.checkFieldTags(t, topLevelModel)
+	r.checkFieldName(t, currentModel)
+	r.checkFieldLocation(t, currentModel)
+	r.checkFieldTags(t, currentModel)
 
-	r.checkField(t, topLevelModel, expected{
+	r.checkField(t, currentModel, expected{
 		FieldName:           "Selector",
 		HclName:             "selector",
 		Optional:            false,
@@ -354,14 +355,14 @@ func TestBuildForChaosStudioExperimentWithRealData(t *testing.T) {
 		NestedReferenceName: stringPointer("ExperimentSelector"),
 	})
 
-	r.checkField(t, topLevelModel, expected{
+	r.checkField(t, currentModel, expected{
 		FieldName: "StartOnCreation",
 		HclName:   "start_on_creation",
 		Optional:  true,
 		FieldType: resourcemanager.TerraformSchemaFieldTypeBoolean,
 	})
 
-	r.checkField(t, topLevelModel, expected{
+	r.checkField(t, currentModel, expected{
 		FieldName:           "Step",
 		HclName:             "step",
 		Required:            true,
@@ -369,19 +370,20 @@ func TestBuildForChaosStudioExperimentWithRealData(t *testing.T) {
 		NestedReferenceName: stringPointer("ExperimentStep"),
 	})
 
-	selectorsModel := (*actual)["ExperimentSelector"]
-	if len(selectorsModel.Fields) != 3 {
-		t.Errorf("expected 3 fields but got %d", len(selectorsModel.Fields))
+	r.CurrentModel = "ExperimentSelector"
+	currentModel = (*actual)[r.CurrentModel]
+	if len(currentModel.Fields) != 3 {
+		t.Errorf("expected 3 fields but got %d", len(currentModel.Fields))
 	}
 
-	r.checkField(t, selectorsModel, expected{
+	r.checkField(t, currentModel, expected{
 		FieldName: "Id",
 		HclName:   "id",
 		Required:  true,
 		FieldType: resourcemanager.TerraformSchemaFieldTypeString,
 	})
 
-	r.checkField(t, selectorsModel, expected{
+	r.checkField(t, currentModel, expected{
 		FieldName:           "Target",
 		HclName:             "target",
 		Required:            true,
@@ -389,7 +391,7 @@ func TestBuildForChaosStudioExperimentWithRealData(t *testing.T) {
 		NestedReferenceName: stringPointer("ExperimentTarget"),
 	})
 
-	r.checkField(t, selectorsModel, expected{
+	r.checkField(t, currentModel, expected{
 		FieldName:           "Type",
 		HclName:             "type",
 		Required:            true,
@@ -402,12 +404,13 @@ func TestBuildForChaosStudioExperimentWithRealData(t *testing.T) {
 		},
 	})
 
-	stepsModel := (*actual)["ExperimentStep"]
-	if len(stepsModel.Fields) != 2 {
-		t.Errorf("expected 2 fields but got %d", len(stepsModel.Fields))
+	r.CurrentModel = "ExperimentStep"
+	currentModel = (*actual)[r.CurrentModel]
+	if len(currentModel.Fields) != 2 {
+		t.Errorf("expected 2 fields but got %d", len(currentModel.Fields))
 	}
 
-	r.checkField(t, stepsModel, expected{
+	r.checkField(t, currentModel, expected{
 		FieldName:           "Branch",
 		HclName:             "branch",
 		Required:            true,
@@ -415,7 +418,7 @@ func TestBuildForChaosStudioExperimentWithRealData(t *testing.T) {
 		NestedReferenceName: stringPointer("ExperimentBranch"),
 	})
 
-	r.checkField(t, stepsModel, expected{
+	r.checkField(t, currentModel, expected{
 		FieldName: "Name",
 		HclName:   "name",
 		Required:  true,
@@ -448,19 +451,20 @@ func TestBuildForChaosStudioExperimentWithRealData(t *testing.T) {
 		},
 	})
 
-	branchModel := (*actual)["ExperimentBranch"]
+	r.CurrentModel = "ExperimentBranch"
+	currentModel = (*actual)[r.CurrentModel]
 	if len(targetModel.Fields) != 2 {
-		t.Errorf("expected 2 fields but got %d", len(branchModel.Fields))
+		t.Errorf("expected 2 fields but got %d", len(currentModel.Fields))
 	}
 
-	r.checkField(t, branchModel, expected{
+	r.checkField(t, currentModel, expected{
 		FieldName: "Name",
 		HclName:   "name",
 		Required:  true,
 		FieldType: resourcemanager.TerraformSchemaFieldTypeString,
 	})
 
-	r.checkField(t, branchModel, expected{
+	r.checkField(t, currentModel, expected{
 		FieldName:           "Action",
 		HclName:             "action",
 		Required:            true,
@@ -468,19 +472,20 @@ func TestBuildForChaosStudioExperimentWithRealData(t *testing.T) {
 		NestedReferenceName: stringPointer("ExperimentAction"),
 	})
 
-	actionModel := (*actual)["ExperimentAction"]
+	r.CurrentModel = "ExperimentAction"
+	currentModel = (*actual)["ExperimentAction"]
 	if len(targetModel.Fields) != 2 {
-		t.Errorf("expected 2 fields but got %d", len(actionModel.Fields))
+		t.Errorf("expected 2 fields but got %d", len(currentModel.Fields))
 	}
 
-	r.checkField(t, actionModel, expected{
+	r.checkField(t, currentModel, expected{
 		FieldName: "Name",
 		HclName:   "name",
 		Required:  true,
 		FieldType: resourcemanager.TerraformSchemaFieldTypeString,
 	})
 
-	r.checkField(t, actionModel, expected{
+	r.checkField(t, currentModel, expected{
 		FieldName: "Type",
 		HclName:   "type",
 		Required:  true,

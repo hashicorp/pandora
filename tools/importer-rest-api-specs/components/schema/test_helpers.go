@@ -25,7 +25,8 @@ type expectedValidation struct {
 }
 
 type resourceUnderTest struct {
-	Name string
+	Name         string
+	CurrentModel string
 }
 
 // checkFieldName is a convenience specific check for the Name field in a Top Level mode where
@@ -118,72 +119,72 @@ func (r resourceUnderTest) checkFieldTags(t *testing.T, input resourcemanager.Te
 func (r resourceUnderTest) checkField(t *testing.T, input resourcemanager.TerraformSchemaModelDefinition, exp expected) {
 	field, ok := input.Fields[exp.FieldName]
 	if !ok {
-		t.Errorf("(%s) expected there to be a field %q but didn't get one", r.Name, exp.FieldName)
+		t.Errorf("(%s) expected there to be a field %q (model: %q) but didn't get one", r.Name, r.CurrentModel, exp.FieldName)
 	}
 	if field.HclName != exp.HclName {
-		t.Errorf("(%s) expected the HclName for field %q to be %q but got %q", r.Name, exp.FieldName, exp.HclName, field.HclName)
+		t.Errorf("(%s) expected the HclName for field %q (model: %q) to be %q but got %q", r.Name, r.CurrentModel, exp.FieldName, exp.HclName, field.HclName)
 	}
 	if field.ObjectDefinition.Type != exp.FieldType {
-		t.Errorf("(%s) expected the field %q to have the type %q but got %q", r.Name, exp.FieldName, string(exp.FieldType), string(field.ObjectDefinition.Type))
+		t.Errorf("(%s) expected the field %q (model: %q) to have the type %q but got %q", r.Name, r.CurrentModel, exp.FieldName, string(exp.FieldType), string(field.ObjectDefinition.Type))
 	}
 	if field.Required != exp.Required {
-		t.Errorf("(%s) expected the field %q to be Required = %t but got Required = %t", r.Name, exp.FieldName, exp.Required, field.Required)
+		t.Errorf("(%s) expected the field %q (model: %q) to be Required = %t but got Required = %t", r.Name, r.CurrentModel, exp.FieldName, exp.Required, field.Required)
 	}
 	if field.Optional != exp.Optional {
-		t.Errorf("(%s) expected the field %q to be Optional = %t but got Optional = %t", r.Name, exp.FieldName, exp.Optional, field.Optional)
+		t.Errorf("(%s) expected the field %q (model: %q) to be Optional = %t but got Optional = %t", r.Name, r.CurrentModel, exp.FieldName, exp.Optional, field.Optional)
 	}
 	if field.ForceNew != exp.ForceNew {
-		t.Errorf("(%s) expected the field %q to be ForceNew = %t but got ForceNew = %t", r.Name, exp.FieldName, exp.ForceNew, field.ForceNew)
+		t.Errorf("(%s) expected the field %q (model: %q) to be ForceNew = %t but got ForceNew = %t", r.Name, r.CurrentModel, exp.FieldName, exp.ForceNew, field.ForceNew)
 	}
 	// TODO: source WriteOnly from the mappings
 	//if field.Optional || field.Computed || field.WriteOnly {
-	//	t.Errorf("(%s) expected the field 'Name' to be !Optional, !Computed and !WriteOnly but got %t / %t / %t", r.Name, field.Optional, field.Computed, field.WriteOnly)
+	//	t.Errorf("(%s) expected the field 'Name' to be !Optional, !Computed and !WriteOnly but got %t / %t / %t", r.Name, r.CurrentModel, field.Optional, field.Computed, field.WriteOnly)
 	//}
 	if field.Computed != exp.Computed {
-		t.Errorf("(%s) expected the field %q to be ForceNew = %t but got ForceNew = %t", r.Name, exp.FieldName, exp.Computed, field.Computed)
+		t.Errorf("(%s) expected the field %q (model: %q) to be ForceNew = %t but got ForceNew = %t", r.Name, r.CurrentModel, exp.FieldName, exp.Computed, field.Computed)
 	}
 
 	if exp.ReferenceName == nil && field.ObjectDefinition.ReferenceName != nil {
-		t.Errorf("(%s) expected the field %q to have no Refence, but got %q", r.Name, exp.FieldName, *field.ObjectDefinition.ReferenceName)
+		t.Errorf("(%s) expected the field %q (model: %q) to have no Refence, but got %q", r.Name, r.CurrentModel, exp.FieldName, *field.ObjectDefinition.ReferenceName)
 	}
 	if exp.ReferenceName != nil && field.ObjectDefinition.ReferenceName == nil {
-		t.Errorf("(%s) expected the field %q to have a Refence to %q, but got nil", r.Name, exp.FieldName, *exp.ReferenceName)
+		t.Errorf("(%s) expected the field %q (model: %q) to have a Refence to %q, but got nil", r.Name, r.CurrentModel, exp.FieldName, *exp.ReferenceName)
 	}
 	if exp.ReferenceName != nil && field.ObjectDefinition.ReferenceName != nil {
 		if *exp.ReferenceName != *field.ObjectDefinition.ReferenceName {
-			t.Errorf("(%s) expected the field %q to have a Refence to %q, but got %q", r.Name, exp.FieldName, *exp.ReferenceName, *field.ObjectDefinition.ReferenceName)
+			t.Errorf("(%s) expected the field %q (model: %q) to have a Refence to %q, but got %q", r.Name, r.CurrentModel, exp.FieldName, *exp.ReferenceName, *field.ObjectDefinition.ReferenceName)
 		}
 	}
 	if exp.FieldType != field.ObjectDefinition.Type {
-		t.Errorf("(%s) expected the field %q to be of type %q, but got %q", r.Name, exp.FieldName, string(exp.FieldType), string(field.ObjectDefinition.Type))
+		t.Errorf("(%s) expected the field %q (model: %q) to be of type %q, but got %q", r.Name, r.CurrentModel, exp.FieldName, string(exp.FieldType), string(field.ObjectDefinition.Type))
 	}
 
 	if exp.NestedReferenceName == nil && (field.ObjectDefinition.NestedObject != nil && field.ObjectDefinition.NestedObject.ReferenceName != nil) {
-		t.Errorf("(%s) expected the field %q to have no Nested Refence, but got %q", r.Name, exp.FieldName, *field.ObjectDefinition.ReferenceName)
+		t.Errorf("(%s) expected the field %q (model: %q) to have no Nested Refence, but got %q", r.Name, r.CurrentModel, exp.FieldName, *field.ObjectDefinition.ReferenceName)
 	}
 	if exp.NestedReferenceName != nil && (field.ObjectDefinition.NestedObject == nil || field.ObjectDefinition.NestedObject.ReferenceName == nil) {
-		t.Errorf("(%s) expected the field %q to have a Nested Refence to %q, but got nil", r.Name, exp.FieldName, *exp.NestedReferenceName)
+		t.Errorf("(%s) expected the field %q (model: %q) to have a Nested Refence to %q, but got nil", r.Name, r.CurrentModel, exp.FieldName, *exp.NestedReferenceName)
 	}
 	if exp.NestedReferenceName != nil && field.ObjectDefinition.NestedObject != nil && field.ObjectDefinition.NestedObject.ReferenceName != nil {
 		if *exp.NestedReferenceName != *field.ObjectDefinition.NestedObject.ReferenceName {
-			t.Errorf("(%s) expected the field %q to have a Nested Refence to %q, but got %q", r.Name, exp.FieldName, *exp.NestedReferenceName, *field.ObjectDefinition.NestedObject.ReferenceName)
+			t.Errorf("(%s) expected the field %q (model: %q) to have a Nested Refence to %q, but got %q", r.Name, r.CurrentModel, exp.FieldName, *exp.NestedReferenceName, *field.ObjectDefinition.NestedObject.ReferenceName)
 		}
 	}
 
 	if exp.Validation == nil && field.Validation != nil {
-		t.Errorf("(%s) expected the field %q to have no Validation, but it did", r.Name, exp.FieldName)
+		t.Errorf("(%s) expected the field %q (model: %q) to have no Validation, but it did", r.Name, r.CurrentModel, exp.FieldName)
 	}
 	if exp.Validation != nil && field.Validation == nil {
-		t.Errorf("(%s) expected the field %q to have Validation, but it didn't", r.Name, exp.FieldName)
+		t.Errorf("(%s) expected the field %q (model: %q) to have Validation, but it didn't", r.Name, r.CurrentModel, exp.FieldName)
 	}
 	if exp.Validation != nil && field.Validation != nil {
 		if exp.Validation.Type != field.Validation.Type {
-			t.Errorf("(%s) expected the field %q to have Validation Type of %q, but got %q", r.Name, exp.FieldName, string(exp.Validation.Type), string(field.Validation.Type))
+			t.Errorf("(%s) expected the field %q (model: %q) to have Validation Type of %q, but got %q", r.Name, r.CurrentModel, exp.FieldName, string(exp.Validation.Type), string(field.Validation.Type))
 		}
 		if exp.Validation.PossibleValueCount != 0 && field.Validation.PossibleValues != nil {
 			possibleValues := *field.Validation.PossibleValues
 			if exp.Validation.PossibleValueCount != len(possibleValues) {
-				t.Errorf("(%s) expected the field %q to have %d Possible Values for Validation but got %d", r.Name, exp.FieldName, exp.Validation.PossibleValueCount, len(possibleValues))
+				t.Errorf("(%s) expected the field %q (model: %q) to have %d Possible Values for Validation but got %d", r.Name, r.CurrentModel, exp.FieldName, exp.Validation.PossibleValueCount, len(possibleValues))
 			}
 		}
 	}
