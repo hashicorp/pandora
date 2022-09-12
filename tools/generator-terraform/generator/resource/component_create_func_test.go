@@ -113,6 +113,11 @@ func TestComponentCreate_HappyPathDisabled(t *testing.T) {
 }
 
 func TestComponentCreate_HappyPathFieldsInModelEnabled(t *testing.T) {
+	// TODO: remove this once the feature-flag is properly threaded through
+	if !featureflags.OutputMappings {
+		t.Skip("@tombuildsstuff: skipping until fully implemented")
+	}
+
 	input := models.ResourceInput{
 		Constants: nil,
 		Details: resourcemanager.TerraformResourceDetails{
@@ -286,7 +291,9 @@ func (r ExampleResource) Create() sdk.ResourceFunc {
 
 func TestComponentCreate_HappyPathResourceIdFieldsOnlyEnabled(t *testing.T) {
 	// TODO: remove this once the feature-flag is properly threaded through
-	featureflags.OutputMappings = true
+	if !featureflags.OutputMappings {
+		t.Skip("@tombuildsstuff: skipping until fully implemented")
+	}
 
 	input := models.ResourceInput{
 		Constants: nil,
@@ -593,6 +600,11 @@ func TestComponentCreate_RequiresImport_ResourceIdOptions(t *testing.T) {
 }
 
 func TestComponentCreate_IdDefinitionAndMapping_CommonResourceIDWithSubscription(t *testing.T) {
+	// TODO: remove this once the feature-flag is properly threaded through
+	if !featureflags.OutputMappings {
+		t.Skip("@tombuildsstuff: skipping until fully implemented")
+	}
+
 	actual, err := createFunctionComponents{
 		newResourceIdFuncName: "commonids.NewCommonResourceID",
 		resourceId: resourcemanager.ResourceIdDefinition{
@@ -644,6 +656,11 @@ func TestComponentCreate_IdDefinitionAndMapping_CommonResourceIDWithSubscription
 }
 
 func TestComponentCreate_IdDefinitionAndMapping_CommonResourceIDWithoutSubscription(t *testing.T) {
+	// TODO: remove this once the feature-flag is properly threaded through
+	if !featureflags.OutputMappings {
+		t.Skip("@tombuildsstuff: skipping until fully implemented")
+	}
+
 	actual, err := createFunctionComponents{
 		newResourceIdFuncName: "commonids.NewCommonResourceID",
 		resourceId: resourcemanager.ResourceIdDefinition{
@@ -685,6 +702,11 @@ func TestComponentCreate_IdDefinitionAndMapping_CommonResourceIDWithoutSubscript
 }
 
 func TestComponentCreate_IdDefinitionAndMapping_RegularResourceIDWithSubscription(t *testing.T) {
+	// TODO: remove this once the feature-flag is properly threaded through
+	if !featureflags.OutputMappings {
+		t.Skip("@tombuildsstuff: skipping until fully implemented")
+	}
+
 	actual, err := createFunctionComponents{
 		newResourceIdFuncName: "sdkresource.NewSomeResourceID",
 		resourceId: resourcemanager.ResourceIdDefinition{
@@ -736,6 +758,11 @@ func TestComponentCreate_IdDefinitionAndMapping_RegularResourceIDWithSubscriptio
 }
 
 func TestComponentCreate_IdDefinitionAndMapping_RegularResourceIDWithoutSubscription(t *testing.T) {
+	// TODO: remove this once the feature-flag is properly threaded through
+	if !featureflags.OutputMappings {
+		t.Skip("@tombuildsstuff: skipping until fully implemented")
+	}
+
 	actual, err := createFunctionComponents{
 		newResourceIdFuncName: "sdkresource.NewSomeResourceID",
 		resourceId: resourcemanager.ResourceIdDefinition{

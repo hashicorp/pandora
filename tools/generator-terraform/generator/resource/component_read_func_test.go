@@ -81,7 +81,9 @@ func TestComponentReadFunc_RegularResourceId_Disabled(t *testing.T) {
 
 func TestComponentReadFunc_CommonId_Enabled(t *testing.T) {
 	// TODO: remove this once the feature-flag is properly threaded through
-	featureflags.OutputMappings = true
+	if !featureflags.OutputMappings {
+		t.Skip("@tombuildsstuff: skipping until fully implemented")
+	}
 
 	input := models.ResourceInput{
 		ResourceTypeName: "Example",
@@ -212,7 +214,9 @@ func (r ExampleResource) Read() sdk.ResourceFunc {
 
 func TestComponentReadFunc_CommonId_Options_Enabled(t *testing.T) {
 	// TODO: remove this once the feature-flag is properly threaded through
-	featureflags.OutputMappings = true
+	if !featureflags.OutputMappings {
+		t.Skip("@tombuildsstuff: skipping until fully implemented")
+	}
 
 	input := models.ResourceInput{
 		ResourceTypeName:   "Example",
@@ -354,7 +358,9 @@ func (r ExampleResource) Read() sdk.ResourceFunc {
 
 func TestComponentReadFunc_RegularResourceId_Enabled(t *testing.T) {
 	// TODO: remove this once the feature-flag is properly threaded through
-	featureflags.OutputMappings = true
+	if !featureflags.OutputMappings {
+		t.Skip("@tombuildsstuff: skipping until fully implemented")
+	}
 
 	input := models.ResourceInput{
 		ResourceTypeName: "Example",
@@ -483,6 +489,11 @@ func (r ExampleResource) Read() sdk.ResourceFunc {
 }
 
 func TestComponentReadFunc_RegularResourceId_Options_Enabled(t *testing.T) {
+	// TODO: remove this once the feature-flag is properly threaded through
+	if !featureflags.OutputMappings {
+		t.Skip("@tombuildsstuff: skipping until fully implemented")
+	}
+
 	input := models.ResourceInput{
 		ResourceTypeName:   "Example",
 		SdkResourceName:    "SdkResource",

@@ -46,6 +46,9 @@ Flags:
 }
 
 func (i *GenerateCommand) Run(args []string) int {
+	// no point making this configurable (right now anyway)
+	i.providerPrefix = "azurerm"
+
 	f := flag.NewFlagSet("generator-terraform", flag.ExitOnError)
 	f.StringVar(&i.apiServerEndpoint, "data-api", "http://localhost:5000", "-data-api=http://localhost:5000")
 	f.StringVar(&i.outputDirectory, "output-dir", "", "-output-dir=../generated-tf-dev")

@@ -40,7 +40,9 @@ func TestComponentUpdate_HappyPathDisabled_NoUpdateMethod(t *testing.T) {
 
 func TestComponentUpdate_HappyPathEnabled_CommonId_SharedModels(t *testing.T) {
 	// TODO: remove this once the feature-flag is properly threaded through
-	featureflags.OutputMappings = true
+	if !featureflags.OutputMappings {
+		t.Skip("@tombuildsstuff: skipping until fully implemented")
+	}
 
 	input := models.ResourceInput{
 		Constants: map[string]resourcemanager.ConstantDetails{},
@@ -203,7 +205,9 @@ func TestComponentUpdate_HappyPathEnabled_CommonId_SharedModels(t *testing.T) {
 
 func TestComponentUpdate_HappyPathEnabled_CommonId_UniqueModels(t *testing.T) {
 	// TODO: remove this once the feature-flag is properly threaded through
-	featureflags.OutputMappings = true
+	if !featureflags.OutputMappings {
+		t.Skip("@tombuildsstuff: skipping until fully implemented")
+	}
 
 	input := models.ResourceInput{
 		Constants: map[string]resourcemanager.ConstantDetails{},
@@ -395,7 +399,9 @@ func TestComponentUpdate_HappyPathEnabled_CommonId_UniqueModels(t *testing.T) {
 
 func TestComponentUpdate_HappyPathEnabled_RegularResourceID_SharedModels(t *testing.T) {
 	// TODO: remove this once the feature-flag is properly threaded through
-	featureflags.OutputMappings = true
+	if !featureflags.OutputMappings {
+		t.Skip("@tombuildsstuff: skipping until fully implemented")
+	}
 
 	input := models.ResourceInput{
 		Constants: map[string]resourcemanager.ConstantDetails{},
@@ -558,7 +564,9 @@ func TestComponentUpdate_HappyPathEnabled_RegularResourceID_SharedModels(t *test
 
 func TestComponentUpdate_HappyPathEnabled_RegularResourceID_UniqueModels(t *testing.T) {
 	// TODO: remove this once the feature-flag is properly threaded through
-	featureflags.OutputMappings = true
+	if !featureflags.OutputMappings {
+		t.Skip("@tombuildsstuff: skipping until fully implemented")
+	}
 
 	input := models.ResourceInput{
 		Constants: map[string]resourcemanager.ConstantDetails{},
