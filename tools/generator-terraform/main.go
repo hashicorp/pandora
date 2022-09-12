@@ -15,6 +15,7 @@ func main() {
 	c.Args = os.Args[1:]
 	c.Commands = map[string]cli.CommandFactory{
 		"generate": cmd.NewGenerateCommand(),
+		"mappings": cmd.NewMappingsCommand(),
 	}
 
 	exitStatus, err := c.Run()
