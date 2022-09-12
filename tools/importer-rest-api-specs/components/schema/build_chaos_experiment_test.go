@@ -161,15 +161,15 @@ func TestBuildForChaosStudioExperimentWithRealData(t *testing.T) {
 						ObjectDefinition: resourcemanager.ApiObjectDefinition{
 							Type: resourcemanager.StringApiObjectDefinitionType,
 						},
-						Required: false,
+						Required: true,
 					},
 					"Type": {
 						JsonName: "type",
 						ObjectDefinition: resourcemanager.ApiObjectDefinition{
 							ReferenceName: stringPointer("TargetReferenceType"),
-							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+							Type:          resourcemanager.StringApiObjectDefinitionType,
 						},
-						Required: false,
+						Required: true,
 					},
 				},
 			},
@@ -184,14 +184,14 @@ func TestBuildForChaosStudioExperimentWithRealData(t *testing.T) {
 							},
 							Type: resourcemanager.ListApiObjectDefinitionType,
 						},
-						Required: false,
+						Required: true,
 					},
 					"Name": {
 						JsonName: "name",
 						ObjectDefinition: resourcemanager.ApiObjectDefinition{
 							Type: resourcemanager.StringApiObjectDefinitionType,
 						},
-						Required: false,
+						Required: true,
 					},
 				},
 			},
@@ -326,7 +326,7 @@ func TestBuildForChaosStudioExperimentWithRealData(t *testing.T) {
 	}
 
 	if actual == nil {
-		t.Errorf("expected 3 models but got nil")
+		t.Fatalf("expected 3 models but got nil")
 	}
 
 	if len(*actual) != 7 {
@@ -334,7 +334,7 @@ func TestBuildForChaosStudioExperimentWithRealData(t *testing.T) {
 	}
 
 	r.CurrentModel = "Experiment"
-	currentModel := (*actual)["Experiment"]
+	currentModel := (*actual)[r.CurrentModel]
 	if len(currentModel.Fields) != 7 {
 		t.Errorf("expected 7 fields but got %d", len(currentModel.Fields))
 	}
@@ -429,7 +429,6 @@ func TestBuildForChaosStudioExperimentWithRealData(t *testing.T) {
 	if len(targetModel.Fields) != 2 {
 		t.Errorf("expected 2 fields but got %d", len(targetModel.Fields))
 	}
-	// Field: Id (string)
 
 	r.checkField(t, targetModel, expected{
 		FieldName: "Id",
