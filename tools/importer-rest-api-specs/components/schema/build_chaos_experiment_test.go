@@ -394,7 +394,7 @@ func TestBuildForChaosStudioExperimentWithRealData(t *testing.T) {
 		HclName:             "type",
 		Required:            true,
 		FieldType:           resourcemanager.TerraformSchemaFieldTypeReference,
-		ReferenceName:       nil,
+		ReferenceName:       stringPointer("SelectorType"),
 		NestedReferenceName: nil,
 		Validation: &expectedValidation{
 			Type:               resourcemanager.TerraformSchemaValidationTypePossibleValues,
@@ -440,7 +440,7 @@ func TestBuildForChaosStudioExperimentWithRealData(t *testing.T) {
 		HclName:             "type",
 		Required:            true,
 		FieldType:           resourcemanager.TerraformSchemaFieldTypeReference,
-		ReferenceName:       nil,
+		ReferenceName:       stringPointer("TargetReferenceType"),
 		NestedReferenceName: nil,
 		Validation: &expectedValidation{
 			Type:               resourcemanager.TerraformSchemaValidationTypePossibleValues,
