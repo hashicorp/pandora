@@ -2,7 +2,6 @@ package docs
 
 import (
 	"fmt"
-	"log"
 	"strings"
 
 	"github.com/hashicorp/pandora/tools/generator-terraform/generator/models"
@@ -10,63 +9,39 @@ import (
 )
 
 func codeForArgumentsReference(input models.ResourceInput) (*string, error) {
-	// TODO: first we need to output the top level model (e.g. the model for the resource) which
-	// can be found via `input.SchemaModelName`
 
-	// NOTE: when we output both we'll want to ensure the ordering is Required -> Optional -> Computed
-
-	arguments := make([]string, 0)
-	//blockArguments := make([]string, 0)
-
-	for modelName, model := range input.SchemaModels {
-		// already output above, so we can skip it
-		if modelName == input.SchemaModelName {
-			continue
-		}
-
-		for fieldName := range model.Fields {
-			log.Printf("Model %q / Field %q", modelName, fieldName)
-		}
-
-		// if this is not the top level schema, generate block doc
-		/*		if !strings.HasSuffix(modelName, "ResourceSchema") {
-				blockHcl := convertToSnakeCase(strings.TrimSuffix(modelName, "Schema"))
-
-				// TODO get compute/required/optional
-				block := fmt.Sprintf("* `%s` - A `%s` block as defined below.", blockHcl, blockHcl)
-				arguments = append(arguments, block)
-				blockArguments = append(blockArguments, getBlock(model.Fields, blockHcl))
-				continue
-			}*/
-
-		arguments = append(arguments, getFieldLines(model.Fields))
-
-	}
+	topLevelArgs := getArguments(input.SchemaModels[input.SchemaModelName])
 
 	output := fmt.Sprintf(`
-## Argument Reference
+## Arguments Reference
 
 The following arguments are supported:
 
 %s
 
 ---
-`, strings.Join(arguments, "\n"))
+
+`, topLevelArgs)
 
 	return &output, nil
 }
 
-func getFieldLines(fields map[string]resourcemanager.TerraformSchemaFieldDefinition) string {
-	lines := make([]string, 0)
-	for _, field := range fields {
+func getArguments(model resourcemanager.TerraformSchemaModelDefinition) string {
 
-		components := make([]string, 0)
+	requiredLines := make([]string, 0)
+	optionalLines := make([]string, 0)
+
+	sortedFieldNames := sortFieldNamesAlphabetically(model)
+
+	for _, fieldName := range sortedFieldNames {
+		field := model.Fields[fieldName]
 
 		// skip attributes
 		if field.Computed && !field.Optional && !field.Required {
 			continue
 		}
 
+		components := make([]string, 0)
 		components = append(components, fmt.Sprintf("* `%s` -", field.HclName))
 
 		if field.Required {
@@ -75,20 +50,32 @@ func getFieldLines(fields map[string]resourcemanager.TerraformSchemaFieldDefinit
 			components = append(components, "(Optional)")
 		}
 
-		// TODO markdown always blank - check this
+		// identify block
+		if field.ObjectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeReference {
+			if beginsWithVowel(field.HclName) {
+				components = append(components, "An")
+			} else {
+				components = append(components, "A")
+			}
+			components = append(components, fmt.Sprintf("`%s` block as defined below.", field.HclName))
+		}
+
+		// TODO markdown always blank - may require changes here based on markdown format. Assuming this is like a field description for now
 		components = append(components, field.Documentation.Markdown)
 
-		// TODO fix this. include ranges? how??
-		// TODO possible values & type always blank - check
-		possibleValues := ""
-		if field.Validation != nil {
+		// TODO update to include ranges
+		if field.ObjectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeBoolean {
+			components = append(components, "Possible values are `true` and `false`.")
+		} else if field.Validation != nil {
 			if field.Validation.Type == resourcemanager.TerraformSchemaValidationTypeFixedValues {
 				if values := field.Validation.PossibleValues; values != nil {
-					possibleValues = fmt.Sprintf("Possible values are %s.", strings.Join(*values, ","))
+					possibleValues := fmt.Sprintf("Possible values are `%s.`", strings.Join(*values, "`, `"))
 					components = append(components, possibleValues)
 				}
 			}
 		}
+
+		// TODO set default if applicable?
 
 		if field.ForceNew {
 			components = append(components, "Changing this forces a new resource to be created.")
@@ -96,23 +83,12 @@ func getFieldLines(fields map[string]resourcemanager.TerraformSchemaFieldDefinit
 
 		line := strings.Join(components, " ")
 
-		lines = append(lines, line)
+		// sort required and optional
+		if field.Required {
+			requiredLines = append(requiredLines, line)
+		} else {
+			optionalLines = append(optionalLines, line)
+		}
 	}
-	return strings.Join(lines, "\n\n")
-}
-
-func getBlock(fields map[string]resourcemanager.TerraformSchemaFieldDefinition, blockHclName string) string {
-
-	lines := getFieldLines(fields)
-
-	// TODO get computed/required/optional at block level?
-	block := "\n---\n"
-	block = fmt.Sprintf("%s### Block `%s` \n", block, blockHclName)
-	block = fmt.Sprintf("%s The `%s` block supports the following arguments:", block, blockHclName)
-	block = fmt.Sprintf(`
-%s
-%s
-		`, block, lines)
-
-	return block
+	return strings.Join(append(requiredLines, optionalLines...), "\n\n")
 }

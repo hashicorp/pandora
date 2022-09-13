@@ -4,7 +4,8 @@ import (
 	"fmt"
 	"sort"
 	"strings"
-	"unicode"
+
+	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
 // wordifySegmentName takes an input PascalCased string and converts it to a more human-friendly variant
@@ -57,36 +58,24 @@ func wordifyTimeout(inMinutes int) string {
 	return "1 minute"
 }
 
-func convertToSnakeCase(input string) string {
+func beginsWithVowel(word string) bool {
+	switch strings.ToLower(word[0:1]) {
+	case "a", "e", "i", "o", "u":
+		return true
+	default:
+		return false
+	}
+}
 
-	splitIdxMap := map[int]struct{}{}
-	var lastChar rune
-	for idx, char := range input {
-		switch {
-		case idx == 0:
-			splitIdxMap[idx] = struct{}{}
-		case unicode.IsUpper(lastChar) == unicode.IsUpper(char):
-		case unicode.IsUpper(lastChar):
-			splitIdxMap[idx-1] = struct{}{}
-		case unicode.IsUpper(char):
-			splitIdxMap[idx] = struct{}{}
-		}
-		lastChar = char
+func sortFieldNamesAlphabetically(model resourcemanager.TerraformSchemaModelDefinition) []string {
+	fieldNames := make([]string, 0, len(model.Fields))
+	for k := range model.Fields {
+		fieldNames = append(fieldNames, k)
 	}
-	splitIdx := make([]int, 0, len(splitIdxMap))
-	for idx := range splitIdxMap {
-		splitIdx = append(splitIdx, idx)
-	}
-	sort.Ints(splitIdx)
+	sort.Strings(fieldNames)
+	return fieldNames
+}
 
-	inputRunes := []rune(input)
-	out := make([]string, len(splitIdx))
-	for i := range splitIdx {
-		if i == len(splitIdx)-1 {
-			out[i] = strings.ToLower(string(inputRunes[splitIdx[i]:]))
-			continue
-		}
-		out[i] = strings.ToLower(string(inputRunes[splitIdx[i]:splitIdx[i+1]]))
-	}
-	return strings.Join(out, "_")
+func stringPointer(in string) *string {
+	return &in
 }

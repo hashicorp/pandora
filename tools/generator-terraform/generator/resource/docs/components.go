@@ -9,12 +9,13 @@ import (
 
 func ComponentsForResource(input models.ResourceInput) (*string, error) {
 	components := []func(input models.ResourceInput) (*string, error){
-		codeForYAMLFrontMatter,
-		codeForSummary,
+		codeForYAMLFrontMatter, // TODO subcategory currently always "Example Category"
+		codeForSummary,         // TODO description currently always "Some Description for this Resource."
 		codeForExampleUsage,
 		// TODO: links to examples
 		codeForArgumentsReference,
 		codeForAttributesReference,
+		codeForBlocksReference,
 		codeForTimeouts,
 		codeForImport,
 	}

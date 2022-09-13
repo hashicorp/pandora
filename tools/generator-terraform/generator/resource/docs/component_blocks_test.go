@@ -4,11 +4,10 @@ import (
 	"testing"
 
 	"github.com/hashicorp/pandora/tools/generator-terraform/generator/models"
-
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-func TestComponentArguments(t *testing.T) {
+func TestComponentBlocks(t *testing.T) {
 	input := models.ResourceInput{
 		ResourceTypeName: "Example",
 		SchemaModelName:  "TopLevelModelResourceSchema",
@@ -81,16 +80,6 @@ func TestComponentArguments(t *testing.T) {
 						Validation: &resourcemanager.TerraformSchemaValidationDefinition{
 							Type:           "FixedValues",
 							PossibleValues: &[]string{"string1", "string2", "string3"},
-						},
-					},
-					"BooleanItem": {
-						HclName: "boolean_item",
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeBoolean,
-						},
-						Optional: true,
-						Documentation: resourcemanager.TerraformSchemaDocumentationDefinition{
-							Markdown: "Description for boolean_item.",
 						},
 					},
 					"OptionalString": {
@@ -227,21 +216,30 @@ func TestComponentArguments(t *testing.T) {
 			},
 		},
 	}
-	actual, err := codeForArgumentsReference(input)
+	actual, err := codeForBlocksReference(input)
 	if err != nil {
 		t.Fatalf("error: %+v", err)
 	}
-
-	expected := "\n## Arguments Reference" +
-		"\n\nThe following arguments are supported:" +
-		"\n\n* `required_integer` - (Required) Description for required_integer. Possible values are `1`, `2`, `3.`" +
-		"\n\n* `required_nested_item` - (Required) A `required_nested_item` block as defined below. " +
-		"\n\n* `required_string` - (Required) Description for required_string. Possible values are `string1`, `string2`, `string3.`" +
+	expected := "\n\n## Blocks Reference" +
+		"\n\n### `optional_nested_item` Block" +
+		"\n\nThe `optional_nested_item` block supports the following arguments:" +
+		"\n\n* `another_nested_item` - (Optional) An `another_nested_item` block as defined below. " +
+		"\n\n* `nested_item` - (Optional) Description for nested_item. Possible values are `string1`, `string2`, `string3.`" +
+		"\n\nThe `optional_nested_item` block exports the following arguments:" +
+		"\n\n* `computed_item` - Description for computed_string." +
+		"\n\n---" +
+		"\n\n### `another_nested_item` Block" +
+		"\n\nThe `another_nested_item` block supports the following arguments:" +
+		"\n\n* `optional_item` - (Optional) Description for optional_item. Possible values are `string1`, `string2`, `string3.`" +
+		"\n\n---" +
+		"\n\n### `required_nested_item` Block" +
+		"\n\nThe `required_nested_item` block supports the following arguments:" +
+		"\n\n* `required_item` - (Required) Description for required_item. Possible values are `string1`, `string2`, `string3.`" +
 		"\n\n* `boolean_item` - (Optional) Description for boolean_item. Possible values are `true` and `false`." +
-		"\n\n* `optional_integer` - (Optional) Description for optional_integer. Possible values are `4`, `5`, `6.`" +
-		"\n\n* `optional_nested_item` - (Optional) An `optional_nested_item` block as defined below. " +
-		"\n\n* `optional_string` - (Optional) Description for optional_string. Possible values are `string1`, `string2`, `string3.`" +
-		"\n\n---\n\n"
+		"\n\n* `optional_item` - (Optional) Description for optional_item. Possible values are `string1`, `string2`, `string3.`" +
+		"\n\nThe `required_nested_item` block exports the following arguments:" +
+		"\n\n* `computed_item` - Description for computed_item." +
+		"\n\n---"
 
 	if *actual != expected {
 		t.Fatalf("Expected %s but got %s", expected, *actual)

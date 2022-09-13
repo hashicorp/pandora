@@ -4,20 +4,22 @@ import (
 	"testing"
 
 	"github.com/hashicorp/pandora/tools/generator-terraform/generator/models"
-
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-func TestComponentArguments(t *testing.T) {
+func TestComponentAttributes(t *testing.T) {
 	input := models.ResourceInput{
 		ResourceTypeName: "Example",
 		SchemaModelName:  "TopLevelModelResourceSchema",
+		Details: resourcemanager.TerraformResourceDetails{
+			DisplayName: "Test Resource",
+		},
 		SchemaModels: map[string]resourcemanager.TerraformSchemaModelDefinition{
 			"TopLevelModelResourceSchema": {
 				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
-					"OptionalNestedItem": {
-						Optional: true,
-						HclName:  "optional_nested_item",
+					"ComputedNestedItem": {
+						Computed: true,
+						HclName:  "computed_nested_item",
 						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
 							Type:          resourcemanager.TerraformSchemaFieldTypeReference,
 							ReferenceName: stringPointer("NestedSchema"),
@@ -227,21 +229,18 @@ func TestComponentArguments(t *testing.T) {
 			},
 		},
 	}
-	actual, err := codeForArgumentsReference(input)
+	actual, err := codeForAttributesReference(input)
 	if err != nil {
 		t.Fatalf("error: %+v", err)
 	}
 
-	expected := "\n## Arguments Reference" +
-		"\n\nThe following arguments are supported:" +
-		"\n\n* `required_integer` - (Required) Description for required_integer. Possible values are `1`, `2`, `3.`" +
-		"\n\n* `required_nested_item` - (Required) A `required_nested_item` block as defined below. " +
-		"\n\n* `required_string` - (Required) Description for required_string. Possible values are `string1`, `string2`, `string3.`" +
-		"\n\n* `boolean_item` - (Optional) Description for boolean_item. Possible values are `true` and `false`." +
-		"\n\n* `optional_integer` - (Optional) Description for optional_integer. Possible values are `4`, `5`, `6.`" +
-		"\n\n* `optional_nested_item` - (Optional) An `optional_nested_item` block as defined below. " +
-		"\n\n* `optional_string` - (Optional) Description for optional_string. Possible values are `string1`, `string2`, `string3.`" +
-		"\n\n---\n\n"
+	expected := "## Attributes Reference" +
+		"\n\nThe following attributes are exported:" +
+		"\n\n* `id` - The ID of the Test Resource" +
+		"\n\n* `computed_integer` - Description for computed_integer." +
+		"\n\n* `computed_nested_item` - A `computed_nested_item` block as defined below. " +
+		"\n\n* `computed_string` - Description for computed_string." +
+		"\n\n---"
 
 	if *actual != expected {
 		t.Fatalf("Expected %s but got %s", expected, *actual)
