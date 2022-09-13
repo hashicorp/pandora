@@ -183,7 +183,7 @@ func attributesForValidation(input *resourcemanager.TerraformSchemaValidationDef
 					floatValues = append(floatValues, fmt.Sprintf("%f,", val))
 				}
 				// TODO: add this method to the SDK
-				output = append(output, fmt.Sprintf(`Validation: validation.FloatInSlice([]float{
+				output = append(output, fmt.Sprintf(`ValidateFunc: validation.FloatInSlice([]float{
 %s
 }, false)`, strings.Join(floatValues, "\n")))
 			}
@@ -199,7 +199,7 @@ func attributesForValidation(input *resourcemanager.TerraformSchemaValidationDef
 
 					intValues = append(intValues, fmt.Sprintf("%d,", val))
 				}
-				output = append(output, fmt.Sprintf(`Validation: validation.IntInSlice([]int{
+				output = append(output, fmt.Sprintf(`ValidateFunc: validation.IntInSlice([]int{
 %s
 }, false)`, strings.Join(intValues, "\n")))
 			}
@@ -215,7 +215,7 @@ func attributesForValidation(input *resourcemanager.TerraformSchemaValidationDef
 
 					stringValues = append(stringValues, fmt.Sprintf("%q,", val))
 				}
-				output = append(output, fmt.Sprintf(`Validation: validation.StringInSlice([]string{
+				output = append(output, fmt.Sprintf(`ValidateFunc: validation.StringInSlice([]string{
 %s
 }, false)`, strings.Join(stringValues, "\n")))
 			}
