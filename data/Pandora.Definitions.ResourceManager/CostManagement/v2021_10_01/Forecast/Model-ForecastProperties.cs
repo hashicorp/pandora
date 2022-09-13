@@ -13,11 +13,14 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.CostManagement.v2021_10_01.Forecast;
 
 
-internal class QueryColumnModel
+internal class ForecastPropertiesModel
 {
-    [JsonPropertyName("name")]
-    public string? Name { get; set; }
+    [JsonPropertyName("columns")]
+    public List<ForecastColumnModel>? Columns { get; set; }
 
-    [JsonPropertyName("type")]
-    public string? Type { get; set; }
+    [JsonPropertyName("nextLink")]
+    public string? NextLink { get; set; }
+
+    [JsonPropertyName("rows")]
+    public List<List<object>>? Rows { get; set; }
 }

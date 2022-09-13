@@ -25,7 +25,7 @@ internal class UsageOperation : Operations.PostOperation
 
     public override ResourceID? ResourceId() => new ScopeId();
 
-    public override Type? ResponseObject() => typeof(QueryResultModel);
+    public override Type? ResponseObject() => typeof(ForecastResultModel);
 
     public override Type? OptionsObject() => typeof(UsageOperation.UsageOptions);
 

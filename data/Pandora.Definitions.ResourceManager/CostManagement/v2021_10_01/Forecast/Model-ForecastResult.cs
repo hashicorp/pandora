@@ -13,7 +13,7 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.CostManagement.v2021_10_01.Forecast;
 
 
-internal class QueryResultModel
+internal class ForecastResultModel
 {
     [JsonPropertyName("eTag")]
     public string? ETag { get; set; }
@@ -28,7 +28,7 @@ internal class QueryResultModel
     public string? Name { get; set; }
 
     [JsonPropertyName("properties")]
-    public QueryPropertiesModel? Properties { get; set; }
+    public ForecastPropertiesModel? Properties { get; set; }
 
     [JsonPropertyName("sku")]
     public string? Sku { get; set; }

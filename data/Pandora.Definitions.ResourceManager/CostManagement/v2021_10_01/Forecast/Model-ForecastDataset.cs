@@ -16,13 +16,14 @@ namespace Pandora.Definitions.ResourceManager.CostManagement.v2021_10_01.Forecas
 internal class ForecastDatasetModel
 {
     [JsonPropertyName("aggregation")]
-    public Dictionary<string, QueryAggregationModel>? Aggregation { get; set; }
+    [Required]
+    public Dictionary<string, ForecastAggregationModel> Aggregation { get; set; }
 
     [JsonPropertyName("configuration")]
-    public QueryDatasetConfigurationModel? Configuration { get; set; }
+    public ForecastDatasetConfigurationModel? Configuration { get; set; }
 
     [JsonPropertyName("filter")]
-    public QueryFilterModel? Filter { get; set; }
+    public ForecastFilterModel? Filter { get; set; }
 
     [JsonPropertyName("granularity")]
     public GranularityTypeConstant? Granularity { get; set; }

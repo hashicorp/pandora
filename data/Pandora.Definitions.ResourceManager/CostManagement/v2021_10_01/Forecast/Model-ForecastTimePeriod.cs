@@ -13,14 +13,15 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.CostManagement.v2021_10_01.Forecast;
 
 
-internal class QueryPropertiesModel
+internal class ForecastTimePeriodModel
 {
-    [JsonPropertyName("columns")]
-    public List<QueryColumnModel>? Columns { get; set; }
+    [DateFormat(DateFormatAttribute.DateFormat.RFC3339)]
+    [JsonPropertyName("from")]
+    [Required]
+    public DateTime From { get; set; }
 
-    [JsonPropertyName("nextLink")]
-    public string? NextLink { get; set; }
-
-    [JsonPropertyName("rows")]
-    public List<List<object>>? Rows { get; set; }
+    [DateFormat(DateFormatAttribute.DateFormat.RFC3339)]
+    [JsonPropertyName("to")]
+    [Required]
+    public DateTime To { get; set; }
 }

@@ -13,15 +13,18 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.CostManagement.v2021_10_01.Forecast;
 
 
-internal class QueryTimePeriodModel
+internal class ForecastComparisonExpressionModel
 {
-    [DateFormat(DateFormatAttribute.DateFormat.RFC3339)]
-    [JsonPropertyName("from")]
+    [JsonPropertyName("name")]
     [Required]
-    public DateTime From { get; set; }
+    public string Name { get; set; }
 
-    [DateFormat(DateFormatAttribute.DateFormat.RFC3339)]
-    [JsonPropertyName("to")]
+    [JsonPropertyName("operator")]
     [Required]
-    public DateTime To { get; set; }
+    public ForecastOperatorTypeConstant Operator { get; set; }
+
+    [MinItems(1)]
+    [JsonPropertyName("values")]
+    [Required]
+    public List<string> Values { get; set; }
 }

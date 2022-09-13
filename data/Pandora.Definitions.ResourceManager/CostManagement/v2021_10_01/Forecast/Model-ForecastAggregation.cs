@@ -13,19 +13,13 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.CostManagement.v2021_10_01.Forecast;
 
 
-internal class QueryFilterModel
+internal class ForecastAggregationModel
 {
-    [MinItems(2)]
-    [JsonPropertyName("and")]
-    public List<QueryFilterModel>? And { get; set; }
+    [JsonPropertyName("function")]
+    [Required]
+    public FunctionTypeConstant Function { get; set; }
 
-    [JsonPropertyName("dimensions")]
-    public QueryComparisonExpressionModel? Dimensions { get; set; }
-
-    [MinItems(2)]
-    [JsonPropertyName("or")]
-    public List<QueryFilterModel>? Or { get; set; }
-
-    [JsonPropertyName("tags")]
-    public QueryComparisonExpressionModel? Tags { get; set; }
+    [JsonPropertyName("name")]
+    [Required]
+    public FunctionNameConstant Name { get; set; }
 }

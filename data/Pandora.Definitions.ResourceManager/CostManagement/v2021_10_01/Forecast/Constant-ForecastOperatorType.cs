@@ -4,7 +4,7 @@ using System.ComponentModel;
 namespace Pandora.Definitions.ResourceManager.CostManagement.v2021_10_01.Forecast;
 
 [ConstantType(ConstantTypeAttribute.ConstantType.String)]
-internal enum QueryOperatorTypeConstant
+internal enum ForecastOperatorTypeConstant
 {
     [Description("In")]
     In,
