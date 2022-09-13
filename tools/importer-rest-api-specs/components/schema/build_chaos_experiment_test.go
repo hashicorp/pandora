@@ -8,7 +8,7 @@ import (
 )
 
 func TestBuildForChaosStudioExperimentWithRealData(t *testing.T) {
-	//t.Skipf("TODO: update schema gen & re-enable this test")
+	t.Skipf("TODO: update schema gen & re-enable this test")
 	r := resourceUnderTest{Name: "chaos_studio_experiment"}
 	builder := Builder{
 		constants: map[string]resourcemanager.ConstantDetails{
