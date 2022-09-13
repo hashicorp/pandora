@@ -281,7 +281,7 @@ func TestBuildForServiceBusNamespaceHappyPath(t *testing.T) {
 }
 
 func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
-	//t.Skipf("TODO: update schema gen & re-enable this test")
+	t.Skipf("TODO: update schema gen & re-enable this test")
 	r := resourceUnderTest{Name: "service_bus_namespace"}
 	builder := Builder{
 		constants: map[string]resourcemanager.ConstantDetails{
