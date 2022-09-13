@@ -132,14 +132,14 @@ func getFieldValidation(input *resourcemanager.FieldValidationDetails, fieldName
 				}
 				break
 
-			case int, int32, int64:
+			case int64:
 				possibleValues = &resourcemanager.TerraformSchemaValidationPossibleValuesDefinition{
 					Type:   resourcemanager.TerraformSchemaValidationPossibleValueTypeInt,
 					Values: *values,
 				}
 				break
 
-			case float32, float64:
+			case float64:
 				possibleValues = &resourcemanager.TerraformSchemaValidationPossibleValuesDefinition{
 					Type:   resourcemanager.TerraformSchemaValidationPossibleValueTypeFloat,
 					Values: *values,

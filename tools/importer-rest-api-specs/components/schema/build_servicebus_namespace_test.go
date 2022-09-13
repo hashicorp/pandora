@@ -1105,7 +1105,7 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 		FieldName: "PublicNetworkAccess",
 		HclName:   "public_network_access",
 		Optional:  true,
-		FieldType: resourcemanager.TerraformSchemaFieldTypeReference,
+		FieldType: resourcemanager.TerraformSchemaFieldTypeString,
 		Validation: &expectedValidation{
 			Type:               resourcemanager.TerraformSchemaValidationTypePossibleValues,
 			PossibleValueCount: 3,
