@@ -67,10 +67,11 @@ func fieldDefinitionsMatch(t *testing.T, first map[string]resourcemanager.Terraf
 			return false
 		}
 
-		if !mappingsMatch(t, firstVal.Mappings, secondVal.Mappings) {
-			t.Fatalf("mappings didn't match")
-			return false
-		}
+		// TODO - Put this, or equivalent, back when mappings are re-implemented
+		//if !mappingsMatch(t, firstVal.Mappings, secondVal.Mappings) {
+		//	t.Fatalf("mappings didn't match")
+		//	return false
+		//}
 
 		if !validatorsMatch(t, firstVal.Validation, secondVal.Validation) {
 			t.Fatalf("validation didn't match")
@@ -112,26 +113,27 @@ func objectDefinitionsMatch(t *testing.T, first *resourcemanager.TerraformSchema
 	return true
 }
 
-func mappingsMatch(t *testing.T, first resourcemanager.TerraformSchemaFieldMappingDefinition, second resourcemanager.TerraformSchemaFieldMappingDefinition) bool {
-	if valueForNilableString(first.ResourceIdSegment) != valueForNilableString(second.ResourceIdSegment) {
-		t.Fatalf("ResourceIdSegment didn't match - first %q / second %q", valueForNilableString(first.ResourceIdSegment), valueForNilableString(second.ResourceIdSegment))
-		return false
-	}
-	if valueForNilableString(first.SdkPathForCreate) != valueForNilableString(second.SdkPathForCreate) {
-		t.Fatalf("SdkPathForCreate didn't match - first %q / second %q", valueForNilableString(first.SdkPathForCreate), valueForNilableString(second.SdkPathForCreate))
-		return false
-	}
-	if valueForNilableString(first.SdkPathForRead) != valueForNilableString(second.SdkPathForRead) {
-		t.Fatalf("SdkPathForRead didn't match - first %q / second %q", valueForNilableString(first.SdkPathForRead), valueForNilableString(second.SdkPathForRead))
-		return false
-	}
-	if valueForNilableString(first.SdkPathForUpdate) != valueForNilableString(second.SdkPathForUpdate) {
-		t.Fatalf("SdkPathForUpdate didn't match - first %q / second %q", valueForNilableString(first.SdkPathForUpdate), valueForNilableString(second.SdkPathForUpdate))
-		return false
-	}
-
-	return true
-}
+// TODO - Put this, or equivalent, back when mappings are re-implemented
+//func mappingsMatch(t *testing.T, first resourcemanager.TerraformSchemaFieldMappingDefinition, second resourcemanager.TerraformSchemaFieldMappingDefinition) bool {
+//	if valueForNilableString(first.ResourceIdSegment) != valueForNilableString(second.ResourceIdSegment) {
+//		t.Fatalf("ResourceIdSegment didn't match - first %q / second %q", valueForNilableString(first.ResourceIdSegment), valueForNilableString(second.ResourceIdSegment))
+//		return false
+//	}
+//	if valueForNilableString(first.SdkPathForCreate) != valueForNilableString(second.SdkPathForCreate) {
+//		t.Fatalf("SdkPathForCreate didn't match - first %q / second %q", valueForNilableString(first.SdkPathForCreate), valueForNilableString(second.SdkPathForCreate))
+//		return false
+//	}
+//	if valueForNilableString(first.SdkPathForRead) != valueForNilableString(second.SdkPathForRead) {
+//		t.Fatalf("SdkPathForRead didn't match - first %q / second %q", valueForNilableString(first.SdkPathForRead), valueForNilableString(second.SdkPathForRead))
+//		return false
+//	}
+//	if valueForNilableString(first.SdkPathForUpdate) != valueForNilableString(second.SdkPathForUpdate) {
+//		t.Fatalf("SdkPathForUpdate didn't match - first %q / second %q", valueForNilableString(first.SdkPathForUpdate), valueForNilableString(second.SdkPathForUpdate))
+//		return false
+//	}
+//
+//	return true
+//}
 
 func validatorsMatch(t *testing.T, first *resourcemanager.TerraformSchemaValidationDefinition, second *resourcemanager.TerraformSchemaValidationDefinition) bool {
 	if first == nil && second == nil {

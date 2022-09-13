@@ -1,6 +1,7 @@
 package schema
 
 import (
+	"fmt"
 	"sort"
 	"strings"
 	"unicode"
@@ -108,4 +109,48 @@ func updateFieldName(fieldName string, model *resourcemanager.ModelDetails, reso
 
 func stringPointer(input string) *string {
 	return &input
+}
+
+func getFieldValidation(input *resourcemanager.FieldValidationDetails, fieldName string) (*resourcemanager.TerraformSchemaValidationDefinition, error) {
+	if input == nil {
+		return nil, nil
+	}
+	var validationType resourcemanager.TerraformSchemaValidationType
+	var possibleValues *resourcemanager.TerraformSchemaValidationPossibleValuesDefinition
+	switch input.Type {
+	case resourcemanager.RangeValidation:
+		validationType = resourcemanager.TerraformSchemaValidationTypePossibleValues
+		if values := input.Values; values == nil || len(*values) == 0 {
+			return nil, fmt.Errorf("field %q had Range Validation type but had no defined values", fieldName)
+		} else {
+			t := (*values)[0]
+			switch t.(type) {
+			case string:
+				possibleValues = &resourcemanager.TerraformSchemaValidationPossibleValuesDefinition{
+					Type:   resourcemanager.TerraformSchemaValidationPossibleValueTypeString,
+					Values: *values,
+				}
+				break
+
+			case int64:
+				possibleValues = &resourcemanager.TerraformSchemaValidationPossibleValuesDefinition{
+					Type:   resourcemanager.TerraformSchemaValidationPossibleValueTypeInt,
+					Values: *values,
+				}
+				break
+
+			case float64:
+				possibleValues = &resourcemanager.TerraformSchemaValidationPossibleValuesDefinition{
+					Type:   resourcemanager.TerraformSchemaValidationPossibleValueTypeFloat,
+					Values: *values,
+				}
+				break
+			}
+		}
+	}
+
+	return &resourcemanager.TerraformSchemaValidationDefinition{
+		Type:           validationType,
+		PossibleValues: possibleValues,
+	}, nil
 }

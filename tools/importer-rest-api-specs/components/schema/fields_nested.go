@@ -75,8 +75,9 @@ func (b Builder) identifyFieldsWithinPropertiesBlock(modelPrefix string, input o
 				}
 			}
 
+			validation, err := getFieldValidation(createField.Validation, k)
+			//var err error
 			fieldNameForTypedModel := ""
-			var err error
 			if hasRead {
 				fieldNameForTypedModel, err = updateFieldName(k, readPropertiesModel, resource)
 			} else if hasCreate {
@@ -112,6 +113,7 @@ func (b Builder) identifyFieldsWithinPropertiesBlock(modelPrefix string, input o
 				// 4 types of mappings: Create/Read/Update/Resource ID - all nullable
 				// If a Create and Update Mapping are present but a Read isn't it's implicitly WriteOnly
 				//WriteOnly: isWriteOnly,
+				Validation: validation,
 				// TODO: also need to add the mappings & any validation
 			}
 
