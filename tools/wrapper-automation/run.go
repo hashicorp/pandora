@@ -93,6 +93,7 @@ func runGoSdkGenerator(dataApiUri string, outputDirectory string) error {
 
 func runRestApiSpecsImporter(dataApiUri string, outputDirectory string) error {
 	args := []string{
+		"import",
 		fmt.Sprintf("-data-api=%s", dataApiUri),
 	}
 	if outputDirectory != "" {
@@ -113,6 +114,7 @@ func runRestApiSpecsImporter(dataApiUri string, outputDirectory string) error {
 
 func runTerraformGenerator(dataApiUri string, outputDirectory string) error {
 	args := []string{
+		"generate",
 		fmt.Sprintf("-data-api=%s", dataApiUri),
 	}
 	if outputDirectory != "" {

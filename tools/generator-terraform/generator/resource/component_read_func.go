@@ -161,12 +161,8 @@ func (c readFunctionComponents) codeForResourceIdMappings() (*string, error) {
 			continue
 		}
 
-		topLevelFieldForResourceIdSegment, err := findTopLevelFieldForResourceIdSegment(v.Name, c.terraformModel)
-		if err != nil {
-			return nil, fmt.Errorf("finding mapping for resource id segment %q: %+v", v.Name, err)
-		}
-
-		lines = append(lines, fmt.Sprintf("schema.%s = id.%s", *topLevelFieldForResourceIdSegment, strings.Title(v.Name)))
+		// TODO: re-introduce Resource ID <-> Schema Mappings
+		lines = append(lines, fmt.Sprintf("// TODO: schema.%s = id.%s", "SOMEFIELD", strings.Title(v.Name)))
 	}
 	sort.Strings(lines)
 
@@ -178,27 +174,27 @@ func (c readFunctionComponents) codeForTopLevelMappings() (*string, error) {
 	// TODO: tests for this
 	mappings := make([]string, 0)
 
-	// ensure these are output alphabetically for consistency purposes across re-generations
-	orderedFieldNames := make([]string, 0)
-	for fieldName := range c.terraformModel.Fields {
-		orderedFieldNames = append(orderedFieldNames, fieldName)
-	}
-	sort.Strings(orderedFieldNames)
-
-	for _, tfFieldName := range orderedFieldNames {
-		tfField := c.terraformModel.Fields[tfFieldName]
-		if tfField.Mappings.SdkPathForRead == nil {
-			continue
-		}
-
-		assignmentVariable := fmt.Sprintf("schema.%s", tfFieldName)
-		codeForMapping, err := flattenAssignmentCodeForField(assignmentVariable, tfFieldName, tfField, c.topLevelModel, c.models)
-		if err != nil {
-			return nil, fmt.Errorf("building flatten assignment code for field %q: %+v", tfFieldName, err)
-		}
-
-		mappings = append(mappings, *codeForMapping)
-	}
+	//// ensure these are output alphabetically for consistency purposes across re-generations
+	//orderedFieldNames := make([]string, 0)
+	//for fieldName := range c.terraformModel.Fields {
+	//	orderedFieldNames = append(orderedFieldNames, fieldName)
+	//}
+	//sort.Strings(orderedFieldNames)
+	//
+	//for _, tfFieldName := range orderedFieldNames {
+	//	tfField := c.terraformModel.Fields[tfFieldName]
+	//	if tfField.Mappings.SdkPathForRead == nil {
+	//		continue
+	//	}
+	//
+	//	assignmentVariable := fmt.Sprintf("schema.%s", tfFieldName)
+	//	codeForMapping, err := flattenAssignmentCodeForField(assignmentVariable, tfFieldName, tfField, c.topLevelModel, c.models)
+	//	if err != nil {
+	//		return nil, fmt.Errorf("building flatten assignment code for field %q: %+v", tfFieldName, err)
+	//	}
+	//
+	//	mappings = append(mappings, *codeForMapping)
+	//}
 
 	sort.Strings(mappings)
 	output := strings.Join(mappings, "\n")

@@ -28,6 +28,8 @@ type createFunctionComponents struct {
 	resourceId             resourcemanager.ResourceIdDefinition
 	terraformModel         resourcemanager.TerraformSchemaModelDefinition
 	topLevelModel          resourcemanager.ModelDetails
+
+	// TODO: Mappings
 }
 
 func createFunctionForResource(input models.ResourceInput) (*string, error) {
@@ -155,18 +157,8 @@ func (h createFunctionComponents) idDefinitionAndMapping() (*string, error) {
 
 		default:
 			{
-				if featureflags.OutputMappings {
-					topLevelFieldForResourceIdSegment, err := findTopLevelFieldForResourceIdSegment(v.Name, h.terraformModel)
-					if err != nil {
-						return nil, fmt.Errorf("finding mapping for resource id segment %q: %+v", v.Name, err)
-					}
-
-					if topLevelFieldForResourceIdSegment != nil {
-						segments = append(segments, fmt.Sprintf("config.%s", *topLevelFieldForResourceIdSegment))
-					}
-				} else {
-					segments = append(segments, fmt.Sprintf("\"schema field for %s\"", v.Name))
-				}
+				// TODO: re-introduce Resource ID <-> Schema Mappings
+				segments = append(segments, fmt.Sprintf("\"schema field for %s\"", v.Name))
 			}
 		}
 	}
@@ -200,27 +192,27 @@ func (h createFunctionComponents) mappingsFromSchema() (*string, error) {
 
 	mappings := make([]string, 0)
 
-	// ensure these are output alphabetically for consistency purposes across re-generations
-	orderedFieldNames := make([]string, 0)
-	for fieldName := range h.terraformModel.Fields {
-		orderedFieldNames = append(orderedFieldNames, fieldName)
-	}
-	sort.Strings(orderedFieldNames)
-
-	for _, tfFieldName := range orderedFieldNames {
-		tfField := h.terraformModel.Fields[tfFieldName]
-		if tfField.Mappings.SdkPathForCreate == nil {
-			continue
-		}
-
-		assignmentVariable := fmt.Sprintf("payload.%s", *tfField.Mappings.SdkPathForCreate)
-		codeForMapping, err := expandAssignmentCodeForCreateField(assignmentVariable, tfFieldName, tfField, h.topLevelModel, h.models)
-		if err != nil {
-			return nil, fmt.Errorf("building expand assignment code for field %q: %+v", tfFieldName, err)
-		}
-
-		mappings = append(mappings, *codeForMapping)
-	}
+	//// ensure these are output alphabetically for consistency purposes across re-generations
+	//orderedFieldNames := make([]string, 0)
+	//for fieldName := range h.terraformModel.Fields {
+	//	orderedFieldNames = append(orderedFieldNames, fieldName)
+	//}
+	//sort.Strings(orderedFieldNames)
+	//
+	//for _, tfFieldName := range orderedFieldNames {
+	//	tfField := h.terraformModel.Fields[tfFieldName]
+	//	if tfField.Mappings.SdkPathForCreate == nil {
+	//		continue
+	//	}
+	//
+	//	assignmentVariable := fmt.Sprintf("payload.%s", *tfField.Mappings.SdkPathForCreate)
+	//	codeForMapping, err := expandAssignmentCodeForCreateField(assignmentVariable, tfFieldName, tfField, h.topLevelModel, h.models)
+	//	if err != nil {
+	//		return nil, fmt.Errorf("building expand assignment code for field %q: %+v", tfFieldName, err)
+	//	}
+	//
+	//	mappings = append(mappings, *codeForMapping)
+	//}
 
 	sort.Strings(mappings)
 	output := strings.Join(mappings, "\n")

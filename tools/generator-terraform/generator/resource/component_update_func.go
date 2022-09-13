@@ -128,32 +128,32 @@ func (h updateFuncHelpers) mappingsFromSchema() (*string, error) {
 
 	mappings := make([]string, 0)
 
-	// ensure these are output alphabetically for consistency purposes across re-generations
-	orderedFieldNames := make([]string, 0)
-	for fieldName := range h.terraformModel.Fields {
-		orderedFieldNames = append(orderedFieldNames, fieldName)
-	}
-	sort.Strings(orderedFieldNames)
-
-	for _, tfFieldName := range orderedFieldNames {
-		tfField := h.terraformModel.Fields[tfFieldName]
-		if tfField.Mappings.SdkPathForUpdate == nil {
-			continue
-		}
-
-		assignmentVariable := fmt.Sprintf("payload.%s", *tfField.Mappings.SdkPathForUpdate)
-		codeForMapping, err := expandAssignmentCodeForUpdateField(assignmentVariable, tfFieldName, tfField, h.topLevelModel, h.models)
-		if err != nil {
-			return nil, fmt.Errorf("building expand assignment code for field %q: %+v", tfFieldName, err)
-		}
-
-		mappingLine := strings.TrimSpace(fmt.Sprintf(`
-if metadata.ResourceData.HasChange(%[1]q) {
-	%[2]s
-}
-`, tfField.HclName, *codeForMapping))
-		mappings = append(mappings, mappingLine)
-	}
+	//	// ensure these are output alphabetically for consistency purposes across re-generations
+	//	orderedFieldNames := make([]string, 0)
+	//	for fieldName := range h.terraformModel.Fields {
+	//		orderedFieldNames = append(orderedFieldNames, fieldName)
+	//	}
+	//	sort.Strings(orderedFieldNames)
+	//
+	//	for _, tfFieldName := range orderedFieldNames {
+	//		tfField := h.terraformModel.Fields[tfFieldName]
+	//		if tfField.Mappings.SdkPathForUpdate == nil {
+	//			continue
+	//		}
+	//
+	//		assignmentVariable := fmt.Sprintf("payload.%s", *tfField.Mappings.SdkPathForUpdate)
+	//		codeForMapping, err := expandAssignmentCodeForUpdateField(assignmentVariable, tfFieldName, tfField, h.topLevelModel, h.models)
+	//		if err != nil {
+	//			return nil, fmt.Errorf("building expand assignment code for field %q: %+v", tfFieldName, err)
+	//		}
+	//
+	//		mappingLine := strings.TrimSpace(fmt.Sprintf(`
+	//if metadata.ResourceData.HasChange(%[1]q) {
+	//	%[2]s
+	//}
+	//`, tfField.HclName, *codeForMapping))
+	//		mappings = append(mappings, mappingLine)
+	//	}
 
 	sort.Strings(mappings)
 	output := strings.Join(mappings, "\n")
