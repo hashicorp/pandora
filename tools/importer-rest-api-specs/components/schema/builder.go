@@ -213,20 +213,56 @@ func (b Builder) buildNestedModelDefinition(modelPrefix string, model resourcema
 		}
 		definition.HclName = convertToSnakeCase(fieldName)
 
-		if validation := v.Validation; validation != nil {
-			var validationType resourcemanager.TerraformSchemaValidationType
-			var possibleValues *[]interface{}
-			definition.Validation = &resourcemanager.TerraformSchemaValidationDefinition{}
-			switch validation.Type {
-			case resourcemanager.RangeValidation:
-				validationType = resourcemanager.TerraformSchemaValidationTypePossibleValues
-				possibleValues = validation.Values
-			}
-
-			definition.Validation.Type = validationType
-			definition.Validation.PossibleValues = possibleValues
+		//if validation := v.Validation; validation != nil {
+		//	definition.Validation = &resourcemanager.TerraformSchemaValidationDefinition{}
+		//	var validationType resourcemanager.TerraformSchemaValidationType
+		//	var possibleValues *resourcemanager.TerraformSchemaValidationPossibleValuesDefinition
+		//	switch validation.Type {
+		//	case resourcemanager.RangeValidation:
+		//		validationType = resourcemanager.TerraformSchemaValidationTypePossibleValues
+		//		if values := validation.Values; values == nil || len(*values) == 0 {
+		//			return nil, fmt.Errorf("field %q had Range Validation type but had no defined values", fieldName)
+		//		} else {
+		//			t := (*values)[0]
+		//			switch t.(type) {
+		//			case string:
+		//				possibleValues = &resourcemanager.TerraformSchemaValidationPossibleValuesDefinition{
+		//					Type:   resourcemanager.TerraformSchemaValidationPossibleValueTypeString,
+		//					Values: *values,
+		//				}
+		//				break
+		//
+		//			case int, int32, int64:
+		//				possibleValues = &resourcemanager.TerraformSchemaValidationPossibleValuesDefinition{
+		//					Type:   resourcemanager.TerraformSchemaValidationPossibleValueTypeInt,
+		//					Values: *values,
+		//				}
+		//				break
+		//
+		//			case float32, float64:
+		//				possibleValues = &resourcemanager.TerraformSchemaValidationPossibleValuesDefinition{
+		//					Type:   resourcemanager.TerraformSchemaValidationPossibleValueTypeFloat,
+		//					Values: *values,
+		//				}
+		//				break
+		//			}
+		//		}
+		//	}
+		//
+		//	if validationType == "" {
+		//		return nil, fmt.Errorf("failed to determine or unsupported Validation Type for field %q", fieldName)
+		//	} else {
+		//		definition.Validation.Type = validationType
+		//	}
+		//
+		//	definition.Validation.PossibleValues = possibleValues
+		//}
+		//
+		validation, err := getFieldValidation(v.Validation, fieldName)
+		if err != nil {
+			return nil, err
 		}
-
+		definition.Validation = validation
 		out[fieldName] = definition
 	}
 

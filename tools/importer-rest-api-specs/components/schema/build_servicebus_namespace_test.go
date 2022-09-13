@@ -243,16 +243,16 @@ func TestBuildForServiceBusNamespaceHappyPath(t *testing.T) {
 	}
 
 	if actual == nil {
-		t.Errorf("expected 3 models but got nil")
+		t.Errorf("model %q - expected models but got nil", r.CurrentModel)
 	}
 	if len(*actual) != 3 {
-		t.Errorf("expected 3 models but got %d", len(*actual))
+		t.Errorf("model %q - expected 3 models but got %d", r.CurrentModel, len(*actual))
 	}
 
 	r.CurrentModel = "Namespace"
 	currentModel := (*actual)[r.CurrentModel]
 	if len(currentModel.Fields) != 7 {
-		t.Errorf("expected 7 fields but got %d", len(currentModel.Fields))
+		t.Errorf("model %q - expected 7 fields but got %d", r.CurrentModel, len(currentModel.Fields))
 	}
 	r.checkFieldName(t, currentModel)
 	r.checkFieldLocation(t, currentModel)
@@ -602,6 +602,14 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
 						},
 						Optional: true,
+						Validation: &resourcemanager.FieldValidationDetails{
+							Type: resourcemanager.RangeValidation,
+							Values: &[]interface{}{
+								"1.0",
+								"1.1",
+								"1.2",
+							},
+						},
 					},
 					"PrivateEndpointConnections": {
 						JsonName: "privateEndpointConnections",
@@ -613,6 +621,22 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 							},
 						},
 						Optional: true,
+					},
+					"PublicNetworkAccess": {
+						JsonName: "publicNetworkAccess",
+						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+							ReferenceName: stringPointer("PublicNetworkAccess"),
+							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+						},
+						Optional: true,
+						Validation: &resourcemanager.FieldValidationDetails{
+							Type: resourcemanager.RangeValidation,
+							Values: &[]interface{}{
+								"Enabled",
+								"Disabled",
+								"SecuredByPerimeter",
+							},
+						},
 					},
 					"ServiceBusEndpoint": {
 						JsonName: "serviceBusEndpoint",
@@ -794,6 +818,14 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 							ReferenceName: stringPointer("SkuName"),
 						},
 						Required: true,
+						Validation: &resourcemanager.FieldValidationDetails{
+							Type: resourcemanager.RangeValidation,
+							Values: &[]interface{}{
+								"Basic",
+								"Premium",
+								"Standard",
+							},
+						},
 					},
 					"Tier": {
 						JsonName: "tier",
@@ -802,6 +834,14 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 							ReferenceName: stringPointer("SkuTier"),
 						},
 						Optional: true,
+						Validation: &resourcemanager.FieldValidationDetails{
+							Type: resourcemanager.RangeValidation,
+							Values: &[]interface{}{
+								"Basic",
+								"Premium",
+								"Standard",
+							},
+						},
 					},
 					"Capacity": {
 						JsonName: "capacity",
@@ -941,7 +981,7 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 
 	if len(*actual) != 15 {
 		// TODO - Double check this count when the sku rules are in place :see_no_evil:
-		t.Errorf("expected 15 models, got %d", len(*actual))
+		t.Errorf("model %q - expected 15 models, got %d", r.CurrentModel, len(*actual))
 	}
 
 	// TODO: validate the result
@@ -950,7 +990,7 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 	if len(currentModel.Fields) != 18 {
 		// TODO - Double check this count when the sku rules are in place :see_no_evil:
 		// Missing - sku_name, sku_tier, sku_capacity, private_endpoint_id
-		t.Errorf("expected 18 fields but got %d", len(currentModel.Fields))
+		t.Errorf("model %q - expected 18 fields but got %d", r.CurrentModel, len(currentModel.Fields))
 	}
 
 	r.checkFieldName(t, currentModel)
@@ -999,14 +1039,14 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 		FieldName: "CreatedAt",
 		HclName:   "created_at",
 		Computed:  true,
-		FieldType: resourcemanager.TerraformSchemaFieldTypeString,
+		FieldType: resourcemanager.TerraformSchemaFieldTypeDateTime,
 	})
 
 	r.checkField(t, currentModel, expected{
 		FieldName: "UpdatedAt",
 		HclName:   "updated_at",
 		Computed:  true,
-		FieldType: resourcemanager.TerraformSchemaFieldTypeString,
+		FieldType: resourcemanager.TerraformSchemaFieldTypeDateTime,
 	})
 
 	r.checkField(t, currentModel, expected{
@@ -1065,7 +1105,7 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 		FieldName: "PublicNetworkAccess",
 		HclName:   "public_network_access",
 		Optional:  true,
-		FieldType: resourcemanager.TerraformSchemaFieldTypeString,
+		FieldType: resourcemanager.TerraformSchemaFieldTypeReference,
 		Validation: &expectedValidation{
 			Type:               resourcemanager.TerraformSchemaValidationTypePossibleValues,
 			PossibleValueCount: 3,
@@ -1094,7 +1134,7 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 	r.CurrentModel = "NamespacePrivateEndpointConnectionProperties" // Should this be flattened into `NamespacePrivateEndpointConnection`?
 	currentModel = (*actual)[r.CurrentModel]
 	if len(currentModel.Fields) != 3 {
-		t.Errorf("expected 3 fields but got %d", len(currentModel.Fields))
+		t.Errorf("model %q - expected 3 fields but got %d", r.CurrentModel, len(currentModel.Fields))
 	}
 
 	r.CurrentModel = "NamespaceSku" // Should be absent after Sku rules
@@ -1105,8 +1145,8 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 
 	r.CurrentModel = "NamespacePrivateEndpointConnection"
 	currentModel = (*actual)[r.CurrentModel]
-	if len(currentModel.Fields) != 3 {
-		t.Errorf("expected 3 fields but got %d", len(currentModel.Fields))
+	if len(currentModel.Fields) != 7 {
+		t.Errorf("model %q - expected 3 fields but got %d", r.CurrentModel, len(currentModel.Fields))
 	}
 	r.checkField(t, currentModel, expected{
 		FieldName: "Id",
@@ -1142,15 +1182,9 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 	r.checkField(t, currentModel, expected{
 		FieldName:     "PrivateLinkServiceConnectionState",
 		HclName:       "private_link_service_connection_state",
-		Optional:      true,
+		Computed:      true,
 		FieldType:     resourcemanager.TerraformSchemaFieldTypeReference,
 		ReferenceName: stringPointer("NamespaceConnectionState"),
-	})
-	r.checkField(t, currentModel, expected{
-		FieldName: "ProvisioningState", // Should be R/O and not have validation
-		HclName:   "provisioning_state",
-		Computed:  true,
-		FieldType: resourcemanager.TerraformSchemaFieldTypeString,
 	})
 
 	r.CurrentModel = "NamespaceNamespaceProperties" // Should be removed as flattened into parent
@@ -1162,7 +1196,7 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 	r.CurrentModel = "NamespaceConnectionState"
 	currentModel = (*actual)[r.CurrentModel]
 	if len(currentModel.Fields) != 2 {
-		t.Errorf("expected 2 fields but got %d", len(currentModel.Fields))
+		t.Errorf("model %q - expected 2 fields but got %d", r.CurrentModel, len(currentModel.Fields))
 	}
 	r.checkField(t, currentModel, expected{
 		FieldName: "Status",
@@ -1180,7 +1214,7 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 	r.CurrentModel = "NamespaceEncryption"
 	currentModel = (*actual)[r.CurrentModel]
 	if len(currentModel.Fields) != 3 {
-		t.Errorf("expected 3 fields but got %d", len(currentModel.Fields))
+		t.Errorf("model %q - expected 3 fields but got %d", r.CurrentModel, len(currentModel.Fields))
 	}
 	r.checkField(t, currentModel, expected{
 		FieldName: "RequireInfrastructureEncryption",

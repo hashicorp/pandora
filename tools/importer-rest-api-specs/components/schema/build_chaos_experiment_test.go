@@ -129,6 +129,15 @@ func TestBuildForChaosStudioExperimentWithRealData(t *testing.T) {
 							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
 						},
 						Required: true,
+						Validation: &resourcemanager.FieldValidationDetails{
+							Type: resourcemanager.RangeValidation,
+							Values: &[]interface{}{
+								"List",
+								"Percent",
+								"Random",
+								"Tag",
+							},
+						},
 					},
 				},
 			},
@@ -167,9 +176,15 @@ func TestBuildForChaosStudioExperimentWithRealData(t *testing.T) {
 						JsonName: "type",
 						ObjectDefinition: resourcemanager.ApiObjectDefinition{
 							ReferenceName: stringPointer("TargetReferenceType"),
-							Type:          resourcemanager.StringApiObjectDefinitionType,
+							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
 						},
 						Required: true,
+						Validation: &resourcemanager.FieldValidationDetails{
+							Type: resourcemanager.RangeValidation,
+							Values: &[]interface{}{
+								"ChaosTarget",
+							},
+						},
 					},
 				},
 			},
@@ -333,161 +348,192 @@ func TestBuildForChaosStudioExperimentWithRealData(t *testing.T) {
 		t.Errorf("expected 7 models but got %d", len(*actual))
 	}
 
+	var ok bool
 	r.CurrentModel = "Experiment"
-	currentModel := (*actual)[r.CurrentModel]
-	if len(currentModel.Fields) != 7 {
-		t.Errorf("expected 7 fields but got %d", len(currentModel.Fields))
+	currentModel, ok := (*actual)[r.CurrentModel]
+	if !ok {
+		t.Errorf("expected there to be a model %q, but there wasn't", r.CurrentModel)
+	} else {
+
+		if len(currentModel.Fields) != 7 {
+			t.Errorf("expected 7 fields but got %d", len(currentModel.Fields))
+		}
+
+		r.checkFieldName(t, currentModel)
+		r.checkFieldLocation(t, currentModel)
+		r.checkFieldTags(t, currentModel)
+
+		r.checkField(t, currentModel, expected{
+			FieldName:           "Selector",
+			HclName:             "selector",
+			Optional:            false,
+			Required:            true,
+			Computed:            false,
+			ForceNew:            false,
+			FieldType:           resourcemanager.TerraformSchemaFieldTypeList,
+			ReferenceName:       nil,
+			NestedReferenceName: stringPointer("ExperimentSelector"),
+		})
+
+		r.checkField(t, currentModel, expected{
+			FieldName: "StartOnCreation",
+			HclName:   "start_on_creation",
+			Optional:  true,
+			FieldType: resourcemanager.TerraformSchemaFieldTypeBoolean,
+		})
+
+		r.checkField(t, currentModel, expected{
+			FieldName:           "Step",
+			HclName:             "step",
+			Required:            true,
+			FieldType:           resourcemanager.TerraformSchemaFieldTypeList,
+			NestedReferenceName: stringPointer("ExperimentStep"),
+		})
 	}
-
-	r.checkFieldName(t, currentModel)
-	r.checkFieldLocation(t, currentModel)
-	r.checkFieldTags(t, currentModel)
-
-	r.checkField(t, currentModel, expected{
-		FieldName:           "Selector",
-		HclName:             "selector",
-		Optional:            false,
-		Required:            true,
-		Computed:            false,
-		ForceNew:            false,
-		FieldType:           resourcemanager.TerraformSchemaFieldTypeList,
-		ReferenceName:       nil,
-		NestedReferenceName: stringPointer("ExperimentSelector"),
-	})
-
-	r.checkField(t, currentModel, expected{
-		FieldName: "StartOnCreation",
-		HclName:   "start_on_creation",
-		Optional:  true,
-		FieldType: resourcemanager.TerraformSchemaFieldTypeBoolean,
-	})
-
-	r.checkField(t, currentModel, expected{
-		FieldName:           "Step",
-		HclName:             "step",
-		Required:            true,
-		FieldType:           resourcemanager.TerraformSchemaFieldTypeList,
-		NestedReferenceName: stringPointer("ExperimentStep"),
-	})
 
 	r.CurrentModel = "ExperimentSelector"
-	currentModel = (*actual)[r.CurrentModel]
-	if len(currentModel.Fields) != 3 {
-		t.Errorf("expected 3 fields but got %d", len(currentModel.Fields))
+	currentModel, ok = (*actual)[r.CurrentModel]
+	if !ok {
+		t.Errorf("expected there to be a model %q, but there wasn't", r.CurrentModel)
+	} else {
+
+		if len(currentModel.Fields) != 3 {
+			t.Errorf("expected 3 fields but got %d", len(currentModel.Fields))
+		}
+
+		r.checkField(t, currentModel, expected{
+			FieldName: "Id",
+			HclName:   "id",
+			Required:  true,
+			FieldType: resourcemanager.TerraformSchemaFieldTypeString,
+		})
+
+		r.checkField(t, currentModel, expected{
+			FieldName:           "Target",
+			HclName:             "target",
+			Required:            true,
+			FieldType:           resourcemanager.TerraformSchemaFieldTypeList,
+			NestedReferenceName: stringPointer("ExperimentTarget"),
+		})
+
+		r.checkField(t, currentModel, expected{
+			FieldName:           "Type",
+			HclName:             "type",
+			Required:            true,
+			FieldType:           resourcemanager.TerraformSchemaFieldTypeReference,
+			ReferenceName:       stringPointer("SelectorType"),
+			NestedReferenceName: nil,
+			Validation: &expectedValidation{
+				Type:               resourcemanager.TerraformSchemaValidationTypePossibleValues,
+				PossibleValueCount: 4,
+			},
+		})
 	}
-
-	r.checkField(t, currentModel, expected{
-		FieldName: "Id",
-		HclName:   "id",
-		Required:  true,
-		FieldType: resourcemanager.TerraformSchemaFieldTypeString,
-	})
-
-	r.checkField(t, currentModel, expected{
-		FieldName:           "Target",
-		HclName:             "target",
-		Required:            true,
-		FieldType:           resourcemanager.TerraformSchemaFieldTypeList,
-		NestedReferenceName: stringPointer("ExperimentTarget"),
-	})
-
-	r.checkField(t, currentModel, expected{
-		FieldName:           "Type",
-		HclName:             "type",
-		Required:            true,
-		FieldType:           resourcemanager.TerraformSchemaFieldTypeReference,
-		ReferenceName:       stringPointer("SelectorType"),
-		NestedReferenceName: nil,
-		Validation: &expectedValidation{
-			Type:               resourcemanager.TerraformSchemaValidationTypePossibleValues,
-			PossibleValueCount: 4,
-		},
-	})
 
 	r.CurrentModel = "ExperimentStep"
-	currentModel = (*actual)[r.CurrentModel]
-	if len(currentModel.Fields) != 2 {
-		t.Errorf("expected 2 fields but got %d", len(currentModel.Fields))
+	currentModel, ok = (*actual)[r.CurrentModel]
+	if !ok {
+		t.Errorf("expected there to be a model %q, but there wasn't", r.CurrentModel)
+	} else {
+		if len(currentModel.Fields) != 2 {
+			t.Errorf("expected 2 fields but got %d", len(currentModel.Fields))
+		}
+
+		r.checkField(t, currentModel, expected{
+			FieldName:           "Branch",
+			HclName:             "branch",
+			Required:            true,
+			FieldType:           resourcemanager.TerraformSchemaFieldTypeList,
+			NestedReferenceName: stringPointer("ExperimentBranch"),
+		})
+
+		r.checkField(t, currentModel, expected{
+			FieldName: "Name",
+			HclName:   "name",
+			Required:  true,
+			FieldType: resourcemanager.TerraformSchemaFieldTypeString,
+		})
 	}
 
-	r.checkField(t, currentModel, expected{
-		FieldName:           "Branch",
-		HclName:             "branch",
-		Required:            true,
-		FieldType:           resourcemanager.TerraformSchemaFieldTypeList,
-		NestedReferenceName: stringPointer("ExperimentBranch"),
-	})
+	r.CurrentModel = "ExperimentTarget"
+	currentModel, ok = (*actual)[r.CurrentModel]
+	if !ok {
+		t.Errorf("expected there to be a model %q, but there wasn't", r.CurrentModel)
+	} else {
 
-	r.checkField(t, currentModel, expected{
-		FieldName: "Name",
-		HclName:   "name",
-		Required:  true,
-		FieldType: resourcemanager.TerraformSchemaFieldTypeString,
-	})
+		if len(currentModel.Fields) != 2 {
+			t.Errorf("expected 2 fields but got %d", len(currentModel.Fields))
+		}
 
-	targetModel := (*actual)["ExperimentTarget"]
-	if len(targetModel.Fields) != 2 {
-		t.Errorf("expected 2 fields but got %d", len(targetModel.Fields))
+		r.checkField(t, currentModel, expected{
+			FieldName: "Id",
+			HclName:   "id",
+			Required:  true,
+			FieldType: resourcemanager.TerraformSchemaFieldTypeString,
+		})
+
+		r.checkField(t, currentModel, expected{
+			FieldName:           "Type",
+			HclName:             "type",
+			Required:            true,
+			FieldType:           resourcemanager.TerraformSchemaFieldTypeReference,
+			ReferenceName:       stringPointer("TargetReferenceType"),
+			NestedReferenceName: nil,
+			Validation: &expectedValidation{
+				Type:               resourcemanager.TerraformSchemaValidationTypePossibleValues,
+				PossibleValueCount: 1,
+			},
+		})
 	}
-
-	r.checkField(t, targetModel, expected{
-		FieldName: "Id",
-		HclName:   "id",
-		Required:  true,
-		FieldType: resourcemanager.TerraformSchemaFieldTypeString,
-	})
-
-	r.checkField(t, targetModel, expected{
-		FieldName:           "Type",
-		HclName:             "type",
-		Required:            true,
-		FieldType:           resourcemanager.TerraformSchemaFieldTypeReference,
-		ReferenceName:       stringPointer("TargetReferenceType"),
-		NestedReferenceName: nil,
-		Validation: &expectedValidation{
-			Type:               resourcemanager.TerraformSchemaValidationTypePossibleValues,
-			PossibleValueCount: 1,
-		},
-	})
 
 	r.CurrentModel = "ExperimentBranch"
-	currentModel = (*actual)[r.CurrentModel]
-	if len(targetModel.Fields) != 2 {
-		t.Errorf("expected 2 fields but got %d", len(currentModel.Fields))
+	currentModel, ok = (*actual)[r.CurrentModel]
+	if !ok {
+		t.Errorf("expected there to be a model %q, but there wasn't", r.CurrentModel)
+	} else {
+
+		if len(currentModel.Fields) != 2 {
+			t.Errorf("expected 2 fields but got %d", len(currentModel.Fields))
+		}
+
+		r.checkField(t, currentModel, expected{
+			FieldName: "Name",
+			HclName:   "name",
+			Required:  true,
+			FieldType: resourcemanager.TerraformSchemaFieldTypeString,
+		})
+
+		r.checkField(t, currentModel, expected{
+			FieldName:           "Action",
+			HclName:             "action",
+			Required:            true,
+			FieldType:           resourcemanager.TerraformSchemaFieldTypeList,
+			NestedReferenceName: stringPointer("ExperimentAction"),
+		})
 	}
-
-	r.checkField(t, currentModel, expected{
-		FieldName: "Name",
-		HclName:   "name",
-		Required:  true,
-		FieldType: resourcemanager.TerraformSchemaFieldTypeString,
-	})
-
-	r.checkField(t, currentModel, expected{
-		FieldName:           "Action",
-		HclName:             "action",
-		Required:            true,
-		FieldType:           resourcemanager.TerraformSchemaFieldTypeList,
-		NestedReferenceName: stringPointer("ExperimentAction"),
-	})
 
 	r.CurrentModel = "ExperimentAction"
-	currentModel = (*actual)["ExperimentAction"]
-	if len(targetModel.Fields) != 2 {
-		t.Errorf("expected 2 fields but got %d", len(currentModel.Fields))
+	currentModel, ok = (*actual)["ExperimentAction"]
+	if !ok {
+		t.Errorf("expected there to be a model %q, but there wasn't", r.CurrentModel)
+	} else {
+		if len(currentModel.Fields) != 2 {
+			t.Errorf("expected 2 fields but got %d", len(currentModel.Fields))
+		}
+
+		r.checkField(t, currentModel, expected{
+			FieldName: "Name",
+			HclName:   "name",
+			Required:  true,
+			FieldType: resourcemanager.TerraformSchemaFieldTypeString,
+		})
+
+		r.checkField(t, currentModel, expected{
+			FieldName: "Type",
+			HclName:   "type",
+			Required:  true,
+			FieldType: resourcemanager.TerraformSchemaFieldTypeString,
+		})
 	}
 
-	r.checkField(t, currentModel, expected{
-		FieldName: "Name",
-		HclName:   "name",
-		Required:  true,
-		FieldType: resourcemanager.TerraformSchemaFieldTypeString,
-	})
-
-	r.checkField(t, currentModel, expected{
-		FieldName: "Type",
-		HclName:   "type",
-		Required:  true,
-		FieldType: resourcemanager.TerraformSchemaFieldTypeString,
-	})
 }
