@@ -9,7 +9,7 @@ import (
 
 func TestBuildForServiceBusNamespaceHappyPath(t *testing.T) {
 	t.Skipf("TODO: update schema gen & re-enable this test")
-
+	r := resourceUnderTest{Name: "service_bus_namespace"}
 	builder := Builder{
 		constants: map[string]resourcemanager.ConstantDetails{
 			"SkuName": {
@@ -22,7 +22,7 @@ func TestBuildForServiceBusNamespaceHappyPath(t *testing.T) {
 			},
 		},
 		models: map[string]resourcemanager.ModelDetails{
-			"SBNamespace": {
+			"Namespace": {
 				Fields: map[string]resourcemanager.FieldDetails{
 					"Identity": {
 						JsonName: "identity",
@@ -36,22 +36,22 @@ func TestBuildForServiceBusNamespaceHappyPath(t *testing.T) {
 						ObjectDefinition: resourcemanager.ApiObjectDefinition{
 							Type: resourcemanager.StringApiObjectDefinitionType,
 						},
-						Optional: true,
+						Required: true,
 					},
 					"Location": {
 						JsonName: "location",
 						ObjectDefinition: resourcemanager.ApiObjectDefinition{
 							Type: resourcemanager.LocationApiObjectDefinitionType,
 						},
-						Optional: true,
+						Required: true,
 					},
 					"Properties": {
 						JsonName: "properties",
 						ObjectDefinition: resourcemanager.ApiObjectDefinition{
 							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-							ReferenceName: stringPointer("SBNamespaceProperties"),
+							ReferenceName: stringPointer("NamespaceProperties"),
 						},
-						Optional: true,
+						Required: true,
 					},
 					"Sku": {
 						JsonName: "sku",
@@ -59,7 +59,7 @@ func TestBuildForServiceBusNamespaceHappyPath(t *testing.T) {
 							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
 							ReferenceName: stringPointer("Sku"),
 						},
-						Optional: true,
+						Required: true,
 					},
 					"Tags": {
 						JsonName: "tags",
@@ -70,7 +70,7 @@ func TestBuildForServiceBusNamespaceHappyPath(t *testing.T) {
 					},
 				},
 			},
-			"SBNamespaceProperties": {
+			"NamespaceProperties": {
 				Fields: map[string]resourcemanager.FieldDetails{
 					"DisableLocalAuth": {
 						JsonName: "disableLocalAuth",
@@ -107,13 +107,36 @@ func TestBuildForServiceBusNamespaceHappyPath(t *testing.T) {
 					},
 				},
 			},
+			"SkuTier": {
+				Fields: map[string]resourcemanager.FieldDetails{
+					"Name": {
+						JsonName: "name",
+						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+							ReferenceName: stringPointer("SkuTier"),
+						},
+						Optional: true,
+					},
+				},
+			},
+			"SkuCapacity": {
+				Fields: map[string]resourcemanager.FieldDetails{
+					"Capacity": {
+						JsonName: "capacity",
+						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+							Type: resourcemanager.StringApiObjectDefinitionType,
+						},
+						Optional: true,
+					},
+				},
+			},
 		},
 		operations: map[string]resourcemanager.ApiOperation{
 			"Create": {
 				LongRunning: false,
 				Method:      "PUT",
 				RequestObject: &resourcemanager.ApiObjectDefinition{
-					ReferenceName: stringPointer("SBNamespace"),
+					ReferenceName: stringPointer("Namespace"),
 					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
 				},
 				ResourceIdName: stringPointer("NamespaceId"),
@@ -127,7 +150,7 @@ func TestBuildForServiceBusNamespaceHappyPath(t *testing.T) {
 				LongRunning: false,
 				Method:      "GET",
 				ResponseObject: &resourcemanager.ApiObjectDefinition{
-					ReferenceName: stringPointer("SBNamespace"),
+					ReferenceName: stringPointer("Namespace"),
 					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
 				},
 				ResourceIdName: stringPointer("NamespaceId"),
@@ -136,7 +159,7 @@ func TestBuildForServiceBusNamespaceHappyPath(t *testing.T) {
 				LongRunning: false,
 				Method:      "PUT",
 				RequestObject: &resourcemanager.ApiObjectDefinition{
-					ReferenceName: stringPointer("SBNamespace"),
+					ReferenceName: stringPointer("Namespace"),
 					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
 				},
 				ResourceIdName: stringPointer("NamespaceId"),
@@ -216,155 +239,50 @@ func TestBuildForServiceBusNamespaceHappyPath(t *testing.T) {
 	}
 	actual, err := builder.Build(input, hclog.New(hclog.DefaultOptions))
 	if err != nil {
-		t.Fatalf("building schema: %+v", err)
+		t.Errorf("building schema: %+v", err)
 	}
 
 	if actual == nil {
-		t.Fatalf("expected 3 models but got nil")
+		t.Errorf("expected 3 models but got nil")
 	}
 	if len(*actual) != 3 {
-		t.Fatalf("expected 3 models but got %d", len(*actual))
+		t.Errorf("expected 3 models but got %d", len(*actual))
 	}
 
-	namespaceModel := (*actual)["Namespace"]
-	if len(namespaceModel.Fields) != 7 {
-		t.Fatalf("expected 7 fields but got %d", len(namespaceModel.Fields))
+	r.CurrentModel = "Namespace"
+	currentModel := (*actual)[r.CurrentModel]
+	if len(currentModel.Fields) != 7 {
+		t.Errorf("expected 7 fields but got %d", len(currentModel.Fields))
 	}
+	r.checkFieldName(t, currentModel)
+	r.checkFieldLocation(t, currentModel)
+	r.checkFieldTags(t, currentModel)
 
-	name, ok := namespaceModel.Fields["Name"]
-	if !ok {
-		t.Fatalf("expected there to be a field 'Name' but didn't get one")
-	}
-	if name.HclName != "name" {
-		t.Fatalf("expected the HclName for field 'Name' to be 'name' but got %q", name.HclName)
-	}
-	if name.ObjectDefinition.Type != resourcemanager.TerraformSchemaFieldTypeString {
-		t.Fatalf("expected the field 'Name' to have the type `string` but got %q", string(name.ObjectDefinition.Type))
-	}
-	// note: this differs from the model above, since this is implicitly required as a top level field
-	// even if it's defined as optional in the schema
-	if !name.Required {
-		t.Fatalf("expected the field 'Name' to be Required but it wasn't")
-	}
-	if !name.ForceNew {
-		t.Fatalf("expected the field 'Name' to be ForceNew but it wasn't")
-	}
-	// TODO: source WriteOnly from the mappings
-	//if name.Optional || name.Computed || name.WriteOnly {
-	//	t.Fatalf("expected the field 'Name' to be !Optional, !Computed and !WriteOnly but got %t / %t / %t", name.Optional, name.Computed, name.WriteOnly)
-	//}
-	if name.Optional || name.Computed {
-		t.Fatalf("expected the field 'Name' to be !Optional, !Computed but got %t / %t", name.Optional, name.Computed)
-	}
+	r.checkField(t, currentModel, expected{
+		FieldName: "LocalAuthDisabled",
+		HclName:   "local_auth_disabled",
+		Optional:  true,
+		FieldType: resourcemanager.TerraformSchemaFieldTypeBoolean,
+	})
 
-	location, ok := namespaceModel.Fields["Location"]
-	if !ok {
-		t.Fatalf("expected there to be a field 'Location' but didn't get one")
-	}
-	if location.HclName != "location" {
-		t.Fatalf("expected the HclName for field 'Location' to be 'location' but got %q", location.HclName)
-	}
-	if location.ObjectDefinition.Type != resourcemanager.TerraformSchemaFieldTypeLocation {
-		t.Fatalf("expected the field 'Location' to have the type `location` but got %q", string(location.ObjectDefinition.Type))
-	}
-	// note: this differs from the model above, since this is implicitly required as a top level field
-	// even if it's defined as optional in the schema
-	if !location.Required {
-		t.Fatalf("expected the field 'Location' to be Required but it wasn't")
-	}
-	if !location.ForceNew {
-		t.Fatalf("expected the field 'Location' to be ForceNew but it wasn't")
-	}
-	// TODO: source WriteOnly from the mappings
-	//if location.Optional || location.Computed || location.WriteOnly {
-	//	t.Fatalf("expected the field 'Location' to be !Optional, !Computed and !WriteOnly but got %t / %t / %t", location.Optional, location.Computed, location.WriteOnly)
-	//}
-	if location.Optional || location.Computed {
-		t.Fatalf("expected the field 'Location' to be !Optional, !Computed but got %t / %t", location.Optional, location.Computed)
-	}
+	r.checkField(t, currentModel, expected{
+		FieldName: "ServiceBusEndpoint",
+		HclName:   "service_bus_endpoint",
+		Computed:  true,
+		FieldType: resourcemanager.TerraformSchemaFieldTypeString,
+	})
 
-	// DisableLocalAuth should be transformed / inverted when mapped
-	// TODO: confirm mappings
-	localAuthEnabled, ok := namespaceModel.Fields["LocalAuthEnabled"]
-	if !ok {
-		t.Fatalf("expected there to be a field 'LocalAuthEnabled' but didn't get one")
-	}
-	if localAuthEnabled.HclName != "local_auth_enabled" {
-		t.Fatalf("expected the HclName for field 'LocalAuthEnabled' to be 'local_auth_enabled' but got %q", localAuthEnabled.HclName)
-	}
-	if localAuthEnabled.ObjectDefinition.Type != resourcemanager.TerraformSchemaFieldTypeBoolean {
-		t.Fatalf("expected the field 'LocalAuthEnabled' to have the type `Boolean` but got %q", string(localAuthEnabled.ObjectDefinition.Type))
-	}
-	if !localAuthEnabled.Optional {
-		t.Fatalf("expected the field 'LocalAuthEnabled' to be Optional but it wasn't")
-	}
-	if localAuthEnabled.Required || localAuthEnabled.Optional || localAuthEnabled.ForceNew {
-		t.Fatalf("expected the field 'LocalAuthEnabled' to be !Required, !Optional, !ForceNew but got %t / %t / %t", localAuthEnabled.Required, localAuthEnabled.Optional, localAuthEnabled.ForceNew)
-	}
-
-	serviceBusEndpoint, ok := namespaceModel.Fields["ServiceBusEndpoint"]
-	if !ok {
-		t.Fatalf("expected there to be a field 'ServiceBusEndpoint' but didn't get one")
-	}
-	if serviceBusEndpoint.HclName != "service_bus_endpoint" {
-		t.Fatalf("expected the HclName for field 'ServiceBusEndpoint' to be 'service_bus_endpoint' but got %q", serviceBusEndpoint.HclName)
-	}
-	if serviceBusEndpoint.ObjectDefinition.Type != resourcemanager.TerraformSchemaFieldTypeString {
-		t.Fatalf("expected the field 'ServiceBusEndpoint' to have the type `String` but got %q", string(serviceBusEndpoint.ObjectDefinition.Type))
-	}
-	if !serviceBusEndpoint.Computed {
-		t.Fatalf("expected the field 'ServiceBusEndpoint' to be Computed but it wasn't")
-	}
-	// TODO: source WriteOnly from the mappings
-	//if serviceBusEndpoint.Required || serviceBusEndpoint.Computed || serviceBusEndpoint.ForceNew || serviceBusEndpoint.WriteOnly {
-	//	t.Fatalf("expected the field 'ServiceBusEndpoint' to be !Required, !Computed, !ForceNew and !WriteOnly but got %t / %t / %t / %t", serviceBusEndpoint.Required, serviceBusEndpoint.Computed, serviceBusEndpoint.ForceNew, serviceBusEndpoint.WriteOnly)
-	//}
-	if serviceBusEndpoint.Required || serviceBusEndpoint.Optional || serviceBusEndpoint.ForceNew {
-		t.Fatalf("expected the field 'ServiceBusEndpoint' to be !Required, !Optional, !ForceNew but got %t / %t / %t", serviceBusEndpoint.Required, serviceBusEndpoint.Optional, serviceBusEndpoint.ForceNew)
-	}
-
-	tags, ok := namespaceModel.Fields["Tags"]
-	if !ok {
-		t.Fatalf("expected there to be a field 'Tags' but didn't get one")
-	}
-	if tags.HclName != "tags" {
-		t.Fatalf("expected the HclName for field 'Tags' to be 'tags' but got %q", tags.HclName)
-	}
-	if tags.ObjectDefinition.Type != resourcemanager.TerraformSchemaFieldTypeTags {
-		t.Fatalf("expected the field 'Tags' to have the type `tags` but got %q", string(tags.ObjectDefinition.Type))
-	}
-	if !tags.Optional {
-		t.Fatalf("expected the field 'Tags' to be Optional but it wasn't")
-	}
-	// TODO: source WriteOnly from the mappings
-	//if tags.Required || tags.Computed || tags.ForceNew || tags.WriteOnly {
-	//	t.Fatalf("expected the field 'Tags' to be !Required, !Computed, !ForceNew and !WriteOnly but got %t / %t / %t / %t", tags.Required, tags.Computed, tags.ForceNew, tags.WriteOnly)
-	//}
-	if tags.Required || tags.Computed || tags.ForceNew {
-		t.Fatalf("expected the field 'Tags' to be !Required, !Computed, !ForceNew but got %t / / %t / %t", tags.Required, tags.Computed, tags.ForceNew)
-	}
-
-	zoneRedundant, ok := namespaceModel.Fields["ZoneRedundant"]
-	if !ok {
-		t.Fatalf("expected there to be a field 'ZoneRedundant' but didn't get one")
-	}
-	if zoneRedundant.HclName != "zone_redundant" {
-		t.Fatalf("expected the HclName for field 'ZoneRedundant' to be 'zone_redundant' but got %q", zoneRedundant.HclName)
-	}
-	if zoneRedundant.ObjectDefinition.Type != resourcemanager.TerraformSchemaFieldTypeBoolean {
-		t.Fatalf("expected the field 'ZoneRedundant' to have the type `Boolean` but got %q", string(zoneRedundant.ObjectDefinition.Type))
-	}
-	if !zoneRedundant.Optional {
-		t.Fatalf("expected the field 'ZoneRedundant' to be Optional but it wasn't")
-	}
-	if zoneRedundant.Required || zoneRedundant.Computed || zoneRedundant.ForceNew {
-		t.Fatalf("expected the field 'ZoneRedundant' to be !Required, !Computed, !ForceNew but got %t / %t / %t", zoneRedundant.Required, zoneRedundant.Computed, zoneRedundant.ForceNew)
-	}
+	r.checkField(t, currentModel, expected{
+		FieldName: "ZoneRedundant",
+		HclName:   "zone_redundant",
+		Optional:  true,
+		FieldType: resourcemanager.TerraformSchemaFieldTypeBoolean,
+	})
 }
 
 func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 	t.Skipf("TODO: update schema gen & re-enable this test")
-
+	r := resourceUnderTest{Name: "service_bus_namespace"}
 	builder := Builder{
 		constants: map[string]resourcemanager.ConstantDetails{
 			"EndPointProvisioningState": {
@@ -384,6 +302,14 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 					"MicrosoftPointKeyVault": "Microsoft.KeyVault",
 				},
 			},
+			"MinimumTlsVersion": {
+				Type: resourcemanager.StringConstant,
+				Values: map[string]string{
+					"1.0": "1.0",
+					"1.1": "1.1",
+					"1.2": "1.2",
+				},
+			},
 			"PrivateLinkConnectionStatus": {
 				Type: resourcemanager.StringConstant,
 				Values: map[string]string{
@@ -393,7 +319,23 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 					"Rejected":     "Rejected",
 				},
 			},
+			"PublicNetworkAccess": {
+				Type: resourcemanager.StringConstant,
+				Values: map[string]string{
+					"Enabled":            "Enabled",
+					"Disabled":           "Disabled",
+					"SecuredByPerimeter": "SecuredByPerimeter",
+				},
+			},
 			"SkuName": {
+				Type: resourcemanager.StringConstant,
+				Values: map[string]string{
+					"Basic":    "Basic",
+					"Premium":  "Premium",
+					"Standard": "Standard",
+				},
+			},
+			"SkuTier": {
 				Type: resourcemanager.StringConstant,
 				Values: map[string]string{
 					"Basic":    "Basic",
@@ -410,7 +352,6 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 						ObjectDefinition: resourcemanager.ApiObjectDefinition{
 							Type: resourcemanager.StringApiObjectDefinitionType,
 						},
-						Optional: true,
 					},
 					"Status": {
 						JsonName: "status",
@@ -418,7 +359,6 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
 							ReferenceName: stringPointer("PrivateLinkConnectionStatus"),
 						},
-						Optional: true,
 					},
 				},
 			},
@@ -457,8 +397,7 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 					"Identity": {
 						JsonName: "identity",
 						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-							ReferenceName: stringPointer("UserAssignedIdentityProperties"),
+							Type: resourcemanager.StringApiObjectDefinitionType,
 						},
 						Optional: true,
 					},
@@ -474,7 +413,7 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 						ObjectDefinition: resourcemanager.ApiObjectDefinition{
 							Type: resourcemanager.StringApiObjectDefinitionType,
 						},
-						Optional: true,
+						Required: true,
 					},
 					"KeyVersion": {
 						JsonName: "keyVersion",
@@ -570,7 +509,7 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 					},
 				},
 			},
-			"SBNamespace": {
+			"Namespace": {
 				Fields: map[string]resourcemanager.FieldDetails{
 					"Identity": {
 						JsonName: "identity",
@@ -584,22 +523,22 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 						ObjectDefinition: resourcemanager.ApiObjectDefinition{
 							Type: resourcemanager.StringApiObjectDefinitionType,
 						},
-						Optional: true,
+						Required: true,
 					},
 					"Location": {
 						JsonName: "location",
 						ObjectDefinition: resourcemanager.ApiObjectDefinition{
 							Type: resourcemanager.LocationApiObjectDefinitionType,
 						},
-						Optional: true,
+						Required: true,
 					},
 					"Properties": {
 						JsonName: "properties",
 						ObjectDefinition: resourcemanager.ApiObjectDefinition{
 							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-							ReferenceName: stringPointer("SBNamespaceProperties"),
+							ReferenceName: stringPointer("NamespaceProperties"),
 						},
-						Optional: true,
+						Required: true,
 					},
 					"Sku": {
 						JsonName: "sku",
@@ -607,7 +546,7 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
 							ReferenceName: stringPointer("Sku"),
 						},
-						Optional: true,
+						Required: true,
 					},
 					"Tags": {
 						JsonName: "tags",
@@ -618,7 +557,7 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 					},
 				},
 			},
-			"SBNamespaceProperties": {
+			"NamespaceProperties": {
 				Fields: map[string]resourcemanager.FieldDetails{
 					"AlternateName": {
 						JsonName: "alternateName",
@@ -653,6 +592,14 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 						JsonName: "metricId",
 						ObjectDefinition: resourcemanager.ApiObjectDefinition{
 							Type: resourcemanager.StringApiObjectDefinitionType,
+						},
+						Optional: true,
+					},
+					"MinimumTlsVersion": {
+						JsonName: "minimum_tls_version",
+						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+							ReferenceName: stringPointer("MinimumTlsVersion"),
+							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
 						},
 						Optional: true,
 					},
@@ -697,7 +644,7 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 					},
 				},
 			},
-			"SBNamespaceUpdateParameters": {
+			"NamespaceUpdateParameters": {
 				Fields: map[string]resourcemanager.FieldDetails{
 					"Id": {
 						JsonName: "id",
@@ -731,7 +678,7 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 						JsonName: "properties",
 						ObjectDefinition: resourcemanager.ApiObjectDefinition{
 							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-							ReferenceName: stringPointer("SBNamespaceUpdateProperties"),
+							ReferenceName: stringPointer("NamespaceUpdateProperties"),
 						},
 						Optional: true,
 					},
@@ -759,7 +706,7 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 					},
 				},
 			},
-			"SBNamespaceUpdateProperties": {
+			"NamespaceUpdateProperties": {
 				Fields: map[string]resourcemanager.FieldDetails{
 					"AlternateName": {
 						JsonName: "alternateName",
@@ -848,6 +795,21 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 						},
 						Required: true,
 					},
+					"Tier": {
+						JsonName: "tier",
+						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+							ReferenceName: stringPointer("SkuTier"),
+						},
+						Optional: true,
+					},
+					"Capacity": {
+						JsonName: "capacity",
+						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+							Type: resourcemanager.StringApiObjectDefinitionType,
+						},
+						Optional: true,
+					},
 				},
 			},
 			"UserAssignedIdentityProperties": {
@@ -867,7 +829,7 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 				LongRunning: false,
 				Method:      "PUT",
 				RequestObject: &resourcemanager.ApiObjectDefinition{
-					ReferenceName: stringPointer("SBNamespace"),
+					ReferenceName: stringPointer("Namespace"),
 					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
 				},
 				ResourceIdName: stringPointer("NamespaceId"),
@@ -881,7 +843,7 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 				LongRunning: false,
 				Method:      "GET",
 				ResponseObject: &resourcemanager.ApiObjectDefinition{
-					ReferenceName: stringPointer("SBNamespace"),
+					ReferenceName: stringPointer("Namespace"),
 					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
 				},
 				ResourceIdName: stringPointer("NamespaceId"),
@@ -890,7 +852,7 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 				LongRunning: false,
 				Method:      "PUT",
 				RequestObject: &resourcemanager.ApiObjectDefinition{
-					ReferenceName: stringPointer("SBNamespaceUpdateParameters"),
+					ReferenceName: stringPointer("NamespaceUpdateParameters"),
 					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
 				},
 				ResourceIdName: stringPointer("NamespaceId"),
@@ -976,5 +938,283 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 	if actual == nil {
 		t.Fatalf("expected 3 models but got nil")
 	}
+
+	if len(*actual) != 15 {
+		// TODO - Double check this count when the sku rules are in place :see_no_evil:
+		t.Errorf("expected 15 models, got %d", len(*actual))
+	}
+
 	// TODO: validate the result
+	r.CurrentModel = "Namespace"
+	currentModel := (*actual)[r.CurrentModel]
+	if len(currentModel.Fields) != 18 {
+		// TODO - Double check this count when the sku rules are in place :see_no_evil:
+		// Missing - sku_name, sku_tier, sku_capacity, private_endpoint_id
+		t.Errorf("expected 18 fields but got %d", len(currentModel.Fields))
+	}
+
+	r.checkFieldName(t, currentModel)
+	r.checkFieldLocation(t, currentModel)
+	r.checkFieldTags(t, currentModel)
+
+	r.checkField(t, currentModel, expected{
+		FieldName: "SkuName",
+		HclName:   "sku_name",
+		Required:  true,
+		FieldType: resourcemanager.TerraformSchemaFieldTypeString,
+		Validation: &expectedValidation{
+			Type:               resourcemanager.TerraformSchemaValidationTypePossibleValues,
+			PossibleValueCount: 3,
+		},
+	})
+
+	r.checkField(t, currentModel, expected{
+		FieldName:     "SkuTier",
+		HclName:       "sku_tier",
+		Optional:      true,
+		FieldType:     resourcemanager.TerraformSchemaFieldTypeString,
+		ReferenceName: stringPointer("NamespaceSkuTier"),
+		Validation: &expectedValidation{
+			Type:               resourcemanager.TerraformSchemaValidationTypePossibleValues,
+			PossibleValueCount: 3,
+		},
+	})
+
+	r.checkField(t, currentModel, expected{
+		FieldName: "SkuCapacity",
+		HclName:   "sku_capacity",
+		Optional:  true,
+		FieldType: resourcemanager.TerraformSchemaFieldTypeInteger,
+	})
+
+	r.checkField(t, currentModel, expected{
+		FieldName:     "MinimumTlsVersion",
+		HclName:       "minimum_tls_version",
+		Optional:      true,
+		FieldType:     resourcemanager.TerraformSchemaFieldTypeString,
+		ReferenceName: stringPointer("MinimumTlsVersion"),
+	})
+
+	r.checkField(t, currentModel, expected{
+		FieldName: "CreatedAt",
+		HclName:   "created_at",
+		Computed:  true,
+		FieldType: resourcemanager.TerraformSchemaFieldTypeString,
+	})
+
+	r.checkField(t, currentModel, expected{
+		FieldName: "UpdatedAt",
+		HclName:   "updated_at",
+		Computed:  true,
+		FieldType: resourcemanager.TerraformSchemaFieldTypeString,
+	})
+
+	r.checkField(t, currentModel, expected{
+		FieldName: "ServiceBusEndpoint",
+		HclName:   "service_bus_endpoint",
+		Computed:  true,
+		FieldType: resourcemanager.TerraformSchemaFieldTypeString,
+	})
+
+	r.checkField(t, currentModel, expected{
+		FieldName: "MetricId",
+		HclName:   "metric_id",
+		Computed:  true,
+		FieldType: resourcemanager.TerraformSchemaFieldTypeString,
+	})
+
+	r.checkField(t, currentModel, expected{
+		FieldName: "ZoneRedundant",
+		HclName:   "zone_redundant",
+		Optional:  true,
+		ForceNew:  true,
+		FieldType: resourcemanager.TerraformSchemaFieldTypeBoolean,
+	})
+
+	r.checkField(t, currentModel, expected{
+		FieldName:     "Encryption",
+		HclName:       "encryption",
+		Optional:      true,
+		FieldType:     resourcemanager.TerraformSchemaFieldTypeReference,
+		ReferenceName: stringPointer("NamespaceEncryption"),
+	})
+
+	r.checkField(t, currentModel, expected{
+		FieldName:           "PrivateEndpointConnection",
+		HclName:             "private_endpoint_connection",
+		Optional:            true,
+		FieldType:           resourcemanager.TerraformSchemaFieldTypeList,
+		NestedReferenceName: stringPointer("NamespacePrivateEndpointConnection"),
+	})
+
+	r.checkField(t, currentModel, expected{
+		FieldName: "LocalAuthDisabled",
+		HclName:   "local_auth_disabled",
+		Optional:  true,
+		FieldType: resourcemanager.TerraformSchemaFieldTypeBoolean,
+	})
+
+	r.checkField(t, currentModel, expected{
+		FieldName: "AlternateName",
+		HclName:   "alternate_name",
+		Optional:  true,
+		FieldType: resourcemanager.TerraformSchemaFieldTypeString,
+	})
+
+	r.checkField(t, currentModel, expected{
+		FieldName: "PublicNetworkAccess",
+		HclName:   "public_network_access",
+		Optional:  true,
+		FieldType: resourcemanager.TerraformSchemaFieldTypeString,
+		Validation: &expectedValidation{
+			Type:               resourcemanager.TerraformSchemaValidationTypePossibleValues,
+			PossibleValueCount: 3,
+		},
+	})
+
+	r.CurrentModel = "NamespacePrivateEndpoint" // Should be flattened out, only contains `Id` field
+	var ok bool
+	currentModel, ok = (*actual)[r.CurrentModel]
+	if ok {
+		t.Errorf("expected model %q to be removed but it was present", r.CurrentModel)
+	}
+
+	r.CurrentModel = "NamespaceKeyVaultProperties" // Should be flattened out
+	currentModel, ok = (*actual)[r.CurrentModel]
+	if ok {
+		t.Errorf("expected model %q to be removed but it was present", r.CurrentModel)
+	}
+
+	r.CurrentModel = "NamespaceUserAssignedIdentityProperties" // Should be flattened out
+	currentModel, ok = (*actual)[r.CurrentModel]
+	if ok {
+		t.Errorf("expected model %q to be removed but it was present", r.CurrentModel)
+	}
+
+	r.CurrentModel = "NamespacePrivateEndpointConnectionProperties" // Should this be flattened into `NamespacePrivateEndpointConnection`?
+	currentModel = (*actual)[r.CurrentModel]
+	if len(currentModel.Fields) != 3 {
+		t.Errorf("expected 3 fields but got %d", len(currentModel.Fields))
+	}
+
+	r.CurrentModel = "NamespaceSku" // Should be absent after Sku rules
+	currentModel, ok = (*actual)[r.CurrentModel]
+	if ok {
+		t.Errorf("expected model %q to be removed but it was present", r.CurrentModel)
+	}
+
+	r.CurrentModel = "NamespacePrivateEndpointConnection"
+	currentModel = (*actual)[r.CurrentModel]
+	if len(currentModel.Fields) != 3 {
+		t.Errorf("expected 3 fields but got %d", len(currentModel.Fields))
+	}
+	r.checkField(t, currentModel, expected{
+		FieldName: "Id",
+		HclName:   "id",
+		Required:  true,
+		FieldType: resourcemanager.TerraformSchemaFieldTypeString,
+	})
+	r.checkField(t, currentModel, expected{
+		FieldName: "Location",
+		HclName:   "location",
+		Computed:  true,
+		FieldType: resourcemanager.TerraformSchemaFieldTypeString,
+	})
+	r.checkField(t, currentModel, expected{
+		FieldName: "Name",
+		HclName:   "name",
+		Computed:  true,
+		FieldType: resourcemanager.TerraformSchemaFieldTypeString,
+	})
+	r.checkField(t, currentModel, expected{
+		FieldName: "Type",
+		HclName:   "type",
+		Computed:  true,
+		FieldType: resourcemanager.TerraformSchemaFieldTypeString,
+	})
+	r.checkField(t, currentModel, expected{
+		FieldName:     "PrivateEndpoint",
+		HclName:       "private_endpoint",
+		Optional:      true,
+		FieldType:     resourcemanager.TerraformSchemaFieldTypeReference,
+		ReferenceName: stringPointer("NamespacePrivateEndpoint"),
+	})
+	r.checkField(t, currentModel, expected{
+		FieldName:     "PrivateLinkServiceConnectionState",
+		HclName:       "private_link_service_connection_state",
+		Optional:      true,
+		FieldType:     resourcemanager.TerraformSchemaFieldTypeReference,
+		ReferenceName: stringPointer("NamespaceConnectionState"),
+	})
+	r.checkField(t, currentModel, expected{
+		FieldName: "ProvisioningState", // Should be R/O and not have validation
+		HclName:   "provisioning_state",
+		Computed:  true,
+		FieldType: resourcemanager.TerraformSchemaFieldTypeString,
+	})
+
+	r.CurrentModel = "NamespaceNamespaceProperties" // Should be removed as flattened into parent
+	currentModel, ok = (*actual)[r.CurrentModel]
+	if ok {
+		t.Errorf("expected model %q to be removed but it was present", r.CurrentModel)
+	}
+
+	r.CurrentModel = "NamespaceConnectionState"
+	currentModel = (*actual)[r.CurrentModel]
+	if len(currentModel.Fields) != 2 {
+		t.Errorf("expected 2 fields but got %d", len(currentModel.Fields))
+	}
+	r.checkField(t, currentModel, expected{
+		FieldName: "Status",
+		HclName:   "status",
+		Computed:  true,
+		FieldType: resourcemanager.TerraformSchemaFieldTypeString,
+	})
+	r.checkField(t, currentModel, expected{
+		FieldName: "Description",
+		HclName:   "description",
+		Computed:  true,
+		FieldType: resourcemanager.TerraformSchemaFieldTypeString,
+	})
+
+	r.CurrentModel = "NamespaceEncryption"
+	currentModel = (*actual)[r.CurrentModel]
+	if len(currentModel.Fields) != 3 {
+		t.Errorf("expected 3 fields but got %d", len(currentModel.Fields))
+	}
+	r.checkField(t, currentModel, expected{
+		FieldName: "RequireInfrastructureEncryption",
+		HclName:   "require_infrastructure_encryption",
+		Optional:  true,
+		FieldType: resourcemanager.TerraformSchemaFieldTypeBoolean,
+	})
+	r.checkField(t, currentModel, expected{
+		FieldName: "KeySource",
+		HclName:   "key_source",
+		Required:  true,
+		FieldType: resourcemanager.TerraformSchemaFieldTypeString,
+		Validation: &expectedValidation{
+			Type:               resourcemanager.TerraformSchemaValidationTypePossibleValues,
+			PossibleValueCount: 1,
+		},
+	})
+	r.checkField(t, currentModel, expected{
+		FieldName: "KeyVaultUri",
+		HclName:   "Key_vault_uri",
+		Required:  true,
+		FieldType: resourcemanager.TerraformSchemaFieldTypeString,
+	})
+	r.checkField(t, currentModel, expected{
+		FieldName: "KeyVersion",
+		HclName:   "Key_version",
+		Optional:  true,
+		FieldType: resourcemanager.TerraformSchemaFieldTypeString,
+	})
+
+	r.checkField(t, currentModel, expected{
+		FieldName: "KeyVersion",
+		HclName:   "Key_version",
+		Optional:  true,
+		FieldType: resourcemanager.TerraformSchemaFieldTypeString,
+	})
 }
