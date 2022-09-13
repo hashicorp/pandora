@@ -183,8 +183,8 @@ func (r resourceUnderTest) checkField(t *testing.T, input resourcemanager.Terraf
 		}
 		if exp.Validation.PossibleValueCount != 0 && field.Validation.PossibleValues != nil {
 			possibleValues := *field.Validation.PossibleValues
-			if exp.Validation.PossibleValueCount != len(possibleValues) {
-				t.Errorf("(%s) expected the field %q (model: %q) to have %d Possible Values for Validation but got %d", r.Name, exp.FieldName, r.CurrentModel, exp.Validation.PossibleValueCount, len(possibleValues))
+			if exp.Validation.PossibleValueCount != len(possibleValues.Values) {
+				t.Errorf("(%s) expected the field %q (model: %q) to have %d Possible Values for Validation but got %d", r.Name, exp.FieldName, r.CurrentModel, exp.Validation.PossibleValueCount, len(possibleValues.Values))
 			}
 		}
 	}
