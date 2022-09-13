@@ -599,7 +599,7 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 						JsonName: "minimum_tls_version",
 						ObjectDefinition: resourcemanager.ApiObjectDefinition{
 							ReferenceName: stringPointer("MinimumTlsVersion"),
-							Type:          resourcemanager.StringApiObjectDefinitionType,
+							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
 						},
 						Optional: true,
 					},
@@ -790,7 +790,7 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 					"Name": {
 						JsonName: "name",
 						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type:          resourcemanager.StringApiObjectDefinitionType,
+							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
 							ReferenceName: stringPointer("SkuName"),
 						},
 						Required: true,

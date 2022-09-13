@@ -109,7 +109,7 @@ func TestBuildForChaosStudioExperimentWithRealData(t *testing.T) {
 						ObjectDefinition: resourcemanager.ApiObjectDefinition{
 							Type: resourcemanager.StringApiObjectDefinitionType,
 						},
-						Required: false,
+						Required: true,
 					},
 					"Target": {
 						JsonName: "targets",
@@ -120,7 +120,7 @@ func TestBuildForChaosStudioExperimentWithRealData(t *testing.T) {
 							},
 							Type: resourcemanager.ListApiObjectDefinitionType,
 						},
-						Required: false,
+						Required: true,
 					},
 					"Type": {
 						JsonName: "type",
@@ -128,7 +128,7 @@ func TestBuildForChaosStudioExperimentWithRealData(t *testing.T) {
 							ReferenceName: stringPointer("SelectorType"),
 							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
 						},
-						Required: false,
+						Required: true,
 					},
 				},
 			},
@@ -143,14 +143,14 @@ func TestBuildForChaosStudioExperimentWithRealData(t *testing.T) {
 							},
 							Type: resourcemanager.ListApiObjectDefinitionType,
 						},
-						Required: false,
+						Required: true,
 					},
 					"Name": {
 						JsonName: "name",
 						ObjectDefinition: resourcemanager.ApiObjectDefinition{
 							Type: resourcemanager.StringApiObjectDefinitionType,
 						},
-						Required: false,
+						Required: true,
 					},
 				},
 			},
