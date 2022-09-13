@@ -2,8 +2,9 @@ package processors
 
 import (
 	"fmt"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 	"strings"
+
+	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
 type modelFlattenSkuName struct{}
@@ -19,9 +20,12 @@ func (modelFlattenSkuName) ProcessModel(modelName string, models map[string]reso
 		fields[fieldName] = fieldValue
 
 		if strings.EqualFold(fieldName, "Sku") && fieldValue.ObjectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeReference {
+			if fieldValue.ObjectDefinition.ReferenceName == nil {
+				return nil, fmt.Errorf("processing model %q: had no reference for field %q", modelName, fieldName)
+			}
 			nested, ok := models[*fieldValue.ObjectDefinition.ReferenceName]
 			if !ok {
-				return nil, fmt.Errorf("a nested model was not found with name %q", *fieldValue.ObjectDefinition.ReferenceName)
+				return nil, fmt.Errorf("processing model %q: no nested model was not found with name %q", modelName, *fieldValue.ObjectDefinition.ReferenceName)
 			}
 
 			if len(nested.Fields) != 1 {
