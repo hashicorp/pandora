@@ -92,7 +92,7 @@ public partial class TerraformController
 
         [JsonPropertyName("generateSchema")]
         public bool GenerateSchema { get; set; }
-        
+
         [JsonPropertyName("mappings")]
         public MappingsDefinition Mappings { get; set; }
 
@@ -250,16 +250,16 @@ public partial class TerraformController
     private class MappingsDefinition
     {
         // TODO: should we add a Generate flag to this?
-        
+
         [JsonPropertyName("create")]
         public List<FieldMappingDefinition> Create { get; set; }
-        
+
         [JsonPropertyName("read")]
         public List<FieldMappingDefinition> Read { get; set; }
-        
+
         [JsonPropertyName("update")]
         public List<FieldMappingDefinition>? Update { get; set; }
-        
+
         // TODO: determine mappings for Resource ID components
     }
 
@@ -267,20 +267,20 @@ public partial class TerraformController
     {
         [JsonPropertyName("type")]
         public string Type { get; set; }
-        
+
         [JsonPropertyName("from")]
         public FieldMappingFromDefinition From { get; set; }
-        
+
         [JsonPropertyName("to")]
         public FieldMappingToDefinition To { get; set; }
-        
+
         [JsonPropertyName("booleanEquals")]
         public FieldMappingBooleanEqualsDefinition? BooleanEquals { get; set; }
-        
+
         [JsonPropertyName("manual")]
         public FieldMappingManualDefinition? Manual { get; set; }
     }
-    
+
     private class FieldMappingFromDefinition
     {
         /// <summary>
@@ -288,14 +288,14 @@ public partial class TerraformController
         /// </summary>
         [JsonPropertyName("schemaModelName")]
         public string SchemaModelName { get; set; }
-        
+
         /// <summary>
         /// SchemaFieldPath is the path to the field within the SchemaModelName (e.g. `Foo` or `Foo.Bar`)
         /// </summary>
         [JsonPropertyName("schemaFieldPath")]
         public string SchemaFieldPath { get; set; }
     }
-    
+
     private class FieldMappingToDefinition
     {
         [JsonPropertyName("sdkModelName")]
@@ -309,10 +309,10 @@ public partial class TerraformController
     {
         [JsonPropertyName("constantName")]
         public string? ConstantName { get; set; }
-            
+
         [JsonPropertyName("constantValue")]
         public string? ConstantValue { get; set; }
-        
+
         [JsonPropertyName("expression")]
         public string? Expression { get; set; }
     }
@@ -331,7 +331,7 @@ public partial class TerraformController
         DirectAssignment,
         Manual,
         // TODO: do we need a `NestedModel` here?
-        
+
         // TODO: does `Type: Ignore` need to be surfaced?
     }
 
