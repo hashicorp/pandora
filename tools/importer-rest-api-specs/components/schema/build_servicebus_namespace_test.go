@@ -625,18 +625,9 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 					"PublicNetworkAccess": {
 						JsonName: "publicNetworkAccess",
 						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							ReferenceName: stringPointer("PublicNetworkAccess"),
-							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+							Type: resourcemanager.BooleanApiObjectDefinitionType,
 						},
 						Optional: true,
-						Validation: &resourcemanager.FieldValidationDetails{
-							Type: resourcemanager.RangeValidation,
-							Values: &[]interface{}{
-								"Enabled",
-								"Disabled",
-								"SecuredByPerimeter",
-							},
-						},
 					},
 					"ServiceBusEndpoint": {
 						JsonName: "serviceBusEndpoint",
@@ -1105,11 +1096,7 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 		FieldName: "PublicNetworkAccess",
 		HclName:   "public_network_access",
 		Optional:  true,
-		FieldType: resourcemanager.TerraformSchemaFieldTypeString,
-		Validation: &expectedValidation{
-			Type:               resourcemanager.TerraformSchemaValidationTypePossibleValues,
-			PossibleValueCount: 3,
-		},
+		FieldType: resourcemanager.TerraformSchemaFieldTypeBoolean,
 	})
 
 	r.CurrentModel = "NamespacePrivateEndpoint" // Should be flattened out, only contains `Id` field
