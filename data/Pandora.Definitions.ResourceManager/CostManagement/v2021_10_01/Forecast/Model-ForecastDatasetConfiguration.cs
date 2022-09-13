@@ -13,13 +13,8 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.CostManagement.v2021_10_01.Forecast;
 
 
-internal class QueryAggregationModel
+internal class ForecastDatasetConfigurationModel
 {
-    [JsonPropertyName("function")]
-    [Required]
-    public FunctionTypeConstant Function { get; set; }
-
-    [JsonPropertyName("name")]
-    [Required]
-    public string Name { get; set; }
+    [JsonPropertyName("columns")]
+    public List<string>? Columns { get; set; }
 }

@@ -24,7 +24,7 @@ internal class ExternalCloudProviderUsageOperation : Operations.PostOperation
 
     public override ResourceID? ResourceId() => new ExternalCloudProviderTypeId();
 
-    public override Type? ResponseObject() => typeof(QueryResultModel);
+    public override Type? ResponseObject() => typeof(ForecastResultModel);
 
     public override Type? OptionsObject() => typeof(ExternalCloudProviderUsageOperation.ExternalCloudProviderUsageOptions);
 

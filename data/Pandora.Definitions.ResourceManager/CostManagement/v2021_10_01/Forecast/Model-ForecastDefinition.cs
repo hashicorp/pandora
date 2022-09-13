@@ -26,11 +26,11 @@ internal class ForecastDefinitionModel
     public bool? IncludeFreshPartialCost { get; set; }
 
     [JsonPropertyName("timePeriod")]
-    public QueryTimePeriodModel? TimePeriod { get; set; }
+    public ForecastTimePeriodModel? TimePeriod { get; set; }
 
     [JsonPropertyName("timeframe")]
     [Required]
-    public ForecastTimeframeTypeConstant Timeframe { get; set; }
+    public ForecastTimeframeConstant Timeframe { get; set; }
 
     [JsonPropertyName("type")]
     [Required]
