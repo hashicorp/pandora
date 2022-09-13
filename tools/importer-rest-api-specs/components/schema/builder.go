@@ -212,6 +212,21 @@ func (b Builder) buildNestedModelDefinition(modelPrefix string, model resourcema
 			return nil, err
 		}
 		definition.HclName = convertToSnakeCase(fieldName)
+
+		if validation := v.Validation; validation != nil {
+			var validationType resourcemanager.TerraformSchemaValidationType
+			var possibleValues *[]interface{}
+			definition.Validation = &resourcemanager.TerraformSchemaValidationDefinition{}
+			switch validation.Type {
+			case resourcemanager.RangeValidation:
+				validationType = resourcemanager.TerraformSchemaValidationTypePossibleValues
+				possibleValues = validation.Values
+			}
+
+			definition.Validation.Type = validationType
+			definition.Validation.PossibleValues = possibleValues
+		}
+
 		out[fieldName] = definition
 	}
 
