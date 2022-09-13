@@ -150,8 +150,8 @@ func validatorsMatch(t *testing.T, first *resourcemanager.TerraformSchemaValidat
 		t.Fatalf("type's didn't match - first %q / second %q", string(first.Type), string(second.Type))
 		return false
 	}
-	firstValues := strings.Join(stringifyValues(first.PossibleValues), ", ")
-	secondValues := strings.Join(stringifyValues(second.PossibleValues), ", ")
+	firstValues := strings.Join(stringifyValues(first.PossibleValues.Values), ", ")
+	secondValues := strings.Join(stringifyValues(second.PossibleValues.Values), ", ")
 	if !reflect.DeepEqual(firstValues, secondValues) {
 		t.Fatalf("possible values didn't match - first %q / second %q", firstValues, secondValues)
 		return false
@@ -160,11 +160,11 @@ func validatorsMatch(t *testing.T, first *resourcemanager.TerraformSchemaValidat
 	return true
 }
 
-func stringifyValues(input *[]interface{}) []string {
+func stringifyValues(input []interface{}) []string {
 	output := make([]string, 0)
 
 	if input != nil {
-		for _, val := range *input {
+		for _, val := range input {
 			v, ok := val.(string)
 			if ok {
 				output = append(output, v)
