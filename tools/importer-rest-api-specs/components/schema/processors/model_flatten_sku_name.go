@@ -9,12 +9,7 @@ import (
 
 type modelFlattenSkuName struct{}
 
-func (modelFlattenSkuName) ProcessModel(modelName string, models map[string]resourcemanager.TerraformSchemaModelDefinition) (map[string]resourcemanager.TerraformSchemaModelDefinition, error) {
-	model, ok := models[modelName]
-	if !ok {
-		return nil, fmt.Errorf("a model was not found with the name %q", modelName)
-	}
-
+func (modelFlattenSkuName) ProcessModel(modelName string, model resourcemanager.TerraformSchemaModelDefinition, models map[string]resourcemanager.TerraformSchemaModelDefinition) (map[string]resourcemanager.TerraformSchemaModelDefinition, error) {
 	fields := make(map[string]resourcemanager.TerraformSchemaFieldDefinition)
 	for fieldName, fieldValue := range model.Fields {
 		fields[fieldName] = fieldValue

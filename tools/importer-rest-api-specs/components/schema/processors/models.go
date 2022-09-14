@@ -5,7 +5,7 @@ import (
 )
 
 type ModelProcessor interface {
-	ProcessModel(modelName string, models map[string]resourcemanager.TerraformSchemaModelDefinition) (map[string]resourcemanager.TerraformSchemaModelDefinition, error)
+	ProcessModel(modelName string, model resourcemanager.TerraformSchemaModelDefinition, models map[string]resourcemanager.TerraformSchemaModelDefinition) (map[string]resourcemanager.TerraformSchemaModelDefinition, error)
 }
 
 var ModelRules = []ModelProcessor{

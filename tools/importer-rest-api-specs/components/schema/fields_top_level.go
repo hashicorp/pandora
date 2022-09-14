@@ -88,7 +88,7 @@ func (b Builder) identifyTopLevelFields(modelNamePrefix string, input operationP
 
 			fieldObjectDefinition, err := b.convertToFieldObjectDefinition(modelNamePrefix, field.ObjectDefinition)
 			if err != nil {
-				return nil, fmt.Errorf("converting Identity ObjectDefinition for field to a TerraformFieldObjectDefinition: %+v", err)
+				return nil, fmt.Errorf("converting Sku ObjectDefinition for field to a TerraformFieldObjectDefinition: %+v", err)
 			}
 
 			out.sku = &resourcemanager.TerraformSchemaFieldDefinition{

@@ -74,9 +74,9 @@ func (b Builder) Build(input resourcemanager.TerraformResourceDetails, logger hc
 	}
 
 	// TODO: now that we have all of the models for this resource, we should loop through and check what can be cleaned up
-	for modelName, _ := range schemaModels {
+	for modelName, model := range schemaModels {
 		for _, processor := range processors.ModelRules {
-			schemaModels, err = processor.ProcessModel(modelName, schemaModels)
+			schemaModels, err = processor.ProcessModel(modelName, model, schemaModels)
 			if err != nil {
 				return nil, fmt.Errorf("processing models: %+v", err)
 			}
