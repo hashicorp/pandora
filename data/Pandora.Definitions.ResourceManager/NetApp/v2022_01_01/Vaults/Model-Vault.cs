@@ -18,10 +18,6 @@ internal class VaultModel
     [JsonPropertyName("id")]
     public string? Id { get; set; }
 
-    [JsonPropertyName("location")]
-    [Required]
-    public CustomTypes.Location Location { get; set; }
-
     [JsonPropertyName("name")]
     public string? Name { get; set; }
 

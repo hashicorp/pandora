@@ -15,6 +15,8 @@ namespace Pandora.Definitions.ResourceManager.ElasticSan.v2021_11_20_preview.Ela
 
 internal class SkusListOperation : Operations.GetOperation
 {
+    public override ResourceID? ResourceId() => new SubscriptionId();
+
     public override Type? ResponseObject() => typeof(SkuInformationListModel);
 
     public override Type? OptionsObject() => typeof(SkusListOperation.SkusListOptions);
