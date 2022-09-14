@@ -26,6 +26,9 @@ func (modelFlattenListReferenceIds) ProcessModel(modelName string, model resourc
 
 		referenceName := ""
 		if nested := fieldValue.ObjectDefinition.NestedObject; nested != nil {
+			if nested.Type != resourcemanager.TerraformSchemaFieldTypeReference {
+				continue
+			}
 			if nested.Type == resourcemanager.TerraformSchemaFieldTypeReference && nested.ReferenceName != nil {
 				referenceName = *nested.ReferenceName
 			}
