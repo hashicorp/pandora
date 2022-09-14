@@ -24,8 +24,10 @@ func codeForBlocksReference(input models.ResourceInput) (*string, error) {
 
 		sortedBlockNames := sortStringStringMapKeys(blocks)
 		for _, block := range sortedBlockNames {
-			output = fmt.Sprintf("%s%s", output, blocks[block])
-			output = fmt.Sprintf("%s%s", output, "\n\n---\n")
+			output = fmt.Sprintf(`%s%s
+
+---
+`, output, blocks[block])
 		}
 	}
 
