@@ -2,6 +2,7 @@ package schema
 
 import (
 	"fmt"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/schema/processors"
 
 	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
@@ -73,6 +74,14 @@ func (b Builder) Build(input resourcemanager.TerraformResourceDetails, logger hc
 	}
 
 	// TODO: now that we have all of the models for this resource, we should loop through and check what can be cleaned up
+	for modelName, _ := range schemaModels {
+		for _, processor := range processors.ModelRules {
+			schemaModels, err = processor.ProcessModel(modelName, schemaModels)
+			if err != nil {
+				return nil, fmt.Errorf("processing models: %+v", err)
+			}
+		}
+	}
 
 	return &schemaModels, nil
 }
@@ -88,6 +97,7 @@ func (b Builder) schemaFromTopLevelModel(input resourcemanager.TerraformResource
 		return nil, nil
 	}
 
+	// TODO process top level fields at the end?
 	// find each of the "common" top level fields, excluding `properties`
 	topLevelFields, err := b.identifyTopLevelFields(input.SchemaModelName, *createReadUpdateMethods)
 	if err != nil {

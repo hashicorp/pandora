@@ -72,6 +72,33 @@ func (b Builder) identifyTopLevelFields(modelNamePrefix string, input operationP
 				ForceNew: !canBeUpdated,
 			}
 		}
+
+		if strings.EqualFold(k, "Sku") {
+			field, ok := getField(input.createPayload, k)
+			if !ok {
+				continue
+			}
+
+			canBeUpdated := false
+			if input.updatePayload != nil {
+				if _, ok := getField(*input.updatePayload, k); ok {
+					canBeUpdated = true
+				}
+			}
+
+			fieldObjectDefinition, err := b.convertToFieldObjectDefinition(modelNamePrefix, field.ObjectDefinition)
+			if err != nil {
+				return nil, fmt.Errorf("converting Identity ObjectDefinition for field to a TerraformFieldObjectDefinition: %+v", err)
+			}
+
+			out.sku = &resourcemanager.TerraformSchemaFieldDefinition{
+				ObjectDefinition: *fieldObjectDefinition,
+				Required:         field.Required,
+				Optional:         field.Optional,
+				ForceNew:         !canBeUpdated,
+				HclName:          "sku",
+			}
+		}
 	}
 
 	// TODO: go through any fields _only_ in the Read function which are ReadOnly/Computed
