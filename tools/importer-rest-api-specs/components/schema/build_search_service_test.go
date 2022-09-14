@@ -7,7 +7,11 @@ import (
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-func TestBuildForSearchServiceHappyPathAllModelsTheSame(t *testing.T) {
+func TestBuildForSearchServiceUsingRealData(t *testing.T) {
+	t.Skipf("TODO: update schema gen & re-enable this test")
+	r := resourceUnderTest{
+		Name: "search_service",
+	}
 	builder := Builder{
 		constants: map[string]resourcemanager.ConstantDetails{
 			"AdminKeyKind": {
@@ -48,12 +52,6 @@ func TestBuildForSearchServiceHappyPathAllModelsTheSame(t *testing.T) {
 					"Enabled":  "enabled",
 				},
 			},
-			"ResourceType": {
-				Type: resourcemanager.StringConstant,
-				Values: map[string]string{
-					"SearchServices": "searchServices",
-				},
-			},
 			"SearchServiceStatus": {
 				Type: resourcemanager.StringConstant,
 				Values: map[string]string{
@@ -65,23 +63,13 @@ func TestBuildForSearchServiceHappyPathAllModelsTheSame(t *testing.T) {
 					"Running":      "running",
 				},
 			},
-			"SharedPrivateLinkResourceProvisioningState": {
-				Type: resourcemanager.StringConstant,
-				Values: map[string]string{
-					"Deleting":   "Deleting",
-					"Failed":     "Failed",
-					"Incomplete": "Incomplete",
-					"Succeeded":  "Succeeded",
-					"Updating":   "Updating",
-				},
-			},
 			"SharedPrivateLinkResourceStatus": {
 				Type: resourcemanager.StringConstant,
 				Values: map[string]string{
-					"Approve":      "Approved",
-					"Disconnected": "Disconnected",
 					"Pending":      "Pending",
+					"Approved":     "Approved",
 					"Rejected":     "Rejected",
+					"Disconnected": "Disconnected",
 				},
 			},
 			"SkuName": {
@@ -94,13 +82,6 @@ func TestBuildForSearchServiceHappyPathAllModelsTheSame(t *testing.T) {
 					"StandardThree":        "standard3",
 					"StorageOptimizedLOne": "storage_optimized_l1",
 					"StorageOptimizedLTwo": "storage_optimized_l2",
-				},
-			},
-			"UnavailableNameReasons": {
-				Type: resourcemanager.StringConstant,
-				Values: map[string]string{
-					"AlreadyExists": "AlreadyExists",
-					"Invalid":       "Invalid",
 				},
 			},
 		},
@@ -182,6 +163,7 @@ func TestBuildForSearchServiceHappyPathAllModelsTheSame(t *testing.T) {
 							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
 							ReferenceName: stringPointer("HostingMode"),
 						},
+						Optional: true,
 					},
 					"NetworkRuleSet": {
 						JsonName: "networkRuleSet",
@@ -189,6 +171,7 @@ func TestBuildForSearchServiceHappyPathAllModelsTheSame(t *testing.T) {
 							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
 							ReferenceName: stringPointer("NetworkRuleSet"),
 						},
+						Optional: true,
 					},
 					"PartitionCount": {
 						JsonName: "partitionCount",
@@ -220,6 +203,7 @@ func TestBuildForSearchServiceHappyPathAllModelsTheSame(t *testing.T) {
 							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
 							ReferenceName: stringPointer("PublicNetworkAccess"),
 						},
+						Optional: true,
 					},
 					"ReplicaCount": {
 						JsonName: "replicaCount",
@@ -231,8 +215,11 @@ func TestBuildForSearchServiceHappyPathAllModelsTheSame(t *testing.T) {
 					"SharedPrivateLinkResources": {
 						JsonName: "sharedPrivateLinkResources",
 						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-							ReferenceName: stringPointer("SharedPrivateLinkResource"),
+							Type: resourcemanager.ListApiObjectDefinitionType,
+							NestedItem: &resourcemanager.ApiObjectDefinition{
+								ReferenceName: stringPointer("SharedPrivateLinkResource"),
+								Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+							},
 						},
 					},
 					"Status": {
@@ -251,56 +238,68 @@ func TestBuildForSearchServiceHappyPathAllModelsTheSame(t *testing.T) {
 					},
 				},
 			},
-			"PrivateEndpointConnection": {
+			"PrivateEndpoint": {
 				Fields: map[string]resourcemanager.FieldDetails{
-					// do we add props like id, name and type?
+					"Properties": {
+						JsonName: "properties",
+						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+							ReferenceName: stringPointer("PrivateEndpointProperties"),
+						},
+					},
+				},
+			},
+			"PrivateEndpointProperties": {
+				Fields: map[string]resourcemanager.FieldDetails{
 					"Id": {
 						JsonName: "id",
 						ObjectDefinition: resourcemanager.ApiObjectDefinition{
 							Type: resourcemanager.StringApiObjectDefinitionType,
 						},
 					},
-					"Name": {
-						JsonName: "name",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
-						},
-					},
-					"PrivateEndpointConnectionProperties": {
+				},
+			},
+			"PrivateEndpointConnection": {
+				Fields: map[string]resourcemanager.FieldDetails{
+					"Properties": {
 						JsonName: "properties",
 						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							NestedItem: &resourcemanager.ApiObjectDefinition{
-								Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-								ReferenceName: stringPointer("PrivateEndpointConnectionProperties"),
-							},
-						},
-					},
-					"Type": {
-						JsonName: "type",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+							ReferenceName: stringPointer("PrivateEndpointConnectionProperties"),
+							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
 						},
 					},
 				},
 			},
 			"PrivateEndpointConnectionProperties": {
 				Fields: map[string]resourcemanager.FieldDetails{
+					"Properties": {
+						JsonName: "properties",
+						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+							ReferenceName: stringPointer("PrivateEndpointConnectionPropertiesProperties"),
+							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+						},
+					},
+				},
+			},
+			"PrivateEndpointConnectionPropertiesProperties": {
+				Fields: map[string]resourcemanager.FieldDetails{
 					"PrivateEndpoint": {
 						JsonName: "privateEndpoint",
 						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+							Type: resourcemanager.ListApiObjectDefinitionType,
 							NestedItem: &resourcemanager.ApiObjectDefinition{
 								Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-								ReferenceName: stringPointer("PrivateEndpointPropertiesProperties"),
+								ReferenceName: stringPointer("PrivateEndpoint"),
 							},
 						},
 					},
-					// todo chuck a breakpoint line 17 of dataapi generator
 					"PrivateLinkServiceConnectionState": {
 						JsonName: "privateLinkServiceConnectionState",
 						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+							Type: resourcemanager.ListApiObjectDefinitionType,
 							NestedItem: &resourcemanager.ApiObjectDefinition{
 								Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-								ReferenceName: stringPointer("PrivateEndpointConnectionProperties"),
+								ReferenceName: stringPointer("PrivateLinkServiceConnectionState"),
 							},
 						},
 					},
@@ -308,68 +307,75 @@ func TestBuildForSearchServiceHappyPathAllModelsTheSame(t *testing.T) {
 			},
 			"PrivateLinkServiceConnectionState": {
 				Fields: map[string]resourcemanager.FieldDetails{
-					"PrivateEndpointConnectionProperties": {
-						JsonName: "privateEndpoint",
+					"Properties": {
+						JsonName: "properties",
 						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+							Type: resourcemanager.ListApiObjectDefinitionType,
 							NestedItem: &resourcemanager.ApiObjectDefinition{
 								Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-								ReferenceName: stringPointer("PrivateEndpointConnectionProperties"),
+								ReferenceName: stringPointer("PrivateLinkServiceConnectionStateProperties"),
 							},
+						},
+					},
+				},
+			},
+			"PrivateLinkServiceConnectionStateProperties": {
+				Fields: map[string]resourcemanager.FieldDetails{
+					"Status": {
+						JsonName: "status",
+						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+							ReferenceName: stringPointer("PrivateLinkServiceConnectionStatus"),
+						},
+					},
+					"Description": {
+						JsonName: "description",
+						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+							Type: resourcemanager.StringApiObjectDefinitionType,
+						},
+					},
+					"ActionsRequired": {
+						JsonName: "actions_required",
+						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+							Type: resourcemanager.StringApiObjectDefinitionType,
 						},
 					},
 				},
 			},
 			"SharedPrivateLinkResource": {
 				Fields: map[string]resourcemanager.FieldDetails{
-					// do we add props like id, name and type?
-					"Id": {
-						JsonName: "id",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
-						},
-					},
-					"Name": {
-						JsonName: "name",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
-						},
-					},
-					"SharedPrivateLinkResourceProperties": {
+					"Properties": {
 						JsonName: "properties",
 						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							NestedItem: &resourcemanager.ApiObjectDefinition{
-								Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-								ReferenceName: stringPointer("SharedPrivateLinkResourceProperties"),
-							},
-						},
-					},
-					"Type": {
-						JsonName: "type",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+							ReferenceName: stringPointer("SharedPrivateLinkResourceProperties"),
+							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
 						},
 					},
 				},
 			},
 			"SharedPrivateLinkResourceProperties": {
 				Fields: map[string]resourcemanager.FieldDetails{
-					"GroupId": {
-						JsonName: "groupId",
+					"Properties": {
+						JsonName: "properties",
 						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+							ReferenceName: stringPointer("SharedPrivateLinkResourcePropertiesProperties"),
+							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
 						},
 					},
+				},
+			},
+			"SharedPrivateLinkResourcePropertiesProperties": {
+				Fields: map[string]resourcemanager.FieldDetails{
 					"PrivateLinkResourceId": {
 						JsonName: "privateLinkResourceId",
 						ObjectDefinition: resourcemanager.ApiObjectDefinition{
 							Type: resourcemanager.StringApiObjectDefinitionType,
 						},
 					},
-					"SharedPrivateLinkResourceProvisioningState": {
-						JsonName: "provisioningState",
+					"GroupId": {
+						JsonName: "groupId",
 						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-							ReferenceName: stringPointer("ProvisioningState"),
+							Type: resourcemanager.StringApiObjectDefinitionType,
 						},
 					},
 					"RequestMessage": {
@@ -384,8 +390,7 @@ func TestBuildForSearchServiceHappyPathAllModelsTheSame(t *testing.T) {
 							Type: resourcemanager.StringApiObjectDefinitionType,
 						},
 					},
-					// This should actually be Status?
-					"SharedPrivateLinkResourceStatus": {
+					"Status": {
 						JsonName: "status",
 						ObjectDefinition: resourcemanager.ApiObjectDefinition{
 							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
@@ -513,103 +518,166 @@ func TestBuildForSearchServiceHappyPathAllModelsTheSame(t *testing.T) {
 			TimeoutInMinutes: 30,
 		},
 	}
+
 	actual, err := builder.Build(input, hclog.New(hclog.DefaultOptions))
 	if err != nil {
 		t.Fatalf("building schema: %+v", err)
 	}
 
 	if actual == nil {
-		t.Fatalf("expected 3 models but got nil")
+		t.Fatalf("expected 6 models but got nil")
 	}
-	if len(*actual) != 3 {
-		t.Fatalf("expected 3 models but got %d", len(*actual))
-	}
-	//testValidateResourceGroupSchema(t, actual)
-}
-
-func testValidateSearchServiceSchema(t *testing.T, actual *map[string]resourcemanager.TerraformSchemaModelDefinition) {
-	if actual == nil {
-		t.Fatalf("expected 1 model but got nil")
-	}
-	if len(*actual) != 1 {
-		t.Fatalf("expected 1 model but got %d", len(*actual))
+	if len(*actual) != 14 { // TODO - Revise this when we have a "definitive" rules list...
+		t.Errorf("expected 14 models but got %d", len(*actual))
 	}
 
-	model := (*actual)["ResourceGroup"]
-	if len(model.Fields) != 3 {
-		t.Fatalf("expected 3 fields but got %d", len(model.Fields))
-	}
-
-	name, ok := model.Fields["Name"]
+	r.CurrentModel = "SearchService"
+	currentModel, ok := (*actual)[r.CurrentModel]
 	if !ok {
-		t.Fatalf("expected there to be a field 'Name' but didn't get one")
-	}
-	if name.HclName != "name" {
-		t.Fatalf("expected the HclName for field 'Name' to be 'name' but got %q", name.HclName)
-	}
-	if name.ObjectDefinition.Type != resourcemanager.TerraformSchemaFieldTypeString {
-		t.Fatalf("expected the field 'Name' to have the type `string` but got %q", string(name.ObjectDefinition.Type))
-	}
-	// note: this differs from the model above, since this is implicitly required as a top level field
-	// even if it's defined as optional in the schema
-	if !name.Required {
-		t.Fatalf("expected the field 'Name' to be Required but it wasn't")
-	}
-	if !name.ForceNew {
-		t.Fatalf("expected the field 'Name' to be ForceNew but it wasn't")
-	}
-	// TODO: source WriteOnly from the mappings
-	//if name.Optional || name.Computed || name.WriteOnly {
-	//	t.Fatalf("expected the field 'Name' to be !Optional, !Computed and !WriteOnly but got %t / %t / %t", name.Optional, name.Computed, name.WriteOnly)
-	//}
-	if name.Optional || name.Computed {
-		t.Fatalf("expected the field 'Name' to be !Optional, !Computed but got %t / %t", name.Optional, name.Computed)
+		t.Errorf("expected there to be a model %q, but there wasn't", r.CurrentModel)
+	} else {
+		r.checkFieldName(t, currentModel)
+		r.checkFieldLocation(t, currentModel)
+		r.checkFieldTags(t, currentModel)
+
+		r.checkField(t, currentModel, expected{
+			FieldName: "SkuName",
+			HclName:   "sku_name",
+			Required:  true,
+			ForceNew:  true,
+			FieldType: resourcemanager.TerraformSchemaFieldTypeString,
+			Validation: &expectedValidation{
+				Type:               resourcemanager.TerraformSchemaValidationTypePossibleValues,
+				PossibleValueCount: 7,
+			},
+		})
+		r.checkField(t, currentModel, expected{
+			FieldName:     "HostingMode",
+			HclName:       "hosting_mode",
+			Optional:      true,
+			FieldType:     resourcemanager.TerraformSchemaFieldTypeString,
+			ReferenceName: stringPointer("HostingMode"),
+			Validation: &expectedValidation{
+				Type:               resourcemanager.TerraformSchemaValidationTypePossibleValues,
+				PossibleValueCount: 2,
+			},
+		})
+		r.checkField(t, currentModel, expected{
+			FieldName:     "AllowedIPs",
+			HclName:       "allowed_ips",
+			Optional:      true,
+			FieldType:     resourcemanager.TerraformSchemaFieldTypeList,
+			ReferenceName: stringPointer("IPRules"),
+		})
+		r.checkField(t, currentModel, expected{
+			FieldName: "PartitionCount",
+			HclName:   "partition_count",
+			Optional:  true,
+			ForceNew:  false,
+			FieldType: resourcemanager.TerraformSchemaFieldTypeInteger,
+		})
+		r.checkField(t, currentModel, expected{
+			FieldName: "PrivateEndpointId", // Note: This is a really deep collapse of models
+			HclName:   "private_endpoint_id",
+			Computed:  true,
+			FieldType: resourcemanager.TerraformSchemaFieldTypeString,
+		})
+		r.checkField(t, currentModel, expected{
+			FieldName: "PublicNetworkAccess",
+			HclName:   "public_network_access",
+			Optional:  true,
+			FieldType: resourcemanager.TerraformSchemaFieldTypeBoolean,
+		})
+		r.checkField(t, currentModel, expected{
+			FieldName: "ReplicaCount",
+			HclName:   "replica_count",
+			Optional:  true,
+			FieldType: resourcemanager.TerraformSchemaFieldTypeInteger,
+		})
+		r.checkField(t, currentModel, expected{
+			FieldName:           "SharedPrivateLinkResource",
+			HclName:             "shared_private_link_resource",
+			Computed:            true,
+			FieldType:           resourcemanager.TerraformSchemaFieldTypeList,
+			NestedReferenceName: stringPointer("SearchServiceSharedPrivateLinkResource"),
+			NestedReferenceType: resourcemanager.TerraformSchemaFieldTypeReference,
+		})
+		r.checkField(t, currentModel, expected{
+			FieldName:           "AllowedIPs",
+			HclName:             "allowed_ips",
+			Optional:            true,
+			FieldType:           resourcemanager.TerraformSchemaFieldTypeList,
+			NestedReferenceType: resourcemanager.TerraformSchemaFieldTypeString,
+		})
 	}
 
-	location, ok := model.Fields["Location"]
-	if !ok {
-		t.Fatalf("expected there to be a field 'Location' but didn't get one")
-	}
-	if location.HclName != "location" {
-		t.Fatalf("expected the HclName for field 'Location' to be 'location' but got %q", location.HclName)
-	}
-	if location.ObjectDefinition.Type != resourcemanager.TerraformSchemaFieldTypeLocation {
-		t.Fatalf("expected the field 'Location' to have the type `location` but got %q", string(location.ObjectDefinition.Type))
-	}
-	// note: this differs from the model above, since this is implicitly required as a top level field
-	// even if it's defined as optional in the schema
-	if !location.Required {
-		t.Fatalf("expected the field 'Location' to be Required but it wasn't")
-	}
-	if !location.ForceNew {
-		t.Fatalf("expected the field 'Location' to be ForceNew but it wasn't")
-	}
-	// TODO: source WriteOnly from the mappings
-	//if location.Optional || location.Computed || location.WriteOnly {
-	//	t.Fatalf("expected the field 'Location' to be !Optional, !Computed and !WriteOnly but got %t / %t / %t", location.Optional, location.Computed, location.WriteOnly)
-	//}
-	if location.Optional || location.Computed {
-		t.Fatalf("expected the field 'Location' to be !Optional, !Computed but got %t / %t", location.Optional, location.Computed)
+	r.CurrentModel = "SearchServiceProperties"
+	currentModel, ok = (*actual)[r.CurrentModel]
+	if ok {
+		t.Errorf("expected there not to be a model %q, but there was", r.CurrentModel)
 	}
 
-	tags, ok := model.Fields["Tags"]
+	r.CurrentModel = "IPRule"
+	currentModel, ok = (*actual)[r.CurrentModel]
+	if ok {
+		t.Errorf("expected there not to be a model %q, but there was", r.CurrentModel)
+	}
+
+	r.CurrentModel = "NetworkRuleSet"
+	currentModel, ok = (*actual)[r.CurrentModel]
+	if ok {
+		t.Errorf("expected there not to be a model %q, but there was", r.CurrentModel)
+	}
+
+	r.CurrentModel = "SearchServicePrivateEndpointConnection"
+	currentModel, ok = (*actual)[r.CurrentModel]
 	if !ok {
-		t.Fatalf("expected there to be a field 'Tags' but didn't get one")
+		t.Errorf("expected there to be a model %q, but there wasn't", r.CurrentModel)
+	} else {
+		r.checkField(t, currentModel, expected{
+			FieldName: "Id",
+			HclName:   "id",
+			Computed:  true,
+			FieldType: resourcemanager.TerraformSchemaFieldTypeString,
+		})
+		r.checkField(t, currentModel, expected{
+			FieldName: "Name",
+			HclName:   "name",
+			Computed:  true,
+			FieldType: resourcemanager.TerraformSchemaFieldTypeString,
+		})
+		r.checkField(t, currentModel, expected{
+			FieldName:     "PrivateEndpoint",
+			HclName:       "private_endpoint",
+			Computed:      true,
+			FieldType:     resourcemanager.TerraformSchemaFieldTypeReference,
+			ReferenceName: stringPointer("PrivateEndpoint"),
+		})
 	}
-	if tags.HclName != "tags" {
-		t.Fatalf("expected the HclName for field 'Tags' to be 'tags' but got %q", tags.HclName)
+
+	r.CurrentModel = "SearchServicePrivateEndpoint"
+	currentModel, ok = (*actual)[r.CurrentModel]
+	if ok {
+		t.Errorf("expected there not to be a model %q, but there was", r.CurrentModel)
 	}
-	if tags.ObjectDefinition.Type != resourcemanager.TerraformSchemaFieldTypeTags {
-		t.Fatalf("expected the field 'Tags' to have the type `tags` but got %q", string(tags.ObjectDefinition.Type))
+
+	r.CurrentModel = "SearchServicePrivateEndpointConnectionProperties"
+	currentModel, ok = (*actual)[r.CurrentModel]
+	if ok {
+		t.Errorf("expected there not to be a model %q, but there was", r.CurrentModel)
 	}
-	if !tags.Optional {
-		t.Fatalf("expected the field 'Tags' to be Optional but it wasn't")
+
+	r.CurrentModel = "SearchServicePrivateLinkServiceConnectionStateProperties"
+	currentModel, ok = (*actual)[r.CurrentModel]
+	if ok {
+		t.Errorf("expected there not to be a model %q, but there was", r.CurrentModel)
 	}
-	// TODO: source WriteOnly from the mappings
-	//if tags.Required || tags.Computed || tags.ForceNew || tags.WriteOnly {
-	//	t.Fatalf("expected the field 'Tags' to be !Required, !Computed, !ForceNew and !WriteOnly but got %t / %t / %t / %t", tags.Required, tags.Computed, tags.ForceNew, tags.WriteOnly)
-	//}
-	if tags.Required || tags.Computed || tags.ForceNew {
-		t.Fatalf("expected the field 'Tags' to be !Required, !Computed, !ForceNew but got %t / / %t / %t", tags.Required, tags.Computed, tags.ForceNew)
+
+	r.CurrentModel = "SearchServiceSharedPrivateLinkResource"
+	currentModel, ok = (*actual)[r.CurrentModel]
+	if !ok {
+		t.Errorf("expected there to be a model %q, but there wasn't", r.CurrentModel)
+	} else {
+
 	}
 }
