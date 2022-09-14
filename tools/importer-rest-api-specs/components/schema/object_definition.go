@@ -51,6 +51,8 @@ func (b Builder) convertToFieldObjectDefinition(modelPrefix string, input resour
 				out.Type = resourcemanager.TerraformSchemaFieldTypeInteger
 			case resourcemanager.FloatConstant:
 				out.Type = resourcemanager.TerraformSchemaFieldTypeFloat
+			default:
+				return nil, fmt.Errorf("constant has unknown or unsupported type: %+v", constant.Type)
 			}
 		}
 		out.ReferenceName = &reference
