@@ -83,6 +83,11 @@ public class VirtualMachineScaleSetResourceSchema
     public bool SinglePlacementGroup { get; set; }
 
 
+    [HclName("sku")]
+    [Optional]
+    public VirtualMachineScaleSetResourceSkuSchema Sku { get; set; }
+
+
     [HclName("spot_restore_policy")]
     [Optional]
     public VirtualMachineScaleSetResourceSpotRestorePolicySchema SpotRestorePolicy { get; set; }
