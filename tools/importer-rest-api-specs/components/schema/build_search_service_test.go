@@ -149,6 +149,7 @@ func TestBuildForSearchServiceUsingRealData(t *testing.T) {
 					"IPRules": {
 						JsonName: "ipRules",
 						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+							// Note: This is a collapsed tree to a list of strings, rather than a list of models.
 							Type:          resourcemanager.ListApiObjectDefinitionType,
 							ReferenceName: stringPointer("IPRule"),
 						},
