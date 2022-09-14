@@ -36,11 +36,22 @@ var apiObjectDefinitionTypesToFieldObjectDefinitionTypes = map[resourcemanager.A
 func (b Builder) convertToFieldObjectDefinition(modelPrefix string, input resourcemanager.ApiObjectDefinition) (*resourcemanager.TerraformSchemaFieldObjectDefinition, error) {
 	out := resourcemanager.TerraformSchemaFieldObjectDefinition{}
 
+	var isConstant bool
+	var constant resourcemanager.ConstantDetails
 	if input.ReferenceName != nil {
 		reference := *input.ReferenceName
-		if _, isConstant := b.constants[reference]; !isConstant {
+		if constant, isConstant = b.constants[reference]; !isConstant {
 			// models are prefixed to be globally unique
 			reference = fmt.Sprintf("%s%s", modelPrefix, reference)
+		} else {
+			switch constant.Type {
+			case resourcemanager.StringConstant:
+				out.Type = resourcemanager.TerraformSchemaFieldTypeString
+			case resourcemanager.IntegerConstant:
+				out.Type = resourcemanager.TerraformSchemaFieldTypeInteger
+			case resourcemanager.FloatConstant:
+				out.Type = resourcemanager.TerraformSchemaFieldTypeFloat
+			}
 		}
 		out.ReferenceName = &reference
 	}
@@ -53,11 +64,13 @@ func (b Builder) convertToFieldObjectDefinition(modelPrefix string, input resour
 		out.NestedObject = nested
 	}
 
-	v, ok := apiObjectDefinitionTypesToFieldObjectDefinitionTypes[input.Type]
-	if !ok {
-		return nil, fmt.Errorf("internal-error: missing object definition mapping for type %q", string(input.Type))
+	if !isConstant {
+		v, ok := apiObjectDefinitionTypesToFieldObjectDefinitionTypes[input.Type]
+		if !ok {
+			return nil, fmt.Errorf("internal-error: missing object definition mapping for type %q", string(input.Type))
+		}
+		out.Type = v
 	}
-	out.Type = v
 
 	return &out, nil
 }
