@@ -241,7 +241,7 @@ func TestComponentArguments(t *testing.T) {
 		"\n\n* `optional_integer` - (Optional) Description for optional_integer. Possible values are `4`, `5`, `6.`" +
 		"\n\n* `optional_nested_item` - (Optional) An `optional_nested_item` block as defined below. " +
 		"\n\n* `optional_string` - (Optional) Description for optional_string. Possible values are `string1`, `string2`, `string3.`" +
-		"\n\n---\n\n"
+		"\n\n"
 
 	if *actual != expected {
 		t.Fatalf("Expected %s but got %s", expected, *actual)

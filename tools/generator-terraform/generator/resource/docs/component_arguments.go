@@ -10,7 +10,7 @@ import (
 
 func codeForArgumentsReference(input models.ResourceInput) (*string, error) {
 
-	topLevelArgs := getArguments(input.SchemaModels[input.SchemaModelName])
+	topLevelArgs := getArguments(input.SchemaModels[input.SchemaModelName], input.Details.DisplayName)
 
 	output := fmt.Sprintf(`
 ## Arguments Reference
@@ -19,14 +19,12 @@ The following arguments are supported:
 
 %s
 
----
-
 `, topLevelArgs)
 
 	return &output, nil
 }
 
-func getArguments(model resourcemanager.TerraformSchemaModelDefinition) string {
+func getArguments(model resourcemanager.TerraformSchemaModelDefinition, resourceName string) string {
 
 	requiredLines := make([]string, 0)
 	optionalLines := make([]string, 0)
@@ -78,7 +76,7 @@ func getArguments(model resourcemanager.TerraformSchemaModelDefinition) string {
 		// TODO set default if applicable?
 
 		if field.ForceNew {
-			components = append(components, "Changing this forces a new resource to be created.")
+			components = append(components, fmt.Sprintf("Changing this forces a new %s to be created.", resourceName))
 		}
 
 		line := strings.Join(components, " ")

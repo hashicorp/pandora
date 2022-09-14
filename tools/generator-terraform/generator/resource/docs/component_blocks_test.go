@@ -132,6 +132,14 @@ func TestComponentBlocks(t *testing.T) {
 						Optional: true,
 						HclName:  "another_nested_item",
 					},
+					"ZAnotherNestedItem2": {
+						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+							Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+							ReferenceName: stringPointer("ZAnotherNestedSchema2"),
+						},
+						Optional: true,
+						HclName:  "z_another_nested_item_2",
+					},
 					"ComputedItem": {
 						HclName: "computed_item",
 						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
@@ -214,23 +222,43 @@ func TestComponentBlocks(t *testing.T) {
 					},
 				},
 			},
+			"ZAnotherNestedSchema2": {
+				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+					"OptionalItem2": {
+						HclName: "optional_item_2",
+						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						},
+						Optional: true,
+						Documentation: resourcemanager.TerraformSchemaDocumentationDefinition{
+							Markdown: "Description for optional_item.",
+						},
+						Validation: &resourcemanager.TerraformSchemaValidationDefinition{
+							Type:           "FixedValues",
+							PossibleValues: &[]string{"string4", "string5", "string6"},
+						},
+					},
+				},
+			},
 		},
 	}
 	actual, err := codeForBlocksReference(input)
 	if err != nil {
 		t.Fatalf("error: %+v", err)
 	}
-	expected := "\n\n## Blocks Reference" +
-		"\n\n### `optional_nested_item` Block" +
-		"\n\nThe `optional_nested_item` block supports the following arguments:" +
-		"\n\n* `another_nested_item` - (Optional) An `another_nested_item` block as defined below. " +
-		"\n\n* `nested_item` - (Optional) Description for nested_item. Possible values are `string1`, `string2`, `string3.`" +
-		"\n\nThe `optional_nested_item` block exports the following arguments:" +
-		"\n\n* `computed_item` - Description for computed_string." +
-		"\n\n---" +
+
+	expected := "## Blocks Reference" +
 		"\n\n### `another_nested_item` Block" +
 		"\n\nThe `another_nested_item` block supports the following arguments:" +
 		"\n\n* `optional_item` - (Optional) Description for optional_item. Possible values are `string1`, `string2`, `string3.`" +
+		"\n\n---" +
+		"\n\n### `optional_nested_item` Block" +
+		"\n\nThe `optional_nested_item` block supports the following arguments:" +
+		"\n\n* `another_nested_item` - (Optional) An `another_nested_item` block as defined above. " +
+		"\n\n* `nested_item` - (Optional) Description for nested_item. Possible values are `string1`, `string2`, `string3.`" +
+		"\n\n* `z_another_nested_item_2` - (Optional) A `z_another_nested_item_2` block as defined below. " +
+		"\n\nThe `optional_nested_item` block exports the following arguments:" +
+		"\n\n* `computed_item` - Description for computed_string." +
 		"\n\n---" +
 		"\n\n### `required_nested_item` Block" +
 		"\n\nThe `required_nested_item` block supports the following arguments:" +
@@ -239,8 +267,11 @@ func TestComponentBlocks(t *testing.T) {
 		"\n\n* `optional_item` - (Optional) Description for optional_item. Possible values are `string1`, `string2`, `string3.`" +
 		"\n\nThe `required_nested_item` block exports the following arguments:" +
 		"\n\n* `computed_item` - Description for computed_item." +
-		"\n\n---"
-
+		"\n\n---" +
+		"\n\n### `z_another_nested_item_2` Block" +
+		"\n\nThe `z_another_nested_item_2` block supports the following arguments:" +
+		"\n\n* `optional_item_2` - (Optional) Description for optional_item. Possible values are `string4`, `string5`, `string6.`" +
+		"\n\n---\n"
 	if *actual != expected {
 		t.Fatalf("Expected %s but got %s", expected, *actual)
 	}

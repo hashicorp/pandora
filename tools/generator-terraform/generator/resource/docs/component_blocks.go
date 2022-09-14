@@ -10,38 +10,34 @@ import (
 
 func codeForBlocksReference(input models.ResourceInput) (*string, error) {
 
-	blocks := make([]string, 0)
-	topLevelModel := input.SchemaModels[input.SchemaModelName]
-	fieldNames := sortFieldNamesAlphabetically(input.SchemaModels[input.SchemaModelName])
+	blocks := make(map[string]string)
 
-	for _, fieldName := range fieldNames {
-		field := topLevelModel.Fields[fieldName]
+	for _, field := range input.SchemaModels[input.SchemaModelName].Fields {
 		if field.ObjectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeReference {
-			blocks = append(blocks, populateBlockAndNestedBlocks(field.HclName, input, input.SchemaModels[*field.ObjectDefinition.ReferenceName])...)
+			mergeBlocksMapWithNestedBlocks(blocks, populateBlockAndNestedBlocks(field.HclName, input, input.SchemaModels[*field.ObjectDefinition.ReferenceName]))
 		}
 	}
 
 	output := ""
-
 	if len(blocks) > 0 {
-		output = fmt.Sprintf(`
+		output = "## Blocks Reference\n"
 
-## Blocks Reference
-%s
-
----`, strings.Join(blocks, "\n\n---\n"))
-
+		sortedBlockNames := sortStringStringMapKeys(blocks)
+		for _, block := range sortedBlockNames {
+			output = fmt.Sprintf("%s%s", output, blocks[block])
+			output = fmt.Sprintf("%s%s", output, "\n\n---\n")
+		}
 	}
 
 	return &output, nil
 }
 
-func getFieldsAndNestedBlocks(input models.ResourceInput, model resourcemanager.TerraformSchemaModelDefinition) (string, string, []string) {
+func getFieldsAndNestedBlocks(blockHclName string, input models.ResourceInput, model resourcemanager.TerraformSchemaModelDefinition) (string, string, map[string]string) {
 
 	requiredLines := make([]string, 0)
 	optionalLines := make([]string, 0)
 	attributeLines := make([]string, 0)
-	blocks := make([]string, 0)
+	blocks := make(map[string]string)
 
 	sortedFieldNames := sortFieldNamesAlphabetically(model)
 
@@ -64,7 +60,15 @@ func getFieldsAndNestedBlocks(input models.ResourceInput, model resourcemanager.
 			} else {
 				components = append(components, "A")
 			}
-			components = append(components, fmt.Sprintf("`%s` block as defined below.", field.HclName))
+
+			components = append(components, fmt.Sprintf("`%s` block as defined", field.HclName))
+
+			// blocks are organised alphabetically, so checking order of nested block compared to parent block here
+			if strings.Compare(field.HclName, blockHclName) == 1 {
+				components = append(components, "below.")
+			} else {
+				components = append(components, "above.")
+			}
 		}
 
 		// TODO markdown always blank - may require changes here based on markdown format. Assuming this is like a field description for now
@@ -91,7 +95,7 @@ func getFieldsAndNestedBlocks(input models.ResourceInput, model resourcemanager.
 			// TODO set default if applicable?
 
 			if field.ForceNew {
-				components = append(components, "Changing this forces a new resource to be created.")
+				components = append(components, fmt.Sprintf("Changing this forces a new %s to be created.", input.Details.DisplayName))
 			}
 		}
 
@@ -106,16 +110,16 @@ func getFieldsAndNestedBlocks(input models.ResourceInput, model resourcemanager.
 		}
 
 		if isReference {
-			blocks = append(blocks, populateBlockAndNestedBlocks(field.HclName, input, input.SchemaModels[*field.ObjectDefinition.ReferenceName])...)
+			mergeBlocksMapWithNestedBlocks(blocks, populateBlockAndNestedBlocks(field.HclName, input, input.SchemaModels[*field.ObjectDefinition.ReferenceName]))
 		}
 	}
 	return strings.Join(append(requiredLines, optionalLines...), "\n\n"), strings.Join(attributeLines, "\n\n"), blocks
 }
 
-func populateBlockAndNestedBlocks(blockHclName string, input models.ResourceInput, model resourcemanager.TerraformSchemaModelDefinition) []string {
+func populateBlockAndNestedBlocks(blockHclName string, input models.ResourceInput, model resourcemanager.TerraformSchemaModelDefinition) map[string]string {
 
-	blocks := make([]string, 0)
-	blockArgs, blockAttributes, nestedBlocks := getFieldsAndNestedBlocks(input, model)
+	blocks := make(map[string]string)
+	blockArgs, blockAttributes, nestedBlocks := getFieldsAndNestedBlocks(blockHclName, input, model)
 
 	components := make([]string, 0)
 	components = append(components, fmt.Sprintf("\n### `%s` Block", blockHclName))
@@ -130,8 +134,14 @@ func populateBlockAndNestedBlocks(blockHclName string, input models.ResourceInpu
 		components = append(components, fmt.Sprintf("%s", blockAttributes))
 	}
 
-	blocks = append(blocks, strings.Join(components, "\n\n"))
-	blocks = append(blocks, nestedBlocks...)
+	blocks[blockHclName] = strings.Join(components, "\n\n")
 
-	return blocks
+	return mergeBlocksMapWithNestedBlocks(blocks, nestedBlocks)
+}
+
+func mergeBlocksMapWithNestedBlocks(blocksMap map[string]string, nestedBlocksMap map[string]string) map[string]string {
+	for k, v := range nestedBlocksMap {
+		blocksMap[k] = v
+	}
+	return blocksMap
 }
