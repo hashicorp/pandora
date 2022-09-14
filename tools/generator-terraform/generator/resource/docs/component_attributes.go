@@ -13,7 +13,7 @@ func codeForAttributesReference(input models.ResourceInput) (*string, error) {
 	components := make([]string, 0)
 	components = append(components, "## Attributes Reference")
 	components = append(components, "The following attributes are exported:")
-	components = append(components, fmt.Sprintf("* `id` - The ID of the %s", input.Details.DisplayName))
+	components = append(components, fmt.Sprintf("* `id` - The ID of the %s.", input.Details.DisplayName))
 
 	topLevelAttributes := getAttributes(input.SchemaModels[input.SchemaModelName])
 	if topLevelAttributes != "" {

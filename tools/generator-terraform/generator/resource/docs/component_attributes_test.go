@@ -255,7 +255,7 @@ func TestComponentAttributes(t *testing.T) {
 
 The following attributes are exported:
 
-* 'id' - The ID of the Test Resource
+* 'id' - The ID of the Test Resource.
 
 * 'computed_integer' - Description for computed_integer.
 
