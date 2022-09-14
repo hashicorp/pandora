@@ -8,13 +8,8 @@ import (
 
 type modelFlattenReferenceId struct{}
 
-func (modelFlattenReferenceId) ProcessModel(modelName string, models map[string]resourcemanager.TerraformSchemaModelDefinition) (map[string]resourcemanager.TerraformSchemaModelDefinition, error) {
+func (modelFlattenReferenceId) ProcessModel(modelName string, model resourcemanager.TerraformSchemaModelDefinition, models map[string]resourcemanager.TerraformSchemaModelDefinition) (map[string]resourcemanager.TerraformSchemaModelDefinition, error) {
 	fields := make(map[string]resourcemanager.TerraformSchemaFieldDefinition)
-
-	model, ok := models[modelName]
-	if !ok {
-		return nil, fmt.Errorf("a model was not found with the name %q", modelName)
-	}
 
 	if len(model.Fields) != 1 {
 		return models, nil
