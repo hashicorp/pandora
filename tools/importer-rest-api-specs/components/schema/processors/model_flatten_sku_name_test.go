@@ -89,7 +89,7 @@ func TestProcessModel_FlattenSkuName_Valid(t *testing.T) {
 	for _, v := range testData {
 		t.Logf("[DEBUG] Testing %s", v.modelNameInput)
 
-		actual, err := modelFlattenSkuName{}.ProcessModel(v.modelNameInput, v.modelsInput)
+		actual, err := modelFlattenSkuName{}.ProcessModel(v.modelNameInput, v.modelsInput[v.modelNameInput], v.modelsInput)
 		if err != nil {
 			if v.expected == nil {
 				continue
@@ -227,7 +227,7 @@ func TestProcessModel_FlattenSkuName_Invalid(t *testing.T) {
 	for _, v := range testData {
 		t.Logf("[DEBUG] Testing %s", v.modelNameInput)
 
-		actual, err := modelFlattenSkuName{}.ProcessModel(v.modelNameInput, v.modelsInput)
+		actual, err := modelFlattenSkuName{}.ProcessModel(v.modelNameInput, v.modelsInput[v.modelNameInput], v.modelsInput)
 		if err != nil {
 			if v.expected == nil {
 				continue
