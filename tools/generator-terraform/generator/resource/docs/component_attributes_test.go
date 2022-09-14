@@ -1,6 +1,7 @@
 package docs
 
 import (
+	"strings"
 	"testing"
 
 	"github.com/hashicorp/pandora/tools/generator-terraform/generator/models"
@@ -35,8 +36,10 @@ func TestComponentAttributes(t *testing.T) {
 							Markdown: "Description for required_integer.",
 						},
 						Validation: &resourcemanager.TerraformSchemaValidationDefinition{
-							Type:           "FixedValues",
-							PossibleValues: &[]string{"1", "2", "3"},
+							Type: "PossibleValues",
+							PossibleValues: &resourcemanager.TerraformSchemaValidationPossibleValuesDefinition{
+								Values: []interface{}{1, 2, 3},
+							},
 						},
 					},
 					"OptionalInteger": {
@@ -49,8 +52,10 @@ func TestComponentAttributes(t *testing.T) {
 							Markdown: "Description for optional_integer.",
 						},
 						Validation: &resourcemanager.TerraformSchemaValidationDefinition{
-							Type:           "FixedValues",
-							PossibleValues: &[]string{"4", "5", "6"},
+							Type: "PossibleValues",
+							PossibleValues: &resourcemanager.TerraformSchemaValidationPossibleValuesDefinition{
+								Values: []interface{}{4, 5, 6},
+							},
 						},
 					},
 					"ComputedInteger": {
@@ -81,8 +86,10 @@ func TestComponentAttributes(t *testing.T) {
 							Markdown: "Description for required_string.",
 						},
 						Validation: &resourcemanager.TerraformSchemaValidationDefinition{
-							Type:           "FixedValues",
-							PossibleValues: &[]string{"string1", "string2", "string3"},
+							Type: "PossibleValues",
+							PossibleValues: &resourcemanager.TerraformSchemaValidationPossibleValuesDefinition{
+								Values: []interface{}{"string1", "string2", "string3"},
+							},
 						},
 					},
 					"BooleanItem": {
@@ -105,8 +112,10 @@ func TestComponentAttributes(t *testing.T) {
 							Markdown: "Description for optional_string.",
 						},
 						Validation: &resourcemanager.TerraformSchemaValidationDefinition{
-							Type:           "FixedValues",
-							PossibleValues: &[]string{"string1", "string2", "string3"},
+							Type: "PossibleValues",
+							PossibleValues: &resourcemanager.TerraformSchemaValidationPossibleValuesDefinition{
+								Values: []interface{}{"string1", "string2", "string3"},
+							},
 						},
 					},
 					"ComputedString": {
@@ -133,8 +142,10 @@ func TestComponentAttributes(t *testing.T) {
 							Markdown: "Description for nested_item.",
 						},
 						Validation: &resourcemanager.TerraformSchemaValidationDefinition{
-							Type:           "FixedValues",
-							PossibleValues: &[]string{"string1", "string2", "string3"},
+							Type: "PossibleValues",
+							PossibleValues: &resourcemanager.TerraformSchemaValidationPossibleValuesDefinition{
+								Values: []interface{}{"string1", "string2", "string3"},
+							},
 						},
 					},
 					"AnotherNestedItem": {
@@ -169,8 +180,10 @@ func TestComponentAttributes(t *testing.T) {
 							Markdown: "Description for optional_item.",
 						},
 						Validation: &resourcemanager.TerraformSchemaValidationDefinition{
-							Type:           "FixedValues",
-							PossibleValues: &[]string{"string1", "string2", "string3"},
+							Type: "PossibleValues",
+							PossibleValues: &resourcemanager.TerraformSchemaValidationPossibleValuesDefinition{
+								Values: []interface{}{"string1", "string2", "string3"},
+							},
 						},
 					},
 					"ComputedItem": {
@@ -193,8 +206,10 @@ func TestComponentAttributes(t *testing.T) {
 							Markdown: "Description for required_item.",
 						},
 						Validation: &resourcemanager.TerraformSchemaValidationDefinition{
-							Type:           "FixedValues",
-							PossibleValues: &[]string{"string1", "string2", "string3"},
+							Type: "PossibleValues",
+							PossibleValues: &resourcemanager.TerraformSchemaValidationPossibleValuesDefinition{
+								Values: []interface{}{"string1", "string2", "string3"},
+							},
 						},
 					},
 					"BooleanItem": {
@@ -221,8 +236,10 @@ func TestComponentAttributes(t *testing.T) {
 							Markdown: "Description for optional_item.",
 						},
 						Validation: &resourcemanager.TerraformSchemaValidationDefinition{
-							Type:           "FixedValues",
-							PossibleValues: &[]string{"string1", "string2", "string3"},
+							Type: "PossibleValues",
+							PossibleValues: &resourcemanager.TerraformSchemaValidationPossibleValuesDefinition{
+								Values: []interface{}{"string1", "string2", "string3"},
+							},
 						},
 					},
 				},
@@ -234,13 +251,19 @@ func TestComponentAttributes(t *testing.T) {
 		t.Fatalf("error: %+v", err)
 	}
 
-	expected := "## Attributes Reference" +
-		"\n\nThe following attributes are exported:" +
-		"\n\n* `id` - The ID of the Test Resource" +
-		"\n\n* `computed_integer` - Description for computed_integer." +
-		"\n\n* `computed_nested_item` - A `computed_nested_item` block as defined below. " +
-		"\n\n* `computed_string` - Description for computed_string." +
-		"\n\n---"
+	expected := strings.ReplaceAll(`## Attributes Reference
+
+The following attributes are exported:
+
+* 'id' - The ID of the Test Resource
+
+* 'computed_integer' - Description for computed_integer.
+
+* 'computed_nested_item' - A 'computed_nested_item' block as defined below. 
+
+* 'computed_string' - Description for computed_string.
+
+---`, "'", "`")
 
 	if *actual != expected {
 		t.Fatalf("Expected %s but got %s", expected, *actual)

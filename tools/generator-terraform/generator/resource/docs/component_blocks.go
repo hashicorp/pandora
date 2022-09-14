@@ -84,10 +84,12 @@ func getFieldsAndNestedBlocks(blockHclName string, input models.ResourceInput, m
 			if field.ObjectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeBoolean {
 				components = append(components, "Possible values are `true` and `false`.")
 			} else if field.Validation != nil {
-				if field.Validation.Type == resourcemanager.TerraformSchemaValidationTypeFixedValues {
-					if values := field.Validation.PossibleValues; values != nil {
-						possibleValues := fmt.Sprintf("Possible values are `%s.`", strings.Join(*values, "`, `"))
-						components = append(components, possibleValues)
+				if field.Validation.Type == resourcemanager.TerraformSchemaValidationTypePossibleValues {
+					if field.Validation.Type == resourcemanager.TerraformSchemaValidationTypePossibleValues {
+						if values := field.Validation.PossibleValues.Values; values != nil {
+							possibleValues := wordifyPossibleValues(values)
+							components = append(components, possibleValues)
+						}
 					}
 				}
 			}

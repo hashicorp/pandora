@@ -1,6 +1,7 @@
 package docs
 
 import (
+	"strings"
 	"testing"
 
 	"github.com/hashicorp/pandora/tools/generator-terraform/generator/models"
@@ -32,8 +33,10 @@ func TestComponentBlocks(t *testing.T) {
 							Markdown: "Description for required_integer.",
 						},
 						Validation: &resourcemanager.TerraformSchemaValidationDefinition{
-							Type:           "FixedValues",
-							PossibleValues: &[]string{"1", "2", "3"},
+							Type: "PossibleValues",
+							PossibleValues: &resourcemanager.TerraformSchemaValidationPossibleValuesDefinition{
+								Values: []interface{}{1, 2, 3},
+							},
 						},
 					},
 					"OptionalInteger": {
@@ -46,8 +49,10 @@ func TestComponentBlocks(t *testing.T) {
 							Markdown: "Description for optional_integer.",
 						},
 						Validation: &resourcemanager.TerraformSchemaValidationDefinition{
-							Type:           "FixedValues",
-							PossibleValues: &[]string{"4", "5", "6"},
+							Type: "PossibleValues",
+							PossibleValues: &resourcemanager.TerraformSchemaValidationPossibleValuesDefinition{
+								Values: []interface{}{4, 5, 6},
+							},
 						},
 					},
 					"ComputedInteger": {
@@ -78,8 +83,10 @@ func TestComponentBlocks(t *testing.T) {
 							Markdown: "Description for required_string.",
 						},
 						Validation: &resourcemanager.TerraformSchemaValidationDefinition{
-							Type:           "FixedValues",
-							PossibleValues: &[]string{"string1", "string2", "string3"},
+							Type: "PossibleValues",
+							PossibleValues: &resourcemanager.TerraformSchemaValidationPossibleValuesDefinition{
+								Values: []interface{}{"string1", "string2", "string3"},
+							},
 						},
 					},
 					"OptionalString": {
@@ -92,8 +99,10 @@ func TestComponentBlocks(t *testing.T) {
 							Markdown: "Description for optional_string.",
 						},
 						Validation: &resourcemanager.TerraformSchemaValidationDefinition{
-							Type:           "FixedValues",
-							PossibleValues: &[]string{"string1", "string2", "string3"},
+							Type: "PossibleValues",
+							PossibleValues: &resourcemanager.TerraformSchemaValidationPossibleValuesDefinition{
+								Values: []interface{}{"string1", "string2", "string3"},
+							},
 						},
 					},
 					"ComputedString": {
@@ -120,8 +129,10 @@ func TestComponentBlocks(t *testing.T) {
 							Markdown: "Description for nested_item.",
 						},
 						Validation: &resourcemanager.TerraformSchemaValidationDefinition{
-							Type:           "FixedValues",
-							PossibleValues: &[]string{"string1", "string2", "string3"},
+							Type: "PossibleValues",
+							PossibleValues: &resourcemanager.TerraformSchemaValidationPossibleValuesDefinition{
+								Values: []interface{}{"string1", "string2", "string3"},
+							},
 						},
 					},
 					"AnotherNestedItem": {
@@ -164,8 +175,10 @@ func TestComponentBlocks(t *testing.T) {
 							Markdown: "Description for optional_item.",
 						},
 						Validation: &resourcemanager.TerraformSchemaValidationDefinition{
-							Type:           "FixedValues",
-							PossibleValues: &[]string{"string1", "string2", "string3"},
+							Type: "PossibleValues",
+							PossibleValues: &resourcemanager.TerraformSchemaValidationPossibleValuesDefinition{
+								Values: []interface{}{"string1", "string2", "string3"},
+							},
 						},
 					},
 					"ComputedItem": {
@@ -188,8 +201,10 @@ func TestComponentBlocks(t *testing.T) {
 							Markdown: "Description for required_item.",
 						},
 						Validation: &resourcemanager.TerraformSchemaValidationDefinition{
-							Type:           "FixedValues",
-							PossibleValues: &[]string{"string1", "string2", "string3"},
+							Type: "PossibleValues",
+							PossibleValues: &resourcemanager.TerraformSchemaValidationPossibleValuesDefinition{
+								Values: []interface{}{"string1", "string2", "string3"},
+							},
 						},
 					},
 					"BooleanItem": {
@@ -216,8 +231,10 @@ func TestComponentBlocks(t *testing.T) {
 							Markdown: "Description for optional_item.",
 						},
 						Validation: &resourcemanager.TerraformSchemaValidationDefinition{
-							Type:           "FixedValues",
-							PossibleValues: &[]string{"string1", "string2", "string3"},
+							Type: "PossibleValues",
+							PossibleValues: &resourcemanager.TerraformSchemaValidationPossibleValuesDefinition{
+								Values: []interface{}{"string1", "string2", "string3"},
+							},
 						},
 					},
 				},
@@ -234,8 +251,10 @@ func TestComponentBlocks(t *testing.T) {
 							Markdown: "Description for optional_item.",
 						},
 						Validation: &resourcemanager.TerraformSchemaValidationDefinition{
-							Type:           "FixedValues",
-							PossibleValues: &[]string{"string4", "string5", "string6"},
+							Type: "PossibleValues",
+							PossibleValues: &resourcemanager.TerraformSchemaValidationPossibleValuesDefinition{
+								Values: []interface{}{"string4", "string5", "string6"},
+							},
 						},
 					},
 				},
@@ -247,31 +266,57 @@ func TestComponentBlocks(t *testing.T) {
 		t.Fatalf("error: %+v", err)
 	}
 
-	expected := "## Blocks Reference" +
-		"\n\n### `another_nested_item` Block" +
-		"\n\nThe `another_nested_item` block supports the following arguments:" +
-		"\n\n* `optional_item` - (Optional) Description for optional_item. Possible values are `string1`, `string2`, `string3.`" +
-		"\n\n---" +
-		"\n\n### `optional_nested_item` Block" +
-		"\n\nThe `optional_nested_item` block supports the following arguments:" +
-		"\n\n* `another_nested_item` - (Optional) An `another_nested_item` block as defined above. " +
-		"\n\n* `nested_item` - (Optional) Description for nested_item. Possible values are `string1`, `string2`, `string3.`" +
-		"\n\n* `z_another_nested_item_2` - (Optional) A `z_another_nested_item_2` block as defined below. " +
-		"\n\nThe `optional_nested_item` block exports the following arguments:" +
-		"\n\n* `computed_item` - Description for computed_string." +
-		"\n\n---" +
-		"\n\n### `required_nested_item` Block" +
-		"\n\nThe `required_nested_item` block supports the following arguments:" +
-		"\n\n* `required_item` - (Required) Description for required_item. Possible values are `string1`, `string2`, `string3.`" +
-		"\n\n* `boolean_item` - (Optional) Description for boolean_item. Possible values are `true` and `false`." +
-		"\n\n* `optional_item` - (Optional) Description for optional_item. Possible values are `string1`, `string2`, `string3.`" +
-		"\n\nThe `required_nested_item` block exports the following arguments:" +
-		"\n\n* `computed_item` - Description for computed_item." +
-		"\n\n---" +
-		"\n\n### `z_another_nested_item_2` Block" +
-		"\n\nThe `z_another_nested_item_2` block supports the following arguments:" +
-		"\n\n* `optional_item_2` - (Optional) Description for optional_item. Possible values are `string4`, `string5`, `string6.`" +
-		"\n\n---\n"
+	expected := strings.ReplaceAll(`## Blocks Reference
+
+### 'another_nested_item' Block
+
+The 'another_nested_item' block supports the following arguments:
+
+* 'optional_item' - (Optional) Description for optional_item. Possible values are 'string1', 'string2' and 'string3'.
+
+---
+
+### 'optional_nested_item' Block
+
+The 'optional_nested_item' block supports the following arguments:
+
+* 'another_nested_item' - (Optional) An 'another_nested_item' block as defined above. 
+
+* 'nested_item' - (Optional) Description for nested_item. Possible values are 'string1', 'string2' and 'string3'.
+
+* 'z_another_nested_item_2' - (Optional) A 'z_another_nested_item_2' block as defined below. 
+
+The 'optional_nested_item' block exports the following arguments:
+
+* 'computed_item' - Description for computed_string.
+
+---
+
+### 'required_nested_item' Block
+
+The 'required_nested_item' block supports the following arguments:
+
+* 'required_item' - (Required) Description for required_item. Possible values are 'string1', 'string2' and 'string3'.
+
+* 'boolean_item' - (Optional) Description for boolean_item. Possible values are 'true' and 'false'.
+
+* 'optional_item' - (Optional) Description for optional_item. Possible values are 'string1', 'string2' and 'string3'.
+
+The 'required_nested_item' block exports the following arguments:
+
+* 'computed_item' - Description for computed_item.
+
+---
+
+### 'z_another_nested_item_2' Block
+
+The 'z_another_nested_item_2' block supports the following arguments:
+
+* 'optional_item_2' - (Optional) Description for optional_item. Possible values are 'string4', 'string5' and 'string6'.
+
+---
+`, "'", "`")
+
 	if *actual != expected {
 		t.Fatalf("Expected %s but got %s", expected, *actual)
 	}

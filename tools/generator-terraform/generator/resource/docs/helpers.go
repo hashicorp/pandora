@@ -88,3 +88,17 @@ func sortStringStringMapKeys(m map[string]string) []string {
 func stringPointer(in string) *string {
 	return &in
 }
+
+func wordifyPossibleValues[T any](in []T) string {
+	if len(in) == 1 {
+		return fmt.Sprintf("The only possible value is `%+v`.", in[0])
+	}
+
+	out := make([]string, 0)
+	for _, v := range in {
+		out = append(out, fmt.Sprintf("`%+v`", v))
+	}
+
+	output := fmt.Sprintf("Possible values are %s and %s.", strings.Join(out[0:len(out)-1], ", "), out[len(out)-1])
+	return output
+}
