@@ -341,7 +341,7 @@ func TestBuildForChaosStudioExperimentWithRealData(t *testing.T) {
 	}
 
 	if actual == nil {
-		t.Fatalf("expected 3 models but got nil")
+		t.Fatalf("expected 7 models but got nil")
 	}
 
 	if len(*actual) != 7 {
@@ -362,6 +362,13 @@ func TestBuildForChaosStudioExperimentWithRealData(t *testing.T) {
 		r.checkFieldName(t, currentModel)
 		r.checkFieldLocation(t, currentModel)
 		r.checkFieldTags(t, currentModel)
+		r.IdentityConfig = &IdentityConfig{
+			FieldConfig: &FieldConfig{
+				Optional: true,
+			},
+			IdentityType: resourcemanager.TerraformSchemaFieldTypeIdentitySystemAndUserAssigned,
+		}
+		r.checkFieldIdentity(t, currentModel)
 
 		r.checkField(t, currentModel, expected{
 			FieldName:           "Selector",
