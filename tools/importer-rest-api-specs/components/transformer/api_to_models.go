@@ -17,7 +17,6 @@ func MapApiModelsToModelDetails(input map[string]resourcemanager.ModelDetails) (
 		}
 
 		output[k] = models.ModelDetails{
-			Description:    "",
 			Fields:         *fields,
 			ParentTypeName: v.ParentTypeName,
 			TypeHintIn:     v.TypeHintIn,

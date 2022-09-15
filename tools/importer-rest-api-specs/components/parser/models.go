@@ -345,8 +345,7 @@ func (d *SwaggerDefinition) findTopLevelObject(name string) (*spec.Schema, error
 
 func (d *SwaggerDefinition) modelDetailsFromObject(modelName string, input spec.Schema, fields map[string]models.FieldDetails) (*models.ModelDetails, error) {
 	details := models.ModelDetails{
-		Description: "",
-		Fields:      fields,
+		Fields: fields,
 	}
 
 	// if this is a Parent
