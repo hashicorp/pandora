@@ -20,7 +20,6 @@ public class VirtualMachineResourceInstanceViewStatusSchema
 
     [HclName("level")]
     [Optional]
-    [PossibleValuesFromConstant(typeof(v2021_11_01.VirtualMachines.StatusLevelTypesConstant))]
     public string Level { get; set; }
 
 

@@ -20,7 +20,6 @@ public class VirtualMachineScaleSetResourceAutomaticRepairsPolicySchema
 
     [HclName("repair_action")]
     [Optional]
-    [PossibleValuesFromConstant(typeof(v2021_11_01.VirtualMachineScaleSets.RepairActionConstant))]
     public string RepairAction { get; set; }
 
 }

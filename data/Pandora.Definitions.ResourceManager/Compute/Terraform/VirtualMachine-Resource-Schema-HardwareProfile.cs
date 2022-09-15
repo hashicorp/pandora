@@ -10,7 +10,6 @@ public class VirtualMachineResourceHardwareProfileSchema
 
     [HclName("vm_size")]
     [Optional]
-    [PossibleValuesFromConstant(typeof(v2021_11_01.VirtualMachines.VirtualMachineSizeTypesConstant))]
     public string VmSize { get; set; }
 
 

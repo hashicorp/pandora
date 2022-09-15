@@ -35,7 +35,6 @@ public class VirtualMachineResourceVirtualMachineInstanceViewSchema
 
     [HclName("hyper_v_generation")]
     [Optional]
-    [PossibleValuesFromConstant(typeof(v2021_11_01.VirtualMachines.HyperVGenerationTypeConstant))]
     public string HyperVGeneration { get; set; }
 
 

@@ -30,7 +30,6 @@ public class VirtualMachineResourceVirtualMachineNetworkInterfaceIPConfiguration
 
     [HclName("private_ip_address_version")]
     [Optional]
-    [PossibleValuesFromConstant(typeof(v2021_11_01.VirtualMachines.IPVersionsConstant))]
     public string PrivateIPAddressVersion { get; set; }
 
 

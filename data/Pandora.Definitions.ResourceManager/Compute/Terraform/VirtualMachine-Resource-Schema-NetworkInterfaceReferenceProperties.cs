@@ -10,7 +10,6 @@ public class VirtualMachineResourceNetworkInterfaceReferencePropertiesSchema
 
     [HclName("delete_option")]
     [Optional]
-    [PossibleValuesFromConstant(typeof(v2021_11_01.VirtualMachines.DeleteOptionsConstant))]
     public string DeleteOption { get; set; }
 
 

@@ -47,7 +47,6 @@ public class VirtualMachineResourceSchema
     [ForceNew]
     [HclName("eviction_policy")]
     [Optional]
-    [PossibleValuesFromConstant(typeof(v2021_11_01.VirtualMachines.VirtualMachineEvictionPolicyTypesConstant))]
     public string EvictionPolicy { get; set; }
 
 
@@ -119,7 +118,6 @@ public class VirtualMachineResourceSchema
     [ForceNew]
     [HclName("priority")]
     [Optional]
-    [PossibleValuesFromConstant(typeof(v2021_11_01.VirtualMachines.VirtualMachinePriorityTypesConstant))]
     public string Priority { get; set; }
 
 

@@ -15,7 +15,6 @@ public class VirtualMachineScaleSetResourceUpgradePolicySchema
 
     [HclName("mode")]
     [Optional]
-    [PossibleValuesFromConstant(typeof(v2021_11_01.VirtualMachineScaleSets.UpgradeModeConstant))]
     public string Mode { get; set; }
 
 

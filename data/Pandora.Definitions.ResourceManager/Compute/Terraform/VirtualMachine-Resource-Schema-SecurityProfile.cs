@@ -15,7 +15,6 @@ public class VirtualMachineResourceSecurityProfileSchema
 
     [HclName("security_type")]
     [Optional]
-    [PossibleValuesFromConstant(typeof(v2021_11_01.VirtualMachines.SecurityTypesConstant))]
     public string SecurityType { get; set; }
 
 

@@ -15,7 +15,6 @@ public class VirtualMachineScaleSetResourceWinRMListenerSchema
 
     [HclName("protocol")]
     [Optional]
-    [PossibleValuesFromConstant(typeof(v2021_11_01.VirtualMachineScaleSets.ProtocolTypesConstant))]
     public string Protocol { get; set; }
 
 }

@@ -10,13 +10,11 @@ public class VirtualMachineScaleSetResourceDiffDiskSettingsSchema
 
     [HclName("option")]
     [Optional]
-    [PossibleValuesFromConstant(typeof(v2021_11_01.VirtualMachineScaleSets.DiffDiskOptionsConstant))]
     public string Option { get; set; }
 
 
     [HclName("placement")]
     [Optional]
-    [PossibleValuesFromConstant(typeof(v2021_11_01.VirtualMachineScaleSets.DiffDiskPlacementConstant))]
     public string Placement { get; set; }
 
 }

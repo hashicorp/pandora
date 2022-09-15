@@ -30,7 +30,6 @@ public class VirtualMachineScaleSetResourceVirtualMachineScaleSetVMProfileSchema
 
     [HclName("eviction_policy")]
     [Optional]
-    [PossibleValuesFromConstant(typeof(v2021_11_01.VirtualMachineScaleSets.VirtualMachineEvictionPolicyTypesConstant))]
     public string EvictionPolicy { get; set; }
 
 
@@ -61,7 +60,6 @@ public class VirtualMachineScaleSetResourceVirtualMachineScaleSetVMProfileSchema
 
     [HclName("priority")]
     [Optional]
-    [PossibleValuesFromConstant(typeof(v2021_11_01.VirtualMachineScaleSets.VirtualMachinePriorityTypesConstant))]
     public string Priority { get; set; }
 
 

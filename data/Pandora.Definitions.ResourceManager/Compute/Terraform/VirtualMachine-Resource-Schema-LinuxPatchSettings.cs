@@ -10,13 +10,11 @@ public class VirtualMachineResourceLinuxPatchSettingsSchema
 
     [HclName("assessment_mode")]
     [Optional]
-    [PossibleValuesFromConstant(typeof(v2021_11_01.VirtualMachines.LinuxPatchAssessmentModeConstant))]
     public string AssessmentMode { get; set; }
 
 
     [HclName("patch_mode")]
     [Optional]
-    [PossibleValuesFromConstant(typeof(v2021_11_01.VirtualMachines.LinuxVMGuestPatchModeConstant))]
     public string PatchMode { get; set; }
 
 }

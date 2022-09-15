@@ -10,7 +10,6 @@ public class VirtualMachineResourceAdditionalUnattendContentSchema
 
     [HclName("component_name")]
     [Optional]
-    [PossibleValuesFromConstant(typeof(v2021_11_01.VirtualMachines.ComponentNamesConstant))]
     public string ComponentName { get; set; }
 
 
@@ -21,13 +20,11 @@ public class VirtualMachineResourceAdditionalUnattendContentSchema
 
     [HclName("pass_name")]
     [Optional]
-    [PossibleValuesFromConstant(typeof(v2021_11_01.VirtualMachines.PassNamesConstant))]
     public string PassName { get; set; }
 
 
     [HclName("setting_name")]
     [Optional]
-    [PossibleValuesFromConstant(typeof(v2021_11_01.VirtualMachines.SettingNamesConstant))]
     public string SettingName { get; set; }
 
 }

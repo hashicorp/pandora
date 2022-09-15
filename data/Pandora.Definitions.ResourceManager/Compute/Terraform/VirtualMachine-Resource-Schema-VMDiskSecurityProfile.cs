@@ -15,7 +15,6 @@ public class VirtualMachineResourceVMDiskSecurityProfileSchema
 
     [HclName("security_encryption_type")]
     [Optional]
-    [PossibleValuesFromConstant(typeof(v2021_11_01.VirtualMachines.SecurityEncryptionTypesConstant))]
     public string SecurityEncryptionType { get; set; }
 
 }

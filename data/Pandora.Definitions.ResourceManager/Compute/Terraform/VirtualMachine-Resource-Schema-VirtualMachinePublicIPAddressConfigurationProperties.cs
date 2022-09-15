@@ -10,7 +10,6 @@ public class VirtualMachineResourceVirtualMachinePublicIPAddressConfigurationPro
 
     [HclName("delete_option")]
     [Optional]
-    [PossibleValuesFromConstant(typeof(v2021_11_01.VirtualMachines.DeleteOptionsConstant))]
     public string DeleteOption { get; set; }
 
 
@@ -31,13 +30,11 @@ public class VirtualMachineResourceVirtualMachinePublicIPAddressConfigurationPro
 
     [HclName("public_ip_address_version")]
     [Optional]
-    [PossibleValuesFromConstant(typeof(v2021_11_01.VirtualMachines.IPVersionsConstant))]
     public string PublicIPAddressVersion { get; set; }
 
 
     [HclName("public_ip_allocation_method")]
     [Optional]
-    [PossibleValuesFromConstant(typeof(v2021_11_01.VirtualMachines.PublicIPAllocationMethodConstant))]
     public string PublicIPAllocationMethod { get; set; }
 
 

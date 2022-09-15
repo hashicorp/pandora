@@ -20,7 +20,6 @@ public class VirtualMachineScaleSetResourceVirtualMachineScaleSetManagedDiskPara
 
     [HclName("storage_account_type")]
     [Optional]
-    [PossibleValuesFromConstant(typeof(v2021_11_01.VirtualMachineScaleSets.StorageAccountTypesConstant))]
     public string StorageAccountType { get; set; }
 
 }

@@ -10,13 +10,11 @@ public class VirtualMachineScaleSetResourcePublicIPAddressSkuSchema
 
     [HclName("name")]
     [Optional]
-    [PossibleValuesFromConstant(typeof(v2021_11_01.VirtualMachineScaleSets.PublicIPAddressSkuNameConstant))]
     public string Name { get; set; }
 
 
     [HclName("tier")]
     [Optional]
-    [PossibleValuesFromConstant(typeof(v2021_11_01.VirtualMachineScaleSets.PublicIPAddressSkuTierConstant))]
     public string Tier { get; set; }
 
 }

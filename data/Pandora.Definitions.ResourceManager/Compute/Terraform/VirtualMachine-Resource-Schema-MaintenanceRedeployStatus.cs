@@ -20,7 +20,6 @@ public class VirtualMachineResourceMaintenanceRedeployStatusSchema
 
     [HclName("last_operation_result_code")]
     [Optional]
-    [PossibleValuesFromConstant(typeof(v2021_11_01.VirtualMachines.MaintenanceOperationResultCodeTypesConstant))]
     public string LastOperationResultCode { get; set; }
 
 

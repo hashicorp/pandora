@@ -10,7 +10,6 @@ public class VirtualMachineResourcePatchSettingsSchema
 
     [HclName("assessment_mode")]
     [Optional]
-    [PossibleValuesFromConstant(typeof(v2021_11_01.VirtualMachines.WindowsPatchAssessmentModeConstant))]
     public string AssessmentMode { get; set; }
 
 
@@ -21,7 +20,6 @@ public class VirtualMachineResourcePatchSettingsSchema
 
     [HclName("patch_mode")]
     [Optional]
-    [PossibleValuesFromConstant(typeof(v2021_11_01.VirtualMachines.WindowsVMGuestPatchModeConstant))]
     public string PatchMode { get; set; }
 
 }

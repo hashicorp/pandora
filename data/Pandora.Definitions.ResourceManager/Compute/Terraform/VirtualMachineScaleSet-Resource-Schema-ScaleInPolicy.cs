@@ -15,7 +15,6 @@ public class VirtualMachineScaleSetResourceScaleInPolicySchema
 
     [HclName("rule")]
     [Optional]
-    [PossibleValuesFromConstant(typeof(v2021_11_01.VirtualMachineScaleSets.VirtualMachineScaleSetScaleInRulesConstant))]
     public List<string> Rule { get; set; }
 
 }

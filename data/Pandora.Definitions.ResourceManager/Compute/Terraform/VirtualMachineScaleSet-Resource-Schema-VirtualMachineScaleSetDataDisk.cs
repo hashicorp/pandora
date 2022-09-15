@@ -10,12 +10,10 @@ public class VirtualMachineScaleSetResourceVirtualMachineScaleSetDataDiskSchema
 
     [HclName("caching")]
     [Optional]
-    [PossibleValuesFromConstant(typeof(v2021_11_01.VirtualMachineScaleSets.CachingTypesConstant))]
     public string Caching { get; set; }
 
 
     [HclName("create_option")]
-    [PossibleValuesFromConstant(typeof(v2021_11_01.VirtualMachineScaleSets.DiskCreateOptionTypesConstant))]
     [Required]
     public string CreateOption { get; set; }
 

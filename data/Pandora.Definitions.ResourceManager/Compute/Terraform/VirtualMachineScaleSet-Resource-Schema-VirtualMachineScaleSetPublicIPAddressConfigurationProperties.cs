@@ -10,7 +10,6 @@ public class VirtualMachineScaleSetResourceVirtualMachineScaleSetPublicIPAddress
 
     [HclName("delete_option")]
     [Optional]
-    [PossibleValuesFromConstant(typeof(v2021_11_01.VirtualMachineScaleSets.DeleteOptionsConstant))]
     public string DeleteOption { get; set; }
 
 
@@ -31,7 +30,6 @@ public class VirtualMachineScaleSetResourceVirtualMachineScaleSetPublicIPAddress
 
     [HclName("public_ip_address_version")]
     [Optional]
-    [PossibleValuesFromConstant(typeof(v2021_11_01.VirtualMachineScaleSets.IPVersionConstant))]
     public string PublicIPAddressVersion { get; set; }
 
 

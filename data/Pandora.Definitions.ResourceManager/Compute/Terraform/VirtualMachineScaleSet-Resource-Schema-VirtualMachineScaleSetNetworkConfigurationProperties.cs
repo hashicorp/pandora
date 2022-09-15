@@ -15,7 +15,6 @@ public class VirtualMachineScaleSetResourceVirtualMachineScaleSetNetworkConfigur
 
     [HclName("delete_option")]
     [Optional]
-    [PossibleValuesFromConstant(typeof(v2021_11_01.VirtualMachineScaleSets.DeleteOptionsConstant))]
     public string DeleteOption { get; set; }
 
 

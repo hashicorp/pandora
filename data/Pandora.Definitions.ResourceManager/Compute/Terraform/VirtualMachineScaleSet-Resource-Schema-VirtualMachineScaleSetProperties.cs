@@ -30,7 +30,6 @@ public class VirtualMachineScaleSetResourceVirtualMachineScaleSetPropertiesSchem
 
     [HclName("orchestration_mode")]
     [Optional]
-    [PossibleValuesFromConstant(typeof(v2021_11_01.VirtualMachineScaleSets.OrchestrationModeConstant))]
     public string OrchestrationMode { get; set; }
 
 

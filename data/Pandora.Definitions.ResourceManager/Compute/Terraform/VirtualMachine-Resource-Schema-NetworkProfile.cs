@@ -10,7 +10,6 @@ public class VirtualMachineResourceNetworkProfileSchema
 
     [HclName("network_api_version")]
     [Optional]
-    [PossibleValuesFromConstant(typeof(v2021_11_01.VirtualMachines.NetworkApiVersionConstant))]
     public string NetworkApiVersion { get; set; }
 
 

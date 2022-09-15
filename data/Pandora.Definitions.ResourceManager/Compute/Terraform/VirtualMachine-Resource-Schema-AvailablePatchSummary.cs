@@ -45,7 +45,6 @@ public class VirtualMachineResourceAvailablePatchSummarySchema
 
     [HclName("status")]
     [Optional]
-    [PossibleValuesFromConstant(typeof(v2021_11_01.VirtualMachines.PatchOperationStatusConstant))]
     public string Status { get; set; }
 
 }

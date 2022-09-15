@@ -15,7 +15,6 @@ public class VirtualMachineScaleSetResourceVirtualMachineScaleSetNetworkProfileS
 
     [HclName("network_api_version")]
     [Optional]
-    [PossibleValuesFromConstant(typeof(v2021_11_01.VirtualMachineScaleSets.NetworkApiVersionConstant))]
     public string NetworkApiVersion { get; set; }
 
 
