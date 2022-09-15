@@ -10,7 +10,8 @@ type ModelProcessor interface {
 
 var ModelRules = []ModelProcessor{
 	modelFlattenListReferenceIds{},
-	//modelFlattenReferenceId{},
+	modelFlattenPropertiesIntoParent{},
+	modelFlattenReferenceId{},
 	modelRemoveStatusAndDetail{},
 	modelFlattenSkuName{},
 }
