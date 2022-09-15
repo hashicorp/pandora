@@ -16,6 +16,7 @@ type expected struct {
 	FieldType           resourcemanager.TerraformSchemaFieldType
 	ReferenceName       *string
 	NestedReferenceName *string
+	NestedReferenceType resourcemanager.TerraformSchemaFieldType
 	Validation          *expectedValidation
 }
 
@@ -160,7 +161,7 @@ func (r resourceUnderTest) checkField(t *testing.T, input resourcemanager.Terraf
 	}
 
 	if exp.NestedReferenceName == nil && (field.ObjectDefinition.NestedObject != nil && field.ObjectDefinition.NestedObject.ReferenceName != nil) {
-		t.Errorf("(%s) expected the field %q (model: %q) to have no Nested Refence, but got %q", r.Name, exp.FieldName, r.CurrentModel, *field.ObjectDefinition.ReferenceName)
+		t.Errorf("(%s) expected the field %q (model: %q) to have no Nested Refence, but got %q", r.Name, exp.FieldName, r.CurrentModel, *field.ObjectDefinition.NestedObject.ReferenceName)
 	}
 	if exp.NestedReferenceName != nil && (field.ObjectDefinition.NestedObject == nil || field.ObjectDefinition.NestedObject.ReferenceName == nil) {
 		t.Errorf("(%s) expected the field %q (model: %q) to have a Nested Refence to %q, but got nil", r.Name, exp.FieldName, r.CurrentModel, *exp.NestedReferenceName)
@@ -168,6 +169,18 @@ func (r resourceUnderTest) checkField(t *testing.T, input resourcemanager.Terraf
 	if exp.NestedReferenceName != nil && field.ObjectDefinition.NestedObject != nil && field.ObjectDefinition.NestedObject.ReferenceName != nil {
 		if *exp.NestedReferenceName != *field.ObjectDefinition.NestedObject.ReferenceName {
 			t.Errorf("(%s) expected the field %q (model: %q) to have a Nested Refence to %q, but got %q", r.Name, exp.FieldName, r.CurrentModel, *exp.NestedReferenceName, *field.ObjectDefinition.NestedObject.ReferenceName)
+		}
+	}
+
+	if exp.NestedReferenceType == "" && (field.ObjectDefinition.NestedObject != nil && field.ObjectDefinition.NestedObject.Type != "") {
+		t.Errorf("(%s) expected the field %q (model: %q) to have no Nested Refence Type, but got %q", r.Name, exp.FieldName, r.CurrentModel, string(field.ObjectDefinition.NestedObject.Type))
+	}
+	if exp.NestedReferenceType != "" && (field.ObjectDefinition.NestedObject == nil || field.ObjectDefinition.NestedObject.Type == "") {
+		t.Errorf("(%s) expected the field %q (model: %q) to have a Nested Refence Type of %q, but it didn't", r.Name, exp.FieldName, r.CurrentModel, exp.NestedReferenceType)
+	}
+	if exp.NestedReferenceType != "" && field.ObjectDefinition.NestedObject != nil && field.ObjectDefinition.NestedObject.Type != "" {
+		if exp.NestedReferenceType != field.ObjectDefinition.NestedObject.Type {
+			t.Errorf("(%s) expected the field %q (model: %q) to have a Nested Refence Type of %q, but got %q", r.Name, exp.FieldName, r.CurrentModel, exp.NestedReferenceType, field.ObjectDefinition.NestedObject.Type)
 		}
 	}
 
