@@ -7,6 +7,7 @@ import (
 	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/hcl/v2"
 	"github.com/hashicorp/hcl/v2/hclwrite"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/helpers"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/testattributes"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
@@ -66,7 +67,7 @@ func generateTestConfig(input resourcemanager.TerraformResourceDetails, required
 	}
 
 	// todo don't hardcode azurerm
-	resourceHeader := fmt.Sprintf(`resource "azurerm_%s" "test"`, testattributes.ConvertToSnakeCase(input.ResourceName))
+	resourceHeader := fmt.Sprintf(`resource "azurerm_%s" "test"`, helpers.ConvertToSnakeCase(input.ResourceName))
 
 	if err := h.GetAttributesForTests(input.SchemaModels[input.SchemaModelName], *f.Body().AppendNewBlock(resourceHeader, nil).Body(), requiredOnly); err != nil {
 		return nil, err
@@ -85,7 +86,7 @@ func generateImportTestConfig(input resourcemanager.TerraformResourceDetails) (*
 	}
 
 	// todo don't hardcode azurerm
-	resourceHeader := fmt.Sprintf(`resource "azurerm_%s" "import"`, testattributes.ConvertToSnakeCase(input.ResourceName))
+	resourceHeader := fmt.Sprintf(`resource "azurerm_%s" "import"`, helpers.ConvertToSnakeCase(input.ResourceName))
 
 	if err := h.GetAttributesForTests(input.SchemaModels[input.SchemaModelName], *f.Body().AppendNewBlock(resourceHeader, nil).Body(), true); err != nil {
 		return nil, err
@@ -95,7 +96,7 @@ func generateImportTestConfig(input resourcemanager.TerraformResourceDetails) (*
 		f.Body().SetAttributeTraversal(hclName, hcl.Traversal{
 			hcl.TraverseRoot{
 				// todo don't hardcode azurerm
-				Name: fmt.Sprintf("azurerm_%s.test.%s", testattributes.ConvertToSnakeCase(input.ResourceName), hclName),
+				Name: fmt.Sprintf("azurerm_%s.test.%s", helpers.ConvertToSnakeCase(input.ResourceName), hclName),
 			},
 		})
 	}

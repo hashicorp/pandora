@@ -2,6 +2,7 @@ package schema
 
 import (
 	"fmt"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/helpers"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/schema/processors"
 
 	"github.com/hashicorp/go-hclog"
@@ -221,7 +222,7 @@ func (b Builder) buildNestedModelDefinition(modelPrefix string, model resourcema
 		if err != nil {
 			return nil, err
 		}
-		definition.HclName = convertToSnakeCase(fieldName)
+		definition.HclName = helpers.ConvertToSnakeCase(fieldName)
 
 		//if validation := v.Validation; validation != nil {
 		//	definition.Validation = &resourcemanager.TerraformSchemaValidationDefinition{}

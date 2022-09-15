@@ -2,6 +2,7 @@ package schema
 
 import (
 	"fmt"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/helpers"
 	"log"
 
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
@@ -99,7 +100,7 @@ func (b Builder) identifyFieldsWithinPropertiesBlock(modelPrefix string, input o
 				inputObjectDefinition = updateField.ObjectDefinition
 			}
 
-			schemaFieldName := convertToSnakeCase(fieldNameForTypedModel)
+			schemaFieldName := helpers.ConvertToSnakeCase(fieldNameForTypedModel)
 			log.Printf("[DEBUG] Properties Field %q would be output as %q / %q", k, fieldNameForTypedModel, schemaFieldName)
 
 			// TODO(@tombuildsstuff): refactor this and the "nested model" field to use the same parser ideally..?!
