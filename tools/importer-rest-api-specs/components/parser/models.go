@@ -140,10 +140,11 @@ func (d *SwaggerDefinition) detailsForField(modelName string, propertyName strin
 	result.Append(known)
 
 	field := models.FieldDetails{
-		Required:  isRequired,
-		ReadOnly:  value.ReadOnly, // TODO: generator should handle this in some manner?
-		Sensitive: false,          // todo: this probably needs to be a predefined list, unless there's something we can parse
-		JsonName:  propertyName,
+		Required:    isRequired,
+		ReadOnly:    value.ReadOnly, // TODO: generator should handle this in some manner?
+		Sensitive:   false,          // todo: this probably needs to be a predefined list, unless there's something we can parse
+		JsonName:    propertyName,
+		Description: value.Description,
 	}
 
 	// first get the object definition

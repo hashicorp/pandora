@@ -89,16 +89,15 @@ type ModelDetails struct {
 }
 
 type FieldDetails struct {
-	Required  bool
-	ReadOnly  bool
-	Sensitive bool
-	JsonName  string
+	Required    bool
+	ReadOnly    bool
+	Sensitive   bool
+	JsonName    string
+	Description string
 
 	// TODO: we'll need to consolidate this into ObjectDefinition to match how the Shared Models do this
 	CustomFieldType  *CustomFieldType
 	ObjectDefinition *ObjectDefinition
-
-	// TODO: should we output Description here too?
 }
 
 type CustomFieldType string
