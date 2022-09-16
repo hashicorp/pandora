@@ -17,9 +17,11 @@ internal class SqlPoolSensitivityLabelsCreateOrUpdateOperation : Operations.PutO
 {
     public override Type? RequestObject() => typeof(SensitivityLabelModel);
 
-    public override ResourceID? ResourceId() => new SensitivityLabelSourceId();
+    public override ResourceID? ResourceId() => new ColumnId();
 
     public override Type? ResponseObject() => typeof(SensitivityLabelModel);
+
+    public override string? UriSuffix() => "/sensitivityLabels/current";
 
 
 }

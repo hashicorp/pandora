@@ -6,7 +6,7 @@ using Pandora.Definitions.Interfaces;
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 
 
-namespace Pandora.Definitions.ResourceManager.AutoManage.v2022_05_04.HCIReports;
+namespace Pandora.Definitions.ResourceManager.AutoManage.v2022_05_04.HCRPReports;
 
 internal class ConfigurationProfileAssignmentReportId : ResourceID
 {

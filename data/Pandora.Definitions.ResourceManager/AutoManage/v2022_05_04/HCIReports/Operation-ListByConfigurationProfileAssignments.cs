@@ -15,7 +15,7 @@ namespace Pandora.Definitions.ResourceManager.AutoManage.v2022_05_04.HCIReports;
 
 internal class ListByConfigurationProfileAssignmentsOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new Providers2ConfigurationProfileAssignmentId();
+    public override ResourceID? ResourceId() => new ConfigurationProfileAssignmentId();
 
     public override Type? ResponseObject() => typeof(ReportListModel);
 

@@ -15,7 +15,7 @@ namespace Pandora.Definitions.ResourceManager.AutoManage.v2022_05_04.HCRPReports
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ReportId();
+    public override ResourceID? ResourceId() => new ConfigurationProfileAssignmentReportId();
 
     public override Type? ResponseObject() => typeof(ReportModel);
 

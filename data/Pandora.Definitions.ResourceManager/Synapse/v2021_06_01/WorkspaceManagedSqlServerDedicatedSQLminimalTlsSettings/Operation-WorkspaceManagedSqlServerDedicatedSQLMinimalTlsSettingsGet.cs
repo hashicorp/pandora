@@ -15,9 +15,11 @@ namespace Pandora.Definitions.ResourceManager.Synapse.v2021_06_01.WorkspaceManag
 
 internal class WorkspaceManagedSqlServerDedicatedSQLMinimalTlsSettingsGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new DedicatedSQLminimalTlsSettingId();
+    public override ResourceID? ResourceId() => new WorkspaceId();
 
     public override Type? ResponseObject() => typeof(DedicatedSQLminimalTlsSettingsModel);
+
+    public override string? UriSuffix() => "/dedicatedSQLminimalTlsSettings/default";
 
 
 }

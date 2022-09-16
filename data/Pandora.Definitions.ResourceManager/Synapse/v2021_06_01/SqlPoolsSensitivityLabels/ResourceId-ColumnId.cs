@@ -6,13 +6,13 @@ using Pandora.Definitions.Interfaces;
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 
 
-namespace Pandora.Definitions.ResourceManager.Synapse.v2021_06_01.WorkspaceManagedSqlServerDedicatedSQLminimalTlsSettings;
+namespace Pandora.Definitions.ResourceManager.Synapse.v2021_06_01.SqlPoolsSensitivityLabels;
 
-internal class DedicatedSQLminimalTlsSettingId : ResourceID
+internal class ColumnId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Synapse/workspaces/{workspaceName}/dedicatedSQLminimalTlsSettings/{dedicatedSQLminimalTlsSettingsName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Synapse/workspaces/{workspaceName}/sqlPools/{sqlPoolName}/schemas/{schemaName}/tables/{tableName}/columns/{columnName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -24,7 +24,13 @@ internal class DedicatedSQLminimalTlsSettingId : ResourceID
         ResourceIDSegment.ResourceProvider("staticMicrosoftSynapse", "Microsoft.Synapse"),
         ResourceIDSegment.Static("staticWorkspaces", "workspaces"),
         ResourceIDSegment.UserSpecified("workspaceName"),
-        ResourceIDSegment.Static("staticDedicatedSQLminimalTlsSettings", "dedicatedSQLminimalTlsSettings"),
-        ResourceIDSegment.UserSpecified("dedicatedSQLminimalTlsSettingsName"),
+        ResourceIDSegment.Static("staticSqlPools", "sqlPools"),
+        ResourceIDSegment.UserSpecified("sqlPoolName"),
+        ResourceIDSegment.Static("staticSchemas", "schemas"),
+        ResourceIDSegment.UserSpecified("schemaName"),
+        ResourceIDSegment.Static("staticTables", "tables"),
+        ResourceIDSegment.UserSpecified("tableName"),
+        ResourceIDSegment.Static("staticColumns", "columns"),
+        ResourceIDSegment.UserSpecified("columnName"),
     };
 }

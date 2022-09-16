@@ -8,11 +8,11 @@ using Pandora.Definitions.Interfaces;
 
 namespace Pandora.Definitions.ResourceManager.AutoManage.v2022_05_04.HCIReports;
 
-internal class Providers2ConfigurationProfileAssignmentId : ResourceID
+internal class ReportId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridCompute/machines/{machineName}/providers/Microsoft.AutoManage/configurationProfileAssignments/{configurationProfileAssignmentName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridCompute/machines/{machineName}/providers/Microsoft.AutoManage/configurationProfileAssignments/{configurationProfileAssignmentName}/reports/{reportName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -28,5 +28,7 @@ internal class Providers2ConfigurationProfileAssignmentId : ResourceID
         ResourceIDSegment.ResourceProvider("staticMicrosoftAutoManage", "Microsoft.AutoManage"),
         ResourceIDSegment.Static("staticConfigurationProfileAssignments", "configurationProfileAssignments"),
         ResourceIDSegment.UserSpecified("configurationProfileAssignmentName"),
+        ResourceIDSegment.Static("staticReports", "reports"),
+        ResourceIDSegment.UserSpecified("reportName"),
     };
 }

@@ -15,9 +15,11 @@ namespace Pandora.Definitions.ResourceManager.Synapse.v2021_06_01.SqlPoolsSensit
 
 internal class SqlPoolSensitivityLabelsGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new SensitivityLabelSourceId();
+    public override ResourceID? ResourceId() => new ColumnId();
 
     public override Type? ResponseObject() => typeof(SensitivityLabelModel);
+
+    public override string? UriSuffix() => "/sensitivityLabels/current";
 
 
 }

@@ -17,7 +17,7 @@ internal class CreateOrUpdateOperation : Operations.PutOperation
 {
     public override Type? RequestObject() => typeof(ConfigurationProfileAssignmentModel);
 
-    public override ResourceID? ResourceId() => new ConfigurationProfileAssignmentId();
+    public override ResourceID? ResourceId() => new Providers2ConfigurationProfileAssignmentId();
 
     public override Type? ResponseObject() => typeof(ConfigurationProfileAssignmentModel);
 

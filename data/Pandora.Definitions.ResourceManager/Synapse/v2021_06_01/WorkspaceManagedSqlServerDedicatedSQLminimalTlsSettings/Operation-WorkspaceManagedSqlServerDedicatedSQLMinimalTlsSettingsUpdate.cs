@@ -25,9 +25,11 @@ internal class WorkspaceManagedSqlServerDedicatedSQLMinimalTlsSettingsUpdateOper
 
     public override Type? RequestObject() => typeof(DedicatedSQLminimalTlsSettingsModel);
 
-    public override ResourceID? ResourceId() => new DedicatedSQLminimalTlsSettingId();
+    public override ResourceID? ResourceId() => new WorkspaceId();
 
     public override Type? ResponseObject() => typeof(DedicatedSQLminimalTlsSettingsModel);
+
+    public override string? UriSuffix() => "/dedicatedSQLminimalTlsSettings/default";
 
 
 }
