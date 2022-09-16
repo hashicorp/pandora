@@ -131,7 +131,15 @@ func (p *Parser) parseResourceIdFromOperation(uri string, operation *spec.Operat
 						if len(constant.Details.Values) == 1 {
 							constantValue := ""
 							for _, v := range constant.Details.Values {
-								constantValue = v
+								// if it's not a Resource Provider
+								if strings.Contains(v, ".") {
+									constantValue = v
+								} else {
+									// we're intentionally calling `cleanup.NormalizeSegment` rather than
+									// `normalizeSegment` in this change to avoid stripping special characters
+									// which maybe present within this constant value, namely the `$` for `$Default`).
+									constantValue = cleanup.NormalizeSegment(v, true)
+								}
 							}
 							// it's a fixed value segment, not a constant - so we'll transform it as such and skip
 							segments = append(segments, resourcemanager.ResourceIdSegment{
