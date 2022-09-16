@@ -147,7 +147,7 @@ func TestParseModelSingleTopLevel(t *testing.T) {
 		t.Fatalf("expected example.Fields['Value'].JsonName to be 'value' but got %q", value.JsonName)
 	}
 	if value.Description != "Example value. May be a primitive value, or an object." {
-		t.Fatalf("expected example.Fields['TaValuegs'].Description to be 'Example value. May be a primitive value, or an object.' but got %q", value.Description)
+		t.Fatalf("expected example.Fields['Value'].Description to be 'Example value. May be a primitive value, or an object.' but got %q", value.Description)
 	}
 }
 
