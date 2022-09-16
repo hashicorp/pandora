@@ -28,7 +28,7 @@ service "attestation" {
   available = ["2020-10-01"]
 }
 service "automanage" {
-  name      = "Automanage"
+  name      = "AutoManage"
   available = ["2022-05-04"]
 }
 service "automation" {
