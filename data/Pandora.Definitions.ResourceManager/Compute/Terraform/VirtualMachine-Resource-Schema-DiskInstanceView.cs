@@ -18,8 +18,8 @@ public class VirtualMachineResourceDiskInstanceViewSchema
     public string Name { get; set; }
 
 
-    [HclName("statuse")]
+    [HclName("status")]
     [Optional]
-    public List<VirtualMachineResourceInstanceViewStatusSchema> Statuse { get; set; }
+    public List<VirtualMachineResourceInstanceViewStatusSchema> Status { get; set; }
 
 }

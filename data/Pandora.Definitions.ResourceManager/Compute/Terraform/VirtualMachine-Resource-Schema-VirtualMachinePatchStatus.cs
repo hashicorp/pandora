@@ -13,9 +13,9 @@ public class VirtualMachineResourceVirtualMachinePatchStatusSchema
     public VirtualMachineResourceAvailablePatchSummarySchema AvailablePatchSummary { get; set; }
 
 
-    [HclName("configuration_statuse")]
+    [HclName("configuration_status")]
     [Optional]
-    public List<VirtualMachineResourceInstanceViewStatusSchema> ConfigurationStatuse { get; set; }
+    public List<VirtualMachineResourceInstanceViewStatusSchema> ConfigurationStatus { get; set; }
 
 
     [HclName("last_patch_installation_summary")]
