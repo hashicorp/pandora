@@ -49,7 +49,7 @@ service "chaos" {
 }
 service "cognitiveservices" {
   name      = "Cognitive"
-  available = ["2021-04-30", "2022-03-01"]
+  available = ["2021-04-30"]
 }
 service "communication" {
   name      = "Communication"
