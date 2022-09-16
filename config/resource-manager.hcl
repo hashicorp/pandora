@@ -27,13 +27,13 @@ service "attestation" {
   name      = "Attestation"
   available = ["2020-10-01"]
 }
-service "automation" {
-  name      = "Automation"
-  available = ["2021-06-22"]
-}
 service "automanage" {
   name      = "Automanage"
   available = ["2022-05-04"]
+}
+service "automation" {
+  name      = "Automation"
+  available = ["2021-06-22"]
 }
 service "azure-kusto" {
   name      = "Kusto"
