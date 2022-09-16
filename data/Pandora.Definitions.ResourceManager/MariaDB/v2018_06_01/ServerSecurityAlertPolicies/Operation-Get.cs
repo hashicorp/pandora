@@ -19,7 +19,7 @@ internal class GetOperation : Operations.GetOperation
 
     public override Type? ResponseObject() => typeof(ServerSecurityAlertPolicyModel);
 
-    public override string? UriSuffix() => "/securityAlertPolicies/Default";
+    public override string? UriSuffix() => "/securityAlertPolicies/default";
 
 
 }
