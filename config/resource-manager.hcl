@@ -111,6 +111,10 @@ service "dns" {
   name      = "DNS"
   available = ["2018-05-01"]
 }
+service "dnsresolver" {
+  name      = "DNS Resolver"
+  available = ["2022-07-01"]
+}
 service "domainservices" {
   name      = "AAD"
   available = ["2020-01-01", "2021-03-01", "2021-05-01"]
