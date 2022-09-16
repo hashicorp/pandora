@@ -135,6 +135,9 @@ func (p *Parser) parseResourceIdFromOperation(uri string, operation *spec.Operat
 								if strings.Contains(v, ".") {
 									constantValue = v
 								} else {
+									// we're intentionally calling `cleanup.NormalizeSegment` rather than
+									// `normalizeSegment` in this change to avoid stripping special characters
+									// which maybe present within this constant value, namely the `$` for `$Default`).
 									constantValue = cleanup.NormalizeSegment(v, true)
 								}
 							}
