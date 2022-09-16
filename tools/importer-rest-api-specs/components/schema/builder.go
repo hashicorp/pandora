@@ -2,6 +2,7 @@ package schema
 
 import (
 	"fmt"
+
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/helpers"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/schema/processors"
 

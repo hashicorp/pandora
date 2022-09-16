@@ -2,9 +2,10 @@ package schema
 
 import (
 	"fmt"
+	"strings"
+
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/schema/processors"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
-	"strings"
 )
 
 func fieldShouldBeIgnored(key string, definition resourcemanager.FieldDetails, constants map[string]resourcemanager.ConstantDetails) bool {
