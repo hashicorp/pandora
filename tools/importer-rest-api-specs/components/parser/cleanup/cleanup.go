@@ -95,6 +95,7 @@ func NormalizeSegment(input string, camelCase bool) string {
 		"continuouswebjobs":                 "continuousWebJobs",
 		"customimages":                      "customImages",
 		"datastores":                        "dataStores",
+		"dedicatedsqlminimaltlssettings":    "dedicatedSQLMinimalTLSSettings",
 		"default":                           "default", // handles Default
 		"deletedservices":                   "deletedServices",
 		"dicomservices":                     "dicomServices",
