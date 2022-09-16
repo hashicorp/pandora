@@ -207,6 +207,10 @@ service "netapp" {
   name      = "NetApp"
   available = ["2021-10-01", "2022-01-01"]
 }
+service "networkfunction" {
+  name      = "NetworkFunction"
+  available = ["2022-08-01"]
+}
 service "nginx" {
   name      = "Nginx"
   available = ["2022-08-01"]
