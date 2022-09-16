@@ -10,9 +10,9 @@ require (
 	github.com/go-openapi/spec v0.20.3
 	github.com/hashicorp/go-hclog v1.2.1
 	github.com/hashicorp/hcl/v2 v2.13.0
-	github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/testattributes v0.0.0-00010101000000-000000000000
 	github.com/hashicorp/pandora/tools/sdk v0.0.0-00010101000000-000000000000
 	github.com/mitchellh/cli v1.1.4
+	github.com/zclconf/go-cty v1.10.0
 )
 
 require (
@@ -61,7 +61,6 @@ require (
 	github.com/shopspring/decimal v1.2.0 // indirect
 	github.com/spf13/cast v1.3.1 // indirect
 	github.com/xanzy/ssh-agent v0.3.0 // indirect
-	github.com/zclconf/go-cty v1.10.0 // indirect
 	go.mongodb.org/mongo-driver v1.4.6 // indirect
 	golang.org/x/crypto v0.0.0-20220517005047-85d78b3ac167 // indirect
 	golang.org/x/net v0.0.0-20211112202133-69e39bad7dc2 // indirect
@@ -74,5 +73,3 @@ require (
 replace github.com/go-openapi/analysis v0.20.1 => github.com/jackofallops/analysis v0.20.2-0.20210705135157-888aa8dbc8e5
 
 replace github.com/hashicorp/pandora/tools/sdk => ../sdk
-
-replace github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/testattributes => ./components/testattributes
