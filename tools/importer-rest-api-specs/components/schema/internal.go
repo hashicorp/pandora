@@ -54,11 +54,11 @@ type topLevelFields struct {
 	location *resourcemanager.TerraformSchemaFieldDefinition
 	identity *resourcemanager.TerraformSchemaFieldDefinition
 	tags     *resourcemanager.TerraformSchemaFieldDefinition
+	sku      *resourcemanager.TerraformSchemaFieldDefinition
 
 	/*
 		TODO:
 		* ExtendedLocation
-		* Sku
 		* SystemData (computed)
 	*/
 }
@@ -76,6 +76,10 @@ func (f topLevelFields) toSchema() map[string]resourcemanager.TerraformSchemaFie
 
 	if f.tags != nil {
 		out["Tags"] = *f.tags
+	}
+
+	if f.sku != nil {
+		out["Sku"] = *f.sku
 	}
 
 	return out

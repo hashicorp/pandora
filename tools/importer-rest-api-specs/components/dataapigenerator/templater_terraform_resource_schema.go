@@ -66,7 +66,8 @@ func dotNetFieldDefinitionForTerraformSchemaField(name string, input resourceman
 	}
 
 	topLevelDefinition := topLevelFieldObjectDefinition(input.ObjectDefinition)
-	if topLevelDefinition.Type == resourcemanager.TerraformSchemaFieldTypeReference && topLevelDefinition.ReferenceName != nil {
+	if topLevelDefinition.ReferenceName != nil {
+		// TODO - The value for ReferenceName should have been nilled in `schema/object_definition.go` before here, but until we can fix that, this will do for a "quick fix" for now
 		if _, isConstant := constants[*topLevelDefinition.ReferenceName]; isConstant {
 			argument := fmt.Sprintf("[PossibleValuesFromConstant(typeof(%s.%s.%sConstant))]", apiVersionPackageName, resourcePackageName, *topLevelDefinition.ReferenceName)
 			attributes = append(attributes, argument)

@@ -302,6 +302,7 @@ const (
 	TerraformSchemaFieldTypeLocation                      TerraformSchemaFieldType = "Location"
 	TerraformSchemaFieldTypeResourceGroup                 TerraformSchemaFieldType = "ResourceGroup"
 	TerraformSchemaFieldTypeTags                          TerraformSchemaFieldType = "Tags"
+	TerraformSchemaFieldTypeSku                           TerraformSchemaFieldType = "Sku"
 	TerraformSchemaFieldTypeZone                          TerraformSchemaFieldType = "Zone"
 	TerraformSchemaFieldTypeZones                         TerraformSchemaFieldType = "Zones"
 )

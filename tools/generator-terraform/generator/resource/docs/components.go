@@ -15,6 +15,7 @@ func ComponentsForResource(input models.ResourceInput) (*string, error) {
 		// TODO: links to examples
 		codeForArgumentsReference,
 		codeForAttributesReference,
+		codeForBlocksReference,
 		codeForTimeouts,
 		codeForImport,
 	}

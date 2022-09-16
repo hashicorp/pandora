@@ -5,6 +5,7 @@ import (
 	"log"
 	"os"
 	"path/filepath"
+	"regexp"
 
 	"github.com/hashicorp/pandora/tools/sdk/config/services"
 )
@@ -56,6 +57,17 @@ func run(directory string) error {
 				return fmt.Errorf("reconciling with available services: %+v", err)
 			}
 			config = parsedConfig
+		}
+
+		log.Printf("[DEBUG] Validating config..")
+		nameRegex, err := regexp.Compile("^[A-Z]{1}[A-Za-z0-9_]{1,}$")
+		if err != nil {
+			return fmt.Errorf("compiling regex: %+v", err)
+		}
+		for _, service := range config.Services {
+			if !nameRegex.MatchString(service.Name) {
+				return fmt.Errorf("name wasn't valid for %q - must contain only alphanumeric characters and underscores", service.Name)
+			}
 		}
 
 		log.Printf("[DEBUG] Writing new config..")

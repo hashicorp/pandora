@@ -1,7 +1,6 @@
 package processors
 
 import (
-	"fmt"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 	"regexp"
 	"strings"
@@ -9,13 +8,8 @@ import (
 
 type modelRemoveStatusAndDetail struct{}
 
-func (modelRemoveStatusAndDetail) ProcessModel(modelName string, models map[string]resourcemanager.TerraformSchemaModelDefinition) (map[string]resourcemanager.TerraformSchemaModelDefinition, error) {
+func (modelRemoveStatusAndDetail) ProcessModel(modelName string, model resourcemanager.TerraformSchemaModelDefinition, models map[string]resourcemanager.TerraformSchemaModelDefinition) (map[string]resourcemanager.TerraformSchemaModelDefinition, error) {
 	fields := make(map[string]resourcemanager.TerraformSchemaFieldDefinition)
-
-	model, ok := models[modelName]
-	if !ok {
-		return nil, fmt.Errorf("a model was not found with the name %s", modelName)
-	}
 
 	status := regexp.MustCompile("\\w?(Status)$")
 

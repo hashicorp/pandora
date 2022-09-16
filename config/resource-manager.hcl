@@ -29,11 +29,11 @@ service "attestation" {
 }
 service "automation" {
   name      = "Automation"
-  available = ["2019-06-01", "2021-06-22"]
+  available = ["2021-06-22"]
 }
 service "azure-kusto" {
   name      = "Kusto"
-  available = ["2021-08-27"]
+  available = ["2021-08-27", "2022-07-07"]
 }
 service "azurestackhci" {
   name      = "AzureStackHCI"
@@ -53,7 +53,7 @@ service "communication" {
 }
 service "compute" {
   name      = "Compute"
-  available = ["2021-11-01", "2022-03-02"]
+  available = ["2021-07-01", "2021-11-01", "2022-03-02"]
 }
 service "confidentialledger" {
   name      = "ConfidentialLedger"
@@ -110,6 +110,10 @@ service "digitaltwins" {
 service "dns" {
   name      = "DNS"
   available = ["2018-05-01"]
+}
+service "dnsresolver" {
+  name      = "DNSResolver"
+  available = ["2022-07-01"]
 }
 service "domainservices" {
   name      = "AAD"
@@ -210,6 +214,10 @@ service "netapp" {
 service "network" {
   name      = "Network"
   available = ["2022-01-01"]
+}
+service "networkfunction" {
+  name      = "NetworkFunction"
+  available = ["2022-08-01"]
 }
 service "nginx" {
   name      = "Nginx"
