@@ -128,6 +128,36 @@ func TestProcessField_PluralToSingular(t *testing.T) {
 			expected: stringPointer("Panda"),
 		},
 		{
+			fieldInput: "Statuses",
+			metadataInput: FieldMetadata{
+				Model: resourcemanager.ModelDetails{
+					Fields: map[string]resourcemanager.FieldDetails{
+						"Statuses": {
+							ObjectDefinition: resourcemanager.ApiObjectDefinition{
+								Type: resourcemanager.ListApiObjectDefinitionType,
+							},
+						},
+					},
+				},
+			},
+			expected: stringPointer("Status"),
+		},
+		{
+			fieldInput: "Metadata",
+			metadataInput: FieldMetadata{
+				Model: resourcemanager.ModelDetails{
+					Fields: map[string]resourcemanager.FieldDetails{
+						"Metadata": {
+							ObjectDefinition: resourcemanager.ApiObjectDefinition{
+								Type: resourcemanager.ListApiObjectDefinitionType,
+							},
+						},
+					},
+				},
+			},
+			expected: stringPointer("Metadata"),
+		},
+		{
 			fieldInput: "Planets",
 			metadataInput: FieldMetadata{
 				Model: resourcemanager.ModelDetails{
