@@ -315,6 +315,10 @@ service "streamanalytics" {
   name      = "StreamAnalytics"
   available = ["2020-03-01"]
 }
+service "synapse" {
+  name      = "Synapse"
+  available = ["2021-06-01"]
+}
 service "trafficmanager" {
   name      = "TrafficManager"
   available = ["2018-08-01"]
