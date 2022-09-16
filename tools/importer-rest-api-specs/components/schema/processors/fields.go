@@ -2,6 +2,7 @@ package processors
 
 import (
 	"fmt"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/cleanup"
 	"regexp"
 	"strings"
 
@@ -51,10 +52,8 @@ type fieldNamePluralToSingular struct{}
 
 func (fieldNamePluralToSingular) ProcessField(fieldName string, metadata FieldMetadata) (*string, error) {
 	if metadata.Model.Fields[fieldName].ObjectDefinition.Type == resourcemanager.ListApiObjectDefinitionType {
-		if strings.HasSuffix(fieldName, "s") && !strings.HasSuffix(fieldName, "ss") {
-			updatedName := strings.TrimSuffix(fieldName, "s")
-			return &updatedName, nil
-		}
+		updatedName := cleanup.GetSingular(fieldName)
+		return &updatedName, nil
 	}
 	return nil, nil
 }
