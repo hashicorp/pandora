@@ -2,10 +2,10 @@ package processors
 
 import (
 	"fmt"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/cleanup"
 	"regexp"
 	"strings"
 
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/cleanup"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
