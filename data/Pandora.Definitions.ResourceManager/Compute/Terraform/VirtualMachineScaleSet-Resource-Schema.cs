@@ -72,6 +72,12 @@ public class VirtualMachineScaleSetResourceSchema
 
 
     [ForceNew]
+    [HclName("resource_group_name")]
+    [Required]
+    public CommonSchema.ResourceGroupName ResourceGroupName { get; set; }
+
+
+    [ForceNew]
     [HclName("scale_in_policy")]
     [Optional]
     public VirtualMachineScaleSetResourceScaleInPolicySchema ScaleInPolicy { get; set; }

@@ -130,6 +130,12 @@ public class VirtualMachineResourceSchema
 
 
     [ForceNew]
+    [HclName("resource_group_name")]
+    [Required]
+    public CommonSchema.ResourceGroupName ResourceGroupName { get; set; }
+
+
+    [ForceNew]
     [HclName("scale_set")]
     [Optional]
     public VirtualMachineResourceSubResourceSchema ScaleSet { get; set; }
