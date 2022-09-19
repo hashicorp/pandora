@@ -77,6 +77,11 @@ func apiFieldsFromModelFields(input map[string]models.FieldDetails, model models
 			Validation: nil,
 		}
 
+		if v.ReadOnly {
+			details.Required = false
+			details.Optional = false
+		}
+
 		if details.ObjectDefinition.Type == resourcemanager.DateTimeApiObjectDefinitionType {
 			dateFormat := resourcemanager.RFC3339
 			details.DateFormat = &dateFormat
