@@ -42,8 +42,19 @@ func (b Builder) identityTopLevelFieldsWithinResourceID(input resourcemanager.Re
 					HclName:  parentResourceSchemaField,
 				}
 			}
-
 			// TODO: perhaps add the components here instead, aside from Subscription/Tenant ID etc?
+		} else {
+			// NOTE: Happy path case where we have a "standard" ID `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/...`
+			if input.Segments[2].FixedValue != nil && *input.Segments[2].FixedValue == "resourceGroups" {
+				out["ResourceGroupName"] = resourcemanager.TerraformSchemaFieldDefinition{
+					ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+						Type: resourcemanager.TerraformSchemaFieldTypeResourceGroup,
+					},
+					Required: true,
+					ForceNew: true,
+					HclName:  "resource_group_name",
+				}
+			}
 		}
 	}
 

@@ -202,7 +202,7 @@ var commonSchemaFieldTypesToDotNetTypes = map[resourcemanager.TerraformSchemaFie
 	resourcemanager.TerraformSchemaFieldTypeIdentitySystemOrUserAssigned:  "CommonSchema.SystemOrUserAssignedIdentity",
 	resourcemanager.TerraformSchemaFieldTypeIdentityUserAssigned:          "CommonSchema.UserAssignedIdentity",
 	resourcemanager.TerraformSchemaFieldTypeLocation:                      "CommonSchema.Location",
-	resourcemanager.TerraformSchemaFieldTypeResourceGroup:                 "CommonSchema.ResourceGroup",
+	resourcemanager.TerraformSchemaFieldTypeResourceGroup:                 "CommonSchema.ResourceGroupName",
 	resourcemanager.TerraformSchemaFieldTypeTags:                          "CommonSchema.Tags",
 	resourcemanager.TerraformSchemaFieldTypeZone:                          "CommonSchema.ZoneSingle",
 	resourcemanager.TerraformSchemaFieldTypeZones:                         "CommonSchema.ZonesMultiple",
