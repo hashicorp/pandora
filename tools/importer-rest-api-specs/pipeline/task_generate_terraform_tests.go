@@ -14,8 +14,6 @@ import (
 )
 
 func (t pipelineTask) generateTerraformTests(data *models.AzureApiDefinition, logger hclog.Logger) (*models.AzureApiDefinition, error) {
-	// TODO: @mbfrahry: go through and add the tests to each of the existing resources in details.Resources["blag"].Tests
-
 	for _, resource := range data.Resources {
 		if t := resource.Terraform; t != nil {
 			for resourceName, resourceDetails := range t.Resources {
@@ -75,7 +73,7 @@ func generateTestConfig(input resourcemanager.TerraformResourceDetails, required
 
 	output := strings.Replace(fmt.Sprintf(`
 %s
-`, hclwrite.Format(f.Bytes())), "\"", "`", -1)
+`, hclwrite.Format(f.Bytes())), "\"", "'", -1)
 	return &output, nil
 }
 
@@ -103,6 +101,6 @@ func generateImportTestConfig(input resourcemanager.TerraformResourceDetails) (*
 
 	output := strings.Replace(fmt.Sprintf(`
 %s
-`, hclwrite.Format(f.Bytes())), "\"", "`", -1)
+`, hclwrite.Format(f.Bytes())), "\"", "'", -1)
 	return &output, nil
 }
