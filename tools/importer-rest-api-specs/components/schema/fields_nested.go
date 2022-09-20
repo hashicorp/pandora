@@ -102,6 +102,11 @@ func (b Builder) identifyFieldsWithinPropertiesBlock(modelPrefix string, input o
 			schemaFieldName := convertToSnakeCase(fieldNameForTypedModel)
 			log.Printf("[DEBUG] Properties Field %q would be output as %q / %q", k, fieldNameForTypedModel, schemaFieldName)
 
+			if !isOptional && !isRequired {
+				isComputed = true
+				isForceNew = false
+			}
+
 			// TODO(@tombuildsstuff): refactor this and the "nested model" field to use the same parser ideally..?!
 			definition := resourcemanager.TerraformSchemaFieldDefinition{
 				HclName:  schemaFieldName,
