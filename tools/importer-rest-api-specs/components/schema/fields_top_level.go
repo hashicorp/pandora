@@ -41,6 +41,9 @@ func (b Builder) identifyTopLevelFields(modelNamePrefix string, input operationP
 				Optional:         field.Optional,
 				ForceNew:         !canBeUpdated,
 				HclName:          "identity",
+				Documentation: resourcemanager.TerraformSchemaDocumentationDefinition{
+					Markdown: field.Description,
+				},
 			}
 		}
 
@@ -52,6 +55,9 @@ func (b Builder) identifyTopLevelFields(modelNamePrefix string, input operationP
 				},
 				Required: true,
 				ForceNew: true,
+				Documentation: resourcemanager.TerraformSchemaDocumentationDefinition{
+					Markdown: fmt.Sprintf("The Azure Region where the resource should exist."), // TODO get resource name here?
+				},
 			}
 		}
 
@@ -70,6 +76,9 @@ func (b Builder) identifyTopLevelFields(modelNamePrefix string, input operationP
 				},
 				Optional: true,
 				ForceNew: !canBeUpdated,
+				Documentation: resourcemanager.TerraformSchemaDocumentationDefinition{
+					Markdown: fmt.Sprintf("A mapping of tags which should be assigned to the Resource."), // TODO get resource name here?
+				},
 			}
 		}
 
@@ -97,6 +106,9 @@ func (b Builder) identifyTopLevelFields(modelNamePrefix string, input operationP
 				Optional:         field.Optional,
 				ForceNew:         !canBeUpdated,
 				HclName:          "sku",
+				Documentation: resourcemanager.TerraformSchemaDocumentationDefinition{
+					Markdown: field.Description,
+				},
 			}
 		}
 	}

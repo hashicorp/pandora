@@ -104,6 +104,9 @@ type FieldDetails struct {
 	// Validation is an optional value defining the Validation requirements for this
 	// field, if any.
 	Validation *FieldValidationDetails `json:"validation"`
+
+	// Description is a description of the field
+	Description string `json:"description"`
 }
 
 type ConstantType string

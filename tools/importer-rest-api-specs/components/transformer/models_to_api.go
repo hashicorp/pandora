@@ -74,7 +74,8 @@ func apiFieldsFromModelFields(input map[string]models.FieldDetails, model models
 			Optional:         !v.Required,
 			Required:         v.Required,
 			// TODO: support validation
-			Validation: nil,
+			Validation:  nil,
+			Description: v.Description,
 		}
 
 		if details.ObjectDefinition.Type == resourcemanager.DateTimeApiObjectDefinitionType {

@@ -44,6 +44,7 @@ func mapFieldsFromApi(input map[string]resourcemanager.FieldDetails) (*map[strin
 			JsonName:         v.JsonName,
 			CustomFieldType:  customFieldType,
 			ObjectDefinition: objectDefinition,
+			Description:      v.Description,
 		}
 	}
 
