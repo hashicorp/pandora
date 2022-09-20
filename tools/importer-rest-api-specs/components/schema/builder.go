@@ -201,7 +201,7 @@ func (b Builder) buildNestedModelDefinition(modelPrefix string, model resourcema
 			continue
 		}
 
-		isComputed := false // Can we work this out yet?
+		isComputed := !v.Required && !v.Optional
 		isForceNew := v.ForceNew
 		isRequired := v.Required
 		isOptional := v.Optional
