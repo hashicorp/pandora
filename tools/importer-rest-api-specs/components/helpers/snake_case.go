@@ -1,46 +1,53 @@
 package helpers
 
 import (
-	"sort"
+	"fmt"
 	"strings"
-	"unicode"
 )
 
 func ConvertToSnakeCase(input string) string {
-	if v, ok := schemaFieldNameOverrides[strings.ToLower(input)]; ok {
-		return v
+	// Special Cases for Acronyms that may run into adjacent words
+	acronyms := []string{
+		"IOPS",
+		"SQL",
+		"IP",
+		"DNS",
+		"GPU",
 	}
-
-	splitIdxMap := map[int]struct{}{}
-	var lastChar rune
-	for idx, char := range input {
-		switch {
-		case idx == 0:
-			splitIdxMap[idx] = struct{}{}
-		case unicode.IsUpper(lastChar) == unicode.IsUpper(char):
-		case unicode.IsUpper(lastChar):
-			splitIdxMap[idx-1] = struct{}{}
-		case unicode.IsUpper(char):
-			splitIdxMap[idx] = struct{}{}
+	for _, s := range acronyms {
+		if strings.Contains(input, s) {
+			input = strings.ReplaceAll(input, s, fmt.Sprintf("%s_", s))
 		}
-		lastChar = char
 	}
-	splitIdx := make([]int, 0, len(splitIdxMap))
-	for idx := range splitIdxMap {
-		splitIdx = append(splitIdx, idx)
+	// Special-special case for HTTPS/HTTP...
+	if strings.Contains(input, "HTTPS") {
+		input = strings.ReplaceAll(input, "HTTPS", "HTTPS_")
+	} else if strings.Contains(input, "HTTP") {
+		input = strings.ReplaceAll(input, "HTTP", "HTTP_")
 	}
-	sort.Ints(splitIdx)
 
-	inputRunes := []rune(input)
-	out := make([]string, len(splitIdx))
-	for i := range splitIdx {
-		if i == len(splitIdx)-1 {
-			out[i] = strings.ToLower(string(inputRunes[splitIdx[i]:]))
+	input = strings.TrimSpace(input)
+	n := strings.Builder{}
+	for k, v := range []byte(input) {
+		runeIsCap := v >= 'A' && v <= 'Z'
+		if v == '_' {
 			continue
 		}
-		out[i] = strings.ToLower(string(inputRunes[splitIdx[i]:splitIdx[i+1]]))
+		if k+1 < len(input) {
+			prevIsCap := k > 0 && input[k-1] >= 'A' && input[k-1] <= 'Z'
+			if k > 0 && runeIsCap {
+				if !prevIsCap {
+					n.WriteByte('_')
+				}
+			}
+
+			n.WriteByte(v)
+			continue
+		}
+		n.WriteByte(v)
 	}
-	return strings.Join(out, "_")
+
+	return strings.ToLower(n.String())
 }
 
 var schemaFieldNameOverrides = map[string]string{
