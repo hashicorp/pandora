@@ -17,7 +17,7 @@ public class ResourceGroupResourceSchema
     [ForceNew]
     [HclName("name")]
     [Required]
-    public string Name { get; set; }
+    public CommonSchema.ResourceGroupName Name { get; set; }
 
 
     [HclName("tags")]
