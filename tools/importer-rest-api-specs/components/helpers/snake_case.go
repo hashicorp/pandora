@@ -8,11 +8,14 @@ import (
 func ConvertToSnakeCase(input string) string {
 	// Special Cases for Acronyms that may run into adjacent words
 	acronyms := []string{
-		"IOPS",
-		"SQL",
-		"IP",
 		"DNS",
 		"GPU",
+		"IOPS",
+		"IP",
+		"OS",
+		"SQL",
+		"SSD",
+		"VM",
 	}
 	for _, s := range acronyms {
 		if strings.Contains(input, s) {
@@ -24,6 +27,9 @@ func ConvertToSnakeCase(input string) string {
 		input = strings.ReplaceAll(input, "HTTPS", "HTTPS_")
 	} else if strings.Contains(input, "HTTP") {
 		input = strings.ReplaceAll(input, "HTTP", "HTTP_")
+	}
+	if strings.Contains(input, "HyperV") {
+		input = strings.ReplaceAll(input, "HyperV", "HYPERV")
 	}
 
 	input = strings.TrimSpace(input)
