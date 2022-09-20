@@ -13,8 +13,8 @@ public class VirtualMachineResourceVirtualMachinePatchStatusSchema
     public VirtualMachineResourceAvailablePatchSummarySchema AvailablePatchSummary { get; set; }
 
 
+    [Computed]
     [HclName("configuration_status")]
-    [Optional]
     public List<VirtualMachineResourceInstanceViewStatusSchema> ConfigurationStatus { get; set; }
 
 

@@ -8,18 +8,18 @@ namespace Pandora.Definitions.ResourceManager.Compute.Terraform;
 public class VirtualMachineResourceBootDiagnosticsInstanceViewSchema
 {
 
+    [Computed]
     [HclName("console_screenshot_blob_uri")]
-    [Optional]
     public string ConsoleScreenshotBlobUri { get; set; }
 
 
+    [Computed]
     [HclName("serial_console_log_blob_uri")]
-    [Optional]
     public string SerialConsoleLogBlobUri { get; set; }
 
 
+    [Computed]
     [HclName("status")]
-    [Optional]
     public VirtualMachineResourceInstanceViewStatusSchema Status { get; set; }
 
 }

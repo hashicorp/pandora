@@ -72,6 +72,12 @@ public class VirtualMachineScaleSetResourceSchema
 
 
     [ForceNew]
+    [HclName("resource_group_name")]
+    [Required]
+    public CommonSchema.ResourceGroupName ResourceGroupName { get; set; }
+
+
+    [ForceNew]
     [HclName("scale_in_policy")]
     [Optional]
     public VirtualMachineScaleSetResourceScaleInPolicySchema ScaleInPolicy { get; set; }
@@ -98,13 +104,13 @@ public class VirtualMachineScaleSetResourceSchema
     public CommonSchema.Tags Tags { get; set; }
 
 
+    [Computed]
     [HclName("time_created")]
-    [Optional]
     public System.DateTime TimeCreated { get; set; }
 
 
+    [Computed]
     [HclName("unique_id")]
-    [Optional]
     public string UniqueId { get; set; }
 
 

@@ -64,8 +64,8 @@ public class VirtualMachineResourceVirtualMachinePropertiesSchema
     public VirtualMachineResourceSubResourceSchema HostGroup { get; set; }
 
 
+    [Computed]
     [HclName("instance_view")]
-    [Optional]
     public VirtualMachineResourceVirtualMachineInstanceViewSchema InstanceView { get; set; }
 
 
@@ -95,8 +95,8 @@ public class VirtualMachineResourceVirtualMachinePropertiesSchema
     public string Priority { get; set; }
 
 
+    [Computed]
     [HclName("provisioning_state")]
-    [Optional]
     public string ProvisioningState { get; set; }
 
 
@@ -125,8 +125,8 @@ public class VirtualMachineResourceVirtualMachinePropertiesSchema
     public VirtualMachineResourceStorageProfileSchema StorageProfile { get; set; }
 
 
+    [Computed]
     [HclName("time_created")]
-    [Optional]
     public System.DateTime TimeCreated { get; set; }
 
 
@@ -135,8 +135,8 @@ public class VirtualMachineResourceVirtualMachinePropertiesSchema
     public string UserData { get; set; }
 
 
+    [Computed]
     [HclName("vm_id")]
-    [Optional]
     public string VmId { get; set; }
 
 }

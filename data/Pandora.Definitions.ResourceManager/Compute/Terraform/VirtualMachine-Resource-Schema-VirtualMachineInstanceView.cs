@@ -8,8 +8,8 @@ namespace Pandora.Definitions.ResourceManager.Compute.Terraform;
 public class VirtualMachineResourceVirtualMachineInstanceViewSchema
 {
 
+    [Computed]
     [HclName("assigned_host")]
-    [Optional]
     public string AssignedHost { get; set; }
 
 
@@ -84,8 +84,8 @@ public class VirtualMachineResourceVirtualMachineInstanceViewSchema
     public VirtualMachineResourceVirtualMachineAgentInstanceViewSchema VmAgent { get; set; }
 
 
+    [Computed]
     [HclName("vm_health")]
-    [Optional]
     public VirtualMachineResourceVirtualMachineHealthStatusSchema VmHealth { get; set; }
 
 }

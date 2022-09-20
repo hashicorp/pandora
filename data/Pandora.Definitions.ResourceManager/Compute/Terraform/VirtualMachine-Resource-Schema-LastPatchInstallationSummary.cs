@@ -8,58 +8,58 @@ namespace Pandora.Definitions.ResourceManager.Compute.Terraform;
 public class VirtualMachineResourceLastPatchInstallationSummarySchema
 {
 
+    [Computed]
     [HclName("error")]
-    [Optional]
     public VirtualMachineResourceApiErrorSchema Error { get; set; }
 
 
+    [Computed]
     [HclName("excluded_patch_count")]
-    [Optional]
     public int ExcludedPatchCount { get; set; }
 
 
+    [Computed]
     [HclName("failed_patch_count")]
-    [Optional]
     public int FailedPatchCount { get; set; }
 
 
+    [Computed]
     [HclName("installation_activity_id")]
-    [Optional]
     public string InstallationActivityId { get; set; }
 
 
+    [Computed]
     [HclName("installed_patch_count")]
-    [Optional]
     public int InstalledPatchCount { get; set; }
 
 
+    [Computed]
     [HclName("last_modified_time")]
-    [Optional]
     public System.DateTime LastModifiedTime { get; set; }
 
 
+    [Computed]
     [HclName("maintenance_window_exceeded")]
-    [Optional]
     public bool MaintenanceWindowExceeded { get; set; }
 
 
+    [Computed]
     [HclName("not_selected_patch_count")]
-    [Optional]
     public int NotSelectedPatchCount { get; set; }
 
 
+    [Computed]
     [HclName("pending_patch_count")]
-    [Optional]
     public int PendingPatchCount { get; set; }
 
 
+    [Computed]
     [HclName("start_time")]
-    [Optional]
     public System.DateTime StartTime { get; set; }
 
 
+    [Computed]
     [HclName("status")]
-    [Optional]
     [PossibleValuesFromConstant(typeof(v2021_11_01.VirtualMachines.PatchOperationStatusConstant))]
     public string Status { get; set; }
 
