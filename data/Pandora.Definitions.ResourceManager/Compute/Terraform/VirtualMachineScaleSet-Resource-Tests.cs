@@ -38,7 +38,7 @@ resource 'azurerm_virtual_machine_scale_set' 'test' {
 
   additional_capabilities {
     hibernation_enabled = false
-    ultra_ssdenabled    = false
+    ultra_ssd_enabled   = false
   }
 
 
@@ -99,9 +99,9 @@ resource 'azurerm_virtual_machine_scale_set' 'test' {
 
   upgrade_policy {
 
-    automatic_osupgrade_policy {
-      automatic_osupgrade_enabled = false
-      automatic_rollback_disabled = false
+    automatic_os_upgrade_policy {
+      automatic_os_upgrade_enabled = false
+      automatic_rollback_disabled  = false
     }
 
     mode = 'foo'
@@ -315,7 +315,7 @@ resource 'azurerm_virtual_machine_scale_set' 'test' {
           patch_mode      = 'foo'
         }
 
-        provision_vmagent = false
+        provision_vm_agent = false
 
         ssh {
 
@@ -361,8 +361,8 @@ resource 'azurerm_virtual_machine_scale_set' 'test' {
           patch_mode          = 'foo'
         }
 
-        provision_vmagent = false
-        time_zone         = 'foo'
+        provision_vm_agent = false
+        time_zone          = 'foo'
 
         win_rm {
 

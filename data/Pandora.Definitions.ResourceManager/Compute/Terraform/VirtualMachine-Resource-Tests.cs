@@ -38,7 +38,7 @@ resource 'azurerm_virtual_machine' 'test' {
 
   additional_capabilities {
     hibernation_enabled = false
-    ultra_ssdenabled    = false
+    ultra_ssd_enabled   = false
   }
 
 
@@ -242,7 +242,7 @@ resource 'azurerm_virtual_machine' 'test' {
         patch_mode      = 'foo'
       }
 
-      provision_vmagent = false
+      provision_vm_agent = false
 
       ssh {
 
@@ -289,8 +289,8 @@ resource 'azurerm_virtual_machine' 'test' {
         patch_mode          = 'foo'
       }
 
-      provision_vmagent = false
-      time_zone         = 'foo'
+      provision_vm_agent = false
+      time_zone          = 'foo'
 
       win_rm {
 
