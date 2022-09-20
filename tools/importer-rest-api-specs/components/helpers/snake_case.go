@@ -29,7 +29,7 @@ func ConvertToSnakeCase(input string) string {
 		input = strings.ReplaceAll(input, "HTTP", "HTTP_")
 	}
 	if strings.Contains(input, "HyperV") {
-		input = strings.ReplaceAll(input, "HyperV", "HYPERV")
+		input = strings.ReplaceAll(input, "HyperV", "HYPERV_")
 	}
 
 	input = strings.TrimSpace(input)
