@@ -45,7 +45,6 @@ public class VirtualMachineScaleSetResourceVirtualMachineScaleSetPropertiesSchem
 
 
     [HclName("provisioning_state")]
-    [Optional]
     public string ProvisioningState { get; set; }
 
 
@@ -70,12 +69,10 @@ public class VirtualMachineScaleSetResourceVirtualMachineScaleSetPropertiesSchem
 
 
     [HclName("time_created")]
-    [Optional]
     public System.DateTime TimeCreated { get; set; }
 
 
     [HclName("unique_id")]
-    [Optional]
     public string UniqueId { get; set; }
 
 

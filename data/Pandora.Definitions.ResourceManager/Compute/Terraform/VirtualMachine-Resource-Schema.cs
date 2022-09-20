@@ -80,9 +80,8 @@ public class VirtualMachineResourceSchema
     public CommonSchema.SystemAndUserAssignedIdentity Identity { get; set; }
 
 
-    [ForceNew]
+    [Computed]
     [HclName("instance_view")]
-    [Optional]
     public VirtualMachineResourceVirtualMachineInstanceViewSchema InstanceView { get; set; }
 
 
@@ -130,6 +129,12 @@ public class VirtualMachineResourceSchema
 
 
     [ForceNew]
+    [HclName("resource_group_name")]
+    [Required]
+    public CommonSchema.ResourceGroupName ResourceGroupName { get; set; }
+
+
+    [ForceNew]
     [HclName("scale_set")]
     [Optional]
     public VirtualMachineResourceSubResourceSchema ScaleSet { get; set; }
@@ -158,9 +163,8 @@ public class VirtualMachineResourceSchema
     public CommonSchema.Tags Tags { get; set; }
 
 
-    [ForceNew]
+    [Computed]
     [HclName("time_created")]
-    [Optional]
     public System.DateTime TimeCreated { get; set; }
 
 
@@ -170,9 +174,8 @@ public class VirtualMachineResourceSchema
     public string UserData { get; set; }
 
 
-    [ForceNew]
+    [Computed]
     [HclName("vm_id")]
-    [Optional]
     public string VmId { get; set; }
 
 }

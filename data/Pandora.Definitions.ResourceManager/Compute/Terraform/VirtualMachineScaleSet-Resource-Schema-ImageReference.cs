@@ -14,7 +14,6 @@ public class VirtualMachineScaleSetResourceImageReferenceSchema
 
 
     [HclName("exact_version")]
-    [Optional]
     public string ExactVersion { get; set; }
 
 

@@ -9,7 +9,6 @@ public class VirtualMachineScaleSetResourceVirtualMachineScaleSetExtensionSchema
 {
 
     [HclName("id")]
-    [Optional]
     public string Id { get; set; }
 
 
@@ -24,7 +23,6 @@ public class VirtualMachineScaleSetResourceVirtualMachineScaleSetExtensionSchema
 
 
     [HclName("type")]
-    [Optional]
     public string Type { get; set; }
 
 }

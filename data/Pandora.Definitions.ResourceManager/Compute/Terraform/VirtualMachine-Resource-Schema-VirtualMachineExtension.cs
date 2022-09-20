@@ -9,7 +9,6 @@ public class VirtualMachineResourceVirtualMachineExtensionSchema
 {
 
     [HclName("id")]
-    [Optional]
     public string Id { get; set; }
 
 
@@ -19,7 +18,6 @@ public class VirtualMachineResourceVirtualMachineExtensionSchema
 
 
     [HclName("name")]
-    [Optional]
     public string Name { get; set; }
 
 
@@ -34,7 +32,6 @@ public class VirtualMachineResourceVirtualMachineExtensionSchema
 
 
     [HclName("type")]
-    [Optional]
     public string Type { get; set; }
 
 }

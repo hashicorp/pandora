@@ -9,7 +9,6 @@ public class ResourceGroupResourceResourceGroupPropertiesSchema
 {
 
     [HclName("provisioning_state")]
-    [Optional]
     public string ProvisioningState { get; set; }
 
 }

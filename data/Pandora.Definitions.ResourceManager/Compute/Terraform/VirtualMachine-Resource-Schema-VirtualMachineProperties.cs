@@ -65,7 +65,6 @@ public class VirtualMachineResourceVirtualMachinePropertiesSchema
 
 
     [HclName("instance_view")]
-    [Optional]
     public VirtualMachineResourceVirtualMachineInstanceViewSchema InstanceView { get; set; }
 
 
@@ -96,7 +95,6 @@ public class VirtualMachineResourceVirtualMachinePropertiesSchema
 
 
     [HclName("provisioning_state")]
-    [Optional]
     public string ProvisioningState { get; set; }
 
 
@@ -126,7 +124,6 @@ public class VirtualMachineResourceVirtualMachinePropertiesSchema
 
 
     [HclName("time_created")]
-    [Optional]
     public System.DateTime TimeCreated { get; set; }
 
 
@@ -136,7 +133,6 @@ public class VirtualMachineResourceVirtualMachinePropertiesSchema
 
 
     [HclName("vm_id")]
-    [Optional]
     public string VmId { get; set; }
 
 }

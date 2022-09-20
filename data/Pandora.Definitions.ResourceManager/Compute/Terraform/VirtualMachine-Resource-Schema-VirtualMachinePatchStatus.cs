@@ -14,7 +14,6 @@ public class VirtualMachineResourceVirtualMachinePatchStatusSchema
 
 
     [HclName("configuration_status")]
-    [Optional]
     public List<VirtualMachineResourceInstanceViewStatusSchema> ConfigurationStatus { get; set; }
 
 

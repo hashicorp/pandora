@@ -20,6 +20,12 @@ public class ResourceGroupResourceSchema
     public string Name { get; set; }
 
 
+    [ForceNew]
+    [HclName("resource_group_name")]
+    [Required]
+    public CommonSchema.ResourceGroupName ResourceGroupName { get; set; }
+
+
     [HclName("tags")]
     [Optional]
     public CommonSchema.Tags Tags { get; set; }

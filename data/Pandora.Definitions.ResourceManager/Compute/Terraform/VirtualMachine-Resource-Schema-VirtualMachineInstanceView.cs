@@ -9,7 +9,6 @@ public class VirtualMachineResourceVirtualMachineInstanceViewSchema
 {
 
     [HclName("assigned_host")]
-    [Optional]
     public string AssignedHost { get; set; }
 
 
@@ -85,7 +84,6 @@ public class VirtualMachineResourceVirtualMachineInstanceViewSchema
 
 
     [HclName("vm_health")]
-    [Optional]
     public VirtualMachineResourceVirtualMachineHealthStatusSchema VmHealth { get; set; }
 
 }

@@ -33,12 +33,10 @@ public class VirtualMachineResourceDataDiskSchema
 
 
     [HclName("disk_iops_read_write")]
-    [Optional]
     public int DiskIOPSReadWrite { get; set; }
 
 
     [HclName("disk_m_bps_read_write")]
-    [Optional]
     public int DiskMBpsReadWrite { get; set; }
 
 
