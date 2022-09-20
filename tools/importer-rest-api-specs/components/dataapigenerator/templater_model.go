@@ -108,10 +108,6 @@ func codeForField(indentation, fieldName string, field models.FieldDetails, isTy
 		}
 	}
 
-	if field.Description != "" {
-		lines = append(lines, fmt.Sprintf("%[1]s[Documentation(%[2]q)]", indentation, field.Description))
-	}
-
 	lines = append(lines, fmt.Sprintf("%[1]s[JsonPropertyName(%[2]q)]", indentation, field.JsonName))
 
 	if isTypeHint {
