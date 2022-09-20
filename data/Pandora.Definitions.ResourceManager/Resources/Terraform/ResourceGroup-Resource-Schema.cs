@@ -8,6 +8,7 @@ namespace Pandora.Definitions.ResourceManager.Resources.Terraform;
 public class ResourceGroupResourceSchema
 {
 
+    [Documentation("The Azure Region where the resource should exist.")]
     [ForceNew]
     [HclName("location")]
     [Required]
@@ -20,6 +21,7 @@ public class ResourceGroupResourceSchema
     public CommonSchema.ResourceGroupName Name { get; set; }
 
 
+    [Documentation("A mapping of tags which should be assigned to the Resource.")]
     [HclName("tags")]
     [Optional]
     public CommonSchema.Tags Tags { get; set; }
