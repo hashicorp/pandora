@@ -66,6 +66,10 @@ func dotNetFieldDefinitionForTerraformSchemaField(name string, input resourceman
 		attributes = append(attributes, "[Required]")
 	}
 
+	if input.Documentation.Markdown != "" {
+		attributes = append(attributes, fmt.Sprintf("[Documentation(%q)]", input.Documentation.Markdown))
+	}
+
 	topLevelDefinition := topLevelFieldObjectDefinition(input.ObjectDefinition)
 	if topLevelDefinition.ReferenceName != nil {
 		// TODO - The value for ReferenceName should have been nilled in `schema/object_definition.go` before here, but until we can fix that, this will do for a "quick fix" for now

@@ -119,6 +119,9 @@ func (b Builder) identifyFieldsWithinPropertiesBlock(modelPrefix string, input o
 				// If a Create and Update Mapping are present but a Read isn't it's implicitly WriteOnly
 				//WriteOnly: isWriteOnly,
 				Validation: validation,
+				Documentation: resourcemanager.TerraformSchemaDocumentationDefinition{
+					Markdown: createField.Description,
+				},
 				// TODO: also need to add the mappings & any validation
 			}
 

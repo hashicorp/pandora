@@ -16,6 +16,9 @@ func (b Builder) identityTopLevelFieldsWithinResourceID(input resourcemanager.Re
 		Required: true,
 		ForceNew: true,
 		HclName:  "name",
+		Documentation: resourcemanager.TerraformSchemaDocumentationDefinition{
+			Markdown: "The name which should be used for this resource", // TODO get resource name here?
+		},
 	}
 
 	if len(input.Segments) > 2 {

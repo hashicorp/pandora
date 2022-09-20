@@ -58,6 +58,9 @@ func TestParseModelSingleTopLevel(t *testing.T) {
 	if name.JsonName != "name" {
 		t.Fatalf("expected example.Fields['Name'].JsonName to be 'name' but got %q", name.JsonName)
 	}
+	if name.Description != "the name of this thing" {
+		t.Fatalf("expected example.Fields['Name'].Description to be 'the name of this thing' but got %q", name.Description)
+	}
 
 	age, ok := example.Fields["Age"]
 	if !ok {
@@ -71,6 +74,9 @@ func TestParseModelSingleTopLevel(t *testing.T) {
 	}
 	if age.JsonName != "age" {
 		t.Fatalf("expected example.Fields['Age'].JsonName to be 'age' but got %q", age.JsonName)
+	}
+	if age.Description != "the age of this thing" {
+		t.Fatalf("expected example.Fields['Age'].Description to be 'the age of this thing' but got %q", age.Description)
 	}
 
 	enabled, ok := example.Fields["Enabled"]
@@ -86,6 +92,9 @@ func TestParseModelSingleTopLevel(t *testing.T) {
 	if enabled.JsonName != "enabled" {
 		t.Fatalf("expected example.Fields['Enabled'].JsonName to be 'enabled' but got %q", enabled.JsonName)
 	}
+	if enabled.Description != "true or false" {
+		t.Fatalf("expected example.Fields['Enabled'].Description to be 'true or false' but got %q", enabled.Description)
+	}
 
 	height, ok := example.Fields["Height"]
 	if !ok {
@@ -99,6 +108,9 @@ func TestParseModelSingleTopLevel(t *testing.T) {
 	}
 	if height.JsonName != "height" {
 		t.Fatalf("expected example.Fields['Height'].JsonName to be 'height' but got %q", height.JsonName)
+	}
+	if height.Description != "the height of this in cm" {
+		t.Fatalf("expected example.Fields['Height'].Description to be 'the height of this in cm' but got %q", height.Description)
 	}
 
 	tags, ok := example.Fields["Tags"]
@@ -117,6 +129,9 @@ func TestParseModelSingleTopLevel(t *testing.T) {
 	if tags.JsonName != "tags" {
 		t.Fatalf("expected example.Fields['Tags'].JsonName to be 'tags' but got %q", tags.JsonName)
 	}
+	if tags.Description != "a key value pair" {
+		t.Fatalf("expected example.Fields['Tags'].Description to be 'a key value pair' but got %q", tags.Description)
+	}
 
 	value, ok := example.Fields["Value"]
 	if !ok {
@@ -130,6 +145,9 @@ func TestParseModelSingleTopLevel(t *testing.T) {
 	}
 	if value.JsonName != "value" {
 		t.Fatalf("expected example.Fields['Value'].JsonName to be 'value' but got %q", value.JsonName)
+	}
+	if value.Description != "Example value. May be a primitive value, or an object." {
+		t.Fatalf("expected example.Fields['Value'].Description to be 'Example value. May be a primitive value, or an object.' but got %q", value.Description)
 	}
 }
 

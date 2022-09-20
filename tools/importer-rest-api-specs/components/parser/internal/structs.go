@@ -68,9 +68,7 @@ func (r *ParseResult) AppendModels(other map[string]models.ModelDetails) error {
 		if err := compareNilableString(existing.TypeHintValue, v.TypeHintValue); err != nil {
 			return fmt.Errorf("comparing TypeHintValue: %+v", err)
 		}
-		if existing.Description != v.Description {
-			return fmt.Errorf("descriptions don't match - first %q - second %q", existing.Description, v.Description)
-		}
+
 		if !reflect.DeepEqual(existing.Fields, v.Fields) {
 			return fmt.Errorf("different model objects. First fields: %+v. Second fields: %+v", existing.Fields, v.Fields)
 		}
