@@ -18,7 +18,7 @@ public class VirtualMachineResourceLinuxConfigurationSchema
     public VirtualMachineResourceLinuxPatchSettingsSchema PatchSettings { get; set; }
 
 
-    [HclName("provision_vmagent")]
+    [HclName("provision_vm_agent")]
     [Optional]
     public bool ProvisionVMAgent { get; set; }
 
