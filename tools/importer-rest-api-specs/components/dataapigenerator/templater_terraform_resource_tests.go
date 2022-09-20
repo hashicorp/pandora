@@ -43,7 +43,7 @@ func addCompleteTestConfig(input *string) string {
 	if input != nil {
 		return fmt.Sprintf(`@"
 %s
-	",AsTerraformTestConfig()`, *input)
+	".AsTerraformTestConfig()`, *input)
 	}
 
 	return "null"
