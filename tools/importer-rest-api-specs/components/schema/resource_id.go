@@ -1,6 +1,7 @@
 package schema
 
 import (
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/helpers"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
@@ -33,7 +34,7 @@ func (b Builder) identityTopLevelFieldsWithinResourceID(input resourcemanager.Re
 				}
 			}
 			if parentResourceIdName != "" {
-				parentResourceSchemaField := convertToSnakeCase(parentResourceIdName)
+				parentResourceSchemaField := helpers.ConvertToSnakeCase(parentResourceIdName)
 				out[parentResourceIdName] = resourcemanager.TerraformSchemaFieldDefinition{
 					ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
 						Type:          resourcemanager.TerraformSchemaFieldTypeReference,

@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"log"
 
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/helpers"
+
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
@@ -99,7 +101,7 @@ func (b Builder) identifyFieldsWithinPropertiesBlock(modelPrefix string, input o
 				inputObjectDefinition = updateField.ObjectDefinition
 			}
 
-			schemaFieldName := convertToSnakeCase(fieldNameForTypedModel)
+			schemaFieldName := helpers.ConvertToSnakeCase(fieldNameForTypedModel)
 			log.Printf("[DEBUG] Properties Field %q would be output as %q / %q", k, fieldNameForTypedModel, schemaFieldName)
 
 			if !isOptional && !isRequired {

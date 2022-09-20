@@ -43,18 +43,14 @@ func (h TestAttributesHelpers) GetAttributesForTests(input resourcemanager.Terra
 	}
 
 	for _, fieldName := range sortedNames {
-		hclName := input.Fields[fieldName].HclName
-		if hclName == "" {
-			return fmt.Errorf("internal-error: hclName was empty for %q", fieldName)
-		}
-		if err := h.codeForTestAttribute(input.Fields[fieldName].ObjectDefinition, hclName, requiredOnly, hclBody); err != nil {
+		if err := h.codeForTestAttribute(input, input.Fields[fieldName].ObjectDefinition, input.Fields[fieldName].HclName, requiredOnly, hclBody); err != nil {
 			return err
 		}
 	}
 	return nil
 }
 
-func (h TestAttributesHelpers) codeForTestAttribute(input resourcemanager.TerraformSchemaFieldObjectDefinition, hclName string, requiredOnly bool, hclBody hclwrite.Body) error {
+func (h TestAttributesHelpers) codeForTestAttribute(models resourcemanager.TerraformSchemaModelDefinition, input resourcemanager.TerraformSchemaFieldObjectDefinition, hclName string, requiredOnly bool, hclBody hclwrite.Body) error {
 	switch input.Type {
 	// todo randomize values
 	case resourcemanager.TerraformSchemaFieldTypeBoolean:
@@ -84,6 +80,8 @@ func (h TestAttributesHelpers) codeForTestAttribute(input resourcemanager.Terraf
 			}
 			reference, ok := h.SchemaModels[*input.NestedObject.ReferenceName]
 			if !ok {
+				// todo figure out when a list is a list of enums
+				break
 				return fmt.Errorf("schema model %q was not found", *input.NestedObject.ReferenceName)
 			}
 			if err := h.GetAttributesForTests(reference, *hclBody.AppendNewBlock(hclName, nil).Body(), requiredOnly); err != nil {
@@ -117,11 +115,13 @@ func (h TestAttributesHelpers) codeForTestAttribute(input resourcemanager.Terraf
 		if input.ReferenceName == nil {
 			return fmt.Errorf("missing name for reference")
 		}
-		reference, ok := h.SchemaModels[*input.ReferenceName]
+		_, ok := h.SchemaModels[*input.ReferenceName]
 		if !ok {
+			// todo figure out where this is hiding
+			break
 			return fmt.Errorf("schema model %q was not found", *input.ReferenceName)
 		}
-		if err := h.GetAttributesForTests(reference, *hclBody.AppendNewBlock(hclName, nil).Body(), requiredOnly); err != nil {
+		if err := h.GetAttributesForTests(h.SchemaModels[*input.ReferenceName], *hclBody.AppendNewBlock(hclName, nil).Body(), requiredOnly); err != nil {
 			return err
 		}
 		hclBody.AppendNewline()

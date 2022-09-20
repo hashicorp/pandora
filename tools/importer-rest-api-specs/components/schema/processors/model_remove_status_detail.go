@@ -1,9 +1,10 @@
 package processors
 
 import (
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 	"regexp"
 	"strings"
+
+	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
 type modelRemoveStatusAndDetail struct{}
