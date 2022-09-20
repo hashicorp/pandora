@@ -51,7 +51,8 @@ func dotNetFieldDefinitionForTerraformSchemaField(name string, input resourceman
 		return nil, fmt.Errorf("determining dotnet type name for field object definition: %+v", err)
 	}
 	attributes := make([]string, 0)
-	if input.Computed {
+	// TODO - The Or case here shouldn't be needed, however, some deeply nested models are not currently being processed, so this will catch those for now and just enforces the rule in any case
+	if input.Computed || (!input.Optional && !input.Required) {
 		attributes = append(attributes, "[Computed]")
 	}
 	attributes = append(attributes, fmt.Sprintf("[HclName(%q)]", input.HclName))
