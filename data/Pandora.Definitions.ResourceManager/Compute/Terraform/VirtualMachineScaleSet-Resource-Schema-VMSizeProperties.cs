@@ -8,12 +8,12 @@ namespace Pandora.Definitions.ResourceManager.Compute.Terraform;
 public class VirtualMachineScaleSetResourceVMSizePropertiesSchema
 {
 
-    [HclName("vcp_us_available")]
+    [HclName("vcpus_available")]
     [Optional]
     public int VCPUsAvailable { get; set; }
 
 
-    [HclName("vcp_us_per_core")]
+    [HclName("vcpus_per_core")]
     [Optional]
     public int VCPUsPerCore { get; set; }
 

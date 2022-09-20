@@ -38,7 +38,7 @@ resource 'azurerm_virtual_machine_scale_set' 'test' {
 
   additional_capabilities {
     hibernation_enabled = false
-    ultra_ssd_enabled   = false
+    ultra_ssdenabled    = false
   }
 
 
@@ -48,7 +48,7 @@ resource 'azurerm_virtual_machine_scale_set' 'test' {
     repair_action = 'foo'
   }
 
-  do_not_run_extensions_on_overprovisioned_v_ms = false
+  do_not_run_extensions_on_overprovisioned_vms = false
 
   host_group {
     id = 'foo'
@@ -99,9 +99,9 @@ resource 'azurerm_virtual_machine_scale_set' 'test' {
 
   upgrade_policy {
 
-    automatic_os_upgrade_policy {
-      automatic_os_upgrade_enabled = false
-      automatic_rollback_disabled  = false
+    automatic_osupgrade_policy {
+      automatic_osupgrade_enabled = false
+      automatic_rollback_disabled = false
     }
 
     mode = 'foo'
@@ -184,8 +184,8 @@ resource 'azurerm_virtual_machine_scale_set' 'test' {
     hardware_profile {
 
       vm_size_properties {
-        vcp_us_available = 15
-        vcp_us_per_core  = 15
+        vcpus_available = 15
+        vcpus_per_core  = 15
       }
 
     }
@@ -315,7 +315,7 @@ resource 'azurerm_virtual_machine_scale_set' 'test' {
           patch_mode      = 'foo'
         }
 
-        provision_vm_agent = false
+        provision_vmagent = false
 
         ssh {
 
@@ -361,8 +361,8 @@ resource 'azurerm_virtual_machine_scale_set' 'test' {
           patch_mode          = 'foo'
         }
 
-        provision_vm_agent = false
-        time_zone          = 'foo'
+        provision_vmagent = false
+        time_zone         = 'foo'
 
         win_rm {
 
@@ -395,7 +395,7 @@ resource 'azurerm_virtual_machine_scale_set' 'test' {
 
       uefi_settings {
         secure_boot_enabled = false
-        v_tpm_enabled       = false
+        vtpm_enabled        = false
       }
 
     }
@@ -404,12 +404,12 @@ resource 'azurerm_virtual_machine_scale_set' 'test' {
     storage_profile {
 
       data_disk {
-        create_option         = 'foo'
-        lun                   = 15
-        caching               = 'foo'
-        disk_iops_read_write  = 15
-        disk_m_bps_read_write = 15
-        disk_size_gb          = 15
+        create_option        = 'foo'
+        lun                  = 15
+        caching              = 'foo'
+        disk_iops_read_write = 15
+        disk_mbps_read_write = 15
+        disk_size_gb         = 15
 
         managed_disk {
 

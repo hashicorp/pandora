@@ -13,7 +13,7 @@ public class VirtualMachineResourceAdditionalCapabilitiesSchema
     public bool HibernationEnabled { get; set; }
 
 
-    [HclName("ultra_ssd_enabled")]
+    [HclName("ultra_ssdenabled")]
     [Optional]
     public bool UltraSSDEnabled { get; set; }
 

@@ -38,7 +38,7 @@ public class VirtualMachineResourceDataDiskSchema
 
 
     [Computed]
-    [HclName("disk_m_bps_read_write")]
+    [HclName("disk_mbps_read_write")]
     public int DiskMBpsReadWrite { get; set; }
 
 

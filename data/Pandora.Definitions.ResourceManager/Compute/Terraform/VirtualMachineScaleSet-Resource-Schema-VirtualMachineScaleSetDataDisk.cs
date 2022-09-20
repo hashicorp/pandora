@@ -25,7 +25,7 @@ public class VirtualMachineScaleSetResourceVirtualMachineScaleSetDataDiskSchema
     public int DiskIOPSReadWrite { get; set; }
 
 
-    [HclName("disk_m_bps_read_write")]
+    [HclName("disk_mbps_read_write")]
     [Optional]
     public int DiskMBpsReadWrite { get; set; }
 
