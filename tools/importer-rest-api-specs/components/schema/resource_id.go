@@ -45,14 +45,26 @@ func (b Builder) identityTopLevelFieldsWithinResourceID(input resourcemanager.Re
 			// TODO: perhaps add the components here instead, aside from Subscription/Tenant ID etc?
 		} else {
 			// NOTE: Happy path case where we have a "standard" ID `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/...`
-			if len(input.Segments) != 4 && input.Segments[2].FixedValue != nil && *input.Segments[2].FixedValue == "resourceGroups" {
-				out["ResourceGroupName"] = resourcemanager.TerraformSchemaFieldDefinition{
-					ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-						Type: resourcemanager.TerraformSchemaFieldTypeResourceGroup,
-					},
-					Required: true,
-					ForceNew: true,
-					HclName:  "resource_group_name",
+			if input.Segments[2].FixedValue != nil && *input.Segments[2].FixedValue == "resourceGroups" {
+				if input.CommonAlias != nil && *input.CommonAlias == "ResourceGroup" {
+					// Resource Group is a special case where the `name` field should be overridden
+					out["Name"] = resourcemanager.TerraformSchemaFieldDefinition{
+						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+							Type: resourcemanager.TerraformSchemaFieldTypeResourceGroup,
+						},
+						Required: true,
+						ForceNew: true,
+						HclName:  "name",
+					}
+				} else {
+					out["ResourceGroupName"] = resourcemanager.TerraformSchemaFieldDefinition{
+						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+							Type: resourcemanager.TerraformSchemaFieldTypeResourceGroup,
+						},
+						Required: true,
+						ForceNew: true,
+						HclName:  "resource_group_name",
+					}
 				}
 			}
 		}
