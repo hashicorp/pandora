@@ -8,43 +8,43 @@ namespace Pandora.Definitions.ResourceManager.Compute.Terraform;
 public class VirtualMachineResourceAvailablePatchSummarySchema
 {
 
+    [Computed]
     [HclName("assessment_activity_id")]
-    [Optional]
     public string AssessmentActivityId { get; set; }
 
 
+    [Computed]
     [HclName("critical_and_security_patch_count")]
-    [Optional]
     public int CriticalAndSecurityPatchCount { get; set; }
 
 
+    [Computed]
     [HclName("error")]
-    [Optional]
     public VirtualMachineResourceApiErrorSchema Error { get; set; }
 
 
+    [Computed]
     [HclName("last_modified_time")]
-    [Optional]
     public System.DateTime LastModifiedTime { get; set; }
 
 
+    [Computed]
     [HclName("other_patch_count")]
-    [Optional]
     public int OtherPatchCount { get; set; }
 
 
+    [Computed]
     [HclName("reboot_pending")]
-    [Optional]
     public bool RebootPending { get; set; }
 
 
+    [Computed]
     [HclName("start_time")]
-    [Optional]
     public System.DateTime StartTime { get; set; }
 
 
+    [Computed]
     [HclName("status")]
-    [Optional]
     [PossibleValuesFromConstant(typeof(v2021_11_01.VirtualMachines.PatchOperationStatusConstant))]
     public string Status { get; set; }
 

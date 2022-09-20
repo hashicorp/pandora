@@ -28,8 +28,8 @@ public class VirtualMachineResourceVirtualMachineExtensionPropertiesSchema
     public VirtualMachineResourceVirtualMachineExtensionInstanceViewSchema InstanceView { get; set; }
 
 
+    [Computed]
     [HclName("provisioning_state")]
-    [Optional]
     public string ProvisioningState { get; set; }
 
 

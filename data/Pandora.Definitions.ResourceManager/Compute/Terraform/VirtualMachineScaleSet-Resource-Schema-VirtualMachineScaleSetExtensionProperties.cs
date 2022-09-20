@@ -28,8 +28,8 @@ public class VirtualMachineScaleSetResourceVirtualMachineScaleSetExtensionProper
     public List<string> ProvisionAfterExtension { get; set; }
 
 
+    [Computed]
     [HclName("provisioning_state")]
-    [Optional]
     public string ProvisioningState { get; set; }
 
 

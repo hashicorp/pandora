@@ -8,8 +8,8 @@ namespace Pandora.Definitions.ResourceManager.Compute.Terraform;
 public class VirtualMachineScaleSetResourceVirtualMachineScaleSetExtensionSchema
 {
 
+    [Computed]
     [HclName("id")]
-    [Optional]
     public string Id { get; set; }
 
 
@@ -23,8 +23,8 @@ public class VirtualMachineScaleSetResourceVirtualMachineScaleSetExtensionSchema
     public VirtualMachineScaleSetResourceVirtualMachineScaleSetExtensionPropertiesSchema Properties { get; set; }
 
 
+    [Computed]
     [HclName("type")]
-    [Optional]
     public string Type { get; set; }
 
 }

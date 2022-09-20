@@ -8,8 +8,8 @@ namespace Pandora.Definitions.ResourceManager.Compute.Terraform;
 public class VirtualMachineResourceVirtualMachineHealthStatusSchema
 {
 
+    [Computed]
     [HclName("status")]
-    [Optional]
     public VirtualMachineResourceInstanceViewStatusSchema Status { get; set; }
 
 }

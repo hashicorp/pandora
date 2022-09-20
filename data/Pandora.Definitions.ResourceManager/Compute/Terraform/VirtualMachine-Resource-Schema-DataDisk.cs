@@ -32,13 +32,13 @@ public class VirtualMachineResourceDataDiskSchema
     public string DetachOption { get; set; }
 
 
+    [Computed]
     [HclName("disk_iops_read_write")]
-    [Optional]
     public int DiskIOPSReadWrite { get; set; }
 
 
+    [Computed]
     [HclName("disk_m_bps_read_write")]
-    [Optional]
     public int DiskMBpsReadWrite { get; set; }
 
 

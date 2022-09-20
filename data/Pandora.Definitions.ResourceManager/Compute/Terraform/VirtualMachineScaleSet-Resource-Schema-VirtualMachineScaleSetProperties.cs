@@ -44,8 +44,8 @@ public class VirtualMachineScaleSetResourceVirtualMachineScaleSetPropertiesSchem
     public int PlatformFaultDomainCount { get; set; }
 
 
+    [Computed]
     [HclName("provisioning_state")]
-    [Optional]
     public string ProvisioningState { get; set; }
 
 
@@ -69,13 +69,13 @@ public class VirtualMachineScaleSetResourceVirtualMachineScaleSetPropertiesSchem
     public VirtualMachineScaleSetResourceSpotRestorePolicySchema SpotRestorePolicy { get; set; }
 
 
+    [Computed]
     [HclName("time_created")]
-    [Optional]
     public System.DateTime TimeCreated { get; set; }
 
 
+    [Computed]
     [HclName("unique_id")]
-    [Optional]
     public string UniqueId { get; set; }
 
 

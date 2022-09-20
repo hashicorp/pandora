@@ -8,8 +8,8 @@ namespace Pandora.Definitions.ResourceManager.Resources.Terraform;
 public class ResourceGroupResourceResourceGroupPropertiesSchema
 {
 
+    [Computed]
     [HclName("provisioning_state")]
-    [Optional]
     public string ProvisioningState { get; set; }
 
 }

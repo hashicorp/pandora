@@ -13,8 +13,8 @@ public class VirtualMachineResourceImageReferenceSchema
     public string CommunityGalleryImageId { get; set; }
 
 
+    [Computed]
     [HclName("exact_version")]
-    [Optional]
     public string ExactVersion { get; set; }
 
 
