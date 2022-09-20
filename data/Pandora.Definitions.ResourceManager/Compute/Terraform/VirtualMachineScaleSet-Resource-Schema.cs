@@ -24,7 +24,7 @@ public class VirtualMachineScaleSetResourceSchema
 
     [Documentation("When Overprovision is enabled, extensions are launched only on the requested number of VMs which are finally kept. This property will hence ensure that the extensions do not run on the extra overprovisioned VMs.")]
     [ForceNew]
-    [HclName("do_not_run_extensions_on_overprovisioned_v_ms")]
+    [HclName("do_not_run_extensions_on_overprovisioned_vms")]
     [Optional]
     public bool DoNotRunExtensionsOnOverprovisionedVMs { get; set; }
 

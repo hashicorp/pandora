@@ -23,7 +23,7 @@ public class VirtualMachineScaleSetResourceWindowsConfigurationSchema
     public VirtualMachineScaleSetResourcePatchSettingsSchema PatchSettings { get; set; }
 
 
-    [HclName("provision_vm_agent")]
+    [HclName("provision_vmagent")]
     [Optional]
     public bool ProvisionVMAgent { get; set; }
 

@@ -13,7 +13,7 @@ public class VirtualMachineScaleSetResourceUefiSettingsSchema
     public bool SecureBootEnabled { get; set; }
 
 
-    [HclName("v_tpm_enabled")]
+    [HclName("vtpm_enabled")]
     [Optional]
     public bool VTpmEnabled { get; set; }
 

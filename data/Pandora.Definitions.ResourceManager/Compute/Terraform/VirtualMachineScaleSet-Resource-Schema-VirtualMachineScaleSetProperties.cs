@@ -18,7 +18,7 @@ public class VirtualMachineScaleSetResourceVirtualMachineScaleSetPropertiesSchem
     public VirtualMachineScaleSetResourceAutomaticRepairsPolicySchema AutomaticRepairsPolicy { get; set; }
 
 
-    [HclName("do_not_run_extensions_on_overprovisioned_v_ms")]
+    [HclName("do_not_run_extensions_on_overprovisioned_vms")]
     [Optional]
     public bool DoNotRunExtensionsOnOverprovisionedVMs { get; set; }
 

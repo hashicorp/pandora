@@ -8,7 +8,7 @@ namespace Pandora.Definitions.ResourceManager.Compute.Terraform;
 public class VirtualMachineScaleSetResourceAutomaticOSUpgradePolicySchema
 {
 
-    [HclName("automatic_os_upgrade_enabled")]
+    [HclName("automatic_osupgrade_enabled")]
     [Optional]
     public bool AutomaticOSUpgradeEnabled { get; set; }
 

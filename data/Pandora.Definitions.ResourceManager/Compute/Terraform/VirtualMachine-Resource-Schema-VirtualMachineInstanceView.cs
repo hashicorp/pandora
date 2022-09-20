@@ -33,7 +33,7 @@ public class VirtualMachineResourceVirtualMachineInstanceViewSchema
     public List<VirtualMachineResourceVirtualMachineExtensionInstanceViewSchema> Extension { get; set; }
 
 
-    [HclName("hyper_v_generation")]
+    [HclName("hyper_vgeneration")]
     [Optional]
     [PossibleValuesFromConstant(typeof(v2021_11_01.VirtualMachines.HyperVGenerationTypeConstant))]
     public string HyperVGeneration { get; set; }

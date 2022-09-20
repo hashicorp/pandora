@@ -38,7 +38,7 @@ resource 'azurerm_virtual_machine' 'test' {
 
   additional_capabilities {
     hibernation_enabled = false
-    ultra_ssd_enabled   = false
+    ultra_ssdenabled    = false
   }
 
 
@@ -89,8 +89,8 @@ resource 'azurerm_virtual_machine' 'test' {
     vm_size = 'foo'
 
     vm_size_properties {
-      vcp_us_available = 15
-      vcp_us_per_core  = 15
+      vcpus_available = 15
+      vcpus_per_core  = 15
     }
 
   }
@@ -242,7 +242,7 @@ resource 'azurerm_virtual_machine' 'test' {
         patch_mode      = 'foo'
       }
 
-      provision_vm_agent = false
+      provision_vmagent = false
 
       ssh {
 
@@ -289,8 +289,8 @@ resource 'azurerm_virtual_machine' 'test' {
         patch_mode          = 'foo'
       }
 
-      provision_vm_agent = false
-      time_zone          = 'foo'
+      provision_vmagent = false
+      time_zone         = 'foo'
 
       win_rm {
 
@@ -334,7 +334,7 @@ resource 'azurerm_virtual_machine' 'test' {
 
     uefi_settings {
       secure_boot_enabled = false
-      v_tpm_enabled       = false
+      vtpm_enabled        = false
     }
 
   }
