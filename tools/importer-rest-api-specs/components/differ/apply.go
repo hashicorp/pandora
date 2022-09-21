@@ -7,9 +7,30 @@ import (
 )
 
 func (d Differ) ApplyFromExistingAPIDefinitions(existing models.AzureApiDefinition, parsed models.AzureApiDefinition) (models.AzureApiDefinition, error) {
-	// we should work through and ensure that all Existing items are present within Parsed
+	// todo we should work through and ensure that all Existing items are present within Parsed
 	// Each of the Stages to apply can be found in ApplyStages()
 
-	// TODO: apply these
-	return parsed, fmt.Errorf("TODO: implement ApplyFromExistingAPIDefinitions")
+	// starting with copying Test Template
+	for resourceName, resource := range existing.Resources {
+		parsedResource, ok := parsed.Resources[resourceName]
+		if !ok {
+			return parsed, fmt.Errorf("unable to find %q resource in new api definition", resourceName)
+		}
+
+		if existingTerraform := resource.Terraform; existingTerraform != nil {
+			if parsedTerraform := parsedResource.Terraform; parsedTerraform != nil {
+				for existingTerraformResourceName, existingTerraformResource := range existingTerraform.Resources {
+					parsedTerraformResource, ok := parsedTerraform.Resources[existingTerraformResourceName]
+					if !ok {
+						return parsed, fmt.Errorf("unable to find %q terraform resource in new api definition", resourceName)
+					}
+					if existingTemplate := existingTerraformResource.Tests.TemplateConfiguration; existingTemplate != nil {
+						parsedTerraformResource.Tests.TemplateConfiguration = existingTemplate
+					}
+				}
+			}
+		}
+	}
+
+	return parsed, nil
 }
