@@ -92,12 +92,6 @@ public class VirtualMachineResourceSchema
     public CommonSchema.SystemAndUserAssignedIdentity Identity { get; set; }
 
 
-    [Computed]
-    [Documentation("The virtual machine instance view.")]
-    [HclName("instance_view")]
-    public VirtualMachineResourceVirtualMachineInstanceViewSchema InstanceView { get; set; }
-
-
     [Documentation("The Azure Region where the resource should exist.")]
     [ForceNew]
     [HclName("location")]
