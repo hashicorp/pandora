@@ -314,9 +314,10 @@ func TestBuildForResourceGroupUsingRealData(t *testing.T) {
 			MethodName:       "Get",
 			TimeoutInMinutes: 5,
 		},
-		Resource:       "ResourceGroups",
-		ResourceIdName: "ResourceGroupId",
-		ResourceName:   "ResourceGroup",
+		Resource:        "ResourceGroups",
+		ResourceIdName:  "ResourceGroupId",
+		ResourceName:    "ResourceGroup",
+		SchemaModelName: "ResourceGroup",
 		UpdateMethod: &resourcemanager.MethodDefinition{
 			Generate:         true,
 			MethodName:       "Update",
@@ -332,88 +333,32 @@ func TestBuildForResourceGroupUsingRealData(t *testing.T) {
 }
 
 func testValidateResourceGroupSchema(t *testing.T, actual *map[string]resourcemanager.TerraformSchemaModelDefinition) {
+	r := resourceUnderTest{
+		Name: "Resource Group",
+	}
+
 	if actual == nil {
 		t.Fatalf("expected 1 model but got nil")
 	}
 	if len(*actual) != 1 {
-		t.Fatalf("expected 1 model but got %d", len(*actual))
+		t.Errorf("expected 1 model but got %d", len(*actual))
 	}
-
-	model := (*actual)["ResourceGroup"]
-	if len(model.Fields) != 3 {
-		t.Fatalf("expected 3 fields but got %d", len(model.Fields))
-	}
-
-	name, ok := model.Fields["Name"]
+	r.CurrentModel = "ResourceGroup"
+	currentModel, ok := (*actual)[r.CurrentModel]
 	if !ok {
-		t.Fatalf("expected there to be a field 'Name' but didn't get one")
-	}
-	if name.HclName != "name" {
-		t.Fatalf("expected the HclName for field 'Name' to be 'name' but got %q", name.HclName)
-	}
-	if name.ObjectDefinition.Type != resourcemanager.TerraformSchemaFieldTypeString {
-		t.Fatalf("expected the field 'Name' to have the type `string` but got %q", string(name.ObjectDefinition.Type))
-	}
-	// note: this differs from the model above, since this is implicitly required as a top level field
-	// even if it's defined as optional in the schema
-	if !name.Required {
-		t.Fatalf("expected the field 'Name' to be Required but it wasn't")
-	}
-	if !name.ForceNew {
-		t.Fatalf("expected the field 'Name' to be ForceNew but it wasn't")
-	}
-	// TODO: source WriteOnly from the mappings
-	//if name.Optional || name.Computed || name.WriteOnly {
-	//	t.Fatalf("expected the field 'Name' to be !Optional, !Computed and !WriteOnly but got %t / %t / %t", name.Optional, name.Computed, name.WriteOnly)
-	//}
-	if name.Optional || name.Computed {
-		t.Fatalf("expected the field 'Name' to be !Optional, !Computed but got %t / %t", name.Optional, name.Computed)
+		t.Errorf("top level model %q missing", r.CurrentModel)
+	} else {
+		if len(currentModel.Fields) != 3 {
+			t.Errorf("expected 3 fields but got %d", len(currentModel.Fields))
+		}
+		r.checkFieldName(t, currentModel)
+		r.checkFieldLocation(t, currentModel)
+		r.checkFieldTags(t, currentModel)
 	}
 
-	location, ok := model.Fields["Location"]
-	if !ok {
-		t.Fatalf("expected there to be a field 'Location' but didn't get one")
-	}
-	if location.HclName != "location" {
-		t.Fatalf("expected the HclName for field 'Location' to be 'location' but got %q", location.HclName)
-	}
-	if location.ObjectDefinition.Type != resourcemanager.TerraformSchemaFieldTypeLocation {
-		t.Fatalf("expected the field 'Location' to have the type `location` but got %q", string(location.ObjectDefinition.Type))
-	}
-	// note: this differs from the model above, since this is implicitly required as a top level field
-	// even if it's defined as optional in the schema
-	if !location.Required {
-		t.Fatalf("expected the field 'Location' to be Required but it wasn't")
-	}
-	if !location.ForceNew {
-		t.Fatalf("expected the field 'Location' to be ForceNew but it wasn't")
-	}
-	// TODO: source WriteOnly from the mappings
-	//if location.Optional || location.Computed || location.WriteOnly {
-	//	t.Fatalf("expected the field 'Location' to be !Optional, !Computed and !WriteOnly but got %t / %t / %t", location.Optional, location.Computed, location.WriteOnly)
-	//}
-	if location.Optional || location.Computed {
-		t.Fatalf("expected the field 'Location' to be !Optional, !Computed but got %t / %t", location.Optional, location.Computed)
-	}
-
-	tags, ok := model.Fields["Tags"]
-	if !ok {
-		t.Fatalf("expected there to be a field 'Tags' but didn't get one")
-	}
-	if tags.HclName != "tags" {
-		t.Fatalf("expected the HclName for field 'Tags' to be 'tags' but got %q", tags.HclName)
-	}
-	if tags.ObjectDefinition.Type != resourcemanager.TerraformSchemaFieldTypeTags {
-		t.Fatalf("expected the field 'Tags' to have the type `tags` but got %q", string(tags.ObjectDefinition.Type))
-	}
-	if !tags.Optional {
-		t.Fatalf("expected the field 'Tags' to be Optional but it wasn't")
-	}
-	// TODO: source WriteOnly from the mappings
-	//if tags.Required || tags.Computed || tags.ForceNew || tags.WriteOnly {
-	//	t.Fatalf("expected the field 'Tags' to be !Required, !Computed, !ForceNew and !WriteOnly but got %t / %t / %t / %t", tags.Required, tags.Computed, tags.ForceNew, tags.WriteOnly)
-	//}
-	if tags.Required || tags.Computed || tags.ForceNew {
-		t.Fatalf("expected the field 'Tags' to be !Required, !Computed, !ForceNew but got %t / / %t / %t", tags.Required, tags.Computed, tags.ForceNew)
+	r.CurrentModel = "ResourceGroupResourceGroupProperties"
+	currentModel, ok = (*actual)[r.CurrentModel]
+	if ok {
+		t.Errorf("expected model %q to be removed but it was present", r.CurrentModel)
 	}
 }
