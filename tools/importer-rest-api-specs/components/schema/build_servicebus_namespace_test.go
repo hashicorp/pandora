@@ -967,12 +967,12 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 	}
 
 	if actual == nil {
-		t.Fatalf("expected 11 models but got nil")
+		t.Fatalf("expected 4 models but got nil")
 	}
 
-	if len(*actual) != 5 {
+	if len(*actual) != 4 {
 		// TODO - Double check this count when the sku rules are in place :see_no_evil:
-		t.Errorf("expected 5 models, got %d", len(*actual))
+		t.Errorf("expected 4 models, got %d", len(*actual))
 	}
 
 	r.CurrentModel = "Namespace"
@@ -980,10 +980,11 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 	if !ok {
 		t.Errorf("top level model %q missing", r.CurrentModel)
 	} else {
-		if len(currentModel.Fields) != 18 {
+		if len(currentModel.Fields) != 16 {
 			// TODO - Double check this count when the sku rules are in place :see_no_evil:
 			// Missing - sku_name, sku_tier, sku_capacity, private_endpoint_id
-			t.Errorf("model %q - expected 18 fields but got %d", r.CurrentModel, len(currentModel.Fields))
+			// Should be removed - created_at, updated_at, sku
+			t.Errorf("model %q - expected 16 fields but got %d", r.CurrentModel, len(currentModel.Fields))
 		}
 
 		r.checkFieldName(t, currentModel)
@@ -1240,14 +1241,7 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 		})
 		r.checkField(t, currentModel, expected{
 			FieldName: "KeyVersion",
-			HclName:   "Key_version",
-			Optional:  true,
-			FieldType: resourcemanager.TerraformSchemaFieldTypeString,
-		})
-
-		r.checkField(t, currentModel, expected{
-			FieldName: "KeyVersion",
-			HclName:   "Key_version",
+			HclName:   "key_version",
 			Optional:  true,
 			FieldType: resourcemanager.TerraformSchemaFieldTypeString,
 		})
