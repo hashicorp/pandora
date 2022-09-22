@@ -3,13 +3,11 @@ package resource
 import (
 	"testing"
 
-	"github.com/hashicorp/pandora/tools/generator-terraform/featureflags"
-
 	"github.com/hashicorp/pandora/tools/generator-terraform/generator/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-// TODO: re-introduce Mappings for both Resource ID <-> Schema and Schema <-> SDK
+// TODO: re-introduce Mappings for Schema <-> SDK
 
 func TestComponentReadFunc_CommonId_Disabled(t *testing.T) {
 	input := models.ResourceInput{
@@ -23,6 +21,14 @@ func TestComponentReadFunc_CommonId_Disabled(t *testing.T) {
 				TimeoutInMinutes: 10,
 			},
 			ResourceIdName: "CustomSubscriptionId",
+			Mappings: resourcemanager.MappingDefinition{
+				ResourceId: []resourcemanager.ResourceIdMappingDefinition{
+					{
+						SchemaFieldName: "Name",
+						SegmentName:     "resourceGroupName",
+					},
+				},
+			},
 		},
 		Operations: map[string]resourcemanager.ApiOperation{
 			"Get": {
@@ -57,6 +63,14 @@ func TestComponentReadFunc_RegularResourceId_Disabled(t *testing.T) {
 				TimeoutInMinutes: 10,
 			},
 			ResourceIdName: "CustomSubscriptionId",
+			Mappings: resourcemanager.MappingDefinition{
+				ResourceId: []resourcemanager.ResourceIdMappingDefinition{
+					{
+						SchemaFieldName: "Name",
+						SegmentName:     "resourceGroupName",
+					},
+				},
+			},
 		},
 		Operations: map[string]resourcemanager.ApiOperation{
 			"Get": {
@@ -80,11 +94,6 @@ func TestComponentReadFunc_RegularResourceId_Disabled(t *testing.T) {
 }
 
 func TestComponentReadFunc_CommonId_Enabled(t *testing.T) {
-	// TODO: remove this once the feature-flag is properly threaded through
-	if !featureflags.OutputMappings {
-		t.Skip("@tombuildsstuff: skipping until fully implemented")
-	}
-
 	input := models.ResourceInput{
 		ResourceTypeName: "Example",
 		SdkResourceName:  "SdkResource",
@@ -96,6 +105,14 @@ func TestComponentReadFunc_CommonId_Enabled(t *testing.T) {
 				TimeoutInMinutes: 10,
 			},
 			ResourceIdName: "CustomSubscriptionId",
+			Mappings: resourcemanager.MappingDefinition{
+				ResourceId: []resourcemanager.ResourceIdMappingDefinition{
+					{
+						SchemaFieldName: "Name",
+						SegmentName:     "resourceGroupName",
+					},
+				},
+			},
 		},
 		Operations: map[string]resourcemanager.ApiOperation{
 			"Get": {
@@ -201,8 +218,6 @@ func (r ExampleResource) Read() sdk.ResourceFunc {
 			}
 			if model := resp.Model; model != nil {
 				schema.Name = id.ResourceGroupName
-
-				schema.SomeField = model.SomeSdkField
 			}
 			return metadata.Encode(&schema)
         },
@@ -213,11 +228,6 @@ func (r ExampleResource) Read() sdk.ResourceFunc {
 }
 
 func TestComponentReadFunc_CommonId_Options_Enabled(t *testing.T) {
-	// TODO: remove this once the feature-flag is properly threaded through
-	if !featureflags.OutputMappings {
-		t.Skip("@tombuildsstuff: skipping until fully implemented")
-	}
-
 	input := models.ResourceInput{
 		ResourceTypeName:   "Example",
 		SdkResourceName:    "SdkResource",
@@ -230,6 +240,14 @@ func TestComponentReadFunc_CommonId_Options_Enabled(t *testing.T) {
 				TimeoutInMinutes: 10,
 			},
 			ResourceIdName: "CustomSubscriptionId",
+			Mappings: resourcemanager.MappingDefinition{
+				ResourceId: []resourcemanager.ResourceIdMappingDefinition{
+					{
+						SchemaFieldName: "Name",
+						SegmentName:     "resourceGroupName",
+					},
+				},
+			},
 		},
 		Operations: map[string]resourcemanager.ApiOperation{
 			"Get": {
@@ -345,8 +363,6 @@ func (r ExampleResource) Read() sdk.ResourceFunc {
 			}
 			if model := resp.Model; model != nil {
 				schema.Name = id.ResourceGroupName
-
-				schema.SomeField = model.SomeSdkField
 			}
 			return metadata.Encode(&schema)
         },
@@ -357,11 +373,6 @@ func (r ExampleResource) Read() sdk.ResourceFunc {
 }
 
 func TestComponentReadFunc_RegularResourceId_Enabled(t *testing.T) {
-	// TODO: remove this once the feature-flag is properly threaded through
-	if !featureflags.OutputMappings {
-		t.Skip("@tombuildsstuff: skipping until fully implemented")
-	}
-
 	input := models.ResourceInput{
 		ResourceTypeName: "Example",
 		SdkResourceName:  "SdkResource",
@@ -373,6 +384,14 @@ func TestComponentReadFunc_RegularResourceId_Enabled(t *testing.T) {
 				TimeoutInMinutes: 10,
 			},
 			ResourceIdName: "CustomSubscriptionId",
+			Mappings: resourcemanager.MappingDefinition{
+				ResourceId: []resourcemanager.ResourceIdMappingDefinition{
+					{
+						SchemaFieldName: "Name",
+						SegmentName:     "resourceGroupName",
+					},
+				},
+			},
 		},
 		Operations: map[string]resourcemanager.ApiOperation{
 			"Get": {
@@ -477,8 +496,6 @@ func (r ExampleResource) Read() sdk.ResourceFunc {
 			}
 			if model := resp.Model; model != nil {
 				schema.Name = id.ResourceGroupName
-
-				schema.SomeField = model.SomeSdkField
 			}
 			return metadata.Encode(&schema)
         },
@@ -489,11 +506,6 @@ func (r ExampleResource) Read() sdk.ResourceFunc {
 }
 
 func TestComponentReadFunc_RegularResourceId_Options_Enabled(t *testing.T) {
-	// TODO: remove this once the feature-flag is properly threaded through
-	if !featureflags.OutputMappings {
-		t.Skip("@tombuildsstuff: skipping until fully implemented")
-	}
-
 	input := models.ResourceInput{
 		ResourceTypeName:   "Example",
 		SdkResourceName:    "SdkResource",
@@ -506,6 +518,14 @@ func TestComponentReadFunc_RegularResourceId_Options_Enabled(t *testing.T) {
 				TimeoutInMinutes: 10,
 			},
 			ResourceIdName: "CustomSubscriptionId",
+			Mappings: resourcemanager.MappingDefinition{
+				ResourceId: []resourcemanager.ResourceIdMappingDefinition{
+					{
+						SchemaFieldName: "Name",
+						SegmentName:     "resourceGroupName",
+					},
+				},
+			},
 		},
 		Operations: map[string]resourcemanager.ApiOperation{
 			"Get": {
@@ -619,8 +639,6 @@ func (r ExampleResource) Read() sdk.ResourceFunc {
 			}
 			if model := resp.Model; model != nil {
 				schema.Name = id.ResourceGroupName
-
-				schema.SomeField = model.SomeSdkField
 			}
 			return metadata.Encode(&schema)
         },

@@ -5,14 +5,13 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/hashicorp/pandora/tools/generator-terraform/featureflags"
 	"github.com/hashicorp/pandora/tools/generator-terraform/generator/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
 type readFunctionComponents struct {
 	idParseLine     string
-	models          map[string]resourcemanager.ModelDetails
+	mappings        resourcemanager.MappingDefinition
 	readMethod      resourcemanager.MethodDefinition
 	readOperation   resourcemanager.ApiOperation
 	resourceId      resourcemanager.ResourceIdDefinition
@@ -55,6 +54,7 @@ func readFunctionForResource(input models.ResourceInput) (*string, error) {
 
 	helper := readFunctionComponents{
 		idParseLine:     *idParseLine,
+		mappings:        input.Details.Mappings,
 		readMethod:      input.Details.ReadMethod,
 		readOperation:   readOperation,
 		resourceId:      resourceId,
@@ -121,29 +121,23 @@ func (c readFunctionComponents) codeForGet() (*string, error) {
 }
 
 func (c readFunctionComponents) codeForModelAssignments() (*string, error) {
-	if !featureflags.OutputMappings {
-		output := `// TODO: re-enable Mappings (featureflags.OutputMappings)`
-		return &output, nil
-	}
-	// TODO: tests for this
-
 	// first map all of the Resource ID segments across
 	resourceIdMappings, err := c.codeForResourceIdMappings()
 	if err != nil {
 		return nil, fmt.Errorf("building code for resource id mappings: %+v", err)
 	}
 	// then output the top-level mappings, which'll call into nested items as required
-	topLevelMappings, err := c.codeForTopLevelMappings()
-	if err != nil {
-		return nil, fmt.Errorf("building code for top-level field mappings: %+v", err)
-	}
+
+	// TODO: re-introduce top-level mappings
+	//topLevelMappings, err := c.codeForTopLevelMappings()
+	//if err != nil {
+	//	return nil, fmt.Errorf("building code for top-level field mappings: %+v", err)
+	//}
 	output := fmt.Sprintf(`
 			if model := resp.Model; model != nil {
 				%[1]s
-
-				%[2]s
 			}
-`, *resourceIdMappings, *topLevelMappings)
+`, *resourceIdMappings)
 	return &output, nil
 }
 
@@ -152,17 +146,9 @@ func (c readFunctionComponents) codeForResourceIdMappings() (*string, error) {
 
 	// TODO: note that when there's a parent ID field present we'll need to call `parent.NewParentID(..).ID()`
 	// to get the right URI
-	for _, v := range c.resourceId.Segments {
-		if v.Type == resourcemanager.ResourceProviderSegment || v.Type == resourcemanager.StaticSegment {
-			continue
-		}
-		// Subscription ID is a special-case that isn't output
-		if v.Type == resourcemanager.SubscriptionIdSegment {
-			continue
-		}
-
-		// TODO: re-introduce Resource ID <-> Schema Mappings
-		lines = append(lines, fmt.Sprintf("// TODO: schema.%s = id.%s", "SOMEFIELD", strings.Title(v.Name)))
+	for _, resourceIdMapping := range c.mappings.ResourceId {
+		// TODO: account for this being a mapping and needing to be mapped to/from
+		lines = append(lines, fmt.Sprintf("schema.%s = id.%s", resourceIdMapping.SchemaFieldName, strings.Title(resourceIdMapping.SegmentName)))
 	}
 	sort.Strings(lines)
 

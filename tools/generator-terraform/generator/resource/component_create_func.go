@@ -157,7 +157,8 @@ func (h createFunctionComponents) idDefinitionAndMapping() (*string, error) {
 
 		default:
 			{
-				// out
+				// find the associated mapping and output the relevant field to output the ID
+				// TODO: support Constants
 				for _, resourceIdMapping := range h.mappings.ResourceId {
 					if resourceIdMapping.SegmentName != v.Name {
 						continue
