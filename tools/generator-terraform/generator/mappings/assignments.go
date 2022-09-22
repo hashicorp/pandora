@@ -9,6 +9,7 @@ import (
 
 var assignmentTypes = map[resourcemanager.MappingDefinitionType]assignmentType{
 	resourcemanager.DirectAssignmentMappingDefinitionType: directAssignmentLine{},
+	resourcemanager.ManualMappingDefinitionType:           manualAssignmentLine{},
 }
 
 type assignmentConstantDetails struct {

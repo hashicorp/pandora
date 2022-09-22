@@ -23,6 +23,8 @@ var _ assignmentType = directAssignmentLine{}
 
 type directAssignmentLine struct{}
 
+// TODO: support for when Mapping is Computed
+
 func (d directAssignmentLine) assignmentForCreateUpdateMapping(mapping resourcemanager.FieldMappingDefinition, schemaModel resourcemanager.TerraformSchemaModelDefinition, sdkModel resourcemanager.ModelDetails, sdkConstant *assignmentConstantDetails) (*string, error) {
 	schemaFieldName, err := singleFieldNameFromFieldPath(mapping.From.SchemaFieldPath)
 	if err != nil {
