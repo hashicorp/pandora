@@ -10,7 +10,7 @@ import (
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-// TODO: re-introduce Mappings for both Resource ID <-> Schema and Schema <-> SDK
+// TODO: re-introduce Mappings for Schema <-> SDK
 
 // Create is complex enough that testing every permutation at the top level is complicated
 // so we'll test the happy path and then each individual component
@@ -600,11 +600,6 @@ func TestComponentCreate_RequiresImport_ResourceIdOptions(t *testing.T) {
 }
 
 func TestComponentCreate_IdDefinitionAndMapping_CommonResourceIDWithSubscription(t *testing.T) {
-	// TODO: remove this once the feature-flag is properly threaded through
-	if !featureflags.OutputMappings {
-		t.Skip("@tombuildsstuff: skipping until fully implemented")
-	}
-
 	actual, err := createFunctionComponents{
 		newResourceIdFuncName: "commonids.NewCommonResourceID",
 		resourceId: resourcemanager.ResourceIdDefinition{
@@ -644,6 +639,14 @@ func TestComponentCreate_IdDefinitionAndMapping_CommonResourceIDWithSubscription
 				},
 			},
 		},
+		mappings: resourcemanager.MappingDefinition{
+			ResourceId: []resourcemanager.ResourceIdMappingDefinition{
+				{
+					SchemaFieldName: "Name",
+					SegmentName:     "resourceGroupName",
+				},
+			},
+		},
 	}.idDefinitionAndMapping()
 	if err != nil {
 		t.Fatalf("error: %+v", err)
@@ -656,11 +659,6 @@ func TestComponentCreate_IdDefinitionAndMapping_CommonResourceIDWithSubscription
 }
 
 func TestComponentCreate_IdDefinitionAndMapping_CommonResourceIDWithoutSubscription(t *testing.T) {
-	// TODO: remove this once the feature-flag is properly threaded through
-	if !featureflags.OutputMappings {
-		t.Skip("@tombuildsstuff: skipping until fully implemented")
-	}
-
 	actual, err := createFunctionComponents{
 		newResourceIdFuncName: "commonids.NewCommonResourceID",
 		resourceId: resourcemanager.ResourceIdDefinition{
@@ -691,6 +689,14 @@ func TestComponentCreate_IdDefinitionAndMapping_CommonResourceIDWithoutSubscript
 				},
 			},
 		},
+		mappings: resourcemanager.MappingDefinition{
+			ResourceId: []resourcemanager.ResourceIdMappingDefinition{
+				{
+					SchemaFieldName: "Name",
+					SegmentName:     "resourceGroupName",
+				},
+			},
+		},
 	}.idDefinitionAndMapping()
 	if err != nil {
 		t.Fatalf("error: %+v", err)
@@ -702,11 +708,6 @@ func TestComponentCreate_IdDefinitionAndMapping_CommonResourceIDWithoutSubscript
 }
 
 func TestComponentCreate_IdDefinitionAndMapping_RegularResourceIDWithSubscription(t *testing.T) {
-	// TODO: remove this once the feature-flag is properly threaded through
-	if !featureflags.OutputMappings {
-		t.Skip("@tombuildsstuff: skipping until fully implemented")
-	}
-
 	actual, err := createFunctionComponents{
 		newResourceIdFuncName: "sdkresource.NewSomeResourceID",
 		resourceId: resourcemanager.ResourceIdDefinition{
@@ -746,6 +747,14 @@ func TestComponentCreate_IdDefinitionAndMapping_RegularResourceIDWithSubscriptio
 				},
 			},
 		},
+		mappings: resourcemanager.MappingDefinition{
+			ResourceId: []resourcemanager.ResourceIdMappingDefinition{
+				{
+					SchemaFieldName: "Name",
+					SegmentName:     "resourceGroupName",
+				},
+			},
+		},
 	}.idDefinitionAndMapping()
 	if err != nil {
 		t.Fatalf("error: %+v", err)
@@ -758,11 +767,6 @@ func TestComponentCreate_IdDefinitionAndMapping_RegularResourceIDWithSubscriptio
 }
 
 func TestComponentCreate_IdDefinitionAndMapping_RegularResourceIDWithoutSubscription(t *testing.T) {
-	// TODO: remove this once the feature-flag is properly threaded through
-	if !featureflags.OutputMappings {
-		t.Skip("@tombuildsstuff: skipping until fully implemented")
-	}
-
 	actual, err := createFunctionComponents{
 		newResourceIdFuncName: "sdkresource.NewSomeResourceID",
 		resourceId: resourcemanager.ResourceIdDefinition{
@@ -790,6 +794,14 @@ func TestComponentCreate_IdDefinitionAndMapping_RegularResourceIDWithoutSubscrip
 					},
 					Required: true,
 					ForceNew: true,
+				},
+			},
+		},
+		mappings: resourcemanager.MappingDefinition{
+			ResourceId: []resourcemanager.ResourceIdMappingDefinition{
+				{
+					SchemaFieldName: "Name",
+					SegmentName:     "resourceGroupName",
 				},
 			},
 		},
