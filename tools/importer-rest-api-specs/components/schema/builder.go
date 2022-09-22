@@ -2,11 +2,9 @@ package schema
 
 import (
 	"fmt"
-
+	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/helpers"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/schema/processors"
-
-	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
@@ -75,12 +73,25 @@ func (b Builder) Build(input resourcemanager.TerraformResourceDetails, logger hc
 		schemaModels[prefixedModelName] = *nestedModelDetails
 	}
 
+	blockHclNamesRefMap := make(map[string]string)
+
 	// TODO: now that we have all of the models for this resource, we should loop through and check what can be cleaned up
 	for modelName, model := range schemaModels {
 		for _, processor := range processors.ModelRules {
 			schemaModels, err = processor.ProcessModel(modelName, model, schemaModels)
 			if err != nil {
 				return nil, fmt.Errorf("processing models: %+v", err)
+			}
+		}
+
+		for _, field := range model.Fields {
+			if field.ObjectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeReference {
+				if blockRef, ok := blockHclNamesRefMap[field.HclName]; ok {
+					if blockRef != *field.ObjectDefinition.ReferenceName {
+						return nil, fmt.Errorf("found duplicate HCL name for block  %q: %+v", field.HclName, err)
+					}
+				}
+				blockHclNamesRefMap[field.HclName] = *field.ObjectDefinition.ReferenceName
 			}
 		}
 	}
