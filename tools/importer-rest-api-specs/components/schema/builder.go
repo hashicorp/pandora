@@ -84,14 +84,19 @@ func (b Builder) Build(input resourcemanager.TerraformResourceDetails, logger hc
 			}
 		}
 
-		for _, field := range model.Fields {
-			if field.ObjectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeReference {
+		for fieldName, field := range model.Fields {
+			objectDefinition := topLevelObjectDefinition(field.ObjectDefinition)
+			if objectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeReference {
+				if objectDefinition.ReferenceName == nil {
+					return nil, fmt.Errorf("the Field %q within Model %q was a Reference with no ReferenceName", fieldName)
+				}
+				
 				if blockRef, ok := blockHclNamesRefMap[field.HclName]; ok {
-					if blockRef != *field.ObjectDefinition.ReferenceName {
+					if blockRef != *objectDefinition.ReferenceName {
 						return nil, fmt.Errorf("found duplicate HCL name for block  %q: %+v", field.HclName, err)
 					}
 				}
-				blockHclNamesRefMap[field.HclName] = *field.ObjectDefinition.ReferenceName
+				blockHclNamesRefMap[field.HclName] = *objectDefinition.ReferenceName
 			}
 		}
 	}
