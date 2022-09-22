@@ -148,6 +148,16 @@ const (
 	// TODO: more
 )
 
+type ResourceIdMappingDefinition struct {
+	// SchemaFieldName is the name of the (top-level) Schema Field which the Segment
+	// named in SegmentName should be mapped to/from.
+	SchemaFieldName string `json:"schemaFieldName"`
+
+	// SegmentName is the name of the ResourceId Segment which should be mapped to/from
+	// the Schema Field defined in SchemaFieldName.
+	SegmentName string `json:"segmentName"`
+}
+
 type MappingDefinition struct {
 	// Create defines the mappings used during the Create function.
 	Create []FieldMappingDefinition `json:"create"`
@@ -157,6 +167,11 @@ type MappingDefinition struct {
 
 	// Update (optionally) defines the mappings used during the Update function.
 	Update *[]FieldMappingDefinition `json:"update,omitempty"`
+
+	// ResourceId defines the mapping between the segments in the ResourceId and the Schema Model.
+	// This is used in both the Create function (to build up the ResourceId) and the Read function
+	// to populate the source fields from the ResourceId segments.
+	ResourceId []ResourceIdMappingDefinition `json:"resourceId"`
 }
 
 type TerraformResourceDetails struct {
