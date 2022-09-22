@@ -144,6 +144,7 @@ const (
 	BooleanEqualsMappingDefinitionType    MappingDefinitionType = "BooleanEquals"
 	BooleanInvertMappingDefinitionType    MappingDefinitionType = "BooleanInvert"
 	DirectAssignmentMappingDefinitionType MappingDefinitionType = "DirectAssignment"
+	ManualMappingDefinitionType           MappingDefinitionType = "Manual"
 	// TODO: more
 )
 
