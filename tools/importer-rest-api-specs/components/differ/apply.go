@@ -14,7 +14,7 @@ func (d Differ) ApplyFromExistingAPIDefinitions(existing models.AzureApiDefiniti
 	for resourceName, resource := range existing.Resources {
 		parsedResource, ok := parsed.Resources[resourceName]
 		if !ok {
-			return parsed, fmt.Errorf("unable to find %q resource in new api definition", resourceName)
+			return parsed, fmt.Errorf("unable to find the API Resource %q in the newly parsed api definitions", resourceName)
 		}
 
 		if existingTerraform := resource.Terraform; existingTerraform != nil {
