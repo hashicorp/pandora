@@ -22,7 +22,7 @@ func (d Differ) ApplyFromExistingAPIDefinitions(existing models.AzureApiDefiniti
 				for existingTerraformResourceName, existingTerraformResource := range existingTerraform.Resources {
 					parsedTerraformResource, ok := parsedTerraform.Resources[existingTerraformResourceName]
 					if !ok {
-						return parsed, fmt.Errorf("unable to find %q terraform resource in new api definition", resourceName)
+						return parsed, fmt.Errorf("unable to find the Terraform Resource %q in newly parsed api definitions", resourceName)
 					}
 					if existingTemplate := existingTerraformResource.Tests.TemplateConfiguration; existingTemplate != nil {
 						parsedTerraformResource.Tests.TemplateConfiguration = existingTemplate
