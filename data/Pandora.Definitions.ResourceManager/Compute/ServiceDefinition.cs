@@ -16,7 +16,5 @@ public partial class Service : ServiceDefinition
 
     public IEnumerable<TerraformResourceDefinition> TerraformResources => new List<TerraformResourceDefinition>
     {
-        new Terraform.VirtualMachineResource(),
-new Terraform.VirtualMachineScaleSetResource(),
     };
 }
