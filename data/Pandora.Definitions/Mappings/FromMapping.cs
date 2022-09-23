@@ -9,7 +9,7 @@ public class FromMapping
     /// FromModel is the name of the SchemaModel that this mapping is From.
     /// </summary>
     internal string FromModel { get; set; }
-    
+
     /// <summary>
     /// FromFieldPath is the path to the SchemaField that this mapping is From.
     /// </summary>
@@ -21,7 +21,7 @@ public class FromMapping
         {
             throw new NotSupportedException("ResourceIDSegments can only be mapped to top-level fields");
         }
-        
+
         return new ResourceIdMapping
         {
             SchemaFieldName = FromFieldPath,

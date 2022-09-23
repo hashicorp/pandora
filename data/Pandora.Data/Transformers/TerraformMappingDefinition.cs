@@ -26,7 +26,7 @@ public static class TerraformMappingDefinition
 
             throw new NotSupportedException($"unsupported mapping type {item.GetType().Name}");
         }
-        
+
         return new Models.TerraformMappingDefinition
         {
             ResourceIds = resourceIds.ToList(),

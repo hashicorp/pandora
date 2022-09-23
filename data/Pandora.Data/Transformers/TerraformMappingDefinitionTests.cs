@@ -28,7 +28,7 @@ public static class TerraformMappingDefinitionTests
     {
         public List<MappingType> Mappings => new List<MappingType>();
     }
-    
+
     private class ResourceIdMappings : Definitions.Interfaces.TerraformMappingDefinition
     {
         public List<MappingType> Mappings => new List<MappingType>
@@ -43,7 +43,7 @@ public static class TerraformMappingDefinitionTests
         [HclName("foo")]
         [Required]
         public string Foo { get; set; }
-        
+
         [HclName("bar")]
         [Required]
         public string Bar { get; set; }

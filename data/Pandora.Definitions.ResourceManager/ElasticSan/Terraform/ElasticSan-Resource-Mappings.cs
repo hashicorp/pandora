@@ -7,16 +7,16 @@ namespace Pandora.Definitions.ResourceManager.ElasticSan.Terraform;
 
 public class ElasticSanResourceMappings : TerraformMappingDefinition
 {
-    public List<Mapping> Mappings => new List<Mapping>
+    public List<MappingType> Mappings => new List<MappingType>
     {
         // Mapping.FromSchema<ElasticSanResourceSchema>(s => s.Name).ToResourceIdSegmentNamed("virtualMachineScaleSetName"),
         // Mapping.FromSchema<ElasticSanResourceSchema>(s => s.ResourceGroupName).ToResourceIdSegmentNamed("resourceGroupName"),
 
-        // Mapping.FromSchema<ElasticSanResourceSchema>(s => s.Location).ToSdkModelField<ElasticSanModel>(m => m.Location),
-        // Mapping.FromSchema<ElasticSanResourceSchema>(s => s.Tags).ToSdkModelField<ElasticSanModel>(m => m.Tags),
-        // Mapping.FromSchema<ElasticSanResourceSchema>(s => s.UniqueId).ToSdkModelField<ElasticSanModel>(m => m.Properties.UniqueId),
+        // Mapping.FromSchema<ElasticSanResourceSchema>(s => s.Location).ToSdkField<ElasticSanModel>(m => m.Location),
+        // Mapping.FromSchema<ElasticSanResourceSchema>(s => s.Tags).ToSdkField<ElasticSanModel>(m => m.Tags),
+        // Mapping.FromSchema<ElasticSanResourceSchema>(s => s.UniqueId).ToSdkField<ElasticSanModel>(m => m.Properties.UniqueId),
 
         // Mapping.FromSchema<ElasticSanResourceSchema>(s => s.DataDisks).ToSdkModel<ElasticSanDataDiskModel>(),
-        // Mapping.FromSchema<ElasticSanDataDiskSchemaModel>(s => s.Name).ToSdkModelField<ElasticSanDataDiskModel>(m => m.Name),
+        // Mapping.FromSchema<ElasticSanDataDiskSchemaModel>(s => s.Name).ToSdkField<ElasticSanDataDiskModel>(m => m.Name),
     };
 }

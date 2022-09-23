@@ -118,7 +118,7 @@ resource 'example_resource' 'example' {
         }
         return response;
     }
-    
+
     private static MappingsDefinition MapMappingDefinitions(TerraformMappingDefinition input)
     {
         return new MappingsDefinition

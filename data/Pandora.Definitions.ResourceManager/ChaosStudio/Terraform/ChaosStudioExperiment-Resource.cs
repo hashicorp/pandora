@@ -9,7 +9,7 @@ public class ChaosStudioExperimentResource : TerraformResourceDefinition
     public ResourceID ResourceId => new v2022_07_01_preview.Experiments.ExperimentId();
     public string ResourceLabel => "chaos_studio_experiment";
     public Type? SchemaModel => typeof(ChaosStudioExperimentResourceSchema);
-    public TerraformMappingDefinition SchemaMappings => null; // TODO: implement mappings
+    public TerraformMappingDefinition SchemaMappings => new ChaosStudioExperimentResourceMappings();
     public TerraformResourceTestDefinition Tests => new ChaosStudioExperimentResourceTests();
 
     public bool GenerateIDValidationFunction => true;
