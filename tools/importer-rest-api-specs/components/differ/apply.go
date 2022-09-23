@@ -28,6 +28,18 @@ func (d Differ) ApplyFromExistingAPIDefinitions(existing models.AzureApiDefiniti
 					if !ok {
 						return parsed, fmt.Errorf("unable to find the Terraform Resource %q in newly parsed api definitions", resourceName)
 					}
+					if existingBasicConfig := existingTerraformResource.Tests.BasicConfiguration; existingBasicConfig != "" {
+						logger.Trace("applying Existing Basic Test Config from the Existing Terraform Resource to the Parsed Terraform Resource..")
+						parsedTerraformResource.Tests.BasicConfiguration = existingBasicConfig
+					}
+					if existingImportConfig := existingTerraformResource.Tests.RequiresImportConfiguration; existingImportConfig != "" {
+						logger.Trace("applying Existing Requires Import Test Config from the Existing Terraform Resource to the Parsed Terraform Resource..")
+						parsedTerraformResource.Tests.RequiresImportConfiguration = existingImportConfig
+					}
+					if existingCompleteConfig := existingTerraformResource.Tests.CompleteConfiguration; existingCompleteConfig != nil {
+						logger.Trace("applying Existing Complete Test Config from the Existing Terraform Resource to the Parsed Terraform Resource..")
+						parsedTerraformResource.Tests.RequiresImportConfiguration = *existingCompleteConfig
+					}
 					if existingTemplate := existingTerraformResource.Tests.TemplateConfiguration; existingTemplate != nil {
 						logger.Trace("applying Existing Test Template from the Existing Terraform Resource to the Parsed Terraform Resource..")
 						parsedTerraformResource.Tests.TemplateConfiguration = existingTemplate
