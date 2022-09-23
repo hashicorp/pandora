@@ -33,7 +33,8 @@ func (pipelineTask) generateTerraformDetails(data *models.AzureApiDefinition, lo
 
 			// use the ResourceName to build up the name for this Schema Model
 			resourceDetails.SchemaModelName = fmt.Sprintf("%sResource", resourceDetails.ResourceName)
-			modelsForResource, err := b.Build(resourceDetails, logger)
+
+			modelsForResource, mappings, err := b.Build(resourceDetails, logger)
 			if err != nil {
 				return nil, err
 			}
@@ -44,6 +45,7 @@ func (pipelineTask) generateTerraformDetails(data *models.AzureApiDefinition, lo
 			}
 
 			resourceDetails.SchemaModels = *modelsForResource
+			resourceDetails.Mappings = *mappings
 
 			terraformResources[resourceLabel] = resourceDetails
 		}

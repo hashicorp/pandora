@@ -124,12 +124,12 @@ func TestBuildForResourceGroupHappyPathAllModelsTheSame(t *testing.T) {
 			TimeoutInMinutes: 30,
 		},
 	}
-	actual, err := builder.Build(input, hclog.New(hclog.DefaultOptions))
+	actualModels, actualMappings, err := builder.Build(input, hclog.New(hclog.DefaultOptions))
 	if err != nil {
 		t.Fatalf("building schema: %+v", err)
 	}
 
-	testValidateResourceGroupSchema(t, actual)
+	testValidateResourceGroupSchema(t, actualModels, actualMappings)
 }
 
 func TestBuildForResourceGroupUsingRealData(t *testing.T) {
@@ -324,27 +324,27 @@ func TestBuildForResourceGroupUsingRealData(t *testing.T) {
 			TimeoutInMinutes: 30,
 		},
 	}
-	actual, err := builder.Build(input, hclog.New(hclog.DefaultOptions))
+	actualModels, actualMappings, err := builder.Build(input, hclog.New(hclog.DefaultOptions))
 	if err != nil {
 		t.Fatalf("building schema: %+v", err)
 	}
 
-	testValidateResourceGroupSchema(t, actual)
+	testValidateResourceGroupSchema(t, actualModels, actualMappings)
 }
 
-func testValidateResourceGroupSchema(t *testing.T, actual *map[string]resourcemanager.TerraformSchemaModelDefinition) {
+func testValidateResourceGroupSchema(t *testing.T, actualModels *map[string]resourcemanager.TerraformSchemaModelDefinition, actualMappings *resourcemanager.MappingDefinition) {
 	r := resourceUnderTest{
 		Name: "Resource Group",
 	}
 
-	if actual == nil {
+	if actualModels == nil {
 		t.Fatalf("expected 1 model but got nil")
 	}
-	if len(*actual) != 1 {
-		t.Errorf("expected 1 model but got %d", len(*actual))
+	if len(*actualModels) != 1 {
+		t.Errorf("expected 1 model but got %d", len(*actualModels))
 	}
 	r.CurrentModel = "ResourceGroup"
-	currentModel, ok := (*actual)[r.CurrentModel]
+	currentModel, ok := (*actualModels)[r.CurrentModel]
 	if !ok {
 		t.Errorf("top level model %q missing", r.CurrentModel)
 	} else {
@@ -357,8 +357,13 @@ func testValidateResourceGroupSchema(t *testing.T, actual *map[string]resourcema
 	}
 
 	r.CurrentModel = "ResourceGroupResourceGroupProperties"
-	currentModel, ok = (*actual)[r.CurrentModel]
+	currentModel, ok = (*actualModels)[r.CurrentModel]
 	if ok {
 		t.Errorf("expected model %q to be removed but it was present", r.CurrentModel)
+	}
+
+	if actualMappings == nil {
+		// TODO: tests for Mappings
+		t.Fatalf("expected some mappings but got nil")
 	}
 }

@@ -1,11 +1,12 @@
 package schema
 
 import (
+	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/helpers"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-func (b Builder) identityTopLevelFieldsWithinResourceID(input resourcemanager.ResourceIdDefinition) (*map[string]resourcemanager.TerraformSchemaFieldDefinition, error) {
+func (b Builder) identityTopLevelFieldsWithinResourceID(input resourcemanager.ResourceIdDefinition, mappings *resourcemanager.MappingDefinition, logger hclog.Logger) (*map[string]resourcemanager.TerraformSchemaFieldDefinition, *resourcemanager.MappingDefinition, error) {
 	out := make(map[string]resourcemanager.TerraformSchemaFieldDefinition, 0)
 
 	// TODO: mappings
@@ -21,6 +22,7 @@ func (b Builder) identityTopLevelFieldsWithinResourceID(input resourcemanager.Re
 			Markdown: "The name which should be used for this resource", // TODO get resource name here?
 		},
 	}
+	mappings.Create = append(mappings.Create)
 
 	if len(input.Segments) > 2 {
 		parentSegments := input.Segments[0 : len(input.Segments)-2]
@@ -74,7 +76,7 @@ func (b Builder) identityTopLevelFieldsWithinResourceID(input resourcemanager.Re
 		}
 	}
 
-	return &out, nil
+	return &out, mappings, nil
 }
 
 func segmentsMatch(first []resourcemanager.ResourceIdSegment, second []resourcemanager.ResourceIdSegment) bool {

@@ -520,20 +520,24 @@ func TestBuildForSearchServiceUsingRealData(t *testing.T) {
 		},
 	}
 
-	actual, err := builder.Build(input, hclog.New(hclog.DefaultOptions))
+	actualModels, actualMappings, err := builder.Build(input, hclog.New(hclog.DefaultOptions))
 	if err != nil {
 		t.Fatalf("building schema: %+v", err)
 	}
 
-	if actual == nil {
+	if actualModels == nil {
 		t.Fatalf("expected 6 models but got nil")
 	}
-	if len(*actual) != 14 { // TODO - Revise this when we have a "definitive" rules list...
-		t.Errorf("expected 14 models but got %d", len(*actual))
+	if len(*actualModels) != 14 { // TODO - Revise this when we have a "definitive" rules list...
+		t.Errorf("expected 14 models but got %d", len(*actualModels))
+	}
+	if actualMappings == nil {
+		// TODO: tests for Mappings
+		t.Fatalf("expected some mappings but got nil")
 	}
 
 	r.CurrentModel = "SearchService"
-	currentModel, ok := (*actual)[r.CurrentModel]
+	currentModel, ok := (*actualModels)[r.CurrentModel]
 	if !ok {
 		t.Errorf("expected there to be a model %q, but there wasn't", r.CurrentModel)
 	} else {
@@ -613,25 +617,25 @@ func TestBuildForSearchServiceUsingRealData(t *testing.T) {
 	}
 
 	r.CurrentModel = "SearchServiceProperties"
-	currentModel, ok = (*actual)[r.CurrentModel]
+	currentModel, ok = (*actualModels)[r.CurrentModel]
 	if ok {
 		t.Errorf("expected there not to be a model %q, but there was", r.CurrentModel)
 	}
 
 	r.CurrentModel = "IPRule"
-	currentModel, ok = (*actual)[r.CurrentModel]
+	currentModel, ok = (*actualModels)[r.CurrentModel]
 	if ok {
 		t.Errorf("expected there not to be a model %q, but there was", r.CurrentModel)
 	}
 
 	r.CurrentModel = "NetworkRuleSet"
-	currentModel, ok = (*actual)[r.CurrentModel]
+	currentModel, ok = (*actualModels)[r.CurrentModel]
 	if ok {
 		t.Errorf("expected there not to be a model %q, but there was", r.CurrentModel)
 	}
 
 	r.CurrentModel = "SearchServicePrivateEndpointConnection"
-	currentModel, ok = (*actual)[r.CurrentModel]
+	currentModel, ok = (*actualModels)[r.CurrentModel]
 	if !ok {
 		t.Errorf("expected there to be a model %q, but there wasn't", r.CurrentModel)
 	} else {
@@ -657,25 +661,25 @@ func TestBuildForSearchServiceUsingRealData(t *testing.T) {
 	}
 
 	r.CurrentModel = "SearchServicePrivateEndpoint"
-	currentModel, ok = (*actual)[r.CurrentModel]
+	currentModel, ok = (*actualModels)[r.CurrentModel]
 	if ok {
 		t.Errorf("expected there not to be a model %q, but there was", r.CurrentModel)
 	}
 
 	r.CurrentModel = "SearchServicePrivateEndpointConnectionProperties"
-	currentModel, ok = (*actual)[r.CurrentModel]
+	currentModel, ok = (*actualModels)[r.CurrentModel]
 	if ok {
 		t.Errorf("expected there not to be a model %q, but there was", r.CurrentModel)
 	}
 
 	r.CurrentModel = "SearchServicePrivateLinkServiceConnectionStateProperties"
-	currentModel, ok = (*actual)[r.CurrentModel]
+	currentModel, ok = (*actualModels)[r.CurrentModel]
 	if ok {
 		t.Errorf("expected there not to be a model %q, but there was", r.CurrentModel)
 	}
 
 	r.CurrentModel = "SearchServiceSharedPrivateLinkResource"
-	currentModel, ok = (*actual)[r.CurrentModel]
+	currentModel, ok = (*actualModels)[r.CurrentModel]
 	if !ok {
 		t.Errorf("expected there to be a model %q, but there wasn't", r.CurrentModel)
 	} else {
