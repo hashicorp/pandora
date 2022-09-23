@@ -1,80 +1,98 @@
 package schema
 
 import (
-	"github.com/hashicorp/go-hclog"
+	"strings"
+
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/helpers"
+
+	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
 func (b Builder) identityTopLevelFieldsWithinResourceID(input resourcemanager.ResourceIdDefinition, mappings *resourcemanager.MappingDefinition, logger hclog.Logger) (*map[string]resourcemanager.TerraformSchemaFieldDefinition, *resourcemanager.MappingDefinition, error) {
 	out := make(map[string]resourcemanager.TerraformSchemaFieldDefinition, 0)
 
-	// TODO: mappings
-	out["Name"] = resourcemanager.TerraformSchemaFieldDefinition{
-		ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-			Type: resourcemanager.TerraformSchemaFieldTypeString,
-		},
-		// since this is included in the Resource ID it's implicitly Required/ForceNew
-		Required: true,
-		ForceNew: true,
-		HclName:  "name",
-		Documentation: resourcemanager.TerraformSchemaDocumentationDefinition{
-			Markdown: "The name which should be used for this resource", // TODO get resource name here?
-		},
-	}
-	mappings.Create = append(mappings.Create)
-
-	if len(input.Segments) > 2 {
-		parentSegments := input.Segments[0 : len(input.Segments)-2]
-		if segmentsContainResource(parentSegments) {
-			// find the parent Resource ID and use that
-			parentResourceIdName := ""
-			for name, id := range b.resourceIds {
-				if segmentsMatch(id.Segments, parentSegments) {
-					parentResourceIdName = name
-					break
-				}
-			}
-			if parentResourceIdName != "" {
-				parentResourceSchemaField := helpers.ConvertToSnakeCase(parentResourceIdName)
-				out[parentResourceIdName] = resourcemanager.TerraformSchemaFieldDefinition{
-					ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-						Type:          resourcemanager.TerraformSchemaFieldTypeReference,
-						ReferenceName: &parentResourceIdName,
-					},
-					// since this is included in the Resource ID it's implicitly Required/ForceNew
-					Required: true,
-					ForceNew: true,
-					HclName:  parentResourceSchemaField,
-				}
-			}
-			// TODO: perhaps add the components here instead, aside from Subscription/Tenant ID etc?
-		} else {
-			// NOTE: Happy path case where we have a "standard" ID `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/...`
-			if input.Segments[2].FixedValue != nil && *input.Segments[2].FixedValue == "resourceGroups" {
-				if input.CommonAlias != nil && *input.CommonAlias == "ResourceGroup" {
-					// Resource Group is a special case where the `name` field should be overridden
-					out["Name"] = resourcemanager.TerraformSchemaFieldDefinition{
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeResourceGroup,
-						},
-						Required: true,
-						ForceNew: true,
-						HclName:  "name",
-					}
-				} else {
-					out["ResourceGroupName"] = resourcemanager.TerraformSchemaFieldDefinition{
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeResourceGroup,
-						},
-						Required: true,
-						ForceNew: true,
-						HclName:  "resource_group_name",
-					}
-				}
-			}
+	for i, v := range input.Segments {
+		if v.Type == resourcemanager.StaticSegment || v.Type == resourcemanager.SubscriptionIdSegment {
+			continue
 		}
+
+		fieldName := strings.Title(v.Name)
+		hclName := helpers.ConvertToSnakeCase(v.Name)
+		if i == len(input.Segments)-1 {
+			// if it's the last one override the name since that'll be the name of this Resource
+			fieldName = "Name"
+			hclName = "name"
+		}
+		out[fieldName] = resourcemanager.TerraformSchemaFieldDefinition{
+			ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+				Type: resourcemanager.TerraformSchemaFieldTypeString,
+			},
+			// since this is included in the Resource ID it's implicitly Required/ForceNew
+			Required: true,
+			ForceNew: true,
+			HclName:  hclName,
+			Documentation: resourcemanager.TerraformSchemaDocumentationDefinition{
+				Markdown: "The name which should be used for this resource", // TODO get resource name here?
+			},
+		}
+		mappings.ResourceId = append(mappings.ResourceId, resourcemanager.ResourceIdMappingDefinition{
+			SchemaFieldName: fieldName,
+			SegmentName:     v.Name,
+		})
 	}
+
+	//if len(input.Segments) > 2 {
+	//	parentSegments := input.Segments[0 : len(input.Segments)-2]
+	//	if segmentsContainResource(parentSegments) {
+	//		// find the parent Resource ID and use that
+	//		parentResourceIdName := ""
+	//		for name, id := range b.resourceIds {
+	//			if segmentsMatch(id.Segments, parentSegments) {
+	//				parentResourceIdName = name
+	//				break
+	//			}
+	//		}
+	//		if parentResourceIdName != "" {
+	//			parentResourceSchemaField := helpers.ConvertToSnakeCase(parentResourceIdName)
+	//			out[parentResourceIdName] = resourcemanager.TerraformSchemaFieldDefinition{
+	//				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+	//					Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+	//					ReferenceName: &parentResourceIdName,
+	//				},
+	//				// since this is included in the Resource ID it's implicitly Required/ForceNew
+	//				Required: true,
+	//				ForceNew: true,
+	//				HclName:  parentResourceSchemaField,
+	//			}
+	//		}
+	//		// TODO: perhaps add the components here instead, aside from Subscription/Tenant ID etc?
+	//	} else {
+	//		// NOTE: Happy path case where we have a "standard" ID `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/...`
+	//		if input.Segments[2].FixedValue != nil && *input.Segments[2].FixedValue == "resourceGroups" {
+	//			if input.CommonAlias != nil && *input.CommonAlias == "ResourceGroup" {
+	//				// Resource Group is a special case where the `name` field should be overridden
+	//				out["Name"] = resourcemanager.TerraformSchemaFieldDefinition{
+	//					ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+	//						Type: resourcemanager.TerraformSchemaFieldTypeResourceGroup,
+	//					},
+	//					Required: true,
+	//					ForceNew: true,
+	//					HclName:  "name",
+	//				}
+	//			} else {
+	//				out["ResourceGroupName"] = resourcemanager.TerraformSchemaFieldDefinition{
+	//					ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+	//						Type: resourcemanager.TerraformSchemaFieldTypeResourceGroup,
+	//					},
+	//					Required: true,
+	//					ForceNew: true,
+	//					HclName:  "resource_group_name",
+	//				}
+	//			}
+	//		}
+	//	}
+	//}
 
 	return &out, mappings, nil
 }
