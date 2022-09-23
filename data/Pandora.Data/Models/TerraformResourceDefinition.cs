@@ -11,6 +11,7 @@ public class TerraformResourceDefinition
     public bool GenerateModel { get; set; }
     public bool GenerateIDValidationFunction { get; set; }
     public bool GenerateSchema { get; set; }
+    public TerraformMappingDefinition Mappings { get; set; }
     public TerraformMethodDefinition ReadMethod { get; set; }
     public string Resource { get; set; }
     public string ResourceIdName { get; set; }
@@ -18,7 +19,6 @@ public class TerraformResourceDefinition
     public string ResourceName { get; set; }
     public string? SchemaModelName { get; set; }
     public Dictionary<string, TerraformSchemaModelDefinition>? SchemaModels { get; set; }
-
     public TerraformResourceTestDefinition? Tests { get; set; }
     public TerraformMethodDefinition? UpdateMethod { get; set; }
 }

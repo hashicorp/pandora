@@ -171,7 +171,7 @@ public static class ServiceTests
             public Definitions.Interfaces.ResourceID ResourceId => new FakeTerraformOperationResourceId();
             public string ResourceLabel => "fake_resource";
             public Type? SchemaModel => typeof(FakeTerraformSchemaModel);
-            public TerraformMappingDefinition SchemaMappings => throw new NotImplementedException();
+            public Definitions.Interfaces.TerraformMappingDefinition SchemaMappings => throw new NotImplementedException();
             public Definitions.Interfaces.TerraformResourceTestDefinition Tests => new FakeTestDefinition();
 
             public MethodDefinition? UpdateMethod => new MethodDefinition
