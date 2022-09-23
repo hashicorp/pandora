@@ -815,6 +815,58 @@ func TestComponentCreate_IdDefinitionAndMapping_RegularResourceIDWithoutSubscrip
 	assertTemplatedCodeMatches(t, expected, *actual)
 }
 
+func TestComponentCreate_IdDefinitionAndMapping_RegularResourceIDConstantSegment(t *testing.T) {
+	actual, err := createFunctionComponents{
+		newResourceIdFuncName:  "sdkresource.NewSomeResourceID",
+		sdkResourceNameLowered: "sdkresource",
+		resourceId: resourcemanager.ResourceIdDefinition{
+			CommonAlias: nil,
+			Id:          "/animals/{animalType}",
+			Segments: []resourcemanager.ResourceIdSegment{
+				{
+					Type:       resourcemanager.StaticSegment,
+					Name:       "animals",
+					FixedValue: stringPointer("animals"),
+				},
+				{
+					ConstantReference: stringPointer("AnimalType"),
+					ExampleValue:      "panda",
+					Name:              "animalType",
+					Type:              resourcemanager.ConstantSegment,
+				},
+			},
+			ConstantNames: []string{"AnimalType"},
+		},
+		terraformModel: resourcemanager.TerraformSchemaModelDefinition{
+			Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+				"Animal": {
+					HclName: "animal",
+					ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+						Type: resourcemanager.TerraformSchemaFieldTypeString,
+					},
+					Required: true,
+					ForceNew: true,
+				},
+			},
+		},
+		mappings: resourcemanager.MappingDefinition{
+			ResourceId: []resourcemanager.ResourceIdMappingDefinition{
+				{
+					SchemaFieldName: "Animal",
+					SegmentName:     "animalType",
+				},
+			},
+		},
+	}.idDefinitionAndMapping()
+	if err != nil {
+		t.Fatalf("error: %+v", err)
+	}
+	expected := `
+	id := sdkresource.NewSomeResourceID(sdkresource.AnimalType(config.Animal))
+`
+	assertTemplatedCodeMatches(t, expected, *actual)
+}
+
 func TestComponentCreate_PayloadDefinition(t *testing.T) {
 	actual, err := createFunctionComponents{
 		createMethod: resourcemanager.ApiOperation{

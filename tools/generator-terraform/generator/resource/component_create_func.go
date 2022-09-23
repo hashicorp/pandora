@@ -23,12 +23,13 @@ type createFunctionComponents struct {
 	schemaModelName        string
 	sdkResourceName        string
 	sdkResourceNameLowered string
-	models                 map[string]resourcemanager.ModelDetails
-	mappings               resourcemanager.MappingDefinition
-	newResourceIdFuncName  string
-	resourceId             resourcemanager.ResourceIdDefinition
-	terraformModel         resourcemanager.TerraformSchemaModelDefinition
-	topLevelModel          resourcemanager.ModelDetails
+
+	models                map[string]resourcemanager.ModelDetails
+	mappings              resourcemanager.MappingDefinition
+	newResourceIdFuncName string
+	resourceId            resourcemanager.ResourceIdDefinition
+	terraformModel        resourcemanager.TerraformSchemaModelDefinition
+	topLevelModel         resourcemanager.ModelDetails
 }
 
 func createFunctionForResource(input models.ResourceInput) (*string, error) {
@@ -158,13 +159,17 @@ func (h createFunctionComponents) idDefinitionAndMapping() (*string, error) {
 		default:
 			{
 				// find the associated mapping and output the relevant field to output the ID
-				// TODO: support Constants
 				for _, resourceIdMapping := range h.mappings.ResourceId {
 					if resourceIdMapping.SegmentName != v.Name {
 						continue
 					}
 
-					segments = append(segments, fmt.Sprintf("config.%s", resourceIdMapping.SchemaFieldName))
+					if v.ConstantReference != nil {
+						constantTypeName := fmt.Sprintf("%s.%s", h.sdkResourceNameLowered, *v.ConstantReference)
+						segments = append(segments, fmt.Sprintf("%s(config.%s)", constantTypeName, resourceIdMapping.SchemaFieldName))
+					} else {
+						segments = append(segments, fmt.Sprintf("config.%s", resourceIdMapping.SchemaFieldName))
+					}
 					break
 				}
 			}
