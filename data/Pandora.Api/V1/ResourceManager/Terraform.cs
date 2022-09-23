@@ -115,6 +115,14 @@ resource 'example_resource' 'example' {
             {
                 Create = mappings,
                 Read = mappings,
+                ResourceId = new List<ResourceIdMappingDefinition>
+                {
+                    new()
+                    {
+                        SegmentName = "resourceGroupName",
+                        SchemaFieldName = "Name",
+                    }
+                },
                 Update = mappings,
             };
         }
