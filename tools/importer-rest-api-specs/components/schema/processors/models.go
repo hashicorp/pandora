@@ -24,7 +24,7 @@ func topLevelObjectDefinition(input resourcemanager.TerraformSchemaFieldObjectDe
 	return input
 }
 
-func findUnusedModels(topLevelModelName string, input map[string]resourcemanager.TerraformSchemaModelDefinition) map[string]resourcemanager.TerraformSchemaModelDefinition {
+func FindUnusedModels(topLevelModelName string, input map[string]resourcemanager.TerraformSchemaModelDefinition) map[string]resourcemanager.TerraformSchemaModelDefinition {
 	usedModels := map[string]struct{}{
 		topLevelModelName: {},
 	}
