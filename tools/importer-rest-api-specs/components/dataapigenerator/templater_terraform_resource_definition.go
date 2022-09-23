@@ -31,7 +31,7 @@ public class %[2]sResource : TerraformResourceDefinition
     public ResourceID ResourceId => new %[4]s.%[5]s.%[6]s();
     public string ResourceLabel => "%[7]s";
     public Type? SchemaModel => typeof(%[2]sResourceSchema);
-    public TerraformMappingDefinition SchemaMappings => null; // TODO: implement mappings
+    public TerraformMappingDefinition SchemaMappings => new %[2]sResourceMappings();
     public TerraformResourceTestDefinition Tests => new %[2]sResourceTests();
 
     public bool GenerateIDValidationFunction => true;
