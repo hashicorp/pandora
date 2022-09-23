@@ -30,6 +30,12 @@ var fieldObjectDefinitionsToGolangTypes = map[resourcemanager.TerraformSchemaFie
 	resourcemanager.TerraformSchemaFieldTypeZones:                         "[]string",
 }
 
+var constantTypesToGolangTypes = map[resourcemanager.ConstantType]string{
+	resourcemanager.IntegerConstant: "int64",
+	resourcemanager.FloatConstant:   "float64",
+	resourcemanager.StringConstant:  "string",
+}
+
 func golangFieldTypeFromObjectFieldDefinition(input resourcemanager.TerraformSchemaFieldObjectDefinition) (*string, error) {
 	goTypeName, ok := fieldObjectDefinitionsToGolangTypes[input.Type]
 	if ok {
@@ -82,4 +88,12 @@ func golangFieldTypeFromObjectFieldDefinition(input resourcemanager.TerraformSch
 	}
 
 	return nil, fmt.Errorf("internal-error: unimplement field object definition mapping: %q", string(input.Type))
+}
+
+func golangFieldTypeFromConstantType(input resourcemanager.ConstantType) (*string, error) {
+	if v, ok := constantTypesToGolangTypes[input]; ok {
+		return &v, nil
+	}
+
+	return nil, fmt.Errorf("internal-error: missing mapping for constant type %q", string(input))
 }

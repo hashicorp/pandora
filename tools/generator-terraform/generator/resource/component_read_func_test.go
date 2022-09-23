@@ -505,6 +505,149 @@ func (r ExampleResource) Read() sdk.ResourceFunc {
 	assertTemplatedCodeMatches(t, expected, *actual)
 }
 
+func TestComponentReadFunc_RegularResourceId_Constant_Enabled(t *testing.T) {
+	input := models.ResourceInput{
+		ResourceTypeName: "Example",
+		SdkResourceName:  "SdkResource",
+		ServiceName:      "Resources",
+		Constants: map[string]resourcemanager.ConstantDetails{
+			"AnimalType": {
+				Type: resourcemanager.StringConstant,
+				Values: map[string]string{
+					"Cow":   "Cow",
+					"Panda": "Panda",
+				},
+			},
+		},
+		Details: resourcemanager.TerraformResourceDetails{
+			ReadMethod: resourcemanager.MethodDefinition{
+				Generate:         true,
+				MethodName:       "Get",
+				TimeoutInMinutes: 10,
+			},
+			ResourceIdName: "CustomSubscriptionId",
+			Mappings: resourcemanager.MappingDefinition{
+				ResourceId: []resourcemanager.ResourceIdMappingDefinition{
+					{
+						SchemaFieldName: "Animal",
+						SegmentName:     "animalType",
+					},
+				},
+			},
+		},
+		Operations: map[string]resourcemanager.ApiOperation{
+			"Get": {
+				LongRunning:    false,
+				ResourceIdName: stringPointer("CustomSubscriptionId"),
+				ResponseObject: &resourcemanager.ApiObjectDefinition{
+					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+					ReferenceName: stringPointer("GetModel"),
+				},
+			},
+		},
+		Models: map[string]resourcemanager.ModelDetails{
+			"GetModel": {
+				Fields: map[string]resourcemanager.FieldDetails{
+					"Name": {
+						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+							Type: resourcemanager.StringApiObjectDefinitionType,
+						},
+						Required: true,
+						JsonName: "name",
+					},
+					"SomeSdkField": {
+						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+							Type: resourcemanager.StringApiObjectDefinitionType,
+						},
+						Required: true,
+						JsonName: "someSdkField",
+					},
+				},
+			},
+		},
+		ResourceIds: map[string]resourcemanager.ResourceIdDefinition{
+			"CustomSubscriptionId": {
+				Id: "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}",
+				Segments: []resourcemanager.ResourceIdSegment{
+					{
+						Type:       resourcemanager.StaticSegment,
+						Name:       "subscriptions",
+						FixedValue: stringPointer("subscriptions"),
+					},
+					{
+						Type: resourcemanager.SubscriptionIdSegment,
+						Name: "subscriptionId",
+					},
+					{
+						Type:       resourcemanager.StaticSegment,
+						Name:       "animals",
+						FixedValue: stringPointer("animals"),
+					},
+					{
+						Type:              resourcemanager.ConstantSegment,
+						Name:              "animalType",
+						ConstantReference: stringPointer("AnimalType"),
+					},
+				},
+			},
+		},
+		SchemaModelName: "ExampleModel",
+		SchemaModels: map[string]resourcemanager.TerraformSchemaModelDefinition{
+			"ExampleModel": {
+				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+					"Animal": {
+						HclName: "animal",
+						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						},
+						Required: true,
+						ForceNew: true,
+					},
+					"SomeField": {
+						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						},
+						Required: true,
+						ForceNew: true,
+						HclName:  "some_field",
+					},
+				},
+			},
+		},
+	}
+	actual, err := readFunctionForResource(input)
+	if err != nil {
+		t.Fatalf("error: %+v", err)
+	}
+	expected := `
+func (r ExampleResource) Read() sdk.ResourceFunc {
+	return sdk.ResourceFunc{
+        Timeout: 10 * time.Minute,
+        Func: func(ctx context.Context, metadata sdk.ResourceMetaData) error {
+			client := metadata.Client.Resources.SdkResource
+			schema := ExampleModel{}
+			id, err := sdkresource.ParseCustomSubscriptionID(metadata.ResourceData.Id())
+			if err != nil {
+				return err
+			}
+			resp, err := client.Get(ctx, *id)
+			if err != nil {
+				if response.WasNotFound(resp.HttpResponse) {
+					return metadata.MarkAsGone(*id)
+				}
+				return fmt.Errorf("retrieving %s: %+v", *id, err)
+			}
+			if model := resp.Model; model != nil {
+				schema.Animal = string(id.AnimalType)
+			}
+			return metadata.Encode(&schema)
+        },
+	}
+}
+`
+	assertTemplatedCodeMatches(t, expected, *actual)
+}
+
 func TestComponentReadFunc_RegularResourceId_Options_Enabled(t *testing.T) {
 	input := models.ResourceInput{
 		ResourceTypeName:   "Example",

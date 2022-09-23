@@ -10,6 +10,7 @@ import (
 )
 
 type readFunctionComponents struct {
+	constants       map[string]resourcemanager.ConstantDetails
 	idParseLine     string
 	mappings        resourcemanager.MappingDefinition
 	readMethod      resourcemanager.MethodDefinition
@@ -53,6 +54,7 @@ func readFunctionForResource(input models.ResourceInput) (*string, error) {
 	}
 
 	helper := readFunctionComponents{
+		constants:       input.Constants,
 		idParseLine:     *idParseLine,
 		mappings:        input.Details.Mappings,
 		readMethod:      input.Details.ReadMethod,
@@ -121,7 +123,7 @@ func (c readFunctionComponents) codeForGet() (*string, error) {
 }
 
 func (c readFunctionComponents) codeForModelAssignments() (*string, error) {
-	// first map all of the Resource ID segments across
+	// first map all the Resource ID segments across
 	resourceIdMappings, err := c.codeForResourceIdMappings()
 	if err != nil {
 		return nil, fmt.Errorf("building code for resource id mappings: %+v", err)
@@ -146,10 +148,34 @@ func (c readFunctionComponents) codeForResourceIdMappings() (*string, error) {
 
 	// TODO: note that when there's a parent ID field present we'll need to call `parent.NewParentID(..).ID()`
 	// to get the right URI
-	for _, resourceIdMapping := range c.mappings.ResourceId {
-		// TODO: account for this being a mapping and needing to be mapped to/from
-		lines = append(lines, fmt.Sprintf("schema.%s = id.%s", resourceIdMapping.SchemaFieldName, strings.Title(resourceIdMapping.SegmentName)))
+	for _, v := range c.resourceId.Segments {
+		if v.Type == resourcemanager.StaticSegment || v.Type == resourcemanager.SubscriptionIdSegment {
+			continue
+		}
+
+		for _, resourceIdMapping := range c.mappings.ResourceId {
+			if resourceIdMapping.SegmentName != v.Name {
+				continue
+			}
+
+			// Constants are output into the Schema as their native types (e.g. int/float/string) so we need to convert prior to assigning
+			if v.ConstantReference != nil {
+				constant, ok := c.constants[*v.ConstantReference]
+				if !ok {
+					return nil, fmt.Errorf("the constant %q referenced in Resource ID Segment %q was not found", *v.ConstantReference, v.Name)
+				}
+				constantGoTypeName, err := golangFieldTypeFromConstantType(constant.Type)
+				if err != nil {
+					return nil, fmt.Errorf("determining Golang Type name for Constant Type %q: %+v", string(constant.Type), err)
+				}
+				lines = append(lines, fmt.Sprintf("schema.%s = %s(id.%s)", resourceIdMapping.SchemaFieldName, *constantGoTypeName, strings.Title(resourceIdMapping.SegmentName)))
+			} else {
+				lines = append(lines, fmt.Sprintf("schema.%s = id.%s", resourceIdMapping.SchemaFieldName, strings.Title(resourceIdMapping.SegmentName)))
+			}
+			break
+		}
 	}
+
 	sort.Strings(lines)
 
 	output := strings.Join(lines, "\n")
