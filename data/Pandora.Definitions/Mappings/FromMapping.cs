@@ -29,8 +29,14 @@ public class FromMapping
         };
     }
 
-    public MappingType ToSdkField<TModel>(Expression<Func<TModel, object>> schemaModelFieldFunc)
+    public PlaceholderMapping ToSdkField<TModel>(Expression<Func<TModel, object>> schemaModelFieldFunc)
     {
-        throw new NotSupportedException();
+        // TODO: switch this out for a real mapping
+        return new PlaceholderMapping();
+    }
+
+    public class PlaceholderMapping : MappingType
+    {
+        // TODO: replace this with real types shortly
     }
 }

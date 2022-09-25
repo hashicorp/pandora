@@ -5,6 +5,7 @@ using System.Text.Json.Serialization;
 using NUnit.Framework;
 using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Interfaces;
+using Pandora.Definitions.Mappings;
 using Pandora.Definitions.Operations;
 
 namespace Pandora.Data.Transformers;
@@ -171,7 +172,7 @@ public static class ServiceTests
             public Definitions.Interfaces.ResourceID ResourceId => new FakeTerraformOperationResourceId();
             public string ResourceLabel => "fake_resource";
             public Type? SchemaModel => typeof(FakeTerraformSchemaModel);
-            public Definitions.Interfaces.TerraformMappingDefinition SchemaMappings => throw new NotImplementedException();
+            public Definitions.Interfaces.TerraformMappingDefinition SchemaMappings => new FakeTerraformResourceMappings();
             public Definitions.Interfaces.TerraformResourceTestDefinition Tests => new FakeTestDefinition();
 
             public MethodDefinition? UpdateMethod => new MethodDefinition
@@ -180,6 +181,11 @@ public static class ServiceTests
                 Method = typeof(FakeTerraformOperation),
                 TimeoutInMinutes = 30,
             };
+        }
+
+        private class FakeTerraformResourceMappings : Definitions.Interfaces.TerraformMappingDefinition
+        {
+            public List<MappingType> Mappings => new List<MappingType>();
         }
 
         private class FakeTerraformSchemaModel
@@ -240,6 +246,7 @@ public static class ServiceTests
         public bool Hello { get; set; }
     }
 }
+
 
 internal class FakeTestDefinition : Definitions.Interfaces.TerraformResourceTestDefinition
 {

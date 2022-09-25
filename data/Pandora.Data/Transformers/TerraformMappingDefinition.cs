@@ -24,6 +24,12 @@ public static class TerraformMappingDefinition
                 continue;
             }
 
+            if (item is FromMapping.PlaceholderMapping)
+            {
+                // TODO: replace this
+                continue;
+            }
+
             throw new NotSupportedException($"unsupported mapping type {item.GetType().Name}");
         }
 
