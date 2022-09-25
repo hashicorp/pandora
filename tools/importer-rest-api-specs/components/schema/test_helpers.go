@@ -64,8 +64,15 @@ func (r resourceUnderTest) checkFieldName(t *testing.T, input resourcemanager.Te
 		if name.HclName != "name" {
 			t.Errorf("(%s) expected the HclName for field 'Name' to be 'name' but got %q", r.Name, name.HclName)
 		}
-		if name.ObjectDefinition.Type != resourcemanager.TerraformSchemaFieldTypeString {
-			t.Errorf("(%s) expected the field 'Name' to have the type `string` but got %q", r.Name, string(name.ObjectDefinition.Type))
+		if r.Name == "Resource Group" {
+			// the `name` field for a Resource Group is special-cased
+			if name.ObjectDefinition.Type != resourcemanager.TerraformSchemaFieldTypeResourceGroup {
+				t.Errorf("(%s) expected the field 'Name' to have the type `ResourceGroup` but got %q", r.Name, string(name.ObjectDefinition.Type))
+			}
+		} else {
+			if name.ObjectDefinition.Type != resourcemanager.TerraformSchemaFieldTypeString {
+				t.Errorf("(%s) expected the field 'Name' to have the type `string` but got %q", r.Name, string(name.ObjectDefinition.Type))
+			}
 		}
 		// note: this differs from the model above, since this is implicitly required as a top level field
 		// even if it's defined as optional in the schema

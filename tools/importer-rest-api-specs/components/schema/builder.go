@@ -143,7 +143,7 @@ func (b Builder) schemaFromTopLevelModel(input resourcemanager.TerraformResource
 	if !ok {
 		return nil, fmt.Errorf("couldn't find Resource ID named %q", input.ResourceIdName)
 	}
-	fieldsWithinResourceId, mappings, err := b.identityTopLevelFieldsWithinResourceID(resourceId, mappings, logger.Named("TopLevelFields ResourceID"))
+	fieldsWithinResourceId, mappings, err := b.identityTopLevelFieldsWithinResourceID(resourceId, mappings, input.DisplayName, logger.Named("TopLevelFields ResourceID"))
 	if err != nil {
 		return nil, fmt.Errorf("identifying top level fields within Resource ID %q: %+v", resourceId.Id, err)
 	}
