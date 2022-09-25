@@ -136,15 +136,12 @@ func (b Builder) schemaFromTopLevelModel(input resourcemanager.TerraformResource
 
 	// TODO process top level fields at the end?
 	// find each of the "common" top level fields, excluding `properties`
-	topLevelFields, err := b.identifyTopLevelFields(input.SchemaModelName, *createReadUpdateMethods)
+	fields, mappings, err := b.schemaFromTopLevelFields(input.SchemaModelName, *createReadUpdateMethods, mappings, logger.Named("TopLevelFields"))
 	if err != nil {
 		return nil, fmt.Errorf("parsing top-level fields from create/read/update: %+v", err)
 	}
 
-	schemaFields := make(map[string]resourcemanager.TerraformSchemaFieldDefinition)
-	for k, v := range topLevelFields.toSchema() {
-		schemaFields[k] = v
-	}
+	schemaFields := *fields
 
 	resourceId, ok := b.resourceIds[input.ResourceIdName]
 	if !ok {
@@ -289,6 +286,7 @@ func (b Builder) findCreateUpdateReadPayloads(input resourcemanager.TerraformRes
 	if !ok {
 		return nil
 	}
+	out.createModelName = *createOperation.RequestObject.ReferenceName
 	out.createPayload = createModel
 
 	// Read has to exist
@@ -304,6 +302,7 @@ func (b Builder) findCreateUpdateReadPayloads(input resourcemanager.TerraformRes
 	if !ok {
 		return nil
 	}
+	out.readModelName = *readOperation.ResponseObject.ReferenceName
 	out.readPayload = readModel
 
 	// Update doesn't have to exist
@@ -320,6 +319,7 @@ func (b Builder) findCreateUpdateReadPayloads(input resourcemanager.TerraformRes
 		if !ok {
 			return nil
 		}
+		out.updateModelName = updateOperation.RequestObject.ReferenceName
 		out.updatePayload = &updateModel
 	}
 	// NOTE: intentionally not including Delete since the payload shouldn't be applicable to users
