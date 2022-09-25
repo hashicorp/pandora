@@ -251,7 +251,7 @@ public partial class TerraformController
     {
         [JsonPropertyName("schemaFieldName")]
         public string SchemaFieldName { get; set; }
-        
+
         [JsonPropertyName("segmentName")]
         public string SegmentName { get; set; }
     }
