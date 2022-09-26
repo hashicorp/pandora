@@ -29,4 +29,6 @@ public enum ObjectType
     UserAssignedIdentityMap,
     Tags,
     SystemData,
+    Zones,
+    Zone,
 }

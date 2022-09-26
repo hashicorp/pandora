@@ -1,5 +1,6 @@
 using System;
 using System.Text.Json.Serialization;
+using Microsoft.AspNetCore.Mvc;
 using Pandora.Data.Models;
 
 namespace Pandora.Api.V1.Helpers;
@@ -79,6 +80,10 @@ public static class ApiObjectDefinitionMapper
                 return ApiObjectType.Tags.ToString();
             case ObjectType.SystemData:
                 return ApiObjectType.SystemData.ToString();
+            case ObjectType.Zones:
+                return ApiObjectType.Zones.ToString();
+            case ObjectType.Zone:
+                return ApiObjectType.Zone.ToString();
         }
 
         throw new NotSupportedException($"Unsupported ObjectType {input}");
@@ -125,4 +130,6 @@ public enum ApiObjectType
     UserAssignedIdentityMap,
     Tags,
     SystemData,
+    Zones,
+    Zone,
 }
