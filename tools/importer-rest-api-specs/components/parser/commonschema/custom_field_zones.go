@@ -4,7 +4,6 @@ import (
 	"strings"
 
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/internal"
-
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
