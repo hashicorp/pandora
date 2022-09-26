@@ -19,7 +19,7 @@ internal class PatchSettingsModel
     public WindowsPatchAssessmentModeConstant? AssessmentMode { get; set; }
 
     [JsonPropertyName("automaticByPlatformSettings")]
-    public WindowsVmGuestPatchAutomaticByPlatformSettingsModel? AutomaticByPlatformSettings { get; set; }
+    public WindowsVMGuestPatchAutomaticByPlatformSettingsModel? AutomaticByPlatformSettings { get; set; }
 
     [JsonPropertyName("enableHotpatching")]
     public bool? EnableHotpatching { get; set; }

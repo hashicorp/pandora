@@ -19,5 +19,5 @@ internal class HardwareProfileModel
     public VirtualMachineSizeTypesConstant? VmSize { get; set; }
 
     [JsonPropertyName("vmSizeProperties")]
-    public VmSizePropertiesModel? VmSizeProperties { get; set; }
+    public VMSizePropertiesModel? VmSizeProperties { get; set; }
 }

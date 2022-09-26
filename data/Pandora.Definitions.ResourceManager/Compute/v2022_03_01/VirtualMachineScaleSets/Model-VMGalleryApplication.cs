@@ -13,7 +13,7 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.Compute.v2022_03_01.VirtualMachineScaleSets;
 
 
-internal class VmGalleryApplicationModel
+internal class VMGalleryApplicationModel
 {
     [JsonPropertyName("configurationReference")]
     public string? ConfigurationReference { get; set; }

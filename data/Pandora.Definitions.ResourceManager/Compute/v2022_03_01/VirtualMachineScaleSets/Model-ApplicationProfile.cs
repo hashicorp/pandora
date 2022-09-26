@@ -16,5 +16,5 @@ namespace Pandora.Definitions.ResourceManager.Compute.v2022_03_01.VirtualMachine
 internal class ApplicationProfileModel
 {
     [JsonPropertyName("galleryApplications")]
-    public List<VmGalleryApplicationModel>? GalleryApplications { get; set; }
+    public List<VMGalleryApplicationModel>? GalleryApplications { get; set; }
 }

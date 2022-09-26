@@ -9,8 +9,7 @@ public class ResourceGroupResourceMappings : TerraformMappingDefinition
 {
     public List<MappingType> Mappings => new List<MappingType>
     {
-        // Mapping.FromSchema<ResourceGroupResourceSchema>(s => s.Name).ToResourceIdSegmentNamed("virtualMachineScaleSetName"),
-        // Mapping.FromSchema<ResourceGroupResourceSchema>(s => s.ResourceGroupName).ToResourceIdSegmentNamed("resourceGroupName"),
+        Mapping.FromSchema<ResourceGroupResourceSchema>(s => s.Name).ToResourceIdSegmentNamed("resourceGroupName"),
 
         // Mapping.FromSchema<ResourceGroupResourceSchema>(s => s.Location).ToSdkField<ResourceGroupModel>(m => m.Location),
         // Mapping.FromSchema<ResourceGroupResourceSchema>(s => s.Tags).ToSdkField<ResourceGroupModel>(m => m.Tags),

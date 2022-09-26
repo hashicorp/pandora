@@ -13,11 +13,8 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.Compute.v2022_03_01.VirtualMachines;
 
 
-internal class VMSizePropertiesModel
+internal class WindowsVMGuestPatchAutomaticByPlatformSettingsModel
 {
-    [JsonPropertyName("vCPUsAvailable")]
-    public int? VCPUsAvailable { get; set; }
-
-    [JsonPropertyName("vCPUsPerCore")]
-    public int? VCPUsPerCore { get; set; }
+    [JsonPropertyName("rebootSetting")]
+    public WindowsVMGuestPatchAutomaticByPlatformRebootSettingConstant? RebootSetting { get; set; }
 }

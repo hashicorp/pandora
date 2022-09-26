@@ -13,7 +13,7 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.Compute.v2022_03_01.VirtualMachineScaleSetVMs;
 
 
-internal class VmSizePropertiesModel
+internal class VMSizePropertiesModel
 {
     [JsonPropertyName("vCPUsAvailable")]
     public int? VCPUsAvailable { get; set; }

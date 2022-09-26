@@ -10,14 +10,11 @@ using Pandora.Definitions.CustomTypes;
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 
 
-namespace Pandora.Definitions.ResourceManager.Compute.v2022_03_01.RestorePoints;
+namespace Pandora.Definitions.ResourceManager.Compute.v2022_03_01.RestorePointCollections;
 
 
-internal class VMSizePropertiesModel
+internal class LinuxVMGuestPatchAutomaticByPlatformSettingsModel
 {
-    [JsonPropertyName("vCPUsAvailable")]
-    public int? VCPUsAvailable { get; set; }
-
-    [JsonPropertyName("vCPUsPerCore")]
-    public int? VCPUsPerCore { get; set; }
+    [JsonPropertyName("rebootSetting")]
+    public LinuxVMGuestPatchAutomaticByPlatformRebootSettingConstant? RebootSetting { get; set; }
 }
