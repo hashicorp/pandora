@@ -85,13 +85,18 @@ func (b Builder) Build(input resourcemanager.TerraformResourceDetails, logger hc
 	// TODO: now that we have all of the models for this resource, we should loop through and check what can be cleaned up
 	for modelName, model := range schemaModels {
 		for _, processor := range processors.ModelRules {
-			schemaModels, err = processor.ProcessModel(modelName, model, schemaModels)
+			// the models within schemaModels are updated as we loop through the processors, so we need to pass in the
+			// updated model from schemaModels[modelName] or previous changes are overwritten
+			schemaModels, err = processor.ProcessModel(modelName, schemaModels[modelName], schemaModels)
 			if err != nil {
 				return nil, nil, fmt.Errorf("processing models: %+v", err)
 			}
 		}
 
-		for fieldName, field := range model.Fields {
+		fieldsWithHclNames := make(map[string]resourcemanager.TerraformSchemaFieldDefinition, 0)
+		for fieldName, field := range schemaModels[modelName].Fields {
+			field.HclName = helpers.ConvertToSnakeCase(fieldName)
+			fieldsWithHclNames[fieldName] = field
 			objectDefinition := topLevelFieldObjectDefinition(field.ObjectDefinition)
 			if objectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeReference {
 				if objectDefinition.ReferenceName == nil {
@@ -106,6 +111,8 @@ func (b Builder) Build(input resourcemanager.TerraformResourceDetails, logger hc
 				blockHclNamesRefMap[field.HclName] = *objectDefinition.ReferenceName
 			}
 		}
+		model.Fields = fieldsWithHclNames
+		schemaModels[modelName] = model
 	}
 
 	if mappings.Update != nil && len(*mappings.Update) == 0 {
@@ -252,53 +259,7 @@ func (b Builder) buildNestedModelDefinition(modelPrefix string, model resourcema
 		if err != nil {
 			return nil, err
 		}
-		definition.HclName = helpers.ConvertToSnakeCase(fieldName)
 
-		//if validation := v.Validation; validation != nil {
-		//	definition.Validation = &resourcemanager.TerraformSchemaValidationDefinition{}
-		//	var validationType resourcemanager.TerraformSchemaValidationType
-		//	var possibleValues *resourcemanager.TerraformSchemaValidationPossibleValuesDefinition
-		//	switch validation.Type {
-		//	case resourcemanager.RangeValidation:
-		//		validationType = resourcemanager.TerraformSchemaValidationTypePossibleValues
-		//		if values := validation.Values; values == nil || len(*values) == 0 {
-		//			return nil, fmt.Errorf("field %q had Range Validation type but had no defined values", fieldName)
-		//		} else {
-		//			t := (*values)[0]
-		//			switch t.(type) {
-		//			case string:
-		//				possibleValues = &resourcemanager.TerraformSchemaValidationPossibleValuesDefinition{
-		//					Type:   resourcemanager.TerraformSchemaValidationPossibleValueTypeString,
-		//					Values: *values,
-		//				}
-		//				break
-		//
-		//			case int, int32, int64:
-		//				possibleValues = &resourcemanager.TerraformSchemaValidationPossibleValuesDefinition{
-		//					Type:   resourcemanager.TerraformSchemaValidationPossibleValueTypeInt,
-		//					Values: *values,
-		//				}
-		//				break
-		//
-		//			case float32, float64:
-		//				possibleValues = &resourcemanager.TerraformSchemaValidationPossibleValuesDefinition{
-		//					Type:   resourcemanager.TerraformSchemaValidationPossibleValueTypeFloat,
-		//					Values: *values,
-		//				}
-		//				break
-		//			}
-		//		}
-		//	}
-		//
-		//	if validationType == "" {
-		//		return nil, fmt.Errorf("failed to determine or unsupported Validation Type for field %q", fieldName)
-		//	} else {
-		//		definition.Validation.Type = validationType
-		//	}
-		//
-		//	definition.Validation.PossibleValues = possibleValues
-		//}
-		//
 		validation, err := getFieldValidation(v.Validation, fieldName)
 		if err != nil {
 			return nil, err

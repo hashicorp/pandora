@@ -2,6 +2,7 @@ package processors
 
 import (
 	"fmt"
+	"strings"
 
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
@@ -11,12 +12,12 @@ type modelFlattenReferenceId struct{}
 func (modelFlattenReferenceId) ProcessModel(modelName string, model resourcemanager.TerraformSchemaModelDefinition, models map[string]resourcemanager.TerraformSchemaModelDefinition) (map[string]resourcemanager.TerraformSchemaModelDefinition, error) {
 	fields := make(map[string]resourcemanager.TerraformSchemaFieldDefinition)
 
-	if len(model.Fields) != 1 {
-		return models, nil
-	}
-
 	for fieldName, fieldValue := range model.Fields {
 		fields[fieldName] = fieldValue
+
+		if strings.EqualFold(fieldName, "Id") && len(model.Fields) > 1 {
+			continue
+		}
 
 		if fieldValue.ObjectDefinition.Type != resourcemanager.TerraformSchemaFieldTypeReference {
 			continue
