@@ -7,16 +7,16 @@ namespace Pandora.Definitions.ResourceManager.ChaosStudio.Terraform;
 
 public class ChaosStudioExperimentResourceMappings : TerraformMappingDefinition
 {
-    public List<Mapping> Mappings => new List<Mapping>
+    public List<MappingType> Mappings => new List<MappingType>
     {
         // Mapping.FromSchema<ChaosStudioExperimentResourceSchema>(s => s.Name).ToResourceIdSegmentNamed("virtualMachineScaleSetName"),
         // Mapping.FromSchema<ChaosStudioExperimentResourceSchema>(s => s.ResourceGroupName).ToResourceIdSegmentNamed("resourceGroupName"),
 
-        // Mapping.FromSchema<ChaosStudioExperimentResourceSchema>(s => s.Location).ToSdkModelField<ChaosStudioExperimentModel>(m => m.Location),
-        // Mapping.FromSchema<ChaosStudioExperimentResourceSchema>(s => s.Tags).ToSdkModelField<ChaosStudioExperimentModel>(m => m.Tags),
-        // Mapping.FromSchema<ChaosStudioExperimentResourceSchema>(s => s.UniqueId).ToSdkModelField<ChaosStudioExperimentModel>(m => m.Properties.UniqueId),
+        // Mapping.FromSchema<ChaosStudioExperimentResourceSchema>(s => s.Location).ToSdkField<ChaosStudioExperimentModel>(m => m.Location),
+        // Mapping.FromSchema<ChaosStudioExperimentResourceSchema>(s => s.Tags).ToSdkField<ChaosStudioExperimentModel>(m => m.Tags),
+        // Mapping.FromSchema<ChaosStudioExperimentResourceSchema>(s => s.UniqueId).ToSdkField<ChaosStudioExperimentModel>(m => m.Properties.UniqueId),
 
         // Mapping.FromSchema<ChaosStudioExperimentResourceSchema>(s => s.DataDisks).ToSdkModel<ChaosStudioExperimentDataDiskModel>(),
-        // Mapping.FromSchema<ChaosStudioExperimentDataDiskSchemaModel>(s => s.Name).ToSdkModelField<ChaosStudioExperimentDataDiskModel>(m => m.Name),
+        // Mapping.FromSchema<ChaosStudioExperimentDataDiskSchemaModel>(s => s.Name).ToSdkField<ChaosStudioExperimentDataDiskModel>(m => m.Name),
     };
 }

@@ -65,6 +65,7 @@ resource 'example_resource' 'example' {
             GenerateModel = input.GenerateModel,
             GenerateIdValidation = input.GenerateIDValidationFunction,
             GenerateSchema = input.GenerateSchema,
+            Mappings = MapMappingDefinitions(input.Mappings),
             ReadMethod = MapMethodDefinition(input.ReadMethod),
             ResourceName = input.ResourceName,
             ResourceIdName = input.ResourceIdName,
@@ -111,25 +112,29 @@ resource 'example_resource' 'example' {
                     },
                 },
             };
-            response.Mappings = new MappingsDefinition
-            {
-                Create = mappings,
-                Read = mappings,
-                ResourceId = new List<ResourceIdMappingDefinition>
-                {
-                    new()
-                    {
-                        SegmentName = "resourceGroupName",
-                        SchemaFieldName = "Name",
-                    }
-                },
-                Update = mappings,
-            };
+            response.Mappings.Create = mappings;
+            response.Mappings.Update = mappings;
+            response.Mappings.Read = mappings;
         }
-
-        // TODO: Mappings should be an object containing `Type` (which allows us to pipe through `BooleanWhen` etc)
-
         return response;
+    }
+
+    private static MappingsDefinition MapMappingDefinitions(TerraformMappingDefinition input)
+    {
+        return new MappingsDefinition
+        {
+            // TODO: Map Create/Update?/Read mappings too
+            ResourceId = input.ResourceIds.Select(MapResourceIdMappingDefinition).ToList(),
+        };
+    }
+
+    private static ResourceIdMappingDefinition MapResourceIdMappingDefinition(TerraformResourceIDMappingDefinition input)
+    {
+        return new ResourceIdMappingDefinition
+        {
+            SegmentName = input.SegmentName,
+            SchemaFieldName = input.SchemaFieldName,
+        };
     }
 
     private static TerraformResourceTestsDefinition MapTerraformResourceTests(TerraformResourceTestDefinition? input)

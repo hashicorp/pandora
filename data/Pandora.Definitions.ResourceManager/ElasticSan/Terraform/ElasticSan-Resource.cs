@@ -9,7 +9,7 @@ public class ElasticSanResource : TerraformResourceDefinition
     public ResourceID ResourceId => new v2021_11_20_preview.ElasticSans.ElasticSanId();
     public string ResourceLabel => "elastic_san";
     public Type? SchemaModel => typeof(ElasticSanResourceSchema);
-    public TerraformMappingDefinition SchemaMappings => null; // TODO: implement mappings
+    public TerraformMappingDefinition SchemaMappings => new ElasticSanResourceMappings();
     public TerraformResourceTestDefinition Tests => new ElasticSanResourceTests();
 
     public bool GenerateIDValidationFunction => true;

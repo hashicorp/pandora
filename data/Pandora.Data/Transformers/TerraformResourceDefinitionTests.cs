@@ -105,7 +105,7 @@ public class TerraformResourceDefinitionTests
         public string ResourceLabel => "fake_planet";
         public Type? SchemaModel => typeof(BasicResourceSchema);
 
-        public TerraformMappingDefinition SchemaMappings => new BasicResourceMappings();
+        public Definitions.Interfaces.TerraformMappingDefinition SchemaMappings => new BasicResourceMappings();
         public Definitions.Interfaces.TerraformResourceTestDefinition Tests => new BasicResourceTests();
 
         public MethodDefinition? UpdateMethod => new MethodDefinition
@@ -125,11 +125,11 @@ public class TerraformResourceDefinitionTests
         public string Name { get; set; }
     }
 
-    internal class BasicResourceMappings : TerraformMappingDefinition
+    internal class BasicResourceMappings : Definitions.Interfaces.TerraformMappingDefinition
     {
-        public List<Mapping> Mappings => new List<Mapping>
+        public List<MappingType> Mappings => new List<MappingType>
         {
-            Mapping.FromSchema<BasicResourceSchema>(s => s.Name).ToSdkModelField<v2020_01_01.Example.SomeModel>(m => m.Example),
+            Mapping.FromSchema<BasicResourceSchema>(s => s.Name).ToSdkField<v2020_01_01.Example.SomeModel>(m => m.Example),
         };
     }
 
@@ -173,7 +173,7 @@ public class TerraformResourceDefinitionTests
         };
         public string ResourceLabel => "fake_planet";
         public Type? SchemaModel => null;
-        public TerraformMappingDefinition SchemaMappings => null;
+        public Definitions.Interfaces.TerraformMappingDefinition SchemaMappings => null;
         public Definitions.Interfaces.TerraformResourceTestDefinition Tests => null;
 
         public MethodDefinition? UpdateMethod => new MethodDefinition

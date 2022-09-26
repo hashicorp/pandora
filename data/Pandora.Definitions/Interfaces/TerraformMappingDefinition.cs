@@ -5,5 +5,5 @@ namespace Pandora.Definitions.Interfaces;
 
 public interface TerraformMappingDefinition
 {
-    public List<Mapping> Mappings { get; }
+    public List<MappingType> Mappings { get; }
 }

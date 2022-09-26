@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using Pandora.Data.Helpers;
+using Pandora.Data.Models;
 
 namespace Pandora.Data.Transformers;
 
@@ -44,6 +45,7 @@ public static class TerraformResourceDefinition
             }
         }
 
+        var mappings = TerraformMappingDefinition.Map(input.SchemaMappings);
         var definition = new Models.TerraformResourceDefinition
         {
             ApiVersion = resourceIdDetails.APIVersion,
@@ -54,6 +56,7 @@ public static class TerraformResourceDefinition
             GenerateModel = input.GenerateModel,
             GenerateSchema = input.GenerateSchema,
             // TODO: GenerateTests?!
+            Mappings = mappings,
             ReadMethod = readMethod,
             Resource = resourceIdDetails.APIResource,
             ResourceLabel = input.ResourceLabel,
