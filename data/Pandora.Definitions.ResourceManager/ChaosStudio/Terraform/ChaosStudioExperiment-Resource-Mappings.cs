@@ -9,8 +9,8 @@ public class ChaosStudioExperimentResourceMappings : TerraformMappingDefinition
 {
     public List<MappingType> Mappings => new List<MappingType>
     {
-        // Mapping.FromSchema<ChaosStudioExperimentResourceSchema>(s => s.Name).ToResourceIdSegmentNamed("virtualMachineScaleSetName"),
-        // Mapping.FromSchema<ChaosStudioExperimentResourceSchema>(s => s.ResourceGroupName).ToResourceIdSegmentNamed("resourceGroupName"),
+        Mapping.FromSchema<ChaosStudioExperimentResourceSchema>(s => s.Name).ToResourceIdSegmentNamed("experimentName"),
+Mapping.FromSchema<ChaosStudioExperimentResourceSchema>(s => s.ResourceGroupName).ToResourceIdSegmentNamed("resourceGroupName"),
 
         // Mapping.FromSchema<ChaosStudioExperimentResourceSchema>(s => s.Location).ToSdkField<ChaosStudioExperimentModel>(m => m.Location),
         // Mapping.FromSchema<ChaosStudioExperimentResourceSchema>(s => s.Tags).ToSdkField<ChaosStudioExperimentModel>(m => m.Tags),

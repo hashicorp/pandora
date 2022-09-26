@@ -13,8 +13,8 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.Compute.v2022_03_01.VirtualMachineScaleSets;
 
 
-internal class LinuxVmGuestPatchAutomaticByPlatformSettingsModel
+internal class WindowsVMGuestPatchAutomaticByPlatformSettingsModel
 {
     [JsonPropertyName("rebootSetting")]
-    public LinuxVMGuestPatchAutomaticByPlatformRebootSettingConstant? RebootSetting { get; set; }
+    public WindowsVMGuestPatchAutomaticByPlatformRebootSettingConstant? RebootSetting { get; set; }
 }

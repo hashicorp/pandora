@@ -10,7 +10,7 @@ using Pandora.Definitions.CustomTypes;
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 
 
-namespace Pandora.Definitions.ResourceManager.Compute.v2022_03_01.RestorePoints;
+namespace Pandora.Definitions.ResourceManager.Compute.v2022_03_01.VirtualMachines;
 
 
 internal class LinuxVMGuestPatchAutomaticByPlatformSettingsModel

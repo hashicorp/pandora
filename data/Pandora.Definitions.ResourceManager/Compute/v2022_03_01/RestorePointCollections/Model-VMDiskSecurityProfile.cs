@@ -10,10 +10,10 @@ using Pandora.Definitions.CustomTypes;
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 
 
-namespace Pandora.Definitions.ResourceManager.Compute.v2022_03_01.RestorePoints;
+namespace Pandora.Definitions.ResourceManager.Compute.v2022_03_01.RestorePointCollections;
 
 
-internal class VmDiskSecurityProfileModel
+internal class VMDiskSecurityProfileModel
 {
     [JsonPropertyName("diskEncryptionSet")]
     public SubResourceModel? DiskEncryptionSet { get; set; }

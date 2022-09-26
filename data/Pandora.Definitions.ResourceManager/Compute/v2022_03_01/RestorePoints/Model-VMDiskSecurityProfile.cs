@@ -13,8 +13,11 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.Compute.v2022_03_01.RestorePoints;
 
 
-internal class WindowsVmGuestPatchAutomaticByPlatformSettingsModel
+internal class VMDiskSecurityProfileModel
 {
-    [JsonPropertyName("rebootSetting")]
-    public WindowsVMGuestPatchAutomaticByPlatformRebootSettingConstant? RebootSetting { get; set; }
+    [JsonPropertyName("diskEncryptionSet")]
+    public SubResourceModel? DiskEncryptionSet { get; set; }
+
+    [JsonPropertyName("securityEncryptionType")]
+    public SecurityEncryptionTypesConstant? SecurityEncryptionType { get; set; }
 }

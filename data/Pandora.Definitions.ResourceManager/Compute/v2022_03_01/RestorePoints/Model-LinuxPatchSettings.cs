@@ -19,7 +19,7 @@ internal class LinuxPatchSettingsModel
     public LinuxPatchAssessmentModeConstant? AssessmentMode { get; set; }
 
     [JsonPropertyName("automaticByPlatformSettings")]
-    public LinuxVMGuestPatchAutomaticByPlatformSettingsModel? AutomaticByPlatformSettings { get; set; }
+    public LinuxVmGuestPatchAutomaticByPlatformSettingsModel? AutomaticByPlatformSettings { get; set; }
 
     [JsonPropertyName("patchMode")]
     public LinuxVMGuestPatchModeConstant? PatchMode { get; set; }

@@ -22,7 +22,7 @@ internal class ManagedDiskParametersModel
     public string? Id { get; set; }
 
     [JsonPropertyName("securityProfile")]
-    public VmDiskSecurityProfileModel? SecurityProfile { get; set; }
+    public VMDiskSecurityProfileModel? SecurityProfile { get; set; }
 
     [JsonPropertyName("storageAccountType")]
     public StorageAccountTypesConstant? StorageAccountType { get; set; }

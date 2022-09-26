@@ -10,14 +10,11 @@ using Pandora.Definitions.CustomTypes;
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 
 
-namespace Pandora.Definitions.ResourceManager.Compute.v2022_03_01.RestorePointCollections;
+namespace Pandora.Definitions.ResourceManager.Compute.v2022_03_01.RestorePoints;
 
 
-internal class VmDiskSecurityProfileModel
+internal class WindowsVMGuestPatchAutomaticByPlatformSettingsModel
 {
-    [JsonPropertyName("diskEncryptionSet")]
-    public SubResourceModel? DiskEncryptionSet { get; set; }
-
-    [JsonPropertyName("securityEncryptionType")]
-    public SecurityEncryptionTypesConstant? SecurityEncryptionType { get; set; }
+    [JsonPropertyName("rebootSetting")]
+    public WindowsVMGuestPatchAutomaticByPlatformRebootSettingConstant? RebootSetting { get; set; }
 }

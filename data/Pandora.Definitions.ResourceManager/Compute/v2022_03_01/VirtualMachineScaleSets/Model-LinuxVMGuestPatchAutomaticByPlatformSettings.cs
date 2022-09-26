@@ -10,10 +10,10 @@ using Pandora.Definitions.CustomTypes;
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 
 
-namespace Pandora.Definitions.ResourceManager.Compute.v2022_03_01.VirtualMachines;
+namespace Pandora.Definitions.ResourceManager.Compute.v2022_03_01.VirtualMachineScaleSets;
 
 
-internal class LinuxVmGuestPatchAutomaticByPlatformSettingsModel
+internal class LinuxVMGuestPatchAutomaticByPlatformSettingsModel
 {
     [JsonPropertyName("rebootSetting")]
     public LinuxVMGuestPatchAutomaticByPlatformRebootSettingConstant? RebootSetting { get; set; }
