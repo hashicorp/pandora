@@ -38,7 +38,7 @@ func (d Differ) ApplyFromExistingAPIDefinitions(existing models.AzureApiDefiniti
 					}
 					if existingCompleteConfig := existingTerraformResource.Tests.CompleteConfiguration; existingCompleteConfig != nil {
 						logger.Trace("applying Existing Complete Test Config from the Existing Terraform Resource to the Parsed Terraform Resource..")
-						parsedTerraformResource.Tests.RequiresImportConfiguration = *existingCompleteConfig
+						parsedTerraformResource.Tests.CompleteConfiguration = existingCompleteConfig
 					}
 					if existingTemplate := existingTerraformResource.Tests.TemplateConfiguration; existingTemplate != nil {
 						logger.Trace("applying Existing Test Template from the Existing Terraform Resource to the Parsed Terraform Resource..")
