@@ -15,6 +15,7 @@ public class ResourceGroupResourceSchema
     public CommonSchema.Location Location { get; set; }
 
 
+    [Documentation("Specifies the name of this Resource Group.")]
     [ForceNew]
     [HclName("name")]
     [Required]

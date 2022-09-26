@@ -9,8 +9,8 @@ public class ElasticSanResourceMappings : TerraformMappingDefinition
 {
     public List<MappingType> Mappings => new List<MappingType>
     {
-        // Mapping.FromSchema<ElasticSanResourceSchema>(s => s.Name).ToResourceIdSegmentNamed("virtualMachineScaleSetName"),
-        // Mapping.FromSchema<ElasticSanResourceSchema>(s => s.ResourceGroupName).ToResourceIdSegmentNamed("resourceGroupName"),
+        Mapping.FromSchema<ElasticSanResourceSchema>(s => s.Name).ToResourceIdSegmentNamed("elasticSanName"),
+Mapping.FromSchema<ElasticSanResourceSchema>(s => s.ResourceGroupName).ToResourceIdSegmentNamed("resourceGroupName"),
 
         // Mapping.FromSchema<ElasticSanResourceSchema>(s => s.Location).ToSdkField<ElasticSanModel>(m => m.Location),
         // Mapping.FromSchema<ElasticSanResourceSchema>(s => s.Tags).ToSdkField<ElasticSanModel>(m => m.Tags),
