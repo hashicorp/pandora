@@ -80,7 +80,7 @@ func (b Builder) Build(input resourcemanager.TerraformResourceDetails, logger hc
 		schemaModels[prefixedModelName] = *nestedModelDetails
 	}
 
-	blockHclNamesRefMap := make(map[string]string)
+	.blockHclNamesRefMap := make(map[string]string)
 
 	// TODO: now that we have all of the models for this resource, we should loop through and check what can be cleaned up
 	for modelName, model := range schemaModels {
@@ -259,7 +259,6 @@ func (b Builder) buildNestedModelDefinition(modelPrefix string, model resourcema
 		if err != nil {
 			return nil, err
 		}
-		//definition.HclName = helpers.ConvertToSnakeCase(fieldName)
 
 		validation, err := getFieldValidation(v.Validation, fieldName)
 		if err != nil {
