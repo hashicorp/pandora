@@ -31,8 +31,8 @@ public static class String
             return null;
         }
 
-        input = input.RemoveConstantSuffixFromTypeName();
         input = input.RemoveModelSuffixFromTypeName();
+        input = input.RemoveConstantSuffixFromTypeName();
         return input;
     }
 

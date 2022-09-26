@@ -287,6 +287,13 @@ public static class ObjectDefinitionTests
         Assert.Null(actual.NestedItem);
     }
 
+    [TestCase]
+    public static void MappingNameWithModelSuffix()
+    {
+        var actual = ObjectDefinition.Map(typeof(ExampleWithSuffixModelConstant));
+        Assert.AreEqual(actual.ReferenceName, "ExampleWithSuffixModel");
+    }
+
     private class SomeModel
     {
         [JsonPropertyName("foo")]
@@ -300,5 +307,14 @@ public static class ObjectDefinitionTests
 
         [System.ComponentModel.Description("second")]
         Second,
+    }
+
+    private enum ExampleWithSuffixModelConstant
+    {
+        [System.ComponentModel.Description("Classic")]
+        Classic,
+
+        [System.ComponentModel.Description("ResourceManager")]
+        ResourceManager,
     }
 }
