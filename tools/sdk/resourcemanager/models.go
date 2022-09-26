@@ -125,6 +125,12 @@ func (d ApiObjectDefinition) GolangTypeName(packageName *string) (*string, error
 
 	case SystemData:
 		return toStringPointer("systemdata.SystemData")
+
+	case ZonesApiObjectDefinitionType:
+		return toStringPointer("zones.Model")
+
+	case ZoneApiObjectDefinitionType:
+		return toStringPointer("zone.Model")
 	}
 
 	return nil, fmt.Errorf("unimplemented object definition type %q", string(d.Type))
@@ -207,6 +213,8 @@ const (
 	UserAssignedIdentityMapApiObjectDefinitionType                 ApiObjectDefinitionType = "UserAssignedIdentityMap"
 	TagsApiObjectDefinitionType                                    ApiObjectDefinitionType = "Tags"
 	SystemData                                                     ApiObjectDefinitionType = "SystemData"
+	ZonesApiObjectDefinitionType                                   ApiObjectDefinitionType = "Zones"
+	ZoneApiObjectDefinitionType                                    ApiObjectDefinitionType = "Zone"
 )
 
 func toStringPointer(in string) (*string, error) {
