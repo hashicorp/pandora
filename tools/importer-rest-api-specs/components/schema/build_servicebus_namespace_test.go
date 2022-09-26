@@ -237,20 +237,24 @@ func TestBuildForServiceBusNamespaceHappyPath(t *testing.T) {
 			TimeoutInMinutes: 30,
 		},
 	}
-	actual, err := builder.Build(input, hclog.New(hclog.DefaultOptions))
+	actualModels, actualMappings, err := builder.Build(input, hclog.New(hclog.DefaultOptions))
 	if err != nil {
 		t.Errorf("building schema: %+v", err)
 	}
 
-	if actual == nil {
+	if actualModels == nil {
 		t.Errorf("model %q - expected models but got nil", r.CurrentModel)
 	}
-	if len(*actual) != 3 {
-		t.Errorf("model %q - expected 3 models but got %d", r.CurrentModel, len(*actual))
+	if len(*actualModels) != 3 {
+		t.Errorf("model %q - expected 3 models but got %d", r.CurrentModel, len(*actualModels))
+	}
+	if actualMappings == nil {
+		// TODO: tests for Mappings
+		t.Fatalf("expected some mappings but got nil")
 	}
 
 	r.CurrentModel = "Namespace"
-	currentModel := (*actual)[r.CurrentModel]
+	currentModel := (*actualModels)[r.CurrentModel]
 	if len(currentModel.Fields) != 7 {
 		t.Errorf("model %q - expected 7 fields but got %d", r.CurrentModel, len(currentModel.Fields))
 	}
@@ -961,22 +965,26 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 			TimeoutInMinutes: 30,
 		},
 	}
-	actual, err := builder.Build(input, hclog.New(hclog.DefaultOptions))
+	actualModels, actualMappings, err := builder.Build(input, hclog.New(hclog.DefaultOptions))
 	if err != nil {
 		t.Fatalf("building schema: %+v", err)
 	}
 
-	if actual == nil {
+	if actualModels == nil {
 		t.Fatalf("expected 4 models but got nil")
 	}
+	if actualMappings == nil {
+		// TODO: tests for Mappings
+		t.Fatalf("expected some mappings but got nil")
+	}
 
-	if len(*actual) != 4 {
+	if len(*actualModels) != 4 {
 		// TODO - Double check this count when the sku rules are in place :see_no_evil:
-		t.Errorf("expected 4 models, got %d", len(*actual))
+		t.Errorf("expected 4 models, got %d", len(*actualModels))
 	}
 
 	r.CurrentModel = "Namespace"
-	currentModel, ok := (*actual)[r.CurrentModel]
+	currentModel, ok := (*actualModels)[r.CurrentModel]
 	if !ok {
 		t.Errorf("top level model %q missing", r.CurrentModel)
 	} else {
@@ -1108,37 +1116,37 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 	}
 
 	r.CurrentModel = "NamespacePrivateEndpoint" // Should be flattened out, only contains `Id` field
-	currentModel, ok = (*actual)[r.CurrentModel]
+	currentModel, ok = (*actualModels)[r.CurrentModel]
 	if ok {
 		t.Errorf("expected model %q to be removed but it was present", r.CurrentModel)
 	}
 
 	r.CurrentModel = "NamespaceKeyVaultProperties" // Should be flattened out
-	currentModel, ok = (*actual)[r.CurrentModel]
+	currentModel, ok = (*actualModels)[r.CurrentModel]
 	if ok {
 		t.Errorf("expected model %q to be removed but it was present", r.CurrentModel)
 	}
 
 	r.CurrentModel = "NamespaceUserAssignedIdentityProperties" // Should be flattened out
-	currentModel, ok = (*actual)[r.CurrentModel]
+	currentModel, ok = (*actualModels)[r.CurrentModel]
 	if ok {
 		t.Errorf("expected model %q to be removed but it was present", r.CurrentModel)
 	}
 
 	r.CurrentModel = "NamespacePrivateEndpointConnectionProperties"
-	currentModel = (*actual)[r.CurrentModel]
+	currentModel = (*actualModels)[r.CurrentModel]
 	if ok {
 		t.Errorf("expected model %q to be removed but it was present", r.CurrentModel)
 	}
 
 	r.CurrentModel = "NamespaceSku" // Should be absent after Sku rules
-	currentModel, ok = (*actual)[r.CurrentModel]
+	currentModel, ok = (*actualModels)[r.CurrentModel]
 	if ok {
 		t.Errorf("expected model %q to be removed but it was present", r.CurrentModel)
 	}
 
 	r.CurrentModel = "NamespacePrivateEndpointConnection"
-	currentModel = (*actual)[r.CurrentModel]
+	currentModel = (*actualModels)[r.CurrentModel]
 	if !ok {
 		t.Errorf("expected there to be a model %q, but there wasn't", r.CurrentModel)
 	} else {
@@ -1186,13 +1194,13 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 	}
 
 	r.CurrentModel = "NamespaceNamespaceProperties" // Should be removed as flattened into parent
-	currentModel, ok = (*actual)[r.CurrentModel]
+	currentModel, ok = (*actualModels)[r.CurrentModel]
 	if ok {
 		t.Errorf("expected model %q to be removed but it was present", r.CurrentModel)
 	}
 
 	r.CurrentModel = "NamespaceConnectionState"
-	currentModel = (*actual)[r.CurrentModel]
+	currentModel = (*actualModels)[r.CurrentModel]
 	if !ok {
 		t.Errorf("expected there to be a model %q, but there wasn't", r.CurrentModel)
 	} else {
@@ -1213,7 +1221,7 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 		})
 
 		r.CurrentModel = "NamespaceEncryption"
-		currentModel = (*actual)[r.CurrentModel]
+		currentModel = (*actualModels)[r.CurrentModel]
 		if len(currentModel.Fields) != 3 {
 			t.Errorf("model %q - expected 3 fields but got %d", r.CurrentModel, len(currentModel.Fields))
 		}

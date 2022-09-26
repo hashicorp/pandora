@@ -35,18 +35,24 @@ func NewBuilder(constants map[string]resourcemanager.ConstantDetails, models map
 }
 
 // Build produces a map of TerraformSchemaModelDefinitions which comprise the Schema for this Resource
-func (b Builder) Build(input resourcemanager.TerraformResourceDetails, logger hclog.Logger) (*map[string]resourcemanager.TerraformSchemaModelDefinition, error) {
-	// TODO: we also need mappings
-
-	parsedTopLevelModel, err := b.schemaFromTopLevelModel(input, logger.Named("top level model"))
-	if err != nil {
-		return nil, fmt.Errorf("building schema from top level model: %+v", err)
+func (b Builder) Build(input resourcemanager.TerraformResourceDetails, logger hclog.Logger) (*map[string]resourcemanager.TerraformSchemaModelDefinition, *resourcemanager.MappingDefinition, error) {
+	mappings := resourcemanager.MappingDefinition{
+		Create:     []resourcemanager.FieldMappingDefinition{},
+		Read:       []resourcemanager.FieldMappingDefinition{},
+		Update:     &[]resourcemanager.FieldMappingDefinition{},
+		ResourceId: []resourcemanager.ResourceIdMappingDefinition{},
 	}
+
+	parsedTopLevelModel, err := b.schemaFromTopLevelModel(input, &mappings, logger.Named("top level model"))
+	if err != nil {
+		return nil, nil, fmt.Errorf("building schema from top level model: %+v", err)
+	}
+	mappings = parsedTopLevelModel.mappings
 
 	if parsedTopLevelModel == nil {
 		// it's been filtered out, e.g. a discriminator or similar, more info in the parent error message
 		logger.Trace("top level model was filtered out")
-		return nil, nil
+		return nil, nil, nil
 	}
 
 	schemaModels := map[string]resourcemanager.TerraformSchemaModelDefinition{
@@ -63,11 +69,11 @@ func (b Builder) Build(input resourcemanager.TerraformResourceDetails, logger hc
 		// for example `VirtualMachineAdditionalCapabilitiesSchema`
 		nestedModelDetails, err := b.buildNestedModelDefinition(input.SchemaModelName, modelDetails, input, logger.Named(fmt.Sprintf("Nested Model Definition %q", modelName)))
 		if err != nil {
-			return nil, fmt.Errorf("building model definition for nested model %q: %+v", modelName, err)
+			return nil, nil, fmt.Errorf("building model definition for nested model %q: %+v", modelName, err)
 		}
 		if nestedModelDetails == nil {
 			logger.Trace(fmt.Sprintf("nested model %q was filtered out", modelName))
-			return nil, nil
+			return nil, nil, nil
 		}
 
 		prefixedModelName := fmt.Sprintf("%s%s", input.SchemaModelName, modelName)
@@ -81,7 +87,7 @@ func (b Builder) Build(input resourcemanager.TerraformResourceDetails, logger hc
 		for _, processor := range processors.ModelRules {
 			schemaModels, err = processor.ProcessModel(modelName, model, schemaModels)
 			if err != nil {
-				return nil, fmt.Errorf("processing models: %+v", err)
+				return nil, nil, fmt.Errorf("processing models: %+v", err)
 			}
 		}
 
@@ -89,12 +95,12 @@ func (b Builder) Build(input resourcemanager.TerraformResourceDetails, logger hc
 			objectDefinition := topLevelFieldObjectDefinition(field.ObjectDefinition)
 			if objectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeReference {
 				if objectDefinition.ReferenceName == nil {
-					return nil, fmt.Errorf("the Field %q within Model %q was a Reference with no ReferenceName", fieldName, modelName)
+					return nil, nil, fmt.Errorf("the Field %q within Model %q was a Reference with no ReferenceName", fieldName, modelName)
 				}
 
 				if blockRef, ok := blockHclNamesRefMap[field.HclName]; ok {
 					if blockRef != *objectDefinition.ReferenceName {
-						return nil, fmt.Errorf("found duplicate HCL name for block  %q: %+v", field.HclName, err)
+						return nil, nil, fmt.Errorf("found duplicate HCL name for block  %q: %+v", field.HclName, err)
 					}
 				}
 				blockHclNamesRefMap[field.HclName] = *objectDefinition.ReferenceName
@@ -102,15 +108,20 @@ func (b Builder) Build(input resourcemanager.TerraformResourceDetails, logger hc
 		}
 	}
 
-	return &schemaModels, nil
+	if mappings.Update != nil && len(*mappings.Update) == 0 {
+		mappings.Update = nil
+	}
+
+	return &schemaModels, &mappings, nil
 }
 
 type modelParseResult struct {
+	mappings     resourcemanager.MappingDefinition
 	model        resourcemanager.TerraformSchemaModelDefinition
 	nestedModels map[string]resourcemanager.ModelDetails
 }
 
-func (b Builder) schemaFromTopLevelModel(input resourcemanager.TerraformResourceDetails, logger hclog.Logger) (*modelParseResult, error) {
+func (b Builder) schemaFromTopLevelModel(input resourcemanager.TerraformResourceDetails, mappings *resourcemanager.MappingDefinition, logger hclog.Logger) (*modelParseResult, error) {
 	createReadUpdateMethods := b.findCreateUpdateReadPayloads(input)
 	if createReadUpdateMethods == nil {
 		return nil, nil
@@ -132,7 +143,7 @@ func (b Builder) schemaFromTopLevelModel(input resourcemanager.TerraformResource
 	if !ok {
 		return nil, fmt.Errorf("couldn't find Resource ID named %q", input.ResourceIdName)
 	}
-	fieldsWithinResourceId, err := b.identityTopLevelFieldsWithinResourceID(resourceId)
+	fieldsWithinResourceId, mappings, err := b.identityTopLevelFieldsWithinResourceID(resourceId, mappings, input.DisplayName, logger.Named("TopLevelFields ResourceID"))
 	if err != nil {
 		return nil, fmt.Errorf("identifying top level fields within Resource ID %q: %+v", resourceId.Id, err)
 	}
@@ -140,7 +151,7 @@ func (b Builder) schemaFromTopLevelModel(input resourcemanager.TerraformResource
 		schemaFields[k] = v
 	}
 
-	fieldsWithinProperties, err := b.identifyFieldsWithinPropertiesBlock(input.SchemaModelName, *createReadUpdateMethods, &input)
+	fieldsWithinProperties, mappings, err := b.identifyFieldsWithinPropertiesBlock(input.SchemaModelName, *createReadUpdateMethods, &input, mappings, logger.Named("TopLevelFields PropertiesFields"))
 	if err != nil {
 		return nil, fmt.Errorf("parsing fields within the `properties` block for the create/read/update methods: %+v", err)
 	}
@@ -149,7 +160,7 @@ func (b Builder) schemaFromTopLevelModel(input resourcemanager.TerraformResource
 	}
 	//  field renaming happens here?
 
-	modelsUsedWithinProperties, err := b.identifyModelsWithinPropertiesBlock(*createReadUpdateMethods, logger.Named("Models within Property Block"))
+	modelsUsedWithinProperties, mappings, err := b.identifyModelsWithinPropertiesBlock(*createReadUpdateMethods, mappings, logger.Named("Models within Property Block"))
 	if err != nil {
 		return nil, fmt.Errorf("identifying models used within the `properties` block for the create/read/update methods: %+v", err)
 	}
@@ -159,6 +170,7 @@ func (b Builder) schemaFromTopLevelModel(input resourcemanager.TerraformResource
 	}
 
 	return &modelParseResult{
+		mappings: *mappings,
 		model: resourcemanager.TerraformSchemaModelDefinition{
 			Fields: schemaFields,
 		},
@@ -166,7 +178,7 @@ func (b Builder) schemaFromTopLevelModel(input resourcemanager.TerraformResource
 	}, nil
 }
 
-func (b Builder) identifyModelsWithinPropertiesBlock(payloads operationPayloads, logger hclog.Logger) (*map[string]resourcemanager.ModelDetails, error) {
+func (b Builder) identifyModelsWithinPropertiesBlock(payloads operationPayloads, mappings *resourcemanager.MappingDefinition, logger hclog.Logger) (*map[string]resourcemanager.ModelDetails, *resourcemanager.MappingDefinition, error) {
 	allFields := make(map[string]resourcemanager.FieldDetails, 0)
 	for fieldName, field := range payloads.readPayload.Fields {
 		if _, ok := allFields[fieldName]; ok {
@@ -184,17 +196,17 @@ func (b Builder) identifyModelsWithinPropertiesBlock(payloads operationPayloads,
 		// find models within field
 		modelsWithinField, err := b.identifyModelsWithinField(field, allModels, logger)
 		if err != nil {
-			return nil, fmt.Errorf("identifying models within field %q: %+v", fieldName, err)
+			return nil, nil, fmt.Errorf("identifying models within field %q: %+v", fieldName, err)
 		}
 		if modelsWithinField == nil {
 			logger.Trace(fmt.Sprintf("field %q was marked as ignored (due to discriminated types or similar) - skipping", fieldName))
-			return nil, nil
+			return nil, nil, nil
 		}
 
 		for k, v := range *modelsWithinField {
 			if other, ok := allModels[k]; ok {
 				if !modelsMatch(v, other) {
-					return nil, fmt.Errorf("duplicate models named %q were parsed with different fields: %+v / %+v", k, v.Fields, other.Fields)
+					return nil, nil, fmt.Errorf("duplicate models named %q were parsed with different fields: %+v / %+v", k, v.Fields, other.Fields)
 				}
 			}
 
@@ -202,7 +214,7 @@ func (b Builder) identifyModelsWithinPropertiesBlock(payloads operationPayloads,
 		}
 	}
 
-	return &allModels, nil
+	return &allModels, mappings, nil
 }
 
 func modelsMatch(first resourcemanager.ModelDetails, second resourcemanager.ModelDetails) bool {

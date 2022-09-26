@@ -335,22 +335,26 @@ func TestBuildForChaosStudioExperimentWithRealData(t *testing.T) {
 		SchemaModelName: "Experiment",
 	}
 
-	actual, err := builder.Build(input, hclog.New(hclog.DefaultOptions))
+	actualModels, actualMappings, err := builder.Build(input, hclog.New(hclog.DefaultOptions))
 	if err != nil {
 		t.Errorf("building schema: %+v", err)
 	}
 
-	if actual == nil {
+	if actualModels == nil {
 		t.Fatalf("expected 7 models but got nil")
 	}
+	if actualMappings == nil {
+		// TODO: tests for Mappings
+		t.Fatalf("expected some mappings but got nil")
+	}
 
-	if len(*actual) != 7 {
-		t.Errorf("expected 7 models but got %d", len(*actual))
+	if len(*actualModels) != 7 {
+		t.Errorf("expected 7 models but got %d", len(*actualModels))
 	}
 
 	var ok bool
 	r.CurrentModel = "Experiment"
-	currentModel, ok := (*actual)[r.CurrentModel]
+	currentModel, ok := (*actualModels)[r.CurrentModel]
 	if !ok {
 		t.Errorf("expected there to be a model %q, but there wasn't", r.CurrentModel)
 	} else {
@@ -399,7 +403,7 @@ func TestBuildForChaosStudioExperimentWithRealData(t *testing.T) {
 	}
 
 	r.CurrentModel = "ExperimentSelector"
-	currentModel, ok = (*actual)[r.CurrentModel]
+	currentModel, ok = (*actualModels)[r.CurrentModel]
 	if !ok {
 		t.Errorf("expected there to be a model %q, but there wasn't", r.CurrentModel)
 	} else {
@@ -438,7 +442,7 @@ func TestBuildForChaosStudioExperimentWithRealData(t *testing.T) {
 	}
 
 	r.CurrentModel = "ExperimentStep"
-	currentModel, ok = (*actual)[r.CurrentModel]
+	currentModel, ok = (*actualModels)[r.CurrentModel]
 	if !ok {
 		t.Errorf("expected there to be a model %q, but there wasn't", r.CurrentModel)
 	} else {
@@ -463,7 +467,7 @@ func TestBuildForChaosStudioExperimentWithRealData(t *testing.T) {
 	}
 
 	r.CurrentModel = "ExperimentTarget"
-	currentModel, ok = (*actual)[r.CurrentModel]
+	currentModel, ok = (*actualModels)[r.CurrentModel]
 	if !ok {
 		t.Errorf("expected there to be a model %q, but there wasn't", r.CurrentModel)
 	} else {
@@ -494,7 +498,7 @@ func TestBuildForChaosStudioExperimentWithRealData(t *testing.T) {
 	}
 
 	r.CurrentModel = "ExperimentBranch"
-	currentModel, ok = (*actual)[r.CurrentModel]
+	currentModel, ok = (*actualModels)[r.CurrentModel]
 	if !ok {
 		t.Errorf("expected there to be a model %q, but there wasn't", r.CurrentModel)
 	} else {
@@ -520,7 +524,7 @@ func TestBuildForChaosStudioExperimentWithRealData(t *testing.T) {
 	}
 
 	r.CurrentModel = "ExperimentAction"
-	currentModel, ok = (*actual)["ExperimentAction"]
+	currentModel, ok = (*actualModels)["ExperimentAction"]
 	if !ok {
 		t.Errorf("expected there to be a model %q, but there wasn't", r.CurrentModel)
 	} else {
