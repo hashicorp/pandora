@@ -20,13 +20,14 @@ public class ChaosStudioExperimentResourceSchema
     public CommonSchema.Location Location { get; set; }
 
 
-    [Documentation("The name which should be used for this resource")]
+    [Documentation("Specifies the name of this Chaos Studio Experiment.")]
     [ForceNew]
     [HclName("name")]
     [Required]
     public string Name { get; set; }
 
 
+    [Documentation("Specifies the name of the Resource Group within which this Chaos Studio Experiment should exist.")]
     [ForceNew]
     [HclName("resource_group_name")]
     [Required]
