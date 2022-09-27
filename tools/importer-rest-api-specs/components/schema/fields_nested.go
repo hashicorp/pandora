@@ -132,14 +132,14 @@ func (b Builder) identifyFieldsWithinPropertiesBlock(schemaModelName string, inp
 		definition.ObjectDefinition = *objectDefinition
 
 		if hasCreate {
-			mappings.Create = append(mappings.Create, directAssignmentMappingBetween(schemaModelName, k, input.createPropertiesModelName, fieldNameForTypedModel))
+			mappings.Create = append(mappings.Create, directAssignmentMappingBetween(schemaModelName, fieldNameForTypedModel, input.createPropertiesModelName, k))
 		}
 		if hasUpdate {
-			outputMappings := append(*mappings.Update, directAssignmentMappingBetween(schemaModelName, k, *input.updatePropertiesModelName, fieldNameForTypedModel))
+			outputMappings := append(*mappings.Update, directAssignmentMappingBetween(schemaModelName, fieldNameForTypedModel, *input.updatePropertiesModelName, k))
 			mappings.Update = &outputMappings
 		}
 		if hasRead {
-			mappings.Read = append(mappings.Read, directAssignmentMappingBetween(schemaModelName, k, input.readPropertiesModelName, fieldNameForTypedModel))
+			mappings.Read = append(mappings.Read, directAssignmentMappingBetween(schemaModelName, fieldNameForTypedModel, input.readPropertiesModelName, k))
 		}
 
 		out[fieldNameForTypedModel] = definition
