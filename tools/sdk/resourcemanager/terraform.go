@@ -3,6 +3,7 @@ package resourcemanager
 import (
 	"encoding/json"
 	"fmt"
+	"strings"
 )
 
 type TerraformClient struct {
@@ -84,23 +85,13 @@ type TerraformDataSourceTypeDetails struct {
 	ResourceLabel string `json:"resourceLabel"`
 }
 
-type FieldBooleanEqualsMappingDefinition struct {
-	// ConstantName (optionally) defines the name of the Constant where the ConstantValue
-	// used as a BooleanEquals value can be found.
-	ConstantName *string `json:"constantName,omitempty"`
-
-	// ConstantValue (optionally) specifies the Value from the Constant defined in ConstantName
-	// which this field must match for the result to be true, otherwise the result is false.
-	ConstantValue *string `json:"constantValue,omitempty"`
-
-	// Expression defines the literal value that the field should match, if it matches this is true
-	// else this is false.
-	Expression *string `json:"expression,omitempty"`
-}
-
 type FieldManualMappingDefinition struct {
 	// MethodName specifies the name of the Manual mapping method used to map between the Schema and SDK Types
 	MethodName string `json:"methodName"`
+}
+
+func (d FieldManualMappingDefinition) String() string {
+	return fmt.Sprintf("MethodName: %q", d.MethodName)
 }
 
 type FieldMappingDefinition struct {
@@ -112,6 +103,18 @@ type FieldMappingDefinition struct {
 
 	// Manual contains additional metadata when Type is set to Manual.
 	Manual *FieldManualMappingDefinition `json:"manual,omitempty"`
+}
+
+func (d FieldMappingDefinition) String() string {
+	output := make([]string, 0)
+	if d.DirectAssignment != nil {
+		output = append(output, fmt.Sprintf("DirectAssignment: %s", d.DirectAssignment.String()))
+	}
+	if d.Manual != nil {
+		output = append(output, fmt.Sprintf("Manual: %q", d.Manual.String()))
+	}
+
+	return fmt.Sprintf("Type %q (%s)", string(d.Type), strings.Join(output, " / "))
 }
 
 type MappingDefinitionType string
@@ -137,6 +140,16 @@ type FieldMappingDirectAssignmentDefinition struct {
 	// SdkFieldPath specifies the Path to the Field within the SdkModel where the Schema Field
 	// should be mapped onto.
 	SdkFieldPath string `json:"sdkFieldPath"`
+}
+
+func (d FieldMappingDirectAssignmentDefinition) String() string {
+	output := []string{
+		fmt.Sprintf("Schema Model Name %q", d.SchemaModelName),
+		fmt.Sprintf("Schema Field Path %q", d.SchemaFieldPath),
+		fmt.Sprintf("Sdk Model Name %q", d.SdkModelName),
+		fmt.Sprintf("Sdk Field Path %q", d.SdkFieldPath),
+	}
+	return strings.Join(output, " / ")
 }
 
 type ResourceIdMappingDefinition struct {

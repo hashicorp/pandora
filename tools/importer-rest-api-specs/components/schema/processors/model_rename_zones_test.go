@@ -31,7 +31,39 @@ func TestProcessModel_RenameZones_Valid(t *testing.T) {
 				},
 			},
 			mappingsInput: resourcemanager.MappingDefinition{
-				// TODO: add me
+				Create: []resourcemanager.FieldMappingDefinition{
+					{
+						Type: resourcemanager.DirectAssignmentMappingDefinitionType,
+						DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
+							SchemaModelName: "Disco",
+							SchemaFieldPath: "AvailabilityZones",
+							SdkModelName:    "SomeModel",
+							SdkFieldPath:    "AvailabilityZones",
+						},
+					},
+				},
+				Update: &[]resourcemanager.FieldMappingDefinition{
+					{
+						Type: resourcemanager.DirectAssignmentMappingDefinitionType,
+						DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
+							SchemaModelName: "Disco",
+							SchemaFieldPath: "AvailabilityZones",
+							SdkModelName:    "SomeModel",
+							SdkFieldPath:    "AvailabilityZones",
+						},
+					},
+				},
+				Read: []resourcemanager.FieldMappingDefinition{
+					{
+						Type: resourcemanager.DirectAssignmentMappingDefinitionType,
+						DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
+							SchemaModelName: "Disco",
+							SchemaFieldPath: "AvailabilityZones",
+							SdkModelName:    "SomeModel",
+							SdkFieldPath:    "AvailabilityZones",
+						},
+					},
+				},
 			},
 			expectedModels: map[string]resourcemanager.TerraformSchemaModelDefinition{
 				"Disco": {
@@ -48,7 +80,39 @@ func TestProcessModel_RenameZones_Valid(t *testing.T) {
 				},
 			},
 			expectedMappings: resourcemanager.MappingDefinition{
-				// TODO: add me
+				Create: []resourcemanager.FieldMappingDefinition{
+					{
+						Type: resourcemanager.DirectAssignmentMappingDefinitionType,
+						DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
+							SchemaModelName: "Disco",
+							SchemaFieldPath: "Zones",
+							SdkModelName:    "SomeModel",
+							SdkFieldPath:    "AvailabilityZones",
+						},
+					},
+				},
+				Update: &[]resourcemanager.FieldMappingDefinition{
+					{
+						Type: resourcemanager.DirectAssignmentMappingDefinitionType,
+						DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
+							SchemaModelName: "Disco",
+							SchemaFieldPath: "Zones",
+							SdkModelName:    "SomeModel",
+							SdkFieldPath:    "AvailabilityZones",
+						},
+					},
+				},
+				Read: []resourcemanager.FieldMappingDefinition{
+					{
+						Type: resourcemanager.DirectAssignmentMappingDefinitionType,
+						DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
+							SchemaModelName: "Disco",
+							SchemaFieldPath: "Zones",
+							SdkModelName:    "SomeModel",
+							SdkFieldPath:    "AvailabilityZones",
+						},
+					},
+				},
 			},
 		},
 	}
@@ -92,7 +156,39 @@ func TestProcessModel_RenameZone_Valid(t *testing.T) {
 				},
 			},
 			mappingsInput: resourcemanager.MappingDefinition{
-				// TODO: add me
+				Create: []resourcemanager.FieldMappingDefinition{
+					{
+						Type: resourcemanager.DirectAssignmentMappingDefinitionType,
+						DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
+							SchemaModelName: "Disco",
+							SchemaFieldPath: "Zone",
+							SdkModelName:    "SomeModel",
+							SdkFieldPath:    "AvailabilityZone",
+						},
+					},
+				},
+				Update: &[]resourcemanager.FieldMappingDefinition{
+					{
+						Type: resourcemanager.DirectAssignmentMappingDefinitionType,
+						DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
+							SchemaModelName: "Disco",
+							SchemaFieldPath: "Zone",
+							SdkModelName:    "SomeModel",
+							SdkFieldPath:    "AvailabilityZone",
+						},
+					},
+				},
+				Read: []resourcemanager.FieldMappingDefinition{
+					{
+						Type: resourcemanager.DirectAssignmentMappingDefinitionType,
+						DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
+							SchemaModelName: "Disco",
+							SchemaFieldPath: "Zone",
+							SdkModelName:    "SomeModel",
+							SdkFieldPath:    "AvailabilityZone",
+						},
+					},
+				},
 			},
 			expectedModels: map[string]resourcemanager.TerraformSchemaModelDefinition{
 				"Disco": {
@@ -106,7 +202,39 @@ func TestProcessModel_RenameZone_Valid(t *testing.T) {
 				},
 			},
 			expectedMappings: resourcemanager.MappingDefinition{
-				// TODO: add me
+				Create: []resourcemanager.FieldMappingDefinition{
+					{
+						Type: resourcemanager.DirectAssignmentMappingDefinitionType,
+						DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
+							SchemaModelName: "Disco",
+							SchemaFieldPath: "Zone",
+							SdkModelName:    "SomeModel",
+							SdkFieldPath:    "AvailabilityZone",
+						},
+					},
+				},
+				Update: &[]resourcemanager.FieldMappingDefinition{
+					{
+						Type: resourcemanager.DirectAssignmentMappingDefinitionType,
+						DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
+							SchemaModelName: "Disco",
+							SchemaFieldPath: "Zone",
+							SdkModelName:    "SomeModel",
+							SdkFieldPath:    "AvailabilityZone",
+						},
+					},
+				},
+				Read: []resourcemanager.FieldMappingDefinition{
+					{
+						Type: resourcemanager.DirectAssignmentMappingDefinitionType,
+						DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
+							SchemaModelName: "Disco",
+							SchemaFieldPath: "Zone",
+							SdkModelName:    "SomeModel",
+							SdkFieldPath:    "AvailabilityZone",
+						},
+					},
+				},
 			},
 		},
 	}
@@ -165,7 +293,39 @@ func TestProcessModel_RenameZones_Invalid(t *testing.T) {
 				},
 			},
 			mappingsInput: resourcemanager.MappingDefinition{
-				// TODO: add me
+				Create: []resourcemanager.FieldMappingDefinition{
+					{
+						Type: resourcemanager.DirectAssignmentMappingDefinitionType,
+						DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
+							SchemaModelName: "Disco",
+							SchemaFieldPath: "AvailabilityZones",
+							SdkModelName:    "SomeModel",
+							SdkFieldPath:    "AvailabilityZones",
+						},
+					},
+				},
+				Update: &[]resourcemanager.FieldMappingDefinition{
+					{
+						Type: resourcemanager.DirectAssignmentMappingDefinitionType,
+						DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
+							SchemaModelName: "Disco",
+							SchemaFieldPath: "AvailabilityZones",
+							SdkModelName:    "SomeModel",
+							SdkFieldPath:    "AvailabilityZones",
+						},
+					},
+				},
+				Read: []resourcemanager.FieldMappingDefinition{
+					{
+						Type: resourcemanager.DirectAssignmentMappingDefinitionType,
+						DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
+							SchemaModelName: "Disco",
+							SchemaFieldPath: "AvailabilityZones",
+							SdkModelName:    "SomeModel",
+							SdkFieldPath:    "AvailabilityZones",
+						},
+					},
+				},
 			},
 			// unchanged
 			expectedModels: map[string]resourcemanager.TerraformSchemaModelDefinition{
@@ -195,7 +355,39 @@ func TestProcessModel_RenameZones_Invalid(t *testing.T) {
 				},
 			},
 			expectedMappings: resourcemanager.MappingDefinition{
-				// TODO: add me
+				Create: []resourcemanager.FieldMappingDefinition{
+					{
+						Type: resourcemanager.DirectAssignmentMappingDefinitionType,
+						DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
+							SchemaModelName: "Disco",
+							SchemaFieldPath: "AvailabilityZones",
+							SdkModelName:    "SomeModel",
+							SdkFieldPath:    "AvailabilityZones",
+						},
+					},
+				},
+				Update: &[]resourcemanager.FieldMappingDefinition{
+					{
+						Type: resourcemanager.DirectAssignmentMappingDefinitionType,
+						DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
+							SchemaModelName: "Disco",
+							SchemaFieldPath: "AvailabilityZones",
+							SdkModelName:    "SomeModel",
+							SdkFieldPath:    "AvailabilityZones",
+						},
+					},
+				},
+				Read: []resourcemanager.FieldMappingDefinition{
+					{
+						Type: resourcemanager.DirectAssignmentMappingDefinitionType,
+						DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
+							SchemaModelName: "Disco",
+							SchemaFieldPath: "AvailabilityZones",
+							SdkModelName:    "SomeModel",
+							SdkFieldPath:    "AvailabilityZones",
+						},
+					},
+				},
 			},
 		},
 		{
@@ -227,7 +419,39 @@ func TestProcessModel_RenameZones_Invalid(t *testing.T) {
 				},
 			},
 			mappingsInput: resourcemanager.MappingDefinition{
-				// TODO: add me
+				Create: []resourcemanager.FieldMappingDefinition{
+					{
+						Type: resourcemanager.DirectAssignmentMappingDefinitionType,
+						DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
+							SchemaModelName: "Disco",
+							SchemaFieldPath: "AvailabilityZone",
+							SdkModelName:    "SomeModel",
+							SdkFieldPath:    "AvailabilityZone",
+						},
+					},
+				},
+				Update: &[]resourcemanager.FieldMappingDefinition{
+					{
+						Type: resourcemanager.DirectAssignmentMappingDefinitionType,
+						DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
+							SchemaModelName: "Disco",
+							SchemaFieldPath: "AvailabilityZone",
+							SdkModelName:    "SomeModel",
+							SdkFieldPath:    "AvailabilityZone",
+						},
+					},
+				},
+				Read: []resourcemanager.FieldMappingDefinition{
+					{
+						Type: resourcemanager.DirectAssignmentMappingDefinitionType,
+						DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
+							SchemaModelName: "Disco",
+							SchemaFieldPath: "AvailabilityZone",
+							SdkModelName:    "SomeModel",
+							SdkFieldPath:    "AvailabilityZone",
+						},
+					},
+				},
 			},
 			// unchanged since the nested model doesn't match
 			expectedModels: map[string]resourcemanager.TerraformSchemaModelDefinition{
@@ -257,7 +481,39 @@ func TestProcessModel_RenameZones_Invalid(t *testing.T) {
 				},
 			},
 			expectedMappings: resourcemanager.MappingDefinition{
-				// TODO: add me
+				Create: []resourcemanager.FieldMappingDefinition{
+					{
+						Type: resourcemanager.DirectAssignmentMappingDefinitionType,
+						DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
+							SchemaModelName: "Disco",
+							SchemaFieldPath: "AvailabilityZone",
+							SdkModelName:    "SomeModel",
+							SdkFieldPath:    "AvailabilityZone",
+						},
+					},
+				},
+				Update: &[]resourcemanager.FieldMappingDefinition{
+					{
+						Type: resourcemanager.DirectAssignmentMappingDefinitionType,
+						DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
+							SchemaModelName: "Disco",
+							SchemaFieldPath: "AvailabilityZone",
+							SdkModelName:    "SomeModel",
+							SdkFieldPath:    "AvailabilityZone",
+						},
+					},
+				},
+				Read: []resourcemanager.FieldMappingDefinition{
+					{
+						Type: resourcemanager.DirectAssignmentMappingDefinitionType,
+						DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
+							SchemaModelName: "Disco",
+							SchemaFieldPath: "AvailabilityZone",
+							SdkModelName:    "SomeModel",
+							SdkFieldPath:    "AvailabilityZone",
+						},
+					},
+				},
 			},
 		},
 	}

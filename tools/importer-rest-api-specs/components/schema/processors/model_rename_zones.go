@@ -21,6 +21,9 @@ func (modelRenameZones) ProcessModel(modelName string, model resourcemanager.Ter
 				updatedName := fmt.Sprint("Zones")
 				fields[updatedName] = fieldValue
 				delete(fields, fieldName)
+
+				// also go through and replace the mapping
+				mappings = applyFieldRenameToMappings(mappings, modelName, fieldName, updatedName)
 			}
 		}
 
@@ -28,6 +31,9 @@ func (modelRenameZones) ProcessModel(modelName string, model resourcemanager.Ter
 			updatedName := fmt.Sprint("Zone")
 			fields[updatedName] = fieldValue
 			delete(fields, fieldName)
+
+			// also go through and replace the mapping
+			mappings = applyFieldRenameToMappings(mappings, modelName, fieldName, updatedName)
 		}
 	}
 	model.Fields = fields
