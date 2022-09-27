@@ -100,13 +100,10 @@ resource 'example_resource' 'example' {
                 new FieldMappingDefinition
                 {
                     Type = FieldMappingDefinitionType.DirectAssignment.ToString(),
-                    From = new FieldMappingFromDefinition
+                    DirectAssignment = new FieldMappingDirectAssignmentDefinition
                     {
                         SchemaModelName = "ResourceGroupResourceSchema",
                         SchemaFieldPath = "DirectAssignmentField",
-                    },
-                    To = new FieldMappingToDefinition
-                    {
                         SdkFieldPath = "DirectAssignmentReceiver",
                         SdkModelName = "ResourceGroup",
                     },

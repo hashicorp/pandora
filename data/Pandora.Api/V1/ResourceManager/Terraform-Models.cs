@@ -278,11 +278,8 @@ public partial class TerraformController
         [JsonPropertyName("type")]
         public string Type { get; set; }
 
-        [JsonPropertyName("from")]
-        public FieldMappingFromDefinition From { get; set; }
-
-        [JsonPropertyName("to")]
-        public FieldMappingToDefinition To { get; set; }
+        [JsonPropertyName("directAssignment")]
+        public FieldMappingDirectAssignmentDefinition? DirectAssignment { get; set; }
 
         [JsonPropertyName("booleanEquals")]
         public FieldMappingBooleanEqualsDefinition? BooleanEquals { get; set; }
@@ -291,7 +288,7 @@ public partial class TerraformController
         public FieldMappingManualDefinition? Manual { get; set; }
     }
 
-    private class FieldMappingFromDefinition
+    private class FieldMappingDirectAssignmentDefinition
     {
         /// <summary>
         /// SchemaModelName is the name of the Schema Model
@@ -303,14 +300,17 @@ public partial class TerraformController
         /// SchemaFieldPath is the path to the field within the SchemaModelName (e.g. `Foo` or `Foo.Bar`)
         /// </summary>
         [JsonPropertyName("schemaFieldPath")]
-        public string SchemaFieldPath { get; set; }
-    }
+        public string? SchemaFieldPath { get; set; }
 
-    private class FieldMappingToDefinition
-    {
+        /// <summary>
+        /// SdkModelName is the name of the Sdk Model associated with this mapping.
+        /// </summary>
         [JsonPropertyName("sdkModelName")]
-        public string? SdkModelName { get; set; }
+        public string SdkModelName { get; set; }
 
+        /// <summary>
+        /// SdkFieldPath is the path to the field within the Sdk Model
+        /// </summary>
         [JsonPropertyName("sdkFieldPath")]
         public string? SdkFieldPath { get; set; }
     }
