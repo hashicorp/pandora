@@ -129,7 +129,7 @@ public class TerraformResourceDefinitionTests
     {
         public List<MappingType> Mappings => new List<MappingType>
         {
-            Mapping.FromSchema<BasicResourceSchema>(s => s.Name).ToSdkField<v2020_01_01.Example.SomeModel>(m => m.Example),
+            Mapping.FromSchema<BasicResourceSchema>(s => s.Name).ToSdkField<v2020_01_01.Example.SomeModel>(m => m.Example).Direct(),
         };
     }
 

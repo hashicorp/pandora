@@ -24,7 +24,7 @@ public static class TerraformMappingDefinition
                 continue;
             }
 
-            if (item is FromMapping.PlaceholderMapping)
+            if (item is DirectAssignmentMapping)
             {
                 // TODO: replace this
                 continue;
