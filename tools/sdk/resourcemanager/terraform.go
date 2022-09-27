@@ -145,6 +145,7 @@ const (
 	BooleanInvertMappingDefinitionType    MappingDefinitionType = "BooleanInvert"
 	DirectAssignmentMappingDefinitionType MappingDefinitionType = "DirectAssignment"
 	ManualMappingDefinitionType           MappingDefinitionType = "Manual"
+	ModelToModelMappingDefinitionType     MappingDefinitionType = "ModelToModel"
 	// TODO: more
 )
 

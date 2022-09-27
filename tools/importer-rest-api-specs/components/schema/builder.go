@@ -119,7 +119,61 @@ func (b Builder) Build(input resourcemanager.TerraformResourceDetails, logger hc
 		mappings.Update = nil
 	}
 
+	// finally go through and remove any unused models
+	schemaModels, mappings = removeUnusedModels(input, b.operations, schemaModels, mappings)
+
 	return &schemaModels, &mappings, nil
+}
+
+func removeUnusedModels(input resourcemanager.TerraformResourceDetails, operations map[string]resourcemanager.ApiOperation, models map[string]resourcemanager.TerraformSchemaModelDefinition, mappings resourcemanager.MappingDefinition) (map[string]resourcemanager.TerraformSchemaModelDefinition, resourcemanager.MappingDefinition) {
+	unusedModels := make(map[string]struct{}, 0)
+	// first assume everything is unused
+	for modelName := range models {
+		unusedModels[modelName] = struct{}{}
+	}
+
+	for _, model := range models {
+		for _, field := range model.Fields {
+			objectDefinition := topLevelFieldObjectDefinition(field.ObjectDefinition)
+			if objectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeReference {
+				// TODO: we should check if this is a const too
+				delete(unusedModels, *objectDefinition.ReferenceName)
+			}
+		}
+	}
+
+	// finally remove any models referenced as top level operations
+	operationMethodNames := []string{
+		input.CreateMethod.MethodName,
+		input.ReadMethod.MethodName,
+		input.DeleteMethod.MethodName,
+	}
+	if input.UpdateMethod != nil {
+		operationMethodNames = append(operationMethodNames, input.UpdateMethod.MethodName)
+	}
+	for _, methodName := range operationMethodNames {
+		operation := operations[methodName]
+		if operation.RequestObject != nil {
+			objectDefinition := topLevelObjectDefinition(*operation.RequestObject)
+			if objectDefinition.Type == resourcemanager.ReferenceApiObjectDefinitionType {
+				delete(unusedModels, *operation.RequestObject.ReferenceName)
+			}
+		}
+		if operation.ResponseObject != nil {
+			objectDefinition := topLevelObjectDefinition(*operation.ResponseObject)
+			if objectDefinition.Type == resourcemanager.ReferenceApiObjectDefinitionType {
+				delete(unusedModels, *operation.ResponseObject.ReferenceName)
+			}
+		}
+	}
+
+	// remove any unreferenced models
+	for modelName := range unusedModels {
+		delete(models, modelName)
+		// TODO: go through and remove any mappings too
+	}
+
+	return models, mappings
 }
 
 type modelParseResult struct {
@@ -129,22 +183,22 @@ type modelParseResult struct {
 }
 
 func (b Builder) schemaFromTopLevelModel(input resourcemanager.TerraformResourceDetails, mappings *resourcemanager.MappingDefinition, logger hclog.Logger) (*modelParseResult, error) {
-	createReadUpdateMethods := b.findCreateUpdateReadPayloads(input)
+	createReadUpdateMethods, err := b.findCreateUpdateReadPayloads(input)
+	if err != nil {
+		return nil, fmt.Errorf("finding create/update/read payloads: %+v", err)
+	}
 	if createReadUpdateMethods == nil {
 		return nil, nil
 	}
 
 	// TODO process top level fields at the end?
 	// find each of the "common" top level fields, excluding `properties`
-	topLevelFields, err := b.identifyTopLevelFields(input.SchemaModelName, *createReadUpdateMethods)
+	fields, mappings, err := b.schemaFromTopLevelFields(input.SchemaModelName, *createReadUpdateMethods, mappings, logger.Named("TopLevelFields"))
 	if err != nil {
 		return nil, fmt.Errorf("parsing top-level fields from create/read/update: %+v", err)
 	}
 
-	schemaFields := make(map[string]resourcemanager.TerraformSchemaFieldDefinition)
-	for k, v := range topLevelFields.toSchema() {
-		schemaFields[k] = v
-	}
+	schemaFields := *fields
 
 	resourceId, ok := b.resourceIds[input.ResourceIdName]
 	if !ok {
@@ -273,57 +327,81 @@ func (b Builder) buildNestedModelDefinition(modelPrefix string, model resourcema
 	}, nil
 }
 
-func (b Builder) findCreateUpdateReadPayloads(input resourcemanager.TerraformResourceDetails) *operationPayloads {
+func (b Builder) findCreateUpdateReadPayloads(input resourcemanager.TerraformResourceDetails) (*operationPayloads, error) {
 	out := operationPayloads{}
 
 	// Create has to exist
 	createOperation, ok := b.operations[input.CreateMethod.MethodName]
 	if !ok {
-		return nil
+		return nil, nil
 	}
 	if createOperation.RequestObject == nil || createOperation.RequestObject.Type != resourcemanager.ReferenceApiObjectDefinitionType || createOperation.RequestObject.ReferenceName == nil {
 		// we don't generate resources for operations returning lists etc, debatable if we should
-		return nil
+		return nil, nil
 	}
 	createModel, ok := b.models[*createOperation.RequestObject.ReferenceName]
 	if !ok {
-		return nil
+		return nil, nil
 	}
+	out.createModelName = *createOperation.RequestObject.ReferenceName
 	out.createPayload = createModel
+	createPropsModelName, createPropsModel := out.getPropertiesModelWithinModel(out.createPayload, b.models)
+	if createPropsModelName == nil || createPropsModel == nil {
+		return nil, fmt.Errorf("couldn't find `Properties` model for Create Payload")
+	}
+	out.createPropertiesPayload = *createPropsModel
+	out.createPropertiesModelName = *createPropsModelName
 
 	// Read has to exist
 	readOperation, ok := b.operations[input.ReadMethod.MethodName]
 	if !ok {
-		return nil
+		return nil, nil
 	}
 	if readOperation.ResponseObject == nil || readOperation.ResponseObject.Type != resourcemanager.ReferenceApiObjectDefinitionType || readOperation.ResponseObject.ReferenceName == nil {
 		// we don't generate resources for operations returning lists etc, debatable if we should
-		return nil
+		return nil, nil
 	}
 	readModel, ok := b.models[*readOperation.ResponseObject.ReferenceName]
 	if !ok {
-		return nil
+		return nil, nil
 	}
+	out.readModelName = *readOperation.ResponseObject.ReferenceName
 	out.readPayload = readModel
+	// then find the `Properties` model within this
+	readPropsModelName, readPropsModel := out.getPropertiesModelWithinModel(out.readPayload, b.models)
+	if readPropsModelName == nil || readPropsModel == nil {
+		return nil, fmt.Errorf("couldn't find `Properties` model for Read Payload")
+	}
+	out.readPropertiesModelName = *readPropsModelName
+	out.readPropertiesPayload = *readPropsModel
 
 	// Update doesn't have to exist
 	if updateMethod := input.UpdateMethod; updateMethod != nil {
 		updateOperation, ok := b.operations[updateMethod.MethodName]
 		if !ok {
-			return nil
+			return nil, nil
 		}
 		if updateOperation.RequestObject == nil || updateOperation.RequestObject.Type != resourcemanager.ReferenceApiObjectDefinitionType || updateOperation.RequestObject.ReferenceName == nil {
 			// we don't generate resources for operations returning lists etc, debatable if we should
-			return nil
+			return nil, nil
 		}
 		updateModel, ok := b.models[*updateOperation.RequestObject.ReferenceName]
 		if !ok {
-			return nil
+			return nil, nil
 		}
+		out.updateModelName = updateOperation.RequestObject.ReferenceName
 		out.updatePayload = &updateModel
+
+		// then find the `Properties` model within this
+		updatePropsModelName, updatePropsModel := out.getPropertiesModelWithinModel(*out.updatePayload, b.models)
+		if updatePropsModelName == nil || updatePropsModel == nil {
+			return nil, fmt.Errorf("couldn't find `Properties` model for Update Payload")
+		}
+		out.updatePropertiesModelName = updatePropsModelName
+		out.updatePropertiesPayload = updatePropsModel
 	}
 	// NOTE: intentionally not including Delete since the payload shouldn't be applicable to users
-	return &out
+	return &out, nil
 }
 
 func (b Builder) identifyModelsWithinField(field resourcemanager.FieldDetails, knownModels map[string]resourcemanager.ModelDetails, logger hclog.Logger) (*map[string]resourcemanager.ModelDetails, error) {

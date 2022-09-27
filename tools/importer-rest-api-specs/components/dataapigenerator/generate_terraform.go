@@ -84,8 +84,11 @@ func (s Generator) generateTerraformDefinitions(apiVersion models.AzureApiDefini
 			// output the Mappings for this Terraform Resource
 			resourceMappingsFileName := path.Join(s.workingDirectoryForTerraform, fmt.Sprintf("%s-Resource-Mappings.cs", details.ResourceName))
 			s.logger.Trace(fmt.Sprintf("Generating Resource Mappings into %q", resourceMappingsFileName))
-			resourceMappingsCode := codeForTerraformResourceMappings(s.namespaceForTerraform, details)
-			if err := writeToFile(resourceMappingsFileName, resourceMappingsCode); err != nil {
+			resourceMappingsCode, err := codeForTerraformResourceMappings(s.namespaceForTerraform, s.namespaceForResource(details.Resource), details)
+			if err != nil {
+				return fmt.Errorf("generating Terraform Resource Mappings: %+v", err)
+			}
+			if err := writeToFile(resourceMappingsFileName, *resourceMappingsCode); err != nil {
 				return fmt.Errorf("generating Terraform Resource Mappings for %q: %+v", label, err)
 			}
 

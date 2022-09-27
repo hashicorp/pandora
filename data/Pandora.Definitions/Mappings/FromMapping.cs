@@ -15,6 +15,10 @@ public class FromMapping
     /// </summary>
     internal string FromFieldPath { get; set; }
 
+    /// <summary>
+    /// ToResourceIdSegmentNamed specifies that the Schema Field should be mapped to and from
+    /// the Resource ID Segment with the specified name. 
+    /// </summary>
     public ResourceIdMapping ToResourceIdSegmentNamed(string name)
     {
         if (FromFieldPath.Contains('.'))
@@ -29,14 +33,26 @@ public class FromMapping
         };
     }
 
-    public PlaceholderMapping ToSdkField<TModel>(Expression<Func<TModel, object>> schemaModelFieldFunc)
+    /// <summary>
+    /// ToSdkField defines a Mapping between a Schema Field and an SDK Field, however it doesn't specify
+    /// the Mapping Type, which must be specified as an extension method.
+    ///
+    /// For example, use `.Direct()` to specify a DirectAssignment mapping.
+    /// </summary>
+    public MappingDefinition ToSdkField<TModel>(Expression<Func<TModel, object>> sdkModelFieldFunc)
     {
-        // TODO: switch this out for a real mapping
-        return new PlaceholderMapping();
-    }
-
-    public class PlaceholderMapping : MappingType
-    {
-        // TODO: replace this with real types shortly
+        var fieldPath = sdkModelFieldFunc.Body.Normalize();
+        if (fieldPath.Contains('.'))
+        {
+            // TODO: implement this
+            throw new NotSupportedException("nested fields are not yet supported as expressions");
+        }
+        return new MappingDefinition
+        {
+            FromSchemaModelName = FromModel,
+            FromSchemaPath = FromFieldPath,
+            ToSdkModelName = typeof(TModel).Name,
+            ToSdkModelPath = fieldPath,
+        };
     }
 }

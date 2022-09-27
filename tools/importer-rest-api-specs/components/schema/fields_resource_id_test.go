@@ -376,5 +376,4 @@ func checkResourceIdMappingExistsBetween(t *testing.T, mappings []resourcemanage
 	if !found {
 		t.Fatalf("expected there to be a Resource ID Mapping from Schema Field %q to Segment Name %q but there wasn't", schemaFieldName, segmentName)
 	}
-
 }

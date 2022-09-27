@@ -11,9 +11,10 @@ import (
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-func (b Builder) identifyFieldsWithinPropertiesBlock(modelPrefix string, input operationPayloads, resource *resourcemanager.TerraformResourceDetails, mappings *resourcemanager.MappingDefinition, named hclog.Logger) (*map[string]resourcemanager.TerraformSchemaFieldDefinition, *resourcemanager.MappingDefinition, error) {
+func (b Builder) identifyFieldsWithinPropertiesBlock(schemaModelName string, input operationPayloads, resource *resourcemanager.TerraformResourceDetails, mappings *resourcemanager.MappingDefinition, named hclog.Logger) (*map[string]resourcemanager.TerraformSchemaFieldDefinition, *resourcemanager.MappingDefinition, error) {
 	allFields := make(map[string]struct{}, 0)
-	for _, model := range input.createReadUpdatePayloadsProperties(b.models) {
+	propertiesPayloads := input.createReadUpdatePayloadsProperties()
+	for _, model := range propertiesPayloads {
 		for k, v := range model.Fields {
 			if fieldShouldBeIgnored(k, v, b.constants) {
 				continue
@@ -23,120 +24,125 @@ func (b Builder) identifyFieldsWithinPropertiesBlock(modelPrefix string, input o
 		}
 	}
 
-	// find the model for the `properties` field within the read response
-	readPropertiesModel := input.getPropertiesModelWithinModel(input.readPayload, b.models)
-	createPropertiesModel := input.getPropertiesModelWithinModel(input.createPayload, b.models)
-	var updatePropertiesModel *resourcemanager.ModelDetails
-	if input.updatePayload != nil {
-		updatePropertiesModel = input.getPropertiesModelWithinModel(*input.updatePayload, b.models)
-	}
-
 	out := make(map[string]resourcemanager.TerraformSchemaFieldDefinition, 0)
-	if readPropertiesModel != nil {
-		for k := range allFields {
-			// TODO: pull the right resourcemanager.ModelDetails for naming below
+	for k := range allFields {
+		// TODO: pull the right resourcemanager.ModelDetails for naming below
 
-			var readField *resourcemanager.FieldDetails
-			hasRead := false
-			if readPropertiesModel != nil {
-				readField, hasRead = getField(*readPropertiesModel, k)
-			}
+		readField, hasRead := getField(input.readPropertiesPayload, k)
+		createField, hasCreate := getField(input.createPropertiesPayload, k)
 
-			var createField *resourcemanager.FieldDetails
-			hasCreate := false
-			if createPropertiesModel != nil {
-				createField, hasCreate = getField(*createPropertiesModel, k)
-			}
-
-			var updateField *resourcemanager.FieldDetails
-			hasUpdate := false
-			if updatePropertiesModel != nil {
-				updateField, hasUpdate = getField(*updatePropertiesModel, k)
-			}
-
-			// based on this information
-			isComputed := false
-			isForceNew := false
-			isRequired := false
-			isOptional := false
-			//isWriteOnly := false // TODO: re-enable that
-
-			if !hasCreate && !hasUpdate && hasRead {
-				isComputed = true
-			}
-			if hasCreate || hasUpdate {
-				if !hasRead {
-					//isWriteOnly = true
-					isForceNew = hasUpdate && !updateField.ForceNew
-				} else if hasCreate {
-					isRequired = createField.Required
-					isOptional = createField.Optional
-					isForceNew = hasUpdate
-				} else if hasUpdate {
-					isRequired = updateField.Required
-					isOptional = updateField.Optional
-					isForceNew = updateField.ForceNew
-				}
-			}
-
-			validation, err := getFieldValidation(createField.Validation, k)
-			//var err error
-			fieldNameForTypedModel := ""
-			if hasRead {
-				fieldNameForTypedModel, err = updateFieldName(k, readPropertiesModel, resource)
-			} else if hasCreate {
-				fieldNameForTypedModel, err = updateFieldName(k, createPropertiesModel, resource)
-			} else if hasUpdate {
-				fieldNameForTypedModel, err = updateFieldName(k, updatePropertiesModel, resource)
-			}
-
-			if err != nil {
-				return nil, nil, err
-			}
-
-			var inputObjectDefinition resourcemanager.ApiObjectDefinition
-			if hasRead {
-				inputObjectDefinition = readField.ObjectDefinition
-			} else if hasCreate {
-				inputObjectDefinition = createField.ObjectDefinition
-			} else if hasUpdate {
-				inputObjectDefinition = updateField.ObjectDefinition
-			}
-
-			schemaFieldName := helpers.ConvertToSnakeCase(fieldNameForTypedModel)
-			log.Printf("[DEBUG] Properties Field %q would be output as %q / %q", k, fieldNameForTypedModel, schemaFieldName)
-
-			if !isOptional && !isRequired {
-				isComputed = true
-				isForceNew = false
-			}
-
-			// TODO(@tombuildsstuff): refactor this and the "nested model" field to use the same parser ideally..?!
-			definition := resourcemanager.TerraformSchemaFieldDefinition{
-				HclName:  schemaFieldName,
-				Required: isRequired,
-				ForceNew: isForceNew,
-				Optional: isOptional,
-				Computed: isComputed,
-				// this is only used when outputting the mappings
-				// 4 types of mappings: Create/Read/Update/Resource ID - all nullable
-				// If a Create and Update Mapping are present but a Read isn't it's implicitly WriteOnly
-				//WriteOnly: isWriteOnly,
-				Validation: validation,
-				Documentation: resourcemanager.TerraformSchemaDocumentationDefinition{
-					Markdown: createField.Description,
-				},
-				// TODO: also need to add the mappings & any validation
-			}
-
-			objectDefinition, err := b.convertToFieldObjectDefinition(modelPrefix, inputObjectDefinition)
-			if err != nil {
-				return nil, nil, fmt.Errorf("converting ObjectDefinition for field to a TerraformFieldObjectDefinition: %+v", err)
-			}
-			definition.ObjectDefinition = *objectDefinition
-
-			out[fieldNameForTypedModel] = definition
+		var updateField *resourcemanager.FieldDetails
+		hasUpdate := false
+		if input.updatePropertiesPayload != nil {
+			updateField, hasUpdate = getField(*input.updatePropertiesPayload, k)
 		}
+
+		// based on this information
+		isComputed := false
+		isForceNew := false
+		isRequired := false
+		isOptional := false
+		//isWriteOnly := false // TODO: re-enable that
+
+		if !hasCreate && !hasUpdate && hasRead {
+			isComputed = true
+		}
+		if hasCreate || hasUpdate {
+			if !hasRead {
+				//isWriteOnly = true
+				isForceNew = hasUpdate && !updateField.ForceNew
+			} else if hasCreate {
+				isRequired = createField.Required
+				isOptional = createField.Optional
+				isForceNew = hasUpdate
+			} else if hasUpdate {
+				isRequired = updateField.Required
+				isOptional = updateField.Optional
+				isForceNew = updateField.ForceNew
+			}
+		}
+
+		var validation *resourcemanager.TerraformSchemaValidationDefinition
+		var err error
+		if hasCreate {
+			validation, err = getFieldValidation(createField.Validation, k)
+			if err != nil {
+				return nil, nil, fmt.Errorf("retrieving validation for field %q: %+v", k, err)
+			}
+		}
+
+		fieldNameForTypedModel := ""
+		if hasRead {
+			fieldNameForTypedModel, err = updateFieldName(k, &input.readPropertiesPayload, resource)
+		} else if hasCreate {
+			fieldNameForTypedModel, err = updateFieldName(k, &input.createPropertiesPayload, resource)
+		} else if hasUpdate {
+			fieldNameForTypedModel, err = updateFieldName(k, input.updatePropertiesPayload, resource)
+		}
+
+		if err != nil {
+			return nil, nil, err
+		}
+
+		var inputObjectDefinition resourcemanager.ApiObjectDefinition
+		if hasRead {
+			inputObjectDefinition = readField.ObjectDefinition
+		} else if hasCreate {
+			inputObjectDefinition = createField.ObjectDefinition
+		} else if hasUpdate {
+			inputObjectDefinition = updateField.ObjectDefinition
+		}
+
+		schemaFieldName := helpers.ConvertToSnakeCase(fieldNameForTypedModel)
+		log.Printf("[DEBUG] Properties Field %q would be output as %q / %q", k, fieldNameForTypedModel, schemaFieldName)
+
+		if !isOptional && !isRequired {
+			isComputed = true
+			isForceNew = false
+		}
+
+		// TODO(@tombuildsstuff): refactor this and the "nested model" field to use the same parser ideally..?!
+		definition := resourcemanager.TerraformSchemaFieldDefinition{
+			HclName:  schemaFieldName,
+			Required: isRequired,
+			ForceNew: isForceNew,
+			Optional: isOptional,
+			Computed: isComputed,
+			// this is only used when outputting the mappings
+			// 4 types of mappings: Create/Read/Update/Resource ID - all nullable
+			// If a Create and Update Mapping are present but a Read isn't it's implicitly WriteOnly
+			//WriteOnly: isWriteOnly,
+			Validation: validation,
+			Documentation: resourcemanager.TerraformSchemaDocumentationDefinition{
+				Markdown: "TODO",
+			},
+		}
+		if hasCreate {
+			definition.Documentation.Markdown = createField.Description
+		} else if hasUpdate {
+			definition.Documentation.Markdown = updateField.Description
+		} else if hasRead {
+			definition.Documentation.Markdown = readField.Description
+		}
+
+		objectDefinition, err := b.convertToFieldObjectDefinition(schemaModelName, inputObjectDefinition)
+		if err != nil {
+			return nil, nil, fmt.Errorf("converting ObjectDefinition for field to a TerraformFieldObjectDefinition: %+v", err)
+		}
+		definition.ObjectDefinition = *objectDefinition
+
+		if hasCreate {
+			mappings.Create = append(mappings.Create, directAssignmentMappingBetween(schemaModelName, k, input.createPropertiesModelName, fieldNameForTypedModel))
+		}
+		if hasUpdate {
+			outputMappings := append(*mappings.Update, directAssignmentMappingBetween(schemaModelName, k, *input.updatePropertiesModelName, fieldNameForTypedModel))
+			mappings.Update = &outputMappings
+		}
+		if hasRead {
+			mappings.Read = append(mappings.Read, directAssignmentMappingBetween(schemaModelName, k, input.readPropertiesModelName, fieldNameForTypedModel))
+		}
+
+		out[fieldNameForTypedModel] = definition
 	}
 
 	return &out, mappings, nil
