@@ -119,7 +119,61 @@ func (b Builder) Build(input resourcemanager.TerraformResourceDetails, logger hc
 		mappings.Update = nil
 	}
 
+	// finally go through and remove any unused models
+	schemaModels, mappings = removeUnusedModels(input, b.operations, schemaModels, mappings)
+
 	return &schemaModels, &mappings, nil
+}
+
+func removeUnusedModels(input resourcemanager.TerraformResourceDetails, operations map[string]resourcemanager.ApiOperation, models map[string]resourcemanager.TerraformSchemaModelDefinition, mappings resourcemanager.MappingDefinition) (map[string]resourcemanager.TerraformSchemaModelDefinition, resourcemanager.MappingDefinition) {
+	unusedModels := make(map[string]struct{}, 0)
+	// first assume everything is unused
+	for modelName := range models {
+		unusedModels[modelName] = struct{}{}
+	}
+
+	for _, model := range models {
+		for _, field := range model.Fields {
+			objectDefinition := topLevelFieldObjectDefinition(field.ObjectDefinition)
+			if objectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeReference {
+				// TODO: we should check if this is a const too
+				delete(unusedModels, *objectDefinition.ReferenceName)
+			}
+		}
+	}
+
+	// finally remove any models referenced as top level operations
+	operationMethodNames := []string{
+		input.CreateMethod.MethodName,
+		input.ReadMethod.MethodName,
+		input.DeleteMethod.MethodName,
+	}
+	if input.UpdateMethod != nil {
+		operationMethodNames = append(operationMethodNames, input.UpdateMethod.MethodName)
+	}
+	for _, methodName := range operationMethodNames {
+		operation := operations[methodName]
+		if operation.RequestObject != nil {
+			objectDefinition := topLevelObjectDefinition(*operation.RequestObject)
+			if objectDefinition.Type == resourcemanager.ReferenceApiObjectDefinitionType {
+				delete(unusedModels, *operation.RequestObject.ReferenceName)
+			}
+		}
+		if operation.ResponseObject != nil {
+			objectDefinition := topLevelObjectDefinition(*operation.ResponseObject)
+			if objectDefinition.Type == resourcemanager.ReferenceApiObjectDefinitionType {
+				delete(unusedModels, *operation.ResponseObject.ReferenceName)
+			}
+		}
+	}
+
+	// remove any unreferenced models
+	for modelName := range unusedModels {
+		delete(models, modelName)
+		// TODO: go through and remove any mappings too
+	}
+
+	return models, mappings
 }
 
 type modelParseResult struct {

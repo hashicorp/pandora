@@ -27,12 +27,33 @@ func TestBuildForResourceGroupHappyPathAllModelsTheSame(t *testing.T) {
 						},
 						Optional: true,
 					},
+					"Properties": {
+						JsonName: "properties",
+						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+							ReferenceName: stringPointer("ResourceGroupProperties"),
+						},
+						Optional: true,
+					},
 					"Tags": {
 						JsonName: "tags",
 						ObjectDefinition: resourcemanager.ApiObjectDefinition{
 							Type: resourcemanager.TagsApiObjectDefinitionType,
 						},
 						Optional: true,
+					},
+				},
+			},
+			"ResourceGroupProperties": {
+				Fields: map[string]resourcemanager.FieldDetails{
+					"ProvisioningState": {
+						JsonName: "provisioningState",
+						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+							Type: resourcemanager.StringApiObjectDefinitionType,
+						},
+						// Computed
+						Optional: false,
+						Required: false,
 					},
 				},
 			},
