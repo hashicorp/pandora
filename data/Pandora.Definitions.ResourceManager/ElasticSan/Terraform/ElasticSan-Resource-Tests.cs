@@ -57,13 +57,13 @@ resource 'azurerm_elastic_san' 'test' {
     tier = 'foo'
   }
 
-
-  availability_zone = ['foo', 'baz']
-
   tags = {
     env  = 'Production'
     test = 'Acceptance'
   }
+
+  zones = ['foo', 'baz']
+
 }
 
 

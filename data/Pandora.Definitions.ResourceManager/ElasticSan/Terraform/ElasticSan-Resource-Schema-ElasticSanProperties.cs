@@ -8,11 +8,6 @@ namespace Pandora.Definitions.ResourceManager.ElasticSan.Terraform;
 public class ElasticSanResourceElasticSanPropertiesSchema
 {
 
-    [HclName("availability_zone")]
-    [Optional]
-    public List<string> AvailabilityZone { get; set; }
-
-
     [HclName("base_size_tib")]
     [Required]
     public int BaseSizeTiB { get; set; }
@@ -57,5 +52,10 @@ public class ElasticSanResourceElasticSanPropertiesSchema
     [Computed]
     [HclName("volume_group_count")]
     public int VolumeGroupCount { get; set; }
+
+
+    [HclName("zones")]
+    [Optional]
+    public List<string> Zones { get; set; }
 
 }
