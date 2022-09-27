@@ -56,29 +56,22 @@ func (h TestAttributesHelpers) codeForTestAttribute(input resourcemanager.Terraf
 	case resourcemanager.TerraformSchemaFieldTypeBoolean:
 		hclBody.SetAttributeValue(hclName, cty.False)
 	case resourcemanager.TerraformSchemaFieldTypeFloat:
-		if input.Validation != nil && input.Validation.Type == resourcemanager.TerraformSchemaValidationTypePossibleValues && input.Validation.PossibleValues != nil && input.Validation.PossibleValues.Type == resourcemanager.TerraformSchemaValidationPossibleValueTypeFloat {
-			if len(input.Validation.PossibleValues.Values) > 0 {
-				hclBody.SetAttributeValue(hclName, cty.NumberFloatVal(input.Validation.PossibleValues.Values[0].(float64)))
-			}
+		if input.Validation != nil && input.Validation.Type == resourcemanager.TerraformSchemaValidationTypePossibleValues && input.Validation.PossibleValues != nil && input.Validation.PossibleValues.Type == resourcemanager.TerraformSchemaValidationPossibleValueTypeFloat && len(input.Validation.PossibleValues.Values) > 0 {
+			hclBody.SetAttributeValue(hclName, cty.NumberFloatVal(input.Validation.PossibleValues.Values[0].(float64)))
 		} else {
 			hclBody.SetAttributeValue(hclName, cty.NumberFloatVal(10.1))
 		}
 	case resourcemanager.TerraformSchemaFieldTypeInteger:
-		if input.Validation != nil && input.Validation.Type == resourcemanager.TerraformSchemaValidationTypePossibleValues && input.Validation.PossibleValues != nil && input.Validation.PossibleValues.Type == resourcemanager.TerraformSchemaValidationPossibleValueTypeInt {
-			if len(input.Validation.PossibleValues.Values) > 0 {
-				hclBody.SetAttributeValue(hclName, cty.NumberIntVal(input.Validation.PossibleValues.Values[0].(int64)))
-
-			}
+		if input.Validation != nil && input.Validation.Type == resourcemanager.TerraformSchemaValidationTypePossibleValues && input.Validation.PossibleValues != nil && input.Validation.PossibleValues.Type == resourcemanager.TerraformSchemaValidationPossibleValueTypeInt && len(input.Validation.PossibleValues.Values) > 0 {
+			hclBody.SetAttributeValue(hclName, cty.NumberIntVal(input.Validation.PossibleValues.Values[0].(int64)))
 		} else {
 			hclBody.SetAttributeValue(hclName, cty.NumberIntVal(15))
 		}
 	case resourcemanager.TerraformSchemaFieldTypeString:
 		switch hclName {
 		case "name":
-			if input.Validation != nil && input.Validation.Type == resourcemanager.TerraformSchemaValidationTypePossibleValues && input.Validation.PossibleValues != nil && input.Validation.PossibleValues.Type == resourcemanager.TerraformSchemaValidationPossibleValueTypeString {
-				if len(input.Validation.PossibleValues.Values) > 0 {
-					hclBody.SetAttributeValue(hclName, cty.StringVal(input.Validation.PossibleValues.Values[0].(string)))
-				}
+			if input.Validation != nil && input.Validation.Type == resourcemanager.TerraformSchemaValidationTypePossibleValues && input.Validation.PossibleValues != nil && input.Validation.PossibleValues.Type == resourcemanager.TerraformSchemaValidationPossibleValueTypeString && len(input.Validation.PossibleValues.Values) > 0 {
+				hclBody.SetAttributeValue(hclName, cty.StringVal(input.Validation.PossibleValues.Values[0].(string)))
 			} else {
 				// todo pipe in packagename to make "acctest-vm-${local.random_integer}"
 				tokens := hclwrite.Tokens{
