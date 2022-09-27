@@ -107,47 +107,37 @@ type FieldMappingDefinition struct {
 	// Type specifies the MappingDefinitionType that is used for this field, such as DirectAssignment
 	Type MappingDefinitionType `json:"type"`
 
-	// From specifies information about the SchemaModel and Field that information should be parsed from.
-	From FieldMappingFromDefinition `json:"from"`
+	// DirectAssignment specifies the mapping information when Type is set to DirectAssignment.
+	DirectAssignment *FieldMappingDirectAssignmentDefinition `json:"directAssignment,omitempty"`
 
-	// To specifies information about the SdkModel and Field where the Schema value should be mapped onto.
-	To FieldMappingToDefinition `json:"to"`
-
-	// BooleanEquals contains additional metadata when Type is set to BooleanEquals
-	BooleanEquals *FieldBooleanEqualsMappingDefinition `json:"booleanEquals,omitempty"`
-
-	// Manual contains additional metadata when Type is set to Manual
+	// Manual contains additional metadata when Type is set to Manual.
 	Manual *FieldManualMappingDefinition `json:"manual,omitempty"`
-}
-
-type FieldMappingFromDefinition struct {
-	// SchemaFieldPath specifies the path to the field within SchemaModelName (e.g. `Foo` or `Foo.Bar`)
-	// which this should be mapped from.
-	SchemaFieldPath string `json:"schemaFieldPath"`
-
-	// SchemaModelName specifies the name of the SchemaModel where this value should be mapped from.
-	SchemaModelName string `json:"schemaModelName"`
-}
-
-type FieldMappingToDefinition struct {
-	// SdkFieldPath specifies the Path to the Field within the SdkModel where the Schema Field
-	// should be mapped onto.
-	SdkFieldPath string `json:"sdkFieldPath"`
-
-	// SdkModelName specifies the name of the SdkModel where this value should be mapped onto.
-	SdkModelName string `json:"sdkModelName"`
 }
 
 type MappingDefinitionType string
 
 const (
-	BooleanEqualsMappingDefinitionType    MappingDefinitionType = "BooleanEquals"
-	BooleanInvertMappingDefinitionType    MappingDefinitionType = "BooleanInvert"
 	DirectAssignmentMappingDefinitionType MappingDefinitionType = "DirectAssignment"
 	ManualMappingDefinitionType           MappingDefinitionType = "Manual"
 	ModelToModelMappingDefinitionType     MappingDefinitionType = "ModelToModel"
-	// TODO: more
+	// TODO: BooleanEquals, BooleanInvert
 )
+
+type FieldMappingDirectAssignmentDefinition struct {
+	// SchemaModelName specifies the name of the SchemaModel where this value should be mapped from.
+	SchemaModelName string `json:"schemaModelName"`
+
+	// SchemaFieldPath specifies the path to the field within SchemaModelName (e.g. `Foo` or `Foo.Bar`)
+	// which this should be mapped from.
+	SchemaFieldPath string `json:"schemaFieldPath"`
+
+	// SdkModelName specifies the name of the SdkModel where this value should be mapped onto.
+	SdkModelName string `json:"sdkModelName"`
+
+	// SdkFieldPath specifies the Path to the Field within the SdkModel where the Schema Field
+	// should be mapped onto.
+	SdkFieldPath string `json:"sdkFieldPath"`
+}
 
 type ResourceIdMappingDefinition struct {
 	// SchemaFieldName is the name of the (top-level) Schema Field which the Segment
