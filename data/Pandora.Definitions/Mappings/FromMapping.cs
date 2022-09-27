@@ -52,7 +52,7 @@ public class FromMapping
             FromSchemaModelName = FromModel,
             FromSchemaPath = FromFieldPath,
             ToSdkModelName = typeof(TModel).Name,
-            ToSdkModelPath = fieldPath,
+            ToSdkFieldPath = fieldPath,
         };
     }
 }

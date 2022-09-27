@@ -281,11 +281,7 @@ public partial class TerraformController
         [JsonPropertyName("directAssignment")]
         public FieldMappingDirectAssignmentDefinition? DirectAssignment { get; set; }
 
-        [JsonPropertyName("booleanEquals")]
-        public FieldMappingBooleanEqualsDefinition? BooleanEquals { get; set; }
-
-        [JsonPropertyName("manual")]
-        public FieldMappingManualDefinition? Manual { get; set; }
+        // TODO: BooleanEquals, ModelToModel and Manual etc
     }
 
     private class FieldMappingDirectAssignmentDefinition
@@ -327,24 +323,6 @@ public partial class TerraformController
         public string? Expression { get; set; }
     }
 
-    private class FieldMappingManualDefinition
-    {
-        [JsonPropertyName("methodName")]
-        public string MethodName { get; set; }
-    }
-
-    private enum FieldMappingDefinitionType
-    {
-        // Manual -> CustomTransform?
-        BooleanEquals,
-        BooleanInvert,
-        DirectAssignment,
-        Manual,
-        // TODO: do we need a `NestedModel` here?
-
-        // TODO: does `Type: Ignore` need to be surfaced?
-    }
-
     private class TerraformResourceTestsDefinition
     {
         [JsonPropertyName("basicConfiguration")]
@@ -376,5 +354,11 @@ public partial class TerraformController
     private enum TerraformSchemaFieldValidation
     {
         PossibleValues,
+    }
+
+    private enum TerraformFieldMappingType
+    {
+        DirectAssignment,
+        Manual,
     }
 }

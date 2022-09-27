@@ -22,9 +22,9 @@ public class MappingDefinition
     public string ToSdkModelName { get; set; }
 
     /// <summary>
-    /// ToSdkModelPath is the path to the field within the Sdk Model that this mapping is To.
+    /// ToSdkFieldPath is the path to the field within the Sdk Model that this mapping is To.
     /// </summary>
-    public string ToSdkModelPath { get; set; }
+    public string ToSdkFieldPath { get; set; }
 
     /// <summary>
     /// Direct specifies that this is a Direct Assignment Mapping.
@@ -37,7 +37,7 @@ public class MappingDefinition
             FromSchemaModelName = FromSchemaModelName,
             FromSchemaPath = FromSchemaPath,
             ToSdkModelName = ToSdkModelName,
-            ToSdkModelPath = ToSdkModelPath,
+            ToSdkFieldPath = ToSdkFieldPath,
         };
     }
 }
