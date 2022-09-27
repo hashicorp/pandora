@@ -28,6 +28,21 @@ func (d Differ) ApplyFromExistingAPIDefinitions(existing models.AzureApiDefiniti
 					if !ok {
 						return parsed, fmt.Errorf("unable to find the Terraform Resource %q in newly parsed api definitions", resourceName)
 					}
+
+					logger.Trace(fmt.Sprintf("applying existing Generate Fields from Terraform Resource %q in Resource %q..", existingTerraformResourceName, resourceName))
+					parsedTerraformResource.Generate = existingTerraformResource.Generate
+					parsedTerraformResource.GenerateModel = existingTerraformResource.GenerateModel
+					parsedTerraformResource.GenerateSchema = existingTerraformResource.GenerateSchema
+					parsedTerraformResource.GenerateIdValidation = existingTerraformResource.GenerateIdValidation
+					parsedTerraformResource.ReadMethod.Generate = existingTerraformResource.ReadMethod.Generate
+					parsedTerraformResource.ReadMethod.TimeoutInMinutes = existingTerraformResource.ReadMethod.TimeoutInMinutes
+					parsedTerraformResource.CreateMethod.Generate = existingTerraformResource.CreateMethod.Generate
+					parsedTerraformResource.CreateMethod.TimeoutInMinutes = existingTerraformResource.CreateMethod.TimeoutInMinutes
+					parsedTerraformResource.UpdateMethod.Generate = existingTerraformResource.UpdateMethod.Generate
+					parsedTerraformResource.UpdateMethod.TimeoutInMinutes = existingTerraformResource.UpdateMethod.TimeoutInMinutes
+					parsedTerraformResource.DeleteMethod.Generate = existingTerraformResource.DeleteMethod.Generate
+					parsedTerraformResource.DeleteMethod.TimeoutInMinutes = existingTerraformResource.DeleteMethod.TimeoutInMinutes
+
 					if existingBasicConfig := existingTerraformResource.Tests.BasicConfiguration; existingBasicConfig != "" {
 						logger.Trace("applying Existing Basic Test Config from the Existing Terraform Resource to the Parsed Terraform Resource..")
 						parsedTerraformResource.Tests.BasicConfiguration = existingBasicConfig
