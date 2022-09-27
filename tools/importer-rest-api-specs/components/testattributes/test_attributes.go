@@ -43,51 +43,70 @@ func (h TestAttributesHelpers) GetAttributesForTests(input resourcemanager.Terra
 	}
 
 	for _, fieldName := range sortedNames {
-		if err := h.codeForTestAttribute(input, input.Fields[fieldName].ObjectDefinition, input.Fields[fieldName].HclName, requiredOnly, hclBody); err != nil {
+		if err := h.codeForTestAttribute(input.Fields[fieldName], input.Fields[fieldName].HclName, requiredOnly, hclBody); err != nil {
 			return err
 		}
 	}
 	return nil
 }
 
-func (h TestAttributesHelpers) codeForTestAttribute(models resourcemanager.TerraformSchemaModelDefinition, input resourcemanager.TerraformSchemaFieldObjectDefinition, hclName string, requiredOnly bool, hclBody hclwrite.Body) error {
-	switch input.Type {
+func (h TestAttributesHelpers) codeForTestAttribute(input resourcemanager.TerraformSchemaFieldDefinition, hclName string, requiredOnly bool, hclBody hclwrite.Body) error {
+	switch input.ObjectDefinition.Type {
 	// todo randomize values
 	case resourcemanager.TerraformSchemaFieldTypeBoolean:
 		hclBody.SetAttributeValue(hclName, cty.False)
 	case resourcemanager.TerraformSchemaFieldTypeFloat:
-		hclBody.SetAttributeValue(hclName, cty.NumberFloatVal(10.1))
+		if input.Validation != nil && input.Validation.Type == resourcemanager.TerraformSchemaValidationTypePossibleValues && input.Validation.PossibleValues != nil && input.Validation.PossibleValues.Type == resourcemanager.TerraformSchemaValidationPossibleValueTypeFloat {
+			if len(input.Validation.PossibleValues.Values) > 0 {
+				hclBody.SetAttributeValue(hclName, cty.NumberFloatVal(input.Validation.PossibleValues.Values[0].(float64)))
+			}
+		} else {
+			hclBody.SetAttributeValue(hclName, cty.NumberFloatVal(10.1))
+		}
 	case resourcemanager.TerraformSchemaFieldTypeInteger:
-		hclBody.SetAttributeValue(hclName, cty.NumberIntVal(15))
+		if input.Validation != nil && input.Validation.Type == resourcemanager.TerraformSchemaValidationTypePossibleValues && input.Validation.PossibleValues != nil && input.Validation.PossibleValues.Type == resourcemanager.TerraformSchemaValidationPossibleValueTypeInt {
+			if len(input.Validation.PossibleValues.Values) > 0 {
+				hclBody.SetAttributeValue(hclName, cty.NumberIntVal(input.Validation.PossibleValues.Values[0].(int64)))
+
+			}
+		} else {
+			hclBody.SetAttributeValue(hclName, cty.NumberIntVal(15))
+		}
 	case resourcemanager.TerraformSchemaFieldTypeString:
 		switch hclName {
 		case "name":
-			// todo pipe in packagename to make "acctest-vm-${local.random_integer}"
-			tokens := hclwrite.Tokens{
-				{Type: hclsyntax.TokenQuotedLit, Bytes: []byte(`"acctest-`)},
-				{Type: hclsyntax.TokenTemplateInterp, Bytes: []byte(`${`)},
-				{Type: hclsyntax.TokenQuotedLit, Bytes: []byte(`local.random_integer}"`)},
+			if input.Validation != nil && input.Validation.Type == resourcemanager.TerraformSchemaValidationTypePossibleValues && input.Validation.PossibleValues != nil && input.Validation.PossibleValues.Type == resourcemanager.TerraformSchemaValidationPossibleValueTypeString {
+				if len(input.Validation.PossibleValues.Values) > 0 {
+					hclBody.SetAttributeValue(hclName, cty.StringVal(input.Validation.PossibleValues.Values[0].(string)))
+				}
+			} else {
+				// todo pipe in packagename to make "acctest-vm-${local.random_integer}"
+				tokens := hclwrite.Tokens{
+					{Type: hclsyntax.TokenQuotedLit, Bytes: []byte(`"acctest-`)},
+					{Type: hclsyntax.TokenTemplateInterp, Bytes: []byte(`${`)},
+					{Type: hclsyntax.TokenQuotedLit, Bytes: []byte(`local.random_integer}"`)},
+				}
+				hclBody.SetAttributeRaw(hclName, tokens)
 			}
-			hclBody.SetAttributeRaw(hclName, tokens)
 		default:
 			hclBody.SetAttributeValue(hclName, cty.StringVal("foo"))
 		}
 	case resourcemanager.TerraformSchemaFieldTypeList, resourcemanager.TerraformSchemaFieldTypeSet:
 		hclBody.AppendNewline()
-		if input.NestedObject.Type == resourcemanager.TerraformSchemaFieldTypeReference {
-			if input.NestedObject.ReferenceName == nil {
+		if input.ObjectDefinition.NestedObject.Type == resourcemanager.TerraformSchemaFieldTypeReference {
+			if input.ObjectDefinition.NestedObject.ReferenceName == nil {
 				return fmt.Errorf("missing name for reference")
 			}
-			reference, ok := h.SchemaModels[*input.NestedObject.ReferenceName]
+			reference, ok := h.SchemaModels[*input.ObjectDefinition.NestedObject.ReferenceName]
 			if !ok {
-				return fmt.Errorf("schema model %q was not found", *input.NestedObject.ReferenceName)
+				return fmt.Errorf("schema model %q was not found", *input.ObjectDefinition.NestedObject.ReferenceName)
 			}
 			if err := h.GetAttributesForTests(reference, *hclBody.AppendNewBlock(hclName, nil).Body(), requiredOnly); err != nil {
 				return err
 			}
 		} else {
 			// this is an array of a basic type
-			switch input.NestedObject.Type {
+			switch input.ObjectDefinition.NestedObject.Type {
 			case resourcemanager.TerraformSchemaFieldTypeFloat:
 				hclBody.SetAttributeValue(hclName, cty.ListVal([]cty.Value{
 					cty.NumberFloatVal(1.1),
@@ -103,21 +122,21 @@ func (h TestAttributesHelpers) codeForTestAttribute(models resourcemanager.Terra
 					cty.StringVal("foo"),
 					cty.StringVal("baz")}))
 			default:
-				return fmt.Errorf("internal-error: unimplemented schema field for nested object type %q", string(input.NestedObject.Type))
+				return fmt.Errorf("internal-error: unimplemented schema field for nested object type %q", string(input.ObjectDefinition.NestedObject.Type))
 			}
 		}
 
 		hclBody.AppendNewline()
 	case resourcemanager.TerraformSchemaFieldTypeReference:
 		hclBody.AppendNewline()
-		if input.ReferenceName == nil {
+		if input.ObjectDefinition.ReferenceName == nil {
 			return fmt.Errorf("missing name for reference")
 		}
-		_, ok := h.SchemaModels[*input.ReferenceName]
+		_, ok := h.SchemaModels[*input.ObjectDefinition.ReferenceName]
 		if !ok {
-			return fmt.Errorf("schema model %q was not found", *input.ReferenceName)
+			return fmt.Errorf("schema model %q was not found", *input.ObjectDefinition.ReferenceName)
 		}
-		if err := h.GetAttributesForTests(h.SchemaModels[*input.ReferenceName], *hclBody.AppendNewBlock(hclName, nil).Body(), requiredOnly); err != nil {
+		if err := h.GetAttributesForTests(h.SchemaModels[*input.ObjectDefinition.ReferenceName], *hclBody.AppendNewBlock(hclName, nil).Body(), requiredOnly); err != nil {
 			return err
 		}
 		hclBody.AppendNewline()

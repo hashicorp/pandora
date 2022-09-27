@@ -352,3 +352,95 @@ name ="acctest-${local.random_integer}"
 		file.Body().Clear()
 	}
 }
+
+func TestAttribute_PossibleValues(t *testing.T) {
+	testData := []struct {
+		input    resourcemanager.TerraformSchemaModelDefinition
+		expected string
+	}{
+		{
+			input: resourcemanager.TerraformSchemaModelDefinition{
+				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+					"Name": {
+						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						},
+						HclName:  "name",
+						Optional: true,
+						Validation: &resourcemanager.TerraformSchemaValidationDefinition{
+							Type: resourcemanager.TerraformSchemaValidationTypePossibleValues,
+							PossibleValues: &resourcemanager.TerraformSchemaValidationPossibleValuesDefinition{
+								Values: []interface{}{"test"},
+								Type:   resourcemanager.TerraformSchemaValidationPossibleValueTypeString,
+							},
+						},
+					},
+				},
+			},
+			expected: `
+name = "test"
+`,
+		},
+		{
+			input: resourcemanager.TerraformSchemaModelDefinition{
+				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+					"Name": {
+						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+							Type: resourcemanager.TerraformSchemaFieldTypeFloat,
+						},
+						HclName:  "test_float",
+						Optional: true,
+						Validation: &resourcemanager.TerraformSchemaValidationDefinition{
+							Type: resourcemanager.TerraformSchemaValidationTypePossibleValues,
+							PossibleValues: &resourcemanager.TerraformSchemaValidationPossibleValuesDefinition{
+								Values: []interface{}{5.5},
+								Type:   resourcemanager.TerraformSchemaValidationPossibleValueTypeFloat,
+							},
+						},
+					},
+				},
+			},
+			expected: `
+test_float = 5.5
+`,
+		},
+		{
+			input: resourcemanager.TerraformSchemaModelDefinition{
+				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+					"Name": {
+						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+							Type: resourcemanager.TerraformSchemaFieldTypeInteger,
+						},
+						HclName:  "test_int",
+						Optional: true,
+						Validation: &resourcemanager.TerraformSchemaValidationDefinition{
+							Type: resourcemanager.TerraformSchemaValidationTypePossibleValues,
+							PossibleValues: &resourcemanager.TerraformSchemaValidationPossibleValuesDefinition{
+								Values: []interface{}{int64(5)},
+								Type:   resourcemanager.TerraformSchemaValidationPossibleValueTypeInt,
+							},
+						},
+					},
+				},
+			},
+			expected: `
+test_int = 5
+`,
+		},
+	}
+
+	file := hclwrite.NewEmptyFile()
+	helper := TestAttributesHelpers{}
+	for i, testCase := range testData {
+		err := helper.GetAttributesForTests(testCase.input, *file.Body(), false)
+		if err != nil {
+			if testCase.expected == "" {
+				continue
+			}
+
+			t.Fatalf("unexpected error for index %d", i)
+		}
+		assertTemplatedCodeMatches(t, testCase.expected, fmt.Sprintf("%s", file.Bytes()))
+		file.Body().Clear()
+	}
+}
