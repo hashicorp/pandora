@@ -74,7 +74,7 @@ func GetPlural(input string) string {
 	return returnCased(output, casing)
 }
 
-func specialCaseSuffixSingulars(input string) (resuls string, useValue bool) {
+func specialCaseSuffixSingulars(input string) (result string, useValue bool) {
 	specialCases := []string{
 		"APIs",
 		"Skus",
@@ -82,6 +82,7 @@ func specialCaseSuffixSingulars(input string) (resuls string, useValue bool) {
 	noChangeCases := []string{
 		"Data",
 		"data",
+		"AvailabilityZones",
 	}
 	for _, v := range specialCases {
 		if strings.HasSuffix(input, v) {
