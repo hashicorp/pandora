@@ -13,6 +13,7 @@ var ModelRules = []ModelProcessor{
 	modelFlattenPropertiesIntoParent{},
 	modelFlattenReferenceId{},
 	modelRemoveStatusAndDetail{},
+	modelRenameZones{},
 	modelFlattenSkuName{},
 }
 
