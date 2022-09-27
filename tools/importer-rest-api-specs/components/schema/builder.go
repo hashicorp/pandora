@@ -129,7 +129,10 @@ type modelParseResult struct {
 }
 
 func (b Builder) schemaFromTopLevelModel(input resourcemanager.TerraformResourceDetails, mappings *resourcemanager.MappingDefinition, logger hclog.Logger) (*modelParseResult, error) {
-	createReadUpdateMethods := b.findCreateUpdateReadPayloads(input)
+	createReadUpdateMethods, err := b.findCreateUpdateReadPayloads(input)
+	if err != nil {
+		return nil, fmt.Errorf("finding create/update/read payloads: %+v", err)
+	}
 	if createReadUpdateMethods == nil {
 		return nil, nil
 	}
@@ -270,60 +273,81 @@ func (b Builder) buildNestedModelDefinition(modelPrefix string, model resourcema
 	}, nil
 }
 
-func (b Builder) findCreateUpdateReadPayloads(input resourcemanager.TerraformResourceDetails) *operationPayloads {
+func (b Builder) findCreateUpdateReadPayloads(input resourcemanager.TerraformResourceDetails) (*operationPayloads, error) {
 	out := operationPayloads{}
 
 	// Create has to exist
 	createOperation, ok := b.operations[input.CreateMethod.MethodName]
 	if !ok {
-		return nil
+		return nil, nil
 	}
 	if createOperation.RequestObject == nil || createOperation.RequestObject.Type != resourcemanager.ReferenceApiObjectDefinitionType || createOperation.RequestObject.ReferenceName == nil {
 		// we don't generate resources for operations returning lists etc, debatable if we should
-		return nil
+		return nil, nil
 	}
 	createModel, ok := b.models[*createOperation.RequestObject.ReferenceName]
 	if !ok {
-		return nil
+		return nil, nil
 	}
 	out.createModelName = *createOperation.RequestObject.ReferenceName
 	out.createPayload = createModel
+	createPropsModelName, createPropsModel := out.getPropertiesModelWithinModel(out.createPayload, b.models)
+	if createPropsModelName == nil || createPropsModel == nil {
+		return nil, fmt.Errorf("couldn't find `Properties` model for Create Payload")
+	}
+	out.createPropertiesPayload = *createPropsModel
+	out.createPropertiesModelName = *createPropsModelName
 
 	// Read has to exist
 	readOperation, ok := b.operations[input.ReadMethod.MethodName]
 	if !ok {
-		return nil
+		return nil, nil
 	}
 	if readOperation.ResponseObject == nil || readOperation.ResponseObject.Type != resourcemanager.ReferenceApiObjectDefinitionType || readOperation.ResponseObject.ReferenceName == nil {
 		// we don't generate resources for operations returning lists etc, debatable if we should
-		return nil
+		return nil, nil
 	}
 	readModel, ok := b.models[*readOperation.ResponseObject.ReferenceName]
 	if !ok {
-		return nil
+		return nil, nil
 	}
 	out.readModelName = *readOperation.ResponseObject.ReferenceName
 	out.readPayload = readModel
+	// then find the `Properties` model within this
+	readPropsModelName, readPropsModel := out.getPropertiesModelWithinModel(out.readPayload, b.models)
+	if readPropsModelName == nil || readPropsModel == nil {
+		return nil, fmt.Errorf("couldn't find `Properties` model for Read Payload")
+	}
+	out.readPropertiesModelName = *readPropsModelName
+	out.readPropertiesPayload = *readPropsModel
 
 	// Update doesn't have to exist
 	if updateMethod := input.UpdateMethod; updateMethod != nil {
 		updateOperation, ok := b.operations[updateMethod.MethodName]
 		if !ok {
-			return nil
+			return nil, nil
 		}
 		if updateOperation.RequestObject == nil || updateOperation.RequestObject.Type != resourcemanager.ReferenceApiObjectDefinitionType || updateOperation.RequestObject.ReferenceName == nil {
 			// we don't generate resources for operations returning lists etc, debatable if we should
-			return nil
+			return nil, nil
 		}
 		updateModel, ok := b.models[*updateOperation.RequestObject.ReferenceName]
 		if !ok {
-			return nil
+			return nil, nil
 		}
 		out.updateModelName = updateOperation.RequestObject.ReferenceName
 		out.updatePayload = &updateModel
+
+		// then find the `Properties` model within this
+		updatePropsModelName, updatePropsModel := out.getPropertiesModelWithinModel(*out.updatePayload, b.models)
+		if updatePropsModelName == nil || updatePropsModel == nil {
+			return nil, fmt.Errorf("couldn't find `Properties` model for Update Payload")
+		}
+		out.updatePropertiesModelName = updatePropsModelName
+		out.updatePropertiesPayload = updatePropsModel
 	}
 	// NOTE: intentionally not including Delete since the payload shouldn't be applicable to users
-	return &out
+	return &out, nil
 }
 
 func (b Builder) identifyModelsWithinField(field resourcemanager.FieldDetails, knownModels map[string]resourcemanager.ModelDetails, logger hclog.Logger) (*map[string]resourcemanager.ModelDetails, error) {

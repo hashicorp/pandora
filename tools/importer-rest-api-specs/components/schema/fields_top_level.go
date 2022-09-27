@@ -5,7 +5,6 @@ import (
 	"strings"
 
 	"github.com/hashicorp/go-hclog"
-
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 

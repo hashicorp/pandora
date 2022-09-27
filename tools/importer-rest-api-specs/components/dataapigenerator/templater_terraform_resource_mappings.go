@@ -92,10 +92,15 @@ public class %[2]sResourceMappings : TerraformMappingDefinition
 }
 
 func codeForTerraformFieldMapping(input resourcemanager.FieldMappingDefinition) (*string, error) {
+	// all field mappings are extension methods on `ToSdkField` (which returns `MappingDefinition`) so we can compute
+	// this once and just template the extension method below
+	mapping := fmt.Sprintf("Mapping.FromSchema<%[1]sSchema>(s => s.%[2]s).ToSdkField<%[3]sModel>(m => m.%[4]s)", input.From.SchemaModelName, input.From.SchemaFieldPath, input.To.SdkModelName, input.To.SdkFieldPath)
+
 	switch input.Type {
+	// TODO: BooleanEquals etc
 	case resourcemanager.DirectAssignmentMappingDefinitionType:
 		{
-			out := fmt.Sprintf("Mapping.FromSchema<%[1]sSchema>(s => s.%[2]s).ToSdkField<%[3]sModel>(m => m.%[4]s)", input.From.SchemaModelName, input.From.SchemaFieldPath, input.To.SdkModelName, input.To.SdkFieldPath)
+			out := fmt.Sprintf("%s.Direct()", mapping)
 			return &out, nil
 		}
 	}
