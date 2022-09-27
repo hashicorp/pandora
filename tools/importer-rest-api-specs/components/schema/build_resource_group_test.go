@@ -138,7 +138,7 @@ func TestBuildForResourceGroupHappyPathAllModelsTheSame(t *testing.T) {
 		Resource:        "ResourceGroups",
 		ResourceIdName:  "ResourceGroupId",
 		ResourceName:    "ResourceGroup",
-		SchemaModelName: "ResourceGroup",
+		SchemaModelName: "ResourceGroupResource",
 		UpdateMethod: &resourcemanager.MethodDefinition{
 			Generate:         true,
 			MethodName:       "Update",
@@ -364,7 +364,7 @@ func testValidateResourceGroupSchema(t *testing.T, actualModels *map[string]reso
 	if len(*actualModels) != 1 {
 		t.Errorf("expected 1 model but got %d", len(*actualModels))
 	}
-	r.CurrentModel = "ResourceGroup"
+	r.CurrentModel = "ResourceGroupResource"
 	currentModel, ok := (*actualModels)[r.CurrentModel]
 	if !ok {
 		t.Errorf("top level model %q missing", r.CurrentModel)
@@ -392,20 +392,20 @@ func testValidateResourceGroupSchema(t *testing.T, actualModels *map[string]reso
 	checkResourceIdMappingExistsBetween(t, actualMappings.ResourceId, "Name", "resourceGroupName")
 
 	t.Logf("Checking Create Mappings..")
-	checkDirectAssignmentMappingExistsBetween(t, actualMappings.Create, "ResourceGroup", "Location", "ResourceGroup", "Location")
-	checkDirectAssignmentMappingExistsBetween(t, actualMappings.Create, "ResourceGroup", "Tags", "ResourceGroup", "Tags")
+	checkDirectAssignmentMappingExistsBetween(t, actualMappings.Create, "ResourceGroupResource", "Location", "ResourceGroup", "Location")
+	checkDirectAssignmentMappingExistsBetween(t, actualMappings.Create, "ResourceGroupResource", "Tags", "ResourceGroup", "Tags")
 
 	t.Logf("Checking Update Mappings..")
 	if actualMappings.Update == nil {
 		t.Fatalf("expected update mappings but they were nil")
 	}
 	if allModelsAreTheSame {
-		checkDirectAssignmentMappingExistsBetween(t, *actualMappings.Update, "ResourceGroup", "Tags", "ResourceGroup", "Tags")
+		checkDirectAssignmentMappingExistsBetween(t, *actualMappings.Update, "ResourceGroupResource", "Tags", "ResourceGroup", "Tags")
 	} else {
-		checkDirectAssignmentMappingExistsBetween(t, *actualMappings.Update, "ResourceGroup", "Tags", "ResourceGroupPatchable", "Tags")
+		checkDirectAssignmentMappingExistsBetween(t, *actualMappings.Update, "ResourceGroupResource", "Tags", "ResourceGroupPatchable", "Tags")
 	}
 
 	t.Logf("Checking Read Mappings..")
-	checkDirectAssignmentMappingExistsBetween(t, actualMappings.Read, "ResourceGroup", "Location", "ResourceGroup", "Location")
-	checkDirectAssignmentMappingExistsBetween(t, actualMappings.Read, "ResourceGroup", "Tags", "ResourceGroup", "Tags")
+	checkDirectAssignmentMappingExistsBetween(t, actualMappings.Read, "ResourceGroupResource", "Location", "ResourceGroup", "Location")
+	checkDirectAssignmentMappingExistsBetween(t, actualMappings.Read, "ResourceGroupResource", "Tags", "ResourceGroup", "Tags")
 }

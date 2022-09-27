@@ -120,12 +120,12 @@ func (b Builder) Build(input resourcemanager.TerraformResourceDetails, logger hc
 	}
 
 	// finally go through and remove any unused models
-	schemaModels, mappings = removeUnusedModels(input, b.operations, schemaModels, mappings)
+	schemaModels, mappings = removeUnusedModels(input, schemaModels, mappings)
 
 	return &schemaModels, &mappings, nil
 }
 
-func removeUnusedModels(input resourcemanager.TerraformResourceDetails, operations map[string]resourcemanager.ApiOperation, models map[string]resourcemanager.TerraformSchemaModelDefinition, mappings resourcemanager.MappingDefinition) (map[string]resourcemanager.TerraformSchemaModelDefinition, resourcemanager.MappingDefinition) {
+func removeUnusedModels(input resourcemanager.TerraformResourceDetails, models map[string]resourcemanager.TerraformSchemaModelDefinition, mappings resourcemanager.MappingDefinition) (map[string]resourcemanager.TerraformSchemaModelDefinition, resourcemanager.MappingDefinition) {
 	unusedModels := make(map[string]struct{}, 0)
 	// first assume everything is unused
 	for modelName := range models {
@@ -142,30 +142,7 @@ func removeUnusedModels(input resourcemanager.TerraformResourceDetails, operatio
 		}
 	}
 
-	// finally remove any models referenced as top level operations
-	operationMethodNames := []string{
-		input.CreateMethod.MethodName,
-		input.ReadMethod.MethodName,
-		input.DeleteMethod.MethodName,
-	}
-	if input.UpdateMethod != nil {
-		operationMethodNames = append(operationMethodNames, input.UpdateMethod.MethodName)
-	}
-	for _, methodName := range operationMethodNames {
-		operation := operations[methodName]
-		if operation.RequestObject != nil {
-			objectDefinition := topLevelObjectDefinition(*operation.RequestObject)
-			if objectDefinition.Type == resourcemanager.ReferenceApiObjectDefinitionType {
-				delete(unusedModels, *operation.RequestObject.ReferenceName)
-			}
-		}
-		if operation.ResponseObject != nil {
-			objectDefinition := topLevelObjectDefinition(*operation.ResponseObject)
-			if objectDefinition.Type == resourcemanager.ReferenceApiObjectDefinitionType {
-				delete(unusedModels, *operation.ResponseObject.ReferenceName)
-			}
-		}
-	}
+	delete(unusedModels, fmt.Sprintf("%sResource", input.ResourceName))
 
 	// remove any unreferenced models
 	for modelName := range unusedModels {
