@@ -75,7 +75,7 @@ func (m *Mappings) areCreateAndUpdateMappingsTheSame() bool {
 	}
 
 	for _, v := range m.mappings.Create {
-		other := findMappingBetween(*m.mappings.Update, v.From.SchemaModelName, v.From.SchemaFieldPath, v.To.SdkModelName, v.To.SdkFieldPath)
+		other := findMappingBetween(*m.mappings.Update, v)
 		if other == nil {
 			return false
 		}
