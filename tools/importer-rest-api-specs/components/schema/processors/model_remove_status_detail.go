@@ -7,9 +7,11 @@ import (
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
+var _ ModelProcessor = modelRemoveStatusAndDetail{}
+
 type modelRemoveStatusAndDetail struct{}
 
-func (modelRemoveStatusAndDetail) ProcessModel(modelName string, model resourcemanager.TerraformSchemaModelDefinition, models map[string]resourcemanager.TerraformSchemaModelDefinition) (map[string]resourcemanager.TerraformSchemaModelDefinition, error) {
+func (modelRemoveStatusAndDetail) ProcessModel(modelName string, model resourcemanager.TerraformSchemaModelDefinition, models map[string]resourcemanager.TerraformSchemaModelDefinition, mappings resourcemanager.MappingDefinition) (*map[string]resourcemanager.TerraformSchemaModelDefinition, *resourcemanager.MappingDefinition, error) {
 	fields := make(map[string]resourcemanager.TerraformSchemaFieldDefinition)
 
 	status := regexp.MustCompile("\\w?(Status)$")
@@ -27,5 +29,5 @@ func (modelRemoveStatusAndDetail) ProcessModel(modelName string, model resourcem
 	}
 	model.Fields = fields
 	models[modelName] = model
-	return models, nil
+	return &models, &mappings, nil
 }

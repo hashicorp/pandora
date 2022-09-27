@@ -8,25 +8,28 @@ import (
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-func modelDefinitionsMatch(t *testing.T, first map[string]resourcemanager.TerraformSchemaModelDefinition, second map[string]resourcemanager.TerraformSchemaModelDefinition) bool {
-	if len(first) != len(second) {
-		t.Fatalf("first had %d models but second had %d models", len(first), len(second))
-		return false
+func mappingDefinitionsMatch(t *testing.T, actual *resourcemanager.MappingDefinition, expected resourcemanager.MappingDefinition) {
+	t.Logf("TODO: ensure the mappings match")
+}
+
+func modelDefinitionsMatch(t *testing.T, actual *map[string]resourcemanager.TerraformSchemaModelDefinition, expected map[string]resourcemanager.TerraformSchemaModelDefinition) {
+	if actual == nil {
+		t.Fatalf("actual was nil")
+	}
+	if len(*actual) != len(expected) {
+		t.Fatalf("actual had %d models but expected had %d models", len(*actual), len(expected))
 	}
 
-	for key, firstVal := range first {
-		secondVal, ok := second[key]
+	for key, firstVal := range *actual {
+		secondVal, ok := expected[key]
 		if !ok {
-			t.Fatalf("key %q was present in first but not second", key)
-			return false
+			t.Fatalf("key %q was present in actual but not expected", key)
 		}
 
 		if !fieldDefinitionsMatch(t, firstVal.Fields, secondVal.Fields) {
 			t.Fatalf("field definitions didn't match")
-			return false
 		}
 	}
-	return true
 }
 
 func fieldDefinitionsMatch(t *testing.T, first map[string]resourcemanager.TerraformSchemaFieldDefinition, second map[string]resourcemanager.TerraformSchemaFieldDefinition) bool {

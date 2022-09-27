@@ -7,9 +7,11 @@ import (
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
+var _ ModelProcessor = modelRenameZones{}
+
 type modelRenameZones struct{}
 
-func (modelRenameZones) ProcessModel(modelName string, model resourcemanager.TerraformSchemaModelDefinition, models map[string]resourcemanager.TerraformSchemaModelDefinition) (map[string]resourcemanager.TerraformSchemaModelDefinition, error) {
+func (modelRenameZones) ProcessModel(modelName string, model resourcemanager.TerraformSchemaModelDefinition, models map[string]resourcemanager.TerraformSchemaModelDefinition, mappings resourcemanager.MappingDefinition) (*map[string]resourcemanager.TerraformSchemaModelDefinition, *resourcemanager.MappingDefinition, error) {
 	fields := make(map[string]resourcemanager.TerraformSchemaFieldDefinition)
 	for fieldName, fieldValue := range model.Fields {
 		fields[fieldName] = fieldValue
@@ -30,5 +32,5 @@ func (modelRenameZones) ProcessModel(modelName string, model resourcemanager.Ter
 	}
 	model.Fields = fields
 	models[modelName] = model
-	return models, nil
+	return &models, &mappings, nil
 }

@@ -8,9 +8,11 @@ import (
 
 func TestProcessModel_RemoveStatusAndDetail_Valid(t *testing.T) {
 	testData := []struct {
-		modelNameInput string
-		modelsInput    map[string]resourcemanager.TerraformSchemaModelDefinition
-		expected       map[string]resourcemanager.TerraformSchemaModelDefinition
+		modelNameInput   string
+		modelsInput      map[string]resourcemanager.TerraformSchemaModelDefinition
+		mappingsInput    resourcemanager.MappingDefinition
+		expectedModels   map[string]resourcemanager.TerraformSchemaModelDefinition
+		expectedMappings resourcemanager.MappingDefinition
 	}{
 		{
 			modelNameInput: "Panda",
@@ -66,7 +68,10 @@ func TestProcessModel_RemoveStatusAndDetail_Valid(t *testing.T) {
 					},
 				},
 			},
-			expected: map[string]resourcemanager.TerraformSchemaModelDefinition{
+			mappingsInput: resourcemanager.MappingDefinition{
+				// TODO: add me
+			},
+			expectedModels: map[string]resourcemanager.TerraformSchemaModelDefinition{
 				"Panda": {
 					Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
 						"Age": {
@@ -100,32 +105,36 @@ func TestProcessModel_RemoveStatusAndDetail_Valid(t *testing.T) {
 					},
 				},
 			},
+			expectedMappings: resourcemanager.MappingDefinition{
+				// TODO: add me
+			},
 		},
 	}
 
 	for _, v := range testData {
 		t.Logf("[DEBUG] Testing %s", v.modelNameInput)
 
-		actual, err := modelRemoveStatusAndDetail{}.ProcessModel(v.modelNameInput, v.modelsInput[v.modelNameInput], v.modelsInput)
+		actualModels, actualMappings, err := modelRemoveStatusAndDetail{}.ProcessModel(v.modelNameInput, v.modelsInput[v.modelNameInput], v.modelsInput, v.mappingsInput)
 		if err != nil {
-			if v.expected == nil {
+			if v.expectedModels == nil {
 				continue
 			}
 
 			t.Fatalf("error: %+v", err)
 		}
 
-		if !modelDefinitionsMatch(t, actual, v.expected) {
-			t.Fatalf("Expected %+v but got %+v", v.expected, actual)
-		}
+		modelDefinitionsMatch(t, actualModels, v.expectedModels)
+		mappingDefinitionsMatch(t, actualMappings, v.expectedMappings)
 	}
 }
 
 func TestProcessModel_RemoveStatusAndDetail_Invalid(t *testing.T) {
 	testData := []struct {
-		modelNameInput string
-		modelsInput    map[string]resourcemanager.TerraformSchemaModelDefinition
-		expected       map[string]resourcemanager.TerraformSchemaModelDefinition
+		modelNameInput   string
+		mappingsInput    resourcemanager.MappingDefinition
+		modelsInput      map[string]resourcemanager.TerraformSchemaModelDefinition
+		expectedMappings resourcemanager.MappingDefinition
+		expectedModels   map[string]resourcemanager.TerraformSchemaModelDefinition
 	}{
 		{
 			modelNameInput: "Leopard",
@@ -155,8 +164,11 @@ func TestProcessModel_RemoveStatusAndDetail_Invalid(t *testing.T) {
 					},
 				},
 			},
+			mappingsInput: resourcemanager.MappingDefinition{
+				// TODO: add me
+			},
 			// unchanged
-			expected: map[string]resourcemanager.TerraformSchemaModelDefinition{
+			expectedModels: map[string]resourcemanager.TerraformSchemaModelDefinition{
 				"Leopard": {
 					Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
 						"Id": {
@@ -181,6 +193,9 @@ func TestProcessModel_RemoveStatusAndDetail_Invalid(t *testing.T) {
 						},
 					},
 				},
+			},
+			expectedMappings: resourcemanager.MappingDefinition{
+				// TODO: add me
 			},
 		},
 		{
@@ -211,8 +226,11 @@ func TestProcessModel_RemoveStatusAndDetail_Invalid(t *testing.T) {
 					},
 				},
 			},
+			mappingsInput: resourcemanager.MappingDefinition{
+				// TODO: add me
+			},
 			// unchanged since the nested model doesn't match
-			expected: map[string]resourcemanager.TerraformSchemaModelDefinition{
+			expectedModels: map[string]resourcemanager.TerraformSchemaModelDefinition{
 				"Meerkat": {
 					Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
 						"Id": {
@@ -238,23 +256,25 @@ func TestProcessModel_RemoveStatusAndDetail_Invalid(t *testing.T) {
 					},
 				},
 			},
+			expectedMappings: resourcemanager.MappingDefinition{
+				// TODO: add me
+			},
 		},
 	}
 
 	for _, v := range testData {
 		t.Logf("[DEBUG] Testing %s", v.modelNameInput)
 
-		actual, err := modelRemoveStatusAndDetail{}.ProcessModel(v.modelNameInput, v.modelsInput[v.modelNameInput], v.modelsInput)
+		actualModels, actualMappings, err := modelRemoveStatusAndDetail{}.ProcessModel(v.modelNameInput, v.modelsInput[v.modelNameInput], v.modelsInput, v.mappingsInput)
 		if err != nil {
-			if v.expected == nil {
+			if v.expectedModels == nil {
 				continue
 			}
 
 			t.Fatalf("error: %+v", err)
 		}
 
-		if !modelDefinitionsMatch(t, actual, v.expected) {
-			t.Fatalf("Expected %+v but got %+v", v.expected, actual)
-		}
+		modelDefinitionsMatch(t, actualModels, v.expectedModels)
+		mappingDefinitionsMatch(t, actualMappings, v.expectedMappings)
 	}
 }

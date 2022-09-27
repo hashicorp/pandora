@@ -87,10 +87,12 @@ func (b Builder) Build(input resourcemanager.TerraformResourceDetails, logger hc
 		for _, processor := range processors.ModelRules {
 			// the models within schemaModels are updated as we loop through the processors, so we need to pass in the
 			// updated model from schemaModels[modelName] or previous changes are overwritten
-			schemaModels, err = processor.ProcessModel(modelName, schemaModels[modelName], schemaModels)
+			updatedSchemaModels, updatedMappings, err := processor.ProcessModel(modelName, schemaModels[modelName], schemaModels, mappings)
 			if err != nil {
 				return nil, nil, fmt.Errorf("processing models: %+v", err)
 			}
+			schemaModels = *updatedSchemaModels
+			mappings = *updatedMappings
 		}
 
 		fieldsWithHclNames := make(map[string]resourcemanager.TerraformSchemaFieldDefinition, 0)

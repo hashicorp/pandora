@@ -7,9 +7,11 @@ import (
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
+var _ ModelProcessor = modelFlattenPropertiesIntoParent{}
+
 type modelFlattenPropertiesIntoParent struct{}
 
-func (modelFlattenPropertiesIntoParent) ProcessModel(modelName string, model resourcemanager.TerraformSchemaModelDefinition, models map[string]resourcemanager.TerraformSchemaModelDefinition) (map[string]resourcemanager.TerraformSchemaModelDefinition, error) {
+func (modelFlattenPropertiesIntoParent) ProcessModel(modelName string, model resourcemanager.TerraformSchemaModelDefinition, models map[string]resourcemanager.TerraformSchemaModelDefinition, mappings resourcemanager.MappingDefinition) (*map[string]resourcemanager.TerraformSchemaModelDefinition, *resourcemanager.MappingDefinition, error) {
 	fields := make(map[string]resourcemanager.TerraformSchemaFieldDefinition)
 	for fieldName, fieldValue := range model.Fields {
 		fields[fieldName] = fieldValue
@@ -24,7 +26,7 @@ func (modelFlattenPropertiesIntoParent) ProcessModel(modelName string, model res
 		}
 
 		if fieldValue.ObjectDefinition.ReferenceName == nil {
-			return nil, fmt.Errorf("processing model %q: had no reference for field %q", modelName, fieldName)
+			return nil, nil, fmt.Errorf("processing model %q: had no reference for field %q", modelName, fieldName)
 		}
 
 		if !strings.HasSuffix(*fieldValue.ObjectDefinition.ReferenceName, "Properties") {
@@ -39,5 +41,5 @@ func (modelFlattenPropertiesIntoParent) ProcessModel(modelName string, model res
 	}
 	model.Fields = fields
 	models[modelName] = model
-	return models, nil
+	return &models, &mappings, nil
 }
