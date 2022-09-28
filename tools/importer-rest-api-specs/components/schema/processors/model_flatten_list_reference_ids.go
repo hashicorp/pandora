@@ -6,11 +6,13 @@ import (
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
+var _ ModelProcessor = modelFlattenListReferenceIds{}
+
 type modelFlattenListReferenceIds struct{}
 
-func (modelFlattenListReferenceIds) ProcessModel(modelName string, model resourcemanager.TerraformSchemaModelDefinition, models map[string]resourcemanager.TerraformSchemaModelDefinition) (map[string]resourcemanager.TerraformSchemaModelDefinition, error) {
+func (modelFlattenListReferenceIds) ProcessModel(modelName string, model resourcemanager.TerraformSchemaModelDefinition, models map[string]resourcemanager.TerraformSchemaModelDefinition, mappings resourcemanager.MappingDefinition) (*map[string]resourcemanager.TerraformSchemaModelDefinition, *resourcemanager.MappingDefinition, error) {
 	if len(model.Fields) != 1 {
-		return models, nil
+		return &models, &mappings, nil
 	}
 
 	fields := make(map[string]resourcemanager.TerraformSchemaFieldDefinition)
@@ -34,13 +36,13 @@ func (modelFlattenListReferenceIds) ProcessModel(modelName string, model resourc
 			}
 		}
 		if referenceName == "" {
-			return nil, fmt.Errorf("processing model %q: nested list had no reference for field %q", modelName, fieldName)
+			return nil, nil, fmt.Errorf("processing model %q: nested list had no reference for field %q", modelName, fieldName)
 		}
 
 		// NOTE: at this point Constants will have been transformed to a String so this *will* be a Model
 		nestedModel, ok := models[referenceName]
 		if !ok {
-			return nil, fmt.Errorf("processing %q: nested model with reference name %q was not found for field %q", modelName, referenceName, fieldName)
+			return nil, nil, fmt.Errorf("processing %q: nested model with reference name %q was not found for field %q", modelName, referenceName, fieldName)
 		}
 
 		if len(nestedModel.Fields) != 1 {
@@ -59,5 +61,5 @@ func (modelFlattenListReferenceIds) ProcessModel(modelName string, model resourc
 	}
 	model.Fields = fields
 	models[modelName] = model
-	return models, nil
+	return &models, &mappings, nil
 }

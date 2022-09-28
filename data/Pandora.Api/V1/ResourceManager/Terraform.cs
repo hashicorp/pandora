@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text.Json.Serialization;
 using Microsoft.AspNetCore.Mvc;
 using Pandora.Data.Models;
 using Pandora.Data.Repositories;
@@ -77,54 +76,58 @@ resource 'example_resource' 'example' {
         {
             response.UpdateMethod = MapMethodDefinition(input.UpdateMethod!);
         }
-
-        if (input.ResourceLabel == "resource_group")
-        {
-            var mappings = new List<FieldMappingDefinition>
-            {
-                // TODO: this needs a "nested model" kind of assignment
-                // new FieldMappingDefinition
-                // {
-                //     Type = FieldMappingDefinitionType.DirectAssignment.ToString(),
-                //     From = new FieldMappingFromDefinition
-                //     {
-                //         SchemaModelName = "ResourceGroupResourceSchema",
-                //         SchemaFieldPath = "Pandas",
-                //     },
-                //     To = new FieldMappingToDefinition
-                //     {
-                //         SdkFieldPath = "Pandas",
-                //         SdkTypeName = "ResourceGroup",
-                //     },
-                // },
-                new FieldMappingDefinition
-                {
-                    Type = FieldMappingDefinitionType.DirectAssignment.ToString(),
-                    From = new FieldMappingFromDefinition
-                    {
-                        SchemaModelName = "ResourceGroupResourceSchema",
-                        SchemaFieldPath = "DirectAssignmentField",
-                    },
-                    To = new FieldMappingToDefinition
-                    {
-                        SdkFieldPath = "DirectAssignmentReceiver",
-                        SdkModelName = "ResourceGroup",
-                    },
-                },
-            };
-            response.Mappings.Create = mappings;
-            response.Mappings.Update = mappings;
-            response.Mappings.Read = mappings;
-        }
         return response;
     }
 
     private static MappingsDefinition MapMappingDefinitions(TerraformMappingDefinition input)
     {
-        return new MappingsDefinition
+        var output = new MappingsDefinition
         {
-            // TODO: Map Create/Update?/Read mappings too
+            Create = MapFieldMappingDefinitions(input.Create),
+            Read = MapFieldMappingDefinitions(input.Read),
             ResourceId = input.ResourceIds.Select(MapResourceIdMappingDefinition).ToList(),
+        };
+        if (input.Update != null)
+        {
+            output.Update = MapFieldMappingDefinitions(input.Update!);
+        }
+        return output;
+    }
+
+    private static List<FieldMappingDefinition> MapFieldMappingDefinitions(List<TerraformFieldMappingDefinition> input)
+    {
+        var mappings = new List<FieldMappingDefinition>();
+        foreach (var mapping in input)
+        {
+            switch (mapping.Type)
+            {
+                case Data.Models.TerraformFieldMappingType.DirectAssignment:
+                    {
+                        mappings.Add(MapTerraformFieldDirectAssignmentMapping(mapping.DirectAssignment));
+                        continue;
+                    }
+
+                default:
+                    {
+                        throw new NotSupportedException($"mapping type ${mapping.Type.ToString()} is not implemented");
+                    }
+            }
+        }
+        return mappings;
+    }
+
+    private static FieldMappingDefinition MapTerraformFieldDirectAssignmentMapping(TerraformFieldMappingDirectAssignmentDefinition input)
+    {
+        return new FieldMappingDefinition
+        {
+            Type = TerraformFieldMappingType.DirectAssignment.ToString(),
+            DirectAssignment = new FieldMappingDirectAssignmentDefinition
+            {
+                SchemaModelName = input.SchemaModelName,
+                SchemaFieldPath = input.SchemaFieldName,
+                SdkModelName = input.SdkModelName,
+                SdkFieldPath = input.SdkFieldName,
+            },
         };
     }
 

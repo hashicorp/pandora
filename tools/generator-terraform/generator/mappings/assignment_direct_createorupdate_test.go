@@ -63,13 +63,11 @@ func TestDirectAssignment_CreateOrUpdate_Constant_RequiredToRequired_TopLevel(t 
 		t.Logf("Test %d - mapping %q to a %q constant", i, string(v.schemaModelFieldType), string(v.constant.constantDetails.Type))
 		mapping := resourcemanager.FieldMappingDefinition{
 			Type: resourcemanager.DirectAssignmentMappingDefinitionType,
-			From: resourcemanager.FieldMappingFromDefinition{
+			DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
 				SchemaModelName: "FromModel",
 				SchemaFieldPath: "FromPath",
-			},
-			To: resourcemanager.FieldMappingToDefinition{
-				SdkFieldPath: "ToPath",
-				SdkModelName: "ToModel",
+				SdkFieldPath:    "ToPath",
+				SdkModelName:    "ToModel",
 			},
 		}
 		schemaModel := resourcemanager.TerraformSchemaModelDefinition{
@@ -166,13 +164,11 @@ func TestDirectAssignment_CreateOrUpdate_Constant_RequiredToOptional_TopLevel(t 
 		t.Logf("Test %d - mapping %q to a %q constant", i, string(v.schemaModelFieldType), string(v.constant.constantDetails.Type))
 		mapping := resourcemanager.FieldMappingDefinition{
 			Type: resourcemanager.DirectAssignmentMappingDefinitionType,
-			From: resourcemanager.FieldMappingFromDefinition{
+			DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
 				SchemaModelName: "FromModel",
 				SchemaFieldPath: "FromPath",
-			},
-			To: resourcemanager.FieldMappingToDefinition{
-				SdkFieldPath: "ToPath",
-				SdkModelName: "ToModel",
+				SdkFieldPath:    "ToPath",
+				SdkModelName:    "ToModel",
 			},
 		}
 		schemaModel := resourcemanager.TerraformSchemaModelDefinition{
@@ -268,13 +264,11 @@ func TestDirectAssignment_CreateOrUpdate_Constant_OptionalToRequired_TopLevel(t 
 		t.Logf("Test %d - mapping %q to a %q constant", i, string(v.schemaModelFieldType), string(v.constant.constantDetails.Type))
 		mapping := resourcemanager.FieldMappingDefinition{
 			Type: resourcemanager.DirectAssignmentMappingDefinitionType,
-			From: resourcemanager.FieldMappingFromDefinition{
+			DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
 				SchemaModelName: "FromModel",
 				SchemaFieldPath: "FromPath",
-			},
-			To: resourcemanager.FieldMappingToDefinition{
-				SdkFieldPath: "ToPath",
-				SdkModelName: "ToModel",
+				SdkFieldPath:    "ToPath",
+				SdkModelName:    "ToModel",
 			},
 		}
 		schemaModel := resourcemanager.TerraformSchemaModelDefinition{
@@ -382,13 +376,11 @@ if input.FromPath != nil {
 		t.Logf("Test %d - mapping %q to a %q constant", i, string(v.schemaModelFieldType), string(v.constant.constantDetails.Type))
 		mapping := resourcemanager.FieldMappingDefinition{
 			Type: resourcemanager.DirectAssignmentMappingDefinitionType,
-			From: resourcemanager.FieldMappingFromDefinition{
+			DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
 				SchemaModelName: "FromModel",
 				SchemaFieldPath: "FromPath",
-			},
-			To: resourcemanager.FieldMappingToDefinition{
-				SdkFieldPath: "ToPath",
-				SdkModelName: "ToModel",
+				SdkFieldPath:    "ToPath",
+				SdkModelName:    "ToModel",
 			},
 		}
 		schemaModel := resourcemanager.TerraformSchemaModelDefinition{
@@ -503,13 +495,11 @@ out.ToPath = toPath
 		t.Logf("Test %d - mapping %q to a %q constant", i, string(v.schemaModelFieldType), string(v.constant.constantDetails.Type))
 		mapping := resourcemanager.FieldMappingDefinition{
 			Type: resourcemanager.DirectAssignmentMappingDefinitionType,
-			From: resourcemanager.FieldMappingFromDefinition{
+			DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
 				SchemaModelName: "FromModel",
 				SchemaFieldPath: "FromPath",
-			},
-			To: resourcemanager.FieldMappingToDefinition{
-				SdkFieldPath: "ToPath",
-				SdkModelName: "ToModel",
+				SdkFieldPath:    "ToPath",
+				SdkModelName:    "ToModel",
 			},
 		}
 		schemaModel := resourcemanager.TerraformSchemaModelDefinition{
@@ -630,13 +620,11 @@ out.ToPath = &toPath
 		t.Logf("Test %d - mapping %q to a %q constant", i, string(v.schemaModelFieldType), string(v.constant.constantDetails.Type))
 		mapping := resourcemanager.FieldMappingDefinition{
 			Type: resourcemanager.DirectAssignmentMappingDefinitionType,
-			From: resourcemanager.FieldMappingFromDefinition{
+			DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
 				SchemaModelName: "FromModel",
 				SchemaFieldPath: "FromPath",
-			},
-			To: resourcemanager.FieldMappingToDefinition{
-				SdkFieldPath: "ToPath",
-				SdkModelName: "ToModel",
+				SdkFieldPath:    "ToPath",
+				SdkModelName:    "ToModel",
 			},
 		}
 		schemaModel := resourcemanager.TerraformSchemaModelDefinition{
@@ -735,13 +723,11 @@ func TestDirectAssignment_CreateOrUpdate_Constant_OptionalToRequired_List(t *tes
 		t.Logf("Test %d - mapping %q to a %q constant", i, string(v.schemaModelFieldType), string(v.constant.constantDetails.Type))
 		mapping := resourcemanager.FieldMappingDefinition{
 			Type: resourcemanager.DirectAssignmentMappingDefinitionType,
-			From: resourcemanager.FieldMappingFromDefinition{
+			DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
 				SchemaModelName: "FromModel",
 				SchemaFieldPath: "FromPath",
-			},
-			To: resourcemanager.FieldMappingToDefinition{
-				SdkFieldPath: "ToPath",
-				SdkModelName: "ToModel",
+				SdkFieldPath:    "ToPath",
+				SdkModelName:    "ToModel",
 			},
 		}
 		schemaModel := resourcemanager.TerraformSchemaModelDefinition{
@@ -867,13 +853,11 @@ out.ToPath = &toPath
 		t.Logf("Test %d - mapping %q to a %q constant", i, string(v.schemaModelFieldType), string(v.constant.constantDetails.Type))
 		mapping := resourcemanager.FieldMappingDefinition{
 			Type: resourcemanager.DirectAssignmentMappingDefinitionType,
-			From: resourcemanager.FieldMappingFromDefinition{
+			DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
 				SchemaModelName: "FromModel",
 				SchemaFieldPath: "FromPath",
-			},
-			To: resourcemanager.FieldMappingToDefinition{
-				SdkFieldPath: "ToPath",
-				SdkModelName: "ToModel",
+				SdkFieldPath:    "ToPath",
+				SdkModelName:    "ToModel",
 			},
 		}
 		schemaModel := resourcemanager.TerraformSchemaModelDefinition{
@@ -947,13 +931,12 @@ func TestDirectAssignment_CreateOrUpdate_Model_RequiredToRequired_MatchingSimple
 		t.Logf("Test %d - mapping %q to %q", i, string(v.schemaModelFieldType), string(v.sdkFieldType))
 		mapping := resourcemanager.FieldMappingDefinition{
 			Type: resourcemanager.DirectAssignmentMappingDefinitionType,
-			From: resourcemanager.FieldMappingFromDefinition{
+
+			DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
 				SchemaModelName: "FromModel",
 				SchemaFieldPath: "FromPath",
-			},
-			To: resourcemanager.FieldMappingToDefinition{
-				SdkFieldPath: "ToPath",
-				SdkModelName: "ToModel",
+				SdkFieldPath:    "ToPath",
+				SdkModelName:    "ToModel",
 			},
 		}
 		schemaModel := resourcemanager.TerraformSchemaModelDefinition{
@@ -1018,13 +1001,11 @@ func TestDirectAssignment_CreateOrUpdate_Model_RequiredToOptional_MatchingSimple
 		t.Logf("Test %d - mapping %q to %q", i, string(v.schemaModelFieldType), string(v.sdkFieldType))
 		mapping := resourcemanager.FieldMappingDefinition{
 			Type: resourcemanager.DirectAssignmentMappingDefinitionType,
-			From: resourcemanager.FieldMappingFromDefinition{
+			DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
 				SchemaModelName: "FromModel",
 				SchemaFieldPath: "FromPath",
-			},
-			To: resourcemanager.FieldMappingToDefinition{
-				SdkFieldPath: "ToPath",
-				SdkModelName: "ToModel",
+				SdkFieldPath:    "ToPath",
+				SdkModelName:    "ToModel",
 			},
 		}
 		schemaModel := resourcemanager.TerraformSchemaModelDefinition{
@@ -1090,13 +1071,11 @@ func TestDirectAssignment_CreateOrUpdate_Model_OptionalToRequired_MatchingSimple
 		t.Logf("Test %d - mapping %q to %q", i, string(v.schemaModelFieldType), string(v.sdkFieldType))
 		mapping := resourcemanager.FieldMappingDefinition{
 			Type: resourcemanager.DirectAssignmentMappingDefinitionType,
-			From: resourcemanager.FieldMappingFromDefinition{
+			DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
 				SchemaModelName: "FromModel",
 				SchemaFieldPath: "FromPath",
-			},
-			To: resourcemanager.FieldMappingToDefinition{
-				SdkFieldPath: "ToPath",
-				SdkModelName: "ToModel",
+				SdkFieldPath:    "ToPath",
+				SdkModelName:    "ToModel",
 			},
 		}
 		schemaModel := resourcemanager.TerraformSchemaModelDefinition{
@@ -1163,13 +1142,11 @@ func TestDirectAssignment_CreateOrUpdate_Model_OptionalToOptional_MatchingSimple
 		t.Logf("Test %d - mapping %q to %q", i, string(v.schemaModelFieldType), string(v.sdkFieldType))
 		mapping := resourcemanager.FieldMappingDefinition{
 			Type: resourcemanager.DirectAssignmentMappingDefinitionType,
-			From: resourcemanager.FieldMappingFromDefinition{
+			DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
 				SchemaModelName: "FromModel",
 				SchemaFieldPath: "FromPath",
-			},
-			To: resourcemanager.FieldMappingToDefinition{
-				SdkFieldPath: "ToPath",
-				SdkModelName: "ToModel",
+				SdkFieldPath:    "ToPath",
+				SdkModelName:    "ToModel",
 			},
 		}
 		schemaModel := resourcemanager.TerraformSchemaModelDefinition{
@@ -1262,13 +1239,11 @@ out.ToPath = toPath
 		t.Logf("Test %d - mapping %q to %q", i, string(v.schemaModelFieldType), string(v.sdkFieldType))
 		mapping := resourcemanager.FieldMappingDefinition{
 			Type: resourcemanager.DirectAssignmentMappingDefinitionType,
-			From: resourcemanager.FieldMappingFromDefinition{
+			DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
 				SchemaModelName: "FromModel",
 				SchemaFieldPath: "FromPath",
-			},
-			To: resourcemanager.FieldMappingToDefinition{
-				SdkFieldPath: "ToPath",
-				SdkModelName: "ToModel",
+				SdkFieldPath:    "ToPath",
+				SdkModelName:    "ToModel",
 			},
 		}
 		schemaModel := resourcemanager.TerraformSchemaModelDefinition{
@@ -1367,13 +1342,11 @@ out.ToPath = &toPath
 		t.Logf("Test %d - mapping %q to %q", i, string(v.schemaModelFieldType), string(v.sdkFieldType))
 		mapping := resourcemanager.FieldMappingDefinition{
 			Type: resourcemanager.DirectAssignmentMappingDefinitionType,
-			From: resourcemanager.FieldMappingFromDefinition{
+			DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
 				SchemaModelName: "FromModel",
 				SchemaFieldPath: "FromPath",
-			},
-			To: resourcemanager.FieldMappingToDefinition{
-				SdkFieldPath: "ToPath",
-				SdkModelName: "ToModel",
+				SdkFieldPath:    "ToPath",
+				SdkModelName:    "ToModel",
 			},
 		}
 		schemaModel := resourcemanager.TerraformSchemaModelDefinition{
@@ -1444,13 +1417,11 @@ func TestDirectAssignment_CreateOrUpdate_Model_OptionalToRequired_MatchingListOf
 		t.Logf("Test %d - mapping %q to %q", i, string(v.schemaModelFieldType), string(v.sdkFieldType))
 		mapping := resourcemanager.FieldMappingDefinition{
 			Type: resourcemanager.DirectAssignmentMappingDefinitionType,
-			From: resourcemanager.FieldMappingFromDefinition{
+			DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
 				SchemaModelName: "FromModel",
 				SchemaFieldPath: "FromPath",
-			},
-			To: resourcemanager.FieldMappingToDefinition{
-				SdkFieldPath: "ToPath",
-				SdkModelName: "ToModel",
+				SdkFieldPath:    "ToPath",
+				SdkModelName:    "ToModel",
 			},
 		}
 		schemaModel := resourcemanager.TerraformSchemaModelDefinition{
@@ -1556,13 +1527,11 @@ out.ToPath = &toPath
 		t.Logf("Test %d - mapping %q to %q", i, string(v.schemaModelFieldType), string(v.sdkFieldType))
 		mapping := resourcemanager.FieldMappingDefinition{
 			Type: resourcemanager.DirectAssignmentMappingDefinitionType,
-			From: resourcemanager.FieldMappingFromDefinition{
+			DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
 				SchemaModelName: "FromModel",
 				SchemaFieldPath: "FromPath",
-			},
-			To: resourcemanager.FieldMappingToDefinition{
-				SdkFieldPath: "ToPath",
-				SdkModelName: "ToModel",
+				SdkFieldPath:    "ToPath",
+				SdkModelName:    "ToModel",
 			},
 		}
 		schemaModel := resourcemanager.TerraformSchemaModelDefinition{

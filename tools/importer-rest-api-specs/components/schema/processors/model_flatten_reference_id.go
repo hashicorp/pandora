@@ -7,9 +7,11 @@ import (
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
+var _ ModelProcessor = modelFlattenReferenceId{}
+
 type modelFlattenReferenceId struct{}
 
-func (modelFlattenReferenceId) ProcessModel(modelName string, model resourcemanager.TerraformSchemaModelDefinition, models map[string]resourcemanager.TerraformSchemaModelDefinition) (map[string]resourcemanager.TerraformSchemaModelDefinition, error) {
+func (modelFlattenReferenceId) ProcessModel(modelName string, model resourcemanager.TerraformSchemaModelDefinition, models map[string]resourcemanager.TerraformSchemaModelDefinition, mappings resourcemanager.MappingDefinition) (*map[string]resourcemanager.TerraformSchemaModelDefinition, *resourcemanager.MappingDefinition, error) {
 	fields := make(map[string]resourcemanager.TerraformSchemaFieldDefinition)
 
 	for fieldName, fieldValue := range model.Fields {
@@ -24,13 +26,13 @@ func (modelFlattenReferenceId) ProcessModel(modelName string, model resourcemana
 		}
 
 		if fieldValue.ObjectDefinition.ReferenceName == nil {
-			return nil, fmt.Errorf("processing model %q: field %q was a reference with no reference name", modelName, fieldName)
+			return nil, nil, fmt.Errorf("processing model %q: field %q was a reference with no reference name", modelName, fieldName)
 		}
 
 		// NOTE: at this point Constants will have been transformed to a String so this *will* be a Model
 		nestedModel, ok := models[*fieldValue.ObjectDefinition.ReferenceName]
 		if !ok {
-			return nil, fmt.Errorf("processing model %q: field %q had a reference to %q but it wasn't found", modelName, fieldName, *fieldValue.ObjectDefinition.ReferenceName)
+			return nil, nil, fmt.Errorf("processing model %q: field %q had a reference to %q but it wasn't found", modelName, fieldName, *fieldValue.ObjectDefinition.ReferenceName)
 		}
 
 		if len(nestedModel.Fields) != 1 {
@@ -49,5 +51,5 @@ func (modelFlattenReferenceId) ProcessModel(modelName string, model resourcemana
 	}
 	model.Fields = fields
 	models[modelName] = model
-	return models, nil
+	return &models, &mappings, nil
 }

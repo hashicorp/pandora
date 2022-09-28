@@ -25,7 +25,7 @@ public class DirectAssignmentMapping : MappingType
     public string ToSdkModelName { get; set; }
 
     /// <summary>
-    /// ToSdkModelPath is the path to the field within the Sdk Model that this mapping is To.
+    /// ToSdkFieldPath is the path to the field within the Sdk Model that this mapping is To.
     /// </summary>
-    public string ToSdkModelPath { get; set; }
+    public string ToSdkFieldPath { get; set; }
 }

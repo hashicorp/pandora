@@ -278,20 +278,13 @@ public partial class TerraformController
         [JsonPropertyName("type")]
         public string Type { get; set; }
 
-        [JsonPropertyName("from")]
-        public FieldMappingFromDefinition From { get; set; }
+        [JsonPropertyName("directAssignment")]
+        public FieldMappingDirectAssignmentDefinition? DirectAssignment { get; set; }
 
-        [JsonPropertyName("to")]
-        public FieldMappingToDefinition To { get; set; }
-
-        [JsonPropertyName("booleanEquals")]
-        public FieldMappingBooleanEqualsDefinition? BooleanEquals { get; set; }
-
-        [JsonPropertyName("manual")]
-        public FieldMappingManualDefinition? Manual { get; set; }
+        // TODO: BooleanEquals, ModelToModel and Manual etc
     }
 
-    private class FieldMappingFromDefinition
+    private class FieldMappingDirectAssignmentDefinition
     {
         /// <summary>
         /// SchemaModelName is the name of the Schema Model
@@ -303,14 +296,17 @@ public partial class TerraformController
         /// SchemaFieldPath is the path to the field within the SchemaModelName (e.g. `Foo` or `Foo.Bar`)
         /// </summary>
         [JsonPropertyName("schemaFieldPath")]
-        public string SchemaFieldPath { get; set; }
-    }
+        public string? SchemaFieldPath { get; set; }
 
-    private class FieldMappingToDefinition
-    {
+        /// <summary>
+        /// SdkModelName is the name of the Sdk Model associated with this mapping.
+        /// </summary>
         [JsonPropertyName("sdkModelName")]
-        public string? SdkModelName { get; set; }
+        public string SdkModelName { get; set; }
 
+        /// <summary>
+        /// SdkFieldPath is the path to the field within the Sdk Model
+        /// </summary>
         [JsonPropertyName("sdkFieldPath")]
         public string? SdkFieldPath { get; set; }
     }
@@ -325,24 +321,6 @@ public partial class TerraformController
 
         [JsonPropertyName("expression")]
         public string? Expression { get; set; }
-    }
-
-    private class FieldMappingManualDefinition
-    {
-        [JsonPropertyName("methodName")]
-        public string MethodName { get; set; }
-    }
-
-    private enum FieldMappingDefinitionType
-    {
-        // Manual -> CustomTransform?
-        BooleanEquals,
-        BooleanInvert,
-        DirectAssignment,
-        Manual,
-        // TODO: do we need a `NestedModel` here?
-
-        // TODO: does `Type: Ignore` need to be surfaced?
     }
 
     private class TerraformResourceTestsDefinition
@@ -376,5 +354,11 @@ public partial class TerraformController
     private enum TerraformSchemaFieldValidation
     {
         PossibleValues,
+    }
+
+    private enum TerraformFieldMappingType
+    {
+        DirectAssignment,
+        Manual,
     }
 }

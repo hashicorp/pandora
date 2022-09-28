@@ -163,13 +163,11 @@ func (b Builder) schemaFromTopLevelFields(schemaModelName string, input operatio
 func directAssignmentMappingBetween(fromModel string, fromField string, toModel string, toField string) resourcemanager.FieldMappingDefinition {
 	return resourcemanager.FieldMappingDefinition{
 		Type: resourcemanager.DirectAssignmentMappingDefinitionType,
-		From: resourcemanager.FieldMappingFromDefinition{
+		DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
 			SchemaModelName: fromModel,
 			SchemaFieldPath: fromField,
-		},
-		To: resourcemanager.FieldMappingToDefinition{
-			SdkModelName: toModel,
-			SdkFieldPath: toField,
+			SdkModelName:    toModel,
+			SdkFieldPath:    toField,
 		},
 	}
 }

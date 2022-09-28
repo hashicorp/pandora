@@ -1,6 +1,7 @@
 package processors
 
 import (
+	"fmt"
 	"reflect"
 	"strings"
 	"testing"
@@ -8,25 +9,101 @@ import (
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-func modelDefinitionsMatch(t *testing.T, first map[string]resourcemanager.TerraformSchemaModelDefinition, second map[string]resourcemanager.TerraformSchemaModelDefinition) bool {
-	if len(first) != len(second) {
-		t.Fatalf("first had %d models but second had %d models", len(first), len(second))
+func mappingDefinitionsMatch(t *testing.T, actual *resourcemanager.MappingDefinition, expected resourcemanager.MappingDefinition) {
+	if actual == nil {
+		t.Fatalf("actual was nil")
+	}
+
+	if !mappingsMatch(t, actual.Create, expected.Create) {
+		t.Fatalf("expected and actual for Create Mappings differ - expected %+v - actual %+v", expected.Create, actual.Create)
+	}
+	if !mappingsMatch(t, actual.Read, expected.Read) {
+		t.Fatalf("expected and actual for Read Mappings differ - expected %+v - actual %+v", expected.Read, actual.Read)
+	}
+	if actual.Update == nil && expected.Update != nil {
+		t.Fatalf("expected Update mappings but didn't get any")
+	}
+	if actual.Update != nil && expected.Update == nil {
+		t.Fatalf("got Update mappings but wasn't expecting any")
+	}
+	if actual.Update != nil && expected.Update != nil {
+		if !mappingsMatch(t, *expected.Update, *actual.Update) {
+			t.Fatalf("expected and actual for Update Mappings differ - expected %+v - actual %+v", *expected.Update, *actual.Update)
+		}
+	}
+
+	t.Logf("TODO: ensure the mappings match")
+}
+
+func mappingsMatch(t *testing.T, expected []resourcemanager.FieldMappingDefinition, actual []resourcemanager.FieldMappingDefinition) bool {
+	if len(actual) != len(expected) {
 		return false
 	}
 
-	for key, firstVal := range first {
-		secondVal, ok := second[key]
+	for _, expectedItem := range expected {
+		presentInActual := false
+		for _, actualItem := range actual {
+			if mappingTypesMatch(expectedItem, actualItem) {
+				presentInActual = true
+				break
+			}
+		}
+		if !presentInActual {
+			t.Fatalf("expected mapping %+v was not found in actual", expectedItem)
+		}
+	}
+
+	return true
+}
+
+func mappingTypesMatch(first resourcemanager.FieldMappingDefinition, second resourcemanager.FieldMappingDefinition) bool {
+	if first.Type != second.Type {
+		return false
+	}
+
+	switch first.Type {
+	case resourcemanager.DirectAssignmentMappingDefinitionType:
+		{
+			if first.DirectAssignment.SchemaModelName != second.DirectAssignment.SchemaModelName {
+				return false
+			}
+			if first.DirectAssignment.SchemaFieldPath != second.DirectAssignment.SchemaFieldPath {
+				return false
+			}
+			if first.DirectAssignment.SdkModelName != second.DirectAssignment.SdkModelName {
+				return false
+			}
+			if first.DirectAssignment.SdkFieldPath != second.DirectAssignment.SdkFieldPath {
+				return false
+			}
+
+			return true
+		}
+	default:
+		panic(fmt.Sprintf("unimplemented: field rename for mapping type %q", string(first.Type)))
+	}
+
+	return false
+}
+
+func modelDefinitionsMatch(t *testing.T, actual *map[string]resourcemanager.TerraformSchemaModelDefinition, expected map[string]resourcemanager.TerraformSchemaModelDefinition) {
+	if actual == nil {
+		t.Fatalf("actual was nil")
+	}
+	if len(*actual) != len(expected) {
+		t.Fatalf("actual had %d models but expected had %d models", len(*actual), len(expected))
+	}
+
+	for key, firstVal := range *actual {
+		secondVal, ok := expected[key]
 		if !ok {
-			t.Fatalf("key %q was present in first but not second", key)
-			return false
+			t.Fatalf("key %q was present in actual but not expected", key)
 		}
 
 		if !fieldDefinitionsMatch(t, firstVal.Fields, secondVal.Fields) {
 			t.Fatalf("field definitions didn't match")
-			return false
 		}
 	}
-	return true
 }
 
 func fieldDefinitionsMatch(t *testing.T, first map[string]resourcemanager.TerraformSchemaFieldDefinition, second map[string]resourcemanager.TerraformSchemaFieldDefinition) bool {

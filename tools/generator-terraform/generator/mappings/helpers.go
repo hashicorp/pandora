@@ -2,6 +2,7 @@ package mappings
 
 import (
 	"fmt"
+	"reflect"
 	"sort"
 	"strings"
 
@@ -20,12 +21,12 @@ func groupMappings(input []resourcemanager.FieldMappingDefinition) []mappingGrou
 	// group the mappings based on the name of the FromSchemaModel and the name of the ToSdkModel
 	wip := make(map[string]mappingGrouping)
 	for _, v := range input {
-		key := fmt.Sprintf("%s-%s", v.From.SchemaModelName, v.To.SdkModelName)
+		key := fmt.Sprintf("%s-%s", v.DirectAssignment.SchemaModelName, v.DirectAssignment.SdkModelName)
 		existing, ok := wip[key]
 		if !ok {
 			existing = mappingGrouping{
-				fromTypeName: v.From.SchemaModelName,
-				toTypeName:   v.To.SdkModelName,
+				fromTypeName: v.DirectAssignment.SchemaModelName,
+				toTypeName:   v.DirectAssignment.SdkModelName,
 				mappings:     make([]resourcemanager.FieldMappingDefinition, 0),
 			}
 		}
@@ -40,11 +41,18 @@ func groupMappings(input []resourcemanager.FieldMappingDefinition) []mappingGrou
 	return out
 }
 
-func findMappingBetween(mappings []resourcemanager.FieldMappingDefinition, fromSchemaModelName, fromFieldPath, toSdkModelName, toSdkFieldPath string) *resourcemanager.FieldMappingDefinition {
+func findMappingBetween(mappings []resourcemanager.FieldMappingDefinition, other resourcemanager.FieldMappingDefinition) *resourcemanager.FieldMappingDefinition {
 	for _, v := range mappings {
-		if v.From.SchemaModelName == fromSchemaModelName && v.From.SchemaFieldPath == fromFieldPath {
-			if v.To.SdkModelName == toSdkModelName && v.To.SdkFieldPath == toSdkFieldPath {
-				return &v
+		if v.Type == other.Type {
+			if v.DirectAssignment != nil && other.DirectAssignment != nil {
+				if reflect.DeepEqual(*v.DirectAssignment, *other.DirectAssignment) {
+					return &v
+				}
+			}
+			if v.Manual != nil && other.Manual != nil {
+				if reflect.DeepEqual(*v.Manual, *other.Manual) {
+					return &v
+				}
 			}
 		}
 	}

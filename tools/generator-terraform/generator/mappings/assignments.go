@@ -9,7 +9,7 @@ import (
 
 var assignmentTypes = map[resourcemanager.MappingDefinitionType]assignmentType{
 	resourcemanager.DirectAssignmentMappingDefinitionType: directAssignmentLine{},
-	resourcemanager.ManualMappingDefinitionType:           manualAssignmentLine{},
+	//resourcemanager.ManualMappingDefinitionType:           manualAssignmentLine{},
 }
 
 type assignmentConstantDetails struct {
@@ -35,41 +35,41 @@ func (m *Mappings) assignmentCreateUpdateLinesForMappings(mappings []resourceman
 			return nil, fmt.Errorf("internal-error: missing assignment type for type %q", mapping.Type)
 		}
 
-		schemaModel, ok := m.schemaModels[mapping.From.SchemaModelName]
+		schemaModel, ok := m.schemaModels[mapping.DirectAssignment.SchemaModelName]
 		if !ok {
-			return nil, fmt.Errorf("the schema model %q referenced in mapping was not found", mapping.From.SchemaModelName)
+			return nil, fmt.Errorf("the schema model %q referenced in mapping was not found", mapping.DirectAssignment.SchemaModelName)
 		}
-		sdkModel, ok := m.sdkModels[mapping.To.SdkModelName]
+		sdkModel, ok := m.sdkModels[mapping.DirectAssignment.SdkModelName]
 		if !ok {
-			return nil, fmt.Errorf("the SDK Model %q referenced in mapping was not found", mapping.To.SdkModelName)
+			return nil, fmt.Errorf("the SDK Model %q referenced in mapping was not found", mapping.DirectAssignment.SdkModelName)
 		}
 
-		sdkFieldName, err := singleFieldNameFromFieldPath(mapping.To.SdkFieldPath)
+		sdkFieldName, err := singleFieldNameFromFieldPath(mapping.DirectAssignment.SdkFieldPath)
 		if err != nil {
-			return nil, fmt.Errorf("finding single field name from field path %q: %+v", mapping.To.SdkFieldPath, err)
+			return nil, fmt.Errorf("finding single field name from field path %q: %+v", mapping.DirectAssignment.SdkFieldPath, err)
 		}
 		sdkField, ok := sdkModel.Fields[*sdkFieldName]
 		if !ok {
-			return nil, fmt.Errorf("the SDK Model %q Field %q was not found", mapping.To.SdkModelName, *sdkFieldName)
+			return nil, fmt.Errorf("the SDK Model %q Field %q was not found", mapping.DirectAssignment.SdkModelName, *sdkFieldName)
 		}
 
 		var sdkConstantName *string
 		if sdkField.ObjectDefinition.Type == resourcemanager.ReferenceApiObjectDefinitionType {
 			if sdkField.ObjectDefinition.ReferenceName == nil {
-				return nil, fmt.Errorf("the SDK Model %q Field %q was a reference with no ReferenceName", *sdkFieldName, mapping.To.SdkModelName)
+				return nil, fmt.Errorf("the SDK Model %q Field %q was a reference with no ReferenceName", *sdkFieldName, mapping.DirectAssignment.SdkModelName)
 			}
 
 			sdkConstantName = sdkField.ObjectDefinition.ReferenceName
 		}
 		if sdkField.ObjectDefinition.Type == resourcemanager.ListApiObjectDefinitionType {
 			if sdkField.ObjectDefinition.NestedItem == nil {
-				return nil, fmt.Errorf("the SDK Model %q Field %q was a List with no NestedItem", *sdkFieldName, mapping.To.SdkModelName)
+				return nil, fmt.Errorf("the SDK Model %q Field %q was a List with no NestedItem", *sdkFieldName, mapping.DirectAssignment.SdkModelName)
 			}
 
 			// we're only interested if it's a List<Constant> not a List<string>
 			if sdkField.ObjectDefinition.NestedItem.Type == resourcemanager.ReferenceApiObjectDefinitionType {
 				if sdkField.ObjectDefinition.NestedItem.ReferenceName == nil {
-					return nil, fmt.Errorf("the SDK Model %q Field %q was a nested list reference with no ReferenceName", *sdkFieldName, mapping.To.SdkModelName)
+					return nil, fmt.Errorf("the SDK Model %q Field %q was a nested list reference with no ReferenceName", *sdkFieldName, mapping.DirectAssignment.SdkModelName)
 				}
 
 				sdkConstantName = sdkField.ObjectDefinition.NestedItem.ReferenceName
@@ -81,7 +81,7 @@ func (m *Mappings) assignmentCreateUpdateLinesForMappings(mappings []resourceman
 			// NOTE: references to Models are handled by a different Mapping Type, so shouldn't be included here
 			constantDetails, ok := m.sdkConstants[*sdkConstantName]
 			if !ok {
-				return nil, fmt.Errorf("constant %q referenced in SDK Model %q Field %q was not found", *sdkConstantName, *sdkFieldName, mapping.To.SdkModelName)
+				return nil, fmt.Errorf("constant %q referenced in SDK Model %q Field %q was not found", *sdkConstantName, *sdkFieldName, mapping.DirectAssignment.SdkModelName)
 			}
 			sdkConstant = &assignmentConstantDetails{
 				sdkResourceName: m.sdkResourceName,
@@ -110,41 +110,41 @@ func (m *Mappings) assignmentReadLinesForMappings(mappings []resourcemanager.Fie
 			return nil, fmt.Errorf("internal-error: missing assignment type for type %q", mapping.Type)
 		}
 
-		schemaModel, ok := m.schemaModels[mapping.From.SchemaModelName]
+		schemaModel, ok := m.schemaModels[mapping.DirectAssignment.SchemaModelName]
 		if !ok {
-			return nil, fmt.Errorf("the schema model %q referenced in mapping was not found", mapping.From.SchemaModelName)
+			return nil, fmt.Errorf("the schema model %q referenced in mapping was not found", mapping.DirectAssignment.SchemaModelName)
 		}
-		sdkModel, ok := m.sdkModels[mapping.To.SdkModelName]
+		sdkModel, ok := m.sdkModels[mapping.DirectAssignment.SdkModelName]
 		if !ok {
-			return nil, fmt.Errorf("the SDK Model %q referenced in mapping was not found", mapping.To.SdkModelName)
+			return nil, fmt.Errorf("the SDK Model %q referenced in mapping was not found", mapping.DirectAssignment.SdkModelName)
 		}
 
-		sdkFieldName, err := singleFieldNameFromFieldPath(mapping.To.SdkFieldPath)
+		sdkFieldName, err := singleFieldNameFromFieldPath(mapping.DirectAssignment.SdkFieldPath)
 		if err != nil {
-			return nil, fmt.Errorf("finding single field name from field path %q: %+v", mapping.To.SdkFieldPath, err)
+			return nil, fmt.Errorf("finding single field name from field path %q: %+v", mapping.DirectAssignment.SdkFieldPath, err)
 		}
 		sdkField, ok := sdkModel.Fields[*sdkFieldName]
 		if !ok {
-			return nil, fmt.Errorf("the SDK Model %q Field %q was not found", mapping.To.SdkModelName, *sdkFieldName)
+			return nil, fmt.Errorf("the SDK Model %q Field %q was not found", mapping.DirectAssignment.SdkModelName, *sdkFieldName)
 		}
 
 		var sdkConstantName *string
 		if sdkField.ObjectDefinition.Type == resourcemanager.ReferenceApiObjectDefinitionType {
 			if sdkField.ObjectDefinition.ReferenceName == nil {
-				return nil, fmt.Errorf("the SDK Model %q Field %q was a reference with no ReferenceName", *sdkFieldName, mapping.To.SdkModelName)
+				return nil, fmt.Errorf("the SDK Model %q Field %q was a reference with no ReferenceName", *sdkFieldName, mapping.DirectAssignment.SdkModelName)
 			}
 
 			sdkConstantName = sdkField.ObjectDefinition.ReferenceName
 		}
 		if sdkField.ObjectDefinition.Type == resourcemanager.ListApiObjectDefinitionType {
 			if sdkField.ObjectDefinition.NestedItem == nil {
-				return nil, fmt.Errorf("the SDK Model %q Field %q was a List with no NestedItem", *sdkFieldName, mapping.To.SdkModelName)
+				return nil, fmt.Errorf("the SDK Model %q Field %q was a List with no NestedItem", *sdkFieldName, mapping.DirectAssignment.SdkModelName)
 			}
 
 			// we're only interested if it's a List<Constant> not a List<string>
 			if sdkField.ObjectDefinition.NestedItem.Type == resourcemanager.ReferenceApiObjectDefinitionType {
 				if sdkField.ObjectDefinition.NestedItem.ReferenceName == nil {
-					return nil, fmt.Errorf("the SDK Model %q Field %q was a nested list reference with no ReferenceName", *sdkFieldName, mapping.To.SdkModelName)
+					return nil, fmt.Errorf("the SDK Model %q Field %q was a nested list reference with no ReferenceName", *sdkFieldName, mapping.DirectAssignment.SdkModelName)
 				}
 
 				sdkConstantName = sdkField.ObjectDefinition.NestedItem.ReferenceName
@@ -156,7 +156,7 @@ func (m *Mappings) assignmentReadLinesForMappings(mappings []resourcemanager.Fie
 			// NOTE: references to Models are handled by a different Mapping Type, so shouldn't be included here
 			constantDetails, ok := m.sdkConstants[*sdkConstantName]
 			if !ok {
-				return nil, fmt.Errorf("constant %q referenced in SDK Model %q Field %q was not found", *sdkConstantName, *sdkFieldName, mapping.To.SdkModelName)
+				return nil, fmt.Errorf("constant %q referenced in SDK Model %q Field %q was not found", *sdkConstantName, *sdkFieldName, mapping.DirectAssignment.SdkModelName)
 			}
 			sdkConstant = &assignmentConstantDetails{
 				sdkResourceName: m.sdkResourceName,

@@ -8,9 +8,11 @@ import (
 
 func TestProcessModel_FlattenPropertiesIntoParent_Valid(t *testing.T) {
 	testData := []struct {
-		modelNameInput string
-		modelsInput    map[string]resourcemanager.TerraformSchemaModelDefinition
-		expected       map[string]resourcemanager.TerraformSchemaModelDefinition
+		modelNameInput   string
+		mappingsInput    resourcemanager.MappingDefinition
+		modelsInput      map[string]resourcemanager.TerraformSchemaModelDefinition
+		expectedModels   map[string]resourcemanager.TerraformSchemaModelDefinition
+		expectedMappings resourcemanager.MappingDefinition
 	}{
 		{
 			modelNameInput: "PandaProperties",
@@ -65,7 +67,10 @@ func TestProcessModel_FlattenPropertiesIntoParent_Valid(t *testing.T) {
 					},
 				},
 			},
-			expected: map[string]resourcemanager.TerraformSchemaModelDefinition{
+			mappingsInput: resourcemanager.MappingDefinition{
+				// TODO: add me
+			},
+			expectedModels: map[string]resourcemanager.TerraformSchemaModelDefinition{
 				"Panda": {
 					Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
 						"Name": {
@@ -120,32 +125,36 @@ func TestProcessModel_FlattenPropertiesIntoParent_Valid(t *testing.T) {
 					},
 				},
 			},
+			expectedMappings: resourcemanager.MappingDefinition{
+				// TODO: add me
+			},
 		},
 	}
 
 	for _, v := range testData {
 		t.Logf("[DEBUG] Testing %s", v.modelNameInput)
 
-		actual, err := modelFlattenPropertiesIntoParent{}.ProcessModel(v.modelNameInput, v.modelsInput[v.modelNameInput], v.modelsInput)
+		actualModels, actualMappings, err := modelFlattenPropertiesIntoParent{}.ProcessModel(v.modelNameInput, v.modelsInput[v.modelNameInput], v.modelsInput, v.mappingsInput)
 		if err != nil {
-			if v.expected == nil {
+			if v.expectedModels == nil {
 				continue
 			}
 
 			t.Fatalf("error: %+v", err)
 		}
 
-		if !modelDefinitionsMatch(t, actual, v.expected) {
-			t.Fatalf("Expected %+v but got %+v", v.expected, actual)
-		}
+		modelDefinitionsMatch(t, actualModels, v.expectedModels)
+		mappingDefinitionsMatch(t, actualMappings, v.expectedMappings)
 	}
 }
 
 func TestProcessModel_FlattenPropertiesIntoParent_Invalid(t *testing.T) {
 	testData := []struct {
-		modelNameInput string
-		modelsInput    map[string]resourcemanager.TerraformSchemaModelDefinition
-		expected       map[string]resourcemanager.TerraformSchemaModelDefinition
+		modelNameInput   string
+		mappingsInput    resourcemanager.MappingDefinition
+		modelsInput      map[string]resourcemanager.TerraformSchemaModelDefinition
+		expectedModels   map[string]resourcemanager.TerraformSchemaModelDefinition
+		expectedMappings resourcemanager.MappingDefinition
 	}{
 		{
 			modelNameInput: "Panda",
@@ -200,8 +209,11 @@ func TestProcessModel_FlattenPropertiesIntoParent_Invalid(t *testing.T) {
 					},
 				},
 			},
+			mappingsInput: resourcemanager.MappingDefinition{
+				// TODO: add me
+			},
 			// unchanged
-			expected: map[string]resourcemanager.TerraformSchemaModelDefinition{
+			expectedModels: map[string]resourcemanager.TerraformSchemaModelDefinition{
 				"Panda": {
 					Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
 						"Name": {
@@ -252,23 +264,25 @@ func TestProcessModel_FlattenPropertiesIntoParent_Invalid(t *testing.T) {
 					},
 				},
 			},
+			expectedMappings: resourcemanager.MappingDefinition{
+				// TODO: add me
+			},
 		},
 	}
 
 	for _, v := range testData {
 		t.Logf("[DEBUG] Testing %s", v.modelNameInput)
 
-		actual, err := modelFlattenPropertiesIntoParent{}.ProcessModel(v.modelNameInput, v.modelsInput[v.modelNameInput], v.modelsInput)
+		actualModels, actualMappings, err := modelFlattenPropertiesIntoParent{}.ProcessModel(v.modelNameInput, v.modelsInput[v.modelNameInput], v.modelsInput, v.mappingsInput)
 		if err != nil {
-			if v.expected == nil {
+			if v.expectedModels == nil {
 				continue
 			}
 
 			t.Fatalf("error: %+v", err)
 		}
 
-		if !modelDefinitionsMatch(t, actual, v.expected) {
-			t.Fatalf("Expected %+v but got %+v", v.expected, actual)
-		}
+		modelDefinitionsMatch(t, actualModels, v.expectedModels)
+		mappingDefinitionsMatch(t, actualMappings, v.expectedMappings)
 	}
 }
