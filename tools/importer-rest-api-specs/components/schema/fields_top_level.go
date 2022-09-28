@@ -18,21 +18,11 @@ func (b Builder) schemaFromTopLevelFields(schemaModelName string, input operatio
 
 	schemaFields := make(map[string]resourcemanager.TerraformSchemaFieldDefinition)
 	for fieldName := range allFields {
-		hasCreate := false
-		if _, ok := getField(input.createPayload, fieldName); ok {
-			hasCreate = true
-		}
-
 		hasUpdate := false
 		if input.updatePayload != nil {
 			if _, ok := getField(*input.updatePayload, fieldName); ok {
 				hasUpdate = true
 			}
-		}
-
-		hasRead := false
-		if _, ok := getField(input.createPayload, fieldName); ok {
-			hasRead = true
 		}
 
 		// TODO: ExtendedLocation, SystemData as Computed etc?
@@ -57,15 +47,13 @@ func (b Builder) schemaFromTopLevelFields(schemaModelName string, input operatio
 					Markdown: field.Description,
 				},
 			}
-			if hasCreate {
-				mappings.Create = append(mappings.Create, directAssignmentMappingBetween(schemaModelName, "Identity", input.createModelName, fieldName))
+
+			mappings.Fields = append(mappings.Fields, directAssignmentMappingBetween(schemaModelName, "Identity", input.createModelName, fieldName))
+			if input.createModelName != input.readModelName {
+				mappings.Fields = append(mappings.Fields, directAssignmentMappingBetween(schemaModelName, "Identity", input.readModelName, fieldName))
 			}
-			if hasRead {
-				mappings.Read = append(mappings.Read, directAssignmentMappingBetween(schemaModelName, "Identity", input.readModelName, fieldName))
-			}
-			if hasUpdate {
-				out := append(*mappings.Update, directAssignmentMappingBetween(schemaModelName, "Identity", *input.updateModelName, fieldName))
-				mappings.Update = &out
+			if input.updateModelName != nil && input.createModelName != *input.updateModelName {
+				mappings.Fields = append(mappings.Fields, directAssignmentMappingBetween(schemaModelName, "Identity", *input.updateModelName, fieldName))
 			}
 		}
 
@@ -81,11 +69,10 @@ func (b Builder) schemaFromTopLevelFields(schemaModelName string, input operatio
 					Markdown: fmt.Sprintf("The Azure Region where the resource should exist."), // TODO get resource name here?
 				},
 			}
-			if hasCreate {
-				mappings.Create = append(mappings.Create, directAssignmentMappingBetween(schemaModelName, "Location", input.createModelName, fieldName))
-			}
-			if hasRead {
-				mappings.Read = append(mappings.Read, directAssignmentMappingBetween(schemaModelName, "Location", input.readModelName, fieldName))
+
+			mappings.Fields = append(mappings.Fields, directAssignmentMappingBetween(schemaModelName, "Location", input.createModelName, fieldName))
+			if input.createModelName != input.readModelName {
+				mappings.Fields = append(mappings.Fields, directAssignmentMappingBetween(schemaModelName, "Location", input.readModelName, fieldName))
 			}
 		}
 
@@ -108,15 +95,13 @@ func (b Builder) schemaFromTopLevelFields(schemaModelName string, input operatio
 					Markdown: fmt.Sprintf("A mapping of tags which should be assigned to the Resource."), // TODO get resource name here?
 				},
 			}
-			if hasCreate {
-				mappings.Create = append(mappings.Create, directAssignmentMappingBetween(schemaModelName, "Tags", input.createModelName, fieldName))
+
+			mappings.Fields = append(mappings.Fields, directAssignmentMappingBetween(schemaModelName, "Tags", input.createModelName, fieldName))
+			if input.createModelName != input.readModelName {
+				mappings.Fields = append(mappings.Fields, directAssignmentMappingBetween(schemaModelName, "Tags", input.readModelName, fieldName))
 			}
-			if hasUpdate {
-				out := append(*mappings.Update, directAssignmentMappingBetween(schemaModelName, "Tags", *input.updateModelName, fieldName))
-				mappings.Update = &out
-			}
-			if hasRead {
-				mappings.Read = append(mappings.Read, directAssignmentMappingBetween(schemaModelName, "Tags", input.readModelName, fieldName))
+			if input.updateModelName != nil && input.createModelName != *input.updateModelName {
+				mappings.Fields = append(mappings.Fields, directAssignmentMappingBetween(schemaModelName, "Tags", *input.updateModelName, fieldName))
 			}
 		}
 
@@ -142,15 +127,12 @@ func (b Builder) schemaFromTopLevelFields(schemaModelName string, input operatio
 				},
 			}
 
-			if hasCreate {
-				mappings.Create = append(mappings.Create, directAssignmentMappingBetween(schemaModelName, "Sku", input.createModelName, fieldName))
+			mappings.Fields = append(mappings.Fields, directAssignmentMappingBetween(schemaModelName, "Sku", input.createModelName, fieldName))
+			if input.createModelName != input.readModelName {
+				mappings.Fields = append(mappings.Fields, directAssignmentMappingBetween(schemaModelName, "Sku", input.readModelName, fieldName))
 			}
-			if hasUpdate {
-				out := append(*mappings.Update, directAssignmentMappingBetween(schemaModelName, "Sku", *input.updateModelName, fieldName))
-				mappings.Update = &out
-			}
-			if hasRead {
-				mappings.Read = append(mappings.Read, directAssignmentMappingBetween(schemaModelName, "Sku", input.readModelName, fieldName))
+			if input.updateModelName != nil && input.createModelName != *input.updateModelName {
+				mappings.Fields = append(mappings.Fields, directAssignmentMappingBetween(schemaModelName, "Sku", *input.updateModelName, fieldName))
 			}
 		}
 	}

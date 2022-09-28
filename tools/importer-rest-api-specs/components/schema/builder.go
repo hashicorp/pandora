@@ -37,9 +37,7 @@ func NewBuilder(constants map[string]resourcemanager.ConstantDetails, models map
 // Build produces a map of TerraformSchemaModelDefinitions which comprise the Schema for this Resource
 func (b Builder) Build(input resourcemanager.TerraformResourceDetails, logger hclog.Logger) (*map[string]resourcemanager.TerraformSchemaModelDefinition, *resourcemanager.MappingDefinition, error) {
 	mappings := resourcemanager.MappingDefinition{
-		Create:     []resourcemanager.FieldMappingDefinition{},
-		Read:       []resourcemanager.FieldMappingDefinition{},
-		Update:     &[]resourcemanager.FieldMappingDefinition{},
+		Fields:     []resourcemanager.FieldMappingDefinition{},
 		ResourceId: []resourcemanager.ResourceIdMappingDefinition{},
 	}
 
@@ -115,10 +113,6 @@ func (b Builder) Build(input resourcemanager.TerraformResourceDetails, logger hc
 		}
 		model.Fields = fieldsWithHclNames
 		schemaModels[modelName] = model
-	}
-
-	if mappings.Update != nil && len(*mappings.Update) == 0 {
-		mappings.Update = nil
 	}
 
 	// finally go through and remove any unused models

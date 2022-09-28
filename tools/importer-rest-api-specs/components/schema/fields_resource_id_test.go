@@ -14,9 +14,7 @@ func TestTopLevelFieldsWithinResourceId_NoSegmentsShouldError(t *testing.T) {
 		},
 	}
 	inputMappings := resourcemanager.MappingDefinition{
-		Create:     []resourcemanager.FieldMappingDefinition{},
-		Read:       []resourcemanager.FieldMappingDefinition{},
-		Update:     &[]resourcemanager.FieldMappingDefinition{},
+		Fields:     []resourcemanager.FieldMappingDefinition{},
 		ResourceId: []resourcemanager.ResourceIdMappingDefinition{},
 	}
 	actualFields, actualMappings, err := Builder{}.identityTopLevelFieldsWithinResourceID(input, &inputMappings, "Nothing", hclog.New(hclog.DefaultOptions))
@@ -55,9 +53,7 @@ func TestTopLevelFieldsWithinResourceId_ResourceGroup(t *testing.T) {
 		},
 	}
 	inputMappings := resourcemanager.MappingDefinition{
-		Create:     []resourcemanager.FieldMappingDefinition{},
-		Read:       []resourcemanager.FieldMappingDefinition{},
-		Update:     &[]resourcemanager.FieldMappingDefinition{},
+		Fields:     []resourcemanager.FieldMappingDefinition{},
 		ResourceId: []resourcemanager.ResourceIdMappingDefinition{},
 	}
 	actualFields, actualMappings, err := Builder{}.identityTopLevelFieldsWithinResourceID(input, &inputMappings, "Resource Group", hclog.New(hclog.DefaultOptions))
@@ -93,14 +89,8 @@ func TestTopLevelFieldsWithinResourceId_ResourceGroup(t *testing.T) {
 	if actualMappings == nil {
 		t.Fatalf("expected actualMappings to be non-nil but was nil")
 	}
-	if len(actualMappings.Create) > 0 {
-		t.Fatalf("expected no create mappings but got %d", len(actualMappings.Create))
-	}
-	if actualMappings.Update != nil && len(*actualMappings.Update) > 0 {
-		t.Fatalf("expected no update mappings but got %d", len(*actualMappings.Update))
-	}
-	if len(actualMappings.Read) > 0 {
-		t.Fatalf("expected no read mappings but got %d", len(actualMappings.Read))
+	if len(actualMappings.Fields) > 0 {
+		t.Fatalf("expected no Fields mappings but got %d", len(actualMappings.Fields))
 	}
 	if len(actualMappings.ResourceId) != 1 {
 		t.Fatalf("expected there to be 1 ResourceId mapping but got %d", len(actualMappings.ResourceId))
@@ -151,9 +141,7 @@ func TestTopLevelFieldsWithinResourceId_VirtualMachine(t *testing.T) {
 		},
 	}
 	inputMappings := resourcemanager.MappingDefinition{
-		Create:     []resourcemanager.FieldMappingDefinition{},
-		Read:       []resourcemanager.FieldMappingDefinition{},
-		Update:     &[]resourcemanager.FieldMappingDefinition{},
+		Fields:     []resourcemanager.FieldMappingDefinition{},
 		ResourceId: []resourcemanager.ResourceIdMappingDefinition{},
 	}
 	actualFields, actualMappings, err := Builder{}.identityTopLevelFieldsWithinResourceID(input, &inputMappings, "Virtual Machine", hclog.New(hclog.DefaultOptions))
@@ -206,14 +194,8 @@ func TestTopLevelFieldsWithinResourceId_VirtualMachine(t *testing.T) {
 	if actualMappings == nil {
 		t.Fatalf("expected actualMappings to be non-nil but was nil")
 	}
-	if len(actualMappings.Create) > 0 {
-		t.Fatalf("expected no create mappings but got %d", len(actualMappings.Create))
-	}
-	if actualMappings.Update != nil && len(*actualMappings.Update) > 0 {
-		t.Fatalf("expected no update mappings but got %d", len(*actualMappings.Update))
-	}
-	if len(actualMappings.Read) > 0 {
-		t.Fatalf("expected no read mappings but got %d", len(actualMappings.Read))
+	if len(actualMappings.Fields) > 0 {
+		t.Fatalf("expected no field mappings but got %d", len(actualMappings.Fields))
 	}
 	if len(actualMappings.ResourceId) != 2 {
 		t.Fatalf("expected there to be 2 ResourceId mappings but got %d", len(actualMappings.ResourceId))
@@ -274,9 +256,7 @@ func TestTopLevelFieldsWithinResourceId_VirtualMachineExtension(t *testing.T) {
 		},
 	}
 	inputMappings := resourcemanager.MappingDefinition{
-		Create:     []resourcemanager.FieldMappingDefinition{},
-		Read:       []resourcemanager.FieldMappingDefinition{},
-		Update:     &[]resourcemanager.FieldMappingDefinition{},
+		Fields:     []resourcemanager.FieldMappingDefinition{},
 		ResourceId: []resourcemanager.ResourceIdMappingDefinition{},
 	}
 	actualFields, actualMappings, err := Builder{}.identityTopLevelFieldsWithinResourceID(input, &inputMappings, "Virtual Machine Extension", hclog.New(hclog.DefaultOptions))
@@ -346,14 +326,8 @@ func TestTopLevelFieldsWithinResourceId_VirtualMachineExtension(t *testing.T) {
 	if actualMappings == nil {
 		t.Fatalf("expected actualMappings to be non-nil but was nil")
 	}
-	if len(actualMappings.Create) > 0 {
-		t.Fatalf("expected no create mappings but got %d", len(actualMappings.Create))
-	}
-	if actualMappings.Update != nil && len(*actualMappings.Update) > 0 {
-		t.Fatalf("expected no update mappings but got %d", len(*actualMappings.Update))
-	}
-	if len(actualMappings.Read) > 0 {
-		t.Fatalf("expected no read mappings but got %d", len(actualMappings.Read))
+	if len(actualMappings.Fields) > 0 {
+		t.Fatalf("expected no field mappings but got %d", len(actualMappings.Fields))
 	}
 	if len(actualMappings.ResourceId) != 3 {
 		t.Fatalf("expected there to be 3 ResourceId mappings but got %d", len(actualMappings.ResourceId))
