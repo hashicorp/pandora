@@ -36,14 +36,14 @@ public static class TerraformMappingDefinitionTests
 
         Assert.AreEqual(2, actual.Fields.Count);
         Assert.NotNull(actual.Fields.FirstOrDefault(r => r.Type == TerraformFieldMappingType.DirectAssignment &&
-                                                         r.DirectAssignment.SchemaModelName == "TestSchemaModel" &&
+                                                         r.DirectAssignment.SchemaModelName == "TestSchema" &&
                                                          r.DirectAssignment.SchemaFieldName == "Foo" &&
-                                                         r.DirectAssignment.SdkModelName == "TestSdkModel" &&
+                                                         r.DirectAssignment.SdkModelName == "TestSdk" &&
                                                          r.DirectAssignment.SdkFieldName == "SdkFoo"));
         Assert.NotNull(actual.Fields.FirstOrDefault(r => r.Type == TerraformFieldMappingType.DirectAssignment &&
-                                                         r.DirectAssignment.SchemaModelName == "TestSchemaModel" &&
+                                                         r.DirectAssignment.SchemaModelName == "TestSchema" &&
                                                          r.DirectAssignment.SchemaFieldName == "Bar" &&
-                                                         r.DirectAssignment.SdkModelName == "TestSdkModel" &&
+                                                         r.DirectAssignment.SdkModelName == "TestSdk" &&
                                                          r.DirectAssignment.SdkFieldName == "SdkBar"));
     }
 
