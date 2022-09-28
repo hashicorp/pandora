@@ -38,29 +38,7 @@ func TestProcessModel_FlattenReferenceId_Valid(t *testing.T) {
 				},
 			},
 			mappingsInput: resourcemanager.MappingDefinition{
-				Create: []resourcemanager.FieldMappingDefinition{
-					{
-						Type: resourcemanager.DirectAssignmentMappingDefinitionType,
-						DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
-							SchemaModelName: "Panda",
-							SchemaFieldPath: "Subnet",
-							SdkModelName:    "SomeModel",
-							SdkFieldPath:    "Subnet",
-						},
-					},
-				},
-				Update: &[]resourcemanager.FieldMappingDefinition{
-					{
-						Type: resourcemanager.DirectAssignmentMappingDefinitionType,
-						DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
-							SchemaModelName: "Panda",
-							SchemaFieldPath: "Subnet",
-							SdkModelName:    "SomeModel",
-							SdkFieldPath:    "Subnet",
-						},
-					},
-				},
-				Read: []resourcemanager.FieldMappingDefinition{
+				Fields: []resourcemanager.FieldMappingDefinition{
 					{
 						Type: resourcemanager.DirectAssignmentMappingDefinitionType,
 						DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
@@ -93,29 +71,7 @@ func TestProcessModel_FlattenReferenceId_Valid(t *testing.T) {
 				},
 			},
 			expectedMappings: resourcemanager.MappingDefinition{
-				Create: []resourcemanager.FieldMappingDefinition{
-					{
-						Type: resourcemanager.DirectAssignmentMappingDefinitionType,
-						DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
-							SchemaModelName: "Panda",
-							SchemaFieldPath: "SubnetId",
-							SdkModelName:    "SomeModel",
-							SdkFieldPath:    "Subnet",
-						},
-					},
-				},
-				Update: &[]resourcemanager.FieldMappingDefinition{
-					{
-						Type: resourcemanager.DirectAssignmentMappingDefinitionType,
-						DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
-							SchemaModelName: "Panda",
-							SchemaFieldPath: "SubnetId",
-							SdkModelName:    "SomeModel",
-							SdkFieldPath:    "Subnet",
-						},
-					},
-				},
-				Read: []resourcemanager.FieldMappingDefinition{
+				Fields: []resourcemanager.FieldMappingDefinition{
 					{
 						Type: resourcemanager.DirectAssignmentMappingDefinitionType,
 						DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
@@ -184,29 +140,7 @@ func TestProcessModel_FlattenReferenceId_Invalid(t *testing.T) {
 				},
 			},
 			mappingsInput: resourcemanager.MappingDefinition{
-				Create: []resourcemanager.FieldMappingDefinition{
-					{
-						Type: resourcemanager.DirectAssignmentMappingDefinitionType,
-						DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
-							SchemaModelName: "Leopard",
-							SchemaFieldPath: "Id",
-							SdkModelName:    "SomeModel",
-							SdkFieldPath:    "Id",
-						},
-					},
-				},
-				Update: &[]resourcemanager.FieldMappingDefinition{
-					{
-						Type: resourcemanager.DirectAssignmentMappingDefinitionType,
-						DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
-							SchemaModelName: "Leopard",
-							SchemaFieldPath: "Id",
-							SdkModelName:    "SomeModel",
-							SdkFieldPath:    "Id",
-						},
-					},
-				},
-				Read: []resourcemanager.FieldMappingDefinition{
+				Fields: []resourcemanager.FieldMappingDefinition{
 					{
 						Type: resourcemanager.DirectAssignmentMappingDefinitionType,
 						DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
@@ -246,29 +180,7 @@ func TestProcessModel_FlattenReferenceId_Invalid(t *testing.T) {
 				},
 			},
 			expectedMappings: resourcemanager.MappingDefinition{
-				Create: []resourcemanager.FieldMappingDefinition{
-					{
-						Type: resourcemanager.DirectAssignmentMappingDefinitionType,
-						DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
-							SchemaModelName: "Leopard",
-							SchemaFieldPath: "Id",
-							SdkModelName:    "SomeModel",
-							SdkFieldPath:    "Id",
-						},
-					},
-				},
-				Update: &[]resourcemanager.FieldMappingDefinition{
-					{
-						Type: resourcemanager.DirectAssignmentMappingDefinitionType,
-						DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
-							SchemaModelName: "Leopard",
-							SchemaFieldPath: "Id",
-							SdkModelName:    "SomeModel",
-							SdkFieldPath:    "Id",
-						},
-					},
-				},
-				Read: []resourcemanager.FieldMappingDefinition{
+				Fields: []resourcemanager.FieldMappingDefinition{
 					{
 						Type: resourcemanager.DirectAssignmentMappingDefinitionType,
 						DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
@@ -310,29 +222,7 @@ func TestProcessModel_FlattenReferenceId_Invalid(t *testing.T) {
 				},
 			},
 			mappingsInput: resourcemanager.MappingDefinition{
-				Create: []resourcemanager.FieldMappingDefinition{
-					{
-						Type: resourcemanager.DirectAssignmentMappingDefinitionType,
-						DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
-							SchemaModelName: "Meerkat",
-							SchemaFieldPath: "Id",
-							SdkModelName:    "SomeModel",
-							SdkFieldPath:    "Id",
-						},
-					},
-				},
-				Update: &[]resourcemanager.FieldMappingDefinition{
-					{
-						Type: resourcemanager.DirectAssignmentMappingDefinitionType,
-						DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
-							SchemaModelName: "Meerkat",
-							SchemaFieldPath: "Id",
-							SdkModelName:    "SomeModel",
-							SdkFieldPath:    "Id",
-						},
-					},
-				},
-				Read: []resourcemanager.FieldMappingDefinition{
+				Fields: []resourcemanager.FieldMappingDefinition{
 					{
 						Type: resourcemanager.DirectAssignmentMappingDefinitionType,
 						DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
@@ -372,29 +262,7 @@ func TestProcessModel_FlattenReferenceId_Invalid(t *testing.T) {
 				},
 			},
 			expectedMappings: resourcemanager.MappingDefinition{
-				Create: []resourcemanager.FieldMappingDefinition{
-					{
-						Type: resourcemanager.DirectAssignmentMappingDefinitionType,
-						DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
-							SchemaModelName: "Meerkat",
-							SchemaFieldPath: "Id",
-							SdkModelName:    "SomeModel",
-							SdkFieldPath:    "Id",
-						},
-					},
-				},
-				Update: &[]resourcemanager.FieldMappingDefinition{
-					{
-						Type: resourcemanager.DirectAssignmentMappingDefinitionType,
-						DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
-							SchemaModelName: "Meerkat",
-							SchemaFieldPath: "Id",
-							SdkModelName:    "SomeModel",
-							SdkFieldPath:    "Id",
-						},
-					},
-				},
-				Read: []resourcemanager.FieldMappingDefinition{
+				Fields: []resourcemanager.FieldMappingDefinition{
 					{
 						Type: resourcemanager.DirectAssignmentMappingDefinitionType,
 						DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
