@@ -38,6 +38,9 @@ func (modelFlattenSkuName) ProcessModel(modelName string, model resourcemanager.
 			updatedName := fmt.Sprintf("%sName", fieldName)
 			fields[updatedName] = fieldValue
 			delete(fields, fieldName)
+
+			// TODO: switch this mapping type out in the future
+			mappings = applyFieldRenameToMappings(mappings, modelName, fieldName, updatedName)
 		}
 	}
 	model.Fields = fields

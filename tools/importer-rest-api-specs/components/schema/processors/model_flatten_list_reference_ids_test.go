@@ -41,7 +41,17 @@ func TestProcessModel_FlattenListReferenceIds_Valid(t *testing.T) {
 				},
 			},
 			mappingsInput: resourcemanager.MappingDefinition{
-				// TODO: add me
+				Fields: []resourcemanager.FieldMappingDefinition{
+					{
+						Type: resourcemanager.DirectAssignmentMappingDefinitionType,
+						DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
+							SchemaModelName: "Panda",
+							SchemaFieldPath: "Friend",
+							SdkModelName:    "SomeModel",
+							SdkFieldPath:    "Friend",
+						},
+					},
+				},
 			},
 			expectedModels: map[string]resourcemanager.TerraformSchemaModelDefinition{
 				"Panda": {
@@ -64,7 +74,17 @@ func TestProcessModel_FlattenListReferenceIds_Valid(t *testing.T) {
 				},
 			},
 			expectedMappings: resourcemanager.MappingDefinition{
-				// TODO: add me
+				Fields: []resourcemanager.FieldMappingDefinition{
+					{
+						Type: resourcemanager.DirectAssignmentMappingDefinitionType,
+						DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
+							SchemaModelName: "Panda",
+							SchemaFieldPath: "FriendIds",
+							SdkModelName:    "SomeModel",
+							SdkFieldPath:    "Friend",
+						},
+					},
+				},
 			},
 		},
 	}
@@ -123,7 +143,17 @@ func TestProcessModel_FlattenListReferenceIds_Invalid(t *testing.T) {
 				},
 			},
 			mappingsInput: resourcemanager.MappingDefinition{
-				// TODO: add me
+				Fields: []resourcemanager.FieldMappingDefinition{
+					{
+						Type: resourcemanager.DirectAssignmentMappingDefinitionType,
+						DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
+							SchemaModelName: "Leopard",
+							SchemaFieldPath: "Id",
+							SdkModelName:    "SomeModel",
+							SdkFieldPath:    "Id",
+						},
+					},
+				},
 			},
 			// unchanged
 			expectedModels: map[string]resourcemanager.TerraformSchemaModelDefinition{
@@ -153,7 +183,17 @@ func TestProcessModel_FlattenListReferenceIds_Invalid(t *testing.T) {
 				},
 			},
 			expectedMappings: resourcemanager.MappingDefinition{
-				// TODO: add me
+				Fields: []resourcemanager.FieldMappingDefinition{
+					{
+						Type: resourcemanager.DirectAssignmentMappingDefinitionType,
+						DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
+							SchemaModelName: "Leopard",
+							SchemaFieldPath: "Id",
+							SdkModelName:    "SomeModel",
+							SdkFieldPath:    "Id",
+						},
+					},
+				},
 			},
 		},
 		{
@@ -185,7 +225,17 @@ func TestProcessModel_FlattenListReferenceIds_Invalid(t *testing.T) {
 				},
 			},
 			mappingsInput: resourcemanager.MappingDefinition{
-				// TODO: add me
+				Fields: []resourcemanager.FieldMappingDefinition{
+					{
+						Type: resourcemanager.DirectAssignmentMappingDefinitionType,
+						DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
+							SchemaModelName: "Meerkat",
+							SchemaFieldPath: "Id",
+							SdkModelName:    "SomeModel",
+							SdkFieldPath:    "Id",
+						},
+					},
+				},
 			},
 			// unchanged
 			expectedModels: map[string]resourcemanager.TerraformSchemaModelDefinition{
@@ -215,7 +265,17 @@ func TestProcessModel_FlattenListReferenceIds_Invalid(t *testing.T) {
 				},
 			},
 			expectedMappings: resourcemanager.MappingDefinition{
-				// TODO: add me
+				Fields: []resourcemanager.FieldMappingDefinition{
+					{
+						Type: resourcemanager.DirectAssignmentMappingDefinitionType,
+						DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
+							SchemaModelName: "Meerkat",
+							SchemaFieldPath: "Id",
+							SdkModelName:    "SomeModel",
+							SdkFieldPath:    "Id",
+						},
+					},
+				},
 			},
 		},
 	}
