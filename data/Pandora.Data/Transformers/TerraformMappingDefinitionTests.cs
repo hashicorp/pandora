@@ -15,9 +15,7 @@ public static class TerraformMappingDefinitionTests
     {
         var actual = TerraformMappingDefinition.Map(new NoMappings());
         Assert.AreEqual(0, actual.ResourceIds.Count);
-        Assert.AreEqual(0, actual.Create.Count);
-        Assert.Null(actual.Update);
-        Assert.AreEqual(0, actual.Read.Count);
+        Assert.AreEqual(0, actual.Fields.Count);
     }
 
     [TestCase]
@@ -27,9 +25,7 @@ public static class TerraformMappingDefinitionTests
         Assert.AreEqual(2, actual.ResourceIds.Count);
         Assert.NotNull(actual.ResourceIds.FirstOrDefault(r => r.SchemaFieldName == "Foo" && r.SegmentName == "segment1"));
         Assert.NotNull(actual.ResourceIds.FirstOrDefault(r => r.SchemaFieldName == "Bar" && r.SegmentName == "segment2"));
-        Assert.AreEqual(0, actual.Create.Count);
-        Assert.Null(actual.Update);
-        Assert.AreEqual(0, actual.Read.Count);
+        Assert.AreEqual(0, actual.Fields.Count);
     }
 
     [TestCase]
@@ -38,44 +34,17 @@ public static class TerraformMappingDefinitionTests
         var actual = TerraformMappingDefinition.Map(new DirectAssignmentFieldMappings());
         Assert.AreEqual(0, actual.ResourceIds.Count);
 
-        // at this point in time all mappings are shared across Create/Read/Update, they shouldn't be, but are today
-        // so this test is based on that assumption
-        Assert.AreEqual(2, actual.Create.Count);
-        Assert.NotNull(actual.Create.FirstOrDefault(r => r.Type == TerraformFieldMappingType.DirectAssignment &&
+        Assert.AreEqual(2, actual.Fields.Count);
+        Assert.NotNull(actual.Fields.FirstOrDefault(r => r.Type == TerraformFieldMappingType.DirectAssignment &&
                                                          r.DirectAssignment.SchemaModelName == "TestSchemaModel" &&
                                                          r.DirectAssignment.SchemaFieldName == "Foo" &&
                                                          r.DirectAssignment.SdkModelName == "TestSdkModel" &&
                                                          r.DirectAssignment.SdkFieldName == "SdkFoo"));
-        Assert.NotNull(actual.Create.FirstOrDefault(r => r.Type == TerraformFieldMappingType.DirectAssignment &&
+        Assert.NotNull(actual.Fields.FirstOrDefault(r => r.Type == TerraformFieldMappingType.DirectAssignment &&
                                                          r.DirectAssignment.SchemaModelName == "TestSchemaModel" &&
                                                          r.DirectAssignment.SchemaFieldName == "Bar" &&
                                                          r.DirectAssignment.SdkModelName == "TestSdkModel" &&
                                                          r.DirectAssignment.SdkFieldName == "SdkBar"));
-
-        Assert.NotNull(actual.Update);
-        Assert.AreEqual(2, actual.Update!.Count);
-        Assert.NotNull(actual.Update!.FirstOrDefault(r => r.Type == TerraformFieldMappingType.DirectAssignment &&
-                                                         r.DirectAssignment.SchemaModelName == "TestSchemaModel" &&
-                                                         r.DirectAssignment.SchemaFieldName == "Foo" &&
-                                                         r.DirectAssignment.SdkModelName == "TestSdkModel" &&
-                                                         r.DirectAssignment.SdkFieldName == "SdkFoo"));
-        Assert.NotNull(actual.Update!.FirstOrDefault(r => r.Type == TerraformFieldMappingType.DirectAssignment &&
-                                                         r.DirectAssignment.SchemaModelName == "TestSchemaModel" &&
-                                                         r.DirectAssignment.SchemaFieldName == "Bar" &&
-                                                         r.DirectAssignment.SdkModelName == "TestSdkModel" &&
-                                                         r.DirectAssignment.SdkFieldName == "SdkBar"));
-
-        Assert.AreEqual(2, actual.Read.Count);
-        Assert.NotNull(actual.Read.FirstOrDefault(r => r.Type == TerraformFieldMappingType.DirectAssignment &&
-                                                       r.DirectAssignment.SchemaModelName == "TestSchemaModel" &&
-                                                       r.DirectAssignment.SchemaFieldName == "Foo" &&
-                                                       r.DirectAssignment.SdkModelName == "TestSdkModel" &&
-                                                       r.DirectAssignment.SdkFieldName == "SdkFoo"));
-        Assert.NotNull(actual.Read.FirstOrDefault(r => r.Type == TerraformFieldMappingType.DirectAssignment &&
-                                                       r.DirectAssignment.SchemaModelName == "TestSchemaModel" &&
-                                                       r.DirectAssignment.SchemaFieldName == "Bar" &&
-                                                       r.DirectAssignment.SdkModelName == "TestSdkModel" &&
-                                                       r.DirectAssignment.SdkFieldName == "SdkBar"));
     }
 
     private class NoMappings : Definitions.Interfaces.TerraformMappingDefinition

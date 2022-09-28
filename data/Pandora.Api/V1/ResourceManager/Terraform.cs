@@ -81,17 +81,11 @@ resource 'example_resource' 'example' {
 
     private static MappingsDefinition MapMappingDefinitions(TerraformMappingDefinition input)
     {
-        var output = new MappingsDefinition
+        return new MappingsDefinition
         {
-            Create = MapFieldMappingDefinitions(input.Create),
-            Read = MapFieldMappingDefinitions(input.Read),
+            Fields = MapFieldMappingDefinitions(input.Fields),
             ResourceId = input.ResourceIds.Select(MapResourceIdMappingDefinition).ToList(),
         };
-        if (input.Update != null)
-        {
-            output.Update = MapFieldMappingDefinitions(input.Update!);
-        }
-        return output;
     }
 
     private static List<FieldMappingDefinition> MapFieldMappingDefinitions(List<TerraformFieldMappingDefinition> input)

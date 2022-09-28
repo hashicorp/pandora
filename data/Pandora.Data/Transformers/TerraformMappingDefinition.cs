@@ -46,19 +46,10 @@ public static class TerraformMappingDefinition
             throw new NotSupportedException($"unsupported mapping type {item.GetType().Name}");
         }
 
-        var output = new Models.TerraformMappingDefinition
+        return new Models.TerraformMappingDefinition
         {
-            // TODO: split the mapping types out by Create/Update/Read type
-            Create = fields.ToList(),
-            Update = fields.ToList(),
-            Read = fields.ToList(),
-
+            Fields = fields.ToList(),
             ResourceIds = resourceIds.ToList(),
         };
-        if (output.Update?.Count == 0)
-        {
-            output.Update = null;
-        }
-        return output;
     }
 }
