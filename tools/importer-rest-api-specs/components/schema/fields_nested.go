@@ -131,19 +131,25 @@ func (b Builder) identifyFieldsWithinPropertiesBlock(schemaModelName string, inp
 		}
 		definition.ObjectDefinition = *objectDefinition
 
-		if hasCreate {
-			mappings.Create = append(mappings.Create, directAssignmentMappingBetween(schemaModelName, fieldNameForTypedModel, input.createPropertiesModelName, k))
-		}
-		if hasUpdate {
-			outputMappings := append(*mappings.Update, directAssignmentMappingBetween(schemaModelName, fieldNameForTypedModel, *input.updatePropertiesModelName, k))
-			mappings.Update = &outputMappings
-		}
-		if hasRead {
-			mappings.Read = append(mappings.Read, directAssignmentMappingBetween(schemaModelName, fieldNameForTypedModel, input.readPropertiesModelName, k))
-		}
+		mappingsForField := directAssignmentMappingForNestedField(schemaModelName, fieldNameForTypedModel, input, k, hasCreate, hasUpdate, hasRead)
+		mappings.Fields = append(mappings.Fields, mappingsForField...)
 
 		out[fieldNameForTypedModel] = definition
 	}
 
 	return &out, mappings, nil
+}
+
+func directAssignmentMappingForNestedField(schemaModelName, schemaModelField string, input operationPayloads, sdkFieldName string, hasCreate bool, hasUpdate bool, hasRead bool) []resourcemanager.FieldMappingDefinition {
+	output := make([]resourcemanager.FieldMappingDefinition, 0)
+	if hasCreate {
+		output = append(output, directAssignmentMappingBetween(schemaModelName, schemaModelField, input.createPropertiesModelName, sdkFieldName))
+	}
+	if hasRead && input.createPropertiesModelName != input.readPropertiesModelName {
+		output = append(output, directAssignmentMappingBetween(schemaModelName, schemaModelField, input.readPropertiesModelName, sdkFieldName))
+	}
+	if hasUpdate && input.updatePropertiesModelName != nil && input.createPropertiesModelName != *input.updatePropertiesModelName && input.readPropertiesModelName != *input.updatePropertiesModelName {
+		output = append(output, directAssignmentMappingBetween(schemaModelName, schemaModelField, *input.updatePropertiesModelName, sdkFieldName))
+	}
+	return output
 }

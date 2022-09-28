@@ -10,21 +10,9 @@ func applyFieldRenameToMappings(input resourcemanager.MappingDefinition, modelNa
 	output := resourcemanager.MappingDefinition{
 		ResourceId: input.ResourceId,
 	}
-	for _, v := range input.Create {
+	for _, v := range input.Fields {
 		v = applyFieldRenameToFieldMapping(v, modelName, oldFieldName, updatedFieldName)
-		output.Create = append(output.Create, v)
-	}
-	if input.Update != nil {
-		output.Update = &[]resourcemanager.FieldMappingDefinition{}
-		for _, v := range *input.Update {
-			v = applyFieldRenameToFieldMapping(v, modelName, oldFieldName, updatedFieldName)
-			updated := append(*output.Update, v)
-			output.Update = &updated
-		}
-	}
-	for _, v := range input.Read {
-		v = applyFieldRenameToFieldMapping(v, modelName, oldFieldName, updatedFieldName)
-		output.Read = append(output.Read, v)
+		output.Fields = append(output.Fields, v)
 	}
 	return output
 }

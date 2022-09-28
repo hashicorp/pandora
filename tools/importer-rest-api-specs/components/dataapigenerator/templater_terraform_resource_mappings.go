@@ -26,51 +26,22 @@ func codeForTerraformResourceMappings(terraformNamespace string, apiResourceName
 	// Mapping.FromSchema<%[2]sResourceSchema>(s => s.DataDisks).ToSdkModel<%[2]sDataDiskModel>(),
 	// Mapping.FromSchema<%[2]sDataDiskSchemaModel>(s => s.Name).ToSdkField<%[2]sDataDiskModel>(m => m.Name),
 
-	createMappings := make([]string, 0)
-	for _, item := range details.Mappings.Create {
+	fieldMappings := make([]string, 0)
+	for _, item := range details.Mappings.Fields {
 		line, err := codeForTerraformFieldMapping(item)
 		if err != nil {
 			return nil, fmt.Errorf("building mapping: %+v", err)
 		}
-		createMappings = append(createMappings, fmt.Sprintf("\t\t%s,", *line))
+		fieldMappings = append(fieldMappings, fmt.Sprintf("\t\t%s,", *line))
 	}
-	sort.Strings(createMappings)
-
-	updateMappings := make([]string, 0)
-	if details.Mappings.Update != nil {
-		for _, item := range *details.Mappings.Update {
-			line, err := codeForTerraformFieldMapping(item)
-			if err != nil {
-				return nil, fmt.Errorf("building mapping: %+v", err)
-			}
-			updateMappings = append(updateMappings, fmt.Sprintf("\t\t%s,", *line))
-		}
-	}
-	sort.Strings(updateMappings)
-
-	readMappings := make([]string, 0)
-	for _, item := range details.Mappings.Read {
-		line, err := codeForTerraformFieldMapping(item)
-		if err != nil {
-			return nil, fmt.Errorf("building mapping: %+v", err)
-		}
-		readMappings = append(readMappings, fmt.Sprintf("\t\t%s,", *line))
-	}
-	sort.Strings(readMappings)
+	sort.Strings(fieldMappings)
 
 	mappings := make([]string, 0)
 	if len(resourceIdMappings) > 0 {
 		mappings = append(mappings, strings.Join(resourceIdMappings, "\n"))
 	}
-	if len(createMappings) > 0 {
-		mappings = append(mappings, strings.Join(createMappings, "\n"))
-	}
-	// TODO: if the models are reused for Create/Read and/or Update, we should output these once?
-	if len(updateMappings) > 0 {
-		mappings = append(mappings, strings.Join(updateMappings, "\n"))
-	}
-	if len(readMappings) > 0 {
-		mappings = append(mappings, strings.Join(readMappings, "\n"))
+	if len(fieldMappings) > 0 {
+		mappings = append(mappings, strings.Join(fieldMappings, "\n"))
 	}
 
 	out := fmt.Sprintf(`using System.Collections.Generic;

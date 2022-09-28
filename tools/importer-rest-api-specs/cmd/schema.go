@@ -138,16 +138,10 @@ func run(input Input) error {
 						}
 					}
 
-					updateMappingsCount := 0
-					if mappings.Update != nil {
-						updateMappingsCount = len(*mappings.Update)
-					}
 					log.Printf(`Mappings:
 	* %d Resource ID Mappings
-	* %d Create Mappings
-	* %d Update Mappings
-	* %d Read Mappings
-`, len(mappings.ResourceId), len(mappings.Create), updateMappingsCount, len(mappings.ResourceId))
+	* %d Field Mappings
+`, len(mappings.ResourceId), len(mappings.Fields))
 				}
 			}
 		}

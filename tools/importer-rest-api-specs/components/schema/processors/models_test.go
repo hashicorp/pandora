@@ -14,25 +14,9 @@ func mappingDefinitionsMatch(t *testing.T, actual *resourcemanager.MappingDefini
 		t.Fatalf("actual was nil")
 	}
 
-	if !mappingsMatch(t, actual.Create, expected.Create) {
-		t.Fatalf("expected and actual for Create Mappings differ - expected %+v - actual %+v", expected.Create, actual.Create)
+	if !mappingsMatch(t, actual.Fields, expected.Fields) {
+		t.Fatalf("expected and actual for Fields Mappings differ - expected %+v - actual %+v", expected.Fields, actual.Fields)
 	}
-	if !mappingsMatch(t, actual.Read, expected.Read) {
-		t.Fatalf("expected and actual for Read Mappings differ - expected %+v - actual %+v", expected.Read, actual.Read)
-	}
-	if actual.Update == nil && expected.Update != nil {
-		t.Fatalf("expected Update mappings but didn't get any")
-	}
-	if actual.Update != nil && expected.Update == nil {
-		t.Fatalf("got Update mappings but wasn't expecting any")
-	}
-	if actual.Update != nil && expected.Update != nil {
-		if !mappingsMatch(t, *expected.Update, *actual.Update) {
-			t.Fatalf("expected and actual for Update Mappings differ - expected %+v - actual %+v", *expected.Update, *actual.Update)
-		}
-	}
-
-	t.Logf("TODO: ensure the mappings match")
 }
 
 func mappingsMatch(t *testing.T, expected []resourcemanager.FieldMappingDefinition, actual []resourcemanager.FieldMappingDefinition) bool {

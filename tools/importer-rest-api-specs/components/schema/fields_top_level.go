@@ -29,9 +29,8 @@ func (b Builder) schemaFromTopLevelFields(schemaModelName string, input operatio
 				hasUpdate = true
 			}
 		}
-
 		hasRead := false
-		if _, ok := getField(input.createPayload, fieldName); ok {
+		if _, ok := getField(input.readPropertiesPayload, fieldName); ok {
 			hasRead = true
 		}
 
@@ -57,16 +56,9 @@ func (b Builder) schemaFromTopLevelFields(schemaModelName string, input operatio
 					Markdown: field.Description,
 				},
 			}
-			if hasCreate {
-				mappings.Create = append(mappings.Create, directAssignmentMappingBetween(schemaModelName, "Identity", input.createModelName, fieldName))
-			}
-			if hasRead {
-				mappings.Read = append(mappings.Read, directAssignmentMappingBetween(schemaModelName, "Identity", input.readModelName, fieldName))
-			}
-			if hasUpdate {
-				out := append(*mappings.Update, directAssignmentMappingBetween(schemaModelName, "Identity", *input.updateModelName, fieldName))
-				mappings.Update = &out
-			}
+
+			mappingsForField := directAssignmentMappingForTopLevelField(schemaModelName, "Identity", input, fieldName, hasCreate, hasUpdate, hasRead)
+			mappings.Fields = append(mappings.Fields, mappingsForField...)
 		}
 
 		if strings.EqualFold(fieldName, "Location") {
@@ -81,12 +73,9 @@ func (b Builder) schemaFromTopLevelFields(schemaModelName string, input operatio
 					Markdown: fmt.Sprintf("The Azure Region where the resource should exist."), // TODO get resource name here?
 				},
 			}
-			if hasCreate {
-				mappings.Create = append(mappings.Create, directAssignmentMappingBetween(schemaModelName, "Location", input.createModelName, fieldName))
-			}
-			if hasRead {
-				mappings.Read = append(mappings.Read, directAssignmentMappingBetween(schemaModelName, "Location", input.readModelName, fieldName))
-			}
+
+			mappingsForField := directAssignmentMappingForTopLevelField(schemaModelName, "Location", input, fieldName, hasCreate, false, hasRead)
+			mappings.Fields = append(mappings.Fields, mappingsForField...)
 		}
 
 		if strings.EqualFold(fieldName, "Tags") {
@@ -108,16 +97,9 @@ func (b Builder) schemaFromTopLevelFields(schemaModelName string, input operatio
 					Markdown: fmt.Sprintf("A mapping of tags which should be assigned to the Resource."), // TODO get resource name here?
 				},
 			}
-			if hasCreate {
-				mappings.Create = append(mappings.Create, directAssignmentMappingBetween(schemaModelName, "Tags", input.createModelName, fieldName))
-			}
-			if hasUpdate {
-				out := append(*mappings.Update, directAssignmentMappingBetween(schemaModelName, "Tags", *input.updateModelName, fieldName))
-				mappings.Update = &out
-			}
-			if hasRead {
-				mappings.Read = append(mappings.Read, directAssignmentMappingBetween(schemaModelName, "Tags", input.readModelName, fieldName))
-			}
+
+			mappingsForField := directAssignmentMappingForTopLevelField(schemaModelName, "Tags", input, fieldName, hasCreate, hasUpdate, hasRead)
+			mappings.Fields = append(mappings.Fields, mappingsForField...)
 		}
 
 		if strings.EqualFold(fieldName, "Sku") {
@@ -142,22 +124,28 @@ func (b Builder) schemaFromTopLevelFields(schemaModelName string, input operatio
 				},
 			}
 
-			if hasCreate {
-				mappings.Create = append(mappings.Create, directAssignmentMappingBetween(schemaModelName, "Sku", input.createModelName, fieldName))
-			}
-			if hasUpdate {
-				out := append(*mappings.Update, directAssignmentMappingBetween(schemaModelName, "Sku", *input.updateModelName, fieldName))
-				mappings.Update = &out
-			}
-			if hasRead {
-				mappings.Read = append(mappings.Read, directAssignmentMappingBetween(schemaModelName, "Sku", input.readModelName, fieldName))
-			}
+			mappingsForField := directAssignmentMappingForTopLevelField(schemaModelName, "Sku", input, fieldName, hasCreate, hasUpdate, hasRead)
+			mappings.Fields = append(mappings.Fields, mappingsForField...)
 		}
 	}
 
 	// TODO: go through any fields _only_ in the Read function which are ReadOnly/Computed
 
 	return &schemaFields, mappings, nil
+}
+
+func directAssignmentMappingForTopLevelField(schemaModelName, schemaModelField string, input operationPayloads, sdkFieldName string, hasCreate bool, hasUpdate bool, hasRead bool) []resourcemanager.FieldMappingDefinition {
+	output := make([]resourcemanager.FieldMappingDefinition, 0)
+	if hasCreate {
+		output = append(output, directAssignmentMappingBetween(schemaModelName, schemaModelField, input.createModelName, sdkFieldName))
+	}
+	if hasRead && input.createModelName != input.readModelName {
+		output = append(output, directAssignmentMappingBetween(schemaModelName, schemaModelField, input.readModelName, sdkFieldName))
+	}
+	if hasUpdate && input.updateModelName != nil && input.createModelName != *input.updateModelName && input.readModelName != *input.updateModelName {
+		output = append(output, directAssignmentMappingBetween(schemaModelName, schemaModelField, *input.updateModelName, sdkFieldName))
+	}
+	return output
 }
 
 func directAssignmentMappingBetween(fromModel string, fromField string, toModel string, toField string) resourcemanager.FieldMappingDefinition {

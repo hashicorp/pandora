@@ -260,14 +260,8 @@ public partial class TerraformController
     {
         // TODO: should we add a Generate flag to this?
 
-        [JsonPropertyName("create")]
-        public List<FieldMappingDefinition> Create { get; set; }
-
-        [JsonPropertyName("read")]
-        public List<FieldMappingDefinition> Read { get; set; }
-
-        [JsonPropertyName("update")]
-        public List<FieldMappingDefinition>? Update { get; set; }
+        [JsonPropertyName("fields")]
+        public List<FieldMappingDefinition> Fields { get; set; }
 
         [JsonPropertyName("resourceId")]
         public List<ResourceIdMappingDefinition> ResourceId { get; set; }
