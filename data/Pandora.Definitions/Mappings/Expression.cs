@@ -10,6 +10,12 @@ static class ExpressionHelpers
         // val will be `s.Foo.Bar` - so trim whatever label we've given it
         var dot = val.IndexOf(".");
         // then we should have `Foo.Bar`
-        return val.Substring(dot + 1);
+        var output = val.Substring(dot + 1);
+        if (output.Contains(","))
+        {
+            var position = output.IndexOf(",");
+            output = output.Substring(0, position);
+        }
+        return output;
     }
 }
