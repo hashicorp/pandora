@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"sort"
 	"strings"
+	"unicode"
 
 	"github.com/hashicorp/pandora/tools/generator-terraform/generator/models"
 )
@@ -124,6 +125,10 @@ func codeForResourceTestConfigurationFunctions(input models.ResourceInput) (*str
 
 	tests := input.Details.Tests
 
+	completeConfig := strings.TrimRightFunc(*tests.CompleteConfiguration, func(r rune) bool {
+		return unicode.IsSpace(r)
+	})
+
 	template := ""
 	if tests.TemplateConfiguration != nil {
 		template = *tests.TemplateConfiguration
@@ -138,7 +143,7 @@ func (r %[1]sTestResource) complete(data acceptance.TestData) string {
 %[4]s
 ', r.template(data))
 }
-`, input.ResourceTypeName, input.ProviderPrefix, input.ResourceLabel, *tests.CompleteConfiguration))
+`, input.ResourceTypeName, input.ProviderPrefix, input.ResourceLabel, completeConfig))
 	}
 
 	otherTestNames := make([]string, 0)
@@ -158,6 +163,14 @@ func (r %[1]sTestResource) complete(data acceptance.TestData) string {
 		})
 		functions = append(functions, testFunction)
 	}
+
+	basicConfig := strings.TrimRightFunc(tests.BasicConfiguration, func(r rune) bool {
+		return unicode.IsSpace(r)
+	})
+
+	importConfig := strings.TrimRightFunc(tests.RequiresImportConfiguration, func(r rune) bool {
+		return unicode.IsSpace(r)
+	})
 
 	output := fmt.Sprintf(`
 func (r %[1]sTestResource) basic(data acceptance.TestData) string {
@@ -187,7 +200,7 @@ locals {
 %[5]s
 ', data.RandomInteger, data.Locations.Primary)
 }
-`, input.ResourceTypeName, tests.BasicConfiguration, tests.RequiresImportConfiguration, strings.Join(functions, "\n"), template)
+`, input.ResourceTypeName, basicConfig, importConfig, strings.Join(functions, "\n"), template)
 	output = strings.ReplaceAll(output, "'", "`")
 	return &output, nil
 }
