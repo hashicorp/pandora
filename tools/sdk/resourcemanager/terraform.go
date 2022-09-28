@@ -163,14 +163,8 @@ type ResourceIdMappingDefinition struct {
 }
 
 type MappingDefinition struct {
-	// Create defines the mappings used during the Create function.
-	Create []FieldMappingDefinition `json:"create"`
-
-	// Read defines the mappings used during the Read function.
-	Read []FieldMappingDefinition `json:"read"`
-
-	// Update (optionally) defines the mappings used during the Update function.
-	Update *[]FieldMappingDefinition `json:"update,omitempty"`
+	// Fields defines the mappings between Schema Fields and Sdk Fields
+	Fields []FieldMappingDefinition `json:"fields"`
 
 	// ResourceId defines the mapping between the segments in the ResourceId and the Schema Model.
 	// This is used in both the Create function (to build up the ResourceId) and the Read function
