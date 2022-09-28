@@ -131,16 +131,25 @@ func (b Builder) identifyFieldsWithinPropertiesBlock(schemaModelName string, inp
 		}
 		definition.ObjectDefinition = *objectDefinition
 
-		mappings.Fields = append(mappings.Fields, directAssignmentMappingBetween(schemaModelName, fieldNameForTypedModel, input.createPropertiesModelName, k))
-		if input.createPropertiesModelName != input.readPropertiesModelName {
-			mappings.Fields = append(mappings.Fields, directAssignmentMappingBetween(schemaModelName, fieldNameForTypedModel, input.readPropertiesModelName, k))
-		}
-		if input.updatePropertiesModelName != nil && input.createPropertiesModelName != *input.updatePropertiesModelName {
-			mappings.Fields = append(mappings.Fields, directAssignmentMappingBetween(schemaModelName, fieldNameForTypedModel, *input.updatePropertiesModelName, k))
-		}
+		mappingsForField := directAssignmentMappingForNestedField(schemaModelName, fieldNameForTypedModel, input, k, hasCreate, hasUpdate, hasRead)
+		mappings.Fields = append(mappings.Fields, mappingsForField...)
 
 		out[fieldNameForTypedModel] = definition
 	}
 
 	return &out, mappings, nil
+}
+
+func directAssignmentMappingForNestedField(schemaModelName, schemaModelField string, input operationPayloads, sdkFieldName string, hasCreate bool, hasUpdate bool, hasRead bool) []resourcemanager.FieldMappingDefinition {
+	output := make([]resourcemanager.FieldMappingDefinition, 0)
+	if hasCreate {
+		output = append(output, directAssignmentMappingBetween(schemaModelName, schemaModelField, input.createPropertiesModelName, sdkFieldName))
+	}
+	if hasRead && input.createPropertiesModelName != input.readPropertiesModelName {
+		output = append(output, directAssignmentMappingBetween(schemaModelName, schemaModelField, input.readPropertiesModelName, sdkFieldName))
+	}
+	if hasUpdate && input.updatePropertiesModelName != nil && input.createPropertiesModelName != *input.updatePropertiesModelName && input.readPropertiesModelName != *input.updatePropertiesModelName {
+		output = append(output, directAssignmentMappingBetween(schemaModelName, schemaModelField, *input.updatePropertiesModelName, sdkFieldName))
+	}
+	return output
 }
