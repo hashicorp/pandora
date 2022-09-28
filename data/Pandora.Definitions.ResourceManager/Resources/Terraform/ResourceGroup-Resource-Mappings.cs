@@ -13,10 +13,6 @@ public class ResourceGroupResourceMappings : TerraformMappingDefinition
 
         Mapping.FromSchema<ResourceGroupResourceSchema>(s => s.Location).ToSdkField<ResourceGroupModel>(m => m.Location).Direct(),
         Mapping.FromSchema<ResourceGroupResourceSchema>(s => s.Tags).ToSdkField<ResourceGroupModel>(m => m.Tags).Direct(),
-
         Mapping.FromSchema<ResourceGroupResourceSchema>(s => s.Tags).ToSdkField<ResourceGroupPatchableModel>(m => m.Tags).Direct(),
-
-        Mapping.FromSchema<ResourceGroupResourceSchema>(s => s.Location).ToSdkField<ResourceGroupModel>(m => m.Location).Direct(),
-        Mapping.FromSchema<ResourceGroupResourceSchema>(s => s.Tags).ToSdkField<ResourceGroupModel>(m => m.Tags).Direct(),
     };
 }

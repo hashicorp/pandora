@@ -18,18 +18,5 @@ public class ChaosStudioExperimentResourceMappings : TerraformMappingDefinition
         Mapping.FromSchema<ChaosStudioExperimentResourceSchema>(s => s.StartOnCreation).ToSdkField<ExperimentPropertiesModel>(m => m.StartOnCreation).Direct(),
         Mapping.FromSchema<ChaosStudioExperimentResourceSchema>(s => s.Step).ToSdkField<ExperimentPropertiesModel>(m => m.Steps).Direct(),
         Mapping.FromSchema<ChaosStudioExperimentResourceSchema>(s => s.Tags).ToSdkField<ExperimentModel>(m => m.Tags).Direct(),
-
-        Mapping.FromSchema<ChaosStudioExperimentResourceSchema>(s => s.Identity).ToSdkField<ExperimentModel>(m => m.Identity).Direct(),
-        Mapping.FromSchema<ChaosStudioExperimentResourceSchema>(s => s.Selector).ToSdkField<ExperimentPropertiesModel>(m => m.Selectors).Direct(),
-        Mapping.FromSchema<ChaosStudioExperimentResourceSchema>(s => s.StartOnCreation).ToSdkField<ExperimentPropertiesModel>(m => m.StartOnCreation).Direct(),
-        Mapping.FromSchema<ChaosStudioExperimentResourceSchema>(s => s.Step).ToSdkField<ExperimentPropertiesModel>(m => m.Steps).Direct(),
-        Mapping.FromSchema<ChaosStudioExperimentResourceSchema>(s => s.Tags).ToSdkField<ExperimentModel>(m => m.Tags).Direct(),
-
-        Mapping.FromSchema<ChaosStudioExperimentResourceSchema>(s => s.Identity).ToSdkField<ExperimentModel>(m => m.Identity).Direct(),
-        Mapping.FromSchema<ChaosStudioExperimentResourceSchema>(s => s.Location).ToSdkField<ExperimentModel>(m => m.Location).Direct(),
-        Mapping.FromSchema<ChaosStudioExperimentResourceSchema>(s => s.Selector).ToSdkField<ExperimentPropertiesModel>(m => m.Selectors).Direct(),
-        Mapping.FromSchema<ChaosStudioExperimentResourceSchema>(s => s.StartOnCreation).ToSdkField<ExperimentPropertiesModel>(m => m.StartOnCreation).Direct(),
-        Mapping.FromSchema<ChaosStudioExperimentResourceSchema>(s => s.Step).ToSdkField<ExperimentPropertiesModel>(m => m.Steps).Direct(),
-        Mapping.FromSchema<ChaosStudioExperimentResourceSchema>(s => s.Tags).ToSdkField<ExperimentModel>(m => m.Tags).Direct(),
     };
 }
