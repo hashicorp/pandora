@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Pandora.Definitions.Interfaces;
 using Pandora.Definitions.Mappings;
-// using Pandora.Definitions.ResourceManager.Compute.v2021_11_01.VirtualMachineScaleSets;
+using Pandora.Definitions.ResourceManager.Resources.v2020_06_01.ResourceGroups;
 
 namespace Pandora.Definitions.ResourceManager.Resources.Terraform;
 
@@ -11,11 +11,12 @@ public class ResourceGroupResourceMappings : TerraformMappingDefinition
     {
         Mapping.FromSchema<ResourceGroupResourceSchema>(s => s.Name).ToResourceIdSegmentNamed("resourceGroupName"),
 
-        // Mapping.FromSchema<ResourceGroupResourceSchema>(s => s.Location).ToSdkField<ResourceGroupModel>(m => m.Location),
-        // Mapping.FromSchema<ResourceGroupResourceSchema>(s => s.Tags).ToSdkField<ResourceGroupModel>(m => m.Tags),
-        // Mapping.FromSchema<ResourceGroupResourceSchema>(s => s.UniqueId).ToSdkField<ResourceGroupModel>(m => m.Properties.UniqueId),
+        Mapping.FromSchema<ResourceGroupResourceSchema>(s => s.Location).ToSdkField<ResourceGroupModel>(m => m.Location).Direct(),
+        Mapping.FromSchema<ResourceGroupResourceSchema>(s => s.Tags).ToSdkField<ResourceGroupModel>(m => m.Tags).Direct(),
 
-        // Mapping.FromSchema<ResourceGroupResourceSchema>(s => s.DataDisks).ToSdkModel<ResourceGroupDataDiskModel>(),
-        // Mapping.FromSchema<ResourceGroupDataDiskSchemaModel>(s => s.Name).ToSdkField<ResourceGroupDataDiskModel>(m => m.Name),
+        Mapping.FromSchema<ResourceGroupResourceSchema>(s => s.Tags).ToSdkField<ResourceGroupPatchableModel>(m => m.Tags).Direct(),
+
+        Mapping.FromSchema<ResourceGroupResourceSchema>(s => s.Location).ToSdkField<ResourceGroupModel>(m => m.Location).Direct(),
+        Mapping.FromSchema<ResourceGroupResourceSchema>(s => s.Tags).ToSdkField<ResourceGroupModel>(m => m.Tags).Direct(),
     };
 }
