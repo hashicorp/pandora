@@ -52,7 +52,39 @@ func TestProcessModel_FlattenSkuName_Valid(t *testing.T) {
 				},
 			},
 			mappingsInput: resourcemanager.MappingDefinition{
-				// TODO: add me
+				Create: []resourcemanager.FieldMappingDefinition{
+					{
+						Type: resourcemanager.DirectAssignmentMappingDefinitionType,
+						DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
+							SchemaModelName: "Disco",
+							SchemaFieldPath: "Sku",
+							SdkModelName:    "SomeModel",
+							SdkFieldPath:    "Sku",
+						},
+					},
+				},
+				Update: &[]resourcemanager.FieldMappingDefinition{
+					{
+						Type: resourcemanager.DirectAssignmentMappingDefinitionType,
+						DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
+							SchemaModelName: "Disco",
+							SchemaFieldPath: "Sku",
+							SdkModelName:    "SomeModel",
+							SdkFieldPath:    "Sku",
+						},
+					},
+				},
+				Read: []resourcemanager.FieldMappingDefinition{
+					{
+						Type: resourcemanager.DirectAssignmentMappingDefinitionType,
+						DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
+							SchemaModelName: "Disco",
+							SchemaFieldPath: "Sku",
+							SdkModelName:    "SomeModel",
+							SdkFieldPath:    "Sku",
+						},
+					},
+				},
 			},
 			expectedModels: map[string]resourcemanager.TerraformSchemaModelDefinition{
 				"Disco": {
@@ -89,7 +121,39 @@ func TestProcessModel_FlattenSkuName_Valid(t *testing.T) {
 				},
 			},
 			expectedMappings: resourcemanager.MappingDefinition{
-				// TODO: add me
+				Create: []resourcemanager.FieldMappingDefinition{
+					{
+						Type: resourcemanager.DirectAssignmentMappingDefinitionType,
+						DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
+							SchemaModelName: "Disco",
+							SchemaFieldPath: "SkuName",
+							SdkModelName:    "SomeModel",
+							SdkFieldPath:    "Sku",
+						},
+					},
+				},
+				Update: &[]resourcemanager.FieldMappingDefinition{
+					{
+						Type: resourcemanager.DirectAssignmentMappingDefinitionType,
+						DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
+							SchemaModelName: "Disco",
+							SchemaFieldPath: "SkuName",
+							SdkModelName:    "SomeModel",
+							SdkFieldPath:    "Sku",
+						},
+					},
+				},
+				Read: []resourcemanager.FieldMappingDefinition{
+					{
+						Type: resourcemanager.DirectAssignmentMappingDefinitionType,
+						DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
+							SchemaModelName: "Disco",
+							SchemaFieldPath: "SkuName",
+							SdkModelName:    "SomeModel",
+							SdkFieldPath:    "Sku",
+						},
+					},
+				},
 			},
 		},
 	}
@@ -148,7 +212,39 @@ func TestProcessModel_FlattenSkuName_Invalid(t *testing.T) {
 				},
 			},
 			mappingsInput: resourcemanager.MappingDefinition{
-				// TODO: add me
+				Create: []resourcemanager.FieldMappingDefinition{
+					{
+						Type: resourcemanager.DirectAssignmentMappingDefinitionType,
+						DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
+							SchemaModelName: "Leopard",
+							SchemaFieldPath: "Id",
+							SdkModelName:    "SomeModel",
+							SdkFieldPath:    "Id",
+						},
+					},
+				},
+				Update: &[]resourcemanager.FieldMappingDefinition{
+					{
+						Type: resourcemanager.DirectAssignmentMappingDefinitionType,
+						DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
+							SchemaModelName: "Leopard",
+							SchemaFieldPath: "Id",
+							SdkModelName:    "SomeModel",
+							SdkFieldPath:    "Id",
+						},
+					},
+				},
+				Read: []resourcemanager.FieldMappingDefinition{
+					{
+						Type: resourcemanager.DirectAssignmentMappingDefinitionType,
+						DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
+							SchemaModelName: "Leopard",
+							SchemaFieldPath: "Id",
+							SdkModelName:    "SomeModel",
+							SdkFieldPath:    "Id",
+						},
+					},
+				},
 			},
 			// unchanged
 			expectedModels: map[string]resourcemanager.TerraformSchemaModelDefinition{
@@ -178,7 +274,39 @@ func TestProcessModel_FlattenSkuName_Invalid(t *testing.T) {
 				},
 			},
 			expectedMappings: resourcemanager.MappingDefinition{
-				// TODO: add me
+				Create: []resourcemanager.FieldMappingDefinition{
+					{
+						Type: resourcemanager.DirectAssignmentMappingDefinitionType,
+						DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
+							SchemaModelName: "Leopard",
+							SchemaFieldPath: "Id",
+							SdkModelName:    "SomeModel",
+							SdkFieldPath:    "Id",
+						},
+					},
+				},
+				Update: &[]resourcemanager.FieldMappingDefinition{
+					{
+						Type: resourcemanager.DirectAssignmentMappingDefinitionType,
+						DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
+							SchemaModelName: "Leopard",
+							SchemaFieldPath: "Id",
+							SdkModelName:    "SomeModel",
+							SdkFieldPath:    "Id",
+						},
+					},
+				},
+				Read: []resourcemanager.FieldMappingDefinition{
+					{
+						Type: resourcemanager.DirectAssignmentMappingDefinitionType,
+						DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
+							SchemaModelName: "Leopard",
+							SchemaFieldPath: "Id",
+							SdkModelName:    "SomeModel",
+							SdkFieldPath:    "Id",
+						},
+					},
+				},
 			},
 		},
 		{
@@ -210,7 +338,39 @@ func TestProcessModel_FlattenSkuName_Invalid(t *testing.T) {
 				},
 			},
 			mappingsInput: resourcemanager.MappingDefinition{
-				// TODO: add me
+				Create: []resourcemanager.FieldMappingDefinition{
+					{
+						Type: resourcemanager.DirectAssignmentMappingDefinitionType,
+						DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
+							SchemaModelName: "Meerkat",
+							SchemaFieldPath: "Id",
+							SdkModelName:    "SomeModel",
+							SdkFieldPath:    "Id",
+						},
+					},
+				},
+				Update: &[]resourcemanager.FieldMappingDefinition{
+					{
+						Type: resourcemanager.DirectAssignmentMappingDefinitionType,
+						DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
+							SchemaModelName: "Meerkat",
+							SchemaFieldPath: "Id",
+							SdkModelName:    "SomeModel",
+							SdkFieldPath:    "Id",
+						},
+					},
+				},
+				Read: []resourcemanager.FieldMappingDefinition{
+					{
+						Type: resourcemanager.DirectAssignmentMappingDefinitionType,
+						DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
+							SchemaModelName: "Meerkat",
+							SchemaFieldPath: "Id",
+							SdkModelName:    "SomeModel",
+							SdkFieldPath:    "Id",
+						},
+					},
+				},
 			},
 			// unchanged since the nested model doesn't match
 			expectedModels: map[string]resourcemanager.TerraformSchemaModelDefinition{
@@ -240,7 +400,39 @@ func TestProcessModel_FlattenSkuName_Invalid(t *testing.T) {
 				},
 			},
 			expectedMappings: resourcemanager.MappingDefinition{
-				// TODO: add me
+				Create: []resourcemanager.FieldMappingDefinition{
+					{
+						Type: resourcemanager.DirectAssignmentMappingDefinitionType,
+						DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
+							SchemaModelName: "Meerkat",
+							SchemaFieldPath: "Id",
+							SdkModelName:    "SomeModel",
+							SdkFieldPath:    "Id",
+						},
+					},
+				},
+				Update: &[]resourcemanager.FieldMappingDefinition{
+					{
+						Type: resourcemanager.DirectAssignmentMappingDefinitionType,
+						DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
+							SchemaModelName: "Meerkat",
+							SchemaFieldPath: "Id",
+							SdkModelName:    "SomeModel",
+							SdkFieldPath:    "Id",
+						},
+					},
+				},
+				Read: []resourcemanager.FieldMappingDefinition{
+					{
+						Type: resourcemanager.DirectAssignmentMappingDefinitionType,
+						DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
+							SchemaModelName: "Meerkat",
+							SchemaFieldPath: "Id",
+							SdkModelName:    "SomeModel",
+							SdkFieldPath:    "Id",
+						},
+					},
+				},
 			},
 		},
 	}

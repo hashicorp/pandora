@@ -38,7 +38,39 @@ func TestProcessModel_FlattenReferenceId_Valid(t *testing.T) {
 				},
 			},
 			mappingsInput: resourcemanager.MappingDefinition{
-				// TODO: add me
+				Create: []resourcemanager.FieldMappingDefinition{
+					{
+						Type: resourcemanager.DirectAssignmentMappingDefinitionType,
+						DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
+							SchemaModelName: "Panda",
+							SchemaFieldPath: "Subnet",
+							SdkModelName:    "SomeModel",
+							SdkFieldPath:    "Subnet",
+						},
+					},
+				},
+				Update: &[]resourcemanager.FieldMappingDefinition{
+					{
+						Type: resourcemanager.DirectAssignmentMappingDefinitionType,
+						DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
+							SchemaModelName: "Panda",
+							SchemaFieldPath: "Subnet",
+							SdkModelName:    "SomeModel",
+							SdkFieldPath:    "Subnet",
+						},
+					},
+				},
+				Read: []resourcemanager.FieldMappingDefinition{
+					{
+						Type: resourcemanager.DirectAssignmentMappingDefinitionType,
+						DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
+							SchemaModelName: "Panda",
+							SchemaFieldPath: "Subnet",
+							SdkModelName:    "SomeModel",
+							SdkFieldPath:    "Subnet",
+						},
+					},
+				},
 			},
 			expectedModels: map[string]resourcemanager.TerraformSchemaModelDefinition{
 				"Panda": {
@@ -61,7 +93,39 @@ func TestProcessModel_FlattenReferenceId_Valid(t *testing.T) {
 				},
 			},
 			expectedMappings: resourcemanager.MappingDefinition{
-				// TODO: add me
+				Create: []resourcemanager.FieldMappingDefinition{
+					{
+						Type: resourcemanager.DirectAssignmentMappingDefinitionType,
+						DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
+							SchemaModelName: "Panda",
+							SchemaFieldPath: "SubnetId",
+							SdkModelName:    "SomeModel",
+							SdkFieldPath:    "Subnet",
+						},
+					},
+				},
+				Update: &[]resourcemanager.FieldMappingDefinition{
+					{
+						Type: resourcemanager.DirectAssignmentMappingDefinitionType,
+						DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
+							SchemaModelName: "Panda",
+							SchemaFieldPath: "SubnetId",
+							SdkModelName:    "SomeModel",
+							SdkFieldPath:    "Subnet",
+						},
+					},
+				},
+				Read: []resourcemanager.FieldMappingDefinition{
+					{
+						Type: resourcemanager.DirectAssignmentMappingDefinitionType,
+						DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
+							SchemaModelName: "Panda",
+							SchemaFieldPath: "SubnetId",
+							SdkModelName:    "SomeModel",
+							SdkFieldPath:    "Subnet",
+						},
+					},
+				},
 			},
 		},
 	}
@@ -120,7 +184,39 @@ func TestProcessModel_FlattenReferenceId_Invalid(t *testing.T) {
 				},
 			},
 			mappingsInput: resourcemanager.MappingDefinition{
-				// TODO: add me
+				Create: []resourcemanager.FieldMappingDefinition{
+					{
+						Type: resourcemanager.DirectAssignmentMappingDefinitionType,
+						DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
+							SchemaModelName: "Leopard",
+							SchemaFieldPath: "Id",
+							SdkModelName:    "SomeModel",
+							SdkFieldPath:    "Id",
+						},
+					},
+				},
+				Update: &[]resourcemanager.FieldMappingDefinition{
+					{
+						Type: resourcemanager.DirectAssignmentMappingDefinitionType,
+						DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
+							SchemaModelName: "Leopard",
+							SchemaFieldPath: "Id",
+							SdkModelName:    "SomeModel",
+							SdkFieldPath:    "Id",
+						},
+					},
+				},
+				Read: []resourcemanager.FieldMappingDefinition{
+					{
+						Type: resourcemanager.DirectAssignmentMappingDefinitionType,
+						DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
+							SchemaModelName: "Leopard",
+							SchemaFieldPath: "Id",
+							SdkModelName:    "SomeModel",
+							SdkFieldPath:    "Id",
+						},
+					},
+				},
 			},
 			// unchanged
 			expectedModels: map[string]resourcemanager.TerraformSchemaModelDefinition{
@@ -150,7 +246,39 @@ func TestProcessModel_FlattenReferenceId_Invalid(t *testing.T) {
 				},
 			},
 			expectedMappings: resourcemanager.MappingDefinition{
-				// TODO: add me
+				Create: []resourcemanager.FieldMappingDefinition{
+					{
+						Type: resourcemanager.DirectAssignmentMappingDefinitionType,
+						DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
+							SchemaModelName: "Leopard",
+							SchemaFieldPath: "Id",
+							SdkModelName:    "SomeModel",
+							SdkFieldPath:    "Id",
+						},
+					},
+				},
+				Update: &[]resourcemanager.FieldMappingDefinition{
+					{
+						Type: resourcemanager.DirectAssignmentMappingDefinitionType,
+						DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
+							SchemaModelName: "Leopard",
+							SchemaFieldPath: "Id",
+							SdkModelName:    "SomeModel",
+							SdkFieldPath:    "Id",
+						},
+					},
+				},
+				Read: []resourcemanager.FieldMappingDefinition{
+					{
+						Type: resourcemanager.DirectAssignmentMappingDefinitionType,
+						DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
+							SchemaModelName: "Leopard",
+							SchemaFieldPath: "Id",
+							SdkModelName:    "SomeModel",
+							SdkFieldPath:    "Id",
+						},
+					},
+				},
 			},
 		},
 		{
@@ -182,7 +310,39 @@ func TestProcessModel_FlattenReferenceId_Invalid(t *testing.T) {
 				},
 			},
 			mappingsInput: resourcemanager.MappingDefinition{
-				// TODO: add me
+				Create: []resourcemanager.FieldMappingDefinition{
+					{
+						Type: resourcemanager.DirectAssignmentMappingDefinitionType,
+						DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
+							SchemaModelName: "Meerkat",
+							SchemaFieldPath: "Id",
+							SdkModelName:    "SomeModel",
+							SdkFieldPath:    "Id",
+						},
+					},
+				},
+				Update: &[]resourcemanager.FieldMappingDefinition{
+					{
+						Type: resourcemanager.DirectAssignmentMappingDefinitionType,
+						DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
+							SchemaModelName: "Meerkat",
+							SchemaFieldPath: "Id",
+							SdkModelName:    "SomeModel",
+							SdkFieldPath:    "Id",
+						},
+					},
+				},
+				Read: []resourcemanager.FieldMappingDefinition{
+					{
+						Type: resourcemanager.DirectAssignmentMappingDefinitionType,
+						DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
+							SchemaModelName: "Meerkat",
+							SchemaFieldPath: "Id",
+							SdkModelName:    "SomeModel",
+							SdkFieldPath:    "Id",
+						},
+					},
+				},
 			},
 			// unchanged since the nested model doesn't match
 			expectedModels: map[string]resourcemanager.TerraformSchemaModelDefinition{
@@ -212,7 +372,39 @@ func TestProcessModel_FlattenReferenceId_Invalid(t *testing.T) {
 				},
 			},
 			expectedMappings: resourcemanager.MappingDefinition{
-				// TODO: add me
+				Create: []resourcemanager.FieldMappingDefinition{
+					{
+						Type: resourcemanager.DirectAssignmentMappingDefinitionType,
+						DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
+							SchemaModelName: "Meerkat",
+							SchemaFieldPath: "Id",
+							SdkModelName:    "SomeModel",
+							SdkFieldPath:    "Id",
+						},
+					},
+				},
+				Update: &[]resourcemanager.FieldMappingDefinition{
+					{
+						Type: resourcemanager.DirectAssignmentMappingDefinitionType,
+						DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
+							SchemaModelName: "Meerkat",
+							SchemaFieldPath: "Id",
+							SdkModelName:    "SomeModel",
+							SdkFieldPath:    "Id",
+						},
+					},
+				},
+				Read: []resourcemanager.FieldMappingDefinition{
+					{
+						Type: resourcemanager.DirectAssignmentMappingDefinitionType,
+						DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
+							SchemaModelName: "Meerkat",
+							SchemaFieldPath: "Id",
+							SdkModelName:    "SomeModel",
+							SdkFieldPath:    "Id",
+						},
+					},
+				},
 			},
 		},
 	}

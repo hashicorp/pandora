@@ -58,6 +58,8 @@ func (modelFlattenListReferenceIds) ProcessModel(modelName string, model resourc
 		updatedName := fmt.Sprintf("%sIds", fieldName)
 		fields[updatedName] = fieldValue
 		delete(fields, fieldName)
+
+		mappings = applyFieldRenameToMappings(mappings, modelName, fieldName, updatedName)
 	}
 	model.Fields = fields
 	models[modelName] = model
