@@ -39,6 +39,7 @@ func (modelFlattenSkuName) ProcessModel(modelName string, model resourcemanager.
 			fields[updatedName] = fieldValue
 			delete(fields, fieldName)
 
+			// TODO: switch this mapping type out in the future
 			mappings = applyFieldRenameToMappings(mappings, modelName, fieldName, updatedName)
 		}
 	}
