@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Pandora.Data.Helpers;
 using Pandora.Definitions.Mappings;
 
 namespace Pandora.Data.Transformers;
@@ -31,10 +32,10 @@ public static class TerraformMappingDefinition
                     Type = Models.TerraformFieldMappingType.DirectAssignment,
                     DirectAssignment = new Models.TerraformFieldMappingDirectAssignmentDefinition
                     {
-                        SchemaModelName = mapping.FromSchemaModelName,
+                        SchemaModelName = mapping.FromSchemaModelName.RemoveModelSuffixFromTypeName(),
                         SchemaFieldName = mapping.FromSchemaPath,
 
-                        SdkModelName = mapping.ToSdkModelName,
+                        SdkModelName = mapping.ToSdkModelName.RemoveModelSuffixFromTypeName(),
                         SdkFieldName = mapping.ToSdkFieldPath,
                     },
                 });
