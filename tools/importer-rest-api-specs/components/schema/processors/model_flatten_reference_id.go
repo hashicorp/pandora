@@ -49,6 +49,7 @@ func (modelFlattenReferenceId) ProcessModel(modelName string, model resourcemana
 		fields[updatedName] = fieldValue
 		delete(fields, fieldName)
 
+		// TODO: switch this mapping type out in the future
 		mappings = applyFieldRenameToMappings(mappings, modelName, fieldName, updatedName)
 	}
 	model.Fields = fields
