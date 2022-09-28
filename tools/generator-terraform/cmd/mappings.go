@@ -85,16 +85,6 @@ func (m MappingsCommand) run() error {
 			createMappings := mappings.CodeForCreateMappings()
 			log.Printf("Create Mappings:\n\n%s", createMappings)
 
-			updateMappings, err := mappings.CodeForUpdateMappings()
-			if err != nil {
-				return fmt.Errorf("building code for update mappings: %+v", err)
-			}
-			if updateMappings != nil {
-				log.Printf("Update Mappings:\n\n%s", *updateMappings)
-			} else {
-				log.Printf("Update Mappings: (nil)")
-			}
-
 			readMappings := mappings.CodeForReadMappings()
 			log.Printf("Read Mappings:\n\n%s", readMappings)
 		}
