@@ -16,6 +16,7 @@ public static class TerraformMappingDefinitionTests
         var actual = TerraformMappingDefinition.Map(new NoMappings());
         Assert.AreEqual(0, actual.ResourceIds.Count);
         Assert.AreEqual(0, actual.Fields.Count);
+        Assert.AreEqual(0, actual.ModelToModel.Count);
     }
 
     [TestCase]
@@ -26,6 +27,7 @@ public static class TerraformMappingDefinitionTests
         Assert.NotNull(actual.ResourceIds.FirstOrDefault(r => r.SchemaFieldName == "Foo" && r.SegmentName == "segment1"));
         Assert.NotNull(actual.ResourceIds.FirstOrDefault(r => r.SchemaFieldName == "Bar" && r.SegmentName == "segment2"));
         Assert.AreEqual(0, actual.Fields.Count);
+        Assert.AreEqual(0, actual.ModelToModel.Count);
     }
 
     [TestCase]
@@ -45,6 +47,8 @@ public static class TerraformMappingDefinitionTests
                                                          r.DirectAssignment.SchemaFieldName == "Bar" &&
                                                          r.DirectAssignment.SdkModelName == "TestSdk" &&
                                                          r.DirectAssignment.SdkFieldName == "SdkBar"));
+        Assert.AreEqual(1, actual.ModelToModel.Count);
+        Assert.NotNull(actual.ModelToModel.FirstOrDefault(m => m.SchemaModelName == "TestSchema" && m.SdkModelName == "TestSdk"));
     }
 
     private class NoMappings : Definitions.Interfaces.TerraformMappingDefinition

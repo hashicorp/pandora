@@ -84,8 +84,18 @@ resource 'example_resource' 'example' {
         return new MappingsDefinition
         {
             Fields = MapFieldMappingDefinitions(input.Fields),
+            ModelToModel = MapModelToModelMappingDefinitions(input.ModelToModel),
             ResourceId = input.ResourceIds.Select(MapResourceIdMappingDefinition).ToList(),
         };
+    }
+
+    private static List<ModelToModelMappingDefinition> MapModelToModelMappingDefinitions(List<TerraformModelToModelMappingDefinition> input)
+    {
+        return input.Select(i => new ModelToModelMappingDefinition
+        {
+            SchemaModelName = i.SchemaModelName,
+            SdkModelName = i.SdkModelName,
+        }).ToList();
     }
 
     private static List<FieldMappingDefinition> MapFieldMappingDefinitions(List<TerraformFieldMappingDefinition> input)
