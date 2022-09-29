@@ -26,5 +26,7 @@ public class ElasticSanResourceMappings : TerraformMappingDefinition
         Mapping.FromSchema<ElasticSanResourceSchema>(s => s.TotalVolumeSizeGiB).ToSdkField<ElasticSanPropertiesModel>(m => m.TotalVolumeSizeGiB).Direct(),
         Mapping.FromSchema<ElasticSanResourceSchema>(s => s.VolumeGroupCount).ToSdkField<ElasticSanPropertiesModel>(m => m.VolumeGroupCount).Direct(),
         Mapping.FromSchema<ElasticSanResourceSchema>(s => s.Zones).ToSdkField<ElasticSanPropertiesModel>(m => m.AvailabilityZones).Direct(),
+        Mapping.FromSchema<ElasticSanResourceSkuSchema>(s => s.Name).ToSdkField<SkuModel>(m => m.Name).Direct(),
+        Mapping.FromSchema<ElasticSanResourceSkuSchema>(s => s.Tier).ToSdkField<SkuModel>(m => m.Tier).Direct(),
     };
 }
