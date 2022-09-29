@@ -122,7 +122,6 @@ type MappingDefinitionType string
 const (
 	DirectAssignmentMappingDefinitionType MappingDefinitionType = "DirectAssignment"
 	ManualMappingDefinitionType           MappingDefinitionType = "Manual"
-	ModelToModelMappingDefinitionType     MappingDefinitionType = "ModelToModel"
 	// TODO: BooleanEquals, BooleanInvert
 )
 
@@ -162,9 +161,22 @@ type ResourceIdMappingDefinition struct {
 	SegmentName string `json:"segmentName"`
 }
 
+type ModelToModelMappingDefinition struct {
+	// SchemaModelName specifies the name of the Schema Model that there's Mappings for.
+	SchemaModelName string `json:"schemaModelName"`
+
+	// SdkModelName specifies the name of the Sdk Model that there's Mappings for.
+	SdkModelName string `json:"sdkModelName"`
+}
+
 type MappingDefinition struct {
 	// Fields defines the mappings between Schema Fields and Sdk Fields
 	Fields []FieldMappingDefinition `json:"fields"`
+
+	// ModelToModels defines the mappings between Schema Models and Sdk Models
+	// This information is aggregated from the other mapping types and is present
+	// to make ordering simpler.
+	ModelToModels []ModelToModelMappingDefinition `json:"modelToModel"`
 
 	// ResourceId defines the mapping between the segments in the ResourceId and the Schema Model.
 	// This is used in both the Create function (to build up the ResourceId) and the Read function
