@@ -5,6 +5,8 @@ import (
 	"sort"
 	"strings"
 
+	"github.com/hashicorp/pandora/tools/generator-terraform/generator/helpers"
+
 	"github.com/hashicorp/pandora/tools/generator-terraform/generator/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
@@ -164,7 +166,7 @@ func (c readFunctionComponents) codeForResourceIdMappings() (*string, error) {
 				if !ok {
 					return nil, fmt.Errorf("the constant %q referenced in Resource ID Segment %q was not found", *v.ConstantReference, v.Name)
 				}
-				constantGoTypeName, err := golangFieldTypeFromConstantType(constant.Type)
+				constantGoTypeName, err := helpers.GolangFieldTypeFromConstantType(constant.Type)
 				if err != nil {
 					return nil, fmt.Errorf("determining Golang Type name for Constant Type %q: %+v", string(constant.Type), err)
 				}

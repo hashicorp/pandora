@@ -1,4 +1,4 @@
-package resource
+package helpers
 
 import (
 	"testing"
@@ -119,7 +119,7 @@ func TestObjectDefinitionToGolangFieldType(t *testing.T) {
 		},
 	}
 	for i, data := range testData {
-		result, err := golangFieldTypeFromObjectFieldDefinition(data.input)
+		result, err := GolangFieldTypeFromObjectFieldDefinition(data.input)
 		if err != nil {
 			if data.expected == nil {
 				continue
@@ -137,6 +137,10 @@ func TestObjectDefinitionToGolangFieldType(t *testing.T) {
 			t.Fatalf("expected %q but got %q", *data.expected, *result)
 		}
 	}
+}
+
+func stringPointer(input string) *string {
+	return &input
 }
 
 func TestObjectDefinitionToGolangFieldType_Lists(t *testing.T) {
@@ -300,7 +304,7 @@ func TestObjectDefinitionToGolangFieldType_Lists(t *testing.T) {
 		},
 	}
 	for i, data := range testData {
-		result, err := golangFieldTypeFromObjectFieldDefinition(data.input)
+		result, err := GolangFieldTypeFromObjectFieldDefinition(data.input)
 		if err != nil {
 			if data.expected == nil {
 				continue
@@ -481,7 +485,7 @@ func TestObjectDefinitionToGolangFieldType_Sets(t *testing.T) {
 		},
 	}
 	for i, data := range testData {
-		result, err := golangFieldTypeFromObjectFieldDefinition(data.input)
+		result, err := GolangFieldTypeFromObjectFieldDefinition(data.input)
 		if err != nil {
 			if data.expected == nil {
 				continue

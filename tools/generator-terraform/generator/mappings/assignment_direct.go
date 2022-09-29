@@ -3,6 +3,8 @@ package mappings
 import (
 	"fmt"
 
+	"github.com/hashicorp/pandora/tools/generator-terraform/generator/helpers"
+
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
@@ -52,10 +54,10 @@ func (d directAssignmentLine) assignmentForCreateUpdateMapping(mapping resourcem
 
 	// check the assignment type - if it's a List these are special-cased
 	if schemaField.ObjectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeList && sdkField.ObjectDefinition.Type == resourcemanager.ListApiObjectDefinitionType {
-		return d.createUpdateMappingBetweenListFields(mapping, schemaField, sdkField, sdkConstant, apiResourcePackageName)
+		return d.schemaToSdkMappingBetweenListFields(mapping, schemaField, sdkField, sdkConstant, apiResourcePackageName)
 	}
 
-	return d.createUpdateMappingBetweenFields(mapping, schemaField, sdkField, sdkConstant)
+	return d.schemaToSdkMappingBetweenFields(mapping, schemaField, sdkField, sdkConstant)
 }
 
 func (d directAssignmentLine) assignmentForReadMapping(mapping resourcemanager.FieldMappingDefinition, schemaModel resourcemanager.TerraformSchemaModelDefinition, sdkModel resourcemanager.ModelDetails, sdkConstant *assignmentConstantDetails, apiResourcePackageName string) (*string, error) {
@@ -79,13 +81,13 @@ func (d directAssignmentLine) assignmentForReadMapping(mapping resourcemanager.F
 
 	// check the assignment type - if it's a List these are special-cased
 	if schemaField.ObjectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeList && sdkField.ObjectDefinition.Type == resourcemanager.ListApiObjectDefinitionType {
-		return d.readMappingBetweenListFields(mapping, schemaField, sdkField, sdkConstant, apiResourcePackageName)
+		return d.sdkToSchemaMappingBetweenListFields(mapping, schemaField, sdkField, sdkConstant, apiResourcePackageName)
 	}
 
-	return d.readMappingBetweenFields(mapping, schemaField, sdkField, sdkConstant)
+	return d.sdkToSchemaMappingBetweenFields(mapping, schemaField, sdkField, sdkConstant)
 }
 
-func (d directAssignmentLine) createUpdateMappingBetweenFields(mapping resourcemanager.FieldMappingDefinition, schemaField resourcemanager.TerraformSchemaFieldDefinition, sdkField resourcemanager.FieldDetails, sdkConstant *assignmentConstantDetails) (*string, error) {
+func (d directAssignmentLine) schemaToSdkMappingBetweenFields(mapping resourcemanager.FieldMappingDefinition, schemaField resourcemanager.TerraformSchemaFieldDefinition, sdkField resourcemanager.FieldDetails, sdkConstant *assignmentConstantDetails) (*string, error) {
 	if sdkConstant != nil {
 		sdkConstantTypeName := fmt.Sprintf("%s.%s", sdkConstant.apiResourcePackageName, sdkConstant.constantName)
 		if schemaField.Required {
@@ -137,7 +139,7 @@ if input.%[3]s != nil {
 	return &line, nil
 }
 
-func (d directAssignmentLine) createUpdateMappingBetweenListFields(mapping resourcemanager.FieldMappingDefinition, schemaField resourcemanager.TerraformSchemaFieldDefinition, sdkField resourcemanager.FieldDetails, sdkConstant *assignmentConstantDetails, apiResourcePackageName string) (*string, error) {
+func (d directAssignmentLine) schemaToSdkMappingBetweenListFields(mapping resourcemanager.FieldMappingDefinition, schemaField resourcemanager.TerraformSchemaFieldDefinition, sdkField resourcemanager.FieldDetails, sdkConstant *assignmentConstantDetails, apiResourcePackageName string) (*string, error) {
 	if sdkConstant != nil {
 		sdkConstantTypeName := fmt.Sprintf("%s.%s", sdkConstant.apiResourcePackageName, sdkConstant.constantName)
 		if schemaField.Required {
@@ -193,14 +195,14 @@ output.%[1]s = &%[4]s
 		return nil, fmt.Errorf("expected a DirectAssignment between %q and %q but got %q", string(schemaField.ObjectDefinition.NestedObject.Type), string(v), string(sdkField.ObjectDefinition.NestedItem.Type))
 	}
 
-	variableType, err := sdkField.ObjectDefinition.NestedItem.GolangTypeName(&apiResourcePackageName)
+	variableType, err := sdkField.ObjectDefinition.GolangTypeName(&apiResourcePackageName)
 	if err != nil {
 		return nil, fmt.Errorf("determining Golang Type for Sdk Model %q / Field %q Object Definition: %+v", mapping.DirectAssignment.SdkModelName, mapping.DirectAssignment.SdkFieldPath, err)
 	}
 
 	if schemaField.Required {
 		line := fmt.Sprintf(`
-%[3]s := make([]%[4]s, 0)
+%[3]s := make(%[4]s, 0)
 for _, v := range input.%[2]s {
     %[3]s = append(%[3]s, v)
 }
@@ -208,7 +210,7 @@ output.%[1]s = %[3]s
 `, mapping.DirectAssignment.SdkFieldPath, mapping.DirectAssignment.SchemaFieldPath, sdkField.JsonName, *variableType)
 		if sdkField.Optional {
 			line = fmt.Sprintf(`
-%[3]s := make([]%[4]s, 0)
+%[3]s := make(%[4]s, 0)
 for _, v := range input.%[2]s {
     %[3]s = append(%[3]s, v)
 }
@@ -226,7 +228,7 @@ output.%[1]s = &%[3]s
 
 	// optional -> optional
 	line := fmt.Sprintf(`
-%[3]s := make([]%[4]s, 0)
+%[3]s := make(%[4]s, 0)
 if input.%[2]s != nil {
 	for _, v := range *input.%[2]s {
 		%[3]s = append(%[3]s, v)
@@ -237,7 +239,7 @@ output.%[1]s = &%[3]s
 	return &line, nil
 }
 
-func (d directAssignmentLine) readMappingBetweenFields(mapping resourcemanager.FieldMappingDefinition, schemaField resourcemanager.TerraformSchemaFieldDefinition, sdkField resourcemanager.FieldDetails, sdkConstant *assignmentConstantDetails) (*string, error) {
+func (d directAssignmentLine) sdkToSchemaMappingBetweenFields(mapping resourcemanager.FieldMappingDefinition, schemaField resourcemanager.TerraformSchemaFieldDefinition, sdkField resourcemanager.FieldDetails, sdkConstant *assignmentConstantDetails) (*string, error) {
 	if sdkConstant != nil {
 		constantGoType, ok := directAssignmentConstantTypesToStrings[schemaField.ObjectDefinition.Type]
 		if !ok {
@@ -296,7 +298,7 @@ if input.%[2]s != nil {
 	return &line, nil
 }
 
-func (d directAssignmentLine) readMappingBetweenListFields(mapping resourcemanager.FieldMappingDefinition, schemaField resourcemanager.TerraformSchemaFieldDefinition, sdkField resourcemanager.FieldDetails, sdkConstant *assignmentConstantDetails, apiResourcePackageName string) (*string, error) {
+func (d directAssignmentLine) sdkToSchemaMappingBetweenListFields(mapping resourcemanager.FieldMappingDefinition, schemaField resourcemanager.TerraformSchemaFieldDefinition, sdkField resourcemanager.FieldDetails, sdkConstant *assignmentConstantDetails, apiResourcePackageName string) (*string, error) {
 	if schemaField.ObjectDefinition.NestedObject == nil {
 		return nil, fmt.Errorf("the Schema Model %q Field %q was a List with no NestedObject", mapping.DirectAssignment.SchemaModelName, mapping.DirectAssignment.SchemaFieldPath)
 	}
@@ -312,7 +314,7 @@ func (d directAssignmentLine) readMappingBetweenListFields(mapping resourcemanag
 
 		if schemaField.Required {
 			line := fmt.Sprintf(`
-%[4]s := make([]%[2]s, 0)
+%[4]s := make(%[2]s, 0)
 for _, v := range input.%[3]s {
 	%[4]s = append(%[4]s, %[2]s(v))
 }
@@ -320,7 +322,7 @@ output.%[1]s = %[4]s
 `, mapping.DirectAssignment.SdkFieldPath, constantGoType, mapping.DirectAssignment.SchemaFieldPath, sdkField.JsonName)
 			if sdkField.Optional {
 				line = fmt.Sprintf(`
-%[4]s := make([]%[2]s, 0)
+%[4]s := make(%[2]s, 0)
 for _, v := range input.%[3]s {
 	%[4]s = append(%[4]s, %[2]s(v))
 }
@@ -337,7 +339,7 @@ output.%[1]s = &%[4]s
 		}
 
 		line := fmt.Sprintf(`
-%[4]s := make([]%[2]s, 0)
+%[4]s := make(%[2]s, 0)
 if input.%[3]s != nil {
 	for _, v := range *input.%[3]s {
 		%[4]s = append(%[4]s, %[2]s(v))
@@ -356,14 +358,14 @@ output.%[1]s = &%[4]s
 		return nil, fmt.Errorf("expected a DirectAssignment between %q and %q but got %q", string(schemaField.ObjectDefinition.NestedObject.Type), string(v), string(sdkField.ObjectDefinition.NestedItem.Type))
 	}
 
-	variableType, err := sdkField.ObjectDefinition.NestedItem.GolangTypeName(&apiResourcePackageName)
+	variableType, err := helpers.GolangFieldTypeFromObjectFieldDefinition(schemaField.ObjectDefinition)
 	if err != nil {
-		return nil, fmt.Errorf("determining Golang Type for Sdk Model %q / Field %q Object Definition: %+v", mapping.DirectAssignment.SdkModelName, mapping.DirectAssignment.SdkFieldPath, err)
+		return nil, fmt.Errorf("building golang field type from schema nested object definition: %+v", err)
 	}
 
 	if schemaField.Required {
 		line := fmt.Sprintf(`
-%[3]s := make([]%[4]s, 0)
+%[3]s := make(%[4]s, 0)
 for _, v := range input.%[1]s {
     %[3]s = append(%[3]s, v)
 }
@@ -371,7 +373,7 @@ output.%[2]s = %[3]s
 `, mapping.DirectAssignment.SdkFieldPath, mapping.DirectAssignment.SchemaFieldPath, sdkField.JsonName, *variableType)
 		if sdkField.Optional {
 			line = fmt.Sprintf(`
-%[3]s := make([]%[4]s, 0)
+%[3]s := make(%[4]s, 0)
 for _, v := range input.%[1]s {
     %[3]s = append(%[3]s, v)
 }
@@ -389,7 +391,7 @@ output.%[2]s = &%[3]s
 
 	// optional -> optional
 	line := fmt.Sprintf(`
-%[3]s := make([]%[4]s, 0)
+%[3]s := make(%[4]s, 0)
 if input.%[1]s != nil {
 	for _, v := range *input.%[1]s {
 		%[3]s = append(%[3]s, v)
