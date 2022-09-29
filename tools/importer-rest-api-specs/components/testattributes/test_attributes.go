@@ -43,46 +43,44 @@ func (h TestAttributesHelpers) GetAttributesForTests(input resourcemanager.Terra
 	}
 
 	for _, fieldName := range sortedNames {
-		if err := h.codeForTestAttribute(input.Fields[fieldName], input.Fields[fieldName].HclName, requiredOnly, hclBody); err != nil {
+		if err := h.codeForTestAttribute(input.Fields[fieldName], requiredOnly, hclBody); err != nil {
 			return err
 		}
 	}
 	return nil
 }
 
-func (h TestAttributesHelpers) codeForTestAttribute(input resourcemanager.TerraformSchemaFieldDefinition, hclName string, requiredOnly bool, hclBody hclwrite.Body) error {
+func (h TestAttributesHelpers) codeForTestAttribute(input resourcemanager.TerraformSchemaFieldDefinition, requiredOnly bool, hclBody hclwrite.Body) error {
 	switch input.ObjectDefinition.Type {
 	// todo randomize values
 	case resourcemanager.TerraformSchemaFieldTypeBoolean:
-		hclBody.SetAttributeValue(hclName, cty.False)
+		hclBody.SetAttributeValue(input.HclName, cty.False)
 	case resourcemanager.TerraformSchemaFieldTypeFloat:
 		if input.Validation != nil && input.Validation.Type == resourcemanager.TerraformSchemaValidationTypePossibleValues && input.Validation.PossibleValues != nil && input.Validation.PossibleValues.Type == resourcemanager.TerraformSchemaValidationPossibleValueTypeFloat && len(input.Validation.PossibleValues.Values) > 0 {
-			hclBody.SetAttributeValue(hclName, cty.NumberFloatVal(input.Validation.PossibleValues.Values[0].(float64)))
+			hclBody.SetAttributeValue(input.HclName, cty.NumberFloatVal(input.Validation.PossibleValues.Values[0].(float64)))
 		} else {
-			hclBody.SetAttributeValue(hclName, cty.NumberFloatVal(10.1))
+			hclBody.SetAttributeValue(input.HclName, cty.NumberFloatVal(10.1))
 		}
 	case resourcemanager.TerraformSchemaFieldTypeInteger:
 		if input.Validation != nil && input.Validation.Type == resourcemanager.TerraformSchemaValidationTypePossibleValues && input.Validation.PossibleValues != nil && input.Validation.PossibleValues.Type == resourcemanager.TerraformSchemaValidationPossibleValueTypeInt && len(input.Validation.PossibleValues.Values) > 0 {
-			hclBody.SetAttributeValue(hclName, cty.NumberIntVal(input.Validation.PossibleValues.Values[0].(int64)))
+			hclBody.SetAttributeValue(input.HclName, cty.NumberIntVal(input.Validation.PossibleValues.Values[0].(int64)))
 		} else {
-			hclBody.SetAttributeValue(hclName, cty.NumberIntVal(15))
+			hclBody.SetAttributeValue(input.HclName, cty.NumberIntVal(15))
 		}
 	case resourcemanager.TerraformSchemaFieldTypeString:
-		switch hclName {
+		switch input.HclName {
 		case "name":
 			if input.Validation != nil && input.Validation.Type == resourcemanager.TerraformSchemaValidationTypePossibleValues && input.Validation.PossibleValues != nil && input.Validation.PossibleValues.Type == resourcemanager.TerraformSchemaValidationPossibleValueTypeString && len(input.Validation.PossibleValues.Values) > 0 {
-				hclBody.SetAttributeValue(hclName, cty.StringVal(input.Validation.PossibleValues.Values[0].(string)))
+				hclBody.SetAttributeValue(input.HclName, cty.StringVal(input.Validation.PossibleValues.Values[0].(string)))
 			} else {
 				// todo pipe in packagename to make "acctest-vm-${local.random_integer}"
 				tokens := hclwrite.Tokens{
-					{Type: hclsyntax.TokenQuotedLit, Bytes: []byte(`"acctest-`)},
-					{Type: hclsyntax.TokenTemplateInterp, Bytes: []byte(`${`)},
-					{Type: hclsyntax.TokenQuotedLit, Bytes: []byte(`local.random_integer}"`)},
+					{Type: hclsyntax.TokenQuotedLit, Bytes: []byte(`"acctest-${local.random_integer}"`)},
 				}
-				hclBody.SetAttributeRaw(hclName, tokens)
+				hclBody.SetAttributeRaw(input.HclName, tokens)
 			}
 		default:
-			hclBody.SetAttributeValue(hclName, cty.StringVal("foo"))
+			hclBody.SetAttributeValue(input.HclName, cty.StringVal("foo"))
 		}
 	case resourcemanager.TerraformSchemaFieldTypeList, resourcemanager.TerraformSchemaFieldTypeSet:
 		hclBody.AppendNewline()
@@ -94,24 +92,24 @@ func (h TestAttributesHelpers) codeForTestAttribute(input resourcemanager.Terraf
 			if !ok {
 				return fmt.Errorf("schema model %q was not found", *input.ObjectDefinition.NestedObject.ReferenceName)
 			}
-			if err := h.GetAttributesForTests(reference, *hclBody.AppendNewBlock(hclName, nil).Body(), requiredOnly); err != nil {
+			if err := h.GetAttributesForTests(reference, *hclBody.AppendNewBlock(input.HclName, nil).Body(), requiredOnly); err != nil {
 				return err
 			}
 		} else {
 			// this is an array of a basic type
 			switch input.ObjectDefinition.NestedObject.Type {
 			case resourcemanager.TerraformSchemaFieldTypeFloat:
-				hclBody.SetAttributeValue(hclName, cty.ListVal([]cty.Value{
+				hclBody.SetAttributeValue(input.HclName, cty.ListVal([]cty.Value{
 					cty.NumberFloatVal(1.1),
 					cty.NumberFloatVal(2.2),
 					cty.NumberFloatVal(3.3)}))
 			case resourcemanager.TerraformSchemaFieldTypeInteger:
-				hclBody.SetAttributeValue(hclName, cty.ListVal([]cty.Value{
+				hclBody.SetAttributeValue(input.HclName, cty.ListVal([]cty.Value{
 					cty.NumberIntVal(1),
 					cty.NumberIntVal(2),
 					cty.NumberIntVal(3)}))
 			case resourcemanager.TerraformSchemaFieldTypeString:
-				hclBody.SetAttributeValue(hclName, cty.ListVal([]cty.Value{
+				hclBody.SetAttributeValue(input.HclName, cty.ListVal([]cty.Value{
 					cty.StringVal("foo"),
 					cty.StringVal("baz")}))
 			default:
@@ -129,25 +127,25 @@ func (h TestAttributesHelpers) codeForTestAttribute(input resourcemanager.Terraf
 		if !ok {
 			return fmt.Errorf("schema model %q was not found", *input.ObjectDefinition.ReferenceName)
 		}
-		if err := h.GetAttributesForTests(h.SchemaModels[*input.ObjectDefinition.ReferenceName], *hclBody.AppendNewBlock(hclName, nil).Body(), requiredOnly); err != nil {
+		if err := h.GetAttributesForTests(h.SchemaModels[*input.ObjectDefinition.ReferenceName], *hclBody.AppendNewBlock(input.HclName, nil).Body(), requiredOnly); err != nil {
 			return err
 		}
 		hclBody.AppendNewline()
 	case resourcemanager.TerraformSchemaFieldTypeEdgeZone:
 		// todo put in the checks for correct Required/Optional/Computed usage?
-		hclBody.SetAttributeTraversal(hclName, hcl.Traversal{
+		hclBody.SetAttributeTraversal(input.HclName, hcl.Traversal{
 			hcl.TraverseRoot{
 				Name: "data.azurerm_extended_locations.test.extended_locations[0]",
 			},
 		})
 	case resourcemanager.TerraformSchemaFieldTypeIdentitySystemAssigned, resourcemanager.TerraformSchemaFieldTypeIdentitySystemOrUserAssigned:
 		hclBody.AppendNewline()
-		identityBody := *hclBody.AppendNewBlock(hclName, nil).Body()
+		identityBody := *hclBody.AppendNewBlock(input.HclName, nil).Body()
 		identityBody.SetAttributeValue("type", cty.StringVal("SystemAssigned"))
 		hclBody.AppendNewline()
 	case resourcemanager.TerraformSchemaFieldTypeIdentitySystemAndUserAssigned:
 		hclBody.AppendNewline()
-		identityBody := *hclBody.AppendNewBlock(hclName, nil).Body()
+		identityBody := *hclBody.AppendNewBlock(input.HclName, nil).Body()
 		identityBody.SetAttributeValue("type", cty.StringVal("SystemAssigned, UserAssigned"))
 		addCommentToTestConfig(identityBody, "todo add azurerm_user_assigned_identity.test to template")
 
@@ -160,7 +158,7 @@ func (h TestAttributesHelpers) codeForTestAttribute(input resourcemanager.Terraf
 		hclBody.AppendNewline()
 	case resourcemanager.TerraformSchemaFieldTypeIdentityUserAssigned:
 		hclBody.AppendNewline()
-		identityBody := *hclBody.AppendNewBlock(hclName, nil).Body()
+		identityBody := *hclBody.AppendNewBlock(input.HclName, nil).Body()
 		identityBody.SetAttributeValue("type", cty.StringVal("UserAssigned"))
 		addCommentToTestConfig(identityBody, "todo add azurerm_user_assigned_identity.test to template")
 
@@ -173,13 +171,13 @@ func (h TestAttributesHelpers) codeForTestAttribute(input resourcemanager.Terraf
 		hclBody.AppendNewline()
 	case resourcemanager.TerraformSchemaFieldTypeLocation:
 		// todo 99% of the time, this is based off a resource group. Account for that 1%?
-		hclBody.SetAttributeTraversal(hclName, hcl.Traversal{
+		hclBody.SetAttributeTraversal(input.HclName, hcl.Traversal{
 			hcl.TraverseRoot{
 				Name: "azurerm_resource_group.test.location",
 			},
 		})
 	case resourcemanager.TerraformSchemaFieldTypeResourceGroup:
-		hclBody.SetAttributeTraversal(hclName, hcl.Traversal{
+		hclBody.SetAttributeTraversal(input.HclName, hcl.Traversal{
 			hcl.TraverseRoot{
 				Name: "azurerm_resource_group.test.name",
 			},
@@ -190,9 +188,9 @@ func (h TestAttributesHelpers) codeForTestAttribute(input resourcemanager.Terraf
 			"test": cty.StringVal("Acceptance"),
 		}))
 	case resourcemanager.TerraformSchemaFieldTypeZone:
-		hclBody.SetAttributeValue(hclName, cty.NumberIntVal(1))
+		hclBody.SetAttributeValue(input.HclName, cty.NumberIntVal(1))
 	case resourcemanager.TerraformSchemaFieldTypeZones:
-		hclBody.SetAttributeValue(hclName, cty.ListVal([]cty.Value{
+		hclBody.SetAttributeValue(input.HclName, cty.ListVal([]cty.Value{
 			cty.StringVal("1")}))
 	}
 
