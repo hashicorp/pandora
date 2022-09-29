@@ -18,8 +18,12 @@ func (t pipelineTask) generateTerraformTests(data *models.AzureApiDefinition, lo
 		if t := resource.Terraform; t != nil {
 			for resourceName, resourceDetails := range t.Resources {
 				logger.Trace(fmt.Sprintf("Generating Tests for %q", resourceName))
+				h := testattributes.TestAttributesHelpers{
+					SchemaModels: resourceDetails.SchemaModels,
+					Dependencies: &testattributes.TestDependencyHelper{},
+				}
 
-				basicTest, err := generateTestConfig(resourceDetails, true)
+				basicTest, err := generateTestConfig(resourceDetails, true, h)
 				if err != nil {
 					return nil, err
 				}
@@ -27,7 +31,7 @@ func (t pipelineTask) generateTerraformTests(data *models.AzureApiDefinition, lo
 					resourceDetails.Tests.BasicConfiguration = *basicTest
 				}
 
-				importTest, err := generateImportTestConfig(resourceDetails)
+				importTest, err := generateImportTestConfig(resourceDetails, h)
 				if err != nil {
 					return nil, err
 				}
@@ -36,7 +40,7 @@ func (t pipelineTask) generateTerraformTests(data *models.AzureApiDefinition, lo
 				}
 
 				// todo check that there not attributes are required before calling this
-				completeTest, err := generateTestConfig(resourceDetails, false)
+				completeTest, err := generateTestConfig(resourceDetails, false, h)
 				if err != nil {
 					return nil, err
 				}
@@ -45,6 +49,7 @@ func (t pipelineTask) generateTerraformTests(data *models.AzureApiDefinition, lo
 				}
 
 				// todo figure out ids that could be resources and have those added to the template
+				resourceDetails.Tests.TemplateConfiguration = generateTestTemplate(*h.Dependencies)
 
 				if t.Resources == nil {
 					t.Resources = map[string]resourcemanager.TerraformResourceDetails{resourceName: resourceDetails}
@@ -58,16 +63,13 @@ func (t pipelineTask) generateTerraformTests(data *models.AzureApiDefinition, lo
 	return data, nil
 }
 
-func generateTestConfig(input resourcemanager.TerraformResourceDetails, requiredOnly bool) (*string, error) {
+func generateTestConfig(input resourcemanager.TerraformResourceDetails, requiredOnly bool, helper testattributes.TestAttributesHelpers) (*string, error) {
 	f := hclwrite.NewEmptyFile()
-	h := testattributes.TestAttributesHelpers{
-		SchemaModels: input.SchemaModels,
-	}
 
 	// todo don't hardcode azurerm
 	resourceHeader := fmt.Sprintf(`resource "azurerm_%s" "test"`, helpers.ConvertToSnakeCase(input.ResourceName))
 
-	if err := h.GetAttributesForTests(input.SchemaModels[input.SchemaModelName], *f.Body().AppendNewBlock(resourceHeader, nil).Body(), requiredOnly); err != nil {
+	if err := helper.GetAttributesForTests(input.SchemaModels[input.SchemaModelName], *f.Body().AppendNewBlock(resourceHeader, nil).Body(), requiredOnly); err != nil {
 		return nil, err
 	}
 
@@ -77,16 +79,13 @@ func generateTestConfig(input resourcemanager.TerraformResourceDetails, required
 	return &output, nil
 }
 
-func generateImportTestConfig(input resourcemanager.TerraformResourceDetails) (*string, error) {
+func generateImportTestConfig(input resourcemanager.TerraformResourceDetails, helper testattributes.TestAttributesHelpers) (*string, error) {
 	f := hclwrite.NewEmptyFile()
-	h := testattributes.TestAttributesHelpers{
-		SchemaModels: input.SchemaModels,
-	}
 
 	// todo don't hardcode azurerm
 	resourceHeader := fmt.Sprintf(`resource "azurerm_%s" "import"`, helpers.ConvertToSnakeCase(input.ResourceName))
 
-	if err := h.GetAttributesForTests(input.SchemaModels[input.SchemaModelName], *f.Body().AppendNewBlock(resourceHeader, nil).Body(), true); err != nil {
+	if err := helper.GetAttributesForTests(input.SchemaModels[input.SchemaModelName], *f.Body().AppendNewBlock(resourceHeader, nil).Body(), true); err != nil {
 		return nil, err
 	}
 
@@ -103,4 +102,47 @@ func generateImportTestConfig(input resourcemanager.TerraformResourceDetails) (*
 %s
 `, hclwrite.Format(f.Bytes())), "\"", "'", -1)
 	return &output, nil
+}
+
+func generateTestTemplate(dependencies testattributes.TestDependencyHelper) *string {
+	output := `
+provider "azurerm" {
+	features {}
+}
+
+`
+	// todo add random local variables
+
+	// todo don't hardcode location
+	if dependencies.Resource.HasResourceGroup {
+		output += `
+resource "azurerm_resource_group" "test" {
+  name     = "acctestRG-${local.random_integer}"
+  location = "West Europe"
+}
+
+`
+	}
+
+	if dependencies.Resource.HasEdgeZone {
+		output += `
+data "azurerm_extended_locations" "test" {
+  location = azurerm_resource_group.test.location
+}
+
+`
+	}
+
+	if dependencies.Resource.HasUserAssignedIdentity {
+		output += `
+resource "azurerm_user_assigned_identity" "test" {
+  name                = "acctest-${local.random_integer}"
+  resource_group_name = azurerm_resource_group.test.name
+  location            = azurerm_resource_group.test.location
+}
+
+`
+	}
+
+	return &output
 }

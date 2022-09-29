@@ -13,6 +13,23 @@ import (
 
 type TestAttributesHelpers struct {
 	SchemaModels map[string]resourcemanager.TerraformSchemaModelDefinition
+	Dependencies *TestDependencyHelper
+}
+
+type TestDependencyHelper struct {
+	Resource  DependentResources
+	Variables DependentVariables
+}
+
+type DependentResources struct {
+	HasResourceGroup        bool
+	HasEdgeZone             bool
+	HasUserAssignedIdentity bool
+}
+
+type DependentVariables struct {
+	HasRandomInt    bool
+	HasRandomString bool
 }
 
 // GetAttributesForTests builds terraform configuration based on the attributes passed in.
@@ -138,6 +155,11 @@ func (h TestAttributesHelpers) codeForTestAttribute(input resourcemanager.Terraf
 				Name: "data.azurerm_extended_locations.test.extended_locations[0]",
 			},
 		})
+		if h.Dependencies != nil {
+			h.Dependencies.Resource.HasEdgeZone = true
+			h.Dependencies.Resource.HasResourceGroup = true
+			h.Dependencies.Variables.HasRandomInt = true
+		}
 	case resourcemanager.TerraformSchemaFieldTypeIdentitySystemAssigned, resourcemanager.TerraformSchemaFieldTypeIdentitySystemOrUserAssigned:
 		hclBody.AppendNewline()
 		identityBody := *hclBody.AppendNewBlock(input.HclName, nil).Body()
@@ -156,6 +178,11 @@ func (h TestAttributesHelpers) codeForTestAttribute(input resourcemanager.Terraf
 				},
 			})}))
 		hclBody.AppendNewline()
+		if h.Dependencies != nil {
+			h.Dependencies.Resource.HasUserAssignedIdentity = true
+			h.Dependencies.Resource.HasResourceGroup = true
+			h.Dependencies.Variables.HasRandomInt = true
+		}
 	case resourcemanager.TerraformSchemaFieldTypeIdentityUserAssigned:
 		hclBody.AppendNewline()
 		identityBody := *hclBody.AppendNewBlock(input.HclName, nil).Body()
@@ -169,6 +196,11 @@ func (h TestAttributesHelpers) codeForTestAttribute(input resourcemanager.Terraf
 				},
 			})}))
 		hclBody.AppendNewline()
+		if h.Dependencies != nil {
+			h.Dependencies.Resource.HasUserAssignedIdentity = true
+			h.Dependencies.Resource.HasResourceGroup = true
+			h.Dependencies.Variables.HasRandomInt = true
+		}
 	case resourcemanager.TerraformSchemaFieldTypeLocation:
 		// todo 99% of the time, this is based off a resource group. Account for that 1%?
 		hclBody.SetAttributeTraversal(input.HclName, hcl.Traversal{
@@ -176,12 +208,20 @@ func (h TestAttributesHelpers) codeForTestAttribute(input resourcemanager.Terraf
 				Name: "azurerm_resource_group.test.location",
 			},
 		})
+		if h.Dependencies != nil {
+			h.Dependencies.Variables.HasRandomInt = true
+			h.Dependencies.Resource.HasResourceGroup = true
+		}
 	case resourcemanager.TerraformSchemaFieldTypeResourceGroup:
 		hclBody.SetAttributeTraversal(input.HclName, hcl.Traversal{
 			hcl.TraverseRoot{
 				Name: "azurerm_resource_group.test.name",
 			},
 		})
+		if h.Dependencies != nil {
+			h.Dependencies.Variables.HasRandomInt = true
+			h.Dependencies.Resource.HasResourceGroup = true
+		}
 	case resourcemanager.TerraformSchemaFieldTypeTags:
 		hclBody.SetAttributeValue("tags", cty.ObjectVal(map[string]cty.Value{
 			"env":  cty.StringVal("Production"),
