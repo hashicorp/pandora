@@ -131,7 +131,7 @@ func codeForResourceTestConfigurationFunctions(input models.ResourceInput) (*str
 
 	template := ""
 	if tests.TemplateConfiguration != nil {
-		template = *tests.TemplateConfiguration
+		template = trimNewLinesAroundHclConfig(*tests.TemplateConfiguration)
 	}
 	functions := make([]string, 0)
 	if tests.CompleteConfiguration != nil {
@@ -164,13 +164,9 @@ func (r %[1]sTestResource) complete(data acceptance.TestData) string {
 		functions = append(functions, testFunction)
 	}
 
-	basicConfig := strings.TrimRightFunc(tests.BasicConfiguration, func(r rune) bool {
-		return unicode.IsSpace(r)
-	})
+	basicConfig := trimNewLinesAroundHclConfig(tests.BasicConfiguration)
 
-	importConfig := strings.TrimRightFunc(tests.RequiresImportConfiguration, func(r rune) bool {
-		return unicode.IsSpace(r)
-	})
+	importConfig := trimNewLinesAroundHclConfig(tests.RequiresImportConfiguration)
 
 	output := fmt.Sprintf(`
 func (r %[1]sTestResource) basic(data acceptance.TestData) string {
@@ -197,6 +193,7 @@ locals {
   random_integer   = %%[1]d
   primary_location = %%[2]q
 }
+
 %[5]s
 ', data.RandomInteger, data.Locations.Primary)
 }
@@ -264,4 +261,16 @@ func (r %[1]sTestResource) %[2]s(data acceptance.TestData) string {
 	}
 
 	return strings.Join(configs, "\n")
+}
+
+func trimNewLinesAroundHclConfig(body string) string {
+	out := strings.TrimRightFunc(strings.Replace(body, "\t", "", -1), func(r rune) bool {
+		return unicode.IsSpace(r)
+	})
+
+	out = strings.TrimLeftFunc(strings.Replace(out, "\t", "", -1), func(r rune) bool {
+		return unicode.IsSpace(r)
+	})
+
+	return out
 }
