@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Pandora.Data.Helpers;
+using Pandora.Data.Models;
 using Pandora.Definitions.Mappings;
 
 namespace Pandora.Data.Transformers;
@@ -11,6 +12,7 @@ public static class TerraformMappingDefinition
     public static Models.TerraformMappingDefinition Map(Definitions.Interfaces.TerraformMappingDefinition input)
     {
         var fields = new List<Models.TerraformFieldMappingDefinition>();
+        var modelToModels = new List<Models.TerraformModelToModelMappingDefinition>();
         var resourceIds = new List<Models.TerraformResourceIDMappingDefinition>();
 
         foreach (var item in input.Mappings)
@@ -27,17 +29,24 @@ public static class TerraformMappingDefinition
 
             if (item is DirectAssignmentMapping mapping)
             {
+                var schemaModelName = mapping.FromSchemaModelName.RemoveModelSuffixFromTypeName();
+                var sdkModelName = mapping.ToSdkModelName.RemoveModelSuffixFromTypeName();
                 fields.Add(new Models.TerraformFieldMappingDefinition
                 {
                     Type = Models.TerraformFieldMappingType.DirectAssignment,
                     DirectAssignment = new Models.TerraformFieldMappingDirectAssignmentDefinition
                     {
-                        SchemaModelName = mapping.FromSchemaModelName.RemoveModelSuffixFromTypeName(),
+                        SchemaModelName = schemaModelName,
                         SchemaFieldName = mapping.FromSchemaPath,
 
-                        SdkModelName = mapping.ToSdkModelName.RemoveModelSuffixFromTypeName(),
+                        SdkModelName = sdkModelName,
                         SdkFieldName = mapping.ToSdkFieldPath,
                     },
+                });
+                modelToModels.Add(new TerraformModelToModelMappingDefinition
+                {
+                    SchemaModelName = schemaModelName,
+                    SdkModelName = sdkModelName,
                 });
                 continue;
             }
@@ -47,9 +56,11 @@ public static class TerraformMappingDefinition
             throw new NotSupportedException($"unsupported mapping type {item.GetType().Name}");
         }
 
+        modelToModels = modelToModels.DistinctBy(m => string.Format($"{m.SchemaModelName}-{m.SdkModelName}")).ToList();
         return new Models.TerraformMappingDefinition
         {
             Fields = fields.ToList(),
+            ModelToModel = modelToModels,
             ResourceIds = resourceIds.ToList(),
         };
     }

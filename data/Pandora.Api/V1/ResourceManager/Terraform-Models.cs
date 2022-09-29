@@ -263,8 +263,20 @@ public partial class TerraformController
         [JsonPropertyName("fields")]
         public List<FieldMappingDefinition> Fields { get; set; }
 
+        [JsonPropertyName("modelToModel")]
+        public List<ModelToModelMappingDefinition> ModelToModel { get; set; }
+
         [JsonPropertyName("resourceId")]
         public List<ResourceIdMappingDefinition> ResourceId { get; set; }
+    }
+
+    private class ModelToModelMappingDefinition
+    {
+        [JsonPropertyName("schemaModelName")]
+        public string SchemaModelName { get; set; }
+
+        [JsonPropertyName("sdkModelName")]
+        public string SdkModelName { get; set; }
     }
 
     private class FieldMappingDefinition
