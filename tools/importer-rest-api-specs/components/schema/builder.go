@@ -65,7 +65,8 @@ func (b Builder) Build(input resourcemanager.TerraformResourceDetails, logger hc
 
 		// models should be prefixed with the resource name to avoid conflicts where a model is reused across a package
 		// for example `VirtualMachineAdditionalCapabilitiesSchema`
-		nestedModelDetails, err := b.buildNestedModelDefinition(input.SchemaModelName, modelDetails, input, logger.Named(fmt.Sprintf("Nested Model Definition %q", modelName)))
+		prefixedModelName := fmt.Sprintf("%s%s", input.SchemaModelName, modelName)
+		nestedModelDetails, updatedMappings, err := b.buildNestedModelDefinition(prefixedModelName, input.SchemaModelName, modelName, modelDetails, input, mappings, logger.Named(fmt.Sprintf("Nested Model Definition %q", modelName)))
 		if err != nil {
 			return nil, nil, fmt.Errorf("building model definition for nested model %q: %+v", modelName, err)
 		}
@@ -74,8 +75,8 @@ func (b Builder) Build(input resourcemanager.TerraformResourceDetails, logger hc
 			return nil, nil, nil
 		}
 
-		prefixedModelName := fmt.Sprintf("%s%s", input.SchemaModelName, modelName)
 		schemaModels[prefixedModelName] = *nestedModelDetails
+		mappings = *updatedMappings
 	}
 
 	blockHclNamesRefMap := make(map[string]string)
@@ -116,12 +117,15 @@ func (b Builder) Build(input resourcemanager.TerraformResourceDetails, logger hc
 	}
 
 	// finally go through and remove any unused models
-	schemaModels, mappings = removeUnusedModels(input, schemaModels, mappings)
+	outputSchemaModels, outputMappings, err := removeUnusedModelsAndMappings(input, schemaModels, mappings)
+	if err != nil {
+		return nil, nil, fmt.Errorf("removing unused models/mappings: %+v", err)
+	}
 
-	return &schemaModels, &mappings, nil
+	return outputSchemaModels, outputMappings, nil
 }
 
-func removeUnusedModels(input resourcemanager.TerraformResourceDetails, models map[string]resourcemanager.TerraformSchemaModelDefinition, mappings resourcemanager.MappingDefinition) (map[string]resourcemanager.TerraformSchemaModelDefinition, resourcemanager.MappingDefinition) {
+func removeUnusedModelsAndMappings(input resourcemanager.TerraformResourceDetails, models map[string]resourcemanager.TerraformSchemaModelDefinition, mappings resourcemanager.MappingDefinition) (*map[string]resourcemanager.TerraformSchemaModelDefinition, *resourcemanager.MappingDefinition, error) {
 	unusedModels := make(map[string]struct{}, 0)
 	// first assume everything is unused
 	for modelName := range models {
@@ -143,10 +147,38 @@ func removeUnusedModels(input resourcemanager.TerraformResourceDetails, models m
 	// remove any unreferenced models
 	for modelName := range unusedModels {
 		delete(models, modelName)
-		// TODO: go through and remove any mappings too
+
+		updatedMappings, err := removeUnusedMappingsFromSchemaModelNamed(modelName, mappings.Fields)
+		if err != nil {
+			return nil, nil, fmt.Errorf("removing unused schema mappings for model named %q: %+v", modelName, err)
+		}
+		mappings.Fields = *updatedMappings
 	}
 
-	return models, mappings
+	return &models, &mappings, nil
+}
+
+func removeUnusedMappingsFromSchemaModelNamed(modelName string, inputMappings []resourcemanager.FieldMappingDefinition) (*[]resourcemanager.FieldMappingDefinition, error) {
+	output := make([]resourcemanager.FieldMappingDefinition, 0)
+
+	for _, item := range inputMappings {
+		switch item.Type {
+		case resourcemanager.DirectAssignmentMappingDefinitionType:
+			{
+				if item.DirectAssignment.SchemaModelName != modelName {
+					output = append(output, item)
+				}
+				continue
+			}
+
+		default:
+			{
+				return nil, fmt.Errorf("internal-error: unimplemented mapping type %q", string(item.Type))
+			}
+		}
+	}
+
+	return &output, nil
 }
 
 type modelParseResult struct {
@@ -256,50 +288,6 @@ func modelsMatch(first resourcemanager.ModelDetails, second resourcemanager.Mode
 	return len(first.Fields) == len(second.Fields)
 }
 
-func (b Builder) buildNestedModelDefinition(modelPrefix string, model resourcemanager.ModelDetails, details resourcemanager.TerraformResourceDetails, logger hclog.Logger) (*resourcemanager.TerraformSchemaModelDefinition, error) {
-	out := make(map[string]resourcemanager.TerraformSchemaFieldDefinition, 0)
-
-	for k, v := range model.Fields {
-		if objectDefinitionShouldBeSkipped(v.ObjectDefinition.Type) {
-			continue
-		}
-
-		isComputed := !v.Required && !v.Optional
-		isForceNew := v.ForceNew
-		isRequired := v.Required
-		isOptional := v.Optional
-
-		definition := resourcemanager.TerraformSchemaFieldDefinition{
-			Required: isRequired,
-			ForceNew: isForceNew,
-			Optional: isOptional,
-			Computed: isComputed,
-		}
-		// TODO: refactor this to use the shared logic
-
-		fieldObjectDefinition, err := b.convertToFieldObjectDefinition(modelPrefix, v.ObjectDefinition)
-		if err != nil {
-			return nil, fmt.Errorf("converting ObjectDefinition for field to a TerraformFieldObjectDefinition: %+v", err)
-		}
-		definition.ObjectDefinition = *fieldObjectDefinition
-		fieldName, err := updateFieldName(k, &model, &details)
-		if err != nil {
-			return nil, err
-		}
-
-		validation, err := getFieldValidation(v.Validation, fieldName)
-		if err != nil {
-			return nil, err
-		}
-		definition.Validation = validation
-		out[fieldName] = definition
-	}
-
-	return &resourcemanager.TerraformSchemaModelDefinition{
-		Fields: out,
-	}, nil
-}
-
 func (b Builder) findCreateUpdateReadPayloads(input resourcemanager.TerraformResourceDetails) (*operationPayloads, error) {
 	out := operationPayloads{}
 
@@ -373,8 +361,57 @@ func (b Builder) findCreateUpdateReadPayloads(input resourcemanager.TerraformRes
 		out.updatePropertiesModelName = updatePropsModelName
 		out.updatePropertiesPayload = updatePropsModel
 	}
+
 	// NOTE: intentionally not including Delete since the payload shouldn't be applicable to users
 	return &out, nil
+}
+
+func (b Builder) buildNestedModelDefinition(schemaModelName, topLevelModelName, sdkModelName string, model resourcemanager.ModelDetails, details resourcemanager.TerraformResourceDetails, mappings resourcemanager.MappingDefinition, logger hclog.Logger) (*resourcemanager.TerraformSchemaModelDefinition, *resourcemanager.MappingDefinition, error) {
+	out := make(map[string]resourcemanager.TerraformSchemaFieldDefinition, 0)
+
+	for sdkFieldName, sdkField := range model.Fields {
+		logger.Trace(fmt.Sprintf("Processing Field %q", sdkFieldName))
+		if objectDefinitionShouldBeSkipped(sdkField.ObjectDefinition.Type) {
+			logger.Trace(fmt.Sprintf("Field %q's Object Definition should be filtered out, skipping", sdkFieldName))
+			continue
+		}
+
+		isComputed := !sdkField.Required && !sdkField.Optional
+		isForceNew := sdkField.ForceNew
+		isRequired := sdkField.Required
+		isOptional := sdkField.Optional
+
+		definition := resourcemanager.TerraformSchemaFieldDefinition{
+			Required: isRequired,
+			ForceNew: isForceNew,
+			Optional: isOptional,
+			Computed: isComputed,
+		}
+		// TODO: refactor this to use the shared logic
+
+		fieldObjectDefinition, err := b.convertToFieldObjectDefinition(topLevelModelName, sdkField.ObjectDefinition)
+		if err != nil {
+			return nil, nil, fmt.Errorf("converting ObjectDefinition for field to a TerraformFieldObjectDefinition: %+v", err)
+		}
+		definition.ObjectDefinition = *fieldObjectDefinition
+		schemaFieldName, err := updateFieldName(sdkFieldName, &model, &details)
+		if err != nil {
+			return nil, nil, err
+		}
+
+		validation, err := getFieldValidation(sdkField.Validation, schemaFieldName)
+		if err != nil {
+			return nil, nil, err
+		}
+		definition.Validation = validation
+		out[schemaFieldName] = definition
+
+		mappings.Fields = append(mappings.Fields, directAssignmentMappingBetween(schemaModelName, schemaFieldName, sdkModelName, sdkFieldName))
+	}
+
+	return &resourcemanager.TerraformSchemaModelDefinition{
+		Fields: out,
+	}, &mappings, nil
 }
 
 func (b Builder) identifyModelsWithinField(field resourcemanager.FieldDetails, knownModels map[string]resourcemanager.ModelDetails, logger hclog.Logger) (*map[string]resourcemanager.ModelDetails, error) {
