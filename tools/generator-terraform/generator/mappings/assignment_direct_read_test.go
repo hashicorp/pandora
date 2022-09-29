@@ -1123,22 +1123,22 @@ func TestDirectAssignment_Read_Model_OptionalToOptional_MatchingSimpleTypes(t *t
 		{
 			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeBoolean,
 			sdkFieldType:         resourcemanager.BooleanApiObjectDefinitionType,
-			expected:             `output.FromPath = input.ToPath`,
+			expected:             `output.FromPath = pointer.From(input.ToPath)`,
 		},
 		{
 			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeFloat,
 			sdkFieldType:         resourcemanager.FloatApiObjectDefinitionType,
-			expected:             `output.FromPath = input.ToPath`,
+			expected:             `output.FromPath = pointer.From(input.ToPath)`,
 		},
 		{
 			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeInteger,
 			sdkFieldType:         resourcemanager.IntegerApiObjectDefinitionType,
-			expected:             `output.FromPath = input.ToPath`,
+			expected:             `output.FromPath = pointer.From(input.ToPath)`,
 		},
 		{
 			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeString,
 			sdkFieldType:         resourcemanager.StringApiObjectDefinitionType,
-			expected:             `output.FromPath = input.ToPath`,
+			expected:             `output.FromPath = pointer.From(input.ToPath)`,
 		},
 	}
 	for i, v := range testData {

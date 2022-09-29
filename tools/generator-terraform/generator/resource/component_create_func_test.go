@@ -8,8 +8,6 @@ import (
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-// TODO: re-introduce Mappings for Schema <-> SDK
-
 // Create is complex enough that testing every permutation at the top level is complicated
 // so we'll test the happy path and then each individual component
 

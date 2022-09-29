@@ -15,6 +15,7 @@ var directAssignmentTypes = map[resourcemanager.TerraformSchemaFieldType]resourc
 	resourcemanager.TerraformSchemaFieldTypeString:  resourcemanager.StringApiObjectDefinitionType,
 
 	// TODO: handle/tests
+	resourcemanager.TerraformSchemaFieldTypeDateTime:               resourcemanager.DateTimeApiObjectDefinitionType,
 	resourcemanager.TerraformSchemaFieldTypeLocation:               resourcemanager.LocationApiObjectDefinitionType,
 	resourcemanager.TerraformSchemaFieldTypeTags:                   resourcemanager.TagsApiObjectDefinitionType,
 	resourcemanager.TerraformSchemaFieldTypeReference:              resourcemanager.ReferenceApiObjectDefinitionType,
@@ -135,7 +136,7 @@ if input.%[3]s != nil {
 	}
 
 	// optional -> optional
-	line := fmt.Sprintf(`output.%[1]s = input.%[2]s`, mapping.DirectAssignment.SdkFieldPath, mapping.DirectAssignment.SchemaFieldPath)
+	line := fmt.Sprintf(`output.%[1]s = &input.%[2]s`, mapping.DirectAssignment.SdkFieldPath, mapping.DirectAssignment.SchemaFieldPath)
 	return &line, nil
 }
 
@@ -294,7 +295,7 @@ if input.%[2]s != nil {
 	}
 
 	// optional -> optional
-	line := fmt.Sprintf(`output.%[1]s = input.%[2]s`, mapping.DirectAssignment.SchemaFieldPath, mapping.DirectAssignment.SdkFieldPath)
+	line := fmt.Sprintf(`output.%[1]s = pointer.From(input.%[2]s)`, mapping.DirectAssignment.SchemaFieldPath, mapping.DirectAssignment.SdkFieldPath)
 	return &line, nil
 }
 
@@ -314,7 +315,7 @@ func (d directAssignmentLine) sdkToSchemaMappingBetweenListFields(mapping resour
 
 		if schemaField.Required {
 			line := fmt.Sprintf(`
-%[4]s := make(%[2]s, 0)
+%[4]s := make([]%[2]s, 0)
 for _, v := range input.%[3]s {
 	%[4]s = append(%[4]s, %[2]s(v))
 }
@@ -322,7 +323,7 @@ output.%[1]s = %[4]s
 `, mapping.DirectAssignment.SdkFieldPath, constantGoType, mapping.DirectAssignment.SchemaFieldPath, sdkField.JsonName)
 			if sdkField.Optional {
 				line = fmt.Sprintf(`
-%[4]s := make(%[2]s, 0)
+%[4]s := make([]%[2]s, 0)
 for _, v := range input.%[3]s {
 	%[4]s = append(%[4]s, %[2]s(v))
 }
@@ -339,7 +340,7 @@ output.%[1]s = &%[4]s
 		}
 
 		line := fmt.Sprintf(`
-%[4]s := make(%[2]s, 0)
+%[4]s := make([]%[2]s, 0)
 if input.%[3]s != nil {
 	for _, v := range *input.%[3]s {
 		%[4]s = append(%[4]s, %[2]s(v))

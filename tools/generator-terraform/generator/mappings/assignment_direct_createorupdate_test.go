@@ -1120,22 +1120,22 @@ func TestDirectAssignment_CreateOrUpdate_Model_OptionalToOptional_MatchingSimple
 		{
 			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeBoolean,
 			sdkFieldType:         resourcemanager.BooleanApiObjectDefinitionType,
-			expected:             `output.ToPath = input.FromPath`,
+			expected:             `output.ToPath = &input.FromPath`,
 		},
 		{
 			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeFloat,
 			sdkFieldType:         resourcemanager.FloatApiObjectDefinitionType,
-			expected:             `output.ToPath = input.FromPath`,
+			expected:             `output.ToPath = &input.FromPath`,
 		},
 		{
 			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeInteger,
 			sdkFieldType:         resourcemanager.IntegerApiObjectDefinitionType,
-			expected:             `output.ToPath = input.FromPath`,
+			expected:             `output.ToPath = &input.FromPath`,
 		},
 		{
 			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeString,
 			sdkFieldType:         resourcemanager.StringApiObjectDefinitionType,
-			expected:             `output.ToPath = input.FromPath`,
+			expected:             `output.ToPath = &input.FromPath`,
 		},
 	}
 	for i, v := range testData {

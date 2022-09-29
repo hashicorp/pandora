@@ -130,18 +130,15 @@ func (c readFunctionComponents) codeForModelAssignments() (*string, error) {
 	if err != nil {
 		return nil, fmt.Errorf("building code for resource id mappings: %+v", err)
 	}
-	// then output the top-level mappings, which'll call into nested items as required
 
-	// TODO: re-introduce top-level mappings
-	//topLevelMappings, err := c.codeForTopLevelMappings()
-	//if err != nil {
-	//	return nil, fmt.Errorf("building code for top-level field mappings: %+v", err)
-	//}
 	output := fmt.Sprintf(`
 			if model := resp.Model; model != nil {
 				%[1]s
+				if err := r.map%[2]sTo%[3]s(*model, &schema); err != nil {
+					return fmt.Errorf("flattening model: %%+v", err)
+				}
 			}
-`, *resourceIdMappings)
+`, *resourceIdMappings, *c.readOperation.ResponseObject.ReferenceName, c.schemaModelName)
 	return &output, nil
 }
 
@@ -181,36 +178,5 @@ func (c readFunctionComponents) codeForResourceIdMappings() (*string, error) {
 	sort.Strings(lines)
 
 	output := strings.Join(lines, "\n")
-	return &output, nil
-}
-
-func (c readFunctionComponents) codeForTopLevelMappings() (*string, error) {
-	// TODO: tests for this
-	mappings := make([]string, 0)
-
-	//// ensure these are output alphabetically for consistency purposes across re-generations
-	//orderedFieldNames := make([]string, 0)
-	//for fieldName := range c.terraformModel.Fields {
-	//	orderedFieldNames = append(orderedFieldNames, fieldName)
-	//}
-	//sort.Strings(orderedFieldNames)
-	//
-	//for _, tfFieldName := range orderedFieldNames {
-	//	tfField := c.terraformModel.Fields[tfFieldName]
-	//	if tfField.Mappings.SdkPathForRead == nil {
-	//		continue
-	//	}
-	//
-	//	assignmentVariable := fmt.Sprintf("schema.%s", tfFieldName)
-	//	codeForMapping, err := flattenAssignmentCodeForField(assignmentVariable, tfFieldName, tfField, c.topLevelModel, c.models)
-	//	if err != nil {
-	//		return nil, fmt.Errorf("building flatten assignment code for field %q: %+v", tfFieldName, err)
-	//	}
-	//
-	//	mappings = append(mappings, *codeForMapping)
-	//}
-
-	sort.Strings(mappings)
-	output := strings.Join(mappings, "\n")
 	return &output, nil
 }

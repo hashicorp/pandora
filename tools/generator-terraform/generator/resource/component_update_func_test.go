@@ -10,8 +10,6 @@ import (
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-// TODO: re-introduce Mappings for both Resource ID <-> Schema and Schema <-> SDK
-
 func TestComponentUpdate_HappyPathDisabled(t *testing.T) {
 	input := models.ResourceInput{}
 	actual, err := updateFuncForResource(input)
@@ -756,54 +754,6 @@ func TestComponentUpdate_HappyPathEnabled_RegularResourceID_UniqueModels(t *test
 	assertTemplatedCodeMatches(t, expected, *actual)
 }
 
-func TestComponentUpdate_MappingsFromSchema_NoFields(t *testing.T) {
-	// TODO: remove this once the feature-flag is properly threaded through
-	if !featureflags.OutputMappings {
-		t.Skip("skipping since `featureflags.OutputMappings` is disabled")
-	}
-
-	actual, err := updateFuncHelpers{
-		terraformModel: resourcemanager.TerraformSchemaModelDefinition{
-			Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{},
-		},
-	}.mappingsFromSchema()
-	if err != nil {
-		t.Fatalf("error: %+v", err)
-	}
-	expected := ``
-	assertTemplatedCodeMatches(t, expected, *actual)
-}
-
-func TestComponentUpdate_MappingsFromSchema_TopLevelFields(t *testing.T) {
-	// TODO: remove this once the feature-flag is properly threaded through
-	if !featureflags.OutputMappings {
-		t.Skip("skipping since `featureflags.OutputMappings` is disabled")
-	}
-
-	actual, err := updateFuncHelpers{
-		terraformModel: resourcemanager.TerraformSchemaModelDefinition{
-			Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
-				"SomeField": {
-					ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-						Type: resourcemanager.TerraformSchemaFieldTypeString,
-					},
-					Required: true,
-					HclName:  "some_field",
-				},
-			},
-		},
-	}.mappingsFromSchema()
-	if err != nil {
-		t.Fatalf("error: %+v", err)
-	}
-	expected := `
-	if metadata.ResourceData.HasChange("some_field") {
-		payload.SomeSchemaField = config.SomeField
-	}
-`
-	assertTemplatedCodeMatches(t, expected, *actual)
-}
-
 func TestComponentUpdate_ModelDecode(t *testing.T) {
 	actual, err := updateFuncHelpers{
 		resourceTypeName: "AwesomeResource",
@@ -868,55 +818,6 @@ func TestComponentUpdate_PayloadDefinition_ModelSharedBetweenCreateReadUpdate(t 
 	assertTemplatedCodeMatches(t, expected, *actual)
 }
 
-func TestComponentUpdate_PayloadDefinition_ModelSharedBetweenCreateReadUpdateThatIsNotAReference(t *testing.T) {
-	actual, err := updateFuncHelpers{
-		createMethod: resourcemanager.ApiOperation{
-			LongRunning: false,
-			RequestObject: &resourcemanager.ApiObjectDefinition{
-				Type: resourcemanager.ListApiObjectDefinitionType,
-				NestedItem: &resourcemanager.ApiObjectDefinition{
-					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-					ReferenceName: stringPointer("SharedListPayload"),
-				},
-			},
-			ResourceIdName: stringPointer("SomeId"),
-		},
-		createMethodName: "Create",
-		readMethod: resourcemanager.ApiOperation{
-			LongRunning: false,
-			ResponseObject: &resourcemanager.ApiObjectDefinition{
-				Type: resourcemanager.ListApiObjectDefinitionType,
-				NestedItem: &resourcemanager.ApiObjectDefinition{
-					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-					ReferenceName: stringPointer("SharedListPayload"),
-				},
-			},
-			ResourceIdName: stringPointer("SomeId"),
-		},
-		readMethodName: "Get",
-		updateMethod: resourcemanager.ApiOperation{
-			LongRunning: false,
-			RequestObject: &resourcemanager.ApiObjectDefinition{
-				Type: resourcemanager.ListApiObjectDefinitionType,
-				NestedItem: &resourcemanager.ApiObjectDefinition{
-					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-					ReferenceName: stringPointer("SharedListPayload"),
-				},
-			},
-			ResourceIdName: stringPointer("SomeId"),
-		},
-		updateMethodName:       "Update",
-		sdkResourceNameLowered: "sdkresource",
-	}.payloadDefinition()
-	if err != nil {
-		t.Fatalf("error: %+v", err)
-	}
-	expected := `
-	payload := []sdkresource.SharedListPayload{}
-`
-	assertTemplatedCodeMatches(t, expected, *actual)
-}
-
 func TestComponentUpdate_PayloadDefinition_UniqueModelsForCreateReadUpdate(t *testing.T) {
 	actual, err := updateFuncHelpers{
 		createMethod: resourcemanager.ApiOperation{
@@ -952,7 +853,10 @@ func TestComponentUpdate_PayloadDefinition_UniqueModelsForCreateReadUpdate(t *te
 		t.Fatalf("error: %+v", err)
 	}
 	expected := `
-	payload := sdkresource.UpdatePayload{}
+	var payload sdkresource.UpdatePayload
+	if err := r.mapToUpdatePayload(config, &payload); err != nil {
+		return fmt.Errorf("mapping schema model to sdk model: %+v", err)
+	}
 `
 	assertTemplatedCodeMatches(t, expected, *actual)
 }

@@ -2,10 +2,7 @@ package resource
 
 import (
 	"fmt"
-	"sort"
 	"strings"
-
-	"github.com/hashicorp/pandora/tools/generator-terraform/featureflags"
 
 	"github.com/hashicorp/pandora/tools/generator-terraform/generator/models"
 
@@ -67,9 +64,6 @@ func updateFuncForResource(input models.ResourceInput) (*string, error) {
 		helpers.resourceIdParser,
 		helpers.modelDecode,
 		helpers.payloadDefinition,
-		// NOTE: we intentionally don't map fields from the Resource ID -> Payload
-		// since (per ARM) these don't need to be set
-		helpers.mappingsFromSchema,
 		helpers.update,
 	}
 
@@ -120,46 +114,6 @@ type updateFuncHelpers struct {
 	models         map[string]resourcemanager.ModelDetails
 }
 
-func (h updateFuncHelpers) mappingsFromSchema() (*string, error) {
-	if !featureflags.OutputMappings {
-		output := `// TODO: re-enable Mappings (featureflags.OutputMappings)`
-		return &output, nil
-	}
-
-	mappings := make([]string, 0)
-
-	//	// ensure these are output alphabetically for consistency purposes across re-generations
-	//	orderedFieldNames := make([]string, 0)
-	//	for fieldName := range h.terraformModel.Fields {
-	//		orderedFieldNames = append(orderedFieldNames, fieldName)
-	//	}
-	//	sort.Strings(orderedFieldNames)
-	//
-	//	for _, tfFieldName := range orderedFieldNames {
-	//		tfField := h.terraformModel.Fields[tfFieldName]
-	//		if tfField.Mappings.SdkPathForUpdate == nil {
-	//			continue
-	//		}
-	//
-	//		assignmentVariable := fmt.Sprintf("payload.%s", *tfField.Mappings.SdkPathForUpdate)
-	//		codeForMapping, err := expandAssignmentCodeForUpdateField(assignmentVariable, tfFieldName, tfField, h.topLevelModel, h.models)
-	//		if err != nil {
-	//			return nil, fmt.Errorf("building expand assignment code for field %q: %+v", tfFieldName, err)
-	//		}
-	//
-	//		mappingLine := strings.TrimSpace(fmt.Sprintf(`
-	//if metadata.ResourceData.HasChange(%[1]q) {
-	//	%[2]s
-	//}
-	//`, tfField.HclName, *codeForMapping))
-	//		mappings = append(mappings, mappingLine)
-	//	}
-
-	sort.Strings(mappings)
-	output := strings.Join(mappings, "\n")
-	return &output, nil
-}
-
 func (h updateFuncHelpers) modelDecode() (*string, error) {
 	output := fmt.Sprintf(`
 			var config %[1]s
@@ -201,8 +155,11 @@ func (h updateFuncHelpers) payloadDefinition() (*string, error) {
 	}
 
 	output := fmt.Sprintf(`
-			payload := %[1]s{}
-`, *updateObjectName)
+			var payload %[1]s
+			if err := r.map%[2]sTo%[3]s(config, &payload); err != nil {
+				return fmt.Errorf("mapping schema model to sdk model: %%+v", err)
+			}
+`, *updateObjectName, h.schemaModelName, *h.updateMethod.RequestObject.ReferenceName)
 	return &output, nil
 }
 
