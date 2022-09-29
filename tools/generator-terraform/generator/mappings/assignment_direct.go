@@ -31,7 +31,7 @@ type directAssignmentLine struct{}
 
 // TODO: support for when Mapping is Computed
 
-func (d directAssignmentLine) assignmentForCreateUpdateMapping(mapping resourcemanager.FieldMappingDefinition, schemaModel resourcemanager.TerraformSchemaModelDefinition, sdkModel resourcemanager.ModelDetails, sdkConstant *assignmentConstantDetails) (*string, error) {
+func (d directAssignmentLine) assignmentForCreateUpdateMapping(mapping resourcemanager.FieldMappingDefinition, schemaModel resourcemanager.TerraformSchemaModelDefinition, sdkModel resourcemanager.ModelDetails, sdkConstant *assignmentConstantDetails, apiResourcePackageName string) (*string, error) {
 	schemaFieldName, err := singleFieldNameFromFieldPath(mapping.DirectAssignment.SchemaFieldPath)
 	if err != nil {
 		return nil, fmt.Errorf("obtaining Schema Field Name from Field Path %q: %+v", mapping.DirectAssignment.SchemaFieldPath, err)
@@ -52,13 +52,13 @@ func (d directAssignmentLine) assignmentForCreateUpdateMapping(mapping resourcem
 
 	// check the assignment type - if it's a List these are special-cased
 	if schemaField.ObjectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeList && sdkField.ObjectDefinition.Type == resourcemanager.ListApiObjectDefinitionType {
-		return d.createUpdateMappingBetweenListFields(mapping, schemaField, sdkField, sdkConstant)
+		return d.createUpdateMappingBetweenListFields(mapping, schemaField, sdkField, sdkConstant, apiResourcePackageName)
 	}
 
 	return d.createUpdateMappingBetweenFields(mapping, schemaField, sdkField, sdkConstant)
 }
 
-func (d directAssignmentLine) assignmentForReadMapping(mapping resourcemanager.FieldMappingDefinition, schemaModel resourcemanager.TerraformSchemaModelDefinition, sdkModel resourcemanager.ModelDetails, sdkConstant *assignmentConstantDetails) (*string, error) {
+func (d directAssignmentLine) assignmentForReadMapping(mapping resourcemanager.FieldMappingDefinition, schemaModel resourcemanager.TerraformSchemaModelDefinition, sdkModel resourcemanager.ModelDetails, sdkConstant *assignmentConstantDetails, apiResourcePackageName string) (*string, error) {
 	schemaFieldName, err := singleFieldNameFromFieldPath(mapping.DirectAssignment.SchemaFieldPath)
 	if err != nil {
 		return nil, fmt.Errorf("obtaining Schema Field Name from Field Path %q: %+v", mapping.DirectAssignment.SchemaFieldPath, err)
@@ -79,7 +79,7 @@ func (d directAssignmentLine) assignmentForReadMapping(mapping resourcemanager.F
 
 	// check the assignment type - if it's a List these are special-cased
 	if schemaField.ObjectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeList && sdkField.ObjectDefinition.Type == resourcemanager.ListApiObjectDefinitionType {
-		return d.readMappingBetweenListFields(mapping, schemaField, sdkField, sdkConstant)
+		return d.readMappingBetweenListFields(mapping, schemaField, sdkField, sdkConstant, apiResourcePackageName)
 	}
 
 	return d.readMappingBetweenFields(mapping, schemaField, sdkField, sdkConstant)
@@ -137,7 +137,7 @@ if input.%[3]s != nil {
 	return &line, nil
 }
 
-func (d directAssignmentLine) createUpdateMappingBetweenListFields(mapping resourcemanager.FieldMappingDefinition, schemaField resourcemanager.TerraformSchemaFieldDefinition, sdkField resourcemanager.FieldDetails, sdkConstant *assignmentConstantDetails) (*string, error) {
+func (d directAssignmentLine) createUpdateMappingBetweenListFields(mapping resourcemanager.FieldMappingDefinition, schemaField resourcemanager.TerraformSchemaFieldDefinition, sdkField resourcemanager.FieldDetails, sdkConstant *assignmentConstantDetails, apiResourcePackageName string) (*string, error) {
 	if sdkConstant != nil {
 		sdkConstantTypeName := fmt.Sprintf("%s.%s", sdkConstant.apiResourcePackageName, sdkConstant.constantName)
 		if schemaField.Required {
@@ -193,7 +193,7 @@ output.%[1]s = &%[4]s
 		return nil, fmt.Errorf("expected a DirectAssignment between %q and %q but got %q", string(schemaField.ObjectDefinition.NestedObject.Type), string(v), string(sdkField.ObjectDefinition.NestedItem.Type))
 	}
 
-	variableType, err := sdkField.ObjectDefinition.NestedItem.GolangTypeName(nil)
+	variableType, err := sdkField.ObjectDefinition.NestedItem.GolangTypeName(&apiResourcePackageName)
 	if err != nil {
 		return nil, fmt.Errorf("determining Golang Type for Sdk Model %q / Field %q Object Definition: %+v", mapping.DirectAssignment.SdkModelName, mapping.DirectAssignment.SdkFieldPath, err)
 	}
@@ -296,7 +296,7 @@ if input.%[2]s != nil {
 	return &line, nil
 }
 
-func (d directAssignmentLine) readMappingBetweenListFields(mapping resourcemanager.FieldMappingDefinition, schemaField resourcemanager.TerraformSchemaFieldDefinition, sdkField resourcemanager.FieldDetails, sdkConstant *assignmentConstantDetails) (*string, error) {
+func (d directAssignmentLine) readMappingBetweenListFields(mapping resourcemanager.FieldMappingDefinition, schemaField resourcemanager.TerraformSchemaFieldDefinition, sdkField resourcemanager.FieldDetails, sdkConstant *assignmentConstantDetails, apiResourcePackageName string) (*string, error) {
 	if schemaField.ObjectDefinition.NestedObject == nil {
 		return nil, fmt.Errorf("the Schema Model %q Field %q was a List with no NestedObject", mapping.DirectAssignment.SchemaModelName, mapping.DirectAssignment.SchemaFieldPath)
 	}
@@ -356,7 +356,7 @@ output.%[1]s = &%[4]s
 		return nil, fmt.Errorf("expected a DirectAssignment between %q and %q but got %q", string(schemaField.ObjectDefinition.NestedObject.Type), string(v), string(sdkField.ObjectDefinition.NestedItem.Type))
 	}
 
-	variableType, err := sdkField.ObjectDefinition.NestedItem.GolangTypeName(nil)
+	variableType, err := sdkField.ObjectDefinition.NestedItem.GolangTypeName(&apiResourcePackageName)
 	if err != nil {
 		return nil, fmt.Errorf("determining Golang Type for Sdk Model %q / Field %q Object Definition: %+v", mapping.DirectAssignment.SdkModelName, mapping.DirectAssignment.SdkFieldPath, err)
 	}

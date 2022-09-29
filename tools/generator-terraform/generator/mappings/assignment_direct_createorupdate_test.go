@@ -97,7 +97,7 @@ func TestDirectAssignment_CreateOrUpdate_Constant_RequiredToRequired_TopLevel(t 
 				},
 			},
 		}
-		actual, err := directAssignmentLine{}.assignmentForCreateUpdateMapping(mapping, schemaModel, sdkModel, &v.constant)
+		actual, err := directAssignmentLine{}.assignmentForCreateUpdateMapping(mapping, schemaModel, sdkModel, &v.constant, "sdkresource")
 		if err != nil {
 			t.Fatalf("retrieving create/update assignment mapping: %+v", err)
 		}
@@ -198,7 +198,7 @@ func TestDirectAssignment_CreateOrUpdate_Constant_RequiredToOptional_TopLevel(t 
 				},
 			},
 		}
-		actual, err := directAssignmentLine{}.assignmentForCreateUpdateMapping(mapping, schemaModel, sdkModel, &v.constant)
+		actual, err := directAssignmentLine{}.assignmentForCreateUpdateMapping(mapping, schemaModel, sdkModel, &v.constant, "sdkresource")
 		if err != nil {
 			t.Fatalf("retrieving create/update assignment mapping: %+v", err)
 		}
@@ -298,7 +298,7 @@ func TestDirectAssignment_CreateOrUpdate_Constant_OptionalToRequired_TopLevel(t 
 				},
 			},
 		}
-		actual, err := directAssignmentLine{}.assignmentForCreateUpdateMapping(mapping, schemaModel, sdkModel, &v.constant)
+		actual, err := directAssignmentLine{}.assignmentForCreateUpdateMapping(mapping, schemaModel, sdkModel, &v.constant, "sdkresource")
 		if err == nil {
 			t.Fatalf("expected an error but didn't get one")
 		}
@@ -410,7 +410,7 @@ if input.FromPath != nil {
 				},
 			},
 		}
-		actual, err := directAssignmentLine{}.assignmentForCreateUpdateMapping(mapping, schemaModel, sdkModel, &v.constant)
+		actual, err := directAssignmentLine{}.assignmentForCreateUpdateMapping(mapping, schemaModel, sdkModel, &v.constant, "sdkresource")
 		if err != nil {
 			t.Fatalf("retrieving create/update assignment mapping: %+v", err)
 		}
@@ -535,7 +535,7 @@ output.ToPath = toPath
 				},
 			},
 		}
-		actual, err := directAssignmentLine{}.assignmentForCreateUpdateMapping(mapping, schemaModel, sdkModel, &v.constant)
+		actual, err := directAssignmentLine{}.assignmentForCreateUpdateMapping(mapping, schemaModel, sdkModel, &v.constant, "sdkresource")
 		if err != nil {
 			t.Fatalf("retrieving create/update assignment mapping: %+v", err)
 		}
@@ -660,7 +660,7 @@ output.ToPath = &toPath
 				},
 			},
 		}
-		actual, err := directAssignmentLine{}.assignmentForCreateUpdateMapping(mapping, schemaModel, sdkModel, &v.constant)
+		actual, err := directAssignmentLine{}.assignmentForCreateUpdateMapping(mapping, schemaModel, sdkModel, &v.constant, "sdkresource")
 		if err != nil {
 			t.Fatalf("retrieving create/update assignment mapping: %+v", err)
 		}
@@ -763,7 +763,7 @@ func TestDirectAssignment_CreateOrUpdate_Constant_OptionalToRequired_List(t *tes
 				},
 			},
 		}
-		actual, err := directAssignmentLine{}.assignmentForCreateUpdateMapping(mapping, schemaModel, sdkModel, &v.constant)
+		actual, err := directAssignmentLine{}.assignmentForCreateUpdateMapping(mapping, schemaModel, sdkModel, &v.constant, "sdkresource")
 		if err == nil {
 			t.Fatalf("expected an error but didn't get one")
 		}
@@ -893,7 +893,7 @@ output.ToPath = &toPath
 				},
 			},
 		}
-		actual, err := directAssignmentLine{}.assignmentForCreateUpdateMapping(mapping, schemaModel, sdkModel, &v.constant)
+		actual, err := directAssignmentLine{}.assignmentForCreateUpdateMapping(mapping, schemaModel, sdkModel, &v.constant, "sdkresource")
 		if err != nil {
 			t.Fatalf("retrieving create/update assignment mapping: %+v", err)
 		}
@@ -961,7 +961,7 @@ func TestDirectAssignment_CreateOrUpdate_Model_RequiredToRequired_MatchingSimple
 				},
 			},
 		}
-		actual, err := directAssignmentLine{}.assignmentForCreateUpdateMapping(mapping, schemaModel, sdkModel, nil)
+		actual, err := directAssignmentLine{}.assignmentForCreateUpdateMapping(mapping, schemaModel, sdkModel, nil, "sdkresource")
 		if err != nil {
 			t.Fatalf("retrieving create/update assignment mapping: %+v", err)
 		}
@@ -1030,7 +1030,7 @@ func TestDirectAssignment_CreateOrUpdate_Model_RequiredToOptional_MatchingSimple
 				},
 			},
 		}
-		actual, err := directAssignmentLine{}.assignmentForCreateUpdateMapping(mapping, schemaModel, sdkModel, nil)
+		actual, err := directAssignmentLine{}.assignmentForCreateUpdateMapping(mapping, schemaModel, sdkModel, nil, "sdkresource")
 		if err != nil {
 			t.Fatalf("retrieving create/update assignment mapping: %+v", err)
 		}
@@ -1100,7 +1100,7 @@ func TestDirectAssignment_CreateOrUpdate_Model_OptionalToRequired_MatchingSimple
 				},
 			},
 		}
-		actual, err := directAssignmentLine{}.assignmentForCreateUpdateMapping(mapping, schemaModel, sdkModel, nil)
+		actual, err := directAssignmentLine{}.assignmentForCreateUpdateMapping(mapping, schemaModel, sdkModel, nil, "sdkresource")
 		if err == nil {
 			t.Fatalf("expected an error but didn't get one")
 		}
@@ -1171,7 +1171,7 @@ func TestDirectAssignment_CreateOrUpdate_Model_OptionalToOptional_MatchingSimple
 				},
 			},
 		}
-		actual, err := directAssignmentLine{}.assignmentForCreateUpdateMapping(mapping, schemaModel, sdkModel, nil)
+		actual, err := directAssignmentLine{}.assignmentForCreateUpdateMapping(mapping, schemaModel, sdkModel, nil, "sdkresource")
 		if err != nil {
 			t.Fatalf("retrieving create/update assignment mapping: %+v", err)
 		}
@@ -1274,7 +1274,7 @@ output.ToPath = toPath
 				},
 			},
 		}
-		actual, err := directAssignmentLine{}.assignmentForCreateUpdateMapping(mapping, schemaModel, sdkModel, nil)
+		actual, err := directAssignmentLine{}.assignmentForCreateUpdateMapping(mapping, schemaModel, sdkModel, nil, "sdkresource")
 		if err != nil {
 			t.Fatalf("retrieving create/update assignment mapping: %+v", err)
 		}
@@ -1377,7 +1377,7 @@ output.ToPath = &toPath
 				},
 			},
 		}
-		actual, err := directAssignmentLine{}.assignmentForCreateUpdateMapping(mapping, schemaModel, sdkModel, nil)
+		actual, err := directAssignmentLine{}.assignmentForCreateUpdateMapping(mapping, schemaModel, sdkModel, nil, "sdkresource")
 		if err != nil {
 			t.Fatalf("retrieving create/update assignment mapping: %+v", err)
 		}
@@ -1452,7 +1452,7 @@ func TestDirectAssignment_CreateOrUpdate_Model_OptionalToRequired_MatchingListOf
 				},
 			},
 		}
-		actual, err := directAssignmentLine{}.assignmentForCreateUpdateMapping(mapping, schemaModel, sdkModel, nil)
+		actual, err := directAssignmentLine{}.assignmentForCreateUpdateMapping(mapping, schemaModel, sdkModel, nil, "sdkresource")
 		if err == nil {
 			t.Fatalf("expected an error but didn't get one")
 		}
@@ -1562,7 +1562,7 @@ output.ToPath = &toPath
 				},
 			},
 		}
-		actual, err := directAssignmentLine{}.assignmentForCreateUpdateMapping(mapping, schemaModel, sdkModel, nil)
+		actual, err := directAssignmentLine{}.assignmentForCreateUpdateMapping(mapping, schemaModel, sdkModel, nil, "sdkresource")
 		if err != nil {
 			t.Fatalf("retrieving create/update assignment mapping: %+v", err)
 		}

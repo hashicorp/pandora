@@ -97,7 +97,7 @@ func TestDirectAssignment_Read_Constant_RequiredToRequired_TopLevel(t *testing.T
 				},
 			},
 		}
-		actual, err := directAssignmentLine{}.assignmentForReadMapping(mapping, schemaModel, sdkModel, &v.constant)
+		actual, err := directAssignmentLine{}.assignmentForReadMapping(mapping, schemaModel, sdkModel, &v.constant, "sdkresource")
 		if err != nil {
 			t.Fatalf("retrieving read assignment mapping: %+v", err)
 		}
@@ -198,7 +198,7 @@ func TestDirectAssignment_Read_Constant_RequiredToOptional_TopLevel(t *testing.T
 				},
 			},
 		}
-		actual, err := directAssignmentLine{}.assignmentForReadMapping(mapping, schemaModel, sdkModel, &v.constant)
+		actual, err := directAssignmentLine{}.assignmentForReadMapping(mapping, schemaModel, sdkModel, &v.constant, "sdkresource")
 		if err != nil {
 			t.Fatalf("retrieving read assignment mapping: %+v", err)
 		}
@@ -298,7 +298,7 @@ func TestDirectAssignment_Read_Constant_OptionalToRequired_TopLevel(t *testing.T
 				},
 			},
 		}
-		actual, err := directAssignmentLine{}.assignmentForReadMapping(mapping, schemaModel, sdkModel, &v.constant)
+		actual, err := directAssignmentLine{}.assignmentForReadMapping(mapping, schemaModel, sdkModel, &v.constant, "sdkresource")
 		if err == nil {
 			t.Fatalf("expected an error but didn't get one")
 		}
@@ -410,7 +410,7 @@ if input.FromPath != nil {
 				},
 			},
 		}
-		actual, err := directAssignmentLine{}.assignmentForReadMapping(mapping, schemaModel, sdkModel, &v.constant)
+		actual, err := directAssignmentLine{}.assignmentForReadMapping(mapping, schemaModel, sdkModel, &v.constant, "sdkresource")
 		if err != nil {
 			t.Fatalf("retrieving read assignment mapping: %+v", err)
 		}
@@ -535,7 +535,7 @@ output.ToPath = toPath
 				},
 			},
 		}
-		actual, err := directAssignmentLine{}.assignmentForReadMapping(mapping, schemaModel, sdkModel, &v.constant)
+		actual, err := directAssignmentLine{}.assignmentForReadMapping(mapping, schemaModel, sdkModel, &v.constant, "sdkresource")
 		if err != nil {
 			t.Fatalf("retrieving read assignment mapping: %+v", err)
 		}
@@ -660,7 +660,7 @@ output.ToPath = &toPath
 				},
 			},
 		}
-		actual, err := directAssignmentLine{}.assignmentForReadMapping(mapping, schemaModel, sdkModel, &v.constant)
+		actual, err := directAssignmentLine{}.assignmentForReadMapping(mapping, schemaModel, sdkModel, &v.constant, "sdkresource")
 		if err != nil {
 			t.Fatalf("retrieving read assignment mapping: %+v", err)
 		}
@@ -763,7 +763,7 @@ func TestDirectAssignment_Read_Constant_OptionalToRequired_List(t *testing.T) {
 				},
 			},
 		}
-		actual, err := directAssignmentLine{}.assignmentForReadMapping(mapping, schemaModel, sdkModel, nil)
+		actual, err := directAssignmentLine{}.assignmentForReadMapping(mapping, schemaModel, sdkModel, nil, "sdkresource")
 		if err == nil {
 			t.Fatalf("expected an error but didn't get one")
 		}
@@ -893,7 +893,7 @@ output.ToPath = &toPath
 				},
 			},
 		}
-		actual, err := directAssignmentLine{}.assignmentForReadMapping(mapping, schemaModel, sdkModel, &v.constant)
+		actual, err := directAssignmentLine{}.assignmentForReadMapping(mapping, schemaModel, sdkModel, &v.constant, "sdkresource")
 		if err != nil {
 			t.Fatalf("retrieving read assignment mapping: %+v", err)
 		}
@@ -960,7 +960,7 @@ func TestDirectAssignment_Read_Model_RequiredToRequired_MatchingSimpleTypes(t *t
 				},
 			},
 		}
-		actual, err := directAssignmentLine{}.assignmentForReadMapping(mapping, schemaModel, sdkModel, nil)
+		actual, err := directAssignmentLine{}.assignmentForReadMapping(mapping, schemaModel, sdkModel, nil, "sdkresource")
 		if err != nil {
 			t.Fatalf("retrieving read assignment mapping: %+v", err)
 		}
@@ -1029,7 +1029,7 @@ func TestDirectAssignment_Read_Model_RequiredToOptional_MatchingSimpleTypes(t *t
 				},
 			},
 		}
-		actual, err := directAssignmentLine{}.assignmentForReadMapping(mapping, schemaModel, sdkModel, nil)
+		actual, err := directAssignmentLine{}.assignmentForReadMapping(mapping, schemaModel, sdkModel, nil, "sdkresource")
 		if err != nil {
 			t.Fatalf("retrieving read assignment mapping: %+v", err)
 		}
@@ -1103,7 +1103,7 @@ func TestDirectAssignment_Read_Model_OptionalToRequired_MatchingSimpleTypes(t *t
 				},
 			},
 		}
-		actual, err := directAssignmentLine{}.assignmentForReadMapping(mapping, schemaModel, sdkModel, nil)
+		actual, err := directAssignmentLine{}.assignmentForReadMapping(mapping, schemaModel, sdkModel, nil, "sdkresource")
 		if err == nil {
 			t.Fatalf("expected an error but didn't get one")
 		}
@@ -1174,7 +1174,7 @@ func TestDirectAssignment_Read_Model_OptionalToOptional_MatchingSimpleTypes(t *t
 				},
 			},
 		}
-		actual, err := directAssignmentLine{}.assignmentForReadMapping(mapping, schemaModel, sdkModel, nil)
+		actual, err := directAssignmentLine{}.assignmentForReadMapping(mapping, schemaModel, sdkModel, nil, "sdkresource")
 		if err != nil {
 			t.Fatalf("retrieving read assignment mapping: %+v", err)
 		}
@@ -1277,7 +1277,7 @@ output.FromPath = toPath
 				},
 			},
 		}
-		actual, err := directAssignmentLine{}.assignmentForReadMapping(mapping, schemaModel, sdkModel, nil)
+		actual, err := directAssignmentLine{}.assignmentForReadMapping(mapping, schemaModel, sdkModel, nil, "sdkresource")
 		if err != nil {
 			t.Fatalf("retrieving read assignment mapping: %+v", err)
 		}
@@ -1380,7 +1380,7 @@ output.FromPath = &toPath
 				},
 			},
 		}
-		actual, err := directAssignmentLine{}.assignmentForReadMapping(mapping, schemaModel, sdkModel, nil)
+		actual, err := directAssignmentLine{}.assignmentForReadMapping(mapping, schemaModel, sdkModel, nil, "sdkresource")
 		if err != nil {
 			t.Fatalf("retrieving read assignment mapping: %+v", err)
 		}
@@ -1455,7 +1455,7 @@ func TestDirectAssignment_Read_Model_OptionalToRequired_MatchingListOfSimpleType
 				},
 			},
 		}
-		actual, err := directAssignmentLine{}.assignmentForReadMapping(mapping, schemaModel, sdkModel, nil)
+		actual, err := directAssignmentLine{}.assignmentForReadMapping(mapping, schemaModel, sdkModel, nil, "sdkresource")
 		if err == nil {
 			t.Fatalf("expected an error but didn't get one")
 		}
@@ -1565,7 +1565,7 @@ output.FromPath = &toPath
 				},
 			},
 		}
-		actual, err := directAssignmentLine{}.assignmentForReadMapping(mapping, schemaModel, sdkModel, nil)
+		actual, err := directAssignmentLine{}.assignmentForReadMapping(mapping, schemaModel, sdkModel, nil, "sdkresource")
 		if err != nil {
 			t.Fatalf("retrieving read assignment mapping: %+v", err)
 		}

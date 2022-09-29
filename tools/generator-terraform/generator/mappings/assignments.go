@@ -20,10 +20,10 @@ type assignmentConstantDetails struct {
 
 type assignmentType interface {
 	// assignmentForCreateUpdateMapping returns the Create/Update assignment line for this mapping type
-	assignmentForCreateUpdateMapping(mapping resourcemanager.FieldMappingDefinition, schemaModel resourcemanager.TerraformSchemaModelDefinition, sdkModel resourcemanager.ModelDetails, sdkConstant *assignmentConstantDetails) (*string, error)
+	assignmentForCreateUpdateMapping(mapping resourcemanager.FieldMappingDefinition, schemaModel resourcemanager.TerraformSchemaModelDefinition, sdkModel resourcemanager.ModelDetails, sdkConstant *assignmentConstantDetails, assignmentForReadMapping string) (*string, error)
 
 	// assignmentForReadMapping returns the Read assignment line for this mapping type
-	assignmentForReadMapping(mapping resourcemanager.FieldMappingDefinition, schemaModel resourcemanager.TerraformSchemaModelDefinition, sdkModel resourcemanager.ModelDetails, sdkConstant *assignmentConstantDetails) (*string, error)
+	assignmentForReadMapping(mapping resourcemanager.FieldMappingDefinition, schemaModel resourcemanager.TerraformSchemaModelDefinition, sdkModel resourcemanager.ModelDetails, sdkConstant *assignmentConstantDetails, assignmentForReadMapping string) (*string, error)
 }
 
 func (m *Mappings) SchemaModelToSdkModelAssignmentLine(mappings []resourcemanager.FieldMappingDefinition) (*string, error) {
@@ -89,7 +89,7 @@ func (m *Mappings) SchemaModelToSdkModelAssignmentLine(mappings []resourcemanage
 			}
 		}
 
-		assignmentLine, err := assignment.assignmentForCreateUpdateMapping(mapping, schemaModel, sdkModel, sdkConstant)
+		assignmentLine, err := assignment.assignmentForCreateUpdateMapping(mapping, schemaModel, sdkModel, sdkConstant, m.apiResourcePackageName)
 		if err != nil {
 			return nil, fmt.Errorf("building create/update assignment line for constant assignment type %q: %+v", mapping.Type, err)
 		}
@@ -163,7 +163,7 @@ func (m *Mappings) SdkModelToSchemaModelAssignmentLine(mappings []resourcemanage
 			}
 		}
 
-		assignmentLine, err := assignment.assignmentForReadMapping(mapping, schemaModel, sdkModel, sdkConstant)
+		assignmentLine, err := assignment.assignmentForReadMapping(mapping, schemaModel, sdkModel, sdkConstant, m.apiResourcePackageName)
 		if err != nil {
 			return nil, fmt.Errorf("building read assignment line for constant assignment type %q: %+v", mapping.Type, err)
 		}
