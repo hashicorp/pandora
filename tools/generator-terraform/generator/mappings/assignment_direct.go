@@ -11,6 +11,12 @@ var directAssignmentTypes = map[resourcemanager.TerraformSchemaFieldType]resourc
 	resourcemanager.TerraformSchemaFieldTypeFloat:   resourcemanager.FloatApiObjectDefinitionType,
 	resourcemanager.TerraformSchemaFieldTypeInteger: resourcemanager.IntegerApiObjectDefinitionType,
 	resourcemanager.TerraformSchemaFieldTypeString:  resourcemanager.StringApiObjectDefinitionType,
+
+	// TODO: handle/tests
+	resourcemanager.TerraformSchemaFieldTypeLocation:               resourcemanager.LocationApiObjectDefinitionType,
+	resourcemanager.TerraformSchemaFieldTypeTags:                   resourcemanager.TagsApiObjectDefinitionType,
+	resourcemanager.TerraformSchemaFieldTypeReference:              resourcemanager.ReferenceApiObjectDefinitionType,
+	resourcemanager.TerraformSchemaFieldTypeIdentitySystemAssigned: resourcemanager.SystemAssignedIdentityApiObjectDefinitionType,
 }
 
 var directAssignmentConstantTypesToStrings = map[resourcemanager.TerraformSchemaFieldType]string{
@@ -81,7 +87,7 @@ func (d directAssignmentLine) assignmentForReadMapping(mapping resourcemanager.F
 
 func (d directAssignmentLine) createUpdateMappingBetweenFields(mapping resourcemanager.FieldMappingDefinition, schemaField resourcemanager.TerraformSchemaFieldDefinition, sdkField resourcemanager.FieldDetails, sdkConstant *assignmentConstantDetails) (*string, error) {
 	if sdkConstant != nil {
-		sdkConstantTypeName := fmt.Sprintf("%s.%s", sdkConstant.sdkResourceName, sdkConstant.constantName)
+		sdkConstantTypeName := fmt.Sprintf("%s.%s", sdkConstant.apiResourcePackageName, sdkConstant.constantName)
 		if schemaField.Required {
 			line := fmt.Sprintf("out.%[1]s = %[2]s(input.%[3]s)", mapping.DirectAssignment.SdkFieldPath, sdkConstantTypeName, mapping.DirectAssignment.SchemaFieldPath)
 			if sdkField.Optional {
@@ -133,7 +139,7 @@ if input.%[3]s != nil {
 
 func (d directAssignmentLine) createUpdateMappingBetweenListFields(mapping resourcemanager.FieldMappingDefinition, schemaField resourcemanager.TerraformSchemaFieldDefinition, sdkField resourcemanager.FieldDetails, sdkConstant *assignmentConstantDetails) (*string, error) {
 	if sdkConstant != nil {
-		sdkConstantTypeName := fmt.Sprintf("%s.%s", sdkConstant.sdkResourceName, sdkConstant.constantName)
+		sdkConstantTypeName := fmt.Sprintf("%s.%s", sdkConstant.apiResourcePackageName, sdkConstant.constantName)
 		if schemaField.Required {
 			line := fmt.Sprintf(`
 %[4]s := make([]%[2]s, 0)

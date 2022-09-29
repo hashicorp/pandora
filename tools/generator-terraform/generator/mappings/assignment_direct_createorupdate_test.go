@@ -15,8 +15,8 @@ func TestDirectAssignment_CreateOrUpdate_Constant_RequiredToRequired_TopLevel(t 
 	}{
 		{
 			constant: assignmentConstantDetails{
-				sdkResourceName: "sdkresource",
-				constantName:    "SomeConstant",
+				apiResourcePackageName: "sdkresource",
+				constantName:           "SomeConstant",
 				constantDetails: resourcemanager.ConstantDetails{
 					Type: resourcemanager.FloatConstant,
 					Values: map[string]string{
@@ -30,8 +30,8 @@ func TestDirectAssignment_CreateOrUpdate_Constant_RequiredToRequired_TopLevel(t 
 		},
 		{
 			constant: assignmentConstantDetails{
-				sdkResourceName: "sdkresource",
-				constantName:    "SomeConstant",
+				apiResourcePackageName: "sdkresource",
+				constantName:           "SomeConstant",
 				constantDetails: resourcemanager.ConstantDetails{
 					Type: resourcemanager.IntegerConstant,
 					Values: map[string]string{
@@ -45,8 +45,8 @@ func TestDirectAssignment_CreateOrUpdate_Constant_RequiredToRequired_TopLevel(t 
 		},
 		{
 			constant: assignmentConstantDetails{
-				sdkResourceName: "sdkresource",
-				constantName:    "SomeConstant",
+				apiResourcePackageName: "sdkresource",
+				constantName:           "SomeConstant",
 				constantDetails: resourcemanager.ConstantDetails{
 					Type: resourcemanager.StringConstant,
 					Values: map[string]string{
@@ -116,8 +116,8 @@ func TestDirectAssignment_CreateOrUpdate_Constant_RequiredToOptional_TopLevel(t 
 	}{
 		{
 			constant: assignmentConstantDetails{
-				sdkResourceName: "sdkresource",
-				constantName:    "SomeConstant",
+				apiResourcePackageName: "sdkresource",
+				constantName:           "SomeConstant",
 				constantDetails: resourcemanager.ConstantDetails{
 					Type: resourcemanager.FloatConstant,
 					Values: map[string]string{
@@ -131,8 +131,8 @@ func TestDirectAssignment_CreateOrUpdate_Constant_RequiredToOptional_TopLevel(t 
 		},
 		{
 			constant: assignmentConstantDetails{
-				sdkResourceName: "sdkresource",
-				constantName:    "SomeConstant",
+				apiResourcePackageName: "sdkresource",
+				constantName:           "SomeConstant",
 				constantDetails: resourcemanager.ConstantDetails{
 					Type: resourcemanager.IntegerConstant,
 					Values: map[string]string{
@@ -146,8 +146,8 @@ func TestDirectAssignment_CreateOrUpdate_Constant_RequiredToOptional_TopLevel(t 
 		},
 		{
 			constant: assignmentConstantDetails{
-				sdkResourceName: "sdkresource",
-				constantName:    "SomeConstant",
+				apiResourcePackageName: "sdkresource",
+				constantName:           "SomeConstant",
 				constantDetails: resourcemanager.ConstantDetails{
 					Type: resourcemanager.StringConstant,
 					Values: map[string]string{
@@ -219,8 +219,8 @@ func TestDirectAssignment_CreateOrUpdate_Constant_OptionalToRequired_TopLevel(t 
 	}{
 		{
 			constant: assignmentConstantDetails{
-				sdkResourceName: "sdkresource",
-				constantName:    "SomeConstant",
+				apiResourcePackageName: "sdkresource",
+				constantName:           "SomeConstant",
 				constantDetails: resourcemanager.ConstantDetails{
 					Type: resourcemanager.FloatConstant,
 					Values: map[string]string{
@@ -233,8 +233,8 @@ func TestDirectAssignment_CreateOrUpdate_Constant_OptionalToRequired_TopLevel(t 
 		},
 		{
 			constant: assignmentConstantDetails{
-				sdkResourceName: "sdkresource",
-				constantName:    "SomeConstant",
+				apiResourcePackageName: "sdkresource",
+				constantName:           "SomeConstant",
 				constantDetails: resourcemanager.ConstantDetails{
 					Type: resourcemanager.IntegerConstant,
 					Values: map[string]string{
@@ -247,8 +247,8 @@ func TestDirectAssignment_CreateOrUpdate_Constant_OptionalToRequired_TopLevel(t 
 		},
 		{
 			constant: assignmentConstantDetails{
-				sdkResourceName: "sdkresource",
-				constantName:    "SomeConstant",
+				apiResourcePackageName: "sdkresource",
+				constantName:           "SomeConstant",
 				constantDetails: resourcemanager.ConstantDetails{
 					Type: resourcemanager.StringConstant,
 					Values: map[string]string{
@@ -316,8 +316,8 @@ func TestDirectAssignment_CreateOrUpdate_Constant_OptionalToOptional_TopLevel(t 
 	}{
 		{
 			constant: assignmentConstantDetails{
-				sdkResourceName: "sdkresource",
-				constantName:    "SomeConstant",
+				apiResourcePackageName: "sdkresource",
+				constantName:           "SomeConstant",
 				constantDetails: resourcemanager.ConstantDetails{
 					Type: resourcemanager.FloatConstant,
 					Values: map[string]string{
@@ -335,8 +335,8 @@ if input.FromPath != nil {
 		},
 		{
 			constant: assignmentConstantDetails{
-				sdkResourceName: "sdkresource",
-				constantName:    "SomeConstant",
+				apiResourcePackageName: "sdkresource",
+				constantName:           "SomeConstant",
 				constantDetails: resourcemanager.ConstantDetails{
 					Type: resourcemanager.IntegerConstant,
 					Values: map[string]string{
@@ -354,8 +354,8 @@ if input.FromPath != nil {
 		},
 		{
 			constant: assignmentConstantDetails{
-				sdkResourceName: "sdkresource",
-				constantName:    "SomeConstant",
+				apiResourcePackageName: "sdkresource",
+				constantName:           "SomeConstant",
 				constantDetails: resourcemanager.ConstantDetails{
 					Type: resourcemanager.StringConstant,
 					Values: map[string]string{
@@ -429,8 +429,8 @@ func TestDirectAssignment_CreateOrUpdate_Constant_RequiredToRequired_List(t *tes
 	}{
 		{
 			constant: assignmentConstantDetails{
-				sdkResourceName: "sdkresource",
-				constantName:    "SomeConstant",
+				apiResourcePackageName: "sdkresource",
+				constantName:           "SomeConstant",
 				constantDetails: resourcemanager.ConstantDetails{
 					Type: resourcemanager.FloatConstant,
 					Values: map[string]string{
@@ -450,8 +450,8 @@ out.ToPath = toPath
 		},
 		{
 			constant: assignmentConstantDetails{
-				sdkResourceName: "sdkresource",
-				constantName:    "SomeConstant",
+				apiResourcePackageName: "sdkresource",
+				constantName:           "SomeConstant",
 				constantDetails: resourcemanager.ConstantDetails{
 					Type: resourcemanager.IntegerConstant,
 					Values: map[string]string{
@@ -471,8 +471,8 @@ out.ToPath = toPath
 		},
 		{
 			constant: assignmentConstantDetails{
-				sdkResourceName: "sdkresource",
-				constantName:    "SomeConstant",
+				apiResourcePackageName: "sdkresource",
+				constantName:           "SomeConstant",
 				constantDetails: resourcemanager.ConstantDetails{
 					Type: resourcemanager.StringConstant,
 					Values: map[string]string{
@@ -554,8 +554,8 @@ func TestDirectAssignment_CreateOrUpdate_Constant_RequiredToOptional_List(t *tes
 	}{
 		{
 			constant: assignmentConstantDetails{
-				sdkResourceName: "sdkresource",
-				constantName:    "SomeConstant",
+				apiResourcePackageName: "sdkresource",
+				constantName:           "SomeConstant",
 				constantDetails: resourcemanager.ConstantDetails{
 					Type: resourcemanager.FloatConstant,
 					Values: map[string]string{
@@ -575,8 +575,8 @@ out.ToPath = &toPath
 		},
 		{
 			constant: assignmentConstantDetails{
-				sdkResourceName: "sdkresource",
-				constantName:    "SomeConstant",
+				apiResourcePackageName: "sdkresource",
+				constantName:           "SomeConstant",
 				constantDetails: resourcemanager.ConstantDetails{
 					Type: resourcemanager.IntegerConstant,
 					Values: map[string]string{
@@ -596,8 +596,8 @@ out.ToPath = &toPath
 		},
 		{
 			constant: assignmentConstantDetails{
-				sdkResourceName: "sdkresource",
-				constantName:    "SomeConstant",
+				apiResourcePackageName: "sdkresource",
+				constantName:           "SomeConstant",
 				constantDetails: resourcemanager.ConstantDetails{
 					Type: resourcemanager.StringConstant,
 					Values: map[string]string{
@@ -678,8 +678,8 @@ func TestDirectAssignment_CreateOrUpdate_Constant_OptionalToRequired_List(t *tes
 	}{
 		{
 			constant: assignmentConstantDetails{
-				sdkResourceName: "sdkresource",
-				constantName:    "SomeConstant",
+				apiResourcePackageName: "sdkresource",
+				constantName:           "SomeConstant",
 				constantDetails: resourcemanager.ConstantDetails{
 					Type: resourcemanager.FloatConstant,
 					Values: map[string]string{
@@ -692,8 +692,8 @@ func TestDirectAssignment_CreateOrUpdate_Constant_OptionalToRequired_List(t *tes
 		},
 		{
 			constant: assignmentConstantDetails{
-				sdkResourceName: "sdkresource",
-				constantName:    "SomeConstant",
+				apiResourcePackageName: "sdkresource",
+				constantName:           "SomeConstant",
 				constantDetails: resourcemanager.ConstantDetails{
 					Type: resourcemanager.IntegerConstant,
 					Values: map[string]string{
@@ -706,8 +706,8 @@ func TestDirectAssignment_CreateOrUpdate_Constant_OptionalToRequired_List(t *tes
 		},
 		{
 			constant: assignmentConstantDetails{
-				sdkResourceName: "sdkresource",
-				constantName:    "SomeConstant",
+				apiResourcePackageName: "sdkresource",
+				constantName:           "SomeConstant",
 				constantDetails: resourcemanager.ConstantDetails{
 					Type: resourcemanager.StringConstant,
 					Values: map[string]string{
@@ -781,8 +781,8 @@ func TestDirectAssignment_CreateOrUpdate_Constant_OptionalToOptional_List(t *tes
 	}{
 		{
 			constant: assignmentConstantDetails{
-				sdkResourceName: "sdkresource",
-				constantName:    "SomeConstant",
+				apiResourcePackageName: "sdkresource",
+				constantName:           "SomeConstant",
 				constantDetails: resourcemanager.ConstantDetails{
 					Type: resourcemanager.FloatConstant,
 					Values: map[string]string{
@@ -804,8 +804,8 @@ out.ToPath = &toPath
 		},
 		{
 			constant: assignmentConstantDetails{
-				sdkResourceName: "sdkresource",
-				constantName:    "SomeConstant",
+				apiResourcePackageName: "sdkresource",
+				constantName:           "SomeConstant",
 				constantDetails: resourcemanager.ConstantDetails{
 					Type: resourcemanager.IntegerConstant,
 					Values: map[string]string{
@@ -827,8 +827,8 @@ out.ToPath = &toPath
 		},
 		{
 			constant: assignmentConstantDetails{
-				sdkResourceName: "sdkresource",
-				constantName:    "SomeConstant",
+				apiResourcePackageName: "sdkresource",
+				constantName:           "SomeConstant",
 				constantDetails: resourcemanager.ConstantDetails{
 					Type: resourcemanager.StringConstant,
 					Values: map[string]string{
