@@ -48,6 +48,12 @@ func FindCandidates(input services.Resource, resourceDefinitions map[string]defi
 				}
 			}
 			if strings.EqualFold(operation.Method, "PATCH") && operation.UriSuffix == nil && operation.RequestObject != nil {
+				v := strings.ToLower(operationName)
+				// if this is UpdateTags etc, ignore it since the model will be totally unrelated
+				if v != "update" && strings.HasPrefix(v, "update") {
+					continue
+				}
+
 				updateMethod = &resourcemanager.MethodDefinition{
 					Generate:         true,
 					MethodName:       operationName,
