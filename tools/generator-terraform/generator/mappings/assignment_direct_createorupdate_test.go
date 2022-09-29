@@ -25,7 +25,7 @@ func TestDirectAssignment_CreateOrUpdate_Constant_RequiredToRequired_TopLevel(t 
 					},
 				},
 			},
-			expected:             "out.ToPath = sdkresource.SomeConstant(input.FromPath)",
+			expected:             "output.ToPath = sdkresource.SomeConstant(input.FromPath)",
 			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeFloat,
 		},
 		{
@@ -40,7 +40,7 @@ func TestDirectAssignment_CreateOrUpdate_Constant_RequiredToRequired_TopLevel(t 
 					},
 				},
 			},
-			expected:             "out.ToPath = sdkresource.SomeConstant(input.FromPath)",
+			expected:             "output.ToPath = sdkresource.SomeConstant(input.FromPath)",
 			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeInteger,
 		},
 		{
@@ -55,7 +55,7 @@ func TestDirectAssignment_CreateOrUpdate_Constant_RequiredToRequired_TopLevel(t 
 					},
 				},
 			},
-			expected:             "out.ToPath = sdkresource.SomeConstant(input.FromPath)",
+			expected:             "output.ToPath = sdkresource.SomeConstant(input.FromPath)",
 			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeString,
 		},
 	}
@@ -126,7 +126,7 @@ func TestDirectAssignment_CreateOrUpdate_Constant_RequiredToOptional_TopLevel(t 
 					},
 				},
 			},
-			expected:             "out.ToPath = as.Pointer(sdkresource.SomeConstant(input.FromPath))",
+			expected:             "output.ToPath = as.Pointer(sdkresource.SomeConstant(input.FromPath))",
 			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeFloat,
 		},
 		{
@@ -141,7 +141,7 @@ func TestDirectAssignment_CreateOrUpdate_Constant_RequiredToOptional_TopLevel(t 
 					},
 				},
 			},
-			expected:             "out.ToPath = as.Pointer(sdkresource.SomeConstant(input.FromPath))",
+			expected:             "output.ToPath = as.Pointer(sdkresource.SomeConstant(input.FromPath))",
 			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeInteger,
 		},
 		{
@@ -156,7 +156,7 @@ func TestDirectAssignment_CreateOrUpdate_Constant_RequiredToOptional_TopLevel(t 
 					},
 				},
 			},
-			expected:             "out.ToPath = as.Pointer(sdkresource.SomeConstant(input.FromPath))",
+			expected:             "output.ToPath = as.Pointer(sdkresource.SomeConstant(input.FromPath))",
 			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeString,
 		},
 	}
@@ -328,7 +328,7 @@ func TestDirectAssignment_CreateOrUpdate_Constant_OptionalToOptional_TopLevel(t 
 			},
 			expected: `
 if input.FromPath != nil {
-	out.ToPath = as.Pointer(sdkresource.SomeConstant(*input.FromPath))
+	output.ToPath = as.Pointer(sdkresource.SomeConstant(*input.FromPath))
 }
 `,
 			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeFloat,
@@ -347,7 +347,7 @@ if input.FromPath != nil {
 			},
 			expected: `
 if input.FromPath != nil {
-	out.ToPath = as.Pointer(sdkresource.SomeConstant(*input.FromPath))
+	output.ToPath = as.Pointer(sdkresource.SomeConstant(*input.FromPath))
 }
 `,
 			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeInteger,
@@ -366,7 +366,7 @@ if input.FromPath != nil {
 			},
 			expected: `
 if input.FromPath != nil {
-	out.ToPath = as.Pointer(sdkresource.SomeConstant(*input.FromPath))
+	output.ToPath = as.Pointer(sdkresource.SomeConstant(*input.FromPath))
 }
 `,
 			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeString,
@@ -444,7 +444,7 @@ toPath := make([]sdkresource.SomeConstant, 0)
 for _, v := range input.FromPath {
 	toPath = append(toPath, sdkresource.SomeConstant(v))
 }
-out.ToPath = toPath
+output.ToPath = toPath
 `,
 			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeFloat,
 		},
@@ -465,7 +465,7 @@ toPath := make([]sdkresource.SomeConstant, 0)
 for _, v := range input.FromPath {
 	toPath = append(toPath, sdkresource.SomeConstant(v))
 }
-out.ToPath = toPath
+output.ToPath = toPath
 `,
 			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeInteger,
 		},
@@ -486,7 +486,7 @@ toPath := make([]sdkresource.SomeConstant, 0)
 for _, v := range input.FromPath {
 	toPath = append(toPath, sdkresource.SomeConstant(v))
 }
-out.ToPath = toPath
+output.ToPath = toPath
 `,
 			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeString,
 		},
@@ -569,7 +569,7 @@ toPath := make([]sdkresource.SomeConstant, 0)
 for _, v := range input.FromPath {
 	toPath = append(toPath, sdkresource.SomeConstant(v))
 }
-out.ToPath = &toPath
+output.ToPath = &toPath
 `,
 			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeFloat,
 		},
@@ -590,7 +590,7 @@ toPath := make([]sdkresource.SomeConstant, 0)
 for _, v := range input.FromPath {
 	toPath = append(toPath, sdkresource.SomeConstant(v))
 }
-out.ToPath = &toPath
+output.ToPath = &toPath
 `,
 			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeInteger,
 		},
@@ -611,7 +611,7 @@ toPath := make([]sdkresource.SomeConstant, 0)
 for _, v := range input.FromPath {
 	toPath = append(toPath, sdkresource.SomeConstant(v))
 }
-out.ToPath = &toPath
+output.ToPath = &toPath
 `,
 			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeString,
 		},
@@ -798,7 +798,7 @@ if input.FromPath != nil {
 		toPath = append(toPath, sdkresource.SomeConstant(v))
 	}
 }
-out.ToPath = &toPath
+output.ToPath = &toPath
 `,
 			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeFloat,
 		},
@@ -821,7 +821,7 @@ if input.FromPath != nil {
 		toPath = append(toPath, sdkresource.SomeConstant(v))
 	}
 }
-out.ToPath = &toPath
+output.ToPath = &toPath
 `,
 			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeInteger,
 		},
@@ -844,7 +844,7 @@ if input.FromPath != nil {
 		toPath = append(toPath, sdkresource.SomeConstant(v))
 	}
 }
-out.ToPath = &toPath
+output.ToPath = &toPath
 `,
 			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeString,
 		},
@@ -968,7 +968,7 @@ func TestDirectAssignment_CreateOrUpdate_Model_RequiredToRequired_MatchingSimple
 		if actual == nil {
 			t.Fatalf("retrieving create/update assignment mapping: `actual` was nil")
 		}
-		expected := "out.ToPath = input.FromPath"
+		expected := "output.ToPath = input.FromPath"
 		testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
 	}
 }
@@ -1037,7 +1037,7 @@ func TestDirectAssignment_CreateOrUpdate_Model_RequiredToOptional_MatchingSimple
 		if actual == nil {
 			t.Fatalf("retrieving create/update assignment mapping: `actual` was nil")
 		}
-		expected := "out.ToPath = &input.FromPath"
+		expected := "output.ToPath = &input.FromPath"
 		testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
 	}
 }
@@ -1120,22 +1120,22 @@ func TestDirectAssignment_CreateOrUpdate_Model_OptionalToOptional_MatchingSimple
 		{
 			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeBoolean,
 			sdkFieldType:         resourcemanager.BooleanApiObjectDefinitionType,
-			expected:             `out.ToPath = input.FromPath`,
+			expected:             `output.ToPath = input.FromPath`,
 		},
 		{
 			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeFloat,
 			sdkFieldType:         resourcemanager.FloatApiObjectDefinitionType,
-			expected:             `out.ToPath = input.FromPath`,
+			expected:             `output.ToPath = input.FromPath`,
 		},
 		{
 			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeInteger,
 			sdkFieldType:         resourcemanager.IntegerApiObjectDefinitionType,
-			expected:             `out.ToPath = input.FromPath`,
+			expected:             `output.ToPath = input.FromPath`,
 		},
 		{
 			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeString,
 			sdkFieldType:         resourcemanager.StringApiObjectDefinitionType,
-			expected:             `out.ToPath = input.FromPath`,
+			expected:             `output.ToPath = input.FromPath`,
 		},
 	}
 	for i, v := range testData {
@@ -1198,7 +1198,7 @@ toPath := make([]bool, 0)
 for _, v := range input.FromPath {
 	toPath = append(toPath, v)
 }
-out.ToPath = toPath
+output.ToPath = toPath
 `,
 		},
 		{
@@ -1209,7 +1209,7 @@ toPath := make([]float64, 0)
 for _, v := range input.FromPath {
 	toPath = append(toPath, v)
 }
-out.ToPath = toPath
+output.ToPath = toPath
 `,
 		},
 		{
@@ -1220,7 +1220,7 @@ toPath := make([]int64, 0)
 for _, v := range input.FromPath {
 	toPath = append(toPath, v)
 }
-out.ToPath = toPath
+output.ToPath = toPath
 `,
 		},
 		{
@@ -1231,7 +1231,7 @@ toPath := make([]string, 0)
 for _, v := range input.FromPath {
 	toPath = append(toPath, v)
 }
-out.ToPath = toPath
+output.ToPath = toPath
 `,
 		},
 	}
@@ -1301,7 +1301,7 @@ toPath := make([]bool, 0)
 for _, v := range input.FromPath {
 	toPath = append(toPath, v)
 }
-out.ToPath = &toPath
+output.ToPath = &toPath
 `,
 		},
 		{
@@ -1312,7 +1312,7 @@ toPath := make([]float64, 0)
 for _, v := range input.FromPath {
 	toPath = append(toPath, v)
 }
-out.ToPath = &toPath
+output.ToPath = &toPath
 `,
 		},
 		{
@@ -1323,7 +1323,7 @@ toPath := make([]int64, 0)
 for _, v := range input.FromPath {
 	toPath = append(toPath, v)
 }
-out.ToPath = &toPath
+output.ToPath = &toPath
 `,
 		},
 		{
@@ -1334,7 +1334,7 @@ toPath := make([]string, 0)
 for _, v := range input.FromPath {
 	toPath = append(toPath, v)
 }
-out.ToPath = &toPath
+output.ToPath = &toPath
 `,
 		},
 	}
@@ -1480,7 +1480,7 @@ if input.FromPath != nil {
 		toPath = append(toPath, v)
 	}
 }
-out.ToPath = &toPath
+output.ToPath = &toPath
 `,
 		},
 		{
@@ -1493,7 +1493,7 @@ if input.FromPath != nil {
 		toPath = append(toPath, v)
 	}
 }
-out.ToPath = &toPath
+output.ToPath = &toPath
 `,
 		},
 		{
@@ -1506,7 +1506,7 @@ if input.FromPath != nil {
 		toPath = append(toPath, v)
 	}
 }
-out.ToPath = &toPath
+output.ToPath = &toPath
 `,
 		},
 		{
@@ -1519,7 +1519,7 @@ if input.FromPath != nil {
 		toPath = append(toPath, v)
 	}
 }
-out.ToPath = &toPath
+output.ToPath = &toPath
 `,
 		},
 	}

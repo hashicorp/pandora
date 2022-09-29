@@ -89,9 +89,9 @@ func (d directAssignmentLine) createUpdateMappingBetweenFields(mapping resourcem
 	if sdkConstant != nil {
 		sdkConstantTypeName := fmt.Sprintf("%s.%s", sdkConstant.apiResourcePackageName, sdkConstant.constantName)
 		if schemaField.Required {
-			line := fmt.Sprintf("out.%[1]s = %[2]s(input.%[3]s)", mapping.DirectAssignment.SdkFieldPath, sdkConstantTypeName, mapping.DirectAssignment.SchemaFieldPath)
+			line := fmt.Sprintf("output.%[1]s = %[2]s(input.%[3]s)", mapping.DirectAssignment.SdkFieldPath, sdkConstantTypeName, mapping.DirectAssignment.SchemaFieldPath)
 			if sdkField.Optional {
-				line = fmt.Sprintf("out.%[1]s = as.Pointer(%[2]s(input.%[3]s))", mapping.DirectAssignment.SdkFieldPath, sdkConstantTypeName, mapping.DirectAssignment.SchemaFieldPath)
+				line = fmt.Sprintf("output.%[1]s = as.Pointer(%[2]s(input.%[3]s))", mapping.DirectAssignment.SdkFieldPath, sdkConstantTypeName, mapping.DirectAssignment.SchemaFieldPath)
 			}
 			return &line, nil
 		}
@@ -104,7 +104,7 @@ func (d directAssignmentLine) createUpdateMappingBetweenFields(mapping resourcem
 
 		line := fmt.Sprintf(`
 if input.%[3]s != nil {
-	out.%[1]s = as.Pointer(%[2]s(*input.%[3]s))
+	output.%[1]s = as.Pointer(%[2]s(*input.%[3]s))
 }
 `, mapping.DirectAssignment.SdkFieldPath, sdkConstantTypeName, mapping.DirectAssignment.SchemaFieldPath)
 		return &line, nil
@@ -119,9 +119,9 @@ if input.%[3]s != nil {
 	}
 
 	if schemaField.Required {
-		line := fmt.Sprintf("out.%[1]s = input.%[2]s", mapping.DirectAssignment.SdkFieldPath, mapping.DirectAssignment.SchemaFieldPath)
+		line := fmt.Sprintf("output.%[1]s = input.%[2]s", mapping.DirectAssignment.SdkFieldPath, mapping.DirectAssignment.SchemaFieldPath)
 		if sdkField.Optional {
-			line = fmt.Sprintf("out.%[1]s = &input.%[2]s", mapping.DirectAssignment.SdkFieldPath, mapping.DirectAssignment.SchemaFieldPath)
+			line = fmt.Sprintf("output.%[1]s = &input.%[2]s", mapping.DirectAssignment.SdkFieldPath, mapping.DirectAssignment.SchemaFieldPath)
 		}
 		return &line, nil
 	}
@@ -133,7 +133,7 @@ if input.%[3]s != nil {
 	}
 
 	// optional -> optional
-	line := fmt.Sprintf(`out.%[1]s = input.%[2]s`, mapping.DirectAssignment.SdkFieldPath, mapping.DirectAssignment.SchemaFieldPath)
+	line := fmt.Sprintf(`output.%[1]s = input.%[2]s`, mapping.DirectAssignment.SdkFieldPath, mapping.DirectAssignment.SchemaFieldPath)
 	return &line, nil
 }
 
@@ -146,7 +146,7 @@ func (d directAssignmentLine) createUpdateMappingBetweenListFields(mapping resou
 for _, v := range input.%[3]s {
 	%[4]s = append(%[4]s, %[2]s(v))
 }
-out.%[1]s = %[4]s
+output.%[1]s = %[4]s
 `, mapping.DirectAssignment.SdkFieldPath, sdkConstantTypeName, mapping.DirectAssignment.SchemaFieldPath, sdkField.JsonName)
 			if sdkField.Optional {
 				line = fmt.Sprintf(`
@@ -154,7 +154,7 @@ out.%[1]s = %[4]s
 for _, v := range input.%[3]s {
 	%[4]s = append(%[4]s, %[2]s(v))
 }
-out.%[1]s = &%[4]s
+output.%[1]s = &%[4]s
 `, mapping.DirectAssignment.SdkFieldPath, sdkConstantTypeName, mapping.DirectAssignment.SchemaFieldPath, sdkField.JsonName)
 			}
 			return &line, nil
@@ -173,7 +173,7 @@ if input.%[3]s != nil {
 		%[4]s = append(%[4]s, %[2]s(v))
 	}
 }
-out.%[1]s = &%[4]s
+output.%[1]s = &%[4]s
 `, mapping.DirectAssignment.SdkFieldPath, sdkConstantTypeName, mapping.DirectAssignment.SchemaFieldPath, sdkField.JsonName)
 		return &line, nil
 	}
@@ -204,7 +204,7 @@ out.%[1]s = &%[4]s
 for _, v := range input.%[2]s {
     %[3]s = append(%[3]s, v)
 }
-out.%[1]s = %[3]s
+output.%[1]s = %[3]s
 `, mapping.DirectAssignment.SdkFieldPath, mapping.DirectAssignment.SchemaFieldPath, sdkField.JsonName, *variableType)
 		if sdkField.Optional {
 			line = fmt.Sprintf(`
@@ -212,7 +212,7 @@ out.%[1]s = %[3]s
 for _, v := range input.%[2]s {
     %[3]s = append(%[3]s, v)
 }
-out.%[1]s = &%[3]s
+output.%[1]s = &%[3]s
 `, mapping.DirectAssignment.SdkFieldPath, mapping.DirectAssignment.SchemaFieldPath, sdkField.JsonName, *variableType)
 		}
 		return &line, nil
@@ -232,7 +232,7 @@ if input.%[2]s != nil {
 		%[3]s = append(%[3]s, v)
 	}
 }
-out.%[1]s = &%[3]s
+output.%[1]s = &%[3]s
 `, mapping.DirectAssignment.SdkFieldPath, mapping.DirectAssignment.SchemaFieldPath, sdkField.JsonName, *variableType)
 	return &line, nil
 }
@@ -244,9 +244,9 @@ func (d directAssignmentLine) readMappingBetweenFields(mapping resourcemanager.F
 			return nil, fmt.Errorf("missing mapping between Schema Field Type %q and Constant Type", string(schemaField.ObjectDefinition.Type))
 		}
 		if schemaField.Required {
-			line := fmt.Sprintf("out.%[1]s = %[2]s(input.%[3]s)", mapping.DirectAssignment.SchemaFieldPath, constantGoType, mapping.DirectAssignment.SdkFieldPath)
+			line := fmt.Sprintf("output.%[1]s = %[2]s(input.%[3]s)", mapping.DirectAssignment.SchemaFieldPath, constantGoType, mapping.DirectAssignment.SdkFieldPath)
 			if sdkField.Optional {
-				line = fmt.Sprintf("out.%[1]s = as.Pointer(%[2]s(input.%[3]s))", mapping.DirectAssignment.SchemaFieldPath, constantGoType, mapping.DirectAssignment.SdkFieldPath)
+				line = fmt.Sprintf("output.%[1]s = as.Pointer(%[2]s(input.%[3]s))", mapping.DirectAssignment.SchemaFieldPath, constantGoType, mapping.DirectAssignment.SdkFieldPath)
 			}
 			return &line, nil
 		}
@@ -259,7 +259,7 @@ func (d directAssignmentLine) readMappingBetweenFields(mapping resourcemanager.F
 
 		line := fmt.Sprintf(`
 	if input.%[3]s != nil {
-		out.%[1]s = as.Pointer(%[2]s(*input.%[3]s))
+		output.%[1]s = as.Pointer(%[2]s(*input.%[3]s))
 	}
 	`, mapping.DirectAssignment.SdkFieldPath, constantGoType, mapping.DirectAssignment.SchemaFieldPath)
 		return &line, nil
@@ -274,11 +274,11 @@ func (d directAssignmentLine) readMappingBetweenFields(mapping resourcemanager.F
 	}
 
 	if schemaField.Required {
-		line := fmt.Sprintf("out.%[1]s = input.%[2]s", mapping.DirectAssignment.SchemaFieldPath, mapping.DirectAssignment.SdkFieldPath)
+		line := fmt.Sprintf("output.%[1]s = input.%[2]s", mapping.DirectAssignment.SchemaFieldPath, mapping.DirectAssignment.SdkFieldPath)
 		if sdkField.Optional {
 			line = fmt.Sprintf(`
 if input.%[2]s != nil {
-	out.%[1]s = *input.%[2]s
+	output.%[1]s = *input.%[2]s
 }
 `, mapping.DirectAssignment.SchemaFieldPath, mapping.DirectAssignment.SdkFieldPath)
 		}
@@ -292,7 +292,7 @@ if input.%[2]s != nil {
 	}
 
 	// optional -> optional
-	line := fmt.Sprintf(`out.%[1]s = input.%[2]s`, mapping.DirectAssignment.SchemaFieldPath, mapping.DirectAssignment.SdkFieldPath)
+	line := fmt.Sprintf(`output.%[1]s = input.%[2]s`, mapping.DirectAssignment.SchemaFieldPath, mapping.DirectAssignment.SdkFieldPath)
 	return &line, nil
 }
 
@@ -316,7 +316,7 @@ func (d directAssignmentLine) readMappingBetweenListFields(mapping resourcemanag
 for _, v := range input.%[3]s {
 	%[4]s = append(%[4]s, %[2]s(v))
 }
-out.%[1]s = %[4]s
+output.%[1]s = %[4]s
 `, mapping.DirectAssignment.SdkFieldPath, constantGoType, mapping.DirectAssignment.SchemaFieldPath, sdkField.JsonName)
 			if sdkField.Optional {
 				line = fmt.Sprintf(`
@@ -324,7 +324,7 @@ out.%[1]s = %[4]s
 for _, v := range input.%[3]s {
 	%[4]s = append(%[4]s, %[2]s(v))
 }
-out.%[1]s = &%[4]s
+output.%[1]s = &%[4]s
 `, mapping.DirectAssignment.SdkFieldPath, constantGoType, mapping.DirectAssignment.SchemaFieldPath, sdkField.JsonName)
 			}
 			return &line, nil
@@ -343,7 +343,7 @@ if input.%[3]s != nil {
 		%[4]s = append(%[4]s, %[2]s(v))
 	}
 }
-out.%[1]s = &%[4]s
+output.%[1]s = &%[4]s
 `, mapping.DirectAssignment.SdkFieldPath, constantGoType, mapping.DirectAssignment.SchemaFieldPath, sdkField.JsonName)
 		return &line, nil
 	}
@@ -367,7 +367,7 @@ out.%[1]s = &%[4]s
 for _, v := range input.%[1]s {
     %[3]s = append(%[3]s, v)
 }
-out.%[2]s = %[3]s
+output.%[2]s = %[3]s
 `, mapping.DirectAssignment.SdkFieldPath, mapping.DirectAssignment.SchemaFieldPath, sdkField.JsonName, *variableType)
 		if sdkField.Optional {
 			line = fmt.Sprintf(`
@@ -375,7 +375,7 @@ out.%[2]s = %[3]s
 for _, v := range input.%[1]s {
     %[3]s = append(%[3]s, v)
 }
-out.%[2]s = &%[3]s
+output.%[2]s = &%[3]s
 `, mapping.DirectAssignment.SdkFieldPath, mapping.DirectAssignment.SchemaFieldPath, sdkField.JsonName, *variableType)
 		}
 		return &line, nil
@@ -395,7 +395,7 @@ if input.%[1]s != nil {
 		%[3]s = append(%[3]s, v)
 	}
 }
-out.%[2]s = &%[3]s
+output.%[2]s = &%[3]s
 `, mapping.DirectAssignment.SdkFieldPath, mapping.DirectAssignment.SchemaFieldPath, sdkField.JsonName, *variableType)
 	return &line, nil
 }
