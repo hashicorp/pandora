@@ -27,6 +27,9 @@ internal class CustomHostnameAnalysisResultModel
     [JsonPropertyName("cNameRecords")]
     public List<string>? CNameRecords { get; set; }
 
+    [JsonPropertyName("conflictWithEnvironmentCustomDomain")]
+    public bool? ConflictWithEnvironmentCustomDomain { get; set; }
+
     [JsonPropertyName("conflictingContainerAppResourceId")]
     public string? ConflictingContainerAppResourceId { get; set; }
 
