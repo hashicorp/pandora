@@ -95,6 +95,9 @@ func (h TestAttributesHelpers) codeForTestAttribute(input resourcemanager.Terraf
 					{Type: hclsyntax.TokenQuotedLit, Bytes: []byte(`"acctest-${local.random_integer}"`)},
 				}
 				hclBody.SetAttributeRaw(input.HclName, tokens)
+				if h.Dependencies != nil {
+					h.Dependencies.Variables.HasRandomInt = true
+				}
 			}
 		default:
 			hclBody.SetAttributeValue(input.HclName, cty.StringVal("foo"))
