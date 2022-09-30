@@ -101,11 +101,56 @@ type FieldMappingDefinition struct {
 	// DirectAssignment specifies the mapping information when Type is set to DirectAssignment.
 	DirectAssignment *FieldMappingDirectAssignmentDefinition `json:"directAssignment,omitempty"`
 
-	// DirectAssignment specifies the mapping information when Type is set to ModelToModel.
-	ModelToModel *FieldMappingModelToModelDefinition `json:"modelToModel"`
+	// ModelToModel specifies the mapping information when Type is set to ModelToModel.
+	ModelToModel *FieldMappingModelToModelDefinition `json:"modelToModel,omitempty"`
 
 	// Manual contains additional metadata when Type is set to Manual.
 	Manual *FieldManualMappingDefinition `json:"manual,omitempty"`
+}
+
+func (d FieldMappingDefinition) SchemaModelName() string {
+	switch d.Type {
+	case DirectAssignmentMappingDefinitionType:
+		{
+			return d.DirectAssignment.SchemaModelName
+		}
+	case ModelToModelMappingDefinitionType:
+		{
+			return d.ModelToModel.SchemaModelName
+		}
+	}
+
+	panic(fmt.Sprintf("unimplemented mapping type %q for SchemaModelname", string(d.Type)))
+}
+
+func (d FieldMappingDefinition) SdkModelName() string {
+	switch d.Type {
+	case DirectAssignmentMappingDefinitionType:
+		{
+			return d.DirectAssignment.SdkModelName
+		}
+	case ModelToModelMappingDefinitionType:
+		{
+			return d.ModelToModel.SdkModelName
+		}
+	}
+
+	panic(fmt.Sprintf("unimplemented mapping type %q for SdkModelName", string(d.Type)))
+}
+
+func (d FieldMappingDefinition) SdkFieldPath() string {
+	switch d.Type {
+	case DirectAssignmentMappingDefinitionType:
+		{
+			return d.DirectAssignment.SdkFieldPath
+		}
+	case ModelToModelMappingDefinitionType:
+		{
+			return d.ModelToModel.SdkFieldName
+		}
+	}
+
+	panic(fmt.Sprintf("unimplemented mapping type %q for SdkFieldPath", string(d.Type)))
 }
 
 func (d FieldMappingDefinition) String() string {
@@ -165,16 +210,16 @@ type FieldMappingModelToModelDefinition struct {
 	// SdkModelName specifies the name of the SdkModel where this value should be mapped onto.
 	SdkModelName string `json:"sdkModelName"`
 
-	// SdkFieldPath specifies the Path to the Field within the SdkModel where the Schema Field
+	// SdkFieldName specifies the Name of the Field within the SdkModel where the Schema Field
 	// should be mapped onto.
-	SdkFieldPath string `json:"sdkFieldPath"`
+	SdkFieldName string `json:"sdkFieldName"`
 }
 
 func (d FieldMappingModelToModelDefinition) String() string {
 	output := []string{
 		fmt.Sprintf("Schema Model Name %q", d.SchemaModelName),
 		fmt.Sprintf("Sdk Model Name %q", d.SdkModelName),
-		fmt.Sprintf("Sdk Field Path %q", d.SdkFieldPath),
+		fmt.Sprintf("Sdk Field Name %q", d.SdkFieldName),
 	}
 	return strings.Join(output, " / ")
 }

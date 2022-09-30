@@ -22,6 +22,14 @@ func FindMappingsBetween(input resourcemanager.ModelToModelMappingDefinition, ma
 				continue
 			}
 
+		case resourcemanager.ModelToModelMappingDefinitionType:
+			{
+				if item.ModelToModel.SchemaModelName == input.SchemaModelName && item.ModelToModel.SdkModelName == input.SdkModelName {
+					output = append(output, item)
+				}
+				continue
+			}
+
 		default:
 			{
 				return nil, fmt.Errorf("internal-error: unimplemented mapping type %q", string(item.Type))
