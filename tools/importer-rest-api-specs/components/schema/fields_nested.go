@@ -174,7 +174,9 @@ func (b Builder) findObjectReferenceForField(modelName string, fieldName string)
 			}
 			if field.ObjectDefinition.Type == resourcemanager.ListApiObjectDefinitionType {
 				// not doing anything with this right now
-				reference = *field.ObjectDefinition.NestedItem.ReferenceName
+				if field.ObjectDefinition.NestedItem.Type == resourcemanager.ReferenceApiObjectDefinitionType {
+					reference = *field.ObjectDefinition.NestedItem.ReferenceName
+				}
 				definitionType = field.ObjectDefinition.Type
 			}
 		}
