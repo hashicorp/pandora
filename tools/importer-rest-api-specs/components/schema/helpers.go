@@ -115,3 +115,26 @@ func getFieldValidation(input *resourcemanager.FieldValidationDetails, fieldName
 		PossibleValues: possibleValues,
 	}, nil
 }
+
+func directAssignmentMappingBetween(fromModel string, fromField string, toModel string, toField string) resourcemanager.FieldMappingDefinition {
+	return resourcemanager.FieldMappingDefinition{
+		Type: resourcemanager.DirectAssignmentMappingDefinitionType,
+		DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
+			SchemaModelName: fromModel,
+			SchemaFieldPath: fromField,
+			SdkModelName:    toModel,
+			SdkFieldPath:    toField,
+		},
+	}
+}
+
+func modelToModelMappingBetween(fromModel string, toModel string, toField string) resourcemanager.FieldMappingDefinition {
+	return resourcemanager.FieldMappingDefinition{
+		Type: resourcemanager.ModelToModelMappingDefinitionType,
+		ModelToModel: &resourcemanager.FieldMappingModelToModelDefinition{
+			SchemaModelName: fromModel,
+			SdkModelName:    toModel,
+			SdkFieldName:    toField,
+		},
+	}
+}
