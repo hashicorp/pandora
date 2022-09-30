@@ -25,6 +25,11 @@ func applyFieldRenameToFieldMapping(v resourcemanager.FieldMappingDefinition, mo
 				v.DirectAssignment.SchemaFieldPath = updatedFieldName
 			}
 		}
+	case resourcemanager.ModelToModelMappingDefinitionType:
+		{
+			// nothing to do
+			break
+		}
 	default:
 		panic(fmt.Sprintf("unimplemented: field rename for mapping type %q", string(v.Type)))
 	}
