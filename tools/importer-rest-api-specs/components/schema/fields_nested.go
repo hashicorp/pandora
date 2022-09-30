@@ -132,25 +132,17 @@ func (b Builder) identifyFieldsWithinPropertiesBlock(schemaModelName string, inp
 		definition.ObjectDefinition = *objectDefinition
 
 		mappingsForField := directAssignmentMappingForNestedField(schemaModelName, fieldNameForTypedModel, input, k, hasCreate, hasUpdate, hasRead)
-		for i, mapping := range mappingsForField {
-			sdkFieldName, fieldReferenceType := b.findObjectReferenceForField(mapping.DirectAssignment.SdkModelName, k)
-			if fieldReferenceType == resourcemanager.ReferenceApiObjectDefinitionType || fieldReferenceType == resourcemanager.ListApiObjectDefinitionType {
-				replacementMapping := resourcemanager.FieldMappingDefinition{
-					Type:             resourcemanager.ModelToModelMappingDefinitionType,
-					DirectAssignment: nil,
-					ModelToModel: &resourcemanager.FieldMappingModelToModelDefinition{
-						SchemaModelName: mapping.DirectAssignment.SchemaModelName,
-						SdkFieldName:    sdkFieldName,
-						SdkModelName:    mapping.DirectAssignment.SdkModelName,
-					},
-					Manual: nil,
-				}
-				mappingsForField[i] = replacementMapping
-			}
-		}
 		mappings.Fields = append(mappings.Fields, mappingsForField...)
 
 		out[fieldNameForTypedModel] = definition
+	}
+
+	mappings.Fields = append(mappings.Fields, modelToModelMappingBetween(schemaModelName, input.createModelName, "Properties"))
+	if input.createModelName != input.readModelName {
+		mappings.Fields = append(mappings.Fields, modelToModelMappingBetween(schemaModelName, input.readModelName, "Properties"))
+	}
+	if input.updatePayload != nil && input.createModelName != *input.updateModelName && input.readModelName != *input.updateModelName {
+		mappings.Fields = append(mappings.Fields, modelToModelMappingBetween(schemaModelName, *input.updateModelName, "Properties"))
 	}
 
 	return &out, mappings, nil
