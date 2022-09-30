@@ -133,10 +133,12 @@ func (b Builder) identifyFieldsWithinPropertiesBlock(schemaModelName string, inp
 
 		mappingsForField := directAssignmentMappingForNestedField(schemaModelName, fieldNameForTypedModel, input, k, hasCreate, hasUpdate, hasRead)
 		mappings.Fields = append(mappings.Fields, mappingsForField...)
-
+		// TODO: iterate over the nested models and add ModelToModel mappings as needed
 		out[fieldNameForTypedModel] = definition
 	}
 
+	// output a ModelToModel mapping between the top-level Properties field for each of the payloads and their associated models
+	// so that we can map inlined fields
 	mappings.Fields = append(mappings.Fields, modelToModelMappingBetween(schemaModelName, input.createModelName, "Properties"))
 	if input.createModelName != input.readModelName {
 		mappings.Fields = append(mappings.Fields, modelToModelMappingBetween(schemaModelName, input.readModelName, "Properties"))
@@ -160,23 +162,4 @@ func directAssignmentMappingForNestedField(schemaModelName, schemaModelField str
 		output = append(output, directAssignmentMappingBetween(schemaModelName, schemaModelField, *input.updatePropertiesModelName, sdkFieldName))
 	}
 	return output
-}
-
-func (b Builder) findObjectReferenceForField(modelName string, fieldName string) (reference string, definitionType resourcemanager.ApiObjectDefinitionType) {
-	if model, ok := b.models[modelName]; ok {
-		if field, ok := model.Fields[fieldName]; ok {
-			if field.ObjectDefinition.Type == resourcemanager.ReferenceApiObjectDefinitionType {
-				reference = *field.ObjectDefinition.ReferenceName
-				definitionType = field.ObjectDefinition.Type
-			}
-			if field.ObjectDefinition.Type == resourcemanager.ListApiObjectDefinitionType {
-				// not doing anything with this right now
-				if field.ObjectDefinition.NestedItem.Type == resourcemanager.ReferenceApiObjectDefinitionType {
-					reference = *field.ObjectDefinition.NestedItem.ReferenceName
-				}
-				definitionType = field.ObjectDefinition.Type
-			}
-		}
-	}
-	return
 }
