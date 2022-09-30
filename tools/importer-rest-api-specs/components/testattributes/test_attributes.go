@@ -26,6 +26,7 @@ type DependentResources struct {
 	HasEdgeZone             bool
 	HasUserAssignedIdentity bool
 	HasSubnet               bool
+	HasPublicIP             bool
 	HasVirtualNetwork       bool
 }
 
@@ -108,8 +109,9 @@ func (h TestAttributesHelpers) codeForTestAttribute(input resourcemanager.Terraf
 				},
 			})
 			if h.Dependencies != nil {
-				h.Dependencies.Resource.HasResourceGroup = true
 				h.Dependencies.Resource.HasSubnet = true
+				h.Dependencies.Resource.HasVirtualNetwork = true
+				h.Dependencies.Resource.HasResourceGroup = true
 				h.Dependencies.Variables.HasRandomInt = true
 			}
 		case "virtual_network_id":
@@ -121,6 +123,17 @@ func (h TestAttributesHelpers) codeForTestAttribute(input resourcemanager.Terraf
 			if h.Dependencies != nil {
 				h.Dependencies.Resource.HasResourceGroup = true
 				h.Dependencies.Resource.HasVirtualNetwork = true
+				h.Dependencies.Variables.HasRandomInt = true
+			}
+		case "public_ip_address_id":
+			hclBody.SetAttributeTraversal(input.HclName, hcl.Traversal{
+				hcl.TraverseRoot{
+					Name: "azurerm_public_ip.test.id",
+				},
+			})
+			if h.Dependencies != nil {
+				h.Dependencies.Resource.HasPublicIP = true
+				h.Dependencies.Resource.HasResourceGroup = true
 				h.Dependencies.Variables.HasRandomInt = true
 			}
 		default:

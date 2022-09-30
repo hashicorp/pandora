@@ -111,16 +111,21 @@ provider "azurerm" {
 }
 
 `
-	// todo add random local variables
-
-	// todo don't hardcode location
-	if dependencies.Resource.HasResourceGroup {
+	// todo add randomness to local variables
+	if dependencies.Variables.HasRandomInt {
 		output += `
-resource "azurerm_resource_group" "test" {
-  name     = "acctestRG-${local.random_integer}"
-  location = "West Europe"
+locals {
+	random_integer = 2
 }
+`
+	}
 
+	// todo add randomness to local variables
+	if dependencies.Variables.HasRandomString {
+		output += `
+locals {
+	random_string = "not_a_random_string"
+}
 `
 	}
 
@@ -133,12 +138,60 @@ data "azurerm_extended_locations" "test" {
 `
 	}
 
+	// todo don't hardcode location
+	if dependencies.Resource.HasResourceGroup {
+		output += `
+resource "azurerm_resource_group" "test" {
+  name     = "acctestRG-${local.random_integer}"
+  location = "West Europe"
+}
+
+`
+	}
+
+	// todo static or dynamic?
+	if dependencies.Resource.HasPublicIP {
+		output += `
+resource "azurerm_public_ip" "test" {
+  name                = "acctest-${local.random_integer}"
+  location            = azurerm_resource_group.test.location
+  resource_group_name = azurerm_resource_group.test.name
+  allocation_method   = "Dynamic"
+}
+
+`
+	}
+
 	if dependencies.Resource.HasUserAssignedIdentity {
 		output += `
 resource "azurerm_user_assigned_identity" "test" {
   name                = "acctest-${local.random_integer}"
   resource_group_name = azurerm_resource_group.test.name
   location            = azurerm_resource_group.test.location
+}
+
+`
+	}
+
+	if dependencies.Resource.HasVirtualNetwork {
+		output += `
+resource "azurerm_virtual_network" "test" {
+  name                = "acctest-${local.random_integer}"
+  resource_group_name = azurerm_resource_group.test.name
+  location            = azurerm_resource_group.test.location
+  address_space       = ["10.0.0.0/16"]
+}
+
+`
+	}
+
+	if dependencies.Resource.HasSubnet {
+		output += `
+resource "azurerm_subnet" "test" {
+  name                 = "internal"
+  resource_group_name  = azurerm_resource_group.test.name
+  virtual_network_name = azurerm_virtual_network.test.name
+  address_prefixes     = ["10.0.2.0/24"]
 }
 
 `
