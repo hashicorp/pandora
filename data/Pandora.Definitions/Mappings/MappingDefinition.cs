@@ -14,7 +14,7 @@ public class MappingDefinition
     /// <summary>
     /// FromSchemaPath is the path to the field within the Schema Model that this mapping is From.
     /// </summary>
-    public string FromSchemaPath { get; set; }
+    public string? FromSchemaPath { get; set; }
 
     /// <summary>
     /// ToSdkModelName is the name of the Sdk Model that this mapping is To.
@@ -35,9 +35,23 @@ public class MappingDefinition
         return new DirectAssignmentMapping
         {
             FromSchemaModelName = FromSchemaModelName,
-            FromSchemaPath = FromSchemaPath,
+            FromSchemaPath = FromSchemaPath!,
             ToSdkModelName = ToSdkModelName,
             ToSdkFieldPath = ToSdkFieldPath,
+        };
+    }
+
+    /// <summary>
+    /// ModelToModel specifies that this is a ModelToModel Mapping.
+    /// </summary>
+    /// <returns>A ModelToModelMapping</returns>
+    public ModelToModelMapping ModelToModel()
+    {
+        return new ModelToModelMapping
+        {
+            SchemaModelName = FromSchemaModelName,
+            SdkModelName = ToSdkModelName,
+            SdkFieldPath = ToSdkFieldPath,
         };
     }
 }

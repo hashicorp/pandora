@@ -287,7 +287,10 @@ public partial class TerraformController
         [JsonPropertyName("directAssignment")]
         public FieldMappingDirectAssignmentDefinition? DirectAssignment { get; set; }
 
-        // TODO: BooleanEquals, ModelToModel and Manual etc
+        [JsonPropertyName("modelToModel")]
+        public FieldMappingModelToModelDefinition? ModelToModel { get; set; }
+
+        // TODO: BooleanEquals, Manual etc
     }
 
     private class FieldMappingDirectAssignmentDefinition
@@ -317,16 +320,25 @@ public partial class TerraformController
         public string? SdkFieldPath { get; set; }
     }
 
-    private class FieldMappingBooleanEqualsDefinition
+    private class FieldMappingModelToModelDefinition
     {
-        [JsonPropertyName("constantName")]
-        public string? ConstantName { get; set; }
+        /// <summary>
+        /// SchemaModelName specifies the name of the Schema Model used for this ModelToModel Mapping.
+        /// </summary>
+        [JsonPropertyName("schemaModelName")]
+        public string SchemaModelName { get; set; }
 
-        [JsonPropertyName("constantValue")]
-        public string? ConstantValue { get; set; }
+        /// <summary>
+        /// SdkModelName specifies the name of the Sdk Model used for this ModelToModel Mapping. 
+        /// </summary>
+        [JsonPropertyName("sdkModelName")]
+        public string SdkModelName { get; set; }
 
-        [JsonPropertyName("expression")]
-        public string? Expression { get; set; }
+        /// <summary>
+        /// SdkFieldName specifies the name of the Field within the Sdk Model
+        /// </summary>
+        [JsonPropertyName("sdkFieldName")]
+        public string SdkFieldName { get; set; }
     }
 
     private class TerraformResourceTestsDefinition
@@ -365,6 +377,7 @@ public partial class TerraformController
     private enum TerraformFieldMappingType
     {
         DirectAssignment,
-        Manual,
+        ModelToModel,
+        // TODO: Manual, BooleanEquals etc
     }
 }
