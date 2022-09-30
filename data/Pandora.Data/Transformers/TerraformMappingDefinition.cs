@@ -52,16 +52,23 @@ public static class TerraformMappingDefinition
 
             if (item is ModelToModelMapping modelToModel)
             {
+                var schemaModelName = modelToModel.SchemaModelName.RemoveModelSuffixFromTypeName();
+                var sdkModelName = modelToModel.SdkModelName.RemoveModelSuffixFromTypeName();
                 fields.Add(new Models.TerraformFieldMappingDefinition
                 {
                     Type = Models.TerraformFieldMappingType.ModelToModel,
                     ModelToModel = new Models.TerraformFieldMappingModelToModelDefinition
                     {
-                        SchemaModelName = modelToModel.SchemaModelName.RemoveModelSuffixFromTypeName(),
+                        SchemaModelName = schemaModelName,
 
-                        SdkModelName = modelToModel.SdkModelName.RemoveModelSuffixFromTypeName(),
+                        SdkModelName = sdkModelName,
                         SdkFieldName = modelToModel.SdkFieldPath,
                     },
+                });
+                modelToModels.Add(new Models.TerraformModelToModelMappingDefinition
+                {
+                    SchemaModelName = schemaModelName,
+                    SdkModelName = sdkModelName,
                 });
                 continue;
             }

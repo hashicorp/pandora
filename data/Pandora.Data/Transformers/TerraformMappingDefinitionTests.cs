@@ -66,7 +66,8 @@ public static class TerraformMappingDefinitionTests
                                                          r.ModelToModel.SchemaModelName == "TestSchema" &&
                                                          r.ModelToModel.SdkModelName == "TestSdk" &&
                                                          r.ModelToModel.SdkFieldName == "SdkBar"));
-        // TODO: the modeltomodel counter
+        Assert.AreEqual(1, actual.ModelToModel.Count);
+        Assert.NotNull(actual.ModelToModel.FirstOrDefault(m => m.SchemaModelName == "TestSchema" && m.SdkModelName == "TestSdk"));
     }
 
     private class NoMappings : Definitions.Interfaces.TerraformMappingDefinition
