@@ -185,7 +185,7 @@ func (d directAssignmentLine) schemaToSdkMappingBetweenFields(mapping resourcema
 		if schemaField.Required {
 			line := fmt.Sprintf("output.%[1]s = %[2]s(input.%[3]s)", mapping.DirectAssignment.SdkFieldPath, sdkConstantTypeName, mapping.DirectAssignment.SchemaFieldPath)
 			if sdkField.Optional {
-				line = fmt.Sprintf("output.%[1]s = as.Pointer(%[2]s(input.%[3]s))", mapping.DirectAssignment.SdkFieldPath, sdkConstantTypeName, mapping.DirectAssignment.SchemaFieldPath)
+				line = fmt.Sprintf("output.%[1]s = pointer.To(%[2]s(input.%[3]s))", mapping.DirectAssignment.SdkFieldPath, sdkConstantTypeName, mapping.DirectAssignment.SchemaFieldPath)
 			}
 			return &line, nil
 		}
@@ -198,7 +198,7 @@ func (d directAssignmentLine) schemaToSdkMappingBetweenFields(mapping resourcema
 
 		line := fmt.Sprintf(`
 if input.%[3]s != nil {
-	output.%[1]s = as.Pointer(%[2]s(*input.%[3]s))
+	output.%[1]s = pointer.To(%[2]s(*input.%[3]s))
 }
 `, mapping.DirectAssignment.SdkFieldPath, sdkConstantTypeName, mapping.DirectAssignment.SchemaFieldPath)
 		return &line, nil
@@ -480,7 +480,7 @@ func (d directAssignmentLine) sdkToSchemaMappingBetweenFields(mapping resourcema
 		if schemaField.Required {
 			line := fmt.Sprintf("output.%[1]s = %[2]s(input.%[3]s)", mapping.DirectAssignment.SchemaFieldPath, constantGoType, mapping.DirectAssignment.SdkFieldPath)
 			if sdkField.Optional {
-				line = fmt.Sprintf("output.%[1]s = as.Pointer(%[2]s(input.%[3]s))", mapping.DirectAssignment.SchemaFieldPath, constantGoType, mapping.DirectAssignment.SdkFieldPath)
+				line = fmt.Sprintf("output.%[1]s = pointer.To(%[2]s(input.%[3]s))", mapping.DirectAssignment.SchemaFieldPath, constantGoType, mapping.DirectAssignment.SdkFieldPath)
 			}
 			return &line, nil
 		}
@@ -493,7 +493,7 @@ func (d directAssignmentLine) sdkToSchemaMappingBetweenFields(mapping resourcema
 
 		line := fmt.Sprintf(`
 	if input.%[3]s != nil {
-		output.%[1]s = as.Pointer(%[2]s(*input.%[3]s))
+		output.%[1]s = pointer.To(%[2]s(*input.%[3]s))
 	}
 	`, mapping.DirectAssignment.SdkFieldPath, constantGoType, mapping.DirectAssignment.SchemaFieldPath)
 		return &line, nil

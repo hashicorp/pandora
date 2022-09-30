@@ -126,7 +126,7 @@ func TestDirectAssignment_CreateOrUpdate_Constant_RequiredToOptional_TopLevel(t 
 					},
 				},
 			},
-			expected:             "output.ToPath = as.Pointer(sdkresource.SomeConstant(input.FromPath))",
+			expected:             "output.ToPath = pointer.To(sdkresource.SomeConstant(input.FromPath))",
 			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeFloat,
 		},
 		{
@@ -141,7 +141,7 @@ func TestDirectAssignment_CreateOrUpdate_Constant_RequiredToOptional_TopLevel(t 
 					},
 				},
 			},
-			expected:             "output.ToPath = as.Pointer(sdkresource.SomeConstant(input.FromPath))",
+			expected:             "output.ToPath = pointer.To(sdkresource.SomeConstant(input.FromPath))",
 			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeInteger,
 		},
 		{
@@ -156,7 +156,7 @@ func TestDirectAssignment_CreateOrUpdate_Constant_RequiredToOptional_TopLevel(t 
 					},
 				},
 			},
-			expected:             "output.ToPath = as.Pointer(sdkresource.SomeConstant(input.FromPath))",
+			expected:             "output.ToPath = pointer.To(sdkresource.SomeConstant(input.FromPath))",
 			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeString,
 		},
 	}
@@ -328,7 +328,7 @@ func TestDirectAssignment_CreateOrUpdate_Constant_OptionalToOptional_TopLevel(t 
 			},
 			expected: `
 if input.FromPath != nil {
-	output.ToPath = as.Pointer(sdkresource.SomeConstant(*input.FromPath))
+	output.ToPath = pointer.To(sdkresource.SomeConstant(*input.FromPath))
 }
 `,
 			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeFloat,
@@ -347,7 +347,7 @@ if input.FromPath != nil {
 			},
 			expected: `
 if input.FromPath != nil {
-	output.ToPath = as.Pointer(sdkresource.SomeConstant(*input.FromPath))
+	output.ToPath = pointer.To(sdkresource.SomeConstant(*input.FromPath))
 }
 `,
 			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeInteger,
@@ -366,7 +366,7 @@ if input.FromPath != nil {
 			},
 			expected: `
 if input.FromPath != nil {
-	output.ToPath = as.Pointer(sdkresource.SomeConstant(*input.FromPath))
+	output.ToPath = pointer.To(sdkresource.SomeConstant(*input.FromPath))
 }
 `,
 			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeString,

@@ -126,7 +126,7 @@ func TestDirectAssignment_Read_Constant_RequiredToOptional_TopLevel(t *testing.T
 					},
 				},
 			},
-			expected:             "output.FromPath = as.Pointer(float64(input.ToPath))",
+			expected:             "output.FromPath = pointer.To(float64(input.ToPath))",
 			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeFloat,
 		},
 		{
@@ -141,7 +141,7 @@ func TestDirectAssignment_Read_Constant_RequiredToOptional_TopLevel(t *testing.T
 					},
 				},
 			},
-			expected:             "output.FromPath = as.Pointer(int64(input.ToPath))",
+			expected:             "output.FromPath = pointer.To(int64(input.ToPath))",
 			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeInteger,
 		},
 		{
@@ -156,7 +156,7 @@ func TestDirectAssignment_Read_Constant_RequiredToOptional_TopLevel(t *testing.T
 					},
 				},
 			},
-			expected:             "output.FromPath = as.Pointer(string(input.ToPath))",
+			expected:             "output.FromPath = pointer.To(string(input.ToPath))",
 			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeString,
 		},
 	}
@@ -328,7 +328,7 @@ func TestDirectAssignment_Read_Constant_OptionalToOptional_TopLevel(t *testing.T
 			},
 			expected: `
 if input.FromPath != nil {
-	output.ToPath = as.Pointer(float64(*input.FromPath))
+	output.ToPath = pointer.To(float64(*input.FromPath))
 }
 `,
 			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeFloat,
@@ -347,7 +347,7 @@ if input.FromPath != nil {
 			},
 			expected: `
 if input.FromPath != nil {
-	output.ToPath = as.Pointer(int64(*input.FromPath))
+	output.ToPath = pointer.To(int64(*input.FromPath))
 }
 `,
 			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeInteger,
@@ -366,7 +366,7 @@ if input.FromPath != nil {
 			},
 			expected: `
 if input.FromPath != nil {
-	output.ToPath = as.Pointer(string(*input.FromPath))
+	output.ToPath = pointer.To(string(*input.FromPath))
 }
 `,
 			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeString,
