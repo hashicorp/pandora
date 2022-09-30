@@ -28,6 +28,17 @@ func convertBasicTestToUsableExample(tests resourcemanager.TerraformResourceTest
 	example = strings.Replace(example, "acc", "", -1)
 	re := regexp.MustCompile("[-][$][{](.*)[}]")
 	example = re.ReplaceAllLiteralString(example, "")
+
+	testVariables := map[string]string{
+		// TODO: add more
+		"random_integer":   "21",
+		"primary_location": "West Europe",
+	}
+	for variable, replacement := range testVariables {
+		example = strings.ReplaceAll(example, fmt.Sprintf("${local.%s}", variable), replacement)
+		example = strings.ReplaceAll(example, fmt.Sprintf("local.%s", variable), replacement)
+	}
+
 	example = strings.TrimSpace(example)
 	return example
 }
