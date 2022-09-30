@@ -29,6 +29,9 @@ func (d Differ) ApplyFromExistingAPIDefinitions(existing models.AzureApiDefiniti
 						return parsed, fmt.Errorf("unable to find the Terraform Resource %q in newly parsed api definitions", resourceName)
 					}
 
+					logger.Trace(fmt.Sprintf("applying existing Documentation from Terraform Resource %q in Resource %q..", existingTerraformResourceName, resourceName))
+					parsedTerraformResource.Documentation = existingTerraformResource.Documentation
+
 					logger.Trace(fmt.Sprintf("applying existing Generate Fields from Terraform Resource %q in Resource %q..", existingTerraformResourceName, resourceName))
 					parsedTerraformResource.Generate = existingTerraformResource.Generate
 					parsedTerraformResource.GenerateModel = existingTerraformResource.GenerateModel
