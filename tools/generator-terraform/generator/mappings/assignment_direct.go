@@ -55,6 +55,12 @@ func (d directAssignmentLine) assignmentForCreateUpdateMapping(mapping resourcem
 
 	// check the assignment type - if it's a List these are special-cased
 	if schemaField.ObjectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeList && sdkField.ObjectDefinition.Type == resourcemanager.ListApiObjectDefinitionType {
+		// TODO: the Schema maybe a List but the SDK can be a Reference too, fwiw - also needs the read
+
+		if schemaField.ObjectDefinition.NestedObject.Type == resourcemanager.TerraformSchemaFieldTypeReference && sdkField.ObjectDefinition.NestedItem.Type == resourcemanager.ReferenceApiObjectDefinitionType {
+			return d.schemaToSdkMappingBetweenListOfReferenceFields(mapping, schemaField, sdkField, apiResourcePackageName)
+		}
+
 		return d.schemaToSdkMappingBetweenListFields(mapping, schemaField, sdkField, sdkConstant, apiResourcePackageName)
 	}
 
@@ -90,6 +96,12 @@ func (d directAssignmentLine) assignmentForReadMapping(mapping resourcemanager.F
 
 	// check the assignment type - if it's a List these are special-cased
 	if schemaField.ObjectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeList && sdkField.ObjectDefinition.Type == resourcemanager.ListApiObjectDefinitionType {
+		// TODO: the Schema maybe a List but the SDK can be a Reference too, fwiw - also needs the read
+
+		if schemaField.ObjectDefinition.NestedObject.Type == resourcemanager.TerraformSchemaFieldTypeReference && sdkField.ObjectDefinition.NestedItem.Type == resourcemanager.ReferenceApiObjectDefinitionType {
+			return d.sdkToSchemaMappingBetweenListOfReferenceFields(mapping, schemaField, sdkField, apiResourcePackageName)
+		}
+
 		return d.sdkToSchemaMappingBetweenListFields(mapping, schemaField, sdkField, sdkConstant, apiResourcePackageName)
 	}
 
@@ -253,6 +265,72 @@ if input.%[2]s != nil {
 }
 output.%[1]s = &%[3]s
 `, mapping.DirectAssignment.SdkFieldPath, mapping.DirectAssignment.SchemaFieldPath, sdkField.JsonName, *variableType)
+	return &line, nil
+}
+
+// TODO: tests
+func (d directAssignmentLine) schemaToSdkMappingBetweenListOfReferenceFields(mapping resourcemanager.FieldMappingDefinition, schemaField resourcemanager.TerraformSchemaFieldDefinition, sdkField resourcemanager.FieldDetails, apiResourcePackageName string) (*string, error) {
+	listVariableType, err := sdkField.ObjectDefinition.GolangTypeName(&apiResourcePackageName)
+	if err != nil {
+		return nil, fmt.Errorf("determining Golang Type for Sdk Model %q / Field %q Object Definition: %+v", mapping.DirectAssignment.SdkModelName, mapping.DirectAssignment.SdkFieldPath, err)
+	}
+
+	listItemVariableReferenceType, err := sdkField.ObjectDefinition.NestedItem.GolangTypeName(&apiResourcePackageName)
+	if err != nil {
+		return nil, fmt.Errorf("determining Golang Type for Sdk Model %q / Field %q Nested Object Definition: %+v", mapping.DirectAssignment.SdkModelName, mapping.DirectAssignment.SdkFieldPath, err)
+	}
+	listItemVariableReferenceName := *sdkField.ObjectDefinition.NestedItem.ReferenceName
+
+	schemaFieldTypeName := *schemaField.ObjectDefinition.NestedObject.ReferenceName
+
+	if schemaField.Required {
+		line := fmt.Sprintf(`
+%[3]s := make(%[4]s, 0)
+for i, v := range input.%[2]s {
+	item := %[5]s{}
+	if err := r.map%[6]sTo%[7]s(v, &item); err != nil {
+		return fmt.Errorf("mapping %[6]s item %%d to %[7]s: %%+v", i, err)
+	} 
+    %[3]s = append(%[3]s, item)
+}
+output.%[1]s = %[3]s
+`, mapping.DirectAssignment.SdkFieldPath, mapping.DirectAssignment.SchemaFieldPath, sdkField.JsonName, *listVariableType, *listItemVariableReferenceType, schemaFieldTypeName, listItemVariableReferenceName)
+		if sdkField.Optional {
+			line = fmt.Sprintf(`
+%[3]s := make(%[4]s, 0)
+for i, v := range input.%[2]s {
+	item := %[5]s{}
+	if err := r.map%[6]sTo%[7]s(v, &item); err != nil {
+		return fmt.Errorf("mapping %[6]s item %%d to %[7]s: %%+v", i, err)
+	} 
+    %[3]s = append(%[3]s, item)
+}
+output.%[1]s = &%[3]s
+`, mapping.DirectAssignment.SdkFieldPath, mapping.DirectAssignment.SchemaFieldPath, sdkField.JsonName, *listVariableType, *listItemVariableReferenceType, schemaFieldTypeName, listItemVariableReferenceName)
+		}
+		return &line, nil
+	}
+
+	if sdkField.Required {
+		// if the SDK Field is Required but the Schema Field is Optional this is a Data Issue
+		// TODO: handle where it's defaulted?
+		return nil, fmt.Errorf("the Sdk Model %q Field %q was Required but Schema Model %q Field %q was Optional but must be Required", mapping.DirectAssignment.SdkModelName, mapping.DirectAssignment.SdkFieldPath, mapping.DirectAssignment.SchemaModelName, mapping.DirectAssignment.SchemaFieldPath)
+	}
+
+	// optional -> optional
+	line := fmt.Sprintf(`
+%[3]s := make(%[4]s, 0)
+if input.%[2]s != nil {
+	for i, v := range *input.%[2]s {
+		item := %[5]s{}
+		if err := r.map%[6]sTo%[7]s(v, &item); err != nil {
+			return fmt.Errorf("mapping %[6]s item %%d to %[7]s: %%+v", i, err)
+		} 
+		%[3]s = append(%[3]s, item)
+	}
+}
+output.%[1]s = &%[3]s
+`, mapping.DirectAssignment.SdkFieldPath, mapping.DirectAssignment.SchemaFieldPath, sdkField.JsonName, *listVariableType, *listItemVariableReferenceType, schemaFieldTypeName, listItemVariableReferenceName)
 	return &line, nil
 }
 
@@ -456,6 +534,63 @@ if input.%[1]s != nil {
 }
 output.%[2]s = &%[3]s
 `, mapping.DirectAssignment.SdkFieldPath, mapping.DirectAssignment.SchemaFieldPath, sdkField.JsonName, *variableType)
+	return &line, nil
+}
+
+// TODO: tests
+func (d directAssignmentLine) sdkToSchemaMappingBetweenListOfReferenceFields(mapping resourcemanager.FieldMappingDefinition, schemaField resourcemanager.TerraformSchemaFieldDefinition, sdkField resourcemanager.FieldDetails, apiResourcePackageName string) (*string, error) {
+	sdkFieldTypeName := *sdkField.ObjectDefinition.NestedItem.ReferenceName
+	schemaFieldTypeName := *schemaField.ObjectDefinition.NestedObject.ReferenceName
+
+	if schemaField.Required {
+		line := fmt.Sprintf(`
+%[3]s := make([]%[5]s, 0)
+for i, v := range input.%[1]s {
+	item := %[5]s{}
+	if err := r.map%[4]sTo%[5]s(v, &item); err != nil {
+		return fmt.Errorf("mapping %[5]s item %%d to %[4]s: %%+v", i, err)
+	} 
+    %[3]s = append(%[3]s, item)
+}
+output.%[2]s = %[3]s
+`, mapping.DirectAssignment.SdkFieldPath, mapping.DirectAssignment.SchemaFieldPath, sdkField.JsonName, sdkFieldTypeName, schemaFieldTypeName)
+
+		if sdkField.Optional {
+			line = fmt.Sprintf(`
+%[3]s := make([]%[5]s, 0)
+for i, v := range input.%[1]s {
+    item := %[5]s{}
+	if err := r.map%[4]sTo%[5]s(v, &item); err != nil {
+		return fmt.Errorf("mapping %[5]s item %%d to %[4]s: %%+v", i, err)
+	} 
+    %[3]s = append(%[3]s, item)
+}
+output.%[2]s = &%[3]s
+`, mapping.DirectAssignment.SdkFieldPath, mapping.DirectAssignment.SchemaFieldPath, sdkField.JsonName, sdkFieldTypeName, schemaFieldTypeName)
+		}
+		return &line, nil
+	}
+
+	if sdkField.Required {
+		// if the SDK Field is Required but the Schema Field is Optional this is a Data Issue
+		// TODO: handle where it's defaulted?
+		return nil, fmt.Errorf("the Sdk Model %q Field %q was Required but Schema Model %q Field %q was Optional but must be Required", mapping.DirectAssignment.SdkModelName, mapping.DirectAssignment.SdkFieldPath, mapping.DirectAssignment.SchemaModelName, mapping.DirectAssignment.SchemaFieldPath)
+	}
+
+	// optional -> optional
+	line := fmt.Sprintf(`
+%[3]s := make([]%[5]s, 0)
+if input.%[1]s != nil {
+	for i, v := range *input.%[1]s {
+		item := %[5]s{}
+		if err := r.map%[4]sTo%[5]s(v, &item); err != nil {
+			return fmt.Errorf("mapping %[5]s item %%d to %[4]s: %%+v", i, err)
+		} 
+		%[3]s = append(%[3]s, item)
+	}
+}
+output.%[2]s = &%[3]s
+`, mapping.DirectAssignment.SdkFieldPath, mapping.DirectAssignment.SchemaFieldPath, sdkField.JsonName, sdkFieldTypeName, schemaFieldTypeName)
 	return &line, nil
 }
 
