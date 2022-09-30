@@ -135,12 +135,17 @@ func (b Builder) identifyFieldsWithinPropertiesBlock(schemaModelName string, inp
 		for i, mapping := range mappingsForField {
 			sdkFieldName, fieldReferenceType := b.findObjectReferenceForField(mapping.DirectAssignment.SdkModelName, k)
 			if fieldReferenceType == resourcemanager.ReferenceApiObjectDefinitionType || fieldReferenceType == resourcemanager.ListApiObjectDefinitionType {
-				modelToModel := &resourcemanager.FieldMappingModelToModelDefinition{
-					SchemaModelName: mapping.DirectAssignment.SchemaModelName,
-					SdkFieldName:    sdkFieldName,
-					SdkModelName:    mapping.DirectAssignment.SdkModelName,
+				replacementMapping := resourcemanager.FieldMappingDefinition{
+					Type:             resourcemanager.ModelToModelMappingDefinitionType,
+					DirectAssignment: nil,
+					ModelToModel: &resourcemanager.FieldMappingModelToModelDefinition{
+						SchemaModelName: mapping.DirectAssignment.SchemaModelName,
+						SdkFieldName:    sdkFieldName,
+						SdkModelName:    mapping.DirectAssignment.SdkModelName,
+					},
+					Manual: nil,
 				}
-				mappingsForField[i].ModelToModel = modelToModel
+				mappingsForField[i] = replacementMapping
 			}
 		}
 		mappings.Fields = append(mappings.Fields, mappingsForField...)
