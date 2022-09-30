@@ -128,6 +128,7 @@ type MappingDefinitionType string
 const (
 	DirectAssignmentMappingDefinitionType MappingDefinitionType = "DirectAssignment"
 	ManualMappingDefinitionType           MappingDefinitionType = "Manual"
+	ModelToModelMappingDefinitionType     MappingDefinitionType = "ModelToModel"
 	// TODO: BooleanEquals, BooleanInvert
 )
 
