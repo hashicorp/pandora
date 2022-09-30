@@ -132,6 +132,17 @@ func (b Builder) identifyFieldsWithinPropertiesBlock(schemaModelName string, inp
 		definition.ObjectDefinition = *objectDefinition
 
 		mappingsForField := directAssignmentMappingForNestedField(schemaModelName, fieldNameForTypedModel, input, k, hasCreate, hasUpdate, hasRead)
+		for i, mapping := range mappingsForField {
+			sdkFieldName, fieldReferenceType := b.findObjectReferenceForField(mapping.DirectAssignment.SdkModelName, k)
+			if fieldReferenceType == resourcemanager.ReferenceApiObjectDefinitionType || fieldReferenceType == resourcemanager.ListApiObjectDefinitionType {
+				modelToModel := &resourcemanager.FieldMappingModelToModelDefinition{
+					SchemaModelName: mapping.DirectAssignment.SchemaModelName,
+					SdkFieldName:    sdkFieldName,
+					SdkModelName:    mapping.DirectAssignment.SdkModelName,
+				}
+				mappingsForField[i].ModelToModel = modelToModel
+			}
+		}
 		mappings.Fields = append(mappings.Fields, mappingsForField...)
 
 		out[fieldNameForTypedModel] = definition
@@ -152,4 +163,21 @@ func directAssignmentMappingForNestedField(schemaModelName, schemaModelField str
 		output = append(output, directAssignmentMappingBetween(schemaModelName, schemaModelField, *input.updatePropertiesModelName, sdkFieldName))
 	}
 	return output
+}
+
+func (b Builder) findObjectReferenceForField(modelName string, fieldName string) (reference string, definitionType resourcemanager.ApiObjectDefinitionType) {
+	if model, ok := b.models[modelName]; ok {
+		if field, ok := model.Fields[fieldName]; ok {
+			if field.ObjectDefinition.Type == resourcemanager.ReferenceApiObjectDefinitionType {
+				reference = *field.ObjectDefinition.ReferenceName
+				definitionType = field.ObjectDefinition.Type
+			}
+			if field.ObjectDefinition.Type == resourcemanager.ListApiObjectDefinitionType {
+				// not doing anything with this right now
+				reference = *field.ObjectDefinition.NestedItem.ReferenceName
+				definitionType = field.ObjectDefinition.Type
+			}
+		}
+	}
+	return
 }
