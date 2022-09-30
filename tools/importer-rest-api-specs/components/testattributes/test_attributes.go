@@ -25,6 +25,8 @@ type DependentResources struct {
 	HasResourceGroup        bool
 	HasEdgeZone             bool
 	HasUserAssignedIdentity bool
+	HasSubnet               bool
+	HasVirtualNetwork       bool
 }
 
 type DependentVariables struct {
@@ -98,6 +100,28 @@ func (h TestAttributesHelpers) codeForTestAttribute(input resourcemanager.Terraf
 				if h.Dependencies != nil {
 					h.Dependencies.Variables.HasRandomInt = true
 				}
+			}
+		case "subnet_id":
+			hclBody.SetAttributeTraversal(input.HclName, hcl.Traversal{
+				hcl.TraverseRoot{
+					Name: "azurerm_subnet.test.id",
+				},
+			})
+			if h.Dependencies != nil {
+				h.Dependencies.Resource.HasResourceGroup = true
+				h.Dependencies.Resource.HasSubnet = true
+				h.Dependencies.Variables.HasRandomInt = true
+			}
+		case "virtual_network_id":
+			hclBody.SetAttributeTraversal(input.HclName, hcl.Traversal{
+				hcl.TraverseRoot{
+					Name: "azurerm_virtual_network.test.id",
+				},
+			})
+			if h.Dependencies != nil {
+				h.Dependencies.Resource.HasResourceGroup = true
+				h.Dependencies.Resource.HasVirtualNetwork = true
+				h.Dependencies.Variables.HasRandomInt = true
 			}
 		default:
 			hclBody.SetAttributeValue(input.HclName, cty.StringVal("foo"))
