@@ -50,7 +50,7 @@ package mappings
 //if err != nil {
 //	return fmt.Errorf("flattening 'ToPath': %+v", err)
 //}
-//out.FromPath = toPath
+//output.FromPath = toPath
 //`, "'", "\"")
 //
 //	actual, err := manualAssignmentLine{}.assignmentForReadMapping(mapping, schemaModel, sdkModel, nil)
@@ -106,7 +106,7 @@ package mappings
 //	if err != nil {
 //		return fmt.Errorf("flattening 'ToPath': %+v", err)
 //	}
-//	out.FromPath = toPath
+//	output.FromPath = toPath
 //}
 //`, "'", "\"")
 //
@@ -210,7 +210,7 @@ package mappings
 //	if err != nil {
 //		return fmt.Errorf("flattening 'ToPath': %+v", err)
 //	}
-//	out.FromPath = &toPath
+//	output.FromPath = &toPath
 //}
 //`, "'", "\"")
 //
@@ -272,7 +272,7 @@ package mappings
 //if err != nil {
 //	return fmt.Errorf("flattening 'ToPath': %+v", err)
 //}
-//out.FromPath = toPath
+//output.FromPath = toPath
 //`, "'", "\"")
 //
 //	actual, err := manualAssignmentLine{}.assignmentForReadMapping(mapping, schemaModel, sdkModel, nil)
@@ -334,7 +334,7 @@ package mappings
 //	if err != nil {
 //		return fmt.Errorf("flattening 'ToPath': %+v", err)
 //	}
-//	out.FromPath = toPath
+//	output.FromPath = toPath
 //}
 //`, "'", "\"")
 //
@@ -450,7 +450,7 @@ package mappings
 //	if err != nil {
 //		return fmt.Errorf("flattening 'ToPath': %+v", err)
 //	}
-//	out.FromPath = &toPath
+//	output.FromPath = &toPath
 //}
 //`, "'", "\"")
 //

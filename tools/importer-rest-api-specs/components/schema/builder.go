@@ -170,6 +170,13 @@ func removeUnusedMappingsFromSchemaModelNamed(modelName string, inputMappings []
 				}
 				continue
 			}
+		case resourcemanager.ModelToModelMappingDefinitionType:
+			{
+				if item.ModelToModel.SchemaModelName != modelName {
+					output = append(output, item)
+				}
+				continue
+			}
 
 		default:
 			{

@@ -29,5 +29,6 @@ public class ChaosStudioExperimentResourceMappings : TerraformMappingDefinition
         Mapping.FromSchema<ChaosStudioExperimentResourceStepSchema>(s => s.Name).ToSdkField<StepModel>(m => m.Name).Direct(),
         Mapping.FromSchema<ChaosStudioExperimentResourceTargetReferenceSchema>(s => s.Id).ToSdkField<TargetReferenceModel>(m => m.Id).Direct(),
         Mapping.FromSchema<ChaosStudioExperimentResourceTargetReferenceSchema>(s => s.Type).ToSdkField<TargetReferenceModel>(m => m.Type).Direct(),
+        Mapping.FromSchemaModel<ChaosStudioExperimentResourceSchema>().ToSdkField<ExperimentModel>(m => m.Properties).ModelToModel(),
     };
 }

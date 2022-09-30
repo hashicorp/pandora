@@ -101,8 +101,56 @@ type FieldMappingDefinition struct {
 	// DirectAssignment specifies the mapping information when Type is set to DirectAssignment.
 	DirectAssignment *FieldMappingDirectAssignmentDefinition `json:"directAssignment,omitempty"`
 
+	// ModelToModel specifies the mapping information when Type is set to ModelToModel.
+	ModelToModel *FieldMappingModelToModelDefinition `json:"modelToModel,omitempty"`
+
 	// Manual contains additional metadata when Type is set to Manual.
 	Manual *FieldManualMappingDefinition `json:"manual,omitempty"`
+}
+
+func (d FieldMappingDefinition) SchemaModelName() string {
+	switch d.Type {
+	case DirectAssignmentMappingDefinitionType:
+		{
+			return d.DirectAssignment.SchemaModelName
+		}
+	case ModelToModelMappingDefinitionType:
+		{
+			return d.ModelToModel.SchemaModelName
+		}
+	}
+
+	panic(fmt.Sprintf("unimplemented mapping type %q for SchemaModelname", string(d.Type)))
+}
+
+func (d FieldMappingDefinition) SdkModelName() string {
+	switch d.Type {
+	case DirectAssignmentMappingDefinitionType:
+		{
+			return d.DirectAssignment.SdkModelName
+		}
+	case ModelToModelMappingDefinitionType:
+		{
+			return d.ModelToModel.SdkModelName
+		}
+	}
+
+	panic(fmt.Sprintf("unimplemented mapping type %q for SdkModelName", string(d.Type)))
+}
+
+func (d FieldMappingDefinition) SdkFieldPath() string {
+	switch d.Type {
+	case DirectAssignmentMappingDefinitionType:
+		{
+			return d.DirectAssignment.SdkFieldPath
+		}
+	case ModelToModelMappingDefinitionType:
+		{
+			return d.ModelToModel.SdkFieldName
+		}
+	}
+
+	panic(fmt.Sprintf("unimplemented mapping type %q for SdkFieldPath", string(d.Type)))
 }
 
 func (d FieldMappingDefinition) String() string {
@@ -113,6 +161,9 @@ func (d FieldMappingDefinition) String() string {
 	if d.Manual != nil {
 		output = append(output, fmt.Sprintf("Manual: %q", d.Manual.String()))
 	}
+	if d.ModelToModel != nil {
+		output = append(output, fmt.Sprintf("ModelToModel: %s", d.ModelToModel.String()))
+	}
 
 	return fmt.Sprintf("Type %q (%s)", string(d.Type), strings.Join(output, " / "))
 }
@@ -122,6 +173,7 @@ type MappingDefinitionType string
 const (
 	DirectAssignmentMappingDefinitionType MappingDefinitionType = "DirectAssignment"
 	ManualMappingDefinitionType           MappingDefinitionType = "Manual"
+	ModelToModelMappingDefinitionType     MappingDefinitionType = "ModelToModel"
 	// TODO: BooleanEquals, BooleanInvert
 )
 
@@ -147,6 +199,27 @@ func (d FieldMappingDirectAssignmentDefinition) String() string {
 		fmt.Sprintf("Schema Field Path %q", d.SchemaFieldPath),
 		fmt.Sprintf("Sdk Model Name %q", d.SdkModelName),
 		fmt.Sprintf("Sdk Field Path %q", d.SdkFieldPath),
+	}
+	return strings.Join(output, " / ")
+}
+
+type FieldMappingModelToModelDefinition struct {
+	// SchemaModelName specifies the name of the SchemaModel where this value should be mapped from.
+	SchemaModelName string `json:"schemaModelName"`
+
+	// SdkModelName specifies the name of the SdkModel where this value should be mapped onto.
+	SdkModelName string `json:"sdkModelName"`
+
+	// SdkFieldName specifies the Name of the Field within the SdkModel where the Schema Field
+	// should be mapped onto.
+	SdkFieldName string `json:"sdkFieldName"`
+}
+
+func (d FieldMappingModelToModelDefinition) String() string {
+	output := []string{
+		fmt.Sprintf("Schema Model Name %q", d.SchemaModelName),
+		fmt.Sprintf("Sdk Model Name %q", d.SdkModelName),
+		fmt.Sprintf("Sdk Field Name %q", d.SdkFieldName),
 	}
 	return strings.Join(output, " / ")
 }

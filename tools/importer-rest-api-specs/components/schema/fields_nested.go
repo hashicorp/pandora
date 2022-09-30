@@ -133,8 +133,18 @@ func (b Builder) identifyFieldsWithinPropertiesBlock(schemaModelName string, inp
 
 		mappingsForField := directAssignmentMappingForNestedField(schemaModelName, fieldNameForTypedModel, input, k, hasCreate, hasUpdate, hasRead)
 		mappings.Fields = append(mappings.Fields, mappingsForField...)
-
+		// TODO: iterate over the nested models and add ModelToModel mappings as needed
 		out[fieldNameForTypedModel] = definition
+	}
+
+	// output a ModelToModel mapping between the top-level Properties field for each of the payloads and their associated models
+	// so that we can map inlined fields
+	mappings.Fields = append(mappings.Fields, modelToModelMappingBetween(schemaModelName, input.createModelName, "Properties"))
+	if input.createModelName != input.readModelName {
+		mappings.Fields = append(mappings.Fields, modelToModelMappingBetween(schemaModelName, input.readModelName, "Properties"))
+	}
+	if input.updatePayload != nil && input.createModelName != *input.updateModelName && input.readModelName != *input.updateModelName {
+		mappings.Fields = append(mappings.Fields, modelToModelMappingBetween(schemaModelName, *input.updateModelName, "Properties"))
 	}
 
 	return &out, mappings, nil

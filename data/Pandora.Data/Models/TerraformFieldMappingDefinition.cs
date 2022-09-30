@@ -13,6 +13,11 @@ public class TerraformFieldMappingDefinition
     public TerraformFieldMappingDirectAssignmentDefinition? DirectAssignment { get; set; }
 
     /// <summary>
+    /// ModelToModel defines information for this Mapping when Type is set to ModelToModel.
+    /// </summary>
+    public TerraformFieldMappingModelToModelDefinition? ModelToModel { get; set; }
+
+    /// <summary>
     /// Manual defines information for this Mapping when Type is set to Manual.
     /// </summary>
     public TerraformFieldMappingManualDefinition? Manual { get; set; }

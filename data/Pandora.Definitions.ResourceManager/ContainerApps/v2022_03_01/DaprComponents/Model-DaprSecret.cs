@@ -13,9 +13,11 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.ContainerApps.v2022_03_01.DaprComponents;
 
 
-internal class DaprSecretsCollectionModel
+internal class DaprSecretModel
 {
+    [JsonPropertyName("name")]
+    public string? Name { get; set; }
+
     [JsonPropertyName("value")]
-    [Required]
-    public List<DaprSecretModel> Value { get; set; }
+    public string? Value { get; set; }
 }

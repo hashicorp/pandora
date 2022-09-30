@@ -111,6 +111,12 @@ resource 'example_resource' 'example' {
                         continue;
                     }
 
+                case Data.Models.TerraformFieldMappingType.ModelToModel:
+                    {
+                        mappings.Add(MapTerraformFieldModelToModelMapping(mapping.ModelToModel));
+                        continue;
+                    }
+
                 default:
                     {
                         throw new NotSupportedException($"mapping type ${mapping.Type.ToString()} is not implemented");
@@ -118,6 +124,20 @@ resource 'example_resource' 'example' {
             }
         }
         return mappings;
+    }
+
+    private static FieldMappingDefinition MapTerraformFieldModelToModelMapping(TerraformFieldMappingModelToModelDefinition input)
+    {
+        return new FieldMappingDefinition
+        {
+            Type = TerraformFieldMappingType.ModelToModel.ToString(),
+            ModelToModel = new FieldMappingModelToModelDefinition
+            {
+                SchemaModelName = input.SchemaModelName,
+                SdkModelName = input.SdkModelName,
+                SdkFieldName = input.SdkFieldName,
+            },
+        };
     }
 
     private static FieldMappingDefinition MapTerraformFieldDirectAssignmentMapping(TerraformFieldMappingDirectAssignmentDefinition input)

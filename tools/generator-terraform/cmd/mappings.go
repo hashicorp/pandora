@@ -49,7 +49,7 @@ func (m MappingsCommand) Synopsis() string {
 
 func (m MappingsCommand) run() error {
 	client := resourcemanager.NewClient("http://localhost:5000")
-	result, err := services.GetResourceManagerServicesByName(client, []string{"Resources"})
+	result, err := services.GetResourceManagerServicesByName(client, []string{"ChaosStudio"})
 	if err != nil {
 		return fmt.Errorf("retrieving Resource Manager Services: %+v", err)
 	}
@@ -77,16 +77,30 @@ func (m MappingsCommand) run() error {
 
 				For update we may need to patch a field on an existing model, however?
 			*/
-			mappings, err := mappings.NewResourceMappings(resourceDetails, apiResourceDetails.Schema)
-			if err != nil {
-				return fmt.Errorf("building mappings for Resource %q: %+v", resourceName, err)
+
+			helper := mappings.NewResourceMappings(resourceDetails, apiResourceDetails.Schema.Constants, apiResourceDetails.Schema.Models)
+			for _, item := range resourceDetails.Mappings.ModelToModels {
+				mappingsForThisModel, err := mappings.FindMappingsBetween(item, resourceDetails.Mappings.Fields)
+				if err != nil {
+					return fmt.Errorf("finding mappings between Schema Model %q and Sdk Model %q: %+v", item.SchemaModelName, item.SdkModelName, err)
+				}
+				if err != nil {
+					return fmt.Errorf("building mappings for Resource %q: %+v", resourceName, err)
+				}
+
+				log.Printf("Schema Model %q <-> SDK Model %q", item.SchemaModelName, item.SdkModelName)
+				schemaToSdkMappingLines, err := helper.SchemaModelToSdkModelAssignmentLine(*mappingsForThisModel)
+				if err != nil {
+					return fmt.Errorf("building schema - sdk mapping lines: %+v", err)
+				}
+				log.Printf("Schema <-> SDK Mappings:\n\n%s", *schemaToSdkMappingLines)
+
+				sdkToSchemaMappingLines, err := helper.SdkModelToSchemaModelAssignmentLine(*mappingsForThisModel)
+				if err != nil {
+					return fmt.Errorf("building schema - sdk mapping lines: %+v", err)
+				}
+				log.Printf("SDK <-> Schema Mappings:\n\n%s", *sdkToSchemaMappingLines)
 			}
-
-			createMappings := mappings.CodeForCreateMappings()
-			log.Printf("Create Mappings:\n\n%s", createMappings)
-
-			readMappings := mappings.CodeForReadMappings()
-			log.Printf("Read Mappings:\n\n%s", readMappings)
 		}
 	}
 

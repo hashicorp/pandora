@@ -13,7 +13,7 @@ public class FromMapping
     /// <summary>
     /// FromFieldPath is the path to the SchemaField that this mapping is From.
     /// </summary>
-    internal string FromFieldPath { get; set; }
+    internal string? FromFieldPath { get; set; }
 
     /// <summary>
     /// ToResourceIdSegmentNamed specifies that the Schema Field should be mapped to and from
@@ -47,12 +47,17 @@ public class FromMapping
             // TODO: implement this
             throw new NotSupportedException("nested fields are not yet supported as expressions");
         }
-        return new MappingDefinition
+
+        var mapping = new MappingDefinition
         {
             FromSchemaModelName = FromModel,
-            FromSchemaPath = FromFieldPath,
             ToSdkModelName = typeof(TModel).Name,
             ToSdkFieldPath = fieldPath,
         };
+        if (FromFieldPath != null)
+        {
+            mapping.FromSchemaPath = FromFieldPath!;
+        }
+        return mapping;
     }
 }

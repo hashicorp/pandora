@@ -147,15 +147,3 @@ func directAssignmentMappingForTopLevelField(schemaModelName, schemaModelField s
 	}
 	return output
 }
-
-func directAssignmentMappingBetween(fromModel string, fromField string, toModel string, toField string) resourcemanager.FieldMappingDefinition {
-	return resourcemanager.FieldMappingDefinition{
-		Type: resourcemanager.DirectAssignmentMappingDefinitionType,
-		DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
-			SchemaModelName: fromModel,
-			SchemaFieldPath: fromField,
-			SdkModelName:    toModel,
-			SdkFieldPath:    toField,
-		},
-	}
-}
