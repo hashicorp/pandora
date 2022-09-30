@@ -1757,7 +1757,7 @@ func TestDirectAssignment_Read_Location_OptionalToOptional_TopLevel(t *testing.T
 		{
 			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeLocation,
 			sdkFieldType:         resourcemanager.LocationApiObjectDefinitionType,
-			expected:             `output.FromPath = location.NormalizeNilable(input.ToPath)`,
+			expected:             `output.Location = location.NormalizeNilable(input.Location)`,
 		},
 	}
 	for i, v := range testData {
