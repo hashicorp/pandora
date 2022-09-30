@@ -28,5 +28,7 @@ public class ElasticSanResourceMappings : TerraformMappingDefinition
         Mapping.FromSchema<ElasticSanResourceSchema>(s => s.Zones).ToSdkField<ElasticSanPropertiesModel>(m => m.AvailabilityZones).Direct(),
         Mapping.FromSchema<ElasticSanResourceSkuSchema>(s => s.Name).ToSdkField<SkuModel>(m => m.Name).Direct(),
         Mapping.FromSchema<ElasticSanResourceSkuSchema>(s => s.Tier).ToSdkField<SkuModel>(m => m.Tier).Direct(),
+        Mapping.FromSchemaModel<ElasticSanResourceSchema>().ToSdkField<ElasticSanModel>(m => m.Properties).ModelToModel(),
+        Mapping.FromSchemaModel<ElasticSanResourceSchema>().ToSdkField<ElasticSanUpdateModel>(m => m.Properties).ModelToModel(),
     };
 }
