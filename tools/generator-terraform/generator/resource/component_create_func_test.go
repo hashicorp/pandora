@@ -3,14 +3,10 @@ package resource
 import (
 	"testing"
 
-	"github.com/hashicorp/pandora/tools/generator-terraform/featureflags"
-
 	"github.com/hashicorp/pandora/tools/generator-terraform/generator/models"
 
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
-
-// TODO: re-introduce Mappings for Schema <-> SDK
 
 // Create is complex enough that testing every permutation at the top level is complicated
 // so we'll test the happy path and then each individual component
@@ -102,6 +98,29 @@ func TestComponentCreate_HappyPathDisabled(t *testing.T) {
 		SdkApiVersion:      "2020-01-01",
 		SdkResourceName:    "SdkResource",
 		SdkServiceName:     "SdkService",
+		SchemaModelName:    "ExampleResource",
+		SchemaModels: map[string]resourcemanager.TerraformSchemaModelDefinition{
+			"ExampleResource": {
+				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+					"ResourceGroupName": {
+						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						},
+						Required: true,
+						ForceNew: true,
+						HclName:  "resource_group_name",
+					},
+					"SomeField": {
+						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						},
+						Required: true,
+						ForceNew: true,
+						HclName:  "some_field",
+					},
+				},
+			},
+		},
 	}
 	actual, err := createFunctionForResource(input)
 	if err != nil {
@@ -113,11 +132,6 @@ func TestComponentCreate_HappyPathDisabled(t *testing.T) {
 }
 
 func TestComponentCreate_HappyPathFieldsInModelEnabled(t *testing.T) {
-	// TODO: remove this once the feature-flag is properly threaded through
-	if !featureflags.OutputMappings {
-		t.Skip("@tombuildsstuff: skipping until fully implemented")
-	}
-
 	input := models.ResourceInput{
 		Constants: nil,
 		Details: resourcemanager.TerraformResourceDetails{
@@ -130,6 +144,15 @@ func TestComponentCreate_HappyPathFieldsInModelEnabled(t *testing.T) {
 			Generate:             true,
 			GenerateSchema:       false,
 			GenerateIdValidation: false,
+			Mappings: resourcemanager.MappingDefinition{
+				Fields: []resourcemanager.FieldMappingDefinition{},
+				ResourceId: []resourcemanager.ResourceIdMappingDefinition{
+					{
+						SchemaFieldName: "ResourceGroupName",
+						SegmentName:     "resourceGroupName",
+					},
+				},
+			},
 			ReadMethod: resourcemanager.MethodDefinition{
 				Generate:         false,
 				MethodName:       "GetThing",
@@ -275,8 +298,11 @@ func (r ExampleResource) Create() sdk.ResourceFunc {
 			if !response.WasNotFound(existing.HttpResponse) {
 				return metadata.ResourceRequiresImport(r.ResourceType(), id)
 			}
-			payload := sdkresource.SomeModel{}
-			payload.SomeSdkField = config.SomeField
+
+			var payload sdkresource.SomeModel
+			if err := r.mapExampleResourceToSomeModel(config, &payload); err != nil {
+				return fmt.Errorf("mapping schema model to sdk model: %+v", err)
+			}
 			if err := client.CreateThingThenPoll(ctx, id, payload); err != nil {
 				return fmt.Errorf("creating %s: %+v", id, err)
 			}
@@ -290,11 +316,6 @@ func (r ExampleResource) Create() sdk.ResourceFunc {
 }
 
 func TestComponentCreate_HappyPathResourceIdFieldsOnlyEnabled(t *testing.T) {
-	// TODO: remove this once the feature-flag is properly threaded through
-	if !featureflags.OutputMappings {
-		t.Skip("@tombuildsstuff: skipping until fully implemented")
-	}
-
 	input := models.ResourceInput{
 		Constants: nil,
 		Details: resourcemanager.TerraformResourceDetails{
@@ -307,6 +328,15 @@ func TestComponentCreate_HappyPathResourceIdFieldsOnlyEnabled(t *testing.T) {
 			Generate:             true,
 			GenerateSchema:       false,
 			GenerateIdValidation: false,
+			Mappings: resourcemanager.MappingDefinition{
+				Fields: []resourcemanager.FieldMappingDefinition{},
+				ResourceId: []resourcemanager.ResourceIdMappingDefinition{
+					{
+						SchemaFieldName: "ResourceGroupName",
+						SegmentName:     "resourceGroupName",
+					},
+				},
+			},
 			ReadMethod: resourcemanager.MethodDefinition{
 				Generate:         false,
 				MethodName:       "GetThing",
@@ -437,7 +467,10 @@ func (r ExampleResource) Create() sdk.ResourceFunc {
 			if !response.WasNotFound(existing.HttpResponse) {
 				return metadata.ResourceRequiresImport(r.ResourceType(), id)
 			}
-			payload := sdkresource.SomeModel{}
+			var payload sdkresource.SomeModel
+			if err := r.mapExampleResourceToSomeModel(config, &payload); err != nil {
+				return fmt.Errorf("mapping schema model to sdk model: %+v", err)
+			}
 			if err := client.CreateThingThenPoll(ctx, id, payload); err != nil {
 				return fmt.Errorf("creating %s: %+v", id, err)
 			}
@@ -875,66 +908,25 @@ func TestComponentCreate_PayloadDefinition(t *testing.T) {
 				Type:          resourcemanager.ReferenceApiObjectDefinitionType,
 			},
 		},
+		terraformModelName:     "TerraformModel",
 		sdkResourceNameLowered: "sdkresource",
 	}.payloadDefinition()
 	if err != nil {
 		t.Fatalf("error: %+v", err)
 	}
 	expected := `
-			payload := sdkresource.SomeModel{}
-`
-	assertTemplatedCodeMatches(t, expected, *actual)
-}
-
-func TestComponentCreate_MappingsFromSchema_NoFields(t *testing.T) {
-	// TODO: remove this once the feature-flag is properly threaded through
-	if !featureflags.OutputMappings {
-		t.Skip("skipping since `featureflags.OutputMappings` is disabled")
+	var payload sdkresource.SomeModel
+	if err := r.mapTerraformModelToSomeModel(config, &payload); err != nil {
+		return fmt.Errorf("mapping schema model to sdk model: %+v", err)
 	}
-
-	actual, err := createFunctionComponents{
-		terraformModel: resourcemanager.TerraformSchemaModelDefinition{
-			Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{},
-		},
-	}.mappingsFromSchema()
-	if err != nil {
-		t.Fatalf("error: %+v", err)
-	}
-	expected := ``
-	assertTemplatedCodeMatches(t, expected, *actual)
-}
-
-func TestComponentCreate_MappingsFromSchema_TopLevelFields(t *testing.T) {
-	// TODO: remove this once the feature-flag is properly threaded through
-	if !featureflags.OutputMappings {
-		t.Skip("skipping since `featureflags.OutputMappings` is disabled")
-	}
-
-	actual, err := createFunctionComponents{
-		terraformModel: resourcemanager.TerraformSchemaModelDefinition{
-			Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
-				"SomeField": {
-					ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-						Type: resourcemanager.TerraformSchemaFieldTypeString,
-					},
-					Required: true,
-				},
-			},
-		},
-	}.mappingsFromSchema()
-	if err != nil {
-		t.Fatalf("error: %+v", err)
-	}
-	expected := `
-	payload.SomeSchemaField = config.SomeField
 `
 	assertTemplatedCodeMatches(t, expected, *actual)
 }
 
 func TestComponentCreate_SchemaDeserialization(t *testing.T) {
 	actual, err := createFunctionComponents{
-		resourceTypeName: "AwesomeResource",
-		schemaModelName:  "AwesomeResourceTypedModel",
+		resourceTypeName:   "AwesomeResource",
+		terraformModelName: "AwesomeResourceTypedModel",
 	}.schemaDeserialization()
 	if err != nil {
 		t.Fatalf("error: %+v", err)

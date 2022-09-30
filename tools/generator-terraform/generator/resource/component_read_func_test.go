@@ -7,8 +7,6 @@ import (
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-// TODO: re-introduce Mappings for Schema <-> SDK
-
 func TestComponentReadFunc_CommonId_Disabled(t *testing.T) {
 	input := models.ResourceInput{
 		ResourceTypeName: "Example",
@@ -218,6 +216,9 @@ func (r ExampleResource) Read() sdk.ResourceFunc {
 			}
 			if model := resp.Model; model != nil {
 				schema.Name = id.ResourceGroupName
+				if err := r.mapGetModelToExampleModel(*model, &schema); err != nil {
+					return fmt.Errorf("flattening model: %+v", err)
+				}
 			}
 			return metadata.Encode(&schema)
         },
@@ -363,6 +364,9 @@ func (r ExampleResource) Read() sdk.ResourceFunc {
 			}
 			if model := resp.Model; model != nil {
 				schema.Name = id.ResourceGroupName
+				if err := r.mapGetModelToExampleModel(*model, &schema); err != nil {
+					return fmt.Errorf("flattening model: %+v", err)
+				}
 			}
 			return metadata.Encode(&schema)
         },
@@ -496,6 +500,9 @@ func (r ExampleResource) Read() sdk.ResourceFunc {
 			}
 			if model := resp.Model; model != nil {
 				schema.Name = id.ResourceGroupName
+				if err := r.mapGetModelToExampleModel(*model, &schema); err != nil {
+					return fmt.Errorf("flattening model: %+v", err)
+				}
 			}
 			return metadata.Encode(&schema)
         },
@@ -639,6 +646,9 @@ func (r ExampleResource) Read() sdk.ResourceFunc {
 			}
 			if model := resp.Model; model != nil {
 				schema.Animal = string(id.AnimalType)
+				if err := r.mapGetModelToExampleModel(*model, &schema); err != nil {
+					return fmt.Errorf("flattening model: %+v", err)
+				}
 			}
 			return metadata.Encode(&schema)
         },
@@ -782,6 +792,9 @@ func (r ExampleResource) Read() sdk.ResourceFunc {
 			}
 			if model := resp.Model; model != nil {
 				schema.Name = id.ResourceGroupName
+				if err := r.mapGetModelToExampleModel(*model, &schema); err != nil {
+					return fmt.Errorf("flattening model: %+v", err)
+				}
 			}
 			return metadata.Encode(&schema)
         },

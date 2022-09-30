@@ -5,6 +5,8 @@ import (
 	"sort"
 	"strings"
 
+	"github.com/hashicorp/pandora/tools/generator-terraform/generator/helpers"
+
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 
 	"github.com/hashicorp/pandora/tools/generator-terraform/generator/models"
@@ -67,7 +69,7 @@ func codeForNonTopLevelModels(input models.ResourceInput) (*string, error) {
 func codeForModel(name string, input resourcemanager.TerraformSchemaModelDefinition) (*string, error) {
 	schemaFields := make([]string, 0)
 	for fieldName, fieldDetails := range input.Fields {
-		golandFieldType, err := golangFieldTypeFromObjectFieldDefinition(fieldDetails.ObjectDefinition)
+		golandFieldType, err := helpers.GolangFieldTypeFromObjectFieldDefinition(fieldDetails.ObjectDefinition)
 		if err != nil {
 			return nil, fmt.Errorf("determining Golang Field Type from ObjectDefinition for Field %q: %+v", fieldName, err)
 		}

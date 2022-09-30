@@ -1,4 +1,4 @@
-package resource
+package helpers
 
 import (
 	"fmt"
@@ -36,7 +36,7 @@ var constantTypesToGolangTypes = map[resourcemanager.ConstantType]string{
 	resourcemanager.StringConstant:  "string",
 }
 
-func golangFieldTypeFromObjectFieldDefinition(input resourcemanager.TerraformSchemaFieldObjectDefinition) (*string, error) {
+func GolangFieldTypeFromObjectFieldDefinition(input resourcemanager.TerraformSchemaFieldObjectDefinition) (*string, error) {
 	goTypeName, ok := fieldObjectDefinitionsToGolangTypes[input.Type]
 	if ok {
 		return &goTypeName, nil
@@ -57,7 +57,7 @@ func golangFieldTypeFromObjectFieldDefinition(input resourcemanager.TerraformSch
 			return nil, fmt.Errorf("list type had no nested object")
 		}
 
-		nestedObjectType, err := golangFieldTypeFromObjectFieldDefinition(*input.NestedObject)
+		nestedObjectType, err := GolangFieldTypeFromObjectFieldDefinition(*input.NestedObject)
 		if err != nil {
 			return nil, fmt.Errorf("retrieving golang field type for list nested item: %+v", err)
 		}
@@ -75,7 +75,7 @@ func golangFieldTypeFromObjectFieldDefinition(input resourcemanager.TerraformSch
 			return nil, fmt.Errorf("set type had no nested object")
 		}
 
-		nestedObjectType, err := golangFieldTypeFromObjectFieldDefinition(*input.NestedObject)
+		nestedObjectType, err := GolangFieldTypeFromObjectFieldDefinition(*input.NestedObject)
 		if err != nil {
 			return nil, fmt.Errorf("retrieving golang field type for list nested item: %+v", err)
 		}
@@ -90,7 +90,7 @@ func golangFieldTypeFromObjectFieldDefinition(input resourcemanager.TerraformSch
 	return nil, fmt.Errorf("internal-error: unimplement field object definition mapping: %q", string(input.Type))
 }
 
-func golangFieldTypeFromConstantType(input resourcemanager.ConstantType) (*string, error) {
+func GolangFieldTypeFromConstantType(input resourcemanager.ConstantType) (*string, error) {
 	if v, ok := constantTypesToGolangTypes[input]; ok {
 		return &v, nil
 	}

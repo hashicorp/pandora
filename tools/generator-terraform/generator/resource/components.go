@@ -59,8 +59,8 @@ func codeForResource(input models.ResourceInput) (*string, error) {
 		deleteFunctionForResource,
 		updateFuncForResource,
 
-		// TODO: Mappings
 		codeForNonTopLevelModels,
+		codeForMappings,
 	}
 
 	lines := make([]string, 0)

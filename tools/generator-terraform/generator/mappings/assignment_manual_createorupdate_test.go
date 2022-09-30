@@ -50,7 +50,7 @@ package mappings
 //if err != nil {
 //	return fmt.Errorf("flattening 'FromPath': %+v", err)
 //}
-//out.ToPath = toPath
+//output.ToPath = toPath
 //`, "'", "\"")
 //
 //	actual, err := manualAssignmentLine{}.assignmentForCreateUpdateMapping(mapping, schemaModel, sdkModel, nil)
@@ -105,7 +105,7 @@ package mappings
 //if err != nil {
 //	return fmt.Errorf("flattening 'FromPath': %+v", err)
 //}
-//out.ToPath = &toPath
+//output.ToPath = &toPath
 //`, "'", "\"")
 //
 //	actual, err := manualAssignmentLine{}.assignmentForCreateUpdateMapping(mapping, schemaModel, sdkModel, nil)
@@ -208,7 +208,7 @@ package mappings
 //	if err != nil {
 //		return fmt.Errorf("flattening 'FromPath': %+v", err)
 //	}
-//	out.ToPath = &toPath
+//	output.ToPath = &toPath
 //}
 //`, "'", "\"")
 //
@@ -270,7 +270,7 @@ package mappings
 //if err != nil {
 //	return fmt.Errorf("flattening 'FromPath': %+v", err)
 //}
-//out.ToPath = toPath
+//output.ToPath = toPath
 //`, "'", "\"")
 //
 //	actual, err := manualAssignmentLine{}.assignmentForCreateUpdateMapping(mapping, schemaModel, sdkModel, nil)
@@ -331,7 +331,7 @@ package mappings
 //if err != nil {
 //	return fmt.Errorf("flattening 'FromPath': %+v", err)
 //}
-//out.ToPath = &toPath
+//output.ToPath = &toPath
 //`, "'", "\"")
 //
 //	actual, err := manualAssignmentLine{}.assignmentForCreateUpdateMapping(mapping, schemaModel, sdkModel, nil)
@@ -446,7 +446,7 @@ package mappings
 //	if err != nil {
 //		return fmt.Errorf("flattening 'FromPath': %+v", err)
 //	}
-//	out.ToPath = &toPath
+//	output.ToPath = &toPath
 //}
 //`, "'", "\"")
 //

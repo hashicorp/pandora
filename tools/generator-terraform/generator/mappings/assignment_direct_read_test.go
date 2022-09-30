@@ -15,8 +15,8 @@ func TestDirectAssignment_Read_Constant_RequiredToRequired_TopLevel(t *testing.T
 	}{
 		{
 			constant: assignmentConstantDetails{
-				sdkResourceName: "sdkresource",
-				constantName:    "SomeConstant",
+				apiResourcePackageName: "sdkresource",
+				constantName:           "SomeConstant",
 				constantDetails: resourcemanager.ConstantDetails{
 					Type: resourcemanager.FloatConstant,
 					Values: map[string]string{
@@ -25,13 +25,13 @@ func TestDirectAssignment_Read_Constant_RequiredToRequired_TopLevel(t *testing.T
 					},
 				},
 			},
-			expected:             "out.FromPath = float64(input.ToPath)",
+			expected:             "output.FromPath = float64(input.ToPath)",
 			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeFloat,
 		},
 		{
 			constant: assignmentConstantDetails{
-				sdkResourceName: "sdkresource",
-				constantName:    "SomeConstant",
+				apiResourcePackageName: "sdkresource",
+				constantName:           "SomeConstant",
 				constantDetails: resourcemanager.ConstantDetails{
 					Type: resourcemanager.IntegerConstant,
 					Values: map[string]string{
@@ -40,13 +40,13 @@ func TestDirectAssignment_Read_Constant_RequiredToRequired_TopLevel(t *testing.T
 					},
 				},
 			},
-			expected:             "out.FromPath = int64(input.ToPath)",
+			expected:             "output.FromPath = int64(input.ToPath)",
 			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeInteger,
 		},
 		{
 			constant: assignmentConstantDetails{
-				sdkResourceName: "sdkresource",
-				constantName:    "SomeConstant",
+				apiResourcePackageName: "sdkresource",
+				constantName:           "SomeConstant",
 				constantDetails: resourcemanager.ConstantDetails{
 					Type: resourcemanager.StringConstant,
 					Values: map[string]string{
@@ -55,7 +55,7 @@ func TestDirectAssignment_Read_Constant_RequiredToRequired_TopLevel(t *testing.T
 					},
 				},
 			},
-			expected:             "out.FromPath = string(input.ToPath)",
+			expected:             "output.FromPath = string(input.ToPath)",
 			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeString,
 		},
 	}
@@ -97,7 +97,7 @@ func TestDirectAssignment_Read_Constant_RequiredToRequired_TopLevel(t *testing.T
 				},
 			},
 		}
-		actual, err := directAssignmentLine{}.assignmentForReadMapping(mapping, schemaModel, sdkModel, &v.constant)
+		actual, err := directAssignmentLine{}.assignmentForReadMapping(mapping, schemaModel, sdkModel, &v.constant, "sdkresource")
 		if err != nil {
 			t.Fatalf("retrieving read assignment mapping: %+v", err)
 		}
@@ -116,8 +116,8 @@ func TestDirectAssignment_Read_Constant_RequiredToOptional_TopLevel(t *testing.T
 	}{
 		{
 			constant: assignmentConstantDetails{
-				sdkResourceName: "sdkresource",
-				constantName:    "SomeConstant",
+				apiResourcePackageName: "sdkresource",
+				constantName:           "SomeConstant",
 				constantDetails: resourcemanager.ConstantDetails{
 					Type: resourcemanager.FloatConstant,
 					Values: map[string]string{
@@ -126,13 +126,13 @@ func TestDirectAssignment_Read_Constant_RequiredToOptional_TopLevel(t *testing.T
 					},
 				},
 			},
-			expected:             "out.FromPath = as.Pointer(float64(input.ToPath))",
+			expected:             "output.FromPath = as.Pointer(float64(input.ToPath))",
 			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeFloat,
 		},
 		{
 			constant: assignmentConstantDetails{
-				sdkResourceName: "sdkresource",
-				constantName:    "SomeConstant",
+				apiResourcePackageName: "sdkresource",
+				constantName:           "SomeConstant",
 				constantDetails: resourcemanager.ConstantDetails{
 					Type: resourcemanager.IntegerConstant,
 					Values: map[string]string{
@@ -141,13 +141,13 @@ func TestDirectAssignment_Read_Constant_RequiredToOptional_TopLevel(t *testing.T
 					},
 				},
 			},
-			expected:             "out.FromPath = as.Pointer(int64(input.ToPath))",
+			expected:             "output.FromPath = as.Pointer(int64(input.ToPath))",
 			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeInteger,
 		},
 		{
 			constant: assignmentConstantDetails{
-				sdkResourceName: "sdkresource",
-				constantName:    "SomeConstant",
+				apiResourcePackageName: "sdkresource",
+				constantName:           "SomeConstant",
 				constantDetails: resourcemanager.ConstantDetails{
 					Type: resourcemanager.StringConstant,
 					Values: map[string]string{
@@ -156,7 +156,7 @@ func TestDirectAssignment_Read_Constant_RequiredToOptional_TopLevel(t *testing.T
 					},
 				},
 			},
-			expected:             "out.FromPath = as.Pointer(string(input.ToPath))",
+			expected:             "output.FromPath = as.Pointer(string(input.ToPath))",
 			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeString,
 		},
 	}
@@ -198,7 +198,7 @@ func TestDirectAssignment_Read_Constant_RequiredToOptional_TopLevel(t *testing.T
 				},
 			},
 		}
-		actual, err := directAssignmentLine{}.assignmentForReadMapping(mapping, schemaModel, sdkModel, &v.constant)
+		actual, err := directAssignmentLine{}.assignmentForReadMapping(mapping, schemaModel, sdkModel, &v.constant, "sdkresource")
 		if err != nil {
 			t.Fatalf("retrieving read assignment mapping: %+v", err)
 		}
@@ -219,8 +219,8 @@ func TestDirectAssignment_Read_Constant_OptionalToRequired_TopLevel(t *testing.T
 	}{
 		{
 			constant: assignmentConstantDetails{
-				sdkResourceName: "sdkresource",
-				constantName:    "SomeConstant",
+				apiResourcePackageName: "sdkresource",
+				constantName:           "SomeConstant",
 				constantDetails: resourcemanager.ConstantDetails{
 					Type: resourcemanager.FloatConstant,
 					Values: map[string]string{
@@ -233,8 +233,8 @@ func TestDirectAssignment_Read_Constant_OptionalToRequired_TopLevel(t *testing.T
 		},
 		{
 			constant: assignmentConstantDetails{
-				sdkResourceName: "sdkresource",
-				constantName:    "SomeConstant",
+				apiResourcePackageName: "sdkresource",
+				constantName:           "SomeConstant",
 				constantDetails: resourcemanager.ConstantDetails{
 					Type: resourcemanager.IntegerConstant,
 					Values: map[string]string{
@@ -247,8 +247,8 @@ func TestDirectAssignment_Read_Constant_OptionalToRequired_TopLevel(t *testing.T
 		},
 		{
 			constant: assignmentConstantDetails{
-				sdkResourceName: "sdkresource",
-				constantName:    "SomeConstant",
+				apiResourcePackageName: "sdkresource",
+				constantName:           "SomeConstant",
 				constantDetails: resourcemanager.ConstantDetails{
 					Type: resourcemanager.StringConstant,
 					Values: map[string]string{
@@ -298,7 +298,7 @@ func TestDirectAssignment_Read_Constant_OptionalToRequired_TopLevel(t *testing.T
 				},
 			},
 		}
-		actual, err := directAssignmentLine{}.assignmentForReadMapping(mapping, schemaModel, sdkModel, &v.constant)
+		actual, err := directAssignmentLine{}.assignmentForReadMapping(mapping, schemaModel, sdkModel, &v.constant, "sdkresource")
 		if err == nil {
 			t.Fatalf("expected an error but didn't get one")
 		}
@@ -316,8 +316,8 @@ func TestDirectAssignment_Read_Constant_OptionalToOptional_TopLevel(t *testing.T
 	}{
 		{
 			constant: assignmentConstantDetails{
-				sdkResourceName: "sdkresource",
-				constantName:    "SomeConstant",
+				apiResourcePackageName: "sdkresource",
+				constantName:           "SomeConstant",
 				constantDetails: resourcemanager.ConstantDetails{
 					Type: resourcemanager.FloatConstant,
 					Values: map[string]string{
@@ -328,15 +328,15 @@ func TestDirectAssignment_Read_Constant_OptionalToOptional_TopLevel(t *testing.T
 			},
 			expected: `
 if input.FromPath != nil {
-	out.ToPath = as.Pointer(float64(*input.FromPath))
+	output.ToPath = as.Pointer(float64(*input.FromPath))
 }
 `,
 			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeFloat,
 		},
 		{
 			constant: assignmentConstantDetails{
-				sdkResourceName: "sdkresource",
-				constantName:    "SomeConstant",
+				apiResourcePackageName: "sdkresource",
+				constantName:           "SomeConstant",
 				constantDetails: resourcemanager.ConstantDetails{
 					Type: resourcemanager.IntegerConstant,
 					Values: map[string]string{
@@ -347,15 +347,15 @@ if input.FromPath != nil {
 			},
 			expected: `
 if input.FromPath != nil {
-	out.ToPath = as.Pointer(int64(*input.FromPath))
+	output.ToPath = as.Pointer(int64(*input.FromPath))
 }
 `,
 			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeInteger,
 		},
 		{
 			constant: assignmentConstantDetails{
-				sdkResourceName: "sdkresource",
-				constantName:    "SomeConstant",
+				apiResourcePackageName: "sdkresource",
+				constantName:           "SomeConstant",
 				constantDetails: resourcemanager.ConstantDetails{
 					Type: resourcemanager.StringConstant,
 					Values: map[string]string{
@@ -366,7 +366,7 @@ if input.FromPath != nil {
 			},
 			expected: `
 if input.FromPath != nil {
-	out.ToPath = as.Pointer(string(*input.FromPath))
+	output.ToPath = as.Pointer(string(*input.FromPath))
 }
 `,
 			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeString,
@@ -410,7 +410,7 @@ if input.FromPath != nil {
 				},
 			},
 		}
-		actual, err := directAssignmentLine{}.assignmentForReadMapping(mapping, schemaModel, sdkModel, &v.constant)
+		actual, err := directAssignmentLine{}.assignmentForReadMapping(mapping, schemaModel, sdkModel, &v.constant, "sdkresource")
 		if err != nil {
 			t.Fatalf("retrieving read assignment mapping: %+v", err)
 		}
@@ -429,8 +429,8 @@ func TestDirectAssignment_Read_Constant_RequiredToRequired_List(t *testing.T) {
 	}{
 		{
 			constant: assignmentConstantDetails{
-				sdkResourceName: "sdkresource",
-				constantName:    "SomeConstant",
+				apiResourcePackageName: "sdkresource",
+				constantName:           "SomeConstant",
 				constantDetails: resourcemanager.ConstantDetails{
 					Type: resourcemanager.FloatConstant,
 					Values: map[string]string{
@@ -444,14 +444,14 @@ toPath := make([]float64, 0)
 for _, v := range input.FromPath {
 	toPath = append(toPath, float64(v))
 }
-out.ToPath = toPath
+output.ToPath = toPath
 `,
 			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeFloat,
 		},
 		{
 			constant: assignmentConstantDetails{
-				sdkResourceName: "sdkresource",
-				constantName:    "SomeConstant",
+				apiResourcePackageName: "sdkresource",
+				constantName:           "SomeConstant",
 				constantDetails: resourcemanager.ConstantDetails{
 					Type: resourcemanager.IntegerConstant,
 					Values: map[string]string{
@@ -465,14 +465,14 @@ toPath := make([]int64, 0)
 for _, v := range input.FromPath {
 	toPath = append(toPath, int64(v))
 }
-out.ToPath = toPath
+output.ToPath = toPath
 `,
 			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeInteger,
 		},
 		{
 			constant: assignmentConstantDetails{
-				sdkResourceName: "sdkresource",
-				constantName:    "SomeConstant",
+				apiResourcePackageName: "sdkresource",
+				constantName:           "SomeConstant",
 				constantDetails: resourcemanager.ConstantDetails{
 					Type: resourcemanager.StringConstant,
 					Values: map[string]string{
@@ -486,7 +486,7 @@ toPath := make([]string, 0)
 for _, v := range input.FromPath {
 	toPath = append(toPath, string(v))
 }
-out.ToPath = toPath
+output.ToPath = toPath
 `,
 			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeString,
 		},
@@ -535,7 +535,7 @@ out.ToPath = toPath
 				},
 			},
 		}
-		actual, err := directAssignmentLine{}.assignmentForReadMapping(mapping, schemaModel, sdkModel, &v.constant)
+		actual, err := directAssignmentLine{}.assignmentForReadMapping(mapping, schemaModel, sdkModel, &v.constant, "sdkresource")
 		if err != nil {
 			t.Fatalf("retrieving read assignment mapping: %+v", err)
 		}
@@ -554,8 +554,8 @@ func TestDirectAssignment_Read_Constant_RequiredToOptional_List(t *testing.T) {
 	}{
 		{
 			constant: assignmentConstantDetails{
-				sdkResourceName: "sdkresource",
-				constantName:    "SomeConstant",
+				apiResourcePackageName: "sdkresource",
+				constantName:           "SomeConstant",
 				constantDetails: resourcemanager.ConstantDetails{
 					Type: resourcemanager.FloatConstant,
 					Values: map[string]string{
@@ -569,14 +569,14 @@ toPath := make([]float64, 0)
 for _, v := range input.FromPath {
 	toPath = append(toPath, float64(v))
 }
-out.ToPath = &toPath
+output.ToPath = &toPath
 `,
 			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeFloat,
 		},
 		{
 			constant: assignmentConstantDetails{
-				sdkResourceName: "sdkresource",
-				constantName:    "SomeConstant",
+				apiResourcePackageName: "sdkresource",
+				constantName:           "SomeConstant",
 				constantDetails: resourcemanager.ConstantDetails{
 					Type: resourcemanager.IntegerConstant,
 					Values: map[string]string{
@@ -590,14 +590,14 @@ toPath := make([]int64, 0)
 for _, v := range input.FromPath {
 	toPath = append(toPath, int64(v))
 }
-out.ToPath = &toPath
+output.ToPath = &toPath
 `,
 			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeInteger,
 		},
 		{
 			constant: assignmentConstantDetails{
-				sdkResourceName: "sdkresource",
-				constantName:    "SomeConstant",
+				apiResourcePackageName: "sdkresource",
+				constantName:           "SomeConstant",
 				constantDetails: resourcemanager.ConstantDetails{
 					Type: resourcemanager.StringConstant,
 					Values: map[string]string{
@@ -611,7 +611,7 @@ toPath := make([]string, 0)
 for _, v := range input.FromPath {
 	toPath = append(toPath, string(v))
 }
-out.ToPath = &toPath
+output.ToPath = &toPath
 `,
 			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeString,
 		},
@@ -660,7 +660,7 @@ out.ToPath = &toPath
 				},
 			},
 		}
-		actual, err := directAssignmentLine{}.assignmentForReadMapping(mapping, schemaModel, sdkModel, &v.constant)
+		actual, err := directAssignmentLine{}.assignmentForReadMapping(mapping, schemaModel, sdkModel, &v.constant, "sdkresource")
 		if err != nil {
 			t.Fatalf("retrieving read assignment mapping: %+v", err)
 		}
@@ -678,8 +678,8 @@ func TestDirectAssignment_Read_Constant_OptionalToRequired_List(t *testing.T) {
 	}{
 		{
 			constant: assignmentConstantDetails{
-				sdkResourceName: "sdkresource",
-				constantName:    "SomeConstant",
+				apiResourcePackageName: "sdkresource",
+				constantName:           "SomeConstant",
 				constantDetails: resourcemanager.ConstantDetails{
 					Type: resourcemanager.FloatConstant,
 					Values: map[string]string{
@@ -692,8 +692,8 @@ func TestDirectAssignment_Read_Constant_OptionalToRequired_List(t *testing.T) {
 		},
 		{
 			constant: assignmentConstantDetails{
-				sdkResourceName: "sdkresource",
-				constantName:    "SomeConstant",
+				apiResourcePackageName: "sdkresource",
+				constantName:           "SomeConstant",
 				constantDetails: resourcemanager.ConstantDetails{
 					Type: resourcemanager.IntegerConstant,
 					Values: map[string]string{
@@ -706,8 +706,8 @@ func TestDirectAssignment_Read_Constant_OptionalToRequired_List(t *testing.T) {
 		},
 		{
 			constant: assignmentConstantDetails{
-				sdkResourceName: "sdkresource",
-				constantName:    "SomeConstant",
+				apiResourcePackageName: "sdkresource",
+				constantName:           "SomeConstant",
 				constantDetails: resourcemanager.ConstantDetails{
 					Type: resourcemanager.StringConstant,
 					Values: map[string]string{
@@ -763,7 +763,7 @@ func TestDirectAssignment_Read_Constant_OptionalToRequired_List(t *testing.T) {
 				},
 			},
 		}
-		actual, err := directAssignmentLine{}.assignmentForReadMapping(mapping, schemaModel, sdkModel, nil)
+		actual, err := directAssignmentLine{}.assignmentForReadMapping(mapping, schemaModel, sdkModel, nil, "sdkresource")
 		if err == nil {
 			t.Fatalf("expected an error but didn't get one")
 		}
@@ -781,8 +781,8 @@ func TestDirectAssignment_Read_Constant_OptionalToOptional_List(t *testing.T) {
 	}{
 		{
 			constant: assignmentConstantDetails{
-				sdkResourceName: "sdkresource",
-				constantName:    "SomeConstant",
+				apiResourcePackageName: "sdkresource",
+				constantName:           "SomeConstant",
 				constantDetails: resourcemanager.ConstantDetails{
 					Type: resourcemanager.FloatConstant,
 					Values: map[string]string{
@@ -798,14 +798,14 @@ if input.FromPath != nil {
 		toPath = append(toPath, float64(v))
 	}
 }
-out.ToPath = &toPath
+output.ToPath = &toPath
 `,
 			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeFloat,
 		},
 		{
 			constant: assignmentConstantDetails{
-				sdkResourceName: "sdkresource",
-				constantName:    "SomeConstant",
+				apiResourcePackageName: "sdkresource",
+				constantName:           "SomeConstant",
 				constantDetails: resourcemanager.ConstantDetails{
 					Type: resourcemanager.IntegerConstant,
 					Values: map[string]string{
@@ -821,14 +821,14 @@ if input.FromPath != nil {
 		toPath = append(toPath, int64(v))
 	}
 }
-out.ToPath = &toPath
+output.ToPath = &toPath
 `,
 			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeInteger,
 		},
 		{
 			constant: assignmentConstantDetails{
-				sdkResourceName: "sdkresource",
-				constantName:    "SomeConstant",
+				apiResourcePackageName: "sdkresource",
+				constantName:           "SomeConstant",
 				constantDetails: resourcemanager.ConstantDetails{
 					Type: resourcemanager.StringConstant,
 					Values: map[string]string{
@@ -844,7 +844,7 @@ if input.FromPath != nil {
 		toPath = append(toPath, string(v))
 	}
 }
-out.ToPath = &toPath
+output.ToPath = &toPath
 `,
 			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeString,
 		},
@@ -893,7 +893,7 @@ out.ToPath = &toPath
 				},
 			},
 		}
-		actual, err := directAssignmentLine{}.assignmentForReadMapping(mapping, schemaModel, sdkModel, &v.constant)
+		actual, err := directAssignmentLine{}.assignmentForReadMapping(mapping, schemaModel, sdkModel, &v.constant, "sdkresource")
 		if err != nil {
 			t.Fatalf("retrieving read assignment mapping: %+v", err)
 		}
@@ -960,14 +960,14 @@ func TestDirectAssignment_Read_Model_RequiredToRequired_MatchingSimpleTypes(t *t
 				},
 			},
 		}
-		actual, err := directAssignmentLine{}.assignmentForReadMapping(mapping, schemaModel, sdkModel, nil)
+		actual, err := directAssignmentLine{}.assignmentForReadMapping(mapping, schemaModel, sdkModel, nil, "sdkresource")
 		if err != nil {
 			t.Fatalf("retrieving read assignment mapping: %+v", err)
 		}
 		if actual == nil {
 			t.Fatalf("retrieving read assignment mapping: `actual` was nil")
 		}
-		expected := "out.FromPath = input.ToPath"
+		expected := "output.FromPath = input.ToPath"
 		testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
 	}
 }
@@ -1029,7 +1029,7 @@ func TestDirectAssignment_Read_Model_RequiredToOptional_MatchingSimpleTypes(t *t
 				},
 			},
 		}
-		actual, err := directAssignmentLine{}.assignmentForReadMapping(mapping, schemaModel, sdkModel, nil)
+		actual, err := directAssignmentLine{}.assignmentForReadMapping(mapping, schemaModel, sdkModel, nil, "sdkresource")
 		if err != nil {
 			t.Fatalf("retrieving read assignment mapping: %+v", err)
 		}
@@ -1038,7 +1038,7 @@ func TestDirectAssignment_Read_Model_RequiredToOptional_MatchingSimpleTypes(t *t
 		}
 		expected := `
 if input.ToPath != nil {
-	out.FromPath = *input.ToPath
+	output.FromPath = *input.ToPath
 }
 `
 		testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
@@ -1103,7 +1103,7 @@ func TestDirectAssignment_Read_Model_OptionalToRequired_MatchingSimpleTypes(t *t
 				},
 			},
 		}
-		actual, err := directAssignmentLine{}.assignmentForReadMapping(mapping, schemaModel, sdkModel, nil)
+		actual, err := directAssignmentLine{}.assignmentForReadMapping(mapping, schemaModel, sdkModel, nil, "sdkresource")
 		if err == nil {
 			t.Fatalf("expected an error but didn't get one")
 		}
@@ -1123,22 +1123,22 @@ func TestDirectAssignment_Read_Model_OptionalToOptional_MatchingSimpleTypes(t *t
 		{
 			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeBoolean,
 			sdkFieldType:         resourcemanager.BooleanApiObjectDefinitionType,
-			expected:             `out.FromPath = input.ToPath`,
+			expected:             `output.FromPath = pointer.From(input.ToPath)`,
 		},
 		{
 			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeFloat,
 			sdkFieldType:         resourcemanager.FloatApiObjectDefinitionType,
-			expected:             `out.FromPath = input.ToPath`,
+			expected:             `output.FromPath = pointer.From(input.ToPath)`,
 		},
 		{
 			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeInteger,
 			sdkFieldType:         resourcemanager.IntegerApiObjectDefinitionType,
-			expected:             `out.FromPath = input.ToPath`,
+			expected:             `output.FromPath = pointer.From(input.ToPath)`,
 		},
 		{
 			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeString,
 			sdkFieldType:         resourcemanager.StringApiObjectDefinitionType,
-			expected:             `out.FromPath = input.ToPath`,
+			expected:             `output.FromPath = pointer.From(input.ToPath)`,
 		},
 	}
 	for i, v := range testData {
@@ -1174,7 +1174,7 @@ func TestDirectAssignment_Read_Model_OptionalToOptional_MatchingSimpleTypes(t *t
 				},
 			},
 		}
-		actual, err := directAssignmentLine{}.assignmentForReadMapping(mapping, schemaModel, sdkModel, nil)
+		actual, err := directAssignmentLine{}.assignmentForReadMapping(mapping, schemaModel, sdkModel, nil, "sdkresource")
 		if err != nil {
 			t.Fatalf("retrieving read assignment mapping: %+v", err)
 		}
@@ -1201,7 +1201,7 @@ toPath := make([]bool, 0)
 for _, v := range input.ToPath {
 	toPath = append(toPath, v)
 }
-out.FromPath = toPath
+output.FromPath = toPath
 `,
 		},
 		{
@@ -1212,7 +1212,7 @@ toPath := make([]float64, 0)
 for _, v := range input.ToPath {
 	toPath = append(toPath, v)
 }
-out.FromPath = toPath
+output.FromPath = toPath
 `,
 		},
 		{
@@ -1223,7 +1223,7 @@ toPath := make([]int64, 0)
 for _, v := range input.ToPath {
 	toPath = append(toPath, v)
 }
-out.FromPath = toPath
+output.FromPath = toPath
 `,
 		},
 		{
@@ -1234,7 +1234,7 @@ toPath := make([]string, 0)
 for _, v := range input.ToPath {
 	toPath = append(toPath, v)
 }
-out.FromPath = toPath
+output.FromPath = toPath
 `,
 		},
 	}
@@ -1277,7 +1277,7 @@ out.FromPath = toPath
 				},
 			},
 		}
-		actual, err := directAssignmentLine{}.assignmentForReadMapping(mapping, schemaModel, sdkModel, nil)
+		actual, err := directAssignmentLine{}.assignmentForReadMapping(mapping, schemaModel, sdkModel, nil, "sdkresource")
 		if err != nil {
 			t.Fatalf("retrieving read assignment mapping: %+v", err)
 		}
@@ -1304,7 +1304,7 @@ toPath := make([]bool, 0)
 for _, v := range input.ToPath {
 	toPath = append(toPath, v)
 }
-out.FromPath = &toPath
+output.FromPath = &toPath
 `,
 		},
 		{
@@ -1315,7 +1315,7 @@ toPath := make([]float64, 0)
 for _, v := range input.ToPath {
 	toPath = append(toPath, v)
 }
-out.FromPath = &toPath
+output.FromPath = &toPath
 `,
 		},
 		{
@@ -1326,7 +1326,7 @@ toPath := make([]int64, 0)
 for _, v := range input.ToPath {
 	toPath = append(toPath, v)
 }
-out.FromPath = &toPath
+output.FromPath = &toPath
 `,
 		},
 		{
@@ -1337,7 +1337,7 @@ toPath := make([]string, 0)
 for _, v := range input.ToPath {
 	toPath = append(toPath, v)
 }
-out.FromPath = &toPath
+output.FromPath = &toPath
 `,
 		},
 	}
@@ -1380,7 +1380,7 @@ out.FromPath = &toPath
 				},
 			},
 		}
-		actual, err := directAssignmentLine{}.assignmentForReadMapping(mapping, schemaModel, sdkModel, nil)
+		actual, err := directAssignmentLine{}.assignmentForReadMapping(mapping, schemaModel, sdkModel, nil, "sdkresource")
 		if err != nil {
 			t.Fatalf("retrieving read assignment mapping: %+v", err)
 		}
@@ -1455,7 +1455,7 @@ func TestDirectAssignment_Read_Model_OptionalToRequired_MatchingListOfSimpleType
 				},
 			},
 		}
-		actual, err := directAssignmentLine{}.assignmentForReadMapping(mapping, schemaModel, sdkModel, nil)
+		actual, err := directAssignmentLine{}.assignmentForReadMapping(mapping, schemaModel, sdkModel, nil, "sdkresource")
 		if err == nil {
 			t.Fatalf("expected an error but didn't get one")
 		}
@@ -1483,7 +1483,7 @@ if input.ToPath != nil {
 		toPath = append(toPath, v)
 	}
 }
-out.FromPath = &toPath
+output.FromPath = &toPath
 `,
 		},
 		{
@@ -1496,7 +1496,7 @@ if input.ToPath != nil {
 		toPath = append(toPath, v)
 	}
 }
-out.FromPath = &toPath
+output.FromPath = &toPath
 `,
 		},
 		{
@@ -1509,7 +1509,7 @@ if input.ToPath != nil {
 		toPath = append(toPath, v)
 	}
 }
-out.FromPath = &toPath
+output.FromPath = &toPath
 `,
 		},
 		{
@@ -1522,7 +1522,7 @@ if input.ToPath != nil {
 		toPath = append(toPath, v)
 	}
 }
-out.FromPath = &toPath
+output.FromPath = &toPath
 `,
 		},
 	}
@@ -1565,7 +1565,7 @@ out.FromPath = &toPath
 				},
 			},
 		}
-		actual, err := directAssignmentLine{}.assignmentForReadMapping(mapping, schemaModel, sdkModel, nil)
+		actual, err := directAssignmentLine{}.assignmentForReadMapping(mapping, schemaModel, sdkModel, nil, "sdkresource")
 		if err != nil {
 			t.Fatalf("retrieving read assignment mapping: %+v", err)
 		}

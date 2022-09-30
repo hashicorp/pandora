@@ -42,7 +42,7 @@ package mappings
 //if err != nil {
 //		return fmt.Errorf("flattening %[2]q: %%+v", err)
 //}
-//out.%[3]s = %[1]s
+//output.%[3]s = %[1]s
 //`, sdkField.JsonName, mapping.From.SchemaFieldPath, mapping.To.SdkFieldPath, mapping.Manual.MethodName)
 //		if sdkField.Optional {
 //			line = fmt.Sprintf(`
@@ -50,7 +50,7 @@ package mappings
 //if err != nil {
 //	return fmt.Errorf("flattening %[2]q: %%+v", err)
 //}
-//out.%[3]s = &%[1]s
+//output.%[3]s = &%[1]s
 //`, sdkField.JsonName, mapping.From.SchemaFieldPath, mapping.To.SdkFieldPath, mapping.Manual.MethodName)
 //		}
 //		return &line, nil
@@ -69,7 +69,7 @@ package mappings
 //	if err != nil {
 //		return fmt.Errorf("flattening %[2]q: %%+v", err)
 //	}
-//	out.%[3]s = &%[1]s
+//	output.%[3]s = &%[1]s
 //}
 //`, sdkField.JsonName, mapping.From.SchemaFieldPath, mapping.To.SdkFieldPath, mapping.Manual.MethodName)
 //	return &line, nil
@@ -104,7 +104,7 @@ package mappings
 //if err != nil {
 //		return fmt.Errorf("flattening %[3]q: %%+v", err)
 //}
-//out.%[2]s = %[1]s
+//output.%[2]s = %[1]s
 //`, sdkField.JsonName, mapping.From.SchemaFieldPath, mapping.To.SdkFieldPath, mapping.Manual.MethodName)
 //		if sdkField.Optional {
 //			line = fmt.Sprintf(`
@@ -113,7 +113,7 @@ package mappings
 //	if err != nil {
 //		return fmt.Errorf("flattening %[3]q: %%+v", err)
 //	}
-//	out.%[2]s = %[1]s
+//	output.%[2]s = %[1]s
 //}
 //`, sdkField.JsonName, mapping.From.SchemaFieldPath, mapping.To.SdkFieldPath, mapping.Manual.MethodName)
 //		}
@@ -133,7 +133,7 @@ package mappings
 //	if err != nil {
 //		return fmt.Errorf("flattening %[3]q: %%+v", err)
 //	}
-//	out.%[2]s = &%[1]s
+//	output.%[2]s = &%[1]s
 //}
 //`, sdkField.JsonName, mapping.From.SchemaFieldPath, mapping.To.SdkFieldPath, mapping.Manual.MethodName)
 //	return &line, nil

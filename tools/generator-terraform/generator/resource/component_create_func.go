@@ -2,10 +2,7 @@ package resource
 
 import (
 	"fmt"
-	"sort"
 	"strings"
-
-	"github.com/hashicorp/pandora/tools/generator-terraform/featureflags"
 
 	"github.com/hashicorp/pandora/tools/generator-terraform/generator/models"
 
@@ -20,7 +17,6 @@ type createFunctionComponents struct {
 	readMethodName string
 
 	resourceTypeName       string
-	schemaModelName        string
 	sdkResourceName        string
 	sdkResourceNameLowered string
 
@@ -28,8 +24,10 @@ type createFunctionComponents struct {
 	mappings              resourcemanager.MappingDefinition
 	newResourceIdFuncName string
 	resourceId            resourcemanager.ResourceIdDefinition
-	terraformModel        resourcemanager.TerraformSchemaModelDefinition
-	topLevelModel         resourcemanager.ModelDetails
+
+	terraformModel     resourcemanager.TerraformSchemaModelDefinition
+	terraformModelName string
+	topLevelModel      resourcemanager.ModelDetails
 }
 
 func createFunctionForResource(input models.ResourceInput) (*string, error) {
@@ -63,7 +61,8 @@ func createFunctionForResource(input models.ResourceInput) (*string, error) {
 	}
 
 	// we only support References, which have to have a ReferenceName so this isn't a panic
-	topLevelModel, ok := input.Models[*createOperation.RequestObject.ReferenceName]
+	topLevelModelName := *createOperation.RequestObject.ReferenceName
+	topLevelModel, ok := input.Models[topLevelModelName]
 	if !ok {
 		return nil, fmt.Errorf("internal-error: top level model named %q was not found", *createOperation.RequestObject.ReferenceName)
 	}
@@ -74,7 +73,6 @@ func createFunctionForResource(input models.ResourceInput) (*string, error) {
 		readMethod:             readOperation,
 		readMethodName:         input.Details.ReadMethod.MethodName,
 		resourceTypeName:       input.ResourceTypeName,
-		schemaModelName:        input.SchemaModelName,
 		sdkResourceName:        input.SdkResourceName,
 		sdkResourceNameLowered: strings.ToLower(input.SdkResourceName),
 		mappings:               input.Details.Mappings,
@@ -82,6 +80,7 @@ func createFunctionForResource(input models.ResourceInput) (*string, error) {
 		newResourceIdFuncName:  *newResourceIdFuncName,
 		resourceId:             resourceId,
 		terraformModel:         terraformModel,
+		terraformModelName:     input.SchemaModelName,
 		topLevelModel:          topLevelModel,
 	}
 	components := []func() (*string, error){
@@ -89,9 +88,6 @@ func createFunctionForResource(input models.ResourceInput) (*string, error) {
 		helper.idDefinitionAndMapping,
 		helper.requiresImport,
 		helper.payloadDefinition,
-		// NOTE: we intentionally don't map fields from the Resource ID -> Payload
-		// since (per ARM) these don't need to be set
-		helper.mappingsFromSchema,
 		helper.create,
 	}
 	lines := make([]string, 0)
@@ -192,43 +188,11 @@ func (h createFunctionComponents) payloadDefinition() (*string, error) {
 	}
 
 	output := fmt.Sprintf(`
-			payload := %[1]s{}
-`, *createObjectName)
-	return &output, nil
-}
-
-func (h createFunctionComponents) mappingsFromSchema() (*string, error) {
-	if !featureflags.OutputMappings {
-		output := `// TODO: re-enable Mappings (featureflags.OutputMappings)`
-		return &output, nil
-	}
-
-	mappings := make([]string, 0)
-
-	//// ensure these are output alphabetically for consistency purposes across re-generations
-	//orderedFieldNames := make([]string, 0)
-	//for fieldName := range h.terraformModel.Fields {
-	//	orderedFieldNames = append(orderedFieldNames, fieldName)
-	//}
-	//sort.Strings(orderedFieldNames)
-	//
-	//for _, tfFieldName := range orderedFieldNames {
-	//	tfField := h.terraformModel.Fields[tfFieldName]
-	//	if tfField.Mappings.SdkPathForCreate == nil {
-	//		continue
-	//	}
-	//
-	//	assignmentVariable := fmt.Sprintf("payload.%s", *tfField.Mappings.SdkPathForCreate)
-	//	codeForMapping, err := expandAssignmentCodeForCreateField(assignmentVariable, tfFieldName, tfField, h.topLevelModel, h.models)
-	//	if err != nil {
-	//		return nil, fmt.Errorf("building expand assignment code for field %q: %+v", tfFieldName, err)
-	//	}
-	//
-	//	mappings = append(mappings, *codeForMapping)
-	//}
-
-	sort.Strings(mappings)
-	output := strings.Join(mappings, "\n")
+			var payload %[1]s
+			if err := r.map%[2]sTo%[3]s(config, &payload); err != nil {
+				return fmt.Errorf("mapping schema model to sdk model: %%+v", err)
+			}
+`, *createObjectName, h.terraformModelName, *h.createMethod.RequestObject.ReferenceName)
 	return &output, nil
 }
 
@@ -254,6 +218,6 @@ func (h createFunctionComponents) schemaDeserialization() (*string, error) {
 			if err := metadata.Decode(&config); err != nil {
 				return fmt.Errorf("decoding: %%+v", err)
 			}
-`, h.schemaModelName)
+`, h.terraformModelName)
 	return &output, nil
 }
