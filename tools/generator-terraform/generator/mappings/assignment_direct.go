@@ -249,18 +249,10 @@ output.%[1]s = &%[3]s
 }
 
 func (d directAssignmentLine) schemaToSdkMappingBetweenLocation(mapping resourcemanager.FieldMappingDefinition, schemaField resourcemanager.TerraformSchemaFieldDefinition, sdkField resourcemanager.FieldDetails, _ *assignmentConstantDetails, _ string) (*string, error) {
-	v, ok := directAssignmentTypes[schemaField.ObjectDefinition.Type]
-	if !ok {
-		return nil, fmt.Errorf("a DirectAssignment wasn't defined between %q and %q", string(schemaField.ObjectDefinition.Type), string(sdkField.ObjectDefinition.Type))
-	}
-	if v != sdkField.ObjectDefinition.Type {
-		return nil, fmt.Errorf("expected a DirectAssignment between %q and %q but got %q", string(schemaField.ObjectDefinition.Type), string(v), string(sdkField.ObjectDefinition.Type))
-	}
-
 	if schemaField.Required {
 		line := fmt.Sprintf("output.%[1]s = location.Normalize(input.%[2]s)", mapping.DirectAssignment.SchemaFieldPath, mapping.DirectAssignment.SdkFieldPath)
 		if sdkField.Optional {
-			line = fmt.Sprintf("output.%[1]s = Pointer.To(location.Normalize(input.%[2]s))", mapping.DirectAssignment.SchemaFieldPath, mapping.DirectAssignment.SdkFieldPath)
+			line = fmt.Sprintf("output.%[1]s = pointer.To(location.Normalize(input.%[2]s))", mapping.DirectAssignment.SchemaFieldPath, mapping.DirectAssignment.SdkFieldPath)
 		}
 		return &line, nil
 	}
@@ -272,7 +264,7 @@ func (d directAssignmentLine) schemaToSdkMappingBetweenLocation(mapping resource
 	}
 
 	// optional -> optional
-	line := fmt.Sprintf("output.%[1]s = Pointer.To(location.Normalize(input.%[2]s))", mapping.DirectAssignment.SchemaFieldPath, mapping.DirectAssignment.SdkFieldPath)
+	line := fmt.Sprintf("output.%[1]s = pointer.To(location.Normalize(input.%[2]s))", mapping.DirectAssignment.SchemaFieldPath, mapping.DirectAssignment.SdkFieldPath)
 	return &line, nil
 }
 
@@ -440,14 +432,6 @@ output.%[2]s = &%[3]s
 }
 
 func (d directAssignmentLine) sdkToSchemaMappingBetweenLocation(mapping resourcemanager.FieldMappingDefinition, schemaField resourcemanager.TerraformSchemaFieldDefinition, sdkField resourcemanager.FieldDetails, _ *assignmentConstantDetails, _ string) (*string, error) {
-	v, ok := directAssignmentTypes[schemaField.ObjectDefinition.Type]
-	if !ok {
-		return nil, fmt.Errorf("a DirectAssignment wasn't defined between %q and %q", string(schemaField.ObjectDefinition.Type), string(sdkField.ObjectDefinition.Type))
-	}
-	if v != sdkField.ObjectDefinition.Type {
-		return nil, fmt.Errorf("expected a DirectAssignment between %q and %q but got %q", string(schemaField.ObjectDefinition.Type), string(v), string(sdkField.ObjectDefinition.Type))
-	}
-
 	if schemaField.Required {
 		line := fmt.Sprintf("output.%[1]s = location.Normalize(input.%[2]s)", mapping.DirectAssignment.SchemaFieldPath, mapping.DirectAssignment.SdkFieldPath)
 		if sdkField.Optional {
