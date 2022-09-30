@@ -1576,6 +1576,249 @@ output.FromPath = &toPath
 	}
 }
 
+func TestDirectAssignment_Read_Model_RequiredToRequired_ListOfReference(t *testing.T) {
+	// mapping a Schema Model Field to an SDK Field where both are Required and a List of a Reference
+
+	mapping := resourcemanager.FieldMappingDefinition{
+		Type: resourcemanager.DirectAssignmentMappingDefinitionType,
+		DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
+			SchemaModelName: "FromModel",
+			SchemaFieldPath: "FromPath",
+			SdkFieldPath:    "ToPath",
+			SdkModelName:    "ToModel",
+		},
+	}
+	schemaModel := resourcemanager.TerraformSchemaModelDefinition{
+		Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+			"FromPath": {
+				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+					Type: resourcemanager.TerraformSchemaFieldTypeList,
+					NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
+						Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+						ReferenceName: stringPointer("SomeOtherSchemaModel"),
+					},
+				},
+				HclName:  "from_path",
+				Required: true,
+			},
+		},
+	}
+	sdkModel := resourcemanager.ModelDetails{
+		Fields: map[string]resourcemanager.FieldDetails{
+			"ToPath": {
+				JsonName: "toPath",
+				ObjectDefinition: resourcemanager.ApiObjectDefinition{
+					Type: resourcemanager.ListApiObjectDefinitionType,
+					NestedItem: &resourcemanager.ApiObjectDefinition{
+						Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+						ReferenceName: stringPointer("SomeSdkModel"),
+					},
+				},
+				Required: true,
+			},
+		},
+	}
+	actual, err := directAssignmentLine{}.assignmentForReadMapping(mapping, schemaModel, sdkModel, nil, "sdkresource")
+	if err != nil {
+		t.Fatalf("retrieving read assignment mapping: %+v", err)
+	}
+	if actual == nil {
+		t.Fatalf("retrieving read assignment mapping: `actual` was nil")
+	}
+	expected := `
+		toPath := make([]SomeOtherSchemaModel, 0)
+        for i, v := range input.ToPath {
+        	item := SomeOtherSchemaModel{}
+			if err := r.mapSomeSdkModelToSomeOtherSchemaModel(v, &item); err != nil {
+				return fmt.Errorf("mapping SomeOtherSchemaModel item %d to SomeSdkModel: %+v", i, err)
+			}
+        	toPath = append(toPath, item)
+        }
+        output.FromPath = toPath
+`
+	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
+}
+
+func TestDirectAssignment_Read_Model_RequiredToOptional_ListOfReference(t *testing.T) {
+	// mapping an (Optional) Schema Model Field to a (Required) SDK Field where both are a List of a Reference
+
+	mapping := resourcemanager.FieldMappingDefinition{
+		Type: resourcemanager.DirectAssignmentMappingDefinitionType,
+		DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
+			SchemaModelName: "FromModel",
+			SchemaFieldPath: "FromPath",
+			SdkFieldPath:    "ToPath",
+			SdkModelName:    "ToModel",
+		},
+	}
+	schemaModel := resourcemanager.TerraformSchemaModelDefinition{
+		Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+			"FromPath": {
+				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+					Type: resourcemanager.TerraformSchemaFieldTypeList,
+					NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
+						Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+						ReferenceName: stringPointer("SomeOtherSchemaModel"),
+					},
+				},
+				HclName:  "from_path",
+				Required: true,
+			},
+		},
+	}
+	sdkModel := resourcemanager.ModelDetails{
+		Fields: map[string]resourcemanager.FieldDetails{
+			"ToPath": {
+				JsonName: "toPath",
+				ObjectDefinition: resourcemanager.ApiObjectDefinition{
+					Type: resourcemanager.ListApiObjectDefinitionType,
+					NestedItem: &resourcemanager.ApiObjectDefinition{
+						Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+						ReferenceName: stringPointer("SomeSdkModel"),
+					},
+				},
+				Optional: true,
+			},
+		},
+	}
+	actual, err := directAssignmentLine{}.assignmentForReadMapping(mapping, schemaModel, sdkModel, nil, "sdkresource")
+	if err != nil {
+		t.Fatalf("retrieving read assignment mapping: %+v", err)
+	}
+	if actual == nil {
+		t.Fatalf("retrieving read assignment mapping: `actual` was nil")
+	}
+	expected := `
+		toPath := make([]SomeOtherSchemaModel, 0)
+        for i, v := range input.ToPath {
+        	item := SomeOtherSchemaModel{}
+			if err := r.mapSomeSdkModelToSomeOtherSchemaModel(v, &item); err != nil {
+				return fmt.Errorf("mapping SomeOtherSchemaModel item %d to SomeSdkModel: %+v", i, err)
+			}
+        	toPath = append(toPath, item)
+        }
+        output.FromPath = &toPath
+`
+	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
+}
+
+func TestDirectAssignment_Read_Model_OptionalToRequired_ListOfReference(t *testing.T) {
+	// mapping a Schema Model Field (Optional) to an SDK Field (Required) for List of Reference
+	// this has to be mapped, so is a Schema error / we should raise an error
+
+	mapping := resourcemanager.FieldMappingDefinition{
+		Type: resourcemanager.DirectAssignmentMappingDefinitionType,
+		DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
+			SchemaModelName: "FromModel",
+			SchemaFieldPath: "FromPath",
+			SdkFieldPath:    "ToPath",
+			SdkModelName:    "ToModel",
+		},
+	}
+	schemaModel := resourcemanager.TerraformSchemaModelDefinition{
+		Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+			"FromPath": {
+				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+					Type: resourcemanager.TerraformSchemaFieldTypeList,
+					NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
+						Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+						ReferenceName: stringPointer("SomeOtherSchemaModel"),
+					},
+				},
+				HclName:  "from_path",
+				Optional: true,
+			},
+		},
+	}
+	sdkModel := resourcemanager.ModelDetails{
+		Fields: map[string]resourcemanager.FieldDetails{
+			"ToPath": {
+				JsonName: "toPath",
+				ObjectDefinition: resourcemanager.ApiObjectDefinition{
+					Type: resourcemanager.ListApiObjectDefinitionType,
+					NestedItem: &resourcemanager.ApiObjectDefinition{
+						Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+						ReferenceName: stringPointer("SomeSdkModel"),
+					},
+				},
+				Required: true,
+			},
+		},
+	}
+	actual, err := directAssignmentLine{}.assignmentForReadMapping(mapping, schemaModel, sdkModel, nil, "sdkresource")
+	if err == nil {
+		t.Fatalf("expected an error but didn't get one")
+	}
+	if actual != nil {
+		t.Fatalf("expected an error and no result but got a result (%q) and no error", *actual)
+	}
+}
+
+func TestDirectAssignment_Read_Model_OptionalToOptional_ListOfReference(t *testing.T) {
+	// mapping a Schema Model Field to an SDK Field where both are Optional and a List of a Reference
+
+	mapping := resourcemanager.FieldMappingDefinition{
+		Type: resourcemanager.DirectAssignmentMappingDefinitionType,
+		DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
+			SchemaModelName: "FromModel",
+			SchemaFieldPath: "FromPath",
+			SdkFieldPath:    "ToPath",
+			SdkModelName:    "ToModel",
+		},
+	}
+	schemaModel := resourcemanager.TerraformSchemaModelDefinition{
+		Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+			"FromPath": {
+				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+					Type: resourcemanager.TerraformSchemaFieldTypeList,
+					NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
+						Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+						ReferenceName: stringPointer("SomeOtherSchemaModel"),
+					},
+				},
+				HclName:  "from_path",
+				Optional: true,
+			},
+		},
+	}
+	sdkModel := resourcemanager.ModelDetails{
+		Fields: map[string]resourcemanager.FieldDetails{
+			"ToPath": {
+				JsonName: "toPath",
+				ObjectDefinition: resourcemanager.ApiObjectDefinition{
+					Type: resourcemanager.ListApiObjectDefinitionType,
+					NestedItem: &resourcemanager.ApiObjectDefinition{
+						Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+						ReferenceName: stringPointer("SomeSdkModel"),
+					},
+				},
+				Optional: true,
+			},
+		},
+	}
+	actual, err := directAssignmentLine{}.assignmentForReadMapping(mapping, schemaModel, sdkModel, nil, "sdkresource")
+	if err != nil {
+		t.Fatalf("retrieving read assignment mapping: %+v", err)
+	}
+	if actual == nil {
+		t.Fatalf("retrieving read assignment mapping: `actual` was nil")
+	}
+	expected := `
+		toPath := make([]SomeOtherSchemaModel, 0)
+		if input.ToPath != nil {
+			for i, v := range *input.ToPath {
+				item := SomeOtherSchemaModel{}
+				if err := r.mapSomeSdkModelToSomeOtherSchemaModel(v, &item); err != nil {
+					return fmt.Errorf("mapping SomeOtherSchemaModel item %d to SomeSdkModel: %+v", i, err)
+				}
+				toPath = append(toPath, item)
+			}
+		}
+        output.FromPath = &toPath
+`
+	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
+}
+
 func TestDirectAssignment_Read_Location_RequiredToRequired_TopLevel(t *testing.T) {
 	// when mapping a model to a model where both fields are required and matching location
 	testData := []struct {

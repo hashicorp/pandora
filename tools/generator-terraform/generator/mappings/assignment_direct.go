@@ -557,7 +557,7 @@ output.%[2]s = %[3]s
 
 		if sdkField.Optional {
 			line = fmt.Sprintf(`
-%[3]s := make(%[4]s, 0)
+%[3]s := make([]%[5]s, 0)
 for i, v := range input.%[1]s {
     item := %[5]s{}
 	if err := r.map%[4]sTo%[5]s(v, &item); err != nil {
@@ -579,7 +579,7 @@ output.%[2]s = &%[3]s
 
 	// optional -> optional
 	line := fmt.Sprintf(`
-%[3]s := make(%[4]s, 0)
+%[3]s := make([]%[5]s, 0)
 if input.%[1]s != nil {
 	for i, v := range *input.%[1]s {
 		item := %[5]s{}
