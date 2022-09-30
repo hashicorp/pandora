@@ -54,6 +54,7 @@ public static class TerraformMappingDefinition
             {
                 var schemaModelName = modelToModel.SchemaModelName.RemoveModelSuffixFromTypeName();
                 var sdkModelName = modelToModel.SdkModelName.RemoveModelSuffixFromTypeName();
+
                 fields.Add(new Models.TerraformFieldMappingDefinition
                 {
                     Type = Models.TerraformFieldMappingType.ModelToModel,
