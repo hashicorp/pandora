@@ -2,11 +2,11 @@ package docs
 
 import (
 	"fmt"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 	"regexp"
 	"strings"
 
 	"github.com/hashicorp/pandora/tools/generator-terraform/generator/models"
+	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
 func codeForExampleUsage(input models.ResourceInput) (*string, error) {
