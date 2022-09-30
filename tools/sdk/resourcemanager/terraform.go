@@ -101,6 +101,9 @@ type FieldMappingDefinition struct {
 	// DirectAssignment specifies the mapping information when Type is set to DirectAssignment.
 	DirectAssignment *FieldMappingDirectAssignmentDefinition `json:"directAssignment,omitempty"`
 
+	// DirectAssignment specifies the mapping information when Type is set to ModelToModel.
+	ModelToModel *FieldMappingModelToModelDefinition `json:"modelToModel"`
+
 	// Manual contains additional metadata when Type is set to Manual.
 	Manual *FieldManualMappingDefinition `json:"manual,omitempty"`
 }
@@ -112,6 +115,9 @@ func (d FieldMappingDefinition) String() string {
 	}
 	if d.Manual != nil {
 		output = append(output, fmt.Sprintf("Manual: %q", d.Manual.String()))
+	}
+	if d.ModelToModel != nil {
+		output = append(output, fmt.Sprintf("ModelToModel: %s", d.ModelToModel.String()))
 	}
 
 	return fmt.Sprintf("Type %q (%s)", string(d.Type), strings.Join(output, " / "))
@@ -145,6 +151,27 @@ func (d FieldMappingDirectAssignmentDefinition) String() string {
 	output := []string{
 		fmt.Sprintf("Schema Model Name %q", d.SchemaModelName),
 		fmt.Sprintf("Schema Field Path %q", d.SchemaFieldPath),
+		fmt.Sprintf("Sdk Model Name %q", d.SdkModelName),
+		fmt.Sprintf("Sdk Field Path %q", d.SdkFieldPath),
+	}
+	return strings.Join(output, " / ")
+}
+
+type FieldMappingModelToModelDefinition struct {
+	// SchemaModelName specifies the name of the SchemaModel where this value should be mapped from.
+	SchemaModelName string `json:"schemaModelName"`
+
+	// SdkModelName specifies the name of the SdkModel where this value should be mapped onto.
+	SdkModelName string `json:"sdkModelName"`
+
+	// SdkFieldPath specifies the Path to the Field within the SdkModel where the Schema Field
+	// should be mapped onto.
+	SdkFieldPath string `json:"sdkFieldPath"`
+}
+
+func (d FieldMappingModelToModelDefinition) String() string {
+	output := []string{
+		fmt.Sprintf("Schema Model Name %q", d.SchemaModelName),
 		fmt.Sprintf("Sdk Model Name %q", d.SdkModelName),
 		fmt.Sprintf("Sdk Field Path %q", d.SdkFieldPath),
 	}
