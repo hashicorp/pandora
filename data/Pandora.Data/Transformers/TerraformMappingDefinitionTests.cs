@@ -51,6 +51,24 @@ public static class TerraformMappingDefinitionTests
         Assert.NotNull(actual.ModelToModel.FirstOrDefault(m => m.SchemaModelName == "TestSchema" && m.SdkModelName == "TestSdk"));
     }
 
+    [TestCase]
+    public static void MappingAModelToModelMapping()
+    {
+        var actual = TerraformMappingDefinition.Map(new ModelContainingModelToModelMappings());
+        Assert.AreEqual(0, actual.ResourceIds.Count);
+
+        Assert.AreEqual(2, actual.Fields.Count);
+        Assert.NotNull(actual.Fields.FirstOrDefault(r => r.Type == TerraformFieldMappingType.ModelToModel &&
+                                                         r.ModelToModel.SchemaModelName == "TestSchema" &&
+                                                         r.ModelToModel.SdkModelName == "TestSdk" &&
+                                                         r.ModelToModel.SdkFieldName == "SdkFoo"));
+        Assert.NotNull(actual.Fields.FirstOrDefault(r => r.Type == TerraformFieldMappingType.ModelToModel &&
+                                                         r.ModelToModel.SchemaModelName == "TestSchema" &&
+                                                         r.ModelToModel.SdkModelName == "TestSdk" &&
+                                                         r.ModelToModel.SdkFieldName == "SdkBar"));
+        // TODO: the modeltomodel counter
+    }
+
     private class NoMappings : Definitions.Interfaces.TerraformMappingDefinition
     {
         public List<MappingType> Mappings => new List<MappingType>();
@@ -71,6 +89,15 @@ public static class TerraformMappingDefinitionTests
         {
             Mapping.FromSchema<TestSchemaModel>(m => m.Foo).ToSdkField<TestSdkModel>(s => s.SdkFoo).Direct(),
             Mapping.FromSchema<TestSchemaModel>(m => m.Bar).ToSdkField<TestSdkModel>(s => s.SdkBar).Direct(),
+        };
+    }
+
+    private class ModelContainingModelToModelMappings : Definitions.Interfaces.TerraformMappingDefinition
+    {
+        public List<MappingType> Mappings => new List<MappingType>
+        {
+            Mapping.FromSchemaModel<TestSchemaModel>().ToSdkField<TestSdkModel>(s => s.SdkFoo).ModelToModel(),
+            Mapping.FromSchemaModel<TestSchemaModel>().ToSdkField<TestSdkModel>(s => s.SdkBar).ModelToModel(),
         };
     }
 

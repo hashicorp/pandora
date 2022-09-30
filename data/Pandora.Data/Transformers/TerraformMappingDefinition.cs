@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Pandora.Data.Helpers;
-using Pandora.Data.Models;
 using Pandora.Definitions.Mappings;
 
 namespace Pandora.Data.Transformers;
@@ -27,23 +26,23 @@ public static class TerraformMappingDefinition
                 continue;
             }
 
-            if (item is DirectAssignmentMapping mapping)
+            if (item is DirectAssignmentMapping direct)
             {
-                var schemaModelName = mapping.FromSchemaModelName.RemoveModelSuffixFromTypeName();
-                var sdkModelName = mapping.ToSdkModelName.RemoveModelSuffixFromTypeName();
+                var schemaModelName = direct.FromSchemaModelName.RemoveModelSuffixFromTypeName();
+                var sdkModelName = direct.ToSdkModelName.RemoveModelSuffixFromTypeName();
                 fields.Add(new Models.TerraformFieldMappingDefinition
                 {
                     Type = Models.TerraformFieldMappingType.DirectAssignment,
                     DirectAssignment = new Models.TerraformFieldMappingDirectAssignmentDefinition
                     {
                         SchemaModelName = schemaModelName,
-                        SchemaFieldName = mapping.FromSchemaPath,
+                        SchemaFieldName = direct.FromSchemaPath,
 
                         SdkModelName = sdkModelName,
-                        SdkFieldName = mapping.ToSdkFieldPath,
+                        SdkFieldName = direct.ToSdkFieldPath,
                     },
                 });
-                modelToModels.Add(new TerraformModelToModelMappingDefinition
+                modelToModels.Add(new Models.TerraformModelToModelMappingDefinition
                 {
                     SchemaModelName = schemaModelName,
                     SdkModelName = sdkModelName,
@@ -51,7 +50,23 @@ public static class TerraformMappingDefinition
                 continue;
             }
 
-            // TODO: Manual, ModelToModel etc
+            if (item is ModelToModelMapping modelToModel)
+            {
+                fields.Add(new Models.TerraformFieldMappingDefinition
+                {
+                    Type = Models.TerraformFieldMappingType.ModelToModel,
+                    ModelToModel = new Models.TerraformFieldMappingModelToModelDefinition
+                    {
+                        SchemaModelName = modelToModel.SchemaModelName.RemoveModelSuffixFromTypeName(),
+
+                        SdkModelName = modelToModel.SdkModelName.RemoveModelSuffixFromTypeName(),
+                        SdkFieldName = modelToModel.SdkFieldPath,
+                    },
+                });
+                continue;
+            }
+
+            // TODO: Manual etc
 
             throw new NotSupportedException($"unsupported mapping type {item.GetType().Name}");
         }

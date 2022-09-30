@@ -25,4 +25,17 @@ public static class Mapping
             FromFieldPath = fieldPath,
         };
     }
+
+    /// <summary>
+    /// FromSchemaModel defines a mapping from this Schema Model, the destination
+    /// (where this maps to) is defined as an extension method on this.
+    /// </summary>
+    /// <typeparam name="TModel">The Schema Model</typeparam>
+    public static FromMapping FromSchemaModel<TModel>()
+    {
+        return new FromMapping
+        {
+            FromModel = typeof(TModel).Name,
+        };
+    }
 }
