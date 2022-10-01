@@ -20,10 +20,10 @@ var fieldObjectDefinitionsToGolangTypes = map[resourcemanager.TerraformSchemaFie
 	// Common Types
 	resourcemanager.TerraformSchemaFieldTypeEdgeZone:                      "string",
 	resourcemanager.TerraformSchemaFieldTypeLocation:                      "string",
-	resourcemanager.TerraformSchemaFieldTypeIdentitySystemAssigned:        "identity.ModelSystemAssigned",
-	resourcemanager.TerraformSchemaFieldTypeIdentitySystemAndUserAssigned: "identity.ModelSystemAssignedUserAssigned",
-	resourcemanager.TerraformSchemaFieldTypeIdentitySystemOrUserAssigned:  "identity.ModelSystemAssignedUserAssigned",
-	resourcemanager.TerraformSchemaFieldTypeIdentityUserAssigned:          "identity.ModelUserAssigned",
+	resourcemanager.TerraformSchemaFieldTypeIdentitySystemAssigned:        "[]identity.ModelSystemAssigned",
+	resourcemanager.TerraformSchemaFieldTypeIdentitySystemAndUserAssigned: "[]identity.ModelSystemAssignedUserAssigned",
+	resourcemanager.TerraformSchemaFieldTypeIdentitySystemOrUserAssigned:  "[]identity.ModelSystemAssignedUserAssigned",
+	resourcemanager.TerraformSchemaFieldTypeIdentityUserAssigned:          "[]identity.ModelUserAssigned",
 	resourcemanager.TerraformSchemaFieldTypeResourceGroup:                 "string",
 	resourcemanager.TerraformSchemaFieldTypeTags:                          "map[string]interface{}",
 	resourcemanager.TerraformSchemaFieldTypeZone:                          "string",
@@ -47,7 +47,6 @@ func GolangFieldTypeFromObjectFieldDefinition(input resourcemanager.TerraformSch
 			return nil, fmt.Errorf("reference type had no reference")
 		}
 
-		// TODO: confirm these should be output as an array
 		output := fmt.Sprintf("[]%s", *input.ReferenceName)
 		return &output, nil
 	}
