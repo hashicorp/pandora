@@ -53,6 +53,11 @@ func (d directAssignmentLine) assignmentForCreateUpdateMapping(mapping resourcem
 		return nil, fmt.Errorf("the Field %q for SDK Model %q was not found", *sdkFieldName, mapping.DirectAssignment.SdkModelName)
 	}
 
+	// check if it requires a custom transform
+	if v, ok := transformTypes[schemaField.ObjectDefinition.Type]; ok && v == sdkField.ObjectDefinition.Type {
+		return d.schemaToSdkMappingRequiringTransform(mapping, schemaField, sdkField, sdkConstant, apiResourcePackageName)
+	}
+
 	// check the assignment type - if it's a List these are special-cased
 	if schemaField.ObjectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeList && sdkField.ObjectDefinition.Type == resourcemanager.ListApiObjectDefinitionType {
 		// TODO: the Schema maybe a List but the SDK can be a Reference too, fwiw - also needs the read
@@ -62,14 +67,6 @@ func (d directAssignmentLine) assignmentForCreateUpdateMapping(mapping resourcem
 		}
 
 		return d.schemaToSdkMappingBetweenListFields(mapping, schemaField, sdkField, sdkConstant, apiResourcePackageName)
-	}
-
-	if schemaField.ObjectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeLocation && sdkField.ObjectDefinition.Type == resourcemanager.LocationApiObjectDefinitionType {
-		return d.schemaToSdkMappingBetweenLocation(mapping, schemaField, sdkField, sdkConstant, apiResourcePackageName)
-	}
-
-	if schemaField.ObjectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeTags && sdkField.ObjectDefinition.Type == resourcemanager.TagsApiObjectDefinitionType {
-		return d.schemaToSdkMappingBetweenTags(mapping, schemaField, sdkField, sdkConstant, apiResourcePackageName)
 	}
 
 	return d.schemaToSdkMappingBetweenFields(mapping, schemaField, sdkField, sdkConstant)
@@ -94,6 +91,11 @@ func (d directAssignmentLine) assignmentForReadMapping(mapping resourcemanager.F
 		return nil, fmt.Errorf("the Field %q for SDK Model %q was not found", *sdkFieldName, mapping.DirectAssignment.SdkModelName)
 	}
 
+	// check if it requires a custom transform
+	if v, ok := transformTypes[schemaField.ObjectDefinition.Type]; ok && v == sdkField.ObjectDefinition.Type {
+		return d.sdkToSchemaMappingRequiringTransform(mapping, schemaField, sdkField, sdkConstant, apiResourcePackageName)
+	}
+
 	// check the assignment type - if it's a List these are special-cased
 	if schemaField.ObjectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeList && sdkField.ObjectDefinition.Type == resourcemanager.ListApiObjectDefinitionType {
 		// TODO: the Schema maybe a List but the SDK can be a Reference too, fwiw - also needs the read
@@ -105,15 +107,76 @@ func (d directAssignmentLine) assignmentForReadMapping(mapping resourcemanager.F
 		return d.sdkToSchemaMappingBetweenListFields(mapping, schemaField, sdkField, sdkConstant, apiResourcePackageName)
 	}
 
-	if schemaField.ObjectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeLocation && sdkField.ObjectDefinition.Type == resourcemanager.LocationApiObjectDefinitionType {
-		return d.sdkToSchemaMappingBetweenLocation(mapping, schemaField, sdkField, sdkConstant, apiResourcePackageName)
-	}
-
-	if schemaField.ObjectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeTags && sdkField.ObjectDefinition.Type == resourcemanager.TagsApiObjectDefinitionType {
-		return d.sdkToSchemaMappingBetweenTags(mapping, schemaField, sdkField, sdkConstant, apiResourcePackageName)
-	}
-
 	return d.sdkToSchemaMappingBetweenFields(mapping, schemaField, sdkField, sdkConstant)
+}
+
+var transformTypes = map[resourcemanager.TerraformSchemaFieldType]resourcemanager.ApiObjectDefinitionType{
+	resourcemanager.TerraformSchemaFieldTypeLocation:               resourcemanager.LocationApiObjectDefinitionType,
+	resourcemanager.TerraformSchemaFieldTypeIdentitySystemAssigned: resourcemanager.SystemAssignedIdentityApiObjectDefinitionType,
+	resourcemanager.TerraformSchemaFieldTypeTags:                   resourcemanager.TagsApiObjectDefinitionType,
+}
+var transformRequiredExpandFunctions = map[resourcemanager.TerraformSchemaFieldType]func(outputAssignment, outputVariableName, inputAssignment string) string{
+	resourcemanager.TerraformSchemaFieldTypeLocation: func(outputAssignment, outputVariableName, inputAssignment string) string {
+		return fmt.Sprintf("%s = location.Normalize(%s)", outputAssignment, inputAssignment)
+	},
+	resourcemanager.TerraformSchemaFieldTypeIdentitySystemAssigned: func(outputAssignment, outputVariableName, inputAssignment string) string {
+		return fmt.Sprintf(`
+	%[1]s, err := identity.ExpandSystemAssignedFromModel(%[2]s)
+	if err != nil {
+		return fmt.Errorf("expanding SystemAssigned Identity: %%+v", err)
+	}
+	%[3]s = %[1]s
+`, outputVariableName, inputAssignment, outputAssignment)
+	},
+	resourcemanager.TerraformSchemaFieldTypeTags: func(outputAssignment, _, inputAssignment string) string {
+		return fmt.Sprintf("%s = tags.Expand(%s)", outputAssignment, inputAssignment)
+	},
+}
+var transformOptionalExpandFunctions = map[resourcemanager.TerraformSchemaFieldType]func(outputAssignment, outputVariableName, inputAssignment string) string{
+	resourcemanager.TerraformSchemaFieldTypeLocation: func(outputAssignment, outputVariableName, inputAssignment string) string {
+		return fmt.Sprintf("%s = location.NormalizeNilable(%s)", outputAssignment, inputAssignment)
+	},
+	resourcemanager.TerraformSchemaFieldTypeIdentitySystemAssigned: func(outputAssignment, outputVariableName, inputAssignment string) string {
+		// TODO: tests for Identity & add support for Zones
+		return fmt.Sprintf(`
+	%[1]s, err := identity.ExpandSystemAssignedFromModel(%[2]s)
+	if err != nil {
+		return fmt.Errorf("expanding SystemAssigned Identity: %%+v", err)
+	}
+	%[3]s = %[1]s
+`, outputVariableName, inputAssignment, outputAssignment)
+	},
+	resourcemanager.TerraformSchemaFieldTypeTags: func(outputAssignment, outputVariableName, inputAssignment string) string {
+		return fmt.Sprintf("%s = tags.Expand(%s)", outputAssignment, inputAssignment)
+	},
+}
+var transformRequiredFlattenFunctions = map[resourcemanager.TerraformSchemaFieldType]func(outputAssignment, outputVariableName, inputAssignment string) string{
+	resourcemanager.TerraformSchemaFieldTypeLocation: func(outputAssignment, outputVariableName, inputAssignment string) string {
+		return fmt.Sprintf("%s = location.Normalize(%s)", outputAssignment, inputAssignment)
+	},
+	resourcemanager.TerraformSchemaFieldTypeIdentitySystemAssigned: func(outputAssignment, outputVariableName, inputAssignment string) string {
+		return fmt.Sprintf(`
+	%[1]s, err := identity.ExpandSystemAssignedFromModel(%[2]s)
+	if err != nil {
+		return fmt.Errorf("expanding SystemAssigned Identity: %%+v", err)
+	}
+	%[3]s = %[1]s
+`, outputVariableName, inputAssignment, outputAssignment)
+	},
+	resourcemanager.TerraformSchemaFieldTypeTags: func(outputAssignment, _, inputAssignment string) string {
+		return fmt.Sprintf("%s = tags.Flatten(%s)", outputAssignment, inputAssignment)
+	},
+}
+var transformOptionalFlattenFunctions = map[resourcemanager.TerraformSchemaFieldType]func(outputAssignment, outputVariableName, inputAssignment string) string{
+	resourcemanager.TerraformSchemaFieldTypeLocation: func(outputAssignment, outputVariableName, inputAssignment string) string {
+		return fmt.Sprintf("%s = location.NormalizeNilable(%s)", outputAssignment, inputAssignment)
+	},
+	resourcemanager.TerraformSchemaFieldTypeIdentitySystemAssigned: func(outputAssignment, _, inputAssignment string) string {
+		return fmt.Sprintf(`%[1]s = identity.FlattenSystemAssignedToModel(%[2]s)`, outputAssignment, inputAssignment)
+	},
+	resourcemanager.TerraformSchemaFieldTypeTags: func(outputAssignment, outputVariableName, inputAssignment string) string {
+		return fmt.Sprintf("%s = tags.Flatten(%s)", outputAssignment, inputAssignment)
+	},
 }
 
 func (d directAssignmentLine) schemaToSdkMappingBetweenFields(mapping resourcemanager.FieldMappingDefinition, schemaField resourcemanager.TerraformSchemaFieldDefinition, sdkField resourcemanager.FieldDetails, sdkConstant *assignmentConstantDetails) (*string, error) {
@@ -268,7 +331,6 @@ output.%[1]s = &%[3]s
 	return &line, nil
 }
 
-// TODO: tests
 func (d directAssignmentLine) schemaToSdkMappingBetweenListOfReferenceFields(mapping resourcemanager.FieldMappingDefinition, schemaField resourcemanager.TerraformSchemaFieldDefinition, sdkField resourcemanager.FieldDetails, apiResourcePackageName string) (*string, error) {
 	listVariableType, err := sdkField.ObjectDefinition.GolangTypeName(&apiResourcePackageName)
 	if err != nil {
@@ -372,6 +434,41 @@ func (d directAssignmentLine) schemaToSdkMappingBetweenTags(mapping resourcemana
 	// optional -> optional
 	line := fmt.Sprintf("output.%[1]s = pointer.To(tags.Expand(input.%[2]s))", mapping.DirectAssignment.SchemaFieldPath, mapping.DirectAssignment.SdkFieldPath)
 	return &line, nil
+}
+
+func (d directAssignmentLine) schemaToSdkMappingRequiringTransform(mapping resourcemanager.FieldMappingDefinition, schemaField resourcemanager.TerraformSchemaFieldDefinition, sdkField resourcemanager.FieldDetails, _ *assignmentConstantDetails, _ string) (*string, error) {
+	outputAssignment := fmt.Sprintf("output.%s", mapping.DirectAssignment.SchemaFieldPath)
+	outputVariable := sdkField.JsonName
+	inputAssignment := fmt.Sprintf("input.%s", mapping.DirectAssignment.SdkFieldPath)
+
+	if schemaField.Required {
+		transform, ok := transformRequiredExpandFunctions[schemaField.ObjectDefinition.Type]
+		if !ok {
+			return nil, fmt.Errorf("internal-error: missing required expand transform function for Schema Field Object Definition Type %q", string(schemaField.ObjectDefinition.Type))
+		}
+		if sdkField.Optional {
+			transform, ok = transformOptionalExpandFunctions[schemaField.ObjectDefinition.Type]
+			if !ok {
+				return nil, fmt.Errorf("internal-error: missing optional expand transform function for Schema Field Object Definition Type %q", string(schemaField.ObjectDefinition.Type))
+			}
+		}
+		transformLine := transform(outputAssignment, outputVariable, inputAssignment)
+		return &transformLine, nil
+	}
+
+	if sdkField.Required {
+		// if the SDK Field is Required but the Schema Field is Optional this is a Data Issue
+		// TODO: handle where it's defaulted?
+		return nil, fmt.Errorf("the Sdk Model %q Field %q was Required but Schema Model %q Field %q was Optional but must be Required", mapping.DirectAssignment.SdkModelName, mapping.DirectAssignment.SdkFieldPath, mapping.DirectAssignment.SchemaModelName, mapping.DirectAssignment.SchemaFieldPath)
+	}
+
+	// optional -> optional
+	transform, ok := transformOptionalExpandFunctions[schemaField.ObjectDefinition.Type]
+	if !ok {
+		return nil, fmt.Errorf("internal-error: missing optional expand transform function for Schema Field Object Definition Type %q", string(schemaField.ObjectDefinition.Type))
+	}
+	transformLine := transform(outputAssignment, outputVariable, inputAssignment)
+	return &transformLine, nil
 }
 
 func (d directAssignmentLine) sdkToSchemaMappingBetweenFields(mapping resourcemanager.FieldMappingDefinition, schemaField resourcemanager.TerraformSchemaFieldDefinition, sdkField resourcemanager.FieldDetails, sdkConstant *assignmentConstantDetails) (*string, error) {
@@ -537,7 +634,6 @@ output.%[2]s = &%[3]s
 	return &line, nil
 }
 
-// TODO: tests
 func (d directAssignmentLine) sdkToSchemaMappingBetweenListOfReferenceFields(mapping resourcemanager.FieldMappingDefinition, schemaField resourcemanager.TerraformSchemaFieldDefinition, sdkField resourcemanager.FieldDetails, apiResourcePackageName string) (*string, error) {
 	sdkFieldTypeName := *sdkField.ObjectDefinition.NestedItem.ReferenceName
 	schemaFieldTypeName := *schemaField.ObjectDefinition.NestedObject.ReferenceName
@@ -594,13 +690,24 @@ output.%[2]s = &%[3]s
 	return &line, nil
 }
 
-func (d directAssignmentLine) sdkToSchemaMappingBetweenLocation(mapping resourcemanager.FieldMappingDefinition, schemaField resourcemanager.TerraformSchemaFieldDefinition, sdkField resourcemanager.FieldDetails, _ *assignmentConstantDetails, _ string) (*string, error) {
+func (d directAssignmentLine) sdkToSchemaMappingRequiringTransform(mapping resourcemanager.FieldMappingDefinition, schemaField resourcemanager.TerraformSchemaFieldDefinition, sdkField resourcemanager.FieldDetails, _ *assignmentConstantDetails, _ string) (*string, error) {
+	outputAssignment := fmt.Sprintf("output.%s", mapping.DirectAssignment.SchemaFieldPath)
+	outputVariable := sdkField.JsonName
+	inputAssignment := fmt.Sprintf("input.%s", mapping.DirectAssignment.SdkFieldPath)
+
 	if schemaField.Required {
-		line := fmt.Sprintf("output.%[1]s = location.Normalize(input.%[2]s)", mapping.DirectAssignment.SchemaFieldPath, mapping.DirectAssignment.SdkFieldPath)
-		if sdkField.Optional {
-			line = fmt.Sprintf("output.%[1]s = location.NormalizeNilable(input.%[2]s)", mapping.DirectAssignment.SchemaFieldPath, mapping.DirectAssignment.SdkFieldPath)
+		transform, ok := transformRequiredFlattenFunctions[schemaField.ObjectDefinition.Type]
+		if !ok {
+			return nil, fmt.Errorf("internal-error: missing required flatten transform function for Schema Field Object Definition Type %q", string(schemaField.ObjectDefinition.Type))
 		}
-		return &line, nil
+		if sdkField.Optional {
+			transform, ok = transformOptionalFlattenFunctions[schemaField.ObjectDefinition.Type]
+			if !ok {
+				return nil, fmt.Errorf("internal-error: missing optional flatten transform function for Schema Field Object Definition Type %q", string(schemaField.ObjectDefinition.Type))
+			}
+		}
+		transformLine := transform(outputAssignment, outputVariable, inputAssignment)
+		return &transformLine, nil
 	}
 
 	if sdkField.Required {
@@ -610,26 +717,10 @@ func (d directAssignmentLine) sdkToSchemaMappingBetweenLocation(mapping resource
 	}
 
 	// optional -> optional
-	line := fmt.Sprintf("output.%[1]s = location.NormalizeNilable(input.%[2]s)", mapping.DirectAssignment.SchemaFieldPath, mapping.DirectAssignment.SdkFieldPath)
-	return &line, nil
-}
-
-func (d directAssignmentLine) sdkToSchemaMappingBetweenTags(mapping resourcemanager.FieldMappingDefinition, schemaField resourcemanager.TerraformSchemaFieldDefinition, sdkField resourcemanager.FieldDetails, _ *assignmentConstantDetails, _ string) (*string, error) {
-	if schemaField.Required {
-		line := fmt.Sprintf("output.%[1]s = tags.Flatten(input.%[2]s)", mapping.DirectAssignment.SchemaFieldPath, mapping.DirectAssignment.SdkFieldPath)
-		if sdkField.Optional {
-			line = fmt.Sprintf("output.%[1]s = pointer.From(tags.Flatten(input.%[2]s))", mapping.DirectAssignment.SchemaFieldPath, mapping.DirectAssignment.SdkFieldPath)
-		}
-		return &line, nil
+	transform, ok := transformOptionalFlattenFunctions[schemaField.ObjectDefinition.Type]
+	if !ok {
+		return nil, fmt.Errorf("internal-error: missing optional flatten transform function for Schema Field Object Definition Type %q", string(schemaField.ObjectDefinition.Type))
 	}
-
-	if sdkField.Required {
-		// if the SDK Field is Required but the Schema Field is Optional this is a Data Issue
-		// TODO: handle where it's defaulted?
-		return nil, fmt.Errorf("the Sdk Model %q Field %q was Required but Schema Model %q Field %q was Optional but must be Required", mapping.DirectAssignment.SdkModelName, mapping.DirectAssignment.SdkFieldPath, mapping.DirectAssignment.SchemaModelName, mapping.DirectAssignment.SchemaFieldPath)
-	}
-
-	// optional -> optional
-	line := fmt.Sprintf("output.%[1]s = pointer.From(tags.Flatten(input.%[2]s))", mapping.DirectAssignment.SchemaFieldPath, mapping.DirectAssignment.SdkFieldPath)
-	return &line, nil
+	transformLine := transform(outputAssignment, outputVariable, inputAssignment)
+	return &transformLine, nil
 }

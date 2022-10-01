@@ -2115,7 +2115,7 @@ func TestDirectAssignment_Read_Tags_RequiredToOptional_TopLevel(t *testing.T) {
 		{
 			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeTags,
 			sdkFieldType:         resourcemanager.TagsApiObjectDefinitionType,
-			expected:             "output.Tags = pointer.From(tags.Flatten(input.Tags))",
+			expected:             "output.Tags = tags.Flatten(input.Tags)",
 		},
 	}
 	for i, v := range testData {
@@ -2228,7 +2228,7 @@ func TestDirectAssignment_Read_Tags_OptionalToOptional_TopLevel(t *testing.T) {
 		{
 			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeTags,
 			sdkFieldType:         resourcemanager.TagsApiObjectDefinitionType,
-			expected:             `output.Tags = pointer.From(tags.Flatten(input.Tags))`,
+			expected:             `output.Tags = tags.Flatten(input.Tags)`,
 		},
 	}
 	for i, v := range testData {
