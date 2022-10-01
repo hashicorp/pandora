@@ -83,6 +83,13 @@ func LoadAndParseFiles(directory string, fileNames []string, serviceName, apiVer
 		out = append(out, v)
 	}
 
+	logger.Trace("Applying overrides to workaround invalid Swagger Definitions..")
+	output, err := patchSwaggerData(out, logger.Named("Swagger Data Override"))
+	if err != nil {
+		return nil, fmt.Errorf("applying Swagger overrides: %+v", err)
+	}
+	out = *output
+
 	if len(out) > 1 {
 		return nil, fmt.Errorf("internal-error:the Swagger files for Service %q / API Version %q contained multiple resources (%d total)", serviceName, apiVersion, len(out))
 	}
