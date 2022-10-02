@@ -62,6 +62,8 @@ func (d Differ) ApplyFromExistingAPIDefinitions(existing models.AzureApiDefiniti
 						logger.Trace("applying Existing Test Template from the Existing Terraform Resource to the Parsed Terraform Resource..")
 						parsedTerraformResource.Tests.TemplateConfiguration = existingTemplate
 					}
+					logger.Trace("applying Other Tests from the Existing Terraform Resource to the Parsed Terraform Resource..")
+					parsedTerraformResource.Tests.OtherTests = existingTerraformResource.Tests.OtherTests
 				}
 			}
 		}

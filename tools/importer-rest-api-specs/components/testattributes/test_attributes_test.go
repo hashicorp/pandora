@@ -152,7 +152,7 @@ func TestRequiredTestAttributes_CodeForBasicFields(t *testing.T) {
 			},
 		},
 	}
-	err := helper.GetAttributesForTests(input, *file.Body(), true)
+	err := helper.GetAttributesForTests("some_resource", input, *file.Body(), true)
 	if err != nil {
 		t.Fatalf("unexpected error: %+v", err)
 	}
@@ -307,7 +307,7 @@ func TestRequiredAndOptionalTestAttributes_CodeForBasicField(t *testing.T) {
 			},
 		},
 	}
-	err := helper.GetAttributesForTests(input, *file.Body(), false)
+	err := helper.GetAttributesForTests("some_resource", input, *file.Body(), false)
 	if err != nil {
 		t.Fatalf("unexpected error: %+v", err)
 	}
@@ -340,7 +340,7 @@ name ="acctest-${local.random_integer}"
 	file := hclwrite.NewEmptyFile()
 	helper := TestAttributesHelpers{}
 	for i, testCase := range testData {
-		err := helper.GetAttributesForTests(testCase.input, *file.Body(), false)
+		err := helper.GetAttributesForTests("some_resource", testCase.input, *file.Body(), false)
 		if err != nil {
 			if testCase.expected == "" {
 				continue
@@ -432,7 +432,7 @@ test_int = 5
 	file := hclwrite.NewEmptyFile()
 	helper := TestAttributesHelpers{}
 	for i, testCase := range testData {
-		err := helper.GetAttributesForTests(testCase.input, *file.Body(), false)
+		err := helper.GetAttributesForTests("some_resource", testCase.input, *file.Body(), false)
 		if err != nil {
 			if testCase.expected == "" {
 				continue

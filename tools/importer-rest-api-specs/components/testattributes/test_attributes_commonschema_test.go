@@ -33,7 +33,7 @@ func TestPluginSdkAttributes_CommonSchema_EdgeZone(t *testing.T) {
 	file := hclwrite.NewEmptyFile()
 	helper := TestAttributesHelpers{}
 	for i, testCase := range testData {
-		err := helper.GetAttributesForTests(testCase.input, *file.Body(), false)
+		err := helper.GetAttributesForTests("some_resource", testCase.input, *file.Body(), false)
 		if err != nil {
 			if testCase.expected == "" {
 				continue
@@ -75,7 +75,7 @@ identity {
 	file := hclwrite.NewEmptyFile()
 	helper := TestAttributesHelpers{}
 	for i, testCase := range testData {
-		err := helper.GetAttributesForTests(testCase.input, *file.Body(), false)
+		err := helper.GetAttributesForTests("some_resource", testCase.input, *file.Body(), false)
 		if err != nil {
 			if testCase.expected == "" {
 				continue
@@ -115,7 +115,7 @@ identity {
 	file := hclwrite.NewEmptyFile()
 	helper := TestAttributesHelpers{}
 	for i, testCase := range testData {
-		err := helper.GetAttributesForTests(testCase.input, *file.Body(), false)
+		err := helper.GetAttributesForTests("some_resource", testCase.input, *file.Body(), false)
 		if err != nil {
 			if testCase.expected == "" {
 				continue
@@ -155,7 +155,7 @@ identity {
 	file := hclwrite.NewEmptyFile()
 	helper := TestAttributesHelpers{}
 	for i, testCase := range testData {
-		err := helper.GetAttributesForTests(testCase.input, *file.Body(), false)
+		err := helper.GetAttributesForTests("some_resource", testCase.input, *file.Body(), false)
 		if err != nil {
 			if testCase.expected == "" {
 				continue
@@ -197,7 +197,7 @@ identity {
 	file := hclwrite.NewEmptyFile()
 	helper := TestAttributesHelpers{}
 	for i, testCase := range testData {
-		err := helper.GetAttributesForTests(testCase.input, *file.Body(), false)
+		err := helper.GetAttributesForTests("some_resource", testCase.input, *file.Body(), false)
 		if err != nil {
 			if testCase.expected == "" {
 				continue
@@ -211,8 +211,9 @@ identity {
 
 func TestPluginSdkAttributes_CommonSchema_Location(t *testing.T) {
 	testData := []struct {
-		input    resourcemanager.TerraformSchemaModelDefinition
-		expected string
+		input        resourcemanager.TerraformSchemaModelDefinition
+		resourceName string
+		expected     string
 	}{
 		{
 			input: resourcemanager.TerraformSchemaModelDefinition{
@@ -226,14 +227,30 @@ func TestPluginSdkAttributes_CommonSchema_Location(t *testing.T) {
 					},
 				},
 			},
-			expected: "location = azurerm_resource_group.test.location",
+			resourceName: "some_resource",
+			expected:     "location = azurerm_resource_group.test.location",
+		},
+		{
+			input: resourcemanager.TerraformSchemaModelDefinition{
+				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+					"Location": {
+						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+							Type: resourcemanager.TerraformSchemaFieldTypeLocation,
+						},
+						HclName:  "location",
+						Optional: true,
+					},
+				},
+			},
+			resourceName: "resource_group",
+			expected:     "location = \"${local.primary_location}\"",
 		},
 	}
 
 	file := hclwrite.NewEmptyFile()
 	helper := TestAttributesHelpers{}
 	for i, testCase := range testData {
-		err := helper.GetAttributesForTests(testCase.input, *file.Body(), false)
+		err := helper.GetAttributesForTests(testCase.resourceName, testCase.input, *file.Body(), false)
 		if err != nil {
 			if testCase.expected == "" {
 				continue
@@ -247,8 +264,9 @@ func TestPluginSdkAttributes_CommonSchema_Location(t *testing.T) {
 
 func TestPluginSdkAttributes_CommonSchema_ResourceGroup(t *testing.T) {
 	testData := []struct {
-		input    resourcemanager.TerraformSchemaModelDefinition
-		expected string
+		input        resourcemanager.TerraformSchemaModelDefinition
+		resourceName string
+		expected     string
 	}{
 		{
 			input: resourcemanager.TerraformSchemaModelDefinition{
@@ -262,14 +280,30 @@ func TestPluginSdkAttributes_CommonSchema_ResourceGroup(t *testing.T) {
 					},
 				},
 			},
-			expected: "resource_group_name = azurerm_resource_group.test.name",
+			resourceName: "some_resource",
+			expected:     "resource_group_name = azurerm_resource_group.test.name",
+		},
+		{
+			input: resourcemanager.TerraformSchemaModelDefinition{
+				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+					"ResourceGroup": {
+						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+							Type: resourcemanager.TerraformSchemaFieldTypeResourceGroup,
+						},
+						HclName:  "resource_group_name",
+						Optional: true,
+					},
+				},
+			},
+			resourceName: "resource_group",
+			expected:     "resource_group_name = \"acctestrg-${local.random_integer}\"",
 		},
 	}
 
 	file := hclwrite.NewEmptyFile()
 	helper := TestAttributesHelpers{}
 	for i, testCase := range testData {
-		err := helper.GetAttributesForTests(testCase.input, *file.Body(), false)
+		err := helper.GetAttributesForTests(testCase.resourceName, testCase.input, *file.Body(), false)
 		if err != nil {
 			if testCase.expected == "" {
 				continue
@@ -310,7 +344,7 @@ tags = {
 	file := hclwrite.NewEmptyFile()
 	helper := TestAttributesHelpers{}
 	for i, testCase := range testData {
-		err := helper.GetAttributesForTests(testCase.input, *file.Body(), false)
+		err := helper.GetAttributesForTests("some_resource", testCase.input, *file.Body(), false)
 		if err != nil {
 			if testCase.expected == "" {
 				continue
@@ -346,7 +380,7 @@ func TestPluginSdkAttributes_CommonSchema_Zone(t *testing.T) {
 	file := hclwrite.NewEmptyFile()
 	helper := TestAttributesHelpers{}
 	for i, testCase := range testData {
-		err := helper.GetAttributesForTests(testCase.input, *file.Body(), false)
+		err := helper.GetAttributesForTests("some_resource", testCase.input, *file.Body(), false)
 		if err != nil {
 			if testCase.expected == "" {
 				continue
@@ -382,7 +416,7 @@ func TestPluginSdkAttributes_CommonSchema_Zones(t *testing.T) {
 	file := hclwrite.NewEmptyFile()
 	helper := TestAttributesHelpers{}
 	for i, testCase := range testData {
-		err := helper.GetAttributesForTests(testCase.input, *file.Body(), false)
+		err := helper.GetAttributesForTests("some_resource", testCase.input, *file.Body(), false)
 		if err != nil {
 			if testCase.expected == "" {
 				continue
