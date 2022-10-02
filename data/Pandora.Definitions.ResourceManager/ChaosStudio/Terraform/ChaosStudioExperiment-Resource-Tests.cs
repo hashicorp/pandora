@@ -6,9 +6,7 @@ namespace Pandora.Definitions.ResourceManager.ChaosStudio.Terraform;
 
 public class ChaosStudioExperimentResourceTests : TerraformResourceTestDefinition
 {
-    // TODO: output real tests
     public string BasicTestConfig => @"
-         
 resource 'azurerm_chaos_studio_experiment' 'test' {
   location            = azurerm_resource_group.test.location
   name                = 'acctest-${local.random_integer}'
@@ -42,12 +40,9 @@ resource 'azurerm_chaos_studio_experiment' 'test' {
   }
 
 }
-
-
     ".AsTerraformTestConfig();
 
     public string RequiresImportConfig => @"
-         
 resource 'azurerm_chaos_studio_experiment' 'import' {
   location            = azurerm_resource_group.test.location
   name                = 'acctest-${local.random_integer}'
@@ -81,12 +76,9 @@ resource 'azurerm_chaos_studio_experiment' 'import' {
   }
 
 }
-
-
     ".AsTerraformTestConfig();
 
     public string? CompleteConfig => @"
-
 resource 'azurerm_chaos_studio_experiment' 'test' {
   location            = azurerm_resource_group.test.location
   name                = 'acctest-${local.random_integer}'
@@ -130,13 +122,23 @@ resource 'azurerm_chaos_studio_experiment' 'test' {
     test = 'Acceptance'
   }
 }
-
-
 	".AsTerraformTestConfig();
     public string? TemplateConfig => @"
-        resource 'azurerm_foo' 'bar' {
-        }
-    ".AsTerraformTestConfig();
+provider 'azurerm' {
+	features {}
+}
+
+locals {
+  random_integer   = %[1]s
+  primary_location = %[2]q
+}
+
+
+resource 'azurerm_resource_group' 'test' {
+  name     = 'acctestrg-${local.random_integer}'
+  location = local.primary_location
+}
+	".AsTerraformTestConfig();
 
     public Dictionary<string, List<string>> OtherTests => new Dictionary<string, List<string>>();
 }

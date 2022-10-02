@@ -6,9 +6,7 @@ namespace Pandora.Definitions.ResourceManager.ElasticSan.Terraform;
 
 public class ElasticSanResourceTests : TerraformResourceTestDefinition
 {
-    // TODO: output real tests
     public string BasicTestConfig => @"
-         
 resource 'azurerm_elastic_san' 'test' {
   base_size_tib              = 15
   extended_capacity_size_tib = 15
@@ -21,12 +19,9 @@ resource 'azurerm_elastic_san' 'test' {
   }
 
 }
-
-
     ".AsTerraformTestConfig();
 
     public string RequiresImportConfig => @"
-         
 resource 'azurerm_elastic_san' 'import' {
   base_size_tib              = 15
   extended_capacity_size_tib = 15
@@ -39,12 +34,9 @@ resource 'azurerm_elastic_san' 'import' {
   }
 
 }
-
-
     ".AsTerraformTestConfig();
 
     public string? CompleteConfig => @"
-
 resource 'azurerm_elastic_san' 'test' {
   base_size_tib              = 15
   extended_capacity_size_tib = 15
@@ -65,13 +57,23 @@ resource 'azurerm_elastic_san' 'test' {
   zones = ['foo', 'baz']
 
 }
-
-
 	".AsTerraformTestConfig();
     public string? TemplateConfig => @"
-        resource 'azurerm_foo' 'bar' {
-        }
-    ".AsTerraformTestConfig();
+provider 'azurerm' {
+	features {}
+}
+
+locals {
+  random_integer   = %[1]s
+  primary_location = %[2]q
+}
+
+
+resource 'azurerm_resource_group' 'test' {
+  name     = 'acctestrg-${local.random_integer}'
+  location = local.primary_location
+}
+	".AsTerraformTestConfig();
 
     public Dictionary<string, List<string>> OtherTests => new Dictionary<string, List<string>>();
 }

@@ -6,44 +6,40 @@ namespace Pandora.Definitions.ResourceManager.Resources.Terraform;
 
 public class ResourceGroupResourceTests : TerraformResourceTestDefinition
 {
-    // TODO: output real tests
     public string BasicTestConfig => @"
-         
 resource 'azurerm_resource_group' 'test' {
-  location = azurerm_resource_group.test.location
-  name     = azurerm_resource_group.test.name
+  location = '${local.primary_location}'
+  name     = 'acctestrg-${local.random_integer}'
 }
-
-
     ".AsTerraformTestConfig();
 
     public string RequiresImportConfig => @"
-         
 resource 'azurerm_resource_group' 'import' {
-  location = azurerm_resource_group.test.location
-  name     = azurerm_resource_group.test.name
+  location = '${local.primary_location}'
+  name     = 'acctestrg-${local.random_integer}'
 }
-
-
     ".AsTerraformTestConfig();
 
     public string? CompleteConfig => @"
-
 resource 'azurerm_resource_group' 'test' {
-  location = azurerm_resource_group.test.location
-  name     = azurerm_resource_group.test.name
+  location = '${local.primary_location}'
+  name     = 'acctestrg-${local.random_integer}'
   tags = {
     env  = 'Production'
     test = 'Acceptance'
   }
 }
-
-
 	".AsTerraformTestConfig();
     public string? TemplateConfig => @"
-        resource 'azurerm_foo' 'bar' {
-        }
-    ".AsTerraformTestConfig();
+provider 'azurerm' {
+	features {}
+}
+
+locals {
+  random_integer   = %[1]s
+  primary_location = %[2]q
+}
+	".AsTerraformTestConfig();
 
     public Dictionary<string, List<string>> OtherTests => new Dictionary<string, List<string>>();
 }
