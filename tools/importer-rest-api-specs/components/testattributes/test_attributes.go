@@ -3,6 +3,7 @@ package testattributes
 import (
 	"fmt"
 	"sort"
+	"strings"
 
 	"github.com/hashicorp/hcl/v2"
 	"github.com/hashicorp/hcl/v2/hclsyntax"
@@ -37,7 +38,7 @@ type DependentVariables struct {
 
 // GetAttributesForTests builds terraform configuration based on the attributes passed in.
 // It can get either Required only or Required/Optional Attributes
-func (h TestAttributesHelpers) GetAttributesForTests(input resourcemanager.TerraformSchemaModelDefinition, hclBody hclwrite.Body, requiredOnly bool) error {
+func (h TestAttributesHelpers) GetAttributesForTests(resourceLabel string, input resourcemanager.TerraformSchemaModelDefinition, hclBody hclwrite.Body, requiredOnly bool) error {
 	requiredFields := make([]string, 0)
 	optionalFields := make([]string, 0)
 	for fieldName, details := range input.Fields {
@@ -63,14 +64,14 @@ func (h TestAttributesHelpers) GetAttributesForTests(input resourcemanager.Terra
 	}
 
 	for _, fieldName := range sortedNames {
-		if err := h.codeForTestAttribute(input.Fields[fieldName], requiredOnly, hclBody); err != nil {
+		if err := h.codeForTestAttribute(resourceLabel, input.Fields[fieldName], requiredOnly, hclBody); err != nil {
 			return err
 		}
 	}
 	return nil
 }
 
-func (h TestAttributesHelpers) codeForTestAttribute(input resourcemanager.TerraformSchemaFieldDefinition, requiredOnly bool, hclBody hclwrite.Body) error {
+func (h TestAttributesHelpers) codeForTestAttribute(resourceLabel string, input resourcemanager.TerraformSchemaFieldDefinition, requiredOnly bool, hclBody hclwrite.Body) error {
 	switch input.ObjectDefinition.Type {
 	// todo randomize values
 	case resourcemanager.TerraformSchemaFieldTypeBoolean:
@@ -149,7 +150,7 @@ func (h TestAttributesHelpers) codeForTestAttribute(input resourcemanager.Terraf
 			if !ok {
 				return fmt.Errorf("schema model %q was not found", *input.ObjectDefinition.NestedObject.ReferenceName)
 			}
-			if err := h.GetAttributesForTests(reference, *hclBody.AppendNewBlock(input.HclName, nil).Body(), requiredOnly); err != nil {
+			if err := h.GetAttributesForTests(resourceLabel, reference, *hclBody.AppendNewBlock(input.HclName, nil).Body(), requiredOnly); err != nil {
 				return err
 			}
 		} else {
@@ -184,7 +185,7 @@ func (h TestAttributesHelpers) codeForTestAttribute(input resourcemanager.Terraf
 		if !ok {
 			return fmt.Errorf("schema model %q was not found", *input.ObjectDefinition.ReferenceName)
 		}
-		if err := h.GetAttributesForTests(h.SchemaModels[*input.ObjectDefinition.ReferenceName], *hclBody.AppendNewBlock(input.HclName, nil).Body(), requiredOnly); err != nil {
+		if err := h.GetAttributesForTests(resourceLabel, h.SchemaModels[*input.ObjectDefinition.ReferenceName], *hclBody.AppendNewBlock(input.HclName, nil).Body(), requiredOnly); err != nil {
 			return err
 		}
 		hclBody.AppendNewline()
@@ -242,25 +243,46 @@ func (h TestAttributesHelpers) codeForTestAttribute(input resourcemanager.Terraf
 			h.Dependencies.Variables.HasRandomInt = true
 		}
 	case resourcemanager.TerraformSchemaFieldTypeLocation:
-		// todo 99% of the time, this is based off a resource group. Account for that 1%?
-		hclBody.SetAttributeTraversal(input.HclName, hcl.Traversal{
-			hcl.TraverseRoot{
-				Name: "azurerm_resource_group.test.location",
-			},
-		})
-		if h.Dependencies != nil {
-			h.Dependencies.Variables.HasRandomInt = true
-			h.Dependencies.Resource.HasResourceGroup = true
+		if strings.EqualFold(resourceLabel, "resource_group") {
+			tokens := hclwrite.Tokens{
+				{Type: hclsyntax.TokenQuotedLit, Bytes: []byte(` "${local.primary_location}"`)},
+			}
+			hclBody.SetAttributeRaw(input.HclName, tokens)
+			if h.Dependencies != nil {
+				h.Dependencies.Variables.HasRandomInt = true
+				h.Dependencies.Resource.HasResourceGroup = false
+			}
+		} else {
+			hclBody.SetAttributeTraversal(input.HclName, hcl.Traversal{
+				hcl.TraverseRoot{
+					Name: "azurerm_resource_group.test.location",
+				},
+			})
+			if h.Dependencies != nil {
+				h.Dependencies.Variables.HasRandomInt = true
+				h.Dependencies.Resource.HasResourceGroup = true
+			}
 		}
 	case resourcemanager.TerraformSchemaFieldTypeResourceGroup:
-		hclBody.SetAttributeTraversal(input.HclName, hcl.Traversal{
-			hcl.TraverseRoot{
-				Name: "azurerm_resource_group.test.name",
-			},
-		})
-		if h.Dependencies != nil {
-			h.Dependencies.Variables.HasRandomInt = true
-			h.Dependencies.Resource.HasResourceGroup = true
+		if strings.EqualFold(resourceLabel, "resource_group") {
+			tokens := hclwrite.Tokens{
+				{Type: hclsyntax.TokenQuotedLit, Bytes: []byte(` "acctestrg-${local.random_integer}"`)},
+			}
+			hclBody.SetAttributeRaw(input.HclName, tokens)
+			if h.Dependencies != nil {
+				h.Dependencies.Variables.HasRandomInt = true
+				h.Dependencies.Resource.HasResourceGroup = false
+			}
+		} else {
+			hclBody.SetAttributeTraversal(input.HclName, hcl.Traversal{
+				hcl.TraverseRoot{
+					Name: "azurerm_resource_group.test.name",
+				},
+			})
+			if h.Dependencies != nil {
+				h.Dependencies.Variables.HasRandomInt = true
+				h.Dependencies.Resource.HasResourceGroup = true
+			}
 		}
 	case resourcemanager.TerraformSchemaFieldTypeTags:
 		hclBody.SetAttributeValue("tags", cty.ObjectVal(map[string]cty.Value{
