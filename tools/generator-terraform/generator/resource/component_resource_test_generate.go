@@ -168,6 +168,9 @@ func (r %[1]sTestResource) complete(data acceptance.TestData) string {
 
 	importConfig := trimNewLinesAroundHclConfig(tests.RequiresImportConfiguration)
 
+	// NOTE: at this point in time we assume the only format variables are `random_integer` and `primary_location`
+	// in the future we'll want to make this more dynamic, but for now it's expected that the Template will contain
+	// Local Variables for both the Random Integer and the Primary Location
 	output := fmt.Sprintf(`
 func (r %[1]sTestResource) basic(data acceptance.TestData) string {
 	return fmt.Sprintf('
@@ -189,11 +192,6 @@ func (r %[1]sTestResource) requiresImport(data acceptance.TestData) string {
 
 func (r %[1]sTestResource) template(data acceptance.TestData) string {
 	return fmt.Sprintf('
-locals {
-  random_integer   = %%[1]d
-  primary_location = %%[2]q
-}
-
 %[5]s
 ', data.RandomInteger, data.Locations.Primary)
 }
