@@ -1888,7 +1888,7 @@ func TestDirectAssignment_CreateOrUpdate_Location_RequiredToOptional_TopLevel(t 
 		{
 			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeLocation,
 			sdkFieldType:         resourcemanager.LocationApiObjectDefinitionType,
-			expected:             `output.Location = pointer.To(location.Normalize(input.Location))`,
+			expected:             `output.Location = location.NormalizeNilable(input.Location)`,
 		},
 	}
 	for i, v := range testData {
@@ -2002,7 +2002,7 @@ func TestDirectAssignment_CreateOrUpdate_Location_OptionalToOptional_TopLevel(t 
 		{
 			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeLocation,
 			sdkFieldType:         resourcemanager.LocationApiObjectDefinitionType,
-			expected:             `output.Location = pointer.To(location.Normalize(input.Location))`,
+			expected:             `output.Location = location.NormalizeNilable(input.Location)`,
 		},
 	}
 	for i, v := range testData {
@@ -2118,7 +2118,7 @@ func TestDirectAssignment_CreateOrUpdate_Tags_RequiredToOptional_TopLevel(t *tes
 		{
 			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeTags,
 			sdkFieldType:         resourcemanager.TagsApiObjectDefinitionType,
-			expected:             `output.Tags = pointer.To(tags.Expand(input.Tags))`,
+			expected:             `output.Tags = tags.Expand(input.Tags)`,
 		},
 	}
 	for i, v := range testData {
@@ -2232,7 +2232,7 @@ func TestDirectAssignment_CreateOrUpdate_Tags_OptionalToOptional_TopLevel(t *tes
 		{
 			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeTags,
 			sdkFieldType:         resourcemanager.TagsApiObjectDefinitionType,
-			expected:             `output.Tags = pointer.To(tags.Expand(input.Tags))`,
+			expected:             `output.Tags = tags.Expand(input.Tags)`,
 		},
 	}
 	for i, v := range testData {
