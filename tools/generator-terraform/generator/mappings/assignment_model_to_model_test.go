@@ -78,6 +78,9 @@ func TestModelToModelMapping_SchemaToSdk_Optional_HappyPath(t *testing.T) {
 		t.Fatalf("expected `actual` to have a value but was nil")
 	}
 	expected := `
+		if output.SomeSdkField == nil {
+        	output.SomeSdkField = &someresource.SomeOtherModel{}
+        }
         if err := r.mapTheSchemaModelToSomeOtherModel(input, output.SomeSdkField); err != nil {
         	return fmt.Errorf("mapping Schema to SDK Field %q / Model %q: %+v", "SomeOtherModel", "SomeSdkField", err)
         }
