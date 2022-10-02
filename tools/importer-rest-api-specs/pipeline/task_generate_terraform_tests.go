@@ -170,7 +170,7 @@ resource "azurerm_subnet" "test" {
 	// until we can conditionally add/remove variables to the format strings
 	output := fmt.Sprintf(`
 provider "azurerm" {
-	features {}
+  features {}
 }
 
 locals {
