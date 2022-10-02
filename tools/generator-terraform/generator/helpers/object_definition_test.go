@@ -73,25 +73,25 @@ func TestObjectDefinitionToGolangFieldType(t *testing.T) {
 			input: resourcemanager.TerraformSchemaFieldObjectDefinition{
 				Type: resourcemanager.TerraformSchemaFieldTypeIdentitySystemAssigned,
 			},
-			expected: stringPointer("identity.ModelSystemAssigned"),
+			expected: stringPointer("[]identity.ModelSystemAssigned"),
 		},
 		{
 			input: resourcemanager.TerraformSchemaFieldObjectDefinition{
 				Type: resourcemanager.TerraformSchemaFieldTypeIdentitySystemAndUserAssigned,
 			},
-			expected: stringPointer("identity.ModelSystemAssignedUserAssigned"),
+			expected: stringPointer("[]identity.ModelSystemAssignedUserAssigned"),
 		},
 		{
 			input: resourcemanager.TerraformSchemaFieldObjectDefinition{
 				Type: resourcemanager.TerraformSchemaFieldTypeIdentitySystemOrUserAssigned,
 			},
-			expected: stringPointer("identity.ModelSystemAssignedUserAssigned"),
+			expected: stringPointer("[]identity.ModelSystemAssignedUserAssigned"),
 		},
 		{
 			input: resourcemanager.TerraformSchemaFieldObjectDefinition{
 				Type: resourcemanager.TerraformSchemaFieldTypeIdentityUserAssigned,
 			},
-			expected: stringPointer("identity.ModelUserAssigned"),
+			expected: stringPointer("[]identity.ModelUserAssigned"),
 		},
 		{
 			input: resourcemanager.TerraformSchemaFieldObjectDefinition{
