@@ -174,7 +174,7 @@ provider "azurerm" {
 }
 
 locals {
-  random_integer   = %%[1]s
+  random_integer   = %%[1]d
   primary_location = %%[2]q
 }
 
