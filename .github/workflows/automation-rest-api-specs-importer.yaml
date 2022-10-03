@@ -34,13 +34,33 @@ jobs:
         with:
           dotnet-version: 6.0.x
 
-      - name: build and run importer-rest-api-specs
-        id: import-data
+      - name: build the Data API
+        id: build-data-api
+        run: |
+          cd ./data
+          make tools
+          make build
+
+      - name: build the importer-rest-api-specs
+        id: build-importer-rest-api-specs
         run: |
           cd ./tools/importer-rest-api-specs
           make tools
+          make install
+
+      - name: build and run the automation wrapper for importer-rest-api-specs
+        id: import-data
+        run: |
+          cd ./tools/wrapper-automation
+          make tools
           make build
-          make import
+          ./wrapper-automation rest-api-specs-importer --data-api-assembly-path=../../data/Pandora.Api/bin/Debug/net6.0/Pandora.Api.dll
+
+      - name: then format the generated code
+        id: format-imported-data
+        run: |
+          cd ./data
+          make fmt
 
       - name: then commit the diff
         id: commit-imported-data

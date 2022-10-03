@@ -126,6 +126,8 @@ func mapApiObjectDefinitionType(input resourcemanager.ApiObjectDefinitionType) (
 		resourcemanager.UserAssignedIdentityListApiObjectDefinitionType:                models.CustomFieldTypeUserAssignedIdentityList,
 		resourcemanager.UserAssignedIdentityMapApiObjectDefinitionType:                 models.CustomFieldTypeUserAssignedIdentityMap,
 		resourcemanager.TagsApiObjectDefinitionType:                                    models.CustomFieldTypeTags,
+		resourcemanager.SystemData:                                                     models.CustomFieldTypeSystemData,
+		resourcemanager.ZonesApiObjectDefinitionType:                                   models.CustomFieldTypeZones,
 	}
 	if v, ok := customTypes[input]; ok {
 		return nil, &v, nil

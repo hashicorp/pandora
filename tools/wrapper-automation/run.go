@@ -45,7 +45,7 @@ func run(args Arguments) error {
 	if args.RunRestApiSpecsImporter {
 		log.Printf("Running the Rest Api Specs Importer..")
 		if err := runRestApiSpecsImporter(dataApiUri, args.OutputDirectory); err != nil {
-			return fmt.Errorf("running the Go SDK Generator: %+v", err)
+			return fmt.Errorf("running the Rest API Specs Importer: %+v", err)
 		}
 		log.Printf("Rest Api Specs Importer has been run.")
 	}
@@ -63,7 +63,7 @@ func run(args Arguments) error {
 	if args.RunTerraformGenerator {
 		log.Printf("Running the Terraform Generator..")
 		if err := runTerraformGenerator(dataApiUri, args.OutputDirectory); err != nil {
-			return fmt.Errorf("running the Go SDK Generator: %+v", err)
+			return fmt.Errorf("running the Terraform Generator: %+v", err)
 		}
 		log.Printf("Terraform Generator has been run.")
 	}
