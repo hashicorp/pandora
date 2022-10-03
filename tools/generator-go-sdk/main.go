@@ -7,6 +7,7 @@ import (
 	"os"
 	"path"
 	"path/filepath"
+	"strings"
 
 	"github.com/hashicorp/pandora/tools/generator-go-sdk/generator"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
@@ -16,6 +17,7 @@ import (
 type GeneratorInput struct {
 	apiServerEndpoint string
 	outputDirectory   string
+	serviceNamesRaw   string
 	settings          generator.Settings
 }
 
@@ -29,6 +31,7 @@ func main() {
 	f := flag.NewFlagSet("generator-go-sdk", flag.ExitOnError)
 	f.StringVar(&input.apiServerEndpoint, "data-api", "http://localhost:5000", "-data-api=http://localhost:5000")
 	f.StringVar(&input.outputDirectory, "output-dir", "", "-output-dir=../generated-sdk-dev")
+	f.StringVar(&input.serviceNamesRaw, "services", "", "A list of comma separated Service named from the Data API to import")
 	if err := f.Parse(os.Args[1:]); err != nil {
 		log.Fatalf("parsing arguments: %+v", err)
 	}
@@ -53,14 +56,25 @@ func run(input GeneratorInput) error {
 	// resource manager items should be output into the folder ./resource-manager
 	input.outputDirectory = path.Join(input.outputDirectory, "resource-manager")
 
-	log.Printf("[DEBUG] Retrieving Services from Data API..")
-	services, err := services.GetResourceManagerServices(client)
-	if err != nil {
-		return fmt.Errorf("retrieving resource manager services: %+v", err)
+	var loadedServices services.ResourceManagerServices
+	servicesToLoad := strings.Split(input.serviceNamesRaw, ",")
+	if input.serviceNamesRaw != "" && len(servicesToLoad) > 0 {
+		log.Printf("[DEBUG] Loading the Services %q..", strings.Join(servicesToLoad, " / "))
+		services, err := services.GetResourceManagerServicesByName(client, servicesToLoad)
+		if err != nil {
+			return fmt.Errorf("retrieving resource manager services: %+v", err)
+		}
+		loadedServices = *services
+	} else {
+		log.Printf("[DEBUG] Loading All Services..")
+		services, err := services.GetResourceManagerServices(client)
+		if err != nil {
+			return fmt.Errorf("retrieving resource manager services: %+v", err)
+		}
+		loadedServices = *services
 	}
-
 	generatorService := generator.NewServiceGenerator(input.settings)
-	for serviceName, service := range services.Services {
+	for serviceName, service := range loadedServices.Services {
 		log.Printf("[DEBUG] Service %q..", serviceName)
 		if !service.Details.Generate {
 			log.Printf("[DEBUG] .. is opted out of generation, skipping..")
