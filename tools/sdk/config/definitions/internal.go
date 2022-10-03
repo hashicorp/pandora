@@ -43,4 +43,10 @@ type resourceDefinition struct {
 
 	// Id is the Resource ID which defines this resource
 	Id string `hcl:"id"`
+
+	// WebsiteSubcategory is the name of the subcategory which this Resource should appear under on the website
+	WebsiteSubcategory string `hcl:"website_subcategory"`
+
+	// Description is the description for this Resource
+	Description string `hcl:"description"`
 }

@@ -122,6 +122,10 @@ func FindCandidates(input services.Resource, resourceDefinitions map[string]defi
 				ResourceIdName:       resourceIdName,
 				ResourceName:         strings.ReplaceAll(resourceMetaData.Name, " ", ""), // TODO: maybe more later
 				UpdateMethod:         updateMethod,
+				Documentation: resourcemanager.ResourceDocumentationDefinition{
+					Category:    resourceMetaData.WebsiteSubcategory,
+					Description: resourceMetaData.Description,
+				},
 			}
 		}
 	}

@@ -103,6 +103,8 @@ public class TerraformResourceDefinitionTests
             TimeoutInMinutes = 11,
         };
         public string ResourceLabel => "fake_planet";
+        public string ResourceCategory => "fake resource category";
+        public string ResourceDescription => "fake resource description";
         public Type? SchemaModel => typeof(BasicResourceSchema);
 
         public Definitions.Interfaces.TerraformMappingDefinition SchemaMappings => new BasicResourceMappings();
@@ -172,6 +174,8 @@ public class TerraformResourceDefinitionTests
             TimeoutInMinutes = 11,
         };
         public string ResourceLabel => "fake_planet";
+        public string ResourceCategory => "fake resource category";
+        public string ResourceDescription => "fake resource description";
         public Type? SchemaModel => null;
         public Definitions.Interfaces.TerraformMappingDefinition SchemaMappings => null;
         public Definitions.Interfaces.TerraformResourceTestDefinition Tests => null;

@@ -55,6 +55,16 @@ public interface TerraformResourceDefinition
     public string ResourceLabel { get; }
 
     /// <summary>
+    /// ResourceDescription is the description which should be used for this Resource.
+    /// </summary>
+    public string ResourceDescription { get; }
+
+    /// <summary>
+    /// ResourceCategory is the Category under which  this Resource should appear on the website.
+    /// </summary>
+    public string ResourceCategory { get; }
+
+    /// <summary>
     /// SchemaModel is a reference to a Type defining the Terraform Schema for this Resource. 
     /// </summary>
     public Type? SchemaModel { get; }

@@ -30,6 +30,8 @@ public class %[2]sResource : TerraformResourceDefinition
     public string DisplayName => "%[3]s";
     public ResourceID ResourceId => new %[4]s.%[5]s.%[6]s();
     public string ResourceLabel => "%[7]s";
+    public string ResourceDescription => "%[9]s";
+    public string ResourceCategory => "%[10]s";
     public Type? SchemaModel => typeof(%[2]sResourceSchema);
     public TerraformMappingDefinition SchemaMappings => new %[2]sResourceMappings();
     public TerraformResourceTestDefinition Tests => new %[2]sResourceTests();
@@ -40,7 +42,7 @@ public class %[2]sResource : TerraformResourceDefinition
 
     %[8]s
 }
-`, terraformNamespace, details.ResourceName, details.DisplayName, apiVersion, apiResource, details.ResourceIdName, resourceLabel, strings.Join(components, "\n"))
+`, terraformNamespace, details.ResourceName, details.DisplayName, apiVersion, apiResource, details.ResourceIdName, resourceLabel, strings.Join(components, "\n"), details.Documentation.Description, details.Documentation.Category)
 }
 
 func templateForTerraformMethodDefinition(methodName string, method resourcemanager.MethodDefinition, nullable bool, apiVersion, apiResource string) string {

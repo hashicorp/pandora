@@ -50,9 +50,8 @@ public partial class TerraformController : ControllerBase
             DisplayName = input.DisplayName,
             Documentation = new ResourceDocumentationDefinition
             {
-                // TODO: pipe this through
-                Category = "Example Category",
-                Description = "Some Description for this Resource",
+                Category = input.ResourceCategory,
+                Description = input.ResourceDescription,
                 ExampleUsageHcl = @"
 resource 'example_resource' 'example' {
     example_field = '...'

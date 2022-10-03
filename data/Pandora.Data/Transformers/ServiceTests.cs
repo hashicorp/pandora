@@ -171,6 +171,8 @@ public static class ServiceTests
 
             public Definitions.Interfaces.ResourceID ResourceId => new FakeTerraformOperationResourceId();
             public string ResourceLabel => "fake_resource";
+            public string ResourceCategory => "fake resource category";
+            public string ResourceDescription => "fake resource description";
             public Type? SchemaModel => typeof(FakeTerraformSchemaModel);
             public Definitions.Interfaces.TerraformMappingDefinition SchemaMappings => new FakeTerraformResourceMappings();
             public Definitions.Interfaces.TerraformResourceTestDefinition Tests => new FakeTestDefinition();

@@ -61,6 +61,8 @@ public static class TerraformResourceDefinition
             Resource = resourceIdDetails.APIResource,
             ResourceLabel = input.ResourceLabel,
             ResourceName = resourceName,
+            ResourceDescription = input.ResourceDescription,
+            ResourceCategory = input.ResourceCategory,
             ResourceIdName = resourceIdDetails.Name,
             UpdateMethod = updateMethod,
         };

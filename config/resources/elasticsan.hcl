@@ -6,6 +6,8 @@ service "ElasticSan" {
       definition "elastic_san" {
         id = "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ElasticSan/elasticSans/{elasticSanName}"
         display_name = "Elastic San"
+        website_subcategory = "Elastic"
+        description = "Manages an Elastic SAN"
       }
     }
   }

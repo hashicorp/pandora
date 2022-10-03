@@ -6,6 +6,8 @@ service "Resources" {
       definition "resource_group" {
         id = "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}"
         display_name = "Resource Group"
+        website_subcategory = "Base"
+        description = "Manages a Resource Group"
       }
     }
   }
