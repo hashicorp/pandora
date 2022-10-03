@@ -72,36 +72,28 @@ func (h TestAttributesHelpers) GetAttributesForTests(resourceLabel string, input
 }
 
 func (h TestAttributesHelpers) codeForTestAttribute(resourceLabel string, input resourcemanager.TerraformSchemaFieldDefinition, requiredOnly bool, hclBody hclwrite.Body) error {
+	if input.Validation != nil && input.Validation.Type == resourcemanager.TerraformSchemaValidationTypePossibleValues && input.Validation.PossibleValues != nil {
+		return h.codeForTestAttributeWithPossibleValues(input, requiredOnly, hclBody)
+	}
+
 	switch input.ObjectDefinition.Type {
 	// todo randomize values
 	case resourcemanager.TerraformSchemaFieldTypeBoolean:
 		hclBody.SetAttributeValue(input.HclName, cty.False)
 	case resourcemanager.TerraformSchemaFieldTypeFloat:
-		if input.Validation != nil && input.Validation.Type == resourcemanager.TerraformSchemaValidationTypePossibleValues && input.Validation.PossibleValues != nil && input.Validation.PossibleValues.Type == resourcemanager.TerraformSchemaValidationPossibleValueTypeFloat && len(input.Validation.PossibleValues.Values) > 0 {
-			hclBody.SetAttributeValue(input.HclName, cty.NumberFloatVal(input.Validation.PossibleValues.Values[0].(float64)))
-		} else {
-			hclBody.SetAttributeValue(input.HclName, cty.NumberFloatVal(10.1))
-		}
+		hclBody.SetAttributeValue(input.HclName, cty.NumberFloatVal(10.1))
 	case resourcemanager.TerraformSchemaFieldTypeInteger:
-		if input.Validation != nil && input.Validation.Type == resourcemanager.TerraformSchemaValidationTypePossibleValues && input.Validation.PossibleValues != nil && input.Validation.PossibleValues.Type == resourcemanager.TerraformSchemaValidationPossibleValueTypeInt && len(input.Validation.PossibleValues.Values) > 0 {
-			hclBody.SetAttributeValue(input.HclName, cty.NumberIntVal(input.Validation.PossibleValues.Values[0].(int64)))
-		} else {
-			hclBody.SetAttributeValue(input.HclName, cty.NumberIntVal(15))
-		}
+		hclBody.SetAttributeValue(input.HclName, cty.NumberIntVal(15))
 	case resourcemanager.TerraformSchemaFieldTypeString:
 		switch input.HclName {
 		case "name":
-			if input.Validation != nil && input.Validation.Type == resourcemanager.TerraformSchemaValidationTypePossibleValues && input.Validation.PossibleValues != nil && input.Validation.PossibleValues.Type == resourcemanager.TerraformSchemaValidationPossibleValueTypeString && len(input.Validation.PossibleValues.Values) > 0 {
-				hclBody.SetAttributeValue(input.HclName, cty.StringVal(input.Validation.PossibleValues.Values[0].(string)))
-			} else {
-				// todo pipe in packagename to make "acctest-vm-${local.random_integer}"
-				tokens := hclwrite.Tokens{
-					{Type: hclsyntax.TokenQuotedLit, Bytes: []byte(`"acctest-${local.random_integer}"`)},
-				}
-				hclBody.SetAttributeRaw(input.HclName, tokens)
-				if h.Dependencies != nil {
-					h.Dependencies.Variables.HasRandomInt = true
-				}
+			// todo pipe in packagename to make "acctest-vm-${local.random_integer}"
+			tokens := hclwrite.Tokens{
+				{Type: hclsyntax.TokenQuotedLit, Bytes: []byte(`"acctest-${local.random_integer}"`)},
+			}
+			hclBody.SetAttributeRaw(input.HclName, tokens)
+			if h.Dependencies != nil {
+				h.Dependencies.Variables.HasRandomInt = true
 			}
 		case "subnet_id":
 			hclBody.SetAttributeTraversal(input.HclName, hcl.Traversal{
@@ -154,22 +146,26 @@ func (h TestAttributesHelpers) codeForTestAttribute(resourceLabel string, input 
 				return err
 			}
 		} else {
+
 			// this is an array of a basic type
 			switch input.ObjectDefinition.NestedObject.Type {
 			case resourcemanager.TerraformSchemaFieldTypeFloat:
 				hclBody.SetAttributeValue(input.HclName, cty.ListVal([]cty.Value{
 					cty.NumberFloatVal(1.1),
 					cty.NumberFloatVal(2.2),
-					cty.NumberFloatVal(3.3)}))
+					cty.NumberFloatVal(3.3),
+				}))
 			case resourcemanager.TerraformSchemaFieldTypeInteger:
 				hclBody.SetAttributeValue(input.HclName, cty.ListVal([]cty.Value{
 					cty.NumberIntVal(1),
 					cty.NumberIntVal(2),
-					cty.NumberIntVal(3)}))
+					cty.NumberIntVal(3),
+				}))
 			case resourcemanager.TerraformSchemaFieldTypeString:
 				hclBody.SetAttributeValue(input.HclName, cty.ListVal([]cty.Value{
 					cty.StringVal("foo"),
-					cty.StringVal("baz")}))
+					cty.StringVal("baz"),
+				}))
 			default:
 				return fmt.Errorf("internal-error: unimplemented schema field for nested object type %q", string(input.ObjectDefinition.NestedObject.Type))
 			}
@@ -293,10 +289,59 @@ func (h TestAttributesHelpers) codeForTestAttribute(resourceLabel string, input 
 		hclBody.SetAttributeValue(input.HclName, cty.NumberIntVal(1))
 	case resourcemanager.TerraformSchemaFieldTypeZones:
 		hclBody.SetAttributeValue(input.HclName, cty.ListVal([]cty.Value{
-			cty.StringVal("1")}))
+			cty.StringVal("1"),
+		}))
 	}
 
 	return nil
+}
+
+func (h TestAttributesHelpers) codeForTestAttributeWithPossibleValues(input resourcemanager.TerraformSchemaFieldDefinition, requiredOnly bool, hclBody hclwrite.Body) error {
+	if len(input.Validation.PossibleValues.Values) == 0 {
+		return fmt.Errorf("the Field %q had a Validation Type of PossibleValues but no PossibleValues were defined", input.HclName)
+	}
+	if input.ObjectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeList {
+		if input.ObjectDefinition.NestedObject == nil {
+			return fmt.Errorf("the Field %q was a List with no NestedObject", input.HclName)
+		}
+
+		if input.Validation.PossibleValues.Type == resourcemanager.TerraformSchemaValidationPossibleValueTypeFloat {
+			hclBody.SetAttributeValue(input.HclName, cty.ListVal([]cty.Value{
+				cty.NumberFloatVal(input.Validation.PossibleValues.Values[0].(float64)),
+			}))
+			return nil
+		}
+		if input.Validation.PossibleValues.Type == resourcemanager.TerraformSchemaValidationPossibleValueTypeInt {
+			hclBody.SetAttributeValue(input.HclName, cty.ListVal([]cty.Value{
+				cty.NumberIntVal(input.Validation.PossibleValues.Values[0].(int64)),
+			}))
+			return nil
+		}
+		if input.Validation.PossibleValues.Type == resourcemanager.TerraformSchemaValidationPossibleValueTypeString {
+			hclBody.SetAttributeValue(input.HclName, cty.ListVal([]cty.Value{
+				cty.StringVal(input.Validation.PossibleValues.Values[0].(string)),
+			}))
+			return nil
+		}
+
+		// TODO: what if it's a list of constant strings?
+		return fmt.Errorf("unimplemented: the Field %q was a List NestedObject Type %q", input.HclName, string(input.ObjectDefinition.NestedObject.Type))
+	}
+
+	if input.Validation.PossibleValues.Type == resourcemanager.TerraformSchemaValidationPossibleValueTypeFloat {
+		hclBody.SetAttributeValue(input.HclName, cty.NumberFloatVal(input.Validation.PossibleValues.Values[0].(float64)))
+		return nil
+	}
+	if input.Validation.PossibleValues.Type == resourcemanager.TerraformSchemaValidationPossibleValueTypeInt {
+		hclBody.SetAttributeValue(input.HclName, cty.NumberIntVal(input.Validation.PossibleValues.Values[0].(int64)))
+		return nil
+	}
+	if input.Validation.PossibleValues.Type == resourcemanager.TerraformSchemaValidationPossibleValueTypeString {
+		hclBody.SetAttributeValue(input.HclName, cty.StringVal(input.Validation.PossibleValues.Values[0].(string)))
+		return nil
+	}
+
+	return fmt.Errorf("missing PossibleValues implementation for Schema Field %q (%s)", input.HclName, input.ObjectDefinition.String())
 }
 
 func addCommentToTestConfig(hclBody hclwrite.Body, comment string) {
