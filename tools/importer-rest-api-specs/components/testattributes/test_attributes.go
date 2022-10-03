@@ -73,7 +73,7 @@ func (h TestAttributesHelpers) GetAttributesForTests(resourceLabel string, input
 
 func (h TestAttributesHelpers) codeForTestAttribute(resourceLabel string, input resourcemanager.TerraformSchemaFieldDefinition, requiredOnly bool, hclBody hclwrite.Body) error {
 	if input.Validation != nil && input.Validation.Type == resourcemanager.TerraformSchemaValidationTypePossibleValues && input.Validation.PossibleValues != nil {
-		return h.codeForTestAttributeWithPossibleValues(input, requiredOnly, hclBody)
+		return h.codeForTestAttributeWithPossibleValues(input, hclBody)
 	}
 
 	switch input.ObjectDefinition.Type {
@@ -146,7 +146,6 @@ func (h TestAttributesHelpers) codeForTestAttribute(resourceLabel string, input 
 				return err
 			}
 		} else {
-
 			// this is an array of a basic type
 			switch input.ObjectDefinition.NestedObject.Type {
 			case resourcemanager.TerraformSchemaFieldTypeFloat:
@@ -296,7 +295,7 @@ func (h TestAttributesHelpers) codeForTestAttribute(resourceLabel string, input 
 	return nil
 }
 
-func (h TestAttributesHelpers) codeForTestAttributeWithPossibleValues(input resourcemanager.TerraformSchemaFieldDefinition, requiredOnly bool, hclBody hclwrite.Body) error {
+func (h TestAttributesHelpers) codeForTestAttributeWithPossibleValues(input resourcemanager.TerraformSchemaFieldDefinition, hclBody hclwrite.Body) error {
 	if len(input.Validation.PossibleValues.Values) == 0 {
 		return fmt.Errorf("the Field %q had a Validation Type of PossibleValues but no PossibleValues were defined", input.HclName)
 	}

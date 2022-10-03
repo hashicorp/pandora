@@ -114,7 +114,10 @@ func run(input Input) error {
 				}
 
 				logger.Trace("Finding Candidates from Services returned from the Data API..")
-				candidates := resources.FindCandidates(apiResourceDetails, terraformDefinitionsForResource.Definitions, apiResource, logger)
+				candidates, err := resources.FindCandidates(apiResourceDetails, terraformDefinitionsForResource.Definitions, apiResource, logger)
+				if err != nil {
+					return fmt.Errorf("finding Candidates: %+v", err)
+				}
 				builder := schema.NewBuilder(apiResourceDetails.Schema.Constants, apiResourceDetails.Schema.Models, apiResourceDetails.Operations.Operations, apiResourceDetails.Schema.ResourceIds)
 
 				for dataSourceName, dataSource := range candidates.DataSources {
