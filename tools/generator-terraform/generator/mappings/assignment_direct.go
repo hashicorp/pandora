@@ -111,9 +111,10 @@ func (d directAssignmentLine) assignmentForReadMapping(mapping resourcemanager.F
 }
 
 var transformTypes = map[resourcemanager.TerraformSchemaFieldType]resourcemanager.ApiObjectDefinitionType{
-	resourcemanager.TerraformSchemaFieldTypeLocation:               resourcemanager.LocationApiObjectDefinitionType,
-	resourcemanager.TerraformSchemaFieldTypeIdentitySystemAssigned: resourcemanager.SystemAssignedIdentityApiObjectDefinitionType,
-	resourcemanager.TerraformSchemaFieldTypeTags:                   resourcemanager.TagsApiObjectDefinitionType,
+	resourcemanager.TerraformSchemaFieldTypeLocation:                      resourcemanager.LocationApiObjectDefinitionType,
+	resourcemanager.TerraformSchemaFieldTypeIdentitySystemAssigned:        resourcemanager.SystemAssignedIdentityApiObjectDefinitionType,
+	resourcemanager.TerraformSchemaFieldTypeIdentitySystemAndUserAssigned: resourcemanager.SystemAndUserAssignedIdentityMapApiObjectDefinitionType, // TODO add support for List Api Object
+	resourcemanager.TerraformSchemaFieldTypeTags:                          resourcemanager.TagsApiObjectDefinitionType,
 }
 var transformRequiredExpandFunctions = map[resourcemanager.TerraformSchemaFieldType]func(outputAssignment, outputVariableName, inputAssignment string) string{
 	resourcemanager.TerraformSchemaFieldTypeLocation: func(outputAssignment, outputVariableName, inputAssignment string) string {
@@ -124,6 +125,15 @@ var transformRequiredExpandFunctions = map[resourcemanager.TerraformSchemaFieldT
 	%[1]s, err := identity.ExpandSystemAssignedFromModel(%[2]s)
 	if err != nil {
 		return fmt.Errorf("expanding SystemAssigned Identity: %%+v", err)
+	}
+	%[3]s = %[1]s
+`, outputVariableName, inputAssignment, outputAssignment)
+	},
+	resourcemanager.TerraformSchemaFieldTypeIdentitySystemAndUserAssigned: func(outputAssignment, outputVariableName, inputAssignment string) string {
+		return fmt.Sprintf(`
+	%[1]s, err := identity.ExpandSystemAndUserAssignedMapFromModel(%[2]s)
+	if err != nil {
+		return fmt.Errorf("expanding SystemAndUserAssigned Identity: %%+v", err)
 	}
 	%[3]s = %[1]s
 `, outputVariableName, inputAssignment, outputAssignment)
@@ -146,6 +156,15 @@ var transformOptionalExpandFunctions = map[resourcemanager.TerraformSchemaFieldT
 	%[3]s = %[1]s
 `, outputVariableName, inputAssignment, outputAssignment)
 	},
+	resourcemanager.TerraformSchemaFieldTypeIdentitySystemAndUserAssigned: func(outputAssignment, outputVariableName, inputAssignment string) string {
+		return fmt.Sprintf(`
+	%[1]s, err := identity.ExpandSystemAndUserAssignedMapFromModel(%[2]s)
+	if err != nil {
+		return fmt.Errorf("expanding SystemAndUserAssigned Identity: %%+v", err)
+	}
+	%[3]s = %[1]s
+`, outputVariableName, inputAssignment, outputAssignment)
+	},
 	resourcemanager.TerraformSchemaFieldTypeTags: func(outputAssignment, outputVariableName, inputAssignment string) string {
 		return fmt.Sprintf("%s = tags.Expand(%s)", outputAssignment, inputAssignment)
 	},
@@ -163,6 +182,15 @@ var transformRequiredFlattenFunctions = map[resourcemanager.TerraformSchemaField
 	%[3]s = %[1]s
 `, outputVariableName, inputAssignment, outputAssignment)
 	},
+	resourcemanager.TerraformSchemaFieldTypeIdentitySystemAndUserAssigned: func(outputAssignment, outputVariableName, inputAssignment string) string {
+		return fmt.Sprintf(`
+	%[1]s, err := identity.FlattenSystemAndUserAssignedMapToModel(%[2]s)
+	if err != nil {
+		return fmt.Errorf("flattening SystemAndUserAssigned Identity: %%+v", err)
+	}
+	%[3]s = %[1]s
+`, outputVariableName, inputAssignment, outputAssignment)
+	},
 	resourcemanager.TerraformSchemaFieldTypeTags: func(outputAssignment, _, inputAssignment string) string {
 		return fmt.Sprintf("%s = tags.Flatten(%s)", outputAssignment, inputAssignment)
 	},
@@ -176,6 +204,15 @@ var transformOptionalFlattenFunctions = map[resourcemanager.TerraformSchemaField
 	%[1]s, err := identity.FlattenSystemAssignedFromModel(%[2]s)
 	if err != nil {
 		return fmt.Errorf("flattening SystemAssigned Identity: %%+v", err)
+	}
+	%[3]s = %[1]s
+`, outputVariableName, inputAssignment, outputAssignment)
+	},
+	resourcemanager.TerraformSchemaFieldTypeIdentitySystemAndUserAssigned: func(outputAssignment, outputVariableName, inputAssignment string) string {
+		return fmt.Sprintf(`
+	%[1]s, err := identity.FlattenSystemAndUserAssignedMapToModel(%[2]s)
+	if err != nil {
+		return fmt.Errorf("flattening SystemAndUserAssigned Identity: %%+v", err)
 	}
 	%[3]s = %[1]s
 `, outputVariableName, inputAssignment, outputAssignment)
