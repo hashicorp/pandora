@@ -1889,7 +1889,7 @@ func TestDirectAssignment_CreateOrUpdate_Location_RequiredToOptional_TopLevel(t 
 		{
 			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeLocation,
 			sdkFieldType:         resourcemanager.LocationApiObjectDefinitionType,
-			expected:             `output.Location = location.NormalizeNilable(input.Location)`,
+			expected:             `output.Location = pointer.To(location.Normalize(input.Location))`,
 		},
 	}
 	for i, v := range testData {

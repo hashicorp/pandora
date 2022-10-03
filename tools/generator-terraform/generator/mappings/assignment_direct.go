@@ -134,7 +134,7 @@ var transformRequiredExpandFunctions = map[resourcemanager.TerraformSchemaFieldT
 }
 var transformOptionalExpandFunctions = map[resourcemanager.TerraformSchemaFieldType]func(outputAssignment, outputVariableName, inputAssignment string) string{
 	resourcemanager.TerraformSchemaFieldTypeLocation: func(outputAssignment, outputVariableName, inputAssignment string) string {
-		return fmt.Sprintf("%s = location.NormalizeNilable(%s)", outputAssignment, inputAssignment)
+		return fmt.Sprintf("%s = pointer.To(location.Normalize(%s))", outputAssignment, inputAssignment)
 	},
 	resourcemanager.TerraformSchemaFieldTypeIdentitySystemAssigned: func(outputAssignment, outputVariableName, inputAssignment string) string {
 		// TODO: tests for Identity & add support for Zones
