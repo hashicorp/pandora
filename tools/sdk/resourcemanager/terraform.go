@@ -462,6 +462,20 @@ type TerraformSchemaFieldObjectDefinition struct {
 	Type TerraformSchemaFieldType `json:"type"`
 }
 
+func (od TerraformSchemaFieldObjectDefinition) String() string {
+	components := []string{
+		string(od.Type),
+	}
+	if od.ReferenceName != nil {
+		components = append(components, fmt.Sprintf("ReferenceName %q", *od.ReferenceName))
+	}
+	if od.NestedObject != nil {
+		components = append(components, fmt.Sprintf("Nested Object (%s)", od.NestedObject.String()))
+	}
+
+	return strings.Join(components, " / ")
+}
+
 type TerraformResourceTestsDefinition struct {
 	// BasicConfiguration is the most basic Terraform Configuration for this Resource
 	// this should be only the Required fields necessary to provision this Resource.
