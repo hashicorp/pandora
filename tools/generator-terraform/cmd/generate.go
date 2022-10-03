@@ -42,6 +42,8 @@ Flags:
   Specifies the path to the Data API.
 * '--output-dir=../generated-tf-dev'
   Specifies the path where the generated files should be output
+* '--services=Example1,Example2'
+  Specifies a comma-separated list of services to import, rather than the full set.
 `, "'", "`")
 }
 
