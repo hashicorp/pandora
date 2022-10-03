@@ -117,6 +117,7 @@ var transformTypes = map[resourcemanager.TerraformSchemaFieldType]resourcemanage
 	resourcemanager.TerraformSchemaFieldTypeIdentitySystemOrUserAssigned:  resourcemanager.SystemOrUserAssignedIdentityMapApiObjectDefinitionType,  // TODO add support for List Api Object
 	resourcemanager.TerraformSchemaFieldTypeIdentityUserAssigned:          resourcemanager.UserAssignedIdentityListApiObjectDefinitionType,         // TODO add support for Map Api Object
 	resourcemanager.TerraformSchemaFieldTypeTags:                          resourcemanager.TagsApiObjectDefinitionType,
+	resourcemanager.TerraformSchemaFieldTypeZones:                         resourcemanager.ZonesApiObjectDefinitionType,
 }
 var transformRequiredExpandFunctions = map[resourcemanager.TerraformSchemaFieldType]func(outputAssignment, outputVariableName, inputAssignment string) string{
 	resourcemanager.TerraformSchemaFieldTypeLocation: func(outputAssignment, outputVariableName, inputAssignment string) string {
@@ -160,6 +161,9 @@ var transformRequiredExpandFunctions = map[resourcemanager.TerraformSchemaFieldT
 	},
 	resourcemanager.TerraformSchemaFieldTypeTags: func(outputAssignment, _, inputAssignment string) string {
 		return fmt.Sprintf("%s = tags.Expand(%s)", outputAssignment, inputAssignment)
+	},
+	resourcemanager.TerraformSchemaFieldTypeZones: func(outputAssignment, _, inputAssignment string) string {
+		return fmt.Sprintf("%s = zones.Expand(%s)", outputAssignment, inputAssignment)
 	},
 }
 var transformOptionalExpandFunctions = map[resourcemanager.TerraformSchemaFieldType]func(outputAssignment, outputVariableName, inputAssignment string) string{
@@ -206,6 +210,9 @@ var transformOptionalExpandFunctions = map[resourcemanager.TerraformSchemaFieldT
 	resourcemanager.TerraformSchemaFieldTypeTags: func(outputAssignment, outputVariableName, inputAssignment string) string {
 		return fmt.Sprintf("%s = tags.Expand(%s)", outputAssignment, inputAssignment)
 	},
+	resourcemanager.TerraformSchemaFieldTypeZones: func(outputAssignment, outputVariableName, inputAssignment string) string {
+		return fmt.Sprintf("%s = zones.Expand(%s)", outputAssignment, inputAssignment)
+	},
 }
 var transformRequiredFlattenFunctions = map[resourcemanager.TerraformSchemaFieldType]func(outputAssignment, outputVariableName, inputAssignment string) string{
 	resourcemanager.TerraformSchemaFieldTypeLocation: func(outputAssignment, outputVariableName, inputAssignment string) string {
@@ -250,6 +257,9 @@ var transformRequiredFlattenFunctions = map[resourcemanager.TerraformSchemaField
 	resourcemanager.TerraformSchemaFieldTypeTags: func(outputAssignment, _, inputAssignment string) string {
 		return fmt.Sprintf("%s = tags.Flatten(%s)", outputAssignment, inputAssignment)
 	},
+	resourcemanager.TerraformSchemaFieldTypeZones: func(outputAssignment, _, inputAssignment string) string {
+		return fmt.Sprintf("%s = zones.Flatten(%s)", outputAssignment, inputAssignment)
+	},
 }
 var transformOptionalFlattenFunctions = map[resourcemanager.TerraformSchemaFieldType]func(outputAssignment, outputVariableName, inputAssignment string) string{
 	resourcemanager.TerraformSchemaFieldTypeLocation: func(outputAssignment, outputVariableName, inputAssignment string) string {
@@ -293,6 +303,9 @@ var transformOptionalFlattenFunctions = map[resourcemanager.TerraformSchemaField
 	},
 	resourcemanager.TerraformSchemaFieldTypeTags: func(outputAssignment, outputVariableName, inputAssignment string) string {
 		return fmt.Sprintf("%s = tags.Flatten(%s)", outputAssignment, inputAssignment)
+	},
+	resourcemanager.TerraformSchemaFieldTypeZones: func(outputAssignment, outputVariableName, inputAssignment string) string {
+		return fmt.Sprintf("%s = zones.Flatten(%s)", outputAssignment, inputAssignment)
 	},
 }
 
