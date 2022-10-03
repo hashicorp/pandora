@@ -156,9 +156,9 @@ var transformRequiredFlattenFunctions = map[resourcemanager.TerraformSchemaField
 	},
 	resourcemanager.TerraformSchemaFieldTypeIdentitySystemAssigned: func(outputAssignment, outputVariableName, inputAssignment string) string {
 		return fmt.Sprintf(`
-	%[1]s, err := identity.ExpandSystemAssignedFromModel(%[2]s)
+	%[1]s, err := identity.FlattenSystemAssignedFromModel(%[2]s)
 	if err != nil {
-		return fmt.Errorf("expanding SystemAssigned Identity: %%+v", err)
+		return fmt.Errorf("flattening SystemAssigned Identity: %%+v", err)
 	}
 	%[3]s = %[1]s
 `, outputVariableName, inputAssignment, outputAssignment)
@@ -171,8 +171,14 @@ var transformOptionalFlattenFunctions = map[resourcemanager.TerraformSchemaField
 	resourcemanager.TerraformSchemaFieldTypeLocation: func(outputAssignment, outputVariableName, inputAssignment string) string {
 		return fmt.Sprintf("%s = location.NormalizeNilable(%s)", outputAssignment, inputAssignment)
 	},
-	resourcemanager.TerraformSchemaFieldTypeIdentitySystemAssigned: func(outputAssignment, _, inputAssignment string) string {
-		return fmt.Sprintf(`%[1]s = identity.FlattenSystemAssignedToModel(%[2]s)`, outputAssignment, inputAssignment)
+	resourcemanager.TerraformSchemaFieldTypeIdentitySystemAssigned: func(outputAssignment, outputVariableName, inputAssignment string) string {
+		return fmt.Sprintf(`
+	%[1]s, err := identity.FlattenSystemAssignedFromModel(%[2]s)
+	if err != nil {
+		return fmt.Errorf("flattening SystemAssigned Identity: %%+v", err)
+	}
+	%[3]s = %[1]s
+`, outputVariableName, inputAssignment, outputAssignment)
 	},
 	resourcemanager.TerraformSchemaFieldTypeTags: func(outputAssignment, outputVariableName, inputAssignment string) string {
 		return fmt.Sprintf("%s = tags.Flatten(%s)", outputAssignment, inputAssignment)
