@@ -114,6 +114,7 @@ var transformTypes = map[resourcemanager.TerraformSchemaFieldType]resourcemanage
 	resourcemanager.TerraformSchemaFieldTypeLocation:                      resourcemanager.LocationApiObjectDefinitionType,
 	resourcemanager.TerraformSchemaFieldTypeIdentitySystemAssigned:        resourcemanager.SystemAssignedIdentityApiObjectDefinitionType,
 	resourcemanager.TerraformSchemaFieldTypeIdentitySystemAndUserAssigned: resourcemanager.SystemAndUserAssignedIdentityMapApiObjectDefinitionType, // TODO add support for List Api Object
+	resourcemanager.TerraformSchemaFieldTypeIdentitySystemOrUserAssigned:  resourcemanager.SystemOrUserAssignedIdentityMapApiObjectDefinitionType,  // TODO add support for List Api Object
 	resourcemanager.TerraformSchemaFieldTypeTags:                          resourcemanager.TagsApiObjectDefinitionType,
 }
 var transformRequiredExpandFunctions = map[resourcemanager.TerraformSchemaFieldType]func(outputAssignment, outputVariableName, inputAssignment string) string{
@@ -134,6 +135,15 @@ var transformRequiredExpandFunctions = map[resourcemanager.TerraformSchemaFieldT
 	%[1]s, err := identity.ExpandSystemAndUserAssignedMapFromModel(%[2]s)
 	if err != nil {
 		return fmt.Errorf("expanding SystemAndUserAssigned Identity: %%+v", err)
+	}
+	%[3]s = %[1]s
+`, outputVariableName, inputAssignment, outputAssignment)
+	},
+	resourcemanager.TerraformSchemaFieldTypeIdentitySystemOrUserAssigned: func(outputAssignment, outputVariableName, inputAssignment string) string {
+		return fmt.Sprintf(`
+	%[1]s, err := identity.ExpandSystemOrUserAssignedMapFromModel(%[2]s)
+	if err != nil {
+		return fmt.Errorf("expanding SystemOrUserAssigned Identity: %%+v", err)
 	}
 	%[3]s = %[1]s
 `, outputVariableName, inputAssignment, outputAssignment)
@@ -165,6 +175,15 @@ var transformOptionalExpandFunctions = map[resourcemanager.TerraformSchemaFieldT
 	%[3]s = %[1]s
 `, outputVariableName, inputAssignment, outputAssignment)
 	},
+	resourcemanager.TerraformSchemaFieldTypeIdentitySystemOrUserAssigned: func(outputAssignment, outputVariableName, inputAssignment string) string {
+		return fmt.Sprintf(`
+	%[1]s, err := identity.ExpandSystemOrUserAssignedMapFromModel(%[2]s)
+	if err != nil {
+		return fmt.Errorf("expanding SystemOrUserAssigned Identity: %%+v", err)
+	}
+	%[3]s = %[1]s
+`, outputVariableName, inputAssignment, outputAssignment)
+	},
 	resourcemanager.TerraformSchemaFieldTypeTags: func(outputAssignment, outputVariableName, inputAssignment string) string {
 		return fmt.Sprintf("%s = tags.Expand(%s)", outputAssignment, inputAssignment)
 	},
@@ -191,6 +210,15 @@ var transformRequiredFlattenFunctions = map[resourcemanager.TerraformSchemaField
 	%[3]s = %[1]s
 `, outputVariableName, inputAssignment, outputAssignment)
 	},
+	resourcemanager.TerraformSchemaFieldTypeIdentitySystemOrUserAssigned: func(outputAssignment, outputVariableName, inputAssignment string) string {
+		return fmt.Sprintf(`
+	%[1]s, err := identity.FlattenSystemOrUserAssignedMapToModel(%[2]s)
+	if err != nil {
+		return fmt.Errorf("flattening SystemOrUserAssigned Identity: %%+v", err)
+	}
+	%[3]s = %[1]s
+`, outputVariableName, inputAssignment, outputAssignment)
+	},
 	resourcemanager.TerraformSchemaFieldTypeTags: func(outputAssignment, _, inputAssignment string) string {
 		return fmt.Sprintf("%s = tags.Flatten(%s)", outputAssignment, inputAssignment)
 	},
@@ -213,6 +241,15 @@ var transformOptionalFlattenFunctions = map[resourcemanager.TerraformSchemaField
 	%[1]s, err := identity.FlattenSystemAndUserAssignedMapToModel(%[2]s)
 	if err != nil {
 		return fmt.Errorf("flattening SystemAndUserAssigned Identity: %%+v", err)
+	}
+	%[3]s = %[1]s
+`, outputVariableName, inputAssignment, outputAssignment)
+	},
+	resourcemanager.TerraformSchemaFieldTypeIdentitySystemOrUserAssigned: func(outputAssignment, outputVariableName, inputAssignment string) string {
+		return fmt.Sprintf(`
+	%[1]s, err := identity.FlattenSystemOrUserAssignedMapToModel(%[2]s)
+	if err != nil {
+		return fmt.Errorf("flattening SystemOrUserAssigned Identity: %%+v", err)
 	}
 	%[3]s = %[1]s
 `, outputVariableName, inputAssignment, outputAssignment)
