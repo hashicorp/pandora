@@ -29,17 +29,17 @@ resource 'azurerm_resource_group' 'test' {
     test = 'Acceptance'
   }
 }
-	".AsTerraformTestConfig();
+".AsTerraformTestConfig();
     public string? TemplateConfig => @"
 provider 'azurerm' {
-	features {}
+  features {}
 }
 
 locals {
-  random_integer   = %[1]s
+  random_integer   = %[1]d
   primary_location = %[2]q
 }
-	".AsTerraformTestConfig();
+".AsTerraformTestConfig();
 
     public Dictionary<string, List<string>> OtherTests => new Dictionary<string, List<string>>();
 }

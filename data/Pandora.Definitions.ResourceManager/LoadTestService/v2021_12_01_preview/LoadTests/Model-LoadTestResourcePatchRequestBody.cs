@@ -22,5 +22,5 @@ internal class LoadTestResourcePatchRequestBodyModel
     public LoadTestResourcePatchRequestBodyPropertiesModel? Properties { get; set; }
 
     [JsonPropertyName("tags")]
-    public object? Tags { get; set; }
+    public CustomTypes.Tags? Tags { get; set; }
 }
