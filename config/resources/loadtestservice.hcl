@@ -6,6 +6,8 @@ service "LoadTestService" {
       definition "load_test" {
         id = "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.LoadTestService/loadTests/{loadTestName}"
         display_name = "Load Test"
+        website_subcategory = "Load Test"
+        description = "Manages a Load Test Service"
       }
     }
   }
