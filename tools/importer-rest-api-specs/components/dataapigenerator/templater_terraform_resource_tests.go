@@ -42,7 +42,7 @@ func conditionallyAddTestOutput(input *string) string {
 		val := prepareTerraformTestConfigForOutput(*input)
 		return fmt.Sprintf(`@"
 %s
-	".AsTerraformTestConfig()`, val)
+".AsTerraformTestConfig()`, val)
 	}
 
 	return "null"

@@ -20,10 +20,10 @@ var fieldObjectDefinitionsToGolangTypes = map[resourcemanager.TerraformSchemaFie
 	// Common Types
 	resourcemanager.TerraformSchemaFieldTypeEdgeZone:                      "string",
 	resourcemanager.TerraformSchemaFieldTypeLocation:                      "string",
-	resourcemanager.TerraformSchemaFieldTypeIdentitySystemAssigned:        "identity.ModelSystemAssigned",
-	resourcemanager.TerraformSchemaFieldTypeIdentitySystemAndUserAssigned: "identity.ModelSystemAssignedUserAssigned",
-	resourcemanager.TerraformSchemaFieldTypeIdentitySystemOrUserAssigned:  "identity.ModelSystemAssignedUserAssigned",
-	resourcemanager.TerraformSchemaFieldTypeIdentityUserAssigned:          "identity.ModelUserAssigned",
+	resourcemanager.TerraformSchemaFieldTypeIdentitySystemAssigned:        "[]identity.ModelSystemAssigned",
+	resourcemanager.TerraformSchemaFieldTypeIdentitySystemAndUserAssigned: "[]identity.ModelSystemAssignedUserAssigned",
+	resourcemanager.TerraformSchemaFieldTypeIdentitySystemOrUserAssigned:  "[]identity.ModelSystemAssignedUserAssigned",
+	resourcemanager.TerraformSchemaFieldTypeIdentityUserAssigned:          "[]identity.ModelUserAssigned",
 	resourcemanager.TerraformSchemaFieldTypeResourceGroup:                 "string",
 	resourcemanager.TerraformSchemaFieldTypeTags:                          "map[string]interface{}",
 	resourcemanager.TerraformSchemaFieldTypeZone:                          "string",
@@ -47,7 +47,6 @@ func GolangFieldTypeFromObjectFieldDefinition(input resourcemanager.TerraformSch
 			return nil, fmt.Errorf("reference type had no reference")
 		}
 
-		// TODO: confirm these should be output as an array
 		output := fmt.Sprintf("[]%s", *input.ReferenceName)
 		return &output, nil
 	}
@@ -63,8 +62,8 @@ func GolangFieldTypeFromObjectFieldDefinition(input resourcemanager.TerraformSch
 		}
 
 		output := fmt.Sprintf("[]%s", *nestedObjectType)
-		if input.NestedObject.Type == resourcemanager.TerraformSchemaFieldTypeReference {
-			// references are already output as slices, so no need to double-slice this
+		if nestedObjectTypeIsSlicedByDefault(input.NestedObject.Type) {
+			// both References and the Identity items are already output as slices, so no need to double-slice this
 			output = *nestedObjectType
 		}
 		return &output, nil
@@ -80,7 +79,7 @@ func GolangFieldTypeFromObjectFieldDefinition(input resourcemanager.TerraformSch
 			return nil, fmt.Errorf("retrieving golang field type for list nested item: %+v", err)
 		}
 		output := fmt.Sprintf("[]%s", *nestedObjectType)
-		if input.NestedObject.Type == resourcemanager.TerraformSchemaFieldTypeReference {
+		if nestedObjectTypeIsSlicedByDefault(input.NestedObject.Type) {
 			// references are already output as slices, so no need to double-slice this
 			output = *nestedObjectType
 		}
@@ -88,6 +87,18 @@ func GolangFieldTypeFromObjectFieldDefinition(input resourcemanager.TerraformSch
 	}
 
 	return nil, fmt.Errorf("internal-error: unimplement field object definition mapping: %q", string(input.Type))
+}
+
+func nestedObjectTypeIsSlicedByDefault(input resourcemanager.TerraformSchemaFieldType) bool {
+	types := map[resourcemanager.TerraformSchemaFieldType]struct{}{
+		resourcemanager.TerraformSchemaFieldTypeIdentitySystemAssigned:        {},
+		resourcemanager.TerraformSchemaFieldTypeIdentitySystemAndUserAssigned: {},
+		resourcemanager.TerraformSchemaFieldTypeIdentitySystemOrUserAssigned:  {},
+		resourcemanager.TerraformSchemaFieldTypeIdentityUserAssigned:          {},
+		resourcemanager.TerraformSchemaFieldTypeReference:                     {},
+	}
+	_, ok := types[input]
+	return ok
 }
 
 func GolangFieldTypeFromConstantType(input resourcemanager.ConstantType) (*string, error) {

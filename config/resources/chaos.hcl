@@ -1,3 +1,4 @@
+/*
 service "ChaosStudio" {
   terraform_package = "chaos"
 
@@ -12,3 +13,4 @@ service "ChaosStudio" {
     }
   }
 }
+*/

@@ -1,6 +1,7 @@
 package mappings
 
 import (
+	"fmt"
 	"testing"
 
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
@@ -126,7 +127,7 @@ func TestDirectAssignment_CreateOrUpdate_Constant_RequiredToOptional_TopLevel(t 
 					},
 				},
 			},
-			expected:             "output.ToPath = as.Pointer(sdkresource.SomeConstant(input.FromPath))",
+			expected:             "output.ToPath = pointer.To(sdkresource.SomeConstant(input.FromPath))",
 			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeFloat,
 		},
 		{
@@ -141,7 +142,7 @@ func TestDirectAssignment_CreateOrUpdate_Constant_RequiredToOptional_TopLevel(t 
 					},
 				},
 			},
-			expected:             "output.ToPath = as.Pointer(sdkresource.SomeConstant(input.FromPath))",
+			expected:             "output.ToPath = pointer.To(sdkresource.SomeConstant(input.FromPath))",
 			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeInteger,
 		},
 		{
@@ -156,7 +157,7 @@ func TestDirectAssignment_CreateOrUpdate_Constant_RequiredToOptional_TopLevel(t 
 					},
 				},
 			},
-			expected:             "output.ToPath = as.Pointer(sdkresource.SomeConstant(input.FromPath))",
+			expected:             "output.ToPath = pointer.To(sdkresource.SomeConstant(input.FromPath))",
 			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeString,
 		},
 	}
@@ -328,7 +329,7 @@ func TestDirectAssignment_CreateOrUpdate_Constant_OptionalToOptional_TopLevel(t 
 			},
 			expected: `
 if input.FromPath != nil {
-	output.ToPath = as.Pointer(sdkresource.SomeConstant(*input.FromPath))
+	output.ToPath = pointer.To(sdkresource.SomeConstant(*input.FromPath))
 }
 `,
 			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeFloat,
@@ -347,7 +348,7 @@ if input.FromPath != nil {
 			},
 			expected: `
 if input.FromPath != nil {
-	output.ToPath = as.Pointer(sdkresource.SomeConstant(*input.FromPath))
+	output.ToPath = pointer.To(sdkresource.SomeConstant(*input.FromPath))
 }
 `,
 			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeInteger,
@@ -366,7 +367,7 @@ if input.FromPath != nil {
 			},
 			expected: `
 if input.FromPath != nil {
-	output.ToPath = as.Pointer(sdkresource.SomeConstant(*input.FromPath))
+	output.ToPath = pointer.To(sdkresource.SomeConstant(*input.FromPath))
 }
 `,
 			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeString,
@@ -2118,7 +2119,7 @@ func TestDirectAssignment_CreateOrUpdate_Tags_RequiredToOptional_TopLevel(t *tes
 		{
 			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeTags,
 			sdkFieldType:         resourcemanager.TagsApiObjectDefinitionType,
-			expected:             `output.Tags = pointer.To(tags.Expand(input.Tags))`,
+			expected:             `output.Tags = tags.Expand(input.Tags)`,
 		},
 	}
 	for i, v := range testData {
@@ -2232,7 +2233,7 @@ func TestDirectAssignment_CreateOrUpdate_Tags_OptionalToOptional_TopLevel(t *tes
 		{
 			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeTags,
 			sdkFieldType:         resourcemanager.TagsApiObjectDefinitionType,
-			expected:             `output.Tags = pointer.To(tags.Expand(input.Tags))`,
+			expected:             `output.Tags = tags.Expand(input.Tags)`,
 		},
 	}
 	for i, v := range testData {
@@ -2261,6 +2262,1228 @@ func TestDirectAssignment_CreateOrUpdate_Tags_OptionalToOptional_TopLevel(t *tes
 			Fields: map[string]resourcemanager.FieldDetails{
 				"Tags": {
 					JsonName: "tags",
+					ObjectDefinition: resourcemanager.ApiObjectDefinition{
+						Type: v.sdkFieldType,
+					},
+					Optional: true,
+				},
+			},
+		}
+		actual, err := directAssignmentLine{}.assignmentForCreateUpdateMapping(mapping, schemaModel, sdkModel, nil, "sdkresource")
+		if err != nil {
+			t.Fatalf("retrieving create/update assignment mapping: %+v", err)
+		}
+		if actual == nil {
+			t.Fatalf("retrieving create/update assignment mapping: `actual` was nil")
+		}
+		testhelpers.AssertTemplatedCodeMatches(t, v.expected, *actual)
+	}
+}
+
+func TestDirectAssignment_CreateOrUpdate_Identity_SystemAssigned_RequiredToRequired(t *testing.T) {
+	// mapping a Schema Model Field (Required) to an SDK Field (Required) for SystemAssignedIdentity
+
+	testData := []struct {
+		schemaModelFieldType resourcemanager.TerraformSchemaFieldType
+		sdkFieldType         resourcemanager.ApiObjectDefinitionType
+		expected             string
+	}{
+		{
+			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeIdentitySystemAssigned,
+			sdkFieldType:         resourcemanager.SystemAssignedIdentityApiObjectDefinitionType,
+			expected: fmt.Sprintf(`
+	identity, err := identity.ExpandSystemAssignedFromModel(input.Identity)
+	if err != nil {
+		return fmt.Errorf("expanding SystemAssigned Identity: %%+v", err)
+	}
+	output.Identity = identity
+`),
+		},
+	}
+	for i, v := range testData {
+		t.Logf("Test %d - mapping %q to %q", i, string(v.schemaModelFieldType), string(v.sdkFieldType))
+		mapping := resourcemanager.FieldMappingDefinition{
+			Type: resourcemanager.DirectAssignmentMappingDefinitionType,
+			DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
+				SchemaModelName: "FromModel",
+				SchemaFieldPath: "Identity",
+				SdkFieldPath:    "Identity",
+				SdkModelName:    "ToModel",
+			},
+		}
+		schemaModel := resourcemanager.TerraformSchemaModelDefinition{
+			Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+				"Identity": {
+					ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+						Type: v.schemaModelFieldType,
+					},
+					HclName:  "identity",
+					Required: true,
+				},
+			},
+		}
+		sdkModel := resourcemanager.ModelDetails{
+			Fields: map[string]resourcemanager.FieldDetails{
+				"Identity": {
+					JsonName: "identity",
+					ObjectDefinition: resourcemanager.ApiObjectDefinition{
+						Type: v.sdkFieldType,
+					},
+					Required: true,
+				},
+			},
+		}
+		actual, err := directAssignmentLine{}.assignmentForCreateUpdateMapping(mapping, schemaModel, sdkModel, nil, "sdkresource")
+		if err != nil {
+			t.Fatalf("retrieving create/update assignment mapping: %+v", err)
+		}
+		if actual == nil {
+			t.Fatalf("retrieving create/update assignment mapping: `actual` was nil")
+		}
+		testhelpers.AssertTemplatedCodeMatches(t, v.expected, *actual)
+	}
+}
+
+func TestDirectAssignment_CreateOrUpdate_Identity_SystemAssigned_RequiredToOptional(t *testing.T) {
+	// mapping a Schema Model Field (Required) to an SDK Field (Optional) for SystemAssignedIdentity
+
+	testData := []struct {
+		schemaModelFieldType resourcemanager.TerraformSchemaFieldType
+		sdkFieldType         resourcemanager.ApiObjectDefinitionType
+		expected             string
+	}{
+		{
+			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeIdentitySystemAssigned,
+			sdkFieldType:         resourcemanager.SystemAssignedIdentityApiObjectDefinitionType,
+			expected: fmt.Sprintf(`
+	identity, err := identity.ExpandSystemAssignedFromModel(input.Identity)
+	if err != nil {
+		return fmt.Errorf("expanding SystemAssigned Identity: %%+v", err)
+	}
+	output.Identity = identity
+`),
+		},
+	}
+	for i, v := range testData {
+		t.Logf("Test %d - mapping %q to %q", i, string(v.schemaModelFieldType), string(v.sdkFieldType))
+		mapping := resourcemanager.FieldMappingDefinition{
+			Type: resourcemanager.DirectAssignmentMappingDefinitionType,
+			DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
+				SchemaModelName: "FromModel",
+				SchemaFieldPath: "Identity",
+				SdkFieldPath:    "Identity",
+				SdkModelName:    "ToModel",
+			},
+		}
+		schemaModel := resourcemanager.TerraformSchemaModelDefinition{
+			Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+				"Identity": {
+					ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+						Type: v.schemaModelFieldType,
+					},
+					HclName:  "identity",
+					Required: true,
+				},
+			},
+		}
+		sdkModel := resourcemanager.ModelDetails{
+			Fields: map[string]resourcemanager.FieldDetails{
+				"Identity": {
+					JsonName: "identity",
+					ObjectDefinition: resourcemanager.ApiObjectDefinition{
+						Type: v.sdkFieldType,
+					},
+					Optional: true,
+				},
+			},
+		}
+		actual, err := directAssignmentLine{}.assignmentForCreateUpdateMapping(mapping, schemaModel, sdkModel, nil, "sdkresource")
+		if err != nil {
+			t.Fatalf("retrieving create/update assignment mapping: %+v", err)
+		}
+		if actual == nil {
+			t.Fatalf("retrieving create/update assignment mapping: `actual` was nil")
+		}
+		testhelpers.AssertTemplatedCodeMatches(t, v.expected, *actual)
+	}
+}
+
+func TestDirectAssignment_CreateOrUpdate_Identity_SystemAssigned_OptionalToRequired(t *testing.T) {
+	// mapping a Schema Model Field (Optional) to an SDK Field (Required) for tags
+	// this has to be mapped, so is a Schema error / we should raise an error
+
+	testData := []struct {
+		schemaModelFieldType resourcemanager.TerraformSchemaFieldType
+		sdkFieldType         resourcemanager.ApiObjectDefinitionType
+	}{
+		{
+			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeIdentitySystemAssigned,
+			sdkFieldType:         resourcemanager.SystemAssignedIdentityApiObjectDefinitionType,
+		},
+	}
+	for i, v := range testData {
+		t.Logf("Test %d - mapping %q to %q", i, string(v.schemaModelFieldType), string(v.sdkFieldType))
+		mapping := resourcemanager.FieldMappingDefinition{
+			Type: resourcemanager.DirectAssignmentMappingDefinitionType,
+			DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
+				SchemaModelName: "FromModel",
+				SchemaFieldPath: "Identity",
+				SdkFieldPath:    "Identity",
+				SdkModelName:    "ToModel",
+			},
+		}
+		schemaModel := resourcemanager.TerraformSchemaModelDefinition{
+			Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+				"Identity": {
+					ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+						Type: v.schemaModelFieldType,
+					},
+					HclName:  "identity",
+					Optional: true,
+				},
+			},
+		}
+		sdkModel := resourcemanager.ModelDetails{
+			Fields: map[string]resourcemanager.FieldDetails{
+				"Identity": {
+					JsonName: "identity",
+					ObjectDefinition: resourcemanager.ApiObjectDefinition{
+						Type: v.sdkFieldType,
+					},
+					Required: true,
+				},
+			},
+		}
+		actual, err := directAssignmentLine{}.assignmentForCreateUpdateMapping(mapping, schemaModel, sdkModel, nil, "sdkresource")
+		if err == nil {
+			t.Fatalf("expected an error but didn't get one")
+		}
+		if actual != nil {
+			t.Fatalf("expected an error and no result but got a result (%q) and no error", *actual)
+		}
+	}
+}
+
+func TestDirectAssignment_CreateOrUpdate_Identity_SystemAssigned_OptionalToOptional(t *testing.T) {
+	// mapping a Schema Model Field (Optional) to an SDK Field (Optional) for SystemAssignedIdentity
+
+	testData := []struct {
+		schemaModelFieldType resourcemanager.TerraformSchemaFieldType
+		sdkFieldType         resourcemanager.ApiObjectDefinitionType
+		expected             string
+	}{
+		{
+			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeIdentitySystemAssigned,
+			sdkFieldType:         resourcemanager.SystemAssignedIdentityApiObjectDefinitionType,
+			expected: fmt.Sprintf(`
+	identity, err := identity.ExpandSystemAssignedFromModel(input.Identity)
+	if err != nil {
+		return fmt.Errorf("expanding SystemAssigned Identity: %%+v", err)
+	}
+	output.Identity = identity
+`),
+		},
+	}
+	for i, v := range testData {
+		t.Logf("Test %d - mapping %q to %q", i, string(v.schemaModelFieldType), string(v.sdkFieldType))
+		mapping := resourcemanager.FieldMappingDefinition{
+			Type: resourcemanager.DirectAssignmentMappingDefinitionType,
+			DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
+				SchemaModelName: "FromModel",
+				SchemaFieldPath: "Identity",
+				SdkFieldPath:    "Identity",
+				SdkModelName:    "ToModel",
+			},
+		}
+		schemaModel := resourcemanager.TerraformSchemaModelDefinition{
+			Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+				"Identity": {
+					ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+						Type: v.schemaModelFieldType,
+					},
+					HclName:  "identity",
+					Optional: true,
+				},
+			},
+		}
+		sdkModel := resourcemanager.ModelDetails{
+			Fields: map[string]resourcemanager.FieldDetails{
+				"Identity": {
+					JsonName: "identity",
+					ObjectDefinition: resourcemanager.ApiObjectDefinition{
+						Type: v.sdkFieldType,
+					},
+					Optional: true,
+				},
+			},
+		}
+		actual, err := directAssignmentLine{}.assignmentForCreateUpdateMapping(mapping, schemaModel, sdkModel, nil, "sdkresource")
+		if err != nil {
+			t.Fatalf("retrieving create/update assignment mapping: %+v", err)
+		}
+		if actual == nil {
+			t.Fatalf("retrieving create/update assignment mapping: `actual` was nil")
+		}
+		testhelpers.AssertTemplatedCodeMatches(t, v.expected, *actual)
+	}
+}
+
+func TestDirectAssignment_CreateOrUpdate_Identity_SystemAndUserAssigned_RequiredToRequired(t *testing.T) {
+	// mapping a Schema Model Field (Required) to an SDK Field (Required) for SystemAndUserAssignedIdentity
+
+	testData := []struct {
+		schemaModelFieldType resourcemanager.TerraformSchemaFieldType
+		sdkFieldType         resourcemanager.ApiObjectDefinitionType
+		expected             string
+	}{
+		{
+			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeIdentitySystemAndUserAssigned,
+			sdkFieldType:         resourcemanager.SystemAndUserAssignedIdentityMapApiObjectDefinitionType,
+			expected: fmt.Sprintf(`
+   identity, err := identity.ExpandSystemAndUserAssignedMapFromModel(input.Identity)
+   if err != nil {
+      return fmt.Errorf("expanding SystemAndUserAssigned Identity: %%+v", err)
+   }
+   output.Identity = identity
+`),
+		},
+	}
+	for i, v := range testData {
+		t.Logf("Test %d - mapping %q to %q", i, string(v.schemaModelFieldType), string(v.sdkFieldType))
+		mapping := resourcemanager.FieldMappingDefinition{
+			Type: resourcemanager.DirectAssignmentMappingDefinitionType,
+			DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
+				SchemaModelName: "FromModel",
+				SchemaFieldPath: "Identity",
+				SdkFieldPath:    "Identity",
+				SdkModelName:    "ToModel",
+			},
+		}
+		schemaModel := resourcemanager.TerraformSchemaModelDefinition{
+			Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+				"Identity": {
+					ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+						Type: v.schemaModelFieldType,
+					},
+					HclName:  "identity",
+					Required: true,
+				},
+			},
+		}
+		sdkModel := resourcemanager.ModelDetails{
+			Fields: map[string]resourcemanager.FieldDetails{
+				"Identity": {
+					JsonName: "identity",
+					ObjectDefinition: resourcemanager.ApiObjectDefinition{
+						Type: v.sdkFieldType,
+					},
+					Required: true,
+				},
+			},
+		}
+		actual, err := directAssignmentLine{}.assignmentForCreateUpdateMapping(mapping, schemaModel, sdkModel, nil, "sdkresource")
+		if err != nil {
+			t.Fatalf("retrieving create/update assignment mapping: %+v", err)
+		}
+		if actual == nil {
+			t.Fatalf("retrieving create/update assignment mapping: `actual` was nil")
+		}
+		testhelpers.AssertTemplatedCodeMatches(t, v.expected, *actual)
+	}
+}
+
+func TestDirectAssignment_CreateOrUpdate_Identity_SystemAndUserAssigned_RequiredToOptional(t *testing.T) {
+	// mapping a Schema Model Field (Required) to an SDK Field (Optional) for SystemAndUserAssignedIdentity
+
+	testData := []struct {
+		schemaModelFieldType resourcemanager.TerraformSchemaFieldType
+		sdkFieldType         resourcemanager.ApiObjectDefinitionType
+		expected             string
+	}{
+		{
+			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeIdentitySystemAndUserAssigned,
+			sdkFieldType:         resourcemanager.SystemAndUserAssignedIdentityMapApiObjectDefinitionType,
+			expected: fmt.Sprintf(`
+   identity, err := identity.ExpandSystemAndUserAssignedMapFromModel(input.Identity)
+   if err != nil {
+      return fmt.Errorf("expanding SystemAndUserAssigned Identity: %%+v", err)
+   }
+   output.Identity = identity
+`),
+		},
+	}
+	for i, v := range testData {
+		t.Logf("Test %d - mapping %q to %q", i, string(v.schemaModelFieldType), string(v.sdkFieldType))
+		mapping := resourcemanager.FieldMappingDefinition{
+			Type: resourcemanager.DirectAssignmentMappingDefinitionType,
+			DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
+				SchemaModelName: "FromModel",
+				SchemaFieldPath: "Identity",
+				SdkFieldPath:    "Identity",
+				SdkModelName:    "ToModel",
+			},
+		}
+		schemaModel := resourcemanager.TerraformSchemaModelDefinition{
+			Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+				"Identity": {
+					ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+						Type: v.schemaModelFieldType,
+					},
+					HclName:  "identity",
+					Required: true,
+				},
+			},
+		}
+		sdkModel := resourcemanager.ModelDetails{
+			Fields: map[string]resourcemanager.FieldDetails{
+				"Identity": {
+					JsonName: "identity",
+					ObjectDefinition: resourcemanager.ApiObjectDefinition{
+						Type: v.sdkFieldType,
+					},
+					Optional: true,
+				},
+			},
+		}
+		actual, err := directAssignmentLine{}.assignmentForCreateUpdateMapping(mapping, schemaModel, sdkModel, nil, "sdkresource")
+		if err != nil {
+			t.Fatalf("retrieving create/update assignment mapping: %+v", err)
+		}
+		if actual == nil {
+			t.Fatalf("retrieving create/update assignment mapping: `actual` was nil")
+		}
+		testhelpers.AssertTemplatedCodeMatches(t, v.expected, *actual)
+	}
+}
+
+func TestDirectAssignment_CreateOrUpdate_Identity_SystemAndUserAssigned_OptionalToRequired(t *testing.T) {
+	// mapping a Schema Model Field (Optional) to an SDK Field (Required) for tags
+	// this has to be mapped, so is a Schema error / we should raise an error
+
+	testData := []struct {
+		schemaModelFieldType resourcemanager.TerraformSchemaFieldType
+		sdkFieldType         resourcemanager.ApiObjectDefinitionType
+	}{
+		{
+			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeIdentitySystemAndUserAssigned,
+			sdkFieldType:         resourcemanager.SystemAndUserAssignedIdentityMapApiObjectDefinitionType,
+		},
+	}
+	for i, v := range testData {
+		t.Logf("Test %d - mapping %q to %q", i, string(v.schemaModelFieldType), string(v.sdkFieldType))
+		mapping := resourcemanager.FieldMappingDefinition{
+			Type: resourcemanager.DirectAssignmentMappingDefinitionType,
+			DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
+				SchemaModelName: "FromModel",
+				SchemaFieldPath: "Identity",
+				SdkFieldPath:    "Identity",
+				SdkModelName:    "ToModel",
+			},
+		}
+		schemaModel := resourcemanager.TerraformSchemaModelDefinition{
+			Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+				"Identity": {
+					ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+						Type: v.schemaModelFieldType,
+					},
+					HclName:  "identity",
+					Optional: true,
+				},
+			},
+		}
+		sdkModel := resourcemanager.ModelDetails{
+			Fields: map[string]resourcemanager.FieldDetails{
+				"Identity": {
+					JsonName: "identity",
+					ObjectDefinition: resourcemanager.ApiObjectDefinition{
+						Type: v.sdkFieldType,
+					},
+					Required: true,
+				},
+			},
+		}
+		actual, err := directAssignmentLine{}.assignmentForCreateUpdateMapping(mapping, schemaModel, sdkModel, nil, "sdkresource")
+		if err == nil {
+			t.Fatalf("expected an error but didn't get one")
+		}
+		if actual != nil {
+			t.Fatalf("expected an error and no result but got a result (%q) and no error", *actual)
+		}
+	}
+}
+
+func TestDirectAssignment_CreateOrUpdate_Identity_SystemAndUserAssigned_OptionalToOptional(t *testing.T) {
+	// mapping a Schema Model Field (Optional) to an SDK Field (Optional) for SystemAndUserAssignedIdentity
+
+	testData := []struct {
+		schemaModelFieldType resourcemanager.TerraformSchemaFieldType
+		sdkFieldType         resourcemanager.ApiObjectDefinitionType
+		expected             string
+	}{
+		{
+			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeIdentitySystemAndUserAssigned,
+			sdkFieldType:         resourcemanager.SystemAndUserAssignedIdentityMapApiObjectDefinitionType,
+			expected: fmt.Sprintf(`
+   identity, err := identity.ExpandSystemAndUserAssignedMapFromModel(input.Identity)
+   if err != nil {
+      return fmt.Errorf("expanding SystemAndUserAssigned Identity: %%+v", err)
+   }
+   output.Identity = identity
+`),
+		},
+	}
+	for i, v := range testData {
+		t.Logf("Test %d - mapping %q to %q", i, string(v.schemaModelFieldType), string(v.sdkFieldType))
+		mapping := resourcemanager.FieldMappingDefinition{
+			Type: resourcemanager.DirectAssignmentMappingDefinitionType,
+			DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
+				SchemaModelName: "FromModel",
+				SchemaFieldPath: "Identity",
+				SdkFieldPath:    "Identity",
+				SdkModelName:    "ToModel",
+			},
+		}
+		schemaModel := resourcemanager.TerraformSchemaModelDefinition{
+			Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+				"Identity": {
+					ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+						Type: v.schemaModelFieldType,
+					},
+					HclName:  "identity",
+					Optional: true,
+				},
+			},
+		}
+		sdkModel := resourcemanager.ModelDetails{
+			Fields: map[string]resourcemanager.FieldDetails{
+				"Identity": {
+					JsonName: "identity",
+					ObjectDefinition: resourcemanager.ApiObjectDefinition{
+						Type: v.sdkFieldType,
+					},
+					Optional: true,
+				},
+			},
+		}
+		actual, err := directAssignmentLine{}.assignmentForCreateUpdateMapping(mapping, schemaModel, sdkModel, nil, "sdkresource")
+		if err != nil {
+			t.Fatalf("retrieving create/update assignment mapping: %+v", err)
+		}
+		if actual == nil {
+			t.Fatalf("retrieving create/update assignment mapping: `actual` was nil")
+		}
+		testhelpers.AssertTemplatedCodeMatches(t, v.expected, *actual)
+	}
+}
+
+func TestDirectAssignment_CreateOrUpdate_Identity_SystemOrUserAssigned_RequiredToRequired(t *testing.T) {
+	// mapping a Schema Model Field (Required) to an SDK Field (Required) for SystemOrUserAssignedIdentity
+
+	testData := []struct {
+		schemaModelFieldType resourcemanager.TerraformSchemaFieldType
+		sdkFieldType         resourcemanager.ApiObjectDefinitionType
+		expected             string
+	}{
+		{
+			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeIdentitySystemOrUserAssigned,
+			sdkFieldType:         resourcemanager.SystemOrUserAssignedIdentityMapApiObjectDefinitionType,
+			expected: fmt.Sprintf(`
+   identity, err := identity.ExpandSystemOrUserAssignedMapFromModel(input.Identity)
+   if err != nil {
+      return fmt.Errorf("expanding SystemOrUserAssigned Identity: %%+v", err)
+   }
+   output.Identity = identity
+`),
+		},
+	}
+	for i, v := range testData {
+		t.Logf("Test %d - mapping %q to %q", i, string(v.schemaModelFieldType), string(v.sdkFieldType))
+		mapping := resourcemanager.FieldMappingDefinition{
+			Type: resourcemanager.DirectAssignmentMappingDefinitionType,
+			DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
+				SchemaModelName: "FromModel",
+				SchemaFieldPath: "Identity",
+				SdkFieldPath:    "Identity",
+				SdkModelName:    "ToModel",
+			},
+		}
+		schemaModel := resourcemanager.TerraformSchemaModelDefinition{
+			Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+				"Identity": {
+					ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+						Type: v.schemaModelFieldType,
+					},
+					HclName:  "identity",
+					Required: true,
+				},
+			},
+		}
+		sdkModel := resourcemanager.ModelDetails{
+			Fields: map[string]resourcemanager.FieldDetails{
+				"Identity": {
+					JsonName: "identity",
+					ObjectDefinition: resourcemanager.ApiObjectDefinition{
+						Type: v.sdkFieldType,
+					},
+					Required: true,
+				},
+			},
+		}
+		actual, err := directAssignmentLine{}.assignmentForCreateUpdateMapping(mapping, schemaModel, sdkModel, nil, "sdkresource")
+		if err != nil {
+			t.Fatalf("retrieving create/update assignment mapping: %+v", err)
+		}
+		if actual == nil {
+			t.Fatalf("retrieving create/update assignment mapping: `actual` was nil")
+		}
+		testhelpers.AssertTemplatedCodeMatches(t, v.expected, *actual)
+	}
+}
+
+func TestDirectAssignment_CreateOrUpdate_Identity_SystemOrUserAssigned_RequiredToOptional(t *testing.T) {
+	// mapping a Schema Model Field (Required) to an SDK Field (Optional) for SystemAndUserAssignedIdentity
+
+	testData := []struct {
+		schemaModelFieldType resourcemanager.TerraformSchemaFieldType
+		sdkFieldType         resourcemanager.ApiObjectDefinitionType
+		expected             string
+	}{
+		{
+			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeIdentitySystemOrUserAssigned,
+			sdkFieldType:         resourcemanager.SystemOrUserAssignedIdentityMapApiObjectDefinitionType,
+			expected: fmt.Sprintf(`
+   identity, err := identity.ExpandSystemOrUserAssignedMapFromModel(input.Identity)
+   if err != nil {
+      return fmt.Errorf("expanding SystemOrUserAssigned Identity: %%+v", err)
+   }
+   output.Identity = identity
+`),
+		},
+	}
+	for i, v := range testData {
+		t.Logf("Test %d - mapping %q to %q", i, string(v.schemaModelFieldType), string(v.sdkFieldType))
+		mapping := resourcemanager.FieldMappingDefinition{
+			Type: resourcemanager.DirectAssignmentMappingDefinitionType,
+			DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
+				SchemaModelName: "FromModel",
+				SchemaFieldPath: "Identity",
+				SdkFieldPath:    "Identity",
+				SdkModelName:    "ToModel",
+			},
+		}
+		schemaModel := resourcemanager.TerraformSchemaModelDefinition{
+			Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+				"Identity": {
+					ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+						Type: v.schemaModelFieldType,
+					},
+					HclName:  "identity",
+					Required: true,
+				},
+			},
+		}
+		sdkModel := resourcemanager.ModelDetails{
+			Fields: map[string]resourcemanager.FieldDetails{
+				"Identity": {
+					JsonName: "identity",
+					ObjectDefinition: resourcemanager.ApiObjectDefinition{
+						Type: v.sdkFieldType,
+					},
+					Optional: true,
+				},
+			},
+		}
+		actual, err := directAssignmentLine{}.assignmentForCreateUpdateMapping(mapping, schemaModel, sdkModel, nil, "sdkresource")
+		if err != nil {
+			t.Fatalf("retrieving create/update assignment mapping: %+v", err)
+		}
+		if actual == nil {
+			t.Fatalf("retrieving create/update assignment mapping: `actual` was nil")
+		}
+		testhelpers.AssertTemplatedCodeMatches(t, v.expected, *actual)
+	}
+}
+
+func TestDirectAssignment_CreateOrUpdate_Identity_SystemOrUserAssigned_OptionalToRequired(t *testing.T) {
+	// mapping a Schema Model Field (Optional) to an SDK Field (Required) for tags
+	// this has to be mapped, so is a Schema error / we should raise an error
+
+	testData := []struct {
+		schemaModelFieldType resourcemanager.TerraformSchemaFieldType
+		sdkFieldType         resourcemanager.ApiObjectDefinitionType
+	}{
+		{
+			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeIdentitySystemOrUserAssigned,
+			sdkFieldType:         resourcemanager.SystemOrUserAssignedIdentityMapApiObjectDefinitionType,
+		},
+	}
+	for i, v := range testData {
+		t.Logf("Test %d - mapping %q to %q", i, string(v.schemaModelFieldType), string(v.sdkFieldType))
+		mapping := resourcemanager.FieldMappingDefinition{
+			Type: resourcemanager.DirectAssignmentMappingDefinitionType,
+			DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
+				SchemaModelName: "FromModel",
+				SchemaFieldPath: "Identity",
+				SdkFieldPath:    "Identity",
+				SdkModelName:    "ToModel",
+			},
+		}
+		schemaModel := resourcemanager.TerraformSchemaModelDefinition{
+			Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+				"Identity": {
+					ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+						Type: v.schemaModelFieldType,
+					},
+					HclName:  "identity",
+					Optional: true,
+				},
+			},
+		}
+		sdkModel := resourcemanager.ModelDetails{
+			Fields: map[string]resourcemanager.FieldDetails{
+				"Identity": {
+					JsonName: "identity",
+					ObjectDefinition: resourcemanager.ApiObjectDefinition{
+						Type: v.sdkFieldType,
+					},
+					Required: true,
+				},
+			},
+		}
+		actual, err := directAssignmentLine{}.assignmentForCreateUpdateMapping(mapping, schemaModel, sdkModel, nil, "sdkresource")
+		if err == nil {
+			t.Fatalf("expected an error but didn't get one")
+		}
+		if actual != nil {
+			t.Fatalf("expected an error and no result but got a result (%q) and no error", *actual)
+		}
+	}
+}
+
+func TestDirectAssignment_CreateOrUpdate_Identity_SystemOrUserAssigned_OptionalToOptional(t *testing.T) {
+	// mapping a Schema Model Field (Optional) to an SDK Field (Optional) for SystemOrUserAssignedIdentity
+
+	testData := []struct {
+		schemaModelFieldType resourcemanager.TerraformSchemaFieldType
+		sdkFieldType         resourcemanager.ApiObjectDefinitionType
+		expected             string
+	}{
+		{
+			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeIdentitySystemOrUserAssigned,
+			sdkFieldType:         resourcemanager.SystemOrUserAssignedIdentityMapApiObjectDefinitionType,
+			expected: fmt.Sprintf(`
+   identity, err := identity.ExpandSystemOrUserAssignedMapFromModel(input.Identity)
+   if err != nil {
+      return fmt.Errorf("expanding SystemOrUserAssigned Identity: %%+v", err)
+   }
+   output.Identity = identity
+`),
+		},
+	}
+	for i, v := range testData {
+		t.Logf("Test %d - mapping %q to %q", i, string(v.schemaModelFieldType), string(v.sdkFieldType))
+		mapping := resourcemanager.FieldMappingDefinition{
+			Type: resourcemanager.DirectAssignmentMappingDefinitionType,
+			DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
+				SchemaModelName: "FromModel",
+				SchemaFieldPath: "Identity",
+				SdkFieldPath:    "Identity",
+				SdkModelName:    "ToModel",
+			},
+		}
+		schemaModel := resourcemanager.TerraformSchemaModelDefinition{
+			Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+				"Identity": {
+					ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+						Type: v.schemaModelFieldType,
+					},
+					HclName:  "identity",
+					Optional: true,
+				},
+			},
+		}
+		sdkModel := resourcemanager.ModelDetails{
+			Fields: map[string]resourcemanager.FieldDetails{
+				"Identity": {
+					JsonName: "identity",
+					ObjectDefinition: resourcemanager.ApiObjectDefinition{
+						Type: v.sdkFieldType,
+					},
+					Optional: true,
+				},
+			},
+		}
+		actual, err := directAssignmentLine{}.assignmentForCreateUpdateMapping(mapping, schemaModel, sdkModel, nil, "sdkresource")
+		if err != nil {
+			t.Fatalf("retrieving create/update assignment mapping: %+v", err)
+		}
+		if actual == nil {
+			t.Fatalf("retrieving create/update assignment mapping: `actual` was nil")
+		}
+		testhelpers.AssertTemplatedCodeMatches(t, v.expected, *actual)
+	}
+}
+
+func TestDirectAssignment_CreateOrUpdate_Identity_UserAssigned_RequiredToRequired(t *testing.T) {
+	// mapping a Schema Model Field (Required) to an SDK Field (Required) for UserAssignedIdentity
+
+	testData := []struct {
+		schemaModelFieldType resourcemanager.TerraformSchemaFieldType
+		sdkFieldType         resourcemanager.ApiObjectDefinitionType
+		expected             string
+	}{
+		{
+			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeIdentityUserAssigned,
+			sdkFieldType:         resourcemanager.UserAssignedIdentityListApiObjectDefinitionType,
+			expected: fmt.Sprintf(`
+   identity, err := identity.ExpandUserAssignedListFromModel(input.Identity)
+   if err != nil {
+      return fmt.Errorf("expanding UserAssigned Identity: %%+v", err)
+   }
+   output.Identity = identity
+`),
+		},
+	}
+	for i, v := range testData {
+		t.Logf("Test %d - mapping %q to %q", i, string(v.schemaModelFieldType), string(v.sdkFieldType))
+		mapping := resourcemanager.FieldMappingDefinition{
+			Type: resourcemanager.DirectAssignmentMappingDefinitionType,
+			DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
+				SchemaModelName: "FromModel",
+				SchemaFieldPath: "Identity",
+				SdkFieldPath:    "Identity",
+				SdkModelName:    "ToModel",
+			},
+		}
+		schemaModel := resourcemanager.TerraformSchemaModelDefinition{
+			Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+				"Identity": {
+					ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+						Type: v.schemaModelFieldType,
+					},
+					HclName:  "identity",
+					Required: true,
+				},
+			},
+		}
+		sdkModel := resourcemanager.ModelDetails{
+			Fields: map[string]resourcemanager.FieldDetails{
+				"Identity": {
+					JsonName: "identity",
+					ObjectDefinition: resourcemanager.ApiObjectDefinition{
+						Type: v.sdkFieldType,
+					},
+					Required: true,
+				},
+			},
+		}
+		actual, err := directAssignmentLine{}.assignmentForCreateUpdateMapping(mapping, schemaModel, sdkModel, nil, "sdkresource")
+		if err != nil {
+			t.Fatalf("retrieving create/update assignment mapping: %+v", err)
+		}
+		if actual == nil {
+			t.Fatalf("retrieving create/update assignment mapping: `actual` was nil")
+		}
+		testhelpers.AssertTemplatedCodeMatches(t, v.expected, *actual)
+	}
+}
+
+func TestDirectAssignment_CreateOrUpdate_Identity_UserAssigned_RequiredToOptional(t *testing.T) {
+	// mapping a Schema Model Field (Required) to an SDK Field (Optional) for UserAssignedIdentity
+
+	testData := []struct {
+		schemaModelFieldType resourcemanager.TerraformSchemaFieldType
+		sdkFieldType         resourcemanager.ApiObjectDefinitionType
+		expected             string
+	}{
+		{
+			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeIdentityUserAssigned,
+			sdkFieldType:         resourcemanager.UserAssignedIdentityListApiObjectDefinitionType,
+			expected: fmt.Sprintf(`
+   identity, err := identity.ExpandUserAssignedListFromModel(input.Identity)
+   if err != nil {
+      return fmt.Errorf("expanding UserAssigned Identity: %%+v", err)
+   }
+   output.Identity = identity
+`),
+		},
+	}
+	for i, v := range testData {
+		t.Logf("Test %d - mapping %q to %q", i, string(v.schemaModelFieldType), string(v.sdkFieldType))
+		mapping := resourcemanager.FieldMappingDefinition{
+			Type: resourcemanager.DirectAssignmentMappingDefinitionType,
+			DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
+				SchemaModelName: "FromModel",
+				SchemaFieldPath: "Identity",
+				SdkFieldPath:    "Identity",
+				SdkModelName:    "ToModel",
+			},
+		}
+		schemaModel := resourcemanager.TerraformSchemaModelDefinition{
+			Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+				"Identity": {
+					ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+						Type: v.schemaModelFieldType,
+					},
+					HclName:  "identity",
+					Required: true,
+				},
+			},
+		}
+		sdkModel := resourcemanager.ModelDetails{
+			Fields: map[string]resourcemanager.FieldDetails{
+				"Identity": {
+					JsonName: "identity",
+					ObjectDefinition: resourcemanager.ApiObjectDefinition{
+						Type: v.sdkFieldType,
+					},
+					Optional: true,
+				},
+			},
+		}
+		actual, err := directAssignmentLine{}.assignmentForCreateUpdateMapping(mapping, schemaModel, sdkModel, nil, "sdkresource")
+		if err != nil {
+			t.Fatalf("retrieving create/update assignment mapping: %+v", err)
+		}
+		if actual == nil {
+			t.Fatalf("retrieving create/update assignment mapping: `actual` was nil")
+		}
+		testhelpers.AssertTemplatedCodeMatches(t, v.expected, *actual)
+	}
+}
+
+func TestDirectAssignment_CreateOrUpdate_Identity_UserAssigned_OptionalToRequired(t *testing.T) {
+	// mapping a Schema Model Field (Optional) to an SDK Field (Required) for tags
+	// this has to be mapped, so is a Schema error / we should raise an error
+
+	testData := []struct {
+		schemaModelFieldType resourcemanager.TerraformSchemaFieldType
+		sdkFieldType         resourcemanager.ApiObjectDefinitionType
+	}{
+		{
+			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeIdentityUserAssigned,
+			sdkFieldType:         resourcemanager.UserAssignedIdentityListApiObjectDefinitionType,
+		},
+	}
+	for i, v := range testData {
+		t.Logf("Test %d - mapping %q to %q", i, string(v.schemaModelFieldType), string(v.sdkFieldType))
+		mapping := resourcemanager.FieldMappingDefinition{
+			Type: resourcemanager.DirectAssignmentMappingDefinitionType,
+			DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
+				SchemaModelName: "FromModel",
+				SchemaFieldPath: "Identity",
+				SdkFieldPath:    "Identity",
+				SdkModelName:    "ToModel",
+			},
+		}
+		schemaModel := resourcemanager.TerraformSchemaModelDefinition{
+			Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+				"Identity": {
+					ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+						Type: v.schemaModelFieldType,
+					},
+					HclName:  "identity",
+					Optional: true,
+				},
+			},
+		}
+		sdkModel := resourcemanager.ModelDetails{
+			Fields: map[string]resourcemanager.FieldDetails{
+				"Identity": {
+					JsonName: "identity",
+					ObjectDefinition: resourcemanager.ApiObjectDefinition{
+						Type: v.sdkFieldType,
+					},
+					Required: true,
+				},
+			},
+		}
+		actual, err := directAssignmentLine{}.assignmentForCreateUpdateMapping(mapping, schemaModel, sdkModel, nil, "sdkresource")
+		if err == nil {
+			t.Fatalf("expected an error but didn't get one")
+		}
+		if actual != nil {
+			t.Fatalf("expected an error and no result but got a result (%q) and no error", *actual)
+		}
+	}
+}
+
+func TestDirectAssignment_CreateOrUpdate_Identity_UserAssigned_OptionalToOptional(t *testing.T) {
+	// mapping a Schema Model Field (Optional) to an SDK Field (Optional) for UserAssignedIdentity
+
+	testData := []struct {
+		schemaModelFieldType resourcemanager.TerraformSchemaFieldType
+		sdkFieldType         resourcemanager.ApiObjectDefinitionType
+		expected             string
+	}{
+		{
+			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeIdentityUserAssigned,
+			sdkFieldType:         resourcemanager.UserAssignedIdentityListApiObjectDefinitionType,
+			expected: fmt.Sprintf(`
+   identity, err := identity.ExpandUserAssignedListFromModel(input.Identity)
+   if err != nil {
+      return fmt.Errorf("expanding UserAssigned Identity: %%+v", err)
+   }
+   output.Identity = identity
+`),
+		},
+	}
+	for i, v := range testData {
+		t.Logf("Test %d - mapping %q to %q", i, string(v.schemaModelFieldType), string(v.sdkFieldType))
+		mapping := resourcemanager.FieldMappingDefinition{
+			Type: resourcemanager.DirectAssignmentMappingDefinitionType,
+			DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
+				SchemaModelName: "FromModel",
+				SchemaFieldPath: "Identity",
+				SdkFieldPath:    "Identity",
+				SdkModelName:    "ToModel",
+			},
+		}
+		schemaModel := resourcemanager.TerraformSchemaModelDefinition{
+			Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+				"Identity": {
+					ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+						Type: v.schemaModelFieldType,
+					},
+					HclName:  "identity",
+					Optional: true,
+				},
+			},
+		}
+		sdkModel := resourcemanager.ModelDetails{
+			Fields: map[string]resourcemanager.FieldDetails{
+				"Identity": {
+					JsonName: "identity",
+					ObjectDefinition: resourcemanager.ApiObjectDefinition{
+						Type: v.sdkFieldType,
+					},
+					Optional: true,
+				},
+			},
+		}
+		actual, err := directAssignmentLine{}.assignmentForCreateUpdateMapping(mapping, schemaModel, sdkModel, nil, "sdkresource")
+		if err != nil {
+			t.Fatalf("retrieving create/update assignment mapping: %+v", err)
+		}
+		if actual == nil {
+			t.Fatalf("retrieving create/update assignment mapping: `actual` was nil")
+		}
+		testhelpers.AssertTemplatedCodeMatches(t, v.expected, *actual)
+	}
+}
+
+func TestDirectAssignment_CreateOrUpdate_Zones_RequiredToRequired(t *testing.T) {
+	// mapping a Schema Model Field (Required) to an SDK Field (Required) for zones
+
+	testData := []struct {
+		schemaModelFieldType resourcemanager.TerraformSchemaFieldType
+		sdkFieldType         resourcemanager.ApiObjectDefinitionType
+		expected             string
+	}{
+		{
+			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeZones,
+			sdkFieldType:         resourcemanager.ZonesApiObjectDefinitionType,
+			expected:             "output.Zones = zones.Expand(input.Zones)",
+		},
+	}
+	for i, v := range testData {
+		t.Logf("Test %d - mapping %q to %q", i, string(v.schemaModelFieldType), string(v.sdkFieldType))
+		mapping := resourcemanager.FieldMappingDefinition{
+			Type: resourcemanager.DirectAssignmentMappingDefinitionType,
+			DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
+				SchemaModelName: "FromModel",
+				SchemaFieldPath: "Zones",
+				SdkFieldPath:    "Zones",
+				SdkModelName:    "ToModel",
+			},
+		}
+		schemaModel := resourcemanager.TerraformSchemaModelDefinition{
+			Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+				"Zones": {
+					ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+						Type: v.schemaModelFieldType,
+					},
+					HclName:  "zones",
+					Required: true,
+				},
+			},
+		}
+		sdkModel := resourcemanager.ModelDetails{
+			Fields: map[string]resourcemanager.FieldDetails{
+				"Zones": {
+					JsonName: "zones",
+					ObjectDefinition: resourcemanager.ApiObjectDefinition{
+						Type: v.sdkFieldType,
+					},
+					Required: true,
+				},
+			},
+		}
+		actual, err := directAssignmentLine{}.assignmentForCreateUpdateMapping(mapping, schemaModel, sdkModel, nil, "sdkresource")
+		if err != nil {
+			t.Fatalf("retrieving create/update assignment mapping: %+v", err)
+		}
+		if actual == nil {
+			t.Fatalf("retrieving create/update assignment mapping: `actual` was nil")
+		}
+		testhelpers.AssertTemplatedCodeMatches(t, v.expected, *actual)
+	}
+}
+
+func TestDirectAssignment_CreateOrUpdate_Zones_RequiredToOptional(t *testing.T) {
+	// mapping a Schema Model Field (Required) to an SDK Field (Optional) for zones
+
+	testData := []struct {
+		schemaModelFieldType resourcemanager.TerraformSchemaFieldType
+		sdkFieldType         resourcemanager.ApiObjectDefinitionType
+		expected             string
+	}{
+		{
+			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeZones,
+			sdkFieldType:         resourcemanager.ZonesApiObjectDefinitionType,
+			expected:             "output.Zones = zones.Expand(input.Zones)",
+		},
+	}
+	for i, v := range testData {
+		t.Logf("Test %d - mapping %q to %q", i, string(v.schemaModelFieldType), string(v.sdkFieldType))
+		mapping := resourcemanager.FieldMappingDefinition{
+			Type: resourcemanager.DirectAssignmentMappingDefinitionType,
+			DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
+				SchemaModelName: "FromModel",
+				SchemaFieldPath: "Zones",
+				SdkFieldPath:    "Zones",
+				SdkModelName:    "ToModel",
+			},
+		}
+		schemaModel := resourcemanager.TerraformSchemaModelDefinition{
+			Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+				"Zones": {
+					ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+						Type: v.schemaModelFieldType,
+					},
+					HclName:  "zones",
+					Required: true,
+				},
+			},
+		}
+		sdkModel := resourcemanager.ModelDetails{
+			Fields: map[string]resourcemanager.FieldDetails{
+				"Zones": {
+					JsonName: "zones",
+					ObjectDefinition: resourcemanager.ApiObjectDefinition{
+						Type: v.sdkFieldType,
+					},
+					Optional: true,
+				},
+			},
+		}
+		actual, err := directAssignmentLine{}.assignmentForCreateUpdateMapping(mapping, schemaModel, sdkModel, nil, "sdkresource")
+		if err != nil {
+			t.Fatalf("retrieving create/update assignment mapping: %+v", err)
+		}
+		if actual == nil {
+			t.Fatalf("retrieving create/update assignment mapping: `actual` was nil")
+		}
+		testhelpers.AssertTemplatedCodeMatches(t, v.expected, *actual)
+	}
+}
+
+func TestDirectAssignment_CreateOrUpdate_Zones_OptionalToRequired(t *testing.T) {
+	// mapping a Schema Model Field (Optional) to an SDK Field (Required) for tags
+	// this has to be mapped, so is a Schema error / we should raise an error
+
+	testData := []struct {
+		schemaModelFieldType resourcemanager.TerraformSchemaFieldType
+		sdkFieldType         resourcemanager.ApiObjectDefinitionType
+	}{
+		{
+			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeZones,
+			sdkFieldType:         resourcemanager.ZonesApiObjectDefinitionType,
+		},
+	}
+	for i, v := range testData {
+		t.Logf("Test %d - mapping %q to %q", i, string(v.schemaModelFieldType), string(v.sdkFieldType))
+		mapping := resourcemanager.FieldMappingDefinition{
+			Type: resourcemanager.DirectAssignmentMappingDefinitionType,
+			DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
+				SchemaModelName: "FromModel",
+				SchemaFieldPath: "Zones",
+				SdkFieldPath:    "Zones",
+				SdkModelName:    "ToModel",
+			},
+		}
+		schemaModel := resourcemanager.TerraformSchemaModelDefinition{
+			Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+				"Zones": {
+					ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+						Type: v.schemaModelFieldType,
+					},
+					HclName:  "zones",
+					Optional: true,
+				},
+			},
+		}
+		sdkModel := resourcemanager.ModelDetails{
+			Fields: map[string]resourcemanager.FieldDetails{
+				"Zones": {
+					JsonName: "zones",
+					ObjectDefinition: resourcemanager.ApiObjectDefinition{
+						Type: v.sdkFieldType,
+					},
+					Required: true,
+				},
+			},
+		}
+		actual, err := directAssignmentLine{}.assignmentForCreateUpdateMapping(mapping, schemaModel, sdkModel, nil, "sdkresource")
+		if err == nil {
+			t.Fatalf("expected an error but didn't get one")
+		}
+		if actual != nil {
+			t.Fatalf("expected an error and no result but got a result (%q) and no error", *actual)
+		}
+	}
+}
+
+func TestDirectAssignment_CreateOrUpdate_Zones_OptionalToOptional(t *testing.T) {
+	// mapping a Schema Model Field (Optional) to an SDK Field (Optional) for zones
+
+	testData := []struct {
+		schemaModelFieldType resourcemanager.TerraformSchemaFieldType
+		sdkFieldType         resourcemanager.ApiObjectDefinitionType
+		expected             string
+	}{
+		{
+			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeZones,
+			sdkFieldType:         resourcemanager.ZonesApiObjectDefinitionType,
+			expected:             "output.Zones = zones.Expand(input.Zones)",
+		},
+	}
+	for i, v := range testData {
+		t.Logf("Test %d - mapping %q to %q", i, string(v.schemaModelFieldType), string(v.sdkFieldType))
+		mapping := resourcemanager.FieldMappingDefinition{
+			Type: resourcemanager.DirectAssignmentMappingDefinitionType,
+			DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
+				SchemaModelName: "FromModel",
+				SchemaFieldPath: "Zones",
+				SdkFieldPath:    "Zones",
+				SdkModelName:    "ToModel",
+			},
+		}
+		schemaModel := resourcemanager.TerraformSchemaModelDefinition{
+			Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+				"Zones": {
+					ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+						Type: v.schemaModelFieldType,
+					},
+					HclName:  "zones",
+					Optional: true,
+				},
+			},
+		}
+		sdkModel := resourcemanager.ModelDetails{
+			Fields: map[string]resourcemanager.FieldDetails{
+				"Zones": {
+					JsonName: "zones",
 					ObjectDefinition: resourcemanager.ApiObjectDefinition{
 						Type: v.sdkFieldType,
 					},

@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"strings"
 
+	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/sdk/config/definitions"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
@@ -12,7 +13,7 @@ import (
 
 // FindCandidates returns a list of candidate Data Sources and Resources
 // within the specified Service
-func FindCandidates(input services.Resource, resourceDefinitions map[string]definitions.ResourceDefinition, apiResourceName string, logger hclog.Logger) resourcemanager.TerraformDetails {
+func FindCandidates(input services.Resource, resourceDefinitions map[string]definitions.ResourceDefinition, apiResourceName string, logger hclog.Logger) (*resourcemanager.TerraformDetails, error) {
 	out := resourcemanager.TerraformDetails{
 		DataSources: map[string]resourcemanager.TerraformDataSourceDetails{},
 		Resources:   map[string]resourcemanager.TerraformResourceDetails{},
@@ -51,6 +52,18 @@ func FindCandidates(input services.Resource, resourceDefinitions map[string]defi
 				v := strings.ToLower(operationName)
 				// if this is UpdateTags etc, ignore it since the model will be totally unrelated
 				if v != "update" && strings.HasPrefix(v, "update") {
+					continue
+				}
+				objectDefinition := topLevelObjectDefinition(*operation.RequestObject)
+				if objectDefinition.Type != resourcemanager.ReferenceApiObjectDefinitionType {
+					continue
+				}
+				model, ok := input.Schema.Models[*objectDefinition.ReferenceName]
+				if !ok {
+					return nil, fmt.Errorf("the request model %q for operation %q was not found", *objectDefinition.ReferenceName, operationName)
+				}
+				_, hasPropertiesField := model.Fields["Properties"]
+				if !hasPropertiesField {
 					continue
 				}
 
@@ -104,13 +117,15 @@ func FindCandidates(input services.Resource, resourceDefinitions map[string]defi
 			continue
 		}
 
+		var dataSourceDefinition *resourcemanager.TerraformDataSourceDetails
 		if getMethod != nil || hasList {
-			out.DataSources[resourceMetaData.Name] = resourcemanager.TerraformDataSourceDetails{
+			dataSourceDefinition = &resourcemanager.TerraformDataSourceDetails{
 				// TODO: output Singular, Plural and the other stuff..
 			}
 		}
+		var resourceDefinition *resourcemanager.TerraformResourceDetails
 		if createMethod != nil && getMethod != nil && deleteMethod != nil {
-			out.Resources[*resourceLabel] = resourcemanager.TerraformResourceDetails{
+			resourceDefinition = &resourcemanager.TerraformResourceDetails{
 				CreateMethod:         *createMethod,
 				DeleteMethod:         *deleteMethod,
 				DisplayName:          resourceMetaData.Name,
@@ -128,10 +143,99 @@ func FindCandidates(input services.Resource, resourceDefinitions map[string]defi
 				},
 			}
 		}
-	}
-	// TODO: ignore discriminated types
+		// TODO: make use of Data Sources
+		hasDiscriminatedType, err := containsDiscriminatedTypes(resourceDefinition, input)
+		if err != nil {
+			return nil, fmt.Errorf("determining if the Resource Definition for %q contains Discriminated Types: %+v", resourceId.Id, err)
+		}
+		if *hasDiscriminatedType {
+			logger.Debug(fmt.Sprintf("Resource %q is/contains a Discriminated Type - not supported at this time", resourceId.Id))
+			continue
+		}
 
-	return out
+		if dataSourceDefinition != nil {
+			out.DataSources[*resourceLabel] = *dataSourceDefinition
+		}
+		if resourceDefinition != nil {
+			out.Resources[*resourceLabel] = *resourceDefinition
+		}
+	}
+
+	return &out, nil
+}
+
+func containsDiscriminatedTypes(resource *resourcemanager.TerraformResourceDetails, data services.Resource) (*bool, error) {
+	operationNames := make([]string, 0)
+	if resource != nil {
+		operationNames = append(operationNames, []string{
+			resource.CreateMethod.MethodName,
+			resource.DeleteMethod.MethodName,
+			resource.ReadMethod.MethodName,
+		}...)
+		if resource.UpdateMethod != nil {
+			operationNames = append(operationNames, resource.UpdateMethod.MethodName)
+		}
+	}
+	for _, operationName := range operationNames {
+		operation, ok := data.Operations.Operations[operationName]
+		if !ok {
+			return nil, fmt.Errorf("the operation named %q was not found", operationName)
+		}
+
+		if operation.RequestObject != nil {
+			if operation.RequestObject.Type != resourcemanager.ReferenceApiObjectDefinitionType {
+				return nil, fmt.Errorf("request objects must use a reference but got %q", string(operation.RequestObject.Type))
+			}
+			modelName := *operation.RequestObject.ReferenceName
+			model, ok := data.Schema.Models[modelName]
+			if !ok {
+				return nil, fmt.Errorf("the Model %q used for the %q operation Request Object was not found", modelName, operationName)
+			}
+			containsDiscriminatedTypes := modelContainsDiscriminatedTypes(model, data)
+			if containsDiscriminatedTypes {
+				return pointer.FromBool(true), nil
+			}
+		}
+	}
+
+	return pointer.FromBool(false), nil
+}
+
+func modelContainsDiscriminatedTypes(model resourcemanager.ModelDetails, data services.Resource) bool {
+	if model.ParentTypeName != nil || model.TypeHintIn != nil || model.TypeHintValue != nil {
+		return true
+	}
+
+	for _, field := range model.Fields {
+		if field.IsTypeHint {
+			return true
+		}
+
+		// TODO: fix/re-enable this
+		//topLevelObjectDefinition := topLevelObjectDefinition(field.ObjectDefinition)
+		//if topLevelObjectDefinition.Type != resourcemanager.ReferenceApiObjectDefinitionType {
+		//	continue
+		//}
+		//nestedModel, isNestedModel := data.Schema.Models[*topLevelObjectDefinition.ReferenceName]
+		//if !isNestedModel {
+		//	// assume it's a constant
+		//	continue
+		//}
+		//nestedModelIsDiscriminator := modelContainsDiscriminatedTypes(nestedModel, data)
+		//if nestedModelIsDiscriminator {
+		//	return true
+		//}
+	}
+
+	return false
+}
+
+func topLevelObjectDefinition(input resourcemanager.ApiObjectDefinition) resourcemanager.ApiObjectDefinition {
+	if input.NestedItem != nil {
+		return topLevelObjectDefinition(*input.NestedItem)
+	}
+
+	return input
 }
 
 func findResourceName(definitions map[string]definitions.ResourceDefinition, resourceId string) (*string, *definitions.ResourceDefinition) {

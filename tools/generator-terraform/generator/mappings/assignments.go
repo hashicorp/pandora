@@ -96,7 +96,7 @@ func (m *Mappings) SchemaModelToSdkModelAssignmentLine(mappings []resourcemanage
 
 		assignmentLine, err := assignment.assignmentForCreateUpdateMapping(mapping, schemaModel, sdkModel, sdkConstant, m.apiResourcePackageName)
 		if err != nil {
-			return nil, fmt.Errorf("building create/update assignment line for constant assignment type %q: %+v", mapping.Type, err)
+			return nil, fmt.Errorf("building create/update assignment line for assignment type %q (Mapping %q): %+v", string(mapping.Type), mapping.String(), err)
 		}
 		lines = append(lines, *assignmentLine)
 	}

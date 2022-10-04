@@ -14,7 +14,7 @@ func codeForTerraformResourceDefinition(terraformNamespace, apiVersion, apiResou
 		templateForTerraformMethodDefinition("Read", details.ReadMethod, false, apiVersion, apiResource),
 	}
 
-	updateCode := "public MethodDefinition? UpdateMethod => null"
+	updateCode := "public MethodDefinition? UpdateMethod => null;"
 	if details.UpdateMethod != nil {
 		updateCode = templateForTerraformMethodDefinition("Update", *details.UpdateMethod, true, apiVersion, apiResource)
 	}

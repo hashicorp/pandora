@@ -117,7 +117,7 @@ func (b Builder) Build(input resourcemanager.TerraformResourceDetails, logger hc
 	}
 
 	// finally go through and remove any unused models
-	outputSchemaModels, outputMappings, err := removeUnusedModelsAndMappings(input, schemaModels, mappings)
+	outputSchemaModels, outputMappings, err := b.removeUnusedModelsAndMappings(input, schemaModels, mappings, logger.Named("Cleanup unused Models and Mappings"))
 	if err != nil {
 		return nil, nil, fmt.Errorf("removing unused models/mappings: %+v", err)
 	}
@@ -125,7 +125,7 @@ func (b Builder) Build(input resourcemanager.TerraformResourceDetails, logger hc
 	return outputSchemaModels, outputMappings, nil
 }
 
-func removeUnusedModelsAndMappings(input resourcemanager.TerraformResourceDetails, models map[string]resourcemanager.TerraformSchemaModelDefinition, mappings resourcemanager.MappingDefinition) (*map[string]resourcemanager.TerraformSchemaModelDefinition, *resourcemanager.MappingDefinition, error) {
+func (b Builder) removeUnusedModelsAndMappings(input resourcemanager.TerraformResourceDetails, models map[string]resourcemanager.TerraformSchemaModelDefinition, mappings resourcemanager.MappingDefinition, logger hclog.Logger) (*map[string]resourcemanager.TerraformSchemaModelDefinition, *resourcemanager.MappingDefinition, error) {
 	unusedModels := make(map[string]struct{}, 0)
 	// first assume everything is unused
 	for modelName := range models {
@@ -155,7 +155,60 @@ func removeUnusedModelsAndMappings(input resourcemanager.TerraformResourceDetail
 		mappings.Fields = *updatedMappings
 	}
 
+	// foreach model to model reference, if no fields within this block are being mapped, we can omit it
+	// for example if no fields are mapped within the `properties` block, don't output a model-to-model mapping
+	outputMappings, err := b.removeUnusedModelToModelMappings(mappings, logger)
+	if err != nil {
+		return nil, nil, fmt.Errorf("removing unused ModelToModel mappings: %+v", err)
+	}
+	mappings = *outputMappings
+
 	return &models, &mappings, nil
+}
+
+func (b Builder) removeUnusedModelToModelMappings(input resourcemanager.MappingDefinition, logger hclog.Logger) (*resourcemanager.MappingDefinition, error) {
+	output := input
+
+	output.Fields = make([]resourcemanager.FieldMappingDefinition, 0)
+	for _, mapping := range input.Fields {
+		if mapping.Type != resourcemanager.ModelToModelMappingDefinitionType {
+			output.Fields = append(output.Fields, mapping)
+			continue
+		}
+
+		sdkModel, ok := b.models[mapping.ModelToModel.SdkModelName]
+		if !ok {
+			return nil, fmt.Errorf("the SDK Model %q was not found", mapping.ModelToModel.SdkModelName)
+		}
+		sdkField, ok := sdkModel.Fields[mapping.ModelToModel.SdkFieldName]
+		if !ok {
+			return nil, fmt.Errorf("field %q was not found in SDK Model %q", mapping.ModelToModel.SdkFieldName, mapping.ModelToModel.SdkModelName)
+		}
+		objectDefinition := topLevelObjectDefinition(sdkField.ObjectDefinition)
+		if objectDefinition.Type != resourcemanager.ReferenceApiObjectDefinitionType {
+			// nothing to do here, move along now.
+			output.Fields = append(output.Fields, mapping)
+			continue
+		}
+		associatedModelName := *objectDefinition.ReferenceName
+
+		hasMappings := false
+		for _, other := range input.Fields {
+			if other.Type == resourcemanager.DirectAssignmentMappingDefinitionType {
+				if other.DirectAssignment.SdkModelName == associatedModelName {
+					hasMappings = true
+					break
+				}
+			}
+		}
+		if hasMappings {
+			output.Fields = append(output.Fields, mapping)
+		} else {
+			logger.Trace(fmt.Sprintf("removing unused ModelToModel mapping: %s", mapping.String()))
+		}
+	}
+
+	return &output, nil
 }
 
 func removeUnusedMappingsFromSchemaModelNamed(modelName string, inputMappings []resourcemanager.FieldMappingDefinition) (*[]resourcemanager.FieldMappingDefinition, error) {

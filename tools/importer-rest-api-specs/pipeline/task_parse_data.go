@@ -63,8 +63,11 @@ func identifyCandidateTerraformResources(input *models.AzureApiDefinition, terra
 				return nil, fmt.Errorf("mapping Resource %q from to an API Resource: %+v", k, err)
 			}
 
-			terraformDetails := resources.FindCandidates(*apiResource, *definitionsForThisResource, k, logger)
-			v.Terraform = &terraformDetails
+			terraformDetails, err := resources.FindCandidates(*apiResource, *definitionsForThisResource, k, logger)
+			if err != nil {
+				return nil, fmt.Errorf("finding candidate Terraform Data Sources/Resources: %+v", err)
+			}
+			v.Terraform = terraformDetails
 		}
 
 		parsedResources[k] = v
