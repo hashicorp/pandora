@@ -12,10 +12,10 @@ public partial class Service : ServiceDefinition
 {
     public string Name => "ChaosStudio";
     public string? ResourceProvider => "Microsoft.Chaos";
-    public string? TerraformPackageName => "chaos";
+    public string? TerraformPackageName => null;
 
     public IEnumerable<TerraformResourceDefinition> TerraformResources => new List<TerraformResourceDefinition>
     {
-        new Terraform.ChaosStudioExperimentResource(),
+
     };
 }
