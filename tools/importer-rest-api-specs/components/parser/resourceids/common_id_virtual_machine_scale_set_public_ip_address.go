@@ -18,7 +18,7 @@ func (c commonIdVirtualMachineScaleSetPublicIPAddress) id() models.ParsedResourc
 			models.StaticResourceIDSegment("subscriptions", "subscriptions"),
 			models.SubscriptionIDResourceIDSegment("subscriptionId"),
 			models.StaticResourceIDSegment("resourceGroups", "resourceGroups"),
-			models.ResourceGroupResourceIDSegment("resourceGroup"),
+			models.ResourceGroupResourceIDSegment("resourceGroupName"),
 			models.StaticResourceIDSegment("providers", "providers"),
 			models.ResourceProviderResourceIDSegment("resourceProvider", "Microsoft.Compute"),
 			models.StaticResourceIDSegment("virtualMachineScaleSets", "virtualMachineScaleSets"),

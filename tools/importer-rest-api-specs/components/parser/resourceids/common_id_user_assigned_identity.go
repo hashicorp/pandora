@@ -18,7 +18,7 @@ func (commonIdUserAssignedIdentity) id() models.ParsedResourceId {
 			models.StaticResourceIDSegment("subscriptions", "subscriptions"),
 			models.SubscriptionIDResourceIDSegment("subscriptionId"),
 			models.StaticResourceIDSegment("resourceGroups", "resourceGroups"),
-			models.ResourceGroupResourceIDSegment("resourceGroup"),
+			models.ResourceGroupResourceIDSegment("resourceGroupName"),
 			models.StaticResourceIDSegment("providers", "providers"),
 			models.ResourceProviderResourceIDSegment("resourceProvider", "Microsoft.ManagedIdentity"),
 			models.StaticResourceIDSegment("userAssignedIdentities", "userAssignedIdentities"),
