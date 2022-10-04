@@ -6,6 +6,8 @@ service "ChaosStudio" {
       definition "chaos_studio_experiment" {
         id = "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Chaos/experiments/{experimentName}"
         display_name = "Chaos Studio Experiment"
+        website_subcategory = "Chaos"
+        description = "Manages a Chaos Studio Experiment"
       }
     }
   }

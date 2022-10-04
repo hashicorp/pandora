@@ -29,4 +29,10 @@ type ResourceDefinition struct {
 
 	// Name is the human-friendly/marketing name for this Resource
 	Name string
+
+	// WebsiteSubcategory is the name of the subcategory which this Resource should appear under on the website
+	WebsiteSubcategory string
+
+	// Description is the description for this Resource
+	Description string
 }

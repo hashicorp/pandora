@@ -97,8 +97,10 @@ func consolidateIntoASingleDefinition(input []definition) (*Config, error) {
 						}
 
 						definitions[def.ResourceType] = ResourceDefinition{
-							ID:   def.Id,
-							Name: def.DisplayName,
+							ID:                 def.Id,
+							Name:               def.DisplayName,
+							WebsiteSubcategory: def.WebsiteSubcategory,
+							Description:        def.Description,
 						}
 					}
 
