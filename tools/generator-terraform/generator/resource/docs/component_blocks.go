@@ -12,9 +12,14 @@ func codeForBlocksReference(input models.ResourceInput) (*string, error) {
 
 	blocks := make(map[string]string)
 
+	// TODO update this to iterate over models when hcl names are available
 	for _, field := range input.SchemaModels[input.SchemaModelName].Fields {
 		if field.ObjectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeReference {
-			mergeBlocksMapWithNestedBlocks(blocks, populateBlockAndNestedBlocks(field.HclName, input, input.SchemaModels[*field.ObjectDefinition.ReferenceName]))
+			nestedBlocks, err := populateBlockAndNestedBlocks(field.HclName, input, input.SchemaModels[*field.ObjectDefinition.ReferenceName])
+			if err != nil {
+				return nil, err
+			}
+			mergeBlocksMapWithNestedBlocks(blocks, nestedBlocks)
 		}
 	}
 
@@ -34,7 +39,7 @@ func codeForBlocksReference(input models.ResourceInput) (*string, error) {
 	return &output, nil
 }
 
-func getFieldsAndNestedBlocks(blockHclName string, input models.ResourceInput, model resourcemanager.TerraformSchemaModelDefinition) (string, string, map[string]string) {
+func getFieldsAndNestedBlocks(blockHclName string, input models.ResourceInput, model resourcemanager.TerraformSchemaModelDefinition) (string, string, map[string]string, error) {
 
 	requiredLines := make([]string, 0)
 	optionalLines := make([]string, 0)
@@ -57,7 +62,11 @@ func getFieldsAndNestedBlocks(blockHclName string, input models.ResourceInput, m
 		// identify block
 		isReference := field.ObjectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeReference
 		if isReference {
-			if beginsWithVowel(field.HclName) {
+			fieldBeginsWithVowel, err := beginsWithVowel(field.HclName)
+			if err != nil {
+				return "", "", nil, err
+			}
+			if fieldBeginsWithVowel {
 				components = append(components, "An")
 			} else {
 				components = append(components, "A")
@@ -73,7 +82,6 @@ func getFieldsAndNestedBlocks(blockHclName string, input models.ResourceInput, m
 			}
 		}
 
-		// TODO markdown always blank - may require changes here based on markdown format. Assuming this is like a field description for now
 		components = append(components, field.Documentation.Markdown)
 
 		isAttribute := false
@@ -103,7 +111,7 @@ func getFieldsAndNestedBlocks(blockHclName string, input models.ResourceInput, m
 			}
 		}
 
-		line := strings.Join(components, " ")
+		line := removeExtraSpaces(strings.Join(components, " "))
 
 		if field.Required {
 			requiredLines = append(requiredLines, line)
@@ -114,16 +122,23 @@ func getFieldsAndNestedBlocks(blockHclName string, input models.ResourceInput, m
 		}
 
 		if isReference {
-			mergeBlocksMapWithNestedBlocks(blocks, populateBlockAndNestedBlocks(field.HclName, input, input.SchemaModels[*field.ObjectDefinition.ReferenceName]))
+			nestedBlocks, err := populateBlockAndNestedBlocks(field.HclName, input, input.SchemaModels[*field.ObjectDefinition.ReferenceName])
+			if err != nil {
+				return "", "", nil, err
+			}
+			mergeBlocksMapWithNestedBlocks(blocks, nestedBlocks)
 		}
 	}
-	return strings.Join(append(requiredLines, optionalLines...), "\n\n"), strings.Join(attributeLines, "\n\n"), blocks
+	return strings.Join(append(requiredLines, optionalLines...), "\n\n"), strings.Join(attributeLines, "\n\n"), blocks, nil
 }
 
-func populateBlockAndNestedBlocks(blockHclName string, input models.ResourceInput, model resourcemanager.TerraformSchemaModelDefinition) map[string]string {
+func populateBlockAndNestedBlocks(blockHclName string, input models.ResourceInput, model resourcemanager.TerraformSchemaModelDefinition) (map[string]string, error) {
 
 	blocks := make(map[string]string)
-	blockArgs, blockAttributes, nestedBlocks := getFieldsAndNestedBlocks(blockHclName, input, model)
+	blockArgs, blockAttributes, nestedBlocks, err := getFieldsAndNestedBlocks(blockHclName, input, model)
+	if err != nil {
+		return nil, err
+	}
 
 	components := make([]string, 0)
 	components = append(components, fmt.Sprintf("\n### `%s` Block", blockHclName))
@@ -140,7 +155,7 @@ func populateBlockAndNestedBlocks(blockHclName string, input models.ResourceInpu
 
 	blocks[blockHclName] = strings.Join(components, "\n\n")
 
-	return mergeBlocksMapWithNestedBlocks(blocks, nestedBlocks)
+	return mergeBlocksMapWithNestedBlocks(blocks, nestedBlocks), nil
 }
 
 func mergeBlocksMapWithNestedBlocks(blocksMap map[string]string, nestedBlocksMap map[string]string) map[string]string {

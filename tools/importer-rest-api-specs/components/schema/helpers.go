@@ -2,7 +2,9 @@ package schema
 
 import (
 	"fmt"
+	"regexp"
 	"strings"
+	"unicode"
 
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/schema/processors"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
@@ -137,4 +139,44 @@ func modelToModelMappingBetween(fromModel string, toModel string, toField string
 			SdkFieldName:    toField,
 		},
 	}
+}
+
+func extractDescription(markdown string) string {
+	if markdown == "" {
+		return ""
+	}
+
+	// extract first sentence in markdown
+	re := regexp.MustCompile(`(^.*?([.?!]|$))(?:\s|$)`)
+	description := re.FindString(markdown)
+
+	// cut examples and minimum api versions
+	description, _, _ = strings.Cut(description, "Minimum api-version:")
+	description, _, _ = strings.Cut(description, "; example")
+
+	if description != "" {
+		description = capitalizeFirstLetter(description)
+
+		// check end of sentence punctuation
+		re = regexp.MustCompile(`(^.*[.?!]\s?$)`)
+		if !re.MatchString(description) {
+			description = punctuateEndOfSentence(description)
+		}
+	}
+
+	return description
+}
+
+func capitalizeFirstLetter(s string) string {
+	r := []rune(s)
+	r[0] = unicode.ToUpper(r[0])
+	return string(r)
+}
+
+func punctuateEndOfSentence(s string) string {
+	s = strings.TrimSpace(s)
+	if strings.HasSuffix(s, ",") || strings.HasSuffix(s, ":") || strings.HasSuffix(s, ";") {
+		s = s[:len(s)-1]
+	}
+	return fmt.Sprintf("%s.", s)
 }

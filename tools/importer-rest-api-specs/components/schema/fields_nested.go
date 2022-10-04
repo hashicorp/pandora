@@ -118,11 +118,11 @@ func (b Builder) identifyFieldsWithinPropertiesBlock(schemaModelName string, inp
 			},
 		}
 		if hasCreate {
-			definition.Documentation.Markdown = createField.Description
+			definition.Documentation.Markdown = extractDescription(createField.Description)
 		} else if hasUpdate {
-			definition.Documentation.Markdown = updateField.Description
+			definition.Documentation.Markdown = extractDescription(updateField.Description)
 		} else if hasRead {
-			definition.Documentation.Markdown = readField.Description
+			definition.Documentation.Markdown = extractDescription(readField.Description)
 		}
 
 		objectDefinition, err := b.convertToFieldObjectDefinition(schemaModelName, inputObjectDefinition)
