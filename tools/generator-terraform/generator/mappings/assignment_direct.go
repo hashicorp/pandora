@@ -69,6 +69,10 @@ func (d directAssignmentLine) assignmentForCreateUpdateMapping(mapping resourcem
 		return d.schemaToSdkMappingBetweenListFields(mapping, schemaField, sdkField, sdkConstant, apiResourcePackageName)
 	}
 
+	if schemaField.ObjectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeReference && sdkField.ObjectDefinition.NestedItem == nil {
+		return d.schemaToSdkMappingBetweenFieldAndBlock(mapping, schemaField, sdkField)
+	}
+
 	return d.schemaToSdkMappingBetweenFields(mapping, schemaField, sdkField, sdkConstant)
 }
 
@@ -105,6 +109,10 @@ func (d directAssignmentLine) assignmentForReadMapping(mapping resourcemanager.F
 		}
 
 		return d.sdkToSchemaMappingBetweenListFields(mapping, schemaField, sdkField, sdkConstant, apiResourcePackageName)
+	}
+
+	if schemaField.ObjectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeReference && sdkField.ObjectDefinition.NestedItem == nil {
+		return d.sdkToSchemaMappingBetweenFieldAndBlock(mapping, schemaField, sdkField)
 	}
 
 	return d.sdkToSchemaMappingBetweenFields(mapping, schemaField, sdkField, sdkConstant)
@@ -301,6 +309,24 @@ var transformOptionalFlattenFunctions = map[resourcemanager.TerraformSchemaField
 	},
 }
 
+func (d directAssignmentLine) schemaToSdkMappingBetweenFieldAndBlock(mapping resourcemanager.FieldMappingDefinition, schemaField resourcemanager.TerraformSchemaFieldDefinition, sdkField resourcemanager.FieldDetails) (*string, error) {
+
+	v, ok := directAssignmentTypes[schemaField.ObjectDefinition.Type]
+	if !ok {
+		return nil, fmt.Errorf("a DirectAssignment wasn't defined between %q and %q", string(schemaField.ObjectDefinition.Type), string(sdkField.ObjectDefinition.Type))
+	}
+	if v != sdkField.ObjectDefinition.Type {
+		return nil, fmt.Errorf("expected a DirectAssignment between %q and %q but got %q", string(schemaField.ObjectDefinition.Type), string(v), string(sdkField.ObjectDefinition.Type))
+	}
+
+	line := fmt.Sprintf(`if len(input.%[1]s) > 0 {
+		if err := r.map%[2]sTo%[3]s(input.%[1]s[0], output); err != nil {
+			return err
+		}
+	}`, mapping.DirectAssignment.SdkFieldPath, *schemaField.ObjectDefinition.ReferenceName, mapping.DirectAssignment.SdkModelName) // TODO - Nil checking...
+	return &line, nil
+}
+
 func (d directAssignmentLine) schemaToSdkMappingBetweenFields(mapping resourcemanager.FieldMappingDefinition, schemaField resourcemanager.TerraformSchemaFieldDefinition, sdkField resourcemanager.FieldDetails, sdkConstant *assignmentConstantDetails) (*string, error) {
 	if sdkConstant != nil {
 		sdkConstantTypeName := fmt.Sprintf("%s.%s", sdkConstant.apiResourcePackageName, sdkConstant.constantName)
@@ -316,6 +342,12 @@ func (d directAssignmentLine) schemaToSdkMappingBetweenFields(mapping resourcema
 			// if the SDK Field is Required but the Schema Field is Optional this is a Data Issue
 			// TODO: handle where it's defaulted?
 			return nil, fmt.Errorf("the Sdk Model %q Field %q was Required but Schema Model %q Field %q was Optional but must be Required", mapping.DirectAssignment.SdkModelName, mapping.DirectAssignment.SdkFieldPath, mapping.DirectAssignment.SchemaModelName, mapping.DirectAssignment.SchemaFieldPath)
+		}
+
+		if schemaField.Computed && (!schemaField.Optional && !schemaField.Required) {
+			// We never send computed only fields?
+			line := ""
+			return &line, nil
 		}
 
 		line := fmt.Sprintf(`
@@ -597,6 +629,32 @@ func (d directAssignmentLine) schemaToSdkMappingRequiringTransform(mapping resou
 	}
 	transformLine := transform(outputAssignment, outputVariable, inputAssignment)
 	return &transformLine, nil
+}
+
+func (d directAssignmentLine) sdkToSchemaMappingBetweenFieldAndBlock(mapping resourcemanager.FieldMappingDefinition, schemaField resourcemanager.TerraformSchemaFieldDefinition, sdkField resourcemanager.FieldDetails) (*string, error) {
+	v, ok := directAssignmentTypes[schemaField.ObjectDefinition.Type]
+	if !ok {
+		return nil, fmt.Errorf("a DirectAssignment wasn't defined between %q and %q", string(schemaField.ObjectDefinition.Type), string(sdkField.ObjectDefinition.Type))
+	}
+	if v != sdkField.ObjectDefinition.Type {
+		return nil, fmt.Errorf("expected a DirectAssignment between %q and %q but got %q", string(schemaField.ObjectDefinition.Type), string(v), string(sdkField.ObjectDefinition.Type))
+	}
+
+	// 	if err := r.mapOrganizationResourcePropertiesToConfluentOrganizationResourceOfferDetailSchema(input, offerDetail); err != nil {
+	//		return err
+	//	} else {
+	//		output.OfferDetail = make([]ConfluentOrganizationResourceOfferDetailSchema, 0)
+	//		output.OfferDetail = append(output.OfferDetail, *offerDetail)
+	//	}
+
+	line := fmt.Sprintf(`tmp%[1]s := &%[3]s{}
+	if err := r.map%[2]sTo%[3]s(input, tmp%[1]s); err != nil {
+		return err
+	} else {
+		output.%[1]s = make([]%[3]s, 0)
+		output.%[1]s = append(output.%[1]s, *tmp%[1]s)
+	}`, mapping.DirectAssignment.SdkFieldPath, mapping.DirectAssignment.SdkModelName, *schemaField.ObjectDefinition.ReferenceName)
+	return &line, nil
 }
 
 func (d directAssignmentLine) sdkToSchemaMappingBetweenFields(mapping resourcemanager.FieldMappingDefinition, schemaField resourcemanager.TerraformSchemaFieldDefinition, sdkField resourcemanager.FieldDetails, sdkConstant *assignmentConstantDetails) (*string, error) {
