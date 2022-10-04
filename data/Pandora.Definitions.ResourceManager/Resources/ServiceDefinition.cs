@@ -12,9 +12,10 @@ public partial class Service : ServiceDefinition
 {
     public string Name => "Resources";
     public string? ResourceProvider => "Microsoft.Authorization";
-    public string? TerraformPackageName => "resource";
+    public string? TerraformPackageName => null;
 
     public IEnumerable<TerraformResourceDefinition> TerraformResources => new List<TerraformResourceDefinition>
     {
+
     };
 }

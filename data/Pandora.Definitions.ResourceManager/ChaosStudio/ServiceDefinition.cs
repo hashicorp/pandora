@@ -16,5 +16,6 @@ public partial class Service : ServiceDefinition
 
     public IEnumerable<TerraformResourceDefinition> TerraformResources => new List<TerraformResourceDefinition>
     {
+
     };
 }
