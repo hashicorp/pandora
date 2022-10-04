@@ -1,5 +1,6 @@
+/*
 service "LoadTestService" {
-  terraform_package = "loadtest"
+  terraform_package = "loadtestservice"
 
   api "2021-12-01-preview" {
     package "LoadTests" {
@@ -12,3 +13,4 @@ service "LoadTestService" {
     }
   }
 }
+*/
