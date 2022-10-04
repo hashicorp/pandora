@@ -8,8 +8,8 @@ public class ResourceGroupResource : TerraformResourceDefinition
     public string DisplayName => "Resource Group";
     public ResourceID ResourceId => new v2020_06_01.ResourceGroups.ResourceGroupId();
     public string ResourceLabel => "resource_group";
-    public string ResourceDescription => "TODO: regen";
-    public string ResourceCategory => "TODO: regen";
+    public string ResourceDescription => "Manages a Resource Group";
+    public string ResourceCategory => "Base";
     public Type? SchemaModel => typeof(ResourceGroupResourceSchema);
     public TerraformMappingDefinition SchemaMappings => new ResourceGroupResourceMappings();
     public TerraformResourceTestDefinition Tests => new ResourceGroupResourceTests();

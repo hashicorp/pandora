@@ -8,8 +8,8 @@ public class ChaosStudioExperimentResource : TerraformResourceDefinition
     public string DisplayName => "Chaos Studio Experiment";
     public ResourceID ResourceId => new v2022_07_01_preview.Experiments.ExperimentId();
     public string ResourceLabel => "chaos_studio_experiment";
-    public string ResourceDescription => "TODO: regen";
-    public string ResourceCategory => "TODO: regen";
+    public string ResourceDescription => "Manages a Chaos Studio Experiment";
+    public string ResourceCategory => "Chaos";
     public Type? SchemaModel => typeof(ChaosStudioExperimentResourceSchema);
     public TerraformMappingDefinition SchemaMappings => new ChaosStudioExperimentResourceMappings();
     public TerraformResourceTestDefinition Tests => new ChaosStudioExperimentResourceTests();
