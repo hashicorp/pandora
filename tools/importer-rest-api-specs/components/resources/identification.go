@@ -60,7 +60,7 @@ func FindCandidates(input services.Resource, resourceDefinitions map[string]defi
 				}
 				model, ok := input.Schema.Models[*objectDefinition.ReferenceName]
 				if !ok {
-					return nil, fmt.Errorf("the request model %q for operation %q was not found", *objectDefinition.ReferenceName, model)
+					return nil, fmt.Errorf("the request model %q for operation %q was not found", *objectDefinition.ReferenceName, operationName)
 				}
 				_, hasPropertiesField := model.Fields["Properties"]
 				if !hasPropertiesField {

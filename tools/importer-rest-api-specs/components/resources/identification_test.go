@@ -45,7 +45,11 @@ func TestIdentifyWithCreateAndReadAndUpdateAndDelete(t *testing.T) {
 		},
 		Schema: resourcemanager.ApiSchemaDetails{
 			Models: map[string]resourcemanager.ModelDetails{
-				"SomeModel": {},
+				"SomeModel": {
+					Fields: map[string]resourcemanager.FieldDetails{
+						"Properties": {},
+					},
+				},
 			},
 			ResourceIds: map[string]resourcemanager.ResourceIdDefinition{
 				"VirtualNetwork": {
