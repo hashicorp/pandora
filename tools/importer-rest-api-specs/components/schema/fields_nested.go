@@ -137,7 +137,7 @@ func (b Builder) identifyFieldsWithinPropertiesBlock(schemaModelName string, inp
 			if input.createPropertiesModelName != input.readPropertiesModelName {
 				mappings.Fields = append(mappings.Fields, modelToModelMappingBetween(fmt.Sprintf("%s%s", schemaModelName, fieldNameForTypedModel), input.readPropertiesModelName, k))
 			}
-			if input.updatePayload != nil && input.createModelName != *input.updatePropertiesModelName && input.readPropertiesModelName != *input.updatePropertiesModelName {
+			if input.updatePayload != nil && input.createPropertiesModelName != *input.updatePropertiesModelName && input.readPropertiesModelName != *input.updatePropertiesModelName {
 				mappings.Fields = append(mappings.Fields, modelToModelMappingBetween(fmt.Sprintf("%s%s", schemaModelName, fieldNameForTypedModel), *input.updatePropertiesModelName, k))
 			}
 		}
