@@ -218,14 +218,10 @@ var transformRequiredFlattenFunctions = map[resourcemanager.TerraformSchemaField
 	resourcemanager.TerraformSchemaFieldTypeLocation: func(outputAssignment, outputVariableName, inputAssignment string) string {
 		return fmt.Sprintf("%s = location.Normalize(%s)", outputAssignment, inputAssignment)
 	},
-	resourcemanager.TerraformSchemaFieldTypeIdentitySystemAssigned: func(outputAssignment, outputVariableName, inputAssignment string) string {
+	resourcemanager.TerraformSchemaFieldTypeIdentitySystemAssigned: func(outputAssignment, _, inputAssignment string) string {
 		return fmt.Sprintf(`
-	%[1]s, err := identity.FlattenSystemAssignedFromModel(%[2]s)
-	if err != nil {
-		return fmt.Errorf("flattening SystemAssigned Identity: %%+v", err)
-	}
-	%[3]s = %[1]s
-`, outputVariableName, inputAssignment, outputAssignment)
+	%[1]s = identity.FlattenSystemAssignedToModel(%[2]s)
+`, outputAssignment, inputAssignment)
 	},
 	resourcemanager.TerraformSchemaFieldTypeIdentitySystemAndUserAssigned: func(outputAssignment, outputVariableName, inputAssignment string) string {
 		return fmt.Sprintf(`
@@ -265,14 +261,10 @@ var transformOptionalFlattenFunctions = map[resourcemanager.TerraformSchemaField
 	resourcemanager.TerraformSchemaFieldTypeLocation: func(outputAssignment, outputVariableName, inputAssignment string) string {
 		return fmt.Sprintf("%s = location.NormalizeNilable(%s)", outputAssignment, inputAssignment)
 	},
-	resourcemanager.TerraformSchemaFieldTypeIdentitySystemAssigned: func(outputAssignment, outputVariableName, inputAssignment string) string {
+	resourcemanager.TerraformSchemaFieldTypeIdentitySystemAssigned: func(outputAssignment, _, inputAssignment string) string {
 		return fmt.Sprintf(`
-	%[1]s, err := identity.FlattenSystemAssignedFromModel(%[2]s)
-	if err != nil {
-		return fmt.Errorf("flattening SystemAssigned Identity: %%+v", err)
-	}
-	%[3]s = %[1]s
-`, outputVariableName, inputAssignment, outputAssignment)
+	%[1]s = identity.FlattenSystemAssignedToModel(%[2]s)
+`, outputAssignment, inputAssignment)
 	},
 	resourcemanager.TerraformSchemaFieldTypeIdentitySystemAndUserAssigned: func(outputAssignment, outputVariableName, inputAssignment string) string {
 		return fmt.Sprintf(`

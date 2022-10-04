@@ -2287,11 +2287,7 @@ func TestDirectAssignment_Read_Identity_SystemAssigned_RequiredToRequired(t *tes
 			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeIdentitySystemAssigned,
 			sdkFieldType:         resourcemanager.SystemAssignedIdentityApiObjectDefinitionType,
 			expected: fmt.Sprintf(`
-	identity, err := identity.FlattenSystemAssignedFromModel(input.Identity)
-	if err != nil {
-		return fmt.Errorf("flattening SystemAssigned Identity: %%+v", err)
-	}
-	output.Identity = identity
+	output.Identity = identity.FlattenSystemAssignedToModel(input.Identity)
 `),
 		},
 	}
@@ -2351,11 +2347,7 @@ func TestDirectAssignment_Read_Identity_SystemAssigned_RequiredToOptional(t *tes
 			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeIdentitySystemAssigned,
 			sdkFieldType:         resourcemanager.SystemAssignedIdentityApiObjectDefinitionType,
 			expected: fmt.Sprintf(`
-	identity, err := identity.FlattenSystemAssignedFromModel(input.Identity)
-	if err != nil {
-		return fmt.Errorf("flattening SystemAssigned Identity: %%+v", err)
-	}
-	output.Identity = identity
+	output.Identity = identity.FlattenSystemAssignedToModel(input.Identity)
 `),
 		},
 	}
@@ -2470,11 +2462,7 @@ func TestDirectAssignment_Read_Identity_SystemAssigned_OptionalToOptional(t *tes
 			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeIdentitySystemAssigned,
 			sdkFieldType:         resourcemanager.SystemAssignedIdentityApiObjectDefinitionType,
 			expected: fmt.Sprintf(`
-	identity, err := identity.FlattenSystemAssignedFromModel(input.Identity)
-	if err != nil {
-		return fmt.Errorf("flattening SystemAssigned Identity: %%+v", err)
-	}
-	output.Identity = identity
+	output.Identity = identity.FlattenSystemAssignedToModel(input.Identity)
 `),
 		},
 	}
