@@ -131,20 +131,17 @@ func (b Builder) identifyFieldsWithinPropertiesBlock(schemaModelName string, inp
 		}
 		definition.ObjectDefinition = *objectDefinition
 
-		// TODO: iterate over the nested models and add ModelToModel mappings as needed
 		if objectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeReference {
-			mappingsForField := []resourcemanager.FieldMappingDefinition{{
-				Type: resourcemanager.ModelToModelMappingDefinitionType,
-				ModelToModel: &resourcemanager.FieldMappingModelToModelDefinition{
-					SchemaModelName: fmt.Sprintf("%s%s", schemaModelName, fieldNameForTypedModel),
-					SdkModelName:    input.createPropertiesModelName,
-					SdkFieldName:    k,
-				},
-			}}
-			mappings.Fields = append(mappings.Fields, mappingsForField...)
-
+			// TODO: iterate over the nested models and add ModelToModel mappings as needed
+			mappings.Fields = append(mappings.Fields, modelToModelMappingBetween(fmt.Sprintf("%s%s", schemaModelName, fieldNameForTypedModel), input.createPropertiesModelName, k))
+			if input.createPropertiesModelName != input.readPropertiesModelName {
+				mappings.Fields = append(mappings.Fields, modelToModelMappingBetween(fmt.Sprintf("%s%s", schemaModelName, fieldNameForTypedModel), input.readPropertiesModelName, k))
+			}
+			if input.updatePayload != nil && input.createModelName != *input.updatePropertiesModelName && input.readPropertiesModelName != *input.updatePropertiesModelName {
+				mappings.Fields = append(mappings.Fields, modelToModelMappingBetween(fmt.Sprintf("%s%s", schemaModelName, fieldNameForTypedModel), *input.updatePropertiesModelName, k))
+			}
 		}
-		
+
 		mappingsForField := directAssignmentMappingForNestedField(schemaModelName, fieldNameForTypedModel, input, k, hasCreate, hasUpdate, hasRead)
 		mappings.Fields = append(mappings.Fields, mappingsForField...)
 		out[fieldNameForTypedModel] = definition
