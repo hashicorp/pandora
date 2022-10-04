@@ -12,14 +12,14 @@ internal class ProvisioningServiceId : ResourceID
 {
     public string? CommonAlias => "ProvisioningService";
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Devices/provisioningServices/{provisioningServiceName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Devices/provisioningServices/{provisioningServiceName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
         ResourceIDSegment.Static("subscriptions", "subscriptions"),
         ResourceIDSegment.SubscriptionId("subscriptionId"),
         ResourceIDSegment.Static("resourceGroups", "resourceGroups"),
-        ResourceIDSegment.ResourceGroup("resourceGroup"),
+        ResourceIDSegment.ResourceGroup("resourceGroupName"),
         ResourceIDSegment.Static("providers", "providers"),
         ResourceIDSegment.ResourceProvider("resourceProvider", "Microsoft.Devices"),
         ResourceIDSegment.Static("provisioningServices", "provisioningServices"),
