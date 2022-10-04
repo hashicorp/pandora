@@ -8,8 +8,8 @@ public class ElasticSanResource : TerraformResourceDefinition
     public string DisplayName => "Elastic San";
     public ResourceID ResourceId => new v2021_11_20_preview.ElasticSans.ElasticSanId();
     public string ResourceLabel => "elastic_san";
-    public string ResourceDescription => "TODO: regen";
-    public string ResourceCategory => "TODO: regen";
+    public string ResourceDescription => "Manages an Elastic SAN";
+    public string ResourceCategory => "Elastic";
     public Type? SchemaModel => typeof(ElasticSanResourceSchema);
     public TerraformMappingDefinition SchemaMappings => new ElasticSanResourceMappings();
     public TerraformResourceTestDefinition Tests => new ElasticSanResourceTests();
