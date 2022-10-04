@@ -319,11 +319,15 @@ func (d directAssignmentLine) schemaToSdkMappingBetweenFieldAndBlock(mapping res
 		return nil, fmt.Errorf("expected a DirectAssignment between %q and %q but got %q", string(schemaField.ObjectDefinition.Type), string(v), string(sdkField.ObjectDefinition.Type))
 	}
 
+	if schemaField.ObjectDefinition.ReferenceName == nil {
+		return nil, fmt.Errorf("expected a schema reference name, but it was nil")
+	}
+
 	line := fmt.Sprintf(`if len(input.%[1]s) > 0 {
 		if err := r.map%[2]sTo%[3]s(input.%[1]s[0], output); err != nil {
 			return err
 		}
-	}`, mapping.DirectAssignment.SdkFieldPath, *schemaField.ObjectDefinition.ReferenceName, mapping.DirectAssignment.SdkModelName) // TODO - Nil checking...
+	}`, mapping.DirectAssignment.SdkFieldPath, *schemaField.ObjectDefinition.ReferenceName, mapping.DirectAssignment.SdkModelName)
 	return &line, nil
 }
 
@@ -640,12 +644,9 @@ func (d directAssignmentLine) sdkToSchemaMappingBetweenFieldAndBlock(mapping res
 		return nil, fmt.Errorf("expected a DirectAssignment between %q and %q but got %q", string(schemaField.ObjectDefinition.Type), string(v), string(sdkField.ObjectDefinition.Type))
 	}
 
-	// 	if err := r.mapOrganizationResourcePropertiesToConfluentOrganizationResourceOfferDetailSchema(input, offerDetail); err != nil {
-	//		return err
-	//	} else {
-	//		output.OfferDetail = make([]ConfluentOrganizationResourceOfferDetailSchema, 0)
-	//		output.OfferDetail = append(output.OfferDetail, *offerDetail)
-	//	}
+	if schemaField.ObjectDefinition.ReferenceName == nil {
+		return nil, fmt.Errorf("expected a schema reference name, but it was nil")
+	}
 
 	line := fmt.Sprintf(`tmp%[1]s := &%[3]s{}
 	if err := r.map%[2]sTo%[3]s(input, tmp%[1]s); err != nil {
