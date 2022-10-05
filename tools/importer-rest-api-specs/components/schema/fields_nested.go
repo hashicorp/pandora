@@ -132,7 +132,6 @@ func (b Builder) identifyFieldsWithinPropertiesBlock(schemaModelName string, inp
 		definition.ObjectDefinition = *objectDefinition
 
 		if objectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeReference {
-			// TODO: iterate over the nested models and add ModelToModel mappings as needed
 			mappings.Fields = append(mappings.Fields, modelToModelMappingBetween(fmt.Sprintf("%s%s", schemaModelName, fieldNameForTypedModel), input.createPropertiesModelName, k))
 			if input.createPropertiesModelName != input.readPropertiesModelName {
 				mappings.Fields = append(mappings.Fields, modelToModelMappingBetween(fmt.Sprintf("%s%s", schemaModelName, fieldNameForTypedModel), input.readPropertiesModelName, k))
