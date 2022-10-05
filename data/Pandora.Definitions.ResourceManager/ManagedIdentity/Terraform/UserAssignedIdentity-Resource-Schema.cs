@@ -9,12 +9,12 @@ public class UserAssignedIdentityResourceSchema
 {
 
     [Computed]
-    [Documentation("The id of the app associated with the identity. This is a random generated UUID by MSI.")]
+    [Documentation("The id of the app associated with the identity. ")]
     [HclName("client_id")]
     public string ClientId { get; set; }
 
 
-    [Documentation("The Azure Region where the resource should exist.")]
+    [Documentation("The Azure Region where the User Assigned Identity should exist.")]
     [ForceNew]
     [HclName("location")]
     [Required]
@@ -41,7 +41,7 @@ public class UserAssignedIdentityResourceSchema
     public CommonSchema.ResourceGroupName ResourceGroupName { get; set; }
 
 
-    [Documentation("A mapping of tags which should be assigned to the Resource.")]
+    [Documentation("A mapping of tags which should be assigned to the User Assigned Identity.")]
     [HclName("tags")]
     [Optional]
     public CommonSchema.Tags Tags { get; set; }

@@ -26,7 +26,7 @@ public class LoadTestResourceSchema
     public CommonSchema.SystemAssignedIdentity Identity { get; set; }
 
 
-    [Documentation("The Azure Region where the resource should exist.")]
+    [Documentation("The Azure Region where the Load Test should exist.")]
     [ForceNew]
     [HclName("location")]
     [Required]
@@ -47,7 +47,7 @@ public class LoadTestResourceSchema
     public CommonSchema.ResourceGroupName ResourceGroupName { get; set; }
 
 
-    [Documentation("A mapping of tags which should be assigned to the Resource.")]
+    [Documentation("A mapping of tags which should be assigned to the Load Test.")]
     [HclName("tags")]
     [Optional]
     public CommonSchema.Tags Tags { get; set; }
