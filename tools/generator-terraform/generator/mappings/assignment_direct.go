@@ -348,6 +348,12 @@ if input.%[3]s != nil {
 		return nil, fmt.Errorf("the Sdk Model %q Field %q was Required but Schema Model %q Field %q was Optional but must be Required", mapping.DirectAssignment.SdkModelName, mapping.DirectAssignment.SdkFieldPath, mapping.DirectAssignment.SchemaModelName, mapping.DirectAssignment.SchemaFieldPath)
 	}
 
+	if schemaField.Computed && (!schemaField.Optional && !schemaField.Required) {
+		// We never send computed only fields?
+		line := ""
+		return &line, nil
+	}
+
 	// optional -> optional
 	line := fmt.Sprintf(`output.%[1]s = &input.%[2]s`, mapping.DirectAssignment.SdkFieldPath, mapping.DirectAssignment.SchemaFieldPath)
 	return &line, nil
@@ -612,7 +618,15 @@ func (d directAssignmentLine) sdkToSchemaMappingBetweenFields(mapping resourcema
 			// TODO: handle where it's defaulted?
 			return nil, fmt.Errorf("the Sdk Model %q Field %q was Required but Schema Model %q Field %q was Optional but must be Required", mapping.DirectAssignment.SdkModelName, mapping.DirectAssignment.SdkFieldPath, mapping.DirectAssignment.SchemaModelName, mapping.DirectAssignment.SchemaFieldPath)
 		}
-
+		
+		if schemaField.Computed && (!schemaField.Optional && !schemaField.Required) {
+			line := fmt.Sprintf(`
+	if input.%[3]s != nil {
+		output.%[1]s = %[2]s(*input.%[3]s)
+	}
+	`, mapping.DirectAssignment.SdkFieldPath, constantGoType, mapping.DirectAssignment.SchemaFieldPath)
+			return &line, nil
+		}
 		line := fmt.Sprintf(`
 	if input.%[3]s != nil {
 		output.%[1]s = pointer.To(%[2]s(*input.%[3]s))
