@@ -56,14 +56,14 @@ function runTerraformProviderUnitTests {
 
 function prepareTerraformProvider {
   local workingDirectory=$1
-  local sdkRepo=$2
+  local providerRepo=$2
 
   echo "Removing any existing working directory.."
   cd "${DIR}"
   rm -rf "$workingDirectory"
 
-  echo "Cloning SDK Repository into $workingDirectory.."
-  git clone "$sdkRepo" "$workingDirectory"
+  echo "Cloning Terraform Provider $providerRepo into $workingDirectory.."
+  git clone "$providerRepo" "$workingDirectory"
 
   echo "Preparing the repository for generation"
   cd "${DIR}"
@@ -110,10 +110,10 @@ function cleanup {
 function main {
   local dataApiAssemblyPath="data/Pandora.Api/bin/Debug/net6.0/Pandora.Api.dll"
   local outputDirectory="tmp/provider-azurerm"
-  local sdkRepo="git@github.com:hashicorp/terraform-provider-azurerm.git"
+  local providerRepo="git@github.com:hashicorp/terraform-provider-azurerm.git"
 
   buildAndInstallDependencies
-  prepareTerraformProvider "$outputDirectory" "$sdkRepo"
+  prepareTerraformProvider "$outputDirectory" "$providerRepo"
   runWrapper "$dataApiAssemblyPath" "$outputDirectory"
   runFmtImportsAndGenerate "$outputDirectory"
   runTerraformProviderUnitTests "$outputDirectory"
