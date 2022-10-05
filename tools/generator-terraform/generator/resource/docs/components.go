@@ -10,6 +10,7 @@ import (
 func ComponentsForResource(input models.ResourceInput) (*string, error) {
 	components := []func(input models.ResourceInput) (*string, error){
 		codeForYAMLFrontMatter,
+		codeForGeneratedNote,
 		codeForSummary,
 		codeForExampleUsage,
 		// TODO: links to examples
@@ -18,7 +19,6 @@ func ComponentsForResource(input models.ResourceInput) (*string, error) {
 		codeForBlocksReference,
 		codeForTimeouts,
 		codeForImport,
-		codeForGeneratedNote,
 	}
 	lines := make([]string, 0)
 	for i, component := range components {
