@@ -5,6 +5,7 @@ import (
 	"regexp"
 	"strings"
 
+	"github.com/hashicorp/hcl/v2/hclwrite"
 	"github.com/hashicorp/pandora/tools/generator-terraform/generator/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
@@ -39,6 +40,6 @@ func convertBasicTestToUsableExample(tests resourcemanager.TerraformResourceTest
 		example = strings.ReplaceAll(example, fmt.Sprintf("local.%s", variable), replacement)
 	}
 
-	example = strings.TrimSpace(example)
+	example = strings.TrimSpace(string(hclwrite.Format([]byte(example))))
 	return example
 }
