@@ -10,6 +10,7 @@ import (
 func ComponentsForResource(input models.ResourceInput) (*string, error) {
 	components := []func(input models.ResourceInput) (*string, error){
 		codeForYAMLFrontMatter,
+		codeForGeneratedNote,
 		codeForSummary,
 		codeForExampleUsage,
 		// TODO: links to examples
