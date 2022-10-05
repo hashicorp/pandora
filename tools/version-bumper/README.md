@@ -11,8 +11,7 @@ This does this by:
 * If it's a new Service (that is, we're not defining it already) - we pick the latest version available (preferring a Stable version, but accepting a Preview version if necessary).
 * If we already define that Service, we only add the version if it's a new Stable version. New Preview Versions can be added by updating the Config directly.
 
-This tool is run automagically by Github Actions whenever the Swagger is updated.
-
+This tool is run automagically by GitHub Actions whenever the Swagger is updated.
 
 ### How do I add a new version?
 
