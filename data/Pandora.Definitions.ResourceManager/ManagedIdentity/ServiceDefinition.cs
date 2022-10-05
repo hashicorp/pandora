@@ -12,10 +12,10 @@ public partial class Service : ServiceDefinition
 {
     public string Name => "ManagedIdentity";
     public string? ResourceProvider => "Microsoft.ManagedIdentity";
-    public string? TerraformPackageName => null;
+    public string? TerraformPackageName => "managedidentity";
 
     public IEnumerable<TerraformResourceDefinition> TerraformResources => new List<TerraformResourceDefinition>
     {
-
+        new Terraform.UserAssignedIdentityResource(),
     };
 }
