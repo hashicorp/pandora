@@ -1,4 +1,3 @@
-/*
 service "ManagedIdentity" {
   terraform_package = "managedidentity"
 
@@ -13,4 +12,3 @@ service "ManagedIdentity" {
     }
   }
 }
-*/

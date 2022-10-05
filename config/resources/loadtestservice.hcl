@@ -1,4 +1,3 @@
-/*
 service "LoadTestService" {
   terraform_package = "loadtestservice"
 
@@ -13,4 +12,3 @@ service "LoadTestService" {
     }
   }
 }
-*/
