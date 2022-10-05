@@ -46,14 +46,14 @@ function runWrapper {
 
 function prepareTerraformProvider {
   local workingDirectory=$1
-  local sdkRepo=$2
+  local providerRepo=$2
 
   echo "Removing any existing working directory.."
   cd "${DIR}"
   rm -rf "$workingDirectory"
 
-  echo "Cloning SDK Repository into $workingDirectory.."
-  git clone "$sdkRepo" "$workingDirectory"
+  echo "Cloning Terraform Provider $providerRepo into $workingDirectory.."
+  git clone "$providerRepo" "$workingDirectory"
 
   echo "Preparing the repository for generation"
   cd "${DIR}"
@@ -141,13 +141,13 @@ function cleanup {
 function main {
   local dataApiAssemblyPath="data/Pandora.Api/bin/Debug/net6.0/Pandora.Api.dll"
   local swaggerSubmodule="./swagger"
-  local outputDirectory="tmp/go-azure-sdk"
-  local sdkRepo="git@github.com:hashicorp/terraform-provider-azurerm.git"
+  local outputDirectory="tmp/terraform-provider-azurerm"
+  local providerRepo="git@github.com:hashicorp/terraform-provider-azurerm.git"
   local sha
 
   buildAndInstallDependencies
   sha=$(getSwaggerSubmoduleSha "$swaggerSubmodule")
-  prepareTerraformProvider "$outputDirectory" "$sdkRepo"
+  prepareTerraformProvider "$outputDirectory" "$providerRepo"
   runWrapper "$dataApiAssemblyPath" "$outputDirectory" "$sha"
   runFmtImportsAndGenerate "$outputDirectory"
   conditionallyCommitAndPushTerraformProvider "$outputDirectory" "$sha"
