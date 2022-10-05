@@ -12,10 +12,10 @@ public partial class Service : ServiceDefinition
 {
     public string Name => "LoadTestService";
     public string? ResourceProvider => "Microsoft.LoadTestService";
-    public string? TerraformPackageName => "loadtest";
+    public string? TerraformPackageName => null;
 
     public IEnumerable<TerraformResourceDefinition> TerraformResources => new List<TerraformResourceDefinition>
     {
-        new Terraform.LoadTestResource(),
+
     };
 }
