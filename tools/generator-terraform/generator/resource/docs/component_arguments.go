@@ -10,7 +10,10 @@ import (
 
 func codeForArgumentsReference(input models.ResourceInput) (*string, error) {
 
-	topLevelArgs := getArguments(input.SchemaModels[input.SchemaModelName], input.Details.DisplayName)
+	topLevelArgs, err := getArguments(input.SchemaModels[input.SchemaModelName], input.Details.DisplayName)
+	if err != nil {
+		return nil, err
+	}
 
 	output := fmt.Sprintf(`
 ## Arguments Reference
@@ -19,12 +22,12 @@ The following arguments are supported:
 
 %s
 
-`, topLevelArgs)
+`, *topLevelArgs)
 
 	return &output, nil
 }
 
-func getArguments(model resourcemanager.TerraformSchemaModelDefinition, resourceName string) string {
+func getArguments(model resourcemanager.TerraformSchemaModelDefinition, resourceName string) (*string, error) {
 
 	requiredLines := make([]string, 0)
 	optionalLines := make([]string, 0)
@@ -50,7 +53,11 @@ func getArguments(model resourcemanager.TerraformSchemaModelDefinition, resource
 
 		// identify block
 		if field.ObjectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeReference {
-			if beginsWithVowel(field.HclName) {
+			fieldBeginsWithVowel, err := beginsWithVowel(field.HclName)
+			if err != nil {
+				return nil, err
+			}
+			if fieldBeginsWithVowel {
 				components = append(components, "An")
 			} else {
 				components = append(components, "A")
@@ -58,7 +65,6 @@ func getArguments(model resourcemanager.TerraformSchemaModelDefinition, resource
 			components = append(components, fmt.Sprintf("`%s` block as defined below.", field.HclName))
 		}
 
-		// TODO markdown always blank - may require changes here based on markdown format. Assuming this is like a field description for now
 		components = append(components, field.Documentation.Markdown)
 
 		// TODO update to include ranges
@@ -79,7 +85,7 @@ func getArguments(model resourcemanager.TerraformSchemaModelDefinition, resource
 			components = append(components, fmt.Sprintf("Changing this forces a new %s to be created.", resourceName))
 		}
 
-		line := strings.Join(components, " ")
+		line := removeExtraSpaces(strings.Join(components, " "))
 
 		// sort required and optional
 		if field.Required {
@@ -88,5 +94,6 @@ func getArguments(model resourcemanager.TerraformSchemaModelDefinition, resource
 			optionalLines = append(optionalLines, line)
 		}
 	}
-	return strings.Join(append(requiredLines, optionalLines...), "\n\n")
+	out := strings.Join(append(requiredLines, optionalLines...), "\n\n")
+	return &out, nil
 }

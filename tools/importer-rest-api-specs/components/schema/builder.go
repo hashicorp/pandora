@@ -258,7 +258,7 @@ func (b Builder) schemaFromTopLevelModel(input resourcemanager.TerraformResource
 
 	// TODO process top level fields at the end?
 	// find each of the "common" top level fields, excluding `properties`
-	fields, mappings, err := b.schemaFromTopLevelFields(input.SchemaModelName, *createReadUpdateMethods, mappings, logger.Named("TopLevelFields"))
+	fields, mappings, err := b.schemaFromTopLevelFields(input.SchemaModelName, *createReadUpdateMethods, mappings, input.DisplayName, logger.Named("TopLevelFields"))
 	if err != nil {
 		return nil, fmt.Errorf("parsing top-level fields from create/read/update: %+v", err)
 	}

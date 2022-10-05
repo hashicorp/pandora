@@ -2,6 +2,7 @@ package docs
 
 import (
 	"fmt"
+	"regexp"
 	"sort"
 	"strings"
 
@@ -58,12 +59,17 @@ func wordifyTimeout(inMinutes int) string {
 	return "1 minute"
 }
 
-func beginsWithVowel(word string) bool {
+func beginsWithVowel(word string) (bool, error) {
+
+	if len(word) == 0 {
+		return false, fmt.Errorf("cannot check if an empty string begins with a vowel")
+	}
+
 	switch strings.ToLower(word[0:1]) {
 	case "a", "e", "i", "o", "u":
-		return true
+		return true, nil
 	default:
-		return false
+		return false, nil
 	}
 }
 
@@ -101,4 +107,9 @@ func wordifyPossibleValues[T any](in []T) string {
 
 	output := fmt.Sprintf("Possible values are %s and %s.", strings.Join(out[0:len(out)-1], ", "), out[len(out)-1])
 	return output
+}
+
+func removeExtraSpaces(line string) string {
+	re := regexp.MustCompile(`\s+`)
+	return re.ReplaceAllString(line, " ")
 }

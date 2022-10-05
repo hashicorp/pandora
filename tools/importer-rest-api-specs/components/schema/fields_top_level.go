@@ -8,7 +8,7 @@ import (
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-func (b Builder) schemaFromTopLevelFields(schemaModelName string, input operationPayloads, mappings *resourcemanager.MappingDefinition, named hclog.Logger) (*map[string]resourcemanager.TerraformSchemaFieldDefinition, *resourcemanager.MappingDefinition, error) {
+func (b Builder) schemaFromTopLevelFields(schemaModelName string, input operationPayloads, mappings *resourcemanager.MappingDefinition, resourceDisplayName string, named hclog.Logger) (*map[string]resourcemanager.TerraformSchemaFieldDefinition, *resourcemanager.MappingDefinition, error) {
 	allFields := make(map[string]struct{}, 0)
 	for _, model := range input.createReadUpdatePayloads() {
 		for k := range model.Fields {
@@ -70,7 +70,7 @@ func (b Builder) schemaFromTopLevelFields(schemaModelName string, input operatio
 				Required: true,
 				ForceNew: true,
 				Documentation: resourcemanager.TerraformSchemaDocumentationDefinition{
-					Markdown: fmt.Sprintf("The Azure Region where the resource should exist."), // TODO get resource name here?
+					Markdown: fmt.Sprintf("The Azure Region where the %s should exist.", resourceDisplayName),
 				},
 			}
 
@@ -94,7 +94,7 @@ func (b Builder) schemaFromTopLevelFields(schemaModelName string, input operatio
 				Optional: true,
 				ForceNew: !canBeUpdated,
 				Documentation: resourcemanager.TerraformSchemaDocumentationDefinition{
-					Markdown: fmt.Sprintf("A mapping of tags which should be assigned to the Resource."), // TODO get resource name here?
+					Markdown: fmt.Sprintf("A mapping of tags which should be assigned to the %s.", resourceDisplayName),
 				},
 			}
 
