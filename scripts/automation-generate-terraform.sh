@@ -68,7 +68,7 @@ function prepareTerraformProvider {
   echo "Preparing the repository for generation"
   cd "${DIR}"
   cd "${workingDirectory}"
-  make prepare # TODO: add this to the private repo
+  make prepare
 
   cd "${DIR}"
 }
@@ -110,7 +110,7 @@ function cleanup {
 function main {
   local dataApiAssemblyPath="data/Pandora.Api/bin/Debug/net6.0/Pandora.Api.dll"
   local outputDirectory="tmp/provider-azurerm"
-  local sdkRepo="git@github.com:hashicorp/terraform-provider-azurerm-private.git"
+  local sdkRepo="git@github.com:hashicorp/terraform-provider-azurerm.git"
 
   buildAndInstallDependencies
   prepareTerraformProvider "$outputDirectory" "$sdkRepo"

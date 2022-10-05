@@ -41,8 +41,8 @@ jobs:
 
       - name: "Load SSH Key"
         run: |
-          # load the Deployment Write Key for the Terraform Provider repository
-          echo "${{ secrets.TERRAFORM_DEPLOYMENT_WRITE_KEY }}" | ssh-add -
+          # load the Deployment Write Key for the Terraform Provider AzureRM repository
+          echo "${{ secrets.TERRAFORM_AZURERM_PUBLIC_DEPLOYMENT_WRITE_KEY }}" | ssh-add -
         env:
           SSH_AUTH_SOCK: /tmp/pandora_ssh_agent.sock
 
