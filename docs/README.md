@@ -72,3 +72,15 @@ Rather than defining an SDK Client for each Service, the Terraform Resources gen
 For entirely generated Services, this means that an SDK Client will be generated and configured automatically - however when adding generated Resources to an existing Service, some minor refactoring must be done to prepare for the generated SDK Client.
 
 These changes can be found [in this Pull Request](https://github.com/hashicorp/terraform-provider-azurerm/pull/18633/files#diff-c47c90c4f797ec0d7d497ca95d39073297ddc58f40fb188b6b7ce81e981d4baaR6-R17) - however a more detailed/step-by-step guide will follow here in the future.
+
+## Known Limitations
+
+Some SDKs and resources cannot, unfortunately, currently be generated. Reasons include, but are not necessarily limited to:
+
+* Data fidelity and one-to-many APIs - Some API specs do not contain enough information to accurately determine how a resource is intended to be used.  In some cases, the design of an Azure service is such a single API can be used to create multiple types of resources. For example, the same API is used to create Web Apps, Function Apps, and Logic Apps, but in each case the data required in the request payloads is markedly different and there is no way to determine the correct combinations from the data itself. Given the product familiarity required for these kinds of resources, they are unlikely to be able to be generated unless the APIs are redesigned / reimplemented to be explicit in their function.
+
+* Resource Complexity - Some resources make use of polymorphic properties, called [discriminators](https://github.com/Azure/autorest/tree/main/docs/extensions#x-ms-discriminator-value), these are not currently supported but may be considered in the future.
+
+* Data Errors - Some API Specifications contain errors or breaches of compatibility with the ARM specification. For example, inconsistencies in Resource ID segments used throughout an API version which can result in diffs in subsequent SDK generations. These can typically be addressed by submitting fixes back to the source data at <https://github.com/Azure/azure-rest-api-specs/issues>. PR checks exist to attempt to detect when this happens and report it.
+
+* Data Sources - Generation of Terraform Data Sources is not currently supported.
