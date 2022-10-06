@@ -53,7 +53,7 @@ func (b Builder) schemaFromTopLevelFields(schemaModelName string, input operatio
 				ForceNew:         !hasUpdate,
 				HclName:          "identity",
 				Documentation: resourcemanager.TerraformSchemaDocumentationDefinition{
-					Markdown: field.Description,
+					Markdown: fmt.Sprintf("Specifies the Managed Identity which should be assigned to this %s.", resourceDisplayName),
 				},
 			}
 

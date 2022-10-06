@@ -154,6 +154,13 @@ func extractDescription(markdown string) string {
 	description, _, _ = strings.Cut(description, "Minimum api-version:")
 	description, _, _ = strings.Cut(description, "; example")
 
+	// recase words as required
+	description = strings.ReplaceAll(description, "identity", "Identity")
+	description = strings.ReplaceAll(description, "id", "ID")
+	description = strings.ReplaceAll(description, "principal", "Principal")
+	description = strings.ReplaceAll(description, "service", "Service")
+	description = strings.ReplaceAll(description, "tenant", "Tenant")
+
 	if description != "" {
 		description = capitalizeFirstLetter(description)
 
@@ -163,6 +170,7 @@ func extractDescription(markdown string) string {
 			description = punctuateEndOfSentence(description)
 		}
 	}
+	description = strings.TrimSpace(description)
 
 	return description
 }
