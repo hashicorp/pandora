@@ -9,7 +9,7 @@ public class UserAssignedIdentityResourceSchema
 {
 
     [Computed]
-    [Documentation("The id of the app associated with the identity. ")]
+    [Documentation("The ID of the app associated with the Identity.")]
     [HclName("client_id")]
     public string ClientId { get; set; }
 
@@ -29,7 +29,7 @@ public class UserAssignedIdentityResourceSchema
 
 
     [Computed]
-    [Documentation("The id of the service principal object associated with the created identity.")]
+    [Documentation("The ID of the Service Principal object associated with the created Identity.")]
     [HclName("principal_id")]
     public string PrincipalId { get; set; }
 
@@ -48,7 +48,7 @@ public class UserAssignedIdentityResourceSchema
 
 
     [Computed]
-    [Documentation("The id of the tenant which the identity belongs to.")]
+    [Documentation("The ID of the Tenant which the Identity belongs to.")]
     [HclName("tenant_id")]
     public string TenantId { get; set; }
 
