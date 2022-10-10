@@ -33,7 +33,7 @@ func TestPluginSdkAttributes_CommonSchema_EdgeZone(t *testing.T) {
 	file := hclwrite.NewEmptyFile()
 	helper := TestAttributesHelpers{}
 	for i, testCase := range testData {
-		err := helper.GetAttributesForTests("some_resource", testCase.input, *file.Body(), false)
+		err := helper.GetAttributesForTests("some_resource", testCase.input, file.Body(), false)
 		if err != nil {
 			if testCase.expected == "" {
 				continue
@@ -75,7 +75,7 @@ identity {
 	file := hclwrite.NewEmptyFile()
 	helper := TestAttributesHelpers{}
 	for i, testCase := range testData {
-		err := helper.GetAttributesForTests("some_resource", testCase.input, *file.Body(), false)
+		err := helper.GetAttributesForTests("some_resource", testCase.input, file.Body(), false)
 		if err != nil {
 			if testCase.expected == "" {
 				continue
@@ -115,7 +115,7 @@ identity {
 	file := hclwrite.NewEmptyFile()
 	helper := TestAttributesHelpers{}
 	for i, testCase := range testData {
-		err := helper.GetAttributesForTests("some_resource", testCase.input, *file.Body(), false)
+		err := helper.GetAttributesForTests("some_resource", testCase.input, file.Body(), false)
 		if err != nil {
 			if testCase.expected == "" {
 				continue
@@ -155,7 +155,7 @@ identity {
 	file := hclwrite.NewEmptyFile()
 	helper := TestAttributesHelpers{}
 	for i, testCase := range testData {
-		err := helper.GetAttributesForTests("some_resource", testCase.input, *file.Body(), false)
+		err := helper.GetAttributesForTests("some_resource", testCase.input, file.Body(), false)
 		if err != nil {
 			if testCase.expected == "" {
 				continue
@@ -197,7 +197,7 @@ identity {
 	file := hclwrite.NewEmptyFile()
 	helper := TestAttributesHelpers{}
 	for i, testCase := range testData {
-		err := helper.GetAttributesForTests("some_resource", testCase.input, *file.Body(), false)
+		err := helper.GetAttributesForTests("some_resource", testCase.input, file.Body(), false)
 		if err != nil {
 			if testCase.expected == "" {
 				continue
@@ -250,7 +250,7 @@ func TestPluginSdkAttributes_CommonSchema_Location(t *testing.T) {
 	file := hclwrite.NewEmptyFile()
 	helper := TestAttributesHelpers{}
 	for i, testCase := range testData {
-		err := helper.GetAttributesForTests(testCase.resourceName, testCase.input, *file.Body(), false)
+		err := helper.GetAttributesForTests(testCase.resourceName, testCase.input, file.Body(), false)
 		if err != nil {
 			if testCase.expected == "" {
 				continue
@@ -303,7 +303,7 @@ func TestPluginSdkAttributes_CommonSchema_ResourceGroup(t *testing.T) {
 	file := hclwrite.NewEmptyFile()
 	helper := TestAttributesHelpers{}
 	for i, testCase := range testData {
-		err := helper.GetAttributesForTests(testCase.resourceName, testCase.input, *file.Body(), false)
+		err := helper.GetAttributesForTests(testCase.resourceName, testCase.input, file.Body(), false)
 		if err != nil {
 			if testCase.expected == "" {
 				continue
@@ -344,7 +344,7 @@ tags = {
 	file := hclwrite.NewEmptyFile()
 	helper := TestAttributesHelpers{}
 	for i, testCase := range testData {
-		err := helper.GetAttributesForTests("some_resource", testCase.input, *file.Body(), false)
+		err := helper.GetAttributesForTests("some_resource", testCase.input, file.Body(), false)
 		if err != nil {
 			if testCase.expected == "" {
 				continue
@@ -380,7 +380,7 @@ func TestPluginSdkAttributes_CommonSchema_Zone(t *testing.T) {
 	file := hclwrite.NewEmptyFile()
 	helper := TestAttributesHelpers{}
 	for i, testCase := range testData {
-		err := helper.GetAttributesForTests("some_resource", testCase.input, *file.Body(), false)
+		err := helper.GetAttributesForTests("some_resource", testCase.input, file.Body(), false)
 		if err != nil {
 			if testCase.expected == "" {
 				continue
@@ -416,7 +416,7 @@ func TestPluginSdkAttributes_CommonSchema_Zones(t *testing.T) {
 	file := hclwrite.NewEmptyFile()
 	helper := TestAttributesHelpers{}
 	for i, testCase := range testData {
-		err := helper.GetAttributesForTests("some_resource", testCase.input, *file.Body(), false)
+		err := helper.GetAttributesForTests("some_resource", testCase.input, file.Body(), false)
 		if err != nil {
 			if testCase.expected == "" {
 				continue
