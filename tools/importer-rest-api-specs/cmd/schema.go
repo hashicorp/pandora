@@ -124,7 +124,7 @@ func run(input Input) error {
 
 				for resourceName, resource := range candidates.Resources {
 					logger.Trace(fmt.Sprintf("Found Resource %q..", resourceName))
-					schemaDefinition, err := builder.Build(resource, logger.Named(fmt.Sprintf("Resource %q", resourceName)))
+					schemaDefinition, mappings, err := builder.Build(resource, logger.Named(fmt.Sprintf("Resource %q", resourceName)))
 					if err != nil {
 						return fmt.Errorf("processing schema for candidate %s: %+v", resourceName, err)
 					}
@@ -137,6 +137,17 @@ func run(input Input) error {
 							logger.Trace(fmt.Sprintf("Field %q: %+v", fieldName, fieldDetails))
 						}
 					}
+
+					updateMappingsCount := 0
+					if mappings.Update != nil {
+						updateMappingsCount = len(*mappings.Update)
+					}
+					log.Printf(`Mappings:
+	* %d Resource ID Mappings
+	* %d Create Mappings
+	* %d Update Mappings
+	* %d Read Mappings
+`, len(mappings.ResourceId), len(mappings.Create), updateMappingsCount, len(mappings.ResourceId))
 				}
 			}
 		}

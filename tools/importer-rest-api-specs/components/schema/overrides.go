@@ -5,6 +5,7 @@ var fieldsWhichShouldBeIgnoredExactMatch = []string{
 	"ProvisioningState",
 	"ResourceState",
 	"Type",
+	"InstanceView",
 }
 
 var fieldsWhichShouldBeIgnoredIfContains = []string{

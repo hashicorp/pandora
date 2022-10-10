@@ -19,7 +19,7 @@ func (pipelineTask) applyOverridesFromExistingData(data models.AzureApiDefinitio
 		}
 
 		logger.Trace("Applying Overrides from the Existing API Definitions to the Parsed Swagger Data..")
-		data, err = differ.ApplyFromExistingAPIDefinitions(*existingApiDefinitions, data)
+		data, err = differ.ApplyFromExistingAPIDefinitions(*existingApiDefinitions, data, logger)
 		if err != nil {
 			return nil, fmt.Errorf("applying Overrides from the existing API Definitions: %+v", err)
 		}

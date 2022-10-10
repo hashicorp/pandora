@@ -247,6 +247,15 @@ public partial class TerraformController
         // TODO: ResourceID, Range etc
     }
 
+    private class ResourceIdMappingDefinition
+    {
+        [JsonPropertyName("schemaFieldName")]
+        public string SchemaFieldName { get; set; }
+
+        [JsonPropertyName("segmentName")]
+        public string SegmentName { get; set; }
+    }
+
     private class MappingsDefinition
     {
         // TODO: should we add a Generate flag to this?
@@ -260,7 +269,8 @@ public partial class TerraformController
         [JsonPropertyName("update")]
         public List<FieldMappingDefinition>? Update { get; set; }
 
-        // TODO: determine mappings for Resource ID components
+        [JsonPropertyName("resourceId")]
+        public List<ResourceIdMappingDefinition> ResourceId { get; set; }
     }
 
     private class FieldMappingDefinition

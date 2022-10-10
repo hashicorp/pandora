@@ -4,12 +4,14 @@ import (
 	"fmt"
 	"log"
 
+	"github.com/hashicorp/go-hclog"
+
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/helpers"
 
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-func (b Builder) identifyFieldsWithinPropertiesBlock(modelPrefix string, input operationPayloads, resource *resourcemanager.TerraformResourceDetails) (*map[string]resourcemanager.TerraformSchemaFieldDefinition, error) {
+func (b Builder) identifyFieldsWithinPropertiesBlock(modelPrefix string, input operationPayloads, resource *resourcemanager.TerraformResourceDetails, mappings *resourcemanager.MappingDefinition, named hclog.Logger) (*map[string]resourcemanager.TerraformSchemaFieldDefinition, *resourcemanager.MappingDefinition, error) {
 	allFields := make(map[string]struct{}, 0)
 	for _, model := range input.createReadUpdatePayloadsProperties(b.models) {
 		for k, v := range model.Fields {
@@ -89,7 +91,7 @@ func (b Builder) identifyFieldsWithinPropertiesBlock(modelPrefix string, input o
 			}
 
 			if err != nil {
-				return nil, err
+				return nil, nil, err
 			}
 
 			var inputObjectDefinition resourcemanager.ApiObjectDefinition
@@ -129,7 +131,7 @@ func (b Builder) identifyFieldsWithinPropertiesBlock(modelPrefix string, input o
 
 			objectDefinition, err := b.convertToFieldObjectDefinition(modelPrefix, inputObjectDefinition)
 			if err != nil {
-				return nil, fmt.Errorf("converting ObjectDefinition for field to a TerraformFieldObjectDefinition: %+v", err)
+				return nil, nil, fmt.Errorf("converting ObjectDefinition for field to a TerraformFieldObjectDefinition: %+v", err)
 			}
 			definition.ObjectDefinition = *objectDefinition
 
@@ -137,5 +139,5 @@ func (b Builder) identifyFieldsWithinPropertiesBlock(modelPrefix string, input o
 		}
 	}
 
-	return &out, nil
+	return &out, mappings, nil
 }

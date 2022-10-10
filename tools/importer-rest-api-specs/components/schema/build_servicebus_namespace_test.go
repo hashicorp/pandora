@@ -237,20 +237,24 @@ func TestBuildForServiceBusNamespaceHappyPath(t *testing.T) {
 			TimeoutInMinutes: 30,
 		},
 	}
-	actual, err := builder.Build(input, hclog.New(hclog.DefaultOptions))
+	actualModels, actualMappings, err := builder.Build(input, hclog.New(hclog.DefaultOptions))
 	if err != nil {
 		t.Errorf("building schema: %+v", err)
 	}
 
-	if actual == nil {
+	if actualModels == nil {
 		t.Errorf("model %q - expected models but got nil", r.CurrentModel)
 	}
-	if len(*actual) != 3 {
-		t.Errorf("model %q - expected 3 models but got %d", r.CurrentModel, len(*actual))
+	if len(*actualModels) != 3 {
+		t.Errorf("model %q - expected 3 models but got %d", r.CurrentModel, len(*actualModels))
+	}
+	if actualMappings == nil {
+		// TODO: tests for Mappings
+		t.Fatalf("expected some mappings but got nil")
 	}
 
 	r.CurrentModel = "Namespace"
-	currentModel := (*actual)[r.CurrentModel]
+	currentModel := (*actualModels)[r.CurrentModel]
 	if len(currentModel.Fields) != 7 {
 		t.Errorf("model %q - expected 7 fields but got %d", r.CurrentModel, len(currentModel.Fields))
 	}
@@ -961,281 +965,293 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 			TimeoutInMinutes: 30,
 		},
 	}
-	actual, err := builder.Build(input, hclog.New(hclog.DefaultOptions))
+	actualModels, actualMappings, err := builder.Build(input, hclog.New(hclog.DefaultOptions))
 	if err != nil {
 		t.Fatalf("building schema: %+v", err)
 	}
 
-	if actual == nil {
-		t.Fatalf("expected 3 models but got nil")
+	if actualModels == nil {
+		t.Fatalf("expected 4 models but got nil")
+	}
+	if actualMappings == nil {
+		// TODO: tests for Mappings
+		t.Fatalf("expected some mappings but got nil")
 	}
 
-	if len(*actual) != 15 {
+	if len(*actualModels) != 4 {
 		// TODO - Double check this count when the sku rules are in place :see_no_evil:
-		t.Errorf("model %q - expected 15 models, got %d", r.CurrentModel, len(*actual))
+		t.Errorf("expected 4 models, got %d", len(*actualModels))
 	}
 
-	// TODO: validate the result
 	r.CurrentModel = "Namespace"
-	currentModel := (*actual)[r.CurrentModel]
-	if len(currentModel.Fields) != 18 {
-		// TODO - Double check this count when the sku rules are in place :see_no_evil:
-		// Missing - sku_name, sku_tier, sku_capacity, private_endpoint_id
-		t.Errorf("model %q - expected 18 fields but got %d", r.CurrentModel, len(currentModel.Fields))
+	currentModel, ok := (*actualModels)[r.CurrentModel]
+	if !ok {
+		t.Errorf("top level model %q missing", r.CurrentModel)
+	} else {
+		if len(currentModel.Fields) != 16 {
+			// TODO - Double check this count when the sku rules are in place :see_no_evil:
+			// Missing - sku_name, sku_tier, sku_capacity, private_endpoint_id
+			// Should be removed - created_at, updated_at, sku
+			t.Errorf("model %q - expected 16 fields but got %d", r.CurrentModel, len(currentModel.Fields))
+		}
+
+		r.checkFieldName(t, currentModel)
+		r.checkFieldLocation(t, currentModel)
+		r.IdentityConfig = &IdentityConfig{
+			IdentityType: resourcemanager.TerraformSchemaFieldTypeIdentitySystemAndUserAssigned,
+		}
+		r.checkFieldIdentity(t, currentModel)
+		r.checkFieldTags(t, currentModel)
+
+		r.checkField(t, currentModel, expected{
+			FieldName: "SkuName",
+			HclName:   "sku_name",
+			Required:  true,
+			FieldType: resourcemanager.TerraformSchemaFieldTypeString,
+			Validation: &expectedValidation{
+				Type:               resourcemanager.TerraformSchemaValidationTypePossibleValues,
+				PossibleValueCount: 3,
+			},
+		})
+
+		r.checkField(t, currentModel, expected{
+			FieldName:     "SkuTier",
+			HclName:       "sku_tier",
+			Optional:      true,
+			FieldType:     resourcemanager.TerraformSchemaFieldTypeString,
+			ReferenceName: stringPointer("NamespaceSkuTier"),
+			Validation: &expectedValidation{
+				Type:               resourcemanager.TerraformSchemaValidationTypePossibleValues,
+				PossibleValueCount: 3,
+			},
+		})
+
+		r.checkField(t, currentModel, expected{
+			FieldName: "SkuCapacity",
+			HclName:   "sku_capacity",
+			Optional:  true,
+			FieldType: resourcemanager.TerraformSchemaFieldTypeInteger,
+		})
+
+		r.checkField(t, currentModel, expected{
+			FieldName:     "MinimumTlsVersion",
+			HclName:       "minimum_tls_version",
+			Optional:      true,
+			FieldType:     resourcemanager.TerraformSchemaFieldTypeString,
+			ReferenceName: stringPointer("MinimumTlsVersion"),
+		})
+
+		r.checkField(t, currentModel, expected{
+			FieldName: "CreatedAt",
+			HclName:   "created_at",
+			Computed:  true,
+			FieldType: resourcemanager.TerraformSchemaFieldTypeDateTime,
+		})
+
+		r.checkField(t, currentModel, expected{
+			FieldName: "UpdatedAt",
+			HclName:   "updated_at",
+			Computed:  true,
+			FieldType: resourcemanager.TerraformSchemaFieldTypeDateTime,
+		})
+
+		r.checkField(t, currentModel, expected{
+			FieldName: "ServiceBusEndpoint",
+			HclName:   "service_bus_endpoint",
+			Computed:  true,
+			FieldType: resourcemanager.TerraformSchemaFieldTypeString,
+		})
+
+		r.checkField(t, currentModel, expected{
+			FieldName: "MetricId",
+			HclName:   "metric_id",
+			Computed:  true,
+			FieldType: resourcemanager.TerraformSchemaFieldTypeString,
+		})
+
+		r.checkField(t, currentModel, expected{
+			FieldName: "ZoneRedundant",
+			HclName:   "zone_redundant",
+			Optional:  true,
+			ForceNew:  true,
+			FieldType: resourcemanager.TerraformSchemaFieldTypeBoolean,
+		})
+
+		r.checkField(t, currentModel, expected{
+			FieldName:     "Encryption",
+			HclName:       "encryption",
+			Optional:      true,
+			FieldType:     resourcemanager.TerraformSchemaFieldTypeReference,
+			ReferenceName: stringPointer("NamespaceEncryption"),
+		})
+
+		r.checkField(t, currentModel, expected{
+			FieldName:           "PrivateEndpointConnection",
+			HclName:             "private_endpoint_connection",
+			Optional:            true,
+			FieldType:           resourcemanager.TerraformSchemaFieldTypeList,
+			NestedReferenceName: stringPointer("NamespacePrivateEndpointConnection"),
+		})
+
+		r.checkField(t, currentModel, expected{
+			FieldName: "LocalAuthDisabled",
+			HclName:   "local_auth_disabled",
+			Optional:  true,
+			FieldType: resourcemanager.TerraformSchemaFieldTypeBoolean,
+		})
+
+		r.checkField(t, currentModel, expected{
+			FieldName: "AlternateName",
+			HclName:   "alternate_name",
+			Optional:  true,
+			FieldType: resourcemanager.TerraformSchemaFieldTypeString,
+		})
+
+		r.checkField(t, currentModel, expected{
+			FieldName: "PublicNetworkAccess",
+			HclName:   "public_network_access",
+			Optional:  true,
+			FieldType: resourcemanager.TerraformSchemaFieldTypeBoolean,
+		})
 	}
-
-	r.checkFieldName(t, currentModel)
-	r.checkFieldLocation(t, currentModel)
-	r.checkFieldTags(t, currentModel)
-
-	r.checkField(t, currentModel, expected{
-		FieldName: "SkuName",
-		HclName:   "sku_name",
-		Required:  true,
-		FieldType: resourcemanager.TerraformSchemaFieldTypeString,
-		Validation: &expectedValidation{
-			Type:               resourcemanager.TerraformSchemaValidationTypePossibleValues,
-			PossibleValueCount: 3,
-		},
-	})
-
-	r.checkField(t, currentModel, expected{
-		FieldName:     "SkuTier",
-		HclName:       "sku_tier",
-		Optional:      true,
-		FieldType:     resourcemanager.TerraformSchemaFieldTypeString,
-		ReferenceName: stringPointer("NamespaceSkuTier"),
-		Validation: &expectedValidation{
-			Type:               resourcemanager.TerraformSchemaValidationTypePossibleValues,
-			PossibleValueCount: 3,
-		},
-	})
-
-	r.checkField(t, currentModel, expected{
-		FieldName: "SkuCapacity",
-		HclName:   "sku_capacity",
-		Optional:  true,
-		FieldType: resourcemanager.TerraformSchemaFieldTypeInteger,
-	})
-
-	r.checkField(t, currentModel, expected{
-		FieldName:     "MinimumTlsVersion",
-		HclName:       "minimum_tls_version",
-		Optional:      true,
-		FieldType:     resourcemanager.TerraformSchemaFieldTypeString,
-		ReferenceName: stringPointer("MinimumTlsVersion"),
-	})
-
-	r.checkField(t, currentModel, expected{
-		FieldName: "CreatedAt",
-		HclName:   "created_at",
-		Computed:  true,
-		FieldType: resourcemanager.TerraformSchemaFieldTypeDateTime,
-	})
-
-	r.checkField(t, currentModel, expected{
-		FieldName: "UpdatedAt",
-		HclName:   "updated_at",
-		Computed:  true,
-		FieldType: resourcemanager.TerraformSchemaFieldTypeDateTime,
-	})
-
-	r.checkField(t, currentModel, expected{
-		FieldName: "ServiceBusEndpoint",
-		HclName:   "service_bus_endpoint",
-		Computed:  true,
-		FieldType: resourcemanager.TerraformSchemaFieldTypeString,
-	})
-
-	r.checkField(t, currentModel, expected{
-		FieldName: "MetricId",
-		HclName:   "metric_id",
-		Computed:  true,
-		FieldType: resourcemanager.TerraformSchemaFieldTypeString,
-	})
-
-	r.checkField(t, currentModel, expected{
-		FieldName: "ZoneRedundant",
-		HclName:   "zone_redundant",
-		Optional:  true,
-		ForceNew:  true,
-		FieldType: resourcemanager.TerraformSchemaFieldTypeBoolean,
-	})
-
-	r.checkField(t, currentModel, expected{
-		FieldName:     "Encryption",
-		HclName:       "encryption",
-		Optional:      true,
-		FieldType:     resourcemanager.TerraformSchemaFieldTypeReference,
-		ReferenceName: stringPointer("NamespaceEncryption"),
-	})
-
-	r.checkField(t, currentModel, expected{
-		FieldName:           "PrivateEndpointConnection",
-		HclName:             "private_endpoint_connection",
-		Optional:            true,
-		FieldType:           resourcemanager.TerraformSchemaFieldTypeList,
-		NestedReferenceName: stringPointer("NamespacePrivateEndpointConnection"),
-	})
-
-	r.checkField(t, currentModel, expected{
-		FieldName: "LocalAuthDisabled",
-		HclName:   "local_auth_disabled",
-		Optional:  true,
-		FieldType: resourcemanager.TerraformSchemaFieldTypeBoolean,
-	})
-
-	r.checkField(t, currentModel, expected{
-		FieldName: "AlternateName",
-		HclName:   "alternate_name",
-		Optional:  true,
-		FieldType: resourcemanager.TerraformSchemaFieldTypeString,
-	})
-
-	r.checkField(t, currentModel, expected{
-		FieldName: "PublicNetworkAccess",
-		HclName:   "public_network_access",
-		Optional:  true,
-		FieldType: resourcemanager.TerraformSchemaFieldTypeBoolean,
-	})
 
 	r.CurrentModel = "NamespacePrivateEndpoint" // Should be flattened out, only contains `Id` field
-	var ok bool
-	currentModel, ok = (*actual)[r.CurrentModel]
+	currentModel, ok = (*actualModels)[r.CurrentModel]
 	if ok {
 		t.Errorf("expected model %q to be removed but it was present", r.CurrentModel)
 	}
 
 	r.CurrentModel = "NamespaceKeyVaultProperties" // Should be flattened out
-	currentModel, ok = (*actual)[r.CurrentModel]
+	currentModel, ok = (*actualModels)[r.CurrentModel]
 	if ok {
 		t.Errorf("expected model %q to be removed but it was present", r.CurrentModel)
 	}
 
 	r.CurrentModel = "NamespaceUserAssignedIdentityProperties" // Should be flattened out
-	currentModel, ok = (*actual)[r.CurrentModel]
+	currentModel, ok = (*actualModels)[r.CurrentModel]
 	if ok {
 		t.Errorf("expected model %q to be removed but it was present", r.CurrentModel)
 	}
 
-	r.CurrentModel = "NamespacePrivateEndpointConnectionProperties" // Should this be flattened into `NamespacePrivateEndpointConnection`?
-	currentModel = (*actual)[r.CurrentModel]
-	if len(currentModel.Fields) != 3 {
-		t.Errorf("model %q - expected 3 fields but got %d", r.CurrentModel, len(currentModel.Fields))
+	r.CurrentModel = "NamespacePrivateEndpointConnectionProperties"
+	currentModel = (*actualModels)[r.CurrentModel]
+	if ok {
+		t.Errorf("expected model %q to be removed but it was present", r.CurrentModel)
 	}
 
 	r.CurrentModel = "NamespaceSku" // Should be absent after Sku rules
-	currentModel, ok = (*actual)[r.CurrentModel]
+	currentModel, ok = (*actualModels)[r.CurrentModel]
 	if ok {
 		t.Errorf("expected model %q to be removed but it was present", r.CurrentModel)
 	}
 
 	r.CurrentModel = "NamespacePrivateEndpointConnection"
-	currentModel = (*actual)[r.CurrentModel]
-	if len(currentModel.Fields) != 7 {
-		t.Errorf("model %q - expected 3 fields but got %d", r.CurrentModel, len(currentModel.Fields))
+	currentModel = (*actualModels)[r.CurrentModel]
+	if !ok {
+		t.Errorf("expected there to be a model %q, but there wasn't", r.CurrentModel)
+	} else {
+		if len(currentModel.Fields) != 7 {
+			t.Errorf("model %q - expected 3 fields but got %d", r.CurrentModel, len(currentModel.Fields))
+		}
+		r.checkField(t, currentModel, expected{
+			FieldName: "Id",
+			HclName:   "id",
+			Required:  true,
+			FieldType: resourcemanager.TerraformSchemaFieldTypeString,
+		})
+		r.checkField(t, currentModel, expected{
+			FieldName: "Location",
+			HclName:   "location",
+			Computed:  true,
+			FieldType: resourcemanager.TerraformSchemaFieldTypeString,
+		})
+		r.checkField(t, currentModel, expected{
+			FieldName: "Name",
+			HclName:   "name",
+			Computed:  true,
+			FieldType: resourcemanager.TerraformSchemaFieldTypeString,
+		})
+		r.checkField(t, currentModel, expected{
+			FieldName: "Type",
+			HclName:   "type",
+			Computed:  true,
+			FieldType: resourcemanager.TerraformSchemaFieldTypeString,
+		})
+		r.checkField(t, currentModel, expected{
+			FieldName:     "PrivateEndpoint",
+			HclName:       "private_endpoint",
+			Optional:      true,
+			FieldType:     resourcemanager.TerraformSchemaFieldTypeReference,
+			ReferenceName: stringPointer("NamespacePrivateEndpoint"),
+		})
+		r.checkField(t, currentModel, expected{
+			FieldName:     "PrivateLinkServiceConnectionState",
+			HclName:       "private_link_service_connection_state",
+			Computed:      true,
+			FieldType:     resourcemanager.TerraformSchemaFieldTypeReference,
+			ReferenceName: stringPointer("NamespaceConnectionState"),
+		})
 	}
-	r.checkField(t, currentModel, expected{
-		FieldName: "Id",
-		HclName:   "id",
-		Required:  true,
-		FieldType: resourcemanager.TerraformSchemaFieldTypeString,
-	})
-	r.checkField(t, currentModel, expected{
-		FieldName: "Location",
-		HclName:   "location",
-		Computed:  true,
-		FieldType: resourcemanager.TerraformSchemaFieldTypeString,
-	})
-	r.checkField(t, currentModel, expected{
-		FieldName: "Name",
-		HclName:   "name",
-		Computed:  true,
-		FieldType: resourcemanager.TerraformSchemaFieldTypeString,
-	})
-	r.checkField(t, currentModel, expected{
-		FieldName: "Type",
-		HclName:   "type",
-		Computed:  true,
-		FieldType: resourcemanager.TerraformSchemaFieldTypeString,
-	})
-	r.checkField(t, currentModel, expected{
-		FieldName:     "PrivateEndpoint",
-		HclName:       "private_endpoint",
-		Optional:      true,
-		FieldType:     resourcemanager.TerraformSchemaFieldTypeReference,
-		ReferenceName: stringPointer("NamespacePrivateEndpoint"),
-	})
-	r.checkField(t, currentModel, expected{
-		FieldName:     "PrivateLinkServiceConnectionState",
-		HclName:       "private_link_service_connection_state",
-		Computed:      true,
-		FieldType:     resourcemanager.TerraformSchemaFieldTypeReference,
-		ReferenceName: stringPointer("NamespaceConnectionState"),
-	})
 
 	r.CurrentModel = "NamespaceNamespaceProperties" // Should be removed as flattened into parent
-	currentModel, ok = (*actual)[r.CurrentModel]
+	currentModel, ok = (*actualModels)[r.CurrentModel]
 	if ok {
 		t.Errorf("expected model %q to be removed but it was present", r.CurrentModel)
 	}
 
 	r.CurrentModel = "NamespaceConnectionState"
-	currentModel = (*actual)[r.CurrentModel]
-	if len(currentModel.Fields) != 2 {
-		t.Errorf("model %q - expected 2 fields but got %d", r.CurrentModel, len(currentModel.Fields))
-	}
-	r.checkField(t, currentModel, expected{
-		FieldName: "Status",
-		HclName:   "status",
-		Computed:  true,
-		FieldType: resourcemanager.TerraformSchemaFieldTypeString,
-	})
-	r.checkField(t, currentModel, expected{
-		FieldName: "Description",
-		HclName:   "description",
-		Computed:  true,
-		FieldType: resourcemanager.TerraformSchemaFieldTypeString,
-	})
+	currentModel = (*actualModels)[r.CurrentModel]
+	if !ok {
+		t.Errorf("expected there to be a model %q, but there wasn't", r.CurrentModel)
+	} else {
+		if len(currentModel.Fields) != 2 {
+			t.Errorf("model %q - expected 2 fields but got %d", r.CurrentModel, len(currentModel.Fields))
+		}
+		r.checkField(t, currentModel, expected{
+			FieldName: "Status",
+			HclName:   "status",
+			Computed:  true,
+			FieldType: resourcemanager.TerraformSchemaFieldTypeString,
+		})
+		r.checkField(t, currentModel, expected{
+			FieldName: "Description",
+			HclName:   "description",
+			Computed:  true,
+			FieldType: resourcemanager.TerraformSchemaFieldTypeString,
+		})
 
-	r.CurrentModel = "NamespaceEncryption"
-	currentModel = (*actual)[r.CurrentModel]
-	if len(currentModel.Fields) != 3 {
-		t.Errorf("model %q - expected 3 fields but got %d", r.CurrentModel, len(currentModel.Fields))
+		r.CurrentModel = "NamespaceEncryption"
+		currentModel = (*actualModels)[r.CurrentModel]
+		if len(currentModel.Fields) != 3 {
+			t.Errorf("model %q - expected 3 fields but got %d", r.CurrentModel, len(currentModel.Fields))
+		}
+		r.checkField(t, currentModel, expected{
+			FieldName: "RequireInfrastructureEncryption",
+			HclName:   "require_infrastructure_encryption",
+			Optional:  true,
+			FieldType: resourcemanager.TerraformSchemaFieldTypeBoolean,
+		})
+		r.checkField(t, currentModel, expected{
+			FieldName: "KeySource",
+			HclName:   "key_source",
+			Required:  true,
+			FieldType: resourcemanager.TerraformSchemaFieldTypeString,
+			Validation: &expectedValidation{
+				Type:               resourcemanager.TerraformSchemaValidationTypePossibleValues,
+				PossibleValueCount: 1,
+			},
+		})
+		r.checkField(t, currentModel, expected{
+			FieldName: "KeyVaultUri",
+			HclName:   "Key_vault_uri",
+			Required:  true,
+			FieldType: resourcemanager.TerraformSchemaFieldTypeString,
+		})
+		r.checkField(t, currentModel, expected{
+			FieldName: "KeyVersion",
+			HclName:   "key_version",
+			Optional:  true,
+			FieldType: resourcemanager.TerraformSchemaFieldTypeString,
+		})
 	}
-	r.checkField(t, currentModel, expected{
-		FieldName: "RequireInfrastructureEncryption",
-		HclName:   "require_infrastructure_encryption",
-		Optional:  true,
-		FieldType: resourcemanager.TerraformSchemaFieldTypeBoolean,
-	})
-	r.checkField(t, currentModel, expected{
-		FieldName: "KeySource",
-		HclName:   "key_source",
-		Required:  true,
-		FieldType: resourcemanager.TerraformSchemaFieldTypeString,
-		Validation: &expectedValidation{
-			Type:               resourcemanager.TerraformSchemaValidationTypePossibleValues,
-			PossibleValueCount: 1,
-		},
-	})
-	r.checkField(t, currentModel, expected{
-		FieldName: "KeyVaultUri",
-		HclName:   "Key_vault_uri",
-		Required:  true,
-		FieldType: resourcemanager.TerraformSchemaFieldTypeString,
-	})
-	r.checkField(t, currentModel, expected{
-		FieldName: "KeyVersion",
-		HclName:   "Key_version",
-		Optional:  true,
-		FieldType: resourcemanager.TerraformSchemaFieldTypeString,
-	})
-
-	r.checkField(t, currentModel, expected{
-		FieldName: "KeyVersion",
-		HclName:   "Key_version",
-		Optional:  true,
-		FieldType: resourcemanager.TerraformSchemaFieldTypeString,
-	})
 }

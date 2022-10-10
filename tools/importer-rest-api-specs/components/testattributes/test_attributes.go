@@ -80,8 +80,6 @@ func (h TestAttributesHelpers) codeForTestAttribute(models resourcemanager.Terra
 			}
 			reference, ok := h.SchemaModels[*input.NestedObject.ReferenceName]
 			if !ok {
-				// todo figure out when a list is a list of enums
-				break
 				return fmt.Errorf("schema model %q was not found", *input.NestedObject.ReferenceName)
 			}
 			if err := h.GetAttributesForTests(reference, *hclBody.AppendNewBlock(hclName, nil).Body(), requiredOnly); err != nil {
@@ -117,8 +115,6 @@ func (h TestAttributesHelpers) codeForTestAttribute(models resourcemanager.Terra
 		}
 		_, ok := h.SchemaModels[*input.ReferenceName]
 		if !ok {
-			// todo figure out where this is hiding
-			break
 			return fmt.Errorf("schema model %q was not found", *input.ReferenceName)
 		}
 		if err := h.GetAttributesForTests(h.SchemaModels[*input.ReferenceName], *hclBody.AppendNewBlock(hclName, nil).Body(), requiredOnly); err != nil {

@@ -79,6 +79,10 @@ public static class ApiObjectDefinitionMapper
                 return ApiObjectType.Tags.ToString();
             case ObjectType.SystemData:
                 return ApiObjectType.SystemData.ToString();
+            case ObjectType.Zones:
+                return ApiObjectType.Zones.ToString();
+            case ObjectType.Zone:
+                return ApiObjectType.Zone.ToString();
         }
 
         throw new NotSupportedException($"Unsupported ObjectType {input}");
@@ -125,4 +129,6 @@ public enum ApiObjectType
     UserAssignedIdentityMap,
     Tags,
     SystemData,
+    Zones,
+    Zone,
 }

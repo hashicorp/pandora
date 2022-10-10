@@ -23,13 +23,13 @@ type createFunctionComponents struct {
 	schemaModelName        string
 	sdkResourceName        string
 	sdkResourceNameLowered string
-	models                 map[string]resourcemanager.ModelDetails
-	newResourceIdFuncName  string
-	resourceId             resourcemanager.ResourceIdDefinition
-	terraformModel         resourcemanager.TerraformSchemaModelDefinition
-	topLevelModel          resourcemanager.ModelDetails
 
-	// TODO: Mappings
+	models                map[string]resourcemanager.ModelDetails
+	mappings              resourcemanager.MappingDefinition
+	newResourceIdFuncName string
+	resourceId            resourcemanager.ResourceIdDefinition
+	terraformModel        resourcemanager.TerraformSchemaModelDefinition
+	topLevelModel         resourcemanager.ModelDetails
 }
 
 func createFunctionForResource(input models.ResourceInput) (*string, error) {
@@ -77,6 +77,7 @@ func createFunctionForResource(input models.ResourceInput) (*string, error) {
 		schemaModelName:        input.SchemaModelName,
 		sdkResourceName:        input.SdkResourceName,
 		sdkResourceNameLowered: strings.ToLower(input.SdkResourceName),
+		mappings:               input.Details.Mappings,
 		models:                 input.Models,
 		newResourceIdFuncName:  *newResourceIdFuncName,
 		resourceId:             resourceId,
@@ -157,8 +158,20 @@ func (h createFunctionComponents) idDefinitionAndMapping() (*string, error) {
 
 		default:
 			{
-				// TODO: re-introduce Resource ID <-> Schema Mappings
-				segments = append(segments, fmt.Sprintf("\"schema field for %s\"", v.Name))
+				// find the associated mapping and output the relevant field to output the ID
+				for _, resourceIdMapping := range h.mappings.ResourceId {
+					if resourceIdMapping.SegmentName != v.Name {
+						continue
+					}
+
+					if v.ConstantReference != nil {
+						constantTypeName := fmt.Sprintf("%s.%s", h.sdkResourceNameLowered, *v.ConstantReference)
+						segments = append(segments, fmt.Sprintf("%s(config.%s)", constantTypeName, resourceIdMapping.SchemaFieldName))
+					} else {
+						segments = append(segments, fmt.Sprintf("config.%s", resourceIdMapping.SchemaFieldName))
+					}
+					break
+				}
 			}
 		}
 	}

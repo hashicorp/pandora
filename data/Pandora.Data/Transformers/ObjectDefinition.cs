@@ -168,6 +168,14 @@ public static class ObjectDefinition
         {
             return ObjectType.SystemData;
         }
+        if (input == typeof(Zones))
+        {
+            return ObjectType.Zones;
+        }
+        if (input == typeof(Zone))
+        {
+            return ObjectType.Zone;
+        }
 
         throw new NotSupportedException($"Pandora custom type {input.FullName} is not mapped");
     }
