@@ -30,7 +30,7 @@ internal class ContainerAppPropertiesModel
     [JsonPropertyName("managedEnvironmentId")]
     public string? ManagedEnvironmentId { get; set; }
 
-    [JsonPropertyName("outboundIPAddresses")]
+    [JsonPropertyName("outboundIpAddresses")]
     public List<string>? OutboundIPAddresses { get; set; }
 
     [JsonPropertyName("provisioningState")]
