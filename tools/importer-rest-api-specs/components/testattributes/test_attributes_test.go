@@ -4,6 +4,10 @@ import (
 	"fmt"
 	"testing"
 
+	"github.com/hashicorp/pandora/tools/sdk/testhelpers"
+
+	"github.com/hashicorp/go-azure-helpers/lang/pointer"
+
 	"github.com/hashicorp/hcl/v2/hclwrite"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
@@ -44,7 +48,7 @@ func TestRequiredTestAttributes_CodeForBasicFields(t *testing.T) {
 					Type: resourcemanager.TerraformSchemaFieldTypeList,
 					NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
 						Type:          resourcemanager.TerraformSchemaFieldTypeReference,
-						ReferenceName: stringPointer("NestedSchemaModel"),
+						ReferenceName: pointer.To("NestedSchemaModel"),
 					},
 				},
 				HclName:  "required_list_attribute",
@@ -55,7 +59,7 @@ func TestRequiredTestAttributes_CodeForBasicFields(t *testing.T) {
 					Type: resourcemanager.TerraformSchemaFieldTypeList,
 					NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
 						Type:          resourcemanager.TerraformSchemaFieldTypeReference,
-						ReferenceName: stringPointer("NestedSchemaModel"),
+						ReferenceName: pointer.To("NestedSchemaModel"),
 					},
 				},
 				HclName:  "required_set_attribute",
@@ -94,7 +98,7 @@ func TestRequiredTestAttributes_CodeForBasicFields(t *testing.T) {
 			"RequiredReference": {
 				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
 					Type:          resourcemanager.TerraformSchemaFieldTypeReference,
-					ReferenceName: stringPointer("NestedSchemaModel"),
+					ReferenceName: pointer.To("NestedSchemaModel"),
 				},
 				HclName:  "required_reference",
 				Required: true,
@@ -156,7 +160,7 @@ func TestRequiredTestAttributes_CodeForBasicFields(t *testing.T) {
 	if err != nil {
 		t.Fatalf("unexpected error: %+v", err)
 	}
-	assertTemplatedCodeMatches(t, expected, fmt.Sprintf("%s", file.Bytes()))
+	testhelpers.AssertTemplatedCodeMatches(t, expected, fmt.Sprintf("%s", file.Bytes()))
 }
 
 func TestRequiredAndOptionalTestAttributes_CodeForBasicField(t *testing.T) {
@@ -195,7 +199,7 @@ func TestRequiredAndOptionalTestAttributes_CodeForBasicField(t *testing.T) {
 					Type: resourcemanager.TerraformSchemaFieldTypeList,
 					NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
 						Type:          resourcemanager.TerraformSchemaFieldTypeReference,
-						ReferenceName: stringPointer("NestedSchemaModel"),
+						ReferenceName: pointer.To("NestedSchemaModel"),
 					},
 				},
 				HclName:  "required_list_attribute",
@@ -206,7 +210,7 @@ func TestRequiredAndOptionalTestAttributes_CodeForBasicField(t *testing.T) {
 					Type: resourcemanager.TerraformSchemaFieldTypeList,
 					NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
 						Type:          resourcemanager.TerraformSchemaFieldTypeReference,
-						ReferenceName: stringPointer("NestedSchemaModel"),
+						ReferenceName: pointer.To("NestedSchemaModel"),
 					},
 				},
 				HclName:  "optional_set_attribute",
@@ -245,7 +249,7 @@ func TestRequiredAndOptionalTestAttributes_CodeForBasicField(t *testing.T) {
 			"OptionalReference": {
 				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
 					Type:          resourcemanager.TerraformSchemaFieldTypeReference,
-					ReferenceName: stringPointer("NestedSchemaModel"),
+					ReferenceName: pointer.To("NestedSchemaModel"),
 				},
 				HclName:  "optional_reference",
 				Optional: true,
@@ -311,7 +315,7 @@ func TestRequiredAndOptionalTestAttributes_CodeForBasicField(t *testing.T) {
 	if err != nil {
 		t.Fatalf("unexpected error: %+v", err)
 	}
-	assertTemplatedCodeMatches(t, expected, fmt.Sprintf("%s", file.Bytes()))
+	testhelpers.AssertTemplatedCodeMatches(t, expected, fmt.Sprintf("%s", file.Bytes()))
 }
 
 func TestStringAttributes(t *testing.T) {
@@ -348,7 +352,7 @@ name ="acctest-${local.random_integer}"
 
 			t.Fatalf("unexpected error for index %d", i)
 		}
-		assertTemplatedCodeMatches(t, testCase.expected, fmt.Sprintf("%s", file.Bytes()))
+		testhelpers.AssertTemplatedCodeMatches(t, testCase.expected, fmt.Sprintf("%s", file.Bytes()))
 		file.Body().Clear()
 	}
 }
@@ -440,7 +444,7 @@ test_int = 5
 
 			t.Fatalf("unexpected error for index %d", i)
 		}
-		assertTemplatedCodeMatches(t, testCase.expected, fmt.Sprintf("%s", file.Bytes()))
+		testhelpers.AssertTemplatedCodeMatches(t, testCase.expected, fmt.Sprintf("%s", file.Bytes()))
 		file.Body().Clear()
 	}
 }

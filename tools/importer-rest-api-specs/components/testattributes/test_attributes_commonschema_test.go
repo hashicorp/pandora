@@ -7,6 +7,7 @@ import (
 	"github.com/hashicorp/hcl/v2/hclwrite"
 
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+	"github.com/hashicorp/pandora/tools/sdk/testhelpers"
 )
 
 func TestPluginSdkAttributes_CommonSchema_EdgeZone(t *testing.T) {
@@ -41,7 +42,7 @@ func TestPluginSdkAttributes_CommonSchema_EdgeZone(t *testing.T) {
 
 			t.Fatalf("unexpected error for index %d", i)
 		}
-		assertTemplatedCodeMatches(t, testCase.expected, fmt.Sprintf("%s", file.Bytes()))
+		testhelpers.AssertTemplatedCodeMatches(t, testCase.expected, fmt.Sprintf("%s", file.Bytes()))
 	}
 }
 
@@ -83,7 +84,7 @@ identity {
 
 			t.Fatalf("unexpected error for index %d", i)
 		}
-		assertTemplatedCodeMatches(t, testCase.expected, fmt.Sprintf("%s", file.Bytes()))
+		testhelpers.AssertTemplatedCodeMatches(t, testCase.expected, fmt.Sprintf("%s", file.Bytes()))
 	}
 }
 
@@ -123,7 +124,7 @@ identity {
 
 			t.Fatalf("unexpected error for index %d", i)
 		}
-		assertTemplatedCodeMatches(t, testCase.expected, fmt.Sprintf("%s", file.Bytes()))
+		testhelpers.AssertTemplatedCodeMatches(t, testCase.expected, fmt.Sprintf("%s", file.Bytes()))
 	}
 }
 
@@ -163,7 +164,7 @@ identity {
 
 			t.Fatalf("unexpected error for index %d", i)
 		}
-		assertTemplatedCodeMatches(t, testCase.expected, fmt.Sprintf("%s", file.Bytes()))
+		testhelpers.AssertTemplatedCodeMatches(t, testCase.expected, fmt.Sprintf("%s", file.Bytes()))
 	}
 }
 
@@ -205,7 +206,7 @@ identity {
 
 			t.Fatalf("unexpected error for index %d", i)
 		}
-		assertTemplatedCodeMatches(t, testCase.expected, fmt.Sprintf("%s", file.Bytes()))
+		testhelpers.AssertTemplatedCodeMatches(t, testCase.expected, fmt.Sprintf("%s", file.Bytes()))
 	}
 }
 
@@ -258,7 +259,7 @@ func TestPluginSdkAttributes_CommonSchema_Location(t *testing.T) {
 
 			t.Fatalf("unexpected error for index %d", i)
 		}
-		assertTemplatedCodeMatches(t, testCase.expected, fmt.Sprintf("%s", file.Bytes()))
+		testhelpers.AssertTemplatedCodeMatches(t, testCase.expected, fmt.Sprintf("%s", file.Bytes()))
 	}
 }
 
@@ -311,7 +312,7 @@ func TestPluginSdkAttributes_CommonSchema_ResourceGroup(t *testing.T) {
 
 			t.Fatalf("unexpected error for index %d", i)
 		}
-		assertTemplatedCodeMatches(t, testCase.expected, fmt.Sprintf("%s", file.Bytes()))
+		testhelpers.AssertTemplatedCodeMatches(t, testCase.expected, fmt.Sprintf("%s", file.Bytes()))
 	}
 }
 
@@ -352,7 +353,7 @@ tags = {
 
 			t.Fatalf("unexpected error for index %d", i)
 		}
-		assertTemplatedCodeMatches(t, testCase.expected, fmt.Sprintf("%s", file.Bytes()))
+		testhelpers.AssertTemplatedCodeMatches(t, testCase.expected, fmt.Sprintf("%s", file.Bytes()))
 	}
 }
 
@@ -388,7 +389,7 @@ func TestPluginSdkAttributes_CommonSchema_Zone(t *testing.T) {
 
 			t.Fatalf("unexpected error for index %d", i)
 		}
-		assertTemplatedCodeMatches(t, testCase.expected, fmt.Sprintf("%s", file.Bytes()))
+		testhelpers.AssertTemplatedCodeMatches(t, testCase.expected, fmt.Sprintf("%s", file.Bytes()))
 	}
 }
 
@@ -424,6 +425,6 @@ func TestPluginSdkAttributes_CommonSchema_Zones(t *testing.T) {
 
 			t.Fatalf("unexpected error for index %d", i)
 		}
-		assertTemplatedCodeMatches(t, testCase.expected, fmt.Sprintf("%s", file.Bytes()))
+		testhelpers.AssertTemplatedCodeMatches(t, testCase.expected, fmt.Sprintf("%s", file.Bytes()))
 	}
 }
