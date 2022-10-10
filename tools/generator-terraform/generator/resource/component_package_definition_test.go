@@ -4,6 +4,7 @@ import (
 	"testing"
 
 	"github.com/hashicorp/pandora/tools/generator-terraform/generator/models"
+	"github.com/hashicorp/pandora/tools/sdk/testhelpers"
 )
 
 func TestComponentPackageDefinition(t *testing.T) {
@@ -15,5 +16,5 @@ func TestComponentPackageDefinition(t *testing.T) {
 		t.Fatalf("retrieving package definition: %+v", err)
 	}
 	expected := `package example`
-	assertTemplatedCodeMatches(t, expected, *actual)
+	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
 }

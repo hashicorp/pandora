@@ -6,10 +6,6 @@ import (
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-func stringPointer(in string) *string {
-	return &in
-}
-
 func possibleValuesDefinitionFromConstant(t *testing.T, input resourcemanager.ConstantDetails) *resourcemanager.TerraformSchemaValidationPossibleValuesDefinition {
 	types := map[resourcemanager.ConstantType]resourcemanager.TerraformSchemaValidationPossibleValueType{
 		resourcemanager.FloatConstant:   resourcemanager.TerraformSchemaValidationPossibleValueTypeFloat,

@@ -3,6 +3,7 @@ package helpers
 import (
 	"testing"
 
+	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
@@ -16,7 +17,7 @@ func TestObjectDefinitionToGolangFieldType(t *testing.T) {
 			input: resourcemanager.TerraformSchemaFieldObjectDefinition{
 				Type: resourcemanager.TerraformSchemaFieldTypeBoolean,
 			},
-			expected: stringPointer("bool"),
+			expected: pointer.To("bool"),
 		},
 		{
 			input: resourcemanager.TerraformSchemaFieldObjectDefinition{
@@ -26,34 +27,34 @@ func TestObjectDefinitionToGolangFieldType(t *testing.T) {
 			// this as a String with Get/Set methods to allow exposing this value
 			// either as a raw string or by formatting the value, so we output
 			// a string here rather than a *time.Time
-			expected: stringPointer("string"),
+			expected: pointer.To("string"),
 		},
 		{
 			input: resourcemanager.TerraformSchemaFieldObjectDefinition{
 				Type: resourcemanager.TerraformSchemaFieldTypeFloat,
 			},
-			expected: stringPointer("float64"),
+			expected: pointer.To("float64"),
 		},
 		{
 			input: resourcemanager.TerraformSchemaFieldObjectDefinition{
 				Type: resourcemanager.TerraformSchemaFieldTypeInteger,
 			},
-			expected: stringPointer("int64"),
+			expected: pointer.To("int64"),
 		},
 		{
 			input: resourcemanager.TerraformSchemaFieldObjectDefinition{
 				Type: resourcemanager.TerraformSchemaFieldTypeString,
 			},
-			expected: stringPointer("string"),
+			expected: pointer.To("string"),
 		},
 
 		// References
 		{
 			input: resourcemanager.TerraformSchemaFieldObjectDefinition{
 				Type:          resourcemanager.TerraformSchemaFieldTypeReference,
-				ReferenceName: stringPointer("SomeModel"),
+				ReferenceName: pointer.To("SomeModel"),
 			},
-			expected: stringPointer("[]SomeModel"),
+			expected: pointer.To("[]SomeModel"),
 		},
 
 		// Common Types
@@ -61,61 +62,61 @@ func TestObjectDefinitionToGolangFieldType(t *testing.T) {
 			input: resourcemanager.TerraformSchemaFieldObjectDefinition{
 				Type: resourcemanager.TerraformSchemaFieldTypeEdgeZone,
 			},
-			expected: stringPointer("string"),
+			expected: pointer.To("string"),
 		},
 		{
 			input: resourcemanager.TerraformSchemaFieldObjectDefinition{
 				Type: resourcemanager.TerraformSchemaFieldTypeLocation,
 			},
-			expected: stringPointer("string"),
+			expected: pointer.To("string"),
 		},
 		{
 			input: resourcemanager.TerraformSchemaFieldObjectDefinition{
 				Type: resourcemanager.TerraformSchemaFieldTypeIdentitySystemAssigned,
 			},
-			expected: stringPointer("[]identity.ModelSystemAssigned"),
+			expected: pointer.To("[]identity.ModelSystemAssigned"),
 		},
 		{
 			input: resourcemanager.TerraformSchemaFieldObjectDefinition{
 				Type: resourcemanager.TerraformSchemaFieldTypeIdentitySystemAndUserAssigned,
 			},
-			expected: stringPointer("[]identity.ModelSystemAssignedUserAssigned"),
+			expected: pointer.To("[]identity.ModelSystemAssignedUserAssigned"),
 		},
 		{
 			input: resourcemanager.TerraformSchemaFieldObjectDefinition{
 				Type: resourcemanager.TerraformSchemaFieldTypeIdentitySystemOrUserAssigned,
 			},
-			expected: stringPointer("[]identity.ModelSystemAssignedUserAssigned"),
+			expected: pointer.To("[]identity.ModelSystemAssignedUserAssigned"),
 		},
 		{
 			input: resourcemanager.TerraformSchemaFieldObjectDefinition{
 				Type: resourcemanager.TerraformSchemaFieldTypeIdentityUserAssigned,
 			},
-			expected: stringPointer("[]identity.ModelUserAssigned"),
+			expected: pointer.To("[]identity.ModelUserAssigned"),
 		},
 		{
 			input: resourcemanager.TerraformSchemaFieldObjectDefinition{
 				Type: resourcemanager.TerraformSchemaFieldTypeResourceGroup,
 			},
-			expected: stringPointer("string"),
+			expected: pointer.To("string"),
 		},
 		{
 			input: resourcemanager.TerraformSchemaFieldObjectDefinition{
 				Type: resourcemanager.TerraformSchemaFieldTypeTags,
 			},
-			expected: stringPointer("map[string]interface{}"),
+			expected: pointer.To("map[string]interface{}"),
 		},
 		{
 			input: resourcemanager.TerraformSchemaFieldObjectDefinition{
 				Type: resourcemanager.TerraformSchemaFieldTypeZone,
 			},
-			expected: stringPointer("string"),
+			expected: pointer.To("string"),
 		},
 		{
 			input: resourcemanager.TerraformSchemaFieldObjectDefinition{
 				Type: resourcemanager.TerraformSchemaFieldTypeZones,
 			},
-			expected: stringPointer("[]string"),
+			expected: pointer.To("[]string"),
 		},
 	}
 	for i, data := range testData {
@@ -139,10 +140,6 @@ func TestObjectDefinitionToGolangFieldType(t *testing.T) {
 	}
 }
 
-func stringPointer(input string) *string {
-	return &input
-}
-
 func TestObjectDefinitionToGolangFieldType_Lists(t *testing.T) {
 	testData := []struct {
 		input    resourcemanager.TerraformSchemaFieldObjectDefinition
@@ -156,7 +153,7 @@ func TestObjectDefinitionToGolangFieldType_Lists(t *testing.T) {
 					Type: resourcemanager.TerraformSchemaFieldTypeBoolean,
 				},
 			},
-			expected: stringPointer("[]bool"),
+			expected: pointer.To("[]bool"),
 		},
 		{
 			input: resourcemanager.TerraformSchemaFieldObjectDefinition{
@@ -169,7 +166,7 @@ func TestObjectDefinitionToGolangFieldType_Lists(t *testing.T) {
 			// this as a String with Get/Set methods to allow exposing this value
 			// either as a raw string or by formatting the value, so we output
 			// a string here rather than a *time.Time
-			expected: stringPointer("[]string"),
+			expected: pointer.To("[]string"),
 		},
 		{
 			input: resourcemanager.TerraformSchemaFieldObjectDefinition{
@@ -178,7 +175,7 @@ func TestObjectDefinitionToGolangFieldType_Lists(t *testing.T) {
 					Type: resourcemanager.TerraformSchemaFieldTypeFloat,
 				},
 			},
-			expected: stringPointer("[]float64"),
+			expected: pointer.To("[]float64"),
 		},
 		{
 			input: resourcemanager.TerraformSchemaFieldObjectDefinition{
@@ -187,7 +184,7 @@ func TestObjectDefinitionToGolangFieldType_Lists(t *testing.T) {
 					Type: resourcemanager.TerraformSchemaFieldTypeInteger,
 				},
 			},
-			expected: stringPointer("[]int64"),
+			expected: pointer.To("[]int64"),
 		},
 		{
 			input: resourcemanager.TerraformSchemaFieldObjectDefinition{
@@ -196,7 +193,7 @@ func TestObjectDefinitionToGolangFieldType_Lists(t *testing.T) {
 					Type: resourcemanager.TerraformSchemaFieldTypeString,
 				},
 			},
-			expected: stringPointer("[]string"),
+			expected: pointer.To("[]string"),
 		},
 
 		// References
@@ -205,10 +202,10 @@ func TestObjectDefinitionToGolangFieldType_Lists(t *testing.T) {
 				Type: resourcemanager.TerraformSchemaFieldTypeList,
 				NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
 					Type:          resourcemanager.TerraformSchemaFieldTypeReference,
-					ReferenceName: stringPointer("SomeModel"),
+					ReferenceName: pointer.To("SomeModel"),
 				},
 			},
-			expected: stringPointer("[]SomeModel"),
+			expected: pointer.To("[]SomeModel"),
 		},
 
 		// Common Types
@@ -219,7 +216,7 @@ func TestObjectDefinitionToGolangFieldType_Lists(t *testing.T) {
 					Type: resourcemanager.TerraformSchemaFieldTypeEdgeZone,
 				},
 			},
-			expected: stringPointer("[]string"),
+			expected: pointer.To("[]string"),
 		},
 		{
 			input: resourcemanager.TerraformSchemaFieldObjectDefinition{
@@ -228,7 +225,7 @@ func TestObjectDefinitionToGolangFieldType_Lists(t *testing.T) {
 					Type: resourcemanager.TerraformSchemaFieldTypeLocation,
 				},
 			},
-			expected: stringPointer("[]string"),
+			expected: pointer.To("[]string"),
 		},
 		{
 			input: resourcemanager.TerraformSchemaFieldObjectDefinition{
@@ -237,7 +234,7 @@ func TestObjectDefinitionToGolangFieldType_Lists(t *testing.T) {
 					Type: resourcemanager.TerraformSchemaFieldTypeIdentitySystemAssigned,
 				},
 			},
-			expected: stringPointer("[]identity.ModelSystemAssigned"),
+			expected: pointer.To("[]identity.ModelSystemAssigned"),
 		},
 		{
 			input: resourcemanager.TerraformSchemaFieldObjectDefinition{
@@ -246,7 +243,7 @@ func TestObjectDefinitionToGolangFieldType_Lists(t *testing.T) {
 					Type: resourcemanager.TerraformSchemaFieldTypeIdentitySystemAndUserAssigned,
 				},
 			},
-			expected: stringPointer("[]identity.ModelSystemAssignedUserAssigned"),
+			expected: pointer.To("[]identity.ModelSystemAssignedUserAssigned"),
 		},
 		{
 			input: resourcemanager.TerraformSchemaFieldObjectDefinition{
@@ -255,7 +252,7 @@ func TestObjectDefinitionToGolangFieldType_Lists(t *testing.T) {
 					Type: resourcemanager.TerraformSchemaFieldTypeIdentitySystemOrUserAssigned,
 				},
 			},
-			expected: stringPointer("[]identity.ModelSystemAssignedUserAssigned"),
+			expected: pointer.To("[]identity.ModelSystemAssignedUserAssigned"),
 		},
 		{
 			input: resourcemanager.TerraformSchemaFieldObjectDefinition{
@@ -264,7 +261,7 @@ func TestObjectDefinitionToGolangFieldType_Lists(t *testing.T) {
 					Type: resourcemanager.TerraformSchemaFieldTypeIdentityUserAssigned,
 				},
 			},
-			expected: stringPointer("[]identity.ModelUserAssigned"),
+			expected: pointer.To("[]identity.ModelUserAssigned"),
 		},
 		{
 			input: resourcemanager.TerraformSchemaFieldObjectDefinition{
@@ -273,7 +270,7 @@ func TestObjectDefinitionToGolangFieldType_Lists(t *testing.T) {
 					Type: resourcemanager.TerraformSchemaFieldTypeResourceGroup,
 				},
 			},
-			expected: stringPointer("[]string"),
+			expected: pointer.To("[]string"),
 		},
 		{
 			input: resourcemanager.TerraformSchemaFieldObjectDefinition{
@@ -282,7 +279,7 @@ func TestObjectDefinitionToGolangFieldType_Lists(t *testing.T) {
 					Type: resourcemanager.TerraformSchemaFieldTypeTags,
 				},
 			},
-			expected: stringPointer("[]map[string]interface{}"),
+			expected: pointer.To("[]map[string]interface{}"),
 		},
 		{
 			input: resourcemanager.TerraformSchemaFieldObjectDefinition{
@@ -291,7 +288,7 @@ func TestObjectDefinitionToGolangFieldType_Lists(t *testing.T) {
 					Type: resourcemanager.TerraformSchemaFieldTypeZone,
 				},
 			},
-			expected: stringPointer("[]string"),
+			expected: pointer.To("[]string"),
 		},
 		{
 			input: resourcemanager.TerraformSchemaFieldObjectDefinition{
@@ -300,7 +297,7 @@ func TestObjectDefinitionToGolangFieldType_Lists(t *testing.T) {
 					Type: resourcemanager.TerraformSchemaFieldTypeZones,
 				},
 			},
-			expected: stringPointer("[][]string"),
+			expected: pointer.To("[][]string"),
 		},
 	}
 	for i, data := range testData {
@@ -337,7 +334,7 @@ func TestObjectDefinitionToGolangFieldType_Sets(t *testing.T) {
 					Type: resourcemanager.TerraformSchemaFieldTypeBoolean,
 				},
 			},
-			expected: stringPointer("[]bool"),
+			expected: pointer.To("[]bool"),
 		},
 		{
 			input: resourcemanager.TerraformSchemaFieldObjectDefinition{
@@ -350,7 +347,7 @@ func TestObjectDefinitionToGolangFieldType_Sets(t *testing.T) {
 			// this as a String with Get/Set methods to allow exposing this value
 			// either as a raw string or by formatting the value, so we output
 			// a string here rather than a *time.Time
-			expected: stringPointer("[]string"),
+			expected: pointer.To("[]string"),
 		},
 		{
 			input: resourcemanager.TerraformSchemaFieldObjectDefinition{
@@ -359,7 +356,7 @@ func TestObjectDefinitionToGolangFieldType_Sets(t *testing.T) {
 					Type: resourcemanager.TerraformSchemaFieldTypeFloat,
 				},
 			},
-			expected: stringPointer("[]float64"),
+			expected: pointer.To("[]float64"),
 		},
 		{
 			input: resourcemanager.TerraformSchemaFieldObjectDefinition{
@@ -368,7 +365,7 @@ func TestObjectDefinitionToGolangFieldType_Sets(t *testing.T) {
 					Type: resourcemanager.TerraformSchemaFieldTypeInteger,
 				},
 			},
-			expected: stringPointer("[]int64"),
+			expected: pointer.To("[]int64"),
 		},
 		{
 			input: resourcemanager.TerraformSchemaFieldObjectDefinition{
@@ -377,7 +374,7 @@ func TestObjectDefinitionToGolangFieldType_Sets(t *testing.T) {
 					Type: resourcemanager.TerraformSchemaFieldTypeString,
 				},
 			},
-			expected: stringPointer("[]string"),
+			expected: pointer.To("[]string"),
 		},
 
 		// References
@@ -386,10 +383,10 @@ func TestObjectDefinitionToGolangFieldType_Sets(t *testing.T) {
 				Type: resourcemanager.TerraformSchemaFieldTypeSet,
 				NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
 					Type:          resourcemanager.TerraformSchemaFieldTypeReference,
-					ReferenceName: stringPointer("SomeModel"),
+					ReferenceName: pointer.To("SomeModel"),
 				},
 			},
-			expected: stringPointer("[]SomeModel"),
+			expected: pointer.To("[]SomeModel"),
 		},
 
 		// Common Types
@@ -400,7 +397,7 @@ func TestObjectDefinitionToGolangFieldType_Sets(t *testing.T) {
 					Type: resourcemanager.TerraformSchemaFieldTypeEdgeZone,
 				},
 			},
-			expected: stringPointer("[]string"),
+			expected: pointer.To("[]string"),
 		},
 		{
 			input: resourcemanager.TerraformSchemaFieldObjectDefinition{
@@ -409,7 +406,7 @@ func TestObjectDefinitionToGolangFieldType_Sets(t *testing.T) {
 					Type: resourcemanager.TerraformSchemaFieldTypeLocation,
 				},
 			},
-			expected: stringPointer("[]string"),
+			expected: pointer.To("[]string"),
 		},
 		{
 			input: resourcemanager.TerraformSchemaFieldObjectDefinition{
@@ -418,7 +415,7 @@ func TestObjectDefinitionToGolangFieldType_Sets(t *testing.T) {
 					Type: resourcemanager.TerraformSchemaFieldTypeIdentitySystemAssigned,
 				},
 			},
-			expected: stringPointer("[]identity.ModelSystemAssigned"),
+			expected: pointer.To("[]identity.ModelSystemAssigned"),
 		},
 		{
 			input: resourcemanager.TerraformSchemaFieldObjectDefinition{
@@ -427,7 +424,7 @@ func TestObjectDefinitionToGolangFieldType_Sets(t *testing.T) {
 					Type: resourcemanager.TerraformSchemaFieldTypeIdentitySystemAndUserAssigned,
 				},
 			},
-			expected: stringPointer("[]identity.ModelSystemAssignedUserAssigned"),
+			expected: pointer.To("[]identity.ModelSystemAssignedUserAssigned"),
 		},
 		{
 			input: resourcemanager.TerraformSchemaFieldObjectDefinition{
@@ -436,7 +433,7 @@ func TestObjectDefinitionToGolangFieldType_Sets(t *testing.T) {
 					Type: resourcemanager.TerraformSchemaFieldTypeIdentitySystemOrUserAssigned,
 				},
 			},
-			expected: stringPointer("[]identity.ModelSystemAssignedUserAssigned"),
+			expected: pointer.To("[]identity.ModelSystemAssignedUserAssigned"),
 		},
 		{
 			input: resourcemanager.TerraformSchemaFieldObjectDefinition{
@@ -445,7 +442,7 @@ func TestObjectDefinitionToGolangFieldType_Sets(t *testing.T) {
 					Type: resourcemanager.TerraformSchemaFieldTypeIdentityUserAssigned,
 				},
 			},
-			expected: stringPointer("[]identity.ModelUserAssigned"),
+			expected: pointer.To("[]identity.ModelUserAssigned"),
 		},
 		{
 			input: resourcemanager.TerraformSchemaFieldObjectDefinition{
@@ -454,7 +451,7 @@ func TestObjectDefinitionToGolangFieldType_Sets(t *testing.T) {
 					Type: resourcemanager.TerraformSchemaFieldTypeResourceGroup,
 				},
 			},
-			expected: stringPointer("[]string"),
+			expected: pointer.To("[]string"),
 		},
 		{
 			input: resourcemanager.TerraformSchemaFieldObjectDefinition{
@@ -463,7 +460,7 @@ func TestObjectDefinitionToGolangFieldType_Sets(t *testing.T) {
 					Type: resourcemanager.TerraformSchemaFieldTypeTags,
 				},
 			},
-			expected: stringPointer("[]map[string]interface{}"),
+			expected: pointer.To("[]map[string]interface{}"),
 		},
 		{
 			input: resourcemanager.TerraformSchemaFieldObjectDefinition{
@@ -472,7 +469,7 @@ func TestObjectDefinitionToGolangFieldType_Sets(t *testing.T) {
 					Type: resourcemanager.TerraformSchemaFieldTypeZone,
 				},
 			},
-			expected: stringPointer("[]string"),
+			expected: pointer.To("[]string"),
 		},
 		{
 			input: resourcemanager.TerraformSchemaFieldObjectDefinition{
@@ -481,7 +478,7 @@ func TestObjectDefinitionToGolangFieldType_Sets(t *testing.T) {
 					Type: resourcemanager.TerraformSchemaFieldTypeZones,
 				},
 			},
-			expected: stringPointer("[][]string"),
+			expected: pointer.To("[][]string"),
 		},
 	}
 	for i, data := range testData {

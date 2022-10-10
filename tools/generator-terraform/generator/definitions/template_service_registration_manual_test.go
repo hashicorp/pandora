@@ -4,6 +4,7 @@ import (
 	"testing"
 
 	"github.com/hashicorp/pandora/tools/generator-terraform/generator/models"
+	"github.com/hashicorp/pandora/tools/sdk/testhelpers"
 )
 
 func TestCodeForManualServiceRegistration(t *testing.T) {
@@ -48,5 +49,5 @@ func (r Registration) Resources() []sdk.Resource {
 	return resources
 }
 `
-	assertTemplatedCodeMatches(t, expected, actual)
+	testhelpers.AssertTemplatedCodeMatches(t, expected, actual)
 }

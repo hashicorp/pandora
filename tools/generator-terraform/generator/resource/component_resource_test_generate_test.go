@@ -118,6 +118,6 @@ resource "azurerm_example" "test" {
 }
 ', data.RandomString)}
 `, "'", "`")
-	assertTemplatedCodeMatches(t, expected, *actual)
+	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
 }
 */

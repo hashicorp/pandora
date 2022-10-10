@@ -3,6 +3,7 @@ package mappings
 import (
 	"testing"
 
+	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 	"github.com/hashicorp/pandora/tools/sdk/testhelpers"
 )
@@ -25,7 +26,7 @@ func TestModelToModelMapping_SchemaToSdk_Required_HappyPath(t *testing.T) {
 				JsonName: "someSdkField",
 				ObjectDefinition: resourcemanager.ApiObjectDefinition{
 					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-					ReferenceName: stringPointer("SomeOtherModel"),
+					ReferenceName: pointer.To("SomeOtherModel"),
 				},
 				Required: true,
 			},
@@ -64,7 +65,7 @@ func TestModelToModelMapping_SchemaToSdk_Optional_HappyPath(t *testing.T) {
 				JsonName: "someSdkField",
 				ObjectDefinition: resourcemanager.ApiObjectDefinition{
 					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-					ReferenceName: stringPointer("SomeOtherModel"),
+					ReferenceName: pointer.To("SomeOtherModel"),
 				},
 				Optional: true,
 			},
@@ -107,7 +108,7 @@ func TestModelToModelMapping_SchemaToSdk_WrongType(t *testing.T) {
 				JsonName: "someSdkField",
 				ObjectDefinition: resourcemanager.ApiObjectDefinition{
 					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-					ReferenceName: stringPointer("SomeOtherModel"),
+					ReferenceName: pointer.To("SomeOtherModel"),
 				},
 			},
 		},
@@ -139,7 +140,7 @@ func TestModelToModelMapping_SdkToSchema_Required_HappyPath(t *testing.T) {
 				JsonName: "someSdkField",
 				ObjectDefinition: resourcemanager.ApiObjectDefinition{
 					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-					ReferenceName: stringPointer("SomeOtherModel"),
+					ReferenceName: pointer.To("SomeOtherModel"),
 				},
 				Required: true,
 			},
@@ -178,7 +179,7 @@ func TestModelToModelMapping_SdkToSchema_Optional_HappyPath(t *testing.T) {
 				JsonName: "someSdkField",
 				ObjectDefinition: resourcemanager.ApiObjectDefinition{
 					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-					ReferenceName: stringPointer("SomeOtherModel"),
+					ReferenceName: pointer.To("SomeOtherModel"),
 				},
 				Optional: true,
 			},
@@ -221,7 +222,7 @@ func TestModelToModelMapping_SdkToSchema_WrongType(t *testing.T) {
 				JsonName: "someSdkField",
 				ObjectDefinition: resourcemanager.ApiObjectDefinition{
 					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-					ReferenceName: stringPointer("SomeOtherModel"),
+					ReferenceName: pointer.To("SomeOtherModel"),
 				},
 			},
 		},

@@ -3,9 +3,11 @@ package resource
 import (
 	"testing"
 
+	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"github.com/hashicorp/pandora/tools/generator-terraform/generator/models"
 
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+	"github.com/hashicorp/pandora/tools/sdk/testhelpers"
 )
 
 func TestComponentAttributes(t *testing.T) {
@@ -19,7 +21,7 @@ func TestComponentAttributes(t *testing.T) {
 						HclName: "optional_nested_item",
 						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
 							Type:          resourcemanager.TerraformSchemaFieldTypeReference,
-							ReferenceName: stringPointer("NestedSchema"),
+							ReferenceName: pointer.To("NestedSchema"),
 						},
 						Optional: true,
 					},
@@ -105,5 +107,5 @@ func (r ExampleResource) Attributes() map[string]*pluginsdk.Schema {
 	}
 }
 `
-	assertTemplatedCodeMatches(t, expected, *actual)
+	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
 }

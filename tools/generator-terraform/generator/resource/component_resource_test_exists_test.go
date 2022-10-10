@@ -3,8 +3,10 @@ package resource
 import (
 	"testing"
 
+	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"github.com/hashicorp/pandora/tools/generator-terraform/generator/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+	"github.com/hashicorp/pandora/tools/sdk/testhelpers"
 )
 
 func TestExistsFuncForResourceTest_CommonId_Disabled(t *testing.T) {
@@ -22,12 +24,12 @@ func TestExistsFuncForResourceTest_CommonId_Disabled(t *testing.T) {
 		Operations: map[string]resourcemanager.ApiOperation{
 			"Get": {
 				LongRunning:    false,
-				ResourceIdName: stringPointer("CustomSubscriptionId"),
+				ResourceIdName: pointer.To("CustomSubscriptionId"),
 			},
 		},
 		ResourceIds: map[string]resourcemanager.ResourceIdDefinition{
 			"CustomSubscriptionId": {
-				CommonAlias: stringPointer("Subscription"),
+				CommonAlias: pointer.To("Subscription"),
 			},
 		},
 	}
@@ -55,7 +57,7 @@ func TestExistsFuncForResourceTest_RegularResourceId_Disabled(t *testing.T) {
 		Operations: map[string]resourcemanager.ApiOperation{
 			"Get": {
 				LongRunning:    false,
-				ResourceIdName: stringPointer("CustomSubscriptionId"),
+				ResourceIdName: pointer.To("CustomSubscriptionId"),
 			},
 		},
 		ResourceIds: map[string]resourcemanager.ResourceIdDefinition{
@@ -88,12 +90,12 @@ func TestExistsFuncForResourceTest_CommonId_Enabled(t *testing.T) {
 		Operations: map[string]resourcemanager.ApiOperation{
 			"Get": {
 				LongRunning:    false,
-				ResourceIdName: stringPointer("CustomSubscriptionId"),
+				ResourceIdName: pointer.To("CustomSubscriptionId"),
 			},
 		},
 		ResourceIds: map[string]resourcemanager.ResourceIdDefinition{
 			"CustomSubscriptionId": {
-				CommonAlias: stringPointer("Subscription"),
+				CommonAlias: pointer.To("Subscription"),
 			},
 		},
 	}
@@ -116,7 +118,7 @@ func (r ExampleTestResource) Exists(ctx context.Context, clients *clients.Client
 	return utils.Bool(resp.Model != nil), nil
 }
 `
-	assertTemplatedCodeMatches(t, expected, *actual)
+	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
 }
 
 func TestExistsFuncForResourceTest_RegularResourceId_Enabled(t *testing.T) {
@@ -135,7 +137,7 @@ func TestExistsFuncForResourceTest_RegularResourceId_Enabled(t *testing.T) {
 		Operations: map[string]resourcemanager.ApiOperation{
 			"Get": {
 				LongRunning:    false,
-				ResourceIdName: stringPointer("CustomSubscriptionId"),
+				ResourceIdName: pointer.To("CustomSubscriptionId"),
 			},
 		},
 		ResourceIds: map[string]resourcemanager.ResourceIdDefinition{
@@ -163,5 +165,5 @@ func (r ExampleTestResource) Exists(ctx context.Context, clients *clients.Client
 	return utils.Bool(resp.Model != nil), nil
 }
 `
-	assertTemplatedCodeMatches(t, expected, *actual)
+	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
 }

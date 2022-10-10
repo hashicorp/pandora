@@ -4,9 +4,11 @@ import (
 	"strings"
 	"testing"
 
+	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"github.com/hashicorp/pandora/tools/generator-terraform/generator/models"
 
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+	"github.com/hashicorp/pandora/tools/sdk/testhelpers"
 )
 
 func TestComponentIDValidationFunc_CommonResourceID_Disabled(t *testing.T) {
@@ -19,7 +21,7 @@ func TestComponentIDValidationFunc_CommonResourceID_Disabled(t *testing.T) {
 		},
 		ResourceIds: map[string]resourcemanager.ResourceIdDefinition{
 			"CustomSubscriptionId": {
-				CommonAlias: stringPointer("SubscriptionId"),
+				CommonAlias: pointer.To("SubscriptionId"),
 			},
 		},
 	}
@@ -42,7 +44,7 @@ func TestComponentIDValidationFunc_CommonResourceID_Enabled(t *testing.T) {
 		},
 		ResourceIds: map[string]resourcemanager.ResourceIdDefinition{
 			"CustomSubscriptionId": {
-				CommonAlias: stringPointer("Subscription"),
+				CommonAlias: pointer.To("Subscription"),
 			},
 		},
 	}
@@ -55,7 +57,7 @@ func (r ExampleResource) IDValidationFunc() pluginsdk.SchemaValidateFunc {
 	return commonids.ValidateSubscriptionID
 }
 `)
-	assertTemplatedCodeMatches(t, expected, *actual)
+	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
 }
 
 func TestComponentIDValidationFunc_RegularResourceID_Disabled(t *testing.T) {
@@ -72,7 +74,7 @@ func TestComponentIDValidationFunc_RegularResourceID_Disabled(t *testing.T) {
 				Segments: []resourcemanager.ResourceIdSegment{
 					{
 						ExampleValue: "customSubscriptions",
-						FixedValue:   stringPointer("customSubscriptions"),
+						FixedValue:   pointer.To("customSubscriptions"),
 						Name:         "staticCustomSubscriptions",
 						Type:         resourcemanager.StaticSegment,
 					},
@@ -108,7 +110,7 @@ func TestComponentIDValidationFunc_RegularResourceID_Enabled(t *testing.T) {
 				Segments: []resourcemanager.ResourceIdSegment{
 					{
 						ExampleValue: "customSubscriptions",
-						FixedValue:   stringPointer("customSubscriptions"),
+						FixedValue:   pointer.To("customSubscriptions"),
 						Name:         "staticCustomSubscriptions",
 						Type:         resourcemanager.StaticSegment,
 					},
@@ -130,5 +132,5 @@ func (r ExampleResource) IDValidationFunc() pluginsdk.SchemaValidateFunc {
 	return sdkresource.ValidateCustomSubscriptionID
 }
 `)
-	assertTemplatedCodeMatches(t, expected, *actual)
+	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
 }

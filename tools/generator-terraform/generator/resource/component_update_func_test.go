@@ -3,8 +3,10 @@ package resource
 import (
 	"testing"
 
+	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"github.com/hashicorp/pandora/tools/generator-terraform/generator/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+	"github.com/hashicorp/pandora/tools/sdk/testhelpers"
 )
 
 func TestComponentUpdate_HappyPathDisabled(t *testing.T) {
@@ -92,35 +94,35 @@ func TestComponentUpdate_HappyPathEnabled_CommonId_SharedModels(t *testing.T) {
 				LongRunning: false,
 				RequestObject: &resourcemanager.ApiObjectDefinition{
 					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-					ReferenceName: stringPointer("SomeModel"),
+					ReferenceName: pointer.To("SomeModel"),
 				},
-				ResourceIdName: stringPointer("SomeResourceId"),
+				ResourceIdName: pointer.To("SomeResourceId"),
 			},
 			"Delete": {
 				LongRunning:    true,
-				ResourceIdName: stringPointer("SomeResourceId"),
+				ResourceIdName: pointer.To("SomeResourceId"),
 			},
 			"Get": {
 				LongRunning:    false,
-				ResourceIdName: stringPointer("SomeResourceId"),
+				ResourceIdName: pointer.To("SomeResourceId"),
 				ResponseObject: &resourcemanager.ApiObjectDefinition{
 					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-					ReferenceName: stringPointer("SomeModel"),
+					ReferenceName: pointer.To("SomeModel"),
 				},
 			},
 			"Update": {
 				LongRunning: true,
 				RequestObject: &resourcemanager.ApiObjectDefinition{
 					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-					ReferenceName: stringPointer("SomeModel"),
+					ReferenceName: pointer.To("SomeModel"),
 				},
-				ResourceIdName: stringPointer("SomeResourceId"),
+				ResourceIdName: pointer.To("SomeResourceId"),
 			},
 		},
 		ProviderPrefix: "fake",
 		ResourceIds: map[string]resourcemanager.ResourceIdDefinition{
 			"SomeResourceId": {
-				CommonAlias: stringPointer("SomeCommon"),
+				CommonAlias: pointer.To("SomeCommon"),
 			},
 		},
 		ResourceLabel:      "some_resource",
@@ -192,7 +194,7 @@ func TestComponentUpdate_HappyPathEnabled_CommonId_SharedModels(t *testing.T) {
 		}
 	}
 `
-	assertTemplatedCodeMatches(t, expected, *actual)
+	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
 }
 
 func TestComponentUpdate_HappyPathEnabled_CommonId_UniqueModels(t *testing.T) {
@@ -290,35 +292,35 @@ func TestComponentUpdate_HappyPathEnabled_CommonId_UniqueModels(t *testing.T) {
 				LongRunning: false,
 				RequestObject: &resourcemanager.ApiObjectDefinition{
 					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-					ReferenceName: stringPointer("CreatePayload"),
+					ReferenceName: pointer.To("CreatePayload"),
 				},
-				ResourceIdName: stringPointer("SomeResourceId"),
+				ResourceIdName: pointer.To("SomeResourceId"),
 			},
 			"Delete": {
 				LongRunning:    true,
-				ResourceIdName: stringPointer("SomeResourceId"),
+				ResourceIdName: pointer.To("SomeResourceId"),
 			},
 			"Get": {
 				LongRunning:    false,
-				ResourceIdName: stringPointer("SomeResourceId"),
+				ResourceIdName: pointer.To("SomeResourceId"),
 				ResponseObject: &resourcemanager.ApiObjectDefinition{
 					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-					ReferenceName: stringPointer("GetPayload"),
+					ReferenceName: pointer.To("GetPayload"),
 				},
 			},
 			"Update": {
 				LongRunning: true,
 				RequestObject: &resourcemanager.ApiObjectDefinition{
 					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-					ReferenceName: stringPointer("UpdatePayload"),
+					ReferenceName: pointer.To("UpdatePayload"),
 				},
-				ResourceIdName: stringPointer("SomeResourceId"),
+				ResourceIdName: pointer.To("SomeResourceId"),
 			},
 		},
 		ProviderPrefix: "fake",
 		ResourceIds: map[string]resourcemanager.ResourceIdDefinition{
 			"SomeResourceId": {
-				CommonAlias: stringPointer("SomeCommon"),
+				CommonAlias: pointer.To("SomeCommon"),
 			},
 		},
 		ResourceLabel:      "some_resource",
@@ -383,7 +385,7 @@ func TestComponentUpdate_HappyPathEnabled_CommonId_UniqueModels(t *testing.T) {
 		}
 	}
 `
-	assertTemplatedCodeMatches(t, expected, *actual)
+	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
 }
 
 func TestComponentUpdate_HappyPathEnabled_RegularResourceID_SharedModels(t *testing.T) {
@@ -445,29 +447,29 @@ func TestComponentUpdate_HappyPathEnabled_RegularResourceID_SharedModels(t *test
 				LongRunning: false,
 				RequestObject: &resourcemanager.ApiObjectDefinition{
 					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-					ReferenceName: stringPointer("SomeModel"),
+					ReferenceName: pointer.To("SomeModel"),
 				},
-				ResourceIdName: stringPointer("SomeResourceId"),
+				ResourceIdName: pointer.To("SomeResourceId"),
 			},
 			"Delete": {
 				LongRunning:    true,
-				ResourceIdName: stringPointer("SomeResourceId"),
+				ResourceIdName: pointer.To("SomeResourceId"),
 			},
 			"Get": {
 				LongRunning:    false,
-				ResourceIdName: stringPointer("SomeResourceId"),
+				ResourceIdName: pointer.To("SomeResourceId"),
 				ResponseObject: &resourcemanager.ApiObjectDefinition{
 					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-					ReferenceName: stringPointer("SomeModel"),
+					ReferenceName: pointer.To("SomeModel"),
 				},
 			},
 			"Update": {
 				LongRunning: true,
 				RequestObject: &resourcemanager.ApiObjectDefinition{
 					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-					ReferenceName: stringPointer("SomeModel"),
+					ReferenceName: pointer.To("SomeModel"),
 				},
-				ResourceIdName: stringPointer("SomeResourceId"),
+				ResourceIdName: pointer.To("SomeResourceId"),
 			},
 		},
 		ProviderPrefix: "fake",
@@ -545,7 +547,7 @@ func TestComponentUpdate_HappyPathEnabled_RegularResourceID_SharedModels(t *test
 		}
 	}
 `
-	assertTemplatedCodeMatches(t, expected, *actual)
+	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
 }
 
 func TestComponentUpdate_HappyPathEnabled_RegularResourceID_UniqueModels(t *testing.T) {
@@ -643,29 +645,29 @@ func TestComponentUpdate_HappyPathEnabled_RegularResourceID_UniqueModels(t *test
 				LongRunning: false,
 				RequestObject: &resourcemanager.ApiObjectDefinition{
 					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-					ReferenceName: stringPointer("CreatePayload"),
+					ReferenceName: pointer.To("CreatePayload"),
 				},
-				ResourceIdName: stringPointer("SomeResourceId"),
+				ResourceIdName: pointer.To("SomeResourceId"),
 			},
 			"Delete": {
 				LongRunning:    true,
-				ResourceIdName: stringPointer("SomeResourceId"),
+				ResourceIdName: pointer.To("SomeResourceId"),
 			},
 			"Get": {
 				LongRunning:    false,
-				ResourceIdName: stringPointer("SomeResourceId"),
+				ResourceIdName: pointer.To("SomeResourceId"),
 				ResponseObject: &resourcemanager.ApiObjectDefinition{
 					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-					ReferenceName: stringPointer("GetPayload"),
+					ReferenceName: pointer.To("GetPayload"),
 				},
 			},
 			"Update": {
 				LongRunning: true,
 				RequestObject: &resourcemanager.ApiObjectDefinition{
 					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-					ReferenceName: stringPointer("UpdatePayload"),
+					ReferenceName: pointer.To("UpdatePayload"),
 				},
-				ResourceIdName: stringPointer("SomeResourceId"),
+				ResourceIdName: pointer.To("SomeResourceId"),
 			},
 		},
 		ProviderPrefix: "fake",
@@ -736,7 +738,7 @@ func TestComponentUpdate_HappyPathEnabled_RegularResourceID_UniqueModels(t *test
 		}
 	}
 `
-	assertTemplatedCodeMatches(t, expected, *actual)
+	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
 }
 
 func TestComponentUpdate_ModelDecode(t *testing.T) {
@@ -753,7 +755,7 @@ func TestComponentUpdate_ModelDecode(t *testing.T) {
 				return fmt.Errorf("decoding: %+v", err)
 			}
 `
-	assertTemplatedCodeMatches(t, expected, *actual)
+	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
 }
 
 func TestComponentUpdate_PayloadDefinition_ModelSharedBetweenCreateReadUpdate(t *testing.T) {
@@ -762,27 +764,27 @@ func TestComponentUpdate_PayloadDefinition_ModelSharedBetweenCreateReadUpdate(t 
 			LongRunning: false,
 			RequestObject: &resourcemanager.ApiObjectDefinition{
 				Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-				ReferenceName: stringPointer("SharedPayload"),
+				ReferenceName: pointer.To("SharedPayload"),
 			},
-			ResourceIdName: stringPointer("SomeId"),
+			ResourceIdName: pointer.To("SomeId"),
 		},
 		createMethodName: "Create",
 		readMethod: resourcemanager.ApiOperation{
 			LongRunning: false,
 			ResponseObject: &resourcemanager.ApiObjectDefinition{
 				Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-				ReferenceName: stringPointer("SharedPayload"),
+				ReferenceName: pointer.To("SharedPayload"),
 			},
-			ResourceIdName: stringPointer("SomeId"),
+			ResourceIdName: pointer.To("SomeId"),
 		},
 		readMethodName: "Get",
 		updateMethod: resourcemanager.ApiOperation{
 			LongRunning: false,
 			RequestObject: &resourcemanager.ApiObjectDefinition{
 				Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-				ReferenceName: stringPointer("SharedPayload"),
+				ReferenceName: pointer.To("SharedPayload"),
 			},
-			ResourceIdName: stringPointer("SomeId"),
+			ResourceIdName: pointer.To("SomeId"),
 		},
 		updateMethodName:       "Update",
 		sdkResourceNameLowered: "sdkresource",
@@ -800,7 +802,7 @@ func TestComponentUpdate_PayloadDefinition_ModelSharedBetweenCreateReadUpdate(t 
 	}
 	payload := *existing.Model
 `
-	assertTemplatedCodeMatches(t, expected, *actual)
+	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
 }
 
 func TestComponentUpdate_PayloadDefinition_UniqueModelsForCreateReadUpdate(t *testing.T) {
@@ -809,27 +811,27 @@ func TestComponentUpdate_PayloadDefinition_UniqueModelsForCreateReadUpdate(t *te
 			LongRunning: false,
 			RequestObject: &resourcemanager.ApiObjectDefinition{
 				Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-				ReferenceName: stringPointer("CreatePayload"),
+				ReferenceName: pointer.To("CreatePayload"),
 			},
-			ResourceIdName: stringPointer("SomeId"),
+			ResourceIdName: pointer.To("SomeId"),
 		},
 		createMethodName: "Create",
 		readMethod: resourcemanager.ApiOperation{
 			LongRunning: false,
 			ResponseObject: &resourcemanager.ApiObjectDefinition{
 				Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-				ReferenceName: stringPointer("ReadPayload"),
+				ReferenceName: pointer.To("ReadPayload"),
 			},
-			ResourceIdName: stringPointer("SomeId"),
+			ResourceIdName: pointer.To("SomeId"),
 		},
 		readMethodName: "Get",
 		updateMethod: resourcemanager.ApiOperation{
 			LongRunning: false,
 			RequestObject: &resourcemanager.ApiObjectDefinition{
 				Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-				ReferenceName: stringPointer("UpdatePayload"),
+				ReferenceName: pointer.To("UpdatePayload"),
 			},
-			ResourceIdName: stringPointer("SomeId"),
+			ResourceIdName: pointer.To("SomeId"),
 		},
 		updateMethodName:       "Update",
 		sdkResourceNameLowered: "sdkresource",
@@ -843,7 +845,7 @@ func TestComponentUpdate_PayloadDefinition_UniqueModelsForCreateReadUpdate(t *te
 		return fmt.Errorf("mapping schema model to sdk model: %+v", err)
 	}
 `
-	assertTemplatedCodeMatches(t, expected, *actual)
+	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
 }
 
 func TestComponentUpdate_ResourceIDParser(t *testing.T) {
@@ -859,7 +861,7 @@ func TestComponentUpdate_ResourceIDParser(t *testing.T) {
 				return err
 			}
 `
-	assertTemplatedCodeMatches(t, expected, *actual)
+	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
 }
 
 func TestComponentUpdate_UpdateFunc_Immediate_PayloadResourceIdNoOptions(t *testing.T) {
@@ -867,8 +869,8 @@ func TestComponentUpdate_UpdateFunc_Immediate_PayloadResourceIdNoOptions(t *test
 		updateMethod: resourcemanager.ApiOperation{
 			LongRunning:    false,
 			RequestObject:  &resourcemanager.ApiObjectDefinition{},
-			ResourceIdName: stringPointer("SomeResourceId"),
-			UriSuffix:      stringPointer("/example"),
+			ResourceIdName: pointer.To("SomeResourceId"),
+			UriSuffix:      pointer.To("/example"),
 		},
 		updateMethodName:       "UpdateThing",
 		sdkResourceNameLowered: "sdkresource",
@@ -881,7 +883,7 @@ func TestComponentUpdate_UpdateFunc_Immediate_PayloadResourceIdNoOptions(t *test
 				return fmt.Errorf("updating %s: %+v", *id, err)
 			}
 `
-	assertTemplatedCodeMatches(t, expected, *actual)
+	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
 }
 
 func TestComponentUpdate_UpdateFunc_Immediate_PayloadResourceIdOptions(t *testing.T) {
@@ -892,8 +894,8 @@ func TestComponentUpdate_UpdateFunc_Immediate_PayloadResourceIdOptions(t *testin
 				"example": {},
 			},
 			RequestObject:  &resourcemanager.ApiObjectDefinition{},
-			ResourceIdName: stringPointer("SomeResourceId"),
-			UriSuffix:      stringPointer("/example"),
+			ResourceIdName: pointer.To("SomeResourceId"),
+			UriSuffix:      pointer.To("/example"),
 		},
 		updateMethodName:       "UpdateThing",
 		sdkResourceNameLowered: "sdkresource",
@@ -906,7 +908,7 @@ func TestComponentUpdate_UpdateFunc_Immediate_PayloadResourceIdOptions(t *testin
 				return fmt.Errorf("updating %s: %+v", *id, err)
 			}
 `
-	assertTemplatedCodeMatches(t, expected, *actual)
+	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
 }
 
 func TestComponentUpdate_UpdateFunc_LongRunning_PayloadResourceIdNoOptions(t *testing.T) {
@@ -914,8 +916,8 @@ func TestComponentUpdate_UpdateFunc_LongRunning_PayloadResourceIdNoOptions(t *te
 		updateMethod: resourcemanager.ApiOperation{
 			LongRunning:    true,
 			RequestObject:  &resourcemanager.ApiObjectDefinition{},
-			ResourceIdName: stringPointer("SomeResourceId"),
-			UriSuffix:      stringPointer("/example"),
+			ResourceIdName: pointer.To("SomeResourceId"),
+			UriSuffix:      pointer.To("/example"),
 		},
 		updateMethodName:       "UpdateThing",
 		sdkResourceNameLowered: "sdkresource",
@@ -928,7 +930,7 @@ func TestComponentUpdate_UpdateFunc_LongRunning_PayloadResourceIdNoOptions(t *te
 				return fmt.Errorf("updating %s: %+v", *id, err)
 			}
 `
-	assertTemplatedCodeMatches(t, expected, *actual)
+	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
 }
 
 func TestComponentUpdate_UpdateFunc_LongRunning_PayloadResourceIdOptions(t *testing.T) {
@@ -939,8 +941,8 @@ func TestComponentUpdate_UpdateFunc_LongRunning_PayloadResourceIdOptions(t *test
 				"example": {},
 			},
 			RequestObject:  &resourcemanager.ApiObjectDefinition{},
-			ResourceIdName: stringPointer("SomeResourceId"),
-			UriSuffix:      stringPointer("/example"),
+			ResourceIdName: pointer.To("SomeResourceId"),
+			UriSuffix:      pointer.To("/example"),
 		},
 		updateMethodName:       "UpdateThing",
 		sdkResourceNameLowered: "sdkresource",
@@ -953,5 +955,5 @@ func TestComponentUpdate_UpdateFunc_LongRunning_PayloadResourceIdOptions(t *test
 				return fmt.Errorf("updating %s: %+v", *id, err)
 			}
 `
-	assertTemplatedCodeMatches(t, expected, *actual)
+	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
 }

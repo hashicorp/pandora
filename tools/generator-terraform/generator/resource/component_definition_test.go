@@ -5,6 +5,7 @@ import (
 	"testing"
 
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+	"github.com/hashicorp/pandora/tools/sdk/testhelpers"
 
 	"github.com/hashicorp/pandora/tools/generator-terraform/generator/models"
 )
@@ -22,7 +23,7 @@ var _ sdk.Resource = ExampleResource{}
 
 type ExampleResource struct {}
 `)
-	assertTemplatedCodeMatches(t, expected, *actual)
+	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
 }
 
 func TestComponentDefinitionForMethodWithUpdate(t *testing.T) {
@@ -46,5 +47,5 @@ var _ sdk.ResourceWithUpdate = ExampleResource{}
 
 type ExampleResource struct {}
 `)
-	assertTemplatedCodeMatches(t, expected, *actual)
+	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
 }

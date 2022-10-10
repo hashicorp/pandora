@@ -3,9 +3,11 @@ package resource
 import (
 	"testing"
 
+	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"github.com/hashicorp/pandora/tools/generator-terraform/generator/models"
 
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+	"github.com/hashicorp/pandora/tools/sdk/testhelpers"
 )
 
 // Create is complex enough that testing every permutation at the top level is complicated
@@ -51,17 +53,17 @@ func TestComponentCreate_HappyPathDisabled(t *testing.T) {
 				LongRunning: true,
 				RequestObject: &resourcemanager.ApiObjectDefinition{
 					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-					ReferenceName: stringPointer("SomeModel"),
+					ReferenceName: pointer.To("SomeModel"),
 				},
-				ResourceIdName: stringPointer("SomeResourceId"),
+				ResourceIdName: pointer.To("SomeResourceId"),
 			},
 			"GetThing": {
 				LongRunning: false,
 				ResponseObject: &resourcemanager.ApiObjectDefinition{
 					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-					ReferenceName: stringPointer("SomeModel"),
+					ReferenceName: pointer.To("SomeModel"),
 				},
-				ResourceIdName: stringPointer("SomeResourceId"),
+				ResourceIdName: pointer.To("SomeResourceId"),
 			},
 		},
 		ResourceIds: map[string]resourcemanager.ResourceIdDefinition{
@@ -72,7 +74,7 @@ func TestComponentCreate_HappyPathDisabled(t *testing.T) {
 					{
 						Type:       resourcemanager.StaticSegment,
 						Name:       "subscriptions",
-						FixedValue: stringPointer("subscriptions"),
+						FixedValue: pointer.To("subscriptions"),
 					},
 					{
 						Type: resourcemanager.SubscriptionIdSegment,
@@ -81,7 +83,7 @@ func TestComponentCreate_HappyPathDisabled(t *testing.T) {
 					{
 						Type:       resourcemanager.StaticSegment,
 						Name:       "resourceGroups",
-						FixedValue: stringPointer("resourceGroups"),
+						FixedValue: pointer.To("resourceGroups"),
 					},
 					{
 						Type:         resourcemanager.UserSpecifiedSegment,
@@ -202,17 +204,17 @@ func TestComponentCreate_HappyPathFieldsInModelEnabled(t *testing.T) {
 				LongRunning: true,
 				RequestObject: &resourcemanager.ApiObjectDefinition{
 					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-					ReferenceName: stringPointer("SomeModel"),
+					ReferenceName: pointer.To("SomeModel"),
 				},
-				ResourceIdName: stringPointer("SomeResourceId"),
+				ResourceIdName: pointer.To("SomeResourceId"),
 			},
 			"GetThing": {
 				LongRunning: false,
 				ResponseObject: &resourcemanager.ApiObjectDefinition{
 					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-					ReferenceName: stringPointer("SomeModel"),
+					ReferenceName: pointer.To("SomeModel"),
 				},
-				ResourceIdName: stringPointer("SomeResourceId"),
+				ResourceIdName: pointer.To("SomeResourceId"),
 			},
 		},
 		ResourceIds: map[string]resourcemanager.ResourceIdDefinition{
@@ -223,7 +225,7 @@ func TestComponentCreate_HappyPathFieldsInModelEnabled(t *testing.T) {
 					{
 						Type:       resourcemanager.StaticSegment,
 						Name:       "subscriptions",
-						FixedValue: stringPointer("subscriptions"),
+						FixedValue: pointer.To("subscriptions"),
 					},
 					{
 						Type: resourcemanager.SubscriptionIdSegment,
@@ -232,7 +234,7 @@ func TestComponentCreate_HappyPathFieldsInModelEnabled(t *testing.T) {
 					{
 						Type:       resourcemanager.StaticSegment,
 						Name:       "resourceGroups",
-						FixedValue: stringPointer("resourceGroups"),
+						FixedValue: pointer.To("resourceGroups"),
 					},
 					{
 						Type:         resourcemanager.UserSpecifiedSegment,
@@ -312,7 +314,7 @@ func (r ExampleResource) Create() sdk.ResourceFunc {
 	}
 }
 `
-	assertTemplatedCodeMatches(t, expected, *actual)
+	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
 }
 
 func TestComponentCreate_HappyPathResourceIdFieldsOnlyEnabled(t *testing.T) {
@@ -379,17 +381,17 @@ func TestComponentCreate_HappyPathResourceIdFieldsOnlyEnabled(t *testing.T) {
 				LongRunning: true,
 				RequestObject: &resourcemanager.ApiObjectDefinition{
 					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-					ReferenceName: stringPointer("SomeModel"),
+					ReferenceName: pointer.To("SomeModel"),
 				},
-				ResourceIdName: stringPointer("SomeResourceId"),
+				ResourceIdName: pointer.To("SomeResourceId"),
 			},
 			"GetThing": {
 				LongRunning: false,
 				ResponseObject: &resourcemanager.ApiObjectDefinition{
 					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-					ReferenceName: stringPointer("SomeModel"),
+					ReferenceName: pointer.To("SomeModel"),
 				},
-				ResourceIdName: stringPointer("SomeResourceId"),
+				ResourceIdName: pointer.To("SomeResourceId"),
 			},
 		},
 		ResourceIds: map[string]resourcemanager.ResourceIdDefinition{
@@ -400,7 +402,7 @@ func TestComponentCreate_HappyPathResourceIdFieldsOnlyEnabled(t *testing.T) {
 					{
 						Type:       resourcemanager.StaticSegment,
 						Name:       "subscriptions",
-						FixedValue: stringPointer("subscriptions"),
+						FixedValue: pointer.To("subscriptions"),
 					},
 					{
 						Type: resourcemanager.SubscriptionIdSegment,
@@ -409,7 +411,7 @@ func TestComponentCreate_HappyPathResourceIdFieldsOnlyEnabled(t *testing.T) {
 					{
 						Type:       resourcemanager.StaticSegment,
 						Name:       "resourceGroups",
-						FixedValue: stringPointer("resourceGroups"),
+						FixedValue: pointer.To("resourceGroups"),
 					},
 					{
 						Type:         resourcemanager.UserSpecifiedSegment,
@@ -480,7 +482,7 @@ func (r ExampleResource) Create() sdk.ResourceFunc {
 	}
 }
 `
-	assertTemplatedCodeMatches(t, expected, *actual)
+	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
 }
 
 func TestComponentCreate_CreateFunc_Immediate_PayloadResourceIdNoOptions(t *testing.T) {
@@ -488,8 +490,8 @@ func TestComponentCreate_CreateFunc_Immediate_PayloadResourceIdNoOptions(t *test
 		createMethod: resourcemanager.ApiOperation{
 			LongRunning:    false,
 			RequestObject:  &resourcemanager.ApiObjectDefinition{},
-			ResourceIdName: stringPointer("SomeResourceId"),
-			UriSuffix:      stringPointer("/example"),
+			ResourceIdName: pointer.To("SomeResourceId"),
+			UriSuffix:      pointer.To("/example"),
 		},
 		createMethodName:       "CreateThing",
 		sdkResourceNameLowered: "sdkresource",
@@ -502,7 +504,7 @@ func TestComponentCreate_CreateFunc_Immediate_PayloadResourceIdNoOptions(t *test
 				return fmt.Errorf("creating %s: %+v", id, err)
 			}
 `
-	assertTemplatedCodeMatches(t, expected, *actual)
+	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
 }
 
 func TestComponentCreate_CreateFunc_Immediate_PayloadResourceIdOptions(t *testing.T) {
@@ -513,8 +515,8 @@ func TestComponentCreate_CreateFunc_Immediate_PayloadResourceIdOptions(t *testin
 				"example": {},
 			},
 			RequestObject:  &resourcemanager.ApiObjectDefinition{},
-			ResourceIdName: stringPointer("SomeResourceId"),
-			UriSuffix:      stringPointer("/example"),
+			ResourceIdName: pointer.To("SomeResourceId"),
+			UriSuffix:      pointer.To("/example"),
 		},
 		createMethodName:       "CreateThing",
 		sdkResourceNameLowered: "sdkresource",
@@ -527,7 +529,7 @@ func TestComponentCreate_CreateFunc_Immediate_PayloadResourceIdOptions(t *testin
 				return fmt.Errorf("creating %s: %+v", id, err)
 			}
 `
-	assertTemplatedCodeMatches(t, expected, *actual)
+	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
 }
 
 func TestComponentCreate_CreateFunc_LongRunning_PayloadResourceIdNoOptions(t *testing.T) {
@@ -535,8 +537,8 @@ func TestComponentCreate_CreateFunc_LongRunning_PayloadResourceIdNoOptions(t *te
 		createMethod: resourcemanager.ApiOperation{
 			LongRunning:    true,
 			RequestObject:  &resourcemanager.ApiObjectDefinition{},
-			ResourceIdName: stringPointer("SomeResourceId"),
-			UriSuffix:      stringPointer("/example"),
+			ResourceIdName: pointer.To("SomeResourceId"),
+			UriSuffix:      pointer.To("/example"),
 		},
 		createMethodName:       "CreateThing",
 		sdkResourceNameLowered: "sdkresource",
@@ -549,7 +551,7 @@ func TestComponentCreate_CreateFunc_LongRunning_PayloadResourceIdNoOptions(t *te
 				return fmt.Errorf("creating %s: %+v", id, err)
 			}
 `
-	assertTemplatedCodeMatches(t, expected, *actual)
+	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
 }
 
 func TestComponentCreate_CreateFunc_LongRunning_PayloadResourceIdOptions(t *testing.T) {
@@ -560,8 +562,8 @@ func TestComponentCreate_CreateFunc_LongRunning_PayloadResourceIdOptions(t *test
 				"example": {},
 			},
 			RequestObject:  &resourcemanager.ApiObjectDefinition{},
-			ResourceIdName: stringPointer("SomeResourceId"),
-			UriSuffix:      stringPointer("/example"),
+			ResourceIdName: pointer.To("SomeResourceId"),
+			UriSuffix:      pointer.To("/example"),
 		},
 		createMethodName:       "CreateThing",
 		sdkResourceNameLowered: "sdkresource",
@@ -574,14 +576,14 @@ func TestComponentCreate_CreateFunc_LongRunning_PayloadResourceIdOptions(t *test
 				return fmt.Errorf("creating %s: %+v", id, err)
 			}
 `
-	assertTemplatedCodeMatches(t, expected, *actual)
+	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
 }
 
 func TestComponentCreate_RequiresImport_ResourceIdNoOptions(t *testing.T) {
 	actual, err := createFunctionComponents{
 		readMethod: resourcemanager.ApiOperation{
 			LongRunning:    false,
-			ResourceIdName: stringPointer("SomeResourceId"),
+			ResourceIdName: pointer.To("SomeResourceId"),
 		},
 		readMethodName:         "GetThing",
 		sdkResourceNameLowered: "sdkresource",
@@ -600,7 +602,7 @@ func TestComponentCreate_RequiresImport_ResourceIdNoOptions(t *testing.T) {
 				return metadata.ResourceRequiresImport(r.ResourceType(), id)
 			}
 `
-	assertTemplatedCodeMatches(t, expected, *actual)
+	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
 }
 
 func TestComponentCreate_RequiresImport_ResourceIdOptions(t *testing.T) {
@@ -610,7 +612,7 @@ func TestComponentCreate_RequiresImport_ResourceIdOptions(t *testing.T) {
 			Options: map[string]resourcemanager.ApiOperationOption{
 				"example": {},
 			},
-			ResourceIdName: stringPointer("SomeResourceId"),
+			ResourceIdName: pointer.To("SomeResourceId"),
 		},
 		readMethodName:         "GetThing",
 		sdkResourceNameLowered: "sdkresource",
@@ -629,20 +631,20 @@ func TestComponentCreate_RequiresImport_ResourceIdOptions(t *testing.T) {
 				return metadata.ResourceRequiresImport(r.ResourceType(), id)
 			}
 `
-	assertTemplatedCodeMatches(t, expected, *actual)
+	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
 }
 
 func TestComponentCreate_IdDefinitionAndMapping_CommonResourceIDWithSubscription(t *testing.T) {
 	actual, err := createFunctionComponents{
 		newResourceIdFuncName: "commonids.NewCommonResourceID",
 		resourceId: resourcemanager.ResourceIdDefinition{
-			CommonAlias: stringPointer("CommonResource"),
+			CommonAlias: pointer.To("CommonResource"),
 			Id:          "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}",
 			Segments: []resourcemanager.ResourceIdSegment{
 				{
 					Type:       resourcemanager.StaticSegment,
 					Name:       "subscriptions",
-					FixedValue: stringPointer("subscriptions"),
+					FixedValue: pointer.To("subscriptions"),
 				},
 				{
 					Type: resourcemanager.SubscriptionIdSegment,
@@ -651,7 +653,7 @@ func TestComponentCreate_IdDefinitionAndMapping_CommonResourceIDWithSubscription
 				{
 					Type:       resourcemanager.StaticSegment,
 					Name:       "resourceGroups",
-					FixedValue: stringPointer("resourceGroups"),
+					FixedValue: pointer.To("resourceGroups"),
 				},
 				{
 					Type:         resourcemanager.UserSpecifiedSegment,
@@ -688,20 +690,20 @@ func TestComponentCreate_IdDefinitionAndMapping_CommonResourceIDWithSubscription
 	subscriptionId := metadata.Client.Account.SubscriptionId
 	id := commonids.NewCommonResourceID(subscriptionId, config.Name)
 `
-	assertTemplatedCodeMatches(t, expected, *actual)
+	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
 }
 
 func TestComponentCreate_IdDefinitionAndMapping_CommonResourceIDWithoutSubscription(t *testing.T) {
 	actual, err := createFunctionComponents{
 		newResourceIdFuncName: "commonids.NewCommonResourceID",
 		resourceId: resourcemanager.ResourceIdDefinition{
-			CommonAlias: stringPointer("CommonResource"),
+			CommonAlias: pointer.To("CommonResource"),
 			Id:          "/resourceGroups/{resourceGroupName}",
 			Segments: []resourcemanager.ResourceIdSegment{
 				{
 					Type:       resourcemanager.StaticSegment,
 					Name:       "resourceGroups",
-					FixedValue: stringPointer("resourceGroups"),
+					FixedValue: pointer.To("resourceGroups"),
 				},
 				{
 					Type:         resourcemanager.UserSpecifiedSegment,
@@ -737,7 +739,7 @@ func TestComponentCreate_IdDefinitionAndMapping_CommonResourceIDWithoutSubscript
 	expected := `
 	id := commonids.NewCommonResourceID(config.Name)
 `
-	assertTemplatedCodeMatches(t, expected, *actual)
+	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
 }
 
 func TestComponentCreate_IdDefinitionAndMapping_RegularResourceIDWithSubscription(t *testing.T) {
@@ -750,7 +752,7 @@ func TestComponentCreate_IdDefinitionAndMapping_RegularResourceIDWithSubscriptio
 				{
 					Type:       resourcemanager.StaticSegment,
 					Name:       "subscriptions",
-					FixedValue: stringPointer("subscriptions"),
+					FixedValue: pointer.To("subscriptions"),
 				},
 				{
 					Type: resourcemanager.SubscriptionIdSegment,
@@ -759,7 +761,7 @@ func TestComponentCreate_IdDefinitionAndMapping_RegularResourceIDWithSubscriptio
 				{
 					Type:       resourcemanager.StaticSegment,
 					Name:       "resourceGroups",
-					FixedValue: stringPointer("resourceGroups"),
+					FixedValue: pointer.To("resourceGroups"),
 				},
 				{
 					Type:         resourcemanager.UserSpecifiedSegment,
@@ -796,7 +798,7 @@ func TestComponentCreate_IdDefinitionAndMapping_RegularResourceIDWithSubscriptio
 	subscriptionId := metadata.Client.Account.SubscriptionId
 	id := sdkresource.NewSomeResourceID(subscriptionId, config.Name)
 `
-	assertTemplatedCodeMatches(t, expected, *actual)
+	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
 }
 
 func TestComponentCreate_IdDefinitionAndMapping_RegularResourceIDWithoutSubscription(t *testing.T) {
@@ -809,7 +811,7 @@ func TestComponentCreate_IdDefinitionAndMapping_RegularResourceIDWithoutSubscrip
 				{
 					Type:       resourcemanager.StaticSegment,
 					Name:       "resourceGroups",
-					FixedValue: stringPointer("resourceGroups"),
+					FixedValue: pointer.To("resourceGroups"),
 				},
 				{
 					Type:         resourcemanager.UserSpecifiedSegment,
@@ -845,7 +847,7 @@ func TestComponentCreate_IdDefinitionAndMapping_RegularResourceIDWithoutSubscrip
 	expected := `
 	id := sdkresource.NewSomeResourceID(config.Name)
 `
-	assertTemplatedCodeMatches(t, expected, *actual)
+	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
 }
 
 func TestComponentCreate_IdDefinitionAndMapping_RegularResourceIDConstantSegment(t *testing.T) {
@@ -859,10 +861,10 @@ func TestComponentCreate_IdDefinitionAndMapping_RegularResourceIDConstantSegment
 				{
 					Type:       resourcemanager.StaticSegment,
 					Name:       "animals",
-					FixedValue: stringPointer("animals"),
+					FixedValue: pointer.To("animals"),
 				},
 				{
-					ConstantReference: stringPointer("AnimalType"),
+					ConstantReference: pointer.To("AnimalType"),
 					ExampleValue:      "panda",
 					Name:              "animalType",
 					Type:              resourcemanager.ConstantSegment,
@@ -897,14 +899,14 @@ func TestComponentCreate_IdDefinitionAndMapping_RegularResourceIDConstantSegment
 	expected := `
 	id := sdkresource.NewSomeResourceID(sdkresource.AnimalType(config.Animal))
 `
-	assertTemplatedCodeMatches(t, expected, *actual)
+	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
 }
 
 func TestComponentCreate_PayloadDefinition(t *testing.T) {
 	actual, err := createFunctionComponents{
 		createMethod: resourcemanager.ApiOperation{
 			RequestObject: &resourcemanager.ApiObjectDefinition{
-				ReferenceName: stringPointer("SomeModel"),
+				ReferenceName: pointer.To("SomeModel"),
 				Type:          resourcemanager.ReferenceApiObjectDefinitionType,
 			},
 		},
@@ -920,7 +922,7 @@ func TestComponentCreate_PayloadDefinition(t *testing.T) {
 		return fmt.Errorf("mapping schema model to sdk model: %+v", err)
 	}
 `
-	assertTemplatedCodeMatches(t, expected, *actual)
+	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
 }
 
 func TestComponentCreate_SchemaDeserialization(t *testing.T) {
@@ -937,5 +939,5 @@ func TestComponentCreate_SchemaDeserialization(t *testing.T) {
 				return fmt.Errorf("decoding: %+v", err)
 			}
 `
-	assertTemplatedCodeMatches(t, expected, *actual)
+	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
 }

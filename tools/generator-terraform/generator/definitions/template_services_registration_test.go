@@ -4,6 +4,7 @@ import (
 	"testing"
 
 	"github.com/hashicorp/pandora/tools/generator-terraform/generator/models"
+	"github.com/hashicorp/pandora/tools/sdk/testhelpers"
 )
 
 func TestCodeForServicesRegistrationEmpty(t *testing.T) {
@@ -26,7 +27,7 @@ func autoRegisteredTypedServices() []sdk.TypedServiceRegistration {
 	}
 }
 `
-	assertTemplatedCodeMatches(t, expected, actual)
+	testhelpers.AssertTemplatedCodeMatches(t, expected, actual)
 }
 
 func TestCodeForServicesRegistration(t *testing.T) {
@@ -61,5 +62,5 @@ func autoRegisteredTypedServices() []sdk.TypedServiceRegistration {
 	}
 }
 `
-	assertTemplatedCodeMatches(t, expected, actual)
+	testhelpers.AssertTemplatedCodeMatches(t, expected, actual)
 }
