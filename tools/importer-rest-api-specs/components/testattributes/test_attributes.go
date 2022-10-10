@@ -38,7 +38,7 @@ type DependentVariables struct {
 
 // GetAttributesForTests builds terraform configuration based on the attributes passed in.
 // It can get either Required only or Required/Optional Attributes
-func (h TestAttributesHelpers) GetAttributesForTests(resourceLabel string, input resourcemanager.TerraformSchemaModelDefinition, hclBody hclwrite.Body, requiredOnly bool) error {
+func (h TestAttributesHelpers) GetAttributesForTests(resourceLabel string, input resourcemanager.TerraformSchemaModelDefinition, hclBody *hclwrite.Body, requiredOnly bool) error {
 	requiredFields := make([]string, 0)
 	optionalFields := make([]string, 0)
 	for fieldName, details := range input.Fields {
@@ -71,7 +71,7 @@ func (h TestAttributesHelpers) GetAttributesForTests(resourceLabel string, input
 	return nil
 }
 
-func (h TestAttributesHelpers) codeForTestAttribute(resourceLabel string, input resourcemanager.TerraformSchemaFieldDefinition, requiredOnly bool, hclBody hclwrite.Body) error {
+func (h TestAttributesHelpers) codeForTestAttribute(resourceLabel string, input resourcemanager.TerraformSchemaFieldDefinition, requiredOnly bool, hclBody *hclwrite.Body) error {
 	if input.Validation != nil && input.Validation.Type == resourcemanager.TerraformSchemaValidationTypePossibleValues && input.Validation.PossibleValues != nil {
 		return h.codeForTestAttributeWithPossibleValues(input, hclBody)
 	}
@@ -142,7 +142,7 @@ func (h TestAttributesHelpers) codeForTestAttribute(resourceLabel string, input 
 			if !ok {
 				return fmt.Errorf("schema model %q was not found", *input.ObjectDefinition.NestedObject.ReferenceName)
 			}
-			if err := h.GetAttributesForTests(resourceLabel, reference, *hclBody.AppendNewBlock(input.HclName, nil).Body(), requiredOnly); err != nil {
+			if err := h.GetAttributesForTests(resourceLabel, reference, hclBody.AppendNewBlock(input.HclName, nil).Body(), requiredOnly); err != nil {
 				return err
 			}
 		} else {
@@ -180,7 +180,8 @@ func (h TestAttributesHelpers) codeForTestAttribute(resourceLabel string, input 
 		if !ok {
 			return fmt.Errorf("schema model %q was not found", *input.ObjectDefinition.ReferenceName)
 		}
-		if err := h.GetAttributesForTests(resourceLabel, h.SchemaModels[*input.ObjectDefinition.ReferenceName], *hclBody.AppendNewBlock(input.HclName, nil).Body(), requiredOnly); err != nil {
+		nestedBlock := hclBody.AppendNewBlock(input.HclName, nil).Body()
+		if err := h.GetAttributesForTests(resourceLabel, h.SchemaModels[*input.ObjectDefinition.ReferenceName], nestedBlock, requiredOnly); err != nil {
 			return err
 		}
 		hclBody.AppendNewline()
@@ -295,7 +296,7 @@ func (h TestAttributesHelpers) codeForTestAttribute(resourceLabel string, input 
 	return nil
 }
 
-func (h TestAttributesHelpers) codeForTestAttributeWithPossibleValues(input resourcemanager.TerraformSchemaFieldDefinition, hclBody hclwrite.Body) error {
+func (h TestAttributesHelpers) codeForTestAttributeWithPossibleValues(input resourcemanager.TerraformSchemaFieldDefinition, hclBody *hclwrite.Body) error {
 	if len(input.Validation.PossibleValues.Values) == 0 {
 		return fmt.Errorf("the Field %q had a Validation Type of PossibleValues but no PossibleValues were defined", input.HclName)
 	}

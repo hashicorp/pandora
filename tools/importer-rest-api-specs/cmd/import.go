@@ -77,6 +77,7 @@ func (c ImportCommand) Run(args []string) int {
 		DataApiEndpoint:          dataApiEndpoint,
 		Logger:                   logger,
 		OutputDirectory:          c.outputDirectory,
+		ProviderPrefix:           "azurerm",
 		Services:                 serviceNames,
 		SwaggerDirectory:         c.swaggerDirectory,
 		TerraformDefinitionsPath: c.terraformDefinitionsPath,

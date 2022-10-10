@@ -16,6 +16,7 @@ type RunInput struct {
 	JustParseData            bool
 	Logger                   hclog.Logger
 	OutputDirectory          string
+	ProviderPrefix           string
 	Services                 []string
 	SwaggerDirectory         string
 	TerraformDefinitionsPath string
