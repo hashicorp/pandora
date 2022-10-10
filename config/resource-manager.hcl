@@ -23,6 +23,10 @@ service "applicationinsights" {
   name      = "ApplicationInsights"
   available = ["2020-11-20", "2022-04-01"]
 }
+service "appplatform" {
+  name      = "SpringCloud"
+  available = ["2022-09-01-preview"]
+}
 service "attestation" {
   name      = "Attestation"
   available = ["2020-10-01"]
