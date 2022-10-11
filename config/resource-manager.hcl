@@ -155,6 +155,10 @@ service "healthcareapis" {
   name      = "HealthcareApis"
   available = ["2021-06-01-preview"]
 }
+service "hybridcompute" {
+  name      = "HybridCompute"
+  available = ["2022-03-10"]
+}
 service "hybridkubernetes" {
   name      = "HybridKubernetes"
   available = ["2021-10-01"]
