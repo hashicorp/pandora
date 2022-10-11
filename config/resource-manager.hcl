@@ -343,3 +343,7 @@ service "web" {
   name      = "Web"
   available = ["2016-06-01"]
 }
+service "webpubsub" {
+  name      = "WebPubSub"
+  available = ["2021-10-01"]
+}
