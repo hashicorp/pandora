@@ -283,6 +283,10 @@ service "recoveryservices" {
   name      = "RecoveryServices"
   available = ["2022-03-01"]
 }
+service "recoveryservicessiterecovery" {
+  name = "RecoveryServicesSiteRecovery"
+  available = ["2022-05-01"]
+}
 service "redisenterprise" {
   name      = "RedisEnterprise"
   available = ["2021-08-01", "2022-01-01"]
