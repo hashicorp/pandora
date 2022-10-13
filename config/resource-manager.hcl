@@ -64,7 +64,7 @@ service "confidentialledger" {
   available = ["2022-05-13"]
 }
 service "connectedvmware" {
-  name = "ConnectedVmware"
+  name      = "ConnectedVmware"
   available = ["2022-01-10-preview"]
 }
 service "consumption" {
