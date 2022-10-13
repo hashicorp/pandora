@@ -41,7 +41,7 @@ service "azure-kusto" {
 }
 service "azurestackhci" {
   name      = "AzureStackHCI"
-  available = ["2020-10-01"]
+  available = ["2020-10-01", "2022-09-01"]
 }
 service "chaos" {
   name      = "ChaosStudio"
