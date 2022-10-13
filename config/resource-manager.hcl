@@ -115,6 +115,10 @@ service "deviceprovisioningservices" {
   name      = "DeviceProvisioningServices"
   available = ["2022-02-05"]
 }
+service "deviceupdate" {
+  name      = "DeviceUpdate"
+  available = ["2022-10-01"]
+}
 service "digitaltwins" {
   name      = "DigitalTwins"
   available = ["2020-12-01"]
