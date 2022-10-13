@@ -221,7 +221,7 @@ service "netapp" {
 }
 service "networkfunction" {
   name      = "NetworkFunction"
-  available = ["2022-11-01"]
+  available = ["2022-08-01", "2022-11-01"]
 }
 service "nginx" {
   name      = "Nginx"
