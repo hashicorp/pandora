@@ -6,13 +6,13 @@ using Pandora.Definitions.Interfaces;
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 
 
-namespace Pandora.Definitions.ResourceManager.ConnectedVmware.v2022_01_10_preview.GuestAgents;
+namespace Pandora.Definitions.ResourceManager.NetworkFunction.v2022_11_01.AzureTrafficCollectors;
 
-internal class VirtualMachineId : ResourceID
+internal class AzureTrafficCollectorId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ConnectedVMwarevSphere/virtualMachines/{name}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkFunction/azureTrafficCollectors/{azureTrafficCollectorName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -21,8 +21,8 @@ internal class VirtualMachineId : ResourceID
         ResourceIDSegment.Static("staticResourceGroups", "resourceGroups"),
         ResourceIDSegment.ResourceGroup("resourceGroupName"),
         ResourceIDSegment.Static("staticProviders", "providers"),
-        ResourceIDSegment.ResourceProvider("staticMicrosoftConnectedVMwarevSphere", "Microsoft.ConnectedVMwarevSphere"),
-        ResourceIDSegment.Static("staticVirtualMachines", "virtualMachines"),
-        ResourceIDSegment.UserSpecified("name"),
+        ResourceIDSegment.ResourceProvider("staticMicrosoftNetworkFunction", "Microsoft.NetworkFunction"),
+        ResourceIDSegment.Static("staticAzureTrafficCollectors", "azureTrafficCollectors"),
+        ResourceIDSegment.UserSpecified("azureTrafficCollectorName"),
     };
 }
