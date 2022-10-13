@@ -63,10 +63,6 @@ service "confidentialledger" {
   name      = "ConfidentialLedger"
   available = ["2022-05-13"]
 }
-service "connectedvmware" {
-  name      = "ConnectedVmware"
-  available = ["2022-01-10-preview"]
-}
 service "consumption" {
   name      = "Consumption"
   available = ["2019-10-01"]
