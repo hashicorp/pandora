@@ -12,7 +12,7 @@ internal class VirtualMachineId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ConnectedVMwarevSphere/virtualMachines/{virtualMachineName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ConnectedVMwarevSphere/virtualMachines/{name}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -23,6 +23,6 @@ internal class VirtualMachineId : ResourceID
         ResourceIDSegment.Static("staticProviders", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftConnectedVMwarevSphere", "Microsoft.ConnectedVMwarevSphere"),
         ResourceIDSegment.Static("staticVirtualMachines", "virtualMachines"),
-        ResourceIDSegment.UserSpecified("virtualMachineName"),
+        ResourceIDSegment.UserSpecified("name"),
     };
 }
