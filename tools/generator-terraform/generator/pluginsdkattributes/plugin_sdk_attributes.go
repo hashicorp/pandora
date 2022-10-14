@@ -52,12 +52,6 @@ func (h PluginSdkAttributesHelpers) CodeForModel(input resourcemanager.Terraform
 		sortedNames = append(sortedNames, computedFields...)
 	}
 
-	if len(sortedNames) == 0 {
-		// TODO: this can be removed once the Data API is hooked up to real data
-		out := "map[string]*pluginsdk.Schema{}"
-		return &out, nil
-	}
-
 	for _, fieldName := range sortedNames {
 		field := input.Fields[fieldName]
 		line, err := h.codeForPluginSdkAttribute(field)

@@ -5,6 +5,7 @@ import (
 	"testing"
 
 	"github.com/hashicorp/pandora/tools/generator-terraform/generator/models"
+	"github.com/hashicorp/pandora/tools/sdk/testhelpers"
 )
 
 func TestComponentImports(t *testing.T) {
@@ -36,5 +37,5 @@ import (
 	"github.com/hashicorp/terraform-provider-azurerm/internal/tf/validation"
 )
 `)
-	assertTemplatedCodeMatches(t, expected, *actual)
+	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
 }

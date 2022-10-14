@@ -91,10 +91,6 @@ func sortStringStringMapKeys(m map[string]string) []string {
 	return keys
 }
 
-func stringPointer(in string) *string {
-	return &in
-}
-
 func wordifyPossibleValues[T any](in []T) string {
 	if len(in) == 1 {
 		return fmt.Sprintf("The only possible value is `%+v`.", in[0])

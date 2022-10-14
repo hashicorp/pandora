@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"testing"
 
+	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 	"github.com/hashicorp/pandora/tools/sdk/testhelpers"
 )
@@ -92,7 +93,7 @@ func TestDirectAssignment_Read_Constant_RequiredToRequired_TopLevel(t *testing.T
 					JsonName: "toPath",
 					ObjectDefinition: resourcemanager.ApiObjectDefinition{
 						Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-						ReferenceName: stringPointer("SomeConstant"),
+						ReferenceName: pointer.To("SomeConstant"),
 					},
 					Required: true,
 				},
@@ -193,7 +194,7 @@ func TestDirectAssignment_Read_Constant_RequiredToOptional_TopLevel(t *testing.T
 					JsonName: "toPath",
 					ObjectDefinition: resourcemanager.ApiObjectDefinition{
 						Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-						ReferenceName: stringPointer("SomeConstant"),
+						ReferenceName: pointer.To("SomeConstant"),
 					},
 					Optional: true,
 				},
@@ -293,7 +294,7 @@ func TestDirectAssignment_Read_Constant_OptionalToRequired_TopLevel(t *testing.T
 					JsonName: "toPath",
 					ObjectDefinition: resourcemanager.ApiObjectDefinition{
 						Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-						ReferenceName: stringPointer("SomeConstant"),
+						ReferenceName: pointer.To("SomeConstant"),
 					},
 					Required: true,
 				},
@@ -405,7 +406,7 @@ if input.FromPath != nil {
 					JsonName: "toPath",
 					ObjectDefinition: resourcemanager.ApiObjectDefinition{
 						Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-						ReferenceName: stringPointer("SomeConstant"),
+						ReferenceName: pointer.To("SomeConstant"),
 					},
 					Optional: true,
 				},
@@ -529,7 +530,7 @@ output.ToPath = toPath
 						Type: resourcemanager.ListApiObjectDefinitionType,
 						NestedItem: &resourcemanager.ApiObjectDefinition{
 							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-							ReferenceName: stringPointer("SomeConstant"),
+							ReferenceName: pointer.To("SomeConstant"),
 						},
 					},
 					Required: true,
@@ -654,7 +655,7 @@ output.ToPath = &toPath
 						Type: resourcemanager.ListApiObjectDefinitionType,
 						NestedItem: &resourcemanager.ApiObjectDefinition{
 							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-							ReferenceName: stringPointer("SomeConstant"),
+							ReferenceName: pointer.To("SomeConstant"),
 						},
 					},
 					Optional: true,
@@ -757,7 +758,7 @@ func TestDirectAssignment_Read_Constant_OptionalToRequired_List(t *testing.T) {
 						Type: resourcemanager.ListApiObjectDefinitionType,
 						NestedItem: &resourcemanager.ApiObjectDefinition{
 							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-							ReferenceName: stringPointer("SomeConstant"),
+							ReferenceName: pointer.To("SomeConstant"),
 						},
 					},
 					Required: true,
@@ -887,7 +888,7 @@ output.ToPath = &toPath
 						Type: resourcemanager.ListApiObjectDefinitionType,
 						NestedItem: &resourcemanager.ApiObjectDefinition{
 							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-							ReferenceName: stringPointer("SomeConstant"),
+							ReferenceName: pointer.To("SomeConstant"),
 						},
 					},
 					Optional: true,
@@ -1596,7 +1597,7 @@ func TestDirectAssignment_Read_Model_RequiredToRequired_ListOfReference(t *testi
 					Type: resourcemanager.TerraformSchemaFieldTypeList,
 					NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
 						Type:          resourcemanager.TerraformSchemaFieldTypeReference,
-						ReferenceName: stringPointer("SomeOtherSchemaModel"),
+						ReferenceName: pointer.To("SomeOtherSchemaModel"),
 					},
 				},
 				HclName:  "from_path",
@@ -1612,7 +1613,7 @@ func TestDirectAssignment_Read_Model_RequiredToRequired_ListOfReference(t *testi
 					Type: resourcemanager.ListApiObjectDefinitionType,
 					NestedItem: &resourcemanager.ApiObjectDefinition{
 						Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-						ReferenceName: stringPointer("SomeSdkModel"),
+						ReferenceName: pointer.To("SomeSdkModel"),
 					},
 				},
 				Required: true,
@@ -1659,7 +1660,7 @@ func TestDirectAssignment_Read_Model_RequiredToOptional_ListOfReference(t *testi
 					Type: resourcemanager.TerraformSchemaFieldTypeList,
 					NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
 						Type:          resourcemanager.TerraformSchemaFieldTypeReference,
-						ReferenceName: stringPointer("SomeOtherSchemaModel"),
+						ReferenceName: pointer.To("SomeOtherSchemaModel"),
 					},
 				},
 				HclName:  "from_path",
@@ -1675,7 +1676,7 @@ func TestDirectAssignment_Read_Model_RequiredToOptional_ListOfReference(t *testi
 					Type: resourcemanager.ListApiObjectDefinitionType,
 					NestedItem: &resourcemanager.ApiObjectDefinition{
 						Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-						ReferenceName: stringPointer("SomeSdkModel"),
+						ReferenceName: pointer.To("SomeSdkModel"),
 					},
 				},
 				Optional: true,
@@ -1723,7 +1724,7 @@ func TestDirectAssignment_Read_Model_OptionalToRequired_ListOfReference(t *testi
 					Type: resourcemanager.TerraformSchemaFieldTypeList,
 					NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
 						Type:          resourcemanager.TerraformSchemaFieldTypeReference,
-						ReferenceName: stringPointer("SomeOtherSchemaModel"),
+						ReferenceName: pointer.To("SomeOtherSchemaModel"),
 					},
 				},
 				HclName:  "from_path",
@@ -1739,7 +1740,7 @@ func TestDirectAssignment_Read_Model_OptionalToRequired_ListOfReference(t *testi
 					Type: resourcemanager.ListApiObjectDefinitionType,
 					NestedItem: &resourcemanager.ApiObjectDefinition{
 						Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-						ReferenceName: stringPointer("SomeSdkModel"),
+						ReferenceName: pointer.To("SomeSdkModel"),
 					},
 				},
 				Required: true,
@@ -1774,7 +1775,7 @@ func TestDirectAssignment_Read_Model_OptionalToOptional_ListOfReference(t *testi
 					Type: resourcemanager.TerraformSchemaFieldTypeList,
 					NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
 						Type:          resourcemanager.TerraformSchemaFieldTypeReference,
-						ReferenceName: stringPointer("SomeOtherSchemaModel"),
+						ReferenceName: pointer.To("SomeOtherSchemaModel"),
 					},
 				},
 				HclName:  "from_path",
@@ -1790,7 +1791,7 @@ func TestDirectAssignment_Read_Model_OptionalToOptional_ListOfReference(t *testi
 					Type: resourcemanager.ListApiObjectDefinitionType,
 					NestedItem: &resourcemanager.ApiObjectDefinition{
 						Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-						ReferenceName: stringPointer("SomeSdkModel"),
+						ReferenceName: pointer.To("SomeSdkModel"),
 					},
 				},
 				Optional: true,

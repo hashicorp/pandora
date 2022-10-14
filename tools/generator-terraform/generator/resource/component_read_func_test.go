@@ -3,8 +3,10 @@ package resource
 import (
 	"testing"
 
+	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"github.com/hashicorp/pandora/tools/generator-terraform/generator/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+	"github.com/hashicorp/pandora/tools/sdk/testhelpers"
 )
 
 func TestComponentReadFunc_CommonId_Disabled(t *testing.T) {
@@ -31,12 +33,12 @@ func TestComponentReadFunc_CommonId_Disabled(t *testing.T) {
 		Operations: map[string]resourcemanager.ApiOperation{
 			"Get": {
 				LongRunning:    false,
-				ResourceIdName: stringPointer("CustomSubscriptionId"),
+				ResourceIdName: pointer.To("CustomSubscriptionId"),
 			},
 		},
 		ResourceIds: map[string]resourcemanager.ResourceIdDefinition{
 			"CustomSubscriptionId": {
-				CommonAlias: stringPointer("Subscription"),
+				CommonAlias: pointer.To("Subscription"),
 			},
 		},
 	}
@@ -73,7 +75,7 @@ func TestComponentReadFunc_RegularResourceId_Disabled(t *testing.T) {
 		Operations: map[string]resourcemanager.ApiOperation{
 			"Get": {
 				LongRunning:    false,
-				ResourceIdName: stringPointer("CustomSubscriptionId"),
+				ResourceIdName: pointer.To("CustomSubscriptionId"),
 			},
 		},
 		ResourceIds: map[string]resourcemanager.ResourceIdDefinition{
@@ -115,10 +117,10 @@ func TestComponentReadFunc_CommonId_Enabled(t *testing.T) {
 		Operations: map[string]resourcemanager.ApiOperation{
 			"Get": {
 				LongRunning:    false,
-				ResourceIdName: stringPointer("CustomSubscriptionId"),
+				ResourceIdName: pointer.To("CustomSubscriptionId"),
 				ResponseObject: &resourcemanager.ApiObjectDefinition{
 					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-					ReferenceName: stringPointer("GetModel"),
+					ReferenceName: pointer.To("GetModel"),
 				},
 			},
 		},
@@ -144,13 +146,13 @@ func TestComponentReadFunc_CommonId_Enabled(t *testing.T) {
 		},
 		ResourceIds: map[string]resourcemanager.ResourceIdDefinition{
 			"CustomSubscriptionId": {
-				CommonAlias: stringPointer("Subscription"),
+				CommonAlias: pointer.To("Subscription"),
 				Id:          "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}",
 				Segments: []resourcemanager.ResourceIdSegment{
 					{
 						Type:       resourcemanager.StaticSegment,
 						Name:       "subscriptions",
-						FixedValue: stringPointer("subscriptions"),
+						FixedValue: pointer.To("subscriptions"),
 					},
 					{
 						Type: resourcemanager.SubscriptionIdSegment,
@@ -159,7 +161,7 @@ func TestComponentReadFunc_CommonId_Enabled(t *testing.T) {
 					{
 						Type:       resourcemanager.StaticSegment,
 						Name:       "resourceGroups",
-						FixedValue: stringPointer("resourceGroups"),
+						FixedValue: pointer.To("resourceGroups"),
 					},
 					{
 						Type: resourcemanager.ResourceGroupSegment,
@@ -225,7 +227,7 @@ func (r ExampleResource) Read() sdk.ResourceFunc {
 	}
 }
 `
-	assertTemplatedCodeMatches(t, expected, *actual)
+	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
 }
 
 func TestComponentReadFunc_CommonId_Options_Enabled(t *testing.T) {
@@ -253,17 +255,17 @@ func TestComponentReadFunc_CommonId_Options_Enabled(t *testing.T) {
 		Operations: map[string]resourcemanager.ApiOperation{
 			"Get": {
 				LongRunning:    false,
-				ResourceIdName: stringPointer("CustomSubscriptionId"),
+				ResourceIdName: pointer.To("CustomSubscriptionId"),
 				ResponseObject: &resourcemanager.ApiObjectDefinition{
 					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-					ReferenceName: stringPointer("GetModel"),
+					ReferenceName: pointer.To("GetModel"),
 				},
 				Options: map[string]resourcemanager.ApiOperationOption{
 					"SomeOption": {
 						ObjectDefinition: resourcemanager.ApiObjectDefinition{
 							Type: resourcemanager.StringApiObjectDefinitionType,
 						},
-						HeaderName: stringPointer("X-Some-Option"),
+						HeaderName: pointer.To("X-Some-Option"),
 						Required:   false,
 					},
 				},
@@ -291,13 +293,13 @@ func TestComponentReadFunc_CommonId_Options_Enabled(t *testing.T) {
 		},
 		ResourceIds: map[string]resourcemanager.ResourceIdDefinition{
 			"CustomSubscriptionId": {
-				CommonAlias: stringPointer("Subscription"),
+				CommonAlias: pointer.To("Subscription"),
 				Id:          "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}",
 				Segments: []resourcemanager.ResourceIdSegment{
 					{
 						Type:       resourcemanager.StaticSegment,
 						Name:       "subscriptions",
-						FixedValue: stringPointer("subscriptions"),
+						FixedValue: pointer.To("subscriptions"),
 					},
 					{
 						Type: resourcemanager.SubscriptionIdSegment,
@@ -306,7 +308,7 @@ func TestComponentReadFunc_CommonId_Options_Enabled(t *testing.T) {
 					{
 						Type:       resourcemanager.StaticSegment,
 						Name:       "resourceGroups",
-						FixedValue: stringPointer("resourceGroups"),
+						FixedValue: pointer.To("resourceGroups"),
 					},
 					{
 						Type: resourcemanager.ResourceGroupSegment,
@@ -373,7 +375,7 @@ func (r ExampleResource) Read() sdk.ResourceFunc {
 	}
 }
 `
-	assertTemplatedCodeMatches(t, expected, *actual)
+	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
 }
 
 func TestComponentReadFunc_RegularResourceId_Enabled(t *testing.T) {
@@ -400,10 +402,10 @@ func TestComponentReadFunc_RegularResourceId_Enabled(t *testing.T) {
 		Operations: map[string]resourcemanager.ApiOperation{
 			"Get": {
 				LongRunning:    false,
-				ResourceIdName: stringPointer("CustomSubscriptionId"),
+				ResourceIdName: pointer.To("CustomSubscriptionId"),
 				ResponseObject: &resourcemanager.ApiObjectDefinition{
 					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-					ReferenceName: stringPointer("GetModel"),
+					ReferenceName: pointer.To("GetModel"),
 				},
 			},
 		},
@@ -434,7 +436,7 @@ func TestComponentReadFunc_RegularResourceId_Enabled(t *testing.T) {
 					{
 						Type:       resourcemanager.StaticSegment,
 						Name:       "subscriptions",
-						FixedValue: stringPointer("subscriptions"),
+						FixedValue: pointer.To("subscriptions"),
 					},
 					{
 						Type: resourcemanager.SubscriptionIdSegment,
@@ -443,7 +445,7 @@ func TestComponentReadFunc_RegularResourceId_Enabled(t *testing.T) {
 					{
 						Type:       resourcemanager.StaticSegment,
 						Name:       "resourceGroups",
-						FixedValue: stringPointer("resourceGroups"),
+						FixedValue: pointer.To("resourceGroups"),
 					},
 					{
 						Type: resourcemanager.ResourceGroupSegment,
@@ -509,7 +511,7 @@ func (r ExampleResource) Read() sdk.ResourceFunc {
 	}
 }
 `
-	assertTemplatedCodeMatches(t, expected, *actual)
+	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
 }
 
 func TestComponentReadFunc_RegularResourceId_Constant_Enabled(t *testing.T) {
@@ -545,10 +547,10 @@ func TestComponentReadFunc_RegularResourceId_Constant_Enabled(t *testing.T) {
 		Operations: map[string]resourcemanager.ApiOperation{
 			"Get": {
 				LongRunning:    false,
-				ResourceIdName: stringPointer("CustomSubscriptionId"),
+				ResourceIdName: pointer.To("CustomSubscriptionId"),
 				ResponseObject: &resourcemanager.ApiObjectDefinition{
 					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-					ReferenceName: stringPointer("GetModel"),
+					ReferenceName: pointer.To("GetModel"),
 				},
 			},
 		},
@@ -579,7 +581,7 @@ func TestComponentReadFunc_RegularResourceId_Constant_Enabled(t *testing.T) {
 					{
 						Type:       resourcemanager.StaticSegment,
 						Name:       "subscriptions",
-						FixedValue: stringPointer("subscriptions"),
+						FixedValue: pointer.To("subscriptions"),
 					},
 					{
 						Type: resourcemanager.SubscriptionIdSegment,
@@ -588,12 +590,12 @@ func TestComponentReadFunc_RegularResourceId_Constant_Enabled(t *testing.T) {
 					{
 						Type:       resourcemanager.StaticSegment,
 						Name:       "animals",
-						FixedValue: stringPointer("animals"),
+						FixedValue: pointer.To("animals"),
 					},
 					{
 						Type:              resourcemanager.ConstantSegment,
 						Name:              "animalType",
-						ConstantReference: stringPointer("AnimalType"),
+						ConstantReference: pointer.To("AnimalType"),
 					},
 				},
 			},
@@ -655,7 +657,7 @@ func (r ExampleResource) Read() sdk.ResourceFunc {
 	}
 }
 `
-	assertTemplatedCodeMatches(t, expected, *actual)
+	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
 }
 
 func TestComponentReadFunc_RegularResourceId_Options_Enabled(t *testing.T) {
@@ -683,17 +685,17 @@ func TestComponentReadFunc_RegularResourceId_Options_Enabled(t *testing.T) {
 		Operations: map[string]resourcemanager.ApiOperation{
 			"Get": {
 				LongRunning:    false,
-				ResourceIdName: stringPointer("CustomSubscriptionId"),
+				ResourceIdName: pointer.To("CustomSubscriptionId"),
 				ResponseObject: &resourcemanager.ApiObjectDefinition{
 					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
-					ReferenceName: stringPointer("GetModel"),
+					ReferenceName: pointer.To("GetModel"),
 				},
 				Options: map[string]resourcemanager.ApiOperationOption{
 					"SomeOption": {
 						ObjectDefinition: resourcemanager.ApiObjectDefinition{
 							Type: resourcemanager.StringApiObjectDefinitionType,
 						},
-						HeaderName: stringPointer("X-Some-Option"),
+						HeaderName: pointer.To("X-Some-Option"),
 						Required:   false,
 					},
 				},
@@ -726,7 +728,7 @@ func TestComponentReadFunc_RegularResourceId_Options_Enabled(t *testing.T) {
 					{
 						Type:       resourcemanager.StaticSegment,
 						Name:       "subscriptions",
-						FixedValue: stringPointer("subscriptions"),
+						FixedValue: pointer.To("subscriptions"),
 					},
 					{
 						Type: resourcemanager.SubscriptionIdSegment,
@@ -735,7 +737,7 @@ func TestComponentReadFunc_RegularResourceId_Options_Enabled(t *testing.T) {
 					{
 						Type:       resourcemanager.StaticSegment,
 						Name:       "resourceGroups",
-						FixedValue: stringPointer("resourceGroups"),
+						FixedValue: pointer.To("resourceGroups"),
 					},
 					{
 						Type: resourcemanager.ResourceGroupSegment,
@@ -801,7 +803,7 @@ func (r ExampleResource) Read() sdk.ResourceFunc {
 	}
 }
 `
-	assertTemplatedCodeMatches(t, expected, *actual)
+	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
 }
 
 func TestComponentReadFunc_CodeForIDParser(t *testing.T) {
@@ -817,7 +819,7 @@ func TestComponentReadFunc_CodeForIDParser(t *testing.T) {
 		return err
 	}
 `
-	assertTemplatedCodeMatches(t, expected, *actual)
+	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
 }
 
 func TestComponentReadFunc_CodeForGet(t *testing.T) {
@@ -828,7 +830,7 @@ func TestComponentReadFunc_CodeForGet(t *testing.T) {
 			TimeoutInMinutes: 5,
 		},
 		readOperation: resourcemanager.ApiOperation{
-			ResourceIdName: stringPointer("SomeResourceId"),
+			ResourceIdName: pointer.To("SomeResourceId"),
 		},
 		sdkResourceName: "SdkResource",
 	}.codeForGet()
@@ -844,7 +846,7 @@ func TestComponentReadFunc_CodeForGet(t *testing.T) {
 			return fmt.Errorf("retrieving %s: %+v", *id, err)
 		}
 `
-	assertTemplatedCodeMatches(t, expected, *actual)
+	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
 }
 
 func TestComponentReadFunc_CodeForGet_Options(t *testing.T) {
@@ -855,7 +857,7 @@ func TestComponentReadFunc_CodeForGet_Options(t *testing.T) {
 			TimeoutInMinutes: 5,
 		},
 		readOperation: resourcemanager.ApiOperation{
-			ResourceIdName: stringPointer("SomeResourceId"),
+			ResourceIdName: pointer.To("SomeResourceId"),
 			Options: map[string]resourcemanager.ApiOperationOption{
 				"Example": {},
 			},
@@ -874,5 +876,5 @@ func TestComponentReadFunc_CodeForGet_Options(t *testing.T) {
 			return fmt.Errorf("retrieving %s: %+v", *id, err)
 		}
 `
-	assertTemplatedCodeMatches(t, expected, *actual)
+	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
 }

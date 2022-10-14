@@ -7,13 +7,12 @@ import (
 	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/hcl/v2"
 	"github.com/hashicorp/hcl/v2/hclwrite"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/helpers"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/testattributes"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-func (t pipelineTask) generateTerraformTests(data *models.AzureApiDefinition, logger hclog.Logger) (*models.AzureApiDefinition, error) {
+func (t pipelineTask) generateTerraformTests(data *models.AzureApiDefinition, providerPrefix string, logger hclog.Logger) (*models.AzureApiDefinition, error) {
 	for _, resource := range data.Resources {
 		if t := resource.Terraform; t != nil {
 			for resourceLabel, resourceDetails := range t.Resources {
@@ -23,7 +22,7 @@ func (t pipelineTask) generateTerraformTests(data *models.AzureApiDefinition, lo
 					Dependencies: &testattributes.TestDependencyHelper{},
 				}
 
-				basicTest, err := generateTestConfig(resourceLabel, resourceDetails, true, h)
+				basicTest, err := generateTestConfig(providerPrefix, resourceLabel, resourceDetails, true, h)
 				if err != nil {
 					return nil, err
 				}
@@ -31,7 +30,7 @@ func (t pipelineTask) generateTerraformTests(data *models.AzureApiDefinition, lo
 					resourceDetails.Tests.BasicConfiguration = *basicTest
 				}
 
-				importTest, err := generateImportTestConfig(resourceLabel, resourceDetails, h)
+				importTest, err := generateImportTestConfig(providerPrefix, resourceLabel, resourceDetails, h)
 				if err != nil {
 					return nil, err
 				}
@@ -40,7 +39,7 @@ func (t pipelineTask) generateTerraformTests(data *models.AzureApiDefinition, lo
 				}
 
 				// todo check that there not attributes are required before calling this
-				completeTest, err := generateTestConfig(resourceLabel, resourceDetails, false, h)
+				completeTest, err := generateTestConfig(providerPrefix, resourceLabel, resourceDetails, false, h)
 				if err != nil {
 					return nil, err
 				}
@@ -63,13 +62,11 @@ func (t pipelineTask) generateTerraformTests(data *models.AzureApiDefinition, lo
 	return data, nil
 }
 
-func generateTestConfig(resourceLabel string, input resourcemanager.TerraformResourceDetails, requiredOnly bool, helper testattributes.TestAttributesHelpers) (*string, error) {
+func generateTestConfig(providerPrefix, resourceLabel string, input resourcemanager.TerraformResourceDetails, requiredOnly bool, helper testattributes.TestAttributesHelpers) (*string, error) {
 	f := hclwrite.NewEmptyFile()
 
-	// todo don't hardcode azurerm
-	resourceHeader := fmt.Sprintf(`resource "azurerm_%s" "test"`, resourceLabel)
-
-	if err := helper.GetAttributesForTests(resourceLabel, input.SchemaModels[input.SchemaModelName], *f.Body().AppendNewBlock(resourceHeader, nil).Body(), requiredOnly); err != nil {
+	block := blockForResource(f, providerPrefix, resourceLabel, "test")
+	if err := helper.GetAttributesForTests(resourceLabel, input.SchemaModels[input.SchemaModelName], block, requiredOnly); err != nil {
 		return nil, err
 	}
 
@@ -77,21 +74,26 @@ func generateTestConfig(resourceLabel string, input resourcemanager.TerraformRes
 	return &output, nil
 }
 
-func generateImportTestConfig(resourceLabel string, input resourcemanager.TerraformResourceDetails, helper testattributes.TestAttributesHelpers) (*string, error) {
+func blockForResource(f *hclwrite.File, providerPrefix string, resourceLabel, resourceLabelType string) *hclwrite.Body {
+	resourceName := fmt.Sprintf("%s_%s", providerPrefix, resourceLabel)
+	return f.Body().AppendNewBlock("resource", []string{
+		resourceName,
+		resourceLabelType,
+	}).Body()
+}
+
+func generateImportTestConfig(providerPrefix, resourceLabel string, input resourcemanager.TerraformResourceDetails, helper testattributes.TestAttributesHelpers) (*string, error) {
 	f := hclwrite.NewEmptyFile()
 
-	// todo don't hardcode azurerm
-	resourceHeader := fmt.Sprintf(`resource "azurerm_%s" "import"`, resourceLabel)
-
-	if err := helper.GetAttributesForTests(resourceLabel, input.SchemaModels[input.SchemaModelName], *f.Body().AppendNewBlock(resourceHeader, nil).Body(), true); err != nil {
+	block := blockForResource(f, providerPrefix, resourceLabel, "import")
+	if err := helper.GetAttributesForTests(resourceLabel, input.SchemaModels[input.SchemaModelName], block, true); err != nil {
 		return nil, err
 	}
 
 	for hclName := range f.Body().Attributes() {
 		f.Body().SetAttributeTraversal(hclName, hcl.Traversal{
 			hcl.TraverseRoot{
-				// todo don't hardcode azurerm
-				Name: fmt.Sprintf("azurerm_%s.test.%s", helpers.ConvertToSnakeCase(input.ResourceName), hclName),
+				Name: fmt.Sprintf("%s_%s.test.%s", providerPrefix, resourceLabel, hclName),
 			},
 		})
 	}

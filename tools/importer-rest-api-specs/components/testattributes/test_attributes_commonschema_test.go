@@ -7,6 +7,7 @@ import (
 	"github.com/hashicorp/hcl/v2/hclwrite"
 
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+	"github.com/hashicorp/pandora/tools/sdk/testhelpers"
 )
 
 func TestPluginSdkAttributes_CommonSchema_EdgeZone(t *testing.T) {
@@ -33,7 +34,7 @@ func TestPluginSdkAttributes_CommonSchema_EdgeZone(t *testing.T) {
 	file := hclwrite.NewEmptyFile()
 	helper := TestAttributesHelpers{}
 	for i, testCase := range testData {
-		err := helper.GetAttributesForTests("some_resource", testCase.input, *file.Body(), false)
+		err := helper.GetAttributesForTests("some_resource", testCase.input, file.Body(), false)
 		if err != nil {
 			if testCase.expected == "" {
 				continue
@@ -41,7 +42,7 @@ func TestPluginSdkAttributes_CommonSchema_EdgeZone(t *testing.T) {
 
 			t.Fatalf("unexpected error for index %d", i)
 		}
-		assertTemplatedCodeMatches(t, testCase.expected, fmt.Sprintf("%s", file.Bytes()))
+		testhelpers.AssertTemplatedCodeMatches(t, testCase.expected, fmt.Sprintf("%s", file.Bytes()))
 	}
 }
 
@@ -75,7 +76,7 @@ identity {
 	file := hclwrite.NewEmptyFile()
 	helper := TestAttributesHelpers{}
 	for i, testCase := range testData {
-		err := helper.GetAttributesForTests("some_resource", testCase.input, *file.Body(), false)
+		err := helper.GetAttributesForTests("some_resource", testCase.input, file.Body(), false)
 		if err != nil {
 			if testCase.expected == "" {
 				continue
@@ -83,7 +84,7 @@ identity {
 
 			t.Fatalf("unexpected error for index %d", i)
 		}
-		assertTemplatedCodeMatches(t, testCase.expected, fmt.Sprintf("%s", file.Bytes()))
+		testhelpers.AssertTemplatedCodeMatches(t, testCase.expected, fmt.Sprintf("%s", file.Bytes()))
 	}
 }
 
@@ -115,7 +116,7 @@ identity {
 	file := hclwrite.NewEmptyFile()
 	helper := TestAttributesHelpers{}
 	for i, testCase := range testData {
-		err := helper.GetAttributesForTests("some_resource", testCase.input, *file.Body(), false)
+		err := helper.GetAttributesForTests("some_resource", testCase.input, file.Body(), false)
 		if err != nil {
 			if testCase.expected == "" {
 				continue
@@ -123,7 +124,7 @@ identity {
 
 			t.Fatalf("unexpected error for index %d", i)
 		}
-		assertTemplatedCodeMatches(t, testCase.expected, fmt.Sprintf("%s", file.Bytes()))
+		testhelpers.AssertTemplatedCodeMatches(t, testCase.expected, fmt.Sprintf("%s", file.Bytes()))
 	}
 }
 
@@ -155,7 +156,7 @@ identity {
 	file := hclwrite.NewEmptyFile()
 	helper := TestAttributesHelpers{}
 	for i, testCase := range testData {
-		err := helper.GetAttributesForTests("some_resource", testCase.input, *file.Body(), false)
+		err := helper.GetAttributesForTests("some_resource", testCase.input, file.Body(), false)
 		if err != nil {
 			if testCase.expected == "" {
 				continue
@@ -163,7 +164,7 @@ identity {
 
 			t.Fatalf("unexpected error for index %d", i)
 		}
-		assertTemplatedCodeMatches(t, testCase.expected, fmt.Sprintf("%s", file.Bytes()))
+		testhelpers.AssertTemplatedCodeMatches(t, testCase.expected, fmt.Sprintf("%s", file.Bytes()))
 	}
 }
 
@@ -197,7 +198,7 @@ identity {
 	file := hclwrite.NewEmptyFile()
 	helper := TestAttributesHelpers{}
 	for i, testCase := range testData {
-		err := helper.GetAttributesForTests("some_resource", testCase.input, *file.Body(), false)
+		err := helper.GetAttributesForTests("some_resource", testCase.input, file.Body(), false)
 		if err != nil {
 			if testCase.expected == "" {
 				continue
@@ -205,7 +206,7 @@ identity {
 
 			t.Fatalf("unexpected error for index %d", i)
 		}
-		assertTemplatedCodeMatches(t, testCase.expected, fmt.Sprintf("%s", file.Bytes()))
+		testhelpers.AssertTemplatedCodeMatches(t, testCase.expected, fmt.Sprintf("%s", file.Bytes()))
 	}
 }
 
@@ -250,7 +251,7 @@ func TestPluginSdkAttributes_CommonSchema_Location(t *testing.T) {
 	file := hclwrite.NewEmptyFile()
 	helper := TestAttributesHelpers{}
 	for i, testCase := range testData {
-		err := helper.GetAttributesForTests(testCase.resourceName, testCase.input, *file.Body(), false)
+		err := helper.GetAttributesForTests(testCase.resourceName, testCase.input, file.Body(), false)
 		if err != nil {
 			if testCase.expected == "" {
 				continue
@@ -258,7 +259,7 @@ func TestPluginSdkAttributes_CommonSchema_Location(t *testing.T) {
 
 			t.Fatalf("unexpected error for index %d", i)
 		}
-		assertTemplatedCodeMatches(t, testCase.expected, fmt.Sprintf("%s", file.Bytes()))
+		testhelpers.AssertTemplatedCodeMatches(t, testCase.expected, fmt.Sprintf("%s", file.Bytes()))
 	}
 }
 
@@ -303,7 +304,7 @@ func TestPluginSdkAttributes_CommonSchema_ResourceGroup(t *testing.T) {
 	file := hclwrite.NewEmptyFile()
 	helper := TestAttributesHelpers{}
 	for i, testCase := range testData {
-		err := helper.GetAttributesForTests(testCase.resourceName, testCase.input, *file.Body(), false)
+		err := helper.GetAttributesForTests(testCase.resourceName, testCase.input, file.Body(), false)
 		if err != nil {
 			if testCase.expected == "" {
 				continue
@@ -311,7 +312,7 @@ func TestPluginSdkAttributes_CommonSchema_ResourceGroup(t *testing.T) {
 
 			t.Fatalf("unexpected error for index %d", i)
 		}
-		assertTemplatedCodeMatches(t, testCase.expected, fmt.Sprintf("%s", file.Bytes()))
+		testhelpers.AssertTemplatedCodeMatches(t, testCase.expected, fmt.Sprintf("%s", file.Bytes()))
 	}
 }
 
@@ -344,7 +345,7 @@ tags = {
 	file := hclwrite.NewEmptyFile()
 	helper := TestAttributesHelpers{}
 	for i, testCase := range testData {
-		err := helper.GetAttributesForTests("some_resource", testCase.input, *file.Body(), false)
+		err := helper.GetAttributesForTests("some_resource", testCase.input, file.Body(), false)
 		if err != nil {
 			if testCase.expected == "" {
 				continue
@@ -352,7 +353,7 @@ tags = {
 
 			t.Fatalf("unexpected error for index %d", i)
 		}
-		assertTemplatedCodeMatches(t, testCase.expected, fmt.Sprintf("%s", file.Bytes()))
+		testhelpers.AssertTemplatedCodeMatches(t, testCase.expected, fmt.Sprintf("%s", file.Bytes()))
 	}
 }
 
@@ -380,7 +381,7 @@ func TestPluginSdkAttributes_CommonSchema_Zone(t *testing.T) {
 	file := hclwrite.NewEmptyFile()
 	helper := TestAttributesHelpers{}
 	for i, testCase := range testData {
-		err := helper.GetAttributesForTests("some_resource", testCase.input, *file.Body(), false)
+		err := helper.GetAttributesForTests("some_resource", testCase.input, file.Body(), false)
 		if err != nil {
 			if testCase.expected == "" {
 				continue
@@ -388,7 +389,7 @@ func TestPluginSdkAttributes_CommonSchema_Zone(t *testing.T) {
 
 			t.Fatalf("unexpected error for index %d", i)
 		}
-		assertTemplatedCodeMatches(t, testCase.expected, fmt.Sprintf("%s", file.Bytes()))
+		testhelpers.AssertTemplatedCodeMatches(t, testCase.expected, fmt.Sprintf("%s", file.Bytes()))
 	}
 }
 
@@ -416,7 +417,7 @@ func TestPluginSdkAttributes_CommonSchema_Zones(t *testing.T) {
 	file := hclwrite.NewEmptyFile()
 	helper := TestAttributesHelpers{}
 	for i, testCase := range testData {
-		err := helper.GetAttributesForTests("some_resource", testCase.input, *file.Body(), false)
+		err := helper.GetAttributesForTests("some_resource", testCase.input, file.Body(), false)
 		if err != nil {
 			if testCase.expected == "" {
 				continue
@@ -424,6 +425,6 @@ func TestPluginSdkAttributes_CommonSchema_Zones(t *testing.T) {
 
 			t.Fatalf("unexpected error for index %d", i)
 		}
-		assertTemplatedCodeMatches(t, testCase.expected, fmt.Sprintf("%s", file.Bytes()))
+		testhelpers.AssertTemplatedCodeMatches(t, testCase.expected, fmt.Sprintf("%s", file.Bytes()))
 	}
 }

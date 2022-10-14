@@ -3,8 +3,10 @@ package resource
 import (
 	"testing"
 
+	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"github.com/hashicorp/pandora/tools/generator-terraform/generator/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+	"github.com/hashicorp/pandora/tools/sdk/testhelpers"
 )
 
 func TestComponentDeleteFunc_Immediate_CommonId_Disabled(t *testing.T) {
@@ -23,12 +25,12 @@ func TestComponentDeleteFunc_Immediate_CommonId_Disabled(t *testing.T) {
 		Operations: map[string]resourcemanager.ApiOperation{
 			"PewPew": {
 				LongRunning:    false,
-				ResourceIdName: stringPointer("CustomSubscriptionId"),
+				ResourceIdName: pointer.To("CustomSubscriptionId"),
 			},
 		},
 		ResourceIds: map[string]resourcemanager.ResourceIdDefinition{
 			"CustomSubscriptionId": {
-				CommonAlias: stringPointer("Subscription"),
+				CommonAlias: pointer.To("Subscription"),
 			},
 		},
 	}
@@ -57,7 +59,7 @@ func TestComponentDeleteFunc_Immediate_RegularResourceId_Disabled(t *testing.T) 
 		Operations: map[string]resourcemanager.ApiOperation{
 			"PewPew": {
 				LongRunning:    false,
-				ResourceIdName: stringPointer("CustomSubscriptionId"),
+				ResourceIdName: pointer.To("CustomSubscriptionId"),
 			},
 		},
 		ResourceIds: map[string]resourcemanager.ResourceIdDefinition{
@@ -91,12 +93,12 @@ func TestComponentDeleteFunc_Immediate_CommonId_Enabled(t *testing.T) {
 		Operations: map[string]resourcemanager.ApiOperation{
 			"PewPew": {
 				LongRunning:    false,
-				ResourceIdName: stringPointer("CustomSubscriptionId"),
+				ResourceIdName: pointer.To("CustomSubscriptionId"),
 			},
 		},
 		ResourceIds: map[string]resourcemanager.ResourceIdDefinition{
 			"CustomSubscriptionId": {
-				CommonAlias: stringPointer("Subscription"),
+				CommonAlias: pointer.To("Subscription"),
 			},
 		},
 	}
@@ -122,7 +124,7 @@ func (r ExampleResource) Delete() sdk.ResourceFunc {
 	}
 }
 `
-	assertTemplatedCodeMatches(t, expected, *actual)
+	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
 }
 
 func TestComponentDeleteFunc_Immediate_CommonId_Options_Enabled(t *testing.T) {
@@ -142,13 +144,13 @@ func TestComponentDeleteFunc_Immediate_CommonId_Options_Enabled(t *testing.T) {
 		Operations: map[string]resourcemanager.ApiOperation{
 			"PewPew": {
 				LongRunning:    false,
-				ResourceIdName: stringPointer("CustomSubscriptionId"),
+				ResourceIdName: pointer.To("CustomSubscriptionId"),
 				Options: map[string]resourcemanager.ApiOperationOption{
 					"SomeOption": {
 						ObjectDefinition: resourcemanager.ApiObjectDefinition{
 							Type: resourcemanager.StringApiObjectDefinitionType,
 						},
-						HeaderName: stringPointer("X-Some-Option"),
+						HeaderName: pointer.To("X-Some-Option"),
 						Required:   false,
 					},
 				},
@@ -156,7 +158,7 @@ func TestComponentDeleteFunc_Immediate_CommonId_Options_Enabled(t *testing.T) {
 		},
 		ResourceIds: map[string]resourcemanager.ResourceIdDefinition{
 			"CustomSubscriptionId": {
-				CommonAlias: stringPointer("Subscription"),
+				CommonAlias: pointer.To("Subscription"),
 			},
 		},
 	}
@@ -182,7 +184,7 @@ func (r ExampleResource) Delete() sdk.ResourceFunc {
 	}
 }
 `
-	assertTemplatedCodeMatches(t, expected, *actual)
+	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
 }
 
 func TestComponentDeleteFunc_Immediate_RegularResourceId_Enabled(t *testing.T) {
@@ -201,7 +203,7 @@ func TestComponentDeleteFunc_Immediate_RegularResourceId_Enabled(t *testing.T) {
 		Operations: map[string]resourcemanager.ApiOperation{
 			"PewPew": {
 				LongRunning:    false,
-				ResourceIdName: stringPointer("CustomSubscriptionId"),
+				ResourceIdName: pointer.To("CustomSubscriptionId"),
 			},
 		},
 		ResourceIds: map[string]resourcemanager.ResourceIdDefinition{
@@ -232,7 +234,7 @@ func (r ExampleResource) Delete() sdk.ResourceFunc {
 	}
 }
 `
-	assertTemplatedCodeMatches(t, expected, *actual)
+	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
 }
 
 func TestComponentDeleteFunc_Immediate_RegularResourceId_Options_Enabled(t *testing.T) {
@@ -252,13 +254,13 @@ func TestComponentDeleteFunc_Immediate_RegularResourceId_Options_Enabled(t *test
 		Operations: map[string]resourcemanager.ApiOperation{
 			"PewPew": {
 				LongRunning:    false,
-				ResourceIdName: stringPointer("CustomSubscriptionId"),
+				ResourceIdName: pointer.To("CustomSubscriptionId"),
 				Options: map[string]resourcemanager.ApiOperationOption{
 					"SomeOption": {
 						ObjectDefinition: resourcemanager.ApiObjectDefinition{
 							Type: resourcemanager.StringApiObjectDefinitionType,
 						},
-						HeaderName: stringPointer("X-Some-Option"),
+						HeaderName: pointer.To("X-Some-Option"),
 						Required:   false,
 					},
 				},
@@ -292,7 +294,7 @@ func (r ExampleResource) Delete() sdk.ResourceFunc {
 	}
 }
 `
-	assertTemplatedCodeMatches(t, expected, *actual)
+	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
 }
 
 func TestComponentDeleteFunc_LongRunning_CommonId_Disabled(t *testing.T) {
@@ -311,12 +313,12 @@ func TestComponentDeleteFunc_LongRunning_CommonId_Disabled(t *testing.T) {
 		Operations: map[string]resourcemanager.ApiOperation{
 			"PewPew": {
 				LongRunning:    true,
-				ResourceIdName: stringPointer("CustomSubscriptionId"),
+				ResourceIdName: pointer.To("CustomSubscriptionId"),
 			},
 		},
 		ResourceIds: map[string]resourcemanager.ResourceIdDefinition{
 			"CustomSubscriptionId": {
-				CommonAlias: stringPointer("Subscription"),
+				CommonAlias: pointer.To("Subscription"),
 			},
 		},
 	}
@@ -345,7 +347,7 @@ func TestComponentDeleteFunc_LongRunning_RegularResourceId_Disabled(t *testing.T
 		Operations: map[string]resourcemanager.ApiOperation{
 			"PewPew": {
 				LongRunning:    true,
-				ResourceIdName: stringPointer("CustomSubscriptionId"),
+				ResourceIdName: pointer.To("CustomSubscriptionId"),
 			},
 		},
 		ResourceIds: map[string]resourcemanager.ResourceIdDefinition{
@@ -379,12 +381,12 @@ func TestComponentDeleteFunc_LongRunning_CommonId_Enabled(t *testing.T) {
 		Operations: map[string]resourcemanager.ApiOperation{
 			"PewPew": {
 				LongRunning:    true,
-				ResourceIdName: stringPointer("CustomSubscriptionId"),
+				ResourceIdName: pointer.To("CustomSubscriptionId"),
 			},
 		},
 		ResourceIds: map[string]resourcemanager.ResourceIdDefinition{
 			"CustomSubscriptionId": {
-				CommonAlias: stringPointer("Subscription"),
+				CommonAlias: pointer.To("Subscription"),
 			},
 		},
 	}
@@ -410,7 +412,7 @@ func (r ExampleResource) Delete() sdk.ResourceFunc {
 	}
 }
 `
-	assertTemplatedCodeMatches(t, expected, *actual)
+	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
 }
 
 func TestComponentDeleteFunc_LongRunning_CommonId_Options_Enabled(t *testing.T) {
@@ -430,13 +432,13 @@ func TestComponentDeleteFunc_LongRunning_CommonId_Options_Enabled(t *testing.T) 
 		Operations: map[string]resourcemanager.ApiOperation{
 			"PewPew": {
 				LongRunning:    true,
-				ResourceIdName: stringPointer("CustomSubscriptionId"),
+				ResourceIdName: pointer.To("CustomSubscriptionId"),
 				Options: map[string]resourcemanager.ApiOperationOption{
 					"SomeOption": {
 						ObjectDefinition: resourcemanager.ApiObjectDefinition{
 							Type: resourcemanager.StringApiObjectDefinitionType,
 						},
-						HeaderName: stringPointer("X-Some-Option"),
+						HeaderName: pointer.To("X-Some-Option"),
 						Required:   false,
 					},
 				},
@@ -444,7 +446,7 @@ func TestComponentDeleteFunc_LongRunning_CommonId_Options_Enabled(t *testing.T) 
 		},
 		ResourceIds: map[string]resourcemanager.ResourceIdDefinition{
 			"CustomSubscriptionId": {
-				CommonAlias: stringPointer("Subscription"),
+				CommonAlias: pointer.To("Subscription"),
 			},
 		},
 	}
@@ -470,7 +472,7 @@ func (r ExampleResource) Delete() sdk.ResourceFunc {
 	}
 }
 `
-	assertTemplatedCodeMatches(t, expected, *actual)
+	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
 }
 
 func TestComponentDeleteFunc_LongRunning_RegularResourceId_Enabled(t *testing.T) {
@@ -489,7 +491,7 @@ func TestComponentDeleteFunc_LongRunning_RegularResourceId_Enabled(t *testing.T)
 		Operations: map[string]resourcemanager.ApiOperation{
 			"PewPew": {
 				LongRunning:    true,
-				ResourceIdName: stringPointer("CustomSubscriptionId"),
+				ResourceIdName: pointer.To("CustomSubscriptionId"),
 			},
 		},
 		ResourceIds: map[string]resourcemanager.ResourceIdDefinition{
@@ -520,7 +522,7 @@ func (r ExampleResource) Delete() sdk.ResourceFunc {
 	}
 }
 `
-	assertTemplatedCodeMatches(t, expected, *actual)
+	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
 }
 
 func TestComponentDeleteFunc_LongRunning_RegularResourceId_Options_Enabled(t *testing.T) {
@@ -540,13 +542,13 @@ func TestComponentDeleteFunc_LongRunning_RegularResourceId_Options_Enabled(t *te
 		Operations: map[string]resourcemanager.ApiOperation{
 			"PewPew": {
 				LongRunning:    true,
-				ResourceIdName: stringPointer("CustomSubscriptionId"),
+				ResourceIdName: pointer.To("CustomSubscriptionId"),
 				Options: map[string]resourcemanager.ApiOperationOption{
 					"SomeOption": {
 						ObjectDefinition: resourcemanager.ApiObjectDefinition{
 							Type: resourcemanager.StringApiObjectDefinitionType,
 						},
-						HeaderName: stringPointer("X-Some-Option"),
+						HeaderName: pointer.To("X-Some-Option"),
 						Required:   false,
 					},
 				},
@@ -580,5 +582,5 @@ func (r ExampleResource) Delete() sdk.ResourceFunc {
 	}
 }
 `
-	assertTemplatedCodeMatches(t, expected, *actual)
+	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
 }

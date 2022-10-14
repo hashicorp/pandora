@@ -4,7 +4,9 @@ import (
 	"fmt"
 	"testing"
 
+	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+	"github.com/hashicorp/pandora/tools/sdk/testhelpers"
 )
 
 // TODO:  w/Validation
@@ -142,7 +144,7 @@ func TestPluginSdkAttributes_CodeForBasicFields(t *testing.T) {
 				if testCase.expected == "" {
 					t.Fatalf("expected an error but didn't get one for index %d", i)
 				}
-				assertTemplatedCodeMatches(t, testCase.expected, *actual)
+				testhelpers.AssertTemplatedCodeMatches(t, testCase.expected, *actual)
 			}
 		})
 	}
@@ -157,7 +159,7 @@ func TestPluginSdkAttributes_CodeForReference(t *testing.T) {
 			input: resourcemanager.TerraformSchemaFieldDefinition{
 				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
 					Type:          resourcemanager.TerraformSchemaFieldTypeReference,
-					ReferenceName: stringPointer("NestedSchemaModel"),
+					ReferenceName: pointer.To("NestedSchemaModel"),
 				},
 				Computed: false,
 				ForceNew: false,
@@ -184,7 +186,7 @@ func TestPluginSdkAttributes_CodeForReference(t *testing.T) {
 			input: resourcemanager.TerraformSchemaFieldDefinition{
 				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
 					Type:          resourcemanager.TerraformSchemaFieldTypeReference,
-					ReferenceName: stringPointer("NestedSchemaModel"),
+					ReferenceName: pointer.To("NestedSchemaModel"),
 				},
 				Computed: false,
 				ForceNew: true,
@@ -212,7 +214,7 @@ func TestPluginSdkAttributes_CodeForReference(t *testing.T) {
 			input: resourcemanager.TerraformSchemaFieldDefinition{
 				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
 					Type:          resourcemanager.TerraformSchemaFieldTypeReference,
-					ReferenceName: stringPointer("NestedSchemaModel"),
+					ReferenceName: pointer.To("NestedSchemaModel"),
 				},
 				Computed: false,
 				ForceNew: false,
@@ -239,7 +241,7 @@ func TestPluginSdkAttributes_CodeForReference(t *testing.T) {
 			input: resourcemanager.TerraformSchemaFieldDefinition{
 				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
 					Type:          resourcemanager.TerraformSchemaFieldTypeReference,
-					ReferenceName: stringPointer("NestedSchemaModel"),
+					ReferenceName: pointer.To("NestedSchemaModel"),
 				},
 				Computed: false,
 				ForceNew: true,
@@ -267,7 +269,7 @@ func TestPluginSdkAttributes_CodeForReference(t *testing.T) {
 			input: resourcemanager.TerraformSchemaFieldDefinition{
 				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
 					Type:          resourcemanager.TerraformSchemaFieldTypeReference,
-					ReferenceName: stringPointer("NestedSchemaModel"),
+					ReferenceName: pointer.To("NestedSchemaModel"),
 				},
 				Computed: true,
 				ForceNew: true,
@@ -296,7 +298,7 @@ func TestPluginSdkAttributes_CodeForReference(t *testing.T) {
 			input: resourcemanager.TerraformSchemaFieldDefinition{
 				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
 					Type:          resourcemanager.TerraformSchemaFieldTypeReference,
-					ReferenceName: stringPointer("NestedSchemaModel"),
+					ReferenceName: pointer.To("NestedSchemaModel"),
 				},
 				Computed: true,
 				ForceNew: false,
@@ -347,7 +349,7 @@ func TestPluginSdkAttributes_CodeForReference(t *testing.T) {
 		if testCase.expected == "" {
 			t.Fatalf("expected an error but didn't get one for index %d", i)
 		}
-		assertTemplatedCodeMatches(t, testCase.expected, *actual)
+		testhelpers.AssertTemplatedCodeMatches(t, testCase.expected, *actual)
 	}
 }
 
@@ -521,7 +523,7 @@ func TestPluginSdkAttributes_CodeForListOfBasicType(t *testing.T) {
 				if testCase.expected == "" {
 					t.Fatalf("expected an error but didn't get one for index %d", i)
 				}
-				assertTemplatedCodeMatches(t, testCase.expected, *actual)
+				testhelpers.AssertTemplatedCodeMatches(t, testCase.expected, *actual)
 			}
 		})
 	}
@@ -538,7 +540,7 @@ func TestPluginSdkAttributes_CodeForListOfReferenceType(t *testing.T) {
 					Type: resourcemanager.TerraformSchemaFieldTypeList,
 					NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
 						Type:          resourcemanager.TerraformSchemaFieldTypeReference,
-						ReferenceName: stringPointer("NestedSchemaModel"),
+						ReferenceName: pointer.To("NestedSchemaModel"),
 					},
 				},
 				Computed: false,
@@ -567,7 +569,7 @@ func TestPluginSdkAttributes_CodeForListOfReferenceType(t *testing.T) {
 					Type: resourcemanager.TerraformSchemaFieldTypeList,
 					NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
 						Type:          resourcemanager.TerraformSchemaFieldTypeReference,
-						ReferenceName: stringPointer("NestedSchemaModel"),
+						ReferenceName: pointer.To("NestedSchemaModel"),
 					},
 				},
 				Computed: false,
@@ -597,7 +599,7 @@ func TestPluginSdkAttributes_CodeForListOfReferenceType(t *testing.T) {
 					Type: resourcemanager.TerraformSchemaFieldTypeList,
 					NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
 						Type:          resourcemanager.TerraformSchemaFieldTypeReference,
-						ReferenceName: stringPointer("NestedSchemaModel"),
+						ReferenceName: pointer.To("NestedSchemaModel"),
 					},
 				},
 				Computed: false,
@@ -626,7 +628,7 @@ func TestPluginSdkAttributes_CodeForListOfReferenceType(t *testing.T) {
 					Type: resourcemanager.TerraformSchemaFieldTypeList,
 					NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
 						Type:          resourcemanager.TerraformSchemaFieldTypeReference,
-						ReferenceName: stringPointer("NestedSchemaModel"),
+						ReferenceName: pointer.To("NestedSchemaModel"),
 					},
 				},
 				Computed: false,
@@ -656,7 +658,7 @@ func TestPluginSdkAttributes_CodeForListOfReferenceType(t *testing.T) {
 					Type: resourcemanager.TerraformSchemaFieldTypeList,
 					NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
 						Type:          resourcemanager.TerraformSchemaFieldTypeReference,
-						ReferenceName: stringPointer("NestedSchemaModel"),
+						ReferenceName: pointer.To("NestedSchemaModel"),
 					},
 				},
 				Computed: true,
@@ -687,7 +689,7 @@ func TestPluginSdkAttributes_CodeForListOfReferenceType(t *testing.T) {
 					Type: resourcemanager.TerraformSchemaFieldTypeList,
 					NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
 						Type:          resourcemanager.TerraformSchemaFieldTypeReference,
-						ReferenceName: stringPointer("NestedSchemaModel"),
+						ReferenceName: pointer.To("NestedSchemaModel"),
 					},
 				},
 				Computed: true,
@@ -738,7 +740,7 @@ func TestPluginSdkAttributes_CodeForListOfReferenceType(t *testing.T) {
 		if testCase.expected == "" {
 			t.Fatalf("expected an error but didn't get one for index %d", i)
 		}
-		assertTemplatedCodeMatches(t, testCase.expected, *actual)
+		testhelpers.AssertTemplatedCodeMatches(t, testCase.expected, *actual)
 	}
 }
 
@@ -912,7 +914,7 @@ func TestPluginSdkAttributes_CodeForSetOfBasicType(t *testing.T) {
 				if testCase.expected == "" {
 					t.Fatalf("expected an error but didn't get one for index %d", i)
 				}
-				assertTemplatedCodeMatches(t, testCase.expected, *actual)
+				testhelpers.AssertTemplatedCodeMatches(t, testCase.expected, *actual)
 			}
 		})
 	}
@@ -929,7 +931,7 @@ func TestPluginSdkAttributes_CodeForSetOfReferenceType(t *testing.T) {
 					Type: resourcemanager.TerraformSchemaFieldTypeSet,
 					NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
 						Type:          resourcemanager.TerraformSchemaFieldTypeReference,
-						ReferenceName: stringPointer("NestedSchemaModel"),
+						ReferenceName: pointer.To("NestedSchemaModel"),
 					},
 				},
 				Computed: false,
@@ -958,7 +960,7 @@ func TestPluginSdkAttributes_CodeForSetOfReferenceType(t *testing.T) {
 					Type: resourcemanager.TerraformSchemaFieldTypeSet,
 					NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
 						Type:          resourcemanager.TerraformSchemaFieldTypeReference,
-						ReferenceName: stringPointer("NestedSchemaModel"),
+						ReferenceName: pointer.To("NestedSchemaModel"),
 					},
 				},
 				Computed: false,
@@ -988,7 +990,7 @@ func TestPluginSdkAttributes_CodeForSetOfReferenceType(t *testing.T) {
 					Type: resourcemanager.TerraformSchemaFieldTypeSet,
 					NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
 						Type:          resourcemanager.TerraformSchemaFieldTypeReference,
-						ReferenceName: stringPointer("NestedSchemaModel"),
+						ReferenceName: pointer.To("NestedSchemaModel"),
 					},
 				},
 				Computed: false,
@@ -1017,7 +1019,7 @@ func TestPluginSdkAttributes_CodeForSetOfReferenceType(t *testing.T) {
 					Type: resourcemanager.TerraformSchemaFieldTypeSet,
 					NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
 						Type:          resourcemanager.TerraformSchemaFieldTypeReference,
-						ReferenceName: stringPointer("NestedSchemaModel"),
+						ReferenceName: pointer.To("NestedSchemaModel"),
 					},
 				},
 				Computed: false,
@@ -1047,7 +1049,7 @@ func TestPluginSdkAttributes_CodeForSetOfReferenceType(t *testing.T) {
 					Type: resourcemanager.TerraformSchemaFieldTypeSet,
 					NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
 						Type:          resourcemanager.TerraformSchemaFieldTypeReference,
-						ReferenceName: stringPointer("NestedSchemaModel"),
+						ReferenceName: pointer.To("NestedSchemaModel"),
 					},
 				},
 				Computed: true,
@@ -1078,7 +1080,7 @@ func TestPluginSdkAttributes_CodeForSetOfReferenceType(t *testing.T) {
 					Type: resourcemanager.TerraformSchemaFieldTypeSet,
 					NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
 						Type:          resourcemanager.TerraformSchemaFieldTypeReference,
-						ReferenceName: stringPointer("NestedSchemaModel"),
+						ReferenceName: pointer.To("NestedSchemaModel"),
 					},
 				},
 				Computed: true,
@@ -1129,6 +1131,6 @@ func TestPluginSdkAttributes_CodeForSetOfReferenceType(t *testing.T) {
 		if testCase.expected == "" {
 			t.Fatalf("expected an error but didn't get one for index %d", i)
 		}
-		assertTemplatedCodeMatches(t, testCase.expected, *actual)
+		testhelpers.AssertTemplatedCodeMatches(t, testCase.expected, *actual)
 	}
 }

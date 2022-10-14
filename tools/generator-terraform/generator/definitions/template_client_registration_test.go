@@ -3,6 +3,8 @@ package definitions
 import (
 	"testing"
 
+	"github.com/hashicorp/pandora/tools/sdk/testhelpers"
+
 	"github.com/hashicorp/pandora/tools/generator-terraform/generator/models"
 )
 
@@ -30,7 +32,7 @@ func buildAutoClients(client *autoClient, o *common.ClientOptions) error {
 	return nil
 }
 `
-	assertTemplatedCodeMatches(t, expected, actual)
+	testhelpers.AssertTemplatedCodeMatches(t, expected, actual)
 }
 
 func TestCodeForClientRegistrations(t *testing.T) {
@@ -76,5 +78,5 @@ func buildAutoClients(client *autoClient, o *common.ClientOptions) error {
 	return nil
 }
 `
-	assertTemplatedCodeMatches(t, expected, actual)
+	testhelpers.AssertTemplatedCodeMatches(t, expected, actual)
 }

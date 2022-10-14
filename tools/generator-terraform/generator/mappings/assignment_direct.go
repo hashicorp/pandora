@@ -618,7 +618,7 @@ func (d directAssignmentLine) sdkToSchemaMappingBetweenFields(mapping resourcema
 			// TODO: handle where it's defaulted?
 			return nil, fmt.Errorf("the Sdk Model %q Field %q was Required but Schema Model %q Field %q was Optional but must be Required", mapping.DirectAssignment.SdkModelName, mapping.DirectAssignment.SdkFieldPath, mapping.DirectAssignment.SchemaModelName, mapping.DirectAssignment.SchemaFieldPath)
 		}
-		
+
 		if schemaField.Computed && (!schemaField.Optional && !schemaField.Required) {
 			line := fmt.Sprintf(`
 	if input.%[3]s != nil {

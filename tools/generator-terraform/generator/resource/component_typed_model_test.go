@@ -7,6 +7,7 @@ import (
 	"github.com/hashicorp/pandora/tools/generator-terraform/generator/models"
 
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+	"github.com/hashicorp/pandora/tools/sdk/testhelpers"
 )
 
 func TestCodeForTopLevelTypedModelAndDefinition_Disabled(t *testing.T) {
@@ -118,7 +119,7 @@ type ExampleModel struct {
 	RequiredString string 'tfschema:"required_string"'
 }
 `, "'", "`")
-	assertTemplatedCodeMatches(t, expected, *actual)
+	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
 }
 
 func TestCodeForNonTopLevelModels_Disabled(t *testing.T) {
@@ -189,7 +190,7 @@ type NestedModel2 struct {
 	Field3 string 'tfschema:"field3"'
 }
 `, "'", "`")
-	assertTemplatedCodeMatches(t, expected, *actual)
+	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
 }
 
 func TestCodeForModel(t *testing.T) {
@@ -273,5 +274,5 @@ type ExampleModel struct {
 	RequiredString string 'tfschema:"required_string"'
 }
 `, "'", "`")
-	assertTemplatedCodeMatches(t, expected, *actual)
+	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
 }

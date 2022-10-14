@@ -4,6 +4,7 @@ import (
 	"strings"
 	"testing"
 
+	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"github.com/hashicorp/pandora/tools/generator-terraform/generator/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
@@ -23,7 +24,7 @@ func TestComponentAttributes(t *testing.T) {
 						HclName:  "computed_nested_item",
 						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
 							Type:          resourcemanager.TerraformSchemaFieldTypeReference,
-							ReferenceName: stringPointer("NestedSchema"),
+							ReferenceName: pointer.To("NestedSchema"),
 						},
 					},
 					"RequiredInteger": {
@@ -71,7 +72,7 @@ func TestComponentAttributes(t *testing.T) {
 					"RequiredNestedItem": {
 						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
 							Type:          resourcemanager.TerraformSchemaFieldTypeReference,
-							ReferenceName: stringPointer("RequiredNestedSchema"),
+							ReferenceName: pointer.To("RequiredNestedSchema"),
 						},
 						Required: true,
 						HclName:  "required_nested_item",
@@ -151,7 +152,7 @@ func TestComponentAttributes(t *testing.T) {
 					"AnotherNestedItem": {
 						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
 							Type:          resourcemanager.TerraformSchemaFieldTypeReference,
-							ReferenceName: stringPointer("AnotherNestedSchema"),
+							ReferenceName: pointer.To("AnotherNestedSchema"),
 						},
 						Optional: true,
 						HclName:  "another_nested_item",

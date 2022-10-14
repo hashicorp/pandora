@@ -104,7 +104,7 @@ func runImportForService(input RunInput, serviceName string, apiVersionsForServi
 		}
 
 		versionLogger.Trace(fmt.Sprintf("generating Terraform Tests for Service %q / Version %q", serviceName, apiVersion))
-		dataForApiVersion, err = task.generateTerraformTests(dataForApiVersion, versionLogger.Named("TerraformTests"))
+		dataForApiVersion, err = task.generateTerraformTests(dataForApiVersion, input.ProviderPrefix, versionLogger.Named("TerraformTests"))
 		if err != nil {
 			return fmt.Errorf(fmt.Sprintf("generating Terraform Tests for Service %q / Version %q: %+v", serviceName, apiVersion, err))
 		}

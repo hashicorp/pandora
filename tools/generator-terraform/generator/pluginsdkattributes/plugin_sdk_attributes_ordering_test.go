@@ -3,7 +3,9 @@ package pluginsdkattributes
 import (
 	"testing"
 
+	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+	"github.com/hashicorp/pandora/tools/sdk/testhelpers"
 )
 
 func TestPluginSdkAttributes_FieldOrdering_TopLevel(t *testing.T) {
@@ -16,7 +18,7 @@ func TestPluginSdkAttributes_FieldOrdering_TopLevel(t *testing.T) {
 				HclName: "optional_nested_item",
 				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
 					Type:          resourcemanager.TerraformSchemaFieldTypeReference,
-					ReferenceName: stringPointer("NestedSchema"),
+					ReferenceName: pointer.To("NestedSchema"),
 				},
 				Optional: true,
 			},
@@ -127,7 +129,7 @@ map[string]*pluginsdk.Schema{
 	if err != nil {
 		t.Fatalf("unexpected error: %+v", err)
 	}
-	assertTemplatedCodeMatches(t, expected, *actual)
+	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
 }
 
 func TestPluginSdkAttributes_FieldOrdering_NestedLevel(t *testing.T) {
@@ -137,7 +139,7 @@ func TestPluginSdkAttributes_FieldOrdering_NestedLevel(t *testing.T) {
 				HclName: "optional_nested_item",
 				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
 					Type:          resourcemanager.TerraformSchemaFieldTypeReference,
-					ReferenceName: stringPointer("NestedSchema"),
+					ReferenceName: pointer.To("NestedSchema"),
 				},
 				Optional: true,
 			},
@@ -256,7 +258,7 @@ map[string]*pluginsdk.Schema{
 	if err != nil {
 		t.Fatalf("unexpected error: %+v", err)
 	}
-	assertTemplatedCodeMatches(t, expected, *actual)
+	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
 }
 
 func TestPluginSdkAttributes_FieldOrdering_TopLevelAttributesOnly(t *testing.T) {
@@ -269,7 +271,7 @@ func TestPluginSdkAttributes_FieldOrdering_TopLevelAttributesOnly(t *testing.T) 
 				HclName: "optional_nested_item",
 				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
 					Type:          resourcemanager.TerraformSchemaFieldTypeReference,
-					ReferenceName: stringPointer("NestedSchema"),
+					ReferenceName: pointer.To("NestedSchema"),
 				},
 				Optional: true,
 			},
@@ -355,5 +357,5 @@ map[string]*pluginsdk.Schema{
 	if err != nil {
 		t.Fatalf("unexpected error: %+v", err)
 	}
-	assertTemplatedCodeMatches(t, expected, *actual)
+	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
 }

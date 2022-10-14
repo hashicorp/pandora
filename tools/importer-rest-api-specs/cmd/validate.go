@@ -49,6 +49,7 @@ func (c ValidateCommand) Run(args []string) int {
 		JustParseData:            true,
 		Logger:                   logger,
 		OutputDirectory:          os.DevNull,
+		ProviderPrefix:           "azurerm",
 		SwaggerDirectory:         c.swaggerDirectory,
 		TerraformDefinitionsPath: c.terraformDefinitionsPath,
 	}
