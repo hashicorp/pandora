@@ -13,7 +13,7 @@ using System.Net;
 
 namespace Pandora.Definitions.ResourceManager.Nginx.v2022_08_01.NginxCertificate;
 
-internal class CertificatesCreateOperation : Operations.PutOperation
+internal class CertificatesCreateOrUpdateOperation : Operations.PutOperation
 {
     public override bool LongRunning() => true;
 

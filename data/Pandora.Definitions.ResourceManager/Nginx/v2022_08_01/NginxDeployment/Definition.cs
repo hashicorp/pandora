@@ -13,7 +13,7 @@ internal class Definition : ResourceDefinition
     public string Name => "NginxDeployment";
     public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
     {
-        new DeploymentsCreateOperation(),
+        new DeploymentsCreateOrUpdateOperation(),
         new DeploymentsDeleteOperation(),
         new DeploymentsGetOperation(),
         new DeploymentsListOperation(),

@@ -13,7 +13,7 @@ internal class Definition : ResourceDefinition
     public string Name => "NginxCertificate";
     public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
     {
-        new CertificatesCreateOperation(),
+        new CertificatesCreateOrUpdateOperation(),
         new CertificatesDeleteOperation(),
         new CertificatesGetOperation(),
         new CertificatesListOperation(),
