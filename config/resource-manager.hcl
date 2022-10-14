@@ -349,7 +349,7 @@ service "videoanalyzer" {
 }
 service "vmware" {
   name      = "VMware"
-  available = ["2020-03-20"]
+  available = ["2020-03-20", "2021-12-01"]
 }
 service "web" {
   name      = "Web"
