@@ -1,0 +1,35 @@
+using System;
+using System.Collections.Generic;
+using System.Text.Json.Serialization;
+using Pandora.Definitions.Attributes;
+using Pandora.Definitions.Attributes.Validation;
+using Pandora.Definitions.CustomTypes;
+
+
+// Copyright (c) Microsoft Corporation. All rights reserved.
+// Licensed under the MIT License. See NOTICE.txt in the project root for license information.
+
+
+namespace Pandora.Definitions.ResourceManager.VMware.v2021_12_01.GlobalReachConnections;
+
+
+internal class GlobalReachConnectionPropertiesModel
+{
+    [JsonPropertyName("addressPrefix")]
+    public string? AddressPrefix { get; set; }
+
+    [JsonPropertyName("authorizationKey")]
+    public string? AuthorizationKey { get; set; }
+
+    [JsonPropertyName("circuitConnectionStatus")]
+    public GlobalReachConnectionStatusConstant? CircuitConnectionStatus { get; set; }
+
+    [JsonPropertyName("expressRouteId")]
+    public string? ExpressRouteId { get; set; }
+
+    [JsonPropertyName("peerExpressRouteCircuit")]
+    public string? PeerExpressRouteCircuit { get; set; }
+
+    [JsonPropertyName("provisioningState")]
+    public GlobalReachConnectionProvisioningStateConstant? ProvisioningState { get; set; }
+}
