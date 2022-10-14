@@ -13,7 +13,7 @@ using System.Net;
 
 namespace Pandora.Definitions.ResourceManager.Nginx.v2022_08_01.NginxDeployment;
 
-internal class DeploymentsCreateOperation : Operations.PutOperation
+internal class DeploymentsCreateOrUpdateOperation : Operations.PutOperation
 {
     public override bool LongRunning() => true;
 

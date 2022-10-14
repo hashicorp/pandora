@@ -29,6 +29,9 @@ internal abstract class ChargeSummaryModel
     [JsonPropertyName("name")]
     public string? Name { get; set; }
 
+    [JsonPropertyName("tags")]
+    public CustomTypes.Tags? Tags { get; set; }
+
     [JsonPropertyName("type")]
     public string? Type { get; set; }
 }

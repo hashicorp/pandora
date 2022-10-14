@@ -18,6 +18,9 @@ internal class LegacyChargeSummaryPropertiesModel
     [JsonPropertyName("azureCharges")]
     public float? AzureCharges { get; set; }
 
+    [JsonPropertyName("azureMarketplaceCharges")]
+    public float? AzureMarketplaceCharges { get; set; }
+
     [JsonPropertyName("billingPeriodId")]
     public string? BillingPeriodId { get; set; }
 
@@ -26,9 +29,6 @@ internal class LegacyChargeSummaryPropertiesModel
 
     [JsonPropertyName("currency")]
     public string? Currency { get; set; }
-
-    [JsonPropertyName("marketplaceCharges")]
-    public float? MarketplaceCharges { get; set; }
 
     [JsonPropertyName("usageEnd")]
     public string? UsageEnd { get; set; }
