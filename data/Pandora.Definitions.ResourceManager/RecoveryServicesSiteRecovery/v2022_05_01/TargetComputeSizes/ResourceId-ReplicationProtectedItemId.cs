@@ -12,7 +12,7 @@ internal class ReplicationProtectedItemId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationFabrics/{fabricName}/replicationProtectionContainers/{protectionContainerName}/replicationProtectedItems/{replicationProtectedItemName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationFabrics/{fabricName}/replicationProtectionContainers/{protectionContainerName}/replicationProtectedItems/{replicatedProtectedItemName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -29,6 +29,6 @@ internal class ReplicationProtectedItemId : ResourceID
         ResourceIDSegment.Static("staticReplicationProtectionContainers", "replicationProtectionContainers"),
         ResourceIDSegment.UserSpecified("protectionContainerName"),
         ResourceIDSegment.Static("staticReplicationProtectedItems", "replicationProtectedItems"),
-        ResourceIDSegment.UserSpecified("replicationProtectedItemName"),
+        ResourceIDSegment.UserSpecified("replicatedProtectedItemName"),
     };
 }
