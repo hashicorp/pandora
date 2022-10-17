@@ -18,6 +18,12 @@ internal class ReplicaContainerModel
     [JsonPropertyName("containerId")]
     public string? ContainerId { get; set; }
 
+    [JsonPropertyName("execEndpoint")]
+    public string? ExecEndpoint { get; set; }
+
+    [JsonPropertyName("logStreamEndpoint")]
+    public string? LogStreamEndpoint { get; set; }
+
     [JsonPropertyName("name")]
     public string? Name { get; set; }
 

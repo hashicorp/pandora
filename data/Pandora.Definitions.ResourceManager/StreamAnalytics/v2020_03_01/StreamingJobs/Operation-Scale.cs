@@ -18,6 +18,7 @@ internal class ScaleOperation : Operations.PostOperation
     public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
+                HttpStatusCode.OK,
         };
 
     public override bool LongRunning() => true;
