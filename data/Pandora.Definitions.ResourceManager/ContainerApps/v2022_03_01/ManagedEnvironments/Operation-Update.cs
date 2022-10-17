@@ -18,6 +18,7 @@ internal class UpdateOperation : Operations.PatchOperation
     public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
+                HttpStatusCode.OK,
         };
 
     public override bool LongRunning() => true;
@@ -25,6 +26,8 @@ internal class UpdateOperation : Operations.PatchOperation
     public override Type? RequestObject() => typeof(ManagedEnvironmentModel);
 
     public override ResourceID? ResourceId() => new ManagedEnvironmentId();
+
+    public override Type? ResponseObject() => typeof(ManagedEnvironmentModel);
 
 
 }
