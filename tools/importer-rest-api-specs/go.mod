@@ -17,7 +17,7 @@ require (
 )
 
 require (
-	github.com/Masterminds/goutils v1.1.0 // indirect
+	github.com/Masterminds/goutils v1.1.1 // indirect
 	github.com/Masterminds/semver/v3 v3.1.1 // indirect
 	github.com/Masterminds/sprig/v3 v3.2.0 // indirect
 	github.com/Microsoft/go-winio v0.4.16 // indirect
@@ -39,7 +39,6 @@ require (
 	github.com/go-openapi/jsonreference v0.19.5 // indirect
 	github.com/go-openapi/strfmt v0.20.0 // indirect
 	github.com/go-openapi/swag v0.19.14 // indirect
-	github.com/go-stack/stack v1.8.0 // indirect
 	github.com/google/go-cmp v0.5.2 // indirect
 	github.com/google/uuid v1.1.2 // indirect
 	github.com/hashicorp/errwrap v1.0.0 // indirect
@@ -62,11 +61,11 @@ require (
 	github.com/shopspring/decimal v1.2.0 // indirect
 	github.com/spf13/cast v1.3.1 // indirect
 	github.com/xanzy/ssh-agent v0.3.0 // indirect
-	go.mongodb.org/mongo-driver v1.4.6 // indirect
-	golang.org/x/crypto v0.0.0-20220517005047-85d78b3ac167 // indirect
+	go.mongodb.org/mongo-driver v1.10.3 // indirect
+	golang.org/x/crypto v0.0.0-20220622213112-05595931fe9d // indirect
 	golang.org/x/net v0.0.0-20211112202133-69e39bad7dc2 // indirect
 	golang.org/x/sys v0.0.0-20220503163025-988cb79eb6c6 // indirect
-	golang.org/x/text v0.3.6 // indirect
+	golang.org/x/text v0.3.7 // indirect
 	gopkg.in/warnings.v0 v0.1.2 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 )
