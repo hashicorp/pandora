@@ -177,6 +177,32 @@ func (d *SwaggerDefinition) detailsForField(modelName string, propertyName strin
 			}
 			nestedFields[propName] = *nestedField
 		}
+		for _, inlinedModel := range value.AllOf {
+			remoteRef := strings.TrimPrefix(inlinedModel.Ref.String(), "#/definitions/")
+			remoteSpec, err := d.findTopLevelObject(remoteRef)
+			if err != nil {
+				return nil, nil, fmt.Errorf("could not find allOf referenced model %q", remoteRef)
+			}
+
+			for propName, propVal := range remoteSpec.Properties {
+				nestedFieldRequired := false
+				for _, field := range value.Required {
+					if strings.EqualFold(field, propName) {
+						nestedFieldRequired = true
+						break
+					}
+				}
+				nestedField, nestedResult, err := d.detailsForField(inlinedName, propName, propVal, nestedFieldRequired, result)
+				if err != nil {
+					return nil, nil, fmt.Errorf("parsing inlined model %q: %+v", inlinedName, err)
+				}
+				if err := result.Append(*nestedResult); err != nil {
+					return nil, nil, fmt.Errorf("appending nestedResult: %+v", err)
+				}
+				nestedFields[propName] = *nestedField
+			}
+		}
+
 		inlinedModelDetails, err := d.modelDetailsFromObject(inlinedName, value, nestedFields)
 		if err != nil {
 			return nil, nil, fmt.Errorf("building model details for inlined model %q: %+v", inlinedName, err)
