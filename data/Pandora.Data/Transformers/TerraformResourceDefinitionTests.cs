@@ -36,6 +36,9 @@ public class TerraformResourceDefinitionTests
         Assert.AreEqual("SomeRead", actual.ReadMethod.MethodName);
         Assert.AreEqual(11, actual.ReadMethod.TimeoutInMinutes);
         Assert.AreEqual("fake_planet", actual.ResourceLabel);
+        Assert.AreEqual("fake category", actual.ResourceCategory);
+        Assert.AreEqual("fake description", actual.ResourceDescription);
+        Assert.AreEqual("fake example usage", actual.ResourceExampleUsage);
         Assert.AreEqual("FakeResourceId", actual.ResourceIdName);
         Assert.AreEqual("Basic", actual.ResourceName);
         Assert.AreEqual("Example", actual.Resource);
@@ -105,6 +108,7 @@ public class TerraformResourceDefinitionTests
         public string ResourceLabel => "fake_planet";
         public string ResourceCategory => "fake resource category";
         public string ResourceDescription => "fake resource description";
+        public string ResourceExampleUsage => "fake example usage";
         public Type? SchemaModel => typeof(BasicResourceSchema);
 
         public Definitions.Interfaces.TerraformMappingDefinition SchemaMappings => new BasicResourceMappings();
@@ -176,6 +180,7 @@ public class TerraformResourceDefinitionTests
         public string ResourceLabel => "fake_planet";
         public string ResourceCategory => "fake resource category";
         public string ResourceDescription => "fake resource description";
+        public string ResourceExampleUsage => "fake example usage";
         public Type? SchemaModel => null;
         public Definitions.Interfaces.TerraformMappingDefinition SchemaMappings => null;
         public Definitions.Interfaces.TerraformResourceTestDefinition Tests => null;

@@ -44,6 +44,21 @@ public interface TerraformResourceDefinition
     public MethodDefinition ReadMethod { get; }
 
     /// <summary>
+    /// ResourceCategory is the Category under which this Resource should appear in the documentation.
+    /// </summary>
+    public string ResourceCategory { get; }
+
+    /// <summary>
+    /// ResourceDescription is the description which should be used for this Resource.
+    /// </summary>
+    public string ResourceDescription { get; }
+
+    /// <summary>
+    /// ResourceExampleUsage is the Example Usage snippet for this Resource which can be used in the documentation.
+    /// </summary>
+    public string ResourceExampleUsage { get; }
+
+    /// <summary>
     /// ResourceId specifies the Resource ID associated with this Terraform Resource.
     /// </summary>
     public ResourceID ResourceId { get; }
@@ -53,16 +68,6 @@ public interface TerraformResourceDefinition
     /// **without** the Provider Prefix (e.g. `resource_group` rather than `azurerm_resource_group`).
     /// </summary>
     public string ResourceLabel { get; }
-
-    /// <summary>
-    /// ResourceDescription is the description which should be used for this Resource.
-    /// </summary>
-    public string ResourceDescription { get; }
-
-    /// <summary>
-    /// ResourceCategory is the Category under which  this Resource should appear on the website.
-    /// </summary>
-    public string ResourceCategory { get; }
 
     /// <summary>
     /// SchemaModel is a reference to a Type defining the Terraform Schema for this Resource. 

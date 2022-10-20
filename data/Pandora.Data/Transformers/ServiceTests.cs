@@ -168,11 +168,11 @@ public static class ServiceTests
                 Method = typeof(FakeTerraformOperation),
                 TimeoutInMinutes = 30,
             };
-
             public Definitions.Interfaces.ResourceID ResourceId => new FakeTerraformOperationResourceId();
             public string ResourceLabel => "fake_resource";
             public string ResourceCategory => "fake resource category";
             public string ResourceDescription => "fake resource description";
+            public string ResourceExampleUsage => "fake example usage";
             public Type? SchemaModel => typeof(FakeTerraformSchemaModel);
             public Definitions.Interfaces.TerraformMappingDefinition SchemaMappings => new FakeTerraformResourceMappings();
             public Definitions.Interfaces.TerraformResourceTestDefinition Tests => new FakeTestDefinition();

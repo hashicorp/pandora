@@ -17,8 +17,9 @@ public class TerraformResourceDefinition
     public string ResourceIdName { get; set; }
     public string ResourceLabel { get; set; }
     public string ResourceName { get; set; }
-    public string ResourceDescription { get; set; }
     public string ResourceCategory { get; set; }
+    public string ResourceDescription { get; set; }
+    public string ResourceExampleUsage { get; set; }
     public string? SchemaModelName { get; set; }
     public Dictionary<string, TerraformSchemaModelDefinition>? SchemaModels { get; set; }
     public TerraformResourceTestDefinition? Tests { get; set; }
