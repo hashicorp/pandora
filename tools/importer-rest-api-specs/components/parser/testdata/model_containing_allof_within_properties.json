@@ -1,0 +1,119 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Example",
+    "description": "Example",
+    "version": "2020-01-01"
+  },
+  "host": "management.mysite.com",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "security": [],
+  "securityDefinitions": {},
+  "paths": {
+    "/someUri": {
+      "put": {
+        "tags": [
+          "Hello"
+        ],
+        "operationId": "Hello_World",
+        "description": "Tests parsing of a simple model.",
+        "parameters": [
+          {
+            "name": "parameters",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Example"
+            },
+            "description": "Wrapper class."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success.",
+            "schema": {
+              "$ref": "#/definitions/Example"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "ResourceWithLocation": {
+      "description": "Base type for a Resource with a Location.",
+      "properties": {
+        "country": {
+          "type": "string",
+          "description": "the location of this Resource"
+        }
+      },
+      "required": [
+        "country"
+      ],
+      "title": "ResourceWithLocation",
+      "type": "object",
+      "x-ms-azure-resource": true
+    },
+    "NestedFieldsForObject": {
+      "description": "Base type for a Resource with a Location.",
+      "properties": {
+        "nested": {
+          "type": "string",
+          "description": "a nested remote property of this Resource"
+        },
+        "moreNested": {
+          "type": "string",
+          "description": "a nested remote property of this Resource"
+        }
+      },
+      "required": [
+        "nested"
+      ],
+      "title": "ResourceWithLocation",
+      "type": "object",
+      "x-ms-azure-resource": true
+    },
+    "Example": {
+      "description": "The Resource definition.",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ResourceWithLocation"
+        }
+      ],
+      "properties": {
+        "properties": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/NestedFieldsForObject"
+            }
+          ],
+          "description": "Nested",
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "the name of this thing"
+            }
+          },
+          "type": "object",
+          "required": [
+            "name"
+          ],
+          "x-ms-client-flatten": true
+        }
+      },
+      "title": "Example",
+      "type": "object",
+      "x-ms-azure-resource": true
+    }
+  },
+  "parameters": {}
+}
