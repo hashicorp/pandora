@@ -96,17 +96,23 @@ func runImportForService(input RunInput, serviceName string, apiVersionsForServi
 			}
 		}
 
-		versionLogger.Trace(fmt.Sprintf("generating Terraform Details for Service %q / Version %q", serviceName, apiVersion))
+		versionLogger.Trace("generating Terraform Details")
 		var err error
 		dataForApiVersion, err = task.generateTerraformDetails(dataForApiVersion, versionLogger.Named("TerraformDetails"))
 		if err != nil {
 			return fmt.Errorf(fmt.Sprintf("generating Terraform Details for Service %q / Version %q: %+v", serviceName, apiVersion, err))
 		}
 
-		versionLogger.Trace(fmt.Sprintf("generating Terraform Tests for Service %q / Version %q", serviceName, apiVersion))
+		versionLogger.Trace("generating Terraform Tests")
 		dataForApiVersion, err = task.generateTerraformTests(dataForApiVersion, input.ProviderPrefix, versionLogger.Named("TerraformTests"))
 		if err != nil {
 			return fmt.Errorf(fmt.Sprintf("generating Terraform Tests for Service %q / Version %q: %+v", serviceName, apiVersion, err))
+		}
+
+		versionLogger.Trace("Generating Example Usage from the Terraform Tests")
+		dataForApiVersion, err = task.generateTerraformExampleUsage(dataForApiVersion, input.ProviderPrefix, versionLogger.Named("TerraformExampleUsage"))
+		if err != nil {
+			return fmt.Errorf(fmt.Sprintf("generating Terraform Example Usage for Service %q / Version %q: %+v", serviceName, apiVersion, err))
 		}
 
 		versionLogger.Trace("Task: Applying Overrides from Existing Data..")
