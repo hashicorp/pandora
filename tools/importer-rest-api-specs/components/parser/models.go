@@ -178,12 +178,13 @@ func (d *SwaggerDefinition) detailsForField(modelName string, propertyName strin
 			nestedFields[propName] = *nestedField
 		}
 		for _, inlinedModel := range value.AllOf {
-			remotePath := inlinedModel.Ref.String()
-			remotePathParts := strings.Split(remotePath, "/")
-			remoteRef := remotePathParts[len(remotePathParts)-1]
-			remoteSpec, err := d.findTopLevelObject(remoteRef)
+			remoteRef := fragmentNameFromReference(inlinedModel.Ref)
+			if remoteRef == nil {
+				return nil, nil, fmt.Errorf("allOf Ref had no fragment in path for %q", inlinedName)
+			}
+			remoteSpec, err := d.findTopLevelObject(*remoteRef)
 			if err != nil {
-				return nil, nil, fmt.Errorf("could not find allOf referenced model %q", remoteRef)
+				return nil, nil, fmt.Errorf("could not find allOf referenced model %q", *remoteRef)
 			}
 
 			for propName, propVal := range remoteSpec.Properties {
