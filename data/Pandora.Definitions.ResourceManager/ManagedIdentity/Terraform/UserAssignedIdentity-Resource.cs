@@ -1,4 +1,5 @@
 using System;
+using Pandora.Definitions.Helpers;
 using Pandora.Definitions.Interfaces;
 
 namespace Pandora.Definitions.ResourceManager.ManagedIdentity.Terraform;
