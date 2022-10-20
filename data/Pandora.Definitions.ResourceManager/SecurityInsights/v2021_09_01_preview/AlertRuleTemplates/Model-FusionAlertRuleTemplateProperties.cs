@@ -15,9 +15,36 @@ namespace Pandora.Definitions.ResourceManager.SecurityInsights.v2021_09_01_previ
 
 internal class FusionAlertRuleTemplatePropertiesModel
 {
+    [JsonPropertyName("alertRulesCreatedByTemplateCount")]
+    [Required]
+    public int AlertRulesCreatedByTemplateCount { get; set; }
+
+    [DateFormat(DateFormatAttribute.DateFormat.RFC3339)]
+    [JsonPropertyName("createdDateUTC")]
+    public DateTime? CreatedDateUTC { get; set; }
+
+    [JsonPropertyName("description")]
+    [Required]
+    public string Description { get; set; }
+
+    [JsonPropertyName("displayName")]
+    [Required]
+    public string DisplayName { get; set; }
+
+    [DateFormat(DateFormatAttribute.DateFormat.RFC3339)]
+    [JsonPropertyName("lastUpdatedDateUTC")]
+    public DateTime? LastUpdatedDateUTC { get; set; }
+
+    [JsonPropertyName("requiredDataConnectors")]
+    public List<AlertRuleTemplateDataSourceModel>? RequiredDataConnectors { get; set; }
+
     [JsonPropertyName("severity")]
     [Required]
     public AlertSeverityConstant Severity { get; set; }
+
+    [JsonPropertyName("status")]
+    [Required]
+    public TemplateStatusConstant Status { get; set; }
 
     [JsonPropertyName("tactics")]
     public List<AttackTacticConstant>? Tactics { get; set; }

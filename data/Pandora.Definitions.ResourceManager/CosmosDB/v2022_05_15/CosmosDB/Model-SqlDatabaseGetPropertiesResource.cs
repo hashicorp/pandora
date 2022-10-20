@@ -18,6 +18,18 @@ internal class SqlDatabaseGetPropertiesResourceModel
     [JsonPropertyName("_colls")]
     public string? Colls { get; set; }
 
+    [JsonPropertyName("_etag")]
+    public string? Etag { get; set; }
+
+    [JsonPropertyName("id")]
+    public string? Id { get; set; }
+
+    [JsonPropertyName("_rid")]
+    public string? Rid { get; set; }
+
+    [JsonPropertyName("_ts")]
+    public float? Ts { get; set; }
+
     [JsonPropertyName("_users")]
     public string? Users { get; set; }
 }
