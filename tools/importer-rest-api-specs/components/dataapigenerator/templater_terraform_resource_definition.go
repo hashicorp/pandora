@@ -23,6 +23,7 @@ func codeForTerraformResourceDefinition(terraformNamespace, apiVersion, apiResou
 	exampleUsage := prepareTerraformTestConfigForOutput(details.Documentation.ExampleUsageHcl)
 
 	return fmt.Sprintf(`using System;
+using Pandora.Definitions.Helpers;
 using Pandora.Definitions.Interfaces;
 
 namespace %[1]s;
