@@ -1,4 +1,5 @@
 using System;
+using Pandora.Definitions.Helpers;
 using Pandora.Definitions.Interfaces;
 
 namespace Pandora.Definitions.ResourceManager.ManagedIdentity.Terraform;
@@ -8,8 +9,13 @@ public class UserAssignedIdentityResource : TerraformResourceDefinition
     public string DisplayName => "User Assigned Identity";
     public ResourceID ResourceId => new v2018_11_30.ManagedIdentities.UserAssignedIdentityId();
     public string ResourceLabel => "user_assigned_identity";
-    public string ResourceDescription => "Manages a User Assigned Identity";
     public string ResourceCategory => "Authorization";
+    public string ResourceDescription => "Manages a User Assigned Identity";
+    public string ResourceExampleUsage => @"resource 'azurerm_user_assigned_identity' 'example' {
+  location            = azurerm_resource_group.example.location
+  name                = 'example'
+  resource_group_name = azurerm_resource_group.example.name
+}".AsTerraformTestConfig();
     public Type? SchemaModel => typeof(UserAssignedIdentityResourceSchema);
     public TerraformMappingDefinition SchemaMappings => new UserAssignedIdentityResourceMappings();
     public TerraformResourceTestDefinition Tests => new UserAssignedIdentityResourceTests();
