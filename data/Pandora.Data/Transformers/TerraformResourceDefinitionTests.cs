@@ -36,7 +36,7 @@ public class TerraformResourceDefinitionTests
         Assert.AreEqual("SomeRead", actual.ReadMethod.MethodName);
         Assert.AreEqual(11, actual.ReadMethod.TimeoutInMinutes);
         Assert.AreEqual("fake_planet", actual.ResourceLabel);
-        Assert.AreEqual("fake category", actual.ResourceCategory);
+        Assert.AreEqual("fake resource category", actual.ResourceCategory);
         Assert.AreEqual("fake description", actual.ResourceDescription);
         Assert.AreEqual("fake example usage", actual.ResourceExampleUsage);
         Assert.AreEqual("FakeResourceId", actual.ResourceIdName);
