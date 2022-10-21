@@ -18,4 +18,7 @@ internal class MSTIDataConnectorDataTypesMicrosoftEmergingThreatFeedModel
     [JsonPropertyName("lookbackPeriod")]
     [Required]
     public string LookbackPeriod { get; set; }
+
+    [JsonPropertyName("state")]
+    public DataTypeStateConstant? State { get; set; }
 }

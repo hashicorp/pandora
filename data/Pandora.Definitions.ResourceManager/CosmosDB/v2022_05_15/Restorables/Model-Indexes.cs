@@ -10,15 +10,17 @@ using Pandora.Definitions.CustomTypes;
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 
 
-namespace Pandora.Definitions.ResourceManager.SecurityInsights.v2021_09_01_preview.DataConnectors;
+namespace Pandora.Definitions.ResourceManager.CosmosDB.v2022_05_15.Restorables;
 
 
-internal class MSTIDataConnectorDataTypesBingSafetyPhishingURLModel
+internal class IndexesModel
 {
-    [JsonPropertyName("lookbackPeriod")]
-    [Required]
-    public string LookbackPeriod { get; set; }
+    [JsonPropertyName("dataType")]
+    public DataTypeConstant? DataType { get; set; }
 
-    [JsonPropertyName("state")]
-    public DataTypeStateConstant? State { get; set; }
+    [JsonPropertyName("kind")]
+    public IndexKindConstant? Kind { get; set; }
+
+    [JsonPropertyName("precision")]
+    public int? Precision { get; set; }
 }
