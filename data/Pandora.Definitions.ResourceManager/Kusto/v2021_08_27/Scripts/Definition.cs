@@ -13,6 +13,11 @@ internal class Definition : ResourceDefinition
     public string Name => "Scripts";
     public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
     {
-        new ScriptsListByDatabaseOperation(),
+        new CheckNameAvailabilityOperation(),
+        new CreateOrUpdateOperation(),
+        new DeleteOperation(),
+        new GetOperation(),
+        new ListByDatabaseOperation(),
+        new UpdateOperation(),
     };
 }

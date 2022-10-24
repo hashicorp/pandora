@@ -13,11 +13,11 @@ internal class Definition : ResourceDefinition
     public string Name => "Machines";
     public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
     {
-        new MachinesCreateOrUpdateOperation(),
-        new MachinesDeleteOperation(),
-        new MachinesGetOperation(),
-        new MachinesListByResourceGroupOperation(),
-        new MachinesListBySubscriptionOperation(),
-        new MachinesUpdateOperation(),
+        new CreateOrUpdateOperation(),
+        new DeleteOperation(),
+        new GetOperation(),
+        new ListByResourceGroupOperation(),
+        new ListBySubscriptionOperation(),
+        new UpdateOperation(),
     };
 }

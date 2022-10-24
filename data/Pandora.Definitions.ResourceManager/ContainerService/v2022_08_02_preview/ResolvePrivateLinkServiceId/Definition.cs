@@ -13,6 +13,6 @@ internal class Definition : ResourceDefinition
     public string Name => "ResolvePrivateLinkServiceId";
     public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
     {
-        new ResolvePrivateLinkServiceIdPOSTOperation(),
+        new POSTOperation(),
     };
 }

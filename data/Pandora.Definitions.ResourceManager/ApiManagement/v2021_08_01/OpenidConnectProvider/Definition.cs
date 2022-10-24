@@ -13,12 +13,12 @@ internal class Definition : ResourceDefinition
     public string Name => "OpenidConnectProvider";
     public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
     {
-        new OpenIdConnectProviderCreateOrUpdateOperation(),
-        new OpenIdConnectProviderDeleteOperation(),
-        new OpenIdConnectProviderGetOperation(),
-        new OpenIdConnectProviderGetEntityTagOperation(),
-        new OpenIdConnectProviderListByServiceOperation(),
-        new OpenIdConnectProviderListSecretsOperation(),
-        new OpenIdConnectProviderUpdateOperation(),
+        new CreateOrUpdateOperation(),
+        new DeleteOperation(),
+        new GetOperation(),
+        new GetEntityTagOperation(),
+        new ListByServiceOperation(),
+        new ListSecretsOperation(),
+        new UpdateOperation(),
     };
 }
