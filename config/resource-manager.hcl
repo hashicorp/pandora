@@ -43,6 +43,10 @@ service "azurestackhci" {
   name      = "AzureStackHCI"
   available = ["2020-10-01", "2022-09-01"]
 }
+service "batch" {
+  name      = "Batch"
+  available = ["2022-01-01"]
+}
 service "chaos" {
   name      = "ChaosStudio"
   available = ["2022-07-01-preview"]
