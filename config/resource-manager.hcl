@@ -305,7 +305,7 @@ service "search" {
 }
 service "securityinsights" {
   name      = "SecurityInsights"
-  available = ["2021-09-01-preview"]
+  available = ["2021-09-01-preview", "2022-07-01-preview"]
 }
 service "servicebus" {
   name      = "ServiceBus"
