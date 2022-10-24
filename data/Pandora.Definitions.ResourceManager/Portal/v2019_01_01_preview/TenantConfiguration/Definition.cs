@@ -13,9 +13,9 @@ internal class Definition : ResourceDefinition
     public string Name => "TenantConfiguration";
     public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
     {
-        new TenantConfigurationsCreateOperation(),
-        new TenantConfigurationsDeleteOperation(),
-        new TenantConfigurationsGetOperation(),
-        new TenantConfigurationsListOperation(),
+        new CreateOperation(),
+        new DeleteOperation(),
+        new GetOperation(),
+        new ListOperation(),
     };
 }
