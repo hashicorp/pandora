@@ -67,6 +67,54 @@
           }
         }
       }
+    },
+    "/some-other-uri": {
+      "put": {
+        "tags": [
+          "Hello"
+        ],
+        "operationId": "Hello_First",
+        "description": "A PUT request with no body returned.",
+        "parameters": [
+          {
+            "name": "parameters",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Example"
+            },
+            "description": "Example request object."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success."
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Hello"
+        ],
+        "operationId": "hello_Second",
+        "description": "A PATCH request with no body returned.",
+        "parameters": [
+          {
+            "name": "parameters",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Example"
+            },
+            "description": "Example request object."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success."
+          }
+        }
+      }
     }
   },
   "definitions": {

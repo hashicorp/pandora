@@ -26,10 +26,21 @@ func TestParsingOperationsUsingTheSameSwaggerTagInDifferentCasings(t *testing.T)
 	if len(resource.Models) != 1 {
 		t.Fatalf("expected 1 model but got %d", len(resource.Models))
 	}
-	if len(resource.Operations) != 2 {
-		t.Fatalf("expected 2 Operations but got %d", len(resource.Operations))
+	if len(resource.Operations) != 4 {
+		t.Fatalf("expected 4 Operations but got %d", len(resource.Operations))
 	}
 	if len(resource.ResourceIds) != 0 {
 		t.Fatalf("expected 0 Resource IDs but got %d", len(resource.ResourceIds))
+	}
+	expectedOperations := []string{
+		"First",
+		"PutBar",
+		"PutFoo",
+		"Second",
+	}
+	for _, expected := range expectedOperations {
+		if _, ok := resource.Operations[expected]; !ok {
+			t.Fatalf("expected there to be an operation named %q but didn't get one", expected)
+		}
 	}
 }
