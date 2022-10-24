@@ -25,7 +25,7 @@ func (d *SwaggerDefinition) findTags() []string {
 
 	out := make([]string, 0)
 	for key := range tags {
-		out = append(out, key)
+		out = append(out, strings.Title(key))
 	}
 	sort.Strings(out)
 	return out

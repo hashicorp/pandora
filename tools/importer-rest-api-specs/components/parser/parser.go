@@ -25,6 +25,7 @@ func (d *SwaggerDefinition) parse(serviceName, apiVersion string, resourceIds re
 		}
 
 		if resource != nil {
+			d.logger.Trace(fmt.Sprintf("The Tag %q has %d API Operations", tag, len(resource.Operations)))
 			normalizedTag := normalizeTag(tag)
 			normalizedTag = cleanup.NormalizeResourceName(normalizedTag)
 			resources[normalizedTag] = *resource

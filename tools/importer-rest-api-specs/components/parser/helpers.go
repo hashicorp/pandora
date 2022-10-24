@@ -38,7 +38,7 @@ func operationMatchesTag(operation *spec.Operation, tag *string) bool {
 	}
 
 	for _, thisTag := range operation.Tags {
-		if thisTag == *tag {
+		if strings.EqualFold(thisTag, *tag) {
 			return true
 		}
 	}
