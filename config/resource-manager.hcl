@@ -281,7 +281,7 @@ service "purview" {
 }
 service "recoveryservices" {
   name      = "RecoveryServices"
-  available = ["2022-03-01"]
+  available = ["2022-03-01", "2022-08-01"]
 }
 service "redisenterprise" {
   name      = "RedisEnterprise"
