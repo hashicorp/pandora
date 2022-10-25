@@ -87,6 +87,10 @@ service "cost-management" {
   name      = "CostManagement"
   available = ["2021-10-01", "2022-06-01-preview"]
 }
+service "customproviders" {
+  name = "CustomProviders"
+  available = ["2018-09-01-preview"]
+}
 service "dashboard" {
   name      = "Dashboard"
   available = ["2022-08-01"]
