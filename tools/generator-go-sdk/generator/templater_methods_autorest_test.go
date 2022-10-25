@@ -190,11 +190,14 @@ func (c pandaClient) List(ctx context.Context, id PandaPop) (resp ListOperationR
 // responderForList handles the response to the List request. The method always
 // closes the http.Response Body.
 func (c pandaClient) responderForList(resp *http.Response) (result ListOperationResponse, err error) {
+	var content []byte
 	err = autorest.Respond(
 		resp,
 		azure.WithErrorUnlessStatusCode(),
-		autorest.ByUnmarshallingJSON(&result.Model),
+		autorest.ByUnmarshallingBytes(&content),
 		autorest.ByClosing())
+	str := string(content)
+	result.Model = &str
 	result.HttpResponse = resp
 	return
 }
