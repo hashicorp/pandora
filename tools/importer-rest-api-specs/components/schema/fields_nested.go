@@ -131,23 +131,47 @@ func (b Builder) identifyFieldsWithinPropertiesBlock(schemaModelName string, inp
 		}
 		definition.ObjectDefinition = *objectDefinition
 
+		if objectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeReference {
+			if fieldExists(input.createPropertiesPayload, k) {
+				mappings.Fields = append(mappings.Fields, modelToModelMappingBetween(fmt.Sprintf("%s%s", schemaModelName, fieldNameForTypedModel), input.createPropertiesModelName, k))
+			}
+
+			if fieldExists(input.readPropertiesPayload, k) && input.createPropertiesModelName != input.readPropertiesModelName {
+				mappings.Fields = append(mappings.Fields, modelToModelMappingBetween(fmt.Sprintf("%s%s", schemaModelName, fieldNameForTypedModel), input.readPropertiesModelName, k))
+			}
+			if input.updatePayload != nil && input.updatePropertiesPayload != nil && fieldExists(*input.updatePropertiesPayload, k) {
+				if input.createPropertiesModelName != *input.updatePropertiesModelName && input.readPropertiesModelName != *input.updatePropertiesModelName {
+					mappings.Fields = append(mappings.Fields, modelToModelMappingBetween(fmt.Sprintf("%s%s", schemaModelName, fieldNameForTypedModel), *input.updatePropertiesModelName, k))
+				}
+			}
+		}
+
 		mappingsForField := directAssignmentMappingForNestedField(schemaModelName, fieldNameForTypedModel, input, k, hasCreate, hasUpdate, hasRead)
 		mappings.Fields = append(mappings.Fields, mappingsForField...)
-		// TODO: iterate over the nested models and add ModelToModel mappings as needed
 		out[fieldNameForTypedModel] = definition
 	}
 
 	// output a ModelToModel mapping between the top-level Properties field for each of the payloads and their associated models
 	// so that we can map inlined fields
-	mappings.Fields = append(mappings.Fields, modelToModelMappingBetween(schemaModelName, input.createModelName, "Properties"))
-	if input.createModelName != input.readModelName {
-		mappings.Fields = append(mappings.Fields, modelToModelMappingBetween(schemaModelName, input.readModelName, "Properties"))
+	fieldName := "Properties"
+	if fieldExists(input.createPayload, fieldName) {
+		mappings.Fields = append(mappings.Fields, modelToModelMappingBetween(schemaModelName, input.createModelName, fieldName))
 	}
-	if input.updatePayload != nil && input.createModelName != *input.updateModelName && input.readModelName != *input.updateModelName {
-		mappings.Fields = append(mappings.Fields, modelToModelMappingBetween(schemaModelName, *input.updateModelName, "Properties"))
+	if fieldExists(input.readPayload, fieldName) && input.createModelName != input.readModelName {
+		mappings.Fields = append(mappings.Fields, modelToModelMappingBetween(schemaModelName, input.readModelName, fieldName))
+	}
+	if input.updatePayload != nil && fieldExists(*input.updatePayload, fieldName) {
+		if input.updatePayload != nil && input.createModelName != *input.updateModelName && input.readModelName != *input.updateModelName {
+			mappings.Fields = append(mappings.Fields, modelToModelMappingBetween(schemaModelName, *input.updateModelName, fieldName))
+		}
 	}
 
 	return &out, mappings, nil
+}
+
+func fieldExists(payload resourcemanager.ModelDetails, fieldName string) bool {
+	_, ok := payload.Fields[fieldName]
+	return ok
 }
 
 func directAssignmentMappingForNestedField(schemaModelName, schemaModelField string, input operationPayloads, sdkFieldName string, hasCreate bool, hasUpdate bool, hasRead bool) []resourcemanager.FieldMappingDefinition {
