@@ -177,7 +177,7 @@ service "labservices" {
 }
 service "loadtestservice" {
   name      = "LoadTestService"
-  available = ["2021-12-01-preview", "2022-04-15-preview"]
+  available = ["2021-12-01-preview", "2022-04-15-preview", "2022-12-01"]
 }
 service "machinelearningservices" {
   name      = "MachineLearningServices"
