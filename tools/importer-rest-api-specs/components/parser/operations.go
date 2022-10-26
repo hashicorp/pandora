@@ -219,12 +219,12 @@ func (p operationsParser) determineContentType(operation parsedOperation) string
 	contentType := "application/json"
 
 	if strings.EqualFold(operation.httpMethod, "HEAD") || strings.EqualFold(operation.httpMethod, "GET") {
-		if len(operation.operation.Consumes) > 0 {
-			contentType = operation.operation.Consumes[0]
-		}
-	} else {
 		if len(operation.operation.Produces) > 0 {
 			contentType = operation.operation.Produces[0]
+		}
+	} else {
+		if len(operation.operation.Consumes) > 0 {
+			contentType = operation.operation.Consumes[0]
 		}
 	}
 

@@ -6,8 +6,7 @@ using Pandora.Definitions.Interfaces;
 
 namespace Pandora.Definitions.Operations;
 
-public abstract class
-    GetOperation : ApiOperation
+public abstract class GetOperation : ApiOperation
 {
     public virtual string? ContentType()
     {
