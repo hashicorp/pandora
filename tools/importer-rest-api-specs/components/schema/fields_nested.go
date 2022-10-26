@@ -132,12 +132,17 @@ func (b Builder) identifyFieldsWithinPropertiesBlock(schemaModelName string, inp
 		definition.ObjectDefinition = *objectDefinition
 
 		if objectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeReference {
-			mappings.Fields = append(mappings.Fields, modelToModelMappingBetween(fmt.Sprintf("%s%s", schemaModelName, fieldNameForTypedModel), input.createPropertiesModelName, k))
-			if input.createPropertiesModelName != input.readPropertiesModelName {
+			if fieldExists(input.createPropertiesPayload, k) {
+				mappings.Fields = append(mappings.Fields, modelToModelMappingBetween(fmt.Sprintf("%s%s", schemaModelName, fieldNameForTypedModel), input.createPropertiesModelName, k))
+			}
+
+			if fieldExists(input.readPropertiesPayload, k) && input.createPropertiesModelName != input.readPropertiesModelName {
 				mappings.Fields = append(mappings.Fields, modelToModelMappingBetween(fmt.Sprintf("%s%s", schemaModelName, fieldNameForTypedModel), input.readPropertiesModelName, k))
 			}
-			if input.updatePayload != nil && input.createPropertiesModelName != *input.updatePropertiesModelName && input.readPropertiesModelName != *input.updatePropertiesModelName {
-				mappings.Fields = append(mappings.Fields, modelToModelMappingBetween(fmt.Sprintf("%s%s", schemaModelName, fieldNameForTypedModel), *input.updatePropertiesModelName, k))
+			if input.updatePayload != nil && input.updatePropertiesPayload != nil && fieldExists(*input.updatePropertiesPayload, k) {
+				if input.createPropertiesModelName != *input.updatePropertiesModelName && input.readPropertiesModelName != *input.updatePropertiesModelName {
+					mappings.Fields = append(mappings.Fields, modelToModelMappingBetween(fmt.Sprintf("%s%s", schemaModelName, fieldNameForTypedModel), *input.updatePropertiesModelName, k))
+				}
 			}
 		}
 
