@@ -11,6 +11,10 @@ import (
 func codeForOperation(namespace string, operationName string, operation models.OperationDetails, resource models.AzureApiResource) (*string, error) {
 	code := make([]string, 0)
 
+	if !strings.Contains(strings.ToLower(operation.ContentType), "application/json") {
+		code = append(code, fmt.Sprintf(`		public override string? ContentType() => %[1]q;`, operation.ContentType))
+	}
+
 	if usesNonDefaultStatusCodes(operation) {
 		statusCodes := make([]string, 0)
 		for _, sc := range operation.ExpectedStatusCodes {
