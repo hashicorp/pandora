@@ -3155,3 +3155,48 @@ func TestParseOperationMultipleBasedOnTheSameResourceId(t *testing.T) {
 		t.Fatal("expected a non-long running operation but it was long running")
 	}
 }
+
+func TestParseOperationsContainingContentTypes(t *testing.T) {
+	result, err := ParseSwaggerFileForTesting(t, "operation_content_types.json")
+	if err != nil {
+		t.Fatalf("parsing: %+v", err)
+	}
+	if result == nil {
+		t.Fatal("result was nil")
+	}
+	if len(result.Resources) != 1 {
+		t.Fatalf("expected 1 resource but got %d", len(result.Resources))
+	}
+
+	hello, ok := result.Resources["Hello"]
+	if !ok {
+		t.Fatalf("no resources were output with the tag Hello")
+	}
+
+	if len(hello.Constants) != 0 {
+		t.Fatalf("expected no Constants but got %d", len(hello.Constants))
+	}
+	if len(hello.Models) != 0 {
+		t.Fatalf("expected no Models but got %d", len(hello.Models))
+	}
+	if len(hello.Operations) != 3 {
+		t.Fatalf("expected 3 Operations but got %d", len(hello.Operations))
+	}
+	if len(hello.ResourceIds) != 0 {
+		t.Fatalf("expected no ResourceIds but got %d", len(hello.ResourceIds))
+	}
+
+	var validateOperationHasContentType = func(operationName, contentType string) {
+		operation, ok := hello.Operations[operationName]
+		if !ok {
+			t.Fatalf("an operation named %q was not found", operationName)
+		}
+
+		if operation.ContentType != contentType {
+			t.Fatalf("expected the operation %q to have the content-type %q but got %q", operationName, contentType, operation.ContentType)
+		}
+	}
+	validateOperationHasContentType("Default", "application/json")
+	validateOperationHasContentType("XmlRequest", "application/xml")
+	validateOperationHasContentType("XmlResponse", "application/xml")
+}
