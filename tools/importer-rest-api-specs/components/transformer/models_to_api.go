@@ -110,6 +110,8 @@ func apiObjectDefinitionFromModelObjectDefinition(input *models.ObjectDefinition
 			models.CustomFieldTypeUserAssignedIdentityMap:                 resourcemanager.UserAssignedIdentityMapApiObjectDefinitionType,
 			models.CustomFieldTypeTags:                                    resourcemanager.TagsApiObjectDefinitionType,
 			models.CustomFieldTypeSystemData:                              resourcemanager.SystemData,
+			models.CustomFieldTypeZone:                                    resourcemanager.ZoneApiObjectDefinitionType,
+			models.CustomFieldTypeZones:                                   resourcemanager.ZonesApiObjectDefinitionType,
 		}
 		mapping, ok := mappings[*fieldType]
 		if !ok {

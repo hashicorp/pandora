@@ -28,5 +28,6 @@ var CustomFieldMatchers = []customFieldMatcher{
 	userAssignedIdentityListMatcher{},
 	userAssignedIdentityMapMatcher{},
 	systemDataMatcher{},
+	zoneFieldMatcher{},
 	zonesFieldMatcher{},
 }

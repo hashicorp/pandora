@@ -17,5 +17,7 @@ func (e zonesFieldMatcher) CustomFieldType() models.CustomFieldType {
 }
 
 func (e zonesFieldMatcher) IsMatch(field models.FieldDetails, definition models.ObjectDefinition, _ internal.ParseResult) bool {
-	return strings.EqualFold(field.JsonName, "availabilityZones") && definition.Type == models.ObjectDefinitionReference && definition.NestedItem.Type == models.ObjectDefinitionString
+	nameMatches := strings.EqualFold(field.JsonName, "availabilityZones") || strings.EqualFold(field.JsonName, "zones")
+	typesMatch := definition.Type == models.ObjectDefinitionList && definition.NestedItem != nil && definition.NestedItem.Type == models.ObjectDefinitionString
+	return nameMatches && typesMatch
 }

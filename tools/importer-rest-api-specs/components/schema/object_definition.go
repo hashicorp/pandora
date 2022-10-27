@@ -30,7 +30,9 @@ var apiObjectDefinitionTypesToFieldObjectDefinitionTypes = map[resourcemanager.A
 	resourcemanager.UserAssignedIdentityListApiObjectDefinitionType:                resourcemanager.TerraformSchemaFieldTypeIdentityUserAssigned,
 	resourcemanager.UserAssignedIdentityMapApiObjectDefinitionType:                 resourcemanager.TerraformSchemaFieldTypeIdentityUserAssigned,
 	resourcemanager.TagsApiObjectDefinitionType:                                    resourcemanager.TerraformSchemaFieldTypeTags,
-	//resourcemanager.SystemData:                                                     resourcemanager.TerraformSchemaFieldTypeSystemData, // TODO: implement
+	resourcemanager.ZoneApiObjectDefinitionType:                                    resourcemanager.TerraformSchemaFieldTypeZone,
+	resourcemanager.ZonesApiObjectDefinitionType:                                   resourcemanager.TerraformSchemaFieldTypeZones,
+	// NOTE: we intentionally don't implement SystemData since it's not exposed at this time
 }
 
 func (b Builder) convertToFieldObjectDefinition(modelPrefix string, input resourcemanager.ApiObjectDefinition) (*resourcemanager.TerraformSchemaFieldObjectDefinition, error) {
