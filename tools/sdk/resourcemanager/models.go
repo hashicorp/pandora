@@ -131,7 +131,7 @@ func (d ApiObjectDefinition) GolangTypeName(packageName *string) (*string, error
 		return toStringPointer("string")
 
 	case ZonesApiObjectDefinitionType:
-		return toStringPointer("zones.Model")
+		return toStringPointer("zones.Schema")
 	}
 
 	return nil, fmt.Errorf("unimplemented object definition type %q", string(d.Type))
