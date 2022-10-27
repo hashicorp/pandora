@@ -129,8 +129,26 @@ func (b Builder) schemaFromTopLevelFields(schemaModelName string, input operatio
 		}
 
 		if strings.EqualFold(fieldName, "Zone") {
-			// TODO: support for singular `Zone`
-			return nil, nil, fmt.Errorf("TODO: implement support for Single Zone")
+			field, ok := getField(input.createPayload, fieldName)
+			if !ok {
+				continue
+			}
+
+			schemaFields["Zone"] = resourcemanager.TerraformSchemaFieldDefinition{
+				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+					Type: resourcemanager.TerraformSchemaFieldTypeZone,
+				},
+				Required: field.Required,
+				Optional: field.Optional,
+				ForceNew: !hasUpdate,
+				HclName:  "zone",
+				Documentation: resourcemanager.TerraformSchemaDocumentationDefinition{
+					Markdown: field.Description,
+				},
+			}
+
+			mappingsForField := directAssignmentMappingForTopLevelField(schemaModelName, "Zone", input, fieldName, hasCreate, hasUpdate, hasRead)
+			mappings.Fields = append(mappings.Fields, mappingsForField...)
 		}
 
 		if strings.EqualFold(fieldName, "Zones") {
