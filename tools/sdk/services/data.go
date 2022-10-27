@@ -27,6 +27,15 @@ func GetResourceManagerServicesByName(client resourcemanager.Client, servicesToL
 	waitDone := make(chan struct{}, 1)
 	var wg sync.WaitGroup
 	var lock sync.Mutex
+
+	addErr := func(err error) {
+		// only put one err to channel
+		select {
+		case errCh <- err:
+		default:
+		}
+	}
+
 	for name, service := range *services {
 		if len(serviceNames) > 0 {
 			if _, ok := serviceNames[name]; !ok {
@@ -39,13 +48,13 @@ func GetResourceManagerServicesByName(client resourcemanager.Client, servicesToL
 			defer wg.Done()
 			serviceDetails, err := client.ServiceDetails().Get(service)
 			if err != nil {
-				errCh <- err
+				addErr(err)
 				return
 			}
 
 			terraformDetails, err := client.Terraform().Get(*serviceDetails)
 			if err != nil {
-				errCh <- err
+				addErr(err)
 				return
 			}
 
@@ -53,7 +62,7 @@ func GetResourceManagerServicesByName(client resourcemanager.Client, servicesToL
 			for versionNumber, versionDetails := range serviceDetails.Versions {
 				versionInfo, err := client.ServiceVersion().Get(versionDetails)
 				if err != nil {
-					errCh <- err
+					addErr(err)
 					return
 				}
 
@@ -61,13 +70,13 @@ func GetResourceManagerServicesByName(client resourcemanager.Client, servicesToL
 				for resourceName, resourceDetails := range versionInfo.Resources {
 					operations, err := client.ApiOperations().Get(resourceDetails)
 					if err != nil {
-						errCh <- err
+						addErr(err)
 						return
 					}
 
 					schema, err := client.ApiSchema().Get(resourceDetails)
 					if err != nil {
-						errCh <- err
+						addErr(err)
 						return
 					}
 
@@ -103,12 +112,8 @@ func GetResourceManagerServicesByName(client resourcemanager.Client, servicesToL
 	select {
 	case <-waitDone:
 		break
-	case err := <-errCh:
+	case err = <-errCh:
 		return nil, err
-	}
-
-	if len(errCh) > 0 {
-		return nil, <-errCh
 	}
 
 	return &ResourceManagerServices{
