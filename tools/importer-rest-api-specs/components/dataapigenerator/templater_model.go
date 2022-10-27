@@ -306,6 +306,9 @@ func dotNetTypeNameForCustomType(input models.CustomFieldType) (*string, error) 
 	case models.CustomFieldTypeSystemData:
 		return nilableType("CustomTypes.SystemData")
 
+	case models.CustomFieldTypeZone:
+		return nilableType("CustomTypes.Zone")
+
 	case models.CustomFieldTypeZones:
 		return nilableType("CustomTypes.Zones")
 	}

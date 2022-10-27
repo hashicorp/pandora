@@ -56,6 +56,8 @@ func (p predicateTemplater) templateForModel(predicateStructName string, name st
 		resourcemanager.UserAssignedIdentityListApiObjectDefinitionType:                {},
 		resourcemanager.TagsApiObjectDefinitionType:                                    {},
 		resourcemanager.SystemData:                                                     {},
+		resourcemanager.ZoneApiObjectDefinitionType:                                    {},
+		resourcemanager.ZonesApiObjectDefinitionType:                                   {},
 	}
 
 	for name, field := range model.Fields {

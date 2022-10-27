@@ -15,6 +15,7 @@ func TestProcessModel_RenameZones_Valid(t *testing.T) {
 		expectedModels   map[string]resourcemanager.TerraformSchemaModelDefinition
 	}{
 		{
+			// Availability Zones
 			modelNameInput: "Disco",
 			modelsInput: map[string]resourcemanager.TerraformSchemaModelDefinition{
 				"Disco": {
@@ -48,10 +49,7 @@ func TestProcessModel_RenameZones_Valid(t *testing.T) {
 					Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
 						"Zones": {
 							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type: resourcemanager.TerraformSchemaFieldTypeList,
-								NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
-									Type: resourcemanager.TerraformSchemaFieldTypeString,
-								},
+								Type: resourcemanager.TerraformSchemaFieldTypeZones,
 							},
 						},
 					},
@@ -71,10 +69,65 @@ func TestProcessModel_RenameZones_Valid(t *testing.T) {
 				},
 			},
 		},
+		{
+			// Zones
+			modelNameInput: "Disco",
+			modelsInput: map[string]resourcemanager.TerraformSchemaModelDefinition{
+				"Disco": {
+					Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+						"Zones": {
+							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+								Type: resourcemanager.TerraformSchemaFieldTypeList,
+								NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
+									Type: resourcemanager.TerraformSchemaFieldTypeString,
+								},
+							},
+						},
+					},
+				},
+			},
+			mappingsInput: resourcemanager.MappingDefinition{
+				Fields: []resourcemanager.FieldMappingDefinition{
+					{
+						Type: resourcemanager.DirectAssignmentMappingDefinitionType,
+						DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
+							SchemaModelName: "Disco",
+							SchemaFieldPath: "Zones",
+							SdkModelName:    "SomeModel",
+							SdkFieldPath:    "Zones",
+						},
+					},
+				},
+			},
+			expectedModels: map[string]resourcemanager.TerraformSchemaModelDefinition{
+				"Disco": {
+					Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+						"Zones": {
+							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+								Type: resourcemanager.TerraformSchemaFieldTypeZones,
+							},
+						},
+					},
+				},
+			},
+			expectedMappings: resourcemanager.MappingDefinition{
+				Fields: []resourcemanager.FieldMappingDefinition{
+					{
+						Type: resourcemanager.DirectAssignmentMappingDefinitionType,
+						DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
+							SchemaModelName: "Disco",
+							SchemaFieldPath: "Zones",
+							SdkModelName:    "SomeModel",
+							SdkFieldPath:    "Zones",
+						},
+					},
+				},
+			},
+		},
 	}
 
-	for _, v := range testData {
-		t.Logf("[DEBUG] Testing %s", v.modelNameInput)
+	for i, v := range testData {
+		t.Logf("[DEBUG] Testing %s (%d)", v.modelNameInput, i)
 
 		actualModels, actualMappings, err := modelRenameZones{}.ProcessModel(v.modelNameInput, v.modelsInput[v.modelNameInput], v.modelsInput, v.mappingsInput)
 		if err != nil {
@@ -99,6 +152,7 @@ func TestProcessModel_RenameZone_Valid(t *testing.T) {
 		expectedModels   map[string]resourcemanager.TerraformSchemaModelDefinition
 	}{
 		{
+			// Availability Zone
 			modelNameInput: "Disco",
 			modelsInput: map[string]resourcemanager.TerraformSchemaModelDefinition{
 				"Disco": {
@@ -129,7 +183,7 @@ func TestProcessModel_RenameZone_Valid(t *testing.T) {
 					Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
 						"Zone": {
 							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type: resourcemanager.TerraformSchemaFieldTypeString,
+								Type: resourcemanager.TerraformSchemaFieldTypeZone,
 							},
 						},
 					},
@@ -149,10 +203,62 @@ func TestProcessModel_RenameZone_Valid(t *testing.T) {
 				},
 			},
 		},
+		{
+			// Zone
+			modelNameInput: "Disco",
+			modelsInput: map[string]resourcemanager.TerraformSchemaModelDefinition{
+				"Disco": {
+					Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+						"Zone": {
+							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+								Type: resourcemanager.TerraformSchemaFieldTypeString,
+							},
+						},
+					},
+				},
+			},
+			mappingsInput: resourcemanager.MappingDefinition{
+				Fields: []resourcemanager.FieldMappingDefinition{
+					{
+						Type: resourcemanager.DirectAssignmentMappingDefinitionType,
+						DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
+							SchemaModelName: "Disco",
+							SchemaFieldPath: "Zone",
+							SdkModelName:    "SomeModel",
+							SdkFieldPath:    "Zone",
+						},
+					},
+				},
+			},
+			expectedModels: map[string]resourcemanager.TerraformSchemaModelDefinition{
+				"Disco": {
+					Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+						"Zone": {
+							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+								Type: resourcemanager.TerraformSchemaFieldTypeZone,
+							},
+						},
+					},
+				},
+			},
+			expectedMappings: resourcemanager.MappingDefinition{
+				Fields: []resourcemanager.FieldMappingDefinition{
+					{
+						Type: resourcemanager.DirectAssignmentMappingDefinitionType,
+						DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
+							SchemaModelName: "Disco",
+							SchemaFieldPath: "Zone",
+							SdkModelName:    "SomeModel",
+							SdkFieldPath:    "Zone",
+						},
+					},
+				},
+			},
+		},
 	}
 
-	for _, v := range testData {
-		t.Logf("[DEBUG] Testing %s", v.modelNameInput)
+	for i, v := range testData {
+		t.Logf("[DEBUG] Testing %s (%d)", v.modelNameInput, i)
 
 		actualModels, actualMappings, err := modelRenameZones{}.ProcessModel(v.modelNameInput, v.modelsInput[v.modelNameInput], v.modelsInput, v.mappingsInput)
 		if err != nil {

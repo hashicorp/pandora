@@ -126,8 +126,12 @@ func (d ApiObjectDefinition) GolangTypeName(packageName *string) (*string, error
 	case SystemData:
 		return toStringPointer("systemdata.SystemData")
 
+	case ZoneApiObjectDefinitionType:
+		// TODO: should we expose a custom wrapper type for single Zone?
+		return toStringPointer("string")
+
 	case ZonesApiObjectDefinitionType:
-		return toStringPointer("zones.Model")
+		return toStringPointer("zones.Schema")
 	}
 
 	return nil, fmt.Errorf("unimplemented object definition type %q", string(d.Type))
@@ -210,6 +214,7 @@ const (
 	UserAssignedIdentityMapApiObjectDefinitionType                 ApiObjectDefinitionType = "UserAssignedIdentityMap"
 	TagsApiObjectDefinitionType                                    ApiObjectDefinitionType = "Tags"
 	SystemData                                                     ApiObjectDefinitionType = "SystemData"
+	ZoneApiObjectDefinitionType                                    ApiObjectDefinitionType = "Zone"
 	ZonesApiObjectDefinitionType                                   ApiObjectDefinitionType = "Zones"
 )
 

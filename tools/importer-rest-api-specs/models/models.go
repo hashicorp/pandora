@@ -116,6 +116,7 @@ const (
 	CustomFieldTypeUserAssignedIdentityMap                 CustomFieldType = "user-assigned-identity-map"
 	CustomFieldTypeTags                                    CustomFieldType = "tags"
 	CustomFieldTypeSystemData                              CustomFieldType = "SystemData"
+	CustomFieldTypeZone                                    CustomFieldType = "Zone"
 	CustomFieldTypeZones                                   CustomFieldType = "Zones"
 )
 

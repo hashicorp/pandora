@@ -642,13 +642,14 @@ func (d SwaggerDefinition) parseNativeType(input *spec.Schema) *models.ObjectDef
 	// NOTE: whilst a DateTime _should_ always be Type: String with a Format of DateTime - bad data means
 	// that this could have no Type value but a Format value, so we have to check this separately.
 	if strings.EqualFold(input.Format, "date-time") {
-		// TODO: handle there being a custom format - for now we assume these are all using RFC3339
+		// TODO: handle there being a custom format - for now we assume these are all using RFC3339 (#8)
 		return &models.ObjectDefinition{
 			Type: models.ObjectDefinitionDateTime,
 		}
 	}
 
 	if input.Type.Contains("string") {
+		// TODO: handle the `format` of `arm-id` (#1289)
 		return &models.ObjectDefinition{
 			Type: models.ObjectDefinitionString,
 		}

@@ -127,6 +127,52 @@ func (b Builder) schemaFromTopLevelFields(schemaModelName string, input operatio
 			mappingsForField := directAssignmentMappingForTopLevelField(schemaModelName, "Sku", input, fieldName, hasCreate, hasUpdate, hasRead)
 			mappings.Fields = append(mappings.Fields, mappingsForField...)
 		}
+
+		if strings.EqualFold(fieldName, "Zone") {
+			field, ok := getField(input.createPayload, fieldName)
+			if !ok {
+				continue
+			}
+
+			schemaFields["Zone"] = resourcemanager.TerraformSchemaFieldDefinition{
+				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+					Type: resourcemanager.TerraformSchemaFieldTypeZone,
+				},
+				Required: field.Required,
+				Optional: field.Optional,
+				ForceNew: !hasUpdate,
+				HclName:  "zone",
+				Documentation: resourcemanager.TerraformSchemaDocumentationDefinition{
+					Markdown: field.Description,
+				},
+			}
+
+			mappingsForField := directAssignmentMappingForTopLevelField(schemaModelName, "Zone", input, fieldName, hasCreate, hasUpdate, hasRead)
+			mappings.Fields = append(mappings.Fields, mappingsForField...)
+		}
+
+		if strings.EqualFold(fieldName, "Zones") {
+			field, ok := getField(input.createPayload, fieldName)
+			if !ok {
+				continue
+			}
+
+			schemaFields["Zones"] = resourcemanager.TerraformSchemaFieldDefinition{
+				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+					Type: resourcemanager.TerraformSchemaFieldTypeZones,
+				},
+				Required: field.Required,
+				Optional: field.Optional,
+				ForceNew: !hasUpdate,
+				HclName:  "zones",
+				Documentation: resourcemanager.TerraformSchemaDocumentationDefinition{
+					Markdown: field.Description,
+				},
+			}
+
+			mappingsForField := directAssignmentMappingForTopLevelField(schemaModelName, "Zones", input, fieldName, hasCreate, hasUpdate, hasRead)
+			mappings.Fields = append(mappings.Fields, mappingsForField...)
+		}
 	}
 
 	// TODO: go through any fields _only_ in the Read function which are ReadOnly/Computed
