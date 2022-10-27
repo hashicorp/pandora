@@ -23,6 +23,8 @@ func GetResourceManagerServicesByName(client resourcemanager.Client, servicesToL
 	}
 
 	resourceManagerServices := make(map[string]ResourceManagerService, 0)
+	errCh := make(chan error, 1)
+	waitDone := make(chan struct{}, 1)
 	var wg sync.WaitGroup
 	var lock sync.Mutex
 	for name, service := range *services {
@@ -37,11 +39,13 @@ func GetResourceManagerServicesByName(client resourcemanager.Client, servicesToL
 			defer wg.Done()
 			serviceDetails, err := client.ServiceDetails().Get(service)
 			if err != nil {
+				errCh <- err
 				return
 			}
 
 			terraformDetails, err := client.Terraform().Get(*serviceDetails)
 			if err != nil {
+				errCh <- err
 				return
 			}
 
@@ -49,6 +53,7 @@ func GetResourceManagerServicesByName(client resourcemanager.Client, servicesToL
 			for versionNumber, versionDetails := range serviceDetails.Versions {
 				versionInfo, err := client.ServiceVersion().Get(versionDetails)
 				if err != nil {
+					errCh <- err
 					return
 				}
 
@@ -56,11 +61,13 @@ func GetResourceManagerServicesByName(client resourcemanager.Client, servicesToL
 				for resourceName, resourceDetails := range versionInfo.Resources {
 					operations, err := client.ApiOperations().Get(resourceDetails)
 					if err != nil {
+						errCh <- err
 						return
 					}
 
 					schema, err := client.ApiSchema().Get(resourceDetails)
 					if err != nil {
+						errCh <- err
 						return
 					}
 
@@ -87,7 +94,22 @@ func GetResourceManagerServicesByName(client resourcemanager.Client, servicesToL
 			lock.Unlock()
 		}(name, service)
 	}
-	wg.Wait()
+
+	go func() {
+		wg.Wait()
+		waitDone <- struct{}{}
+	}()
+
+	select {
+	case <-waitDone:
+		break
+	case err := <-errCh:
+		return nil, err
+	}
+
+	if len(errCh) > 0 {
+		return nil, <-errCh
+	}
 
 	return &ResourceManagerServices{
 		Services: resourceManagerServices,
