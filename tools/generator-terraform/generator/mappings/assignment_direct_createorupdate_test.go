@@ -329,9 +329,7 @@ func TestDirectAssignment_CreateOrUpdate_Constant_OptionalToOptional_TopLevel(t 
 				},
 			},
 			expected: `
-if input.FromPath != nil {
-	output.ToPath = pointer.To(sdkresource.SomeConstant(*input.FromPath))
-}
+output.ToPath = pointer.To(sdkresource.SomeConstant(input.FromPath))
 `,
 			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeFloat,
 		},
@@ -348,9 +346,7 @@ if input.FromPath != nil {
 				},
 			},
 			expected: `
-if input.FromPath != nil {
-	output.ToPath = pointer.To(sdkresource.SomeConstant(*input.FromPath))
-}
+output.ToPath = pointer.To(sdkresource.SomeConstant(input.FromPath))
 `,
 			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeInteger,
 		},
@@ -367,9 +363,7 @@ if input.FromPath != nil {
 				},
 			},
 			expected: `
-if input.FromPath != nil {
-	output.ToPath = pointer.To(sdkresource.SomeConstant(*input.FromPath))
-}
+output.ToPath = pointer.To(sdkresource.SomeConstant(input.FromPath))
 `,
 			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeString,
 		},
@@ -3342,7 +3336,7 @@ func TestDirectAssignment_CreateOrUpdate_Zones_RequiredToOptional(t *testing.T) 
 		{
 			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeZones,
 			sdkFieldType:         resourcemanager.ZonesApiObjectDefinitionType,
-			expected:             "output.Zones = zones.Expand(input.Zones)",
+			expected:             "output.Zones = pointer.To(zones.Expand(input.Zones))",
 		},
 	}
 	for i, v := range testData {
@@ -3456,7 +3450,7 @@ func TestDirectAssignment_CreateOrUpdate_Zones_OptionalToOptional(t *testing.T) 
 		{
 			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeZones,
 			sdkFieldType:         resourcemanager.ZonesApiObjectDefinitionType,
-			expected:             "output.Zones = zones.Expand(input.Zones)",
+			expected:             "output.Zones = pointer.To(zones.Expand(input.Zones))",
 		},
 	}
 	for i, v := range testData {
