@@ -22,7 +22,7 @@ internal class ServerPropertiesModel
     public string? AdministratorLoginPassword { get; set; }
 
     [JsonPropertyName("availabilityZone")]
-    public string? AvailabilityZone { get; set; }
+    public CustomTypes.Zone? AvailabilityZone { get; set; }
 
     [JsonPropertyName("backup")]
     public BackupModel? Backup { get; set; }

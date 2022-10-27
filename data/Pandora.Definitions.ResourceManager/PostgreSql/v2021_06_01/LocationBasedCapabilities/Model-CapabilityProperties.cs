@@ -31,7 +31,7 @@ internal class CapabilityPropertiesModel
     public List<HyperscaleNodeEditionCapabilityModel>? SupportedHyperscaleNodeEditions { get; set; }
 
     [JsonPropertyName("zone")]
-    public string? Zone { get; set; }
+    public CustomTypes.Zone? Zone { get; set; }
 
     [JsonPropertyName("zoneRedundantHaAndGeoBackupSupported")]
     public bool? ZoneRedundantHaAndGeoBackupSupported { get; set; }

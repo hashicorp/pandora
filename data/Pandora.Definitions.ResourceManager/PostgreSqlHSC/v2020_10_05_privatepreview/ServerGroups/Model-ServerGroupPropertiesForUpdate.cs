@@ -19,7 +19,7 @@ internal class ServerGroupPropertiesForUpdateModel
     public string? AdministratorLoginPassword { get; set; }
 
     [JsonPropertyName("availabilityZone")]
-    public string? AvailabilityZone { get; set; }
+    public CustomTypes.Zone? AvailabilityZone { get; set; }
 
     [JsonPropertyName("backupRetentionDays")]
     public int? BackupRetentionDays { get; set; }

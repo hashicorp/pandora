@@ -16,7 +16,7 @@ namespace Pandora.Definitions.ResourceManager.ContainerService.v2022_08_02_previ
 internal class ManagedClusterAgentPoolProfilePropertiesModel
 {
     [JsonPropertyName("availabilityZones")]
-    public List<string>? AvailabilityZones { get; set; }
+    public CustomTypes.Zones? AvailabilityZones { get; set; }
 
     [JsonPropertyName("capacityReservationGroupID")]
     public string? CapacityReservationGroupID { get; set; }

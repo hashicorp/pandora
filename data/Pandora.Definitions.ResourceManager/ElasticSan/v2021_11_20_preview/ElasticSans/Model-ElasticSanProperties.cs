@@ -16,7 +16,7 @@ namespace Pandora.Definitions.ResourceManager.ElasticSan.v2021_11_20_preview.Ela
 internal class ElasticSanPropertiesModel
 {
     [JsonPropertyName("availabilityZones")]
-    public List<string>? AvailabilityZones { get; set; }
+    public CustomTypes.Zones? AvailabilityZones { get; set; }
 
     [JsonPropertyName("baseSizeTiB")]
     [Required]
