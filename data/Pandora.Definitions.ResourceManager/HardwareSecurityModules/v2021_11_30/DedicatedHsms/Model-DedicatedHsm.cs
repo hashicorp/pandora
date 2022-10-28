@@ -43,5 +43,5 @@ internal class DedicatedHsmModel
     public string? Type { get; set; }
 
     [JsonPropertyName("zones")]
-    public List<string>? Zones { get; set; }
+    public CustomTypes.Zones? Zones { get; set; }
 }

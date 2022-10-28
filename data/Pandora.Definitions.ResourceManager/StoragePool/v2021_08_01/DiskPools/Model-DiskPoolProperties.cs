@@ -20,7 +20,7 @@ internal class DiskPoolPropertiesModel
 
     [JsonPropertyName("availabilityZones")]
     [Required]
-    public List<string> AvailabilityZones { get; set; }
+    public CustomTypes.Zones AvailabilityZones { get; set; }
 
     [JsonPropertyName("disks")]
     public List<DiskModel>? Disks { get; set; }

@@ -31,5 +31,5 @@ internal class DeploymentInstanceModel
     public string? Status { get; set; }
 
     [JsonPropertyName("zone")]
-    public string? Zone { get; set; }
+    public CustomTypes.Zone? Zone { get; set; }
 }

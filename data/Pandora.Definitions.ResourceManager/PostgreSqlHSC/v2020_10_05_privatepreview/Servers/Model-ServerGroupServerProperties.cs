@@ -19,7 +19,7 @@ internal class ServerGroupServerPropertiesModel
     public string? AdministratorLogin { get; set; }
 
     [JsonPropertyName("availabilityZone")]
-    public string? AvailabilityZone { get; set; }
+    public CustomTypes.Zone? AvailabilityZone { get; set; }
 
     [JsonPropertyName("citusVersion")]
     public CitusVersionConstant? CitusVersion { get; set; }

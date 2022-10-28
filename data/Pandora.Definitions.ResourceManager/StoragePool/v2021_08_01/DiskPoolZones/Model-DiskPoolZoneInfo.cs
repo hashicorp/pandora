@@ -19,7 +19,7 @@ internal class DiskPoolZoneInfoModel
     public List<string>? AdditionalCapabilities { get; set; }
 
     [JsonPropertyName("availabilityZones")]
-    public List<string>? AvailabilityZones { get; set; }
+    public CustomTypes.Zones? AvailabilityZones { get; set; }
 
     [JsonPropertyName("sku")]
     public SkuModel? Sku { get; set; }

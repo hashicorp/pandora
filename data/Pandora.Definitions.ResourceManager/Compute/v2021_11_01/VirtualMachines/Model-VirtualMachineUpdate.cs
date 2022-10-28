@@ -28,5 +28,5 @@ internal class VirtualMachineUpdateModel
     public CustomTypes.Tags? Tags { get; set; }
 
     [JsonPropertyName("zones")]
-    public List<string>? Zones { get; set; }
+    public CustomTypes.Zones? Zones { get; set; }
 }

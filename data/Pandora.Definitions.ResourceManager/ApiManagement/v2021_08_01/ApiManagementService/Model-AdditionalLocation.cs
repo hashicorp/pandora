@@ -45,5 +45,5 @@ internal class AdditionalLocationModel
     public VirtualNetworkConfigurationModel? VirtualNetworkConfiguration { get; set; }
 
     [JsonPropertyName("zones")]
-    public List<string>? Zones { get; set; }
+    public CustomTypes.Zones? Zones { get; set; }
 }
