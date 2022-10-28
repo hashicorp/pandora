@@ -84,23 +84,23 @@ func modelDefinitionsMatch(t *testing.T, actual *map[string]resourcemanager.Terr
 			t.Fatalf("key %q was present in actual but not expected", key)
 		}
 
-		if !fieldDefinitionsMatch(t, firstVal.Fields, secondVal.Fields) {
-			t.Fatalf("field definitions didn't match")
+		if !fieldDefinitionsMatch(t, key, firstVal.Fields, secondVal.Fields) {
+			t.Fatalf("field definitions didn't match for model %q", key)
 		}
 	}
 }
 
-func fieldDefinitionsMatch(t *testing.T, first map[string]resourcemanager.TerraformSchemaFieldDefinition, second map[string]resourcemanager.TerraformSchemaFieldDefinition) bool {
+func fieldDefinitionsMatch(t *testing.T, modelName string, first map[string]resourcemanager.TerraformSchemaFieldDefinition, second map[string]resourcemanager.TerraformSchemaFieldDefinition) bool {
 	// we can't use reflect.DeepEqual since there's pointers involved, so we'll do this the old-fashioned way
 	if len(first) != len(second) {
-		t.Fatalf("first had %d fields but second had %d fields", len(first), len(second))
+		t.Fatalf("model %q - first had %d fields but second had %d fields", modelName, len(first), len(second))
 		return false
 	}
 
-	for key, firstVal := range first {
-		secondVal, ok := second[key]
+	for fieldKey, firstVal := range first {
+		secondVal, ok := second[fieldKey]
 		if !ok {
-			t.Fatalf("key %q was present in first but not second", key)
+			t.Fatalf("field %q was present in first but not second", fieldKey)
 			return false
 		}
 
