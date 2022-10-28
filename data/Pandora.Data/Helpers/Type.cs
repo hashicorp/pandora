@@ -110,6 +110,8 @@ public static class TypeExtensions
             typeof(Definitions.CustomTypes.UserAssignedIdentityList),
             typeof(Definitions.CustomTypes.UserAssignedIdentityMap),
             typeof(Definitions.CustomTypes.SystemData),
+            typeof(Definitions.CustomTypes.Zone),
+            typeof(Definitions.CustomTypes.Zones),
         };
         return customTypes.Contains(input);
     }
