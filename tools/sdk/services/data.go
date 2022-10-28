@@ -1,8 +1,9 @@
 package services
 
 import (
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 	"sync"
+	
+	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
 // GetResourceManagerServices returns all of the Services supported by the Resource Manager endpoint
