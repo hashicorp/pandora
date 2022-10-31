@@ -219,7 +219,7 @@ var transformOptionalExpandFunctions = map[resourcemanager.TerraformSchemaFieldT
 		return fmt.Sprintf("%s = tags.Expand(%s)", outputAssignment, inputAssignment)
 	},
 	resourcemanager.TerraformSchemaFieldTypeZones: func(outputAssignment, outputVariableName, inputAssignment string) string {
-		return fmt.Sprintf("%s = zones.Expand(%s)", outputAssignment, inputAssignment)
+		return fmt.Sprintf("%s = pointer.To(zones.Expand(%s))", outputAssignment, inputAssignment)
 	},
 }
 var transformRequiredFlattenFunctions = map[resourcemanager.TerraformSchemaFieldType]func(outputAssignment, outputVariableName, inputAssignment string) string{
@@ -349,9 +349,7 @@ func (d directAssignmentLine) schemaToSdkMappingBetweenFields(mapping resourcema
 		}
 
 		line := fmt.Sprintf(`
-if input.%[3]s != nil {
-	output.%[1]s = pointer.To(%[2]s(*input.%[3]s))
-}
+output.%[1]s = pointer.To(%[2]s(input.%[3]s))
 `, mapping.DirectAssignment.SdkFieldPath, sdkConstantTypeName, mapping.DirectAssignment.SchemaFieldPath)
 		return &line, nil
 	}
@@ -683,7 +681,7 @@ func (d directAssignmentLine) sdkToSchemaMappingBetweenFields(mapping resourcema
 
 		line := fmt.Sprintf(`
 	if input.%[3]s != nil {
-		output.%[1]s = pointer.To(%[2]s(*input.%[3]s))
+		output.%[1]s = %[2]s(*input.%[3]s)
 	}
 	`, mapping.DirectAssignment.SdkFieldPath, constantGoType, mapping.DirectAssignment.SchemaFieldPath)
 		return &line, nil

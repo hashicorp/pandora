@@ -65,8 +65,7 @@ func TestPluginSdkAttributes_CommonSchema_SystemAndUserAssignedIdentity(t *testi
 			},
 			expected: `
 identity {
-	type = "SystemAssigned, UserAssigned"
-	// todo add azurerm_user_assigned_identity.test to template
+	type         = "SystemAssigned, UserAssigned"
 	identity_ids = [azurerm_user_assigned_identity.test.id]
 }
 `,
@@ -187,8 +186,7 @@ func TestPluginSdkAttributes_CommonSchema_UserAssignedIdentity(t *testing.T) {
 			},
 			expected: `
 identity {
-	type = "UserAssigned"
-	// todo add azurerm_user_assigned_identity.test to template
+	type         = "UserAssigned"
 	identity_ids = [azurerm_user_assigned_identity.test.id]
 }
 `,

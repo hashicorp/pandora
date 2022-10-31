@@ -330,7 +330,7 @@ func TestDirectAssignment_Read_Constant_OptionalToOptional_TopLevel(t *testing.T
 			},
 			expected: `
 if input.FromPath != nil {
-	output.ToPath = pointer.To(float64(*input.FromPath))
+	output.ToPath = float64(*input.FromPath)
 }
 `,
 			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeFloat,
@@ -349,7 +349,7 @@ if input.FromPath != nil {
 			},
 			expected: `
 if input.FromPath != nil {
-	output.ToPath = pointer.To(int64(*input.FromPath))
+	output.ToPath = int64(*input.FromPath)
 }
 `,
 			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeInteger,
@@ -368,7 +368,7 @@ if input.FromPath != nil {
 			},
 			expected: `
 if input.FromPath != nil {
-	output.ToPath = pointer.To(string(*input.FromPath))
+	output.ToPath = string(*input.FromPath)
 }
 `,
 			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeString,

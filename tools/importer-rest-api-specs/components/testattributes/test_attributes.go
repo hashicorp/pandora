@@ -206,7 +206,6 @@ func (h TestAttributesHelpers) codeForTestAttribute(resourceLabel string, input 
 		hclBody.AppendNewline()
 		identityBody := *hclBody.AppendNewBlock(input.HclName, nil).Body()
 		identityBody.SetAttributeValue("type", cty.StringVal("SystemAssigned, UserAssigned"))
-		addCommentToTestConfig(identityBody, "todo add azurerm_user_assigned_identity.test to template")
 
 		identityBody.SetAttributeRaw("identity_ids", hclwrite.TokensForTuple([]hclwrite.Tokens{
 			hclwrite.TokensForTraversal(hcl.Traversal{
@@ -224,7 +223,6 @@ func (h TestAttributesHelpers) codeForTestAttribute(resourceLabel string, input 
 		hclBody.AppendNewline()
 		identityBody := *hclBody.AppendNewBlock(input.HclName, nil).Body()
 		identityBody.SetAttributeValue("type", cty.StringVal("UserAssigned"))
-		addCommentToTestConfig(identityBody, "todo add azurerm_user_assigned_identity.test to template")
 
 		identityBody.SetAttributeRaw("identity_ids", hclwrite.TokensForTuple([]hclwrite.Tokens{
 			hclwrite.TokensForTraversal(hcl.Traversal{
