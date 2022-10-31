@@ -273,6 +273,45 @@ Elem: &pluginsdk.Resource{
 `, *codeForModel)))
 		}
 
+	case resourcemanager.TerraformSchemaFieldTypeDictionary:
+		{
+			if input.NestedObject == nil {
+				return nil, fmt.Errorf("internal-error: dictionary type with no nested object")
+			}
+
+			attributes = append(attributes, "Type: pluginsdk.TypeMap")
+			if input.NestedObject.Type == resourcemanager.TerraformSchemaFieldTypeReference {
+				if input.NestedObject.ReferenceName == nil {
+					return nil, fmt.Errorf("missing name for reference")
+				}
+				reference, ok := h.SchemaModels[*input.NestedObject.ReferenceName]
+				if !ok {
+					return nil, fmt.Errorf("schema model %q was not found", *input.ReferenceName)
+				}
+
+				codeForModel, err := h.CodeForModel(reference, false)
+				if err != nil {
+					return nil, fmt.Errorf("building code for nested model %q: %+v", *input.NestedObject.ReferenceName, err)
+				}
+
+				attributes = append(attributes, strings.TrimSpace(fmt.Sprintf(`
+Elem: &pluginsdk.Resource{
+	Schema: %[1]s,
+}
+`, *codeForModel)))
+			} else {
+				nestedAttributes, err := h.attributesForObjectDefinition(*input.NestedObject)
+				if err != nil {
+					return nil, fmt.Errorf("building attributes for nested object definition: %+v", err)
+				}
+				attributes = append(attributes, strings.TrimSpace(fmt.Sprintf(`
+Elem: &pluginsdk.Schema{
+	%[1]s,
+}
+`, strings.Join(*nestedAttributes, ",\n"))))
+			}
+		}
+
 	case resourcemanager.TerraformSchemaFieldTypeList, resourcemanager.TerraformSchemaFieldTypeSet:
 		{
 			if input.NestedObject == nil {
