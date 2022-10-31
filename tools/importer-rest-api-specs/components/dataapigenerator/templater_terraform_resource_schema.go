@@ -98,6 +98,19 @@ func topLevelFieldObjectDefinition(input resourcemanager.TerraformSchemaFieldObj
 }
 
 func dotNetTypeNameForTerraformFieldObjectDefinition(input resourcemanager.TerraformSchemaFieldObjectDefinition, constants map[string]resourcemanager.ConstantDetails, models map[string]resourcemanager.TerraformSchemaModelDefinition) (*string, error) {
+	if input.Type == resourcemanager.TerraformSchemaFieldTypeDictionary {
+		if input.NestedObject == nil {
+			return nil, fmt.Errorf("a dictionary must have a nested object")
+		}
+		
+		nestedObject, err := dotNetTypeNameForTerraformFieldObjectDefinition(*input.NestedObject, constants, models)
+		if err != nil {
+			return nil, fmt.Errorf("determining dotnet type name for nested object definition: %+v", err)
+		}
+		out := fmt.Sprintf("Dictionary<string, %s>", *nestedObject)
+		return &out, nil
+	}
+
 	if input.Type == resourcemanager.TerraformSchemaFieldTypeList {
 		if input.NestedObject == nil {
 			return nil, fmt.Errorf("a list must have a nested object")
