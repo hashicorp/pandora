@@ -531,6 +531,10 @@ func NormalizeCanonicalisation(input string) string {
 		output = strings.Replace(output, "http", "HTTP", 1)
 	}
 
+	if strings.Contains(output, "github") {
+		output = strings.Replace(output, "github", "gitHub", 1)
+	}
+
 	if strings.EqualFold(output, "Publicipaddress") {
 		// This is an explicit force for broken data in `Network`
 		output = "PublicIPAddress"
