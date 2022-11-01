@@ -13,6 +13,8 @@ internal class Definition : ResourceDefinition
     public string Name => "PrivateEndpointConnections";
     public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
     {
+        new CreateOperation(),
+        new DeleteOperation(),
         new GetOperation(),
         new ListOperation(),
     };

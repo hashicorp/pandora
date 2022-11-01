@@ -13,11 +13,17 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.Databricks.v2022_04_01_preview.Workspaces;
 
 
-internal class EncryptionEntitiesDefinitionModel
+internal class ManagedDiskEncryptionKeyVaultPropertiesModel
 {
-    [JsonPropertyName("managedDisk")]
-    public ManagedDiskEncryptionModel? ManagedDisk { get; set; }
+    [JsonPropertyName("keyName")]
+    [Required]
+    public string KeyName { get; set; }
 
-    [JsonPropertyName("managedServices")]
-    public EncryptionV2Model? ManagedServices { get; set; }
+    [JsonPropertyName("keyVaultUri")]
+    [Required]
+    public string KeyVaultUri { get; set; }
+
+    [JsonPropertyName("keyVersion")]
+    [Required]
+    public string KeyVersion { get; set; }
 }
