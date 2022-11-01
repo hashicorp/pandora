@@ -25,8 +25,14 @@ internal class WorkspacePropertiesModel
     [JsonPropertyName("createdDateTime")]
     public DateTime? CreatedDateTime { get; set; }
 
+    [JsonPropertyName("diskEncryptionSetId")]
+    public string? DiskEncryptionSetId { get; set; }
+
     [JsonPropertyName("encryption")]
     public WorkspacePropertiesEncryptionModel? Encryption { get; set; }
+
+    [JsonPropertyName("managedDiskIdentity")]
+    public ManagedIdentityConfigurationModel? ManagedDiskIdentity { get; set; }
 
     [JsonPropertyName("managedResourceGroupId")]
     [Required]
