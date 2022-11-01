@@ -19,7 +19,7 @@ internal class SourceControlPropertiesModel
     public string? Branch { get; set; }
 
     [JsonPropertyName("githubActionConfiguration")]
-    public GithubActionConfigurationModel? GithubActionConfiguration { get; set; }
+    public GithubActionConfigurationModel? GitHubActionConfiguration { get; set; }
 
     [JsonPropertyName("operationState")]
     public SourceControlOperationStateConstant? OperationState { get; set; }
