@@ -14,6 +14,17 @@ public static class TerraformSchemaObjectDefinition
         // TODO: add tests specifically for this method
         // TODO: support for Sets
 
+        if (input.IsAGenericDictionary())
+        {
+            var listElement = input.GenericDictionaryValueElement();
+            var nestedItem = Map(listElement);
+            return new Models.TerraformSchemaObjectDefinition
+            {
+                Type = TerraformSchemaFieldType.Dictionary,
+                NestedObject = nestedItem,
+            };
+        }
+
         if (input.IsAGenericList())
         {
             var listElement = input.GenericListElement();

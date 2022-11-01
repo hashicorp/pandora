@@ -13,6 +13,7 @@ public enum TerraformSchemaFieldType
 {
     Boolean,
     DateTime,
+    Dictionary,
     Float,
     Integer,
     List,

@@ -110,6 +110,43 @@ public static class TerraformSchemaObjectDefinitionTests
     }
 
     [TestCase]
+    public static void MappingADictionaryOfBasicTypes()
+    {
+        var basicTypes = new Dictionary<Type, TerraformSchemaFieldType>
+        {
+            {typeof(Dictionary<string, bool>), TerraformSchemaFieldType.Boolean},
+            {typeof(Dictionary<string, float>), TerraformSchemaFieldType.Float},
+            {typeof(Dictionary<string, int>), TerraformSchemaFieldType.Integer},
+            {typeof(Dictionary<string, string>), TerraformSchemaFieldType.String},
+        };
+        foreach (var basicType in basicTypes)
+        {
+            var result = TerraformSchemaObjectDefinition.Map(basicType.Key);
+            Assert.NotNull(result);
+            Assert.AreEqual(TerraformSchemaFieldType.Dictionary, result.Type);
+            Assert.NotNull(result.NestedObject);
+            Assert.Null(result.ReferenceName);
+            Assert.AreEqual(basicType.Value, result.NestedObject.Type);
+            Assert.Null(result.NestedObject.NestedObject);
+            Assert.Null(result.NestedObject.ReferenceName);
+        }
+    }
+
+    [TestCase]
+    public static void MappingADictionaryOfComplexType()
+    {
+        var result = TerraformSchemaObjectDefinition.Map(typeof(Dictionary<string, SomeModel>));
+        Assert.NotNull(result);
+        Assert.AreEqual(TerraformSchemaFieldType.Dictionary, result.Type);
+        Assert.NotNull(result.NestedObject);
+        Assert.Null(result.ReferenceName);
+        Assert.AreEqual(TerraformSchemaFieldType.Reference, result.NestedObject.Type);
+        Assert.Null(result.NestedObject.NestedObject);
+        Assert.NotNull(result.NestedObject.ReferenceName);
+        Assert.AreEqual("SomeModel", result.NestedObject.ReferenceName);
+    }
+
+    [TestCase]
     public static void MappingAReference()
     {
         var result = TerraformSchemaObjectDefinition.Map(typeof(SomeModel));

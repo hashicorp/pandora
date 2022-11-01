@@ -9,13 +9,13 @@ import (
 var apiObjectDefinitionTypesToFieldObjectDefinitionTypes = map[resourcemanager.ApiObjectDefinitionType]resourcemanager.TerraformSchemaFieldType{
 	resourcemanager.BooleanApiObjectDefinitionType: resourcemanager.TerraformSchemaFieldTypeBoolean,
 	//resourcemanager.CsvApiObjectDefinitionType:  resourcemanager.TerraformSchemaFieldTypeCsv, // TODO: implement
-	resourcemanager.DateTimeApiObjectDefinitionType: resourcemanager.TerraformSchemaFieldTypeDateTime,
-	//resourcemanager.DictionaryApiObjectDefinitionType:  resourcemanager.TerraformSchemaFieldTypeDictionary, // TODO: implement
-	resourcemanager.IntegerApiObjectDefinitionType:   resourcemanager.TerraformSchemaFieldTypeInteger,
-	resourcemanager.FloatApiObjectDefinitionType:     resourcemanager.TerraformSchemaFieldTypeFloat,
-	resourcemanager.ListApiObjectDefinitionType:      resourcemanager.TerraformSchemaFieldTypeList,
-	resourcemanager.ReferenceApiObjectDefinitionType: resourcemanager.TerraformSchemaFieldTypeReference,
-	resourcemanager.StringApiObjectDefinitionType:    resourcemanager.TerraformSchemaFieldTypeString,
+	resourcemanager.DateTimeApiObjectDefinitionType:   resourcemanager.TerraformSchemaFieldTypeDateTime,
+	resourcemanager.DictionaryApiObjectDefinitionType: resourcemanager.TerraformSchemaFieldTypeDictionary,
+	resourcemanager.IntegerApiObjectDefinitionType:    resourcemanager.TerraformSchemaFieldTypeInteger,
+	resourcemanager.FloatApiObjectDefinitionType:      resourcemanager.TerraformSchemaFieldTypeFloat,
+	resourcemanager.ListApiObjectDefinitionType:       resourcemanager.TerraformSchemaFieldTypeList,
+	resourcemanager.ReferenceApiObjectDefinitionType:  resourcemanager.TerraformSchemaFieldTypeReference,
+	resourcemanager.StringApiObjectDefinitionType:     resourcemanager.TerraformSchemaFieldTypeString,
 
 	// Custom Types
 	resourcemanager.EdgeZoneApiObjectDefinitionType:                                resourcemanager.TerraformSchemaFieldTypeEdgeZone,

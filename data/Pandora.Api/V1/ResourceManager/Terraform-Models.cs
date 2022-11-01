@@ -218,6 +218,7 @@ public partial class TerraformController
         // Core items
         Boolean,
         DateTime,
+        Dictionary,
         Integer,
         Float,
         List,

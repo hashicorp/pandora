@@ -247,6 +247,8 @@ public partial class TerraformController : ControllerBase
                 return TerraformSchemaFieldType.Boolean.ToString();
             case Data.Models.TerraformSchemaFieldType.DateTime:
                 return TerraformSchemaFieldType.DateTime.ToString();
+            case Data.Models.TerraformSchemaFieldType.Dictionary:
+                return TerraformSchemaFieldType.Dictionary.ToString();
             case Data.Models.TerraformSchemaFieldType.Float:
                 return TerraformSchemaFieldType.Float.ToString();
             case Data.Models.TerraformSchemaFieldType.Integer:

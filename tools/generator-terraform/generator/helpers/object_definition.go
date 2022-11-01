@@ -42,6 +42,20 @@ func GolangFieldTypeFromObjectFieldDefinition(input resourcemanager.TerraformSch
 		return &goTypeName, nil
 	}
 
+	if input.Type == resourcemanager.TerraformSchemaFieldTypeDictionary {
+		if input.NestedObject == nil {
+			return nil, fmt.Errorf("dictionary type had no nested object")
+		}
+
+		nestedObjectType, err := GolangFieldTypeFromObjectFieldDefinition(*input.NestedObject)
+		if err != nil {
+			return nil, fmt.Errorf("retrieving golang field type for dictionary nested item: %+v", err)
+		}
+
+		output := fmt.Sprintf("map[string]%s", *nestedObjectType)
+		return &output, nil
+	}
+
 	if input.Type == resourcemanager.TerraformSchemaFieldTypeReference {
 		if input.ReferenceName == nil {
 			return nil, fmt.Errorf("reference type had no reference")
