@@ -318,6 +318,48 @@ func TestRequiredAndOptionalTestAttributes_CodeForBasicField(t *testing.T) {
 	testhelpers.AssertTemplatedCodeMatches(t, expected, fmt.Sprintf("%s", file.Bytes()))
 }
 
+func TestOptionalFieldContainingRequiredField(t *testing.T) {
+	input := resourcemanager.TerraformSchemaModelDefinition{
+		Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+			"OptionalReference": {
+				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+					Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+					ReferenceName: pointer.To("NestedSchemaModel"),
+				},
+				HclName:  "optional_reference",
+				Optional: true,
+			},
+		},
+	}
+	expected := `
+	optional_reference {
+		required_nested_string = "foo"
+	}
+`
+
+	file := hclwrite.NewEmptyFile()
+	helper := TestAttributesHelpers{
+		SchemaModels: map[string]resourcemanager.TerraformSchemaModelDefinition{
+			"NestedSchemaModel": {
+				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+					"RequiredNestedString": {
+						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						},
+						HclName:  "required_nested_string",
+						Required: true,
+					},
+				},
+			},
+		},
+	}
+	err := helper.GetAttributesForTests("some_resource", input, file.Body(), true)
+	if err != nil {
+		t.Fatalf("unexpected error: %+v", err)
+	}
+	testhelpers.AssertTemplatedCodeMatches(t, expected, fmt.Sprintf("%s", file.Bytes()))
+}
+
 func TestStringAttributes(t *testing.T) {
 	testData := []struct {
 		input    resourcemanager.TerraformSchemaModelDefinition

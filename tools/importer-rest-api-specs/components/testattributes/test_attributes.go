@@ -46,7 +46,18 @@ func (h TestAttributesHelpers) GetAttributesForTests(resourceLabel string, input
 			requiredFields = append(requiredFields, fieldName)
 			continue
 		}
-		if !requiredOnly {
+
+		if requiredOnly {
+			// check if the field itself contains nested fields
+			containsRequiredFields, err := h.referencedModelContainsRequiredFields(details)
+			if err != nil {
+				return fmt.Errorf("checking if the field %q contains required fields: %+v", fieldName, err)
+			}
+			if *containsRequiredFields {
+				requiredFields = append(requiredFields, fieldName)
+				continue
+			}
+		} else {
 			if details.Optional {
 				optionalFields = append(optionalFields, fieldName)
 				continue
@@ -69,6 +80,14 @@ func (h TestAttributesHelpers) GetAttributesForTests(resourceLabel string, input
 		}
 	}
 	return nil
+}
+
+func topLevelObjectDefinition(input resourcemanager.TerraformSchemaFieldObjectDefinition) resourcemanager.TerraformSchemaFieldObjectDefinition {
+	if input.NestedObject != nil {
+		return topLevelObjectDefinition(*input.NestedObject)
+	}
+
+	return input
 }
 
 func (h TestAttributesHelpers) codeForTestAttribute(resourceLabel string, input resourcemanager.TerraformSchemaFieldDefinition, requiredOnly bool, hclBody *hclwrite.Body) error {
@@ -344,6 +363,37 @@ func (h TestAttributesHelpers) codeForTestAttributeWithPossibleValues(input reso
 	}
 
 	return fmt.Errorf("missing PossibleValues implementation for Schema Field %q (%s)", input.HclName, input.ObjectDefinition.String())
+}
+
+func (h TestAttributesHelpers) referencedModelContainsRequiredFields(details resourcemanager.TerraformSchemaFieldDefinition) (*bool, error) {
+	containsRequiredFields := false
+
+	topLevelObject := topLevelObjectDefinition(details.ObjectDefinition)
+	if topLevelObject.Type == resourcemanager.TerraformSchemaFieldTypeReference {
+		other, ok := h.SchemaModels[*topLevelObject.ReferenceName]
+		if !ok {
+			return nil, fmt.Errorf("the schema model %q was not found", *topLevelObject.ReferenceName)
+		}
+		for fieldName, fieldDetails := range other.Fields {
+			if fieldDetails.Required {
+				containsRequiredFields = true
+				break
+			}
+
+			topLevel := topLevelObjectDefinition(fieldDetails.ObjectDefinition)
+			if topLevel.Type != resourcemanager.TerraformSchemaFieldTypeReference || *topLevel.ReferenceName == *topLevelObject.ReferenceName {
+				continue
+			}
+
+			hasNested, err := h.referencedModelContainsRequiredFields(details)
+			if err != nil {
+				return nil, fmt.Errorf("checking if the nested field %q contains required fields: %+v", fieldName, err)
+			}
+			containsRequiredFields = *hasNested
+			break
+		}
+	}
+	return &containsRequiredFields, nil
 }
 
 func addCommentToTestConfig(hclBody hclwrite.Body, comment string) {
