@@ -12,10 +12,10 @@ public partial class Service : ServiceDefinition
 {
     public string Name => "ContainerService";
     public string? ResourceProvider => "Microsoft.ContainerService";
-    public string? TerraformPackageName => null;
+    public string? TerraformPackageName => "containers";
 
     public IEnumerable<TerraformResourceDefinition> TerraformResources => new List<TerraformResourceDefinition>
     {
-
+        new Terraform.KubernetesFleetManagerResource(),
     };
 }
