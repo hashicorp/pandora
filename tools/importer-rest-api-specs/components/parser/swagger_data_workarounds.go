@@ -38,6 +38,29 @@ func patchSwaggerData(input []models.AzureApiDefinition, logger hclog.Logger) (*
 			item.Resources["LoadTests"] = resource
 		}
 
+		// Works around the `DnsPrefix` field being required but being marked as Optional
+		// Swagger PR: https://github.com/Azure/azure-rest-api-specs/pull/21394
+		if item.ServiceName == "ContainerService" && item.ApiVersion == "2022-09-02-preview" {
+			logger.Trace(fmt.Sprintf("Processing Overrides for Service %q / API Version %q..", item.ServiceName, item.ApiVersion))
+			resource, ok := item.Resources["Fleets"]
+			if !ok {
+				return nil, fmt.Errorf("couldn't find API Resource Fleets")
+			}
+			model, ok := resource.Models["FleetHubProfile"]
+			if !ok {
+				return nil, fmt.Errorf("couldn't find Model FleetHubProfile")
+			}
+			field, ok := model.Fields["DnsPrefix"]
+			if !ok {
+				return nil, fmt.Errorf("couldn't find field DnsPrefix within model FleetHubProfile")
+			}
+			field.Required = true
+
+			model.Fields["DnsPrefix"] = field
+			resource.Models["FleetHubProfile"] = model
+			item.Resources["Fleets"] = resource
+		}
+
 		output = append(output, item)
 	}
 

@@ -102,7 +102,7 @@ func dotNetTypeNameForTerraformFieldObjectDefinition(input resourcemanager.Terra
 		if input.NestedObject == nil {
 			return nil, fmt.Errorf("a dictionary must have a nested object")
 		}
-		
+
 		nestedObject, err := dotNetTypeNameForTerraformFieldObjectDefinition(*input.NestedObject, constants, models)
 		if err != nil {
 			return nil, fmt.Errorf("determining dotnet type name for nested object definition: %+v", err)
