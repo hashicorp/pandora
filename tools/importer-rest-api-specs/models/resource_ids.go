@@ -78,7 +78,7 @@ func (pri ParsedResourceId) Matches(other ParsedResourceId) bool {
 			if first.FixedValue == nil && second.FixedValue != nil {
 				return false
 			}
-			if first.FixedValue != nil && second.FixedValue != nil && *first.FixedValue != *second.FixedValue {
+			if first.FixedValue != nil && second.FixedValue != nil && !strings.EqualFold(*first.FixedValue, *second.FixedValue) {
 				return false
 			}
 
