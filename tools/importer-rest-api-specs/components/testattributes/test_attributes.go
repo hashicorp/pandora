@@ -385,7 +385,7 @@ func (h TestAttributesHelpers) referencedModelContainsRequiredFields(details res
 				continue
 			}
 
-			hasNested, err := h.referencedModelContainsRequiredFields(details)
+			hasNested, err := h.referencedModelContainsRequiredFields(fieldDetails)
 			if err != nil {
 				return nil, fmt.Errorf("checking if the nested field %q contains required fields: %+v", fieldName, err)
 			}
