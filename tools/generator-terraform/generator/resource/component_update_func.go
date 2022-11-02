@@ -150,7 +150,11 @@ func (h updateFuncHelpers) payloadDefinition() (*string, error) {
 				return fmt.Errorf("retrieving existing %%s: properties was nil", *id)
 			}
 			payload := *existing.Model
-`, methodName, methodArguments)
+
+			if err := r.map%[3]sTo%[4]s(config, &payload); err != nil {
+				return fmt.Errorf("mapping schema model to sdk model: %%+v", err)
+			}
+`, methodName, methodArguments, h.schemaModelName, *h.updateMethod.RequestObject.ReferenceName)
 		return &output, nil
 	}
 
