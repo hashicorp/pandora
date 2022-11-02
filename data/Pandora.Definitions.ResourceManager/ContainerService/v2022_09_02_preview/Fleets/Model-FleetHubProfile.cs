@@ -16,7 +16,8 @@ namespace Pandora.Definitions.ResourceManager.ContainerService.v2022_09_02_previ
 internal class FleetHubProfileModel
 {
     [JsonPropertyName("dnsPrefix")]
-    public string? DnsPrefix { get; set; }
+    [Required]
+    public string DnsPrefix { get; set; }
 
     [JsonPropertyName("fqdn")]
     public string? Fqdn { get; set; }
