@@ -86,6 +86,10 @@ func (h TestAttributesHelpers) codeForTestAttribute(resourceLabel string, input 
 		hclBody.SetAttributeValue(input.HclName, cty.NumberIntVal(15))
 	case resourcemanager.TerraformSchemaFieldTypeString:
 		switch input.HclName {
+		case "dns_prefix":
+			{
+				hclBody.SetAttributeValue(input.HclName, cty.StringVal("acctest"))
+			}
 		case "name":
 			// todo pipe in packagename to make "acctest-vm-${local.random_integer}"
 			tokens := hclwrite.Tokens{
