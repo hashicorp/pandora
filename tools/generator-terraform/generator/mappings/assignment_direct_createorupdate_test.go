@@ -3496,3 +3496,289 @@ func TestDirectAssignment_CreateOrUpdate_Zones_OptionalToOptional(t *testing.T) 
 		testhelpers.AssertTemplatedCodeMatches(t, v.expected, *actual)
 	}
 }
+
+func TestDirectAssignment_CreateOrUpdate_Dictionary_SimpleType_RequiredToRequired(t *testing.T) {
+	// mapping a Schema Model Field (Required) to an SDK Field (Required) for a dictionary where the value is a simple type
+
+	testData := []struct {
+		schemaModelFieldType resourcemanager.TerraformSchemaFieldType
+		sdkFieldType         resourcemanager.ApiObjectDefinitionType
+		expected             string
+	}{
+		{
+			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeString,
+			sdkFieldType:         resourcemanager.StringApiObjectDefinitionType,
+			expected:             "output.Labels = input.Labels",
+		},
+		{
+			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeInteger,
+			sdkFieldType:         resourcemanager.IntegerApiObjectDefinitionType,
+			expected:             "output.Labels = input.Labels",
+		},
+		{
+			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeBoolean,
+			sdkFieldType:         resourcemanager.BooleanApiObjectDefinitionType,
+			expected:             "output.Labels = input.Labels",
+		},
+		{
+			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeFloat,
+			sdkFieldType:         resourcemanager.FloatApiObjectDefinitionType,
+			expected:             "output.Labels = input.Labels",
+		},
+	}
+	for i, v := range testData {
+		t.Logf("Test %d - mapping %q to %q", i, string(v.schemaModelFieldType), string(v.sdkFieldType))
+		mapping := resourcemanager.FieldMappingDefinition{
+			Type: resourcemanager.DirectAssignmentMappingDefinitionType,
+			DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
+				SchemaModelName: "FromModel",
+				SchemaFieldPath: "Labels",
+				SdkFieldPath:    "Labels",
+				SdkModelName:    "ToModel",
+			},
+		}
+		schemaModel := resourcemanager.TerraformSchemaModelDefinition{
+			Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+				"Labels": {
+					ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+						Type: resourcemanager.TerraformSchemaFieldTypeDictionary,
+						NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
+							Type: v.schemaModelFieldType,
+						},
+					},
+					HclName:  "labels",
+					Required: true,
+				},
+			},
+		}
+		sdkModel := resourcemanager.ModelDetails{
+			Fields: map[string]resourcemanager.FieldDetails{
+				"Labels": {
+					JsonName: "labels",
+					ObjectDefinition: resourcemanager.ApiObjectDefinition{
+						Type: resourcemanager.DictionaryApiObjectDefinitionType,
+						NestedItem: &resourcemanager.ApiObjectDefinition{
+							Type: v.sdkFieldType,
+						},
+					},
+					Required: true,
+				},
+			},
+		}
+		actual, err := directAssignmentLine{}.assignmentForCreateUpdateMapping(mapping, schemaModel, sdkModel, nil, "sdkresource")
+		if err != nil {
+			t.Fatalf("retrieving create/update assignment mapping: %+v", err)
+		}
+		if actual == nil {
+			t.Fatalf("retrieving create/update assignment mapping: `actual` was nil")
+		}
+		testhelpers.AssertTemplatedCodeMatches(t, v.expected, *actual)
+	}
+}
+
+func TestDirectAssignment_CreateOrUpdate_Dictionary_SimpleType_RequiredToOptional(t *testing.T) {
+	// mapping a Schema Model Field (Required) to an SDK Field (Optional) for a dictionary where the value is a simple type
+
+	testData := []struct {
+		schemaModelFieldType resourcemanager.TerraformSchemaFieldType
+		sdkFieldType         resourcemanager.ApiObjectDefinitionType
+		expected             string
+	}{
+		{
+			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeString,
+			sdkFieldType:         resourcemanager.StringApiObjectDefinitionType,
+			expected:             "output.Labels = &input.Labels",
+		},
+		{
+			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeInteger,
+			sdkFieldType:         resourcemanager.IntegerApiObjectDefinitionType,
+			expected:             "output.Labels = &input.Labels",
+		},
+		{
+			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeBoolean,
+			sdkFieldType:         resourcemanager.BooleanApiObjectDefinitionType,
+			expected:             "output.Labels = &input.Labels",
+		},
+		{
+			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeFloat,
+			sdkFieldType:         resourcemanager.FloatApiObjectDefinitionType,
+			expected:             "output.Labels = &input.Labels",
+		},
+	}
+	for i, v := range testData {
+		t.Logf("Test %d - mapping %q to %q", i, string(v.schemaModelFieldType), string(v.sdkFieldType))
+		mapping := resourcemanager.FieldMappingDefinition{
+			Type: resourcemanager.DirectAssignmentMappingDefinitionType,
+			DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
+				SchemaModelName: "FromModel",
+				SchemaFieldPath: "Labels",
+				SdkFieldPath:    "Labels",
+				SdkModelName:    "ToModel",
+			},
+		}
+		schemaModel := resourcemanager.TerraformSchemaModelDefinition{
+			Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+				"Labels": {
+					ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+						Type: resourcemanager.TerraformSchemaFieldTypeDictionary,
+						NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
+							Type: v.schemaModelFieldType,
+						},
+					},
+					HclName:  "labels",
+					Required: true,
+				},
+			},
+		}
+		sdkModel := resourcemanager.ModelDetails{
+			Fields: map[string]resourcemanager.FieldDetails{
+				"Labels": {
+					JsonName: "labels",
+					ObjectDefinition: resourcemanager.ApiObjectDefinition{
+						Type: resourcemanager.DictionaryApiObjectDefinitionType,
+						NestedItem: &resourcemanager.ApiObjectDefinition{
+							Type: v.sdkFieldType,
+						},
+					},
+					Optional: true,
+				},
+			},
+		}
+		actual, err := directAssignmentLine{}.assignmentForCreateUpdateMapping(mapping, schemaModel, sdkModel, nil, "sdkresource")
+		if err != nil {
+			t.Fatalf("retrieving create/update assignment mapping: %+v", err)
+		}
+		if actual == nil {
+			t.Fatalf("retrieving create/update assignment mapping: `actual` was nil")
+		}
+		testhelpers.AssertTemplatedCodeMatches(t, v.expected, *actual)
+	}
+}
+
+func TestDirectAssignment_CreateOrUpdate_Dictionary_SimpleType_OptionalToRequired(t *testing.T) {
+	// mapping a Schema Model Field (Optional) to an SDK Field (Required) for a dictionary where the value is a simple type
+
+	mapping := resourcemanager.FieldMappingDefinition{
+		Type: resourcemanager.DirectAssignmentMappingDefinitionType,
+		DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
+			SchemaModelName: "FromModel",
+			SchemaFieldPath: "Labels",
+			SdkFieldPath:    "Labels",
+			SdkModelName:    "ToModel",
+		},
+	}
+	schemaModel := resourcemanager.TerraformSchemaModelDefinition{
+		Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+			"Labels": {
+				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+					Type: resourcemanager.TerraformSchemaFieldTypeDictionary,
+					NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
+						Type: resourcemanager.TerraformSchemaFieldTypeFloat,
+					},
+				},
+				HclName:  "labels",
+				Optional: true,
+			},
+		},
+	}
+	sdkModel := resourcemanager.ModelDetails{
+		Fields: map[string]resourcemanager.FieldDetails{
+			"Labels": {
+				JsonName: "labels",
+				ObjectDefinition: resourcemanager.ApiObjectDefinition{
+					Type: resourcemanager.DictionaryApiObjectDefinitionType,
+					NestedItem: &resourcemanager.ApiObjectDefinition{
+						Type: resourcemanager.FloatApiObjectDefinitionType,
+					},
+				},
+				Required: true,
+			},
+		},
+	}
+	actual, err := directAssignmentLine{}.assignmentForCreateUpdateMapping(mapping, schemaModel, sdkModel, nil, "sdkresource")
+	if err == nil {
+		t.Fatalf("expected an error but didn't get one")
+	}
+	if actual != nil {
+		t.Fatalf("expected an error and no result but got a result (%q) and no error", *actual)
+	}
+}
+
+func TestDirectAssignment_CreateOrUpdate_Dictionary_SimpleType_OptionalToOptional(t *testing.T) {
+	// mapping a Schema Model Field (Optional) to an SDK Field (Optional) for a dictionary where the value is a simple type
+
+	testData := []struct {
+		schemaModelFieldType resourcemanager.TerraformSchemaFieldType
+		sdkFieldType         resourcemanager.ApiObjectDefinitionType
+		expected             string
+	}{
+		{
+			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeString,
+			sdkFieldType:         resourcemanager.StringApiObjectDefinitionType,
+			expected:             "output.Labels = &input.Labels",
+		},
+		{
+			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeInteger,
+			sdkFieldType:         resourcemanager.IntegerApiObjectDefinitionType,
+			expected:             "output.Labels = &input.Labels",
+		},
+		{
+			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeBoolean,
+			sdkFieldType:         resourcemanager.BooleanApiObjectDefinitionType,
+			expected:             "output.Labels = &input.Labels",
+		},
+		{
+			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeFloat,
+			sdkFieldType:         resourcemanager.FloatApiObjectDefinitionType,
+			expected:             "output.Labels = &input.Labels",
+		},
+	}
+	for i, v := range testData {
+		t.Logf("Test %d - mapping %q to %q", i, string(v.schemaModelFieldType), string(v.sdkFieldType))
+		mapping := resourcemanager.FieldMappingDefinition{
+			Type: resourcemanager.DirectAssignmentMappingDefinitionType,
+			DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
+				SchemaModelName: "FromModel",
+				SchemaFieldPath: "Labels",
+				SdkFieldPath:    "Labels",
+				SdkModelName:    "ToModel",
+			},
+		}
+		schemaModel := resourcemanager.TerraformSchemaModelDefinition{
+			Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+				"Labels": {
+					ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+						Type: resourcemanager.TerraformSchemaFieldTypeDictionary,
+						NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
+							Type: v.schemaModelFieldType,
+						},
+					},
+					HclName:  "labels",
+					Required: true,
+				},
+			},
+		}
+		sdkModel := resourcemanager.ModelDetails{
+			Fields: map[string]resourcemanager.FieldDetails{
+				"Labels": {
+					JsonName: "labels",
+					ObjectDefinition: resourcemanager.ApiObjectDefinition{
+						Type: resourcemanager.DictionaryApiObjectDefinitionType,
+						NestedItem: &resourcemanager.ApiObjectDefinition{
+							Type: v.sdkFieldType,
+						},
+					},
+					Optional: true,
+				},
+			},
+		}
+		actual, err := directAssignmentLine{}.assignmentForCreateUpdateMapping(mapping, schemaModel, sdkModel, nil, "sdkresource")
+		if err != nil {
+			t.Fatalf("retrieving create/update assignment mapping: %+v", err)
+		}
+		if actual == nil {
+			t.Fatalf("retrieving create/update assignment mapping: `actual` was nil")
+		}
+		testhelpers.AssertTemplatedCodeMatches(t, v.expected, *actual)
+	}
+}

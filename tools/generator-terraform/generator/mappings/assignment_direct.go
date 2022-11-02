@@ -69,6 +69,10 @@ func (d directAssignmentLine) assignmentForCreateUpdateMapping(mapping resourcem
 		return d.schemaToSdkMappingBetweenListFields(mapping, schemaField, sdkField, sdkConstant, apiResourcePackageName)
 	}
 
+	if schemaField.ObjectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeDictionary && sdkField.ObjectDefinition.Type == resourcemanager.DictionaryApiObjectDefinitionType {
+		return d.schemaToSdkMappingBetweenDictionaryOfSimpleTypes(mapping, schemaField, sdkField, sdkConstant, apiResourcePackageName)
+	}
+
 	if schemaField.ObjectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeReference && sdkField.ObjectDefinition.NestedItem == nil {
 		return d.schemaToSdkMappingBetweenFieldAndBlock(mapping, schemaField, sdkField)
 	}
@@ -549,6 +553,41 @@ if input.%[2]s != nil {
 }
 output.%[1]s = &%[3]s
 `, mapping.DirectAssignment.SdkFieldPath, mapping.DirectAssignment.SchemaFieldPath, sdkField.JsonName, *listVariableType, *listItemVariableReferenceType, schemaFieldTypeName, listItemVariableReferenceName)
+	return &line, nil
+}
+
+func (d directAssignmentLine) schemaToSdkMappingBetweenDictionaryOfSimpleTypes(mapping resourcemanager.FieldMappingDefinition, schemaField resourcemanager.TerraformSchemaFieldDefinition, sdkField resourcemanager.FieldDetails, _ *assignmentConstantDetails, _ string) (*string, error) {
+	if schemaField.ObjectDefinition.NestedObject == nil {
+		return nil, fmt.Errorf("the Schema Model %q Field %q was a Dictionary with no NestedObject", mapping.DirectAssignment.SchemaModelName, mapping.DirectAssignment.SchemaFieldPath)
+	}
+	if sdkField.ObjectDefinition.NestedItem == nil {
+		return nil, fmt.Errorf("the SDK Model %q Field %q was a Dictionary with no NestedItem", mapping.DirectAssignment.SdkModelName, mapping.DirectAssignment.SdkFieldPath)
+	}
+
+	v, ok := directAssignmentTypes[schemaField.ObjectDefinition.NestedObject.Type]
+	if !ok {
+		return nil, fmt.Errorf("a DirectAssignment wasn't defined between %q and %q", string(schemaField.ObjectDefinition.NestedObject.Type), string(sdkField.ObjectDefinition.NestedItem.Type))
+	}
+	if v != sdkField.ObjectDefinition.NestedItem.Type {
+		return nil, fmt.Errorf("expected a DirectAssignment between %q and %q but got %q", string(schemaField.ObjectDefinition.NestedObject.Type), string(v), string(sdkField.ObjectDefinition.NestedItem.Type))
+	}
+
+	if schemaField.Required {
+		line := fmt.Sprintf("output.%[1]s = input.%[2]s", mapping.DirectAssignment.SchemaFieldPath, mapping.DirectAssignment.SdkFieldPath)
+		if sdkField.Optional {
+			line = fmt.Sprintf("output.%[1]s = &input.%[2]s", mapping.DirectAssignment.SchemaFieldPath, mapping.DirectAssignment.SdkFieldPath)
+		}
+		return &line, nil
+	}
+
+	if sdkField.Required {
+		// if the SDK Field is Required but the Schema Field is Optional this is a Data Issue
+		// TODO: handle where it's defaulted?
+		return nil, fmt.Errorf("the Sdk Model %q Field %q was Required but Schema Model %q Field %q was Optional but must be Required", mapping.DirectAssignment.SdkModelName, mapping.DirectAssignment.SdkFieldPath, mapping.DirectAssignment.SchemaModelName, mapping.DirectAssignment.SchemaFieldPath)
+	}
+
+	// optional -> optional
+	line := fmt.Sprintf("output.%[1]s = &input.%[2]s)", mapping.DirectAssignment.SchemaFieldPath, mapping.DirectAssignment.SdkFieldPath)
 	return &line, nil
 }
 
