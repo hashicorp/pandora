@@ -801,6 +801,9 @@ func TestComponentUpdate_PayloadDefinition_ModelSharedBetweenCreateReadUpdate(t 
 		return fmt.Errorf("retrieving existing %s: properties was nil", *id)
 	}
 	payload := *existing.Model
+	if err := r.mapToSharedPayload(config, &payload); err != nil {
+		return fmt.Errorf("mapping schema model to sdk model: %+v", err)
+	}
 `
 	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
 }
