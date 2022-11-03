@@ -9,8 +9,8 @@ public class KubernetesFleetManagerResource : TerraformResourceDefinition
     public string DisplayName => "Kubernetes Fleet Manager";
     public ResourceID ResourceId => new v2022_09_02_preview.Fleets.FleetId();
     public string ResourceLabel => "kubernetes_fleet_manager";
-    public string ResourceCategory => "Kubernetes Fleet Manager";
-    public string ResourceDescription => "Manages a Fleet of Kubernetes Clusters";
+    public string ResourceCategory => "Containers";
+    public string ResourceDescription => "Manages a Kubernetes Fleet Manager";
     public string ResourceExampleUsage => @"resource 'azurerm_kubernetes_fleet_manager' 'example' {
 
   hub_profile {
