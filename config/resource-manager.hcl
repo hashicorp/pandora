@@ -189,7 +189,7 @@ service "kubernetesconfiguration" {
 }
 service "labservices" {
   name      = "LabServices"
-  available = ["2021-10-01-preview"]
+  available = ["2021-10-01-preview", "2022-08-01"]
 }
 service "loadtestservice" {
   name      = "LoadTestService"
