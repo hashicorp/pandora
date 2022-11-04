@@ -10,7 +10,10 @@ public class KubernetesFleetManagerResource : TerraformResourceDefinition
     public ResourceID ResourceId => new v2022_09_02_preview.Fleets.FleetId();
     public string ResourceLabel => "kubernetes_fleet_manager";
     public string ResourceCategory => "Containers";
-    public string ResourceDescription => "Manages a Kubernetes Fleet Manager";
+    public string ResourceDescription => @"Manages a Kubernetes Fleet Manager
+
+~> **Note:** This Resource is in **Preview** to use this you must be opted into the Preview. You can do this by running `az feature register --namespace Microsoft.ContainerService --name FleetResourcePreview` and then `az provider register -n Microsoft.ContainerService`
+";
     public string ResourceExampleUsage => @"resource 'azurerm_kubernetes_fleet_manager' 'example' {
 
   hub_profile {
