@@ -205,7 +205,7 @@ service "maintenance" {
 }
 service "managedservices" {
   name      = "ManagedServices"
-  available = ["2019-06-01"]
+  available = ["2019-06-01", "2022-10-01"]
 }
 service "maps" {
   name      = "Maps"
