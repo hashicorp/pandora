@@ -34,7 +34,7 @@ public class %[2]sResource : TerraformResourceDefinition
     public ResourceID ResourceId => new %[4]s.%[5]s.%[6]s();
     public string ResourceLabel => "%[7]s";
     public string ResourceCategory => "%[10]s";
-    public string ResourceDescription => "%[9]s";
+    public string ResourceDescription => @"%[9]s";
     public string ResourceExampleUsage => @"%[11]s".AsTerraformTestConfig();
     public Type? SchemaModel => typeof(%[2]sResourceSchema);
     public TerraformMappingDefinition SchemaMappings => new %[2]sResourceMappings();
