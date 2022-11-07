@@ -55,3 +55,33 @@ func TestCommonResourceID_ResourceGroup(t *testing.T) {
 		t.Fatalf("unexpected Resource ID %q", normalizedResourceId(actual.Segments))
 	}
 }
+
+func TestCommonResourceID_ResourceGroupIncorrectSegment(t *testing.T) {
+	input := []models.ParsedResourceId{
+		{
+			Constants: map[string]resourcemanager.ConstantDetails{},
+			Segments: []resourcemanager.ResourceIdSegment{
+				models.StaticResourceIDSegment("subscriptions", "subscriptions"),
+				models.SubscriptionIDResourceIDSegment("subscriptionId"),
+				models.StaticResourceIDSegment("resourceGroups", "resourceGroups"),
+				models.ResourceGroupResourceIDSegment("resourceGroupName"),
+			},
+		},
+		{
+			Constants: map[string]resourcemanager.ConstantDetails{},
+			Segments: []resourcemanager.ResourceIdSegment{
+				models.StaticResourceIDSegment("subscriptions", "subscriptions"),
+				models.SubscriptionIDResourceIDSegment("subscriptionId"),
+				models.StaticResourceIDSegment("resourceGroups", "resourceGroups"),
+				models.ResourceGroupResourceIDSegment("sourceResourceGroupName"),
+			},
+		},
+	}
+	output := switchOutCommonResourceIDsAsNeeded(input)
+	for i, actual := range output {
+		t.Logf("testing %d", i)
+		if actual.CommonAlias == nil || *actual.CommonAlias != "ResourceGroup" {
+			t.Fatalf("expected item %d to be detected as a ResourceGroup but it wasn't", i)
+		}
+	}
+}

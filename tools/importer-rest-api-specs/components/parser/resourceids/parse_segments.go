@@ -98,7 +98,7 @@ func (p *Parser) parseResourceIdFromOperation(uri string, operation *spec.Operat
 				}
 			}
 
-			if strings.EqualFold(normalizedSegment, "resourceGroup") || strings.EqualFold(normalizedSegment, "resourceGroupName") {
+			if strings.Contains(strings.ToLower(normalizedSegment), "resourcegroup") {
 				previousSegmentWasResourceGroups := false
 				if len(segments) > 0 {
 					lastSegment := segments[len(segments)-1]
