@@ -11,9 +11,9 @@ using System.Net;
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 
 
-namespace Pandora.Definitions.ResourceManager.Resources.v2020_06_01.Resources;
+namespace Pandora.Definitions.ResourceManager.Resources.v2020_10_01.Resources;
 
-internal class MoveResourcesOperation : Operations.PostOperation
+internal class ValidateMoveResourcesOperation : Operations.PostOperation
 {
     public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
@@ -27,7 +27,7 @@ internal class MoveResourcesOperation : Operations.PostOperation
 
     public override ResourceID? ResourceId() => new ResourceGroupId();
 
-    public override string? UriSuffix() => "/moveResources";
+    public override string? UriSuffix() => "/validateMoveResources";
 
 
 }

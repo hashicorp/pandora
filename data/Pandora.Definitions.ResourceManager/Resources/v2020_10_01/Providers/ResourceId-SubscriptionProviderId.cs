@@ -6,19 +6,19 @@ using Pandora.Definitions.Interfaces;
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 
 
-namespace Pandora.Definitions.ResourceManager.Resources.v2020_06_01.Resources;
+namespace Pandora.Definitions.ResourceManager.Resources.v2020_10_01.Providers;
 
-internal class SubscriptionResourceGroupId : ResourceID
+internal class SubscriptionProviderId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{sourceResourceGroupName}";
+    public string ID => "/subscriptions/{subscriptionId}/providers/{resourceProviderNamespace}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
         ResourceIDSegment.Static("staticSubscriptions", "subscriptions"),
         ResourceIDSegment.SubscriptionId("subscriptionId"),
-        ResourceIDSegment.Static("staticResourceGroups", "resourceGroups"),
-        ResourceIDSegment.UserSpecified("sourceResourceGroupName"),
+        ResourceIDSegment.Static("staticProviders", "providers"),
+        ResourceIDSegment.UserSpecified("resourceProviderNamespace"),
     };
 }
