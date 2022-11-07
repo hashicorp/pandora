@@ -239,6 +239,34 @@ func TestParseResourceIDFromOperation_ResourceGroupId(t *testing.T) {
 	validateSegmentsMatch(t, *resourceId.segments, expectedSegments)
 }
 
+func TestParseResourceIDFromOperation_ResourceGroupId_IncorrectSegment(t *testing.T) {
+	swagger := spec.NewOperation("Example_Operation")
+	uri := "/subscriptions/{subscriptionId}/resourceGroups/{sourceResourceGroupName}"
+
+	parser := NewParser(hclog.NewNullLogger(), nil)
+	resourceId, err := parser.parseResourceIdFromOperation(uri, swagger)
+	if err != nil {
+		t.Fatalf("parsing Resource ID from %q: %+v", uri, err)
+	}
+
+	if resourceId.uriSuffix != nil {
+		t.Fatalf("expected no uriSuffix but got %q", *resourceId.uriSuffix)
+	}
+	if len(resourceId.constants) != 0 {
+		t.Fatalf("expected 0 constants but got %d", len(resourceId.constants))
+	}
+	if resourceId.segments == nil {
+		t.Fatalf("expected 4 segments but got 0")
+	}
+	expectedSegments := []resourcemanager.ResourceIdSegment{
+		models.StaticResourceIDSegment("providers", "providers"),
+		models.SubscriptionIDResourceIDSegment("subscriptionId"),
+		models.StaticResourceIDSegment("resourceGroups", "resourceGroups"),
+		models.ResourceGroupResourceIDSegment("resourceGroupName"),
+	}
+	validateSegmentsMatch(t, *resourceId.segments, expectedSegments)
+}
+
 func TestParseResourceIDFromOperation_Scope(t *testing.T) {
 	swagger := spec.NewOperation("Example_Operation")
 	uri := "/{resourceId}"
