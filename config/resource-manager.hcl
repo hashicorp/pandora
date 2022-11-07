@@ -301,7 +301,7 @@ service "relay" {
 }
 service "resources" {
   name      = "Resources"
-  available = ["2020-06-01"]
+  available = ["2020-06-01", "2020-10-01"]
 }
 service "search" {
   name      = "Search"
