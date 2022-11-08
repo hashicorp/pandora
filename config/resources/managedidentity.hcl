@@ -1,7 +1,7 @@
 service "ManagedIdentity" {
   terraform_package = "managedidentity"
 
-  api "2018-11-30" {
+  api "2022-01-31-preview" {
     package "ManagedIdentities" {
       definition "user_assigned_identity" {
         id = "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{resourceName}"
