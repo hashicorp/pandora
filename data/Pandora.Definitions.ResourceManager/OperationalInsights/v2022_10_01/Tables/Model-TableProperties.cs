@@ -37,7 +37,7 @@ internal class TablePropertiesModel
     public int? RetentionInDays { get; set; }
 
     [JsonPropertyName("retentionInDaysAsDefault")]
-    public RetentionInDaysAsDefaultConstant? RetentionInDaysAsDefault { get; set; }
+    public bool? RetentionInDaysAsDefault { get; set; }
 
     [JsonPropertyName("schema")]
     public SchemaModel? Schema { get; set; }
@@ -49,5 +49,5 @@ internal class TablePropertiesModel
     public int? TotalRetentionInDays { get; set; }
 
     [JsonPropertyName("totalRetentionInDaysAsDefault")]
-    public TotalRetentionInDaysAsDefaultConstant? TotalRetentionInDaysAsDefault { get; set; }
+    public bool? TotalRetentionInDaysAsDefault { get; set; }
 }
