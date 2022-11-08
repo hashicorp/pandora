@@ -229,7 +229,7 @@ service "monitor" {
 }
 service "msi" {
   name      = "ManagedIdentity"
-  available = ["2018-11-30"]
+  available = ["2018-11-30", "2022-01-31-preview"]
 }
 service "netapp" {
   name      = "NetApp"
