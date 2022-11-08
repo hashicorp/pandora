@@ -7,7 +7,7 @@ namespace Pandora.Definitions.ResourceManager.ManagedIdentity.Terraform;
 public class UserAssignedIdentityResource : TerraformResourceDefinition
 {
     public string DisplayName => "User Assigned Identity";
-    public ResourceID ResourceId => new v2018_11_30.ManagedIdentities.UserAssignedIdentityId();
+    public ResourceID ResourceId => new v2022_01_31_preview.ManagedIdentities.UserAssignedIdentityId();
     public string ResourceLabel => "user_assigned_identity";
     public string ResourceCategory => "Authorization";
     public string ResourceDescription => @"Manages a User Assigned Identity";
@@ -27,25 +27,25 @@ public class UserAssignedIdentityResource : TerraformResourceDefinition
     public MethodDefinition CreateMethod => new MethodDefinition
     {
         Generate = true,
-        Method = typeof(v2018_11_30.ManagedIdentities.UserAssignedIdentitiesCreateOrUpdateOperation),
+        Method = typeof(v2022_01_31_preview.ManagedIdentities.UserAssignedIdentitiesCreateOrUpdateOperation),
         TimeoutInMinutes = 30,
     };
     public MethodDefinition DeleteMethod => new MethodDefinition
     {
         Generate = true,
-        Method = typeof(v2018_11_30.ManagedIdentities.UserAssignedIdentitiesDeleteOperation),
+        Method = typeof(v2022_01_31_preview.ManagedIdentities.UserAssignedIdentitiesDeleteOperation),
         TimeoutInMinutes = 30,
     };
     public MethodDefinition ReadMethod => new MethodDefinition
     {
         Generate = true,
-        Method = typeof(v2018_11_30.ManagedIdentities.UserAssignedIdentitiesGetOperation),
+        Method = typeof(v2022_01_31_preview.ManagedIdentities.UserAssignedIdentitiesGetOperation),
         TimeoutInMinutes = 5,
     };
     public MethodDefinition? UpdateMethod => new MethodDefinition
     {
         Generate = true,
-        Method = typeof(v2018_11_30.ManagedIdentities.UserAssignedIdentitiesUpdateOperation),
+        Method = typeof(v2022_01_31_preview.ManagedIdentities.UserAssignedIdentitiesUpdateOperation),
         TimeoutInMinutes = 30,
     };
 }

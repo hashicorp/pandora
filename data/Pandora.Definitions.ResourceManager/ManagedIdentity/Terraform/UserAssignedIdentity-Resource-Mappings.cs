@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Pandora.Definitions.Interfaces;
 using Pandora.Definitions.Mappings;
-using Pandora.Definitions.ResourceManager.ManagedIdentity.v2018_11_30.ManagedIdentities;
+using Pandora.Definitions.ResourceManager.ManagedIdentity.v2022_01_31_preview.ManagedIdentities;
 
 namespace Pandora.Definitions.ResourceManager.ManagedIdentity.Terraform;
 
