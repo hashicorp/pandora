@@ -115,6 +115,10 @@ func (d directAssignmentLine) assignmentForReadMapping(mapping resourcemanager.F
 		return d.sdkToSchemaMappingBetweenListFields(mapping, schemaField, sdkField, sdkConstant, apiResourcePackageName)
 	}
 
+	if schemaField.ObjectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeDictionary && sdkField.ObjectDefinition.Type == resourcemanager.DictionaryApiObjectDefinitionType {
+		return d.sdkToSchemaMappingBetweenDictionaryOfSimpleTypes(mapping, schemaField, sdkField, apiResourcePackageName)
+	}
+
 	if schemaField.ObjectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeReference && sdkField.ObjectDefinition.NestedItem == nil {
 		return d.sdkToSchemaMappingBetweenFieldAndBlock(mapping, schemaField, sdkField)
 	}
@@ -575,7 +579,7 @@ func (d directAssignmentLine) schemaToSdkMappingBetweenDictionaryOfSimpleTypes(m
 	if schemaField.Required {
 		line := fmt.Sprintf("output.%[1]s = input.%[2]s", mapping.DirectAssignment.SchemaFieldPath, mapping.DirectAssignment.SdkFieldPath)
 		if sdkField.Optional {
-			line = fmt.Sprintf("output.%[1]s = &input.%[2]s", mapping.DirectAssignment.SchemaFieldPath, mapping.DirectAssignment.SdkFieldPath)
+			line = fmt.Sprintf("output.%[1]s = pointer.To(input.%[2]s)", mapping.DirectAssignment.SchemaFieldPath, mapping.DirectAssignment.SdkFieldPath)
 		}
 		return &line, nil
 	}
@@ -587,7 +591,7 @@ func (d directAssignmentLine) schemaToSdkMappingBetweenDictionaryOfSimpleTypes(m
 	}
 
 	// optional -> optional
-	line := fmt.Sprintf("output.%[1]s = &input.%[2]s)", mapping.DirectAssignment.SchemaFieldPath, mapping.DirectAssignment.SdkFieldPath)
+	line := fmt.Sprintf("output.%[1]s = pointer.To(&input.%[2]s)", mapping.DirectAssignment.SchemaFieldPath, mapping.DirectAssignment.SdkFieldPath)
 	return &line, nil
 }
 
@@ -914,6 +918,42 @@ if input.%[1]s != nil {
 }
 output.%[2]s = &%[3]s
 `, mapping.DirectAssignment.SdkFieldPath, mapping.DirectAssignment.SchemaFieldPath, sdkField.JsonName, sdkFieldTypeName, schemaFieldTypeName)
+	return &line, nil
+}
+
+func (d directAssignmentLine) sdkToSchemaMappingBetweenDictionaryOfSimpleTypes(mapping resourcemanager.FieldMappingDefinition, schemaField resourcemanager.TerraformSchemaFieldDefinition, sdkField resourcemanager.FieldDetails, _ string) (*string, error) {
+	if schemaField.ObjectDefinition.NestedObject == nil {
+		return nil, fmt.Errorf("the Schema Model %q Field %q was a Dictionary with no NestedObject", mapping.DirectAssignment.SchemaModelName, mapping.DirectAssignment.SchemaFieldPath)
+	}
+	if sdkField.ObjectDefinition.NestedItem == nil {
+		return nil, fmt.Errorf("the SDK Model %q Field %q was a Dictionary with no NestedItem", mapping.DirectAssignment.SdkModelName, mapping.DirectAssignment.SdkFieldPath)
+	}
+
+	v, ok := directAssignmentTypes[schemaField.ObjectDefinition.NestedObject.Type]
+	if !ok {
+		return nil, fmt.Errorf("a DirectAssignment wasn't defined between %q and %q", string(schemaField.ObjectDefinition.Type), string(sdkField.ObjectDefinition.Type))
+	}
+	if v != sdkField.ObjectDefinition.NestedItem.Type {
+		return nil, fmt.Errorf("expected a DirectAssignment between %q and %q but got %q", string(schemaField.ObjectDefinition.Type), string(v), string(sdkField.ObjectDefinition.Type))
+	}
+
+	if schemaField.Required {
+		line := fmt.Sprintf("output.%[1]s = input.%[2]s", mapping.DirectAssignment.SchemaFieldPath, mapping.DirectAssignment.SdkFieldPath)
+
+		if sdkField.Optional {
+			line = fmt.Sprintf("output.%[1]s = Pointer.From(input.%[2]s)", mapping.DirectAssignment.SchemaFieldPath, mapping.DirectAssignment.SdkFieldPath)
+		}
+		return &line, nil
+	}
+
+	if sdkField.Required {
+		// if the SDK Field is Required but the Schema Field is Optional this is a Data Issue
+		// TODO: handle where it's defaulted?
+		return nil, fmt.Errorf("the Sdk Model %q Field %q was Required but Schema Model %q Field %q was Optional but must be Required", mapping.DirectAssignment.SdkModelName, mapping.DirectAssignment.SdkFieldPath, mapping.DirectAssignment.SchemaModelName, mapping.DirectAssignment.SchemaFieldPath)
+	}
+
+	// optional -> optional
+	line := fmt.Sprintf("output.%[1]s = Pointer.From(input.%[2]s)", mapping.DirectAssignment.SchemaFieldPath, mapping.DirectAssignment.SdkFieldPath)
 	return &line, nil
 }
 

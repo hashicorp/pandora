@@ -3587,22 +3587,22 @@ func TestDirectAssignment_CreateOrUpdate_Dictionary_SimpleType_RequiredToOptiona
 		{
 			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeString,
 			sdkFieldType:         resourcemanager.StringApiObjectDefinitionType,
-			expected:             "output.Labels = &input.Labels",
+			expected:             "output.Labels = pointer.To(input.Labels)",
 		},
 		{
 			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeInteger,
 			sdkFieldType:         resourcemanager.IntegerApiObjectDefinitionType,
-			expected:             "output.Labels = &input.Labels",
+			expected:             "output.Labels = pointer.To(input.Labels)",
 		},
 		{
 			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeBoolean,
 			sdkFieldType:         resourcemanager.BooleanApiObjectDefinitionType,
-			expected:             "output.Labels = &input.Labels",
+			expected:             "output.Labels = pointer.To(input.Labels)",
 		},
 		{
 			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeFloat,
 			sdkFieldType:         resourcemanager.FloatApiObjectDefinitionType,
-			expected:             "output.Labels = &input.Labels",
+			expected:             "output.Labels = pointer.To(input.Labels)",
 		},
 	}
 	for i, v := range testData {
@@ -3715,22 +3715,22 @@ func TestDirectAssignment_CreateOrUpdate_Dictionary_SimpleType_OptionalToOptiona
 		{
 			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeString,
 			sdkFieldType:         resourcemanager.StringApiObjectDefinitionType,
-			expected:             "output.Labels = &input.Labels",
+			expected:             "output.Labels = pointer.To(input.Labels)",
 		},
 		{
 			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeInteger,
 			sdkFieldType:         resourcemanager.IntegerApiObjectDefinitionType,
-			expected:             "output.Labels = &input.Labels",
+			expected:             "output.Labels = pointer.To(input.Labels)",
 		},
 		{
 			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeBoolean,
 			sdkFieldType:         resourcemanager.BooleanApiObjectDefinitionType,
-			expected:             "output.Labels = &input.Labels",
+			expected:             "output.Labels = pointer.To(input.Labels)",
 		},
 		{
 			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeFloat,
 			sdkFieldType:         resourcemanager.FloatApiObjectDefinitionType,
-			expected:             "output.Labels = &input.Labels",
+			expected:             "output.Labels = pointer.To(input.Labels)",
 		},
 	}
 	for i, v := range testData {
