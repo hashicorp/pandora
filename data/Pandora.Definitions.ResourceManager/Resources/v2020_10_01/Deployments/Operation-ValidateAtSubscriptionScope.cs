@@ -11,23 +11,25 @@ using System.Net;
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 
 
-namespace Pandora.Definitions.ResourceManager.Resources.v2020_06_01.Resources;
+namespace Pandora.Definitions.ResourceManager.Resources.v2020_10_01.Deployments;
 
-internal class MoveResourcesOperation : Operations.PostOperation
+internal class ValidateAtSubscriptionScopeOperation : Operations.PostOperation
 {
     public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
-                HttpStatusCode.NoContent,
+                HttpStatusCode.OK,
         };
 
     public override bool LongRunning() => true;
 
-    public override Type? RequestObject() => typeof(ResourcesMoveInfoModel);
+    public override Type? RequestObject() => typeof(DeploymentModel);
 
-    public override ResourceID? ResourceId() => new ResourceGroupId();
+    public override ResourceID? ResourceId() => new ProviderDeploymentId();
 
-    public override string? UriSuffix() => "/moveResources";
+    public override Type? ResponseObject() => typeof(DeploymentValidateResultModel);
+
+    public override string? UriSuffix() => "/validate";
 
 
 }

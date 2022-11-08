@@ -25,7 +25,7 @@ internal class ValidateMoveResourcesOperation : Operations.PostOperation
 
     public override Type? RequestObject() => typeof(ResourcesMoveInfoModel);
 
-    public override ResourceID? ResourceId() => new SubscriptionResourceGroupId();
+    public override ResourceID? ResourceId() => new ResourceGroupId();
 
     public override string? UriSuffix() => "/validateMoveResources";
 
