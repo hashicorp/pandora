@@ -308,7 +308,7 @@ service "search" {
   available = ["2020-03-13", "2020-08-01"]
 }
 service "security" {
-  name = "Security"
+  name      = "Security"
   available = ["2022-03-01"]
 }
 service "securityinsights" {
