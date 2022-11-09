@@ -307,6 +307,10 @@ service "search" {
   name      = "Search"
   available = ["2020-03-13", "2020-08-01"]
 }
+service "security" {
+  name = "Security"
+  available = ["2022-03-01"]
+}
 service "securityinsights" {
   name      = "SecurityInsights"
   available = ["2021-09-01-preview", "2022-07-01-preview"]
