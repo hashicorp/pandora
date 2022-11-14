@@ -19,6 +19,7 @@ public partial class Definition : ApiVersionDefinition
         new FirewallRules.Definition(),
         new GetPrivateDnsZoneSuffix.Definition(),
         new LocationBasedCapabilities.Definition(),
+        new Replicas.Definition(),
         new ServerRestart.Definition(),
         new ServerStart.Definition(),
         new ServerStop.Definition(),
