@@ -77,7 +77,7 @@ service "containerinstance" {
 }
 service "containerservice" {
   name      = "ContainerService"
-  available = ["2022-08-02-preview", "2022-09-02-preview"]
+  available = ["2022-09-02-preview"]
 }
 service "cosmos-db" {
   name      = "CosmosDB"
