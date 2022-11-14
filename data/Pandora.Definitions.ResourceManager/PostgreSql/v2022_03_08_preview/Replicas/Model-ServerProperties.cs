@@ -10,25 +10,34 @@ using Pandora.Definitions.CustomTypes;
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 
 
-namespace Pandora.Definitions.ResourceManager.PostgreSql.v2022_03_08_preview.Servers;
+namespace Pandora.Definitions.ResourceManager.PostgreSql.v2022_03_08_preview.Replicas;
 
 
-internal class ServerPropertiesForUpdateModel
+internal class ServerPropertiesModel
 {
+    [JsonPropertyName("administratorLogin")]
+    public string? AdministratorLogin { get; set; }
+
     [JsonPropertyName("administratorLoginPassword")]
     public string? AdministratorLoginPassword { get; set; }
 
     [JsonPropertyName("authConfig")]
     public AuthConfigModel? AuthConfig { get; set; }
 
+    [JsonPropertyName("availabilityZone")]
+    public CustomTypes.Zone? AvailabilityZone { get; set; }
+
     [JsonPropertyName("backup")]
     public BackupModel? Backup { get; set; }
 
     [JsonPropertyName("createMode")]
-    public CreateModeForUpdateConstant? CreateMode { get; set; }
+    public CreateModeConstant? CreateMode { get; set; }
 
     [JsonPropertyName("dataEncryption")]
     public DataEncryptionModel? DataEncryption { get; set; }
+
+    [JsonPropertyName("fullyQualifiedDomainName")]
+    public string? FullyQualifiedDomainName { get; set; }
 
     [JsonPropertyName("highAvailability")]
     public HighAvailabilityModel? HighAvailability { get; set; }
@@ -36,8 +45,27 @@ internal class ServerPropertiesForUpdateModel
     [JsonPropertyName("maintenanceWindow")]
     public MaintenanceWindowModel? MaintenanceWindow { get; set; }
 
+    [JsonPropertyName("minorVersion")]
+    public string? MinorVersion { get; set; }
+
+    [JsonPropertyName("network")]
+    public NetworkModel? Network { get; set; }
+
+    [DateFormat(DateFormatAttribute.DateFormat.RFC3339)]
+    [JsonPropertyName("pointInTimeUTC")]
+    public DateTime? PointInTimeUTC { get; set; }
+
+    [JsonPropertyName("replicaCapacity")]
+    public int? ReplicaCapacity { get; set; }
+
     [JsonPropertyName("replicationRole")]
     public ReplicationRoleConstant? ReplicationRole { get; set; }
+
+    [JsonPropertyName("sourceServerResourceId")]
+    public string? SourceServerResourceId { get; set; }
+
+    [JsonPropertyName("state")]
+    public ServerStateConstant? State { get; set; }
 
     [JsonPropertyName("storage")]
     public StorageModel? Storage { get; set; }
