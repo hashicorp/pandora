@@ -303,6 +303,10 @@ service "resources" {
   name      = "Resources"
   available = ["2020-06-01", "2020-10-01"]
 }
+service "resourceconnector" {
+  name      = "ResourceConnector"
+  available = ["2022-10-27"]
+}
 service "search" {
   name      = "Search"
   available = ["2020-03-13", "2020-08-01"]
