@@ -197,7 +197,7 @@ service "loadtestservice" {
 }
 service "machinelearningservices" {
   name      = "MachineLearningServices"
-  available = ["2021-07-01", "2022-05-01"]
+  available = ["2022-05-01"]
 }
 service "maintenance" {
   name      = "Maintenance"
