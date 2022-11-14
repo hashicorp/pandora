@@ -293,7 +293,7 @@ service "recoveryservices" {
 }
 service "redisenterprise" {
   name      = "RedisEnterprise"
-  available = ["2021-08-01", "2022-01-01"]
+  available = ["2022-01-01"]
 }
 service "relay" {
   name      = "Relay"
