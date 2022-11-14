@@ -37,11 +37,11 @@ service "automation" {
 }
 service "azure-kusto" {
   name      = "Kusto"
-  available = ["2021-08-27", "2022-02-01", "2022-07-07"]
+  available = ["2022-07-07"]
 }
 service "azurestackhci" {
   name      = "AzureStackHCI"
-  available = ["2020-10-01", "2022-09-01"]
+  available = ["2022-09-01"]
 }
 service "batch" {
   name      = "Batch"
@@ -73,11 +73,11 @@ service "consumption" {
 }
 service "containerinstance" {
   name      = "ContainerInstance"
-  available = ["2021-03-01", "2021-10-01"]
+  available = ["2021-10-01"]
 }
 service "containerservice" {
   name      = "ContainerService"
-  available = ["2022-08-02-preview", "2022-09-02-preview"]
+  available = ["2022-09-02-preview"]
 }
 service "cosmos-db" {
   name      = "CosmosDB"
@@ -97,7 +97,7 @@ service "dashboard" {
 }
 service "databricks" {
   name      = "Databricks"
-  available = ["2021-04-01-preview", "2022-04-01-preview"]
+  available = ["2022-04-01-preview"]
 }
 service "datalake-analytics" {
   name      = "DataLakeAnalytics"
@@ -197,7 +197,7 @@ service "loadtestservice" {
 }
 service "machinelearningservices" {
   name      = "MachineLearningServices"
-  available = ["2021-07-01", "2022-05-01"]
+  available = ["2022-05-01"]
 }
 service "maintenance" {
   name      = "Maintenance"
@@ -229,7 +229,7 @@ service "monitor" {
 }
 service "msi" {
   name      = "ManagedIdentity"
-  available = ["2018-11-30", "2022-01-31-preview"]
+  available = ["2022-01-31-preview"]
 }
 service "netapp" {
   name      = "NetApp"
@@ -285,7 +285,7 @@ service "privatedns" {
 }
 service "purview" {
   name      = "Purview"
-  available = ["2020-12-01-preview", "2021-07-01"]
+  available = ["2021-07-01"]
 }
 service "recoveryservices" {
   name      = "RecoveryServices"
@@ -293,7 +293,7 @@ service "recoveryservices" {
 }
 service "redisenterprise" {
   name      = "RedisEnterprise"
-  available = ["2021-08-01", "2022-01-01"]
+  available = ["2022-01-01"]
 }
 service "relay" {
   name      = "Relay"
@@ -333,7 +333,7 @@ service "servicelinker" {
 }
 service "signalr" {
   name      = "SignalR"
-  available = ["2021-10-01", "2022-02-01"]
+  available = ["2022-02-01"]
 }
 service "sqlvirtualmachine" {
   name      = "SqlVirtualMachine"
@@ -341,7 +341,7 @@ service "sqlvirtualmachine" {
 }
 service "storage" {
   name      = "Storage"
-  available = ["2021-04-01", "2022-05-01"]
+  available = ["2022-05-01"]
 }
 service "storagepool" {
   name      = "StoragePool"
