@@ -285,7 +285,7 @@ service "privatedns" {
 }
 service "purview" {
   name      = "Purview"
-  available = ["2020-12-01-preview", "2021-07-01"]
+  available = ["2021-07-01"]
 }
 service "recoveryservices" {
   name      = "RecoveryServices"
