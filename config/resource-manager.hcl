@@ -333,7 +333,7 @@ service "servicelinker" {
 }
 service "signalr" {
   name      = "SignalR"
-  available = ["2021-10-01", "2022-02-01"]
+  available = ["2022-02-01"]
 }
 service "sqlvirtualmachine" {
   name      = "SqlVirtualMachine"
