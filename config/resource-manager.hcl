@@ -299,13 +299,13 @@ service "relay" {
   name      = "Relay"
   available = ["2017-04-01"]
 }
-service "resources" {
-  name      = "Resources"
-  available = ["2020-06-01", "2020-10-01"]
-}
 service "resourceconnector" {
   name      = "ResourceConnector"
   available = ["2022-10-27"]
+}
+service "resources" {
+  name      = "Resources"
+  available = ["2020-06-01", "2020-10-01"]
 }
 service "search" {
   name      = "Search"
