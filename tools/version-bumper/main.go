@@ -10,7 +10,7 @@ import (
 	"github.com/hashicorp/pandora/tools/sdk/config/services"
 )
 
-const onlyFormat = true
+const onlyFormat = false
 const onlyUpdateExistingServices = true
 
 func main() {
