@@ -11,7 +11,7 @@ using System.Net;
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 
 
-namespace Pandora.Definitions.ResourceManager.Media.v2020_05_01.StreamingEndpoint;
+namespace Pandora.Definitions.ResourceManager.Media.v2020_05_01.StreamingEndpoints;
 
 internal class UpdateOperation : Operations.PatchOperation
 {
