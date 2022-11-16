@@ -398,22 +398,48 @@ func (d *SwaggerDefinition) modelDetailsFromObject(modelName string, input spec.
 
 		// so we need to find the parent details
 		for _, parentRaw := range input.AllOf {
-			fragmentName := fragmentNameFromReference(parentRaw.Ref)
-			if fragmentName == nil {
+			parentFragmentName := fragmentNameFromReference(parentRaw.Ref)
+			if parentFragmentName == nil {
 				continue
 			}
 
-			parent, err := d.findTopLevelObject(*fragmentName)
+			var parent *spec.Schema
+			var err error
+			parent, err = d.findTopLevelObject(*parentFragmentName)
 			if err != nil {
-				return nil, fmt.Errorf("finding top level object %q: %+v", *fragmentName, err)
+				return nil, fmt.Errorf("finding top level object %q: %+v", *parentFragmentName, err)
 			}
 
-			if parent.Discriminator == "" {
+			if parent.Discriminator != "" {
+				details.ParentTypeName = parentFragmentName
+				details.TypeHintIn = &parent.Discriminator
+				break
+			}
+
+			// does the parent itself inherit from something?
+			if len(parent.AllOf) == 0 {
 				continue
 			}
 
-			details.ParentTypeName = fragmentName
-			details.TypeHintIn = &parent.Discriminator
+			// NOTE: we're intentionally not scoping further than grandparent since we haven't seen it, if we do this can be refactored
+			for _, grandParentRaw := range parent.AllOf {
+				grandParentFragmentName := fragmentNameFromReference(grandParentRaw.Ref)
+				if grandParentFragmentName == nil {
+					continue
+				}
+
+				grandParent, err := d.findTopLevelObject(*grandParentFragmentName)
+				if err != nil {
+					return nil, fmt.Errorf("finding grandparent %q for top level object %q: %+v", *grandParentFragmentName, *parentFragmentName, err)
+				}
+
+				if grandParent.Discriminator != "" {
+					details.ParentTypeName = grandParentFragmentName
+					details.TypeHintIn = &grandParent.Discriminator
+					break
+				}
+			}
+
 		}
 
 		// however if there's a Discriminator value defined but no parent type - this is bad data - so we should ignore it
