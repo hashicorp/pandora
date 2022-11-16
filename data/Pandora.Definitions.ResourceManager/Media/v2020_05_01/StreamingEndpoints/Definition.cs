@@ -20,5 +20,6 @@ internal class Definition : ResourceDefinition
         new ScaleOperation(),
         new StartOperation(),
         new StopOperation(),
+        new UpdateOperation(),
     };
 }
