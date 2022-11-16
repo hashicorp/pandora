@@ -61,6 +61,23 @@ func patchSwaggerData(input []models.AzureApiDefinition, logger hclog.Logger) (*
 			item.Resources["Fleets"] = resource
 		}
 
+		// Works around the Update operation having the incorrect Swagger Tag (StreamingEndpoint
+		// rather than StreamingEndpoints).
+		// Swagger PR: https://github.com/Azure/azure-rest-api-specs/pull/21581
+		if item.ServiceName == "Media" && item.ApiVersion == "2020-05-01" {
+			singular, singularExists := item.Resources["StreamingEndpoint"]
+			plural, pluralExists := item.Resources["StreamingEndpoints"]
+			if singularExists && pluralExists {
+				updateOperation, ok := singular.Operations["Update"]
+				if ok {
+					// NOTE: we should be moving the Model too, but as it's the same as for Create this should be fine
+					plural.Operations["Update"] = updateOperation
+					item.Resources["StreamingEndpoints"] = plural
+					delete(item.Resources, "StreamingEndpoint")
+				}
+			}
+		}
+
 		output = append(output, item)
 	}
 
