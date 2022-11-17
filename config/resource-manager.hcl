@@ -374,6 +374,7 @@ service "vmware" {
 service "web" {
   name      = "Web"
   available = ["2016-06-01"]
+  ignore    = ["2021-03-01", "2022-03-01"]
 }
 service "webpubsub" {
   name      = "WebPubSub"
