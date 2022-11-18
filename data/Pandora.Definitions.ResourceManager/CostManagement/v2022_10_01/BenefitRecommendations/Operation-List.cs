@@ -17,7 +17,7 @@ internal class ListOperation : Operations.ListOperation
 {
     public override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new BillingScopeId();
+    public override ResourceID? ResourceId() => new ScopeId();
 
     public override Type NestedItemType() => typeof(BenefitRecommendationModelModel);
 

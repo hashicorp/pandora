@@ -21,7 +21,7 @@ internal class WebTestsListByResourceGroupOperation : Operations.ListOperation
 
     public override Type NestedItemType() => typeof(WebTestModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.Insights/webtests";
+    public override string? UriSuffix() => "/providers/Microsoft.Insights/webTests";
 
 
 }
