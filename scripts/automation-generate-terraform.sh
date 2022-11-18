@@ -108,7 +108,7 @@ function cleanup {
 }
 
 function main {
-  local dataApiAssemblyPath="data/Pandora.Api/bin/Debug/net6.0/Pandora.Api.dll"
+  local dataApiAssemblyPath="data/Pandora.Api/bin/Debug/net7.0/Pandora.Api.dll"
   local outputDirectory="tmp/provider-azurerm"
   local providerRepo="git@github.com:hashicorp/terraform-provider-azurerm.git"
 

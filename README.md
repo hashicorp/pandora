@@ -17,7 +17,7 @@ At the current time only Resource Manager Services are supported - although we'r
 The following dependencies are required:
 
 * [Golang 1.19.x](https://go.dev/dl/)
-* [.NET 6.x](https://dotnet.microsoft.com/download/dotnet/6.0)
+* [.NET 7.x](https://dotnet.microsoft.com/download/dotnet/7.0)
 
 At first checkout you'll need to both initialize and then update the Git submodule:
 

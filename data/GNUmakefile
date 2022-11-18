@@ -9,7 +9,7 @@ fmt:
 	dotnet format whitespace --verbosity quiet Pandora.sln
 
 run: build
-	dotnet Pandora.Api/bin/Debug/net6.0/Pandora.Api.dll
+	dotnet Pandora.Api/bin/Debug/net7.0/Pandora.Api.dll
 
 test: build
 	dotnet test Pandora.sln
