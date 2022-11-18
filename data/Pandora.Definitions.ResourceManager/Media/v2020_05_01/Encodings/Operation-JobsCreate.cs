@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.Media.v2020_05_01.Encodings;
 
 internal class JobsCreateOperation : Operations.PutOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Created,
         };
 
     public override Type? RequestObject() => typeof(JobModel);
 
-    public override ResourceID? ResourceId() => new JobId();
+\t\tpublic override ResourceID? ResourceId() => new JobId();
 
-    public override Type? ResponseObject() => typeof(JobModel);
+\t\tpublic override Type? ResponseObject() => typeof(JobModel);
 
 
 }

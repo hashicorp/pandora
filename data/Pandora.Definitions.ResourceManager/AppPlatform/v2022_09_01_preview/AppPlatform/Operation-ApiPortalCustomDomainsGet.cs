@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.AppPlatform.v2022_09_01_preview.Ap
 
 internal class ApiPortalCustomDomainsGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ApiPortalDomainId();
+\t\tpublic override ResourceID? ResourceId() => new ApiPortalDomainId();
 
-    public override Type? ResponseObject() => typeof(ApiPortalCustomDomainResourceModel);
+\t\tpublic override Type? ResponseObject() => typeof(ApiPortalCustomDomainResourceModel);
 
 
 }

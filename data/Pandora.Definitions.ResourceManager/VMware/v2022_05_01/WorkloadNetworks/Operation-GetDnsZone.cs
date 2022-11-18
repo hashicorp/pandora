@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.VMware.v2022_05_01.WorkloadNetwork
 
 internal class GetDnsZoneOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new DnsZoneId();
+\t\tpublic override ResourceID? ResourceId() => new DnsZoneId();
 
-    public override Type? ResponseObject() => typeof(WorkloadNetworkDnsZoneModel);
+\t\tpublic override Type? ResponseObject() => typeof(WorkloadNetworkDnsZoneModel);
 
 
 }

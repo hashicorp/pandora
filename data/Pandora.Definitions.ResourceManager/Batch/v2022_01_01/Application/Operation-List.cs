@@ -15,15 +15,15 @@ namespace Pandora.Definitions.ResourceManager.Batch.v2022_01_01.Application;
 
 internal class ListOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new BatchAccountId();
+\t\tpublic override ResourceID? ResourceId() => new BatchAccountId();
 
-    public override Type NestedItemType() => typeof(ApplicationModel);
+\t\tpublic override Type NestedItemType() => typeof(ApplicationModel);
 
-    public override Type? OptionsObject() => typeof(ListOperation.ListOptions);
+\t\tpublic override Type? OptionsObject() => typeof(ListOperation.ListOptions);
 
-    public override string? UriSuffix() => "/applications";
+\t\tpublic override string? UriSuffix() => "/applications";
 
     internal class ListOptions
     {

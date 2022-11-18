@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.CostManagement.v2022_10_01.Views;
 
 internal class ListOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override Type NestedItemType() => typeof(ViewModel);
+\t\tpublic override Type NestedItemType() => typeof(ViewModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.CostManagement/views";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.CostManagement/views";
 
 
 }

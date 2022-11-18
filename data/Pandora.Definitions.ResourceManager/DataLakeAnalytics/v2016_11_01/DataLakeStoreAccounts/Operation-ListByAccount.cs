@@ -15,15 +15,15 @@ namespace Pandora.Definitions.ResourceManager.DataLakeAnalytics.v2016_11_01.Data
 
 internal class ListByAccountOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new AccountId();
+\t\tpublic override ResourceID? ResourceId() => new AccountId();
 
-    public override Type NestedItemType() => typeof(DataLakeStoreAccountInformationModel);
+\t\tpublic override Type NestedItemType() => typeof(DataLakeStoreAccountInformationModel);
 
-    public override Type? OptionsObject() => typeof(ListByAccountOperation.ListByAccountOptions);
+\t\tpublic override Type? OptionsObject() => typeof(ListByAccountOperation.ListByAccountOptions);
 
-    public override string? UriSuffix() => "/dataLakeStoreAccounts";
+\t\tpublic override string? UriSuffix() => "/dataLakeStoreAccounts";
 
     internal class ListByAccountOptions
     {

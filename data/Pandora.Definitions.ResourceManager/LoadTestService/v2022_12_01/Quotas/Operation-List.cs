@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.LoadTestService.v2022_12_01.Quotas
 
 internal class ListOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new LocationId();
+\t\tpublic override ResourceID? ResourceId() => new LocationId();
 
-    public override Type NestedItemType() => typeof(QuotaResourceModel);
+\t\tpublic override Type NestedItemType() => typeof(QuotaResourceModel);
 
-    public override string? UriSuffix() => "/quotas";
+\t\tpublic override string? UriSuffix() => "/quotas";
 
 
 }

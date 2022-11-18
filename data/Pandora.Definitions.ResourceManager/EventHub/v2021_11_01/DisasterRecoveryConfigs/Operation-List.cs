@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2021_11_01.DisasterRecov
 
 internal class ListOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new NamespaceId();
+\t\tpublic override ResourceID? ResourceId() => new NamespaceId();
 
-    public override Type NestedItemType() => typeof(ArmDisasterRecoveryModel);
+\t\tpublic override Type NestedItemType() => typeof(ArmDisasterRecoveryModel);
 
-    public override string? UriSuffix() => "/disasterRecoveryConfigs";
+\t\tpublic override string? UriSuffix() => "/disasterRecoveryConfigs";
 
 
 }

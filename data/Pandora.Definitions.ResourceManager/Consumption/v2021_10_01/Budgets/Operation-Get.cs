@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.Consumption.v2021_10_01.Budgets;
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ScopedBudgetId();
+\t\tpublic override ResourceID? ResourceId() => new ScopedBudgetId();
 
-    public override Type? ResponseObject() => typeof(BudgetModel);
+\t\tpublic override Type? ResponseObject() => typeof(BudgetModel);
 
 
 }

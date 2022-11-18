@@ -15,21 +15,21 @@ namespace Pandora.Definitions.ResourceManager.AzureStackHCI.v2022_09_01.ArcSetti
 
 internal class CreateIdentityOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new ArcSettingId();
+\t\tpublic override ResourceID? ResourceId() => new ArcSettingId();
 
-    public override Type? ResponseObject() => typeof(ArcIdentityResponseModel);
+\t\tpublic override Type? ResponseObject() => typeof(ArcIdentityResponseModel);
 
-    public override string? UriSuffix() => "/createArcIdentity";
+\t\tpublic override string? UriSuffix() => "/createArcIdentity";
 
 
 }

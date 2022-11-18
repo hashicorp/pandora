@@ -17,9 +17,9 @@ internal class CreateOrUpdateOperation : Operations.PutOperation
 {
     public override Type? RequestObject() => typeof(DataExportModel);
 
-    public override ResourceID? ResourceId() => new DataExportId();
+\t\tpublic override ResourceID? ResourceId() => new DataExportId();
 
-    public override Type? ResponseObject() => typeof(DataExportModel);
+\t\tpublic override Type? ResponseObject() => typeof(DataExportModel);
 
 
 }

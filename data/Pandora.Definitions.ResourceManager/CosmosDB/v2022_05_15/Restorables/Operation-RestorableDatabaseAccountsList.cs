@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.CosmosDB.v2022_05_15.Restorables;
 
 internal class RestorableDatabaseAccountsListOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new SubscriptionId();
+\t\tpublic override ResourceID? ResourceId() => new SubscriptionId();
 
-    public override Type? ResponseObject() => typeof(RestorableDatabaseAccountsListResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(RestorableDatabaseAccountsListResultModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.DocumentDB/restorableDatabaseAccounts";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.DocumentDB/restorableDatabaseAccounts";
 
 
 }

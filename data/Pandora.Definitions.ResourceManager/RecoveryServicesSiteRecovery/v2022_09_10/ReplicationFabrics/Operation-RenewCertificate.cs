@@ -15,21 +15,21 @@ namespace Pandora.Definitions.ResourceManager.RecoveryServicesSiteRecovery.v2022
 
 internal class RenewCertificateOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(RenewCertificateInputModel);
 
-    public override ResourceID? ResourceId() => new ReplicationFabricId();
+\t\tpublic override ResourceID? ResourceId() => new ReplicationFabricId();
 
-    public override Type? ResponseObject() => typeof(FabricModel);
+\t\tpublic override Type? ResponseObject() => typeof(FabricModel);
 
-    public override string? UriSuffix() => "/renewCertificate";
+\t\tpublic override string? UriSuffix() => "/renewCertificate";
 
 
 }

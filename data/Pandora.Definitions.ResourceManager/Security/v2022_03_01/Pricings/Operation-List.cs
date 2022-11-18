@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.Security.v2022_03_01.Pricings;
 
 internal class ListOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new SubscriptionId();
+\t\tpublic override ResourceID? ResourceId() => new SubscriptionId();
 
-    public override Type? ResponseObject() => typeof(PricingListModel);
+\t\tpublic override Type? ResponseObject() => typeof(PricingListModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.Security/pricings";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.Security/pricings";
 
 
 }

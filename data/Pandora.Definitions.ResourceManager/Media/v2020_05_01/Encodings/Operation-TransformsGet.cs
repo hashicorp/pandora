@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.Media.v2020_05_01.Encodings;
 
 internal class TransformsGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new TransformId();
+\t\tpublic override ResourceID? ResourceId() => new TransformId();
 
-    public override Type? ResponseObject() => typeof(TransformModel);
+\t\tpublic override Type? ResponseObject() => typeof(TransformModel);
 
 
 }

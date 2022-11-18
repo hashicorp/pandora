@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.Subscrip
 
 internal class UpdateOperation : Operations.PatchOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(SubscriptionUpdateParametersModel);
 
-    public override ResourceID? ResourceId() => new Subscriptions2Id();
+\t\tpublic override ResourceID? ResourceId() => new Subscriptions2Id();
 
-    public override Type? ResponseObject() => typeof(SubscriptionContractModel);
+\t\tpublic override Type? ResponseObject() => typeof(SubscriptionContractModel);
 
-    public override Type? OptionsObject() => typeof(UpdateOperation.UpdateOptions);
+\t\tpublic override Type? OptionsObject() => typeof(UpdateOperation.UpdateOptions);
 
     internal class UpdateOptions
     {

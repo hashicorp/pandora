@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.CustomProviders.v2018_09_01_previe
 
 internal class CreateOrUpdateOperation : Operations.PutOperation
 {
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(AssociationModel);
 
-    public override ResourceID? ResourceId() => new ScopedAssociationId();
+\t\tpublic override ResourceID? ResourceId() => new ScopedAssociationId();
 
-    public override Type? ResponseObject() => typeof(AssociationModel);
+\t\tpublic override Type? ResponseObject() => typeof(AssociationModel);
 
 
 }

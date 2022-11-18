@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Relay.v2017_04_01.Namespaces;
 
 internal class CreateOrUpdateOperation : Operations.PutOperation
 {
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(RelayNamespaceModel);
 
-    public override ResourceID? ResourceId() => new NamespaceId();
+\t\tpublic override ResourceID? ResourceId() => new NamespaceId();
 
-    public override Type? ResponseObject() => typeof(RelayNamespaceModel);
+\t\tpublic override Type? ResponseObject() => typeof(RelayNamespaceModel);
 
 
 }

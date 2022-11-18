@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.NetworkFunction.v2022_08_01.AzureT
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new AzureTrafficCollectorId();
+\t\tpublic override ResourceID? ResourceId() => new AzureTrafficCollectorId();
 
-    public override Type? ResponseObject() => typeof(AzureTrafficCollectorModel);
+\t\tpublic override Type? ResponseObject() => typeof(AzureTrafficCollectorModel);
 
 
 }

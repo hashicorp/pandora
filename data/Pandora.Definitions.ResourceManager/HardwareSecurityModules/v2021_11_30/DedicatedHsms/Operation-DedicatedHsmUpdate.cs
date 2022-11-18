@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.HardwareSecurityModules.v2021_11_3
 
 internal class DedicatedHsmUpdateOperation : Operations.PatchOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(DedicatedHsmPatchParametersModel);
 
-    public override ResourceID? ResourceId() => new DedicatedHSMId();
+\t\tpublic override ResourceID? ResourceId() => new DedicatedHSMId();
 
-    public override Type? ResponseObject() => typeof(DedicatedHsmModel);
+\t\tpublic override Type? ResponseObject() => typeof(DedicatedHsmModel);
 
 
 }

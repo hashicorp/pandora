@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.Delegati
 
 internal class ListSecretsOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new ServiceId();
+\t\tpublic override ResourceID? ResourceId() => new ServiceId();
 
-    public override Type? ResponseObject() => typeof(PortalSettingValidationKeyContractModel);
+\t\tpublic override Type? ResponseObject() => typeof(PortalSettingValidationKeyContractModel);
 
-    public override string? UriSuffix() => "/portalsettings/delegation/listSecrets";
+\t\tpublic override string? UriSuffix() => "/portalsettings/delegation/listSecrets";
 
 
 }

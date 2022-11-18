@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.DeviceProvisioningServices.v2022_0
 
 internal class ListKeysForKeyNameOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new KeyId();
+\t\tpublic override ResourceID? ResourceId() => new KeyId();
 
-    public override Type? ResponseObject() => typeof(SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionModel);
+\t\tpublic override Type? ResponseObject() => typeof(SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionModel);
 
-    public override string? UriSuffix() => "/listkeys";
+\t\tpublic override string? UriSuffix() => "/listkeys";
 
 
 }

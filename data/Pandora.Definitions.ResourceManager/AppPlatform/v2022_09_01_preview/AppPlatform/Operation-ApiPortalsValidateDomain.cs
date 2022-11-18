@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.AppPlatform.v2022_09_01_preview.Ap
 
 internal class ApiPortalsValidateDomainOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(CustomDomainValidatePayloadModel);
 
-    public override ResourceID? ResourceId() => new ApiPortalId();
+\t\tpublic override ResourceID? ResourceId() => new ApiPortalId();
 
-    public override Type? ResponseObject() => typeof(CustomDomainValidateResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(CustomDomainValidateResultModel);
 
-    public override string? UriSuffix() => "/validateDomain";
+\t\tpublic override string? UriSuffix() => "/validateDomain";
 
 
 }

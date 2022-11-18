@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Consumption.v2021_10_01.Budgets;
 
 internal class ListOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new ScopeId();
+\t\tpublic override ResourceID? ResourceId() => new ScopeId();
 
-    public override Type NestedItemType() => typeof(BudgetModel);
+\t\tpublic override Type NestedItemType() => typeof(BudgetModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.Consumption/budgets";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.Consumption/budgets";
 
 
 }

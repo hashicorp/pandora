@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.Search.v2020_03_13.PrivateEndpoint
 
 internal class DeleteOperation : Operations.DeleteOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-    public override ResourceID? ResourceId() => new PrivateEndpointConnectionId();
+\t\tpublic override ResourceID? ResourceId() => new PrivateEndpointConnectionId();
 
-    public override Type? ResponseObject() => typeof(PrivateEndpointConnectionModel);
+\t\tpublic override Type? ResponseObject() => typeof(PrivateEndpointConnectionModel);
 
-    public override Type? OptionsObject() => typeof(DeleteOperation.DeleteOptions);
+\t\tpublic override Type? OptionsObject() => typeof(DeleteOperation.DeleteOptions);
 
     internal class DeleteOptions
     {

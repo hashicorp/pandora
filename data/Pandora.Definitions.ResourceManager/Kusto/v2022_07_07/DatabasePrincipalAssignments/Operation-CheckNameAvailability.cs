@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.Kusto.v2022_07_07.DatabasePrincipa
 
 internal class CheckNameAvailabilityOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(DatabasePrincipalAssignmentCheckNameRequestModel);
 
-    public override ResourceID? ResourceId() => new DatabaseId();
+\t\tpublic override ResourceID? ResourceId() => new DatabaseId();
 
-    public override Type? ResponseObject() => typeof(CheckNameResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(CheckNameResultModel);
 
-    public override string? UriSuffix() => "/checkPrincipalAssignmentNameAvailability";
+\t\tpublic override string? UriSuffix() => "/checkPrincipalAssignmentNameAvailability";
 
 
 }

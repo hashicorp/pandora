@@ -15,19 +15,19 @@ namespace Pandora.Definitions.ResourceManager.CosmosDB.v2022_05_15.CosmosDB;
 
 internal class TableResourcesCreateUpdateTableOperation : Operations.PutOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(TableCreateUpdateParametersModel);
 
-    public override ResourceID? ResourceId() => new TableId();
+\t\tpublic override ResourceID? ResourceId() => new TableId();
 
-    public override Type? ResponseObject() => typeof(TableGetResultsModel);
+\t\tpublic override Type? ResponseObject() => typeof(TableGetResultsModel);
 
 
 }

@@ -15,15 +15,15 @@ namespace Pandora.Definitions.ResourceManager.Storage.v2022_09_01.QueueService;
 
 internal class QueueListOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new StorageAccountId();
+\t\tpublic override ResourceID? ResourceId() => new StorageAccountId();
 
-    public override Type NestedItemType() => typeof(ListQueueModel);
+\t\tpublic override Type NestedItemType() => typeof(ListQueueModel);
 
-    public override Type? OptionsObject() => typeof(QueueListOperation.QueueListOptions);
+\t\tpublic override Type? OptionsObject() => typeof(QueueListOperation.QueueListOptions);
 
-    public override string? UriSuffix() => "/queueServices/default/queues";
+\t\tpublic override string? UriSuffix() => "/queueServices/default/queues";
 
     internal class QueueListOptions
     {

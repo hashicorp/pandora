@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.CosmosDB.v2022_05_15.CosmosDB;
 
 internal class LocationsGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new LocationId();
+\t\tpublic override ResourceID? ResourceId() => new LocationId();
 
-    public override Type? ResponseObject() => typeof(LocationGetResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(LocationGetResultModel);
 
 
 }

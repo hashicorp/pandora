@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.Relay.v2017_04_01.HybridConnection
 
 internal class GetAuthorizationRuleOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new HybridConnectionAuthorizationRuleId();
+\t\tpublic override ResourceID? ResourceId() => new HybridConnectionAuthorizationRuleId();
 
-    public override Type? ResponseObject() => typeof(AuthorizationRuleModel);
+\t\tpublic override Type? ResponseObject() => typeof(AuthorizationRuleModel);
 
 
 }

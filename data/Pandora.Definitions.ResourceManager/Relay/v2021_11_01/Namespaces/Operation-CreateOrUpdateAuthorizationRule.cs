@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.Relay.v2021_11_01.Namespaces;
 
 internal class CreateOrUpdateAuthorizationRuleOperation : Operations.PutOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(AuthorizationRuleModel);
 
-    public override ResourceID? ResourceId() => new AuthorizationRuleId();
+\t\tpublic override ResourceID? ResourceId() => new AuthorizationRuleId();
 
-    public override Type? ResponseObject() => typeof(AuthorizationRuleModel);
+\t\tpublic override Type? ResponseObject() => typeof(AuthorizationRuleModel);
 
 
 }

@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.ContainerService.v2022_09_02_previ
 
 internal class CreateOrUpdateOperation : Operations.PutOperation
 {
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(AgentPoolModel);
 
-    public override ResourceID? ResourceId() => new AgentPoolId();
+\t\tpublic override ResourceID? ResourceId() => new AgentPoolId();
 
-    public override Type? ResponseObject() => typeof(AgentPoolModel);
+\t\tpublic override Type? ResponseObject() => typeof(AgentPoolModel);
 
 
 }

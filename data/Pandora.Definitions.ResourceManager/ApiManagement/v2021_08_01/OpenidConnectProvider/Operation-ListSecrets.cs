@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.OpenidCo
 
 internal class ListSecretsOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new OpenidConnectProviderId();
+\t\tpublic override ResourceID? ResourceId() => new OpenidConnectProviderId();
 
-    public override Type? ResponseObject() => typeof(ClientSecretContractModel);
+\t\tpublic override Type? ResponseObject() => typeof(ClientSecretContractModel);
 
-    public override string? UriSuffix() => "/listSecrets";
+\t\tpublic override string? UriSuffix() => "/listSecrets";
 
 
 }

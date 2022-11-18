@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.Storage.v2022_09_01.StorageAccount
 
 internal class CheckNameAvailabilityOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(StorageAccountCheckNameAvailabilityParametersModel);
 
-    public override ResourceID? ResourceId() => new SubscriptionId();
+\t\tpublic override ResourceID? ResourceId() => new SubscriptionId();
 
-    public override Type? ResponseObject() => typeof(CheckNameAvailabilityResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(CheckNameAvailabilityResultModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.Storage/checkNameAvailability";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.Storage/checkNameAvailability";
 
 
 }

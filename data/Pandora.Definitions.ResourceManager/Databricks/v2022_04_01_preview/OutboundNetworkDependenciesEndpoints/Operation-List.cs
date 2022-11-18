@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.Databricks.v2022_04_01_preview.Out
 
 internal class ListOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new WorkspaceId();
+\t\tpublic override ResourceID? ResourceId() => new WorkspaceId();
 
-    public override Type? ResponseObject() => typeof(List<OutboundEnvironmentEndpointModel>);
+\t\tpublic override Type? ResponseObject() => typeof(List<OutboundEnvironmentEndpointModel>);
 
-    public override string? UriSuffix() => "/outboundNetworkDependenciesEndpoints";
+\t\tpublic override string? UriSuffix() => "/outboundNetworkDependenciesEndpoints";
 
 
 }

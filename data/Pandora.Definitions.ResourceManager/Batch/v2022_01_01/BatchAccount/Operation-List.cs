@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Batch.v2022_01_01.BatchAccount;
 
 internal class ListOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new SubscriptionId();
+\t\tpublic override ResourceID? ResourceId() => new SubscriptionId();
 
-    public override Type NestedItemType() => typeof(BatchAccountModel);
+\t\tpublic override Type NestedItemType() => typeof(BatchAccountModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.Batch/batchAccounts";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.Batch/batchAccounts";
 
 
 }

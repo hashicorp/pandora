@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.DeviceProvisioningServices.v2022_0
 
 internal class ListValidSkusOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new ProvisioningServiceId();
+\t\tpublic override ResourceID? ResourceId() => new ProvisioningServiceId();
 
-    public override Type NestedItemType() => typeof(IotDpsSkuDefinitionModel);
+\t\tpublic override Type NestedItemType() => typeof(IotDpsSkuDefinitionModel);
 
-    public override string? UriSuffix() => "/skus";
+\t\tpublic override string? UriSuffix() => "/skus";
 
 
 }

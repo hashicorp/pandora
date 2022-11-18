@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.AppPlatform.v2022_09_01_preview.Ap
 
 internal class GatewayRouteConfigsCreateOrUpdateOperation : Operations.PutOperation
 {
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(GatewayRouteConfigResourceModel);
 
-    public override ResourceID? ResourceId() => new RouteConfigId();
+\t\tpublic override ResourceID? ResourceId() => new RouteConfigId();
 
-    public override Type? ResponseObject() => typeof(GatewayRouteConfigResourceModel);
+\t\tpublic override Type? ResponseObject() => typeof(GatewayRouteConfigResourceModel);
 
 
 }

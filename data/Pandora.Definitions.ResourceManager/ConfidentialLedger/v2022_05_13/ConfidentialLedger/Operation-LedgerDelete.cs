@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.ConfidentialLedger.v2022_05_13.Con
 
 internal class LedgerDeleteOperation : Operations.DeleteOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.NoContent,
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
-    public override ResourceID? ResourceId() => new LedgerId();
+\t\tpublic override ResourceID? ResourceId() => new LedgerId();
 
 
 }

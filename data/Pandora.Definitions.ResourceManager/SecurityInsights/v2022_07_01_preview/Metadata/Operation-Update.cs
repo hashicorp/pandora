@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.SecurityInsights.v2022_07_01_previ
 
 internal class UpdateOperation : Operations.PatchOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(MetadataPatchModel);
 
-    public override ResourceID? ResourceId() => new MetadataId();
+\t\tpublic override ResourceID? ResourceId() => new MetadataId();
 
-    public override Type? ResponseObject() => typeof(MetadataModelModel);
+\t\tpublic override Type? ResponseObject() => typeof(MetadataModelModel);
 
 
 }

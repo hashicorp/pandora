@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.PostgreSql.v2018_06_01.PrivateLink
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new PrivateLinkResourceId();
+\t\tpublic override ResourceID? ResourceId() => new PrivateLinkResourceId();
 
-    public override Type? ResponseObject() => typeof(PrivateLinkResourceModel);
+\t\tpublic override Type? ResponseObject() => typeof(PrivateLinkResourceModel);
 
 
 }

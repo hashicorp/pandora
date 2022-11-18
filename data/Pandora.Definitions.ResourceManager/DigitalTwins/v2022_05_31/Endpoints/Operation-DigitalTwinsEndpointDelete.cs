@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.DigitalTwins.v2022_05_31.Endpoints
 
 internal class DigitalTwinsEndpointDeleteOperation : Operations.DeleteOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.NoContent,
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
-    public override ResourceID? ResourceId() => new EndpointId();
+\t\tpublic override ResourceID? ResourceId() => new EndpointId();
 
-    public override Type? ResponseObject() => typeof(DigitalTwinsEndpointResourceModel);
+\t\tpublic override Type? ResponseObject() => typeof(DigitalTwinsEndpointResourceModel);
 
 
 }

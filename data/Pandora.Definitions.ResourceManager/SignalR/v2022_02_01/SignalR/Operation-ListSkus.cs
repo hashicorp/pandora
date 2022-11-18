@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.SignalR.v2022_02_01.SignalR;
 
 internal class ListSkusOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new SignalRId();
+\t\tpublic override ResourceID? ResourceId() => new SignalRId();
 
-    public override Type? ResponseObject() => typeof(SkuListModel);
+\t\tpublic override Type? ResponseObject() => typeof(SkuListModel);
 
-    public override string? UriSuffix() => "/skus";
+\t\tpublic override string? UriSuffix() => "/skus";
 
 
 }

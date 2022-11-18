@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.FrontDoor.v2022_05_01.WebApplicati
 
 internal class PoliciesUpdateOperation : Operations.PatchOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(TagsObjectModel);
 
-    public override ResourceID? ResourceId() => new FrontDoorWebApplicationFirewallPolicyId();
+\t\tpublic override ResourceID? ResourceId() => new FrontDoorWebApplicationFirewallPolicyId();
 
-    public override Type? ResponseObject() => typeof(WebApplicationFirewallPolicyModel);
+\t\tpublic override Type? ResponseObject() => typeof(WebApplicationFirewallPolicyModel);
 
 
 }

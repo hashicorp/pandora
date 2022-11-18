@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.LabServices.v2022_08_01.Schedule;
 
 internal class ListByLabOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new LabId();
+\t\tpublic override ResourceID? ResourceId() => new LabId();
 
-    public override Type NestedItemType() => typeof(ScheduleModel);
+\t\tpublic override Type NestedItemType() => typeof(ScheduleModel);
 
-    public override string? UriSuffix() => "/schedules";
+\t\tpublic override string? UriSuffix() => "/schedules";
 
 
 }

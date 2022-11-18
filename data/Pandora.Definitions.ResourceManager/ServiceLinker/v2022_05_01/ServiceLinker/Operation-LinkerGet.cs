@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.ServiceLinker.v2022_05_01.ServiceL
 
 internal class LinkerGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ScopedLinkerId();
+\t\tpublic override ResourceID? ResourceId() => new ScopedLinkerId();
 
-    public override Type? ResponseObject() => typeof(LinkerResourceModel);
+\t\tpublic override Type? ResponseObject() => typeof(LinkerResourceModel);
 
 
 }

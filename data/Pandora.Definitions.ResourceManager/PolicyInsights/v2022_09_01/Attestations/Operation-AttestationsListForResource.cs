@@ -15,15 +15,15 @@ namespace Pandora.Definitions.ResourceManager.PolicyInsights.v2022_09_01.Attesta
 
 internal class AttestationsListForResourceOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new ScopeId();
+\t\tpublic override ResourceID? ResourceId() => new ScopeId();
 
-    public override Type NestedItemType() => typeof(AttestationModel);
+\t\tpublic override Type NestedItemType() => typeof(AttestationModel);
 
-    public override Type? OptionsObject() => typeof(AttestationsListForResourceOperation.AttestationsListForResourceOptions);
+\t\tpublic override Type? OptionsObject() => typeof(AttestationsListForResourceOperation.AttestationsListForResourceOptions);
 
-    public override string? UriSuffix() => "/providers/Microsoft.PolicyInsights/attestations";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.PolicyInsights/attestations";
 
     internal class AttestationsListForResourceOptions
     {

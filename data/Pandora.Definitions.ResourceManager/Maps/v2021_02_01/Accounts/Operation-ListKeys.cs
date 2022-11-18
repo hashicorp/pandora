@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.Maps.v2021_02_01.Accounts;
 
 internal class ListKeysOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new AccountId();
+\t\tpublic override ResourceID? ResourceId() => new AccountId();
 
-    public override Type? ResponseObject() => typeof(MapsAccountKeysModel);
+\t\tpublic override Type? ResponseObject() => typeof(MapsAccountKeysModel);
 
-    public override string? UriSuffix() => "/listKeys";
+\t\tpublic override string? UriSuffix() => "/listKeys";
 
 
 }

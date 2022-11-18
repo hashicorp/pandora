@@ -15,7 +15,7 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2021_11_01.Namespaces;
 
 internal class UpdateOperation : Operations.PatchOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.Created,
@@ -24,9 +24,9 @@ internal class UpdateOperation : Operations.PatchOperation
 
     public override Type? RequestObject() => typeof(EHNamespaceModel);
 
-    public override ResourceID? ResourceId() => new NamespaceId();
+\t\tpublic override ResourceID? ResourceId() => new NamespaceId();
 
-    public override Type? ResponseObject() => typeof(EHNamespaceModel);
+\t\tpublic override Type? ResponseObject() => typeof(EHNamespaceModel);
 
 
 }

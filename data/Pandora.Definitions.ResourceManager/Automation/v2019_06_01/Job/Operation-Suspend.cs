@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.Automation.v2019_06_01.Job;
 
 internal class SuspendOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new JobId();
+\t\tpublic override ResourceID? ResourceId() => new JobId();
 
-    public override Type? OptionsObject() => typeof(SuspendOperation.SuspendOptions);
+\t\tpublic override Type? OptionsObject() => typeof(SuspendOperation.SuspendOptions);
 
-    public override string? UriSuffix() => "/suspend";
+\t\tpublic override string? UriSuffix() => "/suspend";
 
     internal class SuspendOptions
     {

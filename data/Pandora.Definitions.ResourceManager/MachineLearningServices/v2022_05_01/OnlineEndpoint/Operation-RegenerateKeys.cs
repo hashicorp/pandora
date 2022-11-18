@@ -15,19 +15,19 @@ namespace Pandora.Definitions.ResourceManager.MachineLearningServices.v2022_05_0
 
 internal class RegenerateKeysOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(RegenerateEndpointKeysRequestModel);
 
-    public override ResourceID? ResourceId() => new OnlineEndpointId();
+\t\tpublic override ResourceID? ResourceId() => new OnlineEndpointId();
 
-    public override string? UriSuffix() => "/regenerateKeys";
+\t\tpublic override string? UriSuffix() => "/regenerateKeys";
 
 
 }

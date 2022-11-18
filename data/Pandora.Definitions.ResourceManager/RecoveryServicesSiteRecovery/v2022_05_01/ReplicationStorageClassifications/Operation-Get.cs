@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.RecoveryServicesSiteRecovery.v2022
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ReplicationStorageClassificationId();
+\t\tpublic override ResourceID? ResourceId() => new ReplicationStorageClassificationId();
 
-    public override Type? ResponseObject() => typeof(StorageClassificationModel);
+\t\tpublic override Type? ResponseObject() => typeof(StorageClassificationModel);
 
 
 }

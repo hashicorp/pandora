@@ -15,15 +15,15 @@ namespace Pandora.Definitions.ResourceManager.SecurityInsights.v2021_09_01_previ
 
 internal class ListOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new WorkspaceId();
+\t\tpublic override ResourceID? ResourceId() => new WorkspaceId();
 
-    public override Type NestedItemType() => typeof(MetadataModelModel);
+\t\tpublic override Type NestedItemType() => typeof(MetadataModelModel);
 
-    public override Type? OptionsObject() => typeof(ListOperation.ListOptions);
+\t\tpublic override Type? OptionsObject() => typeof(ListOperation.ListOptions);
 
-    public override string? UriSuffix() => "/providers/Microsoft.SecurityInsights/metadata";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.SecurityInsights/metadata";
 
     internal class ListOptions
     {

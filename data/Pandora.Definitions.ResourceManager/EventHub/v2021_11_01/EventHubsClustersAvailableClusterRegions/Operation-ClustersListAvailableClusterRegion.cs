@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2021_11_01.EventHubsClus
 
 internal class ClustersListAvailableClusterRegionOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new SubscriptionId();
+\t\tpublic override ResourceID? ResourceId() => new SubscriptionId();
 
-    public override Type? ResponseObject() => typeof(AvailableClustersListModel);
+\t\tpublic override Type? ResponseObject() => typeof(AvailableClustersListModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.EventHub/availableClusterRegions";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.EventHub/availableClusterRegions";
 
 
 }

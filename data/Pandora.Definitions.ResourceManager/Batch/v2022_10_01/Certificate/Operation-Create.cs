@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.Batch.v2022_10_01.Certificate;
 
 internal class CreateOperation : Operations.PutOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(CertificateCreateOrUpdateParametersModel);
 
-    public override ResourceID? ResourceId() => new CertificateId();
+\t\tpublic override ResourceID? ResourceId() => new CertificateId();
 
-    public override Type? ResponseObject() => typeof(CertificateModel);
+\t\tpublic override Type? ResponseObject() => typeof(CertificateModel);
 
-    public override Type? OptionsObject() => typeof(CreateOperation.CreateOptions);
+\t\tpublic override Type? OptionsObject() => typeof(CreateOperation.CreateOptions);
 
     internal class CreateOptions
     {

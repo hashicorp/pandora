@@ -17,9 +17,9 @@ internal class ConnectionGatewaysCreateOrUpdateOperation : Operations.PutOperati
 {
     public override Type? RequestObject() => typeof(ConnectionGatewayDefinitionModel);
 
-    public override ResourceID? ResourceId() => new ConnectionGatewayId();
+\t\tpublic override ResourceID? ResourceId() => new ConnectionGatewayId();
 
-    public override Type? ResponseObject() => typeof(ConnectionGatewayDefinitionModel);
+\t\tpublic override Type? ResponseObject() => typeof(ConnectionGatewayDefinitionModel);
 
 
 }

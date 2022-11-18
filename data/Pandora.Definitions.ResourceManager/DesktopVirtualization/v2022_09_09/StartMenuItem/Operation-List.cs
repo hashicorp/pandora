@@ -15,15 +15,15 @@ namespace Pandora.Definitions.ResourceManager.DesktopVirtualization.v2022_09_09.
 
 internal class ListOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new ApplicationGroupId();
+\t\tpublic override ResourceID? ResourceId() => new ApplicationGroupId();
 
-    public override Type NestedItemType() => typeof(StartMenuItemModel);
+\t\tpublic override Type NestedItemType() => typeof(StartMenuItemModel);
 
-    public override Type? OptionsObject() => typeof(ListOperation.ListOptions);
+\t\tpublic override Type? OptionsObject() => typeof(ListOperation.ListOptions);
 
-    public override string? UriSuffix() => "/startMenuItems";
+\t\tpublic override string? UriSuffix() => "/startMenuItems";
 
     internal class ListOptions
     {

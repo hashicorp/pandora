@@ -15,19 +15,19 @@ namespace Pandora.Definitions.ResourceManager.LabServices.v2022_08_01.LabPlan;
 
 internal class UpdateOperation : Operations.PatchOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(LabPlanUpdateModel);
 
-    public override ResourceID? ResourceId() => new LabPlanId();
+\t\tpublic override ResourceID? ResourceId() => new LabPlanId();
 
-    public override Type? ResponseObject() => typeof(LabPlanModel);
+\t\tpublic override Type? ResponseObject() => typeof(LabPlanModel);
 
 
 }

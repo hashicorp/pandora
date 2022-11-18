@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.DNSResolver.v2022_07_01.InboundEnd
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new InboundEndpointId();
+\t\tpublic override ResourceID? ResourceId() => new InboundEndpointId();
 
-    public override Type? ResponseObject() => typeof(InboundEndpointModel);
+\t\tpublic override Type? ResponseObject() => typeof(InboundEndpointModel);
 
 
 }

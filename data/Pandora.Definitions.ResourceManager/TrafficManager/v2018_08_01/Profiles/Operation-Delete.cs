@@ -15,15 +15,15 @@ namespace Pandora.Definitions.ResourceManager.TrafficManager.v2018_08_01.Profile
 
 internal class DeleteOperation : Operations.DeleteOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.NoContent,
                 HttpStatusCode.OK,
         };
 
-    public override ResourceID? ResourceId() => new TrafficManagerProfileId();
+\t\tpublic override ResourceID? ResourceId() => new TrafficManagerProfileId();
 
-    public override Type? ResponseObject() => typeof(DeleteOperationResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(DeleteOperationResultModel);
 
 
 }

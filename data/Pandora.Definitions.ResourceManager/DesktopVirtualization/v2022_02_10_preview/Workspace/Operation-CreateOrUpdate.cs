@@ -17,9 +17,9 @@ internal class CreateOrUpdateOperation : Operations.PutOperation
 {
     public override Type? RequestObject() => typeof(WorkspaceModel);
 
-    public override ResourceID? ResourceId() => new WorkspaceId();
+\t\tpublic override ResourceID? ResourceId() => new WorkspaceId();
 
-    public override Type? ResponseObject() => typeof(WorkspaceModel);
+\t\tpublic override Type? ResponseObject() => typeof(WorkspaceModel);
 
 
 }

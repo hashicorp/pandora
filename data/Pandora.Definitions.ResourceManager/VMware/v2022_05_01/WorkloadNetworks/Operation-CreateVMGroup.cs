@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.VMware.v2022_05_01.WorkloadNetwork
 
 internal class CreateVMGroupOperation : Operations.PutOperation
 {
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(WorkloadNetworkVMGroupModel);
 
-    public override ResourceID? ResourceId() => new VmGroupId();
+\t\tpublic override ResourceID? ResourceId() => new VmGroupId();
 
-    public override Type? ResponseObject() => typeof(WorkloadNetworkVMGroupModel);
+\t\tpublic override Type? ResponseObject() => typeof(WorkloadNetworkVMGroupModel);
 
 
 }

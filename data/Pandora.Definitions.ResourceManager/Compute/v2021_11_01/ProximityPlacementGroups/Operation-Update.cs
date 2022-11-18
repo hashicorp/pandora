@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.Compute.v2021_11_01.ProximityPlace
 
 internal class UpdateOperation : Operations.PatchOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(UpdateResourceModel);
 
-    public override ResourceID? ResourceId() => new ProximityPlacementGroupId();
+\t\tpublic override ResourceID? ResourceId() => new ProximityPlacementGroupId();
 
-    public override Type? ResponseObject() => typeof(ProximityPlacementGroupModel);
+\t\tpublic override Type? ResponseObject() => typeof(ProximityPlacementGroupModel);
 
 
 }

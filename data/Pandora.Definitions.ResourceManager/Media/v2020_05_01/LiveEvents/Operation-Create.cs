@@ -15,15 +15,15 @@ namespace Pandora.Definitions.ResourceManager.Media.v2020_05_01.LiveEvents;
 
 internal class CreateOperation : Operations.PutOperation
 {
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(LiveEventModel);
 
-    public override ResourceID? ResourceId() => new LiveEventId();
+\t\tpublic override ResourceID? ResourceId() => new LiveEventId();
 
-    public override Type? ResponseObject() => typeof(LiveEventModel);
+\t\tpublic override Type? ResponseObject() => typeof(LiveEventModel);
 
-    public override Type? OptionsObject() => typeof(CreateOperation.CreateOptions);
+\t\tpublic override Type? OptionsObject() => typeof(CreateOperation.CreateOptions);
 
     internal class CreateOptions
     {

@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Orbital.v2022_03_01.Contact;
 
 internal class ListOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new SpacecraftId();
+\t\tpublic override ResourceID? ResourceId() => new SpacecraftId();
 
-    public override Type NestedItemType() => typeof(ContactModel);
+\t\tpublic override Type NestedItemType() => typeof(ContactModel);
 
-    public override string? UriSuffix() => "/contacts";
+\t\tpublic override string? UriSuffix() => "/contacts";
 
 
 }

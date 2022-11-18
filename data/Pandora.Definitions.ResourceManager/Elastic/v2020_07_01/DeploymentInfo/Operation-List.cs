@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.Elastic.v2020_07_01.DeploymentInfo
 
 internal class ListOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new MonitorId();
+\t\tpublic override ResourceID? ResourceId() => new MonitorId();
 
-    public override Type? ResponseObject() => typeof(DeploymentInfoResponseModel);
+\t\tpublic override Type? ResponseObject() => typeof(DeploymentInfoResponseModel);
 
-    public override string? UriSuffix() => "/listDeploymentInfo";
+\t\tpublic override string? UriSuffix() => "/listDeploymentInfo";
 
 
 }

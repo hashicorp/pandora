@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.HybridCompute.v2022_03_10.Machines
 
 internal class DeleteOperation : Operations.DeleteOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.NoContent,
                 HttpStatusCode.OK,
         };
 
-    public override ResourceID? ResourceId() => new MachineId();
+\t\tpublic override ResourceID? ResourceId() => new MachineId();
 
 
 }

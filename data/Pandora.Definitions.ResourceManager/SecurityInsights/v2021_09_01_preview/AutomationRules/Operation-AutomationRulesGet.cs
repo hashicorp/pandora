@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.SecurityInsights.v2021_09_01_previ
 
 internal class AutomationRulesGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new AutomationRuleId();
+\t\tpublic override ResourceID? ResourceId() => new AutomationRuleId();
 
-    public override Type? ResponseObject() => typeof(AutomationRuleModel);
+\t\tpublic override Type? ResponseObject() => typeof(AutomationRuleModel);
 
 
 }

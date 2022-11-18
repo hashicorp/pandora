@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.Web.v2016_06_01.ConnectionGateways
 
 internal class ConnectionGatewaysListOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new SubscriptionId();
+\t\tpublic override ResourceID? ResourceId() => new SubscriptionId();
 
-    public override Type? ResponseObject() => typeof(ConnectionGatewayDefinitionCollectionModel);
+\t\tpublic override Type? ResponseObject() => typeof(ConnectionGatewayDefinitionCollectionModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.Web/connectionGateways";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.Web/connectionGateways";
 
 
 }

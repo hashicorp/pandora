@@ -15,19 +15,19 @@ namespace Pandora.Definitions.ResourceManager.NetApp.v2022_05_01.Snapshots;
 
 internal class UpdateOperation : Operations.PatchOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(object);
 
-    public override ResourceID? ResourceId() => new SnapshotId();
+\t\tpublic override ResourceID? ResourceId() => new SnapshotId();
 
-    public override Type? ResponseObject() => typeof(SnapshotModel);
+\t\tpublic override Type? ResponseObject() => typeof(SnapshotModel);
 
 
 }

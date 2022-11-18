@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.AppPlatform.v2022_09_01_preview.Ap
 
 internal class GatewayCustomDomainsGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new GatewayDomainId();
+\t\tpublic override ResourceID? ResourceId() => new GatewayDomainId();
 
-    public override Type? ResponseObject() => typeof(GatewayCustomDomainResourceModel);
+\t\tpublic override Type? ResponseObject() => typeof(GatewayCustomDomainResourceModel);
 
 
 }

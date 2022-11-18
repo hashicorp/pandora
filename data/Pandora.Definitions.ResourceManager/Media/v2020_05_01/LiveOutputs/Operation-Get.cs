@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.Media.v2020_05_01.LiveOutputs;
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new LiveOutputId();
+\t\tpublic override ResourceID? ResourceId() => new LiveOutputId();
 
-    public override Type? ResponseObject() => typeof(LiveOutputModel);
+\t\tpublic override Type? ResponseObject() => typeof(LiveOutputModel);
 
 
 }

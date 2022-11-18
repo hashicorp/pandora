@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Purview.v2021_07_01.Account;
 
 internal class ListBySubscriptionOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new SubscriptionId();
+\t\tpublic override ResourceID? ResourceId() => new SubscriptionId();
 
-    public override Type NestedItemType() => typeof(AccountModel);
+\t\tpublic override Type NestedItemType() => typeof(AccountModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.Purview/accounts";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.Purview/accounts";
 
 
 }

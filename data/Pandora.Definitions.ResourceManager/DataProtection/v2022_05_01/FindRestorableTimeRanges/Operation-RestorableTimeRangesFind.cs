@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.DataProtection.v2022_05_01.FindRes
 
 internal class RestorableTimeRangesFindOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(AzureBackupFindRestorableTimeRangesRequestModel);
 
-    public override ResourceID? ResourceId() => new BackupInstanceId();
+\t\tpublic override ResourceID? ResourceId() => new BackupInstanceId();
 
-    public override Type? ResponseObject() => typeof(AzureBackupFindRestorableTimeRangesResponseResourceModel);
+\t\tpublic override Type? ResponseObject() => typeof(AzureBackupFindRestorableTimeRangesResponseResourceModel);
 
-    public override string? UriSuffix() => "/findRestorableTimeRanges";
+\t\tpublic override string? UriSuffix() => "/findRestorableTimeRanges";
 
 
 }

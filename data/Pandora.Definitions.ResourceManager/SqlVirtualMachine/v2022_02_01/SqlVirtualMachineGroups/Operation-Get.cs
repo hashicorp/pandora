@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.SqlVirtualMachine.v2022_02_01.SqlV
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new SqlVirtualMachineGroupId();
+\t\tpublic override ResourceID? ResourceId() => new SqlVirtualMachineGroupId();
 
-    public override Type? ResponseObject() => typeof(SqlVirtualMachineGroupModel);
+\t\tpublic override Type? ResponseObject() => typeof(SqlVirtualMachineGroupModel);
 
 
 }

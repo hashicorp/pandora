@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.Cognitive.v2021_04_30.CognitiveSer
 
 internal class AccountsListSkusOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new AccountId();
+\t\tpublic override ResourceID? ResourceId() => new AccountId();
 
-    public override Type? ResponseObject() => typeof(AccountSkuListResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(AccountSkuListResultModel);
 
-    public override string? UriSuffix() => "/skus";
+\t\tpublic override string? UriSuffix() => "/skus";
 
 
 }

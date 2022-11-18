@@ -15,14 +15,14 @@ namespace Pandora.Definitions.ResourceManager.DataProtection.v2022_05_01.BackupV
 
 internal class DeleteOperation : Operations.DeleteOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.NoContent,
                 HttpStatusCode.OK,
         };
 
-    public override ResourceID? ResourceId() => new BackupVaultId();
+\t\tpublic override ResourceID? ResourceId() => new BackupVaultId();
 
 
 }

@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.AAD.v2021_05_01.OuContainer;
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new OuContainerId();
+\t\tpublic override ResourceID? ResourceId() => new OuContainerId();
 
-    public override Type? ResponseObject() => typeof(OuContainerModel);
+\t\tpublic override Type? ResponseObject() => typeof(OuContainerModel);
 
 
 }

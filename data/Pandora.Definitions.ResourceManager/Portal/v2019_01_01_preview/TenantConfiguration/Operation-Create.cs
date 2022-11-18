@@ -17,9 +17,9 @@ internal class CreateOperation : Operations.PutOperation
 {
     public override Type? RequestObject() => typeof(ConfigurationModel);
 
-    public override Type? ResponseObject() => typeof(ConfigurationModel);
+\t\tpublic override Type? ResponseObject() => typeof(ConfigurationModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.Portal/tenantConfigurations/default";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.Portal/tenantConfigurations/default";
 
 
 }

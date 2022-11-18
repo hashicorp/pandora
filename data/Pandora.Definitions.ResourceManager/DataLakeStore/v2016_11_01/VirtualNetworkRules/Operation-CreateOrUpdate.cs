@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.DataLakeStore.v2016_11_01.VirtualN
 
 internal class CreateOrUpdateOperation : Operations.PutOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(CreateOrUpdateVirtualNetworkRuleParametersModel);
 
-    public override ResourceID? ResourceId() => new VirtualNetworkRuleId();
+\t\tpublic override ResourceID? ResourceId() => new VirtualNetworkRuleId();
 
-    public override Type? ResponseObject() => typeof(VirtualNetworkRuleModel);
+\t\tpublic override Type? ResponseObject() => typeof(VirtualNetworkRuleModel);
 
 
 }

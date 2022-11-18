@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.Automation.v2019_06_01.Job;
 
 internal class CreateOperation : Operations.PutOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Created,
         };
 
     public override Type? RequestObject() => typeof(JobCreateParametersModel);
 
-    public override ResourceID? ResourceId() => new JobId();
+\t\tpublic override ResourceID? ResourceId() => new JobId();
 
-    public override Type? ResponseObject() => typeof(JobModel);
+\t\tpublic override Type? ResponseObject() => typeof(JobModel);
 
-    public override Type? OptionsObject() => typeof(CreateOperation.CreateOptions);
+\t\tpublic override Type? OptionsObject() => typeof(CreateOperation.CreateOptions);
 
     internal class CreateOptions
     {

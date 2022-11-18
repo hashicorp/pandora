@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.Automation.v2019_06_01.Job;
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new JobId();
+\t\tpublic override ResourceID? ResourceId() => new JobId();
 
-    public override Type? ResponseObject() => typeof(JobModel);
+\t\tpublic override Type? ResponseObject() => typeof(JobModel);
 
-    public override Type? OptionsObject() => typeof(GetOperation.GetOptions);
+\t\tpublic override Type? OptionsObject() => typeof(GetOperation.GetOptions);
 
     internal class GetOptions
     {

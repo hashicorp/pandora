@@ -15,19 +15,19 @@ namespace Pandora.Definitions.ResourceManager.StreamAnalytics.v2020_03_01.Stream
 
 internal class ScaleOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(ScaleStreamingJobParametersModel);
 
-    public override ResourceID? ResourceId() => new StreamingJobId();
+\t\tpublic override ResourceID? ResourceId() => new StreamingJobId();
 
-    public override string? UriSuffix() => "/scale";
+\t\tpublic override string? UriSuffix() => "/scale";
 
 
 }

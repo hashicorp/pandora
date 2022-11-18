@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2022_01_01_preview.Names
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new NamespaceId();
+\t\tpublic override ResourceID? ResourceId() => new NamespaceId();
 
-    public override Type? ResponseObject() => typeof(EHNamespaceModel);
+\t\tpublic override Type? ResponseObject() => typeof(EHNamespaceModel);
 
 
 }

@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.ContainerInstance.v2022_09_01.Cont
 
 internal class ContainersExecuteCommandOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(ContainerExecRequestModel);
 
-    public override ResourceID? ResourceId() => new ContainerId();
+\t\tpublic override ResourceID? ResourceId() => new ContainerId();
 
-    public override Type? ResponseObject() => typeof(ContainerExecResponseModel);
+\t\tpublic override Type? ResponseObject() => typeof(ContainerExecResponseModel);
 
-    public override string? UriSuffix() => "/exec";
+\t\tpublic override string? UriSuffix() => "/exec";
 
 
 }

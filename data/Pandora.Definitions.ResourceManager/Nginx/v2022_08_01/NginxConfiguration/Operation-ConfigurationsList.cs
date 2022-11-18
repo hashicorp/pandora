@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Nginx.v2022_08_01.NginxConfigurati
 
 internal class ConfigurationsListOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new NginxDeploymentId();
+\t\tpublic override ResourceID? ResourceId() => new NginxDeploymentId();
 
-    public override Type NestedItemType() => typeof(NginxConfigurationModel);
+\t\tpublic override Type NestedItemType() => typeof(NginxConfigurationModel);
 
-    public override string? UriSuffix() => "/configurations";
+\t\tpublic override string? UriSuffix() => "/configurations";
 
 
 }

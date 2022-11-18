@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.ContainerService.v2022_09_02_previ
 
 internal class RoleBindingsCreateOrUpdateOperation : Operations.PutOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(TrustedAccessRoleBindingModel);
 
-    public override ResourceID? ResourceId() => new TrustedAccessRoleBindingId();
+\t\tpublic override ResourceID? ResourceId() => new TrustedAccessRoleBindingId();
 
-    public override Type? ResponseObject() => typeof(TrustedAccessRoleBindingModel);
+\t\tpublic override Type? ResponseObject() => typeof(TrustedAccessRoleBindingModel);
 
 
 }

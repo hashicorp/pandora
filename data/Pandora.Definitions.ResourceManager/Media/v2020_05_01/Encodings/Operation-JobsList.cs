@@ -15,15 +15,15 @@ namespace Pandora.Definitions.ResourceManager.Media.v2020_05_01.Encodings;
 
 internal class JobsListOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "@odata.nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "@odata.nextLink";
 
-    public override ResourceID? ResourceId() => new TransformId();
+\t\tpublic override ResourceID? ResourceId() => new TransformId();
 
-    public override Type NestedItemType() => typeof(JobModel);
+\t\tpublic override Type NestedItemType() => typeof(JobModel);
 
-    public override Type? OptionsObject() => typeof(JobsListOperation.JobsListOptions);
+\t\tpublic override Type? OptionsObject() => typeof(JobsListOperation.JobsListOptions);
 
-    public override string? UriSuffix() => "/jobs";
+\t\tpublic override string? UriSuffix() => "/jobs";
 
     internal class JobsListOptions
     {

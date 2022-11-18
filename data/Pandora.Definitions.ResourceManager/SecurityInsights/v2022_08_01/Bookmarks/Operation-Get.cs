@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.SecurityInsights.v2022_08_01.Bookm
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new BookmarkId();
+\t\tpublic override ResourceID? ResourceId() => new BookmarkId();
 
-    public override Type? ResponseObject() => typeof(BookmarkModel);
+\t\tpublic override Type? ResponseObject() => typeof(BookmarkModel);
 
 
 }

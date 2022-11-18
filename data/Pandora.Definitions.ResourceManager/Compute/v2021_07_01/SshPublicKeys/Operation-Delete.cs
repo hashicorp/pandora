@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Compute.v2021_07_01.SshPublicKeys;
 
 internal class DeleteOperation : Operations.DeleteOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.NoContent,
                 HttpStatusCode.OK,
         };
 
-    public override ResourceID? ResourceId() => new SshPublicKeyId();
+\t\tpublic override ResourceID? ResourceId() => new SshPublicKeyId();
 
 
 }

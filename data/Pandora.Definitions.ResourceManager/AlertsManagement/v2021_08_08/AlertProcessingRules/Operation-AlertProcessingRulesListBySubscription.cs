@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.AlertsManagement.v2021_08_08.Alert
 
 internal class AlertProcessingRulesListBySubscriptionOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new SubscriptionId();
+\t\tpublic override ResourceID? ResourceId() => new SubscriptionId();
 
-    public override Type NestedItemType() => typeof(AlertProcessingRuleModel);
+\t\tpublic override Type NestedItemType() => typeof(AlertProcessingRuleModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.AlertsManagement/actionRules";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.AlertsManagement/actionRules";
 
 
 }

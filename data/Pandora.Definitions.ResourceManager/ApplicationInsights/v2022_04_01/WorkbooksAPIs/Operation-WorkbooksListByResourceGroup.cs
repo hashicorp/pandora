@@ -15,15 +15,15 @@ namespace Pandora.Definitions.ResourceManager.ApplicationInsights.v2022_04_01.Wo
 
 internal class WorkbooksListByResourceGroupOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new ResourceGroupId();
+\t\tpublic override ResourceID? ResourceId() => new ResourceGroupId();
 
-    public override Type NestedItemType() => typeof(WorkbookModel);
+\t\tpublic override Type NestedItemType() => typeof(WorkbookModel);
 
-    public override Type? OptionsObject() => typeof(WorkbooksListByResourceGroupOperation.WorkbooksListByResourceGroupOptions);
+\t\tpublic override Type? OptionsObject() => typeof(WorkbooksListByResourceGroupOperation.WorkbooksListByResourceGroupOptions);
 
-    public override string? UriSuffix() => "/providers/Microsoft.Insights/workbooks";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.Insights/workbooks";
 
     internal class WorkbooksListByResourceGroupOptions
     {

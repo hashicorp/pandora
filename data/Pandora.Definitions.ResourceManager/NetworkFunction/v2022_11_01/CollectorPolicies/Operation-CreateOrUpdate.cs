@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.NetworkFunction.v2022_11_01.Collec
 
 internal class CreateOrUpdateOperation : Operations.PutOperation
 {
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(CollectorPolicyModel);
 
-    public override ResourceID? ResourceId() => new CollectorPolicyId();
+\t\tpublic override ResourceID? ResourceId() => new CollectorPolicyId();
 
-    public override Type? ResponseObject() => typeof(CollectorPolicyModel);
+\t\tpublic override Type? ResponseObject() => typeof(CollectorPolicyModel);
 
 
 }

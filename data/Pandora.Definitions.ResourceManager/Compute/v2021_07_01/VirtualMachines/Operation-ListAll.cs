@@ -15,15 +15,15 @@ namespace Pandora.Definitions.ResourceManager.Compute.v2021_07_01.VirtualMachine
 
 internal class ListAllOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new SubscriptionId();
+\t\tpublic override ResourceID? ResourceId() => new SubscriptionId();
 
-    public override Type NestedItemType() => typeof(VirtualMachineModel);
+\t\tpublic override Type NestedItemType() => typeof(VirtualMachineModel);
 
-    public override Type? OptionsObject() => typeof(ListAllOperation.ListAllOptions);
+\t\tpublic override Type? OptionsObject() => typeof(ListAllOperation.ListAllOptions);
 
-    public override string? UriSuffix() => "/providers/Microsoft.Compute/virtualMachines";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.Compute/virtualMachines";
 
     internal class ListAllOptions
     {

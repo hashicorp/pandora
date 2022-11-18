@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.ResourceConnector.v2022_10_27.Appl
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ApplianceId();
+\t\tpublic override ResourceID? ResourceId() => new ApplianceId();
 
-    public override Type? ResponseObject() => typeof(ApplianceModel);
+\t\tpublic override Type? ResponseObject() => typeof(ApplianceModel);
 
 
 }

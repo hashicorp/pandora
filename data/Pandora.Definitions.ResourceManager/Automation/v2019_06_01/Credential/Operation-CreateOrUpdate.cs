@@ -17,9 +17,9 @@ internal class CreateOrUpdateOperation : Operations.PutOperation
 {
     public override Type? RequestObject() => typeof(CredentialCreateOrUpdateParametersModel);
 
-    public override ResourceID? ResourceId() => new CredentialId();
+\t\tpublic override ResourceID? ResourceId() => new CredentialId();
 
-    public override Type? ResponseObject() => typeof(CredentialModel);
+\t\tpublic override Type? ResponseObject() => typeof(CredentialModel);
 
 
 }

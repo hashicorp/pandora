@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.AppPlatform.v2022_09_01_preview.Ap
 
 internal class ServicesEnableTestEndpointOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new SpringId();
+\t\tpublic override ResourceID? ResourceId() => new SpringId();
 
-    public override Type? ResponseObject() => typeof(TestKeysModel);
+\t\tpublic override Type? ResponseObject() => typeof(TestKeysModel);
 
-    public override string? UriSuffix() => "/enableTestEndpoint";
+\t\tpublic override string? UriSuffix() => "/enableTestEndpoint";
 
 
 }

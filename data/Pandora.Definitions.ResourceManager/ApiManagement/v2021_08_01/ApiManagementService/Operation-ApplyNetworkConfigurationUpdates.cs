@@ -15,21 +15,21 @@ namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.ApiManag
 
 internal class ApplyNetworkConfigurationUpdatesOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(ApiManagementServiceApplyNetworkConfigurationParametersModel);
 
-    public override ResourceID? ResourceId() => new ServiceId();
+\t\tpublic override ResourceID? ResourceId() => new ServiceId();
 
-    public override Type? ResponseObject() => typeof(ApiManagementServiceResourceModel);
+\t\tpublic override Type? ResponseObject() => typeof(ApiManagementServiceResourceModel);
 
-    public override string? UriSuffix() => "/applynetworkconfigurationupdates";
+\t\tpublic override string? UriSuffix() => "/applynetworkconfigurationupdates";
 
 
 }

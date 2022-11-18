@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.Elastic.v2020_07_01.MonitorsResour
 
 internal class MonitorsGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new MonitorId();
+\t\tpublic override ResourceID? ResourceId() => new MonitorId();
 
-    public override Type? ResponseObject() => typeof(ElasticMonitorResourceModel);
+\t\tpublic override Type? ResponseObject() => typeof(ElasticMonitorResourceModel);
 
 
 }

@@ -15,12 +15,12 @@ namespace Pandora.Definitions.ResourceManager.Resources.v2020_10_01.Deployments;
 
 internal class CheckExistenceAtScopeOperation : Operations.HeadOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.NoContent,
         };
 
-    public override ResourceID? ResourceId() => new ScopedDeploymentId();
+\t\tpublic override ResourceID? ResourceId() => new ScopedDeploymentId();
 
 
 }

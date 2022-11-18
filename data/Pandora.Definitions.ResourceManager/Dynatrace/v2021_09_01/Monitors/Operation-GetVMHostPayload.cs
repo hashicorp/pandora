@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.Dynatrace.v2021_09_01.Monitors;
 
 internal class GetVMHostPayloadOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new MonitorId();
+\t\tpublic override ResourceID? ResourceId() => new MonitorId();
 
-    public override Type? ResponseObject() => typeof(VMExtensionPayloadModel);
+\t\tpublic override Type? ResponseObject() => typeof(VMExtensionPayloadModel);
 
-    public override string? UriSuffix() => "/getVMHostPayload";
+\t\tpublic override string? UriSuffix() => "/getVMHostPayload";
 
 
 }

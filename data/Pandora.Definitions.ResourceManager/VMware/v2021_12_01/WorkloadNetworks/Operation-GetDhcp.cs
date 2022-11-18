@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.VMware.v2021_12_01.WorkloadNetwork
 
 internal class GetDhcpOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new DhcpConfigurationId();
+\t\tpublic override ResourceID? ResourceId() => new DhcpConfigurationId();
 
-    public override Type? ResponseObject() => typeof(WorkloadNetworkDhcpModel);
+\t\tpublic override Type? ResponseObject() => typeof(WorkloadNetworkDhcpModel);
 
 
 }

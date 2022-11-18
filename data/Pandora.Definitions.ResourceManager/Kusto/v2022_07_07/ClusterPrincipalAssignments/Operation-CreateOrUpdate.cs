@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Kusto.v2022_07_07.ClusterPrincipal
 
 internal class CreateOrUpdateOperation : Operations.PutOperation
 {
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(ClusterPrincipalAssignmentModel);
 
-    public override ResourceID? ResourceId() => new PrincipalAssignmentId();
+\t\tpublic override ResourceID? ResourceId() => new PrincipalAssignmentId();
 
-    public override Type? ResponseObject() => typeof(ClusterPrincipalAssignmentModel);
+\t\tpublic override Type? ResponseObject() => typeof(ClusterPrincipalAssignmentModel);
 
 
 }

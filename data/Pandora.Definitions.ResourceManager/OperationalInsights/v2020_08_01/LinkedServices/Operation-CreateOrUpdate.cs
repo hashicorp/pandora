@@ -15,20 +15,20 @@ namespace Pandora.Definitions.ResourceManager.OperationalInsights.v2020_08_01.Li
 
 internal class CreateOrUpdateOperation : Operations.PutOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.Created,
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(LinkedServiceModel);
 
-    public override ResourceID? ResourceId() => new LinkedServiceId();
+\t\tpublic override ResourceID? ResourceId() => new LinkedServiceId();
 
-    public override Type? ResponseObject() => typeof(LinkedServiceModel);
+\t\tpublic override Type? ResponseObject() => typeof(LinkedServiceModel);
 
 
 }

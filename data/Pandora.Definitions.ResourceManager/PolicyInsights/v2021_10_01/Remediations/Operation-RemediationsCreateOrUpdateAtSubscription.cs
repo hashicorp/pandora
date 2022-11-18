@@ -17,9 +17,9 @@ internal class RemediationsCreateOrUpdateAtSubscriptionOperation : Operations.Pu
 {
     public override Type? RequestObject() => typeof(RemediationModel);
 
-    public override ResourceID? ResourceId() => new RemediationId();
+\t\tpublic override ResourceID? ResourceId() => new RemediationId();
 
-    public override Type? ResponseObject() => typeof(RemediationModel);
+\t\tpublic override Type? ResponseObject() => typeof(RemediationModel);
 
 
 }

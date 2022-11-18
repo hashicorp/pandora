@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.ManagedIdentity.v2022_01_31_previe
 
 internal class FederatedIdentityCredentialsGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new FederatedIdentityCredentialId();
+\t\tpublic override ResourceID? ResourceId() => new FederatedIdentityCredentialId();
 
-    public override Type? ResponseObject() => typeof(FederatedIdentityCredentialModel);
+\t\tpublic override Type? ResponseObject() => typeof(FederatedIdentityCredentialModel);
 
 
 }

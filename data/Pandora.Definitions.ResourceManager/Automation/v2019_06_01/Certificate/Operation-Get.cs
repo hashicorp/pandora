@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.Automation.v2019_06_01.Certificate
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new CertificateId();
+\t\tpublic override ResourceID? ResourceId() => new CertificateId();
 
-    public override Type? ResponseObject() => typeof(CertificateModel);
+\t\tpublic override Type? ResponseObject() => typeof(CertificateModel);
 
 
 }

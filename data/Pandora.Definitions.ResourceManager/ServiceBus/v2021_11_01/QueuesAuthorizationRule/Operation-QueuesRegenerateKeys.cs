@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.ServiceBus.v2021_11_01.QueuesAutho
 
 internal class QueuesRegenerateKeysOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(RegenerateAccessKeyParametersModel);
 
-    public override ResourceID? ResourceId() => new QueueAuthorizationRuleId();
+\t\tpublic override ResourceID? ResourceId() => new QueueAuthorizationRuleId();
 
-    public override Type? ResponseObject() => typeof(AccessKeysModel);
+\t\tpublic override Type? ResponseObject() => typeof(AccessKeysModel);
 
-    public override string? UriSuffix() => "/regenerateKeys";
+\t\tpublic override string? UriSuffix() => "/regenerateKeys";
 
 
 }

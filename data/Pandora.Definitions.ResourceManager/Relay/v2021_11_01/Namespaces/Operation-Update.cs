@@ -17,9 +17,9 @@ internal class UpdateOperation : Operations.PatchOperation
 {
     public override Type? RequestObject() => typeof(RelayUpdateParametersModel);
 
-    public override ResourceID? ResourceId() => new NamespaceId();
+\t\tpublic override ResourceID? ResourceId() => new NamespaceId();
 
-    public override Type? ResponseObject() => typeof(RelayNamespaceModel);
+\t\tpublic override Type? ResponseObject() => typeof(RelayNamespaceModel);
 
 
 }

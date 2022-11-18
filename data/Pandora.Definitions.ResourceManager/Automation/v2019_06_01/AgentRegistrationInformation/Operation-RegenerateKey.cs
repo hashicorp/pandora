@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.Automation.v2019_06_01.AgentRegist
 
 internal class RegenerateKeyOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(AgentRegistrationRegenerateKeyParameterModel);
 
-    public override ResourceID? ResourceId() => new AutomationAccountId();
+\t\tpublic override ResourceID? ResourceId() => new AutomationAccountId();
 
-    public override Type? ResponseObject() => typeof(AgentRegistrationModel);
+\t\tpublic override Type? ResponseObject() => typeof(AgentRegistrationModel);
 
-    public override string? UriSuffix() => "/agentRegistrationInformation/regenerateKey";
+\t\tpublic override string? UriSuffix() => "/agentRegistrationInformation/regenerateKey";
 
 
 }

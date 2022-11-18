@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.ResourceConnector.v2022_10_27.Appl
 
 internal class GetTelemetryConfigOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new SubscriptionId();
+\t\tpublic override ResourceID? ResourceId() => new SubscriptionId();
 
-    public override Type? ResponseObject() => typeof(ApplianceGetTelemetryConfigResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(ApplianceGetTelemetryConfigResultModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.ResourceConnector/telemetryconfig";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.ResourceConnector/telemetryconfig";
 
 
 }

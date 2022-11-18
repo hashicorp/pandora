@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Communication.v2020_08_20.Communic
 
 internal class ListByResourceGroupOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new ResourceGroupId();
+\t\tpublic override ResourceID? ResourceId() => new ResourceGroupId();
 
-    public override Type NestedItemType() => typeof(CommunicationServiceResourceModel);
+\t\tpublic override Type NestedItemType() => typeof(CommunicationServiceResourceModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.Communication/communicationServices";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.Communication/communicationServices";
 
 
 }

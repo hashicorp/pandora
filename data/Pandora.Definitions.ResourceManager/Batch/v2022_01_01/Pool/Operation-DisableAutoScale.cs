@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.Batch.v2022_01_01.Pool;
 
 internal class DisableAutoScaleOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new PoolId();
+\t\tpublic override ResourceID? ResourceId() => new PoolId();
 
-    public override Type? ResponseObject() => typeof(PoolModel);
+\t\tpublic override Type? ResponseObject() => typeof(PoolModel);
 
-    public override string? UriSuffix() => "/disableAutoScale";
+\t\tpublic override string? UriSuffix() => "/disableAutoScale";
 
 
 }

@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.Storage.v2022_09_01.PrivateEndpoin
 
 internal class ListOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new StorageAccountId();
+\t\tpublic override ResourceID? ResourceId() => new StorageAccountId();
 
-    public override Type? ResponseObject() => typeof(PrivateEndpointConnectionListResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(PrivateEndpointConnectionListResultModel);
 
-    public override string? UriSuffix() => "/privateEndpointConnections";
+\t\tpublic override string? UriSuffix() => "/privateEndpointConnections";
 
 
 }

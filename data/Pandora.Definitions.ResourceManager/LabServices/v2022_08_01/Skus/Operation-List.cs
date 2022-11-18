@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.LabServices.v2022_08_01.Skus;
 
 internal class ListOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new SubscriptionId();
+\t\tpublic override ResourceID? ResourceId() => new SubscriptionId();
 
-    public override Type NestedItemType() => typeof(LabServicesSkuModel);
+\t\tpublic override Type NestedItemType() => typeof(LabServicesSkuModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.LabServices/skus";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.LabServices/skus";
 
 
 }

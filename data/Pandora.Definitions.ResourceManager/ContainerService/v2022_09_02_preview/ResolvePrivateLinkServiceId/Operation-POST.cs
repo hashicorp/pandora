@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.ContainerService.v2022_09_02_previ
 
 internal class POSTOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(PrivateLinkResourceModel);
 
-    public override ResourceID? ResourceId() => new ManagedClusterId();
+\t\tpublic override ResourceID? ResourceId() => new ManagedClusterId();
 
-    public override Type? ResponseObject() => typeof(PrivateLinkResourceModel);
+\t\tpublic override Type? ResponseObject() => typeof(PrivateLinkResourceModel);
 
-    public override string? UriSuffix() => "/resolvePrivateLinkServiceId";
+\t\tpublic override string? UriSuffix() => "/resolvePrivateLinkServiceId";
 
 
 }

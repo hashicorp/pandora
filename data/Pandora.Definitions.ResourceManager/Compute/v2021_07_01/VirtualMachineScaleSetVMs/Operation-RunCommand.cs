@@ -15,21 +15,21 @@ namespace Pandora.Definitions.ResourceManager.Compute.v2021_07_01.VirtualMachine
 
 internal class RunCommandOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(RunCommandInputModel);
 
-    public override ResourceID? ResourceId() => new VirtualMachineScaleSetVirtualMachineId();
+\t\tpublic override ResourceID? ResourceId() => new VirtualMachineScaleSetVirtualMachineId();
 
-    public override Type? ResponseObject() => typeof(RunCommandResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(RunCommandResultModel);
 
-    public override string? UriSuffix() => "/runCommand";
+\t\tpublic override string? UriSuffix() => "/runCommand";
 
 
 }

@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.MachineLearningServices.v2022_10_0
 
 internal class ComputeDeleteOperation : Operations.DeleteOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.NoContent,
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
-    public override ResourceID? ResourceId() => new ComputeId();
+\t\tpublic override ResourceID? ResourceId() => new ComputeId();
 
-    public override Type? OptionsObject() => typeof(ComputeDeleteOperation.ComputeDeleteOptions);
+\t\tpublic override Type? OptionsObject() => typeof(ComputeDeleteOperation.ComputeDeleteOptions);
 
     internal class ComputeDeleteOptions
     {

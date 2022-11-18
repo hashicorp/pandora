@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2022_01_01_preview.Disas
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new DisasterRecoveryConfigId();
+\t\tpublic override ResourceID? ResourceId() => new DisasterRecoveryConfigId();
 
-    public override Type? ResponseObject() => typeof(ArmDisasterRecoveryModel);
+\t\tpublic override Type? ResponseObject() => typeof(ArmDisasterRecoveryModel);
 
 
 }

@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.ChaosStudio.v2022_07_01_preview.Ex
 
 internal class ListExecutionDetailsOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new ExperimentId();
+\t\tpublic override ResourceID? ResourceId() => new ExperimentId();
 
-    public override Type NestedItemType() => typeof(ExperimentExecutionDetailsModel);
+\t\tpublic override Type NestedItemType() => typeof(ExperimentExecutionDetailsModel);
 
-    public override string? UriSuffix() => "/executionDetails";
+\t\tpublic override string? UriSuffix() => "/executionDetails";
 
 
 }

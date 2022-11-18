@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.Automation.v2019_06_01.LinkedWorks
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new AutomationAccountId();
+\t\tpublic override ResourceID? ResourceId() => new AutomationAccountId();
 
-    public override Type? ResponseObject() => typeof(LinkedWorkspaceModel);
+\t\tpublic override Type? ResponseObject() => typeof(LinkedWorkspaceModel);
 
-    public override string? UriSuffix() => "/linkedWorkspace";
+\t\tpublic override string? UriSuffix() => "/linkedWorkspace";
 
 
 }

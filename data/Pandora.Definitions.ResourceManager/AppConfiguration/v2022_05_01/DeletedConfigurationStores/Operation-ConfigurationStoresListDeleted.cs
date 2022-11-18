@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.AppConfiguration.v2022_05_01.Delet
 
 internal class ConfigurationStoresListDeletedOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new SubscriptionId();
+\t\tpublic override ResourceID? ResourceId() => new SubscriptionId();
 
-    public override Type NestedItemType() => typeof(DeletedConfigurationStoreModel);
+\t\tpublic override Type NestedItemType() => typeof(DeletedConfigurationStoreModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.AppConfiguration/deletedConfigurationStores";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.AppConfiguration/deletedConfigurationStores";
 
 
 }

@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.Cognitive.v2022_10_01.Deployments;
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new DeploymentId();
+\t\tpublic override ResourceID? ResourceId() => new DeploymentId();
 
-    public override Type? ResponseObject() => typeof(DeploymentModel);
+\t\tpublic override Type? ResponseObject() => typeof(DeploymentModel);
 
 
 }

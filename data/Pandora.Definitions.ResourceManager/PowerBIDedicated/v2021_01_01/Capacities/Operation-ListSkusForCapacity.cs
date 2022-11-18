@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.PowerBIDedicated.v2021_01_01.Capac
 
 internal class ListSkusForCapacityOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new CapacityId();
+\t\tpublic override ResourceID? ResourceId() => new CapacityId();
 
-    public override Type? ResponseObject() => typeof(SkuEnumerationForExistingResourceResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(SkuEnumerationForExistingResourceResultModel);
 
-    public override string? UriSuffix() => "/skus";
+\t\tpublic override string? UriSuffix() => "/skus";
 
 
 }

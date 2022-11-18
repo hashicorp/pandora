@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.LoadTestService.v2022_04_15_previe
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new LoadTestId();
+\t\tpublic override ResourceID? ResourceId() => new LoadTestId();
 
-    public override Type? ResponseObject() => typeof(LoadTestResourceModel);
+\t\tpublic override Type? ResponseObject() => typeof(LoadTestResourceModel);
 
 
 }

@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.Web.v2016_06_01.Connections;
 
 internal class ListConsentLinksOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(ListConsentLinksDefinitionModel);
 
-    public override ResourceID? ResourceId() => new ConnectionId();
+\t\tpublic override ResourceID? ResourceId() => new ConnectionId();
 
-    public override Type? ResponseObject() => typeof(ConsentLinkCollectionModel);
+\t\tpublic override Type? ResponseObject() => typeof(ConsentLinkCollectionModel);
 
-    public override string? UriSuffix() => "/listConsentLinks";
+\t\tpublic override string? UriSuffix() => "/listConsentLinks";
 
 
 }

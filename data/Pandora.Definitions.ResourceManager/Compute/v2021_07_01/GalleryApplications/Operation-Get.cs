@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.Compute.v2021_07_01.GalleryApplica
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ApplicationId();
+\t\tpublic override ResourceID? ResourceId() => new ApplicationId();
 
-    public override Type? ResponseObject() => typeof(GalleryApplicationModel);
+\t\tpublic override Type? ResponseObject() => typeof(GalleryApplicationModel);
 
 
 }

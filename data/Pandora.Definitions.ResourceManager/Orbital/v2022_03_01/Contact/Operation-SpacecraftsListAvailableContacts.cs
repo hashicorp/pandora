@@ -15,25 +15,25 @@ namespace Pandora.Definitions.ResourceManager.Orbital.v2022_03_01.Contact;
 
 internal class SpacecraftsListAvailableContactsOperation : Operations.ListOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.OK,
         };
 
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(ContactParametersModel);
 
-    public override ResourceID? ResourceId() => new SpacecraftId();
+\t\tpublic override ResourceID? ResourceId() => new SpacecraftId();
 
-    public override Type NestedItemType() => typeof(AvailableContactsModel);
+\t\tpublic override Type NestedItemType() => typeof(AvailableContactsModel);
 
-    public override string? UriSuffix() => "/listAvailableContacts";
+\t\tpublic override string? UriSuffix() => "/listAvailableContacts";
 
-    public override System.Net.Http.HttpMethod Method() => System.Net.Http.HttpMethod.Post;
+\t\tpublic override System.Net.Http.HttpMethod Method() => System.Net.Http.HttpMethod.Post;
 
 
 }

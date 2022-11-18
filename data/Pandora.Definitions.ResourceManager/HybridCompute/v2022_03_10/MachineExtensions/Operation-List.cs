@@ -15,15 +15,15 @@ namespace Pandora.Definitions.ResourceManager.HybridCompute.v2022_03_10.MachineE
 
 internal class ListOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new MachineId();
+\t\tpublic override ResourceID? ResourceId() => new MachineId();
 
-    public override Type NestedItemType() => typeof(MachineExtensionModel);
+\t\tpublic override Type NestedItemType() => typeof(MachineExtensionModel);
 
-    public override Type? OptionsObject() => typeof(ListOperation.ListOptions);
+\t\tpublic override Type? OptionsObject() => typeof(ListOperation.ListOptions);
 
-    public override string? UriSuffix() => "/extensions";
+\t\tpublic override string? UriSuffix() => "/extensions";
 
     internal class ListOptions
     {

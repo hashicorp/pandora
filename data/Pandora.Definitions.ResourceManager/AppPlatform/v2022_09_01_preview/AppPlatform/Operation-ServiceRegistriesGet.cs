@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.AppPlatform.v2022_09_01_preview.Ap
 
 internal class ServiceRegistriesGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ServiceRegistryId();
+\t\tpublic override ResourceID? ResourceId() => new ServiceRegistryId();
 
-    public override Type? ResponseObject() => typeof(ServiceRegistryResourceModel);
+\t\tpublic override Type? ResponseObject() => typeof(ServiceRegistryResourceModel);
 
 
 }

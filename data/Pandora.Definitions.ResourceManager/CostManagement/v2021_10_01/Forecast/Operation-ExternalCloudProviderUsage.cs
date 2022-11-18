@@ -15,20 +15,20 @@ namespace Pandora.Definitions.ResourceManager.CostManagement.v2021_10_01.Forecas
 
 internal class ExternalCloudProviderUsageOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(ForecastDefinitionModel);
 
-    public override ResourceID? ResourceId() => new ExternalCloudProviderTypeId();
+\t\tpublic override ResourceID? ResourceId() => new ExternalCloudProviderTypeId();
 
-    public override Type? ResponseObject() => typeof(ForecastResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(ForecastResultModel);
 
-    public override Type? OptionsObject() => typeof(ExternalCloudProviderUsageOperation.ExternalCloudProviderUsageOptions);
+\t\tpublic override Type? OptionsObject() => typeof(ExternalCloudProviderUsageOperation.ExternalCloudProviderUsageOptions);
 
-    public override string? UriSuffix() => "/forecast";
+\t\tpublic override string? UriSuffix() => "/forecast";
 
     internal class ExternalCloudProviderUsageOptions
     {

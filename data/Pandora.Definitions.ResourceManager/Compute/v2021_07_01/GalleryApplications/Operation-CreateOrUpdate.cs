@@ -15,20 +15,20 @@ namespace Pandora.Definitions.ResourceManager.Compute.v2021_07_01.GalleryApplica
 
 internal class CreateOrUpdateOperation : Operations.PutOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.Created,
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(GalleryApplicationModel);
 
-    public override ResourceID? ResourceId() => new ApplicationId();
+\t\tpublic override ResourceID? ResourceId() => new ApplicationId();
 
-    public override Type? ResponseObject() => typeof(GalleryApplicationModel);
+\t\tpublic override Type? ResponseObject() => typeof(GalleryApplicationModel);
 
 
 }

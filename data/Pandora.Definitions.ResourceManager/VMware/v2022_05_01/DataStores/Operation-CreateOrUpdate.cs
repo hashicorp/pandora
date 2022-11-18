@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.VMware.v2022_05_01.DataStores;
 
 internal class CreateOrUpdateOperation : Operations.PutOperation
 {
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(DatastoreModel);
 
-    public override ResourceID? ResourceId() => new DataStoreId();
+\t\tpublic override ResourceID? ResourceId() => new DataStoreId();
 
-    public override Type? ResponseObject() => typeof(DatastoreModel);
+\t\tpublic override Type? ResponseObject() => typeof(DatastoreModel);
 
 
 }

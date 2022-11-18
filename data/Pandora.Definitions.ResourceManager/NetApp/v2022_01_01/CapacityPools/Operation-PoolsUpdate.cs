@@ -15,19 +15,19 @@ namespace Pandora.Definitions.ResourceManager.NetApp.v2022_01_01.CapacityPools;
 
 internal class PoolsUpdateOperation : Operations.PatchOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(CapacityPoolPatchModel);
 
-    public override ResourceID? ResourceId() => new CapacityPoolId();
+\t\tpublic override ResourceID? ResourceId() => new CapacityPoolId();
 
-    public override Type? ResponseObject() => typeof(CapacityPoolModel);
+\t\tpublic override Type? ResponseObject() => typeof(CapacityPoolModel);
 
 
 }

@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Relay.v2021_11_01.NamespacesPrivat
 
 internal class PrivateEndpointConnectionsListOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new NamespaceId();
+\t\tpublic override ResourceID? ResourceId() => new NamespaceId();
 
-    public override Type NestedItemType() => typeof(PrivateEndpointConnectionModel);
+\t\tpublic override Type NestedItemType() => typeof(PrivateEndpointConnectionModel);
 
-    public override string? UriSuffix() => "/privateEndpointConnections";
+\t\tpublic override string? UriSuffix() => "/privateEndpointConnections";
 
 
 }

@@ -17,9 +17,9 @@ internal class VideoAnalyzersCreateOrUpdateOperation : Operations.PutOperation
 {
     public override Type? RequestObject() => typeof(VideoAnalyzerModel);
 
-    public override ResourceID? ResourceId() => new VideoAnalyzerId();
+\t\tpublic override ResourceID? ResourceId() => new VideoAnalyzerId();
 
-    public override Type? ResponseObject() => typeof(VideoAnalyzerModel);
+\t\tpublic override Type? ResponseObject() => typeof(VideoAnalyzerModel);
 
 
 }

@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.DeviceProvisioningServices.v2022_0
 
 internal class ListBySubscriptionOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new SubscriptionId();
+\t\tpublic override ResourceID? ResourceId() => new SubscriptionId();
 
-    public override Type NestedItemType() => typeof(ProvisioningServiceDescriptionModel);
+\t\tpublic override Type NestedItemType() => typeof(ProvisioningServiceDescriptionModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.Devices/provisioningServices";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.Devices/provisioningServices";
 
 
 }

@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.Insights.v2021_05_01_preview.Diagn
 
 internal class DiagnosticSettingsCategoryGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ScopedDiagnosticSettingsCategoryId();
+\t\tpublic override ResourceID? ResourceId() => new ScopedDiagnosticSettingsCategoryId();
 
-    public override Type? ResponseObject() => typeof(DiagnosticSettingsCategoryResourceModel);
+\t\tpublic override Type? ResponseObject() => typeof(DiagnosticSettingsCategoryResourceModel);
 
 
 }

@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.SecurityInsights.v2022_07_01_previ
 
 internal class IncidentsRunPlaybookOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.NoContent,
         };
 
     public override Type? RequestObject() => typeof(ManualTriggerRequestBodyModel);
 
-    public override ResourceID? ResourceId() => new IncidentId();
+\t\tpublic override ResourceID? ResourceId() => new IncidentId();
 
-    public override Type? ResponseObject() => typeof(object);
+\t\tpublic override Type? ResponseObject() => typeof(object);
 
-    public override string? UriSuffix() => "/runPlaybook";
+\t\tpublic override string? UriSuffix() => "/runPlaybook";
 
 
 }

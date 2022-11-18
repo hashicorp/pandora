@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.SignInSe
 
 internal class UpdateOperation : Operations.PatchOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.NoContent,
         };
 
     public override Type? RequestObject() => typeof(PortalSigninSettingsModel);
 
-    public override ResourceID? ResourceId() => new ServiceId();
+\t\tpublic override ResourceID? ResourceId() => new ServiceId();
 
-    public override Type? OptionsObject() => typeof(UpdateOperation.UpdateOptions);
+\t\tpublic override Type? OptionsObject() => typeof(UpdateOperation.UpdateOptions);
 
-    public override string? UriSuffix() => "/portalsettings/signin";
+\t\tpublic override string? UriSuffix() => "/portalsettings/signin";
 
     internal class UpdateOptions
     {

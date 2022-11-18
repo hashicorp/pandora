@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.MachineLearningServices.v2022_10_0
 
 internal class WorkspaceConnectionsCreateOperation : Operations.PutOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(WorkspaceConnectionPropertiesV2BasicResourceModel);
 
-    public override ResourceID? ResourceId() => new ConnectionId();
+\t\tpublic override ResourceID? ResourceId() => new ConnectionId();
 
-    public override Type? ResponseObject() => typeof(WorkspaceConnectionPropertiesV2BasicResourceModel);
+\t\tpublic override Type? ResponseObject() => typeof(WorkspaceConnectionPropertiesV2BasicResourceModel);
 
 
 }

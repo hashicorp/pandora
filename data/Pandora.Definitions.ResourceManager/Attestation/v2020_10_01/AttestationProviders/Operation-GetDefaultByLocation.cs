@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.Attestation.v2020_10_01.Attestatio
 
 internal class GetDefaultByLocationOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new LocationId();
+\t\tpublic override ResourceID? ResourceId() => new LocationId();
 
-    public override Type? ResponseObject() => typeof(AttestationProvidersModel);
+\t\tpublic override Type? ResponseObject() => typeof(AttestationProvidersModel);
 
-    public override string? UriSuffix() => "/defaultProvider";
+\t\tpublic override string? UriSuffix() => "/defaultProvider";
 
 
 }

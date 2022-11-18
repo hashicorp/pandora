@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.ApiManag
 
 internal class CheckNameAvailabilityOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(ApiManagementServiceCheckNameAvailabilityParametersModel);
 
-    public override ResourceID? ResourceId() => new SubscriptionId();
+\t\tpublic override ResourceID? ResourceId() => new SubscriptionId();
 
-    public override Type? ResponseObject() => typeof(ApiManagementServiceNameAvailabilityResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(ApiManagementServiceNameAvailabilityResultModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.ApiManagement/checkNameAvailability";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.ApiManagement/checkNameAvailability";
 
 
 }

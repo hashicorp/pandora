@@ -15,19 +15,19 @@ namespace Pandora.Definitions.ResourceManager.PostgreSql.v2022_03_08_preview.Ser
 
 internal class ServersRestartOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(RestartParameterModel);
 
-    public override ResourceID? ResourceId() => new FlexibleServerId();
+\t\tpublic override ResourceID? ResourceId() => new FlexibleServerId();
 
-    public override string? UriSuffix() => "/restart";
+\t\tpublic override string? UriSuffix() => "/restart";
 
 
 }

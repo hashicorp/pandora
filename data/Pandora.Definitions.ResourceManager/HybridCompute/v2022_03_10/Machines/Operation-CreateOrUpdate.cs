@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.HybridCompute.v2022_03_10.Machines
 
 internal class CreateOrUpdateOperation : Operations.PutOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(MachineModel);
 
-    public override ResourceID? ResourceId() => new MachineId();
+\t\tpublic override ResourceID? ResourceId() => new MachineId();
 
-    public override Type? ResponseObject() => typeof(MachineModel);
+\t\tpublic override Type? ResponseObject() => typeof(MachineModel);
 
 
 }

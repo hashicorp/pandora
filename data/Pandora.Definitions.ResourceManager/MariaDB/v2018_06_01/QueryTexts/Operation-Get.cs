@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.MariaDB.v2018_06_01.QueryTexts;
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new QueryTextId();
+\t\tpublic override ResourceID? ResourceId() => new QueryTextId();
 
-    public override Type? ResponseObject() => typeof(QueryTextModel);
+\t\tpublic override Type? ResponseObject() => typeof(QueryTextModel);
 
 
 }

@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.Kusto.v2022_07_07.ManagedPrivateEn
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ManagedPrivateEndpointId();
+\t\tpublic override ResourceID? ResourceId() => new ManagedPrivateEndpointId();
 
-    public override Type? ResponseObject() => typeof(ManagedPrivateEndpointModel);
+\t\tpublic override Type? ResponseObject() => typeof(ManagedPrivateEndpointModel);
 
 
 }

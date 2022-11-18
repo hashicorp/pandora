@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.QuotaByP
 
 internal class UpdateOperation : Operations.PatchOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(QuotaCounterValueUpdateContractModel);
 
-    public override ResourceID? ResourceId() => new PeriodId();
+\t\tpublic override ResourceID? ResourceId() => new PeriodId();
 
-    public override Type? ResponseObject() => typeof(QuotaCounterContractModel);
+\t\tpublic override Type? ResponseObject() => typeof(QuotaCounterContractModel);
 
 
 }

@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.Purview.v2021_07_01.Account;
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new AccountId();
+\t\tpublic override ResourceID? ResourceId() => new AccountId();
 
-    public override Type? ResponseObject() => typeof(AccountModel);
+\t\tpublic override Type? ResponseObject() => typeof(AccountModel);
 
 
 }

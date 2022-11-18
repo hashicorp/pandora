@@ -15,21 +15,21 @@ namespace Pandora.Definitions.ResourceManager.Storage.v2022_09_01.StorageAccount
 
 internal class FailoverOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new StorageAccountId();
+\t\tpublic override ResourceID? ResourceId() => new StorageAccountId();
 
-    public override Type? OptionsObject() => typeof(FailoverOperation.FailoverOptions);
+\t\tpublic override Type? OptionsObject() => typeof(FailoverOperation.FailoverOptions);
 
-    public override string? UriSuffix() => "/failover";
+\t\tpublic override string? UriSuffix() => "/failover";
 
     internal class FailoverOptions
     {

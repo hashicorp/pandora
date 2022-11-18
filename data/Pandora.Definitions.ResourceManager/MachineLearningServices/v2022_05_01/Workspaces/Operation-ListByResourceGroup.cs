@@ -15,15 +15,15 @@ namespace Pandora.Definitions.ResourceManager.MachineLearningServices.v2022_05_0
 
 internal class ListByResourceGroupOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new ResourceGroupId();
+\t\tpublic override ResourceID? ResourceId() => new ResourceGroupId();
 
-    public override Type NestedItemType() => typeof(WorkspaceModel);
+\t\tpublic override Type NestedItemType() => typeof(WorkspaceModel);
 
-    public override Type? OptionsObject() => typeof(ListByResourceGroupOperation.ListByResourceGroupOptions);
+\t\tpublic override Type? OptionsObject() => typeof(ListByResourceGroupOperation.ListByResourceGroupOptions);
 
-    public override string? UriSuffix() => "/providers/Microsoft.MachineLearningServices/workspaces";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.MachineLearningServices/workspaces";
 
     internal class ListByResourceGroupOptions
     {

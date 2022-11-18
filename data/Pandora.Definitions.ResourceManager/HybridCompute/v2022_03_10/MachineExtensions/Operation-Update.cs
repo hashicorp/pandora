@@ -15,19 +15,19 @@ namespace Pandora.Definitions.ResourceManager.HybridCompute.v2022_03_10.MachineE
 
 internal class UpdateOperation : Operations.PatchOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(MachineExtensionUpdateModel);
 
-    public override ResourceID? ResourceId() => new ExtensionId();
+\t\tpublic override ResourceID? ResourceId() => new ExtensionId();
 
-    public override Type? ResponseObject() => typeof(MachineExtensionModel);
+\t\tpublic override Type? ResponseObject() => typeof(MachineExtensionModel);
 
 
 }

@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.Compute.v2021_11_01.SshPublicKeys;
 
 internal class UpdateOperation : Operations.PatchOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(SshPublicKeyUpdateResourceModel);
 
-    public override ResourceID? ResourceId() => new SshPublicKeyId();
+\t\tpublic override ResourceID? ResourceId() => new SshPublicKeyId();
 
-    public override Type? ResponseObject() => typeof(SshPublicKeyResourceModel);
+\t\tpublic override Type? ResponseObject() => typeof(SshPublicKeyResourceModel);
 
 
 }

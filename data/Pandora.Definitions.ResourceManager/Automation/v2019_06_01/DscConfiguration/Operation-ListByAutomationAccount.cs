@@ -15,15 +15,15 @@ namespace Pandora.Definitions.ResourceManager.Automation.v2019_06_01.DscConfigur
 
 internal class ListByAutomationAccountOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new AutomationAccountId();
+\t\tpublic override ResourceID? ResourceId() => new AutomationAccountId();
 
-    public override Type NestedItemType() => typeof(DscConfigurationModel);
+\t\tpublic override Type NestedItemType() => typeof(DscConfigurationModel);
 
-    public override Type? OptionsObject() => typeof(ListByAutomationAccountOperation.ListByAutomationAccountOptions);
+\t\tpublic override Type? OptionsObject() => typeof(ListByAutomationAccountOperation.ListByAutomationAccountOptions);
 
-    public override string? UriSuffix() => "/configurations";
+\t\tpublic override string? UriSuffix() => "/configurations";
 
     internal class ListByAutomationAccountOptions
     {

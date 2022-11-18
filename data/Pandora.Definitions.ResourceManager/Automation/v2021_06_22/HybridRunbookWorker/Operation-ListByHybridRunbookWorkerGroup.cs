@@ -15,15 +15,15 @@ namespace Pandora.Definitions.ResourceManager.Automation.v2021_06_22.HybridRunbo
 
 internal class ListByHybridRunbookWorkerGroupOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new HybridRunbookWorkerGroupId();
+\t\tpublic override ResourceID? ResourceId() => new HybridRunbookWorkerGroupId();
 
-    public override Type NestedItemType() => typeof(HybridRunbookWorkerModel);
+\t\tpublic override Type NestedItemType() => typeof(HybridRunbookWorkerModel);
 
-    public override Type? OptionsObject() => typeof(ListByHybridRunbookWorkerGroupOperation.ListByHybridRunbookWorkerGroupOptions);
+\t\tpublic override Type? OptionsObject() => typeof(ListByHybridRunbookWorkerGroupOperation.ListByHybridRunbookWorkerGroupOptions);
 
-    public override string? UriSuffix() => "/hybridRunbookWorkers";
+\t\tpublic override string? UriSuffix() => "/hybridRunbookWorkers";
 
     internal class ListByHybridRunbookWorkerGroupOptions
     {

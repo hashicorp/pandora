@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.RecoveryServicesSiteRecovery.v2022
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new VaultId();
+\t\tpublic override ResourceID? ResourceId() => new VaultId();
 
-    public override Type? ResponseObject() => typeof(VaultHealthDetailsModel);
+\t\tpublic override Type? ResponseObject() => typeof(VaultHealthDetailsModel);
 
-    public override string? UriSuffix() => "/replicationVaultHealth";
+\t\tpublic override string? UriSuffix() => "/replicationVaultHealth";
 
 
 }

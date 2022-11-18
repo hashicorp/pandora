@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.NetworkFunction.v2022_08_01.Collec
 
 internal class ListOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new AzureTrafficCollectorId();
+\t\tpublic override ResourceID? ResourceId() => new AzureTrafficCollectorId();
 
-    public override Type NestedItemType() => typeof(CollectorPolicyModel);
+\t\tpublic override Type NestedItemType() => typeof(CollectorPolicyModel);
 
-    public override string? UriSuffix() => "/collectorPolicies";
+\t\tpublic override string? UriSuffix() => "/collectorPolicies";
 
 
 }

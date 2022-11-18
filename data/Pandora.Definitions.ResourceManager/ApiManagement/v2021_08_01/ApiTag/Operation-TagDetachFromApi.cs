@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.ApiTag;
 
 internal class TagDetachFromApiOperation : Operations.DeleteOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.NoContent,
                 HttpStatusCode.OK,
         };
 
-    public override ResourceID? ResourceId() => new TagId();
+\t\tpublic override ResourceID? ResourceId() => new TagId();
 
 
 }

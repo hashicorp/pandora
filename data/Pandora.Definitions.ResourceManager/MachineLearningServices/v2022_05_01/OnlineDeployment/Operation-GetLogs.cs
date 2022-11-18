@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.MachineLearningServices.v2022_05_0
 
 internal class GetLogsOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(DeploymentLogsRequestModel);
 
-    public override ResourceID? ResourceId() => new OnlineEndpointDeploymentId();
+\t\tpublic override ResourceID? ResourceId() => new OnlineEndpointDeploymentId();
 
-    public override Type? ResponseObject() => typeof(DeploymentLogsModel);
+\t\tpublic override Type? ResponseObject() => typeof(DeploymentLogsModel);
 
-    public override string? UriSuffix() => "/getLogs";
+\t\tpublic override string? UriSuffix() => "/getLogs";
 
 
 }

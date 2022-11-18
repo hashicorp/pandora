@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.AppPlatform.v2022_09_01_preview.Ap
 
 internal class DeploymentsGetRemoteDebuggingConfigOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new DeploymentId();
+\t\tpublic override ResourceID? ResourceId() => new DeploymentId();
 
-    public override Type? ResponseObject() => typeof(RemoteDebuggingModel);
+\t\tpublic override Type? ResponseObject() => typeof(RemoteDebuggingModel);
 
-    public override string? UriSuffix() => "/getRemoteDebuggingConfig";
+\t\tpublic override string? UriSuffix() => "/getRemoteDebuggingConfig";
 
 
 }

@@ -15,17 +15,17 @@ namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.ApiOpera
 
 internal class DeleteOperation : Operations.DeleteOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.NoContent,
                 HttpStatusCode.OK,
         };
 
-    public override ResourceID? ResourceId() => new OperationId();
+\t\tpublic override ResourceID? ResourceId() => new OperationId();
 
-    public override Type? OptionsObject() => typeof(DeleteOperation.DeleteOptions);
+\t\tpublic override Type? OptionsObject() => typeof(DeleteOperation.DeleteOptions);
 
-    public override string? UriSuffix() => "/policies/policy";
+\t\tpublic override string? UriSuffix() => "/policies/policy";
 
     internal class DeleteOptions
     {

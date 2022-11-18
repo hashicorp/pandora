@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.NetApp.v2022_05_01.NetAppResource;
 
 internal class NetAppResourceQueryRegionInfoOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new LocationId();
+\t\tpublic override ResourceID? ResourceId() => new LocationId();
 
-    public override Type? ResponseObject() => typeof(RegionInfoModel);
+\t\tpublic override Type? ResponseObject() => typeof(RegionInfoModel);
 
-    public override string? UriSuffix() => "/regionInfo";
+\t\tpublic override string? UriSuffix() => "/regionInfo";
 
 
 }

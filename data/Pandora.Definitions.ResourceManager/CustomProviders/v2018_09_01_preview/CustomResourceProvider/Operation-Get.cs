@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.CustomProviders.v2018_09_01_previe
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ResourceProviderId();
+\t\tpublic override ResourceID? ResourceId() => new ResourceProviderId();
 
-    public override Type? ResponseObject() => typeof(CustomRPManifestModel);
+\t\tpublic override Type? ResponseObject() => typeof(CustomRPManifestModel);
 
 
 }

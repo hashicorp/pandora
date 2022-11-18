@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.CosmosDB.v2022_05_15.Rbacs;
 
 internal class SqlResourcesGetSqlRoleDefinitionOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new SqlRoleDefinitionId();
+\t\tpublic override ResourceID? ResourceId() => new SqlRoleDefinitionId();
 
-    public override Type? ResponseObject() => typeof(SqlRoleDefinitionGetResultsModel);
+\t\tpublic override Type? ResponseObject() => typeof(SqlRoleDefinitionGetResultsModel);
 
 
 }

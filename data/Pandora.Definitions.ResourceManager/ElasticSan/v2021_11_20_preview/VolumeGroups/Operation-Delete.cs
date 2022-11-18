@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.ElasticSan.v2021_11_20_preview.Vol
 
 internal class DeleteOperation : Operations.DeleteOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.NoContent,
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
-    public override ResourceID? ResourceId() => new VolumeGroupId();
+\t\tpublic override ResourceID? ResourceId() => new VolumeGroupId();
 
 
 }

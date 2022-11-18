@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.Databricks.v2022_04_01_preview.Pri
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new PrivateEndpointConnectionId();
+\t\tpublic override ResourceID? ResourceId() => new PrivateEndpointConnectionId();
 
-    public override Type? ResponseObject() => typeof(PrivateEndpointConnectionModel);
+\t\tpublic override Type? ResponseObject() => typeof(PrivateEndpointConnectionModel);
 
 
 }

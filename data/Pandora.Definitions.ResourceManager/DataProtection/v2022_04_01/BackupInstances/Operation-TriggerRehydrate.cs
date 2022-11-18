@@ -15,19 +15,19 @@ namespace Pandora.Definitions.ResourceManager.DataProtection.v2022_04_01.BackupI
 
 internal class TriggerRehydrateOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.NoContent,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(AzureBackupRehydrationRequestModel);
 
-    public override ResourceID? ResourceId() => new BackupInstanceId();
+\t\tpublic override ResourceID? ResourceId() => new BackupInstanceId();
 
-    public override string? UriSuffix() => "/rehydrate";
+\t\tpublic override string? UriSuffix() => "/rehydrate";
 
 
 }

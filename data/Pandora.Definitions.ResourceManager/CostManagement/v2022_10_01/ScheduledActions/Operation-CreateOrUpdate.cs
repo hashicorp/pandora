@@ -17,9 +17,9 @@ internal class CreateOrUpdateOperation : Operations.PutOperation
 {
     public override Type? RequestObject() => typeof(ScheduledActionModel);
 
-    public override ResourceID? ResourceId() => new ScheduledActionId();
+\t\tpublic override ResourceID? ResourceId() => new ScheduledActionId();
 
-    public override Type? ResponseObject() => typeof(ScheduledActionModel);
+\t\tpublic override Type? ResponseObject() => typeof(ScheduledActionModel);
 
 
 }

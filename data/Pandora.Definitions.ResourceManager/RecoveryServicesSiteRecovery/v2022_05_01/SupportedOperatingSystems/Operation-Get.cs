@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.RecoveryServicesSiteRecovery.v2022
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new VaultId();
+\t\tpublic override ResourceID? ResourceId() => new VaultId();
 
-    public override Type? ResponseObject() => typeof(SupportedOperatingSystemsModel);
+\t\tpublic override Type? ResponseObject() => typeof(SupportedOperatingSystemsModel);
 
-    public override Type? OptionsObject() => typeof(GetOperation.GetOptions);
+\t\tpublic override Type? OptionsObject() => typeof(GetOperation.GetOptions);
 
-    public override string? UriSuffix() => "/replicationSupportedOperatingSystems";
+\t\tpublic override string? UriSuffix() => "/replicationSupportedOperatingSystems";
 
     internal class GetOptions
     {

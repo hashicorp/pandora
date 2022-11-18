@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.Storage.v2022_09_01.BlobContainers
 
 internal class DeleteImmutabilityPolicyOperation : Operations.DeleteOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-    public override ResourceID? ResourceId() => new ContainerId();
+\t\tpublic override ResourceID? ResourceId() => new ContainerId();
 
-    public override Type? ResponseObject() => typeof(ImmutabilityPolicyModel);
+\t\tpublic override Type? ResponseObject() => typeof(ImmutabilityPolicyModel);
 
-    public override Type? OptionsObject() => typeof(DeleteImmutabilityPolicyOperation.DeleteImmutabilityPolicyOptions);
+\t\tpublic override Type? OptionsObject() => typeof(DeleteImmutabilityPolicyOperation.DeleteImmutabilityPolicyOptions);
 
-    public override string? UriSuffix() => "/immutabilityPolicies/default";
+\t\tpublic override string? UriSuffix() => "/immutabilityPolicies/default";
 
     internal class DeleteImmutabilityPolicyOptions
     {

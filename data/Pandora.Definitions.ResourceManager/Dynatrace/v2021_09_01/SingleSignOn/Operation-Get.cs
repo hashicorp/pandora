@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.Dynatrace.v2021_09_01.SingleSignOn
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new SingleSignOnConfigurationId();
+\t\tpublic override ResourceID? ResourceId() => new SingleSignOnConfigurationId();
 
-    public override Type? ResponseObject() => typeof(DynatraceSingleSignOnResourceModel);
+\t\tpublic override Type? ResponseObject() => typeof(DynatraceSingleSignOnResourceModel);
 
 
 }

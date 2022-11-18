@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Compute.v2021_07_01.DedicatedHost;
 
 internal class ListByHostGroupOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new HostGroupId();
+\t\tpublic override ResourceID? ResourceId() => new HostGroupId();
 
-    public override Type NestedItemType() => typeof(DedicatedHostModel);
+\t\tpublic override Type NestedItemType() => typeof(DedicatedHostModel);
 
-    public override string? UriSuffix() => "/hosts";
+\t\tpublic override string? UriSuffix() => "/hosts";
 
 
 }

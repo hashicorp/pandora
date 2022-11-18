@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.NetApp.v2021_10_01.NetAppResource;
 
 internal class NetAppResourceQuotaLimitsGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new QuotaLimitId();
+\t\tpublic override ResourceID? ResourceId() => new QuotaLimitId();
 
-    public override Type? ResponseObject() => typeof(SubscriptionQuotaItemModel);
+\t\tpublic override Type? ResponseObject() => typeof(SubscriptionQuotaItemModel);
 
 
 }

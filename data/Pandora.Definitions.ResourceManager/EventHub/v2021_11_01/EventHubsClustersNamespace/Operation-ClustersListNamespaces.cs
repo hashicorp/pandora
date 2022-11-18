@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2021_11_01.EventHubsClus
 
 internal class ClustersListNamespacesOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ClusterId();
+\t\tpublic override ResourceID? ResourceId() => new ClusterId();
 
-    public override Type? ResponseObject() => typeof(EHNamespaceIdListResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(EHNamespaceIdListResultModel);
 
-    public override string? UriSuffix() => "/namespaces";
+\t\tpublic override string? UriSuffix() => "/namespaces";
 
 
 }

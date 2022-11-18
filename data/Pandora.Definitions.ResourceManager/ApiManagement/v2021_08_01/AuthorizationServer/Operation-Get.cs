@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.Authoriz
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new AuthorizationServerId();
+\t\tpublic override ResourceID? ResourceId() => new AuthorizationServerId();
 
-    public override Type? ResponseObject() => typeof(AuthorizationServerContractModel);
+\t\tpublic override Type? ResponseObject() => typeof(AuthorizationServerContractModel);
 
 
 }

@@ -15,15 +15,15 @@ namespace Pandora.Definitions.ResourceManager.DataProtection.v2022_04_01.Recover
 
 internal class ListOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new BackupInstanceId();
+\t\tpublic override ResourceID? ResourceId() => new BackupInstanceId();
 
-    public override Type NestedItemType() => typeof(AzureBackupRecoveryPointResourceModel);
+\t\tpublic override Type NestedItemType() => typeof(AzureBackupRecoveryPointResourceModel);
 
-    public override Type? OptionsObject() => typeof(ListOperation.ListOptions);
+\t\tpublic override Type? OptionsObject() => typeof(ListOperation.ListOptions);
 
-    public override string? UriSuffix() => "/recoveryPoints";
+\t\tpublic override string? UriSuffix() => "/recoveryPoints";
 
     internal class ListOptions
     {

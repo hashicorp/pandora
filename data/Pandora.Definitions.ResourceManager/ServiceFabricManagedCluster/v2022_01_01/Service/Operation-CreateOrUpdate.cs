@@ -15,19 +15,19 @@ namespace Pandora.Definitions.ResourceManager.ServiceFabricManagedCluster.v2022_
 
 internal class CreateOrUpdateOperation : Operations.PutOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(ServiceResourceModel);
 
-    public override ResourceID? ResourceId() => new ServiceId();
+\t\tpublic override ResourceID? ResourceId() => new ServiceId();
 
-    public override Type? ResponseObject() => typeof(ServiceResourceModel);
+\t\tpublic override Type? ResponseObject() => typeof(ServiceResourceModel);
 
 
 }

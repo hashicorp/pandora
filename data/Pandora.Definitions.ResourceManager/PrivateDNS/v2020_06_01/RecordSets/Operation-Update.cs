@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.PrivateDNS.v2020_06_01.RecordSets;
 
 internal class UpdateOperation : Operations.PatchOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(RecordSetModel);
 
-    public override ResourceID? ResourceId() => new RecordTypeId();
+\t\tpublic override ResourceID? ResourceId() => new RecordTypeId();
 
-    public override Type? ResponseObject() => typeof(RecordSetModel);
+\t\tpublic override Type? ResponseObject() => typeof(RecordSetModel);
 
-    public override Type? OptionsObject() => typeof(UpdateOperation.UpdateOptions);
+\t\tpublic override Type? OptionsObject() => typeof(UpdateOperation.UpdateOptions);
 
     internal class UpdateOptions
     {

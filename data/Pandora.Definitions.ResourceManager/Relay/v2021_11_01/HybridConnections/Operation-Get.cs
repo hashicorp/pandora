@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.Relay.v2021_11_01.HybridConnection
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new HybridConnectionId();
+\t\tpublic override ResourceID? ResourceId() => new HybridConnectionId();
 
-    public override Type? ResponseObject() => typeof(HybridConnectionModel);
+\t\tpublic override Type? ResponseObject() => typeof(HybridConnectionModel);
 
 
 }

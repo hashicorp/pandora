@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.NetworkFunction.v2022_11_01.AzureT
 
 internal class UpdateTagsOperation : Operations.PatchOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(TagsObjectModel);
 
-    public override ResourceID? ResourceId() => new AzureTrafficCollectorId();
+\t\tpublic override ResourceID? ResourceId() => new AzureTrafficCollectorId();
 
-    public override Type? ResponseObject() => typeof(AzureTrafficCollectorModel);
+\t\tpublic override Type? ResponseObject() => typeof(AzureTrafficCollectorModel);
 
 
 }

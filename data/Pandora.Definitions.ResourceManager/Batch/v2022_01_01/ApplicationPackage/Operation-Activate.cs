@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.Batch.v2022_01_01.ApplicationPacka
 
 internal class ActivateOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(ActivateApplicationPackageParametersModel);
 
-    public override ResourceID? ResourceId() => new VersionId();
+\t\tpublic override ResourceID? ResourceId() => new VersionId();
 
-    public override Type? ResponseObject() => typeof(ApplicationPackageModel);
+\t\tpublic override Type? ResponseObject() => typeof(ApplicationPackageModel);
 
-    public override string? UriSuffix() => "/activate";
+\t\tpublic override string? UriSuffix() => "/activate";
 
 
 }

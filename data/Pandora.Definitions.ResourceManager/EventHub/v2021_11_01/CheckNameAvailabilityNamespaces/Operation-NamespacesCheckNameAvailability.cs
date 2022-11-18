@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2021_11_01.CheckNameAvai
 
 internal class NamespacesCheckNameAvailabilityOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(CheckNameAvailabilityParameterModel);
 
-    public override ResourceID? ResourceId() => new SubscriptionId();
+\t\tpublic override ResourceID? ResourceId() => new SubscriptionId();
 
-    public override Type? ResponseObject() => typeof(CheckNameAvailabilityResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(CheckNameAvailabilityResultModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.EventHub/checkNameAvailability";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.EventHub/checkNameAvailability";
 
 
 }

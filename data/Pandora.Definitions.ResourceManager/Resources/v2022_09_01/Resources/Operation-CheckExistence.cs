@@ -15,12 +15,12 @@ namespace Pandora.Definitions.ResourceManager.Resources.v2022_09_01.Resources;
 
 internal class CheckExistenceOperation : Operations.HeadOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.NoContent,
         };
 
-    public override ResourceID? ResourceId() => new ResourceId();
+\t\tpublic override ResourceID? ResourceId() => new ResourceId();
 
 
 }

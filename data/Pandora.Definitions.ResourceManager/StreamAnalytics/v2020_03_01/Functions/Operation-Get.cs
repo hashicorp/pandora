@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.StreamAnalytics.v2020_03_01.Functi
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new FunctionId();
+\t\tpublic override ResourceID? ResourceId() => new FunctionId();
 
-    public override Type? ResponseObject() => typeof(FunctionModel);
+\t\tpublic override Type? ResponseObject() => typeof(FunctionModel);
 
 
 }

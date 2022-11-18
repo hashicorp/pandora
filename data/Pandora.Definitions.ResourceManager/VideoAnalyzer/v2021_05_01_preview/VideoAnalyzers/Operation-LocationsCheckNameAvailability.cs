@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.VideoAnalyzer.v2021_05_01_preview.
 
 internal class LocationsCheckNameAvailabilityOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(CheckNameAvailabilityRequestModel);
 
-    public override ResourceID? ResourceId() => new LocationId();
+\t\tpublic override ResourceID? ResourceId() => new LocationId();
 
-    public override Type? ResponseObject() => typeof(CheckNameAvailabilityResponseModel);
+\t\tpublic override Type? ResponseObject() => typeof(CheckNameAvailabilityResponseModel);
 
-    public override string? UriSuffix() => "/checkNameAvailability";
+\t\tpublic override string? UriSuffix() => "/checkNameAvailability";
 
 
 }

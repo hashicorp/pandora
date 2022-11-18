@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Communication.v2020_08_20.Communic
 
 internal class CreateOrUpdateOperation : Operations.PutOperation
 {
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(CommunicationServiceResourceModel);
 
-    public override ResourceID? ResourceId() => new CommunicationServiceId();
+\t\tpublic override ResourceID? ResourceId() => new CommunicationServiceId();
 
-    public override Type? ResponseObject() => typeof(CommunicationServiceResourceModel);
+\t\tpublic override Type? ResponseObject() => typeof(CommunicationServiceResourceModel);
 
 
 }

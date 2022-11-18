@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Relay.v2017_04_01.HybridConnection
 
 internal class ListByNamespaceOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new NamespaceId();
+\t\tpublic override ResourceID? ResourceId() => new NamespaceId();
 
-    public override Type NestedItemType() => typeof(HybridConnectionModel);
+\t\tpublic override Type NestedItemType() => typeof(HybridConnectionModel);
 
-    public override string? UriSuffix() => "/hybridConnections";
+\t\tpublic override string? UriSuffix() => "/hybridConnections";
 
 
 }

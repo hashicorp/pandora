@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.Storage.v2022_05_01.DeletedAccount
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new DeletedAccountId();
+\t\tpublic override ResourceID? ResourceId() => new DeletedAccountId();
 
-    public override Type? ResponseObject() => typeof(DeletedAccountModel);
+\t\tpublic override Type? ResponseObject() => typeof(DeletedAccountModel);
 
 
 }

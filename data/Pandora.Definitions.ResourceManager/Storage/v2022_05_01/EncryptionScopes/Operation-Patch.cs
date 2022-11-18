@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.Storage.v2022_05_01.EncryptionScop
 
 internal class PatchOperation : Operations.PatchOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(EncryptionScopeModel);
 
-    public override ResourceID? ResourceId() => new EncryptionScopeId();
+\t\tpublic override ResourceID? ResourceId() => new EncryptionScopeId();
 
-    public override Type? ResponseObject() => typeof(EncryptionScopeModel);
+\t\tpublic override Type? ResponseObject() => typeof(EncryptionScopeModel);
 
 
 }

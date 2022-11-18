@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.SecurityInsights.v2022_07_01_previ
 
 internal class QueriesOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new EntityId();
+\t\tpublic override ResourceID? ResourceId() => new EntityId();
 
-    public override Type? ResponseObject() => typeof(GetQueriesResponseModel);
+\t\tpublic override Type? ResponseObject() => typeof(GetQueriesResponseModel);
 
-    public override Type? OptionsObject() => typeof(QueriesOperation.QueriesOptions);
+\t\tpublic override Type? OptionsObject() => typeof(QueriesOperation.QueriesOptions);
 
-    public override string? UriSuffix() => "/queries";
+\t\tpublic override string? UriSuffix() => "/queries";
 
     internal class QueriesOptions
     {

@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.HealthcareApis.v2022_06_01.Collect
 
 internal class ServicesListByResourceGroupOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new ResourceGroupId();
+\t\tpublic override ResourceID? ResourceId() => new ResourceGroupId();
 
-    public override Type NestedItemType() => typeof(ServicesDescriptionModel);
+\t\tpublic override Type NestedItemType() => typeof(ServicesDescriptionModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.HealthcareApis/services";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.HealthcareApis/services";
 
 
 }

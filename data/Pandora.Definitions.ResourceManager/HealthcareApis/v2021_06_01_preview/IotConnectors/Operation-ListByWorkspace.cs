@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.HealthcareApis.v2021_06_01_preview
 
 internal class ListByWorkspaceOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new WorkspaceId();
+\t\tpublic override ResourceID? ResourceId() => new WorkspaceId();
 
-    public override Type NestedItemType() => typeof(IotConnectorModel);
+\t\tpublic override Type NestedItemType() => typeof(IotConnectorModel);
 
-    public override string? UriSuffix() => "/iotConnectors";
+\t\tpublic override string? UriSuffix() => "/iotConnectors";
 
 
 }

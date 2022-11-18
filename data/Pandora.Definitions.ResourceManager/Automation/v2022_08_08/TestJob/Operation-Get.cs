@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.Automation.v2022_08_08.TestJob;
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new RunbookId();
+\t\tpublic override ResourceID? ResourceId() => new RunbookId();
 
-    public override Type? ResponseObject() => typeof(TestJobModel);
+\t\tpublic override Type? ResponseObject() => typeof(TestJobModel);
 
-    public override string? UriSuffix() => "/draft/testJob";
+\t\tpublic override string? UriSuffix() => "/draft/testJob";
 
 
 }

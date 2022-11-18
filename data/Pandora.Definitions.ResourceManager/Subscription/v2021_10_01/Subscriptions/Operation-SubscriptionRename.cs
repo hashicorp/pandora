@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.Subscription.v2021_10_01.Subscript
 
 internal class SubscriptionRenameOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(SubscriptionNameModel);
 
-    public override ResourceID? ResourceId() => new SubscriptionId();
+\t\tpublic override ResourceID? ResourceId() => new SubscriptionId();
 
-    public override Type? ResponseObject() => typeof(RenamedSubscriptionIdModel);
+\t\tpublic override Type? ResponseObject() => typeof(RenamedSubscriptionIdModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.Subscription/rename";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.Subscription/rename";
 
 
 }

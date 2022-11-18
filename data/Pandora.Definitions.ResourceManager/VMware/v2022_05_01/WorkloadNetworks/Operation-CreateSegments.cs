@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.VMware.v2022_05_01.WorkloadNetwork
 
 internal class CreateSegmentsOperation : Operations.PutOperation
 {
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(WorkloadNetworkSegmentModel);
 
-    public override ResourceID? ResourceId() => new SegmentId();
+\t\tpublic override ResourceID? ResourceId() => new SegmentId();
 
-    public override Type? ResponseObject() => typeof(WorkloadNetworkSegmentModel);
+\t\tpublic override Type? ResponseObject() => typeof(WorkloadNetworkSegmentModel);
 
 
 }

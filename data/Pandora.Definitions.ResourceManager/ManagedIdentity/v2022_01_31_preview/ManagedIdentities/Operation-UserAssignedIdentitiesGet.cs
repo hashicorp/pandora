@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.ManagedIdentity.v2022_01_31_previe
 
 internal class UserAssignedIdentitiesGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new UserAssignedIdentityId();
+\t\tpublic override ResourceID? ResourceId() => new UserAssignedIdentityId();
 
-    public override Type? ResponseObject() => typeof(IdentityModel);
+\t\tpublic override Type? ResponseObject() => typeof(IdentityModel);
 
 
 }

@@ -17,9 +17,9 @@ internal class CreateOrUpdateOperation : Operations.PutOperation
 {
     public override Type? RequestObject() => typeof(ProfileModel);
 
-    public override ResourceID? ResourceId() => new TrafficManagerProfileId();
+\t\tpublic override ResourceID? ResourceId() => new TrafficManagerProfileId();
 
-    public override Type? ResponseObject() => typeof(ProfileModel);
+\t\tpublic override Type? ResponseObject() => typeof(ProfileModel);
 
 
 }

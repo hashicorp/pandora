@@ -15,15 +15,15 @@ namespace Pandora.Definitions.ResourceManager.ServiceBus.v2022_01_01_preview.Top
 
 internal class ListByNamespaceOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new NamespaceId();
+\t\tpublic override ResourceID? ResourceId() => new NamespaceId();
 
-    public override Type NestedItemType() => typeof(SBTopicModel);
+\t\tpublic override Type NestedItemType() => typeof(SBTopicModel);
 
-    public override Type? OptionsObject() => typeof(ListByNamespaceOperation.ListByNamespaceOptions);
+\t\tpublic override Type? OptionsObject() => typeof(ListByNamespaceOperation.ListByNamespaceOptions);
 
-    public override string? UriSuffix() => "/topics";
+\t\tpublic override string? UriSuffix() => "/topics";
 
     internal class ListByNamespaceOptions
     {

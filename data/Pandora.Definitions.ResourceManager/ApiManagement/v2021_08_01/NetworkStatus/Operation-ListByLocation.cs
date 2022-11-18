@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.NetworkS
 
 internal class ListByLocationOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new LocationId();
+\t\tpublic override ResourceID? ResourceId() => new LocationId();
 
-    public override Type? ResponseObject() => typeof(NetworkStatusContractModel);
+\t\tpublic override Type? ResponseObject() => typeof(NetworkStatusContractModel);
 
-    public override string? UriSuffix() => "/networkstatus";
+\t\tpublic override string? UriSuffix() => "/networkstatus";
 
 
 }

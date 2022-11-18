@@ -15,15 +15,15 @@ namespace Pandora.Definitions.ResourceManager.Consumption.v2021_10_01.Events;
 
 internal class ListByBillingProfileOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new BillingProfileId();
+\t\tpublic override ResourceID? ResourceId() => new BillingProfileId();
 
-    public override Type NestedItemType() => typeof(EventSummaryModel);
+\t\tpublic override Type NestedItemType() => typeof(EventSummaryModel);
 
-    public override Type? OptionsObject() => typeof(ListByBillingProfileOperation.ListByBillingProfileOptions);
+\t\tpublic override Type? OptionsObject() => typeof(ListByBillingProfileOperation.ListByBillingProfileOptions);
 
-    public override string? UriSuffix() => "/providers/Microsoft.Consumption/events";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.Consumption/events";
 
     internal class ListByBillingProfileOptions
     {

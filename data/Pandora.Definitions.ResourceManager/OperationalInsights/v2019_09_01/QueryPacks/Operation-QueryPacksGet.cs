@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.OperationalInsights.v2019_09_01.Qu
 
 internal class QueryPacksGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new QueryPackId();
+\t\tpublic override ResourceID? ResourceId() => new QueryPackId();
 
-    public override Type? ResponseObject() => typeof(LogAnalyticsQueryPackModel);
+\t\tpublic override Type? ResponseObject() => typeof(LogAnalyticsQueryPackModel);
 
 
 }

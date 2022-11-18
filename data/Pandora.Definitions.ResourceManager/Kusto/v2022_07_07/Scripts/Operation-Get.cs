@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.Kusto.v2022_07_07.Scripts;
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ScriptId();
+\t\tpublic override ResourceID? ResourceId() => new ScriptId();
 
-    public override Type? ResponseObject() => typeof(ScriptModel);
+\t\tpublic override Type? ResponseObject() => typeof(ScriptModel);
 
 
 }

@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.Communication.v2020_08_20.Communic
 
 internal class CheckNameAvailabilityOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(NameAvailabilityParametersModel);
 
-    public override ResourceID? ResourceId() => new SubscriptionId();
+\t\tpublic override ResourceID? ResourceId() => new SubscriptionId();
 
-    public override Type? ResponseObject() => typeof(NameAvailabilityModel);
+\t\tpublic override Type? ResponseObject() => typeof(NameAvailabilityModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.Communication/checkNameAvailability";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.Communication/checkNameAvailability";
 
 
 }

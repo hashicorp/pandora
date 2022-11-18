@@ -17,9 +17,9 @@ internal class CreateOperation : Operations.PutOperation
 {
     public override Type? RequestObject() => typeof(HybridRunbookWorkerCreateParametersModel);
 
-    public override ResourceID? ResourceId() => new HybridRunbookWorkerId();
+\t\tpublic override ResourceID? ResourceId() => new HybridRunbookWorkerId();
 
-    public override Type? ResponseObject() => typeof(HybridRunbookWorkerModel);
+\t\tpublic override Type? ResponseObject() => typeof(HybridRunbookWorkerModel);
 
 
 }

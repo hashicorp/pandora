@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.DeviceUpdate.v2022_10_01.PrivateLi
 
 internal class ListByAccountOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new AccountId();
+\t\tpublic override ResourceID? ResourceId() => new AccountId();
 
-    public override Type? ResponseObject() => typeof(PrivateLinkResourceListResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(PrivateLinkResourceListResultModel);
 
-    public override string? UriSuffix() => "/privateLinkResources";
+\t\tpublic override string? UriSuffix() => "/privateLinkResources";
 
 
 }

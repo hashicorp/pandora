@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.NetApp.v2021_10_01.CapacityPools;
 
 internal class PoolsGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new CapacityPoolId();
+\t\tpublic override ResourceID? ResourceId() => new CapacityPoolId();
 
-    public override Type? ResponseObject() => typeof(CapacityPoolModel);
+\t\tpublic override Type? ResponseObject() => typeof(CapacityPoolModel);
 
 
 }

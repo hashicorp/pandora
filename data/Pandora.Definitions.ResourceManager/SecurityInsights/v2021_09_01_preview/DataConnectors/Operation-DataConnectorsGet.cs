@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.SecurityInsights.v2021_09_01_previ
 
 internal class DataConnectorsGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new DataConnectorId();
+\t\tpublic override ResourceID? ResourceId() => new DataConnectorId();
 
-    public override Type? ResponseObject() => typeof(DataConnectorModel);
+\t\tpublic override Type? ResponseObject() => typeof(DataConnectorModel);
 
 
 }

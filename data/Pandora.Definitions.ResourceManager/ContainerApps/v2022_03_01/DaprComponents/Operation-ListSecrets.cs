@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.ContainerApps.v2022_03_01.DaprComp
 
 internal class ListSecretsOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new DaprComponentId();
+\t\tpublic override ResourceID? ResourceId() => new DaprComponentId();
 
-    public override Type? ResponseObject() => typeof(DaprSecretsCollectionModel);
+\t\tpublic override Type? ResponseObject() => typeof(DaprSecretsCollectionModel);
 
-    public override string? UriSuffix() => "/listSecrets";
+\t\tpublic override string? UriSuffix() => "/listSecrets";
 
 
 }

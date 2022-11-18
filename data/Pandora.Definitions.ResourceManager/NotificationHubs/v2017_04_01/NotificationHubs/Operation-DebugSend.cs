@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.NotificationHubs.v2017_04_01.Notif
 
 internal class DebugSendOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Created,
         };
 
     public override Type? RequestObject() => typeof(object);
 
-    public override ResourceID? ResourceId() => new NotificationHubId();
+\t\tpublic override ResourceID? ResourceId() => new NotificationHubId();
 
-    public override Type? ResponseObject() => typeof(DebugSendResponseModel);
+\t\tpublic override Type? ResponseObject() => typeof(DebugSendResponseModel);
 
-    public override string? UriSuffix() => "/debugsend";
+\t\tpublic override string? UriSuffix() => "/debugsend";
 
 
 }

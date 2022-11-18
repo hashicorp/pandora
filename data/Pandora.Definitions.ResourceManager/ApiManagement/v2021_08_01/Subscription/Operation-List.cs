@@ -15,15 +15,15 @@ namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.Subscrip
 
 internal class ListOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new ServiceId();
+\t\tpublic override ResourceID? ResourceId() => new ServiceId();
 
-    public override Type NestedItemType() => typeof(SubscriptionContractModel);
+\t\tpublic override Type NestedItemType() => typeof(SubscriptionContractModel);
 
-    public override Type? OptionsObject() => typeof(ListOperation.ListOptions);
+\t\tpublic override Type? OptionsObject() => typeof(ListOperation.ListOptions);
 
-    public override string? UriSuffix() => "/subscriptions";
+\t\tpublic override string? UriSuffix() => "/subscriptions";
 
     internal class ListOptions
     {

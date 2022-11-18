@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.ContentT
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ContentTypeId();
+\t\tpublic override ResourceID? ResourceId() => new ContentTypeId();
 
-    public override Type? ResponseObject() => typeof(ContentTypeContractModel);
+\t\tpublic override Type? ResponseObject() => typeof(ContentTypeContractModel);
 
 
 }

@@ -15,15 +15,15 @@ namespace Pandora.Definitions.ResourceManager.SecurityInsights.v2022_08_01.Threa
 
 internal class IndicatorsListOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new WorkspaceId();
+\t\tpublic override ResourceID? ResourceId() => new WorkspaceId();
 
-    public override Type NestedItemType() => typeof(ThreatIntelligenceInformationModel);
+\t\tpublic override Type NestedItemType() => typeof(ThreatIntelligenceInformationModel);
 
-    public override Type? OptionsObject() => typeof(IndicatorsListOperation.IndicatorsListOptions);
+\t\tpublic override Type? OptionsObject() => typeof(IndicatorsListOperation.IndicatorsListOptions);
 
-    public override string? UriSuffix() => "/providers/Microsoft.SecurityInsights/threatIntelligence/main/indicators";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.SecurityInsights/threatIntelligence/main/indicators";
 
     internal class IndicatorsListOptions
     {

@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.Storage.v2022_09_01.BlobService;
 
 internal class GetServicePropertiesOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new StorageAccountId();
+\t\tpublic override ResourceID? ResourceId() => new StorageAccountId();
 
-    public override Type? ResponseObject() => typeof(BlobServicePropertiesModel);
+\t\tpublic override Type? ResponseObject() => typeof(BlobServicePropertiesModel);
 
-    public override string? UriSuffix() => "/blobServices/default";
+\t\tpublic override string? UriSuffix() => "/blobServices/default";
 
 
 }

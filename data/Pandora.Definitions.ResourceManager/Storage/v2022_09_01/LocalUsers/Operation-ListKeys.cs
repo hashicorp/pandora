@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.Storage.v2022_09_01.LocalUsers;
 
 internal class ListKeysOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new LocalUserId();
+\t\tpublic override ResourceID? ResourceId() => new LocalUserId();
 
-    public override Type? ResponseObject() => typeof(LocalUserKeysModel);
+\t\tpublic override Type? ResponseObject() => typeof(LocalUserKeysModel);
 
-    public override string? UriSuffix() => "/listKeys";
+\t\tpublic override string? UriSuffix() => "/listKeys";
 
 
 }

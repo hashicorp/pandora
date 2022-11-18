@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.Media.v2020_05_01.Encodings;
 
 internal class JobsGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new JobId();
+\t\tpublic override ResourceID? ResourceId() => new JobId();
 
-    public override Type? ResponseObject() => typeof(JobModel);
+\t\tpublic override Type? ResponseObject() => typeof(JobModel);
 
 
 }

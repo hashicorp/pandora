@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.DataProtection.v2022_05_01.BackupV
 
 internal class GetInSubscriptionOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new SubscriptionId();
+\t\tpublic override ResourceID? ResourceId() => new SubscriptionId();
 
-    public override Type NestedItemType() => typeof(BackupVaultResourceModel);
+\t\tpublic override Type NestedItemType() => typeof(BackupVaultResourceModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.DataProtection/backupVaults";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.DataProtection/backupVaults";
 
 
 }

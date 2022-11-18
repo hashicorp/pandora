@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.VideoAnalyzer.v2021_05_01_preview.
 
 internal class EdgeModulesGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new EdgeModuleId();
+\t\tpublic override ResourceID? ResourceId() => new EdgeModuleId();
 
-    public override Type? ResponseObject() => typeof(EdgeModuleEntityModel);
+\t\tpublic override Type? ResponseObject() => typeof(EdgeModuleEntityModel);
 
 
 }

@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Media.v2021_05_01.Accounts;
 
 internal class MediaservicesDeleteOperation : Operations.DeleteOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.NoContent,
                 HttpStatusCode.OK,
         };
 
-    public override ResourceID? ResourceId() => new MediaServiceId();
+\t\tpublic override ResourceID? ResourceId() => new MediaServiceId();
 
 
 }

@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.Elastic.v2020_07_01.Rules;
 
 internal class TagRulesGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new TagRuleId();
+\t\tpublic override ResourceID? ResourceId() => new TagRuleId();
 
-    public override Type? ResponseObject() => typeof(MonitoringTagRulesModel);
+\t\tpublic override Type? ResponseObject() => typeof(MonitoringTagRulesModel);
 
 
 }

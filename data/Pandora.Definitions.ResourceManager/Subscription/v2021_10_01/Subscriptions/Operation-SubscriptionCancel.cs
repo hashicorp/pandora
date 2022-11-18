@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.Subscription.v2021_10_01.Subscript
 
 internal class SubscriptionCancelOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new SubscriptionId();
+\t\tpublic override ResourceID? ResourceId() => new SubscriptionId();
 
-    public override Type? ResponseObject() => typeof(CanceledSubscriptionIdModel);
+\t\tpublic override Type? ResponseObject() => typeof(CanceledSubscriptionIdModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.Subscription/cancel";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.Subscription/cancel";
 
 
 }

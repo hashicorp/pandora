@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.NotificationHubs.v2017_04_01.Names
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new NamespaceId();
+\t\tpublic override ResourceID? ResourceId() => new NamespaceId();
 
-    public override Type? ResponseObject() => typeof(NamespaceResourceModel);
+\t\tpublic override Type? ResponseObject() => typeof(NamespaceResourceModel);
 
 
 }

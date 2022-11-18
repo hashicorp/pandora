@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.Media.v2020_05_01.AssetsAndAssetFi
 
 internal class AssetFiltersUpdateOperation : Operations.PatchOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(AssetFilterModel);
 
-    public override ResourceID? ResourceId() => new AssetFilterId();
+\t\tpublic override ResourceID? ResourceId() => new AssetFilterId();
 
-    public override Type? ResponseObject() => typeof(AssetFilterModel);
+\t\tpublic override Type? ResponseObject() => typeof(AssetFilterModel);
 
 
 }

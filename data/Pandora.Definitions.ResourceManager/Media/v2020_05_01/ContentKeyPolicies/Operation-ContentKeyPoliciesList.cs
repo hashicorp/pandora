@@ -15,15 +15,15 @@ namespace Pandora.Definitions.ResourceManager.Media.v2020_05_01.ContentKeyPolici
 
 internal class ContentKeyPoliciesListOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "@odata.nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "@odata.nextLink";
 
-    public override ResourceID? ResourceId() => new MediaServiceId();
+\t\tpublic override ResourceID? ResourceId() => new MediaServiceId();
 
-    public override Type NestedItemType() => typeof(ContentKeyPolicyModel);
+\t\tpublic override Type NestedItemType() => typeof(ContentKeyPolicyModel);
 
-    public override Type? OptionsObject() => typeof(ContentKeyPoliciesListOperation.ContentKeyPoliciesListOptions);
+\t\tpublic override Type? OptionsObject() => typeof(ContentKeyPoliciesListOperation.ContentKeyPoliciesListOptions);
 
-    public override string? UriSuffix() => "/contentKeyPolicies";
+\t\tpublic override string? UriSuffix() => "/contentKeyPolicies";
 
     internal class ContentKeyPoliciesListOptions
     {

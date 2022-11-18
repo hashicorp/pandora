@@ -15,12 +15,12 @@ namespace Pandora.Definitions.ResourceManager.OperationalInsights.v2020_08_01.Wo
 
 internal class GatewaysDeleteOperation : Operations.DeleteOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-    public override ResourceID? ResourceId() => new GatewayId();
+\t\tpublic override ResourceID? ResourceId() => new GatewayId();
 
 
 }

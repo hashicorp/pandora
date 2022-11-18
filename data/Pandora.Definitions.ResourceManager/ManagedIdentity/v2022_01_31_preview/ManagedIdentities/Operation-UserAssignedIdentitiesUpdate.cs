@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.ManagedIdentity.v2022_01_31_previe
 
 internal class UserAssignedIdentitiesUpdateOperation : Operations.PatchOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(IdentityUpdateModel);
 
-    public override ResourceID? ResourceId() => new UserAssignedIdentityId();
+\t\tpublic override ResourceID? ResourceId() => new UserAssignedIdentityId();
 
-    public override Type? ResponseObject() => typeof(IdentityModel);
+\t\tpublic override Type? ResponseObject() => typeof(IdentityModel);
 
 
 }

@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.MixedReality.v2021_01_01.Resource;
 
 internal class SpatialAnchorsAccountsGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new SpatialAnchorsAccountId();
+\t\tpublic override ResourceID? ResourceId() => new SpatialAnchorsAccountId();
 
-    public override Type? ResponseObject() => typeof(SpatialAnchorsAccountModel);
+\t\tpublic override Type? ResponseObject() => typeof(SpatialAnchorsAccountModel);
 
 
 }

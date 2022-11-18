@@ -17,11 +17,11 @@ internal class CreateOperation : Operations.PutOperation
 {
     public override Type? RequestObject() => typeof(FileShareModel);
 
-    public override ResourceID? ResourceId() => new ShareId();
+\t\tpublic override ResourceID? ResourceId() => new ShareId();
 
-    public override Type? ResponseObject() => typeof(FileShareModel);
+\t\tpublic override Type? ResponseObject() => typeof(FileShareModel);
 
-    public override Type? OptionsObject() => typeof(CreateOperation.CreateOptions);
+\t\tpublic override Type? OptionsObject() => typeof(CreateOperation.CreateOptions);
 
     internal class CreateOptions
     {

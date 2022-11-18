@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.CosmosDB.v2022_05_15.MaterializedV
 
 internal class ServiceGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ServiceId();
+\t\tpublic override ResourceID? ResourceId() => new ServiceId();
 
-    public override Type? ResponseObject() => typeof(ServiceResourceModel);
+\t\tpublic override Type? ResponseObject() => typeof(ServiceResourceModel);
 
 
 }

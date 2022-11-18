@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.ContainerInstance.v2021_10_01.Cont
 
 internal class LocationListUsageOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new LocationId();
+\t\tpublic override ResourceID? ResourceId() => new LocationId();
 
-    public override Type? ResponseObject() => typeof(UsageListResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(UsageListResultModel);
 
-    public override string? UriSuffix() => "/usages";
+\t\tpublic override string? UriSuffix() => "/usages";
 
 
 }

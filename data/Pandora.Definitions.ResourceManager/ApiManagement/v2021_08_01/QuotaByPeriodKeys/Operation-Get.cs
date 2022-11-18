@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.QuotaByP
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new PeriodId();
+\t\tpublic override ResourceID? ResourceId() => new PeriodId();
 
-    public override Type? ResponseObject() => typeof(QuotaCounterContractModel);
+\t\tpublic override Type? ResponseObject() => typeof(QuotaCounterContractModel);
 
 
 }

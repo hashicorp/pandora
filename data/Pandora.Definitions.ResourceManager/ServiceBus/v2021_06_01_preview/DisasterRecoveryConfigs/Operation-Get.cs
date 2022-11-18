@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.ServiceBus.v2021_06_01_preview.Dis
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new DisasterRecoveryConfigId();
+\t\tpublic override ResourceID? ResourceId() => new DisasterRecoveryConfigId();
 
-    public override Type? ResponseObject() => typeof(ArmDisasterRecoveryModel);
+\t\tpublic override Type? ResponseObject() => typeof(ArmDisasterRecoveryModel);
 
 
 }

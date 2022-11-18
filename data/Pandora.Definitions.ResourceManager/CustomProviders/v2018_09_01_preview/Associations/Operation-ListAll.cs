@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.CustomProviders.v2018_09_01_previe
 
 internal class ListAllOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new ScopeId();
+\t\tpublic override ResourceID? ResourceId() => new ScopeId();
 
-    public override Type NestedItemType() => typeof(AssociationModel);
+\t\tpublic override Type NestedItemType() => typeof(AssociationModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.CustomProviders/associations";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.CustomProviders/associations";
 
 
 }

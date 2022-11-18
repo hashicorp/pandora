@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.ManagedIdentity.v2022_01_31_previe
 
 internal class UserAssignedIdentitiesListBySubscriptionOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new SubscriptionId();
+\t\tpublic override ResourceID? ResourceId() => new SubscriptionId();
 
-    public override Type NestedItemType() => typeof(IdentityModel);
+\t\tpublic override Type NestedItemType() => typeof(IdentityModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.ManagedIdentity/userAssignedIdentities";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.ManagedIdentity/userAssignedIdentities";
 
 
 }

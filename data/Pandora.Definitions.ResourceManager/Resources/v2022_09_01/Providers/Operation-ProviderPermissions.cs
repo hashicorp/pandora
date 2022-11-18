@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.Resources.v2022_09_01.Providers;
 
 internal class ProviderPermissionsOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new SubscriptionProviderId();
+\t\tpublic override ResourceID? ResourceId() => new SubscriptionProviderId();
 
-    public override Type? ResponseObject() => typeof(ProviderPermissionListResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(ProviderPermissionListResultModel);
 
-    public override string? UriSuffix() => "/providerPermissions";
+\t\tpublic override string? UriSuffix() => "/providerPermissions";
 
 
 }

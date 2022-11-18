@@ -15,15 +15,15 @@ namespace Pandora.Definitions.ResourceManager.PolicyInsights.v2021_10_01.Remedia
 
 internal class RemediationsListForResourceOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new ScopeId();
+\t\tpublic override ResourceID? ResourceId() => new ScopeId();
 
-    public override Type NestedItemType() => typeof(RemediationModel);
+\t\tpublic override Type NestedItemType() => typeof(RemediationModel);
 
-    public override Type? OptionsObject() => typeof(RemediationsListForResourceOperation.RemediationsListForResourceOptions);
+\t\tpublic override Type? OptionsObject() => typeof(RemediationsListForResourceOperation.RemediationsListForResourceOptions);
 
-    public override string? UriSuffix() => "/providers/Microsoft.PolicyInsights/remediations";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.PolicyInsights/remediations";
 
     internal class RemediationsListForResourceOptions
     {

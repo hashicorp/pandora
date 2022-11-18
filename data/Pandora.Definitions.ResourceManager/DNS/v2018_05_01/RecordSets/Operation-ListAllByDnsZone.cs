@@ -15,15 +15,15 @@ namespace Pandora.Definitions.ResourceManager.DNS.v2018_05_01.RecordSets;
 
 internal class ListAllByDnsZoneOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new DnsZoneId();
+\t\tpublic override ResourceID? ResourceId() => new DnsZoneId();
 
-    public override Type NestedItemType() => typeof(RecordSetModel);
+\t\tpublic override Type NestedItemType() => typeof(RecordSetModel);
 
-    public override Type? OptionsObject() => typeof(ListAllByDnsZoneOperation.ListAllByDnsZoneOptions);
+\t\tpublic override Type? OptionsObject() => typeof(ListAllByDnsZoneOperation.ListAllByDnsZoneOptions);
 
-    public override string? UriSuffix() => "/all";
+\t\tpublic override string? UriSuffix() => "/all";
 
     internal class ListAllByDnsZoneOptions
     {

@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.Automation.v2019_06_01.Runbook;
 
 internal class UpdateOperation : Operations.PatchOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(RunbookUpdateParametersModel);
 
-    public override ResourceID? ResourceId() => new RunbookId();
+\t\tpublic override ResourceID? ResourceId() => new RunbookId();
 
-    public override Type? ResponseObject() => typeof(RunbookModel);
+\t\tpublic override Type? ResponseObject() => typeof(RunbookModel);
 
 
 }

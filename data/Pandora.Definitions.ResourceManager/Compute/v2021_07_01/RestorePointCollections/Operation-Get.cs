@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.Compute.v2021_07_01.RestorePointCo
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new RestorePointCollectionId();
+\t\tpublic override ResourceID? ResourceId() => new RestorePointCollectionId();
 
-    public override Type? ResponseObject() => typeof(RestorePointCollectionModel);
+\t\tpublic override Type? ResponseObject() => typeof(RestorePointCollectionModel);
 
-    public override Type? OptionsObject() => typeof(GetOperation.GetOptions);
+\t\tpublic override Type? OptionsObject() => typeof(GetOperation.GetOptions);
 
     internal class GetOptions
     {

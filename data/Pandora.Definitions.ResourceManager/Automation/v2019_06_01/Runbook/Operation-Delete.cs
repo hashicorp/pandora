@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Automation.v2019_06_01.Runbook;
 
 internal class DeleteOperation : Operations.DeleteOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.NoContent,
                 HttpStatusCode.OK,
         };
 
-    public override ResourceID? ResourceId() => new RunbookId();
+\t\tpublic override ResourceID? ResourceId() => new RunbookId();
 
 
 }

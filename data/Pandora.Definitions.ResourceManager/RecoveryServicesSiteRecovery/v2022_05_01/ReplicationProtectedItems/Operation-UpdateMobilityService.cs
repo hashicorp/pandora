@@ -15,21 +15,21 @@ namespace Pandora.Definitions.ResourceManager.RecoveryServicesSiteRecovery.v2022
 
 internal class UpdateMobilityServiceOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(UpdateMobilityServiceRequestModel);
 
-    public override ResourceID? ResourceId() => new ReplicationProtectedItemId();
+\t\tpublic override ResourceID? ResourceId() => new ReplicationProtectedItemId();
 
-    public override Type? ResponseObject() => typeof(ReplicationProtectedItemModel);
+\t\tpublic override Type? ResponseObject() => typeof(ReplicationProtectedItemModel);
 
-    public override string? UriSuffix() => "/updateMobilityService";
+\t\tpublic override string? UriSuffix() => "/updateMobilityService";
 
 
 }

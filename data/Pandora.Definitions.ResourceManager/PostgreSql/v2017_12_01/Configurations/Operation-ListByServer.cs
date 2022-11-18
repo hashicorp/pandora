@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.PostgreSql.v2017_12_01.Configurati
 
 internal class ListByServerOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ServerId();
+\t\tpublic override ResourceID? ResourceId() => new ServerId();
 
-    public override Type? ResponseObject() => typeof(ConfigurationListResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(ConfigurationListResultModel);
 
-    public override string? UriSuffix() => "/configurations";
+\t\tpublic override string? UriSuffix() => "/configurations";
 
 
 }

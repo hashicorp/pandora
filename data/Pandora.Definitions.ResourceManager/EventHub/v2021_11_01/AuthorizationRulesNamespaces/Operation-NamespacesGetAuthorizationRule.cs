@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2021_11_01.Authorization
 
 internal class NamespacesGetAuthorizationRuleOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new AuthorizationRuleId();
+\t\tpublic override ResourceID? ResourceId() => new AuthorizationRuleId();
 
-    public override Type? ResponseObject() => typeof(AuthorizationRuleModel);
+\t\tpublic override Type? ResponseObject() => typeof(AuthorizationRuleModel);
 
 
 }

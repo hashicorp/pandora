@@ -15,12 +15,12 @@ namespace Pandora.Definitions.ResourceManager.NotificationHubs.v2017_04_01.Notif
 
 internal class DeleteOperation : Operations.DeleteOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-    public override ResourceID? ResourceId() => new NotificationHubId();
+\t\tpublic override ResourceID? ResourceId() => new NotificationHubId();
 
 
 }

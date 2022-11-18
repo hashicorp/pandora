@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.LabServices.v2021_10_01_preview.Im
 
 internal class UpdateOperation : Operations.PatchOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(ImageUpdateModel);
 
-    public override ResourceID? ResourceId() => new ImageId();
+\t\tpublic override ResourceID? ResourceId() => new ImageId();
 
-    public override Type? ResponseObject() => typeof(ImageModel);
+\t\tpublic override Type? ResponseObject() => typeof(ImageModel);
 
 
 }

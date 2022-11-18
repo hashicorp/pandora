@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.Identity
 
 internal class UpdateOperation : Operations.PatchOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(IdentityProviderUpdateParametersModel);
 
-    public override ResourceID? ResourceId() => new IdentityProviderId();
+\t\tpublic override ResourceID? ResourceId() => new IdentityProviderId();
 
-    public override Type? ResponseObject() => typeof(IdentityProviderContractModel);
+\t\tpublic override Type? ResponseObject() => typeof(IdentityProviderContractModel);
 
-    public override Type? OptionsObject() => typeof(UpdateOperation.UpdateOptions);
+\t\tpublic override Type? OptionsObject() => typeof(UpdateOperation.UpdateOptions);
 
     internal class UpdateOptions
     {

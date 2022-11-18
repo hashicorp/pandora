@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Orbital.v2022_03_01.Spacecraft;
 
 internal class CreateOrUpdateOperation : Operations.PutOperation
 {
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(SpacecraftModel);
 
-    public override ResourceID? ResourceId() => new SpacecraftId();
+\t\tpublic override ResourceID? ResourceId() => new SpacecraftId();
 
-    public override Type? ResponseObject() => typeof(SpacecraftModel);
+\t\tpublic override Type? ResponseObject() => typeof(SpacecraftModel);
 
 
 }

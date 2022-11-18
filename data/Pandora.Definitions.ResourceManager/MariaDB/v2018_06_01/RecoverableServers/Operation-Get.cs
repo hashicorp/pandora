@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.MariaDB.v2018_06_01.RecoverableSer
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ServerId();
+\t\tpublic override ResourceID? ResourceId() => new ServerId();
 
-    public override Type? ResponseObject() => typeof(RecoverableServerResourceModel);
+\t\tpublic override Type? ResponseObject() => typeof(RecoverableServerResourceModel);
 
-    public override string? UriSuffix() => "/recoverableServers";
+\t\tpublic override string? UriSuffix() => "/recoverableServers";
 
 
 }

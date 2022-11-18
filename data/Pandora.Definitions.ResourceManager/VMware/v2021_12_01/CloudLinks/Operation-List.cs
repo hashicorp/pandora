@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.VMware.v2021_12_01.CloudLinks;
 
 internal class ListOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new PrivateCloudId();
+\t\tpublic override ResourceID? ResourceId() => new PrivateCloudId();
 
-    public override Type NestedItemType() => typeof(CloudLinkModel);
+\t\tpublic override Type NestedItemType() => typeof(CloudLinkModel);
 
-    public override string? UriSuffix() => "/cloudLinks";
+\t\tpublic override string? UriSuffix() => "/cloudLinks";
 
 
 }

@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.VMware.v2021_12_01.WorkloadNetwork
 
 internal class ListGatewaysOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new PrivateCloudId();
+\t\tpublic override ResourceID? ResourceId() => new PrivateCloudId();
 
-    public override Type NestedItemType() => typeof(WorkloadNetworkGatewayModel);
+\t\tpublic override Type NestedItemType() => typeof(WorkloadNetworkGatewayModel);
 
-    public override string? UriSuffix() => "/workloadNetworks/default/gateways";
+\t\tpublic override string? UriSuffix() => "/workloadNetworks/default/gateways";
 
 
 }

@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.SecurityInsights.v2021_09_01_previ
 
 internal class OfficeConsentsGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new OfficeConsentId();
+\t\tpublic override ResourceID? ResourceId() => new OfficeConsentId();
 
-    public override Type? ResponseObject() => typeof(OfficeConsentModel);
+\t\tpublic override Type? ResponseObject() => typeof(OfficeConsentModel);
 
 
 }

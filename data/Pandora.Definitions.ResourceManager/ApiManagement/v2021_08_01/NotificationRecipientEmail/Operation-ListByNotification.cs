@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.Notifica
 
 internal class ListByNotificationOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new NotificationId();
+\t\tpublic override ResourceID? ResourceId() => new NotificationId();
 
-    public override Type? ResponseObject() => typeof(RecipientEmailCollectionModel);
+\t\tpublic override Type? ResponseObject() => typeof(RecipientEmailCollectionModel);
 
-    public override string? UriSuffix() => "/recipientEmails";
+\t\tpublic override string? UriSuffix() => "/recipientEmails";
 
 
 }

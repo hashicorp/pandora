@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Dashboard.v2022_08_01.PrivateEndpo
 
 internal class ListOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new GrafanaId();
+\t\tpublic override ResourceID? ResourceId() => new GrafanaId();
 
-    public override Type NestedItemType() => typeof(PrivateEndpointConnectionModel);
+\t\tpublic override Type NestedItemType() => typeof(PrivateEndpointConnectionModel);
 
-    public override string? UriSuffix() => "/privateEndpointConnections";
+\t\tpublic override string? UriSuffix() => "/privateEndpointConnections";
 
 
 }

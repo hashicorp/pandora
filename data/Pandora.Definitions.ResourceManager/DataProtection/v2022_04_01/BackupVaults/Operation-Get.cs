@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.DataProtection.v2022_04_01.BackupV
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new BackupVaultId();
+\t\tpublic override ResourceID? ResourceId() => new BackupVaultId();
 
-    public override Type? ResponseObject() => typeof(BackupVaultResourceModel);
+\t\tpublic override Type? ResponseObject() => typeof(BackupVaultResourceModel);
 
 
 }

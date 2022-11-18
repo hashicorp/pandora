@@ -15,7 +15,7 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2022_01_01_preview.Event
 
 internal class ConfigurationPatchOperation : Operations.PatchOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.Created,
@@ -24,11 +24,11 @@ internal class ConfigurationPatchOperation : Operations.PatchOperation
 
     public override Type? RequestObject() => typeof(ClusterQuotaConfigurationPropertiesModel);
 
-    public override ResourceID? ResourceId() => new ClusterId();
+\t\tpublic override ResourceID? ResourceId() => new ClusterId();
 
-    public override Type? ResponseObject() => typeof(ClusterQuotaConfigurationPropertiesModel);
+\t\tpublic override Type? ResponseObject() => typeof(ClusterQuotaConfigurationPropertiesModel);
 
-    public override string? UriSuffix() => "/quotaConfiguration/default";
+\t\tpublic override string? UriSuffix() => "/quotaConfiguration/default";
 
 
 }

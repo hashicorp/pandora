@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.NetApp.v2022_01_01.NetAppResource;
 
 internal class NetAppResourceQuotaLimitsListOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new LocationId();
+\t\tpublic override ResourceID? ResourceId() => new LocationId();
 
-    public override Type? ResponseObject() => typeof(SubscriptionQuotaItemListModel);
+\t\tpublic override Type? ResponseObject() => typeof(SubscriptionQuotaItemListModel);
 
-    public override string? UriSuffix() => "/quotaLimits";
+\t\tpublic override string? UriSuffix() => "/quotaLimits";
 
 
 }

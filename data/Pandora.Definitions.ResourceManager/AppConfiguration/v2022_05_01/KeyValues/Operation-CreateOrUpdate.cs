@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.AppConfiguration.v2022_05_01.KeyVa
 
 internal class CreateOrUpdateOperation : Operations.PutOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(KeyValueModel);
 
-    public override ResourceID? ResourceId() => new KeyValueId();
+\t\tpublic override ResourceID? ResourceId() => new KeyValueId();
 
-    public override Type? ResponseObject() => typeof(KeyValueModel);
+\t\tpublic override Type? ResponseObject() => typeof(KeyValueModel);
 
 
 }

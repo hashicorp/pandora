@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.PolicyDe
 
 internal class ListByServiceOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ServiceId();
+\t\tpublic override ResourceID? ResourceId() => new ServiceId();
 
-    public override Type? ResponseObject() => typeof(PolicyDescriptionCollectionModel);
+\t\tpublic override Type? ResponseObject() => typeof(PolicyDescriptionCollectionModel);
 
-    public override Type? OptionsObject() => typeof(ListByServiceOperation.ListByServiceOptions);
+\t\tpublic override Type? OptionsObject() => typeof(ListByServiceOperation.ListByServiceOptions);
 
-    public override string? UriSuffix() => "/policyDescriptions";
+\t\tpublic override string? UriSuffix() => "/policyDescriptions";
 
     internal class ListByServiceOptions
     {

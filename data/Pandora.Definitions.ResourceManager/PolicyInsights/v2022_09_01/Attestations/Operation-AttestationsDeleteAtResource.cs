@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.PolicyInsights.v2022_09_01.Attesta
 
 internal class AttestationsDeleteAtResourceOperation : Operations.DeleteOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.NoContent,
                 HttpStatusCode.OK,
         };
 
-    public override ResourceID? ResourceId() => new ScopedAttestationId();
+\t\tpublic override ResourceID? ResourceId() => new ScopedAttestationId();
 
 
 }

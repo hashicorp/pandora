@@ -15,19 +15,19 @@ namespace Pandora.Definitions.ResourceManager.RedisEnterprise.v2022_01_01.Databa
 
 internal class ExportOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(ExportClusterParametersModel);
 
-    public override ResourceID? ResourceId() => new DatabaseId();
+\t\tpublic override ResourceID? ResourceId() => new DatabaseId();
 
-    public override string? UriSuffix() => "/export";
+\t\tpublic override string? UriSuffix() => "/export";
 
 
 }

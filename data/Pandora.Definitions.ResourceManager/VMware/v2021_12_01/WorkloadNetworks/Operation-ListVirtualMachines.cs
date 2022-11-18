@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.VMware.v2021_12_01.WorkloadNetwork
 
 internal class ListVirtualMachinesOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new PrivateCloudId();
+\t\tpublic override ResourceID? ResourceId() => new PrivateCloudId();
 
-    public override Type NestedItemType() => typeof(WorkloadNetworkVirtualMachineModel);
+\t\tpublic override Type NestedItemType() => typeof(WorkloadNetworkVirtualMachineModel);
 
-    public override string? UriSuffix() => "/workloadNetworks/default/virtualMachines";
+\t\tpublic override string? UriSuffix() => "/workloadNetworks/default/virtualMachines";
 
 
 }

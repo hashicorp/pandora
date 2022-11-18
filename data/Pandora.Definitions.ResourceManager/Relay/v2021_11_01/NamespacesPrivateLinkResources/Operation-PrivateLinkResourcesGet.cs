@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.Relay.v2021_11_01.NamespacesPrivat
 
 internal class PrivateLinkResourcesGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new PrivateLinkResourceId();
+\t\tpublic override ResourceID? ResourceId() => new PrivateLinkResourceId();
 
-    public override Type? ResponseObject() => typeof(PrivateLinkResourceModel);
+\t\tpublic override Type? ResponseObject() => typeof(PrivateLinkResourceModel);
 
 
 }

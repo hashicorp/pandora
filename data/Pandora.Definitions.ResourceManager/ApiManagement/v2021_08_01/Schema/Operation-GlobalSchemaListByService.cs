@@ -15,15 +15,15 @@ namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.Schema;
 
 internal class GlobalSchemaListByServiceOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new ServiceId();
+\t\tpublic override ResourceID? ResourceId() => new ServiceId();
 
-    public override Type NestedItemType() => typeof(GlobalSchemaContractModel);
+\t\tpublic override Type NestedItemType() => typeof(GlobalSchemaContractModel);
 
-    public override Type? OptionsObject() => typeof(GlobalSchemaListByServiceOperation.GlobalSchemaListByServiceOptions);
+\t\tpublic override Type? OptionsObject() => typeof(GlobalSchemaListByServiceOperation.GlobalSchemaListByServiceOptions);
 
-    public override string? UriSuffix() => "/schemas";
+\t\tpublic override string? UriSuffix() => "/schemas";
 
     internal class GlobalSchemaListByServiceOptions
     {

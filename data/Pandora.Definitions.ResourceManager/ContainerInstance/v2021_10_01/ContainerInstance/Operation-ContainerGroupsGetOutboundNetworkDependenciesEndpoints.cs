@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.ContainerInstance.v2021_10_01.Cont
 
 internal class ContainerGroupsGetOutboundNetworkDependenciesEndpointsOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ContainerGroupId();
+\t\tpublic override ResourceID? ResourceId() => new ContainerGroupId();
 
-    public override Type? ResponseObject() => typeof(List<string>);
+\t\tpublic override Type? ResponseObject() => typeof(List<string>);
 
-    public override string? UriSuffix() => "/outboundNetworkDependenciesEndpoints";
+\t\tpublic override string? UriSuffix() => "/outboundNetworkDependenciesEndpoints";
 
 
 }

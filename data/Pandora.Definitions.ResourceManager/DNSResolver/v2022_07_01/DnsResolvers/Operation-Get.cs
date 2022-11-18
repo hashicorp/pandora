@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.DNSResolver.v2022_07_01.DnsResolve
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new DnsResolverId();
+\t\tpublic override ResourceID? ResourceId() => new DnsResolverId();
 
-    public override Type? ResponseObject() => typeof(DnsResolverModel);
+\t\tpublic override Type? ResponseObject() => typeof(DnsResolverModel);
 
 
 }

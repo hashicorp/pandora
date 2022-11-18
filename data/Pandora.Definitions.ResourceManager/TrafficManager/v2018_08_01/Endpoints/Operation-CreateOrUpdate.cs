@@ -17,9 +17,9 @@ internal class CreateOrUpdateOperation : Operations.PutOperation
 {
     public override Type? RequestObject() => typeof(EndpointModel);
 
-    public override ResourceID? ResourceId() => new EndpointTypeId();
+\t\tpublic override ResourceID? ResourceId() => new EndpointTypeId();
 
-    public override Type? ResponseObject() => typeof(EndpointModel);
+\t\tpublic override Type? ResponseObject() => typeof(EndpointModel);
 
 
 }

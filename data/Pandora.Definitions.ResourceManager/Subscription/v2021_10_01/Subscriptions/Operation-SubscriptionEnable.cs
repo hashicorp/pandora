@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.Subscription.v2021_10_01.Subscript
 
 internal class SubscriptionEnableOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new SubscriptionId();
+\t\tpublic override ResourceID? ResourceId() => new SubscriptionId();
 
-    public override Type? ResponseObject() => typeof(EnabledSubscriptionIdModel);
+\t\tpublic override Type? ResponseObject() => typeof(EnabledSubscriptionIdModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.Subscription/enable";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.Subscription/enable";
 
 
 }

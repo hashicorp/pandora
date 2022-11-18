@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.EmailTem
 
 internal class EmailTemplateGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new TemplateId();
+\t\tpublic override ResourceID? ResourceId() => new TemplateId();
 
-    public override Type? ResponseObject() => typeof(EmailTemplateContractModel);
+\t\tpublic override Type? ResponseObject() => typeof(EmailTemplateContractModel);
 
 
 }

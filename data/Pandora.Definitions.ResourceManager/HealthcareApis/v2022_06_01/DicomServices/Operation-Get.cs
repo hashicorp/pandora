@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.HealthcareApis.v2022_06_01.DicomSe
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new DicomServiceId();
+\t\tpublic override ResourceID? ResourceId() => new DicomServiceId();
 
-    public override Type? ResponseObject() => typeof(DicomServiceModel);
+\t\tpublic override Type? ResponseObject() => typeof(DicomServiceModel);
 
 
 }

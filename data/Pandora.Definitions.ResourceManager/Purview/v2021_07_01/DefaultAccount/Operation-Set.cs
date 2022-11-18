@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.Purview.v2021_07_01.DefaultAccount
 
 internal class SetOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(DefaultAccountPayloadModel);
 
-    public override Type? ResponseObject() => typeof(DefaultAccountPayloadModel);
+\t\tpublic override Type? ResponseObject() => typeof(DefaultAccountPayloadModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.Purview/setDefaultAccount";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.Purview/setDefaultAccount";
 
 
 }

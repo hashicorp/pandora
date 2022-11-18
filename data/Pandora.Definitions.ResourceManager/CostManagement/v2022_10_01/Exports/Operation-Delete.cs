@@ -15,12 +15,12 @@ namespace Pandora.Definitions.ResourceManager.CostManagement.v2022_10_01.Exports
 
 internal class DeleteOperation : Operations.DeleteOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-    public override ResourceID? ResourceId() => new ScopedExportId();
+\t\tpublic override ResourceID? ResourceId() => new ScopedExportId();
 
 
 }

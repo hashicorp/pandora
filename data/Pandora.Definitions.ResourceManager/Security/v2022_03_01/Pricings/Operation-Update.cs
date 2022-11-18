@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.Security.v2022_03_01.Pricings;
 
 internal class UpdateOperation : Operations.PutOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(PricingModel);
 
-    public override ResourceID? ResourceId() => new PricingId();
+\t\tpublic override ResourceID? ResourceId() => new PricingId();
 
-    public override Type? ResponseObject() => typeof(PricingModel);
+\t\tpublic override Type? ResponseObject() => typeof(PricingModel);
 
 
 }

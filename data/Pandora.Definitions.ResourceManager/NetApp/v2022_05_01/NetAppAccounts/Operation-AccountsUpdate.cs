@@ -15,19 +15,19 @@ namespace Pandora.Definitions.ResourceManager.NetApp.v2022_05_01.NetAppAccounts;
 
 internal class AccountsUpdateOperation : Operations.PatchOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(NetAppAccountPatchModel);
 
-    public override ResourceID? ResourceId() => new NetAppAccountId();
+\t\tpublic override ResourceID? ResourceId() => new NetAppAccountId();
 
-    public override Type? ResponseObject() => typeof(NetAppAccountModel);
+\t\tpublic override Type? ResponseObject() => typeof(NetAppAccountModel);
 
 
 }

@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.VMware.v2022_05_01.WorkloadNetwork
 
 internal class ListDnsZonesOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new PrivateCloudId();
+\t\tpublic override ResourceID? ResourceId() => new PrivateCloudId();
 
-    public override Type NestedItemType() => typeof(WorkloadNetworkDnsZoneModel);
+\t\tpublic override Type NestedItemType() => typeof(WorkloadNetworkDnsZoneModel);
 
-    public override string? UriSuffix() => "/workloadNetworks/default/dnsZones";
+\t\tpublic override string? UriSuffix() => "/workloadNetworks/default/dnsZones";
 
 
 }

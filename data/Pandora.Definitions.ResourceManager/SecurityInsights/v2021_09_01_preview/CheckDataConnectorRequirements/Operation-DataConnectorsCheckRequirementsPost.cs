@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.SecurityInsights.v2021_09_01_previ
 
 internal class DataConnectorsCheckRequirementsPostOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(DataConnectorsCheckRequirementsModel);
 
-    public override ResourceID? ResourceId() => new WorkspaceId();
+\t\tpublic override ResourceID? ResourceId() => new WorkspaceId();
 
-    public override Type? ResponseObject() => typeof(DataConnectorRequirementsStateModel);
+\t\tpublic override Type? ResponseObject() => typeof(DataConnectorRequirementsStateModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.SecurityInsights/dataConnectorsCheckRequirements";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.SecurityInsights/dataConnectorsCheckRequirements";
 
 
 }

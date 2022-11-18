@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.CustomProviders.v2018_09_01_previe
 
 internal class CreateOrUpdateOperation : Operations.PutOperation
 {
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(CustomRPManifestModel);
 
-    public override ResourceID? ResourceId() => new ResourceProviderId();
+\t\tpublic override ResourceID? ResourceId() => new ResourceProviderId();
 
-    public override Type? ResponseObject() => typeof(CustomRPManifestModel);
+\t\tpublic override Type? ResponseObject() => typeof(CustomRPManifestModel);
 
 
 }

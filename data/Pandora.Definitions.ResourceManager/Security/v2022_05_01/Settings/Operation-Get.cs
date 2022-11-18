@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.Security.v2022_05_01.Settings;
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new SettingId();
+\t\tpublic override ResourceID? ResourceId() => new SettingId();
 
-    public override Type? ResponseObject() => typeof(SettingModel);
+\t\tpublic override Type? ResponseObject() => typeof(SettingModel);
 
 
 }

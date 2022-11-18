@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Relay.v2021_11_01.Namespaces;
 
 internal class ListAuthorizationRulesOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new NamespaceId();
+\t\tpublic override ResourceID? ResourceId() => new NamespaceId();
 
-    public override Type NestedItemType() => typeof(AuthorizationRuleModel);
+\t\tpublic override Type NestedItemType() => typeof(AuthorizationRuleModel);
 
-    public override string? UriSuffix() => "/authorizationRules";
+\t\tpublic override string? UriSuffix() => "/authorizationRules";
 
 
 }

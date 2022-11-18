@@ -15,21 +15,21 @@ namespace Pandora.Definitions.ResourceManager.RecoveryServicesSiteRecovery.v2022
 
 internal class UnplannedFailoverOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(UnplannedFailoverInputModel);
 
-    public override ResourceID? ResourceId() => new ReplicationProtectedItemId();
+\t\tpublic override ResourceID? ResourceId() => new ReplicationProtectedItemId();
 
-    public override Type? ResponseObject() => typeof(ReplicationProtectedItemModel);
+\t\tpublic override Type? ResponseObject() => typeof(ReplicationProtectedItemModel);
 
-    public override string? UriSuffix() => "/unplannedFailover";
+\t\tpublic override string? UriSuffix() => "/unplannedFailover";
 
 
 }

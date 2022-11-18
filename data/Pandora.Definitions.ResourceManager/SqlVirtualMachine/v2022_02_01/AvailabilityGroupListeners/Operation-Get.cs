@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.SqlVirtualMachine.v2022_02_01.Avai
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new AvailabilityGroupListenerId();
+\t\tpublic override ResourceID? ResourceId() => new AvailabilityGroupListenerId();
 
-    public override Type? ResponseObject() => typeof(AvailabilityGroupListenerModel);
+\t\tpublic override Type? ResponseObject() => typeof(AvailabilityGroupListenerModel);
 
-    public override Type? OptionsObject() => typeof(GetOperation.GetOptions);
+\t\tpublic override Type? OptionsObject() => typeof(GetOperation.GetOptions);
 
     internal class GetOptions
     {

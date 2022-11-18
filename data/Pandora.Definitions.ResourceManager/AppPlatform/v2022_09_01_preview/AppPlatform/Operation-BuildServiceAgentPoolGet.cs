@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.AppPlatform.v2022_09_01_preview.Ap
 
 internal class BuildServiceAgentPoolGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new AgentPoolId();
+\t\tpublic override ResourceID? ResourceId() => new AgentPoolId();
 
-    public override Type? ResponseObject() => typeof(BuildServiceAgentPoolResourceModel);
+\t\tpublic override Type? ResponseObject() => typeof(BuildServiceAgentPoolResourceModel);
 
 
 }

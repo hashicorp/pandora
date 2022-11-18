@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.AppPlatform.v2022_09_01_preview.Ap
 
 internal class ConfigServersGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new SpringId();
+\t\tpublic override ResourceID? ResourceId() => new SpringId();
 
-    public override Type? ResponseObject() => typeof(ConfigServerResourceModel);
+\t\tpublic override Type? ResponseObject() => typeof(ConfigServerResourceModel);
 
-    public override string? UriSuffix() => "/configServers/default";
+\t\tpublic override string? UriSuffix() => "/configServers/default";
 
 
 }

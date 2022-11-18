@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.SignalR.v2022_02_01.SignalR;
 
 internal class UsagesListOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new LocationId();
+\t\tpublic override ResourceID? ResourceId() => new LocationId();
 
-    public override Type NestedItemType() => typeof(SignalRUsageModel);
+\t\tpublic override Type NestedItemType() => typeof(SignalRUsageModel);
 
-    public override string? UriSuffix() => "/usages";
+\t\tpublic override string? UriSuffix() => "/usages";
 
 
 }

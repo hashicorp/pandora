@@ -17,9 +17,9 @@ internal class CreateOrUpdateOperation : Operations.PutOperation
 {
     public override Type? RequestObject() => typeof(ArmDisasterRecoveryModel);
 
-    public override ResourceID? ResourceId() => new DisasterRecoveryConfigId();
+\t\tpublic override ResourceID? ResourceId() => new DisasterRecoveryConfigId();
 
-    public override Type? ResponseObject() => typeof(ArmDisasterRecoveryModel);
+\t\tpublic override Type? ResponseObject() => typeof(ArmDisasterRecoveryModel);
 
 
 }

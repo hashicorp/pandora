@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.Cognitive.v2021_04_30.CognitiveSer
 
 internal class DeletedAccountsGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new DeletedAccountId();
+\t\tpublic override ResourceID? ResourceId() => new DeletedAccountId();
 
-    public override Type? ResponseObject() => typeof(AccountModel);
+\t\tpublic override Type? ResponseObject() => typeof(AccountModel);
 
 
 }

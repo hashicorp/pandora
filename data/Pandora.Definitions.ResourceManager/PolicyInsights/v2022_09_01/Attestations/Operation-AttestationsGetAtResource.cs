@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.PolicyInsights.v2022_09_01.Attesta
 
 internal class AttestationsGetAtResourceOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ScopedAttestationId();
+\t\tpublic override ResourceID? ResourceId() => new ScopedAttestationId();
 
-    public override Type? ResponseObject() => typeof(AttestationModel);
+\t\tpublic override Type? ResponseObject() => typeof(AttestationModel);
 
 
 }

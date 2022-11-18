@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.AzureStackHCI.v2022_10_01.Publishe
 
 internal class PublishersListByClusterOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new ClusterId();
+\t\tpublic override ResourceID? ResourceId() => new ClusterId();
 
-    public override Type NestedItemType() => typeof(PublisherModel);
+\t\tpublic override Type NestedItemType() => typeof(PublisherModel);
 
-    public override string? UriSuffix() => "/publishers";
+\t\tpublic override string? UriSuffix() => "/publishers";
 
 
 }

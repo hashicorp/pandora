@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.AppPlatform.v2022_09_01_preview.Ap
 
 internal class SkusListOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new SubscriptionId();
+\t\tpublic override ResourceID? ResourceId() => new SubscriptionId();
 
-    public override Type NestedItemType() => typeof(ResourceSkuModel);
+\t\tpublic override Type NestedItemType() => typeof(ResourceSkuModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.AppPlatform/skus";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.AppPlatform/skus";
 
 
 }

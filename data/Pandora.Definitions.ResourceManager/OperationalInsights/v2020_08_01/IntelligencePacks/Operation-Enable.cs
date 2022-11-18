@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.OperationalInsights.v2020_08_01.In
 
 internal class EnableOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new IntelligencePackId();
+\t\tpublic override ResourceID? ResourceId() => new IntelligencePackId();
 
-    public override string? UriSuffix() => "/enable";
+\t\tpublic override string? UriSuffix() => "/enable";
 
 
 }

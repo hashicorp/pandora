@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.AzureStackHCI.v2022_10_01.ArcSetti
 
 internal class ArcSettingsListByClusterOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new ClusterId();
+\t\tpublic override ResourceID? ResourceId() => new ClusterId();
 
-    public override Type NestedItemType() => typeof(ArcSettingModel);
+\t\tpublic override Type NestedItemType() => typeof(ArcSettingModel);
 
-    public override string? UriSuffix() => "/arcSettings";
+\t\tpublic override string? UriSuffix() => "/arcSettings";
 
 
 }

@@ -17,9 +17,9 @@ internal class CreateOrUpdateOperation : Operations.PutOperation
 {
     public override Type? RequestObject() => typeof(CustomEntityQueryModel);
 
-    public override ResourceID? ResourceId() => new EntityQueryId();
+\t\tpublic override ResourceID? ResourceId() => new EntityQueryId();
 
-    public override Type? ResponseObject() => typeof(EntityQueryModel);
+\t\tpublic override Type? ResponseObject() => typeof(EntityQueryModel);
 
 
 }

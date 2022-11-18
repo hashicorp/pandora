@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.ResourceConnector.v2022_10_27.Appl
 
 internal class GetUpgradeGraphOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new UpgradeGraphId();
+\t\tpublic override ResourceID? ResourceId() => new UpgradeGraphId();
 
-    public override Type? ResponseObject() => typeof(UpgradeGraphModel);
+\t\tpublic override Type? ResponseObject() => typeof(UpgradeGraphModel);
 
 
 }

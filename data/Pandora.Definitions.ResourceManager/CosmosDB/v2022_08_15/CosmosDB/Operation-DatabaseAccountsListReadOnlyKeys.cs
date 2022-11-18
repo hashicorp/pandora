@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.CosmosDB.v2022_08_15.CosmosDB;
 
 internal class DatabaseAccountsListReadOnlyKeysOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new DatabaseAccountId();
+\t\tpublic override ResourceID? ResourceId() => new DatabaseAccountId();
 
-    public override Type? ResponseObject() => typeof(DatabaseAccountListReadOnlyKeysResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(DatabaseAccountListReadOnlyKeysResultModel);
 
-    public override string? UriSuffix() => "/readonlykeys";
+\t\tpublic override string? UriSuffix() => "/readonlykeys";
 
 
 }

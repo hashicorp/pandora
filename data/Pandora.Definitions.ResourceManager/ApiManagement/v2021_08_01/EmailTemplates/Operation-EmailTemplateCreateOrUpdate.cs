@@ -17,11 +17,11 @@ internal class EmailTemplateCreateOrUpdateOperation : Operations.PutOperation
 {
     public override Type? RequestObject() => typeof(EmailTemplateUpdateParametersModel);
 
-    public override ResourceID? ResourceId() => new TemplateId();
+\t\tpublic override ResourceID? ResourceId() => new TemplateId();
 
-    public override Type? ResponseObject() => typeof(EmailTemplateContractModel);
+\t\tpublic override Type? ResponseObject() => typeof(EmailTemplateContractModel);
 
-    public override Type? OptionsObject() => typeof(EmailTemplateCreateOrUpdateOperation.EmailTemplateCreateOrUpdateOptions);
+\t\tpublic override Type? OptionsObject() => typeof(EmailTemplateCreateOrUpdateOperation.EmailTemplateCreateOrUpdateOptions);
 
     internal class EmailTemplateCreateOrUpdateOptions
     {

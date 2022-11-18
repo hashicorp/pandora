@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.ContainerApps.v2022_03_01.Containe
 
 internal class GetRevisionOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new RevisionId();
+\t\tpublic override ResourceID? ResourceId() => new RevisionId();
 
-    public override Type? ResponseObject() => typeof(RevisionModel);
+\t\tpublic override Type? ResponseObject() => typeof(RevisionModel);
 
 
 }

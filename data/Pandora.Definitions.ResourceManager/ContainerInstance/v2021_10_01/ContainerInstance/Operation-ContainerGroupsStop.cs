@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.ContainerInstance.v2021_10_01.Cont
 
 internal class ContainerGroupsStopOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.NoContent,
         };
 
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new ContainerGroupId();
+\t\tpublic override ResourceID? ResourceId() => new ContainerGroupId();
 
-    public override string? UriSuffix() => "/stop";
+\t\tpublic override string? UriSuffix() => "/stop";
 
 
 }

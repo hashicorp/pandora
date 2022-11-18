@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.Web.v2016_06_01.CustomAPIs;
 
 internal class CustomApisListWsdlInterfacesOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(WsdlDefinitionModel);
 
-    public override ResourceID? ResourceId() => new LocationId();
+\t\tpublic override ResourceID? ResourceId() => new LocationId();
 
-    public override Type? ResponseObject() => typeof(WsdlServiceCollectionModel);
+\t\tpublic override Type? ResponseObject() => typeof(WsdlServiceCollectionModel);
 
-    public override string? UriSuffix() => "/listWsdlInterfaces";
+\t\tpublic override string? UriSuffix() => "/listWsdlInterfaces";
 
 
 }

@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.PostgreSql.v2020_01_01.ServerKeys;
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new KeyId();
+\t\tpublic override ResourceID? ResourceId() => new KeyId();
 
-    public override Type? ResponseObject() => typeof(ServerKeyModel);
+\t\tpublic override Type? ResponseObject() => typeof(ServerKeyModel);
 
 
 }

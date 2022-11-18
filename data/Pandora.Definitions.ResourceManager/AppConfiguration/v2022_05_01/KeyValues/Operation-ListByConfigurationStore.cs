@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.AppConfiguration.v2022_05_01.KeyVa
 
 internal class ListByConfigurationStoreOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new ConfigurationStoreId();
+\t\tpublic override ResourceID? ResourceId() => new ConfigurationStoreId();
 
-    public override Type NestedItemType() => typeof(KeyValueModel);
+\t\tpublic override Type NestedItemType() => typeof(KeyValueModel);
 
-    public override string? UriSuffix() => "/keyValues";
+\t\tpublic override string? UriSuffix() => "/keyValues";
 
 
 }

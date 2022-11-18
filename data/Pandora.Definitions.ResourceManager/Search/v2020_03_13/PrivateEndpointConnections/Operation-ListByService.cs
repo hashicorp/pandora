@@ -15,15 +15,15 @@ namespace Pandora.Definitions.ResourceManager.Search.v2020_03_13.PrivateEndpoint
 
 internal class ListByServiceOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new SearchServiceId();
+\t\tpublic override ResourceID? ResourceId() => new SearchServiceId();
 
-    public override Type NestedItemType() => typeof(PrivateEndpointConnectionModel);
+\t\tpublic override Type NestedItemType() => typeof(PrivateEndpointConnectionModel);
 
-    public override Type? OptionsObject() => typeof(ListByServiceOperation.ListByServiceOptions);
+\t\tpublic override Type? OptionsObject() => typeof(ListByServiceOperation.ListByServiceOptions);
 
-    public override string? UriSuffix() => "/privateEndpointConnections";
+\t\tpublic override string? UriSuffix() => "/privateEndpointConnections";
 
     internal class ListByServiceOptions
     {

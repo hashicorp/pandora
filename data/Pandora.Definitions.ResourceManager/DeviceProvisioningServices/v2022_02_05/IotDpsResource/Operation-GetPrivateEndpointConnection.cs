@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.DeviceProvisioningServices.v2022_0
 
 internal class GetPrivateEndpointConnectionOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new PrivateEndpointConnectionId();
+\t\tpublic override ResourceID? ResourceId() => new PrivateEndpointConnectionId();
 
-    public override Type? ResponseObject() => typeof(PrivateEndpointConnectionModel);
+\t\tpublic override Type? ResponseObject() => typeof(PrivateEndpointConnectionModel);
 
 
 }

@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.ApplicationInsights.v2022_04_01.Wo
 
 internal class WorkbooksRevisionGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new RevisionId();
+\t\tpublic override ResourceID? ResourceId() => new RevisionId();
 
-    public override Type? ResponseObject() => typeof(WorkbookModel);
+\t\tpublic override Type? ResponseObject() => typeof(WorkbookModel);
 
 
 }

@@ -17,9 +17,9 @@ internal class CreateOrUpdateOperation : Operations.PutOperation
 {
     public override Type? RequestObject() => typeof(WatcherModel);
 
-    public override ResourceID? ResourceId() => new WatcherId();
+\t\tpublic override ResourceID? ResourceId() => new WatcherId();
 
-    public override Type? ResponseObject() => typeof(WatcherModel);
+\t\tpublic override Type? ResponseObject() => typeof(WatcherModel);
 
 
 }

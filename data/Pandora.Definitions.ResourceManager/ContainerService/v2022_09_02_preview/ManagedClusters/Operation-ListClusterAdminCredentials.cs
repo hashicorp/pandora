@@ -15,20 +15,20 @@ namespace Pandora.Definitions.ResourceManager.ContainerService.v2022_09_02_previ
 
 internal class ListClusterAdminCredentialsOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new ManagedClusterId();
+\t\tpublic override ResourceID? ResourceId() => new ManagedClusterId();
 
-    public override Type? ResponseObject() => typeof(CredentialResultsModel);
+\t\tpublic override Type? ResponseObject() => typeof(CredentialResultsModel);
 
-    public override Type? OptionsObject() => typeof(ListClusterAdminCredentialsOperation.ListClusterAdminCredentialsOptions);
+\t\tpublic override Type? OptionsObject() => typeof(ListClusterAdminCredentialsOperation.ListClusterAdminCredentialsOptions);
 
-    public override string? UriSuffix() => "/listClusterAdminCredential";
+\t\tpublic override string? UriSuffix() => "/listClusterAdminCredential";
 
     internal class ListClusterAdminCredentialsOptions
     {

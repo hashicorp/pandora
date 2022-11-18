@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.Subscription.v2021_10_01.Subscript
 
 internal class SubscriptionAcceptOwnershipStatusOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ProviderSubscriptionId();
+\t\tpublic override ResourceID? ResourceId() => new ProviderSubscriptionId();
 
-    public override Type? ResponseObject() => typeof(AcceptOwnershipStatusResponseModel);
+\t\tpublic override Type? ResponseObject() => typeof(AcceptOwnershipStatusResponseModel);
 
-    public override string? UriSuffix() => "/acceptOwnershipStatus";
+\t\tpublic override string? UriSuffix() => "/acceptOwnershipStatus";
 
 
 }

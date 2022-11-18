@@ -17,9 +17,9 @@ internal class AssetsCreateOrUpdateOperation : Operations.PutOperation
 {
     public override Type? RequestObject() => typeof(AssetModel);
 
-    public override ResourceID? ResourceId() => new AssetId();
+\t\tpublic override ResourceID? ResourceId() => new AssetId();
 
-    public override Type? ResponseObject() => typeof(AssetModel);
+\t\tpublic override Type? ResponseObject() => typeof(AssetModel);
 
 
 }

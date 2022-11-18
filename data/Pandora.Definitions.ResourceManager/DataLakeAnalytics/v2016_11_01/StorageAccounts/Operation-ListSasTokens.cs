@@ -15,22 +15,22 @@ namespace Pandora.Definitions.ResourceManager.DataLakeAnalytics.v2016_11_01.Stor
 
 internal class ListSasTokensOperation : Operations.ListOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new ContainerId();
+\t\tpublic override ResourceID? ResourceId() => new ContainerId();
 
-    public override Type NestedItemType() => typeof(SasTokenInformationModel);
+\t\tpublic override Type NestedItemType() => typeof(SasTokenInformationModel);
 
-    public override string? UriSuffix() => "/listSasTokens";
+\t\tpublic override string? UriSuffix() => "/listSasTokens";
 
-    public override System.Net.Http.HttpMethod Method() => System.Net.Http.HttpMethod.Post;
+\t\tpublic override System.Net.Http.HttpMethod Method() => System.Net.Http.HttpMethod.Post;
 
 
 }

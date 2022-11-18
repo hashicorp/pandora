@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.Insights.v2022_10_01.AutoscaleAPIs
 
 internal class AutoscaleSettingsUpdateOperation : Operations.PatchOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(AutoscaleSettingResourcePatchModel);
 
-    public override ResourceID? ResourceId() => new AutoScaleSettingId();
+\t\tpublic override ResourceID? ResourceId() => new AutoScaleSettingId();
 
-    public override Type? ResponseObject() => typeof(AutoscaleSettingResourceModel);
+\t\tpublic override Type? ResponseObject() => typeof(AutoscaleSettingResourceModel);
 
 
 }

@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.Compute.v2021_07_01.VirtualMachine
 
 internal class ListSkusOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new OfferId();
+\t\tpublic override ResourceID? ResourceId() => new OfferId();
 
-    public override Type? ResponseObject() => typeof(List<VirtualMachineImageResourceModel>);
+\t\tpublic override Type? ResponseObject() => typeof(List<VirtualMachineImageResourceModel>);
 
-    public override string? UriSuffix() => "/skus";
+\t\tpublic override string? UriSuffix() => "/skus";
 
 
 }

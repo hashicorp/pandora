@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.ServiceFabricManagedCluster.v2022_
 
 internal class UpdateOperation : Operations.PatchOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(ApplicationTypeUpdateParametersModel);
 
-    public override ResourceID? ResourceId() => new ApplicationTypeId();
+\t\tpublic override ResourceID? ResourceId() => new ApplicationTypeId();
 
-    public override Type? ResponseObject() => typeof(ApplicationTypeResourceModel);
+\t\tpublic override Type? ResponseObject() => typeof(ApplicationTypeResourceModel);
 
 
 }

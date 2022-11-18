@@ -15,22 +15,22 @@ namespace Pandora.Definitions.ResourceManager.IoTCentral.v2021_11_01_preview.App
 
 internal class ListTemplatesOperation : Operations.ListOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new SubscriptionId();
+\t\tpublic override ResourceID? ResourceId() => new SubscriptionId();
 
-    public override Type NestedItemType() => typeof(AppTemplateModel);
+\t\tpublic override Type NestedItemType() => typeof(AppTemplateModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.IoTCentral/appTemplates";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.IoTCentral/appTemplates";
 
-    public override System.Net.Http.HttpMethod Method() => System.Net.Http.HttpMethod.Post;
+\t\tpublic override System.Net.Http.HttpMethod Method() => System.Net.Http.HttpMethod.Post;
 
 
 }

@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.NotificationHubs.v2017_04_01.Notif
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new NotificationHubId();
+\t\tpublic override ResourceID? ResourceId() => new NotificationHubId();
 
-    public override Type? ResponseObject() => typeof(NotificationHubResourceModel);
+\t\tpublic override Type? ResponseObject() => typeof(NotificationHubResourceModel);
 
 
 }

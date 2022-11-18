@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.Security.v2022_03_01.Pricings;
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new PricingId();
+\t\tpublic override ResourceID? ResourceId() => new PricingId();
 
-    public override Type? ResponseObject() => typeof(PricingModel);
+\t\tpublic override Type? ResponseObject() => typeof(PricingModel);
 
 
 }

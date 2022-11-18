@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.Storage.v2022_05_01.StorageAccount
 
 internal class RevokeUserDelegationKeysOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new StorageAccountId();
+\t\tpublic override ResourceID? ResourceId() => new StorageAccountId();
 
-    public override string? UriSuffix() => "/revokeUserDelegationKeys";
+\t\tpublic override string? UriSuffix() => "/revokeUserDelegationKeys";
 
 
 }

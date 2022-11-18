@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.Media.v2020_05_01.AccountFilters;
 
 internal class AccountFiltersGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new AccountFilterId();
+\t\tpublic override ResourceID? ResourceId() => new AccountFilterId();
 
-    public override Type? ResponseObject() => typeof(AccountFilterModel);
+\t\tpublic override Type? ResponseObject() => typeof(AccountFilterModel);
 
 
 }

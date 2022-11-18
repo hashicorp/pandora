@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.OpenidCo
 
 internal class UpdateOperation : Operations.PatchOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(OpenidConnectProviderUpdateContractModel);
 
-    public override ResourceID? ResourceId() => new OpenidConnectProviderId();
+\t\tpublic override ResourceID? ResourceId() => new OpenidConnectProviderId();
 
-    public override Type? ResponseObject() => typeof(OpenidConnectProviderContractModel);
+\t\tpublic override Type? ResponseObject() => typeof(OpenidConnectProviderContractModel);
 
-    public override Type? OptionsObject() => typeof(UpdateOperation.UpdateOptions);
+\t\tpublic override Type? OptionsObject() => typeof(UpdateOperation.UpdateOptions);
 
     internal class UpdateOptions
     {

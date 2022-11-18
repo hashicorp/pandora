@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.AzureStackHCI.v2022_10_01.Skuses;
 
 internal class SkusGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new SkuId();
+\t\tpublic override ResourceID? ResourceId() => new SkuId();
 
-    public override Type? ResponseObject() => typeof(SkuModel);
+\t\tpublic override Type? ResponseObject() => typeof(SkuModel);
 
-    public override Type? OptionsObject() => typeof(SkusGetOperation.SkusGetOptions);
+\t\tpublic override Type? OptionsObject() => typeof(SkusGetOperation.SkusGetOptions);
 
     internal class SkusGetOptions
     {

@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.CosmosDB.v2022_08_15.CosmosDB;
 
 internal class PercentileSourceTargetListMetricsOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new SourceRegionTargetRegionId();
+\t\tpublic override ResourceID? ResourceId() => new SourceRegionTargetRegionId();
 
-    public override Type? ResponseObject() => typeof(PercentileMetricListResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(PercentileMetricListResultModel);
 
-    public override Type? OptionsObject() => typeof(PercentileSourceTargetListMetricsOperation.PercentileSourceTargetListMetricsOptions);
+\t\tpublic override Type? OptionsObject() => typeof(PercentileSourceTargetListMetricsOperation.PercentileSourceTargetListMetricsOptions);
 
-    public override string? UriSuffix() => "/percentile/metrics";
+\t\tpublic override string? UriSuffix() => "/percentile/metrics";
 
     internal class PercentileSourceTargetListMetricsOptions
     {

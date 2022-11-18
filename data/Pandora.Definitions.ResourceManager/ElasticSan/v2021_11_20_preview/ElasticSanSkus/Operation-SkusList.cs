@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.ElasticSan.v2021_11_20_preview.Ela
 
 internal class SkusListOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new SubscriptionId();
+\t\tpublic override ResourceID? ResourceId() => new SubscriptionId();
 
-    public override Type? ResponseObject() => typeof(SkuInformationListModel);
+\t\tpublic override Type? ResponseObject() => typeof(SkuInformationListModel);
 
-    public override Type? OptionsObject() => typeof(SkusListOperation.SkusListOptions);
+\t\tpublic override Type? OptionsObject() => typeof(SkusListOperation.SkusListOptions);
 
-    public override string? UriSuffix() => "/providers/Microsoft.ElasticSan/skus";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.ElasticSan/skus";
 
     internal class SkusListOptions
     {

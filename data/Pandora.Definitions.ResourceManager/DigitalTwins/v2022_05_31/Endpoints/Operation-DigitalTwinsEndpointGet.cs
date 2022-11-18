@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.DigitalTwins.v2022_05_31.Endpoints
 
 internal class DigitalTwinsEndpointGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new EndpointId();
+\t\tpublic override ResourceID? ResourceId() => new EndpointId();
 
-    public override Type? ResponseObject() => typeof(DigitalTwinsEndpointResourceModel);
+\t\tpublic override Type? ResponseObject() => typeof(DigitalTwinsEndpointResourceModel);
 
 
 }

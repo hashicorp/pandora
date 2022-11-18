@@ -15,19 +15,19 @@ namespace Pandora.Definitions.ResourceManager.DigitalTwins.v2020_12_01.DigitalTw
 
 internal class DigitalTwinsUpdateOperation : Operations.PatchOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(DigitalTwinsPatchDescriptionModel);
 
-    public override ResourceID? ResourceId() => new DigitalTwinsInstanceId();
+\t\tpublic override ResourceID? ResourceId() => new DigitalTwinsInstanceId();
 
-    public override Type? ResponseObject() => typeof(DigitalTwinsDescriptionModel);
+\t\tpublic override Type? ResponseObject() => typeof(DigitalTwinsDescriptionModel);
 
 
 }

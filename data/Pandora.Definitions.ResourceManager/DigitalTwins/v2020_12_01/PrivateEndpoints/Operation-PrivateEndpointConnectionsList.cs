@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.DigitalTwins.v2020_12_01.PrivateEn
 
 internal class PrivateEndpointConnectionsListOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new DigitalTwinsInstanceId();
+\t\tpublic override ResourceID? ResourceId() => new DigitalTwinsInstanceId();
 
-    public override Type? ResponseObject() => typeof(PrivateEndpointConnectionsResponseModel);
+\t\tpublic override Type? ResponseObject() => typeof(PrivateEndpointConnectionsResponseModel);
 
-    public override string? UriSuffix() => "/privateEndpointConnections";
+\t\tpublic override string? UriSuffix() => "/privateEndpointConnections";
 
 
 }

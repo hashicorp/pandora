@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.DeviceUpdate.v2022_10_01.Deviceupd
 
 internal class InstancesGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new InstanceId();
+\t\tpublic override ResourceID? ResourceId() => new InstanceId();
 
-    public override Type? ResponseObject() => typeof(InstanceModel);
+\t\tpublic override Type? ResponseObject() => typeof(InstanceModel);
 
 
 }

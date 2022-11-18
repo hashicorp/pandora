@@ -15,21 +15,21 @@ namespace Pandora.Definitions.ResourceManager.Compute.v2022_03_02.Snapshots;
 
 internal class GrantAccessOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(GrantAccessDataModel);
 
-    public override ResourceID? ResourceId() => new SnapshotId();
+\t\tpublic override ResourceID? ResourceId() => new SnapshotId();
 
-    public override Type? ResponseObject() => typeof(AccessUriModel);
+\t\tpublic override Type? ResponseObject() => typeof(AccessUriModel);
 
-    public override string? UriSuffix() => "/beginGetAccess";
+\t\tpublic override string? UriSuffix() => "/beginGetAccess";
 
 
 }

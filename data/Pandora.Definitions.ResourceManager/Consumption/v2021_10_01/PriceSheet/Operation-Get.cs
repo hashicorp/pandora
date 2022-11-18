@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Consumption.v2021_10_01.PriceSheet
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new SubscriptionId();
+\t\tpublic override ResourceID? ResourceId() => new SubscriptionId();
 
-    public override Type? ResponseObject() => typeof(PriceSheetResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(PriceSheetResultModel);
 
-    public override Type? OptionsObject() => typeof(GetOperation.GetOptions);
+\t\tpublic override Type? OptionsObject() => typeof(GetOperation.GetOptions);
 
-    public override string? UriSuffix() => "/providers/Microsoft.Consumption/pricesheets/default";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.Consumption/pricesheets/default";
 
     internal class GetOptions
     {

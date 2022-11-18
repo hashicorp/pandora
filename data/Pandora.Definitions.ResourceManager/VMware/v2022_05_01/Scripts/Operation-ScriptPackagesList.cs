@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.VMware.v2022_05_01.Scripts;
 
 internal class ScriptPackagesListOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new PrivateCloudId();
+\t\tpublic override ResourceID? ResourceId() => new PrivateCloudId();
 
-    public override Type NestedItemType() => typeof(ScriptPackageModel);
+\t\tpublic override Type NestedItemType() => typeof(ScriptPackageModel);
 
-    public override string? UriSuffix() => "/scriptPackages";
+\t\tpublic override string? UriSuffix() => "/scriptPackages";
 
 
 }

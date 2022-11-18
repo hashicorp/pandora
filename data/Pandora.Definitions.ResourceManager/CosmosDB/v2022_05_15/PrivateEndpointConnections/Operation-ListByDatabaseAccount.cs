@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.CosmosDB.v2022_05_15.PrivateEndpoi
 
 internal class ListByDatabaseAccountOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new DatabaseAccountId();
+\t\tpublic override ResourceID? ResourceId() => new DatabaseAccountId();
 
-    public override Type? ResponseObject() => typeof(PrivateEndpointConnectionListResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(PrivateEndpointConnectionListResultModel);
 
-    public override string? UriSuffix() => "/privateEndpointConnections";
+\t\tpublic override string? UriSuffix() => "/privateEndpointConnections";
 
 
 }

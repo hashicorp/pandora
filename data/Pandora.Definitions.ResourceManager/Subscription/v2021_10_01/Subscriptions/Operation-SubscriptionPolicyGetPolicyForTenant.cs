@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.Subscription.v2021_10_01.Subscript
 
 internal class SubscriptionPolicyGetPolicyForTenantOperation : Operations.GetOperation
 {
-    public override Type? ResponseObject() => typeof(GetTenantPolicyResponseModel);
+\t\tpublic override Type? ResponseObject() => typeof(GetTenantPolicyResponseModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.Subscription/policies/default";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.Subscription/policies/default";
 
 
 }

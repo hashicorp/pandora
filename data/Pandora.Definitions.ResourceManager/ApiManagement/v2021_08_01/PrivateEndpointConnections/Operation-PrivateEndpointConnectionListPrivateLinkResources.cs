@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.PrivateE
 
 internal class PrivateEndpointConnectionListPrivateLinkResourcesOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ServiceId();
+\t\tpublic override ResourceID? ResourceId() => new ServiceId();
 
-    public override Type? ResponseObject() => typeof(PrivateLinkResourceListResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(PrivateLinkResourceListResultModel);
 
-    public override string? UriSuffix() => "/privateLinkResources";
+\t\tpublic override string? UriSuffix() => "/privateLinkResources";
 
 
 }

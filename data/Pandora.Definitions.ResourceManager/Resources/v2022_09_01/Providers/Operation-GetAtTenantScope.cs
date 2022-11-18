@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.Resources.v2022_09_01.Providers;
 
 internal class GetAtTenantScopeOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ProviderId();
+\t\tpublic override ResourceID? ResourceId() => new ProviderId();
 
-    public override Type? ResponseObject() => typeof(ProviderModel);
+\t\tpublic override Type? ResponseObject() => typeof(ProviderModel);
 
-    public override Type? OptionsObject() => typeof(GetAtTenantScopeOperation.GetAtTenantScopeOptions);
+\t\tpublic override Type? OptionsObject() => typeof(GetAtTenantScopeOperation.GetAtTenantScopeOptions);
 
     internal class GetAtTenantScopeOptions
     {

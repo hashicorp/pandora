@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.NetApp.v2022_05_01.Vaults;
 
 internal class ListOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new NetAppAccountId();
+\t\tpublic override ResourceID? ResourceId() => new NetAppAccountId();
 
-    public override Type? ResponseObject() => typeof(VaultListModel);
+\t\tpublic override Type? ResponseObject() => typeof(VaultListModel);
 
-    public override string? UriSuffix() => "/vaults";
+\t\tpublic override string? UriSuffix() => "/vaults";
 
 
 }

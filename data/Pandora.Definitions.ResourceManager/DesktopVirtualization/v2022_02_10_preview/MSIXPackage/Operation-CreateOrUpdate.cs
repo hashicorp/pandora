@@ -17,9 +17,9 @@ internal class CreateOrUpdateOperation : Operations.PutOperation
 {
     public override Type? RequestObject() => typeof(MSIXPackageModel);
 
-    public override ResourceID? ResourceId() => new MsixPackageId();
+\t\tpublic override ResourceID? ResourceId() => new MsixPackageId();
 
-    public override Type? ResponseObject() => typeof(MSIXPackageModel);
+\t\tpublic override Type? ResponseObject() => typeof(MSIXPackageModel);
 
 
 }

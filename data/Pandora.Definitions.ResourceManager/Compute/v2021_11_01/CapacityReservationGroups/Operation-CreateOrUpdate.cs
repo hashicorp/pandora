@@ -17,9 +17,9 @@ internal class CreateOrUpdateOperation : Operations.PutOperation
 {
     public override Type? RequestObject() => typeof(CapacityReservationGroupModel);
 
-    public override ResourceID? ResourceId() => new CapacityReservationGroupId();
+\t\tpublic override ResourceID? ResourceId() => new CapacityReservationGroupId();
 
-    public override Type? ResponseObject() => typeof(CapacityReservationGroupModel);
+\t\tpublic override Type? ResponseObject() => typeof(CapacityReservationGroupModel);
 
 
 }

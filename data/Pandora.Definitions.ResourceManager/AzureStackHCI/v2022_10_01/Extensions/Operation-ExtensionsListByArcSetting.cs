@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.AzureStackHCI.v2022_10_01.Extensio
 
 internal class ExtensionsListByArcSettingOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new ArcSettingId();
+\t\tpublic override ResourceID? ResourceId() => new ArcSettingId();
 
-    public override Type NestedItemType() => typeof(ExtensionModel);
+\t\tpublic override Type NestedItemType() => typeof(ExtensionModel);
 
-    public override string? UriSuffix() => "/extensions";
+\t\tpublic override string? UriSuffix() => "/extensions";
 
 
 }

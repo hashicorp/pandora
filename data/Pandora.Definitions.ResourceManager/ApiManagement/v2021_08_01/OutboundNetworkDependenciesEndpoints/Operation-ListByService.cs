@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.Outbound
 
 internal class ListByServiceOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ServiceId();
+\t\tpublic override ResourceID? ResourceId() => new ServiceId();
 
-    public override Type? ResponseObject() => typeof(OutboundEnvironmentEndpointListModel);
+\t\tpublic override Type? ResponseObject() => typeof(OutboundEnvironmentEndpointListModel);
 
-    public override string? UriSuffix() => "/outboundNetworkDependenciesEndpoints";
+\t\tpublic override string? UriSuffix() => "/outboundNetworkDependenciesEndpoints";
 
 
 }

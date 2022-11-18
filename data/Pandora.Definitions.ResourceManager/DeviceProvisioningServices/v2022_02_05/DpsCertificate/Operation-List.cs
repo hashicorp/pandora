@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.DeviceProvisioningServices.v2022_0
 
 internal class ListOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ProvisioningServiceId();
+\t\tpublic override ResourceID? ResourceId() => new ProvisioningServiceId();
 
-    public override Type? ResponseObject() => typeof(CertificateListDescriptionModel);
+\t\tpublic override Type? ResponseObject() => typeof(CertificateListDescriptionModel);
 
-    public override string? UriSuffix() => "/certificates";
+\t\tpublic override string? UriSuffix() => "/certificates";
 
 
 }

@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.KubernetesConfiguration.v2022_11_0
 
 internal class ExtensionsGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ExtensionId();
+\t\tpublic override ResourceID? ResourceId() => new ExtensionId();
 
-    public override Type? ResponseObject() => typeof(ExtensionModel);
+\t\tpublic override Type? ResponseObject() => typeof(ExtensionModel);
 
 
 }

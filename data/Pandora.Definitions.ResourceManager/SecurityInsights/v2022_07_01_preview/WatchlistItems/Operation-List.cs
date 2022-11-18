@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.SecurityInsights.v2022_07_01_previ
 
 internal class ListOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new WatchlistId();
+\t\tpublic override ResourceID? ResourceId() => new WatchlistId();
 
-    public override Type NestedItemType() => typeof(WatchlistItemModel);
+\t\tpublic override Type NestedItemType() => typeof(WatchlistItemModel);
 
-    public override string? UriSuffix() => "/watchlistItems";
+\t\tpublic override string? UriSuffix() => "/watchlistItems";
 
 
 }

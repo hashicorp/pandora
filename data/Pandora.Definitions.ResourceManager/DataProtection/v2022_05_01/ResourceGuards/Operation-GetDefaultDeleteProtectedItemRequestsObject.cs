@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.DataProtection.v2022_05_01.Resourc
 
 internal class GetDefaultDeleteProtectedItemRequestsObjectOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new DeleteProtectedItemRequestId();
+\t\tpublic override ResourceID? ResourceId() => new DeleteProtectedItemRequestId();
 
-    public override Type? ResponseObject() => typeof(DppBaseResourceModel);
+\t\tpublic override Type? ResponseObject() => typeof(DppBaseResourceModel);
 
 
 }

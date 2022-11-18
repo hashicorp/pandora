@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.ApplicationInsights.v2022_04_01.Wo
 
 internal class WorkbooksGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new WorkbookId();
+\t\tpublic override ResourceID? ResourceId() => new WorkbookId();
 
-    public override Type? ResponseObject() => typeof(WorkbookModel);
+\t\tpublic override Type? ResponseObject() => typeof(WorkbookModel);
 
-    public override Type? OptionsObject() => typeof(WorkbooksGetOperation.WorkbooksGetOptions);
+\t\tpublic override Type? OptionsObject() => typeof(WorkbooksGetOperation.WorkbooksGetOptions);
 
     internal class WorkbooksGetOptions
     {

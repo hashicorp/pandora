@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.PostgreSql.v2017_12_01.FirewallRul
 
 internal class ListByServerOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ServerId();
+\t\tpublic override ResourceID? ResourceId() => new ServerId();
 
-    public override Type? ResponseObject() => typeof(FirewallRuleListResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(FirewallRuleListResultModel);
 
-    public override string? UriSuffix() => "/firewallRules";
+\t\tpublic override string? UriSuffix() => "/firewallRules";
 
 
 }

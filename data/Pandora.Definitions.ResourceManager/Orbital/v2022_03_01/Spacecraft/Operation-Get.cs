@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.Orbital.v2022_03_01.Spacecraft;
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new SpacecraftId();
+\t\tpublic override ResourceID? ResourceId() => new SpacecraftId();
 
-    public override Type? ResponseObject() => typeof(SpacecraftModel);
+\t\tpublic override Type? ResponseObject() => typeof(SpacecraftModel);
 
 
 }

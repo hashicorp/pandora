@@ -15,15 +15,15 @@ namespace Pandora.Definitions.ResourceManager.Batch.v2022_10_01.Location;
 
 internal class ListSupportedCloudServiceSkusOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new LocationId();
+\t\tpublic override ResourceID? ResourceId() => new LocationId();
 
-    public override Type NestedItemType() => typeof(SupportedSkuModel);
+\t\tpublic override Type NestedItemType() => typeof(SupportedSkuModel);
 
-    public override Type? OptionsObject() => typeof(ListSupportedCloudServiceSkusOperation.ListSupportedCloudServiceSkusOptions);
+\t\tpublic override Type? OptionsObject() => typeof(ListSupportedCloudServiceSkusOperation.ListSupportedCloudServiceSkusOptions);
 
-    public override string? UriSuffix() => "/cloudServiceSkus";
+\t\tpublic override string? UriSuffix() => "/cloudServiceSkus";
 
     internal class ListSupportedCloudServiceSkusOptions
     {

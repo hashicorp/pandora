@@ -17,11 +17,11 @@ internal class CreateOrUpdateOperation : Operations.PutOperation
 {
     public override Type? RequestObject() => typeof(IssueAttachmentContractModel);
 
-    public override ResourceID? ResourceId() => new AttachmentId();
+\t\tpublic override ResourceID? ResourceId() => new AttachmentId();
 
-    public override Type? ResponseObject() => typeof(IssueAttachmentContractModel);
+\t\tpublic override Type? ResponseObject() => typeof(IssueAttachmentContractModel);
 
-    public override Type? OptionsObject() => typeof(CreateOrUpdateOperation.CreateOrUpdateOptions);
+\t\tpublic override Type? OptionsObject() => typeof(CreateOrUpdateOperation.CreateOrUpdateOptions);
 
     internal class CreateOrUpdateOptions
     {

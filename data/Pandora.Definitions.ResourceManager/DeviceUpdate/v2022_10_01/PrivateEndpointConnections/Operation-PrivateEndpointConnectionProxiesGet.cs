@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.DeviceUpdate.v2022_10_01.PrivateEn
 
 internal class PrivateEndpointConnectionProxiesGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new PrivateEndpointConnectionProxyId();
+\t\tpublic override ResourceID? ResourceId() => new PrivateEndpointConnectionProxyId();
 
-    public override Type? ResponseObject() => typeof(PrivateEndpointConnectionProxyModel);
+\t\tpublic override Type? ResponseObject() => typeof(PrivateEndpointConnectionProxyModel);
 
 
 }

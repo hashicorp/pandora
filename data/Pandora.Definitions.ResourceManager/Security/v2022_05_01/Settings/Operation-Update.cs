@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.Security.v2022_05_01.Settings;
 
 internal class UpdateOperation : Operations.PutOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(SettingModel);
 
-    public override ResourceID? ResourceId() => new SettingId();
+\t\tpublic override ResourceID? ResourceId() => new SettingId();
 
-    public override Type? ResponseObject() => typeof(SettingModel);
+\t\tpublic override Type? ResponseObject() => typeof(SettingModel);
 
 
 }

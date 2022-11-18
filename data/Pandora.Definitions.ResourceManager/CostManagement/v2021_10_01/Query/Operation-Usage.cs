@@ -15,7 +15,7 @@ namespace Pandora.Definitions.ResourceManager.CostManagement.v2021_10_01.Query;
 
 internal class UsageOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.NoContent,
                 HttpStatusCode.OK,
@@ -23,11 +23,11 @@ internal class UsageOperation : Operations.PostOperation
 
     public override Type? RequestObject() => typeof(QueryDefinitionModel);
 
-    public override ResourceID? ResourceId() => new ScopeId();
+\t\tpublic override ResourceID? ResourceId() => new ScopeId();
 
-    public override Type? ResponseObject() => typeof(QueryResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(QueryResultModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.CostManagement/query";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.CostManagement/query";
 
 
 }

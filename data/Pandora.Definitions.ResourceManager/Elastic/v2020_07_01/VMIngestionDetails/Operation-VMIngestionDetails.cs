@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.Elastic.v2020_07_01.VMIngestionDet
 
 internal class VMIngestionDetailsOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new MonitorId();
+\t\tpublic override ResourceID? ResourceId() => new MonitorId();
 
-    public override Type? ResponseObject() => typeof(VMIngestionDetailsResponseModel);
+\t\tpublic override Type? ResponseObject() => typeof(VMIngestionDetailsResponseModel);
 
-    public override string? UriSuffix() => "/vmIngestionDetails";
+\t\tpublic override string? UriSuffix() => "/vmIngestionDetails";
 
 
 }

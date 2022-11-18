@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.Automation.v2021_06_22.HybridRunbo
 
 internal class MoveOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(HybridRunbookWorkerMoveParametersModel);
 
-    public override ResourceID? ResourceId() => new HybridRunbookWorkerId();
+\t\tpublic override ResourceID? ResourceId() => new HybridRunbookWorkerId();
 
-    public override string? UriSuffix() => "/move";
+\t\tpublic override string? UriSuffix() => "/move";
 
 
 }

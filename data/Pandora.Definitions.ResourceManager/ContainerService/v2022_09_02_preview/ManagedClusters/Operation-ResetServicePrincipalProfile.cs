@@ -15,19 +15,19 @@ namespace Pandora.Definitions.ResourceManager.ContainerService.v2022_09_02_previ
 
 internal class ResetServicePrincipalProfileOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(ManagedClusterServicePrincipalProfileModel);
 
-    public override ResourceID? ResourceId() => new ManagedClusterId();
+\t\tpublic override ResourceID? ResourceId() => new ManagedClusterId();
 
-    public override string? UriSuffix() => "/resetServicePrincipalProfile";
+\t\tpublic override string? UriSuffix() => "/resetServicePrincipalProfile";
 
 
 }

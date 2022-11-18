@@ -15,15 +15,15 @@ namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.Diagnost
 
 internal class DeleteOperation : Operations.DeleteOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.NoContent,
                 HttpStatusCode.OK,
         };
 
-    public override ResourceID? ResourceId() => new DiagnosticId();
+\t\tpublic override ResourceID? ResourceId() => new DiagnosticId();
 
-    public override Type? OptionsObject() => typeof(DeleteOperation.DeleteOptions);
+\t\tpublic override Type? OptionsObject() => typeof(DeleteOperation.DeleteOptions);
 
     internal class DeleteOptions
     {

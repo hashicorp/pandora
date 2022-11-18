@@ -15,20 +15,20 @@ namespace Pandora.Definitions.ResourceManager.WebPubSub.v2021_10_01.WebPubSub;
 
 internal class CreateOrUpdateOperation : Operations.PutOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.Created,
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(WebPubSubResourceModel);
 
-    public override ResourceID? ResourceId() => new WebPubSubId();
+\t\tpublic override ResourceID? ResourceId() => new WebPubSubId();
 
-    public override Type? ResponseObject() => typeof(WebPubSubResourceModel);
+\t\tpublic override Type? ResponseObject() => typeof(WebPubSubResourceModel);
 
 
 }

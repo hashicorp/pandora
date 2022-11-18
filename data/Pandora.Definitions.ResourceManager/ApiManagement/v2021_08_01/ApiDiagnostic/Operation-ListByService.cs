@@ -15,15 +15,15 @@ namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.ApiDiagn
 
 internal class ListByServiceOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new ApiId();
+\t\tpublic override ResourceID? ResourceId() => new ApiId();
 
-    public override Type NestedItemType() => typeof(DiagnosticContractModel);
+\t\tpublic override Type NestedItemType() => typeof(DiagnosticContractModel);
 
-    public override Type? OptionsObject() => typeof(ListByServiceOperation.ListByServiceOptions);
+\t\tpublic override Type? OptionsObject() => typeof(ListByServiceOperation.ListByServiceOptions);
 
-    public override string? UriSuffix() => "/diagnostics";
+\t\tpublic override string? UriSuffix() => "/diagnostics";
 
     internal class ListByServiceOptions
     {

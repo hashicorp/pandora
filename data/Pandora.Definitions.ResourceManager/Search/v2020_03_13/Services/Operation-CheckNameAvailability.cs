@@ -15,20 +15,20 @@ namespace Pandora.Definitions.ResourceManager.Search.v2020_03_13.Services;
 
 internal class CheckNameAvailabilityOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(CheckNameAvailabilityInputModel);
 
-    public override ResourceID? ResourceId() => new SubscriptionId();
+\t\tpublic override ResourceID? ResourceId() => new SubscriptionId();
 
-    public override Type? ResponseObject() => typeof(CheckNameAvailabilityOutputModel);
+\t\tpublic override Type? ResponseObject() => typeof(CheckNameAvailabilityOutputModel);
 
-    public override Type? OptionsObject() => typeof(CheckNameAvailabilityOperation.CheckNameAvailabilityOptions);
+\t\tpublic override Type? OptionsObject() => typeof(CheckNameAvailabilityOperation.CheckNameAvailabilityOptions);
 
-    public override string? UriSuffix() => "/providers/Microsoft.Search/checkNameAvailability";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.Search/checkNameAvailability";
 
     internal class CheckNameAvailabilityOptions
     {

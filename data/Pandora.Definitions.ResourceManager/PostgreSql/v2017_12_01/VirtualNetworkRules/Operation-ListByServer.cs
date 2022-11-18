@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.PostgreSql.v2017_12_01.VirtualNetw
 
 internal class ListByServerOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new ServerId();
+\t\tpublic override ResourceID? ResourceId() => new ServerId();
 
-    public override Type NestedItemType() => typeof(VirtualNetworkRuleModel);
+\t\tpublic override Type NestedItemType() => typeof(VirtualNetworkRuleModel);
 
-    public override string? UriSuffix() => "/virtualNetworkRules";
+\t\tpublic override string? UriSuffix() => "/virtualNetworkRules";
 
 
 }

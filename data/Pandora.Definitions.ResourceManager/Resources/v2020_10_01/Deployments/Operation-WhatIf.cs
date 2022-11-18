@@ -15,21 +15,21 @@ namespace Pandora.Definitions.ResourceManager.Resources.v2020_10_01.Deployments;
 
 internal class WhatIfOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(DeploymentWhatIfModel);
 
-    public override ResourceID? ResourceId() => new ResourceGroupProviderDeploymentId();
+\t\tpublic override ResourceID? ResourceId() => new ResourceGroupProviderDeploymentId();
 
-    public override Type? ResponseObject() => typeof(WhatIfOperationResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(WhatIfOperationResultModel);
 
-    public override string? UriSuffix() => "/whatIf";
+\t\tpublic override string? UriSuffix() => "/whatIf";
 
 
 }

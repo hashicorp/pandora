@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.AzureStackHCI.v2022_10_01.Clusters
 
 internal class UpdateOperation : Operations.PatchOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(ClusterPatchModel);
 
-    public override ResourceID? ResourceId() => new ClusterId();
+\t\tpublic override ResourceID? ResourceId() => new ClusterId();
 
-    public override Type? ResponseObject() => typeof(ClusterModel);
+\t\tpublic override Type? ResponseObject() => typeof(ClusterModel);
 
 
 }

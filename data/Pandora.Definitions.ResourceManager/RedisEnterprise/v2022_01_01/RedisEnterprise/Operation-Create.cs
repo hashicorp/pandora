@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.RedisEnterprise.v2022_01_01.RedisE
 
 internal class CreateOperation : Operations.PutOperation
 {
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(ClusterModel);
 
-    public override ResourceID? ResourceId() => new RedisEnterpriseId();
+\t\tpublic override ResourceID? ResourceId() => new RedisEnterpriseId();
 
-    public override Type? ResponseObject() => typeof(ClusterModel);
+\t\tpublic override Type? ResponseObject() => typeof(ClusterModel);
 
 
 }

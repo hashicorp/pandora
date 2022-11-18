@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.ServiceBus.v2021_11_01.NamespacesA
 
 internal class NamespacesDeleteAuthorizationRuleOperation : Operations.DeleteOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.NoContent,
                 HttpStatusCode.OK,
         };
 
-    public override ResourceID? ResourceId() => new AuthorizationRuleId();
+\t\tpublic override ResourceID? ResourceId() => new AuthorizationRuleId();
 
 
 }

@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.ContainerApps.v2022_03_01.ManagedE
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new StorageId();
+\t\tpublic override ResourceID? ResourceId() => new StorageId();
 
-    public override Type? ResponseObject() => typeof(ManagedEnvironmentStorageModel);
+\t\tpublic override Type? ResponseObject() => typeof(ManagedEnvironmentStorageModel);
 
 
 }

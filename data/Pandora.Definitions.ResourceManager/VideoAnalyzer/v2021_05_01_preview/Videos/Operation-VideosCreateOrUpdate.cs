@@ -17,9 +17,9 @@ internal class VideosCreateOrUpdateOperation : Operations.PutOperation
 {
     public override Type? RequestObject() => typeof(VideoEntityModel);
 
-    public override ResourceID? ResourceId() => new VideoId();
+\t\tpublic override ResourceID? ResourceId() => new VideoId();
 
-    public override Type? ResponseObject() => typeof(VideoEntityModel);
+\t\tpublic override Type? ResponseObject() => typeof(VideoEntityModel);
 
 
 }

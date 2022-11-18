@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.MachineLearningServices.v2022_10_0
 
 internal class GetTokenOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new OnlineEndpointId();
+\t\tpublic override ResourceID? ResourceId() => new OnlineEndpointId();
 
-    public override Type? ResponseObject() => typeof(EndpointAuthTokenModel);
+\t\tpublic override Type? ResponseObject() => typeof(EndpointAuthTokenModel);
 
-    public override string? UriSuffix() => "/token";
+\t\tpublic override string? UriSuffix() => "/token";
 
 
 }

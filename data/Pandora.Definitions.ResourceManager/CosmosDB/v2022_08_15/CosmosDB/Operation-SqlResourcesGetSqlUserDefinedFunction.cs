@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.CosmosDB.v2022_08_15.CosmosDB;
 
 internal class SqlResourcesGetSqlUserDefinedFunctionOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new UserDefinedFunctionId();
+\t\tpublic override ResourceID? ResourceId() => new UserDefinedFunctionId();
 
-    public override Type? ResponseObject() => typeof(SqlUserDefinedFunctionGetResultsModel);
+\t\tpublic override Type? ResponseObject() => typeof(SqlUserDefinedFunctionGetResultsModel);
 
 
 }

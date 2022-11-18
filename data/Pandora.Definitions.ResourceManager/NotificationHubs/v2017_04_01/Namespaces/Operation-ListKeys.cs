@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.NotificationHubs.v2017_04_01.Names
 
 internal class ListKeysOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new AuthorizationRuleId();
+\t\tpublic override ResourceID? ResourceId() => new AuthorizationRuleId();
 
-    public override Type? ResponseObject() => typeof(ResourceListKeysModel);
+\t\tpublic override Type? ResponseObject() => typeof(ResourceListKeysModel);
 
-    public override string? UriSuffix() => "/listKeys";
+\t\tpublic override string? UriSuffix() => "/listKeys";
 
 
 }

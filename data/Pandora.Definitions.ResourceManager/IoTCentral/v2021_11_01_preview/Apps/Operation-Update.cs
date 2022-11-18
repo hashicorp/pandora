@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.IoTCentral.v2021_11_01_preview.App
 
 internal class UpdateOperation : Operations.PatchOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(AppPatchModel);
 
-    public override ResourceID? ResourceId() => new IotAppId();
+\t\tpublic override ResourceID? ResourceId() => new IotAppId();
 
 
 }

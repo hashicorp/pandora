@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.PostgreSql.v2022_03_08_preview.Che
 
 internal class ExecuteOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(CheckNameAvailabilityRequestModel);
 
-    public override ResourceID? ResourceId() => new SubscriptionId();
+\t\tpublic override ResourceID? ResourceId() => new SubscriptionId();
 
-    public override Type? ResponseObject() => typeof(NameAvailabilityModel);
+\t\tpublic override Type? ResponseObject() => typeof(NameAvailabilityModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.DBforPostgreSQL/checkNameAvailability";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.DBforPostgreSQL/checkNameAvailability";
 
 
 }

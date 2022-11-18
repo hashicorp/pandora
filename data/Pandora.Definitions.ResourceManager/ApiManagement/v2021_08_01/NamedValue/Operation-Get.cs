@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.NamedVal
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new NamedValueId();
+\t\tpublic override ResourceID? ResourceId() => new NamedValueId();
 
-    public override Type? ResponseObject() => typeof(NamedValueContractModel);
+\t\tpublic override Type? ResponseObject() => typeof(NamedValueContractModel);
 
 
 }

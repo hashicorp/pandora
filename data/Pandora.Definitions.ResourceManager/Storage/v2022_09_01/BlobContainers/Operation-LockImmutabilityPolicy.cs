@@ -15,20 +15,20 @@ namespace Pandora.Definitions.ResourceManager.Storage.v2022_09_01.BlobContainers
 
 internal class LockImmutabilityPolicyOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new ContainerId();
+\t\tpublic override ResourceID? ResourceId() => new ContainerId();
 
-    public override Type? ResponseObject() => typeof(ImmutabilityPolicyModel);
+\t\tpublic override Type? ResponseObject() => typeof(ImmutabilityPolicyModel);
 
-    public override Type? OptionsObject() => typeof(LockImmutabilityPolicyOperation.LockImmutabilityPolicyOptions);
+\t\tpublic override Type? OptionsObject() => typeof(LockImmutabilityPolicyOperation.LockImmutabilityPolicyOptions);
 
-    public override string? UriSuffix() => "/immutabilityPolicies/default/lock";
+\t\tpublic override string? UriSuffix() => "/immutabilityPolicies/default/lock";
 
     internal class LockImmutabilityPolicyOptions
     {

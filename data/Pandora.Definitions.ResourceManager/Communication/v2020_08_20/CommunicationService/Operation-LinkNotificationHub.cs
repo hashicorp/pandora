@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.Communication.v2020_08_20.Communic
 
 internal class LinkNotificationHubOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(LinkNotificationHubParametersModel);
 
-    public override ResourceID? ResourceId() => new CommunicationServiceId();
+\t\tpublic override ResourceID? ResourceId() => new CommunicationServiceId();
 
-    public override Type? ResponseObject() => typeof(LinkedNotificationHubModel);
+\t\tpublic override Type? ResponseObject() => typeof(LinkedNotificationHubModel);
 
-    public override string? UriSuffix() => "/linkNotificationHub";
+\t\tpublic override string? UriSuffix() => "/linkNotificationHub";
 
 
 }

@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.MixedReality.v2021_01_01.Resource;
 
 internal class RemoteRenderingAccountsGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new RemoteRenderingAccountId();
+\t\tpublic override ResourceID? ResourceId() => new RemoteRenderingAccountId();
 
-    public override Type? ResponseObject() => typeof(RemoteRenderingAccountModel);
+\t\tpublic override Type? ResponseObject() => typeof(RemoteRenderingAccountModel);
 
 
 }

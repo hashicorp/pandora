@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.Storage.v2022_05_01.ManagementPoli
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new StorageAccountId();
+\t\tpublic override ResourceID? ResourceId() => new StorageAccountId();
 
-    public override Type? ResponseObject() => typeof(ManagementPolicyModel);
+\t\tpublic override Type? ResponseObject() => typeof(ManagementPolicyModel);
 
-    public override string? UriSuffix() => "/managementPolicies/default";
+\t\tpublic override string? UriSuffix() => "/managementPolicies/default";
 
 
 }

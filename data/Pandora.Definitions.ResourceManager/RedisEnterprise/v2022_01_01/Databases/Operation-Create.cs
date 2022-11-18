@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.RedisEnterprise.v2022_01_01.Databa
 
 internal class CreateOperation : Operations.PutOperation
 {
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(DatabaseModel);
 
-    public override ResourceID? ResourceId() => new DatabaseId();
+\t\tpublic override ResourceID? ResourceId() => new DatabaseId();
 
-    public override Type? ResponseObject() => typeof(DatabaseModel);
+\t\tpublic override Type? ResponseObject() => typeof(DatabaseModel);
 
 
 }

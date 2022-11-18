@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.Reports;
 
 internal class ListByRequestOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ServiceId();
+\t\tpublic override ResourceID? ResourceId() => new ServiceId();
 
-    public override Type? ResponseObject() => typeof(RequestReportCollectionModel);
+\t\tpublic override Type? ResponseObject() => typeof(RequestReportCollectionModel);
 
-    public override Type? OptionsObject() => typeof(ListByRequestOperation.ListByRequestOptions);
+\t\tpublic override Type? OptionsObject() => typeof(ListByRequestOperation.ListByRequestOptions);
 
-    public override string? UriSuffix() => "/reports/byRequest";
+\t\tpublic override string? UriSuffix() => "/reports/byRequest";
 
     internal class ListByRequestOptions
     {

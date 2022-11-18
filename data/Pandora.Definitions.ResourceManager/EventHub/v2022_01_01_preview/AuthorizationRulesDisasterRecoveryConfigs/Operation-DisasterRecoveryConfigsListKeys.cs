@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2022_01_01_preview.Autho
 
 internal class DisasterRecoveryConfigsListKeysOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new DisasterRecoveryConfigAuthorizationRuleId();
+\t\tpublic override ResourceID? ResourceId() => new DisasterRecoveryConfigAuthorizationRuleId();
 
-    public override Type? ResponseObject() => typeof(AccessKeysModel);
+\t\tpublic override Type? ResponseObject() => typeof(AccessKeysModel);
 
-    public override string? UriSuffix() => "/listKeys";
+\t\tpublic override string? UriSuffix() => "/listKeys";
 
 
 }

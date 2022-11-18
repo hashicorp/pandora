@@ -15,14 +15,14 @@ namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.SignInSe
 
 internal class GetEntityTagOperation : Operations.HeadOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-    public override ResourceID? ResourceId() => new ServiceId();
+\t\tpublic override ResourceID? ResourceId() => new ServiceId();
 
-    public override string? UriSuffix() => "/portalsettings/signin";
+\t\tpublic override string? UriSuffix() => "/portalsettings/signin";
 
 
 }

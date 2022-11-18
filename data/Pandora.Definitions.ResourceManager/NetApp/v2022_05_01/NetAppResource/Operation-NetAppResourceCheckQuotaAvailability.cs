@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.NetApp.v2022_05_01.NetAppResource;
 
 internal class NetAppResourceCheckQuotaAvailabilityOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(QuotaAvailabilityRequestModel);
 
-    public override ResourceID? ResourceId() => new LocationId();
+\t\tpublic override ResourceID? ResourceId() => new LocationId();
 
-    public override Type? ResponseObject() => typeof(CheckAvailabilityResponseModel);
+\t\tpublic override Type? ResponseObject() => typeof(CheckAvailabilityResponseModel);
 
-    public override string? UriSuffix() => "/checkQuotaAvailability";
+\t\tpublic override string? UriSuffix() => "/checkQuotaAvailability";
 
 
 }

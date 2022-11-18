@@ -15,15 +15,15 @@ namespace Pandora.Definitions.ResourceManager.CostManagement.v2022_10_01.Benefit
 
 internal class ListByBillingProfileIdOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new BillingProfileId();
+\t\tpublic override ResourceID? ResourceId() => new BillingProfileId();
 
-    public override Type NestedItemType() => typeof(BenefitUtilizationSummaryModel);
+\t\tpublic override Type NestedItemType() => typeof(BenefitUtilizationSummaryModel);
 
-    public override Type? OptionsObject() => typeof(ListByBillingProfileIdOperation.ListByBillingProfileIdOptions);
+\t\tpublic override Type? OptionsObject() => typeof(ListByBillingProfileIdOperation.ListByBillingProfileIdOptions);
 
-    public override string? UriSuffix() => "/providers/Microsoft.CostManagement/benefitUtilizationSummaries";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.CostManagement/benefitUtilizationSummaries";
 
     internal class ListByBillingProfileIdOptions
     {

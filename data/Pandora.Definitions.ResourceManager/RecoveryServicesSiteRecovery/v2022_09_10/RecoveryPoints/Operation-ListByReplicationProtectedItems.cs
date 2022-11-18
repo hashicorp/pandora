@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.RecoveryServicesSiteRecovery.v2022
 
 internal class ListByReplicationProtectedItemsOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new ReplicationProtectedItemId();
+\t\tpublic override ResourceID? ResourceId() => new ReplicationProtectedItemId();
 
-    public override Type NestedItemType() => typeof(RecoveryPointModel);
+\t\tpublic override Type NestedItemType() => typeof(RecoveryPointModel);
 
-    public override string? UriSuffix() => "/recoveryPoints";
+\t\tpublic override string? UriSuffix() => "/recoveryPoints";
 
 
 }

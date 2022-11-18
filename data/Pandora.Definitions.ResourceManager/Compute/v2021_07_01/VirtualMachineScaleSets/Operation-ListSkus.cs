@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Compute.v2021_07_01.VirtualMachine
 
 internal class ListSkusOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new VirtualMachineScaleSetId();
+\t\tpublic override ResourceID? ResourceId() => new VirtualMachineScaleSetId();
 
-    public override Type NestedItemType() => typeof(VirtualMachineScaleSetSkuModel);
+\t\tpublic override Type NestedItemType() => typeof(VirtualMachineScaleSetSkuModel);
 
-    public override string? UriSuffix() => "/skus";
+\t\tpublic override string? UriSuffix() => "/skus";
 
 
 }

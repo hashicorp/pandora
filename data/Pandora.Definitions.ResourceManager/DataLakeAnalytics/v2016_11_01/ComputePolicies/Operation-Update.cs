@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.DataLakeAnalytics.v2016_11_01.Comp
 
 internal class UpdateOperation : Operations.PatchOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(UpdateComputePolicyParametersModel);
 
-    public override ResourceID? ResourceId() => new ComputePolicyId();
+\t\tpublic override ResourceID? ResourceId() => new ComputePolicyId();
 
-    public override Type? ResponseObject() => typeof(ComputePolicyModel);
+\t\tpublic override Type? ResponseObject() => typeof(ComputePolicyModel);
 
 
 }

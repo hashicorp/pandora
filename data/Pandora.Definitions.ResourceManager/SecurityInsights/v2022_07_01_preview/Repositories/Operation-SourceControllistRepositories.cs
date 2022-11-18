@@ -15,22 +15,22 @@ namespace Pandora.Definitions.ResourceManager.SecurityInsights.v2022_07_01_previ
 
 internal class SourceControllistRepositoriesOperation : Operations.ListOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
     public override Type? RequestObject() => typeof(RepoTypeConstant);
 
-    public override ResourceID? ResourceId() => new WorkspaceId();
+\t\tpublic override ResourceID? ResourceId() => new WorkspaceId();
 
-    public override Type NestedItemType() => typeof(RepoModel);
+\t\tpublic override Type NestedItemType() => typeof(RepoModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.SecurityInsights/listRepositories";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.SecurityInsights/listRepositories";
 
-    public override System.Net.Http.HttpMethod Method() => System.Net.Http.HttpMethod.Post;
+\t\tpublic override System.Net.Http.HttpMethod Method() => System.Net.Http.HttpMethod.Post;
 
 
 }

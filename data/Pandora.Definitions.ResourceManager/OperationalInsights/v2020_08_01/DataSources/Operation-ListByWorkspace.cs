@@ -15,15 +15,15 @@ namespace Pandora.Definitions.ResourceManager.OperationalInsights.v2020_08_01.Da
 
 internal class ListByWorkspaceOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new WorkspaceId();
+\t\tpublic override ResourceID? ResourceId() => new WorkspaceId();
 
-    public override Type NestedItemType() => typeof(DataSourceModel);
+\t\tpublic override Type NestedItemType() => typeof(DataSourceModel);
 
-    public override Type? OptionsObject() => typeof(ListByWorkspaceOperation.ListByWorkspaceOptions);
+\t\tpublic override Type? OptionsObject() => typeof(ListByWorkspaceOperation.ListByWorkspaceOptions);
 
-    public override string? UriSuffix() => "/dataSources";
+\t\tpublic override string? UriSuffix() => "/dataSources";
 
     internal class ListByWorkspaceOptions
     {

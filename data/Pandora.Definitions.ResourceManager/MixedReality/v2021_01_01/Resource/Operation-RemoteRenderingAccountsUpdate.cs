@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.MixedReality.v2021_01_01.Resource;
 
 internal class RemoteRenderingAccountsUpdateOperation : Operations.PatchOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(RemoteRenderingAccountModel);
 
-    public override ResourceID? ResourceId() => new RemoteRenderingAccountId();
+\t\tpublic override ResourceID? ResourceId() => new RemoteRenderingAccountId();
 
-    public override Type? ResponseObject() => typeof(RemoteRenderingAccountModel);
+\t\tpublic override Type? ResponseObject() => typeof(RemoteRenderingAccountModel);
 
 
 }

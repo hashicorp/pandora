@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.Storage.v2022_09_01.ManagementPoli
 
 internal class CreateOrUpdateOperation : Operations.PutOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(ManagementPolicyModel);
 
-    public override ResourceID? ResourceId() => new StorageAccountId();
+\t\tpublic override ResourceID? ResourceId() => new StorageAccountId();
 
-    public override Type? ResponseObject() => typeof(ManagementPolicyModel);
+\t\tpublic override Type? ResponseObject() => typeof(ManagementPolicyModel);
 
-    public override string? UriSuffix() => "/managementPolicies/default";
+\t\tpublic override string? UriSuffix() => "/managementPolicies/default";
 
 
 }

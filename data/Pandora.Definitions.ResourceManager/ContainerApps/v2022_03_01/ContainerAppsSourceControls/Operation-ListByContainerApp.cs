@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.ContainerApps.v2022_03_01.Containe
 
 internal class ListByContainerAppOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new ContainerAppId();
+\t\tpublic override ResourceID? ResourceId() => new ContainerAppId();
 
-    public override Type NestedItemType() => typeof(SourceControlModel);
+\t\tpublic override Type NestedItemType() => typeof(SourceControlModel);
 
-    public override string? UriSuffix() => "/sourceControls";
+\t\tpublic override string? UriSuffix() => "/sourceControls";
 
 
 }

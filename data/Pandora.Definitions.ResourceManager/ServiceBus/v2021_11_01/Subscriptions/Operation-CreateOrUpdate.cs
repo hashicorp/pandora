@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.ServiceBus.v2021_11_01.Subscriptio
 
 internal class CreateOrUpdateOperation : Operations.PutOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(SBSubscriptionModel);
 
-    public override ResourceID? ResourceId() => new Subscriptions2Id();
+\t\tpublic override ResourceID? ResourceId() => new Subscriptions2Id();
 
-    public override Type? ResponseObject() => typeof(SBSubscriptionModel);
+\t\tpublic override Type? ResponseObject() => typeof(SBSubscriptionModel);
 
 
 }

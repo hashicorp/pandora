@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.NetApp.v2022_01_01.VolumeQuotaRule
 
 internal class CreateOperation : Operations.PutOperation
 {
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(VolumeQuotaRuleModel);
 
-    public override ResourceID? ResourceId() => new VolumeQuotaRuleId();
+\t\tpublic override ResourceID? ResourceId() => new VolumeQuotaRuleId();
 
-    public override Type? ResponseObject() => typeof(VolumeQuotaRuleModel);
+\t\tpublic override Type? ResponseObject() => typeof(VolumeQuotaRuleModel);
 
 
 }

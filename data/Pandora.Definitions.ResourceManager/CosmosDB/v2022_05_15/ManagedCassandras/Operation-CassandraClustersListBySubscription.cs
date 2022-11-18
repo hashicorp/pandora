@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.CosmosDB.v2022_05_15.ManagedCassan
 
 internal class CassandraClustersListBySubscriptionOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new SubscriptionId();
+\t\tpublic override ResourceID? ResourceId() => new SubscriptionId();
 
-    public override Type? ResponseObject() => typeof(ListClustersModel);
+\t\tpublic override Type? ResponseObject() => typeof(ListClustersModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.DocumentDB/cassandraClusters";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.DocumentDB/cassandraClusters";
 
 
 }

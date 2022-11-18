@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Storage.v2022_05_01.DeletedAccount
 
 internal class ListOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new SubscriptionId();
+\t\tpublic override ResourceID? ResourceId() => new SubscriptionId();
 
-    public override Type NestedItemType() => typeof(DeletedAccountModel);
+\t\tpublic override Type NestedItemType() => typeof(DeletedAccountModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.Storage/deletedAccounts";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.Storage/deletedAccounts";
 
 
 }

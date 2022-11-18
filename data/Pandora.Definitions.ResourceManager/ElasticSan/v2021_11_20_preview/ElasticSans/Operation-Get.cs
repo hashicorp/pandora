@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.ElasticSan.v2021_11_20_preview.Ela
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ElasticSanId();
+\t\tpublic override ResourceID? ResourceId() => new ElasticSanId();
 
-    public override Type? ResponseObject() => typeof(ElasticSanModel);
+\t\tpublic override Type? ResponseObject() => typeof(ElasticSanModel);
 
 
 }

@@ -15,15 +15,15 @@ namespace Pandora.Definitions.ResourceManager.MachineLearningServices.v2022_10_0
 
 internal class ListSkusOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new OnlineEndpointDeploymentId();
+\t\tpublic override ResourceID? ResourceId() => new OnlineEndpointDeploymentId();
 
-    public override Type NestedItemType() => typeof(SkuResourceModel);
+\t\tpublic override Type NestedItemType() => typeof(SkuResourceModel);
 
-    public override Type? OptionsObject() => typeof(ListSkusOperation.ListSkusOptions);
+\t\tpublic override Type? OptionsObject() => typeof(ListSkusOperation.ListSkusOptions);
 
-    public override string? UriSuffix() => "/skus";
+\t\tpublic override string? UriSuffix() => "/skus";
 
     internal class ListSkusOptions
     {

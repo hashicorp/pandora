@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.AppConfiguration.v2022_05_01.Confi
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ConfigurationStoreId();
+\t\tpublic override ResourceID? ResourceId() => new ConfigurationStoreId();
 
-    public override Type? ResponseObject() => typeof(ConfigurationStoreModel);
+\t\tpublic override Type? ResponseObject() => typeof(ConfigurationStoreModel);
 
 
 }

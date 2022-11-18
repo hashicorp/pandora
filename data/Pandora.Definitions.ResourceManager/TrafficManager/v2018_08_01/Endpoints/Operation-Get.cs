@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.TrafficManager.v2018_08_01.Endpoin
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new EndpointTypeId();
+\t\tpublic override ResourceID? ResourceId() => new EndpointTypeId();
 
-    public override Type? ResponseObject() => typeof(EndpointModel);
+\t\tpublic override Type? ResponseObject() => typeof(EndpointModel);
 
 
 }

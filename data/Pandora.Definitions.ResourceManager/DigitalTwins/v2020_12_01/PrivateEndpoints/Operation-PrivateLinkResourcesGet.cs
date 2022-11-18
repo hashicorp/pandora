@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.DigitalTwins.v2020_12_01.PrivateEn
 
 internal class PrivateLinkResourcesGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ResourceId();
+\t\tpublic override ResourceID? ResourceId() => new ResourceId();
 
-    public override Type? ResponseObject() => typeof(GroupIdInformationModel);
+\t\tpublic override Type? ResponseObject() => typeof(GroupIdInformationModel);
 
 
 }

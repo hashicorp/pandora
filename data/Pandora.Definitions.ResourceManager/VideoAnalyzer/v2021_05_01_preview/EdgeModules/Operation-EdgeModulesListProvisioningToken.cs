@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.VideoAnalyzer.v2021_05_01_preview.
 
 internal class EdgeModulesListProvisioningTokenOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(ListProvisioningTokenInputModel);
 
-    public override ResourceID? ResourceId() => new EdgeModuleId();
+\t\tpublic override ResourceID? ResourceId() => new EdgeModuleId();
 
-    public override Type? ResponseObject() => typeof(EdgeModuleProvisioningTokenModel);
+\t\tpublic override Type? ResponseObject() => typeof(EdgeModuleProvisioningTokenModel);
 
-    public override string? UriSuffix() => "/listProvisioningToken";
+\t\tpublic override string? UriSuffix() => "/listProvisioningToken";
 
 
 }

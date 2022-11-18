@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.CosmosDB.v2022_08_15.ManagedCassan
 
 internal class CassandraClustersDeallocateOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new CassandraClusterId();
+\t\tpublic override ResourceID? ResourceId() => new CassandraClusterId();
 
-    public override string? UriSuffix() => "/deallocate";
+\t\tpublic override string? UriSuffix() => "/deallocate";
 
 
 }

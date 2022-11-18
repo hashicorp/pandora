@@ -17,9 +17,9 @@ internal class CreateOrUpdateOperation : Operations.PutOperation
 {
     public override Type? RequestObject() => typeof(AutoscaleSettingResourceModel);
 
-    public override ResourceID? ResourceId() => new AutoScaleSettingId();
+\t\tpublic override ResourceID? ResourceId() => new AutoScaleSettingId();
 
-    public override Type? ResponseObject() => typeof(AutoscaleSettingResourceModel);
+\t\tpublic override Type? ResponseObject() => typeof(AutoscaleSettingResourceModel);
 
 
 }

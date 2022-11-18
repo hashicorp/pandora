@@ -17,9 +17,9 @@ internal class IndicatorCreateOperation : Operations.PutOperation
 {
     public override Type? RequestObject() => typeof(ThreatIntelligenceIndicatorModelForRequestBodyModel);
 
-    public override ResourceID? ResourceId() => new IndicatorId();
+\t\tpublic override ResourceID? ResourceId() => new IndicatorId();
 
-    public override Type? ResponseObject() => typeof(ThreatIntelligenceInformationModel);
+\t\tpublic override Type? ResponseObject() => typeof(ThreatIntelligenceInformationModel);
 
 
 }

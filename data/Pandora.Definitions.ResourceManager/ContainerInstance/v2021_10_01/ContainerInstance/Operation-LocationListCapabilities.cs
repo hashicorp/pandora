@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.ContainerInstance.v2021_10_01.Cont
 
 internal class LocationListCapabilitiesOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new LocationId();
+\t\tpublic override ResourceID? ResourceId() => new LocationId();
 
-    public override Type NestedItemType() => typeof(CapabilitiesModel);
+\t\tpublic override Type NestedItemType() => typeof(CapabilitiesModel);
 
-    public override string? UriSuffix() => "/capabilities";
+\t\tpublic override string? UriSuffix() => "/capabilities";
 
 
 }

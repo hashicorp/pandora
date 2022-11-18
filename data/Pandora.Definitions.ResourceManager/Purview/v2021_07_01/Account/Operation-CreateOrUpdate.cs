@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Purview.v2021_07_01.Account;
 
 internal class CreateOrUpdateOperation : Operations.PutOperation
 {
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(AccountModel);
 
-    public override ResourceID? ResourceId() => new AccountId();
+\t\tpublic override ResourceID? ResourceId() => new AccountId();
 
-    public override Type? ResponseObject() => typeof(AccountModel);
+\t\tpublic override Type? ResponseObject() => typeof(AccountModel);
 
 
 }

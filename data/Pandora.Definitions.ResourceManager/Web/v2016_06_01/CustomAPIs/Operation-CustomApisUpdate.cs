@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.Web.v2016_06_01.CustomAPIs;
 
 internal class CustomApisUpdateOperation : Operations.PatchOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(CustomApiDefinitionModel);
 
-    public override ResourceID? ResourceId() => new CustomApiId();
+\t\tpublic override ResourceID? ResourceId() => new CustomApiId();
 
-    public override Type? ResponseObject() => typeof(CustomApiDefinitionModel);
+\t\tpublic override Type? ResponseObject() => typeof(CustomApiDefinitionModel);
 
 
 }

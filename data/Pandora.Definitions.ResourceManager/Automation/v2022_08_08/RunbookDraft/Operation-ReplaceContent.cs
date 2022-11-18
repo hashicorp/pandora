@@ -15,21 +15,23 @@ namespace Pandora.Definitions.ResourceManager.Automation.v2022_08_08.RunbookDraf
 
 internal class ReplaceContentOperation : Operations.PutOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override string? ContentType() => "text/powershell";
+
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(object);
 
-    public override ResourceID? ResourceId() => new RunbookId();
+\t\tpublic override ResourceID? ResourceId() => new RunbookId();
 
-    public override Type? ResponseObject() => typeof(CustomTypes.RawFile);
+\t\tpublic override Type? ResponseObject() => typeof(CustomTypes.RawFile);
 
-    public override string? UriSuffix() => "/draft/content";
+\t\tpublic override string? UriSuffix() => "/draft/content";
 
 
 }

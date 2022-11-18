@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.Compute.v2021_11_01.VirtualMachine
 
 internal class SimulateEvictionOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.NoContent,
         };
 
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new VirtualMachineScaleSetVirtualMachineId();
+\t\tpublic override ResourceID? ResourceId() => new VirtualMachineScaleSetVirtualMachineId();
 
-    public override string? UriSuffix() => "/simulateEviction";
+\t\tpublic override string? UriSuffix() => "/simulateEviction";
 
 
 }

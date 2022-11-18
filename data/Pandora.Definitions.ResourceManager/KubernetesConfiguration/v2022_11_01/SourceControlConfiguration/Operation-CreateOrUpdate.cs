@@ -17,9 +17,9 @@ internal class CreateOrUpdateOperation : Operations.PutOperation
 {
     public override Type? RequestObject() => typeof(SourceControlConfigurationModel);
 
-    public override ResourceID? ResourceId() => new SourceControlConfigurationId();
+\t\tpublic override ResourceID? ResourceId() => new SourceControlConfigurationId();
 
-    public override Type? ResponseObject() => typeof(SourceControlConfigurationModel);
+\t\tpublic override Type? ResponseObject() => typeof(SourceControlConfigurationModel);
 
 
 }

@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.Compute.v2021_11_01.VirtualMachine
 
 internal class EdgeZoneGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new OfferSkuVersionId();
+\t\tpublic override ResourceID? ResourceId() => new OfferSkuVersionId();
 
-    public override Type? ResponseObject() => typeof(VirtualMachineImageModel);
+\t\tpublic override Type? ResponseObject() => typeof(VirtualMachineImageModel);
 
 
 }

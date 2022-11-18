@@ -15,15 +15,15 @@ namespace Pandora.Definitions.ResourceManager.Automation.v2019_06_01.NodeReports
 
 internal class ListByNodeOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new NodeId();
+\t\tpublic override ResourceID? ResourceId() => new NodeId();
 
-    public override Type NestedItemType() => typeof(DscNodeReportModel);
+\t\tpublic override Type NestedItemType() => typeof(DscNodeReportModel);
 
-    public override Type? OptionsObject() => typeof(ListByNodeOperation.ListByNodeOptions);
+\t\tpublic override Type? OptionsObject() => typeof(ListByNodeOperation.ListByNodeOptions);
 
-    public override string? UriSuffix() => "/reports";
+\t\tpublic override string? UriSuffix() => "/reports";
 
     internal class ListByNodeOptions
     {

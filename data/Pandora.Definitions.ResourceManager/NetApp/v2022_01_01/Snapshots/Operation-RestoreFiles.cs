@@ -15,19 +15,19 @@ namespace Pandora.Definitions.ResourceManager.NetApp.v2022_01_01.Snapshots;
 
 internal class RestoreFilesOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(SnapshotRestoreFilesModel);
 
-    public override ResourceID? ResourceId() => new SnapshotId();
+\t\tpublic override ResourceID? ResourceId() => new SnapshotId();
 
-    public override string? UriSuffix() => "/restoreFiles";
+\t\tpublic override string? UriSuffix() => "/restoreFiles";
 
 
 }

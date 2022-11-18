@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.CosmosDB.v2022_08_15.CosmosDB;
 
 internal class SqlResourcesListSqlDatabasesOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new DatabaseAccountId();
+\t\tpublic override ResourceID? ResourceId() => new DatabaseAccountId();
 
-    public override Type? ResponseObject() => typeof(SqlDatabaseListResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(SqlDatabaseListResultModel);
 
-    public override string? UriSuffix() => "/sqlDatabases";
+\t\tpublic override string? UriSuffix() => "/sqlDatabases";
 
 
 }

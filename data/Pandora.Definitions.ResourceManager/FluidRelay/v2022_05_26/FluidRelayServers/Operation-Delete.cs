@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.FluidRelay.v2022_05_26.FluidRelayS
 
 internal class DeleteOperation : Operations.DeleteOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.NoContent,
                 HttpStatusCode.OK,
         };
 
-    public override ResourceID? ResourceId() => new FluidRelayServerId();
+\t\tpublic override ResourceID? ResourceId() => new FluidRelayServerId();
 
 
 }

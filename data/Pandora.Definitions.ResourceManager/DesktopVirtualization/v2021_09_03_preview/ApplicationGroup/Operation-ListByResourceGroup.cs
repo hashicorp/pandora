@@ -15,15 +15,15 @@ namespace Pandora.Definitions.ResourceManager.DesktopVirtualization.v2021_09_03_
 
 internal class ListByResourceGroupOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new ResourceGroupId();
+\t\tpublic override ResourceID? ResourceId() => new ResourceGroupId();
 
-    public override Type NestedItemType() => typeof(ApplicationGroupModel);
+\t\tpublic override Type NestedItemType() => typeof(ApplicationGroupModel);
 
-    public override Type? OptionsObject() => typeof(ListByResourceGroupOperation.ListByResourceGroupOptions);
+\t\tpublic override Type? OptionsObject() => typeof(ListByResourceGroupOperation.ListByResourceGroupOptions);
 
-    public override string? UriSuffix() => "/providers/Microsoft.DesktopVirtualization/applicationGroups";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.DesktopVirtualization/applicationGroups";
 
     internal class ListByResourceGroupOptions
     {

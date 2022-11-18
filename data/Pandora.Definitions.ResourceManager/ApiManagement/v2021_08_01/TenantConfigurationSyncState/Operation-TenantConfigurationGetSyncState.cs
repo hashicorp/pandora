@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.TenantCo
 
 internal class TenantConfigurationGetSyncStateOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ServiceId();
+\t\tpublic override ResourceID? ResourceId() => new ServiceId();
 
-    public override Type? ResponseObject() => typeof(TenantConfigurationSyncStateContractModel);
+\t\tpublic override Type? ResponseObject() => typeof(TenantConfigurationSyncStateContractModel);
 
-    public override string? UriSuffix() => "/tenant/configuration/syncState";
+\t\tpublic override string? UriSuffix() => "/tenant/configuration/syncState";
 
 
 }

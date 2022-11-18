@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.AppPlatform.v2022_09_01_preview.Ap
 
 internal class BuildServiceGetSupportedBuildpackOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new SupportedBuildPackId();
+\t\tpublic override ResourceID? ResourceId() => new SupportedBuildPackId();
 
-    public override Type? ResponseObject() => typeof(SupportedBuildpackResourceModel);
+\t\tpublic override Type? ResponseObject() => typeof(SupportedBuildpackResourceModel);
 
 
 }

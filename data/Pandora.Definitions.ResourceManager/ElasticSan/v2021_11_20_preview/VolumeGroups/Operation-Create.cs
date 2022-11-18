@@ -15,19 +15,19 @@ namespace Pandora.Definitions.ResourceManager.ElasticSan.v2021_11_20_preview.Vol
 
 internal class CreateOperation : Operations.PutOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(VolumeGroupModel);
 
-    public override ResourceID? ResourceId() => new VolumeGroupId();
+\t\tpublic override ResourceID? ResourceId() => new VolumeGroupId();
 
-    public override Type? ResponseObject() => typeof(VolumeGroupModel);
+\t\tpublic override Type? ResponseObject() => typeof(VolumeGroupModel);
 
 
 }

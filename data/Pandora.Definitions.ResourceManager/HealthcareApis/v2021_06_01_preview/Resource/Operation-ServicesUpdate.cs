@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.HealthcareApis.v2021_06_01_preview
 
 internal class ServicesUpdateOperation : Operations.PatchOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(ServicesPatchDescriptionModel);
 
-    public override ResourceID? ResourceId() => new ServiceId();
+\t\tpublic override ResourceID? ResourceId() => new ServiceId();
 
-    public override Type? ResponseObject() => typeof(ServicesDescriptionModel);
+\t\tpublic override Type? ResponseObject() => typeof(ServicesDescriptionModel);
 
 
 }

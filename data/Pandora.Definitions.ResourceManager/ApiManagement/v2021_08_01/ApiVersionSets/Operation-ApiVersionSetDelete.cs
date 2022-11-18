@@ -15,15 +15,15 @@ namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.ApiVersi
 
 internal class ApiVersionSetDeleteOperation : Operations.DeleteOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.NoContent,
                 HttpStatusCode.OK,
         };
 
-    public override ResourceID? ResourceId() => new ApiVersionSetId();
+\t\tpublic override ResourceID? ResourceId() => new ApiVersionSetId();
 
-    public override Type? OptionsObject() => typeof(ApiVersionSetDeleteOperation.ApiVersionSetDeleteOptions);
+\t\tpublic override Type? OptionsObject() => typeof(ApiVersionSetDeleteOperation.ApiVersionSetDeleteOptions);
 
     internal class ApiVersionSetDeleteOptions
     {

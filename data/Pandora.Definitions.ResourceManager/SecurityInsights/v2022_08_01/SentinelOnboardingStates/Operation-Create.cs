@@ -17,9 +17,9 @@ internal class CreateOperation : Operations.PutOperation
 {
     public override Type? RequestObject() => typeof(SentinelOnboardingStateModel);
 
-    public override ResourceID? ResourceId() => new OnboardingStateId();
+\t\tpublic override ResourceID? ResourceId() => new OnboardingStateId();
 
-    public override Type? ResponseObject() => typeof(SentinelOnboardingStateModel);
+\t\tpublic override Type? ResponseObject() => typeof(SentinelOnboardingStateModel);
 
 
 }

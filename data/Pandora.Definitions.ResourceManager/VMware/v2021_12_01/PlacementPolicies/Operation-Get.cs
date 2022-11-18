@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.VMware.v2021_12_01.PlacementPolici
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new PlacementPolicyId();
+\t\tpublic override ResourceID? ResourceId() => new PlacementPolicyId();
 
-    public override Type? ResponseObject() => typeof(PlacementPolicyModel);
+\t\tpublic override Type? ResponseObject() => typeof(PlacementPolicyModel);
 
 
 }

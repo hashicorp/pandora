@@ -17,9 +17,9 @@ internal class CreateOrUpdateOperation : Operations.PutOperation
 {
     public override Type? RequestObject() => typeof(ApiConnectionDefinitionModel);
 
-    public override ResourceID? ResourceId() => new ConnectionId();
+\t\tpublic override ResourceID? ResourceId() => new ConnectionId();
 
-    public override Type? ResponseObject() => typeof(ApiConnectionDefinitionModel);
+\t\tpublic override Type? ResponseObject() => typeof(ApiConnectionDefinitionModel);
 
 
 }

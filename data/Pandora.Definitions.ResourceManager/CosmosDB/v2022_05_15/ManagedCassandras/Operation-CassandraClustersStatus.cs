@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.CosmosDB.v2022_05_15.ManagedCassan
 
 internal class CassandraClustersStatusOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new CassandraClusterId();
+\t\tpublic override ResourceID? ResourceId() => new CassandraClusterId();
 
-    public override Type? ResponseObject() => typeof(CassandraClusterPublicStatusModel);
+\t\tpublic override Type? ResponseObject() => typeof(CassandraClusterPublicStatusModel);
 
-    public override string? UriSuffix() => "/status";
+\t\tpublic override string? UriSuffix() => "/status";
 
 
 }

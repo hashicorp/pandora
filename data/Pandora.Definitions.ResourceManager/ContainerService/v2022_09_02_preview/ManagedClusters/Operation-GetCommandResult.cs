@@ -15,15 +15,15 @@ namespace Pandora.Definitions.ResourceManager.ContainerService.v2022_09_02_previ
 
 internal class GetCommandResultOperation : Operations.GetOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.OK,
         };
 
-    public override ResourceID? ResourceId() => new CommandResultId();
+\t\tpublic override ResourceID? ResourceId() => new CommandResultId();
 
-    public override Type? ResponseObject() => typeof(RunCommandResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(RunCommandResultModel);
 
 
 }

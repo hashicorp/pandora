@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.AppPlatform.v2022_09_01_preview.Ap
 
 internal class ConfigurationServicesCreateOrUpdateOperation : Operations.PutOperation
 {
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(ConfigurationServiceResourceModel);
 
-    public override ResourceID? ResourceId() => new ConfigurationServiceId();
+\t\tpublic override ResourceID? ResourceId() => new ConfigurationServiceId();
 
-    public override Type? ResponseObject() => typeof(ConfigurationServiceResourceModel);
+\t\tpublic override Type? ResponseObject() => typeof(ConfigurationServiceResourceModel);
 
 
 }

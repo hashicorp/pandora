@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.Relay.v2017_04_01.HybridConnection
 
 internal class RegenerateKeysOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(RegenerateAccessKeyParametersModel);
 
-    public override ResourceID? ResourceId() => new HybridConnectionAuthorizationRuleId();
+\t\tpublic override ResourceID? ResourceId() => new HybridConnectionAuthorizationRuleId();
 
-    public override Type? ResponseObject() => typeof(AccessKeysModel);
+\t\tpublic override Type? ResponseObject() => typeof(AccessKeysModel);
 
-    public override string? UriSuffix() => "/regenerateKeys";
+\t\tpublic override string? UriSuffix() => "/regenerateKeys";
 
 
 }

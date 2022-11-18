@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.PostgreSql.v2017_12_01.VirtualNetw
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new VirtualNetworkRuleId();
+\t\tpublic override ResourceID? ResourceId() => new VirtualNetworkRuleId();
 
-    public override Type? ResponseObject() => typeof(VirtualNetworkRuleModel);
+\t\tpublic override Type? ResponseObject() => typeof(VirtualNetworkRuleModel);
 
 
 }

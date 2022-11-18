@@ -15,21 +15,21 @@ namespace Pandora.Definitions.ResourceManager.NetApp.v2021_10_01.SubVolumes;
 
 internal class GetMetadataOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new SubVolumeId();
+\t\tpublic override ResourceID? ResourceId() => new SubVolumeId();
 
-    public override Type? ResponseObject() => typeof(SubvolumeModelModel);
+\t\tpublic override Type? ResponseObject() => typeof(SubvolumeModelModel);
 
-    public override string? UriSuffix() => "/getMetadata";
+\t\tpublic override string? UriSuffix() => "/getMetadata";
 
 
 }

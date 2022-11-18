@@ -15,19 +15,19 @@ namespace Pandora.Definitions.ResourceManager.Storage.v2022_05_01.BlobContainers
 
 internal class ObjectLevelWormOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new ContainerId();
+\t\tpublic override ResourceID? ResourceId() => new ContainerId();
 
-    public override string? UriSuffix() => "/migrate";
+\t\tpublic override string? UriSuffix() => "/migrate";
 
 
 }

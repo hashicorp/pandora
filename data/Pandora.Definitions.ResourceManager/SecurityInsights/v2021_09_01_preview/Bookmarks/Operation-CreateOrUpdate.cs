@@ -17,9 +17,9 @@ internal class CreateOrUpdateOperation : Operations.PutOperation
 {
     public override Type? RequestObject() => typeof(BookmarkModel);
 
-    public override ResourceID? ResourceId() => new BookmarkId();
+\t\tpublic override ResourceID? ResourceId() => new BookmarkId();
 
-    public override Type? ResponseObject() => typeof(BookmarkModel);
+\t\tpublic override Type? ResponseObject() => typeof(BookmarkModel);
 
 
 }

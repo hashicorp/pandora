@@ -17,9 +17,9 @@ internal class CreateOrUpdateByScopeOperation : Operations.PutOperation
 {
     public override Type? RequestObject() => typeof(ViewModel);
 
-    public override ResourceID? ResourceId() => new ScopedViewId();
+\t\tpublic override ResourceID? ResourceId() => new ScopedViewId();
 
-    public override Type? ResponseObject() => typeof(ViewModel);
+\t\tpublic override Type? ResponseObject() => typeof(ViewModel);
 
 
 }

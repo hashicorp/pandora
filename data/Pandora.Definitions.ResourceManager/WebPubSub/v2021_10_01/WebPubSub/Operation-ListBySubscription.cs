@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.WebPubSub.v2021_10_01.WebPubSub;
 
 internal class ListBySubscriptionOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new SubscriptionId();
+\t\tpublic override ResourceID? ResourceId() => new SubscriptionId();
 
-    public override Type NestedItemType() => typeof(WebPubSubResourceModel);
+\t\tpublic override Type NestedItemType() => typeof(WebPubSubResourceModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.SignalRService/webPubSub";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.SignalRService/webPubSub";
 
 
 }

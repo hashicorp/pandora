@@ -17,9 +17,9 @@ internal class CreateOrUpdateOperation : Operations.PutOperation
 {
     public override Type? RequestObject() => typeof(ProximityPlacementGroupModel);
 
-    public override ResourceID? ResourceId() => new ProximityPlacementGroupId();
+\t\tpublic override ResourceID? ResourceId() => new ProximityPlacementGroupId();
 
-    public override Type? ResponseObject() => typeof(ProximityPlacementGroupModel);
+\t\tpublic override Type? ResponseObject() => typeof(ProximityPlacementGroupModel);
 
 
 }

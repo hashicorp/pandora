@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.FrontDoor.v2020_04_01.FrontDoors;
 
 internal class RulesEnginesListByFrontDoorOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new FrontDoorId();
+\t\tpublic override ResourceID? ResourceId() => new FrontDoorId();
 
-    public override Type NestedItemType() => typeof(RulesEngineModel);
+\t\tpublic override Type NestedItemType() => typeof(RulesEngineModel);
 
-    public override string? UriSuffix() => "/rulesEngines";
+\t\tpublic override string? UriSuffix() => "/rulesEngines";
 
 
 }

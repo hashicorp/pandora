@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.StoragePool.v2021_08_01.IscsiTarge
 
 internal class ListByDiskPoolOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new DiskPoolId();
+\t\tpublic override ResourceID? ResourceId() => new DiskPoolId();
 
-    public override Type NestedItemType() => typeof(IscsiTargetModel);
+\t\tpublic override Type NestedItemType() => typeof(IscsiTargetModel);
 
-    public override string? UriSuffix() => "/iscsiTargets";
+\t\tpublic override string? UriSuffix() => "/iscsiTargets";
 
 
 }

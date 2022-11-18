@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.ResourceConnector.v2022_10_27.Appl
 
 internal class ListBySubscriptionOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new SubscriptionId();
+\t\tpublic override ResourceID? ResourceId() => new SubscriptionId();
 
-    public override Type NestedItemType() => typeof(ApplianceModel);
+\t\tpublic override Type NestedItemType() => typeof(ApplianceModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.ResourceConnector/appliances";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.ResourceConnector/appliances";
 
 
 }

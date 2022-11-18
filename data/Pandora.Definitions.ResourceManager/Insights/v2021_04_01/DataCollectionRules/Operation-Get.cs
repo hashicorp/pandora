@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.Insights.v2021_04_01.DataCollectio
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new DataCollectionRuleId();
+\t\tpublic override ResourceID? ResourceId() => new DataCollectionRuleId();
 
-    public override Type? ResponseObject() => typeof(DataCollectionRuleResourceModel);
+\t\tpublic override Type? ResponseObject() => typeof(DataCollectionRuleResourceModel);
 
 
 }

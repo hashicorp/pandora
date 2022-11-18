@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.HybridCompute.v2022_03_10.PrivateE
 
 internal class ListByPrivateLinkScopeOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new ProviderPrivateLinkScopeId();
+\t\tpublic override ResourceID? ResourceId() => new ProviderPrivateLinkScopeId();
 
-    public override Type NestedItemType() => typeof(PrivateEndpointConnectionModel);
+\t\tpublic override Type NestedItemType() => typeof(PrivateEndpointConnectionModel);
 
-    public override string? UriSuffix() => "/privateEndpointConnections";
+\t\tpublic override string? UriSuffix() => "/privateEndpointConnections";
 
 
 }

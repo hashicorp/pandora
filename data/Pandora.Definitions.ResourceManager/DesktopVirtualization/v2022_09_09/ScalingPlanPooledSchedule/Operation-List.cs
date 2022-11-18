@@ -15,15 +15,15 @@ namespace Pandora.Definitions.ResourceManager.DesktopVirtualization.v2022_09_09.
 
 internal class ListOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new ScalingPlanId();
+\t\tpublic override ResourceID? ResourceId() => new ScalingPlanId();
 
-    public override Type NestedItemType() => typeof(ScalingPlanPooledScheduleModel);
+\t\tpublic override Type NestedItemType() => typeof(ScalingPlanPooledScheduleModel);
 
-    public override Type? OptionsObject() => typeof(ListOperation.ListOptions);
+\t\tpublic override Type? OptionsObject() => typeof(ListOperation.ListOptions);
 
-    public override string? UriSuffix() => "/pooledSchedules";
+\t\tpublic override string? UriSuffix() => "/pooledSchedules";
 
     internal class ListOptions
     {

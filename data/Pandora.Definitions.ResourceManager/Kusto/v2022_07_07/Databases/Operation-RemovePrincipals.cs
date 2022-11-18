@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.Kusto.v2022_07_07.Databases;
 
 internal class RemovePrincipalsOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(DatabasePrincipalListRequestModel);
 
-    public override ResourceID? ResourceId() => new DatabaseId();
+\t\tpublic override ResourceID? ResourceId() => new DatabaseId();
 
-    public override Type? ResponseObject() => typeof(DatabasePrincipalListResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(DatabasePrincipalListResultModel);
 
-    public override string? UriSuffix() => "/removePrincipals";
+\t\tpublic override string? UriSuffix() => "/removePrincipals";
 
 
 }

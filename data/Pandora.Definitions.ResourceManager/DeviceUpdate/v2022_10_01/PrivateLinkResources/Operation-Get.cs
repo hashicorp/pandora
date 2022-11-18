@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.DeviceUpdate.v2022_10_01.PrivateLi
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new PrivateLinkResourceId();
+\t\tpublic override ResourceID? ResourceId() => new PrivateLinkResourceId();
 
-    public override Type? ResponseObject() => typeof(GroupInformationModel);
+\t\tpublic override Type? ResponseObject() => typeof(GroupInformationModel);
 
 
 }

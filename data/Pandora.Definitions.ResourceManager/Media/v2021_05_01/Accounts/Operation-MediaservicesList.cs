@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Media.v2021_05_01.Accounts;
 
 internal class MediaservicesListOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "@odata.nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "@odata.nextLink";
 
-    public override ResourceID? ResourceId() => new ResourceGroupId();
+\t\tpublic override ResourceID? ResourceId() => new ResourceGroupId();
 
-    public override Type NestedItemType() => typeof(MediaServiceModel);
+\t\tpublic override Type NestedItemType() => typeof(MediaServiceModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.Media/mediaServices";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.Media/mediaServices";
 
 
 }

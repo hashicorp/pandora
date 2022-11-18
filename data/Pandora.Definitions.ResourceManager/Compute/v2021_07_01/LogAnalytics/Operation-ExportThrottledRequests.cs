@@ -15,21 +15,21 @@ namespace Pandora.Definitions.ResourceManager.Compute.v2021_07_01.LogAnalytics;
 
 internal class ExportThrottledRequestsOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(LogAnalyticsInputBaseModel);
 
-    public override ResourceID? ResourceId() => new LocationId();
+\t\tpublic override ResourceID? ResourceId() => new LocationId();
 
-    public override Type? ResponseObject() => typeof(LogAnalyticsOperationResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(LogAnalyticsOperationResultModel);
 
-    public override string? UriSuffix() => "/logAnalytics/apiAccess/getThrottledRequests";
+\t\tpublic override string? UriSuffix() => "/logAnalytics/apiAccess/getThrottledRequests";
 
 
 }

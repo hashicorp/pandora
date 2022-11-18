@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.Portal.v2019_01_01_preview.Dashboa
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new DashboardId();
+\t\tpublic override ResourceID? ResourceId() => new DashboardId();
 
-    public override Type? ResponseObject() => typeof(DashboardModel);
+\t\tpublic override Type? ResponseObject() => typeof(DashboardModel);
 
 
 }

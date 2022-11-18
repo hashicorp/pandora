@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.Dynatrace.v2021_09_01.TagRules;
 
 internal class UpdateOperation : Operations.PatchOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(TagRuleUpdateModel);
 
-    public override ResourceID? ResourceId() => new TagRuleId();
+\t\tpublic override ResourceID? ResourceId() => new TagRuleId();
 
-    public override Type? ResponseObject() => typeof(TagRuleModel);
+\t\tpublic override Type? ResponseObject() => typeof(TagRuleModel);
 
 
 }

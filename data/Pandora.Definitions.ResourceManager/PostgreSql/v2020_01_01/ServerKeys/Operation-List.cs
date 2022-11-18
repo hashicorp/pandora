@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.PostgreSql.v2020_01_01.ServerKeys;
 
 internal class ListOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new ServerId();
+\t\tpublic override ResourceID? ResourceId() => new ServerId();
 
-    public override Type NestedItemType() => typeof(ServerKeyModel);
+\t\tpublic override Type NestedItemType() => typeof(ServerKeyModel);
 
-    public override string? UriSuffix() => "/keys";
+\t\tpublic override string? UriSuffix() => "/keys";
 
 
 }

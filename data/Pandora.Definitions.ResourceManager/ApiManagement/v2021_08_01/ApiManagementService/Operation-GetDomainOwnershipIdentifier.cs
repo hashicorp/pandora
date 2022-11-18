@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.ApiManag
 
 internal class GetDomainOwnershipIdentifierOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new SubscriptionId();
+\t\tpublic override ResourceID? ResourceId() => new SubscriptionId();
 
-    public override Type? ResponseObject() => typeof(ApiManagementServiceGetDomainOwnershipIdentifierResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(ApiManagementServiceGetDomainOwnershipIdentifierResultModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.ApiManagement/getDomainOwnershipIdentifier";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.ApiManagement/getDomainOwnershipIdentifier";
 
 
 }

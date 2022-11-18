@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Media.v2020_05_01.AccountFilters;
 
 internal class AccountFiltersListOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "@odata.nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "@odata.nextLink";
 
-    public override ResourceID? ResourceId() => new MediaServiceId();
+\t\tpublic override ResourceID? ResourceId() => new MediaServiceId();
 
-    public override Type NestedItemType() => typeof(AccountFilterModel);
+\t\tpublic override Type NestedItemType() => typeof(AccountFilterModel);
 
-    public override string? UriSuffix() => "/accountFilters";
+\t\tpublic override string? UriSuffix() => "/accountFilters";
 
 
 }

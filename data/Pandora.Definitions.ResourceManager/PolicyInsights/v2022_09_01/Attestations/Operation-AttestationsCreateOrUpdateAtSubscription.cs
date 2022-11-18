@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.PolicyInsights.v2022_09_01.Attesta
 
 internal class AttestationsCreateOrUpdateAtSubscriptionOperation : Operations.PutOperation
 {
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(AttestationModel);
 
-    public override ResourceID? ResourceId() => new AttestationId();
+\t\tpublic override ResourceID? ResourceId() => new AttestationId();
 
-    public override Type? ResponseObject() => typeof(AttestationModel);
+\t\tpublic override Type? ResponseObject() => typeof(AttestationModel);
 
 
 }

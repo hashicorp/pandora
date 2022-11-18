@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.SqlVirtualMachine.v2022_02_01.Avai
 
 internal class CreateOrUpdateOperation : Operations.PutOperation
 {
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(AvailabilityGroupListenerModel);
 
-    public override ResourceID? ResourceId() => new AvailabilityGroupListenerId();
+\t\tpublic override ResourceID? ResourceId() => new AvailabilityGroupListenerId();
 
-    public override Type? ResponseObject() => typeof(AvailabilityGroupListenerModel);
+\t\tpublic override Type? ResponseObject() => typeof(AvailabilityGroupListenerModel);
 
 
 }

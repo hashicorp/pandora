@@ -15,15 +15,15 @@ namespace Pandora.Definitions.ResourceManager.Consumption.v2019_10_01.UsageDetai
 
 internal class ListOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new ScopeId();
+\t\tpublic override ResourceID? ResourceId() => new ScopeId();
 
-    public override Type NestedItemType() => typeof(UsageDetailModel);
+\t\tpublic override Type NestedItemType() => typeof(UsageDetailModel);
 
-    public override Type? OptionsObject() => typeof(ListOperation.ListOptions);
+\t\tpublic override Type? OptionsObject() => typeof(ListOperation.ListOptions);
 
-    public override string? UriSuffix() => "/providers/Microsoft.Consumption/usageDetails";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.Consumption/usageDetails";
 
     internal class ListOptions
     {

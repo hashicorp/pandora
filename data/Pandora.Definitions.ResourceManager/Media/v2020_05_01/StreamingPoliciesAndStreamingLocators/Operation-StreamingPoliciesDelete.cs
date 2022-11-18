@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Media.v2020_05_01.StreamingPolicie
 
 internal class StreamingPoliciesDeleteOperation : Operations.DeleteOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.NoContent,
                 HttpStatusCode.OK,
         };
 
-    public override ResourceID? ResourceId() => new StreamingPolicyId();
+\t\tpublic override ResourceID? ResourceId() => new StreamingPolicyId();
 
 
 }

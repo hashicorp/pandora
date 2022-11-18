@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.ContainerService.v2022_09_02_previ
 
 internal class AbortLatestOperationOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.NoContent,
         };
 
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new AgentPoolId();
+\t\tpublic override ResourceID? ResourceId() => new AgentPoolId();
 
-    public override string? UriSuffix() => "/abort";
+\t\tpublic override string? UriSuffix() => "/abort";
 
 
 }

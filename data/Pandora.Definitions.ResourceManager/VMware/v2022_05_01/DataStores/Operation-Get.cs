@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.VMware.v2022_05_01.DataStores;
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new DataStoreId();
+\t\tpublic override ResourceID? ResourceId() => new DataStoreId();
 
-    public override Type? ResponseObject() => typeof(DatastoreModel);
+\t\tpublic override Type? ResponseObject() => typeof(DatastoreModel);
 
 
 }

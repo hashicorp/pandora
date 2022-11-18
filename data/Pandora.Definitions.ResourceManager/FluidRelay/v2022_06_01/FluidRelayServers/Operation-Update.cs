@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.FluidRelay.v2022_06_01.FluidRelayS
 
 internal class UpdateOperation : Operations.PatchOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(FluidRelayServerUpdateModel);
 
-    public override ResourceID? ResourceId() => new FluidRelayServerId();
+\t\tpublic override ResourceID? ResourceId() => new FluidRelayServerId();
 
-    public override Type? ResponseObject() => typeof(FluidRelayServerModel);
+\t\tpublic override Type? ResponseObject() => typeof(FluidRelayServerModel);
 
 
 }

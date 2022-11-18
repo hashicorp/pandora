@@ -17,9 +17,9 @@ internal class AlertRulesCreateOrUpdateOperation : Operations.PutOperation
 {
     public override Type? RequestObject() => typeof(AlertRuleModel);
 
-    public override ResourceID? ResourceId() => new AlertRuleId();
+\t\tpublic override ResourceID? ResourceId() => new AlertRuleId();
 
-    public override Type? ResponseObject() => typeof(AlertRuleModel);
+\t\tpublic override Type? ResponseObject() => typeof(AlertRuleModel);
 
 
 }

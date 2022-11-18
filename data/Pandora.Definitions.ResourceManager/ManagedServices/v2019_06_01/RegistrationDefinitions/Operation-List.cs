@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.ManagedServices.v2019_06_01.Regist
 
 internal class ListOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new ScopeId();
+\t\tpublic override ResourceID? ResourceId() => new ScopeId();
 
-    public override Type NestedItemType() => typeof(RegistrationDefinitionModel);
+\t\tpublic override Type NestedItemType() => typeof(RegistrationDefinitionModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.ManagedServices/registrationDefinitions";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.ManagedServices/registrationDefinitions";
 
 
 }

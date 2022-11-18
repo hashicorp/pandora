@@ -17,9 +17,9 @@ internal class StorageInsightConfigsCreateOrUpdateOperation : Operations.PutOper
 {
     public override Type? RequestObject() => typeof(StorageInsightModel);
 
-    public override ResourceID? ResourceId() => new StorageInsightConfigId();
+\t\tpublic override ResourceID? ResourceId() => new StorageInsightConfigId();
 
-    public override Type? ResponseObject() => typeof(StorageInsightModel);
+\t\tpublic override Type? ResponseObject() => typeof(StorageInsightModel);
 
 
 }

@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.AppPlatform.v2022_09_01_preview.Ap
 
 internal class BuildServiceListSupportedBuildpacksOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new BuildServiceId();
+\t\tpublic override ResourceID? ResourceId() => new BuildServiceId();
 
-    public override Type? ResponseObject() => typeof(SupportedBuildpacksCollectionModel);
+\t\tpublic override Type? ResponseObject() => typeof(SupportedBuildpacksCollectionModel);
 
-    public override string? UriSuffix() => "/supportedBuildPacks";
+\t\tpublic override string? UriSuffix() => "/supportedBuildPacks";
 
 
 }

@@ -17,11 +17,11 @@ internal class SoftwareUpdateConfigurationsCreateOperation : Operations.PutOpera
 {
     public override Type? RequestObject() => typeof(SoftwareUpdateConfigurationModel);
 
-    public override ResourceID? ResourceId() => new SoftwareUpdateConfigurationId();
+\t\tpublic override ResourceID? ResourceId() => new SoftwareUpdateConfigurationId();
 
-    public override Type? ResponseObject() => typeof(SoftwareUpdateConfigurationModel);
+\t\tpublic override Type? ResponseObject() => typeof(SoftwareUpdateConfigurationModel);
 
-    public override Type? OptionsObject() => typeof(SoftwareUpdateConfigurationsCreateOperation.SoftwareUpdateConfigurationsCreateOptions);
+\t\tpublic override Type? OptionsObject() => typeof(SoftwareUpdateConfigurationsCreateOperation.SoftwareUpdateConfigurationsCreateOptions);
 
     internal class SoftwareUpdateConfigurationsCreateOptions
     {

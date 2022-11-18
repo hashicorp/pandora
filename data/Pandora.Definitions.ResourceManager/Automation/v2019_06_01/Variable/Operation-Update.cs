@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.Automation.v2019_06_01.Variable;
 
 internal class UpdateOperation : Operations.PatchOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(VariableUpdateParametersModel);
 
-    public override ResourceID? ResourceId() => new VariableId();
+\t\tpublic override ResourceID? ResourceId() => new VariableId();
 
-    public override Type? ResponseObject() => typeof(VariableModel);
+\t\tpublic override Type? ResponseObject() => typeof(VariableModel);
 
 
 }

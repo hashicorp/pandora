@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.Media.v2020_05_01.AssetsAndAssetFi
 
 internal class AssetsListContainerSasOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(ListContainerSasInputModel);
 
-    public override ResourceID? ResourceId() => new AssetId();
+\t\tpublic override ResourceID? ResourceId() => new AssetId();
 
-    public override Type? ResponseObject() => typeof(AssetContainerSasModel);
+\t\tpublic override Type? ResponseObject() => typeof(AssetContainerSasModel);
 
-    public override string? UriSuffix() => "/listContainerSas";
+\t\tpublic override string? UriSuffix() => "/listContainerSas";
 
 
 }

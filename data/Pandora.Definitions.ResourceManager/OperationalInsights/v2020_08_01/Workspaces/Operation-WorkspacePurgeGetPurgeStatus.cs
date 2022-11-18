@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.OperationalInsights.v2020_08_01.Wo
 
 internal class WorkspacePurgeGetPurgeStatusOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new OperationId();
+\t\tpublic override ResourceID? ResourceId() => new OperationId();
 
-    public override Type? ResponseObject() => typeof(WorkspacePurgeStatusResponseModel);
+\t\tpublic override Type? ResponseObject() => typeof(WorkspacePurgeStatusResponseModel);
 
 
 }

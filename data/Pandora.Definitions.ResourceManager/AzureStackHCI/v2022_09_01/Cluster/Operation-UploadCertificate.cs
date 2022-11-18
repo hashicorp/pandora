@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.AzureStackHCI.v2022_09_01.Cluster;
 
 internal class UploadCertificateOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(UploadCertificateRequestModel);
 
-    public override ResourceID? ResourceId() => new ClusterId();
+\t\tpublic override ResourceID? ResourceId() => new ClusterId();
 
-    public override string? UriSuffix() => "/uploadCertificate";
+\t\tpublic override string? UriSuffix() => "/uploadCertificate";
 
 
 }

@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.NetApp.v2022_05_01.VolumeQuotaRule
 
 internal class ListByVolumeOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new VolumeId();
+\t\tpublic override ResourceID? ResourceId() => new VolumeId();
 
-    public override Type? ResponseObject() => typeof(VolumeQuotaRulesListModel);
+\t\tpublic override Type? ResponseObject() => typeof(VolumeQuotaRulesListModel);
 
-    public override string? UriSuffix() => "/volumeQuotaRules";
+\t\tpublic override string? UriSuffix() => "/volumeQuotaRules";
 
 
 }

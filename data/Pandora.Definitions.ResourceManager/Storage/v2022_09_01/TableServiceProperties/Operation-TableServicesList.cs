@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.Storage.v2022_09_01.TableServicePr
 
 internal class TableServicesListOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new StorageAccountId();
+\t\tpublic override ResourceID? ResourceId() => new StorageAccountId();
 
-    public override Type? ResponseObject() => typeof(ListTableServicesModel);
+\t\tpublic override Type? ResponseObject() => typeof(ListTableServicesModel);
 
-    public override string? UriSuffix() => "/tableServices";
+\t\tpublic override string? UriSuffix() => "/tableServices";
 
 
 }

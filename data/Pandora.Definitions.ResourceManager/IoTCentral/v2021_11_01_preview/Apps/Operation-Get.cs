@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.IoTCentral.v2021_11_01_preview.App
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new IotAppId();
+\t\tpublic override ResourceID? ResourceId() => new IotAppId();
 
-    public override Type? ResponseObject() => typeof(AppModel);
+\t\tpublic override Type? ResponseObject() => typeof(AppModel);
 
 
 }

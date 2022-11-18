@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.HybridKubernetes.v2021_10_01.Conne
 
 internal class ConnectedClusterCreateOperation : Operations.PutOperation
 {
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(ConnectedClusterModel);
 
-    public override ResourceID? ResourceId() => new ConnectedClusterId();
+\t\tpublic override ResourceID? ResourceId() => new ConnectedClusterId();
 
-    public override Type? ResponseObject() => typeof(ConnectedClusterModel);
+\t\tpublic override Type? ResponseObject() => typeof(ConnectedClusterModel);
 
 
 }

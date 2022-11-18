@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Resources.v2020_10_01.DeploymentSc
 
 internal class CreateOperation : Operations.PutOperation
 {
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(DeploymentScriptModel);
 
-    public override ResourceID? ResourceId() => new DeploymentScriptId();
+\t\tpublic override ResourceID? ResourceId() => new DeploymentScriptId();
 
-    public override Type? ResponseObject() => typeof(DeploymentScriptModel);
+\t\tpublic override Type? ResponseObject() => typeof(DeploymentScriptModel);
 
 
 }

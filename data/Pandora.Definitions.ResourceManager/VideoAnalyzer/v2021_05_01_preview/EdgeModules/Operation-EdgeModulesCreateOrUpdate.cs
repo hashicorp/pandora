@@ -17,9 +17,9 @@ internal class EdgeModulesCreateOrUpdateOperation : Operations.PutOperation
 {
     public override Type? RequestObject() => typeof(EdgeModuleEntityModel);
 
-    public override ResourceID? ResourceId() => new EdgeModuleId();
+\t\tpublic override ResourceID? ResourceId() => new EdgeModuleId();
 
-    public override Type? ResponseObject() => typeof(EdgeModuleEntityModel);
+\t\tpublic override Type? ResponseObject() => typeof(EdgeModuleEntityModel);
 
 
 }

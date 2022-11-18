@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.FrontDoor.v2020_04_01.FrontDoors;
 
 internal class RulesEnginesGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new RulesEngineId();
+\t\tpublic override ResourceID? ResourceId() => new RulesEngineId();
 
-    public override Type? ResponseObject() => typeof(RulesEngineModel);
+\t\tpublic override Type? ResponseObject() => typeof(RulesEngineModel);
 
 
 }

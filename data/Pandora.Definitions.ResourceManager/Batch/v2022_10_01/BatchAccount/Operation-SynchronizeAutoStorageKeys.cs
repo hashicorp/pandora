@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.Batch.v2022_10_01.BatchAccount;
 
 internal class SynchronizeAutoStorageKeysOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.NoContent,
         };
 
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new BatchAccountId();
+\t\tpublic override ResourceID? ResourceId() => new BatchAccountId();
 
-    public override string? UriSuffix() => "/syncAutoStorageKeys";
+\t\tpublic override string? UriSuffix() => "/syncAutoStorageKeys";
 
 
 }

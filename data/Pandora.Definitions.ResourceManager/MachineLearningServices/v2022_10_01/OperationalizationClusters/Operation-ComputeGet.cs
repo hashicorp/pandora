@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.MachineLearningServices.v2022_10_0
 
 internal class ComputeGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ComputeId();
+\t\tpublic override ResourceID? ResourceId() => new ComputeId();
 
-    public override Type? ResponseObject() => typeof(ComputeResourceModel);
+\t\tpublic override Type? ResponseObject() => typeof(ComputeResourceModel);
 
 
 }

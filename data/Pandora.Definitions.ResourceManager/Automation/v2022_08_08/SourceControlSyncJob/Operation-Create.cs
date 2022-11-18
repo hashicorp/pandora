@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.Automation.v2022_08_08.SourceContr
 
 internal class CreateOperation : Operations.PutOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Created,
         };
 
     public override Type? RequestObject() => typeof(SourceControlSyncJobCreateParametersModel);
 
-    public override ResourceID? ResourceId() => new SourceControlSyncJobId();
+\t\tpublic override ResourceID? ResourceId() => new SourceControlSyncJobId();
 
-    public override Type? ResponseObject() => typeof(SourceControlSyncJobModel);
+\t\tpublic override Type? ResponseObject() => typeof(SourceControlSyncJobModel);
 
 
 }

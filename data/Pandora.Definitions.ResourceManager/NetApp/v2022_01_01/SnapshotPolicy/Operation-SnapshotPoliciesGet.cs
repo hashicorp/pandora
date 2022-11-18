@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.NetApp.v2022_01_01.SnapshotPolicy;
 
 internal class SnapshotPoliciesGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new SnapshotPolicyId();
+\t\tpublic override ResourceID? ResourceId() => new SnapshotPolicyId();
 
-    public override Type? ResponseObject() => typeof(SnapshotPolicyModel);
+\t\tpublic override Type? ResponseObject() => typeof(SnapshotPolicyModel);
 
 
 }

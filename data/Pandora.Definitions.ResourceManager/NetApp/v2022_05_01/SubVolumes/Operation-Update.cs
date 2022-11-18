@@ -15,19 +15,19 @@ namespace Pandora.Definitions.ResourceManager.NetApp.v2022_05_01.SubVolumes;
 
 internal class UpdateOperation : Operations.PatchOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(SubvolumePatchRequestModel);
 
-    public override ResourceID? ResourceId() => new SubVolumeId();
+\t\tpublic override ResourceID? ResourceId() => new SubVolumeId();
 
-    public override Type? ResponseObject() => typeof(SubvolumeInfoModel);
+\t\tpublic override Type? ResponseObject() => typeof(SubvolumeInfoModel);
 
 
 }

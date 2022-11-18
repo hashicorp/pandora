@@ -15,20 +15,20 @@ namespace Pandora.Definitions.ResourceManager.NetApp.v2021_10_01.BackupPolicy;
 
 internal class BackupPoliciesCreateOperation : Operations.PutOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.Created,
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(BackupPolicyModel);
 
-    public override ResourceID? ResourceId() => new BackupPolicyId();
+\t\tpublic override ResourceID? ResourceId() => new BackupPolicyId();
 
-    public override Type? ResponseObject() => typeof(BackupPolicyModel);
+\t\tpublic override Type? ResponseObject() => typeof(BackupPolicyModel);
 
 
 }

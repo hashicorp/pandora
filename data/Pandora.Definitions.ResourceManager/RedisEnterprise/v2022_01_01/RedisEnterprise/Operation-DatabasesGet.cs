@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.RedisEnterprise.v2022_01_01.RedisE
 
 internal class DatabasesGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new DatabaseId();
+\t\tpublic override ResourceID? ResourceId() => new DatabaseId();
 
-    public override Type? ResponseObject() => typeof(DatabaseModel);
+\t\tpublic override Type? ResponseObject() => typeof(DatabaseModel);
 
 
 }

@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.VMware.v2021_12_01.WorkloadNetwork
 
 internal class CreateDnsServiceOperation : Operations.PutOperation
 {
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(WorkloadNetworkDnsServiceModel);
 
-    public override ResourceID? ResourceId() => new DnsServiceId();
+\t\tpublic override ResourceID? ResourceId() => new DnsServiceId();
 
-    public override Type? ResponseObject() => typeof(WorkloadNetworkDnsServiceModel);
+\t\tpublic override Type? ResponseObject() => typeof(WorkloadNetworkDnsServiceModel);
 
 
 }

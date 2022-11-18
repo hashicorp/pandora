@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.Automation.v2022_08_08.Module;
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ModuleId();
+\t\tpublic override ResourceID? ResourceId() => new ModuleId();
 
-    public override Type? ResponseObject() => typeof(ModuleModel);
+\t\tpublic override Type? ResponseObject() => typeof(ModuleModel);
 
 
 }

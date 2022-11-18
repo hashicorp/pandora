@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.PostgreSqlHSC.v2020_10_05_privatep
 
 internal class ListByServerGroupOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new ServerGroupsv2Id();
+\t\tpublic override ResourceID? ResourceId() => new ServerGroupsv2Id();
 
-    public override Type NestedItemType() => typeof(ServerGroupConfigurationModel);
+\t\tpublic override Type NestedItemType() => typeof(ServerGroupConfigurationModel);
 
-    public override string? UriSuffix() => "/configurations";
+\t\tpublic override string? UriSuffix() => "/configurations";
 
 
 }

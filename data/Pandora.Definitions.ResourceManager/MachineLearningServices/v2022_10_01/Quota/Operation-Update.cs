@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.MachineLearningServices.v2022_10_0
 
 internal class UpdateOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(QuotaUpdateParametersModel);
 
-    public override ResourceID? ResourceId() => new LocationId();
+\t\tpublic override ResourceID? ResourceId() => new LocationId();
 
-    public override Type? ResponseObject() => typeof(UpdateWorkspaceQuotasResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(UpdateWorkspaceQuotasResultModel);
 
-    public override string? UriSuffix() => "/updateQuotas";
+\t\tpublic override string? UriSuffix() => "/updateQuotas";
 
 
 }

@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.Storage.v2022_05_01.StorageAccount
 
 internal class GetPropertiesOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new StorageAccountId();
+\t\tpublic override ResourceID? ResourceId() => new StorageAccountId();
 
-    public override Type? ResponseObject() => typeof(StorageAccountModel);
+\t\tpublic override Type? ResponseObject() => typeof(StorageAccountModel);
 
-    public override Type? OptionsObject() => typeof(GetPropertiesOperation.GetPropertiesOptions);
+\t\tpublic override Type? OptionsObject() => typeof(GetPropertiesOperation.GetPropertiesOptions);
 
     internal class GetPropertiesOptions
     {

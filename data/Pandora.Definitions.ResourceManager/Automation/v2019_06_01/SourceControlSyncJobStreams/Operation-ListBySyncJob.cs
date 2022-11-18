@@ -15,15 +15,15 @@ namespace Pandora.Definitions.ResourceManager.Automation.v2019_06_01.SourceContr
 
 internal class ListBySyncJobOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new SourceControlSyncJobId();
+\t\tpublic override ResourceID? ResourceId() => new SourceControlSyncJobId();
 
-    public override Type NestedItemType() => typeof(SourceControlSyncJobStreamModel);
+\t\tpublic override Type NestedItemType() => typeof(SourceControlSyncJobStreamModel);
 
-    public override Type? OptionsObject() => typeof(ListBySyncJobOperation.ListBySyncJobOptions);
+\t\tpublic override Type? OptionsObject() => typeof(ListBySyncJobOperation.ListBySyncJobOptions);
 
-    public override string? UriSuffix() => "/streams";
+\t\tpublic override string? UriSuffix() => "/streams";
 
     internal class ListBySyncJobOptions
     {

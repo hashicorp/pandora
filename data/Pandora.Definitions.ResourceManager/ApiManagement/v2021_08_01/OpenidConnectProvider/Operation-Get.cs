@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.OpenidCo
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new OpenidConnectProviderId();
+\t\tpublic override ResourceID? ResourceId() => new OpenidConnectProviderId();
 
-    public override Type? ResponseObject() => typeof(OpenidConnectProviderContractModel);
+\t\tpublic override Type? ResponseObject() => typeof(OpenidConnectProviderContractModel);
 
 
 }

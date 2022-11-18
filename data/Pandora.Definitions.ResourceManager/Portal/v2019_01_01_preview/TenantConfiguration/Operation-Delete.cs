@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Portal.v2019_01_01_preview.TenantC
 
 internal class DeleteOperation : Operations.DeleteOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.NoContent,
                 HttpStatusCode.OK,
         };
 
-    public override string? UriSuffix() => "/providers/Microsoft.Portal/tenantConfigurations/default";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.Portal/tenantConfigurations/default";
 
 
 }

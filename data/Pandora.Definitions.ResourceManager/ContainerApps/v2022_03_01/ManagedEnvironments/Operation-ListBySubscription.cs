@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.ContainerApps.v2022_03_01.ManagedE
 
 internal class ListBySubscriptionOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new SubscriptionId();
+\t\tpublic override ResourceID? ResourceId() => new SubscriptionId();
 
-    public override Type NestedItemType() => typeof(ManagedEnvironmentModel);
+\t\tpublic override Type NestedItemType() => typeof(ManagedEnvironmentModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.App/managedEnvironments";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.App/managedEnvironments";
 
 
 }

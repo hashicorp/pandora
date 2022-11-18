@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.AlertsManagement.v2021_08_08.Alert
 
 internal class AlertProcessingRulesGetByNameOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ActionRuleId();
+\t\tpublic override ResourceID? ResourceId() => new ActionRuleId();
 
-    public override Type? ResponseObject() => typeof(AlertProcessingRuleModel);
+\t\tpublic override Type? ResponseObject() => typeof(AlertProcessingRuleModel);
 
 
 }

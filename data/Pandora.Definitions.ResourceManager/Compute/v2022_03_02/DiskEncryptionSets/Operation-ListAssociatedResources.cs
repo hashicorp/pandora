@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Compute.v2022_03_02.DiskEncryption
 
 internal class ListAssociatedResourcesOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new DiskEncryptionSetId();
+\t\tpublic override ResourceID? ResourceId() => new DiskEncryptionSetId();
 
-    public override Type NestedItemType() => typeof(string);
+\t\tpublic override Type NestedItemType() => typeof(string);
 
-    public override string? UriSuffix() => "/associatedResources";
+\t\tpublic override string? UriSuffix() => "/associatedResources";
 
 
 }

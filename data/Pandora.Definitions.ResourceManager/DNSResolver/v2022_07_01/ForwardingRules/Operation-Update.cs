@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.DNSResolver.v2022_07_01.Forwarding
 
 internal class UpdateOperation : Operations.PatchOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(ForwardingRulePatchModel);
 
-    public override ResourceID? ResourceId() => new ForwardingRuleId();
+\t\tpublic override ResourceID? ResourceId() => new ForwardingRuleId();
 
-    public override Type? ResponseObject() => typeof(ForwardingRuleModel);
+\t\tpublic override Type? ResponseObject() => typeof(ForwardingRuleModel);
 
-    public override Type? OptionsObject() => typeof(UpdateOperation.UpdateOptions);
+\t\tpublic override Type? OptionsObject() => typeof(UpdateOperation.UpdateOptions);
 
     internal class UpdateOptions
     {

@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.DesktopVirtualization.v2022_02_10_
 
 internal class PrivateEndpointConnectionsGetByWorkspaceOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new WorkspacePrivateEndpointConnectionId();
+\t\tpublic override ResourceID? ResourceId() => new WorkspacePrivateEndpointConnectionId();
 
-    public override Type? ResponseObject() => typeof(PrivateEndpointConnectionWithSystemDataModel);
+\t\tpublic override Type? ResponseObject() => typeof(PrivateEndpointConnectionWithSystemDataModel);
 
 
 }

@@ -15,19 +15,19 @@ namespace Pandora.Definitions.ResourceManager.VMware.v2021_12_01.PlacementPolici
 
 internal class UpdateOperation : Operations.PatchOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(PlacementPolicyUpdateModel);
 
-    public override ResourceID? ResourceId() => new PlacementPolicyId();
+\t\tpublic override ResourceID? ResourceId() => new PlacementPolicyId();
 
-    public override Type? ResponseObject() => typeof(PlacementPolicyModel);
+\t\tpublic override Type? ResponseObject() => typeof(PlacementPolicyModel);
 
 
 }

@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.NetApp.v2021_10_01.SnapshotPolicyL
 
 internal class SnapshotPoliciesListVolumesOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new SnapshotPolicyId();
+\t\tpublic override ResourceID? ResourceId() => new SnapshotPolicyId();
 
-    public override Type? ResponseObject() => typeof(SnapshotPolicyVolumeListModel);
+\t\tpublic override Type? ResponseObject() => typeof(SnapshotPolicyVolumeListModel);
 
-    public override string? UriSuffix() => "/volumes";
+\t\tpublic override string? UriSuffix() => "/volumes";
 
 
 }

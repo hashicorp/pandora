@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Compute.v2021_11_01.VirtualMachine
 
 internal class UpdateOperation : Operations.PatchOperation
 {
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(VirtualMachineScaleSetExtensionUpdateModel);
 
-    public override ResourceID? ResourceId() => new VirtualMachineScaleSetExtensionId();
+\t\tpublic override ResourceID? ResourceId() => new VirtualMachineScaleSetExtensionId();
 
-    public override Type? ResponseObject() => typeof(VirtualMachineScaleSetExtensionModel);
+\t\tpublic override Type? ResponseObject() => typeof(VirtualMachineScaleSetExtensionModel);
 
 
 }

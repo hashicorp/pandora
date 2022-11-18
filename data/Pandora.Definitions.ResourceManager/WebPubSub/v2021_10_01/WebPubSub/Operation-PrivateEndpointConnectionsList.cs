@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.WebPubSub.v2021_10_01.WebPubSub;
 
 internal class PrivateEndpointConnectionsListOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new WebPubSubId();
+\t\tpublic override ResourceID? ResourceId() => new WebPubSubId();
 
-    public override Type NestedItemType() => typeof(PrivateEndpointConnectionModel);
+\t\tpublic override Type NestedItemType() => typeof(PrivateEndpointConnectionModel);
 
-    public override string? UriSuffix() => "/privateEndpointConnections";
+\t\tpublic override string? UriSuffix() => "/privateEndpointConnections";
 
 
 }

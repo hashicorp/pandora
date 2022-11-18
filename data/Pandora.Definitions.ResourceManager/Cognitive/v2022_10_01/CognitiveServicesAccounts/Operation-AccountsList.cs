@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Cognitive.v2022_10_01.CognitiveSer
 
 internal class AccountsListOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new SubscriptionId();
+\t\tpublic override ResourceID? ResourceId() => new SubscriptionId();
 
-    public override Type NestedItemType() => typeof(AccountModel);
+\t\tpublic override Type NestedItemType() => typeof(AccountModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.CognitiveServices/accounts";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.CognitiveServices/accounts";
 
 
 }

@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.PostgreSql.v2017_12_01.Configurati
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ConfigurationId();
+\t\tpublic override ResourceID? ResourceId() => new ConfigurationId();
 
-    public override Type? ResponseObject() => typeof(ConfigurationModel);
+\t\tpublic override Type? ResponseObject() => typeof(ConfigurationModel);
 
 
 }

@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.ContainerApps.v2022_03_01.DaprComp
 
 internal class ListOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new ManagedEnvironmentId();
+\t\tpublic override ResourceID? ResourceId() => new ManagedEnvironmentId();
 
-    public override Type NestedItemType() => typeof(DaprComponentModel);
+\t\tpublic override Type NestedItemType() => typeof(DaprComponentModel);
 
-    public override string? UriSuffix() => "/daprComponents";
+\t\tpublic override string? UriSuffix() => "/daprComponents";
 
 
 }

@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.Automation.v2019_06_01.DscConfigur
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ConfigurationId();
+\t\tpublic override ResourceID? ResourceId() => new ConfigurationId();
 
-    public override Type? ResponseObject() => typeof(DscConfigurationModel);
+\t\tpublic override Type? ResponseObject() => typeof(DscConfigurationModel);
 
 
 }

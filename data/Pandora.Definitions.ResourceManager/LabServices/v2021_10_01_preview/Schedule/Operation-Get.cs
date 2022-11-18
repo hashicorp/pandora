@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.LabServices.v2021_10_01_preview.Sc
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ScheduleId();
+\t\tpublic override ResourceID? ResourceId() => new ScheduleId();
 
-    public override Type? ResponseObject() => typeof(ScheduleModel);
+\t\tpublic override Type? ResponseObject() => typeof(ScheduleModel);
 
 
 }

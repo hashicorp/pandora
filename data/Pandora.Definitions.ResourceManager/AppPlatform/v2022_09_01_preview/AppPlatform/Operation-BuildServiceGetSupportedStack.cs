@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.AppPlatform.v2022_09_01_preview.Ap
 
 internal class BuildServiceGetSupportedStackOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new SupportedStackId();
+\t\tpublic override ResourceID? ResourceId() => new SupportedStackId();
 
-    public override Type? ResponseObject() => typeof(SupportedStackResourceModel);
+\t\tpublic override Type? ResponseObject() => typeof(SupportedStackResourceModel);
 
 
 }

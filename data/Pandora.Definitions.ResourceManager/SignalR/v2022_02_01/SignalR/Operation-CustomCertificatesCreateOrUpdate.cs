@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.SignalR.v2022_02_01.SignalR;
 
 internal class CustomCertificatesCreateOrUpdateOperation : Operations.PutOperation
 {
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(CustomCertificateModel);
 
-    public override ResourceID? ResourceId() => new CustomCertificateId();
+\t\tpublic override ResourceID? ResourceId() => new CustomCertificateId();
 
-    public override Type? ResponseObject() => typeof(CustomCertificateModel);
+\t\tpublic override Type? ResponseObject() => typeof(CustomCertificateModel);
 
 
 }

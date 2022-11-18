@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.DesktopVirtualization.v2022_02_10_
 
 internal class ListBySubscriptionOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new SubscriptionId();
+\t\tpublic override ResourceID? ResourceId() => new SubscriptionId();
 
-    public override Type NestedItemType() => typeof(ScalingPlanModel);
+\t\tpublic override Type NestedItemType() => typeof(ScalingPlanModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.DesktopVirtualization/scalingPlans";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.DesktopVirtualization/scalingPlans";
 
 
 }

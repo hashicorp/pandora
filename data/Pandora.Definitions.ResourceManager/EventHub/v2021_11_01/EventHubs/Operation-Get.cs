@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2021_11_01.EventHubs;
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new EventhubId();
+\t\tpublic override ResourceID? ResourceId() => new EventhubId();
 
-    public override Type? ResponseObject() => typeof(EventhubModel);
+\t\tpublic override Type? ResponseObject() => typeof(EventhubModel);
 
 
 }

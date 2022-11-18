@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.ContainerApps.v2022_03_01.ManagedE
 
 internal class CertificatesUpdateOperation : Operations.PatchOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(CertificatePatchModel);
 
-    public override ResourceID? ResourceId() => new CertificateId();
+\t\tpublic override ResourceID? ResourceId() => new CertificateId();
 
-    public override Type? ResponseObject() => typeof(CertificateModel);
+\t\tpublic override Type? ResponseObject() => typeof(CertificateModel);
 
 
 }

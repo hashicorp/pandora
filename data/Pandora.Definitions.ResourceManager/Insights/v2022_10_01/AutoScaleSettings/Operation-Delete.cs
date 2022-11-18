@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Insights.v2022_10_01.AutoScaleSett
 
 internal class DeleteOperation : Operations.DeleteOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.NoContent,
                 HttpStatusCode.OK,
         };
 
-    public override ResourceID? ResourceId() => new AutoScaleSettingId();
+\t\tpublic override ResourceID? ResourceId() => new AutoScaleSettingId();
 
 
 }

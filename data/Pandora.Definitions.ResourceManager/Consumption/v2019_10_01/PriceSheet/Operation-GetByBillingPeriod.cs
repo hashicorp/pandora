@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Consumption.v2019_10_01.PriceSheet
 
 internal class GetByBillingPeriodOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new BillingPeriodId();
+\t\tpublic override ResourceID? ResourceId() => new BillingPeriodId();
 
-    public override Type? ResponseObject() => typeof(PriceSheetResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(PriceSheetResultModel);
 
-    public override Type? OptionsObject() => typeof(GetByBillingPeriodOperation.GetByBillingPeriodOptions);
+\t\tpublic override Type? OptionsObject() => typeof(GetByBillingPeriodOperation.GetByBillingPeriodOptions);
 
-    public override string? UriSuffix() => "/providers/Microsoft.Consumption/pricesheets/default";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.Consumption/pricesheets/default";
 
     internal class GetByBillingPeriodOptions
     {

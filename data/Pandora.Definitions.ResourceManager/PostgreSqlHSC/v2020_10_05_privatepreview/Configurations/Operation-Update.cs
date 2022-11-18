@@ -15,19 +15,19 @@ namespace Pandora.Definitions.ResourceManager.PostgreSqlHSC.v2020_10_05_privatep
 
 internal class UpdateOperation : Operations.PatchOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(ServerGroupConfigurationModel);
 
-    public override ResourceID? ResourceId() => new ConfigurationId();
+\t\tpublic override ResourceID? ResourceId() => new ConfigurationId();
 
-    public override Type? ResponseObject() => typeof(ServerGroupConfigurationModel);
+\t\tpublic override Type? ResponseObject() => typeof(ServerGroupConfigurationModel);
 
 
 }

@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.FrontDoor.v2020_05_01.FrontDoors;
 
 internal class FrontendEndpointsListByFrontDoorOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new FrontDoorId();
+\t\tpublic override ResourceID? ResourceId() => new FrontDoorId();
 
-    public override Type NestedItemType() => typeof(FrontendEndpointModel);
+\t\tpublic override Type NestedItemType() => typeof(FrontendEndpointModel);
 
-    public override string? UriSuffix() => "/frontendEndpoints";
+\t\tpublic override string? UriSuffix() => "/frontendEndpoints";
 
 
 }

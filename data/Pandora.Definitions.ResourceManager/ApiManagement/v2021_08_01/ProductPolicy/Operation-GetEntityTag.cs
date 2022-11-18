@@ -15,14 +15,14 @@ namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.ProductP
 
 internal class GetEntityTagOperation : Operations.HeadOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-    public override ResourceID? ResourceId() => new ProductId();
+\t\tpublic override ResourceID? ResourceId() => new ProductId();
 
-    public override string? UriSuffix() => "/policies/policy";
+\t\tpublic override string? UriSuffix() => "/policies/policy";
 
 
 }

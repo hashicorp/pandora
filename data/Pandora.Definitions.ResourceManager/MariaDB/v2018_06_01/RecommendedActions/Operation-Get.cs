@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.MariaDB.v2018_06_01.RecommendedAct
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new RecommendedActionId();
+\t\tpublic override ResourceID? ResourceId() => new RecommendedActionId();
 
-    public override Type? ResponseObject() => typeof(RecommendationActionModel);
+\t\tpublic override Type? ResponseObject() => typeof(RecommendationActionModel);
 
 
 }

@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.Batch.v2022_01_01.Pool;
 
 internal class UpdateOperation : Operations.PatchOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(PoolModel);
 
-    public override ResourceID? ResourceId() => new PoolId();
+\t\tpublic override ResourceID? ResourceId() => new PoolId();
 
-    public override Type? ResponseObject() => typeof(PoolModel);
+\t\tpublic override Type? ResponseObject() => typeof(PoolModel);
 
-    public override Type? OptionsObject() => typeof(UpdateOperation.UpdateOptions);
+\t\tpublic override Type? OptionsObject() => typeof(UpdateOperation.UpdateOptions);
 
     internal class UpdateOptions
     {

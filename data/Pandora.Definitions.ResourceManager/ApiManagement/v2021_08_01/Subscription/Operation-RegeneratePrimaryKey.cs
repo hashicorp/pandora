@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.Subscrip
 
 internal class RegeneratePrimaryKeyOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.NoContent,
         };
 
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new Subscriptions2Id();
+\t\tpublic override ResourceID? ResourceId() => new Subscriptions2Id();
 
-    public override string? UriSuffix() => "/regeneratePrimaryKey";
+\t\tpublic override string? UriSuffix() => "/regeneratePrimaryKey";
 
 
 }

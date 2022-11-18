@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.DeviceUpdate.v2022_10_01.Deviceupd
 
 internal class PrivateEndpointConnectionProxiesUpdatePrivateEndpointPropertiesOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(PrivateEndpointUpdateModel);
 
-    public override ResourceID? ResourceId() => new PrivateEndpointConnectionProxyId();
+\t\tpublic override ResourceID? ResourceId() => new PrivateEndpointConnectionProxyId();
 
-    public override string? UriSuffix() => "/updatePrivateEndpointProperties";
+\t\tpublic override string? UriSuffix() => "/updatePrivateEndpointProperties";
 
 
 }

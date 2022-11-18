@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.Kusto.v2022_07_07.Clusters;
 
 internal class CheckNameAvailabilityOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(ClusterCheckNameRequestModel);
 
-    public override ResourceID? ResourceId() => new LocationId();
+\t\tpublic override ResourceID? ResourceId() => new LocationId();
 
-    public override Type? ResponseObject() => typeof(CheckNameResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(CheckNameResultModel);
 
-    public override string? UriSuffix() => "/checkNameAvailability";
+\t\tpublic override string? UriSuffix() => "/checkNameAvailability";
 
 
 }

@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.Web.v2016_06_01.ManagedAPIs;
 
 internal class ManagedApisListOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new LocationId();
+\t\tpublic override ResourceID? ResourceId() => new LocationId();
 
-    public override Type? ResponseObject() => typeof(ManagedApiDefinitionCollectionModel);
+\t\tpublic override Type? ResponseObject() => typeof(ManagedApiDefinitionCollectionModel);
 
-    public override string? UriSuffix() => "/managedApis";
+\t\tpublic override string? UriSuffix() => "/managedApis";
 
 
 }

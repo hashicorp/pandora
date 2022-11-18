@@ -15,21 +15,21 @@ namespace Pandora.Definitions.ResourceManager.CosmosDB.v2022_08_15.CosmosDB;
 
 internal class SqlResourcesMigrateSqlDatabaseToManualThroughputOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new SqlDatabaseId();
+\t\tpublic override ResourceID? ResourceId() => new SqlDatabaseId();
 
-    public override Type? ResponseObject() => typeof(ThroughputSettingsGetResultsModel);
+\t\tpublic override Type? ResponseObject() => typeof(ThroughputSettingsGetResultsModel);
 
-    public override string? UriSuffix() => "/throughputSettings/default/migrateToManualThroughput";
+\t\tpublic override string? UriSuffix() => "/throughputSettings/default/migrateToManualThroughput";
 
 
 }

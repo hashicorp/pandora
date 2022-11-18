@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.IoTCentral.v2021_11_01_preview.App
 
 internal class CheckSubdomainAvailabilityOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(OperationInputsModel);
 
-    public override ResourceID? ResourceId() => new SubscriptionId();
+\t\tpublic override ResourceID? ResourceId() => new SubscriptionId();
 
-    public override Type? ResponseObject() => typeof(AppAvailabilityInfoModel);
+\t\tpublic override Type? ResponseObject() => typeof(AppAvailabilityInfoModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.IoTCentral/checkSubdomainAvailability";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.IoTCentral/checkSubdomainAvailability";
 
 
 }

@@ -17,9 +17,9 @@ internal class CreateOrUpdateOperation : Operations.PutOperation
 {
     public override Type? RequestObject() => typeof(HcxEnterpriseSiteModel);
 
-    public override ResourceID? ResourceId() => new HcxEnterpriseSiteId();
+\t\tpublic override ResourceID? ResourceId() => new HcxEnterpriseSiteId();
 
-    public override Type? ResponseObject() => typeof(HcxEnterpriseSiteModel);
+\t\tpublic override Type? ResponseObject() => typeof(HcxEnterpriseSiteModel);
 
 
 }

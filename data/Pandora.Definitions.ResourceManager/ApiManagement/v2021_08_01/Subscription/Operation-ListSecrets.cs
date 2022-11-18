@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.Subscrip
 
 internal class ListSecretsOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new Subscriptions2Id();
+\t\tpublic override ResourceID? ResourceId() => new Subscriptions2Id();
 
-    public override Type? ResponseObject() => typeof(SubscriptionKeysContractModel);
+\t\tpublic override Type? ResponseObject() => typeof(SubscriptionKeysContractModel);
 
-    public override string? UriSuffix() => "/listSecrets";
+\t\tpublic override string? UriSuffix() => "/listSecrets";
 
 
 }

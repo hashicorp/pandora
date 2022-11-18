@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Dynatrace.v2021_09_01.Monitors;
 
 internal class ListBySubscriptionIdOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new SubscriptionId();
+\t\tpublic override ResourceID? ResourceId() => new SubscriptionId();
 
-    public override Type NestedItemType() => typeof(MonitorResourceModel);
+\t\tpublic override Type NestedItemType() => typeof(MonitorResourceModel);
 
-    public override string? UriSuffix() => "/providers/Dynatrace.Observability/monitors";
+\t\tpublic override string? UriSuffix() => "/providers/Dynatrace.Observability/monitors";
 
 
 }

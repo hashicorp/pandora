@@ -15,21 +15,21 @@ namespace Pandora.Definitions.ResourceManager.AppPlatform.v2022_09_01_preview.Ap
 
 internal class AppsSetActiveDeploymentsOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(ActiveDeploymentCollectionModel);
 
-    public override ResourceID? ResourceId() => new AppId();
+\t\tpublic override ResourceID? ResourceId() => new AppId();
 
-    public override Type? ResponseObject() => typeof(AppResourceModel);
+\t\tpublic override Type? ResponseObject() => typeof(AppResourceModel);
 
-    public override string? UriSuffix() => "/setActiveDeployments";
+\t\tpublic override string? UriSuffix() => "/setActiveDeployments";
 
 
 }

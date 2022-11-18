@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.MariaDB.v2018_06_01.FirewallRules;
 
 internal class ListByServerOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ServerId();
+\t\tpublic override ResourceID? ResourceId() => new ServerId();
 
-    public override Type? ResponseObject() => typeof(FirewallRuleListResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(FirewallRuleListResultModel);
 
-    public override string? UriSuffix() => "/firewallRules";
+\t\tpublic override string? UriSuffix() => "/firewallRules";
 
 
 }

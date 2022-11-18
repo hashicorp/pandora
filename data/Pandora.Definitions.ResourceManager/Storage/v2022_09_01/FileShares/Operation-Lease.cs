@@ -15,20 +15,20 @@ namespace Pandora.Definitions.ResourceManager.Storage.v2022_09_01.FileShares;
 
 internal class LeaseOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(LeaseShareRequestModel);
 
-    public override ResourceID? ResourceId() => new ShareId();
+\t\tpublic override ResourceID? ResourceId() => new ShareId();
 
-    public override Type? ResponseObject() => typeof(LeaseShareResponseModel);
+\t\tpublic override Type? ResponseObject() => typeof(LeaseShareResponseModel);
 
-    public override Type? OptionsObject() => typeof(LeaseOperation.LeaseOptions);
+\t\tpublic override Type? OptionsObject() => typeof(LeaseOperation.LeaseOptions);
 
-    public override string? UriSuffix() => "/lease";
+\t\tpublic override string? UriSuffix() => "/lease";
 
     internal class LeaseOptions
     {

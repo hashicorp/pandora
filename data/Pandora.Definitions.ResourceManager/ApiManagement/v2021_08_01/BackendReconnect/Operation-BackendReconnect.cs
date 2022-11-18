@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.BackendR
 
 internal class BackendReconnectOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
         };
 
     public override Type? RequestObject() => typeof(BackendReconnectContractModel);
 
-    public override ResourceID? ResourceId() => new BackendId();
+\t\tpublic override ResourceID? ResourceId() => new BackendId();
 
-    public override string? UriSuffix() => "/reconnect";
+\t\tpublic override string? UriSuffix() => "/reconnect";
 
 
 }

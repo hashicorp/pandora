@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.DNSResolver.v2022_07_01.Forwarding
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ForwardingRuleId();
+\t\tpublic override ResourceID? ResourceId() => new ForwardingRuleId();
 
-    public override Type? ResponseObject() => typeof(ForwardingRuleModel);
+\t\tpublic override Type? ResponseObject() => typeof(ForwardingRuleModel);
 
 
 }

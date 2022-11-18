@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.SignalR.v2022_02_01.SignalR;
 
 internal class CustomDomainsGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new CustomDomainId();
+\t\tpublic override ResourceID? ResourceId() => new CustomDomainId();
 
-    public override Type? ResponseObject() => typeof(CustomDomainModel);
+\t\tpublic override Type? ResponseObject() => typeof(CustomDomainModel);
 
 
 }

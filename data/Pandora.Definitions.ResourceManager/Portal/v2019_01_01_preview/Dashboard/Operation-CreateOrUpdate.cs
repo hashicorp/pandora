@@ -17,9 +17,9 @@ internal class CreateOrUpdateOperation : Operations.PutOperation
 {
     public override Type? RequestObject() => typeof(DashboardModel);
 
-    public override ResourceID? ResourceId() => new DashboardId();
+\t\tpublic override ResourceID? ResourceId() => new DashboardId();
 
-    public override Type? ResponseObject() => typeof(DashboardModel);
+\t\tpublic override Type? ResponseObject() => typeof(DashboardModel);
 
 
 }

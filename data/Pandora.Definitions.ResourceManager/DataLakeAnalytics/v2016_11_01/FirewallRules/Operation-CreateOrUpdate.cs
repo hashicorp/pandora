@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.DataLakeAnalytics.v2016_11_01.Fire
 
 internal class CreateOrUpdateOperation : Operations.PutOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(CreateOrUpdateFirewallRuleParametersModel);
 
-    public override ResourceID? ResourceId() => new FirewallRuleId();
+\t\tpublic override ResourceID? ResourceId() => new FirewallRuleId();
 
-    public override Type? ResponseObject() => typeof(FirewallRuleModel);
+\t\tpublic override Type? ResponseObject() => typeof(FirewallRuleModel);
 
 
 }

@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Dynatrace.v2021_09_01.Monitors;
 
 internal class CreateOrUpdateOperation : Operations.PutOperation
 {
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(MonitorResourceModel);
 
-    public override ResourceID? ResourceId() => new MonitorId();
+\t\tpublic override ResourceID? ResourceId() => new MonitorId();
 
-    public override Type? ResponseObject() => typeof(MonitorResourceModel);
+\t\tpublic override Type? ResponseObject() => typeof(MonitorResourceModel);
 
 
 }

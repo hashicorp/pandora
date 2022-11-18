@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.ChaosStudio.v2022_07_01_preview.Ex
 
 internal class ListAllStatusesOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new ExperimentId();
+\t\tpublic override ResourceID? ResourceId() => new ExperimentId();
 
-    public override Type NestedItemType() => typeof(ExperimentStatusModel);
+\t\tpublic override Type NestedItemType() => typeof(ExperimentStatusModel);
 
-    public override string? UriSuffix() => "/statuses";
+\t\tpublic override string? UriSuffix() => "/statuses";
 
 
 }

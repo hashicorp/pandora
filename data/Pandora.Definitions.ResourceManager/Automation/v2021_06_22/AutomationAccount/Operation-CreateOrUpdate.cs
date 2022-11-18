@@ -17,9 +17,9 @@ internal class CreateOrUpdateOperation : Operations.PutOperation
 {
     public override Type? RequestObject() => typeof(AutomationAccountCreateOrUpdateParametersModel);
 
-    public override ResourceID? ResourceId() => new AutomationAccountId();
+\t\tpublic override ResourceID? ResourceId() => new AutomationAccountId();
 
-    public override Type? ResponseObject() => typeof(AutomationAccountModel);
+\t\tpublic override Type? ResponseObject() => typeof(AutomationAccountModel);
 
 
 }

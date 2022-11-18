@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.WebPubSub.v2021_10_01.WebPubSub;
 
 internal class SharedPrivateLinkResourcesListOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new WebPubSubId();
+\t\tpublic override ResourceID? ResourceId() => new WebPubSubId();
 
-    public override Type NestedItemType() => typeof(SharedPrivateLinkResourceModel);
+\t\tpublic override Type NestedItemType() => typeof(SharedPrivateLinkResourceModel);
 
-    public override string? UriSuffix() => "/sharedPrivateLinkResources";
+\t\tpublic override string? UriSuffix() => "/sharedPrivateLinkResources";
 
 
 }

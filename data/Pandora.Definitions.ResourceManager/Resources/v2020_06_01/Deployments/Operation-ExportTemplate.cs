@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.Resources.v2020_06_01.Deployments;
 
 internal class ExportTemplateOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new ResourceGroupProviderDeploymentId();
+\t\tpublic override ResourceID? ResourceId() => new ResourceGroupProviderDeploymentId();
 
-    public override Type? ResponseObject() => typeof(DeploymentExportResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(DeploymentExportResultModel);
 
-    public override string? UriSuffix() => "/exportTemplate";
+\t\tpublic override string? UriSuffix() => "/exportTemplate";
 
 
 }

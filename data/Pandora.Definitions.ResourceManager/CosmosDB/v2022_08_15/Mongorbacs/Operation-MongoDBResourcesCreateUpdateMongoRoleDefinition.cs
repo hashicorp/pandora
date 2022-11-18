@@ -15,19 +15,19 @@ namespace Pandora.Definitions.ResourceManager.CosmosDB.v2022_08_15.Mongorbacs;
 
 internal class MongoDBResourcesCreateUpdateMongoRoleDefinitionOperation : Operations.PutOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(MongoRoleDefinitionCreateUpdateParametersModel);
 
-    public override ResourceID? ResourceId() => new MongodbRoleDefinitionId();
+\t\tpublic override ResourceID? ResourceId() => new MongodbRoleDefinitionId();
 
-    public override Type? ResponseObject() => typeof(MongoRoleDefinitionGetResultsModel);
+\t\tpublic override Type? ResponseObject() => typeof(MongoRoleDefinitionGetResultsModel);
 
 
 }

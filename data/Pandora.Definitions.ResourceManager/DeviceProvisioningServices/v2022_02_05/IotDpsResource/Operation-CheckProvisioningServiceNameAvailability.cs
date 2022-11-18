@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.DeviceProvisioningServices.v2022_0
 
 internal class CheckProvisioningServiceNameAvailabilityOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(OperationInputsModel);
 
-    public override ResourceID? ResourceId() => new SubscriptionId();
+\t\tpublic override ResourceID? ResourceId() => new SubscriptionId();
 
-    public override Type? ResponseObject() => typeof(NameAvailabilityInfoModel);
+\t\tpublic override Type? ResponseObject() => typeof(NameAvailabilityInfoModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.Devices/checkProvisioningServiceNameAvailability";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.Devices/checkProvisioningServiceNameAvailability";
 
 
 }

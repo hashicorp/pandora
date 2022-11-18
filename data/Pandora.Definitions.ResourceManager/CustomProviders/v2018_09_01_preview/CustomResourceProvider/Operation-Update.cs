@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.CustomProviders.v2018_09_01_previe
 
 internal class UpdateOperation : Operations.PatchOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(ResourceProvidersUpdateModel);
 
-    public override ResourceID? ResourceId() => new ResourceProviderId();
+\t\tpublic override ResourceID? ResourceId() => new ResourceProviderId();
 
-    public override Type? ResponseObject() => typeof(CustomRPManifestModel);
+\t\tpublic override Type? ResponseObject() => typeof(CustomRPManifestModel);
 
 
 }

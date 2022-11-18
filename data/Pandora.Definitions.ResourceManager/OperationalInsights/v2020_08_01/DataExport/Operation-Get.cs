@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.OperationalInsights.v2020_08_01.Da
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new DataExportId();
+\t\tpublic override ResourceID? ResourceId() => new DataExportId();
 
-    public override Type? ResponseObject() => typeof(DataExportModel);
+\t\tpublic override Type? ResponseObject() => typeof(DataExportModel);
 
 
 }

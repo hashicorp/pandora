@@ -15,17 +15,17 @@ namespace Pandora.Definitions.ResourceManager.Purview.v2021_07_01.DefaultAccount
 
 internal class RemoveOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.NoContent,
                 HttpStatusCode.OK,
         };
 
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override Type? OptionsObject() => typeof(RemoveOperation.RemoveOptions);
+\t\tpublic override Type? OptionsObject() => typeof(RemoveOperation.RemoveOptions);
 
-    public override string? UriSuffix() => "/providers/Microsoft.Purview/removeDefaultAccount";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.Purview/removeDefaultAccount";
 
     internal class RemoveOptions
     {

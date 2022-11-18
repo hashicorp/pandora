@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.SecurityInsights.v2021_09_01_previ
 
 internal class ProductSettingsListOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new WorkspaceId();
+\t\tpublic override ResourceID? ResourceId() => new WorkspaceId();
 
-    public override Type? ResponseObject() => typeof(SettingListModel);
+\t\tpublic override Type? ResponseObject() => typeof(SettingListModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.SecurityInsights/settings";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.SecurityInsights/settings";
 
 
 }

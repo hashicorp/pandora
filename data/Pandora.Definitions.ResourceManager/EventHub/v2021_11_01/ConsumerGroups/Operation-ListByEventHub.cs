@@ -15,15 +15,15 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2021_11_01.ConsumerGroup
 
 internal class ListByEventHubOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new EventhubId();
+\t\tpublic override ResourceID? ResourceId() => new EventhubId();
 
-    public override Type NestedItemType() => typeof(ConsumerGroupModel);
+\t\tpublic override Type NestedItemType() => typeof(ConsumerGroupModel);
 
-    public override Type? OptionsObject() => typeof(ListByEventHubOperation.ListByEventHubOptions);
+\t\tpublic override Type? OptionsObject() => typeof(ListByEventHubOperation.ListByEventHubOptions);
 
-    public override string? UriSuffix() => "/consumerGroups";
+\t\tpublic override string? UriSuffix() => "/consumerGroups";
 
     internal class ListByEventHubOptions
     {

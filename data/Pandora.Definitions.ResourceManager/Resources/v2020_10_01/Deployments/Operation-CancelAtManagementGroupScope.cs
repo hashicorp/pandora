@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.Resources.v2020_10_01.Deployments;
 
 internal class CancelAtManagementGroupScopeOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.NoContent,
         };
 
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new Providers2DeploymentId();
+\t\tpublic override ResourceID? ResourceId() => new Providers2DeploymentId();
 
-    public override string? UriSuffix() => "/cancel";
+\t\tpublic override string? UriSuffix() => "/cancel";
 
 
 }

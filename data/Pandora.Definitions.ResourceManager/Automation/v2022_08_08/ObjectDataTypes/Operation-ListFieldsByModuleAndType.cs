@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.Automation.v2022_08_08.ObjectDataT
 
 internal class ListFieldsByModuleAndTypeOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ModuleObjectDataTypeId();
+\t\tpublic override ResourceID? ResourceId() => new ModuleObjectDataTypeId();
 
-    public override Type? ResponseObject() => typeof(TypeFieldListResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(TypeFieldListResultModel);
 
-    public override string? UriSuffix() => "/fields";
+\t\tpublic override string? UriSuffix() => "/fields";
 
 
 }

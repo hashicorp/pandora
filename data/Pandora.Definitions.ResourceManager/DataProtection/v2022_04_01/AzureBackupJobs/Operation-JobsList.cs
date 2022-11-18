@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.DataProtection.v2022_04_01.AzureBa
 
 internal class JobsListOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new BackupVaultId();
+\t\tpublic override ResourceID? ResourceId() => new BackupVaultId();
 
-    public override Type NestedItemType() => typeof(AzureBackupJobResourceModel);
+\t\tpublic override Type NestedItemType() => typeof(AzureBackupJobResourceModel);
 
-    public override string? UriSuffix() => "/backupJobs";
+\t\tpublic override string? UriSuffix() => "/backupJobs";
 
 
 }

@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.RedisEnterprise.v2022_01_01.Databa
 
 internal class ListByClusterOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new RedisEnterpriseId();
+\t\tpublic override ResourceID? ResourceId() => new RedisEnterpriseId();
 
-    public override Type NestedItemType() => typeof(DatabaseModel);
+\t\tpublic override Type NestedItemType() => typeof(DatabaseModel);
 
-    public override string? UriSuffix() => "/databases";
+\t\tpublic override string? UriSuffix() => "/databases";
 
 
 }

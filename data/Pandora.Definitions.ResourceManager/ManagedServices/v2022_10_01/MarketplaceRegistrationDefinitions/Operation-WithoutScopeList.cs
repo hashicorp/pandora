@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.ManagedServices.v2022_10_01.Market
 
 internal class WithoutScopeListOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override Type NestedItemType() => typeof(MarketplaceRegistrationDefinitionModel);
+\t\tpublic override Type NestedItemType() => typeof(MarketplaceRegistrationDefinitionModel);
 
-    public override Type? OptionsObject() => typeof(WithoutScopeListOperation.WithoutScopeListOptions);
+\t\tpublic override Type? OptionsObject() => typeof(WithoutScopeListOperation.WithoutScopeListOptions);
 
-    public override string? UriSuffix() => "/providers/Microsoft.ManagedServices/marketplaceRegistrationDefinitions";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.ManagedServices/marketplaceRegistrationDefinitions";
 
     internal class WithoutScopeListOptions
     {

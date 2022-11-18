@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.Consumption.v2019_10_01.Aggregated
 
 internal class GetForBillingPeriodByManagementGroupOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new Providers2BillingPeriodId();
+\t\tpublic override ResourceID? ResourceId() => new Providers2BillingPeriodId();
 
-    public override Type? ResponseObject() => typeof(ManagementGroupAggregatedCostResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(ManagementGroupAggregatedCostResultModel);
 
-    public override string? UriSuffix() => "/Microsoft.Consumption/aggregatedCost";
+\t\tpublic override string? UriSuffix() => "/Microsoft.Consumption/aggregatedCost";
 
 
 }

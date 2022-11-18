@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.PostgreSql.v2018_06_01.TopQuerySta
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new TopQueryStatisticId();
+\t\tpublic override ResourceID? ResourceId() => new TopQueryStatisticId();
 
-    public override Type? ResponseObject() => typeof(QueryStatisticModel);
+\t\tpublic override Type? ResponseObject() => typeof(QueryStatisticModel);
 
 
 }

@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.AAD.v2021_03_01.OuContainer;
 
 internal class ListOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new DomainServiceId();
+\t\tpublic override ResourceID? ResourceId() => new DomainServiceId();
 
-    public override Type NestedItemType() => typeof(OuContainerModel);
+\t\tpublic override Type NestedItemType() => typeof(OuContainerModel);
 
-    public override string? UriSuffix() => "/ouContainer";
+\t\tpublic override string? UriSuffix() => "/ouContainer";
 
 
 }

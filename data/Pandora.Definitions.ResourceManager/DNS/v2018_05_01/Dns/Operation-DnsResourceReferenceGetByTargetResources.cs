@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.DNS.v2018_05_01.Dns;
 
 internal class DnsResourceReferenceGetByTargetResourcesOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(DnsResourceReferenceRequestModel);
 
-    public override ResourceID? ResourceId() => new SubscriptionId();
+\t\tpublic override ResourceID? ResourceId() => new SubscriptionId();
 
-    public override Type? ResponseObject() => typeof(DnsResourceReferenceResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(DnsResourceReferenceResultModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.Network/getDnsResourceReference";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.Network/getDnsResourceReference";
 
 
 }

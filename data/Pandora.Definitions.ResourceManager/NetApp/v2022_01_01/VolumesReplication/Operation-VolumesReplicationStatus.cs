@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.NetApp.v2022_01_01.VolumesReplicat
 
 internal class VolumesReplicationStatusOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new VolumeId();
+\t\tpublic override ResourceID? ResourceId() => new VolumeId();
 
-    public override Type? ResponseObject() => typeof(ReplicationStatusModel);
+\t\tpublic override Type? ResponseObject() => typeof(ReplicationStatusModel);
 
-    public override string? UriSuffix() => "/replicationStatus";
+\t\tpublic override string? UriSuffix() => "/replicationStatus";
 
 
 }

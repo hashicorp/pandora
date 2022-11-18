@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.GatewayR
 
 internal class GatewayRegenerateKeyOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.NoContent,
         };
 
     public override Type? RequestObject() => typeof(GatewayKeyRegenerationRequestContractModel);
 
-    public override ResourceID? ResourceId() => new GatewayId();
+\t\tpublic override ResourceID? ResourceId() => new GatewayId();
 
-    public override string? UriSuffix() => "/regenerateKey";
+\t\tpublic override string? UriSuffix() => "/regenerateKey";
 
 
 }

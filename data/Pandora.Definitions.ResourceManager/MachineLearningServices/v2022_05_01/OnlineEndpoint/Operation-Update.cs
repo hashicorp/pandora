@@ -15,19 +15,19 @@ namespace Pandora.Definitions.ResourceManager.MachineLearningServices.v2022_05_0
 
 internal class UpdateOperation : Operations.PatchOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(PartialMinimalTrackedResourceWithIdentityModel);
 
-    public override ResourceID? ResourceId() => new OnlineEndpointId();
+\t\tpublic override ResourceID? ResourceId() => new OnlineEndpointId();
 
-    public override Type? ResponseObject() => typeof(OnlineEndpointTrackedResourceModel);
+\t\tpublic override Type? ResponseObject() => typeof(OnlineEndpointTrackedResourceModel);
 
 
 }

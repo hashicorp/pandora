@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.AppPlatform.v2022_09_01_preview.Ap
 
 internal class BuildServiceBuilderCreateOrUpdateOperation : Operations.PutOperation
 {
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(BuilderResourceModel);
 
-    public override ResourceID? ResourceId() => new BuilderId();
+\t\tpublic override ResourceID? ResourceId() => new BuilderId();
 
-    public override Type? ResponseObject() => typeof(BuilderResourceModel);
+\t\tpublic override Type? ResponseObject() => typeof(BuilderResourceModel);
 
 
 }

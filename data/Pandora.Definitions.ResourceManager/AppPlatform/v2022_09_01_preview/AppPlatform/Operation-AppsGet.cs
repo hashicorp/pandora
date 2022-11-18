@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.AppPlatform.v2022_09_01_preview.Ap
 
 internal class AppsGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new AppId();
+\t\tpublic override ResourceID? ResourceId() => new AppId();
 
-    public override Type? ResponseObject() => typeof(AppResourceModel);
+\t\tpublic override Type? ResponseObject() => typeof(AppResourceModel);
 
-    public override Type? OptionsObject() => typeof(AppsGetOperation.AppsGetOptions);
+\t\tpublic override Type? OptionsObject() => typeof(AppsGetOperation.AppsGetOptions);
 
     internal class AppsGetOptions
     {

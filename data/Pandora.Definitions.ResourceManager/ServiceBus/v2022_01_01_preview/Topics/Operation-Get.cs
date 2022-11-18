@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.ServiceBus.v2022_01_01_preview.Top
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new TopicId();
+\t\tpublic override ResourceID? ResourceId() => new TopicId();
 
-    public override Type? ResponseObject() => typeof(SBTopicModel);
+\t\tpublic override Type? ResponseObject() => typeof(SBTopicModel);
 
 
 }

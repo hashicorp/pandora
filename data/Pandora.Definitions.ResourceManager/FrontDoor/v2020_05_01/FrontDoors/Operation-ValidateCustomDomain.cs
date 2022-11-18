@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.FrontDoor.v2020_05_01.FrontDoors;
 
 internal class ValidateCustomDomainOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(ValidateCustomDomainInputModel);
 
-    public override ResourceID? ResourceId() => new FrontDoorId();
+\t\tpublic override ResourceID? ResourceId() => new FrontDoorId();
 
-    public override Type? ResponseObject() => typeof(ValidateCustomDomainOutputModel);
+\t\tpublic override Type? ResponseObject() => typeof(ValidateCustomDomainOutputModel);
 
-    public override string? UriSuffix() => "/validateCustomDomain";
+\t\tpublic override string? UriSuffix() => "/validateCustomDomain";
 
 
 }

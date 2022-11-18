@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.Compute.v2021_11_01.AvailabilitySe
 
 internal class CreateOrUpdateOperation : Operations.PutOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(AvailabilitySetModel);
 
-    public override ResourceID? ResourceId() => new AvailabilitySetId();
+\t\tpublic override ResourceID? ResourceId() => new AvailabilitySetId();
 
-    public override Type? ResponseObject() => typeof(AvailabilitySetModel);
+\t\tpublic override Type? ResponseObject() => typeof(AvailabilitySetModel);
 
 
 }

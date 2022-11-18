@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.HybridCompute.v2022_03_10.PrivateL
 
 internal class PrivateLinkScopesGetValidationDetailsOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new PrivateLinkScopeId();
+\t\tpublic override ResourceID? ResourceId() => new PrivateLinkScopeId();
 
-    public override Type? ResponseObject() => typeof(PrivateLinkScopeValidationDetailsModel);
+\t\tpublic override Type? ResponseObject() => typeof(PrivateLinkScopeValidationDetailsModel);
 
 
 }

@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.SecurityInsights.v2022_08_01.Senti
 
 internal class ListOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new WorkspaceId();
+\t\tpublic override ResourceID? ResourceId() => new WorkspaceId();
 
-    public override Type? ResponseObject() => typeof(SentinelOnboardingStatesListModel);
+\t\tpublic override Type? ResponseObject() => typeof(SentinelOnboardingStatesListModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.SecurityInsights/onboardingStates";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.SecurityInsights/onboardingStates";
 
 
 }

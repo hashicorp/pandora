@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.Media.v2020_05_01.StreamingPolicie
 
 internal class StreamingLocatorsCreateOperation : Operations.PutOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Created,
         };
 
     public override Type? RequestObject() => typeof(StreamingLocatorModel);
 
-    public override ResourceID? ResourceId() => new StreamingLocatorId();
+\t\tpublic override ResourceID? ResourceId() => new StreamingLocatorId();
 
-    public override Type? ResponseObject() => typeof(StreamingLocatorModel);
+\t\tpublic override Type? ResponseObject() => typeof(StreamingLocatorModel);
 
 
 }

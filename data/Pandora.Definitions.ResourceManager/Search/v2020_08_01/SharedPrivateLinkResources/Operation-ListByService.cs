@@ -15,15 +15,15 @@ namespace Pandora.Definitions.ResourceManager.Search.v2020_08_01.SharedPrivateLi
 
 internal class ListByServiceOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new SearchServiceId();
+\t\tpublic override ResourceID? ResourceId() => new SearchServiceId();
 
-    public override Type NestedItemType() => typeof(SharedPrivateLinkResourceModel);
+\t\tpublic override Type NestedItemType() => typeof(SharedPrivateLinkResourceModel);
 
-    public override Type? OptionsObject() => typeof(ListByServiceOperation.ListByServiceOptions);
+\t\tpublic override Type? OptionsObject() => typeof(ListByServiceOperation.ListByServiceOptions);
 
-    public override string? UriSuffix() => "/sharedPrivateLinkResources";
+\t\tpublic override string? UriSuffix() => "/sharedPrivateLinkResources";
 
     internal class ListByServiceOptions
     {

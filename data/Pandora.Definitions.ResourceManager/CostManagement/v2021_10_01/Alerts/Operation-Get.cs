@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.CostManagement.v2021_10_01.Alerts;
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ScopedAlertId();
+\t\tpublic override ResourceID? ResourceId() => new ScopedAlertId();
 
-    public override Type? ResponseObject() => typeof(AlertModel);
+\t\tpublic override Type? ResponseObject() => typeof(AlertModel);
 
 
 }

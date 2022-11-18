@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.VMware.v2022_05_01.PrivateClouds;
 
 internal class ListAdminCredentialsOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new PrivateCloudId();
+\t\tpublic override ResourceID? ResourceId() => new PrivateCloudId();
 
-    public override Type? ResponseObject() => typeof(AdminCredentialsModel);
+\t\tpublic override Type? ResponseObject() => typeof(AdminCredentialsModel);
 
-    public override string? UriSuffix() => "/listAdminCredentials";
+\t\tpublic override string? UriSuffix() => "/listAdminCredentials";
 
 
 }

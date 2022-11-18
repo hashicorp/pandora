@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.ServiceFabricManagedCluster.v2021_
 
 internal class GetByEnvironmentOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new EnvironmentManagedClusterVersionId();
+\t\tpublic override ResourceID? ResourceId() => new EnvironmentManagedClusterVersionId();
 
-    public override Type? ResponseObject() => typeof(ManagedClusterCodeVersionResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(ManagedClusterCodeVersionResultModel);
 
 
 }

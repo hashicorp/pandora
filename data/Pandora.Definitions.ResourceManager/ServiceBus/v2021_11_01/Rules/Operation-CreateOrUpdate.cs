@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.ServiceBus.v2021_11_01.Rules;
 
 internal class CreateOrUpdateOperation : Operations.PutOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(RuleModel);
 
-    public override ResourceID? ResourceId() => new RuleId();
+\t\tpublic override ResourceID? ResourceId() => new RuleId();
 
-    public override Type? ResponseObject() => typeof(RuleModel);
+\t\tpublic override Type? ResponseObject() => typeof(RuleModel);
 
 
 }

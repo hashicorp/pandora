@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.Resources.v2022_09_01.Providers;
 
 internal class RegisterOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(ProviderRegistrationRequestModel);
 
-    public override ResourceID? ResourceId() => new SubscriptionProviderId();
+\t\tpublic override ResourceID? ResourceId() => new SubscriptionProviderId();
 
-    public override Type? ResponseObject() => typeof(ProviderModel);
+\t\tpublic override Type? ResponseObject() => typeof(ProviderModel);
 
-    public override string? UriSuffix() => "/register";
+\t\tpublic override string? UriSuffix() => "/register";
 
 
 }

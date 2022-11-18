@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.Insights.v2021_08_01.ScheduledQuer
 
 internal class UpdateOperation : Operations.PatchOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(ScheduledQueryRuleResourcePatchModel);
 
-    public override ResourceID? ResourceId() => new ScheduledQueryRuleId();
+\t\tpublic override ResourceID? ResourceId() => new ScheduledQueryRuleId();
 
-    public override Type? ResponseObject() => typeof(ScheduledQueryRuleResourceModel);
+\t\tpublic override Type? ResponseObject() => typeof(ScheduledQueryRuleResourceModel);
 
 
 }

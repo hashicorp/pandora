@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.AzureStackHCI.v2022_10_01.Publishe
 
 internal class PublishersGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new PublisherId();
+\t\tpublic override ResourceID? ResourceId() => new PublisherId();
 
-    public override Type? ResponseObject() => typeof(PublisherModel);
+\t\tpublic override Type? ResponseObject() => typeof(PublisherModel);
 
 
 }

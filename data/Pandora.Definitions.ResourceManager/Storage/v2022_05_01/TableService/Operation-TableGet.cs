@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.Storage.v2022_05_01.TableService;
 
 internal class TableGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new TableId();
+\t\tpublic override ResourceID? ResourceId() => new TableId();
 
-    public override Type? ResponseObject() => typeof(TableModel);
+\t\tpublic override Type? ResponseObject() => typeof(TableModel);
 
 
 }

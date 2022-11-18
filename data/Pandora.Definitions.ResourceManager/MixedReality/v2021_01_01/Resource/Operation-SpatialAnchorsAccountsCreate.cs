@@ -17,9 +17,9 @@ internal class SpatialAnchorsAccountsCreateOperation : Operations.PutOperation
 {
     public override Type? RequestObject() => typeof(SpatialAnchorsAccountModel);
 
-    public override ResourceID? ResourceId() => new SpatialAnchorsAccountId();
+\t\tpublic override ResourceID? ResourceId() => new SpatialAnchorsAccountId();
 
-    public override Type? ResponseObject() => typeof(SpatialAnchorsAccountModel);
+\t\tpublic override Type? ResponseObject() => typeof(SpatialAnchorsAccountModel);
 
 
 }

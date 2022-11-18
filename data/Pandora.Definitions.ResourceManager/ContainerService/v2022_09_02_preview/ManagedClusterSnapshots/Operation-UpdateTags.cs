@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.ContainerService.v2022_09_02_previ
 
 internal class UpdateTagsOperation : Operations.PatchOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(TagsObjectModel);
 
-    public override ResourceID? ResourceId() => new ManagedClusterSnapshotId();
+\t\tpublic override ResourceID? ResourceId() => new ManagedClusterSnapshotId();
 
-    public override Type? ResponseObject() => typeof(ManagedClusterSnapshotModel);
+\t\tpublic override Type? ResponseObject() => typeof(ManagedClusterSnapshotModel);
 
 
 }

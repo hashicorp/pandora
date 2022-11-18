@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.User;
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new UserId();
+\t\tpublic override ResourceID? ResourceId() => new UserId();
 
-    public override Type? ResponseObject() => typeof(UserContractModel);
+\t\tpublic override Type? ResponseObject() => typeof(UserContractModel);
 
 
 }

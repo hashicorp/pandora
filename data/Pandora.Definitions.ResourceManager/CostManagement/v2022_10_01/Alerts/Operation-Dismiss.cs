@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.CostManagement.v2022_10_01.Alerts;
 
 internal class DismissOperation : Operations.PatchOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(DismissAlertPayloadModel);
 
-    public override ResourceID? ResourceId() => new ScopedAlertId();
+\t\tpublic override ResourceID? ResourceId() => new ScopedAlertId();
 
-    public override Type? ResponseObject() => typeof(AlertModel);
+\t\tpublic override Type? ResponseObject() => typeof(AlertModel);
 
 
 }

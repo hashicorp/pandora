@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.DataLakeStore.v2016_11_01.TrustedI
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new TrustedIdProviderId();
+\t\tpublic override ResourceID? ResourceId() => new TrustedIdProviderId();
 
-    public override Type? ResponseObject() => typeof(TrustedIdProviderModel);
+\t\tpublic override Type? ResponseObject() => typeof(TrustedIdProviderModel);
 
 
 }

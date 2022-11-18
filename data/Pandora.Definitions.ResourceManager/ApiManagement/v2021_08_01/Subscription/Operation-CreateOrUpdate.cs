@@ -17,11 +17,11 @@ internal class CreateOrUpdateOperation : Operations.PutOperation
 {
     public override Type? RequestObject() => typeof(SubscriptionCreateParametersModel);
 
-    public override ResourceID? ResourceId() => new Subscriptions2Id();
+\t\tpublic override ResourceID? ResourceId() => new Subscriptions2Id();
 
-    public override Type? ResponseObject() => typeof(SubscriptionContractModel);
+\t\tpublic override Type? ResponseObject() => typeof(SubscriptionContractModel);
 
-    public override Type? OptionsObject() => typeof(CreateOrUpdateOperation.CreateOrUpdateOptions);
+\t\tpublic override Type? OptionsObject() => typeof(CreateOrUpdateOperation.CreateOrUpdateOptions);
 
     internal class CreateOrUpdateOptions
     {

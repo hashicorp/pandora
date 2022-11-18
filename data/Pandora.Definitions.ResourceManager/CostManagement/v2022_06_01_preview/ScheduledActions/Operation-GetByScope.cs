@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.CostManagement.v2022_06_01_preview
 
 internal class GetByScopeOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ScopedScheduledActionId();
+\t\tpublic override ResourceID? ResourceId() => new ScopedScheduledActionId();
 
-    public override Type? ResponseObject() => typeof(ScheduledActionModel);
+\t\tpublic override Type? ResponseObject() => typeof(ScheduledActionModel);
 
 
 }

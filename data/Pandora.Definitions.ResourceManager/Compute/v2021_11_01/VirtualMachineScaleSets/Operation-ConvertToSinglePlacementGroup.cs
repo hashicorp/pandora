@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.Compute.v2021_11_01.VirtualMachine
 
 internal class ConvertToSinglePlacementGroupOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(VMScaleSetConvertToSinglePlacementGroupInputModel);
 
-    public override ResourceID? ResourceId() => new VirtualMachineScaleSetId();
+\t\tpublic override ResourceID? ResourceId() => new VirtualMachineScaleSetId();
 
-    public override string? UriSuffix() => "/convertToSinglePlacementGroup";
+\t\tpublic override string? UriSuffix() => "/convertToSinglePlacementGroup";
 
 
 }

@@ -17,9 +17,9 @@ internal class RemoteRenderingAccountsCreateOperation : Operations.PutOperation
 {
     public override Type? RequestObject() => typeof(RemoteRenderingAccountModel);
 
-    public override ResourceID? ResourceId() => new RemoteRenderingAccountId();
+\t\tpublic override ResourceID? ResourceId() => new RemoteRenderingAccountId();
 
-    public override Type? ResponseObject() => typeof(RemoteRenderingAccountModel);
+\t\tpublic override Type? ResponseObject() => typeof(RemoteRenderingAccountModel);
 
 
 }

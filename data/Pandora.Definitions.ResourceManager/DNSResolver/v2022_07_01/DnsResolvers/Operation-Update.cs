@@ -15,21 +15,21 @@ namespace Pandora.Definitions.ResourceManager.DNSResolver.v2022_07_01.DnsResolve
 
 internal class UpdateOperation : Operations.PatchOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(DnsResolverPatchModel);
 
-    public override ResourceID? ResourceId() => new DnsResolverId();
+\t\tpublic override ResourceID? ResourceId() => new DnsResolverId();
 
-    public override Type? ResponseObject() => typeof(DnsResolverModel);
+\t\tpublic override Type? ResponseObject() => typeof(DnsResolverModel);
 
-    public override Type? OptionsObject() => typeof(UpdateOperation.UpdateOptions);
+\t\tpublic override Type? OptionsObject() => typeof(UpdateOperation.UpdateOptions);
 
     internal class UpdateOptions
     {

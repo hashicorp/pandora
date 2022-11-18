@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.VideoAnalyzer.v2021_05_01_preview.
 
 internal class VideoAnalyzersUpdateOperation : Operations.PatchOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(VideoAnalyzerUpdateModel);
 
-    public override ResourceID? ResourceId() => new VideoAnalyzerId();
+\t\tpublic override ResourceID? ResourceId() => new VideoAnalyzerId();
 
-    public override Type? ResponseObject() => typeof(VideoAnalyzerModel);
+\t\tpublic override Type? ResponseObject() => typeof(VideoAnalyzerModel);
 
 
 }

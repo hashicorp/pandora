@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.SignalR.v2022_02_01.SignalR;
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new SignalRId();
+\t\tpublic override ResourceID? ResourceId() => new SignalRId();
 
-    public override Type? ResponseObject() => typeof(SignalRResourceModel);
+\t\tpublic override Type? ResponseObject() => typeof(SignalRResourceModel);
 
 
 }

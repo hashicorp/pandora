@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.Compute.v2021_07_01.SshPublicKeys;
 
 internal class GenerateKeyPairOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new SshPublicKeyId();
+\t\tpublic override ResourceID? ResourceId() => new SshPublicKeyId();
 
-    public override Type? ResponseObject() => typeof(SshPublicKeyGenerateKeyPairResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(SshPublicKeyGenerateKeyPairResultModel);
 
-    public override string? UriSuffix() => "/generateKeyPair";
+\t\tpublic override string? UriSuffix() => "/generateKeyPair";
 
 
 }

@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.Compute.v2022_03_02.DiskAccesses;
 
 internal class GetPrivateLinkResourcesOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new DiskAccessId();
+\t\tpublic override ResourceID? ResourceId() => new DiskAccessId();
 
-    public override Type? ResponseObject() => typeof(PrivateLinkResourceListResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(PrivateLinkResourceListResultModel);
 
-    public override string? UriSuffix() => "/privateLinkResources";
+\t\tpublic override string? UriSuffix() => "/privateLinkResources";
 
 
 }

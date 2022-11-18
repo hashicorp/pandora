@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.PostgreSql.v2017_12_01.Servers;
 
 internal class ListByResourceGroupOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ResourceGroupId();
+\t\tpublic override ResourceID? ResourceId() => new ResourceGroupId();
 
-    public override Type? ResponseObject() => typeof(ServerListResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(ServerListResultModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.DBforPostgreSQL/servers";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.DBforPostgreSQL/servers";
 
 
 }

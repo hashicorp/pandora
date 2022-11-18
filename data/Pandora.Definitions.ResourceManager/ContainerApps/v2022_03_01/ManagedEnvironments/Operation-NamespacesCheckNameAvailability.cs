@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.ContainerApps.v2022_03_01.ManagedE
 
 internal class NamespacesCheckNameAvailabilityOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(CheckNameAvailabilityRequestModel);
 
-    public override ResourceID? ResourceId() => new ManagedEnvironmentId();
+\t\tpublic override ResourceID? ResourceId() => new ManagedEnvironmentId();
 
-    public override Type? ResponseObject() => typeof(CheckNameAvailabilityResponseModel);
+\t\tpublic override Type? ResponseObject() => typeof(CheckNameAvailabilityResponseModel);
 
-    public override string? UriSuffix() => "/checkNameAvailability";
+\t\tpublic override string? UriSuffix() => "/checkNameAvailability";
 
 
 }

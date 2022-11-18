@@ -15,21 +15,21 @@ namespace Pandora.Definitions.ResourceManager.RecoveryServicesSiteRecovery.v2022
 
 internal class ExportOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(JobQueryParameterModel);
 
-    public override ResourceID? ResourceId() => new VaultId();
+\t\tpublic override ResourceID? ResourceId() => new VaultId();
 
-    public override Type? ResponseObject() => typeof(JobModel);
+\t\tpublic override Type? ResponseObject() => typeof(JobModel);
 
-    public override string? UriSuffix() => "/replicationJobs/export";
+\t\tpublic override string? UriSuffix() => "/replicationJobs/export";
 
 
 }

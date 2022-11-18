@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Purview.v2021_07_01.PrivateLinkRes
 
 internal class ListByAccountOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new AccountId();
+\t\tpublic override ResourceID? ResourceId() => new AccountId();
 
-    public override Type NestedItemType() => typeof(PrivateLinkResourceModel);
+\t\tpublic override Type NestedItemType() => typeof(PrivateLinkResourceModel);
 
-    public override string? UriSuffix() => "/privateLinkResources";
+\t\tpublic override string? UriSuffix() => "/privateLinkResources";
 
 
 }

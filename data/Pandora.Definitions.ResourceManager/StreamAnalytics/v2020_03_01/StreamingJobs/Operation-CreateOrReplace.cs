@@ -15,15 +15,15 @@ namespace Pandora.Definitions.ResourceManager.StreamAnalytics.v2020_03_01.Stream
 
 internal class CreateOrReplaceOperation : Operations.PutOperation
 {
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(StreamingJobModel);
 
-    public override ResourceID? ResourceId() => new StreamingJobId();
+\t\tpublic override ResourceID? ResourceId() => new StreamingJobId();
 
-    public override Type? ResponseObject() => typeof(StreamingJobModel);
+\t\tpublic override Type? ResponseObject() => typeof(StreamingJobModel);
 
-    public override Type? OptionsObject() => typeof(CreateOrReplaceOperation.CreateOrReplaceOptions);
+\t\tpublic override Type? OptionsObject() => typeof(CreateOrReplaceOperation.CreateOrReplaceOptions);
 
     internal class CreateOrReplaceOptions
     {

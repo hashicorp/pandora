@@ -15,13 +15,15 @@ namespace Pandora.Definitions.ResourceManager.Automation.v2022_08_08.Job;
 
 internal class GetOutputOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new JobId();
+\t\tpublic override string? ContentType() => "text/plain";
 
-    public override Type? ResponseObject() => typeof(string);
+\t\tpublic override ResourceID? ResourceId() => new JobId();
 
-    public override Type? OptionsObject() => typeof(GetOutputOperation.GetOutputOptions);
+\t\tpublic override Type? ResponseObject() => typeof(string);
 
-    public override string? UriSuffix() => "/output";
+\t\tpublic override Type? OptionsObject() => typeof(GetOutputOperation.GetOutputOptions);
+
+\t\tpublic override string? UriSuffix() => "/output";
 
     internal class GetOutputOptions
     {

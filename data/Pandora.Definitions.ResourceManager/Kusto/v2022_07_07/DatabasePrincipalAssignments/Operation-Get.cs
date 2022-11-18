@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.Kusto.v2022_07_07.DatabasePrincipa
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new DatabasePrincipalAssignmentId();
+\t\tpublic override ResourceID? ResourceId() => new DatabasePrincipalAssignmentId();
 
-    public override Type? ResponseObject() => typeof(DatabasePrincipalAssignmentModel);
+\t\tpublic override Type? ResponseObject() => typeof(DatabasePrincipalAssignmentModel);
 
 
 }

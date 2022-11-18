@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.TenantSe
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ServiceId();
+\t\tpublic override ResourceID? ResourceId() => new ServiceId();
 
-    public override Type? ResponseObject() => typeof(TenantSettingsContractModel);
+\t\tpublic override Type? ResponseObject() => typeof(TenantSettingsContractModel);
 
-    public override string? UriSuffix() => "/settings/public";
+\t\tpublic override string? UriSuffix() => "/settings/public";
 
 
 }

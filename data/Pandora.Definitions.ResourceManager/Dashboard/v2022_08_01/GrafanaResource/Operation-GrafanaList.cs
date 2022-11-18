@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Dashboard.v2022_08_01.GrafanaResou
 
 internal class GrafanaListOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new SubscriptionId();
+\t\tpublic override ResourceID? ResourceId() => new SubscriptionId();
 
-    public override Type NestedItemType() => typeof(ManagedGrafanaModel);
+\t\tpublic override Type NestedItemType() => typeof(ManagedGrafanaModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.Dashboard/grafana";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.Dashboard/grafana";
 
 
 }

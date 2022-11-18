@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.ContainerInstance.v2021_10_01.Cont
 
 internal class ContainerGroupsRestartOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.NoContent,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new ContainerGroupId();
+\t\tpublic override ResourceID? ResourceId() => new ContainerGroupId();
 
-    public override string? UriSuffix() => "/restart";
+\t\tpublic override string? UriSuffix() => "/restart";
 
 
 }

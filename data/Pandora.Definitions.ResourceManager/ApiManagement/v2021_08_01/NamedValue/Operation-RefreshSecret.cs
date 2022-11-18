@@ -15,21 +15,21 @@ namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.NamedVal
 
 internal class RefreshSecretOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new NamedValueId();
+\t\tpublic override ResourceID? ResourceId() => new NamedValueId();
 
-    public override Type? ResponseObject() => typeof(NamedValueContractModel);
+\t\tpublic override Type? ResponseObject() => typeof(NamedValueContractModel);
 
-    public override string? UriSuffix() => "/refreshSecret";
+\t\tpublic override string? UriSuffix() => "/refreshSecret";
 
 
 }

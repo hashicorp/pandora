@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.Identity
 
 internal class ListByServiceOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new ServiceId();
+\t\tpublic override ResourceID? ResourceId() => new ServiceId();
 
-    public override Type NestedItemType() => typeof(IdentityProviderContractModel);
+\t\tpublic override Type NestedItemType() => typeof(IdentityProviderContractModel);
 
-    public override string? UriSuffix() => "/identityProviders";
+\t\tpublic override string? UriSuffix() => "/identityProviders";
 
 
 }

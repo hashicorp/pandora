@@ -15,20 +15,20 @@ namespace Pandora.Definitions.ResourceManager.Storage.v2022_09_01.BlobContainers
 
 internal class ExtendImmutabilityPolicyOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(ImmutabilityPolicyModel);
 
-    public override ResourceID? ResourceId() => new ContainerId();
+\t\tpublic override ResourceID? ResourceId() => new ContainerId();
 
-    public override Type? ResponseObject() => typeof(ImmutabilityPolicyModel);
+\t\tpublic override Type? ResponseObject() => typeof(ImmutabilityPolicyModel);
 
-    public override Type? OptionsObject() => typeof(ExtendImmutabilityPolicyOperation.ExtendImmutabilityPolicyOptions);
+\t\tpublic override Type? OptionsObject() => typeof(ExtendImmutabilityPolicyOperation.ExtendImmutabilityPolicyOptions);
 
-    public override string? UriSuffix() => "/immutabilityPolicies/default/extend";
+\t\tpublic override string? UriSuffix() => "/immutabilityPolicies/default/extend";
 
     internal class ExtendImmutabilityPolicyOptions
     {

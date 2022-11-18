@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Compute.v2021_07_01.SshPublicKeys;
 
 internal class ListByResourceGroupOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new ResourceGroupId();
+\t\tpublic override ResourceID? ResourceId() => new ResourceGroupId();
 
-    public override Type NestedItemType() => typeof(SshPublicKeyResourceModel);
+\t\tpublic override Type NestedItemType() => typeof(SshPublicKeyResourceModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.Compute/sshPublicKeys";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.Compute/sshPublicKeys";
 
 
 }

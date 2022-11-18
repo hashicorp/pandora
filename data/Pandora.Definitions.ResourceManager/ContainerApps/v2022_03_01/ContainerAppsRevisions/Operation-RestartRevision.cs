@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.ContainerApps.v2022_03_01.Containe
 
 internal class RestartRevisionOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new RevisionId();
+\t\tpublic override ResourceID? ResourceId() => new RevisionId();
 
-    public override string? UriSuffix() => "/restart";
+\t\tpublic override string? UriSuffix() => "/restart";
 
 
 }

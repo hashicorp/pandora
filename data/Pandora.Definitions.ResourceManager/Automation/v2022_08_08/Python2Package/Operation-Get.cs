@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.Automation.v2022_08_08.Python2Pack
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new Python2PackageId();
+\t\tpublic override ResourceID? ResourceId() => new Python2PackageId();
 
-    public override Type? ResponseObject() => typeof(ModuleModel);
+\t\tpublic override Type? ResponseObject() => typeof(ModuleModel);
 
 
 }

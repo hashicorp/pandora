@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.NetApp.v2022_01_01.VolumeGroups;
 
 internal class VolumeGroupsListByNetAppAccountOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new NetAppAccountId();
+\t\tpublic override ResourceID? ResourceId() => new NetAppAccountId();
 
-    public override Type? ResponseObject() => typeof(VolumeGroupListModel);
+\t\tpublic override Type? ResponseObject() => typeof(VolumeGroupListModel);
 
-    public override string? UriSuffix() => "/volumeGroups";
+\t\tpublic override string? UriSuffix() => "/volumeGroups";
 
 
 }

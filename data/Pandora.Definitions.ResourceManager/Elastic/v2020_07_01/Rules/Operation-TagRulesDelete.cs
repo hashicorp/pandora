@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.Elastic.v2020_07_01.Rules;
 
 internal class TagRulesDeleteOperation : Operations.DeleteOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.NoContent,
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
-    public override ResourceID? ResourceId() => new TagRuleId();
+\t\tpublic override ResourceID? ResourceId() => new TagRuleId();
 
 
 }

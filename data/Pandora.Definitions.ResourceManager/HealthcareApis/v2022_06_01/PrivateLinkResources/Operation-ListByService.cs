@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.HealthcareApis.v2022_06_01.Private
 
 internal class ListByServiceOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ServiceId();
+\t\tpublic override ResourceID? ResourceId() => new ServiceId();
 
-    public override Type? ResponseObject() => typeof(PrivateLinkResourceListResultDescriptionModel);
+\t\tpublic override Type? ResponseObject() => typeof(PrivateLinkResourceListResultDescriptionModel);
 
-    public override string? UriSuffix() => "/privateLinkResources";
+\t\tpublic override string? UriSuffix() => "/privateLinkResources";
 
 
 }

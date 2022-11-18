@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.Compute.v2022_03_02.DiskEncryption
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new DiskEncryptionSetId();
+\t\tpublic override ResourceID? ResourceId() => new DiskEncryptionSetId();
 
-    public override Type? ResponseObject() => typeof(DiskEncryptionSetModel);
+\t\tpublic override Type? ResponseObject() => typeof(DiskEncryptionSetModel);
 
 
 }

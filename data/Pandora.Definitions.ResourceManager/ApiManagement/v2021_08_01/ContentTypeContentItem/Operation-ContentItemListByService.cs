@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.ContentT
 
 internal class ContentItemListByServiceOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new ContentTypeId();
+\t\tpublic override ResourceID? ResourceId() => new ContentTypeId();
 
-    public override Type NestedItemType() => typeof(ContentItemContractModel);
+\t\tpublic override Type NestedItemType() => typeof(ContentItemContractModel);
 
-    public override string? UriSuffix() => "/contentItems";
+\t\tpublic override string? UriSuffix() => "/contentItems";
 
 
 }

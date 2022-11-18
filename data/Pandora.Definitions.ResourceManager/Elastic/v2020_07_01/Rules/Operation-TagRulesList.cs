@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Elastic.v2020_07_01.Rules;
 
 internal class TagRulesListOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new MonitorId();
+\t\tpublic override ResourceID? ResourceId() => new MonitorId();
 
-    public override Type NestedItemType() => typeof(MonitoringTagRulesModel);
+\t\tpublic override Type NestedItemType() => typeof(MonitoringTagRulesModel);
 
-    public override string? UriSuffix() => "/tagRules";
+\t\tpublic override string? UriSuffix() => "/tagRules";
 
 
 }

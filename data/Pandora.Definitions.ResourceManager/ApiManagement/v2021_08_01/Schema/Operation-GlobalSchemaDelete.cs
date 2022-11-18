@@ -15,15 +15,15 @@ namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.Schema;
 
 internal class GlobalSchemaDeleteOperation : Operations.DeleteOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.NoContent,
                 HttpStatusCode.OK,
         };
 
-    public override ResourceID? ResourceId() => new SchemaId();
+\t\tpublic override ResourceID? ResourceId() => new SchemaId();
 
-    public override Type? OptionsObject() => typeof(GlobalSchemaDeleteOperation.GlobalSchemaDeleteOptions);
+\t\tpublic override Type? OptionsObject() => typeof(GlobalSchemaDeleteOperation.GlobalSchemaDeleteOptions);
 
     internal class GlobalSchemaDeleteOptions
     {

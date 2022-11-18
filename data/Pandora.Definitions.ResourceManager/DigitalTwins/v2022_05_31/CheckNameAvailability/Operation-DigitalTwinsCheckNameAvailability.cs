@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.DigitalTwins.v2022_05_31.CheckName
 
 internal class DigitalTwinsCheckNameAvailabilityOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(CheckNameRequestModel);
 
-    public override ResourceID? ResourceId() => new LocationId();
+\t\tpublic override ResourceID? ResourceId() => new LocationId();
 
-    public override Type? ResponseObject() => typeof(CheckNameResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(CheckNameResultModel);
 
-    public override string? UriSuffix() => "/checkNameAvailability";
+\t\tpublic override string? UriSuffix() => "/checkNameAvailability";
 
 
 }

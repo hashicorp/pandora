@@ -15,15 +15,15 @@ namespace Pandora.Definitions.ResourceManager.Automation.v2022_08_08.JobStream;
 
 internal class ListByJobOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new JobId();
+\t\tpublic override ResourceID? ResourceId() => new JobId();
 
-    public override Type NestedItemType() => typeof(JobStreamModel);
+\t\tpublic override Type NestedItemType() => typeof(JobStreamModel);
 
-    public override Type? OptionsObject() => typeof(ListByJobOperation.ListByJobOptions);
+\t\tpublic override Type? OptionsObject() => typeof(ListByJobOperation.ListByJobOptions);
 
-    public override string? UriSuffix() => "/streams";
+\t\tpublic override string? UriSuffix() => "/streams";
 
     internal class ListByJobOptions
     {

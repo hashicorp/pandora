@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Compute.v2021_11_01.DedicatedHosts
 
 internal class CreateOrUpdateOperation : Operations.PutOperation
 {
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(DedicatedHostModel);
 
-    public override ResourceID? ResourceId() => new HostId();
+\t\tpublic override ResourceID? ResourceId() => new HostId();
 
-    public override Type? ResponseObject() => typeof(DedicatedHostModel);
+\t\tpublic override Type? ResponseObject() => typeof(DedicatedHostModel);
 
 
 }

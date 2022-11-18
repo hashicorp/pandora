@@ -17,9 +17,9 @@ internal class CreateOrUpdateOperation : Operations.PutOperation
 {
     public override Type? RequestObject() => typeof(SnapshotModel);
 
-    public override ResourceID? ResourceId() => new SnapshotId();
+\t\tpublic override ResourceID? ResourceId() => new SnapshotId();
 
-    public override Type? ResponseObject() => typeof(SnapshotModel);
+\t\tpublic override Type? ResponseObject() => typeof(SnapshotModel);
 
 
 }

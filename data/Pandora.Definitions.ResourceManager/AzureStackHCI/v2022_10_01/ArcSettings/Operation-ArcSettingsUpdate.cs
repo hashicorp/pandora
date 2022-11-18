@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.AzureStackHCI.v2022_10_01.ArcSetti
 
 internal class ArcSettingsUpdateOperation : Operations.PatchOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(ArcSettingsPatchModel);
 
-    public override ResourceID? ResourceId() => new ArcSettingId();
+\t\tpublic override ResourceID? ResourceId() => new ArcSettingId();
 
-    public override Type? ResponseObject() => typeof(ArcSettingModel);
+\t\tpublic override Type? ResponseObject() => typeof(ArcSettingModel);
 
 
 }

@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.Storage.v2022_09_01.LocalUsers;
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new LocalUserId();
+\t\tpublic override ResourceID? ResourceId() => new LocalUserId();
 
-    public override Type? ResponseObject() => typeof(LocalUserModel);
+\t\tpublic override Type? ResponseObject() => typeof(LocalUserModel);
 
 
 }

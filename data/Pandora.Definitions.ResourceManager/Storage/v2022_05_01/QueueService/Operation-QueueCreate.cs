@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.Storage.v2022_05_01.QueueService;
 
 internal class QueueCreateOperation : Operations.PutOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(StorageQueueModel);
 
-    public override ResourceID? ResourceId() => new QueueId();
+\t\tpublic override ResourceID? ResourceId() => new QueueId();
 
-    public override Type? ResponseObject() => typeof(StorageQueueModel);
+\t\tpublic override Type? ResponseObject() => typeof(StorageQueueModel);
 
 
 }

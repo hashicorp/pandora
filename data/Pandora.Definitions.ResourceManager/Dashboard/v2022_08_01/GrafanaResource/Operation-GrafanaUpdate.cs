@@ -15,7 +15,7 @@ namespace Pandora.Definitions.ResourceManager.Dashboard.v2022_08_01.GrafanaResou
 
 internal class GrafanaUpdateOperation : Operations.PatchOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.OK,
@@ -23,9 +23,9 @@ internal class GrafanaUpdateOperation : Operations.PatchOperation
 
     public override Type? RequestObject() => typeof(ManagedGrafanaUpdateParametersModel);
 
-    public override ResourceID? ResourceId() => new GrafanaId();
+\t\tpublic override ResourceID? ResourceId() => new GrafanaId();
 
-    public override Type? ResponseObject() => typeof(ManagedGrafanaModel);
+\t\tpublic override Type? ResponseObject() => typeof(ManagedGrafanaModel);
 
 
 }

@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.VMware.v2022_05_01.GlobalReachConn
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new GlobalReachConnectionId();
+\t\tpublic override ResourceID? ResourceId() => new GlobalReachConnectionId();
 
-    public override Type? ResponseObject() => typeof(GlobalReachConnectionModel);
+\t\tpublic override Type? ResponseObject() => typeof(GlobalReachConnectionModel);
 
 
 }

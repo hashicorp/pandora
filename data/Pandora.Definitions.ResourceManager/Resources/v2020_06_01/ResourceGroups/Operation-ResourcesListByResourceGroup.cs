@@ -15,15 +15,15 @@ namespace Pandora.Definitions.ResourceManager.Resources.v2020_06_01.ResourceGrou
 
 internal class ResourcesListByResourceGroupOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new ResourceGroupId();
+\t\tpublic override ResourceID? ResourceId() => new ResourceGroupId();
 
-    public override Type NestedItemType() => typeof(GenericResourceExpandedModel);
+\t\tpublic override Type NestedItemType() => typeof(GenericResourceExpandedModel);
 
-    public override Type? OptionsObject() => typeof(ResourcesListByResourceGroupOperation.ResourcesListByResourceGroupOptions);
+\t\tpublic override Type? OptionsObject() => typeof(ResourcesListByResourceGroupOperation.ResourcesListByResourceGroupOptions);
 
-    public override string? UriSuffix() => "/resources";
+\t\tpublic override string? UriSuffix() => "/resources";
 
     internal class ResourcesListByResourceGroupOptions
     {

@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.VideoAnalyzer.v2021_05_01_preview.
 
 internal class VideoAnalyzersGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new VideoAnalyzerId();
+\t\tpublic override ResourceID? ResourceId() => new VideoAnalyzerId();
 
-    public override Type? ResponseObject() => typeof(VideoAnalyzerModel);
+\t\tpublic override Type? ResponseObject() => typeof(VideoAnalyzerModel);
 
 
 }

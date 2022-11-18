@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.Subscription.v2021_10_01.Subscript
 
 internal class AliasGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new AliasId();
+\t\tpublic override ResourceID? ResourceId() => new AliasId();
 
-    public override Type? ResponseObject() => typeof(SubscriptionAliasResponseModel);
+\t\tpublic override Type? ResponseObject() => typeof(SubscriptionAliasResponseModel);
 
 
 }

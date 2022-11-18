@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.ContainerService.v2022_09_02_previ
 
 internal class RoleBindingsGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new TrustedAccessRoleBindingId();
+\t\tpublic override ResourceID? ResourceId() => new TrustedAccessRoleBindingId();
 
-    public override Type? ResponseObject() => typeof(TrustedAccessRoleBindingModel);
+\t\tpublic override Type? ResponseObject() => typeof(TrustedAccessRoleBindingModel);
 
 
 }

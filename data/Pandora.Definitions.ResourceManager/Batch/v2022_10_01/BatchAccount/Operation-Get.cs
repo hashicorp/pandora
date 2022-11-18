@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.Batch.v2022_10_01.BatchAccount;
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new BatchAccountId();
+\t\tpublic override ResourceID? ResourceId() => new BatchAccountId();
 
-    public override Type? ResponseObject() => typeof(BatchAccountModel);
+\t\tpublic override Type? ResponseObject() => typeof(BatchAccountModel);
 
 
 }

@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.Logger;
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new LoggerId();
+\t\tpublic override ResourceID? ResourceId() => new LoggerId();
 
-    public override Type? ResponseObject() => typeof(LoggerContractModel);
+\t\tpublic override Type? ResponseObject() => typeof(LoggerContractModel);
 
 
 }

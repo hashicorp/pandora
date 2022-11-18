@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.ApiManag
 
 internal class GetSsoTokenOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new ServiceId();
+\t\tpublic override ResourceID? ResourceId() => new ServiceId();
 
-    public override Type? ResponseObject() => typeof(ApiManagementServiceGetSsoTokenResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(ApiManagementServiceGetSsoTokenResultModel);
 
-    public override string? UriSuffix() => "/getssotoken";
+\t\tpublic override string? UriSuffix() => "/getssotoken";
 
 
 }

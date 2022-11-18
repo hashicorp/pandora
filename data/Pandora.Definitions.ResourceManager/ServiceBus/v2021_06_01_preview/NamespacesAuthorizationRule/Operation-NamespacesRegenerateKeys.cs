@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.ServiceBus.v2021_06_01_preview.Nam
 
 internal class NamespacesRegenerateKeysOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(RegenerateAccessKeyParametersModel);
 
-    public override ResourceID? ResourceId() => new AuthorizationRuleId();
+\t\tpublic override ResourceID? ResourceId() => new AuthorizationRuleId();
 
-    public override Type? ResponseObject() => typeof(AccessKeysModel);
+\t\tpublic override Type? ResponseObject() => typeof(AccessKeysModel);
 
-    public override string? UriSuffix() => "/regenerateKeys";
+\t\tpublic override string? UriSuffix() => "/regenerateKeys";
 
 
 }

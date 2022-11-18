@@ -17,9 +17,9 @@ internal class CreateOrUpdateOperation : Operations.PutOperation
 {
     public override Type? RequestObject() => typeof(IncidentCommentModel);
 
-    public override ResourceID? ResourceId() => new CommentId();
+\t\tpublic override ResourceID? ResourceId() => new CommentId();
 
-    public override Type? ResponseObject() => typeof(IncidentCommentModel);
+\t\tpublic override Type? ResponseObject() => typeof(IncidentCommentModel);
 
 
 }

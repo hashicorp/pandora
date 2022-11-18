@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.HybridKubernetes.v2021_10_01.Conne
 
 internal class ConnectedClusterListBySubscriptionOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new SubscriptionId();
+\t\tpublic override ResourceID? ResourceId() => new SubscriptionId();
 
-    public override Type NestedItemType() => typeof(ConnectedClusterModel);
+\t\tpublic override Type NestedItemType() => typeof(ConnectedClusterModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.Kubernetes/connectedClusters";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.Kubernetes/connectedClusters";
 
 
 }

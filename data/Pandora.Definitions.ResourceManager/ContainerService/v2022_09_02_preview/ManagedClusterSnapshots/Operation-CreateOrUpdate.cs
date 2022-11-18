@@ -17,9 +17,9 @@ internal class CreateOrUpdateOperation : Operations.PutOperation
 {
     public override Type? RequestObject() => typeof(ManagedClusterSnapshotModel);
 
-    public override ResourceID? ResourceId() => new ManagedClusterSnapshotId();
+\t\tpublic override ResourceID? ResourceId() => new ManagedClusterSnapshotId();
 
-    public override Type? ResponseObject() => typeof(ManagedClusterSnapshotModel);
+\t\tpublic override Type? ResponseObject() => typeof(ManagedClusterSnapshotModel);
 
 
 }

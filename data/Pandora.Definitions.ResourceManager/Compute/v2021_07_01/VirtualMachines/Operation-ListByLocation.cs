@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Compute.v2021_07_01.VirtualMachine
 
 internal class ListByLocationOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new LocationId();
+\t\tpublic override ResourceID? ResourceId() => new LocationId();
 
-    public override Type NestedItemType() => typeof(VirtualMachineModel);
+\t\tpublic override Type NestedItemType() => typeof(VirtualMachineModel);
 
-    public override string? UriSuffix() => "/virtualMachines";
+\t\tpublic override string? UriSuffix() => "/virtualMachines";
 
 
 }

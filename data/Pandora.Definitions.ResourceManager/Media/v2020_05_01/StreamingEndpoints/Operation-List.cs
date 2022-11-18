@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Media.v2020_05_01.StreamingEndpoin
 
 internal class ListOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "@odata.nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "@odata.nextLink";
 
-    public override ResourceID? ResourceId() => new MediaServiceId();
+\t\tpublic override ResourceID? ResourceId() => new MediaServiceId();
 
-    public override Type NestedItemType() => typeof(StreamingEndpointModel);
+\t\tpublic override Type NestedItemType() => typeof(StreamingEndpointModel);
 
-    public override string? UriSuffix() => "/streamingEndpoints";
+\t\tpublic override string? UriSuffix() => "/streamingEndpoints";
 
 
 }

@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.Backend;
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new BackendId();
+\t\tpublic override ResourceID? ResourceId() => new BackendId();
 
-    public override Type? ResponseObject() => typeof(BackendContractModel);
+\t\tpublic override Type? ResponseObject() => typeof(BackendContractModel);
 
 
 }

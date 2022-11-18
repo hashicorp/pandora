@@ -15,15 +15,15 @@ namespace Pandora.Definitions.ResourceManager.Resources.v2020_06_01.Deployments;
 
 internal class ListAtSubscriptionScopeOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new SubscriptionId();
+\t\tpublic override ResourceID? ResourceId() => new SubscriptionId();
 
-    public override Type NestedItemType() => typeof(DeploymentExtendedModel);
+\t\tpublic override Type NestedItemType() => typeof(DeploymentExtendedModel);
 
-    public override Type? OptionsObject() => typeof(ListAtSubscriptionScopeOperation.ListAtSubscriptionScopeOptions);
+\t\tpublic override Type? OptionsObject() => typeof(ListAtSubscriptionScopeOperation.ListAtSubscriptionScopeOptions);
 
-    public override string? UriSuffix() => "/providers/Microsoft.Resources/deployments";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.Resources/deployments";
 
     internal class ListAtSubscriptionScopeOptions
     {

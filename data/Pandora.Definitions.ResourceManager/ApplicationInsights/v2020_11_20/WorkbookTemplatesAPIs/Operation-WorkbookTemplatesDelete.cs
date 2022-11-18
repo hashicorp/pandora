@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.ApplicationInsights.v2020_11_20.Wo
 
 internal class WorkbookTemplatesDeleteOperation : Operations.DeleteOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.NoContent,
                 HttpStatusCode.OK,
         };
 
-    public override ResourceID? ResourceId() => new WorkbookTemplateId();
+\t\tpublic override ResourceID? ResourceId() => new WorkbookTemplateId();
 
 
 }

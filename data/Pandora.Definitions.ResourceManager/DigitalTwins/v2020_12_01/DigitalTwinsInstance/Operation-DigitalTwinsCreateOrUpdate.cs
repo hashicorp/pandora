@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.DigitalTwins.v2020_12_01.DigitalTw
 
 internal class DigitalTwinsCreateOrUpdateOperation : Operations.PutOperation
 {
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(DigitalTwinsDescriptionModel);
 
-    public override ResourceID? ResourceId() => new DigitalTwinsInstanceId();
+\t\tpublic override ResourceID? ResourceId() => new DigitalTwinsInstanceId();
 
-    public override Type? ResponseObject() => typeof(DigitalTwinsDescriptionModel);
+\t\tpublic override Type? ResponseObject() => typeof(DigitalTwinsDescriptionModel);
 
 
 }

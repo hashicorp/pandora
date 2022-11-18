@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.StoragePool.v2021_08_01.ResourceSk
 
 internal class ListOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new LocationId();
+\t\tpublic override ResourceID? ResourceId() => new LocationId();
 
-    public override Type NestedItemType() => typeof(ResourceSkuInfoModel);
+\t\tpublic override Type NestedItemType() => typeof(ResourceSkuInfoModel);
 
-    public override string? UriSuffix() => "/skus";
+\t\tpublic override string? UriSuffix() => "/skus";
 
 
 }

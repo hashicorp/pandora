@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.PostgreSqlHSC.v2020_10_05_privatep
 
 internal class ListByServerGroupOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ServerGroupsv2Id();
+\t\tpublic override ResourceID? ResourceId() => new ServerGroupsv2Id();
 
-    public override Type? ResponseObject() => typeof(FirewallRuleListResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(FirewallRuleListResultModel);
 
-    public override string? UriSuffix() => "/firewallRules";
+\t\tpublic override string? UriSuffix() => "/firewallRules";
 
 
 }

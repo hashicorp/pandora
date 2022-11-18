@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.PortalSe
 
 internal class ListByServiceOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ServiceId();
+\t\tpublic override ResourceID? ResourceId() => new ServiceId();
 
-    public override Type? ResponseObject() => typeof(PortalSettingsCollectionModel);
+\t\tpublic override Type? ResponseObject() => typeof(PortalSettingsCollectionModel);
 
-    public override string? UriSuffix() => "/portalsettings";
+\t\tpublic override string? UriSuffix() => "/portalsettings";
 
 
 }

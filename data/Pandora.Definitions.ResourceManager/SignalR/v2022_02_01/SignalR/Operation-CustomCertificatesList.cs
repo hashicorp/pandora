@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.SignalR.v2022_02_01.SignalR;
 
 internal class CustomCertificatesListOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new SignalRId();
+\t\tpublic override ResourceID? ResourceId() => new SignalRId();
 
-    public override Type NestedItemType() => typeof(CustomCertificateModel);
+\t\tpublic override Type NestedItemType() => typeof(CustomCertificateModel);
 
-    public override string? UriSuffix() => "/customCertificates";
+\t\tpublic override string? UriSuffix() => "/customCertificates";
 
 
 }

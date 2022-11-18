@@ -15,15 +15,15 @@ namespace Pandora.Definitions.ResourceManager.Search.v2020_08_01.Services;
 
 internal class CreateOrUpdateOperation : Operations.PutOperation
 {
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(SearchServiceModel);
 
-    public override ResourceID? ResourceId() => new SearchServiceId();
+\t\tpublic override ResourceID? ResourceId() => new SearchServiceId();
 
-    public override Type? ResponseObject() => typeof(SearchServiceModel);
+\t\tpublic override Type? ResponseObject() => typeof(SearchServiceModel);
 
-    public override Type? OptionsObject() => typeof(CreateOrUpdateOperation.CreateOrUpdateOptions);
+\t\tpublic override Type? OptionsObject() => typeof(CreateOrUpdateOperation.CreateOrUpdateOptions);
 
     internal class CreateOrUpdateOptions
     {

@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.Automation.v2019_06_01.Connection;
 
 internal class UpdateOperation : Operations.PatchOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(ConnectionUpdateParametersModel);
 
-    public override ResourceID? ResourceId() => new ConnectionId();
+\t\tpublic override ResourceID? ResourceId() => new ConnectionId();
 
-    public override Type? ResponseObject() => typeof(ConnectionModel);
+\t\tpublic override Type? ResponseObject() => typeof(ConnectionModel);
 
 
 }

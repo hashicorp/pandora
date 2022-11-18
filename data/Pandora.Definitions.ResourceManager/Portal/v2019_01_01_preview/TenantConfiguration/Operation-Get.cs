@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.Portal.v2019_01_01_preview.TenantC
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override Type? ResponseObject() => typeof(ConfigurationModel);
+\t\tpublic override Type? ResponseObject() => typeof(ConfigurationModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.Portal/tenantConfigurations/default";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.Portal/tenantConfigurations/default";
 
 
 }

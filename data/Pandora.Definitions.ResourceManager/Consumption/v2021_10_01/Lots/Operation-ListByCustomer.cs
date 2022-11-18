@@ -15,15 +15,15 @@ namespace Pandora.Definitions.ResourceManager.Consumption.v2021_10_01.Lots;
 
 internal class ListByCustomerOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new CustomerId();
+\t\tpublic override ResourceID? ResourceId() => new CustomerId();
 
-    public override Type NestedItemType() => typeof(LotSummaryModel);
+\t\tpublic override Type NestedItemType() => typeof(LotSummaryModel);
 
-    public override Type? OptionsObject() => typeof(ListByCustomerOperation.ListByCustomerOptions);
+\t\tpublic override Type? OptionsObject() => typeof(ListByCustomerOperation.ListByCustomerOptions);
 
-    public override string? UriSuffix() => "/providers/Microsoft.Consumption/lots";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.Consumption/lots";
 
     internal class ListByCustomerOptions
     {

@@ -15,15 +15,15 @@ namespace Pandora.Definitions.ResourceManager.AzureStackHCI.v2022_10_01.Skuses;
 
 internal class SkusListByOfferOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new OfferId();
+\t\tpublic override ResourceID? ResourceId() => new OfferId();
 
-    public override Type NestedItemType() => typeof(SkuModel);
+\t\tpublic override Type NestedItemType() => typeof(SkuModel);
 
-    public override Type? OptionsObject() => typeof(SkusListByOfferOperation.SkusListByOfferOptions);
+\t\tpublic override Type? OptionsObject() => typeof(SkusListByOfferOperation.SkusListByOfferOptions);
 
-    public override string? UriSuffix() => "/skus";
+\t\tpublic override string? UriSuffix() => "/skus";
 
     internal class SkusListByOfferOptions
     {

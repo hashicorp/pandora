@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.Storage.v2022_09_01.QueueService;
 
 internal class QueueGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new QueueId();
+\t\tpublic override ResourceID? ResourceId() => new QueueId();
 
-    public override Type? ResponseObject() => typeof(StorageQueueModel);
+\t\tpublic override Type? ResponseObject() => typeof(StorageQueueModel);
 
 
 }

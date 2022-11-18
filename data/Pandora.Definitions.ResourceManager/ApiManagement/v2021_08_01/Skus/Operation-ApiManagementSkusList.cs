@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.Skus;
 
 internal class ApiManagementSkusListOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new SubscriptionId();
+\t\tpublic override ResourceID? ResourceId() => new SubscriptionId();
 
-    public override Type NestedItemType() => typeof(ApiManagementSkuModel);
+\t\tpublic override Type NestedItemType() => typeof(ApiManagementSkuModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.ApiManagement/skus";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.ApiManagement/skus";
 
 
 }

@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.AppPlatform.v2022_09_01_preview.Ap
 
 internal class GatewayCustomDomainsCreateOrUpdateOperation : Operations.PutOperation
 {
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(GatewayCustomDomainResourceModel);
 
-    public override ResourceID? ResourceId() => new GatewayDomainId();
+\t\tpublic override ResourceID? ResourceId() => new GatewayDomainId();
 
-    public override Type? ResponseObject() => typeof(GatewayCustomDomainResourceModel);
+\t\tpublic override Type? ResponseObject() => typeof(GatewayCustomDomainResourceModel);
 
 
 }

@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.PostgreSql.v2018_06_01.ResetQueryP
 
 internal class ResetQueryPerformanceInsightDataOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new ServerId();
+\t\tpublic override ResourceID? ResourceId() => new ServerId();
 
-    public override Type? ResponseObject() => typeof(QueryPerformanceInsightResetDataResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(QueryPerformanceInsightResetDataResultModel);
 
-    public override string? UriSuffix() => "/resetQueryPerformanceInsightData";
+\t\tpublic override string? UriSuffix() => "/resetQueryPerformanceInsightData";
 
 
 }

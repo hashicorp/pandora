@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.ServiceFabricManagedCluster.v2021_
 
 internal class ListByApplicationsOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new ApplicationId();
+\t\tpublic override ResourceID? ResourceId() => new ApplicationId();
 
-    public override Type NestedItemType() => typeof(ServiceResourceModel);
+\t\tpublic override Type NestedItemType() => typeof(ServiceResourceModel);
 
-    public override string? UriSuffix() => "/services";
+\t\tpublic override string? UriSuffix() => "/services";
 
 
 }

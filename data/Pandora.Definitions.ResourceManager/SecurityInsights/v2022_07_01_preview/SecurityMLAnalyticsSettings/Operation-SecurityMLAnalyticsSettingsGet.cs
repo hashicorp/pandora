@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.SecurityInsights.v2022_07_01_previ
 
 internal class SecurityMLAnalyticsSettingsGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new SecurityMLAnalyticsSettingId();
+\t\tpublic override ResourceID? ResourceId() => new SecurityMLAnalyticsSettingId();
 
-    public override Type? ResponseObject() => typeof(SecurityMLAnalyticsSettingModel);
+\t\tpublic override Type? ResponseObject() => typeof(SecurityMLAnalyticsSettingModel);
 
 
 }

@@ -15,19 +15,19 @@ namespace Pandora.Definitions.ResourceManager.CosmosDB.v2022_05_15.Rbacs;
 
 internal class SqlResourcesCreateUpdateSqlRoleDefinitionOperation : Operations.PutOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(SqlRoleDefinitionCreateUpdateParametersModel);
 
-    public override ResourceID? ResourceId() => new SqlRoleDefinitionId();
+\t\tpublic override ResourceID? ResourceId() => new SqlRoleDefinitionId();
 
-    public override Type? ResponseObject() => typeof(SqlRoleDefinitionGetResultsModel);
+\t\tpublic override Type? ResponseObject() => typeof(SqlRoleDefinitionGetResultsModel);
 
 
 }

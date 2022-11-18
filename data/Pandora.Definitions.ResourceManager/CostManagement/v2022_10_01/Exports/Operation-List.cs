@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.CostManagement.v2022_10_01.Exports
 
 internal class ListOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ScopeId();
+\t\tpublic override ResourceID? ResourceId() => new ScopeId();
 
-    public override Type? ResponseObject() => typeof(ExportListResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(ExportListResultModel);
 
-    public override Type? OptionsObject() => typeof(ListOperation.ListOptions);
+\t\tpublic override Type? OptionsObject() => typeof(ListOperation.ListOptions);
 
-    public override string? UriSuffix() => "/providers/Microsoft.CostManagement/exports";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.CostManagement/exports";
 
     internal class ListOptions
     {

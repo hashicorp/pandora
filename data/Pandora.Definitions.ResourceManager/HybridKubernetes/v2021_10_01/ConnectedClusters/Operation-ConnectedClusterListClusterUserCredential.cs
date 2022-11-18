@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.HybridKubernetes.v2021_10_01.Conne
 
 internal class ConnectedClusterListClusterUserCredentialOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(ListClusterUserCredentialPropertiesModel);
 
-    public override ResourceID? ResourceId() => new ConnectedClusterId();
+\t\tpublic override ResourceID? ResourceId() => new ConnectedClusterId();
 
-    public override Type? ResponseObject() => typeof(CredentialResultsModel);
+\t\tpublic override Type? ResponseObject() => typeof(CredentialResultsModel);
 
-    public override string? UriSuffix() => "/listClusterUserCredential";
+\t\tpublic override string? UriSuffix() => "/listClusterUserCredential";
 
 
 }

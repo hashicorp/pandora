@@ -15,19 +15,19 @@ namespace Pandora.Definitions.ResourceManager.NetApp.v2022_05_01.PoolChange;
 
 internal class VolumesPoolChangeOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(PoolChangeRequestModel);
 
-    public override ResourceID? ResourceId() => new VolumeId();
+\t\tpublic override ResourceID? ResourceId() => new VolumeId();
 
-    public override string? UriSuffix() => "/poolChange";
+\t\tpublic override string? UriSuffix() => "/poolChange";
 
 
 }

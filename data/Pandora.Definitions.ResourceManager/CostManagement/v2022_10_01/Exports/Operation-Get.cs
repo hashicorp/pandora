@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.CostManagement.v2022_10_01.Exports
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ScopedExportId();
+\t\tpublic override ResourceID? ResourceId() => new ScopedExportId();
 
-    public override Type? ResponseObject() => typeof(ExportModel);
+\t\tpublic override Type? ResponseObject() => typeof(ExportModel);
 
-    public override Type? OptionsObject() => typeof(GetOperation.GetOptions);
+\t\tpublic override Type? OptionsObject() => typeof(GetOperation.GetOptions);
 
     internal class GetOptions
     {

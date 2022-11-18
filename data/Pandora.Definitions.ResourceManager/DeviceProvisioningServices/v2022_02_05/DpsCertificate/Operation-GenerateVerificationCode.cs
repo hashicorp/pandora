@@ -15,20 +15,20 @@ namespace Pandora.Definitions.ResourceManager.DeviceProvisioningServices.v2022_0
 
 internal class GenerateVerificationCodeOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new CertificateId();
+\t\tpublic override ResourceID? ResourceId() => new CertificateId();
 
-    public override Type? ResponseObject() => typeof(VerificationCodeResponseModel);
+\t\tpublic override Type? ResponseObject() => typeof(VerificationCodeResponseModel);
 
-    public override Type? OptionsObject() => typeof(GenerateVerificationCodeOperation.GenerateVerificationCodeOptions);
+\t\tpublic override Type? OptionsObject() => typeof(GenerateVerificationCodeOperation.GenerateVerificationCodeOptions);
 
-    public override string? UriSuffix() => "/generateVerificationCode";
+\t\tpublic override string? UriSuffix() => "/generateVerificationCode";
 
     internal class GenerateVerificationCodeOptions
     {

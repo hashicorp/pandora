@@ -15,19 +15,19 @@ namespace Pandora.Definitions.ResourceManager.SqlVirtualMachine.v2022_02_01.SqlV
 
 internal class StartAssessmentOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new SqlVirtualMachineId();
+\t\tpublic override ResourceID? ResourceId() => new SqlVirtualMachineId();
 
-    public override string? UriSuffix() => "/startAssessment";
+\t\tpublic override string? UriSuffix() => "/startAssessment";
 
 
 }

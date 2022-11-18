@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.VMware.v2022_05_01.Scripts;
 
 internal class ScriptExecutionsGetExecutionLogsOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(List<ScriptOutputStreamTypeConstant>);
 
-    public override ResourceID? ResourceId() => new ScriptExecutionId();
+\t\tpublic override ResourceID? ResourceId() => new ScriptExecutionId();
 
-    public override Type? ResponseObject() => typeof(ScriptExecutionModel);
+\t\tpublic override Type? ResponseObject() => typeof(ScriptExecutionModel);
 
-    public override string? UriSuffix() => "/getExecutionLogs";
+\t\tpublic override string? UriSuffix() => "/getExecutionLogs";
 
 
 }

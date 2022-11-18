@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.AppPlatform.v2022_09_01_preview.Ap
 
 internal class RuntimeVersionsListRuntimeVersionsOperation : Operations.GetOperation
 {
-    public override Type? ResponseObject() => typeof(AvailableRuntimeVersionsModel);
+\t\tpublic override Type? ResponseObject() => typeof(AvailableRuntimeVersionsModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.AppPlatform/runtimeVersions";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.AppPlatform/runtimeVersions";
 
 
 }

@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.Storage.v2022_09_01.FileShares;
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ShareId();
+\t\tpublic override ResourceID? ResourceId() => new ShareId();
 
-    public override Type? ResponseObject() => typeof(FileShareModel);
+\t\tpublic override Type? ResponseObject() => typeof(FileShareModel);
 
-    public override Type? OptionsObject() => typeof(GetOperation.GetOptions);
+\t\tpublic override Type? OptionsObject() => typeof(GetOperation.GetOptions);
 
     internal class GetOptions
     {

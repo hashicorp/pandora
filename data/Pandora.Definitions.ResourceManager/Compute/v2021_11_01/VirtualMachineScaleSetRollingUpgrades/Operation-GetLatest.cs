@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.Compute.v2021_11_01.VirtualMachine
 
 internal class GetLatestOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new VirtualMachineScaleSetId();
+\t\tpublic override ResourceID? ResourceId() => new VirtualMachineScaleSetId();
 
-    public override Type? ResponseObject() => typeof(RollingUpgradeStatusInfoModel);
+\t\tpublic override Type? ResponseObject() => typeof(RollingUpgradeStatusInfoModel);
 
-    public override string? UriSuffix() => "/rollingUpgrades/latest";
+\t\tpublic override string? UriSuffix() => "/rollingUpgrades/latest";
 
 
 }

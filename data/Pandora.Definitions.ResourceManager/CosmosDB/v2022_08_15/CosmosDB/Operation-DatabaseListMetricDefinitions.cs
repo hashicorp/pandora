@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.CosmosDB.v2022_08_15.CosmosDB;
 
 internal class DatabaseListMetricDefinitionsOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new DatabaseId();
+\t\tpublic override ResourceID? ResourceId() => new DatabaseId();
 
-    public override Type? ResponseObject() => typeof(MetricDefinitionsListResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(MetricDefinitionsListResultModel);
 
-    public override string? UriSuffix() => "/metricDefinitions";
+\t\tpublic override string? UriSuffix() => "/metricDefinitions";
 
 
 }

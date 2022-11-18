@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.NotificationHubs.v2017_04_01.Notif
 
 internal class ListOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new NamespaceId();
+\t\tpublic override ResourceID? ResourceId() => new NamespaceId();
 
-    public override Type NestedItemType() => typeof(NotificationHubResourceModel);
+\t\tpublic override Type NestedItemType() => typeof(NotificationHubResourceModel);
 
-    public override string? UriSuffix() => "/notificationHubs";
+\t\tpublic override string? UriSuffix() => "/notificationHubs";
 
 
 }

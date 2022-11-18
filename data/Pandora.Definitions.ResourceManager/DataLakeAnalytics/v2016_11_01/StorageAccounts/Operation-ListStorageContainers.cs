@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.DataLakeAnalytics.v2016_11_01.Stor
 
 internal class ListStorageContainersOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new StorageAccountId();
+\t\tpublic override ResourceID? ResourceId() => new StorageAccountId();
 
-    public override Type NestedItemType() => typeof(StorageContainerModel);
+\t\tpublic override Type NestedItemType() => typeof(StorageContainerModel);
 
-    public override string? UriSuffix() => "/containers";
+\t\tpublic override string? UriSuffix() => "/containers";
 
 
 }

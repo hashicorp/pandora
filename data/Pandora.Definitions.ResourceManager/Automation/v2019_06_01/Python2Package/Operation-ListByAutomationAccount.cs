@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Automation.v2019_06_01.Python2Pack
 
 internal class ListByAutomationAccountOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new AutomationAccountId();
+\t\tpublic override ResourceID? ResourceId() => new AutomationAccountId();
 
-    public override Type NestedItemType() => typeof(ModuleModel);
+\t\tpublic override Type NestedItemType() => typeof(ModuleModel);
 
-    public override string? UriSuffix() => "/python2Packages";
+\t\tpublic override string? UriSuffix() => "/python2Packages";
 
 
 }

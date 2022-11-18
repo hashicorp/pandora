@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.Insights.v2021_05_01_preview.Diagn
 
 internal class CreateOrUpdateOperation : Operations.PutOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(DiagnosticSettingsResourceModel);
 
-    public override ResourceID? ResourceId() => new ScopedDiagnosticSettingId();
+\t\tpublic override ResourceID? ResourceId() => new ScopedDiagnosticSettingId();
 
-    public override Type? ResponseObject() => typeof(DiagnosticSettingsResourceModel);
+\t\tpublic override Type? ResponseObject() => typeof(DiagnosticSettingsResourceModel);
 
 
 }

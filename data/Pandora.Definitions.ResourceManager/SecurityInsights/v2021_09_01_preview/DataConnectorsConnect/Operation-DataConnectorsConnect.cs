@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.SecurityInsights.v2021_09_01_previ
 
 internal class DataConnectorsConnectOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(DataConnectorConnectBodyModel);
 
-    public override ResourceID? ResourceId() => new DataConnectorId();
+\t\tpublic override ResourceID? ResourceId() => new DataConnectorId();
 
-    public override string? UriSuffix() => "/connect";
+\t\tpublic override string? UriSuffix() => "/connect";
 
 
 }

@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.Maintenance.v2021_05_01.ApplyUpdat
 
 internal class ForResourceGroupListOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ResourceGroupId();
+\t\tpublic override ResourceID? ResourceId() => new ResourceGroupId();
 
-    public override Type? ResponseObject() => typeof(ListApplyUpdateModel);
+\t\tpublic override Type? ResponseObject() => typeof(ListApplyUpdateModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.Maintenance/applyUpdates";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.Maintenance/applyUpdates";
 
 
 }

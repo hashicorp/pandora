@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Resources.v2020_10_01.DeploymentSc
 
 internal class GetLogsDefaultOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new DeploymentScriptId();
+\t\tpublic override ResourceID? ResourceId() => new DeploymentScriptId();
 
-    public override Type? ResponseObject() => typeof(ScriptLogModel);
+\t\tpublic override Type? ResponseObject() => typeof(ScriptLogModel);
 
-    public override Type? OptionsObject() => typeof(GetLogsDefaultOperation.GetLogsDefaultOptions);
+\t\tpublic override Type? OptionsObject() => typeof(GetLogsDefaultOperation.GetLogsDefaultOptions);
 
-    public override string? UriSuffix() => "/logs/default";
+\t\tpublic override string? UriSuffix() => "/logs/default";
 
     internal class GetLogsDefaultOptions
     {

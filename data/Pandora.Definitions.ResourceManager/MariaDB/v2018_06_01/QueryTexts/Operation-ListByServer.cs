@@ -15,15 +15,15 @@ namespace Pandora.Definitions.ResourceManager.MariaDB.v2018_06_01.QueryTexts;
 
 internal class ListByServerOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new ServerId();
+\t\tpublic override ResourceID? ResourceId() => new ServerId();
 
-    public override Type NestedItemType() => typeof(QueryTextModel);
+\t\tpublic override Type NestedItemType() => typeof(QueryTextModel);
 
-    public override Type? OptionsObject() => typeof(ListByServerOperation.ListByServerOptions);
+\t\tpublic override Type? OptionsObject() => typeof(ListByServerOperation.ListByServerOptions);
 
-    public override string? UriSuffix() => "/queryTexts";
+\t\tpublic override string? UriSuffix() => "/queryTexts";
 
     internal class ListByServerOptions
     {

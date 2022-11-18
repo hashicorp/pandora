@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.KubernetesConfiguration.v2022_11_0
 
 internal class ExtensionsListOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new ProviderId();
+\t\tpublic override ResourceID? ResourceId() => new ProviderId();
 
-    public override Type NestedItemType() => typeof(ExtensionModel);
+\t\tpublic override Type NestedItemType() => typeof(ExtensionModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.KubernetesConfiguration/extensions";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.KubernetesConfiguration/extensions";
 
 
 }

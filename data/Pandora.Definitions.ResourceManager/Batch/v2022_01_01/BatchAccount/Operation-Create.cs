@@ -15,19 +15,19 @@ namespace Pandora.Definitions.ResourceManager.Batch.v2022_01_01.BatchAccount;
 
 internal class CreateOperation : Operations.PutOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(BatchAccountCreateParametersModel);
 
-    public override ResourceID? ResourceId() => new BatchAccountId();
+\t\tpublic override ResourceID? ResourceId() => new BatchAccountId();
 
-    public override Type? ResponseObject() => typeof(BatchAccountModel);
+\t\tpublic override Type? ResponseObject() => typeof(BatchAccountModel);
 
 
 }

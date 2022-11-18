@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.Delegati
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ServiceId();
+\t\tpublic override ResourceID? ResourceId() => new ServiceId();
 
-    public override Type? ResponseObject() => typeof(PortalDelegationSettingsModel);
+\t\tpublic override Type? ResponseObject() => typeof(PortalDelegationSettingsModel);
 
-    public override string? UriSuffix() => "/portalsettings/delegation";
+\t\tpublic override string? UriSuffix() => "/portalsettings/delegation";
 
 
 }

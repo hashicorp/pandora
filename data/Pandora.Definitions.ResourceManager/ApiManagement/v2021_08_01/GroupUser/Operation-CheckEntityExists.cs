@@ -15,12 +15,12 @@ namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.GroupUse
 
 internal class CheckEntityExistsOperation : Operations.HeadOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.NoContent,
         };
 
-    public override ResourceID? ResourceId() => new UserId();
+\t\tpublic override ResourceID? ResourceId() => new UserId();
 
 
 }

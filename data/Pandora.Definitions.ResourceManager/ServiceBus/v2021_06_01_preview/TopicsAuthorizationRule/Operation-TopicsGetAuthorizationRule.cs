@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.ServiceBus.v2021_06_01_preview.Top
 
 internal class TopicsGetAuthorizationRuleOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new TopicAuthorizationRuleId();
+\t\tpublic override ResourceID? ResourceId() => new TopicAuthorizationRuleId();
 
-    public override Type? ResponseObject() => typeof(SBAuthorizationRuleModel);
+\t\tpublic override Type? ResponseObject() => typeof(SBAuthorizationRuleModel);
 
 
 }

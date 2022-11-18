@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.ResourceConnector.v2022_10_27.Appl
 
 internal class ListClusterUserCredentialOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new ApplianceId();
+\t\tpublic override ResourceID? ResourceId() => new ApplianceId();
 
-    public override Type? ResponseObject() => typeof(ApplianceListCredentialResultsModel);
+\t\tpublic override Type? ResponseObject() => typeof(ApplianceListCredentialResultsModel);
 
-    public override string? UriSuffix() => "/listClusterUserCredential";
+\t\tpublic override string? UriSuffix() => "/listClusterUserCredential";
 
 
 }

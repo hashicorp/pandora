@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.WebPubSub.v2021_10_01.WebPubSub;
 
 internal class SharedPrivateLinkResourcesGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new SharedPrivateLinkResourceId();
+\t\tpublic override ResourceID? ResourceId() => new SharedPrivateLinkResourceId();
 
-    public override Type? ResponseObject() => typeof(SharedPrivateLinkResourceModel);
+\t\tpublic override Type? ResponseObject() => typeof(SharedPrivateLinkResourceModel);
 
 
 }

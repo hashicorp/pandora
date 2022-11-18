@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.VMware.v2022_05_01.WorkloadNetwork
 
 internal class CreateDhcpOperation : Operations.PutOperation
 {
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(WorkloadNetworkDhcpModel);
 
-    public override ResourceID? ResourceId() => new DhcpConfigurationId();
+\t\tpublic override ResourceID? ResourceId() => new DhcpConfigurationId();
 
-    public override Type? ResponseObject() => typeof(WorkloadNetworkDhcpModel);
+\t\tpublic override Type? ResponseObject() => typeof(WorkloadNetworkDhcpModel);
 
 
 }

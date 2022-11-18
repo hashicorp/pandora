@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.Dynatrace.v2021_09_01.Monitors;
 
 internal class GetAccountCredentialsOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new MonitorId();
+\t\tpublic override ResourceID? ResourceId() => new MonitorId();
 
-    public override Type? ResponseObject() => typeof(AccountInfoSecureModel);
+\t\tpublic override Type? ResponseObject() => typeof(AccountInfoSecureModel);
 
-    public override string? UriSuffix() => "/getAccountCredentials";
+\t\tpublic override string? UriSuffix() => "/getAccountCredentials";
 
 
 }

@@ -17,9 +17,9 @@ internal class AlertProcessingRulesCreateOrUpdateOperation : Operations.PutOpera
 {
     public override Type? RequestObject() => typeof(AlertProcessingRuleModel);
 
-    public override ResourceID? ResourceId() => new ActionRuleId();
+\t\tpublic override ResourceID? ResourceId() => new ActionRuleId();
 
-    public override Type? ResponseObject() => typeof(AlertProcessingRuleModel);
+\t\tpublic override Type? ResponseObject() => typeof(AlertProcessingRuleModel);
 
 
 }

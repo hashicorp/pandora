@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Compute.v2022_03_02.Snapshots;
 
 internal class ListByResourceGroupOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new ResourceGroupId();
+\t\tpublic override ResourceID? ResourceId() => new ResourceGroupId();
 
-    public override Type NestedItemType() => typeof(SnapshotModel);
+\t\tpublic override Type NestedItemType() => typeof(SnapshotModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.Compute/snapshots";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.Compute/snapshots";
 
 
 }

@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.AlertsManagement.v2021_08_08.Alert
 
 internal class AlertProcessingRulesUpdateOperation : Operations.PatchOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(PatchObjectModel);
 
-    public override ResourceID? ResourceId() => new ActionRuleId();
+\t\tpublic override ResourceID? ResourceId() => new ActionRuleId();
 
-    public override Type? ResponseObject() => typeof(AlertProcessingRuleModel);
+\t\tpublic override Type? ResponseObject() => typeof(AlertProcessingRuleModel);
 
 
 }

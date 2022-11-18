@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.ApplicationInsights.v2020_11_20.Wo
 
 internal class WorkbookTemplatesGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new WorkbookTemplateId();
+\t\tpublic override ResourceID? ResourceId() => new WorkbookTemplateId();
 
-    public override Type? ResponseObject() => typeof(WorkbookTemplateModel);
+\t\tpublic override Type? ResponseObject() => typeof(WorkbookTemplateModel);
 
 
 }

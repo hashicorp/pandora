@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.Batch.v2022_10_01.Location;
 
 internal class GetQuotasOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new LocationId();
+\t\tpublic override ResourceID? ResourceId() => new LocationId();
 
-    public override Type? ResponseObject() => typeof(BatchLocationQuotaModel);
+\t\tpublic override Type? ResponseObject() => typeof(BatchLocationQuotaModel);
 
-    public override string? UriSuffix() => "/quotas";
+\t\tpublic override string? UriSuffix() => "/quotas";
 
 
 }

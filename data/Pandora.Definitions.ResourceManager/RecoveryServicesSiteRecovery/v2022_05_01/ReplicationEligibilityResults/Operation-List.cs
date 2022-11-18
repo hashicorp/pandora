@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.RecoveryServicesSiteRecovery.v2022
 
 internal class ListOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new VirtualMachineId();
+\t\tpublic override ResourceID? ResourceId() => new VirtualMachineId();
 
-    public override Type? ResponseObject() => typeof(ReplicationEligibilityResultsCollectionModel);
+\t\tpublic override Type? ResponseObject() => typeof(ReplicationEligibilityResultsCollectionModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.RecoveryServices/replicationEligibilityResults";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.RecoveryServices/replicationEligibilityResults";
 
 
 }

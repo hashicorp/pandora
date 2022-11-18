@@ -15,19 +15,19 @@ namespace Pandora.Definitions.ResourceManager.CosmosDB.v2022_05_15.CosmosDB;
 
 internal class SqlResourcesCreateUpdateSqlTriggerOperation : Operations.PutOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(SqlTriggerCreateUpdateParametersModel);
 
-    public override ResourceID? ResourceId() => new TriggerId();
+\t\tpublic override ResourceID? ResourceId() => new TriggerId();
 
-    public override Type? ResponseObject() => typeof(SqlTriggerGetResultsModel);
+\t\tpublic override Type? ResponseObject() => typeof(SqlTriggerGetResultsModel);
 
 
 }

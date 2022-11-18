@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.DataLakeStore.v2016_11_01.Accounts
 
 internal class CheckNameAvailabilityOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(CheckNameAvailabilityParametersModel);
 
-    public override ResourceID? ResourceId() => new LocationId();
+\t\tpublic override ResourceID? ResourceId() => new LocationId();
 
-    public override Type? ResponseObject() => typeof(NameAvailabilityInformationModel);
+\t\tpublic override Type? ResponseObject() => typeof(NameAvailabilityInformationModel);
 
-    public override string? UriSuffix() => "/checkNameAvailability";
+\t\tpublic override string? UriSuffix() => "/checkNameAvailability";
 
 
 }

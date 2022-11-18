@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.ConfidentialLedger.v2022_05_13.Nam
 
 internal class CheckNameAvailabilityOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(CheckNameAvailabilityRequestModel);
 
-    public override ResourceID? ResourceId() => new SubscriptionId();
+\t\tpublic override ResourceID? ResourceId() => new SubscriptionId();
 
-    public override Type? ResponseObject() => typeof(CheckNameAvailabilityResponseModel);
+\t\tpublic override Type? ResponseObject() => typeof(CheckNameAvailabilityResponseModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.ConfidentialLedger/checkNameAvailability";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.ConfidentialLedger/checkNameAvailability";
 
 
 }

@@ -15,19 +15,19 @@ namespace Pandora.Definitions.ResourceManager.Media.v2020_05_01.LiveEvents;
 
 internal class StopOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(LiveEventActionInputModel);
 
-    public override ResourceID? ResourceId() => new LiveEventId();
+\t\tpublic override ResourceID? ResourceId() => new LiveEventId();
 
-    public override string? UriSuffix() => "/stop";
+\t\tpublic override string? UriSuffix() => "/stop";
 
 
 }

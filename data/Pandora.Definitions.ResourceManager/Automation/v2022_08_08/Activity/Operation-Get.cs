@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.Automation.v2022_08_08.Activity;
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ActivityId();
+\t\tpublic override ResourceID? ResourceId() => new ActivityId();
 
-    public override Type? ResponseObject() => typeof(ActivityModel);
+\t\tpublic override Type? ResponseObject() => typeof(ActivityModel);
 
 
 }

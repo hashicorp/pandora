@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.ContainerApps.v2022_03_01.Containe
 
 internal class GetReplicaOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ReplicaId();
+\t\tpublic override ResourceID? ResourceId() => new ReplicaId();
 
-    public override Type? ResponseObject() => typeof(ReplicaModel);
+\t\tpublic override Type? ResponseObject() => typeof(ReplicaModel);
 
 
 }

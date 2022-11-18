@@ -15,24 +15,24 @@ namespace Pandora.Definitions.ResourceManager.Search.v2020_03_13.QueryKeys;
 
 internal class ListBySearchServiceOperation : Operations.ListOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new SearchServiceId();
+\t\tpublic override ResourceID? ResourceId() => new SearchServiceId();
 
-    public override Type NestedItemType() => typeof(QueryKeyModel);
+\t\tpublic override Type NestedItemType() => typeof(QueryKeyModel);
 
-    public override Type? OptionsObject() => typeof(ListBySearchServiceOperation.ListBySearchServiceOptions);
+\t\tpublic override Type? OptionsObject() => typeof(ListBySearchServiceOperation.ListBySearchServiceOptions);
 
-    public override string? UriSuffix() => "/listQueryKeys";
+\t\tpublic override string? UriSuffix() => "/listQueryKeys";
 
-    public override System.Net.Http.HttpMethod Method() => System.Net.Http.HttpMethod.Post;
+\t\tpublic override System.Net.Http.HttpMethod Method() => System.Net.Http.HttpMethod.Post;
 
     internal class ListBySearchServiceOptions
     {

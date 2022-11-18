@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Compute.v2021_11_01.Images;
 
 internal class CreateOrUpdateOperation : Operations.PutOperation
 {
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(ImageModel);
 
-    public override ResourceID? ResourceId() => new ImageId();
+\t\tpublic override ResourceID? ResourceId() => new ImageId();
 
-    public override Type? ResponseObject() => typeof(ImageModel);
+\t\tpublic override Type? ResponseObject() => typeof(ImageModel);
 
 
 }

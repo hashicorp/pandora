@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.CosmosDB.v2022_05_15.CosmosDB;
 
 internal class PartitionKeyRangeIdRegionListMetricsOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new CollectionPartitionKeyRangeIdId();
+\t\tpublic override ResourceID? ResourceId() => new CollectionPartitionKeyRangeIdId();
 
-    public override Type? ResponseObject() => typeof(PartitionMetricListResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(PartitionMetricListResultModel);
 
-    public override Type? OptionsObject() => typeof(PartitionKeyRangeIdRegionListMetricsOperation.PartitionKeyRangeIdRegionListMetricsOptions);
+\t\tpublic override Type? OptionsObject() => typeof(PartitionKeyRangeIdRegionListMetricsOperation.PartitionKeyRangeIdRegionListMetricsOptions);
 
-    public override string? UriSuffix() => "/metrics";
+\t\tpublic override string? UriSuffix() => "/metrics";
 
     internal class PartitionKeyRangeIdRegionListMetricsOptions
     {

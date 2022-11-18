@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.VMware.v2021_12_01.PrivateClouds;
 
 internal class ListInSubscriptionOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new SubscriptionId();
+\t\tpublic override ResourceID? ResourceId() => new SubscriptionId();
 
-    public override Type NestedItemType() => typeof(PrivateCloudModel);
+\t\tpublic override Type NestedItemType() => typeof(PrivateCloudModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.AVS/privateClouds";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.AVS/privateClouds";
 
 
 }

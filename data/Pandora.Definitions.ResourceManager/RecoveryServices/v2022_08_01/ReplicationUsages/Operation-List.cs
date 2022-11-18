@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.RecoveryServices.v2022_08_01.Repli
 
 internal class ListOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new VaultId();
+\t\tpublic override ResourceID? ResourceId() => new VaultId();
 
-    public override Type? ResponseObject() => typeof(ReplicationUsageListModel);
+\t\tpublic override Type? ResponseObject() => typeof(ReplicationUsageListModel);
 
-    public override string? UriSuffix() => "/replicationUsages";
+\t\tpublic override string? UriSuffix() => "/replicationUsages";
 
 
 }

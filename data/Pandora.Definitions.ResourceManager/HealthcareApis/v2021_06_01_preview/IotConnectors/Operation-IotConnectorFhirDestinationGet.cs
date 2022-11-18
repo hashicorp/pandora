@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.HealthcareApis.v2021_06_01_preview
 
 internal class IotConnectorFhirDestinationGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new FhirDestinationId();
+\t\tpublic override ResourceID? ResourceId() => new FhirDestinationId();
 
-    public override Type? ResponseObject() => typeof(IotFhirDestinationModel);
+\t\tpublic override Type? ResponseObject() => typeof(IotFhirDestinationModel);
 
 
 }

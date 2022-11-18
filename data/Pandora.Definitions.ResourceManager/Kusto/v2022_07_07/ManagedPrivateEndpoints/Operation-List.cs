@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.Kusto.v2022_07_07.ManagedPrivateEn
 
 internal class ListOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ClusterId();
+\t\tpublic override ResourceID? ResourceId() => new ClusterId();
 
-    public override Type? ResponseObject() => typeof(ManagedPrivateEndpointListResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(ManagedPrivateEndpointListResultModel);
 
-    public override string? UriSuffix() => "/managedPrivateEndpoints";
+\t\tpublic override string? UriSuffix() => "/managedPrivateEndpoints";
 
 
 }

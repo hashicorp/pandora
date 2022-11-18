@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.SignInSe
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ServiceId();
+\t\tpublic override ResourceID? ResourceId() => new ServiceId();
 
-    public override Type? ResponseObject() => typeof(PortalSigninSettingsModel);
+\t\tpublic override Type? ResponseObject() => typeof(PortalSigninSettingsModel);
 
-    public override string? UriSuffix() => "/portalsettings/signin";
+\t\tpublic override string? UriSuffix() => "/portalsettings/signin";
 
 
 }

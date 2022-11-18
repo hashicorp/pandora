@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.ContainerApps.v2022_03_01.DaprComp
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new DaprComponentId();
+\t\tpublic override ResourceID? ResourceId() => new DaprComponentId();
 
-    public override Type? ResponseObject() => typeof(DaprComponentModel);
+\t\tpublic override Type? ResponseObject() => typeof(DaprComponentModel);
 
 
 }

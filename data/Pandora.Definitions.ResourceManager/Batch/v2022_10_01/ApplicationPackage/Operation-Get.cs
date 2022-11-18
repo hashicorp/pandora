@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.Batch.v2022_10_01.ApplicationPacka
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new VersionId();
+\t\tpublic override ResourceID? ResourceId() => new VersionId();
 
-    public override Type? ResponseObject() => typeof(ApplicationPackageModel);
+\t\tpublic override Type? ResponseObject() => typeof(ApplicationPackageModel);
 
 
 }

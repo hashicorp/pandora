@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.Media.v2020_05_01.StreamingEndpoin
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new StreamingEndpointId();
+\t\tpublic override ResourceID? ResourceId() => new StreamingEndpointId();
 
-    public override Type? ResponseObject() => typeof(StreamingEndpointModel);
+\t\tpublic override Type? ResponseObject() => typeof(StreamingEndpointModel);
 
 
 }

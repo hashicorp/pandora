@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.Dynatrace.v2021_09_01.Monitors;
 
 internal class GetSSODetailsOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(SSODetailsRequestModel);
 
-    public override ResourceID? ResourceId() => new MonitorId();
+\t\tpublic override ResourceID? ResourceId() => new MonitorId();
 
-    public override Type? ResponseObject() => typeof(SSODetailsResponseModel);
+\t\tpublic override Type? ResponseObject() => typeof(SSODetailsResponseModel);
 
-    public override string? UriSuffix() => "/getSSODetails";
+\t\tpublic override string? UriSuffix() => "/getSSODetails";
 
 
 }

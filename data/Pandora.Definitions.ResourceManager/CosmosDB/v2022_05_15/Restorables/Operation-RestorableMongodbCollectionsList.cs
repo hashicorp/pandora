@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.CosmosDB.v2022_05_15.Restorables;
 
 internal class RestorableMongodbCollectionsListOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new RestorableDatabaseAccountId();
+\t\tpublic override ResourceID? ResourceId() => new RestorableDatabaseAccountId();
 
-    public override Type? ResponseObject() => typeof(RestorableMongodbCollectionsListResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(RestorableMongodbCollectionsListResultModel);
 
-    public override Type? OptionsObject() => typeof(RestorableMongodbCollectionsListOperation.RestorableMongodbCollectionsListOptions);
+\t\tpublic override Type? OptionsObject() => typeof(RestorableMongodbCollectionsListOperation.RestorableMongodbCollectionsListOptions);
 
-    public override string? UriSuffix() => "/restorableMongodbCollections";
+\t\tpublic override string? UriSuffix() => "/restorableMongodbCollections";
 
     internal class RestorableMongodbCollectionsListOptions
     {

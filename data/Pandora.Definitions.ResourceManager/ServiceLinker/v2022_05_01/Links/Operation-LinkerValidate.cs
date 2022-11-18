@@ -15,21 +15,21 @@ namespace Pandora.Definitions.ResourceManager.ServiceLinker.v2022_05_01.Links;
 
 internal class LinkerValidateOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new ScopedLinkerId();
+\t\tpublic override ResourceID? ResourceId() => new ScopedLinkerId();
 
-    public override Type? ResponseObject() => typeof(ValidateOperationResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(ValidateOperationResultModel);
 
-    public override string? UriSuffix() => "/validateLinker";
+\t\tpublic override string? UriSuffix() => "/validateLinker";
 
 
 }

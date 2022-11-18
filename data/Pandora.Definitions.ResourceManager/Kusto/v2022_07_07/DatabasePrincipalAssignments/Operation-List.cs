@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.Kusto.v2022_07_07.DatabasePrincipa
 
 internal class ListOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new DatabaseId();
+\t\tpublic override ResourceID? ResourceId() => new DatabaseId();
 
-    public override Type? ResponseObject() => typeof(DatabasePrincipalAssignmentListResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(DatabasePrincipalAssignmentListResultModel);
 
-    public override string? UriSuffix() => "/principalAssignments";
+\t\tpublic override string? UriSuffix() => "/principalAssignments";
 
 
 }

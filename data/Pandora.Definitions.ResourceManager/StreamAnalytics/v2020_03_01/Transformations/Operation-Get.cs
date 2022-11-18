@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.StreamAnalytics.v2020_03_01.Transf
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new TransformationId();
+\t\tpublic override ResourceID? ResourceId() => new TransformationId();
 
-    public override Type? ResponseObject() => typeof(TransformationModel);
+\t\tpublic override Type? ResponseObject() => typeof(TransformationModel);
 
 
 }

@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Consumption.v2019_10_01.Aggregated
 
 internal class GetByManagementGroupOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ManagementGroupId();
+\t\tpublic override ResourceID? ResourceId() => new ManagementGroupId();
 
-    public override Type? ResponseObject() => typeof(ManagementGroupAggregatedCostResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(ManagementGroupAggregatedCostResultModel);
 
-    public override Type? OptionsObject() => typeof(GetByManagementGroupOperation.GetByManagementGroupOptions);
+\t\tpublic override Type? OptionsObject() => typeof(GetByManagementGroupOperation.GetByManagementGroupOptions);
 
-    public override string? UriSuffix() => "/providers/Microsoft.Consumption/aggregatedcost";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.Consumption/aggregatedcost";
 
     internal class GetByManagementGroupOptions
     {

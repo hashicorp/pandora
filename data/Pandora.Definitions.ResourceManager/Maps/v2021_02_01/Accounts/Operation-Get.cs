@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.Maps.v2021_02_01.Accounts;
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new AccountId();
+\t\tpublic override ResourceID? ResourceId() => new AccountId();
 
-    public override Type? ResponseObject() => typeof(MapsAccountModel);
+\t\tpublic override Type? ResponseObject() => typeof(MapsAccountModel);
 
 
 }

@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.SecurityInsights.v2021_09_01_previ
 
 internal class IPGeodataGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ResourceGroupId();
+\t\tpublic override ResourceID? ResourceId() => new ResourceGroupId();
 
-    public override Type? ResponseObject() => typeof(EnrichmentIPGeodataModel);
+\t\tpublic override Type? ResponseObject() => typeof(EnrichmentIPGeodataModel);
 
-    public override Type? OptionsObject() => typeof(IPGeodataGetOperation.IPGeodataGetOptions);
+\t\tpublic override Type? OptionsObject() => typeof(IPGeodataGetOperation.IPGeodataGetOptions);
 
-    public override string? UriSuffix() => "/providers/Microsoft.SecurityInsights/enrichment/ip/geodata";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.SecurityInsights/enrichment/ip/geodata";
 
     internal class IPGeodataGetOptions
     {

@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.Insights.v2021_05_01_preview.Diagn
 
 internal class DiagnosticSettingsCategoryListOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ScopeId();
+\t\tpublic override ResourceID? ResourceId() => new ScopeId();
 
-    public override Type? ResponseObject() => typeof(DiagnosticSettingsCategoryResourceCollectionModel);
+\t\tpublic override Type? ResponseObject() => typeof(DiagnosticSettingsCategoryResourceCollectionModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.Insights/diagnosticSettingsCategories";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.Insights/diagnosticSettingsCategories";
 
 
 }

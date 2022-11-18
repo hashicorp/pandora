@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Automation.v2022_08_08.AutomationA
 
 internal class ListByResourceGroupOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new ResourceGroupId();
+\t\tpublic override ResourceID? ResourceId() => new ResourceGroupId();
 
-    public override Type NestedItemType() => typeof(AutomationAccountModel);
+\t\tpublic override Type NestedItemType() => typeof(AutomationAccountModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.Automation/automationAccounts";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.Automation/automationAccounts";
 
 
 }

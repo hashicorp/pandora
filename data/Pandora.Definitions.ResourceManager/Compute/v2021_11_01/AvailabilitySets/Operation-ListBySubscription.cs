@@ -15,15 +15,15 @@ namespace Pandora.Definitions.ResourceManager.Compute.v2021_11_01.AvailabilitySe
 
 internal class ListBySubscriptionOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new SubscriptionId();
+\t\tpublic override ResourceID? ResourceId() => new SubscriptionId();
 
-    public override Type NestedItemType() => typeof(AvailabilitySetModel);
+\t\tpublic override Type NestedItemType() => typeof(AvailabilitySetModel);
 
-    public override Type? OptionsObject() => typeof(ListBySubscriptionOperation.ListBySubscriptionOptions);
+\t\tpublic override Type? OptionsObject() => typeof(ListBySubscriptionOperation.ListBySubscriptionOptions);
 
-    public override string? UriSuffix() => "/providers/Microsoft.Compute/availabilitySets";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.Compute/availabilitySets";
 
     internal class ListBySubscriptionOptions
     {

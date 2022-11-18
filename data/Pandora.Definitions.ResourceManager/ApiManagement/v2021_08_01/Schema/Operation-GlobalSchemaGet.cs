@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.Schema;
 
 internal class GlobalSchemaGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new SchemaId();
+\t\tpublic override ResourceID? ResourceId() => new SchemaId();
 
-    public override Type? ResponseObject() => typeof(GlobalSchemaContractModel);
+\t\tpublic override Type? ResponseObject() => typeof(GlobalSchemaContractModel);
 
 
 }

@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.StoragePool.v2021_08_01.IscsiTarge
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new IscsiTargetId();
+\t\tpublic override ResourceID? ResourceId() => new IscsiTargetId();
 
-    public override Type? ResponseObject() => typeof(IscsiTargetModel);
+\t\tpublic override Type? ResponseObject() => typeof(IscsiTargetModel);
 
 
 }

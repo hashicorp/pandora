@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Web.v2016_06_01.CustomAPIs;
 
 internal class CustomApisListOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new SubscriptionId();
+\t\tpublic override ResourceID? ResourceId() => new SubscriptionId();
 
-    public override Type? ResponseObject() => typeof(CustomApiDefinitionCollectionModel);
+\t\tpublic override Type? ResponseObject() => typeof(CustomApiDefinitionCollectionModel);
 
-    public override Type? OptionsObject() => typeof(CustomApisListOperation.CustomApisListOptions);
+\t\tpublic override Type? OptionsObject() => typeof(CustomApisListOperation.CustomApisListOptions);
 
-    public override string? UriSuffix() => "/providers/Microsoft.Web/customApis";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.Web/customApis";
 
     internal class CustomApisListOptions
     {

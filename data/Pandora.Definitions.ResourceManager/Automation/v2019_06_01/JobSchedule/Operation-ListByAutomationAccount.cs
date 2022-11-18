@@ -15,15 +15,15 @@ namespace Pandora.Definitions.ResourceManager.Automation.v2019_06_01.JobSchedule
 
 internal class ListByAutomationAccountOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new AutomationAccountId();
+\t\tpublic override ResourceID? ResourceId() => new AutomationAccountId();
 
-    public override Type NestedItemType() => typeof(JobScheduleModel);
+\t\tpublic override Type NestedItemType() => typeof(JobScheduleModel);
 
-    public override Type? OptionsObject() => typeof(ListByAutomationAccountOperation.ListByAutomationAccountOptions);
+\t\tpublic override Type? OptionsObject() => typeof(ListByAutomationAccountOperation.ListByAutomationAccountOptions);
 
-    public override string? UriSuffix() => "/jobSchedules";
+\t\tpublic override string? UriSuffix() => "/jobSchedules";
 
     internal class ListByAutomationAccountOptions
     {

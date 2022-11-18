@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.Cognitive.v2022_10_01.CognitiveSer
 
 internal class AccountsListKeysOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new AccountId();
+\t\tpublic override ResourceID? ResourceId() => new AccountId();
 
-    public override Type? ResponseObject() => typeof(ApiKeysModel);
+\t\tpublic override Type? ResponseObject() => typeof(ApiKeysModel);
 
-    public override string? UriSuffix() => "/listKeys";
+\t\tpublic override string? UriSuffix() => "/listKeys";
 
 
 }

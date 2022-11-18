@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.AppPlatform.v2022_09_01_preview.Ap
 
 internal class StoragesGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new StorageId();
+\t\tpublic override ResourceID? ResourceId() => new StorageId();
 
-    public override Type? ResponseObject() => typeof(StorageResourceModel);
+\t\tpublic override Type? ResponseObject() => typeof(StorageResourceModel);
 
 
 }

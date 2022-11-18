@@ -17,9 +17,9 @@ internal class CreateOrUpdateOperation : Operations.PutOperation
 {
     public override Type? RequestObject() => typeof(PythonPackageCreateParametersModel);
 
-    public override ResourceID? ResourceId() => new Python3PackageId();
+\t\tpublic override ResourceID? ResourceId() => new Python3PackageId();
 
-    public override Type? ResponseObject() => typeof(ModuleModel);
+\t\tpublic override Type? ResponseObject() => typeof(ModuleModel);
 
 
 }

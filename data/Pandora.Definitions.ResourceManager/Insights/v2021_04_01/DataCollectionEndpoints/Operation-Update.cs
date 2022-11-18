@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.Insights.v2021_04_01.DataCollectio
 
 internal class UpdateOperation : Operations.PatchOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(ResourceForUpdateModel);
 
-    public override ResourceID? ResourceId() => new DataCollectionEndpointId();
+\t\tpublic override ResourceID? ResourceId() => new DataCollectionEndpointId();
 
-    public override Type? ResponseObject() => typeof(DataCollectionEndpointResourceModel);
+\t\tpublic override Type? ResponseObject() => typeof(DataCollectionEndpointResourceModel);
 
 
 }

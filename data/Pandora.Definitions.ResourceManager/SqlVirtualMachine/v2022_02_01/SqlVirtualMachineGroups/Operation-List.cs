@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.SqlVirtualMachine.v2022_02_01.SqlV
 
 internal class ListOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new SubscriptionId();
+\t\tpublic override ResourceID? ResourceId() => new SubscriptionId();
 
-    public override Type NestedItemType() => typeof(SqlVirtualMachineGroupModel);
+\t\tpublic override Type NestedItemType() => typeof(SqlVirtualMachineGroupModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.SqlVirtualMachine/sqlVirtualMachineGroups";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.SqlVirtualMachine/sqlVirtualMachineGroups";
 
 
 }

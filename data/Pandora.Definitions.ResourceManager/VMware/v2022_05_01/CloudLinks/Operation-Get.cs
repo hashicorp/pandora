@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.VMware.v2022_05_01.CloudLinks;
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new CloudLinkId();
+\t\tpublic override ResourceID? ResourceId() => new CloudLinkId();
 
-    public override Type? ResponseObject() => typeof(CloudLinkModel);
+\t\tpublic override Type? ResponseObject() => typeof(CloudLinkModel);
 
 
 }

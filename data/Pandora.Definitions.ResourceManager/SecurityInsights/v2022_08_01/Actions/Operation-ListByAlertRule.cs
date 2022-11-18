@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.SecurityInsights.v2022_08_01.Actio
 
 internal class ListByAlertRuleOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new AlertRuleId();
+\t\tpublic override ResourceID? ResourceId() => new AlertRuleId();
 
-    public override Type NestedItemType() => typeof(ActionResponseModel);
+\t\tpublic override Type NestedItemType() => typeof(ActionResponseModel);
 
-    public override string? UriSuffix() => "/actions";
+\t\tpublic override string? UriSuffix() => "/actions";
 
 
 }

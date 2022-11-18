@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.LoadTestService.v2022_12_01.Quotas
 
 internal class CheckAvailabilityOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(QuotaBucketRequestModel);
 
-    public override ResourceID? ResourceId() => new QuotaId();
+\t\tpublic override ResourceID? ResourceId() => new QuotaId();
 
-    public override Type? ResponseObject() => typeof(CheckQuotaAvailabilityResponseModel);
+\t\tpublic override Type? ResponseObject() => typeof(CheckQuotaAvailabilityResponseModel);
 
-    public override string? UriSuffix() => "/checkAvailability";
+\t\tpublic override string? UriSuffix() => "/checkAvailability";
 
 
 }

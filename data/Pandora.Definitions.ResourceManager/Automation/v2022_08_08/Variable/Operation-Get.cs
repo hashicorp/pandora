@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.Automation.v2022_08_08.Variable;
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new VariableId();
+\t\tpublic override ResourceID? ResourceId() => new VariableId();
 
-    public override Type? ResponseObject() => typeof(VariableModel);
+\t\tpublic override Type? ResponseObject() => typeof(VariableModel);
 
 
 }

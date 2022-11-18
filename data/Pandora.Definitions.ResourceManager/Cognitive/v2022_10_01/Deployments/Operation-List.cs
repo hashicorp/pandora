@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Cognitive.v2022_10_01.Deployments;
 
 internal class ListOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new AccountId();
+\t\tpublic override ResourceID? ResourceId() => new AccountId();
 
-    public override Type NestedItemType() => typeof(DeploymentModel);
+\t\tpublic override Type NestedItemType() => typeof(DeploymentModel);
 
-    public override string? UriSuffix() => "/deployments";
+\t\tpublic override string? UriSuffix() => "/deployments";
 
 
 }

@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.LoadTestService.v2022_12_01.Quotas
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new QuotaId();
+\t\tpublic override ResourceID? ResourceId() => new QuotaId();
 
-    public override Type? ResponseObject() => typeof(QuotaResourceModel);
+\t\tpublic override Type? ResponseObject() => typeof(QuotaResourceModel);
 
 
 }

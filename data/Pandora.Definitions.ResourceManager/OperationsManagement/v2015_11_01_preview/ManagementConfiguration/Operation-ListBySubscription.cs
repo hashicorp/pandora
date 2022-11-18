@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.OperationsManagement.v2015_11_01_p
 
 internal class ListBySubscriptionOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new SubscriptionId();
+\t\tpublic override ResourceID? ResourceId() => new SubscriptionId();
 
-    public override Type? ResponseObject() => typeof(ManagementConfigurationPropertiesListModel);
+\t\tpublic override Type? ResponseObject() => typeof(ManagementConfigurationPropertiesListModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.OperationsManagement/managementConfigurations";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.OperationsManagement/managementConfigurations";
 
 
 }

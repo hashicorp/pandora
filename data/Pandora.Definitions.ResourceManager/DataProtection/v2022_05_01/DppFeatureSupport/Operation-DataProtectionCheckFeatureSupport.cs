@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.DataProtection.v2022_05_01.DppFeat
 
 internal class DataProtectionCheckFeatureSupportOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(FeatureValidationRequestBaseModel);
 
-    public override ResourceID? ResourceId() => new LocationId();
+\t\tpublic override ResourceID? ResourceId() => new LocationId();
 
-    public override Type? ResponseObject() => typeof(FeatureValidationResponseBaseModel);
+\t\tpublic override Type? ResponseObject() => typeof(FeatureValidationResponseBaseModel);
 
-    public override string? UriSuffix() => "/checkFeatureSupport";
+\t\tpublic override string? UriSuffix() => "/checkFeatureSupport";
 
 
 }

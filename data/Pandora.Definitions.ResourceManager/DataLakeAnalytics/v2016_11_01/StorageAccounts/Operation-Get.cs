@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.DataLakeAnalytics.v2016_11_01.Stor
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new StorageAccountId();
+\t\tpublic override ResourceID? ResourceId() => new StorageAccountId();
 
-    public override Type? ResponseObject() => typeof(StorageAccountInformationModel);
+\t\tpublic override Type? ResponseObject() => typeof(StorageAccountInformationModel);
 
 
 }

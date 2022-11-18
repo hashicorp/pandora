@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.Automation.v2022_08_08.Credential;
 
 internal class UpdateOperation : Operations.PatchOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(CredentialUpdateParametersModel);
 
-    public override ResourceID? ResourceId() => new CredentialId();
+\t\tpublic override ResourceID? ResourceId() => new CredentialId();
 
-    public override Type? ResponseObject() => typeof(CredentialModel);
+\t\tpublic override Type? ResponseObject() => typeof(CredentialModel);
 
 
 }

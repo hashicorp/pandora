@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.NetApp.v2022_05_01.Restore;
 
 internal class BackupsGetVolumeRestoreStatusOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new VolumeId();
+\t\tpublic override ResourceID? ResourceId() => new VolumeId();
 
-    public override Type? ResponseObject() => typeof(RestoreStatusModel);
+\t\tpublic override Type? ResponseObject() => typeof(RestoreStatusModel);
 
-    public override string? UriSuffix() => "/restoreStatus";
+\t\tpublic override string? UriSuffix() => "/restoreStatus";
 
 
 }

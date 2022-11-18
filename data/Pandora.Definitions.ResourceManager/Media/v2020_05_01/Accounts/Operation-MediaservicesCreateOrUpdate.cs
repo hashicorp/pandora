@@ -17,9 +17,9 @@ internal class MediaservicesCreateOrUpdateOperation : Operations.PutOperation
 {
     public override Type? RequestObject() => typeof(MediaServiceModel);
 
-    public override ResourceID? ResourceId() => new ProviderMediaServiceId();
+\t\tpublic override ResourceID? ResourceId() => new ProviderMediaServiceId();
 
-    public override Type? ResponseObject() => typeof(MediaServiceModel);
+\t\tpublic override Type? ResponseObject() => typeof(MediaServiceModel);
 
 
 }

@@ -17,9 +17,9 @@ internal class AutomationRulesCreateOrUpdateOperation : Operations.PutOperation
 {
     public override Type? RequestObject() => typeof(AutomationRuleModel);
 
-    public override ResourceID? ResourceId() => new AutomationRuleId();
+\t\tpublic override ResourceID? ResourceId() => new AutomationRuleId();
 
-    public override Type? ResponseObject() => typeof(AutomationRuleModel);
+\t\tpublic override Type? ResponseObject() => typeof(AutomationRuleModel);
 
 
 }

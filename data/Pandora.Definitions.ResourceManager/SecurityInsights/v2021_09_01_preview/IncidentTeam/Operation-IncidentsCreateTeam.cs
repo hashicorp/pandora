@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.SecurityInsights.v2021_09_01_previ
 
 internal class IncidentsCreateTeamOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(TeamPropertiesModel);
 
-    public override ResourceID? ResourceId() => new IncidentId();
+\t\tpublic override ResourceID? ResourceId() => new IncidentId();
 
-    public override Type? ResponseObject() => typeof(TeamInformationModel);
+\t\tpublic override Type? ResponseObject() => typeof(TeamInformationModel);
 
-    public override string? UriSuffix() => "/createTeam";
+\t\tpublic override string? UriSuffix() => "/createTeam";
 
 
 }

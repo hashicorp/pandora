@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.OperationalInsights.v2020_08_01.St
 
 internal class StorageInsightConfigsListByWorkspaceOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "@odata.nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "@odata.nextLink";
 
-    public override ResourceID? ResourceId() => new WorkspaceId();
+\t\tpublic override ResourceID? ResourceId() => new WorkspaceId();
 
-    public override Type NestedItemType() => typeof(StorageInsightModel);
+\t\tpublic override Type NestedItemType() => typeof(StorageInsightModel);
 
-    public override string? UriSuffix() => "/storageInsightConfigs";
+\t\tpublic override string? UriSuffix() => "/storageInsightConfigs";
 
 
 }

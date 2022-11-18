@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.CosmosDB.v2022_08_15.CosmosDB;
 
 internal class GremlinResourcesGetGremlinDatabaseThroughputOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new GremlinDatabaseId();
+\t\tpublic override ResourceID? ResourceId() => new GremlinDatabaseId();
 
-    public override Type? ResponseObject() => typeof(ThroughputSettingsGetResultsModel);
+\t\tpublic override Type? ResponseObject() => typeof(ThroughputSettingsGetResultsModel);
 
-    public override string? UriSuffix() => "/throughputSettings/default";
+\t\tpublic override string? UriSuffix() => "/throughputSettings/default";
 
 
 }

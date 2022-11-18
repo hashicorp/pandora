@@ -15,19 +15,19 @@ namespace Pandora.Definitions.ResourceManager.Compute.v2021_11_01.VirtualMachine
 
 internal class DeallocateOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(VirtualMachineScaleSetVMInstanceIDsModel);
 
-    public override ResourceID? ResourceId() => new VirtualMachineScaleSetId();
+\t\tpublic override ResourceID? ResourceId() => new VirtualMachineScaleSetId();
 
-    public override string? UriSuffix() => "/deallocate";
+\t\tpublic override string? UriSuffix() => "/deallocate";
 
 
 }

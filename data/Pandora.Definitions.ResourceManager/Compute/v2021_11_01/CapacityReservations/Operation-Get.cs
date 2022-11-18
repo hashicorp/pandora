@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.Compute.v2021_11_01.CapacityReserv
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new CapacityReservationId();
+\t\tpublic override ResourceID? ResourceId() => new CapacityReservationId();
 
-    public override Type? ResponseObject() => typeof(CapacityReservationModel);
+\t\tpublic override Type? ResponseObject() => typeof(CapacityReservationModel);
 
-    public override Type? OptionsObject() => typeof(GetOperation.GetOptions);
+\t\tpublic override Type? OptionsObject() => typeof(GetOperation.GetOptions);
 
     internal class GetOptions
     {

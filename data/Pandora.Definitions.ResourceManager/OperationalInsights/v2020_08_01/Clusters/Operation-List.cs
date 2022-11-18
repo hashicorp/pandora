@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.OperationalInsights.v2020_08_01.Cl
 
 internal class ListOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new SubscriptionId();
+\t\tpublic override ResourceID? ResourceId() => new SubscriptionId();
 
-    public override Type NestedItemType() => typeof(ClusterModel);
+\t\tpublic override Type NestedItemType() => typeof(ClusterModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.OperationalInsights/clusters";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.OperationalInsights/clusters";
 
 
 }

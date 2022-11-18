@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.VMware.v2021_12_01.Addons;
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new AddonId();
+\t\tpublic override ResourceID? ResourceId() => new AddonId();
 
-    public override Type? ResponseObject() => typeof(AddonModel);
+\t\tpublic override Type? ResponseObject() => typeof(AddonModel);
 
 
 }

@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.Search.v2020_08_01.Services;
 
 internal class UpdateOperation : Operations.PatchOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(SearchServiceUpdateModel);
 
-    public override ResourceID? ResourceId() => new SearchServiceId();
+\t\tpublic override ResourceID? ResourceId() => new SearchServiceId();
 
-    public override Type? ResponseObject() => typeof(SearchServiceModel);
+\t\tpublic override Type? ResponseObject() => typeof(SearchServiceModel);
 
-    public override Type? OptionsObject() => typeof(UpdateOperation.UpdateOptions);
+\t\tpublic override Type? OptionsObject() => typeof(UpdateOperation.UpdateOptions);
 
     internal class UpdateOptions
     {

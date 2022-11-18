@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.AzureStackHCI.v2022_10_01.UpdateSu
 
 internal class UpdateSummariesGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ClusterId();
+\t\tpublic override ResourceID? ResourceId() => new ClusterId();
 
-    public override Type? ResponseObject() => typeof(UpdateSummariesModel);
+\t\tpublic override Type? ResponseObject() => typeof(UpdateSummariesModel);
 
-    public override string? UriSuffix() => "/updateSummaries/default";
+\t\tpublic override string? UriSuffix() => "/updateSummaries/default";
 
 
 }

@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.StreamAnalytics.v2020_03_01.Cluste
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ClusterId();
+\t\tpublic override ResourceID? ResourceId() => new ClusterId();
 
-    public override Type? ResponseObject() => typeof(ClusterModel);
+\t\tpublic override Type? ResponseObject() => typeof(ClusterModel);
 
 
 }

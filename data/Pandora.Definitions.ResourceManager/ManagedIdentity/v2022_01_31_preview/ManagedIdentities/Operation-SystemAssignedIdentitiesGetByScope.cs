@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.ManagedIdentity.v2022_01_31_previe
 
 internal class SystemAssignedIdentitiesGetByScopeOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ScopeId();
+\t\tpublic override ResourceID? ResourceId() => new ScopeId();
 
-    public override Type? ResponseObject() => typeof(SystemAssignedIdentityModel);
+\t\tpublic override Type? ResponseObject() => typeof(SystemAssignedIdentityModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.ManagedIdentity/identities/default";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.ManagedIdentity/identities/default";
 
 
 }

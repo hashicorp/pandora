@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.DeviceProvisioningServices.v2022_0
 
 internal class GetPrivateLinkResourcesOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new PrivateLinkResourceId();
+\t\tpublic override ResourceID? ResourceId() => new PrivateLinkResourceId();
 
-    public override Type? ResponseObject() => typeof(GroupIdInformationModel);
+\t\tpublic override Type? ResponseObject() => typeof(GroupIdInformationModel);
 
 
 }

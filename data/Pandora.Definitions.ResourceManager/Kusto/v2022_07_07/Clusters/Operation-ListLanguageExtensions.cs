@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.Kusto.v2022_07_07.Clusters;
 
 internal class ListLanguageExtensionsOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new ClusterId();
+\t\tpublic override ResourceID? ResourceId() => new ClusterId();
 
-    public override Type? ResponseObject() => typeof(LanguageExtensionsListModel);
+\t\tpublic override Type? ResponseObject() => typeof(LanguageExtensionsListModel);
 
-    public override string? UriSuffix() => "/listLanguageExtensions";
+\t\tpublic override string? UriSuffix() => "/listLanguageExtensions";
 
 
 }

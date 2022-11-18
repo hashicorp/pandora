@@ -15,12 +15,12 @@ namespace Pandora.Definitions.ResourceManager.Storage.v2022_05_01.TableService;
 
 internal class TableDeleteOperation : Operations.DeleteOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.NoContent,
         };
 
-    public override ResourceID? ResourceId() => new TableId();
+\t\tpublic override ResourceID? ResourceId() => new TableId();
 
 
 }

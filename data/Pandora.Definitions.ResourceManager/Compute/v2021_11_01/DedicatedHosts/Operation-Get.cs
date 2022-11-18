@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.Compute.v2021_11_01.DedicatedHosts
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new HostId();
+\t\tpublic override ResourceID? ResourceId() => new HostId();
 
-    public override Type? ResponseObject() => typeof(DedicatedHostModel);
+\t\tpublic override Type? ResponseObject() => typeof(DedicatedHostModel);
 
-    public override Type? OptionsObject() => typeof(GetOperation.GetOptions);
+\t\tpublic override Type? OptionsObject() => typeof(GetOperation.GetOptions);
 
     internal class GetOptions
     {

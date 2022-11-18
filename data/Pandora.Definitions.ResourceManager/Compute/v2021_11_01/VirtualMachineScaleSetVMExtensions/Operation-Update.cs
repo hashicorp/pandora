@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.Compute.v2021_11_01.VirtualMachine
 
 internal class UpdateOperation : Operations.PatchOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(VirtualMachineScaleSetVMExtensionUpdateModel);
 
-    public override ResourceID? ResourceId() => new VirtualMachineExtensionId();
+\t\tpublic override ResourceID? ResourceId() => new VirtualMachineExtensionId();
 
-    public override Type? ResponseObject() => typeof(VirtualMachineScaleSetVMExtensionModel);
+\t\tpublic override Type? ResponseObject() => typeof(VirtualMachineScaleSetVMExtensionModel);
 
 
 }

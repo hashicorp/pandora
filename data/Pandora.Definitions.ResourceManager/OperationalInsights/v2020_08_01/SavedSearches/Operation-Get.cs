@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.OperationalInsights.v2020_08_01.Sa
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new SavedSearchId();
+\t\tpublic override ResourceID? ResourceId() => new SavedSearchId();
 
-    public override Type? ResponseObject() => typeof(SavedSearchModel);
+\t\tpublic override Type? ResponseObject() => typeof(SavedSearchModel);
 
 
 }

@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.ServiceBus.v2021_11_01.MigrationCo
 
 internal class RevertOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new NamespaceId();
+\t\tpublic override ResourceID? ResourceId() => new NamespaceId();
 
-    public override string? UriSuffix() => "/migrationConfigurations/$default/revert";
+\t\tpublic override string? UriSuffix() => "/migrationConfigurations/$default/revert";
 
 
 }

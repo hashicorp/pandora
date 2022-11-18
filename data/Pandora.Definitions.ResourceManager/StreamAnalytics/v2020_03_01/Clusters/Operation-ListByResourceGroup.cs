@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.StreamAnalytics.v2020_03_01.Cluste
 
 internal class ListByResourceGroupOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new ResourceGroupId();
+\t\tpublic override ResourceID? ResourceId() => new ResourceGroupId();
 
-    public override Type NestedItemType() => typeof(ClusterModel);
+\t\tpublic override Type NestedItemType() => typeof(ClusterModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.StreamAnalytics/clusters";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.StreamAnalytics/clusters";
 
 
 }

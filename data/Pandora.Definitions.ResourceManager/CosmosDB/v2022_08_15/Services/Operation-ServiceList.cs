@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.CosmosDB.v2022_08_15.Services;
 
 internal class ServiceListOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new DatabaseAccountId();
+\t\tpublic override ResourceID? ResourceId() => new DatabaseAccountId();
 
-    public override Type? ResponseObject() => typeof(ServiceResourceListResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(ServiceResourceListResultModel);
 
-    public override string? UriSuffix() => "/services";
+\t\tpublic override string? UriSuffix() => "/services";
 
 
 }

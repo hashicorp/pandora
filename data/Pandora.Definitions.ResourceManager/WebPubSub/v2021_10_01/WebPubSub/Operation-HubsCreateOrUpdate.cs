@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.WebPubSub.v2021_10_01.WebPubSub;
 
 internal class HubsCreateOrUpdateOperation : Operations.PutOperation
 {
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(WebPubSubHubModel);
 
-    public override ResourceID? ResourceId() => new HubId();
+\t\tpublic override ResourceID? ResourceId() => new HubId();
 
-    public override Type? ResponseObject() => typeof(WebPubSubHubModel);
+\t\tpublic override Type? ResponseObject() => typeof(WebPubSubHubModel);
 
 
 }

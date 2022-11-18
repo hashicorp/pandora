@@ -15,21 +15,21 @@ namespace Pandora.Definitions.ResourceManager.RecoveryServicesSiteRecovery.v2022
 
 internal class TestMigrateCleanupOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(TestMigrateCleanupInputModel);
 
-    public override ResourceID? ResourceId() => new ReplicationMigrationItemId();
+\t\tpublic override ResourceID? ResourceId() => new ReplicationMigrationItemId();
 
-    public override Type? ResponseObject() => typeof(MigrationItemModel);
+\t\tpublic override Type? ResponseObject() => typeof(MigrationItemModel);
 
-    public override string? UriSuffix() => "/testMigrateCleanup";
+\t\tpublic override string? UriSuffix() => "/testMigrateCleanup";
 
 
 }

@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.NotificationHubs.v2017_04_01.Notif
 
 internal class PatchOperation : Operations.PatchOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(NotificationHubPatchParametersModel);
 
-    public override ResourceID? ResourceId() => new NotificationHubId();
+\t\tpublic override ResourceID? ResourceId() => new NotificationHubId();
 
-    public override Type? ResponseObject() => typeof(NotificationHubResourceModel);
+\t\tpublic override Type? ResponseObject() => typeof(NotificationHubResourceModel);
 
 
 }

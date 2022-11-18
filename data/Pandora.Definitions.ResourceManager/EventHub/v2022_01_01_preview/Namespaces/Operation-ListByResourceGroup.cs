@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2022_01_01_preview.Names
 
 internal class ListByResourceGroupOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new ResourceGroupId();
+\t\tpublic override ResourceID? ResourceId() => new ResourceGroupId();
 
-    public override Type NestedItemType() => typeof(EHNamespaceModel);
+\t\tpublic override Type NestedItemType() => typeof(EHNamespaceModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.EventHub/namespaces";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.EventHub/namespaces";
 
 
 }

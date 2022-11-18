@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.CosmosDB.v2022_05_15.CosmosDB;
 
 internal class CassandraResourcesGetCassandraKeyspaceOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new CassandraKeyspaceId();
+\t\tpublic override ResourceID? ResourceId() => new CassandraKeyspaceId();
 
-    public override Type? ResponseObject() => typeof(CassandraKeyspaceGetResultsModel);
+\t\tpublic override Type? ResponseObject() => typeof(CassandraKeyspaceGetResultsModel);
 
 
 }

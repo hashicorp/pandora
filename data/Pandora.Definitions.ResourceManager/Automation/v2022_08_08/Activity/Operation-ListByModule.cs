@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Automation.v2022_08_08.Activity;
 
 internal class ListByModuleOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new ModuleId();
+\t\tpublic override ResourceID? ResourceId() => new ModuleId();
 
-    public override Type NestedItemType() => typeof(ActivityModel);
+\t\tpublic override Type NestedItemType() => typeof(ActivityModel);
 
-    public override string? UriSuffix() => "/activities";
+\t\tpublic override string? UriSuffix() => "/activities";
 
 
 }

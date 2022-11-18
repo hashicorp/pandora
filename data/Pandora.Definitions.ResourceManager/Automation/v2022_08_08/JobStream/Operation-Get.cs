@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.Automation.v2022_08_08.JobStream;
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new StreamId();
+\t\tpublic override ResourceID? ResourceId() => new StreamId();
 
-    public override Type? ResponseObject() => typeof(JobStreamModel);
+\t\tpublic override Type? ResponseObject() => typeof(JobStreamModel);
 
-    public override Type? OptionsObject() => typeof(GetOperation.GetOptions);
+\t\tpublic override Type? OptionsObject() => typeof(GetOperation.GetOptions);
 
     internal class GetOptions
     {

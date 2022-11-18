@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.TrafficManager.v2018_08_01.Geograp
 
 internal class GetDefaultOperation : Operations.GetOperation
 {
-    public override Type? ResponseObject() => typeof(TrafficManagerGeographicHierarchyModel);
+\t\tpublic override Type? ResponseObject() => typeof(TrafficManagerGeographicHierarchyModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.Network/trafficManagerGeographicHierarchies/default";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.Network/trafficManagerGeographicHierarchies/default";
 
 
 }

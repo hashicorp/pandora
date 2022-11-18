@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2021_11_01.EventHubsClus
 
 internal class ConfigurationGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ClusterId();
+\t\tpublic override ResourceID? ResourceId() => new ClusterId();
 
-    public override Type? ResponseObject() => typeof(ClusterQuotaConfigurationPropertiesModel);
+\t\tpublic override Type? ResponseObject() => typeof(ClusterQuotaConfigurationPropertiesModel);
 
-    public override string? UriSuffix() => "/quotaConfiguration/default";
+\t\tpublic override string? UriSuffix() => "/quotaConfiguration/default";
 
 
 }

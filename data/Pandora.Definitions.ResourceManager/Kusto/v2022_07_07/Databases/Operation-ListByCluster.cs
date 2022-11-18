@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.Kusto.v2022_07_07.Databases;
 
 internal class ListByClusterOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ClusterId();
+\t\tpublic override ResourceID? ResourceId() => new ClusterId();
 
-    public override Type? ResponseObject() => typeof(DatabaseListResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(DatabaseListResultModel);
 
-    public override string? UriSuffix() => "/databases";
+\t\tpublic override string? UriSuffix() => "/databases";
 
 
 }

@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.VMware.v2022_05_01.PlacementPolici
 
 internal class VirtualMachinesRestrictMovementOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(VirtualMachineRestrictMovementModel);
 
-    public override ResourceID? ResourceId() => new VirtualMachineId();
+\t\tpublic override ResourceID? ResourceId() => new VirtualMachineId();
 
-    public override string? UriSuffix() => "/restrictMovement";
+\t\tpublic override string? UriSuffix() => "/restrictMovement";
 
 
 }

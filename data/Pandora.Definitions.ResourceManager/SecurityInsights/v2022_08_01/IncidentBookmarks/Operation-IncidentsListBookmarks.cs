@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.SecurityInsights.v2022_08_01.Incid
 
 internal class IncidentsListBookmarksOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new IncidentId();
+\t\tpublic override ResourceID? ResourceId() => new IncidentId();
 
-    public override Type? ResponseObject() => typeof(IncidentBookmarkListModel);
+\t\tpublic override Type? ResponseObject() => typeof(IncidentBookmarkListModel);
 
-    public override string? UriSuffix() => "/bookmarks";
+\t\tpublic override string? UriSuffix() => "/bookmarks";
 
 
 }

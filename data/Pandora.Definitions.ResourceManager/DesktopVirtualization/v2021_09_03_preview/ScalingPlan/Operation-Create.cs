@@ -17,9 +17,9 @@ internal class CreateOperation : Operations.PutOperation
 {
     public override Type? RequestObject() => typeof(ScalingPlanModel);
 
-    public override ResourceID? ResourceId() => new ScalingPlanId();
+\t\tpublic override ResourceID? ResourceId() => new ScalingPlanId();
 
-    public override Type? ResponseObject() => typeof(ScalingPlanModel);
+\t\tpublic override Type? ResponseObject() => typeof(ScalingPlanModel);
 
 
 }

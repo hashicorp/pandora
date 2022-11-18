@@ -15,12 +15,12 @@ namespace Pandora.Definitions.ResourceManager.Compute.v2021_11_01.ProximityPlace
 
 internal class DeleteOperation : Operations.DeleteOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-    public override ResourceID? ResourceId() => new ProximityPlacementGroupId();
+\t\tpublic override ResourceID? ResourceId() => new ProximityPlacementGroupId();
 
 
 }

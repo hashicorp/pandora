@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.ServiceFabricManagedCluster.v2022_
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ApplicationTypeId();
+\t\tpublic override ResourceID? ResourceId() => new ApplicationTypeId();
 
-    public override Type? ResponseObject() => typeof(ApplicationTypeResourceModel);
+\t\tpublic override Type? ResponseObject() => typeof(ApplicationTypeResourceModel);
 
 
 }

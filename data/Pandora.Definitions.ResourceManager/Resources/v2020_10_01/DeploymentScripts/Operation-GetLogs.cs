@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.Resources.v2020_10_01.DeploymentSc
 
 internal class GetLogsOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new DeploymentScriptId();
+\t\tpublic override ResourceID? ResourceId() => new DeploymentScriptId();
 
-    public override Type? ResponseObject() => typeof(ScriptLogsListModel);
+\t\tpublic override Type? ResponseObject() => typeof(ScriptLogsListModel);
 
-    public override string? UriSuffix() => "/logs";
+\t\tpublic override string? UriSuffix() => "/logs";
 
 
 }

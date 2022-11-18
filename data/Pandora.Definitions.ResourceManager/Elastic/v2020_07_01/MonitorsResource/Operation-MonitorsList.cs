@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Elastic.v2020_07_01.MonitorsResour
 
 internal class MonitorsListOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new SubscriptionId();
+\t\tpublic override ResourceID? ResourceId() => new SubscriptionId();
 
-    public override Type NestedItemType() => typeof(ElasticMonitorResourceModel);
+\t\tpublic override Type NestedItemType() => typeof(ElasticMonitorResourceModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.Elastic/monitors";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.Elastic/monitors";
 
 
 }

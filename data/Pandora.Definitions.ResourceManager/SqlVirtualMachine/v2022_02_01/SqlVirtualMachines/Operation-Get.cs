@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.SqlVirtualMachine.v2022_02_01.SqlV
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new SqlVirtualMachineId();
+\t\tpublic override ResourceID? ResourceId() => new SqlVirtualMachineId();
 
-    public override Type? ResponseObject() => typeof(SqlVirtualMachineModel);
+\t\tpublic override Type? ResponseObject() => typeof(SqlVirtualMachineModel);
 
-    public override Type? OptionsObject() => typeof(GetOperation.GetOptions);
+\t\tpublic override Type? OptionsObject() => typeof(GetOperation.GetOptions);
 
     internal class GetOptions
     {

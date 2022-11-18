@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.SecurityInsights.v2022_07_01_previ
 
 internal class OfficeConsentsListOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new WorkspaceId();
+\t\tpublic override ResourceID? ResourceId() => new WorkspaceId();
 
-    public override Type NestedItemType() => typeof(OfficeConsentModel);
+\t\tpublic override Type NestedItemType() => typeof(OfficeConsentModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.SecurityInsights/officeConsents";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.SecurityInsights/officeConsents";
 
 
 }

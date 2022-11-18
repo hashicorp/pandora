@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Cognitive.v2022_10_01.CommitmentTi
 
 internal class ListOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new LocationId();
+\t\tpublic override ResourceID? ResourceId() => new LocationId();
 
-    public override Type NestedItemType() => typeof(CommitmentTierModel);
+\t\tpublic override Type NestedItemType() => typeof(CommitmentTierModel);
 
-    public override string? UriSuffix() => "/commitmentTiers";
+\t\tpublic override string? UriSuffix() => "/commitmentTiers";
 
 
 }

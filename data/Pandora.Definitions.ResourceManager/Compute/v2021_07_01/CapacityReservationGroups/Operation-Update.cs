@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.Compute.v2021_07_01.CapacityReserv
 
 internal class UpdateOperation : Operations.PatchOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(CapacityReservationGroupUpdateModel);
 
-    public override ResourceID? ResourceId() => new CapacityReservationGroupId();
+\t\tpublic override ResourceID? ResourceId() => new CapacityReservationGroupId();
 
-    public override Type? ResponseObject() => typeof(CapacityReservationGroupModel);
+\t\tpublic override Type? ResponseObject() => typeof(CapacityReservationGroupModel);
 
 
 }

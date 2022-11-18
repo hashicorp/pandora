@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.ServiceBus.v2021_06_01_preview.Que
 
 internal class QueuesListAuthorizationRulesOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new QueueId();
+\t\tpublic override ResourceID? ResourceId() => new QueueId();
 
-    public override Type NestedItemType() => typeof(SBAuthorizationRuleModel);
+\t\tpublic override Type NestedItemType() => typeof(SBAuthorizationRuleModel);
 
-    public override string? UriSuffix() => "/authorizationRules";
+\t\tpublic override string? UriSuffix() => "/authorizationRules";
 
 
 }

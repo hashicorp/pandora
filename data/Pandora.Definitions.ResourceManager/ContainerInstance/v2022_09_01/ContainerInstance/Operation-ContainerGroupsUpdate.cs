@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.ContainerInstance.v2022_09_01.Cont
 
 internal class ContainerGroupsUpdateOperation : Operations.PatchOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(ResourceModel);
 
-    public override ResourceID? ResourceId() => new ContainerGroupId();
+\t\tpublic override ResourceID? ResourceId() => new ContainerGroupId();
 
-    public override Type? ResponseObject() => typeof(ContainerGroupModel);
+\t\tpublic override Type? ResponseObject() => typeof(ContainerGroupModel);
 
 
 }

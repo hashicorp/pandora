@@ -15,15 +15,15 @@ namespace Pandora.Definitions.ResourceManager.DNSResolver.v2022_07_01.Forwarding
 
 internal class DeleteOperation : Operations.DeleteOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.NoContent,
                 HttpStatusCode.OK,
         };
 
-    public override ResourceID? ResourceId() => new ForwardingRuleId();
+\t\tpublic override ResourceID? ResourceId() => new ForwardingRuleId();
 
-    public override Type? OptionsObject() => typeof(DeleteOperation.DeleteOptions);
+\t\tpublic override Type? OptionsObject() => typeof(DeleteOperation.DeleteOptions);
 
     internal class DeleteOptions
     {

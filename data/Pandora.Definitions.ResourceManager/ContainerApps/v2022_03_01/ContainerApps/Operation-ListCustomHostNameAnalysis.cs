@@ -15,20 +15,20 @@ namespace Pandora.Definitions.ResourceManager.ContainerApps.v2022_03_01.Containe
 
 internal class ListCustomHostNameAnalysisOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new ContainerAppId();
+\t\tpublic override ResourceID? ResourceId() => new ContainerAppId();
 
-    public override Type? ResponseObject() => typeof(CustomHostnameAnalysisResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(CustomHostnameAnalysisResultModel);
 
-    public override Type? OptionsObject() => typeof(ListCustomHostNameAnalysisOperation.ListCustomHostNameAnalysisOptions);
+\t\tpublic override Type? OptionsObject() => typeof(ListCustomHostNameAnalysisOperation.ListCustomHostNameAnalysisOptions);
 
-    public override string? UriSuffix() => "/listCustomHostNameAnalysis";
+\t\tpublic override string? UriSuffix() => "/listCustomHostNameAnalysis";
 
     internal class ListCustomHostNameAnalysisOptions
     {

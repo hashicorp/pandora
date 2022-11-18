@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.VMware.v2020_03_20.Locations;
 
 internal class CheckQuotaAvailabilityOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new LocationId();
+\t\tpublic override ResourceID? ResourceId() => new LocationId();
 
-    public override Type? ResponseObject() => typeof(QuotaModel);
+\t\tpublic override Type? ResponseObject() => typeof(QuotaModel);
 
-    public override string? UriSuffix() => "/checkQuotaAvailability";
+\t\tpublic override string? UriSuffix() => "/checkQuotaAvailability";
 
 
 }

@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.DesktopVirtualization.v2021_09_03_
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new MsixPackageId();
+\t\tpublic override ResourceID? ResourceId() => new MsixPackageId();
 
-    public override Type? ResponseObject() => typeof(MSIXPackageModel);
+\t\tpublic override Type? ResponseObject() => typeof(MSIXPackageModel);
 
 
 }

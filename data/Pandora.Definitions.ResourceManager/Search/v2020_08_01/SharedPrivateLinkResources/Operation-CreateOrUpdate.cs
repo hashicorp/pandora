@@ -15,21 +15,21 @@ namespace Pandora.Definitions.ResourceManager.Search.v2020_08_01.SharedPrivateLi
 
 internal class CreateOrUpdateOperation : Operations.PutOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(SharedPrivateLinkResourceModel);
 
-    public override ResourceID? ResourceId() => new SharedPrivateLinkResourceId();
+\t\tpublic override ResourceID? ResourceId() => new SharedPrivateLinkResourceId();
 
-    public override Type? ResponseObject() => typeof(SharedPrivateLinkResourceModel);
+\t\tpublic override Type? ResponseObject() => typeof(SharedPrivateLinkResourceModel);
 
-    public override Type? OptionsObject() => typeof(CreateOrUpdateOperation.CreateOrUpdateOptions);
+\t\tpublic override Type? OptionsObject() => typeof(CreateOrUpdateOperation.CreateOrUpdateOptions);
 
     internal class CreateOrUpdateOptions
     {

@@ -15,15 +15,15 @@ namespace Pandora.Definitions.ResourceManager.AppPlatform.v2022_09_01_preview.Ap
 
 internal class DeploymentsListForClusterOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new SpringId();
+\t\tpublic override ResourceID? ResourceId() => new SpringId();
 
-    public override Type NestedItemType() => typeof(DeploymentResourceModel);
+\t\tpublic override Type NestedItemType() => typeof(DeploymentResourceModel);
 
-    public override Type? OptionsObject() => typeof(DeploymentsListForClusterOperation.DeploymentsListForClusterOptions);
+\t\tpublic override Type? OptionsObject() => typeof(DeploymentsListForClusterOperation.DeploymentsListForClusterOptions);
 
-    public override string? UriSuffix() => "/deployments";
+\t\tpublic override string? UriSuffix() => "/deployments";
 
     internal class DeploymentsListForClusterOptions
     {

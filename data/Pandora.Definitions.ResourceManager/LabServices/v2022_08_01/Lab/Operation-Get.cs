@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.LabServices.v2022_08_01.Lab;
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new LabId();
+\t\tpublic override ResourceID? ResourceId() => new LabId();
 
-    public override Type? ResponseObject() => typeof(LabModel);
+\t\tpublic override Type? ResponseObject() => typeof(LabModel);
 
 
 }

@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.DeviceProvisioningServices.v2022_0
 
 internal class CreateOrUpdateOperation : Operations.PutOperation
 {
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(ProvisioningServiceDescriptionModel);
 
-    public override ResourceID? ResourceId() => new ProvisioningServiceId();
+\t\tpublic override ResourceID? ResourceId() => new ProvisioningServiceId();
 
-    public override Type? ResponseObject() => typeof(ProvisioningServiceDescriptionModel);
+\t\tpublic override Type? ResponseObject() => typeof(ProvisioningServiceDescriptionModel);
 
 
 }

@@ -15,15 +15,15 @@ namespace Pandora.Definitions.ResourceManager.ServiceBus.v2021_11_01.MigrationCo
 
 internal class CreateAndStartMigrationOperation : Operations.PutOperation
 {
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(MigrationConfigPropertiesModel);
 
-    public override ResourceID? ResourceId() => new NamespaceId();
+\t\tpublic override ResourceID? ResourceId() => new NamespaceId();
 
-    public override Type? ResponseObject() => typeof(MigrationConfigPropertiesModel);
+\t\tpublic override Type? ResponseObject() => typeof(MigrationConfigPropertiesModel);
 
-    public override string? UriSuffix() => "/migrationConfigurations/$default";
+\t\tpublic override string? UriSuffix() => "/migrationConfigurations/$default";
 
 
 }

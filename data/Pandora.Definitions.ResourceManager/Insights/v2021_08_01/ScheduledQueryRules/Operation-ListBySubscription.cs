@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Insights.v2021_08_01.ScheduledQuer
 
 internal class ListBySubscriptionOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new SubscriptionId();
+\t\tpublic override ResourceID? ResourceId() => new SubscriptionId();
 
-    public override Type NestedItemType() => typeof(ScheduledQueryRuleResourceModel);
+\t\tpublic override Type NestedItemType() => typeof(ScheduledQueryRuleResourceModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.Insights/scheduledQueryRules";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.Insights/scheduledQueryRules";
 
 
 }

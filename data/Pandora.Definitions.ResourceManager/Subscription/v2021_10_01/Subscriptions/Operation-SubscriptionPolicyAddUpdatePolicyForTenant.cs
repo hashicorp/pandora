@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.Subscription.v2021_10_01.Subscript
 
 internal class SubscriptionPolicyAddUpdatePolicyForTenantOperation : Operations.PutOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(PutTenantPolicyRequestPropertiesModel);
 
-    public override Type? ResponseObject() => typeof(GetTenantPolicyResponseModel);
+\t\tpublic override Type? ResponseObject() => typeof(GetTenantPolicyResponseModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.Subscription/policies/default";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.Subscription/policies/default";
 
 
 }

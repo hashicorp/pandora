@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.Communication.v2020_08_20.Communic
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new CommunicationServiceId();
+\t\tpublic override ResourceID? ResourceId() => new CommunicationServiceId();
 
-    public override Type? ResponseObject() => typeof(CommunicationServiceResourceModel);
+\t\tpublic override Type? ResponseObject() => typeof(CommunicationServiceResourceModel);
 
 
 }

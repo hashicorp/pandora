@@ -15,22 +15,22 @@ namespace Pandora.Definitions.ResourceManager.PrivateDNS.v2020_06_01.PrivateZone
 
 internal class CreateOrUpdateOperation : Operations.PutOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.Created,
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(PrivateZoneModel);
 
-    public override ResourceID? ResourceId() => new PrivateDnsZoneId();
+\t\tpublic override ResourceID? ResourceId() => new PrivateDnsZoneId();
 
-    public override Type? ResponseObject() => typeof(PrivateZoneModel);
+\t\tpublic override Type? ResponseObject() => typeof(PrivateZoneModel);
 
-    public override Type? OptionsObject() => typeof(CreateOrUpdateOperation.CreateOrUpdateOptions);
+\t\tpublic override Type? OptionsObject() => typeof(CreateOrUpdateOperation.CreateOrUpdateOptions);
 
     internal class CreateOrUpdateOptions
     {

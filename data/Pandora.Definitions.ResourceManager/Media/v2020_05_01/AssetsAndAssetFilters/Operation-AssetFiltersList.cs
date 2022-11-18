@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Media.v2020_05_01.AssetsAndAssetFi
 
 internal class AssetFiltersListOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "@odata.nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "@odata.nextLink";
 
-    public override ResourceID? ResourceId() => new AssetId();
+\t\tpublic override ResourceID? ResourceId() => new AssetId();
 
-    public override Type NestedItemType() => typeof(AssetFilterModel);
+\t\tpublic override Type NestedItemType() => typeof(AssetFilterModel);
 
-    public override string? UriSuffix() => "/assetFilters";
+\t\tpublic override string? UriSuffix() => "/assetFilters";
 
 
 }

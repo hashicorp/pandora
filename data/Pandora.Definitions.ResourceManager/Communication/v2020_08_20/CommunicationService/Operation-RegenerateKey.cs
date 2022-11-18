@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.Communication.v2020_08_20.Communic
 
 internal class RegenerateKeyOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(RegenerateKeyParametersModel);
 
-    public override ResourceID? ResourceId() => new CommunicationServiceId();
+\t\tpublic override ResourceID? ResourceId() => new CommunicationServiceId();
 
-    public override Type? ResponseObject() => typeof(CommunicationServiceKeysModel);
+\t\tpublic override Type? ResponseObject() => typeof(CommunicationServiceKeysModel);
 
-    public override string? UriSuffix() => "/regenerateKey";
+\t\tpublic override string? UriSuffix() => "/regenerateKey";
 
 
 }

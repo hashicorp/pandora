@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.DigitalTwins.v2022_05_31.TimeSerie
 
 internal class CreateOrUpdateOperation : Operations.PutOperation
 {
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(TimeSeriesDatabaseConnectionModel);
 
-    public override ResourceID? ResourceId() => new TimeSeriesDatabaseConnectionId();
+\t\tpublic override ResourceID? ResourceId() => new TimeSeriesDatabaseConnectionId();
 
-    public override Type? ResponseObject() => typeof(TimeSeriesDatabaseConnectionModel);
+\t\tpublic override Type? ResponseObject() => typeof(TimeSeriesDatabaseConnectionModel);
 
 
 }

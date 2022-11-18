@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2021_11_01.NamespacesPri
 
 internal class PrivateEndpointConnectionsGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new PrivateEndpointConnectionId();
+\t\tpublic override ResourceID? ResourceId() => new PrivateEndpointConnectionId();
 
-    public override Type? ResponseObject() => typeof(PrivateEndpointConnectionModel);
+\t\tpublic override Type? ResponseObject() => typeof(PrivateEndpointConnectionModel);
 
 
 }

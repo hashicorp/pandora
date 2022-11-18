@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.CostManagement.v2021_10_01.Exports
 
 internal class GetExecutionHistoryOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ScopedExportId();
+\t\tpublic override ResourceID? ResourceId() => new ScopedExportId();
 
-    public override Type? ResponseObject() => typeof(ExportExecutionListResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(ExportExecutionListResultModel);
 
-    public override string? UriSuffix() => "/runHistory";
+\t\tpublic override string? UriSuffix() => "/runHistory";
 
 
 }

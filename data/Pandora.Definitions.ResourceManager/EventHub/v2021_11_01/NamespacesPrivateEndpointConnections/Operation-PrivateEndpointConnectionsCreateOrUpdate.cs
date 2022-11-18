@@ -17,9 +17,9 @@ internal class PrivateEndpointConnectionsCreateOrUpdateOperation : Operations.Pu
 {
     public override Type? RequestObject() => typeof(PrivateEndpointConnectionModel);
 
-    public override ResourceID? ResourceId() => new PrivateEndpointConnectionId();
+\t\tpublic override ResourceID? ResourceId() => new PrivateEndpointConnectionId();
 
-    public override Type? ResponseObject() => typeof(PrivateEndpointConnectionModel);
+\t\tpublic override Type? ResponseObject() => typeof(PrivateEndpointConnectionModel);
 
 
 }

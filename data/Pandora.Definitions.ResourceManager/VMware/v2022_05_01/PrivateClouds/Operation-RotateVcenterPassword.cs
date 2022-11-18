@@ -15,19 +15,19 @@ namespace Pandora.Definitions.ResourceManager.VMware.v2022_05_01.PrivateClouds;
 
 internal class RotateVcenterPasswordOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.NoContent,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new PrivateCloudId();
+\t\tpublic override ResourceID? ResourceId() => new PrivateCloudId();
 
-    public override string? UriSuffix() => "/rotateVcenterPassword";
+\t\tpublic override string? UriSuffix() => "/rotateVcenterPassword";
 
 
 }

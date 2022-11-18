@@ -15,20 +15,20 @@ namespace Pandora.Definitions.ResourceManager.ContainerService.v2022_09_02_previ
 
 internal class ListClusterMonitoringUserCredentialsOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new ManagedClusterId();
+\t\tpublic override ResourceID? ResourceId() => new ManagedClusterId();
 
-    public override Type? ResponseObject() => typeof(CredentialResultsModel);
+\t\tpublic override Type? ResponseObject() => typeof(CredentialResultsModel);
 
-    public override Type? OptionsObject() => typeof(ListClusterMonitoringUserCredentialsOperation.ListClusterMonitoringUserCredentialsOptions);
+\t\tpublic override Type? OptionsObject() => typeof(ListClusterMonitoringUserCredentialsOperation.ListClusterMonitoringUserCredentialsOptions);
 
-    public override string? UriSuffix() => "/listClusterMonitoringUserCredential";
+\t\tpublic override string? UriSuffix() => "/listClusterMonitoringUserCredential";
 
     internal class ListClusterMonitoringUserCredentialsOptions
     {

@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.OperationalInsights.v2019_09_01.Qu
 
 internal class QueriesDeleteOperation : Operations.DeleteOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.NoContent,
                 HttpStatusCode.OK,
         };
 
-    public override ResourceID? ResourceId() => new QueryId();
+\t\tpublic override ResourceID? ResourceId() => new QueryId();
 
 
 }

@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.StreamAnalytics.v2020_03_01.Stream
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new StreamingJobId();
+\t\tpublic override ResourceID? ResourceId() => new StreamingJobId();
 
-    public override Type? ResponseObject() => typeof(StreamingJobModel);
+\t\tpublic override Type? ResponseObject() => typeof(StreamingJobModel);
 
-    public override Type? OptionsObject() => typeof(GetOperation.GetOptions);
+\t\tpublic override Type? OptionsObject() => typeof(GetOperation.GetOptions);
 
     internal class GetOptions
     {

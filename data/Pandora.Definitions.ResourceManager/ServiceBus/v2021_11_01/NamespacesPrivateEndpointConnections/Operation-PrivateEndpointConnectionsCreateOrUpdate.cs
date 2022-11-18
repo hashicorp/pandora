@@ -15,7 +15,7 @@ namespace Pandora.Definitions.ResourceManager.ServiceBus.v2021_11_01.NamespacesP
 
 internal class PrivateEndpointConnectionsCreateOrUpdateOperation : Operations.PutOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.Created,
@@ -24,9 +24,9 @@ internal class PrivateEndpointConnectionsCreateOrUpdateOperation : Operations.Pu
 
     public override Type? RequestObject() => typeof(PrivateEndpointConnectionModel);
 
-    public override ResourceID? ResourceId() => new PrivateEndpointConnectionId();
+\t\tpublic override ResourceID? ResourceId() => new PrivateEndpointConnectionId();
 
-    public override Type? ResponseObject() => typeof(PrivateEndpointConnectionModel);
+\t\tpublic override Type? ResponseObject() => typeof(PrivateEndpointConnectionModel);
 
 
 }

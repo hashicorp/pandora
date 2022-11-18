@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Compute.v2021_11_01.VirtualMachine
 
 internal class ListOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new VirtualMachineId();
+\t\tpublic override ResourceID? ResourceId() => new VirtualMachineId();
 
-    public override Type? ResponseObject() => typeof(VirtualMachineExtensionsListResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(VirtualMachineExtensionsListResultModel);
 
-    public override Type? OptionsObject() => typeof(ListOperation.ListOptions);
+\t\tpublic override Type? OptionsObject() => typeof(ListOperation.ListOptions);
 
-    public override string? UriSuffix() => "/extensions";
+\t\tpublic override string? UriSuffix() => "/extensions";
 
     internal class ListOptions
     {

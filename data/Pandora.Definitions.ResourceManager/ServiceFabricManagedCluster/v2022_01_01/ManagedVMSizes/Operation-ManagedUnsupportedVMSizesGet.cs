@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.ServiceFabricManagedCluster.v2022_
 
 internal class ManagedUnsupportedVMSizesGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ManagedUnsupportedVMSizeId();
+\t\tpublic override ResourceID? ResourceId() => new ManagedUnsupportedVMSizeId();
 
-    public override Type? ResponseObject() => typeof(ManagedVMSizeModel);
+\t\tpublic override Type? ResponseObject() => typeof(ManagedVMSizeModel);
 
 
 }

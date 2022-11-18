@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.NotificationHubs.v2017_04_01.Notif
 
 internal class GetPnsCredentialsOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new NotificationHubId();
+\t\tpublic override ResourceID? ResourceId() => new NotificationHubId();
 
-    public override Type? ResponseObject() => typeof(PnsCredentialsResourceModel);
+\t\tpublic override Type? ResponseObject() => typeof(PnsCredentialsResourceModel);
 
-    public override string? UriSuffix() => "/pnsCredentials";
+\t\tpublic override string? UriSuffix() => "/pnsCredentials";
 
 
 }

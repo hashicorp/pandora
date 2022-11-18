@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.Attestation.v2020_10_01.Attestatio
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new AttestationProvidersId();
+\t\tpublic override ResourceID? ResourceId() => new AttestationProvidersId();
 
-    public override Type? ResponseObject() => typeof(AttestationProvidersModel);
+\t\tpublic override Type? ResponseObject() => typeof(AttestationProvidersModel);
 
 
 }

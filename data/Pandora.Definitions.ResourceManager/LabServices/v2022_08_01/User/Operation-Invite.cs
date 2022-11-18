@@ -15,19 +15,19 @@ namespace Pandora.Definitions.ResourceManager.LabServices.v2022_08_01.User;
 
 internal class InviteOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(InviteBodyModel);
 
-    public override ResourceID? ResourceId() => new UserId();
+\t\tpublic override ResourceID? ResourceId() => new UserId();
 
-    public override string? UriSuffix() => "/invite";
+\t\tpublic override string? UriSuffix() => "/invite";
 
 
 }

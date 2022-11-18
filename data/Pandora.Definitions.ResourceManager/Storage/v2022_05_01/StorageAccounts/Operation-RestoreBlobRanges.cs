@@ -15,21 +15,21 @@ namespace Pandora.Definitions.ResourceManager.Storage.v2022_05_01.StorageAccount
 
 internal class RestoreBlobRangesOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(BlobRestoreParametersModel);
 
-    public override ResourceID? ResourceId() => new StorageAccountId();
+\t\tpublic override ResourceID? ResourceId() => new StorageAccountId();
 
-    public override Type? ResponseObject() => typeof(BlobRestoreStatusModel);
+\t\tpublic override Type? ResponseObject() => typeof(BlobRestoreStatusModel);
 
-    public override string? UriSuffix() => "/restoreBlobRanges";
+\t\tpublic override string? UriSuffix() => "/restoreBlobRanges";
 
 
 }

@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.ServiceLinker.v2022_05_01.Links;
 
 internal class LinkerListConfigurationsOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new ScopedLinkerId();
+\t\tpublic override ResourceID? ResourceId() => new ScopedLinkerId();
 
-    public override Type? ResponseObject() => typeof(SourceConfigurationResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(SourceConfigurationResultModel);
 
-    public override string? UriSuffix() => "/listConfigurations";
+\t\tpublic override string? UriSuffix() => "/listConfigurations";
 
 
 }

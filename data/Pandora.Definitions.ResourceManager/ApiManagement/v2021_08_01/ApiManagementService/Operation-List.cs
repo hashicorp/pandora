@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.ApiManag
 
 internal class ListOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new SubscriptionId();
+\t\tpublic override ResourceID? ResourceId() => new SubscriptionId();
 
-    public override Type NestedItemType() => typeof(ApiManagementServiceResourceModel);
+\t\tpublic override Type NestedItemType() => typeof(ApiManagementServiceResourceModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.ApiManagement/service";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.ApiManagement/service";
 
 
 }

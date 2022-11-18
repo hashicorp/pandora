@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.Identity
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new IdentityProviderId();
+\t\tpublic override ResourceID? ResourceId() => new IdentityProviderId();
 
-    public override Type? ResponseObject() => typeof(IdentityProviderContractModel);
+\t\tpublic override Type? ResponseObject() => typeof(IdentityProviderContractModel);
 
 
 }

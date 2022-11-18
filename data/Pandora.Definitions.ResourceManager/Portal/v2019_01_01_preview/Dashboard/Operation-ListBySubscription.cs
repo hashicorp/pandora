@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Portal.v2019_01_01_preview.Dashboa
 
 internal class ListBySubscriptionOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new SubscriptionId();
+\t\tpublic override ResourceID? ResourceId() => new SubscriptionId();
 
-    public override Type NestedItemType() => typeof(DashboardModel);
+\t\tpublic override Type NestedItemType() => typeof(DashboardModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.Portal/dashboards";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.Portal/dashboards";
 
 
 }

@@ -15,15 +15,15 @@ namespace Pandora.Definitions.ResourceManager.Compute.v2021_07_01.CapacityReserv
 
 internal class ListBySubscriptionOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new SubscriptionId();
+\t\tpublic override ResourceID? ResourceId() => new SubscriptionId();
 
-    public override Type NestedItemType() => typeof(CapacityReservationGroupModel);
+\t\tpublic override Type NestedItemType() => typeof(CapacityReservationGroupModel);
 
-    public override Type? OptionsObject() => typeof(ListBySubscriptionOperation.ListBySubscriptionOptions);
+\t\tpublic override Type? OptionsObject() => typeof(ListBySubscriptionOperation.ListBySubscriptionOptions);
 
-    public override string? UriSuffix() => "/providers/Microsoft.Compute/capacityReservationGroups";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.Compute/capacityReservationGroups";
 
     internal class ListBySubscriptionOptions
     {

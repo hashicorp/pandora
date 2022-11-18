@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.SecurityInsights.v2022_07_01_previ
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new IncidentId();
+\t\tpublic override ResourceID? ResourceId() => new IncidentId();
 
-    public override Type? ResponseObject() => typeof(IncidentModel);
+\t\tpublic override Type? ResponseObject() => typeof(IncidentModel);
 
 
 }

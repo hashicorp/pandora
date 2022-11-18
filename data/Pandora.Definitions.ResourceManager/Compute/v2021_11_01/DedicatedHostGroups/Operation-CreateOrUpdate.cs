@@ -17,9 +17,9 @@ internal class CreateOrUpdateOperation : Operations.PutOperation
 {
     public override Type? RequestObject() => typeof(DedicatedHostGroupModel);
 
-    public override ResourceID? ResourceId() => new HostGroupId();
+\t\tpublic override ResourceID? ResourceId() => new HostGroupId();
 
-    public override Type? ResponseObject() => typeof(DedicatedHostGroupModel);
+\t\tpublic override Type? ResponseObject() => typeof(DedicatedHostGroupModel);
 
 
 }

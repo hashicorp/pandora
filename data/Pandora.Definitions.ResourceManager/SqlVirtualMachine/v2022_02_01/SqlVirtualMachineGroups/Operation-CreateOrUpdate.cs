@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.SqlVirtualMachine.v2022_02_01.SqlV
 
 internal class CreateOrUpdateOperation : Operations.PutOperation
 {
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(SqlVirtualMachineGroupModel);
 
-    public override ResourceID? ResourceId() => new SqlVirtualMachineGroupId();
+\t\tpublic override ResourceID? ResourceId() => new SqlVirtualMachineGroupId();
 
-    public override Type? ResponseObject() => typeof(SqlVirtualMachineGroupModel);
+\t\tpublic override Type? ResponseObject() => typeof(SqlVirtualMachineGroupModel);
 
 
 }

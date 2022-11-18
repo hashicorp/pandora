@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.NetworkFunction.v2022_11_01.AzureT
 
 internal class ByResourceGroupListOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new ResourceGroupId();
+\t\tpublic override ResourceID? ResourceId() => new ResourceGroupId();
 
-    public override Type NestedItemType() => typeof(AzureTrafficCollectorModel);
+\t\tpublic override Type NestedItemType() => typeof(AzureTrafficCollectorModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.NetworkFunction/azureTrafficCollectors";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.NetworkFunction/azureTrafficCollectors";
 
 
 }

@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Automation.v2019_06_01.ConnectionT
 
 internal class ListByAutomationAccountOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new AutomationAccountId();
+\t\tpublic override ResourceID? ResourceId() => new AutomationAccountId();
 
-    public override Type NestedItemType() => typeof(ConnectionTypeModel);
+\t\tpublic override Type NestedItemType() => typeof(ConnectionTypeModel);
 
-    public override string? UriSuffix() => "/connectionTypes";
+\t\tpublic override string? UriSuffix() => "/connectionTypes";
 
 
 }

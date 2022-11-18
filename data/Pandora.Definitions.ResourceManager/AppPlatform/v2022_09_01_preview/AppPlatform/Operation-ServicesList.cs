@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.AppPlatform.v2022_09_01_preview.Ap
 
 internal class ServicesListOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new ResourceGroupId();
+\t\tpublic override ResourceID? ResourceId() => new ResourceGroupId();
 
-    public override Type NestedItemType() => typeof(ServiceResourceModel);
+\t\tpublic override Type NestedItemType() => typeof(ServiceResourceModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.AppPlatform/spring";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.AppPlatform/spring";
 
 
 }

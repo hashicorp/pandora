@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.ServiceBus.v2022_01_01_preview.Dis
 
 internal class GetAuthorizationRuleOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new DisasterRecoveryConfigAuthorizationRuleId();
+\t\tpublic override ResourceID? ResourceId() => new DisasterRecoveryConfigAuthorizationRuleId();
 
-    public override Type? ResponseObject() => typeof(SBAuthorizationRuleModel);
+\t\tpublic override Type? ResponseObject() => typeof(SBAuthorizationRuleModel);
 
 
 }

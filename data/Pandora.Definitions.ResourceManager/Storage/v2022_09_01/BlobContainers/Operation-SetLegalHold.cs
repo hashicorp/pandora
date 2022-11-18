@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.Storage.v2022_09_01.BlobContainers
 
 internal class SetLegalHoldOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(LegalHoldModel);
 
-    public override ResourceID? ResourceId() => new ContainerId();
+\t\tpublic override ResourceID? ResourceId() => new ContainerId();
 
-    public override Type? ResponseObject() => typeof(LegalHoldModel);
+\t\tpublic override Type? ResponseObject() => typeof(LegalHoldModel);
 
-    public override string? UriSuffix() => "/setLegalHold";
+\t\tpublic override string? UriSuffix() => "/setLegalHold";
 
 
 }

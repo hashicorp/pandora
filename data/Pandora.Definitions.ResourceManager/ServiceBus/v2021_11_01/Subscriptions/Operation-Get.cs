@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.ServiceBus.v2021_11_01.Subscriptio
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new Subscriptions2Id();
+\t\tpublic override ResourceID? ResourceId() => new Subscriptions2Id();
 
-    public override Type? ResponseObject() => typeof(SBSubscriptionModel);
+\t\tpublic override Type? ResponseObject() => typeof(SBSubscriptionModel);
 
 
 }

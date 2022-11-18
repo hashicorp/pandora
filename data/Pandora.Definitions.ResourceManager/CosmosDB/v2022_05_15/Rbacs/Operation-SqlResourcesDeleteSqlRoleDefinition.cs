@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.CosmosDB.v2022_05_15.Rbacs;
 
 internal class SqlResourcesDeleteSqlRoleDefinitionOperation : Operations.DeleteOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.NoContent,
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
-    public override ResourceID? ResourceId() => new SqlRoleDefinitionId();
+\t\tpublic override ResourceID? ResourceId() => new SqlRoleDefinitionId();
 
 
 }

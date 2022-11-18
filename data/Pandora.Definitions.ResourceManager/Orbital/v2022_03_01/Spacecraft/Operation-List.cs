@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Orbital.v2022_03_01.Spacecraft;
 
 internal class ListOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new ResourceGroupId();
+\t\tpublic override ResourceID? ResourceId() => new ResourceGroupId();
 
-    public override Type NestedItemType() => typeof(SpacecraftModel);
+\t\tpublic override Type NestedItemType() => typeof(SpacecraftModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.Orbital/spacecrafts";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.Orbital/spacecrafts";
 
 
 }

@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.StreamAnalytics.v2020_03_01.Privat
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new PrivateEndpointId();
+\t\tpublic override ResourceID? ResourceId() => new PrivateEndpointId();
 
-    public override Type? ResponseObject() => typeof(PrivateEndpointModel);
+\t\tpublic override Type? ResponseObject() => typeof(PrivateEndpointModel);
 
 
 }

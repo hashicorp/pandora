@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2022_01_01_preview.Schem
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new SchemaGroupId();
+\t\tpublic override ResourceID? ResourceId() => new SchemaGroupId();
 
-    public override Type? ResponseObject() => typeof(SchemaGroupModel);
+\t\tpublic override Type? ResponseObject() => typeof(SchemaGroupModel);
 
 
 }

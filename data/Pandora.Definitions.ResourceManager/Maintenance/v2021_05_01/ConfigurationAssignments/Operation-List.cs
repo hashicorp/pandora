@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.Maintenance.v2021_05_01.Configurat
 
 internal class ListOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ProviderId();
+\t\tpublic override ResourceID? ResourceId() => new ProviderId();
 
-    public override Type? ResponseObject() => typeof(ListConfigurationAssignmentsResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(ListConfigurationAssignmentsResultModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.Maintenance/configurationAssignments";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.Maintenance/configurationAssignments";
 
 
 }

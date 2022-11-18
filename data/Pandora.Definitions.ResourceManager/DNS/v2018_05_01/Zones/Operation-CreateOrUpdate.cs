@@ -17,11 +17,11 @@ internal class CreateOrUpdateOperation : Operations.PutOperation
 {
     public override Type? RequestObject() => typeof(ZoneModel);
 
-    public override ResourceID? ResourceId() => new DnsZoneId();
+\t\tpublic override ResourceID? ResourceId() => new DnsZoneId();
 
-    public override Type? ResponseObject() => typeof(ZoneModel);
+\t\tpublic override Type? ResponseObject() => typeof(ZoneModel);
 
-    public override Type? OptionsObject() => typeof(CreateOrUpdateOperation.CreateOrUpdateOptions);
+\t\tpublic override Type? OptionsObject() => typeof(CreateOrUpdateOperation.CreateOrUpdateOptions);
 
     internal class CreateOrUpdateOptions
     {

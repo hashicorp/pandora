@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.TrafficManager.v2018_08_01.Profile
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new TrafficManagerProfileId();
+\t\tpublic override ResourceID? ResourceId() => new TrafficManagerProfileId();
 
-    public override Type? ResponseObject() => typeof(ProfileModel);
+\t\tpublic override Type? ResponseObject() => typeof(ProfileModel);
 
 
 }

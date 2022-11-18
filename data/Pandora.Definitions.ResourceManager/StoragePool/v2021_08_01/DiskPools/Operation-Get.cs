@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.StoragePool.v2021_08_01.DiskPools;
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new DiskPoolId();
+\t\tpublic override ResourceID? ResourceId() => new DiskPoolId();
 
-    public override Type? ResponseObject() => typeof(DiskPoolModel);
+\t\tpublic override Type? ResponseObject() => typeof(DiskPoolModel);
 
 
 }

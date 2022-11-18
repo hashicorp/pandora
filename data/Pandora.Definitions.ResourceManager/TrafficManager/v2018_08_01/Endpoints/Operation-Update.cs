@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.TrafficManager.v2018_08_01.Endpoin
 
 internal class UpdateOperation : Operations.PatchOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(EndpointModel);
 
-    public override ResourceID? ResourceId() => new EndpointTypeId();
+\t\tpublic override ResourceID? ResourceId() => new EndpointTypeId();
 
-    public override Type? ResponseObject() => typeof(EndpointModel);
+\t\tpublic override Type? ResponseObject() => typeof(EndpointModel);
 
 
 }

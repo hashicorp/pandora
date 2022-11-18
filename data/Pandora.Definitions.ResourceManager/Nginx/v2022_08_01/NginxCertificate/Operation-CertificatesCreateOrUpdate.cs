@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Nginx.v2022_08_01.NginxCertificate
 
 internal class CertificatesCreateOrUpdateOperation : Operations.PutOperation
 {
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(NginxCertificateModel);
 
-    public override ResourceID? ResourceId() => new CertificateId();
+\t\tpublic override ResourceID? ResourceId() => new CertificateId();
 
-    public override Type? ResponseObject() => typeof(NginxCertificateModel);
+\t\tpublic override Type? ResponseObject() => typeof(NginxCertificateModel);
 
 
 }

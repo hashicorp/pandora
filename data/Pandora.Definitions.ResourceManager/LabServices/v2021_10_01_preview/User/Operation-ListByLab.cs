@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.LabServices.v2021_10_01_preview.Us
 
 internal class ListByLabOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new LabId();
+\t\tpublic override ResourceID? ResourceId() => new LabId();
 
-    public override Type NestedItemType() => typeof(UserModel);
+\t\tpublic override Type NestedItemType() => typeof(UserModel);
 
-    public override string? UriSuffix() => "/users";
+\t\tpublic override string? UriSuffix() => "/users";
 
 
 }

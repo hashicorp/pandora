@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.VMware.v2022_05_01.WorkloadNetwork
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new PrivateCloudId();
+\t\tpublic override ResourceID? ResourceId() => new PrivateCloudId();
 
-    public override Type? ResponseObject() => typeof(ResourceModel);
+\t\tpublic override Type? ResponseObject() => typeof(ResourceModel);
 
-    public override string? UriSuffix() => "/workloadNetworks/default";
+\t\tpublic override string? UriSuffix() => "/workloadNetworks/default";
 
 
 }

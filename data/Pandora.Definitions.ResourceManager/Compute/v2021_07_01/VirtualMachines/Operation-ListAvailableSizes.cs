@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.Compute.v2021_07_01.VirtualMachine
 
 internal class ListAvailableSizesOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new VirtualMachineId();
+\t\tpublic override ResourceID? ResourceId() => new VirtualMachineId();
 
-    public override Type? ResponseObject() => typeof(VirtualMachineSizeListResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(VirtualMachineSizeListResultModel);
 
-    public override string? UriSuffix() => "/vmSizes";
+\t\tpublic override string? UriSuffix() => "/vmSizes";
 
 
 }

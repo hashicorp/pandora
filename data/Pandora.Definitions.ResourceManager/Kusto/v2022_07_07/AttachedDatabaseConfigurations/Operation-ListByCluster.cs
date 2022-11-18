@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.Kusto.v2022_07_07.AttachedDatabase
 
 internal class ListByClusterOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ClusterId();
+\t\tpublic override ResourceID? ResourceId() => new ClusterId();
 
-    public override Type? ResponseObject() => typeof(AttachedDatabaseConfigurationListResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(AttachedDatabaseConfigurationListResultModel);
 
-    public override string? UriSuffix() => "/attachedDatabaseConfigurations";
+\t\tpublic override string? UriSuffix() => "/attachedDatabaseConfigurations";
 
 
 }

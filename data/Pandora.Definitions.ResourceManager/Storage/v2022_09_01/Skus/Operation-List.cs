@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.Storage.v2022_09_01.Skus;
 
 internal class ListOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new SubscriptionId();
+\t\tpublic override ResourceID? ResourceId() => new SubscriptionId();
 
-    public override Type? ResponseObject() => typeof(StorageSkuListResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(StorageSkuListResultModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.Storage/skus";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.Storage/skus";
 
 
 }

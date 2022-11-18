@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.TenantAc
 
 internal class ListSecretsOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new AccessId();
+\t\tpublic override ResourceID? ResourceId() => new AccessId();
 
-    public override Type? ResponseObject() => typeof(AccessInformationSecretsContractModel);
+\t\tpublic override Type? ResponseObject() => typeof(AccessInformationSecretsContractModel);
 
-    public override string? UriSuffix() => "/listSecrets";
+\t\tpublic override string? UriSuffix() => "/listSecrets";
 
 
 }

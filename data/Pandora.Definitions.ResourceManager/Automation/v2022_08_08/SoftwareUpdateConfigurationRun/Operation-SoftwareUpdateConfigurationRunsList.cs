@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Automation.v2022_08_08.SoftwareUpd
 
 internal class SoftwareUpdateConfigurationRunsListOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new AutomationAccountId();
+\t\tpublic override ResourceID? ResourceId() => new AutomationAccountId();
 
-    public override Type? ResponseObject() => typeof(SoftwareUpdateConfigurationRunListResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(SoftwareUpdateConfigurationRunListResultModel);
 
-    public override Type? OptionsObject() => typeof(SoftwareUpdateConfigurationRunsListOperation.SoftwareUpdateConfigurationRunsListOptions);
+\t\tpublic override Type? OptionsObject() => typeof(SoftwareUpdateConfigurationRunsListOperation.SoftwareUpdateConfigurationRunsListOptions);
 
-    public override string? UriSuffix() => "/softwareUpdateConfigurationRuns";
+\t\tpublic override string? UriSuffix() => "/softwareUpdateConfigurationRuns";
 
     internal class SoftwareUpdateConfigurationRunsListOptions
     {

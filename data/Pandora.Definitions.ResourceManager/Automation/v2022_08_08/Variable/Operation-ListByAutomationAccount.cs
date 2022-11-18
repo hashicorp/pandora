@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Automation.v2022_08_08.Variable;
 
 internal class ListByAutomationAccountOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new AutomationAccountId();
+\t\tpublic override ResourceID? ResourceId() => new AutomationAccountId();
 
-    public override Type NestedItemType() => typeof(VariableModel);
+\t\tpublic override Type NestedItemType() => typeof(VariableModel);
 
-    public override string? UriSuffix() => "/variables";
+\t\tpublic override string? UriSuffix() => "/variables";
 
 
 }

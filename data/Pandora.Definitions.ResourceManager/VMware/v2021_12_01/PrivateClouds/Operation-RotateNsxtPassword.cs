@@ -15,19 +15,19 @@ namespace Pandora.Definitions.ResourceManager.VMware.v2021_12_01.PrivateClouds;
 
 internal class RotateNsxtPasswordOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.NoContent,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new PrivateCloudId();
+\t\tpublic override ResourceID? ResourceId() => new PrivateCloudId();
 
-    public override string? UriSuffix() => "/rotateNsxtPassword";
+\t\tpublic override string? UriSuffix() => "/rotateNsxtPassword";
 
 
 }

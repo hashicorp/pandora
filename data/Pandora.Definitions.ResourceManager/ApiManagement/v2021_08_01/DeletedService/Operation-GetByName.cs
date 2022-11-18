@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.DeletedS
 
 internal class GetByNameOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new DeletedServiceId();
+\t\tpublic override ResourceID? ResourceId() => new DeletedServiceId();
 
-    public override Type? ResponseObject() => typeof(DeletedServiceContractModel);
+\t\tpublic override Type? ResponseObject() => typeof(DeletedServiceContractModel);
 
 
 }

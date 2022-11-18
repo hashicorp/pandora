@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.TrafficManager.v2018_08_01.Profile
 
 internal class ListBySubscriptionOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new SubscriptionId();
+\t\tpublic override ResourceID? ResourceId() => new SubscriptionId();
 
-    public override Type? ResponseObject() => typeof(ProfileListResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(ProfileListResultModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.Network/trafficManagerProfiles";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.Network/trafficManagerProfiles";
 
 
 }

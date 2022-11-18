@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.VMware.v2022_05_01.WorkloadNetwork
 
 internal class CreatePortMirroringOperation : Operations.PutOperation
 {
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(WorkloadNetworkPortMirroringModel);
 
-    public override ResourceID? ResourceId() => new PortMirroringProfileId();
+\t\tpublic override ResourceID? ResourceId() => new PortMirroringProfileId();
 
-    public override Type? ResponseObject() => typeof(WorkloadNetworkPortMirroringModel);
+\t\tpublic override Type? ResponseObject() => typeof(WorkloadNetworkPortMirroringModel);
 
 
 }

@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.VMware.v2022_05_01.WorkloadNetwork
 
 internal class ListDnsServicesOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new PrivateCloudId();
+\t\tpublic override ResourceID? ResourceId() => new PrivateCloudId();
 
-    public override Type NestedItemType() => typeof(WorkloadNetworkDnsServiceModel);
+\t\tpublic override Type NestedItemType() => typeof(WorkloadNetworkDnsServiceModel);
 
-    public override string? UriSuffix() => "/workloadNetworks/default/dnsServices";
+\t\tpublic override string? UriSuffix() => "/workloadNetworks/default/dnsServices";
 
 
 }

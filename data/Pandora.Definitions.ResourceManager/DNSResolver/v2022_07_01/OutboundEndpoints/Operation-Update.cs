@@ -15,21 +15,21 @@ namespace Pandora.Definitions.ResourceManager.DNSResolver.v2022_07_01.OutboundEn
 
 internal class UpdateOperation : Operations.PatchOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(OutboundEndpointPatchModel);
 
-    public override ResourceID? ResourceId() => new OutboundEndpointId();
+\t\tpublic override ResourceID? ResourceId() => new OutboundEndpointId();
 
-    public override Type? ResponseObject() => typeof(OutboundEndpointModel);
+\t\tpublic override Type? ResponseObject() => typeof(OutboundEndpointModel);
 
-    public override Type? OptionsObject() => typeof(UpdateOperation.UpdateOptions);
+\t\tpublic override Type? OptionsObject() => typeof(UpdateOperation.UpdateOptions);
 
     internal class UpdateOptions
     {

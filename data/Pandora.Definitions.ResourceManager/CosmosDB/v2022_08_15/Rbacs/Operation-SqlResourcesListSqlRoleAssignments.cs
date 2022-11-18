@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.CosmosDB.v2022_08_15.Rbacs;
 
 internal class SqlResourcesListSqlRoleAssignmentsOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new DatabaseAccountId();
+\t\tpublic override ResourceID? ResourceId() => new DatabaseAccountId();
 
-    public override Type? ResponseObject() => typeof(SqlRoleAssignmentListResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(SqlRoleAssignmentListResultModel);
 
-    public override string? UriSuffix() => "/sqlRoleAssignments";
+\t\tpublic override string? UriSuffix() => "/sqlRoleAssignments";
 
 
 }

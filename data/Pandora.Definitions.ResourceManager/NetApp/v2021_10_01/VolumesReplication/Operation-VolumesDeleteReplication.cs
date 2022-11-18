@@ -15,19 +15,19 @@ namespace Pandora.Definitions.ResourceManager.NetApp.v2021_10_01.VolumesReplicat
 
 internal class VolumesDeleteReplicationOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new VolumeId();
+\t\tpublic override ResourceID? ResourceId() => new VolumeId();
 
-    public override string? UriSuffix() => "/deleteReplication";
+\t\tpublic override string? UriSuffix() => "/deleteReplication";
 
 
 }

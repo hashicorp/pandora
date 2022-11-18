@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.Cache;
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new CacheId();
+\t\tpublic override ResourceID? ResourceId() => new CacheId();
 
-    public override Type? ResponseObject() => typeof(CacheContractModel);
+\t\tpublic override Type? ResponseObject() => typeof(CacheContractModel);
 
 
 }

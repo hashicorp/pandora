@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Cognitive.v2022_10_01.CognitiveSer
 
 internal class ResourceSkusListOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new SubscriptionId();
+\t\tpublic override ResourceID? ResourceId() => new SubscriptionId();
 
-    public override Type NestedItemType() => typeof(ResourceSkuModel);
+\t\tpublic override Type NestedItemType() => typeof(ResourceSkuModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.CognitiveServices/skus";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.CognitiveServices/skus";
 
 
 }

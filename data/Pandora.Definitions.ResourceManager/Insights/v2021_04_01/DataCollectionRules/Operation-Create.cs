@@ -17,9 +17,9 @@ internal class CreateOperation : Operations.PutOperation
 {
     public override Type? RequestObject() => typeof(DataCollectionRuleResourceModel);
 
-    public override ResourceID? ResourceId() => new DataCollectionRuleId();
+\t\tpublic override ResourceID? ResourceId() => new DataCollectionRuleId();
 
-    public override Type? ResponseObject() => typeof(DataCollectionRuleResourceModel);
+\t\tpublic override Type? ResponseObject() => typeof(DataCollectionRuleResourceModel);
 
 
 }

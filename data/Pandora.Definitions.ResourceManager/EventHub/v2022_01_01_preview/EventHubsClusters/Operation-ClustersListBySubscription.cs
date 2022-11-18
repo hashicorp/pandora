@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2022_01_01_preview.Event
 
 internal class ClustersListBySubscriptionOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new SubscriptionId();
+\t\tpublic override ResourceID? ResourceId() => new SubscriptionId();
 
-    public override Type NestedItemType() => typeof(ClusterModel);
+\t\tpublic override Type NestedItemType() => typeof(ClusterModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.EventHub/clusters";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.EventHub/clusters";
 
 
 }

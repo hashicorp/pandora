@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.OperationalInsights.v2019_09_01.Qu
 
 internal class QueryPacksCreateOrUpdateOperation : Operations.PutOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(LogAnalyticsQueryPackModel);
 
-    public override ResourceID? ResourceId() => new QueryPackId();
+\t\tpublic override ResourceID? ResourceId() => new QueryPackId();
 
-    public override Type? ResponseObject() => typeof(LogAnalyticsQueryPackModel);
+\t\tpublic override Type? ResponseObject() => typeof(LogAnalyticsQueryPackModel);
 
 
 }

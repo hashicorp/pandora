@@ -15,15 +15,15 @@ namespace Pandora.Definitions.ResourceManager.Media.v2020_05_01.StreamingEndpoin
 
 internal class CreateOperation : Operations.PutOperation
 {
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(StreamingEndpointModel);
 
-    public override ResourceID? ResourceId() => new StreamingEndpointId();
+\t\tpublic override ResourceID? ResourceId() => new StreamingEndpointId();
 
-    public override Type? ResponseObject() => typeof(StreamingEndpointModel);
+\t\tpublic override Type? ResponseObject() => typeof(StreamingEndpointModel);
 
-    public override Type? OptionsObject() => typeof(CreateOperation.CreateOptions);
+\t\tpublic override Type? OptionsObject() => typeof(CreateOperation.CreateOptions);
 
     internal class CreateOptions
     {

@@ -17,9 +17,9 @@ internal class AssetFiltersCreateOrUpdateOperation : Operations.PutOperation
 {
     public override Type? RequestObject() => typeof(AssetFilterModel);
 
-    public override ResourceID? ResourceId() => new AssetFilterId();
+\t\tpublic override ResourceID? ResourceId() => new AssetFilterId();
 
-    public override Type? ResponseObject() => typeof(AssetFilterModel);
+\t\tpublic override Type? ResponseObject() => typeof(AssetFilterModel);
 
 
 }

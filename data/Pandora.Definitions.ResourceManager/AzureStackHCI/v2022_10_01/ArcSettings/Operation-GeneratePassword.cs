@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.AzureStackHCI.v2022_10_01.ArcSetti
 
 internal class GeneratePasswordOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new ArcSettingId();
+\t\tpublic override ResourceID? ResourceId() => new ArcSettingId();
 
-    public override Type? ResponseObject() => typeof(PasswordCredentialModel);
+\t\tpublic override Type? ResponseObject() => typeof(PasswordCredentialModel);
 
-    public override string? UriSuffix() => "/generatePassword";
+\t\tpublic override string? UriSuffix() => "/generatePassword";
 
 
 }

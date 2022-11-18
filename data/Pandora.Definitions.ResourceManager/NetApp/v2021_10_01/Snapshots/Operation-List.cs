@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.NetApp.v2021_10_01.Snapshots;
 
 internal class ListOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new VolumeId();
+\t\tpublic override ResourceID? ResourceId() => new VolumeId();
 
-    public override Type? ResponseObject() => typeof(SnapshotsListModel);
+\t\tpublic override Type? ResponseObject() => typeof(SnapshotsListModel);
 
-    public override string? UriSuffix() => "/snapshots";
+\t\tpublic override string? UriSuffix() => "/snapshots";
 
 
 }

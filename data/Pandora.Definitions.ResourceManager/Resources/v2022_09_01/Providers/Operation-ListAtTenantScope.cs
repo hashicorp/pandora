@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Resources.v2022_09_01.Providers;
 
 internal class ListAtTenantScopeOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override Type NestedItemType() => typeof(ProviderModel);
+\t\tpublic override Type NestedItemType() => typeof(ProviderModel);
 
-    public override Type? OptionsObject() => typeof(ListAtTenantScopeOperation.ListAtTenantScopeOptions);
+\t\tpublic override Type? OptionsObject() => typeof(ListAtTenantScopeOperation.ListAtTenantScopeOptions);
 
-    public override string? UriSuffix() => "/providers";
+\t\tpublic override string? UriSuffix() => "/providers";
 
     internal class ListAtTenantScopeOptions
     {

@@ -15,15 +15,15 @@ namespace Pandora.Definitions.ResourceManager.ManagedIdentity.v2022_01_31_previe
 
 internal class FederatedIdentityCredentialsListOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new UserAssignedIdentityId();
+\t\tpublic override ResourceID? ResourceId() => new UserAssignedIdentityId();
 
-    public override Type NestedItemType() => typeof(FederatedIdentityCredentialModel);
+\t\tpublic override Type NestedItemType() => typeof(FederatedIdentityCredentialModel);
 
-    public override Type? OptionsObject() => typeof(FederatedIdentityCredentialsListOperation.FederatedIdentityCredentialsListOptions);
+\t\tpublic override Type? OptionsObject() => typeof(FederatedIdentityCredentialsListOperation.FederatedIdentityCredentialsListOptions);
 
-    public override string? UriSuffix() => "/federatedIdentityCredentials";
+\t\tpublic override string? UriSuffix() => "/federatedIdentityCredentials";
 
     internal class FederatedIdentityCredentialsListOptions
     {

@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.ContainerService.v2022_09_02_previ
 
 internal class UpdateOperation : Operations.PatchOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(FleetPatchModel);
 
-    public override ResourceID? ResourceId() => new FleetId();
+\t\tpublic override ResourceID? ResourceId() => new FleetId();
 
-    public override Type? ResponseObject() => typeof(FleetModel);
+\t\tpublic override Type? ResponseObject() => typeof(FleetModel);
 
-    public override Type? OptionsObject() => typeof(UpdateOperation.UpdateOptions);
+\t\tpublic override Type? OptionsObject() => typeof(UpdateOperation.UpdateOptions);
 
     internal class UpdateOptions
     {

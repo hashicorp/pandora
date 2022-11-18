@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.AppConfiguration.v2022_05_01.Confi
 
 internal class UpdateOperation : Operations.PatchOperation
 {
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(ConfigurationStoreUpdateParametersModel);
 
-    public override ResourceID? ResourceId() => new ConfigurationStoreId();
+\t\tpublic override ResourceID? ResourceId() => new ConfigurationStoreId();
 
-    public override Type? ResponseObject() => typeof(ConfigurationStoreModel);
+\t\tpublic override Type? ResponseObject() => typeof(ConfigurationStoreModel);
 
 
 }

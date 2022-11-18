@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.FluidRelay.v2022_05_26.FluidRelayS
 
 internal class ListBySubscriptionOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new SubscriptionId();
+\t\tpublic override ResourceID? ResourceId() => new SubscriptionId();
 
-    public override Type NestedItemType() => typeof(FluidRelayServerModel);
+\t\tpublic override Type NestedItemType() => typeof(FluidRelayServerModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.FluidRelay/fluidRelayServers";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.FluidRelay/fluidRelayServers";
 
 
 }

@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.LabServices.v2022_08_01.Image;
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ImageId();
+\t\tpublic override ResourceID? ResourceId() => new ImageId();
 
-    public override Type? ResponseObject() => typeof(ImageModel);
+\t\tpublic override Type? ResponseObject() => typeof(ImageModel);
 
 
 }

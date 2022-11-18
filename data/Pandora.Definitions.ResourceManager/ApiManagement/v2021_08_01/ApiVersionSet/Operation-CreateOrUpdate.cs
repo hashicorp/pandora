@@ -17,11 +17,11 @@ internal class CreateOrUpdateOperation : Operations.PutOperation
 {
     public override Type? RequestObject() => typeof(ApiVersionSetContractModel);
 
-    public override ResourceID? ResourceId() => new ApiVersionSetId();
+\t\tpublic override ResourceID? ResourceId() => new ApiVersionSetId();
 
-    public override Type? ResponseObject() => typeof(ApiVersionSetContractModel);
+\t\tpublic override Type? ResponseObject() => typeof(ApiVersionSetContractModel);
 
-    public override Type? OptionsObject() => typeof(CreateOrUpdateOperation.CreateOrUpdateOptions);
+\t\tpublic override Type? OptionsObject() => typeof(CreateOrUpdateOperation.CreateOrUpdateOptions);
 
     internal class CreateOrUpdateOptions
     {

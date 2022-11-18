@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.MariaDB.v2018_06_01.Advisors;
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new AdvisorId();
+\t\tpublic override ResourceID? ResourceId() => new AdvisorId();
 
-    public override Type? ResponseObject() => typeof(AdvisorModel);
+\t\tpublic override Type? ResponseObject() => typeof(AdvisorModel);
 
 
 }

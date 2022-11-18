@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.LoadTestService.v2021_12_01_previe
 
 internal class CreateOrUpdateOperation : Operations.PutOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(LoadTestResourceModel);
 
-    public override ResourceID? ResourceId() => new LoadTestId();
+\t\tpublic override ResourceID? ResourceId() => new LoadTestId();
 
-    public override Type? ResponseObject() => typeof(LoadTestResourceModel);
+\t\tpublic override Type? ResponseObject() => typeof(LoadTestResourceModel);
 
 
 }

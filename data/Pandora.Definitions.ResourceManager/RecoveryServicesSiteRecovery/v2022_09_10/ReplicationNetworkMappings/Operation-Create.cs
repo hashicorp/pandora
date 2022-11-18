@@ -15,19 +15,19 @@ namespace Pandora.Definitions.ResourceManager.RecoveryServicesSiteRecovery.v2022
 
 internal class CreateOperation : Operations.PutOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(CreateNetworkMappingInputModel);
 
-    public override ResourceID? ResourceId() => new ReplicationNetworkMappingId();
+\t\tpublic override ResourceID? ResourceId() => new ReplicationNetworkMappingId();
 
-    public override Type? ResponseObject() => typeof(NetworkMappingModel);
+\t\tpublic override Type? ResponseObject() => typeof(NetworkMappingModel);
 
 
 }

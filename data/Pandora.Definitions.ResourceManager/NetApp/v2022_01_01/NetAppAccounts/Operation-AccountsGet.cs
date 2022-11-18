@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.NetApp.v2022_01_01.NetAppAccounts;
 
 internal class AccountsGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new NetAppAccountId();
+\t\tpublic override ResourceID? ResourceId() => new NetAppAccountId();
 
-    public override Type? ResponseObject() => typeof(NetAppAccountModel);
+\t\tpublic override Type? ResponseObject() => typeof(NetAppAccountModel);
 
 
 }

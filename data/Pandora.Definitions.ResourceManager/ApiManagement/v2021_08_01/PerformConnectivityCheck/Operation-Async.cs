@@ -15,21 +15,21 @@ namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.PerformC
 
 internal class AsyncOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(ConnectivityCheckRequestModel);
 
-    public override ResourceID? ResourceId() => new ServiceId();
+\t\tpublic override ResourceID? ResourceId() => new ServiceId();
 
-    public override Type? ResponseObject() => typeof(ConnectivityCheckResponseModel);
+\t\tpublic override Type? ResponseObject() => typeof(ConnectivityCheckResponseModel);
 
-    public override string? UriSuffix() => "/connectivityCheck";
+\t\tpublic override string? UriSuffix() => "/connectivityCheck";
 
 
 }

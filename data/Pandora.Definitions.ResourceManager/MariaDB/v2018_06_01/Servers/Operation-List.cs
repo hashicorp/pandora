@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.MariaDB.v2018_06_01.Servers;
 
 internal class ListOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new SubscriptionId();
+\t\tpublic override ResourceID? ResourceId() => new SubscriptionId();
 
-    public override Type? ResponseObject() => typeof(ServerListResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(ServerListResultModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.DBforMariaDB/servers";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.DBforMariaDB/servers";
 
 
 }

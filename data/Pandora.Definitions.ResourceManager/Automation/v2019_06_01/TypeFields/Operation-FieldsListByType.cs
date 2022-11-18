@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.Automation.v2019_06_01.TypeFields;
 
 internal class FieldsListByTypeOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new TypeId();
+\t\tpublic override ResourceID? ResourceId() => new TypeId();
 
-    public override Type? ResponseObject() => typeof(TypeFieldListResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(TypeFieldListResultModel);
 
-    public override string? UriSuffix() => "/fields";
+\t\tpublic override string? UriSuffix() => "/fields";
 
 
 }

@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.NetApp.v2021_10_01.SubVolumes;
 
 internal class ListByVolumeOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new VolumeId();
+\t\tpublic override ResourceID? ResourceId() => new VolumeId();
 
-    public override Type NestedItemType() => typeof(SubvolumeInfoModel);
+\t\tpublic override Type NestedItemType() => typeof(SubvolumeInfoModel);
 
-    public override string? UriSuffix() => "/subVolumes";
+\t\tpublic override string? UriSuffix() => "/subVolumes";
 
 
 }

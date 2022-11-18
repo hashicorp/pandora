@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.NetApp.v2022_05_01.Backups;
 
 internal class GetStatusOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new VolumeId();
+\t\tpublic override ResourceID? ResourceId() => new VolumeId();
 
-    public override Type? ResponseObject() => typeof(BackupStatusModel);
+\t\tpublic override Type? ResponseObject() => typeof(BackupStatusModel);
 
-    public override string? UriSuffix() => "/backupStatus";
+\t\tpublic override string? UriSuffix() => "/backupStatus";
 
 
 }

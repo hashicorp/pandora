@@ -15,7 +15,7 @@ namespace Pandora.Definitions.ResourceManager.CostManagement.v2021_10_01.Forecas
 
 internal class UsageOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.NoContent,
                 HttpStatusCode.OK,
@@ -23,13 +23,13 @@ internal class UsageOperation : Operations.PostOperation
 
     public override Type? RequestObject() => typeof(ForecastDefinitionModel);
 
-    public override ResourceID? ResourceId() => new ScopeId();
+\t\tpublic override ResourceID? ResourceId() => new ScopeId();
 
-    public override Type? ResponseObject() => typeof(ForecastResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(ForecastResultModel);
 
-    public override Type? OptionsObject() => typeof(UsageOperation.UsageOptions);
+\t\tpublic override Type? OptionsObject() => typeof(UsageOperation.UsageOptions);
 
-    public override string? UriSuffix() => "/providers/Microsoft.CostManagement/forecast";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.CostManagement/forecast";
 
     internal class UsageOptions
     {

@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.Storage.v2022_09_01.TableServicePr
 
 internal class TableServicesSetServicePropertiesOperation : Operations.PutOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(TableServicePropertiesModel);
 
-    public override ResourceID? ResourceId() => new StorageAccountId();
+\t\tpublic override ResourceID? ResourceId() => new StorageAccountId();
 
-    public override Type? ResponseObject() => typeof(TableServicePropertiesModel);
+\t\tpublic override Type? ResponseObject() => typeof(TableServicePropertiesModel);
 
-    public override string? UriSuffix() => "/tableServices/default";
+\t\tpublic override string? UriSuffix() => "/tableServices/default";
 
 
 }

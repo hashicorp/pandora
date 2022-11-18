@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.Subscription.v2021_10_01.Subscript
 
 internal class SubscriptionAcceptOwnershipOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(AcceptOwnershipRequestModel);
 
-    public override ResourceID? ResourceId() => new ProviderSubscriptionId();
+\t\tpublic override ResourceID? ResourceId() => new ProviderSubscriptionId();
 
-    public override string? UriSuffix() => "/acceptOwnership";
+\t\tpublic override string? UriSuffix() => "/acceptOwnership";
 
 
 }

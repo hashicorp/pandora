@@ -15,21 +15,21 @@ namespace Pandora.Definitions.ResourceManager.AppPlatform.v2022_09_01_preview.Ap
 
 internal class MonitoringSettingsUpdatePatchOperation : Operations.PatchOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(MonitoringSettingResourceModel);
 
-    public override ResourceID? ResourceId() => new SpringId();
+\t\tpublic override ResourceID? ResourceId() => new SpringId();
 
-    public override Type? ResponseObject() => typeof(MonitoringSettingResourceModel);
+\t\tpublic override Type? ResponseObject() => typeof(MonitoringSettingResourceModel);
 
-    public override string? UriSuffix() => "/monitoringSettings/default";
+\t\tpublic override string? UriSuffix() => "/monitoringSettings/default";
 
 
 }

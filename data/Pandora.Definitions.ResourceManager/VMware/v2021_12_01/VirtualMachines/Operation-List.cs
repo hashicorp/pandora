@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.VMware.v2021_12_01.VirtualMachines
 
 internal class ListOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new ClusterId();
+\t\tpublic override ResourceID? ResourceId() => new ClusterId();
 
-    public override Type NestedItemType() => typeof(VirtualMachineModel);
+\t\tpublic override Type NestedItemType() => typeof(VirtualMachineModel);
 
-    public override string? UriSuffix() => "/virtualMachines";
+\t\tpublic override string? UriSuffix() => "/virtualMachines";
 
 
 }

@@ -15,20 +15,20 @@ namespace Pandora.Definitions.ResourceManager.Compute.v2021_07_01.VirtualMachine
 
 internal class ForceRecoveryServiceFabricPlatformUpdateDomainWalkOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new VirtualMachineScaleSetId();
+\t\tpublic override ResourceID? ResourceId() => new VirtualMachineScaleSetId();
 
-    public override Type? ResponseObject() => typeof(RecoveryWalkResponseModel);
+\t\tpublic override Type? ResponseObject() => typeof(RecoveryWalkResponseModel);
 
-    public override Type? OptionsObject() => typeof(ForceRecoveryServiceFabricPlatformUpdateDomainWalkOperation.ForceRecoveryServiceFabricPlatformUpdateDomainWalkOptions);
+\t\tpublic override Type? OptionsObject() => typeof(ForceRecoveryServiceFabricPlatformUpdateDomainWalkOperation.ForceRecoveryServiceFabricPlatformUpdateDomainWalkOptions);
 
-    public override string? UriSuffix() => "/forceRecoveryServiceFabricPlatformUpdateDomainWalk";
+\t\tpublic override string? UriSuffix() => "/forceRecoveryServiceFabricPlatformUpdateDomainWalk";
 
     internal class ForceRecoveryServiceFabricPlatformUpdateDomainWalkOptions
     {

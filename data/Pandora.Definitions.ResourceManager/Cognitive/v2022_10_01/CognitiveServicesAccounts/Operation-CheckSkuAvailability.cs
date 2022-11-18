@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.Cognitive.v2022_10_01.CognitiveSer
 
 internal class CheckSkuAvailabilityOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(CheckSkuAvailabilityParameterModel);
 
-    public override ResourceID? ResourceId() => new LocationId();
+\t\tpublic override ResourceID? ResourceId() => new LocationId();
 
-    public override Type? ResponseObject() => typeof(SkuAvailabilityListResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(SkuAvailabilityListResultModel);
 
-    public override string? UriSuffix() => "/checkSkuAvailability";
+\t\tpublic override string? UriSuffix() => "/checkSkuAvailability";
 
 
 }

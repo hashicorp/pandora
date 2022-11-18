@@ -17,11 +17,11 @@ internal class WorkbooksCreateOrUpdateOperation : Operations.PutOperation
 {
     public override Type? RequestObject() => typeof(WorkbookModel);
 
-    public override ResourceID? ResourceId() => new WorkbookId();
+\t\tpublic override ResourceID? ResourceId() => new WorkbookId();
 
-    public override Type? ResponseObject() => typeof(WorkbookModel);
+\t\tpublic override Type? ResponseObject() => typeof(WorkbookModel);
 
-    public override Type? OptionsObject() => typeof(WorkbooksCreateOrUpdateOperation.WorkbooksCreateOrUpdateOptions);
+\t\tpublic override Type? OptionsObject() => typeof(WorkbooksCreateOrUpdateOperation.WorkbooksCreateOrUpdateOptions);
 
     internal class WorkbooksCreateOrUpdateOptions
     {

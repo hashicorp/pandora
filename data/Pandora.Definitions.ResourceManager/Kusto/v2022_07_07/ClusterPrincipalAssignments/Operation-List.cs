@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.Kusto.v2022_07_07.ClusterPrincipal
 
 internal class ListOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ClusterId();
+\t\tpublic override ResourceID? ResourceId() => new ClusterId();
 
-    public override Type? ResponseObject() => typeof(ClusterPrincipalAssignmentListResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(ClusterPrincipalAssignmentListResultModel);
 
-    public override string? UriSuffix() => "/principalAssignments";
+\t\tpublic override string? UriSuffix() => "/principalAssignments";
 
 
 }

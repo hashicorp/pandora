@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.NetApp.v2022_01_01.VolumeQuotaRule
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new VolumeQuotaRuleId();
+\t\tpublic override ResourceID? ResourceId() => new VolumeQuotaRuleId();
 
-    public override Type? ResponseObject() => typeof(VolumeQuotaRuleModel);
+\t\tpublic override Type? ResponseObject() => typeof(VolumeQuotaRuleModel);
 
 
 }

@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.ContentT
 
 internal class ContentItemCreateOrUpdateOperation : Operations.PutOperation
 {
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new ContentItemId();
+\t\tpublic override ResourceID? ResourceId() => new ContentItemId();
 
-    public override Type? ResponseObject() => typeof(ContentItemContractModel);
+\t\tpublic override Type? ResponseObject() => typeof(ContentItemContractModel);
 
-    public override Type? OptionsObject() => typeof(ContentItemCreateOrUpdateOperation.ContentItemCreateOrUpdateOptions);
+\t\tpublic override Type? OptionsObject() => typeof(ContentItemCreateOrUpdateOperation.ContentItemCreateOrUpdateOptions);
 
     internal class ContentItemCreateOrUpdateOptions
     {

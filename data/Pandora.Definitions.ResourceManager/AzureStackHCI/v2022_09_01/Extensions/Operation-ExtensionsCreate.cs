@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.AzureStackHCI.v2022_09_01.Extensio
 
 internal class ExtensionsCreateOperation : Operations.PutOperation
 {
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(ExtensionModel);
 
-    public override ResourceID? ResourceId() => new ExtensionId();
+\t\tpublic override ResourceID? ResourceId() => new ExtensionId();
 
-    public override Type? ResponseObject() => typeof(ExtensionModel);
+\t\tpublic override Type? ResponseObject() => typeof(ExtensionModel);
 
 
 }

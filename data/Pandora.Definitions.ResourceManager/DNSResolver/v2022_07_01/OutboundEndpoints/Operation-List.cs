@@ -15,15 +15,15 @@ namespace Pandora.Definitions.ResourceManager.DNSResolver.v2022_07_01.OutboundEn
 
 internal class ListOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new DnsResolverId();
+\t\tpublic override ResourceID? ResourceId() => new DnsResolverId();
 
-    public override Type NestedItemType() => typeof(OutboundEndpointModel);
+\t\tpublic override Type NestedItemType() => typeof(OutboundEndpointModel);
 
-    public override Type? OptionsObject() => typeof(ListOperation.ListOptions);
+\t\tpublic override Type? OptionsObject() => typeof(ListOperation.ListOptions);
 
-    public override string? UriSuffix() => "/outboundEndpoints";
+\t\tpublic override string? UriSuffix() => "/outboundEndpoints";
 
     internal class ListOptions
     {

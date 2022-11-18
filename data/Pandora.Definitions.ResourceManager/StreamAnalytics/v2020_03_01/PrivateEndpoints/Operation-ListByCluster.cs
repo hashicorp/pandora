@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.StreamAnalytics.v2020_03_01.Privat
 
 internal class ListByClusterOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new ClusterId();
+\t\tpublic override ResourceID? ResourceId() => new ClusterId();
 
-    public override Type NestedItemType() => typeof(PrivateEndpointModel);
+\t\tpublic override Type NestedItemType() => typeof(PrivateEndpointModel);
 
-    public override string? UriSuffix() => "/privateEndpoints";
+\t\tpublic override string? UriSuffix() => "/privateEndpoints";
 
 
 }

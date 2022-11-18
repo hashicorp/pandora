@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.MariaDB.v2018_06_01.VirtualNetwork
 
 internal class ListByServerOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new ServerId();
+\t\tpublic override ResourceID? ResourceId() => new ServerId();
 
-    public override Type NestedItemType() => typeof(VirtualNetworkRuleModel);
+\t\tpublic override Type NestedItemType() => typeof(VirtualNetworkRuleModel);
 
-    public override string? UriSuffix() => "/virtualNetworkRules";
+\t\tpublic override string? UriSuffix() => "/virtualNetworkRules";
 
 
 }

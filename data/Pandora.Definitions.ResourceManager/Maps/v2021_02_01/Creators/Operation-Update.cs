@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.Maps.v2021_02_01.Creators;
 
 internal class UpdateOperation : Operations.PatchOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(CreatorUpdateParametersModel);
 
-    public override ResourceID? ResourceId() => new CreatorId();
+\t\tpublic override ResourceID? ResourceId() => new CreatorId();
 
-    public override Type? ResponseObject() => typeof(CreatorModel);
+\t\tpublic override Type? ResponseObject() => typeof(CreatorModel);
 
 
 }

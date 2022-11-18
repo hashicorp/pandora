@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.IoTCentral.v2021_11_01_preview.Net
 
 internal class PrivateLinksListOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new IotAppId();
+\t\tpublic override ResourceID? ResourceId() => new IotAppId();
 
-    public override Type? ResponseObject() => typeof(PrivateLinkResourceListResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(PrivateLinkResourceListResultModel);
 
-    public override string? UriSuffix() => "/privateLinkResources";
+\t\tpublic override string? UriSuffix() => "/privateLinkResources";
 
 
 }

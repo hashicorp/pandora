@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.DesktopVirtualization.v2021_09_03_
 
 internal class UpdateOperation : Operations.PatchOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(SessionHostPatchModel);
 
-    public override ResourceID? ResourceId() => new SessionHostId();
+\t\tpublic override ResourceID? ResourceId() => new SessionHostId();
 
-    public override Type? ResponseObject() => typeof(SessionHostModel);
+\t\tpublic override Type? ResponseObject() => typeof(SessionHostModel);
 
-    public override Type? OptionsObject() => typeof(UpdateOperation.UpdateOptions);
+\t\tpublic override Type? OptionsObject() => typeof(UpdateOperation.UpdateOptions);
 
     internal class UpdateOptions
     {

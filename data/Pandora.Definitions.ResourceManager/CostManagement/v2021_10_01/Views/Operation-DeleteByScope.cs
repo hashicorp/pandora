@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.CostManagement.v2021_10_01.Views;
 
 internal class DeleteByScopeOperation : Operations.DeleteOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.NoContent,
                 HttpStatusCode.OK,
         };
 
-    public override ResourceID? ResourceId() => new ScopedViewId();
+\t\tpublic override ResourceID? ResourceId() => new ScopedViewId();
 
 
 }

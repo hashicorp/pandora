@@ -15,15 +15,15 @@ namespace Pandora.Definitions.ResourceManager.Consumption.v2019_10_01.Reservatio
 
 internal class ListByBillingProfileOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new BillingProfileId();
+\t\tpublic override ResourceID? ResourceId() => new BillingProfileId();
 
-    public override Type NestedItemType() => typeof(ModernReservationTransactionModel);
+\t\tpublic override Type NestedItemType() => typeof(ModernReservationTransactionModel);
 
-    public override Type? OptionsObject() => typeof(ListByBillingProfileOperation.ListByBillingProfileOptions);
+\t\tpublic override Type? OptionsObject() => typeof(ListByBillingProfileOperation.ListByBillingProfileOptions);
 
-    public override string? UriSuffix() => "/providers/Microsoft.Consumption/reservationTransactions";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.Consumption/reservationTransactions";
 
     internal class ListByBillingProfileOptions
     {

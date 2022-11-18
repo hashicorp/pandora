@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.HybridCompute.v2022_03_10.Machines
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new MachineId();
+\t\tpublic override ResourceID? ResourceId() => new MachineId();
 
-    public override Type? ResponseObject() => typeof(MachineModel);
+\t\tpublic override Type? ResponseObject() => typeof(MachineModel);
 
-    public override Type? OptionsObject() => typeof(GetOperation.GetOptions);
+\t\tpublic override Type? OptionsObject() => typeof(GetOperation.GetOptions);
 
     internal class GetOptions
     {

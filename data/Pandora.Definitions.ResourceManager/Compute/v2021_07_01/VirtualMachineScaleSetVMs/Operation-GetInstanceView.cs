@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.Compute.v2021_07_01.VirtualMachine
 
 internal class GetInstanceViewOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new VirtualMachineScaleSetVirtualMachineId();
+\t\tpublic override ResourceID? ResourceId() => new VirtualMachineScaleSetVirtualMachineId();
 
-    public override Type? ResponseObject() => typeof(VirtualMachineScaleSetVMInstanceViewModel);
+\t\tpublic override Type? ResponseObject() => typeof(VirtualMachineScaleSetVMInstanceViewModel);
 
-    public override string? UriSuffix() => "/instanceView";
+\t\tpublic override string? UriSuffix() => "/instanceView";
 
 
 }

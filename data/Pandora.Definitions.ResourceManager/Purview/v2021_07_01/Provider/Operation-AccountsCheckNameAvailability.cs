@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.Purview.v2021_07_01.Provider;
 
 internal class AccountsCheckNameAvailabilityOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(CheckNameAvailabilityRequestModel);
 
-    public override ResourceID? ResourceId() => new SubscriptionId();
+\t\tpublic override ResourceID? ResourceId() => new SubscriptionId();
 
-    public override Type? ResponseObject() => typeof(CheckNameAvailabilityResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(CheckNameAvailabilityResultModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.Purview/checkNameAvailability";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.Purview/checkNameAvailability";
 
 
 }

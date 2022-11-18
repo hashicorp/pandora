@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.Media.v2020_05_01.Accounts;
 
 internal class MediaservicesListEdgePoliciesOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(ListEdgePoliciesInputModel);
 
-    public override ResourceID? ResourceId() => new ProviderMediaServiceId();
+\t\tpublic override ResourceID? ResourceId() => new ProviderMediaServiceId();
 
-    public override Type? ResponseObject() => typeof(EdgePoliciesModel);
+\t\tpublic override Type? ResponseObject() => typeof(EdgePoliciesModel);
 
-    public override string? UriSuffix() => "/listEdgePolicies";
+\t\tpublic override string? UriSuffix() => "/listEdgePolicies";
 
 
 }

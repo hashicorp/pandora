@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.FluidRelay.v2022_05_26.FluidRelayS
 
 internal class GetKeysOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new FluidRelayServerId();
+\t\tpublic override ResourceID? ResourceId() => new FluidRelayServerId();
 
-    public override Type? ResponseObject() => typeof(FluidRelayServerKeysModel);
+\t\tpublic override Type? ResponseObject() => typeof(FluidRelayServerKeysModel);
 
-    public override string? UriSuffix() => "/getKeys";
+\t\tpublic override string? UriSuffix() => "/getKeys";
 
 
 }

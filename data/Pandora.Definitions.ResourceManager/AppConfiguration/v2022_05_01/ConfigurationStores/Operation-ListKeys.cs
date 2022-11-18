@@ -15,22 +15,22 @@ namespace Pandora.Definitions.ResourceManager.AppConfiguration.v2022_05_01.Confi
 
 internal class ListKeysOperation : Operations.ListOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new ConfigurationStoreId();
+\t\tpublic override ResourceID? ResourceId() => new ConfigurationStoreId();
 
-    public override Type NestedItemType() => typeof(ApiKeyModel);
+\t\tpublic override Type NestedItemType() => typeof(ApiKeyModel);
 
-    public override string? UriSuffix() => "/listKeys";
+\t\tpublic override string? UriSuffix() => "/listKeys";
 
-    public override System.Net.Http.HttpMethod Method() => System.Net.Http.HttpMethod.Post;
+\t\tpublic override System.Net.Http.HttpMethod Method() => System.Net.Http.HttpMethod.Post;
 
 
 }

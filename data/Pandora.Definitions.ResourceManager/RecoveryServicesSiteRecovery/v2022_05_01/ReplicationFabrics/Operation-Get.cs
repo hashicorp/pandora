@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.RecoveryServicesSiteRecovery.v2022
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ReplicationFabricId();
+\t\tpublic override ResourceID? ResourceId() => new ReplicationFabricId();
 
-    public override Type? ResponseObject() => typeof(FabricModel);
+\t\tpublic override Type? ResponseObject() => typeof(FabricModel);
 
-    public override Type? OptionsObject() => typeof(GetOperation.GetOptions);
+\t\tpublic override Type? OptionsObject() => typeof(GetOperation.GetOptions);
 
     internal class GetOptions
     {

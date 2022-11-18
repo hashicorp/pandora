@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.CostManagement.v2021_10_01.Query;
 
 internal class UsageByExternalCloudProviderTypeOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(QueryDefinitionModel);
 
-    public override ResourceID? ResourceId() => new ExternalCloudProviderTypeId();
+\t\tpublic override ResourceID? ResourceId() => new ExternalCloudProviderTypeId();
 
-    public override Type? ResponseObject() => typeof(QueryResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(QueryResultModel);
 
-    public override string? UriSuffix() => "/query";
+\t\tpublic override string? UriSuffix() => "/query";
 
 
 }

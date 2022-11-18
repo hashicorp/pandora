@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.GatewayC
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new CertificateAuthorityId();
+\t\tpublic override ResourceID? ResourceId() => new CertificateAuthorityId();
 
-    public override Type? ResponseObject() => typeof(GatewayCertificateAuthorityContractModel);
+\t\tpublic override Type? ResponseObject() => typeof(GatewayCertificateAuthorityContractModel);
 
 
 }

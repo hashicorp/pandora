@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.HybridCompute.v2022_03_10.PrivateL
 
 internal class PrivateLinkScopesUpdateTagsOperation : Operations.PatchOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(TagsResourceModel);
 
-    public override ResourceID? ResourceId() => new ProviderPrivateLinkScopeId();
+\t\tpublic override ResourceID? ResourceId() => new ProviderPrivateLinkScopeId();
 
-    public override Type? ResponseObject() => typeof(HybridComputePrivateLinkScopeModel);
+\t\tpublic override Type? ResponseObject() => typeof(HybridComputePrivateLinkScopeModel);
 
 
 }

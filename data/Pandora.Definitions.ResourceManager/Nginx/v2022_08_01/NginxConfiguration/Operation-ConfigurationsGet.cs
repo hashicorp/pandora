@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.Nginx.v2022_08_01.NginxConfigurati
 
 internal class ConfigurationsGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ConfigurationId();
+\t\tpublic override ResourceID? ResourceId() => new ConfigurationId();
 
-    public override Type? ResponseObject() => typeof(NginxConfigurationModel);
+\t\tpublic override Type? ResponseObject() => typeof(NginxConfigurationModel);
 
 
 }

@@ -15,15 +15,15 @@ namespace Pandora.Definitions.ResourceManager.Batch.v2022_10_01.PrivateLinkResou
 
 internal class ListByBatchAccountOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new BatchAccountId();
+\t\tpublic override ResourceID? ResourceId() => new BatchAccountId();
 
-    public override Type NestedItemType() => typeof(PrivateLinkResourceModel);
+\t\tpublic override Type NestedItemType() => typeof(PrivateLinkResourceModel);
 
-    public override Type? OptionsObject() => typeof(ListByBatchAccountOperation.ListByBatchAccountOptions);
+\t\tpublic override Type? OptionsObject() => typeof(ListByBatchAccountOperation.ListByBatchAccountOptions);
 
-    public override string? UriSuffix() => "/privateLinkResources";
+\t\tpublic override string? UriSuffix() => "/privateLinkResources";
 
     internal class ListByBatchAccountOptions
     {

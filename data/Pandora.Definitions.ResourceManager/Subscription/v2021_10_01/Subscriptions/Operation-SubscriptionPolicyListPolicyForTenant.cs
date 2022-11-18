@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.Subscription.v2021_10_01.Subscript
 
 internal class SubscriptionPolicyListPolicyForTenantOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override Type NestedItemType() => typeof(GetTenantPolicyResponseModel);
+\t\tpublic override Type NestedItemType() => typeof(GetTenantPolicyResponseModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.Subscription/policies";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.Subscription/policies";
 
 
 }

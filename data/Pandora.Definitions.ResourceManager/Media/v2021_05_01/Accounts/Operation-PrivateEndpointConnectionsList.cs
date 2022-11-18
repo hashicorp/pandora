@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.Media.v2021_05_01.Accounts;
 
 internal class PrivateEndpointConnectionsListOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new MediaServiceId();
+\t\tpublic override ResourceID? ResourceId() => new MediaServiceId();
 
-    public override Type? ResponseObject() => typeof(PrivateEndpointConnectionListResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(PrivateEndpointConnectionListResultModel);
 
-    public override string? UriSuffix() => "/privateEndpointConnections";
+\t\tpublic override string? UriSuffix() => "/privateEndpointConnections";
 
 
 }

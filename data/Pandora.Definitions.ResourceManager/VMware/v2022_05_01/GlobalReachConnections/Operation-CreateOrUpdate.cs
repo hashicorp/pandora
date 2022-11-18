@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.VMware.v2022_05_01.GlobalReachConn
 
 internal class CreateOrUpdateOperation : Operations.PutOperation
 {
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(GlobalReachConnectionModel);
 
-    public override ResourceID? ResourceId() => new GlobalReachConnectionId();
+\t\tpublic override ResourceID? ResourceId() => new GlobalReachConnectionId();
 
-    public override Type? ResponseObject() => typeof(GlobalReachConnectionModel);
+\t\tpublic override Type? ResponseObject() => typeof(GlobalReachConnectionModel);
 
 
 }

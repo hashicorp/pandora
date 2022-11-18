@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.Insights.v2021_05_01_preview.Subsc
 
 internal class ListOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new SubscriptionId();
+\t\tpublic override ResourceID? ResourceId() => new SubscriptionId();
 
-    public override Type? ResponseObject() => typeof(SubscriptionDiagnosticSettingsResourceCollectionModel);
+\t\tpublic override Type? ResponseObject() => typeof(SubscriptionDiagnosticSettingsResourceCollectionModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.Insights/diagnosticSettings";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.Insights/diagnosticSettings";
 
 
 }

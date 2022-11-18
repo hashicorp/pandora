@@ -15,15 +15,15 @@ namespace Pandora.Definitions.ResourceManager.VideoAnalyzer.v2021_05_01_preview.
 
 internal class VideosListOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "@nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "@nextLink";
 
-    public override ResourceID? ResourceId() => new VideoAnalyzerId();
+\t\tpublic override ResourceID? ResourceId() => new VideoAnalyzerId();
 
-    public override Type NestedItemType() => typeof(VideoEntityModel);
+\t\tpublic override Type NestedItemType() => typeof(VideoEntityModel);
 
-    public override Type? OptionsObject() => typeof(VideosListOperation.VideosListOptions);
+\t\tpublic override Type? OptionsObject() => typeof(VideosListOperation.VideosListOptions);
 
-    public override string? UriSuffix() => "/videos";
+\t\tpublic override string? UriSuffix() => "/videos";
 
     internal class VideosListOptions
     {

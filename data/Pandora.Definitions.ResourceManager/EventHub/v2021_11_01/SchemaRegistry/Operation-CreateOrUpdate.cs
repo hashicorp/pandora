@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2021_11_01.SchemaRegistr
 
 internal class CreateOrUpdateOperation : Operations.PutOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(SchemaGroupModel);
 
-    public override ResourceID? ResourceId() => new SchemaGroupId();
+\t\tpublic override ResourceID? ResourceId() => new SchemaGroupId();
 
-    public override Type? ResponseObject() => typeof(SchemaGroupModel);
+\t\tpublic override Type? ResponseObject() => typeof(SchemaGroupModel);
 
 
 }

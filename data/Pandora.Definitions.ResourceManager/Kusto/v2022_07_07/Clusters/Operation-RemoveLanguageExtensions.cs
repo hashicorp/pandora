@@ -15,19 +15,19 @@ namespace Pandora.Definitions.ResourceManager.Kusto.v2022_07_07.Clusters;
 
 internal class RemoveLanguageExtensionsOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(LanguageExtensionsListModel);
 
-    public override ResourceID? ResourceId() => new ClusterId();
+\t\tpublic override ResourceID? ResourceId() => new ClusterId();
 
-    public override string? UriSuffix() => "/removeLanguageExtensions";
+\t\tpublic override string? UriSuffix() => "/removeLanguageExtensions";
 
 
 }

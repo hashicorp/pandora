@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.AppPlatform.v2022_09_01_preview.Ap
 
 internal class ApiPortalCustomDomainsListOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new ApiPortalId();
+\t\tpublic override ResourceID? ResourceId() => new ApiPortalId();
 
-    public override Type NestedItemType() => typeof(ApiPortalCustomDomainResourceModel);
+\t\tpublic override Type NestedItemType() => typeof(ApiPortalCustomDomainResourceModel);
 
-    public override string? UriSuffix() => "/domains";
+\t\tpublic override string? UriSuffix() => "/domains";
 
 
 }

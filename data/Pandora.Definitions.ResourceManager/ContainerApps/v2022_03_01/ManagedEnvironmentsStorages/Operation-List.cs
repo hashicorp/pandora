@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.ContainerApps.v2022_03_01.ManagedE
 
 internal class ListOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ManagedEnvironmentId();
+\t\tpublic override ResourceID? ResourceId() => new ManagedEnvironmentId();
 
-    public override Type? ResponseObject() => typeof(ManagedEnvironmentStoragesCollectionModel);
+\t\tpublic override Type? ResponseObject() => typeof(ManagedEnvironmentStoragesCollectionModel);
 
-    public override string? UriSuffix() => "/storages";
+\t\tpublic override string? UriSuffix() => "/storages";
 
 
 }

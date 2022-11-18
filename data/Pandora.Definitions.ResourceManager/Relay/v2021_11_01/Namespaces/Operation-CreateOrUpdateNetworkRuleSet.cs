@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.Relay.v2021_11_01.Namespaces;
 
 internal class CreateOrUpdateNetworkRuleSetOperation : Operations.PutOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(NetworkRuleSetModel);
 
-    public override ResourceID? ResourceId() => new NamespaceId();
+\t\tpublic override ResourceID? ResourceId() => new NamespaceId();
 
-    public override Type? ResponseObject() => typeof(NetworkRuleSetModel);
+\t\tpublic override Type? ResponseObject() => typeof(NetworkRuleSetModel);
 
-    public override string? UriSuffix() => "/networkRuleSets/default";
+\t\tpublic override string? UriSuffix() => "/networkRuleSets/default";
 
 
 }

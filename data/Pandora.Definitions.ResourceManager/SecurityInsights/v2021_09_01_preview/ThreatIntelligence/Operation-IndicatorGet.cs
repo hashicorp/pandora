@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.SecurityInsights.v2021_09_01_previ
 
 internal class IndicatorGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new IndicatorId();
+\t\tpublic override ResourceID? ResourceId() => new IndicatorId();
 
-    public override Type? ResponseObject() => typeof(ThreatIntelligenceInformationModel);
+\t\tpublic override Type? ResponseObject() => typeof(ThreatIntelligenceInformationModel);
 
 
 }

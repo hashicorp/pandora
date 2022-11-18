@@ -15,21 +15,21 @@ namespace Pandora.Definitions.ResourceManager.Compute.v2021_07_01.VirtualMachine
 
 internal class PowerOffOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new VirtualMachineScaleSetVirtualMachineId();
+\t\tpublic override ResourceID? ResourceId() => new VirtualMachineScaleSetVirtualMachineId();
 
-    public override Type? OptionsObject() => typeof(PowerOffOperation.PowerOffOptions);
+\t\tpublic override Type? OptionsObject() => typeof(PowerOffOperation.PowerOffOptions);
 
-    public override string? UriSuffix() => "/poweroff";
+\t\tpublic override string? UriSuffix() => "/poweroff";
 
     internal class PowerOffOptions
     {

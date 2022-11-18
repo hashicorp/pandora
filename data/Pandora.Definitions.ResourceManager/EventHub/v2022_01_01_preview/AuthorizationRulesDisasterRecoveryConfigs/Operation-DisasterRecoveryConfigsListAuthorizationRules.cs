@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2022_01_01_preview.Autho
 
 internal class DisasterRecoveryConfigsListAuthorizationRulesOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new DisasterRecoveryConfigId();
+\t\tpublic override ResourceID? ResourceId() => new DisasterRecoveryConfigId();
 
-    public override Type NestedItemType() => typeof(AuthorizationRuleModel);
+\t\tpublic override Type NestedItemType() => typeof(AuthorizationRuleModel);
 
-    public override string? UriSuffix() => "/authorizationRules";
+\t\tpublic override string? UriSuffix() => "/authorizationRules";
 
 
 }

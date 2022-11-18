@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.CostManagement.v2021_10_01.Dimensi
 
 internal class ByExternalCloudProviderTypeOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ExternalCloudProviderTypeId();
+\t\tpublic override ResourceID? ResourceId() => new ExternalCloudProviderTypeId();
 
-    public override Type? ResponseObject() => typeof(DimensionModel);
+\t\tpublic override Type? ResponseObject() => typeof(DimensionModel);
 
-    public override Type? OptionsObject() => typeof(ByExternalCloudProviderTypeOperation.ByExternalCloudProviderTypeOptions);
+\t\tpublic override Type? OptionsObject() => typeof(ByExternalCloudProviderTypeOperation.ByExternalCloudProviderTypeOptions);
 
-    public override string? UriSuffix() => "/dimensions";
+\t\tpublic override string? UriSuffix() => "/dimensions";
 
     internal class ByExternalCloudProviderTypeOptions
     {

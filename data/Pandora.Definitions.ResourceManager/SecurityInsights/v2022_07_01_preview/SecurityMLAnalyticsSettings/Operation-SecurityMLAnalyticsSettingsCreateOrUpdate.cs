@@ -17,9 +17,9 @@ internal class SecurityMLAnalyticsSettingsCreateOrUpdateOperation : Operations.P
 {
     public override Type? RequestObject() => typeof(SecurityMLAnalyticsSettingModel);
 
-    public override ResourceID? ResourceId() => new SecurityMLAnalyticsSettingId();
+\t\tpublic override ResourceID? ResourceId() => new SecurityMLAnalyticsSettingId();
 
-    public override Type? ResponseObject() => typeof(SecurityMLAnalyticsSettingModel);
+\t\tpublic override Type? ResponseObject() => typeof(SecurityMLAnalyticsSettingModel);
 
 
 }

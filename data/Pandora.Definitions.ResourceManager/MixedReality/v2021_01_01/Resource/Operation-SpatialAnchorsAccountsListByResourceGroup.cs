@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.MixedReality.v2021_01_01.Resource;
 
 internal class SpatialAnchorsAccountsListByResourceGroupOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new ResourceGroupId();
+\t\tpublic override ResourceID? ResourceId() => new ResourceGroupId();
 
-    public override Type NestedItemType() => typeof(SpatialAnchorsAccountModel);
+\t\tpublic override Type NestedItemType() => typeof(SpatialAnchorsAccountModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.MixedReality/spatialAnchorsAccounts";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.MixedReality/spatialAnchorsAccounts";
 
 
 }

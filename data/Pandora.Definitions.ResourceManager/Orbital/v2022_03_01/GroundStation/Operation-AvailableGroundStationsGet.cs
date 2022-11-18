@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.Orbital.v2022_03_01.GroundStation;
 
 internal class AvailableGroundStationsGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new AvailableGroundStationId();
+\t\tpublic override ResourceID? ResourceId() => new AvailableGroundStationId();
 
-    public override Type? ResponseObject() => typeof(AvailableGroundStationModel);
+\t\tpublic override Type? ResponseObject() => typeof(AvailableGroundStationModel);
 
 
 }

@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.ServiceBus.v2021_11_01.DisasterRec
 
 internal class CheckNameAvailabilityOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(CheckNameAvailabilityModel);
 
-    public override ResourceID? ResourceId() => new NamespaceId();
+\t\tpublic override ResourceID? ResourceId() => new NamespaceId();
 
-    public override Type? ResponseObject() => typeof(CheckNameAvailabilityResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(CheckNameAvailabilityResultModel);
 
-    public override string? UriSuffix() => "/disasterRecoveryConfigs/checkNameAvailability";
+\t\tpublic override string? UriSuffix() => "/disasterRecoveryConfigs/checkNameAvailability";
 
 
 }

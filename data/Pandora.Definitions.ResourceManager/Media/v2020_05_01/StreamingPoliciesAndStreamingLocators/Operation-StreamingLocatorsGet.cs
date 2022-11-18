@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.Media.v2020_05_01.StreamingPolicie
 
 internal class StreamingLocatorsGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new StreamingLocatorId();
+\t\tpublic override ResourceID? ResourceId() => new StreamingLocatorId();
 
-    public override Type? ResponseObject() => typeof(StreamingLocatorModel);
+\t\tpublic override Type? ResponseObject() => typeof(StreamingLocatorModel);
 
 
 }

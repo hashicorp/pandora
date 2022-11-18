@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.CosmosDB.v2022_08_15.CosmosDB;
 
 internal class DatabaseAccountsGetReadOnlyKeysOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new DatabaseAccountId();
+\t\tpublic override ResourceID? ResourceId() => new DatabaseAccountId();
 
-    public override Type? ResponseObject() => typeof(DatabaseAccountListReadOnlyKeysResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(DatabaseAccountListReadOnlyKeysResultModel);
 
-    public override string? UriSuffix() => "/readonlykeys";
+\t\tpublic override string? UriSuffix() => "/readonlykeys";
 
 
 }

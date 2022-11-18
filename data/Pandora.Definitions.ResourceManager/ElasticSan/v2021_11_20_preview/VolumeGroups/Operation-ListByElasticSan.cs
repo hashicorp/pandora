@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.ElasticSan.v2021_11_20_preview.Vol
 
 internal class ListByElasticSanOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new ElasticSanId();
+\t\tpublic override ResourceID? ResourceId() => new ElasticSanId();
 
-    public override Type NestedItemType() => typeof(VolumeGroupModel);
+\t\tpublic override Type NestedItemType() => typeof(VolumeGroupModel);
 
-    public override string? UriSuffix() => "/volumeGroups";
+\t\tpublic override string? UriSuffix() => "/volumeGroups";
 
 
 }

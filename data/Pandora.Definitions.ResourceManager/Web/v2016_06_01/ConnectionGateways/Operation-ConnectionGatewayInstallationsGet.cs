@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.Web.v2016_06_01.ConnectionGateways
 
 internal class ConnectionGatewayInstallationsGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ConnectionGatewayInstallationId();
+\t\tpublic override ResourceID? ResourceId() => new ConnectionGatewayInstallationId();
 
-    public override Type? ResponseObject() => typeof(ConnectionGatewayInstallationDefinitionModel);
+\t\tpublic override Type? ResponseObject() => typeof(ConnectionGatewayInstallationDefinitionModel);
 
 
 }

@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.CosmosDB.v2022_05_15.NotebookWorks
 
 internal class NotebookWorkspacesGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new DatabaseAccountId();
+\t\tpublic override ResourceID? ResourceId() => new DatabaseAccountId();
 
-    public override Type? ResponseObject() => typeof(NotebookWorkspaceModel);
+\t\tpublic override Type? ResponseObject() => typeof(NotebookWorkspaceModel);
 
-    public override string? UriSuffix() => "/notebookWorkspaces/default";
+\t\tpublic override string? UriSuffix() => "/notebookWorkspaces/default";
 
 
 }

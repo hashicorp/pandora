@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.SecurityInsights.v2022_07_01_previ
 
 internal class ExpandOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(EntityExpandParametersModel);
 
-    public override ResourceID? ResourceId() => new EntityId();
+\t\tpublic override ResourceID? ResourceId() => new EntityId();
 
-    public override Type? ResponseObject() => typeof(EntityExpandResponseModel);
+\t\tpublic override Type? ResponseObject() => typeof(EntityExpandResponseModel);
 
-    public override string? UriSuffix() => "/expand";
+\t\tpublic override string? UriSuffix() => "/expand";
 
 
 }

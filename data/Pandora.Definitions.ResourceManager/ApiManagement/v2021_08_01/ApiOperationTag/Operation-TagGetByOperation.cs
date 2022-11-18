@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.ApiOpera
 
 internal class TagGetByOperationOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new OperationTagId();
+\t\tpublic override ResourceID? ResourceId() => new OperationTagId();
 
-    public override Type? ResponseObject() => typeof(TagContractModel);
+\t\tpublic override Type? ResponseObject() => typeof(TagContractModel);
 
 
 }

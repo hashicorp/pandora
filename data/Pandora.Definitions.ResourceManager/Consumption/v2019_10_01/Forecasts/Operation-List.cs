@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Consumption.v2019_10_01.Forecasts;
 
 internal class ListOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new SubscriptionId();
+\t\tpublic override ResourceID? ResourceId() => new SubscriptionId();
 
-    public override Type? ResponseObject() => typeof(ForecastsListResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(ForecastsListResultModel);
 
-    public override Type? OptionsObject() => typeof(ListOperation.ListOptions);
+\t\tpublic override Type? OptionsObject() => typeof(ListOperation.ListOptions);
 
-    public override string? UriSuffix() => "/providers/Microsoft.Consumption/forecasts";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.Consumption/forecasts";
 
     internal class ListOptions
     {

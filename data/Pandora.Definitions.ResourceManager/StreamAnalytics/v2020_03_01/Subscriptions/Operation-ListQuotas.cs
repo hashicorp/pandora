@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.StreamAnalytics.v2020_03_01.Subscr
 
 internal class ListQuotasOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new LocationId();
+\t\tpublic override ResourceID? ResourceId() => new LocationId();
 
-    public override Type? ResponseObject() => typeof(SubscriptionQuotasListResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(SubscriptionQuotasListResultModel);
 
-    public override string? UriSuffix() => "/quotas";
+\t\tpublic override string? UriSuffix() => "/quotas";
 
 
 }

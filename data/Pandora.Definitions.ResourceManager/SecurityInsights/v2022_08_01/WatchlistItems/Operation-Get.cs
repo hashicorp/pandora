@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.SecurityInsights.v2022_08_01.Watch
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new WatchlistItemId();
+\t\tpublic override ResourceID? ResourceId() => new WatchlistItemId();
 
-    public override Type? ResponseObject() => typeof(WatchlistItemModel);
+\t\tpublic override Type? ResponseObject() => typeof(WatchlistItemModel);
 
 
 }

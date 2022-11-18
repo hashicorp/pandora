@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2021_11_01.EventHubs;
 
 internal class CreateOrUpdateOperation : Operations.PutOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(EventhubModel);
 
-    public override ResourceID? ResourceId() => new EventhubId();
+\t\tpublic override ResourceID? ResourceId() => new EventhubId();
 
-    public override Type? ResponseObject() => typeof(EventhubModel);
+\t\tpublic override Type? ResponseObject() => typeof(EventhubModel);
 
 
 }

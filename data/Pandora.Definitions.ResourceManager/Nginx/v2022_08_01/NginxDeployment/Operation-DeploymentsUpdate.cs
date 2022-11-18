@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Nginx.v2022_08_01.NginxDeployment;
 
 internal class DeploymentsUpdateOperation : Operations.PatchOperation
 {
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(NginxDeploymentUpdateParametersModel);
 
-    public override ResourceID? ResourceId() => new NginxDeploymentId();
+\t\tpublic override ResourceID? ResourceId() => new NginxDeploymentId();
 
-    public override Type? ResponseObject() => typeof(NginxDeploymentModel);
+\t\tpublic override Type? ResponseObject() => typeof(NginxDeploymentModel);
 
 
 }

@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.HybridKubernetes.v2021_10_01.Conne
 
 internal class ConnectedClusterGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ConnectedClusterId();
+\t\tpublic override ResourceID? ResourceId() => new ConnectedClusterId();
 
-    public override Type? ResponseObject() => typeof(ConnectedClusterModel);
+\t\tpublic override Type? ResponseObject() => typeof(ConnectedClusterModel);
 
 
 }

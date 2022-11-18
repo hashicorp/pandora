@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.SecurityInsights.v2022_07_01_previ
 
 internal class GetInsightsOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(EntityGetInsightsParametersModel);
 
-    public override ResourceID? ResourceId() => new EntityId();
+\t\tpublic override ResourceID? ResourceId() => new EntityId();
 
-    public override Type? ResponseObject() => typeof(EntityGetInsightsResponseModel);
+\t\tpublic override Type? ResponseObject() => typeof(EntityGetInsightsResponseModel);
 
-    public override string? UriSuffix() => "/getInsights";
+\t\tpublic override string? UriSuffix() => "/getInsights";
 
 
 }

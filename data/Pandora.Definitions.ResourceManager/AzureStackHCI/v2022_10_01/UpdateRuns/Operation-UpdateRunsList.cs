@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.AzureStackHCI.v2022_10_01.UpdateRu
 
 internal class UpdateRunsListOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new UpdateId();
+\t\tpublic override ResourceID? ResourceId() => new UpdateId();
 
-    public override Type NestedItemType() => typeof(UpdateRunModel);
+\t\tpublic override Type NestedItemType() => typeof(UpdateRunModel);
 
-    public override string? UriSuffix() => "/updateRuns";
+\t\tpublic override string? UriSuffix() => "/updateRuns";
 
 
 }

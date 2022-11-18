@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.Consumption.v2021_10_01.Balances;
 
 internal class GetByBillingAccountOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new BillingAccountId();
+\t\tpublic override ResourceID? ResourceId() => new BillingAccountId();
 
-    public override Type? ResponseObject() => typeof(BalanceModel);
+\t\tpublic override Type? ResponseObject() => typeof(BalanceModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.Consumption/balances";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.Consumption/balances";
 
 
 }

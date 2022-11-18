@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.VMware.v2021_12_01.PrivateClouds;
 
 internal class UpdateOperation : Operations.PatchOperation
 {
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(PrivateCloudUpdateModel);
 
-    public override ResourceID? ResourceId() => new PrivateCloudId();
+\t\tpublic override ResourceID? ResourceId() => new PrivateCloudId();
 
-    public override Type? ResponseObject() => typeof(PrivateCloudModel);
+\t\tpublic override Type? ResponseObject() => typeof(PrivateCloudModel);
 
 
 }

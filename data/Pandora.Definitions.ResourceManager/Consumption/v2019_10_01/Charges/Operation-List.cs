@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Consumption.v2019_10_01.Charges;
 
 internal class ListOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ScopeId();
+\t\tpublic override ResourceID? ResourceId() => new ScopeId();
 
-    public override Type? ResponseObject() => typeof(ChargesListResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(ChargesListResultModel);
 
-    public override Type? OptionsObject() => typeof(ListOperation.ListOptions);
+\t\tpublic override Type? OptionsObject() => typeof(ListOperation.ListOptions);
 
-    public override string? UriSuffix() => "/providers/Microsoft.Consumption/charges";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.Consumption/charges";
 
     internal class ListOptions
     {

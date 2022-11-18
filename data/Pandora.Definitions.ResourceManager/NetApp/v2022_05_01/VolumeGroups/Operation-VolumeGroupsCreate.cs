@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.NetApp.v2022_05_01.VolumeGroups;
 
 internal class VolumeGroupsCreateOperation : Operations.PutOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Created,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(VolumeGroupDetailsModel);
 
-    public override ResourceID? ResourceId() => new VolumeGroupId();
+\t\tpublic override ResourceID? ResourceId() => new VolumeGroupId();
 
-    public override Type? ResponseObject() => typeof(VolumeGroupDetailsModel);
+\t\tpublic override Type? ResponseObject() => typeof(VolumeGroupDetailsModel);
 
 
 }

@@ -17,9 +17,9 @@ internal class AccountFiltersCreateOrUpdateOperation : Operations.PutOperation
 {
     public override Type? RequestObject() => typeof(AccountFilterModel);
 
-    public override ResourceID? ResourceId() => new AccountFilterId();
+\t\tpublic override ResourceID? ResourceId() => new AccountFilterId();
 
-    public override Type? ResponseObject() => typeof(AccountFilterModel);
+\t\tpublic override Type? ResponseObject() => typeof(AccountFilterModel);
 
 
 }

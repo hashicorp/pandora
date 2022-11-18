@@ -17,9 +17,9 @@ internal class CreateOrUpdateOperation : Operations.PutOperation
 {
     public override Type? RequestObject() => typeof(NotificationHubCreateOrUpdateParametersModel);
 
-    public override ResourceID? ResourceId() => new NotificationHubId();
+\t\tpublic override ResourceID? ResourceId() => new NotificationHubId();
 
-    public override Type? ResponseObject() => typeof(NotificationHubResourceModel);
+\t\tpublic override Type? ResponseObject() => typeof(NotificationHubResourceModel);
 
 
 }

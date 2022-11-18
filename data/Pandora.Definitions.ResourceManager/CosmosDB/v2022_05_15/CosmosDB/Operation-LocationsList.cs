@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.CosmosDB.v2022_05_15.CosmosDB;
 
 internal class LocationsListOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new SubscriptionId();
+\t\tpublic override ResourceID? ResourceId() => new SubscriptionId();
 
-    public override Type? ResponseObject() => typeof(LocationListResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(LocationListResultModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.DocumentDB/locations";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.DocumentDB/locations";
 
 
 }

@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.PostgreSql.v2022_03_08_preview.Ser
 
 internal class ListOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new SubscriptionId();
+\t\tpublic override ResourceID? ResourceId() => new SubscriptionId();
 
-    public override Type NestedItemType() => typeof(ServerModel);
+\t\tpublic override Type NestedItemType() => typeof(ServerModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.DBforPostgreSQL/flexibleServers";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.DBforPostgreSQL/flexibleServers";
 
 
 }

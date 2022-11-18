@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.ConfidentialLedger.v2022_05_13.Con
 
 internal class LedgerUpdateOperation : Operations.PatchOperation
 {
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(ConfidentialLedgerModel);
 
-    public override ResourceID? ResourceId() => new LedgerId();
+\t\tpublic override ResourceID? ResourceId() => new LedgerId();
 
-    public override Type? ResponseObject() => typeof(ConfidentialLedgerModel);
+\t\tpublic override Type? ResponseObject() => typeof(ConfidentialLedgerModel);
 
 
 }

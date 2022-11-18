@@ -15,15 +15,15 @@ namespace Pandora.Definitions.ResourceManager.NetApp.v2022_05_01.VolumeQuotaRule
 
 internal class DeleteOperation : Operations.DeleteOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.NoContent,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
-    public override ResourceID? ResourceId() => new VolumeQuotaRuleId();
+\t\tpublic override ResourceID? ResourceId() => new VolumeQuotaRuleId();
 
 
 }

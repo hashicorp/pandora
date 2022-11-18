@@ -15,21 +15,21 @@ namespace Pandora.Definitions.ResourceManager.CostManagement.v2022_10_01.CostDet
 
 internal class GenerateCostDetailsReportCreateOperationOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(GenerateCostDetailsReportRequestDefinitionModel);
 
-    public override ResourceID? ResourceId() => new ScopeId();
+\t\tpublic override ResourceID? ResourceId() => new ScopeId();
 
-    public override Type? ResponseObject() => typeof(CostDetailsOperationResultsModel);
+\t\tpublic override Type? ResponseObject() => typeof(CostDetailsOperationResultsModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.CostManagement/generateCostDetailsReport";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.CostManagement/generateCostDetailsReport";
 
 
 }

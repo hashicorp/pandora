@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.Compute.v2021_11_01.VirtualMachine
 
 internal class GetByVirtualMachineOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new VirtualMachineRunCommandId();
+\t\tpublic override ResourceID? ResourceId() => new VirtualMachineRunCommandId();
 
-    public override Type? ResponseObject() => typeof(VirtualMachineRunCommandModel);
+\t\tpublic override Type? ResponseObject() => typeof(VirtualMachineRunCommandModel);
 
-    public override Type? OptionsObject() => typeof(GetByVirtualMachineOperation.GetByVirtualMachineOptions);
+\t\tpublic override Type? OptionsObject() => typeof(GetByVirtualMachineOperation.GetByVirtualMachineOptions);
 
     internal class GetByVirtualMachineOptions
     {

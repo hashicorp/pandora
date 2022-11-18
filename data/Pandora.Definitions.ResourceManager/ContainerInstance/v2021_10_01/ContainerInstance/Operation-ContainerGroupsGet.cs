@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.ContainerInstance.v2021_10_01.Cont
 
 internal class ContainerGroupsGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ContainerGroupId();
+\t\tpublic override ResourceID? ResourceId() => new ContainerGroupId();
 
-    public override Type? ResponseObject() => typeof(ContainerGroupModel);
+\t\tpublic override Type? ResponseObject() => typeof(ContainerGroupModel);
 
 
 }

@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Automation.v2019_06_01.DscNodeConf
 
 internal class CreateOrUpdateOperation : Operations.PutOperation
 {
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(DscNodeConfigurationCreateOrUpdateParametersModel);
 
-    public override ResourceID? ResourceId() => new NodeConfigurationId();
+\t\tpublic override ResourceID? ResourceId() => new NodeConfigurationId();
 
-    public override Type? ResponseObject() => typeof(DscNodeConfigurationModel);
+\t\tpublic override Type? ResponseObject() => typeof(DscNodeConfigurationModel);
 
 
 }

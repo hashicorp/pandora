@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.AppPlatform.v2022_09_01_preview.Ap
 
 internal class BindingsListOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new AppId();
+\t\tpublic override ResourceID? ResourceId() => new AppId();
 
-    public override Type NestedItemType() => typeof(BindingResourceModel);
+\t\tpublic override Type NestedItemType() => typeof(BindingResourceModel);
 
-    public override string? UriSuffix() => "/bindings";
+\t\tpublic override string? UriSuffix() => "/bindings";
 
 
 }

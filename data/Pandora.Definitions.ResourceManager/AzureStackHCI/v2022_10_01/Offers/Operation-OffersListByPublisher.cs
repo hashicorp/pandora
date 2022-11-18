@@ -15,15 +15,15 @@ namespace Pandora.Definitions.ResourceManager.AzureStackHCI.v2022_10_01.Offers;
 
 internal class OffersListByPublisherOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new PublisherId();
+\t\tpublic override ResourceID? ResourceId() => new PublisherId();
 
-    public override Type NestedItemType() => typeof(OfferModel);
+\t\tpublic override Type NestedItemType() => typeof(OfferModel);
 
-    public override Type? OptionsObject() => typeof(OffersListByPublisherOperation.OffersListByPublisherOptions);
+\t\tpublic override Type? OptionsObject() => typeof(OffersListByPublisherOperation.OffersListByPublisherOptions);
 
-    public override string? UriSuffix() => "/offers";
+\t\tpublic override string? UriSuffix() => "/offers";
 
     internal class OffersListByPublisherOptions
     {

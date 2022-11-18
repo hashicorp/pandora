@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Elastic.v2020_07_01.MonitorsResour
 
 internal class MonitorsCreateOperation : Operations.PutOperation
 {
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(ElasticMonitorResourceModel);
 
-    public override ResourceID? ResourceId() => new MonitorId();
+\t\tpublic override ResourceID? ResourceId() => new MonitorId();
 
-    public override Type? ResponseObject() => typeof(ElasticMonitorResourceModel);
+\t\tpublic override Type? ResponseObject() => typeof(ElasticMonitorResourceModel);
 
 
 }

@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Insights.v2022_10_01.AutoScaleSett
 
 internal class ListBySubscriptionOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new SubscriptionId();
+\t\tpublic override ResourceID? ResourceId() => new SubscriptionId();
 
-    public override Type NestedItemType() => typeof(AutoscaleSettingResourceModel);
+\t\tpublic override Type NestedItemType() => typeof(AutoscaleSettingResourceModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.Insights/autoScaleSettings";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.Insights/autoScaleSettings";
 
 
 }

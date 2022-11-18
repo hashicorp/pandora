@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.Group;
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new GroupId();
+\t\tpublic override ResourceID? ResourceId() => new GroupId();
 
-    public override Type? ResponseObject() => typeof(GroupContractModel);
+\t\tpublic override Type? ResponseObject() => typeof(GroupContractModel);
 
 
 }

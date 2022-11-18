@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.SqlVirtualMachine.v2022_02_01.SqlV
 
 internal class UpdateOperation : Operations.PatchOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(SqlVirtualMachineGroupUpdateModel);
 
-    public override ResourceID? ResourceId() => new SqlVirtualMachineGroupId();
+\t\tpublic override ResourceID? ResourceId() => new SqlVirtualMachineGroupId();
 
-    public override Type? ResponseObject() => typeof(SqlVirtualMachineGroupModel);
+\t\tpublic override Type? ResponseObject() => typeof(SqlVirtualMachineGroupModel);
 
 
 }

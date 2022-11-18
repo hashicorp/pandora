@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.HealthcareApis.v2022_06_01.Proxy;
 
 internal class ServicesCheckNameAvailabilityOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(CheckNameAvailabilityParametersModel);
 
-    public override ResourceID? ResourceId() => new SubscriptionId();
+\t\tpublic override ResourceID? ResourceId() => new SubscriptionId();
 
-    public override Type? ResponseObject() => typeof(ServicesNameAvailabilityInfoModel);
+\t\tpublic override Type? ResponseObject() => typeof(ServicesNameAvailabilityInfoModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.HealthcareApis/checkNameAvailability";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.HealthcareApis/checkNameAvailability";
 
 
 }

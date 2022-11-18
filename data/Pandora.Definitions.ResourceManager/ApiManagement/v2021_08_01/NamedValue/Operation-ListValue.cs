@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.NamedVal
 
 internal class ListValueOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new NamedValueId();
+\t\tpublic override ResourceID? ResourceId() => new NamedValueId();
 
-    public override Type? ResponseObject() => typeof(NamedValueSecretContractModel);
+\t\tpublic override Type? ResponseObject() => typeof(NamedValueSecretContractModel);
 
-    public override string? UriSuffix() => "/listValue";
+\t\tpublic override string? UriSuffix() => "/listValue";
 
 
 }

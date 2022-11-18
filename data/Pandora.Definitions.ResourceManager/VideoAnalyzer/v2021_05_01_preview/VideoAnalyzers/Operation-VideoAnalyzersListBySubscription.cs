@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.VideoAnalyzer.v2021_05_01_preview.
 
 internal class VideoAnalyzersListBySubscriptionOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new SubscriptionId();
+\t\tpublic override ResourceID? ResourceId() => new SubscriptionId();
 
-    public override Type? ResponseObject() => typeof(VideoAnalyzerCollectionModel);
+\t\tpublic override Type? ResponseObject() => typeof(VideoAnalyzerCollectionModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.Media/videoAnalyzers";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.Media/videoAnalyzers";
 
 
 }

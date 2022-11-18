@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.Compute.v2022_03_02.IncrementalRes
 
 internal class DiskRestorePointGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new DiskRestorePointId();
+\t\tpublic override ResourceID? ResourceId() => new DiskRestorePointId();
 
-    public override Type? ResponseObject() => typeof(DiskRestorePointModel);
+\t\tpublic override Type? ResponseObject() => typeof(DiskRestorePointModel);
 
 
 }

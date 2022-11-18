@@ -15,11 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Automation.v2022_08_08.RunbookDraf
 
 internal class GetContentOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new RunbookId();
+\t\tpublic override string? ContentType() => "text/powershell";
 
-    public override Type? ResponseObject() => typeof(CustomTypes.RawFile);
+\t\tpublic override ResourceID? ResourceId() => new RunbookId();
 
-    public override string? UriSuffix() => "/draft/content";
+\t\tpublic override Type? ResponseObject() => typeof(CustomTypes.RawFile);
+
+\t\tpublic override string? UriSuffix() => "/draft/content";
 
 
 }

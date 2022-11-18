@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.StoragePool.v2021_08_01.DiskPools;
 
 internal class ListByResourceGroupOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new ResourceGroupId();
+\t\tpublic override ResourceID? ResourceId() => new ResourceGroupId();
 
-    public override Type NestedItemType() => typeof(DiskPoolModel);
+\t\tpublic override Type NestedItemType() => typeof(DiskPoolModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.StoragePool/diskPools";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.StoragePool/diskPools";
 
 
 }

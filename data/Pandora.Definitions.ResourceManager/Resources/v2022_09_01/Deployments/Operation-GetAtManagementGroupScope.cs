@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.Resources.v2022_09_01.Deployments;
 
 internal class GetAtManagementGroupScopeOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new Providers2DeploymentId();
+\t\tpublic override ResourceID? ResourceId() => new Providers2DeploymentId();
 
-    public override Type? ResponseObject() => typeof(DeploymentExtendedModel);
+\t\tpublic override Type? ResponseObject() => typeof(DeploymentExtendedModel);
 
 
 }

@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.NetApp.v2022_05_01.VolumesReplicat
 
 internal class VolumesListReplicationsOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new VolumeId();
+\t\tpublic override ResourceID? ResourceId() => new VolumeId();
 
-    public override Type? ResponseObject() => typeof(ListReplicationsModel);
+\t\tpublic override Type? ResponseObject() => typeof(ListReplicationsModel);
 
-    public override string? UriSuffix() => "/listReplications";
+\t\tpublic override string? UriSuffix() => "/listReplications";
 
 
 }

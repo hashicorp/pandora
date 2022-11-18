@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Compute.v2021_07_01.CapacityReserv
 
 internal class ListByCapacityReservationGroupOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new CapacityReservationGroupId();
+\t\tpublic override ResourceID? ResourceId() => new CapacityReservationGroupId();
 
-    public override Type NestedItemType() => typeof(CapacityReservationModel);
+\t\tpublic override Type NestedItemType() => typeof(CapacityReservationModel);
 
-    public override string? UriSuffix() => "/capacityReservations";
+\t\tpublic override string? UriSuffix() => "/capacityReservations";
 
 
 }

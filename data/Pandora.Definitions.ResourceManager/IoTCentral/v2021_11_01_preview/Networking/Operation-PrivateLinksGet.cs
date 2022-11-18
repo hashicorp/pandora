@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.IoTCentral.v2021_11_01_preview.Net
 
 internal class PrivateLinksGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new PrivateLinkResourceId();
+\t\tpublic override ResourceID? ResourceId() => new PrivateLinkResourceId();
 
-    public override Type? ResponseObject() => typeof(PrivateLinkResourceModel);
+\t\tpublic override Type? ResponseObject() => typeof(PrivateLinkResourceModel);
 
 
 }

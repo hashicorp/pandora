@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.DataProtection.v2022_05_01.BackupP
 
 internal class ListOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new BackupVaultId();
+\t\tpublic override ResourceID? ResourceId() => new BackupVaultId();
 
-    public override Type NestedItemType() => typeof(BaseBackupPolicyResourceModel);
+\t\tpublic override Type NestedItemType() => typeof(BaseBackupPolicyResourceModel);
 
-    public override string? UriSuffix() => "/backupPolicies";
+\t\tpublic override string? UriSuffix() => "/backupPolicies";
 
 
 }

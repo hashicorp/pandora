@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.Compute.v2022_03_02.DiskAccesses;
 
 internal class GetAPrivateEndpointConnectionOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new PrivateEndpointConnectionId();
+\t\tpublic override ResourceID? ResourceId() => new PrivateEndpointConnectionId();
 
-    public override Type? ResponseObject() => typeof(PrivateEndpointConnectionModel);
+\t\tpublic override Type? ResponseObject() => typeof(PrivateEndpointConnectionModel);
 
 
 }

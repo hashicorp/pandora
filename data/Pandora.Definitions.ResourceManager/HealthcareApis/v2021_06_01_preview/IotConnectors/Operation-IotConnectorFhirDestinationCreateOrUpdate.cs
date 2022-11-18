@@ -15,20 +15,20 @@ namespace Pandora.Definitions.ResourceManager.HealthcareApis.v2021_06_01_preview
 
 internal class IotConnectorFhirDestinationCreateOrUpdateOperation : Operations.PutOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.Created,
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(IotFhirDestinationModel);
 
-    public override ResourceID? ResourceId() => new FhirDestinationId();
+\t\tpublic override ResourceID? ResourceId() => new FhirDestinationId();
 
-    public override Type? ResponseObject() => typeof(IotFhirDestinationModel);
+\t\tpublic override Type? ResponseObject() => typeof(IotFhirDestinationModel);
 
 
 }

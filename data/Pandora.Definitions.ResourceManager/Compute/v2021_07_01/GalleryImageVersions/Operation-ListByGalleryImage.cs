@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Compute.v2021_07_01.GalleryImageVe
 
 internal class ListByGalleryImageOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new ImageId();
+\t\tpublic override ResourceID? ResourceId() => new ImageId();
 
-    public override Type NestedItemType() => typeof(GalleryImageVersionModel);
+\t\tpublic override Type NestedItemType() => typeof(GalleryImageVersionModel);
 
-    public override string? UriSuffix() => "/versions";
+\t\tpublic override string? UriSuffix() => "/versions";
 
 
 }

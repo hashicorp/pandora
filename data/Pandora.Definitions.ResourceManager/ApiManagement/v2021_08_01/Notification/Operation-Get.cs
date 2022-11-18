@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.Notifica
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new NotificationId();
+\t\tpublic override ResourceID? ResourceId() => new NotificationId();
 
-    public override Type? ResponseObject() => typeof(NotificationContractModel);
+\t\tpublic override Type? ResponseObject() => typeof(NotificationContractModel);
 
 
 }

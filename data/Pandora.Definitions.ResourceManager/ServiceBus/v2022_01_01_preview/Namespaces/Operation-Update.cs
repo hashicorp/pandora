@@ -15,7 +15,7 @@ namespace Pandora.Definitions.ResourceManager.ServiceBus.v2022_01_01_preview.Nam
 
 internal class UpdateOperation : Operations.PatchOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.Created,
@@ -24,9 +24,9 @@ internal class UpdateOperation : Operations.PatchOperation
 
     public override Type? RequestObject() => typeof(SBNamespaceUpdateParametersModel);
 
-    public override ResourceID? ResourceId() => new NamespaceId();
+\t\tpublic override ResourceID? ResourceId() => new NamespaceId();
 
-    public override Type? ResponseObject() => typeof(SBNamespaceModel);
+\t\tpublic override Type? ResponseObject() => typeof(SBNamespaceModel);
 
 
 }

@@ -15,17 +15,17 @@ namespace Pandora.Definitions.ResourceManager.Consumption.v2019_10_01.Credits;
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.NoContent,
                 HttpStatusCode.OK,
         };
 
-    public override ResourceID? ResourceId() => new ScopeId();
+\t\tpublic override ResourceID? ResourceId() => new ScopeId();
 
-    public override Type? ResponseObject() => typeof(CreditSummaryModel);
+\t\tpublic override Type? ResponseObject() => typeof(CreditSummaryModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.Consumption/credits/balanceSummary";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.Consumption/credits/balanceSummary";
 
 
 }

@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.ServiceFabricManagedCluster.v2021_
 
 internal class ListOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new LocationId();
+\t\tpublic override ResourceID? ResourceId() => new LocationId();
 
-    public override Type? ResponseObject() => typeof(List<ManagedClusterCodeVersionResultModel>);
+\t\tpublic override Type? ResponseObject() => typeof(List<ManagedClusterCodeVersionResultModel>);
 
-    public override string? UriSuffix() => "/managedClusterVersions";
+\t\tpublic override string? UriSuffix() => "/managedClusterVersions";
 
 
 }

@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Dynatrace.v2021_09_01.TagRules;
 
 internal class ListOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new MonitorId();
+\t\tpublic override ResourceID? ResourceId() => new MonitorId();
 
-    public override Type NestedItemType() => typeof(TagRuleModel);
+\t\tpublic override Type NestedItemType() => typeof(TagRuleModel);
 
-    public override string? UriSuffix() => "/tagRules";
+\t\tpublic override string? UriSuffix() => "/tagRules";
 
 
 }

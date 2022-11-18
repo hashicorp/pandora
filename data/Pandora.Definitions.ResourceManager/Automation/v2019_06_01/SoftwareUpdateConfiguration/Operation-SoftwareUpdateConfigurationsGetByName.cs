@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.Automation.v2019_06_01.SoftwareUpd
 
 internal class SoftwareUpdateConfigurationsGetByNameOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new SoftwareUpdateConfigurationId();
+\t\tpublic override ResourceID? ResourceId() => new SoftwareUpdateConfigurationId();
 
-    public override Type? ResponseObject() => typeof(SoftwareUpdateConfigurationModel);
+\t\tpublic override Type? ResponseObject() => typeof(SoftwareUpdateConfigurationModel);
 
-    public override Type? OptionsObject() => typeof(SoftwareUpdateConfigurationsGetByNameOperation.SoftwareUpdateConfigurationsGetByNameOptions);
+\t\tpublic override Type? OptionsObject() => typeof(SoftwareUpdateConfigurationsGetByNameOperation.SoftwareUpdateConfigurationsGetByNameOptions);
 
     internal class SoftwareUpdateConfigurationsGetByNameOptions
     {

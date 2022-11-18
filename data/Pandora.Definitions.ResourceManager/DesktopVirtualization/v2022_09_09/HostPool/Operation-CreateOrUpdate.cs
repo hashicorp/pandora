@@ -17,9 +17,9 @@ internal class CreateOrUpdateOperation : Operations.PutOperation
 {
     public override Type? RequestObject() => typeof(HostPoolModel);
 
-    public override ResourceID? ResourceId() => new HostPoolId();
+\t\tpublic override ResourceID? ResourceId() => new HostPoolId();
 
-    public override Type? ResponseObject() => typeof(HostPoolModel);
+\t\tpublic override Type? ResponseObject() => typeof(HostPoolModel);
 
 
 }

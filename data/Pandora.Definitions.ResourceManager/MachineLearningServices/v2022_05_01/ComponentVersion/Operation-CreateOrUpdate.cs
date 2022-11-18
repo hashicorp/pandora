@@ -17,9 +17,9 @@ internal class CreateOrUpdateOperation : Operations.PutOperation
 {
     public override Type? RequestObject() => typeof(ComponentVersionResourceModel);
 
-    public override ResourceID? ResourceId() => new ComponentVersionId();
+\t\tpublic override ResourceID? ResourceId() => new ComponentVersionId();
 
-    public override Type? ResponseObject() => typeof(ComponentVersionResourceModel);
+\t\tpublic override Type? ResponseObject() => typeof(ComponentVersionResourceModel);
 
 
 }

@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.AppPlatform.v2022_09_01_preview.Ap
 
 internal class BuildServiceAgentPoolUpdatePutOperation : Operations.PutOperation
 {
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(BuildServiceAgentPoolResourceModel);
 
-    public override ResourceID? ResourceId() => new AgentPoolId();
+\t\tpublic override ResourceID? ResourceId() => new AgentPoolId();
 
-    public override Type? ResponseObject() => typeof(BuildServiceAgentPoolResourceModel);
+\t\tpublic override Type? ResponseObject() => typeof(BuildServiceAgentPoolResourceModel);
 
 
 }

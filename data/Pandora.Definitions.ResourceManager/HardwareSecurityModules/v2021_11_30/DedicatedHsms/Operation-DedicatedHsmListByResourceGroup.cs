@@ -15,15 +15,15 @@ namespace Pandora.Definitions.ResourceManager.HardwareSecurityModules.v2021_11_3
 
 internal class DedicatedHsmListByResourceGroupOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new ResourceGroupId();
+\t\tpublic override ResourceID? ResourceId() => new ResourceGroupId();
 
-    public override Type NestedItemType() => typeof(DedicatedHsmModel);
+\t\tpublic override Type NestedItemType() => typeof(DedicatedHsmModel);
 
-    public override Type? OptionsObject() => typeof(DedicatedHsmListByResourceGroupOperation.DedicatedHsmListByResourceGroupOptions);
+\t\tpublic override Type? OptionsObject() => typeof(DedicatedHsmListByResourceGroupOperation.DedicatedHsmListByResourceGroupOptions);
 
-    public override string? UriSuffix() => "/providers/Microsoft.HardwareSecurityModules/dedicatedHSMs";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.HardwareSecurityModules/dedicatedHSMs";
 
     internal class DedicatedHsmListByResourceGroupOptions
     {

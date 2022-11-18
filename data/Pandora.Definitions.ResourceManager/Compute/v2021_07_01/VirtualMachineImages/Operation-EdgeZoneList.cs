@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Compute.v2021_07_01.VirtualMachine
 
 internal class EdgeZoneListOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new OfferSkuId();
+\t\tpublic override ResourceID? ResourceId() => new OfferSkuId();
 
-    public override Type? ResponseObject() => typeof(List<VirtualMachineImageResourceModel>);
+\t\tpublic override Type? ResponseObject() => typeof(List<VirtualMachineImageResourceModel>);
 
-    public override Type? OptionsObject() => typeof(EdgeZoneListOperation.EdgeZoneListOptions);
+\t\tpublic override Type? OptionsObject() => typeof(EdgeZoneListOperation.EdgeZoneListOptions);
 
-    public override string? UriSuffix() => "/versions";
+\t\tpublic override string? UriSuffix() => "/versions";
 
     internal class EdgeZoneListOptions
     {

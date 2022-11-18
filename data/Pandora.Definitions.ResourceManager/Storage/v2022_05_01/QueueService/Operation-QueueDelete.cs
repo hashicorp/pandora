@@ -15,12 +15,12 @@ namespace Pandora.Definitions.ResourceManager.Storage.v2022_05_01.QueueService;
 
 internal class QueueDeleteOperation : Operations.DeleteOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.NoContent,
         };
 
-    public override ResourceID? ResourceId() => new QueueId();
+\t\tpublic override ResourceID? ResourceId() => new QueueId();
 
 
 }

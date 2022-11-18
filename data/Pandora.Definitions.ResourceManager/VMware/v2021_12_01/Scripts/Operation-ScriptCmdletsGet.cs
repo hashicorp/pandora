@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.VMware.v2021_12_01.Scripts;
 
 internal class ScriptCmdletsGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ScriptCmdletId();
+\t\tpublic override ResourceID? ResourceId() => new ScriptCmdletId();
 
-    public override Type? ResponseObject() => typeof(ScriptCmdletModel);
+\t\tpublic override Type? ResponseObject() => typeof(ScriptCmdletModel);
 
 
 }

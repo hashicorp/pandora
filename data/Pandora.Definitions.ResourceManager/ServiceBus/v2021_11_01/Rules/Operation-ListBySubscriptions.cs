@@ -15,15 +15,15 @@ namespace Pandora.Definitions.ResourceManager.ServiceBus.v2021_11_01.Rules;
 
 internal class ListBySubscriptionsOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new Subscriptions2Id();
+\t\tpublic override ResourceID? ResourceId() => new Subscriptions2Id();
 
-    public override Type NestedItemType() => typeof(RuleModel);
+\t\tpublic override Type NestedItemType() => typeof(RuleModel);
 
-    public override Type? OptionsObject() => typeof(ListBySubscriptionsOperation.ListBySubscriptionsOptions);
+\t\tpublic override Type? OptionsObject() => typeof(ListBySubscriptionsOperation.ListBySubscriptionsOptions);
 
-    public override string? UriSuffix() => "/rules";
+\t\tpublic override string? UriSuffix() => "/rules";
 
     internal class ListBySubscriptionsOptions
     {

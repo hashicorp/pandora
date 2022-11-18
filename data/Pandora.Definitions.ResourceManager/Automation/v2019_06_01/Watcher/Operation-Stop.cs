@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.Automation.v2019_06_01.Watcher;
 
 internal class StopOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new WatcherId();
+\t\tpublic override ResourceID? ResourceId() => new WatcherId();
 
-    public override string? UriSuffix() => "/stop";
+\t\tpublic override string? UriSuffix() => "/stop";
 
 
 }

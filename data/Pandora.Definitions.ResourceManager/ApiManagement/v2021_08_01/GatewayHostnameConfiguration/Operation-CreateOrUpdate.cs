@@ -17,11 +17,11 @@ internal class CreateOrUpdateOperation : Operations.PutOperation
 {
     public override Type? RequestObject() => typeof(GatewayHostnameConfigurationContractModel);
 
-    public override ResourceID? ResourceId() => new HostnameConfigurationId();
+\t\tpublic override ResourceID? ResourceId() => new HostnameConfigurationId();
 
-    public override Type? ResponseObject() => typeof(GatewayHostnameConfigurationContractModel);
+\t\tpublic override Type? ResponseObject() => typeof(GatewayHostnameConfigurationContractModel);
 
-    public override Type? OptionsObject() => typeof(CreateOrUpdateOperation.CreateOrUpdateOptions);
+\t\tpublic override Type? OptionsObject() => typeof(CreateOrUpdateOperation.CreateOrUpdateOptions);
 
     internal class CreateOrUpdateOptions
     {

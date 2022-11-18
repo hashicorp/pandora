@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.ChaosStudio.v2022_07_01_preview.Ex
 
 internal class GetExecutionDetailsOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ExecutionDetailId();
+\t\tpublic override ResourceID? ResourceId() => new ExecutionDetailId();
 
-    public override Type? ResponseObject() => typeof(ExperimentExecutionDetailsModel);
+\t\tpublic override Type? ResponseObject() => typeof(ExperimentExecutionDetailsModel);
 
 
 }

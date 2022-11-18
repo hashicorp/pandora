@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.AppPlatform.v2022_09_01_preview.Ap
 
 internal class DeploymentsGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new DeploymentId();
+\t\tpublic override ResourceID? ResourceId() => new DeploymentId();
 
-    public override Type? ResponseObject() => typeof(DeploymentResourceModel);
+\t\tpublic override Type? ResponseObject() => typeof(DeploymentResourceModel);
 
 
 }

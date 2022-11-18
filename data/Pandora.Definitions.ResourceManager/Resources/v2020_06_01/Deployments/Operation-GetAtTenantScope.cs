@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.Resources.v2020_06_01.Deployments;
 
 internal class GetAtTenantScopeOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new DeploymentId();
+\t\tpublic override ResourceID? ResourceId() => new DeploymentId();
 
-    public override Type? ResponseObject() => typeof(DeploymentExtendedModel);
+\t\tpublic override Type? ResponseObject() => typeof(DeploymentExtendedModel);
 
 
 }

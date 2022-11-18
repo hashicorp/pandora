@@ -15,15 +15,15 @@ namespace Pandora.Definitions.ResourceManager.Compute.v2021_07_01.SharedGallerie
 
 internal class ListOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new LocationId();
+\t\tpublic override ResourceID? ResourceId() => new LocationId();
 
-    public override Type NestedItemType() => typeof(PirSharedGalleryResourceModel);
+\t\tpublic override Type NestedItemType() => typeof(PirSharedGalleryResourceModel);
 
-    public override Type? OptionsObject() => typeof(ListOperation.ListOptions);
+\t\tpublic override Type? OptionsObject() => typeof(ListOperation.ListOptions);
 
-    public override string? UriSuffix() => "/sharedGalleries";
+\t\tpublic override string? UriSuffix() => "/sharedGalleries";
 
     internal class ListOptions
     {

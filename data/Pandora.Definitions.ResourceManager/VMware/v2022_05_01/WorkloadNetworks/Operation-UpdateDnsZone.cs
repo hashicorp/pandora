@@ -15,19 +15,19 @@ namespace Pandora.Definitions.ResourceManager.VMware.v2022_05_01.WorkloadNetwork
 
 internal class UpdateDnsZoneOperation : Operations.PatchOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(WorkloadNetworkDnsZoneModel);
 
-    public override ResourceID? ResourceId() => new DnsZoneId();
+\t\tpublic override ResourceID? ResourceId() => new DnsZoneId();
 
-    public override Type? ResponseObject() => typeof(WorkloadNetworkDnsZoneModel);
+\t\tpublic override Type? ResponseObject() => typeof(WorkloadNetworkDnsZoneModel);
 
 
 }

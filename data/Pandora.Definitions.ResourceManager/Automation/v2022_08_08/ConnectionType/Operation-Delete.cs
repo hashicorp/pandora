@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Automation.v2022_08_08.ConnectionT
 
 internal class DeleteOperation : Operations.DeleteOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.NoContent,
                 HttpStatusCode.OK,
         };
 
-    public override ResourceID? ResourceId() => new ConnectionTypeId();
+\t\tpublic override ResourceID? ResourceId() => new ConnectionTypeId();
 
 
 }

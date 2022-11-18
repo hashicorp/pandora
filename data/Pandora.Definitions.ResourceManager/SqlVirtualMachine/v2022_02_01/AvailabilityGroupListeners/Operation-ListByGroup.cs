@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.SqlVirtualMachine.v2022_02_01.Avai
 
 internal class ListByGroupOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new SqlVirtualMachineGroupId();
+\t\tpublic override ResourceID? ResourceId() => new SqlVirtualMachineGroupId();
 
-    public override Type NestedItemType() => typeof(AvailabilityGroupListenerModel);
+\t\tpublic override Type NestedItemType() => typeof(AvailabilityGroupListenerModel);
 
-    public override string? UriSuffix() => "/availabilityGroupListeners";
+\t\tpublic override string? UriSuffix() => "/availabilityGroupListeners";
 
 
 }

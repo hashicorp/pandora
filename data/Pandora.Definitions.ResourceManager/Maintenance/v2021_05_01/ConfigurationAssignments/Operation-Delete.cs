@@ -15,15 +15,15 @@ namespace Pandora.Definitions.ResourceManager.Maintenance.v2021_05_01.Configurat
 
 internal class DeleteOperation : Operations.DeleteOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.NoContent,
                 HttpStatusCode.OK,
         };
 
-    public override ResourceID? ResourceId() => new ConfigurationAssignmentId();
+\t\tpublic override ResourceID? ResourceId() => new ConfigurationAssignmentId();
 
-    public override Type? ResponseObject() => typeof(ConfigurationAssignmentModel);
+\t\tpublic override Type? ResponseObject() => typeof(ConfigurationAssignmentModel);
 
 
 }

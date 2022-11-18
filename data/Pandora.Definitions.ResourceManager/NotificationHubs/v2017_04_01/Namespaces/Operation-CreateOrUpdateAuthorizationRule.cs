@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.NotificationHubs.v2017_04_01.Names
 
 internal class CreateOrUpdateAuthorizationRuleOperation : Operations.PutOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(SharedAccessAuthorizationRuleCreateOrUpdateParametersModel);
 
-    public override ResourceID? ResourceId() => new AuthorizationRuleId();
+\t\tpublic override ResourceID? ResourceId() => new AuthorizationRuleId();
 
-    public override Type? ResponseObject() => typeof(SharedAccessAuthorizationRuleResourceModel);
+\t\tpublic override Type? ResponseObject() => typeof(SharedAccessAuthorizationRuleResourceModel);
 
 
 }

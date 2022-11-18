@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.HardwareSecurityModules.v2021_11_3
 
 internal class DedicatedHsmGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new DedicatedHSMId();
+\t\tpublic override ResourceID? ResourceId() => new DedicatedHSMId();
 
-    public override Type? ResponseObject() => typeof(DedicatedHsmModel);
+\t\tpublic override Type? ResponseObject() => typeof(DedicatedHsmModel);
 
 
 }

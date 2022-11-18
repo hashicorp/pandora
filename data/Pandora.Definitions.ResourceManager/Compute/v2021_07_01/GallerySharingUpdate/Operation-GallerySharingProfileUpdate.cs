@@ -15,21 +15,21 @@ namespace Pandora.Definitions.ResourceManager.Compute.v2021_07_01.GallerySharing
 
 internal class GallerySharingProfileUpdateOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(SharingUpdateModel);
 
-    public override ResourceID? ResourceId() => new GalleryId();
+\t\tpublic override ResourceID? ResourceId() => new GalleryId();
 
-    public override Type? ResponseObject() => typeof(SharingUpdateModel);
+\t\tpublic override Type? ResponseObject() => typeof(SharingUpdateModel);
 
-    public override string? UriSuffix() => "/share";
+\t\tpublic override string? UriSuffix() => "/share";
 
 
 }

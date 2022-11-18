@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.ApplicationInsights.v2020_11_20.Wo
 
 internal class WorkbookTemplatesUpdateOperation : Operations.PatchOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(WorkbookTemplateUpdateParametersModel);
 
-    public override ResourceID? ResourceId() => new WorkbookTemplateId();
+\t\tpublic override ResourceID? ResourceId() => new WorkbookTemplateId();
 
-    public override Type? ResponseObject() => typeof(WorkbookTemplateModel);
+\t\tpublic override Type? ResponseObject() => typeof(WorkbookTemplateModel);
 
 
 }

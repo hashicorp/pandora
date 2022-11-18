@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.Kusto.v2022_07_07.ClusterPrincipal
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new PrincipalAssignmentId();
+\t\tpublic override ResourceID? ResourceId() => new PrincipalAssignmentId();
 
-    public override Type? ResponseObject() => typeof(ClusterPrincipalAssignmentModel);
+\t\tpublic override Type? ResponseObject() => typeof(ClusterPrincipalAssignmentModel);
 
 
 }

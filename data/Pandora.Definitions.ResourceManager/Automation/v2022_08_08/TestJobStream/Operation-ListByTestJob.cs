@@ -15,15 +15,15 @@ namespace Pandora.Definitions.ResourceManager.Automation.v2022_08_08.TestJobStre
 
 internal class ListByTestJobOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new RunbookId();
+\t\tpublic override ResourceID? ResourceId() => new RunbookId();
 
-    public override Type NestedItemType() => typeof(JobStreamModel);
+\t\tpublic override Type NestedItemType() => typeof(JobStreamModel);
 
-    public override Type? OptionsObject() => typeof(ListByTestJobOperation.ListByTestJobOptions);
+\t\tpublic override Type? OptionsObject() => typeof(ListByTestJobOperation.ListByTestJobOptions);
 
-    public override string? UriSuffix() => "/draft/testJob/streams";
+\t\tpublic override string? UriSuffix() => "/draft/testJob/streams";
 
     internal class ListByTestJobOptions
     {

@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.AAD.v2021_03_01.DomainServices;
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new DomainServiceId();
+\t\tpublic override ResourceID? ResourceId() => new DomainServiceId();
 
-    public override Type? ResponseObject() => typeof(DomainServiceModel);
+\t\tpublic override Type? ResponseObject() => typeof(DomainServiceModel);
 
 
 }

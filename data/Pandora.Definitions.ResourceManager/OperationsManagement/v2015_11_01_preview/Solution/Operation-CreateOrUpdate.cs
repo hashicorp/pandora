@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.OperationsManagement.v2015_11_01_p
 
 internal class CreateOrUpdateOperation : Operations.PutOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Created,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(SolutionModel);
 
-    public override ResourceID? ResourceId() => new SolutionId();
+\t\tpublic override ResourceID? ResourceId() => new SolutionId();
 
-    public override Type? ResponseObject() => typeof(SolutionModel);
+\t\tpublic override Type? ResponseObject() => typeof(SolutionModel);
 
 
 }

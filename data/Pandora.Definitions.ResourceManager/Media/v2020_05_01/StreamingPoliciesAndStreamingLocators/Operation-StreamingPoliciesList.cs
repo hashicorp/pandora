@@ -15,15 +15,15 @@ namespace Pandora.Definitions.ResourceManager.Media.v2020_05_01.StreamingPolicie
 
 internal class StreamingPoliciesListOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "@odata.nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "@odata.nextLink";
 
-    public override ResourceID? ResourceId() => new MediaServiceId();
+\t\tpublic override ResourceID? ResourceId() => new MediaServiceId();
 
-    public override Type NestedItemType() => typeof(StreamingPolicyModel);
+\t\tpublic override Type NestedItemType() => typeof(StreamingPolicyModel);
 
-    public override Type? OptionsObject() => typeof(StreamingPoliciesListOperation.StreamingPoliciesListOptions);
+\t\tpublic override Type? OptionsObject() => typeof(StreamingPoliciesListOperation.StreamingPoliciesListOptions);
 
-    public override string? UriSuffix() => "/streamingPolicies";
+\t\tpublic override string? UriSuffix() => "/streamingPolicies";
 
     internal class StreamingPoliciesListOptions
     {

@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.PostgreSql.v2022_03_08_preview.Fir
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new FirewallRuleId();
+\t\tpublic override ResourceID? ResourceId() => new FirewallRuleId();
 
-    public override Type? ResponseObject() => typeof(FirewallRuleModel);
+\t\tpublic override Type? ResponseObject() => typeof(FirewallRuleModel);
 
 
 }

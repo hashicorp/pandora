@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.ServiceBus.v2021_11_01.DisasterRec
 
 internal class FailOverOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(FailoverPropertiesModel);
 
-    public override ResourceID? ResourceId() => new DisasterRecoveryConfigId();
+\t\tpublic override ResourceID? ResourceId() => new DisasterRecoveryConfigId();
 
-    public override string? UriSuffix() => "/failover";
+\t\tpublic override string? UriSuffix() => "/failover";
 
 
 }

@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.TrafficManager.v2018_08_01.RealUse
 
 internal class TrafficManagerUserMetricsKeysCreateOrUpdateOperation : Operations.PutOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Created,
         };
 
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new SubscriptionId();
+\t\tpublic override ResourceID? ResourceId() => new SubscriptionId();
 
-    public override Type? ResponseObject() => typeof(UserMetricsModelModel);
+\t\tpublic override Type? ResponseObject() => typeof(UserMetricsModelModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.Network/trafficManagerUserMetricsKeys/default";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.Network/trafficManagerUserMetricsKeys/default";
 
 
 }

@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.Web.v2016_06_01.CustomAPIs;
 
 internal class CustomApisGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new CustomApiId();
+\t\tpublic override ResourceID? ResourceId() => new CustomApiId();
 
-    public override Type? ResponseObject() => typeof(CustomApiDefinitionModel);
+\t\tpublic override Type? ResponseObject() => typeof(CustomApiDefinitionModel);
 
 
 }

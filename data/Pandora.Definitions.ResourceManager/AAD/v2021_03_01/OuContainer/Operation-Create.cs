@@ -15,20 +15,20 @@ namespace Pandora.Definitions.ResourceManager.AAD.v2021_03_01.OuContainer;
 
 internal class CreateOperation : Operations.PutOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.Created,
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(ContainerAccountModel);
 
-    public override ResourceID? ResourceId() => new OuContainerId();
+\t\tpublic override ResourceID? ResourceId() => new OuContainerId();
 
-    public override Type? ResponseObject() => typeof(OuContainerModel);
+\t\tpublic override Type? ResponseObject() => typeof(OuContainerModel);
 
 
 }

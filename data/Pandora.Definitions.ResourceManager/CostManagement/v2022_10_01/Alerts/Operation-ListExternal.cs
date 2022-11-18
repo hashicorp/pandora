@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.CostManagement.v2022_10_01.Alerts;
 
 internal class ListExternalOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ExternalCloudProviderTypeId();
+\t\tpublic override ResourceID? ResourceId() => new ExternalCloudProviderTypeId();
 
-    public override Type? ResponseObject() => typeof(AlertsResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(AlertsResultModel);
 
-    public override string? UriSuffix() => "/alerts";
+\t\tpublic override string? UriSuffix() => "/alerts";
 
 
 }

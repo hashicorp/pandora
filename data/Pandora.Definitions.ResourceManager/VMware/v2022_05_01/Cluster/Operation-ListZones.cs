@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.VMware.v2022_05_01.Cluster;
 
 internal class ListZonesOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new ClusterId();
+\t\tpublic override ResourceID? ResourceId() => new ClusterId();
 
-    public override Type? ResponseObject() => typeof(ClusterZoneListModel);
+\t\tpublic override Type? ResponseObject() => typeof(ClusterZoneListModel);
 
-    public override string? UriSuffix() => "/listZones";
+\t\tpublic override string? UriSuffix() => "/listZones";
 
 
 }

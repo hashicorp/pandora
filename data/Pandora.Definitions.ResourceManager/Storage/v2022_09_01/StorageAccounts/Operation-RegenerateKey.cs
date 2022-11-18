@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.Storage.v2022_09_01.StorageAccount
 
 internal class RegenerateKeyOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(StorageAccountRegenerateKeyParametersModel);
 
-    public override ResourceID? ResourceId() => new StorageAccountId();
+\t\tpublic override ResourceID? ResourceId() => new StorageAccountId();
 
-    public override Type? ResponseObject() => typeof(StorageAccountListKeysResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(StorageAccountListKeysResultModel);
 
-    public override string? UriSuffix() => "/regenerateKey";
+\t\tpublic override string? UriSuffix() => "/regenerateKey";
 
 
 }

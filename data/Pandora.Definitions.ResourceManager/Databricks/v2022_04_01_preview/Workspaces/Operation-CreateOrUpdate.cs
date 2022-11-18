@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Databricks.v2022_04_01_preview.Wor
 
 internal class CreateOrUpdateOperation : Operations.PutOperation
 {
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(WorkspaceModel);
 
-    public override ResourceID? ResourceId() => new WorkspaceId();
+\t\tpublic override ResourceID? ResourceId() => new WorkspaceId();
 
-    public override Type? ResponseObject() => typeof(WorkspaceModel);
+\t\tpublic override Type? ResponseObject() => typeof(WorkspaceModel);
 
 
 }

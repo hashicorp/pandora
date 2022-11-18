@@ -15,15 +15,15 @@ namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.Reports;
 
 internal class ListByUserOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new ServiceId();
+\t\tpublic override ResourceID? ResourceId() => new ServiceId();
 
-    public override Type NestedItemType() => typeof(ReportRecordContractModel);
+\t\tpublic override Type NestedItemType() => typeof(ReportRecordContractModel);
 
-    public override Type? OptionsObject() => typeof(ListByUserOperation.ListByUserOptions);
+\t\tpublic override Type? OptionsObject() => typeof(ListByUserOperation.ListByUserOptions);
 
-    public override string? UriSuffix() => "/reports/byUser";
+\t\tpublic override string? UriSuffix() => "/reports/byUser";
 
     internal class ListByUserOptions
     {

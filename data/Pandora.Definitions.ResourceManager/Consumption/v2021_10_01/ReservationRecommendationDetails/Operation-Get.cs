@@ -15,19 +15,19 @@ namespace Pandora.Definitions.ResourceManager.Consumption.v2021_10_01.Reservatio
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.NoContent,
                 HttpStatusCode.OK,
         };
 
-    public override ResourceID? ResourceId() => new ScopeId();
+\t\tpublic override ResourceID? ResourceId() => new ScopeId();
 
-    public override Type? ResponseObject() => typeof(ReservationRecommendationDetailsModelModel);
+\t\tpublic override Type? ResponseObject() => typeof(ReservationRecommendationDetailsModelModel);
 
-    public override Type? OptionsObject() => typeof(GetOperation.GetOptions);
+\t\tpublic override Type? OptionsObject() => typeof(GetOperation.GetOptions);
 
-    public override string? UriSuffix() => "/providers/Microsoft.Consumption/reservationRecommendationDetails";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.Consumption/reservationRecommendationDetails";
 
     internal class GetOptions
     {

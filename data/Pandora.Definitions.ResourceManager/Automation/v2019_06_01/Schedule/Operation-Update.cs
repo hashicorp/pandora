@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.Automation.v2019_06_01.Schedule;
 
 internal class UpdateOperation : Operations.PatchOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(ScheduleUpdateParametersModel);
 
-    public override ResourceID? ResourceId() => new ScheduleId();
+\t\tpublic override ResourceID? ResourceId() => new ScheduleId();
 
-    public override Type? ResponseObject() => typeof(ScheduleModel);
+\t\tpublic override Type? ResponseObject() => typeof(ScheduleModel);
 
 
 }

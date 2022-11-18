@@ -15,21 +15,21 @@ namespace Pandora.Definitions.ResourceManager.CosmosDB.v2022_05_15.Restorables;
 
 internal class SqlResourcesRetrieveContinuousBackupInformationOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(ContinuousBackupRestoreLocationModel);
 
-    public override ResourceID? ResourceId() => new ContainerId();
+\t\tpublic override ResourceID? ResourceId() => new ContainerId();
 
-    public override Type? ResponseObject() => typeof(BackupInformationModel);
+\t\tpublic override Type? ResponseObject() => typeof(BackupInformationModel);
 
-    public override string? UriSuffix() => "/retrieveContinuousBackupInformation";
+\t\tpublic override string? UriSuffix() => "/retrieveContinuousBackupInformation";
 
 
 }

@@ -17,9 +17,9 @@ internal class CreateOrUpdateOperation : Operations.PutOperation
 {
     public override Type? RequestObject() => typeof(NamespaceCreateOrUpdateParametersModel);
 
-    public override ResourceID? ResourceId() => new NamespaceId();
+\t\tpublic override ResourceID? ResourceId() => new NamespaceId();
 
-    public override Type? ResponseObject() => typeof(NamespaceResourceModel);
+\t\tpublic override Type? ResponseObject() => typeof(NamespaceResourceModel);
 
 
 }

@@ -15,22 +15,22 @@ namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.ApiSchem
 
 internal class CreateOrUpdateOperation : Operations.PutOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.Created,
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(SchemaContractModel);
 
-    public override ResourceID? ResourceId() => new SchemaId();
+\t\tpublic override ResourceID? ResourceId() => new SchemaId();
 
-    public override Type? ResponseObject() => typeof(SchemaContractModel);
+\t\tpublic override Type? ResponseObject() => typeof(SchemaContractModel);
 
-    public override Type? OptionsObject() => typeof(CreateOrUpdateOperation.CreateOrUpdateOptions);
+\t\tpublic override Type? OptionsObject() => typeof(CreateOrUpdateOperation.CreateOrUpdateOptions);
 
     internal class CreateOrUpdateOptions
     {

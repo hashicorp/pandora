@@ -15,15 +15,15 @@ namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.ApiTag;
 
 internal class TagListByApiOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new ApiId();
+\t\tpublic override ResourceID? ResourceId() => new ApiId();
 
-    public override Type NestedItemType() => typeof(TagContractModel);
+\t\tpublic override Type NestedItemType() => typeof(TagContractModel);
 
-    public override Type? OptionsObject() => typeof(TagListByApiOperation.TagListByApiOptions);
+\t\tpublic override Type? OptionsObject() => typeof(TagListByApiOperation.TagListByApiOptions);
 
-    public override string? UriSuffix() => "/tags";
+\t\tpublic override string? UriSuffix() => "/tags";
 
     internal class TagListByApiOptions
     {

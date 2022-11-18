@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.Automation.v2022_08_08.SourceContr
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new SourceControlSyncJobId();
+\t\tpublic override ResourceID? ResourceId() => new SourceControlSyncJobId();
 
-    public override Type? ResponseObject() => typeof(SourceControlSyncJobByIdModel);
+\t\tpublic override Type? ResponseObject() => typeof(SourceControlSyncJobByIdModel);
 
 
 }

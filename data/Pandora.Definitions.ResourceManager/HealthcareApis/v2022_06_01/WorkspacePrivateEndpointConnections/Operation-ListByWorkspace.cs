@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.HealthcareApis.v2022_06_01.Workspa
 
 internal class ListByWorkspaceOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new WorkspaceId();
+\t\tpublic override ResourceID? ResourceId() => new WorkspaceId();
 
-    public override Type? ResponseObject() => typeof(PrivateEndpointConnectionListResultDescriptionModel);
+\t\tpublic override Type? ResponseObject() => typeof(PrivateEndpointConnectionListResultDescriptionModel);
 
-    public override string? UriSuffix() => "/privateEndpointConnections";
+\t\tpublic override string? UriSuffix() => "/privateEndpointConnections";
 
 
 }

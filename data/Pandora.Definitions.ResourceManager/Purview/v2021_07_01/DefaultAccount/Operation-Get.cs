@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.Purview.v2021_07_01.DefaultAccount
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override Type? ResponseObject() => typeof(DefaultAccountPayloadModel);
+\t\tpublic override Type? ResponseObject() => typeof(DefaultAccountPayloadModel);
 
-    public override Type? OptionsObject() => typeof(GetOperation.GetOptions);
+\t\tpublic override Type? OptionsObject() => typeof(GetOperation.GetOptions);
 
-    public override string? UriSuffix() => "/providers/Microsoft.Purview/getDefaultAccount";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.Purview/getDefaultAccount";
 
     internal class GetOptions
     {

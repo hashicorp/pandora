@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.NotificationHubs.v2017_04_01.Names
 
 internal class ListAuthorizationRulesOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new NamespaceId();
+\t\tpublic override ResourceID? ResourceId() => new NamespaceId();
 
-    public override Type NestedItemType() => typeof(SharedAccessAuthorizationRuleResourceModel);
+\t\tpublic override Type NestedItemType() => typeof(SharedAccessAuthorizationRuleResourceModel);
 
-    public override string? UriSuffix() => "/authorizationRules";
+\t\tpublic override string? UriSuffix() => "/authorizationRules";
 
 
 }

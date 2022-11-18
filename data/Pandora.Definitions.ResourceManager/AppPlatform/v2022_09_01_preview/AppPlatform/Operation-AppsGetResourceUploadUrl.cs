@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.AppPlatform.v2022_09_01_preview.Ap
 
 internal class AppsGetResourceUploadUrlOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new AppId();
+\t\tpublic override ResourceID? ResourceId() => new AppId();
 
-    public override Type? ResponseObject() => typeof(ResourceUploadDefinitionModel);
+\t\tpublic override Type? ResponseObject() => typeof(ResourceUploadDefinitionModel);
 
-    public override string? UriSuffix() => "/getResourceUploadUrl";
+\t\tpublic override string? UriSuffix() => "/getResourceUploadUrl";
 
 
 }

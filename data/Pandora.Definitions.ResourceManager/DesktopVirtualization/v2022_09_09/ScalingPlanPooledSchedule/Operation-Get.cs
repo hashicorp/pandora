@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.DesktopVirtualization.v2022_09_09.
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new PooledScheduleId();
+\t\tpublic override ResourceID? ResourceId() => new PooledScheduleId();
 
-    public override Type? ResponseObject() => typeof(ScalingPlanPooledScheduleModel);
+\t\tpublic override Type? ResponseObject() => typeof(ScalingPlanPooledScheduleModel);
 
 
 }

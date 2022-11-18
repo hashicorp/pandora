@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Insights.v2021_04_01.DataCollectio
 
 internal class ListByResourceGroupOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new ResourceGroupId();
+\t\tpublic override ResourceID? ResourceId() => new ResourceGroupId();
 
-    public override Type NestedItemType() => typeof(DataCollectionRuleResourceModel);
+\t\tpublic override Type NestedItemType() => typeof(DataCollectionRuleResourceModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.Insights/dataCollectionRules";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.Insights/dataCollectionRules";
 
 
 }

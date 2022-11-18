@@ -15,19 +15,19 @@ namespace Pandora.Definitions.ResourceManager.RecoveryServicesSiteRecovery.v2022
 
 internal class DeleteOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.NoContent,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new ReplicationRecoveryServicesProviderId();
+\t\tpublic override ResourceID? ResourceId() => new ReplicationRecoveryServicesProviderId();
 
-    public override string? UriSuffix() => "/remove";
+\t\tpublic override string? UriSuffix() => "/remove";
 
 
 }

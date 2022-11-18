@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.ChaosStudio.v2022_07_01_preview.Ex
 
 internal class StartOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
         };
 
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new ExperimentId();
+\t\tpublic override ResourceID? ResourceId() => new ExperimentId();
 
-    public override Type? ResponseObject() => typeof(ExperimentStartOperationResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(ExperimentStartOperationResultModel);
 
-    public override string? UriSuffix() => "/start";
+\t\tpublic override string? UriSuffix() => "/start";
 
 
 }

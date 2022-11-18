@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.CosmosDB.v2022_08_15.ManagedCassan
 
 internal class CassandraDataCentersGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new DataCenterId();
+\t\tpublic override ResourceID? ResourceId() => new DataCenterId();
 
-    public override Type? ResponseObject() => typeof(DataCenterResourceModel);
+\t\tpublic override Type? ResponseObject() => typeof(DataCenterResourceModel);
 
 
 }

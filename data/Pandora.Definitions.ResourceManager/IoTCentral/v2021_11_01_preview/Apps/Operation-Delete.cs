@@ -15,15 +15,15 @@ namespace Pandora.Definitions.ResourceManager.IoTCentral.v2021_11_01_preview.App
 
 internal class DeleteOperation : Operations.DeleteOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.NoContent,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
-    public override ResourceID? ResourceId() => new IotAppId();
+\t\tpublic override ResourceID? ResourceId() => new IotAppId();
 
 
 }

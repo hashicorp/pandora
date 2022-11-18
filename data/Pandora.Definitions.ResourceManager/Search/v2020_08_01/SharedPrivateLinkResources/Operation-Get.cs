@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.Search.v2020_08_01.SharedPrivateLi
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new SharedPrivateLinkResourceId();
+\t\tpublic override ResourceID? ResourceId() => new SharedPrivateLinkResourceId();
 
-    public override Type? ResponseObject() => typeof(SharedPrivateLinkResourceModel);
+\t\tpublic override Type? ResponseObject() => typeof(SharedPrivateLinkResourceModel);
 
-    public override Type? OptionsObject() => typeof(GetOperation.GetOptions);
+\t\tpublic override Type? OptionsObject() => typeof(GetOperation.GetOptions);
 
     internal class GetOptions
     {

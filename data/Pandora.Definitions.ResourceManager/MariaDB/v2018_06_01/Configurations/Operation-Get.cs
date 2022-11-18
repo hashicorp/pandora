@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.MariaDB.v2018_06_01.Configurations
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ConfigurationId();
+\t\tpublic override ResourceID? ResourceId() => new ConfigurationId();
 
-    public override Type? ResponseObject() => typeof(ConfigurationModel);
+\t\tpublic override Type? ResponseObject() => typeof(ConfigurationModel);
 
 
 }

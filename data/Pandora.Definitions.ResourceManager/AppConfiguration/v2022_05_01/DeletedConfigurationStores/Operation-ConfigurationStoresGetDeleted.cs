@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.AppConfiguration.v2022_05_01.Delet
 
 internal class ConfigurationStoresGetDeletedOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new DeletedConfigurationStoreId();
+\t\tpublic override ResourceID? ResourceId() => new DeletedConfigurationStoreId();
 
-    public override Type? ResponseObject() => typeof(DeletedConfigurationStoreModel);
+\t\tpublic override Type? ResponseObject() => typeof(DeletedConfigurationStoreModel);
 
 
 }

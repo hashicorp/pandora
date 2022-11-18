@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2022_01_01_preview.Consu
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ConsumerGroupId();
+\t\tpublic override ResourceID? ResourceId() => new ConsumerGroupId();
 
-    public override Type? ResponseObject() => typeof(ConsumerGroupModel);
+\t\tpublic override Type? ResponseObject() => typeof(ConsumerGroupModel);
 
 
 }

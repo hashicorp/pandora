@@ -17,9 +17,9 @@ internal class ContentKeyPoliciesCreateOrUpdateOperation : Operations.PutOperati
 {
     public override Type? RequestObject() => typeof(ContentKeyPolicyModel);
 
-    public override ResourceID? ResourceId() => new ContentKeyPolicyId();
+\t\tpublic override ResourceID? ResourceId() => new ContentKeyPolicyId();
 
-    public override Type? ResponseObject() => typeof(ContentKeyPolicyModel);
+\t\tpublic override Type? ResponseObject() => typeof(ContentKeyPolicyModel);
 
 
 }

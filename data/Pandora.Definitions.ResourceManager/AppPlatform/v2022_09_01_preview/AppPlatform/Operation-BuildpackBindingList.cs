@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.AppPlatform.v2022_09_01_preview.Ap
 
 internal class BuildpackBindingListOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new BuilderId();
+\t\tpublic override ResourceID? ResourceId() => new BuilderId();
 
-    public override Type NestedItemType() => typeof(BuildpackBindingResourceModel);
+\t\tpublic override Type NestedItemType() => typeof(BuildpackBindingResourceModel);
 
-    public override string? UriSuffix() => "/buildpackBindings";
+\t\tpublic override string? UriSuffix() => "/buildpackBindings";
 
 
 }

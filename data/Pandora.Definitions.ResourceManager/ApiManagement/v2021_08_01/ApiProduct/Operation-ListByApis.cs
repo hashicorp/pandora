@@ -15,15 +15,15 @@ namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.ApiProdu
 
 internal class ListByApisOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new ApiId();
+\t\tpublic override ResourceID? ResourceId() => new ApiId();
 
-    public override Type NestedItemType() => typeof(ProductContractModel);
+\t\tpublic override Type NestedItemType() => typeof(ProductContractModel);
 
-    public override Type? OptionsObject() => typeof(ListByApisOperation.ListByApisOptions);
+\t\tpublic override Type? OptionsObject() => typeof(ListByApisOperation.ListByApisOptions);
 
-    public override string? UriSuffix() => "/products";
+\t\tpublic override string? UriSuffix() => "/products";
 
     internal class ListByApisOptions
     {

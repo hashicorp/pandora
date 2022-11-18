@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Web.v2016_06_01.Connections;
 
 internal class ListOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ResourceGroupId();
+\t\tpublic override ResourceID? ResourceId() => new ResourceGroupId();
 
-    public override Type? ResponseObject() => typeof(ApiConnectionDefinitionCollectionModel);
+\t\tpublic override Type? ResponseObject() => typeof(ApiConnectionDefinitionCollectionModel);
 
-    public override Type? OptionsObject() => typeof(ListOperation.ListOptions);
+\t\tpublic override Type? OptionsObject() => typeof(ListOperation.ListOptions);
 
-    public override string? UriSuffix() => "/providers/Microsoft.Web/connections";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.Web/connections";
 
     internal class ListOptions
     {

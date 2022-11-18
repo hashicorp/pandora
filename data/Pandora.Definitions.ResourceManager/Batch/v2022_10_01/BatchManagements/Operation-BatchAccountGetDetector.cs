@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.Batch.v2022_10_01.BatchManagements
 
 internal class BatchAccountGetDetectorOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new DetectorId();
+\t\tpublic override ResourceID? ResourceId() => new DetectorId();
 
-    public override Type? ResponseObject() => typeof(DetectorResponseModel);
+\t\tpublic override Type? ResponseObject() => typeof(DetectorResponseModel);
 
 
 }

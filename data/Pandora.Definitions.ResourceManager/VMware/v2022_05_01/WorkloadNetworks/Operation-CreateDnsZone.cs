@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.VMware.v2022_05_01.WorkloadNetwork
 
 internal class CreateDnsZoneOperation : Operations.PutOperation
 {
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(WorkloadNetworkDnsZoneModel);
 
-    public override ResourceID? ResourceId() => new DnsZoneId();
+\t\tpublic override ResourceID? ResourceId() => new DnsZoneId();
 
-    public override Type? ResponseObject() => typeof(WorkloadNetworkDnsZoneModel);
+\t\tpublic override Type? ResponseObject() => typeof(WorkloadNetworkDnsZoneModel);
 
 
 }

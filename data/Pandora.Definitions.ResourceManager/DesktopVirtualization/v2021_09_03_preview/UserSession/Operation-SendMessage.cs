@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.DesktopVirtualization.v2021_09_03_
 
 internal class SendMessageOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(SendMessageModel);
 
-    public override ResourceID? ResourceId() => new UserSessionId();
+\t\tpublic override ResourceID? ResourceId() => new UserSessionId();
 
-    public override string? UriSuffix() => "/sendMessage";
+\t\tpublic override string? UriSuffix() => "/sendMessage";
 
 
 }

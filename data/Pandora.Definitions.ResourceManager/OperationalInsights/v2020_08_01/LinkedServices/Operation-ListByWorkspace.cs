@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.OperationalInsights.v2020_08_01.Li
 
 internal class ListByWorkspaceOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new WorkspaceId();
+\t\tpublic override ResourceID? ResourceId() => new WorkspaceId();
 
-    public override Type? ResponseObject() => typeof(LinkedServiceListResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(LinkedServiceListResultModel);
 
-    public override string? UriSuffix() => "/linkedServices";
+\t\tpublic override string? UriSuffix() => "/linkedServices";
 
 
 }

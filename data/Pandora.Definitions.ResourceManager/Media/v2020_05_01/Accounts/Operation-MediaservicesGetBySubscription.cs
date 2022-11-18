@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.Media.v2020_05_01.Accounts;
 
 internal class MediaservicesGetBySubscriptionOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new MediaServiceId();
+\t\tpublic override ResourceID? ResourceId() => new MediaServiceId();
 
-    public override Type? ResponseObject() => typeof(MediaServiceModel);
+\t\tpublic override Type? ResponseObject() => typeof(MediaServiceModel);
 
 
 }

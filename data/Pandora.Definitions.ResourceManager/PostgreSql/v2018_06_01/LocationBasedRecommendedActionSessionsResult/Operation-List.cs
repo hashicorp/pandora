@@ -15,17 +15,17 @@ namespace Pandora.Definitions.ResourceManager.PostgreSql.v2018_06_01.LocationBas
 
 internal class ListOperation : Operations.ListOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Created,
                 HttpStatusCode.OK,
         };
 
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new RecommendedActionSessionsOperationResultId();
+\t\tpublic override ResourceID? ResourceId() => new RecommendedActionSessionsOperationResultId();
 
-    public override Type NestedItemType() => typeof(RecommendationActionModel);
+\t\tpublic override Type NestedItemType() => typeof(RecommendationActionModel);
 
 
 }

@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Automation.v2021_06_22.Statistics;
 
 internal class ListByAutomationAccountOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new AutomationAccountId();
+\t\tpublic override ResourceID? ResourceId() => new AutomationAccountId();
 
-    public override Type? ResponseObject() => typeof(StatisticsListResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(StatisticsListResultModel);
 
-    public override Type? OptionsObject() => typeof(ListByAutomationAccountOperation.ListByAutomationAccountOptions);
+\t\tpublic override Type? OptionsObject() => typeof(ListByAutomationAccountOperation.ListByAutomationAccountOptions);
 
-    public override string? UriSuffix() => "/statistics";
+\t\tpublic override string? UriSuffix() => "/statistics";
 
     internal class ListByAutomationAccountOptions
     {

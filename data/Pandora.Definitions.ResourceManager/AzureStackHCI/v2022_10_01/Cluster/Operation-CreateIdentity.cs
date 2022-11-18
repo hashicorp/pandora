@@ -15,21 +15,21 @@ namespace Pandora.Definitions.ResourceManager.AzureStackHCI.v2022_10_01.Cluster;
 
 internal class CreateIdentityOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new ClusterId();
+\t\tpublic override ResourceID? ResourceId() => new ClusterId();
 
-    public override Type? ResponseObject() => typeof(ClusterIdentityResponseModel);
+\t\tpublic override Type? ResponseObject() => typeof(ClusterIdentityResponseModel);
 
-    public override string? UriSuffix() => "/createClusterIdentity";
+\t\tpublic override string? UriSuffix() => "/createClusterIdentity";
 
 
 }

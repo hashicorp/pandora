@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.OperationalInsights.v2020_08_01.De
 
 internal class ListOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new SubscriptionId();
+\t\tpublic override ResourceID? ResourceId() => new SubscriptionId();
 
-    public override Type? ResponseObject() => typeof(WorkspaceListResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(WorkspaceListResultModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.OperationalInsights/deletedWorkspaces";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.OperationalInsights/deletedWorkspaces";
 
 
 }

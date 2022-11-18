@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.PrivateDNS.v2020_06_01.VirtualNetw
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new VirtualNetworkLinkId();
+\t\tpublic override ResourceID? ResourceId() => new VirtualNetworkLinkId();
 
-    public override Type? ResponseObject() => typeof(VirtualNetworkLinkModel);
+\t\tpublic override Type? ResponseObject() => typeof(VirtualNetworkLinkModel);
 
 
 }

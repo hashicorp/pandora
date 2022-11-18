@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.Compute.v2021_07_01.VirtualMachine
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new VirtualMachineExtensionId();
+\t\tpublic override ResourceID? ResourceId() => new VirtualMachineExtensionId();
 
-    public override Type? ResponseObject() => typeof(VirtualMachineScaleSetVMExtensionModel);
+\t\tpublic override Type? ResponseObject() => typeof(VirtualMachineScaleSetVMExtensionModel);
 
-    public override Type? OptionsObject() => typeof(GetOperation.GetOptions);
+\t\tpublic override Type? OptionsObject() => typeof(GetOperation.GetOptions);
 
     internal class GetOptions
     {

@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.ApplicationInsights.v2022_06_15.We
 
 internal class WebTestsCreateOrUpdateOperation : Operations.PutOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(WebTestModel);
 
-    public override ResourceID? ResourceId() => new WebTestId();
+\t\tpublic override ResourceID? ResourceId() => new WebTestId();
 
-    public override Type? ResponseObject() => typeof(WebTestModel);
+\t\tpublic override Type? ResponseObject() => typeof(WebTestModel);
 
 
 }

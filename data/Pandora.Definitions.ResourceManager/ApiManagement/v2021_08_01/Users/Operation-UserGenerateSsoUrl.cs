@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.Users;
 
 internal class UserGenerateSsoUrlOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new UserId();
+\t\tpublic override ResourceID? ResourceId() => new UserId();
 
-    public override Type? ResponseObject() => typeof(GenerateSsoUrlResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(GenerateSsoUrlResultModel);
 
-    public override string? UriSuffix() => "/generateSsoUrl";
+\t\tpublic override string? UriSuffix() => "/generateSsoUrl";
 
 
 }

@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.CostManagement.v2022_06_01_preview
 
 internal class CheckNameAvailabilityByScopeOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(CheckNameAvailabilityRequestModel);
 
-    public override ResourceID? ResourceId() => new ScopeId();
+\t\tpublic override ResourceID? ResourceId() => new ScopeId();
 
-    public override Type? ResponseObject() => typeof(CheckNameAvailabilityResponseModel);
+\t\tpublic override Type? ResponseObject() => typeof(CheckNameAvailabilityResponseModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.CostManagement/checkNameAvailability";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.CostManagement/checkNameAvailability";
 
 
 }

@@ -15,15 +15,15 @@ namespace Pandora.Definitions.ResourceManager.ConfidentialLedger.v2022_05_13.Con
 
 internal class LedgerListBySubscriptionOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new SubscriptionId();
+\t\tpublic override ResourceID? ResourceId() => new SubscriptionId();
 
-    public override Type NestedItemType() => typeof(ConfidentialLedgerModel);
+\t\tpublic override Type NestedItemType() => typeof(ConfidentialLedgerModel);
 
-    public override Type? OptionsObject() => typeof(LedgerListBySubscriptionOperation.LedgerListBySubscriptionOptions);
+\t\tpublic override Type? OptionsObject() => typeof(LedgerListBySubscriptionOperation.LedgerListBySubscriptionOptions);
 
-    public override string? UriSuffix() => "/providers/Microsoft.ConfidentialLedger/ledgers";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.ConfidentialLedger/ledgers";
 
     internal class LedgerListBySubscriptionOptions
     {

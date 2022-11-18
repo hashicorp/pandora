@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.ContainerService.v2022_09_02_previ
 
 internal class GetUpgradeProfileOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new AgentPoolId();
+\t\tpublic override ResourceID? ResourceId() => new AgentPoolId();
 
-    public override Type? ResponseObject() => typeof(AgentPoolUpgradeProfileModel);
+\t\tpublic override Type? ResponseObject() => typeof(AgentPoolUpgradeProfileModel);
 
-    public override string? UriSuffix() => "/upgradeProfiles/default";
+\t\tpublic override string? UriSuffix() => "/upgradeProfiles/default";
 
 
 }

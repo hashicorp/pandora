@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.StreamAnalytics.v2020_03_01.Functi
 
 internal class RetrieveDefaultDefinitionOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(FunctionRetrieveDefaultDefinitionParametersModel);
 
-    public override ResourceID? ResourceId() => new FunctionId();
+\t\tpublic override ResourceID? ResourceId() => new FunctionId();
 
-    public override Type? ResponseObject() => typeof(FunctionModel);
+\t\tpublic override Type? ResponseObject() => typeof(FunctionModel);
 
-    public override string? UriSuffix() => "/retrieveDefaultDefinition";
+\t\tpublic override string? UriSuffix() => "/retrieveDefaultDefinition";
 
 
 }

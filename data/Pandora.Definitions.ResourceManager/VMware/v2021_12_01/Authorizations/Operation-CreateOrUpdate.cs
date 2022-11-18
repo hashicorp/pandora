@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.VMware.v2021_12_01.Authorizations;
 
 internal class CreateOrUpdateOperation : Operations.PutOperation
 {
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(ExpressRouteAuthorizationModel);
 
-    public override ResourceID? ResourceId() => new AuthorizationId();
+\t\tpublic override ResourceID? ResourceId() => new AuthorizationId();
 
-    public override Type? ResponseObject() => typeof(ExpressRouteAuthorizationModel);
+\t\tpublic override Type? ResponseObject() => typeof(ExpressRouteAuthorizationModel);
 
 
 }

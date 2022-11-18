@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.ProductP
 
 internal class ListByProductOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ProductId();
+\t\tpublic override ResourceID? ResourceId() => new ProductId();
 
-    public override Type? ResponseObject() => typeof(PolicyCollectionModel);
+\t\tpublic override Type? ResponseObject() => typeof(PolicyCollectionModel);
 
-    public override string? UriSuffix() => "/policies";
+\t\tpublic override string? UriSuffix() => "/policies";
 
 
 }

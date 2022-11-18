@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.KubernetesConfiguration.v2022_03_0
 
 internal class ConfigurationsGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new FluxConfigurationId();
+\t\tpublic override ResourceID? ResourceId() => new FluxConfigurationId();
 
-    public override Type? ResponseObject() => typeof(FluxConfigurationModel);
+\t\tpublic override Type? ResponseObject() => typeof(FluxConfigurationModel);
 
 
 }

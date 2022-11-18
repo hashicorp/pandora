@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.DesktopVirtualization.v2022_02_10_
 
 internal class ListOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new HostPoolId();
+\t\tpublic override ResourceID? ResourceId() => new HostPoolId();
 
-    public override Type NestedItemType() => typeof(SessionHostModel);
+\t\tpublic override Type NestedItemType() => typeof(SessionHostModel);
 
-    public override string? UriSuffix() => "/sessionHosts";
+\t\tpublic override string? UriSuffix() => "/sessionHosts";
 
 
 }

@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.DeviceProvisioningServices.v2022_0
 
 internal class ListPrivateLinkResourcesOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ProvisioningServiceId();
+\t\tpublic override ResourceID? ResourceId() => new ProvisioningServiceId();
 
-    public override Type? ResponseObject() => typeof(PrivateLinkResourcesModel);
+\t\tpublic override Type? ResponseObject() => typeof(PrivateLinkResourcesModel);
 
-    public override string? UriSuffix() => "/privateLinkResources";
+\t\tpublic override string? UriSuffix() => "/privateLinkResources";
 
 
 }

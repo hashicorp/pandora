@@ -17,9 +17,9 @@ internal class BuildServiceCreateOrUpdateBuildOperation : Operations.PutOperatio
 {
     public override Type? RequestObject() => typeof(BuildModel);
 
-    public override ResourceID? ResourceId() => new BuildId();
+\t\tpublic override ResourceID? ResourceId() => new BuildId();
 
-    public override Type? ResponseObject() => typeof(BuildModel);
+\t\tpublic override Type? ResponseObject() => typeof(BuildModel);
 
 
 }

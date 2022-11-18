@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.MachineLearningServices.v2022_10_0
 
 internal class ComputeCreateOrUpdateOperation : Operations.PutOperation
 {
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(ComputeResourceModel);
 
-    public override ResourceID? ResourceId() => new ComputeId();
+\t\tpublic override ResourceID? ResourceId() => new ComputeId();
 
-    public override Type? ResponseObject() => typeof(ComputeResourceModel);
+\t\tpublic override Type? ResponseObject() => typeof(ComputeResourceModel);
 
 
 }

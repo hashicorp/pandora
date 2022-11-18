@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Maps.v2021_02_01.Accounts;
 
 internal class ListBySubscriptionOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new SubscriptionId();
+\t\tpublic override ResourceID? ResourceId() => new SubscriptionId();
 
-    public override Type NestedItemType() => typeof(MapsAccountModel);
+\t\tpublic override Type NestedItemType() => typeof(MapsAccountModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.Maps/accounts";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.Maps/accounts";
 
 
 }

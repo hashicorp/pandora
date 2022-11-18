@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.DigitalTwins.v2022_05_31.TimeSerie
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new TimeSeriesDatabaseConnectionId();
+\t\tpublic override ResourceID? ResourceId() => new TimeSeriesDatabaseConnectionId();
 
-    public override Type? ResponseObject() => typeof(TimeSeriesDatabaseConnectionModel);
+\t\tpublic override Type? ResponseObject() => typeof(TimeSeriesDatabaseConnectionModel);
 
 
 }

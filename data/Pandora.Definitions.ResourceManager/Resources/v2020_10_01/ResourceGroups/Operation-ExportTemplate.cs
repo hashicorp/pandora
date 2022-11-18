@@ -15,21 +15,21 @@ namespace Pandora.Definitions.ResourceManager.Resources.v2020_10_01.ResourceGrou
 
 internal class ExportTemplateOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(ExportTemplateRequestModel);
 
-    public override ResourceID? ResourceId() => new ResourceGroupId();
+\t\tpublic override ResourceID? ResourceId() => new ResourceGroupId();
 
-    public override Type? ResponseObject() => typeof(ResourceGroupExportResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(ResourceGroupExportResultModel);
 
-    public override string? UriSuffix() => "/exportTemplate";
+\t\tpublic override string? UriSuffix() => "/exportTemplate";
 
 
 }

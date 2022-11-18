@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.VMware.v2022_05_01.WorkloadNetwork
 
 internal class GetGatewayOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new GatewayId();
+\t\tpublic override ResourceID? ResourceId() => new GatewayId();
 
-    public override Type? ResponseObject() => typeof(WorkloadNetworkGatewayModel);
+\t\tpublic override Type? ResponseObject() => typeof(WorkloadNetworkGatewayModel);
 
 
 }

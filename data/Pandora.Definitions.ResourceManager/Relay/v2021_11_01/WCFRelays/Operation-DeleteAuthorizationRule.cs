@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Relay.v2021_11_01.WCFRelays;
 
 internal class DeleteAuthorizationRuleOperation : Operations.DeleteOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.NoContent,
                 HttpStatusCode.OK,
         };
 
-    public override ResourceID? ResourceId() => new WcfRelayAuthorizationRuleId();
+\t\tpublic override ResourceID? ResourceId() => new WcfRelayAuthorizationRuleId();
 
 
 }

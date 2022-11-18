@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.PostgreSql.v2017_12_01.LogFiles;
 
 internal class ListByServerOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ServerId();
+\t\tpublic override ResourceID? ResourceId() => new ServerId();
 
-    public override Type? ResponseObject() => typeof(LogFileListResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(LogFileListResultModel);
 
-    public override string? UriSuffix() => "/logFiles";
+\t\tpublic override string? UriSuffix() => "/logFiles";
 
 
 }

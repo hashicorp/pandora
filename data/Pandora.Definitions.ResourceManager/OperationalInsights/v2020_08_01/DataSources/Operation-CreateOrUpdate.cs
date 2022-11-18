@@ -17,9 +17,9 @@ internal class CreateOrUpdateOperation : Operations.PutOperation
 {
     public override Type? RequestObject() => typeof(DataSourceModel);
 
-    public override ResourceID? ResourceId() => new DataSourceId();
+\t\tpublic override ResourceID? ResourceId() => new DataSourceId();
 
-    public override Type? ResponseObject() => typeof(DataSourceModel);
+\t\tpublic override Type? ResponseObject() => typeof(DataSourceModel);
 
 
 }

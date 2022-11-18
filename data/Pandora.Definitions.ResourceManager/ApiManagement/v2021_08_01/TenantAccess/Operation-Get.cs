@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.TenantAc
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new AccessId();
+\t\tpublic override ResourceID? ResourceId() => new AccessId();
 
-    public override Type? ResponseObject() => typeof(AccessInformationContractModel);
+\t\tpublic override Type? ResponseObject() => typeof(AccessInformationContractModel);
 
 
 }

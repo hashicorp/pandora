@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.SecurityInsights.v2022_07_01_previ
 
 internal class AlertRulesGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new AlertRuleId();
+\t\tpublic override ResourceID? ResourceId() => new AlertRuleId();
 
-    public override Type? ResponseObject() => typeof(AlertRuleModel);
+\t\tpublic override Type? ResponseObject() => typeof(AlertRuleModel);
 
 
 }

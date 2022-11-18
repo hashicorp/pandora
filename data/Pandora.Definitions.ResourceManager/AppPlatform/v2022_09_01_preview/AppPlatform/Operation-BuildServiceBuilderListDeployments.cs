@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.AppPlatform.v2022_09_01_preview.Ap
 
 internal class BuildServiceBuilderListDeploymentsOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new BuilderId();
+\t\tpublic override ResourceID? ResourceId() => new BuilderId();
 
-    public override Type? ResponseObject() => typeof(DeploymentListModel);
+\t\tpublic override Type? ResponseObject() => typeof(DeploymentListModel);
 
-    public override string? UriSuffix() => "/listUsingDeployments";
+\t\tpublic override string? UriSuffix() => "/listUsingDeployments";
 
 
 }

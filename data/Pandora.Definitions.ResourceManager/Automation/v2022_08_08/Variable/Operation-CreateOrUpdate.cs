@@ -17,9 +17,9 @@ internal class CreateOrUpdateOperation : Operations.PutOperation
 {
     public override Type? RequestObject() => typeof(VariableCreateOrUpdateParametersModel);
 
-    public override ResourceID? ResourceId() => new VariableId();
+\t\tpublic override ResourceID? ResourceId() => new VariableId();
 
-    public override Type? ResponseObject() => typeof(VariableModel);
+\t\tpublic override Type? ResponseObject() => typeof(VariableModel);
 
 
 }

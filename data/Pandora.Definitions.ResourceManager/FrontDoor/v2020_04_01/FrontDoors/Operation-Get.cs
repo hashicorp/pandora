@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.FrontDoor.v2020_04_01.FrontDoors;
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new FrontDoorId();
+\t\tpublic override ResourceID? ResourceId() => new FrontDoorId();
 
-    public override Type? ResponseObject() => typeof(FrontDoorModel);
+\t\tpublic override Type? ResponseObject() => typeof(FrontDoorModel);
 
 
 }

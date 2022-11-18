@@ -15,15 +15,15 @@ namespace Pandora.Definitions.ResourceManager.Batch.v2022_01_01.Location;
 
 internal class ListSupportedVirtualMachineSkusOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new LocationId();
+\t\tpublic override ResourceID? ResourceId() => new LocationId();
 
-    public override Type NestedItemType() => typeof(SupportedSkuModel);
+\t\tpublic override Type NestedItemType() => typeof(SupportedSkuModel);
 
-    public override Type? OptionsObject() => typeof(ListSupportedVirtualMachineSkusOperation.ListSupportedVirtualMachineSkusOptions);
+\t\tpublic override Type? OptionsObject() => typeof(ListSupportedVirtualMachineSkusOperation.ListSupportedVirtualMachineSkusOptions);
 
-    public override string? UriSuffix() => "/virtualMachineSkus";
+\t\tpublic override string? UriSuffix() => "/virtualMachineSkus";
 
     internal class ListSupportedVirtualMachineSkusOptions
     {

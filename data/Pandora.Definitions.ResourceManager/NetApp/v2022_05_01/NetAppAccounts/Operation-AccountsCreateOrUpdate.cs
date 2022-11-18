@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.NetApp.v2022_05_01.NetAppAccounts;
 
 internal class AccountsCreateOrUpdateOperation : Operations.PutOperation
 {
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(NetAppAccountModel);
 
-    public override ResourceID? ResourceId() => new NetAppAccountId();
+\t\tpublic override ResourceID? ResourceId() => new NetAppAccountId();
 
-    public override Type? ResponseObject() => typeof(NetAppAccountModel);
+\t\tpublic override Type? ResponseObject() => typeof(NetAppAccountModel);
 
 
 }

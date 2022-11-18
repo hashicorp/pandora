@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Compute.v2022_03_02.DiskAccesses;
 
 internal class ListPrivateEndpointConnectionsOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new DiskAccessId();
+\t\tpublic override ResourceID? ResourceId() => new DiskAccessId();
 
-    public override Type NestedItemType() => typeof(PrivateEndpointConnectionModel);
+\t\tpublic override Type NestedItemType() => typeof(PrivateEndpointConnectionModel);
 
-    public override string? UriSuffix() => "/privateEndpointConnections";
+\t\tpublic override string? UriSuffix() => "/privateEndpointConnections";
 
 
 }

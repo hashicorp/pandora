@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.ServiceFabricManagedCluster.v2022_
 
 internal class SkusListOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new NodeTypeId();
+\t\tpublic override ResourceID? ResourceId() => new NodeTypeId();
 
-    public override Type NestedItemType() => typeof(NodeTypeAvailableSkuModel);
+\t\tpublic override Type NestedItemType() => typeof(NodeTypeAvailableSkuModel);
 
-    public override string? UriSuffix() => "/skus";
+\t\tpublic override string? UriSuffix() => "/skus";
 
 
 }

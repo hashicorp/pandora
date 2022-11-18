@@ -17,13 +17,13 @@ internal class CreateOrUpdateOperation : Operations.PutOperation
 {
     public override Type? RequestObject() => typeof(PolicyContractModel);
 
-    public override ResourceID? ResourceId() => new OperationId();
+\t\tpublic override ResourceID? ResourceId() => new OperationId();
 
-    public override Type? ResponseObject() => typeof(PolicyContractModel);
+\t\tpublic override Type? ResponseObject() => typeof(PolicyContractModel);
 
-    public override Type? OptionsObject() => typeof(CreateOrUpdateOperation.CreateOrUpdateOptions);
+\t\tpublic override Type? OptionsObject() => typeof(CreateOrUpdateOperation.CreateOrUpdateOptions);
 
-    public override string? UriSuffix() => "/policies/policy";
+\t\tpublic override string? UriSuffix() => "/policies/policy";
 
     internal class CreateOrUpdateOptions
     {

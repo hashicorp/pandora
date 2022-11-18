@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.VMware.v2021_12_01.WorkloadNetwork
 
 internal class GetVirtualMachineOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new DefaultVirtualMachineId();
+\t\tpublic override ResourceID? ResourceId() => new DefaultVirtualMachineId();
 
-    public override Type? ResponseObject() => typeof(WorkloadNetworkVirtualMachineModel);
+\t\tpublic override Type? ResponseObject() => typeof(WorkloadNetworkVirtualMachineModel);
 
 
 }

@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.NetApp.v2022_01_01.Backups;
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new BackupId();
+\t\tpublic override ResourceID? ResourceId() => new BackupId();
 
-    public override Type? ResponseObject() => typeof(BackupModel);
+\t\tpublic override Type? ResponseObject() => typeof(BackupModel);
 
 
 }

@@ -15,12 +15,12 @@ namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.PortalRe
 
 internal class GetEntityTagOperation : Operations.HeadOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-    public override ResourceID? ResourceId() => new PortalRevisionId();
+\t\tpublic override ResourceID? ResourceId() => new PortalRevisionId();
 
 
 }

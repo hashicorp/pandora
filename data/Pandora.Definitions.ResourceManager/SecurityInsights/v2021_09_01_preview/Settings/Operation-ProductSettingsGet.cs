@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.SecurityInsights.v2021_09_01_previ
 
 internal class ProductSettingsGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new SettingId();
+\t\tpublic override ResourceID? ResourceId() => new SettingId();
 
-    public override Type? ResponseObject() => typeof(SettingsModel);
+\t\tpublic override Type? ResponseObject() => typeof(SettingsModel);
 
 
 }

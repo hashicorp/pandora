@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.AppConfiguration.v2022_05_01.Confi
 
 internal class RegenerateKeyOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(RegenerateKeyParametersModel);
 
-    public override ResourceID? ResourceId() => new ConfigurationStoreId();
+\t\tpublic override ResourceID? ResourceId() => new ConfigurationStoreId();
 
-    public override Type? ResponseObject() => typeof(ApiKeyModel);
+\t\tpublic override Type? ResponseObject() => typeof(ApiKeyModel);
 
-    public override string? UriSuffix() => "/regenerateKey";
+\t\tpublic override string? UriSuffix() => "/regenerateKey";
 
 
 }

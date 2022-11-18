@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.ContainerInstance.v2021_10_01.Cont
 
 internal class LocationListCachedImagesOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new LocationId();
+\t\tpublic override ResourceID? ResourceId() => new LocationId();
 
-    public override Type NestedItemType() => typeof(CachedImagesModel);
+\t\tpublic override Type NestedItemType() => typeof(CachedImagesModel);
 
-    public override string? UriSuffix() => "/cachedImages";
+\t\tpublic override string? UriSuffix() => "/cachedImages";
 
 
 }

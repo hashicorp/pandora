@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.DigitalTwins.v2020_12_01.DigitalTw
 
 internal class DigitalTwinsListByResourceGroupOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new ResourceGroupId();
+\t\tpublic override ResourceID? ResourceId() => new ResourceGroupId();
 
-    public override Type NestedItemType() => typeof(DigitalTwinsDescriptionModel);
+\t\tpublic override Type NestedItemType() => typeof(DigitalTwinsDescriptionModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.DigitalTwins/digitalTwinsInstances";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.DigitalTwins/digitalTwinsInstances";
 
 
 }

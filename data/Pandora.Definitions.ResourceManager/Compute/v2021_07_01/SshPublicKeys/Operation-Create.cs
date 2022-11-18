@@ -17,9 +17,9 @@ internal class CreateOperation : Operations.PutOperation
 {
     public override Type? RequestObject() => typeof(SshPublicKeyResourceModel);
 
-    public override ResourceID? ResourceId() => new SshPublicKeyId();
+\t\tpublic override ResourceID? ResourceId() => new SshPublicKeyId();
 
-    public override Type? ResponseObject() => typeof(SshPublicKeyResourceModel);
+\t\tpublic override Type? ResponseObject() => typeof(SshPublicKeyResourceModel);
 
 
 }

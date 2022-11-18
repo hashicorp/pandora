@@ -17,9 +17,9 @@ internal class WorkbookTemplatesCreateOrUpdateOperation : Operations.PutOperatio
 {
     public override Type? RequestObject() => typeof(WorkbookTemplateModel);
 
-    public override ResourceID? ResourceId() => new WorkbookTemplateId();
+\t\tpublic override ResourceID? ResourceId() => new WorkbookTemplateId();
 
-    public override Type? ResponseObject() => typeof(WorkbookTemplateModel);
+\t\tpublic override Type? ResponseObject() => typeof(WorkbookTemplateModel);
 
 
 }

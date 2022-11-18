@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.HybridCompute.v2022_03_10.Machines
 
 internal class ListByResourceGroupOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new ResourceGroupId();
+\t\tpublic override ResourceID? ResourceId() => new ResourceGroupId();
 
-    public override Type NestedItemType() => typeof(MachineModel);
+\t\tpublic override Type NestedItemType() => typeof(MachineModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.HybridCompute/machines";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.HybridCompute/machines";
 
 
 }

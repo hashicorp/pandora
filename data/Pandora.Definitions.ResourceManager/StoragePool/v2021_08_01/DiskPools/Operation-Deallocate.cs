@@ -15,19 +15,19 @@ namespace Pandora.Definitions.ResourceManager.StoragePool.v2021_08_01.DiskPools;
 
 internal class DeallocateOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new DiskPoolId();
+\t\tpublic override ResourceID? ResourceId() => new DiskPoolId();
 
-    public override string? UriSuffix() => "/deallocate";
+\t\tpublic override string? UriSuffix() => "/deallocate";
 
 
 }

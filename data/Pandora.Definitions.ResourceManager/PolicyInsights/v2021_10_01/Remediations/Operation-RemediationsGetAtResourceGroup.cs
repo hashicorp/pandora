@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.PolicyInsights.v2021_10_01.Remedia
 
 internal class RemediationsGetAtResourceGroupOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ProviderRemediationId();
+\t\tpublic override ResourceID? ResourceId() => new ProviderRemediationId();
 
-    public override Type? ResponseObject() => typeof(RemediationModel);
+\t\tpublic override Type? ResponseObject() => typeof(RemediationModel);
 
 
 }

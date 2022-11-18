@@ -15,19 +15,19 @@ namespace Pandora.Definitions.ResourceManager.Orbital.v2022_03_01.Spacecraft;
 
 internal class UpdateTagsOperation : Operations.PatchOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(TagsObjectModel);
 
-    public override ResourceID? ResourceId() => new SpacecraftId();
+\t\tpublic override ResourceID? ResourceId() => new SpacecraftId();
 
-    public override Type? ResponseObject() => typeof(SpacecraftModel);
+\t\tpublic override Type? ResponseObject() => typeof(SpacecraftModel);
 
 
 }

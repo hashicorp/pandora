@@ -15,21 +15,21 @@ namespace Pandora.Definitions.ResourceManager.AzureStackHCI.v2022_10_01.Cluster;
 
 internal class ExtendSoftwareAssuranceBenefitOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(SoftwareAssuranceChangeRequestModel);
 
-    public override ResourceID? ResourceId() => new ClusterId();
+\t\tpublic override ResourceID? ResourceId() => new ClusterId();
 
-    public override Type? ResponseObject() => typeof(ClusterModel);
+\t\tpublic override Type? ResponseObject() => typeof(ClusterModel);
 
-    public override string? UriSuffix() => "/extendSoftwareAssuranceBenefit";
+\t\tpublic override string? UriSuffix() => "/extendSoftwareAssuranceBenefit";
 
 
 }

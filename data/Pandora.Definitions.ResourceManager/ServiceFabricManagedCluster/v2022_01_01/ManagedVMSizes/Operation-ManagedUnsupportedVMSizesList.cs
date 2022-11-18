@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.ServiceFabricManagedCluster.v2022_
 
 internal class ManagedUnsupportedVMSizesListOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new LocationId();
+\t\tpublic override ResourceID? ResourceId() => new LocationId();
 
-    public override Type NestedItemType() => typeof(ManagedVMSizeModel);
+\t\tpublic override Type NestedItemType() => typeof(ManagedVMSizeModel);
 
-    public override string? UriSuffix() => "/managedUnsupportedVMSizes";
+\t\tpublic override string? UriSuffix() => "/managedUnsupportedVMSizes";
 
 
 }

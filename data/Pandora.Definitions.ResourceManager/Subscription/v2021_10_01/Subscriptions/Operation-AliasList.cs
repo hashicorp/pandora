@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.Subscription.v2021_10_01.Subscript
 
 internal class AliasListOperation : Operations.GetOperation
 {
-    public override Type? ResponseObject() => typeof(SubscriptionAliasListResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(SubscriptionAliasListResultModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.Subscription/aliases";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.Subscription/aliases";
 
 
 }

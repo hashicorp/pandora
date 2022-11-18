@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.NetApp.v2022_01_01.Backups;
 
 internal class AccountBackupsListOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new NetAppAccountId();
+\t\tpublic override ResourceID? ResourceId() => new NetAppAccountId();
 
-    public override Type? ResponseObject() => typeof(BackupsListModel);
+\t\tpublic override Type? ResponseObject() => typeof(BackupsListModel);
 
-    public override string? UriSuffix() => "/accountBackups";
+\t\tpublic override string? UriSuffix() => "/accountBackups";
 
 
 }

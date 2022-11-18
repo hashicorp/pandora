@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.ChaosStudio.v2022_07_01_preview.Ta
 
 internal class CreateOrUpdateOperation : Operations.PutOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(TargetModel);
 
-    public override ResourceID? ResourceId() => new TargetId();
+\t\tpublic override ResourceID? ResourceId() => new TargetId();
 
-    public override Type? ResponseObject() => typeof(TargetModel);
+\t\tpublic override Type? ResponseObject() => typeof(TargetModel);
 
 
 }

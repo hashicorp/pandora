@@ -15,15 +15,15 @@ namespace Pandora.Definitions.ResourceManager.Storage.v2022_09_01.EncryptionScop
 
 internal class ListOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new StorageAccountId();
+\t\tpublic override ResourceID? ResourceId() => new StorageAccountId();
 
-    public override Type NestedItemType() => typeof(EncryptionScopeModel);
+\t\tpublic override Type NestedItemType() => typeof(EncryptionScopeModel);
 
-    public override Type? OptionsObject() => typeof(ListOperation.ListOptions);
+\t\tpublic override Type? OptionsObject() => typeof(ListOperation.ListOptions);
 
-    public override string? UriSuffix() => "/encryptionScopes";
+\t\tpublic override string? UriSuffix() => "/encryptionScopes";
 
     internal class ListOptions
     {

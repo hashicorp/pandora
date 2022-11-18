@@ -17,9 +17,9 @@ internal class AccessPoliciesCreateOrUpdateOperation : Operations.PutOperation
 {
     public override Type? RequestObject() => typeof(AccessPolicyEntityModel);
 
-    public override ResourceID? ResourceId() => new AccessPolicyId();
+\t\tpublic override ResourceID? ResourceId() => new AccessPolicyId();
 
-    public override Type? ResponseObject() => typeof(AccessPolicyEntityModel);
+\t\tpublic override Type? ResponseObject() => typeof(AccessPolicyEntityModel);
 
 
 }

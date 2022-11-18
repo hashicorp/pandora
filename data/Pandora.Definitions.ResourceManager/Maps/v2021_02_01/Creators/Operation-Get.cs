@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.Maps.v2021_02_01.Creators;
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new CreatorId();
+\t\tpublic override ResourceID? ResourceId() => new CreatorId();
 
-    public override Type? ResponseObject() => typeof(CreatorModel);
+\t\tpublic override Type? ResponseObject() => typeof(CreatorModel);
 
 
 }

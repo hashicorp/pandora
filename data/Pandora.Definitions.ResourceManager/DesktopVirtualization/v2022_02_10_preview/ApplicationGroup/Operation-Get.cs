@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.DesktopVirtualization.v2022_02_10_
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ApplicationGroupId();
+\t\tpublic override ResourceID? ResourceId() => new ApplicationGroupId();
 
-    public override Type? ResponseObject() => typeof(ApplicationGroupModel);
+\t\tpublic override Type? ResponseObject() => typeof(ApplicationGroupModel);
 
 
 }

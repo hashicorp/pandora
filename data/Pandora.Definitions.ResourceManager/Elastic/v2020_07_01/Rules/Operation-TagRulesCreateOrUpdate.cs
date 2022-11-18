@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.Elastic.v2020_07_01.Rules;
 
 internal class TagRulesCreateOrUpdateOperation : Operations.PutOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(MonitoringTagRulesModel);
 
-    public override ResourceID? ResourceId() => new TagRuleId();
+\t\tpublic override ResourceID? ResourceId() => new TagRuleId();
 
-    public override Type? ResponseObject() => typeof(MonitoringTagRulesModel);
+\t\tpublic override Type? ResponseObject() => typeof(MonitoringTagRulesModel);
 
 
 }

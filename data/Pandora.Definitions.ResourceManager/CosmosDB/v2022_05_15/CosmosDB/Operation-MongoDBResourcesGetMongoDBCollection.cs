@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.CosmosDB.v2022_05_15.CosmosDB;
 
 internal class MongoDBResourcesGetMongoDBCollectionOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new MongodbDatabaseCollectionId();
+\t\tpublic override ResourceID? ResourceId() => new MongodbDatabaseCollectionId();
 
-    public override Type? ResponseObject() => typeof(MongoDBCollectionGetResultsModel);
+\t\tpublic override Type? ResponseObject() => typeof(MongoDBCollectionGetResultsModel);
 
 
 }

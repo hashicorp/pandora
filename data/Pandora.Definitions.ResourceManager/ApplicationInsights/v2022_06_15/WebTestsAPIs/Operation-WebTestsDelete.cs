@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.ApplicationInsights.v2022_06_15.We
 
 internal class WebTestsDeleteOperation : Operations.DeleteOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.NoContent,
                 HttpStatusCode.OK,
         };
 
-    public override ResourceID? ResourceId() => new WebTestId();
+\t\tpublic override ResourceID? ResourceId() => new WebTestId();
 
 
 }

@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.Databricks.v2022_04_01_preview.Wor
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new WorkspaceId();
+\t\tpublic override ResourceID? ResourceId() => new WorkspaceId();
 
-    public override Type? ResponseObject() => typeof(WorkspaceModel);
+\t\tpublic override Type? ResponseObject() => typeof(WorkspaceModel);
 
 
 }

@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.OperationalInsights.v2020_08_01.Li
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new DataSourceTypeId();
+\t\tpublic override ResourceID? ResourceId() => new DataSourceTypeId();
 
-    public override Type? ResponseObject() => typeof(LinkedStorageAccountsResourceModel);
+\t\tpublic override Type? ResponseObject() => typeof(LinkedStorageAccountsResourceModel);
 
 
 }

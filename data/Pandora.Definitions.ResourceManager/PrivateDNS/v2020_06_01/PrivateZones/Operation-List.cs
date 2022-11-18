@@ -15,15 +15,15 @@ namespace Pandora.Definitions.ResourceManager.PrivateDNS.v2020_06_01.PrivateZone
 
 internal class ListOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new SubscriptionId();
+\t\tpublic override ResourceID? ResourceId() => new SubscriptionId();
 
-    public override Type NestedItemType() => typeof(PrivateZoneModel);
+\t\tpublic override Type NestedItemType() => typeof(PrivateZoneModel);
 
-    public override Type? OptionsObject() => typeof(ListOperation.ListOptions);
+\t\tpublic override Type? OptionsObject() => typeof(ListOperation.ListOptions);
 
-    public override string? UriSuffix() => "/providers/Microsoft.Network/privateDnsZones";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.Network/privateDnsZones";
 
     internal class ListOptions
     {

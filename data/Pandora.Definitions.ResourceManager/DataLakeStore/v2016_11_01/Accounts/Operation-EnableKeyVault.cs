@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.DataLakeStore.v2016_11_01.Accounts
 
 internal class EnableKeyVaultOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new AccountId();
+\t\tpublic override ResourceID? ResourceId() => new AccountId();
 
-    public override string? UriSuffix() => "/enableKeyVault";
+\t\tpublic override string? UriSuffix() => "/enableKeyVault";
 
 
 }

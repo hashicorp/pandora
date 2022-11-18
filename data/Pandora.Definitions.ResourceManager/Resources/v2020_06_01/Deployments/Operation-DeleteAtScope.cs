@@ -15,15 +15,15 @@ namespace Pandora.Definitions.ResourceManager.Resources.v2020_06_01.Deployments;
 
 internal class DeleteAtScopeOperation : Operations.DeleteOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.NoContent,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
-    public override ResourceID? ResourceId() => new ScopedDeploymentId();
+\t\tpublic override ResourceID? ResourceId() => new ScopedDeploymentId();
 
 
 }

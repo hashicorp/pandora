@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.ServiceBus.v2021_11_01.TopicsAutho
 
 internal class TopicsCreateOrUpdateAuthorizationRuleOperation : Operations.PutOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(SBAuthorizationRuleModel);
 
-    public override ResourceID? ResourceId() => new TopicAuthorizationRuleId();
+\t\tpublic override ResourceID? ResourceId() => new TopicAuthorizationRuleId();
 
-    public override Type? ResponseObject() => typeof(SBAuthorizationRuleModel);
+\t\tpublic override Type? ResponseObject() => typeof(SBAuthorizationRuleModel);
 
 
 }

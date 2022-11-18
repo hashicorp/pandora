@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.UserIden
 
 internal class UserIdentitiesListOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new UserId();
+\t\tpublic override ResourceID? ResourceId() => new UserId();
 
-    public override Type NestedItemType() => typeof(UserIdentityContractModel);
+\t\tpublic override Type NestedItemType() => typeof(UserIdentityContractModel);
 
-    public override string? UriSuffix() => "/identities";
+\t\tpublic override string? UriSuffix() => "/identities";
 
 
 }

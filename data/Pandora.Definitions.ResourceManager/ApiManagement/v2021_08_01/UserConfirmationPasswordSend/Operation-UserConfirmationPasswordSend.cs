@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.UserConf
 
 internal class UserConfirmationPasswordSendOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.NoContent,
         };
 
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new UserId();
+\t\tpublic override ResourceID? ResourceId() => new UserId();
 
-    public override Type? OptionsObject() => typeof(UserConfirmationPasswordSendOperation.UserConfirmationPasswordSendOptions);
+\t\tpublic override Type? OptionsObject() => typeof(UserConfirmationPasswordSendOperation.UserConfirmationPasswordSendOptions);
 
-    public override string? UriSuffix() => "/confirmations/password/send";
+\t\tpublic override string? UriSuffix() => "/confirmations/password/send";
 
     internal class UserConfirmationPasswordSendOptions
     {

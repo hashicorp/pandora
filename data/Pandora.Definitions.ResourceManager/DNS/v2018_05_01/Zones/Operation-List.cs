@@ -15,15 +15,15 @@ namespace Pandora.Definitions.ResourceManager.DNS.v2018_05_01.Zones;
 
 internal class ListOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new SubscriptionId();
+\t\tpublic override ResourceID? ResourceId() => new SubscriptionId();
 
-    public override Type NestedItemType() => typeof(ZoneModel);
+\t\tpublic override Type NestedItemType() => typeof(ZoneModel);
 
-    public override Type? OptionsObject() => typeof(ListOperation.ListOptions);
+\t\tpublic override Type? OptionsObject() => typeof(ListOperation.ListOptions);
 
-    public override string? UriSuffix() => "/providers/Microsoft.Network/dnsZones";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.Network/dnsZones";
 
     internal class ListOptions
     {

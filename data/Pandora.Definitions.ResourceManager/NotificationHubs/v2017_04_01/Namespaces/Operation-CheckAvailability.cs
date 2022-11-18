@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.NotificationHubs.v2017_04_01.Names
 
 internal class CheckAvailabilityOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(CheckAvailabilityParametersModel);
 
-    public override ResourceID? ResourceId() => new SubscriptionId();
+\t\tpublic override ResourceID? ResourceId() => new SubscriptionId();
 
-    public override Type? ResponseObject() => typeof(CheckAvailabilityResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(CheckAvailabilityResultModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.NotificationHubs/checkNamespaceAvailability";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.NotificationHubs/checkNamespaceAvailability";
 
 
 }

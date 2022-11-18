@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.MachineLearningServices.v2022_05_0
 
 internal class ListSecretsOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new DataStoreId();
+\t\tpublic override ResourceID? ResourceId() => new DataStoreId();
 
-    public override Type? ResponseObject() => typeof(DatastoreSecretsModel);
+\t\tpublic override Type? ResponseObject() => typeof(DatastoreSecretsModel);
 
-    public override string? UriSuffix() => "/listSecrets";
+\t\tpublic override string? UriSuffix() => "/listSecrets";
 
 
 }

@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.PostgreSql.v2018_06_01.TopQuerySta
 
 internal class ListByServerOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new ServerId();
+\t\tpublic override ResourceID? ResourceId() => new ServerId();
 
-    public override Type NestedItemType() => typeof(QueryStatisticModel);
+\t\tpublic override Type NestedItemType() => typeof(QueryStatisticModel);
 
-    public override string? UriSuffix() => "/topQueryStatistics";
+\t\tpublic override string? UriSuffix() => "/topQueryStatistics";
 
 
 }

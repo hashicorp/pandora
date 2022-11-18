@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.VMware.v2022_05_01.Scripts;
 
 internal class ScriptCmdletsListOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new ScriptPackageId();
+\t\tpublic override ResourceID? ResourceId() => new ScriptPackageId();
 
-    public override Type NestedItemType() => typeof(ScriptCmdletModel);
+\t\tpublic override Type NestedItemType() => typeof(ScriptCmdletModel);
 
-    public override string? UriSuffix() => "/scriptCmdlets";
+\t\tpublic override string? UriSuffix() => "/scriptCmdlets";
 
 
 }

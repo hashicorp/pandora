@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.Automation.v2019_06_01.HybridRunbo
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new HybridRunbookWorkerGroupId();
+\t\tpublic override ResourceID? ResourceId() => new HybridRunbookWorkerGroupId();
 
-    public override Type? ResponseObject() => typeof(HybridRunbookWorkerGroupModel);
+\t\tpublic override Type? ResponseObject() => typeof(HybridRunbookWorkerGroupModel);
 
 
 }

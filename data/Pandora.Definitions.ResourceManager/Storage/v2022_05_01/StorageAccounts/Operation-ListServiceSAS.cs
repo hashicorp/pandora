@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.Storage.v2022_05_01.StorageAccount
 
 internal class ListServiceSASOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(ServiceSasParametersModel);
 
-    public override ResourceID? ResourceId() => new StorageAccountId();
+\t\tpublic override ResourceID? ResourceId() => new StorageAccountId();
 
-    public override Type? ResponseObject() => typeof(ListServiceSasResponseModel);
+\t\tpublic override Type? ResponseObject() => typeof(ListServiceSasResponseModel);
 
-    public override string? UriSuffix() => "/listServiceSas";
+\t\tpublic override string? UriSuffix() => "/listServiceSas";
 
 
 }

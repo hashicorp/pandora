@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.HealthcareApis.v2022_06_01.DicomSe
 
 internal class ListByWorkspaceOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new WorkspaceId();
+\t\tpublic override ResourceID? ResourceId() => new WorkspaceId();
 
-    public override Type NestedItemType() => typeof(DicomServiceModel);
+\t\tpublic override Type NestedItemType() => typeof(DicomServiceModel);
 
-    public override string? UriSuffix() => "/dicomServices";
+\t\tpublic override string? UriSuffix() => "/dicomServices";
 
 
 }

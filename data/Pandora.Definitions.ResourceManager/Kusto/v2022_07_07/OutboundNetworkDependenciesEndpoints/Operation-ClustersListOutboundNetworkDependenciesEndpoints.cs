@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Kusto.v2022_07_07.OutboundNetworkD
 
 internal class ClustersListOutboundNetworkDependenciesEndpointsOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new ClusterId();
+\t\tpublic override ResourceID? ResourceId() => new ClusterId();
 
-    public override Type NestedItemType() => typeof(OutboundNetworkDependenciesEndpointModel);
+\t\tpublic override Type NestedItemType() => typeof(OutboundNetworkDependenciesEndpointModel);
 
-    public override string? UriSuffix() => "/outboundNetworkDependenciesEndpoints";
+\t\tpublic override string? UriSuffix() => "/outboundNetworkDependenciesEndpoints";
 
 
 }

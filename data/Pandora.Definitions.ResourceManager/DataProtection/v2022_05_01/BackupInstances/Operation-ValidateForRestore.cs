@@ -15,21 +15,21 @@ namespace Pandora.Definitions.ResourceManager.DataProtection.v2022_05_01.BackupI
 
 internal class ValidateForRestoreOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(ValidateRestoreRequestObjectModel);
 
-    public override ResourceID? ResourceId() => new BackupInstanceId();
+\t\tpublic override ResourceID? ResourceId() => new BackupInstanceId();
 
-    public override Type? ResponseObject() => typeof(OperationJobExtendedInfoModel);
+\t\tpublic override Type? ResponseObject() => typeof(OperationJobExtendedInfoModel);
 
-    public override string? UriSuffix() => "/validateRestore";
+\t\tpublic override string? UriSuffix() => "/validateRestore";
 
 
 }

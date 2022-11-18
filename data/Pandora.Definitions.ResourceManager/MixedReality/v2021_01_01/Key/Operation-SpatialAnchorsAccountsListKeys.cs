@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.MixedReality.v2021_01_01.Key;
 
 internal class SpatialAnchorsAccountsListKeysOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new SpatialAnchorsAccountId();
+\t\tpublic override ResourceID? ResourceId() => new SpatialAnchorsAccountId();
 
-    public override Type? ResponseObject() => typeof(AccountKeysModel);
+\t\tpublic override Type? ResponseObject() => typeof(AccountKeysModel);
 
-    public override string? UriSuffix() => "/listKeys";
+\t\tpublic override string? UriSuffix() => "/listKeys";
 
 
 }

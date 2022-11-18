@@ -15,20 +15,20 @@ namespace Pandora.Definitions.ResourceManager.MariaDB.v2018_06_01.VirtualNetwork
 
 internal class CreateOrUpdateOperation : Operations.PutOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.Created,
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(VirtualNetworkRuleModel);
 
-    public override ResourceID? ResourceId() => new VirtualNetworkRuleId();
+\t\tpublic override ResourceID? ResourceId() => new VirtualNetworkRuleId();
 
-    public override Type? ResponseObject() => typeof(VirtualNetworkRuleModel);
+\t\tpublic override Type? ResponseObject() => typeof(VirtualNetworkRuleModel);
 
 
 }

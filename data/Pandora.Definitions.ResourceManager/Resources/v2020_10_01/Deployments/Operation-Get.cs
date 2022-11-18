@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.Resources.v2020_10_01.Deployments;
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ResourceGroupProviderDeploymentId();
+\t\tpublic override ResourceID? ResourceId() => new ResourceGroupProviderDeploymentId();
 
-    public override Type? ResponseObject() => typeof(DeploymentExtendedModel);
+\t\tpublic override Type? ResponseObject() => typeof(DeploymentExtendedModel);
 
 
 }

@@ -17,9 +17,9 @@ internal class CreateOrUpdateOperation : Operations.PutOperation
 {
     public override Type? RequestObject() => typeof(ScheduledQueryRuleResourceModel);
 
-    public override ResourceID? ResourceId() => new ScheduledQueryRuleId();
+\t\tpublic override ResourceID? ResourceId() => new ScheduledQueryRuleId();
 
-    public override Type? ResponseObject() => typeof(ScheduledQueryRuleResourceModel);
+\t\tpublic override Type? ResponseObject() => typeof(ScheduledQueryRuleResourceModel);
 
 
 }

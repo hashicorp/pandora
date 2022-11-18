@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.StoragePool.v2021_08_01.DiskPools;
 
 internal class CreateOrUpdateOperation : Operations.PutOperation
 {
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(DiskPoolCreateModel);
 
-    public override ResourceID? ResourceId() => new DiskPoolId();
+\t\tpublic override ResourceID? ResourceId() => new DiskPoolId();
 
-    public override Type? ResponseObject() => typeof(DiskPoolModel);
+\t\tpublic override Type? ResponseObject() => typeof(DiskPoolModel);
 
 
 }

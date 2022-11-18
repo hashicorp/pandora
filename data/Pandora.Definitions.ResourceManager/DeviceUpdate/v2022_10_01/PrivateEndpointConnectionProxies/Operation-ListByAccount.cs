@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.DeviceUpdate.v2022_10_01.PrivateEn
 
 internal class ListByAccountOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new AccountId();
+\t\tpublic override ResourceID? ResourceId() => new AccountId();
 
-    public override Type? ResponseObject() => typeof(PrivateEndpointConnectionProxyListResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(PrivateEndpointConnectionProxyListResultModel);
 
-    public override string? UriSuffix() => "/privateEndpointConnectionProxies";
+\t\tpublic override string? UriSuffix() => "/privateEndpointConnectionProxies";
 
 
 }

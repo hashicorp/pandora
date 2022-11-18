@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.Web.v2016_06_01.ConnectionGateways
 
 internal class ConnectionGatewayInstallationsListOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new LocationId();
+\t\tpublic override ResourceID? ResourceId() => new LocationId();
 
-    public override Type? ResponseObject() => typeof(ConnectionGatewayInstallationDefinitionCollectionModel);
+\t\tpublic override Type? ResponseObject() => typeof(ConnectionGatewayInstallationDefinitionCollectionModel);
 
-    public override string? UriSuffix() => "/connectionGatewayInstallations";
+\t\tpublic override string? UriSuffix() => "/connectionGatewayInstallations";
 
 
 }

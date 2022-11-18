@@ -15,15 +15,15 @@ namespace Pandora.Definitions.ResourceManager.Automation.v2019_06_01.SoftwareUpd
 
 internal class SoftwareUpdateConfigurationsDeleteOperation : Operations.DeleteOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.NoContent,
                 HttpStatusCode.OK,
         };
 
-    public override ResourceID? ResourceId() => new SoftwareUpdateConfigurationId();
+\t\tpublic override ResourceID? ResourceId() => new SoftwareUpdateConfigurationId();
 
-    public override Type? OptionsObject() => typeof(SoftwareUpdateConfigurationsDeleteOperation.SoftwareUpdateConfigurationsDeleteOptions);
+\t\tpublic override Type? OptionsObject() => typeof(SoftwareUpdateConfigurationsDeleteOperation.SoftwareUpdateConfigurationsDeleteOptions);
 
     internal class SoftwareUpdateConfigurationsDeleteOptions
     {

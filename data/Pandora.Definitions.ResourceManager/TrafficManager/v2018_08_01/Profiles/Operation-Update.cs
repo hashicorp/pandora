@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.TrafficManager.v2018_08_01.Profile
 
 internal class UpdateOperation : Operations.PatchOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(ProfileModel);
 
-    public override ResourceID? ResourceId() => new TrafficManagerProfileId();
+\t\tpublic override ResourceID? ResourceId() => new TrafficManagerProfileId();
 
-    public override Type? ResponseObject() => typeof(ProfileModel);
+\t\tpublic override Type? ResponseObject() => typeof(ProfileModel);
 
 
 }

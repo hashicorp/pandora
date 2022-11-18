@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.ServiceBus.v2021_11_01.NamespacesA
 
 internal class NamespacesGetAuthorizationRuleOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new AuthorizationRuleId();
+\t\tpublic override ResourceID? ResourceId() => new AuthorizationRuleId();
 
-    public override Type? ResponseObject() => typeof(SBAuthorizationRuleModel);
+\t\tpublic override Type? ResponseObject() => typeof(SBAuthorizationRuleModel);
 
 
 }

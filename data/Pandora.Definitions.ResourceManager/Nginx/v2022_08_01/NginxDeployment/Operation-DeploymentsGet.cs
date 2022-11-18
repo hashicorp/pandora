@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.Nginx.v2022_08_01.NginxDeployment;
 
 internal class DeploymentsGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new NginxDeploymentId();
+\t\tpublic override ResourceID? ResourceId() => new NginxDeploymentId();
 
-    public override Type? ResponseObject() => typeof(NginxDeploymentModel);
+\t\tpublic override Type? ResponseObject() => typeof(NginxDeploymentModel);
 
 
 }

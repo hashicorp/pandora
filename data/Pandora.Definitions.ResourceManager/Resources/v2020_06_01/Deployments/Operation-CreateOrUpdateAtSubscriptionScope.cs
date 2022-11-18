@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Resources.v2020_06_01.Deployments;
 
 internal class CreateOrUpdateAtSubscriptionScopeOperation : Operations.PutOperation
 {
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(DeploymentModel);
 
-    public override ResourceID? ResourceId() => new ProviderDeploymentId();
+\t\tpublic override ResourceID? ResourceId() => new ProviderDeploymentId();
 
-    public override Type? ResponseObject() => typeof(DeploymentExtendedModel);
+\t\tpublic override Type? ResponseObject() => typeof(DeploymentExtendedModel);
 
 
 }

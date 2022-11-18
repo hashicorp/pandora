@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.PostgreSql.v2022_03_08_preview.Adm
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new AdministratorId();
+\t\tpublic override ResourceID? ResourceId() => new AdministratorId();
 
-    public override Type? ResponseObject() => typeof(ActiveDirectoryAdministratorModel);
+\t\tpublic override Type? ResponseObject() => typeof(ActiveDirectoryAdministratorModel);
 
 
 }

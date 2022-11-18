@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.DigitalTwins.v2022_05_31.Endpoints
 
 internal class DigitalTwinsEndpointListOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new DigitalTwinsInstanceId();
+\t\tpublic override ResourceID? ResourceId() => new DigitalTwinsInstanceId();
 
-    public override Type NestedItemType() => typeof(DigitalTwinsEndpointResourceModel);
+\t\tpublic override Type NestedItemType() => typeof(DigitalTwinsEndpointResourceModel);
 
-    public override string? UriSuffix() => "/endpoints";
+\t\tpublic override string? UriSuffix() => "/endpoints";
 
 
 }

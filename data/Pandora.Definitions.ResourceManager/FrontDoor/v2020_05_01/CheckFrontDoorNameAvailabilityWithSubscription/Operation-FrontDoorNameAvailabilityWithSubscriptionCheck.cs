@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.FrontDoor.v2020_05_01.CheckFrontDo
 
 internal class FrontDoorNameAvailabilityWithSubscriptionCheckOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(CheckNameAvailabilityInputModel);
 
-    public override ResourceID? ResourceId() => new SubscriptionId();
+\t\tpublic override ResourceID? ResourceId() => new SubscriptionId();
 
-    public override Type? ResponseObject() => typeof(CheckNameAvailabilityOutputModel);
+\t\tpublic override Type? ResponseObject() => typeof(CheckNameAvailabilityOutputModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.Network/checkFrontDoorNameAvailability";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.Network/checkFrontDoorNameAvailability";
 
 
 }

@@ -17,9 +17,9 @@ internal class CreateOrUpdateOperation : Operations.PutOperation
 {
     public override Type? RequestObject() => typeof(RestorePointCollectionModel);
 
-    public override ResourceID? ResourceId() => new RestorePointCollectionId();
+\t\tpublic override ResourceID? ResourceId() => new RestorePointCollectionId();
 
-    public override Type? ResponseObject() => typeof(RestorePointCollectionModel);
+\t\tpublic override Type? ResponseObject() => typeof(RestorePointCollectionModel);
 
 
 }

@@ -15,11 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Automation.v2022_08_08.DscConfigur
 
 internal class GetContentOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ConfigurationId();
+\t\tpublic override string? ContentType() => "text/powershell";
 
-    public override Type? ResponseObject() => typeof(CustomTypes.RawFile);
+\t\tpublic override ResourceID? ResourceId() => new ConfigurationId();
 
-    public override string? UriSuffix() => "/content";
+\t\tpublic override Type? ResponseObject() => typeof(CustomTypes.RawFile);
+
+\t\tpublic override string? UriSuffix() => "/content";
 
 
 }

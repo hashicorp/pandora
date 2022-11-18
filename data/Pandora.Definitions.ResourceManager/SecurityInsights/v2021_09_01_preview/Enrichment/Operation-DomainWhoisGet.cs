@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.SecurityInsights.v2021_09_01_previ
 
 internal class DomainWhoisGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ResourceGroupId();
+\t\tpublic override ResourceID? ResourceId() => new ResourceGroupId();
 
-    public override Type? ResponseObject() => typeof(EnrichmentDomainWhoisModel);
+\t\tpublic override Type? ResponseObject() => typeof(EnrichmentDomainWhoisModel);
 
-    public override Type? OptionsObject() => typeof(DomainWhoisGetOperation.DomainWhoisGetOptions);
+\t\tpublic override Type? OptionsObject() => typeof(DomainWhoisGetOperation.DomainWhoisGetOptions);
 
-    public override string? UriSuffix() => "/providers/Microsoft.SecurityInsights/enrichment/domain/whois";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.SecurityInsights/enrichment/domain/whois";
 
     internal class DomainWhoisGetOptions
     {

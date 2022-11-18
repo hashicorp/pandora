@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.KubernetesConfiguration.v2022_11_0
 
 internal class OperationStatusGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new OperationId();
+\t\tpublic override ResourceID? ResourceId() => new OperationId();
 
-    public override Type? ResponseObject() => typeof(OperationStatusResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(OperationStatusResultModel);
 
 
 }

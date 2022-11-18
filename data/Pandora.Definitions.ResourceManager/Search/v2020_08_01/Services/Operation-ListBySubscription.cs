@@ -15,15 +15,15 @@ namespace Pandora.Definitions.ResourceManager.Search.v2020_08_01.Services;
 
 internal class ListBySubscriptionOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new SubscriptionId();
+\t\tpublic override ResourceID? ResourceId() => new SubscriptionId();
 
-    public override Type NestedItemType() => typeof(SearchServiceModel);
+\t\tpublic override Type NestedItemType() => typeof(SearchServiceModel);
 
-    public override Type? OptionsObject() => typeof(ListBySubscriptionOperation.ListBySubscriptionOptions);
+\t\tpublic override Type? OptionsObject() => typeof(ListBySubscriptionOperation.ListBySubscriptionOptions);
 
-    public override string? UriSuffix() => "/providers/Microsoft.Search/searchServices";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.Search/searchServices";
 
     internal class ListBySubscriptionOptions
     {

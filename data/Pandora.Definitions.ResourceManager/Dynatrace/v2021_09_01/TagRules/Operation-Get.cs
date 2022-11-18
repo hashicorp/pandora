@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.Dynatrace.v2021_09_01.TagRules;
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new TagRuleId();
+\t\tpublic override ResourceID? ResourceId() => new TagRuleId();
 
-    public override Type? ResponseObject() => typeof(TagRuleModel);
+\t\tpublic override Type? ResponseObject() => typeof(TagRuleModel);
 
 
 }

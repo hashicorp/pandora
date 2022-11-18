@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.HardwareSecurityModules.v2021_11_3
 
 internal class DedicatedHsmListOutboundNetworkDependenciesEndpointsOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new DedicatedHSMId();
+\t\tpublic override ResourceID? ResourceId() => new DedicatedHSMId();
 
-    public override Type NestedItemType() => typeof(OutboundEnvironmentEndpointModel);
+\t\tpublic override Type NestedItemType() => typeof(OutboundEnvironmentEndpointModel);
 
-    public override string? UriSuffix() => "/outboundNetworkDependenciesEndpoints";
+\t\tpublic override string? UriSuffix() => "/outboundNetworkDependenciesEndpoints";
 
 
 }

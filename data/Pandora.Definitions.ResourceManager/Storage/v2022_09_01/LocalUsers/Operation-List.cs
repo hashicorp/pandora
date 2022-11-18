@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.Storage.v2022_09_01.LocalUsers;
 
 internal class ListOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new StorageAccountId();
+\t\tpublic override ResourceID? ResourceId() => new StorageAccountId();
 
-    public override Type? ResponseObject() => typeof(LocalUsersModel);
+\t\tpublic override Type? ResponseObject() => typeof(LocalUsersModel);
 
-    public override string? UriSuffix() => "/localUsers";
+\t\tpublic override string? UriSuffix() => "/localUsers";
 
 
 }

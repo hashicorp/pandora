@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.Media.v2020_05_01.ContentKeyPolici
 
 internal class ContentKeyPoliciesUpdateOperation : Operations.PatchOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(ContentKeyPolicyModel);
 
-    public override ResourceID? ResourceId() => new ContentKeyPolicyId();
+\t\tpublic override ResourceID? ResourceId() => new ContentKeyPolicyId();
 
-    public override Type? ResponseObject() => typeof(ContentKeyPolicyModel);
+\t\tpublic override Type? ResponseObject() => typeof(ContentKeyPolicyModel);
 
 
 }

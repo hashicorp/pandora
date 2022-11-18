@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.Orbital.v2022_03_01.Contact;
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ContactId();
+\t\tpublic override ResourceID? ResourceId() => new ContactId();
 
-    public override Type? ResponseObject() => typeof(ContactModel);
+\t\tpublic override Type? ResponseObject() => typeof(ContactModel);
 
 
 }

@@ -17,11 +17,11 @@ internal class IndicatorCreateIndicatorOperation : Operations.PostOperation
 {
     public override Type? RequestObject() => typeof(ThreatIntelligenceIndicatorModelModel);
 
-    public override ResourceID? ResourceId() => new WorkspaceId();
+\t\tpublic override ResourceID? ResourceId() => new WorkspaceId();
 
-    public override Type? ResponseObject() => typeof(ThreatIntelligenceInformationModel);
+\t\tpublic override Type? ResponseObject() => typeof(ThreatIntelligenceInformationModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.SecurityInsights/threatIntelligence/main/createIndicator";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.SecurityInsights/threatIntelligence/main/createIndicator";
 
 
 }

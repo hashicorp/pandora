@@ -15,15 +15,15 @@ namespace Pandora.Definitions.ResourceManager.PolicyInsights.v2021_10_01.Remedia
 
 internal class RemediationsDeleteAtResourceGroupOperation : Operations.DeleteOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.NoContent,
                 HttpStatusCode.OK,
         };
 
-    public override ResourceID? ResourceId() => new ProviderRemediationId();
+\t\tpublic override ResourceID? ResourceId() => new ProviderRemediationId();
 
-    public override Type? ResponseObject() => typeof(RemediationModel);
+\t\tpublic override Type? ResponseObject() => typeof(RemediationModel);
 
 
 }

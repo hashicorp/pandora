@@ -15,13 +15,15 @@ namespace Pandora.Definitions.ResourceManager.Automation.v2022_08_08.Job;
 
 internal class GetRunbookContentOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new JobId();
+\t\tpublic override string? ContentType() => "text/powershell";
 
-    public override Type? ResponseObject() => typeof(string);
+\t\tpublic override ResourceID? ResourceId() => new JobId();
 
-    public override Type? OptionsObject() => typeof(GetRunbookContentOperation.GetRunbookContentOptions);
+\t\tpublic override Type? ResponseObject() => typeof(string);
 
-    public override string? UriSuffix() => "/runbookContent";
+\t\tpublic override Type? OptionsObject() => typeof(GetRunbookContentOperation.GetRunbookContentOptions);
+
+\t\tpublic override string? UriSuffix() => "/runbookContent";
 
     internal class GetRunbookContentOptions
     {

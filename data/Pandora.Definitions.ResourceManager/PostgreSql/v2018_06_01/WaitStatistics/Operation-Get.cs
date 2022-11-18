@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.PostgreSql.v2018_06_01.WaitStatist
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new WaitStatisticId();
+\t\tpublic override ResourceID? ResourceId() => new WaitStatisticId();
 
-    public override Type? ResponseObject() => typeof(WaitStatisticModel);
+\t\tpublic override Type? ResponseObject() => typeof(WaitStatisticModel);
 
 
 }

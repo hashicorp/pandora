@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Orbital.v2022_03_01.ContactProfile
 
 internal class ContactProfilesCreateOrUpdateOperation : Operations.PutOperation
 {
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(ContactProfileModel);
 
-    public override ResourceID? ResourceId() => new ContactProfileId();
+\t\tpublic override ResourceID? ResourceId() => new ContactProfileId();
 
-    public override Type? ResponseObject() => typeof(ContactProfileModel);
+\t\tpublic override Type? ResponseObject() => typeof(ContactProfileModel);
 
 
 }

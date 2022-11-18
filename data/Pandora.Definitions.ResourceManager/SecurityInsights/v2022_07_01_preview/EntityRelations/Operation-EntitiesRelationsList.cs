@@ -15,15 +15,15 @@ namespace Pandora.Definitions.ResourceManager.SecurityInsights.v2022_07_01_previ
 
 internal class EntitiesRelationsListOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new EntityId();
+\t\tpublic override ResourceID? ResourceId() => new EntityId();
 
-    public override Type NestedItemType() => typeof(RelationModel);
+\t\tpublic override Type NestedItemType() => typeof(RelationModel);
 
-    public override Type? OptionsObject() => typeof(EntitiesRelationsListOperation.EntitiesRelationsListOptions);
+\t\tpublic override Type? OptionsObject() => typeof(EntitiesRelationsListOperation.EntitiesRelationsListOptions);
 
-    public override string? UriSuffix() => "/relations";
+\t\tpublic override string? UriSuffix() => "/relations";
 
     internal class EntitiesRelationsListOptions
     {

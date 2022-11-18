@@ -17,9 +17,9 @@ internal class DataConnectorsCreateOrUpdateOperation : Operations.PutOperation
 {
     public override Type? RequestObject() => typeof(DataConnectorModel);
 
-    public override ResourceID? ResourceId() => new DataConnectorId();
+\t\tpublic override ResourceID? ResourceId() => new DataConnectorId();
 
-    public override Type? ResponseObject() => typeof(DataConnectorModel);
+\t\tpublic override Type? ResponseObject() => typeof(DataConnectorModel);
 
 
 }

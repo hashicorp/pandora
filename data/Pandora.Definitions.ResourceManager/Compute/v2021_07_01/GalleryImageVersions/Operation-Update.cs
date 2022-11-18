@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.Compute.v2021_07_01.GalleryImageVe
 
 internal class UpdateOperation : Operations.PatchOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(GalleryImageVersionUpdateModel);
 
-    public override ResourceID? ResourceId() => new VersionId();
+\t\tpublic override ResourceID? ResourceId() => new VersionId();
 
-    public override Type? ResponseObject() => typeof(GalleryImageVersionModel);
+\t\tpublic override Type? ResponseObject() => typeof(GalleryImageVersionModel);
 
 
 }

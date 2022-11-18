@@ -17,9 +17,9 @@ internal class CreateOperation : Operations.PutOperation
 {
     public override Type? RequestObject() => typeof(AttestationServiceCreationParamsModel);
 
-    public override ResourceID? ResourceId() => new AttestationProvidersId();
+\t\tpublic override ResourceID? ResourceId() => new AttestationProvidersId();
 
-    public override Type? ResponseObject() => typeof(AttestationProvidersModel);
+\t\tpublic override Type? ResponseObject() => typeof(AttestationProvidersModel);
 
 
 }

@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.DesktopVirtualization.v2022_02_10_
 
 internal class RetrieveRegistrationTokenOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new HostPoolId();
+\t\tpublic override ResourceID? ResourceId() => new HostPoolId();
 
-    public override Type? ResponseObject() => typeof(RegistrationInfoModel);
+\t\tpublic override Type? ResponseObject() => typeof(RegistrationInfoModel);
 
-    public override string? UriSuffix() => "/retrieveRegistrationToken";
+\t\tpublic override string? UriSuffix() => "/retrieveRegistrationToken";
 
 
 }

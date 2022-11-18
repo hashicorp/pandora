@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.AzureStackHCI.v2022_10_01.UpdateRu
 
 internal class UpdateRunsGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new UpdateRunId();
+\t\tpublic override ResourceID? ResourceId() => new UpdateRunId();
 
-    public override Type? ResponseObject() => typeof(UpdateRunModel);
+\t\tpublic override Type? ResponseObject() => typeof(UpdateRunModel);
 
 
 }

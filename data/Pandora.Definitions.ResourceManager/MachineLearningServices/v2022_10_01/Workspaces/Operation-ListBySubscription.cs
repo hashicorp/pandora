@@ -15,15 +15,15 @@ namespace Pandora.Definitions.ResourceManager.MachineLearningServices.v2022_10_0
 
 internal class ListBySubscriptionOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new SubscriptionId();
+\t\tpublic override ResourceID? ResourceId() => new SubscriptionId();
 
-    public override Type NestedItemType() => typeof(WorkspaceModel);
+\t\tpublic override Type NestedItemType() => typeof(WorkspaceModel);
 
-    public override Type? OptionsObject() => typeof(ListBySubscriptionOperation.ListBySubscriptionOptions);
+\t\tpublic override Type? OptionsObject() => typeof(ListBySubscriptionOperation.ListBySubscriptionOptions);
 
-    public override string? UriSuffix() => "/providers/Microsoft.MachineLearningServices/workspaces";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.MachineLearningServices/workspaces";
 
     internal class ListBySubscriptionOptions
     {

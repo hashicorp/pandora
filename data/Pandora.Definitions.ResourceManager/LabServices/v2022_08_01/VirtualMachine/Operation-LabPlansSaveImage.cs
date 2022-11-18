@@ -15,19 +15,19 @@ namespace Pandora.Definitions.ResourceManager.LabServices.v2022_08_01.VirtualMac
 
 internal class LabPlansSaveImageOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(SaveImageBodyModel);
 
-    public override ResourceID? ResourceId() => new LabPlanId();
+\t\tpublic override ResourceID? ResourceId() => new LabPlanId();
 
-    public override string? UriSuffix() => "/saveImage";
+\t\tpublic override string? UriSuffix() => "/saveImage";
 
 
 }

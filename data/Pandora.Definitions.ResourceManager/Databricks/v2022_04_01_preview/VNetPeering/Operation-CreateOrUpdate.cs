@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Databricks.v2022_04_01_preview.VNe
 
 internal class CreateOrUpdateOperation : Operations.PutOperation
 {
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(VirtualNetworkPeeringModel);
 
-    public override ResourceID? ResourceId() => new VirtualNetworkPeeringId();
+\t\tpublic override ResourceID? ResourceId() => new VirtualNetworkPeeringId();
 
-    public override Type? ResponseObject() => typeof(VirtualNetworkPeeringModel);
+\t\tpublic override Type? ResponseObject() => typeof(VirtualNetworkPeeringModel);
 
 
 }

@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.Cognitive.v2022_10_01.CognitiveSer
 
 internal class AccountsGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new AccountId();
+\t\tpublic override ResourceID? ResourceId() => new AccountId();
 
-    public override Type? ResponseObject() => typeof(AccountModel);
+\t\tpublic override Type? ResponseObject() => typeof(AccountModel);
 
 
 }

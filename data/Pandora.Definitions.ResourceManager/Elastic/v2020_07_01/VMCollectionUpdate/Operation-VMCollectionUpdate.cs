@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.Elastic.v2020_07_01.VMCollectionUp
 
 internal class VMCollectionUpdateOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(VMCollectionUpdateModel);
 
-    public override ResourceID? ResourceId() => new MonitorId();
+\t\tpublic override ResourceID? ResourceId() => new MonitorId();
 
-    public override string? UriSuffix() => "/vmCollectionUpdate";
+\t\tpublic override string? UriSuffix() => "/vmCollectionUpdate";
 
 
 }

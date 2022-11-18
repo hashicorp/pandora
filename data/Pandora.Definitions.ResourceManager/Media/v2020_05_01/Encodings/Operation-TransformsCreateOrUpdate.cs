@@ -17,9 +17,9 @@ internal class TransformsCreateOrUpdateOperation : Operations.PutOperation
 {
     public override Type? RequestObject() => typeof(TransformModel);
 
-    public override ResourceID? ResourceId() => new TransformId();
+\t\tpublic override ResourceID? ResourceId() => new TransformId();
 
-    public override Type? ResponseObject() => typeof(TransformModel);
+\t\tpublic override Type? ResponseObject() => typeof(TransformModel);
 
 
 }

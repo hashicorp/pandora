@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.StreamAnalytics.v2020_03_01.Transf
 
 internal class UpdateOperation : Operations.PatchOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(TransformationModel);
 
-    public override ResourceID? ResourceId() => new TransformationId();
+\t\tpublic override ResourceID? ResourceId() => new TransformationId();
 
-    public override Type? ResponseObject() => typeof(TransformationModel);
+\t\tpublic override Type? ResponseObject() => typeof(TransformationModel);
 
-    public override Type? OptionsObject() => typeof(UpdateOperation.UpdateOptions);
+\t\tpublic override Type? OptionsObject() => typeof(UpdateOperation.UpdateOptions);
 
     internal class UpdateOptions
     {

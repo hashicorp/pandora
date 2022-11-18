@@ -15,15 +15,15 @@ namespace Pandora.Definitions.ResourceManager.MachineLearningServices.v2022_05_0
 
 internal class ComputeListOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new WorkspaceId();
+\t\tpublic override ResourceID? ResourceId() => new WorkspaceId();
 
-    public override Type NestedItemType() => typeof(ComputeResourceModel);
+\t\tpublic override Type NestedItemType() => typeof(ComputeResourceModel);
 
-    public override Type? OptionsObject() => typeof(ComputeListOperation.ComputeListOptions);
+\t\tpublic override Type? OptionsObject() => typeof(ComputeListOperation.ComputeListOptions);
 
-    public override string? UriSuffix() => "/computes";
+\t\tpublic override string? UriSuffix() => "/computes";
 
     internal class ComputeListOptions
     {

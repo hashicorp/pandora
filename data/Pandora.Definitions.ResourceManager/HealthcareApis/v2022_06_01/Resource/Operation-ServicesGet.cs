@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.HealthcareApis.v2022_06_01.Resourc
 
 internal class ServicesGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ServiceId();
+\t\tpublic override ResourceID? ResourceId() => new ServiceId();
 
-    public override Type? ResponseObject() => typeof(ServicesDescriptionModel);
+\t\tpublic override Type? ResponseObject() => typeof(ServicesDescriptionModel);
 
 
 }

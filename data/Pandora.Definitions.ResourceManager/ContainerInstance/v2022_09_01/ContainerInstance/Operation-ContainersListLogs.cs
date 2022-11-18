@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.ContainerInstance.v2022_09_01.Cont
 
 internal class ContainersListLogsOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ContainerId();
+\t\tpublic override ResourceID? ResourceId() => new ContainerId();
 
-    public override Type? ResponseObject() => typeof(LogsModel);
+\t\tpublic override Type? ResponseObject() => typeof(LogsModel);
 
-    public override Type? OptionsObject() => typeof(ContainersListLogsOperation.ContainersListLogsOptions);
+\t\tpublic override Type? OptionsObject() => typeof(ContainersListLogsOperation.ContainersListLogsOptions);
 
-    public override string? UriSuffix() => "/logs";
+\t\tpublic override string? UriSuffix() => "/logs";
 
     internal class ContainersListLogsOptions
     {

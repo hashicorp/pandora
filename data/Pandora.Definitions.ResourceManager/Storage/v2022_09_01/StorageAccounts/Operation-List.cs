@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Storage.v2022_09_01.StorageAccount
 
 internal class ListOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new SubscriptionId();
+\t\tpublic override ResourceID? ResourceId() => new SubscriptionId();
 
-    public override Type NestedItemType() => typeof(StorageAccountModel);
+\t\tpublic override Type NestedItemType() => typeof(StorageAccountModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.Storage/storageAccounts";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.Storage/storageAccounts";
 
 
 }

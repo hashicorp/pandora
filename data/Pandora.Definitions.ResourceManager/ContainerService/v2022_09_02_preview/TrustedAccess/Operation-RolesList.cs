@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.ContainerService.v2022_09_02_previ
 
 internal class RolesListOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new LocationId();
+\t\tpublic override ResourceID? ResourceId() => new LocationId();
 
-    public override Type NestedItemType() => typeof(TrustedAccessRoleModel);
+\t\tpublic override Type NestedItemType() => typeof(TrustedAccessRoleModel);
 
-    public override string? UriSuffix() => "/trustedAccessRoles";
+\t\tpublic override string? UriSuffix() => "/trustedAccessRoles";
 
 
 }

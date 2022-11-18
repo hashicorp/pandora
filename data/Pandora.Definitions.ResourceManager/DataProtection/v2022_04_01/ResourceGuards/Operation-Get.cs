@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.DataProtection.v2022_04_01.Resourc
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ResourceGuardId();
+\t\tpublic override ResourceID? ResourceId() => new ResourceGuardId();
 
-    public override Type? ResponseObject() => typeof(ResourceGuardResourceModel);
+\t\tpublic override Type? ResponseObject() => typeof(ResourceGuardResourceModel);
 
 
 }

@@ -15,15 +15,15 @@ namespace Pandora.Definitions.ResourceManager.OperationalInsights.v2019_09_01.Qu
 
 internal class QueriesListOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new QueryPackId();
+\t\tpublic override ResourceID? ResourceId() => new QueryPackId();
 
-    public override Type NestedItemType() => typeof(LogAnalyticsQueryPackQueryModel);
+\t\tpublic override Type NestedItemType() => typeof(LogAnalyticsQueryPackQueryModel);
 
-    public override Type? OptionsObject() => typeof(QueriesListOperation.QueriesListOptions);
+\t\tpublic override Type? OptionsObject() => typeof(QueriesListOperation.QueriesListOptions);
 
-    public override string? UriSuffix() => "/queries";
+\t\tpublic override string? UriSuffix() => "/queries";
 
     internal class QueriesListOptions
     {

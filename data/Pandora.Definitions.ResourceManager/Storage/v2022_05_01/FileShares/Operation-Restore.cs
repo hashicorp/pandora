@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.Storage.v2022_05_01.FileShares;
 
 internal class RestoreOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(DeletedShareModel);
 
-    public override ResourceID? ResourceId() => new ShareId();
+\t\tpublic override ResourceID? ResourceId() => new ShareId();
 
-    public override string? UriSuffix() => "/restore";
+\t\tpublic override string? UriSuffix() => "/restore";
 
 
 }

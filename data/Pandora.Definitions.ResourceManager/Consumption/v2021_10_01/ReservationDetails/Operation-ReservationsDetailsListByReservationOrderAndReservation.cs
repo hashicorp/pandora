@@ -15,15 +15,15 @@ namespace Pandora.Definitions.ResourceManager.Consumption.v2021_10_01.Reservatio
 
 internal class ReservationsDetailsListByReservationOrderAndReservationOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new ReservationId();
+\t\tpublic override ResourceID? ResourceId() => new ReservationId();
 
-    public override Type NestedItemType() => typeof(ReservationDetailModel);
+\t\tpublic override Type NestedItemType() => typeof(ReservationDetailModel);
 
-    public override Type? OptionsObject() => typeof(ReservationsDetailsListByReservationOrderAndReservationOperation.ReservationsDetailsListByReservationOrderAndReservationOptions);
+\t\tpublic override Type? OptionsObject() => typeof(ReservationsDetailsListByReservationOrderAndReservationOperation.ReservationsDetailsListByReservationOrderAndReservationOptions);
 
-    public override string? UriSuffix() => "/providers/Microsoft.Consumption/reservationDetails";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.Consumption/reservationDetails";
 
     internal class ReservationsDetailsListByReservationOrderAndReservationOptions
     {

@@ -15,15 +15,15 @@ namespace Pandora.Definitions.ResourceManager.Storage.v2022_05_01.BlobInventoryP
 
 internal class DeleteOperation : Operations.DeleteOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.NoContent,
                 HttpStatusCode.OK,
         };
 
-    public override ResourceID? ResourceId() => new StorageAccountId();
+\t\tpublic override ResourceID? ResourceId() => new StorageAccountId();
 
-    public override string? UriSuffix() => "/inventoryPolicies/default";
+\t\tpublic override string? UriSuffix() => "/inventoryPolicies/default";
 
 
 }

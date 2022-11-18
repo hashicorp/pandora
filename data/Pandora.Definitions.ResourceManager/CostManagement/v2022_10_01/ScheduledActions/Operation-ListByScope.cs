@@ -15,15 +15,15 @@ namespace Pandora.Definitions.ResourceManager.CostManagement.v2022_10_01.Schedul
 
 internal class ListByScopeOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new ScopeId();
+\t\tpublic override ResourceID? ResourceId() => new ScopeId();
 
-    public override Type NestedItemType() => typeof(ScheduledActionModel);
+\t\tpublic override Type NestedItemType() => typeof(ScheduledActionModel);
 
-    public override Type? OptionsObject() => typeof(ListByScopeOperation.ListByScopeOptions);
+\t\tpublic override Type? OptionsObject() => typeof(ListByScopeOperation.ListByScopeOptions);
 
-    public override string? UriSuffix() => "/providers/Microsoft.CostManagement/scheduledActions";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.CostManagement/scheduledActions";
 
     internal class ListByScopeOptions
     {

@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Kusto.v2022_07_07.DatabasePrincipa
 
 internal class CreateOrUpdateOperation : Operations.PutOperation
 {
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(DatabasePrincipalAssignmentModel);
 
-    public override ResourceID? ResourceId() => new DatabasePrincipalAssignmentId();
+\t\tpublic override ResourceID? ResourceId() => new DatabasePrincipalAssignmentId();
 
-    public override Type? ResponseObject() => typeof(DatabasePrincipalAssignmentModel);
+\t\tpublic override Type? ResponseObject() => typeof(DatabasePrincipalAssignmentModel);
 
 
 }

@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.OperationalInsights.v2020_08_01.Wo
 
 internal class SharedKeysGetSharedKeysOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new WorkspaceId();
+\t\tpublic override ResourceID? ResourceId() => new WorkspaceId();
 
-    public override Type? ResponseObject() => typeof(SharedKeysModel);
+\t\tpublic override Type? ResponseObject() => typeof(SharedKeysModel);
 
-    public override string? UriSuffix() => "/sharedKeys";
+\t\tpublic override string? UriSuffix() => "/sharedKeys";
 
 
 }

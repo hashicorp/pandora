@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.NetApp.v2022_05_01.SubVolumes;
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new SubVolumeId();
+\t\tpublic override ResourceID? ResourceId() => new SubVolumeId();
 
-    public override Type? ResponseObject() => typeof(SubvolumeInfoModel);
+\t\tpublic override Type? ResponseObject() => typeof(SubvolumeInfoModel);
 
 
 }

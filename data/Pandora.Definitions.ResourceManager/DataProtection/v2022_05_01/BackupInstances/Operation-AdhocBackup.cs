@@ -15,21 +15,21 @@ namespace Pandora.Definitions.ResourceManager.DataProtection.v2022_05_01.BackupI
 
 internal class AdhocBackupOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(TriggerBackupRequestModel);
 
-    public override ResourceID? ResourceId() => new BackupInstanceId();
+\t\tpublic override ResourceID? ResourceId() => new BackupInstanceId();
 
-    public override Type? ResponseObject() => typeof(OperationJobExtendedInfoModel);
+\t\tpublic override Type? ResponseObject() => typeof(OperationJobExtendedInfoModel);
 
-    public override string? UriSuffix() => "/backup";
+\t\tpublic override string? UriSuffix() => "/backup";
 
 
 }

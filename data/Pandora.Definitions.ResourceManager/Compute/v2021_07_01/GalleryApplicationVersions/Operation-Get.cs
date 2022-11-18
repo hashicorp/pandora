@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.Compute.v2021_07_01.GalleryApplica
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ApplicationVersionId();
+\t\tpublic override ResourceID? ResourceId() => new ApplicationVersionId();
 
-    public override Type? ResponseObject() => typeof(GalleryApplicationVersionModel);
+\t\tpublic override Type? ResponseObject() => typeof(GalleryApplicationVersionModel);
 
-    public override Type? OptionsObject() => typeof(GetOperation.GetOptions);
+\t\tpublic override Type? OptionsObject() => typeof(GetOperation.GetOptions);
 
     internal class GetOptions
     {

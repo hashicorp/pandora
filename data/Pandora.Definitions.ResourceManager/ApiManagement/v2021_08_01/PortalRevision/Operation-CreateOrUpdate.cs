@@ -15,19 +15,19 @@ namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.PortalRe
 
 internal class CreateOrUpdateOperation : Operations.PutOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.Created,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(PortalRevisionContractModel);
 
-    public override ResourceID? ResourceId() => new PortalRevisionId();
+\t\tpublic override ResourceID? ResourceId() => new PortalRevisionId();
 
-    public override Type? ResponseObject() => typeof(PortalRevisionContractModel);
+\t\tpublic override Type? ResponseObject() => typeof(PortalRevisionContractModel);
 
 
 }

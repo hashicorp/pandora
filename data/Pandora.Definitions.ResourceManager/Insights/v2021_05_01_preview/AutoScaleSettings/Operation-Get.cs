@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.Insights.v2021_05_01_preview.AutoS
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new AutoScaleSettingId();
+\t\tpublic override ResourceID? ResourceId() => new AutoScaleSettingId();
 
-    public override Type? ResponseObject() => typeof(AutoscaleSettingResourceModel);
+\t\tpublic override Type? ResponseObject() => typeof(AutoscaleSettingResourceModel);
 
 
 }

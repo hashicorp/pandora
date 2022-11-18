@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.DataLakeStore.v2016_11_01.Location
 
 internal class GetCapabilityOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new LocationId();
+\t\tpublic override ResourceID? ResourceId() => new LocationId();
 
-    public override Type? ResponseObject() => typeof(CapabilityInformationModel);
+\t\tpublic override Type? ResponseObject() => typeof(CapabilityInformationModel);
 
-    public override string? UriSuffix() => "/capability";
+\t\tpublic override string? UriSuffix() => "/capability";
 
 
 }

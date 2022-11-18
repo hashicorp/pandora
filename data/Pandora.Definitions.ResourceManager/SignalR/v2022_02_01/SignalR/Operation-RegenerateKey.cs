@@ -15,20 +15,20 @@ namespace Pandora.Definitions.ResourceManager.SignalR.v2022_02_01.SignalR;
 
 internal class RegenerateKeyOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(RegenerateKeyParametersModel);
 
-    public override ResourceID? ResourceId() => new SignalRId();
+\t\tpublic override ResourceID? ResourceId() => new SignalRId();
 
-    public override Type? ResponseObject() => typeof(SignalRKeysModel);
+\t\tpublic override Type? ResponseObject() => typeof(SignalRKeysModel);
 
-    public override string? UriSuffix() => "/regenerateKey";
+\t\tpublic override string? UriSuffix() => "/regenerateKey";
 
 
 }

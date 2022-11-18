@@ -15,15 +15,15 @@ namespace Pandora.Definitions.ResourceManager.ContainerApps.v2022_03_01.Containe
 
 internal class ListRevisionsOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new ContainerAppId();
+\t\tpublic override ResourceID? ResourceId() => new ContainerAppId();
 
-    public override Type NestedItemType() => typeof(RevisionModel);
+\t\tpublic override Type NestedItemType() => typeof(RevisionModel);
 
-    public override Type? OptionsObject() => typeof(ListRevisionsOperation.ListRevisionsOptions);
+\t\tpublic override Type? OptionsObject() => typeof(ListRevisionsOperation.ListRevisionsOptions);
 
-    public override string? UriSuffix() => "/revisions";
+\t\tpublic override string? UriSuffix() => "/revisions";
 
     internal class ListRevisionsOptions
     {

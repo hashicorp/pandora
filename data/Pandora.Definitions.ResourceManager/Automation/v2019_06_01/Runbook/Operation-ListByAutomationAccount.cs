@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Automation.v2019_06_01.Runbook;
 
 internal class ListByAutomationAccountOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new AutomationAccountId();
+\t\tpublic override ResourceID? ResourceId() => new AutomationAccountId();
 
-    public override Type NestedItemType() => typeof(RunbookModel);
+\t\tpublic override Type NestedItemType() => typeof(RunbookModel);
 
-    public override string? UriSuffix() => "/runbooks";
+\t\tpublic override string? UriSuffix() => "/runbooks";
 
 
 }

@@ -15,19 +15,19 @@ namespace Pandora.Definitions.ResourceManager.AzureStackHCI.v2022_10_01.Updates;
 
 internal class UpdatesPostOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new UpdateId();
+\t\tpublic override ResourceID? ResourceId() => new UpdateId();
 
-    public override string? UriSuffix() => "/apply";
+\t\tpublic override string? UriSuffix() => "/apply";
 
 
 }

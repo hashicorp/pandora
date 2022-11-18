@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.ContainerService.v2022_09_02_previ
 
 internal class GetAvailableAgentPoolVersionsOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ManagedClusterId();
+\t\tpublic override ResourceID? ResourceId() => new ManagedClusterId();
 
-    public override Type? ResponseObject() => typeof(AgentPoolAvailableVersionsModel);
+\t\tpublic override Type? ResponseObject() => typeof(AgentPoolAvailableVersionsModel);
 
-    public override string? UriSuffix() => "/availableAgentPoolVersions";
+\t\tpublic override string? UriSuffix() => "/availableAgentPoolVersions";
 
 
 }

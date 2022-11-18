@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Relay.v2017_04_01.Namespaces;
 
 internal class ListByResourceGroupOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new ResourceGroupId();
+\t\tpublic override ResourceID? ResourceId() => new ResourceGroupId();
 
-    public override Type NestedItemType() => typeof(RelayNamespaceModel);
+\t\tpublic override Type NestedItemType() => typeof(RelayNamespaceModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.Relay/namespaces";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.Relay/namespaces";
 
 
 }

@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.DataProtection.v2022_05_01.Resourc
 
 internal class GetDefaultUpdateProtectionPolicyRequestsObjectOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new UpdateProtectionPolicyRequestId();
+\t\tpublic override ResourceID? ResourceId() => new UpdateProtectionPolicyRequestId();
 
-    public override Type? ResponseObject() => typeof(DppBaseResourceModel);
+\t\tpublic override Type? ResponseObject() => typeof(DppBaseResourceModel);
 
 
 }

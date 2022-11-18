@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Nginx.v2022_08_01.NginxCertificate
 
 internal class CertificatesListOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new NginxDeploymentId();
+\t\tpublic override ResourceID? ResourceId() => new NginxDeploymentId();
 
-    public override Type NestedItemType() => typeof(NginxCertificateModel);
+\t\tpublic override Type NestedItemType() => typeof(NginxCertificateModel);
 
-    public override string? UriSuffix() => "/certificates";
+\t\tpublic override string? UriSuffix() => "/certificates";
 
 
 }

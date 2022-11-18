@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.CosmosDB.v2022_08_15.CosmosDB;
 
 internal class DatabaseAccountRegionListMetricsOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new RegionId();
+\t\tpublic override ResourceID? ResourceId() => new RegionId();
 
-    public override Type? ResponseObject() => typeof(MetricListResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(MetricListResultModel);
 
-    public override Type? OptionsObject() => typeof(DatabaseAccountRegionListMetricsOperation.DatabaseAccountRegionListMetricsOptions);
+\t\tpublic override Type? OptionsObject() => typeof(DatabaseAccountRegionListMetricsOperation.DatabaseAccountRegionListMetricsOptions);
 
-    public override string? UriSuffix() => "/metrics";
+\t\tpublic override string? UriSuffix() => "/metrics";
 
     internal class DatabaseAccountRegionListMetricsOptions
     {

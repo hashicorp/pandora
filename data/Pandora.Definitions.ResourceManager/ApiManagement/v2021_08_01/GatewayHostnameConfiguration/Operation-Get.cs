@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.GatewayH
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new HostnameConfigurationId();
+\t\tpublic override ResourceID? ResourceId() => new HostnameConfigurationId();
 
-    public override Type? ResponseObject() => typeof(GatewayHostnameConfigurationContractModel);
+\t\tpublic override Type? ResponseObject() => typeof(GatewayHostnameConfigurationContractModel);
 
 
 }

@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.StoragePool.v2021_08_01.IscsiTarge
 
 internal class CreateOrUpdateOperation : Operations.PutOperation
 {
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(IscsiTargetCreateModel);
 
-    public override ResourceID? ResourceId() => new IscsiTargetId();
+\t\tpublic override ResourceID? ResourceId() => new IscsiTargetId();
 
-    public override Type? ResponseObject() => typeof(IscsiTargetModel);
+\t\tpublic override Type? ResponseObject() => typeof(IscsiTargetModel);
 
 
 }

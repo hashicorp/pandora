@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.LoadTestService.v2022_04_15_previe
 
 internal class CreateOrUpdateOperation : Operations.PutOperation
 {
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(LoadTestResourceModel);
 
-    public override ResourceID? ResourceId() => new LoadTestId();
+\t\tpublic override ResourceID? ResourceId() => new LoadTestId();
 
-    public override Type? ResponseObject() => typeof(LoadTestResourceModel);
+\t\tpublic override Type? ResponseObject() => typeof(LoadTestResourceModel);
 
 
 }

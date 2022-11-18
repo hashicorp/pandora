@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.DataProtection.v2022_05_01.Resourc
 
 internal class GetDefaultDisableSoftDeleteRequestsObjectOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new DisableSoftDeleteRequestId();
+\t\tpublic override ResourceID? ResourceId() => new DisableSoftDeleteRequestId();
 
-    public override Type? ResponseObject() => typeof(DppBaseResourceModel);
+\t\tpublic override Type? ResponseObject() => typeof(DppBaseResourceModel);
 
 
 }

@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.DeviceUpdate.v2022_10_01.PrivateEn
 
 internal class CreateOrUpdateOperation : Operations.PutOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Created,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(PrivateEndpointConnectionProxyModel);
 
-    public override ResourceID? ResourceId() => new PrivateEndpointConnectionProxyId();
+\t\tpublic override ResourceID? ResourceId() => new PrivateEndpointConnectionProxyId();
 
-    public override Type? ResponseObject() => typeof(PrivateEndpointConnectionProxyModel);
+\t\tpublic override Type? ResponseObject() => typeof(PrivateEndpointConnectionProxyModel);
 
 
 }

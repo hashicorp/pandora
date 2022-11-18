@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.AzureStackHCI.v2022_10_01.ArcSetti
 
 internal class ArcSettingsGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ArcSettingId();
+\t\tpublic override ResourceID? ResourceId() => new ArcSettingId();
 
-    public override Type? ResponseObject() => typeof(ArcSettingModel);
+\t\tpublic override Type? ResponseObject() => typeof(ArcSettingModel);
 
 
 }

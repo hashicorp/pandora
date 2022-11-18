@@ -15,15 +15,15 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2021_11_01.SchemaRegistr
 
 internal class ListByNamespaceOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new NamespaceId();
+\t\tpublic override ResourceID? ResourceId() => new NamespaceId();
 
-    public override Type NestedItemType() => typeof(SchemaGroupModel);
+\t\tpublic override Type NestedItemType() => typeof(SchemaGroupModel);
 
-    public override Type? OptionsObject() => typeof(ListByNamespaceOperation.ListByNamespaceOptions);
+\t\tpublic override Type? OptionsObject() => typeof(ListByNamespaceOperation.ListByNamespaceOptions);
 
-    public override string? UriSuffix() => "/schemaGroups";
+\t\tpublic override string? UriSuffix() => "/schemaGroups";
 
     internal class ListByNamespaceOptions
     {

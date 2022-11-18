@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.VMware.v2021_12_01.PlacementPolici
 
 internal class ListOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new ClusterId();
+\t\tpublic override ResourceID? ResourceId() => new ClusterId();
 
-    public override Type NestedItemType() => typeof(PlacementPolicyModel);
+\t\tpublic override Type NestedItemType() => typeof(PlacementPolicyModel);
 
-    public override string? UriSuffix() => "/placementPolicies";
+\t\tpublic override string? UriSuffix() => "/placementPolicies";
 
 
 }

@@ -15,21 +15,21 @@ namespace Pandora.Definitions.ResourceManager.Kusto.v2022_07_07.DataConnections;
 
 internal class DataConnectionValidationOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(DataConnectionValidationModel);
 
-    public override ResourceID? ResourceId() => new DatabaseId();
+\t\tpublic override ResourceID? ResourceId() => new DatabaseId();
 
-    public override Type? ResponseObject() => typeof(DataConnectionValidationListResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(DataConnectionValidationListResultModel);
 
-    public override string? UriSuffix() => "/dataConnectionValidation";
+\t\tpublic override string? UriSuffix() => "/dataConnectionValidation";
 
 
 }

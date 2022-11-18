@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.AnalysisServices.v2017_08_01.Serve
 
 internal class ListGatewayStatusOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new ServerId();
+\t\tpublic override ResourceID? ResourceId() => new ServerId();
 
-    public override Type? ResponseObject() => typeof(GatewayListStatusLiveModel);
+\t\tpublic override Type? ResponseObject() => typeof(GatewayListStatusLiveModel);
 
-    public override string? UriSuffix() => "/listGatewayStatus";
+\t\tpublic override string? UriSuffix() => "/listGatewayStatus";
 
 
 }

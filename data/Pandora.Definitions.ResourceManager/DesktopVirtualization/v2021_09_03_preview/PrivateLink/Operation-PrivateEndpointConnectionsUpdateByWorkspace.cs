@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.DesktopVirtualization.v2021_09_03_
 
 internal class PrivateEndpointConnectionsUpdateByWorkspaceOperation : Operations.PutOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(PrivateEndpointConnectionModel);
 
-    public override ResourceID? ResourceId() => new WorkspacePrivateEndpointConnectionId();
+\t\tpublic override ResourceID? ResourceId() => new WorkspacePrivateEndpointConnectionId();
 
-    public override Type? ResponseObject() => typeof(PrivateEndpointConnectionWithSystemDataModel);
+\t\tpublic override Type? ResponseObject() => typeof(PrivateEndpointConnectionWithSystemDataModel);
 
 
 }

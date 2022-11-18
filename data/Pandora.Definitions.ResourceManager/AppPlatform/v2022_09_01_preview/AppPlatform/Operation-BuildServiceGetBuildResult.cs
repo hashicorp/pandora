@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.AppPlatform.v2022_09_01_preview.Ap
 
 internal class BuildServiceGetBuildResultOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ResultId();
+\t\tpublic override ResourceID? ResourceId() => new ResultId();
 
-    public override Type? ResponseObject() => typeof(BuildResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(BuildResultModel);
 
 
 }

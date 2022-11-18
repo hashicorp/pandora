@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.Automation.v2019_06_01.Runbook;
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new RunbookId();
+\t\tpublic override ResourceID? ResourceId() => new RunbookId();
 
-    public override Type? ResponseObject() => typeof(RunbookModel);
+\t\tpublic override Type? ResponseObject() => typeof(RunbookModel);
 
 
 }

@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.MariaDB.v2018_06_01.Replicas;
 
 internal class ListByServerOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ServerId();
+\t\tpublic override ResourceID? ResourceId() => new ServerId();
 
-    public override Type? ResponseObject() => typeof(ServerListResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(ServerListResultModel);
 
-    public override string? UriSuffix() => "/replicas";
+\t\tpublic override string? UriSuffix() => "/replicas";
 
 
 }

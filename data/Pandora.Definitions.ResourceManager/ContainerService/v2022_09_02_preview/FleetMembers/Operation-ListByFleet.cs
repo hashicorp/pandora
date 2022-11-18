@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.ContainerService.v2022_09_02_previ
 
 internal class ListByFleetOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new FleetId();
+\t\tpublic override ResourceID? ResourceId() => new FleetId();
 
-    public override Type NestedItemType() => typeof(FleetMemberModel);
+\t\tpublic override Type NestedItemType() => typeof(FleetMemberModel);
 
-    public override string? UriSuffix() => "/members";
+\t\tpublic override string? UriSuffix() => "/members";
 
 
 }

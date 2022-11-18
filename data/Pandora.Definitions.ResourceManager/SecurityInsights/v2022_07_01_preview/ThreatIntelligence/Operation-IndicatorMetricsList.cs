@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.SecurityInsights.v2022_07_01_previ
 
 internal class IndicatorMetricsListOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new WorkspaceId();
+\t\tpublic override ResourceID? ResourceId() => new WorkspaceId();
 
-    public override Type? ResponseObject() => typeof(ThreatIntelligenceMetricsListModel);
+\t\tpublic override Type? ResponseObject() => typeof(ThreatIntelligenceMetricsListModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.SecurityInsights/threatIntelligence/main/metrics";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.SecurityInsights/threatIntelligence/main/metrics";
 
 
 }

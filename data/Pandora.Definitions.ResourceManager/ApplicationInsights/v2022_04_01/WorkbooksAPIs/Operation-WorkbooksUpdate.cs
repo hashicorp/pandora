@@ -17,11 +17,11 @@ internal class WorkbooksUpdateOperation : Operations.PatchOperation
 {
     public override Type? RequestObject() => typeof(WorkbookUpdateParametersModel);
 
-    public override ResourceID? ResourceId() => new WorkbookId();
+\t\tpublic override ResourceID? ResourceId() => new WorkbookId();
 
-    public override Type? ResponseObject() => typeof(WorkbookModel);
+\t\tpublic override Type? ResponseObject() => typeof(WorkbookModel);
 
-    public override Type? OptionsObject() => typeof(WorkbooksUpdateOperation.WorkbooksUpdateOptions);
+\t\tpublic override Type? OptionsObject() => typeof(WorkbooksUpdateOperation.WorkbooksUpdateOptions);
 
     internal class WorkbooksUpdateOptions
     {

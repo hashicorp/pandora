@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.Subscription.v2021_10_01.Subscript
 
 internal class BillingAccountGetPolicyOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new BillingAccountId();
+\t\tpublic override ResourceID? ResourceId() => new BillingAccountId();
 
-    public override Type? ResponseObject() => typeof(BillingAccountPoliciesResponseModel);
+\t\tpublic override Type? ResponseObject() => typeof(BillingAccountPoliciesResponseModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.Subscription/policies/default";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.Subscription/policies/default";
 
 
 }

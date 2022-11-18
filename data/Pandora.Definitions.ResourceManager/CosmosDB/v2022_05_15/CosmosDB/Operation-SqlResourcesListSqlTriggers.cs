@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.CosmosDB.v2022_05_15.CosmosDB;
 
 internal class SqlResourcesListSqlTriggersOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ContainerId();
+\t\tpublic override ResourceID? ResourceId() => new ContainerId();
 
-    public override Type? ResponseObject() => typeof(SqlTriggerListResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(SqlTriggerListResultModel);
 
-    public override string? UriSuffix() => "/triggers";
+\t\tpublic override string? UriSuffix() => "/triggers";
 
 
 }

@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.Media.v2020_05_01.AssetsAndAssetFi
 
 internal class AssetsGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new AssetId();
+\t\tpublic override ResourceID? ResourceId() => new AssetId();
 
-    public override Type? ResponseObject() => typeof(AssetModel);
+\t\tpublic override Type? ResponseObject() => typeof(AssetModel);
 
 
 }

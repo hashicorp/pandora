@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.Relay.v2021_11_01.WCFRelays;
 
 internal class GetAuthorizationRuleOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new WcfRelayAuthorizationRuleId();
+\t\tpublic override ResourceID? ResourceId() => new WcfRelayAuthorizationRuleId();
 
-    public override Type? ResponseObject() => typeof(AuthorizationRuleModel);
+\t\tpublic override Type? ResponseObject() => typeof(AuthorizationRuleModel);
 
 
 }

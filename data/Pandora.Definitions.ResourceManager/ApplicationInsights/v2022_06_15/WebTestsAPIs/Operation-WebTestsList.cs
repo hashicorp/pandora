@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.ApplicationInsights.v2022_06_15.We
 
 internal class WebTestsListOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new SubscriptionId();
+\t\tpublic override ResourceID? ResourceId() => new SubscriptionId();
 
-    public override Type NestedItemType() => typeof(WebTestModel);
+\t\tpublic override Type NestedItemType() => typeof(WebTestModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.Insights/webTests";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.Insights/webTests";
 
 
 }

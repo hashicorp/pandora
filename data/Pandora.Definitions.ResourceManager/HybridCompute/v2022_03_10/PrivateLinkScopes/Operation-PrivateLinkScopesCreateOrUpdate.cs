@@ -17,9 +17,9 @@ internal class PrivateLinkScopesCreateOrUpdateOperation : Operations.PutOperatio
 {
     public override Type? RequestObject() => typeof(HybridComputePrivateLinkScopeModel);
 
-    public override ResourceID? ResourceId() => new ProviderPrivateLinkScopeId();
+\t\tpublic override ResourceID? ResourceId() => new ProviderPrivateLinkScopeId();
 
-    public override Type? ResponseObject() => typeof(HybridComputePrivateLinkScopeModel);
+\t\tpublic override Type? ResponseObject() => typeof(HybridComputePrivateLinkScopeModel);
 
 
 }

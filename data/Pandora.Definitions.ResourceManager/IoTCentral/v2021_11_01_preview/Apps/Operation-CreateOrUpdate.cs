@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.IoTCentral.v2021_11_01_preview.App
 
 internal class CreateOrUpdateOperation : Operations.PutOperation
 {
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(AppModel);
 
-    public override ResourceID? ResourceId() => new IotAppId();
+\t\tpublic override ResourceID? ResourceId() => new IotAppId();
 
-    public override Type? ResponseObject() => typeof(AppModel);
+\t\tpublic override Type? ResponseObject() => typeof(AppModel);
 
 
 }

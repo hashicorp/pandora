@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.CosmosDB.v2022_05_15.CosmosDB;
 
 internal class CassandraResourcesListCassandraKeyspacesOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new DatabaseAccountId();
+\t\tpublic override ResourceID? ResourceId() => new DatabaseAccountId();
 
-    public override Type? ResponseObject() => typeof(CassandraKeyspaceListResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(CassandraKeyspaceListResultModel);
 
-    public override string? UriSuffix() => "/cassandraKeyspaces";
+\t\tpublic override string? UriSuffix() => "/cassandraKeyspaces";
 
 
 }

@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.Web.v2016_06_01.CustomAPIs;
 
 internal class CustomApisMoveOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(CustomApiReferenceModel);
 
-    public override ResourceID? ResourceId() => new CustomApiId();
+\t\tpublic override ResourceID? ResourceId() => new CustomApiId();
 
-    public override string? UriSuffix() => "/move";
+\t\tpublic override string? UriSuffix() => "/move";
 
 
 }

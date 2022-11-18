@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.Automation.v2019_06_01.DscCompilat
 
 internal class StreamListByJobOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new CompilationJobId();
+\t\tpublic override ResourceID? ResourceId() => new CompilationJobId();
 
-    public override Type? ResponseObject() => typeof(JobStreamListResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(JobStreamListResultModel);
 
-    public override string? UriSuffix() => "/streams";
+\t\tpublic override string? UriSuffix() => "/streams";
 
 
 }

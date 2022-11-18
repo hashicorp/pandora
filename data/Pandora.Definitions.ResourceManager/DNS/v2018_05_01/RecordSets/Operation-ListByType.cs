@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.DNS.v2018_05_01.RecordSets;
 
 internal class ListByTypeOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new ZoneId();
+\t\tpublic override ResourceID? ResourceId() => new ZoneId();
 
-    public override Type NestedItemType() => typeof(RecordSetModel);
+\t\tpublic override Type NestedItemType() => typeof(RecordSetModel);
 
-    public override Type? OptionsObject() => typeof(ListByTypeOperation.ListByTypeOptions);
+\t\tpublic override Type? OptionsObject() => typeof(ListByTypeOperation.ListByTypeOptions);
 
     internal class ListByTypeOptions
     {

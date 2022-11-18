@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.FrontDoor.v2020_04_01.WebApplicati
 
 internal class PoliciesDeleteOperation : Operations.DeleteOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.NoContent,
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
-    public override ResourceID? ResourceId() => new FrontDoorWebApplicationFirewallPolicyId();
+\t\tpublic override ResourceID? ResourceId() => new FrontDoorWebApplicationFirewallPolicyId();
 
 
 }

@@ -15,15 +15,15 @@ namespace Pandora.Definitions.ResourceManager.StreamAnalytics.v2020_03_01.Functi
 
 internal class ListByStreamingJobOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new StreamingJobId();
+\t\tpublic override ResourceID? ResourceId() => new StreamingJobId();
 
-    public override Type NestedItemType() => typeof(FunctionModel);
+\t\tpublic override Type NestedItemType() => typeof(FunctionModel);
 
-    public override Type? OptionsObject() => typeof(ListByStreamingJobOperation.ListByStreamingJobOptions);
+\t\tpublic override Type? OptionsObject() => typeof(ListByStreamingJobOperation.ListByStreamingJobOptions);
 
-    public override string? UriSuffix() => "/functions";
+\t\tpublic override string? UriSuffix() => "/functions";
 
     internal class ListByStreamingJobOptions
     {

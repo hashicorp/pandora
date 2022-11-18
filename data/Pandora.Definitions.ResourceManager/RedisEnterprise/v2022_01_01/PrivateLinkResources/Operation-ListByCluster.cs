@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.RedisEnterprise.v2022_01_01.Privat
 
 internal class ListByClusterOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new RedisEnterpriseId();
+\t\tpublic override ResourceID? ResourceId() => new RedisEnterpriseId();
 
-    public override Type? ResponseObject() => typeof(PrivateLinkResourceListResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(PrivateLinkResourceListResultModel);
 
-    public override string? UriSuffix() => "/privateLinkResources";
+\t\tpublic override string? UriSuffix() => "/privateLinkResources";
 
 
 }

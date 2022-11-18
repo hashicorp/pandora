@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2022_01_01_preview.Netwo
 
 internal class NamespacesListNetworkRuleSetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new NamespaceId();
+\t\tpublic override ResourceID? ResourceId() => new NamespaceId();
 
-    public override Type? ResponseObject() => typeof(NetworkRuleSetListResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(NetworkRuleSetListResultModel);
 
-    public override string? UriSuffix() => "/networkRuleSets";
+\t\tpublic override string? UriSuffix() => "/networkRuleSets";
 
 
 }

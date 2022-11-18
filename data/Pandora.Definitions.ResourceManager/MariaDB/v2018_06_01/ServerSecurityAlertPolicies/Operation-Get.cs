@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.MariaDB.v2018_06_01.ServerSecurity
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ServerId();
+\t\tpublic override ResourceID? ResourceId() => new ServerId();
 
-    public override Type? ResponseObject() => typeof(ServerSecurityAlertPolicyModel);
+\t\tpublic override Type? ResponseObject() => typeof(ServerSecurityAlertPolicyModel);
 
-    public override string? UriSuffix() => "/securityAlertPolicies/default";
+\t\tpublic override string? UriSuffix() => "/securityAlertPolicies/default";
 
 
 }

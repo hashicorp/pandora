@@ -15,15 +15,15 @@ namespace Pandora.Definitions.ResourceManager.ChaosStudio.v2022_07_01_preview.Ta
 
 internal class ListOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new ProviderId();
+\t\tpublic override ResourceID? ResourceId() => new ProviderId();
 
-    public override Type NestedItemType() => typeof(TargetModel);
+\t\tpublic override Type NestedItemType() => typeof(TargetModel);
 
-    public override Type? OptionsObject() => typeof(ListOperation.ListOptions);
+\t\tpublic override Type? OptionsObject() => typeof(ListOperation.ListOptions);
 
-    public override string? UriSuffix() => "/providers/Microsoft.Chaos/targets";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.Chaos/targets";
 
     internal class ListOptions
     {

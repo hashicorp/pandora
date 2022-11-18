@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.ElasticSan.v2021_11_20_preview.Ela
 
 internal class ListBySubscriptionOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new SubscriptionId();
+\t\tpublic override ResourceID? ResourceId() => new SubscriptionId();
 
-    public override Type NestedItemType() => typeof(ElasticSanModel);
+\t\tpublic override Type NestedItemType() => typeof(ElasticSanModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.ElasticSan/elasticSans";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.ElasticSan/elasticSans";
 
 
 }

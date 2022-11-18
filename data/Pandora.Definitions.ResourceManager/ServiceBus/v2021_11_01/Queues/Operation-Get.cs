@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.ServiceBus.v2021_11_01.Queues;
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new QueueId();
+\t\tpublic override ResourceID? ResourceId() => new QueueId();
 
-    public override Type? ResponseObject() => typeof(SBQueueModel);
+\t\tpublic override Type? ResponseObject() => typeof(SBQueueModel);
 
 
 }

@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Resources.v2022_09_01.Deployments;
 
 internal class CreateOrUpdateOperation : Operations.PutOperation
 {
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(DeploymentModel);
 
-    public override ResourceID? ResourceId() => new ResourceGroupProviderDeploymentId();
+\t\tpublic override ResourceID? ResourceId() => new ResourceGroupProviderDeploymentId();
 
-    public override Type? ResponseObject() => typeof(DeploymentExtendedModel);
+\t\tpublic override Type? ResponseObject() => typeof(DeploymentExtendedModel);
 
 
 }

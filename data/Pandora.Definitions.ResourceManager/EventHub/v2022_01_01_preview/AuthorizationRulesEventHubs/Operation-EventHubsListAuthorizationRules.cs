@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.EventHub.v2022_01_01_preview.Autho
 
 internal class EventHubsListAuthorizationRulesOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new EventhubId();
+\t\tpublic override ResourceID? ResourceId() => new EventhubId();
 
-    public override Type NestedItemType() => typeof(AuthorizationRuleModel);
+\t\tpublic override Type NestedItemType() => typeof(AuthorizationRuleModel);
 
-    public override string? UriSuffix() => "/authorizationRules";
+\t\tpublic override string? UriSuffix() => "/authorizationRules";
 
 
 }

@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.EmailTem
 
 internal class EmailTemplateUpdateOperation : Operations.PatchOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(EmailTemplateUpdateParametersModel);
 
-    public override ResourceID? ResourceId() => new TemplateId();
+\t\tpublic override ResourceID? ResourceId() => new TemplateId();
 
-    public override Type? ResponseObject() => typeof(EmailTemplateContractModel);
+\t\tpublic override Type? ResponseObject() => typeof(EmailTemplateContractModel);
 
-    public override Type? OptionsObject() => typeof(EmailTemplateUpdateOperation.EmailTemplateUpdateOptions);
+\t\tpublic override Type? OptionsObject() => typeof(EmailTemplateUpdateOperation.EmailTemplateUpdateOptions);
 
     internal class EmailTemplateUpdateOptions
     {

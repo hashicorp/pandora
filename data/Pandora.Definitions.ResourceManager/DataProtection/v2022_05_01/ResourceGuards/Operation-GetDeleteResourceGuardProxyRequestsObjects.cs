@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.DataProtection.v2022_05_01.Resourc
 
 internal class GetDeleteResourceGuardProxyRequestsObjectsOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new ResourceGuardId();
+\t\tpublic override ResourceID? ResourceId() => new ResourceGuardId();
 
-    public override Type NestedItemType() => typeof(DppBaseResourceModel);
+\t\tpublic override Type NestedItemType() => typeof(DppBaseResourceModel);
 
-    public override string? UriSuffix() => "/deleteResourceGuardProxyRequests";
+\t\tpublic override string? UriSuffix() => "/deleteResourceGuardProxyRequests";
 
 
 }

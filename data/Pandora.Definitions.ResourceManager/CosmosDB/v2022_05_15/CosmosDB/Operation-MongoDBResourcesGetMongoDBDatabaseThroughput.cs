@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.CosmosDB.v2022_05_15.CosmosDB;
 
 internal class MongoDBResourcesGetMongoDBDatabaseThroughputOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new MongodbDatabaseId();
+\t\tpublic override ResourceID? ResourceId() => new MongodbDatabaseId();
 
-    public override Type? ResponseObject() => typeof(ThroughputSettingsGetResultsModel);
+\t\tpublic override Type? ResponseObject() => typeof(ThroughputSettingsGetResultsModel);
 
-    public override string? UriSuffix() => "/throughputSettings/default";
+\t\tpublic override string? UriSuffix() => "/throughputSettings/default";
 
 
 }

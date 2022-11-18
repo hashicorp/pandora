@@ -15,24 +15,24 @@ namespace Pandora.Definitions.ResourceManager.DNSResolver.v2022_07_01.DnsResolve
 
 internal class ListByVirtualNetworkOperation : Operations.ListOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new VirtualNetworkId();
+\t\tpublic override ResourceID? ResourceId() => new VirtualNetworkId();
 
-    public override Type NestedItemType() => typeof(SubResourceModel);
+\t\tpublic override Type NestedItemType() => typeof(SubResourceModel);
 
-    public override Type? OptionsObject() => typeof(ListByVirtualNetworkOperation.ListByVirtualNetworkOptions);
+\t\tpublic override Type? OptionsObject() => typeof(ListByVirtualNetworkOperation.ListByVirtualNetworkOptions);
 
-    public override string? UriSuffix() => "/listDnsResolvers";
+\t\tpublic override string? UriSuffix() => "/listDnsResolvers";
 
-    public override System.Net.Http.HttpMethod Method() => System.Net.Http.HttpMethod.Post;
+\t\tpublic override System.Net.Http.HttpMethod Method() => System.Net.Http.HttpMethod.Post;
 
     internal class ListByVirtualNetworkOptions
     {

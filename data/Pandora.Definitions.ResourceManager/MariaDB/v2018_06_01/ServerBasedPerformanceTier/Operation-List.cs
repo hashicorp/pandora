@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.MariaDB.v2018_06_01.ServerBasedPer
 
 internal class ListOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ServerId();
+\t\tpublic override ResourceID? ResourceId() => new ServerId();
 
-    public override Type? ResponseObject() => typeof(PerformanceTierListResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(PerformanceTierListResultModel);
 
-    public override string? UriSuffix() => "/performanceTiers";
+\t\tpublic override string? UriSuffix() => "/performanceTiers";
 
 
 }

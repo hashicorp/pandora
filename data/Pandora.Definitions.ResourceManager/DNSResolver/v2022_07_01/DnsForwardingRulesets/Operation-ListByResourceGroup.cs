@@ -15,15 +15,15 @@ namespace Pandora.Definitions.ResourceManager.DNSResolver.v2022_07_01.DnsForward
 
 internal class ListByResourceGroupOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new ResourceGroupId();
+\t\tpublic override ResourceID? ResourceId() => new ResourceGroupId();
 
-    public override Type NestedItemType() => typeof(DnsForwardingRulesetModel);
+\t\tpublic override Type NestedItemType() => typeof(DnsForwardingRulesetModel);
 
-    public override Type? OptionsObject() => typeof(ListByResourceGroupOperation.ListByResourceGroupOptions);
+\t\tpublic override Type? OptionsObject() => typeof(ListByResourceGroupOperation.ListByResourceGroupOptions);
 
-    public override string? UriSuffix() => "/providers/Microsoft.Network/dnsForwardingRulesets";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.Network/dnsForwardingRulesets";
 
     internal class ListByResourceGroupOptions
     {

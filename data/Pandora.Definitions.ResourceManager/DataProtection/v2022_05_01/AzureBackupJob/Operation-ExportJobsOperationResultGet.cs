@@ -15,15 +15,15 @@ namespace Pandora.Definitions.ResourceManager.DataProtection.v2022_05_01.AzureBa
 
 internal class ExportJobsOperationResultGetOperation : Operations.GetOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.OK,
         };
 
-    public override ResourceID? ResourceId() => new OperationIdId();
+\t\tpublic override ResourceID? ResourceId() => new OperationIdId();
 
-    public override Type? ResponseObject() => typeof(ExportJobsResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(ExportJobsResultModel);
 
 
 }

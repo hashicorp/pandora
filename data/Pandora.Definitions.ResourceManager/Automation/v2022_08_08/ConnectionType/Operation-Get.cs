@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.Automation.v2022_08_08.ConnectionT
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ConnectionTypeId();
+\t\tpublic override ResourceID? ResourceId() => new ConnectionTypeId();
 
-    public override Type? ResponseObject() => typeof(ConnectionTypeModel);
+\t\tpublic override Type? ResponseObject() => typeof(ConnectionTypeModel);
 
 
 }

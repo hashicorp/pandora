@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.PrivateDNS.v2020_06_01.RecordSets;
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new RecordTypeId();
+\t\tpublic override ResourceID? ResourceId() => new RecordTypeId();
 
-    public override Type? ResponseObject() => typeof(RecordSetModel);
+\t\tpublic override Type? ResponseObject() => typeof(RecordSetModel);
 
 
 }

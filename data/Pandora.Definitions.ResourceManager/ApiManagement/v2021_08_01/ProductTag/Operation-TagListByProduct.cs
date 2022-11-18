@@ -15,15 +15,15 @@ namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.ProductT
 
 internal class TagListByProductOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new ProductId();
+\t\tpublic override ResourceID? ResourceId() => new ProductId();
 
-    public override Type NestedItemType() => typeof(TagContractModel);
+\t\tpublic override Type NestedItemType() => typeof(TagContractModel);
 
-    public override Type? OptionsObject() => typeof(TagListByProductOperation.TagListByProductOptions);
+\t\tpublic override Type? OptionsObject() => typeof(TagListByProductOperation.TagListByProductOptions);
 
-    public override string? UriSuffix() => "/tags";
+\t\tpublic override string? UriSuffix() => "/tags";
 
     internal class TagListByProductOptions
     {

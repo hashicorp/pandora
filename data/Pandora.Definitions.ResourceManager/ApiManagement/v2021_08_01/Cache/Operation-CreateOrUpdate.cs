@@ -17,11 +17,11 @@ internal class CreateOrUpdateOperation : Operations.PutOperation
 {
     public override Type? RequestObject() => typeof(CacheContractModel);
 
-    public override ResourceID? ResourceId() => new CacheId();
+\t\tpublic override ResourceID? ResourceId() => new CacheId();
 
-    public override Type? ResponseObject() => typeof(CacheContractModel);
+\t\tpublic override Type? ResponseObject() => typeof(CacheContractModel);
 
-    public override Type? OptionsObject() => typeof(CreateOrUpdateOperation.CreateOrUpdateOptions);
+\t\tpublic override Type? OptionsObject() => typeof(CreateOrUpdateOperation.CreateOrUpdateOptions);
 
     internal class CreateOrUpdateOptions
     {

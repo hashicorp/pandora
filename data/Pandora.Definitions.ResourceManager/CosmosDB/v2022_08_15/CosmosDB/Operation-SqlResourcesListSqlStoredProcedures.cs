@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.CosmosDB.v2022_08_15.CosmosDB;
 
 internal class SqlResourcesListSqlStoredProceduresOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ContainerId();
+\t\tpublic override ResourceID? ResourceId() => new ContainerId();
 
-    public override Type? ResponseObject() => typeof(SqlStoredProcedureListResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(SqlStoredProcedureListResultModel);
 
-    public override string? UriSuffix() => "/storedProcedures";
+\t\tpublic override string? UriSuffix() => "/storedProcedures";
 
 
 }

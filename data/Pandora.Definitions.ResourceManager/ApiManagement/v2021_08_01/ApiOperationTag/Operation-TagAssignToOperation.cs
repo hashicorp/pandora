@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.ApiOpera
 
 internal class TagAssignToOperationOperation : Operations.PutOperation
 {
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new OperationTagId();
+\t\tpublic override ResourceID? ResourceId() => new OperationTagId();
 
-    public override Type? ResponseObject() => typeof(TagContractModel);
+\t\tpublic override Type? ResponseObject() => typeof(TagContractModel);
 
 
 }

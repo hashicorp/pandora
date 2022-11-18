@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.DataProtection.v2022_05_01.Resourc
 
 internal class GetDefaultBackupSecurityPINRequestsObjectOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new GetBackupSecurityPINRequestId();
+\t\tpublic override ResourceID? ResourceId() => new GetBackupSecurityPINRequestId();
 
-    public override Type? ResponseObject() => typeof(DppBaseResourceModel);
+\t\tpublic override Type? ResponseObject() => typeof(DppBaseResourceModel);
 
 
 }

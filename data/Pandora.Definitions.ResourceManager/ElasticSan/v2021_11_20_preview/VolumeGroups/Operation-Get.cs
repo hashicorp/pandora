@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.ElasticSan.v2021_11_20_preview.Vol
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new VolumeGroupId();
+\t\tpublic override ResourceID? ResourceId() => new VolumeGroupId();
 
-    public override Type? ResponseObject() => typeof(VolumeGroupModel);
+\t\tpublic override Type? ResponseObject() => typeof(VolumeGroupModel);
 
 
 }

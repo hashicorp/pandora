@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.PortalRe
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new PortalRevisionId();
+\t\tpublic override ResourceID? ResourceId() => new PortalRevisionId();
 
-    public override Type? ResponseObject() => typeof(PortalRevisionContractModel);
+\t\tpublic override Type? ResponseObject() => typeof(PortalRevisionContractModel);
 
 
 }

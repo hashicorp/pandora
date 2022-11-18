@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.DataLakeStore.v2016_11_01.TrustedI
 
 internal class ListByAccountOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new AccountId();
+\t\tpublic override ResourceID? ResourceId() => new AccountId();
 
-    public override Type NestedItemType() => typeof(TrustedIdProviderModel);
+\t\tpublic override Type NestedItemType() => typeof(TrustedIdProviderModel);
 
-    public override string? UriSuffix() => "/trustedIdProviders";
+\t\tpublic override string? UriSuffix() => "/trustedIdProviders";
 
 
 }

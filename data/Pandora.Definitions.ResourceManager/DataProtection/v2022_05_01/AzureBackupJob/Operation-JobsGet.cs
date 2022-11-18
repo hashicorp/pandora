@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.DataProtection.v2022_05_01.AzureBa
 
 internal class JobsGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new BackupJobId();
+\t\tpublic override ResourceID? ResourceId() => new BackupJobId();
 
-    public override Type? ResponseObject() => typeof(AzureBackupJobResourceModel);
+\t\tpublic override Type? ResponseObject() => typeof(AzureBackupJobResourceModel);
 
 
 }

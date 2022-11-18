@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.ServiceBus.v2021_06_01_preview.Nam
 
 internal class ListNetworkRuleSetsOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new NamespaceId();
+\t\tpublic override ResourceID? ResourceId() => new NamespaceId();
 
-    public override Type NestedItemType() => typeof(NetworkRuleSetModel);
+\t\tpublic override Type NestedItemType() => typeof(NetworkRuleSetModel);
 
-    public override string? UriSuffix() => "/networkRuleSets";
+\t\tpublic override string? UriSuffix() => "/networkRuleSets";
 
 
 }

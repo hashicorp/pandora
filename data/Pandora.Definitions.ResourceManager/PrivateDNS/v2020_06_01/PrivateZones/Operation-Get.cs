@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.PrivateDNS.v2020_06_01.PrivateZone
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new PrivateDnsZoneId();
+\t\tpublic override ResourceID? ResourceId() => new PrivateDnsZoneId();
 
-    public override Type? ResponseObject() => typeof(PrivateZoneModel);
+\t\tpublic override Type? ResponseObject() => typeof(PrivateZoneModel);
 
 
 }

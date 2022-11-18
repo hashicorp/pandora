@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.ContainerService.v2022_09_02_previ
 
 internal class ListCredentialsOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new FleetId();
+\t\tpublic override ResourceID? ResourceId() => new FleetId();
 
-    public override Type? ResponseObject() => typeof(FleetCredentialResultsModel);
+\t\tpublic override Type? ResponseObject() => typeof(FleetCredentialResultsModel);
 
-    public override string? UriSuffix() => "/listCredentials";
+\t\tpublic override string? UriSuffix() => "/listCredentials";
 
 
 }

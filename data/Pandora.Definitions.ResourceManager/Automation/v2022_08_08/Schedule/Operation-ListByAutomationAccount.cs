@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Automation.v2022_08_08.Schedule;
 
 internal class ListByAutomationAccountOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new AutomationAccountId();
+\t\tpublic override ResourceID? ResourceId() => new AutomationAccountId();
 
-    public override Type NestedItemType() => typeof(ScheduleModel);
+\t\tpublic override Type NestedItemType() => typeof(ScheduleModel);
 
-    public override string? UriSuffix() => "/schedules";
+\t\tpublic override string? UriSuffix() => "/schedules";
 
 
 }

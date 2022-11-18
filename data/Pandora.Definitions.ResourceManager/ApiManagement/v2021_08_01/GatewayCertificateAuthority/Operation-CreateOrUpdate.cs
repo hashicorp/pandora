@@ -17,11 +17,11 @@ internal class CreateOrUpdateOperation : Operations.PutOperation
 {
     public override Type? RequestObject() => typeof(GatewayCertificateAuthorityContractModel);
 
-    public override ResourceID? ResourceId() => new CertificateAuthorityId();
+\t\tpublic override ResourceID? ResourceId() => new CertificateAuthorityId();
 
-    public override Type? ResponseObject() => typeof(GatewayCertificateAuthorityContractModel);
+\t\tpublic override Type? ResponseObject() => typeof(GatewayCertificateAuthorityContractModel);
 
-    public override Type? OptionsObject() => typeof(CreateOrUpdateOperation.CreateOrUpdateOptions);
+\t\tpublic override Type? OptionsObject() => typeof(CreateOrUpdateOperation.CreateOrUpdateOptions);
 
     internal class CreateOrUpdateOptions
     {

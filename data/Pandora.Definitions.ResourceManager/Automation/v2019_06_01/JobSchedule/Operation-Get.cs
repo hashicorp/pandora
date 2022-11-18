@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.Automation.v2019_06_01.JobSchedule
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new JobScheduleId();
+\t\tpublic override ResourceID? ResourceId() => new JobScheduleId();
 
-    public override Type? ResponseObject() => typeof(JobScheduleModel);
+\t\tpublic override Type? ResponseObject() => typeof(JobScheduleModel);
 
 
 }

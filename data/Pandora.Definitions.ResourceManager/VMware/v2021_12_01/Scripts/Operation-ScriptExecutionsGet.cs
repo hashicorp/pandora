@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.VMware.v2021_12_01.Scripts;
 
 internal class ScriptExecutionsGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ScriptExecutionId();
+\t\tpublic override ResourceID? ResourceId() => new ScriptExecutionId();
 
-    public override Type? ResponseObject() => typeof(ScriptExecutionModel);
+\t\tpublic override Type? ResponseObject() => typeof(ScriptExecutionModel);
 
 
 }

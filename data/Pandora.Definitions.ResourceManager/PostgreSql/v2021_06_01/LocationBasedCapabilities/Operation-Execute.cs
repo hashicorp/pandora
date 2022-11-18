@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.PostgreSql.v2021_06_01.LocationBas
 
 internal class ExecuteOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new LocationId();
+\t\tpublic override ResourceID? ResourceId() => new LocationId();
 
-    public override Type NestedItemType() => typeof(CapabilityPropertiesModel);
+\t\tpublic override Type NestedItemType() => typeof(CapabilityPropertiesModel);
 
-    public override string? UriSuffix() => "/capabilities";
+\t\tpublic override string? UriSuffix() => "/capabilities";
 
 
 }

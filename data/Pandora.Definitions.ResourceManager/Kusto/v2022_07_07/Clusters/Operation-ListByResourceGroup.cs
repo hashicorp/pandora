@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.Kusto.v2022_07_07.Clusters;
 
 internal class ListByResourceGroupOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ResourceGroupId();
+\t\tpublic override ResourceID? ResourceId() => new ResourceGroupId();
 
-    public override Type? ResponseObject() => typeof(ClusterListResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(ClusterListResultModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.Kusto/clusters";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.Kusto/clusters";
 
 
 }

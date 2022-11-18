@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.CosmosDB.v2022_08_15.ManagedCassan
 
 internal class CassandraDataCentersCreateUpdateOperation : Operations.PutOperation
 {
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(DataCenterResourceModel);
 
-    public override ResourceID? ResourceId() => new DataCenterId();
+\t\tpublic override ResourceID? ResourceId() => new DataCenterId();
 
-    public override Type? ResponseObject() => typeof(DataCenterResourceModel);
+\t\tpublic override Type? ResponseObject() => typeof(DataCenterResourceModel);
 
 
 }

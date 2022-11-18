@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.VMware.v2022_05_01.DataStores;
 
 internal class ListOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new ClusterId();
+\t\tpublic override ResourceID? ResourceId() => new ClusterId();
 
-    public override Type NestedItemType() => typeof(DatastoreModel);
+\t\tpublic override Type NestedItemType() => typeof(DatastoreModel);
 
-    public override string? UriSuffix() => "/dataStores";
+\t\tpublic override string? UriSuffix() => "/dataStores";
 
 
 }

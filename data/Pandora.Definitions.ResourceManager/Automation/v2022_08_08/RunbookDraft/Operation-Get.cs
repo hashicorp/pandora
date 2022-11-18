@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.Automation.v2022_08_08.RunbookDraf
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new RunbookId();
+\t\tpublic override ResourceID? ResourceId() => new RunbookId();
 
-    public override Type? ResponseObject() => typeof(RunbookDraftModel);
+\t\tpublic override Type? ResponseObject() => typeof(RunbookDraftModel);
 
-    public override string? UriSuffix() => "/draft";
+\t\tpublic override string? UriSuffix() => "/draft";
 
 
 }

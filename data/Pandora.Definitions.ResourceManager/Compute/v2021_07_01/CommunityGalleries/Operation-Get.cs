@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.Compute.v2021_07_01.CommunityGalle
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new CommunityGalleryId();
+\t\tpublic override ResourceID? ResourceId() => new CommunityGalleryId();
 
-    public override Type? ResponseObject() => typeof(PirCommunityGalleryResourceModel);
+\t\tpublic override Type? ResponseObject() => typeof(PirCommunityGalleryResourceModel);
 
 
 }

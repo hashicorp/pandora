@@ -17,9 +17,9 @@ internal class PutOperation : Operations.PutOperation
 {
     public override Type? RequestObject() => typeof(EncryptionScopeModel);
 
-    public override ResourceID? ResourceId() => new EncryptionScopeId();
+\t\tpublic override ResourceID? ResourceId() => new EncryptionScopeId();
 
-    public override Type? ResponseObject() => typeof(EncryptionScopeModel);
+\t\tpublic override Type? ResponseObject() => typeof(EncryptionScopeModel);
 
 
 }

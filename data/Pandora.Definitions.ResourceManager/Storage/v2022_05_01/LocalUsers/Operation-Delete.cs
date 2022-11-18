@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Storage.v2022_05_01.LocalUsers;
 
 internal class DeleteOperation : Operations.DeleteOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.NoContent,
                 HttpStatusCode.OK,
         };
 
-    public override ResourceID? ResourceId() => new LocalUserId();
+\t\tpublic override ResourceID? ResourceId() => new LocalUserId();
 
 
 }

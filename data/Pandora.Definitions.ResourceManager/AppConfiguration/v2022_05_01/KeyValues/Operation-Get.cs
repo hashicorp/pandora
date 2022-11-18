@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.AppConfiguration.v2022_05_01.KeyVa
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new KeyValueId();
+\t\tpublic override ResourceID? ResourceId() => new KeyValueId();
 
-    public override Type? ResponseObject() => typeof(KeyValueModel);
+\t\tpublic override Type? ResponseObject() => typeof(KeyValueModel);
 
 
 }

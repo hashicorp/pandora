@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.ContainerInstance.v2022_09_01.Cont
 
 internal class ContainerGroupsDeleteOperation : Operations.DeleteOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.NoContent,
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
-    public override ResourceID? ResourceId() => new ContainerGroupId();
+\t\tpublic override ResourceID? ResourceId() => new ContainerGroupId();
 
-    public override Type? ResponseObject() => typeof(ContainerGroupModel);
+\t\tpublic override Type? ResponseObject() => typeof(ContainerGroupModel);
 
 
 }

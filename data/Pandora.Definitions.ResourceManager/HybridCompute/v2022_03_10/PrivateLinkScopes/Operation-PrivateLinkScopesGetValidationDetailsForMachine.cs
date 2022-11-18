@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.HybridCompute.v2022_03_10.PrivateL
 
 internal class PrivateLinkScopesGetValidationDetailsForMachineOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new MachineId();
+\t\tpublic override ResourceID? ResourceId() => new MachineId();
 
-    public override Type? ResponseObject() => typeof(PrivateLinkScopeValidationDetailsModel);
+\t\tpublic override Type? ResponseObject() => typeof(PrivateLinkScopeValidationDetailsModel);
 
-    public override string? UriSuffix() => "/privateLinkScopes/current";
+\t\tpublic override string? UriSuffix() => "/privateLinkScopes/current";
 
 
 }

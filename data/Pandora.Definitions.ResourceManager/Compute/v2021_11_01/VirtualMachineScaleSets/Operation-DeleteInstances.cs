@@ -15,21 +15,21 @@ namespace Pandora.Definitions.ResourceManager.Compute.v2021_11_01.VirtualMachine
 
 internal class DeleteInstancesOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(VirtualMachineScaleSetVMInstanceRequiredIDsModel);
 
-    public override ResourceID? ResourceId() => new VirtualMachineScaleSetId();
+\t\tpublic override ResourceID? ResourceId() => new VirtualMachineScaleSetId();
 
-    public override Type? OptionsObject() => typeof(DeleteInstancesOperation.DeleteInstancesOptions);
+\t\tpublic override Type? OptionsObject() => typeof(DeleteInstancesOperation.DeleteInstancesOptions);
 
-    public override string? UriSuffix() => "/delete";
+\t\tpublic override string? UriSuffix() => "/delete";
 
     internal class DeleteInstancesOptions
     {

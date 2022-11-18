@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.Resources.v2020_10_01.Deployments;
 
 internal class CalculateTemplateHashOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(object);
 
-    public override Type? ResponseObject() => typeof(TemplateHashResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(TemplateHashResultModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.Resources/calculateTemplateHash";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.Resources/calculateTemplateHash";
 
 
 }

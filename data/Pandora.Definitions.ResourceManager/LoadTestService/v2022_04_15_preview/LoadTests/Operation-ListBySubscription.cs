@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.LoadTestService.v2022_04_15_previe
 
 internal class ListBySubscriptionOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new SubscriptionId();
+\t\tpublic override ResourceID? ResourceId() => new SubscriptionId();
 
-    public override Type NestedItemType() => typeof(LoadTestResourceModel);
+\t\tpublic override Type NestedItemType() => typeof(LoadTestResourceModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.LoadTestService/loadTests";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.LoadTestService/loadTests";
 
 
 }

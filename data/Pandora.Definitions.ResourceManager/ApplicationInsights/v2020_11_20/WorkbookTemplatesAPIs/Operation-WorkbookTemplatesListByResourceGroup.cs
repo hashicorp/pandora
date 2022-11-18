@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.ApplicationInsights.v2020_11_20.Wo
 
 internal class WorkbookTemplatesListByResourceGroupOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ResourceGroupId();
+\t\tpublic override ResourceID? ResourceId() => new ResourceGroupId();
 
-    public override Type? ResponseObject() => typeof(WorkbookTemplatesListResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(WorkbookTemplatesListResultModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.Insights/workbookTemplates";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.Insights/workbookTemplates";
 
 
 }

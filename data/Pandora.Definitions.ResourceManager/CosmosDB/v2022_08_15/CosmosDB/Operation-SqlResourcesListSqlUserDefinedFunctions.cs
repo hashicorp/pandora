@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.CosmosDB.v2022_08_15.CosmosDB;
 
 internal class SqlResourcesListSqlUserDefinedFunctionsOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ContainerId();
+\t\tpublic override ResourceID? ResourceId() => new ContainerId();
 
-    public override Type? ResponseObject() => typeof(SqlUserDefinedFunctionListResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(SqlUserDefinedFunctionListResultModel);
 
-    public override string? UriSuffix() => "/userDefinedFunctions";
+\t\tpublic override string? UriSuffix() => "/userDefinedFunctions";
 
 
 }

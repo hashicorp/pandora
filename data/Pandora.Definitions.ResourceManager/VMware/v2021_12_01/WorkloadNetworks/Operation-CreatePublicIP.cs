@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.VMware.v2021_12_01.WorkloadNetwork
 
 internal class CreatePublicIPOperation : Operations.PutOperation
 {
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(WorkloadNetworkPublicIPModel);
 
-    public override ResourceID? ResourceId() => new PublicIPId();
+\t\tpublic override ResourceID? ResourceId() => new PublicIPId();
 
-    public override Type? ResponseObject() => typeof(WorkloadNetworkPublicIPModel);
+\t\tpublic override Type? ResponseObject() => typeof(WorkloadNetworkPublicIPModel);
 
 
 }

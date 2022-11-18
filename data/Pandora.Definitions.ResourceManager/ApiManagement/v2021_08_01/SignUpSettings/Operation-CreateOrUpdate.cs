@@ -15,20 +15,20 @@ namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.SignUpSe
 
 internal class CreateOrUpdateOperation : Operations.PutOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(PortalSignupSettingsModel);
 
-    public override ResourceID? ResourceId() => new ServiceId();
+\t\tpublic override ResourceID? ResourceId() => new ServiceId();
 
-    public override Type? ResponseObject() => typeof(PortalSignupSettingsModel);
+\t\tpublic override Type? ResponseObject() => typeof(PortalSignupSettingsModel);
 
-    public override Type? OptionsObject() => typeof(CreateOrUpdateOperation.CreateOrUpdateOptions);
+\t\tpublic override Type? OptionsObject() => typeof(CreateOrUpdateOperation.CreateOrUpdateOptions);
 
-    public override string? UriSuffix() => "/portalsettings/signup";
+\t\tpublic override string? UriSuffix() => "/portalsettings/signup";
 
     internal class CreateOrUpdateOptions
     {

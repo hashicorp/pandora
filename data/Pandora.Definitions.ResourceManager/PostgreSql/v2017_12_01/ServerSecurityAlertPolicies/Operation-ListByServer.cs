@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.PostgreSql.v2017_12_01.ServerSecur
 
 internal class ListByServerOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new ServerId();
+\t\tpublic override ResourceID? ResourceId() => new ServerId();
 
-    public override Type NestedItemType() => typeof(ServerSecurityAlertPolicyModel);
+\t\tpublic override Type NestedItemType() => typeof(ServerSecurityAlertPolicyModel);
 
-    public override string? UriSuffix() => "/securityAlertPolicies";
+\t\tpublic override string? UriSuffix() => "/securityAlertPolicies";
 
 
 }

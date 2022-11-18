@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.Compute.v2021_07_01.Compute;
 
 internal class RestorePointsGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new RestorePointId();
+\t\tpublic override ResourceID? ResourceId() => new RestorePointId();
 
-    public override Type? ResponseObject() => typeof(RestorePointModel);
+\t\tpublic override Type? ResponseObject() => typeof(RestorePointModel);
 
 
 }

@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.NotificationHubs.v2017_04_01.Names
 
 internal class GetAuthorizationRuleOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new AuthorizationRuleId();
+\t\tpublic override ResourceID? ResourceId() => new AuthorizationRuleId();
 
-    public override Type? ResponseObject() => typeof(SharedAccessAuthorizationRuleResourceModel);
+\t\tpublic override Type? ResponseObject() => typeof(SharedAccessAuthorizationRuleResourceModel);
 
 
 }

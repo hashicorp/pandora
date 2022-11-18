@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.Automation.v2022_08_08.RunbookDraf
 
 internal class UndoEditOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new RunbookId();
+\t\tpublic override ResourceID? ResourceId() => new RunbookId();
 
-    public override Type? ResponseObject() => typeof(RunbookDraftUndoEditResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(RunbookDraftUndoEditResultModel);
 
-    public override string? UriSuffix() => "/draft/undoEdit";
+\t\tpublic override string? UriSuffix() => "/draft/undoEdit";
 
 
 }

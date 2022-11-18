@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Databricks.v2022_04_01_preview.VNe
 
 internal class ListByWorkspaceOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new WorkspaceId();
+\t\tpublic override ResourceID? ResourceId() => new WorkspaceId();
 
-    public override Type NestedItemType() => typeof(VirtualNetworkPeeringModel);
+\t\tpublic override Type NestedItemType() => typeof(VirtualNetworkPeeringModel);
 
-    public override string? UriSuffix() => "/virtualNetworkPeerings";
+\t\tpublic override string? UriSuffix() => "/virtualNetworkPeerings";
 
 
 }

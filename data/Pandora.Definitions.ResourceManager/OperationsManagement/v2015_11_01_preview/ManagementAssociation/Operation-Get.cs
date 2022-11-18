@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.OperationsManagement.v2015_11_01_p
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ManagementAssociationId();
+\t\tpublic override ResourceID? ResourceId() => new ManagementAssociationId();
 
-    public override Type? ResponseObject() => typeof(ManagementAssociationModel);
+\t\tpublic override Type? ResponseObject() => typeof(ManagementAssociationModel);
 
 
 }

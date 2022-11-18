@@ -15,19 +15,19 @@ namespace Pandora.Definitions.ResourceManager.PowerBIDedicated.v2021_01_01.Capac
 
 internal class UpdateOperation : Operations.PatchOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(DedicatedCapacityUpdateParametersModel);
 
-    public override ResourceID? ResourceId() => new CapacityId();
+\t\tpublic override ResourceID? ResourceId() => new CapacityId();
 
-    public override Type? ResponseObject() => typeof(DedicatedCapacityModel);
+\t\tpublic override Type? ResponseObject() => typeof(DedicatedCapacityModel);
 
 
 }

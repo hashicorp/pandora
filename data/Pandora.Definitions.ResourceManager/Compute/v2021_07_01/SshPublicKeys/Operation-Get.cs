@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.Compute.v2021_07_01.SshPublicKeys;
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new SshPublicKeyId();
+\t\tpublic override ResourceID? ResourceId() => new SshPublicKeyId();
 
-    public override Type? ResponseObject() => typeof(SshPublicKeyResourceModel);
+\t\tpublic override Type? ResponseObject() => typeof(SshPublicKeyResourceModel);
 
 
 }

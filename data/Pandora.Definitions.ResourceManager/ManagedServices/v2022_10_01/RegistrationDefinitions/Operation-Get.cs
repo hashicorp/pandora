@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.ManagedServices.v2022_10_01.Regist
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ScopedRegistrationDefinitionId();
+\t\tpublic override ResourceID? ResourceId() => new ScopedRegistrationDefinitionId();
 
-    public override Type? ResponseObject() => typeof(RegistrationDefinitionModel);
+\t\tpublic override Type? ResponseObject() => typeof(RegistrationDefinitionModel);
 
 
 }

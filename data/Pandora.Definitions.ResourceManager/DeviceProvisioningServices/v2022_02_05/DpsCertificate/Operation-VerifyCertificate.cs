@@ -15,20 +15,20 @@ namespace Pandora.Definitions.ResourceManager.DeviceProvisioningServices.v2022_0
 
 internal class VerifyCertificateOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(VerificationCodeRequestModel);
 
-    public override ResourceID? ResourceId() => new CertificateId();
+\t\tpublic override ResourceID? ResourceId() => new CertificateId();
 
-    public override Type? ResponseObject() => typeof(CertificateResponseModel);
+\t\tpublic override Type? ResponseObject() => typeof(CertificateResponseModel);
 
-    public override Type? OptionsObject() => typeof(VerifyCertificateOperation.VerifyCertificateOptions);
+\t\tpublic override Type? OptionsObject() => typeof(VerifyCertificateOperation.VerifyCertificateOptions);
 
-    public override string? UriSuffix() => "/verify";
+\t\tpublic override string? UriSuffix() => "/verify";
 
     internal class VerifyCertificateOptions
     {

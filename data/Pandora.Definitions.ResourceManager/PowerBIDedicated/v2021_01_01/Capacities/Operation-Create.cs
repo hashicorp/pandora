@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.PowerBIDedicated.v2021_01_01.Capac
 
 internal class CreateOperation : Operations.PutOperation
 {
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(DedicatedCapacityModel);
 
-    public override ResourceID? ResourceId() => new CapacityId();
+\t\tpublic override ResourceID? ResourceId() => new CapacityId();
 
-    public override Type? ResponseObject() => typeof(DedicatedCapacityModel);
+\t\tpublic override Type? ResponseObject() => typeof(DedicatedCapacityModel);
 
 
 }

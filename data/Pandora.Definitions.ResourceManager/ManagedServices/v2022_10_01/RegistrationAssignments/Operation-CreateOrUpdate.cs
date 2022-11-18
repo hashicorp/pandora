@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.ManagedServices.v2022_10_01.Regist
 
 internal class CreateOrUpdateOperation : Operations.PutOperation
 {
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(RegistrationAssignmentModel);
 
-    public override ResourceID? ResourceId() => new ScopedRegistrationAssignmentId();
+\t\tpublic override ResourceID? ResourceId() => new ScopedRegistrationAssignmentId();
 
-    public override Type? ResponseObject() => typeof(RegistrationAssignmentModel);
+\t\tpublic override Type? ResponseObject() => typeof(RegistrationAssignmentModel);
 
 
 }

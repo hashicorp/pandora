@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.ManagedServices.v2019_06_01.Regist
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ScopedRegistrationAssignmentId();
+\t\tpublic override ResourceID? ResourceId() => new ScopedRegistrationAssignmentId();
 
-    public override Type? ResponseObject() => typeof(RegistrationAssignmentModel);
+\t\tpublic override Type? ResponseObject() => typeof(RegistrationAssignmentModel);
 
-    public override Type? OptionsObject() => typeof(GetOperation.GetOptions);
+\t\tpublic override Type? OptionsObject() => typeof(GetOperation.GetOptions);
 
     internal class GetOptions
     {

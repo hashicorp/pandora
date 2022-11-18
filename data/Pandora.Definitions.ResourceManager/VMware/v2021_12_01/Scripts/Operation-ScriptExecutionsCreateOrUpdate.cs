@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.VMware.v2021_12_01.Scripts;
 
 internal class ScriptExecutionsCreateOrUpdateOperation : Operations.PutOperation
 {
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(ScriptExecutionModel);
 
-    public override ResourceID? ResourceId() => new ScriptExecutionId();
+\t\tpublic override ResourceID? ResourceId() => new ScriptExecutionId();
 
-    public override Type? ResponseObject() => typeof(ScriptExecutionModel);
+\t\tpublic override Type? ResponseObject() => typeof(ScriptExecutionModel);
 
 
 }

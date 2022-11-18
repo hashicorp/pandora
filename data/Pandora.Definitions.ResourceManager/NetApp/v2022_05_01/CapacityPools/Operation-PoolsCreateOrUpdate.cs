@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.NetApp.v2022_05_01.CapacityPools;
 
 internal class PoolsCreateOrUpdateOperation : Operations.PutOperation
 {
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(CapacityPoolModel);
 
-    public override ResourceID? ResourceId() => new CapacityPoolId();
+\t\tpublic override ResourceID? ResourceId() => new CapacityPoolId();
 
-    public override Type? ResponseObject() => typeof(CapacityPoolModel);
+\t\tpublic override Type? ResponseObject() => typeof(CapacityPoolModel);
 
 
 }

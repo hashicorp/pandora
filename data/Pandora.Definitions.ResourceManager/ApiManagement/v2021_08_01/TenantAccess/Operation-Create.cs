@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.TenantAc
 
 internal class CreateOperation : Operations.PutOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(AccessInformationCreateParametersModel);
 
-    public override ResourceID? ResourceId() => new AccessId();
+\t\tpublic override ResourceID? ResourceId() => new AccessId();
 
-    public override Type? ResponseObject() => typeof(AccessInformationContractModel);
+\t\tpublic override Type? ResponseObject() => typeof(AccessInformationContractModel);
 
-    public override Type? OptionsObject() => typeof(CreateOperation.CreateOptions);
+\t\tpublic override Type? OptionsObject() => typeof(CreateOperation.CreateOptions);
 
     internal class CreateOptions
     {

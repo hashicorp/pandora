@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.Insights.v2021_08_01.ScheduledQuer
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ScheduledQueryRuleId();
+\t\tpublic override ResourceID? ResourceId() => new ScheduledQueryRuleId();
 
-    public override Type? ResponseObject() => typeof(ScheduledQueryRuleResourceModel);
+\t\tpublic override Type? ResponseObject() => typeof(ScheduledQueryRuleResourceModel);
 
 
 }

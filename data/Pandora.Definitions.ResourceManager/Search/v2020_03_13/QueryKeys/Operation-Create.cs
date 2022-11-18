@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.Search.v2020_03_13.QueryKeys;
 
 internal class CreateOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new CreateQueryKeyId();
+\t\tpublic override ResourceID? ResourceId() => new CreateQueryKeyId();
 
-    public override Type? ResponseObject() => typeof(QueryKeyModel);
+\t\tpublic override Type? ResponseObject() => typeof(QueryKeyModel);
 
-    public override Type? OptionsObject() => typeof(CreateOperation.CreateOptions);
+\t\tpublic override Type? OptionsObject() => typeof(CreateOperation.CreateOptions);
 
     internal class CreateOptions
     {

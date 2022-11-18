@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Resources.v2020_10_01.Providers;
 
 internal class ProviderResourceTypesListOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new SubscriptionProviderId();
+\t\tpublic override ResourceID? ResourceId() => new SubscriptionProviderId();
 
-    public override Type? ResponseObject() => typeof(ProviderResourceTypeListResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(ProviderResourceTypeListResultModel);
 
-    public override Type? OptionsObject() => typeof(ProviderResourceTypesListOperation.ProviderResourceTypesListOptions);
+\t\tpublic override Type? OptionsObject() => typeof(ProviderResourceTypesListOperation.ProviderResourceTypesListOptions);
 
-    public override string? UriSuffix() => "/resourceTypes";
+\t\tpublic override string? UriSuffix() => "/resourceTypes";
 
     internal class ProviderResourceTypesListOptions
     {

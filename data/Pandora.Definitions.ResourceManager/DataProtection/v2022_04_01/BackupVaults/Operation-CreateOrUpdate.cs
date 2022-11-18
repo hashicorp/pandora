@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.DataProtection.v2022_04_01.BackupV
 
 internal class CreateOrUpdateOperation : Operations.PutOperation
 {
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(BackupVaultResourceModel);
 
-    public override ResourceID? ResourceId() => new BackupVaultId();
+\t\tpublic override ResourceID? ResourceId() => new BackupVaultId();
 
-    public override Type? ResponseObject() => typeof(BackupVaultResourceModel);
+\t\tpublic override Type? ResponseObject() => typeof(BackupVaultResourceModel);
 
 
 }

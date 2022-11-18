@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.GroupUse
 
 internal class CreateOperation : Operations.PutOperation
 {
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new UserId();
+\t\tpublic override ResourceID? ResourceId() => new UserId();
 
-    public override Type? ResponseObject() => typeof(UserContractModel);
+\t\tpublic override Type? ResponseObject() => typeof(UserContractModel);
 
 
 }

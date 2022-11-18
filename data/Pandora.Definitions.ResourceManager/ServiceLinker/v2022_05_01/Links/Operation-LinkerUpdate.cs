@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.ServiceLinker.v2022_05_01.Links;
 
 internal class LinkerUpdateOperation : Operations.PatchOperation
 {
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(LinkerPatchModel);
 
-    public override ResourceID? ResourceId() => new ScopedLinkerId();
+\t\tpublic override ResourceID? ResourceId() => new ScopedLinkerId();
 
-    public override Type? ResponseObject() => typeof(LinkerResourceModel);
+\t\tpublic override Type? ResponseObject() => typeof(LinkerResourceModel);
 
 
 }

@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.ContainerService.v2022_09_02_previ
 
 internal class GetOSOptionsOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new LocationId();
+\t\tpublic override ResourceID? ResourceId() => new LocationId();
 
-    public override Type? ResponseObject() => typeof(OSOptionProfileModel);
+\t\tpublic override Type? ResponseObject() => typeof(OSOptionProfileModel);
 
-    public override Type? OptionsObject() => typeof(GetOSOptionsOperation.GetOSOptionsOptions);
+\t\tpublic override Type? OptionsObject() => typeof(GetOSOptionsOperation.GetOSOptionsOptions);
 
-    public override string? UriSuffix() => "/osOptions/default";
+\t\tpublic override string? UriSuffix() => "/osOptions/default";
 
     internal class GetOSOptionsOptions
     {

@@ -17,9 +17,9 @@ internal class CreateOrUpdateOperation : Operations.PutOperation
 {
     public override Type? RequestObject() => typeof(DscConfigurationCreateOrUpdateParametersModel);
 
-    public override ResourceID? ResourceId() => new ConfigurationId();
+\t\tpublic override ResourceID? ResourceId() => new ConfigurationId();
 
-    public override Type? ResponseObject() => typeof(DscConfigurationModel);
+\t\tpublic override Type? ResponseObject() => typeof(DscConfigurationModel);
 
 
 }

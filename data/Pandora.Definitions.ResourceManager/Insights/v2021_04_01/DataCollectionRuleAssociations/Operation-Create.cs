@@ -17,9 +17,9 @@ internal class CreateOperation : Operations.PutOperation
 {
     public override Type? RequestObject() => typeof(DataCollectionRuleAssociationProxyOnlyResourceModel);
 
-    public override ResourceID? ResourceId() => new ScopedDataCollectionRuleAssociationId();
+\t\tpublic override ResourceID? ResourceId() => new ScopedDataCollectionRuleAssociationId();
 
-    public override Type? ResponseObject() => typeof(DataCollectionRuleAssociationProxyOnlyResourceModel);
+\t\tpublic override Type? ResponseObject() => typeof(DataCollectionRuleAssociationProxyOnlyResourceModel);
 
 
 }

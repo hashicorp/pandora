@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.ServiceBus.v2021_11_01.NamespacesP
 
 internal class PrivateLinkResourcesGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new NamespaceId();
+\t\tpublic override ResourceID? ResourceId() => new NamespaceId();
 
-    public override Type? ResponseObject() => typeof(PrivateLinkResourcesListResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(PrivateLinkResourcesListResultModel);
 
-    public override string? UriSuffix() => "/privateLinkResources";
+\t\tpublic override string? UriSuffix() => "/privateLinkResources";
 
 
 }

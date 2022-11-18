@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.LoadTestService.v2022_12_01.LoadTe
 
 internal class ListOutboundNetworkDependenciesEndpointsOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new LoadTestId();
+\t\tpublic override ResourceID? ResourceId() => new LoadTestId();
 
-    public override Type NestedItemType() => typeof(OutboundEnvironmentEndpointModel);
+\t\tpublic override Type NestedItemType() => typeof(OutboundEnvironmentEndpointModel);
 
-    public override string? UriSuffix() => "/outboundNetworkDependenciesEndpoints";
+\t\tpublic override string? UriSuffix() => "/outboundNetworkDependenciesEndpoints";
 
 
 }

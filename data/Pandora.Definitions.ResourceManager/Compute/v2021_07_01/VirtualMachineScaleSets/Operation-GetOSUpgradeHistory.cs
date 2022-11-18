@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Compute.v2021_07_01.VirtualMachine
 
 internal class GetOSUpgradeHistoryOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new VirtualMachineScaleSetId();
+\t\tpublic override ResourceID? ResourceId() => new VirtualMachineScaleSetId();
 
-    public override Type NestedItemType() => typeof(UpgradeOperationHistoricalStatusInfoModel);
+\t\tpublic override Type NestedItemType() => typeof(UpgradeOperationHistoricalStatusInfoModel);
 
-    public override string? UriSuffix() => "/osUpgradeHistory";
+\t\tpublic override string? UriSuffix() => "/osUpgradeHistory";
 
 
 }

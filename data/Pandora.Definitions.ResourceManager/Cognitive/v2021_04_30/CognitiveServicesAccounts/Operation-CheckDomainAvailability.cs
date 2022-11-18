@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.Cognitive.v2021_04_30.CognitiveSer
 
 internal class CheckDomainAvailabilityOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(CheckDomainAvailabilityParameterModel);
 
-    public override ResourceID? ResourceId() => new SubscriptionId();
+\t\tpublic override ResourceID? ResourceId() => new SubscriptionId();
 
-    public override Type? ResponseObject() => typeof(DomainAvailabilityModel);
+\t\tpublic override Type? ResponseObject() => typeof(DomainAvailabilityModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.CognitiveServices/checkDomainAvailability";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.CognitiveServices/checkDomainAvailability";
 
 
 }

@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.IoTCentral.v2021_11_01_preview.Net
 
 internal class PrivateEndpointConnectionsListOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new IotAppId();
+\t\tpublic override ResourceID? ResourceId() => new IotAppId();
 
-    public override Type? ResponseObject() => typeof(PrivateEndpointConnectionListResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(PrivateEndpointConnectionListResultModel);
 
-    public override string? UriSuffix() => "/privateEndpointConnections";
+\t\tpublic override string? UriSuffix() => "/privateEndpointConnections";
 
 
 }

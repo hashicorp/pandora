@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.Automation.v2021_06_22.HybridRunbo
 
 internal class CreateOperation : Operations.PutOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(HybridRunbookWorkerCreateParametersModel);
 
-    public override ResourceID? ResourceId() => new HybridRunbookWorkerId();
+\t\tpublic override ResourceID? ResourceId() => new HybridRunbookWorkerId();
 
-    public override Type? ResponseObject() => typeof(HybridRunbookWorkerModel);
+\t\tpublic override Type? ResponseObject() => typeof(HybridRunbookWorkerModel);
 
 
 }

@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.RecoveryServicesSiteRecovery.v2022
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ReplicationEventId();
+\t\tpublic override ResourceID? ResourceId() => new ReplicationEventId();
 
-    public override Type? ResponseObject() => typeof(EventModel);
+\t\tpublic override Type? ResponseObject() => typeof(EventModel);
 
 
 }

@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Batch.v2022_01_01.BatchManagements
 
 internal class BatchAccountListDetectorsOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new BatchAccountId();
+\t\tpublic override ResourceID? ResourceId() => new BatchAccountId();
 
-    public override Type NestedItemType() => typeof(DetectorResponseModel);
+\t\tpublic override Type NestedItemType() => typeof(DetectorResponseModel);
 
-    public override string? UriSuffix() => "/detectors";
+\t\tpublic override string? UriSuffix() => "/detectors";
 
 
 }

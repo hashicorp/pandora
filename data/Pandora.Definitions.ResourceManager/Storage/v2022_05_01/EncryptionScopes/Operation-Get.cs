@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.Storage.v2022_05_01.EncryptionScop
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new EncryptionScopeId();
+\t\tpublic override ResourceID? ResourceId() => new EncryptionScopeId();
 
-    public override Type? ResponseObject() => typeof(EncryptionScopeModel);
+\t\tpublic override Type? ResponseObject() => typeof(EncryptionScopeModel);
 
 
 }

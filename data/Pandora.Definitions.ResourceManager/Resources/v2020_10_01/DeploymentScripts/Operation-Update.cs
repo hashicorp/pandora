@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.Resources.v2020_10_01.DeploymentSc
 
 internal class UpdateOperation : Operations.PatchOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(DeploymentScriptUpdateParameterModel);
 
-    public override ResourceID? ResourceId() => new DeploymentScriptId();
+\t\tpublic override ResourceID? ResourceId() => new DeploymentScriptId();
 
-    public override Type? ResponseObject() => typeof(DeploymentScriptModel);
+\t\tpublic override Type? ResponseObject() => typeof(DeploymentScriptModel);
 
 
 }

@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.MixedReality.v2021_01_01.Resource;
 
 internal class SpatialAnchorsAccountsUpdateOperation : Operations.PatchOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(SpatialAnchorsAccountModel);
 
-    public override ResourceID? ResourceId() => new SpatialAnchorsAccountId();
+\t\tpublic override ResourceID? ResourceId() => new SpatialAnchorsAccountId();
 
-    public override Type? ResponseObject() => typeof(SpatialAnchorsAccountModel);
+\t\tpublic override Type? ResponseObject() => typeof(SpatialAnchorsAccountModel);
 
 
 }

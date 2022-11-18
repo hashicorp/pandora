@@ -15,19 +15,19 @@ namespace Pandora.Definitions.ResourceManager.StoragePool.v2021_08_01.IscsiTarge
 
 internal class UpdateOperation : Operations.PatchOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(IscsiTargetUpdateModel);
 
-    public override ResourceID? ResourceId() => new IscsiTargetId();
+\t\tpublic override ResourceID? ResourceId() => new IscsiTargetId();
 
-    public override Type? ResponseObject() => typeof(IscsiTargetModel);
+\t\tpublic override Type? ResponseObject() => typeof(IscsiTargetModel);
 
 
 }

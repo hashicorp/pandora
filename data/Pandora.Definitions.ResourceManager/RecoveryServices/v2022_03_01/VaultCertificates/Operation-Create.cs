@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.RecoveryServices.v2022_03_01.Vault
 
 internal class CreateOperation : Operations.PutOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(CertificateRequestModel);
 
-    public override ResourceID? ResourceId() => new CertificateId();
+\t\tpublic override ResourceID? ResourceId() => new CertificateId();
 
-    public override Type? ResponseObject() => typeof(VaultCertificateResponseModel);
+\t\tpublic override Type? ResponseObject() => typeof(VaultCertificateResponseModel);
 
 
 }

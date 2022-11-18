@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.FluidRelay.v2022_05_26.FluidRelayC
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new FluidRelayContainerId();
+\t\tpublic override ResourceID? ResourceId() => new FluidRelayContainerId();
 
-    public override Type? ResponseObject() => typeof(FluidRelayContainerModel);
+\t\tpublic override Type? ResponseObject() => typeof(FluidRelayContainerModel);
 
 
 }

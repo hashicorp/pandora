@@ -15,23 +15,23 @@ namespace Pandora.Definitions.ResourceManager.CostManagement.v2022_10_01.Reserve
 
 internal class GenerateReservationDetailsReportByBillingProfileIdOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new BillingProfileId();
+\t\tpublic override ResourceID? ResourceId() => new BillingProfileId();
 
-    public override Type? ResponseObject() => typeof(OperationStatusModel);
+\t\tpublic override Type? ResponseObject() => typeof(OperationStatusModel);
 
-    public override Type? OptionsObject() => typeof(GenerateReservationDetailsReportByBillingProfileIdOperation.GenerateReservationDetailsReportByBillingProfileIdOptions);
+\t\tpublic override Type? OptionsObject() => typeof(GenerateReservationDetailsReportByBillingProfileIdOperation.GenerateReservationDetailsReportByBillingProfileIdOptions);
 
-    public override string? UriSuffix() => "/providers/Microsoft.CostManagement/generateReservationDetailsReport";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.CostManagement/generateReservationDetailsReport";
 
     internal class GenerateReservationDetailsReportByBillingProfileIdOptions
     {

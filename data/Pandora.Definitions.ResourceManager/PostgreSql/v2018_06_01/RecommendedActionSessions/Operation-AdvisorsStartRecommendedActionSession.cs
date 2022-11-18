@@ -15,21 +15,21 @@ namespace Pandora.Definitions.ResourceManager.PostgreSql.v2018_06_01.Recommended
 
 internal class AdvisorsStartRecommendedActionSessionOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new AdvisorId();
+\t\tpublic override ResourceID? ResourceId() => new AdvisorId();
 
-    public override Type? OptionsObject() => typeof(AdvisorsStartRecommendedActionSessionOperation.AdvisorsStartRecommendedActionSessionOptions);
+\t\tpublic override Type? OptionsObject() => typeof(AdvisorsStartRecommendedActionSessionOperation.AdvisorsStartRecommendedActionSessionOptions);
 
-    public override string? UriSuffix() => "/recommendedActionSessions";
+\t\tpublic override string? UriSuffix() => "/recommendedActionSessions";
 
     internal class AdvisorsStartRecommendedActionSessionOptions
     {

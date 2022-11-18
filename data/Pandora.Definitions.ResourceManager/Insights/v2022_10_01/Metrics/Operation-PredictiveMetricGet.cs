@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Insights.v2022_10_01.Metrics;
 
 internal class PredictiveMetricGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new AutoScaleSettingId();
+\t\tpublic override ResourceID? ResourceId() => new AutoScaleSettingId();
 
-    public override Type? ResponseObject() => typeof(PredictiveResponseModel);
+\t\tpublic override Type? ResponseObject() => typeof(PredictiveResponseModel);
 
-    public override Type? OptionsObject() => typeof(PredictiveMetricGetOperation.PredictiveMetricGetOptions);
+\t\tpublic override Type? OptionsObject() => typeof(PredictiveMetricGetOperation.PredictiveMetricGetOptions);
 
-    public override string? UriSuffix() => "/predictiveMetrics";
+\t\tpublic override string? UriSuffix() => "/predictiveMetrics";
 
     internal class PredictiveMetricGetOptions
     {

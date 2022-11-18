@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.NetApp.v2021_10_01.CapacityPools;
 
 internal class PoolsListOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new NetAppAccountId();
+\t\tpublic override ResourceID? ResourceId() => new NetAppAccountId();
 
-    public override Type NestedItemType() => typeof(CapacityPoolModel);
+\t\tpublic override Type NestedItemType() => typeof(CapacityPoolModel);
 
-    public override string? UriSuffix() => "/capacityPools";
+\t\tpublic override string? UriSuffix() => "/capacityPools";
 
 
 }

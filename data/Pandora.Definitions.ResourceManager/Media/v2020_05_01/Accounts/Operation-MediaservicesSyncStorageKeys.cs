@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.Media.v2020_05_01.Accounts;
 
 internal class MediaservicesSyncStorageKeysOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(SyncStorageKeysInputModel);
 
-    public override ResourceID? ResourceId() => new ProviderMediaServiceId();
+\t\tpublic override ResourceID? ResourceId() => new ProviderMediaServiceId();
 
-    public override string? UriSuffix() => "/syncStorageKeys";
+\t\tpublic override string? UriSuffix() => "/syncStorageKeys";
 
 
 }

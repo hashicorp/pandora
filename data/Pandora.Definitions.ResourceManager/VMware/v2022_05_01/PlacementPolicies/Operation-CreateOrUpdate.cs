@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.VMware.v2022_05_01.PlacementPolici
 
 internal class CreateOrUpdateOperation : Operations.PutOperation
 {
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(PlacementPolicyModel);
 
-    public override ResourceID? ResourceId() => new PlacementPolicyId();
+\t\tpublic override ResourceID? ResourceId() => new PlacementPolicyId();
 
-    public override Type? ResponseObject() => typeof(PlacementPolicyModel);
+\t\tpublic override Type? ResponseObject() => typeof(PlacementPolicyModel);
 
 
 }

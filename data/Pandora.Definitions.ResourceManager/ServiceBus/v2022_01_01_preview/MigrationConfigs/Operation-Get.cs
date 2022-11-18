@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.ServiceBus.v2022_01_01_preview.Mig
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new NamespaceId();
+\t\tpublic override ResourceID? ResourceId() => new NamespaceId();
 
-    public override Type? ResponseObject() => typeof(MigrationConfigPropertiesModel);
+\t\tpublic override Type? ResponseObject() => typeof(MigrationConfigPropertiesModel);
 
-    public override string? UriSuffix() => "/migrationConfigurations/$default";
+\t\tpublic override string? UriSuffix() => "/migrationConfigurations/$default";
 
 
 }

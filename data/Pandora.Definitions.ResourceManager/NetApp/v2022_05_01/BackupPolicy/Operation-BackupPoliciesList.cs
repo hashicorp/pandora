@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.NetApp.v2022_05_01.BackupPolicy;
 
 internal class BackupPoliciesListOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new NetAppAccountId();
+\t\tpublic override ResourceID? ResourceId() => new NetAppAccountId();
 
-    public override Type? ResponseObject() => typeof(BackupPoliciesListModel);
+\t\tpublic override Type? ResponseObject() => typeof(BackupPoliciesListModel);
 
-    public override string? UriSuffix() => "/backupPolicies";
+\t\tpublic override string? UriSuffix() => "/backupPolicies";
 
 
 }

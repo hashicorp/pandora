@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.DeviceUpdate.v2022_10_01.Deviceupd
 
 internal class InstancesListByAccountOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new AccountId();
+\t\tpublic override ResourceID? ResourceId() => new AccountId();
 
-    public override Type NestedItemType() => typeof(InstanceModel);
+\t\tpublic override Type NestedItemType() => typeof(InstanceModel);
 
-    public override string? UriSuffix() => "/instances";
+\t\tpublic override string? UriSuffix() => "/instances";
 
 
 }

@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.SecurityInsights.v2021_09_01_previ
 
 internal class DataConnectorsListOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new WorkspaceId();
+\t\tpublic override ResourceID? ResourceId() => new WorkspaceId();
 
-    public override Type NestedItemType() => typeof(DataConnectorModel);
+\t\tpublic override Type NestedItemType() => typeof(DataConnectorModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.SecurityInsights/dataConnectors";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.SecurityInsights/dataConnectors";
 
 
 }

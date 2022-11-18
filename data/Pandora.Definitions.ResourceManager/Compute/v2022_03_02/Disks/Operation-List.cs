@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Compute.v2022_03_02.Disks;
 
 internal class ListOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new SubscriptionId();
+\t\tpublic override ResourceID? ResourceId() => new SubscriptionId();
 
-    public override Type NestedItemType() => typeof(DiskModel);
+\t\tpublic override Type NestedItemType() => typeof(DiskModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.Compute/disks";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.Compute/disks";
 
 
 }

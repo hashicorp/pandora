@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.AzureStackHCI.v2022_10_01.Offers;
 
 internal class OffersGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new OfferId();
+\t\tpublic override ResourceID? ResourceId() => new OfferId();
 
-    public override Type? ResponseObject() => typeof(OfferModel);
+\t\tpublic override Type? ResponseObject() => typeof(OfferModel);
 
-    public override Type? OptionsObject() => typeof(OffersGetOperation.OffersGetOptions);
+\t\tpublic override Type? OptionsObject() => typeof(OffersGetOperation.OffersGetOptions);
 
     internal class OffersGetOptions
     {

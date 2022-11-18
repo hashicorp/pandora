@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.NetApp.v2022_05_01.VolumeGroups;
 
 internal class VolumeGroupsGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new VolumeGroupId();
+\t\tpublic override ResourceID? ResourceId() => new VolumeGroupId();
 
-    public override Type? ResponseObject() => typeof(VolumeGroupDetailsModel);
+\t\tpublic override Type? ResponseObject() => typeof(VolumeGroupDetailsModel);
 
 
 }

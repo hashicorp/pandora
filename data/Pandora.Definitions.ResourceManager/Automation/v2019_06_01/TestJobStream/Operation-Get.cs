@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.Automation.v2019_06_01.TestJobStre
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new StreamId();
+\t\tpublic override ResourceID? ResourceId() => new StreamId();
 
-    public override Type? ResponseObject() => typeof(JobStreamModel);
+\t\tpublic override Type? ResponseObject() => typeof(JobStreamModel);
 
 
 }

@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.DigitalTwins.v2020_12_01.DigitalTw
 
 internal class DigitalTwinsGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new DigitalTwinsInstanceId();
+\t\tpublic override ResourceID? ResourceId() => new DigitalTwinsInstanceId();
 
-    public override Type? ResponseObject() => typeof(DigitalTwinsDescriptionModel);
+\t\tpublic override Type? ResponseObject() => typeof(DigitalTwinsDescriptionModel);
 
 
 }

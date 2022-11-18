@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.TrafficManager.v2018_08_01.RealUse
 
 internal class TrafficManagerUserMetricsKeysDeleteOperation : Operations.DeleteOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-    public override ResourceID? ResourceId() => new SubscriptionId();
+\t\tpublic override ResourceID? ResourceId() => new SubscriptionId();
 
-    public override Type? ResponseObject() => typeof(DeleteOperationResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(DeleteOperationResultModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.Network/trafficManagerUserMetricsKeys/default";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.Network/trafficManagerUserMetricsKeys/default";
 
 
 }

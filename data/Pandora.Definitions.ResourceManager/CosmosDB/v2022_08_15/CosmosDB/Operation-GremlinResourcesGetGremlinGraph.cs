@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.CosmosDB.v2022_08_15.CosmosDB;
 
 internal class GremlinResourcesGetGremlinGraphOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new GraphId();
+\t\tpublic override ResourceID? ResourceId() => new GraphId();
 
-    public override Type? ResponseObject() => typeof(GremlinGraphGetResultsModel);
+\t\tpublic override Type? ResponseObject() => typeof(GremlinGraphGetResultsModel);
 
 
 }

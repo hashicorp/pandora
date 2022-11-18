@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.WebPubSub.v2021_10_01.WebPubSub;
 
 internal class HubsGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new HubId();
+\t\tpublic override ResourceID? ResourceId() => new HubId();
 
-    public override Type? ResponseObject() => typeof(WebPubSubHubModel);
+\t\tpublic override Type? ResponseObject() => typeof(WebPubSubHubModel);
 
 
 }

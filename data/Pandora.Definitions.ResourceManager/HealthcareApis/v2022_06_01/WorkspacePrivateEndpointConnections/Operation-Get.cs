@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.HealthcareApis.v2022_06_01.Workspa
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new WorkspacePrivateEndpointConnectionId();
+\t\tpublic override ResourceID? ResourceId() => new WorkspacePrivateEndpointConnectionId();
 
-    public override Type? ResponseObject() => typeof(PrivateEndpointConnectionDescriptionModel);
+\t\tpublic override Type? ResponseObject() => typeof(PrivateEndpointConnectionDescriptionModel);
 
 
 }

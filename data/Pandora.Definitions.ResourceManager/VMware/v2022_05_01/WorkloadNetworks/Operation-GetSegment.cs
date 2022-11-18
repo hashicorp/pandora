@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.VMware.v2022_05_01.WorkloadNetwork
 
 internal class GetSegmentOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new SegmentId();
+\t\tpublic override ResourceID? ResourceId() => new SegmentId();
 
-    public override Type? ResponseObject() => typeof(WorkloadNetworkSegmentModel);
+\t\tpublic override Type? ResponseObject() => typeof(WorkloadNetworkSegmentModel);
 
 
 }

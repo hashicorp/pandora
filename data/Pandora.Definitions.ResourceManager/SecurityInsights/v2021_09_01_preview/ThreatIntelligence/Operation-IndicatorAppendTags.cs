@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.SecurityInsights.v2021_09_01_previ
 
 internal class IndicatorAppendTagsOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(ThreatIntelligenceAppendTagsModel);
 
-    public override ResourceID? ResourceId() => new IndicatorId();
+\t\tpublic override ResourceID? ResourceId() => new IndicatorId();
 
-    public override string? UriSuffix() => "/appendTags";
+\t\tpublic override string? UriSuffix() => "/appendTags";
 
 
 }

@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Search.v2020_03_13.PrivateLinkReso
 
 internal class ListSupportedOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new SearchServiceId();
+\t\tpublic override ResourceID? ResourceId() => new SearchServiceId();
 
-    public override Type? ResponseObject() => typeof(PrivateLinkResourcesResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(PrivateLinkResourcesResultModel);
 
-    public override Type? OptionsObject() => typeof(ListSupportedOperation.ListSupportedOptions);
+\t\tpublic override Type? OptionsObject() => typeof(ListSupportedOperation.ListSupportedOptions);
 
-    public override string? UriSuffix() => "/privateLinkResources";
+\t\tpublic override string? UriSuffix() => "/privateLinkResources";
 
     internal class ListSupportedOptions
     {

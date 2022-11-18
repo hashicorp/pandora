@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.RecoveryServicesSiteRecovery.v2022
 
 internal class CreateOperation : Operations.PutOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(CreateProtectionIntentInputModel);
 
-    public override ResourceID? ResourceId() => new ReplicationProtectionIntentId();
+\t\tpublic override ResourceID? ResourceId() => new ReplicationProtectionIntentId();
 
-    public override Type? ResponseObject() => typeof(ReplicationProtectionIntentModel);
+\t\tpublic override Type? ResponseObject() => typeof(ReplicationProtectionIntentModel);
 
 
 }

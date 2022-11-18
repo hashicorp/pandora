@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.Storage.v2022_09_01.ObjectReplicat
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ObjectReplicationPolicyId();
+\t\tpublic override ResourceID? ResourceId() => new ObjectReplicationPolicyId();
 
-    public override Type? ResponseObject() => typeof(ObjectReplicationPolicyModel);
+\t\tpublic override Type? ResponseObject() => typeof(ObjectReplicationPolicyModel);
 
 
 }

@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.Compute.v2022_03_02.DiskAccesses;
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new DiskAccessId();
+\t\tpublic override ResourceID? ResourceId() => new DiskAccessId();
 
-    public override Type? ResponseObject() => typeof(DiskAccessModel);
+\t\tpublic override Type? ResponseObject() => typeof(DiskAccessModel);
 
 
 }

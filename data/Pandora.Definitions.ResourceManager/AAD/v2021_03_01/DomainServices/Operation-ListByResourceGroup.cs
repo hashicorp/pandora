@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.AAD.v2021_03_01.DomainServices;
 
 internal class ListByResourceGroupOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new ResourceGroupId();
+\t\tpublic override ResourceID? ResourceId() => new ResourceGroupId();
 
-    public override Type NestedItemType() => typeof(DomainServiceModel);
+\t\tpublic override Type NestedItemType() => typeof(DomainServiceModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.AAD/domainServices";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.AAD/domainServices";
 
 
 }

@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.StreamAnalytics.v2020_03_01.Functi
 
 internal class DeleteOperation : Operations.DeleteOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.NoContent,
                 HttpStatusCode.OK,
         };
 
-    public override ResourceID? ResourceId() => new FunctionId();
+\t\tpublic override ResourceID? ResourceId() => new FunctionId();
 
 
 }

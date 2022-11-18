@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.Insights.v2021_05_01_preview.Subsc
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new DiagnosticSettingId();
+\t\tpublic override ResourceID? ResourceId() => new DiagnosticSettingId();
 
-    public override Type? ResponseObject() => typeof(SubscriptionDiagnosticSettingsResourceModel);
+\t\tpublic override Type? ResponseObject() => typeof(SubscriptionDiagnosticSettingsResourceModel);
 
 
 }

@@ -15,20 +15,20 @@ namespace Pandora.Definitions.ResourceManager.Search.v2020_08_01.AdminKeys;
 
 internal class GetOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new SearchServiceId();
+\t\tpublic override ResourceID? ResourceId() => new SearchServiceId();
 
-    public override Type? ResponseObject() => typeof(AdminKeyResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(AdminKeyResultModel);
 
-    public override Type? OptionsObject() => typeof(GetOperation.GetOptions);
+\t\tpublic override Type? OptionsObject() => typeof(GetOperation.GetOptions);
 
-    public override string? UriSuffix() => "/listAdminKeys";
+\t\tpublic override string? UriSuffix() => "/listAdminKeys";
 
     internal class GetOptions
     {

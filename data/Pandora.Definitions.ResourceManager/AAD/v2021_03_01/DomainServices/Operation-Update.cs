@@ -15,19 +15,19 @@ namespace Pandora.Definitions.ResourceManager.AAD.v2021_03_01.DomainServices;
 
 internal class UpdateOperation : Operations.PatchOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(DomainServiceModel);
 
-    public override ResourceID? ResourceId() => new DomainServiceId();
+\t\tpublic override ResourceID? ResourceId() => new DomainServiceId();
 
-    public override Type? ResponseObject() => typeof(DomainServiceModel);
+\t\tpublic override Type? ResponseObject() => typeof(DomainServiceModel);
 
 
 }

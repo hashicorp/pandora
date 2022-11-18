@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.Media.v2020_05_01.Encodings;
 
 internal class TransformsUpdateOperation : Operations.PatchOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(TransformModel);
 
-    public override ResourceID? ResourceId() => new TransformId();
+\t\tpublic override ResourceID? ResourceId() => new TransformId();
 
-    public override Type? ResponseObject() => typeof(TransformModel);
+\t\tpublic override Type? ResponseObject() => typeof(TransformModel);
 
 
 }

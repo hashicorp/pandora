@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Subscription.v2021_10_01.Subscript
 
 internal class AliasCreateOperation : Operations.PutOperation
 {
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(PutAliasRequestModel);
 
-    public override ResourceID? ResourceId() => new AliasId();
+\t\tpublic override ResourceID? ResourceId() => new AliasId();
 
-    public override Type? ResponseObject() => typeof(SubscriptionAliasResponseModel);
+\t\tpublic override Type? ResponseObject() => typeof(SubscriptionAliasResponseModel);
 
 
 }

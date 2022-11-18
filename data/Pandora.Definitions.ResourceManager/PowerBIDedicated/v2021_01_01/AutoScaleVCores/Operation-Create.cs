@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.PowerBIDedicated.v2021_01_01.AutoS
 
 internal class CreateOperation : Operations.PutOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(AutoScaleVCoreModel);
 
-    public override ResourceID? ResourceId() => new AutoScaleVCoreId();
+\t\tpublic override ResourceID? ResourceId() => new AutoScaleVCoreId();
 
-    public override Type? ResponseObject() => typeof(AutoScaleVCoreModel);
+\t\tpublic override Type? ResponseObject() => typeof(AutoScaleVCoreModel);
 
 
 }

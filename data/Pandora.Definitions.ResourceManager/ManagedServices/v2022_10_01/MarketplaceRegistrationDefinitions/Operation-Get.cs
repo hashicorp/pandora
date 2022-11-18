@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.ManagedServices.v2022_10_01.Market
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ScopedMarketplaceRegistrationDefinitionId();
+\t\tpublic override ResourceID? ResourceId() => new ScopedMarketplaceRegistrationDefinitionId();
 
-    public override Type? ResponseObject() => typeof(MarketplaceRegistrationDefinitionModel);
+\t\tpublic override Type? ResponseObject() => typeof(MarketplaceRegistrationDefinitionModel);
 
 
 }

@@ -15,20 +15,20 @@ namespace Pandora.Definitions.ResourceManager.DataLakeStore.v2016_11_01.Accounts
 
 internal class UpdateOperation : Operations.PatchOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.Created,
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(UpdateDataLakeStoreAccountParametersModel);
 
-    public override ResourceID? ResourceId() => new AccountId();
+\t\tpublic override ResourceID? ResourceId() => new AccountId();
 
-    public override Type? ResponseObject() => typeof(DataLakeStoreAccountModel);
+\t\tpublic override Type? ResponseObject() => typeof(DataLakeStoreAccountModel);
 
 
 }

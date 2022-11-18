@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.VideoAnalyzer.v2021_05_01_preview.
 
 internal class AccessPoliciesUpdateOperation : Operations.PatchOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(AccessPolicyEntityModel);
 
-    public override ResourceID? ResourceId() => new AccessPolicyId();
+\t\tpublic override ResourceID? ResourceId() => new AccessPolicyId();
 
-    public override Type? ResponseObject() => typeof(AccessPolicyEntityModel);
+\t\tpublic override Type? ResponseObject() => typeof(AccessPolicyEntityModel);
 
 
 }

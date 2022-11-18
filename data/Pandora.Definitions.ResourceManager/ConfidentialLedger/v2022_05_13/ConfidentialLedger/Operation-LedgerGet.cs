@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.ConfidentialLedger.v2022_05_13.Con
 
 internal class LedgerGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new LedgerId();
+\t\tpublic override ResourceID? ResourceId() => new LedgerId();
 
-    public override Type? ResponseObject() => typeof(ConfidentialLedgerModel);
+\t\tpublic override Type? ResponseObject() => typeof(ConfidentialLedgerModel);
 
 
 }

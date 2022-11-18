@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.CosmosDB.v2022_08_15.Mongorbacs;
 
 internal class MongoDBResourcesListMongoRoleDefinitionsOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new DatabaseAccountId();
+\t\tpublic override ResourceID? ResourceId() => new DatabaseAccountId();
 
-    public override Type? ResponseObject() => typeof(MongoRoleDefinitionListResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(MongoRoleDefinitionListResultModel);
 
-    public override string? UriSuffix() => "/mongodbRoleDefinitions";
+\t\tpublic override string? UriSuffix() => "/mongodbRoleDefinitions";
 
 
 }

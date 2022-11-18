@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.GatewayG
 
 internal class GatewayGenerateTokenOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(GatewayTokenRequestContractModel);
 
-    public override ResourceID? ResourceId() => new GatewayId();
+\t\tpublic override ResourceID? ResourceId() => new GatewayId();
 
-    public override Type? ResponseObject() => typeof(GatewayTokenContractModel);
+\t\tpublic override Type? ResponseObject() => typeof(GatewayTokenContractModel);
 
-    public override string? UriSuffix() => "/generateToken";
+\t\tpublic override string? UriSuffix() => "/generateToken";
 
 
 }

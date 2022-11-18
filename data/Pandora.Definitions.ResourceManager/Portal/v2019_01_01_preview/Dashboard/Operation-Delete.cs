@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.Portal.v2019_01_01_preview.Dashboa
 
 internal class DeleteOperation : Operations.DeleteOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.NoContent,
                 HttpStatusCode.OK,
         };
 
-    public override ResourceID? ResourceId() => new DashboardId();
+\t\tpublic override ResourceID? ResourceId() => new DashboardId();
 
 
 }

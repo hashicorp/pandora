@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.DeletedS
 
 internal class ListBySubscriptionOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new SubscriptionId();
+\t\tpublic override ResourceID? ResourceId() => new SubscriptionId();
 
-    public override Type NestedItemType() => typeof(DeletedServiceContractModel);
+\t\tpublic override Type NestedItemType() => typeof(DeletedServiceContractModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.ApiManagement/deletedServices";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.ApiManagement/deletedServices";
 
 
 }

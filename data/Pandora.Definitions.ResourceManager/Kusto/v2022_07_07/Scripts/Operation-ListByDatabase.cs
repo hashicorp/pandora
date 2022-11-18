@@ -15,11 +15,11 @@ namespace Pandora.Definitions.ResourceManager.Kusto.v2022_07_07.Scripts;
 
 internal class ListByDatabaseOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new DatabaseId();
+\t\tpublic override ResourceID? ResourceId() => new DatabaseId();
 
-    public override Type? ResponseObject() => typeof(ScriptListResultModel);
+\t\tpublic override Type? ResponseObject() => typeof(ScriptListResultModel);
 
-    public override string? UriSuffix() => "/scripts";
+\t\tpublic override string? UriSuffix() => "/scripts";
 
 
 }

@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.Automation.v2019_06_01.DscCompilat
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new CompilationJobId();
+\t\tpublic override ResourceID? ResourceId() => new CompilationJobId();
 
-    public override Type? ResponseObject() => typeof(DscCompilationJobModel);
+\t\tpublic override Type? ResponseObject() => typeof(DscCompilationJobModel);
 
 
 }

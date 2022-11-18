@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.AppPlatform.v2022_09_01_preview.Ap
 
 internal class GatewayRouteConfigsListOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new GatewayId();
+\t\tpublic override ResourceID? ResourceId() => new GatewayId();
 
-    public override Type NestedItemType() => typeof(GatewayRouteConfigResourceModel);
+\t\tpublic override Type NestedItemType() => typeof(GatewayRouteConfigResourceModel);
 
-    public override string? UriSuffix() => "/routeConfigs";
+\t\tpublic override string? UriSuffix() => "/routeConfigs";
 
 
 }

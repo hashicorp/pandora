@@ -15,16 +15,16 @@ namespace Pandora.Definitions.ResourceManager.Automation.v2022_08_08.DscConfigur
 
 internal class UpdateOperation : Operations.PatchOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(DscConfigurationUpdateParametersModel);
 
-    public override ResourceID? ResourceId() => new ConfigurationId();
+\t\tpublic override ResourceID? ResourceId() => new ConfigurationId();
 
-    public override Type? ResponseObject() => typeof(DscConfigurationModel);
+\t\tpublic override Type? ResponseObject() => typeof(DscConfigurationModel);
 
 
 }

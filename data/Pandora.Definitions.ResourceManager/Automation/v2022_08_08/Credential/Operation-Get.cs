@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.Automation.v2022_08_08.Credential;
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new CredentialId();
+\t\tpublic override ResourceID? ResourceId() => new CredentialId();
 
-    public override Type? ResponseObject() => typeof(CredentialModel);
+\t\tpublic override Type? ResponseObject() => typeof(CredentialModel);
 
 
 }

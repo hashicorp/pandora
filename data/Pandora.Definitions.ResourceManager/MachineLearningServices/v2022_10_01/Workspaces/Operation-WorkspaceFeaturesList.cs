@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.MachineLearningServices.v2022_10_0
 
 internal class WorkspaceFeaturesListOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new WorkspaceId();
+\t\tpublic override ResourceID? ResourceId() => new WorkspaceId();
 
-    public override Type NestedItemType() => typeof(AmlUserFeatureModel);
+\t\tpublic override Type NestedItemType() => typeof(AmlUserFeatureModel);
 
-    public override string? UriSuffix() => "/features";
+\t\tpublic override string? UriSuffix() => "/features";
 
 
 }

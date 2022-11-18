@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.VMware.v2022_05_01.WorkloadNetwork
 
 internal class GetPortMirroringOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new PortMirroringProfileId();
+\t\tpublic override ResourceID? ResourceId() => new PortMirroringProfileId();
 
-    public override Type? ResponseObject() => typeof(WorkloadNetworkPortMirroringModel);
+\t\tpublic override Type? ResponseObject() => typeof(WorkloadNetworkPortMirroringModel);
 
 
 }

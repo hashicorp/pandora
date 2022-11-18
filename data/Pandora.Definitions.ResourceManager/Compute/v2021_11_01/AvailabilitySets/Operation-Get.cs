@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.Compute.v2021_11_01.AvailabilitySe
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new AvailabilitySetId();
+\t\tpublic override ResourceID? ResourceId() => new AvailabilitySetId();
 
-    public override Type? ResponseObject() => typeof(AvailabilitySetModel);
+\t\tpublic override Type? ResponseObject() => typeof(AvailabilitySetModel);
 
 
 }

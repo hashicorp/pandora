@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.Maintenance.v2021_05_01.PublicMain
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new PublicMaintenanceConfigurationId();
+\t\tpublic override ResourceID? ResourceId() => new PublicMaintenanceConfigurationId();
 
-    public override Type? ResponseObject() => typeof(MaintenanceConfigurationModel);
+\t\tpublic override Type? ResponseObject() => typeof(MaintenanceConfigurationModel);
 
 
 }

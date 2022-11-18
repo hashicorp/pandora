@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.Region;
 
 internal class ListByServiceOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new ServiceId();
+\t\tpublic override ResourceID? ResourceId() => new ServiceId();
 
-    public override Type NestedItemType() => typeof(RegionContractModel);
+\t\tpublic override Type NestedItemType() => typeof(RegionContractModel);
 
-    public override string? UriSuffix() => "/regions";
+\t\tpublic override string? UriSuffix() => "/regions";
 
 
 }

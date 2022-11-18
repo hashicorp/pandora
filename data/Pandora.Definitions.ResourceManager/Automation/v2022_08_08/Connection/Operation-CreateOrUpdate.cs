@@ -17,9 +17,9 @@ internal class CreateOrUpdateOperation : Operations.PutOperation
 {
     public override Type? RequestObject() => typeof(ConnectionCreateOrUpdateParametersModel);
 
-    public override ResourceID? ResourceId() => new ConnectionId();
+\t\tpublic override ResourceID? ResourceId() => new ConnectionId();
 
-    public override Type? ResponseObject() => typeof(ConnectionModel);
+\t\tpublic override Type? ResponseObject() => typeof(ConnectionModel);
 
 
 }

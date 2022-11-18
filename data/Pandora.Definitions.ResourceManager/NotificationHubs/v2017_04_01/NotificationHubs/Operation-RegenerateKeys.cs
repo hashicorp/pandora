@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.NotificationHubs.v2017_04_01.Notif
 
 internal class RegenerateKeysOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
     public override Type? RequestObject() => typeof(PolicykeyResourceModel);
 
-    public override ResourceID? ResourceId() => new NotificationHubAuthorizationRuleId();
+\t\tpublic override ResourceID? ResourceId() => new NotificationHubAuthorizationRuleId();
 
-    public override Type? ResponseObject() => typeof(ResourceListKeysModel);
+\t\tpublic override Type? ResponseObject() => typeof(ResourceListKeysModel);
 
-    public override string? UriSuffix() => "/regenerateKeys";
+\t\tpublic override string? UriSuffix() => "/regenerateKeys";
 
 
 }

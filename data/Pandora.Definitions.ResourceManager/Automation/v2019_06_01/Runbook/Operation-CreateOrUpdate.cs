@@ -17,9 +17,9 @@ internal class CreateOrUpdateOperation : Operations.PutOperation
 {
     public override Type? RequestObject() => typeof(RunbookCreateOrUpdateParametersModel);
 
-    public override ResourceID? ResourceId() => new RunbookId();
+\t\tpublic override ResourceID? ResourceId() => new RunbookId();
 
-    public override Type? ResponseObject() => typeof(RunbookModel);
+\t\tpublic override Type? ResponseObject() => typeof(RunbookModel);
 
 
 }

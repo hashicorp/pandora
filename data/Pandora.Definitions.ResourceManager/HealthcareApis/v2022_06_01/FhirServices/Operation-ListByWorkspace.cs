@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.HealthcareApis.v2022_06_01.FhirSer
 
 internal class ListByWorkspaceOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new WorkspaceId();
+\t\tpublic override ResourceID? ResourceId() => new WorkspaceId();
 
-    public override Type NestedItemType() => typeof(FhirServiceModel);
+\t\tpublic override Type NestedItemType() => typeof(FhirServiceModel);
 
-    public override string? UriSuffix() => "/fhirServices";
+\t\tpublic override string? UriSuffix() => "/fhirServices";
 
 
 }

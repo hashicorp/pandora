@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.CostManagement.v2021_10_01.Views;
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ViewId();
+\t\tpublic override ResourceID? ResourceId() => new ViewId();
 
-    public override Type? ResponseObject() => typeof(ViewModel);
+\t\tpublic override Type? ResponseObject() => typeof(ViewModel);
 
 
 }

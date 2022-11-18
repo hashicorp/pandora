@@ -15,19 +15,19 @@ namespace Pandora.Definitions.ResourceManager.Databricks.v2022_04_01_preview.Acc
 
 internal class UpdateOperation : Operations.PatchOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(AccessConnectorUpdateModel);
 
-    public override ResourceID? ResourceId() => new AccessConnectorId();
+\t\tpublic override ResourceID? ResourceId() => new AccessConnectorId();
 
-    public override Type? ResponseObject() => typeof(AccessConnectorModel);
+\t\tpublic override Type? ResponseObject() => typeof(AccessConnectorModel);
 
 
 }

@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.Automation.v2019_06_01.NodeCountIn
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new CountTypeId();
+\t\tpublic override ResourceID? ResourceId() => new CountTypeId();
 
-    public override Type? ResponseObject() => typeof(NodeCountsModel);
+\t\tpublic override Type? ResponseObject() => typeof(NodeCountsModel);
 
 
 }

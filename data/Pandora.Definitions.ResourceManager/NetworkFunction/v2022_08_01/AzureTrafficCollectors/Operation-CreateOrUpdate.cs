@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.NetworkFunction.v2022_08_01.AzureT
 
 internal class CreateOrUpdateOperation : Operations.PutOperation
 {
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(AzureTrafficCollectorModel);
 
-    public override ResourceID? ResourceId() => new AzureTrafficCollectorId();
+\t\tpublic override ResourceID? ResourceId() => new AzureTrafficCollectorId();
 
-    public override Type? ResponseObject() => typeof(AzureTrafficCollectorModel);
+\t\tpublic override Type? ResponseObject() => typeof(AzureTrafficCollectorModel);
 
 
 }

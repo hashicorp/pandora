@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.DataLakeAnalytics.v2016_11_01.Fire
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new FirewallRuleId();
+\t\tpublic override ResourceID? ResourceId() => new FirewallRuleId();
 
-    public override Type? ResponseObject() => typeof(FirewallRuleModel);
+\t\tpublic override Type? ResponseObject() => typeof(FirewallRuleModel);
 
 
 }

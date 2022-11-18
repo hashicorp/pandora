@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.DataLakeStore.v2016_11_01.Accounts
 
 internal class CreateOperation : Operations.PutOperation
 {
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(CreateDataLakeStoreAccountParametersModel);
 
-    public override ResourceID? ResourceId() => new AccountId();
+\t\tpublic override ResourceID? ResourceId() => new AccountId();
 
-    public override Type? ResponseObject() => typeof(DataLakeStoreAccountModel);
+\t\tpublic override Type? ResponseObject() => typeof(DataLakeStoreAccountModel);
 
 
 }

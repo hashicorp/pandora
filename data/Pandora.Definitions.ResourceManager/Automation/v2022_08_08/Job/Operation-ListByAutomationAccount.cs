@@ -15,15 +15,15 @@ namespace Pandora.Definitions.ResourceManager.Automation.v2022_08_08.Job;
 
 internal class ListByAutomationAccountOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new AutomationAccountId();
+\t\tpublic override ResourceID? ResourceId() => new AutomationAccountId();
 
-    public override Type NestedItemType() => typeof(JobCollectionItemModel);
+\t\tpublic override Type NestedItemType() => typeof(JobCollectionItemModel);
 
-    public override Type? OptionsObject() => typeof(ListByAutomationAccountOperation.ListByAutomationAccountOptions);
+\t\tpublic override Type? OptionsObject() => typeof(ListByAutomationAccountOperation.ListByAutomationAccountOptions);
 
-    public override string? UriSuffix() => "/jobs";
+\t\tpublic override string? UriSuffix() => "/jobs";
 
     internal class ListByAutomationAccountOptions
     {

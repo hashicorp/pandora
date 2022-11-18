@@ -15,21 +15,21 @@ namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.TenantCo
 
 internal class SaveOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
                 HttpStatusCode.OK,
         };
 
-    public override bool LongRunning() => true;
+\t\tpublic override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(SaveConfigurationParameterModel);
 
-    public override ResourceID? ResourceId() => new ServiceId();
+\t\tpublic override ResourceID? ResourceId() => new ServiceId();
 
-    public override Type? ResponseObject() => typeof(OperationResultContractModel);
+\t\tpublic override Type? ResponseObject() => typeof(OperationResultContractModel);
 
-    public override string? UriSuffix() => "/tenant/configuration/save";
+\t\tpublic override string? UriSuffix() => "/tenant/configuration/save";
 
 
 }

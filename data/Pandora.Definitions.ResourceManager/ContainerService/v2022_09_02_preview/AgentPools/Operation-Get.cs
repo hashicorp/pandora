@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.ContainerService.v2022_09_02_previ
 
 internal class GetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new AgentPoolId();
+\t\tpublic override ResourceID? ResourceId() => new AgentPoolId();
 
-    public override Type? ResponseObject() => typeof(AgentPoolModel);
+\t\tpublic override Type? ResponseObject() => typeof(AgentPoolModel);
 
 
 }

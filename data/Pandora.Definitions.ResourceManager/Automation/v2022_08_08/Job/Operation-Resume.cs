@@ -15,18 +15,18 @@ namespace Pandora.Definitions.ResourceManager.Automation.v2022_08_08.Job;
 
 internal class ResumeOperation : Operations.PostOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.OK,
         };
 
-    public override Type? RequestObject() => null;
+\t\tpublic override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new JobId();
+\t\tpublic override ResourceID? ResourceId() => new JobId();
 
-    public override Type? OptionsObject() => typeof(ResumeOperation.ResumeOptions);
+\t\tpublic override Type? OptionsObject() => typeof(ResumeOperation.ResumeOptions);
 
-    public override string? UriSuffix() => "/resume";
+\t\tpublic override string? UriSuffix() => "/resume";
 
     internal class ResumeOptions
     {

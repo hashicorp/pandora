@@ -15,13 +15,13 @@ namespace Pandora.Definitions.ResourceManager.ContainerInstance.v2021_10_01.Cont
 
 internal class ContainerGroupsListByResourceGroupOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+\t\tpublic override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new ResourceGroupId();
+\t\tpublic override ResourceID? ResourceId() => new ResourceGroupId();
 
-    public override Type NestedItemType() => typeof(ContainerGroupModel);
+\t\tpublic override Type NestedItemType() => typeof(ContainerGroupModel);
 
-    public override string? UriSuffix() => "/providers/Microsoft.ContainerInstance/containerGroups";
+\t\tpublic override string? UriSuffix() => "/providers/Microsoft.ContainerInstance/containerGroups";
 
 
 }
