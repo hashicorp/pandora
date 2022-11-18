@@ -1,6 +1,6 @@
 module github.com/hashicorp/pandora/tools/generator-terraform
 
-go 1.18
+go 1.19
 
 replace github.com/hashicorp/pandora/tools/sdk => ../sdk
 

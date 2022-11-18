@@ -87,7 +87,7 @@ function cleanup {
 }
 
 function main {
-  local dataApiAssemblyPath="data/Pandora.Api/bin/Debug/net6.0/Pandora.Api.dll"
+  local dataApiAssemblyPath="data/Pandora.Api/bin/Debug/net7.0/Pandora.Api.dll"
   local swaggerSubmodule="./swagger"
   local outputDirectory="tmp/go-azure-sdk"
   local sdkRepo="https://github.com/hashicorp/go-azure-sdk.git"
