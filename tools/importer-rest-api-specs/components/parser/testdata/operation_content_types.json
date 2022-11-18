@@ -1,0 +1,81 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Example",
+    "description": "Example",
+    "version": "2020-01-01"
+  },
+  "host": "management.mysite.com",
+  "schemes": [
+    "https"
+  ],
+  "security": [],
+  "securityDefinitions": {},
+  "paths": {
+    "/default": {
+      "head": {
+        "tags": [
+          "Hello"
+        ],
+        "operationId": "Hello_Default",
+        "description": "An operation using the implied default Request and Response Content-Types (JSON).",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success."
+          }
+        }
+      }
+    },
+    "/xml-request": {
+      "get": {
+        "tags": [
+          "Hello"
+        ],
+        "operationId": "Hello_XmlRequest",
+        "produces": [
+          "application/xml"
+        ],
+        "description": "An operation using XML as a Content-Type. This intentionally only sets Produces and not Consumes since this shouldn't be set for Get.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "/xml-response": {
+      "put": {
+        "tags": [
+          "Hello"
+        ],
+        "operationId": "Hello_XmlResponse",
+        "consumes": [
+          "application/xml"
+        ],
+        "description": "An operation using XML as a Content-Type. This intentionally only sets Consumes and not Produces since this shouldn't be set for a PUT.",
+        "parameters": [
+          {
+            "name": "parameters",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success."
+          }
+        }
+      }
+    }
+  },
+  "definitions": {},
+  "parameters": {}
+}
