@@ -15,6 +15,8 @@ namespace Pandora.Definitions.ResourceManager.Automation.v2019_06_01.Job;
 
 internal class GetOutputOperation : Operations.GetOperation
 {
+    public override string? ContentType() => "text/plain";
+
     public override ResourceID? ResourceId() => new JobId();
 
     public override Type? ResponseObject() => typeof(string);

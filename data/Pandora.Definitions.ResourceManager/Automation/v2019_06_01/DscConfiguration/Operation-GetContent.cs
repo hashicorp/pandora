@@ -15,6 +15,8 @@ namespace Pandora.Definitions.ResourceManager.Automation.v2019_06_01.DscConfigur
 
 internal class GetContentOperation : Operations.GetOperation
 {
+    public override string? ContentType() => "text/powershell";
+
     public override ResourceID? ResourceId() => new ConfigurationId();
 
     public override Type? ResponseObject() => typeof(string);

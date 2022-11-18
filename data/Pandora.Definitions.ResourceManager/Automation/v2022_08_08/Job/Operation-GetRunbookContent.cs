@@ -15,6 +15,8 @@ namespace Pandora.Definitions.ResourceManager.Automation.v2022_08_08.Job;
 
 internal class GetRunbookContentOperation : Operations.GetOperation
 {
+    public override string? ContentType() => "text/powershell";
+
     public override ResourceID? ResourceId() => new JobId();
 
     public override Type? ResponseObject() => typeof(string);
