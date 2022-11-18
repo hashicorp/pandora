@@ -6,16 +6,16 @@ using Pandora.Definitions.Interfaces;
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 
 
-namespace Pandora.Definitions.ResourceManager.CostManagement.v2022_10_01.BenefitRecommendations;
+namespace Pandora.Definitions.ResourceManager.Consumption.v2019_10_01.ReservationRecommendationDetails;
 
-internal class BillingScopeId : ResourceID
+internal class ScopeId : ResourceID
 {
-    public string? CommonAlias => null;
+    public string? CommonAlias => "Scope";
 
-    public string ID => "/{billingScope}";
+    public string ID => "/{scope}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
-        ResourceIDSegment.UserSpecified("billingScope"),
+        ResourceIDSegment.Scope("scope"),
     };
 }

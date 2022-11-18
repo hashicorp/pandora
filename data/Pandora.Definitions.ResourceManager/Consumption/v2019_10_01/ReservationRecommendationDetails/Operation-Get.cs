@@ -21,7 +21,7 @@ internal class GetOperation : Operations.GetOperation
                 HttpStatusCode.OK,
         };
 
-    public override ResourceID? ResourceId() => new BillingScopeId();
+    public override ResourceID? ResourceId() => new ScopeId();
 
     public override Type? ResponseObject() => typeof(ReservationRecommendationDetailsModelModel);
 

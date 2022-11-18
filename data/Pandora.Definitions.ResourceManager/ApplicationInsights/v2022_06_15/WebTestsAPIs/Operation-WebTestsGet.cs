@@ -15,7 +15,7 @@ namespace Pandora.Definitions.ResourceManager.ApplicationInsights.v2022_06_15.We
 
 internal class WebTestsGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new WebtestId();
+    public override ResourceID? ResourceId() => new WebTestId();
 
     public override Type? ResponseObject() => typeof(WebTestModel);
 

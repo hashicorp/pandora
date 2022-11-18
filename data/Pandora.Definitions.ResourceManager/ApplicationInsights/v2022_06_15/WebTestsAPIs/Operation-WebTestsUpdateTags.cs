@@ -22,7 +22,7 @@ internal class WebTestsUpdateTagsOperation : Operations.PatchOperation
 
     public override Type? RequestObject() => typeof(TagsResourceModel);
 
-    public override ResourceID? ResourceId() => new WebtestId();
+    public override ResourceID? ResourceId() => new WebTestId();
 
     public override Type? ResponseObject() => typeof(WebTestModel);
 
