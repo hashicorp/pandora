@@ -16,6 +16,9 @@ func OperationShouldBeIgnored(operationUri string) bool {
 	if strings.Contains(strings.ToLower(operationUri), "/azureasyncoperations/") {
 		return true
 	}
+	if strings.Contains(strings.ToLower(operationUri), "/costdetailsoperationresults/") {
+		return true
+	}
 	if strings.Contains(strings.ToLower(operationUri), "/operationresults/") {
 		return true
 	}

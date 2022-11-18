@@ -14,6 +14,7 @@ import (
 )
 
 var knownSegmentsUsedForScope = []string{
+	"billingScope",
 	"ResourceId",
 	"resourceScope",
 	"resourceUri",
