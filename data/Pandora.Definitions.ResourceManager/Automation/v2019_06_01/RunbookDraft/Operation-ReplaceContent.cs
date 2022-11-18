@@ -15,6 +15,8 @@ namespace Pandora.Definitions.ResourceManager.Automation.v2019_06_01.RunbookDraf
 
 internal class ReplaceContentOperation : Operations.PutOperation
 {
+    public override string? ContentType() => "text/powershell";
+
     public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
