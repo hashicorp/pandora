@@ -2,7 +2,7 @@ package services
 
 import (
 	"sync"
-	
+
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
