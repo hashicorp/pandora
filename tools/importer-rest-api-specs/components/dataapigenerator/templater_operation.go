@@ -12,7 +12,7 @@ func codeForOperation(namespace string, operationName string, operation models.O
 	code := make([]string, 0)
 
 	if !strings.Contains(strings.ToLower(operation.ContentType), "application/json") {
-		code = append(code, fmt.Sprintf(`		public override string? ContentType() => %[1]q;`, operation.ContentType))
+		code = append(code, fmt.Sprintf(`\t\tpublic override string? ContentType() => %[1]q;`, operation.ContentType))
 	}
 
 	if usesNonDefaultStatusCodes(operation) {
@@ -21,19 +21,19 @@ func codeForOperation(namespace string, operationName string, operation models.O
 			statusCodes = append(statusCodes, fmt.Sprintf("\t\t\t\t%s,", dotnetNameForStatusCode(sc)))
 		}
 		sort.Strings(statusCodes)
-		code = append(code, fmt.Sprintf(`		public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+		code = append(code, fmt.Sprintf(`\t\tpublic override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
 		{
 %s
 		};`, strings.Join(statusCodes, "\n")))
 	}
 
 	if operation.FieldContainingPaginationDetails != nil {
-		code = append(code, fmt.Sprintf(`		public override string? FieldContainingPaginationDetails() => %[1]q;`, *operation.FieldContainingPaginationDetails))
+		code = append(code, fmt.Sprintf(`\t\tpublic override string? FieldContainingPaginationDetails() => %[1]q;`, *operation.FieldContainingPaginationDetails))
 	}
 
 	if operation.LongRunning {
 		// TODO: we can use the `LongRunning` operation base types too
-		code = append(code, `		public override bool LongRunning() => true;`)
+		code = append(code, `\t\tpublic override bool LongRunning() => true;`)
 	}
 
 	if operation.RequestObject != nil {
@@ -45,11 +45,11 @@ func codeForOperation(namespace string, operationName string, operation models.O
 		code = append(code, fmt.Sprintf(`		public override Type? RequestObject() => typeof(%[1]s);`, *requestOperationTypeName))
 	} else if strings.EqualFold(operation.Method, "POST") || strings.EqualFold(operation.Method, "PUT") {
 		// Post and Put operations should have one but it's possible they don't
-		code = append(code, fmt.Sprintf(`		public override Type? RequestObject() => null;`))
+		code = append(code, fmt.Sprintf(`\t\tpublic override Type? RequestObject() => null;`))
 	}
 
 	if operation.ResourceIdName != nil {
-		code = append(code, fmt.Sprintf(`		public override ResourceID? ResourceId() => new %[1]s();`, *operation.ResourceIdName))
+		code = append(code, fmt.Sprintf(`\t\tpublic override ResourceID? ResourceId() => new %[1]s();`, *operation.ResourceIdName))
 	}
 
 	if operation.ResponseObject != nil {
@@ -59,15 +59,15 @@ func codeForOperation(namespace string, operationName string, operation models.O
 		}
 
 		if operation.FieldContainingPaginationDetails == nil {
-			code = append(code, fmt.Sprintf(`		public override Type? ResponseObject() => typeof(%[1]s);`, *responseOperationTypeName))
+			code = append(code, fmt.Sprintf(`\t\tpublic override Type? ResponseObject() => typeof(%[1]s);`, *responseOperationTypeName))
 		} else {
-			code = append(code, fmt.Sprintf(`		public override Type NestedItemType() => typeof(%[1]s);`, *responseOperationTypeName))
+			code = append(code, fmt.Sprintf(`\t\tpublic override Type NestedItemType() => typeof(%[1]s);`, *responseOperationTypeName))
 		}
 	}
 
 	optionsCode := make([]string, 0)
 	if len(operation.Options) > 0 {
-		code = append(code, fmt.Sprintf(`		public override Type? OptionsObject() => typeof(%[1]sOperation.%[1]sOptions);`, operationName))
+		code = append(code, fmt.Sprintf(`\t\tpublic override Type? OptionsObject() => typeof(%[1]sOperation.%[1]sOptions);`, operationName))
 
 		optionsCode = append(optionsCode, fmt.Sprintf("\t\tinternal class %sOptions", operationName))
 		optionsCode = append(optionsCode, "\t\t{")
@@ -112,7 +112,7 @@ func codeForOperation(namespace string, operationName string, operation models.O
 	}
 
 	if operation.UriSuffix != nil {
-		code = append(code, fmt.Sprintf(`		public override string? UriSuffix() => %[1]q;`, *operation.UriSuffix))
+		code = append(code, fmt.Sprintf(`\t\tpublic override string? UriSuffix() => %[1]q;`, *operation.UriSuffix))
 	}
 
 	operationType := strings.Title(strings.ToLower(operation.Method))
@@ -123,7 +123,7 @@ func codeForOperation(namespace string, operationName string, operation models.O
 		// is a POST not a GET for a List operation)
 		if !strings.EqualFold(operation.Method, "GET") {
 			method := dotNetNameForHttpMethod(operation.Method)
-			code = append(code, fmt.Sprintf(`		public override System.Net.Http.HttpMethod Method() => System.Net.Http.%s;`, method))
+			code = append(code, fmt.Sprintf(`\t\tpublic override System.Net.Http.HttpMethod Method() => System.Net.Http.%s;`, method))
 		}
 	}
 	output := fmt.Sprintf(`using Pandora.Definitions.Attributes;
