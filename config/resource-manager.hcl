@@ -125,7 +125,7 @@ service "deviceupdate" {
 }
 service "digitaltwins" {
   name      = "DigitalTwins"
-  available = ["2020-12-01", "2022-05-31"]
+  available = ["2020-12-01", "2022-05-31", "2022-10-31"]
 }
 service "dns" {
   name      = "DNS"
@@ -321,7 +321,7 @@ service "security" {
 }
 service "securityinsights" {
   name      = "SecurityInsights"
-  available = ["2021-09-01-preview", "2022-07-01-preview", "2022-08-01"]
+  available = ["2021-09-01-preview", "2022-07-01-preview", "2022-08-01", "2022-11-01"]
 }
 service "servicebus" {
   name      = "ServiceBus"
