@@ -155,6 +155,10 @@ service "eventhub" {
   name      = "EventHub"
   available = ["2021-11-01", "2022-01-01-preview"]
 }
+service "extendedlocation" {
+  name      = "ExtendedLocation"
+  available = ["2021-08-15"]
+}
 service "fluidrelay" {
   name      = "FluidRelay"
   available = ["2022-05-26", "2022-06-01"]
