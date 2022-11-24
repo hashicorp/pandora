@@ -167,6 +167,10 @@ service "hardwaresecuritymodules" {
   name      = "HardwareSecurityModules"
   available = ["2021-11-30"]
 }
+service "healthbot" {
+  name      = "HealthBot"
+  available = ["2020-12-08", "2022-08-08"]
+}
 service "healthcareapis" {
   name      = "HealthcareApis"
   available = ["2021-06-01-preview", "2022-06-01"]
@@ -289,7 +293,7 @@ service "purview" {
 }
 service "recoveryservices" {
   name      = "RecoveryServices"
-  available = ["2022-03-01", "2022-08-01", "2022-09-10"]
+  available = ["2022-03-01", "2022-08-01", "2022-09-10", "2022-10-01"]
 }
 service "recoveryservicessiterecovery" {
   name      = "RecoveryServicesSiteRecovery"
