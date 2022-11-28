@@ -61,7 +61,7 @@ service "communication" {
 }
 service "compute" {
   name      = "Compute"
-  available = ["2021-07-01", "2021-11-01", "2022-03-02"]
+  available = ["2021-07-01", "2021-11-01", "2022-03-01", "2022-03-02"]
 }
 service "confidentialledger" {
   name      = "ConfidentialLedger"
