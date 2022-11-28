@@ -2,6 +2,8 @@ package parser
 
 import (
 	"fmt"
+	"github.com/hashicorp/go-azure-helpers/lang/pointer"
+	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 
 	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
@@ -74,6 +76,165 @@ func patchSwaggerData(input []models.AzureApiDefinition, logger hclog.Logger) (*
 					plural.Operations["Update"] = updateOperation
 					item.Resources["StreamingEndpoints"] = plural
 					delete(item.Resources, "StreamingEndpoint")
+				}
+			}
+		}
+
+		// Works around https://github.com/Azure/azure-rest-api-specs/pull/21667 which is where the Swagger segments
+		// are inconsistent, both named as `replicatedProtectedItemName` and `replicationProtectedItemName`
+		if item.ServiceName == "RecoveryServicesSiteRecovery" && (item.ApiVersion == "2022-05-01" || item.ApiVersion == "2022-10-01") {
+			resourcesToPatch := []string{
+				"RecoveryPoints",
+				"ReplicationProtectedItems",
+				"TargetComputeSizes",
+			}
+			for _, resourceName := range resourcesToPatch {
+				if resource, ok := item.Resources[resourceName]; ok {
+					if rid, ok := resource.ResourceIds["ReplicationProtectedItem"]; ok {
+						expectedResourceId := models.ParsedResourceId{
+							Segments: []resourcemanager.ResourceIdSegment{
+								{
+									Type:       resourcemanager.StaticSegment,
+									Name:       "staticSubscriptions",
+									FixedValue: pointer.To("subscriptions"),
+								},
+								{
+									Type: resourcemanager.SubscriptionIdSegment,
+									Name: "subscriptionId",
+								},
+								{
+									Type:       resourcemanager.StaticSegment,
+									Name:       "staticResourceGroups",
+									FixedValue: pointer.To("resourceGroups"),
+								},
+								{
+									Type: resourcemanager.ResourceGroupSegment,
+									Name: "resourceGroupName",
+								},
+								{
+									Type:       resourcemanager.StaticSegment,
+									Name:       "staticProviders",
+									FixedValue: pointer.To("providers"),
+								},
+								{
+									Type:       resourcemanager.ResourceProviderSegment,
+									Name:       "staticMicrosoftRecoveryServices",
+									FixedValue: pointer.To("Microsoft.RecoveryServices"),
+								},
+								{
+									Type:       resourcemanager.StaticSegment,
+									Name:       "staticVaults",
+									FixedValue: pointer.To("vaults"),
+								},
+								{
+									Type: resourcemanager.UserSpecifiedSegment,
+									Name: "resourceName",
+								},
+								{
+									Type:       resourcemanager.StaticSegment,
+									Name:       "staticReplicationFabrics",
+									FixedValue: pointer.To("replicationFabrics"),
+								},
+								{
+									Type: resourcemanager.UserSpecifiedSegment,
+									Name: "fabricName",
+								},
+								{
+									Type:       resourcemanager.StaticSegment,
+									Name:       "staticReplicationProtectionContainers",
+									FixedValue: pointer.To("replicationProtectionContainers"),
+								},
+								{
+									Type: resourcemanager.UserSpecifiedSegment,
+									Name: "protectionContainerName",
+								},
+								{
+									Type:       resourcemanager.StaticSegment,
+									Name:       "staticReplicationProtectedItems",
+									FixedValue: pointer.To("replicationProtectedItems"),
+								},
+								{
+									Type: resourcemanager.UserSpecifiedSegment,
+									Name: "replicatedProtectedItemName",
+								},
+							},
+							Constants: map[string]resourcemanager.ConstantDetails{},
+						}
+						correctedResourceId := models.ParsedResourceId{
+							Segments: []resourcemanager.ResourceIdSegment{
+								{
+									Type:       resourcemanager.StaticSegment,
+									Name:       "staticSubscriptions",
+									FixedValue: pointer.To("subscriptions"),
+								},
+								{
+									Type: resourcemanager.SubscriptionIdSegment,
+									Name: "subscriptionId",
+								},
+								{
+									Type:       resourcemanager.StaticSegment,
+									Name:       "staticResourceGroups",
+									FixedValue: pointer.To("resourceGroups"),
+								},
+								{
+									Type: resourcemanager.ResourceGroupSegment,
+									Name: "resourceGroupName",
+								},
+								{
+									Type:       resourcemanager.StaticSegment,
+									Name:       "staticProviders",
+									FixedValue: pointer.To("providers"),
+								},
+								{
+									Type:       resourcemanager.ResourceProviderSegment,
+									Name:       "staticMicrosoftRecoveryServices",
+									FixedValue: pointer.To("Microsoft.RecoveryServices"),
+								},
+								{
+									Type:       resourcemanager.StaticSegment,
+									Name:       "staticVaults",
+									FixedValue: pointer.To("vaults"),
+								},
+								{
+									Type: resourcemanager.UserSpecifiedSegment,
+									Name: "resourceName",
+								},
+								{
+									Type:       resourcemanager.StaticSegment,
+									Name:       "staticReplicationFabrics",
+									FixedValue: pointer.To("replicationFabrics"),
+								},
+								{
+									Type: resourcemanager.UserSpecifiedSegment,
+									Name: "fabricName",
+								},
+								{
+									Type:       resourcemanager.StaticSegment,
+									Name:       "staticReplicationProtectionContainers",
+									FixedValue: pointer.To("replicationProtectionContainers"),
+								},
+								{
+									Type: resourcemanager.UserSpecifiedSegment,
+									Name: "protectionContainerName",
+								},
+								{
+									Type:       resourcemanager.StaticSegment,
+									Name:       "staticReplicationProtectedItems",
+									FixedValue: pointer.To("replicationProtectedItems"),
+								},
+								{
+									Type: resourcemanager.UserSpecifiedSegment,
+									Name: "replicationProtectedItemName",
+								},
+							},
+							Constants: map[string]resourcemanager.ConstantDetails{},
+						}
+						if rid.Matches(expectedResourceId) {
+							rid.Segments = correctedResourceId.Segments
+						}
+						resource.ResourceIds["ReplicationProtectedItem"] = rid
+					}
+					item.Resources[resourceName] = resource
 				}
 			}
 		}
