@@ -2,6 +2,7 @@ package parser
 
 import (
 	"fmt"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/dataworkarounds"
 	"strings"
 
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
@@ -84,7 +85,7 @@ func LoadAndParseFiles(directory string, fileNames []string, serviceName, apiVer
 	}
 
 	logger.Trace("Applying overrides to workaround invalid Swagger Definitions..")
-	output, err := patchSwaggerData(out, logger.Named("Swagger Data Override"))
+	output, err := dataworkarounds.ApplyWorkarounds(out, logger.Named("Swagger Data Override"))
 	if err != nil {
 		return nil, fmt.Errorf("applying Swagger overrides: %+v", err)
 	}
