@@ -188,13 +188,17 @@ func (c modelsTemplater) structLineForField(fieldName, fieldType string, fieldDe
 	jsonDetails := fieldDetails.JsonName
 
 	isOptional := false
+	isReference := false
 	if fieldDetails.Optional {
 		isOptional = true
 
 		// however if the immediate (not top-level) object definition is a Reference to a Parent it's Optional
 		// by default since Parent types are output as an interface (which is implied nullable)
 		if fieldDetails.ObjectDefinition.Type == resourcemanager.ReferenceApiObjectDefinitionType {
-			model := data.models[*fieldDetails.ObjectDefinition.ReferenceName]
+			model, ok := data.models[*fieldDetails.ObjectDefinition.ReferenceName]
+			if ok {
+				isReference = true
+			}
 			if model.TypeHintIn != nil && model.ParentTypeName == nil {
 				isOptional = false
 			}
@@ -203,7 +207,9 @@ func (c modelsTemplater) structLineForField(fieldName, fieldType string, fieldDe
 
 	if isOptional {
 		fieldType = fmt.Sprintf("*%s", fieldType)
-		jsonDetails += ",omitempty"
+		if !isReference {
+			jsonDetails += ",omitempty"
+		}
 	}
 
 	line := fmt.Sprintf("\t%s %s `json:\"%s\"`", fieldName, fieldType, jsonDetails)

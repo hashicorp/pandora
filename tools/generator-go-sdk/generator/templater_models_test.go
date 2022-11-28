@@ -167,3 +167,105 @@ func (o *Basic) SetDateOfBirthAsTime(input time.Time) {
 `, "''", "`")
 	assertTemplatedCodeMatches(t, expected, *actual)
 }
+
+func TestModelTemplaterWithOptionalObject(t *testing.T) {
+	actual, err := modelsTemplater{
+		name: "Basic",
+		model: resourcemanager.ModelDetails{
+			Fields: map[string]resourcemanager.FieldDetails{
+				"Name": {
+					JsonName: "name",
+					ObjectDefinition: resourcemanager.ApiObjectDefinition{
+						Type: resourcemanager.StringApiObjectDefinitionType,
+					},
+					Required: true,
+				},
+				"BobcatOptional": {
+					JsonName: "bobcatOptional",
+					ObjectDefinition: resourcemanager.ApiObjectDefinition{
+						Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+						ReferenceName: stringPointer("Bobcat"),
+					},
+					Optional: true,
+				},
+				"BobcatRequired": {
+					JsonName: "bobcatRequired",
+					ObjectDefinition: resourcemanager.ApiObjectDefinition{
+						Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+						ReferenceName: stringPointer("Bobcat"),
+					},
+					Required: true,
+				},
+			},
+		},
+	}.template(ServiceGeneratorData{
+		packageName: "somepackage",
+		models: map[string]resourcemanager.ModelDetails{
+			"Basic": {
+				Fields: map[string]resourcemanager.FieldDetails{
+					"Name": {
+						JsonName: "name",
+						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+							Type: resourcemanager.StringApiObjectDefinitionType,
+						},
+						Required: true,
+					},
+					"BobcatOptional": {
+						JsonName: "bobcatOptional",
+						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+							ReferenceName: stringPointer("Bobcat"),
+						},
+						Optional: true,
+					},
+					"BobcatRequired": {
+						JsonName: "bobcatRequired",
+						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+							ReferenceName: stringPointer("Bobcat"),
+						},
+						Required: true,
+					},
+				},
+			},
+			"Bobcat": {
+				Fields: map[string]resourcemanager.FieldDetails{
+					"Name": {
+						JsonName: "name",
+						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+							Type: resourcemanager.StringApiObjectDefinitionType,
+						},
+						Required: true,
+					},
+				},
+			},
+		},
+		source: AccTestLicenceType,
+	})
+	if err != nil {
+		t.Fatal(err.Error())
+	}
+	expected := strings.ReplaceAll(`package somepackage
+
+import (
+	"encoding/json"
+	"fmt"
+	"strings"
+	"time"
+	"github.com/hashicorp/go-azure-helpers/lang/dates"
+	"github.com/hashicorp/go-azure-helpers/resourcemanager/edgezones"
+	"github.com/hashicorp/go-azure-helpers/resourcemanager/identity"
+	"github.com/hashicorp/go-azure-helpers/resourcemanager/systemdata"
+	"github.com/hashicorp/go-azure-helpers/resourcemanager/zones"
+)
+
+// acctests licence placeholder
+
+type Basic struct {
+	BobcatOptional *Bobcat ''json:"bobcatOptional"''
+	BobcatRequired Bobcat ''json:"bobcatRequired"''
+	Name string ''json:"name"''
+}
+`, "''", "`")
+	assertTemplatedCodeMatches(t, expected, *actual)
+}
