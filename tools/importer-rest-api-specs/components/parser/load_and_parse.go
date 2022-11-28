@@ -2,14 +2,12 @@ package parser
 
 import (
 	"fmt"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/dataworkarounds"
 	"strings"
 
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
-
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/resourceids"
-
 	"github.com/hashicorp/go-hclog"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/dataworkarounds"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/resourceids"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
 func LoadAndParseFiles(directory string, fileNames []string, serviceName, apiVersion string, logger hclog.Logger) (*models.AzureApiDefinition, error) {
