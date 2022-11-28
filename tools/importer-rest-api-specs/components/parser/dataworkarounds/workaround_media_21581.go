@@ -4,6 +4,9 @@ import "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 
 var _ workaround = workaroundMedia21581{}
 
+// workaroundMedia21581 works around the Update operation having the incorrect Swagger Tag
+// (StreamingEndpoint rather than StreamingEndpoints).
+// Swagger PR: https://github.com/Azure/azure-rest-api-specs/pull/21581
 type workaroundMedia21581 struct {
 }
 

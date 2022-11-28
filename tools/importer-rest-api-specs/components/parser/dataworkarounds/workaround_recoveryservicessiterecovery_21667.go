@@ -8,6 +8,11 @@ import (
 
 var _ workaround = workaroundRecoveryServicesSiteRecovery21667{}
 
+// workaroundRecoveryServicesSiteRecovery21667 works around the Resource ID Segments being inconsistent within
+// the RecoveryServicesSiteRecovery Resource Provider - namely that `replicatedProtectedItemName` should be
+// `replicationProtectedItemName` - but is used interchangeably.
+//
+// Swagger PR: https://github.com/Azure/azure-rest-api-specs/pull/21667
 type workaroundRecoveryServicesSiteRecovery21667 struct {
 }
 

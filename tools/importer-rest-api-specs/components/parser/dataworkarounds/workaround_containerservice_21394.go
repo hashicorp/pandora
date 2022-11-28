@@ -8,7 +8,7 @@ import (
 
 var _ workaround = workaroundContainerService21394{}
 
-// Works around the `DnsPrefix` field being required but being marked as Optional
+// workaroundContainerService21394 works around the `DnsPrefix` field being required but being marked as Optional
 // Swagger PR: https://github.com/Azure/azure-rest-api-specs/pull/21394
 type workaroundContainerService21394 struct{}
 
