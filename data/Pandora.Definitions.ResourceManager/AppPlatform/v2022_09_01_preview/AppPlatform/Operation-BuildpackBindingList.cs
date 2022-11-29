@@ -21,7 +21,7 @@ internal class BuildpackBindingListOperation : Operations.ListOperation
 
     public override Type NestedItemType() => typeof(BuildpackBindingResourceModel);
 
-    public override string? UriSuffix() => "/buildpackBindings";
+    public override string? UriSuffix() => "/buildPackBindings";
 
 
 }
