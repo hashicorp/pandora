@@ -19,7 +19,7 @@ internal class BuildpackBindingCreateOrUpdateOperation : Operations.PutOperation
 
     public override Type? RequestObject() => typeof(BuildpackBindingResourceModel);
 
-    public override ResourceID? ResourceId() => new BuildpackBindingId();
+    public override ResourceID? ResourceId() => new BuildPackBindingId();
 
     public override Type? ResponseObject() => typeof(BuildpackBindingResourceModel);
 

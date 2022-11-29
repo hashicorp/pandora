@@ -15,7 +15,7 @@ namespace Pandora.Definitions.ResourceManager.AppPlatform.v2022_09_01_preview.Ap
 
 internal class BuildpackBindingGetOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new BuildpackBindingId();
+    public override ResourceID? ResourceId() => new BuildPackBindingId();
 
     public override Type? ResponseObject() => typeof(BuildpackBindingResourceModel);
 

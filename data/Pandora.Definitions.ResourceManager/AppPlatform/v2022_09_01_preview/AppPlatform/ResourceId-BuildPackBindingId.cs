@@ -8,11 +8,11 @@ using Pandora.Definitions.Interfaces;
 
 namespace Pandora.Definitions.ResourceManager.AppPlatform.v2022_09_01_preview.AppPlatform;
 
-internal class BuildpackBindingId : ResourceID
+internal class BuildPackBindingId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AppPlatform/spring/{serviceName}/buildServices/{buildServiceName}/builders/{builderName}/buildpackBindings/{buildpackBindingName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AppPlatform/spring/{serviceName}/buildServices/{buildServiceName}/builders/{builderName}/buildPackBindings/{buildpackBindingName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -28,7 +28,7 @@ internal class BuildpackBindingId : ResourceID
         ResourceIDSegment.UserSpecified("buildServiceName"),
         ResourceIDSegment.Static("staticBuilders", "builders"),
         ResourceIDSegment.UserSpecified("builderName"),
-        ResourceIDSegment.Static("staticBuildpackBindings", "buildpackBindings"),
+        ResourceIDSegment.Static("staticBuildPackBindings", "buildPackBindings"),
         ResourceIDSegment.UserSpecified("buildpackBindingName"),
     };
 }

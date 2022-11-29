@@ -24,7 +24,7 @@ internal class BuildpackBindingDeleteOperation : Operations.DeleteOperation
 
     public override bool LongRunning() => true;
 
-    public override ResourceID? ResourceId() => new BuildpackBindingId();
+    public override ResourceID? ResourceId() => new BuildPackBindingId();
 
 
 }
