@@ -563,6 +563,11 @@ func NormalizeCanonicalisation(input string) string {
 
 	// intentionally case-sensitive
 	output = strings.ReplaceAll(output, "Ip", "IP")
+	output = strings.ReplaceAll(output, "Vmss", "VMSS")
+	output = strings.ReplaceAll(output, "vmss", "VMSS")
+	output = strings.ReplaceAll(output, "Vm", "VM")
+	output = strings.ReplaceAll(output, "vm", "VM")
+	output = strings.ReplaceAll(output, "Cpu", "CPU")
 
 	output = strings.ReplaceAll(output, "Https", "HTTPS")
 	output = strings.ReplaceAll(output, "Http", "HTTP")
