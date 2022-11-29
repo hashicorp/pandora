@@ -16,7 +16,7 @@ namespace Pandora.Definitions.ResourceManager.RecoveryServicesSiteRecovery.v2022
 internal class HyperVReplicaAzureReplicationDetailsModel : ReplicationProviderSpecificSettingsModel
 {
     [JsonPropertyName("azureVmDiskDetails")]
-    public List<AzureVmDiskDetailsModel>? AzureVmDiskDetails { get; set; }
+    public List<AzureVMDiskDetailsModel>? AzureVMDiskDetails { get; set; }
 
     [JsonPropertyName("enableRdpOnTargetOption")]
     public string? EnableRdpOnTargetOption { get; set; }
@@ -60,11 +60,11 @@ internal class HyperVReplicaAzureReplicationDetailsModel : ReplicationProviderSp
     [JsonPropertyName("recoveryAzureStorageAccount")]
     public string? RecoveryAzureStorageAccount { get; set; }
 
+    [JsonPropertyName("recoveryAzureVmName")]
+    public string? RecoveryAzureVMName { get; set; }
+
     [JsonPropertyName("recoveryAzureVMSize")]
     public string? RecoveryAzureVMSize { get; set; }
-
-    [JsonPropertyName("recoveryAzureVmName")]
-    public string? RecoveryAzureVmName { get; set; }
 
     [JsonPropertyName("rpoInSeconds")]
     public int? RpoInSeconds { get; set; }
@@ -79,10 +79,10 @@ internal class HyperVReplicaAzureReplicationDetailsModel : ReplicationProviderSp
     public string? SelectedSourceNicId { get; set; }
 
     [JsonPropertyName("sourceVmCpuCount")]
-    public int? SourceVmCpuCount { get; set; }
+    public int? SourceVMCPUCount { get; set; }
 
     [JsonPropertyName("sourceVmRamSizeInMB")]
-    public int? SourceVmRamSizeInMB { get; set; }
+    public int? SourceVMRamSizeInMB { get; set; }
 
     [JsonPropertyName("sqlServerLicenseType")]
     public string? SqlServerLicenseType { get; set; }
@@ -100,20 +100,20 @@ internal class HyperVReplicaAzureReplicationDetailsModel : ReplicationProviderSp
     public string? TargetProximityPlacementGroupId { get; set; }
 
     [JsonPropertyName("targetVmTags")]
-    public Dictionary<string, string>? TargetVmTags { get; set; }
+    public Dictionary<string, string>? TargetVMTags { get; set; }
 
     [JsonPropertyName("useManagedDisks")]
     public string? UseManagedDisks { get; set; }
 
     [JsonPropertyName("vmId")]
-    public string? VmId { get; set; }
+    public string? VMId { get; set; }
 
     [JsonPropertyName("vmNics")]
-    public List<VMNicDetailsModel>? VmNics { get; set; }
+    public List<VMNicDetailsModel>? VMNics { get; set; }
 
     [JsonPropertyName("vmProtectionState")]
-    public string? VmProtectionState { get; set; }
+    public string? VMProtectionState { get; set; }
 
     [JsonPropertyName("vmProtectionStateDescription")]
-    public string? VmProtectionStateDescription { get; set; }
+    public string? VMProtectionStateDescription { get; set; }
 }

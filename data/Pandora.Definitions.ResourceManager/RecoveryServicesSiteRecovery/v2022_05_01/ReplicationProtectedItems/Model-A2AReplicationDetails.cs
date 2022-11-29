@@ -77,13 +77,13 @@ internal class A2AReplicationDetailsModel : ReplicationProviderSpecificSettingsM
     public int? MonitoringPercentageCompletion { get; set; }
 
     [JsonPropertyName("multiVmGroupCreateOption")]
-    public MultiVmGroupCreateOptionConstant? MultiVmGroupCreateOption { get; set; }
+    public MultiVMGroupCreateOptionConstant? MultiVMGroupCreateOption { get; set; }
 
     [JsonPropertyName("multiVmGroupId")]
-    public string? MultiVmGroupId { get; set; }
+    public string? MultiVMGroupId { get; set; }
 
     [JsonPropertyName("multiVmGroupName")]
-    public string? MultiVmGroupName { get; set; }
+    public string? MultiVMGroupName { get; set; }
 
     [JsonPropertyName("osType")]
     public string? OsType { get; set; }
@@ -164,17 +164,17 @@ internal class A2AReplicationDetailsModel : ReplicationProviderSpecificSettingsM
     public List<A2AUnprotectedDiskDetailsModel>? UnprotectedDisks { get; set; }
 
     [JsonPropertyName("vmEncryptionType")]
-    public VmEncryptionTypeConstant? VmEncryptionType { get; set; }
+    public VMEncryptionTypeConstant? VMEncryptionType { get; set; }
 
     [JsonPropertyName("vmNics")]
-    public List<VMNicDetailsModel>? VmNics { get; set; }
+    public List<VMNicDetailsModel>? VMNics { get; set; }
 
     [JsonPropertyName("vmProtectionState")]
-    public string? VmProtectionState { get; set; }
+    public string? VMProtectionState { get; set; }
 
     [JsonPropertyName("vmProtectionStateDescription")]
-    public string? VmProtectionStateDescription { get; set; }
+    public string? VMProtectionStateDescription { get; set; }
 
     [JsonPropertyName("vmSyncedConfigDetails")]
-    public AzureToAzureVmSyncedConfigDetailsModel? VmSyncedConfigDetails { get; set; }
+    public AzureToAzureVMSyncedConfigDetailsModel? VMSyncedConfigDetails { get; set; }
 }

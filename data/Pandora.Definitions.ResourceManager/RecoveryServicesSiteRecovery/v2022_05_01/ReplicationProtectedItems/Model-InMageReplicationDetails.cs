@@ -43,7 +43,7 @@ internal class InMageReplicationDetailsModel : ReplicationProviderSpecificSettin
     public string? IPAddress { get; set; }
 
     [JsonPropertyName("infrastructureVmId")]
-    public string? InfrastructureVmId { get; set; }
+    public string? InfrastructureVMId { get; set; }
 
     [JsonPropertyName("isAdditionalStatsAvailable")]
     public bool? IsAdditionalStatsAvailable { get; set; }
@@ -64,13 +64,13 @@ internal class InMageReplicationDetailsModel : ReplicationProviderSpecificSettin
     public string? MasterTargetId { get; set; }
 
     [JsonPropertyName("multiVmGroupId")]
-    public string? MultiVmGroupId { get; set; }
+    public string? MultiVMGroupId { get; set; }
 
     [JsonPropertyName("multiVmGroupName")]
-    public string? MultiVmGroupName { get; set; }
+    public string? MultiVMGroupName { get; set; }
 
     [JsonPropertyName("multiVmSyncStatus")]
-    public string? MultiVmSyncStatus { get; set; }
+    public string? MultiVMSyncStatus { get; set; }
 
     [JsonPropertyName("osDetails")]
     public OSDiskDetailsModel? OsDetails { get; set; }
@@ -108,10 +108,10 @@ internal class InMageReplicationDetailsModel : ReplicationProviderSpecificSettin
     public int? RpoInSeconds { get; set; }
 
     [JsonPropertyName("sourceVmCpuCount")]
-    public int? SourceVmCpuCount { get; set; }
+    public int? SourceVMCPUCount { get; set; }
 
     [JsonPropertyName("sourceVmRamSizeInMB")]
-    public int? SourceVmRamSizeInMB { get; set; }
+    public int? SourceVMRamSizeInMB { get; set; }
 
     [JsonPropertyName("totalDataTransferred")]
     public int? TotalDataTransferred { get; set; }
@@ -125,18 +125,18 @@ internal class InMageReplicationDetailsModel : ReplicationProviderSpecificSettin
     [JsonPropertyName("vCenterInfrastructureId")]
     public string? VCenterInfrastructureId { get; set; }
 
-    [JsonPropertyName("validationErrors")]
-    public List<HealthErrorModel>? ValidationErrors { get; set; }
-
     [JsonPropertyName("vmId")]
-    public string? VmId { get; set; }
+    public string? VMId { get; set; }
 
     [JsonPropertyName("vmNics")]
-    public List<VMNicDetailsModel>? VmNics { get; set; }
+    public List<VMNicDetailsModel>? VMNics { get; set; }
 
     [JsonPropertyName("vmProtectionState")]
-    public string? VmProtectionState { get; set; }
+    public string? VMProtectionState { get; set; }
 
     [JsonPropertyName("vmProtectionStateDescription")]
-    public string? VmProtectionStateDescription { get; set; }
+    public string? VMProtectionStateDescription { get; set; }
+
+    [JsonPropertyName("validationErrors")]
+    public List<HealthErrorModel>? ValidationErrors { get; set; }
 }

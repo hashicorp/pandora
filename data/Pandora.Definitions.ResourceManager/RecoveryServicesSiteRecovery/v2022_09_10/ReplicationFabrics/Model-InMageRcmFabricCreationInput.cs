@@ -25,5 +25,5 @@ internal class InMageRcmFabricCreationInputModel : FabricSpecificCreationInputMo
 
     [JsonPropertyName("vmwareSiteId")]
     [Required]
-    public string VmwareSiteId { get; set; }
+    public string VMwareSiteId { get; set; }
 }

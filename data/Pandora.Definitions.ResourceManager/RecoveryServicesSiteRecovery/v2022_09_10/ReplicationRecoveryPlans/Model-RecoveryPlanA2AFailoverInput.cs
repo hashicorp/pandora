@@ -19,7 +19,7 @@ internal class RecoveryPlanA2AFailoverInputModel : RecoveryPlanProviderSpecificF
     public string? CloudServiceCreationOption { get; set; }
 
     [JsonPropertyName("multiVmSyncPointOption")]
-    public MultiVmSyncPointOptionConstant? MultiVmSyncPointOption { get; set; }
+    public MultiVMSyncPointOptionConstant? MultiVMSyncPointOption { get; set; }
 
     [JsonPropertyName("recoveryPointType")]
     [Required]

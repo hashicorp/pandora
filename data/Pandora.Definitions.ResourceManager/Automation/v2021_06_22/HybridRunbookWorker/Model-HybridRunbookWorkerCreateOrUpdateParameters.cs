@@ -16,5 +16,5 @@ namespace Pandora.Definitions.ResourceManager.Automation.v2021_06_22.HybridRunbo
 internal class HybridRunbookWorkerCreateOrUpdateParametersModel
 {
     [JsonPropertyName("vmResourceId")]
-    public string? VmResourceId { get; set; }
+    public string? VMResourceId { get; set; }
 }

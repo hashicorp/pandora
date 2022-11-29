@@ -27,7 +27,7 @@ internal class HybridRunbookWorkerPropertiesModel
     public DateTime? RegisteredDateTime { get; set; }
 
     [JsonPropertyName("vmResourceId")]
-    public string? VmResourceId { get; set; }
+    public string? VMResourceId { get; set; }
 
     [JsonPropertyName("workerName")]
     public string? WorkerName { get; set; }

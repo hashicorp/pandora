@@ -16,7 +16,7 @@ namespace Pandora.Definitions.ResourceManager.RecoveryServicesSiteRecovery.v2022
 internal class HyperVReplicaAzureReprotectInputModel : ReverseReplicationProviderSpecificInputModel
 {
     [JsonPropertyName("hvHostVmId")]
-    public string? HvHostVmId { get; set; }
+    public string? HvHostVMId { get; set; }
 
     [JsonPropertyName("logStorageAccountId")]
     public string? LogStorageAccountId { get; set; }

@@ -37,11 +37,11 @@ internal class InMageAzureV2UpdateReplicationProtectedItemInputModel : UpdateRep
     public string? TargetProximityPlacementGroupId { get; set; }
 
     [JsonPropertyName("targetVmTags")]
-    public Dictionary<string, string>? TargetVmTags { get; set; }
+    public Dictionary<string, string>? TargetVMTags { get; set; }
 
     [JsonPropertyName("useManagedDisks")]
     public string? UseManagedDisks { get; set; }
 
     [JsonPropertyName("vmDisks")]
-    public List<UpdateDiskInputModel>? VmDisks { get; set; }
+    public List<UpdateDiskInputModel>? VMDisks { get; set; }
 }

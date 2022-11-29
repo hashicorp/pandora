@@ -91,11 +91,11 @@ internal class SysctlConfigModel
     public int? NetNetfilterNfConntrackMax { get; set; }
 
     [JsonPropertyName("vmMaxMapCount")]
-    public int? VmMaxMapCount { get; set; }
+    public int? VMMaxMapCount { get; set; }
 
     [JsonPropertyName("vmSwappiness")]
-    public int? VmSwappiness { get; set; }
+    public int? VMSwappiness { get; set; }
 
     [JsonPropertyName("vmVfsCachePressure")]
-    public int? VmVfsCachePressure { get; set; }
+    public int? VMVfsCachePressure { get; set; }
 }

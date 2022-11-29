@@ -20,7 +20,7 @@ internal class InMagePolicyInputModel : PolicyProviderSpecificInputModel
 
     [JsonPropertyName("multiVmSyncStatus")]
     [Required]
-    public SetMultiVmSyncStatusConstant MultiVmSyncStatus { get; set; }
+    public SetMultiVMSyncStatusConstant MultiVMSyncStatus { get; set; }
 
     [JsonPropertyName("recoveryPointHistory")]
     public int? RecoveryPointHistory { get; set; }

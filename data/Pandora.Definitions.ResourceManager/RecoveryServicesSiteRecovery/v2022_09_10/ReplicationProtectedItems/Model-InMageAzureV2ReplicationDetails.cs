@@ -23,10 +23,10 @@ internal class InMageAzureV2ReplicationDetailsModel : ReplicationProviderSpecifi
     public string? AgentVersion { get; set; }
 
     [JsonPropertyName("azureVMDiskDetails")]
-    public List<AzureVmDiskDetailsModel>? AzureVMDiskDetails { get; set; }
+    public List<AzureVMDiskDetailsModel>? AzureVMDiskDetails { get; set; }
 
     [JsonPropertyName("azureVmGeneration")]
-    public string? AzureVmGeneration { get; set; }
+    public string? AzureVMGeneration { get; set; }
 
     [JsonPropertyName("compressedDataRateInMB")]
     public float? CompressedDataRateInMB { get; set; }
@@ -50,7 +50,7 @@ internal class InMageAzureV2ReplicationDetailsModel : ReplicationProviderSpecifi
     public string? IPAddress { get; set; }
 
     [JsonPropertyName("infrastructureVmId")]
-    public string? InfrastructureVmId { get; set; }
+    public string? InfrastructureVMId { get; set; }
 
     [JsonPropertyName("isAdditionalStatsAvailable")]
     public bool? IsAdditionalStatsAvailable { get; set; }
@@ -84,13 +84,13 @@ internal class InMageAzureV2ReplicationDetailsModel : ReplicationProviderSpecifi
     public string? MasterTargetId { get; set; }
 
     [JsonPropertyName("multiVmGroupId")]
-    public string? MultiVmGroupId { get; set; }
+    public string? MultiVMGroupId { get; set; }
 
     [JsonPropertyName("multiVmGroupName")]
-    public string? MultiVmGroupName { get; set; }
+    public string? MultiVMGroupName { get; set; }
 
     [JsonPropertyName("multiVmSyncStatus")]
-    public string? MultiVmSyncStatus { get; set; }
+    public string? MultiVMSyncStatus { get; set; }
 
     [JsonPropertyName("osDiskId")]
     public string? OsDiskId { get; set; }
@@ -156,10 +156,10 @@ internal class InMageAzureV2ReplicationDetailsModel : ReplicationProviderSpecifi
     public string? SelectedTfoAzureNetworkId { get; set; }
 
     [JsonPropertyName("sourceVmCpuCount")]
-    public int? SourceVmCpuCount { get; set; }
+    public int? SourceVMCPUCount { get; set; }
 
     [JsonPropertyName("sourceVmRamSizeInMB")]
-    public int? SourceVmRamSizeInMB { get; set; }
+    public int? SourceVMRamSizeInMB { get; set; }
 
     [JsonPropertyName("sqlServerLicenseType")]
     public string? SqlServerLicenseType { get; set; }
@@ -183,10 +183,10 @@ internal class InMageAzureV2ReplicationDetailsModel : ReplicationProviderSpecifi
     public string? TargetProximityPlacementGroupId { get; set; }
 
     [JsonPropertyName("targetVmId")]
-    public string? TargetVmId { get; set; }
+    public string? TargetVMId { get; set; }
 
     [JsonPropertyName("targetVmTags")]
-    public Dictionary<string, string>? TargetVmTags { get; set; }
+    public Dictionary<string, string>? TargetVMTags { get; set; }
 
     [JsonPropertyName("totalDataTransferred")]
     public int? TotalDataTransferred { get; set; }
@@ -203,21 +203,21 @@ internal class InMageAzureV2ReplicationDetailsModel : ReplicationProviderSpecifi
     [JsonPropertyName("vCenterInfrastructureId")]
     public string? VCenterInfrastructureId { get; set; }
 
+    [JsonPropertyName("vmId")]
+    public string? VMId { get; set; }
+
+    [JsonPropertyName("vmNics")]
+    public List<VMNicDetailsModel>? VMNics { get; set; }
+
+    [JsonPropertyName("vmProtectionState")]
+    public string? VMProtectionState { get; set; }
+
+    [JsonPropertyName("vmProtectionStateDescription")]
+    public string? VMProtectionStateDescription { get; set; }
+
     [JsonPropertyName("validationErrors")]
     public List<HealthErrorModel>? ValidationErrors { get; set; }
 
     [JsonPropertyName("vhdName")]
     public string? VhdName { get; set; }
-
-    [JsonPropertyName("vmId")]
-    public string? VmId { get; set; }
-
-    [JsonPropertyName("vmNics")]
-    public List<VMNicDetailsModel>? VmNics { get; set; }
-
-    [JsonPropertyName("vmProtectionState")]
-    public string? VmProtectionState { get; set; }
-
-    [JsonPropertyName("vmProtectionStateDescription")]
-    public string? VmProtectionStateDescription { get; set; }
 }

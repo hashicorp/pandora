@@ -58,12 +58,12 @@ internal class AmlComputePropertiesModel
     [JsonPropertyName("userAccountCredentials")]
     public UserAccountCredentialsModel? UserAccountCredentials { get; set; }
 
-    [JsonPropertyName("virtualMachineImage")]
-    public VirtualMachineImageModel? VirtualMachineImage { get; set; }
-
     [JsonPropertyName("vmPriority")]
-    public VmPriorityConstant? VmPriority { get; set; }
+    public VMPriorityConstant? VMPriority { get; set; }
 
     [JsonPropertyName("vmSize")]
-    public string? VmSize { get; set; }
+    public string? VMSize { get; set; }
+
+    [JsonPropertyName("virtualMachineImage")]
+    public VirtualMachineImageModel? VirtualMachineImage { get; set; }
 }

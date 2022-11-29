@@ -19,7 +19,7 @@ internal class CreateVMGroupOperation : Operations.PutOperation
 
     public override Type? RequestObject() => typeof(WorkloadNetworkVMGroupModel);
 
-    public override ResourceID? ResourceId() => new VmGroupId();
+    public override ResourceID? ResourceId() => new VMGroupId();
 
     public override Type? ResponseObject() => typeof(WorkloadNetworkVMGroupModel);
 

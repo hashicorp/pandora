@@ -92,5 +92,5 @@ internal class PoolPropertiesModel
     public List<UserAccountModel>? UserAccounts { get; set; }
 
     [JsonPropertyName("vmSize")]
-    public string? VmSize { get; set; }
+    public string? VMSize { get; set; }
 }

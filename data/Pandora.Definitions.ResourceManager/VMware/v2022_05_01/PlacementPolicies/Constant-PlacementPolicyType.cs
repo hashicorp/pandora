@@ -7,8 +7,8 @@ namespace Pandora.Definitions.ResourceManager.VMware.v2022_05_01.PlacementPolici
 internal enum PlacementPolicyTypeConstant
 {
     [Description("VmHost")]
-    VmHost,
+    VMHost,
 
     [Description("VmVm")]
-    VmVm,
+    VMVM,
 }

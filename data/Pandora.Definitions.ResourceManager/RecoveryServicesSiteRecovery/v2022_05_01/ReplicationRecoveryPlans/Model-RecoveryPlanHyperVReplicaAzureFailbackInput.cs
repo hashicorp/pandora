@@ -21,5 +21,5 @@ internal class RecoveryPlanHyperVReplicaAzureFailbackInputModel : RecoveryPlanPr
 
     [JsonPropertyName("recoveryVmCreationOption")]
     [Required]
-    public AlternateLocationRecoveryOptionConstant RecoveryVmCreationOption { get; set; }
+    public AlternateLocationRecoveryOptionConstant RecoveryVMCreationOption { get; set; }
 }

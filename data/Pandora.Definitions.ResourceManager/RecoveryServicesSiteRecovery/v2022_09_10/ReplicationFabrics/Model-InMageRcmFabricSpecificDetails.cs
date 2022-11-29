@@ -61,5 +61,5 @@ internal class InMageRcmFabricSpecificDetailsModel : FabricSpecificDetailsModel
     public IdentityProviderDetailsModel? SourceAgentIdentityDetails { get; set; }
 
     [JsonPropertyName("vmwareSiteId")]
-    public string? VmwareSiteId { get; set; }
+    public string? VMwareSiteId { get; set; }
 }

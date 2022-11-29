@@ -37,14 +37,14 @@ internal class InMageRcmUpdateReplicationProtectedItemInputModel : UpdateReplica
     public string? TargetResourceGroupId { get; set; }
 
     [JsonPropertyName("targetVmName")]
-    public string? TargetVmName { get; set; }
+    public string? TargetVMName { get; set; }
 
     [JsonPropertyName("targetVmSize")]
-    public string? TargetVmSize { get; set; }
+    public string? TargetVMSize { get; set; }
 
     [JsonPropertyName("testNetworkId")]
     public string? TestNetworkId { get; set; }
 
     [JsonPropertyName("vmNics")]
-    public List<InMageRcmNicInputModel>? VmNics { get; set; }
+    public List<InMageRcmNicInputModel>? VMNics { get; set; }
 }

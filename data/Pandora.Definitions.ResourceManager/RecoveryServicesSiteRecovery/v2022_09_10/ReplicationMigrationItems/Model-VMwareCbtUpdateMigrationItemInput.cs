@@ -49,20 +49,20 @@ internal class VMwareCbtUpdateMigrationItemInputModel : UpdateMigrationItemProvi
     public string? TargetResourceGroupId { get; set; }
 
     [JsonPropertyName("targetVmName")]
-    public string? TargetVmName { get; set; }
+    public string? TargetVMName { get; set; }
 
     [JsonPropertyName("targetVmSize")]
-    public string? TargetVmSize { get; set; }
+    public string? TargetVMSize { get; set; }
 
     [JsonPropertyName("targetVmTags")]
-    public Dictionary<string, string>? TargetVmTags { get; set; }
+    public Dictionary<string, string>? TargetVMTags { get; set; }
 
     [JsonPropertyName("testNetworkId")]
     public string? TestNetworkId { get; set; }
 
     [JsonPropertyName("vmDisks")]
-    public List<VMwareCbtUpdateDiskInputModel>? VmDisks { get; set; }
+    public List<VMwareCbtUpdateDiskInputModel>? VMDisks { get; set; }
 
     [JsonPropertyName("vmNics")]
-    public List<VMwareCbtNicInputModel>? VmNics { get; set; }
+    public List<VMwareCbtNicInputModel>? VMNics { get; set; }
 }

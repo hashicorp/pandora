@@ -23,5 +23,5 @@ internal class VMwareV2FabricCreationInputModel : FabricSpecificCreationInputMod
     public string? PhysicalSiteId { get; set; }
 
     [JsonPropertyName("vmwareSiteId")]
-    public string? VmwareSiteId { get; set; }
+    public string? VMwareSiteId { get; set; }
 }

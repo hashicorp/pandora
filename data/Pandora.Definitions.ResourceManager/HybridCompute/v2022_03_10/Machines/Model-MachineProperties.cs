@@ -92,8 +92,8 @@ internal class MachinePropertiesModel
     public StatusTypesConstant? Status { get; set; }
 
     [JsonPropertyName("vmId")]
-    public string? VmId { get; set; }
+    public string? VMId { get; set; }
 
     [JsonPropertyName("vmUuid")]
-    public string? VmUuid { get; set; }
+    public string? VMUuid { get; set; }
 }

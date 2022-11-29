@@ -7,7 +7,7 @@ namespace Pandora.Definitions.ResourceManager.RecoveryServicesSiteRecovery.v2022
 internal enum AlternateLocationRecoveryOptionConstant
 {
     [Description("CreateVmIfNotFound")]
-    CreateVmIfNotFound,
+    CreateVMIfNotFound,
 
     [Description("NoAction")]
     NoAction,

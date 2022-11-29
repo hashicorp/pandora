@@ -28,5 +28,5 @@ internal class PlacementPolicyUpdatePropertiesModel
     public PlacementPolicyStateConstant? State { get; set; }
 
     [JsonPropertyName("vmMembers")]
-    public List<string>? VmMembers { get; set; }
+    public List<string>? VMMembers { get; set; }
 }

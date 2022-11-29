@@ -16,5 +16,5 @@ namespace Pandora.Definitions.ResourceManager.RecoveryServicesSiteRecovery.v2022
 internal class InMageDisableProtectionProviderSpecificInputModel : DisableProtectionProviderSpecificInputModel
 {
     [JsonPropertyName("replicaVmDeletionStatus")]
-    public string? ReplicaVmDeletionStatus { get; set; }
+    public string? ReplicaVMDeletionStatus { get; set; }
 }

@@ -25,5 +25,5 @@ internal class EstimatedVMPriceModel
 
     [JsonPropertyName("vmTier")]
     [Required]
-    public VMTierConstant VmTier { get; set; }
+    public VMTierConstant VMTier { get; set; }
 }

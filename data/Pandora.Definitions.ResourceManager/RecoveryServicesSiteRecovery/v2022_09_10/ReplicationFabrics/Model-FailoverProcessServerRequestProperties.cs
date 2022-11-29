@@ -28,5 +28,5 @@ internal class FailoverProcessServerRequestPropertiesModel
     public string? UpdateType { get; set; }
 
     [JsonPropertyName("vmsToMigrate")]
-    public List<string>? VmsToMigrate { get; set; }
+    public List<string>? VMsToMigrate { get; set; }
 }

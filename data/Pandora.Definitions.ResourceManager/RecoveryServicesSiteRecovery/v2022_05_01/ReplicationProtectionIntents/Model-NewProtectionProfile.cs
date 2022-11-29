@@ -23,7 +23,7 @@ internal class NewProtectionProfileModel : ProtectionProfileCustomDetailsModel
 
     [JsonPropertyName("multiVmSyncStatus")]
     [Required]
-    public SetMultiVmSyncStatusConstant MultiVmSyncStatus { get; set; }
+    public SetMultiVMSyncStatusConstant MultiVMSyncStatus { get; set; }
 
     [JsonPropertyName("policyName")]
     [Required]

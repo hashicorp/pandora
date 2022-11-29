@@ -16,5 +16,5 @@ namespace Pandora.Definitions.ResourceManager.Compute.v2022_03_02.Disks;
 internal class ShareInfoElementModel
 {
     [JsonPropertyName("vmUri")]
-    public string? VmUri { get; set; }
+    public string? VMUri { get; set; }
 }

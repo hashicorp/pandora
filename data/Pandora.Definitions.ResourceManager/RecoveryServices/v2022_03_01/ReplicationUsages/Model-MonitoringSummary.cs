@@ -28,7 +28,7 @@ internal class MonitoringSummaryModel
     public int? UnHealthyProviderCount { get; set; }
 
     [JsonPropertyName("unHealthyVmCount")]
-    public int? UnHealthyVmCount { get; set; }
+    public int? UnHealthyVMCount { get; set; }
 
     [JsonPropertyName("unsupportedProviderCount")]
     public int? UnsupportedProviderCount { get; set; }

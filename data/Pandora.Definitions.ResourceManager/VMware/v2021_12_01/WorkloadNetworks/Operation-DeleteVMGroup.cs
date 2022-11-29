@@ -24,7 +24,7 @@ internal class DeleteVMGroupOperation : Operations.DeleteOperation
 
     public override bool LongRunning() => true;
 
-    public override ResourceID? ResourceId() => new VmGroupId();
+    public override ResourceID? ResourceId() => new VMGroupId();
 
 
 }

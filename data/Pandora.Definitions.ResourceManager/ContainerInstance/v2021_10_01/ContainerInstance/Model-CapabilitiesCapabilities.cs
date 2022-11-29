@@ -16,7 +16,7 @@ namespace Pandora.Definitions.ResourceManager.ContainerInstance.v2021_10_01.Cont
 internal class CapabilitiesCapabilitiesModel
 {
     [JsonPropertyName("maxCpu")]
-    public float? MaxCpu { get; set; }
+    public float? MaxCPU { get; set; }
 
     [JsonPropertyName("maxGpuCount")]
     public float? MaxGpuCount { get; set; }

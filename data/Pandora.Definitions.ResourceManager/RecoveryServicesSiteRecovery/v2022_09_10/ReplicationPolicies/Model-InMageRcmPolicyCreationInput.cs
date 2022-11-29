@@ -22,7 +22,7 @@ internal class InMageRcmPolicyCreationInputModel : PolicyProviderSpecificInputMo
     public int? CrashConsistentFrequencyInMinutes { get; set; }
 
     [JsonPropertyName("enableMultiVmSync")]
-    public string? EnableMultiVmSync { get; set; }
+    public string? EnableMultiVMSync { get; set; }
 
     [JsonPropertyName("recoveryPointHistoryInMinutes")]
     public int? RecoveryPointHistoryInMinutes { get; set; }

@@ -24,5 +24,5 @@ internal class VMwareCbtTestMigrateInputModel : TestMigrateProviderSpecificInput
     public string RecoveryPointId { get; set; }
 
     [JsonPropertyName("vmNics")]
-    public List<VMwareCbtNicInputModel>? VmNics { get; set; }
+    public List<VMwareCbtNicInputModel>? VMNics { get; set; }
 }

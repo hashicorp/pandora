@@ -7,8 +7,8 @@ namespace Pandora.Definitions.ResourceManager.RecoveryServicesSiteRecovery.v2022
 internal enum RecoveryPointSyncTypeConstant
 {
     [Description("MultiVmSyncRecoveryPoint")]
-    MultiVmSyncRecoveryPoint,
+    MultiVMSyncRecoveryPoint,
 
     [Description("PerVmRecoveryPoint")]
-    PerVmRecoveryPoint,
+    PerVMRecoveryPoint,
 }

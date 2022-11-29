@@ -69,13 +69,13 @@ internal class VMwareCbtEnableMigrationInputModel : EnableMigrationProviderSpeci
     public string? TargetSubnetName { get; set; }
 
     [JsonPropertyName("targetVmName")]
-    public string? TargetVmName { get; set; }
+    public string? TargetVMName { get; set; }
 
     [JsonPropertyName("targetVmSize")]
-    public string? TargetVmSize { get; set; }
+    public string? TargetVMSize { get; set; }
 
     [JsonPropertyName("targetVmTags")]
-    public Dictionary<string, string>? TargetVmTags { get; set; }
+    public Dictionary<string, string>? TargetVMTags { get; set; }
 
     [JsonPropertyName("testNetworkId")]
     public string? TestNetworkId { get; set; }
@@ -85,5 +85,5 @@ internal class VMwareCbtEnableMigrationInputModel : EnableMigrationProviderSpeci
 
     [JsonPropertyName("vmwareMachineId")]
     [Required]
-    public string VmwareMachineId { get; set; }
+    public string VMwareMachineId { get; set; }
 }
