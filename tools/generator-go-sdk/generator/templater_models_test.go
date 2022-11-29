@@ -262,7 +262,7 @@ import (
 // acctests licence placeholder
 
 type Basic struct {
-	BobcatOptional *Bobcat ''json:"bobcatOptional"''
+	BobcatOptional *Bobcat ''json:"bobcatOptional,omitempty"''
 	BobcatRequired Bobcat ''json:"bobcatRequired"''
 	Name string ''json:"name"''
 }
