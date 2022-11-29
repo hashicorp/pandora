@@ -9,8 +9,8 @@ internal enum StorageSettingStoreTypesConstant
     [Description("ArchiveStore")]
     ArchiveStore,
 
-    [Description("SnapshotStore")]
-    SnapshotStore,
+    [Description("OperationalStore")]
+    OperationalStore,
 
     [Description("VaultStore")]
     VaultStore,
