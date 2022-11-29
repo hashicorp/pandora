@@ -19,7 +19,7 @@ internal class InMageBasePolicyDetailsModel : PolicyProviderSpecificDetailsModel
     public int? AppConsistentFrequencyInMinutes { get; set; }
 
     [JsonPropertyName("multiVmSyncStatus")]
-    public string? MultiVmSyncStatus { get; set; }
+    public string? MultiVMSyncStatus { get; set; }
 
     [JsonPropertyName("recoveryPointHistory")]
     public int? RecoveryPointHistory { get; set; }

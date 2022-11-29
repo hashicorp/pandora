@@ -15,7 +15,7 @@ namespace Pandora.Definitions.ResourceManager.VMware.v2022_05_01.WorkloadNetwork
 
 internal class GetVMGroupOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new VmGroupId();
+    public override ResourceID? ResourceId() => new VMGroupId();
 
     public override Type? ResponseObject() => typeof(WorkloadNetworkVMGroupModel);
 

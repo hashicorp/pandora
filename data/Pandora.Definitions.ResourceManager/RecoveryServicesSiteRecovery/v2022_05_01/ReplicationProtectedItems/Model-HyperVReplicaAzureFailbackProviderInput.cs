@@ -22,5 +22,5 @@ internal class HyperVReplicaAzureFailbackProviderInputModel : PlannedFailoverPro
     public string? ProviderIdForAlternateRecovery { get; set; }
 
     [JsonPropertyName("recoveryVmCreationOption")]
-    public string? RecoveryVmCreationOption { get; set; }
+    public string? RecoveryVMCreationOption { get; set; }
 }

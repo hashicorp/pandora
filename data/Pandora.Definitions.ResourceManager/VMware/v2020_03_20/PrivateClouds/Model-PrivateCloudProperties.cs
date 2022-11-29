@@ -50,12 +50,12 @@ internal class PrivateCloudPropertiesModel
     [JsonPropertyName("provisioningState")]
     public PrivateCloudProvisioningStateConstant? ProvisioningState { get; set; }
 
+    [JsonPropertyName("vmotionNetwork")]
+    public string? VMotionNetwork { get; set; }
+
     [JsonPropertyName("vcenterCertificateThumbprint")]
     public string? VcenterCertificateThumbprint { get; set; }
 
     [JsonPropertyName("vcenterPassword")]
     public string? VcenterPassword { get; set; }
-
-    [JsonPropertyName("vmotionNetwork")]
-    public string? VmotionNetwork { get; set; }
 }

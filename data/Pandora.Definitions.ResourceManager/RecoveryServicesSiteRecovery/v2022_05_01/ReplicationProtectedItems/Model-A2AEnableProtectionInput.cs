@@ -23,10 +23,10 @@ internal class A2AEnableProtectionInputModel : EnableProtectionProviderSpecificI
     public string FabricObjectId { get; set; }
 
     [JsonPropertyName("multiVmGroupId")]
-    public string? MultiVmGroupId { get; set; }
+    public string? MultiVMGroupId { get; set; }
 
     [JsonPropertyName("multiVmGroupName")]
-    public string? MultiVmGroupName { get; set; }
+    public string? MultiVMGroupName { get; set; }
 
     [JsonPropertyName("recoveryAvailabilitySetId")]
     public string? RecoveryAvailabilitySetId { get; set; }
@@ -65,8 +65,8 @@ internal class A2AEnableProtectionInputModel : EnableProtectionProviderSpecificI
     public string? RecoveryVirtualMachineScaleSetId { get; set; }
 
     [JsonPropertyName("vmDisks")]
-    public List<A2AVmDiskInputDetailsModel>? VmDisks { get; set; }
+    public List<A2AVMDiskInputDetailsModel>? VMDisks { get; set; }
 
     [JsonPropertyName("vmManagedDisks")]
-    public List<A2AVmManagedDiskInputDetailsModel>? VmManagedDisks { get; set; }
+    public List<A2AVMManagedDiskInputDetailsModel>? VMManagedDisks { get; set; }
 }

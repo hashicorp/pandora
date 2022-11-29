@@ -16,5 +16,5 @@ namespace Pandora.Definitions.ResourceManager.Elastic.v2020_07_01.VMHHostList;
 internal class VMResourcesModel
 {
     [JsonPropertyName("vmResourceId")]
-    public string? VmResourceId { get; set; }
+    public string? VMResourceId { get; set; }
 }

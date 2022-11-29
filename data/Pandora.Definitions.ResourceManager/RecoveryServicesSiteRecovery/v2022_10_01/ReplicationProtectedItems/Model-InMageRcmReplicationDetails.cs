@@ -31,7 +31,7 @@ internal class InMageRcmReplicationDetailsModel : ReplicationProviderSpecificSet
     public float? AllocatedMemoryInMB { get; set; }
 
     [JsonPropertyName("discoveredVmDetails")]
-    public InMageRcmDiscoveredProtectedVmDetailsModel? DiscoveredVmDetails { get; set; }
+    public InMageRcmDiscoveredProtectedVMDetailsModel? DiscoveredVMDetails { get; set; }
 
     [JsonPropertyName("discoveryType")]
     public string? DiscoveryType { get; set; }
@@ -49,7 +49,7 @@ internal class InMageRcmReplicationDetailsModel : ReplicationProviderSpecificSet
     public int? InitialReplicationProcessedBytes { get; set; }
 
     [JsonPropertyName("initialReplicationProgressHealth")]
-    public VmReplicationProgressHealthConstant? InitialReplicationProgressHealth { get; set; }
+    public VMReplicationProgressHealthConstant? InitialReplicationProgressHealth { get; set; }
 
     [JsonPropertyName("initialReplicationProgressPercentage")]
     public int? InitialReplicationProgressPercentage { get; set; }
@@ -93,7 +93,7 @@ internal class InMageRcmReplicationDetailsModel : ReplicationProviderSpecificSet
     public InMageRcmMobilityAgentDetailsModel? MobilityAgentDetails { get; set; }
 
     [JsonPropertyName("multiVmGroupName")]
-    public string? MultiVmGroupName { get; set; }
+    public string? MultiVMGroupName { get; set; }
 
     [JsonPropertyName("osType")]
     public string? OsType { get; set; }
@@ -117,7 +117,7 @@ internal class InMageRcmReplicationDetailsModel : ReplicationProviderSpecificSet
     public int? ResyncProcessedBytes { get; set; }
 
     [JsonPropertyName("resyncProgressHealth")]
-    public VmReplicationProgressHealthConstant? ResyncProgressHealth { get; set; }
+    public VMReplicationProgressHealthConstant? ResyncProgressHealth { get; set; }
 
     [JsonPropertyName("resyncProgressPercentage")]
     public int? ResyncProgressPercentage { get; set; }
@@ -162,14 +162,14 @@ internal class InMageRcmReplicationDetailsModel : ReplicationProviderSpecificSet
     public string? TargetResourceGroupId { get; set; }
 
     [JsonPropertyName("targetVmName")]
-    public string? TargetVmName { get; set; }
+    public string? TargetVMName { get; set; }
 
     [JsonPropertyName("targetVmSize")]
-    public string? TargetVmSize { get; set; }
+    public string? TargetVMSize { get; set; }
 
     [JsonPropertyName("testNetworkId")]
     public string? TestNetworkId { get; set; }
 
     [JsonPropertyName("vmNics")]
-    public List<InMageRcmNicDetailsModel>? VmNics { get; set; }
+    public List<InMageRcmNicDetailsModel>? VMNics { get; set; }
 }

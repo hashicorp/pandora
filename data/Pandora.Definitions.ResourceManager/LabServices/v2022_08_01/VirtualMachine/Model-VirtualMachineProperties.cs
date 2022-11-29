@@ -28,5 +28,5 @@ internal class VirtualMachinePropertiesModel
     public VirtualMachineStateConstant? State { get; set; }
 
     [JsonPropertyName("vmType")]
-    public VirtualMachineTypeConstant? VmType { get; set; }
+    public VirtualMachineTypeConstant? VMType { get; set; }
 }

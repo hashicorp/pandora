@@ -19,7 +19,7 @@ internal class A2AUpdateReplicationProtectedItemInputModel : UpdateReplicationPr
     public DiskEncryptionInfoModel? DiskEncryptionInfo { get; set; }
 
     [JsonPropertyName("managedDiskUpdateDetails")]
-    public List<A2AVmManagedDiskUpdateDetailsModel>? ManagedDiskUpdateDetails { get; set; }
+    public List<A2AVMManagedDiskUpdateDetailsModel>? ManagedDiskUpdateDetails { get; set; }
 
     [JsonPropertyName("recoveryBootDiagStorageAccountId")]
     public string? RecoveryBootDiagStorageAccountId { get; set; }

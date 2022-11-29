@@ -31,5 +31,5 @@ internal class A2AReprotectInputModel : ReverseReplicationProviderSpecificInputM
     public string? RecoveryResourceGroupId { get; set; }
 
     [JsonPropertyName("vmDisks")]
-    public List<A2AVmDiskInputDetailsModel>? VmDisks { get; set; }
+    public List<A2AVMDiskInputDetailsModel>? VMDisks { get; set; }
 }

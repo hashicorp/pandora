@@ -7,7 +7,7 @@ namespace Pandora.Definitions.ResourceManager.Compute.v2022_03_02.DiskEncryption
 internal enum DiskEncryptionSetTypeConstant
 {
     [Description("ConfidentialVmEncryptedWithCustomerKey")]
-    ConfidentialVmEncryptedWithCustomerKey,
+    ConfidentialVMEncryptedWithCustomerKey,
 
     [Description("EncryptionAtRestWithCustomerKey")]
     EncryptionAtRestWithCustomerKey,

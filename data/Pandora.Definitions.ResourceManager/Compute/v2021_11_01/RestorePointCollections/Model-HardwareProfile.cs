@@ -16,8 +16,8 @@ namespace Pandora.Definitions.ResourceManager.Compute.v2021_11_01.RestorePointCo
 internal class HardwareProfileModel
 {
     [JsonPropertyName("vmSize")]
-    public VirtualMachineSizeTypesConstant? VmSize { get; set; }
+    public VirtualMachineSizeTypesConstant? VMSize { get; set; }
 
     [JsonPropertyName("vmSizeProperties")]
-    public VMSizePropertiesModel? VmSizeProperties { get; set; }
+    public VMSizePropertiesModel? VMSizeProperties { get; set; }
 }

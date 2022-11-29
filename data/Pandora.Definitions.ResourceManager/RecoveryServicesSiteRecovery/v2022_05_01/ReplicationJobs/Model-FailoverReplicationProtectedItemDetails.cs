@@ -38,8 +38,8 @@ internal class FailoverReplicationProtectedItemDetailsModel
     public string? Subnet { get; set; }
 
     [JsonPropertyName("testVmFriendlyName")]
-    public string? TestVmFriendlyName { get; set; }
+    public string? TestVMFriendlyName { get; set; }
 
     [JsonPropertyName("testVmName")]
-    public string? TestVmName { get; set; }
+    public string? TestVMName { get; set; }
 }

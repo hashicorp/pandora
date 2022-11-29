@@ -22,7 +22,7 @@ internal class A2APolicyDetailsModel : PolicyProviderSpecificDetailsModel
     public int? CrashConsistentFrequencyInMinutes { get; set; }
 
     [JsonPropertyName("multiVmSyncStatus")]
-    public string? MultiVmSyncStatus { get; set; }
+    public string? MultiVMSyncStatus { get; set; }
 
     [JsonPropertyName("recoveryPointHistory")]
     public int? RecoveryPointHistory { get; set; }

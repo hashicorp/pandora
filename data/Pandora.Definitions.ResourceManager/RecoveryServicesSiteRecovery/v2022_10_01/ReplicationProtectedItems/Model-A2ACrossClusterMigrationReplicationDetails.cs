@@ -28,8 +28,8 @@ internal class A2ACrossClusterMigrationReplicationDetailsModel : ReplicationProv
     public string? PrimaryFabricLocation { get; set; }
 
     [JsonPropertyName("vmProtectionState")]
-    public string? VmProtectionState { get; set; }
+    public string? VMProtectionState { get; set; }
 
     [JsonPropertyName("vmProtectionStateDescription")]
-    public string? VmProtectionStateDescription { get; set; }
+    public string? VMProtectionStateDescription { get; set; }
 }

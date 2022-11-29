@@ -16,5 +16,5 @@ namespace Pandora.Definitions.ResourceManager.Compute.v2021_07_01.VirtualMachine
 internal class DisallowedConfigurationModel
 {
     [JsonPropertyName("vmDiskType")]
-    public VmDiskTypesConstant? VmDiskType { get; set; }
+    public VMDiskTypesConstant? VMDiskType { get; set; }
 }

@@ -46,8 +46,8 @@ internal class VirtualMachineScaleSetVMInstanceViewModel
     public List<InstanceViewStatusModel>? Statuses { get; set; }
 
     [JsonPropertyName("vmAgent")]
-    public VirtualMachineAgentInstanceViewModel? VmAgent { get; set; }
+    public VirtualMachineAgentInstanceViewModel? VMAgent { get; set; }
 
     [JsonPropertyName("vmHealth")]
-    public VirtualMachineHealthStatusModel? VmHealth { get; set; }
+    public VirtualMachineHealthStatusModel? VMHealth { get; set; }
 }

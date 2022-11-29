@@ -19,7 +19,7 @@ internal class AKSSchemaPropertiesModel
     public int? AgentCount { get; set; }
 
     [JsonPropertyName("agentVmSize")]
-    public string? AgentVmSize { get; set; }
+    public string? AgentVMSize { get; set; }
 
     [JsonPropertyName("aksNetworkingConfiguration")]
     public AksNetworkingConfigurationModel? AksNetworkingConfiguration { get; set; }

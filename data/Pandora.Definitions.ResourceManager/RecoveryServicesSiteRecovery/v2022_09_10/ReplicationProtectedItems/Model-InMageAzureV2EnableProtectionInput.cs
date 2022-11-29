@@ -37,10 +37,10 @@ internal class InMageAzureV2EnableProtectionInputModel : EnableProtectionProvide
     public string? MasterTargetId { get; set; }
 
     [JsonPropertyName("multiVmGroupId")]
-    public string? MultiVmGroupId { get; set; }
+    public string? MultiVMGroupId { get; set; }
 
     [JsonPropertyName("multiVmGroupName")]
-    public string? MultiVmGroupName { get; set; }
+    public string? MultiVMGroupName { get; set; }
 
     [JsonPropertyName("processServerId")]
     public string? ProcessServerId { get; set; }
@@ -76,7 +76,7 @@ internal class InMageAzureV2EnableProtectionInputModel : EnableProtectionProvide
     public string? TargetAzureV2ResourceGroupId { get; set; }
 
     [JsonPropertyName("targetAzureVmName")]
-    public string? TargetAzureVmName { get; set; }
+    public string? TargetAzureVMName { get; set; }
 
     [JsonPropertyName("targetManagedDiskTags")]
     public Dictionary<string, string>? TargetManagedDiskTags { get; set; }
@@ -88,8 +88,8 @@ internal class InMageAzureV2EnableProtectionInputModel : EnableProtectionProvide
     public string? TargetProximityPlacementGroupId { get; set; }
 
     [JsonPropertyName("targetVmSize")]
-    public string? TargetVmSize { get; set; }
+    public string? TargetVMSize { get; set; }
 
     [JsonPropertyName("targetVmTags")]
-    public Dictionary<string, string>? TargetVmTags { get; set; }
+    public Dictionary<string, string>? TargetVMTags { get; set; }
 }

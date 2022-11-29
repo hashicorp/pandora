@@ -20,5 +20,5 @@ internal class RecoveryPlanInMageRcmFailoverInputModel : RecoveryPlanProviderSpe
     public RecoveryPlanPointTypeConstant RecoveryPointType { get; set; }
 
     [JsonPropertyName("useMultiVmSyncPoint")]
-    public string? UseMultiVmSyncPoint { get; set; }
+    public string? UseMultiVMSyncPoint { get; set; }
 }

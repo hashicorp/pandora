@@ -18,7 +18,7 @@ internal class Definition : ResourceDefinition
         new GetOperation(),
         new ListOperation(),
         new ListByResourceGroupOperation(),
-        new ListBySqlVmGroupOperation(),
+        new ListBySqlVMGroupOperation(),
         new RedeployOperation(),
         new StartAssessmentOperation(),
         new UpdateOperation(),

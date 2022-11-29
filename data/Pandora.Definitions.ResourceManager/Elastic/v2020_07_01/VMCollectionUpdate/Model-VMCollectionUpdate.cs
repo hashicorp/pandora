@@ -19,5 +19,5 @@ internal class VMCollectionUpdateModel
     public OperationNameConstant? OperationName { get; set; }
 
     [JsonPropertyName("vmResourceId")]
-    public string? VmResourceId { get; set; }
+    public string? VMResourceId { get; set; }
 }

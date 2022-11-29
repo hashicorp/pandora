@@ -34,10 +34,10 @@ internal class A2AReplicationIntentDetailsModel : ReplicationProtectionIntentPro
     public string? FabricObjectId { get; set; }
 
     [JsonPropertyName("multiVmGroupId")]
-    public string? MultiVmGroupId { get; set; }
+    public string? MultiVMGroupId { get; set; }
 
     [JsonPropertyName("multiVmGroupName")]
-    public string? MultiVmGroupName { get; set; }
+    public string? MultiVMGroupName { get; set; }
 
     [JsonPropertyName("primaryLocation")]
     public string? PrimaryLocation { get; set; }
@@ -77,8 +77,8 @@ internal class A2AReplicationIntentDetailsModel : ReplicationProtectionIntentPro
     public RecoveryVirtualNetworkCustomDetailsModel? RecoveryVirtualNetwork { get; set; }
 
     [JsonPropertyName("vmDisks")]
-    public List<A2AProtectionIntentDiskInputDetailsModel>? VmDisks { get; set; }
+    public List<A2AProtectionIntentDiskInputDetailsModel>? VMDisks { get; set; }
 
     [JsonPropertyName("vmManagedDisks")]
-    public List<A2AProtectionIntentManagedDiskInputDetailsModel>? VmManagedDisks { get; set; }
+    public List<A2AProtectionIntentManagedDiskInputDetailsModel>? VMManagedDisks { get; set; }
 }

@@ -31,7 +31,7 @@ internal class HyperVReplicaAzureEnableProtectionInputModel : EnableProtectionPr
     public string? EnableRdpOnTargetOption { get; set; }
 
     [JsonPropertyName("hvHostVmId")]
-    public string? HvHostVmId { get; set; }
+    public string? HvHostVMId { get; set; }
 
     [JsonPropertyName("licenseType")]
     public LicenseTypeConstant? LicenseType { get; set; }
@@ -67,7 +67,7 @@ internal class HyperVReplicaAzureEnableProtectionInputModel : EnableProtectionPr
     public string? TargetAzureV2ResourceGroupId { get; set; }
 
     [JsonPropertyName("targetAzureVmName")]
-    public string? TargetAzureVmName { get; set; }
+    public string? TargetAzureVMName { get; set; }
 
     [JsonPropertyName("targetManagedDiskTags")]
     public Dictionary<string, string>? TargetManagedDiskTags { get; set; }
@@ -82,10 +82,10 @@ internal class HyperVReplicaAzureEnableProtectionInputModel : EnableProtectionPr
     public string? TargetStorageAccountId { get; set; }
 
     [JsonPropertyName("targetVmSize")]
-    public string? TargetVmSize { get; set; }
+    public string? TargetVMSize { get; set; }
 
     [JsonPropertyName("targetVmTags")]
-    public Dictionary<string, string>? TargetVmTags { get; set; }
+    public Dictionary<string, string>? TargetVMTags { get; set; }
 
     [JsonPropertyName("useManagedDisks")]
     public string? UseManagedDisks { get; set; }

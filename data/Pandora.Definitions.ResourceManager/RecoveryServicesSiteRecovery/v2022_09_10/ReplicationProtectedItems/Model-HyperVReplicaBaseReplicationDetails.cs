@@ -26,14 +26,14 @@ internal class HyperVReplicaBaseReplicationDetailsModel : ReplicationProviderSpe
     public List<DiskDetailsModel>? VMDiskDetails { get; set; }
 
     [JsonPropertyName("vmId")]
-    public string? VmId { get; set; }
+    public string? VMId { get; set; }
 
     [JsonPropertyName("vmNics")]
-    public List<VMNicDetailsModel>? VmNics { get; set; }
+    public List<VMNicDetailsModel>? VMNics { get; set; }
 
     [JsonPropertyName("vmProtectionState")]
-    public string? VmProtectionState { get; set; }
+    public string? VMProtectionState { get; set; }
 
     [JsonPropertyName("vmProtectionStateDescription")]
-    public string? VmProtectionStateDescription { get; set; }
+    public string? VMProtectionStateDescription { get; set; }
 }

@@ -19,13 +19,13 @@ internal class InMageRcmFailbackReplicationDetailsModel : ReplicationProviderSpe
     public string? AzureVirtualMachineId { get; set; }
 
     [JsonPropertyName("discoveredVmDetails")]
-    public InMageRcmFailbackDiscoveredProtectedVmDetailsModel? DiscoveredVmDetails { get; set; }
+    public InMageRcmFailbackDiscoveredProtectedVMDetailsModel? DiscoveredVMDetails { get; set; }
 
     [JsonPropertyName("initialReplicationProcessedBytes")]
     public int? InitialReplicationProcessedBytes { get; set; }
 
     [JsonPropertyName("initialReplicationProgressHealth")]
-    public VmReplicationProgressHealthConstant? InitialReplicationProgressHealth { get; set; }
+    public VMReplicationProgressHealthConstant? InitialReplicationProgressHealth { get; set; }
 
     [JsonPropertyName("initialReplicationProgressPercentage")]
     public int? InitialReplicationProgressPercentage { get; set; }
@@ -59,7 +59,7 @@ internal class InMageRcmFailbackReplicationDetailsModel : ReplicationProviderSpe
     public InMageRcmFailbackMobilityAgentDetailsModel? MobilityAgentDetails { get; set; }
 
     [JsonPropertyName("multiVmGroupName")]
-    public string? MultiVmGroupName { get; set; }
+    public string? MultiVMGroupName { get; set; }
 
     [JsonPropertyName("osType")]
     public string? OsType { get; set; }
@@ -77,7 +77,7 @@ internal class InMageRcmFailbackReplicationDetailsModel : ReplicationProviderSpe
     public int? ResyncProcessedBytes { get; set; }
 
     [JsonPropertyName("resyncProgressHealth")]
-    public VmReplicationProgressHealthConstant? ResyncProgressHealth { get; set; }
+    public VMReplicationProgressHealthConstant? ResyncProgressHealth { get; set; }
 
     [JsonPropertyName("resyncProgressPercentage")]
     public int? ResyncProgressPercentage { get; set; }
@@ -95,11 +95,11 @@ internal class InMageRcmFailbackReplicationDetailsModel : ReplicationProviderSpe
     public string? TargetDataStoreName { get; set; }
 
     [JsonPropertyName("targetVmName")]
-    public string? TargetVmName { get; set; }
+    public string? TargetVMName { get; set; }
 
     [JsonPropertyName("targetvCenterId")]
     public string? TargetvCenterId { get; set; }
 
     [JsonPropertyName("vmNics")]
-    public List<InMageRcmFailbackNicDetailsModel>? VmNics { get; set; }
+    public List<InMageRcmFailbackNicDetailsModel>? VMNics { get; set; }
 }

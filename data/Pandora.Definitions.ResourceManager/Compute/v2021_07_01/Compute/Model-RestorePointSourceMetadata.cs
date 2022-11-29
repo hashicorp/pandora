@@ -37,5 +37,5 @@ internal class RestorePointSourceMetadataModel
     public RestorePointSourceVMStorageProfileModel? StorageProfile { get; set; }
 
     [JsonPropertyName("vmId")]
-    public string? VmId { get; set; }
+    public string? VMId { get; set; }
 }

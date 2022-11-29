@@ -34,5 +34,5 @@ internal class VMwareV2FabricSpecificDetailsModel : FabricSpecificDetailsModel
     public string? ServiceResourceId { get; set; }
 
     [JsonPropertyName("vmwareSiteId")]
-    public string? VmwareSiteId { get; set; }
+    public string? VMwareSiteId { get; set; }
 }

@@ -16,5 +16,5 @@ namespace Pandora.Definitions.ResourceManager.RecoveryServicesSiteRecovery.v2022
 internal class InMageRcmRecoveryPointDetailsModel : ProviderSpecificRecoveryPointDetailsModel
 {
     [JsonPropertyName("isMultiVmSyncPoint")]
-    public string? IsMultiVmSyncPoint { get; set; }
+    public string? IsMultiVMSyncPoint { get; set; }
 }

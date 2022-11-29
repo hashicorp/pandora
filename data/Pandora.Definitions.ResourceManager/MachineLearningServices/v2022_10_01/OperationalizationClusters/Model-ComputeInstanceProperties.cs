@@ -66,9 +66,9 @@ internal class ComputeInstancePropertiesModel
     [JsonPropertyName("subnet")]
     public ResourceIdModel? Subnet { get; set; }
 
+    [JsonPropertyName("vmSize")]
+    public string? VMSize { get; set; }
+
     [JsonPropertyName("versions")]
     public ComputeInstanceVersionModel? Versions { get; set; }
-
-    [JsonPropertyName("vmSize")]
-    public string? VmSize { get; set; }
 }

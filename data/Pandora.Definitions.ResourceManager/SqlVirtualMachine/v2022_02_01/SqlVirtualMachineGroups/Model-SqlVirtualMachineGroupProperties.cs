@@ -31,7 +31,7 @@ internal class SqlVirtualMachineGroupPropertiesModel
     public string? SqlImageOffer { get; set; }
 
     [JsonPropertyName("sqlImageSku")]
-    public SqlVmGroupImageSkuConstant? SqlImageSku { get; set; }
+    public SqlVMGroupImageSkuConstant? SqlImageSku { get; set; }
 
     [JsonPropertyName("wsfcDomainProfile")]
     public WsfcDomainProfileModel? WsfcDomainProfile { get; set; }

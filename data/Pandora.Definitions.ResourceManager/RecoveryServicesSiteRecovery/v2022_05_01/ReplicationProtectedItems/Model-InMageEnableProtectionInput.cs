@@ -30,11 +30,11 @@ internal class InMageEnableProtectionInputModel : EnableProtectionProviderSpecif
 
     [JsonPropertyName("multiVmGroupId")]
     [Required]
-    public string MultiVmGroupId { get; set; }
+    public string MultiVMGroupId { get; set; }
 
     [JsonPropertyName("multiVmGroupName")]
     [Required]
-    public string MultiVmGroupName { get; set; }
+    public string MultiVMGroupName { get; set; }
 
     [JsonPropertyName("processServerId")]
     [Required]
@@ -48,5 +48,5 @@ internal class InMageEnableProtectionInputModel : EnableProtectionProviderSpecif
     public string? RunAsAccountId { get; set; }
 
     [JsonPropertyName("vmFriendlyName")]
-    public string? VmFriendlyName { get; set; }
+    public string? VMFriendlyName { get; set; }
 }

@@ -84,9 +84,9 @@ internal class VirtualMachinePropertiesModel
     [JsonPropertyName("userData")]
     public string? UserData { get; set; }
 
+    [JsonPropertyName("vmId")]
+    public string? VMId { get; set; }
+
     [JsonPropertyName("virtualMachineScaleSet")]
     public SubResourceModel? VirtualMachineScaleSet { get; set; }
-
-    [JsonPropertyName("vmId")]
-    public string? VmId { get; set; }
 }

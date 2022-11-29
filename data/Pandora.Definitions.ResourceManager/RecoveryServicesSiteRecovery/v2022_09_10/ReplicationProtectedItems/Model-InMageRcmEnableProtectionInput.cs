@@ -29,7 +29,7 @@ internal class InMageRcmEnableProtectionInputModel : EnableProtectionProviderSpe
     public LicenseTypeConstant? LicenseType { get; set; }
 
     [JsonPropertyName("multiVmGroupName")]
-    public string? MultiVmGroupName { get; set; }
+    public string? MultiVMGroupName { get; set; }
 
     [JsonPropertyName("processServerId")]
     [Required]
@@ -61,10 +61,10 @@ internal class InMageRcmEnableProtectionInputModel : EnableProtectionProviderSpe
     public string? TargetSubnetName { get; set; }
 
     [JsonPropertyName("targetVmName")]
-    public string? TargetVmName { get; set; }
+    public string? TargetVMName { get; set; }
 
     [JsonPropertyName("targetVmSize")]
-    public string? TargetVmSize { get; set; }
+    public string? TargetVMSize { get; set; }
 
     [JsonPropertyName("testNetworkId")]
     public string? TestNetworkId { get; set; }

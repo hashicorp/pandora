@@ -19,5 +19,5 @@ internal class VaultSettingPropertiesModel
     public string? MigrationSolutionId { get; set; }
 
     [JsonPropertyName("vmwareToAzureProviderType")]
-    public string? VmwareToAzureProviderType { get; set; }
+    public string? VMwareToAzureProviderType { get; set; }
 }

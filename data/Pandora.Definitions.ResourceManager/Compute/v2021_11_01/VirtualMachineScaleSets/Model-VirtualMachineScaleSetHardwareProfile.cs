@@ -16,5 +16,5 @@ namespace Pandora.Definitions.ResourceManager.Compute.v2021_11_01.VirtualMachine
 internal class VirtualMachineScaleSetHardwareProfileModel
 {
     [JsonPropertyName("vmSizeProperties")]
-    public VMSizePropertiesModel? VmSizeProperties { get; set; }
+    public VMSizePropertiesModel? VMSizeProperties { get; set; }
 }

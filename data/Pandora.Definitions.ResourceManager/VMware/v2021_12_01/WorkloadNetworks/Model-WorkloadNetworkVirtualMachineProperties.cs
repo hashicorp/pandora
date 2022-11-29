@@ -19,5 +19,5 @@ internal class WorkloadNetworkVirtualMachinePropertiesModel
     public string? DisplayName { get; set; }
 
     [JsonPropertyName("vmType")]
-    public VMTypeEnumConstant? VmType { get; set; }
+    public VMTypeEnumConstant? VMType { get; set; }
 }

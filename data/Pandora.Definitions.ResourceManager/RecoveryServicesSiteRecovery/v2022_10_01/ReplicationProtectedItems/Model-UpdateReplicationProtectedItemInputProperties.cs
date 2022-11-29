@@ -43,5 +43,5 @@ internal class UpdateReplicationProtectedItemInputPropertiesModel
     public string? SelectedTfoAzureNetworkId { get; set; }
 
     [JsonPropertyName("vmNics")]
-    public List<VMNicInputDetailsModel>? VmNics { get; set; }
+    public List<VMNicInputDetailsModel>? VMNics { get; set; }
 }

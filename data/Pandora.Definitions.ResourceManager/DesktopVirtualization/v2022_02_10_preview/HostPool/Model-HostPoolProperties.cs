@@ -84,9 +84,9 @@ internal class HostPoolPropertiesModel
     [JsonPropertyName("startVMOnConnect")]
     public bool? StartVMOnConnect { get; set; }
 
+    [JsonPropertyName("vmTemplate")]
+    public string? VMTemplate { get; set; }
+
     [JsonPropertyName("validationEnvironment")]
     public bool? ValidationEnvironment { get; set; }
-
-    [JsonPropertyName("vmTemplate")]
-    public string? VmTemplate { get; set; }
 }

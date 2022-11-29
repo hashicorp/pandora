@@ -31,5 +31,5 @@ internal class VirtualMachineExtensionImagePropertiesModel
     public bool? SupportsMultipleExtensions { get; set; }
 
     [JsonPropertyName("vmScaleSetEnabled")]
-    public bool? VmScaleSetEnabled { get; set; }
+    public bool? VMScaleSetEnabled { get; set; }
 }

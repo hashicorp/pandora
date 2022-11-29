@@ -142,7 +142,7 @@ internal class ManagedClusterAgentPoolProfilePropertiesModel
     public AgentPoolUpgradeSettingsModel? UpgradeSettings { get; set; }
 
     [JsonPropertyName("vmSize")]
-    public string? VmSize { get; set; }
+    public string? VMSize { get; set; }
 
     [JsonPropertyName("vnetSubnetID")]
     public string? VnetSubnetID { get; set; }

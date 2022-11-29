@@ -16,8 +16,8 @@ namespace Pandora.Definitions.ResourceManager.RecoveryServicesSiteRecovery.v2022
 internal class A2ARemoveDisksInputModel : RemoveDisksProviderSpecificInputModel
 {
     [JsonPropertyName("vmDisksUris")]
-    public List<string>? VmDisksUris { get; set; }
+    public List<string>? VMDisksUris { get; set; }
 
     [JsonPropertyName("vmManagedDisksIds")]
-    public List<string>? VmManagedDisksIds { get; set; }
+    public List<string>? VMManagedDisksIds { get; set; }
 }

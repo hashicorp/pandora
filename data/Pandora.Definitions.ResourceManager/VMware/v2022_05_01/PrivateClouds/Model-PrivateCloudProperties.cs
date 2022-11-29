@@ -65,12 +65,12 @@ internal class PrivateCloudPropertiesModel
     [JsonPropertyName("secondaryCircuit")]
     public CircuitModel? SecondaryCircuit { get; set; }
 
+    [JsonPropertyName("vmotionNetwork")]
+    public string? VMotionNetwork { get; set; }
+
     [JsonPropertyName("vcenterCertificateThumbprint")]
     public string? VcenterCertificateThumbprint { get; set; }
 
     [JsonPropertyName("vcenterPassword")]
     public string? VcenterPassword { get; set; }
-
-    [JsonPropertyName("vmotionNetwork")]
-    public string? VmotionNetwork { get; set; }
 }

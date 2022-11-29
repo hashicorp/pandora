@@ -22,5 +22,5 @@ internal class VirtualMachineAgentInstanceViewModel
     public List<InstanceViewStatusModel>? Statuses { get; set; }
 
     [JsonPropertyName("vmAgentVersion")]
-    public string? VmAgentVersion { get; set; }
+    public string? VMAgentVersion { get; set; }
 }

@@ -16,5 +16,5 @@ namespace Pandora.Definitions.ResourceManager.RecoveryServicesSiteRecovery.v2022
 internal class ConsistencyCheckTaskDetailsModel : TaskTypeDetailsModel
 {
     [JsonPropertyName("vmDetails")]
-    public List<InconsistentVmDetailsModel>? VmDetails { get; set; }
+    public List<InconsistentVMDetailsModel>? VMDetails { get; set; }
 }

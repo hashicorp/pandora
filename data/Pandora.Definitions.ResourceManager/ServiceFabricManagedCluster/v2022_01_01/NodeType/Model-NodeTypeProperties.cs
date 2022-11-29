@@ -16,7 +16,7 @@ namespace Pandora.Definitions.ResourceManager.ServiceFabricManagedCluster.v2022_
 internal class NodeTypePropertiesModel
 {
     [JsonPropertyName("additionalDataDisks")]
-    public List<VmssDataDiskModel>? AdditionalDataDisks { get; set; }
+    public List<VMSSDataDiskModel>? AdditionalDataDisks { get; set; }
 
     [JsonPropertyName("applicationPorts")]
     public EndpointRangeDescriptionModel? ApplicationPorts { get; set; }
@@ -74,30 +74,30 @@ internal class NodeTypePropertiesModel
     public bool? UseTempDataDisk { get; set; }
 
     [JsonPropertyName("vmExtensions")]
-    public List<VMSSExtensionModel>? VmExtensions { get; set; }
+    public List<VMSSExtensionModel>? VMExtensions { get; set; }
 
     [JsonPropertyName("vmImageOffer")]
-    public string? VmImageOffer { get; set; }
+    public string? VMImageOffer { get; set; }
 
     [JsonPropertyName("vmImagePublisher")]
-    public string? VmImagePublisher { get; set; }
+    public string? VMImagePublisher { get; set; }
 
     [JsonPropertyName("vmImageSku")]
-    public string? VmImageSku { get; set; }
+    public string? VMImageSku { get; set; }
 
     [JsonPropertyName("vmImageVersion")]
-    public string? VmImageVersion { get; set; }
+    public string? VMImageVersion { get; set; }
 
     [JsonPropertyName("vmInstanceCount")]
     [Required]
-    public int VmInstanceCount { get; set; }
+    public int VMInstanceCount { get; set; }
 
     [JsonPropertyName("vmManagedIdentity")]
-    public CustomTypes.UserAssignedIdentityList? VmManagedIdentity { get; set; }
+    public CustomTypes.UserAssignedIdentityList? VMManagedIdentity { get; set; }
 
     [JsonPropertyName("vmSecrets")]
-    public List<VaultSecretGroupModel>? VmSecrets { get; set; }
+    public List<VaultSecretGroupModel>? VMSecrets { get; set; }
 
     [JsonPropertyName("vmSize")]
-    public string? VmSize { get; set; }
+    public string? VMSize { get; set; }
 }
