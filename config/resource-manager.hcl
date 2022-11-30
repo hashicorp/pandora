@@ -225,7 +225,7 @@ service "mariadb" {
 }
 service "mediaservices" {
   name      = "Media"
-  available = ["2020-05-01", "2021-05-01"]
+  available = ["2020-05-01", "2021-05-01", "2021-11-01", "2022-08-01"]
 }
 service "mixedreality" {
   name      = "MixedReality"
