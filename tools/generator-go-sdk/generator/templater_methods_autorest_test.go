@@ -89,7 +89,7 @@ func TestTemplateMethodAutoRestDiscriminatedTypeResponder(t *testing.T) {
 			},
 		},
 		operationName: "Get",
-	}.responderTemplate(input)
+	}.responderTemplate("GetOperationResponse", input)
 
 	if err != nil {
 		t.Fatalf("err %+v", err)
