@@ -8,6 +8,7 @@ import (
 	"path"
 	"path/filepath"
 	"strings"
+	"sync"
 
 	"github.com/hashicorp/pandora/tools/generator-go-sdk/generator"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
@@ -73,6 +74,18 @@ func run(input GeneratorInput) error {
 		}
 		loadedServices = *services
 	}
+
+	errCh := make(chan error, 1)
+	waitDone := make(chan struct{}, 1)
+	var wg sync.WaitGroup
+	addErr := func(err error) {
+		// only put one err to channel
+		select {
+		case errCh <- err:
+		default:
+		}
+	}
+
 	generatorService := generator.NewServiceGenerator(input.settings)
 	for serviceName, service := range loadedServices.Services {
 		log.Printf("[DEBUG] Service %q..", serviceName)
@@ -81,41 +94,60 @@ func run(input GeneratorInput) error {
 			continue
 		}
 
-		for versionNumber, versionDetails := range service.Versions {
-			log.Printf("[DEBUG]   Version %q", versionNumber)
-			for resourceName, resourceDetails := range versionDetails.Resources {
-				log.Printf("[DEBUG]      Resource %q..", resourceName)
-				generatorData := generator.ServiceGeneratorInput{
-					ServiceName:     serviceName,
-					ServiceDetails:  service,
-					VersionName:     versionNumber,
-					VersionDetails:  versionDetails,
-					ResourceName:    resourceName,
-					ResourceDetails: resourceDetails,
+		wg.Add(1)
+		go func(serviceName string, service services.ResourceManagerService, input GeneratorInput) {
+			defer wg.Done()
+			log.Printf("[DEBUG] Service %q", serviceName)
+			for versionNumber, versionDetails := range service.Versions {
+				log.Printf("[DEBUG]   Version %q", versionNumber)
+				for resourceName, resourceDetails := range versionDetails.Resources {
+					log.Printf("[DEBUG]      Resource %q..", resourceName)
+					generatorData := generator.ServiceGeneratorInput{
+						ServiceName:     serviceName,
+						ServiceDetails:  service,
+						VersionName:     versionNumber,
+						VersionDetails:  versionDetails,
+						ResourceName:    resourceName,
+						ResourceDetails: resourceDetails,
+						OutputDirectory: input.outputDirectory,
+						Source:          versionDetails.Details.Source,
+					}
+					log.Printf("[DEBUG] Generating Service %q / Version %q / Resource %q..", serviceName, versionNumber, resourceName)
+					if err := generatorService.Generate(generatorData); err != nil {
+						addErr(fmt.Errorf("generating Service %q / Version %q / Resource %q: %+v", serviceName, versionNumber, resourceName, err))
+						return
+					}
+					log.Printf("[DEBUG] Generated Service %q / Version %q / Resource %q..", serviceName, versionNumber, resourceName)
+				}
+
+				// then output the Meta Client
+				generatorData := generator.VersionInput{
 					OutputDirectory: input.outputDirectory,
+					ServiceName:     serviceName,
+					VersionName:     versionNumber,
+					Resources:       versionDetails.Resources,
 					Source:          versionDetails.Details.Source,
 				}
-				log.Printf("[DEBUG] Generating Service %q / Version %q / Resource %q..", serviceName, versionNumber, resourceName)
-				if err := generatorService.Generate(generatorData); err != nil {
-					return fmt.Errorf("generating Service %q / Version %q / Resource %q: %+v", serviceName, versionNumber, resourceName, err)
+				log.Printf("[DEBUG] Generating Service %q / Version %q..", serviceName, versionNumber)
+				if err := generatorService.GenerateForVersion(generatorData); err != nil {
+					addErr(fmt.Errorf("generating Service %q / Version %q: %+v", serviceName, versionNumber, err))
+					return
 				}
-				log.Printf("[DEBUG] Generated Service %q / Version %q / Resource %q..", serviceName, versionNumber, resourceName)
+				log.Printf("[DEBUG] Generated Service %q / Version %q..", serviceName, versionNumber)
 			}
+		}(serviceName, service, input)
+	}
 
-			// then output the Meta Client
-			generatorData := generator.VersionInput{
-				OutputDirectory: input.outputDirectory,
-				ServiceName:     serviceName,
-				VersionName:     versionNumber,
-				Resources:       versionDetails.Resources,
-				Source:          versionDetails.Details.Source,
-			}
-			log.Printf("[DEBUG] Generating Service %q / Version %q..", serviceName, versionNumber)
-			if err := generatorService.GenerateForVersion(generatorData); err != nil {
-				return fmt.Errorf("generating Service %q / Version %q: %+v", serviceName, versionNumber, err)
-			}
-			log.Printf("[DEBUG] Generated Service %q / Version %q..", serviceName, versionNumber)
-		}
+	go func() {
+		wg.Wait()
+		waitDone <- struct{}{}
+	}()
+
+	select {
+	case <-waitDone:
+		break
+	case err := <-errCh:
+		return err
 	}
 
 	return nil
