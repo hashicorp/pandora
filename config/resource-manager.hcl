@@ -299,6 +299,10 @@ service "recoveryservices" {
   name      = "RecoveryServices"
   available = ["2021-08-01", "2022-03-01", "2022-08-01", "2022-09-10", "2022-10-01"]
 }
+service "recoveryservicesbackup" {
+  name      = "RecoveryServicesBackup"
+  available = ["2022-03-01", "2022-04-01"]
+}
 service "recoveryservicessiterecovery" {
   name      = "RecoveryServicesSiteRecovery"
   available = ["2022-05-01", "2022-09-10", "2022-10-01"]
