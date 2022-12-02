@@ -28,7 +28,7 @@ internal class OutputPropertiesModel
     public SerializationModel? Serialization { get; set; }
 
     [JsonPropertyName("sizeWindow")]
-    public float? SizeWindow { get; set; }
+    public int? SizeWindow { get; set; }
 
     [JsonPropertyName("timeWindow")]
     public string? TimeWindow { get; set; }
