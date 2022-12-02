@@ -13,7 +13,7 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.Consumption.v2021_10_01.ReservationRecommendations;
 
 
-internal class ModernReservationRecommendationPropertiesModel
+internal abstract class ModernReservationRecommendationPropertiesModel
 {
     [JsonPropertyName("costWithNoReservedInstances")]
     public AmountModel? CostWithNoReservedInstances { get; set; }
@@ -53,16 +53,15 @@ internal class ModernReservationRecommendationPropertiesModel
     public string? ResourceType { get; set; }
 
     [JsonPropertyName("scope")]
-    public string? Scope { get; set; }
+    [ProvidesTypeHint]
+    [Required]
+    public string Scope { get; set; }
 
     [JsonPropertyName("skuName")]
     public string? SkuName { get; set; }
 
     [JsonPropertyName("skuProperties")]
     public List<SkuPropertyModel>? SkuProperties { get; set; }
-
-    [JsonPropertyName("subscriptionId")]
-    public string? SubscriptionId { get; set; }
 
     [JsonPropertyName("term")]
     public string? Term { get; set; }
