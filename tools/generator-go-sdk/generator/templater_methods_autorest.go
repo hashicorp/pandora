@@ -473,7 +473,8 @@ func (c methodsAutoRestTemplater) preparerTemplate(data ServiceGeneratorData) (*
 
 	steps := make([]string, 0)
 	listSteps := make([]string, 0)
-	if c.operation.ContentType != nil && (c.operation.Method != "GET" && c.operation.Method != "HEAD") {
+	if c.operation.ContentType != nil && (!strings.EqualFold(c.operation.Method, "GET") &&
+		!strings.EqualFold(c.operation.Method, "HEAD")) {
 		steps = append(steps, fmt.Sprintf("autorest.AsContentType(%q)", *c.operation.ContentType))
 		listSteps = append(listSteps, fmt.Sprintf("autorest.AsContentType(%q)", *c.operation.ContentType))
 	}
