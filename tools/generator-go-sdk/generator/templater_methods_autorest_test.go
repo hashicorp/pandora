@@ -138,6 +138,7 @@ func TestTemplateMethodsAutoRestBaseTypePredicates(t *testing.T) {
 				Type: resourcemanager.StringApiObjectDefinitionType,
 			},
 			ResourceIdName: stringPointer("PandaPop"),
+			ContentType:    stringPointer("text/powershell"),
 		},
 		operationName: "List",
 	}.listOperationTemplate(input)
@@ -180,6 +181,7 @@ func (c pandaClient) List(ctx context.Context, id PandaPop) (resp ListOperationR
 			"api-version": defaultApiVersion,
 		}
 		preparer := autorest.CreatePreparer(
+		autorest.AsContentType("text/powershell"),
 		autorest.AsGet(),
 		autorest.WithBaseURL(c.baseUri),
 		autorest.WithPath(id.ID()),
