@@ -25,7 +25,7 @@ service "applicationinsights" {
 }
 service "appplatform" {
   name      = "AppPlatform"
-  available = ["2022-09-01-preview"]
+  available = ["2022-09-01-preview", "2022-12-01"]
 }
 service "attestation" {
   name      = "Attestation"
@@ -41,7 +41,7 @@ service "azure-kusto" {
 }
 service "azurestackhci" {
   name      = "AzureStackHCI"
-  available = ["2022-09-01", "2022-10-01"]
+  available = ["2022-09-01", "2022-10-01", "2022-12-01"]
 }
 service "batch" {
   name      = "Batch"
@@ -137,7 +137,7 @@ service "dnsresolver" {
 }
 service "domainservices" {
   name      = "AAD"
-  available = ["2020-01-01", "2021-03-01", "2021-05-01", "2022-09-01"]
+  available = ["2020-01-01", "2021-03-01", "2021-05-01", "2022-09-01", "2022-12-01"]
 }
 service "dynatrace" {
   name      = "Dynatrace"
@@ -301,7 +301,7 @@ service "recoveryservices" {
 }
 service "recoveryservicesbackup" {
   name      = "RecoveryServicesBackup"
-  available = ["2022-03-01", "2022-04-01"]
+  available = ["2022-03-01", "2022-04-01", "2022-10-01"]
 }
 service "recoveryservicessiterecovery" {
   name      = "RecoveryServicesSiteRecovery"
