@@ -16,6 +16,12 @@ func OperationShouldBeIgnored(operationUri string) bool {
 	if strings.Contains(strings.ToLower(operationUri), "/azureasyncoperations/") {
 		return true
 	}
+	if strings.Contains(strings.ToLower(operationUri), "/backupoperationresults/") {
+		return true
+	}
+	if strings.Contains(strings.ToLower(operationUri), "/backupvalidateoperationresults/") {
+		return true
+	}
 	if strings.Contains(strings.ToLower(operationUri), "/costdetailsoperationresults/") {
 		return true
 	}
@@ -26,6 +32,14 @@ func OperationShouldBeIgnored(operationUri string) bool {
 		return true
 	}
 	if strings.Contains(strings.ToLower(operationUri), "/operationstatuses/") {
+		return true
+	}
+	if strings.Contains(strings.ToLower(operationUri), "/operationsstatus/") {
+		return true
+	}
+
+	// we're not concerned with the associated `trigger` operations at this time
+	if strings.Contains(strings.ToLower(operationUri), "/backuptriggervalidateoperation/") {
 		return true
 	}
 
