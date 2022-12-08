@@ -13,7 +13,6 @@ public partial class Definition : ApiVersionDefinition
     {
         new BackupEngines.Definition(),
         new BackupJobs.Definition(),
-        new BackupOperationResults.Definition(),
         new BackupPolicies.Definition(),
         new BackupProtectableItems.Definition(),
         new BackupProtectedItems.Definition(),
@@ -33,7 +32,6 @@ public partial class Definition : ApiVersionDefinition
         new JobDetails.Definition(),
         new Jobs.Definition(),
         new Operation.Definition(),
-        new PrivateEndpoint.Definition(),
         new PrivateEndpointConnection.Definition(),
         new ProtectableContainers.Definition(),
         new ProtectedItems.Definition(),
@@ -49,6 +47,5 @@ public partial class Definition : ApiVersionDefinition
         new SecurityPINs.Definition(),
         new SoftDeletedContainers.Definition(),
         new ValidateOperation.Definition(),
-        new ValidateOperationResults.Definition(),
     };
 }
