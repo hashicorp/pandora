@@ -13,7 +13,7 @@ service "apimanagement" {
 }
 service "app" {
   name      = "ContainerApps"
-  available = ["2022-03-01"]
+  available = ["2022-03-01", "2022-10-01"]
 }
 service "appconfiguration" {
   name      = "AppConfiguration"
@@ -231,13 +231,13 @@ service "mixedreality" {
   name      = "MixedReality"
   available = ["2021-01-01"]
 }
+service "mobilenetwork" {
+  name      = "MobileNetwork"
+  available = ["2022-11-01"]
+}
 service "monitor" {
   name      = "Insights"
   available = ["2021-04-01", "2021-05-01-preview", "2021-08-01", "2022-10-01"]
-}
-service "mobilenetwork" {
-  name = "MobileNetwork"
-  available = ["2022-11-01"]
 }
 service "msi" {
   name      = "ManagedIdentity"
