@@ -15,8 +15,8 @@ namespace Pandora.Definitions.ResourceManager.Databricks.v2022_04_01_preview.Wor
 
 internal class PrivateLinkServiceConnectionStateModel
 {
-    [JsonPropertyName("actionRequired")]
-    public string? ActionRequired { get; set; }
+    [JsonPropertyName("actionsRequired")]
+    public string? ActionsRequired { get; set; }
 
     [JsonPropertyName("description")]
     public string? Description { get; set; }
