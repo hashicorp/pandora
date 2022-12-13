@@ -49,9 +49,8 @@ type autoClient struct {
 	%[3]s
 }
 
-func buildAutoClients(client *autoClient, o *common.ClientOptions) error {
+func buildAutoClients(client *autoClient, o *common.ClientOptions) {
 	%[4]s
-	return nil
 }
 `, input.ProviderPrefix, strings.Join(importLines, "\n"), strings.Join(structFields, "\n"), strings.Join(assignmentLines, "\n"))
 	return strings.TrimSpace(output)

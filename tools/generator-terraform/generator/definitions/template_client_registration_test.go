@@ -28,8 +28,7 @@ import (
 type autoClient struct {
 }
 
-func buildAutoClients(client *autoClient, o *common.ClientOptions) error {
-	return nil
+func buildAutoClients(client *autoClient, o *common.ClientOptions) {
 }
 `
 	testhelpers.AssertTemplatedCodeMatches(t, expected, actual)
@@ -72,10 +71,9 @@ type autoClient struct {
 	Resource   *resources_v2015_11_01_preview.Client
 }
 
-func buildAutoClients(client *autoClient, o *common.ClientOptions) error {
+func buildAutoClients(client *autoClient, o *common.ClientOptions) {
 	client.Compute = compute.NewClient(o)
 	client.Resource = resources.NewClient(o)
-	return nil
 }
 `
 	testhelpers.AssertTemplatedCodeMatches(t, expected, actual)
