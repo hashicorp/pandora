@@ -15,6 +15,9 @@ namespace Pandora.Definitions.ResourceManager.Databricks.v2022_04_01_preview.Wor
 
 internal class PrivateEndpointConnectionPropertiesModel
 {
+    [JsonPropertyName("groupIds")]
+    public List<string>? GroupIds { get; set; }
+
     [JsonPropertyName("privateEndpoint")]
     public PrivateEndpointModel? PrivateEndpoint { get; set; }
 

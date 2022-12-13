@@ -10,18 +10,14 @@ using Pandora.Definitions.CustomTypes;
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 
 
-namespace Pandora.Definitions.ResourceManager.Databricks.v2022_04_01_preview.PUT;
+namespace Pandora.Definitions.ResourceManager.ManagementGroups.v2021_04_01.TenantBackfill;
 
 
-internal class PrivateLinkServiceConnectionStateModel
+internal class TenantBackfillStatusResultModel
 {
-    [JsonPropertyName("actionsRequired")]
-    public string? ActionsRequired { get; set; }
-
-    [JsonPropertyName("description")]
-    public string? Description { get; set; }
-
     [JsonPropertyName("status")]
-    [Required]
-    public PrivateLinkServiceConnectionStatusConstant Status { get; set; }
+    public StatusConstant? Status { get; set; }
+
+    [JsonPropertyName("tenantId")]
+    public string? TenantId { get; set; }
 }

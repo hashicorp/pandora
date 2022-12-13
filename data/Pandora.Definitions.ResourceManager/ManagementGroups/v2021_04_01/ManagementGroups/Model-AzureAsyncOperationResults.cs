@@ -10,32 +10,22 @@ using Pandora.Definitions.CustomTypes;
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 
 
-namespace Pandora.Definitions.ResourceManager.Databricks.v2022_04_01_preview.AccessConnector;
+namespace Pandora.Definitions.ResourceManager.ManagementGroups.v2021_04_01.ManagementGroups;
 
 
-internal class AccessConnectorModel
+internal class AzureAsyncOperationResultsModel
 {
     [JsonPropertyName("id")]
     public string? Id { get; set; }
-
-    [JsonPropertyName("identity")]
-    public CustomTypes.SystemAssignedIdentity? Identity { get; set; }
-
-    [JsonPropertyName("location")]
-    [Required]
-    public CustomTypes.Location Location { get; set; }
 
     [JsonPropertyName("name")]
     public string? Name { get; set; }
 
     [JsonPropertyName("properties")]
-    public AccessConnectorPropertiesModel? Properties { get; set; }
+    public ManagementGroupInfoPropertiesModel? Properties { get; set; }
 
-    [JsonPropertyName("systemData")]
-    public CustomTypes.SystemData? SystemData { get; set; }
-
-    [JsonPropertyName("tags")]
-    public CustomTypes.Tags? Tags { get; set; }
+    [JsonPropertyName("status")]
+    public string? Status { get; set; }
 
     [JsonPropertyName("type")]
     public string? Type { get; set; }
