@@ -31,6 +31,9 @@ internal class AccessConnectorModel
     [JsonPropertyName("properties")]
     public AccessConnectorPropertiesModel? Properties { get; set; }
 
+    [JsonPropertyName("systemData")]
+    public CustomTypes.SystemData? SystemData { get; set; }
+
     [JsonPropertyName("tags")]
     public CustomTypes.Tags? Tags { get; set; }
 
