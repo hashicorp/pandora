@@ -216,6 +216,10 @@ service "managedservices" {
   name      = "ManagedServices"
   available = ["2019-06-01", "2022-10-01"]
 }
+service "managementgroups" {
+  name      = "ManagementGroups"
+  available = ["2020-05-01"]
+}
 service "maps" {
   name      = "Maps"
   available = ["2021-02-01"]
