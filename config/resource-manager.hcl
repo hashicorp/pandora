@@ -218,7 +218,7 @@ service "managedservices" {
 }
 service "managementgroups" {
   name      = "ManagementGroups"
-  available = ["2020-05-01"]
+  available = ["2020-05-01", "2021-04-01"]
 }
 service "maps" {
   name      = "Maps"
@@ -306,7 +306,7 @@ service "purview" {
 }
 service "recoveryservices" {
   name      = "RecoveryServices"
-  available = ["2021-08-01","2021-12-01","2022-03-01", "2022-08-01", "2022-09-10", "2022-10-01"]
+  available = ["2021-08-01", "2021-12-01", "2022-03-01", "2022-08-01", "2022-09-10", "2022-10-01"]
 }
 service "recoveryservicesbackup" {
   name      = "RecoveryServicesBackup"
