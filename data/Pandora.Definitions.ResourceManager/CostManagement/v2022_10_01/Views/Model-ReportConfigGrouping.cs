@@ -21,5 +21,5 @@ internal class ReportConfigGroupingModel
 
     [JsonPropertyName("type")]
     [Required]
-    public ReportConfigColumnTypeConstant Type { get; set; }
+    public QueryColumnTypeConstant Type { get; set; }
 }
