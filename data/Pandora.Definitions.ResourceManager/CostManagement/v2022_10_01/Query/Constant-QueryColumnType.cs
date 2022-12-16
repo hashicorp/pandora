@@ -9,6 +9,6 @@ internal enum QueryColumnTypeConstant
     [Description("Dimension")]
     Dimension,
 
-    [Description("Tag")]
-    Tag,
+    [Description("TagKey")]
+    TagKey,
 }
