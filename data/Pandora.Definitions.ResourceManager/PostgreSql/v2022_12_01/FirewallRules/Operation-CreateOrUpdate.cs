@@ -11,30 +11,24 @@ using System.Net;
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 
 
-namespace Pandora.Definitions.ResourceManager.ManagementGroups.v2020_05_01.ManagementGroups;
+namespace Pandora.Definitions.ResourceManager.PostgreSql.v2022_12_01.FirewallRules;
 
 internal class CreateOrUpdateOperation : Operations.PutOperation
 {
     public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
+                HttpStatusCode.Created,
                 HttpStatusCode.OK,
         };
 
     public override bool LongRunning() => true;
 
-    public override Type? RequestObject() => typeof(CreateManagementGroupRequestModel);
+    public override Type? RequestObject() => typeof(FirewallRuleModel);
 
-    public override ResourceID? ResourceId() => new ManagementGroupId();
+    public override ResourceID? ResourceId() => new FirewallRuleId();
 
-    public override Type? ResponseObject() => typeof(AzureAsyncOperationResultsModel);
+    public override Type? ResponseObject() => typeof(FirewallRuleModel);
 
-    public override Type? OptionsObject() => typeof(CreateOrUpdateOperation.CreateOrUpdateOptions);
 
-    internal class CreateOrUpdateOptions
-    {
-        [HeaderName("Cache-Control")]
-        [Optional]
-        public string CacheControl { get; set; }
-    }
 }
