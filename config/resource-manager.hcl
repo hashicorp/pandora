@@ -374,7 +374,7 @@ service "storagepool" {
 }
 service "streamanalytics" {
   name      = "StreamAnalytics"
-  available = ["2020-03-01"]
+  available = ["2020-03-01", "2021-10-01-preview"]
 }
 service "subscription" {
   name      = "Subscription"
