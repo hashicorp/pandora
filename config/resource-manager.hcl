@@ -38,7 +38,7 @@ service "automation" {
 }
 service "azure-kusto" {
   name      = "Kusto"
-  available = ["2022-07-07"]
+  available = ["2022-07-07", "2022-11-11"]
 }
 service "azurestackhci" {
   name      = "AzureStackHCI"
@@ -54,7 +54,7 @@ service "chaos" {
 }
 service "cognitiveservices" {
   name      = "Cognitive"
-  available = ["2021-04-30", "2022-10-01"]
+  available = ["2021-04-30", "2022-10-01", "2022-12-01"]
 }
 service "communication" {
   name      = "Communication"
@@ -78,7 +78,7 @@ service "containerinstance" {
 }
 service "containerservice" {
   name      = "ContainerService"
-  available = ["2022-09-02-preview"]
+  available = ["2022-09-02-preview", "2022-11-01"]
 }
 service "cosmos-db" {
   name      = "CosmosDB"
@@ -110,7 +110,7 @@ service "datalake-store" {
 }
 service "dataprotection" {
   name      = "DataProtection"
-  available = ["2022-04-01", "2022-05-01"]
+  available = ["2022-04-01", "2022-05-01", "2022-12-01"]
 }
 service "desktopvirtualization" {
   name      = "DesktopVirtualization"
