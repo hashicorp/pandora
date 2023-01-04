@@ -9,6 +9,9 @@ internal enum ActionTypeConstant
     [Description("Allow")]
     Allow,
 
+    [Description("AnomalyScoring")]
+    AnomalyScoring,
+
     [Description("Block")]
     Block,
 
