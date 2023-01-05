@@ -248,6 +248,10 @@ service "msi" {
   name      = "ManagedIdentity"
   available = ["2022-01-31-preview"]
 }
+service "mysql" {
+  name      = "MySql"
+  available = ["2021-05-01", "2021-12-01-preview"]
+}
 service "netapp" {
   name      = "NetApp"
   available = ["2021-10-01", "2022-01-01", "2022-05-01"]
