@@ -13,6 +13,6 @@ internal class Definition : ResourceDefinition
     public string Name => "PacketCoreControlPlaneRollback";
     public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
     {
-        new PacketCoreControlPlaneRollbackOperation(),
+        new PacketCoreControlPlanesRollbackOperation(),
     };
 }

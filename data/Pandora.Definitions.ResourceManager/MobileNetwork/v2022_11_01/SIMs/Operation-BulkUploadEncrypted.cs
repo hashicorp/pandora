@@ -13,7 +13,7 @@ using System.Net;
 
 namespace Pandora.Definitions.ResourceManager.MobileNetwork.v2022_11_01.SIMs;
 
-internal class SimBulkUploadEncryptedOperation : Operations.PostOperation
+internal class BulkUploadEncryptedOperation : Operations.PostOperation
 {
     public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {

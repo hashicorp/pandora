@@ -13,9 +13,9 @@ internal class Definition : ResourceDefinition
     public string Name => "SIMs";
     public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
     {
+        new BulkDeleteOperation(),
+        new BulkUploadOperation(),
+        new BulkUploadEncryptedOperation(),
         new ListByGroupOperation(),
-        new SimBulkDeleteOperation(),
-        new SimBulkUploadOperation(),
-        new SimBulkUploadEncryptedOperation(),
     };
 }

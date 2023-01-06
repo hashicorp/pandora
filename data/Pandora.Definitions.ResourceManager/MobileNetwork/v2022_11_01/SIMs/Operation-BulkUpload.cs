@@ -13,24 +13,23 @@ using System.Net;
 
 namespace Pandora.Definitions.ResourceManager.MobileNetwork.v2022_11_01.SIMs;
 
-internal class SimBulkDeleteOperation : Operations.PostOperation
+internal class BulkUploadOperation : Operations.PostOperation
 {
     public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
-                HttpStatusCode.NoContent,
                 HttpStatusCode.OK,
         };
 
     public override bool LongRunning() => true;
 
-    public override Type? RequestObject() => typeof(SimDeleteListModel);
+    public override Type? RequestObject() => typeof(SimUploadListModel);
 
     public override ResourceID? ResourceId() => new SimGroupId();
 
     public override Type? ResponseObject() => typeof(AsyncOperationStatusModel);
 
-    public override string? UriSuffix() => "/deleteSims";
+    public override string? UriSuffix() => "/uploadSims";
 
 
 }

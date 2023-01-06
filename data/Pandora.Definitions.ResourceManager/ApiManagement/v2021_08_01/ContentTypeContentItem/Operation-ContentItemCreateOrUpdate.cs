@@ -15,7 +15,7 @@ namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.ContentT
 
 internal class ContentItemCreateOrUpdateOperation : Operations.PutOperation
 {
-    public override Type? RequestObject() => null;
+    public override Type? RequestObject() => typeof(ContentItemContractModel);
 
     public override ResourceID? ResourceId() => new ContentItemId();
 
