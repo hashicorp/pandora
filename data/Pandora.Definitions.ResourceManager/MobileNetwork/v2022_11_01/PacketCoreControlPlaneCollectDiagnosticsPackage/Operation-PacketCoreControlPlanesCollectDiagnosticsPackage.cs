@@ -11,9 +11,9 @@ using System.Net;
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 
 
-namespace Pandora.Definitions.ResourceManager.MobileNetwork.v2022_11_01.PacketCoreControlPlaneReinstall;
+namespace Pandora.Definitions.ResourceManager.MobileNetwork.v2022_11_01.PacketCoreControlPlaneCollectDiagnosticsPackage;
 
-internal class PacketCoreControlPlaneReinstallOperation : Operations.PostOperation
+internal class PacketCoreControlPlanesCollectDiagnosticsPackageOperation : Operations.PostOperation
 {
     public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
@@ -23,13 +23,13 @@ internal class PacketCoreControlPlaneReinstallOperation : Operations.PostOperati
 
     public override bool LongRunning() => true;
 
-    public override Type? RequestObject() => null;
+    public override Type? RequestObject() => typeof(PacketCoreControlPlaneCollectDiagnosticsPackageModel);
 
     public override ResourceID? ResourceId() => new PacketCoreControlPlaneId();
 
     public override Type? ResponseObject() => typeof(AsyncOperationStatusModel);
 
-    public override string? UriSuffix() => "/reinstall";
+    public override string? UriSuffix() => "/collectDiagnosticsPackage";
 
 
 }

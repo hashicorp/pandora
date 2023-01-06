@@ -11,9 +11,9 @@ using System.Net;
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 
 
-namespace Pandora.Definitions.ResourceManager.MobileNetwork.v2022_11_01.PacketCoreControlPlaneCollectDiagnosticsPackage;
+namespace Pandora.Definitions.ResourceManager.MobileNetwork.v2022_11_01.PacketCoreControlPlaneRollback;
 
-internal class PacketCoreControlPlaneCollectDiagnosticsPackageOperation : Operations.PostOperation
+internal class PacketCoreControlPlanesRollbackOperation : Operations.PostOperation
 {
     public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
@@ -23,13 +23,13 @@ internal class PacketCoreControlPlaneCollectDiagnosticsPackageOperation : Operat
 
     public override bool LongRunning() => true;
 
-    public override Type? RequestObject() => typeof(PacketCoreControlPlaneCollectDiagnosticsPackageModel);
+    public override Type? RequestObject() => null;
 
     public override ResourceID? ResourceId() => new PacketCoreControlPlaneId();
 
     public override Type? ResponseObject() => typeof(AsyncOperationStatusModel);
 
-    public override string? UriSuffix() => "/collectDiagnosticsPackage";
+    public override string? UriSuffix() => "/rollback";
 
 
 }

@@ -11,9 +11,9 @@ using System.Net;
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 
 
-namespace Pandora.Definitions.ResourceManager.MobileNetwork.v2022_11_01.SIMs;
+namespace Pandora.Definitions.ResourceManager.MobileNetwork.v2022_11_01.PacketCoreControlPlaneReinstall;
 
-internal class SimBulkUploadOperation : Operations.PostOperation
+internal class PacketCoreControlPlanesReinstallOperation : Operations.PostOperation
 {
     public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
@@ -23,13 +23,13 @@ internal class SimBulkUploadOperation : Operations.PostOperation
 
     public override bool LongRunning() => true;
 
-    public override Type? RequestObject() => typeof(SimUploadListModel);
+    public override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new SimGroupId();
+    public override ResourceID? ResourceId() => new PacketCoreControlPlaneId();
 
     public override Type? ResponseObject() => typeof(AsyncOperationStatusModel);
 
-    public override string? UriSuffix() => "/uploadSims";
+    public override string? UriSuffix() => "/reinstall";
 
 
 }

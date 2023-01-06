@@ -13,6 +13,6 @@ internal class Definition : ResourceDefinition
     public string Name => "PacketCoreControlPlaneReinstall";
     public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
     {
-        new PacketCoreControlPlaneReinstallOperation(),
+        new PacketCoreControlPlanesReinstallOperation(),
     };
 }

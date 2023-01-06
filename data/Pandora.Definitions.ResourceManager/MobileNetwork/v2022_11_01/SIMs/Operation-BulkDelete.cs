@@ -11,25 +11,26 @@ using System.Net;
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 
 
-namespace Pandora.Definitions.ResourceManager.MobileNetwork.v2022_11_01.PacketCoreControlPlaneRollback;
+namespace Pandora.Definitions.ResourceManager.MobileNetwork.v2022_11_01.SIMs;
 
-internal class PacketCoreControlPlaneRollbackOperation : Operations.PostOperation
+internal class BulkDeleteOperation : Operations.PostOperation
 {
     public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
+                HttpStatusCode.NoContent,
                 HttpStatusCode.OK,
         };
 
     public override bool LongRunning() => true;
 
-    public override Type? RequestObject() => null;
+    public override Type? RequestObject() => typeof(SimDeleteListModel);
 
-    public override ResourceID? ResourceId() => new PacketCoreControlPlaneId();
+    public override ResourceID? ResourceId() => new SimGroupId();
 
     public override Type? ResponseObject() => typeof(AsyncOperationStatusModel);
 
-    public override string? UriSuffix() => "/rollback";
+    public override string? UriSuffix() => "/deleteSims";
 
 
 }
