@@ -3200,3 +3200,51 @@ func TestParseOperationsContainingContentTypes(t *testing.T) {
 	validateOperationHasContentType("XmlRequest", "application/xml")
 	validateOperationHasContentType("XmlResponse", "application/xml")
 }
+
+func TestParseOperationContainingMultipleReturnObjects(t *testing.T) {
+	result, err := ParseSwaggerFileForTesting(t, "operations_single_multiple_return_objects.json")
+	if err != nil {
+		t.Fatalf("parsing: %+v", err)
+	}
+	if result == nil {
+		t.Fatal("result was nil")
+	}
+	if len(result.Resources) != 1 {
+		t.Fatalf("expected 1 resource but got %d", len(result.Resources))
+	}
+
+	hello, ok := result.Resources["Hello"]
+	if !ok {
+		t.Fatalf("no resources were output with the tag Hello")
+	}
+
+	if len(hello.Constants) != 0 {
+		t.Fatalf("expected no Constants but got %d", len(hello.Constants))
+	}
+	if len(hello.Models) != 1 {
+		t.Fatalf("expected 1 Model but got %d", len(hello.Models))
+	}
+	if len(hello.Operations) != 1 {
+		t.Fatalf("expected 1 Operation but got %d", len(hello.Operations))
+	}
+	if len(hello.ResourceIds) != 0 {
+		t.Fatalf("expected no ResourceIds but got %d", len(hello.ResourceIds))
+	}
+
+	operation, ok := hello.Operations["HeadWorld"]
+	if !ok {
+		t.Fatalf("expected an operation named `HeadWorld` but didn't get one")
+	}
+	if operation.RequestObject != nil {
+		t.Fatalf("expected there to be no Request object but got: %+v", *operation.RequestObject)
+	}
+	if operation.ResponseObject == nil {
+		t.Fatalf("expected there to be a Response object but didn't get one")
+	}
+	if operation.ResponseObject.Type != models.ObjectDefinitionReference {
+		t.Fatalf("expected the Response Object to be a Reference but got %q", string(operation.ResponseObject.Type))
+	}
+	if operation.ResponseObject.ReferenceName == nil || *operation.ResponseObject.ReferenceName != "FirstModel" {
+		t.Fatalf("expected the Response Object to be a Reference to FirstModel but got %q", *operation.ResponseObject.ReferenceName)
+	}
+}
