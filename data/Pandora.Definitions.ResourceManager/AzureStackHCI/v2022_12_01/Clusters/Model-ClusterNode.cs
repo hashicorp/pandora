@@ -18,7 +18,7 @@ internal class ClusterNodeModel
     [JsonPropertyName("coreCount")]
     public float? CoreCount { get; set; }
 
-    [JsonPropertyName("EhcResourceId")]
+    [JsonPropertyName("ehcResourceId")]
     public string? EhcResourceId { get; set; }
 
     [JsonPropertyName("id")]
