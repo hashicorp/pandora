@@ -124,7 +124,7 @@ service "deviceupdate" {
   name      = "DeviceUpdate"
   available = ["2022-10-01"]
 }
-service "devtestlab" {
+service "devtestlabs" {
   name      = "DevTestLab"
   available = ["2018-09-15"]
 }
