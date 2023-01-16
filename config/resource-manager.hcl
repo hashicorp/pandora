@@ -124,6 +124,10 @@ service "deviceupdate" {
   name      = "DeviceUpdate"
   available = ["2022-10-01"]
 }
+service "devtestlabs" {
+  name      = "DevTestLab"
+  available = ["2018-09-15"]
+}
 service "digitaltwins" {
   name      = "DigitalTwins"
   available = ["2020-12-01", "2022-05-31", "2022-10-31"]
