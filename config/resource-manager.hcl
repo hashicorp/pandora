@@ -208,6 +208,10 @@ service "loadtestservice" {
   name      = "LoadTestService"
   available = ["2021-12-01-preview", "2022-04-15-preview", "2022-12-01"]
 }
+service "logic" {
+  name      = "Logic"
+  available = ["2019-05-01"]
+}
 service "machinelearningservices" {
   name      = "MachineLearningServices"
   available = ["2022-05-01", "2022-10-01"]
