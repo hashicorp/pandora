@@ -15,6 +15,9 @@ internal enum EventSerializationTypeConstant
     [Description("CustomClr")]
     CustomClr,
 
+    [Description("Delta")]
+    Delta,
+
     [Description("Json")]
     Json,
 

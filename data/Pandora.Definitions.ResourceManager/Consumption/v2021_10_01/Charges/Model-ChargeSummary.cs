@@ -15,8 +15,8 @@ namespace Pandora.Definitions.ResourceManager.Consumption.v2021_10_01.Charges;
 
 internal abstract class ChargeSummaryModel
 {
-    [JsonPropertyName("etag")]
-    public string? Etag { get; set; }
+    [JsonPropertyName("eTag")]
+    public string? ETag { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }
@@ -28,9 +28,6 @@ internal abstract class ChargeSummaryModel
 
     [JsonPropertyName("name")]
     public string? Name { get; set; }
-
-    [JsonPropertyName("tags")]
-    public CustomTypes.Tags? Tags { get; set; }
 
     [JsonPropertyName("type")]
     public string? Type { get; set; }
