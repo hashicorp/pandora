@@ -42,6 +42,9 @@ internal class ModernChargeSummaryPropertiesModel
     [JsonPropertyName("marketplaceCharges")]
     public AmountModel? MarketplaceCharges { get; set; }
 
+    [JsonPropertyName("subscriptionId")]
+    public string? SubscriptionId { get; set; }
+
     [JsonPropertyName("usageEnd")]
     public string? UsageEnd { get; set; }
 
