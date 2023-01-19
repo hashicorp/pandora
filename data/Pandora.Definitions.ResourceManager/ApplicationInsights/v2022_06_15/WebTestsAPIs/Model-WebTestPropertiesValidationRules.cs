@@ -21,8 +21,8 @@ internal class WebTestPropertiesValidationRulesModel
     [JsonPropertyName("ExpectedHttpStatusCode")]
     public int? ExpectedHTTPStatusCode { get; set; }
 
-    [JsonPropertyName("IgnoreHttpsStatusCode")]
-    public bool? IgnoreHTTPSStatusCode { get; set; }
+    [JsonPropertyName("IgnoreHttpStatusCode")]
+    public bool? IgnoreHTTPStatusCode { get; set; }
 
     [JsonPropertyName("SSLCertRemainingLifetimeCheck")]
     public int? SSLCertRemainingLifetimeCheck { get; set; }
