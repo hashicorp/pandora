@@ -35,6 +35,7 @@ service "attestation" {
 service "authorization" {
   name      = "Authorization"
   available = ["2020-10-01"]
+  ignore    = ["2022-04-01"]
 }
 service "automation" {
   name      = "Automation"
@@ -327,6 +328,7 @@ service "recoveryservices" {
 service "recoveryservicesbackup" {
   name      = "RecoveryServicesBackup"
   available = ["2021-12-01", "2022-03-01", "2022-04-01", "2022-10-01"]
+  ignore    = ["2023-01-01"]
 }
 service "recoveryservicessiterecovery" {
   name      = "RecoveryServicesSiteRecovery"
@@ -351,6 +353,7 @@ service "resources" {
 service "search" {
   name      = "Search"
   available = ["2020-03-13", "2020-08-01"]
+  ignore    = ["2022-09-01"]
 }
 service "security" {
   name      = "Security"
