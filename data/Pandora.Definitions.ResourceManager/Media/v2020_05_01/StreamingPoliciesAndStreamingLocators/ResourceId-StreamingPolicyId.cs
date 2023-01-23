@@ -12,7 +12,7 @@ internal class StreamingPolicyId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Media/mediaServices/{accountName}/streamingPolicies/{streamingPolicyName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Media/mediaServices/{mediaServiceName}/streamingPolicies/{streamingPolicyName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -23,7 +23,7 @@ internal class StreamingPolicyId : ResourceID
         ResourceIDSegment.Static("staticProviders", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftMedia", "Microsoft.Media"),
         ResourceIDSegment.Static("staticMediaServices", "mediaServices"),
-        ResourceIDSegment.UserSpecified("accountName"),
+        ResourceIDSegment.UserSpecified("mediaServiceName"),
         ResourceIDSegment.Static("staticStreamingPolicies", "streamingPolicies"),
         ResourceIDSegment.UserSpecified("streamingPolicyName"),
     };

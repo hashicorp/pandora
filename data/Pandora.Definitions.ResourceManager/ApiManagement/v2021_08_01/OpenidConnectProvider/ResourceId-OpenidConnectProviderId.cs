@@ -12,7 +12,7 @@ internal class OpenidConnectProviderId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/openidConnectProviders/{opid}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/openidConnectProviders/{openidConnectProviderName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -25,6 +25,6 @@ internal class OpenidConnectProviderId : ResourceID
         ResourceIDSegment.Static("staticService", "service"),
         ResourceIDSegment.UserSpecified("serviceName"),
         ResourceIDSegment.Static("staticOpenidConnectProviders", "openidConnectProviders"),
-        ResourceIDSegment.UserSpecified("opid"),
+        ResourceIDSegment.UserSpecified("openidConnectProviderName"),
     };
 }

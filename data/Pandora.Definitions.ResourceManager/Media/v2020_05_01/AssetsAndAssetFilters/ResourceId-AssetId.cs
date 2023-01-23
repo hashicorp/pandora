@@ -12,7 +12,7 @@ internal class AssetId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Media/mediaServices/{accountName}/assets/{assetName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Media/mediaServices/{mediaServiceName}/assets/{assetName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -23,7 +23,7 @@ internal class AssetId : ResourceID
         ResourceIDSegment.Static("staticProviders", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftMedia", "Microsoft.Media"),
         ResourceIDSegment.Static("staticMediaServices", "mediaServices"),
-        ResourceIDSegment.UserSpecified("accountName"),
+        ResourceIDSegment.UserSpecified("mediaServiceName"),
         ResourceIDSegment.Static("staticAssets", "assets"),
         ResourceIDSegment.UserSpecified("assetName"),
     };

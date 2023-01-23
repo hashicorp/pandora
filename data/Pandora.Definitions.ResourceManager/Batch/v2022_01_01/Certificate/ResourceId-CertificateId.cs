@@ -12,7 +12,7 @@ internal class CertificateId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Batch/batchAccounts/{accountName}/certificates/{certificateName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Batch/batchAccounts/{batchAccountName}/certificates/{certificateName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -23,7 +23,7 @@ internal class CertificateId : ResourceID
         ResourceIDSegment.Static("staticProviders", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftBatch", "Microsoft.Batch"),
         ResourceIDSegment.Static("staticBatchAccounts", "batchAccounts"),
-        ResourceIDSegment.UserSpecified("accountName"),
+        ResourceIDSegment.UserSpecified("batchAccountName"),
         ResourceIDSegment.Static("staticCertificates", "certificates"),
         ResourceIDSegment.UserSpecified("certificateName"),
     };

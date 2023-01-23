@@ -12,7 +12,7 @@ internal class CustomImageId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/customImages/{name}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/customImages/{customImageName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -25,6 +25,6 @@ internal class CustomImageId : ResourceID
         ResourceIDSegment.Static("staticLabs", "labs"),
         ResourceIDSegment.UserSpecified("labName"),
         ResourceIDSegment.Static("staticCustomImages", "customImages"),
-        ResourceIDSegment.UserSpecified("name"),
+        ResourceIDSegment.UserSpecified("customImageName"),
     };
 }

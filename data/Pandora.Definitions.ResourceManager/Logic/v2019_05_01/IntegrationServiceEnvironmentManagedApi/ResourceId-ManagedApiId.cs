@@ -12,7 +12,7 @@ internal class ManagedApiId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Logic/integrationServiceEnvironments/{integrationServiceEnvironmentName}/managedApis/{apiName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Logic/integrationServiceEnvironments/{integrationServiceEnvironmentName}/managedApis/{managedApiName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -25,6 +25,6 @@ internal class ManagedApiId : ResourceID
         ResourceIDSegment.Static("staticIntegrationServiceEnvironments", "integrationServiceEnvironments"),
         ResourceIDSegment.UserSpecified("integrationServiceEnvironmentName"),
         ResourceIDSegment.Static("staticManagedApis", "managedApis"),
-        ResourceIDSegment.UserSpecified("apiName"),
+        ResourceIDSegment.UserSpecified("managedApiName"),
     };
 }

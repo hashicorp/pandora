@@ -12,7 +12,7 @@ internal class LocationWorkflowId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/locations/{location}/workflows/{workflowName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/locations/{locationName}/workflows/{workflowName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -23,7 +23,7 @@ internal class LocationWorkflowId : ResourceID
         ResourceIDSegment.Static("staticProviders", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftLogic", "Microsoft.Logic"),
         ResourceIDSegment.Static("staticLocations", "locations"),
-        ResourceIDSegment.UserSpecified("location"),
+        ResourceIDSegment.UserSpecified("locationName"),
         ResourceIDSegment.Static("staticWorkflows", "workflows"),
         ResourceIDSegment.UserSpecified("workflowName"),
     };

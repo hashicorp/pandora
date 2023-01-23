@@ -12,7 +12,7 @@ internal class Providers2Id : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/providers/Microsoft.Management/managementGroups/{groupId}/providers/{resourceProviderNamespace}";
+    public string ID => "/providers/Microsoft.Management/managementGroups/{groupId}/providers/{providerName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -21,6 +21,6 @@ internal class Providers2Id : ResourceID
         ResourceIDSegment.Static("staticManagementGroups", "managementGroups"),
         ResourceIDSegment.UserSpecified("groupId"),
         ResourceIDSegment.Static("staticProviders2", "providers"),
-        ResourceIDSegment.UserSpecified("resourceProviderNamespace"),
+        ResourceIDSegment.UserSpecified("providerName"),
     };
 }

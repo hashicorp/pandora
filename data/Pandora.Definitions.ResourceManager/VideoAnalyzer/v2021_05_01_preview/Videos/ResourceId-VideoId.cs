@@ -12,7 +12,7 @@ internal class VideoId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Media/videoAnalyzers/{accountName}/videos/{videoName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Media/videoAnalyzers/{videoAnalyzerName}/videos/{videoName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -23,7 +23,7 @@ internal class VideoId : ResourceID
         ResourceIDSegment.Static("staticProviders", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftMedia", "Microsoft.Media"),
         ResourceIDSegment.Static("staticVideoAnalyzers", "videoAnalyzers"),
-        ResourceIDSegment.UserSpecified("accountName"),
+        ResourceIDSegment.UserSpecified("videoAnalyzerName"),
         ResourceIDSegment.Static("staticVideos", "videos"),
         ResourceIDSegment.UserSpecified("videoName"),
     };

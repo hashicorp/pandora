@@ -12,7 +12,7 @@ internal class ConnectionGatewayInstallationId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/providers/Microsoft.Web/locations/{location}/connectionGatewayInstallations/{gatewayId}";
+    public string ID => "/subscriptions/{subscriptionId}/providers/Microsoft.Web/locations/{locationName}/connectionGatewayInstallations/{gatewayId}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -21,7 +21,7 @@ internal class ConnectionGatewayInstallationId : ResourceID
         ResourceIDSegment.Static("staticProviders", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftWeb", "Microsoft.Web"),
         ResourceIDSegment.Static("staticLocations", "locations"),
-        ResourceIDSegment.UserSpecified("location"),
+        ResourceIDSegment.UserSpecified("locationName"),
         ResourceIDSegment.Static("staticConnectionGatewayInstallations", "connectionGatewayInstallations"),
         ResourceIDSegment.UserSpecified("gatewayId"),
     };

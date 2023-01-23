@@ -12,7 +12,7 @@ internal class BuildPackBindingId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AppPlatform/spring/{serviceName}/buildServices/{buildServiceName}/builders/{builderName}/buildPackBindings/{buildpackBindingName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AppPlatform/spring/{springName}/buildServices/{buildServiceName}/builders/{builderName}/buildPackBindings/{buildPackBindingName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -23,12 +23,12 @@ internal class BuildPackBindingId : ResourceID
         ResourceIDSegment.Static("staticProviders", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftAppPlatform", "Microsoft.AppPlatform"),
         ResourceIDSegment.Static("staticSpring", "spring"),
-        ResourceIDSegment.UserSpecified("serviceName"),
+        ResourceIDSegment.UserSpecified("springName"),
         ResourceIDSegment.Static("staticBuildServices", "buildServices"),
         ResourceIDSegment.UserSpecified("buildServiceName"),
         ResourceIDSegment.Static("staticBuilders", "builders"),
         ResourceIDSegment.UserSpecified("builderName"),
         ResourceIDSegment.Static("staticBuildPackBindings", "buildPackBindings"),
-        ResourceIDSegment.UserSpecified("buildpackBindingName"),
+        ResourceIDSegment.UserSpecified("buildPackBindingName"),
     };
 }

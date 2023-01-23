@@ -12,7 +12,7 @@ internal class IndicatorId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/threatIntelligence/main/indicators/{name}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/threatIntelligence/main/indicators/{indicatorName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -29,6 +29,6 @@ internal class IndicatorId : ResourceID
         ResourceIDSegment.Static("staticThreatIntelligence", "threatIntelligence"),
         ResourceIDSegment.Static("staticMain", "main"),
         ResourceIDSegment.Static("staticIndicators", "indicators"),
-        ResourceIDSegment.UserSpecified("name"),
+        ResourceIDSegment.UserSpecified("indicatorName"),
     };
 }

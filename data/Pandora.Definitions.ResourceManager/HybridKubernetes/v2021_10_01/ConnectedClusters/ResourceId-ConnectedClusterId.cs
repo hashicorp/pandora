@@ -12,7 +12,7 @@ internal class ConnectedClusterId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Kubernetes/connectedClusters/{clusterName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Kubernetes/connectedClusters/{connectedClusterName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -23,6 +23,6 @@ internal class ConnectedClusterId : ResourceID
         ResourceIDSegment.Static("staticProviders", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftKubernetes", "Microsoft.Kubernetes"),
         ResourceIDSegment.Static("staticConnectedClusters", "connectedClusters"),
-        ResourceIDSegment.UserSpecified("clusterName"),
+        ResourceIDSegment.UserSpecified("connectedClusterName"),
     };
 }

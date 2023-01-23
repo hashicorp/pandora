@@ -12,7 +12,7 @@ internal class SharedPrivateLinkResourceId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.SignalRService/webPubSub/{resourceName}/sharedPrivateLinkResources/{sharedPrivateLinkResourceName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.SignalRService/webPubSub/{webPubSubName}/sharedPrivateLinkResources/{sharedPrivateLinkResourceName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -23,7 +23,7 @@ internal class SharedPrivateLinkResourceId : ResourceID
         ResourceIDSegment.Static("staticProviders", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftSignalRService", "Microsoft.SignalRService"),
         ResourceIDSegment.Static("staticWebPubSub", "webPubSub"),
-        ResourceIDSegment.UserSpecified("resourceName"),
+        ResourceIDSegment.UserSpecified("webPubSubName"),
         ResourceIDSegment.Static("staticSharedPrivateLinkResources", "sharedPrivateLinkResources"),
         ResourceIDSegment.UserSpecified("sharedPrivateLinkResourceName"),
     };

@@ -12,7 +12,7 @@ internal class MaintenanceConfigurationId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Maintenance/maintenanceConfigurations/{resourceName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Maintenance/maintenanceConfigurations/{maintenanceConfigurationName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -23,6 +23,6 @@ internal class MaintenanceConfigurationId : ResourceID
         ResourceIDSegment.Static("staticProviders", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftMaintenance", "Microsoft.Maintenance"),
         ResourceIDSegment.Static("staticMaintenanceConfigurations", "maintenanceConfigurations"),
-        ResourceIDSegment.UserSpecified("resourceName"),
+        ResourceIDSegment.UserSpecified("maintenanceConfigurationName"),
     };
 }

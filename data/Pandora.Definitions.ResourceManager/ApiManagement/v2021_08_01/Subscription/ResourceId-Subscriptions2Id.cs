@@ -12,7 +12,7 @@ internal class Subscriptions2Id : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/subscriptions/{sid}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/subscriptions/{subscriptionName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -25,6 +25,6 @@ internal class Subscriptions2Id : ResourceID
         ResourceIDSegment.Static("staticService", "service"),
         ResourceIDSegment.UserSpecified("serviceName"),
         ResourceIDSegment.Static("staticSubscriptions2", "subscriptions"),
-        ResourceIDSegment.UserSpecified("sid"),
+        ResourceIDSegment.UserSpecified("subscriptionName"),
     };
 }

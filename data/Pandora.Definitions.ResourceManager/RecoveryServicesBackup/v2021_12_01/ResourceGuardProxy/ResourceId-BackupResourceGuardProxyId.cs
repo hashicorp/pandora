@@ -12,7 +12,7 @@ internal class BackupResourceGuardProxyId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupResourceGuardProxies/{resourceGuardProxyName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupResourceGuardProxies/{backupResourceGuardProxyName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -25,6 +25,6 @@ internal class BackupResourceGuardProxyId : ResourceID
         ResourceIDSegment.Static("staticVaults", "vaults"),
         ResourceIDSegment.UserSpecified("vaultName"),
         ResourceIDSegment.Static("staticBackupResourceGuardProxies", "backupResourceGuardProxies"),
-        ResourceIDSegment.UserSpecified("resourceGuardProxyName"),
+        ResourceIDSegment.UserSpecified("backupResourceGuardProxyName"),
     };
 }

@@ -12,7 +12,7 @@ internal class EdgeZonePublisherId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/providers/Microsoft.Compute/locations/{location}/edgeZones/{edgeZone}/publishers/{publisherName}";
+    public string ID => "/subscriptions/{subscriptionId}/providers/Microsoft.Compute/locations/{locationName}/edgeZones/{edgeZoneName}/publishers/{publisherName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -21,9 +21,9 @@ internal class EdgeZonePublisherId : ResourceID
         ResourceIDSegment.Static("staticProviders", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftCompute", "Microsoft.Compute"),
         ResourceIDSegment.Static("staticLocations", "locations"),
-        ResourceIDSegment.UserSpecified("location"),
+        ResourceIDSegment.UserSpecified("locationName"),
         ResourceIDSegment.Static("staticEdgeZones", "edgeZones"),
-        ResourceIDSegment.UserSpecified("edgeZone"),
+        ResourceIDSegment.UserSpecified("edgeZoneName"),
         ResourceIDSegment.Static("staticPublishers", "publishers"),
         ResourceIDSegment.UserSpecified("publisherName"),
     };

@@ -12,7 +12,7 @@ internal class StorageId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.App/managedEnvironments/{environmentName}/storages/{storageName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.App/managedEnvironments/{managedEnvironmentName}/storages/{storageName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -23,7 +23,7 @@ internal class StorageId : ResourceID
         ResourceIDSegment.Static("staticProviders", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftApp", "Microsoft.App"),
         ResourceIDSegment.Static("staticManagedEnvironments", "managedEnvironments"),
-        ResourceIDSegment.UserSpecified("environmentName"),
+        ResourceIDSegment.UserSpecified("managedEnvironmentName"),
         ResourceIDSegment.Static("staticStorages", "storages"),
         ResourceIDSegment.UserSpecified("storageName"),
     };

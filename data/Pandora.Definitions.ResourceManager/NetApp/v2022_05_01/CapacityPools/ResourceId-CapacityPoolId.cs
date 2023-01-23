@@ -12,7 +12,7 @@ internal class CapacityPoolId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{netAppAccountName}/capacityPools/{capacityPoolName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -23,8 +23,8 @@ internal class CapacityPoolId : ResourceID
         ResourceIDSegment.Static("staticProviders", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftNetApp", "Microsoft.NetApp"),
         ResourceIDSegment.Static("staticNetAppAccounts", "netAppAccounts"),
-        ResourceIDSegment.UserSpecified("accountName"),
+        ResourceIDSegment.UserSpecified("netAppAccountName"),
         ResourceIDSegment.Static("staticCapacityPools", "capacityPools"),
-        ResourceIDSegment.UserSpecified("poolName"),
+        ResourceIDSegment.UserSpecified("capacityPoolName"),
     };
 }

@@ -12,7 +12,7 @@ internal class NotificationChannelId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/notificationChannels/{name}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/notificationChannels/{notificationChannelName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -25,6 +25,6 @@ internal class NotificationChannelId : ResourceID
         ResourceIDSegment.Static("staticLabs", "labs"),
         ResourceIDSegment.UserSpecified("labName"),
         ResourceIDSegment.Static("staticNotificationChannels", "notificationChannels"),
-        ResourceIDSegment.UserSpecified("name"),
+        ResourceIDSegment.UserSpecified("notificationChannelName"),
     };
 }

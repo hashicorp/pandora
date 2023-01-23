@@ -12,7 +12,7 @@ internal class ServerId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/serverGroupsv2/{serverGroupName}/servers/{serverName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/serverGroupsv2/{serverGroupsv2Name}/servers/{serverName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -23,7 +23,7 @@ internal class ServerId : ResourceID
         ResourceIDSegment.Static("staticProviders", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftDBforPostgreSQL", "Microsoft.DBforPostgreSQL"),
         ResourceIDSegment.Static("staticServerGroupsv2", "serverGroupsv2"),
-        ResourceIDSegment.UserSpecified("serverGroupName"),
+        ResourceIDSegment.UserSpecified("serverGroupsv2Name"),
         ResourceIDSegment.Static("staticServers", "servers"),
         ResourceIDSegment.UserSpecified("serverName"),
     };

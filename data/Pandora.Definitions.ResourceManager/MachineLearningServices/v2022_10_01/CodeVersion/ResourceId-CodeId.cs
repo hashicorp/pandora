@@ -12,7 +12,7 @@ internal class CodeId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/codes/{name}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/codes/{codeName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -25,6 +25,6 @@ internal class CodeId : ResourceID
         ResourceIDSegment.Static("staticWorkspaces", "workspaces"),
         ResourceIDSegment.UserSpecified("workspaceName"),
         ResourceIDSegment.Static("staticCodes", "codes"),
-        ResourceIDSegment.UserSpecified("name"),
+        ResourceIDSegment.UserSpecified("codeName"),
     };
 }

@@ -12,7 +12,7 @@ internal class ReplicationNetworkMappingId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationFabrics/{fabricName}/replicationNetworks/{networkName}/replicationNetworkMappings/{networkMappingName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/replicationFabrics/{replicationFabricName}/replicationNetworks/{replicationNetworkName}/replicationNetworkMappings/{replicationNetworkMappingName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -23,12 +23,12 @@ internal class ReplicationNetworkMappingId : ResourceID
         ResourceIDSegment.Static("staticProviders", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftRecoveryServices", "Microsoft.RecoveryServices"),
         ResourceIDSegment.Static("staticVaults", "vaults"),
-        ResourceIDSegment.UserSpecified("resourceName"),
+        ResourceIDSegment.UserSpecified("vaultName"),
         ResourceIDSegment.Static("staticReplicationFabrics", "replicationFabrics"),
-        ResourceIDSegment.UserSpecified("fabricName"),
+        ResourceIDSegment.UserSpecified("replicationFabricName"),
         ResourceIDSegment.Static("staticReplicationNetworks", "replicationNetworks"),
-        ResourceIDSegment.UserSpecified("networkName"),
+        ResourceIDSegment.UserSpecified("replicationNetworkName"),
         ResourceIDSegment.Static("staticReplicationNetworkMappings", "replicationNetworkMappings"),
-        ResourceIDSegment.UserSpecified("networkMappingName"),
+        ResourceIDSegment.UserSpecified("replicationNetworkMappingName"),
     };
 }

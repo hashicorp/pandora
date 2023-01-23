@@ -12,7 +12,7 @@ internal class PrivateLinkResourceId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HealthcareApis/services/{resourceName}/privateLinkResources/{groupName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HealthcareApis/services/{serviceName}/privateLinkResources/{privateLinkResourceName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -23,8 +23,8 @@ internal class PrivateLinkResourceId : ResourceID
         ResourceIDSegment.Static("staticProviders", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftHealthcareApis", "Microsoft.HealthcareApis"),
         ResourceIDSegment.Static("staticServices", "services"),
-        ResourceIDSegment.UserSpecified("resourceName"),
+        ResourceIDSegment.UserSpecified("serviceName"),
         ResourceIDSegment.Static("staticPrivateLinkResources", "privateLinkResources"),
-        ResourceIDSegment.UserSpecified("groupName"),
+        ResourceIDSegment.UserSpecified("privateLinkResourceName"),
     };
 }

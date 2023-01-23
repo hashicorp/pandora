@@ -12,7 +12,7 @@ internal class CommunityGalleryId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/providers/Microsoft.Compute/locations/{location}/communityGalleries/{publicGalleryName}";
+    public string ID => "/subscriptions/{subscriptionId}/providers/Microsoft.Compute/locations/{locationName}/communityGalleries/{communityGalleryName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -21,8 +21,8 @@ internal class CommunityGalleryId : ResourceID
         ResourceIDSegment.Static("staticProviders", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftCompute", "Microsoft.Compute"),
         ResourceIDSegment.Static("staticLocations", "locations"),
-        ResourceIDSegment.UserSpecified("location"),
+        ResourceIDSegment.UserSpecified("locationName"),
         ResourceIDSegment.Static("staticCommunityGalleries", "communityGalleries"),
-        ResourceIDSegment.UserSpecified("publicGalleryName"),
+        ResourceIDSegment.UserSpecified("communityGalleryName"),
     };
 }

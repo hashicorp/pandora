@@ -12,7 +12,7 @@ internal class MongodbRoleDefinitionId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/mongodbRoleDefinitions/{mongoRoleDefinitionId}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{databaseAccountName}/mongodbRoleDefinitions/{mongoRoleDefinitionId}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -23,7 +23,7 @@ internal class MongodbRoleDefinitionId : ResourceID
         ResourceIDSegment.Static("staticProviders", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftDocumentDB", "Microsoft.DocumentDB"),
         ResourceIDSegment.Static("staticDatabaseAccounts", "databaseAccounts"),
-        ResourceIDSegment.UserSpecified("accountName"),
+        ResourceIDSegment.UserSpecified("databaseAccountName"),
         ResourceIDSegment.Static("staticMongodbRoleDefinitions", "mongodbRoleDefinitions"),
         ResourceIDSegment.UserSpecified("mongoRoleDefinitionId"),
     };

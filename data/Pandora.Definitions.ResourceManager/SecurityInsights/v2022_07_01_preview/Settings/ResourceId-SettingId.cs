@@ -12,7 +12,7 @@ internal class SettingId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/settings/{settingsName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/settings/{settingName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -27,6 +27,6 @@ internal class SettingId : ResourceID
         ResourceIDSegment.Static("staticProviders2", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftSecurityInsights", "Microsoft.SecurityInsights"),
         ResourceIDSegment.Static("staticSettings", "settings"),
-        ResourceIDSegment.UserSpecified("settingsName"),
+        ResourceIDSegment.UserSpecified("settingName"),
     };
 }

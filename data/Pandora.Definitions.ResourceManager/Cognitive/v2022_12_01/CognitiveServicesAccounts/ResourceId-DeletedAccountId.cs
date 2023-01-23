@@ -12,7 +12,7 @@ internal class DeletedAccountId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/providers/Microsoft.CognitiveServices/locations/{location}/resourceGroups/{resourceGroupName}/deletedAccounts/{accountName}";
+    public string ID => "/subscriptions/{subscriptionId}/providers/Microsoft.CognitiveServices/locations/{locationName}/resourceGroups/{resourceGroupName}/deletedAccounts/{deletedAccountName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -21,10 +21,10 @@ internal class DeletedAccountId : ResourceID
         ResourceIDSegment.Static("staticProviders", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftCognitiveServices", "Microsoft.CognitiveServices"),
         ResourceIDSegment.Static("staticLocations", "locations"),
-        ResourceIDSegment.UserSpecified("location"),
+        ResourceIDSegment.UserSpecified("locationName"),
         ResourceIDSegment.Static("staticResourceGroups", "resourceGroups"),
         ResourceIDSegment.ResourceGroup("resourceGroupName"),
         ResourceIDSegment.Static("staticDeletedAccounts", "deletedAccounts"),
-        ResourceIDSegment.UserSpecified("accountName"),
+        ResourceIDSegment.UserSpecified("deletedAccountName"),
     };
 }

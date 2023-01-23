@@ -12,7 +12,7 @@ internal class ResultId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AppPlatform/spring/{serviceName}/buildServices/{buildServiceName}/builds/{buildName}/results/{buildResultName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AppPlatform/spring/{springName}/buildServices/{buildServiceName}/builds/{buildName}/results/{resultName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -23,12 +23,12 @@ internal class ResultId : ResourceID
         ResourceIDSegment.Static("staticProviders", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftAppPlatform", "Microsoft.AppPlatform"),
         ResourceIDSegment.Static("staticSpring", "spring"),
-        ResourceIDSegment.UserSpecified("serviceName"),
+        ResourceIDSegment.UserSpecified("springName"),
         ResourceIDSegment.Static("staticBuildServices", "buildServices"),
         ResourceIDSegment.UserSpecified("buildServiceName"),
         ResourceIDSegment.Static("staticBuilds", "builds"),
         ResourceIDSegment.UserSpecified("buildName"),
         ResourceIDSegment.Static("staticResults", "results"),
-        ResourceIDSegment.UserSpecified("buildResultName"),
+        ResourceIDSegment.UserSpecified("resultName"),
     };
 }

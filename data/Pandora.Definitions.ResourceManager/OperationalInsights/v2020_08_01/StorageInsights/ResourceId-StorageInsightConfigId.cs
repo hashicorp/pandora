@@ -12,7 +12,7 @@ internal class StorageInsightConfigId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/storageInsightConfigs/{storageInsightName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/storageInsightConfigs/{storageInsightConfigName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -25,6 +25,6 @@ internal class StorageInsightConfigId : ResourceID
         ResourceIDSegment.Static("staticWorkspaces", "workspaces"),
         ResourceIDSegment.UserSpecified("workspaceName"),
         ResourceIDSegment.Static("staticStorageInsightConfigs", "storageInsightConfigs"),
-        ResourceIDSegment.UserSpecified("storageInsightName"),
+        ResourceIDSegment.UserSpecified("storageInsightConfigName"),
     };
 }

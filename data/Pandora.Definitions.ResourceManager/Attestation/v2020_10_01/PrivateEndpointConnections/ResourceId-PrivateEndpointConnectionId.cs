@@ -12,7 +12,7 @@ internal class PrivateEndpointConnectionId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Attestation/attestationProviders/{providerName}/privateEndpointConnections/{privateEndpointConnectionName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Attestation/attestationProviders/{attestationProviderName}/privateEndpointConnections/{privateEndpointConnectionName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -23,7 +23,7 @@ internal class PrivateEndpointConnectionId : ResourceID
         ResourceIDSegment.Static("staticProviders", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftAttestation", "Microsoft.Attestation"),
         ResourceIDSegment.Static("staticAttestationProviders", "attestationProviders"),
-        ResourceIDSegment.UserSpecified("providerName"),
+        ResourceIDSegment.UserSpecified("attestationProviderName"),
         ResourceIDSegment.Static("staticPrivateEndpointConnections", "privateEndpointConnections"),
         ResourceIDSegment.UserSpecified("privateEndpointConnectionName"),
     };

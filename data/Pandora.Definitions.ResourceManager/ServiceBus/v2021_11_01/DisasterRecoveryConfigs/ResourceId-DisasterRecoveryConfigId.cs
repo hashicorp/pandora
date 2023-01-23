@@ -12,7 +12,7 @@ internal class DisasterRecoveryConfigId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}/disasterRecoveryConfigs/{alias}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}/disasterRecoveryConfigs/{disasterRecoveryConfigName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -25,6 +25,6 @@ internal class DisasterRecoveryConfigId : ResourceID
         ResourceIDSegment.Static("staticNamespaces", "namespaces"),
         ResourceIDSegment.UserSpecified("namespaceName"),
         ResourceIDSegment.Static("staticDisasterRecoveryConfigs", "disasterRecoveryConfigs"),
-        ResourceIDSegment.UserSpecified("alias"),
+        ResourceIDSegment.UserSpecified("disasterRecoveryConfigName"),
     };
 }

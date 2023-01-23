@@ -12,7 +12,7 @@ internal class VirtualNetworkPeeringId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Databricks/workspaces/{workspaceName}/virtualNetworkPeerings/{peeringName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Databricks/workspaces/{workspaceName}/virtualNetworkPeerings/{virtualNetworkPeeringName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -25,6 +25,6 @@ internal class VirtualNetworkPeeringId : ResourceID
         ResourceIDSegment.Static("staticWorkspaces", "workspaces"),
         ResourceIDSegment.UserSpecified("workspaceName"),
         ResourceIDSegment.Static("staticVirtualNetworkPeerings", "virtualNetworkPeerings"),
-        ResourceIDSegment.UserSpecified("peeringName"),
+        ResourceIDSegment.UserSpecified("virtualNetworkPeeringName"),
     };
 }

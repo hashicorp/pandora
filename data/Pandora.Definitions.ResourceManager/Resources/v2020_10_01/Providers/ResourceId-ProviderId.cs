@@ -12,11 +12,11 @@ internal class ProviderId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/providers/{resourceProviderNamespace}";
+    public string ID => "/providers/{providerName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
         ResourceIDSegment.Static("staticProviders", "providers"),
-        ResourceIDSegment.UserSpecified("resourceProviderNamespace"),
+        ResourceIDSegment.UserSpecified("providerName"),
     };
 }

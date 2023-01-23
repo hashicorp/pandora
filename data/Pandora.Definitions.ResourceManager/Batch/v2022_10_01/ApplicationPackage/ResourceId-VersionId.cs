@@ -12,7 +12,7 @@ internal class VersionId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Batch/batchAccounts/{accountName}/applications/{applicationName}/versions/{versionName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Batch/batchAccounts/{batchAccountName}/applications/{applicationName}/versions/{versionName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -23,7 +23,7 @@ internal class VersionId : ResourceID
         ResourceIDSegment.Static("staticProviders", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftBatch", "Microsoft.Batch"),
         ResourceIDSegment.Static("staticBatchAccounts", "batchAccounts"),
-        ResourceIDSegment.UserSpecified("accountName"),
+        ResourceIDSegment.UserSpecified("batchAccountName"),
         ResourceIDSegment.Static("staticApplications", "applications"),
         ResourceIDSegment.UserSpecified("applicationName"),
         ResourceIDSegment.Static("staticVersions", "versions"),

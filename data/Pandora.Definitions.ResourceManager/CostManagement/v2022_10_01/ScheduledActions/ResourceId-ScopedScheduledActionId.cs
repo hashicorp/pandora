@@ -12,7 +12,7 @@ internal class ScopedScheduledActionId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/{scope}/providers/Microsoft.CostManagement/scheduledActions/{name}";
+    public string ID => "/{scope}/providers/Microsoft.CostManagement/scheduledActions/{scheduledActionName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -20,6 +20,6 @@ internal class ScopedScheduledActionId : ResourceID
         ResourceIDSegment.Static("staticProviders", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftCostManagement", "Microsoft.CostManagement"),
         ResourceIDSegment.Static("staticScheduledActions", "scheduledActions"),
-        ResourceIDSegment.UserSpecified("name"),
+        ResourceIDSegment.UserSpecified("scheduledActionName"),
     };
 }

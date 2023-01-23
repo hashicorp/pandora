@@ -12,7 +12,7 @@ internal class FederatedIdentityCredentialId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{resourceName}/federatedIdentityCredentials/{federatedIdentityCredentialResourceName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{userAssignedIdentityName}/federatedIdentityCredentials/{federatedIdentityCredentialName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -23,8 +23,8 @@ internal class FederatedIdentityCredentialId : ResourceID
         ResourceIDSegment.Static("staticProviders", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftManagedIdentity", "Microsoft.ManagedIdentity"),
         ResourceIDSegment.Static("staticUserAssignedIdentities", "userAssignedIdentities"),
-        ResourceIDSegment.UserSpecified("resourceName"),
+        ResourceIDSegment.UserSpecified("userAssignedIdentityName"),
         ResourceIDSegment.Static("staticFederatedIdentityCredentials", "federatedIdentityCredentials"),
-        ResourceIDSegment.UserSpecified("federatedIdentityCredentialResourceName"),
+        ResourceIDSegment.UserSpecified("federatedIdentityCredentialName"),
     };
 }

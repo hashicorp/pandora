@@ -12,7 +12,7 @@ internal class LiveOutputOperationLocationId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Media/mediaServices/{accountName}/liveEvents/{liveEventName}/liveOutputs/{liveOutputName}/operationLocations/{operationId}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Media/mediaServices/{mediaServiceName}/liveEvents/{liveEventName}/liveOutputs/{liveOutputName}/operationLocations/{operationId}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -23,7 +23,7 @@ internal class LiveOutputOperationLocationId : ResourceID
         ResourceIDSegment.Static("staticProviders", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftMedia", "Microsoft.Media"),
         ResourceIDSegment.Static("staticMediaServices", "mediaServices"),
-        ResourceIDSegment.UserSpecified("accountName"),
+        ResourceIDSegment.UserSpecified("mediaServiceName"),
         ResourceIDSegment.Static("staticLiveEvents", "liveEvents"),
         ResourceIDSegment.UserSpecified("liveEventName"),
         ResourceIDSegment.Static("staticLiveOutputs", "liveOutputs"),

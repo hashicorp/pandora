@@ -12,7 +12,7 @@ internal class AutoScaleSettingId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/autoScaleSettings/{autoscaleSettingName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/autoScaleSettings/{autoScaleSettingName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -23,6 +23,6 @@ internal class AutoScaleSettingId : ResourceID
         ResourceIDSegment.Static("staticProviders", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftInsights", "Microsoft.Insights"),
         ResourceIDSegment.Static("staticAutoScaleSettings", "autoScaleSettings"),
-        ResourceIDSegment.UserSpecified("autoscaleSettingName"),
+        ResourceIDSegment.UserSpecified("autoScaleSettingName"),
     };
 }

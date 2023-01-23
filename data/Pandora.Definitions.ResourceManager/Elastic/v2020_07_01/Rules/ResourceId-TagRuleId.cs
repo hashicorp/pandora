@@ -12,7 +12,7 @@ internal class TagRuleId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Elastic/monitors/{monitorName}/tagRules/{ruleSetName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Elastic/monitors/{monitorName}/tagRules/{tagRuleName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -25,6 +25,6 @@ internal class TagRuleId : ResourceID
         ResourceIDSegment.Static("staticMonitors", "monitors"),
         ResourceIDSegment.UserSpecified("monitorName"),
         ResourceIDSegment.Static("staticTagRules", "tagRules"),
-        ResourceIDSegment.UserSpecified("ruleSetName"),
+        ResourceIDSegment.UserSpecified("tagRuleName"),
     };
 }

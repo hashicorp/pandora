@@ -12,7 +12,7 @@ internal class ManagedUnsupportedVMSizeId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/providers/Microsoft.ServiceFabric/locations/{location}/managedUnsupportedVMSizes/{vmSize}";
+    public string ID => "/subscriptions/{subscriptionId}/providers/Microsoft.ServiceFabric/locations/{locationName}/managedUnsupportedVMSizes/{managedUnsupportedVMSizeName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -21,8 +21,8 @@ internal class ManagedUnsupportedVMSizeId : ResourceID
         ResourceIDSegment.Static("staticProviders", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftServiceFabric", "Microsoft.ServiceFabric"),
         ResourceIDSegment.Static("staticLocations", "locations"),
-        ResourceIDSegment.UserSpecified("location"),
+        ResourceIDSegment.UserSpecified("locationName"),
         ResourceIDSegment.Static("staticManagedUnsupportedVMSizes", "managedUnsupportedVMSizes"),
-        ResourceIDSegment.UserSpecified("vmSize"),
+        ResourceIDSegment.UserSpecified("managedUnsupportedVMSizeName"),
     };
 }

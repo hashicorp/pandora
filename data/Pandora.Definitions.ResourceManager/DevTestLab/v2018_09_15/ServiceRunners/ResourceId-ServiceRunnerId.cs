@@ -12,7 +12,7 @@ internal class ServiceRunnerId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/serviceRunners/{name}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/serviceRunners/{serviceRunnerName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -25,6 +25,6 @@ internal class ServiceRunnerId : ResourceID
         ResourceIDSegment.Static("staticLabs", "labs"),
         ResourceIDSegment.UserSpecified("labName"),
         ResourceIDSegment.Static("staticServiceRunners", "serviceRunners"),
-        ResourceIDSegment.UserSpecified("name"),
+        ResourceIDSegment.UserSpecified("serviceRunnerName"),
     };
 }

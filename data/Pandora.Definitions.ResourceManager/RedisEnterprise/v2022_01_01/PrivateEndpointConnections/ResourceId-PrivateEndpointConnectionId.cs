@@ -12,7 +12,7 @@ internal class PrivateEndpointConnectionId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cache/redisEnterprise/{clusterName}/privateEndpointConnections/{privateEndpointConnectionName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cache/redisEnterprise/{redisEnterpriseName}/privateEndpointConnections/{privateEndpointConnectionName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -23,7 +23,7 @@ internal class PrivateEndpointConnectionId : ResourceID
         ResourceIDSegment.Static("staticProviders", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftCache", "Microsoft.Cache"),
         ResourceIDSegment.Static("staticRedisEnterprise", "redisEnterprise"),
-        ResourceIDSegment.UserSpecified("clusterName"),
+        ResourceIDSegment.UserSpecified("redisEnterpriseName"),
         ResourceIDSegment.Static("staticPrivateEndpointConnections", "privateEndpointConnections"),
         ResourceIDSegment.UserSpecified("privateEndpointConnectionName"),
     };

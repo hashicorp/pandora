@@ -12,7 +12,7 @@ internal class SecretId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/users/{userName}/secrets/{name}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/users/{userName}/secrets/{secretName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -27,6 +27,6 @@ internal class SecretId : ResourceID
         ResourceIDSegment.Static("staticUsers", "users"),
         ResourceIDSegment.UserSpecified("userName"),
         ResourceIDSegment.Static("staticSecrets", "secrets"),
-        ResourceIDSegment.UserSpecified("name"),
+        ResourceIDSegment.UserSpecified("secretName"),
     };
 }

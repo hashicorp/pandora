@@ -12,7 +12,7 @@ internal class PrivateEndpointConnectionId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/privateEndpointConnections/{privateEndpointConnectionName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{managedClusterName}/privateEndpointConnections/{privateEndpointConnectionName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -23,7 +23,7 @@ internal class PrivateEndpointConnectionId : ResourceID
         ResourceIDSegment.Static("staticProviders", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftContainerService", "Microsoft.ContainerService"),
         ResourceIDSegment.Static("staticManagedClusters", "managedClusters"),
-        ResourceIDSegment.UserSpecified("resourceName"),
+        ResourceIDSegment.UserSpecified("managedClusterName"),
         ResourceIDSegment.Static("staticPrivateEndpointConnections", "privateEndpointConnections"),
         ResourceIDSegment.UserSpecified("privateEndpointConnectionName"),
     };

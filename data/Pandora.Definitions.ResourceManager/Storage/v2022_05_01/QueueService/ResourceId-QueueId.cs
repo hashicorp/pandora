@@ -12,7 +12,7 @@ internal class QueueId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/queueServices/default/queues/{queueName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/queueServices/default/queues/{queueName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -23,7 +23,7 @@ internal class QueueId : ResourceID
         ResourceIDSegment.Static("staticProviders", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftStorage", "Microsoft.Storage"),
         ResourceIDSegment.Static("staticStorageAccounts", "storageAccounts"),
-        ResourceIDSegment.UserSpecified("accountName"),
+        ResourceIDSegment.UserSpecified("storageAccountName"),
         ResourceIDSegment.Static("staticQueueServices", "queueServices"),
         ResourceIDSegment.Static("staticDefault", "default"),
         ResourceIDSegment.Static("staticQueues", "queues"),

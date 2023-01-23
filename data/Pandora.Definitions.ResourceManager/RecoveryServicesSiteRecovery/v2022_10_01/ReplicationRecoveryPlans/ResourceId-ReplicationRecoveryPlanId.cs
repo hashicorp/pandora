@@ -12,7 +12,7 @@ internal class ReplicationRecoveryPlanId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationRecoveryPlans/{recoveryPlanName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/replicationRecoveryPlans/{replicationRecoveryPlanName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -23,8 +23,8 @@ internal class ReplicationRecoveryPlanId : ResourceID
         ResourceIDSegment.Static("staticProviders", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftRecoveryServices", "Microsoft.RecoveryServices"),
         ResourceIDSegment.Static("staticVaults", "vaults"),
-        ResourceIDSegment.UserSpecified("resourceName"),
+        ResourceIDSegment.UserSpecified("vaultName"),
         ResourceIDSegment.Static("staticReplicationRecoveryPlans", "replicationRecoveryPlans"),
-        ResourceIDSegment.UserSpecified("recoveryPlanName"),
+        ResourceIDSegment.UserSpecified("replicationRecoveryPlanName"),
     };
 }

@@ -12,7 +12,7 @@ internal class ScopeRepetitionId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/workflows/{workflowName}/runs/{runName}/actions/{actionName}/scopeRepetitions/{repetitionName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/workflows/{workflowName}/runs/{runName}/actions/{actionName}/scopeRepetitions/{scopeRepetitionName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -29,6 +29,6 @@ internal class ScopeRepetitionId : ResourceID
         ResourceIDSegment.Static("staticActions", "actions"),
         ResourceIDSegment.UserSpecified("actionName"),
         ResourceIDSegment.Static("staticScopeRepetitions", "scopeRepetitions"),
-        ResourceIDSegment.UserSpecified("repetitionName"),
+        ResourceIDSegment.UserSpecified("scopeRepetitionName"),
     };
 }

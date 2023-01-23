@@ -12,7 +12,7 @@ internal class AccessConnectorId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Databricks/accessConnectors/{connectorName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Databricks/accessConnectors/{accessConnectorName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -23,6 +23,6 @@ internal class AccessConnectorId : ResourceID
         ResourceIDSegment.Static("staticProviders", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftDatabricks", "Microsoft.Databricks"),
         ResourceIDSegment.Static("staticAccessConnectors", "accessConnectors"),
-        ResourceIDSegment.UserSpecified("connectorName"),
+        ResourceIDSegment.UserSpecified("accessConnectorName"),
     };
 }

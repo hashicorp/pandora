@@ -12,7 +12,7 @@ internal class ActionRuleId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AlertsManagement/actionRules/{alertProcessingRuleName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AlertsManagement/actionRules/{actionRuleName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -23,6 +23,6 @@ internal class ActionRuleId : ResourceID
         ResourceIDSegment.Static("staticProviders", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftAlertsManagement", "Microsoft.AlertsManagement"),
         ResourceIDSegment.Static("staticActionRules", "actionRules"),
-        ResourceIDSegment.UserSpecified("alertProcessingRuleName"),
+        ResourceIDSegment.UserSpecified("actionRuleName"),
     };
 }

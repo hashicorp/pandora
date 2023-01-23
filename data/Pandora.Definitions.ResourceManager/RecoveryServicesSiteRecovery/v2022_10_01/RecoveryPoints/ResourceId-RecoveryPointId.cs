@@ -12,7 +12,7 @@ internal class RecoveryPointId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationFabrics/{fabricName}/replicationProtectionContainers/{protectionContainerName}/replicationProtectedItems/{replicatedProtectedItemName}/recoveryPoints/{recoveryPointName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/replicationFabrics/{replicationFabricName}/replicationProtectionContainers/{replicationProtectionContainerName}/replicationProtectedItems/{replicationProtectedItemName}/recoveryPoints/{recoveryPointName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -23,13 +23,13 @@ internal class RecoveryPointId : ResourceID
         ResourceIDSegment.Static("staticProviders", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftRecoveryServices", "Microsoft.RecoveryServices"),
         ResourceIDSegment.Static("staticVaults", "vaults"),
-        ResourceIDSegment.UserSpecified("resourceName"),
+        ResourceIDSegment.UserSpecified("vaultName"),
         ResourceIDSegment.Static("staticReplicationFabrics", "replicationFabrics"),
-        ResourceIDSegment.UserSpecified("fabricName"),
+        ResourceIDSegment.UserSpecified("replicationFabricName"),
         ResourceIDSegment.Static("staticReplicationProtectionContainers", "replicationProtectionContainers"),
-        ResourceIDSegment.UserSpecified("protectionContainerName"),
+        ResourceIDSegment.UserSpecified("replicationProtectionContainerName"),
         ResourceIDSegment.Static("staticReplicationProtectedItems", "replicationProtectedItems"),
-        ResourceIDSegment.UserSpecified("replicatedProtectedItemName"),
+        ResourceIDSegment.UserSpecified("replicationProtectedItemName"),
         ResourceIDSegment.Static("staticRecoveryPoints", "recoveryPoints"),
         ResourceIDSegment.UserSpecified("recoveryPointName"),
     };

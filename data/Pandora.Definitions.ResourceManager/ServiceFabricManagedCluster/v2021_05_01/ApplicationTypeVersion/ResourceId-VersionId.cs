@@ -12,7 +12,7 @@ internal class VersionId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedClusters/{clusterName}/applicationTypes/{applicationTypeName}/versions/{version}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedClusters/{managedClusterName}/applicationTypes/{applicationTypeName}/versions/{versionName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -23,10 +23,10 @@ internal class VersionId : ResourceID
         ResourceIDSegment.Static("staticProviders", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftServiceFabric", "Microsoft.ServiceFabric"),
         ResourceIDSegment.Static("staticManagedClusters", "managedClusters"),
-        ResourceIDSegment.UserSpecified("clusterName"),
+        ResourceIDSegment.UserSpecified("managedClusterName"),
         ResourceIDSegment.Static("staticApplicationTypes", "applicationTypes"),
         ResourceIDSegment.UserSpecified("applicationTypeName"),
         ResourceIDSegment.Static("staticVersions", "versions"),
-        ResourceIDSegment.UserSpecified("version"),
+        ResourceIDSegment.UserSpecified("versionName"),
     };
 }

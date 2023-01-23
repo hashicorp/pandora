@@ -12,7 +12,7 @@ internal class UserAssignedIdentityId : ResourceID
 {
     public string? CommonAlias => "UserAssignedIdentity";
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{resourceName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{userAssignedIdentityName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -23,6 +23,6 @@ internal class UserAssignedIdentityId : ResourceID
         ResourceIDSegment.Static("providers", "providers"),
         ResourceIDSegment.ResourceProvider("resourceProvider", "Microsoft.ManagedIdentity"),
         ResourceIDSegment.Static("userAssignedIdentities", "userAssignedIdentities"),
-        ResourceIDSegment.UserSpecified("resourceName"),
+        ResourceIDSegment.UserSpecified("userAssignedIdentityName"),
     };
 }

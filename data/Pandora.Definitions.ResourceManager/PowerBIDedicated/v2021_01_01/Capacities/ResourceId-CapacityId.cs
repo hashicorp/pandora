@@ -12,7 +12,7 @@ internal class CapacityId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.PowerBIDedicated/capacities/{dedicatedCapacityName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.PowerBIDedicated/capacities/{capacityName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -23,6 +23,6 @@ internal class CapacityId : ResourceID
         ResourceIDSegment.Static("staticProviders", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftPowerBIDedicated", "Microsoft.PowerBIDedicated"),
         ResourceIDSegment.Static("staticCapacities", "capacities"),
-        ResourceIDSegment.UserSpecified("dedicatedCapacityName"),
+        ResourceIDSegment.UserSpecified("capacityName"),
     };
 }

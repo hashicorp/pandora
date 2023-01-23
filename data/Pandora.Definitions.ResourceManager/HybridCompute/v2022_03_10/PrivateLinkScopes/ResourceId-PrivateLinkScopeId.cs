@@ -12,7 +12,7 @@ internal class PrivateLinkScopeId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/providers/Microsoft.HybridCompute/locations/{location}/privateLinkScopes/{privateLinkScopeId}";
+    public string ID => "/subscriptions/{subscriptionId}/providers/Microsoft.HybridCompute/locations/{locationName}/privateLinkScopes/{privateLinkScopeId}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -21,7 +21,7 @@ internal class PrivateLinkScopeId : ResourceID
         ResourceIDSegment.Static("staticProviders", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftHybridCompute", "Microsoft.HybridCompute"),
         ResourceIDSegment.Static("staticLocations", "locations"),
-        ResourceIDSegment.UserSpecified("location"),
+        ResourceIDSegment.UserSpecified("locationName"),
         ResourceIDSegment.Static("staticPrivateLinkScopes", "privateLinkScopes"),
         ResourceIDSegment.UserSpecified("privateLinkScopeId"),
     };

@@ -12,7 +12,7 @@ internal class CreateQueryKeyId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Search/searchServices/{searchServiceName}/createQueryKey/{name}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Search/searchServices/{searchServiceName}/createQueryKey/{createQueryKeyName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -25,6 +25,6 @@ internal class CreateQueryKeyId : ResourceID
         ResourceIDSegment.Static("staticSearchServices", "searchServices"),
         ResourceIDSegment.UserSpecified("searchServiceName"),
         ResourceIDSegment.Static("staticCreateQueryKey", "createQueryKey"),
-        ResourceIDSegment.UserSpecified("name"),
+        ResourceIDSegment.UserSpecified("createQueryKeyName"),
     };
 }

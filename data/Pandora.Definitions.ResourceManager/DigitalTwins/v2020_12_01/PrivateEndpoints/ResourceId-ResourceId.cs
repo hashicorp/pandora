@@ -12,7 +12,7 @@ internal class ResourceId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DigitalTwins/digitalTwinsInstances/{resourceName}/privateLinkResources/{resourceId}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DigitalTwins/digitalTwinsInstances/{digitalTwinsInstanceName}/privateLinkResources/{resourceId}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -23,7 +23,7 @@ internal class ResourceId : ResourceID
         ResourceIDSegment.Static("staticProviders", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftDigitalTwins", "Microsoft.DigitalTwins"),
         ResourceIDSegment.Static("staticDigitalTwinsInstances", "digitalTwinsInstances"),
-        ResourceIDSegment.UserSpecified("resourceName"),
+        ResourceIDSegment.UserSpecified("digitalTwinsInstanceName"),
         ResourceIDSegment.Static("staticPrivateLinkResources", "privateLinkResources"),
         ResourceIDSegment.Scope("resourceId"),
     };

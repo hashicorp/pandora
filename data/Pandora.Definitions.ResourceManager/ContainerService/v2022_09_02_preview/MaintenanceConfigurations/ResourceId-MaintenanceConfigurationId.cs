@@ -12,7 +12,7 @@ internal class MaintenanceConfigurationId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/maintenanceConfigurations/{configName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{managedClusterName}/maintenanceConfigurations/{maintenanceConfigurationName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -23,8 +23,8 @@ internal class MaintenanceConfigurationId : ResourceID
         ResourceIDSegment.Static("staticProviders", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftContainerService", "Microsoft.ContainerService"),
         ResourceIDSegment.Static("staticManagedClusters", "managedClusters"),
-        ResourceIDSegment.UserSpecified("resourceName"),
+        ResourceIDSegment.UserSpecified("managedClusterName"),
         ResourceIDSegment.Static("staticMaintenanceConfigurations", "maintenanceConfigurations"),
-        ResourceIDSegment.UserSpecified("configName"),
+        ResourceIDSegment.UserSpecified("maintenanceConfigurationName"),
     };
 }

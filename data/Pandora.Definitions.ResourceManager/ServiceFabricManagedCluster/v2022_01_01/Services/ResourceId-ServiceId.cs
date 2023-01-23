@@ -12,7 +12,7 @@ internal class ServiceId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedClusters/{clusterName}/applications/{applicationName}/services/{serviceName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedClusters/{managedClusterName}/applications/{applicationName}/services/{serviceName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -23,7 +23,7 @@ internal class ServiceId : ResourceID
         ResourceIDSegment.Static("staticProviders", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftServiceFabric", "Microsoft.ServiceFabric"),
         ResourceIDSegment.Static("staticManagedClusters", "managedClusters"),
-        ResourceIDSegment.UserSpecified("clusterName"),
+        ResourceIDSegment.UserSpecified("managedClusterName"),
         ResourceIDSegment.Static("staticApplications", "applications"),
         ResourceIDSegment.UserSpecified("applicationName"),
         ResourceIDSegment.Static("staticServices", "services"),

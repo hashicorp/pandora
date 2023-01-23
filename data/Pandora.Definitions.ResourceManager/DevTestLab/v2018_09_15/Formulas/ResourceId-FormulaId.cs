@@ -12,7 +12,7 @@ internal class FormulaId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/formulas/{name}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/formulas/{formulaName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -25,6 +25,6 @@ internal class FormulaId : ResourceID
         ResourceIDSegment.Static("staticLabs", "labs"),
         ResourceIDSegment.UserSpecified("labName"),
         ResourceIDSegment.Static("staticFormulas", "formulas"),
-        ResourceIDSegment.UserSpecified("name"),
+        ResourceIDSegment.UserSpecified("formulaName"),
     };
 }

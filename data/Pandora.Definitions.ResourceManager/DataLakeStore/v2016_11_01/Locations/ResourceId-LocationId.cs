@@ -12,7 +12,7 @@ internal class LocationId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/providers/Microsoft.DataLakeStore/locations/{location}";
+    public string ID => "/subscriptions/{subscriptionId}/providers/Microsoft.DataLakeStore/locations/{locationName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -21,6 +21,6 @@ internal class LocationId : ResourceID
         ResourceIDSegment.Static("staticProviders", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftDataLakeStore", "Microsoft.DataLakeStore"),
         ResourceIDSegment.Static("staticLocations", "locations"),
-        ResourceIDSegment.UserSpecified("location"),
+        ResourceIDSegment.UserSpecified("locationName"),
     };
 }

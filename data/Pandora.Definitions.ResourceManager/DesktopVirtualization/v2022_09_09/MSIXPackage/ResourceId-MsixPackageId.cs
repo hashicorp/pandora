@@ -12,7 +12,7 @@ internal class MsixPackageId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DesktopVirtualization/hostPools/{hostPoolName}/msixPackages/{msixPackageFullName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DesktopVirtualization/hostPools/{hostPoolName}/msixPackages/{msixPackageName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -25,6 +25,6 @@ internal class MsixPackageId : ResourceID
         ResourceIDSegment.Static("staticHostPools", "hostPools"),
         ResourceIDSegment.UserSpecified("hostPoolName"),
         ResourceIDSegment.Static("staticMsixPackages", "msixPackages"),
-        ResourceIDSegment.UserSpecified("msixPackageFullName"),
+        ResourceIDSegment.UserSpecified("msixPackageName"),
     };
 }

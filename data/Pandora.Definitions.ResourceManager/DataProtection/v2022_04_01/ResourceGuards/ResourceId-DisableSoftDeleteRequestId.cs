@@ -12,7 +12,7 @@ internal class DisableSoftDeleteRequestId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataProtection/resourceGuards/{resourceGuardsName}/disableSoftDeleteRequests/{requestName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataProtection/resourceGuards/{resourceGuardName}/disableSoftDeleteRequests/{disableSoftDeleteRequestName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -23,8 +23,8 @@ internal class DisableSoftDeleteRequestId : ResourceID
         ResourceIDSegment.Static("staticProviders", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftDataProtection", "Microsoft.DataProtection"),
         ResourceIDSegment.Static("staticResourceGuards", "resourceGuards"),
-        ResourceIDSegment.UserSpecified("resourceGuardsName"),
+        ResourceIDSegment.UserSpecified("resourceGuardName"),
         ResourceIDSegment.Static("staticDisableSoftDeleteRequests", "disableSoftDeleteRequests"),
-        ResourceIDSegment.UserSpecified("requestName"),
+        ResourceIDSegment.UserSpecified("disableSoftDeleteRequestName"),
     };
 }

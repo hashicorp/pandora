@@ -12,7 +12,7 @@ internal class ManagedClusterVersionId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/providers/Microsoft.ServiceFabric/locations/{location}/managedClusterVersions/{clusterVersion}";
+    public string ID => "/subscriptions/{subscriptionId}/providers/Microsoft.ServiceFabric/locations/{locationName}/managedClusterVersions/{managedClusterVersionName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -21,8 +21,8 @@ internal class ManagedClusterVersionId : ResourceID
         ResourceIDSegment.Static("staticProviders", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftServiceFabric", "Microsoft.ServiceFabric"),
         ResourceIDSegment.Static("staticLocations", "locations"),
-        ResourceIDSegment.UserSpecified("location"),
+        ResourceIDSegment.UserSpecified("locationName"),
         ResourceIDSegment.Static("staticManagedClusterVersions", "managedClusterVersions"),
-        ResourceIDSegment.UserSpecified("clusterVersion"),
+        ResourceIDSegment.UserSpecified("managedClusterVersionName"),
     };
 }

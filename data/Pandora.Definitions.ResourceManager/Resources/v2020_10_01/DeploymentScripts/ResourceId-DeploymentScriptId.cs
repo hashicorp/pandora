@@ -12,7 +12,7 @@ internal class DeploymentScriptId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Resources/deploymentScripts/{scriptName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Resources/deploymentScripts/{deploymentScriptName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -23,6 +23,6 @@ internal class DeploymentScriptId : ResourceID
         ResourceIDSegment.Static("staticProviders", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftResources", "Microsoft.Resources"),
         ResourceIDSegment.Static("staticDeploymentScripts", "deploymentScripts"),
-        ResourceIDSegment.UserSpecified("scriptName"),
+        ResourceIDSegment.UserSpecified("deploymentScriptName"),
     };
 }

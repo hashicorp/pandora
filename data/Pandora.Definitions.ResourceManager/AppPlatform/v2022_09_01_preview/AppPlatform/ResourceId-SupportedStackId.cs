@@ -12,7 +12,7 @@ internal class SupportedStackId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AppPlatform/spring/{serviceName}/buildServices/{buildServiceName}/supportedStacks/{stackName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AppPlatform/spring/{springName}/buildServices/{buildServiceName}/supportedStacks/{supportedStackName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -23,10 +23,10 @@ internal class SupportedStackId : ResourceID
         ResourceIDSegment.Static("staticProviders", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftAppPlatform", "Microsoft.AppPlatform"),
         ResourceIDSegment.Static("staticSpring", "spring"),
-        ResourceIDSegment.UserSpecified("serviceName"),
+        ResourceIDSegment.UserSpecified("springName"),
         ResourceIDSegment.Static("staticBuildServices", "buildServices"),
         ResourceIDSegment.UserSpecified("buildServiceName"),
         ResourceIDSegment.Static("staticSupportedStacks", "supportedStacks"),
-        ResourceIDSegment.UserSpecified("stackName"),
+        ResourceIDSegment.UserSpecified("supportedStackName"),
     };
 }

@@ -12,7 +12,7 @@ internal class DatabaseId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cache/redisEnterprise/{clusterName}/databases/{databaseName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cache/redisEnterprise/{redisEnterpriseName}/databases/{databaseName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -23,7 +23,7 @@ internal class DatabaseId : ResourceID
         ResourceIDSegment.Static("staticProviders", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftCache", "Microsoft.Cache"),
         ResourceIDSegment.Static("staticRedisEnterprise", "redisEnterprise"),
-        ResourceIDSegment.UserSpecified("clusterName"),
+        ResourceIDSegment.UserSpecified("redisEnterpriseName"),
         ResourceIDSegment.Static("staticDatabases", "databases"),
         ResourceIDSegment.UserSpecified("databaseName"),
     };

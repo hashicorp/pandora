@@ -12,7 +12,7 @@ internal class CassandraKeyspaceTableId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/cassandraKeyspaces/{keyspaceName}/tables/{tableName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{databaseAccountName}/cassandraKeyspaces/{cassandraKeyspaceName}/tables/{tableName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -23,9 +23,9 @@ internal class CassandraKeyspaceTableId : ResourceID
         ResourceIDSegment.Static("staticProviders", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftDocumentDB", "Microsoft.DocumentDB"),
         ResourceIDSegment.Static("staticDatabaseAccounts", "databaseAccounts"),
-        ResourceIDSegment.UserSpecified("accountName"),
+        ResourceIDSegment.UserSpecified("databaseAccountName"),
         ResourceIDSegment.Static("staticCassandraKeyspaces", "cassandraKeyspaces"),
-        ResourceIDSegment.UserSpecified("keyspaceName"),
+        ResourceIDSegment.UserSpecified("cassandraKeyspaceName"),
         ResourceIDSegment.Static("staticTables", "tables"),
         ResourceIDSegment.UserSpecified("tableName"),
     };

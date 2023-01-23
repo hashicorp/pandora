@@ -12,7 +12,7 @@ internal class WcfRelayId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Relay/namespaces/{namespaceName}/wcfRelays/{relayName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Relay/namespaces/{namespaceName}/wcfRelays/{wcfRelayName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -25,6 +25,6 @@ internal class WcfRelayId : ResourceID
         ResourceIDSegment.Static("staticNamespaces", "namespaces"),
         ResourceIDSegment.UserSpecified("namespaceName"),
         ResourceIDSegment.Static("staticWcfRelays", "wcfRelays"),
-        ResourceIDSegment.UserSpecified("relayName"),
+        ResourceIDSegment.UserSpecified("wcfRelayName"),
     };
 }

@@ -12,7 +12,7 @@ internal class DeleteProtectedItemRequestId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataProtection/resourceGuards/{resourceGuardsName}/deleteProtectedItemRequests/{requestName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataProtection/resourceGuards/{resourceGuardName}/deleteProtectedItemRequests/{deleteProtectedItemRequestName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -23,8 +23,8 @@ internal class DeleteProtectedItemRequestId : ResourceID
         ResourceIDSegment.Static("staticProviders", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftDataProtection", "Microsoft.DataProtection"),
         ResourceIDSegment.Static("staticResourceGuards", "resourceGuards"),
-        ResourceIDSegment.UserSpecified("resourceGuardsName"),
+        ResourceIDSegment.UserSpecified("resourceGuardName"),
         ResourceIDSegment.Static("staticDeleteProtectedItemRequests", "deleteProtectedItemRequests"),
-        ResourceIDSegment.UserSpecified("requestName"),
+        ResourceIDSegment.UserSpecified("deleteProtectedItemRequestName"),
     };
 }

@@ -12,7 +12,7 @@ internal class ScopedDataCollectionRuleAssociationId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/{resourceUri}/providers/Microsoft.Insights/dataCollectionRuleAssociations/{associationName}";
+    public string ID => "/{resourceUri}/providers/Microsoft.Insights/dataCollectionRuleAssociations/{dataCollectionRuleAssociationName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -20,6 +20,6 @@ internal class ScopedDataCollectionRuleAssociationId : ResourceID
         ResourceIDSegment.Static("staticProviders", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftInsights", "Microsoft.Insights"),
         ResourceIDSegment.Static("staticDataCollectionRuleAssociations", "dataCollectionRuleAssociations"),
-        ResourceIDSegment.UserSpecified("associationName"),
+        ResourceIDSegment.UserSpecified("dataCollectionRuleAssociationName"),
     };
 }

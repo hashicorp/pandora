@@ -12,7 +12,7 @@ internal class WcfRelayAuthorizationRuleId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Relay/namespaces/{namespaceName}/wcfRelays/{relayName}/authorizationRules/{authorizationRuleName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Relay/namespaces/{namespaceName}/wcfRelays/{wcfRelayName}/authorizationRules/{authorizationRuleName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -25,7 +25,7 @@ internal class WcfRelayAuthorizationRuleId : ResourceID
         ResourceIDSegment.Static("staticNamespaces", "namespaces"),
         ResourceIDSegment.UserSpecified("namespaceName"),
         ResourceIDSegment.Static("staticWcfRelays", "wcfRelays"),
-        ResourceIDSegment.UserSpecified("relayName"),
+        ResourceIDSegment.UserSpecified("wcfRelayName"),
         ResourceIDSegment.Static("staticAuthorizationRules", "authorizationRules"),
         ResourceIDSegment.UserSpecified("authorizationRuleName"),
     };

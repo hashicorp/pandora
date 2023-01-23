@@ -12,7 +12,7 @@ internal class SourceRegionTargetRegionId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/sourceRegion/{sourceRegion}/targetRegion/{targetRegion}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{databaseAccountName}/sourceRegion/{sourceRegionName}/targetRegion/{targetRegionName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -23,10 +23,10 @@ internal class SourceRegionTargetRegionId : ResourceID
         ResourceIDSegment.Static("staticProviders", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftDocumentDB", "Microsoft.DocumentDB"),
         ResourceIDSegment.Static("staticDatabaseAccounts", "databaseAccounts"),
-        ResourceIDSegment.UserSpecified("accountName"),
+        ResourceIDSegment.UserSpecified("databaseAccountName"),
         ResourceIDSegment.Static("staticSourceRegion", "sourceRegion"),
-        ResourceIDSegment.UserSpecified("sourceRegion"),
+        ResourceIDSegment.UserSpecified("sourceRegionName"),
         ResourceIDSegment.Static("staticTargetRegion", "targetRegion"),
-        ResourceIDSegment.UserSpecified("targetRegion"),
+        ResourceIDSegment.UserSpecified("targetRegionName"),
     };
 }

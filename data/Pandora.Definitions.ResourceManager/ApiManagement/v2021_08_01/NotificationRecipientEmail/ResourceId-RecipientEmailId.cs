@@ -12,7 +12,7 @@ internal class RecipientEmailId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/notifications/{notificationName}/recipientEmails/{email}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/notifications/{notificationName}/recipientEmails/{recipientEmailName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -27,6 +27,6 @@ internal class RecipientEmailId : ResourceID
         ResourceIDSegment.Static("staticNotifications", "notifications"),
         ResourceIDSegment.Constant("notificationName", typeof(NotificationNameConstant)),
         ResourceIDSegment.Static("staticRecipientEmails", "recipientEmails"),
-        ResourceIDSegment.UserSpecified("email"),
+        ResourceIDSegment.UserSpecified("recipientEmailName"),
     };
 }

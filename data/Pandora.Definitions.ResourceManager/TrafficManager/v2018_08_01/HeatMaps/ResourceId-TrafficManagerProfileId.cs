@@ -12,7 +12,7 @@ internal class TrafficManagerProfileId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{profileName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{trafficManagerProfileName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -23,6 +23,6 @@ internal class TrafficManagerProfileId : ResourceID
         ResourceIDSegment.Static("staticProviders", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftNetwork", "Microsoft.Network"),
         ResourceIDSegment.Static("staticTrafficManagerProfiles", "trafficManagerProfiles"),
-        ResourceIDSegment.UserSpecified("profileName"),
+        ResourceIDSegment.UserSpecified("trafficManagerProfileName"),
     };
 }

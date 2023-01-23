@@ -12,7 +12,7 @@ internal class CustomApiId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/customApis/{apiName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/customApis/{customApiName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -23,6 +23,6 @@ internal class CustomApiId : ResourceID
         ResourceIDSegment.Static("staticProviders", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftWeb", "Microsoft.Web"),
         ResourceIDSegment.Static("staticCustomApis", "customApis"),
-        ResourceIDSegment.UserSpecified("apiName"),
+        ResourceIDSegment.UserSpecified("customApiName"),
     };
 }

@@ -12,7 +12,7 @@ internal class DeletedServiceId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/providers/Microsoft.ApiManagement/locations/{location}/deletedServices/{serviceName}";
+    public string ID => "/subscriptions/{subscriptionId}/providers/Microsoft.ApiManagement/locations/{locationName}/deletedServices/{deletedServiceName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -21,8 +21,8 @@ internal class DeletedServiceId : ResourceID
         ResourceIDSegment.Static("staticProviders", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftApiManagement", "Microsoft.ApiManagement"),
         ResourceIDSegment.Static("staticLocations", "locations"),
-        ResourceIDSegment.UserSpecified("location"),
+        ResourceIDSegment.UserSpecified("locationName"),
         ResourceIDSegment.Static("staticDeletedServices", "deletedServices"),
-        ResourceIDSegment.UserSpecified("serviceName"),
+        ResourceIDSegment.UserSpecified("deletedServiceName"),
     };
 }

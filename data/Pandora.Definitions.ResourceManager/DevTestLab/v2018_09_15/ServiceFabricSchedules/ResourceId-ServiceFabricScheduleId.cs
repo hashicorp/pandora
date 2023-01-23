@@ -12,7 +12,7 @@ internal class ServiceFabricScheduleId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/users/{userName}/serviceFabrics/{serviceFabricName}/schedules/{name}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/users/{userName}/serviceFabrics/{serviceFabricName}/schedules/{scheduleName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -29,6 +29,6 @@ internal class ServiceFabricScheduleId : ResourceID
         ResourceIDSegment.Static("staticServiceFabrics", "serviceFabrics"),
         ResourceIDSegment.UserSpecified("serviceFabricName"),
         ResourceIDSegment.Static("staticSchedules", "schedules"),
-        ResourceIDSegment.UserSpecified("name"),
+        ResourceIDSegment.UserSpecified("scheduleName"),
     };
 }

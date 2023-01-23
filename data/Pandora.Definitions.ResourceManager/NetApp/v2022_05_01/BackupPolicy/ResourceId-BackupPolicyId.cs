@@ -12,7 +12,7 @@ internal class BackupPolicyId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/backupPolicies/{backupPolicyName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{netAppAccountName}/backupPolicies/{backupPolicyName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -23,7 +23,7 @@ internal class BackupPolicyId : ResourceID
         ResourceIDSegment.Static("staticProviders", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftNetApp", "Microsoft.NetApp"),
         ResourceIDSegment.Static("staticNetAppAccounts", "netAppAccounts"),
-        ResourceIDSegment.UserSpecified("accountName"),
+        ResourceIDSegment.UserSpecified("netAppAccountName"),
         ResourceIDSegment.Static("staticBackupPolicies", "backupPolicies"),
         ResourceIDSegment.UserSpecified("backupPolicyName"),
     };

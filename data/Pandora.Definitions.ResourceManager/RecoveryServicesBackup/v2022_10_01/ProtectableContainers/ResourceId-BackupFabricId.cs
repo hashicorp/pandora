@@ -12,7 +12,7 @@ internal class BackupFabricId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{backupFabricName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -25,6 +25,6 @@ internal class BackupFabricId : ResourceID
         ResourceIDSegment.Static("staticVaults", "vaults"),
         ResourceIDSegment.UserSpecified("vaultName"),
         ResourceIDSegment.Static("staticBackupFabrics", "backupFabrics"),
-        ResourceIDSegment.UserSpecified("fabricName"),
+        ResourceIDSegment.UserSpecified("backupFabricName"),
     };
 }

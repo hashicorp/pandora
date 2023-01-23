@@ -12,7 +12,7 @@ internal class DeploymentId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/batchEndpoints/{endpointName}/deployments/{deploymentName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/batchEndpoints/{batchEndpointName}/deployments/{deploymentName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -25,7 +25,7 @@ internal class DeploymentId : ResourceID
         ResourceIDSegment.Static("staticWorkspaces", "workspaces"),
         ResourceIDSegment.UserSpecified("workspaceName"),
         ResourceIDSegment.Static("staticBatchEndpoints", "batchEndpoints"),
-        ResourceIDSegment.UserSpecified("endpointName"),
+        ResourceIDSegment.UserSpecified("batchEndpointName"),
         ResourceIDSegment.Static("staticDeployments", "deployments"),
         ResourceIDSegment.UserSpecified("deploymentName"),
     };

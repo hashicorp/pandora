@@ -12,7 +12,7 @@ internal class QueryId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/queryPacks/{queryPackName}/queries/{id}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/queryPacks/{queryPackName}/queries/{queryName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -25,6 +25,6 @@ internal class QueryId : ResourceID
         ResourceIDSegment.Static("staticQueryPacks", "queryPacks"),
         ResourceIDSegment.UserSpecified("queryPackName"),
         ResourceIDSegment.Static("staticQueries", "queries"),
-        ResourceIDSegment.UserSpecified("id"),
+        ResourceIDSegment.UserSpecified("queryName"),
     };
 }

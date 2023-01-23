@@ -12,7 +12,7 @@ internal class QuotaId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/providers/Microsoft.LoadTestService/locations/{location}/quotas/{quotaBucketName}";
+    public string ID => "/subscriptions/{subscriptionId}/providers/Microsoft.LoadTestService/locations/{locationName}/quotas/{quotaName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -21,8 +21,8 @@ internal class QuotaId : ResourceID
         ResourceIDSegment.Static("staticProviders", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftLoadTestService", "Microsoft.LoadTestService"),
         ResourceIDSegment.Static("staticLocations", "locations"),
-        ResourceIDSegment.UserSpecified("location"),
+        ResourceIDSegment.UserSpecified("locationName"),
         ResourceIDSegment.Static("staticQuotas", "quotas"),
-        ResourceIDSegment.UserSpecified("quotaBucketName"),
+        ResourceIDSegment.UserSpecified("quotaName"),
     };
 }

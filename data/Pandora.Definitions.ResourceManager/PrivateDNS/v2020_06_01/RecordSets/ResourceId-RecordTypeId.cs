@@ -12,7 +12,7 @@ internal class RecordTypeId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/privateDnsZones/{privateZoneName}/{recordType}/{relativeRecordSetName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/privateDnsZones/{privateDnsZoneName}/{recordType}/{relativeRecordSetName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -23,7 +23,7 @@ internal class RecordTypeId : ResourceID
         ResourceIDSegment.Static("staticProviders", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftNetwork", "Microsoft.Network"),
         ResourceIDSegment.Static("staticPrivateDnsZones", "privateDnsZones"),
-        ResourceIDSegment.UserSpecified("privateZoneName"),
+        ResourceIDSegment.UserSpecified("privateDnsZoneName"),
         ResourceIDSegment.Constant("recordType", typeof(RecordTypeConstant)),
         ResourceIDSegment.UserSpecified("relativeRecordSetName"),
     };

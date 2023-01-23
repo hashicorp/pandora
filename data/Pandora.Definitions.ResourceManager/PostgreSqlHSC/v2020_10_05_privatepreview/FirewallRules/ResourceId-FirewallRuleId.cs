@@ -12,7 +12,7 @@ internal class FirewallRuleId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/serverGroupsv2/{serverGroupName}/firewallRules/{firewallRuleName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/serverGroupsv2/{serverGroupsv2Name}/firewallRules/{firewallRuleName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -23,7 +23,7 @@ internal class FirewallRuleId : ResourceID
         ResourceIDSegment.Static("staticProviders", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftDBforPostgreSQL", "Microsoft.DBforPostgreSQL"),
         ResourceIDSegment.Static("staticServerGroupsv2", "serverGroupsv2"),
-        ResourceIDSegment.UserSpecified("serverGroupName"),
+        ResourceIDSegment.UserSpecified("serverGroupsv2Name"),
         ResourceIDSegment.Static("staticFirewallRules", "firewallRules"),
         ResourceIDSegment.UserSpecified("firewallRuleName"),
     };

@@ -12,13 +12,13 @@ internal class PacketCoreControlPlaneVersionId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/providers/Microsoft.MobileNetwork/packetCoreControlPlaneVersions/{versionName}";
+    public string ID => "/providers/Microsoft.MobileNetwork/packetCoreControlPlaneVersions/{packetCoreControlPlaneVersionName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
         ResourceIDSegment.Static("staticProviders", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftMobileNetwork", "Microsoft.MobileNetwork"),
         ResourceIDSegment.Static("staticPacketCoreControlPlaneVersions", "packetCoreControlPlaneVersions"),
-        ResourceIDSegment.UserSpecified("versionName"),
+        ResourceIDSegment.UserSpecified("packetCoreControlPlaneVersionName"),
     };
 }

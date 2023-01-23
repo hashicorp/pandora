@@ -12,7 +12,7 @@ internal class PrivateEndpointConnectionId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IoTCentral/iotApps/{resourceName}/privateEndpointConnections/{privateEndpointConnectionName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IoTCentral/iotApps/{iotAppName}/privateEndpointConnections/{privateEndpointConnectionName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -23,7 +23,7 @@ internal class PrivateEndpointConnectionId : ResourceID
         ResourceIDSegment.Static("staticProviders", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftIoTCentral", "Microsoft.IoTCentral"),
         ResourceIDSegment.Static("staticIotApps", "iotApps"),
-        ResourceIDSegment.UserSpecified("resourceName"),
+        ResourceIDSegment.UserSpecified("iotAppName"),
         ResourceIDSegment.Static("staticPrivateEndpointConnections", "privateEndpointConnections"),
         ResourceIDSegment.UserSpecified("privateEndpointConnectionName"),
     };

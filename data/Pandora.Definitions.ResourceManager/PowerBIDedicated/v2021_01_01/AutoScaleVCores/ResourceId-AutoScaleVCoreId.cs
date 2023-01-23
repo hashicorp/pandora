@@ -12,7 +12,7 @@ internal class AutoScaleVCoreId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.PowerBIDedicated/autoScaleVCores/{vcoreName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.PowerBIDedicated/autoScaleVCores/{autoScaleVCoreName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -23,6 +23,6 @@ internal class AutoScaleVCoreId : ResourceID
         ResourceIDSegment.Static("staticProviders", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftPowerBIDedicated", "Microsoft.PowerBIDedicated"),
         ResourceIDSegment.Static("staticAutoScaleVCores", "autoScaleVCores"),
-        ResourceIDSegment.UserSpecified("vcoreName"),
+        ResourceIDSegment.UserSpecified("autoScaleVCoreName"),
     };
 }

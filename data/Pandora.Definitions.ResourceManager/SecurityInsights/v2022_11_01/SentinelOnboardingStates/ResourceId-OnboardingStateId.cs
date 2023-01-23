@@ -12,7 +12,7 @@ internal class OnboardingStateId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/onboardingStates/{sentinelOnboardingStateName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/onboardingStates/{onboardingStateName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -27,6 +27,6 @@ internal class OnboardingStateId : ResourceID
         ResourceIDSegment.Static("staticProviders2", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftSecurityInsights", "Microsoft.SecurityInsights"),
         ResourceIDSegment.Static("staticOnboardingStates", "onboardingStates"),
-        ResourceIDSegment.UserSpecified("sentinelOnboardingStateName"),
+        ResourceIDSegment.UserSpecified("onboardingStateName"),
     };
 }

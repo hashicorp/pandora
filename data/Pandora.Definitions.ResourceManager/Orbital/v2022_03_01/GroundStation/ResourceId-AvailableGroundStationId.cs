@@ -12,7 +12,7 @@ internal class AvailableGroundStationId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/providers/Microsoft.Orbital/availableGroundStations/{groundStationName}";
+    public string ID => "/subscriptions/{subscriptionId}/providers/Microsoft.Orbital/availableGroundStations/{availableGroundStationName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -21,6 +21,6 @@ internal class AvailableGroundStationId : ResourceID
         ResourceIDSegment.Static("staticProviders", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftOrbital", "Microsoft.Orbital"),
         ResourceIDSegment.Static("staticAvailableGroundStations", "availableGroundStations"),
-        ResourceIDSegment.UserSpecified("groundStationName"),
+        ResourceIDSegment.UserSpecified("availableGroundStationName"),
     };
 }

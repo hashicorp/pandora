@@ -12,7 +12,7 @@ internal class DataStoreId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/clusters/{clusterName}/dataStores/{datastoreName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/clusters/{clusterName}/dataStores/{dataStoreName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -27,6 +27,6 @@ internal class DataStoreId : ResourceID
         ResourceIDSegment.Static("staticClusters", "clusters"),
         ResourceIDSegment.UserSpecified("clusterName"),
         ResourceIDSegment.Static("staticDataStores", "dataStores"),
-        ResourceIDSegment.UserSpecified("datastoreName"),
+        ResourceIDSegment.UserSpecified("dataStoreName"),
     };
 }

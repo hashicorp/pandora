@@ -12,7 +12,7 @@ internal class EndpointId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DigitalTwins/digitalTwinsInstances/{resourceName}/endpoints/{endpointName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DigitalTwins/digitalTwinsInstances/{digitalTwinsInstanceName}/endpoints/{endpointName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -23,7 +23,7 @@ internal class EndpointId : ResourceID
         ResourceIDSegment.Static("staticProviders", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftDigitalTwins", "Microsoft.DigitalTwins"),
         ResourceIDSegment.Static("staticDigitalTwinsInstances", "digitalTwinsInstances"),
-        ResourceIDSegment.UserSpecified("resourceName"),
+        ResourceIDSegment.UserSpecified("digitalTwinsInstanceName"),
         ResourceIDSegment.Static("staticEndpoints", "endpoints"),
         ResourceIDSegment.UserSpecified("endpointName"),
     };

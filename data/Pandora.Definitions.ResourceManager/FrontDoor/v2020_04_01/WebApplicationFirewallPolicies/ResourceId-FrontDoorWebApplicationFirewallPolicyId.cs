@@ -12,7 +12,7 @@ internal class FrontDoorWebApplicationFirewallPolicyId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/frontDoorWebApplicationFirewallPolicies/{policyName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/frontDoorWebApplicationFirewallPolicies/{frontDoorWebApplicationFirewallPolicyName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -23,6 +23,6 @@ internal class FrontDoorWebApplicationFirewallPolicyId : ResourceID
         ResourceIDSegment.Static("staticProviders", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftNetwork", "Microsoft.Network"),
         ResourceIDSegment.Static("staticFrontDoorWebApplicationFirewallPolicies", "frontDoorWebApplicationFirewallPolicies"),
-        ResourceIDSegment.UserSpecified("policyName"),
+        ResourceIDSegment.UserSpecified("frontDoorWebApplicationFirewallPolicyName"),
     };
 }

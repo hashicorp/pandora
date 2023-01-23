@@ -12,7 +12,7 @@ internal class DeletedConfigurationStoreId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/providers/Microsoft.AppConfiguration/locations/{location}/deletedConfigurationStores/{configStoreName}";
+    public string ID => "/subscriptions/{subscriptionId}/providers/Microsoft.AppConfiguration/locations/{locationName}/deletedConfigurationStores/{deletedConfigurationStoreName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -21,8 +21,8 @@ internal class DeletedConfigurationStoreId : ResourceID
         ResourceIDSegment.Static("staticProviders", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftAppConfiguration", "Microsoft.AppConfiguration"),
         ResourceIDSegment.Static("staticLocations", "locations"),
-        ResourceIDSegment.UserSpecified("location"),
+        ResourceIDSegment.UserSpecified("locationName"),
         ResourceIDSegment.Static("staticDeletedConfigurationStores", "deletedConfigurationStores"),
-        ResourceIDSegment.UserSpecified("configStoreName"),
+        ResourceIDSegment.UserSpecified("deletedConfigurationStoreName"),
     };
 }

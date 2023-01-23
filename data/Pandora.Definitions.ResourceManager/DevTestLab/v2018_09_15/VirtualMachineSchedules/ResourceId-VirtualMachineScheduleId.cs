@@ -12,7 +12,7 @@ internal class VirtualMachineScheduleId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/virtualMachines/{virtualMachineName}/schedules/{name}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/virtualMachines/{virtualMachineName}/schedules/{scheduleName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -27,6 +27,6 @@ internal class VirtualMachineScheduleId : ResourceID
         ResourceIDSegment.Static("staticVirtualMachines", "virtualMachines"),
         ResourceIDSegment.UserSpecified("virtualMachineName"),
         ResourceIDSegment.Static("staticSchedules", "schedules"),
-        ResourceIDSegment.UserSpecified("name"),
+        ResourceIDSegment.UserSpecified("scheduleName"),
     };
 }

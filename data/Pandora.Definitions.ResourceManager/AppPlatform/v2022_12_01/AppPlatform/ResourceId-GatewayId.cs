@@ -12,7 +12,7 @@ internal class GatewayId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AppPlatform/spring/{serviceName}/gateways/{gatewayName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AppPlatform/spring/{springName}/gateways/{gatewayName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -23,7 +23,7 @@ internal class GatewayId : ResourceID
         ResourceIDSegment.Static("staticProviders", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftAppPlatform", "Microsoft.AppPlatform"),
         ResourceIDSegment.Static("staticSpring", "spring"),
-        ResourceIDSegment.UserSpecified("serviceName"),
+        ResourceIDSegment.UserSpecified("springName"),
         ResourceIDSegment.Static("staticGateways", "gateways"),
         ResourceIDSegment.UserSpecified("gatewayName"),
     };

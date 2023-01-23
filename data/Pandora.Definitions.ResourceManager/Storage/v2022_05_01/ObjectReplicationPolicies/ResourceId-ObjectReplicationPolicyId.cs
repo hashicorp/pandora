@@ -12,7 +12,7 @@ internal class ObjectReplicationPolicyId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/objectReplicationPolicies/{objectReplicationPolicyId}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/objectReplicationPolicies/{objectReplicationPolicyId}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -23,7 +23,7 @@ internal class ObjectReplicationPolicyId : ResourceID
         ResourceIDSegment.Static("staticProviders", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftStorage", "Microsoft.Storage"),
         ResourceIDSegment.Static("staticStorageAccounts", "storageAccounts"),
-        ResourceIDSegment.UserSpecified("accountName"),
+        ResourceIDSegment.UserSpecified("storageAccountName"),
         ResourceIDSegment.Static("staticObjectReplicationPolicies", "objectReplicationPolicies"),
         ResourceIDSegment.UserSpecified("objectReplicationPolicyId"),
     };

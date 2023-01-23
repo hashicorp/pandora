@@ -12,7 +12,7 @@ internal class SecurityMLAnalyticsSettingId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/securityMLAnalyticsSettings/{settingsResourceName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/securityMLAnalyticsSettings/{securityMLAnalyticsSettingName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -27,6 +27,6 @@ internal class SecurityMLAnalyticsSettingId : ResourceID
         ResourceIDSegment.Static("staticProviders2", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftSecurityInsights", "Microsoft.SecurityInsights"),
         ResourceIDSegment.Static("staticSecurityMLAnalyticsSettings", "securityMLAnalyticsSettings"),
-        ResourceIDSegment.UserSpecified("settingsResourceName"),
+        ResourceIDSegment.UserSpecified("securityMLAnalyticsSettingName"),
     };
 }

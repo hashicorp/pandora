@@ -12,7 +12,7 @@ internal class OperationId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{clusterRp}/{clusterResourceName}/{clusterName}/providers/Microsoft.KubernetesConfiguration/extensions/{extensionName}/operations/{operationId}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{providerName}/{clusterResourceName}/{clusterName}/providers/Microsoft.KubernetesConfiguration/extensions/{extensionName}/operations/{operationId}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -21,7 +21,7 @@ internal class OperationId : ResourceID
         ResourceIDSegment.Static("staticResourceGroups", "resourceGroups"),
         ResourceIDSegment.ResourceGroup("resourceGroupName"),
         ResourceIDSegment.Static("staticProviders", "providers"),
-        ResourceIDSegment.UserSpecified("clusterRp"),
+        ResourceIDSegment.UserSpecified("providerName"),
         ResourceIDSegment.UserSpecified("clusterResourceName"),
         ResourceIDSegment.UserSpecified("clusterName"),
         ResourceIDSegment.Static("staticProviders2", "providers"),

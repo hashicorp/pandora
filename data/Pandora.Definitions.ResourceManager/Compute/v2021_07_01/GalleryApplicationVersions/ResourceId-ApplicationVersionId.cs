@@ -12,7 +12,7 @@ internal class ApplicationVersionId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/galleries/{galleryName}/applications/{galleryApplicationName}/versions/{galleryApplicationVersionName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/galleries/{galleryName}/applications/{applicationName}/versions/{versionName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -25,8 +25,8 @@ internal class ApplicationVersionId : ResourceID
         ResourceIDSegment.Static("staticGalleries", "galleries"),
         ResourceIDSegment.UserSpecified("galleryName"),
         ResourceIDSegment.Static("staticApplications", "applications"),
-        ResourceIDSegment.UserSpecified("galleryApplicationName"),
+        ResourceIDSegment.UserSpecified("applicationName"),
         ResourceIDSegment.Static("staticVersions", "versions"),
-        ResourceIDSegment.UserSpecified("galleryApplicationVersionName"),
+        ResourceIDSegment.UserSpecified("versionName"),
     };
 }

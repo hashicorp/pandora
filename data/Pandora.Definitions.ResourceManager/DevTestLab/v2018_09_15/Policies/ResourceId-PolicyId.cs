@@ -12,7 +12,7 @@ internal class PolicyId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/policySets/{policySetName}/policies/{name}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/policySets/{policySetName}/policies/{policyName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -27,6 +27,6 @@ internal class PolicyId : ResourceID
         ResourceIDSegment.Static("staticPolicySets", "policySets"),
         ResourceIDSegment.UserSpecified("policySetName"),
         ResourceIDSegment.Static("staticPolicies", "policies"),
-        ResourceIDSegment.UserSpecified("name"),
+        ResourceIDSegment.UserSpecified("policyName"),
     };
 }
