@@ -11,6 +11,10 @@ var workarounds = []workaround{
 	workaroundContainerService21394{},
 	workaroundLoadTest20961{},
 	workaroundMedia21581{},
+
+	// @tombuildsstuff: this is an odd place for this however this allows working around inconsistencies in the Swagger
+	// we should look at moving this into the `resourceids` package when time allows.
+	workaroundInconsistentlyDefinedSegments{},
 }
 
 func ApplyWorkarounds(input []models.AzureApiDefinition, logger hclog.Logger) (*[]models.AzureApiDefinition, error) {
