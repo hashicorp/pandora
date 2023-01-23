@@ -12,7 +12,7 @@ internal class AccountAssociationId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/commitmentPlans/{commitmentPlanName}/accountAssociations/{commitmentPlanAssociationName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/commitmentPlans/{commitmentPlanName}/accountAssociations/{accountAssociationName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -25,6 +25,6 @@ internal class AccountAssociationId : ResourceID
         ResourceIDSegment.Static("staticCommitmentPlans", "commitmentPlans"),
         ResourceIDSegment.UserSpecified("commitmentPlanName"),
         ResourceIDSegment.Static("staticAccountAssociations", "accountAssociations"),
-        ResourceIDSegment.UserSpecified("commitmentPlanAssociationName"),
+        ResourceIDSegment.UserSpecified("accountAssociationName"),
     };
 }

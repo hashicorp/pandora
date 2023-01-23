@@ -12,7 +12,7 @@ internal class ProviderId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{parentProviderNamespace}/{parentResourceType}/{parentResourceName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{providerName}/{parentResourceType}/{parentResourceName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -21,7 +21,7 @@ internal class ProviderId : ResourceID
         ResourceIDSegment.Static("staticResourceGroups", "resourceGroups"),
         ResourceIDSegment.ResourceGroup("resourceGroupName"),
         ResourceIDSegment.Static("staticProviders", "providers"),
-        ResourceIDSegment.UserSpecified("parentProviderNamespace"),
+        ResourceIDSegment.UserSpecified("providerName"),
         ResourceIDSegment.UserSpecified("parentResourceType"),
         ResourceIDSegment.UserSpecified("parentResourceName"),
     };

@@ -12,7 +12,7 @@ internal class DeletedBackupInstanceId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataProtection/backupVaults/{vaultName}/deletedBackupInstances/{backupInstanceName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataProtection/backupVaults/{backupVaultName}/deletedBackupInstances/{deletedBackupInstanceName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -23,8 +23,8 @@ internal class DeletedBackupInstanceId : ResourceID
         ResourceIDSegment.Static("staticProviders", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftDataProtection", "Microsoft.DataProtection"),
         ResourceIDSegment.Static("staticBackupVaults", "backupVaults"),
-        ResourceIDSegment.UserSpecified("vaultName"),
+        ResourceIDSegment.UserSpecified("backupVaultName"),
         ResourceIDSegment.Static("staticDeletedBackupInstances", "deletedBackupInstances"),
-        ResourceIDSegment.UserSpecified("backupInstanceName"),
+        ResourceIDSegment.UserSpecified("deletedBackupInstanceName"),
     };
 }

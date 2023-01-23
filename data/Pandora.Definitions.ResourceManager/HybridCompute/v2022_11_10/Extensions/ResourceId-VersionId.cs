@@ -12,7 +12,7 @@ internal class VersionId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/providers/Microsoft.HybridCompute/locations/{location}/publishers/{publisher}/extensionTypes/{extensionType}/versions/{version}";
+    public string ID => "/subscriptions/{subscriptionId}/providers/Microsoft.HybridCompute/locations/{locationName}/publishers/{publisherName}/extensionTypes/{extensionTypeName}/versions/{versionName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -21,12 +21,12 @@ internal class VersionId : ResourceID
         ResourceIDSegment.Static("staticProviders", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftHybridCompute", "Microsoft.HybridCompute"),
         ResourceIDSegment.Static("staticLocations", "locations"),
-        ResourceIDSegment.UserSpecified("location"),
+        ResourceIDSegment.UserSpecified("locationName"),
         ResourceIDSegment.Static("staticPublishers", "publishers"),
-        ResourceIDSegment.UserSpecified("publisher"),
+        ResourceIDSegment.UserSpecified("publisherName"),
         ResourceIDSegment.Static("staticExtensionTypes", "extensionTypes"),
-        ResourceIDSegment.UserSpecified("extensionType"),
+        ResourceIDSegment.UserSpecified("extensionTypeName"),
         ResourceIDSegment.Static("staticVersions", "versions"),
-        ResourceIDSegment.UserSpecified("version"),
+        ResourceIDSegment.UserSpecified("versionName"),
     };
 }

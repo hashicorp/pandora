@@ -12,7 +12,7 @@ internal class TimeSeriesDatabaseConnectionId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DigitalTwins/digitalTwinsInstances/{resourceName}/timeSeriesDatabaseConnections/{timeSeriesDatabaseConnectionName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DigitalTwins/digitalTwinsInstances/{digitalTwinsInstanceName}/timeSeriesDatabaseConnections/{timeSeriesDatabaseConnectionName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -23,7 +23,7 @@ internal class TimeSeriesDatabaseConnectionId : ResourceID
         ResourceIDSegment.Static("staticProviders", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftDigitalTwins", "Microsoft.DigitalTwins"),
         ResourceIDSegment.Static("staticDigitalTwinsInstances", "digitalTwinsInstances"),
-        ResourceIDSegment.UserSpecified("resourceName"),
+        ResourceIDSegment.UserSpecified("digitalTwinsInstanceName"),
         ResourceIDSegment.Static("staticTimeSeriesDatabaseConnections", "timeSeriesDatabaseConnections"),
         ResourceIDSegment.UserSpecified("timeSeriesDatabaseConnectionName"),
     };

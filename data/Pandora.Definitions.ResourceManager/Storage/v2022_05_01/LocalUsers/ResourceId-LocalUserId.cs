@@ -12,7 +12,7 @@ internal class LocalUserId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/localUsers/{username}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/localUsers/{localUserName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -23,8 +23,8 @@ internal class LocalUserId : ResourceID
         ResourceIDSegment.Static("staticProviders", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftStorage", "Microsoft.Storage"),
         ResourceIDSegment.Static("staticStorageAccounts", "storageAccounts"),
-        ResourceIDSegment.UserSpecified("accountName"),
+        ResourceIDSegment.UserSpecified("storageAccountName"),
         ResourceIDSegment.Static("staticLocalUsers", "localUsers"),
-        ResourceIDSegment.UserSpecified("username"),
+        ResourceIDSegment.UserSpecified("localUserName"),
     };
 }

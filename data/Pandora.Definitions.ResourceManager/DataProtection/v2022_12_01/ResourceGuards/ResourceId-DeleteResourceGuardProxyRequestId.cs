@@ -12,7 +12,7 @@ internal class DeleteResourceGuardProxyRequestId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataProtection/resourceGuards/{resourceGuardsName}/deleteResourceGuardProxyRequests/{requestName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataProtection/resourceGuards/{resourceGuardName}/deleteResourceGuardProxyRequests/{deleteResourceGuardProxyRequestName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -23,8 +23,8 @@ internal class DeleteResourceGuardProxyRequestId : ResourceID
         ResourceIDSegment.Static("staticProviders", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftDataProtection", "Microsoft.DataProtection"),
         ResourceIDSegment.Static("staticResourceGuards", "resourceGuards"),
-        ResourceIDSegment.UserSpecified("resourceGuardsName"),
+        ResourceIDSegment.UserSpecified("resourceGuardName"),
         ResourceIDSegment.Static("staticDeleteResourceGuardProxyRequests", "deleteResourceGuardProxyRequests"),
-        ResourceIDSegment.UserSpecified("requestName"),
+        ResourceIDSegment.UserSpecified("deleteResourceGuardProxyRequestName"),
     };
 }

@@ -12,7 +12,7 @@ internal class ConsumerGroupId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/eventhubs/{eventHubName}/consumerGroups/{consumerGroupName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/eventhubs/{eventhubName}/consumerGroups/{consumerGroupName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -25,7 +25,7 @@ internal class ConsumerGroupId : ResourceID
         ResourceIDSegment.Static("staticNamespaces", "namespaces"),
         ResourceIDSegment.UserSpecified("namespaceName"),
         ResourceIDSegment.Static("staticEventhubs", "eventhubs"),
-        ResourceIDSegment.UserSpecified("eventHubName"),
+        ResourceIDSegment.UserSpecified("eventhubName"),
         ResourceIDSegment.Static("staticConsumerGroups", "consumerGroups"),
         ResourceIDSegment.UserSpecified("consumerGroupName"),
     };

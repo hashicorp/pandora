@@ -12,7 +12,7 @@ internal class FirewallRuleId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMySQL/flexibleServers/{serverName}/firewallRules/{firewallRuleName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMySQL/flexibleServers/{flexibleServerName}/firewallRules/{firewallRuleName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -23,7 +23,7 @@ internal class FirewallRuleId : ResourceID
         ResourceIDSegment.Static("staticProviders", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftDBforMySQL", "Microsoft.DBforMySQL"),
         ResourceIDSegment.Static("staticFlexibleServers", "flexibleServers"),
-        ResourceIDSegment.UserSpecified("serverName"),
+        ResourceIDSegment.UserSpecified("flexibleServerName"),
         ResourceIDSegment.Static("staticFirewallRules", "firewallRules"),
         ResourceIDSegment.UserSpecified("firewallRuleName"),
     };

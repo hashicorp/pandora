@@ -12,7 +12,7 @@ internal class OutputId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StreamAnalytics/streamingJobs/{jobName}/outputs/{outputName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StreamAnalytics/streamingJobs/{streamingJobName}/outputs/{outputName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -23,7 +23,7 @@ internal class OutputId : ResourceID
         ResourceIDSegment.Static("staticProviders", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftStreamAnalytics", "Microsoft.StreamAnalytics"),
         ResourceIDSegment.Static("staticStreamingJobs", "streamingJobs"),
-        ResourceIDSegment.UserSpecified("jobName"),
+        ResourceIDSegment.UserSpecified("streamingJobName"),
         ResourceIDSegment.Static("staticOutputs", "outputs"),
         ResourceIDSegment.UserSpecified("outputName"),
     };

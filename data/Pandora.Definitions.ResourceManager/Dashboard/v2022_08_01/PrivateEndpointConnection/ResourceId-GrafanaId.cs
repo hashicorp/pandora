@@ -12,7 +12,7 @@ internal class GrafanaId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Dashboard/grafana/{workspaceName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Dashboard/grafana/{grafanaName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -23,6 +23,6 @@ internal class GrafanaId : ResourceID
         ResourceIDSegment.Static("staticProviders", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftDashboard", "Microsoft.Dashboard"),
         ResourceIDSegment.Static("staticGrafana", "grafana"),
-        ResourceIDSegment.UserSpecified("workspaceName"),
+        ResourceIDSegment.UserSpecified("grafanaName"),
     };
 }

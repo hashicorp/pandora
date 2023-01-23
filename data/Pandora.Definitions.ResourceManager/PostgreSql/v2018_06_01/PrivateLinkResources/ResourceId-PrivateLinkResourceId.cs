@@ -12,7 +12,7 @@ internal class PrivateLinkResourceId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/servers/{serverName}/privateLinkResources/{groupName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/servers/{serverName}/privateLinkResources/{privateLinkResourceName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -25,6 +25,6 @@ internal class PrivateLinkResourceId : ResourceID
         ResourceIDSegment.Static("staticServers", "servers"),
         ResourceIDSegment.UserSpecified("serverName"),
         ResourceIDSegment.Static("staticPrivateLinkResources", "privateLinkResources"),
-        ResourceIDSegment.UserSpecified("groupName"),
+        ResourceIDSegment.UserSpecified("privateLinkResourceName"),
     };
 }

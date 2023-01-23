@@ -12,7 +12,7 @@ internal class CustomCertificateId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.SignalRService/signalR/{resourceName}/customCertificates/{certificateName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.SignalRService/signalR/{signalRName}/customCertificates/{customCertificateName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -23,8 +23,8 @@ internal class CustomCertificateId : ResourceID
         ResourceIDSegment.Static("staticProviders", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftSignalRService", "Microsoft.SignalRService"),
         ResourceIDSegment.Static("staticSignalR", "signalR"),
-        ResourceIDSegment.UserSpecified("resourceName"),
+        ResourceIDSegment.UserSpecified("signalRName"),
         ResourceIDSegment.Static("staticCustomCertificates", "customCertificates"),
-        ResourceIDSegment.UserSpecified("certificateName"),
+        ResourceIDSegment.UserSpecified("customCertificateName"),
     };
 }

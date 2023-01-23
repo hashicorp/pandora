@@ -12,7 +12,7 @@ internal class PrivateLinkResourceId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/privateLinkResources/{privateLinkSubResourceName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/privateLinkResources/{privateLinkResourceName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -25,6 +25,6 @@ internal class PrivateLinkResourceId : ResourceID
         ResourceIDSegment.Static("staticService", "service"),
         ResourceIDSegment.UserSpecified("serviceName"),
         ResourceIDSegment.Static("staticPrivateLinkResources", "privateLinkResources"),
-        ResourceIDSegment.UserSpecified("privateLinkSubResourceName"),
+        ResourceIDSegment.UserSpecified("privateLinkResourceName"),
     };
 }

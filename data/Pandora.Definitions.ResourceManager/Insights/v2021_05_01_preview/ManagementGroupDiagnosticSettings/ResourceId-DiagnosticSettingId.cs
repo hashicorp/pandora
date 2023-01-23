@@ -12,7 +12,7 @@ internal class DiagnosticSettingId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/providers/Microsoft.Insights/diagnosticSettings/{name}";
+    public string ID => "/subscriptions/{subscriptionId}/providers/Microsoft.Insights/diagnosticSettings/{diagnosticSettingName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -21,6 +21,6 @@ internal class DiagnosticSettingId : ResourceID
         ResourceIDSegment.Static("staticProviders", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftInsights", "Microsoft.Insights"),
         ResourceIDSegment.Static("staticDiagnosticSettings", "diagnosticSettings"),
-        ResourceIDSegment.UserSpecified("name"),
+        ResourceIDSegment.UserSpecified("diagnosticSettingName"),
     };
 }

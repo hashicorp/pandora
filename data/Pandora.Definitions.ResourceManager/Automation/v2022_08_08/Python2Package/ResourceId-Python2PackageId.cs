@@ -12,7 +12,7 @@ internal class Python2PackageId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/python2Packages/{packageName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/python2Packages/{python2PackageName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -25,6 +25,6 @@ internal class Python2PackageId : ResourceID
         ResourceIDSegment.Static("staticAutomationAccounts", "automationAccounts"),
         ResourceIDSegment.UserSpecified("automationAccountName"),
         ResourceIDSegment.Static("staticPython2Packages", "python2Packages"),
-        ResourceIDSegment.UserSpecified("packageName"),
+        ResourceIDSegment.UserSpecified("python2PackageName"),
     };
 }

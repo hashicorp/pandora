@@ -12,7 +12,7 @@ internal class PooledScheduleId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DesktopVirtualization/scalingPlans/{scalingPlanName}/pooledSchedules/{scalingPlanScheduleName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DesktopVirtualization/scalingPlans/{scalingPlanName}/pooledSchedules/{pooledScheduleName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -25,6 +25,6 @@ internal class PooledScheduleId : ResourceID
         ResourceIDSegment.Static("staticScalingPlans", "scalingPlans"),
         ResourceIDSegment.UserSpecified("scalingPlanName"),
         ResourceIDSegment.Static("staticPooledSchedules", "pooledSchedules"),
-        ResourceIDSegment.UserSpecified("scalingPlanScheduleName"),
+        ResourceIDSegment.UserSpecified("pooledScheduleName"),
     };
 }

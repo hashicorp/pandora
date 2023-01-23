@@ -12,7 +12,7 @@ internal class ArtifactId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/artifactSources/{artifactSourceName}/artifacts/{name}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/artifactSources/{artifactSourceName}/artifacts/{artifactName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -27,6 +27,6 @@ internal class ArtifactId : ResourceID
         ResourceIDSegment.Static("staticArtifactSources", "artifactSources"),
         ResourceIDSegment.UserSpecified("artifactSourceName"),
         ResourceIDSegment.Static("staticArtifacts", "artifacts"),
-        ResourceIDSegment.UserSpecified("name"),
+        ResourceIDSegment.UserSpecified("artifactName"),
     };
 }

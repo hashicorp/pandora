@@ -12,7 +12,7 @@ internal class EnvironmentId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/users/{userName}/environments/{name}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/users/{userName}/environments/{environmentName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -27,6 +27,6 @@ internal class EnvironmentId : ResourceID
         ResourceIDSegment.Static("staticUsers", "users"),
         ResourceIDSegment.UserSpecified("userName"),
         ResourceIDSegment.Static("staticEnvironments", "environments"),
-        ResourceIDSegment.UserSpecified("name"),
+        ResourceIDSegment.UserSpecified("environmentName"),
     };
 }

@@ -12,7 +12,7 @@ internal class EndpointTypeId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{profileName}/{endpointType}/{endpointName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{trafficManagerProfileName}/{endpointType}/{endpointName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -23,7 +23,7 @@ internal class EndpointTypeId : ResourceID
         ResourceIDSegment.Static("staticProviders", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftNetwork", "Microsoft.Network"),
         ResourceIDSegment.Static("staticTrafficManagerProfiles", "trafficManagerProfiles"),
-        ResourceIDSegment.UserSpecified("profileName"),
+        ResourceIDSegment.UserSpecified("trafficManagerProfileName"),
         ResourceIDSegment.Constant("endpointType", typeof(EndpointTypeConstant)),
         ResourceIDSegment.UserSpecified("endpointName"),
     };

@@ -12,7 +12,7 @@ internal class UpgradeGraphId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ResourceConnector/appliances/{resourceName}/upgradeGraphs/{upgradeGraph}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ResourceConnector/appliances/{applianceName}/upgradeGraphs/{upgradeGraphName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -23,8 +23,8 @@ internal class UpgradeGraphId : ResourceID
         ResourceIDSegment.Static("staticProviders", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftResourceConnector", "Microsoft.ResourceConnector"),
         ResourceIDSegment.Static("staticAppliances", "appliances"),
-        ResourceIDSegment.UserSpecified("resourceName"),
+        ResourceIDSegment.UserSpecified("applianceName"),
         ResourceIDSegment.Static("staticUpgradeGraphs", "upgradeGraphs"),
-        ResourceIDSegment.UserSpecified("upgradeGraph"),
+        ResourceIDSegment.UserSpecified("upgradeGraphName"),
     };
 }

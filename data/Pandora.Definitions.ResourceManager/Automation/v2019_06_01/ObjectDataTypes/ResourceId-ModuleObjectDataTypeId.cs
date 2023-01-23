@@ -12,7 +12,7 @@ internal class ModuleObjectDataTypeId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/modules/{moduleName}/objectDataTypes/{typeName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/modules/{moduleName}/objectDataTypes/{objectDataTypeName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -27,6 +27,6 @@ internal class ModuleObjectDataTypeId : ResourceID
         ResourceIDSegment.Static("staticModules", "modules"),
         ResourceIDSegment.UserSpecified("moduleName"),
         ResourceIDSegment.Static("staticObjectDataTypes", "objectDataTypes"),
-        ResourceIDSegment.UserSpecified("typeName"),
+        ResourceIDSegment.UserSpecified("objectDataTypeName"),
     };
 }

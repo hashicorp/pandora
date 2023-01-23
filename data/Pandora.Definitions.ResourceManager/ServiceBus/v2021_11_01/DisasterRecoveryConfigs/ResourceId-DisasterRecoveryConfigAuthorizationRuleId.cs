@@ -12,7 +12,7 @@ internal class DisasterRecoveryConfigAuthorizationRuleId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}/disasterRecoveryConfigs/{alias}/authorizationRules/{authorizationRuleName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}/disasterRecoveryConfigs/{disasterRecoveryConfigName}/authorizationRules/{authorizationRuleName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -25,7 +25,7 @@ internal class DisasterRecoveryConfigAuthorizationRuleId : ResourceID
         ResourceIDSegment.Static("staticNamespaces", "namespaces"),
         ResourceIDSegment.UserSpecified("namespaceName"),
         ResourceIDSegment.Static("staticDisasterRecoveryConfigs", "disasterRecoveryConfigs"),
-        ResourceIDSegment.UserSpecified("alias"),
+        ResourceIDSegment.UserSpecified("disasterRecoveryConfigName"),
         ResourceIDSegment.Static("staticAuthorizationRules", "authorizationRules"),
         ResourceIDSegment.UserSpecified("authorizationRuleName"),
     };

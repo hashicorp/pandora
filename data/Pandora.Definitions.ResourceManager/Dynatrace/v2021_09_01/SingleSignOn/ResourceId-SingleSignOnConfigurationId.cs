@@ -12,7 +12,7 @@ internal class SingleSignOnConfigurationId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Dynatrace.Observability/monitors/{monitorName}/singleSignOnConfigurations/{configurationName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Dynatrace.Observability/monitors/{monitorName}/singleSignOnConfigurations/{singleSignOnConfigurationName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -25,6 +25,6 @@ internal class SingleSignOnConfigurationId : ResourceID
         ResourceIDSegment.Static("staticMonitors", "monitors"),
         ResourceIDSegment.UserSpecified("monitorName"),
         ResourceIDSegment.Static("staticSingleSignOnConfigurations", "singleSignOnConfigurations"),
-        ResourceIDSegment.UserSpecified("configurationName"),
+        ResourceIDSegment.UserSpecified("singleSignOnConfigurationName"),
     };
 }

@@ -12,7 +12,7 @@ internal class ReplicationStorageClassificationMappingId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationFabrics/{fabricName}/replicationStorageClassifications/{storageClassificationName}/replicationStorageClassificationMappings/{storageClassificationMappingName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/replicationFabrics/{replicationFabricName}/replicationStorageClassifications/{replicationStorageClassificationName}/replicationStorageClassificationMappings/{replicationStorageClassificationMappingName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -23,12 +23,12 @@ internal class ReplicationStorageClassificationMappingId : ResourceID
         ResourceIDSegment.Static("staticProviders", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftRecoveryServices", "Microsoft.RecoveryServices"),
         ResourceIDSegment.Static("staticVaults", "vaults"),
-        ResourceIDSegment.UserSpecified("resourceName"),
+        ResourceIDSegment.UserSpecified("vaultName"),
         ResourceIDSegment.Static("staticReplicationFabrics", "replicationFabrics"),
-        ResourceIDSegment.UserSpecified("fabricName"),
+        ResourceIDSegment.UserSpecified("replicationFabricName"),
         ResourceIDSegment.Static("staticReplicationStorageClassifications", "replicationStorageClassifications"),
-        ResourceIDSegment.UserSpecified("storageClassificationName"),
+        ResourceIDSegment.UserSpecified("replicationStorageClassificationName"),
         ResourceIDSegment.Static("staticReplicationStorageClassificationMappings", "replicationStorageClassificationMappings"),
-        ResourceIDSegment.UserSpecified("storageClassificationMappingName"),
+        ResourceIDSegment.UserSpecified("replicationStorageClassificationMappingName"),
     };
 }

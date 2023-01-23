@@ -12,7 +12,7 @@ internal class EventhubAuthorizationRuleId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/eventhubs/{eventHubName}/authorizationRules/{authorizationRuleName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/eventhubs/{eventhubName}/authorizationRules/{authorizationRuleName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -25,7 +25,7 @@ internal class EventhubAuthorizationRuleId : ResourceID
         ResourceIDSegment.Static("staticNamespaces", "namespaces"),
         ResourceIDSegment.UserSpecified("namespaceName"),
         ResourceIDSegment.Static("staticEventhubs", "eventhubs"),
-        ResourceIDSegment.UserSpecified("eventHubName"),
+        ResourceIDSegment.UserSpecified("eventhubName"),
         ResourceIDSegment.Static("staticAuthorizationRules", "authorizationRules"),
         ResourceIDSegment.UserSpecified("authorizationRuleName"),
     };

@@ -12,7 +12,7 @@ internal class HealthBotId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HealthBot/healthBots/{botName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HealthBot/healthBots/{healthBotName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -23,6 +23,6 @@ internal class HealthBotId : ResourceID
         ResourceIDSegment.Static("staticProviders", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftHealthBot", "Microsoft.HealthBot"),
         ResourceIDSegment.Static("staticHealthBots", "healthBots"),
-        ResourceIDSegment.UserSpecified("botName"),
+        ResourceIDSegment.UserSpecified("healthBotName"),
     };
 }

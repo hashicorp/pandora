@@ -12,7 +12,7 @@ internal class DaprComponentId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.App/managedEnvironments/{environmentName}/daprComponents/{componentName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.App/managedEnvironments/{managedEnvironmentName}/daprComponents/{daprComponentName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -23,8 +23,8 @@ internal class DaprComponentId : ResourceID
         ResourceIDSegment.Static("staticProviders", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftApp", "Microsoft.App"),
         ResourceIDSegment.Static("staticManagedEnvironments", "managedEnvironments"),
-        ResourceIDSegment.UserSpecified("environmentName"),
+        ResourceIDSegment.UserSpecified("managedEnvironmentName"),
         ResourceIDSegment.Static("staticDaprComponents", "daprComponents"),
-        ResourceIDSegment.UserSpecified("componentName"),
+        ResourceIDSegment.UserSpecified("daprComponentName"),
     };
 }

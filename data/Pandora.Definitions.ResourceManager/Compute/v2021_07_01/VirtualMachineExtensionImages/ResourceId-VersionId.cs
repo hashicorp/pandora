@@ -12,7 +12,7 @@ internal class VersionId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/providers/Microsoft.Compute/locations/{location}/publishers/{publisherName}/artifactTypes/vmExtension/types/{typeName}/versions/{version}";
+    public string ID => "/subscriptions/{subscriptionId}/providers/Microsoft.Compute/locations/{locationName}/publishers/{publisherName}/artifactTypes/vmExtension/types/{typeName}/versions/{versionName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -21,7 +21,7 @@ internal class VersionId : ResourceID
         ResourceIDSegment.Static("staticProviders", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftCompute", "Microsoft.Compute"),
         ResourceIDSegment.Static("staticLocations", "locations"),
-        ResourceIDSegment.UserSpecified("location"),
+        ResourceIDSegment.UserSpecified("locationName"),
         ResourceIDSegment.Static("staticPublishers", "publishers"),
         ResourceIDSegment.UserSpecified("publisherName"),
         ResourceIDSegment.Static("staticArtifactTypes", "artifactTypes"),
@@ -29,6 +29,6 @@ internal class VersionId : ResourceID
         ResourceIDSegment.Static("staticTypes", "types"),
         ResourceIDSegment.UserSpecified("typeName"),
         ResourceIDSegment.Static("staticVersions", "versions"),
-        ResourceIDSegment.UserSpecified("version"),
+        ResourceIDSegment.UserSpecified("versionName"),
     };
 }

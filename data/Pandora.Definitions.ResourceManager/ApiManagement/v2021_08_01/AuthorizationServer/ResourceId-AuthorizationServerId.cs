@@ -12,7 +12,7 @@ internal class AuthorizationServerId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/authorizationServers/{authsid}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/authorizationServers/{authorizationServerName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -25,6 +25,6 @@ internal class AuthorizationServerId : ResourceID
         ResourceIDSegment.Static("staticService", "service"),
         ResourceIDSegment.UserSpecified("serviceName"),
         ResourceIDSegment.Static("staticAuthorizationServers", "authorizationServers"),
-        ResourceIDSegment.UserSpecified("authsid"),
+        ResourceIDSegment.UserSpecified("authorizationServerName"),
     };
 }

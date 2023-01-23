@@ -12,7 +12,7 @@ internal class NetworkSecurityPerimeterConfigurationId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/networkSecurityPerimeterConfigurations/{resourceAssociationName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/networkSecurityPerimeterConfigurations/{networkSecurityPerimeterConfigurationName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -25,6 +25,6 @@ internal class NetworkSecurityPerimeterConfigurationId : ResourceID
         ResourceIDSegment.Static("staticNamespaces", "namespaces"),
         ResourceIDSegment.UserSpecified("namespaceName"),
         ResourceIDSegment.Static("staticNetworkSecurityPerimeterConfigurations", "networkSecurityPerimeterConfigurations"),
-        ResourceIDSegment.UserSpecified("resourceAssociationName"),
+        ResourceIDSegment.UserSpecified("networkSecurityPerimeterConfigurationName"),
     };
 }

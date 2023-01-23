@@ -12,7 +12,7 @@ internal class OfferId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/providers/Microsoft.Compute/locations/{location}/publishers/{publisherName}/artifactTypes/vmImage/offers/{offer}";
+    public string ID => "/subscriptions/{subscriptionId}/providers/Microsoft.Compute/locations/{locationName}/publishers/{publisherName}/artifactTypes/vmImage/offers/{offerName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -21,12 +21,12 @@ internal class OfferId : ResourceID
         ResourceIDSegment.Static("staticProviders", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftCompute", "Microsoft.Compute"),
         ResourceIDSegment.Static("staticLocations", "locations"),
-        ResourceIDSegment.UserSpecified("location"),
+        ResourceIDSegment.UserSpecified("locationName"),
         ResourceIDSegment.Static("staticPublishers", "publishers"),
         ResourceIDSegment.UserSpecified("publisherName"),
         ResourceIDSegment.Static("staticArtifactTypes", "artifactTypes"),
         ResourceIDSegment.Static("staticVmImage", "vmImage"),
         ResourceIDSegment.Static("staticOffers", "offers"),
-        ResourceIDSegment.UserSpecified("offer"),
+        ResourceIDSegment.UserSpecified("offerName"),
     };
 }

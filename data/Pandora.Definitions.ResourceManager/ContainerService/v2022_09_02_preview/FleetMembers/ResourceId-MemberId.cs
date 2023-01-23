@@ -12,7 +12,7 @@ internal class MemberId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/members/{fleetMemberName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/members/{memberName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -25,6 +25,6 @@ internal class MemberId : ResourceID
         ResourceIDSegment.Static("staticFleets", "fleets"),
         ResourceIDSegment.UserSpecified("fleetName"),
         ResourceIDSegment.Static("staticMembers", "members"),
-        ResourceIDSegment.UserSpecified("fleetMemberName"),
+        ResourceIDSegment.UserSpecified("memberName"),
     };
 }

@@ -12,7 +12,7 @@ internal class ResourceManagementPrivateLinkId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Authorization/resourceManagementPrivateLinks/{rmplName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Authorization/resourceManagementPrivateLinks/{resourceManagementPrivateLinkName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -23,6 +23,6 @@ internal class ResourceManagementPrivateLinkId : ResourceID
         ResourceIDSegment.Static("staticProviders", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftAuthorization", "Microsoft.Authorization"),
         ResourceIDSegment.Static("staticResourceManagementPrivateLinks", "resourceManagementPrivateLinks"),
-        ResourceIDSegment.UserSpecified("rmplName"),
+        ResourceIDSegment.UserSpecified("resourceManagementPrivateLinkName"),
     };
 }

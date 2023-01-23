@@ -12,7 +12,7 @@ internal class DiskRestorePointId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/restorePointCollections/{restorePointCollectionName}/restorePoints/{vmRestorePointName}/diskRestorePoints/{diskRestorePointName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/restorePointCollections/{restorePointCollectionName}/restorePoints/{restorePointName}/diskRestorePoints/{diskRestorePointName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -25,7 +25,7 @@ internal class DiskRestorePointId : ResourceID
         ResourceIDSegment.Static("staticRestorePointCollections", "restorePointCollections"),
         ResourceIDSegment.UserSpecified("restorePointCollectionName"),
         ResourceIDSegment.Static("staticRestorePoints", "restorePoints"),
-        ResourceIDSegment.UserSpecified("vmRestorePointName"),
+        ResourceIDSegment.UserSpecified("restorePointName"),
         ResourceIDSegment.Static("staticDiskRestorePoints", "diskRestorePoints"),
         ResourceIDSegment.UserSpecified("diskRestorePointName"),
     };

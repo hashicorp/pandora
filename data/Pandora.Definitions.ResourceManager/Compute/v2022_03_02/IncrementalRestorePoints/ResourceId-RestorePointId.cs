@@ -12,7 +12,7 @@ internal class RestorePointId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/restorePointCollections/{restorePointCollectionName}/restorePoints/{vmRestorePointName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/restorePointCollections/{restorePointCollectionName}/restorePoints/{restorePointName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -25,6 +25,6 @@ internal class RestorePointId : ResourceID
         ResourceIDSegment.Static("staticRestorePointCollections", "restorePointCollections"),
         ResourceIDSegment.UserSpecified("restorePointCollectionName"),
         ResourceIDSegment.Static("staticRestorePoints", "restorePoints"),
-        ResourceIDSegment.UserSpecified("vmRestorePointName"),
+        ResourceIDSegment.UserSpecified("restorePointName"),
     };
 }

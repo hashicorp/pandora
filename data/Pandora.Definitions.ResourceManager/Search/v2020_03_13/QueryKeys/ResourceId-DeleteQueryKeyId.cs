@@ -12,7 +12,7 @@ internal class DeleteQueryKeyId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Search/searchServices/{searchServiceName}/deleteQueryKey/{key}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Search/searchServices/{searchServiceName}/deleteQueryKey/{deleteQueryKeyName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -25,6 +25,6 @@ internal class DeleteQueryKeyId : ResourceID
         ResourceIDSegment.Static("staticSearchServices", "searchServices"),
         ResourceIDSegment.UserSpecified("searchServiceName"),
         ResourceIDSegment.Static("staticDeleteQueryKey", "deleteQueryKey"),
-        ResourceIDSegment.UserSpecified("key"),
+        ResourceIDSegment.UserSpecified("deleteQueryKeyName"),
     };
 }

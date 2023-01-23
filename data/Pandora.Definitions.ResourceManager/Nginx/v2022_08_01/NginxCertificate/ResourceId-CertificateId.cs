@@ -12,7 +12,7 @@ internal class CertificateId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Nginx.NginxPlus/nginxDeployments/{deploymentName}/certificates/{certificateName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Nginx.NginxPlus/nginxDeployments/{nginxDeploymentName}/certificates/{certificateName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -23,7 +23,7 @@ internal class CertificateId : ResourceID
         ResourceIDSegment.Static("staticProviders", "providers"),
         ResourceIDSegment.ResourceProvider("staticNginxNginxPlus", "Nginx.NginxPlus"),
         ResourceIDSegment.Static("staticNginxDeployments", "nginxDeployments"),
-        ResourceIDSegment.UserSpecified("deploymentName"),
+        ResourceIDSegment.UserSpecified("nginxDeploymentName"),
         ResourceIDSegment.Static("staticCertificates", "certificates"),
         ResourceIDSegment.UserSpecified("certificateName"),
     };

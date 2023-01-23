@@ -12,7 +12,7 @@ internal class QuotaLimitId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/providers/Microsoft.NetApp/locations/{location}/quotaLimits/{quotaLimitName}";
+    public string ID => "/subscriptions/{subscriptionId}/providers/Microsoft.NetApp/locations/{locationName}/quotaLimits/{quotaLimitName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -21,7 +21,7 @@ internal class QuotaLimitId : ResourceID
         ResourceIDSegment.Static("staticProviders", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftNetApp", "Microsoft.NetApp"),
         ResourceIDSegment.Static("staticLocations", "locations"),
-        ResourceIDSegment.UserSpecified("location"),
+        ResourceIDSegment.UserSpecified("locationName"),
         ResourceIDSegment.Static("staticQuotaLimits", "quotaLimits"),
         ResourceIDSegment.UserSpecified("quotaLimitName"),
     };

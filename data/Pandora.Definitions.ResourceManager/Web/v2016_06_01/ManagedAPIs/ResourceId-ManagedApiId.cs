@@ -12,7 +12,7 @@ internal class ManagedApiId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/providers/Microsoft.Web/locations/{location}/managedApis/{apiName}";
+    public string ID => "/subscriptions/{subscriptionId}/providers/Microsoft.Web/locations/{locationName}/managedApis/{managedApiName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -21,8 +21,8 @@ internal class ManagedApiId : ResourceID
         ResourceIDSegment.Static("staticProviders", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftWeb", "Microsoft.Web"),
         ResourceIDSegment.Static("staticLocations", "locations"),
-        ResourceIDSegment.UserSpecified("location"),
+        ResourceIDSegment.UserSpecified("locationName"),
         ResourceIDSegment.Static("staticManagedApis", "managedApis"),
-        ResourceIDSegment.UserSpecified("apiName"),
+        ResourceIDSegment.UserSpecified("managedApiName"),
     };
 }

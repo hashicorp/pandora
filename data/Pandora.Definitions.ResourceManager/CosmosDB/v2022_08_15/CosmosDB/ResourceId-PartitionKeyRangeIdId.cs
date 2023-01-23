@@ -12,7 +12,7 @@ internal class PartitionKeyRangeIdId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/databases/{databaseRid}/collections/{collectionRid}/partitionKeyRangeId/{partitionKeyRangeId}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{databaseAccountName}/databases/{databaseName}/collections/{collectionName}/partitionKeyRangeId/{partitionKeyRangeId}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -23,11 +23,11 @@ internal class PartitionKeyRangeIdId : ResourceID
         ResourceIDSegment.Static("staticProviders", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftDocumentDB", "Microsoft.DocumentDB"),
         ResourceIDSegment.Static("staticDatabaseAccounts", "databaseAccounts"),
-        ResourceIDSegment.UserSpecified("accountName"),
+        ResourceIDSegment.UserSpecified("databaseAccountName"),
         ResourceIDSegment.Static("staticDatabases", "databases"),
-        ResourceIDSegment.UserSpecified("databaseRid"),
+        ResourceIDSegment.UserSpecified("databaseName"),
         ResourceIDSegment.Static("staticCollections", "collections"),
-        ResourceIDSegment.UserSpecified("collectionRid"),
+        ResourceIDSegment.UserSpecified("collectionName"),
         ResourceIDSegment.Static("staticPartitionKeyRangeId", "partitionKeyRangeId"),
         ResourceIDSegment.UserSpecified("partitionKeyRangeId"),
     };

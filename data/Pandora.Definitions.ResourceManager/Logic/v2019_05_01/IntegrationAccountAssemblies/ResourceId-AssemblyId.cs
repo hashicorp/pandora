@@ -12,7 +12,7 @@ internal class AssemblyId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/integrationAccounts/{integrationAccountName}/assemblies/{assemblyArtifactName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/integrationAccounts/{integrationAccountName}/assemblies/{assemblyName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -25,6 +25,6 @@ internal class AssemblyId : ResourceID
         ResourceIDSegment.Static("staticIntegrationAccounts", "integrationAccounts"),
         ResourceIDSegment.UserSpecified("integrationAccountName"),
         ResourceIDSegment.Static("staticAssemblies", "assemblies"),
-        ResourceIDSegment.UserSpecified("assemblyArtifactName"),
+        ResourceIDSegment.UserSpecified("assemblyName"),
     };
 }

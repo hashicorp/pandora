@@ -12,7 +12,7 @@ internal class KeyValueId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AppConfiguration/configurationStores/{configStoreName}/keyValues/{keyValueName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AppConfiguration/configurationStores/{configurationStoreName}/keyValues/{keyValueName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -23,7 +23,7 @@ internal class KeyValueId : ResourceID
         ResourceIDSegment.Static("staticProviders", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftAppConfiguration", "Microsoft.AppConfiguration"),
         ResourceIDSegment.Static("staticConfigurationStores", "configurationStores"),
-        ResourceIDSegment.UserSpecified("configStoreName"),
+        ResourceIDSegment.UserSpecified("configurationStoreName"),
         ResourceIDSegment.Static("staticKeyValues", "keyValues"),
         ResourceIDSegment.UserSpecified("keyValueName"),
     };

@@ -12,7 +12,7 @@ internal class UpdateProtectionPolicyRequestId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataProtection/resourceGuards/{resourceGuardsName}/updateProtectionPolicyRequests/{requestName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataProtection/resourceGuards/{resourceGuardName}/updateProtectionPolicyRequests/{updateProtectionPolicyRequestName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -23,8 +23,8 @@ internal class UpdateProtectionPolicyRequestId : ResourceID
         ResourceIDSegment.Static("staticProviders", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftDataProtection", "Microsoft.DataProtection"),
         ResourceIDSegment.Static("staticResourceGuards", "resourceGuards"),
-        ResourceIDSegment.UserSpecified("resourceGuardsName"),
+        ResourceIDSegment.UserSpecified("resourceGuardName"),
         ResourceIDSegment.Static("staticUpdateProtectionPolicyRequests", "updateProtectionPolicyRequests"),
-        ResourceIDSegment.UserSpecified("requestName"),
+        ResourceIDSegment.UserSpecified("updateProtectionPolicyRequestName"),
     };
 }

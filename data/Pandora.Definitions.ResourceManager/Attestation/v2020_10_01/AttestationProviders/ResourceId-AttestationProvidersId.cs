@@ -12,7 +12,7 @@ internal class AttestationProvidersId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Attestation/attestationProviders/{providerName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Attestation/attestationProviders/{attestationProviderName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -23,6 +23,6 @@ internal class AttestationProvidersId : ResourceID
         ResourceIDSegment.Static("staticProviders", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftAttestation", "Microsoft.Attestation"),
         ResourceIDSegment.Static("staticAttestationProviders", "attestationProviders"),
-        ResourceIDSegment.UserSpecified("providerName"),
+        ResourceIDSegment.UserSpecified("attestationProviderName"),
     };
 }

@@ -12,7 +12,7 @@ internal class ManagedEnvironmentId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.App/managedEnvironments/{environmentName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.App/managedEnvironments/{managedEnvironmentName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -23,6 +23,6 @@ internal class ManagedEnvironmentId : ResourceID
         ResourceIDSegment.Static("staticProviders", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftApp", "Microsoft.App"),
         ResourceIDSegment.Static("staticManagedEnvironments", "managedEnvironments"),
-        ResourceIDSegment.UserSpecified("environmentName"),
+        ResourceIDSegment.UserSpecified("managedEnvironmentName"),
     };
 }

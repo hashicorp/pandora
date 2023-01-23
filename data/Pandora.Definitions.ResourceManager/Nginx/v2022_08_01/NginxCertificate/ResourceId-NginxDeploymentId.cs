@@ -12,7 +12,7 @@ internal class NginxDeploymentId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Nginx.NginxPlus/nginxDeployments/{deploymentName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Nginx.NginxPlus/nginxDeployments/{nginxDeploymentName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -23,6 +23,6 @@ internal class NginxDeploymentId : ResourceID
         ResourceIDSegment.Static("staticProviders", "providers"),
         ResourceIDSegment.ResourceProvider("staticNginxNginxPlus", "Nginx.NginxPlus"),
         ResourceIDSegment.Static("staticNginxDeployments", "nginxDeployments"),
-        ResourceIDSegment.UserSpecified("deploymentName"),
+        ResourceIDSegment.UserSpecified("nginxDeploymentName"),
     };
 }

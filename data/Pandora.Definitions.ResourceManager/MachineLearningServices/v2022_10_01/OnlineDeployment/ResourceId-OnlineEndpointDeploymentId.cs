@@ -12,7 +12,7 @@ internal class OnlineEndpointDeploymentId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/onlineEndpoints/{endpointName}/deployments/{deploymentName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/onlineEndpoints/{onlineEndpointName}/deployments/{deploymentName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -25,7 +25,7 @@ internal class OnlineEndpointDeploymentId : ResourceID
         ResourceIDSegment.Static("staticWorkspaces", "workspaces"),
         ResourceIDSegment.UserSpecified("workspaceName"),
         ResourceIDSegment.Static("staticOnlineEndpoints", "onlineEndpoints"),
-        ResourceIDSegment.UserSpecified("endpointName"),
+        ResourceIDSegment.UserSpecified("onlineEndpointName"),
         ResourceIDSegment.Static("staticDeployments", "deployments"),
         ResourceIDSegment.UserSpecified("deploymentName"),
     };

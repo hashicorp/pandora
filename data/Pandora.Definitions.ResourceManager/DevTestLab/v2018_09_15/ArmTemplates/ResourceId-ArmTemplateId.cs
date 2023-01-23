@@ -12,7 +12,7 @@ internal class ArmTemplateId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/artifactSources/{artifactSourceName}/armTemplates/{name}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/artifactSources/{artifactSourceName}/armTemplates/{armTemplateName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -27,6 +27,6 @@ internal class ArmTemplateId : ResourceID
         ResourceIDSegment.Static("staticArtifactSources", "artifactSources"),
         ResourceIDSegment.UserSpecified("artifactSourceName"),
         ResourceIDSegment.Static("staticArmTemplates", "armTemplates"),
-        ResourceIDSegment.UserSpecified("name"),
+        ResourceIDSegment.UserSpecified("armTemplateName"),
     };
 }
