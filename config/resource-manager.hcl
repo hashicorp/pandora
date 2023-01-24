@@ -115,7 +115,7 @@ service "datalake-store" {
 }
 service "datamigration" {
   name      = "DataMigration"
-  available = ["2018-04-19"]
+  available = ["2018-04-19", "2021-06-30"]
 }
 service "dataprotection" {
   name      = "DataProtection"
