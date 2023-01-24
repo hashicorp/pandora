@@ -18,4 +18,13 @@ type Service struct {
 	// Ignore is a list of Versions which should be Ignored for this Service
 	// A version is automatically ignored if it's not defined in
 	Ignore *[]string `hcl:"ignore"`
+
+	// ResourceProvider is the name of the Resource Provider for this Service.
+	// When specified, this is used to filter the Operations in the Service to only operations
+	// targeting this Resource Provider.
+	//
+	// As a general rule - this should be left blank, at the time of writing this is only applicable
+	// to the Network service, which includes operations from both the Compute and Networking Resource
+	// Providers, which causes issues with ID parsing, hence this filter option to filter Compute operations.
+	ResourceProvider *string `hcl:"resource_provider"`
 }
