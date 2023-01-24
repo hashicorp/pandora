@@ -21,5 +21,12 @@ internal class CreateOrUpdateOperation : Operations.PutOperation
 
     public override Type? ResponseObject() => typeof(ScheduledActionModel);
 
+    public override Type? OptionsObject() => typeof(CreateOrUpdateOperation.CreateOrUpdateOptions);
 
+    internal class CreateOrUpdateOptions
+    {
+        [HeaderName("If-Match")]
+        [Optional]
+        public string IfMatch { get; set; }
+    }
 }
