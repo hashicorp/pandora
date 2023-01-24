@@ -13,7 +13,8 @@ func ParseSwaggerFileForTesting(t *testing.T, file string) (*models.AzureApiDefi
 		t.Fatalf("loading: %+v", err)
 	}
 
-	resourceIds, err := parsed.ParseResourceIds()
+	var resourceProvider *string = nil // we're not filtering to just this RP, so it's fine
+	resourceIds, err := parsed.ParseResourceIds(resourceProvider)
 	if err != nil {
 		t.Fatalf("parsing Resource Ids: %+v", err)
 	}
