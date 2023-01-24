@@ -14,6 +14,7 @@ service "analysisservices" {
   available = ["2017-08-01"]
   # Optional
   # ignore = []
+  # resource_provider = "Some.ResourceProvider"
 }
 ```
 
@@ -23,6 +24,7 @@ Those properties are:
 * `name` - (Required) - A Normalized Version of the Service Name (generally, TitleCased with no spaces) used to uniquely identify this service.
 * `available` - (Required) - A list of API Versions which should be Imported into Pandora's Data Format.
 * `ignore` - (Optional) - A list of API Versions which should be Ignored by the `version-bumper` tool (see the main Readme for info) when automatically adding new API Versions for this Service.
+* `resource_provider` - (Optional) - The Resource Provider which operations should be filtered to. This allows filtering operations from other Resource Providers - and shouldn't be generally used - please open an issue before using.
 
 As such to import the Service `MSI` with API Version `2018-11-30` ([from this Swagger Definition](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/msi/resource-manager/Microsoft.ManagedIdentity/stable/2018-11-30)) you'd need to add:
 
