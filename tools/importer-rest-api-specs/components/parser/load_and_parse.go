@@ -10,7 +10,7 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
-func LoadAndParseFiles(directory string, fileNames []string, serviceName, apiVersion string, logger hclog.Logger) (*models.AzureApiDefinition, error) {
+func LoadAndParseFiles(directory string, fileNames []string, serviceName, apiVersion string, resourceProvider *string, logger hclog.Logger) (*models.AzureApiDefinition, error) {
 	// Some Services have been deprecated or should otherwise be ignored - check before proceeding
 	if serviceShouldBeIgnored(serviceName) {
 		logger.Debug(fmt.Sprintf("Service %q should be ignored - skipping", serviceName))
@@ -29,7 +29,7 @@ func LoadAndParseFiles(directory string, fileNames []string, serviceName, apiVer
 			return nil, fmt.Errorf("parsing file %q: %+v", file, err)
 		}
 
-		parsedResourceIds, err := swaggerFile.ParseResourceIds()
+		parsedResourceIds, err := swaggerFile.ParseResourceIds(resourceProvider)
 		if err != nil {
 			return nil, fmt.Errorf("parsing Resource Ids from %q (Service %q / Api Version %q): %+v", file, serviceName, apiVersion, err)
 		}
