@@ -55,12 +55,13 @@ func FindServices(input FindServiceInput, terraformConfig definitions.Config) (*
 				}
 
 				resourceManagerService := ResourceManagerServiceInput{
-					ServiceName:      service.Name,
-					ApiVersion:       version,
-					ResourceProvider: serviceDetails.ResourceProvider,
-					OutputDirectory:  input.OutputDirectory,
-					SwaggerDirectory: versionDirectory,
-					SwaggerFiles:     filesForVersion,
+					ServiceName:                service.Name,
+					ApiVersion:                 version,
+					ResourceProvider:           &serviceDetails.ResourceProvider,
+					ResourceProviderToFilterTo: service.ResourceProvider,
+					OutputDirectory:            input.OutputDirectory,
+					SwaggerDirectory:           versionDirectory,
+					SwaggerFiles:               filesForVersion,
 				}
 
 				definition, ok := terraformConfig.Services[service.Name]
@@ -122,12 +123,13 @@ func FindServicesByName(input FindServiceInput, terraformConfig definitions.Conf
 				}
 
 				resourceManagerService := ResourceManagerServiceInput{
-					ServiceName:      service.Name,
-					ApiVersion:       version,
-					ResourceProvider: serviceDetails.ResourceProvider,
-					OutputDirectory:  input.OutputDirectory,
-					SwaggerDirectory: versionDirectory,
-					SwaggerFiles:     filesForVersion,
+					ServiceName:                service.Name,
+					ApiVersion:                 version,
+					ResourceProvider:           &serviceDetails.ResourceProvider,
+					ResourceProviderToFilterTo: service.ResourceProvider,
+					OutputDirectory:            input.OutputDirectory,
+					SwaggerDirectory:           versionDirectory,
+					SwaggerFiles:               filesForVersion,
 				}
 
 				definition, ok := terraformConfig.Services[service.Name]

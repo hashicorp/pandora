@@ -4,11 +4,10 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
-
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/cleanup"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/resourceids"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
 func (d *SwaggerDefinition) parse(serviceName, apiVersion string, resourceIds resourceids.ParseResult) (*models.AzureApiDefinition, error) {
