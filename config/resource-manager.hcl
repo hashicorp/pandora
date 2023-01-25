@@ -273,6 +273,11 @@ service "netapp" {
   name      = "NetApp"
   available = ["2021-10-01", "2022-01-01", "2022-05-01"]
 }
+service "network" {
+  name              = "Network"
+  available         = ["2022-07-01"]
+  resource_provider = "Microsoft.Network"
+}
 service "networkfunction" {
   name      = "NetworkFunction"
   available = ["2022-08-01", "2022-11-01"]
