@@ -22,7 +22,8 @@ type operationsParser struct {
 	swaggerDefinition *SwaggerDefinition
 }
 
-func (d *SwaggerDefinition) parseOperationsWithinTag(tag *string, urisToResourceIds map[string]resourceids.ParsedOperation, found internal.ParseResult, logger hclog.Logger) (*map[string]models.OperationDetails, *internal.ParseResult, error) {
+func (d *SwaggerDefinition) parseOperationsWithinTag(tag *string, urisToResourceIds map[string]resourceids.ParsedOperation, resourceProvider *string, found internal.ParseResult) (*map[string]models.OperationDetails, *internal.ParseResult, error) {
+	logger := d.logger.Named("Operations Parser")
 	operations := make(map[string]models.OperationDetails, 0)
 	result := internal.ParseResult{
 		Constants: map[string]resourcemanager.ConstantDetails{},
@@ -38,14 +39,14 @@ func (d *SwaggerDefinition) parseOperationsWithinTag(tag *string, urisToResource
 	// first find the operations then pull out everything we can
 	operationsForThisTag := d.findOperationsMatchingTag(tag)
 	for _, operation := range *operationsForThisTag {
-		d.logger.Debug(fmt.Sprintf("Operation - %s %q..", operation.httpMethod, operation.uri))
+		logger.Debug(fmt.Sprintf("Operation - %s %q..", operation.httpMethod, operation.uri))
 
 		if internal.OperationShouldBeIgnored(operation.uri) {
-			d.logger.Debug("Operation should be ignored - skipping..")
+			logger.Debug("Operation should be ignored - skipping..")
 			continue
 		}
 
-		parsedOperation, nestedResult, err := parser.parseOperation(operation, d.logger.Named("Operation Parser"))
+		parsedOperation, nestedResult, err := parser.parseOperation(operation, resourceProvider, logger.Named("Operation Parser"))
 		if err != nil {
 			return nil, nil, fmt.Errorf("parsing %s operation %q: %+v", operation.httpMethod, operation.uri, err)
 		}
@@ -69,7 +70,7 @@ func (d *SwaggerDefinition) parseOperationsWithinTag(tag *string, urisToResource
 	return &operations, &result, nil
 }
 
-func (p operationsParser) parseOperation(operation parsedOperation, logger hclog.Logger) (*models.OperationDetails, *internal.ParseResult, error) {
+func (p operationsParser) parseOperation(operation parsedOperation, resourceProvider *string, logger hclog.Logger) (*models.OperationDetails, *internal.ParseResult, error) {
 	result := internal.ParseResult{
 		Constants: map[string]resourcemanager.ConstantDetails{},
 		Models:    map[string]models.ModelDetails{},
@@ -117,6 +118,13 @@ func (p operationsParser) parseOperation(operation parsedOperation, logger hclog
 	}
 
 	resourceId := p.urisToResourceIds[*normalizedUri]
+	usesADifferentResourceProvider, err := resourceIdUsesAResourceProviderOtherThan(resourceId.ResourceId, resourceProvider)
+	if err != nil {
+		return nil, nil, err
+	}
+	if usesADifferentResourceProvider != nil && *usesADifferentResourceProvider {
+		return nil, nil, nil
+	}
 
 	operationData := models.OperationDetails{
 		ContentType:                      contentType,

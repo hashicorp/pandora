@@ -40,7 +40,7 @@ func (pipelineTask) parseDataForApiVersion(input discovery.ServiceInput, logger 
 }
 
 func parseSwaggerFiles(input discovery.ServiceInput, logger hclog.Logger) (*models.AzureApiDefinition, error) {
-	parseResult, err := parser.LoadAndParseFiles(input.SwaggerDirectory, input.SwaggerFiles, input.ServiceName, input.ApiVersion, input.ResourceProvider, logger)
+	parseResult, err := parser.LoadAndParseFiles(input.SwaggerDirectory, input.SwaggerFiles, input.ServiceName, input.ApiVersion, input.ResourceProviderToFilterTo, logger)
 	if err != nil {
 		return nil, fmt.Errorf("parsing files in %q: %+v", input.SwaggerDirectory, err)
 	}

@@ -19,7 +19,7 @@ func ParseSwaggerFileForTesting(t *testing.T, file string) (*models.AzureApiDefi
 		t.Fatalf("parsing Resource Ids: %+v", err)
 	}
 
-	out, err := parsed.parse("Example", "2020-01-01", *resourceIds)
+	out, err := parsed.parse("Example", "2020-01-01", resourceProvider, *resourceIds)
 	if err != nil {
 		t.Fatalf("parsing file %q: %+v", file, err)
 	}
