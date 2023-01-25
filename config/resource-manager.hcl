@@ -119,7 +119,7 @@ service "datamigration" {
 }
 service "dataprotection" {
   name      = "DataProtection"
-  available = ["2022-04-01", "2022-05-01", "2022-12-01"]
+  available = ["2022-04-01", "2022-05-01", "2022-12-01", "2023-01-01"]
 }
 service "desktopvirtualization" {
   name      = "DesktopVirtualization"
@@ -327,7 +327,7 @@ service "purview" {
 }
 service "recoveryservices" {
   name      = "RecoveryServices"
-  available = ["2021-08-01", "2021-12-01", "2022-03-01", "2022-08-01", "2022-09-10", "2022-10-01"]
+  available = ["2021-08-01", "2021-12-01", "2022-03-01", "2022-08-01", "2022-09-10", "2022-10-01", "2023-01-01"]
 }
 service "recoveryservicesbackup" {
   name      = "RecoveryServicesBackup"
