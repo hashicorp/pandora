@@ -12,7 +12,7 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
-func (d *SwaggerDefinition) parseResourcesWithinSwaggerTag(tag *string, resourceIds resourceids.ParseResult) (*models.AzureApiResource, error) {
+func (d *SwaggerDefinition) parseResourcesWithinSwaggerTag(tag *string, resourceProvider *string, resourceIds resourceids.ParseResult) (*models.AzureApiResource, error) {
 	result := internal.ParseResult{
 		Constants: map[string]resourcemanager.ConstantDetails{},
 		Models:    map[string]models.ModelDetails{},
@@ -24,7 +24,7 @@ func (d *SwaggerDefinition) parseResourcesWithinSwaggerTag(tag *string, resource
 	}
 
 	// pull out the operations and any inlined/top-level constants/models
-	operations, nestedResult, err := d.parseOperationsWithinTag(tag, resourceIds.OriginalUrisToResourceIDs, result, d.logger.Named("Operations Parser"))
+	operations, nestedResult, err := d.parseOperationsWithinTag(tag, resourceIds.OriginalUrisToResourceIDs, resourceProvider, result)
 	if err != nil {
 		return nil, fmt.Errorf("finding operations: %+v", err)
 	}

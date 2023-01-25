@@ -45,7 +45,7 @@ func LoadAndParseFiles(directory string, fileNames []string, serviceName, apiVer
 			return nil, fmt.Errorf("parsing file %q: %+v", file, err)
 		}
 
-		definition, err := swaggerFile.parse(serviceName, apiVersion, *resourceIdResult)
+		definition, err := swaggerFile.parse(serviceName, apiVersion, resourceProvider, *resourceIdResult)
 		if err != nil {
 			return nil, fmt.Errorf("parsing definition: %+v", err)
 		}
