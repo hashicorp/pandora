@@ -373,6 +373,10 @@ service "servicebus" {
   name      = "ServiceBus"
   available = ["2021-06-01-preview", "2021-11-01", "2022-01-01-preview"]
 }
+service "servicefabric" {
+  name      = "ServiceFabric"
+  available = ["2021-06-01"]
+}
 service "servicefabricmanagedclusters" {
   name      = "ServiceFabricManagedCluster"
   available = ["2021-05-01", "2022-01-01"]
