@@ -105,6 +105,11 @@ service "databricks" {
   name      = "Databricks"
   available = ["2022-04-01-preview"]
 }
+service "datadog" {
+  name      = "DataDog"
+  available = ["2021-03-01"]
+  ignore    = ["2022-06-01"]
+}
 service "datalake-analytics" {
   name      = "DataLakeAnalytics"
   available = ["2016-11-01"]
