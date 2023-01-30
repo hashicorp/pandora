@@ -101,6 +101,10 @@ service "dashboard" {
   name      = "Dashboard"
   available = ["2022-08-01"]
 }
+service "databoxedge" {
+  name      = "DataBoxEdge"
+  available = ["2020-12-01"]
+}
 service "databricks" {
   name      = "Databricks"
   available = ["2022-04-01-preview"]
