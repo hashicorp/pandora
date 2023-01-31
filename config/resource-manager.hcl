@@ -43,7 +43,7 @@ service "automation" {
 }
 service "azure-kusto" {
   name      = "Kusto"
-  available = ["2022-07-07", "2022-11-11"]
+  available = ["2022-07-07", "2022-11-11", "2022-12-29"]
 }
 service "azurestackhci" {
   name      = "AzureStackHCI"
@@ -103,7 +103,7 @@ service "dashboard" {
 }
 service "databoxedge" {
   name      = "DataBoxEdge"
-  available = ["2020-12-01"]
+  available = ["2020-12-01", "2022-03-01"]
 }
 service "databricks" {
   name      = "Databricks"
@@ -137,7 +137,7 @@ service "desktopvirtualization" {
 }
 service "deviceprovisioningservices" {
   name      = "DeviceProvisioningServices"
-  available = ["2022-02-05"]
+  available = ["2022-02-05", "2022-12-12"]
 }
 service "deviceupdate" {
   name      = "DeviceUpdate"
@@ -201,7 +201,7 @@ service "healthbot" {
 }
 service "healthcareapis" {
   name      = "HealthcareApis"
-  available = ["2021-06-01-preview", "2022-06-01"]
+  available = ["2021-06-01-preview", "2022-06-01", "2022-12-01"]
 }
 service "hybridcompute" {
   name      = "HybridCompute"
