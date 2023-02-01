@@ -349,6 +349,10 @@ service "recoveryservicessiterecovery" {
   name      = "RecoveryServicesSiteRecovery"
   available = ["2022-05-01", "2022-09-10", "2022-10-01"]
 }
+service "redhatopenshift" {
+  name      = "RedhatOpenShift"
+  available = ["2022-04-01"]
+}
 service "redisenterprise" {
   name      = "RedisEnterprise"
   available = ["2022-01-01"]
