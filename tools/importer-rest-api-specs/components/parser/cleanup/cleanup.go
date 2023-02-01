@@ -138,6 +138,7 @@ func NormalizeSegment(input string, camelCase bool) string {
 		"migratemysql":                            "migrateMySql",
 		"nodecounts":                              "nodeCounts",
 		"notificationchannels":                    "notificationChannels",
+		"openshiftclusters":                       "openShiftClusters",
 		"operationresults":                        "operationResults",
 		"pipelineruns":                            "pipelineRuns",
 		"policysets":                              "policySets",
