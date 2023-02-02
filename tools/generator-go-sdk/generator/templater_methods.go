@@ -35,10 +35,8 @@ import (
 	"net/http"
 	"net/url"
 
-	"github.com/hashicorp/go-azure-helpers/lang/response"
-	"github.com/hashicorp/go-azure-helpers/resourcemanager/commonids"
-	"github.com/hashicorp/go-azure-helpers/polling"
 	"github.com/hashicorp/go-azure-sdk/sdk/client"
+	"github.com/hashicorp/go-azure-sdk/sdk/client/pollers"
 	"github.com/hashicorp/go-azure-sdk/sdk/client/resourcemanager"
 	"github.com/hashicorp/go-azure-sdk/sdk/odata"
 )
@@ -129,44 +127,48 @@ func (c methodsPandoraTemplater) methods(data ServiceGeneratorData) (*string, er
 }
 
 func (c methodsPandoraTemplater) immediateOperationTemplate(data ServiceGeneratorData) (*string, error) {
-	argumentsMethodCode, err := c.argumentsTemplateForMethod(data)
+	methodArguments, err := c.argumentsTemplateForMethod(data)
 	if err != nil {
 		return nil, fmt.Errorf("building arguments for immediate operation: %+v", err)
 	}
-	requestArguments := c.requestArgumentsTemplate()
-	requestConfig, err := c.requestConfig(data)
+	requestOptions, err := c.requestOptions(data)
 	if err != nil {
 		return nil, fmt.Errorf("building request config: %+v", err)
 	}
-	optionsStruct, err := c.optionsStruct(data)
+	marshalerCode, err := c.marshalerTemplate(data)
 	if err != nil {
-		return nil, fmt.Errorf("building options struct: %+v", err)
+		return nil, fmt.Errorf("building marshaler template: %+v", err)
+	}
+	unmarshalerCode, err := c.unmarshalerTemplate(data)
+	if err != nil {
+		return nil, fmt.Errorf("building unmarshaler template: %+v", err)
 	}
 	responseStruct, err := c.responseStructTemplate(data)
 	if err != nil {
 		return nil, fmt.Errorf("building response struct template: %+v", err)
 	}
-	unmarshalerCode, err := c.unmarshalerTemplate(data)
+	optionsStruct, err := c.optionsStruct(data)
 	if err != nil {
-		return nil, fmt.Errorf("building unmarahaler template: %+v", err)
+		return nil, fmt.Errorf("building options struct: %+v", err)
 	}
-	method := capitalizeFirstLetter(c.operation.Method)
 
 	templated := fmt.Sprintf(`
+%[7]s
 %[8]s
-%[9]s
 
 // %[2]s ...
-func (c %[1]s) %[2]s(ctx context.Context %[4]s) (result %[2]sOperationResponse, err error) {
-	req, err := c.Client.New%[3]sRequest(ctx %[5]s)
+func (c %[1]s) %[2]s(ctx context.Context %[3]s) (result %[2]sOperationResponse, err error) {
+	opts := %[4]s
+
+	req, err := c.Client.NewRequest(ctx, opts)
 	if err != nil {
 		return
 	}
 
-	%[6]s
+	%[5]s
 
 	var resp *client.Response
-	resp, err = req.Execute()
+	resp, err = req.Execute(ctx)
 	if resp != nil {
 		result.OData = resp.OData
 		result.HttpResponse = resp.Response
@@ -175,52 +177,59 @@ func (c %[1]s) %[2]s(ctx context.Context %[4]s) (result %[2]sOperationResponse, 
 		return
 	}
 
-	%[7]s
+	%[6]s
 
 	return
 }
 
-`, data.serviceClientName, c.operationName, method, *argumentsMethodCode, requestArguments, *requestConfig, *unmarshalerCode, *responseStruct, *optionsStruct)
+`, data.serviceClientName, c.operationName, *methodArguments, *requestOptions, *marshalerCode, *unmarshalerCode, *responseStruct, *optionsStruct)
 	return &templated, nil
 }
 
 func (c methodsPandoraTemplater) longRunningOperationTemplate(data ServiceGeneratorData) (*string, error) {
-	argumentsMethodCode, err := c.argumentsTemplateForMethod(data)
+	methodArguments, err := c.argumentsTemplateForMethod(data)
 	if err != nil {
 		return nil, fmt.Errorf("building arguments for long running template: %+v", err)
 	}
-	requestArguments := c.requestArgumentsTemplate()
-	requestConfig, err := c.requestConfig(data)
+	requestOptions, err := c.requestOptions(data)
 	if err != nil {
 		return nil, fmt.Errorf("building request config: %+v", err)
 	}
-	argumentsCode := c.argumentsTemplate()
-	optionsStruct, err := c.optionsStruct(data)
+	marshalerCode, err := c.marshalerTemplate(data)
 	if err != nil {
-		return nil, fmt.Errorf("building options struct: %+v", err)
+		return nil, fmt.Errorf("building marshaler template: %+v", err)
 	}
+	unmarshalerCode, err := c.unmarshalerTemplate(data)
+	if err != nil {
+		return nil, fmt.Errorf("building unmarshaler template: %+v", err)
+	}
+	argumentsCode := c.argumentsTemplate()
 	responseStruct, err := c.responseStructTemplate(data)
 	if err != nil {
 		return nil, fmt.Errorf("building response struct template: %+v", err)
 	}
-	method := capitalizeFirstLetter(c.operation.Method)
+	optionsStruct, err := c.optionsStruct(data)
+	if err != nil {
+		return nil, fmt.Errorf("building options struct: %+v", err)
+	}
 
-	// TODO: check value of provisioningState field after calling PollUntilDone()
 	templated := fmt.Sprintf(`
 %[8]s
 %[9]s
 
 // %[2]s ...
-func (c %[1]s) %[2]s(ctx context.Context %[4]s) (result %[2]sOperationResponse, err error) {
-	req, err := c.Client.New%[3]sRequest(ctx %[5]s)
+func (c %[1]s) %[2]s(ctx context.Context %[3]s) (result %[2]sOperationResponse, err error) {
+	opts := %[4]s
+
+	req, err := c.Client.NewRequest(ctx, opts)
 	if err != nil {
 		return
 	}
 
-	%[6]s
+	%[5]s
 
 	var resp *client.Response
-	resp, err = req.Execute()
+	resp, err = req.Execute(ctx)
 	if resp != nil {
 		result.OData = resp.OData
 		result.HttpResponse = resp.Response
@@ -229,7 +238,9 @@ func (c %[1]s) %[2]s(ctx context.Context %[4]s) (result %[2]sOperationResponse, 
 		return
 	}
 
-	result.Poller, err = resourcemanager.NewPollerFromResponse(ctx, resp, c.Client)
+	%[6]s
+
+	result.Poller, err = resourcemanager.PollerFromResponse(resp, c.Client)
 	if err != nil {
 		return
 	}
@@ -238,66 +249,64 @@ func (c %[1]s) %[2]s(ctx context.Context %[4]s) (result %[2]sOperationResponse, 
 }
 
 // %[2]sThenPoll performs %[2]s then polls until it's completed
-func (c %[1]s) %[2]sThenPoll(ctx context.Context %[4]s) error {
+func (c %[1]s) %[2]sThenPoll(ctx context.Context %[3]s) error {
 	result, err := c.%[2]s(ctx %[7]s)
 	if err != nil {
 		return fmt.Errorf("performing %[2]s: %%+v", err)
 	}
 
-	if err := result.Poller.PollUntilDone(); err != nil {
+	if err := result.Poller.PollUntilDone(ctx); err != nil {
 		return fmt.Errorf("polling after %[2]s: %%+v", err)
 	}
 
 	return nil
 }
-`, data.serviceClientName, c.operationName, method, *argumentsMethodCode, requestArguments, *requestConfig, argumentsCode, *responseStruct, *optionsStruct)
+`, data.serviceClientName, c.operationName, *methodArguments, *requestOptions, *marshalerCode, *unmarshalerCode, argumentsCode, *responseStruct, *optionsStruct)
 	return &templated, nil
 }
 
 func (c methodsPandoraTemplater) listOperationTemplate(data ServiceGeneratorData) (*string, error) {
-	argumentsMethodCode, err := c.argumentsTemplateForMethod(data)
+	methodArguments, err := c.argumentsTemplateForMethod(data)
 	if err != nil {
 		return nil, fmt.Errorf("building arguments for list operation: %+v", err)
 	}
-	requestArguments := c.requestArgumentsTemplate()
-	requestConfig, err := c.requestConfig(data)
+	requestOptions, err := c.requestOptions(data)
 	if err != nil {
 		return nil, fmt.Errorf("building request config: %+v", err)
 	}
 	argumentsCode := c.argumentsTemplate()
-	optionsStruct, err := c.optionsStruct(data)
+	unmarshalerCode, err := c.unmarshalerTemplate(data)
 	if err != nil {
-		return nil, fmt.Errorf("building options struct: %+v", err)
+		return nil, fmt.Errorf("building unmarahaler template: %+v", err)
 	}
 	responseStruct, err := c.responseStructTemplate(data)
 	if err != nil {
 		return nil, fmt.Errorf("building response struct template: %+v", err)
 	}
-	unmarshalerCode, err := c.unmarshalerTemplate(data)
+	optionsStruct, err := c.optionsStruct(data)
 	if err != nil {
-		return nil, fmt.Errorf("building unmarahaler template: %+v", err)
+		return nil, fmt.Errorf("building options struct: %+v", err)
 	}
 	typeName, err := golangTypeNameForObjectDefinition(*c.operation.ResponseObject)
 	if err != nil {
 		return nil, fmt.Errorf("determining golang type name for response object: %+v", err)
 	}
-	method := capitalizeFirstLetter(c.operation.Method)
 
 	templated := fmt.Sprintf(`
-%[8]s
-%[9]s
+%[6]s
+%[7]s
 
 // %[2]s ...
-func (c %[1]s) %[2]s(ctx context.Context %[4]s) (result %[2]sOperationResponse, err error) {
-	req, err := c.Client.New%[3]sRequest(ctx %[5]s)
+func (c %[1]s) %[2]s(ctx context.Context %[3]s) (result %[2]sOperationResponse, err error) {
+	opts := %[4]s
+
+	req, err := c.Client.NewRequest(ctx, opts)
 	if err != nil {
 		return
 	}
 
-	%[6]s
-
 	var resp *client.Response
-	resp, err = req.ExecutePaged()
+	resp, err = req.ExecutePaged(ctx)
 	if resp != nil {
 		result.OData = resp.OData
 		result.HttpResponse = resp.Response
@@ -306,11 +315,11 @@ func (c %[1]s) %[2]s(ctx context.Context %[4]s) (result %[2]sOperationResponse, 
 		return
 	}
 
-	%[7]s
+	%[5]s
 
 	return
 }
-`, data.serviceClientName, c.operationName, method, *argumentsMethodCode, requestArguments, *requestConfig, *unmarshalerCode, *responseStruct, *optionsStruct)
+`, data.serviceClientName, c.operationName, *methodArguments, *requestOptions, *unmarshalerCode, *responseStruct, *optionsStruct)
 
 	// Only output predicate functions for models and not for base types like string, int etc.
 	if c.operation.ResponseObject.Type == resourcemanager.ReferenceApiObjectDefinitionType || c.operation.ResponseObject.Type == resourcemanager.ListApiObjectDefinitionType {
@@ -322,51 +331,51 @@ func (c %[1]s) %[2]sComplete(ctx context.Context%[4]s) (%[2]sCompleteResult, err
 }
 
 // %[2]sCompleteMatchingPredicate retrieves all the results and then applies the predicate
-func (c %[1]s) %[2]sCompleteMatchingPredicate(ctx context.Context%[4]s, predicate %[7]sOperationPredicate) (resp %[2]sCompleteResult, err error) {
+func (c %[1]s) %[2]sCompleteMatchingPredicate(ctx context.Context%[4]s, predicate %[7]sOperationPredicate) (result %[2]sCompleteResult, err error) {
 	items := make([]%[7]s, 0)
 
-	result, err := c.%[2]s(ctx%[6]s)
+	resp, err := c.%[2]s(ctx%[6]s)
 	if err != nil {
 		err = fmt.Errorf("loading results: %%+v", err)
 		return
 	}
-	if result.Model != nil {
-		for _, v := range *result.Model {
+	if resp.Model != nil {
+		for _, v := range *resp.Model {
 			if predicate.Matches(v) {
 				items = append(items, v)
 			}
 		}
 	}
 
-	out := %[2]sCompleteResult{
+	result = %[2]sCompleteResult{
 		Items: items,
 	}
-	return out, nil
+	return
 }
-`, data.serviceClientName, c.operationName, data.packageName, *argumentsMethodCode, *responseStruct, argumentsCode, *typeName)
+`, data.serviceClientName, c.operationName, data.packageName, *methodArguments, *responseStruct, argumentsCode, *typeName)
 	} else {
 		templated += fmt.Sprintf(`
 // %[2]sComplete retrieves all the results into a single object
 func (c %[1]s) %[2]sComplete(ctx context.Context%[3]s) (result %[2]sCompleteResult, err error) {
 	items := make([]%[5]s, 0)
 
-	result, err := c.%[2]s(ctx%[4]s)
+	resp, err := c.%[2]s(ctx%[4]s)
 	if err != nil {
 		err = fmt.Errorf("loading results: %%+v", err)
 		return
 	}
-	if result.Model != nil {
-		for _, v := range *result.Model {
+	if resp.Model != nil {
+		for _, v := range *resp.Model {
 			items = append(items, v)
 		}
 	}
 
-	out := %[2]sCompleteResult{
+	result = %[2]sCompleteResult{
 		Items: items,
 	}
-	return out, nil
+	return
 }
-`, data.serviceClientName, c.operationName, *argumentsMethodCode, argumentsCode, *typeName)
+`, data.serviceClientName, c.operationName, *methodArguments, argumentsCode, *typeName)
 	}
 	return &templated, nil
 }
@@ -460,7 +469,8 @@ func (c methodsPandoraTemplater) argumentsTemplateForMethod(data ServiceGenerato
 	return &out, nil
 }
 
-func (c methodsPandoraTemplater) requestConfig(data ServiceGeneratorData) (*string, error) {
+func (c methodsPandoraTemplater) requestOptions(data ServiceGeneratorData) (*string, error) {
+	method := capitalizeFirstLetter(c.operation.Method)
 	expectedStatusCodes := make([]string, 0)
 	for _, statusCodeInt := range c.operation.ExpectedStatusCodes {
 		statusCode := golangConstantForStatusCode(statusCodeInt)
@@ -468,11 +478,50 @@ func (c methodsPandoraTemplater) requestConfig(data ServiceGeneratorData) (*stri
 	}
 	sort.Strings(expectedStatusCodes)
 
-	out := fmt.Sprintf(`
-	req.ValidStatusCodes = []int{%s}
-`, strings.Join(expectedStatusCodes, ", "))
+	var path string
+	if c.operation.UriSuffix != nil {
+		if c.operation.ResourceIdName != nil {
+			path = fmt.Sprintf(`fmt.Sprintf("%%s%s", id.ID())`, *c.operation.UriSuffix)
+		} else {
+			path = fmt.Sprintf("%q", *c.operation.UriSuffix)
+		}
+	} else {
+		if c.operation.ResourceIdName != nil {
+			path = "id.ID()"
+		}
+	}
+	options := ""
+	if len(c.operation.Options) > 0 {
+		options = "OptionsObject: options,"
+	}
+
+	out := fmt.Sprintf(`client.RequestOptions{
+		ContentType: "application/json",
+		ExpectedStatusCodes: []int{
+			%[1]s,
+		},
+		HttpMethod: http.Method%[2]s,
+		Path: %[3]s,
+		%[4]s
+	}
+`, strings.Join(expectedStatusCodes, ",\n\t\t\t"), method, path, options)
 
 	return &out, nil
+}
+
+func (c methodsPandoraTemplater) marshalerTemplate(data ServiceGeneratorData) (*string, error) {
+	var output string
+
+	if c.operation.RequestObject != nil {
+		output = fmt.Sprintf(`
+	err = req.Marshal(input)
+	if err != nil {
+		return
+	}
+`)
+	}
+
+	return &output, nil
 }
 
 func (c methodsPandoraTemplater) unmarshalerTemplate(data ServiceGeneratorData) (*string, error) {
@@ -525,7 +574,7 @@ func (c methodsPandoraTemplater) responseStructTemplate(data ServiceGeneratorDat
 
 	lro := ""
 	if c.operation.LongRunning {
-		lro = fmt.Sprintf("Poller *resourcemanager.LongRunningPoller")
+		lro = fmt.Sprintf("Poller pollers.Poller")
 	}
 
 	responseStructName := fmt.Sprintf("%[1]sOperationResponse", c.operationName)
@@ -578,18 +627,14 @@ func (c methodsPandoraTemplater) optionsStruct(data ServiceGeneratorData) (*stri
 		}
 		properties = append(properties, fmt.Sprintf("%s *%s", optionName, *optionType))
 		if option.HeaderName != nil {
-			headerAssignments = append(headerAssignments, fmt.Sprintf(`
-	if o.%[1]s != nil {
-		out["%[2]s"] = *o.%[1]s
-	}
-`, optionName, *option.HeaderName))
+			headerAssignments = append(headerAssignments, fmt.Sprintf(`if o.%[1]s != nil {
+	out.Append("%[2]s", fmt.Sprintf("%%v", *o.%[1]s))
+}`, optionName, *option.HeaderName))
 		}
 		if option.QueryStringName != nil {
-			queryStringAssignments = append(queryStringAssignments, fmt.Sprintf(`
-	if o.%[1]s != nil {
-		out["%[2]s"] = *o.%[1]s
-	}
-`, optionName, *option.QueryStringName))
+			queryStringAssignments = append(queryStringAssignments, fmt.Sprintf(`if o.%[1]s != nil {
+	out.Append("%[2]s", fmt.Sprintf("%%v", *o.%[1]s))
+}`, optionName, *option.QueryStringName))
 		}
 	}
 
@@ -606,8 +651,8 @@ func Default%[1]s() %[1]s {
 	return %[1]s{}
 }
 
-func (o %[1]s) ToHeaders() *resourcemanager.Headers {
-	out := make(resourcemanager.Headers)
+func (o %[1]s) ToHeaders() *client.Headers {
+	out := client.Headers{}
 %[3]s
 	return &out
 }
@@ -617,8 +662,8 @@ func (o %[1]s) ToOData() *odata.Query {
 	return &out
 }
 
-func (o %[1]s) ToQuery() *resourcemanager.QueryParams {
-	out := make(resourcemanager.QueryParams)
+func (o %[1]s) ToQuery() *client.QueryParams {
+	out := client.QueryParams{}
 %[4]s
 	return &out
 }

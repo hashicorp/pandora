@@ -24,14 +24,17 @@ import (
 
 type %[2]s struct {
 	Client  *resourcemanager.Client
-	baseUri string
 }
 
-func New%[2]sWithBaseURI(endpoint string) %[2]s {
-	return %[2]s{
-		Client: resourcemanager.NewResourceManagerClient(environments.ApiEndpoint(endpoint)),
-		baseUri: endpoint,
+func New%[2]sWithBaseURI(api environments.Api) (*%[2]s, error) {
+	client, err := resourcemanager.NewResourceManagerClient(api, %[1]q, defaultApiVersion)
+	if err != nil {
+		return nil, err
 	}
+
+	return &%[2]s{
+		Client: client,
+	}, nil
 }`, data.packageName, data.serviceClientName, *copyrightLines)
 	return &template, nil
 }

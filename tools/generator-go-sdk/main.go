@@ -137,6 +137,10 @@ func run(input GeneratorInput) error {
 					Resources:       versionDetails.Resources,
 					Source:          versionDetails.Details.Source,
 				}
+				generatorData.UseNewBaseLayer = false
+				if _, ok := input.settings.ServicesUsingNewBaseLayer[serviceName]; ok {
+					generatorData.UseNewBaseLayer = true
+				}
 				log.Printf("[DEBUG] Generating Service %q / Version %q..", serviceName, versionNumber)
 				if err := generatorService.GenerateForVersion(generatorData); err != nil {
 					addErr(fmt.Errorf("generating Service %q / Version %q: %+v", serviceName, versionNumber, err))

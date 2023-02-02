@@ -53,7 +53,7 @@ type ServiceGeneratorData struct {
 	useIdAliases bool
 
 	// development feature flag - should this service use the new transport layer from `hashicorp/go-azure-sdk`
-	// rather than the existing base layer in `hashicorp/go-azure-sdk`?
+	// rather than the existing Autorest base layer?
 	useNewBaseLayer bool
 }
 
