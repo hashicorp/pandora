@@ -7,39 +7,39 @@ Essentially this tool retrieves a list of Resource Manager Services from the Dat
 ```
 $ tree resource-manager
 ├── aad
-│   ├── 2020-01-01
-│   │   ├── client.go
-│   │   ├── domainservices
-│   │   │   ├── README.md
-│   │   │   ├── client.go
-│   │   │   ├── ...
-│   │   │   ├── id_domainservice.go
-│   │   │   ├── id_domainservice_test.go
-│   │   │   ├── method_create_autorest.go
-│   │   │   ├── ...
-│   │   │   ├── method_update_autorest.go
-│   │   │   ├── model_containeraccount.go
-│   │   │   ├── ...
-│   │   │   ├── predicates.go
-│   │   │   └── version.go
-│   │   └── ...
-│   ├── 2021-03-01
-│   │   ├── client.go
-│   │   ├── domainservices
-│   │   │   ├── README.md
-│   │   │   └── ...
-│   │   └── ...
-│   └── 2021-05-01
-│   │   ├── client.go
-│   │   ├── domainservices
-│   │   │   ├── README.md
-│   │   │   └── ...
-│   │   └── ...
+│   ├── 2020-01-01
+│   │   ├── client.go
+│   │   ├── domainservices
+│   │   │   ├── README.md
+│   │   │   ├── client.go
+│   │   │   ├── ...
+│   │   │   ├── id_domainservice.go
+│   │   │   ├── id_domainservice_test.go
+│   │   │   ├── method_create_autorest.go
+│   │   │   ├── ...
+│   │   │   ├── method_update_autorest.go
+│   │   │   ├── model_containeraccount.go
+│   │   │   ├── ...
+│   │   │   ├── predicates.go
+│   │   │   └── version.go
+│   │   └── ...
+│   ├── 2021-03-01
+│   │   ├── client.go
+│   │   ├── domainservices
+│   │   │   ├── README.md
+│   │   │   └── ...
+│   │   └── ...
+│   └── 2021-05-01
+│   │   ├── client.go
+│   │   ├── domainservices
+│   │   │   ├── README.md
+│   │   │   └── ...
+│   │   └── ...
 ├── appconfiguration
-│   └── 2020-06-01
-│       ├── configurationstores
-│       │   ├── client.go
-│       │   ├── ...
+│   └── 2020-06-01
+│       ├── configurationstores
+│       │   ├── client.go
+│       │   ├── ...
 ```
 
 Each (Generation) Stage has an associated Templater, meaning that each Stage can be unit tested as required.
