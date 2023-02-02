@@ -107,7 +107,7 @@ service "databoxedge" {
 }
 service "databricks" {
   name      = "Databricks"
-  available = ["2022-04-01-preview"]
+  available = ["2022-04-01-preview", "2023-02-01"]
 }
 service "datadog" {
   name      = "DataDog"
@@ -273,7 +273,7 @@ service "monitor" {
 }
 service "msi" {
   name      = "ManagedIdentity"
-  available = ["2022-01-31-preview"]
+  available = ["2022-01-31-preview", "2023-01-31"]
 }
 service "mysql" {
   name      = "MySql"
