@@ -11,6 +11,7 @@ var workarounds = []workaround{
 	workaroundContainerService21394{},
 	workaroundLoadTest20961{},
 	workaroundMedia21581{},
+	workaroundRedis22407{},
 
 	// @tombuildsstuff: this is an odd place for this however this allows working around inconsistencies in the Swagger
 	// we should look at moving this into the `resourceids` package when time allows.
