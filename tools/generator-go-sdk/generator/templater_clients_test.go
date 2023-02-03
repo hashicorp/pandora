@@ -19,6 +19,7 @@ func TestTemplateClient(t *testing.T) {
 	expected := `package somepackage
 
 import (
+	"github.com/hashicorp/go-azure-sdk/sdk/environments"
 	"github.com/hashicorp/go-azure-sdk/sdk/client/resourcemanager"
 	"github.com/hashicorp/go-azure-sdk/sdk/environments"
 )

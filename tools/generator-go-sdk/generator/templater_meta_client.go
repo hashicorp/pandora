@@ -52,6 +52,7 @@ configureAuthFunc(%[1]s.Client)
 	out := fmt.Sprintf(`package %[1]s
 
 import (
+	"github.com/hashicorp/go-azure-sdk/sdk/environments"
 	"github.com/hashicorp/go-azure-sdk/sdk/client/resourcemanager"
 	%[2]s
 )
