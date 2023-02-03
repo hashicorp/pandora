@@ -22,7 +22,7 @@ var commonIdTypes = []commonIdMatcher{
 	commonIdPublicIPAddress{},
 	commonIdVPNConnection{},
 
-	// RP Spcific
+	// RP Specific
 	commonIdCloudServicesIPConfiguration{},
 	commonIdCloudServicesPublicIPAddress{},
 	commonIdExpressRouteCircuitPeering{},
@@ -34,6 +34,14 @@ var commonIdTypes = []commonIdMatcher{
 	commonIdVirtualMachineScaleSetPublicIPAddress{},
 	commonIdVirtualRouterPeering{},
 	commonIdVirtualWANP2SVPNGateway{},
+
+	// https://github.com/hashicorp/pandora/pull/1962#issuecomment-1375005199
+	commonIdHyperVSiteJob{},
+	commonIdHyperVSiteMachine{},
+	commonIdHyperVSiteRunAsAccount{},
+	commonIdVMwareSiteJob{},
+	commonIdVMwareSiteMachine{},
+	commonIdVMwareSiteRunAsAccount{},
 
 	// Misc data fixes
 	commonIdProvisioningService{}, // (@jackofallops): Inconsistent user specified fields in the swagger - `provisioningServices/{resourceName}` vs `provisioningServices/{provisioningServiceName}`
