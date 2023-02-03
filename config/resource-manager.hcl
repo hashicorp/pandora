@@ -259,13 +259,13 @@ service "mediaservices" {
   name      = "Media"
   available = ["2020-05-01", "2021-05-01", "2021-11-01", "2022-08-01"]
 }
+service "migrate" {
+  name      = "Migrate"
+  available = ["2020-01-01", "2020-07-07"]
+}
 service "mixedreality" {
   name      = "MixedReality"
   available = ["2021-01-01"]
-}
-service "migrate" {
-  name = "Migrate"
-  available = ["2020-01-01"]
 }
 service "mobilenetwork" {
   name      = "MobileNetwork"
