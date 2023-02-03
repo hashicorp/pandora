@@ -263,6 +263,10 @@ service "mixedreality" {
   name      = "MixedReality"
   available = ["2021-01-01"]
 }
+service "migrate" {
+  name = "Migrate"
+  available = ["2020-01-01"]
+}
 service "mobilenetwork" {
   name      = "MobileNetwork"
   available = ["2022-11-01"]
