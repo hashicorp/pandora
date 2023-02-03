@@ -22,7 +22,7 @@ func (commonIdUserAssignedIdentity) id() models.ParsedResourceId {
 			models.StaticResourceIDSegment("providers", "providers"),
 			models.ResourceProviderResourceIDSegment("resourceProvider", "Microsoft.ManagedIdentity"),
 			models.StaticResourceIDSegment("userAssignedIdentities", "userAssignedIdentities"),
-			models.UserSpecifiedResourceIDSegment("resourceName"),
+			models.UserSpecifiedResourceIDSegment("userAssignedIdentityName"),
 		},
 	}
 }

@@ -18,7 +18,7 @@ func TestCommonResourceID_UserAssignedIdentity(t *testing.T) {
 			models.StaticResourceIDSegment("providers", "providers"),
 			models.ResourceProviderResourceIDSegment("resourceProvider", "Microsoft.ManagedIdentity"),
 			models.StaticResourceIDSegment("userAssignedIdentities", "userAssignedIdentities"),
-			models.UserSpecifiedResourceIDSegment("resourceName"),
+			models.UserSpecifiedResourceIDSegment("userAssignedIdentityName"),
 		},
 	}
 	invalid := models.ParsedResourceId{
@@ -31,7 +31,7 @@ func TestCommonResourceID_UserAssignedIdentity(t *testing.T) {
 			models.StaticResourceIDSegment("providers", "providers"),
 			models.ResourceProviderResourceIDSegment("resourceProvider", "Microsoft.ManagedIdentity"),
 			models.StaticResourceIDSegment("userAssignedIdentities", "userAssignedIdentities"),
-			models.UserSpecifiedResourceIDSegment("userIdentityName"),
+			models.UserSpecifiedResourceIDSegment("userAssignedIdentityName"),
 			models.StaticResourceIDSegment("someResource", "someResource"),
 			models.UserSpecifiedResourceIDSegment("resourceName"),
 		},
