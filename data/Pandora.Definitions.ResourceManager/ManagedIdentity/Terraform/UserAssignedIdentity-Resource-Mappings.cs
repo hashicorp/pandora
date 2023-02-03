@@ -9,7 +9,7 @@ public class UserAssignedIdentityResourceMappings : TerraformMappingDefinition
 {
     public List<MappingType> Mappings => new List<MappingType>
     {
-        Mapping.FromSchema<UserAssignedIdentityResourceSchema>(s => s.Name).ToResourceIdSegmentNamed("resourceName"),
+        Mapping.FromSchema<UserAssignedIdentityResourceSchema>(s => s.Name).ToResourceIdSegmentNamed("userAssignedIdentityName"),
         Mapping.FromSchema<UserAssignedIdentityResourceSchema>(s => s.ResourceGroupName).ToResourceIdSegmentNamed("resourceGroupName"),
 
         Mapping.FromSchema<UserAssignedIdentityResourceSchema>(s => s.ClientId).ToSdkField<UserAssignedIdentityPropertiesModel>(m => m.ClientId).Direct(),
