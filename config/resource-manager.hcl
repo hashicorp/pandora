@@ -97,7 +97,7 @@ service "dashboard" {
 }
 service "databricks" {
   name      = "Databricks"
-  available = ["2021-04-01-preview", "2022-04-01-preview"]
+  available = ["2021-04-01-preview", "2022-04-01-preview", "2023-02-01"]
 }
 service "datalake-analytics" {
   name      = "DataLakeAnalytics"
