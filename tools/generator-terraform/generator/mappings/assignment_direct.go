@@ -54,8 +54,15 @@ func (d directAssignmentLine) assignmentForCreateUpdateMapping(mapping resourcem
 	}
 
 	// check if it requires a custom transform
-	if v, ok := transformTypes[schemaField.ObjectDefinition.Type]; ok && v == sdkField.ObjectDefinition.Type {
-		return d.schemaToSdkMappingRequiringTransform(mapping, schemaField, sdkField, sdkConstant, apiResourcePackageName)
+	if v, ok := transformTypes[schemaField.ObjectDefinition.Type]; ok {
+		if sdkType := sdkField.ObjectDefinition.Type; v == sdkType {
+			return d.schemaToSdkMappingRequiringTransform(mapping, schemaField, sdkField, sdkConstant, apiResourcePackageName)
+		} else {
+			// patch for legacy identity blocks
+			if code, ok := patchIdentityTransform(sdkType, true, mapping, sdkField.JsonName); ok {
+				return &code, nil
+			}
+		}
 	}
 
 	// check the assignment type - if it's a List these are special-cased
@@ -96,8 +103,16 @@ func (d directAssignmentLine) assignmentForReadMapping(mapping resourcemanager.F
 	}
 
 	// check if it requires a custom transform
-	if v, ok := transformTypes[schemaField.ObjectDefinition.Type]; ok && v == sdkField.ObjectDefinition.Type {
-		return d.sdkToSchemaMappingRequiringTransform(mapping, schemaField, sdkField, sdkConstant, apiResourcePackageName)
+	if v, ok := transformTypes[schemaField.ObjectDefinition.Type]; ok {
+		if sdkType := sdkField.ObjectDefinition.Type; v == sdkType {
+			return d.sdkToSchemaMappingRequiringTransform(mapping, schemaField, sdkField, sdkConstant, apiResourcePackageName)
+		} else {
+			// patch for legacy identity blocks
+			code, ok := patchIdentityTransform(sdkType, false, mapping, sdkField.JsonName)
+			if ok {
+				return &code, nil
+			}
+		}
 	}
 
 	// check the assignment type - if it's a List these are special-cased

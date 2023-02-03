@@ -34,10 +34,20 @@ func (modelFlattenPropertiesIntoParent) ProcessModel(modelName string, model res
 		}
 
 		nestedPropsModel := models[*fieldValue.ObjectDefinition.ReferenceName]
-		for nestedFieldName, nestedFieldValue := range nestedPropsModel.Fields {
-			fields[nestedFieldName] = nestedFieldValue
+		// flatten only when no name-conflict exists
+		var hasConflict bool
+		for nestedFieldName, _ := range nestedPropsModel.Fields {
+			if _, ok := model.Fields[nestedFieldName]; ok {
+				hasConflict = true
+				break
+			}
 		}
-		delete(fields, fieldName)
+		if !hasConflict {
+			for nestedFieldName, nestedFieldValue := range nestedPropsModel.Fields {
+				fields[nestedFieldName] = nestedFieldValue
+			}
+			delete(fields, fieldName)
+		}
 	}
 	model.Fields = fields
 	models[modelName] = model
