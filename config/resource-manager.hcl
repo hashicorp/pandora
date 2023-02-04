@@ -52,7 +52,7 @@ service "azure-kusto" {
 }
 service "azurestackhci" {
   name      = "AzureStackHCI"
-  available = ["2022-09-01", "2022-10-01", "2022-12-01"]
+  available = ["2022-12-01"]
 }
 service "batch" {
   name      = "Batch"
