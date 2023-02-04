@@ -1,4 +1,9 @@
 
+service "advisor" {
+  name      = "Advisor"
+  available = ["2020-01-01"]
+  ignore    = ["2022-09-01"]
+}
 service "alertsmanagement" {
   name      = "AlertsManagement"
   available = ["2021-08-08"]
