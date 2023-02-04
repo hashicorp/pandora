@@ -30,7 +30,7 @@ type %[2]s struct {
 func New%[2]sWithBaseURI(api environments.Api) (*%[2]s, error) {
 	client, err := resourcemanager.NewResourceManagerClient(api, %[1]q, defaultApiVersion)
 	if err != nil {
-		return nil, err
+		return nil, fmt.Errorf("instantiating %[2]s: %%+v", err)
 	}
 
 	return &%[2]s{

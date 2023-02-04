@@ -278,7 +278,7 @@ func (c methodsPandoraTemplater) listOperationTemplate(data ServiceGeneratorData
 	argumentsCode := c.argumentsTemplate()
 	unmarshalerCode, err := c.unmarshalerTemplate(data)
 	if err != nil {
-		return nil, fmt.Errorf("building unmarahaler template: %+v", err)
+		return nil, fmt.Errorf("building unmarshaler template: %+v", err)
 	}
 	responseStruct, err := c.responseStructTemplate(data)
 	if err != nil {
@@ -515,8 +515,7 @@ func (c methodsPandoraTemplater) marshalerTemplate(data ServiceGeneratorData) (*
 
 	if c.operation.RequestObject != nil {
 		output = fmt.Sprintf(`
-	err = req.Marshal(input)
-	if err != nil {
+	if err = req.Marshal(input); err != nil {
 		return
 	}
 `)
