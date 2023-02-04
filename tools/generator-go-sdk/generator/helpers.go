@@ -30,6 +30,10 @@ func alternateCasingOnEveryLetter(input string) string {
 	return output
 }
 
+func capitalizeFirstLetter(input string) string {
+	return strings.ToUpper(input[0:1]) + strings.ToLower(input[1:])
+}
+
 func copyrightLinesForSource(input resourcemanager.ApiDefinitionsSource) (*string, error) {
 	if input == resourcemanager.ApiDefinitionsSourceHandWritten {
 		out := `

@@ -9,14 +9,14 @@ import (
 	"github.com/hashicorp/pandora/tools/sdk/services"
 )
 
-type metaClientTemplater struct {
+type metaClientAutorestTemplater struct {
 	serviceName string
 	apiVersion  string
 	resources   map[string]services.Resource
 	source      resourcemanager.ApiDefinitionsSource
 }
 
-func (m metaClientTemplater) template() (*string, error) {
+func (m metaClientAutorestTemplater) template() (*string, error) {
 	resourceNames := make([]string, 0)
 	for k := range m.resources {
 		resourceNames = append(resourceNames, k)
@@ -32,14 +32,12 @@ func (m metaClientTemplater) template() (*string, error) {
 
 		imports = append(imports, fmt.Sprintf(`"github.com/hashicorp/go-azure-sdk/resource-manager/%s/%s/%s"`, strings.ToLower(m.serviceName), m.apiVersion, strings.ToLower(resourceName)))
 		fields = append(fields, fmt.Sprintf("%[1]s *%[2]s.%[1]sClient", resourceName, strings.ToLower(resourceName)))
-		clientInitializationTemplate := fmt.Sprintf(`%[1]s, err := %[2]s.New%[3]sClientWithBaseURI(api)
-if err != nil {
-	return nil, fmt.Errorf("building meta client for %[3]s: %%+v", err)
-}
-configureAuthFunc(%[1]s.Client)
+		clientInitializationTemplate := fmt.Sprintf(`
+%[1]s := %[2]s.New%[3]sClientWithBaseURI(endpoint)
+configureAuthFunc(&%[1]s.Client)
 `, variableName, strings.ToLower(resourceName), resourceName)
 		clientInitialization = append(clientInitialization, clientInitializationTemplate)
-		assignments = append(assignments, fmt.Sprintf("%[1]s: %[2]s,", resourceName, variableName))
+		assignments = append(assignments, fmt.Sprintf("%[1]s: &%[2]s,", resourceName, variableName))
 	}
 
 	sort.Strings(assignments)
@@ -52,8 +50,7 @@ configureAuthFunc(%[1]s.Client)
 	out := fmt.Sprintf(`package %[1]s
 
 import (
-	"github.com/hashicorp/go-azure-sdk/sdk/environments"
-	"github.com/hashicorp/go-azure-sdk/sdk/client/resourcemanager"
+	"github.com/Azure/go-autorest/autorest"
 	%[2]s
 )
 
@@ -61,12 +58,12 @@ type Client struct {
 	%[3]s
 }
 
-func NewClientWithBaseURI(api environments.Api, configureAuthFunc func(c *resourcemanager.Client)) (*Client, error) {
+func NewClientWithBaseURI(endpoint string, configureAuthFunc func(c *autorest.Client)) Client {
 	%[4]s
 
-	return &Client{
+	return Client{
 		%[5]s
-	}, nil
+	}
 }
 `, packageName, strings.Join(imports, "\n"), strings.Join(fields, "\n"), strings.Join(clientInitialization, "\n"), strings.Join(assignments, "\n"))
 	return &out, nil

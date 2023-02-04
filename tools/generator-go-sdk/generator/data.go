@@ -51,9 +51,13 @@ type ServiceGeneratorData struct {
 	// development feature flag - this requires work in the Resource ID parser to handle name conflicts
 	// @tombuildsstuff: fix this
 	useIdAliases bool
+
+	// development feature flag - should this service use the new transport layer from `hashicorp/go-azure-sdk`
+	// rather than the existing Autorest base layer?
+	useNewBaseLayer bool
 }
 
-func (i ServiceGeneratorInput) generatorData() ServiceGeneratorData {
+func (i ServiceGeneratorInput) generatorData(settings Settings) ServiceGeneratorData {
 	servicePackageName := strings.ToLower(i.ServiceName)
 	versionPackageName := strings.ToLower(i.VersionName)
 	// TODO: it'd be nice to make these snake_case but that's a problem for another day
@@ -61,6 +65,11 @@ func (i ServiceGeneratorInput) generatorData() ServiceGeneratorData {
 	versionOutputPath := filepath.Join(i.OutputDirectory, servicePackageName, versionPackageName)
 	resourceOutputPath := filepath.Join(versionOutputPath, resourcePackageName)
 	idsPath := filepath.Join(versionOutputPath, "ids")
+
+	useNewBaseLayer := false
+	if _, ok := settings.ServicesUsingNewBaseLayer[i.ServiceName]; ok {
+		useNewBaseLayer = true
+	}
 
 	return ServiceGeneratorData{
 		apiVersion:         i.VersionName,
@@ -75,5 +84,6 @@ func (i ServiceGeneratorInput) generatorData() ServiceGeneratorData {
 		servicePackageName: strings.ToLower(i.ServiceName),
 		source:             i.Source,
 		useIdAliases:       false,
+		useNewBaseLayer:    useNewBaseLayer,
 	}
 }

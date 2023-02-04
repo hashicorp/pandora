@@ -15,26 +15,38 @@ import (
 	"github.com/hashicorp/pandora/tools/sdk/services"
 )
 
+var servicesUsingNewBaseLayer = map[string]struct{}{
+	"AADB2C":     {},
+	"PostgreSql": {},
+	"Resources":  {},
+}
+
 type GeneratorInput struct {
 	apiServerEndpoint string
 	outputDirectory   string
-	serviceNamesRaw   string
+	services          []string
 	settings          generator.Settings
 }
 
 func main() {
 	input := GeneratorInput{
 		settings: generator.Settings{
-			Transport: generator.AutoRest,
+			ServicesUsingNewBaseLayer: servicesUsingNewBaseLayer,
 		},
 	}
+
+	var serviceNames string
 
 	f := flag.NewFlagSet("generator-go-sdk", flag.ExitOnError)
 	f.StringVar(&input.apiServerEndpoint, "data-api", "http://localhost:5000", "-data-api=http://localhost:5000")
 	f.StringVar(&input.outputDirectory, "output-dir", "", "-output-dir=../generated-sdk-dev")
-	f.StringVar(&input.serviceNamesRaw, "services", "", "A list of comma separated Service named from the Data API to import")
+	f.StringVar(&serviceNames, "services", "", "A list of comma separated Service named from the Data API to import")
 	if err := f.Parse(os.Args[1:]); err != nil {
 		log.Fatalf("parsing arguments: %+v", err)
+	}
+
+	if serviceNames != "" {
+		input.services = strings.Split(serviceNames, ",")
 	}
 
 	if input.outputDirectory == "" {
@@ -58,10 +70,9 @@ func run(input GeneratorInput) error {
 	input.outputDirectory = path.Join(input.outputDirectory, "resource-manager")
 
 	var loadedServices services.ResourceManagerServices
-	servicesToLoad := strings.Split(input.serviceNamesRaw, ",")
-	if input.serviceNamesRaw != "" && len(servicesToLoad) > 0 {
-		log.Printf("[DEBUG] Loading the Services %q..", strings.Join(servicesToLoad, " / "))
-		services, err := services.GetResourceManagerServicesByName(client, servicesToLoad)
+	if len(input.services) > 0 {
+		log.Printf("[DEBUG] Loading the Services from the Data API %q..", strings.Join(input.services, " / "))
+		services, err := services.GetResourceManagerServicesByName(client, input.services)
 		if err != nil {
 			return fmt.Errorf("retrieving resource manager services: %+v", err)
 		}
@@ -127,6 +138,10 @@ func run(input GeneratorInput) error {
 					VersionName:     versionNumber,
 					Resources:       versionDetails.Resources,
 					Source:          versionDetails.Details.Source,
+				}
+				generatorData.UseNewBaseLayer = false
+				if _, ok := input.settings.ServicesUsingNewBaseLayer[serviceName]; ok {
+					generatorData.UseNewBaseLayer = true
 				}
 				log.Printf("[DEBUG] Generating Service %q / Version %q..", serviceName, versionNumber)
 				if err := generatorService.GenerateForVersion(generatorData); err != nil {

@@ -35,7 +35,7 @@ type ServiceGeneratorInput struct {
 }
 
 func (s *ServiceGenerator) Generate(input ServiceGeneratorInput) error {
-	data := input.generatorData()
+	data := input.generatorData(s.settings)
 
 	if err := cleanAndRecreateWorkingDirectory(data.resourceOutputPath); err != nil {
 		return fmt.Errorf("cleaning/recreating working directory %q: %+v", data.resourceOutputPath, err)
@@ -74,20 +74,21 @@ type VersionInput struct {
 	Resources       map[string]services.Resource
 	ServiceName     string
 	Source          resourcemanager.ApiDefinitionsSource
+	UseNewBaseLayer bool
 	VersionName     string
 }
 
-func (s *ServiceGenerator) GenerateForVersion(data VersionInput) error {
-	data.ServiceName = strings.ToLower(data.ServiceName)
-	data.VersionName = strings.ToLower(data.VersionName)
-	versionDirectory := filepath.Join(data.OutputDirectory, data.ServiceName, data.VersionName)
+func (s *ServiceGenerator) GenerateForVersion(input VersionInput) error {
+	input.ServiceName = strings.ToLower(input.ServiceName)
+	input.VersionName = strings.ToLower(input.VersionName)
+	versionDirectory := filepath.Join(input.OutputDirectory, input.ServiceName, input.VersionName)
 
 	stages := map[string]func(data VersionInput, versionDirectory string) error{
 		"metaClient": s.metaClient,
 	}
 	for name, stage := range stages {
 		log.Printf("[DEBUG] Running Stage %q..", name)
-		if err := stage(data, versionDirectory); err != nil {
+		if err := stage(input, versionDirectory); err != nil {
 			return fmt.Errorf("generating %s: %+v", name, err)
 		}
 	}
