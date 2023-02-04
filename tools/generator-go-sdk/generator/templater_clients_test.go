@@ -28,14 +28,18 @@ import (
 
 type ExampleClient struct {
 	Client  *resourcemanager.Client
-	baseUri string
 }
 
-func NewExampleClientWithBaseURI(endpoint string) ExampleClient {
-	return ExampleClient{
-		Client: resourcemanager.NewResourceManagerClient(environments.ApiEndpoint(endpoint)),
-		baseUri: endpoint,
+func NewExampleClientWithBaseURI(api environments.Api) (*ExampleClient, error) {
+	client, err := resourcemanager.NewResourceManagerClient(api, "somepackage", defaultApiVersion)
+	if err != nil {
+		return nil, fmt.Errorf("instantiating ExampleClient: %+v", err)
 	}
-}`
+
+	return &ExampleClient{
+		Client: client,
+	}, nil
+}
+`
 	assertTemplatedCodeMatches(t, expected, *actual)
 }

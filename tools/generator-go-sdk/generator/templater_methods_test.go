@@ -44,15 +44,22 @@ type GetOperationResponse struct {
 
 // Get ...
 func (c pandaClient) Get(ctx context.Context , id PandaPop) (result GetOperationResponse, err error) {
-	req, err := c.Client.NewGetRequest(ctx , id.ID(), defaultApiVersion, nil)
+	opts := client.RequestOptions{
+		ContentType: "application/json",
+		ExpectedStatusCodes: []int{
+			http.StatusOK,
+		},
+		HttpMethod: http.MethodGet,
+		Path: id.ID(),
+	}
+
+	req, err := c.Client.NewRequest(ctx, opts)
 	if err != nil {
 		return
 	}
 
-	req.ValidStatusCodes = []int{http.StatusOK}
-
 	var resp *client.Response
-	resp, err = req.Execute()
+	resp, err = req.Execute(ctx)
 	if resp != nil {
 		result.OData = resp.OData
 		result.HttpResponse = resp.Response
@@ -102,22 +109,34 @@ func TestTemplateMethodsLROCreate(t *testing.T) {
 
 	expected := `
 type CreateOperationResponse struct {
-	Poller *resourcemanager.LongRunningPoller
+	Poller pollers.Poller
 	HttpResponse *http.Response
 	OData *odata.OData
 }
 
 // Create ...
 func (c pandaClient) Create(ctx context.Context , id PandaPop, input string) (result CreateOperationResponse, err error) {
-	req, err := c.Client.NewPutRequest(ctx , id.ID(), defaultApiVersion, nil, input)
+	opts := client.RequestOptions{
+		ContentType: "application/json",
+		ExpectedStatusCodes: []int{
+			http.StatusAccepted,
+			http.StatusCreated,
+		},
+		HttpMethod: http.MethodPut,
+		Path: id.ID(),
+	}
+
+	req, err := c.Client.NewRequest(ctx, opts)
 	if err != nil {
 		return
 	}
 
-	req.ValidStatusCodes = []int{http.StatusAccepted, http.StatusCreated}
+	if err = req.Marshal(input); err != nil {
+		return
+	}
 
 	var resp *client.Response
-	resp, err = req.Execute()
+	resp, err = req.Execute(ctx)
 	if resp != nil {
 		result.OData = resp.OData
 		result.HttpResponse = resp.Response
@@ -126,7 +145,7 @@ func (c pandaClient) Create(ctx context.Context , id PandaPop, input string) (re
 		return
 	}
 
-	result.Poller, err = resourcemanager.NewPollerFromResponse(ctx, resp, c.Client)
+	result.Poller, err = resourcemanager.PollerFromResponse(resp, c.Client)
 	if err != nil {
 		return
 	}
@@ -141,7 +160,7 @@ func (c pandaClient) CreateThenPoll(ctx context.Context , id PandaPop, input str
 		return fmt.Errorf("performing Create: %+v", err)
 	}
 
-	if err := result.Poller.PollUntilDone(); err != nil {
+	if err := result.Poller.PollUntilDone(ctx); err != nil {
 		return fmt.Errorf("polling after Create: %+v", err)
 	}
 
@@ -179,31 +198,37 @@ func TestTemplateMethodsLROReboot(t *testing.T) {
 
 	expected := `
 type RebootOperationResponse struct {
-	Poller *resourcemanager.LongRunningPoller
+	Poller pollers.Poller
 	HttpResponse *http.Response
 	OData *odata.OData
 }
 
 // Reboot ...
 func (c pandaClient) Reboot(ctx context.Context , id PandaPop) (result RebootOperationResponse, err error) {
-	req, err := c.Client.NewPostRequest(ctx , id.ID(), defaultApiVersion, nil, nil)
+	opts := client.RequestOptions{
+		ContentType: "application/json",
+		ExpectedStatusCodes: []int{
+			http.StatusOK,
+		},
+		HttpMethod: http.MethodPost,
+		Path: id.ID(),
+	}
+
+	req, err := c.Client.NewRequest(ctx, opts)
 	if err != nil {
 		return
 	}
-
-	req.ValidStatusCodes = []int{http.StatusOK}
-
 	var resp *client.Response
-	resp, err = req.Execute()
+	resp, err = req.Execute(ctx)
 	if resp != nil {
 		result.OData = resp.OData
 		result.HttpResponse = resp.Response
 	}
 	if err != nil {
-		return
+	return
 	}
 
-	result.Poller, err = resourcemanager.NewPollerFromResponse(ctx, resp, c.Client)
+	result.Poller, err = resourcemanager.PollerFromResponse(resp, c.Client)
 	if err != nil {
 		return
 	}
@@ -218,7 +243,7 @@ func (c pandaClient) RebootThenPoll(ctx context.Context , id PandaPop) error {
 		return fmt.Errorf("performing Reboot: %+v", err)
 	}
 
-	if err := result.Poller.PollUntilDone(); err != nil {
+	if err := result.Poller.PollUntilDone(ctx); err != nil {
 		return fmt.Errorf("polling after Reboot: %+v", err)
 	}
 
@@ -272,18 +297,27 @@ type ListCompleteResult struct {
 
 // List ...
 func (c pandaClient) List(ctx context.Context , id PandaPop) (result ListOperationResponse, err error) {
-	req, err := c.Client.NewGetRequest(ctx , fmt.Sprintf("%%s/pandas", id.ID()), defaultApiVersion, nil)
+	opts := client.RequestOptions{
+		ContentType: "application/json",
+		ExpectedStatusCodes: []int{
+			http.StatusOK,
+		},
+		HttpMethod: http.MethodGet,
+		Path: fmt.Sprintf("%%s/pandas", id.ID()),
+	}
+
+	req, err := c.Client.NewRequest(ctx, opts)
 	if err != nil {
 		return
 	}
 
-	req.ValidStatusCodes = []int{http.StatusOK}
 	var resp *client.Response
-	resp, err = req.ExecutePaged()
+	resp, err = req.ExecutePaged(ctx)
 	if resp != nil {
 		result.OData = resp.OData
 		result.HttpResponse = resp.Response
 	}
+
 	if err != nil {
 		return
 	}
@@ -306,26 +340,26 @@ func (c pandaClient) ListComplete(ctx context.Context, id PandaPop) (ListComplet
 }
 
 // ListCompleteMatchingPredicate retrieves all the results and then applies the predicate
-func (c pandaClient) ListCompleteMatchingPredicate(ctx context.Context, id PandaPop, predicate LingLingOperationPredicate) (resp ListCompleteResult, err error) {
+func (c pandaClient) ListCompleteMatchingPredicate(ctx context.Context, id PandaPop, predicate LingLingOperationPredicate) (result ListCompleteResult, err error) {
 	items := make([]LingLing, 0)
 
-	result, err := c.List(ctx, id)
+	resp, err := c.List(ctx, id)
 	if err != nil {
 		err = fmt.Errorf("loading results: %%+v", err)
 		return
 	}
-	if result.Model != nil {
-		for _, v := range *result.Model {
+	if resp.Model != nil {
+		for _, v := range *resp.Model {
 			if predicate.Matches(v) {
 				items = append(items, v)
 			}
 		}
 	}
 
-	out := ListCompleteResult{
+	result = ListCompleteResult{
 		Items: items,
 	}
-	return out, nil
+	return
 }
 `, "`json:\"values\"`")
 
