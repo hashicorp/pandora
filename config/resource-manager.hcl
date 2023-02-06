@@ -43,7 +43,7 @@ service "automation" {
 }
 service "azure-kusto" {
   name      = "Kusto"
-  available = ["2022-07-07", "2022-11-11", "2022-12-29"]
+  available = ["2022-02-01", "2022-07-07", "2022-11-11", "2022-12-29"]
 }
 service "azurestackhci" {
   name      = "AzureStackHCI"
