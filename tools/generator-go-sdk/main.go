@@ -16,9 +16,7 @@ import (
 )
 
 var servicesUsingNewBaseLayer = map[string]struct{}{
-	"AADB2C":     {},
-	"PostgreSql": {},
-	"Resources":  {},
+	"ChaosStudio": {},
 }
 
 type GeneratorInput struct {
