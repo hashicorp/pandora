@@ -6,13 +6,13 @@ using Pandora.Definitions.Interfaces;
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 
 
-namespace Pandora.Definitions.ResourceManager.AppConfiguration.v2022_05_01.KeyValues;
+namespace Pandora.Definitions.ResourceManager.Automation.v2015_10_31.Variable;
 
-internal class ConfigurationStoreId : ResourceID
+internal class AutomationAccountId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AppConfiguration/configurationStores/{configurationStoreName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -21,8 +21,8 @@ internal class ConfigurationStoreId : ResourceID
         ResourceIDSegment.Static("staticResourceGroups", "resourceGroups"),
         ResourceIDSegment.ResourceGroup("resourceGroupName"),
         ResourceIDSegment.Static("staticProviders", "providers"),
-        ResourceIDSegment.ResourceProvider("staticMicrosoftAppConfiguration", "Microsoft.AppConfiguration"),
-        ResourceIDSegment.Static("staticConfigurationStores", "configurationStores"),
-        ResourceIDSegment.UserSpecified("configurationStoreName"),
+        ResourceIDSegment.ResourceProvider("staticMicrosoftAutomation", "Microsoft.Automation"),
+        ResourceIDSegment.Static("staticAutomationAccounts", "automationAccounts"),
+        ResourceIDSegment.UserSpecified("automationAccountName"),
     };
 }

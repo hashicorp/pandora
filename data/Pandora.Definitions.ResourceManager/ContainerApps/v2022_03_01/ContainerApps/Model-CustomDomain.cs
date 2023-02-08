@@ -19,8 +19,7 @@ internal class CustomDomainModel
     public BindingTypeConstant? BindingType { get; set; }
 
     [JsonPropertyName("certificateId")]
-    [Required]
-    public string CertificateId { get; set; }
+    public string? CertificateId { get; set; }
 
     [JsonPropertyName("name")]
     [Required]

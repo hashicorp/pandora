@@ -17,6 +17,7 @@ internal class Definition : ResourceDefinition
         new PoliciesDeleteOperation(),
         new PoliciesGetOperation(),
         new PoliciesListOperation(),
+        new PoliciesListBySubscriptionOperation(),
         new PoliciesUpdateOperation(),
     };
 }

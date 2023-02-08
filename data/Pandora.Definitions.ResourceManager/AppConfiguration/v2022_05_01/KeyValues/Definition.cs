@@ -16,6 +16,5 @@ internal class Definition : ResourceDefinition
         new CreateOrUpdateOperation(),
         new DeleteOperation(),
         new GetOperation(),
-        new ListByConfigurationStoreOperation(),
     };
 }
