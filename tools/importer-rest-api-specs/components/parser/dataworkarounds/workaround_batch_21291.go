@@ -30,7 +30,7 @@ func (workaroundBatch21291) Process(apiDefinition models.AzureApiDefinition) (*m
 	}
 	model, ok := resource.Models["AutoStorageBaseProperties"]
 	if !ok {
-		return nil, fmt.Errorf("couldn't find Model AutoStorageProperties")
+		return nil, fmt.Errorf("couldn't find Model AutoStorageBaseProperties")
 	}
 	field, ok := model.Fields["StorageAccountId"]
 	if !ok {
@@ -39,7 +39,7 @@ func (workaroundBatch21291) Process(apiDefinition models.AzureApiDefinition) (*m
 	field.Required = false
 
 	model.Fields["StorageAccountId"] = field
-	resource.Models["AutoStorageProperties"] = model
+	resource.Models["AutoStorageBaseProperties"] = model
 	apiDefinition.Resources["BatchAccount"] = resource
 	return &apiDefinition, nil
 }
