@@ -91,6 +91,9 @@ func runImportForService(input RunInput, serviceName string, apiVersionsForServi
 			if err != nil {
 				return fmt.Errorf("parsing data for Service %q / Version %q: %+v", v.ServiceName, v.ApiVersion, err)
 			}
+			if tempDataForApiVersion == nil {
+				continue
+			}
 			for name, resource := range tempDataForApiVersion.Resources {
 				dataForApiVersion.Resources[name] = resource
 			}
