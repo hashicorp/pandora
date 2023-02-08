@@ -11,17 +11,17 @@ using System.Net;
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 
 
-namespace Pandora.Definitions.ResourceManager.AppConfiguration.v2022_05_01.KeyValues;
+namespace Pandora.Definitions.ResourceManager.Automation.v2015_10_31.Connection;
 
-internal class ListByConfigurationStoreOperation : Operations.ListOperation
+internal class ListByAutomationAccountOperation : Operations.ListOperation
 {
     public override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new ConfigurationStoreId();
+    public override ResourceID? ResourceId() => new AutomationAccountId();
 
-    public override Type NestedItemType() => typeof(KeyValueModel);
+    public override Type NestedItemType() => typeof(ConnectionModel);
 
-    public override string? UriSuffix() => "/keyValues";
+    public override string? UriSuffix() => "/connections";
 
 
 }
