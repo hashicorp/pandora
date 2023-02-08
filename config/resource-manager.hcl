@@ -39,7 +39,7 @@ service "authorization" {
 }
 service "automation" {
   name      = "Automation"
-  available = ["2019-06-01", "2020-01-13-preview", "2021-06-22", "2022-08-08"]
+  available = ["2015-10-31", "2019-06-01", "2020-01-13-preview", "2021-06-22", "2022-08-08"]
 }
 service "azure-kusto" {
   name      = "Kusto"
