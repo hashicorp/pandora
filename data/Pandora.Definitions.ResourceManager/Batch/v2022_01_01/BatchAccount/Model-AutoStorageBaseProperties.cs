@@ -22,6 +22,5 @@ internal class AutoStorageBasePropertiesModel
     public ComputeNodeIdentityReferenceModel? NodeIdentityReference { get; set; }
 
     [JsonPropertyName("storageAccountId")]
-    [Required]
-    public string StorageAccountId { get; set; }
+    public string? StorageAccountId { get; set; }
 }
