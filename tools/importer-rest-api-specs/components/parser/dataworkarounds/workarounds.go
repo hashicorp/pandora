@@ -8,6 +8,7 @@ import (
 )
 
 var workarounds = []workaround{
+	workaroundBatch21291{},
 	workaroundContainerService21394{},
 	workaroundLoadTest20961{},
 	workaroundMedia21581{},
