@@ -438,13 +438,13 @@ service "videoanalyzer" {
   name      = "VideoAnalyzer"
   available = ["2021-05-01-preview"]
 }
-service "voiceservices" {
-  name      = "VoiceServices"
-  available = ["2023-01-31"]
-}
 service "vmware" {
   name      = "VMware"
   available = ["2020-03-20", "2021-12-01", "2022-05-01"]
+}
+service "voiceservices" {
+  name      = "VoiceServices"
+  available = ["2023-01-31"]
 }
 service "web" {
   name      = "Web"
