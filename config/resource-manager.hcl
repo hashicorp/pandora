@@ -133,7 +133,7 @@ service "dataprotection" {
 }
 service "datashare" {
   name      = "DataShare"
-  available = ["2019-11-01"]
+  available = ["2019-11-01", "2021-08-01"]
 }
 service "desktopvirtualization" {
   name      = "DesktopVirtualization"
