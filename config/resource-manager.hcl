@@ -133,7 +133,7 @@ service "dataprotection" {
 }
 service "datashare" {
   name      = "DataShare"
-  available = ["2019-11-01"]
+  available = ["2019-11-01", "2021-08-01"]
 }
 service "desktopvirtualization" {
   name      = "DesktopVirtualization"
@@ -442,13 +442,13 @@ service "videoanalyzer" {
   name      = "VideoAnalyzer"
   available = ["2021-05-01-preview"]
 }
-service "voiceservices" {
-  name      = "VoiceServices"
-  available = ["2023-01-31"]
-}
 service "vmware" {
   name      = "VMware"
   available = ["2020-03-20", "2021-12-01", "2022-05-01"]
+}
+service "voiceservices" {
+  name      = "VoiceServices"
+  available = ["2023-01-31"]
 }
 service "web" {
   name      = "Web"
