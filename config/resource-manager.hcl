@@ -422,9 +422,19 @@ service "storage" {
   name      = "Storage"
   available = ["2022-05-01", "2022-09-01"]
 }
+service "storagecache" {
+  name      = "StorageCache"
+  available = ["2021-09-01"]
+  ignore    = ["2022-01-01", "2022-05-01"]
+}
 service "storagepool" {
   name      = "StoragePool"
   available = ["2021-08-01"]
+}
+service "storagesync" {
+  name      = "StorageSync"
+  available = ["2020-03-01"]
+  ignore    = ["2020-09-01", "2022-06-01"]
 }
 service "streamanalytics" {
   name      = "StreamAnalytics"
@@ -434,6 +444,10 @@ service "subscription" {
   name      = "Subscription"
   available = ["2021-10-01"]
 }
+service "timeseriesinsights" {
+  name      = "TimeSeriesInsights"
+  available = ["2020-05-15"]
+}
 service "trafficmanager" {
   name      = "TrafficManager"
   available = ["2018-08-01"]
@@ -442,13 +456,13 @@ service "videoanalyzer" {
   name      = "VideoAnalyzer"
   available = ["2021-05-01-preview"]
 }
-service "voiceservices" {
-  name      = "VoiceServices"
-  available = ["2023-01-31"]
-}
 service "vmware" {
   name      = "VMware"
   available = ["2020-03-20", "2021-12-01", "2022-05-01"]
+}
+service "voiceservices" {
+  name      = "VoiceServices"
+  available = ["2023-01-31"]
 }
 service "web" {
   name      = "Web"
