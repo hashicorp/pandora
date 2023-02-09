@@ -87,7 +87,7 @@ service "containerservice" {
 }
 service "cosmos-db" {
   name      = "CosmosDB"
-  available = ["2022-05-15", "2022-08-15"]
+  available = ["2022-05-15", "2022-08-15", "2022-11-15"]
 }
 service "cost-management" {
   name      = "CostManagement"
@@ -424,7 +424,7 @@ service "storage" {
 }
 service "storagecache" {
   name      = "StorageCache"
-  available = ["2021-09-01"]
+  available = ["2021-09-01", "2023-01-01"]
   ignore    = ["2022-01-01", "2022-05-01"]
 }
 service "storagepool" {
