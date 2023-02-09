@@ -56,6 +56,20 @@ resource "azurerm_resource_group" "example" {
 }
 `,
 		},
+		{
+			input: `
+resource "azurerm_load_test" "test" {
+  name     = "example-resources"
+  location = "West Europe"
+}
+`,
+			expected: `
+resource "azurerm_load_test" "example" {
+  name     = "example-resources"
+  location = "West Europe"
+}
+`,
+		},
 	}
 	for _, v := range testData {
 		t.Logf("Testing Input %q", v.input)

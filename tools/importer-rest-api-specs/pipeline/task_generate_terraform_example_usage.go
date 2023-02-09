@@ -32,11 +32,19 @@ func (t pipelineTask) generateTerraformExampleUsage(data *models.AzureApiDefinit
 }
 
 func convertBasicTestToUsableExample(tests resourcemanager.TerraformResourceTestsDefinition) string {
-	// TODO add the template config once it's filled with the prerequisite resources
-	example := strings.Replace(tests.BasicConfiguration, "test", "example", -1)
-	example = strings.Replace(example, "acc", "", -1)
+	example := tests.BasicConfiguration
+
+	example = switchOutTestSpecificValues(example)
+	example = switchOutLocalsUsage(example)
+
+	example = strings.TrimSpace(string(hclwrite.Format([]byte(example))))
+	return example
+}
+
+func switchOutLocalsUsage(input string) string {
+	output := input
 	re := regexp.MustCompile("[-][$][{](.*)[}]")
-	example = re.ReplaceAllLiteralString(example, "")
+	output = re.ReplaceAllLiteralString(output, "")
 
 	testVariables := map[string]string{
 		// TODO: add more
@@ -44,10 +52,23 @@ func convertBasicTestToUsableExample(tests resourcemanager.TerraformResourceTest
 		"primary_location": "West Europe",
 	}
 	for variable, replacement := range testVariables {
-		example = strings.ReplaceAll(example, fmt.Sprintf("${local.%s}", variable), replacement)
-		example = strings.ReplaceAll(example, fmt.Sprintf("local.%s", variable), replacement)
+		output = strings.ReplaceAll(output, fmt.Sprintf("${local.%s}", variable), replacement)
+		output = strings.ReplaceAll(output, fmt.Sprintf("local.%s", variable), replacement)
 	}
 
-	example = strings.TrimSpace(string(hclwrite.Format([]byte(example))))
-	return example
+	output = strings.TrimSpace(string(hclwrite.Format([]byte(output))))
+	return output
+}
+
+func switchOutTestSpecificValues(input string) string {
+	output := input
+
+	output = strings.ReplaceAll(output, "acctest", "example")
+	output = strings.ReplaceAll(output, "acc", "example")
+	output = strings.ReplaceAll(output, "test", "example")
+
+	// azurerm_load_test is a special-case, which gets replaced with `azurerm_load_example`, so let's fix that
+	output = strings.ReplaceAll(output, "azurerm_load_example", "azurerm_load_test")
+
+	return output
 }
