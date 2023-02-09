@@ -131,6 +131,10 @@ service "dataprotection" {
   available = ["2022-04-01", "2022-05-01", "2022-12-01"]
   ignore    = ["2023-01-01"]
 }
+service "datashare" {
+  name      = "DataShare"
+  available = ["2019-11-01"]
+}
 service "desktopvirtualization" {
   name      = "DesktopVirtualization"
   available = ["2021-09-03-preview", "2022-02-10-preview", "2022-09-09"]
