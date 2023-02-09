@@ -11,7 +11,7 @@ public class LoadTestResource : TerraformResourceDefinition
     public string ResourceLabel => "load_test";
     public string ResourceCategory => "Load Test";
     public string ResourceDescription => @"Manages a Load Test Service";
-    public string ResourceExampleUsage => @"resource 'azurerm_load_example' 'example' {
+    public string ResourceExampleUsage => @"resource 'azurerm_load_test' 'example' {
   location            = azurerm_resource_group.example.location
   name                = 'example'
   resource_group_name = azurerm_resource_group.example.name
