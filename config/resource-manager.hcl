@@ -379,7 +379,7 @@ service "resourceconnector" {
 }
 service "resources" {
   name      = "Resources"
-  available = ["2020-05-01", "2020-06-01", "2020-10-01", "2022-09-01"]
+  available = ["2020-05-01", "2020-06-01", "2020-10-01", "2022-06-01", "2022-09-01"]
 }
 service "search" {
   name      = "Search"
