@@ -6,13 +6,13 @@ using Pandora.Definitions.Interfaces;
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 
 
-namespace Pandora.Definitions.ResourceManager.Automation.v2015_10_31.DscCompilationJob;
+namespace Pandora.Definitions.ResourceManager.Resources.v2022_06_01.PolicyAssignments;
 
-internal class CompilationJobId : ResourceID
+internal class ResourceId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/compilationJobs/{jobId}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{providerName}/{parentResourcePath}/{resourceType}/{resourceName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -21,10 +21,9 @@ internal class CompilationJobId : ResourceID
         ResourceIDSegment.Static("staticResourceGroups", "resourceGroups"),
         ResourceIDSegment.ResourceGroup("resourceGroupName"),
         ResourceIDSegment.Static("staticProviders", "providers"),
-        ResourceIDSegment.ResourceProvider("staticMicrosoftAutomation", "Microsoft.Automation"),
-        ResourceIDSegment.Static("staticAutomationAccounts", "automationAccounts"),
-        ResourceIDSegment.UserSpecified("automationAccountName"),
-        ResourceIDSegment.Static("staticCompilationJobs", "compilationJobs"),
-        ResourceIDSegment.UserSpecified("jobId"),
+        ResourceIDSegment.UserSpecified("providerName"),
+        ResourceIDSegment.UserSpecified("parentResourcePath"),
+        ResourceIDSegment.UserSpecified("resourceType"),
+        ResourceIDSegment.UserSpecified("resourceName"),
     };
 }
