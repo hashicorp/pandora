@@ -88,7 +88,7 @@ service "containerinstance" {
 }
 service "containerservice" {
   name      = "ContainerService"
-  available = ["2019-08-01", "2022-09-02-preview", "2022-11-01"]
+  available = ["2019-08-01", "2022-09-02-preview", "2022-11-01", "2023-01-01"]
 }
 service "cosmos-db" {
   name      = "CosmosDB"
@@ -283,7 +283,7 @@ service "mobilenetwork" {
 }
 service "monitor" {
   name      = "Insights"
-  available = ["2021-04-01", "2021-05-01-preview", "2021-08-01", "2022-10-01"]
+  available = ["2021-04-01", "2021-05-01-preview", "2021-08-01", "2022-10-01", "2023-01-01"]
 }
 service "msi" {
   name      = "ManagedIdentity"
