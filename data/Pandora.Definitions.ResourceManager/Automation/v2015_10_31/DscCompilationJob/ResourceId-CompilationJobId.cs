@@ -12,7 +12,7 @@ internal class CompilationJobId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/compilationJobs/{compilationJobId}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/compilationJobs/{jobId}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -25,6 +25,6 @@ internal class CompilationJobId : ResourceID
         ResourceIDSegment.Static("staticAutomationAccounts", "automationAccounts"),
         ResourceIDSegment.UserSpecified("automationAccountName"),
         ResourceIDSegment.Static("staticCompilationJobs", "compilationJobs"),
-        ResourceIDSegment.UserSpecified("compilationJobId"),
+        ResourceIDSegment.UserSpecified("jobId"),
     };
 }
