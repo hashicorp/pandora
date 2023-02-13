@@ -1,4 +1,9 @@
 
+service "advisor" {
+  name      = "Advisor"
+  available = ["2020-01-01"]
+  ignore    = ["2022-09-01"]
+}
 service "alertsmanagement" {
   name      = "AlertsManagement"
   available = ["2021-08-08"]
@@ -47,7 +52,7 @@ service "azure-kusto" {
 }
 service "azurestackhci" {
   name      = "AzureStackHCI"
-  available = ["2022-09-01", "2022-10-01", "2022-12-01"]
+  available = ["2022-12-01"]
 }
 service "batch" {
   name      = "Batch"
@@ -165,7 +170,8 @@ service "dnsresolver" {
 }
 service "domainservices" {
   name      = "AAD"
-  available = ["2020-01-01", "2021-03-01", "2021-05-01", "2022-09-01", "2022-12-01"]
+  available = ["2021-05-01"]
+  ignore    = ["2022-09-01", "2022-12-01"]
 }
 service "dynatrace" {
   name      = "Dynatrace"
@@ -355,7 +361,7 @@ service "recoveryservicesbackup" {
 }
 service "recoveryservicessiterecovery" {
   name      = "RecoveryServicesSiteRecovery"
-  available = ["2022-05-01", "2022-09-10", "2022-10-01"]
+  available = ["2022-10-01"]
 }
 service "redhatopenshift" {
   name      = "RedHatOpenShift"
