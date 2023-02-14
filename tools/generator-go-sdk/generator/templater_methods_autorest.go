@@ -710,7 +710,9 @@ func (c %[1]s) responderFor%[2]s(resp *http.Response) (result %[6]s, err error) 
 }
 `, data.serviceClientName, c.operationName, strings.Join(steps, ",\n\t\t"), strings.Join(fields, "\n\t\t"), data.packageName, responseStructName, *typeName, discriminatedType)
 		return &output, nil
-	} else {
+	}
+
+	if discriminatedType != "" {
 		output := fmt.Sprintf(`
 // responderFor%[2]s handles the response to the %[2]s request. The method always
 // closes the http.Response Body.
