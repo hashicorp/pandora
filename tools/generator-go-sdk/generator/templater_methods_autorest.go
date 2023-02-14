@@ -583,7 +583,6 @@ func (c methodsAutoRestTemplater) responderTemplate(responseStructName string, d
 	}
 	// removes spurious changes in the output
 	sort.Strings(expectedStatusCodes)
-
 	discriminatedType := c.discriminatedTypeName(data.models)
 
 	steps := make([]string, 0)
@@ -601,7 +600,7 @@ func (c methodsAutoRestTemplater) responderTemplate(responseStructName string, d
 	}
 	steps = append(steps, "autorest.ByClosing()")
 
-	if c.operation.FieldContainingPaginationDetails != nil {
+	if c.operation.FieldContainingPaginationDetails != nil && discriminatedType == "" {
 		typeName, err := golangTypeNameForObjectDefinition(*c.operation.ResponseObject)
 		if err != nil {
 			return nil, fmt.Errorf("determining golang type name for response object: %+v", err)
@@ -653,7 +652,65 @@ func (c %[1]s) responderFor%[2]s(resp *http.Response) (result %[6]s, err error) 
 		return &output, nil
 	}
 
-	if discriminatedType != "" {
+	if discriminatedType != "" && strings.HasPrefix(c.operationName, "List") {
+		typeName, err := golangTypeNameForObjectDefinition(*c.operation.ResponseObject)
+		if err != nil {
+			return nil, fmt.Errorf("determining golang type name for response object: %+v", err)
+		}
+		fields := make([]string, 0)
+		fields = append(fields, fmt.Sprintf("Values []json.RawMessage `json:%q`", "value"))
+		fields = append(fields, fmt.Sprintf("NextLink *string `json:%q`", *c.operation.FieldContainingPaginationDetails))
+		output := fmt.Sprintf(`
+// responderFor%[2]s handles the response to the %[2]s request. The method always
+// closes the http.Response Body.
+func (c %[1]s) responderFor%[2]s(resp *http.Response) (result %[6]s, err error) {
+	type page struct {
+		%[4]s
+	}
+	var respObj page
+	err = autorest.Respond(
+		resp,
+		%[3]s)
+	result.HttpResponse = resp
+	temp := make([]%[7]s, 0)
+	for _, v := range respObj.Values {
+		val, err := unmarshal%[8]sImplementation(v)
+			if err != nil {
+				err = autorest.NewErrorWithError(err, "%[5]s.%[1]s", "%[2]s", nil, "Failure to unmarshal")
+				return result, err
+			}
+		temp = append(temp, val)
+	}
+	result.Model = &temp
+	result.nextLink = respObj.NextLink
+	if respObj.NextLink != nil {
+		result.nextPageFunc = func(ctx context.Context, nextLink string) (result %[6]s, err error) {
+			req, err := c.preparerFor%[2]sWithNextLink(ctx, nextLink)
+			if err != nil {
+				err = autorest.NewErrorWithError(err, "%[5]s.%[1]s", "%[2]s", nil, "Failure preparing request")
+				return
+			}
+		
+			result.HttpResponse, err = c.Client.Send(req, azure.DoRetryWithRegistration(c.Client))
+			if err != nil {
+				err = autorest.NewErrorWithError(err, "%[5]s.%[1]s", "%[2]s", result.HttpResponse, "Failure sending request")
+				return
+			}
+		
+			result, err = c.responderFor%[2]s(result.HttpResponse)
+			if err != nil {
+				err = autorest.NewErrorWithError(err, "%[5]s.%[1]s", "%[2]s", result.HttpResponse, "Failure responding to request")
+				return
+			}
+
+			return
+		}
+	}
+	return
+}
+`, data.serviceClientName, c.operationName, strings.Join(steps, ",\n\t\t"), strings.Join(fields, "\n\t\t"), data.packageName, responseStructName, *typeName, discriminatedType)
+		return &output, nil
+	} else {
 		output := fmt.Sprintf(`
 // responderFor%[2]s handles the response to the %[2]s request. The method always
 // closes the http.Response Body.
