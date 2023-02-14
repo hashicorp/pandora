@@ -99,16 +99,14 @@ func TestTemplateMethodAutoRestDiscriminatedTypeResponder(t *testing.T) {
 	// responderForGet handles the response to the Get request. The method always
 	// closes the http.Response Body.
 	func (c pandaClient) responderForGet(resp *http.Response) (result GetOperationResponse, err error) {
+		var respObj json.RawMessage
 		err = autorest.Respond(
 			resp,
 			azure.WithErrorUnlessStatusCode(),
+			autorest.ByUnmarshallingJson(&respObj),
 			autorest.ByClosing())
 		result.HttpResponse = resp
-		b, err := ioutil.ReadAll(resp.Body)
-		if err != nil {
-			return result, fmt.Errorf("reading response body for PandaPop: %+v", err)
-		}
-		model, err := unmarshalPandaPopImplementation(b)
+		model, err := unmarshalPandaPopImplementation(respObj)
 		if err != nil {
 			return
         }

@@ -35,6 +35,7 @@ func (c methodsAutoRestTemplater) template(data ServiceGeneratorData) (*string, 
 
 import (
 	"context"
+	"encoding/json"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -594,6 +595,8 @@ func (c methodsAutoRestTemplater) responderTemplate(responseStructName string, d
 			} else {
 				steps = append(steps, "autorest.ByUnmarshallingJSON(&result.Model)")
 			}
+		} else {
+			steps = append(steps, "autorest.ByUnmarshallingJSON(&respObj)")
 		}
 	}
 	steps = append(steps, "autorest.ByClosing()")
@@ -655,15 +658,12 @@ func (c %[1]s) responderFor%[2]s(resp *http.Response) (result %[6]s, err error) 
 // responderFor%[2]s handles the response to the %[2]s request. The method always
 // closes the http.Response Body.
 func (c %[1]s) responderFor%[2]s(resp *http.Response) (result %[5]s, err error) {
+	var respObj json.RawMessage
 	err = autorest.Respond(
 		resp,
 		%[3]s)
 	result.HttpResponse = resp
-	b, err := ioutil.ReadAll(resp.Body)
-	if err != nil {
-		return result, fmt.Errorf("reading response body for %[4]s: %%+v", err)
-	}
-	model, err := unmarshal%[4]sImplementation(b)
+	model, err := unmarshal%[4]sImplementation(respObj)
 	if err != nil {
 		return
 	}
