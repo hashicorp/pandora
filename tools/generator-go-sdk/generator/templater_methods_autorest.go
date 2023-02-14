@@ -652,7 +652,7 @@ func (c %[1]s) responderFor%[2]s(resp *http.Response) (result %[6]s, err error) 
 		return &output, nil
 	}
 
-	if discriminatedType != "" && strings.HasPrefix(c.operationName, "List") {
+	if discriminatedType != "" && c.operation.FieldContainingPaginationDetails != nil {
 		typeName, err := golangTypeNameForObjectDefinition(*c.operation.ResponseObject)
 		if err != nil {
 			return nil, fmt.Errorf("determining golang type name for response object: %+v", err)
@@ -673,10 +673,10 @@ func (c %[1]s) responderFor%[2]s(resp *http.Response) (result %[6]s, err error) 
 		%[3]s)
 	result.HttpResponse = resp
 	temp := make([]%[7]s, 0)
-	for _, v := range respObj.Values {
+	for i, v := range respObj.Values {
 		val, err := unmarshal%[8]sImplementation(v)
 			if err != nil {
-				err = autorest.NewErrorWithError(err, "%[5]s.%[1]s", "%[2]s", nil, "Failure to unmarshal")
+				err = fmt.Errorf("unmarshalling item %%d for %[8]s (%%q): %%+v", i, v, err)
 				return result, err
 			}
 		temp = append(temp, val)
