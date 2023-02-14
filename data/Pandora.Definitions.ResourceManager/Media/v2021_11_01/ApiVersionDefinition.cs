@@ -18,7 +18,6 @@ public partial class Definition : ApiVersionDefinition
         new Encodings.Definition(),
         new LiveEvents.Definition(),
         new LiveOutputs.Definition(),
-        new StreamingEndpoint.Definition(),
         new StreamingEndpoints.Definition(),
         new StreamingPoliciesAndStreamingLocators.Definition(),
     };
