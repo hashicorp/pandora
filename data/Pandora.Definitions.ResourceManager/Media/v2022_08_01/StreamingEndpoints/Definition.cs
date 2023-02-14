@@ -23,5 +23,6 @@ internal class Definition : ResourceDefinition
         new SkusOperation(),
         new StartOperation(),
         new StopOperation(),
+        new UpdateOperation(),
     };
 }
