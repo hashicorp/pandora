@@ -66,10 +66,7 @@ func (i ServiceGeneratorInput) generatorData(settings Settings) ServiceGenerator
 	resourceOutputPath := filepath.Join(versionOutputPath, resourcePackageName)
 	idsPath := filepath.Join(versionOutputPath, "ids")
 
-	useNewBaseLayer := false
-	if _, ok := settings.ServicesUsingNewBaseLayer[i.ServiceName]; ok {
-		useNewBaseLayer = true
-	}
+	useNewBaseLayer := settings.ShouldUseNewBaseLayer(i.ServiceName, i.VersionName)
 
 	return ServiceGeneratorData{
 		apiVersion:         i.VersionName,

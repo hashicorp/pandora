@@ -15,10 +15,6 @@ import (
 	"github.com/hashicorp/pandora/tools/sdk/services"
 )
 
-var servicesUsingNewBaseLayer = map[string]struct{}{
-	"ChaosStudio": {},
-}
-
 type GeneratorInput struct {
 	apiServerEndpoint string
 	outputDirectory   string
@@ -28,10 +24,13 @@ type GeneratorInput struct {
 
 func main() {
 	input := GeneratorInput{
-		settings: generator.Settings{
-			ServicesUsingNewBaseLayer: servicesUsingNewBaseLayer,
-		},
+		settings: generator.Settings{},
 	}
+
+	input.settings.UseNewBaseLayerFor(
+		"ChaosStudio",
+		"Automation@2022-08-08",
+	)
 
 	var serviceNames string
 
