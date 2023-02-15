@@ -6,7 +6,7 @@ using Pandora.Definitions.Interfaces;
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 
 
-namespace Pandora.Definitions.ResourceManager.ApiManagement.v2022_08_01.Documentation;
+namespace Pandora.Definitions.ResourceManager.ApiManagement.v2022_08_01.DocumentationResource;
 
 internal class DocumentationId : ResourceID
 {

@@ -11,22 +11,13 @@ using System.Net;
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 
 
-namespace Pandora.Definitions.ResourceManager.ApiManagement.v2022_08_01.Documentation;
+namespace Pandora.Definitions.ResourceManager.ApiManagement.v2022_08_01.DocumentationResource;
 
-internal class CreateOrUpdateOperation : Operations.PutOperation
+internal class GetOperation : Operations.GetOperation
 {
-    public override Type? RequestObject() => typeof(DocumentationContractModel);
-
     public override ResourceID? ResourceId() => new DocumentationId();
 
     public override Type? ResponseObject() => typeof(DocumentationContractModel);
 
-    public override Type? OptionsObject() => typeof(CreateOrUpdateOperation.CreateOrUpdateOptions);
 
-    internal class CreateOrUpdateOptions
-    {
-        [HeaderName("If-Match")]
-        [Optional]
-        public string IfMatch { get; set; }
-    }
 }

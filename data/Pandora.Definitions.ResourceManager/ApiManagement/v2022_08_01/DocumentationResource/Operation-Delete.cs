@@ -11,16 +11,23 @@ using System.Net;
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 
 
-namespace Pandora.Definitions.ResourceManager.ApiManagement.v2022_08_01.Documentation;
+namespace Pandora.Definitions.ResourceManager.ApiManagement.v2022_08_01.DocumentationResource;
 
-internal class GetEntityTagOperation : Operations.HeadOperation
+internal class DeleteOperation : Operations.DeleteOperation
 {
     public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
+                HttpStatusCode.NoContent,
                 HttpStatusCode.OK,
         };
 
     public override ResourceID? ResourceId() => new DocumentationId();
 
+    public override Type? OptionsObject() => typeof(DeleteOperation.DeleteOptions);
 
+    internal class DeleteOptions
+    {
+        [HeaderName("If-Match")]
+        public string IfMatch { get; set; }
+    }
 }

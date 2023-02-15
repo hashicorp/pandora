@@ -6,11 +6,11 @@ using Pandora.Definitions.Interfaces;
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 
 
-namespace Pandora.Definitions.ResourceManager.ApiManagement.v2022_08_01.Documentation;
+namespace Pandora.Definitions.ResourceManager.ApiManagement.v2022_08_01.DocumentationResource;
 
 internal class Definition : ResourceDefinition
 {
-    public string Name => "Documentation";
+    public string Name => "DocumentationResource";
     public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
     {
         new CreateOrUpdateOperation(),

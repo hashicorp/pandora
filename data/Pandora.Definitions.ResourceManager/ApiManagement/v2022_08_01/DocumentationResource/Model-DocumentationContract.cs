@@ -10,11 +10,20 @@ using Pandora.Definitions.CustomTypes;
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 
 
-namespace Pandora.Definitions.ResourceManager.ApiManagement.v2022_08_01.Documentation;
+namespace Pandora.Definitions.ResourceManager.ApiManagement.v2022_08_01.DocumentationResource;
 
 
-internal class DocumentationUpdateContractModel
+internal class DocumentationContractModel
 {
+    [JsonPropertyName("id")]
+    public string? Id { get; set; }
+
+    [JsonPropertyName("name")]
+    public string? Name { get; set; }
+
     [JsonPropertyName("properties")]
     public DocumentationContractPropertiesModel? Properties { get; set; }
+
+    [JsonPropertyName("type")]
+    public string? Type { get; set; }
 }

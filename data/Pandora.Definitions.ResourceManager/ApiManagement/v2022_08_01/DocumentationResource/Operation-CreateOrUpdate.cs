@@ -11,26 +11,22 @@ using System.Net;
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 
 
-namespace Pandora.Definitions.ResourceManager.ApiManagement.v2022_08_01.Documentation;
+namespace Pandora.Definitions.ResourceManager.ApiManagement.v2022_08_01.DocumentationResource;
 
-internal class UpdateOperation : Operations.PatchOperation
+internal class CreateOrUpdateOperation : Operations.PutOperation
 {
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
-        {
-                HttpStatusCode.OK,
-        };
-
-    public override Type? RequestObject() => typeof(DocumentationUpdateContractModel);
+    public override Type? RequestObject() => typeof(DocumentationContractModel);
 
     public override ResourceID? ResourceId() => new DocumentationId();
 
     public override Type? ResponseObject() => typeof(DocumentationContractModel);
 
-    public override Type? OptionsObject() => typeof(UpdateOperation.UpdateOptions);
+    public override Type? OptionsObject() => typeof(CreateOrUpdateOperation.CreateOrUpdateOptions);
 
-    internal class UpdateOptions
+    internal class CreateOrUpdateOptions
     {
         [HeaderName("If-Match")]
+        [Optional]
         public string IfMatch { get; set; }
     }
 }
