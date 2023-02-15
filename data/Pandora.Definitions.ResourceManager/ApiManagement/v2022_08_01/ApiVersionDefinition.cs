@@ -49,7 +49,7 @@ public partial class Definition : ApiVersionDefinition
         new DelegationSettings.Definition(),
         new DeletedService.Definition(),
         new Diagnostic.Definition(),
-        new Documentation.Definition(),
+        new DocumentationResource.Definition(),
         new EmailTemplate.Definition(),
         new EmailTemplates.Definition(),
         new Gateway.Definition(),
