@@ -16,7 +16,7 @@ namespace Pandora.Definitions.ResourceManager.AppPlatform.v2022_12_01.AppPlatfor
 internal class BindingResourcePropertiesModel
 {
     [JsonPropertyName("bindingParameters")]
-    public Dictionary<string, object>? BindingParameters { get; set; }
+    public Dictionary<string, string>? BindingParameters { get; set; }
 
     [JsonPropertyName("createdAt")]
     public string? CreatedAt { get; set; }
