@@ -17,6 +17,9 @@ var workarounds = []workaround{
 	// @tombuildsstuff: this is an odd place for this however this allows working around inconsistencies in the Swagger
 	// we should look at moving this into the `resourceids` package when time allows.
 	workaroundInconsistentlyDefinedSegments{},
+
+	// @tombuildsstuff: we also have to account for package names which aren't valid in Go:
+	workaroundInvalidGoPackageNames{},
 }
 
 func ApplyWorkarounds(input []models.AzureApiDefinition, logger hclog.Logger) (*[]models.AzureApiDefinition, error) {

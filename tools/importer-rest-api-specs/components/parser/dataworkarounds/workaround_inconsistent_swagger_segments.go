@@ -13,7 +13,7 @@ var _ workaround = workaroundInconsistentlyDefinedSegments{}
 
 type workaroundInconsistentlyDefinedSegments struct{}
 
-func (workaroundInconsistentlyDefinedSegments) IsApplicable(apiDefinition *models.AzureApiDefinition) bool {
+func (workaroundInconsistentlyDefinedSegments) IsApplicable(_ *models.AzureApiDefinition) bool {
 	return true
 }
 
