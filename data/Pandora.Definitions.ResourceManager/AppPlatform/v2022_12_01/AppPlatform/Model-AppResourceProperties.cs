@@ -16,7 +16,7 @@ namespace Pandora.Definitions.ResourceManager.AppPlatform.v2022_12_01.AppPlatfor
 internal class AppResourcePropertiesModel
 {
     [JsonPropertyName("addonConfigs")]
-    public Dictionary<string, Dictionary<string, object>>? AddonConfigs { get; set; }
+    public Dictionary<string, object>? AddonConfigs { get; set; }
 
     [JsonPropertyName("customPersistentDisks")]
     public List<CustomPersistentDiskResourceModel>? CustomPersistentDisks { get; set; }

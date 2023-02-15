@@ -16,7 +16,7 @@ namespace Pandora.Definitions.ResourceManager.AppPlatform.v2022_12_01.AppPlatfor
 internal class DeploymentSettingsModel
 {
     [JsonPropertyName("addonConfigs")]
-    public Dictionary<string, Dictionary<string, object>>? AddonConfigs { get; set; }
+    public Dictionary<string, object>? AddonConfigs { get; set; }
 
     [JsonPropertyName("containerProbeSettings")]
     public ContainerProbeSettingsModel? ContainerProbeSettings { get; set; }
