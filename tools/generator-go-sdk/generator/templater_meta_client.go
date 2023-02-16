@@ -34,9 +34,9 @@ func (m metaClientTemplater) template() (*string, error) {
 		fields = append(fields, fmt.Sprintf("%[1]s *%[2]s.%[1]sClient", resourceName, strings.ToLower(resourceName)))
 		clientInitializationTemplate := fmt.Sprintf(`%[1]s, err := %[2]s.New%[3]sClientWithBaseURI(api)
 if err != nil {
-	return nil, fmt.Errorf("building meta client for %[3]s: %%+v", err)
+	return nil, fmt.Errorf("building %[3]s client: %%+v", err)
 }
-configureAuthFunc(%[1]s.Client)
+configureFunc(%[1]s.Client)
 `, variableName, strings.ToLower(resourceName), resourceName)
 		clientInitialization = append(clientInitialization, clientInitializationTemplate)
 		assignments = append(assignments, fmt.Sprintf("%[1]s: %[2]s,", resourceName, variableName))
@@ -61,7 +61,7 @@ type Client struct {
 	%[3]s
 }
 
-func NewClientWithBaseURI(api environments.Api, configureAuthFunc func(c *resourcemanager.Client)) (*Client, error) {
+func NewClientWithBaseURI(api environments.Api, configureFunc func(c *resourcemanager.Client)) (*Client, error) {
 	%[4]s
 
 	return &Client{
