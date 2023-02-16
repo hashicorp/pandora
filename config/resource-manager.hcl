@@ -263,7 +263,7 @@ service "maps" {
 }
 service "mariadb" {
   name      = "MariaDB"
-  available = ["2018-06-01", "2020-01-01", "2018-06-01-preview"]
+  available = ["2018-06-01", "2018-06-01-preview", "2020-01-01"]
 }
 service "mediaservices" {
   name      = "Media"
