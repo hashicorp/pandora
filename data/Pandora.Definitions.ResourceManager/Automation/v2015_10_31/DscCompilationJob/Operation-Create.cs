@@ -22,7 +22,7 @@ internal class CreateOperation : Operations.PutOperation
 
     public override Type? RequestObject() => typeof(DscCompilationJobCreateParametersModel);
 
-    public override ResourceID? ResourceId() => new CompilationJobId();
+    public override ResourceID? ResourceId() => new AutomationCompilationJobId();
 
     public override Type? ResponseObject() => typeof(DscCompilationJobModel);
 

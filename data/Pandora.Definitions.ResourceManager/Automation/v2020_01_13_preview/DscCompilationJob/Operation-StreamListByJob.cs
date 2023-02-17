@@ -15,7 +15,7 @@ namespace Pandora.Definitions.ResourceManager.Automation.v2020_01_13_preview.Dsc
 
 internal class StreamListByJobOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new CompilationJobId();
+    public override ResourceID? ResourceId() => new AutomationCompilationJobId();
 
     public override Type? ResponseObject() => typeof(JobStreamListResultModel);
 
