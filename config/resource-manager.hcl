@@ -158,7 +158,7 @@ service "devtestlabs" {
 }
 service "digitaltwins" {
   name      = "DigitalTwins"
-  available = ["2020-12-01", "2022-05-31", "2022-10-31"]
+  available = ["2020-12-01", "2022-05-31", "2022-10-31", "2023-01-31"]
 }
 service "dns" {
   name      = "DNS"
