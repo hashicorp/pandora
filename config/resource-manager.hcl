@@ -229,6 +229,10 @@ service "iothub" {
   name      = "IoTHub"
   available = ["2022-04-30-preview"]
 }
+service "keyvault" {
+  name      = "KeyVault"
+  available = ["2021-10-01"]
+}
 service "kubernetesconfiguration" {
   name      = "KubernetesConfiguration"
   available = ["2022-03-01", "2022-11-01"]
@@ -244,6 +248,10 @@ service "loadtestservice" {
 service "logic" {
   name      = "Logic"
   available = ["2019-05-01"]
+}
+service "logz" {
+  name      = "Logz"
+  available = ["2020-10-01"]
 }
 service "machinelearningservices" {
   name      = "MachineLearningServices"
