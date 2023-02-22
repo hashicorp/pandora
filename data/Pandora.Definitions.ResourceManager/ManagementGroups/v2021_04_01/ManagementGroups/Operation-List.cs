@@ -15,7 +15,7 @@ namespace Pandora.Definitions.ResourceManager.ManagementGroups.v2021_04_01.Manag
 
 internal class ListOperation : Operations.ListOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+    public override string? FieldContainingPaginationDetails() => "@nextLink";
 
     public override Type NestedItemType() => typeof(ManagementGroupInfoModel);
 
