@@ -225,6 +225,10 @@ service "iotcentral" {
   name      = "IoTCentral"
   available = ["2021-11-01-preview"]
 }
+service "iothub" {
+  name      = "IoTHub"
+  available = ["2022-04-30-preview"]
+}
 service "kubernetesconfiguration" {
   name      = "KubernetesConfiguration"
   available = ["2022-03-01", "2022-11-01"]
