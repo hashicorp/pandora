@@ -119,6 +119,10 @@ service "datadog" {
   available = ["2021-03-01"]
   ignore    = ["2022-06-01"]
 }
+service "datafactory" {
+  name      = "DataFactory"
+  available = ["2018-06-01"]
+}
 service "datalake-analytics" {
   name      = "DataLakeAnalytics"
   available = ["2016-11-01"]
