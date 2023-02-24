@@ -119,6 +119,10 @@ service "datadog" {
   available = ["2021-03-01"]
   ignore    = ["2022-06-01"]
 }
+service "datafactory" {
+  name      = "DataFactory"
+  available = ["2018-06-01"]
+}
 service "datalake-analytics" {
   name      = "DataLakeAnalytics"
   available = ["2016-11-01"]
@@ -225,6 +229,10 @@ service "iotcentral" {
   name      = "IoTCentral"
   available = ["2021-11-01-preview"]
 }
+service "keyvault" {
+  name      = "KeyVault"
+  available = ["2021-10-01"]
+}
 service "kubernetesconfiguration" {
   name      = "KubernetesConfiguration"
   available = ["2022-03-01", "2022-11-01"]
@@ -240,6 +248,10 @@ service "loadtestservice" {
 service "logic" {
   name      = "Logic"
   available = ["2019-05-01"]
+}
+service "logz" {
+  name      = "Logz"
+  available = ["2020-10-01"]
 }
 service "machinelearningservices" {
   name      = "MachineLearningServices"
@@ -398,7 +410,7 @@ service "security" {
 }
 service "securityinsights" {
   name      = "SecurityInsights"
-  available = ["2021-09-01-preview", "2022-07-01-preview", "2022-08-01", "2022-11-01", "2023-02-01"]
+  available = ["2021-09-01-preview", "2022-07-01-preview", "2022-10-01-preview", "2022-08-01", "2022-11-01",  "2023-02-01"]
 }
 service "servicebus" {
   name      = "ServiceBus"
