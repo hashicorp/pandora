@@ -84,7 +84,7 @@ service "consumption" {
 }
 service "containerinstance" {
   name      = "ContainerInstance"
-  available = ["2021-10-01", "2022-09-01"]
+  available = ["2021-09-01", "2021-10-01", "2022-09-01"]
 }
 service "containerservice" {
   name      = "ContainerService"
