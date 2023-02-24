@@ -6,13 +6,13 @@ using Pandora.Definitions.Interfaces;
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 
 
-namespace Pandora.Definitions.ResourceManager.KeyVault.v2021_10_01.PrivateEndpointConnections;
+namespace Pandora.Definitions.ResourceManager.KeyVault.v2022_11_01.Vaults;
 
-internal class PrivateEndpointConnectionId : ResourceID
+internal class OperationKindId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults/{vaultName}/privateEndpointConnections/{privateEndpointConnectionName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults/{vaultName}/accessPolicies/{operationKind}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -24,7 +24,7 @@ internal class PrivateEndpointConnectionId : ResourceID
         ResourceIDSegment.ResourceProvider("staticMicrosoftKeyVault", "Microsoft.KeyVault"),
         ResourceIDSegment.Static("staticVaults", "vaults"),
         ResourceIDSegment.UserSpecified("vaultName"),
-        ResourceIDSegment.Static("staticPrivateEndpointConnections", "privateEndpointConnections"),
-        ResourceIDSegment.UserSpecified("privateEndpointConnectionName"),
+        ResourceIDSegment.Static("staticAccessPolicies", "accessPolicies"),
+        ResourceIDSegment.Constant("operationKind", typeof(AccessPolicyUpdateKindConstant)),
     };
 }
