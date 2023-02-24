@@ -231,7 +231,7 @@ service "iotcentral" {
 }
 service "keyvault" {
   name      = "KeyVault"
-  available = ["2021-10-01"]
+  available = ["2021-10-01", "2022-11-01"]
 }
 service "kubernetesconfiguration" {
   name      = "KubernetesConfiguration"
@@ -410,7 +410,7 @@ service "security" {
 }
 service "securityinsights" {
   name      = "SecurityInsights"
-  available = ["2021-09-01-preview", "2022-07-01-preview", "2022-10-01-preview", "2022-08-01", "2022-11-01",  "2023-02-01"]
+  available = ["2021-09-01-preview", "2022-07-01-preview", "2022-08-01", "2022-10-01-preview", "2022-11-01", "2023-02-01"]
 }
 service "servicebus" {
   name      = "ServiceBus"
