@@ -30,6 +30,9 @@ func main() {
 	input.settings.UseNewBaseLayerFor(
 		"ChaosStudio",
 		"Automation@2022-08-08",
+		"DNS",
+		"Maps",
+		"SignalR",
 	)
 
 	var serviceNames string
