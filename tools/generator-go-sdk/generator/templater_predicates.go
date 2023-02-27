@@ -31,10 +31,16 @@ func (p predicateTemplater) template(data ServiceGeneratorData) (*string, error)
 		output = append(output, *templated)
 	}
 
+	copyrightLines, err := copyrightLinesForSource(data.source)
+	if err != nil {
+		return nil, fmt.Errorf("retrieving copyright lines: %+v", err)
+	}
+
 	template := fmt.Sprintf(`package %[1]s
 
 %[2]s
-`, data.packageName, strings.Join(output, "\n"))
+%[3]s
+`, data.packageName, *copyrightLines, strings.Join(output, "\n"))
 	return &template, nil
 }
 

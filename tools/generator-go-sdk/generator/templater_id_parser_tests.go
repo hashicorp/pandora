@@ -19,17 +19,22 @@ type resourceIdTestsTemplater struct {
 }
 
 func (i resourceIdTestsTemplater) template(data ServiceGeneratorData) (*string, error) {
-	res, err := i.generateTests(data.packageName)
+	res, err := i.generateTests(data.packageName, data.source)
 	if err != nil {
 		return nil, fmt.Errorf("while generating parser tests: %+v", err)
 	}
 	return res, nil
 }
 
-func (i resourceIdTestsTemplater) generateTests(packageName string) (*string, error) {
+func (i resourceIdTestsTemplater) generateTests(packageName string, source resourcemanager.ApiDefinitionsSource) (*string, error) {
 	structName := strings.Title(i.resourceName)
 	structWithoutSuffix := strings.TrimSuffix(structName, "Id")
 	lines := make([]string, 0)
+
+	copyrightLines, err := copyrightLinesForSource(source)
+	if err != nil {
+		return nil, fmt.Errorf("retrieving copyright lines: %+v", err)
+	}
 
 	// New{Name}Id function test
 	newFunctionTest, err := i.generateNewFunctionTest(structWithoutSuffix)
@@ -74,10 +79,12 @@ import (
     "github.com/hashicorp/go-azure-helpers/resourcemanager/resourceids"
 )
 
-var _ resourceids.ResourceId = %[2]s{}
+%[2]s
 
-%[3]s
-`, packageName, structName, strings.Join(lines, "\n"))
+var _ resourceids.ResourceId = %[3]s{}
+
+%[4]s
+`, packageName, *copyrightLines, structName, strings.Join(lines, "\n"))
 	return &out, nil
 }
 

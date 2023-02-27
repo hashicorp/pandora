@@ -17,6 +17,11 @@ type metaClientAutorestTemplater struct {
 }
 
 func (m metaClientAutorestTemplater) template() (*string, error) {
+	copyrightLines, err := copyrightLinesForSource(m.source)
+	if err != nil {
+		return nil, fmt.Errorf("retrieving copyright lines: %+v", err)
+	}
+
 	resourceNames := make([]string, 0)
 	for k := range m.resources {
 		resourceNames = append(resourceNames, k)
@@ -54,17 +59,19 @@ import (
 	%[2]s
 )
 
+%[3]s
+
 type Client struct {
-	%[3]s
+	%[4]s
 }
 
 func NewClientWithBaseURI(endpoint string, configureAuthFunc func(c *autorest.Client)) Client {
-	%[4]s
+	%[5]s
 
 	return Client{
-		%[5]s
+		%[6]s
 	}
 }
-`, packageName, strings.Join(imports, "\n"), strings.Join(fields, "\n"), strings.Join(clientInitialization, "\n"), strings.Join(assignments, "\n"))
+`, packageName, strings.Join(imports, "\n"), *copyrightLines, strings.Join(fields, "\n"), strings.Join(clientInitialization, "\n"), strings.Join(assignments, "\n"))
 	return &out, nil
 }
