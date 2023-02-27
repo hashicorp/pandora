@@ -32,6 +32,7 @@ func TestTemplateIdParserBasic(t *testing.T) {
 			},
 		},
 		packageName: "somepackage",
+		source:      AccTestLicenceType,
 	})
 	if err != nil {
 		t.Fatal(err.Error())
@@ -45,6 +46,9 @@ import (
 
     "github.com/hashicorp/go-azure-helpers/resourcemanager/resourceids"
 )
+
+// acctests licence placeholder
+
 var _ resourceids.ResourceId = BasicTestId{}
 
 	// BasicTestId is a struct representing the Resource ID for a Basic Test
@@ -174,6 +178,7 @@ func TestTemplateIdParserConstantsOnly(t *testing.T) {
 			},
 		},
 		packageName: "somepackage",
+		source:      AccTestLicenceType,
 	})
 	if err != nil {
 		t.Fatal(err.Error())
@@ -188,6 +193,8 @@ import (
 
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/resourceids"
 )
+
+// acctests licence placeholder
 
 var _ resourceids.ResourceId = ConstantOnlyId{}
 

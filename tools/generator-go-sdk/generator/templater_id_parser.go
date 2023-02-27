@@ -19,6 +19,11 @@ type resourceIdTemplater struct {
 }
 
 func (r resourceIdTemplater) template(data ServiceGeneratorData) (*string, error) {
+	copyrightLines, err := copyrightLinesForSource(data.source)
+	if err != nil {
+		return nil, fmt.Errorf("retrieving copyright lines: %+v", err)
+	}
+
 	structBody, err := r.structBody()
 	if err != nil {
 		return nil, fmt.Errorf("generating struct body: %+v", err)
@@ -40,7 +45,8 @@ import (
 
 %[2]s
 %[3]s
-`, data.packageName, *structBody, *methods)
+%[4]s
+`, data.packageName, *copyrightLines, *structBody, *methods)
 	return &out, nil
 }
 
