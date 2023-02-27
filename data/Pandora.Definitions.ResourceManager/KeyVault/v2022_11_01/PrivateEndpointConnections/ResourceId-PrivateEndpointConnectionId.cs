@@ -12,7 +12,7 @@ internal class PrivateEndpointConnectionId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/managedHSMs/{managedHSMName}/privateEndpointConnections/{privateEndpointConnectionName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults/{vaultName}/privateEndpointConnections/{privateEndpointConnectionName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -22,8 +22,8 @@ internal class PrivateEndpointConnectionId : ResourceID
         ResourceIDSegment.ResourceGroup("resourceGroupName"),
         ResourceIDSegment.Static("staticProviders", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftKeyVault", "Microsoft.KeyVault"),
-        ResourceIDSegment.Static("staticManagedHSMs", "managedHSMs"),
-        ResourceIDSegment.UserSpecified("managedHSMName"),
+        ResourceIDSegment.Static("staticVaults", "vaults"),
+        ResourceIDSegment.UserSpecified("vaultName"),
         ResourceIDSegment.Static("staticPrivateEndpointConnections", "privateEndpointConnections"),
         ResourceIDSegment.UserSpecified("privateEndpointConnectionName"),
     };

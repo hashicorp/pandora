@@ -12,7 +12,7 @@ internal class KeyId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults/{vaultName}/keys/{keyName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/managedHSMs/{managedHSMName}/keys/{keyName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -22,8 +22,8 @@ internal class KeyId : ResourceID
         ResourceIDSegment.ResourceGroup("resourceGroupName"),
         ResourceIDSegment.Static("staticProviders", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftKeyVault", "Microsoft.KeyVault"),
-        ResourceIDSegment.Static("staticVaults", "vaults"),
-        ResourceIDSegment.UserSpecified("vaultName"),
+        ResourceIDSegment.Static("staticManagedHSMs", "managedHSMs"),
+        ResourceIDSegment.UserSpecified("managedHSMName"),
         ResourceIDSegment.Static("staticKeys", "keys"),
         ResourceIDSegment.UserSpecified("keyName"),
     };
