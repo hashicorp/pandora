@@ -279,7 +279,7 @@ service "mariadb" {
 }
 service "mediaservices" {
   name      = "Media"
-  available = ["2021-11-01", "2022-08-01"]
+  available = ["2021-11-01", "2022-07-01", "2022-08-01"]
 }
 service "migrate" {
   name      = "Migrate"
