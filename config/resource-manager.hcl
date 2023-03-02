@@ -331,7 +331,7 @@ service "operationsmanagement" {
 }
 service "orbital" {
   name      = "Orbital"
-  available = ["2022-03-01"]
+  available = ["2022-03-01", "2022-11-01"]
 }
 service "policyinsights" {
   name      = "PolicyInsights"
@@ -347,7 +347,7 @@ service "postgresql" {
 }
 service "postgresqlhsc" {
   name      = "PostgreSqlHSC"
-  available = ["2020-10-05-privatepreview"]
+  available = ["2020-10-05-privatepreview", "2022-11-08"]
 }
 service "powerbidedicated" {
   name      = "PowerBIDedicated"
