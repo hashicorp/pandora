@@ -6,12 +6,12 @@ namespace Pandora.Definitions.ResourceManager.SqlVirtualMachine.v2022_02_01.Avai
 [ConstantType(ConstantTypeAttribute.ConstantType.String)]
 internal enum ReadableSecondaryConstant
 {
-    [Description("ALL")]
-    ALL,
+    [Description("All")]
+    All,
 
-    [Description("NO")]
-    NO,
+    [Description("No")]
+    No,
 
-    [Description("READ_ONLY")]
-    READONLY,
+    [Description("Read_Only")]
+    ReadOnly,
 }

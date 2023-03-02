@@ -17,7 +17,7 @@ internal class ListByResourceOperation : Operations.ListOperation
 {
     public override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new VaultId();
+    public override ResourceID? ResourceId() => new KeyVaultId();
 
     public override Type NestedItemType() => typeof(PrivateEndpointConnectionModel);
 
