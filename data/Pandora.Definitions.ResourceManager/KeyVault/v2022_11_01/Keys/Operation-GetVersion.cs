@@ -15,7 +15,7 @@ namespace Pandora.Definitions.ResourceManager.KeyVault.v2022_11_01.Keys;
 
 internal class GetVersionOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new VersionId();
+    public override ResourceID? ResourceId() => new KeyVaultKeyVersionId();
 
     public override Type? ResponseObject() => typeof(KeyModel);
 

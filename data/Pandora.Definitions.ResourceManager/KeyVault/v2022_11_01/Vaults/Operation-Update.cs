@@ -17,7 +17,7 @@ internal class UpdateOperation : Operations.PatchOperation
 {
     public override Type? RequestObject() => typeof(VaultPatchParametersModel);
 
-    public override ResourceID? ResourceId() => new VaultId();
+    public override ResourceID? ResourceId() => new KeyVaultId();
 
     public override Type? ResponseObject() => typeof(VaultModel);
 
