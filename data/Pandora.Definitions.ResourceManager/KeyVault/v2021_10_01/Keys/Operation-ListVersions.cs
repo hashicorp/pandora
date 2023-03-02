@@ -17,7 +17,7 @@ internal class ListVersionsOperation : Operations.ListOperation
 {
     public override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new KeyId();
+    public override ResourceID? ResourceId() => new KeyVaultKeyId();
 
     public override Type NestedItemType() => typeof(KeyModel);
 

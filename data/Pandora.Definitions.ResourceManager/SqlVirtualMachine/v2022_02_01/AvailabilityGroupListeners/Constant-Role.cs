@@ -6,9 +6,9 @@ namespace Pandora.Definitions.ResourceManager.SqlVirtualMachine.v2022_02_01.Avai
 [ConstantType(ConstantTypeAttribute.ConstantType.String)]
 internal enum RoleConstant
 {
-    [Description("PRIMARY")]
-    PRIMARY,
+    [Description("Primary")]
+    Primary,
 
-    [Description("SECONDARY")]
-    SECONDARY,
+    [Description("Secondary")]
+    Secondary,
 }

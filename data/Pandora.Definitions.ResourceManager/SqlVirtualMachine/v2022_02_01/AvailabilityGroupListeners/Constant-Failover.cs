@@ -6,9 +6,9 @@ namespace Pandora.Definitions.ResourceManager.SqlVirtualMachine.v2022_02_01.Avai
 [ConstantType(ConstantTypeAttribute.ConstantType.String)]
 internal enum FailoverConstant
 {
-    [Description("AUTOMATIC")]
-    AUTOMATIC,
+    [Description("Automatic")]
+    Automatic,
 
-    [Description("MANUAL")]
-    MANUAL,
+    [Description("Manual")]
+    Manual,
 }
