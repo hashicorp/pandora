@@ -46,6 +46,10 @@ var commonIdTypes = []commonIdMatcher{
 	// Misc data fixes
 	commonIdAutomationCompilationJob{}, // (@stephybun) CompilationJobId segment is defined in three different ways `jobId`, `compilationJobId` and `compilationJobName`
 	commonIdProvisioningService{},      // (@jackofallops): Inconsistent user specified fields in the swagger - `provisioningServices/{resourceName}` vs `provisioningServices/{provisioningServiceName}`
+
+	// Key Vault
+	commonIdKeyVault{},
+	commonIdKeyVaultKey{},
 }
 
 func switchOutCommonResourceIDsAsNeeded(input []models.ParsedResourceId) []models.ParsedResourceId {
