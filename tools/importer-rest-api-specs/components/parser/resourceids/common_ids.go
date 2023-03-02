@@ -51,6 +51,7 @@ var commonIdTypes = []commonIdMatcher{
 	commonIdKeyVault{},
 	commonIdKeyVaultKey{},
 	commonIdKeyVaultKeyVersion{},
+	commonIdKeyVaultPrivateEndpointConnection{},
 }
 
 func switchOutCommonResourceIDsAsNeeded(input []models.ParsedResourceId) []models.ParsedResourceId {
