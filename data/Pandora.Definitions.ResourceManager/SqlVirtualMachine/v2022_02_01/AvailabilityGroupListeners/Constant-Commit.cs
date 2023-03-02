@@ -6,9 +6,9 @@ namespace Pandora.Definitions.ResourceManager.SqlVirtualMachine.v2022_02_01.Avai
 [ConstantType(ConstantTypeAttribute.ConstantType.String)]
 internal enum CommitConstant
 {
-    [Description("ASYNCHRONOUS_COMMIT")]
-    ASYNCHRONOUSCOMMIT,
+    [Description("Asynchronous_Commit")]
+    AsynchronousCommit,
 
-    [Description("SYNCHRONOUS_COMMIT")]
-    SYNCHRONOUSCOMMIT,
+    [Description("Synchronous_Commit")]
+    SynchronousCommit,
 }
