@@ -37,7 +37,7 @@ func Run(input RunInput) error {
 	}
 
 	files := newTree()
-	models := parseModelSchemas(spec.Components.Schemas)
+	models := parseModels(spec.Components.Schemas)
 
 	logger.Info("Templating models")
 	if err := templateModels(files, models); err != nil {
