@@ -1,10 +1,11 @@
 package main
 
 import (
-	"github.com/hashicorp/pandora/tools/importer-msgraph/cmd"
-	"github.com/mitchellh/cli"
 	"log"
 	"os"
+
+	"github.com/hashicorp/pandora/tools/importer-msgraph/cmd"
+	"github.com/mitchellh/cli"
 )
 
 const (

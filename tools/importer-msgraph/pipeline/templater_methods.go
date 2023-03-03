@@ -2,9 +2,10 @@ package pipeline
 
 import (
 	"fmt"
-	"github.com/hashicorp/go-hclog"
 	"strconv"
 	"strings"
+
+	"github.com/hashicorp/go-hclog"
 )
 
 func templateMethods(files *Tree, packageName string, endpoints []*Endpoint, logger hclog.Logger) error {
