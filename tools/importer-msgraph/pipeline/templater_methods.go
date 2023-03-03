@@ -2,11 +2,12 @@ package pipeline
 
 import (
 	"fmt"
+	"github.com/hashicorp/go-hclog"
 	"strconv"
 	"strings"
 )
 
-func templateMethods(files *Tree, packageName string, endpoints []*Endpoint) error {
+func templateMethods(files *Tree, packageName string, endpoints []*Endpoint, logger hclog.Logger) error {
 	clientName := strings.Title(packageName)
 	clientMethods := make(map[string]string)
 
@@ -14,12 +15,14 @@ func templateMethods(files *Tree, packageName string, endpoints []*Endpoint) err
 	for _, endpoint := range endpoints {
 		// Skip functions and casts for now
 		if lastSegment := endpoint.Id.segments[len(endpoint.Id.segments)-1]; lastSegment.Type == SegmentCast || lastSegment.Type == SegmentFunction {
+			logger.Debug("Skipping suspected function/cast endpoint", "endpoint", endpoint.Id.ID())
 			continue
 		}
 
 		for _, operation := range endpoint.Operations {
 			// Skip unknown operations
 			if operation.Type == OperationTypeUnknown {
+				logger.Debug("Skipping unknown operation", "endpoint", endpoint.Id.ID(), "method", operation.Method)
 				continue
 			}
 
@@ -60,6 +63,7 @@ func templateMethods(files *Tree, packageName string, endpoints []*Endpoint) err
 
 			// TODO: this shouldn't happen, but probably log/handle this
 			if clientMethodNameTarget == "" {
+				logger.Debug("Skipping operation with empty method name", "endpoint", endpoint.Id.ID(), "method", operation.Method)
 				continue
 			}
 
@@ -104,16 +108,19 @@ func templateMethods(files *Tree, packageName string, endpoints []*Endpoint) err
 			switch operation.Type {
 			case OperationTypeList:
 				if responseModel == "" {
+					logger.Debug("Skipping operation with empty response model", "endpoint", endpoint.Id.ID(), "method", operation.Method)
 					continue
 				}
 				methodCode = templateListMethod(endpoint, &operation, argNames, responseModel)
 			case OperationTypeRead:
 				if responseModel == "" {
+					logger.Debug("Skipping operation with empty response model", "endpoint", endpoint.Id.ID(), "method", operation.Method)
 					continue
 				}
 				methodCode = templateReadMethod(endpoint, &operation, argNames, responseModel)
 			case OperationTypeCreate, OperationTypeUpdate, OperationTypeCreateUpdate:
 				if requestModelVar == "" {
+					logger.Debug("Skipping operation with empty request model var", "endpoint", endpoint.Id.ID(), "method", operation.Method)
 					continue
 				}
 				methodCode = templateCreateUpdateMethod(endpoint, &operation, argNames, requestModelVar, responseModel)

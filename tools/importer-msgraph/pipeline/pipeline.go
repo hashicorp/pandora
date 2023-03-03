@@ -72,7 +72,7 @@ func Run(input RunInput) error {
 		}
 
 		logger.Info(fmt.Sprintf("Templating methods for: %s", tag))
-		if err := templateMethods(files, tag, endpoints); err != nil {
+		if err := templateMethods(files, tag, endpoints, logger); err != nil {
 			return err
 		}
 	}
