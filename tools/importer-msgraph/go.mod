@@ -3,7 +3,6 @@ module github.com/hashicorp/pandora/tools/importer-msgraph
 go 1.18
 
 require (
-	github.com/davecgh/go-spew v1.1.1
 	github.com/getkin/kin-openapi v0.98.0
 	github.com/go-git/go-git/v5 v5.6.0
 	github.com/hashicorp/go-hclog v1.4.0
