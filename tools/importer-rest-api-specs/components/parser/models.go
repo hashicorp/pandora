@@ -156,7 +156,7 @@ func (d *SwaggerDefinition) detailsForField(modelName string, propertyName strin
 		result.Append(*nestedResult)
 	}
 
-	if len(value.Properties) > 0 {
+	if len(value.Properties) > 0 || len(value.AllOf) > 0 {
 		// there's a nested model we need to pull out
 		inlinedName := inlinedModelName(modelName, propertyName)
 		nestedFields := make(map[string]models.FieldDetails, 0)
