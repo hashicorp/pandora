@@ -15,7 +15,7 @@ namespace Pandora.Definitions.ResourceManager.KeyVault.v2022_11_01.PrivateLinkRe
 
 internal class ListByVaultOperation : Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new VaultId();
+    public override ResourceID? ResourceId() => new KeyVaultId();
 
     public override Type? ResponseObject() => typeof(PrivateLinkResourceListResultModel);
 

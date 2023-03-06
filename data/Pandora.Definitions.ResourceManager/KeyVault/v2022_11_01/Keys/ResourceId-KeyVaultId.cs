@@ -6,23 +6,23 @@ using Pandora.Definitions.Interfaces;
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 
 
-namespace Pandora.Definitions.ResourceManager.KeyVault.v2021_10_01.Vaults;
+namespace Pandora.Definitions.ResourceManager.KeyVault.v2022_11_01.Keys;
 
-internal class VaultId : ResourceID
+internal class KeyVaultId : ResourceID
 {
-    public string? CommonAlias => null;
+    public string? CommonAlias => "KeyVault";
 
     public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults/{vaultName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
-        ResourceIDSegment.Static("staticSubscriptions", "subscriptions"),
+        ResourceIDSegment.Static("subscriptions", "subscriptions"),
         ResourceIDSegment.SubscriptionId("subscriptionId"),
-        ResourceIDSegment.Static("staticResourceGroups", "resourceGroups"),
+        ResourceIDSegment.Static("resourceGroups", "resourceGroups"),
         ResourceIDSegment.ResourceGroup("resourceGroupName"),
-        ResourceIDSegment.Static("staticProviders", "providers"),
-        ResourceIDSegment.ResourceProvider("staticMicrosoftKeyVault", "Microsoft.KeyVault"),
-        ResourceIDSegment.Static("staticVaults", "vaults"),
+        ResourceIDSegment.Static("providers", "providers"),
+        ResourceIDSegment.ResourceProvider("resourceProvider", "Microsoft.KeyVault"),
+        ResourceIDSegment.Static("vaults", "vaults"),
         ResourceIDSegment.UserSpecified("vaultName"),
     };
 }

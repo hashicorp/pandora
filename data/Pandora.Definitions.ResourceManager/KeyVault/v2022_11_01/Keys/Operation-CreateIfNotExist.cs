@@ -22,7 +22,7 @@ internal class CreateIfNotExistOperation : Operations.PutOperation
 
     public override Type? RequestObject() => typeof(KeyCreateParametersModel);
 
-    public override ResourceID? ResourceId() => new KeyId();
+    public override ResourceID? ResourceId() => new KeyVaultKeyId();
 
     public override Type? ResponseObject() => typeof(KeyModel);
 

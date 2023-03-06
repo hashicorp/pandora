@@ -22,7 +22,7 @@ internal class PutOperation : Operations.PutOperation
 
     public override Type? RequestObject() => typeof(PrivateEndpointConnectionModel);
 
-    public override ResourceID? ResourceId() => new PrivateEndpointConnectionId();
+    public override ResourceID? ResourceId() => new KeyVaultPrivateEndpointConnectionId();
 
     public override Type? ResponseObject() => typeof(PrivateEndpointConnectionModel);
 
