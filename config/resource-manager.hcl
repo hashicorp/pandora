@@ -331,7 +331,7 @@ service "operationsmanagement" {
 }
 service "orbital" {
   name      = "Orbital"
-  available = ["2022-03-01"]
+  available = ["2022-03-01", "2022-11-01"]
 }
 service "policyinsights" {
   name      = "PolicyInsights"
@@ -347,7 +347,7 @@ service "postgresql" {
 }
 service "postgresqlhsc" {
   name      = "PostgreSqlHSC"
-  available = ["2020-10-05-privatepreview"]
+  available = ["2020-10-05-privatepreview", "2022-11-08"]
 }
 service "powerbidedicated" {
   name      = "PowerBIDedicated"
@@ -430,7 +430,7 @@ service "servicelinker" {
 }
 service "signalr" {
   name      = "SignalR"
-  available = ["2022-02-01"]
+  available = ["2022-02-01", "2023-02-01"]
 }
 service "sqlvirtualmachine" {
   name      = "SqlVirtualMachine"
@@ -484,10 +484,10 @@ service "voiceservices" {
 }
 service "web" {
   name      = "Web"
-  available = ["2016-06-01"]
+  available = ["2016-06-01", "2022-09-01"]
   ignore    = ["2016-08-01", "2016-09-01", "2018-02-01", "2018-11-01", "2019-08-01", "2020-06-01", "2020-09-01", "2020-10-01", "2020-12-01", "2021-01-01", "2021-01-15", "2021-02-01", "2021-03-01", "2022-03-01"]
 }
 service "webpubsub" {
   name      = "WebPubSub"
-  available = ["2021-10-01"]
+  available = ["2021-10-01", "2023-02-01"]
 }
