@@ -51,3 +51,7 @@ func cleanNameCamel(name string) string {
 	name = cleanName(name)
 	return strings.ToLower(name[0:1]) + name[1:]
 }
+
+func cleanVersion(version string) string {
+	return regexp.MustCompile("[^a-zA-Z0-9]").ReplaceAllString(version, "_")
+}

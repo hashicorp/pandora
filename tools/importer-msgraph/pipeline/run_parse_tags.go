@@ -9,7 +9,7 @@ import (
 
 type Services map[string][]string
 
-func parseServices(spec *openapi3.T) (Services, error) {
+func parseTags(spec *openapi3.T) (Services, error) {
 	services := make(map[string][]string, 0)
 	for _, tag := range spec.Tags {
 		if tag == nil {

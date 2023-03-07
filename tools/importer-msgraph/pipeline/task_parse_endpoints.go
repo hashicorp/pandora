@@ -1,6 +1,7 @@
 package pipeline
 
 import (
+	"fmt"
 	"net/http"
 	"strconv"
 	"strings"
@@ -10,6 +11,9 @@ import (
 
 type Resource struct {
 	Id         ResourceId
+	Name       string
+	Version    string
+	Service    string
 	Operations []Operation
 }
 
@@ -80,16 +84,19 @@ func (o OperationType) Name(id ResourceId) string {
 	return ""
 }
 
-func (pipelineTask) parseResourcesForTag(subTagToMatch string, subtags []string, paths openapi3.Paths) (ret []*Resource) {
+func (pipelineTask) parseResourcesForTag(tag string, subTags []string, paths openapi3.Paths) (ret []*Resource) {
 	ret = make([]*Resource, 0)
 	for path, item := range paths {
 		id := NewResourceId(path, make([]string, 0))
-		endpoint := Resource{
+		resource := Resource{
 			Id:         id,
+			Version:    "v1.0",
+			Service:    cleanName(tag),
 			Operations: make([]Operation, 0),
 		}
+		var resourceName string
 		for method, operation := range item.Operations() {
-			if !tagMatches(subTagToMatch, subtags, operation.Tags) {
+			if !tagMatches(tag, subTags, operation.Tags) {
 				continue
 			}
 			listOperation := false
@@ -130,6 +137,7 @@ func (pipelineTask) parseResourcesForTag(subTagToMatch string, subtags []string,
 					})
 				}
 			}
+
 			operationType := NewOperationType(method)
 			if listOperation {
 				operationType = OperationTypeList
@@ -137,8 +145,29 @@ func (pipelineTask) parseResourcesForTag(subTagToMatch string, subtags []string,
 
 			// We aren't interested in GET /.../$ref
 			if operationType == OperationTypeList || operationType == OperationTypeRead {
-				if lastSegment := endpoint.Id.segments[len(endpoint.Id.segments)-1]; lastSegment.Value == "$ref" {
+				if lastSegment := resource.Id.segments[len(resource.Id.segments)-1]; lastSegment.Value == "$ref" {
 					continue
+				}
+			}
+
+			// Name the method according to the final URI segment, or deriving it from the tag
+			if lastLabel := id.LastLabel(); lastLabel != nil {
+				if operationType == OperationTypeList {
+					resourceName = pluralize(cleanName(lastLabel.Value))
+				} else {
+					resourceName = singularize(cleanName(lastLabel.Value))
+				}
+			}
+
+			if resourceName == "" {
+				if len(operation.Tags) > 1 {
+					panic(fmt.Sprintf("found %d tags for operation %s/%s: %s", len(operation.Tags), id.ID(), operationType, operation.Tags)) // TODO handle
+				} else if len(operation.Tags) == 1 {
+					t := strings.Split(operation.Tags[0], ".")
+					if len(t) != 2 {
+						panic(fmt.Sprintf("invalid tag for operation %s/%s: %s", id.ID(), operationType, operation.Tags[0])) // TODO handle
+					}
+					resourceName = cleanName(t[1])
 				}
 			}
 
@@ -155,7 +184,9 @@ func (pipelineTask) parseResourcesForTag(subTagToMatch string, subtags []string,
 					}
 				}
 			}
-			endpoint.Operations = append(endpoint.Operations, Operation{
+
+			resource.Name = resourceName
+			resource.Operations = append(resource.Operations, Operation{
 				Type:         operationType,
 				Method:       method,
 				RequestModel: requestModel,
@@ -163,8 +194,8 @@ func (pipelineTask) parseResourcesForTag(subTagToMatch string, subtags []string,
 				Tags:         operation.Tags,
 			})
 		}
-		if len(endpoint.Operations) > 0 {
-			ret = append(ret, &endpoint)
+		if len(resource.Operations) > 0 {
+			ret = append(ret, &resource)
 		}
 	}
 	return

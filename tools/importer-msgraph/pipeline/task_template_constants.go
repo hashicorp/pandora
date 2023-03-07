@@ -24,6 +24,9 @@ func templateConstants(files *Tree, models Models) error {
 				code := fmt.Sprintf(`using Pandora.Definitions.Attributes;
 using System.ComponentModel;
 
+// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
 namespace Pandora.Definitions.MicrosoftGraph.Models;
 
 [ConstantType(ConstantTypeAttribute.ConstantType.String)]
