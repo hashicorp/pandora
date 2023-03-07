@@ -2,6 +2,7 @@ package pipeline
 
 import (
 	"fmt"
+	"net/http"
 	"regexp"
 	"strings"
 )
@@ -17,16 +18,26 @@ func singularize(model string) string {
 }
 
 func pluralize(model string) string {
-	if model[len(model)-1:] == "y" {
+	ret := fmt.Sprintf("%ss", model)
+	if strings.EqualFold(model, "me") {
+		return model
+	}
+	if len(model) < 1 {
+		return ret
+	}
+	if strings.EqualFold(model[len(model)-1:], "y") {
 		return fmt.Sprintf("%sies", model[:len(model)-1])
 	}
-	if model[len(model)-2:] == "Of" {
+	if strings.EqualFold(model[len(model)-1:], "s") {
 		return model
 	}
-	if model[len(model)-1:] == "s" {
+	if len(model) < 2 {
+		return ret
+	}
+	if strings.EqualFold(model[len(model)-2:], "Of") {
 		return model
 	}
-	return fmt.Sprintf("%ss", model)
+	return ret
 }
 
 func normalizeFieldName(segment string) (field string) {
@@ -54,4 +65,8 @@ func cleanNameCamel(name string) string {
 
 func cleanVersion(version string) string {
 	return regexp.MustCompile("[^a-zA-Z0-9]").ReplaceAllString(version, "_")
+}
+
+func csHttpStatusCode(code int) string {
+	return fmt.Sprintf("HttpStatusCode.%s", strings.ReplaceAll(http.StatusText(code), " ", ""))
 }

@@ -91,7 +91,7 @@ func (pipelineTask) parseResourcesForTag(tag string, subTags []string, paths ope
 		resource := Resource{
 			Id:         id,
 			Version:    "v1.0",
-			Service:    cleanName(tag),
+			Service:    pluralize(cleanName(tag)),
 			Operations: make([]Operation, 0),
 		}
 		var resourceName string
@@ -185,7 +185,7 @@ func (pipelineTask) parseResourcesForTag(tag string, subTags []string, paths ope
 				}
 			}
 
-			resource.Name = resourceName
+			resource.Name = pluralize(resourceName)
 			resource.Operations = append(resource.Operations, Operation{
 				Type:         operationType,
 				Method:       method,

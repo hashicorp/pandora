@@ -73,14 +73,16 @@ func (pipelineTask) templateOperations(files *Tree, packageName string, resource
 			}
 
 			// Determine request model
-			var requestModelVar string
+			var requestModel, requestModelVar string
 			if operation.Type == OperationTypeCreate || operation.Type == OperationTypeUpdate || operation.Type == OperationTypeCreateUpdate {
 				if operation.RequestModel != nil {
 					requestModelVar = cleanNameCamel(*operation.RequestModel)
+					requestModel = *operation.RequestModel
 					args = append(args, fmt.Sprintf("%s models.%s", requestModelVar, *operation.RequestModel))
 				} else if lastSegment := resource.Id.segments[len(resource.Id.segments)-1]; lastSegment.Value == "$ref" {
+					requestModel = "DirectoryObject"
 					requestModelVar = "directoryObject"
-					args = append(args, fmt.Sprintf("%s models.DirectoryObject", requestModelVar))
+					args = append(args, fmt.Sprintf("%s models.%s", requestModelVar, requestModel))
 				}
 			}
 
@@ -122,7 +124,7 @@ func (pipelineTask) templateOperations(files *Tree, packageName string, resource
 					logger.Debug("Skipping operation with empty request model var", "resource", resource.Id.ID(), "method", operation.Method)
 					continue
 				}
-				methodCode = templateCreateUpdateMethod(resource, &operation, operationType, requestModelVar, responseModel, statuses)
+				methodCode = templateCreateUpdateMethod(resource, &operation, operationType, requestModel, responseModel, statuses)
 			case OperationTypeDelete:
 				methodCode = templateDeleteMethod(resource, &operation, operationType, statuses)
 			}
@@ -145,27 +147,9 @@ func (pipelineTask) templateOperations(files *Tree, packageName string, resource
 }
 
 func templateListMethod(resource *Resource, operation *Operation, operationType, responseModel string, args []string) string {
-	statuses := make([]string, 0)
-	for _, response := range operation.Responses {
-		if response.Status >= 200 && response.Status < 400 {
-			statuses = append(statuses, strconv.Itoa(response.Status))
-		}
-	}
-
-	var path string
-	if len(args) > 0 {
-		path = fmt.Sprintf(`fmt.Sprintf("%s", %s)`, resource.Id.IDf(), strings.Join(args, ", "))
-	} else {
-		path = fmt.Sprintf("%q", resource.Id.ID())
-	}
-
-	return fmt.Sprintf(`using Pandora.Definitions.Attributes;
-using Pandora.Definitions.CustomTypes;
-using Pandora.Definitions.Interfaces;
-using Pandora.Definitions.Operations;
+	return fmt.Sprintf(`using Pandora.Definitions.Interfaces;
+using Pandora.Definitions.MicrosoftGraph.Models;
 using System;
-using System.Collections.Generic;
-using System.Net;
 
 // Copyright (c) HashiCorp, Inc.
 // SPDX-License-Identifier: MPL-2.0
@@ -178,27 +162,30 @@ internal class %[4]sOperation : Operations.%[4]sOperation
 
     public override ResourceID? ResourceId() => null;
 
-    public override Type NestedItemType() => typeof(%[5]s);
+    public override Type NestedItemType() => typeof(%[5]sModel);
 
     public override string? UriSuffix() => "%[6]s";
 
 
 }
-`, resource.Service, cleanVersion(resource.Version), resource.Name, operationType, responseModel, path)
+`, resource.Service, cleanVersion(resource.Version), resource.Name, operationType, responseModel, resource.Id.ID()) // TODO: resource ID to be calculated
 
 }
 
 func templateReadMethod(resource *Resource, operation *Operation, operationType, responseModel string, statuses []string) string {
-	expectedStatusesCode := indent(strings.Join(statuses, ",\n"), "                ")
+	statusEnums := make([]string, len(statuses))
+	for i, status := range statuses {
+		code, _ := strconv.Atoi(status)
+		statusEnums[i] = csHttpStatusCode(code)
+	}
+	expectedStatusesCode := indent(strings.Join(statusEnums, ",\n"), "                ")
 	resourceIdName := fmt.Sprintf("%sId", resource.Name)
 
-	return fmt.Sprintf(`using Pandora.Definitions.Attributes;
-using Pandora.Definitions.CustomTypes;
-using Pandora.Definitions.Interfaces;
-using Pandora.Definitions.Operations;
-using System;
+	return fmt.Sprintf(`using Pandora.Definitions.Interfaces;
+using Pandora.Definitions.MicrosoftGraph.Models;
 using System.Collections.Generic;
 using System.Net;
+using System;
 
 // Copyright (c) HashiCorp, Inc.
 // SPDX-License-Identifier: MPL-2.0
@@ -209,20 +196,25 @@ internal class %[4]sOperation : Operations.%[5]sOperation
 {
     public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
-%[6]s
+%[6]s,
         };
 
     public override ResourceID? ResourceId() => new %[7]s();
 
-    public override Type? ResponseObject() => typeof(%[8]s);
+    public override Type? ResponseObject() => typeof(%[8]sModel);
 
 
 }
-`, resource.Service, cleanVersion(resource.Version), resource.Name, operationType, operation.Method, expectedStatusesCode, resourceIdName, responseModel)
+`, resource.Service, cleanVersion(resource.Version), resource.Name, operationType, strings.Title(strings.ToLower(operation.Method)), expectedStatusesCode, resourceIdName, responseModel)
 }
 
 func templateCreateUpdateMethod(resource *Resource, operation *Operation, operationType, requestModel, responseModel string, statuses []string) string {
-	expectedStatusesCode := indent(strings.Join(statuses, ",\n"), "                ")
+	statusEnums := make([]string, len(statuses))
+	for i, status := range statuses {
+		code, _ := strconv.Atoi(status)
+		statusEnums[i] = csHttpStatusCode(code)
+	}
+	expectedStatusesCode := indent(strings.Join(statusEnums, ",\n"), "                ")
 	resourceIdName := fmt.Sprintf("%sId", resource.Name)
 
 	//var path string
@@ -232,13 +224,11 @@ func templateCreateUpdateMethod(resource *Resource, operation *Operation, operat
 	//	path = fmt.Sprintf("%q", endpoint.Id.ID())
 	//}
 
-	return fmt.Sprintf(`using Pandora.Definitions.Attributes;
-using Pandora.Definitions.CustomTypes;
-using Pandora.Definitions.Interfaces;
-using Pandora.Definitions.Operations;
-using System;
+	return fmt.Sprintf(`using Pandora.Definitions.Interfaces;
+using Pandora.Definitions.MicrosoftGraph.Models;
 using System.Collections.Generic;
 using System.Net;
+using System;
 
 // Copyright (c) HashiCorp, Inc.
 // SPDX-License-Identifier: MPL-2.0
@@ -249,22 +239,27 @@ internal class %[4]sOperation : Operations.%[5]sOperation
 {
     public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
-%[6]s
+%[6]s,
         };
 
-    public override Type? RequestObject() => typeof(%[7]s);
+    public override Type? RequestObject() => typeof(%[7]sModel);
 
     public override ResourceID? ResourceId() => new %[8]s();
 
-    public override Type? ResponseObject() => typeof(%[9]s);
+    public override Type? ResponseObject() => typeof(%[9]sModel);
 
 
 }
-`, resource.Service, cleanVersion(resource.Version), resource.Name, operationType, operation.Method, expectedStatusesCode, requestModel, resourceIdName, responseModel)
+`, resource.Service, cleanVersion(resource.Version), resource.Name, operationType, strings.Title(strings.ToLower(operation.Method)), expectedStatusesCode, requestModel, resourceIdName, responseModel)
 }
 
 func templateDeleteMethod(resource *Resource, operation *Operation, operationType string, statuses []string) string {
-	expectedStatusesCode := indent(strings.Join(statuses, ",\n"), "                ")
+	statusEnums := make([]string, len(statuses))
+	for i, status := range statuses {
+		code, _ := strconv.Atoi(status)
+		statusEnums[i] = csHttpStatusCode(code)
+	}
+	expectedStatusesCode := indent(strings.Join(statusEnums, ",\n"), "                ")
 	resourceIdName := fmt.Sprintf("%sId", resource.Name)
 
 	//var path string
@@ -274,11 +269,7 @@ func templateDeleteMethod(resource *Resource, operation *Operation, operationTyp
 	//	path = fmt.Sprintf("%q", endpoint.Id.ID())
 	//}
 
-	return fmt.Sprintf(`using Pandora.Definitions.Attributes;
-using Pandora.Definitions.CustomTypes;
-using Pandora.Definitions.Interfaces;
-using Pandora.Definitions.Operations;
-using System;
+	return fmt.Sprintf(`using Pandora.Definitions.Interfaces;
 using System.Collections.Generic;
 using System.Net;
 
@@ -291,12 +282,12 @@ internal class %[4]sOperation : Operations.%[5]sOperation
 {
     public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
-%[6]s
+%[6]s,
         };
 
     public override ResourceID? ResourceId() => new %[7]s();
 
 
 }
-`, resource.Service, cleanVersion(resource.Version), resource.Name, operationType, operation.Method, expectedStatusesCode, resourceIdName)
+`, resource.Service, cleanVersion(resource.Version), resource.Name, operationType, strings.Title(strings.ToLower(operation.Method)), expectedStatusesCode, resourceIdName)
 }
