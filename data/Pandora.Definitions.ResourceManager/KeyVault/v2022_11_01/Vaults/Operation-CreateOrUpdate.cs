@@ -19,7 +19,7 @@ internal class CreateOrUpdateOperation : Operations.PutOperation
 
     public override Type? RequestObject() => typeof(VaultCreateOrUpdateParametersModel);
 
-    public override ResourceID? ResourceId() => new VaultId();
+    public override ResourceID? ResourceId() => new KeyVaultId();
 
     public override Type? ResponseObject() => typeof(VaultModel);
 

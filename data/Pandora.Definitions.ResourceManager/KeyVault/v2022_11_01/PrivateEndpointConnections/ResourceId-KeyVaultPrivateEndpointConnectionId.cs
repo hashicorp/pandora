@@ -8,23 +8,23 @@ using Pandora.Definitions.Interfaces;
 
 namespace Pandora.Definitions.ResourceManager.KeyVault.v2022_11_01.PrivateEndpointConnections;
 
-internal class PrivateEndpointConnectionId : ResourceID
+internal class KeyVaultPrivateEndpointConnectionId : ResourceID
 {
-    public string? CommonAlias => null;
+    public string? CommonAlias => "KeyVaultPrivateEndpointConnection";
 
     public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults/{vaultName}/privateEndpointConnections/{privateEndpointConnectionName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
-        ResourceIDSegment.Static("staticSubscriptions", "subscriptions"),
+        ResourceIDSegment.Static("subscriptions", "subscriptions"),
         ResourceIDSegment.SubscriptionId("subscriptionId"),
-        ResourceIDSegment.Static("staticResourceGroups", "resourceGroups"),
+        ResourceIDSegment.Static("resourceGroups", "resourceGroups"),
         ResourceIDSegment.ResourceGroup("resourceGroupName"),
-        ResourceIDSegment.Static("staticProviders", "providers"),
-        ResourceIDSegment.ResourceProvider("staticMicrosoftKeyVault", "Microsoft.KeyVault"),
-        ResourceIDSegment.Static("staticVaults", "vaults"),
+        ResourceIDSegment.Static("providers", "providers"),
+        ResourceIDSegment.ResourceProvider("resourceProvider", "Microsoft.KeyVault"),
+        ResourceIDSegment.Static("vaults", "vaults"),
         ResourceIDSegment.UserSpecified("vaultName"),
-        ResourceIDSegment.Static("staticPrivateEndpointConnections", "privateEndpointConnections"),
+        ResourceIDSegment.Static("privateEndpointConnections", "privateEndpointConnections"),
         ResourceIDSegment.UserSpecified("privateEndpointConnectionName"),
     };
 }

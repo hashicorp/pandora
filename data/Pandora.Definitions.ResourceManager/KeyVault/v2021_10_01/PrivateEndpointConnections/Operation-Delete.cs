@@ -24,7 +24,7 @@ internal class DeleteOperation : Operations.DeleteOperation
 
     public override bool LongRunning() => true;
 
-    public override ResourceID? ResourceId() => new PrivateEndpointConnectionId();
+    public override ResourceID? ResourceId() => new KeyVaultPrivateEndpointConnectionId();
 
     public override Type? ResponseObject() => typeof(PrivateEndpointConnectionModel);
 
