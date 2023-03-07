@@ -8,7 +8,7 @@ import (
 	"github.com/getkin/kin-openapi/openapi3"
 )
 
-type Endpoint struct {
+type Resource struct {
 	Id         ResourceId
 	Operations []Operation
 }
@@ -80,16 +80,16 @@ func (o OperationType) Name(id ResourceId) string {
 	return ""
 }
 
-func parseEndpointsForTag(tag string, subtags []string, paths openapi3.Paths) (ret []*Endpoint) {
-	ret = make([]*Endpoint, 0)
+func (pipelineTask) parseResourcesForTag(subTagToMatch string, subtags []string, paths openapi3.Paths) (ret []*Resource) {
+	ret = make([]*Resource, 0)
 	for path, item := range paths {
 		id := NewResourceId(path, make([]string, 0))
-		endpoint := Endpoint{
+		endpoint := Resource{
 			Id:         id,
 			Operations: make([]Operation, 0),
 		}
 		for method, operation := range item.Operations() {
-			if !tagMatches(tag, subtags, operation.Tags) {
+			if !tagMatches(subTagToMatch, subtags, operation.Tags) {
 				continue
 			}
 			listOperation := false

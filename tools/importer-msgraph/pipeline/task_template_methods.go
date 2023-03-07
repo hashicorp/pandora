@@ -8,7 +8,7 @@ import (
 	"github.com/hashicorp/go-hclog"
 )
 
-func templateMethods(files *Tree, packageName string, endpoints []*Endpoint, logger hclog.Logger) error {
+func (pipelineTask) templateMethods(files *Tree, packageName string, endpoints []*Resource, logger hclog.Logger) error {
 	clientName := strings.Title(packageName)
 	clientMethods := make(map[string]string)
 
@@ -160,7 +160,7 @@ func templateMethods(files *Tree, packageName string, endpoints []*Endpoint, log
 	return nil
 }
 
-func templateListMethod(endpoint *Endpoint, operation *Operation, args []string, model string) string {
+func templateListMethod(endpoint *Resource, operation *Operation, args []string, model string) string {
 	statuses := make([]string, 0)
 	for _, response := range operation.Responses {
 		if response.Status >= 200 && response.Status < 400 {
@@ -207,7 +207,7 @@ func templateListMethod(endpoint *Endpoint, operation *Operation, args []string,
 `, operation.Method, path, strings.Join(statuses, ",\n\t"), model)
 }
 
-func templateReadMethod(endpoint *Endpoint, operation *Operation, args []string, model string) string {
+func templateReadMethod(endpoint *Resource, operation *Operation, args []string, model string) string {
 	statuses := make([]string, 0)
 	for _, response := range operation.Responses {
 		if response.Status >= 200 && response.Status < 400 {
@@ -252,7 +252,7 @@ func templateReadMethod(endpoint *Endpoint, operation *Operation, args []string,
 `, operation.Method, path, strings.Join(statuses, ",\n\t"), model)
 }
 
-func templateCreateUpdateMethod(endpoint *Endpoint, operation *Operation, args []string, requestModel string, responseModel string) string {
+func templateCreateUpdateMethod(endpoint *Resource, operation *Operation, args []string, requestModel string, responseModel string) string {
 	statuses := make([]string, 0)
 	for _, response := range operation.Responses {
 		if response.Status >= 200 && response.Status < 400 {
@@ -328,7 +328,7 @@ func templateCreateUpdateMethod(endpoint *Endpoint, operation *Operation, args [
 `, operation.Method, path, strings.Join(statuses, ",\n\t"), requestModel, resp, returnVal(returns["req"]), returnVal(returns["resp"]), returnVal(returns["unmarshal"]), returnVal(returns["marshal"]))
 }
 
-func templateDeleteMethod(endpoint *Endpoint, operation *Operation, args []string) string {
+func templateDeleteMethod(endpoint *Resource, operation *Operation, args []string) string {
 	statuses := make([]string, 0)
 	for _, response := range operation.Responses {
 		if response.Status >= 200 && response.Status < 400 {

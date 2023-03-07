@@ -40,7 +40,7 @@ func (t *Tree) write(curDir string, logger hclog.Logger) error {
 	for filename, content := range t.files {
 		dest := curDir + string(os.PathSeparator) + filename
 		logger.Info(fmt.Sprintf("Writing file: %s", dest))
-		if err := writeFile(dest, content); err != nil {
+		if err := os.WriteFile(dest, []byte(content), 0644); err != nil {
 			return err
 		}
 	}

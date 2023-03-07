@@ -37,6 +37,37 @@ func (f ModelField) GoTag() string {
 	return fmt.Sprintf("`json:\"%s,omitempty\"`", f.JsonField)
 }
 
+func (f ModelField) CSType() string {
+	switch f.Type {
+	case FieldTypeUnknown:
+		panic("unknown field") // TODO
+	case FieldTypeModel:
+		if f.ModelName == "" {
+			panic("model not found") // TODO
+		}
+		return fmt.Sprintf("%sModel", f.ModelName)
+	case FieldTypeArray:
+		if f.ModelName == "" {
+			if f.Enum != nil {
+				return fmt.Sprintf("%sConstant[]", f.Title)
+			}
+			if f.ItemType > 0 {
+				return fmt.Sprintf("%s[]", f.ItemType.CSType())
+			}
+			panic("model for array not found") // TODO
+		}
+		return fmt.Sprintf("%sModel[]", f.ModelName)
+	case FieldTypeString:
+		if f.Enum != nil {
+			return fmt.Sprintf("%sConstant", f.Title)
+		}
+		return "string"
+	default:
+		return f.Type.CSType()
+	}
+	return ""
+}
+
 func (f ModelField) GoType() string {
 	switch f.Type {
 	case FieldTypeUnknown:
@@ -76,8 +107,8 @@ const (
 	FieldTypeModel
 	FieldTypeArray
 	FieldTypeString
-	FieldTypeInteger
-	FieldTypeIntegerUnsigned
+	FieldTypeInteger64
+	FieldTypeIntegerUnsigned64
 	FieldTypeInteger32
 	FieldTypeIntegerUnsigned32
 	FieldTypeInteger16
@@ -95,13 +126,57 @@ const (
 	FieldTypeUuid
 )
 
+func (ft FieldType) CSType() string {
+	switch ft {
+	case FieldTypeString:
+		return "string"
+	case FieldTypeInteger64:
+		return "long"
+	case FieldTypeIntegerUnsigned64:
+		return "ulong"
+	case FieldTypeInteger32:
+		return "int"
+	case FieldTypeIntegerUnsigned32:
+		return "uint"
+	case FieldTypeInteger16:
+		return "short"
+	case FieldTypeIntegerUnsigned16:
+		return "ushort"
+	case FieldTypeInteger8:
+		return "sbyte"
+	case FieldTypeIntegerUnsigned8:
+		return "byte"
+	case FieldTypeFloat32:
+		return "float"
+	case FieldTypeFloat64:
+		return "double"
+	case FieldTypeBool:
+		return "bool"
+	case FieldTypeInterface:
+		return "string" // TODO: unknown things can just be strings
+	case FieldTypeBase64:
+		return "byte[]"
+	case FieldTypeDate:
+		return "DateTime" // TODO: date
+	case FieldTypeDateTime:
+		return "DateTime"
+	case FieldTypeDuration:
+		return "string" // TODO: ISO8601 duration
+	case FieldTypeTime:
+		return "DateTime" // TODO: time
+	case FieldTypeUuid:
+		return "string"
+	}
+	return "string" // TODO: should never get here
+}
+
 func (ft FieldType) GoType() string {
 	switch ft {
 	case FieldTypeString:
 		return "string"
-	case FieldTypeInteger:
+	case FieldTypeInteger64:
 		return "int"
-	case FieldTypeIntegerUnsigned:
+	case FieldTypeIntegerUnsigned64:
 		return "uint"
 	case FieldTypeInteger32:
 		return "int32"
@@ -137,6 +212,62 @@ func (ft FieldType) GoType() string {
 		return "UUID"
 	}
 	return "interface{}"
+}
+
+func fieldType(schemaType, schemaFormat string, hasModel bool) FieldType {
+	switch strings.ToLower(schemaFormat) {
+	case "int64":
+		return FieldTypeInteger64
+	case "uint64":
+		return FieldTypeIntegerUnsigned64
+	case "int32":
+		return FieldTypeInteger32
+	case "uint32":
+		return FieldTypeIntegerUnsigned32
+	case "int16":
+		return FieldTypeInteger16
+	case "uint16":
+		return FieldTypeIntegerUnsigned16
+	case "int8":
+		return FieldTypeInteger8
+	case "uint8":
+		return FieldTypeIntegerUnsigned8
+	case "float":
+		return FieldTypeFloat32
+	case "double":
+		return FieldTypeFloat64
+	case "decimal":
+		return FieldTypeFloat32 // TODO: custom decimal type
+	case "base64url":
+		return FieldTypeBase64
+	case "date":
+		return FieldTypeDate
+	case "date-time":
+		return FieldTypeDateTime
+	case "duration":
+		return FieldTypeDuration
+	case "time":
+		return FieldTypeTime
+	case "uuid":
+		return FieldTypeUuid
+	}
+	switch strings.ToLower(schemaType) {
+	case "object":
+		return FieldTypeModel
+	case "array":
+		return FieldTypeArray
+	case "boolean":
+		return FieldTypeBool
+	case "integer":
+		return FieldTypeInteger64
+	case "string":
+		return FieldTypeString
+	}
+	if hasModel {
+		return FieldTypeModel
+	} else {
+		return FieldTypeInterface
+	}
 }
 
 // Schemas is a map[string]*SchemaRef
@@ -359,62 +490,6 @@ func parseSchemas(input flattenedSchema, modelName string, models Models) Models
 		model.Fields[cleanName(k)] = &field
 	}
 	return models
-}
-
-func fieldType(schemaType, schemaFormat string, hasModel bool) FieldType {
-	switch strings.ToLower(schemaFormat) {
-	case "int64":
-		return FieldTypeInteger
-	case "uint64":
-		return FieldTypeIntegerUnsigned
-	case "int32":
-		return FieldTypeInteger32
-	case "uint32":
-		return FieldTypeIntegerUnsigned32
-	case "int16":
-		return FieldTypeInteger16
-	case "uint16":
-		return FieldTypeIntegerUnsigned16
-	case "int8":
-		return FieldTypeInteger8
-	case "uint8":
-		return FieldTypeIntegerUnsigned8
-	case "float":
-		return FieldTypeFloat32
-	case "double":
-		return FieldTypeFloat64
-	case "decimal":
-		return FieldTypeFloat32 // TODO: custom decimal type
-	case "base64url":
-		return FieldTypeBase64
-	case "date":
-		return FieldTypeDate
-	case "date-time":
-		return FieldTypeDateTime
-	case "duration":
-		return FieldTypeDuration
-	case "time":
-		return FieldTypeTime
-	case "uuid":
-		return FieldTypeUuid
-	}
-	switch strings.ToLower(schemaType) {
-	case "object":
-		return FieldTypeModel
-	case "array":
-		return FieldTypeArray
-	case "boolean":
-		return FieldTypeBool
-	case "integer":
-		return FieldTypeInteger
-	case "string":
-		return FieldTypeString
-	}
-	if hasModel {
-		return FieldTypeModel
-	} else {
-		return FieldTypeInterface
-	}
 }
 
 func findModel(resp []Response) string {

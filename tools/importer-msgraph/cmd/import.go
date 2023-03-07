@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"log"
 	"os"
-	"path/filepath"
 	"strings"
 	"time"
 
@@ -16,18 +15,22 @@ import (
 
 var _ cli.Command = ImportCommand{}
 
-func NewImportCommand(metadataDirectory, openApiFile string) func() (cli.Command, error) {
+func NewImportCommand(metadataDirectory, openApiFile, terraformDefinitionsPath, outputDirectory string) func() (cli.Command, error) {
 	return func() (cli.Command, error) {
 		return ImportCommand{
-			metadataDirectory: metadataDirectory,
-			openApiFile:       openApiFile,
+			metadataDirectory:        metadataDirectory,
+			openApiFile:              openApiFile,
+			outputDirectory:          outputDirectory,
+			terraformDefinitionsPath: terraformDefinitionsPath,
 		}, nil
 	}
 }
 
 type ImportCommand struct {
-	metadataDirectory string
-	openApiFile       string
+	metadataDirectory        string
+	openApiFile              string
+	outputDirectory          string
+	terraformDefinitionsPath string
 }
 
 func (ImportCommand) Synopsis() string {
@@ -35,48 +38,45 @@ func (ImportCommand) Synopsis() string {
 }
 
 func (ImportCommand) Help() string {
-	return fmt.Sprintf(`Imports Microsoft Graph API metadata and outputs a Go SDK
+	return fmt.Sprintf(`Imports and parses Microsoft Graph API metadata
 Arguments:
 
--output-dir=../generated-msgraph-sdk
-        Specifies the path where the generated files should be output
 -tags=applications,servicePrincipals'
-        Specifies a comma-separated list of tags to import, rather than the ensite API.
+        Specifies a comma-separated list of services to import, rather than the entire API.
 `)
 }
 
 func (c ImportCommand) Run(args []string) int {
+	var tagsRaw string
+
+	f := flag.NewFlagSet("importer-msgraph", flag.ExitOnError)
+	f.StringVar(&tagsRaw, "tags", "", "A list of comma separated tags to import")
+	f.Parse(args)
+
+	var tags []string
+	if tagsRaw != "" {
+		tags = strings.Split(tagsRaw, ",")
+	}
+
 	logger := hclog.New(&hclog.LoggerOptions{
 		Level:  hclog.DefaultLevel,
 		Output: hclog.DefaultOutput,
 		TimeFn: time.Now,
 	})
 
-	input := pipeline.RunInput{
-		Logger:            logger,
-		MetadataDirectory: c.metadataDirectory,
-		OpenApiFile:       c.openApiFile,
-		Tags:              make([]string, 0),
-	}
-
-	var tagNamesRaw string
-
-	f := flag.NewFlagSet("importer-msgraph", flag.ExitOnError)
-	f.StringVar(&input.OutputDirectory, "output-dir", "", "-output-dir=../generated-sdk-dev")
-	f.StringVar(&tagNamesRaw, "tags", "", "A list of comma separated tags to import")
-	f.Parse(args)
-
-	if tagNamesRaw != "" {
-		input.Tags = strings.Split(tagNamesRaw, ",")
-	}
-
-	if input.OutputDirectory == "" {
-		homeDir, _ := os.UserHomeDir()
-		input.OutputDirectory = filepath.Join(homeDir, "/Desktop/msgraph-sdk")
-	}
-
 	if strings.TrimSpace(os.Getenv("DEBUG")) != "" {
 		logger.SetLevel(hclog.Trace)
+	}
+
+	input := pipeline.RunInput{
+		Logger: logger,
+
+		MetadataDirectory:        c.metadataDirectory,
+		OpenApiFile:              c.openApiFile,
+		OutputDirectory:          c.outputDirectory,
+		ProviderPrefix:           "azuread",
+		Tags:                     tags,
+		TerraformDefinitionsPath: c.terraformDefinitionsPath,
 	}
 	if err := pipeline.Run(input); err != nil {
 		log.Printf("Error: %+v", err)

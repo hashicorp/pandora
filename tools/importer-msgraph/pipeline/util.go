@@ -1,6 +1,22 @@
 package pipeline
 
-import "sort"
+import (
+	"fmt"
+	"sort"
+	"strings"
+)
+
+func indent(in string, indent string) string {
+	inSlice := strings.Split(in, "\n")
+	out := make([]string, len(inSlice))
+	for i, line := range inSlice {
+		if len(line) > 0 {
+			line = fmt.Sprintf("%s%s", indent, line)
+		}
+		out[i] = line
+	}
+	return strings.Join(out, "\n")
+}
 
 func pointerTo[T any](input T) *T {
 	return &input

@@ -5,7 +5,7 @@ import (
 	"strings"
 )
 
-func templateClient(files *Tree, packageName string) error {
+func (pipelineTask) templateClient(files *Tree, packageName string) error {
 	clientName := strings.Title(packageName)
 	tmpl := []string{
 		`const defaultApiVersion = "v1.0"`,
@@ -24,20 +24,4 @@ func templateClient(files *Tree, packageName string) error {
 		}`, clientName),
 	}
 	return files.addFile(fmt.Sprintf("%s/client.go", packageName), templateFile(packageName, tmpl))
-}
-
-func templateOptions(files *Tree, packageName string) error {
-	tmpl := []string{
-		`type Options struct{}`,
-		`func (o Options) ToHeaders() *client.Headers {
-			return nil
-		}`,
-		`func (o Options) ToOData() *odata.Query {
-			return nil
-		}`,
-		`func (o Options) ToQuery() *client.QueryParams {
-			return nil
-		}`,
-	}
-	return files.addFile(fmt.Sprintf("%s/options.go", packageName), templateFile(packageName, tmpl))
 }

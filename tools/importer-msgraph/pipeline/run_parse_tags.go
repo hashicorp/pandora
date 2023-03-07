@@ -7,10 +7,10 @@ import (
 	"github.com/getkin/kin-openapi/openapi3"
 )
 
-type Tags map[string][]string
+type Services map[string][]string
 
-func parseTags(spec *openapi3.T) (Tags, error) {
-	tags := make(map[string][]string, 0)
+func parseServices(spec *openapi3.T) (Services, error) {
+	services := make(map[string][]string, 0)
 	for _, tag := range spec.Tags {
 		if tag == nil {
 			continue
@@ -20,13 +20,13 @@ func parseTags(spec *openapi3.T) (Tags, error) {
 			if len(t) != 2 {
 				return nil, fmt.Errorf("encountered malformed tag: %q", tag.Name)
 			}
-			if _, ok := tags[t[0]]; !ok {
-				tags[t[0]] = make([]string, 0)
+			if _, ok := services[t[0]]; !ok {
+				services[t[0]] = make([]string, 0)
 			}
-			tags[t[0]] = append(tags[t[0]], t[1])
+			services[t[0]] = append(services[t[0]], t[1])
 		}
 	}
-	return tags, nil
+	return services, nil
 }
 
 func tagMatches(tagName string, subtags []string, tags []string) bool {
