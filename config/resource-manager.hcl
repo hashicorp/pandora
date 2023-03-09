@@ -445,6 +445,10 @@ service "storagecache" {
   available = ["2021-09-01", "2023-01-01"]
   ignore    = ["2022-01-01", "2022-05-01"]
 }
+service "storagemover" {
+  name      = "StorageMover"
+  available = ["2023-03-01"]
+}
 service "storagepool" {
   name      = "StoragePool"
   available = ["2021-08-01"]
