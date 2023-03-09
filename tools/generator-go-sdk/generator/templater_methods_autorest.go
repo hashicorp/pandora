@@ -722,6 +722,9 @@ func (c %[1]s) responderFor%[2]s(resp *http.Response) (result %[5]s, err error) 
 		resp,
 		%[3]s)
 	result.HttpResponse = resp
+	if err != nil {
+		return
+	}
 	model, err := unmarshal%[4]sImplementation(respObj)
 	if err != nil {
 		return

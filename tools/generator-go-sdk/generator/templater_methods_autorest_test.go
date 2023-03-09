@@ -106,6 +106,9 @@ func TestTemplateMethodAutoRestDiscriminatedTypeResponder(t *testing.T) {
 			autorest.ByUnmarshallingJson(&respObj),
 			autorest.ByClosing())
 		result.HttpResponse = resp
+		if err != nil {
+			return
+		}
 		model, err := unmarshalPandaPopImplementation(respObj)
 		if err != nil {
 			return
