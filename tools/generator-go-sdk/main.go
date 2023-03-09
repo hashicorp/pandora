@@ -109,6 +109,7 @@ func main() {
 		"OperationsManagement",
 		"Orbital",
 		"PolicyInsights",
+		"Portal",
 		"PostgreSql",
 		"PostgreSqlHSC",
 		"PowerBIDedicated",
