@@ -56,13 +56,13 @@ configureFunc(%[1]s.Client)
 
 	out := fmt.Sprintf(`package %[1]s
 
+%[2]s
+
 import (
 	"github.com/hashicorp/go-azure-sdk/sdk/environments"
 	"github.com/hashicorp/go-azure-sdk/sdk/client/resourcemanager"
-	%[2]s
+	%[3]s
 )
-
-%[3]s
 
 type Client struct {
 	%[4]s
@@ -75,6 +75,6 @@ func NewClientWithBaseURI(api environments.Api, configureFunc func(c *resourcema
 		%[6]s
 	}, nil
 }
-`, packageName, strings.Join(imports, "\n"), *copyrightLines, strings.Join(fields, "\n"), strings.Join(clientInitialization, "\n"), strings.Join(assignments, "\n"))
+`, packageName, *copyrightLines, strings.Join(imports, "\n"), strings.Join(fields, "\n"), strings.Join(clientInitialization, "\n"), strings.Join(assignments, "\n"))
 	return &out, nil
 }

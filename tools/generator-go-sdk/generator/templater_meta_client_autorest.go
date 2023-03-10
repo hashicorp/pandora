@@ -54,12 +54,12 @@ configureAuthFunc(&%[1]s.Client)
 
 	out := fmt.Sprintf(`package %[1]s
 
+%[2]s
+
 import (
 	"github.com/Azure/go-autorest/autorest"
-	%[2]s
+	%[3]s
 )
-
-%[3]s
 
 type Client struct {
 	%[4]s
@@ -72,6 +72,6 @@ func NewClientWithBaseURI(endpoint string, configureAuthFunc func(c *autorest.Cl
 		%[6]s
 	}
 }
-`, packageName, strings.Join(imports, "\n"), *copyrightLines, strings.Join(fields, "\n"), strings.Join(clientInitialization, "\n"), strings.Join(assignments, "\n"))
+`, packageName, *copyrightLines, strings.Join(imports, "\n"), strings.Join(fields, "\n"), strings.Join(clientInitialization, "\n"), strings.Join(assignments, "\n"))
 	return &out, nil
 }
