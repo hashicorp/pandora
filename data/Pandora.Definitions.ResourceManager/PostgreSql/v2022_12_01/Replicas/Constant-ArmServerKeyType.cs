@@ -9,6 +9,6 @@ internal enum ArmServerKeyTypeConstant
     [Description("AzureKeyVault")]
     AzureKeyVault,
 
-    [Description("SystemAssigned")]
-    SystemAssigned,
+    [Description("SystemManaged")]
+    SystemManaged,
 }
