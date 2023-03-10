@@ -10,6 +10,7 @@ import (
 var workarounds = []workaround{
 	workaroundBatch21291{},
 	workaroundContainerService21394{},
+	workaroundDataFactory23013{},
 	workaroundLoadTest20961{},
 	workaroundRedis22407{},
 
