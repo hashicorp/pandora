@@ -21,7 +21,22 @@ internal class ListByServiceOperation : Operations.ListOperation
 
     public override Type NestedItemType() => typeof(DocumentationContractModel);
 
+    public override Type? OptionsObject() => typeof(ListByServiceOperation.ListByServiceOptions);
+
     public override string? UriSuffix() => "/documentations";
 
+    internal class ListByServiceOptions
+    {
+        [QueryStringName("$filter")]
+        [Optional]
+        public string Filter { get; set; }
 
+        [QueryStringName("$skip")]
+        [Optional]
+        public int Skip { get; set; }
+
+        [QueryStringName("$top")]
+        [Optional]
+        public int Top { get; set; }
+    }
 }

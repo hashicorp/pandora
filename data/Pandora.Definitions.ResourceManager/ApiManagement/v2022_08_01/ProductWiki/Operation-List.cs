@@ -21,7 +21,22 @@ internal class ListOperation : Operations.ListOperation
 
     public override Type NestedItemType() => typeof(WikiContractModel);
 
+    public override Type? OptionsObject() => typeof(ListOperation.ListOptions);
+
     public override string? UriSuffix() => "/wikis";
 
+    internal class ListOptions
+    {
+        [QueryStringName("$filter")]
+        [Optional]
+        public string Filter { get; set; }
 
+        [QueryStringName("$skip")]
+        [Optional]
+        public int Skip { get; set; }
+
+        [QueryStringName("$top")]
+        [Optional]
+        public int Top { get; set; }
+    }
 }
