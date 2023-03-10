@@ -12,7 +12,7 @@ using Pandora.Definitions.CustomTypes;
 
 namespace Pandora.Definitions.ResourceManager.DataFactory.v2018_06_01.DataFlowDebugSession;
 
-
+[ValueForType("LinkedServiceReference")]
 internal class LinkedServiceReferenceModel
 {
     [JsonPropertyName("parameters")]
@@ -21,8 +21,4 @@ internal class LinkedServiceReferenceModel
     [JsonPropertyName("referenceName")]
     [Required]
     public string ReferenceName { get; set; }
-
-    [JsonPropertyName("type")]
-    [Required]
-    public TypeConstant Type { get; set; }
 }
