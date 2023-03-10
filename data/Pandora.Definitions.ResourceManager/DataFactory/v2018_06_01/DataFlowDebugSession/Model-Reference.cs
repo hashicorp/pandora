@@ -12,13 +12,11 @@ using Pandora.Definitions.CustomTypes;
 
 namespace Pandora.Definitions.ResourceManager.DataFactory.v2018_06_01.DataFlowDebugSession;
 
-[ValueForType("IntegrationRuntimeReference")]
-internal class IntegrationRuntimeReferenceModel : ReferenceModel
-{
-    [JsonPropertyName("parameters")]
-    public Dictionary<string, object>? Parameters { get; set; }
 
-    [JsonPropertyName("referenceName")]
+internal abstract class ReferenceModel
+{
+    [JsonPropertyName("type")]
+    [ProvidesTypeHint]
     [Required]
-    public string ReferenceName { get; set; }
+    public string Type { get; set; }
 }
