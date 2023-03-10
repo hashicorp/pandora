@@ -32,6 +32,9 @@ func main() {
 		// instead of the base layer from `Azure/go-autorest` - as such this list is for compatibility purposes
 		// with services already used in `terraform-provider-azurerm`. These services will be gradually removed
 		// from this list to ensure they're migrated across to using `hashicorp/go-azure-sdk`s base layer.
+
+		// NOTE: also see the list in ./tools/generator-terraform/generator/definitions/template_service_client.go
+		// for services/resources which are auto-generated
 		"AAD",
 		"Advisor",
 		"AlertsManagement",
