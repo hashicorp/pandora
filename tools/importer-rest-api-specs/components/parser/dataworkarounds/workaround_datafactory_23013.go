@@ -55,6 +55,7 @@ func (workaroundDataFactory23013) Process(apiDefinition models.AzureApiDefinitio
 		}
 		delete(model.Fields, "Type")
 		model.ParentTypeName = pointer.To("Reference")
+		model.TypeHintIn = pointer.To("Type")
 		model.TypeHintValue = pointer.To(modelName)
 		resource.Models[modelName] = model
 	}
