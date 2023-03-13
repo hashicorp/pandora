@@ -12,13 +12,13 @@ internal class DatabaseAccountNameId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/providers/Microsoft.DocumentDB/databaseAccountNames/{databaseAccountNameName}";
+    public string ID => "/providers/Microsoft.DocumentDB/databaseAccountNames/{databaseAccountName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
         ResourceIDSegment.Static("staticProviders", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftDocumentDB", "Microsoft.DocumentDB"),
         ResourceIDSegment.Static("staticDatabaseAccountNames", "databaseAccountNames"),
-        ResourceIDSegment.UserSpecified("databaseAccountNameName"),
+        ResourceIDSegment.UserSpecified("databaseAccountName"),
     };
 }
