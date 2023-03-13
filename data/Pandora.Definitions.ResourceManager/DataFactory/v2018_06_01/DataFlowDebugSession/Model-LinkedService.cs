@@ -19,7 +19,7 @@ internal class LinkedServiceModel
     public List<object>? Annotations { get; set; }
 
     [JsonPropertyName("connectVia")]
-    public IntegrationRuntimeReferenceModel? ConnectVia { get; set; }
+    public ReferenceModel? ConnectVia { get; set; }
 
     [JsonPropertyName("description")]
     public string? Description { get; set; }
