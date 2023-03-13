@@ -26,7 +26,7 @@ internal class DatasetModel
 
     [JsonPropertyName("linkedServiceName")]
     [Required]
-    public LinkedServiceReferenceModel LinkedServiceName { get; set; }
+    public ReferenceModel LinkedServiceName { get; set; }
 
     [JsonPropertyName("parameters")]
     public Dictionary<string, ParameterSpecificationModel>? Parameters { get; set; }

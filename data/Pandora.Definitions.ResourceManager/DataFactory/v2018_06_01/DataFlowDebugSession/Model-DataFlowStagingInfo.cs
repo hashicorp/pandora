@@ -19,5 +19,5 @@ internal class DataFlowStagingInfoModel
     public object? FolderPath { get; set; }
 
     [JsonPropertyName("linkedService")]
-    public LinkedServiceReferenceModel? LinkedService { get; set; }
+    public ReferenceModel? LinkedService { get; set; }
 }
