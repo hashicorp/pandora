@@ -59,6 +59,28 @@ func (workaroundDataFactory23013) Process(apiDefinition models.AzureApiDefinitio
 		resource.Models[modelName] = model
 	}
 
+	// we need to update the usages of the discriminated types to use the parent
+	usages := map[string]string{
+		"LinkedService":       "ConnectVia",
+		"Dataset":             "LinkedServiceName",
+		"DataFlowStagingInfo": "LinkedService",
+	}
+
+	for modelName, fieldName := range usages {
+		model, ok := resource.Models[modelName]
+		if !ok {
+			return nil, fmt.Errorf("couldn't find model %q", modelName)
+		}
+		field, ok := model.Fields[fieldName]
+		if !ok {
+			return nil, fmt.Errorf("couldn't find field %q in model %q", fieldName, modelName)
+		}
+		field.ObjectDefinition.ReferenceName = pointer.To("Reference")
+
+		model.Fields[fieldName] = field
+		resource.Models[modelName] = model
+	}
+
 	// delete the now unused `Type` constant
 	delete(resource.Constants, "Type")
 
