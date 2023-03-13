@@ -43,7 +43,6 @@ func (workaroundDataFactory23013) Process(apiDefinition models.AzureApiDefinitio
 	}
 
 	// update the existing models to be discriminated types and remove the `type` field from them
-	// ` and `LinkedServiceReference
 	modelNames := []string{
 		"IntegrationRuntimeReference",
 		"LinkedServiceReference",

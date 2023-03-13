@@ -38,7 +38,10 @@ func (workaroundInconsistentlyDefinedSegments) Process(apiDefinition models.Azur
 						previous := segments[i-1]
 						if previous.Type == resourcemanager.StaticSegment && previous.FixedValue != nil {
 							singularNameOfPrevious := cleanup.GetSingular(*previous.FixedValue)
-							val.Name = fmt.Sprintf("%sName", singularNameOfPrevious)
+							val.Name = singularNameOfPrevious
+							if !strings.HasSuffix(val.Name, "Name") {
+								val.Name = fmt.Sprintf("%sName", singularNameOfPrevious)
+							}
 						}
 					}
 				}
