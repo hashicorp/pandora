@@ -88,7 +88,7 @@ service "containerinstance" {
 }
 service "containerregistry" {
   name      = "ContainerRegistry"
-  available = ["2021-08-01-preview"]
+  available = ["2021-08-01-preview", "2022-12-01"]
 }
 service "containerservice" {
   name      = "ContainerService"
@@ -235,7 +235,7 @@ service "iotcentral" {
 }
 service "keyvault" {
   name      = "KeyVault"
-  available = ["2021-10-01", "2022-11-01"]
+  available = ["2021-10-01", "2022-11-01", "2023-02-01"]
 }
 service "kubernetesconfiguration" {
   name      = "KubernetesConfiguration"
@@ -377,7 +377,7 @@ service "recoveryservicesbackup" {
 }
 service "recoveryservicessiterecovery" {
   name      = "RecoveryServicesSiteRecovery"
-  available = ["2022-10-01", "2023-01-01"]
+  available = ["2022-10-01", "2023-01-01", "2023-02-01"]
 }
 service "redhatopenshift" {
   name      = "RedHatOpenShift"
