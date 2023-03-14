@@ -299,7 +299,7 @@ service "mobilenetwork" {
 }
 service "monitor" {
   name      = "Insights"
-  available = ["2021-04-01", "2021-05-01-preview", "2021-08-01", "2022-10-01", "2023-01-01"]
+  available = ["2021-04-01", "2021-05-01-preview", "2021-08-01", "2022-06-01", "2022-10-01", "2023-01-01"]
 }
 service "msi" {
   name      = "ManagedIdentity"
