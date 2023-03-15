@@ -27,7 +27,7 @@ import (
 type autoClient struct {
 }
 
-func buildAutoClients(client *autoClient, o *common.ClientOptions) error {
+func buildAutoClients(client *autoClient, o *common.ClientOptions) (err error) {
 	return nil
 }
 `
@@ -71,7 +71,7 @@ type autoClient struct {
 	Resource   *resources_v2015_11_01_preview.Client
 }
 
-func buildAutoClients(client *autoClient, o *common.ClientOptions) error {
+func buildAutoClients(client *autoClient, o *common.ClientOptions) (err error) {
 	if client.Compute, err = compute.NewClient(o); err != nil {
 		return fmt.Errorf("building client for Compute: %+v", err)
 	}
