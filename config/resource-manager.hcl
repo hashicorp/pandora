@@ -435,7 +435,7 @@ service "servicelinker" {
 }
 service "signalr" {
   name      = "SignalR"
-  available = ["2022-02-01", "2023-02-01"]
+  available = ["2023-02-01"]
 }
 service "sqlvirtualmachine" {
   name      = "SqlVirtualMachine"
@@ -498,5 +498,5 @@ service "web" {
 }
 service "webpubsub" {
   name      = "WebPubSub"
-  available = ["2021-10-01", "2023-02-01"]
+  available = ["2023-02-01"]
 }
