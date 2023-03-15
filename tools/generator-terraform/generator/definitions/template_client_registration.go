@@ -53,7 +53,7 @@ type autoClient struct {
 	%[3]s
 }
 
-func buildAutoClients(client *autoClient, o *common.ClientOptions) error {
+func buildAutoClients(client *autoClient, o *common.ClientOptions) (err error) {
 	%[4]s
 	return nil
 }
