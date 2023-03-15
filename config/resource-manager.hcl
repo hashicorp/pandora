@@ -117,7 +117,7 @@ service "databoxedge" {
 }
 service "databricks" {
   name      = "Databricks"
-  available = ["2022-04-01-preview", "2023-02-01"]
+  available = ["2022-04-01-preview", "2022-10-01-preview", "2023-02-01"]
 }
 service "datadog" {
   name      = "DataDog"
