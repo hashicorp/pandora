@@ -3,9 +3,8 @@ package definitions
 import (
 	"testing"
 
-	"github.com/hashicorp/pandora/tools/sdk/testhelpers"
-
 	"github.com/hashicorp/pandora/tools/generator-terraform/generator/models"
+	"github.com/hashicorp/pandora/tools/sdk/testhelpers"
 )
 
 func TestCodeForClientRegistrationsEmpty(t *testing.T) {
@@ -73,10 +72,10 @@ type autoClient struct {
 }
 
 func buildAutoClients(client *autoClient, o *common.ClientOptions) error {
-	if client.Compute, err = compute.NewClient(o) {
+	if client.Compute, err = compute.NewClient(o); err != nil {
 		return fmt.Errorf("building client for Compute: %+v", err)
 	}
-	if client.Resource, err = resources.NewClient(o) {
+	if client.Resource, err = resources.NewClient(o); err != nil {
 		return fmt.Errorf("building client for Resource: %+v", err)
 	}
 	return nil

@@ -26,7 +26,7 @@ func codeForClientsRegistration(input models.ServicesInput) string {
 		structFields = append(structFields, structField)
 
 		assignmentLine := fmt.Sprintf(`
-		if client.%[1]s, err = %[2]s.NewClient(o) {
+		if client.%[1]s, err = %[2]s.NewClient(o); err != nil {
 			return fmt.Errorf("building client for %[1]s: %%+v", err)
 		}
 `, serviceName, service.ServicePackageName)
