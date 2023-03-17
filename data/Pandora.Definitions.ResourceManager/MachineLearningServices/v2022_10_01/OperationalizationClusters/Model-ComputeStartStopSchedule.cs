@@ -19,7 +19,7 @@ internal class ComputeStartStopScheduleModel
     public ComputePowerActionConstant? Action { get; set; }
 
     [JsonPropertyName("cron")]
-    public TriggerBaseModel? Cron { get; set; }
+    public CronModel? Cron { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }
@@ -28,7 +28,7 @@ internal class ComputeStartStopScheduleModel
     public ProvisioningStatusConstant? ProvisioningStatus { get; set; }
 
     [JsonPropertyName("recurrence")]
-    public TriggerBaseModel? Recurrence { get; set; }
+    public RecurrenceModel? Recurrence { get; set; }
 
     [JsonPropertyName("schedule")]
     public ScheduleBaseModel? Schedule { get; set; }
