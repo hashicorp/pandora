@@ -54,7 +54,6 @@ func main() {
 		"Consumption",
 		"ContainerApps",
 		"ContainerInstance",
-		"ContainerService",
 		"CosmosDB",
 		"CostManagement",
 		"CustomProviders",
@@ -67,7 +66,6 @@ func main() {
 		"DataMigration",
 		"DataProtection",
 		"DataShare",
-		"Databricks",
 		"DesktopVirtualization",
 		"DevTestLab",
 		"DeviceProvisioningServices",
@@ -91,12 +89,10 @@ func main() {
 		"KubernetesConfiguration",
 		"Kusto",
 		"LabServices",
-		"LoadTestService",
 		"Logic",
 		"Logz",
 		"MachineLearningServices",
 		"Maintenance",
-		"ManagedIdentity",
 		"ManagedServices",
 		"ManagementGroups",
 		"MariaDB",
@@ -153,6 +149,11 @@ func main() {
 		"Automation@2019-06-01",
 		"Automation@2020-01-13-preview",
 		"Automation@2021-06-22",
+
+		// @tombuildsstuff: there's generated resources associated with these three - please check before removing these
+		"ContainerService",
+		"LoadTestService",
+		"ManagedIdentity",
 	)
 
 	var serviceNames string
