@@ -13,7 +13,7 @@ using System.Net;
 
 namespace Pandora.Definitions.ResourceManager.PostgreSqlHSC.v2022_11_08.Configurations;
 
-internal class CreateOrUpdateCoordinatorOperation : Operations.PutOperation
+internal class UpdateOnCoordinatorOperation : Operations.PutOperation
 {
     public override bool LongRunning() => true;
 

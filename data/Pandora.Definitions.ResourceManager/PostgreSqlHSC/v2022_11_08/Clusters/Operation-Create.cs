@@ -13,7 +13,7 @@ using System.Net;
 
 namespace Pandora.Definitions.ResourceManager.PostgreSqlHSC.v2022_11_08.Clusters;
 
-internal class CreateOrUpdateOperation : Operations.PutOperation
+internal class CreateOperation : Operations.PutOperation
 {
     public override bool LongRunning() => true;
 
