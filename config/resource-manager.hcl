@@ -500,3 +500,7 @@ service "webpubsub" {
   name      = "WebPubSub"
   available = ["2023-02-01"]
 }
+service "workloads" {
+  name      = "Workloads"
+  available = ["2023-04-01"]
+}
