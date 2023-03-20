@@ -9,17 +9,11 @@ internal enum BillingSkuConstant
     [Description("G5")]
     GFive,
 
-    [Description("G4")]
-    GFour,
-
     [Description("G1")]
     GOne,
 
     [Description("G10")]
     GOneZero,
-
-    [Description("G3")]
-    GThree,
 
     [Description("G2")]
     GTwo,
