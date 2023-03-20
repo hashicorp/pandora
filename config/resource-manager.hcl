@@ -6,7 +6,7 @@ service "advisor" {
 }
 service "alertsmanagement" {
   name      = "AlertsManagement"
-  available = ["2021-08-08"]
+  available = ["2021-08-08", "2023-03-01"]
 }
 service "analysisservices" {
   name      = "AnalysisServices"
@@ -368,7 +368,7 @@ service "purview" {
 }
 service "recoveryservices" {
   name      = "RecoveryServices"
-  available = ["2021-08-01", "2021-12-01", "2022-03-01", "2022-08-01", "2022-09-10", "2022-10-01"]
+  available = ["2021-08-01", "2021-12-01", "2022-03-01", "2022-08-01", "2022-09-10", "2022-10-01", "2023-02-01"]
   ignore    = ["2023-01-01"]
 }
 service "recoveryservicesbackup" {
