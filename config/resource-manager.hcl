@@ -24,7 +24,7 @@ service "app" {
 }
 service "appconfiguration" {
   name      = "AppConfiguration"
-  available = ["2022-05-01"]
+  available = ["2022-05-01", "2023-03-01"]
 }
 service "applicationinsights" {
   name      = "ApplicationInsights"
@@ -81,7 +81,7 @@ service "confidentialledger" {
 }
 service "consumption" {
   name      = "Consumption"
-  available = ["2019-10-01", "2021-10-01"]
+  available = ["2019-10-01", "2021-10-01", "2022-09-01"]
 }
 service "containerinstance" {
   name      = "ContainerInstance"
@@ -220,7 +220,7 @@ service "healthbot" {
 }
 service "healthcareapis" {
   name      = "HealthcareApis"
-  available = ["2021-06-01-preview", "2022-06-01", "2022-12-01"]
+  available = ["2021-06-01-preview", "2022-06-01", "2022-12-01", "2023-02-28"]
 }
 service "hybridcompute" {
   name      = "HybridCompute"
