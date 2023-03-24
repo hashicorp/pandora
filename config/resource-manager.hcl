@@ -53,7 +53,7 @@ service "azure-kusto" {
 }
 service "azurestackhci" {
   name      = "AzureStackHCI"
-  available = ["2022-12-01", "2023-02-01"]
+  available = ["2022-12-01", "2023-02-01", "2023-03-01"]
 }
 service "batch" {
   name      = "Batch"
@@ -81,7 +81,7 @@ service "confidentialledger" {
 }
 service "consumption" {
   name      = "Consumption"
-  available = ["2019-10-01", "2021-10-01", "2022-09-01"]
+  available = ["2019-10-01", "2021-10-01", "2022-09-01", "2023-03-01"]
 }
 service "containerinstance" {
   name      = "ContainerInstance"
