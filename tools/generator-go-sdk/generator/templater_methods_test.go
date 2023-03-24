@@ -361,7 +361,7 @@ func (c pandaClient) ListCompleteMatchingPredicate(ctx context.Context, id Panda
 	}
 	return
 }
-`, "`json:\"values\"`")
+`, "`json:\"value\"`")
 
 	assertTemplatedCodeMatches(t, expected, *actual)
 
