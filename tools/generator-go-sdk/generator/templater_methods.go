@@ -542,7 +542,7 @@ func (c methodsPandoraTemplater) unmarshalerTemplate(data ServiceGeneratorData) 
 	}
 
 	result.Model = values.Values
-`, typeName, "`json:\"values\"`")
+`, typeName, "`json:\"value\"`")
 		} else {
 			output = fmt.Sprintf(`
 	if err = resp.Unmarshal(&result.Model); err != nil {
