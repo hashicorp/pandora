@@ -10,7 +10,7 @@ import (
 func TestTemplateConstantsSingle(t *testing.T) {
 	actual, err := constantsTemplater{
 		// output the bare minimum for testing
-		constantTemplateFunc: func(name string, details resourcemanager.ConstantDetails) (*string, error) {
+		constantTemplateFunc: func(name string, details resourcemanager.ConstantDetails, generateNormalizationFunction bool) (*string, error) {
 			out := fmt.Sprintf("// template for %s", name)
 			return &out, nil
 		},
@@ -43,7 +43,7 @@ func TestTemplateConstantsMultiple(t *testing.T) {
 	// asserting these are output alphabetically
 	actual, err := constantsTemplater{
 		// output the bare minimum for testing
-		constantTemplateFunc: func(name string, details resourcemanager.ConstantDetails) (*string, error) {
+		constantTemplateFunc: func(name string, details resourcemanager.ConstantDetails, generateNormalizationFunction bool) (*string, error) {
 			out := fmt.Sprintf("// template for %s", name)
 			return &out, nil
 		},

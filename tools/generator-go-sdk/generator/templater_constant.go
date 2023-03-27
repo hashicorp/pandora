@@ -9,14 +9,16 @@ import (
 )
 
 type constantTemplater struct {
-	name    string
-	details resourcemanager.ConstantDetails
+	name                          string
+	details                       resourcemanager.ConstantDetails
+	generateNormalizationFunction bool
 }
 
-func templateForConstant(name string, details resourcemanager.ConstantDetails) (*string, error) {
+func templateForConstant(name string, details resourcemanager.ConstantDetails, generateNormalizationFunc bool) (*string, error) {
 	t := constantTemplater{
-		name:    name,
-		details: details,
+		name:                          name,
+		details:                       details,
+		generateNormalizationFunction: generateNormalizationFunc,
 	}
 
 	valueKeys := make([]string, 0)
@@ -25,9 +27,9 @@ func templateForConstant(name string, details resourcemanager.ConstantDetails) (
 	}
 	sort.Strings(valueKeys)
 
-	// TODO: handle this needing a custom deserializer/serializer for rewriting (available in the Parse function)
 	constantDefinition := t.constantDefinition()
 	possibleValuesFunction := t.possibleValuesFunction()
+	normalizationFunction := t.normalizationFunction()
 
 	parseFunction, err := t.parseFunction()
 	if err != nil {
@@ -37,6 +39,7 @@ func templateForConstant(name string, details resourcemanager.ConstantDetails) (
 	out := strings.Join([]string{
 		constantDefinition,
 		possibleValuesFunction,
+		normalizationFunction,
 		*parseFunction,
 	}, "\n")
 	return &out, nil
@@ -68,6 +71,30 @@ const (
 %[3]s
 )
 `, t.name, constantType, strings.Join(definitionLines, "\n"))
+}
+
+func (t constantTemplater) normalizationFunction() string {
+	if !t.generateNormalizationFunction || t.details.Type != resourcemanager.StringConstant {
+		return ""
+	}
+
+	// since we're only normalizing string values, we're intentionally being opinionated here
+	return fmt.Sprintf(`
+func (s *%[1]s) UnmarshalJSON(bytes []byte) error {
+	var decoded string
+	if err := json.Unmarshal(bytes, &decoded); err != nil {
+		return fmt.Errorf("unmarshaling: %%+v", err)
+	}
+	for _, v := range PossibleValuesFor%[1]s() {
+		if strings.EqualFold(v, decoded) {
+			decoded = v
+			break
+		}
+	}
+	*s = %[1]s(decoded)
+	return nil
+}
+`, t.name)
 }
 
 func (t constantTemplater) possibleValuesFunction() string {

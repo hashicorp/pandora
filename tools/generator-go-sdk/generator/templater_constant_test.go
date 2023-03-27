@@ -14,7 +14,7 @@ func TestTemplateFloatConstant(t *testing.T) {
 			"FourPointTwo": "4.2",
 			"TwoPointSix":  "2.6",
 		},
-	})
+	}, false)
 	if err != nil {
 		t.Fatal(err.Error())
 	}
@@ -58,7 +58,7 @@ func TestTemplateIntegerConstant(t *testing.T) {
 			"TenSix": "16",
 			"Two":    "2",
 		},
-	})
+	}, false)
 	if err != nil {
 		t.Fatal(err.Error())
 	}
@@ -105,7 +105,7 @@ func TestTemplateStringConstant(t *testing.T) {
 			"Oslo":   "oslo",
 			"Sydney": "sydney",
 		},
-	})
+	}, false)
 	if err != nil {
 		t.Fatal(err.Error())
 	}
@@ -123,6 +123,68 @@ func PossibleValuesForCapital() []string {
         string(CapitalOslo),
         string(CapitalSydney),
 	}
+}
+
+func parseCapital(input string) (*Capital, error) {
+	vals := map[string]Capital{
+		"berlin": CapitalBerlin,
+        "oslo": CapitalOslo,
+        "sydney": CapitalSydney,
+	}
+	if v, ok := vals[strings.ToLower(input)]; ok {
+    	return &v, nil
+	}
+        
+	// otherwise presume it's an undefined value and best-effort it
+	out := Capital(input)
+	return &out, nil
+}
+`
+	assertTemplatedCodeMatches(t, expected, *actual)
+}
+
+func TestTemplateStringConstantWithNormalizationFunction(t *testing.T) {
+	actual, err := templateForConstant("Capital", resourcemanager.ConstantDetails{
+		CaseInsensitive: false,
+		Type:            resourcemanager.StringConstant,
+		Values: map[string]string{
+			"Berlin": "berlin",
+			"Oslo":   "oslo",
+			"Sydney": "sydney",
+		},
+	}, true)
+	if err != nil {
+		t.Fatal(err.Error())
+	}
+	expected := `type Capital string
+
+const (
+	CapitalBerlin Capital = "berlin"
+	CapitalOslo Capital = "oslo"
+	CapitalSydney Capital = "sydney"
+)
+
+func PossibleValuesForCapital() []string {
+	return []string{
+		string(CapitalBerlin),
+        string(CapitalOslo),
+        string(CapitalSydney),
+	}
+}
+
+func (s *Capital) UnmarshalJSON(bytes []byte) error {
+	var decoded string
+	if err := json.Unmarshal(bytes, &decoded); err != nil {
+		return fmt.Errorf("unmarshaling: %+v", err)
+	}
+	for _, v := range PossibleValuesForCapital() {
+		if strings.EqualFold(v, decoded) {
+			decoded = v
+			break
+		}
+	}
+	*s = Capital(decoded)
+	return nil
 }
 
 func parseCapital(input string) (*Capital, error) {

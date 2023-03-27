@@ -2,6 +2,7 @@ package generator
 
 import (
 	"fmt"
+	"github.com/hashicorp/pandora/tools/generator-go-sdk/featureflags"
 	"sort"
 	"strings"
 
@@ -11,7 +12,7 @@ import (
 var _ templaterForResource = constantsTemplater{}
 
 type constantsTemplater struct {
-	constantTemplateFunc func(name string, details resourcemanager.ConstantDetails) (*string, error)
+	constantTemplateFunc func(name string, details resourcemanager.ConstantDetails, generateNormalizationFunction bool) (*string, error)
 }
 
 func (c constantsTemplater) template(data ServiceGeneratorData) (*string, error) {
@@ -30,7 +31,7 @@ func (c constantsTemplater) template(data ServiceGeneratorData) (*string, error)
 	for _, constantName := range keys {
 		values := data.constants[constantName]
 
-		constantLines, err := c.constantTemplateFunc(constantName, values)
+		constantLines, err := c.constantTemplateFunc(constantName, values, featureflags.GenerateNormalizationFunctionsForConstants)
 		if err != nil {
 			return nil, fmt.Errorf("generating template for constant %q: %+v", constantName, err)
 		}
