@@ -31,20 +31,6 @@ func PossibleValuesForMyConstant() []float64 {
         float64(MyConstantTwoPointSix),
 	}
 }
-
-func parseMyConstant(input float64) (*MyConstant, error) {
-	vals := map[float64]MyConstant{
-        4.2: MyConstantFourPointTwo,
-        2.6: MyConstantTwoPointSix,
-	}
-	if v, ok := vals[input]; ok {
-    	return &v, nil
-	}
-        
-	// otherwise presume it's an undefined value and best-effort it
-	out := MyConstant(input)
-	return &out, nil
-}
 `
 	assertTemplatedCodeMatches(t, expected, *actual)
 }
@@ -77,21 +63,6 @@ func PossibleValuesForMamboNumber() []int64 {
 		int64(MamboNumberTwo),
 	}
 }
-
-func parseMamboNumber(input int64) (*MamboNumber, error) {
-	vals := map[int64]MamboNumber{
-        5: MamboNumberFive,
-        16: MamboNumberTenSix,
-		2: MamboNumberTwo,
-	}
-	if v, ok := vals[input]; ok {
-    	return &v, nil
-	}
-        
-	// otherwise presume it's an undefined value and best-effort it
-	out := MamboNumber(input)
-	return &out, nil
-}
 `
 	assertTemplatedCodeMatches(t, expected, *actual)
 }
@@ -123,21 +94,6 @@ func PossibleValuesForCapital() []string {
         string(CapitalOslo),
         string(CapitalSydney),
 	}
-}
-
-func parseCapital(input string) (*Capital, error) {
-	vals := map[string]Capital{
-		"berlin": CapitalBerlin,
-        "oslo": CapitalOslo,
-        "sydney": CapitalSydney,
-	}
-	if v, ok := vals[strings.ToLower(input)]; ok {
-    	return &v, nil
-	}
-        
-	// otherwise presume it's an undefined value and best-effort it
-	out := Capital(input)
-	return &out, nil
 }
 `
 	assertTemplatedCodeMatches(t, expected, *actual)
@@ -185,21 +141,6 @@ func (s *Capital) UnmarshalJSON(bytes []byte) error {
 	}
 	*s = Capital(decoded)
 	return nil
-}
-
-func parseCapital(input string) (*Capital, error) {
-	vals := map[string]Capital{
-		"berlin": CapitalBerlin,
-        "oslo": CapitalOslo,
-        "sydney": CapitalSydney,
-	}
-	if v, ok := vals[strings.ToLower(input)]; ok {
-    	return &v, nil
-	}
-        
-	// otherwise presume it's an undefined value and best-effort it
-	out := Capital(input)
-	return &out, nil
 }
 `
 	assertTemplatedCodeMatches(t, expected, *actual)
