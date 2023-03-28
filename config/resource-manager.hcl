@@ -53,7 +53,7 @@ service "azure-kusto" {
 }
 service "azurestackhci" {
   name      = "AzureStackHCI"
-  available = ["2022-12-01", "2023-02-01"]
+  available = ["2022-12-01", "2023-02-01", "2023-03-01"]
 }
 service "batch" {
   name      = "Batch"
@@ -69,7 +69,7 @@ service "cognitiveservices" {
 }
 service "communication" {
   name      = "Communication"
-  available = ["2020-08-20"]
+  available = ["2020-08-20", "2023-03-31"]
 }
 service "compute" {
   name      = "Compute"
@@ -81,7 +81,7 @@ service "confidentialledger" {
 }
 service "consumption" {
   name      = "Consumption"
-  available = ["2019-10-01", "2021-10-01", "2022-09-01"]
+  available = ["2019-10-01", "2021-10-01", "2022-09-01", "2023-03-01"]
 }
 service "containerinstance" {
   name      = "ContainerInstance"
@@ -411,7 +411,7 @@ service "search" {
 }
 service "security" {
   name      = "Security"
-  available = ["2022-03-01", "2022-05-01"]
+  available = ["2022-03-01", "2022-05-01", "2023-01-01"]
 }
 service "securityinsights" {
   name      = "SecurityInsights"
