@@ -17,6 +17,7 @@ public abstract class PatchOperation : ApiOperation
     {
         return new List<HttpStatusCode>
         {
+            HttpStatusCode.Created,
             HttpStatusCode.OK,
         };
     }
