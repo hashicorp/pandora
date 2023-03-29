@@ -254,7 +254,7 @@ func TestComponentAttributes(t *testing.T) {
 
 	expected := strings.ReplaceAll(`## Attributes Reference
 
-The following attributes are exported:
+In addition to the Arguments listed above - the following Attributes are exported:
 
 * 'id' - The ID of the Test Resource.
 
