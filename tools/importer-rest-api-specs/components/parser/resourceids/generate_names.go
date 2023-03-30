@@ -122,7 +122,7 @@ func generateNamesForResourceIds(input []models.ParsedResourceId, log hclog.Logg
 
 		if _, ok := conflictUniqNames[k]; ok {
 			for idx, v2 := range uri2ResourceId {
-				if v2.ResourceId.ID() == v.ID() && (v2.ResourceIdName != nil && *v2.ResourceIdName != key) {
+				if v2.ResourceId != nil && v2.ResourceId.ID() == v.ID() && (v2.ResourceIdName != nil && *v2.ResourceIdName != key) {
 					v2.ResourceIdName = &key
 					uri2ResourceId[idx] = v2
 				}
