@@ -433,7 +433,7 @@ var redisPatchSchedulesResourceId = models.ParsedResourceId{
 }
 
 func TestResourceIDNamingEmpty(t *testing.T) {
-	actualNamesToIds, err := generateNamesForResourceIds([]models.ParsedResourceId{}, hclog.NewNullLogger())
+	actualNamesToIds, err := generateNamesForResourceIds([]models.ParsedResourceId{}, hclog.NewNullLogger(), nil)
 	if err != nil {
 		t.Fatalf("error: %+v", err)
 		return
@@ -452,7 +452,7 @@ func TestResourceIDNamingSubscriptionId(t *testing.T) {
 		"SubscriptionId": subscriptionResourceId,
 	}
 
-	actualNamesToIds, err := generateNamesForResourceIds(input, hclog.NewNullLogger())
+	actualNamesToIds, err := generateNamesForResourceIds(input, hclog.NewNullLogger(), nil)
 	if err != nil {
 		t.Fatalf("error: %+v", err)
 		return
@@ -473,7 +473,7 @@ func TestResourceIDNamingSubscriptionIdAndSuffix(t *testing.T) {
 		"SubscriptionId": subscriptionResourceId,
 	}
 
-	actualNamesToIds, err := generateNamesForResourceIds(input, hclog.NewNullLogger())
+	actualNamesToIds, err := generateNamesForResourceIds(input, hclog.NewNullLogger(), nil)
 	if err != nil {
 		t.Fatalf("error: %+v", err)
 		return
@@ -492,7 +492,7 @@ func TestResourceIDNamingResourceGroupId(t *testing.T) {
 		"ResourceGroupId": resourceGroupResourceId,
 	}
 
-	actualNamesToIds, err := generateNamesForResourceIds(input, hclog.NewNullLogger())
+	actualNamesToIds, err := generateNamesForResourceIds(input, hclog.NewNullLogger(), nil)
 	if err != nil {
 		t.Fatalf("error: %+v", err)
 		return
@@ -513,7 +513,7 @@ func TestResourceIDNamingResourceGroupIdAndSuffix(t *testing.T) {
 		"ResourceGroupId": resourceGroupResourceId,
 	}
 
-	actualNamesToIds, err := generateNamesForResourceIds(input, hclog.NewNullLogger())
+	actualNamesToIds, err := generateNamesForResourceIds(input, hclog.NewNullLogger(), nil)
 	if err != nil {
 		t.Fatalf("error: %+v", err)
 		return
@@ -532,7 +532,7 @@ func TestResourceIDNamingManagementGroupId(t *testing.T) {
 		"ManagementGroupId": managementGroupResourceId,
 	}
 
-	actualNamesToIds, err := generateNamesForResourceIds(input, hclog.NewNullLogger())
+	actualNamesToIds, err := generateNamesForResourceIds(input, hclog.NewNullLogger(), nil)
 	if err != nil {
 		t.Fatalf("error: %+v", err)
 		return
@@ -553,7 +553,7 @@ func TestResourceIDNamingManagementGroupIdAndSuffix(t *testing.T) {
 		"ManagementGroupId": managementGroupResourceId,
 	}
 
-	actualNamesToIds, err := generateNamesForResourceIds(input, hclog.NewNullLogger())
+	actualNamesToIds, err := generateNamesForResourceIds(input, hclog.NewNullLogger(), nil)
 	if err != nil {
 		t.Fatalf("error: %+v", err)
 		return
@@ -572,7 +572,7 @@ func TestResourceIDNamingEventHubSkuId(t *testing.T) {
 		"SkuId": eventHubSkuResourceId,
 	}
 
-	actualNamesToIds, err := generateNamesForResourceIds(input, hclog.NewNullLogger())
+	actualNamesToIds, err := generateNamesForResourceIds(input, hclog.NewNullLogger(), nil)
 	if err != nil {
 		t.Fatalf("error: %+v", err)
 		return
@@ -601,7 +601,7 @@ func TestResourceIDNamingTopLevelScope(t *testing.T) {
 		"ScopeId": scopeResourceId,
 	}
 
-	actualNamesToIds, err := generateNamesForResourceIds(input, hclog.NewNullLogger())
+	actualNamesToIds, err := generateNamesForResourceIds(input, hclog.NewNullLogger(), nil)
 	if err != nil {
 		t.Fatalf("error: %+v", err)
 		return
@@ -671,7 +671,7 @@ func TestResourceIDNamingContainingAConstant(t *testing.T) {
 		"RecordTypeId": dnsResourceId,
 	}
 
-	actualNamesToIds, err := generateNamesForResourceIds(input, hclog.NewNullLogger())
+	actualNamesToIds, err := generateNamesForResourceIds(input, hclog.NewNullLogger(), nil)
 	if err != nil {
 		t.Fatalf("error: %+v", err)
 		return
@@ -743,7 +743,7 @@ func TestResourceIDNamingContainingAConstantAndSuffix(t *testing.T) {
 		"RecordTypeId": dnsResourceId,
 	}
 
-	actualNamesToIds, err := generateNamesForResourceIds(input, hclog.NewNullLogger())
+	actualNamesToIds, err := generateNamesForResourceIds(input, hclog.NewNullLogger(), nil)
 	if err != nil {
 		t.Fatalf("error: %+v", err)
 		return
@@ -762,7 +762,7 @@ func TestResourceIdNamingTopLevelResourceId(t *testing.T) {
 		"VirtualMachineId": virtualMachineResourceId,
 	}
 
-	actualNamesToIds, err := generateNamesForResourceIds(input, hclog.NewNullLogger())
+	actualNamesToIds, err := generateNamesForResourceIds(input, hclog.NewNullLogger(), nil)
 	if err != nil {
 		t.Fatalf("error: %+v", err)
 		return
@@ -783,7 +783,7 @@ func TestResourceIdNamingTopLevelAndNestedResourceId(t *testing.T) {
 		"ExtensionId":      virtualMachineExtensionResourceId,
 	}
 
-	actualNamesToIds, err := generateNamesForResourceIds(input, hclog.NewNullLogger())
+	actualNamesToIds, err := generateNamesForResourceIds(input, hclog.NewNullLogger(), nil)
 	if err != nil {
 		t.Fatalf("error: %+v", err)
 		return
@@ -802,7 +802,7 @@ func TestResourceIdNamingNestedResourceId(t *testing.T) {
 		"ExtensionId": virtualMachineExtensionResourceId,
 	}
 
-	actualNamesToIds, err := generateNamesForResourceIds(input, hclog.NewNullLogger())
+	actualNamesToIds, err := generateNamesForResourceIds(input, hclog.NewNullLogger(), nil)
 	if err != nil {
 		t.Fatalf("error: %+v", err)
 		return
@@ -821,7 +821,7 @@ func TestResourceIdNamingResourceUnderScope(t *testing.T) {
 		"ScopedExtensionId": scopedMonitorResourceId,
 	}
 
-	actualNamesToIds, err := generateNamesForResourceIds(input, hclog.NewNullLogger())
+	actualNamesToIds, err := generateNamesForResourceIds(input, hclog.NewNullLogger(), nil)
 	if err != nil {
 		t.Fatalf("error: %+v", err)
 		return
@@ -842,7 +842,7 @@ func TestResourceIdNamingConflictingTwoLevels(t *testing.T) {
 		"ExtensionId":               virtualNetworkExtensionResourceId,
 	}
 
-	actualNamesToIds, err := generateNamesForResourceIds(input, hclog.NewNullLogger())
+	actualNamesToIds, err := generateNamesForResourceIds(input, hclog.NewNullLogger(), nil)
 	if err != nil {
 		t.Fatalf("error: %+v", err)
 		return
@@ -1136,7 +1136,7 @@ func TestResourceIdNamingConflictingMultipleLevels(t *testing.T) {
 		"ModuleId":             instanceProcessModuleResourceId,
 	}
 
-	actualNamesToIds, err := generateNamesForResourceIds(input, hclog.NewNullLogger())
+	actualNamesToIds, err := generateNamesForResourceIds(input, hclog.NewNullLogger(), nil)
 	if err != nil {
 		t.Fatalf("error: %+v", err)
 		return
@@ -1155,7 +1155,7 @@ func TestResourceIdNamingSignalRId(t *testing.T) {
 		"SignalRId": signalRResourceId,
 	}
 
-	actualNamesToIds, err := generateNamesForResourceIds(input, hclog.NewNullLogger())
+	actualNamesToIds, err := generateNamesForResourceIds(input, hclog.NewNullLogger(), nil)
 	if err != nil {
 		t.Fatalf("error: %+v", err)
 		return
@@ -1174,7 +1174,7 @@ func TestResourceIdNamingTrafficManagerEndpoint(t *testing.T) {
 		"EndpointTypeId": trafficManagerProfileResourceId,
 	}
 
-	actualNamesToIds, err := generateNamesForResourceIds(input, hclog.NewNullLogger())
+	actualNamesToIds, err := generateNamesForResourceIds(input, hclog.NewNullLogger(), nil)
 	if err != nil {
 		t.Fatalf("error: %+v", err)
 		return
@@ -1193,7 +1193,7 @@ func TestResourceIDNamingRedisDefaultId(t *testing.T) {
 		"DefaultId": redisPatchSchedulesResourceId,
 	}
 
-	actualNamesToIds, err := generateNamesForResourceIds(input, hclog.NewNullLogger())
+	actualNamesToIds, err := generateNamesForResourceIds(input, hclog.NewNullLogger(), nil)
 	if err != nil {
 		t.Fatalf("error: %+v", err)
 		return
