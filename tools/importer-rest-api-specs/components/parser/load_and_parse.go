@@ -23,11 +23,13 @@ func LoadAndParseFiles(directory string, fileNames []string, serviceName, apiVer
 	// which means these won't conflict and ultimately enables #44 (aliasing) in
 	// the future.
 	resourceIdResult := &resourceids.ParseResult{}
+	var file2Swagger = make(map[string]*SwaggerDefinition, len(fileNames))
 	for _, file := range fileNames {
 		swaggerFile, err := load(directory, file, logger)
 		if err != nil {
 			return nil, fmt.Errorf("parsing file %q: %+v", file, err)
 		}
+		file2Swagger[file] = swaggerFile
 
 		parsedResourceIds, err := swaggerFile.ParseResourceIds(resourceProvider)
 		if err != nil {
@@ -40,10 +42,7 @@ func LoadAndParseFiles(directory string, fileNames []string, serviceName, apiVer
 
 	parsed := make(map[string]models.AzureApiDefinition, 0)
 	for _, file := range fileNames {
-		swaggerFile, err := load(directory, file, logger)
-		if err != nil {
-			return nil, fmt.Errorf("parsing file %q: %+v", file, err)
-		}
+		swaggerFile := file2Swagger[file]
 
 		definition, err := swaggerFile.parse(serviceName, apiVersion, resourceProvider, *resourceIdResult)
 		if err != nil {
