@@ -407,8 +407,7 @@ service "resources" {
 }
 service "search" {
   name      = "Search"
-  available = ["2020-03-13", "2020-08-01"]
-  ignore    = ["2022-09-01"]
+  available = ["2020-03-13", "2020-08-01", "2022-09-01"]
 }
 service "security" {
   name      = "Security"
