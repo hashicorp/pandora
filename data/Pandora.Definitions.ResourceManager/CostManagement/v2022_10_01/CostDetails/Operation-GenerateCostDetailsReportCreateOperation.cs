@@ -18,6 +18,7 @@ internal class GenerateCostDetailsReportCreateOperationOperation : Operations.Po
     public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
+                HttpStatusCode.NoContent,
                 HttpStatusCode.OK,
         };
 
