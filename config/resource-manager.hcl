@@ -206,6 +206,10 @@ service "elasticsan" {
   name      = "ElasticSan"
   available = ["2021-11-20-preview"]
 }
+service "eventgrid" {
+  name      = "EventGrid"
+  available = ["2021-12-01"]
+}
 service "eventhub" {
   name      = "EventHub"
   available = ["2021-11-01", "2022-01-01-preview"]
