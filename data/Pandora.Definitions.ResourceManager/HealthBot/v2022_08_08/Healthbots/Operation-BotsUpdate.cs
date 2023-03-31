@@ -15,6 +15,8 @@ namespace Pandora.Definitions.ResourceManager.HealthBot.v2022_08_08.Healthbots;
 
 internal class BotsUpdateOperation : Operations.PatchOperation
 {
+    public override bool LongRunning() => true;
+
     public override Type? RequestObject() => typeof(HealthBotUpdateParametersModel);
 
     public override ResourceID? ResourceId() => new HealthBotId();
