@@ -75,6 +75,7 @@ func NormalizeSegment(input string, camelCase bool) string {
 	fixed := map[string]string{
 		// these are intentionally lower-case keys -> camelCased segments
 		"accounts":           "accounts",
+		"alertrules":         "alertRules",
 		"alertruletemplates": "alertRuleTemplates",
 		"apiversion":         "apiVersion",
 		"applicationgatewaywebapplicationfirewallpolicies": "applicationGatewayWebApplicationFirewallPolicies",
@@ -127,6 +128,7 @@ func NormalizeSegment(input string, camelCase bool) string {
 		"iotsecuritysolutions":                    "iotSecuritySolutions",
 		"iscsiservers":                            "iscsiServers",
 		"linkedservices":                          "linkedServices",
+		"logprofiles":                             "logProfiles",
 		"managedclusters":                         "managedClusters",
 		"mediaservices":                           "mediaServices",
 		"managedclustersnapshots":                 "managedClusterSnapshots",
