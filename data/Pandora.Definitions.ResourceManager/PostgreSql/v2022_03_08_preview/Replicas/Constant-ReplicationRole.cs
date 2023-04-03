@@ -12,21 +12,9 @@ internal enum ReplicationRoleConstant
     [Description("GeoAsyncReplica")]
     GeoAsyncReplica,
 
-    [Description("GeoSyncReplica")]
-    GeoSyncReplica,
-
     [Description("None")]
     None,
 
     [Description("Primary")]
     Primary,
-
-    [Description("Secondary")]
-    Secondary,
-
-    [Description("SyncReplica")]
-    SyncReplica,
-
-    [Description("WalReplica")]
-    WalReplica,
 }
