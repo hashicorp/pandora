@@ -7,7 +7,6 @@ using Pandora.Definitions.DataPlane;
 using Pandora.Definitions.HandDefined;
 using Pandora.Definitions.Interfaces;
 using Pandora.Definitions.ResourceManager;
-using Pandora.Definitions.TestData;
 using ServiceDefinition = Pandora.Data.Models.ServiceDefinition;
 
 namespace Pandora.Data;
@@ -30,12 +29,6 @@ public class ServiceDefinitionsTests
     public void ValidateResourceManagerServiceDefinitions()
     {
         ValidateAssemblyContainingServiceDefinitions(new ResourceManagerServices());
-    }
-
-    [TestCase]
-    public void ValidateTestDataServiceDefinitions()
-    {
-        ValidateAssemblyContainingServiceDefinitions(new TestDataServices());
     }
 
     private static void ValidateAssemblyContainingServiceDefinitions(ServicesDefinition assemblyServiceDefinition)
