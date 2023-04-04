@@ -18,4 +18,16 @@ internal class Definition : ResourceDefinition
         new TagRulesGetOperation(),
         new TagRulesListOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ProvisioningStateConstant),
+        typeof(TagActionConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(FilteringTagModel),
+        typeof(LogRulesModel),
+        typeof(MonitoringTagRulesModel),
+        typeof(MonitoringTagRulesPropertiesModel),
+    };
 }

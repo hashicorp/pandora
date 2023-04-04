@@ -15,4 +15,16 @@ internal class Definition : ResourceDefinition
     {
         new ListOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(LotSourceConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AmountModel),
+        typeof(AmountWithExchangeRateModel),
+        typeof(LotPropertiesModel),
+        typeof(LotSummaryModel),
+        typeof(ResellerModel),
+    };
 }

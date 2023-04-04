@@ -19,4 +19,15 @@ internal class Definition : ResourceDefinition
         new ListByApplicationTypesOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ApplicationTypeVersionResourceModel),
+        typeof(ApplicationTypeVersionResourcePropertiesModel),
+        typeof(ApplicationTypeVersionUpdateParametersModel),
+        typeof(SystemDataModel),
+    };
 }

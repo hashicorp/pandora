@@ -18,4 +18,13 @@ internal class Definition : ResourceDefinition
         new GetOperation(),
         new ListByDataBoxEdgeDeviceOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(DayOfWeekConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(BandwidthScheduleModel),
+        typeof(BandwidthSchedulePropertiesModel),
+    };
 }

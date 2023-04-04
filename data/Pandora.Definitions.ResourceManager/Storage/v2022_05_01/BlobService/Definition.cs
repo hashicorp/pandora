@@ -17,4 +17,24 @@ internal class Definition : ResourceDefinition
         new ListOperation(),
         new SetServicePropertiesOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AllowedMethodsConstant),
+        typeof(NameConstant),
+        typeof(SkuNameConstant),
+        typeof(SkuTierConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(BlobServiceItemsModel),
+        typeof(BlobServicePropertiesModel),
+        typeof(BlobServicePropertiesPropertiesModel),
+        typeof(ChangeFeedModel),
+        typeof(CorsRuleModel),
+        typeof(CorsRulesModel),
+        typeof(DeleteRetentionPolicyModel),
+        typeof(LastAccessTimeTrackingPolicyModel),
+        typeof(RestorePolicyPropertiesModel),
+        typeof(SkuModel),
+    };
 }

@@ -24,4 +24,23 @@ internal class Definition : ResourceDefinition
         new UpdateOperation(),
         new UserSubscriptionGetOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AccessIdNameConstant),
+        typeof(AppTypeConstant),
+        typeof(IdentityProviderTypeConstant),
+        typeof(NotificationNameConstant),
+        typeof(SubscriptionStateConstant),
+        typeof(TemplateNameConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(SubscriptionContractModel),
+        typeof(SubscriptionContractPropertiesModel),
+        typeof(SubscriptionCreateParameterPropertiesModel),
+        typeof(SubscriptionCreateParametersModel),
+        typeof(SubscriptionKeysContractModel),
+        typeof(SubscriptionUpdateParameterPropertiesModel),
+        typeof(SubscriptionUpdateParametersModel),
+    };
 }

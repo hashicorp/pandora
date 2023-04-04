@@ -21,4 +21,17 @@ internal class Definition : ResourceDefinition
         new ListStreamingJobsOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ClusterProvisioningStateConstant),
+        typeof(ClusterSkuNameConstant),
+        typeof(JobStateConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ClusterModel),
+        typeof(ClusterJobModel),
+        typeof(ClusterPropertiesModel),
+        typeof(ClusterSkuModel),
+    };
 }

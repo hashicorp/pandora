@@ -22,4 +22,22 @@ internal class Definition : ResourceDefinition
         new StopOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(EnableStatusConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ApplicableScheduleModel),
+        typeof(ApplicableSchedulePropertiesModel),
+        typeof(DayDetailsModel),
+        typeof(HourDetailsModel),
+        typeof(NotificationSettingsModel),
+        typeof(ScheduleModel),
+        typeof(SchedulePropertiesModel),
+        typeof(ServiceFabricModel),
+        typeof(ServiceFabricPropertiesModel),
+        typeof(UpdateResourceModel),
+        typeof(WeekDetailsModel),
+    };
 }

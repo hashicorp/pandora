@@ -18,4 +18,15 @@ internal class Definition : ResourceDefinition
         new ReplaceContentOperation(),
         new UndoEditOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(CountTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ContentHashModel),
+        typeof(ContentLinkModel),
+        typeof(RunbookDraftModel),
+        typeof(RunbookParameterModel),
+    };
 }

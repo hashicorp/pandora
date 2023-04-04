@@ -16,4 +16,25 @@ internal class Definition : ResourceDefinition
         new GetOperation(),
         new ListByReplicationProtectionContainersOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(HealthErrorCustomerResolvabilityConstant),
+        typeof(PresenceStatusConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ConfigurationSettingsModel),
+        typeof(DiskDetailsModel),
+        typeof(DiskVolumeDetailsModel),
+        typeof(HealthErrorModel),
+        typeof(HyperVVirtualMachineDetailsModel),
+        typeof(InMageDiskDetailsModel),
+        typeof(InnerHealthErrorModel),
+        typeof(OSDetailsModel),
+        typeof(ProtectableItemModel),
+        typeof(ProtectableItemPropertiesModel),
+        typeof(ReplicationGroupDetailsModel),
+        typeof(VMmVirtualMachineDetailsModel),
+        typeof(VMwareVirtualMachineDetailsModel),
+    };
 }

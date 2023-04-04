@@ -21,4 +21,20 @@ internal class Definition : ResourceDefinition
         new ListByResourceGroupOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(DiskEncryptionSetTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ApiErrorModel),
+        typeof(ApiErrorBaseModel),
+        typeof(DiskEncryptionSetModel),
+        typeof(DiskEncryptionSetUpdateModel),
+        typeof(DiskEncryptionSetUpdatePropertiesModel),
+        typeof(EncryptionSetPropertiesModel),
+        typeof(InnerErrorModel),
+        typeof(KeyForDiskEncryptionSetModel),
+        typeof(SourceVaultModel),
+    };
 }

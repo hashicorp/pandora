@@ -22,4 +22,29 @@ internal class Definition : ResourceDefinition
         new PingOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ProvisioningStateConstant),
+        typeof(WebhookActionConstant),
+        typeof(WebhookStatusConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ActorModel),
+        typeof(CallbackConfigModel),
+        typeof(EventModel),
+        typeof(EventContentModel),
+        typeof(EventInfoModel),
+        typeof(EventRequestMessageModel),
+        typeof(EventResponseMessageModel),
+        typeof(RequestModel),
+        typeof(SourceModel),
+        typeof(TargetModel),
+        typeof(WebhookModel),
+        typeof(WebhookCreateParametersModel),
+        typeof(WebhookPropertiesModel),
+        typeof(WebhookPropertiesCreateParametersModel),
+        typeof(WebhookPropertiesUpdateParametersModel),
+        typeof(WebhookUpdateParametersModel),
+    };
 }

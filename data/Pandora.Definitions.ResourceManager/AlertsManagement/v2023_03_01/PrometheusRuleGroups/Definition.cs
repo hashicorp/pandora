@@ -20,4 +20,19 @@ internal class Definition : ResourceDefinition
         new ListBySubscriptionOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(PrometheusRuleModel),
+        typeof(PrometheusRuleGroupActionModel),
+        typeof(PrometheusRuleGroupPropertiesModel),
+        typeof(PrometheusRuleGroupResourceModel),
+        typeof(PrometheusRuleGroupResourceCollectionModel),
+        typeof(PrometheusRuleGroupResourcePatchParametersModel),
+        typeof(PrometheusRuleGroupResourcePatchParametersPropertiesModel),
+        typeof(PrometheusRuleResolveConfigurationModel),
+    };
 }

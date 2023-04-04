@@ -16,4 +16,13 @@ internal class Definition : ResourceDefinition
         new GetAllRunAsAccountsInSiteOperation(),
         new GetRunAsAccountOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(CredentialTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(RunAsAccountPropertiesModel),
+        typeof(VMwareRunAsAccountModel),
+    };
 }

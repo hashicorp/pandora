@@ -19,4 +19,21 @@ internal class Definition : ResourceDefinition
         new ListOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(FailureActionConstant),
+        typeof(RollingUpgradeModeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ApplicationHealthPolicyModel),
+        typeof(ApplicationResourceModel),
+        typeof(ApplicationResourcePropertiesModel),
+        typeof(ApplicationUpdateParametersModel),
+        typeof(ApplicationUpgradePolicyModel),
+        typeof(ApplicationUserAssignedIdentityModel),
+        typeof(RollingUpgradeMonitoringPolicyModel),
+        typeof(ServiceTypeHealthPolicyModel),
+        typeof(SystemDataModel),
+    };
 }

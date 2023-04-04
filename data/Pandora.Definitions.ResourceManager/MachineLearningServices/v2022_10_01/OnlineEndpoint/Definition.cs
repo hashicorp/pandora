@@ -22,4 +22,26 @@ internal class Definition : ResourceDefinition
         new RegenerateKeysOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(EndpointAuthModeConstant),
+        typeof(EndpointComputeTypeConstant),
+        typeof(EndpointProvisioningStateConstant),
+        typeof(KeyTypeConstant),
+        typeof(ManagedServiceIdentityTypeConstant),
+        typeof(OrderStringConstant),
+        typeof(PublicNetworkAccessTypeConstant),
+        typeof(SkuTierConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(EndpointAuthKeysModel),
+        typeof(EndpointAuthTokenModel),
+        typeof(OnlineEndpointModel),
+        typeof(OnlineEndpointTrackedResourceModel),
+        typeof(PartialManagedServiceIdentityModel),
+        typeof(PartialMinimalTrackedResourceWithIdentityModel),
+        typeof(RegenerateEndpointKeysRequestModel),
+        typeof(SkuModel),
+    };
 }

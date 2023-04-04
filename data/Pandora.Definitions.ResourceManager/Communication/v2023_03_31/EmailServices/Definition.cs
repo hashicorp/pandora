@@ -21,4 +21,14 @@ internal class Definition : ResourceDefinition
         new ListVerifiedExchangeOnlineDomainsOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(EmailServicesProvisioningStateConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(EmailServicePropertiesModel),
+        typeof(EmailServiceResourceModel),
+        typeof(TaggedResourceModel),
+    };
 }

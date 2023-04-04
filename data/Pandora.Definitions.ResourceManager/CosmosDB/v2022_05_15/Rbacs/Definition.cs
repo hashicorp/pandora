@@ -22,4 +22,20 @@ internal class Definition : ResourceDefinition
         new SqlResourcesListSqlRoleAssignmentsOperation(),
         new SqlResourcesListSqlRoleDefinitionsOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(RoleDefinitionTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(PermissionModel),
+        typeof(SqlRoleAssignmentCreateUpdateParametersModel),
+        typeof(SqlRoleAssignmentGetResultsModel),
+        typeof(SqlRoleAssignmentListResultModel),
+        typeof(SqlRoleAssignmentResourceModel),
+        typeof(SqlRoleDefinitionCreateUpdateParametersModel),
+        typeof(SqlRoleDefinitionGetResultsModel),
+        typeof(SqlRoleDefinitionListResultModel),
+        typeof(SqlRoleDefinitionResourceModel),
+    };
 }

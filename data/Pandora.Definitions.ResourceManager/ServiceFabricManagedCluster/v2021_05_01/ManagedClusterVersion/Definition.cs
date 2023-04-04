@@ -18,4 +18,13 @@ internal class Definition : ResourceDefinition
         new ListOperation(),
         new ListByEnvironmentOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(OsTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ManagedClusterCodeVersionResultModel),
+        typeof(ManagedClusterVersionDetailsModel),
+    };
 }

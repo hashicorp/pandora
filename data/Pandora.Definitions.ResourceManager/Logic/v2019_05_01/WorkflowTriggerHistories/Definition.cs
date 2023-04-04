@@ -17,4 +17,17 @@ internal class Definition : ResourceDefinition
         new ListOperation(),
         new ResubmitOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(WorkflowStatusConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ContentHashModel),
+        typeof(ContentLinkModel),
+        typeof(CorrelationModel),
+        typeof(ResourceReferenceModel),
+        typeof(WorkflowTriggerHistoryModel),
+        typeof(WorkflowTriggerHistoryPropertiesModel),
+    };
 }

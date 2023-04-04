@@ -18,4 +18,22 @@ internal class Definition : ResourceDefinition
         new GetOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(DedicatedHostLicenseTypesConstant),
+        typeof(InstanceViewTypesConstant),
+        typeof(StatusLevelTypesConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(DedicatedHostModel),
+        typeof(DedicatedHostAllocatableVMModel),
+        typeof(DedicatedHostAvailableCapacityModel),
+        typeof(DedicatedHostInstanceViewModel),
+        typeof(DedicatedHostPropertiesModel),
+        typeof(DedicatedHostUpdateModel),
+        typeof(InstanceViewStatusModel),
+        typeof(SkuModel),
+        typeof(SubResourceReadOnlyModel),
+    };
 }

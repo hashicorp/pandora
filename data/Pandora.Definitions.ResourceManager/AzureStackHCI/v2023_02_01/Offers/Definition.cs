@@ -17,4 +17,14 @@ internal class Definition : ResourceDefinition
         new OffersListByClusterOperation(),
         new OffersListByPublisherOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(OfferModel),
+        typeof(OfferPropertiesModel),
+        typeof(SkuMappingsModel),
+    };
 }

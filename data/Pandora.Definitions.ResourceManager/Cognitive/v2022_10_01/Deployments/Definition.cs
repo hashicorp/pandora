@@ -18,4 +18,19 @@ internal class Definition : ResourceDefinition
         new GetOperation(),
         new ListOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(DeploymentProvisioningStateConstant),
+        typeof(DeploymentScaleTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(CallRateLimitModel),
+        typeof(DeploymentModel),
+        typeof(DeploymentModelModel),
+        typeof(DeploymentPropertiesModel),
+        typeof(DeploymentScaleSettingsModel),
+        typeof(RequestMatchPatternModel),
+        typeof(ThrottlingRuleModel),
+    };
 }

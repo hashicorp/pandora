@@ -19,4 +19,34 @@ internal class Definition : ResourceDefinition
         new ListByEnvironmentOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(EventSourceKindConstant),
+        typeof(IngressStartAtTypeConstant),
+        typeof(KindConstant),
+        typeof(LocalTimestampFormatConstant),
+        typeof(ProvisioningStateConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(EventHubEventSourceCommonPropertiesModel),
+        typeof(EventHubEventSourceCreateOrUpdateParametersModel),
+        typeof(EventHubEventSourceCreationPropertiesModel),
+        typeof(EventHubEventSourceMutablePropertiesModel),
+        typeof(EventHubEventSourceResourceModel),
+        typeof(EventHubEventSourceUpdateParametersModel),
+        typeof(EventSourceCreateOrUpdateParametersModel),
+        typeof(EventSourceListResponseModel),
+        typeof(EventSourceResourceModel),
+        typeof(EventSourceUpdateParametersModel),
+        typeof(IngressStartAtPropertiesModel),
+        typeof(IoTHubEventSourceCommonPropertiesModel),
+        typeof(IoTHubEventSourceCreateOrUpdateParametersModel),
+        typeof(IoTHubEventSourceCreationPropertiesModel),
+        typeof(IoTHubEventSourceMutablePropertiesModel),
+        typeof(IoTHubEventSourceResourceModel),
+        typeof(IoTHubEventSourceUpdateParametersModel),
+        typeof(LocalTimestampModel),
+        typeof(LocalTimestampTimeZoneOffsetModel),
+    };
 }

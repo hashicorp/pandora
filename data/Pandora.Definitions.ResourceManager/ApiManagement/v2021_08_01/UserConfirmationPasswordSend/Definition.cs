@@ -15,4 +15,16 @@ internal class Definition : ResourceDefinition
     {
         new UserConfirmationPasswordSendOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AccessIdNameConstant),
+        typeof(AppTypeConstant),
+        typeof(IdentityProviderTypeConstant),
+        typeof(NotificationNameConstant),
+        typeof(TemplateNameConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+
+    };
 }

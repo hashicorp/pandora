@@ -16,4 +16,18 @@ internal class Definition : ResourceDefinition
         new ListOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(QuotaUnitConstant),
+        typeof(StatusConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(QuotaBasePropertiesModel),
+        typeof(QuotaUpdateParametersModel),
+        typeof(ResourceNameModel),
+        typeof(ResourceQuotaModel),
+        typeof(UpdateWorkspaceQuotasModel),
+        typeof(UpdateWorkspaceQuotasResultModel),
+    };
 }

@@ -19,4 +19,17 @@ internal class Definition : ResourceDefinition
         new WorkbookTemplatesListByResourceGroupOperation(),
         new WorkbookTemplatesUpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(WorkbookTemplateModel),
+        typeof(WorkbookTemplateGalleryModel),
+        typeof(WorkbookTemplateLocalizedGalleryModel),
+        typeof(WorkbookTemplatePropertiesModel),
+        typeof(WorkbookTemplateUpdateParametersModel),
+        typeof(WorkbookTemplatesListResultModel),
+    };
 }

@@ -15,4 +15,14 @@ internal class Definition : ResourceDefinition
     {
         new FrontDoorNameAvailabilityCheckOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AvailabilityConstant),
+        typeof(ResourceTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(CheckNameAvailabilityInputModel),
+        typeof(CheckNameAvailabilityOutputModel),
+    };
 }

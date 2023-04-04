@@ -30,4 +30,14 @@ internal class Definition : ResourceDefinition
         new ListAtSubscriptionLevelOperation(),
         new ListByScopeOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(LockLevelConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ManagementLockObjectModel),
+        typeof(ManagementLockOwnerModel),
+        typeof(ManagementLockPropertiesModel),
+    };
 }

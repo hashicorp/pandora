@@ -18,4 +18,20 @@ internal class Definition : ResourceDefinition
         new UpdateSummariesListOperation(),
         new UpdateSummariesPutOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(HealthStateConstant),
+        typeof(ProvisioningStateConstant),
+        typeof(SeverityConstant),
+        typeof(StatusConstant),
+        typeof(UpdateSummariesPropertiesStateConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(PackageVersionInfoModel),
+        typeof(PrecheckResultModel),
+        typeof(PrecheckResultTagsModel),
+        typeof(UpdateSummariesModel),
+        typeof(UpdateSummariesPropertiesModel),
+    };
 }

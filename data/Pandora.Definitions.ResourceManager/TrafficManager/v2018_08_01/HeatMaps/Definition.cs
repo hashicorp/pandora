@@ -15,4 +15,16 @@ internal class Definition : ResourceDefinition
     {
         new HeatMapGetOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(EndpointTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(HeatMapEndpointModel),
+        typeof(HeatMapModelModel),
+        typeof(HeatMapPropertiesModel),
+        typeof(QueryExperienceModel),
+        typeof(TrafficFlowModel),
+    };
 }

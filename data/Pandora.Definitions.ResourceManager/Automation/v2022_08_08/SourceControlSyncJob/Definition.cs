@@ -17,4 +17,18 @@ internal class Definition : ResourceDefinition
         new GetOperation(),
         new ListByAutomationAccountOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ProvisioningStateConstant),
+        typeof(SyncTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(SourceControlSyncJobModel),
+        typeof(SourceControlSyncJobByIdModel),
+        typeof(SourceControlSyncJobByIdPropertiesModel),
+        typeof(SourceControlSyncJobCreateParametersModel),
+        typeof(SourceControlSyncJobCreatePropertiesModel),
+        typeof(SourceControlSyncJobPropertiesModel),
+    };
 }

@@ -16,4 +16,17 @@ internal class Definition : ResourceDefinition
         new GetOperation(),
         new ListOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(BackupEngineTypeConstant),
+        typeof(BackupManagementTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AzureBackupServerEngineModel),
+        typeof(BackupEngineBaseModel),
+        typeof(BackupEngineBaseResourceModel),
+        typeof(BackupEngineExtendedInfoModel),
+        typeof(DpmBackupEngineModel),
+    };
 }

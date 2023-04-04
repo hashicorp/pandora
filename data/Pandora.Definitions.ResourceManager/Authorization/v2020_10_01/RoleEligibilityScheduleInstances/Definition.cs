@@ -16,4 +16,19 @@ internal class Definition : ResourceDefinition
         new GetOperation(),
         new ListForScopeOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(MemberTypeConstant),
+        typeof(PrincipalTypeConstant),
+        typeof(StatusConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ExpandedPropertiesModel),
+        typeof(ExpandedPropertiesPrincipalModel),
+        typeof(ExpandedPropertiesRoleDefinitionModel),
+        typeof(ExpandedPropertiesScopeModel),
+        typeof(RoleEligibilityScheduleInstanceModel),
+        typeof(RoleEligibilityScheduleInstancePropertiesModel),
+    };
 }

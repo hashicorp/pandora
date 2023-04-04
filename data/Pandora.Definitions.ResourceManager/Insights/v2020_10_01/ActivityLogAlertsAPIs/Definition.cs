@@ -20,4 +20,20 @@ internal class Definition : ResourceDefinition
         new ActivityLogAlertsListBySubscriptionIdOperation(),
         new ActivityLogAlertsUpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ActionGroupModel),
+        typeof(ActionListModel),
+        typeof(ActivityLogAlertResourceModel),
+        typeof(AlertRuleAllOfConditionModel),
+        typeof(AlertRuleAnyOfOrLeafConditionModel),
+        typeof(AlertRuleLeafConditionModel),
+        typeof(AlertRulePatchObjectModel),
+        typeof(AlertRulePatchPropertiesModel),
+        typeof(AlertRulePropertiesModel),
+    };
 }

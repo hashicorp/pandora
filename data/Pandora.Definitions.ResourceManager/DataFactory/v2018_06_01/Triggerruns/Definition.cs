@@ -17,4 +17,20 @@ internal class Definition : ResourceDefinition
         new QueryByFactoryOperation(),
         new RerunOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(RunQueryFilterOperandConstant),
+        typeof(RunQueryFilterOperatorConstant),
+        typeof(RunQueryOrderConstant),
+        typeof(RunQueryOrderByFieldConstant),
+        typeof(TriggerRunStatusConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(RunFilterParametersModel),
+        typeof(RunQueryFilterModel),
+        typeof(RunQueryOrderByModel),
+        typeof(TriggerRunModel),
+        typeof(TriggerRunsQueryResponseModel),
+    };
 }

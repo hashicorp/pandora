@@ -21,4 +21,21 @@ internal class Definition : ResourceDefinition
         new AccountsRenewCredentialsOperation(),
         new AccountsUpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ActiveDirectoryStatusConstant),
+        typeof(KeySourceConstant),
+        typeof(KeyVaultStatusConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AccountEncryptionModel),
+        typeof(AccountPropertiesModel),
+        typeof(ActiveDirectoryModel),
+        typeof(EncryptionIdentityModel),
+        typeof(KeyVaultPropertiesModel),
+        typeof(LdapSearchScopeOptModel),
+        typeof(NetAppAccountModel),
+        typeof(NetAppAccountPatchModel),
+    };
 }

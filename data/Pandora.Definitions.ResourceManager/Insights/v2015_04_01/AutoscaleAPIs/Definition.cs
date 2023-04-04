@@ -15,4 +15,33 @@ internal class Definition : ResourceDefinition
     {
         new AutoscaleSettingsUpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ComparisonOperationTypeConstant),
+        typeof(MetricStatisticTypeConstant),
+        typeof(OperationTypeConstant),
+        typeof(RecurrenceFrequencyConstant),
+        typeof(ScaleDirectionConstant),
+        typeof(ScaleRuleMetricDimensionOperationTypeConstant),
+        typeof(ScaleTypeConstant),
+        typeof(TimeAggregationTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AutoscaleNotificationModel),
+        typeof(AutoscaleProfileModel),
+        typeof(AutoscaleSettingModel),
+        typeof(AutoscaleSettingResourceModel),
+        typeof(AutoscaleSettingResourcePatchModel),
+        typeof(EmailNotificationModel),
+        typeof(MetricTriggerModel),
+        typeof(RecurrenceModel),
+        typeof(RecurrentScheduleModel),
+        typeof(ScaleActionModel),
+        typeof(ScaleCapacityModel),
+        typeof(ScaleRuleModel),
+        typeof(ScaleRuleMetricDimensionModel),
+        typeof(TimeWindowModel),
+        typeof(WebhookNotificationModel),
+    };
 }

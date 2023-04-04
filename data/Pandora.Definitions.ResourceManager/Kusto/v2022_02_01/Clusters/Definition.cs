@@ -30,4 +30,46 @@ internal class Definition : ResourceDefinition
         new StopOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AzureScaleTypeConstant),
+        typeof(AzureSkuNameConstant),
+        typeof(AzureSkuTierConstant),
+        typeof(ClusterNetworkAccessFlagConstant),
+        typeof(ClusterTypeConstant),
+        typeof(EngineTypeConstant),
+        typeof(LanguageExtensionNameConstant),
+        typeof(ProvisioningStateConstant),
+        typeof(PublicIPTypeConstant),
+        typeof(PublicNetworkAccessConstant),
+        typeof(ReasonConstant),
+        typeof(StateConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AcceptedAudiencesModel),
+        typeof(AzureCapacityModel),
+        typeof(AzureResourceSkuModel),
+        typeof(AzureSkuModel),
+        typeof(CheckNameResultModel),
+        typeof(ClusterModel),
+        typeof(ClusterCheckNameRequestModel),
+        typeof(ClusterListResultModel),
+        typeof(ClusterPropertiesModel),
+        typeof(ClusterUpdateModel),
+        typeof(DiagnoseVirtualNetworkResultModel),
+        typeof(FollowerDatabaseDefinitionModel),
+        typeof(FollowerDatabaseListResultModel),
+        typeof(KeyVaultPropertiesModel),
+        typeof(LanguageExtensionModel),
+        typeof(LanguageExtensionsListModel),
+        typeof(ListResourceSkusResultModel),
+        typeof(OptimizedAutoscaleModel),
+        typeof(PrivateEndpointConnectionModel),
+        typeof(PrivateEndpointConnectionPropertiesModel),
+        typeof(PrivateEndpointPropertyModel),
+        typeof(PrivateLinkServiceConnectionStatePropertyModel),
+        typeof(TrustedExternalTenantModel),
+        typeof(VirtualNetworkConfigurationModel),
+    };
 }

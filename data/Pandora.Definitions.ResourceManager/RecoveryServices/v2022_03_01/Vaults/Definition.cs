@@ -20,4 +20,36 @@ internal class Definition : ResourceDefinition
         new ListBySubscriptionIdOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AlertsStateConstant),
+        typeof(BackupStorageVersionConstant),
+        typeof(InfrastructureEncryptionStateConstant),
+        typeof(PrivateEndpointConnectionStatusConstant),
+        typeof(ProvisioningStateConstant),
+        typeof(ResourceMoveStateConstant),
+        typeof(SkuNameConstant),
+        typeof(TriggerTypeConstant),
+        typeof(VaultPrivateEndpointStateConstant),
+        typeof(VaultUpgradeStateConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AzureMonitorAlertSettingsModel),
+        typeof(ClassicAlertSettingsModel),
+        typeof(CmkKekIdentityModel),
+        typeof(CmkKeyVaultPropertiesModel),
+        typeof(MonitoringSettingsModel),
+        typeof(PatchVaultModel),
+        typeof(PrivateEndpointModel),
+        typeof(PrivateEndpointConnectionModel),
+        typeof(PrivateEndpointConnectionVaultPropertiesModel),
+        typeof(PrivateLinkServiceConnectionStateModel),
+        typeof(SkuModel),
+        typeof(UpgradeDetailsModel),
+        typeof(VaultModel),
+        typeof(VaultPropertiesModel),
+        typeof(VaultPropertiesEncryptionModel),
+        typeof(VaultPropertiesMoveDetailsModel),
+    };
 }

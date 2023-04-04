@@ -15,4 +15,18 @@ internal class Definition : ResourceDefinition
     {
         new PredictOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(CategoryConstant),
+        typeof(ImpactConstant),
+        typeof(PredictionTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(PredictionRequestModel),
+        typeof(PredictionRequestPropertiesModel),
+        typeof(PredictionResponseModel),
+        typeof(PredictionResponsePropertiesModel),
+        typeof(ShortDescriptionModel),
+    };
 }

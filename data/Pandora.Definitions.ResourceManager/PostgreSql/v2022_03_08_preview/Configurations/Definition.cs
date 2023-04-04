@@ -18,4 +18,14 @@ internal class Definition : ResourceDefinition
         new PutOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ConfigurationDataTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ConfigurationModel),
+        typeof(ConfigurationForUpdateModel),
+        typeof(ConfigurationPropertiesModel),
+    };
 }

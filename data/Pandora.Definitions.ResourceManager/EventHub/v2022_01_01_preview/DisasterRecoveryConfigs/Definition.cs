@@ -20,4 +20,14 @@ internal class Definition : ResourceDefinition
         new GetOperation(),
         new ListOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ProvisioningStateDRConstant),
+        typeof(RoleDisasterRecoveryConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ArmDisasterRecoveryModel),
+        typeof(ArmDisasterRecoveryPropertiesModel),
+    };
 }

@@ -20,4 +20,18 @@ internal class Definition : ResourceDefinition
         new GetUpgradeProfileOperation(),
         new ListOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ContainerServiceOSTypesConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AgentPoolModel),
+        typeof(AgentPoolAvailableVersionsModel),
+        typeof(AgentPoolAvailableVersionsPropertiesModel),
+        typeof(AgentPoolAvailableVersionsPropertiesAgentPoolVersionsInlinedModel),
+        typeof(AgentPoolUpgradeProfileModel),
+        typeof(AgentPoolUpgradeProfilePropertiesModel),
+        typeof(AgentPoolUpgradeProfilePropertiesUpgradesInlinedModel),
+    };
 }

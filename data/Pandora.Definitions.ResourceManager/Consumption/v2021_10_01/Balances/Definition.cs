@@ -16,4 +16,15 @@ internal class Definition : ResourceDefinition
         new GetByBillingAccountOperation(),
         new GetForBillingPeriodByBillingAccountOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(BillingFrequencyConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(BalanceModel),
+        typeof(BalancePropertiesModel),
+        typeof(BalancePropertiesAdjustmentDetailsInlinedModel),
+        typeof(BalancePropertiesNewPurchasesDetailsInlinedModel),
+    };
 }

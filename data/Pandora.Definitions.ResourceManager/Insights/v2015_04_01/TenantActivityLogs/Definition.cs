@@ -15,4 +15,15 @@ internal class Definition : ResourceDefinition
     {
         new ListOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(EventLevelConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(EventDataModel),
+        typeof(HTTPRequestInfoModel),
+        typeof(LocalizableStringModel),
+        typeof(SenderAuthorizationModel),
+    };
 }

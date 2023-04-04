@@ -19,4 +19,35 @@ internal class Definition : ResourceDefinition
         new ListOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(EnableStatusConstant),
+        typeof(HostCachingOptionsConstant),
+        typeof(StorageTypeConstant),
+        typeof(TransportProtocolConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ArtifactInstallPropertiesModel),
+        typeof(ArtifactParameterPropertiesModel),
+        typeof(AttachNewDataDiskOptionsModel),
+        typeof(BulkCreationParametersModel),
+        typeof(DataDiskPropertiesModel),
+        typeof(DayDetailsModel),
+        typeof(FormulaModel),
+        typeof(FormulaPropertiesModel),
+        typeof(FormulaPropertiesFromVMModel),
+        typeof(GalleryImageReferenceModel),
+        typeof(HourDetailsModel),
+        typeof(InboundNatRuleModel),
+        typeof(LabVirtualMachineCreationParameterModel),
+        typeof(LabVirtualMachineCreationParameterPropertiesModel),
+        typeof(NetworkInterfacePropertiesModel),
+        typeof(NotificationSettingsModel),
+        typeof(ScheduleCreationParameterModel),
+        typeof(ScheduleCreationParameterPropertiesModel),
+        typeof(SharedPublicIPAddressConfigurationModel),
+        typeof(UpdateResourceModel),
+        typeof(WeekDetailsModel),
+    };
 }

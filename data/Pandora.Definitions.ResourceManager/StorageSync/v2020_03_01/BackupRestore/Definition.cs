@@ -19,4 +19,17 @@ internal class Definition : ResourceDefinition
         new CloudEndpointsPreRestoreOperation(),
         new CloudEndpointsrestoreheartbeatOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(BackupRequestModel),
+        typeof(PostBackupResponseModel),
+        typeof(PostBackupResponsePropertiesModel),
+        typeof(PostRestoreRequestModel),
+        typeof(PreRestoreRequestModel),
+        typeof(RestoreFileSpecModel),
+    };
 }

@@ -18,4 +18,16 @@ internal class Definition : ResourceDefinition
         new EventHubsListKeysOperation(),
         new EventHubsRegenerateKeysOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AccessRightsConstant),
+        typeof(KeyTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AccessKeysModel),
+        typeof(AuthorizationRuleModel),
+        typeof(AuthorizationRulePropertiesModel),
+        typeof(RegenerateAccessKeyParametersModel),
+    };
 }

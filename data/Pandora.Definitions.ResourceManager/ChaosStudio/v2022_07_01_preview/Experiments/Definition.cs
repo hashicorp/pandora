@@ -25,4 +25,31 @@ internal class Definition : ResourceDefinition
         new ListExecutionDetailsOperation(),
         new StartOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(SelectorTypeConstant),
+        typeof(TargetReferenceTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ActionModel),
+        typeof(ActionStatusModel),
+        typeof(BranchModel),
+        typeof(BranchStatusModel),
+        typeof(ExperimentModel),
+        typeof(ExperimentCancelOperationResultModel),
+        typeof(ExperimentExecutionActionTargetDetailsErrorModel),
+        typeof(ExperimentExecutionActionTargetDetailsPropertiesModel),
+        typeof(ExperimentExecutionDetailsModel),
+        typeof(ExperimentExecutionDetailsPropertiesModel),
+        typeof(ExperimentExecutionDetailsPropertiesRunInformationModel),
+        typeof(ExperimentPropertiesModel),
+        typeof(ExperimentStartOperationResultModel),
+        typeof(ExperimentStatusModel),
+        typeof(ExperimentStatusPropertiesModel),
+        typeof(SelectorModel),
+        typeof(StepModel),
+        typeof(StepStatusModel),
+        typeof(TargetReferenceModel),
+    };
 }

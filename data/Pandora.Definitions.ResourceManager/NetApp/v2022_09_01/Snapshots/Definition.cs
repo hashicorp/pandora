@@ -20,4 +20,15 @@ internal class Definition : ResourceDefinition
         new RestoreFilesOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(SnapshotModel),
+        typeof(SnapshotPropertiesModel),
+        typeof(SnapshotRestoreFilesModel),
+        typeof(SnapshotsListModel),
+    };
 }

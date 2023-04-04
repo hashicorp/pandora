@@ -18,4 +18,20 @@ internal class Definition : ResourceDefinition
         new ListByServerOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ConfigurationSourceConstant),
+        typeof(IsConfigPendingRestartConstant),
+        typeof(IsDynamicConfigConstant),
+        typeof(IsReadOnlyConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ConfigurationModel),
+        typeof(ConfigurationForBatchUpdateModel),
+        typeof(ConfigurationForBatchUpdatePropertiesModel),
+        typeof(ConfigurationListForBatchUpdateModel),
+        typeof(ConfigurationListResultModel),
+        typeof(ConfigurationPropertiesModel),
+    };
 }

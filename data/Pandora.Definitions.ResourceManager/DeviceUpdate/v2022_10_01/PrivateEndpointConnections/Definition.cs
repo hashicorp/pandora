@@ -19,4 +19,26 @@ internal class Definition : ResourceDefinition
         new ListByAccountOperation(),
         new PrivateEndpointConnectionProxiesGetOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(PrivateEndpointConnectionProvisioningStateConstant),
+        typeof(PrivateEndpointConnectionProxyProvisioningStateConstant),
+        typeof(PrivateEndpointServiceConnectionStatusConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ConnectionDetailsModel),
+        typeof(GroupConnectivityInformationModel),
+        typeof(PrivateEndpointModel),
+        typeof(PrivateEndpointConnectionModel),
+        typeof(PrivateEndpointConnectionListResultModel),
+        typeof(PrivateEndpointConnectionPropertiesModel),
+        typeof(PrivateEndpointConnectionProxyModel),
+        typeof(PrivateEndpointConnectionProxyPropertiesModel),
+        typeof(PrivateLinkServiceConnectionModel),
+        typeof(PrivateLinkServiceConnectionStateModel),
+        typeof(PrivateLinkServiceProxyModel),
+        typeof(RemotePrivateEndpointModel),
+        typeof(RemotePrivateEndpointConnectionModel),
+    };
 }

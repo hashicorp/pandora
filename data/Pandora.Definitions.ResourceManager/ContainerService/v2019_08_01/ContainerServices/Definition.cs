@@ -15,4 +15,15 @@ internal class Definition : ResourceDefinition
     {
         new ListOrchestratorsOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(OrchestratorProfileModel),
+        typeof(OrchestratorVersionProfileModel),
+        typeof(OrchestratorVersionProfileListResultModel),
+        typeof(OrchestratorVersionProfilePropertiesModel),
+    };
 }

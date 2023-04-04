@@ -16,4 +16,12 @@ internal class Definition : ResourceDefinition
         new ActivateEmailOperation(),
         new RegisterEmailOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(RegistrationStatusConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(EmailRegistrationModel),
+    };
 }

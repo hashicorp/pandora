@@ -22,4 +22,27 @@ internal class Definition : ResourceDefinition
         new ListCredentialsOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(EncryptionAtHostConstant),
+        typeof(FipsValidatedModulesConstant),
+        typeof(ProvisioningStateConstant),
+        typeof(VisibilityConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(APIServerProfileModel),
+        typeof(ClusterProfileModel),
+        typeof(ConsoleProfileModel),
+        typeof(IngressProfileModel),
+        typeof(MasterProfileModel),
+        typeof(NetworkProfileModel),
+        typeof(OpenShiftClusterModel),
+        typeof(OpenShiftClusterAdminKubeconfigModel),
+        typeof(OpenShiftClusterCredentialsModel),
+        typeof(OpenShiftClusterPropertiesModel),
+        typeof(OpenShiftClusterUpdateModel),
+        typeof(ServicePrincipalProfileModel),
+        typeof(WorkerProfileModel),
+    };
 }

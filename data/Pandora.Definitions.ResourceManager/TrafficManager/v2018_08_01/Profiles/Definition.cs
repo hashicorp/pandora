@@ -21,4 +21,33 @@ internal class Definition : ResourceDefinition
         new ListBySubscriptionOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AllowedEndpointRecordTypeConstant),
+        typeof(EndpointMonitorStatusConstant),
+        typeof(EndpointStatusConstant),
+        typeof(EndpointTypeConstant),
+        typeof(MonitorProtocolConstant),
+        typeof(ProfileMonitorStatusConstant),
+        typeof(ProfileStatusConstant),
+        typeof(TrafficRoutingMethodConstant),
+        typeof(TrafficViewEnrollmentStatusConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(CheckTrafficManagerRelativeDnsNameAvailabilityParametersModel),
+        typeof(DeleteOperationResultModel),
+        typeof(DnsConfigModel),
+        typeof(EndpointModel),
+        typeof(EndpointPropertiesModel),
+        typeof(EndpointPropertiesCustomHeadersInlinedModel),
+        typeof(EndpointPropertiesSubnetsInlinedModel),
+        typeof(MonitorConfigModel),
+        typeof(MonitorConfigCustomHeadersInlinedModel),
+        typeof(MonitorConfigExpectedStatusCodeRangesInlinedModel),
+        typeof(ProfileModel),
+        typeof(ProfileListResultModel),
+        typeof(ProfilePropertiesModel),
+        typeof(TrafficManagerNameAvailabilityModel),
+    };
 }

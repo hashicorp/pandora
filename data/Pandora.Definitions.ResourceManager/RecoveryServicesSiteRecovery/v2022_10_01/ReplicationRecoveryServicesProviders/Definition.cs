@@ -21,4 +21,21 @@ internal class Definition : ResourceDefinition
         new PurgeOperation(),
         new RefreshProviderOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AgentVersionStatusConstant),
+        typeof(HealthErrorCustomerResolvabilityConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AddRecoveryServicesProviderInputModel),
+        typeof(AddRecoveryServicesProviderInputPropertiesModel),
+        typeof(HealthErrorModel),
+        typeof(IdentityProviderDetailsModel),
+        typeof(IdentityProviderInputModel),
+        typeof(InnerHealthErrorModel),
+        typeof(RecoveryServicesProviderModel),
+        typeof(RecoveryServicesProviderPropertiesModel),
+        typeof(VersionDetailsModel),
+    };
 }

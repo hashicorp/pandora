@@ -17,4 +17,15 @@ internal class Definition : ResourceDefinition
         new GetFeatureValueByFactoryOperation(),
         new QueryFeatureValuesByFactoryOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ExposureControlBatchRequestModel),
+        typeof(ExposureControlBatchResponseModel),
+        typeof(ExposureControlRequestModel),
+        typeof(ExposureControlResponseModel),
+    };
 }

@@ -18,4 +18,17 @@ internal class Definition : ResourceDefinition
         new GetPrivateEndpointConnectionsOperation(),
         new PutPrivateEndpointConnectionOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ProvisioningStateConstant),
+        typeof(StatusConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(PrivateEndpointConnectionModel),
+        typeof(PrivateEndpointConnectionCollectionModel),
+        typeof(PrivateEndpointConnectionPropertiesModel),
+        typeof(PrivateLinkServiceConnectionStateModel),
+        typeof(ResourceIdModel),
+    };
 }

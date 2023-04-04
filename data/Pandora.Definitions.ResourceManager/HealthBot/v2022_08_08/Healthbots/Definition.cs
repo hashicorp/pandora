@@ -22,4 +22,18 @@ internal class Definition : ResourceDefinition
         new BotsRegenerateApiJwtSecretOperation(),
         new BotsUpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(SkuNameConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(HealthBotModel),
+        typeof(HealthBotKeyModel),
+        typeof(HealthBotKeysResponseModel),
+        typeof(HealthBotPropertiesModel),
+        typeof(HealthBotUpdateParametersModel),
+        typeof(KeyVaultPropertiesModel),
+        typeof(SkuModel),
+    };
 }

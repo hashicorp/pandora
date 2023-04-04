@@ -16,4 +16,15 @@ internal class Definition : ResourceDefinition
         new GenerateReservationDetailsReportByBillingAccountIdOperation(),
         new GenerateReservationDetailsReportByBillingProfileIdOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ExternalCloudProviderTypeConstant),
+        typeof(OperationStatusTypeConstant),
+        typeof(ReservationReportSchemaConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(OperationStatusModel),
+        typeof(ReportURLModel),
+    };
 }

@@ -18,4 +18,35 @@ internal class Definition : ResourceDefinition
         new DataConnectorsGetOperation(),
         new DataConnectorsListOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(DataConnectorKindConstant),
+        typeof(DataTypeStateConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AADDataConnectorModel),
+        typeof(AADDataConnectorPropertiesModel),
+        typeof(AATPDataConnectorModel),
+        typeof(AATPDataConnectorPropertiesModel),
+        typeof(ASCDataConnectorModel),
+        typeof(ASCDataConnectorPropertiesModel),
+        typeof(AlertsDataTypeOfDataConnectorModel),
+        typeof(AwsCloudTrailDataConnectorModel),
+        typeof(AwsCloudTrailDataConnectorDataTypesModel),
+        typeof(AwsCloudTrailDataConnectorPropertiesModel),
+        typeof(DataConnectorModel),
+        typeof(DataConnectorDataTypeCommonModel),
+        typeof(MCASDataConnectorModel),
+        typeof(MCASDataConnectorDataTypesModel),
+        typeof(MCASDataConnectorPropertiesModel),
+        typeof(MDATPDataConnectorModel),
+        typeof(MDATPDataConnectorPropertiesModel),
+        typeof(OfficeDataConnectorModel),
+        typeof(OfficeDataConnectorDataTypesModel),
+        typeof(OfficeDataConnectorPropertiesModel),
+        typeof(TIDataConnectorModel),
+        typeof(TIDataConnectorDataTypesModel),
+        typeof(TIDataConnectorPropertiesModel),
+    };
 }

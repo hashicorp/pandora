@@ -26,4 +26,46 @@ internal class Definition : ResourceDefinition
         new RestoreOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AccessIdNameConstant),
+        typeof(AccessTypeConstant),
+        typeof(CertificateSourceConstant),
+        typeof(CertificateStatusConstant),
+        typeof(HostnameTypeConstant),
+        typeof(IdentityProviderTypeConstant),
+        typeof(NameAvailabilityReasonConstant),
+        typeof(NotificationNameConstant),
+        typeof(PlatformVersionConstant),
+        typeof(PrivateEndpointServiceConnectionStatusConstant),
+        typeof(PublicNetworkAccessConstant),
+        typeof(SkuTypeConstant),
+        typeof(StoreNameConstant),
+        typeof(TemplateNameConstant),
+        typeof(VirtualNetworkTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AdditionalLocationModel),
+        typeof(ApiManagementServiceApplyNetworkConfigurationParametersModel),
+        typeof(ApiManagementServiceBackupRestoreParametersModel),
+        typeof(ApiManagementServiceCheckNameAvailabilityParametersModel),
+        typeof(ApiManagementServiceGetDomainOwnershipIdentifierResultModel),
+        typeof(ApiManagementServiceGetSsoTokenResultModel),
+        typeof(ApiManagementServiceNameAvailabilityResultModel),
+        typeof(ApiManagementServicePropertiesModel),
+        typeof(ApiManagementServiceResourceModel),
+        typeof(ApiManagementServiceSkuPropertiesModel),
+        typeof(ApiManagementServiceUpdateParametersModel),
+        typeof(ApiManagementServiceUpdatePropertiesModel),
+        typeof(ApiVersionConstraintModel),
+        typeof(ArmIdWrapperModel),
+        typeof(CertificateConfigurationModel),
+        typeof(CertificateInformationModel),
+        typeof(HostnameConfigurationModel),
+        typeof(PrivateEndpointConnectionWrapperPropertiesModel),
+        typeof(PrivateLinkServiceConnectionStateModel),
+        typeof(RemotePrivateEndpointConnectionWrapperModel),
+        typeof(VirtualNetworkConfigurationModel),
+    };
 }

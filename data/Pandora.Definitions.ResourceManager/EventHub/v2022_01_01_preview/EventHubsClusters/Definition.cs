@@ -20,4 +20,14 @@ internal class Definition : ResourceDefinition
         new ClustersListBySubscriptionOperation(),
         new ClustersUpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ClusterSkuNameConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ClusterModel),
+        typeof(ClusterPropertiesModel),
+        typeof(ClusterSkuModel),
+    };
 }

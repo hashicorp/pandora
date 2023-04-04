@@ -21,4 +21,29 @@ internal class Definition : ResourceDefinition
         new ListByResourceGroupOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(CheckNameAvailabilityResourceTypeConstant),
+        typeof(CitusVersionConstant),
+        typeof(CreateModeConstant),
+        typeof(PostgreSQLVersionConstant),
+        typeof(ResourceProviderTypeConstant),
+        typeof(ServerEditionConstant),
+        typeof(ServerRoleConstant),
+        typeof(ServerStateConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(MaintenanceWindowModel),
+        typeof(NameAvailabilityModel),
+        typeof(NameAvailabilityRequestModel),
+        typeof(ServerGroupModel),
+        typeof(ServerGroupForUpdateModel),
+        typeof(ServerGroupPropertiesModel),
+        typeof(ServerGroupPropertiesDelegatedSubnetArgumentsModel),
+        typeof(ServerGroupPropertiesForUpdateModel),
+        typeof(ServerGroupPropertiesPrivateDnsZoneArgumentsModel),
+        typeof(ServerNameItemModel),
+        typeof(ServerRoleGroupModel),
+    };
 }

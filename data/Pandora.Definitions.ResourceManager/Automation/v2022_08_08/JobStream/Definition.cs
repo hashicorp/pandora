@@ -16,4 +16,13 @@ internal class Definition : ResourceDefinition
         new GetOperation(),
         new ListByJobOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(JobStreamTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(JobStreamModel),
+        typeof(JobStreamPropertiesModel),
+    };
 }

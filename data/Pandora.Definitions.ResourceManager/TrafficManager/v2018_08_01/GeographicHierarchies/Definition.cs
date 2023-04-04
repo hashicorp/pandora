@@ -15,4 +15,14 @@ internal class Definition : ResourceDefinition
     {
         new GetDefaultOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(EndpointTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(GeographicHierarchyPropertiesModel),
+        typeof(RegionModel),
+        typeof(TrafficManagerGeographicHierarchyModel),
+    };
 }

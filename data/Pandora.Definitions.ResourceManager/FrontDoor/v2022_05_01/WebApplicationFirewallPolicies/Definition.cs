@@ -20,4 +20,41 @@ internal class Definition : ResourceDefinition
         new PoliciesListBySubscriptionOperation(),
         new PoliciesUpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ActionTypeConstant),
+        typeof(CustomRuleEnabledStateConstant),
+        typeof(ManagedRuleEnabledStateConstant),
+        typeof(ManagedRuleExclusionMatchVariableConstant),
+        typeof(ManagedRuleExclusionSelectorMatchOperatorConstant),
+        typeof(ManagedRuleSetActionTypeConstant),
+        typeof(MatchVariableConstant),
+        typeof(OperatorConstant),
+        typeof(PolicyEnabledStateConstant),
+        typeof(PolicyModeConstant),
+        typeof(PolicyRequestBodyCheckConstant),
+        typeof(PolicyResourceStateConstant),
+        typeof(RuleTypeConstant),
+        typeof(SkuNameConstant),
+        typeof(TransformTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(CustomRuleModel),
+        typeof(CustomRuleListModel),
+        typeof(FrontendEndpointLinkModel),
+        typeof(ManagedRuleExclusionModel),
+        typeof(ManagedRuleGroupOverrideModel),
+        typeof(ManagedRuleOverrideModel),
+        typeof(ManagedRuleSetModel),
+        typeof(ManagedRuleSetListModel),
+        typeof(MatchConditionModel),
+        typeof(PolicySettingsModel),
+        typeof(RoutingRuleLinkModel),
+        typeof(SecurityPolicyLinkModel),
+        typeof(SkuModel),
+        typeof(TagsObjectModel),
+        typeof(WebApplicationFirewallPolicyModel),
+        typeof(WebApplicationFirewallPolicyPropertiesModel),
+    };
 }

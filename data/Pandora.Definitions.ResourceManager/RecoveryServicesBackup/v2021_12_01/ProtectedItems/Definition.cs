@@ -17,4 +17,44 @@ internal class Definition : ResourceDefinition
         new DeleteOperation(),
         new GetOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(BackupManagementTypeConstant),
+        typeof(CreateModeConstant),
+        typeof(DataSourceTypeConstant),
+        typeof(HealthStatusConstant),
+        typeof(LastBackupStatusConstant),
+        typeof(ProtectedItemHealthStatusConstant),
+        typeof(ProtectedItemStateConstant),
+        typeof(ProtectionStateConstant),
+        typeof(ResourceHealthStatusConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AzureFileshareProtectedItemModel),
+        typeof(AzureFileshareProtectedItemExtendedInfoModel),
+        typeof(AzureIaaSClassicComputeVMProtectedItemModel),
+        typeof(AzureIaaSComputeVMProtectedItemModel),
+        typeof(AzureIaaSVMProtectedItemModel),
+        typeof(AzureIaaSVMProtectedItemExtendedInfoModel),
+        typeof(AzureSqlProtectedItemModel),
+        typeof(AzureSqlProtectedItemExtendedInfoModel),
+        typeof(AzureVMWorkloadProtectedItemModel),
+        typeof(AzureVMWorkloadProtectedItemExtendedInfoModel),
+        typeof(AzureVMWorkloadSAPAseDatabaseProtectedItemModel),
+        typeof(AzureVMWorkloadSAPHanaDatabaseProtectedItemModel),
+        typeof(AzureVMWorkloadSQLDatabaseProtectedItemModel),
+        typeof(DPMProtectedItemModel),
+        typeof(DPMProtectedItemExtendedInfoModel),
+        typeof(DiskExclusionPropertiesModel),
+        typeof(ErrorDetailModel),
+        typeof(ExtendedPropertiesModel),
+        typeof(GenericProtectedItemModel),
+        typeof(KPIResourceHealthDetailsModel),
+        typeof(MabFileFolderProtectedItemModel),
+        typeof(MabFileFolderProtectedItemExtendedInfoModel),
+        typeof(ProtectedItemModel),
+        typeof(ProtectedItemResourceModel),
+        typeof(ResourceHealthDetailsModel),
+    };
 }

@@ -21,4 +21,24 @@ internal class Definition : ResourceDefinition
         new ListByResourceGroupOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(CheckNameAvailabilityResourceTypeConstant),
+        typeof(PrivateEndpointServiceConnectionStatusConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ClusterModel),
+        typeof(ClusterForUpdateModel),
+        typeof(ClusterPropertiesModel),
+        typeof(ClusterPropertiesForUpdateModel),
+        typeof(MaintenanceWindowModel),
+        typeof(NameAvailabilityModel),
+        typeof(NameAvailabilityRequestModel),
+        typeof(PrivateEndpointConnectionSimplePropertiesModel),
+        typeof(PrivateEndpointPropertyModel),
+        typeof(PrivateLinkServiceConnectionStateModel),
+        typeof(ServerNameItemModel),
+        typeof(SimplePrivateEndpointConnectionModel),
+    };
 }

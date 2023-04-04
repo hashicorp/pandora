@@ -19,4 +19,15 @@ internal class Definition : ResourceDefinition
         new ListByStorageAccountOperation(),
         new RefreshOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AzureContainerDataFormatConstant),
+        typeof(ContainerStatusConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ContainerModel),
+        typeof(ContainerPropertiesModel),
+        typeof(RefreshDetailsModel),
+    };
 }

@@ -17,4 +17,15 @@ internal class Definition : ResourceDefinition
         new WorkflowsGetOperation(),
         new WorkflowsListByStorageSyncServiceOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(OperationDirectionConstant),
+        typeof(WorkflowStatusConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(WorkflowModel),
+        typeof(WorkflowArrayModel),
+        typeof(WorkflowPropertiesModel),
+    };
 }

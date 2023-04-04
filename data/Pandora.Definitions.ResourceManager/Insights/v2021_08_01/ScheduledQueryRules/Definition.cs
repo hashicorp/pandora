@@ -20,4 +20,23 @@ internal class Definition : ResourceDefinition
         new ListBySubscriptionOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AlertSeverityConstant),
+        typeof(ConditionOperatorConstant),
+        typeof(DimensionOperatorConstant),
+        typeof(KindConstant),
+        typeof(TimeAggregationConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ActionsModel),
+        typeof(ConditionModel),
+        typeof(ConditionFailingPeriodsModel),
+        typeof(DimensionModel),
+        typeof(ScheduledQueryRuleCriteriaModel),
+        typeof(ScheduledQueryRulePropertiesModel),
+        typeof(ScheduledQueryRuleResourceModel),
+        typeof(ScheduledQueryRuleResourcePatchModel),
+    };
 }

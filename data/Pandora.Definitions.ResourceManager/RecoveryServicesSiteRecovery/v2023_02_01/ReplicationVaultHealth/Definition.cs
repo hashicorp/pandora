@@ -16,4 +16,19 @@ internal class Definition : ResourceDefinition
         new GetOperation(),
         new RefreshOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(HealthErrorCategoryConstant),
+        typeof(HealthErrorCustomerResolvabilityConstant),
+        typeof(SeverityConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(HealthErrorModel),
+        typeof(HealthErrorSummaryModel),
+        typeof(InnerHealthErrorModel),
+        typeof(ResourceHealthSummaryModel),
+        typeof(VaultHealthDetailsModel),
+        typeof(VaultHealthPropertiesModel),
+    };
 }

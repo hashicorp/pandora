@@ -20,4 +20,19 @@ internal class Definition : ResourceDefinition
         new ListByResourceGroupOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ClusterConfigurationConstant),
+        typeof(ClusterManagerTypeConstant),
+        typeof(ClusterSubnetTypeConstant),
+        typeof(ScaleTypeConstant),
+        typeof(SqlVMGroupImageSkuConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(SqlVirtualMachineGroupModel),
+        typeof(SqlVirtualMachineGroupPropertiesModel),
+        typeof(SqlVirtualMachineGroupUpdateModel),
+        typeof(WsfcDomainProfileModel),
+    };
 }

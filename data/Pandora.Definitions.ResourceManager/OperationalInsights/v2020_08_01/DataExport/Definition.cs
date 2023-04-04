@@ -18,4 +18,17 @@ internal class Definition : ResourceDefinition
         new GetOperation(),
         new ListByWorkspaceOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(DataSourceTypeConstant),
+        typeof(TypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(DataExportModel),
+        typeof(DataExportListResultModel),
+        typeof(DataExportPropertiesModel),
+        typeof(DestinationModel),
+        typeof(DestinationMetaDataModel),
+    };
 }

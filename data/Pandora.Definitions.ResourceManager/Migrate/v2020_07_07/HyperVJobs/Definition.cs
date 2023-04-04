@@ -16,4 +16,14 @@ internal class Definition : ResourceDefinition
         new GetAllJobsInSiteOperation(),
         new GetJobOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ErrorDetailsModel),
+        typeof(HyperVJobModel),
+        typeof(JobPropertiesModel),
+    };
 }

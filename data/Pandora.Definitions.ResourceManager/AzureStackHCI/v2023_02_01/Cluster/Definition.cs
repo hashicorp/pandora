@@ -17,4 +17,30 @@ internal class Definition : ResourceDefinition
         new ExtendSoftwareAssuranceBenefitOperation(),
         new UploadCertificateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ClusterNodeTypeConstant),
+        typeof(DiagnosticLevelConstant),
+        typeof(ImdsAttestationConstant),
+        typeof(ProvisioningStateConstant),
+        typeof(SoftwareAssuranceIntentConstant),
+        typeof(SoftwareAssuranceStatusConstant),
+        typeof(StatusConstant),
+        typeof(WindowsServerSubscriptionConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ClusterModel),
+        typeof(ClusterDesiredPropertiesModel),
+        typeof(ClusterIdentityResponseModel),
+        typeof(ClusterIdentityResponsePropertiesModel),
+        typeof(ClusterNodeModel),
+        typeof(ClusterPropertiesModel),
+        typeof(ClusterReportedPropertiesModel),
+        typeof(RawCertificateDataModel),
+        typeof(SoftwareAssuranceChangeRequestModel),
+        typeof(SoftwareAssuranceChangeRequestPropertiesModel),
+        typeof(SoftwareAssurancePropertiesModel),
+        typeof(UploadCertificateRequestModel),
+    };
 }

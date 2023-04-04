@@ -17,4 +17,19 @@ internal class Definition : ResourceDefinition
         new ExportJobsTriggerOperation(),
         new JobsGetOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AzureBackupJobModel),
+        typeof(AzureBackupJobResourceModel),
+        typeof(ExportJobsResultModel),
+        typeof(InnerErrorModel),
+        typeof(JobExtendedInfoModel),
+        typeof(JobSubTaskModel),
+        typeof(RestoreJobRecoveryPointDetailsModel),
+        typeof(UserFacingErrorModel),
+    };
 }

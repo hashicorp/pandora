@@ -17,4 +17,36 @@ internal class Definition : ResourceDefinition
         new AutomationRulesGetOperation(),
         new AutomationRulesListOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AutomationRuleActionTypeConstant),
+        typeof(AutomationRuleConditionTypeConstant),
+        typeof(AutomationRulePropertyConditionSupportedOperatorConstant),
+        typeof(AutomationRulePropertyConditionSupportedPropertyConstant),
+        typeof(IncidentClassificationConstant),
+        typeof(IncidentClassificationReasonConstant),
+        typeof(IncidentLabelTypeConstant),
+        typeof(IncidentSeverityConstant),
+        typeof(IncidentStatusConstant),
+        typeof(OwnerTypeConstant),
+        typeof(TriggersOnConstant),
+        typeof(TriggersWhenConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AutomationRuleModel),
+        typeof(AutomationRuleActionModel),
+        typeof(AutomationRuleConditionModel),
+        typeof(AutomationRuleModifyPropertiesActionModel),
+        typeof(AutomationRuleModifyPropertiesActionActionConfigurationModel),
+        typeof(AutomationRulePropertiesModel),
+        typeof(AutomationRulePropertyValuesConditionModel),
+        typeof(AutomationRulePropertyValuesConditionConditionPropertiesModel),
+        typeof(AutomationRuleRunPlaybookActionModel),
+        typeof(AutomationRuleRunPlaybookActionActionConfigurationModel),
+        typeof(AutomationRuleTriggeringLogicModel),
+        typeof(ClientInfoModel),
+        typeof(IncidentLabelModel),
+        typeof(IncidentOwnerInfoModel),
+    };
 }

@@ -19,4 +19,17 @@ internal class Definition : ResourceDefinition
         new RegisteredServersListByStorageSyncServiceOperation(),
         new RegisteredServerstriggerRolloverOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(RegisteredServerAgentVersionStatusConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(RegisteredServerModel),
+        typeof(RegisteredServerArrayModel),
+        typeof(RegisteredServerCreateParametersModel),
+        typeof(RegisteredServerCreateParametersPropertiesModel),
+        typeof(RegisteredServerPropertiesModel),
+        typeof(TriggerRolloverRequestModel),
+    };
 }

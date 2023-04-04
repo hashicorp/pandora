@@ -15,4 +15,21 @@ internal class Definition : ResourceDefinition
     {
         new MHSMPrivateEndpointConnectionsListByResourceOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AccessPolicyUpdateKindConstant),
+        typeof(ActionsRequiredConstant),
+        typeof(ManagedHsmSkuFamilyConstant),
+        typeof(ManagedHsmSkuNameConstant),
+        typeof(PrivateEndpointConnectionProvisioningStateConstant),
+        typeof(PrivateEndpointServiceConnectionStatusConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(MHSMPrivateEndpointModel),
+        typeof(MHSMPrivateEndpointConnectionModel),
+        typeof(MHSMPrivateEndpointConnectionPropertiesModel),
+        typeof(MHSMPrivateLinkServiceConnectionStateModel),
+        typeof(ManagedHsmSkuModel),
+    };
 }

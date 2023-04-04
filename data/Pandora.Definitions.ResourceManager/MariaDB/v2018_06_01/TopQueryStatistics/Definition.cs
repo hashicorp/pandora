@@ -16,4 +16,15 @@ internal class Definition : ResourceDefinition
         new GetOperation(),
         new ListByServerOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(QueryStatisticModel),
+        typeof(QueryStatisticPropertiesModel),
+        typeof(TopQueryStatisticsInputModel),
+        typeof(TopQueryStatisticsInputPropertiesModel),
+    };
 }

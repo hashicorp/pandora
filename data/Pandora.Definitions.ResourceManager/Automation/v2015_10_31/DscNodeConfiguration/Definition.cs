@@ -18,4 +18,16 @@ internal class Definition : ResourceDefinition
         new GetOperation(),
         new ListByAutomationAccountOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ContentSourceTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ContentHashModel),
+        typeof(ContentSourceModel),
+        typeof(DscConfigurationAssociationPropertyModel),
+        typeof(DscNodeConfigurationModel),
+        typeof(DscNodeConfigurationCreateOrUpdateParametersModel),
+    };
 }

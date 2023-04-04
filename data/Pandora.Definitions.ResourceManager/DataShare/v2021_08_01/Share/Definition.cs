@@ -25,4 +25,24 @@ internal class Definition : ResourceDefinition
         new ProviderShareSubscriptionsReinstateOperation(),
         new ProviderShareSubscriptionsRevokeOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(DataSetTypeConstant),
+        typeof(ProvisioningStateConstant),
+        typeof(ShareKindConstant),
+        typeof(ShareSubscriptionStatusConstant),
+        typeof(StatusConstant),
+        typeof(SynchronizationModeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(DataShareErrorInfoModel),
+        typeof(OperationResponseModel),
+        typeof(ProviderShareSubscriptionModel),
+        typeof(ProviderShareSubscriptionPropertiesModel),
+        typeof(ShareModel),
+        typeof(SharePropertiesModel),
+        typeof(ShareSynchronizationModel),
+        typeof(SynchronizationDetailsModel),
+    };
 }

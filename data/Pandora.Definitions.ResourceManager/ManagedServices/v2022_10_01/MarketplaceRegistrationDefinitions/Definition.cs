@@ -18,4 +18,18 @@ internal class Definition : ResourceDefinition
         new WithoutScopeGetOperation(),
         new WithoutScopeListOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(MultiFactorAuthProviderConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AuthorizationModel),
+        typeof(EligibleApproverModel),
+        typeof(EligibleAuthorizationModel),
+        typeof(JustInTimeAccessPolicyModel),
+        typeof(MarketplaceRegistrationDefinitionModel),
+        typeof(MarketplaceRegistrationDefinitionPropertiesModel),
+        typeof(PlanModel),
+    };
 }

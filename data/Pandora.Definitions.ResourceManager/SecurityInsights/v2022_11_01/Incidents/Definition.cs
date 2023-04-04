@@ -18,4 +18,22 @@ internal class Definition : ResourceDefinition
         new GetOperation(),
         new ListOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AttackTacticConstant),
+        typeof(IncidentClassificationConstant),
+        typeof(IncidentClassificationReasonConstant),
+        typeof(IncidentLabelTypeConstant),
+        typeof(IncidentSeverityConstant),
+        typeof(IncidentStatusConstant),
+        typeof(OwnerTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(IncidentModel),
+        typeof(IncidentAdditionalDataModel),
+        typeof(IncidentLabelModel),
+        typeof(IncidentOwnerInfoModel),
+        typeof(IncidentPropertiesModel),
+    };
 }

@@ -15,4 +15,44 @@ internal class Definition : ResourceDefinition
     {
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(MoveCostConstant),
+        typeof(PartitionSchemeConstant),
+        typeof(ServiceCorrelationSchemeConstant),
+        typeof(ServiceKindConstant),
+        typeof(ServiceLoadMetricWeightConstant),
+        typeof(ServicePackageActivationModeConstant),
+        typeof(ServicePlacementPolicyTypeConstant),
+        typeof(ServiceScalingMechanismKindConstant),
+        typeof(ServiceScalingTriggerKindConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AddRemoveIncrementalNamedPartitionScalingMechanismModel),
+        typeof(AveragePartitionLoadScalingTriggerModel),
+        typeof(AverageServiceLoadScalingTriggerModel),
+        typeof(NamedPartitionSchemeModel),
+        typeof(PartitionModel),
+        typeof(PartitionInstanceCountScaleMechanismModel),
+        typeof(ScalingMechanismModel),
+        typeof(ScalingPolicyModel),
+        typeof(ScalingTriggerModel),
+        typeof(ServiceCorrelationModel),
+        typeof(ServiceLoadMetricModel),
+        typeof(ServicePlacementInvalidDomainPolicyModel),
+        typeof(ServicePlacementNonPartiallyPlaceServicePolicyModel),
+        typeof(ServicePlacementPolicyModel),
+        typeof(ServicePlacementPreferPrimaryDomainPolicyModel),
+        typeof(ServicePlacementRequireDomainDistributionPolicyModel),
+        typeof(ServicePlacementRequiredDomainPolicyModel),
+        typeof(ServiceResourceModel),
+        typeof(ServiceResourcePropertiesModel),
+        typeof(ServiceUpdateParametersModel),
+        typeof(SingletonPartitionSchemeModel),
+        typeof(StatefulServicePropertiesModel),
+        typeof(StatelessServicePropertiesModel),
+        typeof(SystemDataModel),
+        typeof(UniformInt64RangePartitionSchemeModel),
+    };
 }

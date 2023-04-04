@@ -21,4 +21,22 @@ internal class Definition : ResourceDefinition
         new DedicatedHsmListOutboundNetworkDependenciesEndpointsOperation(),
         new DedicatedHsmUpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(JsonWebKeyTypeConstant),
+        typeof(SkuNameConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ApiEntityReferenceModel),
+        typeof(DedicatedHsmModel),
+        typeof(DedicatedHsmPatchParametersModel),
+        typeof(DedicatedHsmPropertiesModel),
+        typeof(EndpointDependencyModel),
+        typeof(EndpointDetailModel),
+        typeof(NetworkInterfaceModel),
+        typeof(NetworkProfileModel),
+        typeof(OutboundEnvironmentEndpointModel),
+        typeof(SkuModel),
+    };
 }

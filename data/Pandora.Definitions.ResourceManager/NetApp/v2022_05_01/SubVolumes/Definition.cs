@@ -20,4 +20,17 @@ internal class Definition : ResourceDefinition
         new ListByVolumeOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(SubvolumeInfoModel),
+        typeof(SubvolumeModelModel),
+        typeof(SubvolumeModelPropertiesModel),
+        typeof(SubvolumePatchParamsModel),
+        typeof(SubvolumePatchRequestModel),
+        typeof(SubvolumePropertiesModel),
+    };
 }

@@ -20,4 +20,29 @@ internal class Definition : ResourceDefinition
         new ListByReplicationNetworksOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AzureToAzureCreateNetworkMappingInputModel),
+        typeof(AzureToAzureNetworkMappingSettingsModel),
+        typeof(AzureToAzureUpdateNetworkMappingInputModel),
+        typeof(CreateNetworkMappingInputModel),
+        typeof(CreateNetworkMappingInputPropertiesModel),
+        typeof(FabricSpecificCreateNetworkMappingInputModel),
+        typeof(FabricSpecificUpdateNetworkMappingInputModel),
+        typeof(NetworkMappingModel),
+        typeof(NetworkMappingFabricSpecificSettingsModel),
+        typeof(NetworkMappingPropertiesModel),
+        typeof(UpdateNetworkMappingInputModel),
+        typeof(UpdateNetworkMappingInputPropertiesModel),
+        typeof(VMmToAzureCreateNetworkMappingInputModel),
+        typeof(VMmToAzureNetworkMappingSettingsModel),
+        typeof(VMmToAzureUpdateNetworkMappingInputModel),
+        typeof(VMmToVMmCreateNetworkMappingInputModel),
+        typeof(VMmToVMmNetworkMappingSettingsModel),
+        typeof(VMmToVMmUpdateNetworkMappingInputModel),
+    };
 }

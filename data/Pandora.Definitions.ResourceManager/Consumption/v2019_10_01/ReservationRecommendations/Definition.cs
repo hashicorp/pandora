@@ -15,4 +15,18 @@ internal class Definition : ResourceDefinition
     {
         new ListOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ReservationRecommendationKindConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AmountModel),
+        typeof(LegacyReservationRecommendationModel),
+        typeof(LegacyReservationRecommendationPropertiesModel),
+        typeof(ModernReservationRecommendationModel),
+        typeof(ModernReservationRecommendationPropertiesModel),
+        typeof(ReservationRecommendationModel),
+        typeof(SkuPropertyModel),
+    };
 }

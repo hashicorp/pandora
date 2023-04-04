@@ -17,4 +17,16 @@ internal class Definition : ResourceDefinition
         new GetContentOperation(),
         new ListByNodeOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(DscMetaConfigurationModel),
+        typeof(DscNodeReportModel),
+        typeof(DscReportErrorModel),
+        typeof(DscReportResourceModel),
+        typeof(DscReportResourceNavigationModel),
+    };
 }

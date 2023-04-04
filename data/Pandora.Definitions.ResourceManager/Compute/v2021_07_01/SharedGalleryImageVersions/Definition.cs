@@ -16,4 +16,14 @@ internal class Definition : ResourceDefinition
         new GetOperation(),
         new ListOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(SharedToValuesConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(SharedGalleryIdentifierModel),
+        typeof(SharedGalleryImageVersionModel),
+        typeof(SharedGalleryImageVersionPropertiesModel),
+    };
 }

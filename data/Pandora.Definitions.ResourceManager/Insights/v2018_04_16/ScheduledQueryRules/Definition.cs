@@ -20,4 +20,32 @@ internal class Definition : ResourceDefinition
         new ListBySubscriptionOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AlertSeverityConstant),
+        typeof(ConditionalOperatorConstant),
+        typeof(EnabledConstant),
+        typeof(MetricTriggerTypeConstant),
+        typeof(OperatorConstant),
+        typeof(ProvisioningStateConstant),
+        typeof(QueryTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ActionModel),
+        typeof(AlertingActionModel),
+        typeof(AzNsActionGroupModel),
+        typeof(CriteriaModel),
+        typeof(DimensionModel),
+        typeof(LogMetricTriggerModel),
+        typeof(LogSearchRuleModel),
+        typeof(LogSearchRulePatchModel),
+        typeof(LogSearchRuleResourceModel),
+        typeof(LogSearchRuleResourceCollectionModel),
+        typeof(LogSearchRuleResourcePatchModel),
+        typeof(LogToMetricActionModel),
+        typeof(ScheduleModel),
+        typeof(SourceModel),
+        typeof(TriggerConditionModel),
+    };
 }

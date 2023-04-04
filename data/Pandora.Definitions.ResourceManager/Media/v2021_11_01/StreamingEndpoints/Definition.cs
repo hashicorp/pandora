@@ -23,4 +23,25 @@ internal class Definition : ResourceDefinition
         new StopOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(StreamingEndpointResourceStateConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AkamaiAccessControlModel),
+        typeof(AkamaiSignatureHeaderAuthenticationKeyModel),
+        typeof(ArmStreamingEndpointCapacityModel),
+        typeof(ArmStreamingEndpointCurrentSkuModel),
+        typeof(ArmStreamingEndpointSkuModel),
+        typeof(ArmStreamingEndpointSkuInfoModel),
+        typeof(CrossSiteAccessPoliciesModel),
+        typeof(IPAccessControlModel),
+        typeof(IPRangeModel),
+        typeof(StreamingEndpointModel),
+        typeof(StreamingEndpointAccessControlModel),
+        typeof(StreamingEndpointPropertiesModel),
+        typeof(StreamingEndpointSkuInfoListResultModel),
+        typeof(StreamingEntityScaleUnitModel),
+    };
 }

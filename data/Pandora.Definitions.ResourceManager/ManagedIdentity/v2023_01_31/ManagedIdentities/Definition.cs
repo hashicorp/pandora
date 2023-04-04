@@ -25,4 +25,18 @@ internal class Definition : ResourceDefinition
         new UserAssignedIdentitiesListBySubscriptionOperation(),
         new UserAssignedIdentitiesUpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(FederatedIdentityCredentialModel),
+        typeof(FederatedIdentityCredentialPropertiesModel),
+        typeof(IdentityModel),
+        typeof(IdentityUpdateModel),
+        typeof(SystemAssignedIdentityModel),
+        typeof(SystemAssignedIdentityPropertiesModel),
+        typeof(UserAssignedIdentityPropertiesModel),
+    };
 }

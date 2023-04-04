@@ -15,4 +15,18 @@ internal class Definition : ResourceDefinition
     {
         new ListOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(MetrictypeConstant),
+        typeof(UsageDetailsKindConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(LegacyUsageDetailModel),
+        typeof(LegacyUsageDetailPropertiesModel),
+        typeof(MeterDetailsResponseModel),
+        typeof(ModernUsageDetailModel),
+        typeof(ModernUsageDetailPropertiesModel),
+        typeof(UsageDetailModel),
+    };
 }

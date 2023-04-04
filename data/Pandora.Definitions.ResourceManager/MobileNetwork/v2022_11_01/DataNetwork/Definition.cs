@@ -18,4 +18,14 @@ internal class Definition : ResourceDefinition
         new GetOperation(),
         new UpdateTagsOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ProvisioningStateConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(DataNetworkModel),
+        typeof(DataNetworkPropertiesFormatModel),
+        typeof(TagsObjectModel),
+    };
 }

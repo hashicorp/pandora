@@ -20,4 +20,22 @@ internal class Definition : ResourceDefinition
         new DigitalTwinsListByResourceGroupOperation(),
         new DigitalTwinsUpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ConnectionPropertiesProvisioningStateConstant),
+        typeof(PrivateLinkServiceConnectionStatusConstant),
+        typeof(ProvisioningStateConstant),
+        typeof(PublicNetworkAccessConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ConnectionPropertiesModel),
+        typeof(ConnectionStateModel),
+        typeof(DigitalTwinsDescriptionModel),
+        typeof(DigitalTwinsPatchDescriptionModel),
+        typeof(DigitalTwinsPatchPropertiesModel),
+        typeof(DigitalTwinsPropertiesModel),
+        typeof(PrivateEndpointModel),
+        typeof(PrivateEndpointConnectionModel),
+    };
 }

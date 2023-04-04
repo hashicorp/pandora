@@ -20,4 +20,20 @@ internal class Definition : ResourceDefinition
         new ListBySubscriptionOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ApplicationGroupTypeConstant),
+        typeof(OperationConstant),
+        typeof(SkuTierConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ApplicationGroupModel),
+        typeof(ApplicationGroupPatchModel),
+        typeof(ApplicationGroupPatchPropertiesModel),
+        typeof(ApplicationGroupPropertiesModel),
+        typeof(MigrationRequestPropertiesModel),
+        typeof(PlanModel),
+        typeof(SkuModel),
+    };
 }

@@ -17,4 +17,18 @@ internal class Definition : ResourceDefinition
         new RemoteRenderingAccountsListBySubscriptionOperation(),
         new SpatialAnchorsAccountsListBySubscriptionOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(NameUnavailableReasonConstant),
+        typeof(SkuTierConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(CheckNameAvailabilityRequestModel),
+        typeof(CheckNameAvailabilityResponseModel),
+        typeof(MixedRealityAccountPropertiesModel),
+        typeof(RemoteRenderingAccountModel),
+        typeof(SkuModel),
+        typeof(SpatialAnchorsAccountModel),
+    };
 }

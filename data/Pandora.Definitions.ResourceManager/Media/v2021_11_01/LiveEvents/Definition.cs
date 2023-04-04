@@ -23,4 +23,30 @@ internal class Definition : ResourceDefinition
         new StopOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(LiveEventEncodingTypeConstant),
+        typeof(LiveEventInputProtocolConstant),
+        typeof(LiveEventResourceStateConstant),
+        typeof(StreamOptionsFlagConstant),
+        typeof(StretchModeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(CrossSiteAccessPoliciesModel),
+        typeof(IPAccessControlModel),
+        typeof(IPRangeModel),
+        typeof(LiveEventModel),
+        typeof(LiveEventActionInputModel),
+        typeof(LiveEventEncodingModel),
+        typeof(LiveEventEndpointModel),
+        typeof(LiveEventInputModel),
+        typeof(LiveEventInputAccessControlModel),
+        typeof(LiveEventInputTrackSelectionModel),
+        typeof(LiveEventOutputTranscriptionTrackModel),
+        typeof(LiveEventPreviewModel),
+        typeof(LiveEventPreviewAccessControlModel),
+        typeof(LiveEventPropertiesModel),
+        typeof(LiveEventTranscriptionModel),
+    };
 }

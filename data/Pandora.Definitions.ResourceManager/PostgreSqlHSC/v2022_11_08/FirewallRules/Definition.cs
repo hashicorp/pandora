@@ -18,4 +18,14 @@ internal class Definition : ResourceDefinition
         new GetOperation(),
         new ListByClusterOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ProvisioningStateConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(FirewallRuleModel),
+        typeof(FirewallRuleListResultModel),
+        typeof(FirewallRulePropertiesModel),
+    };
 }

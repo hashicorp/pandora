@@ -20,4 +20,26 @@ internal class Definition : ResourceDefinition
         new PrivateEndpointConnectionListByServiceOperation(),
         new PrivateEndpointConnectionListPrivateLinkResourcesOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AccessIdNameConstant),
+        typeof(IdentityProviderTypeConstant),
+        typeof(NotificationNameConstant),
+        typeof(PrivateEndpointConnectionProvisioningStateConstant),
+        typeof(PrivateEndpointServiceConnectionStatusConstant),
+        typeof(TemplateNameConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(PrivateEndpointModel),
+        typeof(PrivateEndpointConnectionModel),
+        typeof(PrivateEndpointConnectionListResultModel),
+        typeof(PrivateEndpointConnectionPropertiesModel),
+        typeof(PrivateEndpointConnectionRequestModel),
+        typeof(PrivateEndpointConnectionRequestPropertiesModel),
+        typeof(PrivateLinkResourceModel),
+        typeof(PrivateLinkResourceListResultModel),
+        typeof(PrivateLinkResourcePropertiesModel),
+        typeof(PrivateLinkServiceConnectionStateModel),
+    };
 }

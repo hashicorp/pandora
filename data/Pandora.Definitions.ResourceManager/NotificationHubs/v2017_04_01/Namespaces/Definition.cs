@@ -27,4 +27,25 @@ internal class Definition : ResourceDefinition
         new PatchOperation(),
         new RegenerateKeysOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AccessRightsConstant),
+        typeof(NamespaceTypeConstant),
+        typeof(SkuNameConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(CheckAvailabilityParametersModel),
+        typeof(CheckAvailabilityResultModel),
+        typeof(NamespaceCreateOrUpdateParametersModel),
+        typeof(NamespacePatchParametersModel),
+        typeof(NamespacePropertiesModel),
+        typeof(NamespaceResourceModel),
+        typeof(PolicykeyResourceModel),
+        typeof(ResourceListKeysModel),
+        typeof(SharedAccessAuthorizationRuleCreateOrUpdateParametersModel),
+        typeof(SharedAccessAuthorizationRulePropertiesModel),
+        typeof(SharedAccessAuthorizationRuleResourceModel),
+        typeof(SkuModel),
+    };
 }

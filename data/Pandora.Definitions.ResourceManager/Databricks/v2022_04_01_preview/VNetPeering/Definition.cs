@@ -18,4 +18,17 @@ internal class Definition : ResourceDefinition
         new GetOperation(),
         new ListByWorkspaceOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(PeeringProvisioningStateConstant),
+        typeof(PeeringStateConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AddressSpaceModel),
+        typeof(VirtualNetworkPeeringModel),
+        typeof(VirtualNetworkPeeringPropertiesFormatModel),
+        typeof(VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkModel),
+        typeof(VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkModel),
+    };
 }

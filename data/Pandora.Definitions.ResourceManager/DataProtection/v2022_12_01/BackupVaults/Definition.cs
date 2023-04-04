@@ -21,4 +21,34 @@ internal class Definition : ResourceDefinition
         new GetInSubscriptionOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AlertsStateConstant),
+        typeof(CrossSubscriptionRestoreStateConstant),
+        typeof(ImmutabilityStateConstant),
+        typeof(ProvisioningStateConstant),
+        typeof(ResourceMoveStateConstant),
+        typeof(SoftDeleteStateConstant),
+        typeof(StorageSettingStoreTypesConstant),
+        typeof(StorageSettingTypesConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AzureMonitorAlertSettingsModel),
+        typeof(BackupVaultModel),
+        typeof(BackupVaultResourceModel),
+        typeof(CheckNameAvailabilityRequestModel),
+        typeof(CheckNameAvailabilityResultModel),
+        typeof(CrossSubscriptionRestoreSettingsModel),
+        typeof(DppIdentityDetailsModel),
+        typeof(FeatureSettingsModel),
+        typeof(ImmutabilitySettingsModel),
+        typeof(MonitoringSettingsModel),
+        typeof(PatchBackupVaultInputModel),
+        typeof(PatchResourceRequestInputModel),
+        typeof(ResourceMoveDetailsModel),
+        typeof(SecuritySettingsModel),
+        typeof(SoftDeleteSettingsModel),
+        typeof(StorageSettingModel),
+    };
 }

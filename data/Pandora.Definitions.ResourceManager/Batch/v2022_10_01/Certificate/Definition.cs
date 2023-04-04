@@ -20,4 +20,17 @@ internal class Definition : ResourceDefinition
         new ListByBatchAccountOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(CertificateFormatConstant),
+        typeof(CertificateProvisioningStateConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(CertificateModel),
+        typeof(CertificateCreateOrUpdateParametersModel),
+        typeof(CertificateCreateOrUpdatePropertiesModel),
+        typeof(CertificatePropertiesModel),
+        typeof(DeleteCertificateErrorModel),
+    };
 }

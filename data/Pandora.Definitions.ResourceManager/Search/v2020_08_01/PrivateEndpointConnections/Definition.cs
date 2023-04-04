@@ -18,4 +18,16 @@ internal class Definition : ResourceDefinition
         new ListByServiceOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AdminKeyKindConstant),
+        typeof(PrivateLinkServiceConnectionStatusConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(PrivateEndpointConnectionModel),
+        typeof(PrivateEndpointConnectionPropertiesModel),
+        typeof(PrivateEndpointConnectionPropertiesPrivateEndpointModel),
+        typeof(PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateModel),
+    };
 }

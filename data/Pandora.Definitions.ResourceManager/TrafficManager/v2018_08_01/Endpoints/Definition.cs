@@ -18,4 +18,18 @@ internal class Definition : ResourceDefinition
         new GetOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(EndpointMonitorStatusConstant),
+        typeof(EndpointStatusConstant),
+        typeof(EndpointTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(DeleteOperationResultModel),
+        typeof(EndpointModel),
+        typeof(EndpointPropertiesModel),
+        typeof(EndpointPropertiesCustomHeadersInlinedModel),
+        typeof(EndpointPropertiesSubnetsInlinedModel),
+    };
 }

@@ -20,4 +20,31 @@ internal class Definition : ResourceDefinition
         new ListOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ActivationStatusConstant),
+        typeof(AuditLogStatusConstant),
+        typeof(CertificateTypeConstant),
+        typeof(ConnectedRegistryModeConstant),
+        typeof(ConnectionStateConstant),
+        typeof(LogLevelConstant),
+        typeof(ProvisioningStateConstant),
+        typeof(TlsStatusConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ActivationPropertiesModel),
+        typeof(ConnectedRegistryModel),
+        typeof(ConnectedRegistryPropertiesModel),
+        typeof(ConnectedRegistryUpdateParametersModel),
+        typeof(ConnectedRegistryUpdatePropertiesModel),
+        typeof(LoggingPropertiesModel),
+        typeof(LoginServerPropertiesModel),
+        typeof(ParentPropertiesModel),
+        typeof(StatusDetailPropertiesModel),
+        typeof(SyncPropertiesModel),
+        typeof(SyncUpdatePropertiesModel),
+        typeof(TlsCertificatePropertiesModel),
+        typeof(TlsPropertiesModel),
+    };
 }

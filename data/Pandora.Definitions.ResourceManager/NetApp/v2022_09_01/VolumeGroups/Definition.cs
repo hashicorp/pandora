@@ -18,4 +18,41 @@ internal class Definition : ResourceDefinition
         new VolumeGroupsGetOperation(),
         new VolumeGroupsListByNetAppAccountOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ApplicationTypeConstant),
+        typeof(AvsDataStoreConstant),
+        typeof(ChownModeConstant),
+        typeof(EnableSubvolumesConstant),
+        typeof(EncryptionKeySourceConstant),
+        typeof(EndpointTypeConstant),
+        typeof(FileAccessLogsConstant),
+        typeof(NetworkFeaturesConstant),
+        typeof(ReplicationScheduleConstant),
+        typeof(SecurityStyleConstant),
+        typeof(ServiceLevelConstant),
+        typeof(SmbAccessBasedEnumerationConstant),
+        typeof(SmbNonBrowsableConstant),
+        typeof(VolumeStorageToNetworkProximityConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ExportPolicyRuleModel),
+        typeof(MountTargetPropertiesModel),
+        typeof(PlacementKeyValuePairsModel),
+        typeof(ReplicationObjectModel),
+        typeof(VolumeBackupPropertiesModel),
+        typeof(VolumeGroupModel),
+        typeof(VolumeGroupDetailsModel),
+        typeof(VolumeGroupListModel),
+        typeof(VolumeGroupListPropertiesModel),
+        typeof(VolumeGroupMetaDataModel),
+        typeof(VolumeGroupPropertiesModel),
+        typeof(VolumeGroupVolumePropertiesModel),
+        typeof(VolumePropertiesModel),
+        typeof(VolumePropertiesDataProtectionModel),
+        typeof(VolumePropertiesExportPolicyModel),
+        typeof(VolumeRelocationPropertiesModel),
+        typeof(VolumeSnapshotPropertiesModel),
+    };
 }

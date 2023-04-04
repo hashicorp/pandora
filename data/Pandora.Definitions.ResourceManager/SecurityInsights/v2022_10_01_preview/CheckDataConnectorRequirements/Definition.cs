@@ -15,4 +15,35 @@ internal class Definition : ResourceDefinition
     {
         new DataConnectorsCheckRequirementsPostOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(DataConnectorAuthorizationStateConstant),
+        typeof(DataConnectorKindConstant),
+        typeof(DataConnectorLicenseStateConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AADCheckRequirementsModel),
+        typeof(AATPCheckRequirementsModel),
+        typeof(ASCCheckRequirementsModel),
+        typeof(ASCCheckRequirementsPropertiesModel),
+        typeof(AwsCloudTrailCheckRequirementsModel),
+        typeof(AwsS3CheckRequirementsModel),
+        typeof(DataConnectorRequirementsStateModel),
+        typeof(DataConnectorTenantIdModel),
+        typeof(DataConnectorsCheckRequirementsModel),
+        typeof(Dynamics365CheckRequirementsModel),
+        typeof(IoTCheckRequirementsModel),
+        typeof(IoTCheckRequirementsPropertiesModel),
+        typeof(MCASCheckRequirementsModel),
+        typeof(MDATPCheckRequirementsModel),
+        typeof(MSTICheckRequirementsModel),
+        typeof(MtpCheckRequirementsModel),
+        typeof(Office365ProjectCheckRequirementsModel),
+        typeof(OfficeATPCheckRequirementsModel),
+        typeof(OfficeIRMCheckRequirementsModel),
+        typeof(OfficePowerBICheckRequirementsModel),
+        typeof(TICheckRequirementsModel),
+        typeof(TiTaxiiCheckRequirementsModel),
+    };
 }

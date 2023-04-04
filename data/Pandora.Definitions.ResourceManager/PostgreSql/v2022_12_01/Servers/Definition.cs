@@ -20,4 +20,38 @@ internal class Definition : ResourceDefinition
         new ListByResourceGroupOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ActiveDirectoryAuthEnumConstant),
+        typeof(ArmServerKeyTypeConstant),
+        typeof(CreateModeConstant),
+        typeof(CreateModeForUpdateConstant),
+        typeof(GeoRedundantBackupEnumConstant),
+        typeof(HighAvailabilityModeConstant),
+        typeof(IdentityTypeConstant),
+        typeof(PasswordAuthEnumConstant),
+        typeof(ReplicationRoleConstant),
+        typeof(ServerHAStateConstant),
+        typeof(ServerPublicNetworkAccessStateConstant),
+        typeof(ServerStateConstant),
+        typeof(ServerVersionConstant),
+        typeof(SkuTierConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AuthConfigModel),
+        typeof(BackupModel),
+        typeof(DataEncryptionModel),
+        typeof(HighAvailabilityModel),
+        typeof(MaintenanceWindowModel),
+        typeof(NetworkModel),
+        typeof(ServerModel),
+        typeof(ServerForUpdateModel),
+        typeof(ServerPropertiesModel),
+        typeof(ServerPropertiesForUpdateModel),
+        typeof(SkuModel),
+        typeof(StorageModel),
+        typeof(UserAssignedIdentityModel),
+        typeof(UserIdentityModel),
+    };
 }

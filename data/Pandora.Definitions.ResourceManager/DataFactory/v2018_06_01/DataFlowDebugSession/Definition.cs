@@ -19,4 +19,39 @@ internal class Definition : ResourceDefinition
         new ExecuteCommandOperation(),
         new QueryByFactoryOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(DataFlowDebugCommandTypeConstant),
+        typeof(IntegrationRuntimeTypeConstant),
+        typeof(ParameterTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AddDataFlowToDebugSessionResponseModel),
+        typeof(CreateDataFlowDebugSessionRequestModel),
+        typeof(CreateDataFlowDebugSessionResponseModel),
+        typeof(DataFlowModel),
+        typeof(DataFlowDebugCommandPayloadModel),
+        typeof(DataFlowDebugCommandRequestModel),
+        typeof(DataFlowDebugCommandResponseModel),
+        typeof(DataFlowDebugPackageModel),
+        typeof(DataFlowDebugPackageDebugSettingsModel),
+        typeof(DataFlowDebugResourceModel),
+        typeof(DataFlowDebugSessionInfoModel),
+        typeof(DataFlowFolderModel),
+        typeof(DataFlowSourceSettingModel),
+        typeof(DataFlowStagingInfoModel),
+        typeof(DatasetModel),
+        typeof(DatasetDebugResourceModel),
+        typeof(DatasetFolderModel),
+        typeof(DeleteDataFlowDebugSessionRequestModel),
+        typeof(IntegrationRuntimeModel),
+        typeof(IntegrationRuntimeDebugResourceModel),
+        typeof(IntegrationRuntimeReferenceModel),
+        typeof(LinkedServiceModel),
+        typeof(LinkedServiceDebugResourceModel),
+        typeof(LinkedServiceReferenceModel),
+        typeof(ParameterSpecificationModel),
+        typeof(ReferenceModel),
+    };
 }

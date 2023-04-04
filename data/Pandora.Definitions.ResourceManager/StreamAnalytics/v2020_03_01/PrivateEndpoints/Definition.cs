@@ -18,4 +18,16 @@ internal class Definition : ResourceDefinition
         new GetOperation(),
         new ListByClusterOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(PrivateEndpointModel),
+        typeof(PrivateEndpointPropertiesModel),
+        typeof(PrivateLinkConnectionStateModel),
+        typeof(PrivateLinkServiceConnectionModel),
+        typeof(PrivateLinkServiceConnectionPropertiesModel),
+    };
 }

@@ -26,4 +26,15 @@ internal class Definition : ResourceDefinition
         new SpatialAnchorsAccountsListBySubscriptionOperation(),
         new SpatialAnchorsAccountsUpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(SkuTierConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(MixedRealityAccountPropertiesModel),
+        typeof(RemoteRenderingAccountModel),
+        typeof(SkuModel),
+        typeof(SpatialAnchorsAccountModel),
+    };
 }

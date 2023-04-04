@@ -15,4 +15,13 @@ internal class Definition : ResourceDefinition
     {
         new ListByDataBoxEdgeDeviceOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(NodeStatusConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(NodeModel),
+        typeof(NodePropertiesModel),
+    };
 }

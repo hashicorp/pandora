@@ -19,4 +19,19 @@ internal class Definition : ResourceDefinition
         new GetEntityTagOperation(),
         new ListByOperationOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AccessIdNameConstant),
+        typeof(IdentityProviderTypeConstant),
+        typeof(NotificationNameConstant),
+        typeof(PolicyContentFormatConstant),
+        typeof(PolicyExportFormatConstant),
+        typeof(TemplateNameConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(PolicyCollectionModel),
+        typeof(PolicyContractModel),
+        typeof(PolicyContractPropertiesModel),
+    };
 }
