@@ -19,4 +19,23 @@ internal class Definition : ResourceDefinition
         new ListOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(KindConstant),
+        typeof(OperatorConstant),
+        typeof(SourceKindConstant),
+        typeof(SupportTierConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(MetadataAuthorModel),
+        typeof(MetadataCategoriesModel),
+        typeof(MetadataDependenciesModel),
+        typeof(MetadataModelModel),
+        typeof(MetadataPatchModel),
+        typeof(MetadataPropertiesModel),
+        typeof(MetadataPropertiesPatchModel),
+        typeof(MetadataSourceModel),
+        typeof(MetadataSupportModel),
+    };
 }

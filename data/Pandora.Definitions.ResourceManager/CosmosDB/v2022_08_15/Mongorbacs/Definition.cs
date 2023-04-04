@@ -22,4 +22,22 @@ internal class Definition : ResourceDefinition
         new MongoDBResourcesListMongoRoleDefinitionsOperation(),
         new MongoDBResourcesListMongoUserDefinitionsOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(MongoRoleDefinitionTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(MongoRoleDefinitionCreateUpdateParametersModel),
+        typeof(MongoRoleDefinitionGetResultsModel),
+        typeof(MongoRoleDefinitionListResultModel),
+        typeof(MongoRoleDefinitionResourceModel),
+        typeof(MongoUserDefinitionCreateUpdateParametersModel),
+        typeof(MongoUserDefinitionGetResultsModel),
+        typeof(MongoUserDefinitionListResultModel),
+        typeof(MongoUserDefinitionResourceModel),
+        typeof(PrivilegeModel),
+        typeof(PrivilegeResourceModel),
+        typeof(RoleModel),
+    };
 }

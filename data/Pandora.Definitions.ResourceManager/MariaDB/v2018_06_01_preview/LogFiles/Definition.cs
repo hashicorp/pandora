@@ -15,4 +15,14 @@ internal class Definition : ResourceDefinition
     {
         new ListByServerOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(LogFileModel),
+        typeof(LogFileListResultModel),
+        typeof(LogFilePropertiesModel),
+    };
 }

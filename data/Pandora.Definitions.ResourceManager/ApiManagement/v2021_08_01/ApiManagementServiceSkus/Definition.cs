@@ -15,4 +15,19 @@ internal class Definition : ResourceDefinition
     {
         new ListAvailableServiceSkusOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AccessIdNameConstant),
+        typeof(IdentityProviderTypeConstant),
+        typeof(NotificationNameConstant),
+        typeof(ResourceSkuCapacityScaleTypeConstant),
+        typeof(SkuTypeConstant),
+        typeof(TemplateNameConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ResourceSkuModel),
+        typeof(ResourceSkuCapacityModel),
+        typeof(ResourceSkuResultModel),
+    };
 }

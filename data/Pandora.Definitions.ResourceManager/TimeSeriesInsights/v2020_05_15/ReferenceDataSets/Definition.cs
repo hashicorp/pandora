@@ -19,4 +19,20 @@ internal class Definition : ResourceDefinition
         new ListByEnvironmentOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(DataStringComparisonBehaviorConstant),
+        typeof(ProvisioningStateConstant),
+        typeof(ReferenceDataKeyPropertyTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ReferenceDataSetCreateOrUpdateParametersModel),
+        typeof(ReferenceDataSetCreationPropertiesModel),
+        typeof(ReferenceDataSetKeyPropertyModel),
+        typeof(ReferenceDataSetListResponseModel),
+        typeof(ReferenceDataSetResourceModel),
+        typeof(ReferenceDataSetResourcePropertiesModel),
+        typeof(ReferenceDataSetUpdateParametersModel),
+    };
 }

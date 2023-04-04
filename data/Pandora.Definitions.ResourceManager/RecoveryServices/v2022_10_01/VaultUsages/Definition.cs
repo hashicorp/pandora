@@ -15,4 +15,14 @@ internal class Definition : ResourceDefinition
     {
         new UsagesListByVaultsOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(UsagesUnitConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(NameInfoModel),
+        typeof(VaultUsageModel),
+        typeof(VaultUsageListModel),
+    };
 }

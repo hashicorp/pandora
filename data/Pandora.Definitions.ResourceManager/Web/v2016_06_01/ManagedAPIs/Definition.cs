@@ -16,4 +16,25 @@ internal class Definition : ResourceDefinition
         new ManagedApisGetOperation(),
         new ManagedApisListOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ApiTypeConstant),
+        typeof(ConnectionParameterTypeConstant),
+        typeof(WsdlImportMethodConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ApiOAuthSettingsModel),
+        typeof(ApiOAuthSettingsParameterModel),
+        typeof(ApiResourceBackendServiceModel),
+        typeof(ApiResourceDefinitionsModel),
+        typeof(ApiResourceGeneralInformationModel),
+        typeof(ApiResourceMetadataModel),
+        typeof(ApiResourcePoliciesModel),
+        typeof(ApiResourcePropertiesModel),
+        typeof(ConnectionParameterModel),
+        typeof(ManagedApiDefinitionModel),
+        typeof(ManagedApiDefinitionCollectionModel),
+        typeof(WsdlServiceModel),
+    };
 }

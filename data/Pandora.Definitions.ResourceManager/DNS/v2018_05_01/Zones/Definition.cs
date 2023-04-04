@@ -20,4 +20,16 @@ internal class Definition : ResourceDefinition
         new ListByResourceGroupOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(RecordTypeConstant),
+        typeof(ZoneTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(SubResourceModel),
+        typeof(ZoneModel),
+        typeof(ZonePropertiesModel),
+        typeof(ZoneUpdateModel),
+    };
 }

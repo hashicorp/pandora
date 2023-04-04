@@ -19,4 +19,21 @@ internal class Definition : ResourceDefinition
         new ListByAutomationAccountOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(CountTypeConstant),
+        typeof(ScheduleDayConstant),
+        typeof(ScheduleFrequencyConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AdvancedScheduleModel),
+        typeof(AdvancedScheduleMonthlyOccurrenceModel),
+        typeof(ScheduleModel),
+        typeof(ScheduleCreateOrUpdateParametersModel),
+        typeof(ScheduleCreateOrUpdatePropertiesModel),
+        typeof(SchedulePropertiesModel),
+        typeof(ScheduleUpdateParametersModel),
+        typeof(ScheduleUpdatePropertiesModel),
+    };
 }

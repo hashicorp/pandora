@@ -19,4 +19,17 @@ internal class Definition : ResourceDefinition
         new ExtensionsListByArcSettingOperation(),
         new ExtensionsUpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ExtensionAggregateStateConstant),
+        typeof(NodeExtensionStateConstant),
+        typeof(ProvisioningStateConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ExtensionModel),
+        typeof(ExtensionParametersModel),
+        typeof(ExtensionPropertiesModel),
+        typeof(PerNodeExtensionStateModel),
+    };
 }

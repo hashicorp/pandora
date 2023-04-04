@@ -18,4 +18,28 @@ internal class Definition : ResourceDefinition
         new StartMachineOperation(),
         new StopMachineOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(VirtualDiskModeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ApplicationModel),
+        typeof(AppsAndRolesModel),
+        typeof(BizTalkServerModel),
+        typeof(ExchangeServerModel),
+        typeof(FeatureModel),
+        typeof(GuestOSDetailsModel),
+        typeof(HealthErrorDetailsModel),
+        typeof(OperatingSystemModel),
+        typeof(OtherDatabaseModel),
+        typeof(SQLServerModel),
+        typeof(SharePointServerModel),
+        typeof(SystemCenterModel),
+        typeof(VMwareDiskModel),
+        typeof(VMwareMachineModel),
+        typeof(VMwareMachinePropertiesModel),
+        typeof(VMwareNetworkAdapterModel),
+        typeof(WebApplicationModel),
+    };
 }

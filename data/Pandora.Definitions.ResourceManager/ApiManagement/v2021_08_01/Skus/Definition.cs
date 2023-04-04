@@ -15,4 +15,25 @@ internal class Definition : ResourceDefinition
     {
         new ApiManagementSkusListOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AccessIdNameConstant),
+        typeof(ApiManagementSkuCapacityScaleTypeConstant),
+        typeof(ApiManagementSkuRestrictionsReasonCodeConstant),
+        typeof(ApiManagementSkuRestrictionsTypeConstant),
+        typeof(IdentityProviderTypeConstant),
+        typeof(NotificationNameConstant),
+        typeof(TemplateNameConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ApiManagementSkuModel),
+        typeof(ApiManagementSkuCapabilitiesModel),
+        typeof(ApiManagementSkuCapacityModel),
+        typeof(ApiManagementSkuCostsModel),
+        typeof(ApiManagementSkuLocationInfoModel),
+        typeof(ApiManagementSkuRestrictionInfoModel),
+        typeof(ApiManagementSkuRestrictionsModel),
+        typeof(ApiManagementSkuZoneDetailsModel),
+    };
 }

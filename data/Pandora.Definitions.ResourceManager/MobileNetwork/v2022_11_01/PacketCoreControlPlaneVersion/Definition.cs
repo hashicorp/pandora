@@ -16,4 +16,18 @@ internal class Definition : ResourceDefinition
         new GetOperation(),
         new ListOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ObsoleteVersionConstant),
+        typeof(PlatformTypeConstant),
+        typeof(ProvisioningStateConstant),
+        typeof(RecommendedVersionConstant),
+        typeof(VersionStateConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(PacketCoreControlPlaneVersionModel),
+        typeof(PacketCoreControlPlaneVersionPropertiesFormatModel),
+        typeof(PlatformModel),
+    };
 }

@@ -19,4 +19,17 @@ internal class Definition : ResourceDefinition
         new ListByAccountOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AADObjectTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ComputePolicyModel),
+        typeof(ComputePolicyPropertiesModel),
+        typeof(CreateOrUpdateComputePolicyParametersModel),
+        typeof(CreateOrUpdateComputePolicyPropertiesModel),
+        typeof(UpdateComputePolicyParametersModel),
+        typeof(UpdateComputePolicyPropertiesModel),
+    };
 }

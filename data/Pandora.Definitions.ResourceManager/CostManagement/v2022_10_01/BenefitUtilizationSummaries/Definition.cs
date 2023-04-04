@@ -18,4 +18,18 @@ internal class Definition : ResourceDefinition
         new ListBySavingsPlanIdOperation(),
         new ListBySavingsPlanOrderOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(BenefitKindConstant),
+        typeof(ExternalCloudProviderTypeConstant),
+        typeof(GrainParameterConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(BenefitUtilizationSummaryModel),
+        typeof(IncludedQuantityUtilizationSummaryModel),
+        typeof(IncludedQuantityUtilizationSummaryPropertiesModel),
+        typeof(SavingsPlanUtilizationSummaryModel),
+        typeof(SavingsPlanUtilizationSummaryPropertiesModel),
+    };
 }

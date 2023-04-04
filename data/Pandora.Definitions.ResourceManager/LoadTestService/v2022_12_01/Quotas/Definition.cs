@@ -17,4 +17,18 @@ internal class Definition : ResourceDefinition
         new GetOperation(),
         new ListOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ResourceStateConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(CheckQuotaAvailabilityResponseModel),
+        typeof(CheckQuotaAvailabilityResponsePropertiesModel),
+        typeof(QuotaBucketRequestModel),
+        typeof(QuotaBucketRequestPropertiesModel),
+        typeof(QuotaBucketRequestPropertiesDimensionsModel),
+        typeof(QuotaResourceModel),
+        typeof(QuotaResourcePropertiesModel),
+    };
 }

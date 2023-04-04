@@ -17,4 +17,16 @@ internal class Definition : ResourceDefinition
         new TableServicesListOperation(),
         new TableServicesSetServicePropertiesOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AllowedMethodsConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(CorsRuleModel),
+        typeof(CorsRulesModel),
+        typeof(ListTableServicesModel),
+        typeof(TableServicePropertiesModel),
+        typeof(TableServicePropertiesPropertiesModel),
+    };
 }

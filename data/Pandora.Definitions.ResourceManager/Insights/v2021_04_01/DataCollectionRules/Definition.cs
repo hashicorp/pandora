@@ -20,4 +20,31 @@ internal class Definition : ResourceDefinition
         new ListBySubscriptionOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(KnownDataCollectionRuleProvisioningStateConstant),
+        typeof(KnownDataCollectionRuleResourceKindConstant),
+        typeof(KnownDataFlowStreamsConstant),
+        typeof(KnownExtensionDataSourceStreamsConstant),
+        typeof(KnownPerfCounterDataSourceStreamsConstant),
+        typeof(KnownSyslogDataSourceFacilityNamesConstant),
+        typeof(KnownSyslogDataSourceLogLevelsConstant),
+        typeof(KnownSyslogDataSourceStreamsConstant),
+        typeof(KnownWindowsEventLogDataSourceStreamsConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AzureMonitorMetricsDestinationModel),
+        typeof(DataCollectionRuleModel),
+        typeof(DataCollectionRuleResourceModel),
+        typeof(DataFlowModel),
+        typeof(DataSourcesSpecModel),
+        typeof(DestinationsSpecModel),
+        typeof(ExtensionDataSourceModel),
+        typeof(LogAnalyticsDestinationModel),
+        typeof(PerfCounterDataSourceModel),
+        typeof(ResourceForUpdateModel),
+        typeof(SyslogDataSourceModel),
+        typeof(WindowsEventLogDataSourceModel),
+    };
 }

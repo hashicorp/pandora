@@ -18,4 +18,15 @@ internal class Definition : ResourceDefinition
         new GetIPAddressOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(IntegrationRuntimeUpdateResultConstant),
+        typeof(SelfHostedIntegrationRuntimeNodeStatusConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(IntegrationRuntimeNodeIPAddressModel),
+        typeof(SelfHostedIntegrationRuntimeNodeModel),
+        typeof(UpdateIntegrationRuntimeNodeRequestModel),
+    };
 }

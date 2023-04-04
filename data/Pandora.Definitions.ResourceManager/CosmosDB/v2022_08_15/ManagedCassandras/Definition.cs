@@ -29,4 +29,29 @@ internal class Definition : ResourceDefinition
         new CassandraDataCentersListOperation(),
         new CassandraDataCentersUpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AuthenticationMethodConstant),
+        typeof(ConnectionStateConstant),
+        typeof(ManagedCassandraProvisioningStateConstant),
+        typeof(NodeStateConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(CassandraClusterPublicStatusModel),
+        typeof(CassandraClusterPublicStatusDataCentersInlinedModel),
+        typeof(CassandraClusterPublicStatusDataCentersInlinedNodesInlinedModel),
+        typeof(CertificateModel),
+        typeof(ClusterResourceModel),
+        typeof(ClusterResourcePropertiesModel),
+        typeof(CommandOutputModel),
+        typeof(CommandPostBodyModel),
+        typeof(ConnectionErrorModel),
+        typeof(DataCenterResourceModel),
+        typeof(DataCenterResourcePropertiesModel),
+        typeof(ListClustersModel),
+        typeof(ListDataCentersModel),
+        typeof(ManagedCassandraReaperStatusModel),
+        typeof(SeedNodeModel),
+    };
 }

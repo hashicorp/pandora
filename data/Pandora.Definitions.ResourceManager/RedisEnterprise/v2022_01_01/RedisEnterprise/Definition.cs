@@ -30,4 +30,43 @@ internal class Definition : ResourceDefinition
         new ListByResourceGroupOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AccessKeyTypeConstant),
+        typeof(AofFrequencyConstant),
+        typeof(ClusteringPolicyConstant),
+        typeof(EvictionPolicyConstant),
+        typeof(LinkStateConstant),
+        typeof(PrivateEndpointConnectionProvisioningStateConstant),
+        typeof(PrivateEndpointServiceConnectionStatusConstant),
+        typeof(ProtocolConstant),
+        typeof(ProvisioningStateConstant),
+        typeof(RdbFrequencyConstant),
+        typeof(ResourceStateConstant),
+        typeof(SkuNameConstant),
+        typeof(TlsVersionConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AccessKeysModel),
+        typeof(ClusterModel),
+        typeof(ClusterPropertiesModel),
+        typeof(ClusterUpdateModel),
+        typeof(DatabaseModel),
+        typeof(DatabasePropertiesModel),
+        typeof(DatabasePropertiesGeoReplicationModel),
+        typeof(DatabaseUpdateModel),
+        typeof(ExportClusterParametersModel),
+        typeof(ForceUnlinkParametersModel),
+        typeof(ImportClusterParametersModel),
+        typeof(LinkedDatabaseModel),
+        typeof(ModuleModel),
+        typeof(PersistenceModel),
+        typeof(PrivateEndpointModel),
+        typeof(PrivateEndpointConnectionModel),
+        typeof(PrivateEndpointConnectionPropertiesModel),
+        typeof(PrivateLinkServiceConnectionStateModel),
+        typeof(RegenerateKeyParametersModel),
+        typeof(SkuModel),
+    };
 }

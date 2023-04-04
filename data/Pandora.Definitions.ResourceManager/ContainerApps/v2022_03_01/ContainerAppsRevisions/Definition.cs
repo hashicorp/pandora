@@ -19,4 +19,33 @@ internal class Definition : ResourceDefinition
         new ListRevisionsOperation(),
         new RestartRevisionOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(RevisionHealthStateConstant),
+        typeof(RevisionProvisioningStateConstant),
+        typeof(SchemeConstant),
+        typeof(StorageTypeConstant),
+        typeof(TypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ContainerModel),
+        typeof(ContainerAppProbeModel),
+        typeof(ContainerAppProbeHTTPGetModel),
+        typeof(ContainerAppProbeHTTPGetHTTPHeadersInlinedModel),
+        typeof(ContainerAppProbeTcpSocketModel),
+        typeof(ContainerResourcesModel),
+        typeof(CustomScaleRuleModel),
+        typeof(EnvironmentVarModel),
+        typeof(HTTPScaleRuleModel),
+        typeof(QueueScaleRuleModel),
+        typeof(RevisionModel),
+        typeof(RevisionPropertiesModel),
+        typeof(ScaleModel),
+        typeof(ScaleRuleModel),
+        typeof(ScaleRuleAuthModel),
+        typeof(TemplateModel),
+        typeof(VolumeModel),
+        typeof(VolumeMountModel),
+    };
 }

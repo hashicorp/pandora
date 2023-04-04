@@ -21,4 +21,34 @@ internal class Definition : ResourceDefinition
         new PurgeOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AgentAutoUpdateStatusConstant),
+        typeof(AutomationAccountAuthenticationTypeConstant),
+        typeof(HealthErrorCustomerResolvabilityConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(A2AContainerMappingInputModel),
+        typeof(A2AProtectionContainerMappingDetailsModel),
+        typeof(A2AUpdateContainerMappingInputModel),
+        typeof(CreateProtectionContainerMappingInputModel),
+        typeof(CreateProtectionContainerMappingInputPropertiesModel),
+        typeof(HealthErrorModel),
+        typeof(InMageRcmProtectionContainerMappingDetailsModel),
+        typeof(InMageRcmUpdateContainerMappingInputModel),
+        typeof(InnerHealthErrorModel),
+        typeof(ProtectionContainerMappingModel),
+        typeof(ProtectionContainerMappingPropertiesModel),
+        typeof(ProtectionContainerMappingProviderSpecificDetailsModel),
+        typeof(RemoveProtectionContainerMappingInputModel),
+        typeof(RemoveProtectionContainerMappingInputPropertiesModel),
+        typeof(ReplicationProviderContainerUnmappingInputModel),
+        typeof(ReplicationProviderSpecificContainerMappingInputModel),
+        typeof(ReplicationProviderSpecificUpdateContainerMappingInputModel),
+        typeof(UpdateProtectionContainerMappingInputModel),
+        typeof(UpdateProtectionContainerMappingInputPropertiesModel),
+        typeof(VMwareCbtContainerMappingInputModel),
+        typeof(VMwareCbtProtectionContainerMappingDetailsModel),
+    };
 }

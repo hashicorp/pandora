@@ -21,4 +21,24 @@ internal class Definition : ResourceDefinition
         new ListBySubscriptionOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(DaysOfWeekConstant),
+        typeof(ScalingHostPoolTypeConstant),
+        typeof(SessionHostLoadBalancingAlgorithmConstant),
+        typeof(SkuTierConstant),
+        typeof(StopHostsWhenConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(PlanModel),
+        typeof(ScalingHostPoolReferenceModel),
+        typeof(ScalingPlanModel),
+        typeof(ScalingPlanPatchModel),
+        typeof(ScalingPlanPatchPropertiesModel),
+        typeof(ScalingPlanPropertiesModel),
+        typeof(ScalingScheduleModel),
+        typeof(SkuModel),
+        typeof(TimeModel),
+    };
 }

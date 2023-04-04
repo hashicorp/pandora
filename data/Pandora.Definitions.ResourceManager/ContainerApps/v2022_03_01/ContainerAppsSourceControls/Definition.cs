@@ -18,4 +18,16 @@ internal class Definition : ResourceDefinition
         new GetOperation(),
         new ListByContainerAppOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(SourceControlOperationStateConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AzureCredentialsModel),
+        typeof(GithubActionConfigurationModel),
+        typeof(RegistryInfoModel),
+        typeof(SourceControlModel),
+        typeof(SourceControlPropertiesModel),
+    };
 }

@@ -15,4 +15,17 @@ internal class Definition : ResourceDefinition
     {
         new GetOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AmountModel),
+        typeof(AmountWithExchangeRateModel),
+        typeof(CreditBalanceSummaryModel),
+        typeof(CreditSummaryModel),
+        typeof(CreditSummaryPropertiesModel),
+        typeof(ResellerModel),
+    };
 }

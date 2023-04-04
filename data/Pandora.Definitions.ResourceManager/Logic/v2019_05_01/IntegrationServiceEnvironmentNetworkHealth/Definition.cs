@@ -15,4 +15,19 @@ internal class Definition : ResourceDefinition
     {
         new GetOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ErrorResponseCodeConstant),
+        typeof(IntegrationServiceEnvironmentNetworkDependencyCategoryTypeConstant),
+        typeof(IntegrationServiceEnvironmentNetworkDependencyHealthStateConstant),
+        typeof(IntegrationServiceEnvironmentNetworkEndPointAccessibilityStateConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ExtendedErrorInfoModel),
+        typeof(IntegrationServiceEnvironmentNetworkDependencyModel),
+        typeof(IntegrationServiceEnvironmentNetworkDependencyHealthModel),
+        typeof(IntegrationServiceEnvironmentNetworkEndpointModel),
+        typeof(IntegrationServiceEnvironmentSubnetNetworkHealthModel),
+    };
 }

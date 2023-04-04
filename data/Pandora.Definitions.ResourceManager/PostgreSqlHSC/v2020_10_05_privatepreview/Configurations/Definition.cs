@@ -18,4 +18,17 @@ internal class Definition : ResourceDefinition
         new ListByServerGroupOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ConfigurationDataTypeConstant),
+        typeof(ServerRoleConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ServerConfigurationModel),
+        typeof(ServerConfigurationPropertiesModel),
+        typeof(ServerGroupConfigurationModel),
+        typeof(ServerGroupConfigurationPropertiesModel),
+        typeof(ServerRoleGroupConfigurationModel),
+    };
 }

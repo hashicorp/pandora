@@ -19,4 +19,19 @@ internal class Definition : ResourceDefinition
         new ListByAutomationAccountOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(SourceTypeConstant),
+        typeof(TokenTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(SourceControlModel),
+        typeof(SourceControlCreateOrUpdateParametersModel),
+        typeof(SourceControlCreateOrUpdatePropertiesModel),
+        typeof(SourceControlPropertiesModel),
+        typeof(SourceControlSecurityTokenPropertiesModel),
+        typeof(SourceControlUpdateParametersModel),
+        typeof(SourceControlUpdatePropertiesModel),
+    };
 }

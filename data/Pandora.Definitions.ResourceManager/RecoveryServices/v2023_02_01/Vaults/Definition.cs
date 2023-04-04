@@ -20,4 +20,47 @@ internal class Definition : ResourceDefinition
         new ListBySubscriptionIdOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AlertsStateConstant),
+        typeof(BackupStorageVersionConstant),
+        typeof(CrossRegionRestoreConstant),
+        typeof(CrossSubscriptionRestoreStateConstant),
+        typeof(ImmutabilityStateConstant),
+        typeof(InfrastructureEncryptionStateConstant),
+        typeof(PrivateEndpointConnectionStatusConstant),
+        typeof(ProvisioningStateConstant),
+        typeof(PublicNetworkAccessConstant),
+        typeof(ResourceMoveStateConstant),
+        typeof(SkuNameConstant),
+        typeof(StandardTierStorageRedundancyConstant),
+        typeof(TriggerTypeConstant),
+        typeof(VaultPrivateEndpointStateConstant),
+        typeof(VaultSubResourceTypeConstant),
+        typeof(VaultUpgradeStateConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AzureMonitorAlertSettingsModel),
+        typeof(ClassicAlertSettingsModel),
+        typeof(CmkKekIdentityModel),
+        typeof(CmkKeyVaultPropertiesModel),
+        typeof(CrossSubscriptionRestoreSettingsModel),
+        typeof(ImmutabilitySettingsModel),
+        typeof(MonitoringSettingsModel),
+        typeof(PatchVaultModel),
+        typeof(PrivateEndpointModel),
+        typeof(PrivateEndpointConnectionModel),
+        typeof(PrivateEndpointConnectionVaultPropertiesModel),
+        typeof(PrivateLinkServiceConnectionStateModel),
+        typeof(RestoreSettingsModel),
+        typeof(SecuritySettingsModel),
+        typeof(SkuModel),
+        typeof(UpgradeDetailsModel),
+        typeof(VaultModel),
+        typeof(VaultPropertiesModel),
+        typeof(VaultPropertiesEncryptionModel),
+        typeof(VaultPropertiesMoveDetailsModel),
+        typeof(VaultPropertiesRedundancySettingsModel),
+    };
 }

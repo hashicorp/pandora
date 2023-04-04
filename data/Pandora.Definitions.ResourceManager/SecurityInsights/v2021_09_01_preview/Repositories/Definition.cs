@@ -15,4 +15,12 @@ internal class Definition : ResourceDefinition
     {
         new SourceControllistRepositoriesOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(RepoTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(RepoModel),
+    };
 }

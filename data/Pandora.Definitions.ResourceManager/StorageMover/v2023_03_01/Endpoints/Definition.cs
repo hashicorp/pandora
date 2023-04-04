@@ -19,4 +19,19 @@ internal class Definition : ResourceDefinition
         new ListOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(EndpointTypeConstant),
+        typeof(NfsVersionConstant),
+        typeof(ProvisioningStateConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AzureStorageBlobContainerEndpointPropertiesModel),
+        typeof(EndpointModel),
+        typeof(EndpointBasePropertiesModel),
+        typeof(EndpointBaseUpdateParametersModel),
+        typeof(EndpointBaseUpdatePropertiesModel),
+        typeof(NfsMountEndpointPropertiesModel),
+    };
 }

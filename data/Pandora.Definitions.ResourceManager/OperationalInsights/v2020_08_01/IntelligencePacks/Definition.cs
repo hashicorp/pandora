@@ -17,4 +17,12 @@ internal class Definition : ResourceDefinition
         new EnableOperation(),
         new ListOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(DataSourceTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(IntelligencePackModel),
+    };
 }

@@ -52,4 +52,47 @@ internal class Definition : ResourceDefinition
         new UpdateSegmentsOperation(),
         new UpdateVMGroupOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(DhcpTypeEnumConstant),
+        typeof(DnsServiceLogLevelEnumConstant),
+        typeof(DnsServiceStatusEnumConstant),
+        typeof(PortMirroringDirectionEnumConstant),
+        typeof(PortMirroringStatusEnumConstant),
+        typeof(SegmentStatusEnumConstant),
+        typeof(VMGroupStatusEnumConstant),
+        typeof(VMTypeEnumConstant),
+        typeof(WorkloadNetworkDhcpProvisioningStateConstant),
+        typeof(WorkloadNetworkDnsServiceProvisioningStateConstant),
+        typeof(WorkloadNetworkDnsZoneProvisioningStateConstant),
+        typeof(WorkloadNetworkPortMirroringProvisioningStateConstant),
+        typeof(WorkloadNetworkPublicIPProvisioningStateConstant),
+        typeof(WorkloadNetworkSegmentProvisioningStateConstant),
+        typeof(WorkloadNetworkVMGroupProvisioningStateConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(WorkloadNetworkDhcpModel),
+        typeof(WorkloadNetworkDhcpEntityModel),
+        typeof(WorkloadNetworkDhcpRelayModel),
+        typeof(WorkloadNetworkDhcpServerModel),
+        typeof(WorkloadNetworkDnsServiceModel),
+        typeof(WorkloadNetworkDnsServicePropertiesModel),
+        typeof(WorkloadNetworkDnsZoneModel),
+        typeof(WorkloadNetworkDnsZonePropertiesModel),
+        typeof(WorkloadNetworkGatewayModel),
+        typeof(WorkloadNetworkGatewayPropertiesModel),
+        typeof(WorkloadNetworkPortMirroringModel),
+        typeof(WorkloadNetworkPortMirroringPropertiesModel),
+        typeof(WorkloadNetworkPublicIPModel),
+        typeof(WorkloadNetworkPublicIPPropertiesModel),
+        typeof(WorkloadNetworkSegmentModel),
+        typeof(WorkloadNetworkSegmentPortVifModel),
+        typeof(WorkloadNetworkSegmentPropertiesModel),
+        typeof(WorkloadNetworkSegmentSubnetModel),
+        typeof(WorkloadNetworkVMGroupModel),
+        typeof(WorkloadNetworkVMGroupPropertiesModel),
+        typeof(WorkloadNetworkVirtualMachineModel),
+        typeof(WorkloadNetworkVirtualMachinePropertiesModel),
+    };
 }

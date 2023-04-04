@@ -17,4 +17,16 @@ internal class Definition : ResourceDefinition
         new DeleteOperation(),
         new ListBySubscriptionsOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(FilterTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ActionModel),
+        typeof(CorrelationFilterModel),
+        typeof(RuleModel),
+        typeof(RulepropertiesModel),
+        typeof(SqlFilterModel),
+    };
 }

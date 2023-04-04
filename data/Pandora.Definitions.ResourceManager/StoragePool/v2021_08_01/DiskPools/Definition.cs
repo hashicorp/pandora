@@ -24,4 +24,23 @@ internal class Definition : ResourceDefinition
         new UpdateOperation(),
         new UpgradeOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(OperationalStatusConstant),
+        typeof(ProvisioningStatesConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(DiskModel),
+        typeof(DiskPoolModel),
+        typeof(DiskPoolCreateModel),
+        typeof(DiskPoolCreatePropertiesModel),
+        typeof(DiskPoolPropertiesModel),
+        typeof(DiskPoolUpdateModel),
+        typeof(DiskPoolUpdatePropertiesModel),
+        typeof(EndpointDependencyModel),
+        typeof(EndpointDetailModel),
+        typeof(OutboundEnvironmentEndpointModel),
+        typeof(SkuModel),
+    };
 }

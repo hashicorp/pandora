@@ -15,4 +15,38 @@ internal class Definition : ResourceDefinition
     {
         new TriggerOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(CopyOptionsConstant),
+        typeof(OverwriteOptionsConstant),
+        typeof(RecoveryModeConstant),
+        typeof(RecoveryTypeConstant),
+        typeof(RehydrationPriorityConstant),
+        typeof(RestoreRequestTypeConstant),
+        typeof(SQLDataDirectoryTypeConstant),
+        typeof(TargetDiskNetworkAccessOptionConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AzureFileShareRestoreRequestModel),
+        typeof(AzureWorkloadPointInTimeRestoreRequestModel),
+        typeof(AzureWorkloadRestoreRequestModel),
+        typeof(AzureWorkloadSAPHanaRestoreRequestModel),
+        typeof(AzureWorkloadSQLRestoreRequestModel),
+        typeof(EncryptionDetailsModel),
+        typeof(ExtendedLocationModel),
+        typeof(IaasVMRestoreRequestModel),
+        typeof(IaasVMRestoreWithRehydrationRequestModel),
+        typeof(IdentityBasedRestoreDetailsModel),
+        typeof(IdentityInfoModel),
+        typeof(RecoveryPointRehydrationInfoModel),
+        typeof(RestoreFileSpecsModel),
+        typeof(RestoreRequestModel),
+        typeof(RestoreRequestResourceModel),
+        typeof(SQLDataDirectoryMappingModel),
+        typeof(SecuredVMDetailsModel),
+        typeof(TargetAFSRestoreInfoModel),
+        typeof(TargetDiskNetworkAccessSettingsModel),
+        typeof(TargetRestoreInfoModel),
+    };
 }

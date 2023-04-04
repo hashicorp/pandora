@@ -18,4 +18,23 @@ internal class Definition : ResourceDefinition
         new ProductSettingsListOperation(),
         new ProductSettingsUpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(EntityProvidersConstant),
+        typeof(SettingKindConstant),
+        typeof(UebaDataSourcesConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AnomaliesModel),
+        typeof(AnomaliesSettingsPropertiesModel),
+        typeof(EntityAnalyticsModel),
+        typeof(EntityAnalyticsPropertiesModel),
+        typeof(EyesOnModel),
+        typeof(EyesOnSettingsPropertiesModel),
+        typeof(SettingListModel),
+        typeof(SettingsModel),
+        typeof(UebaModel),
+        typeof(UebaPropertiesModel),
+    };
 }

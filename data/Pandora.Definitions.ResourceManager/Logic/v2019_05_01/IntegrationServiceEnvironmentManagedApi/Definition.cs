@@ -17,4 +17,29 @@ internal class Definition : ResourceDefinition
         new GetOperation(),
         new PutOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ApiDeploymentParameterVisibilityConstant),
+        typeof(ApiTierConstant),
+        typeof(ApiTypeConstant),
+        typeof(WorkflowProvisioningStateConstant),
+        typeof(WsdlImportMethodConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ApiDeploymentParameterMetadataModel),
+        typeof(ApiDeploymentParameterMetadataSetModel),
+        typeof(ApiResourceBackendServiceModel),
+        typeof(ApiResourceDefinitionsModel),
+        typeof(ApiResourceGeneralInformationModel),
+        typeof(ApiResourceMetadataModel),
+        typeof(ApiResourcePoliciesModel),
+        typeof(ContentHashModel),
+        typeof(ContentLinkModel),
+        typeof(IntegrationServiceEnvironmentManagedApiModel),
+        typeof(IntegrationServiceEnvironmentManagedApiDeploymentParametersModel),
+        typeof(IntegrationServiceEnvironmentManagedApiPropertiesModel),
+        typeof(ResourceReferenceModel),
+        typeof(WsdlServiceModel),
+    };
 }

@@ -17,4 +17,24 @@ internal class Definition : ResourceDefinition
         new SaveOperation(),
         new ValidateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AccessIdNameConstant),
+        typeof(AsyncOperationStatusConstant),
+        typeof(IdentityProviderTypeConstant),
+        typeof(NotificationNameConstant),
+        typeof(TemplateNameConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(DeployConfigurationParameterPropertiesModel),
+        typeof(DeployConfigurationParametersModel),
+        typeof(ErrorFieldContractModel),
+        typeof(ErrorResponseBodyModel),
+        typeof(OperationResultContractModel),
+        typeof(OperationResultContractPropertiesModel),
+        typeof(OperationResultLogItemContractModel),
+        typeof(SaveConfigurationParameterModel),
+        typeof(SaveConfigurationParameterPropertiesModel),
+    };
 }

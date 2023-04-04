@@ -15,4 +15,13 @@ internal class Definition : ResourceDefinition
     {
         new ServicesCheckNameAvailabilityOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ServiceNameUnavailabilityReasonConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(CheckNameAvailabilityParametersModel),
+        typeof(ServicesNameAvailabilityInfoModel),
+    };
 }

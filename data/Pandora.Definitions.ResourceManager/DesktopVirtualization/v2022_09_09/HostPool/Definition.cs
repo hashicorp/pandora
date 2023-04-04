@@ -21,4 +21,31 @@ internal class Definition : ResourceDefinition
         new RetrieveRegistrationTokenOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(DayOfWeekConstant),
+        typeof(HostPoolTypeConstant),
+        typeof(LoadBalancerTypeConstant),
+        typeof(PersonalDesktopAssignmentTypeConstant),
+        typeof(PreferredAppGroupTypeConstant),
+        typeof(RegistrationTokenOperationConstant),
+        typeof(SSOSecretTypeConstant),
+        typeof(SessionHostComponentUpdateTypeConstant),
+        typeof(SkuTierConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AgentUpdatePatchPropertiesModel),
+        typeof(AgentUpdatePropertiesModel),
+        typeof(HostPoolModel),
+        typeof(HostPoolPatchModel),
+        typeof(HostPoolPatchPropertiesModel),
+        typeof(HostPoolPropertiesModel),
+        typeof(MaintenanceWindowPatchPropertiesModel),
+        typeof(MaintenanceWindowPropertiesModel),
+        typeof(PlanModel),
+        typeof(RegistrationInfoModel),
+        typeof(RegistrationInfoPatchModel),
+        typeof(SkuModel),
+    };
 }

@@ -19,4 +19,21 @@ internal class Definition : ResourceDefinition
         new ListByDiskPoolOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(IscsiTargetAclModeConstant),
+        typeof(OperationalStatusConstant),
+        typeof(ProvisioningStatesConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AclModel),
+        typeof(IscsiLunModel),
+        typeof(IscsiTargetModel),
+        typeof(IscsiTargetCreateModel),
+        typeof(IscsiTargetCreatePropertiesModel),
+        typeof(IscsiTargetPropertiesModel),
+        typeof(IscsiTargetUpdateModel),
+        typeof(IscsiTargetUpdatePropertiesModel),
+    };
 }

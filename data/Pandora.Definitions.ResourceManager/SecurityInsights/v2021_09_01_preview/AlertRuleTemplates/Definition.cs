@@ -16,4 +16,33 @@ internal class Definition : ResourceDefinition
         new AlertRuleTemplatesGetOperation(),
         new AlertRuleTemplatesListOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AlertRuleKindConstant),
+        typeof(AlertSeverityConstant),
+        typeof(AttackTacticConstant),
+        typeof(EntityMappingTypeConstant),
+        typeof(EventGroupingAggregationKindConstant),
+        typeof(TemplateStatusConstant),
+        typeof(TriggerOperatorConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AlertDetailsOverrideModel),
+        typeof(AlertRuleTemplateModel),
+        typeof(AlertRuleTemplateDataSourceModel),
+        typeof(EntityMappingModel),
+        typeof(EventGroupingSettingsModel),
+        typeof(FieldMappingModel),
+        typeof(FusionAlertRuleTemplateModel),
+        typeof(FusionAlertRuleTemplatePropertiesModel),
+        typeof(MLBehaviorAnalyticsAlertRuleTemplateModel),
+        typeof(MLBehaviorAnalyticsAlertRuleTemplatePropertiesModel),
+        typeof(MicrosoftSecurityIncidentCreationAlertRuleTemplateModel),
+        typeof(NrtAlertRuleTemplateModel),
+        typeof(ScheduledAlertRuleTemplateModel),
+        typeof(ScheduledAlertRuleTemplatePropertiesModel),
+        typeof(ThreatIntelligenceAlertRuleTemplateModel),
+        typeof(ThreatIntelligenceAlertRuleTemplatePropertiesModel),
+    };
 }

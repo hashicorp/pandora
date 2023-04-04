@@ -18,4 +18,18 @@ internal class Definition : ResourceDefinition
         new DigitalTwinsEndpointGetOperation(),
         new DigitalTwinsEndpointListOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AuthenticationTypeConstant),
+        typeof(EndpointProvisioningStateConstant),
+        typeof(EndpointTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(DigitalTwinsEndpointResourceModel),
+        typeof(DigitalTwinsEndpointResourcePropertiesModel),
+        typeof(EventGridModel),
+        typeof(EventHubModel),
+        typeof(ServiceBusModel),
+    };
 }

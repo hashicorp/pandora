@@ -19,4 +19,24 @@ internal class Definition : ResourceDefinition
         new ListOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AKSIdentityTypeConstant),
+        typeof(LevelTypeConstant),
+        typeof(ProvisioningStateConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ErrorAdditionalInfoModel),
+        typeof(ErrorDetailModel),
+        typeof(ExtensionModel),
+        typeof(ExtensionPropertiesModel),
+        typeof(ExtensionPropertiesAksAssignedIdentityModel),
+        typeof(ExtensionStatusModel),
+        typeof(PatchExtensionModel),
+        typeof(PatchExtensionPropertiesModel),
+        typeof(ScopeModel),
+        typeof(ScopeClusterModel),
+        typeof(ScopeNamespaceModel),
+    };
 }

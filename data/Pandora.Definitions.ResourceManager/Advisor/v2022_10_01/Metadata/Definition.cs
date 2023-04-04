@@ -16,4 +16,14 @@ internal class Definition : ResourceDefinition
         new RecommendationMetadataGetOperation(),
         new RecommendationMetadataListOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ScenarioConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(MetadataEntityModel),
+        typeof(MetadataEntityPropertiesModel),
+        typeof(MetadataSupportedValueDetailModel),
+    };
 }

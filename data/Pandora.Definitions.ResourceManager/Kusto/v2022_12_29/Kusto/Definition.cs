@@ -16,4 +16,16 @@ internal class Definition : ResourceDefinition
         new ClustersListSkusOperation(),
         new SkusListOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ResourceSkuCapabilitiesModel),
+        typeof(ResourceSkuZoneDetailsModel),
+        typeof(SkuDescriptionModel),
+        typeof(SkuDescriptionListModel),
+        typeof(SkuLocationInfoItemModel),
+    };
 }

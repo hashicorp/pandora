@@ -15,4 +15,22 @@ internal class Definition : ResourceDefinition
     {
         new ListOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ProtectionStatusConstant),
+        typeof(SQLDataDirectoryTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AzureVMWorkloadItemModel),
+        typeof(AzureVMWorkloadSAPAseDatabaseWorkloadItemModel),
+        typeof(AzureVMWorkloadSAPAseSystemWorkloadItemModel),
+        typeof(AzureVMWorkloadSAPHanaDatabaseWorkloadItemModel),
+        typeof(AzureVMWorkloadSAPHanaSystemWorkloadItemModel),
+        typeof(AzureVMWorkloadSQLDatabaseWorkloadItemModel),
+        typeof(AzureVMWorkloadSQLInstanceWorkloadItemModel),
+        typeof(SQLDataDirectoryModel),
+        typeof(WorkloadItemModel),
+        typeof(WorkloadItemResourceModel),
+    };
 }

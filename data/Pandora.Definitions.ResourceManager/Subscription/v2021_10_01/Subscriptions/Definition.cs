@@ -27,4 +27,33 @@ internal class Definition : ResourceDefinition
         new SubscriptionPolicyListPolicyForTenantOperation(),
         new SubscriptionRenameOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AcceptOwnershipConstant),
+        typeof(ProvisioningConstant),
+        typeof(ProvisioningStateConstant),
+        typeof(WorkloadConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AcceptOwnershipRequestModel),
+        typeof(AcceptOwnershipRequestPropertiesModel),
+        typeof(AcceptOwnershipStatusResponseModel),
+        typeof(BillingAccountPoliciesResponseModel),
+        typeof(BillingAccountPoliciesResponsePropertiesModel),
+        typeof(CanceledSubscriptionIdModel),
+        typeof(EnabledSubscriptionIdModel),
+        typeof(GetTenantPolicyResponseModel),
+        typeof(PutAliasRequestModel),
+        typeof(PutAliasRequestAdditionalPropertiesModel),
+        typeof(PutAliasRequestPropertiesModel),
+        typeof(PutTenantPolicyRequestPropertiesModel),
+        typeof(RenamedSubscriptionIdModel),
+        typeof(ServiceTenantResponseModel),
+        typeof(SubscriptionAliasListResultModel),
+        typeof(SubscriptionAliasResponseModel),
+        typeof(SubscriptionAliasResponsePropertiesModel),
+        typeof(SubscriptionNameModel),
+        typeof(TenantPolicyModel),
+    };
 }

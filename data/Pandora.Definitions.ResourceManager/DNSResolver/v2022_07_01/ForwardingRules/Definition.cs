@@ -19,4 +19,17 @@ internal class Definition : ResourceDefinition
         new ListOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ForwardingRuleStateConstant),
+        typeof(ProvisioningStateConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ForwardingRuleModel),
+        typeof(ForwardingRulePatchModel),
+        typeof(ForwardingRulePatchPropertiesModel),
+        typeof(ForwardingRulePropertiesModel),
+        typeof(TargetDnsServerModel),
+    };
 }

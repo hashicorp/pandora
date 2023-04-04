@@ -26,4 +26,43 @@ internal class Definition : ResourceDefinition
         new ListVhdsOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(EnableStatusConstant),
+        typeof(EnvironmentPermissionConstant),
+        typeof(HostCachingOptionsConstant),
+        typeof(PremiumDataDiskConstant),
+        typeof(StorageTypeConstant),
+        typeof(TransportProtocolConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ArtifactInstallPropertiesModel),
+        typeof(ArtifactParameterPropertiesModel),
+        typeof(AttachNewDataDiskOptionsModel),
+        typeof(BulkCreationParametersModel),
+        typeof(DataDiskPropertiesModel),
+        typeof(DayDetailsModel),
+        typeof(ExportResourceUsageParametersModel),
+        typeof(GalleryImageReferenceModel),
+        typeof(GenerateUploadUriParameterModel),
+        typeof(GenerateUploadUriResponseModel),
+        typeof(HourDetailsModel),
+        typeof(ImportLabVirtualMachineRequestModel),
+        typeof(InboundNatRuleModel),
+        typeof(LabModel),
+        typeof(LabAnnouncementPropertiesModel),
+        typeof(LabPropertiesModel),
+        typeof(LabSupportPropertiesModel),
+        typeof(LabVhdModel),
+        typeof(LabVirtualMachineCreationParameterModel),
+        typeof(LabVirtualMachineCreationParameterPropertiesModel),
+        typeof(NetworkInterfacePropertiesModel),
+        typeof(NotificationSettingsModel),
+        typeof(ScheduleCreationParameterModel),
+        typeof(ScheduleCreationParameterPropertiesModel),
+        typeof(SharedPublicIPAddressConfigurationModel),
+        typeof(UpdateResourceModel),
+        typeof(WeekDetailsModel),
+    };
 }

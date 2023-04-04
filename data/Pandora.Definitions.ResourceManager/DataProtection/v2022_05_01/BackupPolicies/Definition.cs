@@ -18,4 +18,42 @@ internal class Definition : ResourceDefinition
         new GetOperation(),
         new ListOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AbsoluteMarkerConstant),
+        typeof(DataStoreTypesConstant),
+        typeof(DayOfWeekConstant),
+        typeof(MonthConstant),
+        typeof(WeekNumberConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AbsoluteDeleteOptionModel),
+        typeof(AdhocBasedTaggingCriteriaModel),
+        typeof(AdhocBasedTriggerContextModel),
+        typeof(AzureBackupParamsModel),
+        typeof(AzureBackupRuleModel),
+        typeof(AzureRetentionRuleModel),
+        typeof(BackupCriteriaModel),
+        typeof(BackupParametersModel),
+        typeof(BackupPolicyModel),
+        typeof(BackupScheduleModel),
+        typeof(BaseBackupPolicyModel),
+        typeof(BaseBackupPolicyResourceModel),
+        typeof(BasePolicyRuleModel),
+        typeof(CopyOnExpiryOptionModel),
+        typeof(CopyOptionModel),
+        typeof(CustomCopyOptionModel),
+        typeof(DataStoreInfoBaseModel),
+        typeof(DayModel),
+        typeof(DeleteOptionModel),
+        typeof(ImmediateCopyOptionModel),
+        typeof(RetentionTagModel),
+        typeof(ScheduleBasedBackupCriteriaModel),
+        typeof(ScheduleBasedTriggerContextModel),
+        typeof(SourceLifeCycleModel),
+        typeof(TaggingCriteriaModel),
+        typeof(TargetCopySettingModel),
+        typeof(TriggerContextModel),
+    };
 }

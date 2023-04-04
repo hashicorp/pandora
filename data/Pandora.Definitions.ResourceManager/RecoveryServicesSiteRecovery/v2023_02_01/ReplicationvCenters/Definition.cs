@@ -20,4 +20,19 @@ internal class Definition : ResourceDefinition
         new ListByReplicationFabricsOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(HealthErrorCustomerResolvabilityConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AddVCenterRequestModel),
+        typeof(AddVCenterRequestPropertiesModel),
+        typeof(HealthErrorModel),
+        typeof(InnerHealthErrorModel),
+        typeof(UpdateVCenterRequestModel),
+        typeof(UpdateVCenterRequestPropertiesModel),
+        typeof(VCenterModel),
+        typeof(VCenterPropertiesModel),
+    };
 }

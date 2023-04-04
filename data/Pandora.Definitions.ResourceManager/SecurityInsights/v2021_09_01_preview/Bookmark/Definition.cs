@@ -15,4 +15,18 @@ internal class Definition : ResourceDefinition
     {
         new ExpandOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(EntityKindConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(BookmarkExpandParametersModel),
+        typeof(BookmarkExpandResponseModel),
+        typeof(BookmarkExpandResponseValueModel),
+        typeof(ConnectedEntityModel),
+        typeof(EntityModel),
+        typeof(ExpansionResultAggregationModel),
+        typeof(ExpansionResultsMetadataModel),
+    };
 }

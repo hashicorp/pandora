@@ -18,4 +18,13 @@ internal class Definition : ResourceDefinition
         new SpatialAnchorsAccountsListKeysOperation(),
         new SpatialAnchorsAccountsRegenerateKeysOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(SerialConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AccountKeyRegenerateRequestModel),
+        typeof(AccountKeysModel),
+    };
 }

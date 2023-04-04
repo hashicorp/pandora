@@ -17,4 +17,12 @@ internal class Definition : ResourceDefinition
         new RemoveOperation(),
         new SetOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ScopeTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(DefaultAccountPayloadModel),
+    };
 }

@@ -15,4 +15,14 @@ internal class Definition : ResourceDefinition
     {
         new DigitalTwinsCheckNameAvailabilityOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ReasonConstant),
+        typeof(TypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(CheckNameRequestModel),
+        typeof(CheckNameResultModel),
+    };
 }

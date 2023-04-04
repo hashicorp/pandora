@@ -22,4 +22,20 @@ internal class Definition : ResourceDefinition
         new ListOperation(),
         new ListAssociationsOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(CommitmentPlanProvisioningStateConstant),
+        typeof(HostingModelConstant),
+        typeof(SkuTierConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(CommitmentPeriodModel),
+        typeof(CommitmentPlanModel),
+        typeof(CommitmentPlanAccountAssociationModel),
+        typeof(CommitmentPlanAccountAssociationPropertiesModel),
+        typeof(CommitmentPlanPropertiesModel),
+        typeof(CommitmentQuotaModel),
+        typeof(SkuModel),
+    };
 }

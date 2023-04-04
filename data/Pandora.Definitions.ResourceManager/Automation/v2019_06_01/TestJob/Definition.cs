@@ -19,4 +19,13 @@ internal class Definition : ResourceDefinition
         new StopOperation(),
         new SuspendOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(CountTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(TestJobModel),
+        typeof(TestJobCreateParametersModel),
+    };
 }

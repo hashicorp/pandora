@@ -21,4 +21,16 @@ internal class Definition : ResourceDefinition
         new NotebookWorkspacesRegenerateAuthTokenOperation(),
         new NotebookWorkspacesStartOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ARMProxyResourceModel),
+        typeof(NotebookWorkspaceModel),
+        typeof(NotebookWorkspaceConnectionInfoResultModel),
+        typeof(NotebookWorkspaceListResultModel),
+        typeof(NotebookWorkspacePropertiesModel),
+    };
 }

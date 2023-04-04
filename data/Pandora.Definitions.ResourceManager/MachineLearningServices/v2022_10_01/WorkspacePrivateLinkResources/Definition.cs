@@ -15,4 +15,15 @@ internal class Definition : ResourceDefinition
     {
         new PrivateLinkResourcesListOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(SkuTierConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(PrivateLinkResourceModel),
+        typeof(PrivateLinkResourceListResultModel),
+        typeof(PrivateLinkResourcePropertiesModel),
+        typeof(SkuModel),
+    };
 }

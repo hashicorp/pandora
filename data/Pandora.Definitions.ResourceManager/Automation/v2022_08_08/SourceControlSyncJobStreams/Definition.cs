@@ -16,4 +16,15 @@ internal class Definition : ResourceDefinition
         new GetOperation(),
         new ListBySyncJobOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(StreamTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(SourceControlSyncJobStreamModel),
+        typeof(SourceControlSyncJobStreamByIdModel),
+        typeof(SourceControlSyncJobStreamByIdPropertiesModel),
+        typeof(SourceControlSyncJobStreamPropertiesModel),
+    };
 }

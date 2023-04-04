@@ -18,4 +18,31 @@ internal class Definition : ResourceDefinition
         new ServicesGetOperation(),
         new ServicesUpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(KindConstant),
+        typeof(PrivateEndpointConnectionProvisioningStateConstant),
+        typeof(PrivateEndpointServiceConnectionStatusConstant),
+        typeof(ProvisioningStateConstant),
+        typeof(PublicNetworkAccessConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(PrivateEndpointModel),
+        typeof(PrivateEndpointConnectionModel),
+        typeof(PrivateEndpointConnectionPropertiesModel),
+        typeof(PrivateLinkServiceConnectionStateModel),
+        typeof(ServiceAccessPolicyEntryModel),
+        typeof(ServiceAcrConfigurationInfoModel),
+        typeof(ServiceAuthenticationConfigurationInfoModel),
+        typeof(ServiceCorsConfigurationInfoModel),
+        typeof(ServiceCosmosDbConfigurationInfoModel),
+        typeof(ServiceExportConfigurationInfoModel),
+        typeof(ServiceImportConfigurationInfoModel),
+        typeof(ServiceOciArtifactEntryModel),
+        typeof(ServicesDescriptionModel),
+        typeof(ServicesPatchDescriptionModel),
+        typeof(ServicesPropertiesModel),
+        typeof(ServicesPropertiesUpdateParametersModel),
+    };
 }

@@ -15,4 +15,12 @@ internal class Definition : ResourceDefinition
     {
         new CloudEndpointsTriggerChangeDetectionOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ChangeDetectionModeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(TriggerChangeDetectionParametersModel),
+    };
 }

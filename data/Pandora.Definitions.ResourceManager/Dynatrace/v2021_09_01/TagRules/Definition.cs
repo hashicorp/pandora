@@ -19,4 +19,21 @@ internal class Definition : ResourceDefinition
         new ListOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ProvisioningStateConstant),
+        typeof(SendAadLogsStatusConstant),
+        typeof(SendActivityLogsStatusConstant),
+        typeof(SendSubscriptionLogsStatusConstant),
+        typeof(TagActionConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(FilteringTagModel),
+        typeof(LogRulesModel),
+        typeof(MetricRulesModel),
+        typeof(MonitoringTagRulesPropertiesModel),
+        typeof(TagRuleModel),
+        typeof(TagRuleUpdateModel),
+    };
 }

@@ -15,4 +15,16 @@ internal class Definition : ResourceDefinition
     {
         new GenerateDetailedCostReportCreateOperationOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ExternalCloudProviderTypeConstant),
+        typeof(GenerateDetailedCostReportMetricTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(DownloadURLModel),
+        typeof(GenerateDetailedCostReportDefinitionModel),
+        typeof(GenerateDetailedCostReportOperationResultModel),
+        typeof(GenerateDetailedCostReportTimePeriodModel),
+    };
 }

@@ -19,4 +19,17 @@ internal class Definition : ResourceDefinition
         new ListOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(SapLandscapeMonitorProvisioningStateConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(SapLandscapeMonitorModel),
+        typeof(SapLandscapeMonitorListResultModel),
+        typeof(SapLandscapeMonitorMetricThresholdsModel),
+        typeof(SapLandscapeMonitorPropertiesModel),
+        typeof(SapLandscapeMonitorPropertiesGroupingModel),
+        typeof(SapLandscapeMonitorSidMappingModel),
+    };
 }

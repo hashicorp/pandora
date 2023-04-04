@@ -26,4 +26,32 @@ internal class Definition : ResourceDefinition
         new SuspendOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ConnectionModeConstant),
+        typeof(ManagedModeConstant),
+        typeof(ProvisioningStateConstant),
+        typeof(ServerMonitorModeConstant),
+        typeof(SkuTierConstant),
+        typeof(StateConstant),
+        typeof(StatusConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AnalysisServicesServerModel),
+        typeof(AnalysisServicesServerMutablePropertiesModel),
+        typeof(AnalysisServicesServerPropertiesModel),
+        typeof(AnalysisServicesServerUpdateParametersModel),
+        typeof(AnalysisServicesServersModel),
+        typeof(CheckServerNameAvailabilityParametersModel),
+        typeof(CheckServerNameAvailabilityResultModel),
+        typeof(GatewayDetailsModel),
+        typeof(GatewayListStatusLiveModel),
+        typeof(IPv4FirewallRuleModel),
+        typeof(IPv4FirewallSettingsModel),
+        typeof(ResourceSkuModel),
+        typeof(ServerAdministratorsModel),
+        typeof(SkuDetailsForExistingResourceModel),
+        typeof(SkuEnumerationForExistingResourceResultModel),
+    };
 }

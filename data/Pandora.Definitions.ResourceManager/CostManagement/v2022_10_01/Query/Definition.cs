@@ -16,4 +16,28 @@ internal class Definition : ResourceDefinition
         new UsageOperation(),
         new UsageByExternalCloudProviderTypeOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ExportTypeConstant),
+        typeof(ExternalCloudProviderTypeConstant),
+        typeof(FunctionTypeConstant),
+        typeof(GranularityTypeConstant),
+        typeof(QueryColumnTypeConstant),
+        typeof(QueryOperatorTypeConstant),
+        typeof(TimeframeTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(QueryAggregationModel),
+        typeof(QueryColumnModel),
+        typeof(QueryComparisonExpressionModel),
+        typeof(QueryDatasetModel),
+        typeof(QueryDatasetConfigurationModel),
+        typeof(QueryDefinitionModel),
+        typeof(QueryFilterModel),
+        typeof(QueryGroupingModel),
+        typeof(QueryPropertiesModel),
+        typeof(QueryResultModel),
+        typeof(QueryTimePeriodModel),
+    };
 }

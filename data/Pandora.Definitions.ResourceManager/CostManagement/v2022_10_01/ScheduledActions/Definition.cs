@@ -26,4 +26,25 @@ internal class Definition : ResourceDefinition
         new RunOperation(),
         new RunByScopeOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(CheckNameAvailabilityReasonConstant),
+        typeof(DaysOfWeekConstant),
+        typeof(ExternalCloudProviderTypeConstant),
+        typeof(FileFormatConstant),
+        typeof(ScheduleFrequencyConstant),
+        typeof(ScheduledActionKindConstant),
+        typeof(ScheduledActionStatusConstant),
+        typeof(WeeksOfMonthConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(CheckNameAvailabilityRequestModel),
+        typeof(CheckNameAvailabilityResponseModel),
+        typeof(FileDestinationModel),
+        typeof(NotificationPropertiesModel),
+        typeof(SchedulePropertiesModel),
+        typeof(ScheduledActionModel),
+        typeof(ScheduledActionPropertiesModel),
+    };
 }

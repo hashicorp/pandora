@@ -18,4 +18,16 @@ internal class Definition : ResourceDefinition
         new GetOperation(),
         new ListByFactoryOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ParameterTypeConstant),
+        typeof(TypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(IntegrationRuntimeReferenceModel),
+        typeof(LinkedServiceModel),
+        typeof(LinkedServiceResourceModel),
+        typeof(ParameterSpecificationModel),
+    };
 }

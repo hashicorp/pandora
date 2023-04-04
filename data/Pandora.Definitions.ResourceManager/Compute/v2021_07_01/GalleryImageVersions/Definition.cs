@@ -19,4 +19,31 @@ internal class Definition : ResourceDefinition
         new ListByGalleryImageOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AggregatedReplicationStateConstant),
+        typeof(HostCachingConstant),
+        typeof(ProvisioningStateConstant),
+        typeof(ReplicationModeConstant),
+        typeof(ReplicationStateConstant),
+        typeof(ReplicationStatusTypesConstant),
+        typeof(StorageAccountTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(DataDiskImageEncryptionModel),
+        typeof(DiskImageEncryptionModel),
+        typeof(EncryptionImagesModel),
+        typeof(GalleryArtifactPublishingProfileBaseModel),
+        typeof(GalleryArtifactVersionSourceModel),
+        typeof(GalleryDataDiskImageModel),
+        typeof(GalleryDiskImageModel),
+        typeof(GalleryImageVersionModel),
+        typeof(GalleryImageVersionPropertiesModel),
+        typeof(GalleryImageVersionStorageProfileModel),
+        typeof(GalleryImageVersionUpdateModel),
+        typeof(RegionalReplicationStatusModel),
+        typeof(ReplicationStatusModel),
+        typeof(TargetRegionModel),
+    };
 }

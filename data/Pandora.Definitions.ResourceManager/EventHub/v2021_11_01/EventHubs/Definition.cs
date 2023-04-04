@@ -20,4 +20,20 @@ internal class Definition : ResourceDefinition
         new GetAuthorizationRuleOperation(),
         new ListByNamespaceOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AccessRightsConstant),
+        typeof(EncodingCaptureDescriptionConstant),
+        typeof(EntityStatusConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AuthorizationRuleModel),
+        typeof(AuthorizationRulePropertiesModel),
+        typeof(CaptureDescriptionModel),
+        typeof(DestinationModel),
+        typeof(DestinationPropertiesModel),
+        typeof(EventhubModel),
+        typeof(EventhubPropertiesModel),
+    };
 }

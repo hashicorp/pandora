@@ -21,4 +21,20 @@ internal class Definition : ResourceDefinition
         new WebTestsListByResourceGroupOperation(),
         new WebTestsUpdateTagsOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(WebTestKindConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(HeaderFieldModel),
+        typeof(TagsResourceModel),
+        typeof(WebTestModel),
+        typeof(WebTestGeolocationModel),
+        typeof(WebTestPropertiesModel),
+        typeof(WebTestPropertiesConfigurationModel),
+        typeof(WebTestPropertiesRequestModel),
+        typeof(WebTestPropertiesValidationRulesModel),
+        typeof(WebTestPropertiesValidationRulesContentValidationModel),
+    };
 }

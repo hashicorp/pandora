@@ -15,4 +15,14 @@ internal class Definition : ResourceDefinition
     {
         new ListSupportedOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AdminKeyKindConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(PrivateLinkResourceModel),
+        typeof(PrivateLinkResourcePropertiesModel),
+        typeof(PrivateLinkResourcesResultModel),
+    };
 }

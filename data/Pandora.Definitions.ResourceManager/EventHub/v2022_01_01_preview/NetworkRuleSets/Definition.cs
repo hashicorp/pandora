@@ -17,4 +17,19 @@ internal class Definition : ResourceDefinition
         new NamespacesGetNetworkRuleSetOperation(),
         new NamespacesListNetworkRuleSetOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(DefaultActionConstant),
+        typeof(NetworkRuleIPActionConstant),
+        typeof(PublicNetworkAccessFlagConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(NWRuleSetIPRulesModel),
+        typeof(NWRuleSetVirtualNetworkRulesModel),
+        typeof(NetworkRuleSetModel),
+        typeof(NetworkRuleSetListResultModel),
+        typeof(NetworkRuleSetPropertiesModel),
+        typeof(SubnetModel),
+    };
 }

@@ -19,4 +19,19 @@ internal class Definition : ResourceDefinition
         new ListOperation(),
         new ListContentCallbackUrlOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(KeyTypeConstant),
+        typeof(SchemaTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ContentHashModel),
+        typeof(ContentLinkModel),
+        typeof(GetCallbackUrlParametersModel),
+        typeof(IntegrationAccountSchemaModel),
+        typeof(IntegrationAccountSchemaPropertiesModel),
+        typeof(WorkflowTriggerCallbackUrlModel),
+        typeof(WorkflowTriggerListCallbackUrlQueriesModel),
+    };
 }

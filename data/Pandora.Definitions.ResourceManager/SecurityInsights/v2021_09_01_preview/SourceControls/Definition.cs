@@ -18,4 +18,16 @@ internal class Definition : ResourceDefinition
         new GetOperation(),
         new ListOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ContentTypeConstant),
+        typeof(RepoTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ContentPathMapModel),
+        typeof(RepositoryModel),
+        typeof(SourceControlModel),
+        typeof(SourceControlPropertiesModel),
+    };
 }

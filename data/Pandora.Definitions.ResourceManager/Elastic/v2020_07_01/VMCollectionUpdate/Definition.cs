@@ -15,4 +15,12 @@ internal class Definition : ResourceDefinition
     {
         new VMCollectionUpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(OperationNameConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(VMCollectionUpdateModel),
+    };
 }

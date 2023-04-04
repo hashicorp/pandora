@@ -38,4 +38,19 @@ internal class Definition : ResourceDefinition
         new RemediationsListForResourceGroupOperation(),
         new RemediationsListForSubscriptionOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ResourceDiscoveryModeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ErrorDefinitionModel),
+        typeof(RemediationModel),
+        typeof(RemediationDeploymentModel),
+        typeof(RemediationDeploymentSummaryModel),
+        typeof(RemediationFiltersModel),
+        typeof(RemediationPropertiesModel),
+        typeof(RemediationPropertiesFailureThresholdModel),
+        typeof(TypedErrorInfoModel),
+    };
 }

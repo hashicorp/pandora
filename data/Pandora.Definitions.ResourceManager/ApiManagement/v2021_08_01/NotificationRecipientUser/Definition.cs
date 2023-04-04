@@ -18,4 +18,17 @@ internal class Definition : ResourceDefinition
         new DeleteOperation(),
         new ListByNotificationOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AccessIdNameConstant),
+        typeof(IdentityProviderTypeConstant),
+        typeof(NotificationNameConstant),
+        typeof(TemplateNameConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(RecipientUserCollectionModel),
+        typeof(RecipientUserContractModel),
+        typeof(RecipientUsersContractPropertiesModel),
+    };
 }

@@ -19,4 +19,38 @@ internal class Definition : ResourceDefinition
         new ListOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AvsDataStoreConstant),
+        typeof(ChownModeConstant),
+        typeof(EnableSubvolumesConstant),
+        typeof(EncryptionKeySourceConstant),
+        typeof(EndpointTypeConstant),
+        typeof(FileAccessLogsConstant),
+        typeof(NetworkFeaturesConstant),
+        typeof(ReplicationScheduleConstant),
+        typeof(SecurityStyleConstant),
+        typeof(ServiceLevelConstant),
+        typeof(SmbAccessBasedEnumerationConstant),
+        typeof(SmbNonBrowsableConstant),
+        typeof(VolumeStorageToNetworkProximityConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ExportPolicyRuleModel),
+        typeof(MountTargetPropertiesModel),
+        typeof(PlacementKeyValuePairsModel),
+        typeof(ReplicationObjectModel),
+        typeof(VolumeModel),
+        typeof(VolumeBackupPropertiesModel),
+        typeof(VolumePatchModel),
+        typeof(VolumePatchPropertiesModel),
+        typeof(VolumePatchPropertiesDataProtectionModel),
+        typeof(VolumePatchPropertiesExportPolicyModel),
+        typeof(VolumePropertiesModel),
+        typeof(VolumePropertiesDataProtectionModel),
+        typeof(VolumePropertiesExportPolicyModel),
+        typeof(VolumeRelocationPropertiesModel),
+        typeof(VolumeSnapshotPropertiesModel),
+    };
 }

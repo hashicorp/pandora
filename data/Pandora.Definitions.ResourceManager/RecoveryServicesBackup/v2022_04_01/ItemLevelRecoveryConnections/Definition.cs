@@ -16,4 +16,15 @@ internal class Definition : ResourceDefinition
         new ProvisionOperation(),
         new RevokeOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AzureFileShareProvisionILRRequestModel),
+        typeof(ILRRequestModel),
+        typeof(ILRRequestResourceModel),
+        typeof(IaasVMILRRegistrationRequestModel),
+    };
 }

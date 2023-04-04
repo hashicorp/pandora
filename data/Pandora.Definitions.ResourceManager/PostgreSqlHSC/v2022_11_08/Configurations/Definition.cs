@@ -21,4 +21,18 @@ internal class Definition : ResourceDefinition
         new UpdateOnCoordinatorOperation(),
         new UpdateOnNodeOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ConfigurationDataTypeConstant),
+        typeof(ProvisioningStateConstant),
+        typeof(ServerRoleConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ConfigurationModel),
+        typeof(ConfigurationPropertiesModel),
+        typeof(ServerConfigurationModel),
+        typeof(ServerConfigurationPropertiesModel),
+        typeof(ServerRoleGroupConfigurationModel),
+    };
 }

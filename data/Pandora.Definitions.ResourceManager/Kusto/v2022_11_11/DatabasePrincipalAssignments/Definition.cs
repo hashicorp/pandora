@@ -19,4 +19,20 @@ internal class Definition : ResourceDefinition
         new GetOperation(),
         new ListOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(DatabasePrincipalAssignmentTypeConstant),
+        typeof(DatabasePrincipalRoleConstant),
+        typeof(PrincipalTypeConstant),
+        typeof(ProvisioningStateConstant),
+        typeof(ReasonConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(CheckNameResultModel),
+        typeof(DatabasePrincipalAssignmentModel),
+        typeof(DatabasePrincipalAssignmentCheckNameRequestModel),
+        typeof(DatabasePrincipalAssignmentListResultModel),
+        typeof(DatabasePrincipalPropertiesModel),
+    };
 }

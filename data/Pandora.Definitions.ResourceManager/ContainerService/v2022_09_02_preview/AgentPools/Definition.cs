@@ -22,4 +22,41 @@ internal class Definition : ResourceDefinition
         new ListOperation(),
         new UpgradeNodeImageVersionOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AgentPoolModeConstant),
+        typeof(AgentPoolTypeConstant),
+        typeof(CodeConstant),
+        typeof(GPUInstanceProfileConstant),
+        typeof(KubeletDiskTypeConstant),
+        typeof(OSDiskTypeConstant),
+        typeof(OSSKUConstant),
+        typeof(OSTypeConstant),
+        typeof(ProtocolConstant),
+        typeof(ScaleDownModeConstant),
+        typeof(ScaleSetEvictionPolicyConstant),
+        typeof(ScaleSetPriorityConstant),
+        typeof(WorkloadRuntimeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AgentPoolModel),
+        typeof(AgentPoolAvailableVersionsModel),
+        typeof(AgentPoolAvailableVersionsPropertiesModel),
+        typeof(AgentPoolAvailableVersionsPropertiesAgentPoolVersionsInlinedModel),
+        typeof(AgentPoolNetworkProfileModel),
+        typeof(AgentPoolUpgradeProfileModel),
+        typeof(AgentPoolUpgradeProfilePropertiesModel),
+        typeof(AgentPoolUpgradeProfilePropertiesUpgradesInlinedModel),
+        typeof(AgentPoolUpgradeSettingsModel),
+        typeof(AgentPoolWindowsProfileModel),
+        typeof(CreationDataModel),
+        typeof(IPTagModel),
+        typeof(KubeletConfigModel),
+        typeof(LinuxOSConfigModel),
+        typeof(ManagedClusterAgentPoolProfilePropertiesModel),
+        typeof(PortRangeModel),
+        typeof(PowerStateModel),
+        typeof(SysctlConfigModel),
+    };
 }

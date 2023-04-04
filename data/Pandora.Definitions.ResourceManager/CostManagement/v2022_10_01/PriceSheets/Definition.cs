@@ -16,4 +16,12 @@ internal class Definition : ResourceDefinition
         new PriceSheetDownloadOperation(),
         new PriceSheetDownloadByBillingProfileOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ExternalCloudProviderTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(DownloadUrlModel),
+    };
 }

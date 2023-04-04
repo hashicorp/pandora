@@ -21,4 +21,24 @@ internal class Definition : ResourceDefinition
         new ListSecretsOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AccessIdNameConstant),
+        typeof(AuthorizationMethodConstant),
+        typeof(BearerTokenSendingMethodConstant),
+        typeof(ClientAuthenticationMethodConstant),
+        typeof(GrantTypeConstant),
+        typeof(IdentityProviderTypeConstant),
+        typeof(NotificationNameConstant),
+        typeof(TemplateNameConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AuthorizationServerContractModel),
+        typeof(AuthorizationServerContractPropertiesModel),
+        typeof(AuthorizationServerSecretsContractModel),
+        typeof(AuthorizationServerUpdateContractModel),
+        typeof(AuthorizationServerUpdateContractPropertiesModel),
+        typeof(TokenBodyParameterContractModel),
+    };
 }

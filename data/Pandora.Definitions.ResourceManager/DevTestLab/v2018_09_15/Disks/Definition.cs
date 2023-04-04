@@ -21,4 +21,16 @@ internal class Definition : ResourceDefinition
         new ListOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(StorageTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AttachDiskPropertiesModel),
+        typeof(DetachDiskPropertiesModel),
+        typeof(DiskModel),
+        typeof(DiskPropertiesModel),
+        typeof(UpdateResourceModel),
+    };
 }

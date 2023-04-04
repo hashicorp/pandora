@@ -19,4 +19,21 @@ internal class Definition : ResourceDefinition
         new ListByTopicOperation(),
         new RulesGetOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(EntityStatusConstant),
+        typeof(FilterTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ActionModel),
+        typeof(CorrelationFilterModel),
+        typeof(MessageCountDetailsModel),
+        typeof(RuleModel),
+        typeof(RulepropertiesModel),
+        typeof(SBClientAffinePropertiesModel),
+        typeof(SBSubscriptionModel),
+        typeof(SBSubscriptionPropertiesModel),
+        typeof(SqlFilterModel),
+    };
 }

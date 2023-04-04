@@ -16,4 +16,22 @@ internal class Definition : ResourceDefinition
         new CreateOrUpdateOperation(),
         new GetOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(CostThresholdStatusConstant),
+        typeof(CostTypeConstant),
+        typeof(ReportingCycleTypeConstant),
+        typeof(TargetCostStatusConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(CostThresholdPropertiesModel),
+        typeof(LabCostModel),
+        typeof(LabCostDetailsPropertiesModel),
+        typeof(LabCostPropertiesModel),
+        typeof(LabCostSummaryPropertiesModel),
+        typeof(LabResourceCostPropertiesModel),
+        typeof(PercentageCostThresholdPropertiesModel),
+        typeof(TargetCostPropertiesModel),
+    };
 }

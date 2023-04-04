@@ -16,4 +16,12 @@ internal class Definition : ResourceDefinition
         new ConfigurationGetOperation(),
         new ConfigurationPatchOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ClusterQuotaConfigurationPropertiesModel),
+    };
 }

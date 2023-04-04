@@ -22,4 +22,27 @@ internal class Definition : ResourceDefinition
         new VideoAnalyzersSyncStorageKeysOperation(),
         new VideoAnalyzersUpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AccountEncryptionKeyTypeConstant),
+        typeof(CheckNameAvailabilityReasonConstant),
+        typeof(VideoAnalyzerEndpointTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AccountEncryptionModel),
+        typeof(CheckNameAvailabilityRequestModel),
+        typeof(CheckNameAvailabilityResponseModel),
+        typeof(EndpointModel),
+        typeof(KeyVaultPropertiesModel),
+        typeof(ResourceIdentityModel),
+        typeof(StorageAccountModel),
+        typeof(SyncStorageKeysInputModel),
+        typeof(UserAssignedManagedIdentityModel),
+        typeof(VideoAnalyzerModel),
+        typeof(VideoAnalyzerCollectionModel),
+        typeof(VideoAnalyzerIdentityModel),
+        typeof(VideoAnalyzerPropertiesUpdateModel),
+        typeof(VideoAnalyzerUpdateModel),
+    };
 }

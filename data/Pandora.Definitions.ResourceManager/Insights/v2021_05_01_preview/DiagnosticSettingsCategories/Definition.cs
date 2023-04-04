@@ -16,4 +16,14 @@ internal class Definition : ResourceDefinition
         new DiagnosticSettingsCategoryGetOperation(),
         new DiagnosticSettingsCategoryListOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(CategoryTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(DiagnosticSettingsCategoryModel),
+        typeof(DiagnosticSettingsCategoryResourceModel),
+        typeof(DiagnosticSettingsCategoryResourceCollectionModel),
+    };
 }

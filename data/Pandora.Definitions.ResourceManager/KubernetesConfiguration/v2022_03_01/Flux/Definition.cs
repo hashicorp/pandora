@@ -19,4 +19,29 @@ internal class Definition : ResourceDefinition
         new ConfigurationsListOperation(),
         new ConfigurationsUpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(FluxComplianceStateConstant),
+        typeof(ProvisioningStateConstant),
+        typeof(ScopeTypeConstant),
+        typeof(SourceKindTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(BucketDefinitionModel),
+        typeof(BucketPatchDefinitionModel),
+        typeof(FluxConfigurationModel),
+        typeof(FluxConfigurationPatchModel),
+        typeof(FluxConfigurationPatchPropertiesModel),
+        typeof(FluxConfigurationPropertiesModel),
+        typeof(GitRepositoryDefinitionModel),
+        typeof(GitRepositoryPatchDefinitionModel),
+        typeof(HelmReleasePropertiesDefinitionModel),
+        typeof(KustomizationDefinitionModel),
+        typeof(KustomizationPatchDefinitionModel),
+        typeof(ObjectReferenceDefinitionModel),
+        typeof(ObjectStatusConditionDefinitionModel),
+        typeof(ObjectStatusDefinitionModel),
+        typeof(RepositoryRefDefinitionModel),
+    };
 }

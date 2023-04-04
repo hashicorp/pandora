@@ -19,4 +19,18 @@ internal class Definition : ResourceDefinition
         new AccountFiltersListOperation(),
         new AccountFiltersUpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(FilterTrackPropertyCompareOperationConstant),
+        typeof(FilterTrackPropertyTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AccountFilterModel),
+        typeof(FilterTrackPropertyConditionModel),
+        typeof(FilterTrackSelectionModel),
+        typeof(FirstQualityModel),
+        typeof(MediaFilterPropertiesModel),
+        typeof(PresentationTimeRangeModel),
+    };
 }

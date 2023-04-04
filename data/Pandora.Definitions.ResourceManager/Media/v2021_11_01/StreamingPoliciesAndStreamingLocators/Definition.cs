@@ -24,4 +24,38 @@ internal class Definition : ResourceDefinition
         new StreamingPoliciesGetOperation(),
         new StreamingPoliciesListOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(EncryptionSchemeConstant),
+        typeof(StreamingLocatorContentKeyTypeConstant),
+        typeof(StreamingPolicyStreamingProtocolConstant),
+        typeof(TrackPropertyCompareOperationConstant),
+        typeof(TrackPropertyTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(CbcsDrmConfigurationModel),
+        typeof(CencDrmConfigurationModel),
+        typeof(CommonEncryptionCbcsModel),
+        typeof(CommonEncryptionCencModel),
+        typeof(DefaultKeyModel),
+        typeof(EnabledProtocolsModel),
+        typeof(EnvelopeEncryptionModel),
+        typeof(ListContentKeysResponseModel),
+        typeof(ListPathsResponseModel),
+        typeof(NoEncryptionModel),
+        typeof(StreamingLocatorModel),
+        typeof(StreamingLocatorContentKeyModel),
+        typeof(StreamingLocatorPropertiesModel),
+        typeof(StreamingPathModel),
+        typeof(StreamingPolicyModel),
+        typeof(StreamingPolicyContentKeyModel),
+        typeof(StreamingPolicyContentKeysModel),
+        typeof(StreamingPolicyFairPlayConfigurationModel),
+        typeof(StreamingPolicyPlayReadyConfigurationModel),
+        typeof(StreamingPolicyPropertiesModel),
+        typeof(StreamingPolicyWidevineConfigurationModel),
+        typeof(TrackPropertyConditionModel),
+        typeof(TrackSelectionModel),
+    };
 }

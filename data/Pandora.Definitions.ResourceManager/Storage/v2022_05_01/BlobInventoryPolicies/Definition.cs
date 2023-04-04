@@ -18,4 +18,21 @@ internal class Definition : ResourceDefinition
         new GetOperation(),
         new ListOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(FormatConstant),
+        typeof(InventoryRuleTypeConstant),
+        typeof(ObjectTypeConstant),
+        typeof(ScheduleConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(BlobInventoryPolicyModel),
+        typeof(BlobInventoryPolicyDefinitionModel),
+        typeof(BlobInventoryPolicyFilterModel),
+        typeof(BlobInventoryPolicyPropertiesModel),
+        typeof(BlobInventoryPolicyRuleModel),
+        typeof(BlobInventoryPolicySchemaModel),
+        typeof(ListBlobInventoryPolicyModel),
+    };
 }

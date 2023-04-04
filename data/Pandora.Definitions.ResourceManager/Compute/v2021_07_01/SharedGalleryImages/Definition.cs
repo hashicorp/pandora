@@ -16,4 +16,23 @@ internal class Definition : ResourceDefinition
         new GetOperation(),
         new ListOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(HyperVGenerationConstant),
+        typeof(OperatingSystemStateTypesConstant),
+        typeof(OperatingSystemTypesConstant),
+        typeof(SharedToValuesConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(DisallowedModel),
+        typeof(GalleryImageFeatureModel),
+        typeof(GalleryImageIdentifierModel),
+        typeof(ImagePurchasePlanModel),
+        typeof(RecommendedMachineConfigurationModel),
+        typeof(ResourceRangeModel),
+        typeof(SharedGalleryIdentifierModel),
+        typeof(SharedGalleryImageModel),
+        typeof(SharedGalleryImagePropertiesModel),
+    };
 }

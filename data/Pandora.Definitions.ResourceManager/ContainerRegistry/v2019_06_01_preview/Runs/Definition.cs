@@ -19,4 +19,26 @@ internal class Definition : ResourceDefinition
         new ListOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ArchitectureConstant),
+        typeof(OSConstant),
+        typeof(ProvisioningStateConstant),
+        typeof(RunStatusConstant),
+        typeof(RunTypeConstant),
+        typeof(VariantConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AgentPropertiesModel),
+        typeof(ImageDescriptorModel),
+        typeof(ImageUpdateTriggerModel),
+        typeof(PlatformPropertiesModel),
+        typeof(RunModel),
+        typeof(RunGetLogResultModel),
+        typeof(RunPropertiesModel),
+        typeof(RunUpdateParametersModel),
+        typeof(SourceTriggerDescriptorModel),
+        typeof(TimerTriggerDescriptorModel),
+    };
 }

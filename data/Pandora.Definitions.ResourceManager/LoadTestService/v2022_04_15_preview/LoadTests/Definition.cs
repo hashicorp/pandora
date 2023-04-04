@@ -20,4 +20,18 @@ internal class Definition : ResourceDefinition
         new ListBySubscriptionOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ResourceStateConstant),
+        typeof(TypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(EncryptionPropertiesModel),
+        typeof(EncryptionPropertiesIdentityModel),
+        typeof(LoadTestPropertiesModel),
+        typeof(LoadTestResourceModel),
+        typeof(LoadTestResourcePatchRequestBodyModel),
+        typeof(LoadTestResourcePatchRequestBodyPropertiesModel),
+    };
 }

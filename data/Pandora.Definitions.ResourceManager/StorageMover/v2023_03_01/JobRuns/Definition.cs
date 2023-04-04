@@ -16,4 +16,16 @@ internal class Definition : ResourceDefinition
         new GetOperation(),
         new ListOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(JobRunScanStatusConstant),
+        typeof(JobRunStatusConstant),
+        typeof(ProvisioningStateConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(JobRunModel),
+        typeof(JobRunErrorModel),
+        typeof(JobRunPropertiesModel),
+    };
 }

@@ -19,4 +19,23 @@ internal class Definition : ResourceDefinition
         new ListOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(CustomImageOsTypeConstant),
+        typeof(LinuxOsStateConstant),
+        typeof(StorageTypeConstant),
+        typeof(WindowsOsStateConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(CustomImageModel),
+        typeof(CustomImagePropertiesModel),
+        typeof(CustomImagePropertiesCustomModel),
+        typeof(CustomImagePropertiesFromPlanModel),
+        typeof(CustomImagePropertiesFromVMModel),
+        typeof(DataDiskStorageTypeInfoModel),
+        typeof(LinuxOsInfoModel),
+        typeof(UpdateResourceModel),
+        typeof(WindowsOsInfoModel),
+    };
 }

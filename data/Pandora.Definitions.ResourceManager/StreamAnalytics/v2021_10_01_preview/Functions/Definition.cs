@@ -21,4 +21,44 @@ internal class Definition : ResourceDefinition
         new TestOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(UdfTypeConstant),
+        typeof(UpdateModeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AggregateFunctionPropertiesModel),
+        typeof(AzureMachineLearningServiceFunctionBindingModel),
+        typeof(AzureMachineLearningServiceFunctionBindingPropertiesModel),
+        typeof(AzureMachineLearningServiceFunctionBindingRetrievalPropertiesModel),
+        typeof(AzureMachineLearningServiceFunctionRetrieveDefaultDefinitionParametersModel),
+        typeof(AzureMachineLearningServiceInputColumnModel),
+        typeof(AzureMachineLearningServiceOutputColumnModel),
+        typeof(AzureMachineLearningStudioFunctionBindingModel),
+        typeof(AzureMachineLearningStudioFunctionBindingPropertiesModel),
+        typeof(AzureMachineLearningStudioFunctionBindingRetrievalPropertiesModel),
+        typeof(AzureMachineLearningStudioFunctionRetrieveDefaultDefinitionParametersModel),
+        typeof(AzureMachineLearningStudioInputColumnModel),
+        typeof(AzureMachineLearningStudioInputsModel),
+        typeof(AzureMachineLearningStudioOutputColumnModel),
+        typeof(CSharpFunctionBindingModel),
+        typeof(CSharpFunctionBindingPropertiesModel),
+        typeof(CSharpFunctionBindingRetrievalPropertiesModel),
+        typeof(CSharpFunctionRetrieveDefaultDefinitionParametersModel),
+        typeof(ErrorResponseModel),
+        typeof(FunctionModel),
+        typeof(FunctionBindingModel),
+        typeof(FunctionConfigurationModel),
+        typeof(FunctionInputModel),
+        typeof(FunctionOutputModel),
+        typeof(FunctionPropertiesModel),
+        typeof(FunctionRetrieveDefaultDefinitionParametersModel),
+        typeof(JavaScriptFunctionBindingModel),
+        typeof(JavaScriptFunctionBindingPropertiesModel),
+        typeof(JavaScriptFunctionBindingRetrievalPropertiesModel),
+        typeof(JavaScriptFunctionRetrieveDefaultDefinitionParametersModel),
+        typeof(ResourceTestStatusModel),
+        typeof(ScalarFunctionPropertiesModel),
+    };
 }

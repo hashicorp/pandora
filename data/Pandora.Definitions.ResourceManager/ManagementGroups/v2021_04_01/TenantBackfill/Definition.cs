@@ -16,4 +16,12 @@ internal class Definition : ResourceDefinition
         new StartTenantBackfillOperation(),
         new StatusOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(StatusConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(TenantBackfillStatusResultModel),
+    };
 }

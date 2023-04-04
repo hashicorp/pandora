@@ -15,4 +15,12 @@ internal class Definition : ResourceDefinition
     {
         new GetCapabilityOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(SubscriptionStateConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(CapabilityInformationModel),
+    };
 }

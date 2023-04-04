@@ -17,4 +17,14 @@ internal class Definition : ResourceDefinition
         new DeleteOperation(),
         new ListByServerGroupOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(RoleModel),
+        typeof(RoleListResultModel),
+        typeof(RolePropertiesModel),
+    };
 }

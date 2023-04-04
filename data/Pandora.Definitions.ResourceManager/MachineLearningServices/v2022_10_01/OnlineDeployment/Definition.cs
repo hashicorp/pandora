@@ -21,4 +21,37 @@ internal class Definition : ResourceDefinition
         new ListSkusOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ContainerTypeConstant),
+        typeof(DeploymentProvisioningStateConstant),
+        typeof(EgressPublicNetworkAccessTypeConstant),
+        typeof(EndpointComputeTypeConstant),
+        typeof(ScaleTypeConstant),
+        typeof(SkuScaleTypeConstant),
+        typeof(SkuTierConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(CodeConfigurationModel),
+        typeof(ContainerResourceRequirementsModel),
+        typeof(ContainerResourceSettingsModel),
+        typeof(DefaultScaleSettingsModel),
+        typeof(DeploymentLogsModel),
+        typeof(DeploymentLogsRequestModel),
+        typeof(KubernetesOnlineDeploymentModel),
+        typeof(ManagedOnlineDeploymentModel),
+        typeof(OnlineDeploymentModel),
+        typeof(OnlineDeploymentTrackedResourceModel),
+        typeof(OnlineRequestSettingsModel),
+        typeof(OnlineScaleSettingsModel),
+        typeof(PartialMinimalTrackedResourceWithSkuModel),
+        typeof(PartialSkuModel),
+        typeof(ProbeSettingsModel),
+        typeof(SkuModel),
+        typeof(SkuCapacityModel),
+        typeof(SkuResourceModel),
+        typeof(SkuSettingModel),
+        typeof(TargetUtilizationScaleSettingsModel),
+    };
 }

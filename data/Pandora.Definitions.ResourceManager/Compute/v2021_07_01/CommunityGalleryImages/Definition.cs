@@ -15,4 +15,22 @@ internal class Definition : ResourceDefinition
     {
         new GetOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(HyperVGenerationConstant),
+        typeof(OperatingSystemStateTypesConstant),
+        typeof(OperatingSystemTypesConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(CommunityGalleryIdentifierModel),
+        typeof(CommunityGalleryImageModel),
+        typeof(CommunityGalleryImagePropertiesModel),
+        typeof(DisallowedModel),
+        typeof(GalleryImageFeatureModel),
+        typeof(GalleryImageIdentifierModel),
+        typeof(ImagePurchasePlanModel),
+        typeof(RecommendedMachineConfigurationModel),
+        typeof(ResourceRangeModel),
+    };
 }

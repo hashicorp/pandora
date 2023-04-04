@@ -18,4 +18,14 @@ internal class Definition : ResourceDefinition
         new GetOperation(),
         new ListOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(SourceTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(UserInfoModel),
+        typeof(WatchlistModel),
+        typeof(WatchlistPropertiesModel),
+    };
 }

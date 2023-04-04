@@ -16,4 +16,27 @@ internal class Definition : ResourceDefinition
         new ExternalCloudProviderUsageOperation(),
         new UsageOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ExternalCloudProviderTypeConstant),
+        typeof(ForecastOperatorTypeConstant),
+        typeof(ForecastTimeframeConstant),
+        typeof(ForecastTypeConstant),
+        typeof(FunctionNameConstant),
+        typeof(FunctionTypeConstant),
+        typeof(GranularityTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ForecastAggregationModel),
+        typeof(ForecastColumnModel),
+        typeof(ForecastComparisonExpressionModel),
+        typeof(ForecastDatasetModel),
+        typeof(ForecastDatasetConfigurationModel),
+        typeof(ForecastDefinitionModel),
+        typeof(ForecastFilterModel),
+        typeof(ForecastPropertiesModel),
+        typeof(ForecastResultModel),
+        typeof(ForecastTimePeriodModel),
+    };
 }

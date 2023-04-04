@@ -20,4 +20,22 @@ internal class Definition : ResourceDefinition
         new ContactProfilesListBySubscriptionOperation(),
         new ContactProfilesUpdateTagsOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AutoTrackingConfigurationConstant),
+        typeof(DirectionConstant),
+        typeof(PolarizationConstant),
+        typeof(ProtocolConstant),
+        typeof(ProvisioningStateConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ContactProfileModel),
+        typeof(ContactProfileLinkModel),
+        typeof(ContactProfileLinkChannelModel),
+        typeof(ContactProfilesPropertiesModel),
+        typeof(ContactProfilesPropertiesNetworkConfigurationModel),
+        typeof(EndPointModel),
+        typeof(TagsObjectModel),
+    };
 }

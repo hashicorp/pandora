@@ -19,4 +19,16 @@ internal class Definition : ResourceDefinition
         new BackupPoliciesListOperation(),
         new BackupPoliciesUpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(BackupPoliciesListModel),
+        typeof(BackupPolicyModel),
+        typeof(BackupPolicyPatchModel),
+        typeof(BackupPolicyPropertiesModel),
+        typeof(VolumeBackupsModel),
+    };
 }

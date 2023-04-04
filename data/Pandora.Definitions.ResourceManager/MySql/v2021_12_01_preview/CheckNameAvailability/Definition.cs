@@ -16,4 +16,13 @@ internal class Definition : ResourceDefinition
         new ExecuteOperation(),
         new WithoutLocationExecuteOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(NameAvailabilityModel),
+        typeof(NameAvailabilityRequestModel),
+    };
 }

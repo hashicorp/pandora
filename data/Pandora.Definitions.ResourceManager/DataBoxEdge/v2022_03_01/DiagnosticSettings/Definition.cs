@@ -18,4 +18,18 @@ internal class Definition : ResourceDefinition
         new UpdateDiagnosticProactiveLogCollectionSettingsOperation(),
         new UpdateDiagnosticRemoteSupportSettingsOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AccessLevelConstant),
+        typeof(ProactiveDiagnosticsConsentConstant),
+        typeof(RemoteApplicationTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(DiagnosticProactiveLogCollectionSettingsModel),
+        typeof(DiagnosticRemoteSupportSettingsModel),
+        typeof(DiagnosticRemoteSupportSettingsPropertiesModel),
+        typeof(ProactiveLogCollectionSettingsPropertiesModel),
+        typeof(RemoteSupportSettingsModel),
+    };
 }

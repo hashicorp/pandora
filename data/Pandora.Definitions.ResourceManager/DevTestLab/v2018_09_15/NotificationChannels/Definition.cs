@@ -20,4 +20,16 @@ internal class Definition : ResourceDefinition
         new NotifyOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(NotificationChannelEventTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(EventModel),
+        typeof(NotificationChannelModel),
+        typeof(NotificationChannelPropertiesModel),
+        typeof(NotifyParametersModel),
+        typeof(UpdateResourceModel),
+    };
 }

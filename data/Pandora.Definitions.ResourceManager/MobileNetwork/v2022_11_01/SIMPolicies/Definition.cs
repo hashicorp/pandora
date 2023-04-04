@@ -15,4 +15,23 @@ internal class Definition : ResourceDefinition
     {
         new ListByMobileNetworkOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(PduSessionTypeConstant),
+        typeof(PreemptionCapabilityConstant),
+        typeof(PreemptionVulnerabilityConstant),
+        typeof(ProvisioningStateConstant),
+        typeof(SiteProvisioningStateConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AmbrModel),
+        typeof(DataNetworkConfigurationModel),
+        typeof(DataNetworkResourceIdModel),
+        typeof(ServiceResourceIdModel),
+        typeof(SimPolicyModel),
+        typeof(SimPolicyPropertiesFormatModel),
+        typeof(SliceConfigurationModel),
+        typeof(SliceResourceIdModel),
+    };
 }
