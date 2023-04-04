@@ -85,7 +85,7 @@ func (s Generator) generateResources(resourceName, namespace string, resource mo
 	}
 
 	s.logger.Debug("Generating Package Definition..")
-	packageDefinitionCode := codeForPackageDefinition(namespace, resourceName, resource.Operations)
+	packageDefinitionCode := codeForPackageDefinition(namespace, resourceName, resource)
 	packageDefinitionFileName := path.Join(workingDirectory, "Definition.cs")
 	if err := writeToFile(packageDefinitionFileName, packageDefinitionCode); err != nil {
 		return fmt.Errorf("writing package definition for %q: %+v", packageDefinitionFileName, err)
