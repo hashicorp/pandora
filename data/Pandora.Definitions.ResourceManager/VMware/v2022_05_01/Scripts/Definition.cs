@@ -23,4 +23,27 @@ internal class Definition : ResourceDefinition
         new ScriptPackagesGetOperation(),
         new ScriptPackagesListOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(OptionalParamEnumConstant),
+        typeof(ScriptExecutionParameterTypeConstant),
+        typeof(ScriptExecutionProvisioningStateConstant),
+        typeof(ScriptOutputStreamTypeConstant),
+        typeof(ScriptParameterTypesConstant),
+        typeof(VisibilityParameterEnumConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(PSCredentialExecutionParameterModel),
+        typeof(ScriptCmdletModel),
+        typeof(ScriptCmdletPropertiesModel),
+        typeof(ScriptExecutionModel),
+        typeof(ScriptExecutionParameterModel),
+        typeof(ScriptExecutionPropertiesModel),
+        typeof(ScriptPackageModel),
+        typeof(ScriptPackagePropertiesModel),
+        typeof(ScriptParameterModel),
+        typeof(ScriptSecureStringExecutionParameterModel),
+        typeof(ScriptStringExecutionParameterModel),
+    };
 }

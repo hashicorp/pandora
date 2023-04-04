@@ -18,4 +18,13 @@ internal class Definition : ResourceDefinition
         new GetOperation(),
         new ListByConfigurationStoreOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ReplicaProvisioningStateConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ReplicaModel),
+        typeof(ReplicaPropertiesModel),
+    };
 }

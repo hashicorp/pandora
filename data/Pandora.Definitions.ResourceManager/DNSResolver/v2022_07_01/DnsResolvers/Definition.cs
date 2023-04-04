@@ -21,4 +21,16 @@ internal class Definition : ResourceDefinition
         new ListByVirtualNetworkOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(DnsResolverStateConstant),
+        typeof(ProvisioningStateConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(DnsResolverModel),
+        typeof(DnsResolverPatchModel),
+        typeof(DnsResolverPropertiesModel),
+        typeof(SubResourceModel),
+    };
 }

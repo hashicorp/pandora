@@ -24,4 +24,25 @@ internal class Definition : ResourceDefinition
         new SuspendOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(CapacityProvisioningStateConstant),
+        typeof(CapacitySkuTierConstant),
+        typeof(ModeConstant),
+        typeof(StateConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(CapacitySkuModel),
+        typeof(CheckCapacityNameAvailabilityParametersModel),
+        typeof(CheckCapacityNameAvailabilityResultModel),
+        typeof(DedicatedCapacitiesModel),
+        typeof(DedicatedCapacityModel),
+        typeof(DedicatedCapacityAdministratorsModel),
+        typeof(DedicatedCapacityMutablePropertiesModel),
+        typeof(DedicatedCapacityPropertiesModel),
+        typeof(DedicatedCapacityUpdateParametersModel),
+        typeof(SkuDetailsForExistingResourceModel),
+        typeof(SkuEnumerationForExistingResourceResultModel),
+    };
 }

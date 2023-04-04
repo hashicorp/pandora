@@ -19,4 +19,24 @@ internal class Definition : ResourceDefinition
         new ListByWorkspaceOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(PrivateEndpointConnectionProvisioningStateConstant),
+        typeof(PrivateEndpointServiceConnectionStatusConstant),
+        typeof(ProvisioningStateConstant),
+        typeof(PublicNetworkAccessConstant),
+        typeof(ServiceEventStateConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(CorsConfigurationModel),
+        typeof(DicomServiceModel),
+        typeof(DicomServiceAuthenticationConfigurationModel),
+        typeof(DicomServicePatchResourceModel),
+        typeof(DicomServicePropertiesModel),
+        typeof(PrivateEndpointModel),
+        typeof(PrivateEndpointConnectionModel),
+        typeof(PrivateEndpointConnectionPropertiesModel),
+        typeof(PrivateLinkServiceConnectionStateModel),
+    };
 }

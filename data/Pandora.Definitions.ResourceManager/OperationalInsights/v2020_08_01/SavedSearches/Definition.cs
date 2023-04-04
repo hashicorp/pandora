@@ -18,4 +18,15 @@ internal class Definition : ResourceDefinition
         new GetOperation(),
         new ListByWorkspaceOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(DataSourceTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(SavedSearchModel),
+        typeof(SavedSearchPropertiesModel),
+        typeof(SavedSearchesListResultModel),
+        typeof(TagModel),
+    };
 }

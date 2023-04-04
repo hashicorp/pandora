@@ -23,4 +23,27 @@ internal class Definition : ResourceDefinition
         new IndicatorReplaceTagsOperation(),
         new IndicatorsListOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ThreatIntelligenceResourceKindEnumConstant),
+        typeof(ThreatIntelligenceSortingCriteriaEnumConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ThreatIntelligenceAppendTagsModel),
+        typeof(ThreatIntelligenceExternalReferenceModel),
+        typeof(ThreatIntelligenceFilteringCriteriaModel),
+        typeof(ThreatIntelligenceGranularMarkingModelModel),
+        typeof(ThreatIntelligenceIndicatorModelModel),
+        typeof(ThreatIntelligenceIndicatorPropertiesModel),
+        typeof(ThreatIntelligenceInformationModel),
+        typeof(ThreatIntelligenceKillChainPhaseModel),
+        typeof(ThreatIntelligenceMetricModel),
+        typeof(ThreatIntelligenceMetricEntityModel),
+        typeof(ThreatIntelligenceMetricsModel),
+        typeof(ThreatIntelligenceMetricsListModel),
+        typeof(ThreatIntelligenceParsedPatternModel),
+        typeof(ThreatIntelligenceParsedPatternTypeValueModel),
+        typeof(ThreatIntelligenceSortingCriteriaModel),
+    };
 }

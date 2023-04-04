@@ -18,4 +18,18 @@ internal class Definition : ResourceDefinition
         new ListByLabPlanOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(EnableStateConstant),
+        typeof(OsStateConstant),
+        typeof(OsTypeConstant),
+        typeof(ProvisioningStateConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ImageModel),
+        typeof(ImagePropertiesModel),
+        typeof(ImageUpdateModel),
+        typeof(ImageUpdatePropertiesModel),
+    };
 }

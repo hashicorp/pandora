@@ -17,4 +17,36 @@ internal class Definition : ResourceDefinition
         new LinkerGetOperation(),
         new LinkerListOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AuthTypeConstant),
+        typeof(AzureResourceTypeConstant),
+        typeof(ClientTypeConstant),
+        typeof(SecretTypeConstant),
+        typeof(TargetServiceTypeConstant),
+        typeof(VNetSolutionTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AuthInfoBaseModel),
+        typeof(AzureKeyVaultPropertiesModel),
+        typeof(AzureResourceModel),
+        typeof(AzureResourcePropertiesBaseModel),
+        typeof(ConfluentBootstrapServerModel),
+        typeof(ConfluentSchemaRegistryModel),
+        typeof(KeyVaultSecretReferenceSecretInfoModel),
+        typeof(KeyVaultSecretUriSecretInfoModel),
+        typeof(LinkerPropertiesModel),
+        typeof(LinkerResourceModel),
+        typeof(SecretAuthInfoModel),
+        typeof(SecretInfoBaseModel),
+        typeof(SecretStoreModel),
+        typeof(ServicePrincipalCertificateAuthInfoModel),
+        typeof(ServicePrincipalSecretAuthInfoModel),
+        typeof(SystemAssignedIdentityAuthInfoModel),
+        typeof(TargetServiceBaseModel),
+        typeof(UserAssignedIdentityAuthInfoModel),
+        typeof(VNetSolutionModel),
+        typeof(ValueSecretInfoModel),
+    };
 }

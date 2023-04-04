@@ -31,4 +31,42 @@ internal class Definition : ResourceDefinition
         new WorkspacePurgeGetPurgeStatusOperation(),
         new WorkspacePurgePurgeOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(DataIngestionStatusConstant),
+        typeof(DataSourceTypeConstant),
+        typeof(PublicNetworkAccessTypeConstant),
+        typeof(PurgeStateConstant),
+        typeof(SearchSortEnumConstant),
+        typeof(WorkspaceEntityStatusConstant),
+        typeof(WorkspaceSkuNameEnumConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(CoreSummaryModel),
+        typeof(IntelligencePackModel),
+        typeof(ManagementGroupModel),
+        typeof(ManagementGroupPropertiesModel),
+        typeof(MetricNameModel),
+        typeof(PrivateLinkScopedResourceModel),
+        typeof(SearchGetSchemaResponseModel),
+        typeof(SearchMetadataModel),
+        typeof(SearchMetadataSchemaModel),
+        typeof(SearchSchemaValueModel),
+        typeof(SearchSortModel),
+        typeof(SharedKeysModel),
+        typeof(UsageMetricModel),
+        typeof(WorkspaceModel),
+        typeof(WorkspaceCappingModel),
+        typeof(WorkspaceListManagementGroupsResultModel),
+        typeof(WorkspaceListResultModel),
+        typeof(WorkspaceListUsagesResultModel),
+        typeof(WorkspacePatchModel),
+        typeof(WorkspacePropertiesModel),
+        typeof(WorkspacePurgeBodyModel),
+        typeof(WorkspacePurgeBodyFiltersModel),
+        typeof(WorkspacePurgeResponseModel),
+        typeof(WorkspacePurgeStatusResponseModel),
+        typeof(WorkspaceSkuModel),
+    };
 }

@@ -24,4 +24,31 @@ internal class Definition : ResourceDefinition
         new RegenerateAccessKeyOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(EventLevelConstant),
+        typeof(IntegrationAccountSkuNameConstant),
+        typeof(KeyTypeConstant),
+        typeof(TrackEventsOperationOptionsConstant),
+        typeof(TrackingRecordTypeConstant),
+        typeof(WorkflowStateConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(CallbackUrlModel),
+        typeof(GetCallbackUrlParametersModel),
+        typeof(IntegrationAccountModel),
+        typeof(IntegrationAccountPropertiesModel),
+        typeof(IntegrationAccountSkuModel),
+        typeof(KeyVaultKeyModel),
+        typeof(KeyVaultKeyAttributesModel),
+        typeof(KeyVaultKeyCollectionModel),
+        typeof(KeyVaultReferenceModel),
+        typeof(ListKeyVaultKeysDefinitionModel),
+        typeof(RegenerateActionParameterModel),
+        typeof(ResourceReferenceModel),
+        typeof(TrackingEventModel),
+        typeof(TrackingEventErrorInfoModel),
+        typeof(TrackingEventsDefinitionModel),
+    };
 }

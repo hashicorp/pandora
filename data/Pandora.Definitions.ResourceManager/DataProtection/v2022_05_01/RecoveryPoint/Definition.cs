@@ -16,4 +16,15 @@ internal class Definition : ResourceDefinition
         new GetOperation(),
         new ListOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(RehydrationStatusConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AzureBackupDiscreteRecoveryPointModel),
+        typeof(AzureBackupRecoveryPointModel),
+        typeof(AzureBackupRecoveryPointResourceModel),
+        typeof(RecoveryPointDataStoreDetailsModel),
+    };
 }

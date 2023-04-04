@@ -16,4 +16,15 @@ internal class Definition : ResourceDefinition
         new ListOperation(),
         new ListByBillingProfileOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(LegacyReservationTransactionPropertiesModel),
+        typeof(ModernReservationTransactionModel),
+        typeof(ModernReservationTransactionPropertiesModel),
+        typeof(ReservationTransactionModel),
+    };
 }

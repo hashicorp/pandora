@@ -18,4 +18,25 @@ internal class Definition : ResourceDefinition
         new GetOperation(),
         new ListOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(PipelineRunSourceTypeConstant),
+        typeof(PipelineRunTargetTypeConstant),
+        typeof(PipelineSourceTypeConstant),
+        typeof(ProvisioningStateConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ExportPipelineTargetPropertiesModel),
+        typeof(ImportPipelineSourcePropertiesModel),
+        typeof(PipelineRunModel),
+        typeof(PipelineRunPropertiesModel),
+        typeof(PipelineRunRequestModel),
+        typeof(PipelineRunResponseModel),
+        typeof(PipelineRunSourcePropertiesModel),
+        typeof(PipelineRunTargetPropertiesModel),
+        typeof(PipelineSourceTriggerDescriptorModel),
+        typeof(PipelineTriggerDescriptorModel),
+        typeof(ProgressPropertiesModel),
+    };
 }

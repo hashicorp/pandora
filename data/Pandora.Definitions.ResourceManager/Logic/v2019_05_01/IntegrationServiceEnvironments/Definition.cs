@@ -20,4 +20,25 @@ internal class Definition : ResourceDefinition
         new ListBySubscriptionOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(IntegrationServiceEnvironmentAccessEndpointTypeConstant),
+        typeof(IntegrationServiceEnvironmentSkuNameConstant),
+        typeof(WorkflowProvisioningStateConstant),
+        typeof(WorkflowStateConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(FlowEndpointsModel),
+        typeof(FlowEndpointsConfigurationModel),
+        typeof(IPAddressModel),
+        typeof(IntegrationServiceEnvironmenEncryptionConfigurationModel),
+        typeof(IntegrationServiceEnvironmenEncryptionKeyReferenceModel),
+        typeof(IntegrationServiceEnvironmentModel),
+        typeof(IntegrationServiceEnvironmentAccessEndpointModel),
+        typeof(IntegrationServiceEnvironmentPropertiesModel),
+        typeof(IntegrationServiceEnvironmentSkuModel),
+        typeof(NetworkConfigurationModel),
+        typeof(ResourceReferenceModel),
+    };
 }

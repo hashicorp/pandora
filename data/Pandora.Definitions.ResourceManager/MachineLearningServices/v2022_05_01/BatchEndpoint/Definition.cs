@@ -20,4 +20,21 @@ internal class Definition : ResourceDefinition
         new ListKeysOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(EndpointAuthModeConstant),
+        typeof(EndpointProvisioningStateConstant),
+        typeof(ManagedServiceIdentityTypeConstant),
+        typeof(SkuTierConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(BatchEndpointModel),
+        typeof(BatchEndpointDefaultsModel),
+        typeof(BatchEndpointTrackedResourceModel),
+        typeof(EndpointAuthKeysModel),
+        typeof(PartialManagedServiceIdentityModel),
+        typeof(PartialMinimalTrackedResourceWithIdentityModel),
+        typeof(SkuModel),
+    };
 }

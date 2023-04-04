@@ -20,4 +20,31 @@ internal class Definition : ResourceDefinition
         new ListBySubscriptionOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AggregationTypeEnumConstant),
+        typeof(CriterionTypeConstant),
+        typeof(DynamicThresholdOperatorConstant),
+        typeof(DynamicThresholdSensitivityConstant),
+        typeof(OdatatypeConstant),
+        typeof(OperatorConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(DynamicMetricCriteriaModel),
+        typeof(DynamicThresholdFailingPeriodsModel),
+        typeof(MetricAlertActionModel),
+        typeof(MetricAlertCriteriaModel),
+        typeof(MetricAlertMultipleResourceMultipleMetricCriteriaModel),
+        typeof(MetricAlertPropertiesModel),
+        typeof(MetricAlertPropertiesPatchModel),
+        typeof(MetricAlertResourceModel),
+        typeof(MetricAlertResourceCollectionModel),
+        typeof(MetricAlertResourcePatchModel),
+        typeof(MetricAlertSingleResourceMultipleMetricCriteriaModel),
+        typeof(MetricCriteriaModel),
+        typeof(MetricDimensionModel),
+        typeof(MultiMetricCriteriaModel),
+        typeof(WebtestLocationAvailabilityCriteriaModel),
+    };
 }

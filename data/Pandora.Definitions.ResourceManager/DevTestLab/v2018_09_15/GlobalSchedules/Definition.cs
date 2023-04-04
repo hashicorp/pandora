@@ -22,4 +22,19 @@ internal class Definition : ResourceDefinition
         new RetargetOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(EnableStatusConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(DayDetailsModel),
+        typeof(HourDetailsModel),
+        typeof(NotificationSettingsModel),
+        typeof(RetargetSchedulePropertiesModel),
+        typeof(ScheduleModel),
+        typeof(SchedulePropertiesModel),
+        typeof(UpdateResourceModel),
+        typeof(WeekDetailsModel),
+    };
 }

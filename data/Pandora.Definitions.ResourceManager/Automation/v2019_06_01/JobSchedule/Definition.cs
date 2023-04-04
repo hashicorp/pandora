@@ -18,4 +18,17 @@ internal class Definition : ResourceDefinition
         new GetOperation(),
         new ListByAutomationAccountOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(CountTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(JobScheduleModel),
+        typeof(JobScheduleCreateParametersModel),
+        typeof(JobScheduleCreatePropertiesModel),
+        typeof(JobSchedulePropertiesModel),
+        typeof(RunbookAssociationPropertyModel),
+        typeof(ScheduleAssociationPropertyModel),
+    };
 }

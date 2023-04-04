@@ -21,4 +21,35 @@ internal class Definition : ResourceDefinition
         new ListByDatabaseOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(BlobStorageEventTypeConstant),
+        typeof(CompressionConstant),
+        typeof(DataConnectionKindConstant),
+        typeof(DataConnectionTypeConstant),
+        typeof(DatabaseRoutingConstant),
+        typeof(EventGridDataFormatConstant),
+        typeof(EventHubDataFormatConstant),
+        typeof(IotHubDataFormatConstant),
+        typeof(ProvisioningStateConstant),
+        typeof(ReasonConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(CheckNameResultModel),
+        typeof(CosmosDbDataConnectionModel),
+        typeof(CosmosDbDataConnectionPropertiesModel),
+        typeof(DataConnectionModel),
+        typeof(DataConnectionCheckNameRequestModel),
+        typeof(DataConnectionListResultModel),
+        typeof(DataConnectionValidationModel),
+        typeof(DataConnectionValidationListResultModel),
+        typeof(DataConnectionValidationResultModel),
+        typeof(EventGridConnectionPropertiesModel),
+        typeof(EventGridDataConnectionModel),
+        typeof(EventHubConnectionPropertiesModel),
+        typeof(EventHubDataConnectionModel),
+        typeof(IotHubConnectionPropertiesModel),
+        typeof(IotHubDataConnectionModel),
+    };
 }

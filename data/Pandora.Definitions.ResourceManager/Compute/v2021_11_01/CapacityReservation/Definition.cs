@@ -15,4 +15,18 @@ internal class Definition : ResourceDefinition
     {
         new ListByCapacityReservationGroupOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(StatusLevelTypesConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(CapacityReservationModel),
+        typeof(CapacityReservationInstanceViewModel),
+        typeof(CapacityReservationPropertiesModel),
+        typeof(CapacityReservationUtilizationModel),
+        typeof(InstanceViewStatusModel),
+        typeof(SkuModel),
+        typeof(SubResourceReadOnlyModel),
+    };
 }

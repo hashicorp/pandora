@@ -15,4 +15,21 @@ internal class Definition : ResourceDefinition
     {
         new SAPDiskConfigurationsOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(DiskSkuNameConstant),
+        typeof(SAPDatabaseTypeConstant),
+        typeof(SAPDeploymentTypeConstant),
+        typeof(SAPEnvironmentTypeConstant),
+        typeof(SAPProductTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(DiskDetailsModel),
+        typeof(DiskSkuModel),
+        typeof(DiskVolumeConfigurationModel),
+        typeof(SAPDiskConfigurationModel),
+        typeof(SAPDiskConfigurationsRequestModel),
+        typeof(SAPDiskConfigurationsResultModel),
+    };
 }

@@ -19,4 +19,20 @@ internal class Definition : ResourceDefinition
         new ListByDataBoxEdgeDeviceOperation(),
         new ListDCAccessCodeOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(OrderStateConstant),
+        typeof(ShipmentTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AddressModel),
+        typeof(ContactDetailsModel),
+        typeof(DCAccessCodeModel),
+        typeof(DCAccessCodePropertiesModel),
+        typeof(OrderModel),
+        typeof(OrderPropertiesModel),
+        typeof(OrderStatusModel),
+        typeof(TrackingInfoModel),
+    };
 }

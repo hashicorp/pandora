@@ -15,4 +15,19 @@ internal class Definition : ResourceDefinition
     {
         new GetOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(LookBackPeriodConstant),
+        typeof(ScopeConstant),
+        typeof(TermConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ReservationRecommendationDetailsCalculatedSavingsPropertiesModel),
+        typeof(ReservationRecommendationDetailsModelModel),
+        typeof(ReservationRecommendationDetailsPropertiesModel),
+        typeof(ReservationRecommendationDetailsResourcePropertiesModel),
+        typeof(ReservationRecommendationDetailsSavingsPropertiesModel),
+        typeof(ReservationRecommendationDetailsUsagePropertiesModel),
+    };
 }

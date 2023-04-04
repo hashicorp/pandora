@@ -22,4 +22,25 @@ internal class Definition : ResourceDefinition
         new ListDefaultOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AttestationServiceStatusConstant),
+        typeof(PrivateEndpointConnectionProvisioningStateConstant),
+        typeof(PrivateEndpointServiceConnectionStatusConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AttestationProviderListResultModel),
+        typeof(AttestationProvidersModel),
+        typeof(AttestationServiceCreationParamsModel),
+        typeof(AttestationServiceCreationSpecificParamsModel),
+        typeof(AttestationServicePatchParamsModel),
+        typeof(JsonWebKeyModel),
+        typeof(JsonWebKeySetModel),
+        typeof(PrivateEndpointModel),
+        typeof(PrivateEndpointConnectionModel),
+        typeof(PrivateEndpointConnectionPropertiesModel),
+        typeof(PrivateLinkServiceConnectionStateModel),
+        typeof(StatusResultModel),
+    };
 }

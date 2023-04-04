@@ -15,4 +15,16 @@ internal class Definition : ResourceDefinition
     {
         new TriggerOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(BackupTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AzureFileShareBackupRequestModel),
+        typeof(AzureWorkloadBackupRequestModel),
+        typeof(BackupRequestModel),
+        typeof(BackupRequestResourceModel),
+        typeof(IaasVMBackupRequestModel),
+    };
 }

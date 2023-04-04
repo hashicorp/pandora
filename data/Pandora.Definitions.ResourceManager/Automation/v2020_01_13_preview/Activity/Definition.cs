@@ -16,4 +16,17 @@ internal class Definition : ResourceDefinition
         new GetOperation(),
         new ListByModuleOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(CountTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ActivityModel),
+        typeof(ActivityOutputTypeModel),
+        typeof(ActivityParameterModel),
+        typeof(ActivityParameterSetModel),
+        typeof(ActivityParameterValidationSetModel),
+        typeof(ActivityPropertiesModel),
+    };
 }

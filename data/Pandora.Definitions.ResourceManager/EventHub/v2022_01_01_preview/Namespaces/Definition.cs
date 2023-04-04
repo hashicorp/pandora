@@ -20,4 +20,27 @@ internal class Definition : ResourceDefinition
         new ListByResourceGroupOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(EndPointProvisioningStateConstant),
+        typeof(KeySourceConstant),
+        typeof(PrivateLinkConnectionStatusConstant),
+        typeof(PublicNetworkAccessConstant),
+        typeof(SkuNameConstant),
+        typeof(SkuTierConstant),
+        typeof(TlsVersionConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ConnectionStateModel),
+        typeof(EHNamespaceModel),
+        typeof(EHNamespacePropertiesModel),
+        typeof(EncryptionModel),
+        typeof(KeyVaultPropertiesModel),
+        typeof(PrivateEndpointModel),
+        typeof(PrivateEndpointConnectionModel),
+        typeof(PrivateEndpointConnectionPropertiesModel),
+        typeof(SkuModel),
+        typeof(UserAssignedIdentityPropertiesModel),
+    };
 }

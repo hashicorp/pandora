@@ -16,4 +16,17 @@ internal class Definition : ResourceDefinition
         new SoftwareUpdateConfigurationRunsGetByIdOperation(),
         new SoftwareUpdateConfigurationRunsListOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(SoftwareUpdateConfigurationRunModel),
+        typeof(SoftwareUpdateConfigurationRunListResultModel),
+        typeof(SoftwareUpdateConfigurationRunPropertiesModel),
+        typeof(SoftwareUpdateConfigurationRunTaskPropertiesModel),
+        typeof(SoftwareUpdateConfigurationRunTasksModel),
+        typeof(UpdateConfigurationNavigationModel),
+    };
 }

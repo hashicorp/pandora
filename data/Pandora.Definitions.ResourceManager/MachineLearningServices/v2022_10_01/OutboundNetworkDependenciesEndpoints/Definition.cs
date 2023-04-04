@@ -15,4 +15,16 @@ internal class Definition : ResourceDefinition
     {
         new WorkspacesListOutboundNetworkDependenciesEndpointsOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ExternalFQDNResponseModel),
+        typeof(FQDNEndpointModel),
+        typeof(FQDNEndpointDetailModel),
+        typeof(FQDNEndpointsModel),
+        typeof(FQDNEndpointsPropertiesModel),
+    };
 }

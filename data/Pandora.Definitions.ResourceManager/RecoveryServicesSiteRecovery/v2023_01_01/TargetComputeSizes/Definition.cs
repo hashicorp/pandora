@@ -15,4 +15,14 @@ internal class Definition : ResourceDefinition
     {
         new ListByReplicationProtectedItemsOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ComputeSizeErrorDetailsModel),
+        typeof(TargetComputeSizeModel),
+        typeof(TargetComputeSizePropertiesModel),
+    };
 }

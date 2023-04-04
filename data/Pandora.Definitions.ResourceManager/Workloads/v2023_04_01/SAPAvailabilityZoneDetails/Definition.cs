@@ -15,4 +15,15 @@ internal class Definition : ResourceDefinition
     {
         new SAPAvailabilityZoneDetailsOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(SAPDatabaseTypeConstant),
+        typeof(SAPProductTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(SAPAvailabilityZoneDetailsRequestModel),
+        typeof(SAPAvailabilityZoneDetailsResultModel),
+        typeof(SAPAvailabilityZonePairModel),
+    };
 }

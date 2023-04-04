@@ -20,4 +20,20 @@ internal class Definition : ResourceDefinition
         new ListBySubscriptionOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ActionRoutingConstant),
+        typeof(ProvisioningStateConstant),
+        typeof(ResourceTypeRoutingConstant),
+        typeof(ValidationTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(CustomRPActionRouteDefinitionModel),
+        typeof(CustomRPManifestModel),
+        typeof(CustomRPManifestPropertiesModel),
+        typeof(CustomRPResourceTypeRouteDefinitionModel),
+        typeof(CustomRPValidationsModel),
+        typeof(ResourceProvidersUpdateModel),
+    };
 }

@@ -21,4 +21,30 @@ internal class Definition : ResourceDefinition
         new ListBySubscriptionOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AdminKeyKindConstant),
+        typeof(HostingModeConstant),
+        typeof(PrivateLinkServiceConnectionStatusConstant),
+        typeof(ProvisioningStateConstant),
+        typeof(PublicNetworkAccessConstant),
+        typeof(ResourceTypeConstant),
+        typeof(SearchServiceStatusConstant),
+        typeof(SkuNameConstant),
+        typeof(UnavailableNameReasonConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(CheckNameAvailabilityInputModel),
+        typeof(CheckNameAvailabilityOutputModel),
+        typeof(IPRuleModel),
+        typeof(NetworkRuleSetModel),
+        typeof(PrivateEndpointConnectionModel),
+        typeof(PrivateEndpointConnectionPropertiesModel),
+        typeof(PrivateEndpointConnectionPropertiesPrivateEndpointModel),
+        typeof(PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateModel),
+        typeof(SearchServiceModel),
+        typeof(SearchServicePropertiesModel),
+        typeof(SkuModel),
+    };
 }

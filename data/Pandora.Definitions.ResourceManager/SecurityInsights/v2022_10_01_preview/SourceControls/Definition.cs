@@ -18,4 +18,26 @@ internal class Definition : ResourceDefinition
         new GetOperation(),
         new ListOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ContentTypeConstant),
+        typeof(DeploymentFetchStatusConstant),
+        typeof(DeploymentResultConstant),
+        typeof(DeploymentStateConstant),
+        typeof(RepoTypeConstant),
+        typeof(VersionConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AzureDevOpsResourceInfoModel),
+        typeof(ContentPathMapModel),
+        typeof(DeploymentModel),
+        typeof(DeploymentInfoModel),
+        typeof(GitHubResourceInfoModel),
+        typeof(RepositoryModel),
+        typeof(RepositoryResourceInfoModel),
+        typeof(SourceControlModel),
+        typeof(SourceControlPropertiesModel),
+        typeof(WebhookModel),
+    };
 }

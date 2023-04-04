@@ -17,4 +17,14 @@ internal class Definition : ResourceDefinition
         new DisasterRecoveryConfigsListAuthorizationRulesOperation(),
         new DisasterRecoveryConfigsListKeysOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AccessRightsConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AccessKeysModel),
+        typeof(AuthorizationRuleModel),
+        typeof(AuthorizationRulePropertiesModel),
+    };
 }

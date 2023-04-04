@@ -25,4 +25,25 @@ internal class Definition : ResourceDefinition
         new ServicesUpdateOperation(),
         new TasksListOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(CommandStateConstant),
+        typeof(ServiceProvisioningStateConstant),
+        typeof(ServiceScalabilityConstant),
+        typeof(TaskStateConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AvailableServiceSkuModel),
+        typeof(AvailableServiceSkuCapacityModel),
+        typeof(AvailableServiceSkuSkuModel),
+        typeof(CommandPropertiesModel),
+        typeof(DataMigrationServiceModel),
+        typeof(DataMigrationServicePropertiesModel),
+        typeof(DataMigrationServiceStatusResponseModel),
+        typeof(ODataErrorModel),
+        typeof(ProjectTaskModel),
+        typeof(ProjectTaskPropertiesModel),
+        typeof(ServiceSkuModel),
+    };
 }

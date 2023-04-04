@@ -18,4 +18,24 @@ internal class Definition : ResourceDefinition
         new WorkspaceConnectionsGetOperation(),
         new WorkspaceConnectionsListOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ConnectionAuthTypeConstant),
+        typeof(ConnectionCategoryConstant),
+        typeof(ValueFormatConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ManagedIdentityAuthTypeWorkspaceConnectionPropertiesModel),
+        typeof(NoneAuthTypeWorkspaceConnectionPropertiesModel),
+        typeof(PATAuthTypeWorkspaceConnectionPropertiesModel),
+        typeof(SASAuthTypeWorkspaceConnectionPropertiesModel),
+        typeof(UsernamePasswordAuthTypeWorkspaceConnectionPropertiesModel),
+        typeof(WorkspaceConnectionManagedIdentityModel),
+        typeof(WorkspaceConnectionPersonalAccessTokenModel),
+        typeof(WorkspaceConnectionPropertiesV2Model),
+        typeof(WorkspaceConnectionPropertiesV2BasicResourceModel),
+        typeof(WorkspaceConnectionSharedAccessSignatureModel),
+        typeof(WorkspaceConnectionUsernamePasswordModel),
+    };
 }

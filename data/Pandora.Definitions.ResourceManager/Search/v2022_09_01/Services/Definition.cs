@@ -21,4 +21,42 @@ internal class Definition : ResourceDefinition
         new ListBySubscriptionOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AadAuthFailureModeConstant),
+        typeof(AdminKeyKindConstant),
+        typeof(HostingModeConstant),
+        typeof(PrivateLinkServiceConnectionProvisioningStateConstant),
+        typeof(PrivateLinkServiceConnectionStatusConstant),
+        typeof(ProvisioningStateConstant),
+        typeof(PublicNetworkAccessConstant),
+        typeof(ResourceTypeConstant),
+        typeof(SearchEncryptionComplianceStatusConstant),
+        typeof(SearchEncryptionWithCmkConstant),
+        typeof(SearchServiceStatusConstant),
+        typeof(SharedPrivateLinkResourceProvisioningStateConstant),
+        typeof(SharedPrivateLinkResourceStatusConstant),
+        typeof(SkuNameConstant),
+        typeof(UnavailableNameReasonConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(CheckNameAvailabilityInputModel),
+        typeof(CheckNameAvailabilityOutputModel),
+        typeof(DataPlaneAadOrApiKeyAuthOptionModel),
+        typeof(DataPlaneAuthOptionsModel),
+        typeof(EncryptionWithCmkModel),
+        typeof(IPRuleModel),
+        typeof(NetworkRuleSetModel),
+        typeof(PrivateEndpointConnectionModel),
+        typeof(PrivateEndpointConnectionPropertiesModel),
+        typeof(PrivateEndpointConnectionPropertiesPrivateEndpointModel),
+        typeof(PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateModel),
+        typeof(SearchServiceModel),
+        typeof(SearchServicePropertiesModel),
+        typeof(SearchServiceUpdateModel),
+        typeof(SharedPrivateLinkResourceModel),
+        typeof(SharedPrivateLinkResourcePropertiesModel),
+        typeof(SkuModel),
+    };
 }

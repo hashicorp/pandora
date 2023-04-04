@@ -19,4 +19,16 @@ internal class Definition : ResourceDefinition
         new TasksGetOperation(),
         new TasksUpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(CommandStateConstant),
+        typeof(TaskStateConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(CommandPropertiesModel),
+        typeof(ODataErrorModel),
+        typeof(ProjectTaskModel),
+        typeof(ProjectTaskPropertiesModel),
+    };
 }

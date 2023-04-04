@@ -22,4 +22,32 @@ internal class Definition : ResourceDefinition
         new SyncGroupOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ConnectionTypeConstant),
+        typeof(CreateOptionConstant),
+        typeof(EnableStateConstant),
+        typeof(LabStateConstant),
+        typeof(OsTypeConstant),
+        typeof(ProvisioningStateConstant),
+        typeof(ShutdownOnIdleModeConstant),
+        typeof(SkuTierConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AutoShutdownProfileModel),
+        typeof(ConnectionProfileModel),
+        typeof(CredentialsModel),
+        typeof(ImageReferenceModel),
+        typeof(LabModel),
+        typeof(LabNetworkProfileModel),
+        typeof(LabPropertiesModel),
+        typeof(LabUpdateModel),
+        typeof(LabUpdatePropertiesModel),
+        typeof(RosterProfileModel),
+        typeof(SecurityProfileModel),
+        typeof(SkuModel),
+        typeof(VirtualMachineAdditionalCapabilitiesModel),
+        typeof(VirtualMachineProfileModel),
+    };
 }

@@ -24,4 +24,46 @@ internal class Definition : ResourceDefinition
         new SynchronizeAutoStorageKeysOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AccountKeyTypeConstant),
+        typeof(AuthenticationModeConstant),
+        typeof(AutoStorageAuthenticationModeConstant),
+        typeof(EndpointAccessDefaultActionConstant),
+        typeof(IPRuleActionConstant),
+        typeof(KeySourceConstant),
+        typeof(PoolAllocationModeConstant),
+        typeof(PrivateEndpointConnectionProvisioningStateConstant),
+        typeof(PrivateLinkServiceConnectionStatusConstant),
+        typeof(ProvisioningStateConstant),
+        typeof(PublicNetworkAccessTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AutoStorageBasePropertiesModel),
+        typeof(AutoStoragePropertiesModel),
+        typeof(BatchAccountModel),
+        typeof(BatchAccountCreateParametersModel),
+        typeof(BatchAccountCreatePropertiesModel),
+        typeof(BatchAccountKeysModel),
+        typeof(BatchAccountPropertiesModel),
+        typeof(BatchAccountRegenerateKeyParametersModel),
+        typeof(BatchAccountUpdateParametersModel),
+        typeof(BatchAccountUpdatePropertiesModel),
+        typeof(ComputeNodeIdentityReferenceModel),
+        typeof(EncryptionPropertiesModel),
+        typeof(EndpointAccessProfileModel),
+        typeof(EndpointDependencyModel),
+        typeof(EndpointDetailModel),
+        typeof(IPRuleModel),
+        typeof(KeyVaultPropertiesModel),
+        typeof(KeyVaultReferenceModel),
+        typeof(NetworkProfileModel),
+        typeof(OutboundEnvironmentEndpointModel),
+        typeof(PrivateEndpointModel),
+        typeof(PrivateEndpointConnectionModel),
+        typeof(PrivateEndpointConnectionPropertiesModel),
+        typeof(PrivateLinkServiceConnectionStateModel),
+        typeof(VirtualMachineFamilyCoreQuotaModel),
+    };
 }

@@ -21,4 +21,26 @@ internal class Definition : ResourceDefinition
         new StopInstanceOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ApplicationServerVirtualMachineTypeConstant),
+        typeof(SAPHealthStateConstant),
+        typeof(SAPVirtualInstanceStatusConstant),
+        typeof(SapVirtualInstanceProvisioningStateConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ApplicationServerVMDetailsModel),
+        typeof(ErrorAdditionalInfoModel),
+        typeof(ErrorDefinitionModel),
+        typeof(ErrorDetailModel),
+        typeof(LoadBalancerDetailsModel),
+        typeof(OperationStatusResultModel),
+        typeof(SAPApplicationServerInstanceModel),
+        typeof(SAPApplicationServerPropertiesModel),
+        typeof(SAPVirtualInstanceErrorModel),
+        typeof(StopRequestModel),
+        typeof(StorageInformationModel),
+        typeof(UpdateSAPApplicationInstanceRequestModel),
+    };
 }

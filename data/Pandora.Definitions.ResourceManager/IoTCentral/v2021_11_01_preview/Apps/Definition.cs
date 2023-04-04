@@ -23,4 +23,32 @@ internal class Definition : ResourceDefinition
         new ListTemplatesOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AppSkuConstant),
+        typeof(AppStateConstant),
+        typeof(IPRuleActionConstant),
+        typeof(NetworkActionConstant),
+        typeof(PrivateEndpointConnectionProvisioningStateConstant),
+        typeof(PrivateEndpointServiceConnectionStatusConstant),
+        typeof(ProvisioningStateConstant),
+        typeof(PublicNetworkAccessConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AppModel),
+        typeof(AppAvailabilityInfoModel),
+        typeof(AppPatchModel),
+        typeof(AppPropertiesModel),
+        typeof(AppSkuInfoModel),
+        typeof(AppTemplateModel),
+        typeof(AppTemplateLocationsModel),
+        typeof(NetworkRuleSetIPRuleModel),
+        typeof(NetworkRuleSetsModel),
+        typeof(OperationInputsModel),
+        typeof(PrivateEndpointModel),
+        typeof(PrivateEndpointConnectionModel),
+        typeof(PrivateEndpointConnectionPropertiesModel),
+        typeof(PrivateLinkServiceConnectionStateModel),
+    };
 }

@@ -20,4 +20,18 @@ internal class Definition : ResourceDefinition
         new ListBySubscriptionOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ProximityPlacementGroupTypeConstant),
+        typeof(StatusLevelTypesConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(InstanceViewStatusModel),
+        typeof(ProximityPlacementGroupModel),
+        typeof(ProximityPlacementGroupPropertiesModel),
+        typeof(ProximityPlacementGroupPropertiesIntentModel),
+        typeof(SubResourceWithColocationStatusModel),
+        typeof(UpdateResourceModel),
+    };
 }

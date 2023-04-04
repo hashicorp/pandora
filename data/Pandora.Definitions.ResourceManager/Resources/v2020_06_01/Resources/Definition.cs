@@ -27,4 +27,16 @@ internal class Definition : ResourceDefinition
         new UpdateByIdOperation(),
         new ValidateMoveResourcesOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(GenericResourceModel),
+        typeof(GenericResourceExpandedModel),
+        typeof(PlanModel),
+        typeof(ResourcesMoveInfoModel),
+        typeof(SkuModel),
+    };
 }

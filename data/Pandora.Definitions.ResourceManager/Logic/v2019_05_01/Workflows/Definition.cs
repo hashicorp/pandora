@@ -29,4 +29,36 @@ internal class Definition : ResourceDefinition
         new ValidateByLocationOperation(),
         new ValidateByResourceGroupOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(KeyTypeConstant),
+        typeof(OpenAuthenticationProviderTypeConstant),
+        typeof(ParameterTypeConstant),
+        typeof(SkuNameConstant),
+        typeof(WorkflowProvisioningStateConstant),
+        typeof(WorkflowStateConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(FlowAccessControlConfigurationModel),
+        typeof(FlowAccessControlConfigurationPolicyModel),
+        typeof(FlowEndpointsModel),
+        typeof(FlowEndpointsConfigurationModel),
+        typeof(GenerateUpgradedDefinitionParametersModel),
+        typeof(GetCallbackUrlParametersModel),
+        typeof(IPAddressModel),
+        typeof(IPAddressRangeModel),
+        typeof(OpenAuthenticationAccessPoliciesModel),
+        typeof(OpenAuthenticationAccessPolicyModel),
+        typeof(OpenAuthenticationPolicyClaimModel),
+        typeof(RegenerateActionParameterModel),
+        typeof(ResourceReferenceModel),
+        typeof(SkuModel),
+        typeof(WorkflowModel),
+        typeof(WorkflowParameterModel),
+        typeof(WorkflowPropertiesModel),
+        typeof(WorkflowReferenceModel),
+        typeof(WorkflowTriggerCallbackUrlModel),
+        typeof(WorkflowTriggerListCallbackUrlQueriesModel),
+    };
 }

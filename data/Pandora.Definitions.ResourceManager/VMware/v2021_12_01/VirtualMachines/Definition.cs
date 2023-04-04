@@ -17,4 +17,14 @@ internal class Definition : ResourceDefinition
         new ListOperation(),
         new RestrictMovementOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(VirtualMachineRestrictMovementStateConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(VirtualMachineModel),
+        typeof(VirtualMachinePropertiesModel),
+        typeof(VirtualMachineRestrictMovementModel),
+    };
 }

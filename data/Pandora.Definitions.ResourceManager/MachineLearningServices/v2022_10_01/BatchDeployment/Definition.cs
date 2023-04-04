@@ -19,4 +19,27 @@ internal class Definition : ResourceDefinition
         new ListOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(BatchLoggingLevelConstant),
+        typeof(BatchOutputActionConstant),
+        typeof(DeploymentProvisioningStateConstant),
+        typeof(ReferenceTypeConstant),
+        typeof(SkuTierConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AssetReferenceBaseModel),
+        typeof(BatchDeploymentModel),
+        typeof(BatchDeploymentTrackedResourceModel),
+        typeof(BatchRetrySettingsModel),
+        typeof(CodeConfigurationModel),
+        typeof(DataPathAssetReferenceModel),
+        typeof(IdAssetReferenceModel),
+        typeof(OutputPathAssetReferenceModel),
+        typeof(PartialBatchDeploymentModel),
+        typeof(PartialBatchDeploymentPartialMinimalTrackedResourceWithPropertiesModel),
+        typeof(ResourceConfigurationModel),
+        typeof(SkuModel),
+    };
 }

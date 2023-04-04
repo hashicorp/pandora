@@ -15,4 +15,12 @@ internal class Definition : ResourceDefinition
     {
         new VMHostListOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(VMResourcesModel),
+    };
 }

@@ -20,4 +20,26 @@ internal class Definition : ResourceDefinition
         new ListByServiceOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AccessIdNameConstant),
+        typeof(BackendProtocolConstant),
+        typeof(IdentityProviderTypeConstant),
+        typeof(NotificationNameConstant),
+        typeof(TemplateNameConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(BackendAuthorizationHeaderCredentialsModel),
+        typeof(BackendContractModel),
+        typeof(BackendContractPropertiesModel),
+        typeof(BackendCredentialsContractModel),
+        typeof(BackendPropertiesModel),
+        typeof(BackendProxyContractModel),
+        typeof(BackendServiceFabricClusterPropertiesModel),
+        typeof(BackendTlsPropertiesModel),
+        typeof(BackendUpdateParameterPropertiesModel),
+        typeof(BackendUpdateParametersModel),
+        typeof(X509CertificateNameModel),
+    };
 }

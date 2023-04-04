@@ -15,4 +15,13 @@ internal class Definition : ResourceDefinition
     {
         new BackupsGetVolumeRestoreStatusOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(MirrorStateConstant),
+        typeof(RelationshipStatusConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(RestoreStatusModel),
+    };
 }

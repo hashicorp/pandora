@@ -20,4 +20,18 @@ internal class Definition : ResourceDefinition
         new PrivateLinkScopesListByResourceGroupOperation(),
         new PrivateLinkScopesUpdateTagsOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AzureMonitorPrivateLinkScopeModel),
+        typeof(AzureMonitorPrivateLinkScopePropertiesModel),
+        typeof(PrivateEndpointConnectionModel),
+        typeof(PrivateEndpointConnectionPropertiesModel),
+        typeof(PrivateEndpointPropertyModel),
+        typeof(PrivateLinkServiceConnectionStatePropertyModel),
+        typeof(TagsResourceModel),
+    };
 }

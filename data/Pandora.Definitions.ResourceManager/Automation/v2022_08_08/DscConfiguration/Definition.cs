@@ -20,4 +20,21 @@ internal class Definition : ResourceDefinition
         new ListByAutomationAccountOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ContentSourceTypeConstant),
+        typeof(DscConfigurationProvisioningStateConstant),
+        typeof(DscConfigurationStateConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ContentHashModel),
+        typeof(ContentSourceModel),
+        typeof(DscConfigurationModel),
+        typeof(DscConfigurationCreateOrUpdateParametersModel),
+        typeof(DscConfigurationCreateOrUpdatePropertiesModel),
+        typeof(DscConfigurationParameterModel),
+        typeof(DscConfigurationPropertiesModel),
+        typeof(DscConfigurationUpdateParametersModel),
+    };
 }

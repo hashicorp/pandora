@@ -16,4 +16,13 @@ internal class Definition : ResourceDefinition
         new GetOperation(),
         new ListByReplicationFabricsOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(LogicalNetworkModel),
+        typeof(LogicalNetworkPropertiesModel),
+    };
 }

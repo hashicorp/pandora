@@ -19,4 +19,15 @@ internal class Definition : ResourceDefinition
         new QueueListOperation(),
         new QueueUpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ListQueueModel),
+        typeof(ListQueuePropertiesModel),
+        typeof(QueuePropertiesModel),
+        typeof(StorageQueueModel),
+    };
 }

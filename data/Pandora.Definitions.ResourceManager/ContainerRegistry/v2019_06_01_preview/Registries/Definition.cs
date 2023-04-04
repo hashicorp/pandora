@@ -16,4 +16,39 @@ internal class Definition : ResourceDefinition
         new GetBuildSourceUploadUrlOperation(),
         new ScheduleRunOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ArchitectureConstant),
+        typeof(OSConstant),
+        typeof(ProvisioningStateConstant),
+        typeof(RunStatusConstant),
+        typeof(RunTypeConstant),
+        typeof(SecretObjectTypeConstant),
+        typeof(SourceRegistryLoginModeConstant),
+        typeof(VariantConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AgentPropertiesModel),
+        typeof(ArgumentModel),
+        typeof(CredentialsModel),
+        typeof(CustomRegistryCredentialsModel),
+        typeof(DockerBuildRequestModel),
+        typeof(EncodedTaskRunRequestModel),
+        typeof(FileTaskRunRequestModel),
+        typeof(ImageDescriptorModel),
+        typeof(ImageUpdateTriggerModel),
+        typeof(OverrideTaskStepPropertiesModel),
+        typeof(PlatformPropertiesModel),
+        typeof(RunModel),
+        typeof(RunPropertiesModel),
+        typeof(RunRequestModel),
+        typeof(SecretObjectModel),
+        typeof(SetValueModel),
+        typeof(SourceRegistryCredentialsModel),
+        typeof(SourceTriggerDescriptorModel),
+        typeof(SourceUploadDefinitionModel),
+        typeof(TaskRunRequestModel),
+        typeof(TimerTriggerDescriptorModel),
+    };
 }

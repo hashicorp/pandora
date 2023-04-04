@@ -20,4 +20,35 @@ internal class Definition : ResourceDefinition
         new GetExecutionHistoryOperation(),
         new ListOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ExecutionStatusConstant),
+        typeof(ExecutionTypeConstant),
+        typeof(ExportTypeConstant),
+        typeof(ExternalCloudProviderTypeConstant),
+        typeof(FormatTypeConstant),
+        typeof(GranularityTypeConstant),
+        typeof(RecurrenceTypeConstant),
+        typeof(StatusTypeConstant),
+        typeof(TimeframeTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(CommonExportPropertiesModel),
+        typeof(ErrorDetailsModel),
+        typeof(ExportModel),
+        typeof(ExportDatasetModel),
+        typeof(ExportDatasetConfigurationModel),
+        typeof(ExportDefinitionModel),
+        typeof(ExportDeliveryDestinationModel),
+        typeof(ExportDeliveryInfoModel),
+        typeof(ExportExecutionModel),
+        typeof(ExportExecutionListResultModel),
+        typeof(ExportExecutionPropertiesModel),
+        typeof(ExportListResultModel),
+        typeof(ExportPropertiesModel),
+        typeof(ExportRecurrencePeriodModel),
+        typeof(ExportScheduleModel),
+        typeof(ExportTimePeriodModel),
+    };
 }

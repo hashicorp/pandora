@@ -16,4 +16,14 @@ internal class Definition : ResourceDefinition
         new AvailableGroundStationsGetOperation(),
         new AvailableGroundStationsListByCapabilityOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(CapabilityParameterConstant),
+        typeof(ReleaseModeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AvailableGroundStationModel),
+        typeof(AvailableGroundStationPropertiesModel),
+    };
 }

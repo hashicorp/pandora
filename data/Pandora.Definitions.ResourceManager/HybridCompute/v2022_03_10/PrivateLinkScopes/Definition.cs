@@ -22,4 +22,20 @@ internal class Definition : ResourceDefinition
         new PrivateLinkScopesListByResourceGroupOperation(),
         new PrivateLinkScopesUpdateTagsOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(PublicNetworkAccessTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ConnectionDetailModel),
+        typeof(HybridComputePrivateLinkScopeModel),
+        typeof(HybridComputePrivateLinkScopePropertiesModel),
+        typeof(PrivateEndpointConnectionDataModelModel),
+        typeof(PrivateEndpointConnectionPropertiesModel),
+        typeof(PrivateEndpointPropertyModel),
+        typeof(PrivateLinkScopeValidationDetailsModel),
+        typeof(PrivateLinkServiceConnectionStatePropertyModel),
+        typeof(TagsResourceModel),
+    };
 }

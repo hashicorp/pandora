@@ -16,4 +16,24 @@ internal class Definition : ResourceDefinition
         new NetworkSecurityPerimeterConfigurationListOperation(),
         new NetworkSecurityPerimeterConfigurationsCreateOrUpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(NetworkSecurityPerimeterConfigurationProvisioningStateConstant),
+        typeof(NspAccessRuleDirectionConstant),
+        typeof(ResourceAssociationAccessModeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(NetworkSecurityPerimeterModel),
+        typeof(NetworkSecurityPerimeterConfigurationModel),
+        typeof(NetworkSecurityPerimeterConfigurationListModel),
+        typeof(NetworkSecurityPerimeterConfigurationPropertiesModel),
+        typeof(NetworkSecurityPerimeterConfigurationPropertiesProfileModel),
+        typeof(NetworkSecurityPerimeterConfigurationPropertiesResourceAssociationModel),
+        typeof(NspAccessRuleModel),
+        typeof(NspAccessRulePropertiesModel),
+        typeof(NspAccessRulePropertiesSubscriptionsInlinedModel),
+        typeof(ProvisioningIssueModel),
+        typeof(ProvisioningIssuePropertiesModel),
+    };
 }

@@ -23,4 +23,32 @@ internal class Definition : ResourceDefinition
         new RotateVcenterPasswordOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AvailabilityStrategyConstant),
+        typeof(ClusterProvisioningStateConstant),
+        typeof(EncryptionKeyStatusConstant),
+        typeof(EncryptionStateConstant),
+        typeof(EncryptionVersionTypeConstant),
+        typeof(InternetEnumConstant),
+        typeof(NsxPublicIPQuotaRaisedEnumConstant),
+        typeof(PrivateCloudProvisioningStateConstant),
+        typeof(SslEnumConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AdminCredentialsModel),
+        typeof(AvailabilityPropertiesModel),
+        typeof(CircuitModel),
+        typeof(CommonClusterPropertiesModel),
+        typeof(EncryptionModel),
+        typeof(EncryptionKeyVaultPropertiesModel),
+        typeof(EndpointsModel),
+        typeof(IdentitySourceModel),
+        typeof(PrivateCloudModel),
+        typeof(PrivateCloudPropertiesModel),
+        typeof(PrivateCloudUpdateModel),
+        typeof(PrivateCloudUpdatePropertiesModel),
+        typeof(SkuModel),
+    };
 }

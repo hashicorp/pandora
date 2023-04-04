@@ -20,4 +20,26 @@ internal class Definition : ResourceDefinition
         new ListByServiceOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AccessIdNameConstant),
+        typeof(AppTypeConstant),
+        typeof(ConfirmationConstant),
+        typeof(GroupTypeConstant),
+        typeof(IdentityProviderTypeConstant),
+        typeof(NotificationNameConstant),
+        typeof(TemplateNameConstant),
+        typeof(UserStateConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(GroupContractPropertiesModel),
+        typeof(UserContractModel),
+        typeof(UserContractPropertiesModel),
+        typeof(UserCreateParameterPropertiesModel),
+        typeof(UserCreateParametersModel),
+        typeof(UserIdentityContractModel),
+        typeof(UserUpdateParametersModel),
+        typeof(UserUpdateParametersPropertiesModel),
+    };
 }

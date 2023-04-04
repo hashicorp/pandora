@@ -16,4 +16,28 @@ internal class Definition : ResourceDefinition
         new GetAllMachinesInSiteOperation(),
         new GetMachineOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(HighlyAvailableConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ApplicationModel),
+        typeof(AppsAndRolesModel),
+        typeof(BizTalkServerModel),
+        typeof(ExchangeServerModel),
+        typeof(FeatureModel),
+        typeof(GuestOSDetailsModel),
+        typeof(HealthErrorDetailsModel),
+        typeof(HyperVDiskModel),
+        typeof(HyperVMachineModel),
+        typeof(HyperVMachinePropertiesModel),
+        typeof(HyperVNetworkAdapterModel),
+        typeof(OperatingSystemModel),
+        typeof(OtherDatabaseModel),
+        typeof(SQLServerModel),
+        typeof(SharePointServerModel),
+        typeof(SystemCenterModel),
+        typeof(WebApplicationModel),
+    };
 }

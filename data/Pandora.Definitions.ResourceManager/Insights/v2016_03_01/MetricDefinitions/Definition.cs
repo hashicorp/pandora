@@ -15,4 +15,16 @@ internal class Definition : ResourceDefinition
     {
         new ListOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AggregationTypeConstant),
+        typeof(UnitConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(LocalizableStringModel),
+        typeof(MetricAvailabilityModel),
+        typeof(MetricDefinitionModel),
+        typeof(MetricDefinitionCollectionModel),
+    };
 }

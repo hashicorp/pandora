@@ -20,4 +20,36 @@ internal class Definition : ResourceDefinition
         new ListBySubscriptionOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AgentConfigurationModeConstant),
+        typeof(AssessmentModeTypesConstant),
+        typeof(InstanceViewTypesConstant),
+        typeof(PatchModeTypesConstant),
+        typeof(StatusLevelTypesConstant),
+        typeof(StatusTypesConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AgentConfigurationModel),
+        typeof(CloudMetadataModel),
+        typeof(ConfigurationExtensionModel),
+        typeof(ErrorAdditionalInfoModel),
+        typeof(ErrorDetailModel),
+        typeof(LocationDataModel),
+        typeof(MachineModel),
+        typeof(MachineExtensionModel),
+        typeof(MachineExtensionInstanceViewModel),
+        typeof(MachineExtensionInstanceViewStatusModel),
+        typeof(MachineExtensionPropertiesModel),
+        typeof(MachinePropertiesModel),
+        typeof(MachineUpdateModel),
+        typeof(MachineUpdatePropertiesModel),
+        typeof(OSProfileModel),
+        typeof(OSProfileLinuxConfigurationModel),
+        typeof(OSProfileWindowsConfigurationModel),
+        typeof(PatchSettingsModel),
+        typeof(ServiceStatusModel),
+        typeof(ServiceStatusesModel),
+    };
 }

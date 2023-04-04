@@ -32,4 +32,44 @@ internal class Definition : ResourceDefinition
         new UnClaimOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(EnableStatusConstant),
+        typeof(HostCachingOptionsConstant),
+        typeof(StorageTypeConstant),
+        typeof(TransportProtocolConstant),
+        typeof(VirtualMachineCreationSourceConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ApplicableScheduleModel),
+        typeof(ApplicableSchedulePropertiesModel),
+        typeof(ApplyArtifactsRequestModel),
+        typeof(ArtifactDeploymentStatusPropertiesModel),
+        typeof(ArtifactInstallPropertiesModel),
+        typeof(ArtifactParameterPropertiesModel),
+        typeof(AttachNewDataDiskOptionsModel),
+        typeof(ComputeDataDiskModel),
+        typeof(ComputeVMInstanceViewStatusModel),
+        typeof(ComputeVMPropertiesModel),
+        typeof(DataDiskPropertiesModel),
+        typeof(DayDetailsModel),
+        typeof(DetachDataDiskPropertiesModel),
+        typeof(GalleryImageReferenceModel),
+        typeof(HourDetailsModel),
+        typeof(InboundNatRuleModel),
+        typeof(LabVirtualMachineModel),
+        typeof(LabVirtualMachinePropertiesModel),
+        typeof(NetworkInterfacePropertiesModel),
+        typeof(NotificationSettingsModel),
+        typeof(RdpConnectionModel),
+        typeof(ResizeLabVirtualMachinePropertiesModel),
+        typeof(ScheduleModel),
+        typeof(ScheduleCreationParameterModel),
+        typeof(ScheduleCreationParameterPropertiesModel),
+        typeof(SchedulePropertiesModel),
+        typeof(SharedPublicIPAddressConfigurationModel),
+        typeof(UpdateResourceModel),
+        typeof(WeekDetailsModel),
+    };
 }

@@ -20,4 +20,39 @@ internal class Definition : ResourceDefinition
         new ListByResourceGroupOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(CreateModeConstant),
+        typeof(GeoRedundantBackupConstant),
+        typeof(MinimalTlsVersionEnumConstant),
+        typeof(PrivateEndpointProvisioningStateConstant),
+        typeof(PrivateLinkServiceConnectionStateActionsRequireConstant),
+        typeof(PrivateLinkServiceConnectionStateStatusConstant),
+        typeof(PublicNetworkAccessEnumConstant),
+        typeof(ServerStateConstant),
+        typeof(ServerVersionConstant),
+        typeof(SkuTierConstant),
+        typeof(SslEnforcementEnumConstant),
+        typeof(StorageAutogrowConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(PrivateEndpointPropertyModel),
+        typeof(ServerModel),
+        typeof(ServerForCreateModel),
+        typeof(ServerListResultModel),
+        typeof(ServerPrivateEndpointConnectionModel),
+        typeof(ServerPrivateEndpointConnectionPropertiesModel),
+        typeof(ServerPrivateLinkServiceConnectionStatePropertyModel),
+        typeof(ServerPropertiesModel),
+        typeof(ServerPropertiesForCreateModel),
+        typeof(ServerPropertiesForDefaultCreateModel),
+        typeof(ServerPropertiesForGeoRestoreModel),
+        typeof(ServerPropertiesForReplicaModel),
+        typeof(ServerPropertiesForRestoreModel),
+        typeof(ServerUpdateParametersModel),
+        typeof(ServerUpdateParametersPropertiesModel),
+        typeof(SkuModel),
+        typeof(StorageProfileModel),
+    };
 }

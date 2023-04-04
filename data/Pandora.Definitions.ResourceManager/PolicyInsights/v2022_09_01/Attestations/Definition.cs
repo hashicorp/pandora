@@ -26,4 +26,14 @@ internal class Definition : ResourceDefinition
         new AttestationsListForResourceGroupOperation(),
         new AttestationsListForSubscriptionOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ComplianceStateConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AttestationModel),
+        typeof(AttestationEvidenceModel),
+        typeof(AttestationPropertiesModel),
+    };
 }

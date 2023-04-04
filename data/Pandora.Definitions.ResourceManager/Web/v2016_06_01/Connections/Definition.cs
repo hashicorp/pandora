@@ -21,4 +21,24 @@ internal class Definition : ResourceDefinition
         new ListConsentLinksOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(LinkStateConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ApiConnectionDefinitionModel),
+        typeof(ApiConnectionDefinitionCollectionModel),
+        typeof(ApiConnectionDefinitionPropertiesModel),
+        typeof(ApiConnectionTestLinkModel),
+        typeof(ApiReferenceModel),
+        typeof(ConfirmConsentCodeDefinitionModel),
+        typeof(ConnectionErrorModel),
+        typeof(ConnectionErrorPropertiesModel),
+        typeof(ConnectionStatusDefinitionModel),
+        typeof(ConsentLinkCollectionModel),
+        typeof(ConsentLinkDefinitionModel),
+        typeof(ConsentLinkParameterDefinitionModel),
+        typeof(ListConsentLinksDefinitionModel),
+    };
 }

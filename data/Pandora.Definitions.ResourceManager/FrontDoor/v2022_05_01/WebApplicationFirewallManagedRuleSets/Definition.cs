@@ -15,4 +15,16 @@ internal class Definition : ResourceDefinition
     {
         new ManagedRuleSetsListOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ActionTypeConstant),
+        typeof(ManagedRuleEnabledStateConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ManagedRuleDefinitionModel),
+        typeof(ManagedRuleGroupDefinitionModel),
+        typeof(ManagedRuleSetDefinitionModel),
+        typeof(ManagedRuleSetDefinitionPropertiesModel),
+    };
 }

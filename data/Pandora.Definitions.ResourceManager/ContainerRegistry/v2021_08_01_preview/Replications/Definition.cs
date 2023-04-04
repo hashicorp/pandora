@@ -19,4 +19,17 @@ internal class Definition : ResourceDefinition
         new ListOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ProvisioningStateConstant),
+        typeof(ZoneRedundancyConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ReplicationModel),
+        typeof(ReplicationPropertiesModel),
+        typeof(ReplicationUpdateParametersModel),
+        typeof(ReplicationUpdateParametersPropertiesModel),
+        typeof(StatusModel),
+    };
 }

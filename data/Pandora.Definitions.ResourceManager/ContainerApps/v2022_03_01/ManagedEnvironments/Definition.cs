@@ -26,4 +26,23 @@ internal class Definition : ResourceDefinition
         new NamespacesCheckNameAvailabilityOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(CertificateProvisioningStateConstant),
+        typeof(CheckNameAvailabilityReasonConstant),
+        typeof(EnvironmentProvisioningStateConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AppLogsConfigurationModel),
+        typeof(CertificateModel),
+        typeof(CertificatePatchModel),
+        typeof(CertificatePropertiesModel),
+        typeof(CheckNameAvailabilityRequestModel),
+        typeof(CheckNameAvailabilityResponseModel),
+        typeof(LogAnalyticsConfigurationModel),
+        typeof(ManagedEnvironmentModel),
+        typeof(ManagedEnvironmentPropertiesModel),
+        typeof(VnetConfigurationModel),
+    };
 }

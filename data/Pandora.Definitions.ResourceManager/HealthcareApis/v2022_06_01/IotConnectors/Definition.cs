@@ -23,4 +23,19 @@ internal class Definition : ResourceDefinition
         new ListByWorkspaceOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(IotIdentityResolutionTypeConstant),
+        typeof(ProvisioningStateConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(IotConnectorModel),
+        typeof(IotConnectorPatchResourceModel),
+        typeof(IotConnectorPropertiesModel),
+        typeof(IotEventHubIngestionEndpointConfigurationModel),
+        typeof(IotFhirDestinationModel),
+        typeof(IotFhirDestinationPropertiesModel),
+        typeof(IotMappingPropertiesModel),
+    };
 }

@@ -15,4 +15,15 @@ internal class Definition : ResourceDefinition
     {
         new GetOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(DataSourceTypeConstant),
+        typeof(FabricNameConstant),
+        typeof(ProtectionStatusConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(BackupStatusRequestModel),
+        typeof(BackupStatusResponseModel),
+    };
 }

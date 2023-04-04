@@ -20,4 +20,22 @@ internal class Definition : ResourceDefinition
         new ListByResourceGroupOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(CachingTypesConstant),
+        typeof(HyperVGenerationTypesConstant),
+        typeof(OperatingSystemStateTypesConstant),
+        typeof(OperatingSystemTypesConstant),
+        typeof(StorageAccountTypesConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ImageModel),
+        typeof(ImageDataDiskModel),
+        typeof(ImageOSDiskModel),
+        typeof(ImagePropertiesModel),
+        typeof(ImageStorageProfileModel),
+        typeof(ImageUpdateModel),
+        typeof(SubResourceModel),
+    };
 }

@@ -15,4 +15,17 @@ internal class Definition : ResourceDefinition
     {
         new ListOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(BoundConstant),
+        typeof(ChargeTypeConstant),
+        typeof(GrainConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ForecastModel),
+        typeof(ForecastPropertiesModel),
+        typeof(ForecastPropertiesConfidenceLevelsInlinedModel),
+        typeof(ForecastsListResultModel),
+    };
 }

@@ -18,4 +18,23 @@ internal class Definition : ResourceDefinition
         new GetOperation(),
         new ValidateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(BackupManagementTypeConstant),
+        typeof(DataSourceTypeConstant),
+        typeof(ProtectionIntentItemTypeConstant),
+        typeof(ProtectionStatusConstant),
+        typeof(ValidationStatusConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AzureRecoveryServiceVaultProtectionIntentModel),
+        typeof(AzureResourceProtectionIntentModel),
+        typeof(AzureWorkloadAutoProtectionIntentModel),
+        typeof(AzureWorkloadContainerAutoProtectionIntentModel),
+        typeof(PreValidateEnableBackupRequestModel),
+        typeof(PreValidateEnableBackupResponseModel),
+        typeof(ProtectionIntentModel),
+        typeof(ProtectionIntentResourceModel),
+    };
 }

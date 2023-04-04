@@ -23,4 +23,31 @@ internal class Definition : ResourceDefinition
         new ListByResourceGroupOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(FactoryIdentityTypeConstant),
+        typeof(GlobalParameterTypeConstant),
+        typeof(PublicNetworkAccessConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AccessPolicyResponseModel),
+        typeof(CMKIdentityDefinitionModel),
+        typeof(EncryptionConfigurationModel),
+        typeof(FactoryModel),
+        typeof(FactoryGitHubConfigurationModel),
+        typeof(FactoryIdentityModel),
+        typeof(FactoryPropertiesModel),
+        typeof(FactoryRepoConfigurationModel),
+        typeof(FactoryRepoUpdateModel),
+        typeof(FactoryUpdateParametersModel),
+        typeof(FactoryUpdatePropertiesModel),
+        typeof(FactoryVSTSConfigurationModel),
+        typeof(GitHubAccessTokenRequestModel),
+        typeof(GitHubAccessTokenResponseModel),
+        typeof(GitHubClientSecretModel),
+        typeof(GlobalParameterSpecificationModel),
+        typeof(PurviewConfigurationModel),
+        typeof(UserAccessPolicyModel),
+    };
 }

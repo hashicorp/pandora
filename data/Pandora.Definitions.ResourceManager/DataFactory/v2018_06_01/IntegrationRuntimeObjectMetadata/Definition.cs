@@ -16,4 +16,15 @@ internal class Definition : ResourceDefinition
         new GetOperation(),
         new RefreshOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(SsisObjectMetadataTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(GetSsisObjectMetadataRequestModel),
+        typeof(SsisObjectMetadataModel),
+        typeof(SsisObjectMetadataListResponseModel),
+        typeof(SsisObjectMetadataStatusResponseModel),
+    };
 }

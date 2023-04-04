@@ -20,4 +20,21 @@ internal class Definition : ResourceDefinition
         new ListByTypeOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(RecordTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ARecordModel),
+        typeof(AaaaRecordModel),
+        typeof(CnameRecordModel),
+        typeof(MxRecordModel),
+        typeof(PtrRecordModel),
+        typeof(RecordSetModel),
+        typeof(RecordSetPropertiesModel),
+        typeof(SoaRecordModel),
+        typeof(SrvRecordModel),
+        typeof(TxtRecordModel),
+    };
 }

@@ -22,4 +22,18 @@ internal class Definition : ResourceDefinition
         new StartOperation(),
         new StopOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ProvisioningStateConstant),
+        typeof(VirtualMachineStateConstant),
+        typeof(VirtualMachineTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ResetPasswordBodyModel),
+        typeof(SaveImageBodyModel),
+        typeof(VirtualMachineModel),
+        typeof(VirtualMachineConnectionProfileModel),
+        typeof(VirtualMachinePropertiesModel),
+    };
 }

@@ -20,4 +20,18 @@ internal class Definition : ResourceDefinition
         new ListBySubscriptionOperation(),
         new UpdateTagsOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(DirectionConstant),
+        typeof(PolarizationConstant),
+        typeof(ProvisioningStateConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AuthorizedGroundstationModel),
+        typeof(SpacecraftModel),
+        typeof(SpacecraftLinkModel),
+        typeof(SpacecraftsPropertiesModel),
+        typeof(TagsObjectModel),
+    };
 }

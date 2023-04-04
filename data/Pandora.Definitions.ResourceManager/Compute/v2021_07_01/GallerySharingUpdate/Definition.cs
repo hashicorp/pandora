@@ -15,4 +15,14 @@ internal class Definition : ResourceDefinition
     {
         new GallerySharingProfileUpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(SharingProfileGroupTypesConstant),
+        typeof(SharingUpdateOperationTypesConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(SharingProfileGroupModel),
+        typeof(SharingUpdateModel),
+    };
 }

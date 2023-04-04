@@ -22,4 +22,27 @@ internal class Definition : ResourceDefinition
         new ListKeysOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(NameConstant),
+        typeof(ProvisioningStateConstant),
+        typeof(PublicNetworkAccessConstant),
+        typeof(StatusConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AccessKeysModel),
+        typeof(AccountModel),
+        typeof(AccountEndpointsModel),
+        typeof(AccountPropertiesModel),
+        typeof(AccountSkuModel),
+        typeof(AccountUpdateParametersModel),
+        typeof(CloudConnectorsModel),
+        typeof(CollectionAdminUpdateModel),
+        typeof(ManagedResourcesModel),
+        typeof(PrivateEndpointModel),
+        typeof(PrivateEndpointConnectionModel),
+        typeof(PrivateEndpointConnectionPropertiesModel),
+        typeof(PrivateLinkServiceConnectionStateModel),
+    };
 }

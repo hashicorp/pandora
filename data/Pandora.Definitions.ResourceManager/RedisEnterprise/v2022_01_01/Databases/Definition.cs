@@ -24,4 +24,31 @@ internal class Definition : ResourceDefinition
         new RegenerateKeyOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AccessKeyTypeConstant),
+        typeof(AofFrequencyConstant),
+        typeof(ClusteringPolicyConstant),
+        typeof(EvictionPolicyConstant),
+        typeof(LinkStateConstant),
+        typeof(ProtocolConstant),
+        typeof(ProvisioningStateConstant),
+        typeof(RdbFrequencyConstant),
+        typeof(ResourceStateConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AccessKeysModel),
+        typeof(DatabaseModel),
+        typeof(DatabasePropertiesModel),
+        typeof(DatabasePropertiesGeoReplicationModel),
+        typeof(DatabaseUpdateModel),
+        typeof(ExportClusterParametersModel),
+        typeof(ForceUnlinkParametersModel),
+        typeof(ImportClusterParametersModel),
+        typeof(LinkedDatabaseModel),
+        typeof(ModuleModel),
+        typeof(PersistenceModel),
+        typeof(RegenerateKeyParametersModel),
+    };
 }

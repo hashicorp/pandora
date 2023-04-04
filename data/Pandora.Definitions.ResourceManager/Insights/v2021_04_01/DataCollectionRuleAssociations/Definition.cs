@@ -19,4 +19,13 @@ internal class Definition : ResourceDefinition
         new ListByResourceOperation(),
         new ListByRuleOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(KnownDataCollectionRuleAssociationProvisioningStateConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(DataCollectionRuleAssociationModel),
+        typeof(DataCollectionRuleAssociationProxyOnlyResourceModel),
+    };
 }

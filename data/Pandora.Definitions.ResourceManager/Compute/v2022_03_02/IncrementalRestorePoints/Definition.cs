@@ -18,4 +18,26 @@ internal class Definition : ResourceDefinition
         new DiskRestorePointListByRestorePointOperation(),
         new DiskRestorePointRevokeAccessOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AccessLevelConstant),
+        typeof(ArchitectureConstant),
+        typeof(DiskSecurityTypesConstant),
+        typeof(EncryptionTypeConstant),
+        typeof(HyperVGenerationConstant),
+        typeof(NetworkAccessPolicyConstant),
+        typeof(OperatingSystemTypesConstant),
+        typeof(PublicNetworkAccessConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AccessUriModel),
+        typeof(DiskRestorePointModel),
+        typeof(DiskRestorePointPropertiesModel),
+        typeof(DiskSecurityProfileModel),
+        typeof(EncryptionModel),
+        typeof(GrantAccessDataModel),
+        typeof(PurchasePlanModel),
+        typeof(SupportedCapabilitiesModel),
+    };
 }

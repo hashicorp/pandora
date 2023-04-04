@@ -18,4 +18,19 @@ internal class Definition : ResourceDefinition
         new GetOperation(),
         new ListOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(DeleteStatusConstant),
+        typeof(FileFormatConstant),
+        typeof(FileImportContentTypeConstant),
+        typeof(FileImportStateConstant),
+        typeof(IngestionModeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(FileImportModel),
+        typeof(FileImportPropertiesModel),
+        typeof(FileMetadataModel),
+        typeof(ValidationErrorModel),
+    };
 }

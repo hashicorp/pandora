@@ -25,4 +25,36 @@ internal class Definition : ResourceDefinition
         new UpdateOperation(),
         new UpgradeFirmwareOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(DomainJoinedTypeConstant),
+        typeof(FirmwareStatusTypeConstant),
+        typeof(HealthStateTypeConstant),
+        typeof(NfsAccessRuleAccessConstant),
+        typeof(NfsAccessRuleScopeConstant),
+        typeof(ProvisioningStateTypeConstant),
+        typeof(UsernameDownloadedTypeConstant),
+        typeof(UsernameSourceConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(CacheModel),
+        typeof(CacheActiveDirectorySettingsModel),
+        typeof(CacheActiveDirectorySettingsCredentialsModel),
+        typeof(CacheDirectorySettingsModel),
+        typeof(CacheEncryptionSettingsModel),
+        typeof(CacheHealthModel),
+        typeof(CacheNetworkSettingsModel),
+        typeof(CachePropertiesModel),
+        typeof(CacheSecuritySettingsModel),
+        typeof(CacheSkuModel),
+        typeof(CacheUpgradeStatusModel),
+        typeof(CacheUsernameDownloadSettingsModel),
+        typeof(CacheUsernameDownloadSettingsCredentialsModel),
+        typeof(ConditionModel),
+        typeof(KeyVaultKeyReferenceModel),
+        typeof(KeyVaultKeyReferenceSourceVaultModel),
+        typeof(NfsAccessPolicyModel),
+        typeof(NfsAccessRuleModel),
+    };
 }

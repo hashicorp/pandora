@@ -19,4 +19,19 @@ internal class Definition : ResourceDefinition
         new ListOperation(),
         new SpacecraftsListAvailableContactsOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ContactsStatusConstant),
+        typeof(ProvisioningStateConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AvailableContactsModel),
+        typeof(ContactModel),
+        typeof(ContactInstancePropertiesModel),
+        typeof(ContactParametersModel),
+        typeof(ContactsPropertiesModel),
+        typeof(ContactsPropertiesAntennaConfigurationModel),
+        typeof(ResourceReferenceModel),
+    };
 }

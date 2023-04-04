@@ -16,4 +16,14 @@ internal class Definition : ResourceDefinition
         new PrivateLinkResourcesGetOperation(),
         new PrivateLinkResourcesListOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(PrivateLinkResourceModel),
+        typeof(PrivateLinkResourcePropertiesModel),
+        typeof(PrivateLinkResourcesListResultModel),
+    };
 }

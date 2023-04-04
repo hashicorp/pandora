@@ -19,4 +19,15 @@ internal class Definition : ResourceDefinition
         new ListByWorkspaceOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ProvisioningStateConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(DicomServiceModel),
+        typeof(DicomServiceAuthenticationConfigurationModel),
+        typeof(DicomServicePropertiesModel),
+        typeof(ResourceTagsModel),
+    };
 }

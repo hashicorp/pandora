@@ -22,4 +22,18 @@ internal class Definition : ResourceDefinition
         new ConnectionGatewaysListByResourceGroupOperation(),
         new ConnectionGatewaysUpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ConnectionGatewayDefinitionModel),
+        typeof(ConnectionGatewayDefinitionCollectionModel),
+        typeof(ConnectionGatewayDefinitionPropertiesModel),
+        typeof(ConnectionGatewayInstallationDefinitionModel),
+        typeof(ConnectionGatewayInstallationDefinitionCollectionModel),
+        typeof(ConnectionGatewayInstallationDefinitionPropertiesModel),
+        typeof(ConnectionGatewayReferenceModel),
+    };
 }

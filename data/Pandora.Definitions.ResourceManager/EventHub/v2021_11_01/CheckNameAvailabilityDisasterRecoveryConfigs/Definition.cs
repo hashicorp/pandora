@@ -15,4 +15,13 @@ internal class Definition : ResourceDefinition
     {
         new DisasterRecoveryConfigsCheckNameAvailabilityOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(UnavailableReasonConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(CheckNameAvailabilityParameterModel),
+        typeof(CheckNameAvailabilityResultModel),
+    };
 }

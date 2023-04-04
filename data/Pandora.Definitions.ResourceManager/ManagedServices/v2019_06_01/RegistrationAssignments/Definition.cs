@@ -18,4 +18,17 @@ internal class Definition : ResourceDefinition
         new GetOperation(),
         new ListOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ProvisioningStateConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AuthorizationModel),
+        typeof(PlanModel),
+        typeof(RegistrationAssignmentModel),
+        typeof(RegistrationAssignmentPropertiesModel),
+        typeof(RegistrationAssignmentPropertiesRegistrationDefinitionModel),
+        typeof(RegistrationAssignmentPropertiesRegistrationDefinitionPropertiesModel),
+    };
 }

@@ -19,4 +19,19 @@ internal class Definition : ResourceDefinition
         new ListByVolumeGroupOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(OperationalStatusConstant),
+        typeof(ProvisioningStatesConstant),
+        typeof(VolumeCreateOptionConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(IscsiTargetInfoModel),
+        typeof(SourceCreationDataModel),
+        typeof(VolumeModel),
+        typeof(VolumePropertiesModel),
+        typeof(VolumeUpdateModel),
+        typeof(VolumeUpdatePropertiesModel),
+    };
 }

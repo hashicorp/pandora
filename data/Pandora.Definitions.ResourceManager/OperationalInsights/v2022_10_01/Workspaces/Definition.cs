@@ -20,4 +20,23 @@ internal class Definition : ResourceDefinition
         new ListByResourceGroupOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(CapacityReservationLevelConstant),
+        typeof(DataIngestionStatusConstant),
+        typeof(PublicNetworkAccessTypeConstant),
+        typeof(WorkspaceEntityStatusConstant),
+        typeof(WorkspaceSkuNameEnumConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(PrivateLinkScopedResourceModel),
+        typeof(WorkspaceModel),
+        typeof(WorkspaceCappingModel),
+        typeof(WorkspaceFeaturesModel),
+        typeof(WorkspaceListResultModel),
+        typeof(WorkspacePatchModel),
+        typeof(WorkspacePropertiesModel),
+        typeof(WorkspaceSkuModel),
+    };
 }

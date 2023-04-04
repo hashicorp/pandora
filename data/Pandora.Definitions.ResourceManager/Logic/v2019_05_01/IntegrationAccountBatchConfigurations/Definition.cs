@@ -18,4 +18,20 @@ internal class Definition : ResourceDefinition
         new GetOperation(),
         new ListOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(DayOfWeekConstant),
+        typeof(DaysOfWeekConstant),
+        typeof(RecurrenceFrequencyConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(BatchConfigurationModel),
+        typeof(BatchConfigurationCollectionModel),
+        typeof(BatchConfigurationPropertiesModel),
+        typeof(BatchReleaseCriteriaModel),
+        typeof(RecurrenceScheduleModel),
+        typeof(RecurrenceScheduleOccurrenceModel),
+        typeof(WorkflowTriggerRecurrenceModel),
+    };
 }

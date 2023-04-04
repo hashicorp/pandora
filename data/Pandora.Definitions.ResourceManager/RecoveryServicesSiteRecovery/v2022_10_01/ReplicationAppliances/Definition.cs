@@ -15,4 +15,28 @@ internal class Definition : ResourceDefinition
     {
         new ListOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(HealthErrorCustomerResolvabilityConstant),
+        typeof(ProtectionHealthConstant),
+        typeof(RcmComponentStatusConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ApplianceSpecificDetailsModel),
+        typeof(DraDetailsModel),
+        typeof(HealthErrorModel),
+        typeof(InMageRcmApplianceDetailsModel),
+        typeof(InMageRcmApplianceSpecificDetailsModel),
+        typeof(InMageRcmFabricSwitchProviderBlockingErrorDetailsModel),
+        typeof(InnerHealthErrorModel),
+        typeof(MarsAgentDetailsModel),
+        typeof(ProcessServerDetailsModel),
+        typeof(PushInstallerDetailsModel),
+        typeof(RcmProxyDetailsModel),
+        typeof(ReplicationAgentDetailsModel),
+        typeof(ReplicationApplianceModel),
+        typeof(ReplicationAppliancePropertiesModel),
+        typeof(ReprotectAgentDetailsModel),
+    };
 }

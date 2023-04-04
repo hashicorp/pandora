@@ -33,4 +33,39 @@ internal class Definition : ResourceDefinition
         new TracksUpdateOperation(),
         new TracksUpdateTrackDataOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AssetContainerPermissionConstant),
+        typeof(AssetStorageEncryptionFormatConstant),
+        typeof(FilterTrackPropertyCompareOperationConstant),
+        typeof(FilterTrackPropertyTypeConstant),
+        typeof(ProvisioningStateConstant),
+        typeof(VisibilityConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AssetModel),
+        typeof(AssetContainerSasModel),
+        typeof(AssetFileEncryptionMetadataModel),
+        typeof(AssetFilterModel),
+        typeof(AssetPropertiesModel),
+        typeof(AssetStreamingLocatorModel),
+        typeof(AssetTrackModel),
+        typeof(AssetTrackCollectionModel),
+        typeof(AssetTrackPropertiesModel),
+        typeof(AudioTrackModel),
+        typeof(DashSettingsModel),
+        typeof(FilterTrackPropertyConditionModel),
+        typeof(FilterTrackSelectionModel),
+        typeof(FirstQualityModel),
+        typeof(HlsSettingsModel),
+        typeof(ListContainerSasInputModel),
+        typeof(ListStreamingLocatorsResponseModel),
+        typeof(MediaFilterPropertiesModel),
+        typeof(PresentationTimeRangeModel),
+        typeof(StorageEncryptedAssetDecryptionDataModel),
+        typeof(TextTrackModel),
+        typeof(TrackBaseModel),
+        typeof(VideoTrackModel),
+    };
 }

@@ -18,4 +18,18 @@ internal class Definition : ResourceDefinition
         new GetOperation(),
         new ListOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AttackTacticConstant),
+        typeof(IncidentSeverityConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(BookmarkModel),
+        typeof(BookmarkEntityMappingsModel),
+        typeof(BookmarkPropertiesModel),
+        typeof(EntityFieldMappingModel),
+        typeof(IncidentInfoModel),
+        typeof(UserInfoModel),
+    };
 }

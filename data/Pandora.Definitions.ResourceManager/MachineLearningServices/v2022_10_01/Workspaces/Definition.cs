@@ -25,4 +25,46 @@ internal class Definition : ResourceDefinition
         new UpdateOperation(),
         new WorkspaceFeaturesListOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(DiagnoseResultLevelConstant),
+        typeof(EncryptionStatusConstant),
+        typeof(PrivateEndpointConnectionProvisioningStateConstant),
+        typeof(PrivateEndpointServiceConnectionStatusConstant),
+        typeof(ProvisioningStateConstant),
+        typeof(PublicNetworkAccessConstant),
+        typeof(SkuTierConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AmlUserFeatureModel),
+        typeof(CosmosDbSettingsModel),
+        typeof(DiagnoseRequestPropertiesModel),
+        typeof(DiagnoseResponseResultModel),
+        typeof(DiagnoseResponseResultValueModel),
+        typeof(DiagnoseResultModel),
+        typeof(DiagnoseWorkspaceParametersModel),
+        typeof(EncryptionKeyVaultPropertiesModel),
+        typeof(EncryptionPropertyModel),
+        typeof(IdentityForCmkModel),
+        typeof(ListNotebookKeysResultModel),
+        typeof(ListWorkspaceKeysResultModel),
+        typeof(NotebookAccessTokenResultModel),
+        typeof(NotebookPreparationErrorModel),
+        typeof(NotebookResourceInfoModel),
+        typeof(PasswordModel),
+        typeof(PrivateEndpointModel),
+        typeof(PrivateEndpointConnectionModel),
+        typeof(PrivateEndpointConnectionPropertiesModel),
+        typeof(PrivateLinkServiceConnectionStateModel),
+        typeof(RegistryListCredentialsResultModel),
+        typeof(ServiceManagedResourcesSettingsModel),
+        typeof(SharedPrivateLinkResourceModel),
+        typeof(SharedPrivateLinkResourcePropertyModel),
+        typeof(SkuModel),
+        typeof(WorkspaceModel),
+        typeof(WorkspacePropertiesModel),
+        typeof(WorkspacePropertiesUpdateParametersModel),
+        typeof(WorkspaceUpdateParametersModel),
+    };
 }

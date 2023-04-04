@@ -18,4 +18,16 @@ internal class Definition : ResourceDefinition
         new ListByAutomationAccountOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(CountTypeConstant),
+        typeof(GroupTypeEnumConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(HybridRunbookWorkerModel),
+        typeof(HybridRunbookWorkerGroupModel),
+        typeof(HybridRunbookWorkerGroupUpdateParametersModel),
+        typeof(RunAsCredentialAssociationPropertyModel),
+    };
 }

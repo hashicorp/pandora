@@ -20,4 +20,19 @@ internal class Definition : ResourceDefinition
         new PatchSiteOperation(),
         new PutSiteOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ProvisioningStateConstant),
+        typeof(PublicNetworkAccessConstant),
+        typeof(StatusConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(MasterSiteModel),
+        typeof(MasterSitePropertiesModel),
+        typeof(PrivateEndpointConnectionModel),
+        typeof(PrivateEndpointConnectionPropertiesModel),
+        typeof(PrivateLinkServiceConnectionStateModel),
+        typeof(ResourceIdModel),
+    };
 }
