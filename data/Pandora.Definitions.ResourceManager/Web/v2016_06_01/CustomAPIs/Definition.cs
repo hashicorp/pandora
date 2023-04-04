@@ -23,4 +23,25 @@ internal class Definition : ResourceDefinition
         new CustomApisMoveOperation(),
         new CustomApisUpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ApiTypeConstant),
+        typeof(ConnectionParameterTypeConstant),
+        typeof(WsdlImportMethodConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ApiOAuthSettingsModel),
+        typeof(ApiOAuthSettingsParameterModel),
+        typeof(ApiResourceBackendServiceModel),
+        typeof(ApiResourceDefinitionsModel),
+        typeof(ConnectionParameterModel),
+        typeof(CustomApiDefinitionModel),
+        typeof(CustomApiDefinitionCollectionModel),
+        typeof(CustomApiPropertiesDefinitionModel),
+        typeof(CustomApiReferenceModel),
+        typeof(WsdlDefinitionModel),
+        typeof(WsdlServiceModel),
+        typeof(WsdlServiceCollectionModel),
+    };
 }

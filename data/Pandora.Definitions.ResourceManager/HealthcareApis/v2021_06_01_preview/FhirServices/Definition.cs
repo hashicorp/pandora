@@ -19,4 +19,22 @@ internal class Definition : ResourceDefinition
         new ListByWorkspaceOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(FhirServiceKindConstant),
+        typeof(ManagedServiceIdentityTypeConstant),
+        typeof(ProvisioningStateConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(FhirServiceModel),
+        typeof(FhirServiceAccessPolicyEntryModel),
+        typeof(FhirServiceAcrConfigurationModel),
+        typeof(FhirServiceAuthenticationConfigurationModel),
+        typeof(FhirServiceCorsConfigurationModel),
+        typeof(FhirServiceExportConfigurationModel),
+        typeof(FhirServicePatchResourceModel),
+        typeof(FhirServicePropertiesModel),
+        typeof(ServiceManagedIdentityIdentityModel),
+    };
 }

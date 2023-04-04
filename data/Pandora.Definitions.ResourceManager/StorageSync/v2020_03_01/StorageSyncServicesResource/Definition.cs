@@ -20,4 +20,24 @@ internal class Definition : ResourceDefinition
         new StorageSyncServicesListBySubscriptionOperation(),
         new StorageSyncServicesUpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(IncomingTrafficPolicyConstant),
+        typeof(PrivateEndpointConnectionProvisioningStateConstant),
+        typeof(PrivateEndpointServiceConnectionStatusConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(PrivateEndpointModel),
+        typeof(PrivateEndpointConnectionModel),
+        typeof(PrivateEndpointConnectionPropertiesModel),
+        typeof(PrivateLinkServiceConnectionStateModel),
+        typeof(StorageSyncServiceModel),
+        typeof(StorageSyncServiceArrayModel),
+        typeof(StorageSyncServiceCreateParametersModel),
+        typeof(StorageSyncServiceCreateParametersPropertiesModel),
+        typeof(StorageSyncServicePropertiesModel),
+        typeof(StorageSyncServiceUpdateParametersModel),
+        typeof(StorageSyncServiceUpdatePropertiesModel),
+    };
 }

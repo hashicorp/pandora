@@ -20,4 +20,22 @@ internal class Definition : ResourceDefinition
         new ExtensionsUpdateOperation(),
         new ExtensionsUpgradeOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ExtensionAggregateStateConstant),
+        typeof(ExtensionManagedByConstant),
+        typeof(NodeExtensionStateConstant),
+        typeof(ProvisioningStateConstant),
+        typeof(StatusLevelTypesConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ExtensionModel),
+        typeof(ExtensionInstanceViewModel),
+        typeof(ExtensionInstanceViewStatusModel),
+        typeof(ExtensionParametersModel),
+        typeof(ExtensionPropertiesModel),
+        typeof(ExtensionUpgradeParametersModel),
+        typeof(PerNodeExtensionStateModel),
+    };
 }

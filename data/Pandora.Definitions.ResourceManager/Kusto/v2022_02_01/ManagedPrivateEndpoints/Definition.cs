@@ -20,4 +20,18 @@ internal class Definition : ResourceDefinition
         new ListOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ManagedPrivateEndpointsTypeConstant),
+        typeof(ProvisioningStateConstant),
+        typeof(ReasonConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(CheckNameResultModel),
+        typeof(ManagedPrivateEndpointModel),
+        typeof(ManagedPrivateEndpointListResultModel),
+        typeof(ManagedPrivateEndpointPropertiesModel),
+        typeof(ManagedPrivateEndpointsCheckNameRequestModel),
+    };
 }

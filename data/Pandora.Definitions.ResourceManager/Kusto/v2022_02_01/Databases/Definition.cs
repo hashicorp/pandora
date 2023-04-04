@@ -23,4 +23,29 @@ internal class Definition : ResourceDefinition
         new RemovePrincipalsOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(DatabasePrincipalRoleConstant),
+        typeof(DatabasePrincipalTypeConstant),
+        typeof(KindConstant),
+        typeof(PrincipalsModificationKindConstant),
+        typeof(ProvisioningStateConstant),
+        typeof(ReasonConstant),
+        typeof(TypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(CheckNameRequestModel),
+        typeof(CheckNameResultModel),
+        typeof(DatabaseModel),
+        typeof(DatabaseListResultModel),
+        typeof(DatabasePrincipalModel),
+        typeof(DatabasePrincipalListRequestModel),
+        typeof(DatabasePrincipalListResultModel),
+        typeof(DatabaseStatisticsModel),
+        typeof(ReadOnlyFollowingDatabaseModel),
+        typeof(ReadOnlyFollowingDatabasePropertiesModel),
+        typeof(ReadWriteDatabaseModel),
+        typeof(ReadWriteDatabasePropertiesModel),
+    };
 }

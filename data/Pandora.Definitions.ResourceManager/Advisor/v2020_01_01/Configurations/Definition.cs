@@ -18,4 +18,17 @@ internal class Definition : ResourceDefinition
         new ListByResourceGroupOperation(),
         new ListBySubscriptionOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(CPUThresholdConstant),
+        typeof(CategoryConstant),
+        typeof(DigestConfigStateConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ConfigDataModel),
+        typeof(ConfigDataPropertiesModel),
+        typeof(ConfigurationListResultModel),
+        typeof(DigestConfigModel),
+    };
 }

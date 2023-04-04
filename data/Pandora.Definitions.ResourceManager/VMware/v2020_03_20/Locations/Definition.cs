@@ -16,4 +16,14 @@ internal class Definition : ResourceDefinition
         new CheckQuotaAvailabilityOperation(),
         new CheckTrialAvailabilityOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(QuotaEnabledConstant),
+        typeof(TrialStatusConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(QuotaModel),
+        typeof(TrialModel),
+    };
 }

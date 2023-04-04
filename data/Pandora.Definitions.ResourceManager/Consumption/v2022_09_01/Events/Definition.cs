@@ -16,4 +16,16 @@ internal class Definition : ResourceDefinition
         new ListByBillingAccountOperation(),
         new ListByBillingProfileOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(EventTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AmountModel),
+        typeof(AmountWithExchangeRateModel),
+        typeof(EventPropertiesModel),
+        typeof(EventSummaryModel),
+        typeof(ResellerModel),
+    };
 }

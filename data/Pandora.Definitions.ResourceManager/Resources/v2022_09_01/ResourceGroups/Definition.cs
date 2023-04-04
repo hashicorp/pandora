@@ -22,4 +22,21 @@ internal class Definition : ResourceDefinition
         new ResourcesListByResourceGroupOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ErrorAdditionalInfoModel),
+        typeof(ErrorResponseModel),
+        typeof(ExportTemplateRequestModel),
+        typeof(GenericResourceExpandedModel),
+        typeof(PlanModel),
+        typeof(ResourceGroupModel),
+        typeof(ResourceGroupExportResultModel),
+        typeof(ResourceGroupPatchableModel),
+        typeof(ResourceGroupPropertiesModel),
+        typeof(SkuModel),
+    };
 }

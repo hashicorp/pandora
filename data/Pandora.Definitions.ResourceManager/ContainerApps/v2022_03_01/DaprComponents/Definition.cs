@@ -19,4 +19,17 @@ internal class Definition : ResourceDefinition
         new ListOperation(),
         new ListSecretsOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(DaprComponentModel),
+        typeof(DaprComponentPropertiesModel),
+        typeof(DaprMetadataModel),
+        typeof(DaprSecretModel),
+        typeof(DaprSecretsCollectionModel),
+        typeof(SecretModel),
+    };
 }

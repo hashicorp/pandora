@@ -19,4 +19,15 @@ internal class Definition : ResourceDefinition
         new RoleBindingsListOperation(),
         new RolesListOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(TrustedAccessRoleBindingProvisioningStateConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(TrustedAccessRoleModel),
+        typeof(TrustedAccessRoleBindingModel),
+        typeof(TrustedAccessRoleBindingPropertiesModel),
+        typeof(TrustedAccessRoleRuleModel),
+    };
 }

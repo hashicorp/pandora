@@ -18,4 +18,21 @@ internal class Definition : ResourceDefinition
         new GetOperation(),
         new ListByShareSubscriptionOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ProvisioningStateConstant),
+        typeof(RecurrenceIntervalConstant),
+        typeof(StatusConstant),
+        typeof(SynchronizationModeConstant),
+        typeof(TriggerKindConstant),
+        typeof(TriggerStatusConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(DataShareErrorInfoModel),
+        typeof(OperationResponseModel),
+        typeof(ScheduledTriggerModel),
+        typeof(ScheduledTriggerPropertiesModel),
+        typeof(TriggerModel),
+    };
 }

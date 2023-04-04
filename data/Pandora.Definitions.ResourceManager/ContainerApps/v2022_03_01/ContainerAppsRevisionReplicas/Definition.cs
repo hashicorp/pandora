@@ -16,4 +16,15 @@ internal class Definition : ResourceDefinition
         new GetReplicaOperation(),
         new ListReplicasOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ReplicaModel),
+        typeof(ReplicaCollectionModel),
+        typeof(ReplicaContainerModel),
+        typeof(ReplicaPropertiesModel),
+    };
 }

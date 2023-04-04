@@ -24,4 +24,40 @@ internal class Definition : ResourceDefinition
         new PurgeDeletedOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AccessPolicyUpdateKindConstant),
+        typeof(ActionsRequiredConstant),
+        typeof(ActivationStatusConstant),
+        typeof(CreateModeConstant),
+        typeof(GeoReplicationRegionProvisioningStateConstant),
+        typeof(ManagedHsmSkuFamilyConstant),
+        typeof(ManagedHsmSkuNameConstant),
+        typeof(NetworkRuleActionConstant),
+        typeof(NetworkRuleBypassOptionsConstant),
+        typeof(PrivateEndpointConnectionProvisioningStateConstant),
+        typeof(PrivateEndpointServiceConnectionStatusConstant),
+        typeof(ProvisioningStateConstant),
+        typeof(PublicNetworkAccessConstant),
+        typeof(ReasonConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(CheckMhsmNameAvailabilityParametersModel),
+        typeof(CheckMhsmNameAvailabilityResultModel),
+        typeof(DeletedManagedHsmModel),
+        typeof(DeletedManagedHsmPropertiesModel),
+        typeof(MHSMGeoReplicatedRegionModel),
+        typeof(MHSMIPRuleModel),
+        typeof(MHSMNetworkRuleSetModel),
+        typeof(MHSMPrivateEndpointModel),
+        typeof(MHSMPrivateEndpointConnectionItemModel),
+        typeof(MHSMPrivateEndpointConnectionPropertiesModel),
+        typeof(MHSMPrivateLinkServiceConnectionStateModel),
+        typeof(MHSMVirtualNetworkRuleModel),
+        typeof(ManagedHSMSecurityDomainPropertiesModel),
+        typeof(ManagedHsmModel),
+        typeof(ManagedHsmPropertiesModel),
+        typeof(ManagedHsmSkuModel),
+    };
 }

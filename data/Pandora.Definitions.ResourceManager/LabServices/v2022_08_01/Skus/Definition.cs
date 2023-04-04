@@ -15,4 +15,19 @@ internal class Definition : ResourceDefinition
     {
         new ListOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(LabServicesSkuTierConstant),
+        typeof(RestrictionReasonCodeConstant),
+        typeof(RestrictionTypeConstant),
+        typeof(ScaleTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(LabServicesSkuModel),
+        typeof(LabServicesSkuCapabilitiesModel),
+        typeof(LabServicesSkuCapacityModel),
+        typeof(LabServicesSkuCostModel),
+        typeof(LabServicesSkuRestrictionsModel),
+    };
 }

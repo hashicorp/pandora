@@ -24,4 +24,31 @@ internal class Definition : ResourceDefinition
         new ListKeysOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AccessProfileTypeConstant),
+        typeof(DistroConstant),
+        typeof(ProviderConstant),
+        typeof(StatusConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ApplianceModel),
+        typeof(ApplianceCredentialKubeconfigModel),
+        typeof(ApplianceGetTelemetryConfigResultModel),
+        typeof(ApplianceListCredentialResultsModel),
+        typeof(ApplianceListKeysResultsModel),
+        typeof(AppliancePropertiesModel),
+        typeof(AppliancePropertiesInfrastructureConfigModel),
+        typeof(ArtifactProfileModel),
+        typeof(HybridConnectionConfigModel),
+        typeof(PatchableApplianceModel),
+        typeof(SSHKeyModel),
+        typeof(SupportedVersionModel),
+        typeof(SupportedVersionCatalogVersionModel),
+        typeof(SupportedVersionCatalogVersionDataModel),
+        typeof(SupportedVersionMetadataModel),
+        typeof(UpgradeGraphModel),
+        typeof(UpgradeGraphPropertiesModel),
+    };
 }

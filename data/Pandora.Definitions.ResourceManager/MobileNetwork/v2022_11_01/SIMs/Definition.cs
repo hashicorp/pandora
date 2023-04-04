@@ -18,4 +18,29 @@ internal class Definition : ResourceDefinition
         new BulkUploadEncryptedOperation(),
         new ListByGroupOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ProvisioningStateConstant),
+        typeof(SimStateConstant),
+        typeof(SiteProvisioningStateConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AsyncOperationStatusModel),
+        typeof(AttachedDataNetworkResourceIdModel),
+        typeof(EncryptedSimPropertiesFormatModel),
+        typeof(EncryptedSimUploadListModel),
+        typeof(ErrorAdditionalInfoModel),
+        typeof(ErrorDetailModel),
+        typeof(SimModel),
+        typeof(SimDeleteListModel),
+        typeof(SimNameAndEncryptedPropertiesModel),
+        typeof(SimNameAndPropertiesModel),
+        typeof(SimPolicyResourceIdModel),
+        typeof(SimPropertiesFormatModel),
+        typeof(SimStaticIPPropertiesModel),
+        typeof(SimStaticIPPropertiesStaticIPModel),
+        typeof(SimUploadListModel),
+        typeof(SliceResourceIdModel),
+    };
 }

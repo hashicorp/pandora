@@ -18,4 +18,16 @@ internal class Definition : ResourceDefinition
         new GetOperation(),
         new ListOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ObjectReplicationPoliciesModel),
+        typeof(ObjectReplicationPolicyModel),
+        typeof(ObjectReplicationPolicyFilterModel),
+        typeof(ObjectReplicationPolicyPropertiesModel),
+        typeof(ObjectReplicationPolicyRuleModel),
+    };
 }

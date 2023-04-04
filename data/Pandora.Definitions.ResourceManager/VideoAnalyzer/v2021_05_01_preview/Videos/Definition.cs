@@ -25,4 +25,28 @@ internal class Definition : ResourceDefinition
         new VideosListStreamingTokenOperation(),
         new VideosUpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AccessPolicyEccAlgoConstant),
+        typeof(AccessPolicyRoleConstant),
+        typeof(AccessPolicyRsaAlgoConstant),
+        typeof(VideoTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AccessPolicyEntityModel),
+        typeof(AccessPolicyPropertiesModel),
+        typeof(AuthenticationBaseModel),
+        typeof(EccTokenKeyModel),
+        typeof(JwtAuthenticationModel),
+        typeof(RsaTokenKeyModel),
+        typeof(TokenClaimModel),
+        typeof(TokenKeyModel),
+        typeof(VideoEntityModel),
+        typeof(VideoFlagsModel),
+        typeof(VideoMediaInfoModel),
+        typeof(VideoPropertiesModel),
+        typeof(VideoStreamingModel),
+        typeof(VideoStreamingTokenModel),
+    };
 }

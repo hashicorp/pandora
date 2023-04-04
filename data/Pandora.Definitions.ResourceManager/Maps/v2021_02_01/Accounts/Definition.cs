@@ -22,4 +22,19 @@ internal class Definition : ResourceDefinition
         new RegenerateKeysOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(KeyTypeConstant),
+        typeof(KindConstant),
+        typeof(NameConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(MapsAccountModel),
+        typeof(MapsAccountKeysModel),
+        typeof(MapsAccountPropertiesModel),
+        typeof(MapsAccountUpdateParametersModel),
+        typeof(MapsKeySpecificationModel),
+        typeof(SkuModel),
+    };
 }

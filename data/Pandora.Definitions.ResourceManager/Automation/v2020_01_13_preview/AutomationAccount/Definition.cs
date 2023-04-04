@@ -20,4 +20,28 @@ internal class Definition : ResourceDefinition
         new ListByResourceGroupOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AutomationAccountStateConstant),
+        typeof(CountTypeConstant),
+        typeof(EncryptionKeySourceTypeConstant),
+        typeof(SkuNameEnumConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AutomationAccountModel),
+        typeof(AutomationAccountCreateOrUpdateParametersModel),
+        typeof(AutomationAccountCreateOrUpdatePropertiesModel),
+        typeof(AutomationAccountPropertiesModel),
+        typeof(AutomationAccountUpdateParametersModel),
+        typeof(AutomationAccountUpdatePropertiesModel),
+        typeof(EncryptionPropertiesModel),
+        typeof(EncryptionPropertiesIdentityModel),
+        typeof(KeyVaultPropertiesModel),
+        typeof(PrivateEndpointConnectionModel),
+        typeof(PrivateEndpointConnectionPropertiesModel),
+        typeof(PrivateEndpointPropertyModel),
+        typeof(PrivateLinkServiceConnectionStatePropertyModel),
+        typeof(SkuModel),
+    };
 }

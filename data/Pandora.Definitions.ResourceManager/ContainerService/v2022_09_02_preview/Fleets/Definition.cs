@@ -21,4 +21,17 @@ internal class Definition : ResourceDefinition
         new ListCredentialsOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(FleetProvisioningStateConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(FleetModel),
+        typeof(FleetCredentialResultModel),
+        typeof(FleetCredentialResultsModel),
+        typeof(FleetHubProfileModel),
+        typeof(FleetPatchModel),
+        typeof(FleetPropertiesModel),
+    };
 }

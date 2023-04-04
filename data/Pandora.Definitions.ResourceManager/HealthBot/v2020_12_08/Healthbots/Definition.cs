@@ -20,4 +20,15 @@ internal class Definition : ResourceDefinition
         new BotsListByResourceGroupOperation(),
         new BotsUpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(SkuNameConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(HealthBotModel),
+        typeof(HealthBotPropertiesModel),
+        typeof(HealthBotUpdateParametersModel),
+        typeof(SkuModel),
+    };
 }

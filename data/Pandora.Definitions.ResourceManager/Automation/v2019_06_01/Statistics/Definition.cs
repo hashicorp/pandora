@@ -15,4 +15,13 @@ internal class Definition : ResourceDefinition
     {
         new ListByAutomationAccountOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(CountTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(StatisticsModel),
+        typeof(StatisticsListResultModel),
+    };
 }

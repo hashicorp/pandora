@@ -19,4 +19,29 @@ internal class Definition : ResourceDefinition
         new ServicesCreateOrUpdateOperation(),
         new TasksCreateOrUpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(CommandStateConstant),
+        typeof(ProjectProvisioningStateConstant),
+        typeof(ProjectSourcePlatformConstant),
+        typeof(ProjectTargetPlatformConstant),
+        typeof(ServiceProvisioningStateConstant),
+        typeof(TaskStateConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(CommandPropertiesModel),
+        typeof(ConnectionInfoModel),
+        typeof(DataMigrationServiceModel),
+        typeof(DataMigrationServicePropertiesModel),
+        typeof(DatabaseInfoModel),
+        typeof(ODataErrorModel),
+        typeof(ProjectModel),
+        typeof(ProjectFileModel),
+        typeof(ProjectFilePropertiesModel),
+        typeof(ProjectPropertiesModel),
+        typeof(ProjectTaskModel),
+        typeof(ProjectTaskPropertiesModel),
+        typeof(ServiceSkuModel),
+    };
 }

@@ -16,4 +16,19 @@ internal class Definition : ResourceDefinition
         new GetOperation(),
         new ListByServerGroupOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(CitusVersionConstant),
+        typeof(PostgreSQLVersionConstant),
+        typeof(ServerEditionConstant),
+        typeof(ServerHaStateConstant),
+        typeof(ServerRoleConstant),
+        typeof(ServerStateConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ServerGroupServerModel),
+        typeof(ServerGroupServerListResultModel),
+        typeof(ServerGroupServerPropertiesModel),
+    };
 }

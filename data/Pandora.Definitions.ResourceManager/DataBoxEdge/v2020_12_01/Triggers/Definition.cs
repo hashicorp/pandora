@@ -18,4 +18,19 @@ internal class Definition : ResourceDefinition
         new GetOperation(),
         new ListByDataBoxEdgeDeviceOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(TriggerEventTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(FileEventTriggerModel),
+        typeof(FileSourceInfoModel),
+        typeof(FileTriggerPropertiesModel),
+        typeof(PeriodicTimerEventTriggerModel),
+        typeof(PeriodicTimerPropertiesModel),
+        typeof(PeriodicTimerSourceInfoModel),
+        typeof(RoleSinkInfoModel),
+        typeof(TriggerModel),
+    };
 }

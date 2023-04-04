@@ -20,4 +20,18 @@ internal class Definition : ResourceDefinition
         new ListOperation(),
         new OperationLocationOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AsyncOperationStatusConstant),
+        typeof(LiveOutputResourceStateConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AsyncOperationResultModel),
+        typeof(ErrorAdditionalInfoModel),
+        typeof(ErrorDetailModel),
+        typeof(HlsModel),
+        typeof(LiveOutputModel),
+        typeof(LiveOutputPropertiesModel),
+    };
 }

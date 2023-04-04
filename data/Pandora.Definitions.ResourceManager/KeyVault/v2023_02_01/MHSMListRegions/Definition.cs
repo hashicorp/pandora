@@ -15,4 +15,13 @@ internal class Definition : ResourceDefinition
     {
         new MHSMRegionsListByResourceOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AccessPolicyUpdateKindConstant),
+        typeof(GeoReplicationRegionProvisioningStateConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(MHSMGeoReplicatedRegionModel),
+    };
 }

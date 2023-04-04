@@ -20,4 +20,27 @@ internal class Definition : ResourceDefinition
         new GetOperation(),
         new UpdateTagsOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(CreatedByTypeConstant),
+        typeof(DestinationTypeConstant),
+        typeof(EmissionTypeConstant),
+        typeof(IngestionTypeConstant),
+        typeof(ProvisioningStateConstant),
+        typeof(SourceTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AzureTrafficCollectorModel),
+        typeof(AzureTrafficCollectorPropertiesFormatModel),
+        typeof(CollectorPolicyModel),
+        typeof(CollectorPolicyPropertiesFormatModel),
+        typeof(EmissionPoliciesPropertiesFormatModel),
+        typeof(EmissionPolicyDestinationModel),
+        typeof(IngestionPolicyPropertiesFormatModel),
+        typeof(IngestionSourcesPropertiesFormatModel),
+        typeof(ResourceReferenceModel),
+        typeof(SystemDataModel),
+        typeof(TagsObjectModel),
+    };
 }

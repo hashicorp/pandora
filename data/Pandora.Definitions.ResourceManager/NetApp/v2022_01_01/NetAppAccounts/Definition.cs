@@ -20,4 +20,17 @@ internal class Definition : ResourceDefinition
         new AccountsListBySubscriptionOperation(),
         new AccountsUpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ActiveDirectoryStatusConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AccountEncryptionModel),
+        typeof(AccountPropertiesModel),
+        typeof(ActiveDirectoryModel),
+        typeof(LdapSearchScopeOptModel),
+        typeof(NetAppAccountModel),
+        typeof(NetAppAccountPatchModel),
+    };
 }

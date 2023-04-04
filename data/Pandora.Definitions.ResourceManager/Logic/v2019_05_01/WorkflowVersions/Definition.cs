@@ -16,4 +16,29 @@ internal class Definition : ResourceDefinition
         new GetOperation(),
         new ListOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(OpenAuthenticationProviderTypeConstant),
+        typeof(ParameterTypeConstant),
+        typeof(SkuNameConstant),
+        typeof(WorkflowProvisioningStateConstant),
+        typeof(WorkflowStateConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(FlowAccessControlConfigurationModel),
+        typeof(FlowAccessControlConfigurationPolicyModel),
+        typeof(FlowEndpointsModel),
+        typeof(FlowEndpointsConfigurationModel),
+        typeof(IPAddressModel),
+        typeof(IPAddressRangeModel),
+        typeof(OpenAuthenticationAccessPoliciesModel),
+        typeof(OpenAuthenticationAccessPolicyModel),
+        typeof(OpenAuthenticationPolicyClaimModel),
+        typeof(ResourceReferenceModel),
+        typeof(SkuModel),
+        typeof(WorkflowParameterModel),
+        typeof(WorkflowVersionModel),
+        typeof(WorkflowVersionPropertiesModel),
+    };
 }

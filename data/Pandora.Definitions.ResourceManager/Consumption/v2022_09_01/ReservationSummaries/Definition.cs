@@ -17,4 +17,13 @@ internal class Definition : ResourceDefinition
         new ReservationsSummariesListByReservationOrderOperation(),
         new ReservationsSummariesListByReservationOrderAndReservationOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(DatagrainConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ReservationSummaryModel),
+        typeof(ReservationSummaryPropertiesModel),
+    };
 }

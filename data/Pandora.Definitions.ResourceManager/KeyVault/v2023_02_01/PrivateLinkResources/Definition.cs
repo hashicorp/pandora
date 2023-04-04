@@ -15,4 +15,14 @@ internal class Definition : ResourceDefinition
     {
         new ListByVaultOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AccessPolicyUpdateKindConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(PrivateLinkResourceModel),
+        typeof(PrivateLinkResourceListResultModel),
+        typeof(PrivateLinkResourcePropertiesModel),
+    };
 }

@@ -18,4 +18,25 @@ internal class Definition : ResourceDefinition
         new GetOperation(),
         new ListOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(BudgetOperatorTypeConstant),
+        typeof(CategoryTypeConstant),
+        typeof(CultureCodeConstant),
+        typeof(OperatorTypeConstant),
+        typeof(ThresholdTypeConstant),
+        typeof(TimeGrainTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(BudgetModel),
+        typeof(BudgetComparisonExpressionModel),
+        typeof(BudgetFilterModel),
+        typeof(BudgetFilterPropertiesModel),
+        typeof(BudgetPropertiesModel),
+        typeof(BudgetTimePeriodModel),
+        typeof(CurrentSpendModel),
+        typeof(ForecastSpendModel),
+        typeof(NotificationModel),
+    };
 }

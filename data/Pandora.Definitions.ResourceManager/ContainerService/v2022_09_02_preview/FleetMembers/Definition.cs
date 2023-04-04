@@ -18,4 +18,13 @@ internal class Definition : ResourceDefinition
         new GetOperation(),
         new ListByFleetOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(FleetMemberProvisioningStateConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(FleetMemberModel),
+        typeof(FleetMemberPropertiesModel),
+    };
 }

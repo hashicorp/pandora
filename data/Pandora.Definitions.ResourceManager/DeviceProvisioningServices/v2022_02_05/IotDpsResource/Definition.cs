@@ -30,4 +30,36 @@ internal class Definition : ResourceDefinition
         new ListValidSkusOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AccessRightsDescriptionConstant),
+        typeof(AllocationPolicyConstant),
+        typeof(IPFilterActionTypeConstant),
+        typeof(IPFilterTargetTypeConstant),
+        typeof(IotDpsSkuConstant),
+        typeof(NameUnavailabilityReasonConstant),
+        typeof(PrivateLinkServiceConnectionStatusConstant),
+        typeof(PublicNetworkAccessConstant),
+        typeof(StateConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(GroupIdInformationModel),
+        typeof(GroupIdInformationPropertiesModel),
+        typeof(IPFilterRuleModel),
+        typeof(IotDpsPropertiesDescriptionModel),
+        typeof(IotDpsSkuDefinitionModel),
+        typeof(IotDpsSkuInfoModel),
+        typeof(IotHubDefinitionDescriptionModel),
+        typeof(NameAvailabilityInfoModel),
+        typeof(OperationInputsModel),
+        typeof(PrivateEndpointModel),
+        typeof(PrivateEndpointConnectionModel),
+        typeof(PrivateEndpointConnectionPropertiesModel),
+        typeof(PrivateLinkResourcesModel),
+        typeof(PrivateLinkServiceConnectionStateModel),
+        typeof(ProvisioningServiceDescriptionModel),
+        typeof(SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionModel),
+        typeof(TagsResourceModel),
+    };
 }

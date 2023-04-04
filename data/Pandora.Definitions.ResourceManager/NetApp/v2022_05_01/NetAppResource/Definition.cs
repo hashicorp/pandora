@@ -20,4 +20,23 @@ internal class Definition : ResourceDefinition
         new NetAppResourceQuotaLimitsGetOperation(),
         new NetAppResourceQuotaLimitsListOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(CheckNameResourceTypesConstant),
+        typeof(CheckQuotaNameResourceTypesConstant),
+        typeof(InAvailabilityReasonTypeConstant),
+        typeof(RegionStorageToNetworkProximityConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(CheckAvailabilityResponseModel),
+        typeof(FilePathAvailabilityRequestModel),
+        typeof(QuotaAvailabilityRequestModel),
+        typeof(RegionInfoModel),
+        typeof(RegionInfoAvailabilityZoneMappingsInlinedModel),
+        typeof(ResourceNameAvailabilityRequestModel),
+        typeof(SubscriptionQuotaItemModel),
+        typeof(SubscriptionQuotaItemListModel),
+        typeof(SubscriptionQuotaItemPropertiesModel),
+    };
 }

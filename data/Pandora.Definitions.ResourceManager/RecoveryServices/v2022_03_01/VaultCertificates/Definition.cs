@@ -15,4 +15,17 @@ internal class Definition : ResourceDefinition
     {
         new CreateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AuthTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(CertificateRequestModel),
+        typeof(RawCertificateDataModel),
+        typeof(ResourceCertificateAndAadDetailsModel),
+        typeof(ResourceCertificateAndAcsDetailsModel),
+        typeof(ResourceCertificateDetailsModel),
+        typeof(VaultCertificateResponseModel),
+    };
 }

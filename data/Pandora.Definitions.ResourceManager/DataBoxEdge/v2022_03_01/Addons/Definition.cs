@@ -18,4 +18,24 @@ internal class Definition : ResourceDefinition
         new GetOperation(),
         new ListByRoleOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AddonStateConstant),
+        typeof(AddonTypeConstant),
+        typeof(EncryptionAlgorithmConstant),
+        typeof(HostPlatformTypeConstant),
+        typeof(PlatformTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AddonModel),
+        typeof(ArcAddonModel),
+        typeof(ArcAddonPropertiesModel),
+        typeof(AsymmetricEncryptedSecretModel),
+        typeof(AuthenticationModel),
+        typeof(IoTAddonModel),
+        typeof(IoTAddonPropertiesModel),
+        typeof(IoTDeviceInfoModel),
+        typeof(SymmetricKeyModel),
+    };
 }

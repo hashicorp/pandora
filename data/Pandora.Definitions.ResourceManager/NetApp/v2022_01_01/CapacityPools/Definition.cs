@@ -19,4 +19,17 @@ internal class Definition : ResourceDefinition
         new PoolsListOperation(),
         new PoolsUpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(EncryptionTypeConstant),
+        typeof(QosTypeConstant),
+        typeof(ServiceLevelConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(CapacityPoolModel),
+        typeof(CapacityPoolPatchModel),
+        typeof(PoolPatchPropertiesModel),
+        typeof(PoolPropertiesModel),
+    };
 }

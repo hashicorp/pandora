@@ -15,4 +15,18 @@ internal class Definition : ResourceDefinition
     {
         new ListOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(BillingCurrencyConstant),
+        typeof(UnitOfMeasureConstant),
+        typeof(VMPriceOSTypeConstant),
+        typeof(VMTierConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(EstimatedVMPriceModel),
+        typeof(EstimatedVMPricesModel),
+        typeof(VirtualMachineSizeModel),
+        typeof(VirtualMachineSizeListResultModel),
+    };
 }

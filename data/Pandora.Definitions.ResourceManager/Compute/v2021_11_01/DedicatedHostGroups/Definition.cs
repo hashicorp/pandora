@@ -20,4 +20,21 @@ internal class Definition : ResourceDefinition
         new ListBySubscriptionOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(InstanceViewTypesConstant),
+        typeof(StatusLevelTypesConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(DedicatedHostAllocatableVMModel),
+        typeof(DedicatedHostAvailableCapacityModel),
+        typeof(DedicatedHostGroupModel),
+        typeof(DedicatedHostGroupInstanceViewModel),
+        typeof(DedicatedHostGroupPropertiesModel),
+        typeof(DedicatedHostGroupUpdateModel),
+        typeof(DedicatedHostInstanceViewWithNameModel),
+        typeof(InstanceViewStatusModel),
+        typeof(SubResourceReadOnlyModel),
+    };
 }

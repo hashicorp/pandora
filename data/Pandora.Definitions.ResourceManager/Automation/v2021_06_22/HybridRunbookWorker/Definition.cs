@@ -19,4 +19,16 @@ internal class Definition : ResourceDefinition
         new ListByHybridRunbookWorkerGroupOperation(),
         new MoveOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(WorkerTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(HybridRunbookWorkerModel),
+        typeof(HybridRunbookWorkerCreateOrUpdateParametersModel),
+        typeof(HybridRunbookWorkerCreateParametersModel),
+        typeof(HybridRunbookWorkerMoveParametersModel),
+        typeof(HybridRunbookWorkerPropertiesModel),
+    };
 }

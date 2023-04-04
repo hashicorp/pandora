@@ -21,4 +21,18 @@ internal class Definition : ResourceDefinition
         new StopJobOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(CopyModeConstant),
+        typeof(JobRunStatusConstant),
+        typeof(ProvisioningStateConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(JobDefinitionModel),
+        typeof(JobDefinitionPropertiesModel),
+        typeof(JobDefinitionUpdateParametersModel),
+        typeof(JobDefinitionUpdatePropertiesModel),
+        typeof(JobRunResourceIdModel),
+    };
 }

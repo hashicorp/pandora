@@ -18,4 +18,20 @@ internal class Definition : ResourceDefinition
         new ListOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(HealthCheckNameConstant),
+        typeof(HealthCheckResultConstant),
+        typeof(StatusConstant),
+        typeof(UpdateStateConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(SessionHostModel),
+        typeof(SessionHostHealthCheckFailureDetailsModel),
+        typeof(SessionHostHealthCheckReportModel),
+        typeof(SessionHostPatchModel),
+        typeof(SessionHostPatchPropertiesModel),
+        typeof(SessionHostPropertiesModel),
+    };
 }

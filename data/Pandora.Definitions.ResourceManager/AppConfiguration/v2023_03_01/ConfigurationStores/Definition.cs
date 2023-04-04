@@ -22,4 +22,28 @@ internal class Definition : ResourceDefinition
         new RegenerateKeyOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ActionsRequiredConstant),
+        typeof(ConnectionStatusConstant),
+        typeof(CreateModeConstant),
+        typeof(ProvisioningStateConstant),
+        typeof(PublicNetworkAccessConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ApiKeyModel),
+        typeof(ConfigurationStoreModel),
+        typeof(ConfigurationStorePropertiesModel),
+        typeof(ConfigurationStorePropertiesUpdateParametersModel),
+        typeof(ConfigurationStoreUpdateParametersModel),
+        typeof(EncryptionPropertiesModel),
+        typeof(KeyVaultPropertiesModel),
+        typeof(PrivateEndpointModel),
+        typeof(PrivateEndpointConnectionPropertiesModel),
+        typeof(PrivateEndpointConnectionReferenceModel),
+        typeof(PrivateLinkServiceConnectionStateModel),
+        typeof(RegenerateKeyParametersModel),
+        typeof(SkuModel),
+    };
 }

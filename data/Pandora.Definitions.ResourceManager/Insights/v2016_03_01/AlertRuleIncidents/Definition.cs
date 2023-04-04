@@ -16,4 +16,13 @@ internal class Definition : ResourceDefinition
         new GetOperation(),
         new ListByAlertRuleOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(IncidentModel),
+        typeof(IncidentListResultModel),
+    };
 }

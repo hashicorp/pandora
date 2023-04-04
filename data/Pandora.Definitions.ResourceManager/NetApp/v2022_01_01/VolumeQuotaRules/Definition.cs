@@ -19,4 +19,16 @@ internal class Definition : ResourceDefinition
         new ListByVolumeOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ProvisioningStateConstant),
+        typeof(TypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(VolumeQuotaRuleModel),
+        typeof(VolumeQuotaRulePatchModel),
+        typeof(VolumeQuotaRulesListModel),
+        typeof(VolumeQuotaRulesPropertiesModel),
+    };
 }

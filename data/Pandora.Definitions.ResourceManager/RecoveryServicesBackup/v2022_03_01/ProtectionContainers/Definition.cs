@@ -19,4 +19,41 @@ internal class Definition : ResourceDefinition
         new RegisterOperation(),
         new UnregisterOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AcquireStorageAccountLockConstant),
+        typeof(BackupItemTypeConstant),
+        typeof(BackupManagementTypeConstant),
+        typeof(ContainerTypeConstant),
+        typeof(OperationTypeConstant),
+        typeof(WorkloadTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AzureBackupServerContainerModel),
+        typeof(AzureIaaSClassicComputeVMContainerModel),
+        typeof(AzureIaaSComputeVMContainerModel),
+        typeof(AzureSQLAGWorkloadContainerProtectionContainerModel),
+        typeof(AzureSqlContainerModel),
+        typeof(AzureStorageContainerModel),
+        typeof(AzureVMAppContainerProtectionContainerModel),
+        typeof(AzureWorkloadContainerModel),
+        typeof(AzureWorkloadContainerExtendedInfoModel),
+        typeof(ContainerIdentityInfoModel),
+        typeof(DPMContainerExtendedInfoModel),
+        typeof(DistributedNodesInfoModel),
+        typeof(DpmContainerModel),
+        typeof(ErrorDetailModel),
+        typeof(GenericContainerModel),
+        typeof(GenericContainerExtendedInfoModel),
+        typeof(IaaSVMContainerModel),
+        typeof(InquiryInfoModel),
+        typeof(InquiryValidationModel),
+        typeof(MABContainerHealthDetailsModel),
+        typeof(MabContainerModel),
+        typeof(MabContainerExtendedInfoModel),
+        typeof(ProtectionContainerModel),
+        typeof(ProtectionContainerResourceModel),
+        typeof(WorkloadInquiryDetailsModel),
+    };
 }

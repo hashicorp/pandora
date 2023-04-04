@@ -16,4 +16,13 @@ internal class Definition : ResourceDefinition
         new ByExternalCloudProviderTypeOperation(),
         new ListOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ExternalCloudProviderTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(DimensionModel),
+        typeof(DimensionPropertiesModel),
+    };
 }

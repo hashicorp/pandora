@@ -19,4 +19,24 @@ internal class Definition : ResourceDefinition
         new GetOperation(),
         new ListByFactoryOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(DependencyConditionConstant),
+        typeof(ParameterTypeConstant),
+        typeof(VariableTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ActivityModel),
+        typeof(ActivityDependencyModel),
+        typeof(CreateRunResponseModel),
+        typeof(ParameterSpecificationModel),
+        typeof(PipelineModel),
+        typeof(PipelineElapsedTimeMetricPolicyModel),
+        typeof(PipelineFolderModel),
+        typeof(PipelinePolicyModel),
+        typeof(PipelineResourceModel),
+        typeof(UserPropertyModel),
+        typeof(VariableSpecificationModel),
+    };
 }

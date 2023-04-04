@@ -16,4 +16,13 @@ internal class Definition : ResourceDefinition
         new BMSPrepareDataMoveOperation(),
         new BMSTriggerDataMoveOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(DataMoveLevelConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(PrepareDataMoveRequestModel),
+        typeof(TriggerDataMoveRequestModel),
+    };
 }

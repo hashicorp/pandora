@@ -15,4 +15,17 @@ internal class Definition : ResourceDefinition
     {
         new ListByApisOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AccessIdNameConstant),
+        typeof(IdentityProviderTypeConstant),
+        typeof(NotificationNameConstant),
+        typeof(ProductStateConstant),
+        typeof(TemplateNameConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ProductContractModel),
+        typeof(ProductContractPropertiesModel),
+    };
 }

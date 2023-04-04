@@ -19,4 +19,15 @@ internal class Definition : ResourceDefinition
         new TableListOperation(),
         new TableUpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(TableModel),
+        typeof(TableAccessPolicyModel),
+        typeof(TablePropertiesModel),
+        typeof(TableSignedIdentifierModel),
+    };
 }

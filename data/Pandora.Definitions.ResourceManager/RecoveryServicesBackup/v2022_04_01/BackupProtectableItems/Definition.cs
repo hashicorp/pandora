@@ -15,4 +15,27 @@ internal class Definition : ResourceDefinition
     {
         new ListOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AzureFileShareTypeConstant),
+        typeof(InquiryStatusConstant),
+        typeof(ProtectionStatusConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AzureFileShareProtectableItemModel),
+        typeof(AzureIaaSClassicComputeVMProtectableItemModel),
+        typeof(AzureIaaSComputeVMProtectableItemModel),
+        typeof(AzureVMWorkloadProtectableItemModel),
+        typeof(AzureVMWorkloadSAPAseSystemProtectableItemModel),
+        typeof(AzureVMWorkloadSAPHanaDatabaseProtectableItemModel),
+        typeof(AzureVMWorkloadSAPHanaSystemProtectableItemModel),
+        typeof(AzureVMWorkloadSQLAvailabilityGroupProtectableItemModel),
+        typeof(AzureVMWorkloadSQLDatabaseProtectableItemModel),
+        typeof(AzureVMWorkloadSQLInstanceProtectableItemModel),
+        typeof(IaaSVMProtectableItemModel),
+        typeof(PreBackupValidationModel),
+        typeof(WorkloadProtectableItemModel),
+        typeof(WorkloadProtectableItemResourceModel),
+    };
 }

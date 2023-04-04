@@ -21,4 +21,20 @@ internal class Definition : ResourceDefinition
         new ConnectedClusterListClusterUserCredentialOperation(),
         new ConnectedClusterUpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AuthenticationMethodConstant),
+        typeof(ConnectivityStatusConstant),
+        typeof(ProvisioningStateConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ConnectedClusterModel),
+        typeof(ConnectedClusterPatchModel),
+        typeof(ConnectedClusterPropertiesModel),
+        typeof(CredentialResultModel),
+        typeof(CredentialResultsModel),
+        typeof(HybridConnectionConfigModel),
+        typeof(ListClusterUserCredentialPropertiesModel),
+    };
 }

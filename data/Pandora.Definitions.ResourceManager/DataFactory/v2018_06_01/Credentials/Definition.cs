@@ -18,4 +18,15 @@ internal class Definition : ResourceDefinition
         new CredentialOperationsGetOperation(),
         new CredentialOperationsListByFactoryOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(CredentialModel),
+        typeof(ManagedIdentityCredentialModel),
+        typeof(ManagedIdentityCredentialResourceModel),
+        typeof(ManagedIdentityTypePropertiesModel),
+    };
 }

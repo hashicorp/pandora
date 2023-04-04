@@ -15,4 +15,18 @@ internal class Definition : ResourceDefinition
     {
         new ListOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ChargeSummaryKindConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AmountModel),
+        typeof(ChargeSummaryModel),
+        typeof(ChargesListResultModel),
+        typeof(LegacyChargeSummaryModel),
+        typeof(LegacyChargeSummaryPropertiesModel),
+        typeof(ModernChargeSummaryModel),
+        typeof(ModernChargeSummaryPropertiesModel),
+    };
 }

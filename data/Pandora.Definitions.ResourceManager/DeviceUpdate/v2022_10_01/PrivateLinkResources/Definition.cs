@@ -16,4 +16,14 @@ internal class Definition : ResourceDefinition
         new GetOperation(),
         new ListByAccountOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(GroupIdProvisioningStateConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(GroupInformationModel),
+        typeof(GroupInformationPropertiesModel),
+        typeof(PrivateLinkResourceListResultModel),
+    };
 }

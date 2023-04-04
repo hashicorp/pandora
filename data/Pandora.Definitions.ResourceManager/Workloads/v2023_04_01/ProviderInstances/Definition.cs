@@ -18,4 +18,26 @@ internal class Definition : ResourceDefinition
         new GetOperation(),
         new ListOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(SslPreferenceConstant),
+        typeof(WorkloadMonitorProvisioningStateConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(DB2ProviderInstancePropertiesModel),
+        typeof(ErrorModel),
+        typeof(ErrorAdditionalInfoModel),
+        typeof(ErrorDetailModel),
+        typeof(ErrorInnerErrorModel),
+        typeof(HanaDbProviderInstancePropertiesModel),
+        typeof(MsSqlServerProviderInstancePropertiesModel),
+        typeof(OperationStatusResultModel),
+        typeof(PrometheusHaClusterProviderInstancePropertiesModel),
+        typeof(PrometheusOSProviderInstancePropertiesModel),
+        typeof(ProviderInstanceModel),
+        typeof(ProviderInstancePropertiesModel),
+        typeof(ProviderSpecificPropertiesModel),
+        typeof(SapNetWeaverProviderInstancePropertiesModel),
+    };
 }

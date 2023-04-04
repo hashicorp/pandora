@@ -16,4 +16,15 @@ internal class Definition : ResourceDefinition
         new ExportRequestRateByIntervalOperation(),
         new ExportThrottledRequestsOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(IntervalInMinsConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(LogAnalyticsInputBaseModel),
+        typeof(LogAnalyticsOperationResultModel),
+        typeof(LogAnalyticsOutputModel),
+        typeof(RequestRateByIntervalInputModel),
+    };
 }

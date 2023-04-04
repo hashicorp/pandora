@@ -20,4 +20,18 @@ internal class Definition : ResourceDefinition
         new ListKeysOperation(),
         new RegeneratePasswordOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(LocalUserModel),
+        typeof(LocalUserKeysModel),
+        typeof(LocalUserPropertiesModel),
+        typeof(LocalUserRegeneratePasswordResultModel),
+        typeof(LocalUsersModel),
+        typeof(PermissionScopeModel),
+        typeof(SshPublicKeyModel),
+    };
 }

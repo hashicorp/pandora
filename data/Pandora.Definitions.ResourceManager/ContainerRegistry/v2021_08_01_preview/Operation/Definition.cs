@@ -15,4 +15,13 @@ internal class Definition : ResourceDefinition
     {
         new RegistriesCheckNameAvailabilityOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ContainerRegistryResourceTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(RegistryNameCheckRequestModel),
+        typeof(RegistryNameStatusModel),
+    };
 }

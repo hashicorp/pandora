@@ -15,4 +15,16 @@ internal class Definition : ResourceDefinition
     {
         new GatewayRegenerateKeyOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AccessIdNameConstant),
+        typeof(IdentityProviderTypeConstant),
+        typeof(KeyTypeConstant),
+        typeof(NotificationNameConstant),
+        typeof(TemplateNameConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(GatewayKeyRegenerationRequestContractModel),
+    };
 }

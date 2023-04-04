@@ -18,4 +18,20 @@ internal class Definition : ResourceDefinition
         new GetOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(CapacityReservationInstanceViewTypesConstant),
+        typeof(StatusLevelTypesConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(CapacityReservationModel),
+        typeof(CapacityReservationInstanceViewModel),
+        typeof(CapacityReservationPropertiesModel),
+        typeof(CapacityReservationUpdateModel),
+        typeof(CapacityReservationUtilizationModel),
+        typeof(InstanceViewStatusModel),
+        typeof(SkuModel),
+        typeof(SubResourceReadOnlyModel),
+    };
 }

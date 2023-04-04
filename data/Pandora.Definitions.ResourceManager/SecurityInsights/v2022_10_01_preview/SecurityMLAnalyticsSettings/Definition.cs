@@ -18,4 +18,17 @@ internal class Definition : ResourceDefinition
         new SecurityMLAnalyticsSettingsGetOperation(),
         new SecurityMLAnalyticsSettingsListOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AttackTacticConstant),
+        typeof(SecurityMLAnalyticsSettingsKindConstant),
+        typeof(SettingsStatusConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AnomalySecurityMLAnalyticsSettingsModel),
+        typeof(AnomalySecurityMLAnalyticsSettingsPropertiesModel),
+        typeof(SecurityMLAnalyticsSettingModel),
+        typeof(SecurityMLAnalyticsSettingsDataSourceModel),
+    };
 }

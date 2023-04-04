@@ -15,4 +15,17 @@ internal class Definition : ResourceDefinition
     {
         new DataProtectionCheckFeatureSupportOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(FeatureSupportStatusConstant),
+        typeof(FeatureTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(FeatureValidationRequestModel),
+        typeof(FeatureValidationRequestBaseModel),
+        typeof(FeatureValidationResponseModel),
+        typeof(FeatureValidationResponseBaseModel),
+        typeof(SupportedFeatureModel),
+    };
 }

@@ -22,4 +22,29 @@ internal class Definition : ResourceDefinition
         new SetStateOperation(),
         new WorkflowVersionTriggersListCallbackUrlOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(DayOfWeekConstant),
+        typeof(DaysOfWeekConstant),
+        typeof(KeyTypeConstant),
+        typeof(RecurrenceFrequencyConstant),
+        typeof(WorkflowStateConstant),
+        typeof(WorkflowStatusConstant),
+        typeof(WorkflowTriggerProvisioningStateConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(GetCallbackUrlParametersModel),
+        typeof(JsonSchemaModel),
+        typeof(RecurrenceScheduleModel),
+        typeof(RecurrenceScheduleOccurrenceModel),
+        typeof(ResourceReferenceModel),
+        typeof(SetTriggerStateActionDefinitionModel),
+        typeof(WorkflowTriggerModel),
+        typeof(WorkflowTriggerCallbackUrlModel),
+        typeof(WorkflowTriggerListCallbackUrlQueriesModel),
+        typeof(WorkflowTriggerPropertiesModel),
+        typeof(WorkflowTriggerRecurrenceModel),
+        typeof(WorkflowTriggerReferenceModel),
+    };
 }

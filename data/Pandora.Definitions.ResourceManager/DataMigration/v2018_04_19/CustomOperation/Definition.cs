@@ -19,4 +19,20 @@ internal class Definition : ResourceDefinition
         new ServicesStopOperation(),
         new TasksCancelOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(CommandStateConstant),
+        typeof(NameCheckFailureReasonConstant),
+        typeof(TaskStateConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(CommandPropertiesModel),
+        typeof(DataMigrationServiceStatusResponseModel),
+        typeof(NameAvailabilityRequestModel),
+        typeof(NameAvailabilityResponseModel),
+        typeof(ODataErrorModel),
+        typeof(ProjectTaskModel),
+        typeof(ProjectTaskPropertiesModel),
+    };
 }

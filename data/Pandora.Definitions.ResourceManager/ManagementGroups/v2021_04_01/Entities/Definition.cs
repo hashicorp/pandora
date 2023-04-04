@@ -15,4 +15,16 @@ internal class Definition : ResourceDefinition
     {
         new ListOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(EntitySearchTypeConstant),
+        typeof(EntityViewParameterTypeConstant),
+        typeof(PermissionsConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(EntityInfoModel),
+        typeof(EntityInfoPropertiesModel),
+        typeof(EntityParentGroupInfoModel),
+    };
 }

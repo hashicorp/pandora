@@ -24,4 +24,23 @@ internal class Definition : ResourceDefinition
         new ListAuthorizationRulesOperation(),
         new ListKeysOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AccessRightsConstant),
+        typeof(ProvisioningStateDRConstant),
+        typeof(RoleDisasterRecoveryConstant),
+        typeof(UnavailableReasonConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AccessKeysModel),
+        typeof(ArmDisasterRecoveryModel),
+        typeof(ArmDisasterRecoveryPropertiesModel),
+        typeof(CheckNameAvailabilityModel),
+        typeof(CheckNameAvailabilityResultModel),
+        typeof(FailoverPropertiesModel),
+        typeof(FailoverPropertiesPropertiesModel),
+        typeof(SBAuthorizationRuleModel),
+        typeof(SBAuthorizationRulePropertiesModel),
+    };
 }

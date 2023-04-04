@@ -22,4 +22,23 @@ internal class Definition : ResourceDefinition
         new RestartOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(DiskTypeConstant),
+        typeof(ManagedResourceProvisioningStateConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(EndpointRangeDescriptionModel),
+        typeof(NodeTypeModel),
+        typeof(NodeTypeActionParametersModel),
+        typeof(NodeTypePropertiesModel),
+        typeof(NodeTypeUpdateParametersModel),
+        typeof(SubResourceModel),
+        typeof(SystemDataModel),
+        typeof(VMSSExtensionModel),
+        typeof(VMSSExtensionPropertiesModel),
+        typeof(VaultCertificateModel),
+        typeof(VaultSecretGroupModel),
+    };
 }

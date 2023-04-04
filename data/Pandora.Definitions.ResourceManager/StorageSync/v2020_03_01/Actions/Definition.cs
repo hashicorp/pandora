@@ -23,4 +23,20 @@ internal class Definition : ResourceDefinition
         new ServerEndpointsrecallActionOperation(),
         new WorkflowsAbortOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ChangeDetectionModeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(BackupRequestModel),
+        typeof(PostBackupResponseModel),
+        typeof(PostBackupResponsePropertiesModel),
+        typeof(PostRestoreRequestModel),
+        typeof(PreRestoreRequestModel),
+        typeof(RecallActionParametersModel),
+        typeof(RestoreFileSpecModel),
+        typeof(TriggerChangeDetectionParametersModel),
+        typeof(TriggerRolloverRequestModel),
+    };
 }

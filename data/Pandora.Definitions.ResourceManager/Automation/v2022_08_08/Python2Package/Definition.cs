@@ -19,4 +19,19 @@ internal class Definition : ResourceDefinition
         new ListByAutomationAccountOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ModuleProvisioningStateConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ContentHashModel),
+        typeof(ContentLinkModel),
+        typeof(ModuleModel),
+        typeof(ModuleErrorInfoModel),
+        typeof(ModulePropertiesModel),
+        typeof(PythonPackageCreateParametersModel),
+        typeof(PythonPackageCreatePropertiesModel),
+        typeof(PythonPackageUpdateParametersModel),
+    };
 }

@@ -24,4 +24,22 @@ internal class Definition : ResourceDefinition
         new ListPublishersOperation(),
         new ListSkusOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(HyperVGenerationTypesConstant),
+        typeof(OperatingSystemTypesConstant),
+        typeof(VMDiskTypesConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AutomaticOSUpgradePropertiesModel),
+        typeof(DataDiskImageModel),
+        typeof(DisallowedConfigurationModel),
+        typeof(OSDiskImageModel),
+        typeof(PurchasePlanModel),
+        typeof(VirtualMachineImageModel),
+        typeof(VirtualMachineImageFeatureModel),
+        typeof(VirtualMachineImagePropertiesModel),
+        typeof(VirtualMachineImageResourceModel),
+    };
 }

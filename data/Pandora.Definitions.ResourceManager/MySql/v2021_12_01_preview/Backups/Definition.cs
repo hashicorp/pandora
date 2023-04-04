@@ -17,4 +17,13 @@ internal class Definition : ResourceDefinition
         new ListByServerOperation(),
         new PutOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ServerBackupModel),
+        typeof(ServerBackupPropertiesModel),
+    };
 }

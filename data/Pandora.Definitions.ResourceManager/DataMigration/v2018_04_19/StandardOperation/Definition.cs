@@ -34,4 +34,44 @@ internal class Definition : ResourceDefinition
         new TasksUpdateOperation(),
         new UsagesListOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(CommandStateConstant),
+        typeof(NameCheckFailureReasonConstant),
+        typeof(ProjectProvisioningStateConstant),
+        typeof(ProjectSourcePlatformConstant),
+        typeof(ProjectTargetPlatformConstant),
+        typeof(ResourceSkuCapacityScaleTypeConstant),
+        typeof(ResourceSkuRestrictionsReasonCodeConstant),
+        typeof(ResourceSkuRestrictionsTypeConstant),
+        typeof(ServiceProvisioningStateConstant),
+        typeof(ServiceScalabilityConstant),
+        typeof(TaskStateConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AvailableServiceSkuModel),
+        typeof(AvailableServiceSkuCapacityModel),
+        typeof(AvailableServiceSkuSkuModel),
+        typeof(CommandPropertiesModel),
+        typeof(ConnectionInfoModel),
+        typeof(DataMigrationServiceModel),
+        typeof(DataMigrationServicePropertiesModel),
+        typeof(DatabaseInfoModel),
+        typeof(NameAvailabilityRequestModel),
+        typeof(NameAvailabilityResponseModel),
+        typeof(ODataErrorModel),
+        typeof(ProjectModel),
+        typeof(ProjectPropertiesModel),
+        typeof(ProjectTaskModel),
+        typeof(ProjectTaskPropertiesModel),
+        typeof(QuotaModel),
+        typeof(QuotaNameModel),
+        typeof(ResourceSkuModel),
+        typeof(ResourceSkuCapabilitiesModel),
+        typeof(ResourceSkuCapacityModel),
+        typeof(ResourceSkuCostsModel),
+        typeof(ResourceSkuRestrictionsModel),
+        typeof(ServiceSkuModel),
+    };
 }

@@ -20,4 +20,16 @@ internal class Definition : ResourceDefinition
         new QueriesSearchOperation(),
         new QueriesUpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(LogAnalyticsQueryPackQueryModel),
+        typeof(LogAnalyticsQueryPackQueryPropertiesModel),
+        typeof(LogAnalyticsQueryPackQueryPropertiesRelatedModel),
+        typeof(LogAnalyticsQueryPackQuerySearchPropertiesModel),
+        typeof(LogAnalyticsQueryPackQuerySearchPropertiesRelatedModel),
+    };
 }

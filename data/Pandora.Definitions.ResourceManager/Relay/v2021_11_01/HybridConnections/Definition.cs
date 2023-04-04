@@ -24,4 +24,18 @@ internal class Definition : ResourceDefinition
         new ListKeysOperation(),
         new RegenerateKeysOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AccessRightsConstant),
+        typeof(KeyTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AccessKeysModel),
+        typeof(AuthorizationRuleModel),
+        typeof(AuthorizationRulePropertiesModel),
+        typeof(HybridConnectionModel),
+        typeof(HybridConnectionPropertiesModel),
+        typeof(RegenerateAccessKeyParametersModel),
+    };
 }

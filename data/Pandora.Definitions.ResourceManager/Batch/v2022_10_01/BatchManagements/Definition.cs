@@ -17,4 +17,16 @@ internal class Definition : ResourceDefinition
         new BatchAccountListDetectorsOperation(),
         new LocationCheckNameAvailabilityOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(NameAvailabilityReasonConstant),
+        typeof(ResourceTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(CheckNameAvailabilityParametersModel),
+        typeof(CheckNameAvailabilityResultModel),
+        typeof(DetectorResponseModel),
+        typeof(DetectorResponsePropertiesModel),
+    };
 }

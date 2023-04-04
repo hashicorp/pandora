@@ -18,4 +18,13 @@ internal class Definition : ResourceDefinition
         new GetOperation(),
         new ListByShareOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(InvitationStatusConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(InvitationModel),
+        typeof(InvitationPropertiesModel),
+    };
 }

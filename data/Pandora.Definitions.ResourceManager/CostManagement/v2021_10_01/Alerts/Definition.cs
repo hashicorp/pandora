@@ -18,4 +18,24 @@ internal class Definition : ResourceDefinition
         new ListOperation(),
         new ListExternalOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AlertCategoryConstant),
+        typeof(AlertCriteriaConstant),
+        typeof(AlertOperatorConstant),
+        typeof(AlertSourceConstant),
+        typeof(AlertStatusConstant),
+        typeof(AlertTimeGrainTypeConstant),
+        typeof(AlertTypeConstant),
+        typeof(ExternalCloudProviderTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AlertModel),
+        typeof(AlertPropertiesModel),
+        typeof(AlertPropertiesDefinitionModel),
+        typeof(AlertPropertiesDetailsModel),
+        typeof(AlertsResultModel),
+        typeof(DismissAlertPayloadModel),
+    };
 }

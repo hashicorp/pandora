@@ -16,4 +16,19 @@ internal class Definition : ResourceDefinition
         new CapabilitiesOperation(),
         new CheckNameAvailabilityOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(VaultSubResourceTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(CapabilitiesPropertiesModel),
+        typeof(CapabilitiesResponseModel),
+        typeof(CapabilitiesResponsePropertiesModel),
+        typeof(CheckNameAvailabilityParametersModel),
+        typeof(CheckNameAvailabilityResultModel),
+        typeof(DNSZoneModel),
+        typeof(DNSZoneResponseModel),
+        typeof(ResourceCapabilitiesModel),
+    };
 }

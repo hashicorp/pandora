@@ -20,4 +20,16 @@ internal class Definition : ResourceDefinition
         new NamespacesListKeysOperation(),
         new NamespacesRegenerateKeysOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AccessRightsConstant),
+        typeof(KeyTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AccessKeysModel),
+        typeof(RegenerateAccessKeyParametersModel),
+        typeof(SBAuthorizationRuleModel),
+        typeof(SBAuthorizationRulePropertiesModel),
+    };
 }

@@ -15,4 +15,20 @@ internal class Definition : ResourceDefinition
     {
         new GetDeviceCapacityInfoOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ClusterCapacityViewDataModel),
+        typeof(ClusterGpuCapacityModel),
+        typeof(ClusterMemoryCapacityModel),
+        typeof(ClusterStorageViewDataModel),
+        typeof(DeviceCapacityInfoModel),
+        typeof(DeviceCapacityInfoPropertiesModel),
+        typeof(HostCapacityModel),
+        typeof(NumaNodeDataModel),
+        typeof(VMMemoryModel),
+    };
 }

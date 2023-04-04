@@ -22,4 +22,17 @@ internal class Definition : ResourceDefinition
         new WorkbooksRevisionsListOperation(),
         new WorkbooksUpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(CategoryTypeConstant),
+        typeof(WorkbookSharedTypeKindConstant),
+        typeof(WorkbookUpdateSharedTypeKindConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(WorkbookModel),
+        typeof(WorkbookPropertiesModel),
+        typeof(WorkbookPropertiesUpdateParametersModel),
+        typeof(WorkbookUpdateParametersModel),
+    };
 }

@@ -21,4 +21,32 @@ internal class Definition : ResourceDefinition
         new ReplicasListByServerOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(CreateModeConstant),
+        typeof(DataEncryptionTypeConstant),
+        typeof(EnableStatusEnumConstant),
+        typeof(HighAvailabilityModeConstant),
+        typeof(HighAvailabilityStateConstant),
+        typeof(ManagedServiceIdentityTypeConstant),
+        typeof(ReplicationRoleConstant),
+        typeof(ServerStateConstant),
+        typeof(ServerVersionConstant),
+        typeof(SkuTierConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(BackupModel),
+        typeof(DataEncryptionModel),
+        typeof(HighAvailabilityModel),
+        typeof(IdentityModel),
+        typeof(MaintenanceWindowModel),
+        typeof(NetworkModel),
+        typeof(ServerModel),
+        typeof(ServerForUpdateModel),
+        typeof(ServerPropertiesModel),
+        typeof(ServerPropertiesForUpdateModel),
+        typeof(SkuModel),
+        typeof(StorageModel),
+    };
 }

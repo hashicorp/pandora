@@ -32,4 +32,21 @@ internal class Definition : ResourceDefinition
         new PatchOperation(),
         new PutOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AlertsStateConstant),
+        typeof(ProvisioningStateConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AzureMonitorAlertSettingsModel),
+        typeof(DppBaseResourceModel),
+        typeof(DppIdentityDetailsModel),
+        typeof(MonitoringSettingsModel),
+        typeof(PatchBackupVaultInputModel),
+        typeof(PatchResourceRequestInputModel),
+        typeof(ResourceGuardModel),
+        typeof(ResourceGuardOperationModel),
+        typeof(ResourceGuardResourceModel),
+    };
 }

@@ -24,4 +24,20 @@ internal class Definition : ResourceDefinition
         new RegenerateKeyOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(KeyTypeConstant),
+        typeof(ProvisioningStateConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(CommunicationServiceKeysModel),
+        typeof(CommunicationServicePropertiesModel),
+        typeof(CommunicationServiceResourceModel),
+        typeof(LinkNotificationHubParametersModel),
+        typeof(LinkedNotificationHubModel),
+        typeof(NameAvailabilityModel),
+        typeof(NameAvailabilityParametersModel),
+        typeof(RegenerateKeyParametersModel),
+    };
 }

@@ -20,4 +20,21 @@ internal class Definition : ResourceDefinition
         new ListBySubscriptionOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(CapacityReservationGroupInstanceViewTypesConstant),
+        typeof(ExpandTypesForGetCapacityReservationGroupsConstant),
+        typeof(StatusLevelTypesConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(CapacityReservationGroupModel),
+        typeof(CapacityReservationGroupInstanceViewModel),
+        typeof(CapacityReservationGroupPropertiesModel),
+        typeof(CapacityReservationGroupUpdateModel),
+        typeof(CapacityReservationInstanceViewWithNameModel),
+        typeof(CapacityReservationUtilizationModel),
+        typeof(InstanceViewStatusModel),
+        typeof(SubResourceReadOnlyModel),
+    };
 }

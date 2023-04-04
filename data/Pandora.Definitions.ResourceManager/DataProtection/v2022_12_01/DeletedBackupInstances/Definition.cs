@@ -17,4 +17,30 @@ internal class Definition : ResourceDefinition
         new ListOperation(),
         new UndeleteOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(CurrentProtectionStateConstant),
+        typeof(DataStoreTypesConstant),
+        typeof(SecretStoreTypeConstant),
+        typeof(StatusConstant),
+        typeof(ValidationTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AuthCredentialsModel),
+        typeof(AzureOperationalStoreParametersModel),
+        typeof(DataStoreParametersModel),
+        typeof(DatasourceModel),
+        typeof(DatasourceSetModel),
+        typeof(DeletedBackupInstanceModel),
+        typeof(DeletedBackupInstanceResourceModel),
+        typeof(DeletionInfoModel),
+        typeof(InnerErrorModel),
+        typeof(PolicyInfoModel),
+        typeof(PolicyParametersModel),
+        typeof(ProtectionStatusDetailsModel),
+        typeof(SecretStoreBasedAuthCredentialsModel),
+        typeof(SecretStoreResourceModel),
+        typeof(UserFacingErrorModel),
+    };
 }

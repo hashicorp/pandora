@@ -24,4 +24,19 @@ internal class Definition : ResourceDefinition
         new RestoreFilesOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(BackupTypeConstant),
+        typeof(MirrorStateConstant),
+        typeof(RelationshipStatusConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(BackupModel),
+        typeof(BackupPatchModel),
+        typeof(BackupPropertiesModel),
+        typeof(BackupRestoreFilesModel),
+        typeof(BackupStatusModel),
+        typeof(BackupsListModel),
+    };
 }

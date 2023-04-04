@@ -21,4 +21,24 @@ internal class Definition : ResourceDefinition
         new ListInSubscriptionOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ClusterProvisioningStateConstant),
+        typeof(InternetEnumConstant),
+        typeof(PrivateCloudProvisioningStateConstant),
+        typeof(SslEnumConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AdminCredentialsModel),
+        typeof(CircuitModel),
+        typeof(EndpointsModel),
+        typeof(IdentitySourceModel),
+        typeof(ManagementClusterModel),
+        typeof(PrivateCloudModel),
+        typeof(PrivateCloudPropertiesModel),
+        typeof(PrivateCloudUpdateModel),
+        typeof(PrivateCloudUpdatePropertiesModel),
+        typeof(SkuModel),
+    };
 }

@@ -27,4 +27,22 @@ internal class Definition : ResourceDefinition
         new RotateClusterCertificatesOperation(),
         new UpdateTagsOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ContainerServiceOSTypesConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(CredentialResultModel),
+        typeof(CredentialResultsModel),
+        typeof(ManagedClusterModel),
+        typeof(ManagedClusterAADProfileModel),
+        typeof(ManagedClusterAccessProfileModel),
+        typeof(ManagedClusterPoolUpgradeProfileModel),
+        typeof(ManagedClusterPoolUpgradeProfileUpgradesInlinedModel),
+        typeof(ManagedClusterServicePrincipalProfileModel),
+        typeof(ManagedClusterUpgradeProfileModel),
+        typeof(ManagedClusterUpgradeProfilePropertiesModel),
+        typeof(TagsObjectModel),
+    };
 }

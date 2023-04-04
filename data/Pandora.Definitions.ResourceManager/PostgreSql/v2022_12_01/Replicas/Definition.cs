@@ -15,4 +15,36 @@ internal class Definition : ResourceDefinition
     {
         new ListByServerOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ActiveDirectoryAuthEnumConstant),
+        typeof(ArmServerKeyTypeConstant),
+        typeof(CreateModeConstant),
+        typeof(GeoRedundantBackupEnumConstant),
+        typeof(HighAvailabilityModeConstant),
+        typeof(IdentityTypeConstant),
+        typeof(PasswordAuthEnumConstant),
+        typeof(ReplicationRoleConstant),
+        typeof(ServerHAStateConstant),
+        typeof(ServerPublicNetworkAccessStateConstant),
+        typeof(ServerStateConstant),
+        typeof(ServerVersionConstant),
+        typeof(SkuTierConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AuthConfigModel),
+        typeof(BackupModel),
+        typeof(DataEncryptionModel),
+        typeof(HighAvailabilityModel),
+        typeof(MaintenanceWindowModel),
+        typeof(NetworkModel),
+        typeof(ServerModel),
+        typeof(ServerListResultModel),
+        typeof(ServerPropertiesModel),
+        typeof(SkuModel),
+        typeof(StorageModel),
+        typeof(UserAssignedIdentityModel),
+        typeof(UserIdentityModel),
+    };
 }

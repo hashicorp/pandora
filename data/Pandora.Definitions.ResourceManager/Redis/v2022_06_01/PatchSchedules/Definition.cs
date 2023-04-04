@@ -18,4 +18,14 @@ internal class Definition : ResourceDefinition
         new GetOperation(),
         new ListByRedisResourceOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(DayOfWeekConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(RedisPatchScheduleModel),
+        typeof(ScheduleEntriesModel),
+        typeof(ScheduleEntryModel),
+    };
 }

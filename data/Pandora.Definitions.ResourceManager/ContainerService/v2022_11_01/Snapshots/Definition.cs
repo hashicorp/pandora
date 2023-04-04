@@ -20,4 +20,17 @@ internal class Definition : ResourceDefinition
         new ListByResourceGroupOperation(),
         new UpdateTagsOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(OSSKUConstant),
+        typeof(OSTypeConstant),
+        typeof(SnapshotTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(CreationDataModel),
+        typeof(SnapshotModel),
+        typeof(SnapshotPropertiesModel),
+        typeof(TagsObjectModel),
+    };
 }

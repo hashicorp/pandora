@@ -19,4 +19,17 @@ internal class Definition : ResourceDefinition
         new ListByAccountOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(CreateOrUpdateVirtualNetworkRuleParametersModel),
+        typeof(CreateOrUpdateVirtualNetworkRulePropertiesModel),
+        typeof(UpdateVirtualNetworkRuleParametersModel),
+        typeof(UpdateVirtualNetworkRulePropertiesModel),
+        typeof(VirtualNetworkRuleModel),
+        typeof(VirtualNetworkRulePropertiesModel),
+    };
 }

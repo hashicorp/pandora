@@ -20,4 +20,42 @@ internal class Definition : ResourceDefinition
         new RestartOperation(),
         new ResumeOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ExportJobOutputSerializationTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ASRTaskModel),
+        typeof(AsrJobDetailsModel),
+        typeof(AutomationRunbookTaskDetailsModel),
+        typeof(ConsistencyCheckTaskDetailsModel),
+        typeof(ExportJobDetailsModel),
+        typeof(FabricReplicationGroupTaskDetailsModel),
+        typeof(FailoverJobDetailsModel),
+        typeof(FailoverReplicationProtectedItemDetailsModel),
+        typeof(GroupTaskDetailsModel),
+        typeof(InconsistentVMDetailsModel),
+        typeof(InlineWorkflowTaskDetailsModel),
+        typeof(JobModel),
+        typeof(JobDetailsModel),
+        typeof(JobEntityModel),
+        typeof(JobErrorDetailsModel),
+        typeof(JobPropertiesModel),
+        typeof(JobQueryParameterModel),
+        typeof(JobTaskDetailsModel),
+        typeof(ManualActionTaskDetailsModel),
+        typeof(ProviderErrorModel),
+        typeof(RecoveryPlanGroupTaskDetailsModel),
+        typeof(RecoveryPlanShutdownGroupTaskDetailsModel),
+        typeof(ResumeJobParamsModel),
+        typeof(ResumeJobParamsPropertiesModel),
+        typeof(ScriptActionTaskDetailsModel),
+        typeof(ServiceErrorModel),
+        typeof(SwitchProtectionJobDetailsModel),
+        typeof(TaskTypeDetailsModel),
+        typeof(TestFailoverJobDetailsModel),
+        typeof(VMNicUpdatesTaskDetailsModel),
+        typeof(VirtualMachineTaskDetailsModel),
+    };
 }

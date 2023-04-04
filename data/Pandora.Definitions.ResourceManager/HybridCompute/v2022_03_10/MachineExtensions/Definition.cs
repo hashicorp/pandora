@@ -19,4 +19,17 @@ internal class Definition : ResourceDefinition
         new ListOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(StatusLevelTypesConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(MachineExtensionModel),
+        typeof(MachineExtensionInstanceViewModel),
+        typeof(MachineExtensionInstanceViewStatusModel),
+        typeof(MachineExtensionPropertiesModel),
+        typeof(MachineExtensionUpdateModel),
+        typeof(MachineExtensionUpdatePropertiesModel),
+    };
 }

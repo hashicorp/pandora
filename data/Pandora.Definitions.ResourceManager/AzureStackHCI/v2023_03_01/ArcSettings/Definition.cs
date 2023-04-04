@@ -23,4 +23,22 @@ internal class Definition : ResourceDefinition
         new GeneratePasswordOperation(),
         new InitializeDisableProcessOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ArcSettingAggregateStateConstant),
+        typeof(NodeArcStateConstant),
+        typeof(ProvisioningStateConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ArcIdentityResponseModel),
+        typeof(ArcIdentityResponsePropertiesModel),
+        typeof(ArcSettingModel),
+        typeof(ArcSettingPropertiesModel),
+        typeof(ArcSettingsPatchModel),
+        typeof(ArcSettingsPatchPropertiesModel),
+        typeof(DefaultExtensionDetailsModel),
+        typeof(PasswordCredentialModel),
+        typeof(PerNodeStateModel),
+    };
 }

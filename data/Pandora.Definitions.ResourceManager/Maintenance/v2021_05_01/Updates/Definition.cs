@@ -16,4 +16,16 @@ internal class Definition : ResourceDefinition
         new ListOperation(),
         new ListParentOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ImpactTypeConstant),
+        typeof(MaintenanceScopeConstant),
+        typeof(UpdateStatusConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ListUpdatesResultModel),
+        typeof(UpdateModel),
+        typeof(UpdatePropertiesModel),
+    };
 }

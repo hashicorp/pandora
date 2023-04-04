@@ -20,4 +20,20 @@ internal class Definition : ResourceDefinition
         new PrivateLinkResourcesGetOperation(),
         new PrivateLinkResourcesListOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ConnectionPropertiesProvisioningStateConstant),
+        typeof(PrivateLinkServiceConnectionStatusConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ConnectionPropertiesModel),
+        typeof(ConnectionStateModel),
+        typeof(GroupIdInformationModel),
+        typeof(GroupIdInformationPropertiesModel),
+        typeof(GroupIdInformationResponseModel),
+        typeof(PrivateEndpointModel),
+        typeof(PrivateEndpointConnectionModel),
+        typeof(PrivateEndpointConnectionsResponseModel),
+    };
 }

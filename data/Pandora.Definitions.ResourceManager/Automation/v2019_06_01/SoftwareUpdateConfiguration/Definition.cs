@@ -18,4 +18,35 @@ internal class Definition : ResourceDefinition
         new SoftwareUpdateConfigurationsGetByNameOperation(),
         new SoftwareUpdateConfigurationsListOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(CountTypeConstant),
+        typeof(LinuxUpdateClassesConstant),
+        typeof(OperatingSystemTypeConstant),
+        typeof(ScheduleDayConstant),
+        typeof(ScheduleFrequencyConstant),
+        typeof(TagOperatorsConstant),
+        typeof(WindowsUpdateClassesConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AdvancedScheduleModel),
+        typeof(AdvancedScheduleMonthlyOccurrenceModel),
+        typeof(AzureQueryPropertiesModel),
+        typeof(ErrorResponseModel),
+        typeof(LinuxPropertiesModel),
+        typeof(NonAzureQueryPropertiesModel),
+        typeof(SUCSchedulePropertiesModel),
+        typeof(SoftwareUpdateConfigurationModel),
+        typeof(SoftwareUpdateConfigurationCollectionItemModel),
+        typeof(SoftwareUpdateConfigurationCollectionItemPropertiesModel),
+        typeof(SoftwareUpdateConfigurationListResultModel),
+        typeof(SoftwareUpdateConfigurationPropertiesModel),
+        typeof(SoftwareUpdateConfigurationTasksModel),
+        typeof(TagSettingsPropertiesModel),
+        typeof(TargetPropertiesModel),
+        typeof(TaskPropertiesModel),
+        typeof(UpdateConfigurationModel),
+        typeof(WindowsPropertiesModel),
+    };
 }

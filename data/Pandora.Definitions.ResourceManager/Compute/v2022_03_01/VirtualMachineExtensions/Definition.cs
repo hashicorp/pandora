@@ -19,4 +19,20 @@ internal class Definition : ResourceDefinition
         new ListOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(StatusLevelTypesConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(InstanceViewStatusModel),
+        typeof(KeyVaultSecretReferenceModel),
+        typeof(SubResourceModel),
+        typeof(VirtualMachineExtensionModel),
+        typeof(VirtualMachineExtensionInstanceViewModel),
+        typeof(VirtualMachineExtensionPropertiesModel),
+        typeof(VirtualMachineExtensionUpdateModel),
+        typeof(VirtualMachineExtensionUpdatePropertiesModel),
+        typeof(VirtualMachineExtensionsListResultModel),
+    };
 }

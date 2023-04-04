@@ -18,4 +18,15 @@ internal class Definition : ResourceDefinition
         new GetOperation(),
         new ListByServiceOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AdminKeyKindConstant),
+        typeof(SharedPrivateLinkResourceProvisioningStateConstant),
+        typeof(SharedPrivateLinkResourceStatusConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(SharedPrivateLinkResourceModel),
+        typeof(SharedPrivateLinkResourcePropertiesModel),
+    };
 }

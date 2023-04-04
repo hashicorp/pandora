@@ -21,4 +21,15 @@ internal class Definition : ResourceDefinition
         new StopOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(WatcherModel),
+        typeof(WatcherPropertiesModel),
+        typeof(WatcherUpdateParametersModel),
+        typeof(WatcherUpdatePropertiesModel),
+    };
 }

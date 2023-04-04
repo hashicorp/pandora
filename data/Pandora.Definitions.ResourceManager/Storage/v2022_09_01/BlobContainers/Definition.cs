@@ -28,4 +28,33 @@ internal class Definition : ResourceDefinition
         new SetLegalHoldOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ImmutabilityPolicyStateConstant),
+        typeof(ImmutabilityPolicyUpdateTypeConstant),
+        typeof(LeaseContainerRequestActionConstant),
+        typeof(LeaseDurationConstant),
+        typeof(LeaseStateConstant),
+        typeof(LeaseStatusConstant),
+        typeof(ListContainersIncludeConstant),
+        typeof(MigrationStateConstant),
+        typeof(PublicAccessConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(BlobContainerModel),
+        typeof(ContainerPropertiesModel),
+        typeof(ImmutabilityPolicyModel),
+        typeof(ImmutabilityPolicyPropertiesModel),
+        typeof(ImmutabilityPolicyPropertyModel),
+        typeof(ImmutableStorageWithVersioningModel),
+        typeof(LeaseContainerRequestModel),
+        typeof(LeaseContainerResponseModel),
+        typeof(LegalHoldModel),
+        typeof(LegalHoldPropertiesModel),
+        typeof(ListContainerItemModel),
+        typeof(ProtectedAppendWritesHistoryModel),
+        typeof(TagPropertyModel),
+        typeof(UpdateHistoryPropertyModel),
+    };
 }

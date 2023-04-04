@@ -18,4 +18,20 @@ internal class Definition : ResourceDefinition
         new StartExtensionUpgradeOperation(),
         new StartOSUpgradeOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(RollingUpgradeActionTypeConstant),
+        typeof(RollingUpgradeStatusCodeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ApiErrorModel),
+        typeof(ApiErrorBaseModel),
+        typeof(InnerErrorModel),
+        typeof(RollingUpgradePolicyModel),
+        typeof(RollingUpgradeProgressInfoModel),
+        typeof(RollingUpgradeRunningStatusModel),
+        typeof(RollingUpgradeStatusInfoModel),
+        typeof(RollingUpgradeStatusInfoPropertiesModel),
+    };
 }

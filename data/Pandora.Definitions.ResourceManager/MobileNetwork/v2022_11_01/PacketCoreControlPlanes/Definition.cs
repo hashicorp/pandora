@@ -16,4 +16,31 @@ internal class Definition : ResourceDefinition
         new ListByResourceGroupOperation(),
         new ListBySubscriptionOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AuthenticationTypeConstant),
+        typeof(BillingSkuConstant),
+        typeof(CertificateProvisioningStateConstant),
+        typeof(CoreNetworkTypeConstant),
+        typeof(InstallationStateConstant),
+        typeof(PlatformTypeConstant),
+        typeof(ProvisioningStateConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AsyncOperationIdModel),
+        typeof(AzureStackEdgeDeviceResourceIdModel),
+        typeof(AzureStackHCIClusterResourceIdModel),
+        typeof(CertificateProvisioningModel),
+        typeof(ConnectedClusterResourceIdModel),
+        typeof(CustomLocationResourceIdModel),
+        typeof(HTTPSServerCertificateModel),
+        typeof(InstallationModel),
+        typeof(InterfacePropertiesModel),
+        typeof(LocalDiagnosticsAccessConfigurationModel),
+        typeof(PacketCoreControlPlaneModel),
+        typeof(PacketCoreControlPlanePropertiesFormatModel),
+        typeof(PlatformConfigurationModel),
+        typeof(SiteResourceIdModel),
+    };
 }

@@ -16,4 +16,17 @@ internal class Definition : ResourceDefinition
         new GetOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(EncryptionAtRestTypeConstant),
+        typeof(InfrastructureEncryptionStateConstant),
+        typeof(LastUpdateStatusConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(BackupResourceEncryptionConfigModel),
+        typeof(BackupResourceEncryptionConfigExtendedModel),
+        typeof(BackupResourceEncryptionConfigExtendedResourceModel),
+        typeof(BackupResourceEncryptionConfigResourceModel),
+    };
 }

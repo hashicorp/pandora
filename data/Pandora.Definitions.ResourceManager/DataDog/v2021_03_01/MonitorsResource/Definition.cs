@@ -20,4 +20,23 @@ internal class Definition : ResourceDefinition
         new MonitorsListByResourceGroupOperation(),
         new MonitorsUpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(LiftrResourceCategoriesConstant),
+        typeof(ManagedIdentityTypesConstant),
+        typeof(MarketplaceSubscriptionStatusConstant),
+        typeof(MonitoringStatusConstant),
+        typeof(ProvisioningStateConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(DatadogMonitorResourceModel),
+        typeof(DatadogMonitorResourceUpdateParametersModel),
+        typeof(DatadogOrganizationPropertiesModel),
+        typeof(IdentityPropertiesModel),
+        typeof(MonitorPropertiesModel),
+        typeof(MonitorUpdatePropertiesModel),
+        typeof(ResourceSkuModel),
+        typeof(UserInfoModel),
+    };
 }

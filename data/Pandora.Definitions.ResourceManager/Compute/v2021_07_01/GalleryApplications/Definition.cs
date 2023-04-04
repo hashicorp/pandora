@@ -19,4 +19,14 @@ internal class Definition : ResourceDefinition
         new ListByGalleryOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(OperatingSystemTypesConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(GalleryApplicationModel),
+        typeof(GalleryApplicationPropertiesModel),
+        typeof(GalleryApplicationUpdateModel),
+    };
 }

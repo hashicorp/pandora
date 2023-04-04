@@ -20,4 +20,22 @@ internal class Definition : ResourceDefinition
         new ListBySubscriptionOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ConnectionTypeConstant),
+        typeof(EnableStateConstant),
+        typeof(ProvisioningStateConstant),
+        typeof(ShutdownOnIdleModeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AutoShutdownProfileModel),
+        typeof(ConnectionProfileModel),
+        typeof(LabPlanModel),
+        typeof(LabPlanNetworkProfileModel),
+        typeof(LabPlanPropertiesModel),
+        typeof(LabPlanUpdateModel),
+        typeof(LabPlanUpdatePropertiesModel),
+        typeof(SupportInfoModel),
+    };
 }

@@ -18,4 +18,16 @@ internal class Definition : ResourceDefinition
         new StorageInsightConfigsGetOperation(),
         new StorageInsightConfigsListByWorkspaceOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(DataSourceTypeConstant),
+        typeof(StorageInsightStateConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(StorageAccountModel),
+        typeof(StorageInsightModel),
+        typeof(StorageInsightPropertiesModel),
+        typeof(StorageInsightStatusModel),
+    };
 }

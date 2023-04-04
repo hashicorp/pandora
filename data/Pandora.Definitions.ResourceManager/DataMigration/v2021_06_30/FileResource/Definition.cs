@@ -20,4 +20,14 @@ internal class Definition : ResourceDefinition
         new FilesReadWriteOperation(),
         new FilesUpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(FileStorageInfoModel),
+        typeof(ProjectFileModel),
+        typeof(ProjectFilePropertiesModel),
+    };
 }

@@ -31,4 +31,30 @@ internal class Definition : ResourceDefinition
         new UpdateOperation(),
         new UpgradeOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(IntegrationRuntimeAuthKeyNameConstant),
+        typeof(IntegrationRuntimeAutoUpdateConstant),
+        typeof(IntegrationRuntimeStateConstant),
+        typeof(IntegrationRuntimeTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(CreateLinkedIntegrationRuntimeRequestModel),
+        typeof(IntegrationRuntimeModel),
+        typeof(IntegrationRuntimeAuthKeysModel),
+        typeof(IntegrationRuntimeConnectionInfoModel),
+        typeof(IntegrationRuntimeMonitoringDataModel),
+        typeof(IntegrationRuntimeNodeMonitoringDataModel),
+        typeof(IntegrationRuntimeOutboundNetworkDependenciesCategoryEndpointModel),
+        typeof(IntegrationRuntimeOutboundNetworkDependenciesEndpointModel),
+        typeof(IntegrationRuntimeOutboundNetworkDependenciesEndpointDetailsModel),
+        typeof(IntegrationRuntimeOutboundNetworkDependenciesEndpointsResponseModel),
+        typeof(IntegrationRuntimeRegenerateKeyParametersModel),
+        typeof(IntegrationRuntimeResourceModel),
+        typeof(IntegrationRuntimeStatusModel),
+        typeof(IntegrationRuntimeStatusResponseModel),
+        typeof(LinkedIntegrationRuntimeRequestModel),
+        typeof(UpdateIntegrationRuntimeRequestModel),
+    };
 }

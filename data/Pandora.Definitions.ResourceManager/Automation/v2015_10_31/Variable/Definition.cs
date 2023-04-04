@@ -19,4 +19,17 @@ internal class Definition : ResourceDefinition
         new ListByAutomationAccountOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(VariableModel),
+        typeof(VariableCreateOrUpdateParametersModel),
+        typeof(VariableCreateOrUpdatePropertiesModel),
+        typeof(VariablePropertiesModel),
+        typeof(VariableUpdateParametersModel),
+        typeof(VariableUpdatePropertiesModel),
+    };
 }

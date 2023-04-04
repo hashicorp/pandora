@@ -22,4 +22,42 @@ internal class Definition : ResourceDefinition
         new RevokeAccessOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AccessLevelConstant),
+        typeof(ArchitectureConstant),
+        typeof(CopyCompletionErrorReasonConstant),
+        typeof(DataAccessAuthModeConstant),
+        typeof(DiskCreateOptionConstant),
+        typeof(DiskSecurityTypesConstant),
+        typeof(DiskStateConstant),
+        typeof(EncryptionTypeConstant),
+        typeof(HyperVGenerationConstant),
+        typeof(NetworkAccessPolicyConstant),
+        typeof(OperatingSystemTypesConstant),
+        typeof(PublicNetworkAccessConstant),
+        typeof(SnapshotStorageAccountTypesConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AccessUriModel),
+        typeof(CopyCompletionErrorModel),
+        typeof(CreationDataModel),
+        typeof(DiskSecurityProfileModel),
+        typeof(EncryptionModel),
+        typeof(EncryptionSettingsCollectionModel),
+        typeof(EncryptionSettingsElementModel),
+        typeof(GrantAccessDataModel),
+        typeof(ImageDiskReferenceModel),
+        typeof(KeyVaultAndKeyReferenceModel),
+        typeof(KeyVaultAndSecretReferenceModel),
+        typeof(PurchasePlanModel),
+        typeof(SnapshotModel),
+        typeof(SnapshotPropertiesModel),
+        typeof(SnapshotSkuModel),
+        typeof(SnapshotUpdateModel),
+        typeof(SnapshotUpdatePropertiesModel),
+        typeof(SourceVaultModel),
+        typeof(SupportedCapabilitiesModel),
+    };
 }

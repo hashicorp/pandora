@@ -18,4 +18,17 @@ internal class Definition : ResourceDefinition
         new GetOperation(),
         new ListOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AddonProvisioningStateConstant),
+        typeof(AddonTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AddonModel),
+        typeof(AddonHcxPropertiesModel),
+        typeof(AddonPropertiesModel),
+        typeof(AddonSrmPropertiesModel),
+        typeof(AddonVrPropertiesModel),
+    };
 }

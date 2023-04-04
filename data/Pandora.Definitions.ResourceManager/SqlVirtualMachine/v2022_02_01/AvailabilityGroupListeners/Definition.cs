@@ -18,4 +18,21 @@ internal class Definition : ResourceDefinition
         new GetOperation(),
         new ListByGroupOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(CommitConstant),
+        typeof(FailoverConstant),
+        typeof(ReadableSecondaryConstant),
+        typeof(RoleConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AgConfigurationModel),
+        typeof(AgReplicaModel),
+        typeof(AvailabilityGroupListenerModel),
+        typeof(AvailabilityGroupListenerPropertiesModel),
+        typeof(LoadBalancerConfigurationModel),
+        typeof(MultiSubnetIPConfigurationModel),
+        typeof(PrivateIPAddressModel),
+    };
 }

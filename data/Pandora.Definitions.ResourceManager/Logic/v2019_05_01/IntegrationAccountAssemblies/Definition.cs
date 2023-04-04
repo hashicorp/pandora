@@ -19,4 +19,18 @@ internal class Definition : ResourceDefinition
         new ListOperation(),
         new ListContentCallbackUrlOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AssemblyCollectionModel),
+        typeof(AssemblyDefinitionModel),
+        typeof(AssemblyPropertiesModel),
+        typeof(ContentHashModel),
+        typeof(ContentLinkModel),
+        typeof(WorkflowTriggerCallbackUrlModel),
+        typeof(WorkflowTriggerListCallbackUrlQueriesModel),
+    };
 }
