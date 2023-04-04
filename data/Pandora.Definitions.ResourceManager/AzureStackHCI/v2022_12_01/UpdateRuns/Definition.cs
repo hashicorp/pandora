@@ -18,4 +18,15 @@ internal class Definition : ResourceDefinition
         new UpdateRunsListOperation(),
         new UpdateRunsPutOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ProvisioningStateConstant),
+        typeof(UpdateRunPropertiesStateConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(StepModel),
+        typeof(UpdateRunModel),
+        typeof(UpdateRunPropertiesModel),
+    };
 }

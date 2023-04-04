@@ -17,4 +17,24 @@ internal class Definition : ResourceDefinition
         new ServiceDeleteOperation(),
         new ServiceGetOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ServiceSizeConstant),
+        typeof(ServiceStatusConstant),
+        typeof(ServiceTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(DataTransferServiceResourcePropertiesModel),
+        typeof(GraphAPIComputeRegionalServiceResourceModel),
+        typeof(GraphAPIComputeServiceResourcePropertiesModel),
+        typeof(MaterializedViewsBuilderServiceResourcePropertiesModel),
+        typeof(RegionalServiceResourceModel),
+        typeof(ServiceResourceModel),
+        typeof(ServiceResourceCreateUpdateParametersModel),
+        typeof(ServiceResourceCreateUpdatePropertiesModel),
+        typeof(ServiceResourcePropertiesModel),
+        typeof(SqlDedicatedGatewayRegionalServiceResourceModel),
+        typeof(SqlDedicatedGatewayServiceResourcePropertiesModel),
+    };
 }

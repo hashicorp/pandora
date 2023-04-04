@@ -15,4 +15,17 @@ internal class Definition : ResourceDefinition
     {
         new DnsResourceReferenceGetByTargetResourcesOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(RecordTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(DnsResourceReferenceModel),
+        typeof(DnsResourceReferenceRequestModel),
+        typeof(DnsResourceReferenceRequestPropertiesModel),
+        typeof(DnsResourceReferenceResultModel),
+        typeof(DnsResourceReferenceResultPropertiesModel),
+        typeof(SubResourceModel),
+    };
 }

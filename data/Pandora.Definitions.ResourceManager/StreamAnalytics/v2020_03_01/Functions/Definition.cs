@@ -21,4 +21,33 @@ internal class Definition : ResourceDefinition
         new TestOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(UdfTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AggregateFunctionPropertiesModel),
+        typeof(AzureMachineLearningWebServiceFunctionBindingModel),
+        typeof(AzureMachineLearningWebServiceFunctionBindingPropertiesModel),
+        typeof(AzureMachineLearningWebServiceFunctionBindingRetrievalPropertiesModel),
+        typeof(AzureMachineLearningWebServiceFunctionRetrieveDefaultDefinitionParametersModel),
+        typeof(AzureMachineLearningWebServiceInputColumnModel),
+        typeof(AzureMachineLearningWebServiceInputsModel),
+        typeof(AzureMachineLearningWebServiceOutputColumnModel),
+        typeof(ErrorResponseModel),
+        typeof(FunctionModel),
+        typeof(FunctionBindingModel),
+        typeof(FunctionConfigurationModel),
+        typeof(FunctionInputModel),
+        typeof(FunctionOutputModel),
+        typeof(FunctionPropertiesModel),
+        typeof(FunctionRetrieveDefaultDefinitionParametersModel),
+        typeof(JavaScriptFunctionBindingModel),
+        typeof(JavaScriptFunctionBindingPropertiesModel),
+        typeof(JavaScriptFunctionBindingRetrievalPropertiesModel),
+        typeof(JavaScriptFunctionRetrieveDefaultDefinitionParametersModel),
+        typeof(ResourceTestStatusModel),
+        typeof(ScalarFunctionPropertiesModel),
+    };
 }

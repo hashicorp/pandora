@@ -17,4 +17,13 @@ internal class Definition : ResourceDefinition
         new ListInvitationsOperation(),
         new RejectInvitationOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(InvitationStatusConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ConsumerInvitationModel),
+        typeof(ConsumerInvitationPropertiesModel),
+    };
 }

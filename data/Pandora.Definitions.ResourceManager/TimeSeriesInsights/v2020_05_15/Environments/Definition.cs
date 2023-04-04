@@ -20,4 +20,46 @@ internal class Definition : ResourceDefinition
         new ListBySubscriptionOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(EnvironmentKindConstant),
+        typeof(IngressStateConstant),
+        typeof(KindConstant),
+        typeof(PropertyTypeConstant),
+        typeof(ProvisioningStateConstant),
+        typeof(SkuNameConstant),
+        typeof(StorageLimitExceededBehaviorConstant),
+        typeof(WarmStoragePropertiesStateConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(EnvironmentCreateOrUpdateParametersModel),
+        typeof(EnvironmentListResponseModel),
+        typeof(EnvironmentResourceModel),
+        typeof(EnvironmentStateDetailsModel),
+        typeof(EnvironmentStatusModel),
+        typeof(EnvironmentUpdateParametersModel),
+        typeof(Gen1EnvironmentCreateOrUpdateParametersModel),
+        typeof(Gen1EnvironmentCreationPropertiesModel),
+        typeof(Gen1EnvironmentMutablePropertiesModel),
+        typeof(Gen1EnvironmentResourceModel),
+        typeof(Gen1EnvironmentResourcePropertiesModel),
+        typeof(Gen1EnvironmentUpdateParametersModel),
+        typeof(Gen2EnvironmentCreateOrUpdateParametersModel),
+        typeof(Gen2EnvironmentCreationPropertiesModel),
+        typeof(Gen2EnvironmentMutablePropertiesModel),
+        typeof(Gen2EnvironmentResourceModel),
+        typeof(Gen2EnvironmentResourcePropertiesModel),
+        typeof(Gen2EnvironmentUpdateParametersModel),
+        typeof(Gen2StorageConfigurationInputModel),
+        typeof(Gen2StorageConfigurationMutablePropertiesModel),
+        typeof(Gen2StorageConfigurationOutputModel),
+        typeof(IngressEnvironmentStatusModel),
+        typeof(SkuModel),
+        typeof(TimeSeriesIdPropertyModel),
+        typeof(WarmStorageEnvironmentStatusModel),
+        typeof(WarmStoragePropertiesUsageModel),
+        typeof(WarmStoragePropertiesUsageStateDetailsModel),
+        typeof(WarmStoreConfigurationPropertiesModel),
+    };
 }

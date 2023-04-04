@@ -20,4 +20,25 @@ internal class Definition : ResourceDefinition
         new ListByResourceGroupOperation(),
         new UpdateTagsOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(LoadBalancerSkuConstant),
+        typeof(ManagedClusterSKUNameConstant),
+        typeof(ManagedClusterSKUTierConstant),
+        typeof(NetworkModeConstant),
+        typeof(NetworkPluginConstant),
+        typeof(NetworkPluginModeConstant),
+        typeof(NetworkPolicyConstant),
+        typeof(SnapshotTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(CreationDataModel),
+        typeof(ManagedClusterPropertiesForSnapshotModel),
+        typeof(ManagedClusterSKUModel),
+        typeof(ManagedClusterSnapshotModel),
+        typeof(ManagedClusterSnapshotPropertiesModel),
+        typeof(NetworkProfileForSnapshotModel),
+        typeof(TagsObjectModel),
+    };
 }

@@ -18,4 +18,15 @@ internal class Definition : ResourceDefinition
         new GetOperation(),
         new ListByServerOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(PrincipalTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ActiveDirectoryAdministratorModel),
+        typeof(ActiveDirectoryAdministratorAddModel),
+        typeof(AdministratorPropertiesModel),
+        typeof(AdministratorPropertiesForAddModel),
+    };
 }

@@ -20,4 +20,22 @@ internal class Definition : ResourceDefinition
         new MonitorsListByResourceGroupOperation(),
         new MonitorsUpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(LiftrResourceCategoriesConstant),
+        typeof(MonitoringStatusConstant),
+        typeof(ProvisioningStateConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(CompanyInfoModel),
+        typeof(ElasticCloudDeploymentModel),
+        typeof(ElasticCloudUserModel),
+        typeof(ElasticMonitorResourceModel),
+        typeof(ElasticMonitorResourceUpdateParametersModel),
+        typeof(ElasticPropertiesModel),
+        typeof(MonitorPropertiesModel),
+        typeof(ResourceSkuModel),
+        typeof(UserInfoModel),
+    };
 }

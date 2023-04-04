@@ -18,4 +18,19 @@ internal class Definition : ResourceDefinition
         new GetOperation(),
         new ListByShareOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ProvisioningStateConstant),
+        typeof(RecurrenceIntervalConstant),
+        typeof(StatusConstant),
+        typeof(SynchronizationSettingKindConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(DataShareErrorInfoModel),
+        typeof(OperationResponseModel),
+        typeof(ScheduledSynchronizationSettingModel),
+        typeof(ScheduledSynchronizationSettingPropertiesModel),
+        typeof(SynchronizationSettingModel),
+    };
 }

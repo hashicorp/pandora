@@ -15,4 +15,15 @@ internal class Definition : ResourceDefinition
     {
         new RestorableTimeRangesFindOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(RestoreSourceDataStoreTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AzureBackupFindRestorableTimeRangesRequestModel),
+        typeof(AzureBackupFindRestorableTimeRangesResponseModel),
+        typeof(AzureBackupFindRestorableTimeRangesResponseResourceModel),
+        typeof(RestorableTimeRangeModel),
+    };
 }

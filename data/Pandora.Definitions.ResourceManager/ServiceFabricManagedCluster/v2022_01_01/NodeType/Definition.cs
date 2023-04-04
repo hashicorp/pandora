@@ -23,4 +23,35 @@ internal class Definition : ResourceDefinition
         new SkusListOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AccessConstant),
+        typeof(DirectionConstant),
+        typeof(DiskTypeConstant),
+        typeof(IPAddressTypeConstant),
+        typeof(ManagedResourceProvisioningStateConstant),
+        typeof(NodeTypeSkuScaleTypeConstant),
+        typeof(NsgProtocolConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(EndpointRangeDescriptionModel),
+        typeof(FrontendConfigurationModel),
+        typeof(NetworkSecurityRuleModel),
+        typeof(NodeTypeModel),
+        typeof(NodeTypeActionParametersModel),
+        typeof(NodeTypeAvailableSkuModel),
+        typeof(NodeTypePropertiesModel),
+        typeof(NodeTypeSkuModel),
+        typeof(NodeTypeSkuCapacityModel),
+        typeof(NodeTypeSupportedSkuModel),
+        typeof(NodeTypeUpdateParametersModel),
+        typeof(SubResourceModel),
+        typeof(SystemDataModel),
+        typeof(VMSSDataDiskModel),
+        typeof(VMSSExtensionModel),
+        typeof(VMSSExtensionPropertiesModel),
+        typeof(VaultCertificateModel),
+        typeof(VaultSecretGroupModel),
+    };
 }

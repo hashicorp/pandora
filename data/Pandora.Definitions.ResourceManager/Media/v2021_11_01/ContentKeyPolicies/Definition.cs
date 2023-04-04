@@ -20,4 +20,40 @@ internal class Definition : ResourceDefinition
         new ContentKeyPoliciesListOperation(),
         new ContentKeyPoliciesUpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ContentKeyPolicyFairPlayRentalAndLeaseKeyTypeConstant),
+        typeof(ContentKeyPolicyPlayReadyContentTypeConstant),
+        typeof(ContentKeyPolicyPlayReadyLicenseTypeConstant),
+        typeof(ContentKeyPolicyPlayReadyUnknownOutputPassingOptionConstant),
+        typeof(ContentKeyPolicyRestrictionTokenTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ContentKeyPolicyModel),
+        typeof(ContentKeyPolicyClearKeyConfigurationModel),
+        typeof(ContentKeyPolicyConfigurationModel),
+        typeof(ContentKeyPolicyFairPlayConfigurationModel),
+        typeof(ContentKeyPolicyFairPlayOfflineRentalConfigurationModel),
+        typeof(ContentKeyPolicyOpenRestrictionModel),
+        typeof(ContentKeyPolicyOptionModel),
+        typeof(ContentKeyPolicyPlayReadyConfigurationModel),
+        typeof(ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderModel),
+        typeof(ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierModel),
+        typeof(ContentKeyPolicyPlayReadyContentKeyLocationModel),
+        typeof(ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionModel),
+        typeof(ContentKeyPolicyPlayReadyLicenseModel),
+        typeof(ContentKeyPolicyPlayReadyPlayRightModel),
+        typeof(ContentKeyPolicyPropertiesModel),
+        typeof(ContentKeyPolicyRestrictionModel),
+        typeof(ContentKeyPolicyRestrictionTokenKeyModel),
+        typeof(ContentKeyPolicyRsaTokenKeyModel),
+        typeof(ContentKeyPolicySymmetricTokenKeyModel),
+        typeof(ContentKeyPolicyTokenClaimModel),
+        typeof(ContentKeyPolicyTokenRestrictionModel),
+        typeof(ContentKeyPolicyUnknownConfigurationModel),
+        typeof(ContentKeyPolicyUnknownRestrictionModel),
+        typeof(ContentKeyPolicyWidevineConfigurationModel),
+        typeof(ContentKeyPolicyX509CertificateTokenKeyModel),
+    };
 }

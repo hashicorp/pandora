@@ -19,4 +19,24 @@ internal class Definition : ResourceDefinition
         new UpdatesPostOperation(),
         new UpdatesPutOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AvailabilityTypeConstant),
+        typeof(HealthStateConstant),
+        typeof(ProvisioningStateConstant),
+        typeof(RebootRequirementConstant),
+        typeof(SeverityConstant),
+        typeof(StateConstant),
+        typeof(StatusConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(PackageVersionInfoModel),
+        typeof(PrecheckResultModel),
+        typeof(PrecheckResultTagsModel),
+        typeof(UpdateModel),
+        typeof(UpdatePrerequisiteModel),
+        typeof(UpdatePropertiesModel),
+        typeof(UpdateStatePropertiesModel),
+    };
 }

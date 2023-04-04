@@ -18,4 +18,27 @@ internal class Definition : ResourceDefinition
         new DeleteOperation(),
         new ListByProductOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AccessIdNameConstant),
+        typeof(ApiTypeConstant),
+        typeof(BearerTokenSendingMethodsConstant),
+        typeof(IdentityProviderTypeConstant),
+        typeof(NotificationNameConstant),
+        typeof(ProtocolConstant),
+        typeof(TemplateNameConstant),
+        typeof(VersioningSchemeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ApiContactInformationModel),
+        typeof(ApiContractModel),
+        typeof(ApiContractPropertiesModel),
+        typeof(ApiLicenseInformationModel),
+        typeof(ApiVersionSetContractDetailsModel),
+        typeof(AuthenticationSettingsContractModel),
+        typeof(OAuth2AuthenticationSettingsContractModel),
+        typeof(OpenIdAuthenticationSettingsContractModel),
+        typeof(SubscriptionKeyParameterNamesContractModel),
+    };
 }

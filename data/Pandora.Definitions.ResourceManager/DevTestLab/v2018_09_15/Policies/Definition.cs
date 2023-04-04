@@ -19,4 +19,16 @@ internal class Definition : ResourceDefinition
         new ListOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(PolicyEvaluatorTypeConstant),
+        typeof(PolicyFactNameConstant),
+        typeof(PolicyStatusConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(PolicyModel),
+        typeof(PolicyPropertiesModel),
+        typeof(UpdateResourceModel),
+    };
 }

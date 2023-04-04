@@ -19,4 +19,20 @@ internal class Definition : ResourceDefinition
         new ListOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(TransportProtocolConstant),
+        typeof(UsagePermissionTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ExternalSubnetModel),
+        typeof(PortModel),
+        typeof(SubnetModel),
+        typeof(SubnetOverrideModel),
+        typeof(SubnetSharedPublicIPAddressConfigurationModel),
+        typeof(UpdateResourceModel),
+        typeof(VirtualNetworkModel),
+        typeof(VirtualNetworkPropertiesModel),
+    };
 }

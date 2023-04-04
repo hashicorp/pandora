@@ -18,4 +18,16 @@ internal class Definition : ResourceDefinition
         new VMwareSitesListOperation(),
         new VMwareSitesListBySubscriptionOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(HyperVSiteModel),
+        typeof(SiteAgentPropertiesModel),
+        typeof(SitePropertiesModel),
+        typeof(SiteSpnPropertiesModel),
+        typeof(VMwareSiteModel),
+    };
 }

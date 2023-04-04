@@ -18,4 +18,15 @@ internal class Definition : ResourceDefinition
         new GetOperation(),
         new ListOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ConnectionTypeConstant),
+        typeof(TimeSeriesDatabaseConnectionStateConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AzureDataExplorerConnectionPropertiesModel),
+        typeof(TimeSeriesDatabaseConnectionModel),
+        typeof(TimeSeriesDatabaseConnectionPropertiesModel),
+    };
 }

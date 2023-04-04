@@ -16,4 +16,17 @@ internal class Definition : ResourceDefinition
         new GetOperation(),
         new ListByReplicationProtectedItemsOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(RecoveryPointSyncTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(A2ARecoveryPointDetailsModel),
+        typeof(InMageAzureV2RecoveryPointDetailsModel),
+        typeof(InMageRcmRecoveryPointDetailsModel),
+        typeof(ProviderSpecificRecoveryPointDetailsModel),
+        typeof(RecoveryPointModel),
+        typeof(RecoveryPointPropertiesModel),
+    };
 }

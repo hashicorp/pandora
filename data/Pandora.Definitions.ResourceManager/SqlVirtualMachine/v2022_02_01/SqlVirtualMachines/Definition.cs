@@ -23,4 +23,40 @@ internal class Definition : ResourceDefinition
         new StartAssessmentOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AssessmentDayOfWeekConstant),
+        typeof(AutoBackupDaysOfWeekConstant),
+        typeof(BackupScheduleTypeConstant),
+        typeof(ConnectivityTypeConstant),
+        typeof(DayOfWeekConstant),
+        typeof(DiskConfigurationTypeConstant),
+        typeof(FullBackupFrequencyTypeConstant),
+        typeof(SqlImageSkuConstant),
+        typeof(SqlManagementModeConstant),
+        typeof(SqlServerLicenseTypeConstant),
+        typeof(SqlWorkloadTypeConstant),
+        typeof(StorageWorkloadTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AdditionalFeaturesServerConfigurationsModel),
+        typeof(AssessmentSettingsModel),
+        typeof(AutoBackupSettingsModel),
+        typeof(AutoPatchingSettingsModel),
+        typeof(KeyVaultCredentialSettingsModel),
+        typeof(SQLInstanceSettingsModel),
+        typeof(SQLStorageSettingsModel),
+        typeof(SQLTempDbSettingsModel),
+        typeof(ScheduleModel),
+        typeof(ServerConfigurationsManagementSettingsModel),
+        typeof(SqlConnectivityUpdateSettingsModel),
+        typeof(SqlStorageUpdateSettingsModel),
+        typeof(SqlVirtualMachineModel),
+        typeof(SqlVirtualMachinePropertiesModel),
+        typeof(SqlVirtualMachineUpdateModel),
+        typeof(SqlWorkloadTypeUpdateSettingsModel),
+        typeof(StorageConfigurationSettingsModel),
+        typeof(WsfcDomainCredentialsModel),
+    };
 }

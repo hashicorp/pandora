@@ -17,4 +17,16 @@ internal class Definition : ResourceDefinition
         new QueueServicesListOperation(),
         new QueueServicesSetServicePropertiesOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AllowedMethodsConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(CorsRuleModel),
+        typeof(CorsRulesModel),
+        typeof(ListQueueServicesModel),
+        typeof(QueueServicePropertiesModel),
+        typeof(QueueServicePropertiesPropertiesModel),
+    };
 }

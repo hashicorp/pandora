@@ -18,4 +18,19 @@ internal class Definition : ResourceDefinition
         new GetOperation(),
         new ListOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AutoRebuildSettingConstant),
+        typeof(EnvironmentTypeConstant),
+        typeof(ListViewTypeConstant),
+        typeof(OperatingSystemTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(BuildContextModel),
+        typeof(EnvironmentVersionModel),
+        typeof(EnvironmentVersionResourceModel),
+        typeof(InferenceContainerPropertiesModel),
+        typeof(RouteModel),
+    };
 }

@@ -25,4 +25,22 @@ internal class Definition : ResourceDefinition
         new UpdateOperation(),
         new UpdateAPrivateEndpointConnectionOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(PrivateEndpointConnectionProvisioningStateConstant),
+        typeof(PrivateEndpointServiceConnectionStatusConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(DiskAccessModel),
+        typeof(DiskAccessPropertiesModel),
+        typeof(DiskAccessUpdateModel),
+        typeof(PrivateEndpointModel),
+        typeof(PrivateEndpointConnectionModel),
+        typeof(PrivateEndpointConnectionPropertiesModel),
+        typeof(PrivateLinkResourceModel),
+        typeof(PrivateLinkResourceListResultModel),
+        typeof(PrivateLinkResourcePropertiesModel),
+        typeof(PrivateLinkServiceConnectionStateModel),
+    };
 }

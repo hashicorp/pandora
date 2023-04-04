@@ -22,4 +22,20 @@ internal class Definition : ResourceDefinition
         new StorageTargetResumeOperation(),
         new StorageTargetSuspendOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(OperationalStateTypeConstant),
+        typeof(ProvisioningStateTypeConstant),
+        typeof(StorageTargetTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(BlobNfsTargetModel),
+        typeof(ClfsTargetModel),
+        typeof(NamespaceJunctionModel),
+        typeof(Nfs3TargetModel),
+        typeof(StorageTargetModel),
+        typeof(StorageTargetPropertiesModel),
+        typeof(UnknownTargetModel),
+    };
 }

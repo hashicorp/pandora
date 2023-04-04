@@ -16,4 +16,16 @@ internal class Definition : ResourceDefinition
         new LocationOperationStatusOperation(),
         new OperationStatusGetOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(LocationOperationStatusModel),
+        typeof(OperationStatusModel),
+        typeof(StorageSyncApiErrorModel),
+        typeof(StorageSyncErrorDetailsModel),
+        typeof(StorageSyncInnerErrorDetailsModel),
+    };
 }

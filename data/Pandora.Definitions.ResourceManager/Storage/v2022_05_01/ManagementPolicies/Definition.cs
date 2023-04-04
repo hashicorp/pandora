@@ -17,4 +17,24 @@ internal class Definition : ResourceDefinition
         new DeleteOperation(),
         new GetOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(RuleTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(DateAfterCreationModel),
+        typeof(DateAfterModificationModel),
+        typeof(ManagementPolicyModel),
+        typeof(ManagementPolicyActionModel),
+        typeof(ManagementPolicyBaseBlobModel),
+        typeof(ManagementPolicyDefinitionModel),
+        typeof(ManagementPolicyFilterModel),
+        typeof(ManagementPolicyPropertiesModel),
+        typeof(ManagementPolicyRuleModel),
+        typeof(ManagementPolicySchemaModel),
+        typeof(ManagementPolicySnapShotModel),
+        typeof(ManagementPolicyVersionModel),
+        typeof(TagFilterModel),
+    };
 }

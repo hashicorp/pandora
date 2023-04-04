@@ -17,4 +17,13 @@ internal class Definition : ResourceDefinition
         new GetOperation(),
         new ListByFluidRelayServersOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ProvisioningStateConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(FluidRelayContainerModel),
+        typeof(FluidRelayContainerPropertiesModel),
+    };
 }

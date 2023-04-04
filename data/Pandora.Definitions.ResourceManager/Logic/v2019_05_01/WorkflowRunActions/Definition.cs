@@ -26,4 +26,31 @@ internal class Definition : ResourceDefinition
         new WorkflowRunActionRequestHistoriesGetOperation(),
         new WorkflowRunActionRequestHistoriesListOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(WorkflowStatusConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AzureResourceErrorInfoModel),
+        typeof(ContentHashModel),
+        typeof(ContentLinkModel),
+        typeof(ErrorPropertiesModel),
+        typeof(ErrorResponseModel),
+        typeof(ExpressionModel),
+        typeof(ExpressionRootModel),
+        typeof(ExpressionTracesModel),
+        typeof(RepetitionIndexModel),
+        typeof(RequestModel),
+        typeof(RequestHistoryModel),
+        typeof(RequestHistoryPropertiesModel),
+        typeof(ResponseModel),
+        typeof(RetryHistoryModel),
+        typeof(RunActionCorrelationModel),
+        typeof(WorkflowRunActionModel),
+        typeof(WorkflowRunActionPropertiesModel),
+        typeof(WorkflowRunActionRepetitionDefinitionModel),
+        typeof(WorkflowRunActionRepetitionDefinitionCollectionModel),
+        typeof(WorkflowRunActionRepetitionPropertiesModel),
+    };
 }

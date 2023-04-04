@@ -23,4 +23,32 @@ internal class Definition : ResourceDefinition
         new ActionGroupsListBySubscriptionIdOperation(),
         new ActionGroupsUpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ReceiverStatusConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ActionDetailModel),
+        typeof(ActionGroupModel),
+        typeof(ActionGroupListModel),
+        typeof(ActionGroupPatchModel),
+        typeof(ActionGroupPatchBodyModel),
+        typeof(ActionGroupResourceModel),
+        typeof(ArmRoleReceiverModel),
+        typeof(AutomationRunbookReceiverModel),
+        typeof(AzureAppPushReceiverModel),
+        typeof(AzureFunctionReceiverModel),
+        typeof(ContextModel),
+        typeof(EmailReceiverModel),
+        typeof(EnableRequestModel),
+        typeof(EventHubReceiverModel),
+        typeof(ItsmReceiverModel),
+        typeof(LogicAppReceiverModel),
+        typeof(NotificationRequestBodyModel),
+        typeof(SmsReceiverModel),
+        typeof(TestNotificationDetailsResponseModel),
+        typeof(VoiceReceiverModel),
+        typeof(WebhookReceiverModel),
+    };
 }

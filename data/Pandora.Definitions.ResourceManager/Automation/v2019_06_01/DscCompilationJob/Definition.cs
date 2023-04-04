@@ -19,4 +19,22 @@ internal class Definition : ResourceDefinition
         new ListByAutomationAccountOperation(),
         new StreamListByJobOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(CountTypeConstant),
+        typeof(JobProvisioningStateConstant),
+        typeof(JobStatusConstant),
+        typeof(JobStreamTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(DscCompilationJobModel),
+        typeof(DscCompilationJobCreateParametersModel),
+        typeof(DscCompilationJobCreatePropertiesModel),
+        typeof(DscCompilationJobPropertiesModel),
+        typeof(DscConfigurationAssociationPropertyModel),
+        typeof(JobStreamModel),
+        typeof(JobStreamListResultModel),
+        typeof(JobStreamPropertiesModel),
+    };
 }

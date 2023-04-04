@@ -20,4 +20,18 @@ internal class Definition : ResourceDefinition
         new ListByDatabaseOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ProvisioningStateConstant),
+        typeof(ReasonConstant),
+        typeof(ScriptTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(CheckNameResultModel),
+        typeof(ScriptModel),
+        typeof(ScriptCheckNameRequestModel),
+        typeof(ScriptListResultModel),
+        typeof(ScriptPropertiesModel),
+    };
 }

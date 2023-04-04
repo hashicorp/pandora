@@ -17,4 +17,14 @@ internal class Definition : ResourceDefinition
         new ListSupportedCloudServiceSkusOperation(),
         new ListSupportedVirtualMachineSkusOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(BatchLocationQuotaModel),
+        typeof(SkuCapabilityModel),
+        typeof(SupportedSkuModel),
+    };
 }

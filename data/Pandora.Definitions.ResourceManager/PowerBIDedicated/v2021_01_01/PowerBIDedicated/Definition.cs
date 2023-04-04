@@ -15,4 +15,13 @@ internal class Definition : ResourceDefinition
     {
         new CapacitiesListSkusOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(CapacitySkuTierConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(CapacitySkuModel),
+        typeof(SkuEnumerationForNewResourceResultModel),
+    };
 }

@@ -17,4 +17,16 @@ internal class Definition : ResourceDefinition
         new PatchOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(DedupStateConstant),
+        typeof(StorageTypeConstant),
+        typeof(StorageTypeStateConstant),
+        typeof(XcoolStateConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(BackupResourceConfigModel),
+        typeof(BackupResourceConfigResourceModel),
+    };
 }

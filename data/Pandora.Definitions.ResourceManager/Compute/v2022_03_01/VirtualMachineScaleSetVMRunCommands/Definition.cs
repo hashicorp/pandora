@@ -19,4 +19,19 @@ internal class Definition : ResourceDefinition
         new ListOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ExecutionStateConstant),
+        typeof(StatusLevelTypesConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(InstanceViewStatusModel),
+        typeof(RunCommandInputParameterModel),
+        typeof(VirtualMachineRunCommandModel),
+        typeof(VirtualMachineRunCommandInstanceViewModel),
+        typeof(VirtualMachineRunCommandPropertiesModel),
+        typeof(VirtualMachineRunCommandScriptSourceModel),
+        typeof(VirtualMachineRunCommandUpdateModel),
+    };
 }

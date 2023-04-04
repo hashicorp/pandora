@@ -20,4 +20,17 @@ internal class Definition : ResourceDefinition
         new LedgerListBySubscriptionOperation(),
         new LedgerUpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(LedgerRoleNameConstant),
+        typeof(LedgerTypeConstant),
+        typeof(ProvisioningStateConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AADBasedSecurityPrincipalModel),
+        typeof(CertBasedSecurityPrincipalModel),
+        typeof(ConfidentialLedgerModel),
+        typeof(LedgerPropertiesModel),
+    };
 }

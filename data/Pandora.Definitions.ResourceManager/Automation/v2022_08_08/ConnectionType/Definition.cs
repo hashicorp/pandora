@@ -18,4 +18,16 @@ internal class Definition : ResourceDefinition
         new GetOperation(),
         new ListByAutomationAccountOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ConnectionTypeModel),
+        typeof(ConnectionTypeCreateOrUpdateParametersModel),
+        typeof(ConnectionTypeCreateOrUpdatePropertiesModel),
+        typeof(ConnectionTypePropertiesModel),
+        typeof(FieldDefinitionModel),
+    };
 }

@@ -17,4 +17,23 @@ internal class Definition : ResourceDefinition
         new ListOperation(),
         new SetServicePropertiesOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AllowedMethodsConstant),
+        typeof(SkuNameConstant),
+        typeof(SkuTierConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(CorsRuleModel),
+        typeof(CorsRulesModel),
+        typeof(DeleteRetentionPolicyModel),
+        typeof(FileServiceItemsModel),
+        typeof(FileServicePropertiesModel),
+        typeof(FileServicePropertiesPropertiesModel),
+        typeof(MultichannelModel),
+        typeof(ProtocolSettingsModel),
+        typeof(SkuModel),
+        typeof(SmbSettingModel),
+    };
 }

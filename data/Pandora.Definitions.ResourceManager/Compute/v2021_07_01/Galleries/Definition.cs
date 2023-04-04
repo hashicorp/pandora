@@ -20,4 +20,21 @@ internal class Definition : ResourceDefinition
         new ListByResourceGroupOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(GallerySharingPermissionTypesConstant),
+        typeof(ProvisioningStateConstant),
+        typeof(SelectPermissionsConstant),
+        typeof(SharingProfileGroupTypesConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(GalleryModel),
+        typeof(GalleryIdentifierModel),
+        typeof(GalleryPropertiesModel),
+        typeof(GalleryUpdateModel),
+        typeof(SharingProfileModel),
+        typeof(SharingProfileGroupModel),
+        typeof(SoftDeletePolicyModel),
+    };
 }

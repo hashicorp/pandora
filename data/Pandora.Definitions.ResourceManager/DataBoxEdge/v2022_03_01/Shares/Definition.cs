@@ -19,4 +19,26 @@ internal class Definition : ResourceDefinition
         new ListByDataBoxEdgeDeviceOperation(),
         new RefreshOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AzureContainerDataFormatConstant),
+        typeof(ClientPermissionTypeConstant),
+        typeof(DataPolicyConstant),
+        typeof(MonitoringStatusConstant),
+        typeof(MountTypeConstant),
+        typeof(RoleTypesConstant),
+        typeof(ShareAccessProtocolConstant),
+        typeof(ShareAccessTypeConstant),
+        typeof(ShareStatusConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AzureContainerInfoModel),
+        typeof(ClientAccessRightModel),
+        typeof(MountPointMapModel),
+        typeof(RefreshDetailsModel),
+        typeof(ShareModel),
+        typeof(SharePropertiesModel),
+        typeof(UserAccessRightModel),
+    };
 }

@@ -20,4 +20,23 @@ internal class Definition : ResourceDefinition
         new ListOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(MaintenanceScopeConstant),
+        typeof(RebootOptionsConstant),
+        typeof(TaskScopeConstant),
+        typeof(VisibilityConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(InputLinuxParametersModel),
+        typeof(InputPatchConfigurationModel),
+        typeof(InputWindowsParametersModel),
+        typeof(ListMaintenanceConfigurationsResultModel),
+        typeof(MaintenanceConfigurationModel),
+        typeof(MaintenanceConfigurationPropertiesModel),
+        typeof(MaintenanceWindowModel),
+        typeof(SoftwareUpdateConfigurationTasksModel),
+        typeof(TaskPropertiesModel),
+    };
 }

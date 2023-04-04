@@ -19,4 +19,35 @@ internal class Definition : ResourceDefinition
         new ListOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ArmServicePackageActivationModeConstant),
+        typeof(ClusterVersionsEnvironmentConstant),
+        typeof(MoveCostConstant),
+        typeof(PartitionSchemeConstant),
+        typeof(ServiceCorrelationSchemeConstant),
+        typeof(ServiceKindConstant),
+        typeof(ServiceLoadMetricWeightConstant),
+        typeof(ServicePlacementPolicyTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(NamedPartitionSchemeDescriptionModel),
+        typeof(PartitionSchemeDescriptionModel),
+        typeof(ServiceCorrelationDescriptionModel),
+        typeof(ServiceLoadMetricDescriptionModel),
+        typeof(ServicePlacementPolicyDescriptionModel),
+        typeof(ServiceResourceModel),
+        typeof(ServiceResourceListModel),
+        typeof(ServiceResourcePropertiesModel),
+        typeof(ServiceResourceUpdateModel),
+        typeof(ServiceResourceUpdatePropertiesModel),
+        typeof(SingletonPartitionSchemeDescriptionModel),
+        typeof(StatefulServicePropertiesModel),
+        typeof(StatefulServiceUpdatePropertiesModel),
+        typeof(StatelessServicePropertiesModel),
+        typeof(StatelessServiceUpdatePropertiesModel),
+        typeof(SystemDataModel),
+        typeof(UniformInt64RangePartitionSchemeDescriptionModel),
+    };
 }

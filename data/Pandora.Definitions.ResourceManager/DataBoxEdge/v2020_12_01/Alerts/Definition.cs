@@ -16,4 +16,14 @@ internal class Definition : ResourceDefinition
         new GetOperation(),
         new ListByDataBoxEdgeDeviceOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AlertSeverityConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AlertModel),
+        typeof(AlertErrorDetailsModel),
+        typeof(AlertPropertiesModel),
+    };
 }

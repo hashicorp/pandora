@@ -21,4 +21,24 @@ internal class Definition : ResourceDefinition
         new PublishOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(CountTypeConstant),
+        typeof(RunbookProvisioningStateConstant),
+        typeof(RunbookStateConstant),
+        typeof(RunbookTypeEnumConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ContentHashModel),
+        typeof(ContentLinkModel),
+        typeof(RunbookModel),
+        typeof(RunbookCreateOrUpdateParametersModel),
+        typeof(RunbookCreateOrUpdatePropertiesModel),
+        typeof(RunbookDraftModel),
+        typeof(RunbookParameterModel),
+        typeof(RunbookPropertiesModel),
+        typeof(RunbookUpdateParametersModel),
+        typeof(RunbookUpdatePropertiesModel),
+    };
 }

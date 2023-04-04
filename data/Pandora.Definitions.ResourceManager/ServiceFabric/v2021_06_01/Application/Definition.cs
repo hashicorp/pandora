@@ -19,4 +19,25 @@ internal class Definition : ResourceDefinition
         new ListOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ArmUpgradeFailureActionConstant),
+        typeof(ClusterVersionsEnvironmentConstant),
+        typeof(RollingUpgradeModeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ApplicationMetricDescriptionModel),
+        typeof(ApplicationResourceModel),
+        typeof(ApplicationResourceListModel),
+        typeof(ApplicationResourcePropertiesModel),
+        typeof(ApplicationResourceUpdateModel),
+        typeof(ApplicationResourceUpdatePropertiesModel),
+        typeof(ApplicationUpgradePolicyModel),
+        typeof(ApplicationUserAssignedIdentityModel),
+        typeof(ArmApplicationHealthPolicyModel),
+        typeof(ArmRollingUpgradeMonitoringPolicyModel),
+        typeof(ArmServiceTypeHealthPolicyModel),
+        typeof(SystemDataModel),
+    };
 }

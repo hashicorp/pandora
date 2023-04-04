@@ -23,4 +23,33 @@ internal class Definition : ResourceDefinition
         new PurgeDeletedOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AccessPolicyUpdateKindConstant),
+        typeof(ActionsRequiredConstant),
+        typeof(CreateModeConstant),
+        typeof(ManagedHsmSkuFamilyConstant),
+        typeof(ManagedHsmSkuNameConstant),
+        typeof(NetworkRuleActionConstant),
+        typeof(NetworkRuleBypassOptionsConstant),
+        typeof(PrivateEndpointConnectionProvisioningStateConstant),
+        typeof(PrivateEndpointServiceConnectionStatusConstant),
+        typeof(ProvisioningStateConstant),
+        typeof(PublicNetworkAccessConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(DeletedManagedHsmModel),
+        typeof(DeletedManagedHsmPropertiesModel),
+        typeof(MHSMIPRuleModel),
+        typeof(MHSMNetworkRuleSetModel),
+        typeof(MHSMPrivateEndpointModel),
+        typeof(MHSMPrivateEndpointConnectionItemModel),
+        typeof(MHSMPrivateEndpointConnectionPropertiesModel),
+        typeof(MHSMPrivateLinkServiceConnectionStateModel),
+        typeof(MHSMVirtualNetworkRuleModel),
+        typeof(ManagedHsmModel),
+        typeof(ManagedHsmPropertiesModel),
+        typeof(ManagedHsmSkuModel),
+    };
 }

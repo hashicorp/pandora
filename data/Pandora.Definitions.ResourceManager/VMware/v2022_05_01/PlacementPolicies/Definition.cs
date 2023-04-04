@@ -20,4 +20,24 @@ internal class Definition : ResourceDefinition
         new UpdateOperation(),
         new VirtualMachinesRestrictMovementOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AffinityStrengthConstant),
+        typeof(AffinityTypeConstant),
+        typeof(AzureHybridBenefitTypeConstant),
+        typeof(PlacementPolicyProvisioningStateConstant),
+        typeof(PlacementPolicyStateConstant),
+        typeof(PlacementPolicyTypeConstant),
+        typeof(VirtualMachineRestrictMovementStateConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(PlacementPolicyModel),
+        typeof(PlacementPolicyPropertiesModel),
+        typeof(PlacementPolicyUpdateModel),
+        typeof(PlacementPolicyUpdatePropertiesModel),
+        typeof(VMHostPlacementPolicyPropertiesModel),
+        typeof(VMVMPlacementPolicyPropertiesModel),
+        typeof(VirtualMachineRestrictMovementModel),
+    };
 }

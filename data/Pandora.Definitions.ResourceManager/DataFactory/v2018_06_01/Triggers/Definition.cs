@@ -23,4 +23,17 @@ internal class Definition : ResourceDefinition
         new SubscribeToEventsOperation(),
         new UnsubscribeFromEventsOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(EventSubscriptionStatusConstant),
+        typeof(TriggerRuntimeStateConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(TriggerModel),
+        typeof(TriggerFilterParametersModel),
+        typeof(TriggerQueryResponseModel),
+        typeof(TriggerResourceModel),
+        typeof(TriggerSubscriptionOperationStatusModel),
+    };
 }

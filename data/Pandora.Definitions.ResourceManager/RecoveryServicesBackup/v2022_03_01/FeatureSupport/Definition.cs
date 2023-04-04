@@ -15,4 +15,15 @@ internal class Definition : ResourceDefinition
     {
         new ValidateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(SupportStatusConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AzureBackupGoalFeatureSupportRequestModel),
+        typeof(AzureVMResourceFeatureSupportRequestModel),
+        typeof(AzureVMResourceFeatureSupportResponseModel),
+        typeof(FeatureSupportRequestModel),
+    };
 }

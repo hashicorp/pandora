@@ -19,4 +19,17 @@ internal class Definition : ResourceDefinition
         new ListOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(DayOfWeekConstant),
+        typeof(SessionHostLoadBalancingAlgorithmConstant),
+        typeof(StopHostsWhenConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ScalingPlanPooledScheduleModel),
+        typeof(ScalingPlanPooledSchedulePatchModel),
+        typeof(ScalingPlanPooledSchedulePropertiesModel),
+        typeof(TimeModel),
+    };
 }

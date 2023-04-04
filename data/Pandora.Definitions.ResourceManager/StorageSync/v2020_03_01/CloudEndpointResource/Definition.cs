@@ -24,4 +24,23 @@ internal class Definition : ResourceDefinition
         new CloudEndpointsTriggerChangeDetectionOperation(),
         new CloudEndpointsrestoreheartbeatOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ChangeDetectionModeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(BackupRequestModel),
+        typeof(CloudEndpointModel),
+        typeof(CloudEndpointArrayModel),
+        typeof(CloudEndpointCreateParametersModel),
+        typeof(CloudEndpointCreateParametersPropertiesModel),
+        typeof(CloudEndpointPropertiesModel),
+        typeof(PostBackupResponseModel),
+        typeof(PostBackupResponsePropertiesModel),
+        typeof(PostRestoreRequestModel),
+        typeof(PreRestoreRequestModel),
+        typeof(RestoreFileSpecModel),
+        typeof(TriggerChangeDetectionParametersModel),
+    };
 }

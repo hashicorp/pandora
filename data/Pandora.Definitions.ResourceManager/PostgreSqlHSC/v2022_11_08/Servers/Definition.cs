@@ -16,4 +16,14 @@ internal class Definition : ResourceDefinition
         new GetOperation(),
         new ListByClusterOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ServerRoleConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ClusterServerModel),
+        typeof(ClusterServerListResultModel),
+        typeof(ClusterServerPropertiesModel),
+    };
 }

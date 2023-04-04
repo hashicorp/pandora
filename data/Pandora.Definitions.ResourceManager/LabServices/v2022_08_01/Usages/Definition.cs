@@ -15,4 +15,13 @@ internal class Definition : ResourceDefinition
     {
         new ListByLocationOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(UsageUnitConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(UsageModel),
+        typeof(UsageNameModel),
+    };
 }

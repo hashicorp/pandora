@@ -18,4 +18,18 @@ internal class Definition : ResourceDefinition
         new ListForScopeOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(RoleManagementPolicyRuleTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(PolicyPropertiesModel),
+        typeof(PolicyPropertiesScopeModel),
+        typeof(PrincipalModel),
+        typeof(RoleManagementPolicyModel),
+        typeof(RoleManagementPolicyPropertiesModel),
+        typeof(RoleManagementPolicyRuleModel),
+        typeof(RoleManagementPolicyRuleTargetModel),
+    };
 }

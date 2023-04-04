@@ -19,4 +19,21 @@ internal class Definition : ResourceDefinition
         new ListByElasticSanOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ActionConstant),
+        typeof(EncryptionTypeConstant),
+        typeof(ProvisioningStatesConstant),
+        typeof(StateConstant),
+        typeof(StorageTargetTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(NetworkRuleSetModel),
+        typeof(VirtualNetworkRuleModel),
+        typeof(VolumeGroupModel),
+        typeof(VolumeGroupPropertiesModel),
+        typeof(VolumeGroupUpdateModel),
+        typeof(VolumeGroupUpdatePropertiesModel),
+    };
 }

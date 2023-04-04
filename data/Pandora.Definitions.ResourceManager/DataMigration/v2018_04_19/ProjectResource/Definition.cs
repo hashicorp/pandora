@@ -19,4 +19,17 @@ internal class Definition : ResourceDefinition
         new ProjectsListByResourceGroupOperation(),
         new ProjectsUpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ProjectProvisioningStateConstant),
+        typeof(ProjectSourcePlatformConstant),
+        typeof(ProjectTargetPlatformConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ConnectionInfoModel),
+        typeof(DatabaseInfoModel),
+        typeof(ProjectModel),
+        typeof(ProjectPropertiesModel),
+    };
 }

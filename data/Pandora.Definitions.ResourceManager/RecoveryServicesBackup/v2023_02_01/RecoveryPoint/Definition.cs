@@ -15,4 +15,12 @@ internal class Definition : ResourceDefinition
     {
         new MoveRecoveryPointOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(RecoveryPointTierTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(MoveRPAcrossTiersRequestModel),
+    };
 }

@@ -20,4 +20,28 @@ internal class Definition : ResourceDefinition
         new AlertProcessingRulesListBySubscriptionOperation(),
         new AlertProcessingRulesUpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ActionTypeConstant),
+        typeof(DaysOfWeekConstant),
+        typeof(FieldConstant),
+        typeof(OperatorConstant),
+        typeof(RecurrenceTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ActionModel),
+        typeof(AddActionGroupsModel),
+        typeof(AlertProcessingRuleModel),
+        typeof(AlertProcessingRulePropertiesModel),
+        typeof(ConditionModel),
+        typeof(DailyRecurrenceModel),
+        typeof(MonthlyRecurrenceModel),
+        typeof(PatchObjectModel),
+        typeof(PatchPropertiesModel),
+        typeof(RecurrenceModel),
+        typeof(RemoveAllActionGroupsModel),
+        typeof(ScheduleModel),
+        typeof(WeeklyRecurrenceModel),
+    };
 }

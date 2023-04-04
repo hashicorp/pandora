@@ -29,4 +29,38 @@ internal class Definition : ResourceDefinition
         new UbscriptionsGetSubscriptionsUnderManagementGroupOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ExpandConstant),
+        typeof(TypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AzureAsyncOperationResultsModel),
+        typeof(CreateManagementGroupChildInfoModel),
+        typeof(CreateManagementGroupDetailsModel),
+        typeof(CreateManagementGroupPropertiesModel),
+        typeof(CreateManagementGroupRequestModel),
+        typeof(CreateOrUpdateSettingsPropertiesModel),
+        typeof(CreateOrUpdateSettingsRequestModel),
+        typeof(CreateParentGroupInfoModel),
+        typeof(DescendantInfoModel),
+        typeof(DescendantInfoPropertiesModel),
+        typeof(DescendantParentGroupInfoModel),
+        typeof(HierarchySettingsModel),
+        typeof(HierarchySettingsInfoModel),
+        typeof(HierarchySettingsListModel),
+        typeof(HierarchySettingsPropertiesModel),
+        typeof(ManagementGroupModel),
+        typeof(ManagementGroupChildInfoModel),
+        typeof(ManagementGroupDetailsModel),
+        typeof(ManagementGroupInfoModel),
+        typeof(ManagementGroupInfoPropertiesModel),
+        typeof(ManagementGroupPathElementModel),
+        typeof(ManagementGroupPropertiesModel),
+        typeof(ParentGroupInfoModel),
+        typeof(PatchManagementGroupRequestModel),
+        typeof(SubscriptionUnderManagementGroupModel),
+        typeof(SubscriptionUnderManagementGroupPropertiesModel),
+    };
 }

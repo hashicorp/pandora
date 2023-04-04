@@ -17,4 +17,42 @@ internal class Definition : ResourceDefinition
         new GetOperation(),
         new ListOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(A2ARecoveryAvailabilityTypeConstant),
+        typeof(AgentAutoUpdateStatusConstant),
+        typeof(AutoProtectionOfDataDiskConstant),
+        typeof(AutomationAccountAuthenticationTypeConstant),
+        typeof(SetMultiVMSyncStatusConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(A2ACreateProtectionIntentInputModel),
+        typeof(A2AProtectionIntentDiskInputDetailsModel),
+        typeof(A2AProtectionIntentManagedDiskInputDetailsModel),
+        typeof(A2AReplicationIntentDetailsModel),
+        typeof(CreateProtectionIntentInputModel),
+        typeof(CreateProtectionIntentPropertiesModel),
+        typeof(CreateProtectionIntentProviderSpecificDetailsModel),
+        typeof(DiskEncryptionInfoModel),
+        typeof(DiskEncryptionKeyInfoModel),
+        typeof(ExistingProtectionProfileModel),
+        typeof(ExistingRecoveryAvailabilitySetModel),
+        typeof(ExistingRecoveryProximityPlacementGroupModel),
+        typeof(ExistingRecoveryRecoveryResourceGroupModel),
+        typeof(ExistingRecoveryVirtualNetworkModel),
+        typeof(ExistingStorageAccountModel),
+        typeof(KeyEncryptionKeyInfoModel),
+        typeof(NewProtectionProfileModel),
+        typeof(NewRecoveryVirtualNetworkModel),
+        typeof(ProtectionProfileCustomDetailsModel),
+        typeof(RecoveryAvailabilitySetCustomDetailsModel),
+        typeof(RecoveryProximityPlacementGroupCustomDetailsModel),
+        typeof(RecoveryResourceGroupCustomDetailsModel),
+        typeof(RecoveryVirtualNetworkCustomDetailsModel),
+        typeof(ReplicationProtectionIntentModel),
+        typeof(ReplicationProtectionIntentPropertiesModel),
+        typeof(ReplicationProtectionIntentProviderSpecificSettingsModel),
+        typeof(StorageAccountCustomDetailsModel),
+    };
 }

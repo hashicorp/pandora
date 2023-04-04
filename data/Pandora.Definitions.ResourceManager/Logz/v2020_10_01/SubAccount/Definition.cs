@@ -20,4 +20,24 @@ internal class Definition : ResourceDefinition
         new ListMonitoredResourcesOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(LiftrResourceCategoriesConstant),
+        typeof(ManagedIdentityTypesConstant),
+        typeof(MarketplaceSubscriptionStatusConstant),
+        typeof(MonitoringStatusConstant),
+        typeof(ProvisioningStateConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(IdentityPropertiesModel),
+        typeof(LogzMonitorResourceModel),
+        typeof(LogzMonitorResourceUpdateParametersModel),
+        typeof(LogzOrganizationPropertiesModel),
+        typeof(MonitorPropertiesModel),
+        typeof(MonitorUpdatePropertiesModel),
+        typeof(MonitoredResourceModel),
+        typeof(PlanDataModel),
+        typeof(UserInfoModel),
+    };
 }

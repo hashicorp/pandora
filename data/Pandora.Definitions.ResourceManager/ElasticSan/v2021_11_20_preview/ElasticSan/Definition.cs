@@ -15,4 +15,16 @@ internal class Definition : ResourceDefinition
     {
         new ListByResourceGroupOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ProvisioningStatesConstant),
+        typeof(SkuNameConstant),
+        typeof(SkuTierConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ElasticSanModel),
+        typeof(ElasticSanPropertiesModel),
+        typeof(SkuModel),
+    };
 }

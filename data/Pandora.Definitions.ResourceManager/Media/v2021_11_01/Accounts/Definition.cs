@@ -31,4 +31,47 @@ internal class Definition : ResourceDefinition
         new PrivateLinkResourcesGetOperation(),
         new PrivateLinkResourcesListOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AccountEncryptionKeyTypeConstant),
+        typeof(DefaultActionConstant),
+        typeof(PrivateEndpointConnectionProvisioningStateConstant),
+        typeof(PrivateEndpointServiceConnectionStatusConstant),
+        typeof(ProvisioningStateConstant),
+        typeof(PublicNetworkAccessConstant),
+        typeof(StorageAccountTypeConstant),
+        typeof(StorageAuthenticationConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AccessControlModel),
+        typeof(AccountEncryptionModel),
+        typeof(CheckNameAvailabilityInputModel),
+        typeof(EdgePoliciesModel),
+        typeof(EdgeUsageDataCollectionPolicyModel),
+        typeof(EdgeUsageDataEventHubModel),
+        typeof(EntityNameAvailabilityCheckOutputModel),
+        typeof(ErrorAdditionalInfoModel),
+        typeof(ErrorDetailModel),
+        typeof(KeyDeliveryModel),
+        typeof(KeyVaultPropertiesModel),
+        typeof(ListEdgePoliciesInputModel),
+        typeof(MediaServiceModel),
+        typeof(MediaServiceIdentityModel),
+        typeof(MediaServiceOperationStatusModel),
+        typeof(MediaServicePropertiesModel),
+        typeof(MediaServiceUpdateModel),
+        typeof(PrivateEndpointModel),
+        typeof(PrivateEndpointConnectionModel),
+        typeof(PrivateEndpointConnectionListResultModel),
+        typeof(PrivateEndpointConnectionPropertiesModel),
+        typeof(PrivateLinkResourceModel),
+        typeof(PrivateLinkResourceListResultModel),
+        typeof(PrivateLinkResourcePropertiesModel),
+        typeof(PrivateLinkServiceConnectionStateModel),
+        typeof(ResourceIdentityModel),
+        typeof(StorageAccountModel),
+        typeof(SyncStorageKeysInputModel),
+        typeof(UserAssignedManagedIdentityModel),
+    };
 }

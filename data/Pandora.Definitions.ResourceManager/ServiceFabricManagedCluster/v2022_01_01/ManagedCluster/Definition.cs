@@ -20,4 +20,38 @@ internal class Definition : ResourceDefinition
         new ListBySubscriptionOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AccessConstant),
+        typeof(AddonFeaturesConstant),
+        typeof(ClusterStateConstant),
+        typeof(ClusterUpgradeCadenceConstant),
+        typeof(ClusterUpgradeModeConstant),
+        typeof(DirectionConstant),
+        typeof(ManagedResourceProvisioningStateConstant),
+        typeof(NsgProtocolConstant),
+        typeof(PrivateEndpointNetworkPoliciesConstant),
+        typeof(PrivateLinkServiceNetworkPoliciesConstant),
+        typeof(ProbeProtocolConstant),
+        typeof(ProtocolConstant),
+        typeof(SkuNameConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ApplicationTypeVersionsCleanupPolicyModel),
+        typeof(AzureActiveDirectoryModel),
+        typeof(ClientCertificateModel),
+        typeof(IPTagModel),
+        typeof(LoadBalancingRuleModel),
+        typeof(ManagedClusterModel),
+        typeof(ManagedClusterPropertiesModel),
+        typeof(ManagedClusterUpdateParametersModel),
+        typeof(NetworkSecurityRuleModel),
+        typeof(ServiceEndpointModel),
+        typeof(SettingsParameterDescriptionModel),
+        typeof(SettingsSectionDescriptionModel),
+        typeof(SkuModel),
+        typeof(SubnetModel),
+        typeof(SystemDataModel),
+    };
 }

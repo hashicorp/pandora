@@ -20,4 +20,21 @@ internal class Definition : ResourceDefinition
         new ListByResourceGroupOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(RoutingPreferenceConstant),
+        typeof(WorkloadMonitorProvisioningStateConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ErrorModel),
+        typeof(ErrorAdditionalInfoModel),
+        typeof(ErrorDetailModel),
+        typeof(ErrorInnerErrorModel),
+        typeof(ManagedRGConfigurationModel),
+        typeof(MonitorModel),
+        typeof(MonitorPropertiesModel),
+        typeof(OperationStatusResultModel),
+        typeof(UpdateMonitorRequestModel),
+    };
 }

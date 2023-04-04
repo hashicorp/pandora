@@ -15,4 +15,13 @@ internal class Definition : ResourceDefinition
     {
         new GetOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(TriggerRuntimeStateConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(TriggerModel),
+        typeof(TriggerResourceModel),
+    };
 }

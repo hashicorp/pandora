@@ -15,4 +15,34 @@ internal class Definition : ResourceDefinition
     {
         new ListOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(RecoveryPointTierStatusConstant),
+        typeof(RecoveryPointTierTypeConstant),
+        typeof(RestorePointTypeConstant),
+        typeof(SQLDataDirectoryTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AzureFileShareRecoveryPointModel),
+        typeof(AzureWorkloadPointInTimeRecoveryPointModel),
+        typeof(AzureWorkloadRecoveryPointModel),
+        typeof(AzureWorkloadSAPHanaRecoveryPointModel),
+        typeof(AzureWorkloadSQLRecoveryPointModel),
+        typeof(AzureWorkloadSQLRecoveryPointExtendedInfoModel),
+        typeof(BEKDetailsModel),
+        typeof(DiskInformationModel),
+        typeof(GenericRecoveryPointModel),
+        typeof(IaasVMRecoveryPointModel),
+        typeof(KEKDetailsModel),
+        typeof(KeyAndSecretDetailsModel),
+        typeof(ListRecoveryPointsRecommendedForMoveRequestModel),
+        typeof(PointInTimeRangeModel),
+        typeof(RecoveryPointModel),
+        typeof(RecoveryPointDiskConfigurationModel),
+        typeof(RecoveryPointMoveReadinessInfoModel),
+        typeof(RecoveryPointResourceModel),
+        typeof(RecoveryPointTierInformationV2Model),
+        typeof(SQLDataDirectoryModel),
+    };
 }

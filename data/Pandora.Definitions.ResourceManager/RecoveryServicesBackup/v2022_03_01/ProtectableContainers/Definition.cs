@@ -15,4 +15,16 @@ internal class Definition : ResourceDefinition
     {
         new ListOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(BackupManagementTypeConstant),
+        typeof(ContainerTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AzureStorageProtectableContainerModel),
+        typeof(AzureVMAppContainerProtectableContainerModel),
+        typeof(ProtectableContainerModel),
+        typeof(ProtectableContainerResourceModel),
+    };
 }

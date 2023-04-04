@@ -15,4 +15,20 @@ internal class Definition : ResourceDefinition
     {
         new GetOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(DownloadPhaseConstant),
+        typeof(JobStatusConstant),
+        typeof(JobTypeConstant),
+        typeof(UpdateOperationStageConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(JobModel),
+        typeof(JobErrorDetailsModel),
+        typeof(JobErrorItemModel),
+        typeof(JobPropertiesModel),
+        typeof(UpdateDownloadProgressModel),
+        typeof(UpdateInstallProgressModel),
+    };
 }

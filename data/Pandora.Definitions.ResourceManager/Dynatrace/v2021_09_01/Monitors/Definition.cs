@@ -27,4 +27,44 @@ internal class Definition : ResourceDefinition
         new ListMonitoredResourcesOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AutoUpdateSettingConstant),
+        typeof(AvailabilityStateConstant),
+        typeof(LiftrResourceCategoriesConstant),
+        typeof(LogModuleConstant),
+        typeof(ManagedIdentityTypeConstant),
+        typeof(MarketplaceSubscriptionStatusConstant),
+        typeof(MonitoringStatusConstant),
+        typeof(MonitoringTypeConstant),
+        typeof(ProvisioningStateConstant),
+        typeof(SSOStatusConstant),
+        typeof(SendingLogsStatusConstant),
+        typeof(SendingMetricsStatusConstant),
+        typeof(SingleSignOnStatesConstant),
+        typeof(UpdateStatusConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AccountInfoModel),
+        typeof(AccountInfoSecureModel),
+        typeof(AppServiceInfoModel),
+        typeof(DynatraceEnvironmentPropertiesModel),
+        typeof(DynatraceSingleSignOnPropertiesModel),
+        typeof(EnvironmentInfoModel),
+        typeof(IdentityPropertiesModel),
+        typeof(LinkableEnvironmentRequestModel),
+        typeof(LinkableEnvironmentResponseModel),
+        typeof(MonitorPropertiesModel),
+        typeof(MonitorResourceModel),
+        typeof(MonitorResourceUpdateModel),
+        typeof(MonitoredResourceModel),
+        typeof(PlanDataModel),
+        typeof(SSODetailsRequestModel),
+        typeof(SSODetailsResponseModel),
+        typeof(UserAssignedIdentityModel),
+        typeof(UserInfoModel),
+        typeof(VMExtensionPayloadModel),
+        typeof(VMInfoModel),
+    };
 }

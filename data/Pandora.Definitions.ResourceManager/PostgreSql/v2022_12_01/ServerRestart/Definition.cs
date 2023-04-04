@@ -15,4 +15,12 @@ internal class Definition : ResourceDefinition
     {
         new ServersRestartOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(FailoverModeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(RestartParameterModel),
+    };
 }

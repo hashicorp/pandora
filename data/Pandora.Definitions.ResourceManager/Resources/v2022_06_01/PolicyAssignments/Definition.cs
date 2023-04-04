@@ -26,4 +26,22 @@ internal class Definition : ResourceDefinition
         new UpdateOperation(),
         new UpdateByIdOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(EnforcementModeConstant),
+        typeof(OverrideKindConstant),
+        typeof(SelectorKindConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(NonComplianceMessageModel),
+        typeof(OverrideModel),
+        typeof(ParameterValuesValueModel),
+        typeof(PolicyAssignmentModel),
+        typeof(PolicyAssignmentPropertiesModel),
+        typeof(PolicyAssignmentUpdateModel),
+        typeof(PolicyAssignmentUpdatePropertiesModel),
+        typeof(ResourceSelectorModel),
+        typeof(SelectorModel),
+    };
 }

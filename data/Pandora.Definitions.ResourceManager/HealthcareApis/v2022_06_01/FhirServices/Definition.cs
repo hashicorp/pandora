@@ -19,4 +19,32 @@ internal class Definition : ResourceDefinition
         new ListByWorkspaceOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(FhirResourceVersionPolicyConstant),
+        typeof(FhirServiceKindConstant),
+        typeof(PrivateEndpointConnectionProvisioningStateConstant),
+        typeof(PrivateEndpointServiceConnectionStatusConstant),
+        typeof(ProvisioningStateConstant),
+        typeof(PublicNetworkAccessConstant),
+        typeof(ServiceEventStateConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(FhirServiceModel),
+        typeof(FhirServiceAccessPolicyEntryModel),
+        typeof(FhirServiceAcrConfigurationModel),
+        typeof(FhirServiceAuthenticationConfigurationModel),
+        typeof(FhirServiceCorsConfigurationModel),
+        typeof(FhirServiceExportConfigurationModel),
+        typeof(FhirServiceImportConfigurationModel),
+        typeof(FhirServicePatchResourceModel),
+        typeof(FhirServicePropertiesModel),
+        typeof(PrivateEndpointModel),
+        typeof(PrivateEndpointConnectionModel),
+        typeof(PrivateEndpointConnectionPropertiesModel),
+        typeof(PrivateLinkServiceConnectionStateModel),
+        typeof(ResourceVersionPolicyConfigurationModel),
+        typeof(ServiceOciArtifactEntryModel),
+    };
 }

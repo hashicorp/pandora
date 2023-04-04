@@ -15,4 +15,29 @@ internal class Definition : ResourceDefinition
     {
         new ApiListByTagsOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AccessIdNameConstant),
+        typeof(ApiTypeConstant),
+        typeof(BearerTokenSendingMethodsConstant),
+        typeof(IdentityProviderTypeConstant),
+        typeof(NotificationNameConstant),
+        typeof(ProductStateConstant),
+        typeof(ProtocolConstant),
+        typeof(TemplateNameConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ApiContactInformationModel),
+        typeof(ApiLicenseInformationModel),
+        typeof(ApiTagResourceContractPropertiesModel),
+        typeof(AuthenticationSettingsContractModel),
+        typeof(OAuth2AuthenticationSettingsContractModel),
+        typeof(OpenIdAuthenticationSettingsContractModel),
+        typeof(OperationTagResourceContractPropertiesModel),
+        typeof(ProductTagResourceContractPropertiesModel),
+        typeof(SubscriptionKeyParameterNamesContractModel),
+        typeof(TagResourceContractModel),
+        typeof(TagTagResourceContractPropertiesModel),
+    };
 }

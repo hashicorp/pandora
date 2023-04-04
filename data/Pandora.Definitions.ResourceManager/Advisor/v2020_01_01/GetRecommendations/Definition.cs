@@ -16,4 +16,16 @@ internal class Definition : ResourceDefinition
         new RecommendationsGetOperation(),
         new RecommendationsListOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(CategoryConstant),
+        typeof(ImpactConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(RecommendationPropertiesModel),
+        typeof(ResourceMetadataModel),
+        typeof(ResourceRecommendationBaseModel),
+        typeof(ShortDescriptionModel),
+    };
 }

@@ -20,4 +20,24 @@ internal class Definition : ResourceDefinition
         new DeploymentsListByResourceGroupOperation(),
         new DeploymentsUpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(NginxPrivateIPAllocationMethodConstant),
+        typeof(ProvisioningStateConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(NginxDeploymentModel),
+        typeof(NginxDeploymentPropertiesModel),
+        typeof(NginxDeploymentUpdateParametersModel),
+        typeof(NginxDeploymentUpdatePropertiesModel),
+        typeof(NginxFrontendIPConfigurationModel),
+        typeof(NginxLoggingModel),
+        typeof(NginxNetworkInterfaceConfigurationModel),
+        typeof(NginxNetworkProfileModel),
+        typeof(NginxPrivateIPAddressModel),
+        typeof(NginxPublicIPAddressModel),
+        typeof(NginxStorageAccountModel),
+        typeof(ResourceSkuModel),
+    };
 }

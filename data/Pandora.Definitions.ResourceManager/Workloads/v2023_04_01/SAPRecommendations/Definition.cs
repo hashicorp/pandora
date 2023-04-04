@@ -15,4 +15,20 @@ internal class Definition : ResourceDefinition
     {
         new SAPSizingRecommendationsOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(SAPDatabaseScaleMethodConstant),
+        typeof(SAPDatabaseTypeConstant),
+        typeof(SAPDeploymentTypeConstant),
+        typeof(SAPEnvironmentTypeConstant),
+        typeof(SAPHighAvailabilityTypeConstant),
+        typeof(SAPProductTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(SAPSizingRecommendationRequestModel),
+        typeof(SAPSizingRecommendationResultModel),
+        typeof(SingleServerRecommendationResultModel),
+        typeof(ThreeTierRecommendationResultModel),
+    };
 }

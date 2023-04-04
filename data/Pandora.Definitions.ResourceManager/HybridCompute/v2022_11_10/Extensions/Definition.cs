@@ -16,4 +16,14 @@ internal class Definition : ResourceDefinition
         new ExtensionMetadataGetOperation(),
         new ExtensionMetadataListOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ExtensionValueModel),
+        typeof(ExtensionValueListResultModel),
+        typeof(ExtensionValuePropertiesModel),
+    };
 }

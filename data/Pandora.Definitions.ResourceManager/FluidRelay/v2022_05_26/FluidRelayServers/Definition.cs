@@ -23,4 +23,24 @@ internal class Definition : ResourceDefinition
         new RegenerateKeyOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(CmkIdentityTypeConstant),
+        typeof(KeyNameConstant),
+        typeof(ProvisioningStateConstant),
+        typeof(StorageSKUConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(CustomerManagedKeyEncryptionPropertiesModel),
+        typeof(CustomerManagedKeyEncryptionPropertiesKeyEncryptionKeyIdentityModel),
+        typeof(EncryptionPropertiesModel),
+        typeof(FluidRelayEndpointsModel),
+        typeof(FluidRelayServerModel),
+        typeof(FluidRelayServerKeysModel),
+        typeof(FluidRelayServerPropertiesModel),
+        typeof(FluidRelayServerUpdateModel),
+        typeof(FluidRelayServerUpdatePropertiesModel),
+        typeof(RegenerateKeyRequestModel),
+    };
 }

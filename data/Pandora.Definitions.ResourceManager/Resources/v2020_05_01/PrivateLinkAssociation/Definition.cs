@@ -18,4 +18,16 @@ internal class Definition : ResourceDefinition
         new ListOperation(),
         new PutOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(PublicNetworkAccessOptionsConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(PrivateLinkAssociationModel),
+        typeof(PrivateLinkAssociationGetResultModel),
+        typeof(PrivateLinkAssociationObjectModel),
+        typeof(PrivateLinkAssociationPropertiesModel),
+        typeof(PrivateLinkAssociationPropertiesExpandedModel),
+    };
 }

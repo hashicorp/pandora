@@ -21,4 +21,25 @@ internal class Definition : ResourceDefinition
         new RestoreOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(EnabledProtocolsConstant),
+        typeof(LeaseDurationConstant),
+        typeof(LeaseShareActionConstant),
+        typeof(LeaseStateConstant),
+        typeof(LeaseStatusConstant),
+        typeof(RootSquashTypeConstant),
+        typeof(ShareAccessTierConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AccessPolicyModel),
+        typeof(DeletedShareModel),
+        typeof(FileShareModel),
+        typeof(FileShareItemModel),
+        typeof(FileSharePropertiesModel),
+        typeof(LeaseShareRequestModel),
+        typeof(LeaseShareResponseModel),
+        typeof(SignedIdentifierModel),
+    };
 }

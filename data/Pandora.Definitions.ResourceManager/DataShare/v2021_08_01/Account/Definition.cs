@@ -20,4 +20,17 @@ internal class Definition : ResourceDefinition
         new ListBySubscriptionOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ProvisioningStateConstant),
+        typeof(StatusConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AccountModel),
+        typeof(AccountPropertiesModel),
+        typeof(AccountUpdateParametersModel),
+        typeof(DataShareErrorInfoModel),
+        typeof(OperationResponseModel),
+    };
 }

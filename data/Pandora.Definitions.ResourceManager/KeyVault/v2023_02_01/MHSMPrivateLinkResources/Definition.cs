@@ -15,4 +15,17 @@ internal class Definition : ResourceDefinition
     {
         new ListByMHSMResourceOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AccessPolicyUpdateKindConstant),
+        typeof(ManagedHsmSkuFamilyConstant),
+        typeof(ManagedHsmSkuNameConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(MHSMPrivateLinkResourceModel),
+        typeof(MHSMPrivateLinkResourceListResultModel),
+        typeof(MHSMPrivateLinkResourcePropertiesModel),
+        typeof(ManagedHsmSkuModel),
+    };
 }

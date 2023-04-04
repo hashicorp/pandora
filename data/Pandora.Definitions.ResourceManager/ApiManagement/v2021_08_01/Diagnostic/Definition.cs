@@ -20,4 +20,28 @@ internal class Definition : ResourceDefinition
         new ListByServiceOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AccessIdNameConstant),
+        typeof(AlwaysLogConstant),
+        typeof(DataMaskingModeConstant),
+        typeof(HTTPCorrelationProtocolConstant),
+        typeof(IdentityProviderTypeConstant),
+        typeof(NotificationNameConstant),
+        typeof(OperationNameFormatConstant),
+        typeof(SamplingTypeConstant),
+        typeof(TemplateNameConstant),
+        typeof(VerbosityConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(BodyDiagnosticSettingsModel),
+        typeof(DataMaskingModel),
+        typeof(DataMaskingEntityModel),
+        typeof(DiagnosticContractModel),
+        typeof(DiagnosticContractPropertiesModel),
+        typeof(HTTPMessageDiagnosticModel),
+        typeof(PipelineDiagnosticSettingsModel),
+        typeof(SamplingSettingsModel),
+    };
 }

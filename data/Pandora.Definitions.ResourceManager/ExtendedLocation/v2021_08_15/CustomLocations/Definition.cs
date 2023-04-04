@@ -21,4 +21,18 @@ internal class Definition : ResourceDefinition
         new ListEnabledResourceTypesOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(HostTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(CustomLocationModel),
+        typeof(CustomLocationPropertiesModel),
+        typeof(CustomLocationPropertiesAuthenticationModel),
+        typeof(EnabledResourceTypeModel),
+        typeof(EnabledResourceTypePropertiesModel),
+        typeof(EnabledResourceTypePropertiesTypesMetadataInlinedModel),
+        typeof(PatchableCustomLocationsModel),
+    };
 }

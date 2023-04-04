@@ -18,4 +18,23 @@ internal class Definition : ResourceDefinition
         new GetOperation(),
         new UpdateTagsOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(PreemptionCapabilityConstant),
+        typeof(PreemptionVulnerabilityConstant),
+        typeof(ProvisioningStateConstant),
+        typeof(SdfDirectionConstant),
+        typeof(TrafficControlPermissionConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AmbrModel),
+        typeof(PccRuleConfigurationModel),
+        typeof(PccRuleQosPolicyModel),
+        typeof(QosPolicyModel),
+        typeof(ServiceModel),
+        typeof(ServiceDataFlowTemplateModel),
+        typeof(ServicePropertiesFormatModel),
+        typeof(TagsObjectModel),
+    };
 }

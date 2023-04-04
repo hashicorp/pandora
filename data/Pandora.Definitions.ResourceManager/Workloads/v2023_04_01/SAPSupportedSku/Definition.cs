@@ -15,4 +15,18 @@ internal class Definition : ResourceDefinition
     {
         new SAPSupportedSkuOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(SAPDatabaseTypeConstant),
+        typeof(SAPDeploymentTypeConstant),
+        typeof(SAPEnvironmentTypeConstant),
+        typeof(SAPHighAvailabilityTypeConstant),
+        typeof(SAPProductTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(SAPSupportedResourceSkusResultModel),
+        typeof(SAPSupportedSkuModel),
+        typeof(SAPSupportedSkusRequestModel),
+    };
 }

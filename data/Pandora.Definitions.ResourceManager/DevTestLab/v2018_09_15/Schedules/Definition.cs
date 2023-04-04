@@ -21,4 +21,18 @@ internal class Definition : ResourceDefinition
         new ListApplicableOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(EnableStatusConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(DayDetailsModel),
+        typeof(HourDetailsModel),
+        typeof(NotificationSettingsModel),
+        typeof(ScheduleModel),
+        typeof(SchedulePropertiesModel),
+        typeof(UpdateResourceModel),
+        typeof(WeekDetailsModel),
+    };
 }

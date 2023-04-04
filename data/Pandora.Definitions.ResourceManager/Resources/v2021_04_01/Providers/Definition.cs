@@ -23,4 +23,31 @@ internal class Definition : ResourceDefinition
         new RegisterAtManagementGroupScopeOperation(),
         new UnregisterOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AliasPathAttributesConstant),
+        typeof(AliasPathTokenTypeConstant),
+        typeof(AliasPatternTypeConstant),
+        typeof(AliasTypeConstant),
+        typeof(ProviderAuthorizationConsentStateConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AliasModel),
+        typeof(AliasPathModel),
+        typeof(AliasPathMetadataModel),
+        typeof(AliasPatternModel),
+        typeof(ApiProfileModel),
+        typeof(PermissionModel),
+        typeof(ProviderModel),
+        typeof(ProviderConsentDefinitionModel),
+        typeof(ProviderExtendedLocationModel),
+        typeof(ProviderPermissionModel),
+        typeof(ProviderPermissionListResultModel),
+        typeof(ProviderRegistrationRequestModel),
+        typeof(ProviderResourceTypeModel),
+        typeof(ProviderResourceTypeListResultModel),
+        typeof(RoleDefinitionModel),
+        typeof(ZoneMappingModel),
+    };
 }

@@ -24,4 +24,30 @@ internal class Definition : ResourceDefinition
         new ListSynchronizationsOperation(),
         new SynchronizeOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(DataSetTypeConstant),
+        typeof(ProvisioningStateConstant),
+        typeof(RecurrenceIntervalConstant),
+        typeof(ShareKindConstant),
+        typeof(ShareSubscriptionStatusConstant),
+        typeof(SourceShareSynchronizationSettingKindConstant),
+        typeof(StatusConstant),
+        typeof(SynchronizationModeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ConsumerSourceDataSetModel),
+        typeof(ConsumerSourceDataSetPropertiesModel),
+        typeof(DataShareErrorInfoModel),
+        typeof(OperationResponseModel),
+        typeof(ScheduledSourceShareSynchronizationSettingPropertiesModel),
+        typeof(ScheduledSourceSynchronizationSettingModel),
+        typeof(ShareSubscriptionModel),
+        typeof(ShareSubscriptionPropertiesModel),
+        typeof(ShareSubscriptionSynchronizationModel),
+        typeof(SourceShareSynchronizationSettingModel),
+        typeof(SynchronizationDetailsModel),
+        typeof(SynchronizeModel),
+    };
 }

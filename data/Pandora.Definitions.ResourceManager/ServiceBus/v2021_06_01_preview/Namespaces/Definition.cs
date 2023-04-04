@@ -24,4 +24,37 @@ internal class Definition : ResourceDefinition
         new ListNetworkRuleSetsOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(DefaultActionConstant),
+        typeof(EndPointProvisioningStateConstant),
+        typeof(KeySourceConstant),
+        typeof(NetworkRuleIPActionConstant),
+        typeof(PrivateLinkConnectionStatusConstant),
+        typeof(PublicNetworkAccessFlagConstant),
+        typeof(SkuNameConstant),
+        typeof(SkuTierConstant),
+        typeof(UnavailableReasonConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(CheckNameAvailabilityModel),
+        typeof(CheckNameAvailabilityResultModel),
+        typeof(ConnectionStateModel),
+        typeof(EncryptionModel),
+        typeof(KeyVaultPropertiesModel),
+        typeof(NWRuleSetIPRulesModel),
+        typeof(NWRuleSetVirtualNetworkRulesModel),
+        typeof(NetworkRuleSetModel),
+        typeof(NetworkRuleSetPropertiesModel),
+        typeof(PrivateEndpointModel),
+        typeof(PrivateEndpointConnectionModel),
+        typeof(PrivateEndpointConnectionPropertiesModel),
+        typeof(SBNamespaceModel),
+        typeof(SBNamespacePropertiesModel),
+        typeof(SBNamespaceUpdateParametersModel),
+        typeof(SBSkuModel),
+        typeof(SubnetModel),
+        typeof(UserAssignedIdentityPropertiesModel),
+    };
 }

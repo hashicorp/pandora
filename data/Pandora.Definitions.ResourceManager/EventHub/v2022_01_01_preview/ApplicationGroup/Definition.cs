@@ -18,4 +18,16 @@ internal class Definition : ResourceDefinition
         new GetOperation(),
         new ListByNamespaceOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ApplicationGroupPolicyTypeConstant),
+        typeof(MetricIdConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ApplicationGroupModel),
+        typeof(ApplicationGroupPolicyModel),
+        typeof(ApplicationGroupPropertiesModel),
+        typeof(ThrottlingPolicyModel),
+    };
 }

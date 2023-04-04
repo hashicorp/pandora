@@ -20,4 +20,19 @@ internal class Definition : ResourceDefinition
         new ListByResourceGroupOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ClusterEntityStatusConstant),
+        typeof(ClusterSkuNameEnumConstant),
+        typeof(DataSourceTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ClusterModel),
+        typeof(ClusterPatchModel),
+        typeof(ClusterPatchPropertiesModel),
+        typeof(ClusterPropertiesModel),
+        typeof(ClusterSkuModel),
+        typeof(KeyVaultPropertiesModel),
+    };
 }

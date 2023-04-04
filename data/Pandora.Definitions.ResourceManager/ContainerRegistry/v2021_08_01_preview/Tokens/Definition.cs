@@ -19,4 +19,21 @@ internal class Definition : ResourceDefinition
         new ListOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ProvisioningStateConstant),
+        typeof(TokenCertificateNameConstant),
+        typeof(TokenPasswordNameConstant),
+        typeof(TokenStatusConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(TokenModel),
+        typeof(TokenCertificateModel),
+        typeof(TokenCredentialsPropertiesModel),
+        typeof(TokenPasswordModel),
+        typeof(TokenPropertiesModel),
+        typeof(TokenUpdateParametersModel),
+        typeof(TokenUpdatePropertiesModel),
+    };
 }

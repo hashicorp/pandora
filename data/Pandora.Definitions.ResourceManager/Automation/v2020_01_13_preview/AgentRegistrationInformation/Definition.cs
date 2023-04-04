@@ -16,4 +16,15 @@ internal class Definition : ResourceDefinition
         new GetOperation(),
         new RegenerateKeyOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AgentRegistrationKeyNameConstant),
+        typeof(CountTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(AgentRegistrationModel),
+        typeof(AgentRegistrationKeysModel),
+        typeof(AgentRegistrationRegenerateKeyParameterModel),
+    };
 }

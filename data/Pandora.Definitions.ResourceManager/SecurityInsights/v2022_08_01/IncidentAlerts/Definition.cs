@@ -15,4 +15,27 @@ internal class Definition : ResourceDefinition
     {
         new IncidentsListAlertsOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AlertSeverityConstant),
+        typeof(AlertStatusConstant),
+        typeof(AttackTacticConstant),
+        typeof(ConfidenceLevelConstant),
+        typeof(ConfidenceScoreStatusConstant),
+        typeof(EntityKindEnumConstant),
+        typeof(IncidentSeverityConstant),
+        typeof(KillChainIntentConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(EntityModel),
+        typeof(HuntingBookmarkModel),
+        typeof(HuntingBookmarkPropertiesModel),
+        typeof(IncidentAlertListModel),
+        typeof(IncidentInfoModel),
+        typeof(SecurityAlertModel),
+        typeof(SecurityAlertPropertiesModel),
+        typeof(SecurityAlertPropertiesConfidenceReasonsInlinedModel),
+        typeof(UserInfoModel),
+    };
 }

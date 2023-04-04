@@ -19,4 +19,26 @@ internal class Definition : ResourceDefinition
         new ListOperation(),
         new ListVersionsOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(AccessPolicyUpdateKindConstant),
+        typeof(DeletionRecoveryLevelConstant),
+        typeof(JsonWebKeyCurveNameConstant),
+        typeof(JsonWebKeyOperationConstant),
+        typeof(JsonWebKeyTypeConstant),
+        typeof(KeyRotationPolicyActionTypeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ManagedHsmActionModel),
+        typeof(ManagedHsmKeyModel),
+        typeof(ManagedHsmKeyAttributesModel),
+        typeof(ManagedHsmKeyCreateParametersModel),
+        typeof(ManagedHsmKeyPropertiesModel),
+        typeof(ManagedHsmKeyReleasePolicyModel),
+        typeof(ManagedHsmKeyRotationPolicyAttributesModel),
+        typeof(ManagedHsmLifetimeActionModel),
+        typeof(ManagedHsmRotationPolicyModel),
+        typeof(ManagedHsmTriggerModel),
+    };
 }

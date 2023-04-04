@@ -15,4 +15,19 @@ internal class Definition : ResourceDefinition
     {
         new ExecuteOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(CapabilityPropertiesModel),
+        typeof(FlexibleServerEditionCapabilityModel),
+        typeof(HyperscaleNodeEditionCapabilityModel),
+        typeof(NodeTypeCapabilityModel),
+        typeof(ServerVersionCapabilityModel),
+        typeof(StorageEditionCapabilityModel),
+        typeof(StorageMBCapabilityModel),
+        typeof(VcoreCapabilityModel),
+    };
 }

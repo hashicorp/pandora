@@ -21,4 +21,25 @@ internal class Definition : ResourceDefinition
         new MigrateOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(ColumnDataTypeHintEnumConstant),
+        typeof(ColumnTypeEnumConstant),
+        typeof(ProvisioningStateEnumConstant),
+        typeof(SourceEnumConstant),
+        typeof(TablePlanEnumConstant),
+        typeof(TableSubTypeEnumConstant),
+        typeof(TableTypeEnumConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ColumnModel),
+        typeof(RestoredLogsModel),
+        typeof(ResultStatisticsModel),
+        typeof(SchemaModel),
+        typeof(SearchResultsModel),
+        typeof(TableModel),
+        typeof(TablePropertiesModel),
+        typeof(TablesListResultModel),
+    };
 }

@@ -20,4 +20,17 @@ internal class Definition : ResourceDefinition
         new ListOperation(),
         new VerifyCertificateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(CertificatePurposeConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(CertificateListDescriptionModel),
+        typeof(CertificatePropertiesModel),
+        typeof(CertificateResponseModel),
+        typeof(VerificationCodeRequestModel),
+        typeof(VerificationCodeResponseModel),
+        typeof(VerificationCodeResponsePropertiesModel),
+    };
 }

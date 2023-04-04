@@ -18,4 +18,15 @@ internal class Definition : ResourceDefinition
         new GetOperation(),
         new ListByManagedClusterOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(WeekDayConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(MaintenanceConfigurationModel),
+        typeof(MaintenanceConfigurationPropertiesModel),
+        typeof(TimeInWeekModel),
+        typeof(TimeSpanModel),
+    };
 }

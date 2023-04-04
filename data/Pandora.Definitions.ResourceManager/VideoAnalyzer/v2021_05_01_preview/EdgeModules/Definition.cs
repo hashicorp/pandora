@@ -19,4 +19,15 @@ internal class Definition : ResourceDefinition
         new EdgeModulesListOperation(),
         new EdgeModulesListProvisioningTokenOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(EdgeModuleEntityModel),
+        typeof(EdgeModulePropertiesModel),
+        typeof(EdgeModuleProvisioningTokenModel),
+        typeof(ListProvisioningTokenInputModel),
+    };
 }

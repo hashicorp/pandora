@@ -20,4 +20,41 @@ internal class Definition : ResourceDefinition
         new ListBySubscriptionOperation(),
         new UpdateOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+        typeof(CustomParameterTypeConstant),
+        typeof(EncryptionKeySourceConstant),
+        typeof(KeySourceConstant),
+        typeof(PrivateEndpointConnectionProvisioningStateConstant),
+        typeof(PrivateLinkServiceConnectionStatusConstant),
+        typeof(ProvisioningStateConstant),
+        typeof(PublicNetworkAccessConstant),
+        typeof(RequiredNsgRulesConstant),
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(CreatedByModel),
+        typeof(EncryptionModel),
+        typeof(EncryptionEntitiesDefinitionModel),
+        typeof(EncryptionV2Model),
+        typeof(EncryptionV2KeyVaultPropertiesModel),
+        typeof(ManagedDiskEncryptionModel),
+        typeof(ManagedDiskEncryptionKeyVaultPropertiesModel),
+        typeof(ManagedIdentityConfigurationModel),
+        typeof(PrivateEndpointModel),
+        typeof(PrivateEndpointConnectionModel),
+        typeof(PrivateEndpointConnectionPropertiesModel),
+        typeof(PrivateLinkServiceConnectionStateModel),
+        typeof(SkuModel),
+        typeof(WorkspaceModel),
+        typeof(WorkspaceCustomBooleanParameterModel),
+        typeof(WorkspaceCustomObjectParameterModel),
+        typeof(WorkspaceCustomParametersModel),
+        typeof(WorkspaceCustomStringParameterModel),
+        typeof(WorkspaceEncryptionParameterModel),
+        typeof(WorkspacePropertiesModel),
+        typeof(WorkspacePropertiesEncryptionModel),
+        typeof(WorkspaceProviderAuthorizationModel),
+        typeof(WorkspaceUpdateModel),
+    };
 }

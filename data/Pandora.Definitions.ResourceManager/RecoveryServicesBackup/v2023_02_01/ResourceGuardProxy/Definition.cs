@@ -18,4 +18,16 @@ internal class Definition : ResourceDefinition
         new PutOperation(),
         new UnlockDeleteOperation(),
     };
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+
+    };
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(ResourceGuardOperationDetailModel),
+        typeof(ResourceGuardProxyBaseModel),
+        typeof(ResourceGuardProxyBaseResourceModel),
+        typeof(UnlockDeleteRequestModel),
+        typeof(UnlockDeleteResponseModel),
+    };
 }
