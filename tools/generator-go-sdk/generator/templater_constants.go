@@ -11,7 +11,7 @@ import (
 var _ templaterForResource = constantsTemplater{}
 
 type constantsTemplater struct {
-	constantTemplateFunc func(name string, details resourcemanager.ConstantDetails) (*string, error)
+	constantTemplateFunc func(name string, details resourcemanager.ConstantDetails, generateNormalizationFunction bool) (*string, error)
 }
 
 func (c constantsTemplater) template(data ServiceGeneratorData) (*string, error) {
@@ -30,7 +30,11 @@ func (c constantsTemplater) template(data ServiceGeneratorData) (*string, error)
 	for _, constantName := range keys {
 		values := data.constants[constantName]
 
-		constantLines, err := c.constantTemplateFunc(constantName, values)
+		// the rollout of the Constant Normalization functions can be done at the same time as the
+		// rollout of the new base layer, to allow us to go gradually
+		generateNormalizationFunction := data.useNewBaseLayer
+
+		constantLines, err := c.constantTemplateFunc(constantName, values, generateNormalizationFunction)
 		if err != nil {
 			return nil, fmt.Errorf("generating template for constant %q: %+v", constantName, err)
 		}

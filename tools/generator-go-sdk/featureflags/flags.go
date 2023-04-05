@@ -5,6 +5,8 @@ import (
 	"strings"
 )
 
+// GenerateCaseInsensitiveFunctions specifies whether case-insensitive Resource ID parsing
+// functions should be generated.
 const GenerateCaseInsensitiveFunctions = true
 
 // SkipDiscriminatedParentTypes returns whether or not the feature for skipping generation of

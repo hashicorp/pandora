@@ -9,14 +9,16 @@ import (
 )
 
 type constantTemplater struct {
-	name    string
-	details resourcemanager.ConstantDetails
+	name                          string
+	details                       resourcemanager.ConstantDetails
+	generateNormalizationFunction bool
 }
 
-func templateForConstant(name string, details resourcemanager.ConstantDetails) (*string, error) {
+func templateForConstant(name string, details resourcemanager.ConstantDetails, generateNormalizationFunc bool) (*string, error) {
 	t := constantTemplater{
-		name:    name,
-		details: details,
+		name:                          name,
+		details:                       details,
+		generateNormalizationFunction: generateNormalizationFunc,
 	}
 
 	valueKeys := make([]string, 0)
@@ -25,19 +27,14 @@ func templateForConstant(name string, details resourcemanager.ConstantDetails) (
 	}
 	sort.Strings(valueKeys)
 
-	// TODO: handle this needing a custom deserializer/serializer for rewriting (available in the Parse function)
 	constantDefinition := t.constantDefinition()
 	possibleValuesFunction := t.possibleValuesFunction()
-
-	parseFunction, err := t.parseFunction()
-	if err != nil {
-		return nil, fmt.Errorf("generating parse function: %+v", err)
-	}
+	normalizationFunction := t.normalizationFunction()
 
 	out := strings.Join([]string{
 		constantDefinition,
 		possibleValuesFunction,
-		*parseFunction,
+		normalizationFunction,
 	}, "\n")
 	return &out, nil
 }
@@ -70,6 +67,30 @@ const (
 `, t.name, constantType, strings.Join(definitionLines, "\n"))
 }
 
+func (t constantTemplater) normalizationFunction() string {
+	if !t.generateNormalizationFunction || t.details.Type != resourcemanager.StringConstant {
+		return ""
+	}
+
+	// since we're only normalizing string values, we're intentionally being opinionated here
+	return fmt.Sprintf(`
+func (s *%[1]s) UnmarshalJSON(bytes []byte) error {
+	var decoded string
+	if err := json.Unmarshal(bytes, &decoded); err != nil {
+		return fmt.Errorf("unmarshaling: %%+v", err)
+	}
+	for _, v := range PossibleValuesFor%[1]s() {
+		if strings.EqualFold(v, decoded) {
+			decoded = v
+			break
+		}
+	}
+	*s = %[1]s(decoded)
+	return nil
+}
+`, t.name)
+}
+
 func (t constantTemplater) possibleValuesFunction() string {
 	valueKeys := make([]string, 0)
 	for key := range t.details.Values {
@@ -90,66 +111,6 @@ func PossibleValuesFor%[1]s() []%[2]s {
 	}
 }
 `, t.name, typeName, strings.Join(lines, "\n"))
-}
-
-func (t constantTemplater) parseFunction() (*string, error) {
-	valueKeys := make([]string, 0)
-	for key := range t.details.Values {
-		valueKeys = append(valueKeys, key)
-	}
-	sort.Strings(valueKeys)
-
-	if t.details.Type == resourcemanager.FloatConstant || t.details.Type == resourcemanager.IntegerConstant {
-		mapLines := make([]string, 0)
-		for _, constantKey := range valueKeys {
-			constantValue := t.details.Values[constantKey]
-			// whilst the key may look weird here, constantValue is a string containing the formatted int/float value
-			// as such we output that raw without any parsing/formatting
-			mapLines = append(mapLines, fmt.Sprintf("%s: %s%s,", strings.ToLower(constantValue), t.name, constantKey))
-		}
-		typeName := t.mapToGoType()
-
-		out := fmt.Sprintf(`
-func parse%[1]s(input %[3]s) (*%[1]s, error) {
-	vals := map[%[3]s]%[1]s{
-		%[2]s
-	}
-	if v, ok := vals[input]; ok {
-		return &v, nil
-	}
-
-	// otherwise presume it's an undefined value and best-effort it
-	out := %[1]s(input)
-	return &out, nil
-}
-`, t.name, strings.Join(mapLines, "\n"), typeName)
-		return &out, nil
-	}
-
-	if t.details.Type != resourcemanager.StringConstant {
-		return nil, fmt.Errorf("unimplemented constant type %q", string(t.details.Type))
-	}
-
-	mapLines := make([]string, 0)
-	for _, constantKey := range valueKeys {
-		constantValue := t.details.Values[constantKey]
-		mapLines = append(mapLines, fmt.Sprintf("%q: %s%s,", strings.ToLower(constantValue), t.name, constantKey))
-	}
-	out := fmt.Sprintf(`
-func parse%[1]s(input string) (*%[1]s, error) {
-	vals := map[string]%[1]s{
-		%[2]s
-	}
-	if v, ok := vals[strings.ToLower(input)]; ok {
-		return &v, nil
-	}
-
-	// otherwise presume it's an undefined value and best-effort it
-	out := %[1]s(input)
-	return &out, nil
-}
-`, t.name, strings.Join(mapLines, "\n"))
-	return &out, nil
 }
 
 func (t constantTemplater) mapToGoType() string {
