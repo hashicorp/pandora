@@ -5,6 +5,7 @@ import (
 	"sort"
 	"strings"
 
+	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
@@ -12,13 +13,15 @@ type constantTemplater struct {
 	name                          string
 	details                       resourcemanager.ConstantDetails
 	generateNormalizationFunction bool
+	constantUsedInAResourceID     bool
 }
 
-func templateForConstant(name string, details resourcemanager.ConstantDetails, generateNormalizationFunc bool) (*string, error) {
+func templateForConstant(name string, details resourcemanager.ConstantDetails, generateNormalizationFunc, usedInAResourceId bool) (*string, error) {
 	t := constantTemplater{
 		name:                          name,
 		details:                       details,
 		generateNormalizationFunction: generateNormalizationFunc,
+		constantUsedInAResourceID:     usedInAResourceId,
 	}
 
 	valueKeys := make([]string, 0)
@@ -85,13 +88,7 @@ func (s *%[1]s) UnmarshalJSON(bytes []byte) error {
 	if err := json.Unmarshal(bytes, &decoded); err != nil {
 		return fmt.Errorf("unmarshaling: %%+v", err)
 	}
-	for _, v := range PossibleValuesFor%[1]s() {
-		if strings.EqualFold(v, decoded) {
-			decoded = v
-			break
-		}
-	}
-	*s = %[1]s(decoded)
+	*s = parse%[1]s(decoded)
 	return nil
 }
 `, t.name)
@@ -120,6 +117,14 @@ func PossibleValuesFor%[1]s() []%[2]s {
 }
 
 func (t constantTemplater) parseFunction() (*string, error) {
+	// we only output the parse function if it's a String constant (in which case it'll be needed by the Normalizaation function)
+	// or if the Constant is used in a Resource ID segment (since that calls this to parse the Resource ID segment)
+	// we could output this always, but this reduces the TLOC we output, which is preferable.
+	requiresParseFunction := t.details.Type == resourcemanager.StringConstant || t.constantUsedInAResourceID
+	if !requiresParseFunction {
+		return pointer.To(""), nil
+	}
+
 	valueKeys := make([]string, 0)
 	for key := range t.details.Values {
 		valueKeys = append(valueKeys, key)
