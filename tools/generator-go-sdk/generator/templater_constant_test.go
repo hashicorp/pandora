@@ -162,9 +162,9 @@ func TestTemplateStringConstant(t *testing.T) {
 		CaseInsensitive: false,
 		Type:            resourcemanager.StringConstant,
 		Values: map[string]string{
-			"Berlin": "berlin",
-			"Oslo":   "oslo",
-			"Sydney": "sydney",
+			"Berlin":   "berlin",
+			"Canberra": "canberra",
+			"Oslo":     "oslo",
 		},
 	}, false, false)
 	if err != nil {
@@ -174,23 +174,23 @@ func TestTemplateStringConstant(t *testing.T) {
 
 const (
 	CapitalBerlin Capital = "berlin"
+	CapitalCanberra Capital = "canberra"
 	CapitalOslo Capital = "oslo"
-	CapitalSydney Capital = "sydney"
 )
 
 func PossibleValuesForCapital() []string {
 	return []string{
 		string(CapitalBerlin),
+        string(CapitalCanberra),
         string(CapitalOslo),
-        string(CapitalSydney),
 	}
 }
 
 func parseCapital(input string) (*Capital, error) {
 	vals := map[string]Capital{
 		"berlin": CapitalBerlin,
+        "canberra": CapitalCanberra,
         "oslo": CapitalOslo,
-        "sydney": CapitalSydney,
 	}
 	if v, ok := vals[strings.ToLower(input)]; ok {
     	return &v, nil
@@ -210,9 +210,9 @@ func TestTemplateStringConstantUsedInAResourceID(t *testing.T) {
 		CaseInsensitive: false,
 		Type:            resourcemanager.StringConstant,
 		Values: map[string]string{
-			"Berlin": "berlin",
-			"Oslo":   "oslo",
-			"Sydney": "sydney",
+			"Berlin":   "berlin",
+			"Canberra": "canberra",
+			"Oslo":     "oslo",
 		},
 	}, false, true)
 	if err != nil {
@@ -222,23 +222,23 @@ func TestTemplateStringConstantUsedInAResourceID(t *testing.T) {
 
 const (
 	CapitalBerlin Capital = "berlin"
+	CapitalCanberra Capital = "canberra"
 	CapitalOslo Capital = "oslo"
-	CapitalSydney Capital = "sydney"
 )
 
 func PossibleValuesForCapital() []string {
 	return []string{
 		string(CapitalBerlin),
+        string(CapitalCanberra),
         string(CapitalOslo),
-        string(CapitalSydney),
 	}
 }
 
 func parseCapital(input string) (*Capital, error) {
 	vals := map[string]Capital{
 		"berlin": CapitalBerlin,
+        "canberra": CapitalCanberra,
         "oslo": CapitalOslo,
-        "sydney": CapitalSydney,
 	}
 	if v, ok := vals[strings.ToLower(input)]; ok {
     	return &v, nil
@@ -257,9 +257,9 @@ func TestTemplateStringConstantWithNormalizationFunction(t *testing.T) {
 		CaseInsensitive: false,
 		Type:            resourcemanager.StringConstant,
 		Values: map[string]string{
-			"Berlin": "berlin",
-			"Oslo":   "oslo",
-			"Sydney": "sydney",
+			"Berlin":   "berlin",
+			"Canberra": "canberra",
+			"Oslo":     "oslo",
 		},
 	}, true, true)
 	if err != nil {
@@ -269,15 +269,15 @@ func TestTemplateStringConstantWithNormalizationFunction(t *testing.T) {
 
 const (
 	CapitalBerlin Capital = "berlin"
+	CapitalCanberra Capital = "canberra"
 	CapitalOslo Capital = "oslo"
-	CapitalSydney Capital = "sydney"
 )
 
 func PossibleValuesForCapital() []string {
 	return []string{
 		string(CapitalBerlin),
+        string(CapitalCanberra),
         string(CapitalOslo),
-        string(CapitalSydney),
 	}
 }
 
@@ -297,8 +297,8 @@ func (s *Capital) UnmarshalJSON(bytes []byte) error {
 func parseCapital(input string) (*Capital, error) {
 	vals := map[string]Capital{
 		"berlin": CapitalBerlin,
+        "canberra": CapitalCanberra,
         "oslo": CapitalOslo,
-        "sydney": CapitalSydney,
 	}
 	if v, ok := vals[strings.ToLower(input)]; ok {
     	return &v, nil
