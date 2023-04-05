@@ -88,7 +88,11 @@ func (s *%[1]s) UnmarshalJSON(bytes []byte) error {
 	if err := json.Unmarshal(bytes, &decoded); err != nil {
 		return fmt.Errorf("unmarshaling: %%+v", err)
 	}
-	*s = parse%[1]s(decoded)
+	out, err := parse%[1]s(decoded)
+	if err != nil {
+		return fmt.Errorf("parsing %%q: %%+v", decoded, err)
+	}
+	*s = *out
 	return nil
 }
 `, t.name)

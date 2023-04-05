@@ -286,7 +286,11 @@ func (s *Capital) UnmarshalJSON(bytes []byte) error {
 	if err := json.Unmarshal(bytes, &decoded); err != nil {
 		return fmt.Errorf("unmarshaling: %+v", err)
 	}
-	*s = parseCapital(decoded)
+	out, err := parseCapital(decoded)
+	if err != nil {
+		return fmt.Errorf("parsing %q: %+v", decoded, err)
+	}
+	*s = *out
 	return nil
 }
 
