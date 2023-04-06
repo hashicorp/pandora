@@ -19,7 +19,7 @@ internal class SubscriptionUnderManagementGroupPropertiesModel
     public string? DisplayName { get; set; }
 
     [JsonPropertyName("parent")]
-    public ParentGroupBagInfoModel? Parent { get; set; }
+    public DescendantParentGroupInfoModel? Parent { get; set; }
 
     [JsonPropertyName("state")]
     public string? State { get; set; }

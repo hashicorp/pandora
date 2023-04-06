@@ -58,7 +58,6 @@ internal class Definition : ResourceDefinition
         typeof(ManagementGroupInfoPropertiesModel),
         typeof(ManagementGroupPathElementModel),
         typeof(ManagementGroupPropertiesModel),
-        typeof(ParentGroupBagInfoModel),
         typeof(ParentGroupInfoModel),
         typeof(PatchManagementGroupRequestModel),
         typeof(SubscriptionUnderManagementGroupModel),
