@@ -15,7 +15,7 @@ namespace Pandora.Definitions.ResourceManager.ManagementGroups.v2020_05_01.Manag
 
 internal class HierarchySettingsListModel
 {
-    [JsonPropertyName("nextLink")]
+    [JsonPropertyName("@nextLink")]
     public string? NextLink { get; set; }
 
     [JsonPropertyName("value")]
