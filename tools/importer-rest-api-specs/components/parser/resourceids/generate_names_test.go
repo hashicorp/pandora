@@ -1,6 +1,7 @@
 package resourceids
 
 import (
+	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"reflect"
 	"testing"
 
@@ -842,7 +843,8 @@ func TestResourceIdNamingConflictingTwoLevels(t *testing.T) {
 		"ExtensionId":               virtualNetworkExtensionResourceId,
 	}
 
-	actualNamesToIds, err := generateNamesForResourceIds(input, hclog.NewNullLogger(), nil)
+	var uriToParsedOperation map[string]ParsedOperation
+	actualNamesToIds, err := generateNamesForResourceIds(input, hclog.NewNullLogger(), uriToParsedOperation)
 	if err != nil {
 		t.Fatalf("error: %+v", err)
 		return
@@ -850,6 +852,44 @@ func TestResourceIdNamingConflictingTwoLevels(t *testing.T) {
 
 	if !reflect.DeepEqual(expectedNamesToIds, *actualNamesToIds) {
 		t.Fatalf("expected namesToIds to be:\n\n%+v\nbut got:\n\n%+v", expectedNamesToIds, *actualNamesToIds)
+	}
+}
+
+func TestResourceIdNamingConflictingWithUpdatingOperation(t *testing.T) {
+	input := []models.ParsedResourceId{
+		virtualNetworkExtensionResourceId,
+		virtualMachineExtensionResourceId,
+	}
+	expectedNamesToIds := map[string]models.ParsedResourceId{
+		"VirtualMachineExtensionId": virtualMachineExtensionResourceId,
+		"ExtensionId":               virtualNetworkExtensionResourceId,
+	}
+	uriToParsedOperation := map[string]ParsedOperation{
+		virtualMachineExtensionResourceId.ID(): {
+			ResourceId:     &virtualMachineExtensionResourceId,
+			ResourceIdName: pointer.To("ExtensionId"),
+		},
+		virtualNetworkExtensionResourceId.ID(): {
+			ResourceId:     &virtualNetworkExtensionResourceId,
+			ResourceIdName: pointer.To("ExtensionId"),
+		},
+	}
+
+	actualNamesToIds, err := generateNamesForResourceIds(input, hclog.NewNullLogger(), uriToParsedOperation)
+	if err != nil {
+		t.Fatalf("error: %+v", err)
+		return
+	}
+
+	if !reflect.DeepEqual(expectedNamesToIds, *actualNamesToIds) {
+		t.Fatalf("expected namesToIds to be:\n\n%+v\nbut got:\n\n%+v", expectedNamesToIds, *actualNamesToIds)
+	}
+
+	for wantIDName, resourceID := range expectedNamesToIds {
+		got := uriToParsedOperation[resourceID.ID()].ResourceIdName
+		if got == nil || *got != wantIDName {
+			t.Fatalf("expected ResourceIdName of virtualMachineResourceId to be: %s\nbut got:%s\n", wantIDName, *got)
+		}
 	}
 }
 
