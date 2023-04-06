@@ -16,7 +16,7 @@ func (p *Parser) generateNamesForResourceIds(input []models.ParsedResourceId, ur
 	return generateNamesForResourceIds(input, p.logger, uri2ResourceId)
 }
 
-func generateNamesForResourceIds(input []models.ParsedResourceId, log hclog.Logger, uri2ResourceId map[string]ParsedOperation) (*map[string]models.ParsedResourceId, error) {
+func generateNamesForResourceIds(input []models.ParsedResourceId, log hclog.Logger, uriToResourceId map[string]ParsedOperation) (*map[string]models.ParsedResourceId, error) {
 	// now that we have all of the Resource ID's, we then need to go through and determine Unique ID's for those
 	// we need all of them here to avoid conflicts, e.g. AuthorizationRule which can be a NamespaceAuthorizationRule
 	// or an EventHubAuthorizationRule, but is named AuthorizationRule in both
@@ -96,7 +96,7 @@ func generateNamesForResourceIds(input []models.ParsedResourceId, log hclog.Logg
 
 	// now we need to fix the conflicts
 	// we also have to update the ResourceIdName in OriginalUrisToResourceIDs
-	conflictUniqNames := map[string]struct{}{}
+	conflictUniqueNames := map[string]struct{}{}
 	for _, conflictingUris := range conflictingNamesToUris {
 		uniqueNames, err := determineUniqueNamesFor(conflictingUris, candidateNamesToUris)
 		if err != nil {
@@ -109,7 +109,7 @@ func generateNamesForResourceIds(input []models.ParsedResourceId, log hclog.Logg
 		}
 
 		for k, v := range *uniqueNames {
-			conflictUniqNames[k] = struct{}{}
+			conflictUniqueNames[k] = struct{}{}
 			candidateNamesToUris[k] = v
 		}
 	}
@@ -120,11 +120,11 @@ func generateNamesForResourceIds(input []models.ParsedResourceId, log hclog.Logg
 		key := fmt.Sprintf("%sId", cleanup.NormalizeName(k))
 		outputNamesToUris[key] = v
 
-		if _, ok := conflictUniqNames[k]; ok {
-			for idx, v2 := range uri2ResourceId {
-				if v2.ResourceId != nil && v2.ResourceId.ID() == v.ID() && (v2.ResourceIdName != nil && *v2.ResourceIdName != key) {
+		if _, ok := conflictUniqueNames[k]; ok {
+			for idx, v2 := range uriToResourceId {
+				if v2.ResourceId != nil && v2.ResourceId.Matches(v) && (v2.ResourceIdName != nil && *v2.ResourceIdName != key) {
 					v2.ResourceIdName = &key
-					uri2ResourceId[idx] = v2
+					uriToResourceId[idx] = v2
 				}
 			}
 		}
