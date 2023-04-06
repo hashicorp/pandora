@@ -229,7 +229,7 @@ service "healthcareapis" {
 }
 service "hdinsight" {
   name      = "HDInsight"
-  available = ["2018-06-01"]
+  available = ["2018-06-01-preview"]
 }
 service "hybridcompute" {
   name      = "HybridCompute"
