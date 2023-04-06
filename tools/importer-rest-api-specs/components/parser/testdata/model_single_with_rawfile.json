@@ -50,7 +50,7 @@
           "200": {
             "description": "Success.",
             "schema": {
-              "$ref": "#/definitions/Example"
+              "type": "file"
             }
           }
         }
@@ -58,45 +58,6 @@
     }
   },
   "definitions": {
-    "Example": {
-      "description": "The Resource definition.",
-      "properties": {
-        "name": {
-          "type": "string",
-          "description": "the name of this thing"
-        },
-        "age": {
-          "type": "integer",
-          "description": "the age of this thing"
-        },
-        "enabled": {
-          "type": "boolean",
-          "description": "true or false"
-        },
-        "height": {
-          "type": "number",
-          "format": "float",
-          "description": "the height of this in cm"
-        },
-        "tags": {
-          "type": "object",
-          "description": "a key value pair",
-          "additionalProperties": {
-            "description": "the value",
-            "type": "string"
-          }
-        },
-        "value": {
-          "description": "Example value. May be a primitive value, or an object."
-        }
-      },
-      "required": [
-        "name"
-      ],
-      "title": "Example",
-      "type": "object",
-      "x-ms-azure-resource": true
-    }
   },
   "parameters": {
     "ApiVersionParameter": {

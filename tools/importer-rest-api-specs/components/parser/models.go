@@ -638,7 +638,7 @@ func (d SwaggerDefinition) parseNativeType(input *spec.Schema) *models.ObjectDef
 		}
 	}
 
-	if input.Type.Contains("file") || (input.Format == "file" && input.Type.Contains("object")) {
+	if input.Type.Contains("file") || (strings.EqualFold(input.Format, "file") && input.Type.Contains("object")) {
 		return &models.ObjectDefinition{
 			Type: models.ObjectDefinitionRawFile,
 		}
@@ -657,6 +657,11 @@ func (d SwaggerDefinition) parseNativeType(input *spec.Schema) *models.ObjectDef
 	}
 
 	if input.Type.Contains("object") {
+		if strings.EqualFold(input.Format, "file") {
+			return &models.ObjectDefinition{
+				Type: models.ObjectDefinitionRawFile,
+			}
+		}
 		return &models.ObjectDefinition{
 			Type: models.ObjectDefinitionRawObject,
 		}

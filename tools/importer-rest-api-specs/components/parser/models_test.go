@@ -176,6 +176,10 @@ func TestParseModelSingleTopLevelWithRawFile(t *testing.T) {
 	if operation.RequestObject.Type != "RawFile" {
 		t.Fatalf("want 'RawFile' request type, got: %s", operation.RequestObject.Type)
 	}
+
+	if operation.ResponseObject.Type != "RawFile" {
+		t.Fatalf("want 'RawFile' request type, got: %s", operation.RequestObject.Type)
+	}
 }
 
 func TestParseModelSingleTopLevelWithInlinedModel(t *testing.T) {
