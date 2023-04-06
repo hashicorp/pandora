@@ -271,10 +271,6 @@ service "maintenance" {
   name      = "Maintenance"
   available = ["2021-05-01", "2022-07-01-preview"]
 }
-service "managedapplications" {
-  name      = "ManagedApplications"
-  available = ["2019-07-01"]
-}
 service "managedservices" {
   name      = "ManagedServices"
   available = ["2019-06-01", "2022-10-01"]
@@ -444,6 +440,10 @@ service "servicelinker" {
 service "signalr" {
   name      = "SignalR"
   available = ["2023-02-01"]
+}
+service "solutions" {
+  name      = "ManagedApplications"
+  available = ["2019-07-01"]
 }
 service "sqlvirtualmachine" {
   name      = "SqlVirtualMachine"
