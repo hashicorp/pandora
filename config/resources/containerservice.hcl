@@ -6,7 +6,7 @@ service "ContainerService" {
       definition "kubernetes_fleet_manager" {
         id = "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}"
         display_name = "Kubernetes Fleet Manager"
-        website_subcategory = "Containers"
+        website_subcategory = "Container"
         description = <<HERE
 Manages a Kubernetes Fleet Manager
 
