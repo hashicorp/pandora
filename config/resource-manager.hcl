@@ -273,7 +273,7 @@ service "maintenance" {
 }
 service "managedapplications" {
   name      = "ManagedApplications"
-  available = ["logz"]
+  available = ["2019-07-01"]
 }
 service "managedservices" {
   name      = "ManagedServices"
