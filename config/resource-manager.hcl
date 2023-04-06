@@ -59,6 +59,10 @@ service "batch" {
   name      = "Batch"
   available = ["2022-01-01", "2022-10-01"]
 }
+service "blueprint" {
+  name      = "Blueprints"
+  available = ["2018-11-01-preview"]
+}
 service "chaos" {
   name      = "ChaosStudio"
   available = ["2022-07-01-preview"]
