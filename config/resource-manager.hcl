@@ -203,6 +203,10 @@ service "eventhub" {
   name      = "EventHub"
   available = ["2021-11-01", "2022-01-01-preview"]
 }
+service "eventgrid" {
+  name      = "EventGrid"
+  available = ["2021-12-01"]
+}
 service "extendedlocation" {
   name      = "ExtendedLocation"
   available = ["2021-08-15"]
