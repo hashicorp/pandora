@@ -14,20 +14,16 @@ type transformer struct {
 	packageName string
 }
 
-func newIdentityTransformer(expandFn string, flattenFn string) transformer {
-	return transformer{
-		expandFn:    expandFn,
-		flattenFn:   flattenFn,
-		packageName: "identity",
-	}
-}
-
 type sdkFieldType = resourcemanager.ApiObjectDefinitionType
 
 // transform from sdk identity block to schema identity block, or reverse
 // N sdk model : 1 schema model, say there are 7 sdk identity types, but only 4 schema identity types
 var identityTransformers = map[sdkFieldType]transformer{
-	resourcemanager.LegacySystemAndUserAssignedIdentityMapApiObjectDefinitionType: newIdentityTransformer("ExpandLegacySystemAndUserAssignedMapFromModel", "FlattenLegacySystemAndUserAssignedMapToModel"),
+	resourcemanager.LegacySystemAndUserAssignedIdentityMapApiObjectDefinitionType: {
+		expandFn:    "ExpandLegacySystemAndUserAssignedMapFromModel",
+		flattenFn:   "FlattenLegacySystemAndUserAssignedMapToModel",
+		packageName: "identity",
+	},
 }
 
 // we can get schema type from mapping, so only the sdk type is needed
@@ -51,12 +47,12 @@ func patchIdentityTransform(sdkType sdkFieldType, isExpand bool, mapping resourc
 		outputAssignment = fmt.Sprintf("output.%s", mapping.DirectAssignment.SdkFieldPath)
 	}
 	code = fmt.Sprintf(`
-	%[1]s, err := identity.%[4]s(%[2]s)
+	%[1]s, err := %[6]s.%[4]s(%[2]s)
 	if err != nil {
 		return fmt.Errorf("%[5]s call %[4]s: %%+v", err)
 	}
 	%[3]s = %[1]s
-`, outputVariable, inputAssignment, outputAssignment, fn, hint)
+`, outputVariable, inputAssignment, outputAssignment, fn, hint, transform.packageName)
 
 	return code, true
 }
