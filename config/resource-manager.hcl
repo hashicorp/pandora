@@ -227,6 +227,10 @@ service "healthcareapis" {
   name      = "HealthcareApis"
   available = ["2021-06-01-preview", "2022-06-01", "2022-12-01", "2023-02-28"]
 }
+service "hdinsight" {
+  name      = "HDInsight"
+  available = ["2018-06-01"]
+}
 service "hybridcompute" {
   name      = "HybridCompute"
   available = ["2022-03-10", "2022-11-10"]
