@@ -271,6 +271,10 @@ service "maintenance" {
   name      = "Maintenance"
   available = ["2021-05-01", "2022-07-01-preview"]
 }
+service "managedapplications" {
+  name      = "ManagedApplications"
+  available = ["logz"]
+}
 service "managedservices" {
   name      = "ManagedServices"
   available = ["2019-06-01", "2022-10-01"]
