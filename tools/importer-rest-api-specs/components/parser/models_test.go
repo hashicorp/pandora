@@ -170,14 +170,14 @@ func TestParseModelSingleTopLevelWithRawFile(t *testing.T) {
 
 	operation, ok := resource.Operations["Test"]
 	if !ok {
-		t.Fatalf("the Operationi 'Test' was not found")
+		t.Fatalf("the Operation 'Test' was not found")
 	}
 
-	if operation.RequestObject.Type != "RawFile" {
+	if operation.RequestObject.Type != models.ObjectDefinitionRawFile {
 		t.Fatalf("want 'RawFile' request type, got: %s", operation.RequestObject.Type)
 	}
 
-	if operation.ResponseObject.Type != "RawFile" {
+	if operation.ResponseObject.Type != models.ObjectDefinitionRawFile {
 		t.Fatalf("want 'RawFile' request type, got: %s", operation.RequestObject.Type)
 	}
 }
