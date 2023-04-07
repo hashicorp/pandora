@@ -222,6 +222,10 @@ service "hardwaresecuritymodules" {
   name      = "HardwareSecurityModules"
   available = ["2021-11-30"]
 }
+service "hdinsight" {
+  name      = "HDInsight"
+  available = ["2018-06-01-preview", "2021-06-01"]
+}
 service "healthbot" {
   name      = "HealthBot"
   available = ["2020-12-08", "2022-08-08"]
@@ -229,10 +233,6 @@ service "healthbot" {
 service "healthcareapis" {
   name      = "HealthcareApis"
   available = ["2021-06-01-preview", "2022-06-01", "2022-12-01", "2023-02-28"]
-}
-service "hdinsight" {
-  name      = "HDInsight"
-  available = ["2018-06-01-preview"]
 }
 service "hybridcompute" {
   name      = "HybridCompute"
@@ -450,7 +450,7 @@ service "signalr" {
 }
 service "solutions" {
   name      = "ManagedApplications"
-  available = ["2019-07-01"]
+  available = ["2019-07-01", "2021-07-01"]
 }
 service "sqlvirtualmachine" {
   name      = "SqlVirtualMachine"
