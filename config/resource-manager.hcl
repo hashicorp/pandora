@@ -444,6 +444,10 @@ service "signalr" {
   name      = "SignalR"
   available = ["2023-02-01"]
 }
+service "solutions" {
+  name      = "ManagedApplications"
+  available = ["2019-07-01"]
+}
 service "sqlvirtualmachine" {
   name      = "SqlVirtualMachine"
   available = ["2022-02-01"]
