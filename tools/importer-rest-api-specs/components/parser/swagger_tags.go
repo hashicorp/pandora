@@ -6,9 +6,8 @@ import (
 )
 
 var tagsToIgnore = map[string]struct{}{
-	"tags":       {},
-	"operations": {},
-	"usage":      {},
+	"tags":  {},
+	"usage": {},
 }
 
 func (d *SwaggerDefinition) findTags() []string {
@@ -39,7 +38,7 @@ func tagShouldBeIgnored(tag string) bool {
 			return true
 		}
 
-		// suffixes e.g. `ComputeOperations`
+		// suffixes e.g. `ComputeUsage`
 		if strings.HasSuffix(lowered, strings.ToLower(key)) {
 			return true
 		}
