@@ -70,7 +70,7 @@ func TestParsingOperationsOnResources(t *testing.T) {
 		t.Fatalf("expected 1 model but got %d", len(resource.Models))
 	}
 	if len(resource.Operations) != 3 {
-		t.Fatalf("expected 4 Operations but got %d", len(resource.Operations))
+		t.Fatalf("expected 3 Operations but got %d", len(resource.Operations))
 	}
 	if len(resource.ResourceIds) != 0 {
 		t.Fatalf("expected 0 Resource IDs but got %d", len(resource.ResourceIds))
@@ -99,7 +99,7 @@ func TestParsingOperationsOnResources(t *testing.T) {
 		t.Fatalf("expected 1 model but got %d", len(resource.Models))
 	}
 	if len(resourceOperation.Operations) != 1 {
-		t.Fatalf("expected 4 Operations but got %d", len(resource.Operations))
+		t.Fatalf("expected 1 Operations but got %d", len(resource.Operations))
 	}
 	if len(resourceOperation.ResourceIds) != 0 {
 		t.Fatalf("expected 0 Resource IDs but got %d", len(resource.ResourceIds))
