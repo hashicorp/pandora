@@ -17,9 +17,12 @@ internal class DeleteOperation : Operations.DeleteOperation
 {
     public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
+                HttpStatusCode.Accepted,
                 HttpStatusCode.NoContent,
                 HttpStatusCode.OK,
         };
+
+    public override bool LongRunning() => true;
 
     public override ResourceID? ResourceId() => new PrivateEndpointConnectionId();
 
