@@ -106,7 +106,7 @@ service "containerservice" {
 }
 service "cosmos-db" {
   name      = "CosmosDB"
-  available = ["2021-10-15", "2022-05-15", "2022-08-15", "2022-11-15"]
+  available = ["2021-10-15", "2022-05-15", "2022-08-15", "2022-11-15", "2023-03-15"]
 }
 service "cost-management" {
   name      = "CostManagement"
@@ -422,7 +422,7 @@ service "search" {
 }
 service "security" {
   name      = "Security"
-  available = ["2017-08-01-preview", "2019-01-01-preview", "2019-01-01", "2020-01-01", "2021-06-01", "2022-03-01", "2022-05-01", "2023-01-01"]
+  available = ["2017-08-01-preview", "2019-01-01", "2019-01-01-preview", "2020-01-01", "2021-06-01", "2022-03-01", "2022-05-01", "2023-01-01"]
 }
 service "securityinsights" {
   name      = "SecurityInsights"
