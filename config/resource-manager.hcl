@@ -232,7 +232,7 @@ service "healthbot" {
 }
 service "healthcareapis" {
   name      = "HealthcareApis"
-  available = ["2021-06-01-preview", "2022-06-01", "2022-12-01", "2023-02-28"]
+  available = ["2021-06-01-preview", "2021-11-01", "2022-06-01", "2022-12-01", "2023-02-28"]
 }
 service "hybridcompute" {
   name      = "HybridCompute"
