@@ -6,6 +6,9 @@ namespace Pandora.Definitions.ResourceManager.KeyVault.v2021_10_01.MHSMPrivateLi
 [ConstantType(ConstantTypeAttribute.ConstantType.String)]
 internal enum ManagedHsmSkuNameConstant
 {
+    [Description("Custom_B6")]
+    CustomBSix,
+
     [Description("Custom_B32")]
     CustomBThreeTwo,
 
