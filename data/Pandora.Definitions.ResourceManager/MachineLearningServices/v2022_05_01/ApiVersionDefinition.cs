@@ -31,6 +31,7 @@ public partial class Definition : ApiVersionDefinition
         new OperationalizationClusters.Definition(),
         new OutboundNetworkDependenciesEndpoints.Definition(),
         new PrivateEndpointConnections.Definition(),
+        new ProxyOperations.Definition(),
         new Quota.Definition(),
         new V2WorkspaceConnectionResource.Definition(),
         new VirtualMachineSizes.Definition(),

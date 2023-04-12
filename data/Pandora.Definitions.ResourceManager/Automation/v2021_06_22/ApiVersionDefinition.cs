@@ -15,6 +15,7 @@ public partial class Definition : ApiVersionDefinition
         new HybridRunbookWorker.Definition(),
         new HybridRunbookWorkerGroup.Definition(),
         new ListKeys.Definition(),
+        new Operations.Definition(),
         new Statistics.Definition(),
         new Usages.Definition(),
     };

@@ -12,6 +12,7 @@ public partial class Definition : ApiVersionDefinition
     public IEnumerable<ResourceDefinition> Resources => new List<ResourceDefinition>
     {
         new MarketplaceRegistrationDefinitions.Definition(),
+        new Operations.Definition(),
         new RegistrationAssignments.Definition(),
         new RegistrationDefinitions.Definition(),
     };
