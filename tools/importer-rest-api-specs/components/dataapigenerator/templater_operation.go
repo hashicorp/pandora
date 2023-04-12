@@ -129,7 +129,6 @@ func codeForOperation(namespace string, operationName string, operation models.O
 	output := fmt.Sprintf(`using Pandora.Definitions.Attributes;
 using Pandora.Definitions.CustomTypes;
 using Pandora.Definitions.Interfaces;
-using Pandora.Definitions.Operations;
 using System;
 using System.Collections.Generic;
 using System.Net;
@@ -138,7 +137,7 @@ using System.Net;
 
 namespace %[1]s;
 
-internal class %[2]sOperation : Operations.%[3]sOperation
+internal class %[2]sOperation : Pandora.Definitions.Operations.%[3]sOperation
 {
 %[4]s
 
