@@ -1,7 +1,6 @@
 using Pandora.Definitions.Attributes;
 using Pandora.Definitions.CustomTypes;
 using Pandora.Definitions.Interfaces;
-using Pandora.Definitions.Operations;
 using System;
 using System.Collections.Generic;
 using System.Net;
@@ -13,7 +12,7 @@ using System.Net;
 
 namespace Pandora.Definitions.ResourceManager.CosmosDB.v2021_10_15.Rbacs;
 
-internal class SqlResourcesGetSqlRoleDefinitionOperation : Operations.GetOperation
+internal class SqlResourcesGetSqlRoleDefinitionOperation : Pandora.Definitions.Operations.GetOperation
 {
     public override ResourceID? ResourceId() => new SqlRoleDefinitionId();
 

@@ -14,6 +14,7 @@ public partial class Definition : ApiVersionDefinition
         new Application.Definition(),
         new ApplicationType.Definition(),
         new ApplicationTypeVersion.Definition(),
+        new LongRunningOperations.Definition(),
         new ManagedCluster.Definition(),
         new ManagedClusterVersion.Definition(),
         new ManagedVMSizes.Definition(),

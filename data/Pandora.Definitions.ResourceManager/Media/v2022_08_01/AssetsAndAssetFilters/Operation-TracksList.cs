@@ -1,7 +1,6 @@
 using Pandora.Definitions.Attributes;
 using Pandora.Definitions.CustomTypes;
 using Pandora.Definitions.Interfaces;
-using Pandora.Definitions.Operations;
 using System;
 using System.Collections.Generic;
 using System.Net;
@@ -13,7 +12,7 @@ using System.Net;
 
 namespace Pandora.Definitions.ResourceManager.Media.v2022_08_01.AssetsAndAssetFilters;
 
-internal class TracksListOperation : Operations.GetOperation
+internal class TracksListOperation : Pandora.Definitions.Operations.GetOperation
 {
     public override ResourceID? ResourceId() => new AssetId();
 

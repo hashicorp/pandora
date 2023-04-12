@@ -1,7 +1,6 @@
 using Pandora.Definitions.Attributes;
 using Pandora.Definitions.CustomTypes;
 using Pandora.Definitions.Interfaces;
-using Pandora.Definitions.Operations;
 using System;
 using System.Collections.Generic;
 using System.Net;
@@ -13,7 +12,7 @@ using System.Net;
 
 namespace Pandora.Definitions.ResourceManager.DataShare.v2019_11_01.Share;
 
-internal class ProviderShareSubscriptionsGetByShareOperation : Operations.GetOperation
+internal class ProviderShareSubscriptionsGetByShareOperation : Pandora.Definitions.Operations.GetOperation
 {
     public override ResourceID? ResourceId() => new ProviderShareSubscriptionId();
 

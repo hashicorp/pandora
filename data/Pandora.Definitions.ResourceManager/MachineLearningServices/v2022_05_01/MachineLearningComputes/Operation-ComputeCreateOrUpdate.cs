@@ -1,7 +1,6 @@
 using Pandora.Definitions.Attributes;
 using Pandora.Definitions.CustomTypes;
 using Pandora.Definitions.Interfaces;
-using Pandora.Definitions.Operations;
 using System;
 using System.Collections.Generic;
 using System.Net;
@@ -13,7 +12,7 @@ using System.Net;
 
 namespace Pandora.Definitions.ResourceManager.MachineLearningServices.v2022_05_01.MachineLearningComputes;
 
-internal class ComputeCreateOrUpdateOperation : Operations.PutOperation
+internal class ComputeCreateOrUpdateOperation : Pandora.Definitions.Operations.PutOperation
 {
     public override bool LongRunning() => true;
 

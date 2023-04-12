@@ -11,6 +11,7 @@ public partial class Definition : ApiVersionDefinition
 
     public IEnumerable<ResourceDefinition> Resources => new List<ResourceDefinition>
     {
+        new ClusterOperations.Definition(),
         new Clusters.Definition(),
         new Configurations.Definition(),
         new FirewallRules.Definition(),

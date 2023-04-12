@@ -1,7 +1,6 @@
 using Pandora.Definitions.Attributes;
 using Pandora.Definitions.CustomTypes;
 using Pandora.Definitions.Interfaces;
-using Pandora.Definitions.Operations;
 using System;
 using System.Collections.Generic;
 using System.Net;
@@ -13,7 +12,7 @@ using System.Net;
 
 namespace Pandora.Definitions.ResourceManager.AppPlatform.v2022_12_01.AppPlatform;
 
-internal class RuntimeVersionsListRuntimeVersionsOperation : Operations.GetOperation
+internal class RuntimeVersionsListRuntimeVersionsOperation : Pandora.Definitions.Operations.GetOperation
 {
     public override Type? ResponseObject() => typeof(AvailableRuntimeVersionsModel);
 

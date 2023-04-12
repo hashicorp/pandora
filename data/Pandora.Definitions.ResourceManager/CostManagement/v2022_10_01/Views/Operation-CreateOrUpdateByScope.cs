@@ -1,7 +1,6 @@
 using Pandora.Definitions.Attributes;
 using Pandora.Definitions.CustomTypes;
 using Pandora.Definitions.Interfaces;
-using Pandora.Definitions.Operations;
 using System;
 using System.Collections.Generic;
 using System.Net;
@@ -13,7 +12,7 @@ using System.Net;
 
 namespace Pandora.Definitions.ResourceManager.CostManagement.v2022_10_01.Views;
 
-internal class CreateOrUpdateByScopeOperation : Operations.PutOperation
+internal class CreateOrUpdateByScopeOperation : Pandora.Definitions.Operations.PutOperation
 {
     public override Type? RequestObject() => typeof(ViewModel);
 

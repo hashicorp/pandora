@@ -1,7 +1,6 @@
 using Pandora.Definitions.Attributes;
 using Pandora.Definitions.CustomTypes;
 using Pandora.Definitions.Interfaces;
-using Pandora.Definitions.Operations;
 using System;
 using System.Collections.Generic;
 using System.Net;
@@ -13,7 +12,7 @@ using System.Net;
 
 namespace Pandora.Definitions.ResourceManager.KeyVault.v2023_02_01.Vaults;
 
-internal class UpdateAccessPolicyOperation : Operations.PutOperation
+internal class UpdateAccessPolicyOperation : Pandora.Definitions.Operations.PutOperation
 {
     public override Type? RequestObject() => typeof(VaultAccessPolicyParametersModel);
 

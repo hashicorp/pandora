@@ -1,7 +1,6 @@
 using Pandora.Definitions.Attributes;
 using Pandora.Definitions.CustomTypes;
 using Pandora.Definitions.Interfaces;
-using Pandora.Definitions.Operations;
 using System;
 using System.Collections.Generic;
 using System.Net;
@@ -13,7 +12,7 @@ using System.Net;
 
 namespace Pandora.Definitions.ResourceManager.OperationalInsights.v2020_08_01.DataExport;
 
-internal class ListByWorkspaceOperation : Operations.GetOperation
+internal class ListByWorkspaceOperation : Pandora.Definitions.Operations.GetOperation
 {
     public override ResourceID? ResourceId() => new WorkspaceId();
 

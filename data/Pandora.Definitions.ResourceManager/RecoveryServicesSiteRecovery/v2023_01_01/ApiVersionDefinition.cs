@@ -12,6 +12,7 @@ public partial class Definition : ApiVersionDefinition
     public IEnumerable<ResourceDefinition> Resources => new List<ResourceDefinition>
     {
         new MigrationRecoveryPoints.Definition(),
+        new Operations.Definition(),
         new RecoveryPoints.Definition(),
         new ReplicationAlertSettings.Definition(),
         new ReplicationAppliances.Definition(),

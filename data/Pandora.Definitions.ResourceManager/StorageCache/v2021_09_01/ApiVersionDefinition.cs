@@ -11,6 +11,7 @@ public partial class Definition : ApiVersionDefinition
 
     public IEnumerable<ResourceDefinition> Resources => new List<ResourceDefinition>
     {
+        new AscOperations.Definition(),
         new Caches.Definition(),
         new SKUs.Definition(),
         new StorageTargets.Definition(),
