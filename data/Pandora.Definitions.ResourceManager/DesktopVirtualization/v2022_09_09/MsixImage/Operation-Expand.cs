@@ -1,7 +1,6 @@
 using Pandora.Definitions.Attributes;
 using Pandora.Definitions.CustomTypes;
 using Pandora.Definitions.Interfaces;
-using Pandora.Definitions.Operations;
 using System;
 using System.Collections.Generic;
 using System.Net;
@@ -13,7 +12,7 @@ using System.Net;
 
 namespace Pandora.Definitions.ResourceManager.DesktopVirtualization.v2022_09_09.MsixImage;
 
-internal class ExpandOperation : Operations.ListOperation
+internal class ExpandOperation : Pandora.Definitions.Operations.ListOperation
 {
     public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {

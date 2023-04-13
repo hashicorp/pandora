@@ -1,7 +1,6 @@
 using Pandora.Definitions.Attributes;
 using Pandora.Definitions.CustomTypes;
 using Pandora.Definitions.Interfaces;
-using Pandora.Definitions.Operations;
 using System;
 using System.Collections.Generic;
 using System.Net;
@@ -13,7 +12,7 @@ using System.Net;
 
 namespace Pandora.Definitions.ResourceManager.PolicyInsights.v2021_10_01.Remediations;
 
-internal class RemediationsCreateOrUpdateAtResourceGroupOperation : Operations.PutOperation
+internal class RemediationsCreateOrUpdateAtResourceGroupOperation : Pandora.Definitions.Operations.PutOperation
 {
     public override Type? RequestObject() => typeof(RemediationModel);
 

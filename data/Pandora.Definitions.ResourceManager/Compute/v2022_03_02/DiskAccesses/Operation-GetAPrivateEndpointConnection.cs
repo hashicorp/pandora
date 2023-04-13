@@ -1,7 +1,6 @@
 using Pandora.Definitions.Attributes;
 using Pandora.Definitions.CustomTypes;
 using Pandora.Definitions.Interfaces;
-using Pandora.Definitions.Operations;
 using System;
 using System.Collections.Generic;
 using System.Net;
@@ -13,7 +12,7 @@ using System.Net;
 
 namespace Pandora.Definitions.ResourceManager.Compute.v2022_03_02.DiskAccesses;
 
-internal class GetAPrivateEndpointConnectionOperation : Operations.GetOperation
+internal class GetAPrivateEndpointConnectionOperation : Pandora.Definitions.Operations.GetOperation
 {
     public override ResourceID? ResourceId() => new PrivateEndpointConnectionId();
 

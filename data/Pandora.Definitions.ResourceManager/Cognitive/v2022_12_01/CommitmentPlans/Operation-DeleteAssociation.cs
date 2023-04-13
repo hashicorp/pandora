@@ -1,7 +1,6 @@
 using Pandora.Definitions.Attributes;
 using Pandora.Definitions.CustomTypes;
 using Pandora.Definitions.Interfaces;
-using Pandora.Definitions.Operations;
 using System;
 using System.Collections.Generic;
 using System.Net;
@@ -13,7 +12,7 @@ using System.Net;
 
 namespace Pandora.Definitions.ResourceManager.Cognitive.v2022_12_01.CommitmentPlans;
 
-internal class DeleteAssociationOperation : Operations.DeleteOperation
+internal class DeleteAssociationOperation : Pandora.Definitions.Operations.DeleteOperation
 {
     public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {

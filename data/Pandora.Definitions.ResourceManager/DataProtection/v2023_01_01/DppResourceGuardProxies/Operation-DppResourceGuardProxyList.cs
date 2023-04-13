@@ -1,7 +1,6 @@
 using Pandora.Definitions.Attributes;
 using Pandora.Definitions.CustomTypes;
 using Pandora.Definitions.Interfaces;
-using Pandora.Definitions.Operations;
 using System;
 using System.Collections.Generic;
 using System.Net;
@@ -13,7 +12,7 @@ using System.Net;
 
 namespace Pandora.Definitions.ResourceManager.DataProtection.v2023_01_01.DppResourceGuardProxies;
 
-internal class DppResourceGuardProxyListOperation : Operations.ListOperation
+internal class DppResourceGuardProxyListOperation : Pandora.Definitions.Operations.ListOperation
 {
     public override string? FieldContainingPaginationDetails() => "nextLink";
 

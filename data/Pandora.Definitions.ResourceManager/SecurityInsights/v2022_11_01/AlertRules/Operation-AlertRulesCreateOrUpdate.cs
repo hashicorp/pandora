@@ -1,7 +1,6 @@
 using Pandora.Definitions.Attributes;
 using Pandora.Definitions.CustomTypes;
 using Pandora.Definitions.Interfaces;
-using Pandora.Definitions.Operations;
 using System;
 using System.Collections.Generic;
 using System.Net;
@@ -13,7 +12,7 @@ using System.Net;
 
 namespace Pandora.Definitions.ResourceManager.SecurityInsights.v2022_11_01.AlertRules;
 
-internal class AlertRulesCreateOrUpdateOperation : Operations.PutOperation
+internal class AlertRulesCreateOrUpdateOperation : Pandora.Definitions.Operations.PutOperation
 {
     public override Type? RequestObject() => typeof(AlertRuleModel);
 

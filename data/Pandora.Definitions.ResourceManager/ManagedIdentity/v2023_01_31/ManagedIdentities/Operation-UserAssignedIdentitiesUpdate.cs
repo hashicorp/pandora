@@ -1,7 +1,6 @@
 using Pandora.Definitions.Attributes;
 using Pandora.Definitions.CustomTypes;
 using Pandora.Definitions.Interfaces;
-using Pandora.Definitions.Operations;
 using System;
 using System.Collections.Generic;
 using System.Net;
@@ -13,7 +12,7 @@ using System.Net;
 
 namespace Pandora.Definitions.ResourceManager.ManagedIdentity.v2023_01_31.ManagedIdentities;
 
-internal class UserAssignedIdentitiesUpdateOperation : Operations.PatchOperation
+internal class UserAssignedIdentitiesUpdateOperation : Pandora.Definitions.Operations.PatchOperation
 {
     public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {

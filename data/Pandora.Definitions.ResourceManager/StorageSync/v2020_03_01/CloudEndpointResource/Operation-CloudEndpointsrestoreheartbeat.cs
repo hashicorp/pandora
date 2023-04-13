@@ -1,7 +1,6 @@
 using Pandora.Definitions.Attributes;
 using Pandora.Definitions.CustomTypes;
 using Pandora.Definitions.Interfaces;
-using Pandora.Definitions.Operations;
 using System;
 using System.Collections.Generic;
 using System.Net;
@@ -13,7 +12,7 @@ using System.Net;
 
 namespace Pandora.Definitions.ResourceManager.StorageSync.v2020_03_01.CloudEndpointResource;
 
-internal class CloudEndpointsrestoreheartbeatOperation : Operations.PostOperation
+internal class CloudEndpointsrestoreheartbeatOperation : Pandora.Definitions.Operations.PostOperation
 {
     public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {

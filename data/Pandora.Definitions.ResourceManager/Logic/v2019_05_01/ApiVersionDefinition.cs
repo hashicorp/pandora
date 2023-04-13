@@ -27,6 +27,7 @@ public partial class Definition : ApiVersionDefinition
         new IntegrationServiceEnvironmentSkus.Definition(),
         new IntegrationServiceEnvironments.Definition(),
         new WorkflowRunActions.Definition(),
+        new WorkflowRunOperations.Definition(),
         new WorkflowRuns.Definition(),
         new WorkflowTriggerHistories.Definition(),
         new WorkflowTriggers.Definition(),

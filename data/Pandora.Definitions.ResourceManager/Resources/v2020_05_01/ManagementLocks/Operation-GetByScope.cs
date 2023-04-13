@@ -1,7 +1,6 @@
 using Pandora.Definitions.Attributes;
 using Pandora.Definitions.CustomTypes;
 using Pandora.Definitions.Interfaces;
-using Pandora.Definitions.Operations;
 using System;
 using System.Collections.Generic;
 using System.Net;
@@ -13,7 +12,7 @@ using System.Net;
 
 namespace Pandora.Definitions.ResourceManager.Resources.v2020_05_01.ManagementLocks;
 
-internal class GetByScopeOperation : Operations.GetOperation
+internal class GetByScopeOperation : Pandora.Definitions.Operations.GetOperation
 {
     public override ResourceID? ResourceId() => new ScopedLockId();
 

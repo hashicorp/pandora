@@ -13,5 +13,6 @@ public partial class Definition : ApiVersionDefinition
     {
         new Accounts.Definition(),
         new Creators.Definition(),
+        new Operations.Definition(),
     };
 }

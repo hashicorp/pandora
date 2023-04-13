@@ -1,7 +1,6 @@
 using Pandora.Definitions.Attributes;
 using Pandora.Definitions.CustomTypes;
 using Pandora.Definitions.Interfaces;
-using Pandora.Definitions.Operations;
 using System;
 using System.Collections.Generic;
 using System.Net;
@@ -13,7 +12,7 @@ using System.Net;
 
 namespace Pandora.Definitions.ResourceManager.Consumption.v2019_10_01.ReservationSummaries;
 
-internal class ReservationsSummariesListByReservationOrderOperation : Operations.ListOperation
+internal class ReservationsSummariesListByReservationOrderOperation : Pandora.Definitions.Operations.ListOperation
 {
     public override string? FieldContainingPaginationDetails() => "nextLink";
 

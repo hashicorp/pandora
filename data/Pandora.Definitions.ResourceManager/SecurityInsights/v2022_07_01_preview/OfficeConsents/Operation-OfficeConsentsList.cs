@@ -1,7 +1,6 @@
 using Pandora.Definitions.Attributes;
 using Pandora.Definitions.CustomTypes;
 using Pandora.Definitions.Interfaces;
-using Pandora.Definitions.Operations;
 using System;
 using System.Collections.Generic;
 using System.Net;
@@ -13,7 +12,7 @@ using System.Net;
 
 namespace Pandora.Definitions.ResourceManager.SecurityInsights.v2022_07_01_preview.OfficeConsents;
 
-internal class OfficeConsentsListOperation : Operations.ListOperation
+internal class OfficeConsentsListOperation : Pandora.Definitions.Operations.ListOperation
 {
     public override string? FieldContainingPaginationDetails() => "nextLink";
 

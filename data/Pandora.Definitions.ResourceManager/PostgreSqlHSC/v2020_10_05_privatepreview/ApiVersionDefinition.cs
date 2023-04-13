@@ -14,6 +14,7 @@ public partial class Definition : ApiVersionDefinition
         new Configurations.Definition(),
         new FirewallRules.Definition(),
         new Roles.Definition(),
+        new ServerGroupOperations.Definition(),
         new ServerGroups.Definition(),
         new Servers.Definition(),
     };

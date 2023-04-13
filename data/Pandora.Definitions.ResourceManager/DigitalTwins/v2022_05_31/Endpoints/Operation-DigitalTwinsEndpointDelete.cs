@@ -1,7 +1,6 @@
 using Pandora.Definitions.Attributes;
 using Pandora.Definitions.CustomTypes;
 using Pandora.Definitions.Interfaces;
-using Pandora.Definitions.Operations;
 using System;
 using System.Collections.Generic;
 using System.Net;
@@ -13,7 +12,7 @@ using System.Net;
 
 namespace Pandora.Definitions.ResourceManager.DigitalTwins.v2022_05_31.Endpoints;
 
-internal class DigitalTwinsEndpointDeleteOperation : Operations.DeleteOperation
+internal class DigitalTwinsEndpointDeleteOperation : Pandora.Definitions.Operations.DeleteOperation
 {
     public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {

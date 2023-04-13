@@ -1,7 +1,6 @@
 using Pandora.Definitions.Attributes;
 using Pandora.Definitions.CustomTypes;
 using Pandora.Definitions.Interfaces;
-using Pandora.Definitions.Operations;
 using System;
 using System.Collections.Generic;
 using System.Net;
@@ -13,7 +12,7 @@ using System.Net;
 
 namespace Pandora.Definitions.ResourceManager.VMware.v2021_12_01.Scripts;
 
-internal class ScriptExecutionsCreateOrUpdateOperation : Operations.PutOperation
+internal class ScriptExecutionsCreateOrUpdateOperation : Pandora.Definitions.Operations.PutOperation
 {
     public override bool LongRunning() => true;
 
