@@ -16,7 +16,7 @@ namespace Pandora.Definitions.ResourceManager.CostManagement.v2022_10_01.CostDet
 internal class ErrorDetailsModel
 {
     [JsonPropertyName("code")]
-    public string? Code { get; set; }
+    public int? Code { get; set; }
 
     [JsonPropertyName("message")]
     public string? Message { get; set; }

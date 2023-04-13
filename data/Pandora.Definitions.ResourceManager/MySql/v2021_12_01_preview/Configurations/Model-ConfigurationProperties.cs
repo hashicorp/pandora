@@ -18,6 +18,9 @@ internal class ConfigurationPropertiesModel
     [JsonPropertyName("allowedValues")]
     public string? AllowedValues { get; set; }
 
+    [JsonPropertyName("currentValue")]
+    public string? CurrentValue { get; set; }
+
     [JsonPropertyName("dataType")]
     public string? DataType { get; set; }
 
@@ -26,6 +29,9 @@ internal class ConfigurationPropertiesModel
 
     [JsonPropertyName("description")]
     public string? Description { get; set; }
+
+    [JsonPropertyName("documentationLink")]
+    public string? DocumentationLink { get; set; }
 
     [JsonPropertyName("isConfigPendingRestart")]
     public IsConfigPendingRestartConstant? IsConfigPendingRestart { get; set; }
