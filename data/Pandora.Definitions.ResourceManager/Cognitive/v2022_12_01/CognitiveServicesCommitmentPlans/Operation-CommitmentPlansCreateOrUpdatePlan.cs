@@ -1,7 +1,6 @@
 using Pandora.Definitions.Attributes;
 using Pandora.Definitions.CustomTypes;
 using Pandora.Definitions.Interfaces;
-using Pandora.Definitions.Operations;
 using System;
 using System.Collections.Generic;
 using System.Net;
@@ -13,7 +12,7 @@ using System.Net;
 
 namespace Pandora.Definitions.ResourceManager.Cognitive.v2022_12_01.CognitiveServicesCommitmentPlans;
 
-internal class CommitmentPlansCreateOrUpdatePlanOperation : Operations.PutOperation
+internal class CommitmentPlansCreateOrUpdatePlanOperation : Pandora.Definitions.Operations.PutOperation
 {
     public override bool LongRunning() => true;
 

@@ -1,7 +1,6 @@
 using Pandora.Definitions.Attributes;
 using Pandora.Definitions.CustomTypes;
 using Pandora.Definitions.Interfaces;
-using Pandora.Definitions.Operations;
 using System;
 using System.Collections.Generic;
 using System.Net;
@@ -13,7 +12,7 @@ using System.Net;
 
 namespace Pandora.Definitions.ResourceManager.Automation.v2022_08_08.RunbookDraft;
 
-internal class ReplaceContentOperation : Operations.PutOperation
+internal class ReplaceContentOperation : Pandora.Definitions.Operations.PutOperation
 {
     public override string? ContentType() => "text/powershell";
 

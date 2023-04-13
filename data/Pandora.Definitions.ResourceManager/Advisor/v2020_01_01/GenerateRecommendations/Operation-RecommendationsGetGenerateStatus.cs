@@ -1,7 +1,6 @@
 using Pandora.Definitions.Attributes;
 using Pandora.Definitions.CustomTypes;
 using Pandora.Definitions.Interfaces;
-using Pandora.Definitions.Operations;
 using System;
 using System.Collections.Generic;
 using System.Net;
@@ -13,7 +12,7 @@ using System.Net;
 
 namespace Pandora.Definitions.ResourceManager.Advisor.v2020_01_01.GenerateRecommendations;
 
-internal class RecommendationsGetGenerateStatusOperation : Operations.GetOperation
+internal class RecommendationsGetGenerateStatusOperation : Pandora.Definitions.Operations.GetOperation
 {
     public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {

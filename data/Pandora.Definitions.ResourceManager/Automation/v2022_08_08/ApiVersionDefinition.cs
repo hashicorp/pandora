@@ -29,6 +29,7 @@ public partial class Definition : ApiVersionDefinition
         new ListKeys.Definition(),
         new Module.Definition(),
         new ObjectDataTypes.Definition(),
+        new Operations.Definition(),
         new Python2Package.Definition(),
         new Python3Package.Definition(),
         new Runbook.Definition(),

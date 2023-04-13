@@ -1,7 +1,6 @@
 using Pandora.Definitions.Attributes;
 using Pandora.Definitions.CustomTypes;
 using Pandora.Definitions.Interfaces;
-using Pandora.Definitions.Operations;
 using System;
 using System.Collections.Generic;
 using System.Net;
@@ -13,7 +12,7 @@ using System.Net;
 
 namespace Pandora.Definitions.ResourceManager.DesktopVirtualization.v2022_02_10_preview.PrivateLink;
 
-internal class PrivateEndpointConnectionsGetByHostPoolOperation : Operations.GetOperation
+internal class PrivateEndpointConnectionsGetByHostPoolOperation : Pandora.Definitions.Operations.GetOperation
 {
     public override ResourceID? ResourceId() => new PrivateEndpointConnectionId();
 

@@ -23,6 +23,7 @@ public partial class Definition : ApiVersionDefinition
         new GlobalSchedules.Definition(),
         new Labs.Definition(),
         new NotificationChannels.Definition(),
+        new Operations.Definition(),
         new Policies.Definition(),
         new PolicySets.Definition(),
         new Schedules.Definition(),

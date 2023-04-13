@@ -13,6 +13,7 @@ public partial class Definition : ApiVersionDefinition
     {
         new Artifact.Definition(),
         new Assignment.Definition(),
+        new AssignmentOperations.Definition(),
         new Blueprint.Definition(),
         new BlueprintAssignments.Definition(),
         new PublishedArtifact.Definition(),

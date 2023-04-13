@@ -1,7 +1,6 @@
 using Pandora.Definitions.Attributes;
 using Pandora.Definitions.CustomTypes;
 using Pandora.Definitions.Interfaces;
-using Pandora.Definitions.Operations;
 using System;
 using System.Collections.Generic;
 using System.Net;
@@ -13,7 +12,7 @@ using System.Net;
 
 namespace Pandora.Definitions.ResourceManager.KubernetesConfiguration.v2022_11_01.FluxConfigurationOperationStatus;
 
-internal class FluxConfigOperationStatusGetOperation : Operations.GetOperation
+internal class FluxConfigOperationStatusGetOperation : Pandora.Definitions.Operations.GetOperation
 {
     public override ResourceID? ResourceId() => new OperationId();
 

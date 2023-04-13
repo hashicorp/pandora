@@ -14,6 +14,7 @@ public partial class Definition : ApiVersionDefinition
         new ConfigurationStores.Definition(),
         new DeletedConfigurationStores.Definition(),
         new KeyValues.Definition(),
+        new Operations.Definition(),
         new PrivateEndpointConnections.Definition(),
         new PrivateLinkResources.Definition(),
         new Replicas.Definition(),

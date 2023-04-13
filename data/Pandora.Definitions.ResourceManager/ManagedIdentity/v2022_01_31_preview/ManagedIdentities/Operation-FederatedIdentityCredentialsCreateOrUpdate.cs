@@ -1,7 +1,6 @@
 using Pandora.Definitions.Attributes;
 using Pandora.Definitions.CustomTypes;
 using Pandora.Definitions.Interfaces;
-using Pandora.Definitions.Operations;
 using System;
 using System.Collections.Generic;
 using System.Net;
@@ -13,7 +12,7 @@ using System.Net;
 
 namespace Pandora.Definitions.ResourceManager.ManagedIdentity.v2022_01_31_preview.ManagedIdentities;
 
-internal class FederatedIdentityCredentialsCreateOrUpdateOperation : Operations.PutOperation
+internal class FederatedIdentityCredentialsCreateOrUpdateOperation : Pandora.Definitions.Operations.PutOperation
 {
     public override Type? RequestObject() => typeof(FederatedIdentityCredentialModel);
 

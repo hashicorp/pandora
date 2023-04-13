@@ -1,7 +1,6 @@
 using Pandora.Definitions.Attributes;
 using Pandora.Definitions.CustomTypes;
 using Pandora.Definitions.Interfaces;
-using Pandora.Definitions.Operations;
 using System;
 using System.Collections.Generic;
 using System.Net;
@@ -13,7 +12,7 @@ using System.Net;
 
 namespace Pandora.Definitions.ResourceManager.Orbital.v2022_11_01.ContactProfile;
 
-internal class ContactProfilesCreateOrUpdateOperation : Operations.PutOperation
+internal class ContactProfilesCreateOrUpdateOperation : Pandora.Definitions.Operations.PutOperation
 {
     public override bool LongRunning() => true;
 

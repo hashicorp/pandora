@@ -1,7 +1,6 @@
 using Pandora.Definitions.Attributes;
 using Pandora.Definitions.CustomTypes;
 using Pandora.Definitions.Interfaces;
-using Pandora.Definitions.Operations;
 using System;
 using System.Collections.Generic;
 using System.Net;
@@ -13,7 +12,7 @@ using System.Net;
 
 namespace Pandora.Definitions.ResourceManager.NetApp.v2022_05_01.SnapshotPolicy;
 
-internal class SnapshotPoliciesCreateOperation : Operations.PutOperation
+internal class SnapshotPoliciesCreateOperation : Pandora.Definitions.Operations.PutOperation
 {
     public override Type? RequestObject() => typeof(SnapshotPolicyModel);
 
