@@ -13,6 +13,9 @@ func OperationShouldBeIgnored(operationUri string) bool {
 	}
 
 	// LRO's shouldn't be directly exposed
+	if strings.Contains(strings.ToLower(operationUri), "/ascoperations/") {
+		return true
+	}
 	if strings.Contains(strings.ToLower(operationUri), "/azureasyncoperations/") {
 		return true
 	}
@@ -25,6 +28,12 @@ func OperationShouldBeIgnored(operationUri string) bool {
 	if strings.Contains(strings.ToLower(operationUri), "/costdetailsoperationresults/") {
 		return true
 	}
+	if strings.Contains(strings.ToLower(operationUri), "/managedclusteroperations/") {
+		return true
+	}
+	if strings.Contains(strings.ToLower(operationUri), "/managedclusteroperationresults/") {
+		return true
+	}
 	if strings.Contains(strings.ToLower(operationUri), "/operationresults/") {
 		return true
 	}
@@ -35,6 +44,9 @@ func OperationShouldBeIgnored(operationUri string) bool {
 		return true
 	}
 	if strings.Contains(strings.ToLower(operationUri), "/operationsstatus/") {
+		return true
+	}
+	if strings.Contains(strings.ToLower(operationUri), "/privatelinkscopeoperationstatuses/") {
 		return true
 	}
 
