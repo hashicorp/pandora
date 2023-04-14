@@ -14,6 +14,7 @@ internal class Definition : ResourceDefinition
     public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
     {
         new BatchUpdateOperation(),
+        new CreateOrUpdateOperation(),
         new GetOperation(),
         new ListByServerOperation(),
         new UpdateOperation(),
