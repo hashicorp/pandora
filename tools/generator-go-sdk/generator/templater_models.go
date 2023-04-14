@@ -81,7 +81,7 @@ func (c modelsTemplater) structCode(data ServiceGeneratorData) (*string, error) 
 		}
 		fieldTypeName = *fieldTypeVal
 
-		structLine, err := c.structLineForField(fieldName, fieldTypeName, fieldDetails, data)
+		structLine, err := c.structLineForField(fieldName, fieldTypeName, fieldDetails)
 		if err != nil {
 			return nil, err
 		}
@@ -132,7 +132,7 @@ func (c modelsTemplater) structCode(data ServiceGeneratorData) (*string, error) 
 				}
 				fieldTypeName = *fieldTypeVal
 
-				structLine, err := c.structLineForField(fieldName, fieldTypeName, fieldDetails, data)
+				structLine, err := c.structLineForField(fieldName, fieldTypeName, fieldDetails)
 				if err != nil {
 					return nil, err
 				}
@@ -184,24 +184,10 @@ func (c modelsTemplater) methods(data ServiceGeneratorData) (*string, error) {
 	return &output, nil
 }
 
-func (c modelsTemplater) structLineForField(fieldName, fieldType string, fieldDetails resourcemanager.FieldDetails, data ServiceGeneratorData) (*string, error) {
+func (c modelsTemplater) structLineForField(fieldName, fieldType string, fieldDetails resourcemanager.FieldDetails) (*string, error) {
 	jsonDetails := fieldDetails.JsonName
 
-	isOptional := false
 	if fieldDetails.Optional {
-		isOptional = true
-
-		// however if the immediate (not top-level) object definition is a Reference to a Parent it's Optional
-		// by default since Parent types are output as an interface (which is implied nullable)
-		if fieldDetails.ObjectDefinition.Type == resourcemanager.ReferenceApiObjectDefinitionType {
-			model, ok := data.models[*fieldDetails.ObjectDefinition.ReferenceName]
-			if ok && model.TypeHintIn != nil && model.ParentTypeName == nil {
-				isOptional = false
-			}
-		}
-	}
-
-	if isOptional {
 		fieldType = fmt.Sprintf("*%s", fieldType)
 		jsonDetails += ",omitempty"
 	}
