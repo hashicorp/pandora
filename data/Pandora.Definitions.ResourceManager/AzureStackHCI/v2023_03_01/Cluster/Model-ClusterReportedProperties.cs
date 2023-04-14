@@ -21,6 +21,9 @@ internal class ClusterReportedPropertiesModel
     [JsonPropertyName("clusterName")]
     public string? ClusterName { get; set; }
 
+    [JsonPropertyName("clusterType")]
+    public ClusterNodeTypeConstant? ClusterType { get; set; }
+
     [JsonPropertyName("clusterVersion")]
     public string? ClusterVersion { get; set; }
 
@@ -33,6 +36,9 @@ internal class ClusterReportedPropertiesModel
     [DateFormat(DateFormatAttribute.DateFormat.RFC3339)]
     [JsonPropertyName("lastUpdated")]
     public DateTime? LastUpdated { get; set; }
+
+    [JsonPropertyName("manufacturer")]
+    public string? Manufacturer { get; set; }
 
     [JsonPropertyName("nodes")]
     public List<ClusterNodeModel>? Nodes { get; set; }
