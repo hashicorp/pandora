@@ -352,7 +352,7 @@ service "orbital" {
 }
 service "policyinsights" {
   name      = "PolicyInsights"
-  available = ["2021-10-01", "2022-09-01"]
+  available = ["2021-10-01", "2022-09-01", "2023-03-01"]
 }
 service "portal" {
   name      = "Portal"
