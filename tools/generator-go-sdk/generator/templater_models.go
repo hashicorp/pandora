@@ -645,7 +645,7 @@ func (s *%[1]s) UnmarshalJSON(bytes []byte) error {`, c.name))
 		if err != nil {
 			return fmt.Errorf("unmarshaling field '%[1]s' for '%[3]s': %%+v", err)
 		}
-		s.%[1]s = impl
+		s.%[1]s = &impl
 	}`, fieldName, *topLevelObjectDef.ReferenceName, c.name, fieldDetails.JsonName))
 			}
 		}
