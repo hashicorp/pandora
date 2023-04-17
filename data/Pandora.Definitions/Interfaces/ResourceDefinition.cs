@@ -16,18 +16,15 @@ public interface ResourceDefinition
     // Operations is a list of ApiOperations present within this API Resource
     IEnumerable<ApiOperation> Operations { get; }
 
-    // @tombuildsstuff: in the near future we'll add this to the interface:
-    // which will support loading these values from this list, rather than using reflection to do so.
-    //
-    // /// <summary>
-    // /// Constants defines the list of Constants Types used within this API Resource - including any
-    // /// used in either the Options payload/Resource ID too.
-    // /// </summary>
-    // IEnumerable<System.Type> Constants { get; }
-    //
-    // /// <summary>
-    // /// Models defines the list of Model Types used within this API Resource - including the discriminated
-    // /// types too.
-    // /// </summary>
-    // IEnumerable<System.Type> Models { get; }
+    /// <summary>
+    /// Constants defines the list of Constants Types used within this API Resource - including any
+    /// used in either the Options payload/Resource ID too.
+    /// </summary>
+    IEnumerable<System.Type> Constants { get; }
+
+    /// <summary>
+    /// Models defines the list of Model Types used within this API Resource - including the discriminated
+    /// types too.
+    /// </summary>
+    IEnumerable<System.Type> Models { get; }
 }

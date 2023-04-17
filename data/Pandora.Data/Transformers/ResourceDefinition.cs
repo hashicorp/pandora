@@ -18,14 +18,14 @@ public static class ResourceDefinition
                 throw new NotSupportedException($"API Version {input.GetType().Name} has no operations");
             }
 
-            var constantDefinitions = operations.SelectMany(ConstantsForOperation).ToList();
-            var modelDefinitions = operations.SelectMany(ModelsForOperation).Distinct(new ModelComparer()).ToList();
+            var constantDefinitions = input.Constants.SelectMany(Constant.WithinObject).ToList();
+            var modelDefinitions = input.Models.SelectMany(Model.Map).Distinct(new ModelComparer()).OrderBy(m => m.Name).ToList();
             var operationDefinitions = operations.Select(Operation.Map).ToList();
             var resourceIds = operations.SelectMany(ResourceIdsForOperation).Distinct(new ResourceIDComparer()).ToList();
 
             // append any constants found in the Resource ID's to the Constants list, then finally unique the Constants
             constantDefinitions.AddRange(resourceIds.SelectMany(rid => rid.Constants).ToList());
-            constantDefinitions = constantDefinitions.Distinct(new ConstantComparer()).ToList();
+            constantDefinitions = constantDefinitions.Distinct(new ConstantComparer()).OrderBy(c => c.Name).ToList();
 
             return new Models.ResourceDefinition
             {
@@ -53,45 +53,5 @@ public static class ResourceDefinition
         }
 
         return output;
-    }
-
-    private static List<ConstantDefinition> ConstantsForOperation(ApiOperation input)
-    {
-        var definitions = new List<ConstantDefinition>();
-
-        if (input.RequestObject() != null)
-        {
-            definitions.AddRange(Constant.WithinObject(input.RequestObject()!));
-        }
-
-        if (input.ResponseObject() != null)
-        {
-            definitions.AddRange(Constant.WithinObject(input.ResponseObject()!));
-        }
-
-        // pull out any constants which are referenced against the Options block
-        if (input.OptionsObject() != null)
-        {
-            definitions.AddRange(Constant.WithinObject(input.OptionsObject()!));
-        }
-
-        return definitions.Distinct(new ConstantComparer()).ToList();
-    }
-
-    private static List<ModelDefinition> ModelsForOperation(ApiOperation input)
-    {
-        var definitions = new List<ModelDefinition>();
-
-        if (input.RequestObject() != null)
-        {
-            definitions.AddRange(Model.Map(input.RequestObject()!));
-        }
-
-        if (input.ResponseObject() != null)
-        {
-            definitions.AddRange(Model.Map(input.ResponseObject()!));
-        }
-
-        return definitions.Distinct(new ModelComparer()).ToList();
     }
 }
