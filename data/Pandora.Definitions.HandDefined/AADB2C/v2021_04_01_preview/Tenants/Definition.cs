@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Pandora.Definitions.Interfaces;
 
@@ -16,5 +17,27 @@ internal class Definition : ResourceDefinition
         new ListByResourceGroup(),
         new ListBySubscription(),
         new Update(),
+    };
+
+    public IEnumerable<Type> Constants => new List<Type>
+    {
+        typeof(BillingType),
+        typeof(Location),
+        typeof(SkuName),
+        typeof(SkuTier),
+    };
+    public IEnumerable<Type> Models => new List<Type>
+    {
+        typeof(BillingConfigModel),
+        typeof(CheckNameAvailabilityRequestModel),
+        typeof(CheckNameAvailabilityResultModel),
+        typeof(CreateTenantModel),
+        typeof(CreateTenantPropertiesModel),
+        typeof(SkuModel),
+        typeof(TenantModel),
+        typeof(TenantPropertiesModel),
+        typeof(TenantPropertiesForCreate),
+        typeof(UpdateTenantModel),
+        typeof(UpdateTenantPropertiesModel),
     };
 }
