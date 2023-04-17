@@ -316,6 +316,31 @@ public static class ModelTests
         Assert.AreEqual("Quota", actual.Name);
     }
 
+    [TestCase]
+    public static void TestMappingADiscriminatedParentType()
+    {
+        var actual = Model.Map(typeof(ParentType));
+        Assert.NotNull(actual);
+        Assert.AreEqual("ParentType", actual.Name);
+        Assert.Null(actual.ParentTypeName);
+        Assert.AreEqual("Example", actual.TypeHintIn);
+        Assert.Null(actual.TypeHintValue);
+    }
+
+    [TestCase]
+    public static void TestMappingADiscriminatedImplementation()
+    {
+        var actual = Model.Map(typeof(ImplementationType));
+        Assert.NotNull(actual);
+        Assert.AreEqual("ImplementationType", actual.Name);
+        Assert.NotNull(actual.ParentTypeName);
+        Assert.AreEqual("ParentType", actual.ParentTypeName);
+        Assert.NotNull(actual.TypeHintIn);
+        Assert.AreEqual("Example", actual.TypeHintIn);
+        Assert.NotNull(actual.TypeHintValue);
+        Assert.AreEqual("LetGo", actual.TypeHintValue);
+    }
+
     private class Example
     {
         [JsonPropertyName("first")]
@@ -427,5 +452,20 @@ public static class ModelTests
 
         [JsonPropertyName("selfReference")]
         public ExampleWithSelfReferences SelfReference { get; set; }
+    }
+
+    private abstract class ParentType
+    {
+        [ProvidesTypeHint]
+        [JsonPropertyName("example")]
+        [Required]
+        public string Example { get; set; }
+    }
+
+    [ValueForType("LetGo")]
+    private class ImplementationType : ParentType
+    {
+        [JsonPropertyName("complicated")]
+        public bool Complicated { get; set; }
     }
 }

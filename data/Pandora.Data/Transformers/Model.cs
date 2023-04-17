@@ -58,6 +58,27 @@ public static class Model
                 }
                 model.TypeHintIn = propsWithTypeHints.First().Name;
             }
+            
+            // this is an Implementation of a Discriminator - so we should pull out the parent type & discriminator value
+            var attr = input.GetCustomAttribute<ValueForTypeAttribute>();
+            if (attr != null)
+            {
+                // 1: sanity checking: ensure one, and only one, of the fields has the DiscriminatesUsing field
+                var propsWithTypeHints = PropertiesContainingTypeHints(input.BaseType);
+                if (propsWithTypeHints.Count != 1)
+                {
+                    throw new NotSupportedException($"Exactly one attribute within {input.BaseType.FullName} needs to contain the [ProvidesTypeHint] Attribute");
+                }
+                model.TypeHintIn = propsWithTypeHints.First().Name;
+                model.ParentTypeName = input.BaseType.Name.RemoveModelSuffixFromTypeName();
+
+                if (attr == null)
+                {
+                    throw new NotSupportedException($"Type {input.FullName} is missing a [ValueForType] Attribute");
+                }
+
+                model.TypeHintValue = attr.Value;
+            }
 
             return model;
         }
