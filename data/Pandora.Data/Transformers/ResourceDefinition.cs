@@ -18,8 +18,8 @@ public static class ResourceDefinition
                 throw new NotSupportedException($"API Version {input.GetType().Name} has no operations");
             }
 
-            var constantDefinitions = input.Constants.SelectMany(Constant.WithinObject).ToList();
-            var modelDefinitions = input.Models.SelectMany(Model.Map).Distinct(new ModelComparer()).OrderBy(m => m.Name).ToList();
+            var constantDefinitions = input.Constants.Select(Constant.FromEnum).ToList();
+            var modelDefinitions = input.Models.Select(Model.Map).Where(m => m != null).Distinct(new ModelComparer()).OrderBy(m => m.Name).ToList();
             var operationDefinitions = operations.Select(Operation.Map).ToList();
             var resourceIds = operations.SelectMany(ResourceIdsForOperation).Distinct(new ResourceIDComparer()).ToList();
 

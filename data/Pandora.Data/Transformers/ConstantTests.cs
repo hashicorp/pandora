@@ -10,72 +10,9 @@ namespace Pandora.Data.Transformers;
 public class ConstantTests
 {
     [TestCase]
-    public void MappingFromTypeWithNoEnumsReturnsNoEnums()
+    public void MappingANonObjectShouldReturnAnError()
     {
-        var actual = Constant.WithinObject(typeof(ClassWithoutEnum));
-        Assert.AreEqual(0, actual.Count);
-    }
-
-    [TestCase]
-    public void MappingFromTypeWithAnEnumsReturnsThatEnum()
-    {
-        var actual = Constant.WithinObject(typeof(ClassWithSingleEnum));
-        Assert.AreEqual(1, actual.Count);
-        Assert.AreEqual("Example", actual.First().Name);
-        Assert.AreEqual(ConstantType.String, actual.First().Type);
-        Assert.AreEqual(2, actual.First().Values.Count);
-        Assert.AreEqual("first", actual.First().Values["First"]);
-        Assert.AreEqual("second", actual.First().Values["Second"]);
-        Assert.AreEqual(false, actual.First().CaseInsensitive);
-    }
-
-    [TestCase]
-    public void MappingFromTypeWithANestedEnumReturnsThatEnum()
-    {
-        var actual = Constant.WithinObject(typeof(ClassWithNestedClassContainingAnEnum));
-        Assert.AreEqual(1, actual.Count);
-        Assert.AreEqual("Example", actual.First().Name);
-        Assert.AreEqual(ConstantType.String, actual.First().Type);
-        Assert.AreEqual(2, actual.First().Values.Count);
-        Assert.AreEqual("first", actual.First().Values["First"]);
-        Assert.AreEqual("second", actual.First().Values["Second"]);
-        Assert.AreEqual(false, actual.First().CaseInsensitive);
-    }
-
-    [TestCase]
-    public void MappingFromTypeContainingTheSameEnumNestedTwiceExistsOnce()
-    {
-        var actual = Constant.WithinObject(typeof(ClassWithNestedClasses));
-        Assert.AreEqual(1, actual.Count);
-        Assert.AreEqual("Example", actual.First().Name);
-        Assert.AreEqual(ConstantType.String, actual.First().Type);
-        Assert.AreEqual(2, actual.First().Values.Count);
-        Assert.AreEqual("first", actual.First().Values["First"]);
-        Assert.AreEqual("second", actual.First().Values["Second"]);
-        Assert.AreEqual(false, actual.First().CaseInsensitive);
-    }
-
-    [TestCase]
-    public void MappingAnEnumAsAnObjectShouldReturnTheEnum()
-    {
-        var actual = Constant.WithinObject(typeof(ExampleConstant));
-        Assert.NotNull(actual);
-        Assert.AreEqual(1, actual.Count);
-        var exampleConstant = actual.First(c => c.Name == "Example");
-        Assert.AreEqual(false, exampleConstant.CaseInsensitive);
-        Assert.AreEqual(ConstantType.String, exampleConstant.Type);
-        Assert.AreEqual("Example", exampleConstant.Name);
-        Assert.AreEqual(2, exampleConstant.Values.Count);
-        Assert.AreEqual("first", exampleConstant.Values["First"]);
-        Assert.AreEqual("second", exampleConstant.Values["Second"]);
-    }
-
-    [TestCase]
-    public void MappingANonObjectShouldReturnNothing()
-    {
-        var actual = Constant.WithinObject(typeof(List<string>));
-        Assert.NotNull(actual);
-        Assert.AreEqual(0, actual.Count);
+        Assert.Throws<Exception>(() => Constant.FromEnum(typeof(List<string>)));
     }
 
     [TestCase]

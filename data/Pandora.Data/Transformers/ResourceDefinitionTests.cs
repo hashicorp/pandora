@@ -45,7 +45,7 @@ public static class ResourceDefinitionTests
         Assert.AreEqual(0, actual.Constants.Count);
         Assert.AreEqual(0, actual.Models.Count);
     }
-    
+
     [TestCase]
     public static void MappingAnApiVersionContainingASingleModel()
     {
@@ -58,7 +58,7 @@ public static class ResourceDefinitionTests
         Assert.AreEqual(1, actual.Models.Count);
         Assert.AreEqual("First", actual.Models.First().Name);
     }
-    
+
     [TestCase]
     public static void MappingAnApiVersionContainingMultipleModels()
     {
@@ -226,7 +226,7 @@ public static class ResourceDefinitionTests
 
         public IEnumerable<Type> Models => new List<Type>();
     }
-    
+
     private class ResourceVersionWithMultipleConstants : Definitions.Interfaces.ResourceDefinition
     {
         public string Name => "ResourceVersionWithMultipleConstants";
@@ -244,8 +244,8 @@ public static class ResourceDefinitionTests
 
         public IEnumerable<Type> Models => new List<Type>();
     }
-    
-    
+
+
     private class ResourceVersionWithAConstantInTheResourceIDAndResource : Definitions.Interfaces.ResourceDefinition
     {
         public string Name => "ResourceVersionWithAConstantInTheResourceIDAndResource";
@@ -262,7 +262,7 @@ public static class ResourceDefinitionTests
 
         public IEnumerable<Type> Models => new List<Type>();
     }
-    
+
     private class ResourceVersionWithAConstantInTheResourceIDAndResourceDuplicateType : Definitions.Interfaces.ResourceDefinition
     {
         public string Name => "ResourceVersionWithAConstantInTheResourceIDAndResourceDuplicateType";
@@ -279,7 +279,7 @@ public static class ResourceDefinitionTests
 
         public IEnumerable<Type> Models => new List<Type>();
     }
-    
+
     private class ResourceVersionWithAConstantInTheResourceID : Definitions.Interfaces.ResourceDefinition
     {
         public string Name => "ResourceVersionWithAConstantInTheResourceID";

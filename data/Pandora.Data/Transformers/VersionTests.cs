@@ -72,7 +72,7 @@ public static class VersionTests
             typeof(SomeObject),
         };
     }
-    
+
     private class SomeObject
     {
     }
