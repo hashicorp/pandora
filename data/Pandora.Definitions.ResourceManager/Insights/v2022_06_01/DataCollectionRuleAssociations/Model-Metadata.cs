@@ -10,14 +10,14 @@ using Pandora.Definitions.CustomTypes;
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 
 
-namespace Pandora.Definitions.ResourceManager.PostgreSql.v2022_12_01.Servers;
+namespace Pandora.Definitions.ResourceManager.Insights.v2022_06_01.DataCollectionRuleAssociations;
 
 
-internal class UserIdentityModel
+internal class MetadataModel
 {
-    [JsonPropertyName("clientId")]
-    public string? ClientId { get; set; }
+    [JsonPropertyName("provisionedBy")]
+    public string? ProvisionedBy { get; set; }
 
-    [JsonPropertyName("principalId")]
-    public string? PrincipalId { get; set; }
+    [JsonPropertyName("provisionedByResourceId")]
+    public string? ProvisionedByResourceId { get; set; }
 }

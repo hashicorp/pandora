@@ -10,35 +10,25 @@ using Pandora.Definitions.CustomTypes;
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 
 
-namespace Pandora.Definitions.ResourceManager.PostgreSql.v2022_12_01.Servers;
+namespace Pandora.Definitions.ResourceManager.Insights.v2022_06_01.DataCollectionRuleAssociations;
 
 
-internal class ServerModel
+internal class DataCollectionRuleAssociationProxyOnlyResourceModel
 {
+    [JsonPropertyName("etag")]
+    public string? Etag { get; set; }
+
     [JsonPropertyName("id")]
     public string? Id { get; set; }
-
-    [JsonPropertyName("identity")]
-    public CustomTypes.UserAssignedIdentityMap? Identity { get; set; }
-
-    [JsonPropertyName("location")]
-    [Required]
-    public CustomTypes.Location Location { get; set; }
 
     [JsonPropertyName("name")]
     public string? Name { get; set; }
 
     [JsonPropertyName("properties")]
-    public ServerPropertiesModel? Properties { get; set; }
-
-    [JsonPropertyName("sku")]
-    public SkuModel? Sku { get; set; }
+    public DataCollectionRuleAssociationModel? Properties { get; set; }
 
     [JsonPropertyName("systemData")]
     public CustomTypes.SystemData? SystemData { get; set; }
-
-    [JsonPropertyName("tags")]
-    public CustomTypes.Tags? Tags { get; set; }
 
     [JsonPropertyName("type")]
     public string? Type { get; set; }

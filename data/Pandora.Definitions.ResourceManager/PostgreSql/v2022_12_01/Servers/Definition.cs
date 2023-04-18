@@ -28,7 +28,6 @@ internal class Definition : ResourceDefinition
         typeof(CreateModeForUpdateConstant),
         typeof(GeoRedundantBackupEnumConstant),
         typeof(HighAvailabilityModeConstant),
-        typeof(IdentityTypeConstant),
         typeof(PasswordAuthEnumConstant),
         typeof(ReplicationRoleConstant),
         typeof(ServerHAStateConstant),
@@ -51,7 +50,5 @@ internal class Definition : ResourceDefinition
         typeof(ServerPropertiesForUpdateModel),
         typeof(SkuModel),
         typeof(StorageModel),
-        typeof(UserAssignedIdentityModel),
-        typeof(UserIdentityModel),
     };
 }

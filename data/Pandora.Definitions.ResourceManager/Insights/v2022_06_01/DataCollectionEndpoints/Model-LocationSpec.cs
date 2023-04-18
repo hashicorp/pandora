@@ -10,14 +10,14 @@ using Pandora.Definitions.CustomTypes;
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 
 
-namespace Pandora.Definitions.ResourceManager.PostgreSql.v2022_12_01.Replicas;
+namespace Pandora.Definitions.ResourceManager.Insights.v2022_06_01.DataCollectionEndpoints;
 
 
-internal class UserIdentityModel
+internal class LocationSpecModel
 {
-    [JsonPropertyName("clientId")]
-    public string? ClientId { get; set; }
+    [JsonPropertyName("location")]
+    public CustomTypes.Location? Location { get; set; }
 
-    [JsonPropertyName("principalId")]
-    public string? PrincipalId { get; set; }
+    [JsonPropertyName("provisioningStatus")]
+    public KnownLocationSpecProvisioningStatusConstant? ProvisioningStatus { get; set; }
 }
