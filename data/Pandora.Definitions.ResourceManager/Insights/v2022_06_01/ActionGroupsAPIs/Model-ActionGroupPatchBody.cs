@@ -10,19 +10,13 @@ using Pandora.Definitions.CustomTypes;
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 
 
-namespace Pandora.Definitions.ResourceManager.PostgreSql.v2022_12_01.Servers;
+namespace Pandora.Definitions.ResourceManager.Insights.v2022_06_01.ActionGroupsAPIs;
 
 
-internal class ServerForUpdateModel
+internal class ActionGroupPatchBodyModel
 {
-    [JsonPropertyName("identity")]
-    public CustomTypes.UserAssignedIdentityMap? Identity { get; set; }
-
     [JsonPropertyName("properties")]
-    public ServerPropertiesForUpdateModel? Properties { get; set; }
-
-    [JsonPropertyName("sku")]
-    public SkuModel? Sku { get; set; }
+    public ActionGroupPatchModel? Properties { get; set; }
 
     [JsonPropertyName("tags")]
     public CustomTypes.Tags? Tags { get; set; }

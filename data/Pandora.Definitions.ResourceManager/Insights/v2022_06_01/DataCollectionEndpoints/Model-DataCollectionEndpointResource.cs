@@ -10,16 +10,22 @@ using Pandora.Definitions.CustomTypes;
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 
 
-namespace Pandora.Definitions.ResourceManager.PostgreSql.v2022_12_01.Servers;
+namespace Pandora.Definitions.ResourceManager.Insights.v2022_06_01.DataCollectionEndpoints;
 
 
-internal class ServerModel
+internal class DataCollectionEndpointResourceModel
 {
+    [JsonPropertyName("etag")]
+    public string? Etag { get; set; }
+
     [JsonPropertyName("id")]
     public string? Id { get; set; }
 
     [JsonPropertyName("identity")]
-    public CustomTypes.UserAssignedIdentityMap? Identity { get; set; }
+    public CustomTypes.LegacySystemAndUserAssignedIdentityMap? Identity { get; set; }
+
+    [JsonPropertyName("kind")]
+    public KnownDataCollectionEndpointResourceKindConstant? Kind { get; set; }
 
     [JsonPropertyName("location")]
     [Required]
@@ -29,10 +35,7 @@ internal class ServerModel
     public string? Name { get; set; }
 
     [JsonPropertyName("properties")]
-    public ServerPropertiesModel? Properties { get; set; }
-
-    [JsonPropertyName("sku")]
-    public SkuModel? Sku { get; set; }
+    public DataCollectionEndpointModel? Properties { get; set; }
 
     [JsonPropertyName("systemData")]
     public CustomTypes.SystemData? SystemData { get; set; }

@@ -10,15 +10,11 @@ using Pandora.Definitions.CustomTypes;
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 
 
-namespace Pandora.Definitions.ResourceManager.PostgreSql.v2022_12_01.Replicas;
+namespace Pandora.Definitions.ResourceManager.Insights.v2022_06_01.DataCollectionRules;
 
 
-internal class UserAssignedIdentityModel
+internal class LogFileSettingsModel
 {
-    [JsonPropertyName("type")]
-    [Required]
-    public IdentityTypeConstant Type { get; set; }
-
-    [JsonPropertyName("userAssignedIdentities")]
-    public Dictionary<string, UserIdentityModel>? UserAssignedIdentities { get; set; }
+    [JsonPropertyName("text")]
+    public LogFileTextSettingsModel? Text { get; set; }
 }
