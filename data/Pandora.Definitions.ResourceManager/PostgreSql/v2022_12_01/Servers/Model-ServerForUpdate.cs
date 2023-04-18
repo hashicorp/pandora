@@ -16,7 +16,7 @@ namespace Pandora.Definitions.ResourceManager.PostgreSql.v2022_12_01.Servers;
 internal class ServerForUpdateModel
 {
     [JsonPropertyName("identity")]
-    public UserAssignedIdentityModel? Identity { get; set; }
+    public CustomTypes.UserAssignedIdentityMap? Identity { get; set; }
 
     [JsonPropertyName("properties")]
     public ServerPropertiesForUpdateModel? Properties { get; set; }
