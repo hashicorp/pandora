@@ -45,7 +45,7 @@ func fileExistsAtPath(filePath string) (*bool, error) {
 func recreateDirectoryExcludingFiles(directory string, logger hclog.Logger) error {
 	logger.Trace(fmt.Sprintf("(Re)creating directory at path %q..", directory))
 
-	// delete the entire directory for regeneration if it's a version
+	// if the directory is an api version delete the entire directory and recreate it along with the parent service for regeneration
 	if match, err := regexp.MatchString(`/v20\d\d_\d\d_\d\d(_preview)?`, directory); match && err == nil {
 		if err := os.RemoveAll(directory); err != nil {
 			return fmt.Errorf("removing directory %q: %+v", directory, err)
@@ -55,14 +55,14 @@ func recreateDirectoryExcludingFiles(directory string, logger hclog.Logger) erro
 		}
 	}
 
-	files, err := findEmptyApiVersionDirectories(directory)
+	dirs, err := findEmptyApiVersionDirectories(directory)
 	if err != nil {
-		return fmt.Errorf("finding files in directory %q: %+v", directory, err)
+		return fmt.Errorf("finding empty directories in directory %q: %+v", directory, err)
 	}
 
-	logger.Trace(fmt.Sprintf("Removing %d existing files within %q..", len(*files), directory))
-	for _, name := range *files {
-		logger.Trace(fmt.Sprintf("Removing existing file at path %q..", name))
+	logger.Trace(fmt.Sprintf("Removing %d existing directories within %q..", len(*dirs), directory))
+	for _, name := range *dirs {
+		logger.Trace(fmt.Sprintf("Removing directory %q..", name))
 		os.RemoveAll(name)
 	}
 
@@ -106,11 +106,7 @@ func findEmptyApiVersionDirectories(directory string) (*[]string, error) {
 				files = append(files, path)
 				break
 			}
-			continue
 		}
-		fileName := file.Name()
-
-		files = append(files, fileName)
 	}
 
 	return &files, nil

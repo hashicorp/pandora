@@ -9,8 +9,6 @@ import (
 func (s Generator) generateServiceDefinitions(apiVersions []models.AzureApiDefinition) error {
 	s.logger.Debug(fmt.Sprintf("Processing Service %q..", s.serviceName))
 
-	// This list hasn't been excluding anything because the file is called `ServiceDefinition-GenerationSetting.cs`
-
 	if err := recreateDirectoryExcludingFiles(s.workingDirectoryForService, s.logger); err != nil {
 		return fmt.Errorf("recreating %q: %+v", s.workingDirectoryForService, err)
 	}
