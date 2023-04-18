@@ -272,7 +272,7 @@ service "logz" {
 }
 service "machinelearningservices" {
   name      = "MachineLearningServices"
-  available = ["2022-05-01", "2022-10-01"]
+  available = ["2022-05-01", "2022-10-01", "2023-04-01"]
 }
 service "maintenance" {
   name      = "Maintenance"
@@ -312,7 +312,7 @@ service "mobilenetwork" {
 }
 service "monitor" {
   name      = "Insights"
-  available = ["2015-04-01", "2016-03-01", "2018-03-01", "2018-04-16", "2019-10-17-preview", "2020-10-01", "2021-04-01", "2021-05-01-preview", "2021-08-01", "2021-09-01", "2022-06-01", "2022-10-01", "2023-01-01"]
+  available = ["2015-04-01", "2016-03-01", "2018-03-01", "2018-04-16", "2019-10-17-preview", "2020-10-01", "2021-04-01", "2021-05-01-preview", "2021-08-01", "2021-09-01", "2022-06-01", "2022-10-01", "2023-01-01", "2023-04-03"]
 }
 service "msi" {
   name      = "ManagedIdentity"
@@ -414,7 +414,7 @@ service "resourceconnector" {
 }
 service "resources" {
   name      = "Resources"
-  available = ["2020-05-01", "2020-06-01", "2020-10-01", "2021-04-01", "2022-06-01", "2022-09-01"]
+  available = ["2020-05-01", "2020-06-01", "2020-10-01", "2021-04-01", "2022-06-01", "2022-09-01", "2022-12-01"]
 }
 service "search" {
   name      = "Search"
