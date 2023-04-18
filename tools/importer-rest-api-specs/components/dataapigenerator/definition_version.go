@@ -12,10 +12,7 @@ func (s Generator) generateVersionDefinition(apiVersion models.AzureApiDefinitio
 	s.logger.Debug("Checking for an existing Generation Settings file..")
 
 	// recreate the directory
-	excludeList := []string{
-		"ApiVersionDefinition-GenerationSetting.cs",
-	}
-	if err := recreateDirectoryExcludingFiles(s.workingDirectoryForApiVersion, excludeList, s.logger); err != nil {
+	if err := recreateDirectoryExcludingFiles(s.workingDirectoryForApiVersion, s.logger); err != nil {
 		return fmt.Errorf("recreating directory %q: %+v", s.workingDirectoryForApiVersion, err)
 	}
 

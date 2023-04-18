@@ -2,8 +2,10 @@ package dataapigenerator
 
 import (
 	"fmt"
+	"io"
 	"os"
 	"path"
+	"regexp"
 	"strings"
 
 	"github.com/hashicorp/go-hclog"
@@ -40,13 +42,20 @@ func fileExistsAtPath(filePath string) (*bool, error) {
 	return &result, nil
 }
 
-func recreateDirectoryExcludingFiles(directory string, excludeList []string, logger hclog.Logger) error {
+func recreateDirectoryExcludingFiles(directory string, logger hclog.Logger) error {
 	logger.Trace(fmt.Sprintf("(Re)creating directory at path %q..", directory))
-	if err := os.MkdirAll(directory, os.FileMode(0755)); err != nil {
-		return fmt.Errorf("creating directory %q: %+v", directory, err)
+
+	// delete the entire directory for regeneration if it's a version
+	if match, err := regexp.MatchString(`/v20\d\d_\d\d_\d\d(_preview)?`, directory); match && err == nil {
+		if err := os.RemoveAll(directory); err != nil {
+			return fmt.Errorf("removing directory %q: %+v", directory, err)
+		}
+		if err := os.MkdirAll(directory, os.FileMode(0755)); err != nil {
+			return fmt.Errorf("creating directory %q: %+v", directory, err)
+		}
 	}
 
-	files, err := findFilesInDirectory(directory, excludeList)
+	files, err := findEmptyApiVersionDirectories(directory)
 	if err != nil {
 		return fmt.Errorf("finding files in directory %q: %+v", directory, err)
 	}
@@ -73,7 +82,7 @@ func recreateDirectory(directory string, logger hclog.Logger) error {
 	return nil
 }
 
-func findFilesInDirectory(directory string, excludeList []string) (*[]string, error) {
+func findEmptyApiVersionDirectories(directory string) (*[]string, error) {
 	dir, err := os.Open(directory)
 	if err != nil {
 		if os.IsNotExist(err) {
@@ -91,22 +100,34 @@ func findFilesInDirectory(directory string, excludeList []string) (*[]string, er
 	}
 	for i := range f {
 		file := f[i]
-		fileName := file.Name()
-
-		skip := false
-		for _, e := range excludeList {
-			if strings.EqualFold(e, fileName) {
-				skip = true
+		if file.IsDir() {
+			path := fmt.Sprintf("%s/%s", directory,file.Name())
+			if empty, err := isDirEmpty(path); empty && err == nil {
+				files = append(files, path)
 				break
 			}
-		}
-		if skip {
 			continue
 		}
+		fileName := file.Name()
+
 		files = append(files, fileName)
 	}
 
 	return &files, nil
+}
+
+func isDirEmpty(directory string) (bool, error) {
+	d, err := os.Open(directory)
+	if err != nil {
+		return false, err
+	}
+	defer d.Close()
+
+	_, err = d.ReadDir(1)
+	if err == io.EOF {
+		return true, nil
+	}
+	return false, err
 }
 
 func normalizeApiVersion(input string) string {
