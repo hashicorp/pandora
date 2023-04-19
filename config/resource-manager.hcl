@@ -1,7 +1,7 @@
 
 service "advisor" {
   name      = "Advisor"
-  available = ["2020-01-01", "2022-10-01"]
+  available = ["2020-01-01", "2022-10-01", "2023-01-01"]
   ignore    = ["2022-09-01"]
 }
 service "alertsmanagement" {
@@ -151,7 +151,7 @@ service "datamigration" {
 }
 service "dataprotection" {
   name      = "DataProtection"
-  available = ["2022-04-01", "2022-05-01", "2022-12-01", "2023-01-01"]
+  available = ["2022-04-01", "2022-05-01", "2022-12-01", "2023-01-01", "2023-05-01"]
 }
 service "datashare" {
   name      = "DataShare"
