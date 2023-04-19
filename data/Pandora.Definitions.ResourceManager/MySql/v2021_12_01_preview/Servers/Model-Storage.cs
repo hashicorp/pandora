@@ -24,6 +24,9 @@ internal class StorageModel
     [JsonPropertyName("iops")]
     public int? Iops { get; set; }
 
+    [JsonPropertyName("logOnDisk")]
+    public EnableStatusEnumConstant? LogOnDisk { get; set; }
+
     [JsonPropertyName("storageSizeGB")]
     public int? StorageSizeGB { get; set; }
 
